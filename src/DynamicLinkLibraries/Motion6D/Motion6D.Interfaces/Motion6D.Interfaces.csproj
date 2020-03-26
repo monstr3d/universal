@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <MinimumVisualStudioVersion>10.0</MinimumVisualStudioVersion>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CB323095-3866-45A7-BF13-7D8BF1ABC666}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Motion6D.Interfaces</RootNamespace>
+    <AssemblyName>Motion6D.Interfaces</AssemblyName>
+    <DefaultLanguage>ru-RU</DefaultLanguage>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <TargetFrameworkProfile>Profile7</TargetFrameworkProfile>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- A reference to the entire .NET Framework is automatically included -->
+    <ProjectReference Include="..\..\RealMatrixProcessor\RealMatrixProcessor.csproj">
+      <Project>{4b250264-a0a4-41ba-991e-2a26eb23e8ba}</Project>
+      <Name>RealMatrixProcessor</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Vector3D\Vector3D.csproj">
+      <Project>{60b5b05a-ef3e-4455-89eb-74ad8630ee05}</Project>
+      <Name>Vector3D</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Comparers\PositionComparer.cs" />
+    <Compile Include="IAcceleration.cs" />
+    <Compile Include="IAggregableMechanicalFactory.cs" />
+    <Compile Include="IAggregableMechanicalObject.cs" />
+    <Compile Include="IAngularAcceleration.cs" />
+    <Compile Include="IAngularVelocity.cs" />
+    <Compile Include="IFacet.cs" />
+    <Compile Include="IFacetConsumer.cs" />
+    <Compile Include="ILength.cs" />
+    <Compile Include="ILinear6DForecsat.cs" />
+    <Compile Include="IOrientation.cs" />
+    <Compile Include="IPosition.cs" />
+    <Compile Include="IPositionCollection.cs" />
+    <Compile Include="IPositionFactory.cs" />
+    <Compile Include="IPositionObject.cs" />
+    <Compile Include="IPostLoadPosition.cs" />
+    <Compile Include="IReferenceFrame.cs" />
+    <Compile Include="ISetRelativeState.cs" />
+    <Compile Include="IVelocity.cs" />
+    <Compile Include="IVisible.cs" />
+    <Compile Include="IVisibleCollection.cs" />
+    <Compile Include="IVisibleConsumer.cs" />
+    <Compile Include="Motion6DAcceleratedFrame.cs" />
+    <Compile Include="Motion6DFrame.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReferenceFrame.cs" />
+    <Compile Include="RotatedFrame.cs" />
+    <Compile Include="StaticExtensionMotion6DInterfaces.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
+</Project>

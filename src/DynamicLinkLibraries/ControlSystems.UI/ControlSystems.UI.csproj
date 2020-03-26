@@ -1,0 +1,223 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{68084593-0BAA-4A84-AEEA-41E99CCB8D77}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ControlSystems.UI</RootNamespace>
+    <AssemblyName>ControlSystems.UI</AssemblyName>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Forms\FormTransformationFunction.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormTransformationFunction.designer.cs">
+      <DependentUpon>FormTransformationFunction.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Intrefaces\IFeedback.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserControls\UserControlTransformFunction.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UserControlTransformFunction.designer.cs">
+      <DependentUpon>UserControlTransformFunction.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utils\ControlUtilites.cs" />
+    <Compile Include="Utils\ResourceControl_Ru.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ResourceControl_Ru.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Forms\FormTransformationFunction.resx">
+      <DependentUpon>FormTransformationFunction.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserControlTransformFunction.resx">
+      <DependentUpon>UserControlTransformFunction.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Utils\ResourceControl_Ru.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ResourceControl_Ru.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CategoryTheory\CategoryTheory\CategoryTheory\CategoryTheory.csproj">
+      <Project>{838e09e1-e3cd-49e7-b009-ca9dd244a8be}</Project>
+      <Name>CategoryTheory</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Chart\Chart.Drawing\Chart.Drawing.csproj">
+      <Project>{6881187E-42EB-4994-A557-8601C60E9BA6}</Project>
+      <Name>Chart.Drawing</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Chart\Chart.csproj">
+      <Project>{2E77AEE6-D898-4535-893A-CDA4C7F5D54B}</Project>
+      <Name>Chart</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common.Engineering.Localization\Common.Engineering.Localization.csproj">
+      <Project>{21434DE5-6B88-40AD-A099-E86A07F3527B}</Project>
+      <Name>Common.Engineering.Localization</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ControlSystemsWrapper\ControlSystemsWrapper.csproj">
+      <Project>{E954F17C-888B-4A7A-939F-A80F3267BC0E}</Project>
+      <Name>ControlSystemsWrapper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ControlSystems\ControlSystems\ControlSystems.csproj">
+      <Project>{136499DC-9CF1-4CC1-BE9B-D83B903D2E6B}</Project>
+      <Name>ControlSystems</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Diagram\Diagram.csproj">
+      <Project>{87c99d83-6c4b-4b34-800c-1625a4a8a167}</Project>
+      <Name>Diagram</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Diagram\Diagram.Extended\Diagram.Extended.csproj">
+      <Project>{d75c9e3d-1b66-461f-9057-86fc924aba8e}</Project>
+      <Name>Diagram.Extended</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Diagram\Diagram.UI.Forms\Diagram.UI.Forms.csproj">
+      <Project>{4fb6133d-2948-4e29-a7b2-5dd5fd750606}</Project>
+      <Name>Diagram.UI.Forms</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Diagram\Diagram.UI.Serializable\Diagram.UI.Serializable.csproj">
+      <Project>{868adfd8-51c2-4cec-8132-11e5a0f907e3}</Project>
+      <Name>Diagram.UI.Serializable</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Diagram\Diagram.UI\Diagram.UI.csproj">
+      <Project>{3A2AB37F-17CD-4CB2-96C6-14D4EFBF8279}</Project>
+      <Name>Diagram.UI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FormulaEditor\ExtendedFormulaEditor\ExtendedFormulaEditor.csproj">
+      <Project>{2E762FEC-E32C-46BB-BF30-9599EF399FB4}</Project>
+      <Name>ExtendedFormulaEditor</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FormulaEditor\FormulaEditor.csproj">
+      <Project>{8613B23C-49B6-4056-83C5-E982D7F51F32}</Project>
+      <Name>FormulaEditor</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FormulaEditor\FormulaEditor.Drawing\FormulaEditor.Drawing.csproj">
+      <Project>{26583800-7da6-4129-8d76-fd474991587d}</Project>
+      <Name>FormulaEditor.Drawing</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FormulaEditor\FormulaEditor.UI\FormulaEditor.UI.csproj">
+      <Project>{328c08a3-8c47-407f-9edb-4944c3a3dc56}</Project>
+      <Name>FormulaEditor.UI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OrdinaryDifferentialEquations\OrdinaryDifferentialEquations\OrdinaryDifferentialEquations.csproj">
+      <Project>{76A28755-E93A-4A8D-B24D-38CB3C2AFDBC}</Project>
+      <Name>OrdinaryDifferentialEquations</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ResourceService\ResourceService.csproj">
+      <Project>{A7719FB8-AECF-4F38-83E4-5A1352C8ACD3}</Project>
+      <Name>ResourceService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SerializationInterface\SerializationInterface.csproj">
+      <Project>{7D532180-B3EC-4344-BB15-11DE8E8E7967}</Project>
+      <Name>SerializationInterface</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.VisualBasic.PowerPacks.10.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft Visual Basic PowerPacks 10.0</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

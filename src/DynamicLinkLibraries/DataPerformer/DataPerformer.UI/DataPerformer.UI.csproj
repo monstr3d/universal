@@ -1,0 +1,1277 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9CBC2A5E-847F-4CDF-859A-711691C2EC5A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DataPerformer.UI</RootNamespace>
+    <AssemblyName>DataPerformer.UI</AssemblyName>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\DataPerformer.UI.xml</DocumentationFile>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DocumentationFile>bin\Debug\DataPerformer.UI.xml</DocumentationFile>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="WindowsFormsIntegration" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ArrowPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="BufferedData\FormBufferReadWrite.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BufferedData\FormBufferReadWrite.Designer.cs">
+      <DependentUpon>FormBufferReadWrite.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BufferedData\Labels\BufferReadWriteLabel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BufferedData\UserControls\UserControlBufferReadWrite.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BufferedData\UserControls\UserControlBufferReadWrite.Designer.cs">
+      <DependentUpon>UserControlBufferReadWrite.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BufferedData\UserControls\UserControlBufferReadWriteCadr.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BufferedData\UserControls\UserControlBufferReadWriteCadr.Designer.cs">
+      <DependentUpon>UserControlBufferReadWriteCadr.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BufferedData\UserControls\UserControlBufferReadWriteFull.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BufferedData\UserControls\UserControlBufferReadWriteFull.Designer.cs">
+      <DependentUpon>UserControlBufferReadWriteFull.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BufferedData\UserControls\UserControlDataBaseTreeSelect.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BufferedData\UserControls\UserControlDataBaseTreeSelect.Designer.cs">
+      <DependentUpon>UserControlDataBaseTreeSelect.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BufferedData\UserControls\UserControlEditDatadase.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BufferedData\UserControls\UserControlEditDatadase.Designer.cs">
+      <DependentUpon>UserControlEditDatadase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Factory\StaticFactory.cs" />
+    <Compile Include="Forms\FormDataPerformerCollectionStateTransformer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormDataPerformerCollectionStateTransformer.Designer.cs">
+      <DependentUpon>FormDataPerformerCollectionStateTransformer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormDerivationCalculator.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormDerivationCalculator.designer.cs">
+      <DependentUpon>FormDerivationCalculator.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormFuncAccumulator.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormFuncAccumulator.Designer.cs">
+      <DependentUpon>FormFuncAccumulator.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormIterateGLM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormIterateGLM.Designer.cs">
+      <DependentUpon>FormIterateGLM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormKalmanFilter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormKalmanFilter.Designer.cs">
+      <DependentUpon>FormKalmanFilter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormNamedSeries.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormNamedSeries.Designer.cs">
+      <DependentUpon>FormNamedSeries.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormObjectTransformer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormObjectTransformer.Designer.cs">
+      <DependentUpon>FormObjectTransformer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormSeries.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormSeries.Designer.cs">
+      <DependentUpon>FormSeries.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormTable3D.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormTable3D.Designer.cs">
+      <DependentUpon>FormTable3D.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaces\IGraphLabel.cs" />
+    <Compile Include="Interfaces\IAnimationParameters.cs" />
+    <Compile Include="Interfaces\IAnimation.cs" />
+    <Compile Include="Interfaces\IPostLoadDesktop.cs" />
+    <Compile Include="Labels\AccumulatorSeriesArgumentLabel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Labels\DelayAccumulatorLabel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Labels\IteratorGLMLabel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Labels\ManualInputLabel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Labels\NamedlSeriesLabel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Labels\FuncAccumulatorLabel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Labels\TimeSeriesMedianLabel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Objects\IndicatorWrapper.cs" />
+    <Compile Include="ResourceFormula.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ResourceFormula.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ColoredChooser.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ColoredChooser.designer.cs">
+      <DependentUpon>ColoredChooser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Enums\Enums.cs" />
+    <Compile Include="FormArrayDisassembly.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormArrayDisassembly.Designer.cs">
+      <DependentUpon>FormArrayDisassembly.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormCenteredPanel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCenteredPanel.Designer.cs">
+      <DependentUpon>FormCenteredPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormCenteredThin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCenteredThin.Designer.cs">
+      <DependentUpon>FormCenteredThin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormCombinedSelection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCombinedSelection.Designer.cs">
+      <DependentUpon>FormCombinedSelection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormGraphSave.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormIteratorFilter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormIteratorFilter.Designer.cs">
+      <DependentUpon>FormIteratorFilter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMatrixAssembly.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMatrixAssembly.Designer.cs">
+      <DependentUpon>FormMatrixAssembly.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormPointCollection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPointCollection.Designer.cs">
+      <DependentUpon>FormPointCollection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSaveVectorFunction.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormAliasRegression.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormAliasRegression.Designer.cs">
+      <DependentUpon>FormAliasRegression.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormArrayTransformer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormArrayTransformer.Designer.cs">
+      <DependentUpon>FormArrayTransformer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormDiffEquation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormDiffEquation.Designer.cs">
+      <DependentUpon>FormDiffEquation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormExternalChart.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormExternalChart.Designer.cs">
+      <DependentUpon>FormExternalChart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormExternalChartProperties.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormExternalChartProperties.Designer.cs">
+      <DependentUpon>FormExternalChartProperties.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormGraph.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormGraph.Designer.cs">
+      <DependentUpon>FormGraph.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormRecursive.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormRecursive.designer.cs">
+      <DependentUpon>FormRecursive.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormTable2D.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormTable2D.Designer.cs">
+      <DependentUpon>FormTable2D.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormVectorConsumer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormVectorConsumer.Designer.cs">
+      <DependentUpon>FormVectorConsumer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormVectorAssembly.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormVectorAssembly.Designer.cs">
+      <DependentUpon>FormVectorAssembly.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormXmlSelection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormXmlSelection.Designer.cs">
+      <DependentUpon>FormXmlSelection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HeaderControl.cs" />
+    <Compile Include="IPointCollecionChooser.cs" />
+    <Compile Include="Labels\DrawSeriesLabel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Labels\DrawSeriesLabel.Designer.cs">
+      <DependentUpon>DrawSeriesLabel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Labels\FisherLabel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Labels\GraphLabel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Labels\SeriesLabel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Labels\Table2DLabel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Labels\Table2DLabel.Designer.cs">
+      <DependentUpon>Table2DLabel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PanelFormula.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PanelMeasureGraph.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PanelMeasurements.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PanelConsumer.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PanelMeasureFormula.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PanelMeasureText.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PanelMeasureText.Designer.cs">
+      <DependentUpon>PanelMeasureText.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PanelUnary.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PointCollectionChooserFactory.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ResourceImage.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ResourceImage.resx</DependentUpon>
+    </Compile>
+    <Compile Include="SeriesGraph.cs" />
+    <Compile Include="SimplePointCollectionChooserFactory.cs" />
+    <Compile Include="StaticExtensionDataPerformerUI.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UserControls\Graph\UserControlCadr.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\Graph\UserControlCadr.Designer.cs">
+      <DependentUpon>UserControlCadr.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UserControlAccumulatorSeriesArgument.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UserControlAccumulatorSeriesArgument.Designer.cs">
+      <DependentUpon>UserControlAccumulatorSeriesArgument.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UserControlComboboxTexts.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UserControlComboboxTexts.Designer.cs">
+      <DependentUpon>UserControlComboboxTexts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UserControlComoboxesTexts.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UserControlComoboxesTexts.Designer.cs">
+      <DependentUpon>UserControlComoboxesTexts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UserControlComponentCollectionVariablesFull.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UserControlComponentCollectionVariablesFull.Designer.cs">
+      <DependentUpon>UserControlComponentCollectionVariablesFull.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UserControlComponentCollectionVariablesMeasure.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UserControlComponentCollectionVariablesMeasure.Designer.cs">
+      <DependentUpon>UserControlComponentCollectionVariablesMeasure.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UserControlComponentCollectionVariablesStep.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UserControlComponentCollectionVariablesStep.Designer.cs">
+      <DependentUpon>UserControlComponentCollectionVariablesStep.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UserControlEqualComboboxes.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UserControlEqualComboboxes.Designer.cs">
+      <DependentUpon>UserControlEqualComboboxes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UserControlEqualComboboxesContainer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UserControlEqualComboboxesContainer.Designer.cs">
+      <DependentUpon>UserControlEqualComboboxesContainer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UserControlForward.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UserControlForward.Designer.cs">
+      <DependentUpon>UserControlForward.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UserControlFuncAccumulatorFull.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UserControlFuncAccumulatorFull.Designer.cs">
+      <DependentUpon>UserControlFuncAccumulatorFull.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UserControlGraph.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UserControlGraph.Designer.cs">
+      <DependentUpon>UserControlGraph.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\RegessionAliasMeasureUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\RegessionAliasMeasureUserControl.Designer.cs">
+      <DependentUpon>RegessionAliasMeasureUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\RegressionAliasUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\RegressionAliasUserControl.Designer.cs">
+      <DependentUpon>RegressionAliasUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\RegressionSelectionUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\RegressionSelectionUserControl.Designer.cs">
+      <DependentUpon>RegressionSelectionUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UserControlArrayTransformer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UserControlArrayTransformer.Designer.cs">
+      <DependentUpon>UserControlArrayTransformer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UserControlCharIntDictionary.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UserControlCharIntDictionary.Designer.cs">
+      <DependentUpon>UserControlCharIntDictionary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UserControlCharNumber.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UserControlCharNumber.Designer.cs">
+      <DependentUpon>UserControlCharNumber.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UserControlDelayAccumulator.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UserControlDelayAccumulator.Designer.cs">
+      <DependentUpon>UserControlDelayAccumulator.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UserControlFeedBack.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UserControlFeedBack.Designer.cs">
+      <DependentUpon>UserControlFeedBack.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UserControlFisherComparator.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UserControlFisherComparator.Designer.cs">
+      <DependentUpon>UserControlFisherComparator.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UserControlFormulaEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UserControlFormulaEditor.Designer.cs">
+      <DependentUpon>UserControlFormulaEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UserControlFuncAccumulator.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UserControlFuncAccumulator.Designer.cs">
+      <DependentUpon>UserControlFuncAccumulator.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UserControlIteratorGLM.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UserControlIteratorGLM.Designer.cs">
+      <DependentUpon>UserControlIteratorGLM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UserControlKalmanFilter.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UserControlKalmanFilter.Designer.cs">
+      <DependentUpon>UserControlKalmanFilter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UserControlManualInput.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UserControlManualInput.Designer.cs">
+      <DependentUpon>UserControlManualInput.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UserControlMeaHeader.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UserControlMeaHeader.Designer.cs">
+      <DependentUpon>UserControlMeaHeader.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UserControlMeasure.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UserControlMeasure.Designer.cs">
+      <DependentUpon>UserControlMeasure.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UserControlMeasureContainer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UserControlMeasureContainer.Designer.cs">
+      <DependentUpon>UserControlMeasureContainer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UserControlMeasureGraph.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UserControlMeasureGraph.Designer.cs">
+      <DependentUpon>UserControlMeasureGraph.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UserControlRealtime.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UserControlRealtime.Designer.cs">
+      <DependentUpon>UserControlRealtime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UserControlRealtimeAnalysis.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UserControlRealtimeAnalysis.Designer.cs">
+      <DependentUpon>UserControlRealtimeAnalysis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UserControlRealtimeList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UserControlRealtimeList.Designer.cs">
+      <DependentUpon>UserControlRealtimeList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UserControlRealtimeMeaHeader.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UserControlRealtimeMeaHeader.Designer.cs">
+      <DependentUpon>UserControlRealtimeMeaHeader.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UserControlRealtimeMeasure.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UserControlRealtimeMeasure.Designer.cs">
+      <DependentUpon>UserControlRealtimeMeasure.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UserControlRealtimeMeasureContainer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UserControlRealtimeMeasureContainer.Designer.cs">
+      <DependentUpon>UserControlRealtimeMeasureContainer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UserControlRealtimeMeasurements.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UserControlRealtimeMeasurements.Designer.cs">
+      <DependentUpon>UserControlRealtimeMeasurements.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UserControlRegressionAlias.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UserControlRegressionAlias.Designer.cs">
+      <DependentUpon>UserControlRegressionAlias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UserControlNamedSeriesTab.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UserControlNamedSeriesTab.Designer.cs">
+      <DependentUpon>UserControlNamedSeriesTab.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UserControlSeriesTab.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UserControlSeriesTab.Designer.cs">
+      <DependentUpon>UserControlSeriesTab.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UserControlSeriesTable.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UserControlSeriesTable.Designer.cs">
+      <DependentUpon>UserControlSeriesTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UserControlNamedSeries.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UserControlNamedSeries.Designer.cs">
+      <DependentUpon>UserControlNamedSeries.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UserControlComponentCollectionVariables.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UserControlComponentCollectionVariables.Designer.cs">
+      <DependentUpon>UserControlComponentCollectionVariables.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UserControlTable2D.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UserControlTable2D.Designer.cs">
+      <DependentUpon>UserControlTable2D.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UserControlTable2DEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UserControlTable2DEditor.Designer.cs">
+      <DependentUpon>UserControlTable2DEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UserControlSeries.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UserControlSeries.Designer.cs">
+      <DependentUpon>UserControlSeries.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UserControlTable2DTab.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UserControlTable2DTab.Designer.cs">
+      <DependentUpon>UserControlTable2DTab.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UserControlTable3D.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UserControlTable3D.Designer.cs">
+      <DependentUpon>UserControlTable3D.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UserControlTimeSeriesMedian.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UserControlTimeSeriesMedian.Designer.cs">
+      <DependentUpon>UserControlTimeSeriesMedian.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UserControlTopObject.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UserControlTopObject.Designer.cs">
+      <DependentUpon>UserControlTopObject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Wpf\UserControlWpfChart.xaml.cs">
+      <DependentUpon>UserControlWpfChart.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Utils\ControlUtilites.cs" />
+    <Compile Include="Utils\DataPerformerErrorHandler.cs" />
+    <Compile Include="Utils\ResourceControl_Ru.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ResourceControl_Ru.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\ThirdParty\OfficePickers\OfficePickers.csproj">
+      <Project>{cad56b75-481b-4c76-b090-4bc2ff5e5681}</Project>
+      <Name>OfficePickers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\AliasRegression\AliasRegression.csproj">
+      <Project>{C3EBDB3F-A0DE-4126-8E87-B23C09EA08EC}</Project>
+      <Name>AliasRegression</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Animation.Interfaces\Animation.Interfaces.csproj">
+      <Project>{d14db7fe-e702-4a0d-8556-136a2352c476}</Project>
+      <Name>Animation.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\AssemblyService\AssemblyService.csproj">
+      <Project>{0accba33-1139-43aa-82b8-863557a31b68}</Project>
+      <Name>AssemblyService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\BaseTypes\BaseTypes.csproj">
+      <Project>{8A9C8C8B-40B2-418C-AC92-4BDBB6E071C3}</Project>
+      <Name>BaseTypes</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\BaseTypes\BaseTypes.Extended\BaseTypes.Extended.csproj">
+      <Project>{55ec179b-c873-40e3-8f4d-12849b923b6e}</Project>
+      <Name>BaseTypes.Extended</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\CategoryTheory\CategoryTheory\CategoryTheory\CategoryTheory.csproj">
+      <Project>{01323e7d-da29-4d48-8c46-a44c117a8d12}</Project>
+      <Name>CategoryTheory</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Chart\Chart.Drawing\Chart.Drawing.csproj">
+      <Project>{6881187E-42EB-4994-A557-8601C60E9BA6}</Project>
+      <Name>Chart.Drawing</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Chart\Chart.Objects\Chart.Objects.csproj">
+      <Project>{C53467DC-3911-4A77-90B3-E3CFF116A83E}</Project>
+      <Name>Chart.Objects</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Chart\Chart.csproj">
+      <Project>{2E77AEE6-D898-4535-893A-CDA4C7F5D54B}</Project>
+      <Name>Chart</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common.Engineering.Localization\Common.Engineering.Localization.csproj">
+      <Project>{21434DE5-6B88-40AD-A099-E86A07F3527B}</Project>
+      <Name>Common.Engineering.Localization</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common.UI.Resources\Common.UI.Resources.csproj">
+      <Project>{931B6526-5D65-40AD-ABA5-AD71EABEEB7E}</Project>
+      <Name>Common.UI.Resources</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common.UI\Common.UI.csproj">
+      <Project>{A0F0E126-5097-498F-A576-6DF0DCBF1C17}</Project>
+      <Name>Common.UI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Diagram\Diagram.Extended\Diagram.Extended.csproj">
+      <Project>{d75c9e3d-1b66-461f-9057-86fc924aba8e}</Project>
+      <Name>Diagram.Extended</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Events\Event.Basic\Event.Basic.csproj">
+      <Project>{b542e7df-96b1-4db9-9335-10b350d61b4e}</Project>
+      <Name>Event.Basic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Events\Event.Interfaces\Event.Interfaces.csproj">
+      <Project>{3006114c-ed81-4966-a1a4-88149fddb9a5}</Project>
+      <Name>Event.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Events\Event.Portable\Event.Portable.csproj">
+      <Project>{b72a1bb1-13a5-4f04-91ae-dd777731c4f9}</Project>
+      <Name>Event.Portable</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Events\Event.UI\Event.UI.csproj">
+      <Project>{d94e2a9c-f2cb-432f-a878-3e45a467f1fd}</Project>
+      <Name>Event.UI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\FormulaEditor\FormulaEditor.Drawing\FormulaEditor.Drawing.csproj">
+      <Project>{26583800-7da6-4129-8d76-fd474991587d}</Project>
+      <Name>FormulaEditor.Drawing</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\FormulaEditor\FormulaEditor.Forms\FormulaEditor.Forms.csproj">
+      <Project>{6c4bb44d-da7d-4dee-bf10-87cc369d9c4d}</Project>
+      <Name>FormulaEditor.Forms</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\FormulaEditor\FormulaEditor.UI\FormulaEditor.UI.csproj">
+      <Project>{328c08a3-8c47-407f-9edb-4944c3a3dc56}</Project>
+      <Name>FormulaEditor.UI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataPerformer.Base\DataPerformer.Base\DataPerformer.Base.csproj">
+      <Project>{cde580bc-cfe5-45d3-b9a2-76585e54a416}</Project>
+      <Name>DataPerformer.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataPerformer.Basic\DataPerformer.Basic.csproj">
+      <Project>{5C0C307C-0352-4E34-9A9E-CB4F4EB31D6F}</Project>
+      <Name>DataPerformer.Basic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataPerformer.Event.Portable\DataPerformer.Event.Portable.csproj">
+      <Project>{E8B332B7-78AE-47E0-BE3C-3D5DD1D138B8}</Project>
+      <Name>DataPerformer.Event.Portable</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataPerformer.Formula\DataPerformer.Formula.csproj">
+      <Project>{02a8365d-23eb-48ec-bd18-f36fbd5f850c}</Project>
+      <Name>DataPerformer.Formula</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataPerformer.Interfaces\DataPerformer.Interfaces.csproj">
+      <Project>{F9D68183-6801-4214-AFFC-737ACBEF498E}</Project>
+      <Name>DataPerformer.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataPerformer.csproj">
+      <Project>{618B5522-01BD-4834-BB34-0C3AC7BB59EC}</Project>
+      <Name>DataPerformer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Diagram\Diagram.UI\Diagram.UI.csproj">
+      <Project>{3A2AB37F-17CD-4CB2-96C6-14D4EFBF8279}</Project>
+      <Name>Diagram.UI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Diagram\Diagram.UI.Components\Diagram.UI.Components\Diagram.UI.Components.csproj">
+      <Project>{D1AF843A-8878-41D6-A59F-D2B68CF68A30}</Project>
+      <Name>Diagram.UI.Components</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Diagram\Diagram.UI.Forms\Diagram.UI.Forms.csproj">
+      <Project>{4FB6133D-2948-4E29-A7B2-5DD5FD750606}</Project>
+      <Name>Diagram.UI.Forms</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Diagram\Diagram.UI.Serializable\Diagram.UI.Serializable.csproj">
+      <Project>{868ADFD8-51C2-4CEC-8132-11E5A0F907E3}</Project>
+      <Name>Diagram.UI.Serializable</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Diagram\Diagram.csproj">
+      <Project>{096F4EA8-6301-4545-96D6-286E67CCBA5C}</Project>
+      <Name>Diagram</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\FormulaEditor\FormulaEditor.csproj">
+      <Project>{8613B23C-49B6-4056-83C5-E982D7F51F32}</Project>
+      <Name>FormulaEditor</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\GeneralLinearMethod\GeneralLinearMethod.csproj">
+      <Project>{2A0D2CF4-E584-4DB1-931F-A01AD17F240F}</Project>
+      <Name>GeneralLinearMethod</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\MathStatistics\MathStatistics\MathStatistics.csproj">
+      <Project>{C3FDC31D-6884-432C-9A6D-4575DC393D64}</Project>
+      <Name>MathStatistics</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Node\TreeNode.csproj">
+      <Project>{86C3E00E-2160-4C6E-B289-5131DB0A9E19}</Project>
+      <Name>TreeNode</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ResourceService\ResourceService.csproj">
+      <Project>{A7719FB8-AECF-4F38-83E4-5A1352C8ACD3}</Project>
+      <Name>ResourceService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ToolBox\ToolBox.csproj">
+      <Project>{E7DB7D78-31B0-4876-8129-80BA152E3E17}</Project>
+      <Name>ToolBox</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\WindowsExtensions\WindowsExtensions.csproj">
+      <Project>{712B37A4-4FB4-4CC5-87D4-FADE83194057}</Project>
+      <Name>WindowsExtensions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\XmlSelection\XmlSelection.csproj">
+      <Project>{1396DA2E-2445-4E4D-9339-9B4861FCA06F}</Project>
+      <Name>XmlSelection</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataPerformer.Portable.Basic\DataPerformer.Portable.Basic.csproj">
+      <Project>{ebdfbf12-d169-4173-ab39-98169fb3e859}</Project>
+      <Name>DataPerformer.Portable.Basic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataPerformer.Portable\DataPerformer.Portable.csproj">
+      <Project>{4442e3e5-41b9-4f60-9c1a-07272d9c31d0}</Project>
+      <Name>DataPerformer.Portable</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Audio.Record\Audio.Record.csproj">
+      <Project>{f330f551-8152-48bf-af01-0f9dad58d1ae}</Project>
+      <Name>Audio.Record</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Events\Event.Log.Database\Event.Log.Database.csproj">
+      <Project>{4d75b03c-d5db-44fa-8545-b8d96f480f6f}</Project>
+      <Name>Event.Log.Database</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ArrowPanel.resx">
+      <DependentUpon>ArrowPanel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BufferedData\FormBufferReadWrite.resx">
+      <DependentUpon>FormBufferReadWrite.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BufferedData\UserControls\UserControlBufferReadWrite.resx">
+      <DependentUpon>UserControlBufferReadWrite.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BufferedData\UserControls\UserControlBufferReadWriteCadr.resx">
+      <DependentUpon>UserControlBufferReadWriteCadr.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BufferedData\UserControls\UserControlBufferReadWriteFull.resx">
+      <DependentUpon>UserControlBufferReadWriteFull.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BufferedData\UserControls\UserControlDataBaseTreeSelect.resx">
+      <DependentUpon>UserControlDataBaseTreeSelect.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BufferedData\UserControls\UserControlEditDatadase.resx">
+      <DependentUpon>UserControlEditDatadase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ColoredChooser.resx">
+      <DependentUpon>ColoredChooser.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormArrayDisassembly.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormArrayDisassembly.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCenteredPanel.resx">
+      <DependentUpon>FormCenteredPanel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCenteredThin.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormCenteredThin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCombinedSelection.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormCombinedSelection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormGraphSave.resx">
+      <DependentUpon>FormGraphSave.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormIteratorFilter.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormIteratorFilter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMatrixAssembly.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormMatrixAssembly.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPointCollection.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormPointCollection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSaveVectorFunction.resx">
+      <DependentUpon>FormSaveVectorFunction.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormAliasRegression.resx">
+      <DependentUpon>FormAliasRegression.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormArrayTransformer.resx">
+      <DependentUpon>FormArrayTransformer.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormDataPerformerCollectionStateTransformer.resx">
+      <DependentUpon>FormDataPerformerCollectionStateTransformer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormDerivationCalculator.resx">
+      <DependentUpon>FormDerivationCalculator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormDiffEquation.resx">
+      <DependentUpon>FormDiffEquation.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormExternalChart.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormExternalChart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormExternalChartProperties.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormExternalChartProperties.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormFuncAccumulator.resx">
+      <DependentUpon>FormFuncAccumulator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormGraph.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormGraph.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormIterateGLM.resx">
+      <DependentUpon>FormIterateGLM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormKalmanFilter.resx">
+      <DependentUpon>FormKalmanFilter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormNamedSeries.resx">
+      <DependentUpon>FormNamedSeries.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormObjectTransformer.resx">
+      <DependentUpon>FormObjectTransformer.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormRecursive.resx">
+      <DependentUpon>FormRecursive.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormSeries.resx">
+      <DependentUpon>FormSeries.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormTable2D.resx">
+      <DependentUpon>FormTable2D.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormTable3D.resx">
+      <DependentUpon>FormTable3D.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormVectorConsumer.resx">
+      <DependentUpon>FormVectorConsumer.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormVectorAssembly.resx">
+      <DependentUpon>FormVectorAssembly.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormXmlSelection.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormXmlSelection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Labels\DrawSeriesLabel.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>DrawSeriesLabel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Labels\Table2DLabel.resx">
+      <DependentUpon>Table2DLabel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PanelFormula.resx">
+      <DependentUpon>PanelFormula.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PanelMeasureGraph.resx">
+      <DependentUpon>PanelMeasureGraph.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourceFormula.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ResourceFormula.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourceImage.resx">
+      <SubType>Designer</SubType>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ResourceImage.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\Graph\UserControlCadr.resx">
+      <DependentUpon>UserControlCadr.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserControlAccumulatorSeriesArgument.resx">
+      <DependentUpon>UserControlAccumulatorSeriesArgument.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserControlComboboxTexts.resx">
+      <DependentUpon>UserControlComboboxTexts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserControlComoboxesTexts.resx">
+      <DependentUpon>UserControlComoboxesTexts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserControlComponentCollectionVariablesFull.resx">
+      <DependentUpon>UserControlComponentCollectionVariablesFull.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserControlComponentCollectionVariablesMeasure.resx">
+      <DependentUpon>UserControlComponentCollectionVariablesMeasure.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserControlComponentCollectionVariablesStep.resx">
+      <DependentUpon>UserControlComponentCollectionVariablesStep.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserControlEqualComboboxes.resx">
+      <DependentUpon>UserControlEqualComboboxes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserControlEqualComboboxesContainer.resx">
+      <DependentUpon>UserControlEqualComboboxesContainer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserControlForward.resx">
+      <DependentUpon>UserControlForward.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserControlFuncAccumulatorFull.resx">
+      <DependentUpon>UserControlFuncAccumulatorFull.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserControlGraph.resx">
+      <DependentUpon>UserControlGraph.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\RegessionAliasMeasureUserControl.resx">
+      <DependentUpon>RegessionAliasMeasureUserControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\RegressionAliasUserControl.resx">
+      <DependentUpon>RegressionAliasUserControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserControlArrayTransformer.resx">
+      <DependentUpon>UserControlArrayTransformer.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserControlCharIntDictionary.resx">
+      <DependentUpon>UserControlCharIntDictionary.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserControlCharNumber.resx">
+      <DependentUpon>UserControlCharNumber.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserControlDelayAccumulator.resx">
+      <DependentUpon>UserControlDelayAccumulator.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserControlFeedBack.resx">
+      <DependentUpon>UserControlFeedBack.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserControlFisherComparator.resx">
+      <DependentUpon>UserControlFisherComparator.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserControlFormulaEditor.resx">
+      <DependentUpon>UserControlFormulaEditor.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserControlFuncAccumulator.resx">
+      <DependentUpon>UserControlFuncAccumulator.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserControlIteratorGLM.resx">
+      <DependentUpon>UserControlIteratorGLM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserControlKalmanFilter.resx">
+      <DependentUpon>UserControlKalmanFilter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserControlManualInput.resx">
+      <DependentUpon>UserControlManualInput.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserControlMeaHeader.resx">
+      <DependentUpon>UserControlMeaHeader.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserControlMeasure.resx">
+      <DependentUpon>UserControlMeasure.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserControlMeasureContainer.resx">
+      <DependentUpon>UserControlMeasureContainer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserControlMeasureGraph.resx">
+      <DependentUpon>UserControlMeasureGraph.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserControlRealtime.resx">
+      <DependentUpon>UserControlRealtime.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserControlRealtimeAnalysis.resx">
+      <DependentUpon>UserControlRealtimeAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserControlRealtimeList.resx">
+      <DependentUpon>UserControlRealtimeList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserControlRealtimeMeaHeader.resx">
+      <DependentUpon>UserControlRealtimeMeaHeader.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserControlRealtimeMeasure.resx">
+      <DependentUpon>UserControlRealtimeMeasure.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserControlRealtimeMeasureContainer.resx">
+      <DependentUpon>UserControlRealtimeMeasureContainer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserControlRealtimeMeasurements.resx">
+      <DependentUpon>UserControlRealtimeMeasurements.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserControlRegressionAlias.resx">
+      <DependentUpon>UserControlRegressionAlias.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserControlNamedSeriesTab.resx">
+      <DependentUpon>UserControlNamedSeriesTab.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserControlSeriesTab.resx">
+      <DependentUpon>UserControlSeriesTab.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserControlSeriesTable.resx">
+      <DependentUpon>UserControlSeriesTable.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserControlNamedSeries.resx">
+      <DependentUpon>UserControlNamedSeries.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserControlComponentCollectionVariables.resx">
+      <DependentUpon>UserControlComponentCollectionVariables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserControlTable2D.resx">
+      <DependentUpon>UserControlTable2D.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserControlTable2DEditor.resx">
+      <DependentUpon>UserControlTable2DEditor.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserControlSeries.resx">
+      <DependentUpon>UserControlSeries.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserControlTable2DTab.resx">
+      <DependentUpon>UserControlTable2DTab.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserControlTable3D.resx">
+      <DependentUpon>UserControlTable3D.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserControlTimeSeriesMedian.resx">
+      <DependentUpon>UserControlTimeSeriesMedian.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserControlTopObject.resx">
+      <DependentUpon>UserControlTopObject.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Utils\ResourceControl_Ru.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ResourceControl_Ru.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{B4F97281-0DBD-4835-9ED8-7DFB966E87FF}" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.VisualBasic.PowerPacks.10.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft Visual Basic PowerPacks 10.0</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="UserControls\Wpf\UserControlWpfChart.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Attributes\" />
+    <Folder Include="Resources\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+</Project>
