@@ -403,7 +403,7 @@ namespace Chart
 
         void Paint(object sender, PaintEventArgs arg)
         {
-            arg.Graphics.DrawImage(bmp, 0, 0);
+            arg.Graphics.DrawImage(bmp, 0, 0, bmp.Width, bmp.Height);
         }
 
         void Resize(object s, EventArgs arg)
@@ -414,7 +414,7 @@ namespace Chart
         void SaveOld()
         {
             Graphics g = Graphics.FromImage(bmpOld);
-            g.DrawImage(bmp, 0, 0);
+            g.DrawImage(bmp, 0, 0, bmp.Width, bmp.Height);
         }
 
         void Clear(Graphics g, int w, int h)
@@ -465,7 +465,7 @@ namespace Chart
         {
             Graphics g = Graphics.FromHwnd(contol.Handle);
             DrawFullBmp();
-            g.DrawImage(bmp, 0, 0);
+            g.DrawImage(bmp, 0, 0, bmp.Width, bmp.Height);
         }
 
         void AddNew(IDictionary<string, object> d, double time)

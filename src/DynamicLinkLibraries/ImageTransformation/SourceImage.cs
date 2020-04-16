@@ -79,7 +79,7 @@ namespace ImageTransformations
             bitmap = new System.Drawing.Bitmap(image.Width, image.Height);
             using (Graphics g = Graphics.FromImage(bitmap))
             {
-                g.DrawImage(image, 0, 0);
+                g.DrawImage(image, 0, 0, image.Width, image.Height);
             }
         }
 

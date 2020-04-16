@@ -284,7 +284,7 @@ namespace DataPerformer.UI.Forms
 
         private void panelDeriv_Paint(object sender, PaintEventArgs e)
         {
-            e.Graphics.DrawImage(derivImage, 0, 0);
+            e.Graphics.DrawImage(derivImage, 0, 0, derivImage.Width, derivImage.Height);
         }
 
      }

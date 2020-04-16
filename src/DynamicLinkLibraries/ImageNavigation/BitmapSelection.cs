@@ -503,7 +503,7 @@ namespace ImageNavigation
                     }
                 }*/
                 Graphics g = Graphics.FromImage(bmp);
-                g.DrawImage(bitmap, 0, 0);
+                g.DrawImage(bitmap, 0, 0, bitmap.Width, bitmap.Height);
                 if (bmpProvider != null)
                 {
                     try

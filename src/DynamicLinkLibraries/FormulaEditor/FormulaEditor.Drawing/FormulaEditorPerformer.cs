@@ -421,7 +421,7 @@ namespace FormulaEditor.Drawing
             pointFormula.Y = r.Y + r.Height / 2;
             iTemp = new Bitmap(iBkgnd.Width, iBkgnd.Height);
             g = Graphics.FromImage(iTemp);
-            g.DrawImage(iBkgnd, 0, 0);
+            g.DrawImage(iBkgnd, 0, 0, iBkgnd.Width, iBkgnd.Height);
             DrawFormula();
             Bitmap im = new Bitmap(iBkgnd.Width, iBkgnd.Height);
             Brush brush = new SolidBrush(Color.FromArgb(120, 50, 50, 50));

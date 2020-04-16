@@ -2554,7 +2554,7 @@ namespace Diagram.UI
         private void onPaint(object sender, PaintEventArgs e)
         {
             Graphics g = e.Graphics;
-            g.DrawImage(image, 0, 0);
+            g.DrawImage(image, 0, 0, image.Width, image.Height);
         }
 
 

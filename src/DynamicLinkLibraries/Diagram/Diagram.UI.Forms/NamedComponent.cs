@@ -856,7 +856,7 @@ namespace Diagram.UI.Labels
                                 using (Bitmap bmp = new Bitmap(im.Width, im.Height))
                                 {
                                     bmp.MakeTransparent(Color.White);
-                                    Graphics.FromImage(bmp).DrawImage(im, 0, 0);
+                                    Graphics.FromImage(bmp).DrawImage(im, 0, 0, im.Width, im.Height);
                                     form.Icon = Icon.FromHandle(bmp.GetHicon());
                                 }
                             }

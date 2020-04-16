@@ -285,7 +285,7 @@ namespace ImageTransformations
                 return;
             }
             performer.Bitmap = b;
-            e.Graphics.DrawImage(b, 0, 0);
+            e.Graphics.DrawImage(b, 0, 0, b.Width, b.Height);
         }
 
 

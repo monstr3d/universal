@@ -200,7 +200,7 @@ namespace DataPerformer.UI
 
 		private void onPaint(object sender, PaintEventArgs e)
 		{
-			e.Graphics.DrawImage(bkgnd, 0, 0);
+			e.Graphics.DrawImage(bkgnd, 0, 0, bkgnd.Width, bkgnd.Height);
 		}
 
 		private void onClick(object sender, System.EventArgs e)

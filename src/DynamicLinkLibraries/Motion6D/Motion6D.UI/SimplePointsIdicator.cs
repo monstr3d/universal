@@ -178,7 +178,7 @@ namespace Motion6D.UI
         void paint()
         {
             Graphics g = Graphics.FromHwnd(Handle);
-            g.DrawImage(prototype.Image, dx, dy);
+            g.DrawImage(prototype.Image, dx, dy, prototype.Image.Width, prototype.Image.Height);
             g.Dispose();
         }
 

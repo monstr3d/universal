@@ -753,7 +753,7 @@ namespace Diagram.UI
             using (Bitmap bmp = new Bitmap(image.Width, image.Height))
             {
                 bmp.MakeTransparent(Color.White);
-                Graphics.FromImage(bmp).DrawImage(image, 0, 0);
+                Graphics.FromImage(bmp).DrawImage(image, 0, 0, image.Width, image.Height);
                 return Icon.FromHandle(bmp.GetHicon());
             }
 

@@ -873,7 +873,7 @@ namespace Chart
                     performer.RefreshAll();
                 }
                 Graphics g = Graphics.FromImage(performer.iTemp);
-                g.DrawImage(performer.image, 0, 0);
+                g.DrawImage(performer.image, 0, 0, performer.image.Width, performer.image.Height);
                 g.Dispose();
                 performer.isMoved = false;
             }

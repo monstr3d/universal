@@ -746,7 +746,7 @@ namespace Chart.Drawing
                 Paint();
                 Graphics g = Graphics.FromImage(bitmap);
                 g.FillRectangle(new SolidBrush(Bkgnd), 0, 0, bitmap.Width, bitmap.Height);
-                g.DrawImage(image, insets[0, 0], insets[0, 1]);
+                g.DrawImage(image, insets[0, 0], insets[0, 1], image.Width, image.Height);
                 if (coordPainter != null)
                 {
                     coordPainter.DrawCoord(g, insets, dSize, size);
@@ -802,7 +802,7 @@ namespace Chart.Drawing
             //drawHistograms(gi);
             gi.Dispose();
             gi = Graphics.FromImage(iTemp);
-            gi.DrawImage(image, 0, 0);
+            gi.DrawImage(image, 0, 0, image.Width, image.Height);
             gi.Dispose();
         }
 
@@ -820,7 +820,7 @@ namespace Chart.Drawing
             {
                 return;
             }
-            g.DrawImage(iTemp, insets[0, 0], insets[0, 1]);
+            g.DrawImage(iTemp, insets[0, 0], insets[0, 1], iTemp.Width, iTemp.Height);
             if (IsNaN(false))
             {
                 return;

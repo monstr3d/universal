@@ -298,7 +298,7 @@ namespace ImageNavigation.Labels
             {
                 return;
             }
-            e.Graphics.DrawImage(bmp, 0, 0);
+            e.Graphics.DrawImage(bmp, 0, 0, bmp.Width, bmp.Height);
         }
 
 

@@ -188,7 +188,7 @@ namespace FormulaEditor
 		/// <param name="e">The event arguments</param>
 		private void onPaint(object sender, PaintEventArgs e)
 		{
-			e.Graphics.DrawImage(iTemp, transPoint.X, transPoint.Y);
+			e.Graphics.DrawImage(iTemp, transPoint.X, transPoint.Y, iTemp.Width, iTemp.Height);
 		}
 
 		/// <summary>
