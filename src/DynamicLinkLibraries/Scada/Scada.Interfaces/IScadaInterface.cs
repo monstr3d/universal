@@ -75,8 +75,6 @@ namespace Scada.Interfaces
         /// <returns>Constant</returns>
         Action<object> GetConstant(string name);
 
-
-
         /// <summary>
         /// Gets output
         /// </summary>
@@ -84,14 +82,12 @@ namespace Scada.Interfaces
         /// <returns>Output</returns>
         Func<object> GetOutput(string name);
 
-
         /// <summary>
         /// Gets outputs
         /// </summary>
         /// <param name="names">Names</param>
         /// <returns>Outputs</returns>
         Func<object[]> GetOutput(string[] names);
-
 
         /// <summary>
         /// Gets event

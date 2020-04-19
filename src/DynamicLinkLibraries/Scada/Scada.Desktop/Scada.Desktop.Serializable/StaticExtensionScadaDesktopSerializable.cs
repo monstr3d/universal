@@ -43,7 +43,8 @@ namespace Scada.Desktop.Serializable
         /// <param name="realtimeStep">Realtime Step</param>
         /// <returns>Scada</returns>
         public static IScadaInterface ScadaFromBytes(this byte[] buffer,
-            string dataConsumer, TimeType timeType, bool isAbsoluteTime, IAsynchronousCalculation realtimeStep)
+            string dataConsumer, TimeType timeType, bool isAbsoluteTime, 
+            IAsynchronousCalculation realtimeStep)
         {
             IDesktop desktop = buffer.DesktopFromBytes();
             return desktop.ScadaFromDesktop(dataConsumer, timeType, isAbsoluteTime, realtimeStep);
@@ -59,7 +60,8 @@ namespace Scada.Desktop.Serializable
         /// <param name="realtimeStep">Realtime Step</param>
         /// <returns>Scada</returns>
         public static IScadaInterface ScadaFromBytes(this System.IO.Stream stream,
-            string dataConsumer, TimeType timeType, bool isAbsoluteTime, IAsynchronousCalculation realtimeStep)
+            string dataConsumer, TimeType timeType, bool isAbsoluteTime, 
+            IAsynchronousCalculation realtimeStep)
         {
             IDesktop desktop = stream.DesktopFromStream();
             return desktop.ScadaFromDesktop(dataConsumer, timeType, isAbsoluteTime, realtimeStep);
@@ -75,7 +77,8 @@ namespace Scada.Desktop.Serializable
         /// <param name="realtimeStep">Realtime Step</param>
         /// <returns>Scada</returns>
         public static IScadaInterface ScadaFromFile(this string fileName,
-            string dataConsumer, TimeType timeType, bool isAbsoluteTime, IAsynchronousCalculation realtimeStep)
+            string dataConsumer, TimeType timeType, bool isAbsoluteTime, 
+            IAsynchronousCalculation realtimeStep)
         {
             IDesktop desktop = fileName.DesktopFromFile();
             return desktop.ScadaFromDesktop(dataConsumer, timeType, isAbsoluteTime, realtimeStep);
@@ -135,7 +138,6 @@ namespace Scada.Desktop.Serializable
                 return AppDomain.CurrentDomain.BaseDirectory.GetSubclassObject<IScadaFactory>();
             }
         }
-
 
     }
 }

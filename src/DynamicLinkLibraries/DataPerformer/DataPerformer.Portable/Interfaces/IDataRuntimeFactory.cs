@@ -20,7 +20,8 @@ namespace DataPerformer.Portable.Interfaces
         /// <param name="priority">Priority</param>
         /// <param name="reason">Reason</param>
         /// <returns>The runtime</returns>
-        IDataRuntime Create(IComponentCollection collection, int priority, string reason = null);
+        IDataRuntime Create(IComponentCollection collection, 
+            int priority, string reason = null);
 
 
         /// <summary>
@@ -48,7 +49,8 @@ namespace DataPerformer.Portable.Interfaces
         /// <param name="reason">Reason</param>
         /// <param name="priority">Priority</param>
         /// <returns>Collection</returns>
-        IComponentCollection CreateCollection(IDataConsumer consumer, int priority, string reason);
+        IComponentCollection CreateCollection(IDataConsumer consumer, 
+            int priority, string reason);
 
         /// <summary>
         /// Priority

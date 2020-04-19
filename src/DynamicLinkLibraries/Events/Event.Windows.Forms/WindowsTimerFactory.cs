@@ -23,7 +23,7 @@ namespace Event.Windows.Forms
         /// </summary>
         static public readonly WindowsTimerFactory Singleton = new WindowsTimerFactory();
     
-
+        [InitAssembly]
         public static void Init()
         { }
 
@@ -35,7 +35,7 @@ namespace Event.Windows.Forms
 
         static WindowsTimerFactory()
         {
-            WindowsTimerFactory f = new WindowsTimerFactory();
+            WindowsTimerFactory f = Singleton;
             StaticExtensionEventInterfaces.TimerFactory = f;
             StaticExtensionEventInterfaces.TimerEventFactory = f;
         }
