@@ -7,19 +7,12 @@ using System.Windows.Forms;
 
 using Diagram.UI;
 using Diagram.UI.Interfaces;
-using Diagram.UI.Factory;
 
 using DataWarehouse;
 using DataWarehouse.Interfaces;
+
 using EngineeringInitializer;
 
-using DataPerformer;
-using DataPerformer.Interfaces;
-
-
-
-using BasicEngineering.UI.Factory.Forms;
-using BasicEngineering.UI.Factory.Interfaces;
 using DataPerformer.Portable.Interfaces;
 
 namespace BasicEngineering.UI.Factory
@@ -136,6 +129,7 @@ namespace BasicEngineering.UI.Factory
             IDataRuntimeFactory strategy, IDatabaseCoordinator coordinator, IApplicationInitializer[] initializers,
             bool throwsRepeatException)
         {
+            StaticExtensionDiagramUISerializable.Init();
             List<IApplicationInitializer> init = null;
             if (initializers == null)
             {

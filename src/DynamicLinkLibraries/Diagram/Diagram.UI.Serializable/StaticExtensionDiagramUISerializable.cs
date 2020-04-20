@@ -21,13 +21,25 @@ namespace Diagram.UI
     /// </summary>
     public static class StaticExtensionDiagramUISerializable
     {
+        #region Ctor
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        static StaticExtensionDiagramUISerializable()
+        {
+            Action<Exception> act = (Exception ex) => { ex.ShowError(10); };
+            StaticExtensionAssemblyService.LoadBaseAssemblies(act);
+            StaticExtensionAssemblyService.AssemblyAction(CurrentDomain_AssemblyLoad);
+            new Binder();
+        }
+
+        #endregion
 
         #region Fields
 
         private static IReplaceAssembly replaceAssembly;
 
-        private static bool first = true;
-
+ 
         #endregion
 
         #region Public Members
@@ -426,15 +438,6 @@ namespace Diagram.UI
         /// </summary>
         public static void Init()
         {
-            if (!first)
-            {
-                return;
-            }
-            first = false;
-            Action<Exception> act = (Exception ex) => { ex.ShowError(10); };
-            StaticExtensionAssemblyService.LoadBaseAssemblies(act);
-            StaticExtensionAssemblyService.AssemblyAction(CurrentDomain_AssemblyLoad);
-            new Binder();
         }
 
         /// <summary>

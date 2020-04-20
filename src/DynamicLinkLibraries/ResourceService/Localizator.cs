@@ -77,7 +77,10 @@ namespace ResourceService
             List<Dictionary<string, object>> res = new List<Dictionary<string, object>>();
             foreach (Dictionary<string, object>[] r in dictionaries)
             {
-                res.AddRange(r);
+                if (r != null)
+                {
+                    res.AddRange(r);
+                }
             }
             return res.ToArray();
         }

@@ -1187,7 +1187,7 @@ namespace BasicEngineering.UI.Factory.Advanced.Forms
             this.generateToolStripMenuItem.Name = "generateToolStripMenuItem";
             this.generateToolStripMenuItem.Size = new System.Drawing.Size(81, 24);
             this.generateToolStripMenuItem.Text = "Generate";
-            this.generateToolStripMenuItem.Visible = false;
+            this.generateToolStripMenuItem.Visible = true;
             this.generateToolStripMenuItem.Click += new System.EventHandler(this.generateToolStripMenuItem_Click);
             // 
             // openLogDirectoryToolStripMenuItem

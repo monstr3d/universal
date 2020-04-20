@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Diagram.UI.Interfaces;
 using Diagram.UI;
+using DataPerformer.Interfaces;
 
 namespace DataPerformer.Portable
 {
@@ -21,12 +22,33 @@ namespace DataPerformer.Portable
 
         List<string> IClassCodeCreator.CreateCode(string preffix, object obj)
         {
-            if (!(obj is DataLink))
+            List<string> l = new List<string>();
+            string str = null;
+            if ((obj is DataLink))
+            {
+                str = "DataPerformer.Portable.DataLink";
+            }
+            if (str == null)
+            {
+                string th = obj.GetType().Name;
+                if (th.Equals("DataConsumer"))
+                {
+                    str = "DataPerformer.Portable.DataConsumer";
+                    l.Add(str);
+                    DataConsumer c = obj as DataConsumer;
+                    l.Add("{");
+                    l.Add("internal CategoryObject() : base(" + c.ConsumerType + ")");
+                    l.Add("{");
+                    l.Add("}");
+                    l.Add("}");
+                    return l;
+                }
+            }
+            if (str == null)
             {
                 return null;
             }
-            List<string> l = new List<string>();
-            l.Add("DataPerformer.Portable.DataLink");
+            l.Add(str);
             l.Add("{");
             l.Add("}");
             return l;
