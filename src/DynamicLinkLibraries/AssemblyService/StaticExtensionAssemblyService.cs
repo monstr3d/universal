@@ -29,6 +29,46 @@ namespace AssemblyService
         #region Public Members
 
         /// <summary>
+        /// Gets Field dictionary
+        /// </summary>
+        /// <typeparam name="T">Type</typeparam>
+        /// <param name="assembly">assembly</param>
+        /// <param name="fieldName">Field name</param>
+        /// <returns>Dictionary</returns>
+        public static Dictionary<string, T> GetStaticFieldDictionary<T>(this Assembly assembly, string fieldName) where T : class
+        {
+            Dictionary<string, T> d = new Dictionary<string, T>();
+            Type[] tt = assembly.GetTypes();
+            foreach (Type t in tt)
+            {
+                FieldInfo fi = t.GetField(fieldName);
+                if (fi != null)
+                {
+                    if (fi.IsStatic)
+                    {
+                        try
+                        {
+                            object ob = fi.GetValue(null);
+                            if (ob != null)
+                            {
+                                if (ob is T)
+                                {
+                                    d[t.FullName] = ob as T;
+                                }
+                            }
+                        }
+                        catch (Exception)
+                        {
+
+                        }
+                    }
+                }
+            }
+
+            return d;
+        }
+
+        /// <summary>
         /// Creates object
         /// </summary>
         /// <typeparam name="T">Interface type</typeparam>

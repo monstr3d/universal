@@ -237,7 +237,7 @@ namespace Scada.Desktop
         /// <summary>
         /// Error Handler
         /// </summary>
-        public override Scada.Interfaces.IErrorHandler ErrorHandler
+        public override Interfaces.IErrorHandler ErrorHandler
         {
             get
             {

@@ -10,7 +10,7 @@ namespace Scada.Desktop
     {
         Scada.Interfaces.IErrorHandler handler;
 
-        internal ErrorHandlerWrapper(Scada.Interfaces.IErrorHandler handler)
+        internal ErrorHandlerWrapper(Interfaces.IErrorHandler handler)
         {
             this.handler = handler;
         }

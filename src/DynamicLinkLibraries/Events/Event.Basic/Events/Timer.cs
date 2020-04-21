@@ -17,35 +17,17 @@ namespace Event.Basic.Events
     /// Timer
     /// </summary>
     [Serializable()]
-    public class Timer : CategoryObject, ITimerEvent, ISerializable,
-         IRemovableObject, INativeEvent, ICalculationReason
+    public class Timer : Portable.Events.Timer, ISerializable
     {
-        #region Fields
-
-        ITimerEvent timer;
-
-        TimeSpan timeSpan;
-
-        event Action ev;
-
-        Action locked;
-
-        private string calculationReason = "";
-
-        event Action onPrepare = () => { };
-
-        #endregion
-
+ 
         #region Ctor
 
         /// <summary>
         /// Default constructor
         /// </summary>
-        public Timer()
+        public Timer() : base()
         {
-            timer = StaticExtensionEventInterfaces.TimerEventFactory.NewTimer;
-            Action act = Event;
-            locked = act.LockedAction();
+
         }
 
         /// <summary>
@@ -66,126 +48,6 @@ namespace Event.Basic.Events
         void ISerializable.GetObjectData(SerializationInfo info, StreamingContext context)
         {
             info.AddValue("TimeSpan", timeSpan, typeof(TimeSpan));
-        }
-
-        #endregion
-
-        #region IRemovableObject Members
-
-        void IRemovableObject.RemoveObject()
-        {
-            timer.RemoveItself();
-        }
-
-
-        #endregion
-
-        #region ITimerEvent Members
-
-        TimeSpan ITimerEvent.TimeSpan
-        {
-            get
-            {
-                return timeSpan;
-            }
-            set
-            {
-                if (timeSpan.Equals(value))
-                {
-                    return;
-                }
-                timeSpan = value;
-                if (timer != null)
-                {
-                    timer.TimeSpan = value;
-                }
-            }
-        }
-
-        #endregion
-
-        #region IEvent Members
-
-        event Action IEvent.Event
-        {
-            add
-            {
-                ev += value;
-            }
-            remove
-            {
-                ev -= value;
-            }
-        }
-
-        bool IEvent.IsEnabled
-        {
-            get
-            {
-                return timer.IsEnabled;
-            }
-            set
-            {
-                if (calculationReason.Equals("Realtime"))
-                {
-                    if (timer.IsEnabled == value)
-                    {
-                        return;
-                    }
-                    if (value)
-                    {
-                        onPrepare();
-                        timer.Event += locked;
-                    }
-                    else
-                    {
-                        timer.Event -= locked;
-                    }
-                    timer.IsEnabled = value;
-                }
-            }
-        }
-
-        #endregion
-
-        #region ICalculationReason Members
-
-        string ICalculationReason.CalculationReason
-        {
-            get
-            {
-                return calculationReason;
-            }
-
-            set
-            {
-                calculationReason = value;
-            }
-        }
-
-        #endregion
-
-        #region INativeEvent Members
-
-        /// <summary>
-        /// Forces event
-        /// </summary>
-        void INativeEvent.Force()
-        {
-            ev();
-        }
-
-        #endregion
-
-        #region Public Members
-
-        #endregion
-
-        #region Private Members
-
-        void Event()
-        {
-            ev();
         }
 
         #endregion

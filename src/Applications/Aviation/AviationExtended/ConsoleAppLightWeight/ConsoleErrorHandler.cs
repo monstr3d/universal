@@ -1,4 +1,4 @@
-﻿using Diagram.UI.Interfaces;
+﻿using Scada.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +11,7 @@ namespace ConsoleAppLightWeight
     {
         void IErrorHandler.ShowError(Exception exception, object obj)
         {
-            int i = 0;
+            Console.Out.WriteLine("Error: " + exception.Message);
         }
 
         void IErrorHandler.ShowMessage(string message, object obj)

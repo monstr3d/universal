@@ -25,7 +25,6 @@ namespace Scada.Desktop
 
         #region Fields
 
-        static IScadaFactory scadaFactory;
 
         #endregion
 
@@ -35,16 +34,7 @@ namespace Scada.Desktop
         /// Scada factory
         /// </summary>
         static public IScadaFactory ScadaFactory
-        {
-            get
-            {
-                return scadaFactory;
-            }
-            set
-            {
-                scadaFactory = value;
-            }
-        }
+        { get; set; }
 
         /// <summary>
         /// Creates Scada from desktop
@@ -62,7 +52,7 @@ namespace Scada.Desktop
             {
                 return null;
             }
-            return scadaFactory.Create(desktop, dataConsumer, timeType, isAbsoluteTime, realtimeStep);
+            return ScadaFactory.Create(desktop, dataConsumer, timeType, isAbsoluteTime, realtimeStep);
         }
 
         #endregion

@@ -21,6 +21,7 @@ namespace DataPerformer.Portable
     /// <summary>
     /// Static extensions
     /// </summary>
+    [InitAssembly]
     public static class StaticExtensionDataPerformerPortable
     {
 
@@ -69,6 +70,15 @@ namespace DataPerformer.Portable
         #endregion
 
         #region Public Members
+
+        /// <summary>
+        /// Inits itself
+        /// </summary>
+        public static void Init()
+        {
+
+        }
+
 
         /// <summary>
         /// Creates disassembly object dictionary

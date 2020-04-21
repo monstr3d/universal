@@ -27,6 +27,7 @@ namespace Event.Portable
     /// <summary>
     /// Static extension methods
     /// </summary>
+    [InitAssembly]
     public static class StaticExtensionEventPortable
     {
 
@@ -50,7 +51,24 @@ namespace Event.Portable
 
         #endregion
 
+
+        #region Ctor
+        static StaticExtensionEventPortable()
+        {
+            new CSCodeCreator();
+        }
+        #endregion
+
         #region Public Members
+
+        /// <summary>
+        /// Inits itself
+        /// </summary>
+        public static void Init()
+        {
+
+        }
+
 
         /// <summary>
         /// Enumerable tranformation
@@ -216,13 +234,6 @@ namespace Event.Portable
                 return;
             }
             new StopHelper(stop);
-        }
-
-        /// <summary>
-        /// Inits itself
-        /// </summary>
-        static public void Init()
-        {
         }
 
         /// <summary>

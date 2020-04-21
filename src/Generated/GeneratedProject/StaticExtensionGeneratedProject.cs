@@ -8,9 +8,7 @@ namespace GeneratedProject
 	public static class StaticExtensionGeneratedProject
 	{
 
-		 static internal bool successLoad = true;
-		 static public bool SuccessLoad
-		{ get { return successLoad; } }
+		 static public bool SuccessLoad { get; private set; } = true;
 
 		public static readonly Diagram.UI.Interfaces.IDesktop Desktop = new IntrenalDesktop();
 
@@ -18,16 +16,21 @@ namespace GeneratedProject
 		{
 			internal IntrenalDesktop()
 			{
-				objects.Add(new IntrenalDesktop.OblectLabel0("Motion"));
-				objects.Add(new IntrenalDesktop.OblectLabel1("Consumer"));
+				objects.Add(new IntrenalDesktop.OblectLabel0("Timer"));
+				objects.Add(new IntrenalDesktop.OblectLabel1("Motion"));
+				objects.Add(new IntrenalDesktop.OblectLabel2("Consumer"));
 				Diagram.UI.Labels.PureArrowLabel currALabel = null;
 				currALabel  = new IntrenalDesktop.ArrowLabel0("");
 				arrows.Add(currALabel);
-				currALabel.SourceNumber = (int)1;
+				currALabel.SourceNumber = (int)2;
+				currALabel.TargetNumber = (int)1;
+				currALabel  = new IntrenalDesktop.ArrowLabel1("");
+				arrows.Add(currALabel);
+				currALabel.SourceNumber = (int)2;
 				currALabel.TargetNumber = (int)0;
 				bool pl = PostLoad();
 				bool pd = PostDeserialize();
-				StaticExtensionGeneratedProject.successLoad = pl & pd;
+				SuccessLoad = pl & pd;
 			}
 		
 			internal class OblectLabel0 : Diagram.UI.Labels.PureObjectLabel
@@ -35,6 +38,23 @@ namespace GeneratedProject
 				internal OblectLabel0(string name) : base(name, "", "", 0, 0)
 				{
 					obj = new OblectLabel0.CategoryObject();
+				}
+		
+				internal class CategoryObject : Event.Portable.Events.Timer
+				{
+				internal CategoryObject()
+				{
+				var ts = this as Event.Interfaces.ITimerEvent;
+				ts.TimeSpan = TimeSpan.FromTicks(1000000);
+				}
+				}
+			}
+		
+			internal class OblectLabel1 : Diagram.UI.Labels.PureObjectLabel
+			{
+				internal OblectLabel1(string name) : base(name, "", "", 0, 0)
+				{
+					obj = new OblectLabel1.CategoryObject();
 				}
 		
 				internal class CategoryObject : DataPerformer.Formula.VectorFormulaConsumer, FormulaEditor.Interfaces.ITreeCollectionProxyFactory
@@ -46,7 +66,7 @@ namespace GeneratedProject
 						formulaString = new string[]
 						{
 							"<Root>  <F>    <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"b\" S=\"b\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">      <F />    </S>    <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"s\" S=\"sin\" Type=\"4\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\">      <F />    </S>    <S type=\"FormulaEditor.Symbols.BracketsSymbol\" symbol=\"P\" S=\"( )\" Type=\"2\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"P\">      <F>        <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"a\" S=\"a\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">          <F />        </S>        <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"t\" S=\"t\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">          <F />        </S>      </F>      <F />    </S>  </F></Root>",
-							"<Root>  <F>    <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"b\" S=\"b\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">      <F />    </S>    <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"c\" S=\"cos\" Type=\"4\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\">      <F />    </S>    <S type=\"FormulaEditor.Symbols.BracketsSymbol\" symbol=\"P\" S=\"( )\" Type=\"2\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"P\">      <F>        <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"b\" S=\"b\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">          <F />        </S>        <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"t\" S=\"t\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">          <F />        </S>      </F>      <F />    </S>  </F></Root>",
+							"<Root>  <F>    <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"b\" S=\"b\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">      <F />    </S>    <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"c\" S=\"cos\" Type=\"4\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\">      <F />    </S>    <S type=\"FormulaEditor.Symbols.BracketsSymbol\" symbol=\"P\" S=\"( )\" Type=\"2\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"P\">      <F>        <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"a\" S=\"a\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">          <F />        </S>        <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"t\" S=\"t\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">          <F />        </S>      </F>      <F />    </S>  </F></Root>",
 							"<Root>  <F>    <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"1\" S=\"1\" Type=\"5\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\">      <F />    </S>  </F></Root>",
 							"<Root>  <F>    <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"0\" S=\"0\" Type=\"5\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\">      <F />    </S>  </F></Root>"
 						};
@@ -60,7 +80,7 @@ namespace GeneratedProject
 						parameters =new Dictionary<string, object>()
 						{
 							{"b", (double)1 },
-							{"a", (double)1 }
+							{"a", (double)0.10000000000000001 }
 						};
 						operationNames = new Dictionary<System.Int32,System.String>()
 						{
@@ -84,7 +104,7 @@ namespace GeneratedProject
 							var_3 = (var_1) * (var_2);
 							var_4 = Math.Sin(var_3);
 							var_5 = (var_0) * (var_4);
-							var_6 = (var_0) * (var_2);
+							var_6 = (var_1) * (var_2);
 							var_7 = Math.Cos(var_6);
 							var_8 = (var_0) * (var_7);
 						}
@@ -191,11 +211,11 @@ namespace GeneratedProject
 				}
 			}
 		
-			internal class OblectLabel1 : Diagram.UI.Labels.PureObjectLabel
+			internal class OblectLabel2 : Diagram.UI.Labels.PureObjectLabel
 			{
-				internal OblectLabel1(string name) : base(name, "", "", 0, 0)
+				internal OblectLabel2(string name) : base(name, "", "", 0, 0)
 				{
-					obj = new OblectLabel1.CategoryObject();
+					obj = new OblectLabel2.CategoryObject();
 				}
 		
 				internal class CategoryObject : DataPerformer.Portable.DataConsumer
@@ -214,6 +234,18 @@ namespace GeneratedProject
 				}
 		
 				internal class CategoryArrow : DataPerformer.Portable.DataLink
+				{
+				}
+			}
+		
+			internal class ArrowLabel1 : Diagram.UI.Labels.PureArrowLabel
+			{
+				internal ArrowLabel1(string name) : base(name, "", "", 0, 0)
+				{
+					arrow = new ArrowLabel1.CategoryArrow();
+				}
+		
+				internal class CategoryArrow : Event.Portable.Arrows.EventLink
 				{
 				}
 			}

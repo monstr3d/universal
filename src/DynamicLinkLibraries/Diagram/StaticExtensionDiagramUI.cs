@@ -507,13 +507,11 @@ namespace Diagram.UI
             l.Add("\tpublic static class " + className);
             l.Add("\t{");
             l.Add("");
-            l.Add("\t\t static internal bool successLoad = true;");
-            l.Add("\t\t static public bool SuccessLoad");
-            l.Add("\t\t{ get { return successLoad; } }");
+            l.Add("\t\t static public bool SuccessLoad { get; private set; } = true;");
             l.Add("");
             l.Add("\t\tpublic static readonly Diagram.UI.Interfaces.IDesktop Desktop = new IntrenalDesktop();");
             l.Add("");
-            List<string> lt = (desktop as PureDesktop).CreateDesktopCode("", "IntrenalDesktop", className + ".successLoad = pl & pd;", true, "internal ");
+            List<string> lt = (desktop as PureDesktop).CreateDesktopCode("", "IntrenalDesktop", "SuccessLoad = pl & pd;", true, "internal ");
             l.Add("\t\tinternal class " + lt[0]);
             for (int i = 1; i < lt.Count; i++)
             {

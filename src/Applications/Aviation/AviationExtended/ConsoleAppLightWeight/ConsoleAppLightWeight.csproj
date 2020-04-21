@@ -8,13 +8,14 @@
     <OutputType>Exe</OutputType>
     <RootNamespace>ConsoleAppLightWeight</RootNamespace>
     <AssemblyName>ConsoleAppLightWeight</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x64</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -64,6 +65,10 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\AssemblyService\AssemblyService.csproj">
+      <Project>{0accba33-1139-43aa-82b8-863557a31b68}</Project>
+      <Name>AssemblyService</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\BaseTypes\BaseTypes.csproj">
       <Project>{8a9c8c8b-40b2-418c-ac92-4bdbb6e071c3}</Project>
       <Name>BaseTypes</Name>
@@ -88,6 +93,10 @@
       <Project>{f9d68183-6801-4214-affc-737acbef498e}</Project>
       <Name>DataPerformer.Interfaces</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\DataPerformer\DataPerformer.Portable.Basic\DataPerformer.Portable.Basic.csproj">
+      <Project>{ebdfbf12-d169-4173-ab39-98169fb3e859}</Project>
+      <Name>DataPerformer.Portable.Basic</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\DataPerformer\DataPerformer.Portable\DataPerformer.Portable.csproj">
       <Project>{4442e3e5-41b9-4f60-9c1a-07272d9c31d0}</Project>
       <Name>DataPerformer.Portable</Name>
@@ -95,6 +104,10 @@
     <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\Diagram\Diagram.csproj">
       <Project>{096f4ea8-6301-4545-96d6-286e67ccba5c}</Project>
       <Name>Diagram</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\Diagram\Diagram.Extended\Diagram.Extended.csproj">
+      <Project>{d75c9e3d-1b66-461f-9057-86fc924aba8e}</Project>
+      <Name>Diagram.Extended</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\Diagram\Diagram.UI.Serializable\Diagram.UI.Serializable.csproj">
       <Project>{868adfd8-51c2-4cec-8132-11e5a0f907e3}</Project>
@@ -124,6 +137,10 @@
       <Project>{b72a1bb1-13a5-4f04-91ae-dd777731c4f9}</Project>
       <Name>Event.Portable</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\Events\Event.Windows.Forms\Event.Windows.Forms.csproj">
+      <Project>{7409a8bb-d374-4b57-bb4c-4088d06f9b45}</Project>
+      <Name>Event.Windows.Forms</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\FormulaEditor\ExtendedFormulaEditor\ExtendedFormulaEditor.csproj">
       <Project>{2e762fec-e32c-46bb-bf30-9599ef399fb4}</Project>
       <Name>ExtendedFormulaEditor</Name>
@@ -131,18 +148,6 @@
     <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\FormulaEditor\FormulaEditor.csproj">
       <Project>{8613b23c-49b6-4056-83c5-e982d7f51f32}</Project>
       <Name>FormulaEditor</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\Motion6D\Motion6D.csproj">
-      <Project>{d20072fa-274e-4d9c-bebf-e15b13bede69}</Project>
-      <Name>Motion6D</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\Motion6D\Motion6D.Data\Motion6D.Data.csproj">
-      <Project>{b6f26938-3301-46b4-bb01-aaea4d0bd2d4}</Project>
-      <Name>Motion6D.Data</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\Motion6D\Motion6D.Interfaces\Motion6D.Interfaces.csproj">
-      <Project>{cb323095-3866-45a7-bf13-7d8bf1abc666}</Project>
-      <Name>Motion6D.Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\OrdinaryDifferentialEquations\OrdinaryDifferentialEquations\OrdinaryDifferentialEquations.csproj">
       <Project>{76a28755-e93a-4a8d-b24d-38cb3c2afdbc}</Project>
@@ -180,9 +185,9 @@
       <Project>{075a2d58-d121-43e1-80d2-5a4745d1565e}</Project>
       <Name>SoundService</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\Wpf\WpfInterface\WpfInterface.csproj">
-      <Project>{29cd7ad5-2d73-437e-8279-0b5b5dd7d4bb}</Project>
-      <Name>WpfInterface</Name>
+    <ProjectReference Include="..\..\..\..\Generated\GeneratedProject\GeneratedProject.csproj">
+      <Project>{2d8f8833-a47c-46ec-a466-3d4fedde8307}</Project>
+      <Name>GeneratedProject</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
