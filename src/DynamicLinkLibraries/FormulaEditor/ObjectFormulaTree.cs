@@ -75,9 +75,9 @@ namespace FormulaEditor
 		/// <param name="children">Children trees</param>
 		public ObjectFormulaTree(IObjectOperation operation, List<ObjectFormulaTree> children)
 		{
-			if (operation is ICloneable)
+			if (operation is Interfaces.ICloneable)
 			{
-				ICloneable c = operation as ICloneable;
+				Interfaces.ICloneable c = operation as Interfaces.ICloneable;
 				this.operation = c.Clone() as IObjectOperation;
 			}
 			else
@@ -115,7 +115,7 @@ namespace FormulaEditor
 
         #endregion
         
-        #region ICloneable Members
+        #region Interfaces.ICloneable Members
 
  
         #endregion

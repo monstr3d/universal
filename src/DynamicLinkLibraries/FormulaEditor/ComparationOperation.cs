@@ -16,7 +16,7 @@ namespace FormulaEditor
     /// <summary>
     /// Comparation operation
     /// </summary>
-    public class ComparationOperation : IObjectOperation, IBinaryAcceptor, ICloneable,
+    public class ComparationOperation : IObjectOperation, IBinaryAcceptor, Interfaces.ICloneable,
         IFormulaCreatorOperation
     {
 

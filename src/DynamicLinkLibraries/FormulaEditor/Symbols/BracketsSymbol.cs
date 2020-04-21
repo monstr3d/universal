@@ -65,7 +65,7 @@ namespace FormulaEditor.Symbols
         }
 
         /// <summary>
-        /// The ICloneable interface implementation
+        /// The Interfaces.ICloneable interface implementation
         /// </summary>
         /// <returns>A clone of itself</returns>
         public override object Clone()

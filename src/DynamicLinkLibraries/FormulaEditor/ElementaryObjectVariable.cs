@@ -14,7 +14,7 @@ namespace FormulaEditor
     /// Elementary real variable
     /// </summary>
     public class ElementaryObjectVariable : IObjectOperation, IPowered, IOperationAcceptor,
-        IFormulaCreatorOperation, ICloneable, IDerivationOperation
+        IFormulaCreatorOperation, Interfaces.ICloneable, IDerivationOperation
     {
         /// <summary>
         /// Return type

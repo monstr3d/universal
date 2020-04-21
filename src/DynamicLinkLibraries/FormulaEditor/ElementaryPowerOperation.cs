@@ -14,7 +14,7 @@ namespace FormulaEditor
     /// <summary>
     /// Elementary power operation
     /// </summary>
-    public class ElementaryPowerOperation : IObjectOperation, ICloneable, IDerivationOperation,
+    public class ElementaryPowerOperation : IObjectOperation, Interfaces.ICloneable, IDerivationOperation,
         IFormulaCreatorOperation
     {
 
@@ -211,7 +211,7 @@ namespace FormulaEditor
 
 
         /// <summary>
-        /// ICloneable interface implementation
+        /// Interfaces.ICloneable interface implementation
         /// </summary>
         /// <returns>Clone of itself</returns>
         public object Clone()

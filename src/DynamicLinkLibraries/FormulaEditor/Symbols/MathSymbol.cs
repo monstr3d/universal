@@ -12,7 +12,7 @@ namespace FormulaEditor.Symbols
     /// <summary>
     /// The symbol of formula
     /// </summary>
-    public abstract class MathSymbol : ICloneable
+    public abstract class MathSymbol : Interfaces.ICloneable
     {
         #region Fields
         /// <summary>
@@ -99,7 +99,7 @@ namespace FormulaEditor.Symbols
         #region ICloneabe Members
 
         /// <summary>
-        /// The ICloneable interface implementation
+        /// The Interfaces.ICloneable interface implementation
         /// </summary>
         /// <returns>A clone of itself</returns>
         public abstract object Clone();
@@ -117,7 +117,7 @@ namespace FormulaEditor.Symbols
         /// <param name="e">The element</param>
         public virtual void CreateAttributes(XElement e)
         {
-            e.SetAttributeValue("type", GetType().FullName);
+            e.SetAttributeValue("type", this.GetType().FullName);
             e.SetAttributeValue("symbol", symbol + "");
             e.SetAttributeValue("S", s);
             e.SetAttributeValue("Type", (int)type + "");
@@ -127,8 +127,8 @@ namespace FormulaEditor.Symbols
             string d = doubleValue + "";
             e.SetAttributeValue("DoubleValue", d + "");
             e.SetAttributeValue("UlongValue", ulongValue + "");
-            e.SetAttributeValue("type", GetType().FullName);
-            e.SetAttributeValue("type", GetType().FullName);
+            e.SetAttributeValue("type", this.GetType().FullName);
+            e.SetAttributeValue("type", this.GetType().FullName);
             /*
            XmlAttribute attr = doc.CreateAttribute("type");
            attr.Value = GetType().FullName;

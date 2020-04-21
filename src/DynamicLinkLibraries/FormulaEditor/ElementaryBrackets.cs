@@ -17,7 +17,7 @@ namespace FormulaEditor
     public class ElementaryBrackets : IMultiVariableOperationAcceptor, 
         IMultiVariableOperation, 
         IPowered, IDerivationOperation,
-        ICloneable, 
+        Interfaces.ICloneable, 
         IFormulaCreatorOperation
     {
         /// <summary>

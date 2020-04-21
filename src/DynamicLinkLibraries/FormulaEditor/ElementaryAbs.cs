@@ -15,7 +15,7 @@ namespace FormulaEditor
     /// Elementary root
     /// </summary>
     public class ElementaryAbs :
-        IMultiVariableOperationAcceptor, IMultiVariableOperation, ICloneable,
+        IMultiVariableOperationAcceptor, IMultiVariableOperation, Interfaces.ICloneable,
         IDerivationOperation, IFormulaCreatorOperation
     {
         /// <summary>

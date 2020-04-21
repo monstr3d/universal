@@ -45,7 +45,7 @@ namespace FormulaEditor.Symbols
         {
             base.SetToFormula(formula);
             //font = fonts[level];
-            if (!GetType().Equals(typeof(AbsSymbol)))
+            if (!this.GetType().Equals(typeof(AbsSymbol)))
             {
                 return;
             }
@@ -66,7 +66,7 @@ namespace FormulaEditor.Symbols
         }
 
         /// <summary>
-        /// The ICloneable interface implementation
+        /// The Interfaces.ICloneable interface implementation
         /// </summary>
         /// <returns>A clone of itself</returns>
         public override object Clone()

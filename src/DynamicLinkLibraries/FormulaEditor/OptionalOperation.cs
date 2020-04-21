@@ -13,7 +13,7 @@ namespace FormulaEditor
     /// <summary>
     /// Conditional operation
     /// </summary>
-    public class OptionalOperation : IObjectOperation, ICloneable, IFormulaCreatorOperation
+    public class OptionalOperation : IObjectOperation, Interfaces.ICloneable, IFormulaCreatorOperation
     {
 
         /// <summary>

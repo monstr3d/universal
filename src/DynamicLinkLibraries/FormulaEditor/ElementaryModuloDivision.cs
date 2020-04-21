@@ -12,7 +12,7 @@ namespace FormulaEditor
     /// <summary>
     /// Elementary modulo division operation
     /// </summary>
-    class ElementaryModuloDivision : IObjectOperation, ICloneable, IDerivationOperation,
+    class ElementaryModuloDivision : IObjectOperation, Interfaces.ICloneable, IDerivationOperation,
         IFormulaCreatorOperation, IString
     {
 
@@ -130,7 +130,7 @@ namespace FormulaEditor
 
         #region IClonable members
 
-        object ICloneable.Clone()
+        object Interfaces.ICloneable.Clone()
         {
             return new ElementaryModuloDivision(' ', types);
         }

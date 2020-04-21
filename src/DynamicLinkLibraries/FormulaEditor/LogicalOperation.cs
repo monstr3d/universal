@@ -12,7 +12,7 @@ namespace FormulaEditor
     /// <summary>
     /// Conditional operation
     /// </summary>
-    public class LogicalOperation : IObjectOperation, IBinaryAcceptor, ICloneable,
+    public class LogicalOperation : IObjectOperation, IBinaryAcceptor, Interfaces.ICloneable,
         IFormulaCreatorOperation
     {
 

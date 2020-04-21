@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace FormulaEditor
 {
-    class ElementaryDivisionOperation : IObjectOperation, ICloneable, IDerivationOperation,
+    class ElementaryDivisionOperation : IObjectOperation, Interfaces.ICloneable, IDerivationOperation,
         IFormulaCreatorOperation, IString
     {
         #region Fields
@@ -139,7 +139,7 @@ namespace FormulaEditor
 
         #region IClonable members
 
-        object ICloneable.Clone()
+        object Interfaces.ICloneable.Clone()
         {
             return new ElementaryDivisionOperation(symbol, types);
         }

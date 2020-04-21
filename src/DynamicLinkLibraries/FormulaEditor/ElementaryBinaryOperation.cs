@@ -15,7 +15,7 @@ namespace FormulaEditor
     /// <summary>
     /// Elementary binary operation
     /// </summary>
-    public class ElementaryBinaryOperation : IObjectOperation, ICloneable, IDerivationOperation,
+    public class ElementaryBinaryOperation : IObjectOperation, Interfaces.ICloneable, IDerivationOperation,
         IFormulaCreatorOperation, IString
     {
 

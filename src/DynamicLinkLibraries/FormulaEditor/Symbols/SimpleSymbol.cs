@@ -220,7 +220,7 @@ namespace FormulaEditor.Symbols
 		}
 
 		/// <summary>
-		/// ICloneable interface implementation
+		/// Interfaces.ICloneable interface implementation
 		/// </summary>
 		/// <returns>Clone of itsel</returns>
 		public override object Clone()

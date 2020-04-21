@@ -72,7 +72,7 @@ namespace FormulaEditor.Symbols
         public override void SetToFormula(MathFormula formula)
 		{
 			base.SetToFormula(formula);
-			if (!GetType().Equals(typeof(IndexedSymbol)))
+			if (!this.GetType().Equals(typeof(IndexedSymbol)))
 			{
 				return;
 			}
@@ -87,7 +87,7 @@ namespace FormulaEditor.Symbols
 		}
 
         /// <summary>
-        /// The ICloneable interface implementation
+        /// The Interfaces.ICloneable interface implementation
         /// </summary>
         /// <returns>A clone of itself</returns>
         public override object Clone()

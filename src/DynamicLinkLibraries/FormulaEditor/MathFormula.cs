@@ -13,7 +13,7 @@ namespace FormulaEditor
     /// <summary>
     /// Math formula
     /// </summary>
-    public class MathFormula : ICloneable
+    public class MathFormula : Interfaces.ICloneable
     {
 
         #region Fields

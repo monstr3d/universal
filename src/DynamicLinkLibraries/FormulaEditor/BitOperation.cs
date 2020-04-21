@@ -13,7 +13,7 @@ namespace FormulaEditor
     /// <summary>
     /// Conditional operation
     /// </summary>
-    public class BitOperation : IObjectOperation, IBinaryAcceptor, ICloneable,
+    public class BitOperation : IObjectOperation, IBinaryAcceptor, Interfaces.ICloneable,
         IFormulaCreatorOperation
     {
 
