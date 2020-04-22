@@ -94,7 +94,7 @@ namespace Scada.Desktop.Serializable
         /// <param name="isAbsoluteTime">The "is absolute time" sing</param>
         /// <param name="realtimeStep">Realtime Step</param>
         /// <returns>The scada</returns>
-        public override IScadaInterface Create(IDesktop desktop, string dataConsumer, TimeType timeUnit,
+        public virtual IScadaInterface Create(IDesktop desktop, string dataConsumer, TimeType timeUnit,
             bool isAbsoluteTime, IAsynchronousCalculation realtimeStep)
         {
 

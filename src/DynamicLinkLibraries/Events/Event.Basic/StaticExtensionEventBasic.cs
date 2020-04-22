@@ -43,7 +43,6 @@ namespace Event.Basic
         /// </summary>
         static StaticExtensionEventBasic()
         {
-            Runtime.StandardEventRuntime.Singleton.Set();
             FileLogListLoader.Singleton.AddListLoader();
             RealtimeReadFromFileLog.Singleton.AddListLoader();
             (new DatabaseLogLoader()).AddListLoader();

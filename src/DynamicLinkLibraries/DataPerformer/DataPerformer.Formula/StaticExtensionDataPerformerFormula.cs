@@ -14,6 +14,7 @@ using DataPerformer.Formula.Interfaces;
 using DataPerformer.Interfaces;
 using Diagram.UI.Interfaces;
 using Diagram.UI;
+using DataPerformer.Portable.Measurements;
 
 namespace DataPerformer.Formula
 {
@@ -57,10 +58,12 @@ namespace DataPerformer.Formula
         /// <returns>Measurement</returns>
         static public IMeasurement ToMeasurement(ObjectFormulaTree tree)
         {
-            IObjectOperation op = tree.Operation;
+           IObjectOperation op = tree.Operation;
             if (op is VariableMeasurement)
             {
-                return (op as VariableMeasurement).Measurement;
+                VariableMeasurement v = op as VariableMeasurement;
+                IMeasurement measurement = v.Measurement;
+                return new Measurement(measurement.Type, () => v.Measurement.Parameter(), measurement.Name);
             }
             return null;
         }
@@ -68,24 +71,24 @@ namespace DataPerformer.Formula
         /// <summary>
         /// Sets measure time variable
         /// </summary>
-        /// <param name="measure">The measure</param>
+        /// <param name="measurement">The measure</param>
         /// <param name="variable">The time variable</param>
-        static public void Set(this IMeasurement measure, ITimeVariable variable)
+        static public void Set(this IMeasurement measurement, ITimeVariable variable)
         {
             VariableMeasurement v = variable.Variable;
             if (v == null)
             {
                 return;
             }
-            v.measurement = measure;
+            v.measurement = measurement;
         }
 
         /// <summary>
-        /// Gets time measure from variable
+        /// Gets time measurement from variable
         /// </summary>
         /// <param name="variable">The variable</param>
         /// <returns>The time measure</returns>
-        static public IMeasurement GetTimeMeasure(this ITimeVariable variable)
+        static public IMeasurement GetTimeMeasurement(this ITimeVariable variable)
         {
             VariableMeasurement v = variable.Variable;
             if (v == null)

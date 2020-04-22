@@ -1,0 +1,18 @@
+﻿<UserControl x:Class="Scada.WPF.UI.UserControls.UserControlStartStop"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Scada.WPF.UI.UserControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300" >
+    <Grid>
+        <Button x:Name="buttonStart" Content="Start" 
+                HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Click="buttonStart_Click"  
+                Opacity="{Binding Opacity, ElementName=UserControlStartStop}"/>
+
+        <Button x:Name="buttonStop" Content="Stop" HorizontalAlignment="Right" Margin="0,0,0,0" VerticalAlignment="Top" Width="75" IsEnabled="False" Click="buttonStop_Click" 
+                Opacity="{Binding Opacity, ElementName=UserControlStartStop}"/>
+
+    </Grid>
+</UserControl>

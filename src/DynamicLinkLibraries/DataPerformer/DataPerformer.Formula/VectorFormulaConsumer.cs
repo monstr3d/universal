@@ -22,8 +22,7 @@ namespace DataPerformer.Formula
     /// Vector formula data transformer
     /// </summary>
     public class VectorFormulaConsumer :
-       DataConsumerMeasurements,
-       ITimeMeasureConsumer, IVariableDetector,
+       DataConsumerMeasurements,   IVariableDetector,
        IStarted, IRuntimeUpdate, ITreeCollection, ITimeVariable,
         IReplaceMeasurements, IPostSetArrow
     {
@@ -279,7 +278,8 @@ namespace DataPerformer.Formula
                     }
                 }
                 timeVariable = null;
-                IMeasurement timeMeasure = StaticExtensionDataPerformerPortable.Factory.TimeProvider.TimeMeasurement;
+                IMeasurement timeMeasure = 
+                    StaticExtensionDataPerformerPortable.Factory.TimeProvider.TimeMeasurement;
                 foreach (string s in arguments)
                 {
                     if (s.Substring(4).Equals("Time"))
@@ -369,10 +369,6 @@ namespace DataPerformer.Formula
                 return l;
             }
         }
-
-
-
-
 
         /// <summary>
         /// Accept parameters
@@ -689,15 +685,16 @@ namespace DataPerformer.Formula
         /// <summary>
         /// Time measure
         /// </summary>
-        protected override IMeasurement TimeMeasure
+        protected override IMeasurement TimeMeasurement
         {
             get
             {
-                return this.GetTimeMeasure();
+                return this.GetTimeMeasurement();
             }
             set
             {
-               value.Set(this);
+                value.Set(this);
+                base.TimeMeasurement = value;
             }
         }
 

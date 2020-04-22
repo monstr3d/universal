@@ -1417,15 +1417,16 @@ namespace DataPerformer
         /// <summary>
         /// Time measure
         /// </summary>
-        protected override IMeasurement TimeMeasure
+        protected override IMeasurement TimeMeasurement
         {
             get
             {
-                return this.GetTimeMeasure();
+                return this.GetTimeMeasurement();
             }
             set
             {
                 value.Set(this);
+                base.TimeMeasurement = value;
             }
         }
 

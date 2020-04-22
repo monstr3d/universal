@@ -55,6 +55,7 @@ namespace Event.Portable
         #region Ctor
         static StaticExtensionEventPortable()
         {
+            Portable.Runtime.StandardEventRuntime.Singleton.Set();
             new CSCodeCreator();
         }
         #endregion

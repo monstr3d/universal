@@ -370,7 +370,8 @@ namespace DataPerformer
         static public void PerformFixed(this IComponentCollection collection, double start, double step, int count, ITimeMeasureProvider provider,
             IDifferentialEquationProcessor processor, int priority, Action action, string reason)
         {
-            using (TimeProviderBackup backup = new TimeProviderBackup(collection, provider, processor, priority, reason))
+            using (DataPerformer.Portable.TimeProviderBackup backup = new
+                DataPerformer.Portable.TimeProviderBackup(collection, provider, processor, priority, reason))
             {
                 List<IMeasurements> measurements = backup.Measurements;
                 IDataRuntime runtime = backup.Runtime;

@@ -3,14 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
 using BaseTypes;
+using BaseTypes.Attributes;
 using BaseTypes.Interfaces;
+
 using CategoryTheory;
+
 using DataPerformer.Attributes;
 using DataPerformer.Interfaces;
 using DataPerformer.Interfaces.Attributes;
 using DataPerformer.Portable.Interfaces;
 using DataPerformer.Portable.Measurements;
+
 using Diagram.UI;
 using Diagram.UI.Aliases;
 using Diagram.UI.Interfaces;
@@ -65,6 +70,7 @@ namespace DataPerformer.Portable
         static  StaticExtensionDataPerformerPortable()
         {
             new CSCodeCreator();
+            TimeMeasureProviderFactory = new DefautFactory();
         }
 
         #endregion
@@ -79,7 +85,20 @@ namespace DataPerformer.Portable
 
         }
 
+        /// <summary>
+        /// Sets the factory of the time measurements
+        /// </summary>
+        /// <param name="factory">Factory of the time measurement </param>
+        static public void SetTimeFactory(this ITimeMeasureProviderFactory factory)
+        {
+            TimeMeasureProviderFactory = factory;
+        }
 
+        /// <summary>
+        /// Factory of the time measurement 
+        /// </summary>
+        static public ITimeMeasureProviderFactory TimeMeasureProviderFactory
+        { get; set; }
         /// <summary>
         /// Creates disassembly object dictionary
         /// </summary>
@@ -2264,5 +2283,18 @@ namespace DataPerformer.Portable
         }
 
         #endregion
+
+        class DefautFactory : ITimeMeasureProviderFactory
+        {
+            ITimeMeasureProvider ITimeMeasureProviderFactory.Create(bool isAbsolute, TimeType timeUnit, string reason)
+            {
+                if (reason == "Realtime")
+                {
+                    return new Runtime.RealtimeProviderRealtime(isAbsolute, timeUnit);
+                }
+                return new Runtime.RealtimeProviderAnalysis(isAbsolute, timeUnit);
+            }
+        }
+
     }
 }

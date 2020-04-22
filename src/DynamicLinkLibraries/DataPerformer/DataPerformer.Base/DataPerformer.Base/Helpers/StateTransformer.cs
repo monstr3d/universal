@@ -160,7 +160,7 @@ namespace DataPerformer.Helpers
            ITimeMeasureProvider old = processor.TimeProvider;
             try
             {
-                using (new TimeProviderBackup(collection, provider, DifferentialEquationProcessor.Processor, 0, null))
+                using (new DataPerformer.Portable.TimeProviderBackup(collection, provider, DifferentialEquationProcessor.Processor, 0, null))
                 {
                     using (new ComponentCollectionBackup(collection))
                     {

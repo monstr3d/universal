@@ -837,15 +837,6 @@ namespace DataPerformer.UI
         {
             try
             {
-                /*
-                using (TimeProviderBackup backup = new TimeProviderBackup(desktop, 0, null))
-                {
-                    IDataRuntime r = backup.Runtime;
-                    r.Refresh();
-                    r.StartAll(0);
-                    r.TimeProvider.Time = 0;
-                    //  r.UpdateAll();
-                }*/
                 desktop.ForEach((IAssociatedObject ao) =>
                 {
                     object o = ao.Object;

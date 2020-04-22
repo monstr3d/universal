@@ -79,7 +79,7 @@ namespace Aviation
                     Web.Interfaces.UI.Factory.Factory.Singleton
                 };
 
-        static CommonService.LightDictionary<string, ButtonWrapper[]> GetButtons(Motion6D.Interfaces.IPositionObjectFactory factory)
+        static LightDictionary<string, ButtonWrapper[]> GetButtons(Motion6D.Interfaces.IPositionObjectFactory factory)
         {
             Motion6D.Interfaces.IPositionObjectFactory f = factory;
             if (f == null)
@@ -247,6 +247,8 @@ namespace Aviation
 
         static Form GetForm(string filename, Motion6D.PositionObjectFactory factory, System.IO.TextWriter logWriter, TestCategory.Interfaces.ITestInterface testInterface)
         {
+            //!!! SCADA     
+            Scada.Desktop.StaticExtensionScadaDesktop.ScadaFactory = Scada.Desktop.Serializable.StaticExtensionScadaDesktopSerializable.BaseFactory;
             List<ButtonWrapper> l = new List<ButtonWrapper>();
             l.AddRange(ControlSystemLib.Data.UI.Factory.ControlSystemsFactory.ObjectButtons);
             l.AddRange(Simulink.Proxy.UI.Factory.SimulinkProxyFactory.ObjectButtons);

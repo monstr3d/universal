@@ -98,7 +98,7 @@ namespace DataPerformer.Portable
 
         protected List<IEvent> events = new List<IEvent>();
 
-        IMeasurement timeMeasure;
+        IMeasurement timeMeasurement;
 
         protected string calculationReason = "";
 
@@ -193,11 +193,11 @@ namespace DataPerformer.Portable
         {
             get
             {
-                return TimeMeasure;
+                return TimeMeasurement;
             }
             set
             {
-                TimeMeasure = value;
+                TimeMeasurement = value;
             }
         }
 
@@ -208,15 +208,15 @@ namespace DataPerformer.Portable
         /// <summary>
         /// Time measure
         /// </summary>
-        protected virtual IMeasurement TimeMeasure
+        protected virtual IMeasurement TimeMeasurement
         {
             get
             {
-                return timeMeasure;
+                return timeMeasurement;
             }
             set
             {
-                timeMeasure = value;
+                timeMeasurement = value;
             }
         }
 

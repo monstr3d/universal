@@ -766,7 +766,8 @@ namespace DataPerformer.Event.Portable.Objects.BufferedData
         IEnumerable<byte[]> Transform(IIterator iterator, Func<bool> stop)
         {
             string reason = StaticExtensionEventInterfaces.RealtimeLogAnalysis;
-            using (TimeProviderBackup backup = new TimeProviderBackup(consumer, iterator as ITimeMeasureProvider, null, reason, 0))
+            using (DataPerformer.Portable.Time.TimeProviderBackup backup = 
+                new DataPerformer.Portable.Time.TimeProviderBackup(consumer, iterator as ITimeMeasureProvider, null, reason, 0))
             {
                 IDataRuntime runtime = backup.Runtime;
                 IStep st = null;
@@ -915,7 +916,8 @@ namespace DataPerformer.Event.Portable.Objects.BufferedData
             string reason = StaticExtensionDataPerformerInterfaces.Calculation;
             IEnumerable<object> en = PureEnumerable(data);
             IEnumerator<object> enumerator = en.GetEnumerator();
-            using (TimeProviderBackup backup = new TimeProviderBackup(externalComponentCollection, this, 0, reason))
+            using (DataPerformer.Portable.Time.TimeProviderBackup backup = 
+                new DataPerformer.Portable.Time.TimeProviderBackup(externalComponentCollection, this, 0, reason))
             {
                 enumerator.MoveNext();
                 IDataRuntime runtime = backup.Runtime;

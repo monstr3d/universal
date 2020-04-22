@@ -29,15 +29,15 @@ namespace Scada.Desktop
     /// <summary>
     /// Scada from desktop
     /// </summary>
-    public abstract class ScadaDesktop : ScadaInterface, IScadaFactory
+    public  class ScadaDesktop : ScadaInterface, IScadaFactory
     {
         #region Fields
 
         /// <summary>
         /// Singleton
         /// </summary>
-      //  public static readonly ScadaDesktop Singleton = 
-      //      new ScadaDesktop(null, null, TimeType.Second, true, null, null);
+        public static readonly ScadaDesktop Singleton = 
+            new ScadaDesktop(null, null, TimeType.Second, true, null, null);
 
         /// <summary>
         /// The "is enabled" sign
@@ -223,7 +223,7 @@ namespace Scada.Desktop
                 isEnabled = value;
                 if (value)
                 {
-                    collection.StartRealtime(timeUnit, isAbsoluteTime, realtimeStep, null, null, null);
+                    collection.StartRealtime(timeUnit, isAbsoluteTime, realtimeStep, null, null, "Realtime");
                     onStart();
                 }
                 else
@@ -253,6 +253,16 @@ namespace Scada.Desktop
         #endregion
 
         #region Virtual Members
+
+        /// <summary>
+        /// Refresh
+        /// </summary>
+        public override void Refresh()
+        {
+            CreateScada();
+            onRefresh();
+        }
+
 
         /// <summary>
         /// Crerates SCADA
@@ -363,9 +373,19 @@ namespace Scada.Desktop
         /// <param name="isAbsoluteTime">The "is absolute time" sing</param>
         /// <param name="realtimeStep">Realtime Step</param>
         /// <returns>The scada</returns>
-        public abstract IScadaInterface Create(IDesktop desktop, string dataConsumer, TimeType timeUnit,
-            bool isAbsoluteTime, IAsynchronousCalculation realtimeStep);
-  
+        public  IScadaInterface Create(IDesktop desktop, string dataConsumer, TimeType timeUnit,
+            bool isAbsoluteTime, IAsynchronousCalculation realtimeStep)
+        {
+            IScadaInterface scada = new ScadaDesktop(desktop, 
+                dataConsumer, timeUnit, isAbsoluteTime, realtimeStep, null);
+            scada.OnCreateXml += (XElement document) =>
+            {
+                onCreateXmlFactory(desktop, document);
+            };
+            return scada;
+
+        }
+
         /// <summary>
         /// Xml document
         /// </summary>

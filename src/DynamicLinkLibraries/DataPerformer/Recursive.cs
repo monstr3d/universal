@@ -497,13 +497,13 @@ namespace DataPerformer
         {
             get
             {
-                return this.GetTimeMeasure();
+                return this.GetTimeMeasurement();
             }
             set
             {
                value.Set(this);
-            }
-        }
+			}
+		}
 
         #endregion
 

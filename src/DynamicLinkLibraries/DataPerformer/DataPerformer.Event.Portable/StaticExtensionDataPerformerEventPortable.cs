@@ -20,7 +20,8 @@ namespace DataPerformer.Event.Portable
         {
             try
             {
-                using (TimeProviderBackup backup = new TimeProviderBackup(consumer, timeProvider, null, reason, 0))
+                using (DataPerformer.Portable.TimeProviderBackup backup = 
+                    new DataPerformer.Portable.TimeProviderBackup(consumer, timeProvider, null, reason, 0))
                 {
                     IDataRuntime runtime = backup.Runtime;
                     IStep st = null;
@@ -68,7 +69,8 @@ namespace DataPerformer.Event.Portable
         {
             try
             {
-                using (TimeProviderBackup backup = new TimeProviderBackup(consumer, timeProvider, null, reason, 0))
+                using (DataPerformer.Portable.TimeProviderBackup backup = 
+                    new DataPerformer.Portable.TimeProviderBackup(consumer, timeProvider, null, reason, 0))
                 {
                     IDataRuntime runtime = backup.Runtime;
                     IStep st = null;

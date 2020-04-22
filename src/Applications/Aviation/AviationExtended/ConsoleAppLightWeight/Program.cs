@@ -12,7 +12,6 @@ using Event.Interfaces;
 using Diagram.UI;
 using Scada.Interfaces;
 using GeneratedProject;
-using Scada.Desktop;
 using System.Threading;
 using AssemblyService;
 
@@ -24,13 +23,19 @@ namespace ConsoleAppLightWeight
         {
             try
             {
+            
                var div =  typeof(StaticExtensionGeneratedProject).Assembly.GetStaticFieldDictionary<IDesktop>("Desktop");
 
                         IDesktop d = StaticExtensionGeneratedProject.Desktop;
                         IScadaInterface scada = d.ScadaFromDesktop("Consumer",
                             BaseTypes.Attributes.TimeType.Second, false, null);
                         scada.ErrorHandler = new ConsoleErrorHandler();
-                        scada.IsEnabled = true;
+                Action act = () =>
+                 {
+                     scada.IsEnabled = true;
+                 };
+                act.Invoke();
+                Console.ReadKey();
              }
             catch (Exception ex)
             {
@@ -54,7 +59,9 @@ namespace ConsoleAppLightWeight
 
             StaticExtensionEventInterfaces.TimerEventFactory = Event.Windows.Forms.WindowsTimerFactory.Singleton;
 
-            StaticExtensionScadaDesktop.ScadaFactory = Scada.Motion6D.Factory.ScadaDesktopMotion6D.Singleton;
+            StaticExtensionScadaDesktop.ScadaFactory = Scada.Desktop.ScadaDesktop.Singleton;
+
+                //Scada.Motion6D.Factory.ScadaDesktopMotion6D.Singleton;
 
             Event.Windows.Forms.WindowsTimerFactory f = Event.Windows.Forms.WindowsTimerFactory.Singleton;
             StaticExtensionEventInterfaces.TimerFactory = f;
