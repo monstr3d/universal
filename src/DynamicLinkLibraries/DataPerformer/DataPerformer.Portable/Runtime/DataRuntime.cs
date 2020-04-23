@@ -41,7 +41,7 @@ namespace DataPerformer.Runtime
         /// </summary>
         protected List<Action> updatable = new List<Action>();
 
-  
+
         /// <summary>
         /// Dynamical objects
         /// </summary>
@@ -57,7 +57,7 @@ namespace DataPerformer.Runtime
         /// </summary>
         protected List<IStep> steps = new List<IStep>();
 
- 
+
         /// <summary>
         /// Components
         /// </summary>
@@ -84,13 +84,13 @@ namespace DataPerformer.Runtime
         /// Dictionary of collections
         /// </summary>
         protected Dictionary<object, IComponentCollection> dCollection;
-  
+
         /// <summary>
         /// Dictionary of processors
         /// </summary>
         protected Dictionary<IComponentCollection, Tuple<double[], IDifferentialEquationProcessor>> cProcessors =
             new Dictionary<IComponentCollection, Tuple<double[], IDifferentialEquationProcessor>>();
-     
+
         /// <summary>
         /// Dictionary of processors
         /// </summary>
@@ -108,7 +108,7 @@ namespace DataPerformer.Runtime
         /// Update action
         /// </summary>
         private Action updateAll;
-   
+
         /// <summary>
         /// Time provider
         /// </summary>
@@ -127,14 +127,14 @@ namespace DataPerformer.Runtime
         /// <summary>
         /// Realtime
         /// </summary>
-        protected RealtimeProvider realtime;
+        protected ITimeMeasureProvider realtime;
 
         /// <summary>
         /// Realtime data
         /// </summary>
-        protected Dictionary<IComponentCollection, 
+        protected Dictionary<IComponentCollection,
             Tuple<IDataRuntime, double[], IDifferentialEquationProcessor, Action>> realTimeData;
-            
+
 
         /// <summary>
         /// Start time
@@ -155,7 +155,7 @@ namespace DataPerformer.Runtime
         static object locker = new object();
 
 
-   
+
         #endregion
 
         #region Ctor
@@ -169,7 +169,7 @@ namespace DataPerformer.Runtime
         /// <param name="dataConsumer">Data consumer</param>
         /// <param name="realtimeStep">Realtime step</param>
         /// <param name="realtime">Realtime provider</param>
-        public DataRuntime(IComponentCollection collection, string reason, int priority, 
+        public DataRuntime(IComponentCollection collection, string reason, int priority,
             IDataConsumer dataConsumer = null,
             IAsynchronousCalculation realtimeStep = null,
             ITimeMeasureProvider realtime = null)
@@ -181,14 +181,14 @@ namespace DataPerformer.Runtime
             Prepare();
             if (realtime != null & priority == 0)
             {
-                if (reason == StaticExtensionEventInterfaces.Realtime | 
+                if (reason == StaticExtensionEventInterfaces.Realtime |
                     reason.IsRealtimeAnalysis())
                 {
                     List<IRealtimeUpdate> lr = new List<IRealtimeUpdate>();
                     realTimeData =
                         new Dictionary<IComponentCollection, Tuple<IDataRuntime, double[],
                             IDifferentialEquationProcessor, Action>>();
-                    this.realtime = realtime as RealtimeProvider;
+                    this.realtime = realtime as ITimeMeasureProvider;
                     provider = realtime;
                     dCollection = new Dictionary<object, IComponentCollection>();
                     /*!!!! * DECOMPOSITION THINK AFTER
@@ -244,7 +244,7 @@ namespace DataPerformer.Runtime
                     {
                         IDifferentialEquationProcessor pr = CreateProcessor(collection);
                         double[] dt = new double[1];
-                        bool find = (reason.Equals(StaticExtensionEventInterfaces.Realtime) | 
+                        bool find = (reason.Equals(StaticExtensionEventInterfaces.Realtime) |
                             reason.Equals(StaticExtensionEventInterfaces.RealtimeLogAnalysis));
                         collection.ForEach((IRealtimeUpdate ru) => { lr.Add(ru); }, find);
                         collection.ForEach((IEvent ev) =>
@@ -287,7 +287,10 @@ namespace DataPerformer.Runtime
                                 (rt, dt, pr, act);
                         }
                     }
-                    (realtime as RealtimeProvider).Update();
+                    if (realtime is IRealtimeUpdate)
+                    {
+                        (realtime as IRealtimeUpdate).Update();
+                    }
                     startRuntime = provider.Time;
                     foreach (Tuple<IDataRuntime, double[], IDifferentialEquationProcessor, Action> t in realTimeData.Values)
                     {
@@ -394,7 +397,7 @@ namespace DataPerformer.Runtime
         }
 
         #endregion
-        
+
         #region IStep Members
 
         long IStep.Step
@@ -530,7 +533,7 @@ namespace DataPerformer.Runtime
                 m.UpdateMeasurements();
             }
         }
- 
+
         #endregion
 
         #region Protected Members
@@ -598,7 +601,7 @@ namespace DataPerformer.Runtime
             ITimeMeasureProvider rt = realtime;
             double[] t = new double[1];
             Action<double> setTime = (double a) => { };
-            Action<double, double, long> act = runtime.Step(processor, setTime, 
+            Action<double, double, long> act = runtime.Step(processor, setTime,
                 StaticExtensionEventInterfaces.Realtime, null);
             long[] st = new long[] { 0 };
 
@@ -632,27 +635,34 @@ namespace DataPerformer.Runtime
             {
                 updList = () => { };
             }
-            
-          //  Action[] updateActions = updlist.ToArray();
+
+            //  Action[] updateActions = updlist.ToArray();
             object loc = new object();
+            Action updatel = null;
+            if (realtime is IRealtimeUpdate)
+            {
+                updatel = (realtime as IRealtimeUpdate).Update;
+            }
             if (realtimeStep == null)
             {
-                return () =>
-                    {
-                        // !!! REPLACED WITH GLOBAL LOCKER  lock(locker)
-                        // {
-                        realtime.Update();
-                        t[0] = rt.Time;
-                        if (time[0] == t[0])
-                        {
-                            return;
-                        }
-                        act(time[0], t[0], st[0]);
-                        time[0] = t[0];
-                        st[0] += 1;
-                        updList();
-                        //}
-                    };
+
+                Action acttt = () =>
+                     {
+                         // !!! REPLACED WITH GLOBAL LOCKER  lock(locker)
+                         // {
+
+                         t[0] = rt.Time;
+                         if (time[0] == t[0])
+                         {
+                             return;
+                         }
+                         act(time[0], t[0], st[0]);
+                         time[0] = t[0];
+                         st[0] += 1;
+                         updList();
+                         //}
+                     };
+                return (updatel == null) ? acttt : updatel + acttt;
             }
             else
             {
@@ -664,19 +674,27 @@ namespace DataPerformer.Runtime
                     acti = realtimeStep.Step;
                 };
 
+                Action actt = () =>
+                {
+                    t[0] = rt.Time;
+                    act(time[0], t[0], st[0]);
+                    time[0] = t[0];
+                    st[0] += 1;
+                    updList();
+                    acti(t[0]);
+
+                };
+                if (updatel != null)
+                {
+                    actt = updatel + actt;
+                }
 
                 return () =>
                 {
-                    lock (realtime)
-                    {
-                        realtime.Update();
-                        t[0] = rt.Time;
-                        act(time[0], t[0], st[0]);
-                        time[0] = t[0];
-                        st[0] += 1;
-                        updList();
-                        acti(t[0]);
-                    }
+                  lock (realtime)
+                  {
+                      actt();
+                  }
                 };
 
             }
@@ -721,29 +739,29 @@ namespace DataPerformer.Runtime
                     }
                 }
             }
-           IEnumerable<object> en = cc.AllComponents;
-           List<object> ls = new List<object>();
-           foreach (object oo in en)
-           {
-               if (oo is IArrowLabel)
-               {
-                   IArrowLabel al = oo as IArrowLabel;
-                   if (l.Contains(al.Source) | l.Contains(al.Target))
-                   {
-                       continue;
-                   }
-               }
-               if (!l.Contains(oo))
-               {
-                   ls.Add(oo);
-               }
-               else
-               {
-               }
-           }
-           ComponentCollection ccl = new ComponentCollection(ls, d);
-           dCollection[ev] = ccl;
-           return ccl;
+            IEnumerable<object> en = cc.AllComponents;
+            List<object> ls = new List<object>();
+            foreach (object oo in en)
+            {
+                if (oo is IArrowLabel)
+                {
+                    IArrowLabel al = oo as IArrowLabel;
+                    if (l.Contains(al.Source) | l.Contains(al.Target))
+                    {
+                        continue;
+                    }
+                }
+                if (!l.Contains(oo))
+                {
+                    ls.Add(oo);
+                }
+                else
+                {
+                }
+            }
+            ComponentCollection ccl = new ComponentCollection(ls, d);
+            dCollection[ev] = ccl;
+            return ccl;
         }
 
         /// <summary>
@@ -762,5 +780,5 @@ namespace DataPerformer.Runtime
 
         #endregion
 
-     }
+    }
 }

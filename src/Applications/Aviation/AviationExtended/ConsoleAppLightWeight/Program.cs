@@ -48,9 +48,9 @@ namespace ConsoleAppLightWeight
             BasicEngineeringInitializer initializer =
                  new BasicEngineeringInitializer(OrdinaryDifferentialEquations.Runge4Solver.Singleton,
                   RungeProcessor.Processor,
-                     DataPerformer.Runtime.DataRuntimeFactory.Object, new IApplicationInitializer[]
+                     DataPerformer.Runtime.DataRuntimeFactory.Singleton, new IApplicationInitializer[]
                     {
-                         Event.Basic.ApplicationInitializer.Singleton
+                         Event.Portable.ApplicationInitializer.Singleton
 
                     },
                     true);

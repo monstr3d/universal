@@ -509,7 +509,7 @@ namespace Diagram.UI
             l.Add("");
             l.Add("\t\t static public bool SuccessLoad { get; private set; } = true;");
             l.Add("");
-            l.Add("\t\tpublic static readonly Diagram.UI.Interfaces.IDesktop Desktop = new IntrenalDesktop();");
+            l.Add("\t\tpublic static  Diagram.UI.Interfaces.IDesktop Desktop { get => new IntrenalDesktop(); }");
             l.Add("");
             List<string> lt = (desktop as PureDesktop).CreateDesktopCode("", "IntrenalDesktop", "SuccessLoad = pl & pd;", true, "internal ");
             l.Add("\t\tinternal class " + lt[0]);

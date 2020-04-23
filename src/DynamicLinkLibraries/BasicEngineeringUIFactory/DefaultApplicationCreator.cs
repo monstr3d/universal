@@ -233,7 +233,7 @@ bool throwsRepeatException, LightDictionary<string, ButtonWrapper[]> buttons,
         {
             EngineeringUIFactory factory = new EngineeringUIFactory(factories, true, ext);
             EngineeringInitializer initializer = new EngineeringInitializer(coordinator, ordSolver, diffProcessor,
-             DataPerformer.Runtime.DataRuntimeFactory.Object, initializers, throwsRepeatException, resources, logWriter);
+             DataPerformer.Runtime.DataRuntimeFactory.Singleton, initializers, throwsRepeatException, resources, logWriter);
             DefaultApplicationCreator creator = new DefaultApplicationCreator(coordinator, buttons, icon, factory, holder, filename, 
                 factory.Start, resources, text,
             ext, fileFilter, initializer, logWriter, testInterface);

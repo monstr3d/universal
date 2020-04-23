@@ -35,8 +35,7 @@ namespace Event.Portable
 
         static IRealtime currentRuntime;
 
-        static IActionFactoryCreator actionFactoryCreator;
-
+  
         static bool relativeTime;
 
         static private event Action<string> start = (string reason) => { };
@@ -250,17 +249,8 @@ namespace Event.Portable
         /// Action factory creator
         /// </summary>
         public static IActionFactoryCreator ActionFactoryCreator
-        {
-            get
-            {
-                return actionFactoryCreator;
-            }
-            set
-            {
-                actionFactoryCreator = value;
-            }
-        }
-
+        { get; set; }
+ 
         /// <summary>
         /// Start
         /// </summary>

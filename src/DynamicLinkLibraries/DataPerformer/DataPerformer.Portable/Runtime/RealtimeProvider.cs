@@ -10,13 +10,14 @@ using BaseTypes.Attributes;
 using DataPerformer;
 using DataPerformer.Interfaces;
 using DataPerformer.Portable.Measurements;
+using Event.Interfaces;
 
 namespace DataPerformer.Runtime
 {
     /// <summary>
     /// Real time provider
     /// </summary>
-    public abstract class RealtimeProvider : ITimeMeasureProvider
+    public abstract class RealtimeProvider : ITimeMeasureProvider, IRealtimeUpdate
     {
 
         #region Fields
@@ -87,6 +88,19 @@ namespace DataPerformer.Runtime
 
         }
 
+        event Action IRealtimeUpdate.OnUpdate
+        {
+            add
+            {
+                throw new NotImplementedException();
+            }
+
+            remove
+            {
+                throw new NotImplementedException();
+            }
+        }
+
         #endregion
 
         #region ITimeMeasureProvider Members
@@ -122,6 +136,17 @@ namespace DataPerformer.Runtime
 
         #endregion
 
+
+        #region IRealtimeUpdate Members
+
+
+        Action IRealtimeUpdate.Update => Update;
+
+
+        #endregion
+
+
+
         #region Public Members
 
         /// <summary>
@@ -133,7 +158,7 @@ namespace DataPerformer.Runtime
             set;
         }
 
-        /// <summary>
+       /// <summary>
         /// Updates time
         /// </summary>
         public void Update()

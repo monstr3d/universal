@@ -189,7 +189,6 @@ namespace Event.Portable.Performers
                     r.IsEnabled = false;
                 }
             }
-            return;
             collection.ForEach((IEvent ev) => { ev.IsEnabled = false; });
             foreach (IEvent ev in actions.Keys)
             {

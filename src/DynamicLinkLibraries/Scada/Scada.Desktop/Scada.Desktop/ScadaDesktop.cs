@@ -223,7 +223,7 @@ namespace Scada.Desktop
                 isEnabled = value;
                 if (value)
                 {
-                    collection.StartRealtime(timeUnit, isAbsoluteTime, realtimeStep, null, null, "Realtime");
+                    collection.StartRealtime(timeUnit, isAbsoluteTime, realtimeStep, dataConsumer, null, "Realtime");
                     onStart();
                 }
                 else

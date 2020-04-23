@@ -24,23 +24,6 @@ namespace DataPerformer.Runtime
     /// </summary>
     public class DataRuntimeFactory : IDataRuntimeFactory, IActionFactoryCreator
     {
-
-        #region Fields
-
-        /// <summary>
-        /// Singleton
-        /// </summary>
-        public static readonly DataRuntimeFactory Object = new DataRuntimeFactory();
-
-        private ITimeMeasureProvider provider = new TimeMeasureProvider();
-
-        /// <summary>
-        /// Check level
-        /// </summary>
-        protected int priority = 0;
-
-        #endregion
-
         #region Ctor
 
         /// <summary>
@@ -49,6 +32,22 @@ namespace DataPerformer.Runtime
         protected DataRuntimeFactory()
         {
         }
+
+        #endregion
+
+        #region Fields
+
+        /// <summary>
+        /// Singleton
+        /// </summary>
+        public static readonly DataRuntimeFactory Singleton = new DataRuntimeFactory();
+
+        private ITimeMeasureProvider provider = new TimeMeasureProvider();
+
+        /// <summary>
+        /// Check level
+        /// </summary>
+        protected int priority = 0;
 
         #endregion
 

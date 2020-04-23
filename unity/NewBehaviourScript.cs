@@ -14,10 +14,10 @@ using UnityEngine;
 public class NewBehaviourScript : MonoBehaviour, ITimerEventFactory, ITimerFactory, ITimer, ITimeMeasureProvider,
     ITimerEvent
 {
+    [SerializeField]
+    private GameObject obj;
 
-    INativeEvent ne;
-
-    IDesktop desktop;
+     IDesktop desktop;
 
     IMeasurement timeMeasurement;
 
@@ -29,6 +29,9 @@ public class NewBehaviourScript : MonoBehaviour, ITimerEventFactory, ITimerFacto
 
     bool isEnabled = false;
 
+    Func<double> outputX;
+    Func<double> outputY;
+
 
     private void Awake()
     {
@@ -36,16 +39,12 @@ public class NewBehaviourScript : MonoBehaviour, ITimerEventFactory, ITimerFacto
         try
         {
             desktop = StaticExtensionGeneratedProject.Desktop;
-            
-            foreach (var l in desktop.Objects)
-            {
-                var o = l.Object;
-                if (o is INativeEvent)
-                {
-                    ne = o as INativeEvent;
-                }
-            }
             scada = desktop.ScadaFromDesktop("Consumer", BaseTypes.Attributes.TimeType.Second, false, null);
+            var ou = scada.Outputs;
+            outputX = scada.GetDoubleOutput("Motion.Formula_1");
+            outputY = scada.GetDoubleOutput("Motion.Formula_2");
+            desktop.SetAliasValue("Motion.a", (double)2);
+            desktop.SetAliasValue("Motion.b", (double)5);
         }
         catch (Exception exception)
         {
@@ -69,9 +68,13 @@ public class NewBehaviourScript : MonoBehaviour, ITimerEventFactory, ITimerFacto
     // Update is called once per frame
     void Update()
     {
-        if (isEnabled)
+        if (scada.IsEnabled)
         {
             ev();
+            if (obj != null)
+            {
+                obj.transform.position = new Vector3((float)outputX(), (float)outputY());
+            }
         }
     }
 

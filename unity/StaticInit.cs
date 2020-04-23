@@ -1,11 +1,4 @@
-﻿using BaseTypes.Attributes;
-using DataPerformer.Interfaces;
-using DataPerformer.Portable;
-using DataPerformer.Portable.DifferentialEquationProcessors;
-using DataPerformer.Portable.Interfaces;
-using Diagram.UI.Interfaces;
-using Event.Interfaces;
-using Scada.Desktop;
+﻿
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,17 +7,34 @@ using System.Threading.Tasks;
 
 using UnityEngine;
 
+using BaseTypes.Attributes;
+using DataPerformer.Interfaces;
+using DataPerformer.Portable;
+using DataPerformer.Portable.DifferentialEquationProcessors;
+using DataPerformer.Portable.Interfaces;
+using Diagram.UI.Interfaces;
+using Event.Interfaces;
+using Event.Portable;
+using Scada.Desktop;
+using Event.Portable.Runtime;
+using Event.Portable.Interfaces;
 
 namespace StaticExtension
 {
     static class StaticInit
     {
  
+        static internal void ShowError(this Exception exception)
+        {
+            Debug.LogError(exception.Message);
+        }
         static private ITimerEventFactory timerEventFactory;
 
         static private ITimerFactory timerFactory;
 
-        static private ITimeMeasureProvider timeProvider;
+        static private ITimeMeasureProviderFactory timeMeasureProviderFactory;
+        
+        static private ITimeMeasureProvider timeMeasureProvider;
 
         static private Scada.Interfaces.IErrorHandler errorHandler = new ErrorHanller();
 
@@ -48,18 +58,20 @@ namespace StaticExtension
             }
             if (timerEventFactory == null)
             {
-                if (script is ITimerFactory)
+                if (script is ITimerEventFactory)
                 {
                     timerEventFactory = script as ITimerEventFactory;
                     StaticExtensionEventInterfaces.TimerEventFactory = timerEventFactory;
                 }
             }
-            if (timeProvider == null)
+            if (timeMeasureProvider == null)
             {
                 if (script is ITimeMeasureProvider)
                 {
-                    timeProvider = script as ITimeMeasureProvider;
-                    StaticExtensionEventInterfaces.TimerEventFactory = timerEventFactory;
+                    timeMeasureProvider = script as ITimeMeasureProvider;
+                    timeMeasureProviderFactory = new TimeMeasureProviderFactory();
+                    StaticExtensionDataPerformerPortable.TimeMeasureProviderFactory 
+                        = timeMeasureProviderFactory;
                 }
             }
         }
@@ -68,41 +80,36 @@ namespace StaticExtension
 
         static StaticInit()
         {
-            StaticExtensionDataPerformerPortable.Factory = DataPerformer.Runtime.DataRuntimeFactory.Object; 
+            Event.Portable.Runtime.StandardEventRuntime.Singleton.Set();
+            StaticExtensionDataPerformerPortable.Factory = DataPerformer.Runtime.DataRuntimeFactory.Singleton; 
             StaticExtensionScadaDesktop.ScadaFactory = ScadaDesktop.Singleton;
 
-            /*         BasicEngineeringInitializer initializer =
-               new BasicEngineeringInitializer(OrdinaryDifferentialEquations.Runge4Solver.Singleton,
+                    ExtendedApplicationInitializer initializer =
+               new ExtendedApplicationInitializer(OrdinaryDifferentialEquations.Runge4Solver.Singleton,
                 RungeProcessor.Processor,
-                   DataPerformer.Runtime.DataRuntimeFactory.Object, new IApplicationInitializer[]
+                   DataPerformer.Runtime.DataRuntimeFactory.Singleton, new IApplicationInitializer[]
                   {
-                                  Event.Basic.ApplicationInitializer.Singleton
+                              Event.Portable.ApplicationInitializer.Singleton
 
                   },
                   true);
-                     initializer.InitializeApplication();
-         */
-
-            // StaticExtensionEventInterfaces.TimerEventFactory = Event.Windows.Forms.WindowsTimerFactory.Singleton;
-
-
+            initializer.InitializeApplication();
+               Event.Portable.Factory.EmptyTimerEventFactory.Set();
             StaticExtensionScadaDesktop.ScadaFactory = ScadaDesktop.Singleton;
 
-            //Scada.Motion6D.Factory.ScadaDesktopMotion6D.Singleton;
+            (StandardEventRuntime.Singleton as IRealtime).OnError += (Exception ex) =>
+                {
+                    ex.ShowError();
+                };
 
-            //      Event.Windows.Forms.WindowsTimerFactory f = Event.Windows.Forms.WindowsTimerFactory.Singleton;
-            //   StaticExtensionEventInterfaces.TimerFactory = f;
-            //   StaticExtensionEventInterfaces.TimerEventFactory = f;
-
-            Event.Portable.Factory.EmptyTimerEventFactory.Set();
-            StaticExtensionScadaDesktop.ScadaFactory = ScadaDesktop.Singleton;
+            
 
         }
         class ErrorHanller : Scada.Interfaces.IErrorHandler
         {
             void Scada.Interfaces.IErrorHandler.ShowError(Exception exception, object obj)
             {
-                Debug.LogError(exception.Message);
+                exception.ShowError();
             }
 
             void Scada.Interfaces.IErrorHandler.ShowMessage(string message, object obj)
@@ -115,7 +122,7 @@ namespace StaticExtension
         {
             ITimeMeasureProvider ITimeMeasureProviderFactory.Create(bool isAbsolute, TimeType timeUnit, string reason)
             {
-                return StaticInit.timeProvider;
+                return StaticInit.timeMeasureProvider;
             }
         }
     }
