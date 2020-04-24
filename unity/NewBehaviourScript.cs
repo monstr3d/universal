@@ -11,7 +11,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NewBehaviourScript : MonoBehaviour, ITimerEventFactory, ITimerFactory, ITimer, ITimeMeasureProvider,
+public class NewBehaviourScript : MonoBehaviour, ITimerEventFactory, ITimerFactory, ITimer,
     ITimerEvent
 {
     [SerializeField]
@@ -32,6 +32,13 @@ public class NewBehaviourScript : MonoBehaviour, ITimerEventFactory, ITimerFacto
     Func<double> outputX;
     Func<double> outputY;
 
+    Action<double> inputA;
+
+    Action<double> inputB;
+
+    double a = 1;
+
+    double b = 1;
 
     private void Awake()
     {
@@ -43,8 +50,10 @@ public class NewBehaviourScript : MonoBehaviour, ITimerEventFactory, ITimerFacto
             var ou = scada.Outputs;
             outputX = scada.GetDoubleOutput("Motion.Formula_1");
             outputY = scada.GetDoubleOutput("Motion.Formula_2");
-            desktop.SetAliasValue("Motion.a", (double)2);
-            desktop.SetAliasValue("Motion.b", (double)5);
+            inputA = scada.GetDoubleInput("Input.a");
+            inputB = scada.GetDoubleInput("Input.b");
+            //          desktop.SetAliasValue("Motion.a", (double)2);
+            //          desktop.SetAliasValue("Motion.b", (double)5);
         }
         catch (Exception exception)
         {
@@ -68,9 +77,46 @@ public class NewBehaviourScript : MonoBehaviour, ITimerEventFactory, ITimerFacto
     // Update is called once per frame
     void Update()
     {
+        double dd = 0.01;
         if (scada.IsEnabled)
         {
             ev();
+            if (Input.GetKey(KeyCode.A))
+            {
+                a += dd;
+                if (a > 10)
+                {
+                    a = 10;
+                }
+                inputA(a);
+            }
+            if (Input.GetKey(KeyCode.S))
+            {
+                a -= dd;
+                if (a < 0)
+                {
+                    a = 0;
+                }
+                inputA(a);
+            }
+            if (Input.GetKey(KeyCode.D))
+            {
+                b += dd;
+                if (b > 10)
+                {
+                    b = 10;
+                }
+                inputB(b);
+            }
+            if (Input.GetKey(KeyCode.E))
+            {
+                b -= dd;
+                if (b < 0)
+                {
+                   b = 0;
+                }
+                inputB(b);
+            }
             if (obj != null)
             {
                 obj.transform.position = new Vector3((float)outputX(), (float)outputY());
@@ -93,23 +139,7 @@ public class NewBehaviourScript : MonoBehaviour, ITimerEventFactory, ITimerFacto
     TimeSpan ITimerEvent.TimeSpan { get => ts; set => ts = value; }
     bool Event.Interfaces.IEvent.IsEnabled { get => isEnabled; set => SetEnabled(value); }
 
-    IMeasurement ITimeMeasureProvider.TimeMeasurement
-    {
-        get
-        {
-            if (timeMeasurement == null)
-            {
-                ITimeMeasureProvider p = this;
-                timeMeasurement =
-                    new DataPerformer.Portable.Measurements.Measurement(() => p.Time, "Time");
-            }
-            return timeMeasurement;
-        }
-    }
-
-    double ITimeMeasureProvider.Time { get => (double)Time.realtimeSinceStartup; set { } }
-    double ITimeMeasureProvider.Step { get; set; }
-
+  
     #endregion
 
 

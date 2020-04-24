@@ -16,17 +16,26 @@ namespace GeneratedProject
 		{
 			internal IntrenalDesktop()
 			{
-				objects.Add(new IntrenalDesktop.OblectLabel0("Timer"));
-				objects.Add(new IntrenalDesktop.OblectLabel1("Motion"));
-				objects.Add(new IntrenalDesktop.OblectLabel2("Consumer"));
+				objects.Add(new IntrenalDesktop.OblectLabel0("Input"));
+				objects.Add(new IntrenalDesktop.OblectLabel1("Timer"));
+				objects.Add(new IntrenalDesktop.OblectLabel2("Motion"));
+				objects.Add(new IntrenalDesktop.OblectLabel3("Consumer"));
 				Diagram.UI.Labels.PureArrowLabel currALabel = null;
 				currALabel  = new IntrenalDesktop.ArrowLabel0("");
 				arrows.Add(currALabel);
-				currALabel.SourceNumber = (int)2;
-				currALabel.TargetNumber = (int)1;
+				currALabel.SourceNumber = (int)3;
+				currALabel.TargetNumber = (int)2;
 				currALabel  = new IntrenalDesktop.ArrowLabel1("");
 				arrows.Add(currALabel);
+				currALabel.SourceNumber = (int)3;
+				currALabel.TargetNumber = (int)1;
+				currALabel  = new IntrenalDesktop.ArrowLabel2("");
+				arrows.Add(currALabel);
 				currALabel.SourceNumber = (int)2;
+				currALabel.TargetNumber = (int)0;
+				currALabel  = new IntrenalDesktop.ArrowLabel3("");
+				arrows.Add(currALabel);
+				currALabel.SourceNumber = (int)3;
 				currALabel.TargetNumber = (int)0;
 				bool pl = PostLoad();
 				bool pd = PostDeserialize();
@@ -40,6 +49,33 @@ namespace GeneratedProject
 					obj = new OblectLabel0.CategoryObject();
 				}
 		
+				internal class CategoryObject : Event.Portable.Events.ForcedEventData
+				{
+				internal CategoryObject()
+				{
+					List<Tuple<string, object>> tt = new List<Tuple<string, object>>();
+					tt.Add(new Tuple<string, object>("a", (System.Double)0));
+					tt.Add(new Tuple<string, object>("b", (System.Double)0));
+					Types = tt;
+					List<object> ini = new List<object>();
+					ini.Add((System.Double)1);
+					ini.Add((System.Double)1);
+					initial = new object[ini.Count];
+					for (int i = 0; i < ini.Count; i++)
+					{
+						initial[i] = ini[i];
+					}
+				}
+				}
+			}
+		
+			internal class OblectLabel1 : Diagram.UI.Labels.PureObjectLabel
+			{
+				internal OblectLabel1(string name) : base(name, "", "", 0, 0)
+				{
+					obj = new OblectLabel1.CategoryObject();
+				}
+		
 				internal class CategoryObject : Event.Portable.Events.Timer
 				{
 				internal CategoryObject()
@@ -50,11 +86,11 @@ namespace GeneratedProject
 				}
 			}
 		
-			internal class OblectLabel1 : Diagram.UI.Labels.PureObjectLabel
+			internal class OblectLabel2 : Diagram.UI.Labels.PureObjectLabel
 			{
-				internal OblectLabel1(string name) : base(name, "", "", 0, 0)
+				internal OblectLabel2(string name) : base(name, "", "", 0, 0)
 				{
-					obj = new OblectLabel1.CategoryObject();
+					obj = new OblectLabel2.CategoryObject();
 				}
 		
 				internal class CategoryObject : DataPerformer.Formula.VectorFormulaConsumer, FormulaEditor.Interfaces.ITreeCollectionProxyFactory
@@ -75,12 +111,12 @@ namespace GeneratedProject
 						deriOrder = 0;
 						arguments =  new List<string>()
 						{
+							"a = Input.a",
+							"b = Input.b",
 							"t = Time"
 						};
 						parameters =new Dictionary<string, object>()
 						{
-							{"b", (double)1 },
-							{"a", (double)0.10000000000000001 }
 						};
 						operationNames = new Dictionary<System.Int32,System.String>()
 						{
@@ -98,8 +134,8 @@ namespace GeneratedProject
 					{
 						public void Update()
 						{
-							var_0 = (double)aliasName0.Value;
-							var_1 = (double)aliasName1.Value;
+							var_0 = (double)measurement0.Parameter();
+							var_1 = (double)measurement1.Parameter();
 							var_2 = (double)measurement2.Parameter();
 							var_3 = (var_1) * (var_2);
 							var_4 = Math.Sin(var_3);
@@ -112,8 +148,8 @@ namespace GeneratedProject
 						internal  Calculation(FormulaEditor.ObjectFormulaTree[] trees)
 						{
 							this.trees = trees;
-							aliasName0 = DataPerformer.Formula.StaticExtensionDataPerformerFormula.ToAliasName(trees[0]);
-							aliasName1 = DataPerformer.Formula.StaticExtensionDataPerformerFormula.ToAliasName(trees[1]);
+							measurement0 = DataPerformer.Formula.StaticExtensionDataPerformerFormula.ToMeasurement(trees[0]);
+							measurement1 = DataPerformer.Formula.StaticExtensionDataPerformerFormula.ToMeasurement(trees[1]);
 							measurement2 = DataPerformer.Formula.StaticExtensionDataPerformerFormula.ToMeasurement(trees[2]);
 							dictionary[trees[0]] = Get_0;
 							dictionary[trees[1]] = Get_1;
@@ -133,8 +169,8 @@ namespace GeneratedProject
 						
 						Dictionary<FormulaEditor.ObjectFormulaTree, FormulaEditor.GetValue> dictionary = new Dictionary<FormulaEditor.ObjectFormulaTree, FormulaEditor.GetValue>();
 						
-						Diagram.UI.Interfaces.IAliasName aliasName0;
-						Diagram.UI.Interfaces.IAliasName aliasName1;
+						DataPerformer.Interfaces.IMeasurement measurement0;
+						DataPerformer.Interfaces.IMeasurement measurement1;
 						DataPerformer.Interfaces.IMeasurement measurement2;
 						FormulaEditor.ObjectFormulaTree currentTree = null;
 						object[] currentArray = null;
@@ -211,11 +247,11 @@ namespace GeneratedProject
 				}
 			}
 		
-			internal class OblectLabel2 : Diagram.UI.Labels.PureObjectLabel
+			internal class OblectLabel3 : Diagram.UI.Labels.PureObjectLabel
 			{
-				internal OblectLabel2(string name) : base(name, "", "", 0, 0)
+				internal OblectLabel3(string name) : base(name, "", "", 0, 0)
 				{
-					obj = new OblectLabel2.CategoryObject();
+					obj = new OblectLabel3.CategoryObject();
 				}
 		
 				internal class CategoryObject : DataPerformer.Portable.DataConsumer
@@ -246,6 +282,30 @@ namespace GeneratedProject
 				}
 		
 				internal class CategoryArrow : Event.Portable.Arrows.EventLink
+				{
+				}
+			}
+		
+			internal class ArrowLabel2 : Diagram.UI.Labels.PureArrowLabel
+			{
+				internal ArrowLabel2(string name) : base(name, "", "", 0, 0)
+				{
+					arrow = new ArrowLabel2.CategoryArrow();
+				}
+		
+				internal class CategoryArrow : DataPerformer.Portable.DataLink
+				{
+				}
+			}
+		
+			internal class ArrowLabel3 : Diagram.UI.Labels.PureArrowLabel
+			{
+				internal ArrowLabel3(string name) : base(name, "", "", 0, 0)
+				{
+					arrow = new ArrowLabel3.CategoryArrow();
+				}
+		
+				internal class CategoryArrow : DataPerformer.Portable.DataLink
 				{
 				}
 			}

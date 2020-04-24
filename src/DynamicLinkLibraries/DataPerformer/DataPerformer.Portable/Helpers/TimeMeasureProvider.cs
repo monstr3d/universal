@@ -11,7 +11,7 @@ namespace DataPerformer.Helpers
     /// <summary>
     /// Simplest provider of time measure
     /// </summary>
-    public class TimeMeasureProvider : ITimeMeasureProvider
+    public class TimeMeasureProvider : ITimeMeasurementProvider
     {
         #region Fields
 
@@ -39,7 +39,7 @@ namespace DataPerformer.Helpers
 
         #region ITimeMeasureProvider Members
 
-        IMeasurement ITimeMeasureProvider.TimeMeasurement
+        IMeasurement ITimeMeasurementProvider.TimeMeasurement
         {
             get
             {
@@ -47,7 +47,7 @@ namespace DataPerformer.Helpers
             }
         }
 
-        double ITimeMeasureProvider.Time
+        double ITimeMeasurementProvider.Time
         {
             get
             {
@@ -59,7 +59,7 @@ namespace DataPerformer.Helpers
             }
         }
 
-        double ITimeMeasureProvider.Step
+        double ITimeMeasurementProvider.Step
         {
             get
             {

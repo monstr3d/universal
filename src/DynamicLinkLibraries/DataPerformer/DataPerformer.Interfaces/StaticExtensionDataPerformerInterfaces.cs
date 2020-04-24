@@ -259,7 +259,7 @@ namespace DataPerformer.Interfaces
         /// </summary>
         /// <param name="Consumer">Consumer</param>
         /// <returns>Time</returns>
-        public static double GetTime(this ITimeMeasureConsumer consumer)
+        public static double GetTime(this ITimeMeasurementConsumer consumer)
         {
             return (double)consumer.Time.Parameter();
         }

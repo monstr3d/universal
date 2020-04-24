@@ -16,7 +16,7 @@ namespace DataPerformer.Event.Portable
     {
 
         public static bool PerformIterator(this IDataConsumer consumer, IIterator iterator,
-    ITimeMeasureProvider timeProvider, string reason, Func<bool> stop)
+    ITimeMeasurementProvider timeProvider, string reason, Func<bool> stop)
         {
             try
             {
@@ -65,7 +65,7 @@ namespace DataPerformer.Event.Portable
         }
 
         public static IEnumerable<object> PerformIteratorEnumerable(this IDataConsumer consumer, IIterator  iterator, 
-            ITimeMeasureProvider timeProvider, string reason, Func<bool> stop)
+            ITimeMeasurementProvider timeProvider, string reason, Func<bool> stop)
         {
             try
             {

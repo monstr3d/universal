@@ -53,7 +53,7 @@ namespace DataPerformer.Interfaces
         /// <summary>
         /// Provider of time measure
         /// </summary>
-        ITimeMeasureProvider TimeProvider
+        ITimeMeasurementProvider TimeProvider
         {
             get;
             set;

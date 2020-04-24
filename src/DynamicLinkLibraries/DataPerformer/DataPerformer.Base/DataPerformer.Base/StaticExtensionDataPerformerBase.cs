@@ -310,7 +310,7 @@ namespace DataPerformer
         /// <param name="stop">Stop</param>
         /// <returns>True in case of interruption</returns>
         public static bool PerformIterator(this IDataConsumer consumer, IIterator iterator,
-            ITimeMeasureProvider timeProvider, string reason, Func<bool> stop)
+            ITimeMeasurementProvider timeProvider, string reason, Func<bool> stop)
         {
             try
             {
@@ -367,7 +367,7 @@ namespace DataPerformer
         /// <param name="priority">Priority</param>
         /// <param name="action">Additional action</param>
         /// <param name="reason">Reason</param>
-        static public void PerformFixed(this IComponentCollection collection, double start, double step, int count, ITimeMeasureProvider provider,
+        static public void PerformFixed(this IComponentCollection collection, double start, double step, int count, ITimeMeasurementProvider provider,
             IDifferentialEquationProcessor processor, int priority, Action action, string reason)
         {
             using (DataPerformer.Portable.TimeProviderBackup backup = new
@@ -375,7 +375,7 @@ namespace DataPerformer
             {
                 List<IMeasurements> measurements = backup.Measurements;
                 IDataRuntime runtime = backup.Runtime;
-                ITimeMeasureProvider old = processor.TimeProvider;
+                ITimeMeasurementProvider old = processor.TimeProvider;
                 processor.TimeProvider = provider;
                 Action<double, double, long> act = runtime.Step(processor, 
                     (double time) => { provider.Time = time; }, reason);
@@ -403,13 +403,13 @@ namespace DataPerformer
         /// <param name="priority">Priority</param>
         /// <param name="action">Additional action</param>
         /// <param name="reason">Reason</param>
-        static public void PerformArray(this IDataConsumer consumer, Array array, IComponentCollection collection, ITimeMeasureProvider provider,
+        static public void PerformArray(this IDataConsumer consumer, Array array, IComponentCollection collection, ITimeMeasurementProvider provider,
             IDifferentialEquationProcessor processor, int priority, Action action, string reason)
         {
             using (TimeProviderBackup backup = new TimeProviderBackup(collection, provider, processor, priority, reason))
             {
                 IDataRuntime runtime = backup.Runtime;
-                ITimeMeasureProvider old = processor.TimeProvider;
+                ITimeMeasurementProvider old = processor.TimeProvider;
                 processor.TimeProvider = provider;
                 IStep st = null;
                 if (runtime is IStep)
@@ -485,7 +485,7 @@ namespace DataPerformer
         /// <param name="errorHandler">Error handler</param>
         /// <param name="asynchronousCalculation">Asynchronous calculation</param>
         static public void PerformFixed(this IDataConsumer consumer, double start, double step, int count,
-            ITimeMeasureProvider provider,
+            ITimeMeasurementProvider provider,
               IDifferentialEquationProcessor processor, string reason,
              int priority, Action action, IAsynchronousCalculation asynchronousCalculation = null, 
              IErrorHandler errorHandler = null)
@@ -495,7 +495,7 @@ namespace DataPerformer
                 using (TimeProviderBackup backup = new TimeProviderBackup(consumer, provider, processor, reason, priority))
                 {
                     IDataRuntime runtime = backup.Runtime;
-                    ITimeMeasureProvider old = processor.TimeProvider;
+                    ITimeMeasurementProvider old = processor.TimeProvider;
                     processor.TimeProvider = provider;
                     IStep st = null;
                     if (runtime is IStep)
@@ -550,7 +550,7 @@ namespace DataPerformer
 
         static private void Check(DigraphLoop loop)
         {
-            ITimeMeasureProvider[] p = new ITimeMeasureProvider[] { GetProvider(loop[0]), GetProvider(loop[1]) };
+            ITimeMeasurementProvider[] p = new ITimeMeasurementProvider[] { GetProvider(loop[0]), GetProvider(loop[1]) };
             if (p[0] == null | p[1] == null)
             {
                 return;
@@ -577,15 +577,15 @@ namespace DataPerformer
 
 
 
-        static private ITimeMeasureProvider GetProvider(DigraphPath path)
+        static private ITimeMeasurementProvider GetProvider(DigraphPath path)
         {
-            ITimeMeasureProvider p = null;
+            ITimeMeasurementProvider p = null;
             for (int i = 0; i < path.Count - 1; i++)
             {
                 ICategoryObject ob = path[i].CategoryObject;
-                if (ob is ITimeMeasureProvider)
+                if (ob is ITimeMeasurementProvider)
                 {
-                    p = ob as ITimeMeasureProvider;
+                    p = ob as ITimeMeasurementProvider;
                 }
             }
             return p;

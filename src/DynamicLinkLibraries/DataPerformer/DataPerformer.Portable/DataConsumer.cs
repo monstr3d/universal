@@ -17,7 +17,7 @@ namespace DataPerformer.Portable
     /// Consumer of data
     /// </summary>
     public class DataConsumer : CategoryObject,  IDataConsumer,
-        IEventHandler, ITimeMeasureConsumer, IAddRemove, ICalculationReason
+        IEventHandler, ITimeMeasurementConsumer, IAddRemove, ICalculationReason
     {
  
         #region Fields
@@ -189,7 +189,7 @@ namespace DataPerformer.Portable
 
         #region ITimeMeasureConsumer Members
 
-        IMeasurement ITimeMeasureConsumer.Time
+        IMeasurement ITimeMeasurementConsumer.Time
         {
             get
             {

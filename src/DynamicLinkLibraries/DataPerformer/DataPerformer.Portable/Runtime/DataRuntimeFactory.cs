@@ -42,7 +42,7 @@ namespace DataPerformer.Runtime
         /// </summary>
         public static readonly DataRuntimeFactory Singleton = new DataRuntimeFactory();
 
-        private ITimeMeasureProvider provider = new TimeMeasureProvider();
+        private ITimeMeasurementProvider provider = new TimeMeasureProvider();
 
         /// <summary>
         /// Check level
@@ -73,7 +73,7 @@ namespace DataPerformer.Runtime
         /// <summary>
         /// Time provider
         /// </summary>
-        ITimeMeasureProvider IDataRuntimeFactory.TimeProvider
+        ITimeMeasurementProvider IDataRuntimeFactory.TimeProvider
         {
             get { return provider; }
         }
@@ -158,16 +158,16 @@ namespace DataPerformer.Runtime
         {
             get
             {
-                if (obj is Tuple<IComponentCollection, ITimeMeasureProvider>)
+                if (obj is Tuple<IComponentCollection, ITimeMeasurementProvider>)
                 {
-                    Tuple<IComponentCollection, ITimeMeasureProvider> tuple = obj as
-                                 Tuple<IComponentCollection, ITimeMeasureProvider>;
+                    Tuple<IComponentCollection, ITimeMeasurementProvider> tuple = obj as
+                                 Tuple<IComponentCollection, ITimeMeasurementProvider>;
                     return new DataRuntime(tuple.Item1, StaticExtensionEventInterfaces.Realtime,
                         0);
                 }
-                Tuple<string, Tuple<IDataConsumer, IComponentCollection, ITimeMeasureProvider, IAsynchronousCalculation>> t = obj as
-                    Tuple<string, Tuple<IDataConsumer, IComponentCollection, ITimeMeasureProvider, IAsynchronousCalculation>>;
-                Tuple < IDataConsumer, IComponentCollection, ITimeMeasureProvider, IAsynchronousCalculation > tt = t.Item2;
+                Tuple<string, Tuple<IDataConsumer, IComponentCollection, ITimeMeasurementProvider, IAsynchronousCalculation>> t = obj as
+                    Tuple<string, Tuple<IDataConsumer, IComponentCollection, ITimeMeasurementProvider, IAsynchronousCalculation>>;
+                Tuple < IDataConsumer, IComponentCollection, ITimeMeasurementProvider, IAsynchronousCalculation > tt = t.Item2;
                 return new DataRuntime(tt.Item2, t.Item1, 0, tt.Item1, tt.Item4, tt.Item3);
             }
         }

@@ -31,6 +31,9 @@ namespace Event.Portable.Events
         /// </summary>
         protected object[] data = new object[0];
 
+        /// <summary>
+        /// Initial values
+        /// </summary>
         protected object[] initial = new object[0];
 
         event Action ev = () => { };

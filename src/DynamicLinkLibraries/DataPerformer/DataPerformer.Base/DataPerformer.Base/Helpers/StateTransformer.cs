@@ -19,7 +19,7 @@ namespace DataPerformer.Helpers
     /// <summary>
     /// Transformer of differential equatuins
     /// </summary>
-    public class StateTransformer : AbstractDoubleTransformer, IMeasurement, ITimeMeasureProvider
+    public class StateTransformer : AbstractDoubleTransformer, IMeasurement, ITimeMeasurementProvider
     {
         #region Fields
 
@@ -27,7 +27,7 @@ namespace DataPerformer.Helpers
         IDifferentialEquationProcessor processor;
 
 
-        ITimeMeasureProvider provider;
+        ITimeMeasurementProvider provider;
 
 
     
@@ -48,7 +48,7 @@ namespace DataPerformer.Helpers
         /// <param name="processor">Differential equation proessor</param>
         /// <param name="provider">Provider of time</param>
         protected StateTransformer(IObjectCollection collection, IDifferentialEquationProcessor processor, 
-            ITimeMeasureProvider provider) : base(collection)
+            ITimeMeasurementProvider provider) : base(collection)
         {
             this.processor = processor;
             this.provider = provider;
@@ -101,14 +101,14 @@ namespace DataPerformer.Helpers
 
         #endregion
 
-        #region ITimeMeasureProvider Members
+        #region ITimeMeasurementProvider Members
 
-        IMeasurement ITimeMeasureProvider.TimeMeasurement
+        IMeasurement ITimeMeasurementProvider.TimeMeasurement
         {
             get { return this; }
         }
 
-        double ITimeMeasureProvider.Time
+        double ITimeMeasurementProvider.Time
         {
             get
             {
@@ -120,7 +120,7 @@ namespace DataPerformer.Helpers
             }
         }
 
-        double ITimeMeasureProvider.Step
+        double ITimeMeasurementProvider.Step
         {
             get
             {
@@ -157,7 +157,7 @@ namespace DataPerformer.Helpers
         /// <param name="output">Output</param>
         public override void Calculate(object[] input, object[] output)
         {
-           ITimeMeasureProvider old = processor.TimeProvider;
+           ITimeMeasurementProvider old = processor.TimeProvider;
             try
             {
                 using (new DataPerformer.Portable.TimeProviderBackup(collection, provider, DifferentialEquationProcessor.Processor, 0, null))

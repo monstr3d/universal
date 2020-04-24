@@ -55,7 +55,7 @@ namespace Event.Portable.Interfaces
         /// <summary>
         /// Time provider
         /// </summary>
-        ITimeMeasureProvider TimeProvider
+        ITimeMeasurementProvider TimeProvider
         {
             get;
         }

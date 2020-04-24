@@ -18,9 +18,15 @@ using Event.Portable;
 using Scada.Desktop;
 using Event.Portable.Runtime;
 using Event.Portable.Interfaces;
+using DataPerformer.Portable.Measurements;
 
 namespace StaticExtension
 {
+
+ 
+
+
+
     static class StaticInit
     {
  
@@ -64,7 +70,7 @@ namespace StaticExtension
                     StaticExtensionEventInterfaces.TimerEventFactory = timerEventFactory;
                 }
             }
-            if (timeMeasureProvider == null)
+         /*   if (timeMeasureProvider == null)
             {
                 if (script is ITimeMeasureProvider)
                 {
@@ -73,14 +79,14 @@ namespace StaticExtension
                     StaticExtensionDataPerformerPortable.TimeMeasureProviderFactory 
                         = timeMeasureProviderFactory;
                 }
-            }
+            }*/
         }
 
 
 
         static StaticInit()
         {
-            Event.Portable.Runtime.StandardEventRuntime.Singleton.Set();
+            StandardEventRuntime.Singleton.Set();
             StaticExtensionDataPerformerPortable.Factory = DataPerformer.Runtime.DataRuntimeFactory.Singleton; 
             StaticExtensionScadaDesktop.ScadaFactory = ScadaDesktop.Singleton;
 
@@ -118,12 +124,23 @@ namespace StaticExtension
             }
         }
 
-        class TimeMeasureProviderFactory : ITimeMeasureProviderFactory
+   
+
+        class TimeMeasureProviderFactory : ITimeMeasureProviderFactory, ITimeMeasureProvider
         {
             ITimeMeasureProvider ITimeMeasureProviderFactory.Create(bool isAbsolute, TimeType timeUnit, string reason)
             {
-                return StaticInit.timeMeasureProvider;
+                return this;
             }
+
+
+            IMeasurement ITimeMeasureProvider.TimeMeasurement => m;
+
+            double ITimeMeasureProvider.Time { get => Time.realtimeSinceStartup; set { } }
+            double ITimeMeasureProvider.Step { get; set; }
+
+            IMeasurement m = new Measurement(() => Time.realtimeSinceStartup, "Time");
+
         }
     }
 }

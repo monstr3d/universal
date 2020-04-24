@@ -17,7 +17,7 @@ namespace DataPerformer.Runtime
     /// <summary>
     /// Real time provider
     /// </summary>
-    public abstract class RealtimeProvider : ITimeMeasureProvider, IRealtimeUpdate
+    public abstract class RealtimeProvider : ITimeMeasurementProvider, IRealtimeUpdate
     {
 
         #region Fields
@@ -105,12 +105,12 @@ namespace DataPerformer.Runtime
 
         #region ITimeMeasureProvider Members
 
-        IMeasurement ITimeMeasureProvider.TimeMeasurement
+        IMeasurement ITimeMeasurementProvider.TimeMeasurement
         {
             get { return timeMeasurement; }
         }
 
-        double ITimeMeasureProvider.Time
+        double ITimeMeasurementProvider.Time
         {
             get
             {
@@ -122,7 +122,7 @@ namespace DataPerformer.Runtime
             }
         }
 
-        double ITimeMeasureProvider.Step
+        double ITimeMeasurementProvider.Step
         {
             get
             {

@@ -22,7 +22,7 @@ namespace SoundService
     [Serializable()]
     [CalculationReasons(new string[] {Event.Interfaces.StaticExtensionEventInterfaces.Realtime, "Testing" })]
     public class MultiSound   : CategoryObject, ISerializable, 
-        IDataConsumer, IPostSetArrow, ITimeMeasureConsumer, IRealtimeUpdate, 
+        IDataConsumer, IPostSetArrow, ITimeMeasurementConsumer, IRealtimeUpdate, 
         IStopped, IStarted
     {
         #region Fields
@@ -143,7 +143,7 @@ namespace SoundService
 
         #region ITimeMeasureConsumer Members
 
-        IMeasurement ITimeMeasureConsumer.Time
+        IMeasurement ITimeMeasurementConsumer.Time
         {
             get
             {

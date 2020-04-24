@@ -25,7 +25,7 @@ namespace DataPerformer.Advanced.Accumulators
     /// Base class for all accumulatotrs
     /// </summary>
     public class AccumulatorBase : AbstractDataTransformer,
-        ISerializable, ITimeMeasureProvider, IPostSetArrow, IChildrenObject
+        ISerializable, ITimeMeasurementProvider, IPostSetArrow, IChildrenObject
     {
         #region Fields
 
@@ -170,14 +170,14 @@ namespace DataPerformer.Advanced.Accumulators
 
         #endregion
 
-        #region ITimeMeasureProvider Members
+        #region ITimeMeasurementProvider Members
 
-        IMeasurement ITimeMeasureProvider.TimeMeasurement
+        IMeasurement ITimeMeasurementProvider.TimeMeasurement
         {
             get { return timeMeasurement; }
         }
 
-        double ITimeMeasureProvider.Time
+        double ITimeMeasurementProvider.Time
         {
             get
             {
@@ -189,7 +189,7 @@ namespace DataPerformer.Advanced.Accumulators
             }
         }
 
-        double ITimeMeasureProvider.Step
+        double ITimeMeasurementProvider.Step
         {
             get
             {
@@ -376,7 +376,7 @@ namespace DataPerformer.Advanced.Accumulators
                s.Push();
            });
 
-            ITimeMeasureProvider old = processor.TimeProvider;
+            ITimeMeasurementProvider old = processor.TimeProvider;
             processor.TimeProvider = this;
             if (block)
             {

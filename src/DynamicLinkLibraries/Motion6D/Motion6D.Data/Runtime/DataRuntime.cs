@@ -57,7 +57,7 @@ namespace Motion6D.Runtime
         public DataRuntime(IComponentCollection collection, string reason, int priority,
             IDataConsumer dataConsumer = null,
             IAsynchronousCalculation realtimeStep = null,
-            ITimeMeasureProvider realtime = null)
+            ITimeMeasurementProvider realtime = null)
              : base(collection, reason, priority, dataConsumer, realtimeStep, realtime)
         {
             updateInternal = base.UpdateAll;

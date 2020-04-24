@@ -25,7 +25,7 @@ namespace DataPerformer.Advanced
     /// Dynamic function
     /// </summary>
     [Serializable()]
-    public class DynamicFunction : AbstractDataTransformer, ISerializable, IStarted,  ITimeMeasureConsumer, IPostSetArrow
+    public class DynamicFunction : AbstractDataTransformer, ISerializable, IStarted,  ITimeMeasurementConsumer, IPostSetArrow
     {
 
         #region Fields
@@ -425,9 +425,9 @@ namespace DataPerformer.Advanced
 
         #endregion
 
-        #region ITimeMeasureConsumer Members
+        #region ITimeMeasurementConsumer Members
 
-        IMeasurement ITimeMeasureConsumer.Time
+        IMeasurement ITimeMeasurementConsumer.Time
         {
             get
             {

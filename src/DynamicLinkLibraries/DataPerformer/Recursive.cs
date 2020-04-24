@@ -35,7 +35,7 @@ namespace DataPerformer
 	/// </summary>
 	[Serializable()]
 	public class Recursive : CategoryObject, ISerializable, IDataConsumer, IMeasurements, IStarted, IAlias,
-		ICheckCorrectness, IStep, IRuntimeUpdate, ITimeMeasureConsumer, IVariableDetector, ITreeCollection,
+		ICheckCorrectness, IStep, IRuntimeUpdate, ITimeMeasurementConsumer, IVariableDetector, ITreeCollection,
         ITimeVariable, IPostSetArrow
 	{
 		
@@ -493,7 +493,7 @@ namespace DataPerformer
 
         #region ITimeMeasureConsumer Members
 
-        IMeasurement ITimeMeasureConsumer.Time
+        IMeasurement ITimeMeasurementConsumer.Time
         {
             get
             {

@@ -53,19 +53,19 @@ namespace Motion6D.Runtime
         {
             get
             {
-                if (obj is Tuple<IComponentCollection, ITimeMeasureProvider, IAsynchronousCalculation>)
+                if (obj is Tuple<IComponentCollection, ITimeMeasurementProvider, IAsynchronousCalculation>)
                 {
-                    Tuple<IComponentCollection, ITimeMeasureProvider, IAsynchronousCalculation> tuple = obj as
-                                 Tuple<IComponentCollection, ITimeMeasureProvider, IAsynchronousCalculation>;
+                    Tuple<IComponentCollection, ITimeMeasurementProvider, IAsynchronousCalculation> tuple = obj as
+                                 Tuple<IComponentCollection, ITimeMeasurementProvider, IAsynchronousCalculation>;
                     return new DataRuntime(tuple.Item1, StaticExtensionEventInterfaces.Realtime,
                         0, null, tuple.Item3, tuple.Item2);
                 }
-                if (obj is Tuple<string, Tuple<IDataConsumer, IComponentCollection, ITimeMeasureProvider,
+                if (obj is Tuple<string, Tuple<IDataConsumer, IComponentCollection, ITimeMeasurementProvider,
              IAsynchronousCalculation>>)
                 {
-                    Tuple<string, Tuple<IDataConsumer, IComponentCollection, ITimeMeasureProvider,
+                    Tuple<string, Tuple<IDataConsumer, IComponentCollection, ITimeMeasurementProvider,
              IAsynchronousCalculation>> tuple = obj as
-                                 Tuple<string, Tuple<IDataConsumer, IComponentCollection, ITimeMeasureProvider,
+                                 Tuple<string, Tuple<IDataConsumer, IComponentCollection, ITimeMeasurementProvider,
              IAsynchronousCalculation>>;
                     
                         return new DataRuntime(tuple.Item2.Item2, tuple.Item1,

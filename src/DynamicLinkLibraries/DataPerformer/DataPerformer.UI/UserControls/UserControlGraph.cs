@@ -91,7 +91,7 @@ namespace DataPerformer.UI.UserControls
 
         private IDataConsumer consumer;
 
-        private ITimeMeasureConsumer timeConsumer;
+        private ITimeMeasurementConsumer timeConsumer;
 
         private Dictionary<IMeasurement, MeasurementsDisasseblyWrapper> measurementsWrapperDictionary = null;
 
@@ -670,7 +670,7 @@ namespace DataPerformer.UI.UserControls
             Tuple<Color[], bool, double[]>>>>[]> data)
         {
             consumer = dataConsumer as DataConsumer;
-            timeConsumer = consumer as ITimeMeasureConsumer;
+            timeConsumer = consumer as ITimeMeasurementConsumer;
             Init();
             userControlRealtime.Set(dataConsumer, data);
         }
@@ -1502,7 +1502,7 @@ namespace DataPerformer.UI.UserControls
                 changeBufferItem = l as IChangeBufferItem;
                 changeBufferItem.Change += ChangeBufferItem;
             }
-            consumer.PerformIterator(l, l as ITimeMeasureProvider,
+            consumer.PerformIterator(l, l as ITimeMeasurementProvider,
                 StaticExtensionEventInterfaces.RealtimeLogAnalysis, stop);
         }
 
@@ -2024,7 +2024,7 @@ namespace DataPerformer.UI.UserControls
             Func<object>[] provider = new Func<object>[1];
             IDataConsumer dc = consumer;
             double time = 0;
-            ITimeMeasureConsumer tc = consumer as ITimeMeasureConsumer;
+            ITimeMeasurementConsumer tc = consumer as ITimeMeasurementConsumer;
             Action<object> act = (object sender) =>
             {
                 StaticExtensionDataPerformerUI.performText(sender);
@@ -2200,7 +2200,7 @@ namespace DataPerformer.UI.UserControls
             double time = 0;
             double startTime = 0;
             bool first = true;
-            ITimeMeasureConsumer tc = consumer as ITimeMeasureConsumer;
+            ITimeMeasurementConsumer tc = consumer as ITimeMeasurementConsumer;
             int currNum = 0;
             double tstep = 0;
             Dictionary<string, IMeasurement> mbn = MeasurementsByName;
@@ -2491,7 +2491,7 @@ namespace DataPerformer.UI.UserControls
             double last = 0;
             double t0 = 0;
             double time = 0;
-            ITimeMeasureConsumer tc = consumer as ITimeMeasureConsumer;
+            ITimeMeasurementConsumer tc = consumer as ITimeMeasurementConsumer;
             DateTime timeStart = DateTime.Now;
             DateTime ct = timeStart;
             double lastDt = 0;

@@ -42,7 +42,7 @@ namespace DataPerformer.UI.Forms
         private Hashtable aliasCombo = new Hashtable();
 
         private DifferentialEquationSolver solver;
-        private DataConsumer consumer;
+        private Portable.DataConsumer consumer;
         private IObjectLabel label;
 
         private bool first = true;
@@ -448,7 +448,7 @@ namespace DataPerformer.UI.Forms
             int y = 0;
             List<string> al = new List<string>();
             solver.GetAliases(al, null);
-            Hashtable ea = solver.ExternalAliases;
+            Dictionary<object, object> ea = solver.ExternalAliases;
             for (int i = 0; i < m.Count; i++)
             {
                 IMeasurement mea = m[i];
@@ -539,7 +539,12 @@ namespace DataPerformer.UI.Forms
                     }
                     table[c] = cb.SelectedItem.ToString();
                 }
-                solver.ExternalAliases = table;
+                Dictionary<object, object> d = new Dictionary<object, object>();
+                foreach (var o in table.Keys)
+                {
+                    d[o] = table[o];
+                }
+                solver.ExternalAliases = d;
             }
             catch (Exception ex)
             {

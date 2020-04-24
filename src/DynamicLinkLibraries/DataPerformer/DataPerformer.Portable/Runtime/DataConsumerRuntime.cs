@@ -98,7 +98,7 @@ namespace DataPerformer.Runtime
         /// <summary>
         /// Time provider
         /// </summary>
-        protected ITimeMeasureProvider provider = new TimeMeasureProvider();
+        protected ITimeMeasurementProvider provider = new TimeMeasureProvider();
 
         /// <summary>
         /// Data consumer
@@ -177,7 +177,7 @@ namespace DataPerformer.Runtime
             }
         }
 
-        ITimeMeasureProvider IDataRuntime.TimeProvider
+        ITimeMeasurementProvider IDataRuntime.TimeProvider
         {
             get { return provider; }
             set { provider = value; }

@@ -33,7 +33,7 @@ namespace DataPerformer.Portable.DifferentialEquationProcessors
         /// <summary>
         /// Time provider
         /// </summary>
-        protected ITimeMeasureProvider timeProvider;
+        protected ITimeMeasurementProvider timeProvider;
 
         /// <summary>
         /// Variables
@@ -316,7 +316,7 @@ namespace DataPerformer.Portable.DifferentialEquationProcessors
         /// <summary>
         /// Time provider
         /// </summary>
-        public ITimeMeasureProvider TimeProvider
+        public ITimeMeasurementProvider TimeProvider
         {
             get
             {

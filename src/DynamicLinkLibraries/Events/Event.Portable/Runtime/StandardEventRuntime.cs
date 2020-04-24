@@ -50,7 +50,7 @@ namespace Event.Portable.Runtime
 
         private IComponentCollection collection;
 
-        private ITimeMeasureProvider timeProvider = null;
+        private ITimeMeasurementProvider timeProvider = null;
 
         private string reason;
 
@@ -91,12 +91,12 @@ namespace Event.Portable.Runtime
             rt.collection = collection;
             try
             {
-                ITimeMeasureProvider realTime =
+                ITimeMeasurementProvider realTime =
                     DataPerformer.Portable.StaticExtensionDataPerformerPortable.TimeMeasureProviderFactory.Create(
                         isAbsoluteTime, timeUnit, reason);
-                Tuple<IDataConsumer,IComponentCollection, ITimeMeasureProvider, IAsynchronousCalculation> tuple =
+                Tuple<IDataConsumer,IComponentCollection, ITimeMeasurementProvider, IAsynchronousCalculation> tuple =
                     new Tuple<IDataConsumer, IComponentCollection, 
-                    ITimeMeasureProvider, IAsynchronousCalculation>
+                    ITimeMeasurementProvider, IAsynchronousCalculation>
                     (dataConsumer, collection, realTime, stepAction);
                 rt.timeProvider = realTime;
                 rt.timeBackup =
@@ -185,7 +185,7 @@ namespace Event.Portable.Runtime
         /// <summary>
         /// Time provider
         /// </summary>
-        ITimeMeasureProvider IRealtime.TimeProvider
+        ITimeMeasurementProvider IRealtime.TimeProvider
         {
             get { return timeProvider; }
         }

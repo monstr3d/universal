@@ -23,7 +23,7 @@ namespace DataPerformer.Portable.Interfaces
         /// <param name="log">log</param>
         /// <param name="reason">Reason</param>
         /// <returns>The Realtime provider</returns>
-        ITimeMeasureProvider Create(bool isAbsolute, TimeType timeUnit, string reason);
+        ITimeMeasurementProvider Create(bool isAbsolute, TimeType timeUnit, string reason);
 
     }
 }

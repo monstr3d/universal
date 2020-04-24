@@ -51,7 +51,7 @@ namespace Event.Portable.Performers
         /// <param name="tuple">Tuple</param>
         /// <param name="events">Events</param>
         /// <param name="reason">Reason</param>
-        public EventBackup(Tuple<IDataConsumer, IComponentCollection, ITimeMeasureProvider,
+        public EventBackup(Tuple<IDataConsumer, IComponentCollection, ITimeMeasurementProvider,
             IAsynchronousCalculation> tuple,
             IEvent[] events, string reason)
         {
@@ -85,9 +85,9 @@ namespace Event.Portable.Performers
                 dictionary = rst.StartAlias;
                 dictionary.Get();
             }
-            Tuple<string, Tuple<IDataConsumer, IComponentCollection, ITimeMeasureProvider,
+            Tuple<string, Tuple<IDataConsumer, IComponentCollection, ITimeMeasurementProvider,
                 IAsynchronousCalculation>> tt = new Tuple<string, Tuple<IDataConsumer, IComponentCollection,
-                ITimeMeasureProvider, IAsynchronousCalculation>>
+                ITimeMeasurementProvider, IAsynchronousCalculation>>
                 (reason, tuple);
             IActionFactory f = StaticExtensionEventPortable.ActionFactoryCreator[tt];
             List<INativeEvent> lnative = new List<INativeEvent>();

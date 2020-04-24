@@ -29,7 +29,7 @@ namespace DataPerformer.Event.Portable.Objects.BufferedData
     /// Buffer read and write
     /// </summary>
     public class BufferReadWrite : CategoryObject, IDataConsumer, IMeasurements,
-        ITimeMeasureConsumer, IAddRemove, IEventHandler, IIterator, ITimeMeasureProvider,
+        ITimeMeasurementConsumer, IAddRemove, IEventHandler, IIterator, ITimeMeasurementProvider,
         IComponentCollectionHolder, IChangeBufferItem
     {
 
@@ -55,7 +55,7 @@ namespace DataPerformer.Event.Portable.Objects.BufferedData
  
         Dictionary<string, IMeasurement> measurementsWrite;
 
-        ITimeMeasureConsumer tc;
+        ITimeMeasurementConsumer tc;
   
         IMeasurement timeMeasurement;
 
@@ -302,9 +302,9 @@ namespace DataPerformer.Event.Portable.Objects.BufferedData
 
         #endregion
 
-        #region ITimeMeasureConsumer Members
+        #region ITimeMeasurementConsumer Members
 
-        IMeasurement ITimeMeasureConsumer.Time
+        IMeasurement ITimeMeasurementConsumer.Time
         {
             get
             {
@@ -351,7 +351,7 @@ namespace DataPerformer.Event.Portable.Objects.BufferedData
         #endregion
 
         #region ITimeMeasureProvider Members
-        double ITimeMeasureProvider.Step
+        double ITimeMeasurementProvider.Step
         {
             get
             {
@@ -364,7 +364,7 @@ namespace DataPerformer.Event.Portable.Objects.BufferedData
             }
         }
 
-        double ITimeMeasureProvider.Time
+        double ITimeMeasurementProvider.Time
         {
             get
             {
@@ -377,7 +377,7 @@ namespace DataPerformer.Event.Portable.Objects.BufferedData
             }
         }
 
-        IMeasurement ITimeMeasureProvider.TimeMeasurement
+        IMeasurement ITimeMeasurementProvider.TimeMeasurement
         {
             get
             {
@@ -767,11 +767,11 @@ namespace DataPerformer.Event.Portable.Objects.BufferedData
         {
             string reason = StaticExtensionEventInterfaces.RealtimeLogAnalysis;
             using (DataPerformer.Portable.Time.TimeProviderBackup backup = 
-                new DataPerformer.Portable.Time.TimeProviderBackup(consumer, iterator as ITimeMeasureProvider, null, reason, 0))
+                new DataPerformer.Portable.Time.TimeProviderBackup(consumer, iterator as ITimeMeasurementProvider, null, reason, 0))
             {
                 IDataRuntime runtime = backup.Runtime;
                 IStep st = null;
-                IMeasurement time = (iterator as ITimeMeasureProvider).TimeMeasurement;
+                IMeasurement time = (iterator as ITimeMeasurementProvider).TimeMeasurement;
                 if (runtime is IStep)
                 {
                     st = runtime as IStep;

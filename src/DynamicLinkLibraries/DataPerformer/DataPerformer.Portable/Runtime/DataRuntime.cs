@@ -112,7 +112,7 @@ namespace DataPerformer.Runtime
         /// <summary>
         /// Time provider
         /// </summary>
-        ITimeMeasureProvider provider = new TimeMeasureProvider();
+        ITimeMeasurementProvider provider = new TimeMeasureProvider();
 
         /// <summary>
         /// State
@@ -127,7 +127,7 @@ namespace DataPerformer.Runtime
         /// <summary>
         /// Realtime
         /// </summary>
-        protected ITimeMeasureProvider realtime;
+        protected ITimeMeasurementProvider realtime;
 
         /// <summary>
         /// Realtime data
@@ -172,7 +172,7 @@ namespace DataPerformer.Runtime
         public DataRuntime(IComponentCollection collection, string reason, int priority,
             IDataConsumer dataConsumer = null,
             IAsynchronousCalculation realtimeStep = null,
-            ITimeMeasureProvider realtime = null)
+            ITimeMeasurementProvider realtime = null)
         {
             this.collection = collection;
             this.priority = priority;
@@ -188,7 +188,7 @@ namespace DataPerformer.Runtime
                     realTimeData =
                         new Dictionary<IComponentCollection, Tuple<IDataRuntime, double[],
                             IDifferentialEquationProcessor, Action>>();
-                    this.realtime = realtime as ITimeMeasureProvider;
+                    this.realtime = realtime as ITimeMeasurementProvider;
                     provider = realtime;
                     dCollection = new Dictionary<object, IComponentCollection>();
                     /*!!!! * DECOMPOSITION THINK AFTER
@@ -385,7 +385,7 @@ namespace DataPerformer.Runtime
             }
         }
 
-        ITimeMeasureProvider IDataRuntime.TimeProvider
+        ITimeMeasurementProvider IDataRuntime.TimeProvider
         {
             get { return provider; }
             set { provider = value; }
@@ -598,7 +598,7 @@ namespace DataPerformer.Runtime
         protected virtual Action CreateAction(IDataRuntime runtime, double[] time,
             IDifferentialEquationProcessor processor, Action action, IRealtimeUpdate[] update)
         {
-            ITimeMeasureProvider rt = realtime;
+            ITimeMeasurementProvider rt = realtime;
             double[] t = new double[1];
             Action<double> setTime = (double a) => { };
             Action<double, double, long> act = runtime.Step(processor, setTime,

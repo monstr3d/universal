@@ -19,7 +19,7 @@ namespace DataPerformer.Portable
     {
         #region Fields
 
-        Dictionary<ITimeMeasureConsumer, IMeasurement> dictionary = new Dictionary<ITimeMeasureConsumer, IMeasurement>();
+        Dictionary<ITimeMeasurementConsumer, IMeasurement> dictionary = new Dictionary<ITimeMeasurementConsumer, IMeasurement>();
 
         IDataConsumer consumer;
 
@@ -43,7 +43,7 @@ namespace DataPerformer.Portable
         /// <param name="provider">Time provider</param>
         /// <param name="priority">Priority</param>
         /// <param name="reason">Reason</param>
-        public TimeProviderBackup(IComponentCollection collection, ITimeMeasureProvider provider,
+        public TimeProviderBackup(IComponentCollection collection, ITimeMeasurementProvider provider,
            int priority, string reason)
         {
             this.collection = collection;
@@ -61,7 +61,7 @@ namespace DataPerformer.Portable
         /// <param name="processor">Differential equation processor</param>
         /// <param name="reason">Reason</param>
         /// <param name="priority">Priority</param>
-        public TimeProviderBackup(IDataConsumer consumer, ITimeMeasureProvider provider, IDifferentialEquationProcessor processor, string reason, int priority)
+        public TimeProviderBackup(IDataConsumer consumer, ITimeMeasurementProvider provider, IDifferentialEquationProcessor processor, string reason, int priority)
         {
             this.consumer = consumer;
             collection = consumer.GetDependentCollection(priority);
@@ -83,7 +83,7 @@ namespace DataPerformer.Portable
         /// <param name="processor">Differential equation processor</param>
         /// <param name="priority">Priority</param>
         /// <param name="reason">Reason</param>
-        public TimeProviderBackup(IComponentCollection collection, ITimeMeasureProvider provider,
+        public TimeProviderBackup(IComponentCollection collection, ITimeMeasurementProvider provider,
             IDifferentialEquationProcessor processor, int priority, string reason)
         {
             this.collection = collection;
@@ -163,9 +163,9 @@ namespace DataPerformer.Portable
         }
 
 
-        static void SetTimeProvider(object o, ITimeMeasureProvider provider, IDictionary<ITimeMeasureConsumer, IMeasurement> dictionary)
+        static void SetTimeProvider(object o, ITimeMeasurementProvider provider, IDictionary<ITimeMeasurementConsumer, IMeasurement> dictionary)
         {
-            ITimeMeasureConsumer tc = o.GetLabelObject<ITimeMeasureConsumer>();
+            ITimeMeasurementConsumer tc = o.GetLabelObject<ITimeMeasurementConsumer>();
             if (tc != null)
             {
                 if (dictionary.ContainsKey(tc))
@@ -198,7 +198,7 @@ namespace DataPerformer.Portable
 
 
         private static void SetTimeProvider(IComponentCollection collection,
-            ITimeMeasureProvider provider, IDictionary<ITimeMeasureConsumer, IMeasurement> dictionary)
+            ITimeMeasurementProvider provider, IDictionary<ITimeMeasurementConsumer, IMeasurement> dictionary)
         {
             IEnumerable<object> c = collection.AllComponents;
             foreach (object o in c)
@@ -209,9 +209,9 @@ namespace DataPerformer.Portable
 
         private void Reset(object o)
         {
-            if (o is ITimeMeasureConsumer)
+            if (o is ITimeMeasurementConsumer)
             {
-                ITimeMeasureConsumer tc = o as ITimeMeasureConsumer;
+                ITimeMeasurementConsumer tc = o as ITimeMeasurementConsumer;
                 if (dictionary.ContainsKey(tc))
                 {
                     tc.Time = dictionary[tc];
@@ -246,11 +246,11 @@ namespace DataPerformer.Portable
         /// <param name="provider">Data provider</param>
         /// <param name="dictionary">Backup dictionary</param>
         private static void SetTimeProvider(IDataConsumer consumer,
-            ITimeMeasureProvider provider, IDictionary<ITimeMeasureConsumer, IMeasurement> dictionary)
+            ITimeMeasurementProvider provider, IDictionary<ITimeMeasurementConsumer, IMeasurement> dictionary)
         {
-            if (consumer is ITimeMeasureConsumer)
+            if (consumer is ITimeMeasurementConsumer)
             {
-                ITimeMeasureConsumer tc = consumer as ITimeMeasureConsumer;
+                ITimeMeasurementConsumer tc = consumer as ITimeMeasurementConsumer;
                 if (dictionary.ContainsKey(tc))
                 {
                     if (tc.Time != provider.TimeMeasurement)
@@ -268,7 +268,7 @@ namespace DataPerformer.Portable
             // IDataRuntime dr = consumer.CreateRuntime();
         }
 
-        static void SetTimeProvider(IChildrenObject co, ITimeMeasureProvider provider, IDictionary<ITimeMeasureConsumer, IMeasurement> dictionary)
+        static void SetTimeProvider(IChildrenObject co, ITimeMeasurementProvider provider, IDictionary<ITimeMeasurementConsumer, IMeasurement> dictionary)
         {
             IAssociatedObject[] ao = co.Children;
             foreach (object o in ao)
@@ -291,11 +291,11 @@ namespace DataPerformer.Portable
             }
         }
 
-        static void SetTimeProvider(IMeasurements m, ITimeMeasureProvider provider, IDictionary<ITimeMeasureConsumer, IMeasurement> dictionary)
+        static void SetTimeProvider(IMeasurements m, ITimeMeasurementProvider provider, IDictionary<ITimeMeasurementConsumer, IMeasurement> dictionary)
         {
-            if (m is ITimeMeasureConsumer)
+            if (m is ITimeMeasurementConsumer)
             {
-                ITimeMeasureConsumer mc = m as ITimeMeasureConsumer;
+                ITimeMeasurementConsumer mc = m as ITimeMeasurementConsumer;
                 if (dictionary.ContainsKey(mc))
                 {
                     if (mc.Time != provider.TimeMeasurement)
@@ -328,9 +328,9 @@ namespace DataPerformer.Portable
 
         private void Reset(IDataConsumer consumer)
         {
-            if (consumer is ITimeMeasureConsumer)
+            if (consumer is ITimeMeasurementConsumer)
             {
-                ITimeMeasureConsumer tc = consumer as ITimeMeasureConsumer;
+                ITimeMeasurementConsumer tc = consumer as ITimeMeasurementConsumer;
                 if (dictionary.ContainsKey(tc))
                 {
                     tc.Time = dictionary[tc];
@@ -339,9 +339,9 @@ namespace DataPerformer.Portable
             for (int i = 0; i < consumer.Count; i++)
             {
                 IMeasurements m = consumer[i];
-                if (m is ITimeMeasureConsumer)
+                if (m is ITimeMeasurementConsumer)
                 {
-                    ITimeMeasureConsumer mc = m as ITimeMeasureConsumer;
+                    ITimeMeasurementConsumer mc = m as ITimeMeasurementConsumer;
                     if (dictionary.ContainsKey(mc))
                     {
                         mc.Time = dictionary[mc];
