@@ -98,7 +98,7 @@ namespace DataPerformer.Runtime
         /// <summary>
         /// Time provider
         /// </summary>
-        protected ITimeMeasurementProvider provider = new TimeMeasureProvider();
+        protected ITimeMeasurementProvider provider = new TimeMeasurementProvider();
 
         /// <summary>
         /// Data consumer

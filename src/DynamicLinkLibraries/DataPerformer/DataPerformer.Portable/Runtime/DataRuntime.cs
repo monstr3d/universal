@@ -112,7 +112,7 @@ namespace DataPerformer.Runtime
         /// <summary>
         /// Time provider
         /// </summary>
-        ITimeMeasurementProvider provider = new TimeMeasureProvider();
+        ITimeMeasurementProvider provider = new TimeMeasurementProvider();
 
         /// <summary>
         /// State

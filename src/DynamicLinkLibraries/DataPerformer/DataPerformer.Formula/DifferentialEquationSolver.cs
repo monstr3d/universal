@@ -21,12 +21,12 @@ using FormulaEditor.Symbols;
 using DataPerformer.Formula;
 using DataPerformer.Formula.Interfaces;
 
-namespace DataPerformer.Portable
+namespace DataPerformer.Formula
 {
     /// <summary>
     /// Solver of ordinary differential equations system
     /// </summary>
-    public class DifferentialEquationSolver : DataConsumer, IDifferentialEquationSolver, 
+    public class DifferentialEquationSolver : DataConsumerMeasurements, IDifferentialEquationSolver, 
         IStarted, IAlias, ICheckCorrectness, IVariableDetector,
         IDynamical, ITreeCollection, ITimeVariable, IStack, IRuntimeUpdate, IPostSetArrow
     {
@@ -36,7 +36,7 @@ namespace DataPerformer.Portable
         /// <summary>
         /// Input dynamical parameter
         /// </summary>
-        private Formula.DynamicalParameter par;
+    //    private Formula.DynamicalParameter par;
 
         /// <summary>
         /// Table of variables of equations. Table contains initial values and derivations of variables
@@ -46,7 +46,8 @@ namespace DataPerformer.Portable
         /// <summary>
         /// Table representation of input parameters
         /// </summary>
-        private Dictionary<char, VariableMeasurement> parameters = new Dictionary<char, VariableMeasurement>();
+        new private Dictionary<char, VariableMeasurement> parameters = 
+            new Dictionary<char, VariableMeasurement>();
 
         /// <summary>
         /// Output parameters
@@ -64,9 +65,11 @@ namespace DataPerformer.Portable
         private double timeOld;
 
         /// <summary>
-        /// List of right parts arguments
+        /// Operation table
         /// </summary>
-        protected List<string> arguments = new List<string>();
+        protected Dictionary<int, IOperationAcceptor> opTable;
+
+
 
         /// <summary>
         /// Table representation of variables
@@ -102,10 +105,6 @@ namespace DataPerformer.Portable
         protected List<string> variabelstr = new List<string>();
 
 
-        /// <summary>
-        /// The "is serialized" flag
-        /// </summary>
-        protected bool isSerialized = false;
 
 
         /// <summary>
@@ -118,20 +117,11 @@ namespace DataPerformer.Portable
         /// </summary>
         private IFormulaObjectCreator creator;
 
-        /// <summary>
-        /// Order of derivation
-        /// </summary>
-        protected int deriOrder = 0;
 
         /// <summary>
         /// Start preparation
         /// </summary>
         private Action prepareStart;
-
-        /// <summary>
-        /// Update action
-        /// </summary>
-        private Action update;
 
         /// <summary>
         /// Measurements
@@ -151,15 +141,18 @@ namespace DataPerformer.Portable
         /// </summary>
         protected Dictionary<string, int> deriOrders = new Dictionary<string, int>();
 
-        private double[] outputD;
-
         /// <summary>
-        /// Change alias event
+        /// Proxy factory
         /// </summary>
-        event Action<IAlias, string> onChange = (IAlias a, string name) => { };
+        protected ITreeCollectionProxyFactory proxyFactory = null;
+
+        private double[] outputD;
 
 
         private List<object> args = new List<object>();
+
+   
+
 
         ITreeCollectionProxy proxy;
 
@@ -171,22 +164,30 @@ namespace DataPerformer.Portable
         /// Consructor
         /// </summary>
         public DifferentialEquationSolver()
-            : base(30)
         {
+            proxyFactory = StaticExtensionFormulaEditor.Factory;
             init();
             vars = new Dictionary<object, object>();
             pars = new Dictionary<object, object>();
             aliases = new Dictionary<object, object>();
-
         }
 
 
-  
+
         #endregion
 
         #region Members
 
- 
+        /// <summary>
+        /// Gets formula
+        /// </summary>
+        /// <param name="i">Number of the formula</param>
+        /// <returns>The formula</returns>
+        public string GetFormula(int i)
+        {
+            return formulaString[i];
+        }
+
         /// <summary>
         /// Keys of variables
         /// </summary>
@@ -298,6 +299,65 @@ namespace DataPerformer.Portable
             }
         }
 
+        private void SetParameter()
+        {
+  //          Prepare();
+            DynamicalParameter parameter = new DynamicalParameter();
+            foreach (IMeasurements measurements in measurementsData)
+            {
+                string name = this.GetMeasurementsName(measurements);
+                for (int i = 0; i < measurements.Count; i++)
+                {
+                    IMeasurement measure = measurements[i];
+                    string p = name + "." + measure.Name;
+                    List<string> arg = new List<string>(arguments);
+                    foreach (string s in arg)
+                    {
+                        string ss = s.Substring(4);
+                        //!!!TEMP====================
+                        bool b = ss.Equals(p);
+                        if (!b)
+                        {
+                            if (ss.Replace("/", "_").Equals(p))
+                            {
+                                arguments.Remove(s);
+                                arguments.Add(s.Substring(0, 4) + p);
+                                b = true;
+                            }
+                        }
+                        if (b)
+                        //!!!TEMP ===
+                        {
+                            char c = s[0];
+                            parameter.Add(c, measure);
+                            string key = c + "";
+                            if (!acc.ContainsKey(key))
+                            {
+                                acc[c + ""] = c.Create(measure, this);
+                            }
+                        }
+                    }
+                }
+            }
+            timeVariable = null;
+            IMeasurement timeMeasure =
+                StaticExtensionDataPerformerPortable.Factory.TimeProvider.TimeMeasurement;
+            foreach (string s in arguments)
+            {
+                if (s.Substring(4).Equals("Time"))
+                {
+                    //timeChar = s[0];
+                    // parameter.Add(s[0], timeMeasure);
+                    string key = s[0] + "";
+                    if (!acc.ContainsKey(key))
+                    {
+                        timeVariable = s[0].Create(timeMeasure, this);
+                        acc[key] = timeVariable;
+                    }
+                }
+            }
+        }
+
         /// <summary>
         /// The operation that performs after arrows setting
         /// </summary>
@@ -305,24 +365,94 @@ namespace DataPerformer.Portable
         {
             postDeserialize();
             postSetAlias();
-        }
-
-        /// <summary>
-        /// Checks its correctenss
-        /// </summary>
-        public void CheckCorrectness()
-        {
+            return;
             try
             {
-                //PostSetArrow();
+                isSerialized = true;
+                DynamicalParameter parameter = new DynamicalParameter();
+                foreach (IMeasurements measurements in measurementsData)
+                {
+                    string name = this.GetMeasurementsName(measurements);
+                    for (int i = 0; i < measurements.Count; i++)
+                    {
+                        IMeasurement measure = measurements[i];
+                        string p = name + "." + measure.Name;
+                        List<string> arg = new List<string>(arguments);
+                        foreach (string s in arg)
+                        {
+                            string ss = s.Substring(4);
+                            //!!!TEMP====================
+                            bool b = ss.Equals(p);
+                            if (!b)
+                            {
+                                if (ss.Replace("/", "_").Equals(p))
+                                {
+                                    arguments.Remove(s);
+                                    arguments.Add(s.Substring(0, 4) + p);
+                                    b = true;
+                                }
+                            }
+                            if (b)
+                            //!!!TEMP ===
+                            {
+                                char c = s[0];
+                                parameter.Add(c, measure);
+                                string key = c + "";
+                                if (!acc.ContainsKey(key))
+                                {
+                                    acc[c + ""] = c.Create(measure, this);
+                                }
+                            }
+                        }
+                    }
+                }
+                timeVariable = null;
+                IMeasurement timeMeasure =
+                    StaticExtensionDataPerformerPortable.Factory.TimeProvider.TimeMeasurement;
+                foreach (string s in arguments)
+                {
+                    if (s.Substring(4).Equals("Time"))
+                    {
+                        //timeChar = s[0];
+                        // parameter.Add(s[0], timeMeasure);
+                        string key = s[0] + "";
+                        if (!acc.ContainsKey(key))
+                        {
+                            timeVariable = s[0].Create(timeMeasure, this);
+                            acc[key] = timeVariable;
+                        }
+                    }
+                }
+                Parameter = parameter;
+                string argStr = AllVariables;
+                foreach (char key in parameters.Keys)
+                {
+                    var cc = key + "";
+                    if (!acc.ContainsKey(cc))
+                    {
+                        acc[cc] = new AliasNameVariable(cc, this, cc);
+                    }
+                }
+   //             postSetUnary();
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                e.ShowError(10);
-                this.Throw(e);
+                ex.ShowError(10);
+                if (deriOrder >= 0)
+                {
+                    if (ex.Message.Equals("VariableMeasure.Derivation"))
+                    {
+                        --deriOrder;
+                        (this as IPostSetArrow).PostSetArrow();
+                        return;
+                    }
+                }
+                this.Throw(ex);
             }
+            SetFeedback();
+          //  SetForward();
         }
-
+ 
 
         /// <summary>
         /// Accepts measurements
@@ -330,7 +460,7 @@ namespace DataPerformer.Portable
         private void acceptMeasurements()
         {
             timeVariable = null;
-            Formula.DynamicalParameter parameter = new Formula.DynamicalParameter();
+            Portable.DynamicalParameter parameter = new Portable.DynamicalParameter();
             parameters.Clear();
             foreach (IMeasurements measurements in measurementsData)
             {
@@ -380,25 +510,13 @@ namespace DataPerformer.Portable
                     }
                 }
             }
-            Parameter = parameter;
         }
 
-        /// <summary>
-        /// The name of measurements source
-        /// </summary>
-        public string SourceName
-        {
-            get
-            {
-                INamedComponent comp = Object as INamedComponent;
-                return comp.Name;
-            }
-        }
 
         /// <summary>
         /// Arguments of equations
         /// </summary>
-        public List<string> Arguments
+        public override List<string> Arguments
         {
             get
             {
@@ -435,17 +553,7 @@ namespace DataPerformer.Portable
             }
         }
 
-        /// <summary>
-        /// Input dynamical parameter
-        /// </summary>
-        public Formula.DynamicalParameter Parameter
-        {
-            set
-            {
-                par = value;
-            }
-        }
-
+   
         /// <summary>
         /// Starts this object
         /// </summary>
@@ -531,7 +639,7 @@ namespace DataPerformer.Portable
         /// <summary>
         /// All variabeles in formulas
         /// </summary>
-        public string AllVariables
+        public override string AllVariables
         {
             get
             {
@@ -824,8 +932,6 @@ namespace DataPerformer.Portable
             vars.Clear();
         }
 
-
-
         /// <summary>
         /// Performs operations after deserialization
         /// </summary>
@@ -846,13 +952,16 @@ namespace DataPerformer.Portable
                 }
             }
             string str = "";
+            var fl = new List<string>();
             foreach (char c in vars.Keys)
             {
                 object[] o = vars[c] as object[];
                 string st = o[0] as string;
+                fl.Add(st);
                 MathFormula f = MathFormula.FromString(MathSymbolFactory.Sizes, st);
                 string s = ElementaryObjectDetector.GetVariables(f);
             }
+            formulaString = fl.ToArray();
             Double a = 0;
             varlist.Clear();
             foreach (char c in variables.Keys)
@@ -1348,6 +1457,210 @@ namespace DataPerformer.Portable
             {
                 value.Set(this);
                 base.TimeMeasurement = value;
+            }
+        }
+
+        /// <summary>
+        /// Table of operations
+        /// </summary>
+        protected override Dictionary<int, ICategoryObject> InternalOperationTable
+        {
+            get
+            {
+                Dictionary<int, ICategoryObject> t = new Dictionary<int, ICategoryObject>();
+                foreach (ICategoryObject o in operations)
+                {
+                    IObjectLabel l = o.Object as IObjectLabel;
+                    string name = this.GetRelativeName(o);//l.Name;
+                    if (!operationNames.ContainsValue(name))
+                    {
+                        continue;
+                    }
+                    foreach (int i in operationNames.Keys)
+                    {
+                        if (name.Equals(operationNames[i]))
+                        {
+                            t[i] = o;
+                            break;
+                        }
+                    }
+                }
+                return t;
+            }
+        }
+
+
+
+
+        /// <summary>
+        /// The input dynamical parameter
+        /// </summary>
+        public override Portable.DynamicalParameter Parameter
+        {
+            set
+            {
+                par = value;
+                proxy = null;
+                if (!isSerialized)
+                {
+                    acc.Clear();
+                    foreach (char c in par.Variables)
+                    {
+                        string key = c + "";
+                        if (!acc.ContainsKey(key))
+                        {
+                            VariableMeasurement v = c.Create(par[c], this);
+                            acc[key] = v;
+                        }
+                    }
+                }
+                int n = VariablesCount;
+                measurements = new FormulaMeasurement[n];
+                result = new object[n, 2];
+                if (!isSerialized)
+                {
+                    arguments.Clear();
+                }
+                object ops = InternalOperationTable;
+                if (!isSerialized)
+                {
+                    ops = opTable;
+                }
+                isSerialized = false;
+                Dictionary<char, object> table = new Dictionary<char, object>();
+                string var = par.Variables;
+                Double a = 0;
+                if (allVariables == null)
+                {
+                    allVariables = AllVariables;
+                }
+                foreach (char c in allVariables)
+                {
+                    table[c] = a;
+                }
+                string proh = "";
+                foreach (char c in var)
+                {
+                    IMeasurement m = par[c];
+                    object t = m.Type;
+                    if (t is IOneVariableFunction | t is Table2D | t is Table3D)
+                    {
+                        proh += c;
+                        table[c] = m.Parameter();
+                    }
+                    else
+                    {
+                        table[c] = t;
+                    }
+                }
+                foreach (var s in parameters.Keys)
+                {
+                    object o = parameters[s];
+                    table[s] = AliasTypeDetector.Detector.DetectType(o);
+                    if (!acc.ContainsKey(s + ""))
+                    {
+                        acc[s + ""] = new AliasNameVariable(s + "", this, s + "");
+                    }
+                }
+                AssociatedAddition aa = new AssociatedAddition(this, null);
+                var l = new List<object>(variables.Keys);
+                l.Sort();
+                for (int i = 0; i < n; i++)
+                {
+                    var c = l[i];
+                    object[] oo = variables[c] as object[];
+                    MathFormula f = (variables[c] as object[])[1] as MathFormula;
+                    Dictionary<int, IOperationAcceptor> dop = new Dictionary<int, IOperationAcceptor>();
+                    if (ops is Dictionary<int, IOperationAcceptor>)
+                    {
+                        dop = ops as Dictionary<int, IOperationAcceptor>;
+                    }
+                    SeriesSymbol.SetOperations(f, dop);
+                    try
+                    {
+                        if (creator == null)
+                        {
+                            creator = VariableDetector.GetCreator(this);
+                        }
+                        ObjectFormulaTree t = oo[2] as ObjectFormulaTree;
+                        if (t == null)
+                        {
+                            t = ObjectFormulaTree.CreateTree(f, creator);
+                            oo[2] = t;
+                        }
+                        measurements[i] = FormulaMeasurement.Create(t, deriOrder, Formula_ + (i + 1), aa);
+                    }
+                    catch (Exception ex)
+                    {
+                        ex.ShowError(10);
+                        if (ex.Message.Equals("VariableMeasure.Derivation"))
+                        {
+                            throw ex;
+                        }
+                        throw new Exception("Formula " + (i + 1) + " : " + ex.Message);
+                    }
+                }
+                try
+                {
+                    proxy = null;
+                    proxy = proxyFactory.CreateProxy(this, StaticExtensionFormulaEditor.CheckValue);
+                    update = proxy.Update;
+                    FormulaMeasurement.Set(measurements, proxy);
+                    foreach (string key in replacement.Keys)
+                    {
+                        string varp = key[0] + "";
+                        if (!acc.ContainsKey(varp))
+                        {
+                            continue;
+                        }
+                        object o = acc[varp];
+                        if (!(o is VariableMeasurement))
+                        {
+                            continue;
+                        }
+                        VariableMeasurement vm = o as VariableMeasurement;
+                        string name = key.Substring(4);
+                        foreach (IMeasurements mea in measurementsData)
+                        {
+                            string sn = this.GetRelativeName(mea as IAssociatedObject);
+                            for (int i = 0; i < mea.Count; i++)
+                            {
+                                IMeasurement mm = mea[i];
+                                string snn = sn + "." + mm.Name;
+                                if (snn.Equals(name))
+                                {
+                                    vm.Measurement = mm;
+                                    goto me;
+                                }
+                            }
+                        }
+                    me:
+                        continue;
+                    }
+                    SetFeedback();
+                }
+                catch (Exception ex)
+                {
+                    ex.ShowError(-1);
+                }
+            }
+        }
+
+
+
+        /// <summary>
+        /// Variables
+        /// </summary>
+        public override string Variables
+        {
+            get
+            {
+                string s = "";
+                foreach(var c in vars.Keys)
+                {
+                    s += c;
+                }
+                return s;
             }
         }
 

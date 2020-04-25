@@ -42,7 +42,7 @@ namespace DataPerformer.Runtime
         /// </summary>
         public static readonly DataRuntimeFactory Singleton = new DataRuntimeFactory();
 
-        private ITimeMeasurementProvider provider = new TimeMeasureProvider();
+        private ITimeMeasurementProvider provider = new TimeMeasurementProvider();
 
         /// <summary>
         /// Check level

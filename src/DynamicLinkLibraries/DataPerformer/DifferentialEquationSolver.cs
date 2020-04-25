@@ -28,7 +28,7 @@ namespace DataPerformer
     /// Solver of ordinary differential equations system
     /// </summary>
     [Serializable()]
-    public class DifferentialEquationSolver : DataPerformer.Portable.DifferentialEquationSolver,  ISerializable
+    public class DifferentialEquationSolver : DataPerformer.Formula.DifferentialEquationSolver,  ISerializable
     {
 
 
@@ -174,7 +174,7 @@ namespace DataPerformer
             }
         }
 
-        static void Copy(List<object> d, ArrayList t)
+        void Copy(List<string> d, ArrayList t)
         {
             t.Clear();
             foreach (object o in d)
@@ -184,12 +184,12 @@ namespace DataPerformer
         }
 
 
-        static void Copy(ArrayList d, List<object> t)
+        void Copy(ArrayList d, List<string> t)
         {
             t.Clear();
             foreach (object o in d)
             {
-                t.Add(o);
+                t.Add(o as string);
             }
         }
 
@@ -200,6 +200,7 @@ namespace DataPerformer
             Copy(vars, varsH);
             Copy(pars, parsH);
             Copy(aliases, aliasesH);
+            Copy(arguments, argsH);
         }
 
         void ConvertInvert()
@@ -207,6 +208,7 @@ namespace DataPerformer
             Copy(varsH, vars);
             Copy(parsH, pars);
             Copy(aliasesH, aliases);
+            Copy(argsH, arguments);
         }
 
 

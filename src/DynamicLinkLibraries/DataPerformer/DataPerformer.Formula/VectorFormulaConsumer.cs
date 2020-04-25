@@ -30,11 +30,6 @@ namespace DataPerformer.Formula
         #region Fields
 
         /// <summary>
-        /// String representation of formulas
-        /// </summary>
-        protected string[] formulaString = new string[0];
-
-        /// <summary>
         /// Formulas
         /// </summary>
         protected MathFormula[] formula  = new MathFormula[0];
@@ -69,6 +64,7 @@ namespace DataPerformer.Formula
         /// </summary>
         protected ITreeCollectionProxyFactory proxyFactory = null;
 
+        
         private IMeasurements th;
 
    
@@ -233,7 +229,7 @@ namespace DataPerformer.Formula
         /// <summary>
         /// The operation that performs after arrows setting
         /// </summary>
-        public void PostSetArrow()
+       void IPostSetArrow.PostSetArrow()
         {
 
             try
@@ -313,7 +309,7 @@ namespace DataPerformer.Formula
                     if (ex.Message.Equals("VariableMeasure.Derivation"))
                     {
                         --deriOrder;
-                        PostSetArrow();
+                        (this as IPostSetArrow).PostSetArrow();
                         return;
                     }
                 }
@@ -413,8 +409,6 @@ namespace DataPerformer.Formula
             }
         }
 
-
-
         /// <summary>
         /// The input dynamical parameter
         /// </summary>
@@ -444,7 +438,7 @@ namespace DataPerformer.Formula
                 {
                     arguments.Clear();
                 }
-                object ops = operationTable;
+                object ops = InternalOperationTable;
                 if (!isSerialized)
                 {
                     ops = opTable;
@@ -768,15 +762,7 @@ namespace DataPerformer.Formula
 
         }
 
-        private void SetFeedback()
-        {
-            feedAliases.Clear();
-            foreach (int i in feedback.Keys)
-            {
-                feedAliases[i] = this.FindAliasName(feedback[i], false);
-            }
-        }
-
+  
         private void setOperationNames(Dictionary<int, IOperationAcceptor> table)
         {
             operationNames.Clear();
@@ -795,11 +781,14 @@ namespace DataPerformer.Formula
 
         private void postSetUnary()
         {
-            Dictionary<int, ICategoryObject> t = operationTable;
+            Dictionary<int, ICategoryObject> t = InternalOperationTable;
             setUnaryTrees(t);
         }
 
-        private Dictionary<int, ICategoryObject> operationTable
+        /// <summary>
+        /// Table of operations
+        /// </summary>
+        protected override Dictionary<int, ICategoryObject> InternalOperationTable
         {
             get
             {

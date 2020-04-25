@@ -89,7 +89,7 @@ namespace DataPerformer.Portable
         /// Sets the factory of the time measurements
         /// </summary>
         /// <param name="factory">Factory of the time measurement </param>
-        static public void SetTimeFactory(this ITimeMeasureProviderFactory factory)
+        static public void SetTimeFactory(this ITimeMeasurementProviderFactory factory)
         {
             TimeMeasureProviderFactory = factory;
         }
@@ -97,7 +97,7 @@ namespace DataPerformer.Portable
         /// <summary>
         /// Factory of the time measurement 
         /// </summary>
-        static public ITimeMeasureProviderFactory TimeMeasureProviderFactory
+        static public ITimeMeasurementProviderFactory TimeMeasureProviderFactory
         { get; set; }
         /// <summary>
         /// Creates disassembly object dictionary
@@ -2284,9 +2284,9 @@ namespace DataPerformer.Portable
 
         #endregion
 
-        class DefautFactory : ITimeMeasureProviderFactory
+        class DefautFactory : ITimeMeasurementProviderFactory
         {
-            ITimeMeasurementProvider ITimeMeasureProviderFactory.Create(bool isAbsolute, TimeType timeUnit, string reason)
+            ITimeMeasurementProvider ITimeMeasurementProviderFactory.Create(bool isAbsolute, TimeType timeUnit, string reason)
             {
                 if (reason == "Realtime")
                 {

@@ -25,9 +25,14 @@ namespace DataPerformer.Portable
     /// </summary>
     public abstract class DataConsumerMeasurements : DataConsumer,
         IMeasurements, IAlias, ICheckCorrectness
-      { 
+      {
 
         #region Fields
+
+        /// <summary>
+        /// String representation of formulas
+        /// </summary>
+        protected string[] formulaString = new string[0];
 
         /// <summary>
         /// Resource string
@@ -158,6 +163,13 @@ namespace DataPerformer.Portable
         /// Level of error
         /// </summary>
         protected int errorLevel = 10;
+
+
+        /// <summary>
+        /// The input dynamical parameter
+        /// </summary>
+ 
+
 
         #endregion
 
@@ -344,7 +356,7 @@ namespace DataPerformer.Portable
         /// <summary>
         /// Arguments of this object
         /// </summary>
-        public List<string> Arguments
+        public virtual List<string> Arguments
         {
             get
             {
@@ -533,13 +545,32 @@ namespace DataPerformer.Portable
         }
 
         /// <summary>
+        /// Create aliases
+        /// </summary>
+        /// <param name="str">String of aliases</param>
+        public void CreateAliases(string str)
+        {
+            parameters.Clear();
+            foreach (char c in str)
+            {
+                double a = 0;
+                parameters["" + c] = a;
+            }
+        }
+
+        #endregion
+
+        #region Abstract Members
+
+
+        /// <summary>
         /// The input dynamical parameter
         /// </summary>
         public abstract DynamicalParameter Parameter
         {
             set;
         }
- 
+
         /// <summary>
         /// All formulas variables
         /// </summary>
@@ -556,17 +587,11 @@ namespace DataPerformer.Portable
         }
 
         /// <summary>
-        /// Create aliases
+        /// Table of operations
         /// </summary>
-        /// <param name="str">String of aliases</param>
-        public void CreateAliases(string str)
+        protected abstract Dictionary<int, ICategoryObject> InternalOperationTable
         {
-            parameters.Clear();
-            foreach (char c in str)
-            {
-                double a = 0;
-                parameters["" + c] = a;
-            }
+            get;
         }
 
         #endregion
@@ -581,12 +606,7 @@ namespace DataPerformer.Portable
             get { return measurements.Length; }
         }
 
-        #endregion
-
-        #region Private Members
-
-
-        private void SetFeedback()
+        protected virtual void SetFeedback()
         {
             feedAliases.Clear();
             foreach (int i in feedback.Keys)
@@ -596,36 +616,11 @@ namespace DataPerformer.Portable
         }
 
 
-  
+        #endregion
 
-        private Dictionary<int, ICategoryObject> operationTable
-        {
-            get
-            {
-                Dictionary<int, ICategoryObject> t = new Dictionary<int, ICategoryObject>();
-                foreach (ICategoryObject o in operations)
-                {
-                    IObjectLabel l = o.Object as IObjectLabel;
-                    string name = this.GetRelativeName(o);//l.Name;
-                    if (!operationNames.ContainsValue(name))
-                    {
-                        continue;
-                    }
-                    foreach (int i in operationNames.Keys)
-                    {
-                        if (name.Equals(operationNames[i]))
-                        {
-                            t[i] = o;
-                            break;
-                        }
-                    }
-                }
-                return t;
-            }
-        }
+        #region Private Members
 
 
-  
 
         #endregion
 
