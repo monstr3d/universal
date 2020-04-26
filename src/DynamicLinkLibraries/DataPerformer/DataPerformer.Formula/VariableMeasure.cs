@@ -20,7 +20,8 @@ namespace DataPerformer.Formula
     /// <summary>
     /// Variable measurement
     /// </summary>
-    public class VariableMeasurement : IObjectOperation, IPowered, IDerivationOperation, IOperationAcceptor, ITreeCreator
+    public class VariableMeasurement : IMeasurementHolder, 
+        IObjectOperation, IPowered, IDerivationOperation, IOperationAcceptor, ITreeCreator
     {
 
         #region Fields
@@ -181,7 +182,7 @@ namespace DataPerformer.Formula
         #region Members
 
         /// <summary>
-        /// Measure
+        /// Measurement
         /// </summary>
         public IMeasurement Measurement
         {
@@ -189,10 +190,15 @@ namespace DataPerformer.Formula
             {
                 return measurement;
             }
-            set
-            {
-                measurement = value;
-            }
+        }
+
+        /// <summary>
+        /// Sets a measurement
+        /// </summary>
+        /// <param name="measurement">The measurement</param>
+        public void SetMeasurement(IMeasurement measurement)
+        {
+            this.measurement = measurement;
         }
 
         /// <summary>

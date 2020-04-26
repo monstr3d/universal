@@ -181,32 +181,48 @@ namespace DataPerformer.Formula
             {
                 l.Add("\t\t" + lt[i]);
             }
-          //  l.Add("\t\tInit();");
+            //  l.Add("\t\tInit();");
             l.Add("\t}");
             l.Add("");
-            l.Add("\tFormulaEditor.Interfaces.ITreeCollectionProxy FormulaEditor.Interfaces.ITreeCollectionProxyFactory.CreateProxy(FormulaEditor.Interfaces.ITreeCollection collection, Action<object> checkValue)");
-            l.Add("\t{");
-            l.Add("\t\tFormulaEditor.Interfaces.ITreeCollection f = this;");
-            if (check)
+            l.Add("\tprotected override void postDeserialize()");
             {
-                l.Add("\t\treturn new Calculation(f.Trees, checkValue);");
+                l.Add("\t{");
+                l.Add("\t\tList<object> keys = new List<object>(parameters.Keys);");
+               // l.Add("\t\tkeys.Sort();");
+                l.Add("\t\tfor (int i = 0; i < keys.Count; i++)");
+                l.Add("\t\t{");
+                l.Add("\t\t\tstring s = keys[i] + \"\"; ");
+                l.Add("\t\t\tchar c = s[0];");
+                l.Add("\t\t\tvars[c] = new object[] { formulaString[i], parameters[s] };"); 
+                l.Add("\t\t}");
+                l.Add("\t\tbase.postDeserialize();");
+                l.Add("\t}");
+                l.Add("");
+                l.Add("\tFormulaEditor.Interfaces.ITreeCollectionProxy FormulaEditor.Interfaces.ITreeCollectionProxyFactory.CreateProxy(FormulaEditor.Interfaces.ITreeCollection collection, Action<object> checkValue)");
+                l.Add("\t{");
+                l.Add("\t\tFormulaEditor.Interfaces.ITreeCollection f = this;");
+                l.Add("\t\tFormulaEditor.ObjectFormulaTree[] trees = FormulaEditor.StaticExtensionFormulaEditor.Transform(f.Trees);");
+                if (check)
+                {
+                    l.Add("\t\treturn new Calculation(trees, checkValue);");
+                }
+                else
+                {
+                    l.Add("\t\treturn new Calculation(trees);");
+                }
+                l.Add("\t}");
+                l.Add("");
+                FormulaEditor.Interfaces.ITreeCollection tc = v;
+                lt = StaticExtensionFormulaEditor.TreeCollectionCodeCreator.CreateCode(tc.Trees, "Calculation", "internal ",
+                    check);
+                l.Add("\tinternal class Calculation" + lt[0]);
+                for (int i = 1; i < lt.Count; i++)
+                {
+                    l.Add("\t" + lt[i]);
+                }
+                l.Add("}");
+                return l;
             }
-            else
-            {
-                l.Add("\t\treturn new Calculation(f.Trees);");
-            }
-            l.Add("\t}");
-            l.Add("");
-            FormulaEditor.Interfaces.ITreeCollection tc = v;
-            lt = StaticExtensionFormulaEditor.TreeCollectionCodeCreator.CreateCode(tc.Trees, "Calculation", "internal ",
-                check);
-            l.Add("\tinternal class Calculation" + lt[0]);
-            for (int i = 1; i < lt.Count; i++)
-            {
-                l.Add("\t" + lt[i]);
-            }
-            l.Add("}");
-            return l;
         }
 
 

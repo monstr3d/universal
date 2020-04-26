@@ -170,6 +170,7 @@ namespace DataPerformer.Formula
             vars = new Dictionary<object, object>();
             pars = new Dictionary<object, object>();
             aliases = new Dictionary<object, object>();
+            creator = VariableDetector.GetCreator(this);
         }
 
 
@@ -1364,7 +1365,6 @@ namespace DataPerformer.Formula
 
         #endregion
 
-
         #region IStack Members
 
         void IStack.Push()
@@ -1629,7 +1629,7 @@ namespace DataPerformer.Formula
                                 string snn = sn + "." + mm.Name;
                                 if (snn.Equals(name))
                                 {
-                                    vm.Measurement = mm;
+                                    vm.SetMeasurement(mm);
                                     goto me;
                                 }
                             }
@@ -1669,7 +1669,9 @@ namespace DataPerformer.Formula
 
         #region Classes & Delegates
 
-        class Variable : IObjectOperation, IPowered, IOperationAcceptor, IMeasurement, IDerivation, IDerivationOperation, IStack
+        class Variable : IObjectOperation, 
+            IPowered, IOperationAcceptor, IMeasurement, IDerivation, 
+            IDerivationOperation, IStack, IMeasurementHolder
         {
 
             #region Fields
@@ -1874,6 +1876,13 @@ namespace DataPerformer.Formula
             }
 
             #endregion
+
+            #region IMeasurementHolder Members
+
+            IMeasurement IMeasurementHolder.Measurement => this;
+
+            #endregion
+
         }
 
         //delegate void PrepareStart(); */

@@ -24,9 +24,9 @@ namespace ConsoleAppLightWeight
             try
             {
             
-               var div =  typeof(StaticExtensionGeneratedProject1).Assembly.GetStaticFieldDictionary<IDesktop>("Desktop");
+           //    var div =  typeof(StaticExtensionGeneratedProject1).Assembly.GetStaticFieldDictionary<IDesktop>("Desktop");
 
-                        IDesktop d = StaticExtensionGeneratedProject1.Desktop;
+                        IDesktop d = StaticExtensionGeneratedProject.Desktop;
                         IScadaInterface scada = d.ScadaFromDesktop("Consumer",
                             BaseTypes.Attributes.TimeType.Second, false, null);
                         scada.ErrorHandler = new ConsoleErrorHandler();

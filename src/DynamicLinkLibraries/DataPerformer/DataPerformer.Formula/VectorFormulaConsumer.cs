@@ -197,7 +197,7 @@ namespace DataPerformer.Formula
                     {
                         timeVariable = null;
                     }
-                    vm.Measurement = newMeasure;
+                    vm.SetMeasurement(newMeasure);
                     string s = vm.Symbol + " = ";
                     int i = 0;
                     for (; i < arguments.Count; i++)
@@ -537,7 +537,7 @@ namespace DataPerformer.Formula
                                 string snn = sn + "." + mm.Name;
                                 if (snn.Equals(name))
                                 {
-                                    vm.Measurement = mm;
+                                    vm.SetMeasurement(mm);
                                     goto me;
                                 }
                             }

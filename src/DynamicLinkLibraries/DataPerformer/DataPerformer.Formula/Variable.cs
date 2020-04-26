@@ -16,7 +16,8 @@ namespace DataPerformer.Formula
     /// <summary>
     /// State variable
     /// </summary>
-    public class Variable : IObjectOperation, IPowered, IOperationAcceptor, IMeasurement, IDerivation, IDerivationOperation, IStack
+    public class Variable :  IMeasurementHolder,
+        IObjectOperation, IPowered, IOperationAcceptor, IMeasurement, IDerivation, IDerivationOperation, IStack
     {
 
         #region Fields
@@ -129,6 +130,14 @@ namespace DataPerformer.Formula
 
         #endregion
 
+
+        #region IMeasurementHolder Members
+        IMeasurement IMeasurementHolder.Measurement => this;
+
+        #endregion
+
+
+
         #region Members
 
 
@@ -201,7 +210,6 @@ namespace DataPerformer.Formula
                 this.value = value;
             }
         }
-
         void Update()
         {
             derivation.Update();

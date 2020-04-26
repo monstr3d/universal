@@ -38,8 +38,7 @@ namespace FormulaEditor.CSharp
 
         protected string code;
 
-        private static readonly object CSharpExtendedCodeCreator;
-
+     
         #endregion
 
         #region Ctor

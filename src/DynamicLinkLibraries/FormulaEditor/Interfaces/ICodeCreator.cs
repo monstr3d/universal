@@ -54,7 +54,6 @@ namespace FormulaEditor.Interfaces
             get;
         }
 
-
         /// <summary>
         /// Gets constant string representation of value of tree 
         /// </summary>

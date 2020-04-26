@@ -19,7 +19,7 @@ namespace FormulaEditor
     /// </summary>
     public static class StaticExtensionFormulaEditor
     {
- 
+
         #region Fields
 
         /// <summary>
@@ -59,6 +59,19 @@ namespace FormulaEditor
         #endregion
 
         #region Public Members
+
+  
+
+        /// <summary>
+        /// Transformation of array of trees
+        /// </summary>
+        /// <param name="trees">Trees</param>
+        /// <returns>Transformation result</returns>
+        static public ObjectFormulaTree[] Transform(this ObjectFormulaTree[] trees)
+        {
+            return ObjectFormulaTree.CreateList(trees,
+                new List<ObjectFormulaTree>(), true).ToArray();
+        }
 
         /// <summary>
         /// Factory of parallel calculations
@@ -348,11 +361,20 @@ namespace FormulaEditor
         /// <returns>Proxy</returns>
         public static ITreeCollectionProxy CreateProxy(this ITreeCollection collection)
         {
-            if (Factory == null)
+            ITreeCollectionProxyFactory factory;
+            if (collection is ITreeCollectionProxyFactory)
+            {
+                factory = collection as ITreeCollectionProxyFactory;
+            }
+            else
+            {
+                factory = Factory;
+            }
+            if (factory == null)
             {
                 return null;
             }
-            return Factory.CreateProxy(collection, checkValue);
+            return factory.CreateProxy(collection, checkValue);
         }
 
 

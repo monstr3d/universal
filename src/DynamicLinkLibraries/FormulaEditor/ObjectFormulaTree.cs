@@ -251,13 +251,14 @@ namespace FormulaEditor
         /// <param name="tree">Tree</param>
         /// <param name="list">List</param>
         /// <param name="optional">List of optional operations</param>
-        public static void CreateList(ObjectFormulaTree tree, IList<ObjectFormulaTree> list, List<ObjectFormulaTree> optional)
+        public static void CreateList(ObjectFormulaTree tree, IList<ObjectFormulaTree> list, 
+            List<ObjectFormulaTree> optional)
         {
             /*!!! if (tree.Operation is OptionalOperation)
             {
                 optional.Add(tree);
             }*/
-            for (int i = 0; i < tree.Count; i++)
+             for (int i = 0; i < tree.Count; i++)
             {
                 ObjectFormulaTree t = tree[i];
                 if (t != null)
@@ -277,9 +278,10 @@ namespace FormulaEditor
         /// <param name="trees">The array or trees</param>
         /// <param name="optional">List of optional opreations</param>
         /// <returns>The list</returns>
-        public static IList<ObjectFormulaTree> CreateList(ObjectFormulaTree[] trees, List<ObjectFormulaTree> optional)
+        public static IList<ObjectFormulaTree> CreateList(ObjectFormulaTree[] trees, List<ObjectFormulaTree> optional,
+            bool comparer = false)
         {
-            IList<ObjectFormulaTree> list = new List<ObjectFormulaTree>();
+            List<ObjectFormulaTree> list = new List<ObjectFormulaTree>();
             foreach (ObjectFormulaTree t in trees)
             {
                 if (t.ReturnType.IsEmpty())
@@ -288,6 +290,10 @@ namespace FormulaEditor
                 }
                 CreateList(t, list, optional);
             }
+  /*          if (comparer)
+            {
+                list.Sort(new Comparer());
+            }*/
             return list;
         }
 
@@ -844,6 +850,25 @@ namespace FormulaEditor
                 l.Add(tree);
             }
         }
+/*!!! UNFINISED CODE
+        public static  List<ObjectFormulaTree
+
+        private static void AddUnique(ObjectFormulaTree tree, List<ObjectFormulaTree> list,
+            List<IObjectOperation> operations, 
+            Func<IObjectOperation, IObjectOperation, bool> comparer)
+        {
+            IObjectOperation op = tree.Operation;
+            foreach (IObjectOperation o in operations)
+            {
+                if (comparer(o, op))
+                {
+                    return;
+                }
+            }
+            operations.Add(op);
+            list.Add(tree);
+        }
+        */
  
         private static void Replace(List<ObjectFormulaTree> l, List<ObjectFormulaTree> lu)
         {
@@ -864,6 +889,22 @@ namespace FormulaEditor
                     }
                 }
             }
+        }
+
+        public bool IsChild(ObjectFormulaTree child)
+        {
+            foreach (var c in children)
+            {
+                if (c == child)
+                {
+                    return true;
+                }
+                if (c.IsChild(child))
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
         /// <summary>
@@ -1013,6 +1054,22 @@ namespace FormulaEditor
             }
             return this[2].Result;
 
+        }
+
+        class Comparer : IComparer<ObjectFormulaTree>
+        {
+            int IComparer<ObjectFormulaTree>.Compare(ObjectFormulaTree x, ObjectFormulaTree y)
+            {
+                if (x.IsChild(y))
+                {
+                    return -1;
+                }
+                if (y.IsChild(x))
+                {
+                    return 1;
+                }
+                return 0;
+            }
         }
 
         #endregion

@@ -633,11 +633,11 @@ The Chapter \ref{cov_fin_chap} contains the construction of noncommutative   of 
 \paragraph*{}
 The Chapter \ref{cov_inf_chap} is devoted to  noncommutative   infinite coverings of $C^*$-algebras and operator spaces. Sections \ref{inf_bas_constr_sec} - \ref{inf_ind_repr_subsection} are  basic. The Section \ref{str_cov_sec} is interesting for  those who are interested in coverings of spectral triples.
 \paragraph*{}
+The Chapter \ref{top_chap} contains applications of described in Chapters  \ref{cov_fin_chap} and \ref{cov_inf_chap} to commutative coverings. It is proven the one to one correspondence between geometry of topological coverings and "noncommutative ones" presented in the Table \ref{add_mapping_table}.
+\paragraph*{}
 In the Chapter \ref{stab_chap} it is proven that properties of noncommutative coverings are stably equivalent. 
 %\paragraph*{}
 %In the Chapter \ref{stab_chap} we prove that if *-homomorphism $A \hookto \widetilde{A}$ of $C^*$-algebras is a "noncommutative covering" then both natural *-homomorphisms  $A \otimes \mathbb{M}_n\left(\C \right)  \hookto \widetilde{A} \otimes \mathbb{M}_n\left(\C \right)$ and $A \otimes \K\left(\ell^2\left( \N \right)\right)  \hookto \widetilde{A}\otimes \K\left(\ell^2\left( \N \right)\right)$ are "noncommutative coverings".
-\paragraph*{}
-The Chapter \ref{top_chap} contains applications of described in Chapters  \ref{cov_fin_chap} and \ref{cov_inf_chap} to commutative coverings. It is proven the one to one correspondence between geometry of topological coverings and "noncommutative ones" presented in the Table \ref{add_mapping_table}.
 
 \paragraph*{} The Chapter \ref{ctr_chap} is devoted to noncommutative coverings of $C^*$-algebras with continuous trace. It is proven that the theory of noncommutative coverings of $C^*$-algebras with continuous trace contains all ingredients of right row of the Table \ref{add_mapping_table}. 
 
@@ -4279,686 +4279,6 @@ Thus the representation $A_\la \to B\left(\H_\la \right)$ and the operator $D_\l
 \begin{remark}
 	It is not known  whether the axiomatic approach is equivalent to the constructive one. Also it is not known whether the axiomatic approach yields the unique result.
 \end{remark}
-\chapter{Coverings of stable $C^*$-algebras}\label{stab_chap}
-
-\section{Finite-fold coverings}
-\paragraph*{}
-Here we find a relation between  noncommutative finite-fold coverings of $C^*$-algebras and their stabilizations.
-\begin{empt}\label{stab_uni_empt}
-	Let $\H$ be a Hilbert space with finite or countable basis. The algebra $ \K \bydef\K\left(\H \right)$ of compact operators is isomorphic to $\mathbb{M}_n\left(\C \right)$ if  dimension of $\H$ equals to $n$ and $\K\left(\ell^2\left( \N\right)  \right)$ is $\H$ is infinite dimensional.  Denote by $\K^+$ the minimal unital $C^*$-algebra which contains $\K$. If  $\K \cong  \mathbb{M}_n\left(\C \right)$ then $\K^{+} \cong  \mathbb{M}_n\left(\C \right)$, otherwise $\K^+ = \K\left(\ell^2\left( \N\right)\right)  \bigoplus \C$ with product given by
-	$$
-	\left( a_1 \oplus c_1\right) \cdot  \left( a_2 \oplus c_2\right) = 
-	\left(a_1a_2 + c_2a_1 + c_1a_2 \right) \oplus c_1c_2.
-	$$ 
-	Here we find the relation between noncommutative coverings of $C^*$-algebras and noncommutative coverings its tensor products with algebras of compact operators.
-	For any $C^*$-algebra the following notation is used
-	
-	\break
-	\begin {table}[H]
-	\caption {Notations for products with compact operator} \label{stab_table} 
-	\begin{center}
-		\begin{tabular}{|c|c|c|c|}
-			\hline
-			& Notation	& Dimension $n$	 &Infinite dimension\\
-			\hline
-			&	&	&\\
-			Hilbert space & $\H_\K$ &$\C^n$ 	&  $\ell^2\left( \N\right)$ \\
-			&	&	&\\			Compact operators& $\K$ &$\mathbb{M}_n\left(\C \right)$ 	&  $\K\left(\ell^2\left( \N\right)\right)$ \\
-			&	&	&\\
-			Unitization &&&\\
-			of compact operators& $\K^+$ &$\mathbb{M}_n\left(\C \right)$ 	&  $\K\left(\ell^2\left( \N\right)\right)\oplus \C$ \\
-			&	&	&\\
-			Irreducible &&&\\ representation& $\pi_\K: \K \to B\left(\H_\K \right) $ &$\H_\K=\C^n$ 	&  $\H_\K=\ell^2\left( \N\right)$ \\
-			&	&	&\\
-			Hilbert $C^*$-module& $X_A$ &$A^n$ 	&  $\ell^2\left(A\right) $\\
-			&	&	&\\
-			$A$-compact operators&$\K_A= \K\left( X_A\right) $ &$\mathbb{M}_n\left(A \right)$	&  $\K\left( \ell^2\left(A\right)\right)  $ \\ 		
-			&	&	&\\
-			Unitization of $\K_A$		&$\K^+_A= \K\left( X_A\right)^+ $ &$\mathbb{M}_n\left(A \right)$	&  $\K\left( \ell^2\left(A\right)\right)^+  $ \\ 		
-			&	&	&\\
-			\hline
-		\end{tabular}
-	\end{center}
-	\end {table}
-	If $A \otimes \K$ is the minimal or maximal tensor product then one has
-	\be\label{stable_comp_op_eqn}
-	A \otimes \K \cong \K_A.
-	\ee
-	Any non-degenerated involutive action of $G$ on $A$ uniquely induces the non-degenerated involutive action  of $G$ on $A\otimes \mathcal K$.
-\end{empt}
-\begin{lemma}\label{stable_pre_lem}
-	Following conditions hold:
-	\begin{enumerate}
-		\item [(i)] If the  quadruple $\left( A, \widetilde{A}, G, \pi\right)$ is a {noncommutative finite-fold  pre-covering} then  
-		$$
-		\left( A \otimes \K, \widetilde{A}  \otimes \K, G, \pi  \otimes \Id_\K \right)
-		$$
-		is a {noncommutative finite-fold  pre-covering}.
-		\item[(ii)] If $\left( A \otimes \K, \widetilde{B}, G,{\pi}^\K   \right)$ is noncommutative finite-fold  pre-covering then there is a noncommutative finite-fold  pre-covering $\left( A, \widetilde{A}, G, \pi\right)$ such that
-		\begin{enumerate}
-			\item[(a)] $\widetilde{B}  \cong \widetilde{A} \otimes \K$ and the action $G \times \widetilde{B} \to \widetilde{B}$ is naturally induced by the action $G \times \widetilde{A} \to \widetilde{A}$.
-			\item[(b)] $\widetilde{\pi}$ is naturally equivalent to $\pi  \otimes \Id_\K$.
-		\end{enumerate}
-		
-	\end{enumerate}
-	
-	
-\end{lemma}
-\begin{proof}
-	
-	(i) $G_{\K}\stackrel{\mathrm{def}}{=}\left\{ g_{\K} \in \Aut\left(\widetilde{A}  \otimes \K\right)~|~ g_{\K}a = a;~~\forall a \in A  \otimes \K\right\}$. If  $\mathfrak{e}_{1,1}$ is an elementary matrix (cf. Definition \ref{elementary_defn}) $1_{A^{\sim} } \otimes \mathfrak{e}_{1,1}$ is a multiplicator of both $A \otimes \K$ and $\widetilde{A} \otimes \K$. Any *-automorphism of $\widetilde{A}\otimes \K$ can be uniquely extended to *-automorphism of $M\left( \widetilde{A}\otimes \K\right)$. If $\widetilde{a}_\K \in \widetilde{A}  \otimes  \mathfrak{e}_{1,1}$ then  $$\widetilde{a}_\K = \left( 1_{A^{\sim} } \otimes \mathfrak{e}_{1,1}\right) \widetilde{a}_\K \left( 1_{A^{\sim} } \otimes \mathfrak{e}_{1,1}\right).$$
-	Hence for any $g_\K \in G_\K$ one has 
-	\be\label{stab_g_act_eqn}
-	\begin{split}
-		g_\K\left(  \left( 1_{A^\sim} \otimes \mathfrak{e}_{1,1}\right) \widetilde{a}_\K \left( 1_{A^\sim } \otimes \mathfrak{e}_{1,1}\right)\right) = \\=\left(	g_\K  \left( 1_{A^\sim } \otimes \mathfrak{e}_{1,1}\right)\right) 	g_\K \widetilde{a}_\K \left( 	g_\K\left( 1_{A^\sim } \otimes \mathfrak{e}_{1,1}\right)\right)=\\= \left( 1_{A^\sim } \otimes \mathfrak{e}_{1,1}\right) g_\K\widetilde{a}_\K \left( 1_{A^\sim } \otimes \mathfrak{e}_{1,1}\right)
-	\end{split}
-	\ee
-	and the above equation means
-	$$
-	g_\K \widetilde{A}  \otimes  \mathfrak{e}_{1,1} = \widetilde{A}  \otimes  \mathfrak{e}_{1,1}
-	$$
-	However there is *-isomorphism $\widetilde{A}  \otimes  \mathfrak{e}_{1,1}$ so $g_\K$ uniquely defines the element of the group $G\stackrel{\mathrm{def}}{=}\left\{ g \in \Aut\left(\widetilde{A}  \right)~|~ ga = a;~~\forall a \in A \right\}$. Otherwise the action of $g_\K$ on $\widetilde{A}\otimes \K$ uniquely depends on the action of $g_\K$ on $\widetilde{A}\otimes \mathfrak{e}_{1,1}$. Really if $\widetilde{b}_\K \in \widetilde{A}\otimes \mathfrak{e}_{j,k}$ then from 
-	$$
-	\widetilde{b}_\K = \left( 1_{A^\sim } \otimes \mathfrak{e}_{1,j}\right)\widetilde{b}_\K \left( 1_{A^\sim } \otimes \mathfrak{e}_{1,k}\right) 
-	$$
-	it turns out 
-	\bean
-	\widetilde{b}_\K = \left( 1_{A^\sim }  \otimes \mathfrak{e}_{1,k}\right)  \widetilde{c}_\K \left( 1_{A^\sim } \otimes \mathfrak{e}_{k,1}\right)\\ \text{ where }  \widetilde{c}_\K = \left(1_{A^\sim }  \otimes  \mathfrak{e}_{1,j}\right)\widetilde{b}_\K \left( 1_{A^\sim } \otimes \mathfrak{e}_{1,k}\right) \in \widetilde{A}  \otimes  \mathfrak{e}_{1,1}
-	\eean
-	and
-	$$
-	g_\K \widetilde{b}_\K = \left( 1_{A^\sim }  \otimes \mathfrak{e}_{1,k}\right)  g_\K\widetilde{c}_\K \left( 1_{A^\sim } \otimes \mathfrak{e}_{k,1}\right)
-	$$
-	Conversely any element of $g \in G$ uniquely defines the element $g_\K \in G_\K$. Moreover from $A = \widetilde{A}^G$ it turns out ${A}\otimes \K = \left( \widetilde{A}\otimes \K\right)^{G_\K}$.\\
-	(ii)  Denote by  $\widetilde{A} \stackrel{\text{def}}{=}\left( 1_{A^\sim } \otimes \mathfrak{e}_{1,1}\right) \widetilde{A}^\K \left( 1_{A^\sim } \otimes \mathfrak{e}_{1,1}\right) \subset \widetilde{A}^\K$. From   $$A\cong \left( 1_{A^\sim } \otimes \mathfrak{e}_{1,1}\right) \left(A \otimes \K \right)  \left( 1_{A^\sim }\otimes \mathfrak{e}_{1,1}\right) $$ and the inclusion $A \otimes \K \subset \widetilde{A}^\K$ it turns out that there is the inclusion $A \hookto \widetilde{A}$.
-	\begin{enumerate}
-		\item [(a)] For any $j,k$ there is the natural isomorphism 
-		$$
-		\left( 1_{A^\sim } \otimes \mathfrak{e}_{j,j}\right) \widetilde{A}^\K \left( 1_{A^\sim } \otimes \mathfrak{e}_{k,k}\right)\cong \widetilde{A}
-		$$
-		of $\widetilde{A}$ bimodules. From this fact any $\widetilde{b} \in \widetilde{A}^\K$ can be represented by a finite or countable matrix
-		\be\label{stab_b_matr_eqn}
-		\begin{split}
-			\widetilde{b}=\begin{pmatrix}
-				\widetilde{b}_{1,1}& \ldots & \widetilde{b}_{j,1} &  \dots \\
-				\vdots& \ddots & \vdots& \ldots\\
-				\widetilde{b}_{j,1}& \ldots &\widetilde{b}_{j,j} &  \ldots \\
-				\vdots& \vdots & \vdots & \ddots \\
-			\end{pmatrix}; \\\text{where} \quad \widetilde{b}_{j,k}= \left( 1_{A^\sim } \otimes \mathfrak{e}_{1,j}\right)\widetilde{b}\left( 1_{A^\sim } \otimes \mathfrak{e}_{k,1}\right) \in \widetilde{A}.
-		\end{split}
-		\ee
-		The equation \eqref{stab_b_matr_eqn} is equivalent to $\widetilde{B} \cong \widetilde{A}\otimes \K$.	Similarly to \eqref{stab_g_act_eqn} one can proof that the action  $G \times \widetilde{A}^\K\to G \times \widetilde{A}^\K$ naturally induces the action  $G \times \widetilde{A}\to G \times \widetilde{A}$. Moreover similarly to the proof of (i) one has 
-		\bean
-		\left\{ g \in \Aut\left(\widetilde{A} \right)~|~ ga = a;~~\forall a \in A\right\}\cong G,\\
-		A = \widetilde{A}^G.
-		\eean
-		\item[(b)] Follows from \eqref{stab_b_matr_eqn}.
-	\end{enumerate}
-\end{proof}
-
-
-
-\begin{lemma}\label{stable_fin_cov_comp_lem}
-	Following conditions hold: 
-	\begin{enumerate}
-		\item [(i)] If the  quadruple $\left( A, \widetilde{A}, G, \pi\right)$ is a  {noncommutative finite-fold  covering} with unitization then  
-		$$
-		\left( A \otimes \K, \widetilde{A}  \otimes \K, G, \pi  \otimes \Id_\K \right)
-		$$
-		is a  {noncommutative finite-fold  covering} with unitization.
-		\item[(ii)] If $\left( A \otimes \K, \widetilde{A}^\K, G,{\pi}^\K   \right)$ is  a  {noncommutative finite-fold  covering} with unitization then there is  a  {noncommutative finite-fold  covering} with unitization $\left( A, \widetilde{A}, G, \pi\right)$ such that
-		\begin{enumerate}
-			\item[(I)] $\widetilde{A}^\K  \cong \widetilde{A} \otimes \K$ and the action $G \times \widetilde{A}^\K \to \widetilde{A}^\K$ is naturally induced by the action $G \times \widetilde{A} \to \widetilde{A}$.
-			\item[(II)] $\widetilde{\pi}$ is naturally equivalent to $\pi  \otimes \Id_\K$.
-		\end{enumerate}
-		
-	\end{enumerate}
-\end{lemma}
-\begin{proof}
-	(i)	From the Lemma \ref{stable_pre_lem} it turns out that the quadruple
-	$$
-	\left( A \otimes \K, \widetilde{A}  \otimes \K, G, \pi  \otimes \Id_\K \right)
-	$$	
-	is a noncommutative finite-fold  pre-covering. 	From the Definition \ref{fin_comp_defn} it follows that following conditions hold:
-	
-	\begin{enumerate}
-		\item[(a)] 
-		
-		There are unitizations $A \hookto B$, $\widetilde{A} \hookto \widetilde{B}$.
-		%	\item[(b)]$A = B\bigcap \widetilde{A}$,
-		\item[(b)] There is an %(strong) 
-		unital  noncommutative finite-fold covering (resp. unital  noncommutative finite-fold quasi-covering)	$\left(B ,\widetilde{B}, G,\widetilde{\pi} \right)$ such that $\pi =\widetilde{\pi}|_A$ and the action $G \times\widetilde{A} \to \widetilde{A}$ is induced by $G \times\widetilde{B} \to \widetilde{B}$.
-	\end{enumerate}
-	We need prove that the quadruple $\left( A \otimes \K, \widetilde{A}  \otimes \K, G, \pi  \otimes 1_{\K^+} \right)$ satisfies to conditions (a), (b) the Definition \ref{fin_comp_defn}.\\
-	(a)
-	Let $\mathcal K^+$ be the  unitisation given by \ref{stab_uni_empt}. Algebra $A \otimes \mathcal K$ (resp. $\widetilde{A} \otimes \mathcal K$) is an essential ideal of $B \otimes \mathcal K^+$ (resp. $\widetilde{B} \otimes \mathcal K^+$), i.e. both ${A} \otimes \mathcal K \hookto B \otimes \mathcal K^+$ and $\widetilde{A} \otimes \mathcal K \hookto \widetilde{B} \otimes \mathcal K^+$ are unitisations. \\
-	(b) The quadruple 
-	$\left( A \otimes \K, \widetilde{A}  \otimes \K, G, \pi  \otimes \Id_\K \right)$ is a  noncommutative finite-fold  pre-covering, hence $\left( B \otimes \K^+, \widetilde{B}  \otimes \K^+, G, \widetilde{\pi}  \otimes \Id_\K \right)$ is a  noncommutative finite-fold  pre-covering. 
-	Since $\left(B ,\widetilde{B}, G \right)$ is an unital  noncommutative finite-fold covering the algebra $\widetilde{B}$ is a finitely generated $B$ module, i.e. there are $\widetilde{b}_1, \dots , \widetilde{b}_n \in \widetilde{B}$ such that any $\widetilde{b} \in\widetilde{B}$ is given by
-	$$
-	\widetilde{b} = \sum_{j = 1}^n \widetilde{b}_jb_j; \text{	where } b_j \in B.
-	$$
-	From the above equation it turns out that if
-	$$
-	\widetilde{b}^{\mathcal K} = \sum_{k = 1}^m \widetilde{b}_k \otimes x_k \in \widetilde{B} \otimes \mathcal K^+;~ \widetilde{b}_k \in \widetilde{B}, ~ x_k \in \mathcal K^+
-	$$
-	and 
-	$$
-	\widetilde{b}_k  = \sum_{j = 1}^n \widetilde{b}_jb_{kj}
-	$$
-	then
-	\begin{equation*}
-	\begin{split}
-	\widetilde{b}^{\mathcal K} = \sum_{j = 1}^n \left( \widetilde{b}_j\otimes 1_{\mathcal K^+}\right) b_j^{\mathcal K},\\
-	\text{ where } b_j^{\mathcal K} = \sum_{k = 1}^m b_{kj}  \otimes x_k \in B \otimes \mathcal K.
-	\end{split}
-	\end{equation*}
-	It turns out that the algebraic tensor product $\widetilde{B} \otimes \mathcal K^+$ is generated by $\widetilde{b}_1\otimes 1_{\mathcal K^+},..., \widetilde{b}_n\otimes 1_{\mathcal K^+}$ as $B \otimes \K$ module. The minimal (or maximal) completion the algebraic tensor product $\widetilde{B} \otimes \mathcal K^+$ is also generated by $\widetilde{b}_1\otimes 1_{\mathcal K^+},..., \widetilde{b}_n\otimes 1_{\mathcal K^+}$ so the  minimal (or maximal) tensor product is a finitely generated $B\otimes \mathcal K^+$ module. It turns out that the quadruple
-	$$
-	\left({B} \otimes \mathcal K^+,\widetilde{B} \otimes \mathcal K^+, G, \widetilde{   \pi} \otimes \Id_\K\right) 
-	$$
-	is an unital  noncommutative finite-fold covering. \\
-	(ii) From (ii) of the Lemma \ref{stable_pre_lem} it turns out that there is a noncommutative finite-fold pre-covering   $\left( A, \widetilde{A}, G, \pi\right)$ $\widetilde{A}$ such that the quadruple  $\left( A \otimes \K, \widetilde{A}^\K, G,{\pi}^\K   \right)$ is equivalent to $\left(A  \otimes \mathcal K, \widetilde{A} \otimes \mathcal K, G, \pi \otimes 1_{\K^+ } \right)$. Moreover the Lemma \ref{stable_pre_lem} implies that conditions (I), (II) of this lemma hold. From the Definition \ref{fin_comp_defn} there are unitizations $A \otimes \K \subset B^\K$,  $\widetilde{A} \otimes \K \subset \widetilde{B}^\K$ such that the *-homomorphism ${B}^\K \hookto \widetilde{B}^\K$ is a unital noncommutative finite-fold covering. From the Definition \ref{fin_defn} it turns out that $\widetilde{B}^\K$ is a finitely generated ${B}^\K$, i.e.
-	\bean
-	\exists \left\{\widetilde{b}^\K_1,...,\widetilde{b}^\K_n\right\} \subset \widetilde{B}^\K \text{ such that }\quad \widetilde{B}^\K = \widetilde{b}^\K_1B^\K+...+\widetilde{b}^\K_nB^\K.
-	\eean
-	If $B\bydef\left( 1_{A^\sim } \otimes \mathfrak{e}_{1,1}\right){B}^\K \left( 1_{A^\sim } \otimes \mathfrak{e}_{1,1}\right)$ and $\widetilde{B}\bydef\left( 1_{A^\sim } \otimes \mathfrak{e}_{1,1}\right)\widetilde{B}^\K \left( 1_{A^\sim } \otimes \mathfrak{e}_{1,1}\right)$ then one has
-	\bean
-	\widetilde{B} = \widetilde{b}_1B+...+\widetilde{b}_nB; \quad \widetilde{b}_j = \left( 1_{A^\sim } \otimes \mathfrak{e}_{1,1}\right)\widetilde{b}^\K_j \left( 1_{A^\sim } \otimes \mathfrak{e}_{1,1}\right), \quad j =1,...,n,
-	\eean
-	i.e. $\widetilde{B}$ is a finitely generated $B$-module. It turns out that $B\hookto \widetilde{B}$ is an unital noncommutative finite-fold covering. Since both $A \subset B$ and $\widetilde{A} \subset \widetilde{B}$ are essential ideals the *-homomorphism $A\hookto \widetilde{A}$ is a noncommutative finite-fold covering with unitization. 
-\end{proof}
-
-\begin{theorem}\label{stable_fin_cov_thm}
-	Following conditions hold: 
-	\begin{enumerate}
-		\item [(i)] If the  quadruple $\left( A, \widetilde{A}, G, \pi\right)$ is a  {noncommutative finite-fold  covering} then  
-		$$
-		\left( A \otimes \K, \widetilde{A}  \otimes \K, G, \pi  \otimes 1_{K^+} \right)
-		$$
-		is a  {noncommutative finite-fold  covering}.
-		\item[(ii)] If $\left( A \otimes \K, \widetilde{A}^\K, G,{\pi}^\K   \right)$ is  a  {noncommutative finite-fold  covering}  there is  a  {noncommutative finite-fold  covering} $\left( A, \widetilde{A}, G, \pi\right)$ such that
-		\begin{enumerate}
-			\item[(I)] $\widetilde{A}^\K  \cong \widetilde{A} \otimes \K$ and the action $G \times \widetilde{A}^\K \to \widetilde{A}^\K$ is naturally induced by the action $G \times \widetilde{A} \to \widetilde{A}$.
-			\item[(II)] Isomorphism  $\widetilde{\pi}$ equals  to $\pi  \otimes \Id_\K$.
-		\end{enumerate}
-		
-	\end{enumerate}
-\end{theorem}
-
-\begin{proof}
-	(i)
-	From the Lemma \ref{stable_pre_lem} it turns out that $\left(A  \otimes \mathcal K, \widetilde{A} \otimes \mathcal K, G, \pi \otimes 1_{\K^+ } \right)$ is a a noncommutative finite-fold  pre-covering.
-	From the Definition \ref{fin_defn} it turns out that $\left(A, \widetilde{A}, G, \pi \right)$ is  a noncommutative finite-fold  pre-covering such that  there is increasing net $\left\{u_\la\right\}_{\la\in\La}\subset M\left( A\right)_+ $  of positive elements such that
-	
-	\begin{enumerate}
-		\item[(a)] There is the limit 
-		$$
-		\bt\text{-}\lim_{\la \in \La} u_\la = 1_{M\left(A \right)  }
-		$$
-		in the strict topology of $M\left(A \right)$ (cf. Definition \ref{strict_topology}).
-		\item[(b)]  If for all   $\la\in\La$ both $A_\la$ and  $\widetilde A_\la$ are $C^*$-norm completions  of $u_\la A u_\la$ and  $u_\la\widetilde{A}u_\la$ respectively then for every $\la\in\La$ a quadruple
-		$$
-		\left(A_\la, \widetilde{A}_\la, G, \left.\pi\right|_{A_\la} :A_\la\hookto \widetilde{A}_\la\right)	
-		$$
-		is a noncommutative finite-fold covering with unitization. The action 	$G \times \widetilde{A}_\la\to \widetilde{A}_\la$, is the restriction on $\widetilde{A}_\la\subset \widetilde{   A}$ of the action $G\times  \widetilde{A}\to \widetilde{A}$.
-	\end{enumerate}
-	
-	Let  $\left\{u_\la\otimes 1_{\K^+}\right\}_{\la\in\La}\subset M\left( A\otimes \K\right)_+ $ 
-	and let us prove that the net $\left\{u_\la\otimes 1_{\K^+}\right\}$ satisfies to (a), (b)  of the Definition  \ref{fin_defn}.
-	\begin{enumerate}
-		\item [(a)] The strict limit 	$\bt\text{-}\lim_{\la \in \La} u_\la\otimes 1_{\K^+} = 1_{\left(M\left( A \otimes\K\right)\right) }$ directly follows from the strict limit 		$\bt\text{-}\lim_{\la \in \La} u_\la = 1_{M\left(A \right)}$.
-		\item[(b)]Follows from (i) of the Lemma \ref{stable_fin_cov_comp_lem}.
-	\end{enumerate}
-	(ii)  From (ii) of the Lemma \ref{stable_pre_lem} it turns out that there is a noncommutative finite-fold pre-covering   $\left( A, \widetilde{A}, G, \pi\right)$ $\widetilde{A}$ such that the quadruple  $\left( A \otimes \K, \widetilde{A}^\K, G,{\pi}^\K   \right)$ is equivalent to $\left(A  \otimes \mathcal K, \widetilde{A} \otimes \mathcal K, G, \pi \otimes 1_{\K^+ } \right)$.   Moreover the Lemma \ref{stable_pre_lem} implies that conditions (I), (II) of this Lemma hold.	Let $\left\{u^\K_\la\right\}_{\la\in\La}\subset M\left( A\otimes\K\right)$ be a net which satisfies to  to (a) and (b) of the Definition \ref{fin_defn}, i.e.
-	
-	\begin{enumerate}
-		\item[(a)] There is the limit 
-		$$
-		\bt\text{-}\lim_{\la \in \La} u^\K_\la = 1_{M\left(A\otimes\K \right) }
-		$$
-		in the strict topology of $M\left(A \right)$ (cf. Definition \ref{strict_topology}).
-		\item[(b)]  If for all   $\la\in\La$ both $A^\K_\la$ and  $\widetilde A^\K_\la$ are $C^*$-norm completions  of $u^\K_\la \left(  A\otimes \K \right) u_\la$ and  $u_\la\left( \widetilde{A}\otimes \K\right)  u_\la$ respectively then for every $\la\in\La$ a quadruple
-		$$
-		\left(A^\K_\la, \widetilde{A}^\K_\la, G, \left.\pi^\K\right|_{A^\K_\la} :A^\K_\la\hookto \widetilde{A}^K_\la\right)	
-		$$
-		is a noncommutative finite-fold covering with unitization. The action 	$G \times \widetilde{A}^\K_\la\to \widetilde{A}^\K_\la$, is the restriction on $\widetilde{A}^\K_\la\subset \widetilde{   A}\otimes\K$ of the action $G\times  \left( \widetilde{A}\otimes\K\right) \to \widetilde{A}\otimes\K$.
-	\end{enumerate}
-	If  $$u_\la \bydef \left( \mathfrak{e}_{1,1}\otimes 1_{M\left( A \right) }\right)u_\la^\K \left( \mathfrak{e}_{1,1}\otimes 1_{M\left( A \right) }\right) \in \left( \mathfrak{e}_{1,1}\otimes 1_{M\left( A \right) }\right)M\left(A\otimes \K \right)  \left( \mathfrak{e}_{1,1}\otimes 1_{M\left( A \right) }\right)$$ then from the natural *-isomorphism $ \left( \mathfrak{e}_{1,1}\otimes 1_{M\left( A \right) }\right)M\left(A\otimes \K \right)  \left( \mathfrak{e}_{1,1}\otimes 1_{M\left( A \right) }\right)\cong M\left(A\right)$, $u_\la$ can be regarded as an element of $M\left( A\right)$. Let us prove that the net $\left\{u_\la\right\}\in M\left( A \right)_+$ satisfies to the conditions (a), (b) of the Definition \ref{fin_defn}
-	\begin{enumerate}
-		\item [(a)] The strict limit 	$\bt\text{-}\lim_{\la \in \La} u_\la = 1_{M\left(A \right) }$	 directly follows from the strict limit $\bt\text{-}\lim_{\la \in \La} u_\la\otimes 1_{\K^+} = 1_{M\left(A \otimes\K\right) }$ 	.
-		\item[(b)]Follows from (ii) of the Lemma \ref{stable_fin_cov_comp_lem}.
-	\end{enumerate}
-\end{proof}
-\section{Infinite coverings}
-
-\paragraph*{} Here we find a relation between infinite noncommutative coverings of $C^*$-algebras and their stabilizations.
-
-\begin{lemma}\label{stable_compliant_lem}
-	Let $A$, $\widetilde A_1$, $\widetilde A_2$ are $C^*$-algebras and $\pi_1: A \hookto \widetilde A_1$, and $\pi_2  A \hookto \widetilde A_2$ be a noncommutative finite fold coverings. Let $\widetilde\pi_1: A \otimes \K\hookto \widetilde A_1\otimes \K$, and $\widetilde\pi_2: A \otimes \K\hookto \widetilde A_1\otimes \K$ be the given by the Theorem \ref{stable_fin_cov_thm} noncommutative finite-fold coverings. The pair $\left(\pi_1, \pi_2\right)$ is compliant (cf. Definition \ref{compliant_covering_defn}) if and only if the pair $\left(\widetilde\pi_1, \widetilde\pi_2\right)$ is compliant.
-\end{lemma}
-\begin{proof}
-	Suppose that the pair $\left(\pi_1, \pi_2\right)$ is compliant and let us prove that the pair $\left(\widetilde\pi_1, \widetilde\pi_2\right)$ satisfies to the conditions of the Definition \ref{compliant_covering_defn}.
-	\begin{enumerate}
-		\item [(a)] Suppose that $\widetilde\pi^{1}_2: \widetilde A_1\otimes \K\hookto \widetilde A_2\otimes \K$ is an injective *-homomorphism such that $\widetilde\pi_2= \widetilde\pi^{1}_2\circ\widetilde\pi_1$. The given by
-		\bean
-		\left( \mathfrak{e}_{1,1}\otimes 1_{M\left( A \right) }\right)\left(  \widetilde a_1 \otimes x \right)  \left( \mathfrak{e}_{1,1}\otimes 1_{M\left( A \right) }\right)\mapsto\\
-		\mapsto \widetilde\pi^{1}_2 \left( \mathfrak{e}_{1,1}\otimes 1_{M\left( A \right) }\right)\left( \widetilde a_1 \otimes x \right)  \left( \mathfrak{e}_{1,1}\otimes 1_{M\left( A \right) }\right);\quad \widetilde a_1\in \widetilde A_1, \quad x \in \K
-		\eean
-		map can be regarded as a map $\pi^1_2 : \widetilde A_1\to \widetilde A_2$. Direct check shows that $\pi^1_2$ is an injective *-homomorphism such that $\pi_2 = \pi^1_2 \circ \pi_1$. The pair $\left(\pi_1, \pi_2\right)$ is compliant, so $\pi^1_2$ is a noncommutative finite-fold covering.  Also direct check shows that $\widetilde\pi^1_2 = \pi^1_2\otimes\Id_\K$, and from (i) of the Theorem \ref{stable_fin_cov_thm} it follows that $\widetilde\pi^1_2$ is a noncommutative finite-fold covering.
-		\item[(b)] A pair  $\left(\pi_1, \pi_2\right)$ is compliant so one has 		
-		\bean
-		G\left(\left.\widetilde A_2~\right|A \right)\pi^1_2\left(\widetilde A_1\right)=  \pi^1_2\left(\widetilde A_1\right).
-		\eean
-		(cf. Equation \ref{g_sur_eqn}). It turns out that
-		\bean
-		G\left(\left.\widetilde A_2~\right|A \right)\left( \pi^1_2\left(\widetilde A_1\right)\otimes\K\right) =  \pi^1_2\left(\widetilde A_1\right)\otimes\K.
-		\eean
-		\item[(c)] 
-		
-		From the Theorem \ref{stable_fin_cov_thm} it follows that $G\left(\left.\widetilde A_2~\right|A \right)\cong G\left(\left.\widetilde A_2\otimes\K~\right|A \otimes \K\right)$ and $ G\left(\left.\widetilde A_1~\right|A \right)\cong G\left(\left.\widetilde A_1\otimes\K~\right|A \otimes \K\right)$
-		From (b) of the Definition \ref{compliant_covering_defn} it turns out that there is the surjective homomorphism $h: G\left(\left.\widetilde A_2~\right|A \right)\to 	G\left(\left.\widetilde A_1~\right|A \right)$ such that 
-		\bean
-		\pi^1_2\left( h\left(g \right)a_1\right) = g \circ \pi^1_2\left(a_1 \right)
-		\eean
-		for each $a_1 \in \widetilde A_1$.  there is the surjective homomorphism $ \widetilde h: G\left(\left.\widetilde A_2\otimes\K~\right|A\otimes\K \right)\to 	G\left(\left.\widetilde A_1\otimes\K~\right|A\otimes\K \right)$ such that 
-		\bean
-		\widetilde \pi^1_2\left( \widetilde h\left(g \right) \left( a_1\otimes x\right) \right) = g \circ \widetilde \pi^1_2\left(a_1 \otimes x\right)\quad \forall a_1\in \widetilde A_2, \quad x \in \K.
-		\eean
-		\item[(d)] If   $\widetilde\rho: \widetilde A_1\otimes\K  \hookto \widetilde A_2\otimes\K $ is any injective *-homomorphism  such that $\widetilde\pi_2 = \widetilde\rho \circ \widetilde\pi_1$ then the map 
-		\bean
-		\left( \mathfrak{e}_{1,1}\otimes 1_{M\left( A \right) }\right)\left(  \widetilde a_1 \otimes x \right)  \left( \mathfrak{e}_{1,1}\otimes 1_{M\left( A \right) }\right)\mapsto\\
-		\mapsto \widetilde\rho \left( \mathfrak{e}_{1,1}\otimes 1_{M\left( A \right) }\right)\left( \widetilde a_1 \otimes x \right)  \left( \mathfrak{e}_{1,1}\otimes 1_{M\left( A \right) }\right);\quad \widetilde a_1\in \widetilde A_1, \quad x \in \K
-		\eean
-		map can be regarded as a map $\rho : \widetilde A_1\to \widetilde A_2$. Direct check shows that $\rho$ is an injective *-homomorphism such that $\pi_2 = \rho \circ \pi_1$. The pair $\left(\pi_1, \pi_2\right)$ is compliant, so  there is the unique $g \in 	G\left(\left.\widetilde A_1~\right|A \right)$ such that 
-		\bean
-		\rho =  \pi^1_2 \circ g.
-		\eean
-		Direct check shows that 
-		
-		\bean
-		\widetilde\rho =  \widetilde\pi^1_2 \circ g.
-		\eean	
-		
-	\end{enumerate}
-	
-	
-	Suppose that the pair $\left(\widetilde\pi_1, \widetilde\pi_2\right)$ is compliant and let us prove that the pair $\left(\pi_1, \pi_2\right)$ satisfies to the conditions of the Definition \ref{compliant_covering_defn}.
-	\begin{enumerate}
-		\item [(a)] Suppose that $\pi^{1}_2: \widetilde A_1 \hookto \widetilde A_2$ is an injective *-homomorphism such that $\pi_2= \pi^{1}_2\circ\pi_1$. 
-		The given by
-		\bean
-		\widetilde\pi^1_2\bydef \pi_1\otimes \Id_\K:  \widetilde A_1\otimes \K \hookto \widetilde A_2 \otimes\K
-		\eean
-		*-homomorphism is injective, and $\widetilde\pi_2= \widetilde\pi^{1}_2\circ\widetilde\pi_1$. 
-		Since the pair $\left(\widetilde\pi_1, \widetilde\pi_2\right)$ is compliant the map $\widetilde\pi^1_2$ is a noncommutative finite-fold covering. From (ii) of the Theorem \ref{stable_fin_cov_thm} it follows that $\pi^1_2$ is a noncommutative finite-fold covering.
-		\item[(b)] The pair  $\left(\widetilde\pi_1, \widetilde\pi_2\right)$ is compliant so one has
-		\bean
-		G\left(\left.\widetilde A_2~\right|A \right)\left( \pi^1_2\left(\widetilde A_1\right)\otimes\K\right) =  \pi^1_2\left(\widetilde A_1\right)\otimes\K.
-		\eean
-		
-		
-		(cf. Equation \ref{g_sur_eqn}). It turns out that
-		\bean
-		G\left(\left.\widetilde A_2~\right|A \right)\pi^1_2\left(\widetilde A_1\right)=  \pi^1_2\left(\widetilde A_1\right).
-		\eean
-		\item[(c)] 
-		
-		From the Theorem \ref{stable_fin_cov_thm} it follows that $G\left(\left.\widetilde A_2~\right|A \right)\cong G\left(\left.\widetilde A_2\otimes\K~\right|A \otimes \K\right)$ and $ G\left(\left.\widetilde A_1~\right|A \right)\cong G\left(\left.\widetilde A_1\otimes\K~\right|A \otimes \K\right)$
-		From (b) of the Definition \ref{compliant_covering_defn} it turns out that there is the surjective homomorphism $ \widetilde h: G\left(\left.\widetilde A_2\otimes\K~\right|A\otimes\K \right)\to 	G\left(\left.\widetilde A_1\otimes\K~\right|A\otimes\K \right)$  such that 
-		\bean
-		\widetilde \pi^1_2\left( \widetilde h\left(g \right) \left( a_1\otimes x\right) \right) = g \circ \widetilde \pi^1_2\left(a_1 \otimes x\right)\quad \forall a_1\in \widetilde A_2, \quad x \in \K.
-		\eean
-		
-		
-		There is the surjective homomorphism $h: G\left(\left.\widetilde A_2~\right|A \right)\to 	G\left(\left.\widetilde A_1~\right|A \right)$ such that 
-		\bean
-		\pi^1_2\left( h\left(g \right)a_1\right) = g \circ \pi^1_2\left(a_1 \right)
-		\eean
-		for each $a_1 \in \widetilde A_1$.
-		\item[(d)] If   $\rho: \widetilde A_1 \hookto \widetilde A_2$ be any injective *-homomorphism  such that $\pi_2 = \rho \circ \pi_1$ and $  \widetilde\rho \bydef \rho\otimes\K:\widetilde\pi_2 = \widetilde\rho \circ \widetilde\pi_1$ then  $\widetilde\rho$ is injective *-homomorphism and 	
-		$\widetilde\pi_2 = \widetilde\rho \circ \widetilde\pi_1$. The pair $\left(\widetilde\pi_1, \widetilde\pi_2\right)$ is compliant so  there is the unique $g \in 	G\left(\left.\widetilde A_1~\right|A \right)$ such that 
-		\bean
-		\widetilde\rho =  \widetilde\pi^1_2 \circ g.
-		\eean	
-		
-		The	direct check shows that 
-		
-		\bean
-		\rho =  \pi^1_2 \circ g.
-		\eean
-		
-	\end{enumerate}
-	
-\end{proof}
-
-\begin{corollary}\label{stab_t_a_cor}
-	Following conditions hold:
-	\begin{enumerate}
-		\item[(i)] 	If
-		$
-		\mathfrak{S}_{A} =  \left\{\pi_\la :A  \hookto A_\la \right\}_{\la \in \La}\in \mathfrak{FinAlg}
-		$
-		is an algebraical  finite covering category (cf. Definition \ref{comp_defn}) then there is the natural algebraical  finite covering category.
-		\begin{equation*}
-		\mathfrak{S}_{A\otimes \K} =  \left\{ \pi_\la\otimes\Id_\K :A \otimes \K  \hookto A_\la \otimes \K\right\}_{\la \in \La}\in \mathfrak{FinAlg}
-		\end{equation*}
-		\item[(ii)] Conversely any algebraical  finite covering category
-		\begin{equation*}
-		\mathfrak{S}_{A\otimes \K} =  \left\{ \pi_\la\otimes\Id_\K :A \otimes \K  \hookto A_\la\otimes\K\right\}_{\la \in \La}\in \mathfrak{FinAlg}
-		\end{equation*}
-		naturally induces 
-		algebraical  finite covering category $$\mathfrak{S}_{A} =  \left\{\pi_\la :A  \hookto A_\la \right\}_{\la \in \La}\in \mathfrak{FinAlg}.$$ 
-	\end{enumerate}
-\end{corollary}
-\begin{proof}
-	Follows from the Theorem \ref{stable_fin_cov_thm} and the Lemma \ref{stable_compliant_lem}.
-\end{proof}
-
-\begin{corollary}\label{stab_pt_a_cor}
-	Following conditions hold:
-	\begin{enumerate}
-		\item[(i)] 	If
-		\bean
-		\begin{split}
-			\mathfrak{S}_A^{\mathrm{pt}} = \left(\left\{\pi_\la: A \hookto A_\la \right\}_{\la \in \La}, \left\{\pi^\mu_\nu: A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\ \nu \ge \mu}}\right)
-		\end{split}
-		\eean
-		is a pointed algebraical  finite covering category (cf. Definition \ref{comp_pt_defn}) then there is the natural pointed algebraical  finite covering category
-		\begin{equation*}
-		\mathfrak{S}^{\mathrm{pt}}_{A\otimes \K} \bydef  \left(\left\{\widetilde\pi_\la: A \otimes \K\hookto A_\la \otimes \K\right\}_{\la \in \La}, \left\{\widetilde\pi^\mu_\nu: A_\mu\otimes \K \hookto A_\nu\otimes \K\right\}_{\substack{\mu, \nu \in \La\\ \nu >\ge \mu}}\right)
-		\end{equation*}
-		where $\widetilde\pi_\la\bydef \pi_\la \otimes \Id_\K$ and $\widetilde\pi^\mu_\mu\bydef \pi_\la \otimes \Id_\K$.
-		\item[(ii)] Conversely any pointed algebraical  finite covering category
-		\begin{equation*}
-		\mathfrak{S}^{\mathrm{pt}}_{A\otimes \K} =  \left(\left\{\widetilde\pi_\la: A \otimes \K\hookto A_\la \otimes \K\right\}_{\la \in \La}, \left\{\widetilde\pi^\mu_\nu: A_\mu\otimes \K \hookto A_\nu\otimes \K\right\}_{\substack{\mu, \nu \in \La\\ \nu \ge \mu}}\right)
-		\end{equation*}
-		such that  $\widetilde\pi_\la= \pi_\la \otimes \Id_\K$ and $\widetilde\pi^\mu_\nu= \pi_\la \otimes \Id_\K$.
-		naturally induces 
-		pointed algebraical  finite covering category $$	\mathfrak{S}_A^{\mathrm{pt}} = \left(\left\{\pi_\la: A \hookto A_\la \right\}_{\la \in \La}, \left\{\pi^\mu_\nu: A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\ \nu \ge \mu}}\right)$$ 
-	\end{enumerate}
-\end{corollary}
-\begin{proof}
-	Directly follows from the Corollary \ref{stab_t_a_cor}.
-\end{proof}
-
-
-Suppose that
-\begin{equation}\label{stable_seq_pure_eqn}
-\mathfrak{S}_A^{\mathrm{pt}} = \left(\left\{\pi_\la: A \hookto A_\la \right\}_{\la \in \La}, \left\{\pi^\mu_\nu: A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\ \nu \ge \mu}}\right)
-\end{equation}
-is a	pointed algebraical  finite covering category. From the Corollary \ref{stab_pt_a_cor} it follows that
-\begin{equation}\label{stable_seq_eqn}
-\begin{split}
-\mathfrak{S}^{\mathrm{pt}}_{A\otimes \K} =\\=  \left(\left\{\widetilde\pi_\la: A \otimes \K\hookto A_\la \otimes \K\right\}_{\la \in \La}, \left\{\widetilde\pi^\mu_\nu: A_\mu\otimes \K \hookto A_\nu\otimes \K\right\}_{\substack{\mu, \nu \in \La\\ \nu \ge \mu}}\right)
-\end{split}
-\end{equation}
-is a	pointed algebraical  finite covering category.
-Denote by $\widehat{A} = C^*\text{-}\varinjlim A_\la$, $G_\la = G\left( A_\la ~|~A\right)$, $\widehat{G} = \varprojlim G_\la$. Clearly $C^*\text{-}\varinjlim \left( A_\la \otimes \mathcal K\right)  = \widehat{A}  \otimes \mathcal K$. Let us consider the irreducible representation $\K \to B\left(\H_\K \right)$ (cf. Table \ref{stab_table}). If  $\pi: \widehat{A} \to B\left( \widehat{\H}\right)$ is an atomic representation  then from the Theorem \ref{stable_morita_thm} and the Corollary \ref{morita_irred} it follows that $\pi^{\mathcal K}= \pi \otimes \pi_{ \mathcal K} :\widehat{A}  \otimes \mathcal K\to B\left( \widehat\H_{\mathcal K} \bydef \widehat{\H} \otimes \H_\K \right) $ is the atomic   representation. 
-\begin{lemma}\label{stab_spec_in_lem}
-	Consider the situation of the Corollary \ref{stab_pt_a_cor}.
-	If $\overline{a}\in B\left( \widehat\H\right) $ is a special element of $\mathfrak{S}^{\mathrm{pt}}_A$ (cf. Definition \ref{special_element_defn}), and $p \in \mathcal K$ is a rank-one projector then $\overline{a}\otimes p \in B\left( \widehat\H_\K\right)$ is a special element with respect to $\mathfrak{S}^{\mathrm{pt}}_{A\otimes \mathcal K}$.
-\end{lemma}
-\begin{proof}
-	Let us use the implicit equations \eqref{spec_a_eps_imp_eqn} for this proof.
-	Select  $\la_0 \in \La$, $\eps > 0$ and  $z \in \left(A\otimes \K \right)^{\sim}  \cong\K_A^{+}$ (cf.  Table \ref{stab_table} ),
-	One can select a basis of the Hilbert $\H_\K$ space such that $p$ is represented by a following infinite matrix
-	$$
-	\begin{pmatrix}
-	1& 0 &\ldots \\
-	0& 0 &\ldots \\
-	\vdots& \vdots &\ddots\\
-	\end{pmatrix}.
-	$$
-	Element $z$ can be represented by the following way
-	$$
-	z = \begin{pmatrix}
-	a_{11}& a_{12} &\ldots \\
-	a_{21}& a_{22} &\ldots \\
-	\vdots& \vdots &\ddots\\
-	\end{pmatrix}; \quad  a_{jk} \in A^{\sim}_{\la_0}
-	$$
-	then
-	$$
-	z^* \left(\overline{a}\otimes p \right)z
-	$$
-	is represented by the matrix
-	$$
-	z^* \left(\overline{a}\otimes p \right)z = \begin{pmatrix}
-	a^*_{11}& 0 &\ldots \\
-	a^*_{12}& 0 &\ldots \\
-	\vdots& \vdots &\ddots\\
-	\end{pmatrix} \overline{a} \begin{pmatrix}
-	a_{11}& a_{12} &\ldots \\
-	0& 0 &\ldots \\
-	\vdots& \vdots &\ddots\\
-	\end{pmatrix}.
-	$$
-	If $\xi \in X_{A_{\la_0}}$ is given by
-	$$
-	\xi\bydef \begin{pmatrix}
-	a^*_{11} \\
-	a^*_{12} \\
-	\vdots\\
-	\end{pmatrix}.
-	$$	
-	then 
-	$
-	z^* \left(\overline{a}\otimes p \right)z=\xi \left\rangle \overline a\right\langle \xi
-	$
-	The subspace  $\xi A^{\sim}_{\la_0}\subset X_{A_{\la_0}}$ is  generated by a single element Hilbert  $A_{\la_0}$-submodule, so from the Theorem \ref{kasparov_stab_thm} it follows that there is a projector $p_\K\in \K_A$ such that $\xi A^{\sim}_{\la_0}= p_\K X_{A_{\la_0}}$ moreover there is $\overline z \in A^{\sim}_{\la_0}$ such that
-	
-	$$
-	\begin{pmatrix}
-	a^*_{11}& 0 &\ldots \\
-	a^*_{12}& 0 &\ldots \\
-	\vdots& \vdots &\ddots\\
-	\end{pmatrix}=  p_{\mathcal K}\overline z^*.
-	$$
-	It turns out
-	\begin{equation}\label{stab_zpz}
-	z^*\left( \overline{a}\otimes p\right)  z=  p_{\mathcal K} \overline z^*~ \overline{   a}~\overline z p_{\mathcal K}.
-	\end{equation}
-	From \eqref{spec_a_eps_imp_eqn} it follows that
-	\bean
-	\begin{split}
-		\sum_{g\in G_\la }\overline  z^*\left(  g\overline a\right) \overline  z  = a_\la \in A_\la,\\
-		\sum_{g\in G_\la } f_\eps\left(\overline z^*\left(  g\overline a\right) \overline  z   \right)= a^\eps_\la   \in A_\la,\\
-		\sum_{g\in G_\la  } \left(\overline  z^*\left(  g\overline a\right) \overline  z   \right)^2 = b_\la   \in A_\la. 
-	\end{split}
-	\eean
-	so one has
-	\be\label{stable_ap_eqn}
-	\begin{split}
-		\sum_{g\in G_\la } z^*\left(  g\left( \overline a\otimes p\right) \right) z =  p_\K a_\la p_\K  \in A_\la \otimes \K,\\
-		\sum_{g\in G_\la } f_\eps\left(z^*\left(  g\left( \overline a\otimes p\right)\right) z   \right)  = p_\K a^\eps_\la p_\K  \in A_\la \otimes \K,\\
-		\sum_{g\in G_\la  } \left(z^*\left(  g\left( \overline a\otimes p\right)\right) z   \right)^2 p_\K b_\la p_\K  \in A_\la \otimes \K
-	\end{split}
-	\ee
-	From the above equation it follows that $ \overline a\otimes p$ satisfies to the condition (a) of the Definition \ref{special_element_defn}.
-	Since $\overline a$ is special for any $\eps > 0$ there is $\mu \in \La$ such that
-	$$
-	\forall \la  \in \La \quad	 \la \ge \mu  \Rightarrow  \left\|a_\la^2 - b_\la\right\| < \eps.
-	$$
-	On the other hand from
-	$$
-	\left\|a_\la^2 - b_\la\right\|= \left\|\left( p_\K a_\la p_\K\right) ^2 -p_\K b_\la p_K\right\|
-	$$
-	it turns that
-	$$
-	\forall \la  \in \La \quad	 \la \ge \mu  \Rightarrow  \left\|\left( p_\K a_\la p_\K\right) ^2 -p_\K b_\la p_K\right\| < \eps
-	$$
-	Taking into account \eqref{stable_ap_eqn} one concludes that $\overline a\otimes p$ satisfies to the condition (b) of the Definition \ref{special_element_defn}.
-\end{proof}
-\begin{corollary}\label{stab_spec_in_cor}
-	Let $\overline{A} \subset B\left( \widehat{\H}\right)$ be the  disconnected inverse noncommutative limit of $\mathfrak{S}_A$.
-	If $\overline{A}^\mathcal{K}$ is be the  disconnected inverse noncommutative limit of $\mathfrak{S}_{A\otimes\K}$  then
-	$$
-	\overline{A} \otimes \mathcal K \subset \overline{A}^\mathcal{K}
-	$$
-\end{corollary}
-\begin{proof}
-	The linear span of given by the Lemma \ref{stab_spec_in_lem} special elements $\overline{a}\otimes p \in \overline{A}\otimes\mathcal{K}$ is dense in $\overline{A}^\mathcal{K}$, so $
-	\overline{A} \otimes \mathcal K \subset \overline{A}^\mathcal{K}$.
-\end{proof}
-
-\begin{lemma}\label{stab_spec_out_lem}
-	Let $\mathfrak{S}_A^{\mathrm{pt}}$ be a pointed  algebraical  finite covering category given by \eqref{stable_seq_pure_eqn}. Let  $\pi:\widehat{A} \to B\left( \widehat{\H}\right) $ be the atomic representation.	 Let $\overline{A} \subset B\left( \widehat{\H}\right)$ be the  disconnected inverse noncommutative limit of $\mathfrak{S}_A^{\mathrm{pt}}$. Let $\mathfrak{S}^{\mathrm{pt}}_{A\otimes \K}$ be an  algebraical  finite covering category given by \eqref{stable_seq_eqn}.
-	If  $\overline a^\mathcal{K} \in B\left( \widehat{\H} \otimes \H_\K\right)_+$ is a is special element  then
-	$$
-	\overline a^\mathcal{K} \in \overline{A}  \otimes \mathcal K.
-	$$
-\end{lemma}
-\begin{proof}
-	If  $\overline a^\mathcal{K}\notin \overline{A}  \otimes \mathcal K$ then there there is  $\xi\in \ell^2\left(\overline{A} \right) $ (or  $\xi \in \overline{A}^n $) such that
-	\begin{equation}\label{stab_prod_x_eqn}
-	\left\langle \xi, \overline a^\mathcal{K} \xi\right\rangle_{\ell^2\left(H_{\widehat{A}''} \right) } \notin \overline{A}.
-	\end{equation}
-	If we select a basis basis $\left\{\xi_j \in \ell^2\left(\overline{A} \right)  \right\}_{j \in \N}$ of $\ell^2\left(\overline{A}  \right)$ (or $\left\{\xi_j \in \widehat{A}^n \right\}_{j =1,...,n}$ of $\overline{A}^n$  of such that $\xi_1 = \xi$ then $\overline{a}^{\mathcal{K}}$ is represented by an infinite (or finite) matrix 
-	\begin{equation*}
-	\overline{a}^{\mathcal{K}} = \begin{pmatrix}
-	\overline{a}_{11}& \overline{a}_{12} &\ldots \\
-	\overline{a}_{21}& \overline{a}_{22} &\ldots \\
-	\vdots& \vdots &\ddots\\
-	\end{pmatrix}
-	\end{equation*}
-	and from \eqref{stab_prod_x_eqn} it turns out $\overline a_{11} \notin \overline{A}$.   The element $\overline a_{11}$ does not satisfy to the Definition \ref{special_element_defn}, so there are   $\la_0\in \La$ and $z \in A^{\sim}_{\la_0}$ such that at least one of conditions (a), (b) of the Definition \ref{special_element_defn} does not hold. 
-	Let $z_\mathcal{K}\in \left( A_{\la_0}  \otimes \mathcal K\right)^{\sim}$ be given by
-	$$
-	z_\mathcal{K}  \bydef \begin{pmatrix}
-	z& 0 &\ldots \\
-	0& 0 &\ldots \\
-	\vdots& \vdots &\ddots\\
-	\end{pmatrix}  \in \overline{A}  \otimes \mathcal K
-	$$
-	if $A_{\la_0}$ is  unital.
-	Otherwise if $A_{\la_0}$ is not unital and $z = z' + c$ where $z'\in A_{\la_0}$ and $c\in \C$ we define
-	$$
-	z_\mathcal{K}  \bydef \begin{pmatrix}
-	z'& 0 &\ldots \\
-	0& 0 &\ldots \\
-	\vdots& \vdots &\ddots\\
-	\end{pmatrix} + c \in \left( \overline{A}  \otimes \mathcal K\right)^+ 
-	$$
-	otherwise.
-	One has
-	\bean
-	\sum_{g\in G_\la }  z^*\left(  g\overline a_{11}\right)   z  = a_\la \notin A_\la\Rightarrow 	\sum_{g\in G_\la } z_\K^*\left(  g\overline a_\K\right)   z_\K=a^\K_\la=\begin{pmatrix}
-		a_\la& 0 &\ldots \\
-		0& 0 &\ldots \\
-		\vdots& \vdots &\ddots\\
-	\end{pmatrix}\notin\\
-	\notin  A_\la\otimes \K,\\
-	\sum_{g\in G_\la } f_\eps\left(  z^*\left(  g\overline a_{11}\right)   z \right)  = a^\eps_\la \notin A_\la\Rightarrow 	\sum_{g\in G_\la }f_\eps\left(  z_\K^*\left(  g\overline a_\K\right)   z_\K\right)=\\=\begin{pmatrix}
-		a^\eps_\la& 0 &\ldots \\
-		0& 0 &\ldots \\
-		\vdots& \vdots &\ddots\\
-	\end{pmatrix}
-	\notin  A_\la\otimes \K\\
-	\sum_{g\in G_\la } \left(  z^*\left(  g\overline a_{11}\right)   z \right)^2  = b_\la \notin A_\la\Rightarrow 	\sum_{g\in G_\la }\left(  z_\K^*\left(  g\overline a_\K\right)   z_\K\right)^2 =\\=b^\K_\la=\begin{pmatrix}
-		b_\la& 0 &\ldots \\
-		0& 0 &\ldots \\
-		\vdots& \vdots &\ddots\\
-	\end{pmatrix}
-	\notin  A_\la\otimes \K.
-	\eean 
-	It follows that if $ \overline a_{11}$ does not satisfy to the condition (a) of the Definition \ref{special_element_defn} then $\overline a_\K$ also does not satisfy this condition.
-	
-	From
-	$$
-	\left\| \left( b^{\mathcal K}_\la\right)^2 - c^{\mathcal K}_\la\right\| = \left\| b^2_\la - c_\la\right\|.
-	$$
-	it follows that if $ \overline a_{11}$ does not satisfy to the condition (b) of the Definition \ref{special_element_defn} then $\overline a_\K$ also does not satisfy this condition.
-\end{proof}
-
-\begin{corollary}\label{stab_spec_out_cor}
-	Let $\overline{A} \subset B\left( \widehat{\H}\right)$ be the  disconnected inverse noncommutative limit of $\mathfrak{S}$ with respect to $\pi$.
-	If $\overline{A}^\mathcal{K}$ is  the  disconnected inverse noncommutative limit of $\mathfrak{S}_{A\otimes\mathcal{K}}$  then
-	$$
-	\overline{A}^\mathcal{K}\subset	\overline{A} \otimes \mathcal K.
-	$$
-\end{corollary}
-
-
-\begin{theorem}\label{stab_inf_thm}
-	Let $\mathfrak{S}_A$ be an  algebraical  finite covering category given by \eqref{stable_seq_pure_eqn}, and let $\mathfrak{S}_{A\otimes \mathcal{K}}$ be an  algebraical  finite covering category given by \eqref{stable_seq_pure_eqn}.
-	Following conditions are equivalent:
-	\begin{enumerate}
-		\item[ 	(i)] $\mathfrak{S}_A$ is good (cf. Definition \ref{mains_defn}), the inverse noncommutative limit 	$\varprojlim  \mathfrak{S}_A$ of $\mathfrak{S}_A$ equals to a $C^*$-algebra 	$\widetilde A$ and 	$G\left(\left.\widetilde{A}~\right|~ A\right)=G$.
-		\item[ 	(ii)] $\mathfrak{S}_{A\otimes \mathcal{K}}$ is good, the inverse noncommutative limit 	$\varprojlim  \mathfrak{S}_{A\otimes \mathcal{K}}$ of $\mathfrak{S}_{A\otimes \mathcal{K}}$ equals to a $C^*$-algebra 	$\widetilde A\otimes\K$ and 	$G\left(\left.\widetilde{A}\otimes \mathcal{K}~\right|~ A\otimes \mathcal{K}\right)=G$.
-	\end{enumerate}
-\end{theorem}
-\begin{proof}
-	(i)	$\Rightarrow$(ii)
-	If $\overline A$ is the disconnected inverse limit  of $\mathfrak{S}_A$ (cf. Definition \ref{main_defn_full_defn})  then from the Corollaries \ref{stab_spec_in_cor} and \ref{stab_spec_out_cor} it follows that the disconnected inverse limit $\overline A^\K$ of $\mathfrak{S}_{A\otimes\K}$ satisfies to the following condition
-	$$
-	\overline A^\K = \overline A\otimes\K
-	$$
-	From the Theorem \ref{stable_fin_cov_thm} $G\left(\left.A_\la\right|A\right)  \cong G\left(\left.A_\la \otimes\K\right|A \otimes\K\right)$ so one has 
-	$$
-	G\left(\left.\overline A\right|A\right)=\varprojlim_{\la \in \La} G\left(\left.A_\la\right|A\right) \cong \varprojlim_{\la \in \La} G\left(\left.A_\la \otimes\K\right|A \otimes\K\right)= G\left(\left.\overline A\otimes \K\right|A\otimes \K\right)
-	$$
-	If $\widetilde A\subset \overline A$ is a connected component of $\overline A$ then $\widetilde A\otimes\K\subset \overline A\otimes\K$ is a connected component of $\overline A\otimes\K$ it turns out that
-	$$
-	G\left(\left.\widetilde A\right|A\right)\cong G\left(\left.\widetilde A\otimes \K\right|A\otimes \K\right)\cong G
-	$$
-	Since $\mathfrak{S}_{A}$ is good one has. 
-	\begin{enumerate}
-		\item[(a)] For all $\la \in \La$ the natural *-homomorphism $A_\la \to  M\left(\widetilde{A} \right)$ is injective.
-		\item[(b)] If $J\subset G\left(\overline{A}~|~ A\right)$ is a set of representatives of $G\left(\left.\overline{A}~\right| A\right)/G$, then the algebraic direct sum
-		\begin{equation*}
-		\bigoplus_{g\in J} g\widetilde{A}
-		\end{equation*}
-		is a dense subalgebra of $\overline{A}$.
-		\item [(c)] For any $\la \in \La$ the restriction $h_\la|_{G}$ is an epimorphism, i. e. $h_\la\left(G \right) = G\left(\left. A_\la~\right|~A \right)$.
-	\end{enumerate}
-	It turns out that
-	\begin{enumerate}
-		\item[(a)] For all $\la \in \La$ the natural *-homomorphism $A_\la \otimes \K \to  M\left(\widetilde{A}\otimes \K \right)$ is injective.
-		\item[(b)] If $J\subset G\left(\overline{A}\otimes \K~|~ A\otimes \K\right)$ is a set of representatives of $G\left(\left.\overline{A}\otimes \K~\right| A\otimes \K\right)/G$, then the algebraic direct sum
-		\begin{equation*}
-		\bigoplus_{g\in J} g\widetilde{A}\otimes \K
-		\end{equation*}
-		is a dense subalgebra of $\overline{A}\otimes \K$.
-		\item [(c)] For any $\la \in \La$ the restriction $h_\la|_{G}$ is an epimorphism, i. e. $h_\la\left(G \right) = G\left(\left. A_\la\otimes \K~\right|~A\otimes \K \right)$.
-	\end{enumerate}
-	It means that $\mathfrak{S}_{A\otimes\K}$ is good.\\
-	(ii)	$\Rightarrow$(i) Some parts of this implication follows from the proof of (i)	$\Rightarrow$(ii) Since $\mathfrak{S}_{A\otimes\K}$ is good one has. 
-	
-	\begin{enumerate}
-		\item[(a)] For all $\la \in \La$ the natural *-homomorphism $A_\la \otimes \K \to  M\left(\widetilde{A}\otimes \K \right)$ is injective.
-		\item[(b)] If $J\subset G\left(\overline{A}\otimes \K~|~ A\otimes \K\right)$ is a set of representatives of $G\left(\left.\overline{A}\otimes \K~\right| A\otimes \K\right)/G$, then the algebraic direct sum
-		\begin{equation*}
-		\bigoplus_{g\in J} g\widetilde{A}\otimes \K
-		\end{equation*}
-		is a dense subalgebra of $\overline{A}\otimes \K$.
-		\item [(c)] For any $\la \in \La$ the restriction $h_\la|_{G}$ is an epimorphism, i. e. $h_\la\left(G \right) = G\left(\left. A_\la\otimes \K~\right|~A\otimes \K \right)$.
-	\end{enumerate}
-	It turns out that
-	
-	\begin{enumerate}
-		\item[(a)] For all $\la \in \La$ the natural *-homomorphism $A_\la \to  M\left(\widetilde{A} \right)$ is injective.
-		\item[(b)] If $J\subset G\left(\overline{A}~|~ A\right)$ is a set of representatives of $G\left(\left.\overline{A}~\right| A\right)/G$, then the algebraic direct sum
-		\begin{equation*}
-		\bigoplus_{g\in J} g\widetilde{A}
-		\end{equation*}
-		is a dense subalgebra of $\overline{A}$.
-		\item [(c)] For any $\la \in \La$ the restriction $h_\la|_{G}$ is an epimorphism, i. e. $h_\la\left(G \right) = G\left(\left. A_\la~\right|~A \right)$.
-	\end{enumerate}
-	It means that $\mathfrak{S}_{A}$ is good.
-\end{proof}
-\begin{remark}\label{stab_inf_rem}
-	In the situation of the Theorem	\ref{stab_inf_thm} the inverse noncommutative limit $\widetilde A$ can be reconstructed from $\widetilde A\otimes \K$  by the following way
-	\be\label{stab_inf_eqn}
-	\widetilde A\cong \left(1_{{\widetilde A}^\sim}  \otimes  \mathfrak{e}_{1,1}\right) \left( \widetilde A\otimes \K \right)\left(1_{{\widetilde A}^\sim}  \otimes  \mathfrak{e}_{1,1}\right).
-	\ee
-\end{remark}
-
-
-
-
-
-
 \chapter{Coverings of commutative $C^*$-algebras and their operator subspaces}\label{top_chap}
 %\section{Basic constructions}
 %\paragraph*{}
@@ -10192,6 +9512,688 @@ From the \ref{top_cov_ca_inc} it turns out
 	\ee
 	
 \end{remark}
+\chapter{Coverings of stable $C^*$-algebras}\label{stab_chap}
+
+\section{Finite-fold coverings}
+\paragraph*{}
+Here we find a relation between  noncommutative finite-fold coverings of $C^*$-algebras and their stabilizations.
+\begin{empt}\label{stab_uni_empt}
+	Let $\H$ be a Hilbert space with finite or countable basis. The algebra $ \K \bydef\K\left(\H \right)$ of compact operators is isomorphic to $\mathbb{M}_n\left(\C \right)$ if  dimension of $\H$ equals to $n$ and $\K\left(\ell^2\left( \N\right)  \right)$ is $\H$ is infinite dimensional.  Denote by $\K^+$ the minimal unital $C^*$-algebra which contains $\K$. If  $\K \cong  \mathbb{M}_n\left(\C \right)$ then $\K^{+} \cong  \mathbb{M}_n\left(\C \right)$, otherwise $\K^+ = \K\left(\ell^2\left( \N\right)\right)  \bigoplus \C$ with product given by
+	$$
+	\left( a_1 \oplus c_1\right) \cdot  \left( a_2 \oplus c_2\right) = 
+	\left(a_1a_2 + c_2a_1 + c_1a_2 \right) \oplus c_1c_2.
+	$$ 
+	Here we find the relation between noncommutative coverings of $C^*$-algebras and noncommutative coverings its tensor products with algebras of compact operators.
+	For any $C^*$-algebra the following notation is used
+	
+	\break
+	\begin {table}[H]
+	\caption {Notations for products with compact operator} \label{stab_table} 
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|}
+			\hline
+			& Notation	& Dimension $n$	 &Infinite dimension\\
+			\hline
+			&	&	&\\
+			Hilbert space & $\H_\K$ &$\C^n$ 	&  $\ell^2\left( \N\right)$ \\
+			&	&	&\\			Compact operators& $\K$ &$\mathbb{M}_n\left(\C \right)$ 	&  $\K\left(\ell^2\left( \N\right)\right)$ \\
+			&	&	&\\
+			Unitization &&&\\
+			of compact operators& $\K^+$ &$\mathbb{M}_n\left(\C \right)$ 	&  $\K\left(\ell^2\left( \N\right)\right)\oplus \C$ \\
+			&	&	&\\
+			Irreducible &&&\\ representation& $\pi_\K: \K \to B\left(\H_\K \right) $ &$\H_\K=\C^n$ 	&  $\H_\K=\ell^2\left( \N\right)$ \\
+			&	&	&\\
+			Hilbert $C^*$-module& $X_A$ &$A^n$ 	&  $\ell^2\left(A\right) $\\
+			&	&	&\\
+			$A$-compact operators&$\K_A= \K\left( X_A\right) $ &$\mathbb{M}_n\left(A \right)$	&  $\K\left( \ell^2\left(A\right)\right)  $ \\ 		
+			&	&	&\\
+			Unitization of $\K_A$		&$\K^+_A= \K\left( X_A\right)^+ $ &$\mathbb{M}_n\left(A \right)$	&  $\K\left( \ell^2\left(A\right)\right)^+  $ \\ 		
+			&	&	&\\
+			\hline
+		\end{tabular}
+	\end{center}
+	\end {table}
+	If $A \otimes \K$ is the minimal or maximal tensor product then one has
+	\be\label{stable_comp_op_eqn}
+	A \otimes \K \cong \K_A.
+	\ee
+	Any non-degenerated involutive action of $G$ on $A$ uniquely induces the non-degenerated involutive action  of $G$ on $A\otimes \mathcal K$.
+\end{empt}
+\begin{lemma}\label{stable_pre_lem}
+	Following conditions hold:
+	\begin{enumerate}
+		\item [(i)] If the  quadruple $\left( A, \widetilde{A}, G, \pi\right)$ is a {noncommutative finite-fold  pre-covering} then  
+		$$
+		\left( A \otimes \K, \widetilde{A}  \otimes \K, G, \pi  \otimes \Id_\K \right)
+		$$
+		is a {noncommutative finite-fold  pre-covering}.
+		\item[(ii)] If $\left( A \otimes \K, \widetilde{B}, G,{\pi}^\K   \right)$ is noncommutative finite-fold  pre-covering then there is a noncommutative finite-fold  pre-covering $\left( A, \widetilde{A}, G, \pi\right)$ such that
+		\begin{enumerate}
+			\item[(a)] $\widetilde{B}  \cong \widetilde{A} \otimes \K$ and the action $G \times \widetilde{B} \to \widetilde{B}$ is naturally induced by the action $G \times \widetilde{A} \to \widetilde{A}$.
+			\item[(b)] $\widetilde{\pi}$ is naturally equivalent to $\pi  \otimes \Id_\K$.
+		\end{enumerate}
+		
+	\end{enumerate}
+	
+	
+\end{lemma}
+\begin{proof}
+	
+	(i) $G_{\K}\stackrel{\mathrm{def}}{=}\left\{ g_{\K} \in \Aut\left(\widetilde{A}  \otimes \K\right)~|~ g_{\K}a = a;~~\forall a \in A  \otimes \K\right\}$. If  $\mathfrak{e}_{1,1}$ is an elementary matrix (cf. Definition \ref{elementary_defn}) $1_{A^{\sim} } \otimes \mathfrak{e}_{1,1}$ is a multiplicator of both $A \otimes \K$ and $\widetilde{A} \otimes \K$. Any *-automorphism of $\widetilde{A}\otimes \K$ can be uniquely extended to *-automorphism of $M\left( \widetilde{A}\otimes \K\right)$. If $\widetilde{a}_\K \in \widetilde{A}  \otimes  \mathfrak{e}_{1,1}$ then  $$\widetilde{a}_\K = \left( 1_{A^{\sim} } \otimes \mathfrak{e}_{1,1}\right) \widetilde{a}_\K \left( 1_{A^{\sim} } \otimes \mathfrak{e}_{1,1}\right).$$
+	Hence for any $g_\K \in G_\K$ one has 
+	\be\label{stab_g_act_eqn}
+	\begin{split}
+		g_\K\left(  \left( 1_{A^\sim} \otimes \mathfrak{e}_{1,1}\right) \widetilde{a}_\K \left( 1_{A^\sim } \otimes \mathfrak{e}_{1,1}\right)\right) = \\=\left(	g_\K  \left( 1_{A^\sim } \otimes \mathfrak{e}_{1,1}\right)\right) 	g_\K \widetilde{a}_\K \left( 	g_\K\left( 1_{A^\sim } \otimes \mathfrak{e}_{1,1}\right)\right)=\\= \left( 1_{A^\sim } \otimes \mathfrak{e}_{1,1}\right) g_\K\widetilde{a}_\K \left( 1_{A^\sim } \otimes \mathfrak{e}_{1,1}\right)
+	\end{split}
+	\ee
+	and the above equation means
+	$$
+	g_\K \widetilde{A}  \otimes  \mathfrak{e}_{1,1} = \widetilde{A}  \otimes  \mathfrak{e}_{1,1}
+	$$
+	However there is *-isomorphism $\widetilde{A}  \otimes  \mathfrak{e}_{1,1}$ so $g_\K$ uniquely defines the element of the group $G\stackrel{\mathrm{def}}{=}\left\{ g \in \Aut\left(\widetilde{A}  \right)~|~ ga = a;~~\forall a \in A \right\}$. Otherwise the action of $g_\K$ on $\widetilde{A}\otimes \K$ uniquely depends on the action of $g_\K$ on $\widetilde{A}\otimes \mathfrak{e}_{1,1}$. Really if $\widetilde{b}_\K \in \widetilde{A}\otimes \mathfrak{e}_{j,k}$ then from 
+	$$
+	\widetilde{b}_\K = \left( 1_{A^\sim } \otimes \mathfrak{e}_{1,j}\right)\widetilde{b}_\K \left( 1_{A^\sim } \otimes \mathfrak{e}_{1,k}\right) 
+	$$
+	it turns out 
+	\bean
+	\widetilde{b}_\K = \left( 1_{A^\sim }  \otimes \mathfrak{e}_{1,k}\right)  \widetilde{c}_\K \left( 1_{A^\sim } \otimes \mathfrak{e}_{k,1}\right)\\ \text{ where }  \widetilde{c}_\K = \left(1_{A^\sim }  \otimes  \mathfrak{e}_{1,j}\right)\widetilde{b}_\K \left( 1_{A^\sim } \otimes \mathfrak{e}_{1,k}\right) \in \widetilde{A}  \otimes  \mathfrak{e}_{1,1}
+	\eean
+	and
+	$$
+	g_\K \widetilde{b}_\K = \left( 1_{A^\sim }  \otimes \mathfrak{e}_{1,k}\right)  g_\K\widetilde{c}_\K \left( 1_{A^\sim } \otimes \mathfrak{e}_{k,1}\right)
+	$$
+	Conversely any element of $g \in G$ uniquely defines the element $g_\K \in G_\K$. Moreover from $A = \widetilde{A}^G$ it turns out ${A}\otimes \K = \left( \widetilde{A}\otimes \K\right)^{G_\K}$.\\
+	(ii)  Denote by  $\widetilde{A} \stackrel{\text{def}}{=}\left( 1_{A^\sim } \otimes \mathfrak{e}_{1,1}\right) \widetilde{A}^\K \left( 1_{A^\sim } \otimes \mathfrak{e}_{1,1}\right) \subset \widetilde{A}^\K$. From   $$A\cong \left( 1_{A^\sim } \otimes \mathfrak{e}_{1,1}\right) \left(A \otimes \K \right)  \left( 1_{A^\sim }\otimes \mathfrak{e}_{1,1}\right) $$ and the inclusion $A \otimes \K \subset \widetilde{A}^\K$ it turns out that there is the inclusion $A \hookto \widetilde{A}$.
+	\begin{enumerate}
+		\item [(a)] For any $j,k$ there is the natural isomorphism 
+		$$
+		\left( 1_{A^\sim } \otimes \mathfrak{e}_{j,j}\right) \widetilde{A}^\K \left( 1_{A^\sim } \otimes \mathfrak{e}_{k,k}\right)\cong \widetilde{A}
+		$$
+		of $\widetilde{A}$ bimodules. From this fact any $\widetilde{b} \in \widetilde{A}^\K$ can be represented by a finite or countable matrix
+		\be\label{stab_b_matr_eqn}
+		\begin{split}
+			\widetilde{b}=\begin{pmatrix}
+				\widetilde{b}_{1,1}& \ldots & \widetilde{b}_{j,1} &  \dots \\
+				\vdots& \ddots & \vdots& \ldots\\
+				\widetilde{b}_{j,1}& \ldots &\widetilde{b}_{j,j} &  \ldots \\
+				\vdots& \vdots & \vdots & \ddots \\
+			\end{pmatrix}; \\\text{where} \quad \widetilde{b}_{j,k}= \left( 1_{A^\sim } \otimes \mathfrak{e}_{1,j}\right)\widetilde{b}\left( 1_{A^\sim } \otimes \mathfrak{e}_{k,1}\right) \in \widetilde{A}.
+		\end{split}
+		\ee
+		The equation \eqref{stab_b_matr_eqn} is equivalent to $\widetilde{B} \cong \widetilde{A}\otimes \K$.	Similarly to \eqref{stab_g_act_eqn} one can proof that the action  $G \times \widetilde{A}^\K\to G \times \widetilde{A}^\K$ naturally induces the action  $G \times \widetilde{A}\to G \times \widetilde{A}$. Moreover similarly to the proof of (i) one has 
+		\bean
+		\left\{ g \in \Aut\left(\widetilde{A} \right)~|~ ga = a;~~\forall a \in A\right\}\cong G,\\
+		A = \widetilde{A}^G.
+		\eean
+		\item[(b)] Follows from \eqref{stab_b_matr_eqn}.
+	\end{enumerate}
+\end{proof}
+
+
+
+\begin{lemma}\label{stable_fin_cov_comp_lem}
+	Following conditions hold: 
+	\begin{enumerate}
+		\item [(i)] If the  quadruple $\left( A, \widetilde{A}, G, \pi\right)$ is a  {noncommutative finite-fold  covering} with unitization then  
+		$$
+		\left( A \otimes \K, \widetilde{A}  \otimes \K, G, \pi  \otimes \Id_\K \right)
+		$$
+		is a  {noncommutative finite-fold  covering} with unitization.
+		\item[(ii)] If $\left( A \otimes \K, \widetilde{A}^\K, G,{\pi}^\K   \right)$ is  a  {noncommutative finite-fold  covering} with unitization then there is  a  {noncommutative finite-fold  covering} with unitization $\left( A, \widetilde{A}, G, \pi\right)$ such that
+		\begin{enumerate}
+			\item[(I)] $\widetilde{A}^\K  \cong \widetilde{A} \otimes \K$ and the action $G \times \widetilde{A}^\K \to \widetilde{A}^\K$ is naturally induced by the action $G \times \widetilde{A} \to \widetilde{A}$.
+			\item[(II)] $\widetilde{\pi}$ is naturally equivalent to $\pi  \otimes \Id_\K$.
+		\end{enumerate}
+		
+	\end{enumerate}
+\end{lemma}
+\begin{proof}
+	(i)	From the Lemma \ref{stable_pre_lem} it turns out that the quadruple
+	$$
+	\left( A \otimes \K, \widetilde{A}  \otimes \K, G, \pi  \otimes \Id_\K \right)
+	$$	
+	is a noncommutative finite-fold  pre-covering. 	From the Definition \ref{fin_comp_defn} it follows that following conditions hold:
+	
+	\begin{enumerate}
+		\item[(a)] 
+		
+		There are unitizations $A \hookto B$, $\widetilde{A} \hookto \widetilde{B}$.
+		%	\item[(b)]$A = B\bigcap \widetilde{A}$,
+		\item[(b)] There is an %(strong) 
+		unital  noncommutative finite-fold covering (resp. unital  noncommutative finite-fold quasi-covering)	$\left(B ,\widetilde{B}, G,\widetilde{\pi} \right)$ such that $\pi =\widetilde{\pi}|_A$ and the action $G \times\widetilde{A} \to \widetilde{A}$ is induced by $G \times\widetilde{B} \to \widetilde{B}$.
+	\end{enumerate}
+	We need prove that the quadruple $\left( A \otimes \K, \widetilde{A}  \otimes \K, G, \pi  \otimes 1_{\K^+} \right)$ satisfies to conditions (a), (b) the Definition \ref{fin_comp_defn}.\\
+	(a)
+	Let $\mathcal K^+$ be the  unitisation given by \ref{stab_uni_empt}. Algebra $A \otimes \mathcal K$ (resp. $\widetilde{A} \otimes \mathcal K$) is an essential ideal of $B \otimes \mathcal K^+$ (resp. $\widetilde{B} \otimes \mathcal K^+$), i.e. both ${A} \otimes \mathcal K \hookto B \otimes \mathcal K^+$ and $\widetilde{A} \otimes \mathcal K \hookto \widetilde{B} \otimes \mathcal K^+$ are unitisations. \\
+	(b) The quadruple 
+	$\left( A \otimes \K, \widetilde{A}  \otimes \K, G, \pi  \otimes \Id_\K \right)$ is a  noncommutative finite-fold  pre-covering, hence $\left( B \otimes \K^+, \widetilde{B}  \otimes \K^+, G, \widetilde{\pi}  \otimes \Id_\K \right)$ is a  noncommutative finite-fold  pre-covering. 
+	Since $\left(B ,\widetilde{B}, G \right)$ is an unital  noncommutative finite-fold covering the algebra $\widetilde{B}$ is a finitely generated $B$ module, i.e. there are $\widetilde{b}_1, \dots , \widetilde{b}_n \in \widetilde{B}$ such that any $\widetilde{b} \in\widetilde{B}$ is given by
+	$$
+	\widetilde{b} = \sum_{j = 1}^n \widetilde{b}_jb_j; \text{	where } b_j \in B.
+	$$
+	From the above equation it turns out that if
+	$$
+	\widetilde{b}^{\mathcal K} = \sum_{k = 1}^m \widetilde{b}_k \otimes x_k \in \widetilde{B} \otimes \mathcal K^+;~ \widetilde{b}_k \in \widetilde{B}, ~ x_k \in \mathcal K^+
+	$$
+	and 
+	$$
+	\widetilde{b}_k  = \sum_{j = 1}^n \widetilde{b}_jb_{kj}
+	$$
+	then
+	\begin{equation*}
+	\begin{split}
+	\widetilde{b}^{\mathcal K} = \sum_{j = 1}^n \left( \widetilde{b}_j\otimes 1_{\mathcal K^+}\right) b_j^{\mathcal K},\\
+	\text{ where } b_j^{\mathcal K} = \sum_{k = 1}^m b_{kj}  \otimes x_k \in B \otimes \mathcal K.
+	\end{split}
+	\end{equation*}
+	It turns out that the algebraic tensor product $\widetilde{B} \otimes \mathcal K^+$ is generated by $\widetilde{b}_1\otimes 1_{\mathcal K^+},..., \widetilde{b}_n\otimes 1_{\mathcal K^+}$ as $B \otimes \K$ module. The minimal (or maximal) completion the algebraic tensor product $\widetilde{B} \otimes \mathcal K^+$ is also generated by $\widetilde{b}_1\otimes 1_{\mathcal K^+},..., \widetilde{b}_n\otimes 1_{\mathcal K^+}$ so the  minimal (or maximal) tensor product is a finitely generated $B\otimes \mathcal K^+$ module. It turns out that the quadruple
+	$$
+	\left({B} \otimes \mathcal K^+,\widetilde{B} \otimes \mathcal K^+, G, \widetilde{   \pi} \otimes \Id_\K\right) 
+	$$
+	is an unital  noncommutative finite-fold covering. \\
+	(ii) From (ii) of the Lemma \ref{stable_pre_lem} it turns out that there is a noncommutative finite-fold pre-covering   $\left( A, \widetilde{A}, G, \pi\right)$ $\widetilde{A}$ such that the quadruple  $\left( A \otimes \K, \widetilde{A}^\K, G,{\pi}^\K   \right)$ is equivalent to $\left(A  \otimes \mathcal K, \widetilde{A} \otimes \mathcal K, G, \pi \otimes 1_{\K^+ } \right)$. Moreover the Lemma \ref{stable_pre_lem} implies that conditions (I), (II) of this lemma hold. From the Definition \ref{fin_comp_defn} there are unitizations $A \otimes \K \subset B^\K$,  $\widetilde{A} \otimes \K \subset \widetilde{B}^\K$ such that the *-homomorphism ${B}^\K \hookto \widetilde{B}^\K$ is a unital noncommutative finite-fold covering. From the Definition \ref{fin_defn} it turns out that $\widetilde{B}^\K$ is a finitely generated ${B}^\K$, i.e.
+	\bean
+	\exists \left\{\widetilde{b}^\K_1,...,\widetilde{b}^\K_n\right\} \subset \widetilde{B}^\K \text{ such that }\quad \widetilde{B}^\K = \widetilde{b}^\K_1B^\K+...+\widetilde{b}^\K_nB^\K.
+	\eean
+	If $B\bydef\left( 1_{A^\sim } \otimes \mathfrak{e}_{1,1}\right){B}^\K \left( 1_{A^\sim } \otimes \mathfrak{e}_{1,1}\right)$ and $\widetilde{B}\bydef\left( 1_{A^\sim } \otimes \mathfrak{e}_{1,1}\right)\widetilde{B}^\K \left( 1_{A^\sim } \otimes \mathfrak{e}_{1,1}\right)$ then one has
+	\bean
+	\widetilde{B} = \widetilde{b}_1B+...+\widetilde{b}_nB; \quad \widetilde{b}_j = \left( 1_{A^\sim } \otimes \mathfrak{e}_{1,1}\right)\widetilde{b}^\K_j \left( 1_{A^\sim } \otimes \mathfrak{e}_{1,1}\right), \quad j =1,...,n,
+	\eean
+	i.e. $\widetilde{B}$ is a finitely generated $B$-module. It turns out that $B\hookto \widetilde{B}$ is an unital noncommutative finite-fold covering. Since both $A \subset B$ and $\widetilde{A} \subset \widetilde{B}$ are essential ideals the *-homomorphism $A\hookto \widetilde{A}$ is a noncommutative finite-fold covering with unitization. 
+\end{proof}
+
+\begin{theorem}\label{stable_fin_cov_thm}
+	Following conditions hold: 
+	\begin{enumerate}
+		\item [(i)] If the  quadruple $\left( A, \widetilde{A}, G, \pi\right)$ is a  {noncommutative finite-fold  covering} then  
+		$$
+		\left( A \otimes \K, \widetilde{A}  \otimes \K, G, \pi  \otimes 1_{K^+} \right)
+		$$
+		is a  {noncommutative finite-fold  covering}.
+		\item[(ii)] If $\left( A \otimes \K, \widetilde{A}^\K, G,{\pi}^\K   \right)$ is  a  {noncommutative finite-fold  covering}  there is  a  {noncommutative finite-fold  covering} $\left( A, \widetilde{A}, G, \pi\right)$ such that
+		\begin{enumerate}
+			\item[(I)] $\widetilde{A}^\K  \cong \widetilde{A} \otimes \K$ and the action $G \times \widetilde{A}^\K \to \widetilde{A}^\K$ is naturally induced by the action $G \times \widetilde{A} \to \widetilde{A}$.
+			\item[(II)] Isomorphism  $\widetilde{\pi}$ equals  to $\pi  \otimes \Id_\K$.
+		\end{enumerate}
+		
+	\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+	(i)
+	From the Lemma \ref{stable_pre_lem} it turns out that $\left(A  \otimes \mathcal K, \widetilde{A} \otimes \mathcal K, G, \pi \otimes 1_{\K^+ } \right)$ is a a noncommutative finite-fold  pre-covering.
+	From the Definition \ref{fin_defn} it turns out that $\left(A, \widetilde{A}, G, \pi \right)$ is  a noncommutative finite-fold  pre-covering such that  there is increasing net $\left\{u_\la\right\}_{\la\in\La}\subset M\left( A\right)_+ $  of positive elements such that
+	
+	\begin{enumerate}
+		\item[(a)] There is the limit 
+		$$
+		\bt\text{-}\lim_{\la \in \La} u_\la = 1_{M\left(A \right)  }
+		$$
+		in the strict topology of $M\left(A \right)$ (cf. Definition \ref{strict_topology}).
+		\item[(b)]  If for all   $\la\in\La$ both $A_\la$ and  $\widetilde A_\la$ are $C^*$-norm completions  of $u_\la A u_\la$ and  $u_\la\widetilde{A}u_\la$ respectively then for every $\la\in\La$ a quadruple
+		$$
+		\left(A_\la, \widetilde{A}_\la, G, \left.\pi\right|_{A_\la} :A_\la\hookto \widetilde{A}_\la\right)	
+		$$
+		is a noncommutative finite-fold covering with unitization. The action 	$G \times \widetilde{A}_\la\to \widetilde{A}_\la$, is the restriction on $\widetilde{A}_\la\subset \widetilde{   A}$ of the action $G\times  \widetilde{A}\to \widetilde{A}$.
+	\end{enumerate}
+	
+	Let  $\left\{u_\la\otimes 1_{\K^+}\right\}_{\la\in\La}\subset M\left( A\otimes \K\right)_+ $ 
+	and let us prove that the net $\left\{u_\la\otimes 1_{\K^+}\right\}$ satisfies to (a), (b)  of the Definition  \ref{fin_defn}.
+	\begin{enumerate}
+		\item [(a)] The strict limit 	$\bt\text{-}\lim_{\la \in \La} u_\la\otimes 1_{\K^+} = 1_{\left(M\left( A \otimes\K\right)\right) }$ directly follows from the strict limit 		$\bt\text{-}\lim_{\la \in \La} u_\la = 1_{M\left(A \right)}$.
+		\item[(b)]Follows from (i) of the Lemma \ref{stable_fin_cov_comp_lem}.
+	\end{enumerate}
+	(ii)  From (ii) of the Lemma \ref{stable_pre_lem} it turns out that there is a noncommutative finite-fold pre-covering   $\left( A, \widetilde{A}, G, \pi\right)$ $\widetilde{A}$ such that the quadruple  $\left( A \otimes \K, \widetilde{A}^\K, G,{\pi}^\K   \right)$ is equivalent to $\left(A  \otimes \mathcal K, \widetilde{A} \otimes \mathcal K, G, \pi \otimes 1_{\K^+ } \right)$.   Moreover the Lemma \ref{stable_pre_lem} implies that conditions (I), (II) of this Lemma hold.	Let $\left\{u^\K_\la\right\}_{\la\in\La}\subset M\left( A\otimes\K\right)$ be a net which satisfies to  to (a) and (b) of the Definition \ref{fin_defn}, i.e.
+	
+	\begin{enumerate}
+		\item[(a)] There is the limit 
+		$$
+		\bt\text{-}\lim_{\la \in \La} u^\K_\la = 1_{M\left(A\otimes\K \right) }
+		$$
+		in the strict topology of $M\left(A \right)$ (cf. Definition \ref{strict_topology}).
+		\item[(b)]  If for all   $\la\in\La$ both $A^\K_\la$ and  $\widetilde A^\K_\la$ are $C^*$-norm completions  of $u^\K_\la \left(  A\otimes \K \right) u_\la$ and  $u_\la\left( \widetilde{A}\otimes \K\right)  u_\la$ respectively then for every $\la\in\La$ a quadruple
+		$$
+		\left(A^\K_\la, \widetilde{A}^\K_\la, G, \left.\pi^\K\right|_{A^\K_\la} :A^\K_\la\hookto \widetilde{A}^K_\la\right)	
+		$$
+		is a noncommutative finite-fold covering with unitization. The action 	$G \times \widetilde{A}^\K_\la\to \widetilde{A}^\K_\la$, is the restriction on $\widetilde{A}^\K_\la\subset \widetilde{   A}\otimes\K$ of the action $G\times  \left( \widetilde{A}\otimes\K\right) \to \widetilde{A}\otimes\K$.
+	\end{enumerate}
+	If  $$u_\la \bydef \left( \mathfrak{e}_{1,1}\otimes 1_{M\left( A \right) }\right)u_\la^\K \left( \mathfrak{e}_{1,1}\otimes 1_{M\left( A \right) }\right) \in \left( \mathfrak{e}_{1,1}\otimes 1_{M\left( A \right) }\right)M\left(A\otimes \K \right)  \left( \mathfrak{e}_{1,1}\otimes 1_{M\left( A \right) }\right)$$ then from the natural *-isomorphism $ \left( \mathfrak{e}_{1,1}\otimes 1_{M\left( A \right) }\right)M\left(A\otimes \K \right)  \left( \mathfrak{e}_{1,1}\otimes 1_{M\left( A \right) }\right)\cong M\left(A\right)$, $u_\la$ can be regarded as an element of $M\left( A\right)$. Let us prove that the net $\left\{u_\la\right\}\in M\left( A \right)_+$ satisfies to the conditions (a), (b) of the Definition \ref{fin_defn}
+	\begin{enumerate}
+		\item [(a)] The strict limit 	$\bt\text{-}\lim_{\la \in \La} u_\la = 1_{M\left(A \right) }$	 directly follows from the strict limit $\bt\text{-}\lim_{\la \in \La} u_\la\otimes 1_{\K^+} = 1_{M\left(A \otimes\K\right) }$ 	.
+		\item[(b)]Follows from (ii) of the Lemma \ref{stable_fin_cov_comp_lem}.
+	\end{enumerate}
+\end{proof}
+\section{Infinite coverings}
+
+\paragraph*{} Here we find a relation between infinite noncommutative coverings of $C^*$-algebras and their stabilizations.
+
+\begin{lemma}\label{stable_compliant_lem}
+	Let $A$, $\widetilde A_1$, $\widetilde A_2$ are $C^*$-algebras and $\pi_1: A \hookto \widetilde A_1$, and $\pi_2  A \hookto \widetilde A_2$ be a noncommutative finite fold coverings. Let $\widetilde\pi_1: A \otimes \K\hookto \widetilde A_1\otimes \K$, and $\widetilde\pi_2: A \otimes \K\hookto \widetilde A_1\otimes \K$ be the given by the Theorem \ref{stable_fin_cov_thm} noncommutative finite-fold coverings. The pair $\left(\pi_1, \pi_2\right)$ is compliant (cf. Definition \ref{compliant_covering_defn}) if and only if the pair $\left(\widetilde\pi_1, \widetilde\pi_2\right)$ is compliant.
+\end{lemma}
+\begin{proof}
+	Suppose that the pair $\left(\pi_1, \pi_2\right)$ is compliant and let us prove that the pair $\left(\widetilde\pi_1, \widetilde\pi_2\right)$ satisfies to the conditions of the Definition \ref{compliant_covering_defn}.
+	\begin{enumerate}
+		\item [(a)] Suppose that $\widetilde\pi^{1}_2: \widetilde A_1\otimes \K\hookto \widetilde A_2\otimes \K$ is an injective *-homomorphism such that $\widetilde\pi_2= \widetilde\pi^{1}_2\circ\widetilde\pi_1$. The given by
+		\bean
+		\left( \mathfrak{e}_{1,1}\otimes 1_{M\left( A \right) }\right)\left(  \widetilde a_1 \otimes x \right)  \left( \mathfrak{e}_{1,1}\otimes 1_{M\left( A \right) }\right)\mapsto\\
+		\mapsto \widetilde\pi^{1}_2 \left( \mathfrak{e}_{1,1}\otimes 1_{M\left( A \right) }\right)\left( \widetilde a_1 \otimes x \right)  \left( \mathfrak{e}_{1,1}\otimes 1_{M\left( A \right) }\right);\quad \widetilde a_1\in \widetilde A_1, \quad x \in \K
+		\eean
+		map can be regarded as a map $\pi^1_2 : \widetilde A_1\to \widetilde A_2$. Direct check shows that $\pi^1_2$ is an injective *-homomorphism such that $\pi_2 = \pi^1_2 \circ \pi_1$. The pair $\left(\pi_1, \pi_2\right)$ is compliant, so $\pi^1_2$ is a noncommutative finite-fold covering.  Also direct check shows that $\widetilde\pi^1_2 = \pi^1_2\otimes\Id_\K$, and from (i) of the Theorem \ref{stable_fin_cov_thm} it follows that $\widetilde\pi^1_2$ is a noncommutative finite-fold covering.
+		\item[(b)] A pair  $\left(\pi_1, \pi_2\right)$ is compliant so one has 		
+		\bean
+		G\left(\left.\widetilde A_2~\right|A \right)\pi^1_2\left(\widetilde A_1\right)=  \pi^1_2\left(\widetilde A_1\right).
+		\eean
+		(cf. Equation \ref{g_sur_eqn}). It turns out that
+		\bean
+		G\left(\left.\widetilde A_2~\right|A \right)\left( \pi^1_2\left(\widetilde A_1\right)\otimes\K\right) =  \pi^1_2\left(\widetilde A_1\right)\otimes\K.
+		\eean
+		\item[(c)] 
+		
+		From the Theorem \ref{stable_fin_cov_thm} it follows that $G\left(\left.\widetilde A_2~\right|A \right)\cong G\left(\left.\widetilde A_2\otimes\K~\right|A \otimes \K\right)$ and $ G\left(\left.\widetilde A_1~\right|A \right)\cong G\left(\left.\widetilde A_1\otimes\K~\right|A \otimes \K\right)$
+		From (b) of the Definition \ref{compliant_covering_defn} it turns out that there is the surjective homomorphism $h: G\left(\left.\widetilde A_2~\right|A \right)\to 	G\left(\left.\widetilde A_1~\right|A \right)$ such that 
+		\bean
+		\pi^1_2\left( h\left(g \right)a_1\right) = g \circ \pi^1_2\left(a_1 \right)
+		\eean
+		for each $a_1 \in \widetilde A_1$.  there is the surjective homomorphism $ \widetilde h: G\left(\left.\widetilde A_2\otimes\K~\right|A\otimes\K \right)\to 	G\left(\left.\widetilde A_1\otimes\K~\right|A\otimes\K \right)$ such that 
+		\bean
+		\widetilde \pi^1_2\left( \widetilde h\left(g \right) \left( a_1\otimes x\right) \right) = g \circ \widetilde \pi^1_2\left(a_1 \otimes x\right)\quad \forall a_1\in \widetilde A_2, \quad x \in \K.
+		\eean
+		\item[(d)] If   $\widetilde\rho: \widetilde A_1\otimes\K  \hookto \widetilde A_2\otimes\K $ is any injective *-homomorphism  such that $\widetilde\pi_2 = \widetilde\rho \circ \widetilde\pi_1$ then the map 
+		\bean
+		\left( \mathfrak{e}_{1,1}\otimes 1_{M\left( A \right) }\right)\left(  \widetilde a_1 \otimes x \right)  \left( \mathfrak{e}_{1,1}\otimes 1_{M\left( A \right) }\right)\mapsto\\
+		\mapsto \widetilde\rho \left( \mathfrak{e}_{1,1}\otimes 1_{M\left( A \right) }\right)\left( \widetilde a_1 \otimes x \right)  \left( \mathfrak{e}_{1,1}\otimes 1_{M\left( A \right) }\right);\quad \widetilde a_1\in \widetilde A_1, \quad x \in \K
+		\eean
+		map can be regarded as a map $\rho : \widetilde A_1\to \widetilde A_2$. Direct check shows that $\rho$ is an injective *-homomorphism such that $\pi_2 = \rho \circ \pi_1$. The pair $\left(\pi_1, \pi_2\right)$ is compliant, so  there is the unique $g \in 	G\left(\left.\widetilde A_1~\right|A \right)$ such that 
+		\bean
+		\rho =  \pi^1_2 \circ g.
+		\eean
+		Direct check shows that 
+		
+		\bean
+		\widetilde\rho =  \widetilde\pi^1_2 \circ g.
+		\eean	
+		
+	\end{enumerate}
+	
+	
+	Suppose that the pair $\left(\widetilde\pi_1, \widetilde\pi_2\right)$ is compliant and let us prove that the pair $\left(\pi_1, \pi_2\right)$ satisfies to the conditions of the Definition \ref{compliant_covering_defn}.
+	\begin{enumerate}
+		\item [(a)] Suppose that $\pi^{1}_2: \widetilde A_1 \hookto \widetilde A_2$ is an injective *-homomorphism such that $\pi_2= \pi^{1}_2\circ\pi_1$. 
+		The given by
+		\bean
+		\widetilde\pi^1_2\bydef \pi_1\otimes \Id_\K:  \widetilde A_1\otimes \K \hookto \widetilde A_2 \otimes\K
+		\eean
+		*-homomorphism is injective, and $\widetilde\pi_2= \widetilde\pi^{1}_2\circ\widetilde\pi_1$. 
+		Since the pair $\left(\widetilde\pi_1, \widetilde\pi_2\right)$ is compliant the map $\widetilde\pi^1_2$ is a noncommutative finite-fold covering. From (ii) of the Theorem \ref{stable_fin_cov_thm} it follows that $\pi^1_2$ is a noncommutative finite-fold covering.
+		\item[(b)] The pair  $\left(\widetilde\pi_1, \widetilde\pi_2\right)$ is compliant so one has
+		\bean
+		G\left(\left.\widetilde A_2~\right|A \right)\left( \pi^1_2\left(\widetilde A_1\right)\otimes\K\right) =  \pi^1_2\left(\widetilde A_1\right)\otimes\K.
+		\eean
+		
+		
+		(cf. Equation \ref{g_sur_eqn}). It turns out that
+		\bean
+		G\left(\left.\widetilde A_2~\right|A \right)\pi^1_2\left(\widetilde A_1\right)=  \pi^1_2\left(\widetilde A_1\right).
+		\eean
+		\item[(c)] 
+		
+		From the Theorem \ref{stable_fin_cov_thm} it follows that $G\left(\left.\widetilde A_2~\right|A \right)\cong G\left(\left.\widetilde A_2\otimes\K~\right|A \otimes \K\right)$ and $ G\left(\left.\widetilde A_1~\right|A \right)\cong G\left(\left.\widetilde A_1\otimes\K~\right|A \otimes \K\right)$
+		From (b) of the Definition \ref{compliant_covering_defn} it turns out that there is the surjective homomorphism $ \widetilde h: G\left(\left.\widetilde A_2\otimes\K~\right|A\otimes\K \right)\to 	G\left(\left.\widetilde A_1\otimes\K~\right|A\otimes\K \right)$  such that 
+		\bean
+		\widetilde \pi^1_2\left( \widetilde h\left(g \right) \left( a_1\otimes x\right) \right) = g \circ \widetilde \pi^1_2\left(a_1 \otimes x\right)\quad \forall a_1\in \widetilde A_2, \quad x \in \K.
+		\eean
+		
+		
+		There is the surjective homomorphism $h: G\left(\left.\widetilde A_2~\right|A \right)\to 	G\left(\left.\widetilde A_1~\right|A \right)$ such that 
+		\bean
+		\pi^1_2\left( h\left(g \right)a_1\right) = g \circ \pi^1_2\left(a_1 \right)
+		\eean
+		for each $a_1 \in \widetilde A_1$.
+		\item[(d)] If   $\rho: \widetilde A_1 \hookto \widetilde A_2$ be any injective *-homomorphism  such that $\pi_2 = \rho \circ \pi_1$ and $  \widetilde\rho \bydef \rho\otimes\K:\widetilde\pi_2 = \widetilde\rho \circ \widetilde\pi_1$ then  $\widetilde\rho$ is injective *-homomorphism and 	
+		$\widetilde\pi_2 = \widetilde\rho \circ \widetilde\pi_1$. The pair $\left(\widetilde\pi_1, \widetilde\pi_2\right)$ is compliant so  there is the unique $g \in 	G\left(\left.\widetilde A_1~\right|A \right)$ such that 
+		\bean
+		\widetilde\rho =  \widetilde\pi^1_2 \circ g.
+		\eean	
+		
+		The	direct check shows that 
+		
+		\bean
+		\rho =  \pi^1_2 \circ g.
+		\eean
+		
+	\end{enumerate}
+	
+\end{proof}
+
+\begin{corollary}\label{stab_t_a_cor}
+	Following conditions hold:
+	\begin{enumerate}
+		\item[(i)] 	If
+		$
+		\mathfrak{S}_{A} =  \left\{\pi_\la :A  \hookto A_\la \right\}_{\la \in \La}\in \mathfrak{FinAlg}
+		$
+		is an algebraical  finite covering category (cf. Definition \ref{comp_defn}) then there is the natural algebraical  finite covering category.
+		\begin{equation*}
+		\mathfrak{S}_{A\otimes \K} =  \left\{ \pi_\la\otimes\Id_\K :A \otimes \K  \hookto A_\la \otimes \K\right\}_{\la \in \La}\in \mathfrak{FinAlg}
+		\end{equation*}
+		\item[(ii)] Conversely any algebraical  finite covering category
+		\begin{equation*}
+		\mathfrak{S}_{A\otimes \K} =  \left\{ \pi_\la\otimes\Id_\K :A \otimes \K  \hookto A_\la\otimes\K\right\}_{\la \in \La}\in \mathfrak{FinAlg}
+		\end{equation*}
+		naturally induces 
+		algebraical  finite covering category $$\mathfrak{S}_{A} =  \left\{\pi_\la :A  \hookto A_\la \right\}_{\la \in \La}\in \mathfrak{FinAlg}.$$ 
+	\end{enumerate}
+\end{corollary}
+\begin{proof}
+	Follows from the Theorem \ref{stable_fin_cov_thm} and the Lemma \ref{stable_compliant_lem}.
+\end{proof}
+
+\begin{corollary}\label{stab_pt_a_cor}
+	Following conditions hold:
+	\begin{enumerate}
+		\item[(i)] 	If
+		\bean
+		\begin{split}
+			\mathfrak{S}_A^{\mathrm{pt}} = \left(\left\{\pi_\la: A \hookto A_\la \right\}_{\la \in \La}, \left\{\pi^\mu_\nu: A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\ \nu \ge \mu}}\right)
+		\end{split}
+		\eean
+		is a pointed algebraical  finite covering category (cf. Definition \ref{comp_pt_defn}) then there is the natural pointed algebraical  finite covering category
+		\begin{equation*}
+		\mathfrak{S}^{\mathrm{pt}}_{A\otimes \K} \bydef  \left(\left\{\widetilde\pi_\la: A \otimes \K\hookto A_\la \otimes \K\right\}_{\la \in \La}, \left\{\widetilde\pi^\mu_\nu: A_\mu\otimes \K \hookto A_\nu\otimes \K\right\}_{\substack{\mu, \nu \in \La\\ \nu >\ge \mu}}\right)
+		\end{equation*}
+		where $\widetilde\pi_\la\bydef \pi_\la \otimes \Id_\K$ and $\widetilde\pi^\mu_\mu\bydef \pi_\la \otimes \Id_\K$.
+		\item[(ii)] Conversely any pointed algebraical  finite covering category
+		\begin{equation*}
+		\mathfrak{S}^{\mathrm{pt}}_{A\otimes \K} =  \left(\left\{\widetilde\pi_\la: A \otimes \K\hookto A_\la \otimes \K\right\}_{\la \in \La}, \left\{\widetilde\pi^\mu_\nu: A_\mu\otimes \K \hookto A_\nu\otimes \K\right\}_{\substack{\mu, \nu \in \La\\ \nu \ge \mu}}\right)
+		\end{equation*}
+		such that  $\widetilde\pi_\la= \pi_\la \otimes \Id_\K$ and $\widetilde\pi^\mu_\nu= \pi_\la \otimes \Id_\K$.
+		naturally induces 
+		pointed algebraical  finite covering category $$	\mathfrak{S}_A^{\mathrm{pt}} = \left(\left\{\pi_\la: A \hookto A_\la \right\}_{\la \in \La}, \left\{\pi^\mu_\nu: A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\ \nu \ge \mu}}\right)$$ 
+	\end{enumerate}
+\end{corollary}
+\begin{proof}
+	Directly follows from the Corollary \ref{stab_t_a_cor}.
+\end{proof}
+
+
+Suppose that
+\begin{equation}\label{stable_seq_pure_eqn}
+\mathfrak{S}_A^{\mathrm{pt}} = \left(\left\{\pi_\la: A \hookto A_\la \right\}_{\la \in \La}, \left\{\pi^\mu_\nu: A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\ \nu \ge \mu}}\right)
+\end{equation}
+is a	pointed algebraical  finite covering category. From the Corollary \ref{stab_pt_a_cor} it follows that
+\begin{equation}\label{stable_seq_eqn}
+\begin{split}
+\mathfrak{S}^{\mathrm{pt}}_{A\otimes \K} =\\=  \left(\left\{\widetilde\pi_\la: A \otimes \K\hookto A_\la \otimes \K\right\}_{\la \in \La}, \left\{\widetilde\pi^\mu_\nu: A_\mu\otimes \K \hookto A_\nu\otimes \K\right\}_{\substack{\mu, \nu \in \La\\ \nu \ge \mu}}\right)
+\end{split}
+\end{equation}
+is a	pointed algebraical  finite covering category.
+Denote by $\widehat{A} = C^*\text{-}\varinjlim A_\la$, $G_\la = G\left( A_\la ~|~A\right)$, $\widehat{G} = \varprojlim G_\la$. Clearly $C^*\text{-}\varinjlim \left( A_\la \otimes \mathcal K\right)  = \widehat{A}  \otimes \mathcal K$. Let us consider the irreducible representation $\K \to B\left(\H_\K \right)$ (cf. Table \ref{stab_table}). If  $\pi: \widehat{A} \to B\left( \widehat{\H}\right)$ is an atomic representation  then from the Theorem \ref{stable_morita_thm} and the Corollary \ref{morita_irred} it follows that $\pi^{\mathcal K}= \pi \otimes \pi_{ \mathcal K} :\widehat{A}  \otimes \mathcal K\to B\left( \widehat\H_{\mathcal K} \bydef \widehat{\H} \otimes \H_\K \right) $ is the atomic   representation. 
+\begin{lemma}\label{stab_spec_in_lem}
+	Consider the situation of the Corollary \ref{stab_pt_a_cor}.
+	If $\overline{a}\in B\left( \widehat\H\right) $ is a special element of $\mathfrak{S}^{\mathrm{pt}}_A$ (cf. Definition \ref{special_element_defn}), and $p \in \mathcal K$ is a rank-one projector then $\overline{a}\otimes p \in B\left( \widehat\H_\K\right)$ is a special element with respect to $\mathfrak{S}^{\mathrm{pt}}_{A\otimes \mathcal K}$.
+\end{lemma}
+\begin{proof}
+	Let us use the implicit equations \eqref{spec_a_eps_imp_eqn} for this proof.
+	Select  $\la_0 \in \La$, $\eps > 0$ and  $z \in \left(A\otimes \K \right)^{\sim}  \cong\K_A^{+}$ (cf.  Table \ref{stab_table} ),
+	One can select a basis of the Hilbert $\H_\K$ space such that $p$ is represented by a following infinite matrix
+	$$
+	\begin{pmatrix}
+	1& 0 &\ldots \\
+	0& 0 &\ldots \\
+	\vdots& \vdots &\ddots\\
+	\end{pmatrix}.
+	$$
+	Element $z$ can be represented by the following way
+	$$
+	z = \begin{pmatrix}
+	a_{11}& a_{12} &\ldots \\
+	a_{21}& a_{22} &\ldots \\
+	\vdots& \vdots &\ddots\\
+	\end{pmatrix}; \quad  a_{jk} \in A^{\sim}_{\la_0}
+	$$
+	then
+	$$
+	z^* \left(\overline{a}\otimes p \right)z
+	$$
+	is represented by the matrix
+	$$
+	z^* \left(\overline{a}\otimes p \right)z = \begin{pmatrix}
+	a^*_{11}& 0 &\ldots \\
+	a^*_{12}& 0 &\ldots \\
+	\vdots& \vdots &\ddots\\
+	\end{pmatrix} \overline{a} \begin{pmatrix}
+	a_{11}& a_{12} &\ldots \\
+	0& 0 &\ldots \\
+	\vdots& \vdots &\ddots\\
+	\end{pmatrix}.
+	$$
+	If $\xi \in X_{A_{\la_0}}$ is given by
+	$$
+	\xi\bydef \begin{pmatrix}
+	a^*_{11} \\
+	a^*_{12} \\
+	\vdots\\
+	\end{pmatrix}.
+	$$	
+	then 
+	$
+	z^* \left(\overline{a}\otimes p \right)z=\xi \left\rangle \overline a\right\langle \xi
+	$
+	The subspace  $\xi A^{\sim}_{\la_0}\subset X_{A_{\la_0}}$ is  generated by a single element Hilbert  $A_{\la_0}$-submodule, so from the Theorem \ref{kasparov_stab_thm} it follows that there is a projector $p_\K\in \K_A$ such that $\xi A^{\sim}_{\la_0}= p_\K X_{A_{\la_0}}$ moreover there is $\overline z \in A^{\sim}_{\la_0}$ such that
+	
+	$$
+	\begin{pmatrix}
+	a^*_{11}& 0 &\ldots \\
+	a^*_{12}& 0 &\ldots \\
+	\vdots& \vdots &\ddots\\
+	\end{pmatrix}=  p_{\mathcal K}\overline z^*.
+	$$
+	It turns out
+	\begin{equation}\label{stab_zpz}
+	z^*\left( \overline{a}\otimes p\right)  z=  p_{\mathcal K} \overline z^*~ \overline{   a}~\overline z p_{\mathcal K}.
+	\end{equation}
+	From \eqref{spec_a_eps_imp_eqn} it follows that
+	\bean
+	\begin{split}
+		\sum_{g\in G_\la }\overline  z^*\left(  g\overline a\right) \overline  z  = a_\la \in A_\la,\\
+		\sum_{g\in G_\la } f_\eps\left(\overline z^*\left(  g\overline a\right) \overline  z   \right)= a^\eps_\la   \in A_\la,\\
+		\sum_{g\in G_\la  } \left(\overline  z^*\left(  g\overline a\right) \overline  z   \right)^2 = b_\la   \in A_\la. 
+	\end{split}
+	\eean
+	so one has
+	\be\label{stable_ap_eqn}
+	\begin{split}
+		\sum_{g\in G_\la } z^*\left(  g\left( \overline a\otimes p\right) \right) z =  p_\K a_\la p_\K  \in A_\la \otimes \K,\\
+		\sum_{g\in G_\la } f_\eps\left(z^*\left(  g\left( \overline a\otimes p\right)\right) z   \right)  = p_\K a^\eps_\la p_\K  \in A_\la \otimes \K,\\
+		\sum_{g\in G_\la  } \left(z^*\left(  g\left( \overline a\otimes p\right)\right) z   \right)^2 p_\K b_\la p_\K  \in A_\la \otimes \K
+	\end{split}
+	\ee
+	From the above equation it follows that $ \overline a\otimes p$ satisfies to the condition (a) of the Definition \ref{special_element_defn}.
+	Since $\overline a$ is special for any $\eps > 0$ there is $\mu \in \La$ such that
+	$$
+	\forall \la  \in \La \quad	 \la \ge \mu  \Rightarrow  \left\|a_\la^2 - b_\la\right\| < \eps.
+	$$
+	On the other hand from
+	$$
+	\left\|a_\la^2 - b_\la\right\|= \left\|\left( p_\K a_\la p_\K\right) ^2 -p_\K b_\la p_K\right\|
+	$$
+	it turns that
+	$$
+	\forall \la  \in \La \quad	 \la \ge \mu  \Rightarrow  \left\|\left( p_\K a_\la p_\K\right) ^2 -p_\K b_\la p_K\right\| < \eps
+	$$
+	Taking into account \eqref{stable_ap_eqn} one concludes that $\overline a\otimes p$ satisfies to the condition (b) of the Definition \ref{special_element_defn}.
+\end{proof}
+\begin{corollary}\label{stab_spec_in_cor}
+	Let $\overline{A} \subset B\left( \widehat{\H}\right)$ be the  disconnected inverse noncommutative limit of $\mathfrak{S}_A$.
+	If $\overline{A}^\mathcal{K}$ is be the  disconnected inverse noncommutative limit of $\mathfrak{S}_{A\otimes\K}$  then
+	$$
+	\overline{A} \otimes \mathcal K \subset \overline{A}^\mathcal{K}
+	$$
+\end{corollary}
+\begin{proof}
+	The linear span of given by the Lemma \ref{stab_spec_in_lem} special elements $\overline{a}\otimes p \in \overline{A}\otimes\mathcal{K}$ is dense in $\overline{A}^\mathcal{K}$, so $
+	\overline{A} \otimes \mathcal K \subset \overline{A}^\mathcal{K}$.
+\end{proof}
+
+\begin{lemma}\label{stab_spec_out_lem}
+	Let $\mathfrak{S}_A^{\mathrm{pt}}$ be a pointed  algebraical  finite covering category given by \eqref{stable_seq_pure_eqn}. Let  $\pi:\widehat{A} \to B\left( \widehat{\H}\right) $ be the atomic representation.	 Let $\overline{A} \subset B\left( \widehat{\H}\right)$ be the  disconnected inverse noncommutative limit of $\mathfrak{S}_A^{\mathrm{pt}}$. Let $\mathfrak{S}^{\mathrm{pt}}_{A\otimes \K}$ be an  algebraical  finite covering category given by \eqref{stable_seq_eqn}.
+	If  $\overline a^\mathcal{K} \in B\left( \widehat{\H} \otimes \H_\K\right)_+$ is a is special element  then
+	$$
+	\overline a^\mathcal{K} \in \overline{A}  \otimes \mathcal K.
+	$$
+\end{lemma}
+\begin{proof}
+	If  $\overline a^\mathcal{K}\notin \overline{A}  \otimes \mathcal K$ then there there is  $\xi\in \ell^2\left(\overline{A} \right) $ (or  $\xi \in \overline{A}^n $) such that
+	\begin{equation}\label{stab_prod_x_eqn}
+	\left\langle \xi, \overline a^\mathcal{K} \xi\right\rangle_{\ell^2\left(H_{\widehat{A}''} \right) } \notin \overline{A}.
+	\end{equation}
+	If we select a basis basis $\left\{\xi_j \in \ell^2\left(\overline{A} \right)  \right\}_{j \in \N}$ of $\ell^2\left(\overline{A}  \right)$ (or $\left\{\xi_j \in \widehat{A}^n \right\}_{j =1,...,n}$ of $\overline{A}^n$  of such that $\xi_1 = \xi$ then $\overline{a}^{\mathcal{K}}$ is represented by an infinite (or finite) matrix 
+	\begin{equation*}
+	\overline{a}^{\mathcal{K}} = \begin{pmatrix}
+	\overline{a}_{11}& \overline{a}_{12} &\ldots \\
+	\overline{a}_{21}& \overline{a}_{22} &\ldots \\
+	\vdots& \vdots &\ddots\\
+	\end{pmatrix}
+	\end{equation*}
+	and from \eqref{stab_prod_x_eqn} it turns out $\overline a_{11} \notin \overline{A}$.   The element $\overline a_{11}$ does not satisfy to the Definition \ref{special_element_defn}, so there are   $\la_0\in \La$ and $z \in A^{\sim}_{\la_0}$ such that at least one of conditions (a), (b) of the Definition \ref{special_element_defn} does not hold. 
+	Let $z_\mathcal{K}\in \left( A_{\la_0}  \otimes \mathcal K\right)^{\sim}$ be given by
+	$$
+	z_\mathcal{K}  \bydef \begin{pmatrix}
+	z& 0 &\ldots \\
+	0& 0 &\ldots \\
+	\vdots& \vdots &\ddots\\
+	\end{pmatrix}  \in \overline{A}  \otimes \mathcal K
+	$$
+	if $A_{\la_0}$ is  unital.
+	Otherwise if $A_{\la_0}$ is not unital and $z = z' + c$ where $z'\in A_{\la_0}$ and $c\in \C$ we define
+	$$
+	z_\mathcal{K}  \bydef \begin{pmatrix}
+	z'& 0 &\ldots \\
+	0& 0 &\ldots \\
+	\vdots& \vdots &\ddots\\
+	\end{pmatrix} + c \in \left( \overline{A}  \otimes \mathcal K\right)^+ 
+	$$
+	otherwise.
+	One has
+	\bean
+	\sum_{g\in G_\la }  z^*\left(  g\overline a_{11}\right)   z  = a_\la \notin A_\la\Rightarrow 	\sum_{g\in G_\la } z_\K^*\left(  g\overline a_\K\right)   z_\K=a^\K_\la=\begin{pmatrix}
+		a_\la& 0 &\ldots \\
+		0& 0 &\ldots \\
+		\vdots& \vdots &\ddots\\
+	\end{pmatrix}\notin\\
+	\notin  A_\la\otimes \K,\\
+	\sum_{g\in G_\la } f_\eps\left(  z^*\left(  g\overline a_{11}\right)   z \right)  = a^\eps_\la \notin A_\la\Rightarrow 	\sum_{g\in G_\la }f_\eps\left(  z_\K^*\left(  g\overline a_\K\right)   z_\K\right)=\\=\begin{pmatrix}
+		a^\eps_\la& 0 &\ldots \\
+		0& 0 &\ldots \\
+		\vdots& \vdots &\ddots\\
+	\end{pmatrix}
+	\notin  A_\la\otimes \K\\
+	\sum_{g\in G_\la } \left(  z^*\left(  g\overline a_{11}\right)   z \right)^2  = b_\la \notin A_\la\Rightarrow 	\sum_{g\in G_\la }\left(  z_\K^*\left(  g\overline a_\K\right)   z_\K\right)^2 =\\=b^\K_\la=\begin{pmatrix}
+		b_\la& 0 &\ldots \\
+		0& 0 &\ldots \\
+		\vdots& \vdots &\ddots\\
+	\end{pmatrix}
+	\notin  A_\la\otimes \K.
+	\eean 
+	It follows that if $ \overline a_{11}$ does not satisfy to the condition (a) of the Definition \ref{special_element_defn} then $\overline a_\K$ also does not satisfy this condition.
+	
+	From
+	$$
+	\left\| \left( b^{\mathcal K}_\la\right)^2 - c^{\mathcal K}_\la\right\| = \left\| b^2_\la - c_\la\right\|.
+	$$
+	it follows that if $ \overline a_{11}$ does not satisfy to the condition (b) of the Definition \ref{special_element_defn} then $\overline a_\K$ also does not satisfy this condition.
+\end{proof}
+
+\begin{corollary}\label{stab_spec_out_cor}
+	Let $\overline{A} \subset B\left( \widehat{\H}\right)$ be the  disconnected inverse noncommutative limit of $\mathfrak{S}$ with respect to $\pi$.
+	If $\overline{A}^\mathcal{K}$ is  the  disconnected inverse noncommutative limit of $\mathfrak{S}_{A\otimes\mathcal{K}}$  then
+	$$
+	\overline{A}^\mathcal{K}\subset	\overline{A} \otimes \mathcal K.
+	$$
+\end{corollary}
+
+
+\begin{theorem}\label{stab_inf_thm}
+	Let $\mathfrak{S}_A$ be an  algebraical  finite covering category given by \eqref{stable_seq_pure_eqn}, and let $\mathfrak{S}_{A\otimes \mathcal{K}}$ be an  algebraical  finite covering category given by \eqref{stable_seq_pure_eqn}.
+	Following conditions are equivalent:
+	\begin{enumerate}
+		\item[ 	(i)] $\mathfrak{S}_A$ is good (cf. Definition \ref{mains_defn}), the inverse noncommutative limit 	$\varprojlim  \mathfrak{S}_A$ of $\mathfrak{S}_A$ equals to a $C^*$-algebra 	$\widetilde A$ and 	$G\left(\left.\widetilde{A}~\right|~ A\right)=G$.
+		\item[ 	(ii)] $\mathfrak{S}_{A\otimes \mathcal{K}}$ is good, the inverse noncommutative limit 	$\varprojlim  \mathfrak{S}_{A\otimes \mathcal{K}}$ of $\mathfrak{S}_{A\otimes \mathcal{K}}$ equals to a $C^*$-algebra 	$\widetilde A\otimes\K$ and 	$G\left(\left.\widetilde{A}\otimes \mathcal{K}~\right|~ A\otimes \mathcal{K}\right)=G$.
+	\end{enumerate}
+\end{theorem}
+\begin{proof}
+	(i)	$\Rightarrow$(ii)
+	If $\overline A$ is the disconnected inverse limit  of $\mathfrak{S}_A$ (cf. Definition \ref{main_defn_full_defn})  then from the Corollaries \ref{stab_spec_in_cor} and \ref{stab_spec_out_cor} it follows that the disconnected inverse limit $\overline A^\K$ of $\mathfrak{S}_{A\otimes\K}$ satisfies to the following condition
+	$$
+	\overline A^\K = \overline A\otimes\K
+	$$
+	From the Theorem \ref{stable_fin_cov_thm} $G\left(\left.A_\la\right|A\right)  \cong G\left(\left.A_\la \otimes\K\right|A \otimes\K\right)$ so one has 
+	$$
+	G\left(\left.\overline A\right|A\right)=\varprojlim_{\la \in \La} G\left(\left.A_\la\right|A\right) \cong \varprojlim_{\la \in \La} G\left(\left.A_\la \otimes\K\right|A \otimes\K\right)= G\left(\left.\overline A\otimes \K\right|A\otimes \K\right)
+	$$
+	If $\widetilde A\subset \overline A$ is a connected component of $\overline A$ then $\widetilde A\otimes\K\subset \overline A\otimes\K$ is a connected component of $\overline A\otimes\K$ it turns out that
+	$$
+	G\left(\left.\widetilde A\right|A\right)\cong G\left(\left.\widetilde A\otimes \K\right|A\otimes \K\right)\cong G
+	$$
+	Since $\mathfrak{S}_{A}$ is good one has. 
+	\begin{enumerate}
+		\item[(a)] For all $\la \in \La$ the natural *-homomorphism $A_\la \to  M\left(\widetilde{A} \right)$ is injective.
+		\item[(b)] If $J\subset G\left(\overline{A}~|~ A\right)$ is a set of representatives of $G\left(\left.\overline{A}~\right| A\right)/G$, then the algebraic direct sum
+		\begin{equation*}
+		\bigoplus_{g\in J} g\widetilde{A}
+		\end{equation*}
+		is a dense subalgebra of $\overline{A}$.
+		\item [(c)] For any $\la \in \La$ the restriction $h_\la|_{G}$ is an epimorphism, i. e. $h_\la\left(G \right) = G\left(\left. A_\la~\right|~A \right)$.
+	\end{enumerate}
+	It turns out that
+	\begin{enumerate}
+		\item[(a)] For all $\la \in \La$ the natural *-homomorphism $A_\la \otimes \K \to  M\left(\widetilde{A}\otimes \K \right)$ is injective.
+		\item[(b)] If $J\subset G\left(\overline{A}\otimes \K~|~ A\otimes \K\right)$ is a set of representatives of $G\left(\left.\overline{A}\otimes \K~\right| A\otimes \K\right)/G$, then the algebraic direct sum
+		\begin{equation*}
+		\bigoplus_{g\in J} g\widetilde{A}\otimes \K
+		\end{equation*}
+		is a dense subalgebra of $\overline{A}\otimes \K$.
+		\item [(c)] For any $\la \in \La$ the restriction $h_\la|_{G}$ is an epimorphism, i. e. $h_\la\left(G \right) = G\left(\left. A_\la\otimes \K~\right|~A\otimes \K \right)$.
+	\end{enumerate}
+	It means that $\mathfrak{S}_{A\otimes\K}$ is good.\\
+	(ii)	$\Rightarrow$(i) Some parts of this implication follows from the proof of (i)	$\Rightarrow$(ii) Since $\mathfrak{S}_{A\otimes\K}$ is good one has. 
+	
+	\begin{enumerate}
+		\item[(a)] For all $\la \in \La$ the natural *-homomorphism $A_\la \otimes \K \to  M\left(\widetilde{A}\otimes \K \right)$ is injective.
+		\item[(b)] If $J\subset G\left(\overline{A}\otimes \K~|~ A\otimes \K\right)$ is a set of representatives of $G\left(\left.\overline{A}\otimes \K~\right| A\otimes \K\right)/G$, then the algebraic direct sum
+		\begin{equation*}
+		\bigoplus_{g\in J} g\widetilde{A}\otimes \K
+		\end{equation*}
+		is a dense subalgebra of $\overline{A}\otimes \K$.
+		\item [(c)] For any $\la \in \La$ the restriction $h_\la|_{G}$ is an epimorphism, i. e. $h_\la\left(G \right) = G\left(\left. A_\la\otimes \K~\right|~A\otimes \K \right)$.
+	\end{enumerate}
+	It turns out that
+	
+	\begin{enumerate}
+		\item[(a)] For all $\la \in \La$ the natural *-homomorphism $A_\la \to  M\left(\widetilde{A} \right)$ is injective.
+		\item[(b)] If $J\subset G\left(\overline{A}~|~ A\right)$ is a set of representatives of $G\left(\left.\overline{A}~\right| A\right)/G$, then the algebraic direct sum
+		\begin{equation*}
+		\bigoplus_{g\in J} g\widetilde{A}
+		\end{equation*}
+		is a dense subalgebra of $\overline{A}$.
+		\item [(c)] For any $\la \in \La$ the restriction $h_\la|_{G}$ is an epimorphism, i. e. $h_\la\left(G \right) = G\left(\left. A_\la~\right|~A \right)$.
+	\end{enumerate}
+	It means that $\mathfrak{S}_{A}$ is good.
+\end{proof}
+\begin{remark}\label{stab_inf_rem}
+	In the situation of the Theorem	\ref{stab_inf_thm} the inverse noncommutative limit $\widetilde A$ can be reconstructed from $\widetilde A\otimes \K$  by the following way
+	\be\label{stab_inf_eqn}
+	\widetilde A\cong \left(1_{{\widetilde A}^\sim}  \otimes  \mathfrak{e}_{1,1}\right) \left( \widetilde A\otimes \K \right)\left(1_{{\widetilde A}^\sim}  \otimes  \mathfrak{e}_{1,1}\right).
+	\ee
+\end{remark}
+
+
+
+
+
+
+
+\chapter{Towards noncommutative homotopy theory}
 
  \chapter{Coverings of continuous trace operator spaces}\label{ctr_chap}
 \paragraph*{}

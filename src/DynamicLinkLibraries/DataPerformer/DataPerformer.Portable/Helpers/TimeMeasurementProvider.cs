@@ -9,7 +9,7 @@ using DataPerformer.Portable.Measurements;
 namespace DataPerformer.Helpers
 {
     /// <summary>
-    /// Simplest provider of time measure
+    /// Simplest provider of time measurement
     /// </summary>
     public class TimeMeasurementProvider : ITimeMeasurementProvider
     {
