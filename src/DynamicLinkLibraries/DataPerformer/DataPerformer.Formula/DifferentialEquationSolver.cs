@@ -18,7 +18,6 @@ using DataPerformer.Portable;
 using FormulaEditor;
 using FormulaEditor.Interfaces;
 using FormulaEditor.Symbols;
-using DataPerformer.Formula;
 using DataPerformer.Formula.Interfaces;
 
 namespace DataPerformer.Formula
@@ -32,6 +31,13 @@ namespace DataPerformer.Formula
     {
 
         #region Fields
+
+
+        internal Dictionary<object, object> Hpars;
+
+        internal Dictionary<object, object> Haliases;
+
+
 
         /// <summary>
         /// Input dynamical parameter
@@ -48,6 +54,7 @@ namespace DataPerformer.Formula
         /// </summary>
         new private Dictionary<char, VariableMeasurement> parameters = 
             new Dictionary<char, VariableMeasurement>();
+
 
         /// <summary>
         /// Output parameters
@@ -938,6 +945,9 @@ namespace DataPerformer.Formula
         /// </summary>
         protected virtual void postDeserialize()
         {
+            Hpars = new Dictionary<object, object>(pars);
+            Haliases = new Dictionary<object, object>(aliases);
+//            Harguments = new Dictionary<object, object>(arguments);
             foreach (string s in args)
             {
                 arguments.Add(s);
@@ -1332,7 +1342,7 @@ namespace DataPerformer.Formula
         {
             get
             {
-                return FormulaMeasurement.GetTrees(fom.ToArray());
+                return  FormulaMeasurement.GetTrees(fom.ToArray());
             }
         }
 
@@ -1646,8 +1656,6 @@ namespace DataPerformer.Formula
             }
         }
 
-
-
         /// <summary>
         /// Variables
         /// </summary>
@@ -1663,6 +1671,8 @@ namespace DataPerformer.Formula
                 return s;
             }
         }
+
+        internal Dictionary<object, object> VariableValues => vars;
 
 
         #endregion

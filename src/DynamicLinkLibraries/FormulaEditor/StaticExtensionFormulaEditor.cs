@@ -70,7 +70,7 @@ namespace FormulaEditor
         static public ObjectFormulaTree[] Transform(this ObjectFormulaTree[] trees)
         {
             return ObjectFormulaTree.CreateList(trees,
-                new List<ObjectFormulaTree>(), true).ToArray();
+                new List<ObjectFormulaTree>()).ToArray();
         }
 
         /// <summary>

@@ -145,21 +145,89 @@ namespace DataPerformer.Formula
             l.Add("\t{");
             l.Add("\t\tproxyFactory = this;");
             int dim = v.Variables.Length;
-            l.Add("\t\tformulaString = new string[]");
-            List<string> lf = new List<string>();
-            for (int i = 0; i < dim; i++)
+            /*!!!            l.Add("\t\tformulaString = new string[]");
+                        List<string> lf = new List<string>();
+                        for (int i = 0; i < dim; i++)
+                        {
+                            string sf = v.GetFormula(i);
+                            sf = sf.Replace("\r", "");
+                            sf = sf.Replace("\n", "");
+                            sf = sf.Replace("\"", "\\\"");
+                            lf.Add(sf);
+                        }
+                        List<string> lt = lf.GetCSharpCodeArray();
+                        foreach (string s in lt)
+                        {
+                            l.Add("\t\t" + s);
+                        }
+                        */
+            Dictionary<object, object> vars = v.VariableValues;
+            l.Add("\t\tvars = new Dictionary<object, object>()");
+            l.Add("\t\t{");
+            bool beg = true;
+            foreach (char c in vars.Keys)
             {
-                string sf = v.GetFormula(i);
+                object[] oo = vars[c] as object[];
+                string sf = oo[0] + "";
                 sf = sf.Replace("\r", "");
                 sf = sf.Replace("\n", "");
                 sf = sf.Replace("\"", "\\\"");
-                lf.Add(sf);
+                string type = "(" + oo[1].GetType() + ")";
+                string vv = "\t\t\t{\'" + c + "\' , new object[] {\"" + sf +
+                    "\" , " + type + oo[1].StringValue() + "}}";
+                if (beg)
+                {
+                    vv = "\t\t\t" + vv;
+                    beg = false;
+                }
+                else
+                {
+                    vv = "\t\t\t," + vv;
+                }
+                l.Add(vv);
             }
-            List<string> lt = lf.GetCSharpCodeArray();
-            foreach (string s in lt)
+            l.Add("\t\t};");
+            beg = true;
+            vars = v.Hpars;
+            l.Add("\t\tpars = new Dictionary<object, object>()");
+            l.Add("\t\t{");
+            foreach (char c in vars.Keys)
             {
-                l.Add("\t\t" + s);
+                object o = vars[c];
+                string vv = "\t\t\t{\'" + c + "\' , \"" + o + "\"}";
+                if (beg)
+                {
+                    vv = "\t\t\t" + vv;
+                    beg = false;
+                }
+                else
+                {
+                    vv = "\t\t\t," + vv;
+                }
+                l.Add(vv);
             }
+            l.Add("\t\t};");
+            vars = v.Haliases;
+            l.Add("\t\taliases = new Dictionary<object, object>()");
+            l.Add("\t\t{");
+            beg = true;
+            foreach (string c in vars.Keys)
+            {
+                object o = vars[c];
+                string type = "(" + o.GetType() + ")";
+                string vv = "\t\t\t{\"" + c + "\" , " + type + o.StringValue() + "}";
+                if (beg)
+                {
+                    vv = "\t\t\t" + vv;
+                    beg = false;
+                }
+                else
+                {
+                    vv = "\t\t\t," + vv;
+                }
+                l.Add(vv);
+            }
+            l.Add("\t\t};");
             l.Add("\t\tisSerialized = true;");
             l.Add("\t\tcalculateDerivation = " + v.CalculateDerivation.StringValue() + ";");
             l.Add("\t\tderiOrder = " + v.DerivationOrder + ";");
@@ -169,13 +237,15 @@ namespace DataPerformer.Formula
             {
                 l.Add("\t\t" + s);
             }
-            lt = v.CreateCSharpAliasList();
+            l.Add("\t}");
+            /*
+            List<string> lt = v.CreateCSharpAliasList();
             l.Add("\t\tparameters =" + lt[0]);
             for (int i = 1; i < lt.Count; i++)
             {
                 l.Add("\t\t" + lt[i]);
             }
-            lt = v.OperationNames.GetDictionaryCSharpCode<int, string>();
+            List<string> lt  = v.OperationNames.GetDictionaryCSharpCode<int, string>();
             l.Add("\t\toperationNames = " + lt[0]);
             for (int i = 1; i < lt.Count; i++)
             {
@@ -184,45 +254,48 @@ namespace DataPerformer.Formula
             //  l.Add("\t\tInit();");
             l.Add("\t}");
             l.Add("");
-            l.Add("\tprotected override void postDeserialize()");
+            if (false)
             {
+                l.Add("\tprotected override void postDeserialize()");
                 l.Add("\t{");
                 l.Add("\t\tList<object> keys = new List<object>(parameters.Keys);");
-               // l.Add("\t\tkeys.Sort();");
+                // l.Add("\t\tkeys.Sort();");
                 l.Add("\t\tfor (int i = 0; i < keys.Count; i++)");
                 l.Add("\t\t{");
                 l.Add("\t\t\tstring s = keys[i] + \"\"; ");
                 l.Add("\t\t\tchar c = s[0];");
-                l.Add("\t\t\tvars[c] = new object[] { formulaString[i], parameters[s] };"); 
+                l.Add("\t\t\tvars[c] = new object[] { formulaString[i], parameters[s] };");
                 l.Add("\t\t}");
                 l.Add("\t\tbase.postDeserialize();");
                 l.Add("\t}");
                 l.Add("");
-                l.Add("\tFormulaEditor.Interfaces.ITreeCollectionProxy FormulaEditor.Interfaces.ITreeCollectionProxyFactory.CreateProxy(FormulaEditor.Interfaces.ITreeCollection collection, Action<object> checkValue)");
-                l.Add("\t{");
-                l.Add("\t\tFormulaEditor.Interfaces.ITreeCollection f = this;");
-                l.Add("\t\tFormulaEditor.ObjectFormulaTree[] trees = FormulaEditor.StaticExtensionFormulaEditor.Transform(f.Trees);");
-                if (check)
-                {
-                    l.Add("\t\treturn new Calculation(trees, checkValue);");
-                }
-                else
-                {
-                    l.Add("\t\treturn new Calculation(trees);");
-                }
-                l.Add("\t}");
-                l.Add("");
-                FormulaEditor.Interfaces.ITreeCollection tc = v;
-                lt = StaticExtensionFormulaEditor.TreeCollectionCodeCreator.CreateCode(tc.Trees, "Calculation", "internal ",
-                    check);
-                l.Add("\tinternal class Calculation" + lt[0]);
-                for (int i = 1; i < lt.Count; i++)
-                {
-                    l.Add("\t" + lt[i]);
-                }
-                l.Add("}");
-                return l;
+            }*/
+            l.Add("\tFormulaEditor.Interfaces.ITreeCollectionProxy FormulaEditor.Interfaces.ITreeCollectionProxyFactory.CreateProxy(FormulaEditor.Interfaces.ITreeCollection collection, Action<object> checkValue)");
+            l.Add("\t{");
+            l.Add("\t\tFormulaEditor.Interfaces.ITreeCollection f = this;");
+            l.Add("\t\tFormulaEditor.ObjectFormulaTree[] trees = FormulaEditor.StaticExtensionFormulaEditor.Transform(f.Trees);");
+            if (check)
+            {
+                l.Add("\t\treturn new Calculation(trees, checkValue);");
             }
+            else
+            {
+                l.Add("\t\treturn new Calculation(trees);");
+            }
+            l.Add("\t}");
+            l.Add("");
+            FormulaEditor.Interfaces.ITreeCollection tc = v;
+            List<string> lt = 
+                StaticExtensionFormulaEditor.TreeCollectionCodeCreator.CreateCode(tc.Trees, 
+                "Calculation", "internal ",
+                check);
+            l.Add("\tinternal class Calculation" + lt[0]);
+            for (int i = 1; i < lt.Count; i++)
+            {
+                l.Add("\t" + lt[i]);
+            }
+            l.Add("}");
+            return l;
         }
 
 

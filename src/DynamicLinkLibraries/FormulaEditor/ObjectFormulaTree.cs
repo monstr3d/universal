@@ -278,8 +278,7 @@ namespace FormulaEditor
         /// <param name="trees">The array or trees</param>
         /// <param name="optional">List of optional opreations</param>
         /// <returns>The list</returns>
-        public static IList<ObjectFormulaTree> CreateList(ObjectFormulaTree[] trees, List<ObjectFormulaTree> optional,
-            bool comparer = false)
+        public static IList<ObjectFormulaTree> CreateList(ObjectFormulaTree[] trees, List<ObjectFormulaTree> optional)
         {
             List<ObjectFormulaTree> list = new List<ObjectFormulaTree>();
             foreach (ObjectFormulaTree t in trees)

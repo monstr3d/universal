@@ -2121,7 +2121,7 @@ namespace Diagram.UI
            // RemoveAll();
             PureDesktopPeer d = new PureDesktopPeer();
             bool b = d.Load(stream, null, true);
-
+          //  d.Refresh();
             List<string> l = d.CreateInitDesktopCSharpCode(namespacE, className);
             using (System.IO.TextWriter w = new System.IO.StreamWriter(fileName))
             {
