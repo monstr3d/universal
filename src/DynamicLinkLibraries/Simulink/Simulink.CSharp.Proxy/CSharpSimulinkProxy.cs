@@ -32,7 +32,7 @@ namespace Simulink.CSharp.Proxy
     [Serializable()]
     public class CSharpSimulinkProxy : CategoryObject, ISerializable,
          IChildrenObject, IDataConsumer,
-        IMeasurements, IStarted, IAlias, ITimeMeasureConsumer, IPostSetArrow
+        IMeasurements, IStarted, IAlias, ITimeMeasurementConsumer, IPostSetArrow
     {
 
         #region Fields
@@ -274,9 +274,9 @@ namespace Simulink.CSharp.Proxy
 
         #endregion
 
-        #region ITimeMeasureConsumer Members
+        #region ITimeMeasurementConsumer Members
 
-        IMeasurement ITimeMeasureConsumer.Time
+        IMeasurement ITimeMeasurementConsumer.Time
         {
             get
             {

@@ -172,7 +172,7 @@ namespace SoundService.Test
             Dictionary<double, string> d = new Dictionary<double, string>();
             SoundCollection coll = desktop.GetObject(name) as SoundCollection;
             IDataConsumer dc = coll;
-            ITimeMeasureProvider p = DataPerformer.Portable.StaticExtensionDataPerformerPortable.Factory.TimeProvider;
+            ITimeMeasurementProvider p = DataPerformer.Portable.StaticExtensionDataPerformerPortable.Factory.TimeProvider;
             Action<string> act = (string s) => { d[p.Time] = s; };
             coll.PlaySound += act;
             dc.PerformFixed(start, step, stepCount, p,

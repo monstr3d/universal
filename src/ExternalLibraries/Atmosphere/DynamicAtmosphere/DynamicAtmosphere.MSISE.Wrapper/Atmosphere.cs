@@ -24,7 +24,7 @@ namespace DynamicAtmosphere.MSISE.Wrapper
     /// Dynamic atmosphere (MSISE)/ Integrated version
     /// </summary>
     [Serializable()]
-    public class Atmosphere : DynamicAtmosphere.MSISE.Atmosphere,
+    public class Atmosphere : MSISE.Atmosphere,
         ICategoryObject, ISerializable, IObjectTransformer,
         IPropertiesEditor, ISeparatedAssemblyEditedObject,
         IAlias, IAliasConsumer

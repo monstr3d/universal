@@ -20,7 +20,8 @@ namespace DataPerformer.Formula
                 new Dictionary<Func<object, bool>, Func<string, object, List<string>>>()
                 {
                     { (object o) => { return o is VectorFormulaConsumer; } , CreateVectorConsumer },
-                    { (object o) => { return o is DifferentialEquationSolver; } , CreateDiffrerentialSolver }
+                    { (object o) => { return o is DifferentialEquationSolver; } , CreateDiffrerentialSolver },
+                    { (object o) => { return o is Recursive; } , CreateRecursive }
                 };
 
 
@@ -126,7 +127,6 @@ namespace DataPerformer.Formula
             l.Add("}");
             return l;
         }
-
 
         static List<string> CreateDiffrerentialSolver(string preffix, object obj)
         {
@@ -298,7 +298,150 @@ namespace DataPerformer.Formula
             return l;
         }
 
+        static List<string> CreateRecursive(string preffix, object obj)
+        {
+            List<string> l = new List<string>();
+            bool check = StaticExtensionFormulaEditor.ShouldCheckValueInGeneratedCode;
+            string pr = preffix;
+            if (pr[pr.Length - 1] != '.')
+            {
+                pr = pr + ".";
+            }
+            Recursive v = obj as Recursive;
+            l.Add("DataPerformer.Formula.Recursive, FormulaEditor.Interfaces.ITreeCollectionProxyFactory");
+            l.Add("{");
+            l.Add("");
+            l.Add("\tinternal CategoryObject()");
+            l.Add("\t{");
+            l.Add("\t\tproxyFactory = this;");
+            Dictionary<object, object> vars = v.Variables;
+            bool beg = true;
+            l.Add("\t\tvars = new Dictionary<object, object>()");
+            l.Add("\t\t{");
+            foreach (char key in vars.Keys)
+            {
+                object[] o = vars[key] as object[];
+                string s = "{\'" + key + "\', new object[] {" + ToTypedObject(o[0]) + ","
+                    + ToFormula(o[1]) + "," + ToTypedObject(o[2]) + "}}";
+                if (beg)
+                {
+                    s = "\t\t\t" + s;
+                    beg = false;
+                }
+                else
+                {
+                    s = "\t\t\t," + s;
+                }
+                l.Add(s);
+            }
+            l.Add("\t\t};");
+            l.Add("");
+            vars = v.Aliases;
+            beg = true;
+            l.Add("\t\taliases = new Dictionary<object, object>()");
+            l.Add("\t\t{");
+            foreach (char key in vars.Keys)
+            {
+                object[] o = vars[key] as object[];
+                string s = "{\'" + key + "\', " + ToTypedObject(vars[key]) + "}";
+                if (beg)
+                {
+                    s = "\t\t\t" + s;
+                    beg = false;
+                }
+                else
+                {
+                    s = "\t\t\t," + s;
+                }
+                l.Add(s);
+            }
+            l.Add("\t\t};");
+            l.Add("");
+            vars = v.ExternalAliases;
+            beg = true;
+            l.Add("\t\texternalAls = new Dictionary<object, object>()");
+            l.Add("\t\t{");
+            foreach (char key in vars.Keys)
+            {
+                object[] o = vars[key] as object[];
+                string s = "{\'" + key + "\', \"" + vars[key] + "\"}";
+                if (beg)
+                {
+                    s = "\t\t\t" + s;
+                    beg = false;
+                }
+                else
+                {
+                    s = "\t\t\t," + s;
+                }
+                l.Add(s);
+            }
+            l.Add("\t\t};");
+            l.Add("");
+            vars = v.Pars;
+            beg = true;
+            l.Add("\t\tpars = new Dictionary<object, object>()");
+            l.Add("\t\t{");
+            foreach (char key in vars.Keys)
+            {
+                object[] o = vars[key] as object[];
+                string s = "{\'" + key + "\', \"" + vars[key] + "\"}";
+                if (beg)
+                {
+                    s = "\t\t\t" + s;
+                    beg = false;
+                }
+                else
+                {
+                    s = "\t\t\t," + s;
+                }
+                l.Add(s);
+            }
+            l.Add("\t\t};");
+            l.Add("");
+            l.Add("\t}");
+            l.Add("");
+            l.Add("\tFormulaEditor.Interfaces.ITreeCollectionProxy FormulaEditor.Interfaces.ITreeCollectionProxyFactory.CreateProxy(FormulaEditor.Interfaces.ITreeCollection collection, Action<object> checkValue)");
+            l.Add("\t{");
+            l.Add("\t\tFormulaEditor.Interfaces.ITreeCollection f = this;");
+            l.Add("\t\tFormulaEditor.ObjectFormulaTree[] trees = FormulaEditor.StaticExtensionFormulaEditor.Transform(f.Trees);");
+            if (check)
+            {
+                l.Add("\t\treturn new Calculation(trees, checkValue);");
+            }
+            else
+            {
+                l.Add("\t\treturn new Calculation(trees);");
+            }
+            l.Add("\t}");
+            l.Add("");
+            FormulaEditor.Interfaces.ITreeCollection tc = v;
+            List<string> lt =
+                StaticExtensionFormulaEditor.TreeCollectionCodeCreator.CreateCode(tc.Trees,
+                "Calculation", "internal ",
+                check);
+            l.Add("\tinternal class Calculation" + lt[0]);
+            for (int i = 1; i < lt.Count; i++)
+            {
+                l.Add("\t" + lt[i]);
+            }
+            l.Add("}");
+            return l;
+        }
 
+        static string ToFormula(object formula)
+        {
+            string sf = formula + "";
+            sf = sf.Replace("\r", "");
+            sf = sf.Replace("\n", "");
+            sf = sf.Replace("\"", "\\\"");
+            return "\"" + sf + "\"";
+        }
+
+        static string ToTypedObject(object ob)
+        {
+            return "(" + ob.GetType() + ")" + ob.StringValue();
+        }
 
         #endregion
     }

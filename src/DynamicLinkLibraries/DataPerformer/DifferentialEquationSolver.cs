@@ -153,8 +153,6 @@ namespace DataPerformer
         #endregion
 
         #region Private Conversion
-
-
         static void Copy(Hashtable t, Dictionary<object, object> d)
         {
             d.Clear();
@@ -163,7 +161,6 @@ namespace DataPerformer
                 d[o] = t[o];
             }
         }
-
 
         static void Copy(Dictionary<object, object> d, Hashtable t)
         {
@@ -183,7 +180,6 @@ namespace DataPerformer
             }
         }
 
-
         void Copy(ArrayList d, List<string> t)
         {
             t.Clear();
@@ -192,8 +188,6 @@ namespace DataPerformer
                 t.Add(o as string);
             }
         }
-
-
 
         void Convert()
         {
@@ -210,7 +204,6 @@ namespace DataPerformer
             Copy(aliasesH, aliases);
             Copy(argsH, arguments);
         }
-
 
         #endregion
     }

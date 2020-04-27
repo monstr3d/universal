@@ -18,7 +18,7 @@ namespace GeneratedProject
 			{
 				objects.Add(new IntrenalDesktop.OblectLabel0("Input"));
 				objects.Add(new IntrenalDesktop.OblectLabel1("Timer"));
-				objects.Add(new IntrenalDesktop.OblectLabel2("Motion"));
+				objects.Add(new IntrenalDesktop.OblectLabel2("Recursion"));
 				objects.Add(new IntrenalDesktop.OblectLabel3("Consumer"));
 				Diagram.UI.Labels.PureArrowLabel currALabel = null;
 				currALabel  = new IntrenalDesktop.ArrowLabel0("");
@@ -81,7 +81,7 @@ namespace GeneratedProject
 				internal CategoryObject()
 				{
 				var ts = this as Event.Interfaces.ITimerEvent;
-				ts.TimeSpan = TimeSpan.FromTicks(1000000);
+				ts.TimeSpan = TimeSpan.FromTicks(10000000);
 				}
 				}
 			}
@@ -93,7 +93,7 @@ namespace GeneratedProject
 					obj = new OblectLabel2.CategoryObject();
 				}
 		
-				internal class CategoryObject : DataPerformer.Formula.DifferentialEquationSolver, FormulaEditor.Interfaces.ITreeCollectionProxyFactory
+				internal class CategoryObject : DataPerformer.Formula.Recursive, FormulaEditor.Interfaces.ITreeCollectionProxyFactory
 				{
 				
 					internal CategoryObject()
@@ -101,32 +101,29 @@ namespace GeneratedProject
 						proxyFactory = this;
 						vars = new Dictionary<object, object>()
 						{
-										{'y' , new object[] {"<Root>  <F>    <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"w\" S=\"w\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">      <F />    </S>  </F></Root>" , (System.Double)0}}
-							,			{'v' , new object[] {"<Root>  <F>    <S type=\"FormulaEditor.Symbols.BinarySymbol\" symbol=\"-\" S=\"-\" Type=\"3\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\" />    <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"x\" S=\"x\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">      <F />    </S>    <S type=\"FormulaEditor.Symbols.BinarySymbol\" symbol=\"+\" S=\"+\" Type=\"3\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\" />    <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"a\" S=\"a\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">      <F />    </S>  </F></Root>" , (System.Double)0}}
-							,			{'x' , new object[] {"<Root>  <F>    <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"v\" S=\"v\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">      <F />    </S>  </F></Root>" , (System.Double)0}}
-							,			{'w' , new object[] {"<Root>  <F>    <S type=\"FormulaEditor.Symbols.BinarySymbol\" symbol=\"-\" S=\"-\" Type=\"3\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\" />    <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"y\" S=\"y\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">      <F />    </S>    <S type=\"FormulaEditor.Symbols.BinarySymbol\" symbol=\"+\" S=\"+\" Type=\"3\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\" />    <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"b\" S=\"b\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">      <F />    </S>  </F></Root>" , (System.Double)0}}
+							{'y', new object[] {(System.Double)0,"<Root>  <F>    <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"y\" S=\"y\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">      <F />    </S>    <S type=\"FormulaEditor.Symbols.BinarySymbol\" symbol=\"+\" S=\"+\" Type=\"3\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\" />    <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"w\" S=\"w\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">      <F />    </S>    <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"c\" S=\"c\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">      <F />    </S>  </F></Root>",(System.Double)0}}
+							,{'v', new object[] {(System.Double)0,"<Root>  <F>    <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"v\" S=\"v\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">      <F />    </S>    <S type=\"FormulaEditor.Symbols.BinarySymbol\" symbol=\"+\" S=\"+\" Type=\"3\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\" />    <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"a\" S=\"a\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">      <F />    </S>  </F></Root>",(System.Double)0}}
+							,{'x', new object[] {(System.Double)0,"<Root>  <F>    <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"x\" S=\"x\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">      <F />    </S>    <S type=\"FormulaEditor.Symbols.BinarySymbol\" symbol=\"+\" S=\"+\" Type=\"3\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\" />    <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"v\" S=\"v\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">      <F />    </S>  </F></Root>",(System.Double)0}}
+							,{'w', new object[] {(System.Double)0,"<Root>  <F>    <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"w\" S=\"w\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">      <F />    </S>    <S type=\"FormulaEditor.Symbols.BinarySymbol\" symbol=\"+\" S=\"+\" Type=\"3\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\" />    <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"b\" S=\"b\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">      <F />    </S>  </F></Root>",(System.Double)0}}
 						};
-						pars = new Dictionary<object, object>()
-						{
-										{'a' , "Input.a"}
-							,			{'b' , "Input.b"}
-						};
+				
 						aliases = new Dictionary<object, object>()
 						{
-										{"x" , (System.Double)0}
-							,			{"y" , (System.Double)0}
-							,			{"v" , (System.Double)0}
-							,			{"w" , (System.Double)0}
+							{'c', (System.Double)1}
 						};
-						isSerialized = true;
-						calculateDerivation = false;
-						deriOrder = 0;
-						arguments =  new List<string>()
+				
+						externalAls = new Dictionary<object, object>()
 						{
-							"a = Input.a",
-							"b = Input.b"
 						};
+				
+						pars = new Dictionary<object, object>()
+						{
+							{'a', "Input.a"}
+							,{'b', "Input.b"}
+						};
+				
 					}
+				
 					FormulaEditor.Interfaces.ITreeCollectionProxy FormulaEditor.Interfaces.ITreeCollectionProxyFactory.CreateProxy(FormulaEditor.Interfaces.ITreeCollection collection, Action<object> checkValue)
 					{
 						FormulaEditor.Interfaces.ITreeCollection f = this;
@@ -139,26 +136,33 @@ namespace GeneratedProject
 						public void Update()
 						{
 							var_0 = (double)measurement0.Parameter();
-							var_1 = -(var_0);
-							var_2 = (double)measurement2.Parameter();
-							var_3 = (var_1) + (var_2);
-							var_4 = (double)measurement4.Parameter();
-							var_5 = -(var_4);
+							var_1 = (double)measurement1.Parameter();
+							var_2 = (double)aliasName2.Value;
+							var_3 = (var_1) * (var_2);
+							var_4 = (var_0) + (var_3);
+							var_5 = (double)measurement5.Parameter();
 							var_6 = (double)measurement6.Parameter();
 							var_7 = (var_5) + (var_6);
 							var_8 = (double)measurement8.Parameter();
 							var_9 = (double)measurement9.Parameter();
+							var_10 = (var_8) + (var_9);
+							var_11 = (double)measurement11.Parameter();
+							var_12 = (double)measurement12.Parameter();
+							var_13 = (var_11) + (var_12);
 						}
 						
 						internal  Calculation(FormulaEditor.ObjectFormulaTree[] trees)
 						{
 							this.trees = trees;
 							measurement0 = DataPerformer.Formula.StaticExtensionDataPerformerFormula.ToMeasurement(trees[0]);
-							measurement2 = DataPerformer.Formula.StaticExtensionDataPerformerFormula.ToMeasurement(trees[2]);
-							measurement4 = DataPerformer.Formula.StaticExtensionDataPerformerFormula.ToMeasurement(trees[4]);
+							measurement1 = DataPerformer.Formula.StaticExtensionDataPerformerFormula.ToMeasurement(trees[1]);
+							aliasName2 = DataPerformer.Formula.StaticExtensionDataPerformerFormula.ToAliasName(trees[2]);
+							measurement5 = DataPerformer.Formula.StaticExtensionDataPerformerFormula.ToMeasurement(trees[5]);
 							measurement6 = DataPerformer.Formula.StaticExtensionDataPerformerFormula.ToMeasurement(trees[6]);
 							measurement8 = DataPerformer.Formula.StaticExtensionDataPerformerFormula.ToMeasurement(trees[8]);
 							measurement9 = DataPerformer.Formula.StaticExtensionDataPerformerFormula.ToMeasurement(trees[9]);
+							measurement11 = DataPerformer.Formula.StaticExtensionDataPerformerFormula.ToMeasurement(trees[11]);
+							measurement12 = DataPerformer.Formula.StaticExtensionDataPerformerFormula.ToMeasurement(trees[12]);
 							dictionary[trees[0]] = Get_0;
 							dictionary[trees[1]] = Get_1;
 							dictionary[trees[2]] = Get_2;
@@ -169,6 +173,10 @@ namespace GeneratedProject
 							dictionary[trees[7]] = Get_7;
 							dictionary[trees[8]] = Get_8;
 							dictionary[trees[9]] = Get_9;
+							dictionary[trees[10]] = Get_10;
+							dictionary[trees[11]] = Get_11;
+							dictionary[trees[12]] = Get_12;
+							dictionary[trees[13]] = Get_13;
 						}
 						
 						public FormulaEditor.GetValue this[FormulaEditor.ObjectFormulaTree tree]
@@ -177,11 +185,14 @@ namespace GeneratedProject
 						Dictionary<FormulaEditor.ObjectFormulaTree, FormulaEditor.GetValue> dictionary = new Dictionary<FormulaEditor.ObjectFormulaTree, FormulaEditor.GetValue>();
 						
 						DataPerformer.Interfaces.IMeasurement measurement0;
-						DataPerformer.Interfaces.IMeasurement measurement2;
-						DataPerformer.Interfaces.IMeasurement measurement4;
+						DataPerformer.Interfaces.IMeasurement measurement1;
+						Diagram.UI.Interfaces.IAliasName aliasName2;
+						DataPerformer.Interfaces.IMeasurement measurement5;
 						DataPerformer.Interfaces.IMeasurement measurement6;
 						DataPerformer.Interfaces.IMeasurement measurement8;
 						DataPerformer.Interfaces.IMeasurement measurement9;
+						DataPerformer.Interfaces.IMeasurement measurement11;
+						DataPerformer.Interfaces.IMeasurement measurement12;
 						FormulaEditor.ObjectFormulaTree currentTree = null;
 						object[] currentArray = null;
 						double doubleValue = 0;
@@ -196,6 +207,10 @@ namespace GeneratedProject
 						double var_7 = 0;
 						double var_8 = 0;
 						double var_9 = 0;
+						double var_10 = 0;
+						double var_11 = 0;
+						double var_12 = 0;
+						double var_13 = 0;
 						
 						object Get_0()
 						{
@@ -245,6 +260,26 @@ namespace GeneratedProject
 						object Get_9()
 						{
 							return var_9;
+						}
+						
+						object Get_10()
+						{
+							return var_10;
+						}
+						
+						object Get_11()
+						{
+							return var_11;
+						}
+						
+						object Get_12()
+						{
+							return var_12;
+						}
+						
+						object Get_13()
+						{
+							return var_13;
 						}
 					
 					}

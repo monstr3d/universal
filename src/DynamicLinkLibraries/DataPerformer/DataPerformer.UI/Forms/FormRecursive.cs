@@ -85,7 +85,7 @@ namespace DataPerformer.UI.Forms
         private void fillVariables()
         {
             string var = Forms.FormDiffEquation.Variables;
-            Hashtable variables = recursive.Variables;
+            Dictionary<object,object> variables = recursive.Variables;
             string vars = "";
             foreach (char c in variables.Keys)
             {
@@ -108,7 +108,7 @@ namespace DataPerformer.UI.Forms
 
         private void fillFormulas()
         {
-            Hashtable variables = recursive.Variables;
+            Dictionary<object, object> variables = recursive.Variables;
             formulaHash.Clear();
             formulaPanels.Clear();
             panelFormula.Controls.Clear();
@@ -134,7 +134,7 @@ namespace DataPerformer.UI.Forms
         {
             string st = recursive.AllExternalVariables;
             string str = recursive.AliasesString;
-            Hashtable vars = recursive.Variables;
+            Dictionary<object, object> vars = recursive.Variables;
             checkedListBoxP.Items.Clear();
             foreach (char c in st)
             {
@@ -153,7 +153,7 @@ namespace DataPerformer.UI.Forms
 
             }
             dataTableInitial.Clear();
-            Hashtable var = recursive.Variables;
+            Dictionary<object, object> var = recursive.Variables;
             foreach (char c in var.Keys)
             {
                 object[] o = var[c] as object[];
@@ -177,7 +177,7 @@ namespace DataPerformer.UI.Forms
         private void fillMeasurements()
         {
             string s = "";
-            Hashtable table = recursive.Arguments;
+            Dictionary<object, object> table = recursive.Arguments;
             foreach (char ch in table.Keys)
             {
                 s += ch;
@@ -217,7 +217,7 @@ namespace DataPerformer.UI.Forms
         private void fillMeaCombo()
         {
             string s = "";
-            Hashtable table = recursive.Arguments;
+            Dictionary<object, object> table = recursive.Arguments;
             foreach (char ch in table.Keys)
             {
                 s += ch;
@@ -244,7 +244,7 @@ namespace DataPerformer.UI.Forms
             int y = 0;
             List<string> al = new List<string>();
             recursive.GetAliases(al, null);
-            Hashtable ea = recursive.ExternalAliases;
+            Dictionary<object, object> ea = recursive.ExternalAliases;
             for (int i = 0; i < m.Count; i++)
             {
                 IMeasurement mea = m[i];
@@ -318,7 +318,7 @@ namespace DataPerformer.UI.Forms
         {
             try
             {
-                Hashtable table = new Hashtable();
+                Dictionary<object, object> table = new Dictionary<object, object>();
 
                 foreach (string s in checkedListBoxV.CheckedItems)
                 {
@@ -341,7 +341,7 @@ namespace DataPerformer.UI.Forms
         {
             try
             {
-                Hashtable table = new Hashtable();
+                Dictionary<object, object> table = new Dictionary<object, object>();
                 foreach (char c in formulaHash.Keys)
                 {
                     PanelFormula p = formulaHash[c] as PanelFormula;
@@ -380,7 +380,7 @@ namespace DataPerformer.UI.Forms
             try
             {
                 List<string> arg = arguments;
-                Hashtable table = new Hashtable();
+                Dictionary<object, object> table = new Dictionary<object, object>();
                 foreach (string s in arg)
                 {
                     table[s[0]] = s.Substring(4);
@@ -407,7 +407,7 @@ namespace DataPerformer.UI.Forms
 
                     al[s] = a;
                 }
-                Hashtable var = recursive.Variables;
+                Dictionary<object, object> var = recursive.Variables;
                 foreach (DataRow row in dataTableInitial.Rows)
                 {
                     string st = row[0] as string;
@@ -426,7 +426,7 @@ namespace DataPerformer.UI.Forms
         {
             try
             {
-                Hashtable table = new Hashtable();
+                Dictionary<object, object> table = new Dictionary<object, object>();
                 foreach (char c in aliasCombo.Keys)
                 {
                     ComboBox cb = aliasCombo[c] as ComboBox;
