@@ -126,7 +126,7 @@ namespace Motion6D
         }
 
         /// <summary>
-        /// Number of connections
+        /// Internal acceleration
         /// </summary>
         public abstract double[] InternalAcceleration
         {

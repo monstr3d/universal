@@ -4,23 +4,7 @@ using System.Collections;
 using System.Text;
 using System.Runtime.Serialization;
 
-using CategoryTheory;
-
 using Diagram.UI;
-using Diagram.UI.Labels;
-using Diagram.UI.Interfaces;
-using Diagram.UI.Aliases;
-
-using BaseTypes.Interfaces;
-
-using DataPerformer.Interfaces;
-using DataPerformer.Portable;
-
-using FormulaEditor;
-using FormulaEditor.Interfaces;
-using FormulaEditor.Symbols;
-using DataPerformer.Formula;
-using DataPerformer.Formula.Interfaces;
 
 namespace DataPerformer
 {
@@ -28,7 +12,7 @@ namespace DataPerformer
     /// Solver of ordinary differential equations system
     /// </summary>
     [Serializable()]
-    public class DifferentialEquationSolver : DataPerformer.Formula.DifferentialEquationSolver,  ISerializable
+    public class DifferentialEquationSolver : Formula.DifferentialEquationSolver,  ISerializable
     {
 
 
@@ -49,6 +33,7 @@ namespace DataPerformer
         /// </summary>
         public DifferentialEquationSolver()
         {
+        
         }
 
         /// <summary>
@@ -195,6 +180,7 @@ namespace DataPerformer
             Copy(pars, parsH);
             Copy(aliases, aliasesH);
             Copy(arguments, argsH);
+            Copy(aliasNames, aliasNamesH);
         }
 
         void ConvertInvert()
@@ -203,6 +189,7 @@ namespace DataPerformer
             Copy(parsH, pars);
             Copy(aliasesH, aliases);
             Copy(argsH, arguments);
+            Copy(aliasNamesH, aliasNames);
         }
 
         #endregion
