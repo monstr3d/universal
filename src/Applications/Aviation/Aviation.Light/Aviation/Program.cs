@@ -28,8 +28,8 @@ namespace Aviation.Light
         static void Main(string[] args)
         {
             string filename = "";
-            // Type t = typeof(Http.Meteo.Services.MeteoService);
-            //string st = t.FullName + "," + t.Assembly;
+      /*          Type t = typeof(Gravity_36_36.Wrapper.Serializable.Gravity);
+                string st = t.FullName + "," + t.Assembly; //*/
             TextWriter logWriter = null;
             if (args != null)
             {

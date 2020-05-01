@@ -140,6 +140,10 @@ namespace DataPerformer
         #region Private Conversion
         static void Copy(Hashtable t, Dictionary<object, object> d)
         {
+            if (t.Count == 0)
+            {
+                return;
+            }
             d.Clear();
             foreach (object o in t.Keys)
             {
@@ -149,6 +153,10 @@ namespace DataPerformer
 
         static void Copy(Dictionary<object, object> d, Hashtable t)
         {
+            if (d.Count == 0)
+            {
+                return;
+            }
             t.Clear();
             foreach (object o in d.Keys)
             {
@@ -158,6 +166,10 @@ namespace DataPerformer
 
         void Copy(List<string> d, ArrayList t)
         {
+            if (d.Count == 0)
+            {
+                return;
+            }
             t.Clear();
             foreach (object o in d)
             {
@@ -167,6 +179,10 @@ namespace DataPerformer
 
         void Copy(ArrayList d, List<string> t)
         {
+            if (d.Count == 0)
+            {
+                return;
+            }
             t.Clear();
             foreach (object o in d)
             {

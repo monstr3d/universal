@@ -23,6 +23,10 @@ namespace Diagram.UI
         /// </summary>
         static private IDefaultLabelFactory labelFactory;
 
+        private static List<IUIFactory> list = new List<IUIFactory>();
+
+        static public IUIFactory uiFactory;
+
         #endregion
 
         #region Public Members
@@ -46,7 +50,35 @@ namespace Diagram.UI
         /// UI Factory
         /// </summary>
         static public IUIFactory UIFactory
-        { get; set; }
+        { 
+            get
+            {
+                return uiFactory;
+            }
+            set
+            {
+                if (value != null)
+                {
+                    if (uiFactory != null)
+                    {
+                        throw new Exception("UI factory already exists"); 
+                    }
+                    uiFactory = value;
+                    if (list.Count > 0)
+                    {
+                        if (uiFactory is AssemblyFactory)
+                        {
+                            AssemblyFactory ass = uiFactory as AssemblyFactory;
+                            foreach (IUIFactory f in list)
+                            {
+                                ass.Add(f);
+                            }
+                        }
+                        list.Clear();
+                    }
+               }
+            }
+        }
 
         /// <summary>
         /// Adds a factory to the main factory
@@ -58,7 +90,9 @@ namespace Diagram.UI
             {
                 AssemblyFactory f = UIFactory as AssemblyFactory;
                 f.Add(factory);
+                return;
             }
+            list.Add(factory);
         }
 
         /// <summary>

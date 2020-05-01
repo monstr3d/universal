@@ -105,6 +105,13 @@ namespace DataPerformer
                 try
                 {
                     shouldRuntimeUpdate = info.GetBoolean("ShouldRuntimeUpdate");
+                }
+                catch (Exception exc)
+                {
+                    exc.ShowError(100); ;
+                }
+                try
+                {
                     forwardAliases = info.Deserialize<Dictionary<int, string>>("ForwardAliases");
                 }
                 catch (Exception exc)

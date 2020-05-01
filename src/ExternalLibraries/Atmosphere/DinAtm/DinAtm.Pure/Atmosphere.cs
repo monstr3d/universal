@@ -1,36 +1,25 @@
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Runtime.Serialization;
-
+﻿using System;
 using Vector3D;
-using CategoryTheory;
-using DataPerformer;
-using Diagram.UI;
-using Diagram.UI.Interfaces;
 
-using DataPerformer.Interfaces;
-
-namespace DinAtm
+namespace DinAtm.Pure
 {
-    public class Atmosphere : ICategoryObject, IObjectTransformer, IPropertiesEditor, IObjectFactory,
-        ISeparatedAssemblyEditedObject
+
+    /// <summary>
+    /// Atmosphere
+    /// </summary>
+    public class Atmosphere 
 
     {
 
         #region Fields
 
-        ISeparatedPropertyEditor editor;
+        protected object[] ob = new object[2];
 
-        const Double type = 0;
+        static public readonly string[] sins = new string[] { "t", "x", "y", "z" };
 
-        object[] ob = new object[2];
+        static public readonly string[] sous = new string[] { "Density" };
 
-        static private readonly string[] sins = new string[] { "t", "x", "y", "z" };
-
-        static private readonly string[] sous = new string[] { "Density" };
-        protected object obj;
-        static public readonly int[] mac ={ 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334, 365 };
+        static public readonly int[] mac = { 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334, 365 };
         static public readonly double[] f01 ={-14.608, 0.8969, 67.596, -0.4016, 0.3031E-2, 0.2344E-5, 0.130,
      0.14E-3, 3.733, -507.95, 189.85, 4.2, 0.653, -0.7379, 0.8524E-2,
      -0.5328E-5, -0.1767,0.1859E-2, -0.1172E-5, 0.80, 2.0, -14.469,
@@ -75,11 +64,11 @@ namespace DinAtm
      -0.18,-0.183,-0.179,-0.163,-0.133,-0.085,-0.018,0.059,0.123,0.161,
      0.17,0.156,0.119,0.073,0.027,-0.023,-0.055,-0.078};
 
-        static int[] KDNEY={31,0,31,30,31,30,31,31,30,31,30,31};
+        static int[] KDNEY = { 31, 0, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
 
         int N10;
         double[] f1;
-        int[] ifa = new int[] { 150, 6, 140 };
+        protected int[] ifa = new int[] { 150, 6, 140 };
         int[] if1 = new int[] { 75, 100, 125, 150, 200, 250 };
         int[] date = new int[3];
         private double[] r = new double[3];
@@ -88,11 +77,9 @@ namespace DinAtm
         private double[][] ff1;
         const double ome = 7.292115085E-5;
         private ushort[] dd = new ushort[4];
-        private double[] xout = new double[3];
+        protected double[] xout = new double[3];
 
-        byte[] assemblyBytes;
-
-        #endregion
+          #endregion
 
         #region Ctor
 
@@ -101,152 +88,15 @@ namespace DinAtm
             init();
             If = ifa;
         }
+
+        #endregion
  
-        #endregion
-
-        #region IAssociatedObject Members
-
-        object IAssociatedObject.Object
-        {
-            get
-            {
-                return obj;
-            }
-            set
-            {
-                obj = value;
-            }
-        }
-
-        #endregion
-
-        #region IObjectTransformer Members
-
-        string[] IObjectTransformer.Input
-        {
-            get { return sins; }
-        }
-
-        string[] IObjectTransformer.Output
-        {
-            get { return sous; }
-        }
-
-        object IObjectTransformer.GetInputType(int i)
-        {
-            return type;
-        }
-
-        object IObjectTransformer.GetOutputType(int i)
-        {
-            return type;
-        }
-
-        void IObjectTransformer.Calculate(object[] input, object[] output)
-        {
-            double t = (double)input[0];
-            for (int i = 0; i < 3; i++)
-            {
-                xout[i] = (double)input[i + 1];
-            }
-            double rho = Atm(t, xout);
-            output[0] = rho;
-        }
-
-        #endregion
-
-        #region IPropertiesEditor Members
-
-        object IPropertiesEditor.Editor
-        {
-            get 
-            {
-                return this.GetEditor();
-            }
-        }
-
-        object IPropertiesEditor.Properties
-        {
-            get
-            {
-                ob[0] = ifa;
-                return ob;
-            }
-            set
-            {
-                if (value is int[])
-                {
-                    If = value as int[];
-                    ob[0] = ifa;
-                    this.LoadAssembly();
-                    return;
-                }
-                ob = value as object[];
-                if (assemblyBytes != null)
-                {
-                    ob[1] = assemblyBytes;
-                }
-                If = ob[0] as int[];
-            }
-        }
-
-        #endregion
-
-        #region IObjectFactory Members
-
-        string[] IObjectFactory.Names
-        {
-            get { return new string[] { "Dynamical Atmosphere" }; ; }
-        }
-
-        ICategoryObject IObjectFactory.this[string name]
-        {
-            get { return this; }
-        }
-
-        #endregion
-
-        #region ISeparatedAssemblyEditedObject Members
-
-        byte[] ISeparatedAssemblyEditedObject.AssemblyBytes
-        {
-            get
-            {
-                return assemblyBytes;
-                return ob[1] as byte[];
-            }
-            set
-            {
-                assemblyBytes = value;
-                ob[1] = value;
-            }
-        }
-
-        ISeparatedPropertyEditor ISeparatedAssemblyEditedObject.Editor
-        {
-            get
-            {
-                return editor;
-            }
-            set
-            {
-                editor = value;
-            }
-        }
-
-        void ISeparatedAssemblyEditedObject.FirstLoad()
-        {
-            this.LoadAssembly();
-        }
-
-        #endregion
-
         #region Public Members
 
         public double Atm(double t, double[] x)
         {
             double ttt = t / 86400;
- //           ushort ho, mi, ss, sss;
+            //           ushort ho, mi, ss, sss;
             DateTime dt = DateTime.FromOADate(ttt);
             int ho = dt.Hour;
             int mi = dt.Minute;
@@ -256,7 +106,7 @@ namespace DinAtm
             double sss = 1000 * (t - (double)(it));
             //sss *= 1000;
             //dt.DecodeTime(&ho, &mi, &ss, &sss);
-            double tt=(ho*60+mi)*60+ss+.001*sss;
+            double tt = (ho * 60 + mi) * 60 + ss + .001 * sss;
             double days = days1900(dt) + 1;
             double ASoL = 0, DSoL = 0;//,ASoL1,DSoL1;
             //AngleSun(tt-10800.,days-1,ASoL,DSoL);
@@ -275,6 +125,9 @@ namespace DinAtm
             return rho;
         }
 
+        /// <summary>
+        /// Atmosphere parameters
+        /// </summary>
         public int[] If
         {
             get
@@ -335,7 +188,7 @@ namespace DinAtm
 
             h = hh - 6378.140 * (1.0 - 0.335282E-2 * y[2] * y[2]);
             //int N10=0;
-     //       int i, j, k, j1, k1;
+            //       int i, j, k, j1, k1;
             /*for(i=0;i<6;i++)
             if(ifa[0]==if1[i]) break; else N10++;
             //N10++;
@@ -427,7 +280,7 @@ namespace DinAtm
             return atm(x, tt, ASoL, DSoL, ref s0, ref h, date);
         }
 
-        void AngleSun(double T, double D, ref double ASoL, ref double DSoL) 
+        void AngleSun(double T, double D, ref double ASoL, ref double DSoL)
         {
             DSoL = D + T / 86400.0;
             double TC = DSoL / 36525.0;
@@ -472,10 +325,10 @@ namespace DinAtm
             for (int i = 1975; i < dat.Year; i++)
             {
                 d += 365.0;
-                if (ii == 4) 
-                { 
-                    ii = 0; 
-                    d += 1.0; 
+                if (ii == 4)
+                {
+                    ii = 0;
+                    d += 1.0;
                 }
                 ii++;
             }
@@ -491,13 +344,13 @@ namespace DinAtm
             int k = 4 * (int)(0.25 * (double)dat.Year);
             if (((int)(.25 * (double)dat.Year)) * 4 == dat.Year)
                 KDNEY[1] = 29;
-             int data = dat.Day - 1;
+            int data = dat.Day - 1;
             if (dat.Month == 1) return data;
             for (int i = 1; i < dat.Month; i++) data += KDNEY[i];
             return data;
         }
 
-        static double zvvr(double D) 
+        static double zvvr(double D)
         {
             double T1 = D / 36525.0;
             double T2 = T1 * T1;
@@ -516,5 +369,5 @@ namespace DinAtm
 
         #endregion
 
-   }
+    }
 }

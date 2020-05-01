@@ -373,9 +373,47 @@ namespace DataPerformer.Formula
         {
             postDeserialize();
             postSetAlias();
-            return;
-            try
+            isSerialized = true;
+            foreach (IMeasurements measurements in measurementsData)
             {
+                string name = this.GetMeasurementsName(measurements);
+                for (int i = 0; i < measurements.Count; i++)
+                {
+                    IMeasurement measure = measurements[i];
+                    string p = name + "." + measure.Name;
+                    List<string> arg = new List<string>(arguments);
+                    foreach (string s in arg)
+                    {
+                        string ss = s.Substring(4);
+                        //!!!TEMP====================
+                        bool b = ss.Equals(p);
+                        if (!b)
+                        {
+                            if (ss.Replace("/", "_").Equals(p))
+                            {
+                                arguments.Remove(s);
+                                arguments.Add(s.Substring(0, 4) + p);
+                                b = true;
+                            }
+                        }
+                        if (b)
+                        //!!!TEMP ===
+                        {
+                            char c = s[0];
+                            //                           parameter.Add(c, measure);
+                            string key = c + "";
+                            if (!acc.ContainsKey(key))
+                            {
+                                acc[c + ""] = c.Create(measure, this);
+                            }
+                        }
+                    }
+                }
+                isSerialized = false;
+            }
+/*
+                try
+                {
                 isSerialized = true;
                 DynamicalParameter parameter = new DynamicalParameter();
                 foreach (IMeasurements measurements in measurementsData)
@@ -458,7 +496,7 @@ namespace DataPerformer.Formula
                 this.Throw(ex);
             }
             SetFeedback();
-          //  SetForward();
+          //  SetForward();*/
         }
  
 
@@ -528,6 +566,14 @@ namespace DataPerformer.Formula
         {
             get
             {
+                if (pars.Count != arguments.Count)
+                {
+                    arguments.Clear();
+                    foreach (char c in pars.Keys)
+                    {
+                        arguments.Add(c + " = " + pars[c]);
+                    }
+                }
                 return arguments;
             }
             set
@@ -947,12 +993,11 @@ namespace DataPerformer.Formula
         {
             Hpars = new Dictionary<object, object>(pars);
             Haliases = new Dictionary<object, object>(aliases);
-//            Harguments = new Dictionary<object, object>(arguments);
+      //      Harguments = new Dictionary<object, object>(arguments);
             foreach (string s in args)
             {
                 arguments.Add(s);
             }
-            args.Clear();
             foreach (char c in vars.Keys)
             {
                 object[] o = vars[c] as object[];

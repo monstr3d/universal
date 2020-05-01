@@ -424,7 +424,10 @@ namespace Regression
 			foreach (string s in aliasNames)
 			{
                 IAliasName[] arr = this.FindAllAliasName(s, false);
-                lan.AddRange(arr);
+				if (arr != null)
+				{
+					lan.AddRange(arr);
+				}
 			}
             aliases = lan.ToArray();
 			int nmea = 0;
