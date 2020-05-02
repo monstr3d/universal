@@ -638,7 +638,6 @@ The Chapter \ref{top_chap} contains applications of described in Chapters  \ref{
 In the Chapter \ref{stab_chap} it is proven that properties of noncommutative coverings are stably equivalent. 
 %\paragraph*{}
 %In the Chapter \ref{stab_chap} we prove that if *-homomorphism $A \hookto \widetilde{A}$ of $C^*$-algebras is a "noncommutative covering" then both natural *-homomorphisms  $A \otimes \mathbb{M}_n\left(\C \right)  \hookto \widetilde{A} \otimes \mathbb{M}_n\left(\C \right)$ and $A \otimes \K\left(\ell^2\left( \N \right)\right)  \hookto \widetilde{A}\otimes \K\left(\ell^2\left( \N \right)\right)$ are "noncommutative coverings".
-
 \paragraph*{} The Chapter \ref{ctr_chap} is devoted to noncommutative coverings of $C^*$-algebras with continuous trace. It is proven that the theory of noncommutative coverings of $C^*$-algebras with continuous trace contains all ingredients of right row of the Table \ref{add_mapping_table}. 
 
 \paragraph*{} In the  Chapter \ref{vf_chap} the coverings of spaces of vector fields are being discussed. Sections of vector fields of Hilbert spaces have the natural structure of operator spaces. Application of the results of the Chapters \ref{cov_fin_chap}  and \ref{cov_inf_chap} yield finite-fold and infinite noncommutative coverings of these spaces.
@@ -2152,35 +2151,6 @@ So the state $\tau$ is pure, and the map $\widetilde\tau \mapsto \tau$ yields 	t
 	\end{split}
 	\ee
 \end{remark}
-\begin{corollary}\label{spectrum_fin_gen_lem}
-Let $A$ be an unital $C^*$-algebra, and $\sX$ is the spectrum of $A$.  Suppose that the center of $A$ naturally isomorphic to $C\left(\sX\right)$. If $\left(A, \widetilde{A}, G, \pi\right)$ is an unital finite-fold noncommutative covering and $\widetilde{\sX}$ is the spectrum of $\widetilde{A}$ then $C\left(\widetilde{\sX}\right)$ is a finitely generated $C\left(\sX\right)$-module.
-\end{corollary}
-\begin{proof}
-Suppose that $C\left(\widetilde{\sX}\right)$ is not a finitely generated $C\left(\sX\right)$-module. From the Theorem \ref{fin_gen_thm} it follows that there is an infinite set $\left\{M_\la\right\}_{\la\in\La}$ of $C_0\left(\sX \right)$ submodules of $C\left(\widetilde{\sX}\right)$ such that 
-	$$
-C\left(\widetilde{\sX}\right)=\sum_{\la \in \La} M_\la,
-$$
-but there is no  a finite subset $\La_0\subset \La$  such that 
-$$
-C\left(\widetilde{\sX}\right) = \sum_{\la \in \La_0} M_\la.
-$$
-So one has
-$$
-\widetilde{A}=\sum_{\la \in \La} \widetilde{A} M_\la
-$$
-but there is no  a finite subset $\La_0\subset \La$  such that 
-$$
-\widetilde{A}=\sum_{\la \in \La_0} \widetilde{A} M_\la.
-$$
-From the Theorem \ref{fin_gen_thm} it follows $\widetilde{A}$ is not a finitely generated $A$-module, it contradicts with the definition \ref{fin_uni_defn}.
-\end{proof}
-\begin{corollary}\label{spectrum_fin_cov_lem}
-Let $A$ be an unital $C^*$-algebra, and $\sX$ is the spectrum of $A$.  Suppose that the center of $A$ naturally isomorphic to $C\left(\sX\right)$. If  of $\sX$ is Hausdorff then the given by \eqref{cov_spectrum_eqn} map $	p:\widetilde{\mathcal X} \to {\mathcal X}$ is a finite-fold transitive covering.
-\end{corollary}
-\begin{proof}
-From the Theorem \ref{pavlov_troisky_thm} it follows that $p$ is a finite fold covering. The group $G_0 \bydef G / \ker\left(G \to \Homeo\left(\widetilde{A} \right) \right)$ is a normal subgroup of $G$,  and the action of $G/G_0\times \widetilde{\mathcal X}\to \widetilde{\mathcal X}$ is not trivial. From the Lemma \ref{cov_spectrum_lem} it turns out that the action is transitive. 
-\end{proof}
-
 
 \begin{cor}\label{fin_up_cor} 
 	Let $\left(A, \widetilde{A}, G, \pi \right)$ be a pure  noncommutative finite-fold  quasi-covering  (cf. Definition \ref{fin_comp_defn}). If the spectra  $\sX$ and $\widetilde\sX$ of both $A$ and $\widetilde{A}$ respectively then for any $n \in \N$ the set $$\sX_n = \left\{x \in \sX~|~\left|p^{-1}\left(x \right) \right|\ge n \right\}$$ is an open subset of $\sX$.
@@ -2675,7 +2645,7 @@ $f: [0,1] \to  \mathrm{Aut}\left({A}\right)$ be a continuous function such that 
    Here we generalize section \ref{cov_fin_bas_sec}.
    \begin{definition}\label{op_su_space_defn}
    	Let $Y$ be an unital operator space, and let $C^*_e\left( Y\right)$ be the $C^*$-envelope (cf. Definition \ref{c_env_sp_defn}) of $Y$. 
-   	A \textit{sub-unital operator space} is a pair $\left(X, Y \right)$ where  $X$ is a closed with respect to $C^*$-norm subspace of $Y$ such that $X = Y \oplus \C \cdot 1_{C^*_e\left( Y\right)}$ or $X = Y$.
+   	A \textit{sub-unital} operator space is a pair $\left(X, Y \right)$ where  $X$ is a closed with respect to $C^*$-norm subspace of $Y$ such that $X = Y \oplus \C \cdot 1_{C^*_e\left( Y\right)}$ or $X = Y$.
    \end{definition}
 
    \begin{remark}
@@ -2712,34 +2682,11 @@ Then we  say that  $\left(\left(X, Y \right),\left(\widetilde X, \widetilde Y \r
 \begin{remark}\label{fin_op_g_rem}
 The action $G \times C^*_e\left(\widetilde X, \widetilde Y \right) \to C^*_e\left(\widetilde X, \widetilde Y \right)$ is trivial on $C^*_e\left( X,  Y \right)$, so from (b) of the Definition \ref{fin_op_defn} it follows that there is the natural action $G\times \widetilde X \to \widetilde X$ which is trivial on $X$.
 \end{remark}
-\begin{definition}\label{op_su_r_space_defn}
-	Let $Y$ be a  real operator space (cf. Definitions \ref{real_os_defn}), and let $X\subset Y$ is its subspace. Let both $\C X$ and $\C Y$ are complexifications  (cf. \ref{complexification_empt}) of $X$ and $Y$ respectively.
-We say that a pair 	$\left(X, Y \right)$ is a \textit{sub-unital real operator space} is the  pair $\left(\C X, \C Y \right)$ where  $X$ is a closed with respect to $C^*$-norm subspace of $Y$ a pair $\left(\C X, \C Y \right)$ is sub-unital operator space (cf. Definition \ref{op_su_space_defn}).
-\end{definition}
-   \begin{definition}\label{op_sum_r_space_defn}
-	If both  $\left(X, Y \right)$ and $\left(\widetilde X, \widetilde Y \right)$ are {sub-unital} real operator spaces then \textit{complete isometry} from $\left(X, Y \right)$ to $\left(\widetilde X, \widetilde Y \right)$  is a complete unital isometry $\pi_Y: Y \hookto \widetilde Y$ such that $\pi_Y\left(X \right) \subset \widetilde X$. We write
-	\be\label{op_sum_r_space_eqn}
-	\begin{split}
-		\left( \pi_X: X  \hookto \widetilde X\right) \stackrel{\text{def}}{=} \left.\pi_Y\right|_X;\\
-		\left(\pi_X, \pi_Y \right):  \left(X, Y \right) \hookto \left(\widetilde X, \widetilde Y \right).
-	\end{split}
-	\ee	
-\end{definition}
-\begin{remark}\label{ros_iso_rem}
-Let both  $\left(X, Y \right)$ and $\left(\widetilde X, \widetilde Y \right)$ are {sub-unital} real operator spaces, and let 	$\left(\pi_X, \pi_Y \right):  \left(X, Y \right) \hookto \left(\widetilde X, \widetilde Y \right)$ be a complete isometry.  If $\C X$, $\C Y$,  $\C \widetilde X$, $ \C \widetilde Y$ are complexifications of $X$, $Y$,  $\widetilde X$, $ \widetilde Y$ then from the Theorem \ref{ros_contr_iso_thm} it turns out that the map  $\left(\C\pi_X, \C\pi_Y \right):\left( \C X,\C Y\right)  \hookto  \left( \C \widetilde X, \C \widetilde Y\right)$ is a complete isometry.
-\end{remark}
-\begin{definition}\label{r_comp_defn}
-	In the situation of the Remark \ref{ros_iso_rem} we say that $\left( \C X,\C Y\right)  \hookto  \left( \C \widetilde X, \C \widetilde Y\right)$ is the complexification of  $\left(\pi_X, \pi_Y \right):  \left(X, Y \right) \hookto \left(\widetilde X, \widetilde Y \right)$.
-\end{definition}
-
-\begin{definition}\label{fin_rop_defn}
-	Let both $\left(X, Y \right)$ and $\left(\widetilde X, \widetilde Y \right)$ be {sub-unital} real operator spaces and let $\left(\pi_X, \pi_Y \right):  \left(X, Y \right) \hookto \left(\widetilde X, \widetilde Y \right)$ be a {complete isometry} from  $\left(X, Y \right)$ to $\left(\widetilde X, \widetilde Y \right)$. Let  $\left(\C\pi_X, \C\pi_Y \right):\left( \C X,\C Y\right)  \hookto  \left( \C \widetilde X, \C \widetilde Y\right)$ is complexification of  $\left(\pi_X, \pi_Y \right):  \left(X, Y \right) \hookto \left(\widetilde X, \widetilde Y \right)$. We say that   $\left(\left(X, Y \right),\left(\widetilde X, \widetilde Y \right), G, \left(\pi_X, \pi_Y \right) \right)$   is a  \textit{noncommutative finite-fold covering of the sub-unital real operator space} $\left(X, Y\right)$ if\\ $\left(\left(\C X, \C Y \right),\left(\C \widetilde X, \C \widetilde Y \right), G, \left(\C\pi_X, \C\pi_Y \right) \right)$   is a  {noncommutative finite-fold covering} of the {sub-unital} operator space $\left(\C X, \C Y\right)$ (cf. Definition \ref{fin_op_defn}).
-\end{definition}
 
 
 
-
-\section{Coverings of spectral triples}\label{triple_fin_cov}
+   
+   \section{Coverings of spectral triples}\label{triple_fin_cov}
 
   \paragraph*{}
  
@@ -3776,7 +3723,7 @@ From the Lemma \ref{spec_el_repr_lem} it turns out that there are the following 
 Here we consider a generalization of the discussed in the Section \ref{inf_bas_constr_sec} construction.
 
 \begin{empt}\label{comp_op_pt_empt}
-	Consider a good pointed algebraical  finite covering category (cf. Definition \ref{comp_pt_defn}) given by
+	Consider a pointed algebraical  finite covering category (cf. Definition \ref{comp_pt_defn}) given by
 	$$
 	\mathfrak{S}^{\text{pt}} = \left(\left\{\pi_\la: A \hookto A_\la \right\}_{\la \in \La}, \left\{\pi^\mu_\nu: A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\ \nu > \mu}}\right),
 	$$
@@ -3792,7 +3739,14 @@ Here we consider a generalization of the discussed in the Section \ref{inf_bas_c
 %	is a {noncommutative finite-fold covering of operator algebras}
 %\end{remark}
 \begin{definition}\label{comp_op_pt_defn}
-	Consider the situation \ref{comp_op_pt_empt}. We say that 
+	Consider the situation \ref{comp_op_pt_empt}. We say that the category 
+	\be
+	\begin{split}\label{pointed_op_eqn}
+		\mathfrak{S}^{\text{pt}}_{\text{op}}
+		= \left(\left\{\left( \pi_{X_\la}, \pi_{Y\la}\right) : \left(X, Y \right) \to \left(X_\la, Y_\la \right) \right\}_{\la \in \La},\right. \\
+		\left.\left\{\left( \pi^{\nu}_{X_\mu}, \pi^{\nu}_{Y_\mu}\right) : \left(X_\mu, Y_\mu \right) \to \left(X_\nu, Y_\nu \right) \right\}_{\substack{\mu, \nu \in \La\\ \nu > \mu}}\right)
+	\end{split}
+	\ee
 	is a \textit{pointed algebraical  finite covering category of operator spaces}. We write
 	\be\label{comp_op_pt_eqn}
 	\mathfrak{S}^{\text{pt}}_{\text{op}}\in 	\mathfrak{OSp}^{\text{pt}}_{\text{op}}.
@@ -3811,39 +3765,7 @@ Here we consider a generalization of the discussed in the Section \ref{inf_bas_c
 \begin{remark}
 	Since the {inverse noncommutative limit} is a $C^*$-norm closed subspace of $C^*$-algebra $\widetilde A$ it has the natural structure of the operator space.
 \end{remark}
-\begin{definition}\label{comp_rop_pt_defn}
-Similarly to \ref{comp_op_pt_empt} consider a category of noncommutative finite-fold coverings of real operator spaces
-\bean
-\left(\left(X, Y \right) , \left(\left(X_\la, Y_\la \right) \right), G_\la, \left(\pi^\la_{X_\la}, \pi^\la_{Y_\la}\right)\right), \\
-\left(\left(X_\mu, Y_\mu \right) , \left(\left(X_\nu, Y_\nu \right) \right), G^\mu_\nu, \left(\pi^{\mu\nu}_{X_\mu}, \pi^{\mu\nu}_{Y_\mu}\right)\right)
-\eean
-real operator spaces. Denote it by $	\mathfrak{S}^{\text{pt}}_{\text{op}}$.  We say that 
-is a \textit{pointed algebraical  finite covering category of real operator spaces} if the  given by 
-\bean
-\left(\left(\C X, \C Y \right) , \left(\left(\C X_\la, \C Y_\la \right) \right), G_\la, \left(\C \pi^\la_{X_\la}, \C \pi^\la_{Y_\la}\right)\right),\\ 
-\left(\left(\C X_\mu, \C Y_\mu \right) , \left(\left(\C X_\nu, \C Y_\nu \right) \right), G^\mu_\nu, \left(\C \pi^{\mu\nu}_{X_\mu}, \C \pi^{\mu\nu}_{Y_\mu}\right)\right)
-\eean
-complexification $\C	\mathfrak{S}^{\text{pt}}_{\text{op}}$ of $	\mathfrak{S}^{\text{pt}}_{\text{op}}$ is algebraical  finite covering category of  real operator spaces (cf Definition \ref{comp_op_pt_defn}).  Let $\widetilde{A}$ be the inverse noncommutative limit of 	$\mathfrak{S}^{\text{pt}}$ if there is a net $\left\{x_\la \in X_\la\right\}_{\la \in \La}\subset \widehat{A}$ such that
-\be\label{spec_rop_eqn}
-\widetilde x = \lim_{\la \in \La } \pi_a\left(x_\la \right)
-\ee
-where the limit of \eqref{spec_rop_eqn} implies the strong limit in $B\left(\H_a\right)$.
 
-\end{definition}
-\begin{definition}\label{spec_r_lim_defn}
-Let $	\mathfrak{S}^{\text{pt}}_{\text{op}}$.  be a {pointed algebraical  finite covering category of real operator spaces}. Similarly to the Definition an element $\widetilde x  \in  \widetilde{A}$ is said to be \textit{subordinated} to $\mathfrak{S}^{\text{pt}}_{\text{op}}$ The $C^*$-norm completion of the $\C$-linear space $\Xi_{\text{op}}$ is said to be the \textit{inverse noncommutative limit} of 	$\mathfrak{S}^{\text{pt}}_{\text{op}}$.
-\end{definition}
-
-\begin{lemma}\label{spec_r_lim_lem}
-Let $	\mathfrak{S}^{\mathrm{pt}}_{\mathrm{op}}$.  be a {pointed algebraical  finite covering category of real operator spaces} and let $	\C\mathfrak{S}^{\text{pt}}_{\text{op}}$ be its complexification. If both $\widetilde X$ and $\widetilde X'$ are {inverse noncommutative limits} of both	$\mathfrak{S}^{\mathrm{pt}}_{\mathrm{op}}$ and $\C\mathfrak{S}^{\mathrm{pt}}_{\mathrm{op}}$ then $\widetilde X'$ there is the complex conjugation $\widetilde X'$ such that $\widetilde X'$ is the complexification of $\widetilde X$, i.e. $\widetilde X'\cong\C\widetilde X$.
-\end{lemma}
-\begin{proof}
-Form \ref{complexification_empt} it follows that for any $\la\in \La$ there is the conjugation $x \mapsto \overline x$ of $X_\la$. The equation \eqref{spec_op_eqn} yields the natural conjugation $\widetilde x \mapsto \overline{\widetilde x}$ on $\widetilde X'$. Direct check shows that
-\be\label{spec_r_lim_eqn}
-\widetilde X= \left\{\left. \widetilde x\in\widetilde X'\right| \widetilde x = \overline{\widetilde x}\right\},
-\ee
-it turns out that  $\widetilde X'\cong\C\widetilde X$.
-\end{proof}
 
 \section{Universal  coverings and  fundamental groups}
 
@@ -3910,7 +3832,9 @@ If $\widetilde X$ is the universal covering of $\left(X, Y\right)$ and $\widetil
 \end{remark}
 
 %
-\section{Induced representations}\label{inf_ind_repr_subsection}
+
+
+ \section{Induced representations}\label{inf_ind_repr_subsection}
 
    \begin{definition}\label{inf_hilb_prod_defn}
  	Let $\mathfrak{S}^{\text{pt}} = \left(\left\{\pi_\la: A \hookto A_\la \right\}, \left\{\pi^\mu_\nu\right\}\right)\in \mathfrak{FinAlg}^{\text{pt}} $ be  a pointed algebraical  finite covering  category.  Let $\pi: C^*$-$\varinjlim_{\la \in \La} A_\la \to B\left(\widehat \H\right)$ be an equivariant representation such that $\mathfrak{S}^{\text{pt}}$ is $\pi$-good (cf. Definition \ref{mains_defn}).  Let  $$\left(A, \widetilde{A}_\pi, G\left(\left.\widetilde{A}_\pi~\right|A \right) \right)$$  be an  infinite noncommutative covering of $\mathfrak{S}^{\text{pt}}$. Let $K\left( \widetilde{A}_\pi\right)$ be the Pedersen's ideal of  $\widetilde{A}_\pi$ (cf. Definition \ref{peder_id_defn}). We say that $\widetilde{A}_\pi$ \textit{allows the inner product} if for any $\la \in \La$, and $\widetilde{a}, \widetilde{b} \in K\left( \widetilde{A}_\pi\right)$ the series
@@ -4249,7 +4173,9 @@ Thus the representation $A_\la \to B\left(\H_\la \right)$ and the operator $D_\l
 \begin{remark}
 	It is not known  whether the axiomatic approach is equivalent to the constructive one. Also it is not known whether the axiomatic approach yields the unique result.
 \end{remark}
-\chapter{Coverings of commutative $C^*$-algebras and their operator subspaces}\label{top_chap}
+
+
+\chapter{Coverings of commutative $C^*$-algebras}\label{top_chap}
 %\section{Basic constructions}
 %\paragraph*{}
 \section{Multiples of continuous functions}
@@ -6198,14 +6124,14 @@ is convergent in the strong  topology of $B\left(\H_a\right)$.\\
 	\rho =  \pi^1_2 \circ g$.
 \end{proof}
 
-\
+
 
 
 \section{Continuous structures  and sheaves}
 
 \paragraph*{}
 
-If we consider the situation of the Definition \ref{sheaf_inv_im_defn} then \textit{inverse image} sheaf $f^{-1}\mathscr G$ on $\sX$ be the sheaf associated to the presheaf $\sU \mapsto \lim_{\sV \supseteq f\left(\sU\right)} \mathscr G\left(\sV\right)$, where $\sU$ is any open set in $\sX$, and the limit is taken over all open sets $\sV$ of $\sX$ containing $f\left(\sU\right)$. If the map $f$ is surjective then one has  $\lim_{\sV \supseteq f\left(\sX\right)} \mathscr G\left(\sV\right)\cong \mathscr  G\left(\sX\right)$ it follows that there is the injective homomorphism 
+If we consider the situation of the Definition \ref{sheaf_inv_im_defn} then \textit{inverse image} sheaf $f^{-1}\mathscr G$ on $\sX$ be the sheaf associated to the presheaf $\sU \mapsto \lim_{\sV \supseteq f\left(\sU\right)} \mathscr G\left(\sV\right)$, where $\sU$ is any open set in $\sX$, and the limit is taken over all open sets $\sV$ of $\sV$ containing $f\left(\sU\right)$. If the map $f$ is surjective then one has  $\lim_{\sV \supseteq f\left(\sX\right)} \mathscr G\left(\sV\right)\cong \mathscr  G\left(\sX\right)$ it follows that there is the injective homomorphism 
 \be\label{top_cs_sheaf_inc_eqn}
 p^{-1}_{\mathscr  G}:\mathscr  G\left(\sX\right)\hookto f^{-1}\mathscr  G\left(\sY\right)
 \ee
@@ -6925,7 +6851,7 @@ Denote by
 
 
 
-\subsection{Coverings of operator spaces}
+\subsection{Coverings of $C^*$-algebras}
 
  
 
@@ -7154,7 +7080,7 @@ The following lemma supplies the quantization of coverings with compactification
 
 
 \begin{lemma}\label{comm_fin_lem}
-	Let $\mathcal X$ be a locally compact, space and there is an injective *-homomorphism $\pi: C\left( \mathcal X\right) \hookto \widetilde{A}$ of $C^*$-algebras	then following conditions are equivalent:
+	Let $\mathcal X$ be a locally compact space and there is an injective *-homomorphism $\pi: C\left( \mathcal X\right) \hookto \widetilde{A}$ of $C^*$-algebras	then following conditions are equivalent:
 	\begin{enumerate}
 		\item [(i)] The quadruple $\left(C_0\left(\mathcal  X \right), \widetilde{A}, G  , \pi  \right)$ is a  noncommutative finite-fold covering with unitization.
 		\item[(ii)] The $C^*$-algebra $\widetilde{A}$ is commutative. Moreover if $\mathcal X$ (resp. $\widetilde{\mathcal X}$) is the spectrum of $A$ (resp. $\widetilde{A}$) then the given by the Lemma \ref{cov_spectrum_lem} map  $p:\widetilde{\mathcal X}\to {\mathcal X}$ is a transitive topological finite-fold covering with compactification such that the quadruple $\left(C_0\left(\mathcal  X \right), \widetilde{A}, G, \pi   \right)$ is naturally equivalent to $$\left(C_0\left(\mathcal  X \right), C_0\left(\widetilde{\mathcal X} \right), G\left( \widetilde{\mathcal X}~|~ {\mathcal X}\right) , C_0\left( p\right)     \right)$$
@@ -7260,41 +7186,6 @@ Let us check conditions (a), (b) of the Definition \ref{fin_defn}.
 The Theorem \ref{comm_fin_thm} yields a pure algebraic definition of the fundamental group (cf. the Theorem \ref{comm_uni_lim_thm} and the Corollary \ref{comm_uni_lim_cor}). Alternative theories (e.g. described in \cite{clarisson:phd}) which allow coverings of commutative $C^*$-algebras by noncommutative ones do not have this property.
 \end{remark}
 
-
-\begin{empt}\label{top_r_fin_empt}
-	Let $\sX$ be a connected,  locally compact, second-countable, Hausdorff space, and let
-\be\label{top_sim_eqn}
-	\sX^\sim \bydef \begin{cases}
-	\sX & \sX \text{ is compact}\\
-	\text{the one point compactification of } \sX & \sX \text{ is not compact}
-	\end{cases} 
-\ee (cf. Definition \ref{top_comp_defn}). From the Example \ref{op_real_exm} it turns out that he space $C\left(\sX^\sim, \R \right)$ of all real-valued continuous functions is a real operator space. If $C_0\left(\sX, \R \right)$ is an algebra of vanishing at infinity real-valued functions then the pair $\left(C_0\left(\sX, \R \right), C\left(\sX^\sim, \R \right) \right)$ is a sub-unital real operator space (cf. Definition \ref{op_su_r_space_defn}). If $p: \widetilde{\sX} \to \sX$ is a finite-fold transitive covering then there are the following complexifications
-	\be\label{top_complex_eqn}
-	\begin{split}
-	\C C_0\left(\sX, \R \right)\cong C_0\left(\sX\right),\\
-	\C C\left(\sX^\sim, \R \right)\cong C\left(\sX^\sim, \R \right),\\
-	\C C_0\left(\widetilde\sX, \R \right)\cong C\left(\widetilde\sX\right),\\
-\C C\left(\widetilde\sX^\sim, \R \right)\cong C_0\left(\sX^\sim, \R \right),\\
-	\end{split}
-	\ee
-and there are the sub-unital operator spaces $\left(C_0\left(\sX \right), C\left(\sX^\sim \right) \right)$ and $\left(C_0\left(\widetilde\sX \right), C\left(\widetilde\sX^\sim\right) \right)$. The $C^*$-envelopes (cf. Definition \ref{op_su_env_defn}) of both 	 $\left(C_0\left(\sX \right), C\left(\sX^\sim \right) \right)$ and $\left(C_0\left(\widetilde\sX \right), C\left(\widetilde\sX^\sim\right) \right)$ are equal to 
-\bean
-C^*_e\left(C_0\left(\sX \right), C\left(\sX^\sim \right) \right) = C_0\left(\sX \right),\\
-C^*_e\left(C_0\left(\widetilde\sX \right), C\left(\widetilde\sX^\sim \right) \right) = C_0\left(\widetilde\sX \right)
-\eean
-respectively.
-If $G \bydef G\left(\left. \widetilde{   \mathcal X } ~\right| {   \mathcal X }\right)$ then 	
-from the Theorem  \ref{comm_fin_thm} and the Definition \ref{fin_op_defn} it follows that
-$$
-\left(\left(C_0\left(\sX \right), C\left(\sX^\sim \right) \right),\left(C_0\left(\sX \right), C\left(\sX^\sim \right)\right) , G, \left(\pi_{C_0\left(\sX \right)}, \pi_{C\left(\sX^\sim \right)} \right) \right)
-$$   
-is a  {noncommutative finite-fold covering} of the {sub-unital} operator space $\left(C_0\left(\sX \right), C\left(\sX^\sim \right) \right)$. Taking into account complexifications \eqref{top_complex_eqn} and the Definition \ref{fin_rop_defn} one has  {noncommutative finite-fold covering 
-\be\label{top_real_fin_eqn}
-\left(\left(C_0\left(\sX, \R \right), C\left(\sX^\sim , \R\right) \right),\left(C_0\left(\sX, \R \right), C\left(\sX^\sim \right), \R\right) , G, \left(\pi, \pi^\sim \right)\right) 
-\ee
-of the sub-unital real operator space} \\ $\left(C_0\left(\sX, \R \right), C\left(\sX^\sim , \R\right) \right)$ where both compete isometries $\pi:C_0\left(\sX, \R \right)\hookto C_0\left(\widetilde\sX, \R \right)$ and $\pi^\sim:C\left(\sX^\sim, \R \right)\hookto C\left(\widetilde\sX^\sim, \R \right)$  are induced by the covering $p$.
-\end{empt}
-
 \begin{lem}\label{top_functor_lem}
 	Let $\sX$ be a connected,  locally compact, second-countable, Hausdorff space.
 	Denote by $\mathfrak{FinCov}$-$C_0\left(\sX \right)$ a category of noncommutative  finite-fold  coverings of $C_0\left(\sX \right)$,  i. e.
@@ -7333,7 +7224,6 @@ Following conditions hold:
 	So one has a functor from  $\mathfrak{FinCov}$-$\sX$ to  $\mathfrak{FinCov}$-$C_0\left( \sX\right)$. Let us define the inverse  functor. From the Theorem \ref{comm_fin_thm} it follows that any object $\pi: C_0\left( \sX\right) \hookto C_0\left( \widetilde{\sX}\right)$ of $\mathfrak{FinCov}$-$C_0\left( \sX\right) $ corresponds to a transitive finite-fold covering $p: \widetilde{\sX} \to \sX$ such that $\pi = C_0\left(p \right)$. If $C\left(p' \right): C_0\left( {\sX}\right)\to  C_0\left( \widetilde{\sX}'\right) $ and $C\left(p'' \right): C_0\left( {\sX}\right)\to C_0\left( \widetilde{\sX}''\right)$ are objects of $\mathfrak{FinCov}$-$C_0\left( \sX\right)$  and $\pi: C_0\left( \widetilde{\sX}''\right)    \to C_0\left( \widetilde{\sX}'\right)$ is a *-homomorphism such that $ C_0\left(p'\right) = \pi \circ C_0\left(p''\right)$ then from the Lemma \ref{comm_comply_lem} it turns out that there is a finite-fold  transitive covering $p: \widetilde{\sX}' \to \widetilde{\sX}''$ such than  $\pi= C_0\left( p\right) $ and $p'= p \circ p''$. So one has the inverse functor from   $\mathfrak{FinCov}$-$C_0\left( \sX\right)$ to $\mathfrak{FinCov}$-$\sX$.\\
 	(ii)	The conditions (a)-(d) of the Definition \ref{compliant_covering_defn} directly follow from (a)-(d) of the Lemma \ref{comm_comply_lem}.
 	\end{proof}
-
 
 
 \subsection{Induced representation}\label{comm_induced_finite_sec}
@@ -7983,7 +7873,7 @@ From above equation it follows that
 The equation \eqref{comm_alg_eqn} is purely algebraic and related to special subsets. From the Theorem \ref{comm_main_thm} it follows that the algebraic condition \eqref{comm_alg_eqn}  is sufficient for  construction of  $C_0\left( \widetilde{\mathcal X}\right)$. Thus noncommutative inverse limits of coverings can be constructed by purely algebraic methods.
 
 
-\subsection{Coverings of operator spaces}
+\subsection{Coverings of $C^*$-algebras}
 
 \paragraph*{}
 %\chapter{Algebraic constructions of topological inverse limits}
@@ -8492,16 +8382,8 @@ is a given by the Lemma  \ref{top_base_point_lem} {pointed algebraical  finite c
 	\end{itemize}
 		(ii) Follows from (i) of this lemma.
 \end{proof}
-\begin{empt}\label{top_r_inf_empt}
-Both the given by \eqref{top_base_point_eqn} {pointed algebraical  finite covering category} and the construction \ref{top_r_fin_empt} yield pointed algebraical  finite covering category of operator spaces $\C\mathfrak{S}^{\text{pt}}_{\text{op}}$ (cf. Definition \ref{comp_op_pt_defn}) which  corresponds to a noncommutative finite-fold coverings of operator spaces $$
-\left(\left(C_0\left(\sX\right), C\left(\sX^\sim\right) \right) , \left(C_0\left(\sX_\la\right), C\left(\sX^\sim_\la\right) \right), G_\la, \left(\pi_\la, \pi^\sim_\la\right) \right)$$ and   
-$$\left(\left(C_0\left(\sX_\mu\right), C\left(\sX^\sim_\mu\right) \right) , \left(C_0\left(\sX_\nu\right), C\left(\sX^\sim_\nu\right) \right) G_{\mu\nu}, \left(\pi_{\mu\nu}, \pi^{\sim}_{\mu\nu}\right) \right)$$
-respectively, where the $ ^\sim$ operation is given by \eqref{top_sim_eqn}, and 
- $G_\la\bydef  G\left(\left.\sX_\la\right|\sX \right)$ and  $G_{\mu\nu}\bydef G\left(\left.\sX_\mu\right|\sX_\nu \right)$. Application of the complexifications \eqref{top_complex_eqn} yields a {pointed algebraical  finite covering category of real operator spaces} given by
-$$
-\left(\left(C_0\left(\sX, \R\right), C\left(\sX^\sim, \R\right) \right) , \left(C_0\left(\sX_\la, \R\right), C\left(\sX^\sim_\la, \R\right) \right), G_\la, \left(\rho_\la, \rho^\sim_\la\right) \right)$$ and   
-$$\left(\left(C_0\left(\sX_\mu, \R\right), C\left(\sX^\sim_\mu, \R\right) \right) , \left(C_0\left(\sX_\nu, \R\right), C\left(\sX^\sim_\nu, \R\right) \right) G_{\mu\nu}, \left(\rho_{\mu\nu}, \rho^{\sim}_{\mu\nu}\right) \right).$$ The \textit{inverse noncommutative limit} (cf. Definition \ref{spec_lim_defn}) of 	$\C\mathfrak{S}^{\text{pt}}_{\text{op}}$ equals to $C_0\left( \widetilde \sX\right)$. The given by the Lemma \ref{spec_r_lim_lem} complex conjugation on  $C_0\left( \widetilde \sX\right)$ coincides with the complex conjugation of complex-valued functions. From the Lemma \ref{spec_r_lim_lem} it follows that $C_0\left( \widetilde \sX,\R\right)$ is the inverse noncommutative limit of $\mathfrak{S}^{\text{pt}}_{\text{op}}$ (cf. Definition \ref{spec_r_lim_defn}).
-\end{empt}
+
+
 \begin{lemma}\label{comm_allows_lem}
 	If $\mathfrak{S}_{\left( \mathcal X, x_0\right) } = \left\{\left( \mathcal{X}_\la,x_0^\la\right)  \to \left( \mathcal X, x_0\right) \right\}_{\la \in \La} \in \mathfrak{FinTop}^{\mathrm{pt}}$, \\
 $\mathfrak{S}_{C_0\left(\mathcal{X}\right) }\left( \mathcal X, x_0\right) =
@@ -9482,7 +9364,8 @@ From the \ref{top_cov_ca_inc} it turns out
 	\ee
 	
 \end{remark}
-\chapter{Coverings of stable $C^*$-algebras}\label{stab_chap}
+
+ \chapter{Coverings of stable $C^*$-algebras}\label{stab_chap}
 
 \section{Finite-fold coverings}
 \paragraph*{}
@@ -9517,8 +9400,8 @@ Here we find a relation between  noncommutative finite-fold coverings of $C^*$-a
 			&	&	&\\
 			$A$-compact operators&$\K_A= \K\left( X_A\right) $ &$\mathbb{M}_n\left(A \right)$	&  $\K\left( \ell^2\left(A\right)\right)  $ \\ 		
 			&	&	&\\
-			Unitization of $\K_A$		&$\K^+_A= \K\left( X_A\right)^+ $ &$\mathbb{M}_n\left(A \right)$	&  $\K\left( \ell^2\left(A\right)\right)^+  $ \\ 		
-			&	&	&\\
+	Unitization of $\K_A$		&$\K^+_A= \K\left( X_A\right)^+ $ &$\mathbb{M}_n\left(A \right)$	&  $\K\left( \ell^2\left(A\right)\right)^+  $ \\ 		
+&	&	&\\
 			\hline
 		\end{tabular}
 	\end{center}
@@ -9682,8 +9565,8 @@ Here we find a relation between  noncommutative finite-fold coverings of $C^*$-a
 		is a  {noncommutative finite-fold  covering}.
 		\item[(ii)] If $\left( A \otimes \K, \widetilde{A}^\K, G,{\pi}^\K   \right)$ is  a  {noncommutative finite-fold  covering}  there is  a  {noncommutative finite-fold  covering} $\left( A, \widetilde{A}, G, \pi\right)$ such that
 		\begin{enumerate}
-			\item[(I)] $\widetilde{A}^\K  \cong \widetilde{A} \otimes \K$ and the action $G \times \widetilde{A}^\K \to \widetilde{A}^\K$ is naturally induced by the action $G \times \widetilde{A} \to \widetilde{A}$.
-			\item[(II)] Isomorphism  $\widetilde{\pi}$ equals  to $\pi  \otimes \Id_\K$.
+		\item[(I)] $\widetilde{A}^\K  \cong \widetilde{A} \otimes \K$ and the action $G \times \widetilde{A}^\K \to \widetilde{A}^\K$ is naturally induced by the action $G \times \widetilde{A} \to \widetilde{A}$.
+\item[(II)] Isomorphism  $\widetilde{\pi}$ equals  to $\pi  \otimes \Id_\K$.
 		\end{enumerate}
 		
 	\end{enumerate}
@@ -9694,7 +9577,7 @@ Here we find a relation between  noncommutative finite-fold coverings of $C^*$-a
 	From the Lemma \ref{stable_pre_lem} it turns out that $\left(A  \otimes \mathcal K, \widetilde{A} \otimes \mathcal K, G, \pi \otimes 1_{\K^+ } \right)$ is a a noncommutative finite-fold  pre-covering.
 	From the Definition \ref{fin_defn} it turns out that $\left(A, \widetilde{A}, G, \pi \right)$ is  a noncommutative finite-fold  pre-covering such that  there is increasing net $\left\{u_\la\right\}_{\la\in\La}\subset M\left( A\right)_+ $  of positive elements such that
 	
-	\begin{enumerate}
+			\begin{enumerate}
 		\item[(a)] There is the limit 
 		$$
 		\bt\text{-}\lim_{\la \in \La} u_\la = 1_{M\left(A \right)  }
@@ -9706,16 +9589,16 @@ Here we find a relation between  noncommutative finite-fold coverings of $C^*$-a
 		$$
 		is a noncommutative finite-fold covering with unitization. The action 	$G \times \widetilde{A}_\la\to \widetilde{A}_\la$, is the restriction on $\widetilde{A}_\la\subset \widetilde{   A}$ of the action $G\times  \widetilde{A}\to \widetilde{A}$.
 	\end{enumerate}
-	
-	Let  $\left\{u_\la\otimes 1_{\K^+}\right\}_{\la\in\La}\subset M\left( A\otimes \K\right)_+ $ 
-	and let us prove that the net $\left\{u_\la\otimes 1_{\K^+}\right\}$ satisfies to (a), (b)  of the Definition  \ref{fin_defn}.
+
+Let  $\left\{u_\la\otimes 1_{\K^+}\right\}_{\la\in\La}\subset M\left( A\otimes \K\right)_+ $ 
+and let us prove that the net $\left\{u_\la\otimes 1_{\K^+}\right\}$ satisfies to (a), (b)  of the Definition  \ref{fin_defn}.
 	\begin{enumerate}
 		\item [(a)] The strict limit 	$\bt\text{-}\lim_{\la \in \La} u_\la\otimes 1_{\K^+} = 1_{\left(M\left( A \otimes\K\right)\right) }$ directly follows from the strict limit 		$\bt\text{-}\lim_{\la \in \La} u_\la = 1_{M\left(A \right)}$.
 		\item[(b)]Follows from (i) of the Lemma \ref{stable_fin_cov_comp_lem}.
 	\end{enumerate}
 	(ii)  From (ii) of the Lemma \ref{stable_pre_lem} it turns out that there is a noncommutative finite-fold pre-covering   $\left( A, \widetilde{A}, G, \pi\right)$ $\widetilde{A}$ such that the quadruple  $\left( A \otimes \K, \widetilde{A}^\K, G,{\pi}^\K   \right)$ is equivalent to $\left(A  \otimes \mathcal K, \widetilde{A} \otimes \mathcal K, G, \pi \otimes 1_{\K^+ } \right)$.   Moreover the Lemma \ref{stable_pre_lem} implies that conditions (I), (II) of this Lemma hold.	Let $\left\{u^\K_\la\right\}_{\la\in\La}\subset M\left( A\otimes\K\right)$ be a net which satisfies to  to (a) and (b) of the Definition \ref{fin_defn}, i.e.
 	
-	\begin{enumerate}
+				\begin{enumerate}
 		\item[(a)] There is the limit 
 		$$
 		\bt\text{-}\lim_{\la \in \La} u^\K_\la = 1_{M\left(A\otimes\K \right) }
@@ -9727,11 +9610,11 @@ Here we find a relation between  noncommutative finite-fold coverings of $C^*$-a
 		$$
 		is a noncommutative finite-fold covering with unitization. The action 	$G \times \widetilde{A}^\K_\la\to \widetilde{A}^\K_\la$, is the restriction on $\widetilde{A}^\K_\la\subset \widetilde{   A}\otimes\K$ of the action $G\times  \left( \widetilde{A}\otimes\K\right) \to \widetilde{A}\otimes\K$.
 	\end{enumerate}
-	If  $$u_\la \bydef \left( \mathfrak{e}_{1,1}\otimes 1_{M\left( A \right) }\right)u_\la^\K \left( \mathfrak{e}_{1,1}\otimes 1_{M\left( A \right) }\right) \in \left( \mathfrak{e}_{1,1}\otimes 1_{M\left( A \right) }\right)M\left(A\otimes \K \right)  \left( \mathfrak{e}_{1,1}\otimes 1_{M\left( A \right) }\right)$$ then from the natural *-isomorphism $ \left( \mathfrak{e}_{1,1}\otimes 1_{M\left( A \right) }\right)M\left(A\otimes \K \right)  \left( \mathfrak{e}_{1,1}\otimes 1_{M\left( A \right) }\right)\cong M\left(A\right)$, $u_\la$ can be regarded as an element of $M\left( A\right)$. Let us prove that the net $\left\{u_\la\right\}\in M\left( A \right)_+$ satisfies to the conditions (a), (b) of the Definition \ref{fin_defn}
+If  $$u_\la \bydef \left( \mathfrak{e}_{1,1}\otimes 1_{M\left( A \right) }\right)u_\la^\K \left( \mathfrak{e}_{1,1}\otimes 1_{M\left( A \right) }\right) \in \left( \mathfrak{e}_{1,1}\otimes 1_{M\left( A \right) }\right)M\left(A\otimes \K \right)  \left( \mathfrak{e}_{1,1}\otimes 1_{M\left( A \right) }\right)$$ then from the natural *-isomorphism $ \left( \mathfrak{e}_{1,1}\otimes 1_{M\left( A \right) }\right)M\left(A\otimes \K \right)  \left( \mathfrak{e}_{1,1}\otimes 1_{M\left( A \right) }\right)\cong M\left(A\right)$, $u_\la$ can be regarded as an element of $M\left( A\right)$. Let us prove that the net $\left\{u_\la\right\}\in M\left( A \right)_+$ satisfies to the conditions (a), (b) of the Definition \ref{fin_defn}
 	\begin{enumerate}
-		\item [(a)] The strict limit 	$\bt\text{-}\lim_{\la \in \La} u_\la = 1_{M\left(A \right) }$	 directly follows from the strict limit $\bt\text{-}\lim_{\la \in \La} u_\la\otimes 1_{\K^+} = 1_{M\left(A \otimes\K\right) }$ 	.
-		\item[(b)]Follows from (ii) of the Lemma \ref{stable_fin_cov_comp_lem}.
-	\end{enumerate}
+	\item [(a)] The strict limit 	$\bt\text{-}\lim_{\la \in \La} u_\la = 1_{M\left(A \right) }$	 directly follows from the strict limit $\bt\text{-}\lim_{\la \in \La} u_\la\otimes 1_{\K^+} = 1_{M\left(A \otimes\K\right) }$ 	.
+	\item[(b)]Follows from (ii) of the Lemma \ref{stable_fin_cov_comp_lem}.
+\end{enumerate}
 \end{proof}
 \section{Infinite coverings}
 
@@ -9741,98 +9624,98 @@ Here we find a relation between  noncommutative finite-fold coverings of $C^*$-a
 	Let $A$, $\widetilde A_1$, $\widetilde A_2$ are $C^*$-algebras and $\pi_1: A \hookto \widetilde A_1$, and $\pi_2  A \hookto \widetilde A_2$ be a noncommutative finite fold coverings. Let $\widetilde\pi_1: A \otimes \K\hookto \widetilde A_1\otimes \K$, and $\widetilde\pi_2: A \otimes \K\hookto \widetilde A_1\otimes \K$ be the given by the Theorem \ref{stable_fin_cov_thm} noncommutative finite-fold coverings. The pair $\left(\pi_1, \pi_2\right)$ is compliant (cf. Definition \ref{compliant_covering_defn}) if and only if the pair $\left(\widetilde\pi_1, \widetilde\pi_2\right)$ is compliant.
 \end{lemma}
 \begin{proof}
-	Suppose that the pair $\left(\pi_1, \pi_2\right)$ is compliant and let us prove that the pair $\left(\widetilde\pi_1, \widetilde\pi_2\right)$ satisfies to the conditions of the Definition \ref{compliant_covering_defn}.
-	\begin{enumerate}
-		\item [(a)] Suppose that $\widetilde\pi^{1}_2: \widetilde A_1\otimes \K\hookto \widetilde A_2\otimes \K$ is an injective *-homomorphism such that $\widetilde\pi_2= \widetilde\pi^{1}_2\circ\widetilde\pi_1$. The given by
-		\bean
-		\left( \mathfrak{e}_{1,1}\otimes 1_{M\left( A \right) }\right)\left(  \widetilde a_1 \otimes x \right)  \left( \mathfrak{e}_{1,1}\otimes 1_{M\left( A \right) }\right)\mapsto\\
-		\mapsto \widetilde\pi^{1}_2 \left( \mathfrak{e}_{1,1}\otimes 1_{M\left( A \right) }\right)\left( \widetilde a_1 \otimes x \right)  \left( \mathfrak{e}_{1,1}\otimes 1_{M\left( A \right) }\right);\quad \widetilde a_1\in \widetilde A_1, \quad x \in \K
-		\eean
-		map can be regarded as a map $\pi^1_2 : \widetilde A_1\to \widetilde A_2$. Direct check shows that $\pi^1_2$ is an injective *-homomorphism such that $\pi_2 = \pi^1_2 \circ \pi_1$. The pair $\left(\pi_1, \pi_2\right)$ is compliant, so $\pi^1_2$ is a noncommutative finite-fold covering.  Also direct check shows that $\widetilde\pi^1_2 = \pi^1_2\otimes\Id_\K$, and from (i) of the Theorem \ref{stable_fin_cov_thm} it follows that $\widetilde\pi^1_2$ is a noncommutative finite-fold covering.
-		\item[(b)] A pair  $\left(\pi_1, \pi_2\right)$ is compliant so one has 		
-		\bean
-		G\left(\left.\widetilde A_2~\right|A \right)\pi^1_2\left(\widetilde A_1\right)=  \pi^1_2\left(\widetilde A_1\right).
-		\eean
-		(cf. Equation \ref{g_sur_eqn}). It turns out that
-		\bean
-		G\left(\left.\widetilde A_2~\right|A \right)\left( \pi^1_2\left(\widetilde A_1\right)\otimes\K\right) =  \pi^1_2\left(\widetilde A_1\right)\otimes\K.
-		\eean
+Suppose that the pair $\left(\pi_1, \pi_2\right)$ is compliant and let us prove that the pair $\left(\widetilde\pi_1, \widetilde\pi_2\right)$ satisfies to the conditions of the Definition \ref{compliant_covering_defn}.
+\begin{enumerate}
+	\item [(a)] Suppose that $\widetilde\pi^{1}_2: \widetilde A_1\otimes \K\hookto \widetilde A_2\otimes \K$ is an injective *-homomorphism such that $\widetilde\pi_2= \widetilde\pi^{1}_2\circ\widetilde\pi_1$. The given by
+	\bean
+	\left( \mathfrak{e}_{1,1}\otimes 1_{M\left( A \right) }\right)\left(  \widetilde a_1 \otimes x \right)  \left( \mathfrak{e}_{1,1}\otimes 1_{M\left( A \right) }\right)\mapsto\\
+	\mapsto \widetilde\pi^{1}_2 \left( \mathfrak{e}_{1,1}\otimes 1_{M\left( A \right) }\right)\left( \widetilde a_1 \otimes x \right)  \left( \mathfrak{e}_{1,1}\otimes 1_{M\left( A \right) }\right);\quad \widetilde a_1\in \widetilde A_1, \quad x \in \K
+	\eean
+	map can be regarded as a map $\pi^1_2 : \widetilde A_1\to \widetilde A_2$. Direct check shows that $\pi^1_2$ is an injective *-homomorphism such that $\pi_2 = \pi^1_2 \circ \pi_1$. The pair $\left(\pi_1, \pi_2\right)$ is compliant, so $\pi^1_2$ is a noncommutative finite-fold covering.  Also direct check shows that $\widetilde\pi^1_2 = \pi^1_2\otimes\Id_\K$, and from (i) of the Theorem \ref{stable_fin_cov_thm} it follows that $\widetilde\pi^1_2$ is a noncommutative finite-fold covering.
+	\item[(b)] A pair  $\left(\pi_1, \pi_2\right)$ is compliant so one has 		
+	\bean
+	G\left(\left.\widetilde A_2~\right|A \right)\pi^1_2\left(\widetilde A_1\right)=  \pi^1_2\left(\widetilde A_1\right).
+	\eean
+	(cf. Equation \ref{g_sur_eqn}). It turns out that
+	\bean
+G\left(\left.\widetilde A_2~\right|A \right)\left( \pi^1_2\left(\widetilde A_1\right)\otimes\K\right) =  \pi^1_2\left(\widetilde A_1\right)\otimes\K.
+\eean
 		\item[(c)] 
 		
-		From the Theorem \ref{stable_fin_cov_thm} it follows that $G\left(\left.\widetilde A_2~\right|A \right)\cong G\left(\left.\widetilde A_2\otimes\K~\right|A \otimes \K\right)$ and $ G\left(\left.\widetilde A_1~\right|A \right)\cong G\left(\left.\widetilde A_1\otimes\K~\right|A \otimes \K\right)$
+	From the Theorem \ref{stable_fin_cov_thm} it follows that $G\left(\left.\widetilde A_2~\right|A \right)\cong G\left(\left.\widetilde A_2\otimes\K~\right|A \otimes \K\right)$ and $ G\left(\left.\widetilde A_1~\right|A \right)\cong G\left(\left.\widetilde A_1\otimes\K~\right|A \otimes \K\right)$
 		From (b) of the Definition \ref{compliant_covering_defn} it turns out that there is the surjective homomorphism $h: G\left(\left.\widetilde A_2~\right|A \right)\to 	G\left(\left.\widetilde A_1~\right|A \right)$ such that 
-		\bean
-		\pi^1_2\left( h\left(g \right)a_1\right) = g \circ \pi^1_2\left(a_1 \right)
-		\eean
-		for each $a_1 \in \widetilde A_1$.  there is the surjective homomorphism $ \widetilde h: G\left(\left.\widetilde A_2\otimes\K~\right|A\otimes\K \right)\to 	G\left(\left.\widetilde A_1\otimes\K~\right|A\otimes\K \right)$ such that 
-		\bean
-		\widetilde \pi^1_2\left( \widetilde h\left(g \right) \left( a_1\otimes x\right) \right) = g \circ \widetilde \pi^1_2\left(a_1 \otimes x\right)\quad \forall a_1\in \widetilde A_2, \quad x \in \K.
-		\eean
-		\item[(d)] If   $\widetilde\rho: \widetilde A_1\otimes\K  \hookto \widetilde A_2\otimes\K $ is any injective *-homomorphism  such that $\widetilde\pi_2 = \widetilde\rho \circ \widetilde\pi_1$ then the map 
-		\bean
-		\left( \mathfrak{e}_{1,1}\otimes 1_{M\left( A \right) }\right)\left(  \widetilde a_1 \otimes x \right)  \left( \mathfrak{e}_{1,1}\otimes 1_{M\left( A \right) }\right)\mapsto\\
-		\mapsto \widetilde\rho \left( \mathfrak{e}_{1,1}\otimes 1_{M\left( A \right) }\right)\left( \widetilde a_1 \otimes x \right)  \left( \mathfrak{e}_{1,1}\otimes 1_{M\left( A \right) }\right);\quad \widetilde a_1\in \widetilde A_1, \quad x \in \K
-		\eean
-		map can be regarded as a map $\rho : \widetilde A_1\to \widetilde A_2$. Direct check shows that $\rho$ is an injective *-homomorphism such that $\pi_2 = \rho \circ \pi_1$. The pair $\left(\pi_1, \pi_2\right)$ is compliant, so  there is the unique $g \in 	G\left(\left.\widetilde A_1~\right|A \right)$ such that 
-		\bean
-		\rho =  \pi^1_2 \circ g.
-		\eean
-		Direct check shows that 
-		
-		\bean
-		\widetilde\rho =  \widetilde\pi^1_2 \circ g.
-		\eean	
-		
-	\end{enumerate}
+\bean
+\pi^1_2\left( h\left(g \right)a_1\right) = g \circ \pi^1_2\left(a_1 \right)
+\eean
+for each $a_1 \in \widetilde A_1$.  there is the surjective homomorphism $ \widetilde h: G\left(\left.\widetilde A_2\otimes\K~\right|A\otimes\K \right)\to 	G\left(\left.\widetilde A_1\otimes\K~\right|A\otimes\K \right)$ such that 
+\bean
+\widetilde \pi^1_2\left( \widetilde h\left(g \right) \left( a_1\otimes x\right) \right) = g \circ \widetilde \pi^1_2\left(a_1 \otimes x\right)\quad \forall a_1\in \widetilde A_2, \quad x \in \K.
+\eean
+\item[(d)] If   $\widetilde\rho: \widetilde A_1\otimes\K  \hookto \widetilde A_2\otimes\K $ is any injective *-homomorphism  such that $\widetilde\pi_2 = \widetilde\rho \circ \widetilde\pi_1$ then the map 
+\bean
+\left( \mathfrak{e}_{1,1}\otimes 1_{M\left( A \right) }\right)\left(  \widetilde a_1 \otimes x \right)  \left( \mathfrak{e}_{1,1}\otimes 1_{M\left( A \right) }\right)\mapsto\\
+\mapsto \widetilde\rho \left( \mathfrak{e}_{1,1}\otimes 1_{M\left( A \right) }\right)\left( \widetilde a_1 \otimes x \right)  \left( \mathfrak{e}_{1,1}\otimes 1_{M\left( A \right) }\right);\quad \widetilde a_1\in \widetilde A_1, \quad x \in \K
+\eean
+map can be regarded as a map $\rho : \widetilde A_1\to \widetilde A_2$. Direct check shows that $\rho$ is an injective *-homomorphism such that $\pi_2 = \rho \circ \pi_1$. The pair $\left(\pi_1, \pi_2\right)$ is compliant, so  there is the unique $g \in 	G\left(\left.\widetilde A_1~\right|A \right)$ such that 
+\bean
+\rho =  \pi^1_2 \circ g.
+\eean
+Direct check shows that 
 	
+\bean
+\widetilde\rho =  \widetilde\pi^1_2 \circ g.
+\eean	
 	
-	Suppose that the pair $\left(\widetilde\pi_1, \widetilde\pi_2\right)$ is compliant and let us prove that the pair $\left(\pi_1, \pi_2\right)$ satisfies to the conditions of the Definition \ref{compliant_covering_defn}.
-	\begin{enumerate}
-		\item [(a)] Suppose that $\pi^{1}_2: \widetilde A_1 \hookto \widetilde A_2$ is an injective *-homomorphism such that $\pi_2= \pi^{1}_2\circ\pi_1$. 
-		The given by
+\end{enumerate}
+
+
+Suppose that the pair $\left(\widetilde\pi_1, \widetilde\pi_2\right)$ is compliant and let us prove that the pair $\left(\pi_1, \pi_2\right)$ satisfies to the conditions of the Definition \ref{compliant_covering_defn}.
+\begin{enumerate}
+	\item [(a)] Suppose that $\pi^{1}_2: \widetilde A_1 \hookto \widetilde A_2$ is an injective *-homomorphism such that $\pi_2= \pi^{1}_2\circ\pi_1$. 
+	The given by
+	\bean
+\widetilde\pi^1_2\bydef \pi_1\otimes \Id_\K:  \widetilde A_1\otimes \K \hookto \widetilde A_2 \otimes\K
+	\eean
+	*-homomorphism is injective, and $\widetilde\pi_2= \widetilde\pi^{1}_2\circ\widetilde\pi_1$. 
+Since the pair $\left(\widetilde\pi_1, \widetilde\pi_2\right)$ is compliant the map $\widetilde\pi^1_2$ is a noncommutative finite-fold covering. From (ii) of the Theorem \ref{stable_fin_cov_thm} it follows that $\pi^1_2$ is a noncommutative finite-fold covering.
+	\item[(b)] The pair  $\left(\widetilde\pi_1, \widetilde\pi_2\right)$ is compliant so one has
 		\bean
-		\widetilde\pi^1_2\bydef \pi_1\otimes \Id_\K:  \widetilde A_1\otimes \K \hookto \widetilde A_2 \otimes\K
-		\eean
-		*-homomorphism is injective, and $\widetilde\pi_2= \widetilde\pi^{1}_2\circ\widetilde\pi_1$. 
-		Since the pair $\left(\widetilde\pi_1, \widetilde\pi_2\right)$ is compliant the map $\widetilde\pi^1_2$ is a noncommutative finite-fold covering. From (ii) of the Theorem \ref{stable_fin_cov_thm} it follows that $\pi^1_2$ is a noncommutative finite-fold covering.
-		\item[(b)] The pair  $\left(\widetilde\pi_1, \widetilde\pi_2\right)$ is compliant so one has
+	G\left(\left.\widetilde A_2~\right|A \right)\left( \pi^1_2\left(\widetilde A_1\right)\otimes\K\right) =  \pi^1_2\left(\widetilde A_1\right)\otimes\K.
+	\eean
+	 		
+
+	(cf. Equation \ref{g_sur_eqn}). It turns out that
 		\bean
-		G\left(\left.\widetilde A_2~\right|A \right)\left( \pi^1_2\left(\widetilde A_1\right)\otimes\K\right) =  \pi^1_2\left(\widetilde A_1\right)\otimes\K.
-		\eean
-		
-		
-		(cf. Equation \ref{g_sur_eqn}). It turns out that
-		\bean
-		G\left(\left.\widetilde A_2~\right|A \right)\pi^1_2\left(\widetilde A_1\right)=  \pi^1_2\left(\widetilde A_1\right).
-		\eean
-		\item[(c)] 
-		
-		From the Theorem \ref{stable_fin_cov_thm} it follows that $G\left(\left.\widetilde A_2~\right|A \right)\cong G\left(\left.\widetilde A_2\otimes\K~\right|A \otimes \K\right)$ and $ G\left(\left.\widetilde A_1~\right|A \right)\cong G\left(\left.\widetilde A_1\otimes\K~\right|A \otimes \K\right)$
-		From (b) of the Definition \ref{compliant_covering_defn} it turns out that there is the surjective homomorphism $ \widetilde h: G\left(\left.\widetilde A_2\otimes\K~\right|A\otimes\K \right)\to 	G\left(\left.\widetilde A_1\otimes\K~\right|A\otimes\K \right)$  such that 
-		\bean
-		\widetilde \pi^1_2\left( \widetilde h\left(g \right) \left( a_1\otimes x\right) \right) = g \circ \widetilde \pi^1_2\left(a_1 \otimes x\right)\quad \forall a_1\in \widetilde A_2, \quad x \in \K.
-		\eean
-		
-		
-		There is the surjective homomorphism $h: G\left(\left.\widetilde A_2~\right|A \right)\to 	G\left(\left.\widetilde A_1~\right|A \right)$ such that 
-		\bean
-		\pi^1_2\left( h\left(g \right)a_1\right) = g \circ \pi^1_2\left(a_1 \right)
-		\eean
-		for each $a_1 \in \widetilde A_1$.
-		\item[(d)] If   $\rho: \widetilde A_1 \hookto \widetilde A_2$ be any injective *-homomorphism  such that $\pi_2 = \rho \circ \pi_1$ and $  \widetilde\rho \bydef \rho\otimes\K:\widetilde\pi_2 = \widetilde\rho \circ \widetilde\pi_1$ then  $\widetilde\rho$ is injective *-homomorphism and 	
-		$\widetilde\pi_2 = \widetilde\rho \circ \widetilde\pi_1$. The pair $\left(\widetilde\pi_1, \widetilde\pi_2\right)$ is compliant so  there is the unique $g \in 	G\left(\left.\widetilde A_1~\right|A \right)$ such that 
-		\bean
-		\widetilde\rho =  \widetilde\pi^1_2 \circ g.
-		\eean	
-		
-		The	direct check shows that 
-		
-		\bean
-		\rho =  \pi^1_2 \circ g.
-		\eean
-		
-	\end{enumerate}
+	G\left(\left.\widetilde A_2~\right|A \right)\pi^1_2\left(\widetilde A_1\right)=  \pi^1_2\left(\widetilde A_1\right).
+	\eean
+	\item[(c)] 
 	
+	From the Theorem \ref{stable_fin_cov_thm} it follows that $G\left(\left.\widetilde A_2~\right|A \right)\cong G\left(\left.\widetilde A_2\otimes\K~\right|A \otimes \K\right)$ and $ G\left(\left.\widetilde A_1~\right|A \right)\cong G\left(\left.\widetilde A_1\otimes\K~\right|A \otimes \K\right)$
+	From (b) of the Definition \ref{compliant_covering_defn} it turns out that there is the surjective homomorphism $ \widetilde h: G\left(\left.\widetilde A_2\otimes\K~\right|A\otimes\K \right)\to 	G\left(\left.\widetilde A_1\otimes\K~\right|A\otimes\K \right)$  such that 
+	\bean
+	\widetilde \pi^1_2\left( \widetilde h\left(g \right) \left( a_1\otimes x\right) \right) = g \circ \widetilde \pi^1_2\left(a_1 \otimes x\right)\quad \forall a_1\in \widetilde A_2, \quad x \in \K.
+	\eean
+	
+
+  There is the surjective homomorphism $h: G\left(\left.\widetilde A_2~\right|A \right)\to 	G\left(\left.\widetilde A_1~\right|A \right)$ such that 
+	\bean
+\pi^1_2\left( h\left(g \right)a_1\right) = g \circ \pi^1_2\left(a_1 \right)
+\eean
+	for each $a_1 \in \widetilde A_1$.
+	\item[(d)] If   $\rho: \widetilde A_1 \hookto \widetilde A_2$ be any injective *-homomorphism  such that $\pi_2 = \rho \circ \pi_1$ and $  \widetilde\rho \bydef \rho\otimes\K:\widetilde\pi_2 = \widetilde\rho \circ \widetilde\pi_1$ then  $\widetilde\rho$ is injective *-homomorphism and 	
+	$\widetilde\pi_2 = \widetilde\rho \circ \widetilde\pi_1$. The pair $\left(\widetilde\pi_1, \widetilde\pi_2\right)$ is compliant so  there is the unique $g \in 	G\left(\left.\widetilde A_1~\right|A \right)$ such that 
+		\bean
+	\widetilde\rho =  \widetilde\pi^1_2 \circ g.
+	\eean	
+	
+The	direct check shows that 
+	
+	\bean
+\rho =  \pi^1_2 \circ g.
+\eean
+	
+\end{enumerate}
+
 \end{proof}
 
 \begin{corollary}\label{stab_t_a_cor}
@@ -9842,11 +9725,11 @@ Here we find a relation between  noncommutative finite-fold coverings of $C^*$-a
 		$
 		\mathfrak{S}_{A} =  \left\{\pi_\la :A  \hookto A_\la \right\}_{\la \in \La}\in \mathfrak{FinAlg}
 		$
-		is an algebraical  finite covering category (cf. Definition \ref{comp_defn}) then there is the natural algebraical  finite covering category.
+	is an algebraical  finite covering category (cf. Definition \ref{comp_defn}) then there is the natural algebraical  finite covering category.
 		\begin{equation*}
 		\mathfrak{S}_{A\otimes \K} =  \left\{ \pi_\la\otimes\Id_\K :A \otimes \K  \hookto A_\la \otimes \K\right\}_{\la \in \La}\in \mathfrak{FinAlg}
 		\end{equation*}
-		\item[(ii)] Conversely any algebraical  finite covering category
+			\item[(ii)] Conversely any algebraical  finite covering category
 		\begin{equation*}
 		\mathfrak{S}_{A\otimes \K} =  \left\{ \pi_\la\otimes\Id_\K :A \otimes \K  \hookto A_\la\otimes\K\right\}_{\la \in \La}\in \mathfrak{FinAlg}
 		\end{equation*}
@@ -9855,19 +9738,19 @@ Here we find a relation between  noncommutative finite-fold coverings of $C^*$-a
 	\end{enumerate}
 \end{corollary}
 \begin{proof}
-	Follows from the Theorem \ref{stable_fin_cov_thm} and the Lemma \ref{stable_compliant_lem}.
+Follows from the Theorem \ref{stable_fin_cov_thm} and the Lemma \ref{stable_compliant_lem}.
 \end{proof}
 
 \begin{corollary}\label{stab_pt_a_cor}
 	Following conditions hold:
 	\begin{enumerate}
 		\item[(i)] 	If
-		\bean
-		\begin{split}
-			\mathfrak{S}_A^{\mathrm{pt}} = \left(\left\{\pi_\la: A \hookto A_\la \right\}_{\la \in \La}, \left\{\pi^\mu_\nu: A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\ \nu \ge \mu}}\right)
-		\end{split}
-		\eean
-		is a pointed algebraical  finite covering category (cf. Definition \ref{comp_pt_defn}) then there is the natural pointed algebraical  finite covering category
+	\bean
+\begin{split}
+	\mathfrak{S}_A^{\mathrm{pt}} = \left(\left\{\pi_\la: A \hookto A_\la \right\}_{\la \in \La}, \left\{\pi^\mu_\nu: A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\ \nu \ge \mu}}\right)
+\end{split}
+\eean
+is a pointed algebraical  finite covering category (cf. Definition \ref{comp_pt_defn}) then there is the natural pointed algebraical  finite covering category
 		\begin{equation*}
 		\mathfrak{S}^{\mathrm{pt}}_{A\otimes \K} \bydef  \left(\left\{\widetilde\pi_\la: A \otimes \K\hookto A_\la \otimes \K\right\}_{\la \in \La}, \left\{\widetilde\pi^\mu_\nu: A_\mu\otimes \K \hookto A_\nu\otimes \K\right\}_{\substack{\mu, \nu \in \La\\ \nu >\ge \mu}}\right)
 		\end{equation*}
@@ -9878,7 +9761,7 @@ Here we find a relation between  noncommutative finite-fold coverings of $C^*$-a
 		\end{equation*}
 		such that  $\widetilde\pi_\la= \pi_\la \otimes \Id_\K$ and $\widetilde\pi^\mu_\nu= \pi_\la \otimes \Id_\K$.
 		naturally induces 
-		pointed algebraical  finite covering category $$	\mathfrak{S}_A^{\mathrm{pt}} = \left(\left\{\pi_\la: A \hookto A_\la \right\}_{\la \in \La}, \left\{\pi^\mu_\nu: A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\ \nu \ge \mu}}\right)$$ 
+	pointed algebraical  finite covering category $$	\mathfrak{S}_A^{\mathrm{pt}} = \left(\left\{\pi_\la: A \hookto A_\la \right\}_{\la \in \La}, \left\{\pi^\mu_\nu: A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\ \nu \ge \mu}}\right)$$ 
 	\end{enumerate}
 \end{corollary}
 \begin{proof}
@@ -9888,12 +9771,12 @@ Here we find a relation between  noncommutative finite-fold coverings of $C^*$-a
 
 Suppose that
 \begin{equation}\label{stable_seq_pure_eqn}
-\mathfrak{S}_A^{\mathrm{pt}} = \left(\left\{\pi_\la: A \hookto A_\la \right\}_{\la \in \La}, \left\{\pi^\mu_\nu: A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\ \nu \ge \mu}}\right)
+	\mathfrak{S}_A^{\mathrm{pt}} = \left(\left\{\pi_\la: A \hookto A_\la \right\}_{\la \in \La}, \left\{\pi^\mu_\nu: A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\ \nu \ge \mu}}\right)
 \end{equation}
 is a	pointed algebraical  finite covering category. From the Corollary \ref{stab_pt_a_cor} it follows that
 \begin{equation}\label{stable_seq_eqn}
 \begin{split}
-\mathfrak{S}^{\mathrm{pt}}_{A\otimes \K} =\\=  \left(\left\{\widetilde\pi_\la: A \otimes \K\hookto A_\la \otimes \K\right\}_{\la \in \La}, \left\{\widetilde\pi^\mu_\nu: A_\mu\otimes \K \hookto A_\nu\otimes \K\right\}_{\substack{\mu, \nu \in \La\\ \nu \ge \mu}}\right)
+		\mathfrak{S}^{\mathrm{pt}}_{A\otimes \K} =\\=  \left(\left\{\widetilde\pi_\la: A \otimes \K\hookto A_\la \otimes \K\right\}_{\la \in \La}, \left\{\widetilde\pi^\mu_\nu: A_\mu\otimes \K \hookto A_\nu\otimes \K\right\}_{\substack{\mu, \nu \in \La\\ \nu \ge \mu}}\right)
 \end{split}
 \end{equation}
 is a	pointed algebraical  finite covering category.
@@ -9904,7 +9787,7 @@ Denote by $\widehat{A} = C^*\text{-}\varinjlim A_\la$, $G_\la = G\left( A_\la ~|
 \end{lemma}
 \begin{proof}
 	Let us use the implicit equations \eqref{spec_a_eps_imp_eqn} for this proof.
-	Select  $\la_0 \in \La$, $\eps > 0$ and  $z \in \left(A\otimes \K \right)^{\sim}  \cong\K_A^{+}$ (cf.  Table \ref{stab_table} ),
+Select  $\la_0 \in \La$, $\eps > 0$ and  $z \in \left(A\otimes \K \right)^{\sim}  \cong\K_A^{+}$ (cf.  Table \ref{stab_table} ),
 	One can select a basis of the Hilbert $\H_\K$ space such that $p$ is represented by a following infinite matrix
 	$$
 	\begin{pmatrix}
@@ -9913,7 +9796,7 @@ Denote by $\widehat{A} = C^*\text{-}\varinjlim A_\la$, $G_\la = G\left( A_\la ~|
 	\vdots& \vdots &\ddots\\
 	\end{pmatrix}.
 	$$
-	Element $z$ can be represented by the following way
+Element $z$ can be represented by the following way
 	$$
 	z = \begin{pmatrix}
 	a_{11}& a_{12} &\ldots \\
@@ -9939,18 +9822,18 @@ Denote by $\widehat{A} = C^*\text{-}\varinjlim A_\la$, $G_\la = G\left( A_\la ~|
 	$$
 	If $\xi \in X_{A_{\la_0}}$ is given by
 	$$
-	\xi\bydef \begin{pmatrix}
-	a^*_{11} \\
-	a^*_{12} \\
-	\vdots\\
-	\end{pmatrix}.
-	$$	
-	then 
-	$
-	z^* \left(\overline{a}\otimes p \right)z=\xi \left\rangle \overline a\right\langle \xi
-	$
-	The subspace  $\xi A^{\sim}_{\la_0}\subset X_{A_{\la_0}}$ is  generated by a single element Hilbert  $A_{\la_0}$-submodule, so from the Theorem \ref{kasparov_stab_thm} it follows that there is a projector $p_\K\in \K_A$ such that $\xi A^{\sim}_{\la_0}= p_\K X_{A_{\la_0}}$ moreover there is $\overline z \in A^{\sim}_{\la_0}$ such that
-	
+\xi\bydef \begin{pmatrix}
+a^*_{11} \\
+a^*_{12} \\
+\vdots\\
+\end{pmatrix}.
+$$	
+then 
+$
+z^* \left(\overline{a}\otimes p \right)z=\xi \left\rangle \overline a\right\langle \xi
+$
+The subspace  $\xi A^{\sim}_{\la_0}\subset X_{A_{\la_0}}$ is  generated by a single element Hilbert  $A_{\la_0}$-submodule, so from the Theorem \ref{kasparov_stab_thm} it follows that there is a projector $p_\K\in \K_A$ such that $\xi A^{\sim}_{\la_0}= p_\K X_{A_{\la_0}}$ moreover there is $\overline z \in A^{\sim}_{\la_0}$ such that
+
 	$$
 	\begin{pmatrix}
 	a^*_{11}& 0 &\ldots \\
@@ -9963,35 +9846,35 @@ Denote by $\widehat{A} = C^*\text{-}\varinjlim A_\la$, $G_\la = G\left( A_\la ~|
 	z^*\left( \overline{a}\otimes p\right)  z=  p_{\mathcal K} \overline z^*~ \overline{   a}~\overline z p_{\mathcal K}.
 	\end{equation}
 	From \eqref{spec_a_eps_imp_eqn} it follows that
-	\bean
-	\begin{split}
-		\sum_{g\in G_\la }\overline  z^*\left(  g\overline a\right) \overline  z  = a_\la \in A_\la,\\
-		\sum_{g\in G_\la } f_\eps\left(\overline z^*\left(  g\overline a\right) \overline  z   \right)= a^\eps_\la   \in A_\la,\\
-		\sum_{g\in G_\la  } \left(\overline  z^*\left(  g\overline a\right) \overline  z   \right)^2 = b_\la   \in A_\la. 
-	\end{split}
-	\eean
-	so one has
-	\be\label{stable_ap_eqn}
-	\begin{split}
+\bean
+\begin{split}
+	\sum_{g\in G_\la }\overline  z^*\left(  g\overline a\right) \overline  z  = a_\la \in A_\la,\\
+	\sum_{g\in G_\la } f_\eps\left(\overline z^*\left(  g\overline a\right) \overline  z   \right)= a^\eps_\la   \in A_\la,\\
+	\sum_{g\in G_\la  } \left(\overline  z^*\left(  g\overline a\right) \overline  z   \right)^2 = b_\la   \in A_\la. 
+\end{split}
+\eean
+so one has
+\be\label{stable_ap_eqn}
+\begin{split}
 		\sum_{g\in G_\la } z^*\left(  g\left( \overline a\otimes p\right) \right) z =  p_\K a_\la p_\K  \in A_\la \otimes \K,\\
-		\sum_{g\in G_\la } f_\eps\left(z^*\left(  g\left( \overline a\otimes p\right)\right) z   \right)  = p_\K a^\eps_\la p_\K  \in A_\la \otimes \K,\\
-		\sum_{g\in G_\la  } \left(z^*\left(  g\left( \overline a\otimes p\right)\right) z   \right)^2 p_\K b_\la p_\K  \in A_\la \otimes \K
-	\end{split}
-	\ee
-	From the above equation it follows that $ \overline a\otimes p$ satisfies to the condition (a) of the Definition \ref{special_element_defn}.
-	Since $\overline a$ is special for any $\eps > 0$ there is $\mu \in \La$ such that
-	$$
-	\forall \la  \in \La \quad	 \la \ge \mu  \Rightarrow  \left\|a_\la^2 - b_\la\right\| < \eps.
-	$$
-	On the other hand from
-	$$
-	\left\|a_\la^2 - b_\la\right\|= \left\|\left( p_\K a_\la p_\K\right) ^2 -p_\K b_\la p_K\right\|
-	$$
-	it turns that
-	$$
-	\forall \la  \in \La \quad	 \la \ge \mu  \Rightarrow  \left\|\left( p_\K a_\la p_\K\right) ^2 -p_\K b_\la p_K\right\| < \eps
-	$$
-	Taking into account \eqref{stable_ap_eqn} one concludes that $\overline a\otimes p$ satisfies to the condition (b) of the Definition \ref{special_element_defn}.
+\sum_{g\in G_\la } f_\eps\left(z^*\left(  g\left( \overline a\otimes p\right)\right) z   \right)  = p_\K a^\eps_\la p_\K  \in A_\la \otimes \K,\\
+\sum_{g\in G_\la  } \left(z^*\left(  g\left( \overline a\otimes p\right)\right) z   \right)^2 p_\K b_\la p_\K  \in A_\la \otimes \K
+\end{split}
+\ee
+From the above equation it follows that $ \overline a\otimes p$ satisfies to the condition (a) of the Definition \ref{special_element_defn}.
+Since $\overline a$ is special for any $\eps > 0$ there is $\mu \in \La$ such that
+$$
+\forall \la  \in \La \quad	 \la \ge \mu  \Rightarrow  \left\|a_\la^2 - b_\la\right\| < \eps.
+$$
+On the other hand from
+$$
+\left\|a_\la^2 - b_\la\right\|= \left\|\left( p_\K a_\la p_\K\right) ^2 -p_\K b_\la p_K\right\|
+$$
+it turns that
+$$
+\forall \la  \in \La \quad	 \la \ge \mu  \Rightarrow  \left\|\left( p_\K a_\la p_\K\right) ^2 -p_\K b_\la p_K\right\| < \eps
+$$
+Taking into account \eqref{stable_ap_eqn} one concludes that $\overline a\otimes p$ satisfies to the condition (b) of the Definition \ref{special_element_defn}.
 \end{proof}
 \begin{corollary}\label{stab_spec_in_cor}
 	Let $\overline{A} \subset B\left( \widehat{\H}\right)$ be the  disconnected inverse noncommutative limit of $\mathfrak{S}_A$.
@@ -10013,7 +9896,7 @@ Denote by $\widehat{A} = C^*\text{-}\varinjlim A_\la$, $G_\la = G\left( A_\la ~|
 	$$
 \end{lemma}
 \begin{proof}
-	If  $\overline a^\mathcal{K}\notin \overline{A}  \otimes \mathcal K$ then there there is  $\xi\in \ell^2\left(\overline{A} \right) $ (or  $\xi \in \overline{A}^n $) such that
+ If  $\overline a^\mathcal{K}\notin \overline{A}  \otimes \mathcal K$ then there there is  $\xi\in \ell^2\left(\overline{A} \right) $ (or  $\xi \in \overline{A}^n $) such that
 	\begin{equation}\label{stab_prod_x_eqn}
 	\left\langle \xi, \overline a^\mathcal{K} \xi\right\rangle_{\ell^2\left(H_{\widehat{A}''} \right) } \notin \overline{A}.
 	\end{equation}
@@ -10026,16 +9909,16 @@ Denote by $\widehat{A} = C^*\text{-}\varinjlim A_\la$, $G_\la = G\left( A_\la ~|
 	\end{pmatrix}
 	\end{equation*}
 	and from \eqref{stab_prod_x_eqn} it turns out $\overline a_{11} \notin \overline{A}$.   The element $\overline a_{11}$ does not satisfy to the Definition \ref{special_element_defn}, so there are   $\la_0\in \La$ and $z \in A^{\sim}_{\la_0}$ such that at least one of conditions (a), (b) of the Definition \ref{special_element_defn} does not hold. 
-	Let $z_\mathcal{K}\in \left( A_{\la_0}  \otimes \mathcal K\right)^{\sim}$ be given by
-	$$
-	z_\mathcal{K}  \bydef \begin{pmatrix}
-	z& 0 &\ldots \\
-	0& 0 &\ldots \\
-	\vdots& \vdots &\ddots\\
-	\end{pmatrix}  \in \overline{A}  \otimes \mathcal K
-	$$
-	if $A_{\la_0}$ is  unital.
-	Otherwise if $A_{\la_0}$ is not unital and $z = z' + c$ where $z'\in A_{\la_0}$ and $c\in \C$ we define
+Let $z_\mathcal{K}\in \left( A_{\la_0}  \otimes \mathcal K\right)^{\sim}$ be given by
+$$
+z_\mathcal{K}  \bydef \begin{pmatrix}
+z& 0 &\ldots \\
+0& 0 &\ldots \\
+\vdots& \vdots &\ddots\\
+\end{pmatrix}  \in \overline{A}  \otimes \mathcal K
+$$
+if $A_{\la_0}$ is  unital.
+Otherwise if $A_{\la_0}$ is not unital and $z = z' + c$ where $z'\in A_{\la_0}$ and $c\in \C$ we define
 	$$
 	z_\mathcal{K}  \bydef \begin{pmatrix}
 	z'& 0 &\ldots \\
@@ -10051,27 +9934,27 @@ Denote by $\widehat{A} = C^*\text{-}\varinjlim A_\la$, $G_\la = G\left( A_\la ~|
 		0& 0 &\ldots \\
 		\vdots& \vdots &\ddots\\
 	\end{pmatrix}\notin\\
-	\notin  A_\la\otimes \K,\\
+\notin  A_\la\otimes \K,\\
 	\sum_{g\in G_\la } f_\eps\left(  z^*\left(  g\overline a_{11}\right)   z \right)  = a^\eps_\la \notin A_\la\Rightarrow 	\sum_{g\in G_\la }f_\eps\left(  z_\K^*\left(  g\overline a_\K\right)   z_\K\right)=\\=\begin{pmatrix}
-		a^\eps_\la& 0 &\ldots \\
-		0& 0 &\ldots \\
-		\vdots& \vdots &\ddots\\
-	\end{pmatrix}
-	\notin  A_\la\otimes \K\\
+	a^\eps_\la& 0 &\ldots \\
+	0& 0 &\ldots \\
+	\vdots& \vdots &\ddots\\
+\end{pmatrix}
+\notin  A_\la\otimes \K\\
 	\sum_{g\in G_\la } \left(  z^*\left(  g\overline a_{11}\right)   z \right)^2  = b_\la \notin A_\la\Rightarrow 	\sum_{g\in G_\la }\left(  z_\K^*\left(  g\overline a_\K\right)   z_\K\right)^2 =\\=b^\K_\la=\begin{pmatrix}
-		b_\la& 0 &\ldots \\
-		0& 0 &\ldots \\
-		\vdots& \vdots &\ddots\\
-	\end{pmatrix}
-	\notin  A_\la\otimes \K.
+	b_\la& 0 &\ldots \\
+	0& 0 &\ldots \\
+	\vdots& \vdots &\ddots\\
+\end{pmatrix}
+\notin  A_\la\otimes \K.
 	\eean 
 	It follows that if $ \overline a_{11}$ does not satisfy to the condition (a) of the Definition \ref{special_element_defn} then $\overline a_\K$ also does not satisfy this condition.
 	
-	From
+From
 	$$
 	\left\| \left( b^{\mathcal K}_\la\right)^2 - c^{\mathcal K}_\la\right\| = \left\| b^2_\la - c_\la\right\|.
 	$$
-	it follows that if $ \overline a_{11}$ does not satisfy to the condition (b) of the Definition \ref{special_element_defn} then $\overline a_\K$ also does not satisfy this condition.
+		it follows that if $ \overline a_{11}$ does not satisfy to the condition (b) of the Definition \ref{special_element_defn} then $\overline a_\K$ also does not satisfy this condition.
 \end{proof}
 
 \begin{corollary}\label{stab_spec_out_cor}
@@ -10086,84 +9969,81 @@ Denote by $\widehat{A} = C^*\text{-}\varinjlim A_\la$, $G_\la = G\left( A_\la ~|
 \begin{theorem}\label{stab_inf_thm}
 	Let $\mathfrak{S}_A$ be an  algebraical  finite covering category given by \eqref{stable_seq_pure_eqn}, and let $\mathfrak{S}_{A\otimes \mathcal{K}}$ be an  algebraical  finite covering category given by \eqref{stable_seq_pure_eqn}.
 	Following conditions are equivalent:
-	\begin{enumerate}
-		\item[ 	(i)] $\mathfrak{S}_A$ is good (cf. Definition \ref{mains_defn}), the inverse noncommutative limit 	$\varprojlim  \mathfrak{S}_A$ of $\mathfrak{S}_A$ equals to a $C^*$-algebra 	$\widetilde A$ and 	$G\left(\left.\widetilde{A}~\right|~ A\right)=G$.
-		\item[ 	(ii)] $\mathfrak{S}_{A\otimes \mathcal{K}}$ is good, the inverse noncommutative limit 	$\varprojlim  \mathfrak{S}_{A\otimes \mathcal{K}}$ of $\mathfrak{S}_{A\otimes \mathcal{K}}$ equals to a $C^*$-algebra 	$\widetilde A\otimes\K$ and 	$G\left(\left.\widetilde{A}\otimes \mathcal{K}~\right|~ A\otimes \mathcal{K}\right)=G$.
-	\end{enumerate}
+\begin{enumerate}
+	\item[ 	(i)] $\mathfrak{S}_A$ is good (cf. Definition \ref{mains_defn}), the inverse noncommutative limit 	$\varprojlim  \mathfrak{S}_A$ of $\mathfrak{S}_A$ equals to a $C^*$-algebra 	$\widetilde A$ and 	$G\left(\left.\widetilde{A}~\right|~ A\right)=G$.
+	\item[ 	(ii)] $\mathfrak{S}_{A\otimes \mathcal{K}}$ is good, the inverse noncommutative limit 	$\varprojlim  \mathfrak{S}_{A\otimes \mathcal{K}}$ of $\mathfrak{S}_{A\otimes \mathcal{K}}$ equals to a $C^*$-algebra 	$\widetilde A\otimes\K$ and 	$G\left(\left.\widetilde{A}\otimes \mathcal{K}~\right|~ A\otimes \mathcal{K}\right)=G$.
+\end{enumerate}
 \end{theorem}
 \begin{proof}
-	(i)	$\Rightarrow$(ii)
-	If $\overline A$ is the disconnected inverse limit  of $\mathfrak{S}_A$ (cf. Definition \ref{main_defn_full_defn})  then from the Corollaries \ref{stab_spec_in_cor} and \ref{stab_spec_out_cor} it follows that the disconnected inverse limit $\overline A^\K$ of $\mathfrak{S}_{A\otimes\K}$ satisfies to the following condition
-	$$
-	\overline A^\K = \overline A\otimes\K
-	$$
-	From the Theorem \ref{stable_fin_cov_thm} $G\left(\left.A_\la\right|A\right)  \cong G\left(\left.A_\la \otimes\K\right|A \otimes\K\right)$ so one has 
-	$$
-	G\left(\left.\overline A\right|A\right)=\varprojlim_{\la \in \La} G\left(\left.A_\la\right|A\right) \cong \varprojlim_{\la \in \La} G\left(\left.A_\la \otimes\K\right|A \otimes\K\right)= G\left(\left.\overline A\otimes \K\right|A\otimes \K\right)
-	$$
-	If $\widetilde A\subset \overline A$ is a connected component of $\overline A$ then $\widetilde A\otimes\K\subset \overline A\otimes\K$ is a connected component of $\overline A\otimes\K$ it turns out that
-	$$
-	G\left(\left.\widetilde A\right|A\right)\cong G\left(\left.\widetilde A\otimes \K\right|A\otimes \K\right)\cong G
-	$$
-	Since $\mathfrak{S}_{A}$ is good one has. 
+(i)	$\Rightarrow$(ii)
+If $\overline A$ is the disconnected inverse limit  of $\mathfrak{S}_A$ (cf. Definition \ref{main_defn_full_defn})  then from the Corollaries \ref{stab_spec_in_cor} and \ref{stab_spec_out_cor} it follows that the disconnected inverse limit $\overline A^\K$ of $\mathfrak{S}_{A\otimes\K}$ satisfies to the following condition
+$$
+\overline A^\K = \overline A\otimes\K
+$$
+From the Theorem \ref{stable_fin_cov_thm} $G\left(\left.A_\la\right|A\right)  \cong G\left(\left.A_\la \otimes\K\right|A \otimes\K\right)$ so one has 
+$$
+G\left(\left.\overline A\right|A\right)=\varprojlim_{\la \in \La} G\left(\left.A_\la\right|A\right) \cong \varprojlim_{\la \in \La} G\left(\left.A_\la \otimes\K\right|A \otimes\K\right)= G\left(\left.\overline A\otimes \K\right|A\otimes \K\right)
+$$
+If $\widetilde A\subset \overline A$ is a connected component of $\overline A$ then $\widetilde A\otimes\K\subset \overline A\otimes\K$ is a connected component of $\overline A\otimes\K$ it turns out that
+$$
+G\left(\left.\widetilde A\right|A\right)\cong G\left(\left.\widetilde A\otimes \K\right|A\otimes \K\right)\cong G
+$$
+Since $\mathfrak{S}_{A}$ is good one has. 
 	\begin{enumerate}
-		\item[(a)] For all $\la \in \La$ the natural *-homomorphism $A_\la \to  M\left(\widetilde{A} \right)$ is injective.
-		\item[(b)] If $J\subset G\left(\overline{A}~|~ A\right)$ is a set of representatives of $G\left(\left.\overline{A}~\right| A\right)/G$, then the algebraic direct sum
-		\begin{equation*}
-		\bigoplus_{g\in J} g\widetilde{A}
-		\end{equation*}
-		is a dense subalgebra of $\overline{A}$.
-		\item [(c)] For any $\la \in \La$ the restriction $h_\la|_{G}$ is an epimorphism, i. e. $h_\la\left(G \right) = G\left(\left. A_\la~\right|~A \right)$.
-	\end{enumerate}
-	It turns out that
+	\item[(a)] For all $\la \in \La$ the natural *-homomorphism $A_\la \to  M\left(\widetilde{A} \right)$ is injective.
+	\item[(b)] If $J\subset G\left(\overline{A}~|~ A\right)$ is a set of representatives of $G\left(\left.\overline{A}~\right| A\right)/G$, then the algebraic direct sum
+	\begin{equation*}
+	\bigoplus_{g\in J} g\widetilde{A}
+	\end{equation*}
+	is a dense subalgebra of $\overline{A}$.
+	\item [(c)] For any $\la \in \La$ the restriction $h_\la|_{G}$ is an epimorphism, i. e. $h_\la\left(G \right) = G\left(\left. A_\la~\right|~A \right)$.
+\end{enumerate}
+It turns out that
 	\begin{enumerate}
-		\item[(a)] For all $\la \in \La$ the natural *-homomorphism $A_\la \otimes \K \to  M\left(\widetilde{A}\otimes \K \right)$ is injective.
-		\item[(b)] If $J\subset G\left(\overline{A}\otimes \K~|~ A\otimes \K\right)$ is a set of representatives of $G\left(\left.\overline{A}\otimes \K~\right| A\otimes \K\right)/G$, then the algebraic direct sum
-		\begin{equation*}
-		\bigoplus_{g\in J} g\widetilde{A}\otimes \K
-		\end{equation*}
-		is a dense subalgebra of $\overline{A}\otimes \K$.
-		\item [(c)] For any $\la \in \La$ the restriction $h_\la|_{G}$ is an epimorphism, i. e. $h_\la\left(G \right) = G\left(\left. A_\la\otimes \K~\right|~A\otimes \K \right)$.
-	\end{enumerate}
-	It means that $\mathfrak{S}_{A\otimes\K}$ is good.\\
-	(ii)	$\Rightarrow$(i) Some parts of this implication follows from the proof of (i)	$\Rightarrow$(ii) Since $\mathfrak{S}_{A\otimes\K}$ is good one has. 
-	
-	\begin{enumerate}
-		\item[(a)] For all $\la \in \La$ the natural *-homomorphism $A_\la \otimes \K \to  M\left(\widetilde{A}\otimes \K \right)$ is injective.
-		\item[(b)] If $J\subset G\left(\overline{A}\otimes \K~|~ A\otimes \K\right)$ is a set of representatives of $G\left(\left.\overline{A}\otimes \K~\right| A\otimes \K\right)/G$, then the algebraic direct sum
-		\begin{equation*}
-		\bigoplus_{g\in J} g\widetilde{A}\otimes \K
-		\end{equation*}
-		is a dense subalgebra of $\overline{A}\otimes \K$.
-		\item [(c)] For any $\la \in \La$ the restriction $h_\la|_{G}$ is an epimorphism, i. e. $h_\la\left(G \right) = G\left(\left. A_\la\otimes \K~\right|~A\otimes \K \right)$.
-	\end{enumerate}
-	It turns out that
-	
-	\begin{enumerate}
-		\item[(a)] For all $\la \in \La$ the natural *-homomorphism $A_\la \to  M\left(\widetilde{A} \right)$ is injective.
-		\item[(b)] If $J\subset G\left(\overline{A}~|~ A\right)$ is a set of representatives of $G\left(\left.\overline{A}~\right| A\right)/G$, then the algebraic direct sum
-		\begin{equation*}
-		\bigoplus_{g\in J} g\widetilde{A}
-		\end{equation*}
-		is a dense subalgebra of $\overline{A}$.
-		\item [(c)] For any $\la \in \La$ the restriction $h_\la|_{G}$ is an epimorphism, i. e. $h_\la\left(G \right) = G\left(\left. A_\la~\right|~A \right)$.
-	\end{enumerate}
-	It means that $\mathfrak{S}_{A}$ is good.
+	\item[(a)] For all $\la \in \La$ the natural *-homomorphism $A_\la \otimes \K \to  M\left(\widetilde{A}\otimes \K \right)$ is injective.
+	\item[(b)] If $J\subset G\left(\overline{A}\otimes \K~|~ A\otimes \K\right)$ is a set of representatives of $G\left(\left.\overline{A}\otimes \K~\right| A\otimes \K\right)/G$, then the algebraic direct sum
+	\begin{equation*}
+	\bigoplus_{g\in J} g\widetilde{A}\otimes \K
+	\end{equation*}
+	is a dense subalgebra of $\overline{A}\otimes \K$.
+	\item [(c)] For any $\la \in \La$ the restriction $h_\la|_{G}$ is an epimorphism, i. e. $h_\la\left(G \right) = G\left(\left. A_\la\otimes \K~\right|~A\otimes \K \right)$.
+\end{enumerate}
+It means that $\mathfrak{S}_{A\otimes\K}$ is good.\\
+(ii)	$\Rightarrow$(i) Some parts of this implication follows from the proof of (i)	$\Rightarrow$(ii) Since $\mathfrak{S}_{A\otimes\K}$ is good one has. 
+
+\begin{enumerate}
+	\item[(a)] For all $\la \in \La$ the natural *-homomorphism $A_\la \otimes \K \to  M\left(\widetilde{A}\otimes \K \right)$ is injective.
+	\item[(b)] If $J\subset G\left(\overline{A}\otimes \K~|~ A\otimes \K\right)$ is a set of representatives of $G\left(\left.\overline{A}\otimes \K~\right| A\otimes \K\right)/G$, then the algebraic direct sum
+	\begin{equation*}
+	\bigoplus_{g\in J} g\widetilde{A}\otimes \K
+	\end{equation*}
+	is a dense subalgebra of $\overline{A}\otimes \K$.
+	\item [(c)] For any $\la \in \La$ the restriction $h_\la|_{G}$ is an epimorphism, i. e. $h_\la\left(G \right) = G\left(\left. A_\la\otimes \K~\right|~A\otimes \K \right)$.
+\end{enumerate}
+It turns out that
+
+\begin{enumerate}
+	\item[(a)] For all $\la \in \La$ the natural *-homomorphism $A_\la \to  M\left(\widetilde{A} \right)$ is injective.
+	\item[(b)] If $J\subset G\left(\overline{A}~|~ A\right)$ is a set of representatives of $G\left(\left.\overline{A}~\right| A\right)/G$, then the algebraic direct sum
+	\begin{equation*}
+	\bigoplus_{g\in J} g\widetilde{A}
+	\end{equation*}
+	is a dense subalgebra of $\overline{A}$.
+	\item [(c)] For any $\la \in \La$ the restriction $h_\la|_{G}$ is an epimorphism, i. e. $h_\la\left(G \right) = G\left(\left. A_\la~\right|~A \right)$.
+\end{enumerate}
+It means that $\mathfrak{S}_{A}$ is good.
 \end{proof}
 \begin{remark}\label{stab_inf_rem}
-	In the situation of the Theorem	\ref{stab_inf_thm} the inverse noncommutative limit $\widetilde A$ can be reconstructed from $\widetilde A\otimes \K$  by the following way
-	\be\label{stab_inf_eqn}
-	\widetilde A\cong \left(1_{{\widetilde A}^\sim}  \otimes  \mathfrak{e}_{1,1}\right) \left( \widetilde A\otimes \K \right)\left(1_{{\widetilde A}^\sim}  \otimes  \mathfrak{e}_{1,1}\right).
-	\ee
+In the situation of the Theorem	\ref{stab_inf_thm} the inverse noncommutative limit $\widetilde A$ can be reconstructed from $\widetilde A\otimes \K$  by the following way
+\be\label{stab_inf_eqn}
+\widetilde A\cong \left(1_{{\widetilde A}^\sim}  \otimes  \mathfrak{e}_{1,1}\right) \left( \widetilde A\otimes \K \right)\left(1_{{\widetilde A}^\sim}  \otimes  \mathfrak{e}_{1,1}\right).
+\ee
 \end{remark}
 
 
 
 
-
-
-
-\chapter{Coverings of continuous trace operator spaces}\label{ctr_chap}
+ \chapter{Coverings of continuous trace operator spaces}\label{ctr_chap}
 \paragraph*{}
 The notion of the operator space with continuous trace is a generalization of the notion of the $C^*$-algebra with continuous trace (cf. Section \ref{ctr_oa_sec}). Here we consider noncommutative coverings of these spaces.
 
@@ -10704,8 +10584,6 @@ is not finitely generated $\widetilde B$-module.
 	
 	From Corollary \ref{ctr_uni_cov_cor} it follows that the image of the map \eqref{ctr_a_to_spc_eqn} contains finite-fold transitive coverings only.
 \end{proof}
-
-
 
 \begin{corollary}\label{comp_axc_cor}
 Let  $A$ be a separable continuous trace $C^*$-algebra  such that the spectrum  $\sX$ of $A$ is compact. If $\sU \subset \sX$ is a dense open subspace and $\left.A\right|_{\sU}\subset A$ is the given by \eqref{open_ideal_eqn} two sided ideal. For any finite-fold transitive covering $p: \widetilde \sX \to \sX$  the quadruple
@@ -12385,186 +12263,6 @@ where both   $\Ga^\infty\left(M, \sS \right)$ and $\Ga^\infty_c\left(\widetilde 
 \begin{proof}
 	The proof of this theorem is similar to the proof of the Theorem \ref{top_st_good_thm}.
 \end{proof}
-
-
-\chapter{Towards noncommutative homotopy theory}\label{hotop_chap}
-\paragraph*{}
-Here we would like to generalize the explained in \cite{spanier:at, switzer:at} homotopy theory   for $C^*$-algebras. For any $n=1,2,...$ and $C^*$-algebra $A$ a homotopical group $\pi_n\left( A\right)$ will be defined. Moreover  for any good topological space $\sX$ and $n=1,2,...$ there is the natural isomorphism $\pi_n\left(C_0\left( \sX\right)  \right)\cong \pi_n\left( \sX\right)$. 
-\section{Basic construction}
-\paragraph{}
-The equation \eqref{top_hom_eqn} yields the following consequence
-\be\label{top_pi_n_eqn}
-\begin{split}\pi_n\left(\sX, x_0 \right)\bydef  \left[S^n, s'_0; \sX, x_0\right]= \left[\Sigma^{n-1}S^1, *; \sX, x_0\right]=\\= \left[S^1, s_0; \Om^{n-1}\sX, \om_0\right]= \pi_1\left( \Om^{n-1}\sX, \om_0\right) .
-\end{split}
-\ee
-For any pointed $C^*$-algebra $\left(A, \a\right)$  we define the noncommutative generalization of \eqref{top_pi_n_eqn} such that
-\be\label{alg_pi_n_eqn}
-\pi_n\left( A, \al\right)\bydef  \pi_1\left( b\left( \Om^{n-1}A\right) , \al_n\right)
-\ee
-where $\pi_1$ is given by the Definition \ref{fg_bas_defn}, $\Om$ is given by the Definition \ref{pointed_noncommutative_loop_defn} and $b\left( \Om^{n-1}A\right)$ means the $C^*$-algebra of bounded elements of the pro-$C^*$-algebra $\Om^{n-1}A$ (cf. Definition \ref{pro_bound_defn} and Proposition \ref{pro_bound_prop}).
-
- \section{Noncommutative homotopy theory of commutative $C^*$-algebras}
-\paragraph{} Let $\left( \sX, x_0\right) $ be a locally compact second-countable Hausdorff space. We would like to compare the topological homotopy group \\$\pi_2\left(\sX, x_0 \right)$ and the group $\pi_2\left(C_0\left(\sX \right), ev_{x_0}  \right)$ given by the Equation \eqref{top_pi_n_eqn}.
-\subsection{Algebras of loop spaces}\label{hom_pi_2_comm_sec}
-\paragraph*{}
-	Suppose that $\Om\left(\sX, x_0\right)$ is the loop space of $\sX$ (cf. Definition \ref{topological_loop_spaces_defn}). From the Theorem \ref{top_weght_thm} it follows that $\Om\left(\sX, x_0\right)$ is second countable. % From the Theorem \ref{comm_sep_thm} it follows that $C_0\left(\sX\right)$ is a separable $C^*$-algebra. 
-	Let $\Om \left( C\left(\sX\right), ev_{x_0}\right)$ be given by the Definition \ref{pointed_noncommutative_loop_defn}.
-	Select a dense countable subsets $X \subset C\left(\sX\right)\otimes S^1$. From the condition 1 of the Definition  \ref{pointed_noncommutative_loop_defn} it turns out that $X$ corresponds to a dense in the set of generators of  $\Om \left( C\left(\sX\right), ev_{x_0}\right)$. So the generated by $X$ algebra $A$ is countable and dense in $\Om \left( C\left(\sX\right), ev_{x_0}\right)$ so both 
-  $\Om \left( C\left(\sX\right), ev_{x_0}\right)$ and  $b\left( \Om \left( C\left(\sX\right), ev_{x_0}\right)\right)$ are separable. From \ref{pro_ab_empt} it follows that  $C\left( \Om\left(\sX, x_0\right)\right)$ is the abelianization of (cf. Definition \ref{pro_ab_defn} $b\left( \Om \left( C\left(\sX\right), ev_{x_0}\right)\right)$)
-	If $j:b\left( \Om \left( C\left(\sX\right), ev_{x_0}\right)\right) \to C\left( \Om\left(\sX, x_0\right)\right)$	is the natural surjective *-homomorphism and $I\bydef \ker j$ then the center of $I$ is trivial. There is an extension 	$0\to I\xrightarrow{j} b\left( \Om \left( C\left(\sX\right), ev_{x_0}\right)\right)\xrightarrow{p} C\left( \Om\left(\sX, x_0\right)\right)\to 0$ (cf. Definition \ref{k_ext_defn}). The extension yields the Busby invariant $\tau : C\left( \Om\left(\sX, x_0\right)\right)\to Q\left( I\right) \bydef M\left( I\right) /I$. On  the other hand there is the natural surjective *-homomorphism $M\left( I\right)\to Q\left( I\right)$. If $C\subset M\left( I\right)$ is the center of $\psi M\left( I\right)$ then from $C\cap I=\left\{0\right\}$ it follows that the restriction $\left.\psi\right|_C:C \to Q\left( I\right)$ is the injecive. Otherwise $\psi\left( C\right)\cong \tau\left( C\left( \Om\left(\sX, x_0\right)\right)\right)$. From the Theorem  \ref{dauns_hofmann_thm} it turns out that
-	\bean
-	C \cong \tau\left( C\left( \Om\left(\sX, x_0\right)\right)\right)\cong  C\left( \Om\left(\sX, x_0\right)\right) \cong C_b\left( b\left( \Om \left( C\left(\sX\right), ev_{x_0}\right)\right)^\vee\right) 
-	\eean
-	where $b\left( \Om \left( C\left(\sX\right), ev_{x_0}\right)\right)^\vee$ is the space of prime ideals of $b\left( \Om \left( C\left(\sX\right), ev_{x_0}\right)\right)$. It follows that $b\left( \Om \left( C\left(\sX\right), ev_{x_0}\right)\right)^\vee\cong \Om\left(\sX, x_0\right)$ and since $ \Om\left(\sX, x_0\right)$ is Hausdorff the space $b\left( \Om \left( C\left(\sX\right), ev_{x_0}\right)\right)^\vee$ is also Hausdorff. From the Theorem \ref{ctr_open_res_rem} it turns out that $b\left( \Om \left( C\left(\sX\right), ev_{x_0}\right)\right)^\vee$ coincides with the spectrum of $ b\left( \Om \left( C\left(\sX\right), ev_{x_0}\right)\right)$ so the spectrum is homeomorphic to $\Om\left(\sX, x_0\right)$. Otherwise from (vi) of the Theorem \ref{oa_1_thm} it turns out that $b\left( \Om \left( C\left(\sX\right), ev_{x_0}\right)\right)$ is a $C^*$-algebra of type I. Any $a \in b\left( \Om \left( C\left(\sX\right), ev_{x_0}\right)\right)$ corresponds to a family
-	\be
-	\left\{ \rep_x\left(a\right)\in B\left(\H \right)  \right\}_{x \in  \Om\left(\sX, x_0\right)}
-	\ee
-	such that
-	\be
- \K \subset \bigcup_{a \in b\left( \Om \left( C\left(\sX\right), ev_{x_0}\right)\right)} \rep_x\left(a\right)\quad 	\forall x \in \Om\left(\sX, x_0\right).
-	\ee
- Suppose $\Om\left(\sX, x_0\right)$ the space is locally contractible (cf. Definition \ref{top_locally_contractible_defn}). If $x \in \Om\left(\sX, x_0\right)$ then there is a contractible open neighborhood $\sV$ of $x$. The subspace corresponds to the ideal $C\left(\sV \right)\subset  \Om\left(\sX, x_0\right)$. If $I_\sV \bydef C_0\left( \sV\right)I$ then   the extension $$0\to I\xrightarrow{j} b\left( \Om \left( C\left(\sX\right), ev_{x_0}\right)\right)\xrightarrow{p} C\left( \Om\left(\sX, x_0\right)\right)\to 0$$ naturally induces the extension $0\to I_\sV\xrightarrow{j|_{I_\sV}} E\xrightarrow{\left.p\right|_{E}} C_0\left(\sV\right)\to 0$ where $E$ is a two sided ideal of $b\left( \Om \left( C\left(\sX\right), ev_{x_0}\right)\right)$. The space  $\sV$ is contractible so from the described in the Section \ref{ext_th_sec} it follows that the extension $0\to I_\sV\xrightarrow{j|_{I_\sV}} E\xrightarrow{\left.p\right|_{E}} C_0\left(\sV\right)\to 0$ is trivial, i.e. there is the isomorphism
- $$
- E \cong I_\sV \oplus C_0\left(\sV\right).
- $$
- of $C\left(\sV\right)$.
-Any $b' \in I_\sV$ is can be represented by a family $\left\{ \rep_x\left(b'\right)\in B\left(\H \right)  \right\}_{x \in  \sV}$ such that $\rep_x\left(b'\right)\in\K$ for all $x \in \sV$.
-If $a \in E$ corresponds to a sum $b' \oplus b'' \in I_\sV \oplus C_0\left(\sV\right)$ then $a$ can be represented by a family 
-$$
-\left\{ \rep_x\left(b'\right)+ b''\left(x \right)\cdot 1_{B\left(\H \right) } \in B\left(\H \right)  \right\}_{x \in  \sV}
-$$
-Since $x$ is an arbitrary point of $\Om\left(\sX, x_0\right)$ from the above equation it follows that there is the isomorphism  $\Om \left( C\left(\sX\right), ev_{x_0}\right)\cong I \oplus C_0\left( \Om\left(\sX, x_0\right)\right) $ of  $ C\left( \Om\left(\sX, x_0\right)\right)$-modules and if $a \in \Om \left( C\left(\sX\right), ev_{x_0}\right)$ $b' \oplus b'' \in I \oplus C_0\left( \Om\left(\sX, x_0\right)\right)$ then $a$ can be represented by a family 
-$$
-\left\{ \rep_x\left(b'\right)+ b''\left(x \right)\cdot 1_{B\left(\H \right) } \in B\left(\H \right)  \right\}_{x \in  \Om\left(\sX, x_0\right)}
-$$
-\begin{definition}
-A type I $C^*$-algebra $A$ with Hausdorff spectrum $\sX$ is said to be \textit{loop-like} if the center of $A$ equals to $C_0\left(\sX \right)$. 
-\end{definition}
-
-\begin{definition}
-A separable $C^*$-algebra $A$ of type I with Hausdorff second-countable spectrum $\sX$ is said to be a \textit{loop-like} if it isomorphic to the direct $I\otimes C_0\left(\sX \right)$ as   
-\end{definition}
-For any open set $\sU \subset  \Om\left(\sX, x_0\right)$  we define a set of families
-\bean
-\left.b\left( \Om \left( C\left(\sX\right), ev_{x_0}\right)\right)\right|^\sU\bydef\\
-\bydef
-\left\{\left.\left\{a_x \in B\left(\H \right) \right\}_{x\in \sU}\right| \exists a \in  b\left( \Om \left( C\left(\sX\right), ev_{x_0}\right)\right)\quad \forall x \in \sU\quad \rep_x\left(a\right) = a_x\right\}.
-\eean
-Clearly  $\left.b\left( \Om \left( C\left(\sX\right), ev_{x_0}\right)\right)\right|^\sU$ is a *-algebra and the map
-\be\label{homotop_cs_sheaf_eqn}
-\sU \mapsto  \left. b\left( \Om \left( C\left(\sX\right), ev_{x_0}\right)\right)\right|^\sU
-\ee
-yields a presheaf of *-algebras.
-\begin{definition}\label{homotop_cs_sheaf_defn}
-	The sheaf  associated with the given by \eqref{homotop_cs_sheaf_eqn}  is the \textit{sheaf of} $b\left( \Om \left( C\left(\sX\right), ev_{x_0}\right)\right)$. We denote it by $\mathscr C \left(\Om \left( C\left(\sX\right), ev_{x_0}\right)\right)$.
-\end{definition}
-There is the map
-\bean
-\mathscr C \left(\Om \left( C\left(\sX\right), ev_{x_0}\right)\right)\left(\sU \right) \to \left[0, \infty\right],\\
-\left\{a_x \in B\left(\H \right) \right\}_{x\in \sU}\mapsto \sup_{x\in\sU} \left\| b_x\right\| 
-\eean
-
-
-
-	$E\cong C_0\left(V \right)\cong \K$. Clearly $E$ is a continuous trace $C^*$-algebra, so  $a \in E$ such that $\hat a \in K(\hat E)$ and $\hat a(t) = 1$. (cf. Proposition \ref{continuous_trace_c_a_proposition}). From our construction one concludes that for any $x \in \Om\left(\sX, x_0\right)$ there is $a \in b\left( \Om \left( C\left(\sX\right), ev_{x_0}\right)\right)\xrightarrow{p} C_0\left( \Om\left(\sX, x_0\right)\right)$ which satisfies to the condition (iii)  of the Proposition \ref{continuous_trace_c_a_proposition}. So $C_0\left( \Om\left(\sX, x_0\right)\right)$.
-	
-	
-	Let
-	$$
-	\left(\Om \left( C\left(\sX\right), ev_{x_0}\right), \widetilde A, G, \pi\right) 
-	$$
-	be an unital noncommutative finite-fold  covering (cf. Definition \ref{fin_uni_defn}).
-	If $I \bydef \ker\phi$, and $\widetilde I \bydef I\widetilde A I$ then the  *-homomorphism $\Om \left( C\left(\sX\right), ev_{x_0}\right)\hookto \widetilde A$ induces the *-homomorphism 
-	\be\label{hom_pi_2_comm_eqn}
-	\Om \left( C\left(\sX\right), ev_{x_0}\right)/I\hookto \widetilde A/\widetilde I.
-	\ee
-
-\begin{lemma}\label{hom_pi_2_comm_lem}
-	In the above situation the quotient algebra  $\widetilde A/\widetilde I$is commutative. Moreover if $\widetilde A/\widetilde I\cong C\left(\widetilde \sY \right)$ then the homomorphism \eqref{hom_pi_2_comm_eqn} corresponds to a transitive finite-fold covering $\widetilde \sY\to  \Om\left(\sX, x_0\right)$.
-\end{lemma}
-\begin{proof}
-	From the Definition \ref{fin_uni_defn}) there is a finite set $\widetilde a_1, ..., \widetilde a_n\in \widetilde A$ such that 
-\end{proof} 
-
-\subsection{Coverings of noncommutative loop spaces}
-\begin{empt}\label{lift_empt}
-Let $A$ be a $C^*$-algebra of type I, and $\sX$ is the spectrum of $A$  $A\left(\widetilde\sX\right)$
-\end{empt}
-
-\begin{lemma}
-	Let $A$ be an unital $C^*$-algebra of type I, and $\sX$ is the spectrum of $A$.  Suppose that the center of $A$ naturally isomorphic to $C\left(\sX\right)$. If  $\sX$ is Hausdorff then there is one-to-one map between unital finite-fold noncomutative coverings of $A$ and finite-fold transitive coverings of $\sX$.
-\end{lemma}
-\begin{proof}
-Let $p: \widetilde\sX\to \sX$ be a finite  
-Let $\left(A, \widetilde{A}, G, \pi \right)$ be  a noncommutative finite-fold  covering. From the Corollary \ref{spectrum_fin_cov_lem} it follows that if both $\sX$ and $\widetilde\sX$ are spectra of both $A$ and $\widetilde A$ then the given by \eqref{cov_spectrum_eqn} map $	p:\widetilde{\mathcal X} \to {\mathcal X}$ is a finite-fold transitive covering. If  $\widetilde{A}_{\text{red}}$ be its reduced algebra (cf. Definition \ref{red_alg_defn}) then $\widetilde{A}_{\text{red}}\subset \widetilde{A}$ and the spectrum of $\widetilde{A}$ coincides with the spectrum of $\widetilde{A}_{\text{red}}$ (cf.Remark \ref{red_sp_rem}). On the other hand $\widetilde{A}_{\text{red}}= A\left(\widetilde\sX\right)$.If $\widetilde{A}_{\text{red}}\neq \widetilde{A}$ then the given by the Equation \ref{g_red_ker_eqn} group
-$$
-G_{\text{red}} = \ker  \left( G \to \mathrm{Homeo}\left(\widetilde{\sX} \right)\right). 
-$$
-is not trivial. So there is a $\widetilde x \in \widetilde \sX$ such that
-
-
-\end{proof}
-
-\paragraph{}
-
-
-\begin{corollary}\label{spectrum_fin_cov_lem!}
-	Let $A$ be an unital $C^*$-algebra, and $\sX$ is the spectrum of $A$.  Suppose that the center of $A$ naturally isomorphic to $C\left(\sX\right)$. If  of $\sX$ is Hausdorff then the given by \eqref{cov_spectrum_eqn} map $	p:\widetilde{\mathcal X} \to {\mathcal X}$ is a finite-fold transitive covering.
-\end{corollary}
-
-\begin{rem}\label{red_alg_inc_rem}
-	Clearly one has an inclusion
-	\be\label{red_alg_inc_eqn}
-	A\subset \widetilde{A}_{\text{red}}
-	\ee
-\end{rem}
-\begin{rem}\label{red_g_act_rem}
-	If $\widetilde{A}'$ is a hereditary subalgebra of $\widetilde{A}$ which contains $A$ then for all $g\widetilde{A}'$ a hereditary subalgebra of $\widetilde{A}$ which contains $A$. If follows that $G \widetilde{A}_{\text{red}}= \widetilde{A}_{\text{red}}$. Hence  there is the natural action
-	\be\label{red_g_act_eqn}
-	G\times \widetilde{A}_{\text{red}}\to G\times \widetilde{A}_{\text{red}}
-	\ee
-	Moreover from $\widetilde{A}^G = A$ and $A \subset \widetilde{A}_{\text{red}}$ it follows that
-	\be\label{red_inv_eqn}
-	\widetilde{A}_{\text{red}}^G = A.
-	\ee
-\end{rem}
-\begin{rem}\label{red_inc_rem}
-	For any $\widetilde x\in \widetilde \sX$ one has
-	\be\label{red_inc_eqn}
-	\rep_{ \widetilde{x}}\left(\widetilde{A}_{\text{red}} \right) = \rep_{ \widetilde{x}}\left(A\right)
-	\ee
-	Really if $\rep_{ \widetilde{x}}\left(\widetilde{A}_{\text{red}} \right)\subsetneqq \rep_{ \widetilde{x}}\left(A\right)$ then 
-	$$
-	\widetilde{A}'\bydef \left\{\left.\widetilde a' \in \widetilde{A}_{\text{red}}\right|\rep_{ \widetilde{x}}\left(\widetilde a' \right)\in \rep_{ \widetilde{x}}\left(A \right) \right\}
-	$$
-	is a hereditary algebra of $\widetilde{A}$ which contains $\pi\left( A\right) $ and $\widetilde{A}'\subsetneqq \widetilde{A}_{\text{red}}$.
-\end{rem}
-\begin{rem}\label{red_sp_rem!}
-	From the Lemma \ref{cov_spectrum_lem} and the Proposition \ref{hered_spectrum_prop} it follows that the spectrum of $\widetilde{A}_{\text{red}}$ coincides with the spectrum of $\widetilde{A}$ as a topological space. If $\widetilde{\sX}$ is the spectrum of both $\widetilde{A}_{\text{red}}$ and $\widetilde{A}$ then the inclusion $G \hookto  \Aut\left(\widetilde A \right)$ induces a homomorphism
-	$$
-	h: G \to \mathrm{Homeo}\left(\widetilde{\sX} \right). 
-	$$
-	If 
-	\be\label{g_red_eqn}
-	G_{\text{red}} \bydef \left\{ g \in \Aut\left(\left.\widetilde{A} \right)~\right|~ g\widetilde a_{\text{red}} = \widetilde a_{\text{red}};~~\forall \widetilde a_{\text{red}} \in \widetilde A_{\text{red}}\right\}\subset G
-	\ee
-	then from the coincidence of spectra  of $\widetilde{A}$ and $\widetilde{A}_{\text{red}}$ it follows that
-	\be\label{g_red_ker_eqn!}
-	G_{\text{red}} = \ker  \left( G \to \mathrm{Homeo}\left(\widetilde{\sX} \right)\right). 
-	\ee
-	In particular $G_{\text{red}}$ is normal subgroup of $G$ and there is the inclusion
-	\be\label{g_red_inc_eqn}
-	G/G_{\text{red}} \subset \mathrm{Homeo}\left(\widetilde{\sX} \right). 
-	\ee
-	Moreover from the Lemma \ref{cov_spectrum_lem} it follows that there is a homeomorphism
-	\be\label{red_fact_sp_eqn}
-	\sX \cong \widetilde{\sX}/\left(G/G_{\text{red}} \right). 
-	\ee
-\end{rem}
-
-
-
-\paragraph{}
 
 \chapter{Coverings of $C^*$-Hilbert modules over commutative $C^*$-algebras}\label{vf_chap}
 \section{Basic constructions}
@@ -17538,19 +17236,6 @@ I am very grateful to Prof. Joseph C Varilly  and Arup Kumar Pal
  	\end{definition}
  \begin{remark}\label{top_base_rem}It is proven that given by the Definition \ref{top_base_defn} collection $\mathscr T$ is a topology  (cf. \cite{munkres:topology}).
  \end{remark}
-
-\begin{empt}\cite{engelking:general_topology}
-	Every set of cardinal numbers being well-ordered by $<$, the set of all cardinal numbers
-	of the form $\left|B\right|$, where $B$ is a base for a topological space $\sX$, has a smallest element; this cardinal number is called the \textit{weight of the topological space} $\sX$ and is denoted by $w\left(\sX\right)$.
-	
-\end{empt}
-\begin{theorem}\label{top_weght_thm}\cite{engelking:general_topology}
-	%3.4.16. THEOREM. 
-	If the weight of both $\sX$ and $\sX$ is not larger than $\mathfrak{m} \ge \aleph_0$ and $\sX$ is a locally
-	compact space, then the weight of the space $\sY^\sX$ with the compact-open topology is not larger
-	than $\mathfrak{m}$.
-\end{theorem}	
-
  	\begin{definition}\label{directed_set_defn}\cite{engelking:general_topology}
  		Let $\La$ be a set and $\le$ is relation on $\La$. We say that $\le$ \textit{directs} $\La$ or $\La$ is \textit{directed} by $\le$, if $\le$ has following properties:
  		\begin{enumerate}
@@ -17717,24 +17402,16 @@ Every regular second-countable space in Lindel\"{o}f.
 	%Theorem 41.5. 
 	Every regular Lindel\"{o}f space is paracompact.
 	\end{theorem}
-\begin{definition}\label{top_comp_defn}\cite{munkres:topology}
-	If $\sY$ is a compact Hausdorff space and $\sX$ is a proper subspace of $\sY$ whose
-	closure equals $\sY$, then $\sY$ is said to be a \textit{compactification} of $\sX$. If $\sY\setminus\sX$ equals a single
-	point, then Y is called the \textit{one-point compactification} of $\sX$.
-\end{definition}
-\begin{remark}
-	It is shown  (cf. \cite{munkres:topology}) that $\sX$ has a one-point compactification $\sY$ if and only if $\sX$ is
-	a locally compact Hausdorff space that is not itself compact. We speak of $\sY$ as "the"
-	one-point compactification because $\sY$ is uniquely determined up to a homeomorphism.
-\end{remark}
-\begin{theorem}\label{sc_comp_thm}\cite{munkres:topology}
+ 	\begin{definition}\label{top_comp_defn}\cite{munkres:topology}
+ 		A	\textit{ compactification} of a space $\mathcal X$ is a compact Hausdorff space $\mathcal Y$ containing $\mathcal X$ as a subspace and the closure $\overline{\mathcal X}$ of $\mathcal X$ is $\mathcal Y$, i.e $\overline{\mathcal X} = \mathcal Y$. 
+ 	\end{definition} 
+ \begin{theorem}\label{sc_comp_thm}\cite{munkres:topology}
  %Theorem 38.2. 
  Let $\sX$ be a completely regular space. There exists a  
  compactification $\sY$ of $\sX$ having the property that every bounded continuous map $f : \sX\to\R$
  extends uniquely to a continuous map of $\sY$ into $\R$.
  \end{theorem}
-
-\begin{definition}\label{sc_comp_defn}\cite{munkres:topology}
+\begin{definition}\label{sc_comp_defn}
 For each completely regular space $\sX$, let us choose, once and for all,
 a compactification of $\sX$ satisfying the extension condition of Theorem \ref{sc_comp_thm}. We will
 denote this compactification of  by $\bt\sX$ and call it the \textit{Stone-Cech compactification}
@@ -17786,15 +17463,8 @@ Suppose next that $\sX$ is a set and $\mathscr F$ is a nonempty family of mappin
 $f\in \mathscr F$ continuous: If $\tau'$ is any other topology with that property, then $\tau\subset\tau'$. This $\tau$ is called the \textit{weak topology on} $\sX$ \textit{induced by} $\mathscr F$, or, more 
 succinctly, the $\mathscr F$-\textit{topology of} $\sX$.
 \end{definition}
-\begin{definition}\label{top_locally_contractible_defn}
-A topological space $\sX$ is said to be 
-\textit{contractible} if the identity map of $\sX$ is nomotopic to some constant map of $\sX$ 
-to itself. $\sX$ is \textit{locally contractible} if
-every neighborhood $\sU$ of a point $x$ contains a neighborhood $\sV$ of $x$ deformable to $x$ in $\sV$). 
-
-\end{definition} 
- 
-  	\section{Coverings}
+ 	
+ 	\section{Coverings}
  	\paragraph*{}
  		Results of this section are copied from \cite{spanier:at}. The \textit{covering projection} word is replaced with \textit{covering} outside this section.
  	
@@ -18051,65 +17721,9 @@ Let $\xi = \left( E, \pi, \mathcal X\right)$ be a {vector bundle}. Then a \texti
  	\begin{defn}\label{top_herm_bundle_defn}
  		In the situation of \ref{top_herm_bundle_empt} we say that $S$ is \textit{Hermitian vector bundle}.
  	\end{defn}
- \section{Loop space and suspension in topology}
-
-\begin{empt} {\it Fuction spaces.} If $\sX$ and $\sY$ are topological spaces, we let $\sY^\sX$ denote the set of all continuous functions functions $f: \sX \to \sY$. We give this set a topology, called the {\it compact-open topology}, by taking as a subbase for the topology all sets of the form $N_{K,U} =\{f:f(K)\subset U\}$, $K\subset U$ compact, $U \subset \sX$ open. 
-\end{empt}
-\begin{empt}\label{base_points} {\it Base points.} Algebraic topology often have to consider not just topological space $\sX$ but rather a space $\sX$ together with distinguished point $x_0\in \sX$ called the {\it base point}. The pair $(\sX, x_0)$ is called a {\it pointed space} (one also speaks of pointed sets). When we are concerned with pointed spaces $(\sX, x_0)$, $(\sY, y_0)$, etc. we always require that all functions $f: \sX \to \sY$ shall preserve base point, i.e. $f(x_0)=y_0$, and that all homotopies $F:\sX\times I \to \sY$ be relative to base point, i.e. $F(x_0, t) = y_0$, $\forall t \in I$ unless an explicit disclaimer to be contrary is made. We shall use the notation $[\sX, x_0, \sY, y_0]$ to denote the homotopy classes of base point preserving functions, where homotopies are $\mathrm{rel}x_0$, of course. $[\sX, x_0, \sY, y_0]$ is a pointed space with base point $f_0$ the constant function: $f_0(x)=y_0$, $\forall x\in \sX$. If $(\sX, x_0)$, $(\sY, y_0)$ are pointed spaces then we have the space $(\sY, y_0)^{(\sX, x_0)}$ of base point preserving functions. We use the notation $\sX \vee \sY$ for the subspace $\sZ \times \{x_0\} \cup \{z_0\} \sX$. It can be thought of as the result of taking the disjoint union $\sZ \cup \sX$ and identifying $z_0$ with $x_0$, $\sZ \vee \sX$ is again a pointed space with base point $(z_0, x_0)$.  Given maps $f: (\sX, x_0)\to (\sX', x'_0)$ and $g: (\sY, y_0)\to (\sY', y'_0)$ the map $f \times g : \sX\times \sY \to \sX'\times \sY'$ maps $\sX \vee \sY$ into $\sX' \vee \sY'$ and so induces a map $f \wedge g: \sX\wedge \sY \to \sX'\wedge \sY'$.
-\end{empt}
-
  
-\begin{empt}\label{smash_pointed_sp}
-If both $(\sX, x_0)$, $\sY, y_0$ are pointed spaces then we define the {\it smash product} $(\sX \wedge \sY, *)$ to be the quotinent 
-\begin{equation}\nonumber
-\sX \wedge \sY = \sX \times \sY / \sX \vee \sY
-\end{equation}
-with the point $* = p(\sX\vee \sY)$ as base point. Here $p: \sX \times \sY \to \sX \vee \sY$ is the projection. For any $(x,y)\in \sX \times \sY$ we denote $p(x,y)\in \sX \wedge \sY$ by $[x,y]$.
-\end{empt}
-\begin{thm}(See \cite{switzer:at})
-If $(\sX, x_0), (\sY, y_0), (\sZ, z_0)$ are pointed spaces, $\sX, \sZ$ Hausdorff and $\sZ$ locally compact, then there is a natural equivalence
-\begin{equation}\label{top_sl_eqn}
-A: [\sZ \wedge \sX, *; \sY, y_0] \to [\sX, x_0, (\sY, y_0)^{(\sZ, z_0)}, f_0]
-\end{equation}
-defined by $A[f]=[\hat f]$, where if $f: \sZ \wedge \sX \to \sY$ is a map then $\hat f: \sZ \wedge \sX \to \sY$ is a map given by $(\hat f(x)(z)=f[z,x]$.
-\end{thm}
-\begin{definition}\label{topological_loop_spaces_defn} If $(\sY, y_0)$ is a pointed space, we define the {\it loop space} $(\Omega \sY, \omega_0)$ of $\sY$ to be function space 
-\begin{equation}\nonumber
-\Omega \sY = (\sY, y_0)^{(S^1, s_0)}
-\end{equation}
-with constant loop $\omega_0$ such that $(\omega_0(s))= y_0, \ \forall s \in S^1)$ as base point.
-\end{definition}
-\begin{empt}\label{topological_suspension}
-If $(\sX, x_0)$ we define {\it suspension} $(\Sigma\sX, *)$ to be the smash product $(S^1 \wedge \sX, *)$ of $\sX$ with the 1-sphere.
-\end{empt}
-\begin{cor}\label{loop_susp_adj_cor}(See \cite{switzer:at})
-If both $(\sX, x_0), (\sY, y_0)$ are pointed spaces and $\sX$ is Hausdorff, then there is a natural equivalence
-\begin{equation}\label{top_hom_eqn}
-A:[\Sigma\sX,*;\sY,y_0]\to [\sX, x_0, \Omega \sY, y_0].
-\end{equation}
-\end{cor}
-\begin{prop}(See \cite{switzer:at})
-The adjoint correspondence
-\begin{equation}\nonumber
-A:[\Sigma\sX,*;\sY, y_0]\to [\sX,x_0, \Omega \sY, \omega_0]
-\end{equation}
-is an isomorphism of groups.
-\end{prop}
-
+ 
  \chapter{Algebra}
- \section{Finitely generated modules}
- \begin{theorem}\label{fin_gen_thm}\cite{kasch:mr}
-% 2.3.13 THEOREM. T
- The module $M_R$ over a ring $R$ is finitely generated if and only if there 
- is in every set $\left\{A_\la\right\}_{\la\in\La}$ of submodules $A_\la\hookto  M$ with 
- $$
- M=\sum_{\la \in \La} A_\la
- $$
-there is a finite subset $\La_0\subset \La$  such that 
- $$
-M = \sum_{\la \in \La_0} A_\la
-$$
- \end{theorem}
  \section{Algebraic Morita equivalence}
  
  \begin{defn}\label{morita_ctx_defn}
@@ -18206,7 +17820,7 @@ The category $\mathscr{M}^G_{\widetilde{A}}$ is equivalent to the category $\mat
  %	\label{the:ProGenMorita}
  %	Let~$R$ be a ring with unit and~$Q$ a right $R$-module.  Then~$Q$ induces a
  %	Morita equivalence between~$R$ and $R'\subset\End(Q)$ if and only if~$Q_R$ is
- %	a finitely generated projective generator.%\footnote{An object~$\sX$ in an 		Abelian category is a generator iff every object is a quotient of a direct 		sum of copies of~$X$.}
+ %	a finitely generated projective generator.%\footnote{An object~$X$ in an 		Abelian category is a generator iff every object is a quotient of a direct 		sum of copies of~$X$.}
  %\end{theorem}
 
  \begin{definition}\label{normal_subgroup_defn}\cite{kurosh:lga}
@@ -18830,16 +18444,6 @@ such that $f_\tau\left(A \right)$ is a dense subspace of $L^2\left(A, \tau\right
 	\ee
 	which maps an irreducible representation to its kernel.
 \end{remark}
-\begin{theorem}\label{oa_sc_prim_thm}
-	%	Theorem A.49. 
-	Every prime ideal in a separable $C^*$-algebra is primitive. 
-\end{theorem}
-\begin{theorem}\label{oa_haus_prim_thm}
-%	Theorem A.50. 
-Suppose that $A$ 
-	is a $C^*$-algebra such that $\check{A}$
-	is either second-countable or almost Hausdorff. Then every prime ideal is primitive. 
-\end{theorem}
 \begin{empt}
 	For each set $F$ in $\check{A}$ define a closed ideal 
 	\be\label{ker_f_eqn}
@@ -19405,7 +19009,6 @@ Let $B$ and $E$ be $C^*$-algebras. If $B$ and $E$ are
 	\be\label{c_env_alg_eqn}
 	C^*_e\left( A\right)\stackrel{\text{def}}{=} B.
 	\ee
-\end{definition}
 	\begin{theorem}\label{oa_cb_lem}
 		%	Theorem 1.2.8 
 		(Haagerup, Paulsen, Wittstock). Suppose that $X$ is a subspace 
@@ -19417,93 +19020,19 @@ Let $B$ and $E$ be $C^*$-algebras. If $B$ and $E$ are
 		In particular, if $\varphi \in \mathrm{Ball}(X^*)$, and if B is as above, then there exist $\H_3$, $p$ as 
 		above, and unit vectors $\xi, \eta \in \H_3$, with $\varphi= \left(\pi\left(x\right)\xi, \eta\right)_{\H_3}$ on $X$. 
 	\end{theorem} 
-
-
-
-
-
-\subsection{Real operator spaces}
-
-\begin{definition}\label{real_os_defn}\cite{ruan:real_os, ruan:real_comp}
-	A \textit{real operator space} on a real Hilbert space $\H$ is a norm closed subspace $V$ of $B\left(\H\right)$ 
-	together with the canonical matrix norm inherited from  $B\left(\H\right)$ . Then every real $C^*$-algebra,
-	which is defined to be a norm closed $*$-subalgebra of some $B\left(\H\right)$, is a real operator space with
-	a canonical matrix norm (actually, a real $C^*$-algebra matrix norm) inherited from $B\left(\H\right)$ . 
 \end{definition}
 
-\begin{remark}
-	It is easy to verify
-	that there the family of matrix norms $\left\{\left\|\cdot \right\| \right\}_{n \in \N} $ which satisfies
-	\begin{enumerate}
-		\item [(M1)]  $\left\|x \oplus y \right\|_{n + m}= \max \left(\left\|x \right\|_{n}, \left\| y \right\|_m\right)$.
-		\item[(M2)] $\left\|\a x\bt\right\|_{n}\le\left\|\a \right\|\left\|x \right\|_{n}\left\|\bt \right\|$
-	\end{enumerate}
-	for all $x\in \mathbb{M}_n\left( V\right)$,   $y\in \mathbb{M}_m\left( V\right)$, $\a, \bt\in \mathbb{M}_n\left( \R\right)$,
-	
-	As in the complex case, we can define an \textit{abstract real operator space} to be
-	a real space $V$ together with a Banach space norm $\left\|\cdot \right\|_n$ on each matrix space
-	$\left\{\left\|\cdot \right\| \right\}_{n \in \N} $ such that the conditions (M1) and (M2) are satisfied.
-\end{remark}
 
-\begin{example}\label{op_real_exm}\cite{ruan:real_os}
-	If $\Om$ is a compact Hausdorff space, then the space of all real-valued continuous functions
-	$C\left(\Om, \R \right)$  is a commutative real $C^*$-algebra, and we may obtain a canonical (real $C^*$-algebra)
-\end{example}
 
-\begin{empt}\label{complexification_empt}\cite{ruan:real_comp}
-	Let $V$ be a real vector space. The complexification $\C V$ of $V$ is defined as
-	the direct sum
-	$$
-	\C V \bydef V \oplus iV = \left\{\left. x +iy\right|x, y \in V\right\}
-	$$
-	
-	There is a natural complex linear structure on $\C V$ given by
-	$$(x_1 + iy_1) + (x_2 + iy_2) = (x_1 + x_2) + i(y_1 + y_2)$$
-	and
-	$\left(a + i\bt \right)\left(x + iy\right)\bydef \left(\a x - \bt y\right)+ i\left(\bt x + \a y\right)$
-	%$(\a + i\bt)(x + iy) = (\a x -\bt y) + i(\bt x + \a y)$
-	We can also define a natural conjugation on $\C V$ by letting
-	$\overline {x + iy} \bydef x - iy$,
-	Then up to the identification $x = x+i0$, we may identify $V$ with the real part
-	of $\C V$ since an element $z = x + iy\in \C V$ is contained in $V$ if and only if $\overline z = z$.
-\end{empt}
 
-\begin{thm}\label{ros_contr_iso_thm}\cite{ruan:real_comp}
-	%	Theorem 2.1. 
-	Let $V$ and W be real operator spaces on real Hilbert spaces
-	$H$ and $K$ and let $T : V \to W$ be a complete contraction (respectively, a
-	complete isometry from $V$ into $W$). If $\C V$ and $\C W$ are equipped with the
-	canonical complex operator space matrix norms from $B(H_c)$ and $B(K_c)$, then
-	$\C T : \C V \to \C W$ is a complete contraction with $\left\| \C T\right\|_{\mathrm{cb}}  = \left\| T\right\|_{\mathrm{cb}}$ (respectively, a
-	complete isometry from $\C V$ into $\C W$).
-\end{thm}
-\begin{empt}
-	
-	The \textit{canonical complex operator space structure}
-	on $\C V$ is determined by the identification
-\be\label{ros_can_eqn}
-\C V = \left\{\left. \begin{pmatrix}
-x & -y \\
-y& x
-\end{pmatrix}\right| x, y \in V\right\}
-\ee
-	where the latter space is a real subspace of $\mathbb{M}_2(V )$.
-\end{empt}
-\begin{definition}\label{ros_reason_defn}
-The matrix norm on its complexification $\C V = V\oplus
-iV$ satisfies the \textit{reasonable condition} if one has
-\be\label{ros_reason_eqn}
-\left\|x + iy\right\|_n= \left\| x - iy\right\|_n
-\ee
-for all $x + iy \in  \mathbb{M}_n\left( \C V\right) = \mathbb{M}_n\left( V\right) + i\mathbb{M}_n\left( V\right)$ and $n\in \N$.
-\end{definition}
-\begin{theorem}\label{rs_e_thm}\cite{ruan:real_comp}
-%Theorem 3.1. 
-Let $V$ be a real operator space. If a complex operator space
-matrix norm $\left\{\left\|\cdot \right\| \right\}_{n \in \N} $ on $\C V$ is a reasonable complex extension of the original
-matrix norm on $V$ , then $\left\{\left\|\cdot \right\| \right\}_{n \in \N} $ must be equal to the canonical matrix norm
-$\left\{\left\|\cdot \right\| \right\}_{n \in \N} $ on $\C V$ given by \eqref{ros_can_eqn}.
-\end{theorem}
+
+
+%\begin{empt}
+%	For any $x \in \hat A$ denote by $\rho_x: A \to B\left(\H \right)$ a representation which corresponds to $x$. For any $a \in A$ denote by $\supp a \subset \hat A$ the closure of the set
+%	$$
+%	\supp a \stackrel{\mathrm{def}}{=}\left\{x \in \hat A~|~\rho_x\left(a \right)\neq 0  \right\}.
+%	$$
+% \end{empt}
 
 \section{$C^*$-algebras of type I}
 \subsection{Basic facts}
@@ -19516,22 +19045,20 @@ $\left\{\left\|\cdot \right\| \right\}_{n \in \N} $ on $\C V$ given by \eqref{ro
 \ee
 where $\hat A$ is the spectrum of $A$ (the space of equivalence classes of irreducible representations) and $\tr$ is the trace of the operator. From Proposition 4.4.9 \cite{pedersen:ca_aut} it follows that $\hat x$ is lower semicontinuous function  in the Jacobson topology (cf. Definition \ref{jtop_defn}).
 
-
-
 \begin{lemma}\label{ctr_para_sum}
-	%Lemma 5.4. 
-	Let $A$ be a $C^*$-algebra whose spectrum $\sX$ is paracompact (and hence Hausdorff). Suppose that $\left\{\sU_\a\right\}_{\a\in\mathscr A}$ is a locally finite cover of $\sX = \cup_{\a\in\mathscr A} \sU_\a$ by relatively 
-	compact open sets, $\left\{\phi_\a\right\}$
-	is a partition of unity subordinate to $\left\{\sU_\a\right\}$, and $\left\{a_\a\right\}$ is a set of elements in $A$ parameterized by $\mathscr A$. If there is a function $f\in C_0\left(\sX\right)$ such 
-	that $\left\| \rep_{ x}\left(a_\a \right) \right\| \le f\left( x\right)$ for all $x$ and $\a$, then there is a unique element $a$ of $A$ such that 
-	$\rep_{ x}\left(a \right)= \sum_{ {\a}\in {\mathscr A}}\phi_\a \rep_{ x}\left(a_\a \right)$
-	for every $x\in\sX$
-	; we write $a =\sum_{ {\a}\in {\mathscr A}}\phi_\a a_\a$.
+%Lemma 5.4. 
+Let $A$ be a $C^*$-algebra whose spectrum $\sX$ is paracompact (and hence Hausdorff). Suppose that $\left\{\sU_\a\right\}_{\a\in\mathscr A}$ is a locally finite cover of $\sX = \cup_{\a\in\mathscr A} \sU_\a$ by relatively 
+compact open sets, $\left\{\phi_\a\right\}$
+is a partition of unity subordinate to $\left\{\sU_\a\right\}$, and $\left\{a_\a\right\}$ is a set of elements in $A$ parameterized by $\mathscr A$. If there is a function $f\in C_0\left(\sX\right)$ such 
+that $\left\| \rep_{ x}\left(a_\a \right) \right\| \le f\left( x\right)$ for all $x$ and $\a$, then there is a unique element $a$ of $A$ such that 
+$\rep_{ x}\left(a \right)= \sum_{ {\a}\in {\mathscr A}}\phi_\a \rep_{ x}\left(a_\a \right)$
+ for every $x\in\sX$
+; we write $a =\sum_{ {\a}\in {\mathscr A}}\phi_\a a_\a$.
 \end{lemma}
 \begin{defn}\label{continuous_trace_c_a_defn}\cite{pedersen:ca_aut} We say that element $x\in A_+$ has {\it continuous trace} if $\hat x \in C_b(\hat A)$. We say that $C^*$-algebra has {\it continuous trace} if a set of elements with continuous trace is dense in $A_+$.
 \end{defn}
 \begin{remark}
-	If a $C^*$-algebra $A$ has {continuous trace} then for simplicity we say that $A$ is \textit{continuous-trace} $C^*$-\textit{algebra},
+If a $C^*$-algebra $A$ has {continuous trace} then for simplicity we say that $A$ is \textit{continuous-trace} $C^*$-\textit{algebra},
 \end{remark}
 There are alternative equivalent definitions {continuous-trace} $C^*$-{algebras}. One of them is presented below.
 \begin{definition}\label{continuous_trace_c_alt_defn}\cite{rae:ctr_morita}
@@ -19553,9 +19080,9 @@ There are alternative equivalent definitions {continuous-trace} $C^*$-{algebras}
 \end{prop}
 
 %Theorem 5.6
-\begin{defn}\label{ccr_defn}\cite{pedersen:ca_aut}
-	A $C^*$-algebra is called \textit{liminaly} (or $CCR$) if $\rho\left( A\right)= \K$ for each irreducible representation $\rho: A \to B\left( \H\right)$.  
-\end{defn}
+	\begin{defn}\label{ccr_defn}\cite{pedersen:ca_aut}
+		A $C^*$-algebra is called \textit{liminaly} (or $CCR$) if $\rho\left( A\right)= \K$ for each irreducible representation $\rho: A \to B\left( \H\right)$.  
+	\end{defn}
 
 \begin{theorem}\label{ctr_hat_check_thm}\cite{pedersen:ca_aut}
 	Let $A$ be a $C^*$-algebra of type I. Then 
@@ -19571,9 +19098,9 @@ There are alternative equivalent definitions {continuous-trace} $C^*$-{algebras}
 	continuous trace, respectively. 
 \end{prop}
 
-\begin{corollary}\label{ctr_ccr_i_cor}\cite{pedersen:ca_aut}
+	\begin{corollary}\label{ctr_ccr_i_cor}\cite{pedersen:ca_aut}
 	Any $CCR$ $C^*$-algebra is of type I.
-\end{corollary}
+	\end{corollary}
 
 
 %\begin{corollary}\label{ctr_au_cor} %Corollary 5.11. 
@@ -19603,15 +19130,15 @@ There are alternative equivalent definitions {continuous-trace} $C^*$-{algebras}
 %precisely when $X$ is an imprimitivity bimodule over $\sX$.
 %\end{empt}
 \begin{proposition}\label{foli_ot_prop}
-	%	Proposition 5.7. 
-	Suppose that $A$ and $B$ are $C^*$-algebras and $X$ is an $A-B$-imprimitivity bimodule. 
-	\begin{itemize}
-		\item [(a)] If $h_X: \mathrm{Prim}~B\xrightarrow{\approx}\mathrm{Prim}~A
-		$
-		is the Rieffel homeomorphism and $f\in C_b(\mathrm{Prim}~A)$ then $f\cdot x = x \cdot \left( f\circ h_X\right)$  for all $x\in \sX$.
-		\item[(b)]  If $A$ and $B$ have Hausdorff spectrum $\sX$, then $X$ is an imprimitivity bimodule over $\sX$ if and only if $f\cdot x=x\cdot f$
-		for all $x\in X$ and $f\in C_0\left(\sX\right)$.
-	\end{itemize}
+%	Proposition 5.7. 
+Suppose that $A$ and $B$ are $C^*$-algebras and $X$ is an $A-B$-imprimitivity bimodule. 
+\begin{itemize}
+	\item [(a)] If $h_X: \mathrm{Prim}~B\xrightarrow{\approx}\mathrm{Prim}~A
+	$
+is the Rieffel homeomorphism and $f\in C_b(\mathrm{Prim}~A)$ then $f\cdot x = x \cdot \left( f\circ h_X\right)$  for all $x\in \sX$.
+\item[(b)]  If $A$ and $B$ have Hausdorff spectrum $\sX$, then $X$ is an imprimitivity bimodule over $\sX$ if and only if $f\cdot x=x\cdot f$
+for all $x\in X$ and $f\in C_0\left(\sX\right)$.
+\end{itemize}
 \end{proposition}
 
 \begin{proposition}\label{ctr_morita_prop}\cite{rae:ctr_morita} %Proposition 5.15. 
@@ -19621,24 +19148,24 @@ There are alternative equivalent definitions {continuous-trace} $C^*$-{algebras}
 	over $\sV$.
 \end{proposition}
 \begin{empt}\label{ctr_imprim_empt}
-	For our research it is important the proof of the Proposition \ref{ctr_morita_prop}. Here is  the fragment of the proof described in \cite{rae:ctr_morita}.
-	Conversely, suppose that A 
-	has continuous trace, and fix $x_0\in \sX$. Choose a compact neighbourhood $\sV$ of $x_0$ and $p\in A$ such that $\rep_x\left(p \right)$  is a rank-one projection for all $x\in \sV$ Then $\left.p\right|^\sV$  is a projection in $\left.A\right|^\sV$
-	, and $\left.A\right|^\sV\left.p\right|^\sV$
-	is an $\left.A\right|^\sV-\left.p\right|^\sV\left.A\right|^\sV\left.p\right|^\sV$
-	-imprimitivity bimodule (cf. Example \ref{imp_p_exm}). Note that the map $f\mapsto 
-	f\left.p\right|^\sV$ is an isomorphism of $C_0\left( \sV\right)$ into  $\left.p\right|^\sV\left.A\right|^\sV\left.p\right|^\sV$. On the other hand, if $a\in A$ and $x\in \sV$,  then $\rep_x\left(p\right)$ is a rank-one 
-	projection in the algebra $\rep_x\left(A\right)$ of compact operators, and $\rep_x\left(pap\right) = \rep_x\left(p\right)\rep_x\left(a\right)(pap)\rep_x\left(p\right)$ 
-	must be a scalar multiple $f_a\left(x\right)\rep_x\left(p\right)$ of $x \mapsto \rep_x\left(p\right)$. We claim that $f_a$ 
-	is continuous, so that $f \mapsto f\left.p\right|^\sV$ is an isomorphism of $C\left(\sV\right)$ onto $\left.p\right|^\sV\left.A\right|^\sV\left.p\right|^\sV$.
-	Well, for $x,y\in\sV$ we have 
-	$$
-	\left|f_a\left(x\right)-f_a\left(y\right)\right|= \left\| \rep_x\left(f_a\left(x\right)-f_a\left(y\right)\right) p\right\| = \left\|\rep_x\left( pap- f_a\left(y\right)p\right) \right\|.
-	$$
-	Since $\hat A$ is Hausdorff, for fixed $y$ the right-hand side is a continuous function of $x$ by Lemma \ref{norm_semi_thm}; since it vanishes at $y$, the left-hand side goes to 0 as $x\to y$ In other words, $f_a$ 
-	is continuous, as claimed, and $\left.A\right|^\sV\left.p\right|^\sV$ 
-	is an $\left.p\right|^\sV\left.A\right|^\sV\left.p\right|^\sV$-$C(\sV)$-imprimitivity $\sV$-bimodule. Because the actions of $C\left(\sV\right)$ on the left and right of $\left.A\right|^\sV\left.p\right|^\sV$ coincide, it 
-	is actually an $\left.p\right|^\sV\left.A\right|^\sV\left.p\right|^\sV$-$C(\sV)$-imprimitivity bimodule by Proposition \ref{foli_ot_prop}. % Lemma 5.7. 
+For our research it is important the proof of the Proposition \ref{ctr_morita_prop}. Here is  the fragment of the proof described in \cite{rae:ctr_morita}.
+Conversely, suppose that A 
+has continuous trace, and fix $x_0\in \sX$. Choose a compact neighbourhood $\sV$ of $x_0$ and $p\in A$ such that $\rep_x\left(p \right)$  is a rank-one projection for all $x\in \sV$ Then $\left.p\right|^\sV$  is a projection in $\left.A\right|^\sV$
+, and $\left.A\right|^\sV\left.p\right|^\sV$
+is an $\left.A\right|^\sV-\left.p\right|^\sV\left.A\right|^\sV\left.p\right|^\sV$
+-imprimitivity bimodule (cf. Example \ref{imp_p_exm}). Note that the map $f\mapsto 
+f\left.p\right|^\sV$ is an isomorphism of $C_0\left( \sV\right)$ into  $\left.p\right|^\sV\left.A\right|^\sV\left.p\right|^\sV$. On the other hand, if $a\in A$ and $x\in \sV$,  then $\rep_x\left(p\right)$ is a rank-one 
+projection in the algebra $\rep_x\left(A\right)$ of compact operators, and $\rep_x\left(pap\right) = \rep_x\left(p\right)\rep_x\left(a\right)(pap)\rep_x\left(p\right)$ 
+must be a scalar multiple $f_a\left(x\right)\rep_x\left(p\right)$ of $x \mapsto \rep_x\left(p\right)$. We claim that $f_a$ 
+is continuous, so that $f \mapsto f\left.p\right|^\sV$ is an isomorphism of $C\left(\sV\right)$ onto $\left.p\right|^\sV\left.A\right|^\sV\left.p\right|^\sV$.
+ Well, for $x,y\in\sV$ we have 
+$$
+\left|f_a\left(x\right)-f_a\left(y\right)\right|= \left\| \rep_x\left(f_a\left(x\right)-f_a\left(y\right)\right) p\right\| = \left\|\rep_x\left( pap- f_a\left(y\right)p\right) \right\|.
+$$
+Since $\hat A$ is Hausdorff, for fixed $y$ the right-hand side is a continuous function of $x$ by Lemma \ref{norm_semi_thm}; since it vanishes at $y$, the left-hand side goes to 0 as $x\to y$ In other words, $f_a$ 
+is continuous, as claimed, and $\left.A\right|^\sV\left.p\right|^\sV$ 
+is an $\left.p\right|^\sV\left.A\right|^\sV\left.p\right|^\sV$-$C(\sV)$-imprimitivity $\sV$-bimodule. Because the actions of $C\left(\sV\right)$ on the left and right of $\left.A\right|^\sV\left.p\right|^\sV$ coincide, it 
+is actually an $\left.p\right|^\sV\left.A\right|^\sV\left.p\right|^\sV$-$C(\sV)$-imprimitivity bimodule by Proposition \ref{foli_ot_prop}. % Lemma 5.7. 
 \end{empt}
 \begin{proposition}\label{ctr_loc_morita_prop}\cite{rae:ctr_morita}% Proposition 5.24. 
 	Suppose that $A$ is a continuous-trace $C^*$-algebra with paracompact spectrum $\sX$. Then there are compact subsets $\left\{\sV_\a \subset \sX\right\}_{\a \in \mathscr A}$ whose interiors form a
@@ -19679,7 +19206,7 @@ There are alternative equivalent definitions {continuous-trace} $C^*$-{algebras}
 	The last condition is sufficient for $A$ to have continuous trace.
 \end{prop}
 
-\begin{theorem}\label{ctr_big_thm}\cite{pedersen:ca_aut}
+ 	\begin{theorem}\label{ctr_big_thm}\cite{pedersen:ca_aut}
 	Let $A$ be a $C^*$-algebra of type I. Then $A$ contains an essential ideal which has continuous trace. Moreover, $A$ has an essential composition series $\left\{ I_\al~|~0\le \al \le \bt \right\}$ such that $I_{\al+1} / I_\al$ has continuous trace for each $\al < \bt$.
 \end{theorem}
 
@@ -19705,10 +19232,10 @@ There are alternative equivalent definitions {continuous-trace} $C^*$-{algebras}
 \begin{remark}\label{ctr_open_res_rem}
 	It is  shown n \cite{rae:ctr_morita} that the Jacobson topology on of the primitive spectrum (cf. Definition \ref{jtop_defn}) always determines the ideal structure of $A$: the open
 	sets $\sU$ in $\check{A}$ are in one-to-one correspondence with the ideals
-	\be\label{ctr_open_id_eqn}
+\be\label{ctr_open_id_eqn}
 	\sU \leftrightarrow 	A|_{\mathcal U}.
-	\ee
-	On the other it is proven in \cite{rae:ctr_morita} that any separable $C^*$-algebra $A$ with Hausdorff spectrum is $CCR$-algebra. From the Theorem \ref{ctr_hat_check_thm} it turns out that the spectrum of $A$ coincides with its primitive spectrum.  So  the Equation \ref{ctr_open_id_eqn} establishes the one-to-one correspondence with the ideals of $A$ and opens sets of the spectrum of $A$.
+\ee
+On the other it is proven in \cite{rae:ctr_morita} that any $C^*$-algebra $A$ with Hausdorff spectrum is $CCR$-algebra. From the Theorem \ref{ctr_hat_check_thm} it turns out that the spectrum of $A$ coincides with its primitive spectrum.  So  the Equation \ref{ctr_open_id_eqn} establishes the one-to-one correspondence with the ideals of $A$ and opens sets of the spectrum of $A$.
 \end{remark}
 
 \begin{lemma}\label{ctr_fact_lem}\cite{rae:ctr_morita}
@@ -19728,28 +19255,6 @@ There are alternative equivalent definitions {continuous-trace} $C^*$-{algebras}
 		\item[(b)] For each $a \in A$ the function $x \mapsto \left\|\mathfrak{rep}_x\left(a \right) \right\|$ is continuous on  $\mathcal{X}$, vanishes at infinity and has sup-norm equal to $\left\| a\right\|$. 
 	\end{itemize}
 \end{lemma}
-
-\begin{theorem}\label{oa_1_thm}
-%6.8.7. Theorem. 
-Let $A$ be a separable $C^*$-algebra. The following twelve 
-conditions are equivalent: 
-\begin{itemize}
-	\item [(i)] $A$ is a $C^*$-algebra of type $I$; 
-	\item [(ii)] $\mathscr{B}\left( A\right) $ is a Borel *-algebra of type $I$; 
-	\item [(iii)] $A''$ is a von Neumann algebra of type $I$; 
-	\item [(iv)] $A$ has a composition series in which each quotient has continuous trace; 
-	\item [(v)]  $\K\in  \pi(A)$ for each irreducible representation $\pi: A \to B\left(\H\right)$; 
-	\item [(vi)] $\check{A} =\hat A$; 
-	\item [(vii)]  The $T$-Borel structure on $A$ is standard; 
-	\item [(viii)] The $D$-Borel structure on $A$ is countably separated; 
-	\item [(ix)]  The $M$-Borel structure on $A$ is countably separated; 
-	\item [(x)] The factor spectrum of $A$ coincides with $\hat A$
-	\item [(xi)] $A$ has no factor representations of type $II$; 
-	\item [(xii)] $A$ has no factor representations of type $III$.
-\end{itemize}
-
-\end{theorem}
-
 \subsection{Fields of operators}\label{f_op_sec}
 \paragraph*{}
 Let $\sX$ be a locally compact Hausdorff space called the base space; and for each $x$ in
@@ -19806,7 +19311,7 @@ Here, either each $A_x$ will be a Hilbert space or each $A_x$ will be a $C^*$-al
 %\end{definition}
 
 
-\subsection{$C^*$-algebras as cross sections and their multipliers}\label{cross_sections_sec}
+\subsection{$C^*$-algebras as cross sections and their multiplies}\label{cross_sections_sec}
 \paragraph*{}	
 Here I follow to \cite{apt_mult}. The following definition is a specialization of the Definition \ref{op_cont_fields_defn}.
 
@@ -19843,470 +19348,7 @@ We denote by $C_b\left(\mathcal X, M\left( A_x\right)_\bt,  \mathscr F\right)$ t
 \end{theorem}
 \begin{remark}\label{ctr_cont_rem}
 	There are $C^*$-algebras with continuous trace which do not match to the Theorem \ref{ctr_cont_thm}, i.e. these algebras cannot be represented as  $C_0\left( \sX,  \left\{A_x\right\}, \sF\right)$.
-\end{remark} 
-
-
-\section{$K$-theory for operator algebras}\label{ext_th_sec}
-\paragraph*{} Here I follow to \cite{blackadar:ko}.
-\begin{empt}\label{k_u0_k1_empt}
-If $A$ is an unitary $C^*$-algebra then there is the group homomorphism
-\be\label{k_u0_k1_eqn}
-U_1\left(A\right)/U_1\left( A\right)_0\to K_1\left(A\right)
-\ee
-where $ K_1\left(A\right)$ is the $K_1$-group, both $U_1\left(A\right)$ and $U_1\left(A\right)$ are groups of unitary and  unitary elements which are homotopic to identity.
-\end{empt}
-
-\begin{definition}\label{k_ext_defn}\cite{blackadar:ko}
-%	Definition 	15.1.1. 
-	Let $A$ 
-	and B 
-	be $C^*$-algebras. An \textit{extension of} 
-	$A$
-	\textit{by} 
-	$B$
-	is a 
-	short exact sequence 
-\bean
-0\to B\xrightarrow{j} E\xrightarrow{p} A\to 0
-\eean	
-	of $C^*$-algebras. 
-\end{definition}
-Given an extension  $
-0\to B\xrightarrow{j} E\xrightarrow{p} A\to 0
-$	
-, $B$ 
-sits as an ideal of $E$. Hence 
-there is a $*$-homomorphism $s$
-from $E$
-into $M(B)$. $s$ 
-is 
-injective if and only if $B$
-is essential in $E$. If we compose $s$ 
-with the quotient 
-map $\pi:
-: M(B) \to 
-Q(B)$, we obtain a $*$-homomorphism $\tau$ 
-from $E/ B\cong A$ to 
-$Q(B)$. 
-\begin{definition}\label{k_busby_defn}\cite{blackadar:ko}
-%15.2.1. 
-$\tau$ 
-is the \textit{Busby invariant of the extension} $0\to B\xrightarrow{j} E\xrightarrow{p} A\to 0
-$.
-\end{definition}
-\begin{empt}\label{k_strong_weak_empt}\cite{blackadar:ko}
-	If we want to have a reasonable classification of the extensions of $A$
-	by $B$, 
-	we need a suitable notion of equivalence. There are several obvious candidates. 
-	Throughout, wefix $A$ and $B$, and consider two extensions 
-	$$
-	0\to B\xrightarrow{j_1} E_1\xrightarrow{p_1} A\to 0
-	$$
-	and
-	$$
-	0\to B\xrightarrow{j_2} E_2\xrightarrow{p_2} A\to 0
-	$$
-	with Busby invariants $\tau_1$ and $\tau_2$.
-\begin{enumerate}
-	\item
-	Strong isomorphism (called \textit{strong equivalence}): there is a *-isomorphism 
-	making the following diagram commute:	
-	\newline
-\begin{tikzpicture}
-\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
-{
-0 &	B &    E_1  & A & 0 \\
-0 &	B &    E_2  & A  & 0   \\};
-\path[-stealth]
-(m-1-2) edge node [above] {$j_1$} (m-1-3)
-(m-1-2) edge node [right] {$\Id_B$} (m-2-2)
-(m-1-3) edge node [right] {$\ga$} (m-2-3)
-(m-2-2) edge node [above] {$j_2$}  (m-2-3)
-(m-1-4) edge node [right] {$\Id_A$} (m-2-4)
-(m-1-3) edge node [above] {$p_1$} (m-1-4)
-(m-2-3) edge node [above] {$p_2$}  (m-2-4)
-(m-1-1) edge   (m-1-2)
-(m-2-1) edge   (m-2-2)
-(m-1-4) edge   (m-1-5)
-(m-2-4) edge   (m-2-5);
-\end{tikzpicture}
-\newline	
-		\item Weak isomorphism (called \textit{weak equivalence} ): there are *-isomorphisms $\a$, $\bt$, $\ga$
-		making the following diagram 
-		commute: 
-			\newline
-		\begin{tikzpicture}
-		\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
-		{
-			0 &	B &    E_1  & A & 0 \\
-			0 &	B &    E_2  & A  & 0   \\};
-		\path[-stealth]
-		(m-1-2) edge node [above] {$j_1$} (m-1-3)
-		(m-1-2) edge node [right] {$\bt$} (m-2-2)
-		(m-1-3) edge node [right] {$\ga$} (m-2-3)
-		(m-2-2) edge node [above] {$j_2$}  (m-2-3)
-		(m-1-4) edge node [right] {$\a$} (m-2-4)
-		(m-1-3) edge node [above] {$p_1$} (m-1-4)
-		(m-2-3) edge node [above] {$p_2$}  (m-2-4)
-		(m-1-1) edge   (m-1-2)
-		(m-2-1) edge   (m-2-2)
-		(m-1-4) edge   (m-1-5)
-		(m-2-4) edge   (m-2-5);
-		\end{tikzpicture}
-		\newline
-		\item 	Strong (unitary) equivalence: there is a unitary $u \in 
-		M(B)$ such that $\tau_2\left( a\right) = \pi\left( u\right)\tau_1\left(a\right)\pi\left( u\right)^*$ 
-		for all $a\in A$.
-		\item Weak (unitary) equivalence: there is a unitary $v \in 
-Q(B)$ such that $\tau_2\left( a\right) = v\tau_1\left(a\right)v^*$ 
-for all $a\in A$.
-	\item Homotopy equivalence: the homomorphisms $\tau_j: A \to Q\left(B\right)$ are homotopic.
-	\item Stable equivalence: will be discussed in \ref{k_extl_defn}.
-	\end{enumerate}
-	Two extensions 
-	are strongly isomorphic if and only if their Busby invariants coincide. Thus the 
-	Busby invariant exactly determines the strong isomorphism class of an extension. 
-	It is trivial to check that strong isomorphism $\Rightarrow$
-	strong equivalence $\Rightarrow$ 
-	weak equivalence; if the unitary group of $M(B)$ is connected (in particular, if 
-	$B$ 
-	is a $\sigma$-unital stable algebra), then strong equivalence $\Rightarrow$
-	homotopy 
-	equivalence. 
-\end{empt}
-\begin{definition}\label{k_triv_ext_defn}
-We say that an extension is trivial 
-if the Busby invariant $\tau: A\to Q\left(B\right)$ lifts 
-to a $*$-homomorphism from $A$
-to $M\left(B\right)$. This will be the case if and only if the 
-associated exact sequence splits, i.e. if there is a cross-section $*$-homomorphism $s: A \to E$ 
-such that $q \circ s=\Id_A$.
-\end{definition}
-Below we suppose that the algebra $B$ is stable.
-\begin{definition}\label{k_ext_sum_defn}
-%	15.6.1. 
-	If $\tau_1, \tau_2$ are extensions of A  by B, then the sum $\tau_1\oplus\tau_2$ 
-	is the 	extension whose Busby invariant is $\tau_1 \oplus \tau_2 \in Q(B) \oplus 	Q(B) \subset M_2(Q(B)) \cong Q(B)$, where the last isomorphism is a standard isomorphism. 
-\end{definition}
-\begin{proposition}
-%15.6.2. 
-Addition 
-is 
-a 
-well 
-defined 
-binary 
-operation 
-on 
-the 
-set 
-$\mathbf{Ext}\left(A, 
-B\right)$ of 
-strong 
-equivalence 
-classes 
-of 
-extensions 
-of 
-$A$
-by 
-$B$, and 
-is 
-associative 
-and 
-commutative. So 
-$\mathbf{Ext}\left(A, 
-B\right)$ is 
-a 
-commutative 
-semigroup. The 
-following 
-form 
-subsemigroups 
-of 
-$\mathbf{Ext}\left(A, 
-B\right)$
-\begin{itemize}
-	\item[(a)] the 
-	classes 
-	of 
-	trivial 
-	extensions;
-	\item[(b)] the 
-	classes 
-	of 
-	essential 
-	extensions;
-	\item[(c)] if 
-	A 
-	is 
-	unital, the 
-	unital 
-	extensions; 
-	\item[(d)] if 
-	A 
-	is 
-	unital, the 
-	strongly 
-	unital 
-	trivial 
-	extensions.
-\end{itemize}
-(Some 
-of 
-these 
-subsemigroups 
-may 
-be 
-empty 
-in 
-general.) Addition 
-also 
-respects 
-weak 
-equivalence 
-and 
-homotopy 
-equivalence;so 
-there 
-are 
-semigroups 
-$\mathbf{Ext}_w\left(A, 
-B\right)$, 
-$\mathbf{Ext}_h\left(A, 
-B\right)$ which 
-are 
-quotients 
-of 
-$\mathbf{Ext}\left(A, 
-B\right)$ (sometimes 
-called 
-$\mathbf{Ext}_s\left(A, 
-B\right)$). 
-\end{proposition}
-\begin{definition}\label{k_extl_defn}
-%15.6.3. 
-We define $Ext(A, B)= Ext_s(A, 
-B)$ as the quotient of 
-$\mathbf{Ext}\left(A, 
-B\right)$ by the subsemigroup of trivial extensions. Similarly, $Ext_w(A, 
-B)$ and
-$Ext_h(A, B)$ are defined as the quotients of $\mathbf{Ext}_w\left(A, 
-B\right)$  and $\mathbf{Ext}_h\left(A, 
-B\right)$  by the
-subsemigroup of trivial extensions.
-\end{definition}
-\begin{remark}
-	It is obvious that $Ext$ is contravariantly functorial in the first variable, i.e. if	$f : A_1 \to A_2$ is a *-homomorphism, then there is a semigroup homomorphism 	$f^*:\mathbf{Ext}(A_2,B) \to \mathbf{Ext}(A_1,B)$, defined by $f^*\left[\tau\right]= \left[f\circ\tau\right]$. This homomorphism
-	drops to a homomorphism, also denoted $f^*$, from $Ext_*(A_2,B)$ to $Ext_*(A_1,B)$
-	(where $* = s, h$);
-\end{remark}
-%\begin{proposition}
-%Proposition 15.6.4. 
-%We always have $Ext(A,B) = Ext_w(A,B)$.
-%\end{proposition}
-\section{Inverse limits of $C^*$-algebras}
-\subsection{Basic results}
-\begin{prop}\label{pro_c_prop}\cite{phillips:inv_lim_app}
-%1.1.1. PROPOSITION. ([63]) 
-Let $A$ be a topological $*$ -algebra over 
-$\C$. Then $A$ is isomorphic, as a topological  $*$ -algebra, to an inverse limit of $C^*$- algebras in the above sense if and only if $A$ is Hausdorff, complete, and its topology 
-is determined by the set of all continuous $C^*$-seminorms on $A$.
-\end{prop}	
-
-\begin{definition}\label{pro_c_defn}\cite{phillips:inv_lim_app}
-%1.1.2. DEFINITION ([53], [7]). 
-A topological $*$-algebra satisfying the 
-conditions of the previous proposition is called a pro-$C^*$ -algebra. If it is a countable 
-inverse limit of $C^*$-algebras (equivalently, if its topology is determined by countably 
-many continuous $C^*$-seminorms), then it is called a $\sigma$-$C^*$-algebra. 
-
-\end{definition}
-
-\begin{notn}
-If $A$ is a pro-$C^*$-algebra, then $S(A)$ is the set of all 
-continuous $C^*$-seminorms on $A$, ordered as in the proof of Proposition \ref{pro_c_prop}. For 
-$p\in S\left(A\right)$, we let $\ker(p) \bydef \left\{\left.a\in A\right|p(a)=0\right\}$ and we let $A_p$ be the completion of 
-$A/\ker(p)$ in the norm determined by $p$.
-\end{notn} 
-Note that $A_p$ is a $C^*$-algebra, and that the proof of Proposition \ref{pro_c_prop} 
-gives a canonical representation of $A$ as an inverse limit, namely $A = \varprojlim_{p\in S(A)} A_p$. 
-%+ÑPes(A) (S(A) is directed because if p,^ G S(A), then a ÈÑ>¥ max(p(a), q(a)) is also in S(A).) We will show in Corollary 1.2.8 that in fact A/Ker(p) is always already complete.
-\begin{definition}\label{pro_bound_defn}\cite{phillips:inv_lim_app}
-%1.2.3. DEFINITION ([63]). 
-Let $A$ be a pro-$C^*$-algebra. Then an 
-element $a\in A$ i s called \textit{bounded} if $\left\| a\right\|_\infty  \bydef \sup\left\{\left.p(a)\right| p\in S(A)\right\}<\infty$. The set of all 
-bounded elements is denoted $b(A)$. 
-\end{definition}
-\begin{proposition}\label{pro_bound_prop}\cite{phillips:inv_lim_app}
-%1.2.4. PROPOSITION ([63]). 
-$b(A)$ is a $C^*$-algebra for the norm $\left\| \cdot\right\|_\infty$.
-
-\end{proposition}
-\begin{corollary}\label{pro_bound_cor}\cite{phillips:inv_lim_app}
-%	1.2.7. COROLLARY ([63]). 
-	$b(A)$ is dense in $A$.
-\end{corollary}
-
-\begin{definition}\label{pro_ab_defn}
-Let A be a pro-$C^*$-algebra. Then the \textit{abelianization} 
-of $A$ is the Hausdorff completion of A in the topology determined by all 
-continuous $C^*$-seminorms which vanish on the closed ideal $\left[A, A\right]$ generated by all 
-commutators $xy - yx$ for $x,y \in A$. 
-\end{definition}
-\begin{remark}
-The abelianization can also be described as the completion of $A/\left[A, A\right]$ 
-with respect to the quotient topology, or as the inverse limit $\varprojlim A_p/\left[A_p, A_p\right]$. It is 
-the largest abelian quotient of $A$. 
-\end{remark}
-\begin{definition}\label{pro_pt_defn}
- %2.5.1. DEFINITION.
- A pointed (pro-)$C^*$-algebra is a pair $(A,\a)$, 
-where $A$ is a unital (pro-)$C^*$-algebra and $\a: A \to \C$ is a unital homomorphism.
-\end{definition}
-\subsection{Generators and relations}\label{generators_and_relations}
-We begin with the construction of the $C^*$-algebra on a properly chosen
-set of generators and relations. Our treatment is based that of \cite{blackadar:shape_theory}, but includes
-changes to make it more suitable for our purposes. If $G$ is any set, we denote by
-$F(G)$ the free associative complex *-algebra (without identity) on the set $G$. Thus,
-$F(G)$ consists of all polynomials in the noncommuting variables $C \coprod G^*$ (disjoint union), with complex coefficients and no constant term. By definition, any function
-$p$ from $G$ to a $C^*$-algebra A extends to a unique *-homomorphism, which we also
-call $p$, from $F(G)$ to $A$.
-\newline
-A set $R$ of relations on $G$ is a collection of statements about the
-elements of $G$ which make sense for elements of a $C^*$ -algebra. Possible relations
-include statements of the form "$\|x\| \in S$"', where $x \in F(G)$ and $S \in \mathbb{R}$, "$x$ is
-positive," or the statement that some equation in the variables $G \coprod G^*$ and some unknowns has a solution, or that some function from a topological space into $G$ is
-continuous. Note that Blackadar considers only relations of the form $\|x\| \le \eta$ for $\eta > 0$ and $x$ in the unitization $F(G)^+$ of $F(G)$. (We do not allow relations involving
-elements of $F(G)^+-F(G)$ because they do not make sense in a nonunital $C^*$-
-algebra. However, it is perfectly possible for $R$ to include the relations $eg = ge Ñ g$
-for some fixed $e \in G$ and all $g \in G \coprod G^*$.)
-\begin{defn}\cite{phillips:inv_lim_app}
-	Let $(G,R)$ be a set of generators and relations.
-	(That is, G is a set and R is a set of relations on G.) Then a representation of
-	$(G,R)$ in a $C^*$-algebra $A$ is a function $\rho : G \to A$ such that the elements $\rho(g)$ for $g \in G$ satisfy the relations $R$ in $A$. A representation on a Hilbert space $\H$ is a
-	representation in $B(\H)$.
-\end{defn} 
-\begin{defn}\cite{phillips:inv_lim_app}
-	(Compare \cite{blackadar:shape_theory}). A set $(G,R)$ of generators and
-	relations is admissible if the following conditions hold:
-	\begin{enumerate}
-		
-		
-		\item The function from $G$ to the zero $C^*$-algebra is a representation of $(G,R)$.
-		\item If $\rho$ is a representation of $(G,R)$ in a $C^*$-algebra $A$, and if $B$ is a $C^*$-subalgebra of $A$ which contains $\rho(G)$, then $\rho$ is a representation of $(G,R)$ in $B$.
-		\item If $\rho$ is a representation of $(G, R)$ in a $C^*$-algebra $A$, and if $\psi: A\to B$ is a surjective homomorphism, then $\psi \circ \rho$ is a representation of $(G, R)$ in $B$.
-		\item For every $g \in G$ there is a constant $M(g)$ such that $\|\rho (g) \| < M(g)$ for all representations $p$ of $(G, R)$.
-		\item If $\{\rho_{\alpha}\}$ is a family of representations of $(G, R)$ on Hilbert spaces $H_{\alpha}$ then $g \mapsto \rho(g)=\oplus_{\alpha}\rho_{\alpha}(g)$   is a representation of $(G, R)$ on $H= \oplus H_{\alpha}$. (That is, the elements $\rho(g)$, which are in $B(H)$ by (4), in fact satisfy the relations $R$.)
-	\end{enumerate}
-\end{defn}
-Note that, in the presence of (3), condition (1) is equivalent to "there
-exists a representation of $(G, R)$." Also note that, for relations of the sort considered
-by Blackadar, (2) and (3) are automatic and (5) follows from (4).
-%1.3.3. EXAMPLES, (l) The relation |x|| = 1 on the single generator
-%x does not satisfy (l) of the definition.
-The universal $C^*$-algebra on the generators $G$ and relations $R$ is a $C^*$- algebra $C^*(G,R)$ with a representation $\rho$ of $(G,R)$ in $C^*(G,R)$, such that, given any representation $\sigma$ of $(G,R)$ in a $C^*$-algebra $B$, then is a unique homomorphism
-$\psi : C^*(G,R) \to B$ such that $\sigma=\psi \circ \rho$. If $(G,R)$ is admissible, then $C^*(G,R)$ exists
-and, following Blackadar, can be obtained as the Hausdorff completion of $F(G)$ in the $C^*$ -seminorm $\|x\| = \mathrm{sup}|\rho(x)\|$ where $\rho$ is a representation of $(G,R)$.
-Note that condition (4) guarantees that $\|x\| < \infty$ for $x \in G$, and that condition
-(5) guarantees that the obvious map from $G$ to $C^*(G, R)$ is in fact a representation.
-Admissibility, or something close to it, is also necessary for the existence
-of $C^*(G,R)$. Condition (1) is needed, since otherwise there may be no
-representations at all; conditions (2) and (3) are needed to ensure that the notion of a universal $C^*$-algebra is sensible, and without conditions (4) and (5) it will not be
-possible to construct a universal $C^*$ -algebra. However, if the relations $R$ also make
-sense in a pro-$C^*$ -algebra, then a pro-$C^*$-algebra with the required properties will
-exist under much weaker conditions, as in the following definition. A representation
-of $(G, R)$ in a pro-$C^*$-algebra has the obvious meaning.
-\begin{defn}\label{weak_adm_defn}\cite{phillips:inv_lim_app}
-	
-	A set $(G, R)$ of generators and relations is called
-	weakly admissible if the following conditions are satisfied:
-	\begin{enumerate}
-		
-		\item The function from $G$ to the zero $C^*$-algebra is a representation of $(G,R)$.
-		\item If $\rho$ is a representation of $(G,R)$ in a $C^*$-algebra $A$, and if $B$ is a $C^*$-subalgebra of $A$ which contains $\rho(G)$, then $\rho$ is a representation of $(G,R)$ in $B$.
-		\item If $\rho$ is a representation of $(G, R)$ in a $C^*$-algebra $A$, and if $\varphi: A\to B$ is a surjective homomorphism, then $\varphi \circ \rho$ is a representation of $(G, R)$ in $B$.
-		\item For every $g \in G$ there is a constant $M(g)$ such that $\|\rho (g) \| < M(g)$ for all representations $p$ of $(G, R)$.
-		\item If $\{\rho_{\alpha}\}$ is a family of representations of $(G, R)$ on Hilbert spaces $H_{\alpha}$ then $g \mapsto \rho(g)=\oplus_{\alpha}\rho{\alpha}(g)$   is a representation of $(G, R)$ on $H= \oplus H_{\alpha}$. (That is, the elements $\rho(g)$, which are in $B(H)$ by (4), in fact satisfy the relations $R$.)
-		
-		\item If $A$ is a pro-$C^*$-algebra, and $\rho : G \to A$ is a function such that, for every $p \in S(A)$, the composition of $\rho$ with $A \to A_p$ is a representation of $(G, R)$ in $A_p$, then $\rho$ is a representation of $(G,R)$.
-		\item If $\rho_1, ..., \rho_n$ are representations of $(G,R)$ in $C^*$-algebras $A_1,...,A_n$
-		then $g \mapsto (\rho_1(g), ..., \rho_n(g))$ is a representation of $(G,R)$ in $A_1 \oplus ... \oplus A_n$.
-	\end{enumerate}
-\end{defn}
-\begin{prop}\label{uni_pro_c_rep} \cite{phillips:inv_lim_app}
-	Let $(G,R)$ be a weakly admissible set of generators
-	and relations. Then there exists a pro-$C^*$ -algebra C*(G,R), equipped with
-	a representation $\rho : G \to C^*(G,R)$ of $(G,R)$, such that, for any representation $\sigma$ of $(G,R)$ in a pro-$C^*$-algebra $B$, there is a unique homomorphism $\varphi : C^*(G,R) \to B$
-	satisfying $\sigma = \varphi \circ \rho$. If $(G,R)$ is admissible, then $C^*(G,R)$ is a $C^*$-algebra.
-\end{prop}
-\subsection{Noncommutative Suspension and Loop Space}\label{loop_space_gen}
-
-We would like to generalize notion of a loop space.
-%\begin{proof}
-%Let $D$ be the set of all $C^*$-seminorms on $F(G)$ of the form
-%$\rho(x) = \|\sigma(x)\|$ for some representation a of $G$ in a %$C^*$-algebra. Then take $C^*(G,R)$ to be the Hausdorff completion of $F(G)$ in the family of $C^*$-seminorms $D$, with
-%the obvious map $\rho : G \to C^*(G,R)$. To see that $\rho$ is a representation, let $q \in S(C^*(G, R))$. Since $D$ is a directed set in the obvious order (by (5) of the definition
-%of weak admissibility), there is a representation $\sigma$ of $(G,R)$ in a $C^*$-algebra $B$ such
-%that $q(x) < \|\sigma(x)\| \ \forall x \in F(G)$. By (2) we may assume that $B$ is generated by $\sigma(G)$, from which it follows that there is a surjective map $\varphi : B \to C^*(G,R)_q$
-%such that, with $\kappa_q : C^*(G,R) \to C*(G,R)_q$ being the canonical map, we have $\varphi \circ \sigma = \kappa_q \circ \rho$. So $\kappa_q(\rho)$ is a representation by (3), whence p is a representation by
-%(4).
-%To show that $C^*(G,R)$ satisfies the universal property, it suffices, in
-%view of (3), the definition of an inverse limit, and Corollary 1.2.8, to show the universal property holds for representations in C*-algebras. Now use the definition of C*{G,R).
-%If $(G,R)$ is admissible, then the directed set $D$ has a largest element
-%$\rho$, so that $C^*(G,R)$ is a $C^*$-algebra with the norm $p$.
-%\end{proof}
-
-
-\begin{defn}\label{poined_alg_defn}\cite{phillips:inv_lim_app}
-	If $(A, \alpha)$ is a pointed pro-$C^*$-algebra, than its
-	suspension is the pro-$C^*$-algebra $\Sigma A = \{f : S^1 \to A \ \mathrm{continuous} \ : \alpha(f(\zeta)) \cdot 1 = f(1), \ \forall \zeta \in S^1\}$, together with the homomorphism $ev_1 : \Sigma A \to \mathrm{C}$ of evaluation at 1. Here $S^1$ is
-	identified with $\{\zeta \in \mathbb{C}:|\zeta| = 1\}$. (Note that $ev_1$ makes sense as a homomorphism
-	to $\mathbb{C}$ since $f(1) \in \mathbb{C} \cdot 1$ for $f \in \Sigma A$.)
-\end{defn}
-Note that $\Sigma(A^+) = (SA)^+$ , where $SA$ is the conventional suspension $C_0(\mathbb{R} \otimes A$. A left adjoint for $\Sigma$ in the pointed category immediately gives a left
-adjoint for $S$ in the category of pro-$C^*$-algebras and arbitrary homomoprhisms,
-simply by taking the kernel of the homomorphism to $\mathbb{C}$ which comes with the
-pointed pro-$C^*$-algebra. It is a left adjoint for S that Rosenberg really had in
-mind, since what he calls $\Sigma$ we call $S$. However, our approach more closely matches the topologists' conventions.
-\begin{defn}\label{pointed_noncommutative_loop_defn}\cite{phillips:inv_lim_app}
-	Let $(A, \alpha)$ be a pointed pro-$C^*$-algebra. We
-	construct a pointed pro-$C^*$-algebra $\Omega A$ in terms of generators and relations as
-	follows. Let the generating set $G$ consist of the symbols $z(a, \zeta)$ for a $a \in A$ and $f \in S^1$, and let the relations $R$ be as follows:
-	\begin{enumerate}
-		\item The map $(a, \zeta) \mapsto z(a, \zeta)$ continuous.
-		\item For each fixed $\zeta \in S^1$, the elements $z(a, \zeta)$ satisfy all the algebraic
-		relations satisfied by the corresponding elements of $A$.
-		\item $z(1,\zeta) = z(1,1)$ $\forall S^1$ .
-		\item $z(a, 1) = z(\alpha(a)1, 1)$ $\forall \in  A$.
-	\end{enumerate}
-	Then set $\Omega A= C^*(G, R)$. The required homomorphism from  $\Omega A$ to $\mathbb{C}$ is given by $z(a, \zeta) \mapsto \alpha(a)$  for $a \in A$ and $\zeta \in S^1$.
-\end{defn}
-\begin{thm}\label{pro_adf_thm}\cite{phillips:inv_lim_app}
-	The map $\Phi : \Hom_+(\Omega A, B) \to \Hom_+(A, \Sigma B)$ defined by $\Phi(\varphi)(a)(\zeta) = \phi(z((a, \zeta))))$, is a natural bijection, and also defines a natural bijection $[\Omega A,B]^+ \to [A, \Sigma B]^+$ . In particular, $\Omega$ is a left adjoint for the functor
-	$\Sigma$.
-\end{thm}
-\begin{empt}\label{pro_ab_empt}\cite{phillips:inv_lim_app}
-We should note that if $A = C(\sX)$ for some compactly generated 
-completely Hausdorff space $\sX$, and if $\a = ev_{x_0}$, evaluation at $x_0$, for some $x_0\in\sX$, 
-then the abelianization of $\Om A$ (cf. Definition \ref{pro_ab_defn}) is $C(\Om(X,x_0))$, where $\Om(X,x_0)$ is 
-the usual loop space of $\sX$ relative to the basepoint $x_0$ (cf. \cite{switzer:at}%2.6
-), and is equipped 
-with the compactly generated topology. Note, 
-however, that $C(\Om(X,x_0))$ is essentially never commutative, because if $\phi:  C(X) \to B$ is a homomorphism, then there is generally no reason for the ranges of the 
-homomorphisms $ \ev_\zeta \circ \phi : C(\sX) \to B$ to commute with each other. 
-\end{empt}
-
-
-%\begin{empt}\label{unpointed_loop_suspension}
-%	It is an analog $\Omega_0$ of a loop algebra construction without basepoint. Letting $\Sigma B$ usual suspension of pro-$C^*$-algebra $B$, and identifying it with $\{f:S^1\to B \ | \ f(1)=0 \}$ we have
-%	\begin{equation}
-%	\begin{split}
-%	\mathrm{Hom}(\Omega_0 A, B)\simeq \mathrm{Hom}(\Sigma A,B),
-%[\Omega_0 A,B ]\simeq [A, \Sigma B].
-%	\end{split}
-%	\end{equation} 
-%\end{empt}
+\end{remark} 	
 
 	
 	\chapter{Spectral triples}
@@ -22599,8 +21641,7 @@ M. F. Atiyah, R. Bott and A. Shapiro, \textit{Clifford Modules}, Topology{\bf 3}
 \bibitem{blackadar:ko} B. Blackadar. {\it K-theory for Operator Algebras}, Second edition. Cambridge University Press. 1998.
 
 %\bibitem{blackadar:oa} B. Blackadar. \textit{Operator Algebras: Theory of C*-Algebras and von Neumann Algebras}, (Encyclopaedia of Mathematical Sciences), Springer,  2006.
-\bibitem{blackadar:shape_theory} B. Blackadar, {\it Shape theory for $C^*$-algebras}, Math. Scand. 56 , 249-275, 1985.
-
+%\bibitem{blackadar:shape_theory} B. Blackadar, {\it Shape theory for $C^*$-algebras}, Math. Scand. 56 , 249-275, 1985.
 \bibitem{blecher_merdy} David P. Blecher, Christian Le Merdy. \textit{Operator algebras and their modules - an operator space approach}, CLARENDON PRESS - OXFORD, 2004.
 
 %\bibitem{blecher:hilb_gen} D.P. Blecher. {\it A generalization of Hilbert modules}, J.Funct. An. 136, 365-421 1996.
@@ -22760,8 +21801,6 @@ Birkhauser, Basel-Boston-Berlin 1991), viii + 202 pp. 3 7643 3496 7, sFr. 98. 19
 
 %\bibitem{kakariadis:corr}Evgenios T.A. Kakariadis, Elias G. Katsoulis, {\it Operator algebras and $C^*$-correspondences: A survey.} 	arXiv:1210.6067, 2012.
 
-
-\bibitem{kasch:mr} Kasch !!!
 \bibitem{kaplansy:certain} I. Kaplanky. \textit{The structure of certain operator algebras.} Trans. Amer. Math. Soc., 70 (1951), 219-255. 1951.
 
 
@@ -22841,13 +21880,6 @@ Transactions of the American Mathematical Society \textbf{182} (1973),
 \bibitem{pedersen:mea_c} Gert Kj¾rgŒrd Pedersen.  \textit{Measure Theory for $C^*$ Algebras}. Mathematica Scandinavica (1966) Volume: 19, page 131-145
 ISSN: 0025-5521; 1903-1807/e, 1966.
 
-\bibitem{phillips:inv_lim_app}
-N. Christopher Phillips {\it Inverse Limits of $C^*$ - algebras and Applications.} 
-University of California at Los Angeles, Los Angeles,  CA 90024
-Edited by David E. Evans, Masamichi Takesaki
-Publisher: Cambridge University Press
-DOI: https://doi.org/10.1017/CBO9780511662270.011
-pp 127-186, Print publication year: 1989.
 
 %\bibitem{phillips:inv_lim_app} N. Christopher Phillips {\it Inverse Limits of $C^*$ - algebras and Applications.} University of California at Los Angeles, Los Angeles, CA 90024, 1991.
 %\bibitem{phillips:ped_id}N. C. Phillips. \textit{A new approach to the multipliers of Pedersen's ideal}. Proc. American Mathematical Society, Volume 104, Number 3, November 1988.
@@ -22868,6 +21900,9 @@ Marc~A. Rieffel, \emph{Induced representations of {C}{$^\ast$}-algebras},
 Advances in Mathematics \textbf{13} (1974), 176--257. 1974.
 
 %\bibitem{Rieffel:74b}Marc~A. Rieffel. \emph{{M}orita equivalence for {C}{$^\ast$}-algebras and	{W}{$^\ast$}-algebras}, Journal of Pure and Applied Algebra \textbf{5}(1974), 51--96. 1974.
+
+%\bibitem{switzer:at} Switzer R M, {\it Algebraic Topology - Homotopy and Homology},
+%Springer. 2002
 
 %\bibitem{adams:infinite_loop_spaces} J. F. Adams. {\it Infinite loop spaces}. Ann. of Math. Studies no. 90, Princeton Univ. Press, Princeton, N. J., 1978
 
@@ -22915,15 +21950,6 @@ Marc A. Reiffel, \emph{Strong {M}orita equivalence of certain transformation gro
 
 %\bibitem{ros:ctr}Jonathan Rosenberg. \textit{Continuous-trace algebras from the bundle theoretic point of view}. Journal of the Australian Mathematical Society, Volume 47, Issue 3 December 1989 , pp. 368-381, 1989.
 
-    
-
-\bibitem{ruan:real_comp} Ruan, Z.J. \textit{Complexifications of real operator spaces}. Illinois J. Math.
-Volume 47, Number 4 (2003), 1047-1062. 2003.
-
-\bibitem{ruan:real_os} Ruan, Z.J. \textit{On Real Operator Spaces}. Acta Math Sinica 19, 485Ð496 (2003). https://doi.org/10.1007. 2003.
-
-
-
 \bibitem{rudin:fa}Walter Rudin. \textit{Functional Analysis}, Second Edition, McGraw-Hill, Inc. New York St. Louis San Francisco Auckland Bogota Caracas Hamburg Lisbon London Madrid Mexico Milan Montreal New Delhi Paris San Juan Sao Paulo Singapore Sydney Tokyo Toronto, 1991.
 
 
@@ -22940,10 +21966,6 @@ Kay Schwieger, Stefan Wagner. \textit{Noncommutative Coverings of Quantum Tori}.
 
 \bibitem{spanier:at}
 E.H. Spanier. {\it Algebraic Topology.} McGraw-Hill. New York. 1966.
-
-
-\bibitem{switzer:at} Switzer R M, {\it Algebraic Topology - Homotopy and Homology}, Springer. 2002.
-
 
 \bibitem{takeda:inductive} Zir\^{o} Takeda. \textit{Inductive limit and infinite direct product of operator algebras.} Tohoku Math. J. (2) 	Volume 7, Number 1-2 (1955), 67-86. 1955.
 
