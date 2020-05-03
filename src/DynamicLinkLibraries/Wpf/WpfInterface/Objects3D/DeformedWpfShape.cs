@@ -90,7 +90,7 @@ namespace WpfInterface.Objects3D
             info.AddValue("Output", output, typeof(string[]));
         }
 
-        public override Visual3D GetVisual(Motion6D.Camera camera)
+        public override Visual3D GetVisual(Motion6D.Portable.Camera camera)
         {
             if (xaml == null)
             {

@@ -6,7 +6,7 @@ using System.Text;
 
 
 using Motion6D.Interfaces;
-using Motion6D;
+using Motion6D.Portable;
 
 namespace WpfInterface.Interfaces
 {

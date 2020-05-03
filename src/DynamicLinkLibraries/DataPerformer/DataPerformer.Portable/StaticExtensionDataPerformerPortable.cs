@@ -86,6 +86,17 @@ namespace DataPerformer.Portable
         }
 
         /// <summary>
+        /// Gets all iterators of consumer
+        /// </summary>
+        /// <param name="consumer">Consumer</param>
+        /// <param name="iterators">List of iterators</param>
+        public static void GetIterators(this IDataConsumer consumer, List<IIterator> iterators)
+        {
+            getIterators(consumer, iterators);
+        }
+
+
+        /// <summary>
         /// Sets the factory of the time measurements
         /// </summary>
         /// <param name="factory">Factory of the time measurement </param>
@@ -2057,6 +2068,30 @@ namespace DataPerformer.Portable
         #endregion
 
         #region Private Members
+
+
+        static void getIterators(IDataConsumer consumer, List<IIterator> list)
+        {
+            for (int i = 0; i < consumer.Count; i++)
+            {
+                IMeasurements m = consumer[i];
+                if (m is IIterator)
+                {
+                    IIterator it = m as IIterator;
+                    if (!list.Contains(it))
+                    {
+                        list.Add(it);
+                    }
+                }
+                if (m is IDataConsumer)
+                {
+                    IDataConsumer c = m as IDataConsumer;
+                    getIterators(c, list);
+                }
+            }
+        }
+
+
 
         static private Dictionary<IMeasurement, string> GetMeasurementsDictionaryPrivate(this IDataConsumer dataConsumer)
         {

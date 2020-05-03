@@ -14,6 +14,7 @@ using PhysicalField;
 using DataPerformer;
 using Motion6D.Interfaces;
 using PhysicalField.Interfaces;
+using Motion6D.Portable;
 
 namespace Motion6D
 {

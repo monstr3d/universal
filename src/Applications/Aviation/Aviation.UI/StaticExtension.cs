@@ -28,7 +28,7 @@ namespace Aviation.UI
     {
 
         public static FormMain CreateAviationForm(string filename, ByteHolder holder,
-          ButtonWrapper[] addButtons, IUIFactory[] factories, Motion6D.Interfaces.IPositionObjectFactory factory,
+          ButtonWrapper[] addButtons, IUIFactory[] factories, Motion6D.Portable.Interfaces.IPositionObjectFactory factory,
           Dictionary<string, object>[] addReasurces, bool throwsDoubleInit, string caption, Icon icon, TextWriter logWriter, TestCategory.Interfaces.ITestInterface testInterface)
         {
             return CreateAviationForm(null, filename, holder, addButtons, factories, factory, addReasurces, 
@@ -37,13 +37,13 @@ namespace Aviation.UI
   
 
         public static FormMain CreateAviationForm(string filename, ButtonWrapper[] addButtons,
-            IUIFactory[] factories, Motion6D.Interfaces.IPositionObjectFactory factory, Dictionary<string, object>[] addResources, TextWriter logWriter, TestCategory.Interfaces.ITestInterface testInterface)
+            IUIFactory[] factories, Motion6D.Portable.Interfaces.IPositionObjectFactory factory, Dictionary<string, object>[] addResources, TextWriter logWriter, TestCategory.Interfaces.ITestInterface testInterface)
         {
             return CreateAviationForm(filename, addButtons, factories, factory, addResources, Properties.Resources.Aviation, "Aviation + Control Systems", logWriter, testInterface);
         }
  
         public static FormMain CreateAviationForm(string filename, ButtonWrapper[] addButtons,
-            IUIFactory[] factories, Motion6D.Interfaces.IPositionObjectFactory factory, Dictionary<string, object>[] addResources, Icon icon, string caption, TextWriter logWriter,
+            IUIFactory[] factories, Motion6D.Portable.Interfaces.IPositionObjectFactory factory, Dictionary<string, object>[] addResources, Icon icon, string caption, TextWriter logWriter,
             TestCategory.Interfaces.ITestInterface testInterface)
         {
             return CreateAviationForm(filename, null, addButtons, factories, factory, addResources, true, caption, icon, logWriter, testInterface);
@@ -51,15 +51,15 @@ namespace Aviation.UI
 
         public static FormMain CreateAviationFormFull(LightDictionary<string, ButtonWrapper[]> buttons, IApplicationInitializer[] init,
             Dictionary<string, object>[] dictionary,
-            DataWarehouse.Interfaces.IDatabaseCoordinator database, string filename, ByteHolder holder, IUIFactory[] factories, Motion6D.Interfaces.IPositionObjectFactory factory,
+            DataWarehouse.Interfaces.IDatabaseCoordinator database, string filename, ByteHolder holder, IUIFactory[] factories, Motion6D.Portable.Interfaces.IPositionObjectFactory factory,
          bool throwsDoubleInit, string caption, Icon icon, System.IO.TextWriter logWriter, TestCategory.Interfaces.ITestInterface testInterface)
         {
             List<IUIFactory> l = new List<IUIFactory>();
             l.AddRange(factories);
-            Motion6D.Interfaces.IPositionObjectFactory pf = factory;
+            Motion6D.Portable.Interfaces.IPositionObjectFactory pf = factory;
             if (pf == null)
             {
-                pf = Motion6D.PositionObjectFactory.BaseFactory;
+                pf = Motion6D.Portable.PositionObjectFactory.BaseFactory;
             }
             if (pf != null)
             {
@@ -80,7 +80,7 @@ namespace Aviation.UI
 
 
         public static FormMain CreateAviationForm(DataWarehouse.Interfaces.IDatabaseCoordinator database, string filename, ByteHolder holder,
-            ButtonWrapper[] addButtons, IUIFactory[] factories, Motion6D.Interfaces.IPositionObjectFactory factory,
+            ButtonWrapper[] addButtons, IUIFactory[] factories, Motion6D.Portable.Interfaces.IPositionObjectFactory factory,
             Dictionary<string, object>[] addReasurces, bool throwsDoubleInit, string caption, Icon icon, TextWriter logWriter,
             TestCategory.Interfaces.ITestInterface testInterface)
         {

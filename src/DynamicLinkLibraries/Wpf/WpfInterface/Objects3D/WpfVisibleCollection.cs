@@ -7,7 +7,7 @@ using System.Windows.Media.Media3D;
 using DataPerformer.Interfaces;
 
 using Motion6D.Interfaces;
-
+using Motion6D.Portable.Interfaces;
 using WpfInterface.Interfaces;
 
 
@@ -24,7 +24,7 @@ namespace WpfInterface.Objects3D
 
         List<Motion6D.SerializablePosition> positions = new List<Motion6D.SerializablePosition>();
 
-        List<Motion6D.Camera> cameras = new List<Motion6D.Camera>();
+        List<Motion6D.Portable.Camera> cameras = new List<Motion6D.Portable.Camera>();
 
         IPosition position;
 
@@ -53,7 +53,7 @@ namespace WpfInterface.Objects3D
 
         #region IWpfVisible Members
 
-        Visual3D IWpfVisible.GetVisual(Motion6D.Camera camera)
+        Visual3D IWpfVisible.GetVisual(Motion6D.Portable.Camera camera)
         {
             return GetVisualProtected(camera);
         }
@@ -73,7 +73,7 @@ namespace WpfInterface.Objects3D
 
         #region ICameraConsumer Members
 
-        void ICameraConsumer.Add(Motion6D.Camera camera)
+        void ICameraConsumer.Add(Motion6D.Portable.Camera camera)
         {
             if (cameras.Contains(camera))
             {
@@ -90,7 +90,7 @@ namespace WpfInterface.Objects3D
             }
         }
 
-        void ICameraConsumer.Remove(Motion6D.Camera camera)
+        void ICameraConsumer.Remove(Motion6D.Portable.Camera camera)
         {
             if (!cameras.Contains(camera))
             {
@@ -135,7 +135,7 @@ namespace WpfInterface.Objects3D
         /// </summary>
         /// <param name="camera">Camera</param>
         /// <returns>Visual</returns>
-        protected virtual Visual3D GetVisualProtected(Motion6D.Camera camera)
+        protected virtual Visual3D GetVisualProtected(Motion6D.Portable.Camera camera)
         {
             return visual;
         }

@@ -100,7 +100,7 @@ namespace DynamicAtmosphere.MSISE
 
 
         /// <summary>
-        /// 81 day average of F10.7 flux (centered on doy)
+        /// 81 day average of F10.7 flux (centered on day)
         /// </summary>
         protected double f107A;  
 

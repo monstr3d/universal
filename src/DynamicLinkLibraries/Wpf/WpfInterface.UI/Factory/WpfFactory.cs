@@ -12,14 +12,14 @@ using Motion6D.Interfaces;
 
 using WpfInterface.CameraInterface;
 using WpfInterface.UI.Labels;
-
+using Motion6D.Portable;
 
 namespace WpfInterface.UI.Factory
 {
     /// <summary>
     /// WPF implementation of 3D Graphics
     /// </summary>
-    public class WpfFactory : PositionObjectFactory
+    public class WpfFactory : Motion6D.Portable.PositionObjectFactory
     {
         #region Fields
 
@@ -76,12 +76,12 @@ namespace WpfInterface.UI.Factory
             return null;
         }
 
-        public override Camera NewCamera()
+        public override Motion6D.Portable.Camera NewCamera()
         {
             return new WpfCamera();
         }
 
-        public override object CreateForm(Camera camera)
+        public override object CreateForm(Motion6D.Portable.Camera camera)
         {
             return null;
         }

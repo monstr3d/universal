@@ -19,7 +19,7 @@ using DataPerformer.Interfaces;
 using Event.Portable;
 using Event.Interfaces;
 
-using Motion6D;
+using Motion6D.Portable;
 
 using Scada.Interfaces;
 
@@ -33,6 +33,7 @@ using Animation.Interfaces;
 using Scada.Desktop.Serializable;
 using AssemblyService;
 using Event.Portable.Interfaces;
+using Motion6D.Portable;
 
 namespace Scada.Motion6D.Factory
 {

@@ -108,16 +108,6 @@ namespace DataPerformer
         }
 
         /// <summary>
-        /// Gets all iterators of consumer
-        /// </summary>
-        /// <param name="consumer">Consumer</param>
-        /// <param name="iterators">List of iterators</param>
-        public static void GetIterators(this IDataConsumer consumer, List<IIterator> iterators)
-        {
-            getIterators(consumer, iterators);
-        }
-
-        /// <summary>
         /// Gets all measurements of one dimension real array
         /// </summary>
         /// <param name="ao">Associated object</param>
@@ -604,28 +594,6 @@ namespace DataPerformer
         {
             return (double)1;
         }
-
-        static void getIterators(IDataConsumer consumer, List<IIterator> list)
-        {
-            for (int i = 0; i < consumer.Count; i++)
-            {
-                IMeasurements m = consumer[i];
-                if (m is IIterator)
-                {
-                    IIterator it = m as IIterator;
-                    if (!list.Contains(it))
-                    {
-                        list.Add(it);
-                    }
-                }
-                if (m is IDataConsumer)
-                {
-                    IDataConsumer c = m as IDataConsumer;
-                    getIterators(c, list);
-                }
-            }
-        }
-
 
         #endregion
 

@@ -182,7 +182,7 @@ namespace WpfInterface.UI.Forms
 
         private void Start()
         {
-            IProcess p = Motion6D.StaticExtensionMotion6D.Animation;
+            IProcess p = Motion6D.Portable.StaticExtensionMotion6DPortable.Animation;
             if (p == null)
             {
                 return;
@@ -209,7 +209,7 @@ namespace WpfInterface.UI.Forms
 
         private void Stop()
         {
-            IProcess p = Motion6D.StaticExtensionMotion6D.Animation;
+            IProcess p = Motion6D.Portable.StaticExtensionMotion6DPortable.Animation;
             if (p != null)
             {
                 p.Terminate();
@@ -220,7 +220,7 @@ namespace WpfInterface.UI.Forms
 
         private void Resume()
         {
-            IProcess p = Motion6D.StaticExtensionMotion6D.Animation;
+            IProcess p = Motion6D.Portable.StaticExtensionMotion6DPortable.Animation;
             if (p != null)
             {
                 p.Resume();
@@ -231,7 +231,7 @@ namespace WpfInterface.UI.Forms
         private void Pause()
         {
             isPaused = true;
-            IProcess p = Motion6D.StaticExtensionMotion6D.Animation;
+            IProcess p = Motion6D.Portable.StaticExtensionMotion6DPortable.Animation;
             if (p != null)
             {
                 p.Pause();

@@ -7,6 +7,7 @@ using System.Runtime.Serialization;
 using CategoryTheory;
 using Diagram.UI;
 using Motion6D.Interfaces;
+using Motion6D.Portable;
 
 namespace Motion6D
 {

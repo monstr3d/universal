@@ -161,7 +161,7 @@ namespace Motion6D.Image
 
         #region Overriden
 
-        public override Visual3D GetVisual(Camera camera)
+        public override Visual3D GetVisual(Portable.Camera camera)
         {
             if (isSerialized)
             {

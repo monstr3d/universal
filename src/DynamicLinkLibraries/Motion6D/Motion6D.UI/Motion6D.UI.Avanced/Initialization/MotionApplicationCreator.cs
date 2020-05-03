@@ -18,6 +18,7 @@ using Motion6D.Interfaces;
 using BasicEngineering.UI.Factory.Interfaces;
 using BasicEngineering.UI.Factory.Advanced;
 using BasicEngineering.UI.Factory.Advanced.Forms;
+using Motion6D.Portable.Interfaces;
 
 namespace Motion6D.UI.Avanced.Initialization
 {
@@ -80,12 +81,12 @@ namespace Motion6D.UI.Avanced.Initialization
             apps.Add(Motion6D.ApplicationInitializer.Object);
             apps.Add(Event.Portable.ApplicationInitializer.Singleton);
             FormMain form = DefaultApplicationCreator.CreateForm(coordinator, holder, ordSolver, diffProcessor,
-                  Motion6D.Runtime.DataRuntimeFactory.Object,
+                  Motion6D.Portable.Runtime.DataRuntimeFactory.Object,
                   apps.ToArray(),
               fact.ToArray(),
               throwsRepeatException,
                   buttons, icon, filename, resources, text, ext, fileFilter, logWriter, testInterface);
-            StaticExtensionMotion6D.Animation = form;
+                Portable.StaticExtensionMotion6DPortable.Animation = form;
             return form;
         }
 

@@ -18,7 +18,8 @@ using Diagram.UI.Interfaces;
 
 using Motion6D.Interfaces;
 using Motion6D;
-
+using Motion6D.Portable.Interfaces;
+using Motion6D.Portable;
 
 namespace Motion6D.UI.Factory
 {

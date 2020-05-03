@@ -12,7 +12,7 @@ using Motion6D.Interfaces;
 using Vector3D;
 using SphericalFields;
 using PhysicalField.Interfaces;
-
+using Motion6D.Portable;
 
 namespace PhysicalField
 {

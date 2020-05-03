@@ -7,7 +7,7 @@ using System.Text;
 namespace Motion6D.Interfaces
 {
     /// <summary>
-    /// StaticExtension
+    /// Static Extension
     /// </summary>
     public static class StaticExtensionMotion6DInterfaces
     {

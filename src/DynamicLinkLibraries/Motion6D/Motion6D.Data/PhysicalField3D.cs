@@ -5,6 +5,7 @@ using System.Runtime.Serialization;
 
 using PhysicalField;
 using Motion6D.Interfaces;
+using Motion6D.Portable;
 
 namespace Motion6D
 {
@@ -13,7 +14,7 @@ namespace Motion6D
     /// 3D physical field
     /// </summary>
     [Serializable()]
-    public class PhysicalField3D : PhysicalFieldBase
+    public class PhysicalField3D : Portable.PhysicalField3D
     {
         #region Fields
 
@@ -27,6 +28,7 @@ namespace Motion6D
         /// </summary>
         public PhysicalField3D()
         {
+
         }
 
         /// <summary>
@@ -35,8 +37,8 @@ namespace Motion6D
         /// <param name="info">Serialization Information</param>
         /// <param name="context">Streaming Context</param>
         protected PhysicalField3D(SerializationInfo info, StreamingContext context)
-            : base(info, context)
         {
+
         }
 
         #endregion

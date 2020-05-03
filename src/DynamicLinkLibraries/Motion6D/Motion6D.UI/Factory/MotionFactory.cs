@@ -119,7 +119,7 @@ namespace Motion6D.UI.Factory
                     PhysicalField.SphericalFieldWrapper ph =
                         new PhysicalField.SphericalFieldWrapper((int)SphericalFields.SphericalType.VectorPotentialGragient);
                     p.Parameters = ph;
-                    Motion6D.Interfaces.IPositionObject po = ph;
+                    Interfaces.IPositionObject po = ph;
                     po.Position = p;
                     return p;
                 }
@@ -141,10 +141,10 @@ namespace Motion6D.UI.Factory
                 }
                 if (kind.Equals(Field3D))
                 {
-                    Motion6D.PhysicalField3D ph =
-                        new Motion6D.PhysicalField3D();
+                    PhysicalField3D ph =
+                        new PhysicalField3D();
                     p.Parameters = ph;
-                    Motion6D.Interfaces.IPositionObject po = ph;
+                    Interfaces.IPositionObject po = ph;
                     po.Position = p;
                     return p;
                 }
@@ -170,37 +170,37 @@ namespace Motion6D.UI.Factory
                     object o = p.Parameters;
                     if (o != null)
                     {
-                        if (o is Motion6D.PhysicalFieldBase)
+                        if (o is Portable.PhysicalFieldBase)
                         {
-                            return new Motion6D.UI.Forms.FormField3D(lab, o as Motion6D.PhysicalField3D);
+                            return new Forms.FormField3D(lab, o as Motion6D.PhysicalField3D);
                         }
                         if (o is PhysicalField.SphericalFieldWrapper)
                         {
-                            return new Motion6D.UI.FormSphericalMagnnetic(lab, o as PhysicalField.SphericalFieldWrapper);
+                            return new FormSphericalMagnnetic(lab, o as PhysicalField.SphericalFieldWrapper);
                         }
-                        if (o is Motion6D.InertialSensorData)
+                        if (o is InertialSensorData)
                         {
-                            return new Motion6D.UI.FormInertialSystem(lab, o as Motion6D.InertialSensorData);
+                            return new FormInertialSystem(lab, o as Motion6D.InertialSensorData);
                         }
                     }
                 }
-                if (obj is Motion6D.InertialReferenceFrame)
+                if (obj is InertialReferenceFrame)
                 {
-                    return new Motion6D.UI.FormInertia(lab);
+                    return new FormInertia(lab);
                 }
-                if (obj is Motion6D.ReferenceFrameData)
+                if (obj is ReferenceFrameData)
                 {
-                    return new Motion6D.UI.Forms.FormFrameData(lab);
+                    return new Forms.FormFrameData(lab);
                 }
-                if (obj is Motion6D.RigidReferenceFrame)
+                if (obj is RigidReferenceFrame)
                 {
-                    return new Motion6D.UI.Forms.FormRigidFrame(lab);
+                    return new Forms.FormRigidFrame(lab);
                 }
-                if (obj is Motion6D.AcceleratedPosition)
+                if (obj is AcceleratedPosition)
                 {
-                    return new Motion6D.UI.FormAcceleratedPoint(lab);
+                    return new FormAcceleratedPoint(lab);
                 }
-                if (obj is Motion6D.PositionCollectionData)
+                if (obj is PositionCollectionData)
                 {
                     return new FormPointsCollection(lab);
                 }
@@ -226,17 +226,17 @@ namespace Motion6D.UI.Factory
         {
             Type type = button.ReflectionType;
             object im = button.ButtonImage;
-            if (type.Equals(typeof(Motion6D.PositionCollectionIndicator)))
+            if (type.Equals(typeof(PositionCollectionIndicator)))
             {
-                return (new Motion6D.UI.Labels.PositionsIndicatorLabel()).CreateLabelUI(im, false);
+                return (new UI.Labels.PositionsIndicatorLabel()).CreateLabelUI(im, false);
             }
             if (type.Equals(typeof(ReferenceFrameData)))
             {
-                return (new Motion6D.UI.Labels.ReferenceFrameDataLabel()).CreateLabelUI(im, true);
+                return (new UI.Labels.ReferenceFrameDataLabel()).CreateLabelUI(im, true);
             }
             if (type.Equals(typeof(ReferenceFrameDataPitchRollHunting)))
             {
-                return (new Motion6D.UI.Labels.ReferenceFrameDataPitchRollHuntingLabel()).CreateLabelUI(im, true);
+                return (new UI.Labels.ReferenceFrameDataPitchRollHuntingLabel()).CreateLabelUI(im, true);
             }
             return null;
         }
@@ -251,15 +251,15 @@ namespace Motion6D.UI.Factory
             Type type = obj.GetType();
             if (type.Equals(typeof(PositionCollectionIndicator)))
             {
-                return (new Motion6D.UI.Labels.PositionsIndicatorLabel()).CreateLabelUI(null, true);
+                return (new UI.Labels.PositionsIndicatorLabel()).CreateLabelUI(null, true);
             }
             if (type.Equals(typeof(ReferenceFrameData)))
             {
-                (new Motion6D.UI.Labels.ReferenceFrameDataLabel()).CreateLabelUI(null, true);
+                (new UI.Labels.ReferenceFrameDataLabel()).CreateLabelUI(null, true);
             }
             if (type.Equals(typeof(ReferenceFrameDataPitchRollHunting)))
             {
-                (new Motion6D.UI.Labels.ReferenceFrameDataPitchRollHuntingLabel()).CreateLabelUI(null, true);
+                (new UI.Labels.ReferenceFrameDataPitchRollHuntingLabel()).CreateLabelUI(null, true);
             }
             return null;
         }

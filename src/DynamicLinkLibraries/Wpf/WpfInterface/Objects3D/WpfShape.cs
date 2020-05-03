@@ -27,7 +27,7 @@ using Animation.Interfaces.Enums;
 using WpfInterface.Interfaces;
 using WpfInterface.Wpf;
 using WpfInterface.Animated;
-
+using Motion6D.Portable.Interfaces;
 
 namespace WpfInterface.Objects3D
 {
@@ -52,8 +52,8 @@ namespace WpfInterface.Objects3D
 
         private double[] areas;
 
-        private Dictionary<Motion6D.Camera, Visual3D>
-            visuals = new Dictionary<Motion6D.Camera, Visual3D>();
+        private Dictionary<Motion6D.Portable.Camera, Visual3D>
+            visuals = new Dictionary<Motion6D.Portable.Camera, Visual3D>();
 
         private double[][] normals;
 
@@ -203,7 +203,7 @@ namespace WpfInterface.Objects3D
 
         #region IWpfVisible Members
 
-        public virtual Visual3D GetVisual(Motion6D.Camera camera)
+        public virtual Visual3D GetVisual(Motion6D.Portable.Camera camera)
         {
             Visual3D v3d = Visual;
             visuals[camera] = v3d;
@@ -321,12 +321,12 @@ namespace WpfInterface.Objects3D
 
         #region ICameraConsumer Members
 
-        void ICameraConsumer.Add(Motion6D.Camera camera)
+        void ICameraConsumer.Add(Motion6D.Portable.Camera camera)
         {
             GetVisual(camera);
         }
 
-        void ICameraConsumer.Remove(Motion6D.Camera camera)
+        void ICameraConsumer.Remove(Motion6D.Portable.Camera camera)
         {
             visuals.Remove(camera);
         }
