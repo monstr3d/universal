@@ -568,7 +568,14 @@ namespace DataPerformer.Formula
                     formula = new MathFormula[formulaString.Length];
                     for (int i = 0; i < formula.Length; i++)
                     {
-                        formula[i] = MathFormula.FromString(MathSymbolFactory.Sizes, formulaString[i]);
+                        string f = formulaString[i];
+                        MathFormula form = MathFormula.FromString(MathSymbolFactory.Sizes, f);
+                        if (form.GetType() != typeof(MathFormula))
+                        {
+                            form = new MathFormula(form);
+                            formulaString[i] = form.FormulaString;
+                        }
+                        formula[i] = form;
                     }
                     allVariables = ElementaryObjectDetector.GetVariables(formula);
                 }

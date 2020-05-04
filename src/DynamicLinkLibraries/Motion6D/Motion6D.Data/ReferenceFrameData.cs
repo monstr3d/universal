@@ -19,7 +19,7 @@ namespace Motion6D
     /// Reference frame controlled by data
     /// </summary>
     [Serializable()]
-    public class ReferenceFrameData : ReferenceFrameDataBase
+    public class ReferenceFrameData : Portable.ReferenceFrameDataBase
     {
 
         #region Constructors
@@ -29,6 +29,7 @@ namespace Motion6D
         /// </summary>
         public ReferenceFrameData()
         {
+
         }
 
         /// <summary>
@@ -36,8 +37,9 @@ namespace Motion6D
         /// </summary>
         /// <param name="info">Serialization info</param>
         /// <param name="context">Streaming context</param>
-        private ReferenceFrameData(SerializationInfo info, StreamingContext context) : base(info, context)
+        private ReferenceFrameData(SerializationInfo info, StreamingContext context)
         {
+
         }
 
 

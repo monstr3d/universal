@@ -12,7 +12,7 @@ namespace Motion6D.Portable
     /// <summary>
     /// Static Extension
     /// </summary>
-
+    [InitAssembly]
     public static class StaticExtensionMotion6DPortable
     {
         #region Fields
@@ -20,7 +20,16 @@ namespace Motion6D.Portable
         #endregion
 
         #region Public Members
-        
+
+        /// <summary>
+        /// Inits itself
+        /// </summary>
+        public static void Init()
+        {
+
+        }
+
+
         /// <summary>
         /// Animation
         /// </summary>
@@ -121,6 +130,15 @@ namespace Motion6D.Portable
                 }
             }
             return l;
+        }
+
+        #endregion
+
+        #region Constructor
+
+        static StaticExtensionMotion6DPortable()
+        {
+            new CoreCreators.CSCodeCreator();
         }
 
         #endregion

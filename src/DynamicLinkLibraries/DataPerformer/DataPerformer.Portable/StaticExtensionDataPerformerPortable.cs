@@ -67,6 +67,9 @@ namespace DataPerformer.Portable
 
         #region Ctor
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
         static  StaticExtensionDataPerformerPortable()
         {
             new CSCodeCreator();

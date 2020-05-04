@@ -174,7 +174,7 @@ namespace DataPerformer.Formula
                 sf = sf.Replace("\"", "\\\"");
                 string type = "(" + oo[1].GetType() + ")";
                 string vv = "\t\t\t{\'" + c + "\' , new object[] {\"" + sf +
-                    "\" , " + type + oo[1].StringValue() + "}}";
+                    "\" , " + type + "(" + oo[1].StringValue() + ")}}";
                 if (beg)
                 {
                     vv = "\t\t\t" + vv;
@@ -215,7 +215,7 @@ namespace DataPerformer.Formula
             {
                 object o = vars[c];
                 string type = "(" + o.GetType() + ")";
-                string vv = "\t\t\t{\"" + c + "\" , " + type + o.StringValue() + "}";
+                string vv = "\t\t\t{\"" + c + "\" , " + type + "(" + o.StringValue() + ")}";
                 if (beg)
                 {
                     vv = "\t\t\t" + vv;
@@ -440,7 +440,7 @@ namespace DataPerformer.Formula
 
         static string ToTypedObject(object ob)
         {
-            return "(" + ob.GetType() + ")" + ob.StringValue();
+            return "(" + ob.GetType() + ")(" + ob.StringValue() + ")";
         }
 
         #endregion

@@ -1,102 +1,13 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+<Project Sdk="Microsoft.NET.Sdk">
+
   <PropertyGroup>
-    <MinimumVisualStudioVersion>10.0</MinimumVisualStudioVersion>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{2E762FEC-E32C-46BB-BF30-9599EF399FB4}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ExtendedFormulaEditor</RootNamespace>
-    <AssemblyName>ExtendedFormulaEditor</AssemblyName>
-    <DefaultLanguage>ru-RU</DefaultLanguage>
-    <FileAlignment>512</FileAlignment>
-    <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <TargetFrameworkProfile>Profile7</TargetFrameworkProfile>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
-    <DebugSymbols>true</DebugSymbols>
-    <OutputPath>bin\x64\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <DebugType>full</DebugType>
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <ErrorReport>prompt</ErrorReport>
-    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
-    <OutputPath>bin\x64\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <Optimize>true</Optimize>
-    <DebugType>pdbonly</DebugType>
-    <PlatformTarget>x64</PlatformTarget>
-    <ErrorReport>prompt</ErrorReport>
-    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
-  </PropertyGroup>
+
   <ItemGroup>
-    <!-- A reference to the entire .NET Framework is automatically included -->
-    <ProjectReference Include="..\..\BaseTypes\BaseTypes.csproj">
-      <Project>{8a9c8c8b-40b2-418c-ac92-4bdbb6e071c3}</Project>
-      <Name>BaseTypes</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\RealMatrixProcessor\RealMatrixProcessor.csproj">
-      <Project>{4b250264-a0a4-41ba-991e-2a26eb23e8ba}</Project>
-      <Name>RealMatrixProcessor</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FormulaEditor.csproj">
-      <Project>{8613b23c-49b6-4056-83c5-e982d7f51f32}</Project>
-      <Name>FormulaEditor</Name>
-    </ProjectReference>
+    <ProjectReference Include="..\..\BaseTypes\BaseTypes.csproj" />
+    <ProjectReference Include="..\..\RealMatrixProcessor\RealMatrixProcessor.csproj" />
+    <ProjectReference Include="..\FormulaEditor\FormulaEditor.csproj" />
   </ItemGroup>
-  <ItemGroup>
-    <Compile Include="ExtendedFormulaCreator.cs" />
-    <Compile Include="ExtendedOperationDetector.cs" />
-    <Compile Include="MatrixAlgebraAcceptor.cs" />
-    <Compile Include="RealMatixDifference.cs" />
-    <Compile Include="RealMatrixAdd.cs" />
-    <Compile Include="RealMatrixBinary.cs" />
-    <Compile Include="RealMatrixMinus.cs" />
-    <Compile Include="RealMatrixMultiplication.cs" />
-    <Compile Include="RealMatrixPower.cs" />
-    <Compile Include="RealVectorAdd.cs" />
-    <Compile Include="RealVectorBinary.cs" />
-    <Compile Include="RealVectorDifference.cs" />
-    <Compile Include="RealVectorMatrixMultiplication.cs" />
-    <Compile Include="RealVectorMinus.cs" />
-    <Compile Include="ScalarProduct.cs" />
-    <Compile Include="ScalarVectorProduct.cs" />
-    <Compile Include="TransposeRealMatrix.cs" />
-    <Compile Include="Vector3DProduct.cs" />
-    <Compile Include="VectorScalarProduct.cs" />
-    <Compile Include="VirtualTranspose.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Properties\" />
-  </ItemGroup>
-  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
+
 </Project>
