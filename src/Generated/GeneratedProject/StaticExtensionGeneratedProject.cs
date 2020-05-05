@@ -16,8 +16,18 @@ namespace GeneratedProject
 		{
 			internal IntrenalDesktop()
 			{
-				objects.Add(new IntrenalDesktop.OblectLabel0(""));
+				objects.Add(new IntrenalDesktop.OblectLabel0("Satellite", this));
+				objects.Add(new IntrenalDesktop.OblectLabel1("Timer", this));
+				objects.Add(new IntrenalDesktop.OblectLabel2("Consumer", this));
 				Diagram.UI.Labels.PureArrowLabel currALabel = null;
+				currALabel  = new IntrenalDesktop.ArrowLabel0("", this);
+				arrows.Add(currALabel);
+				currALabel.SourceNumber = (int)2;
+				currALabel.TargetNumber = new object[] {(int)0,"Motion equations" };
+				currALabel  = new IntrenalDesktop.ArrowLabel1("", this);
+				arrows.Add(currALabel);
+				currALabel.SourceNumber = (int)2;
+				currALabel.TargetNumber = (int)1;
 				bool pl = PostLoad();
 				bool pd = PostDeserialize();
 				SuccessLoad = pl & pd;
@@ -25,16 +35,18 @@ namespace GeneratedProject
 		
 			internal class OblectLabel0 : Diagram.UI.Labels.PureObjectLabel
 			{
-				internal OblectLabel0(string name) : base(name, "", "", 0, 0)
+				internal OblectLabel0(string name, Diagram.UI.Interfaces.IDesktop desktop) : base(name, "", "", 0, 0)
 				{
+					this.desktop = desktop;
 					obj = new OblectLabel0.CategoryObject();
+					obj.Object = this;
 				}
 		
 				internal class CategoryObject : Diagram.UI.ObjectContainerPortable
 				{
 					internal CategoryObject() : base(null)
 					{
-						desktop = new Desktop();
+						desktop = new Desktop(this);
 						Load();
 					}
 				
@@ -42,38 +54,38 @@ namespace GeneratedProject
 					{
 						internal Desktop()
 						{
-							objects.Add(new IntrenalDesktop.OblectLabel0.CategoryObject.Desktop.OblectLabel0("Atmosphere"));
-							objects.Add(new IntrenalDesktop.OblectLabel0.CategoryObject.Desktop.OblectLabel1("Gravity"));
-							objects.Add(new IntrenalDesktop.OblectLabel0.CategoryObject.Desktop.OblectLabel2("Vector"));
-							objects.Add(new IntrenalDesktop.OblectLabel0.CategoryObject.Desktop.OblectLabel3("G-transformation"));
-							objects.Add(new IntrenalDesktop.OblectLabel0.CategoryObject.Desktop.OblectLabel4("A-transformation"));
-							objects.Add(new IntrenalDesktop.OblectLabel0.CategoryObject.Desktop.OblectLabel5("Motion equations"));
+							objects.Add(new IntrenalDesktop.OblectLabel0.CategoryObject.Desktop.OblectLabel0("Atmosphere", this));
+							objects.Add(new IntrenalDesktop.OblectLabel0.CategoryObject.Desktop.OblectLabel1("Gravity", this));
+							objects.Add(new IntrenalDesktop.OblectLabel0.CategoryObject.Desktop.OblectLabel2("Vector", this));
+							objects.Add(new IntrenalDesktop.OblectLabel0.CategoryObject.Desktop.OblectLabel3("G-transformation", this));
+							objects.Add(new IntrenalDesktop.OblectLabel0.CategoryObject.Desktop.OblectLabel4("A-transformation", this));
+							objects.Add(new IntrenalDesktop.OblectLabel0.CategoryObject.Desktop.OblectLabel5("Motion equations", this));
 							Diagram.UI.Labels.PureArrowLabel currALabel = null;
-							currALabel  = new IntrenalDesktop.OblectLabel0.CategoryObject.Desktop.ArrowLabel0("");
+							currALabel  = new IntrenalDesktop.OblectLabel0.CategoryObject.Desktop.ArrowLabel0("", this);
 							arrows.Add(currALabel);
 							currALabel.SourceNumber = (int)3;
 							currALabel.TargetNumber = (int)1;
-							currALabel  = new IntrenalDesktop.OblectLabel0.CategoryObject.Desktop.ArrowLabel1("");
+							currALabel  = new IntrenalDesktop.OblectLabel0.CategoryObject.Desktop.ArrowLabel1("", this);
 							arrows.Add(currALabel);
 							currALabel.SourceNumber = (int)4;
 							currALabel.TargetNumber = (int)0;
-							currALabel  = new IntrenalDesktop.OblectLabel0.CategoryObject.Desktop.ArrowLabel2("");
+							currALabel  = new IntrenalDesktop.OblectLabel0.CategoryObject.Desktop.ArrowLabel2("", this);
 							arrows.Add(currALabel);
 							currALabel.SourceNumber = (int)3;
 							currALabel.TargetNumber = (int)2;
-							currALabel  = new IntrenalDesktop.OblectLabel0.CategoryObject.Desktop.ArrowLabel3("");
+							currALabel  = new IntrenalDesktop.OblectLabel0.CategoryObject.Desktop.ArrowLabel3("", this);
 							arrows.Add(currALabel);
 							currALabel.SourceNumber = (int)4;
 							currALabel.TargetNumber = (int)2;
-							currALabel  = new IntrenalDesktop.OblectLabel0.CategoryObject.Desktop.ArrowLabel4("");
+							currALabel  = new IntrenalDesktop.OblectLabel0.CategoryObject.Desktop.ArrowLabel4("", this);
 							arrows.Add(currALabel);
 							currALabel.SourceNumber = (int)5;
 							currALabel.TargetNumber = (int)3;
-							currALabel  = new IntrenalDesktop.OblectLabel0.CategoryObject.Desktop.ArrowLabel5("");
+							currALabel  = new IntrenalDesktop.OblectLabel0.CategoryObject.Desktop.ArrowLabel5("", this);
 							arrows.Add(currALabel);
 							currALabel.SourceNumber = (int)5;
 							currALabel.TargetNumber = (int)4;
-							currALabel  = new IntrenalDesktop.OblectLabel0.CategoryObject.Desktop.ArrowLabel6("");
+							currALabel  = new IntrenalDesktop.OblectLabel0.CategoryObject.Desktop.ArrowLabel6("", this);
 							arrows.Add(currALabel);
 							currALabel.SourceNumber = (int)5;
 							currALabel.TargetNumber = (int)2;
@@ -81,9 +93,11 @@ namespace GeneratedProject
 					
 						internal class OblectLabel0 : Diagram.UI.Labels.PureObjectLabel
 						{
-							internal OblectLabel0(string name) : base(name, "", "", 0, 0)
+							internal OblectLabel0(string name, Diagram.UI.Interfaces.IDesktop desktop) : base(name, "", "", 0, 0)
 							{
+								this.desktop = desktop;
 								obj = new OblectLabel0.CategoryObject();
+								obj.Object = this;
 							}
 					
 							internal class CategoryObject : DinAtm.Portable.Atmosphere
@@ -98,9 +112,11 @@ namespace GeneratedProject
 					
 						internal class OblectLabel1 : Diagram.UI.Labels.PureObjectLabel
 						{
-							internal OblectLabel1(string name) : base(name, "", "", 0, 0)
+							internal OblectLabel1(string name, Diagram.UI.Interfaces.IDesktop desktop) : base(name, "", "", 0, 0)
 							{
+								this.desktop = desktop;
 								obj = new OblectLabel1.CategoryObject();
+								obj.Object = this;
 							}
 					
 							internal class CategoryObject : Gravity_36_36.Wrapper.Gravity
@@ -1568,205 +1584,205 @@ namespace GeneratedProject
 							l.Add(arr);
 								arr = new double[]
 								{
-									-0.80106846107254492 ,
-									0.28342135865027074 ,
-									0.34698863785442052 ,
-									-0.8393446669216692 ,
-									0.99775644342635816 ,
-									-0.75919777039986769 ,
-									0.21858233574150043 ,
-									0.40899893977969554 ,
-									-0.87385463828074683 ,
-									0.99103584079763096 ,
-									-0.7139204734302409 ,
-									0.15276250916026068 ,
-									0.46917401718505974 ,
-									-0.90444352500357983 ,
-									0.9798683482182311 ,
-									-0.66543973451817018 ,
-									0.086257219915755856 ,
-									0.52724385768954896 ,
-									-0.93097407129439358 ,
-									0.96430407549093411 ,
-									-0.61397309222461793 ,
-									0.019364884765718626 ,
-									0.5829478953483751 ,
-									-0.95332723159012223 ,
-									0.94441286126852253 ,
-									-0.55975148319686618 ,
-									-0.047614342813346311 ,
-									0.63603617984180205 ,
-									-0.97140270473131929 ,
-									0.92028395967984944 ,
-									-0.50301820592965074 ,
-									-0.11437991944877379 ,
-									0.68627049803051254 ,
-									-0.98511938402480959 ,
-									0.89202563983646277 ,
-									-0.44402782905728522 ,
+									-0.77521374153984801 ,
+									0.20191269014442059 ,
+									0.46216275755738345 ,
+									-0.91846253111728637 ,
+									0.96184679286579788 ,
+									-0.57281117105391044 ,
+									-0.073744610648750264 ,
+									0.68714684213274446 ,
+									-0.99162673830528192 ,
+									0.85029850589244216 ,
+									-0.32669943405196333 ,
+									-0.34377472463169556 ,
+									0.85969721510909869 ,
+									-0.98912346480052826 ,
+									0.67386698887665264 ,
+									-0.055658434693993897 ,
+									-0.58757262206188809 ,
+									0.96664717624394447 ,
+									-0.91114372642810604 ,
+									0.44601509824583918 ,
+									0.21962966023926622 ,
+									-0.78653495958025355 ,
+									0.99983575749693676 ,
+									-0.76363787740880351 ,
+									0.18412939475831602 ,
+									0.47815860333267984 ,
+									-0.92547963463630556 ,
+									0.95673045723800398 ,
+									-0.55786156016489963 ,
+									-0.091806562604626274 ,
+									0.7002009779541889 ,
+									-0.99380427729482856 ,
+									0.84062048636586839 ,
+									-0.30951682760663468 ,
+									-0.36073709036890161 ,
+									0.86881352668078371 ,
 									0
 								};
 							l.Add(arr);
 								arr = new double[]
 								{
-									-0.598572736327729 ,
-									0.95899548146007219 ,
-									-0.93786933268975969 ,
-									0.54359960458976875 ,
-									0.066948335313019691 ,
-									-0.65086000447090753 ,
-									0.97581850899733957 ,
-									-0.91253485810630075 ,
-									0.48618727991919541 ,
-									0.1335962658704678 ,
-									-0.70022679013098377 ,
-									0.98826292847352237 ,
-									-0.88310573636367851 ,
-									0.42659337791285468 ,
-									0.19964473486690038 ,
-									-0.74645157895498293 ,
-									0.99627290037037852 ,
-									-0.849714019260977 ,
-									0.36508530315193677 ,
-									0.26479737534872594 ,
-									-0.78932695508524264 ,
-									0.99981248303770032 ,
-									-0.81250953921101843 ,
-									0.30193904932736604 ,
-									0.32876184004625775 ,
-									-0.82866053185783373 ,
-									0.99886579396756514 ,
-									-0.77165923692537253 ,
-									0.23743796082487978 ,
-									0.39125111316899319 ,
-									-0.86427581506329076 ,
-									0.99343708106094641 ,
-									-0.72734641233249597 ,
-									0.17187146132671216 ,
-									0.45198479827793853 ,
-									-0.89601299489609787 ,
+									-0.63169902242111298 ,
+									0.97940352539627062 ,
+									-0.88679512037840813 ,
+									0.39550800109938067 ,
+									0.27358864569601371 ,
+									-0.81968735644503399 ,
+									0.99727715926930993 ,
+									-0.72651855953375133 ,
+									0.1291371823992904 ,
+									0.52630072285441587 ,
+									-0.94512828747748701 ,
+									0.93905214908672763 ,
+									-0.51080397251162768 ,
+									-0.14708763163841454 ,
+									0.73885267902492824 ,
+									-0.99844986786889545 ,
+									0.80917143659629842 ,
+									-0.25611176595308527 ,
+									-0.41208871592256024 ,
+									0.89502543658644418 ,
+									-0.97558331901646655 ,
+									0.61754575325079231 ,
+									0.018123411117285659 ,
+									-0.64564478793418412 ,
+									0.98290201240303543 ,
+									-0.87827350526982217 ,
+									0.37879736782803719 ,
+									0.2909756556709846 ,
+									-0.82993402128746618 ,
+									0.99577686007595245 ,
+									-0.71394578958909549 ,
+									0.11114431353201515 ,
+									0.54162459130103269 ,
+									-0.95089396539694426 ,
+									0.93266754614502312 ,
+									-0.4951394307228002 ,
 									0
 								};
 							l.Add(arr);
 								arr = new double[]
 								{
-									0.90577721817518397 ,
-									0.8204323689651748 ,
-									0.74312894886215219 ,
-									0.67310927204580873 ,
-									0.6096870439615758 ,
-									0.55224063463696726 ,
-									0.50020698580477041 ,
-									0.45307609211403865 ,
-									0.41038600233673733 ,
-									0.37171829157460451 ,
-									0.3366939600872772 ,
-									0.30496971854424038 ,
-									0.27623462329067089 ,
-									0.25020702864789374 ,
-									0.22663182637656776 ,
-									0.20527794524532883 ,
-									0.18593608619703167 ,
-									0.16841667091392856 ,
-									0.15254798367474362 ,
-									0.13817448829114265 ,
-									0.12515530362713073 ,
-									0.11336282275925298 ,
-									0.1026814622433626 ,
-									0.093006529228953153 ,
-									0.084243195317130121 ,
-									0.076305567104538813 ,
-									0.069115844303228993 ,
-									0.062603557184807895 ,
-									0.056704875874726349 ,
-									0.051361984726778734 ,
-									0.046522515645777932 ,
-									0.042139034804144208 ,
-									0.038168577721484999 ,
-									0.034572228150269987 ,
-									0.031314736640069334 ,
-									0.02836417504173051 ,
+									0.905545953313311 ,
+									0.82001347356211318 ,
+									0.74255988264656336 ,
+									0.67242209682340259 ,
+									0.60890910869688364 ,
+									0.55139517931607795 ,
+									0.4993136733061419 ,
+									0.45215147629638142 ,
+									0.40944393964482767 ,
+									0.37077030265403327 ,
+									0.33574954717711142 ,
+									0.30403664377300987 ,
+									0.27531915242760979 ,
+									0.24931414435047269 ,
+									0.22576541452034124 ,
+									0.20444095751699723 ,
+									0.18513068177101538 ,
+									0.16764433971187734 ,
+									0.15180965342197253 ,
+									0.13747061733016347 ,
+									0.12448596122281225 ,
+									0.11272775842963538 ,
+									0.1020801654720368 ,
+									0.0924382807567561 ,
+									0.083707111070520188 ,
+									0.075800635693457408 ,
+									0.068640958910786878 ,
+									0.06215754257320831 ,
+									0.056286511145068635 ,
+									0.050970022393541481 ,
+									0.046155697518760329 ,
+									0.041796105110466643 ,
+									0.037848293847040866 ,
+									0.034273369333000944 ,
+									0.031036110905911539 ,
+									0.028104624637431314 ,
 									0
 								};
 							l.Add(arr);
 								arr = new double[]
 								{
-									0.97792290071425725 ,
-									0.95633319974138709 ,
-									0.93522013674044446 ,
-									0.91457318892759976 ,
-									0.89438206583156676 ,
-									0.87463670416481554 ,
-									0.85532726280801408 ,
-									0.83644411790519901 ,
-									0.81797785806723045 ,
-									0.79991927968114096 ,
-									0.7822593823230406 ,
-									0.76498936427229103 ,
-									0.7481006181247144 ,
-									0.73158472650264961 ,
-									0.71543345785971768 ,
-									0.69963876237820644 ,
-									0.68419276795702855 ,
-									0.66908777628825411 ,
-									0.65431625902026147 ,
-									0.6398708540055954 ,
-									0.62574436163166092 ,
-									0.61192974123242505 ,
-									0.59842010757933795 ,
-									0.58520872744972408 ,
-									0.57228901627093332 ,
-									0.55965453483857985 ,
-									0.54729898610723238 ,
-									0.53521621205195669 ,
-									0.52340019059914644 ,
-									0.51184503262511238 ,
-									0.50054497902093353 ,
-									0.48949439782210835 ,
-									0.47868778140157481 ,
-									0.46811974372470033 ,
-									0.45778501766487367 ,
-									0.44767845237836074 ,
+									0.99991944497295104 ,
+									0.99983889643501445 ,
+									0.99975835438566751 ,
+									0.99967781882438755 ,
+									0.99959728975065187 ,
+									0.99951676716393789 ,
+									0.99943625106372314 ,
+									0.99935574144948502 ,
+									0.99927523832070098 ,
+									0.99919474167684874 ,
+									0.99911425151740574 ,
+									0.99903376784184972 ,
+									0.99895329064965843 ,
+									0.99887281994030952 ,
+									0.99879235571328073 ,
+									0.99871189796804993 ,
+									0.99863144670409498 ,
+									0.99855100192089374 ,
+									0.99847056361792419 ,
+									0.9983901317946644 ,
+									0.99830970645059225 ,
+									0.99822928758518592 ,
+									0.99814887519792339 ,
+									0.99806846928828297 ,
+									0.99798806985574273 ,
+									0.99790767689978099 ,
+									0.99782729041987595 ,
+									0.99774691041550601 ,
+									0.99766653688614948 ,
+									0.99758616983128479 ,
+									0.99750580925039034 ,
+									0.99742545514294467 ,
+									0.99734510750842631 ,
+									0.99726476634631378 ,
+									0.99718443165608583 ,
+									0.997104103437221 ,
 									0
 								};
 							l.Add(arr);
 								arr = new double[]
 								{
-									1.6558674408732832 ,
-									3.0023608152692796 ,
-									2.5895756103824423 ,
-									0.1276980207428339 ,
-									-2.1504269773322426 ,
-									-1.7099637209390033 ,
-									0.84776652853995671 ,
-									2.1007491370251143 ,
-									0.34266169173449951 ,
-									-1.8251694031273433 ,
-									-1.1667163561609686 ,
-									1.257790737407037 ,
-									1.6228644900251559 ,
-									-0.62247364812487793 ,
-									-1.7899207231823748 ,
-									0.035973192676264074 ,
-									1.7589102700905948 ,
-									0.45204561808855837 ,
-									-1.6081638160518934 ,
-									-0.83026010135538897 ,
-									1.3968896970284219 ,
-									1.107053913765329 ,
-									-1.1662205127304643 ,
-									-1.2992536411877762 ,
-									0.94276499886214016 ,
-									1.4257664673344752 ,
-									-0.74250275592476112 ,
-									-1.504280866912566 ,
-									0.57418022643582023 ,
-									1.5497757392017804 ,
-									-0.44197181438198535 ,
-									-1.5740254640139462 ,
-									0.34742698017835144 ,
-									1.5855954247294073 ,
-									-0.29081322861629993 ,
+									3.6880761432033755 ,
+									0.39724065421947397 ,
+									-2.5965439860993542 ,
+									-0.48131577928267621 ,
+									2.24063708798354 ,
+									0.53237456138447226 ,
+									-2.0397232177849016 ,
+									-0.56887815481245729 ,
+									1.9042403752440282 ,
+									0.59691832060978645 ,
+									-1.8045006209904721 ,
+									-0.619320307328042 ,
+									1.7272531516491225 ,
+									0.6376440529582621 ,
+									-1.6655139061728648 ,
+									-0.65284814241236599 ,
+									1.6151859673681248 ,
+									0.66556546255746241 ,
+									-1.5736807521794829 ,
+									-0.67623547365067216 ,
+									1.5392725821206024 ,
+									0.68517448893064548 ,
+									-1.5107650728866642 ,
+									-0.69261594196159659 ,
+									1.4873053350092915 ,
+									0.69873481827076245 ,
+									-1.4682743824942375 ,
+									-0.70366313732387609 ,
+									1.4532195936777808 ,
+									0.70750007675297244 ,
+									-1.4418117555460372 ,
+									-0.71031872012349384 ,
+									1.4338172550317185 ,
+									0.71217056805881251 ,
+									-1.4290801104289517 ,
 									0 ,
 									0
 								};
@@ -2262,9 +2278,11 @@ namespace GeneratedProject
 					
 						internal class OblectLabel2 : Diagram.UI.Labels.PureObjectLabel
 						{
-							internal OblectLabel2(string name) : base(name, "", "", 0, 0)
+							internal OblectLabel2(string name, Diagram.UI.Interfaces.IDesktop desktop) : base(name, "", "", 0, 0)
 							{
+								this.desktop = desktop;
 								obj = new OblectLabel2.CategoryObject();
+								obj.Object = this;
 							}
 					
 							internal class CategoryObject : DataPerformer.Formula.VectorFormulaConsumer, FormulaEditor.Interfaces.ITreeCollectionProxyFactory
@@ -2293,12 +2311,12 @@ namespace GeneratedProject
 									};
 									parameters =new Dictionary<string, object>()
 									{
-										{"z", (double)1471.4588963345132 },
+										{"z", (double)89.399671865823294 },
 										{"v", (double)1.7737490756446463 },
-										{"x", (double)-5516.2850521905202 },
-										{"y", (double)-4121.8672292160163 },
-										{"u", (double)0.31005537440033482 },
-										{"w", (double)7.2820874798254849 }
+										{"x", (double)-5459.7131508253706 },
+										{"y", (double)-4448.9606869266245 },
+										{"u", (double)-0.90880321034635358 },
+										{"w", (double)7.4498631634359143 }
 									};
 									operationNames = new Dictionary<System.Int32,System.String>()
 									{
@@ -2679,9 +2697,11 @@ namespace GeneratedProject
 					
 						internal class OblectLabel3 : Diagram.UI.Labels.PureObjectLabel
 						{
-							internal OblectLabel3(string name) : base(name, "", "", 0, 0)
+							internal OblectLabel3(string name, Diagram.UI.Interfaces.IDesktop desktop) : base(name, "", "", 0, 0)
 							{
+								this.desktop = desktop;
 								obj = new OblectLabel3.CategoryObject();
+								obj.Object = this;
 							}
 					
 							internal class CategoryObject : DataPerformer.Portable.ObjectTransformer
@@ -2700,9 +2720,11 @@ namespace GeneratedProject
 					
 						internal class OblectLabel4 : Diagram.UI.Labels.PureObjectLabel
 						{
-							internal OblectLabel4(string name) : base(name, "", "", 0, 0)
+							internal OblectLabel4(string name, Diagram.UI.Interfaces.IDesktop desktop) : base(name, "", "", 0, 0)
 							{
+								this.desktop = desktop;
 								obj = new OblectLabel4.CategoryObject();
+								obj.Object = this;
 							}
 					
 							internal class CategoryObject : DataPerformer.Portable.ObjectTransformer
@@ -2722,9 +2744,11 @@ namespace GeneratedProject
 					
 						internal class OblectLabel5 : Diagram.UI.Labels.PureObjectLabel
 						{
-							internal OblectLabel5(string name) : base(name, "", "", 0, 0)
+							internal OblectLabel5(string name, Diagram.UI.Interfaces.IDesktop desktop) : base(name, "", "", 0, 0)
 							{
+								this.desktop = desktop;
 								obj = new OblectLabel5.CategoryObject();
+								obj.Object = this;
 							}
 					
 							internal class CategoryObject : DataPerformer.Formula.DifferentialEquationSolver, FormulaEditor.Interfaces.ITreeCollectionProxyFactory
@@ -3148,8 +3172,9 @@ namespace GeneratedProject
 					
 						internal class ArrowLabel0 : Diagram.UI.Labels.PureArrowLabel
 						{
-							internal ArrowLabel0(string name) : base(name, "", "", 0, 0)
+							internal ArrowLabel0(string name, Diagram.UI.Interfaces.IDesktop desktop) : base(name, "", "", 0, 0)
 							{
+								this.desktop = desktop;
 								arrow = new ArrowLabel0.CategoryArrow();
 							}
 					
@@ -3160,8 +3185,9 @@ namespace GeneratedProject
 					
 						internal class ArrowLabel1 : Diagram.UI.Labels.PureArrowLabel
 						{
-							internal ArrowLabel1(string name) : base(name, "", "", 0, 0)
+							internal ArrowLabel1(string name, Diagram.UI.Interfaces.IDesktop desktop) : base(name, "", "", 0, 0)
 							{
+								this.desktop = desktop;
 								arrow = new ArrowLabel1.CategoryArrow();
 							}
 					
@@ -3172,8 +3198,9 @@ namespace GeneratedProject
 					
 						internal class ArrowLabel2 : Diagram.UI.Labels.PureArrowLabel
 						{
-							internal ArrowLabel2(string name) : base(name, "", "", 0, 0)
+							internal ArrowLabel2(string name, Diagram.UI.Interfaces.IDesktop desktop) : base(name, "", "", 0, 0)
 							{
+								this.desktop = desktop;
 								arrow = new ArrowLabel2.CategoryArrow();
 							}
 					
@@ -3184,8 +3211,9 @@ namespace GeneratedProject
 					
 						internal class ArrowLabel3 : Diagram.UI.Labels.PureArrowLabel
 						{
-							internal ArrowLabel3(string name) : base(name, "", "", 0, 0)
+							internal ArrowLabel3(string name, Diagram.UI.Interfaces.IDesktop desktop) : base(name, "", "", 0, 0)
 							{
+								this.desktop = desktop;
 								arrow = new ArrowLabel3.CategoryArrow();
 							}
 					
@@ -3196,8 +3224,9 @@ namespace GeneratedProject
 					
 						internal class ArrowLabel4 : Diagram.UI.Labels.PureArrowLabel
 						{
-							internal ArrowLabel4(string name) : base(name, "", "", 0, 0)
+							internal ArrowLabel4(string name, Diagram.UI.Interfaces.IDesktop desktop) : base(name, "", "", 0, 0)
 							{
+								this.desktop = desktop;
 								arrow = new ArrowLabel4.CategoryArrow();
 							}
 					
@@ -3208,8 +3237,9 @@ namespace GeneratedProject
 					
 						internal class ArrowLabel5 : Diagram.UI.Labels.PureArrowLabel
 						{
-							internal ArrowLabel5(string name) : base(name, "", "", 0, 0)
+							internal ArrowLabel5(string name, Diagram.UI.Interfaces.IDesktop desktop) : base(name, "", "", 0, 0)
 							{
+								this.desktop = desktop;
 								arrow = new ArrowLabel5.CategoryArrow();
 							}
 					
@@ -3220,8 +3250,9 @@ namespace GeneratedProject
 					
 						internal class ArrowLabel6 : Diagram.UI.Labels.PureArrowLabel
 						{
-							internal ArrowLabel6(string name) : base(name, "", "", 0, 0)
+							internal ArrowLabel6(string name, Diagram.UI.Interfaces.IDesktop desktop) : base(name, "", "", 0, 0)
 							{
+								this.desktop = desktop;
 								arrow = new ArrowLabel6.CategoryArrow();
 							}
 					
@@ -3230,8 +3261,85 @@ namespace GeneratedProject
 							}
 						}
 					
+				
+					CategoryTheory.ICategoryObject obj;
+				
+					internal Desktop(CategoryTheory.ICategoryObject obj) : this()
+					{
+						this.obj = obj;
 					}
-					
+				
+					public override Diagram.UI.Interfaces.IDesktop Root
+					{
+						get
+						{
+							Diagram.UI.Labels.INamedComponent nc = obj.Object as Diagram.UI.Labels.INamedComponent;
+						return nc.Desktop.Root;
+						}
+					}
+				}
+				}
+			}
+		
+			internal class OblectLabel1 : Diagram.UI.Labels.PureObjectLabel
+			{
+				internal OblectLabel1(string name, Diagram.UI.Interfaces.IDesktop desktop) : base(name, "", "", 0, 0)
+				{
+					this.desktop = desktop;
+					obj = new OblectLabel1.CategoryObject();
+					obj.Object = this;
+				}
+		
+				internal class CategoryObject : Event.Portable.Events.Timer
+				{
+				internal CategoryObject()
+				{
+				var ts = this as Event.Interfaces.ITimerEvent;
+				ts.TimeSpan = TimeSpan.FromTicks(10000000);
+				}
+				}
+			}
+		
+			internal class OblectLabel2 : Diagram.UI.Labels.PureObjectLabel
+			{
+				internal OblectLabel2(string name, Diagram.UI.Interfaces.IDesktop desktop) : base(name, "", "", 0, 0)
+				{
+					this.desktop = desktop;
+					obj = new OblectLabel2.CategoryObject();
+					obj.Object = this;
+				}
+		
+				internal class CategoryObject : DataPerformer.Portable.DataConsumer
+				{
+				internal CategoryObject() : base(0)
+				{
+				}
+				}
+			}
+		
+			internal class ArrowLabel0 : Diagram.UI.Labels.PureArrowLabel
+			{
+				internal ArrowLabel0(string name, Diagram.UI.Interfaces.IDesktop desktop) : base(name, "", "", 0, 0)
+				{
+					this.desktop = desktop;
+					arrow = new ArrowLabel0.CategoryArrow();
+				}
+		
+				internal class CategoryArrow : DataPerformer.Portable.DataLink
+				{
+				}
+			}
+		
+			internal class ArrowLabel1 : Diagram.UI.Labels.PureArrowLabel
+			{
+				internal ArrowLabel1(string name, Diagram.UI.Interfaces.IDesktop desktop) : base(name, "", "", 0, 0)
+				{
+					this.desktop = desktop;
+					arrow = new ArrowLabel1.CategoryArrow();
+				}
+		
+				internal class CategoryArrow : Event.Portable.Arrows.EventLink
+				{
 				}
 			}
 		

@@ -420,14 +420,14 @@ namespace Diagram.UI
             int ko = 0;
             foreach (IObjectLabel lab in desktop.Objects)
             {
-                l.Add("\t\tobjects.Add(new " + preffixFull +".OblectLabel" + ko + "(\"" + lab.Name + "\"));");
+                l.Add("\t\tobjects.Add(new " + preffixFull +".OblectLabel" + ko + "(\"" + lab.Name + "\", this));");
                 ++ko;
             }
             int ka = 0;
             l.Add("\t\tDiagram.UI.Labels.PureArrowLabel currALabel = null;");
             foreach (IArrowLabel lab in desktop.Arrows)
             {
-                l.Add("\t\tcurrALabel  = new " + preffixFull + ".ArrowLabel" + ka + "(\"" + lab.Name + "\");");
+                l.Add("\t\tcurrALabel  = new " + preffixFull + ".ArrowLabel" + ka + "(\"" + lab.Name + "\", this);");
                 l.Add("\t\tarrows.Add(currALabel);");
                 l.Add("\t\tcurrALabel.SourceNumber = " + lab.SourceNumber.ArrowNumToString() + ";");
                 l.Add("\t\tcurrALabel.TargetNumber = " + lab.TargetNumber.ArrowNumToString() + ";");
@@ -435,6 +435,10 @@ namespace Diagram.UI
             }
             if (postLoad)
             {
+     /*           l.Add("\t\tforeach (IObjectLabel l in objects)");
+                l.Add("\t\t{");
+                l.Add("\t\t\tl.Desktop = this;");
+                l.Add("\t\t}");*/
                 l.Add("\t\tbool pl = PostLoad();");
                 l.Add("\t\tbool pd = PostDeserialize();");
                 if (check != null)
@@ -450,9 +454,11 @@ namespace Diagram.UI
                 string cln = "OblectLabel" + i;
                 l.Add("\tinternal class " + cln + " : Diagram.UI.Labels.PureObjectLabel");
                 l.Add("\t{");
-                l.Add("\t\tinternal " + cln + "(string name) : base(name, \"\", \"\", 0, 0)");
+                l.Add("\t\tinternal " + cln + "(string name, Diagram.UI.Interfaces.IDesktop desktop) : base(name, \"\", \"\", 0, 0)");
                 l.Add("\t\t{");
+                l.Add("\t\t\tthis.desktop = desktop;");
                 l.Add("\t\t\tobj = new " + cln + ".CategoryObject();");
+                l.Add("\t\t\tobj.Object = this;");
                 l.Add("\t\t}");
                 l.Add("");
                 List<string> lt = cSharpCodeCreator.CreateCode(preffixFull + "." + cln, lab.Object);
@@ -471,8 +477,9 @@ namespace Diagram.UI
                 string cln = "ArrowLabel" + i;
                 l.Add("\tinternal class " + cln + " : Diagram.UI.Labels.PureArrowLabel");
                 l.Add("\t{");
-                l.Add("\t\tinternal " + cln + "(string name) : base(name, \"\", \"\", 0, 0)");
+                l.Add("\t\tinternal " + cln + "(string name, Diagram.UI.Interfaces.IDesktop desktop) : base(name, \"\", \"\", 0, 0)");
                 l.Add("\t\t{");
+                l.Add("\t\t\tthis.desktop = desktop;");
                 l.Add("\t\t\tarrow = new " + cln + ".CategoryArrow();");
                 l.Add("\t\t}");
                 l.Add("");

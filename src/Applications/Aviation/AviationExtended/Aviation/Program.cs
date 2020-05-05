@@ -79,12 +79,12 @@ namespace Aviation
                     Web.Interfaces.UI.Factory.Factory.Singleton
                 };
 
-        static LightDictionary<string, ButtonWrapper[]> GetButtons(Motion6D.Interfaces.IPositionObjectFactory factory)
+        static LightDictionary<string, ButtonWrapper[]> GetButtons(Motion6D.Portable.Interfaces.IPositionObjectFactory factory)
         {
-            Motion6D.Interfaces.IPositionObjectFactory f = factory;
+            Motion6D.Portable.Interfaces.IPositionObjectFactory f = factory;
             if (f == null)
             {
-                f = Motion6D.PositionObjectFactory.BaseFactory;
+                f = Motion6D.Portable.PositionObjectFactory.BaseFactory;
             }
             string[] tabs = new string[] { "General", "Statistics", "Database", "6D Motion", "Image", "Events", "Arrows" };
             ButtonWrapper[][] but = new ButtonWrapper[tabs.Length][];
@@ -245,7 +245,7 @@ namespace Aviation
             }
         }
 
-        static Form GetForm(string filename, Motion6D.PositionObjectFactory factory, System.IO.TextWriter logWriter, TestCategory.Interfaces.ITestInterface testInterface)
+        static Form GetForm(string filename, Motion6D.Portable.PositionObjectFactory factory, System.IO.TextWriter logWriter, TestCategory.Interfaces.ITestInterface testInterface)
         {
             //!!! SCADA     
             Scada.Desktop.StaticExtensionScadaDesktop.ScadaFactory = Scada.Desktop.Serializable.StaticExtensionScadaDesktopSerializable.BaseFactory;

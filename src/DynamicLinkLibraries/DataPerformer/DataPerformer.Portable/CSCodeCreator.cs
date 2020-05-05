@@ -89,8 +89,6 @@ namespace DataPerformer.Portable
             l.Add("}");
             l.Add("}");
             return l;
-
-            return l;
         }
 
         #endregion

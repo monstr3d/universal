@@ -66,6 +66,7 @@ namespace Diagram.UI.Labels
         /// </summary>
         protected PureObjectLabel()
         {
+
         }
 
         /// <summary>
@@ -79,6 +80,7 @@ namespace Diagram.UI.Labels
         public PureObjectLabel(string name, string kind, Type objectType, int x, int y) :
             this(name, kind, objectType.ToString(), x, y)
         {
+
         }
 
         /// <summary>
@@ -97,9 +99,6 @@ namespace Diagram.UI.Labels
             this.x = x;
             this.y = y;
         }
-
-
-
 
         #endregion
 

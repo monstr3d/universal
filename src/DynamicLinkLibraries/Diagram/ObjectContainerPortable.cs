@@ -70,7 +70,7 @@ namespace Diagram.UI
 
         public virtual void PostSetArrow()
         {
-     //       Load();
+     //        Load();
      //       PostLoad();
         }
 
@@ -104,6 +104,10 @@ namespace Diagram.UI
 
         #region Public Members
 
+        /// <summary>
+        /// Loaded Desktop
+        /// </summary>
+        /// <returns></returns>
         public virtual IDesktop LoadDesktop()
         {
             return desktop;

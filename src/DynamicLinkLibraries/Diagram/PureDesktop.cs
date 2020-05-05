@@ -160,11 +160,11 @@ namespace Diagram.UI
                     oc.SetParents(this);
                     oc.Load();
                 }
-               // components.Add(lab);
+                // components.Add(lab);
                 table[l.Name] = lab;
             }
             List<IArrowLabel> arrs = new List<IArrowLabel>();
-             foreach (IArrowLabel l in arrows)
+            foreach (IArrowLabel l in arrows)
             {
                 IArrowLabel lab = new PureArrowLabel(l.Name, l.Kind, l.Type, l.X, l.Y);
                 lab.Arrow = l.Arrow;
@@ -187,7 +187,8 @@ namespace Diagram.UI
             {
                 this.arrows.Add(l);
             }
-         }
+        }
+
 
         /// <summary>
         /// Access to component

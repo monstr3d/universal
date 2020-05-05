@@ -10,6 +10,8 @@ using Diagram.UI;
 using BaseTypes;
 
 using DataPerformer.Interfaces;
+using Diagram.UI.Labels;
+using Diagram.UI.Interfaces;
 
 namespace DataPerformer.Portable
 {
@@ -250,6 +252,7 @@ namespace DataPerformer.Portable
         }
 
         #endregion
+
 
         #region Specific Members
 
