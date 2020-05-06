@@ -2152,34 +2152,6 @@ So the state $\tau$ is pure, and the map $\widetilde\tau \mapsto \tau$ yields 	t
 	\end{split}
 	\ee
 \end{remark}
-\begin{corollary}\label{spectrum_fin_gen_lem}
-Let $A$ be an unital $C^*$-algebra, and $\sX$ is the spectrum of $A$.  Suppose that the center of $A$ naturally isomorphic to $C\left(\sX\right)$. If $\left(A, \widetilde{A}, G, \pi\right)$ is an unital finite-fold noncommutative covering and $\widetilde{\sX}$ is the spectrum of $\widetilde{A}$ then $C\left(\widetilde{\sX}\right)$ is a finitely generated $C\left(\sX\right)$-module.
-\end{corollary}
-\begin{proof}
-Suppose that $C\left(\widetilde{\sX}\right)$ is not a finitely generated $C\left(\sX\right)$-module. From the Theorem \ref{fin_gen_thm} it follows that there is an infinite set $\left\{M_\la\right\}_{\la\in\La}$ of $C_0\left(\sX \right)$ submodules of $C\left(\widetilde{\sX}\right)$ such that 
-	$$
-C\left(\widetilde{\sX}\right)=\sum_{\la \in \La} M_\la,
-$$
-but there is no  a finite subset $\La_0\subset \La$  such that 
-$$
-C\left(\widetilde{\sX}\right) = \sum_{\la \in \La_0} M_\la.
-$$
-So one has
-$$
-\widetilde{A}=\sum_{\la \in \La} \widetilde{A} M_\la
-$$
-but there is no  a finite subset $\La_0\subset \La$  such that 
-$$
-\widetilde{A}=\sum_{\la \in \La_0} \widetilde{A} M_\la.
-$$
-From the Theorem \ref{fin_gen_thm} it follows $\widetilde{A}$ is not a finitely generated $A$-module, it contradicts with the definition \ref{fin_uni_defn}.
-\end{proof}
-\begin{corollary}\label{spectrum_fin_cov_lem}
-Let $A$ be an unital $C^*$-algebra, and $\sX$ is the spectrum of $A$.  Suppose that the center of $A$ naturally isomorphic to $C\left(\sX\right)$. If  of $\sX$ is Hausdorff then the given by \eqref{cov_spectrum_eqn} map $	p:\widetilde{\mathcal X} \to {\mathcal X}$ is a finite-fold transitive covering.
-\end{corollary}
-\begin{proof}
-From the Theorem \ref{pavlov_troisky_thm} it follows that $p$ is a finite fold covering. The group $G_0 \bydef G / \ker\left(G \to \Homeo\left(\widetilde{A} \right) \right)$ is a normal subgroup of $G$,  and the action of $G/G_0\times \widetilde{\mathcal X}\to \widetilde{\mathcal X}$ is not trivial. From the Lemma \ref{cov_spectrum_lem} it turns out that the action is transitive. 
-\end{proof}
 
 
 \begin{cor}\label{fin_up_cor} 
@@ -2251,67 +2223,62 @@ There is  an isomorphism  $\widetilde{A} \approx A \bigoplus P$ of $A$-modules t
 	\end{split}
 	\ee	
 \end{empt}
-
-
-\begin{definition}\label{red_alg_defn}
-	Let $\left(A, \widetilde{A}, G, \pi \right)$ be  a noncommutative finite-fold  quasi-covering. If $\widetilde\sX$ is the spectrum of $\widetilde{A}$ then we say that
-the $C^*$-algebra $\widetilde{A}_{\text{red}}$ given by
-	$$
-\widetilde{A}_{\text{red}}\bydef \left\{\left.\widetilde{a}\in \widetilde{A}\right| \rep_{\widetilde{x}}\left(\widetilde{A}_{\text{red}} \right)= \rep_{\widetilde{x}}\left(A \right)\quad \forall \widetilde{x}\in \widetilde{\sX} \right\}	
-	$$
- is said to be the \textit{reduced algebra of} $\left(A, \widetilde{A}, G, \pi \right)$. 
-\end{definition}
-
-
-\begin{rem}\label{red_alg_inc_rem}
-Clearly one has an inclusion
-\be\label{red_alg_inc_eqn}
-A\subset \widetilde{A}_{\text{red}}
-\ee
-\end{rem}
-\begin{rem}\label{red_g_act_rem}
-From $G \widetilde{A}_{\text{red}}= \widetilde{A}_{\text{red}}$ it  turns out the existence of   the natural action
-	\be\label{red_g_act_eqn}
-G\times \widetilde{A}_{\text{red}}\to G\times \widetilde{A}_{\text{red}}
-	\ee
-	Moreover from $\widetilde{A}^G = A$ and $A \subset \widetilde{A}_{\text{red}}$ it follows that
-	\be\label{red_inv_eqn}
-\widetilde{A}_{\text{red}}^G = A.
-\ee
-\end{rem}
-\begin{rem}\label{red_inc_rem}
-For any $\widetilde x\in \widetilde \sX$ one has
-\be\label{red_inc_eqn}
-\rep_{ \widetilde{x}}\left(\widetilde{A}_{\text{red}} \right) = \rep_{ \widetilde{x}}\left(A\right)
-\ee
-Really if $\rep_{ \widetilde{x}}\left(\widetilde{A}_{\text{red}} \right)\subsetneqq \rep_{ \widetilde{x}}\left(A\right)$ then 
-$$
-\widetilde{A}'\bydef \left\{\left.\widetilde a' \in \widetilde{A}_{\text{red}}\right|\rep_{ \widetilde{x}}\left(\widetilde a' \right)\in \rep_{ \widetilde{x}}\left(A \right) \right\}
-$$
-is a hereditary algebra of $\widetilde{A}$ which contains $\pi\left( A\right) $ and $\widetilde{A}'\subsetneqq \widetilde{A}_{\text{red}}$.
-\end{rem}
-\begin{rem}\label{red_sp_rem}
-From the Lemma \ref{cov_spectrum_lem} and the Proposition \ref{hered_spectrum_prop} it follows that the spectrum of $\widetilde{A}_{\text{red}}$ coincides with the spectrum of $\widetilde{A}$ as a topological space. If $\widetilde{\sX}$ is the spectrum of both $\widetilde{A}_{\text{red}}$ and $\widetilde{A}$ then the inclusion $G \hookto  \Aut\left(\widetilde A \right)$ induces a homomorphism
-$$
-h: G \to \mathrm{Homeo}\left(\widetilde{\sX} \right). 
-$$
-If 
-\be\label{g_red_eqn}
-G_{\text{red}} \bydef \left\{ g \in \Aut\left(\left.\widetilde{A} \right)~\right|~ g\widetilde a_{\text{red}} = \widetilde a_{\text{red}};~~\forall \widetilde a_{\text{red}} \in \widetilde A_{\text{red}}\right\}\subset G
-\ee
-then from the coincidence of spectra  of $\widetilde{A}$ and $\widetilde{A}_{\text{red}}$ it follows that
-\be\label{g_red_ker_eqn}
-G_{\text{red}} = \ker  \left( G \to \mathrm{Homeo}\left(\widetilde{\sX} \right)\right). 
-\ee
-In particular $G_{\text{red}}$ is normal subgroup of $G$ and there is the inclusion
-\be\label{g_red_inc_eqn}
-G/G_{\text{red}} \subset \mathrm{Homeo}\left(\widetilde{\sX} \right). 
-\ee
-Moreover from the Lemma \ref{cov_spectrum_lem} it follows that there is a homeomorphism
-\be\label{red_fact_sp_eqn}
-\sX \cong \widetilde{\sX}/\left(G/G_{\text{red}} \right). 
-\ee
-\end{rem}
+ 
+ \begin{definition}\label{red_alg_defn}
+ 	Let $\left(A, \widetilde{A}, G, \pi \right)$ be  a noncommutative finite-fold  quasi-covering. The minimal hereditary subalgebra of $\widetilde{A}$ which contains $\pi\left( A\right) $,
+ 	is said to be the \textit{reduced algebra of} $\left(A, \widetilde{A}, G, \pi \right)$. The reduced algebra is denoted by $\widetilde{A}_{\text{red}}$.
+ \end{definition}
+ 
+ 
+ \begin{rem}\label{red_alg_inc_rem}
+ 	Clearly one has an inclusion
+ 	\be\label{red_alg_inc_eqn}
+ 	A\subset \widetilde{A}_{\text{red}}
+ 	\ee
+ \end{rem}
+ \begin{rem}\label{red_g_act_rem}
+ 	If $\widetilde{A}'$ is a hereditary subalgebra of $\widetilde{A}$ which contains $A$ then for all $g\widetilde{A}'$ a hereditary subalgebra of $\widetilde{A}$ which contains $A$. If follows that $G \widetilde{A}_{\text{red}}= \widetilde{A}_{\text{red}}$. Hence  there is the natural action
+ 	\be\label{red_g_act_eqn}
+ 	G\times \widetilde{A}_{\text{red}}\to G\times \widetilde{A}_{\text{red}}
+ 	\ee
+ 	Moreover from $\widetilde{A}^G = A$ and $A \subset \widetilde{A}_{\text{red}}$ it follows that
+ 	\be\label{red_inv_eqn}
+ 	\widetilde{A}_{\text{red}}^G = A.
+ 	\ee
+ \end{rem}
+ \begin{rem}\label{red_inc_rem}
+ 	For any $\widetilde x\in \widetilde \sX$ one has
+ 	\be\label{red_inc_eqn}
+ 	\rep_{ \widetilde{x}}\left(\widetilde{A}_{\text{red}} \right) = \rep_{ \widetilde{x}}\left(A\right)
+ 	\ee
+ 	Really if $\rep_{ \widetilde{x}}\left(\widetilde{A}_{\text{red}} \right)\subsetneqq \rep_{ \widetilde{x}}\left(A\right)$ then 
+ 	$$
+ 	\widetilde{A}'\bydef \left\{\left.\widetilde a' \in \widetilde{A}_{\text{red}}\right|\rep_{ \widetilde{x}}\left(\widetilde a' \right)\in \rep_{ \widetilde{x}}\left(A \right) \right\}
+ 	$$
+ 	is a hereditary algebra of $\widetilde{A}$ which contains $\pi\left( A\right) $ and $\widetilde{A}'\subsetneqq \widetilde{A}_{\text{red}}$.
+ \end{rem}
+ \begin{rem}\label{red_sp_rem}
+ 	From the Lemma \ref{cov_spectrum_lem} and the Proposition \ref{hered_spectrum_prop} it follows that the spectrum of $\widetilde{A}_{\text{red}}$ coincides with the spectrum of $\widetilde{A}$ as a topological space. If $\widetilde{\sX}$ is the spectrum of both $\widetilde{A}_{\text{red}}$ and $\widetilde{A}$ then the inclusion $G \hookto  \Aut\left(\widetilde A \right)$ induces a homomorphism
+ 	$$
+ 	h: G \to \mathrm{Homeo}\left(\widetilde{\sX} \right). 
+ 	$$
+ 	If 
+ 	\be\label{g_red_eqn}
+ 	G_{\text{red}} \bydef \left\{ g \in \Aut\left(\left.\widetilde{A} \right)~\right|~ g\widetilde a_{\text{red}} = \widetilde a_{\text{red}};~~\forall \widetilde a_{\text{red}} \in \widetilde A_{\text{red}}\right\}\subset G
+ 	\ee
+ 	then from the coincidence of spectra  of $\widetilde{A}$ and $\widetilde{A}_{\text{red}}$ it follows that
+ 	\be\label{g_red_ker_eqn}
+ 	G_{\text{red}} = \ker  \left( G \to \mathrm{Homeo}\left(\widetilde{\sX} \right)\right). 
+ 	\ee
+ 	In particular $G_{\text{red}}$ is normal subgroup of $G$ and there is the inclusion
+ 	\be\label{g_red_inc_eqn}
+ 	G/G_{\text{red}} \subset \mathrm{Homeo}\left(\widetilde{\sX} \right). 
+ 	\ee
+ 	Moreover from the Lemma \ref{cov_spectrum_lem} it follows that there is a homeomorphism
+ 	\be\label{red_fact_sp_eqn}
+ 	\sX \cong \widetilde{\sX}/\left(G/G_{\text{red}} \right). 
+ 	\ee
+ \end{rem}
  
  \section{Strong Morita equivalence of finite-fold coverings}
  
@@ -4253,6 +4220,7 @@ Thus the representation $A_\la \to B\left(\H_\la \right)$ and the operator $D_\l
 \begin{remark}
 	It is not known  whether the axiomatic approach is equivalent to the constructive one. Also it is not known whether the axiomatic approach yields the unique result.
 \end{remark}
+
 \chapter{Coverings of commutative $C^*$-algebras and their operator subspaces}\label{top_chap}
 %\section{Basic constructions}
 %\paragraph*{}
@@ -6930,6 +6898,8 @@ Denote by
 
 
 \subsection{Coverings of operator spaces}
+
+
 
  
 
@@ -10311,6 +10281,49 @@ Suppose that $\sU \subset \sX$ is a dense subset of $\sX$ and
   	If $\sU$ is not dense then there is an open subset $\sV \subset \sX$ such that $\sU\cap\sV= \emptyset$. There is $a \in A$ such that and $x_0\in \sV$ such that $\rep_{x_0}\left(a\right)\neq 0$. There is a continuous function $f_\sV: \mathcal X \to \left[0,1 \right]$ such that $f_\sV\left(x_0 \right)= 1$ and $f_\sV\left(\mathcal X\setminus\sV \right)= \left\{0\right\}$, and $\rep_{x_0}\left( f_\sV a \right)= \rep_{x_0}\left(  a \right)\neq 0$. So $f_\sV a\neq 0$. Otherwise for all $f \in C_0\left(\sU \right)$ from $f_\sV f= 0$ it follows that $\left(f_\sV a \right)\left(fb\right)= 0$ for all $b \in A$.  On the other hand form the Lemma \ref{ctr_fact_lem} it follows that  $A|_{\mathcal U}$ is the $C^*$-norm closure of $C_0\left(\sU \right)A$, so one has $\left(f_\sV a \right)A|_{\mathcal U}=\left\{0\right\}$, i.e. the ideal  $A|_{\mathcal U}$ is not essential.
 \end{proof}
 
+\begin{corollary}\label{ctr_sp_cov_cor}
+If $A$ is a continuous trace $C^*$-algebra with compact spectrum and $\left(A, \widetilde{A}, G, \pi \right)$ is a  noncommutative finite-fold covering with unitization (cf. Definition \ref{fin_comp_defn}) then following conditions hold:
+\begin{itemize}
+	\item[(i)] The spectrum $\widetilde\sX$ of $\widetilde A$ is a Hausdorff space.
+	\item[(ii)] The given by the Equation  \eqref{cov_spectrum_eqn} map $p: \widetilde\sX\to\sX$ is a transitive finite-fold covering. 
+\end{itemize}
+\end{corollary}
+\begin{proof}(i) If $\widetilde A_{\text{red}}$ the reduced algebra of $\left(A, \widetilde{A}, G, \pi \right)$ (cf. Definition \ref{red_alg_defn}) then  from the  Lemma \ref{ctr_cont_tr_lem} it follows that the  spectrum $\widetilde \sX_{\text{red}}$ of $\widetilde A_{\text{red}}$ is Hausdorff. However the spectrum of (cf. Remark \ref{red_sp_rem}) coincides with the spectrum of $\widetilde A$, i.e. $\widetilde \sX= \widetilde \sX_{\text{red}}$\\
+(ii)	 
+	Let both $A \hookto B$, $\widetilde{A} \hookto \widetilde{B}$ be unitizations which satisfy to conditions (a) and (b) of the Definition \ref{fin_comp_defn}. The $C^*$-algebras $A$ and $\widetilde A$ are essential ideals of   $B$ and $\widetilde B$ so the spectra of $B$ and $\widetilde B$ is  compactifications of $\sX$ and $\widetilde\sX$. Since $\sX$ is compact the spectra of $B$ is $\sX$. From the condition (b) of the Definition \ref{fin_comp_defn} it follows that the triple $\left(B ,\widetilde{B}, G, \widetilde{\pi} \right)$ is an an %(strong) 
+	unital  noncommutative finite-fold quasi-covering (cf. Definition \ref{fin_uni_defn}), so there is a finite set $\left\{\widetilde b_1, ..., \widetilde b_n\right\}$ such that $\widetilde B = \widetilde b_1 B + ... + \widetilde b_n B$. In particular there are $b_1, ..., b_n \in B$ such that
+	\be\label{ctr_un_eqn}
+	1_{\widetilde B}= \widetilde b_1 b_1 + ... + \widetilde b_n b_n
+	\ee
+Let  $\widetilde x \in \widetilde\sX$ and $x= p\left( \widetilde x\right)$. If  $a \in A$ is such that $\rep_x\left(a\right)$ is a rank-one operator then $\rep_{\widetilde x}\left(\widetilde b_j\widetilde{\pi}\left( b_ja\right) \right)$ is a rank-one operator for any $j=1,...n$. From the equation \ref{ctr_un_eqn} it follows that
+\be\label{ctr_un_ro_eqn}
+\rep_{\widetilde x}\left(\widetilde{\pi}\left( a\right) \right)= \rep_{\widetilde x}\left(\widetilde b_1\widetilde{\pi}\left( b_1a\right) \right)+...+\rep_{\widetilde x}\left(\widetilde b_n\widetilde{\pi}\left( b_na\right) \right).
+\ee
+From the Equation \ref{ctr_un_ro_eqn} it turns out that the rank of $\rep_{\widetilde x}\left(\widetilde{\pi}\left( a\right) \right)$ does not exceed $n$. From the described in \cite{pedersen:ca_aut} construction it follows that $\K \subset \rep_{\widetilde x}\left(\widetilde B \right)$, i.e. $\widetilde B$ is an algebra of type I. If $\widetilde \sY_{\widetilde B}$ 
+ is the spectrum of $\widetilde B$ then $\widetilde\sX$ is an open dense subset of  it  $\widetilde \sY_{\widetilde B}$. Otherwise from the Lemma  \ref{cov_spectrum_lem} it follows that there is the continuous surjective map  $p_B\widetilde \sY_{\widetilde B}\to  \sY_{ B}$ from   $\widetilde \sY_{\widetilde B}$ to the spectrum of $B$. However from $\sY_{ B}= \sX$ and taking into account the map $p: \widetilde\sX\to\sX$ one has
+ $$
+ \sY_{\widetilde B}= p_B^{-1}\left(\sX \right)= p^{-1}\left(\sX \right)= \widetilde \sX.
+ $$
+ Since $\widetilde B$ is unital the space $\widetilde \sX$ is compact. From the map $p: \widetilde\sX\to\sX$ it follows that $C\left(\widetilde\sX\right)$ is a $C\left(\widetilde\sX\right)$-module. On the the other hand  $\widetilde B$ is a type I $C^*$-algebra, hence from and the Theorems \ref{ctr_hat_check_thm} and \ref{dauns_hofmann_thm} it follows that $\widetilde B$ is $C\left(\widetilde\sX\right)$ module.
+ If $C\left(\widetilde\sX\right)$ is not  a finitely generated $C\left(\sX\right)$-module. From the Theorem \ref{fin_gen_thm} it follows that there is an infinite set $\left\{M_\la\right\}_{\la\in\La}$ of $C_0\left(\sX \right)$ submodules of $C\left(\widetilde{\sX}\right)$ such that 
+ $$
+ C\left(\widetilde{\sX}\right)=\sum_{\la \in \La} M_\la,
+ $$
+ but there is no  a finite subset $\La_0\subset \La$  such that 
+ $$
+ C\left(\widetilde{\sX}\right) = \sum_{\la \in \La_0} M_\la.
+ $$
+ For any $\la\in \La$ the space  $M_\la \widetilde{B}$ is a $B$-submodule of $\widetilde{B}$.
+ From $C\left(\sX \right) B = B$ and $C\left(\widetilde\sX \right) \widetilde  B = \widetilde B$ one has 
+	$$
+\widetilde{B}=\sum_{\la \in \La}M_\la \widetilde{B} 
+$$
+but there is no  a finite subset $\La_0\subset \La$  such that 
+$$
+\widetilde{B}=\sum_{\la \in \La_0}M_\la \widetilde{B}.
+$$
+	From the Theorem \ref{fin_gen_thm} it follows $\widetilde{B}$ is not a finitely generated $B$-module, it contradicts with the definition \ref{fin_uni_defn}. So $C\left(\widetilde\sX\right)$ is   a finitely generated $C\left(\sX\right)$, and from the Theorem \ref{pavlov_troisky_thm} it follows that $p$ is a finite fold covering. The group $G_0 \bydef G / \ker\left(G \to \Homeo\left(\widetilde{A} \right) \right)$ is a normal subgroup of $G$,  and the action of $G/G_0\times \widetilde{\mathcal X}\to \widetilde{\mathcal X}$ is not trivial. From the Lemma \ref{cov_spectrum_lem} it turns out that the action is transitive. 
+\end{proof}
 
 \begin{lemma}\label{ctr_pre_red_lem}
 Let $A$ be a continuous trace $C^*$-algebra, and let be $\left(A, \widetilde{A}, G, \pi \right)$ be a  noncommutative finite-fold quasi-covering. Suppose  that there are a subgroup $G'\subset G$ and an open subset $\widetilde\sU$ of the spectrum $\widetilde\sX$ of  $\widetilde{A}$ such that
@@ -10437,222 +10450,9 @@ Let $A$ be a continuous trace $C^*$-algebra, and let be $\left(A, \widetilde{A},
 Let $\widetilde \sX$ be the spectrum of $\widetilde{A}$ and let $\widetilde x\in \widetilde{\sX}$ be a point. Let $p: \widetilde \sX \to \sX$ be the given by the Lemma \ref{cov_spectrum_lem} map from the spectrum of $\widetilde{A}$ to the spectrum of $A$. If $a \in A$  \ref{continuous_trace_c_alt_defn} is an Abelian element such that $\rep_{p\left( \widetilde x\right)}\left(a\right)\neq 0$ then from the Corollary \ref{ctr_red_cor} it follows that $\pi\left( a\right)$ is Abelian such that $\rep_{ \widetilde x}\left(\pi\left( a\right)\right)\neq 0$. From the Definition \ref{continuous_trace_c_alt_defn} it follows that  $\widetilde{A}$  is a  {continuous-trace} $C^*$-{algebra}.
 \end{proof}
 
-	
-
-
-\begin{lemma}\label{lem:cononfg_lem}
-		Let $A$ be a continuous trace $C^*$-algebra, and let be $\left(A, \widetilde{A}, G, \pi \right)$ be a  noncommutative finite-fold covering with unitization (cf. Definition \ref{fin_comp_defn}). Let $A \hookto B$, $\widetilde{A} \hookto \widetilde{B}$ required by the Condition (a) the Definition \ref{fin_comp_defn}. Let  $\widetilde x_0\in \widetilde \sX$ is a non-isolated point then the ideal
-		$$
-		\widetilde B_0 = \left\{\widetilde b \in \widetilde B~|~ \rep_{\widetilde x_0}\left(\widetilde b \right)= 0  \right\}
-		$$
-is not finitely generated $\widetilde B$-module.
-\end{lemma}		
-\begin{proof}
-	Assume there is a finite number of generators $\widetilde b_1, ..., \widetilde b_s$ of $\widetilde B_0$. Let $\widetilde a\in \widetilde{A}_+$ be an Abelian  element of $\widetilde{A}$ such that there is an open neighborhood $\widetilde \sV$ of $x_0$ which satisfies to the following condition
-	$$
-	\tr\left(\rep_{\widetilde x}\left( \widetilde a\right)  \right)=\left\|\rep_{\widetilde x}\left(\widetilde a \right)  \right\|= 1;~ \forall \widetilde x \in \widetilde\sV.
-	$$
-	There is $ \widetilde f_0 \in C_0\left( \widetilde \sX\right)$ such that $\widetilde f_0\left( x_0\right) = 0$ and $\widetilde f\left(\widetilde \sV\right) \neq\{0\}$. From $\widetilde f_0   \widetilde a \in \widetilde B_0$ it follows that there are $\widetilde c_1,...,\widetilde c_s \in  \widetilde B_0$ such that
-	$$
-	 \widetilde  b_1 \widetilde c_1 + ...+  \widetilde  b_s \widetilde c_s =  \widetilde f_0 \widetilde a,
-	$$
-	hence 
-	$$
-	\tr\left( \rep_x \left(\widetilde a \widetilde  b_1 \widetilde c_1 + ...+ \widetilde a \widetilde  b_s \widetilde c_s \right) \right) =\widetilde f_0\left( x\right)\quad \forall x \in \sV.   
-	$$
-	It turns out that 
-	$$
-	\exists \widetilde  x \in \widetilde  \sV\quad 	\exists j \in 	\left\{1, ...,s\right\}  \quad  \rep_{\widetilde x}\left(\widetilde a\widetilde b_j\right)\neq 0.
-	$$
-	From $\widetilde a \widetilde b_j \in A$ for any $j=1,...,s$ it turns out that the map $\widetilde  f_j: \widetilde \sX \to \R_+$ given by
-	\bean
-	  \widetilde  f_j\left(\widetilde  x \right)\bydef \left\|\rep_{\widetilde x}\left( \widetilde a\widetilde b_j\right)  \right\| 
-		\eean
-	lies in $C\left(\widetilde \sX \right)_+$ and from $ab_j \in B_0$ it follows that $\widetilde  f_j\left( \widetilde x_0\right)=0$. If $\widetilde f = \sqrt{\widetilde  f_1}+ ... + \sqrt{ \widetilde f_s}$ then from  $\widetilde f\left(x_0\right)=0$  it turns out $\widetilde  a'\bydef \widetilde f \widetilde a \in \widetilde B_0$, hence one has $\widetilde a'= \widetilde  b_1 \widetilde a'_1 + ... +\widetilde b_s \widetilde a'_s$. The element $\widetilde a'$ is Abelian and 
-	\bean
-	\tr\left(\rep_{\widetilde x}\left( \widetilde a'\right)  \right)=\tr\left(\rep_{\widetilde x}\left(\widetilde  a'\widetilde a\right)  \right)=\tr\left(\rep_{\widetilde x}\left(\widetilde a \widetilde a'\widetilde a\right)  \right)=\widetilde  f\left(\widetilde  x\right);~ \forall \widetilde x \in \widetilde \sV,\\
-	\exists j \in 	\left\{1, ...,s\right\}  \quad \exists \widetilde  x \in \widetilde \sV \quad \rep_{\widetilde x}\left(\widetilde a'_j\widetilde a \right)\neq 0
-	\eean
-	Denote by
-	$$
-	\La\bydef	\left\{\left.j \in 	\left\{1, ...,s\right\}\right|\widetilde a'_j \widetilde a\neq 0 \right\}
-	$$
-	Let us put 
-	\[
-	m_j=\|\widetilde a'_j \widetilde a\|, \quad j\in \La.
-	\]
-	There is an open neighborhood $\widetilde \sU \subset \widetilde \sX$ of $\widetilde x_0$ such that the following
-	inequalities
-	\[
-	\sqrt{f_j}\left(\widetilde x \right) \le  \frac 1{2\cdot m_j}
-	\]
-	hold for any $\widetilde x\in \widetilde \sU$, $j\in \La$.  In result one has the following contradiction
-	\bean
-\widetilde 	f\left(\widetilde x \right)= \left\| \rep_{\widetilde x}\left(\widetilde a' \right) \right\| \le  \sum_{j = 1}^n \left\| \rep_{\widetilde x}\left(\widetilde a \widetilde b_j \right) \right\|\left\| \rep_{\widetilde x}\left(\widetilde a'_j \widetilde a\right) \right\| \le \sum_{j\in \La} \widetilde f_j(\widetilde x) m_j \le\\ \le \sum_{j=1}^s\sqrt{ \widetilde f_j\left(\widetilde x \right) }\cdot \sqrt{ \widetilde f_j\left(x \right)} m_j\le \frac 12 \widetilde f\left(\widetilde x \right) ;\quad \forall \widetilde x \in\widetilde  \sU.
-	\eean
-\end{proof}
-	
-	
-
-
-\begin{remark}
-	
-	The Lemma \ref{lem:cononfg_lem} is a generalization of the Lemma 3.2 of the article \cite{pavlov_troisky:cov}.
-\end{remark}
 
 
 
-\begin{lem}	\label{lem:directed_sets_lem}
-	Let  both $A$ and $\widetilde A$ are separable continuous trace  $C^*$-algebras and  there is the inclusion  $A\subset\widetilde A$ such that.
-	\begin{itemize}
-		\item If  $\sX$ is  the spectrum spectra of   $A$ then the inclusion $A\subset\widetilde A$  induces a surjective map $\widetilde \sX \to \sX$.
-		\item Both $\sX$ and $\widetilde\sX$  are compact.
-		\item The inclusion $A\subset\widetilde A$ induces the inclusion $M\left( A\right) \subset M\left( \widetilde A\right)$. 
-	\end{itemize}
-	Let $\sX'\subset \sX$ be a directed set $\{x_\a\}$ together with a
-	unique limit point $x$. Let $\widetilde{\sX}'\subset \widetilde{\sX}$ be equal to the union of
-	directed sets $\{\widetilde{x}^0_\a\}$ and $\{\widetilde{x}^1_\a\}$ with a common limit
-	point $\widetilde{x}$, and
-	$$
-	p(\widetilde{x}^0_\a)=p(\widetilde{x}^1_\a)=x_\a,\qquad p(\widetilde{x})=x.
-	$$
-	Then $M\left(\widetilde A \right) $ is not a finitely generated module over $M(A)$.
-\end{lem}
-
-
-\begin{proof}
-	The surjective map $\widetilde \sX' \to \sX'$ yields an injective *-homomorphism $C\left(  \sX'\right)  \hookto C\left(\widetilde \sX'\right) $. 
-	Consider two $C^*$-subalgebras $C(\widetilde{\sX}')_1$ and
-	$C(\widetilde{\sX}')_0$ of the $C^*$-algebra $C(\widetilde{\sX}')$, where $C(\widetilde{\sX}')_1$ consists
-	of those continuous functions, which are constant on
-	$\{\widetilde{x}^0_\a\}\cup \widetilde{x}$, and $C(\widetilde{\sX}')_0$ consists of those continuous
-	functions, which are zero on $\{\widetilde{x}^1_\a\}\cup \widetilde{x}$. Then any
-	continuous function $f$ on $\widetilde{\sX}'$ can be represented in the unique way
-	as the sum $f=f_1+f_0$ of the function $f_1\in C(\widetilde{\sX}')_1$, which is
-	equal to $f$ on $\{\widetilde{x}^1_\a\}\cup \left\lbrace \widetilde{x}\right\rbrace $, and the function $f_0=f-f_1\in
-	C(\widetilde{\sX}')_0$. Hence, $C(\widetilde{\sX}')=C(\widetilde{\sX}')_1 \oplus C(\widetilde{\sX}')_0$. Clearly,
-	$C(\widetilde{\sX}')_1$ is isomorphic to $C(\sX')$, and $C(\widetilde{\sX}')_0$ is isomorphic to
-	$C(\sX')_0$ as $C(\sX')$-modules, where $C(\sX')_0$ consists of
-	continuous functions vanishing at $x$. If  both $\left.  A\right|^{\sX'}$ and $\left.\widetilde A\right|^{\widetilde\sX'}$ are given by the Equation \ref{closed_ideal_eqn} then there are surjective *-homomorphisms
-	\bean
-	A\to	\left. A\right|^{\sX'},\\
-	\widetilde A\to	\left.\widetilde A\right|^{\widetilde\sX'}.
-	\eean
-	From the Theorem \ref{noncom_tietze_thm} it follows that there are 
-	are surjective *-homomorphisms
-	\bean
-	M\left( A\right) \to	M\left( \left. A\right|^{\sX'}\right) ,\\
-	M\left( \widetilde A\right) \to	M\left( \left.\widetilde A\right|^{\widetilde\sX'}\right) ,\\
-	\eean
-	Both $\sX'$ and $\widetilde\sX'$ are compact so from the Lemma \ref{top_ax_sp_lem} it follows that these spaces are spectra of both $ \left. A\right|^{\sX'}$ and $\left.\widetilde A\right|^{\widetilde\sX'}$ respectively. From the Theorems \ref{dauns_hofmann_thm} and \ref{ctr_hat_check_thm} it turns out that there are inclusions $C\left(\sX' \right)\subset M\left( \left. A\right|^{\sX'}\right)$, $C\left(\widetilde\sX' \right)\subset M\left( \left.\widetilde A\right|^{\widetilde\sX'}\right)$.
-	The direct sum $C(\widetilde{\sX}')=C(\widetilde{\sX}')_1 \oplus C(\widetilde{\sX}')_0$ yields the direct
-	sum  $	M\left( \left.\widetilde A\right|^{\widetilde\sX'}\right)= 	M\left( \left.\widetilde A\right|^{\widetilde\sX'}\right)_0\oplus 	M\left( \left.\widetilde A\right|^{\widetilde\sX'}\right)_1$ where $	M\left( \left.\widetilde A\right|^{\widetilde\sX'}\right)_0\bydef C(\widetilde{\sX}')_0 	M\left( \left.\widetilde A\right|^{\widetilde\sX'}\right)$ and\\	$M\left( \left.\widetilde A\right|^{\widetilde\sX'}\right)_1\bydef C(\widetilde{\sX}')_1 	M\left( \left.\widetilde A\right|^{\widetilde\sX'}\right)$. Clearly there is the natural isomorphism \\$M\left( \left. A\right|^{\sX'}\right)\cong M\left( \left.\widetilde A\right|^{\widetilde\sX'}\right)_1$ of   $M\left( \left. A\right|^{\sX'}\right)$ modules. Otherwise
-	$$
-	M\left( \left.\widetilde A\right|^{\widetilde\sX'}\right)_0 \cong  \left\{\left.\widetilde a \in 	M\left( \left.\widetilde A\right|^{\widetilde\sX'}\right)  \right|\rep_{\widetilde x}\left(\widetilde a \right)=0 \right\}
-	$$
-	Thus, if $M\left( \left.\widetilde A\right|^{\widetilde\sX'}\right)$ is
-	finitely generated, then $M\left( \left.\widetilde A\right|^{\widetilde\sX'}\right)_0$ is finitely generated too. A contradiction with Lemma \ref{lem:cononfg_lem}.
-	Since $M\left( \left.\widetilde A\right|^{\widetilde\sX'}\right)$ is not finitely generated $M\left( \left. A\right|^{\sX'}\right)$ module, $M\left(\widetilde A \right) $ is not a finitely generated module over $M(A)$.
-\end{proof}
-\begin{remark}
-	The Lemma \ref{lem:directed_sets_lem} is a generalization of the Lemma 3.3 of the article \cite{pavlov_troisky:cov}.
-\end{remark}
-
-\begin{lem} \label{lem:subspaces_lem}
-	%	Given the map {\rm (\ref{eq:p_Y_X})}, where $X, Y$ are normal	Hausdorff spaces. 
-	Let  $\left(A, \widetilde{A}, G, \pi \right)$ be  a  noncommutative finite-fold covering with unitization, such that $A$ is a separable $C^*$-algebra with continuous trace. Suppose that both spectra $\sX$, $\widetilde{\sX}$ of both $A$, $\widetilde{A}$ are compact and $p:\widetilde{\sX}\to \sX$ is the given by the Lemma \ref{cov_spectrum_lem} continuous map.  
-	Suppose $\sX'\subset \sX$ is a closed subset,
-	$\widetilde{\sX}'=p^{-1}(\sX')$, and $M\left(\widetilde{A} \right)$  is a finitely generated $M\left(A\right)$-module.
-	Then
-	\begin{enumerate}
-		\item[(i)] 
-		$M\left( \left.\widetilde A\right|^{\widetilde\sX'}\right)$ is a finitely generated $M\left( \left. A\right|^{\sX'}\right)$-module.
-		\item[(ii)] $M\left( \left.\widetilde A\right|^{\widetilde\sX''}\right)$ is a finitely generated $M\left( \left. A\right|^{\sX'}\right)$-module for any closed subset
-		$\widetilde\sX''\subset \widetilde\sX'$.
-	\end{enumerate}
-\end{lem}
-
-\begin{proof}
-	Let $\widetilde a_1, ,..., \widetilde a_n$ be such that
-	$$
-	M\left(\widetilde{A} \right) = \widetilde a_1M\left({A} \right)+...+ \widetilde a_n M\left(\widetilde{A} \right).
-	$$
-	(i) From the Equation \ref{closed_ideal_eqn} it follows that there are surjective *-homomorphisms $A\to\left. A\right|^{\sX'}$ and $\widetilde A\to \left.\widetilde A\right|^{\widetilde\sX'}$. From the Theorem \ref{noncom_tietze_thm} it follows that there are surjective *-homomorphisms $p':M\left( A\right) \to M\left( \left. A\right|^{\sX'}\right) $ and $\widetilde p': M\left( \widetilde A\right) \to M\left( \left.\widetilde A\right|^{\widetilde\sX'}\right) $. For all $j=1,...,n$ denote by $\widetilde a'_j \bydef \widetilde p'\left(\widetilde a_j\right)$. For any $\widetilde a'\in  M\left( \left.\widetilde A\right|^{\widetilde\sX'}\right)$ there is $\widetilde a \in \widetilde A$ such that $\widetilde a' = \widetilde p'\left(\widetilde a\right)$. On the other hand there are $a_1, ..., a_n \in M\left(A\right)$ such that $\widetilde a=\widetilde a_1a_1+...+ \widetilde a_n a_n$. It turns out that
-	$$
-	\widetilde a'=\widetilde a'_1p'\left( a_1\right) +...+ \widetilde a'_n p'\left( a_n\right), 
-	$$
-	i.e. $M\left( \left.\widetilde A\right|^{\widetilde\sX'}\right)$ is  $M\left( \left. A\right|^{\sX'}\right)$ module generated by $\widetilde a'_1, ,..., \widetilde a'_n$
-	
-	(ii)   From the Equation \ref{closed_ideal_eqn} it follows that there are surjective *-homomorphisms $\left. A\right|^{\sX'}\to\left. A\right|^{\sX''}$ From the Theorem \ref{noncom_tietze_thm} it follows that there is the surjective *-homomorphisms $\widetilde p'':M\left( \left. \widetilde A\right|^{\widetilde\sX'}\right)  \to M\left( \left. \widetilde A\right|^{\widetilde\sX''}\right) $.  For any $\widetilde a''\in  M\left( \left.\widetilde A\right|^{\widetilde\sX''}\right)$ there is $\widetilde a \in \widetilde A$ such that $\widetilde a'' = \widetilde p''\circ \widetilde p'\left(\widetilde a\right)$. On the other hand there are $a_1, ..., a_n \in M\left(A\right)$ such that $\widetilde a=\widetilde a_1a_1+...+ \widetilde a_n a_n$. It turns out that
-	$$
-	\widetilde a'=\widetilde a'_1\widetilde p''\circ p'\left( a_1\right) +...+ \widetilde a'_n \widetilde p''\circ p'\left( a_n\right), 
-	$$
-	i.e. $M\left( \left.\widetilde A\right|^{\widetilde\sX'}\right)$ is  $M\left( \left. A\right|^{\sX'}\right)$ module generated by $\widetilde a'_1, ,..., \widetilde a'_n$
-\end{proof}
-\begin{remark}
-	The Lemma \ref{lem:directed_sets_lem} is a generalization of the Lemma 3.4 of the article \cite{pavlov_troisky:cov}.
-\end{remark}
-
-
-
-
-\begin{lem}\label{ctr_sp_cov_lem}
-	Let $\left(A, \widetilde{A}, G, \pi \right)$ be  noncommutative finite-fold covering with unitization (cf. Definition \ref{fin_comp_defn}). Suppose that $A$ is a separable continuous trace $C^*$-algebra, with compact spectrum $\mathcal X$. If  $p:\widetilde{\mathcal X} \to {\mathcal X}$ is the given by the Lemma \ref{cov_spectrum_lem} continuous map from the spectrum of $\widetilde{A}$ to the spectrum of $A$  then $p$  is a finite-fold covering.
-\end{lem}
-\begin{proof}
-	
-	Assume $k_x= \left|p^{-1}\left(x \right) \right|$ denotes the cardinality of the pre-image of a point
-	$x\in \mathcal X$. From the Lemma \ref{cov_spectrum_lem} it follows that $k_x \le \left|G \right|$ for all $x \in \sX$.	 Suppose that $k$ is a minimal value of $k_x$'s over $x\in \mathcal X $. Let us select a point $x$ with minimal $k_x$.
-	Firstly, we claim that the set $\mathcal X_k=\{x\in \mathcal X : k_x=k\}$ is open.
-	Indeed, in the opposite case
-	there is a net $\{x_\alpha\}$ in $\mathcal X\setminus \mathcal X_k$
-	converging to a certain point $x$ of $\mathcal X_k$. By Lemma
-	\ref{lem:neiborhoods} one can  found a regular neighborhood $\mathcal U$ of $x$
-	satisfying the condition (\ref{eq:neiborhoods}) with $m=k$, i.e. if $	p^{-1}(x)= \left\{\widetilde{x}_1, ..., \widetilde{x}_k\right\}$
-	\begin{gather}\nonumber
-	p^{-1}(\mathcal U)= \widetilde{\mathcal U}_1\sqcup\dots\sqcup \widetilde{\mathcal U}_k; \quad \widetilde{x}_j \in \widetilde{\mathcal U}_j\quad \forall j =1,...,k.
-	\end{gather}\label{ctr_bcup_eqn}
-	There is a closed neighborhood $\mathcal V$ of $x$ such that $\mathcal V \subset \mathcal U$, so the following condition holds
-	\begin{gather}
-	p^{-1}(\mathcal V)= \widetilde{\mathcal V}_1\sqcup\dots\sqcup \widetilde{\mathcal V}_k; \quad \widetilde{x}_j \in \widetilde{\mathcal V}_j= p^{-1}(\mathcal V)\cap \widetilde{\mathcal U}_j\quad \forall j =1,...,k.
-	\end{gather}
-	Moreover, one can assume (passing to a sub-net of $\{x_\alpha\}$ if it is necessary)
-	that the net $\{x_\alpha\}$ belongs to $\mathcal U$ and there is a number
-	$t$ such that the neighborhood $\widetilde{\mathcal U}_t$ has at least two points $\widetilde{x}'_\alpha$ and $\widetilde{x}''_\alpha$ from the pre-image of $x_\alpha$ for any $\alpha$. 
-	Put $\sX' \bydef \left\{x_\a\right\}\cup \left\{x\right\}$ and $\widetilde\sX' \bydef \left\{\widetilde x'_\a\right\}\cup \left\{\widetilde x''_\a\right\}\cup \left\{\widetilde x\right\} $ where $\widetilde \bydef p^{-1}\left( x\right)\cap  \widetilde{\mathcal U}_t$. Then $C\left(\widetilde\sX'\right)$ is a 	finitely generated module over $C\left(\sX'\right)$ by Lemma \ref{lem:subspaces_lem}. But this contradicts to Lemma \ref{lem:directed_sets_lem}.
-	
-	
-	Secondly, let us show that $\mathcal X_k$ is closed. Indeed from the Corollary \ref{fin_up_cor} it follows that for any $j > k$ the set
-	$$
-\sX'_k\bydef 	\left\{x \in \mathcal X~|~ k_x \ge k+1\right\}
-	$$
-	is open, hence $\sX_k= \sX\setminus\sX'_k$ is closed.
-	
-	
-	So we have proved that the set $\mathcal X\setminus \mathcal X_k$ is both open and
-	closed and, consequently, it has to be empty, because $\mathcal X$ is
-	supposed to be connected. Thus, all points of $\mathcal X$ have the same
-	number of pre-images, i.e.
-	\be\label{ctr_pre_im_k_eqn}
-	k_x = k; ~ \forall x \in \mathcal X
-	\ee
-	Now for an arbitrary point $x_0\in \mathcal X$ let us choose its regular
-	neighborhood $\mathcal U$ satisfying the condition~(\ref{eq:neiborhoods})
-	with $m=k$, i.e.
-	\begin{gather}\nonumber
-	p^{-1}(\mathcal U)= \widetilde{\mathcal U}_1\sqcup\dots\sqcup \widetilde{\mathcal U}_k,
-	\end{gather}
-	The continuous surjection of compact Hausdorff spaces $p: \widetilde{   \mathcal X} \to {   \mathcal X}$ is in particular, a closed map. It turns out that $\mathcal X' = p\left( \widetilde{\mathcal X}\setminus\bigcup_{j=1}^k\widetilde{\mathcal U}_j \right)$ is closed. The set $\mathcal V = \mathcal X \setminus \mathcal X'$ is open. Moreover
-	$$
-	p^{-1}(\mathcal V)= \widetilde{\mathcal V}_1\sqcup\dots\sqcup \widetilde{\mathcal V}_k; \text{ where } \widetilde{\mathcal V}_j = \widetilde{\mathcal U}_j \bigcap p^{-1}(\mathcal V)
-	$$
-	and $p\left( \widetilde{\mathcal V}_j\right) =\mathcal V$ for every $j = 1,...,k$, hence
-	taking into account \eqref{ctr_pre_im_k_eqn} the restriction $p_{\widetilde{\mathcal V}_j}: \widetilde{\mathcal V}_j\to \mathcal V$ is a bijective map. Since $p$ is closed $p_{\widetilde{\mathcal V}_j}: \widetilde{\mathcal V}_j\to \mathcal V$ is a homeomorphism. So $p$ is a finite-fold covering. 
-	
-\end{proof}
-\begin{remark}
-	The Lemma \ref{ctr_sp_cov_lem} is an analog of the Theorem 4.4 of \cite{pavlov_troisky:cov}.
-\end{remark}
 
 
 
@@ -10664,7 +10464,7 @@ is not finitely generated $\widetilde B$-module.
 	\end{enumerate}	
 \end{corollary}
 \begin{proof}
-		(i) From the Lemma \ref{ctr_sp_cov_lem} it follows that $p$ is a covering.
+		(i) From the Corollary \ref{ctr_sp_cov_cor} it follows that $p$ is a covering.
 	From the Lemma \ref{cov_spectrum_lem} it follows that there is a homeomorphism $\widetilde\sX/G\cong \sX$, hence  $G$ transitively acts on $p^{-1}\left( x\right)$ for any $x\in \sX$. Thus from  the Corollary \ref{top_trans_tp_cov_cor} it turns out  that the covering $p$ is transitive. Taking into account the $\widetilde\sX/G\cong \sX$ one concludes that $G\cong G\left(\left. \widetilde\sX\right|\sX\right)$.\\
 	(ii) There is the family $\left\{\widetilde{   A}_{\widetilde{x}}\bydef\rep_{\widetilde x}\left(\widetilde A \right) \right\}_{\widetilde x\in \widetilde\sX}$ of $C^*$-algebras.
 	If there is $\widetilde x_0\in \sX$ such that $\rep_{\widetilde x_0}\left( A \right)\subsetneqq \rep_{\widetilde x_0}\left(\widetilde A \right)$ then there is a nontrivial $g \in G$ and $\widetilde a \in \widetilde A$ such that $g \widetilde x_0= \widetilde x_0$ and $ \rep_{\widetilde x_0}\left(\widetilde a \right)\neq  \rep_{\widetilde x_0}\left(g\widetilde a \right)$. But the condition $g \widetilde x_0= \widetilde x_0$ contradicts with (i) of this Corollary.  It follows that  $\rep_{\widetilde x}\left(\widetilde A \right)\cong \rep_{ x}\left( A \right)$ for all  $\widetilde x\in \sX$. From the Lemma \ref{top_lift_lem} the $C^*$-algebra $A$ yields for continuity structure for $\widetilde{   \sX}$ {and the} $\left\{\widetilde{   A}_{\widetilde{x}}\right\}_{\widetilde{x} \in \widetilde{   \sX}}$.  If $A_0\left( \widetilde{   \sX}\right) \bydef C_0\left( \lift_p\left[C\left(\sX, \left\{\rep_x\left(A \right) \right\} \right),A \right]\right) $ (cf. Definition \ref{top_cont_lift_defn}) then there is the inclusion $A \hookto A_0\left( \widetilde{   \sX}\right)$.  Any $\widetilde a\in \widetilde A$ corresponds to a family $\left\{\rep_{\widetilde x}\left(\widetilde A \right) \right\}_{\widetilde x\in \widetilde\sX}$ and from the inclusion $A \to \widetilde A$ it follows that for all $a\in A$ the family given by  $\lift_p\left( a\right)$ corresponds to the element of $\widetilde A$. From the Theorems  \ref{dauns_hofmann_thm} \ref{ctr_hat_check_thm} it follows that for any $\widetilde f \in C_0\left(\widetilde\sX \right)$ and $a \in A$ the element $\widetilde f  \lift_p\left( a\right)$ given by the family $\left\{\widetilde f\left(\widetilde x \right) \rep_{\widetilde x}\left(a \right) \right\}$ corresponds to an element of $\widetilde A$. From the Remark \ref{top_compact_c0_rem} it follows that $A_0\left( \widetilde{   \sX}\right) \bydef C_0\left( \lift_p\left[C\left(\sX, \left\{\rep_x\left(A \right) \right\} \right),A \right]\right)\subset \widetilde A$. If $\widetilde a\in \widetilde A\setminus A_0\left( \widetilde{   \sX}\right)$ and $\mathscr T\left(\widetilde\sX, \left\{\widetilde A_x\right\}, A \right)$ is the {total space for} $\left(\widetilde\sX, \left\{\widetilde A_x\right\}, A \right)$ (cf. Definition \ref{top_total_sp_defn}) then from the Lemma \ref{top_js_lem} it follows that $\widetilde a$ corresponds to a dicontinuous map $j: \widetilde\sX \to \mathscr T\left(\widetilde\sX, \left\{\widetilde A_x\right\}, A \right)$ such that $k \circ j = \Id_{\widetilde\sX}$ where $k : \mathscr T\left(\widetilde\sX, \left\{\widetilde A_x\right\}, A \right)\to \widetilde\sX$ is the total projection (cf. Definition \ref{top_total_defn}). Suppose that $j$ is not continuous at $\widetilde x_0\in \widetilde\sX$. If $\widetilde f_{\widetilde x_0}: \widetilde\sX\to [0,1] $ is the given by the Equation \eqref{top_fx_eqn} continuous function then $g\supp \widetilde f_{\widetilde x_0}\cap \supp \widetilde f_{\widetilde x_0} = \emptyset$ for all nontrivial $g\in G$ and
@@ -12390,185 +12190,6 @@ where both   $\Ga^\infty\left(M, \sS \right)$ and $\Ga^\infty_c\left(\widetilde 
 	The proof of this theorem is similar to the proof of the Theorem \ref{top_st_good_thm}.
 \end{proof}
 
-
-\chapter{Towards noncommutative homotopy theory}\label{hotop_chap}
-\paragraph*{}
-Here we would like to generalize the explained in \cite{spanier:at, switzer:at} homotopy theory   for $C^*$-algebras. For any $n=1,2,...$ and $C^*$-algebra $A$ a homotopical group $\pi_n\left( A\right)$ will be defined. Moreover  for any good topological space $\sX$ and $n=1,2,...$ there is the natural isomorphism $\pi_n\left(C_0\left( \sX\right)  \right)\cong \pi_n\left( \sX\right)$. 
-\section{Basic construction}
-\paragraph{}
-The equation \eqref{top_hom_eqn} yields the following consequence
-\be\label{top_pi_n_eqn}
-\begin{split}\pi_n\left(\sX, x_0 \right)\bydef  \left[S^n, s'_0; \sX, x_0\right]= \left[\Sigma^{n-1}S^1, *; \sX, x_0\right]=\\= \left[S^1, s_0; \Om^{n-1}\sX, \om_0\right]= \pi_1\left( \Om^{n-1}\sX, \om_0\right) .
-\end{split}
-\ee
-For any pointed $C^*$-algebra $\left(A, \a\right)$  we define the noncommutative generalization of \eqref{top_pi_n_eqn} such that
-\be\label{alg_pi_n_eqn}
-\pi_n\left( A, \al\right)\bydef  \pi_1\left( b\left( \Om^{n-1}A\right) , \al_n\right)
-\ee
-where $\pi_1$ is given by the Definition \ref{fg_bas_defn}, $\Om$ is given by the Definition \ref{pointed_noncommutative_loop_defn} and $b\left( \Om^{n-1}A\right)$ means the $C^*$-algebra of bounded elements of the pro-$C^*$-algebra $\Om^{n-1}A$ (cf. Definition \ref{pro_bound_defn} and Proposition \ref{pro_bound_prop}).
-
- \section{Noncommutative homotopy theory of commutative $C^*$-algebras}
-\paragraph{} Let $\left( \sX, x_0\right) $ be a locally compact second-countable Hausdorff space. We would like to compare the topological homotopy group \\$\pi_2\left(\sX, x_0 \right)$ and the group $\pi_2\left(C_0\left(\sX \right), ev_{x_0}  \right)$ given by the Equation \eqref{top_pi_n_eqn}.
-\subsection{Algebras of loop spaces}\label{hom_pi_2_comm_sec}
-\paragraph*{}
-	Suppose that $\Om\left(\sX, x_0\right)$ is the loop space of $\sX$ (cf. Definition \ref{topological_loop_spaces_defn}). From the Theorem \ref{top_weght_thm} it follows that $\Om\left(\sX, x_0\right)$ is second countable. % From the Theorem \ref{comm_sep_thm} it follows that $C_0\left(\sX\right)$ is a separable $C^*$-algebra. 
-	Let $\Om \left( C\left(\sX\right), ev_{x_0}\right)$ be given by the Definition \ref{pointed_noncommutative_loop_defn}.
-	Select a dense countable subsets $X \subset C\left(\sX\right)\otimes S^1$. From the condition 1 of the Definition  \ref{pointed_noncommutative_loop_defn} it turns out that $X$ corresponds to a dense in the set of generators of  $\Om \left( C\left(\sX\right), ev_{x_0}\right)$. So the generated by $X$ algebra $A$ is countable and dense in $\Om \left( C\left(\sX\right), ev_{x_0}\right)$ so both 
-  $\Om \left( C\left(\sX\right), ev_{x_0}\right)$ and  $b\left( \Om \left( C\left(\sX\right), ev_{x_0}\right)\right)$ are separable. From \ref{pro_ab_empt} it follows that  $C\left( \Om\left(\sX, x_0\right)\right)$ is the abelianization of (cf. Definition \ref{pro_ab_defn} $b\left( \Om \left( C\left(\sX\right), ev_{x_0}\right)\right)$)
-	If $j:b\left( \Om \left( C\left(\sX\right), ev_{x_0}\right)\right) \to C\left( \Om\left(\sX, x_0\right)\right)$	is the natural surjective *-homomorphism and $I\bydef \ker j$ then the center of $I$ is trivial. There is an extension 	$0\to I\xrightarrow{j} b\left( \Om \left( C\left(\sX\right), ev_{x_0}\right)\right)\xrightarrow{p} C\left( \Om\left(\sX, x_0\right)\right)\to 0$ (cf. Definition \ref{k_ext_defn}). The extension yields the Busby invariant $\tau : C\left( \Om\left(\sX, x_0\right)\right)\to Q\left( I\right) \bydef M\left( I\right) /I$. On  the other hand there is the natural surjective *-homomorphism $M\left( I\right)\to Q\left( I\right)$. If $C\subset M\left( I\right)$ is the center of $\psi M\left( I\right)$ then from $C\cap I=\left\{0\right\}$ it follows that the restriction $\left.\psi\right|_C:C \to Q\left( I\right)$ is the injecive. Otherwise $\psi\left( C\right)\cong \tau\left( C\left( \Om\left(\sX, x_0\right)\right)\right)$. From the Theorem  \ref{dauns_hofmann_thm} it turns out that
-	\bean
-	C \cong \tau\left( C\left( \Om\left(\sX, x_0\right)\right)\right)\cong  C\left( \Om\left(\sX, x_0\right)\right) \cong C_b\left( b\left( \Om \left( C\left(\sX\right), ev_{x_0}\right)\right)^\vee\right) 
-	\eean
-	where $b\left( \Om \left( C\left(\sX\right), ev_{x_0}\right)\right)^\vee$ is the space of prime ideals of $b\left( \Om \left( C\left(\sX\right), ev_{x_0}\right)\right)$. It follows that $b\left( \Om \left( C\left(\sX\right), ev_{x_0}\right)\right)^\vee\cong \Om\left(\sX, x_0\right)$ and since $ \Om\left(\sX, x_0\right)$ is Hausdorff the space $b\left( \Om \left( C\left(\sX\right), ev_{x_0}\right)\right)^\vee$ is also Hausdorff. From the Theorem \ref{ctr_open_res_rem} it turns out that $b\left( \Om \left( C\left(\sX\right), ev_{x_0}\right)\right)^\vee$ coincides with the spectrum of $ b\left( \Om \left( C\left(\sX\right), ev_{x_0}\right)\right)$ so the spectrum is homeomorphic to $\Om\left(\sX, x_0\right)$. Otherwise from (vi) of the Theorem \ref{oa_1_thm} it turns out that $b\left( \Om \left( C\left(\sX\right), ev_{x_0}\right)\right)$ is a $C^*$-algebra of type I. Any $a \in b\left( \Om \left( C\left(\sX\right), ev_{x_0}\right)\right)$ corresponds to a family
-	\be
-	\left\{ \rep_x\left(a\right)\in B\left(\H \right)  \right\}_{x \in  \Om\left(\sX, x_0\right)}
-	\ee
-	such that
-	\be
- \K \subset \bigcup_{a \in b\left( \Om \left( C\left(\sX\right), ev_{x_0}\right)\right)} \rep_x\left(a\right)\quad 	\forall x \in \Om\left(\sX, x_0\right).
-	\ee
- Suppose $\Om\left(\sX, x_0\right)$ the space is locally contractible (cf. Definition \ref{top_locally_contractible_defn}). If $x \in \Om\left(\sX, x_0\right)$ then there is a contractible open neighborhood $\sV$ of $x$. The subspace corresponds to the ideal $C\left(\sV \right)\subset  \Om\left(\sX, x_0\right)$. If $I_\sV \bydef C_0\left( \sV\right)I$ then   the extension $$0\to I\xrightarrow{j} b\left( \Om \left( C\left(\sX\right), ev_{x_0}\right)\right)\xrightarrow{p} C\left( \Om\left(\sX, x_0\right)\right)\to 0$$ naturally induces the extension $0\to I_\sV\xrightarrow{j|_{I_\sV}} E\xrightarrow{\left.p\right|_{E}} C_0\left(\sV\right)\to 0$ where $E$ is a two sided ideal of $b\left( \Om \left( C\left(\sX\right), ev_{x_0}\right)\right)$. The space  $\sV$ is contractible so from the described in the Section \ref{ext_th_sec} it follows that the extension $0\to I_\sV\xrightarrow{j|_{I_\sV}} E\xrightarrow{\left.p\right|_{E}} C_0\left(\sV\right)\to 0$ is trivial, i.e. there is the isomorphism
- $$
- E \cong I_\sV \oplus C_0\left(\sV\right).
- $$
- of $C\left(\sV\right)$.
-Any $b' \in I_\sV$ is can be represented by a family $\left\{ \rep_x\left(b'\right)\in B\left(\H \right)  \right\}_{x \in  \sV}$ such that $\rep_x\left(b'\right)\in\K$ for all $x \in \sV$.
-If $a \in E$ corresponds to a sum $b' \oplus b'' \in I_\sV \oplus C_0\left(\sV\right)$ then $a$ can be represented by a family 
-$$
-\left\{ \rep_x\left(b'\right)+ b''\left(x \right)\cdot 1_{B\left(\H \right) } \in B\left(\H \right)  \right\}_{x \in  \sV}
-$$
-Since $x$ is an arbitrary point of $\Om\left(\sX, x_0\right)$ from the above equation it follows that there is the isomorphism  $\Om \left( C\left(\sX\right), ev_{x_0}\right)\cong I \oplus C_0\left( \Om\left(\sX, x_0\right)\right) $ of  $ C\left( \Om\left(\sX, x_0\right)\right)$-modules and if $a \in \Om \left( C\left(\sX\right), ev_{x_0}\right)$ $b' \oplus b'' \in I \oplus C_0\left( \Om\left(\sX, x_0\right)\right)$ then $a$ can be represented by a family 
-$$
-\left\{ \rep_x\left(b'\right)+ b''\left(x \right)\cdot 1_{B\left(\H \right) } \in B\left(\H \right)  \right\}_{x \in  \Om\left(\sX, x_0\right)}
-$$
-\begin{definition}
-A type I $C^*$-algebra $A$ with Hausdorff spectrum $\sX$ is said to be \textit{loop-like} if the center of $A$ equals to $C_0\left(\sX \right)$. 
-\end{definition}
-
-\begin{definition}
-A separable $C^*$-algebra $A$ of type I with Hausdorff second-countable spectrum $\sX$ is said to be a \textit{loop-like} if it isomorphic to the direct $I\otimes C_0\left(\sX \right)$ as   
-\end{definition}
-For any open set $\sU \subset  \Om\left(\sX, x_0\right)$  we define a set of families
-\bean
-\left.b\left( \Om \left( C\left(\sX\right), ev_{x_0}\right)\right)\right|^\sU\bydef\\
-\bydef
-\left\{\left.\left\{a_x \in B\left(\H \right) \right\}_{x\in \sU}\right| \exists a \in  b\left( \Om \left( C\left(\sX\right), ev_{x_0}\right)\right)\quad \forall x \in \sU\quad \rep_x\left(a\right) = a_x\right\}.
-\eean
-Clearly  $\left.b\left( \Om \left( C\left(\sX\right), ev_{x_0}\right)\right)\right|^\sU$ is a *-algebra and the map
-\be\label{homotop_cs_sheaf_eqn}
-\sU \mapsto  \left. b\left( \Om \left( C\left(\sX\right), ev_{x_0}\right)\right)\right|^\sU
-\ee
-yields a presheaf of *-algebras.
-\begin{definition}\label{homotop_cs_sheaf_defn}
-	The sheaf  associated with the given by \eqref{homotop_cs_sheaf_eqn}  is the \textit{sheaf of} $b\left( \Om \left( C\left(\sX\right), ev_{x_0}\right)\right)$. We denote it by $\mathscr C \left(\Om \left( C\left(\sX\right), ev_{x_0}\right)\right)$.
-\end{definition}
-There is the map
-\bean
-\mathscr C \left(\Om \left( C\left(\sX\right), ev_{x_0}\right)\right)\left(\sU \right) \to \left[0, \infty\right],\\
-\left\{a_x \in B\left(\H \right) \right\}_{x\in \sU}\mapsto \sup_{x\in\sU} \left\| b_x\right\| 
-\eean
-
-
-
-	$E\cong C_0\left(V \right)\cong \K$. Clearly $E$ is a continuous trace $C^*$-algebra, so  $a \in E$ such that $\hat a \in K(\hat E)$ and $\hat a(t) = 1$. (cf. Proposition \ref{continuous_trace_c_a_proposition}). From our construction one concludes that for any $x \in \Om\left(\sX, x_0\right)$ there is $a \in b\left( \Om \left( C\left(\sX\right), ev_{x_0}\right)\right)\xrightarrow{p} C_0\left( \Om\left(\sX, x_0\right)\right)$ which satisfies to the condition (iii)  of the Proposition \ref{continuous_trace_c_a_proposition}. So $C_0\left( \Om\left(\sX, x_0\right)\right)$.
-	
-	
-	Let
-	$$
-	\left(\Om \left( C\left(\sX\right), ev_{x_0}\right), \widetilde A, G, \pi\right) 
-	$$
-	be an unital noncommutative finite-fold  covering (cf. Definition \ref{fin_uni_defn}).
-	If $I \bydef \ker\phi$, and $\widetilde I \bydef I\widetilde A I$ then the  *-homomorphism $\Om \left( C\left(\sX\right), ev_{x_0}\right)\hookto \widetilde A$ induces the *-homomorphism 
-	\be\label{hom_pi_2_comm_eqn}
-	\Om \left( C\left(\sX\right), ev_{x_0}\right)/I\hookto \widetilde A/\widetilde I.
-	\ee
-
-\begin{lemma}\label{hom_pi_2_comm_lem}
-	In the above situation the quotient algebra  $\widetilde A/\widetilde I$is commutative. Moreover if $\widetilde A/\widetilde I\cong C\left(\widetilde \sY \right)$ then the homomorphism \eqref{hom_pi_2_comm_eqn} corresponds to a transitive finite-fold covering $\widetilde \sY\to  \Om\left(\sX, x_0\right)$.
-\end{lemma}
-\begin{proof}
-	From the Definition \ref{fin_uni_defn}) there is a finite set $\widetilde a_1, ..., \widetilde a_n\in \widetilde A$ such that 
-\end{proof} 
-
-\subsection{Coverings of noncommutative loop spaces}
-\begin{empt}\label{lift_empt}
-Let $A$ be a $C^*$-algebra of type I, and $\sX$ is the spectrum of $A$  $A\left(\widetilde\sX\right)$
-\end{empt}
-
-\begin{lemma}
-	Let $A$ be an unital $C^*$-algebra of type I, and $\sX$ is the spectrum of $A$.  Suppose that the center of $A$ naturally isomorphic to $C\left(\sX\right)$. If  $\sX$ is Hausdorff then there is one-to-one map between unital finite-fold noncomutative coverings of $A$ and finite-fold transitive coverings of $\sX$.
-\end{lemma}
-\begin{proof}
-Let $p: \widetilde\sX\to \sX$ be a finite  
-Let $\left(A, \widetilde{A}, G, \pi \right)$ be  a noncommutative finite-fold  covering. From the Corollary \ref{spectrum_fin_cov_lem} it follows that if both $\sX$ and $\widetilde\sX$ are spectra of both $A$ and $\widetilde A$ then the given by \eqref{cov_spectrum_eqn} map $	p:\widetilde{\mathcal X} \to {\mathcal X}$ is a finite-fold transitive covering. If  $\widetilde{A}_{\text{red}}$ be its reduced algebra (cf. Definition \ref{red_alg_defn}) then $\widetilde{A}_{\text{red}}\subset \widetilde{A}$ and the spectrum of $\widetilde{A}$ coincides with the spectrum of $\widetilde{A}_{\text{red}}$ (cf.Remark \ref{red_sp_rem}). On the other hand $\widetilde{A}_{\text{red}}= A\left(\widetilde\sX\right)$.If $\widetilde{A}_{\text{red}}\neq \widetilde{A}$ then the given by the Equation \ref{g_red_ker_eqn} group
-$$
-G_{\text{red}} = \ker  \left( G \to \mathrm{Homeo}\left(\widetilde{\sX} \right)\right). 
-$$
-is not trivial. So there is a $\widetilde x \in \widetilde \sX$ such that
-
-
-\end{proof}
-
-\paragraph{}
-
-
-\begin{corollary}\label{spectrum_fin_cov_lem!}
-	Let $A$ be an unital $C^*$-algebra, and $\sX$ is the spectrum of $A$.  Suppose that the center of $A$ naturally isomorphic to $C\left(\sX\right)$. If  of $\sX$ is Hausdorff then the given by \eqref{cov_spectrum_eqn} map $	p:\widetilde{\mathcal X} \to {\mathcal X}$ is a finite-fold transitive covering.
-\end{corollary}
-
-\begin{rem}\label{red_alg_inc_rem}
-	Clearly one has an inclusion
-	\be\label{red_alg_inc_eqn}
-	A\subset \widetilde{A}_{\text{red}}
-	\ee
-\end{rem}
-\begin{rem}\label{red_g_act_rem}
-	If $\widetilde{A}'$ is a hereditary subalgebra of $\widetilde{A}$ which contains $A$ then for all $g\widetilde{A}'$ a hereditary subalgebra of $\widetilde{A}$ which contains $A$. If follows that $G \widetilde{A}_{\text{red}}= \widetilde{A}_{\text{red}}$. Hence  there is the natural action
-	\be\label{red_g_act_eqn}
-	G\times \widetilde{A}_{\text{red}}\to G\times \widetilde{A}_{\text{red}}
-	\ee
-	Moreover from $\widetilde{A}^G = A$ and $A \subset \widetilde{A}_{\text{red}}$ it follows that
-	\be\label{red_inv_eqn}
-	\widetilde{A}_{\text{red}}^G = A.
-	\ee
-\end{rem}
-\begin{rem}\label{red_inc_rem}
-	For any $\widetilde x\in \widetilde \sX$ one has
-	\be\label{red_inc_eqn}
-	\rep_{ \widetilde{x}}\left(\widetilde{A}_{\text{red}} \right) = \rep_{ \widetilde{x}}\left(A\right)
-	\ee
-	Really if $\rep_{ \widetilde{x}}\left(\widetilde{A}_{\text{red}} \right)\subsetneqq \rep_{ \widetilde{x}}\left(A\right)$ then 
-	$$
-	\widetilde{A}'\bydef \left\{\left.\widetilde a' \in \widetilde{A}_{\text{red}}\right|\rep_{ \widetilde{x}}\left(\widetilde a' \right)\in \rep_{ \widetilde{x}}\left(A \right) \right\}
-	$$
-	is a hereditary algebra of $\widetilde{A}$ which contains $\pi\left( A\right) $ and $\widetilde{A}'\subsetneqq \widetilde{A}_{\text{red}}$.
-\end{rem}
-\begin{rem}\label{red_sp_rem!}
-	From the Lemma \ref{cov_spectrum_lem} and the Proposition \ref{hered_spectrum_prop} it follows that the spectrum of $\widetilde{A}_{\text{red}}$ coincides with the spectrum of $\widetilde{A}$ as a topological space. If $\widetilde{\sX}$ is the spectrum of both $\widetilde{A}_{\text{red}}$ and $\widetilde{A}$ then the inclusion $G \hookto  \Aut\left(\widetilde A \right)$ induces a homomorphism
-	$$
-	h: G \to \mathrm{Homeo}\left(\widetilde{\sX} \right). 
-	$$
-	If 
-	\be\label{g_red_eqn}
-	G_{\text{red}} \bydef \left\{ g \in \Aut\left(\left.\widetilde{A} \right)~\right|~ g\widetilde a_{\text{red}} = \widetilde a_{\text{red}};~~\forall \widetilde a_{\text{red}} \in \widetilde A_{\text{red}}\right\}\subset G
-	\ee
-	then from the coincidence of spectra  of $\widetilde{A}$ and $\widetilde{A}_{\text{red}}$ it follows that
-	\be\label{g_red_ker_eqn!}
-	G_{\text{red}} = \ker  \left( G \to \mathrm{Homeo}\left(\widetilde{\sX} \right)\right). 
-	\ee
-	In particular $G_{\text{red}}$ is normal subgroup of $G$ and there is the inclusion
-	\be\label{g_red_inc_eqn}
-	G/G_{\text{red}} \subset \mathrm{Homeo}\left(\widetilde{\sX} \right). 
-	\ee
-	Moreover from the Lemma \ref{cov_spectrum_lem} it follows that there is a homeomorphism
-	\be\label{red_fact_sp_eqn}
-	\sX \cong \widetilde{\sX}/\left(G/G_{\text{red}} \right). 
-	\ee
-\end{rem}
-
-
-
-\paragraph{}
 
 \chapter{Coverings of $C^*$-Hilbert modules over commutative $C^*$-algebras}\label{vf_chap}
 \section{Basic constructions}
@@ -17746,29 +17367,7 @@ of $\sX$. It is characterized by the fact that any continuous map $\sX\to\sY$ of
 compact Hausdorff space $\sY$ extends uniquely to a continuous map $\bt\sX\to\sY$.
 \end{definition}	
  
- 	\begin{defn}\label{dfn:regular_neighborhood}\cite{pavlov_troisky:cov}
- 			Let
- 		\begin{equation}\label{eq:p_Y_X}
- 		p : \mathcal  Y\rightarrow \mathcal  X
- 		\end{equation}
- 		be a continuous surjection of compact Hausdorff spaces,
- 		in particular, a closed map.
- 		{\rm Let us consider the map (\ref{eq:p_Y_X}) and a certain point
- 			$x$ of $\mathcal X$, which has a finite number of pre-images $y_1,
- 			\dots,y_m$. Then a neighborhood $\mathcal U$ of $x$ is said to be
- 			\emph{regular} if
- 			\begin{gather}\label{eq:neiborhoods}
- 			p^{-1}(\mathcal U)= \mathcal V_1\sqcup\dots\sqcup \mathcal V_m,
- 			\end{gather}
- 			where $\mathcal V_i$ are some neighborhoods of $y_i$, $i=1,\dots, m$.}
- 	\end{defn}
- 	
- 	\begin{lem}\label{lem:neiborhoods}\cite{pavlov_troisky:cov}
- 		Let $p :\mathcal  Y\rightarrow \mathcal X$ be a continuous closed map of Hausdorff
- 		spaces. Then any point $x$ of $\mathcal X$ with a finite number of
- 		pre-images has a regular neighborhood.
- 	\end{lem}
-\begin{theorem}\label{it_lim_thm}\cite{kelley:gt}
+ 	\begin{theorem}\label{it_lim_thm}\cite{kelley:gt}
 	\textit{Theorem on iterated limits}. Let $D$ be a directed set, let $E_m$ be a directed set for each $m$ in $D$, let $F$ be the product $D\times \prod_{m \in D}  E_m$, and for $(m,f)$ in $F$ let $R(m,f) = (m, f(m))$. If $S(m,n)$ is 
 			a member of a topological space for each m in $D$ and each $n$ in $E_n$, 
 			then $S\circ R$ converges to $\lim_m \lim_nS(m,n)$ whenever this iterated limit 
@@ -19850,470 +19449,7 @@ We denote by $C_b\left(\mathcal X, M\left( A_x\right)_\bt,  \mathscr F\right)$ t
 \end{remark} 
 
 
-\section{$K$-theory for operator algebras}\label{ext_th_sec}
-\paragraph*{} Here I follow to \cite{blackadar:ko}.
-\begin{empt}\label{k_u0_k1_empt}
-If $A$ is an unitary $C^*$-algebra then there is the group homomorphism
-\be\label{k_u0_k1_eqn}
-U_1\left(A\right)/U_1\left( A\right)_0\to K_1\left(A\right)
-\ee
-where $ K_1\left(A\right)$ is the $K_1$-group, both $U_1\left(A\right)$ and $U_1\left(A\right)$ are groups of unitary and  unitary elements which are homotopic to identity.
-\end{empt}
-
-\begin{definition}\label{k_ext_defn}\cite{blackadar:ko}
-%	Definition 	15.1.1. 
-	Let $A$ 
-	and B 
-	be $C^*$-algebras. An \textit{extension of} 
-	$A$
-	\textit{by} 
-	$B$
-	is a 
-	short exact sequence 
-\bean
-0\to B\xrightarrow{j} E\xrightarrow{p} A\to 0
-\eean	
-	of $C^*$-algebras. 
-\end{definition}
-Given an extension  $
-0\to B\xrightarrow{j} E\xrightarrow{p} A\to 0
-$	
-, $B$ 
-sits as an ideal of $E$. Hence 
-there is a $*$-homomorphism $s$
-from $E$
-into $M(B)$. $s$ 
-is 
-injective if and only if $B$
-is essential in $E$. If we compose $s$ 
-with the quotient 
-map $\pi:
-: M(B) \to 
-Q(B)$, we obtain a $*$-homomorphism $\tau$ 
-from $E/ B\cong A$ to 
-$Q(B)$. 
-\begin{definition}\label{k_busby_defn}\cite{blackadar:ko}
-%15.2.1. 
-$\tau$ 
-is the \textit{Busby invariant of the extension} $0\to B\xrightarrow{j} E\xrightarrow{p} A\to 0
-$.
-\end{definition}
-\begin{empt}\label{k_strong_weak_empt}\cite{blackadar:ko}
-	If we want to have a reasonable classification of the extensions of $A$
-	by $B$, 
-	we need a suitable notion of equivalence. There are several obvious candidates. 
-	Throughout, wefix $A$ and $B$, and consider two extensions 
-	$$
-	0\to B\xrightarrow{j_1} E_1\xrightarrow{p_1} A\to 0
-	$$
-	and
-	$$
-	0\to B\xrightarrow{j_2} E_2\xrightarrow{p_2} A\to 0
-	$$
-	with Busby invariants $\tau_1$ and $\tau_2$.
-\begin{enumerate}
-	\item
-	Strong isomorphism (called \textit{strong equivalence}): there is a *-isomorphism 
-	making the following diagram commute:	
-	\newline
-\begin{tikzpicture}
-\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
-{
-0 &	B &    E_1  & A & 0 \\
-0 &	B &    E_2  & A  & 0   \\};
-\path[-stealth]
-(m-1-2) edge node [above] {$j_1$} (m-1-3)
-(m-1-2) edge node [right] {$\Id_B$} (m-2-2)
-(m-1-3) edge node [right] {$\ga$} (m-2-3)
-(m-2-2) edge node [above] {$j_2$}  (m-2-3)
-(m-1-4) edge node [right] {$\Id_A$} (m-2-4)
-(m-1-3) edge node [above] {$p_1$} (m-1-4)
-(m-2-3) edge node [above] {$p_2$}  (m-2-4)
-(m-1-1) edge   (m-1-2)
-(m-2-1) edge   (m-2-2)
-(m-1-4) edge   (m-1-5)
-(m-2-4) edge   (m-2-5);
-\end{tikzpicture}
-\newline	
-		\item Weak isomorphism (called \textit{weak equivalence} ): there are *-isomorphisms $\a$, $\bt$, $\ga$
-		making the following diagram 
-		commute: 
-			\newline
-		\begin{tikzpicture}
-		\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
-		{
-			0 &	B &    E_1  & A & 0 \\
-			0 &	B &    E_2  & A  & 0   \\};
-		\path[-stealth]
-		(m-1-2) edge node [above] {$j_1$} (m-1-3)
-		(m-1-2) edge node [right] {$\bt$} (m-2-2)
-		(m-1-3) edge node [right] {$\ga$} (m-2-3)
-		(m-2-2) edge node [above] {$j_2$}  (m-2-3)
-		(m-1-4) edge node [right] {$\a$} (m-2-4)
-		(m-1-3) edge node [above] {$p_1$} (m-1-4)
-		(m-2-3) edge node [above] {$p_2$}  (m-2-4)
-		(m-1-1) edge   (m-1-2)
-		(m-2-1) edge   (m-2-2)
-		(m-1-4) edge   (m-1-5)
-		(m-2-4) edge   (m-2-5);
-		\end{tikzpicture}
-		\newline
-		\item 	Strong (unitary) equivalence: there is a unitary $u \in 
-		M(B)$ such that $\tau_2\left( a\right) = \pi\left( u\right)\tau_1\left(a\right)\pi\left( u\right)^*$ 
-		for all $a\in A$.
-		\item Weak (unitary) equivalence: there is a unitary $v \in 
-Q(B)$ such that $\tau_2\left( a\right) = v\tau_1\left(a\right)v^*$ 
-for all $a\in A$.
-	\item Homotopy equivalence: the homomorphisms $\tau_j: A \to Q\left(B\right)$ are homotopic.
-	\item Stable equivalence: will be discussed in \ref{k_extl_defn}.
-	\end{enumerate}
-	Two extensions 
-	are strongly isomorphic if and only if their Busby invariants coincide. Thus the 
-	Busby invariant exactly determines the strong isomorphism class of an extension. 
-	It is trivial to check that strong isomorphism $\Rightarrow$
-	strong equivalence $\Rightarrow$ 
-	weak equivalence; if the unitary group of $M(B)$ is connected (in particular, if 
-	$B$ 
-	is a $\sigma$-unital stable algebra), then strong equivalence $\Rightarrow$
-	homotopy 
-	equivalence. 
-\end{empt}
-\begin{definition}\label{k_triv_ext_defn}
-We say that an extension is trivial 
-if the Busby invariant $\tau: A\to Q\left(B\right)$ lifts 
-to a $*$-homomorphism from $A$
-to $M\left(B\right)$. This will be the case if and only if the 
-associated exact sequence splits, i.e. if there is a cross-section $*$-homomorphism $s: A \to E$ 
-such that $q \circ s=\Id_A$.
-\end{definition}
-Below we suppose that the algebra $B$ is stable.
-\begin{definition}\label{k_ext_sum_defn}
-%	15.6.1. 
-	If $\tau_1, \tau_2$ are extensions of A  by B, then the sum $\tau_1\oplus\tau_2$ 
-	is the 	extension whose Busby invariant is $\tau_1 \oplus \tau_2 \in Q(B) \oplus 	Q(B) \subset M_2(Q(B)) \cong Q(B)$, where the last isomorphism is a standard isomorphism. 
-\end{definition}
-\begin{proposition}
-%15.6.2. 
-Addition 
-is 
-a 
-well 
-defined 
-binary 
-operation 
-on 
-the 
-set 
-$\mathbf{Ext}\left(A, 
-B\right)$ of 
-strong 
-equivalence 
-classes 
-of 
-extensions 
-of 
-$A$
-by 
-$B$, and 
-is 
-associative 
-and 
-commutative. So 
-$\mathbf{Ext}\left(A, 
-B\right)$ is 
-a 
-commutative 
-semigroup. The 
-following 
-form 
-subsemigroups 
-of 
-$\mathbf{Ext}\left(A, 
-B\right)$
-\begin{itemize}
-	\item[(a)] the 
-	classes 
-	of 
-	trivial 
-	extensions;
-	\item[(b)] the 
-	classes 
-	of 
-	essential 
-	extensions;
-	\item[(c)] if 
-	A 
-	is 
-	unital, the 
-	unital 
-	extensions; 
-	\item[(d)] if 
-	A 
-	is 
-	unital, the 
-	strongly 
-	unital 
-	trivial 
-	extensions.
-\end{itemize}
-(Some 
-of 
-these 
-subsemigroups 
-may 
-be 
-empty 
-in 
-general.) Addition 
-also 
-respects 
-weak 
-equivalence 
-and 
-homotopy 
-equivalence;so 
-there 
-are 
-semigroups 
-$\mathbf{Ext}_w\left(A, 
-B\right)$, 
-$\mathbf{Ext}_h\left(A, 
-B\right)$ which 
-are 
-quotients 
-of 
-$\mathbf{Ext}\left(A, 
-B\right)$ (sometimes 
-called 
-$\mathbf{Ext}_s\left(A, 
-B\right)$). 
-\end{proposition}
-\begin{definition}\label{k_extl_defn}
-%15.6.3. 
-We define $Ext(A, B)= Ext_s(A, 
-B)$ as the quotient of 
-$\mathbf{Ext}\left(A, 
-B\right)$ by the subsemigroup of trivial extensions. Similarly, $Ext_w(A, 
-B)$ and
-$Ext_h(A, B)$ are defined as the quotients of $\mathbf{Ext}_w\left(A, 
-B\right)$  and $\mathbf{Ext}_h\left(A, 
-B\right)$  by the
-subsemigroup of trivial extensions.
-\end{definition}
-\begin{remark}
-	It is obvious that $Ext$ is contravariantly functorial in the first variable, i.e. if	$f : A_1 \to A_2$ is a *-homomorphism, then there is a semigroup homomorphism 	$f^*:\mathbf{Ext}(A_2,B) \to \mathbf{Ext}(A_1,B)$, defined by $f^*\left[\tau\right]= \left[f\circ\tau\right]$. This homomorphism
-	drops to a homomorphism, also denoted $f^*$, from $Ext_*(A_2,B)$ to $Ext_*(A_1,B)$
-	(where $* = s, h$);
-\end{remark}
-%\begin{proposition}
-%Proposition 15.6.4. 
-%We always have $Ext(A,B) = Ext_w(A,B)$.
-%\end{proposition}
-\section{Inverse limits of $C^*$-algebras}
-\subsection{Basic results}
-\begin{prop}\label{pro_c_prop}\cite{phillips:inv_lim_app}
-%1.1.1. PROPOSITION. ([63]) 
-Let $A$ be a topological $*$ -algebra over 
-$\C$. Then $A$ is isomorphic, as a topological  $*$ -algebra, to an inverse limit of $C^*$- algebras in the above sense if and only if $A$ is Hausdorff, complete, and its topology 
-is determined by the set of all continuous $C^*$-seminorms on $A$.
-\end{prop}	
-
-\begin{definition}\label{pro_c_defn}\cite{phillips:inv_lim_app}
-%1.1.2. DEFINITION ([53], [7]). 
-A topological $*$-algebra satisfying the 
-conditions of the previous proposition is called a pro-$C^*$ -algebra. If it is a countable 
-inverse limit of $C^*$-algebras (equivalently, if its topology is determined by countably 
-many continuous $C^*$-seminorms), then it is called a $\sigma$-$C^*$-algebra. 
-
-\end{definition}
-
-\begin{notn}
-If $A$ is a pro-$C^*$-algebra, then $S(A)$ is the set of all 
-continuous $C^*$-seminorms on $A$, ordered as in the proof of Proposition \ref{pro_c_prop}. For 
-$p\in S\left(A\right)$, we let $\ker(p) \bydef \left\{\left.a\in A\right|p(a)=0\right\}$ and we let $A_p$ be the completion of 
-$A/\ker(p)$ in the norm determined by $p$.
-\end{notn} 
-Note that $A_p$ is a $C^*$-algebra, and that the proof of Proposition \ref{pro_c_prop} 
-gives a canonical representation of $A$ as an inverse limit, namely $A = \varprojlim_{p\in S(A)} A_p$. 
-%+ÑPes(A) (S(A) is directed because if p,^ G S(A), then a ÈÑ>¥ max(p(a), q(a)) is also in S(A).) We will show in Corollary 1.2.8 that in fact A/Ker(p) is always already complete.
-\begin{definition}\label{pro_bound_defn}\cite{phillips:inv_lim_app}
-%1.2.3. DEFINITION ([63]). 
-Let $A$ be a pro-$C^*$-algebra. Then an 
-element $a\in A$ i s called \textit{bounded} if $\left\| a\right\|_\infty  \bydef \sup\left\{\left.p(a)\right| p\in S(A)\right\}<\infty$. The set of all 
-bounded elements is denoted $b(A)$. 
-\end{definition}
-\begin{proposition}\label{pro_bound_prop}\cite{phillips:inv_lim_app}
-%1.2.4. PROPOSITION ([63]). 
-$b(A)$ is a $C^*$-algebra for the norm $\left\| \cdot\right\|_\infty$.
-
-\end{proposition}
-\begin{corollary}\label{pro_bound_cor}\cite{phillips:inv_lim_app}
-%	1.2.7. COROLLARY ([63]). 
-	$b(A)$ is dense in $A$.
-\end{corollary}
-
-\begin{definition}\label{pro_ab_defn}
-Let A be a pro-$C^*$-algebra. Then the \textit{abelianization} 
-of $A$ is the Hausdorff completion of A in the topology determined by all 
-continuous $C^*$-seminorms which vanish on the closed ideal $\left[A, A\right]$ generated by all 
-commutators $xy - yx$ for $x,y \in A$. 
-\end{definition}
-\begin{remark}
-The abelianization can also be described as the completion of $A/\left[A, A\right]$ 
-with respect to the quotient topology, or as the inverse limit $\varprojlim A_p/\left[A_p, A_p\right]$. It is 
-the largest abelian quotient of $A$. 
-\end{remark}
-\begin{definition}\label{pro_pt_defn}
- %2.5.1. DEFINITION.
- A pointed (pro-)$C^*$-algebra is a pair $(A,\a)$, 
-where $A$ is a unital (pro-)$C^*$-algebra and $\a: A \to \C$ is a unital homomorphism.
-\end{definition}
-\subsection{Generators and relations}\label{generators_and_relations}
-We begin with the construction of the $C^*$-algebra on a properly chosen
-set of generators and relations. Our treatment is based that of \cite{blackadar:shape_theory}, but includes
-changes to make it more suitable for our purposes. If $G$ is any set, we denote by
-$F(G)$ the free associative complex *-algebra (without identity) on the set $G$. Thus,
-$F(G)$ consists of all polynomials in the noncommuting variables $C \coprod G^*$ (disjoint union), with complex coefficients and no constant term. By definition, any function
-$p$ from $G$ to a $C^*$-algebra A extends to a unique *-homomorphism, which we also
-call $p$, from $F(G)$ to $A$.
-\newline
-A set $R$ of relations on $G$ is a collection of statements about the
-elements of $G$ which make sense for elements of a $C^*$ -algebra. Possible relations
-include statements of the form "$\|x\| \in S$"', where $x \in F(G)$ and $S \in \mathbb{R}$, "$x$ is
-positive," or the statement that some equation in the variables $G \coprod G^*$ and some unknowns has a solution, or that some function from a topological space into $G$ is
-continuous. Note that Blackadar considers only relations of the form $\|x\| \le \eta$ for $\eta > 0$ and $x$ in the unitization $F(G)^+$ of $F(G)$. (We do not allow relations involving
-elements of $F(G)^+-F(G)$ because they do not make sense in a nonunital $C^*$-
-algebra. However, it is perfectly possible for $R$ to include the relations $eg = ge Ñ g$
-for some fixed $e \in G$ and all $g \in G \coprod G^*$.)
-\begin{defn}\cite{phillips:inv_lim_app}
-	Let $(G,R)$ be a set of generators and relations.
-	(That is, G is a set and R is a set of relations on G.) Then a representation of
-	$(G,R)$ in a $C^*$-algebra $A$ is a function $\rho : G \to A$ such that the elements $\rho(g)$ for $g \in G$ satisfy the relations $R$ in $A$. A representation on a Hilbert space $\H$ is a
-	representation in $B(\H)$.
-\end{defn} 
-\begin{defn}\cite{phillips:inv_lim_app}
-	(Compare \cite{blackadar:shape_theory}). A set $(G,R)$ of generators and
-	relations is admissible if the following conditions hold:
-	\begin{enumerate}
-		
-		
-		\item The function from $G$ to the zero $C^*$-algebra is a representation of $(G,R)$.
-		\item If $\rho$ is a representation of $(G,R)$ in a $C^*$-algebra $A$, and if $B$ is a $C^*$-subalgebra of $A$ which contains $\rho(G)$, then $\rho$ is a representation of $(G,R)$ in $B$.
-		\item If $\rho$ is a representation of $(G, R)$ in a $C^*$-algebra $A$, and if $\psi: A\to B$ is a surjective homomorphism, then $\psi \circ \rho$ is a representation of $(G, R)$ in $B$.
-		\item For every $g \in G$ there is a constant $M(g)$ such that $\|\rho (g) \| < M(g)$ for all representations $p$ of $(G, R)$.
-		\item If $\{\rho_{\alpha}\}$ is a family of representations of $(G, R)$ on Hilbert spaces $H_{\alpha}$ then $g \mapsto \rho(g)=\oplus_{\alpha}\rho_{\alpha}(g)$   is a representation of $(G, R)$ on $H= \oplus H_{\alpha}$. (That is, the elements $\rho(g)$, which are in $B(H)$ by (4), in fact satisfy the relations $R$.)
-	\end{enumerate}
-\end{defn}
-Note that, in the presence of (3), condition (1) is equivalent to "there
-exists a representation of $(G, R)$." Also note that, for relations of the sort considered
-by Blackadar, (2) and (3) are automatic and (5) follows from (4).
-%1.3.3. EXAMPLES, (l) The relation |x|| = 1 on the single generator
-%x does not satisfy (l) of the definition.
-The universal $C^*$-algebra on the generators $G$ and relations $R$ is a $C^*$- algebra $C^*(G,R)$ with a representation $\rho$ of $(G,R)$ in $C^*(G,R)$, such that, given any representation $\sigma$ of $(G,R)$ in a $C^*$-algebra $B$, then is a unique homomorphism
-$\psi : C^*(G,R) \to B$ such that $\sigma=\psi \circ \rho$. If $(G,R)$ is admissible, then $C^*(G,R)$ exists
-and, following Blackadar, can be obtained as the Hausdorff completion of $F(G)$ in the $C^*$ -seminorm $\|x\| = \mathrm{sup}|\rho(x)\|$ where $\rho$ is a representation of $(G,R)$.
-Note that condition (4) guarantees that $\|x\| < \infty$ for $x \in G$, and that condition
-(5) guarantees that the obvious map from $G$ to $C^*(G, R)$ is in fact a representation.
-Admissibility, or something close to it, is also necessary for the existence
-of $C^*(G,R)$. Condition (1) is needed, since otherwise there may be no
-representations at all; conditions (2) and (3) are needed to ensure that the notion of a universal $C^*$-algebra is sensible, and without conditions (4) and (5) it will not be
-possible to construct a universal $C^*$ -algebra. However, if the relations $R$ also make
-sense in a pro-$C^*$ -algebra, then a pro-$C^*$-algebra with the required properties will
-exist under much weaker conditions, as in the following definition. A representation
-of $(G, R)$ in a pro-$C^*$-algebra has the obvious meaning.
-\begin{defn}\label{weak_adm_defn}\cite{phillips:inv_lim_app}
-	
-	A set $(G, R)$ of generators and relations is called
-	weakly admissible if the following conditions are satisfied:
-	\begin{enumerate}
-		
-		\item The function from $G$ to the zero $C^*$-algebra is a representation of $(G,R)$.
-		\item If $\rho$ is a representation of $(G,R)$ in a $C^*$-algebra $A$, and if $B$ is a $C^*$-subalgebra of $A$ which contains $\rho(G)$, then $\rho$ is a representation of $(G,R)$ in $B$.
-		\item If $\rho$ is a representation of $(G, R)$ in a $C^*$-algebra $A$, and if $\varphi: A\to B$ is a surjective homomorphism, then $\varphi \circ \rho$ is a representation of $(G, R)$ in $B$.
-		\item For every $g \in G$ there is a constant $M(g)$ such that $\|\rho (g) \| < M(g)$ for all representations $p$ of $(G, R)$.
-		\item If $\{\rho_{\alpha}\}$ is a family of representations of $(G, R)$ on Hilbert spaces $H_{\alpha}$ then $g \mapsto \rho(g)=\oplus_{\alpha}\rho{\alpha}(g)$   is a representation of $(G, R)$ on $H= \oplus H_{\alpha}$. (That is, the elements $\rho(g)$, which are in $B(H)$ by (4), in fact satisfy the relations $R$.)
-		
-		\item If $A$ is a pro-$C^*$-algebra, and $\rho : G \to A$ is a function such that, for every $p \in S(A)$, the composition of $\rho$ with $A \to A_p$ is a representation of $(G, R)$ in $A_p$, then $\rho$ is a representation of $(G,R)$.
-		\item If $\rho_1, ..., \rho_n$ are representations of $(G,R)$ in $C^*$-algebras $A_1,...,A_n$
-		then $g \mapsto (\rho_1(g), ..., \rho_n(g))$ is a representation of $(G,R)$ in $A_1 \oplus ... \oplus A_n$.
-	\end{enumerate}
-\end{defn}
-\begin{prop}\label{uni_pro_c_rep} \cite{phillips:inv_lim_app}
-	Let $(G,R)$ be a weakly admissible set of generators
-	and relations. Then there exists a pro-$C^*$ -algebra C*(G,R), equipped with
-	a representation $\rho : G \to C^*(G,R)$ of $(G,R)$, such that, for any representation $\sigma$ of $(G,R)$ in a pro-$C^*$-algebra $B$, there is a unique homomorphism $\varphi : C^*(G,R) \to B$
-	satisfying $\sigma = \varphi \circ \rho$. If $(G,R)$ is admissible, then $C^*(G,R)$ is a $C^*$-algebra.
-\end{prop}
-\subsection{Noncommutative Suspension and Loop Space}\label{loop_space_gen}
-
-We would like to generalize notion of a loop space.
-%\begin{proof}
-%Let $D$ be the set of all $C^*$-seminorms on $F(G)$ of the form
-%$\rho(x) = \|\sigma(x)\|$ for some representation a of $G$ in a %$C^*$-algebra. Then take $C^*(G,R)$ to be the Hausdorff completion of $F(G)$ in the family of $C^*$-seminorms $D$, with
-%the obvious map $\rho : G \to C^*(G,R)$. To see that $\rho$ is a representation, let $q \in S(C^*(G, R))$. Since $D$ is a directed set in the obvious order (by (5) of the definition
-%of weak admissibility), there is a representation $\sigma$ of $(G,R)$ in a $C^*$-algebra $B$ such
-%that $q(x) < \|\sigma(x)\| \ \forall x \in F(G)$. By (2) we may assume that $B$ is generated by $\sigma(G)$, from which it follows that there is a surjective map $\varphi : B \to C^*(G,R)_q$
-%such that, with $\kappa_q : C^*(G,R) \to C*(G,R)_q$ being the canonical map, we have $\varphi \circ \sigma = \kappa_q \circ \rho$. So $\kappa_q(\rho)$ is a representation by (3), whence p is a representation by
-%(4).
-%To show that $C^*(G,R)$ satisfies the universal property, it suffices, in
-%view of (3), the definition of an inverse limit, and Corollary 1.2.8, to show the universal property holds for representations in C*-algebras. Now use the definition of C*{G,R).
-%If $(G,R)$ is admissible, then the directed set $D$ has a largest element
-%$\rho$, so that $C^*(G,R)$ is a $C^*$-algebra with the norm $p$.
-%\end{proof}
-
-
-\begin{defn}\label{poined_alg_defn}\cite{phillips:inv_lim_app}
-	If $(A, \alpha)$ is a pointed pro-$C^*$-algebra, than its
-	suspension is the pro-$C^*$-algebra $\Sigma A = \{f : S^1 \to A \ \mathrm{continuous} \ : \alpha(f(\zeta)) \cdot 1 = f(1), \ \forall \zeta \in S^1\}$, together with the homomorphism $ev_1 : \Sigma A \to \mathrm{C}$ of evaluation at 1. Here $S^1$ is
-	identified with $\{\zeta \in \mathbb{C}:|\zeta| = 1\}$. (Note that $ev_1$ makes sense as a homomorphism
-	to $\mathbb{C}$ since $f(1) \in \mathbb{C} \cdot 1$ for $f \in \Sigma A$.)
-\end{defn}
-Note that $\Sigma(A^+) = (SA)^+$ , where $SA$ is the conventional suspension $C_0(\mathbb{R} \otimes A$. A left adjoint for $\Sigma$ in the pointed category immediately gives a left
-adjoint for $S$ in the category of pro-$C^*$-algebras and arbitrary homomoprhisms,
-simply by taking the kernel of the homomorphism to $\mathbb{C}$ which comes with the
-pointed pro-$C^*$-algebra. It is a left adjoint for S that Rosenberg really had in
-mind, since what he calls $\Sigma$ we call $S$. However, our approach more closely matches the topologists' conventions.
-\begin{defn}\label{pointed_noncommutative_loop_defn}\cite{phillips:inv_lim_app}
-	Let $(A, \alpha)$ be a pointed pro-$C^*$-algebra. We
-	construct a pointed pro-$C^*$-algebra $\Omega A$ in terms of generators and relations as
-	follows. Let the generating set $G$ consist of the symbols $z(a, \zeta)$ for a $a \in A$ and $f \in S^1$, and let the relations $R$ be as follows:
-	\begin{enumerate}
-		\item The map $(a, \zeta) \mapsto z(a, \zeta)$ continuous.
-		\item For each fixed $\zeta \in S^1$, the elements $z(a, \zeta)$ satisfy all the algebraic
-		relations satisfied by the corresponding elements of $A$.
-		\item $z(1,\zeta) = z(1,1)$ $\forall S^1$ .
-		\item $z(a, 1) = z(\alpha(a)1, 1)$ $\forall \in  A$.
-	\end{enumerate}
-	Then set $\Omega A= C^*(G, R)$. The required homomorphism from  $\Omega A$ to $\mathbb{C}$ is given by $z(a, \zeta) \mapsto \alpha(a)$  for $a \in A$ and $\zeta \in S^1$.
-\end{defn}
-\begin{thm}\label{pro_adf_thm}\cite{phillips:inv_lim_app}
-	The map $\Phi : \Hom_+(\Omega A, B) \to \Hom_+(A, \Sigma B)$ defined by $\Phi(\varphi)(a)(\zeta) = \phi(z((a, \zeta))))$, is a natural bijection, and also defines a natural bijection $[\Omega A,B]^+ \to [A, \Sigma B]^+$ . In particular, $\Omega$ is a left adjoint for the functor
-	$\Sigma$.
-\end{thm}
-\begin{empt}\label{pro_ab_empt}\cite{phillips:inv_lim_app}
-We should note that if $A = C(\sX)$ for some compactly generated 
-completely Hausdorff space $\sX$, and if $\a = ev_{x_0}$, evaluation at $x_0$, for some $x_0\in\sX$, 
-then the abelianization of $\Om A$ (cf. Definition \ref{pro_ab_defn}) is $C(\Om(X,x_0))$, where $\Om(X,x_0)$ is 
-the usual loop space of $\sX$ relative to the basepoint $x_0$ (cf. \cite{switzer:at}%2.6
-), and is equipped 
-with the compactly generated topology. Note, 
-however, that $C(\Om(X,x_0))$ is essentially never commutative, because if $\phi:  C(X) \to B$ is a homomorphism, then there is generally no reason for the ranges of the 
-homomorphisms $ \ev_\zeta \circ \phi : C(\sX) \to B$ to commute with each other. 
-\end{empt}
-
-
-%\begin{empt}\label{unpointed_loop_suspension}
-%	It is an analog $\Omega_0$ of a loop algebra construction without basepoint. Letting $\Sigma B$ usual suspension of pro-$C^*$-algebra $B$, and identifying it with $\{f:S^1\to B \ | \ f(1)=0 \}$ we have
-%	\begin{equation}
-%	\begin{split}
-%	\mathrm{Hom}(\Omega_0 A, B)\simeq \mathrm{Hom}(\Sigma A,B),
-%[\Omega_0 A,B ]\simeq [A, \Sigma B].
-%	\end{split}
-%	\end{equation} 
-%\end{empt}
-
-	
-	\chapter{Spectral triples}
+\chapter{Spectral triples}
  	
  	\paragraph{}
  	This section contains citations of  \cite{hajac:toknotes}. 
@@ -20825,13 +19961,8 @@ It can be proved that   the Definition \ref{top_smooth_m_defn} complies with the
  	\end{prop}
  	
  	\begin{empt}
- 		If $\widetilde{M}$ is a covering space of Riemannian manifold $M$ then it is possible to give $\widetilde{M}$ a Riemannian structure such that $\pi: \widetilde{M} \to M$ is a local isometry (this metric is called the {\it covering metric}). cf. \cite{do_carmo:rg} for details.
+ 		If $\widetilde{M}$ is a covering space of Riemannian manifold $M$ then it is possible to give $\widetilde{M}$ a Riemannian structure such that $\pi: \widetilde{M} \to M$ is a local isometry (this metric is called the {\it covering metric}) cf. \cite{do_carmo:rg} for details.
  	\end{empt}
- 	
- 	
- 	
- 	
- 	
  	\paragraph{}From the Theorem \ref{gelfand-naimark} it turns out any (noncommutative) $C^*$-algebra may be regarded as a generalized (noncommutative)  locally compact Hausdorff topological space. The article \cite{pavlov_troisky:cov} contain noncommutative analogs of coverings. The spectral triple \cite{hajac:toknotes,varilly:noncom} can be regarded as a noncommutative generalization of Riemannian manifold. Having analogs of both coverings and Riemannian manifolds one can proof  a noncommutative generalization of the Proposition \ref{comm_cov_mani_prop}.
  	
  	
