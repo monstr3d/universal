@@ -26,7 +26,7 @@ namespace Motion6D.UI.UserControls
 
         const Double a = 0;
 
-        private ReferenceFrameDataBase frame;
+        private Portable.ReferenceFrameDataBase frame;
 
         private IDataConsumer dc;
 
@@ -70,7 +70,7 @@ namespace Motion6D.UI.UserControls
             }
         }
 
-        internal virtual ReferenceFrameDataBase Frame
+        internal virtual Portable.ReferenceFrameDataBase Frame
         {
             set
             {

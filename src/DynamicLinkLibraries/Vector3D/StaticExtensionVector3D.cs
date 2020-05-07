@@ -315,7 +315,7 @@ namespace Vector3D
 		/// Normalization of transition matrix
 		/// </summary>
 		/// <param name="matrix">The matrix</param>
-		public static void NormMatrix(double[,] matrix)
+		public static void NormMatrix(this double[,] matrix)
 		{
 			double[][] a = new double[2][];
 			for (int i = 0; i < 2; i++)

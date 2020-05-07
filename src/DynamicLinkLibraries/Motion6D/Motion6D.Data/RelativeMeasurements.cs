@@ -3,14 +3,6 @@ using System.Collections.Generic;
 using System.Text;
 using System.Runtime.Serialization;
 
-using CategoryTheory;
-
-using Diagram.UI;
-
-using DataPerformer.Portable.Measurements;
-using DataPerformer.Interfaces;
-
-using Motion6D.Interfaces;
 
 namespace Motion6D
 {

@@ -11,6 +11,8 @@ using Diagram.UI.Interfaces.Labels;
 using Diagram.UI.Interfaces;
 
 using Motion6D.UI;
+using Motion6D.Aggregates;
+using Motion6D.UI.Forms;
 
 namespace Motion6D.UI.Factory
 {
@@ -69,6 +71,9 @@ namespace Motion6D.UI.Factory
                     MotionFactory.Object, true, false),
                             new ButtonWrapper(typeof(Motion6D.AcceleratedPosition),
                     "", "Material point", ResourceImage.Point,
+                    MotionFactory.Object, true, false),
+                            new ButtonWrapper(typeof(Motion6D.Aggregates.RigidBody),
+                    "", "Rigid body", ResourceImage.RigidBody,
                     MotionFactory.Object, true, false)
                 };
 
@@ -204,7 +209,12 @@ namespace Motion6D.UI.Factory
                 {
                     return new FormPointsCollection(lab);
                 }
+                if (obj is RigidBody)
+                {
+                    return new FormRigidBody(lab);
+                }
             }
+
             if (comp is IArrowLabel)
             {
                 IArrowLabel l = comp as IArrowLabel;
@@ -228,15 +238,15 @@ namespace Motion6D.UI.Factory
             object im = button.ButtonImage;
             if (type.Equals(typeof(PositionCollectionIndicator)))
             {
-                return (new UI.Labels.PositionsIndicatorLabel()).CreateLabelUI(im, false);
+                return (new Labels.PositionsIndicatorLabel()).CreateLabelUI(im, false);
             }
             if (type.Equals(typeof(ReferenceFrameData)))
             {
-                return (new UI.Labels.ReferenceFrameDataLabel()).CreateLabelUI(im, true);
+                return (new Labels.ReferenceFrameDataLabel()).CreateLabelUI(im, true);
             }
             if (type.Equals(typeof(ReferenceFrameDataPitchRollHunting)))
             {
-                return (new UI.Labels.ReferenceFrameDataPitchRollHuntingLabel()).CreateLabelUI(im, true);
+                return (new Labels.ReferenceFrameDataPitchRollHuntingLabel()).CreateLabelUI(im, true);
             }
             return null;
         }

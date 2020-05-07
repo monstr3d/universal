@@ -207,6 +207,10 @@ namespace DataPerformer.Portable
 
         IDataConsumer IDataLinkFactory.GetConsumer(ICategoryObject source)
         {
+            if (source is IDataConsumer)
+            {
+                return source as IDataConsumer;
+            }
          /*   if (source is IChildrenObject)
             {
                 IDataConsumer dcc = (source as IChildrenObject).GetChildren<IDataConsumer>();
@@ -222,7 +226,7 @@ namespace DataPerformer.Portable
                 IDataConsumer dcl = null;
                 INamedComponent comp = o as INamedComponent;
                 IDesktop desktop = comp.Root.Desktop;
-                desktop.ForEach<DataLink>((DataLink dl) =>
+                desktop.ForEach((DataLink dl) =>
                 {
                     if (dcl != null)
                     {

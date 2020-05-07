@@ -19,7 +19,7 @@ namespace Motion6D
     /// Reference frame controlled by data
     /// </summary>
     [Serializable()]
-    public class ReferenceFrameData : Portable.ReferenceFrameDataBase
+    public class ReferenceFrameData : Portable.ReferenceFrameDataBase, ISerializable
     {
 
         #region Constructors
@@ -39,7 +39,15 @@ namespace Motion6D
         /// <param name="context">Streaming context</param>
         private ReferenceFrameData(SerializationInfo info, StreamingContext context)
         {
-
+            try
+            {
+                parameters = info.GetValue("Parameters", typeof(List<string>)) as List<string>;
+                isSerialized = true;
+            }
+            catch (Exception ex)
+            {
+                ex.ShowError();
+            }
         }
 
 
@@ -67,7 +75,21 @@ namespace Motion6D
                 SetParameters();
             }
         }
- 
+
+        #endregion
+
+        #region ISerializable Members
+
+        /// <summary>
+        /// ISerializable interface implementation
+        /// </summary>
+        /// <param name="info">Serialization info</param>
+        /// <param name="context">Streaming context</param>
+        void ISerializable.GetObjectData(SerializationInfo info, StreamingContext context)
+        {
+            info.AddValue("Parameters", parameters, typeof(List<string>));
+        }
+
         #endregion
     }
 }

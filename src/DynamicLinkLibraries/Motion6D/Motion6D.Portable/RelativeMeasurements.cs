@@ -13,6 +13,9 @@ using Motion6D.Interfaces;
 
 namespace Motion6D.Portable
 {
+    /// <summary>
+    /// Relative measurements
+    /// </summary>
     public class RelativeMeasurements : CategoryObject, IMeasurements, IPostSetArrow
     {
 

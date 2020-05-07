@@ -10282,7 +10282,7 @@ Suppose that $\sU \subset \sX$ is a dense subset of $\sX$ and
 \end{proof}
 
 \begin{corollary}\label{ctr_sp_cov_cor}
-If $A$ is a continuous trace $C^*$-algebra with compact spectrum and $\left(A, \widetilde{A}, G, \pi \right)$ is a  noncommutative finite-fold covering with unitization (cf. Definition \ref{fin_comp_defn}) then following conditions hold:
+If $A$ is a continuous trace $C^*$-algebra with compact spectrum and \\$\left(A, \widetilde{A}, G, \pi \right)$ is a  noncommutative finite-fold covering with unitization (cf. Definition \ref{fin_comp_defn}) then following conditions hold:
 \begin{itemize}
 	\item[(i)] The spectrum $\widetilde\sX$ of $\widetilde A$ is a Hausdorff space.
 	\item[(ii)] The given by the Equation  \eqref{cov_spectrum_eqn} map $p: \widetilde\sX\to\sX$ is a transitive finite-fold covering. 
@@ -10322,20 +10322,13 @@ but there is no  a finite subset $\La_0\subset \La$  such that
 $$
 \widetilde{B}=\sum_{\la \in \La_0}M_\la \widetilde{B}.
 $$
-	From the Theorem \ref{fin_gen_thm} it follows $\widetilde{B}$ is not a finitely generated $B$-module, it contradicts with the definition \ref{fin_uni_defn}. So $C\left(\widetilde\sX\right)$ is   a finitely generated $C\left(\sX\right)$, and from the Theorem \ref{pavlov_troisky_thm} it follows that $p$ is a finite fold covering. The group $G_0 \bydef G / \ker\left(G \to \Homeo\left(\widetilde{A} \right) \right)$ is a normal subgroup of $G$,  and the action of $G/G_0\times \widetilde{\mathcal X}\to \widetilde{\mathcal X}$ is not trivial. From the Lemma \ref{cov_spectrum_lem} it turns out that the action is transitive. 
+	From the Theorem \ref{fin_gen_thm} it follows $\widetilde{B}$ is not a finitely generated $B$-module, it contradicts with the definition \ref{fin_uni_defn}. So $C\left(\widetilde\sX\right)$ is   a finitely generated $C\left(\sX\right)$, and from the Theorem \ref{pavlov_troisky_thm} it follows that $p$ is a finite fold covering. The given by \eqref{g_red_eqn} and \eqref{g_red_ker_eqn} group $G_{\text{red}}$ is a normal subgroup of $G$.
+	There is the group $G_0 \bydef G/G_{\text{red}}= G / \ker\left(G \to \Homeo\left(\widetilde{A} \right) \right)$  such that  the action of $G_0\times \widetilde{\mathcal X}\to \widetilde{\mathcal X}$ is not trivial. From the Lemma \ref{cov_spectrum_lem} it turns out that the action is transitive. 
 \end{proof}
 
 \begin{lemma}\label{ctr_pre_red_lem}
-Let $A$ be a continuous trace $C^*$-algebra, and let be $\left(A, \widetilde{A}, G, \pi \right)$ be a  noncommutative finite-fold quasi-covering. Suppose  that there are a subgroup $G'\subset G$ and an open subset $\widetilde\sU$ of the spectrum $\widetilde\sX$ of  $\widetilde{A}$ such that
-\begin{itemize}
-	\item For all $g \in G'$ and $\widetilde x\in\widetilde\sU$ one has $g\widetilde x=\widetilde x$.
-	\item For all $\widetilde a\in \widetilde A $ and $\widetilde x\in\widetilde\sU$ the following condition holds
-	$$
-\left\{\left.\rep_{ \widetilde{x}}\left(\sum_{	g \in G'}g  \widetilde a\right) \right|\widetilde a\in \widetilde A\right\}=	\rep_{ \widetilde{x}}\left(\widetilde{A}_{\mathrm{red}}\right)
-	$$
-	where  $\widetilde{A}_{\mathrm{red}}$ is the reduced $C^*$-algebra (cf. Definition \ref{red_alg_defn}) of $\left(A, \widetilde{A}, G, \pi \right)$. 
-\end{itemize}
-If there is $\widetilde x_0\in \widetilde \sU$ such that $\rep_{ \widetilde{x}_0}\left(\widetilde{A}_{\mathrm{red}}\right) \subsetneqq \rep_{ \widetilde{x}_0}\left(\widetilde{A}\right)$ then the set
+Let $A$ be a continuous trace $C^*$-algebra, and let  $\left(A, \widetilde{A}, G, \pi \right)$ be a  noncommutative finite-fold quasi-covering. Suppose  that there is an open subset $\widetilde\sU$ of the spectrum $\widetilde\sX$ of  $\widetilde{A}$ such that
+ $\rep_{ \widetilde{x}}\left(\widetilde{A}_{\mathrm{red}}\right) \subsetneqq \rep_{ \widetilde{x}}\left(\widetilde{A}\right)$ for all $\widetilde{x}\in \widetilde \sU$ then the set
 $$
 \left\{\left. g \in \Aut\left(\widetilde{A} \right)  \right| \forall \widetilde{a}_{\mathrm{red}}\in \widetilde{A}_{\mathrm{red}} \quad g \widetilde{a}_{\mathrm{red}}=\widetilde{a}_{\mathrm{red}}\right\}
 $$
@@ -10352,9 +10345,10 @@ is not finite.
 	\eean
 	so for any $\widetilde{x}\in \widetilde\sV$ one has 
 	$$
-	\rep_{ \widetilde{x}}\left( \sum_{	g \in G'}\widetilde{a}\right) \in \rep_{ \widetilde{x}}\left(\widetilde{A}_{\text{red}} \right).
+	\rep_{ \widetilde{x}}\left( \sum_{	g \in G_{\text{red}}}\widetilde{a}\right) \in \rep_{ \widetilde{x}}\left(\widetilde{A}_{\text{red}} \right)
 	$$
-	If $\widetilde{a}^\parallel\bydef \frac{1}{\left|G'\right|}\sum_{	g \in G'}g \widetilde{a}$ and $\widetilde{a}^\perp\bydef \widetilde{a}-\widetilde{a}^\parallel$ then $	\rep_{ \widetilde{x}}\left( \widetilde{a}^\parallel\right) \in  \rep_{ \widetilde{x}}\left(\widetilde{A}_{\text{red}} \right)$ and $\rep_{ \widetilde{x}}\left( \sum_{	g \in G'}g \widetilde{a}^\perp\right)=0$ for all $\widetilde{x}\in \widetilde\sV$. The natural decomposition $\widetilde{a}=\widetilde{a}^\parallel+ \widetilde{a}^\perp$ yields the direct sum $\left.\widetilde A\right|^{\widetilde\sV}=\left.\widetilde A_{\text{red}}\right|^{\widetilde\sV}\oplus \left.\widetilde A\right|_\perp^{\widetilde\sV}$ which naturally induces the direct sum 
+	where $G_{\text{red}}$ is given by the Equation  \eqref{g_red_eqn} and \eqref{g_red_ker_eqn}. 
+	If $\widetilde{a}^\parallel\bydef \frac{1}{\left|G_{\text{red}}\right|}\sum_{	g \in G_{\text{red}}}g \widetilde{a}$ and $\widetilde{a}^\perp\bydef \widetilde{a}-\widetilde{a}^\parallel$ then $	\rep_{ \widetilde{x}}\left( \widetilde{a}^\parallel\right) \in  \rep_{ \widetilde{x}}\left(\widetilde{A}_{\text{red}} \right)$ and $\rep_{ \widetilde{x}}\left( \sum_{	g \in G_{\text{red}}}g \widetilde{a}^\perp\right)=0$ for all $\widetilde{x}\in \widetilde\sV$. The natural decomposition $\widetilde{a}=\widetilde{a}^\parallel+ \widetilde{a}^\perp$ yields the direct sum $\left.\widetilde A\right|^{\widetilde\sV}=\left.\widetilde A_{\text{red}}\right|^{\widetilde\sV}\oplus \left.\widetilde A\right|_\perp^{\widetilde\sV}$ which naturally induces the direct sum 
 	$X_{C\left( \widetilde\sV\right)}=X^\parallel_{C\left( \widetilde\sV\right)}\oplus X^\perp_{C\left( \widetilde\sV\right)}$ of Hilbert modules. Let $\widetilde f_{\widetilde x_0}:  \widetilde \sX\to[0,1]$ be a continuous map such that $\supp  \widetilde f_{\widetilde x_0}\subset \widetilde\sU''$ and there is an open neighborhood $\widetilde\sU_0$ which satisfies to the condition $\widetilde f_{\widetilde x_0}\left(\widetilde\sU_0 \right) = \{1\}$ (cf. Lemma \ref{com_a_u_lem}).
 	There is a continuous map  $\varphi: \widetilde\sX \to [0,1]$ such that $\varphi\left(\widetilde x_0  \right) = 1$ and $\supp \varphi\subset \widetilde\sU_0$. For any $\epsilon \in \left(0, 2\pi \right)$ denote by  
 	\bean
@@ -21896,7 +21890,8 @@ Birkhauser, Basel-Boston-Berlin 1991), viii + 202 pp. 3 7643 3496 7, sFr. 98. 19
 %\bibitem{kakariadis:corr}Evgenios T.A. Kakariadis, Elias G. Katsoulis, {\it Operator algebras and $C^*$-correspondences: A survey.} 	arXiv:1210.6067, 2012.
 
 
-\bibitem{kasch:mr} Kasch !!!
+\bibitem{kasch:mr} \textit{Modules and Rings}. A translation of \textit{Moduln und Ringe}. German text by F. Kasch, Ludwig-Maximilian University, Munich, Germany, Translation and editing by D. A. R. WALLACE University of Stirling, Stirling, Scotland 1982 ACADEMIC PRESS. A Subsidiary of Harcourt Brace Jovanovich, Publishers LONDON, NEW YORK, PARIS, SAN DIEGO, SAN FRANCISCO, S\~{A}O PAULO, SYDNEY, TOKYO, TORONTO.  1982.
+
 \bibitem{kaplansy:certain} I. Kaplanky. \textit{The structure of certain operator algebras.} Trans. Amer. Math. Soc., 70 (1951), 219-255. 1951.
 
 

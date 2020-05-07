@@ -2279,6 +2279,49 @@ namespace Diagram.UI
             return l.ToArray();
         }
 
+        /// <summary>
+        /// Adds strings to code creator
+        /// </summary>
+        /// <param name="list">List of double</param>
+        /// <param name="lcode">List of code</param>
+
+        public static void ToCodeCreator(this IEnumerable<double> list, List<string> lcode)
+        {
+            bool first = true;
+            foreach (double a in list)
+            {
+                string s = a.StringValue();
+                if (first)
+                {
+                    first = false;
+                }
+                else
+                {
+                    s = ", " + s;
+                }
+                lcode.Add(s);
+            }
+        }
+
+        /// <summary>
+        /// Adds strings to code creator
+        /// </summary>
+        /// <param name="list">List of strigs</param>
+        /// <param name="lcode">List of code</param>
+        public static void ToCodeCreator(this List<string> list, List<string> lcode)
+        {
+            int n = list.Count;
+            for (int i = 0; i < n; i++)
+            {
+                string s = "\"" + list[i] + "\"";
+                if (i < n - 1)
+                {
+                    s += ",";
+                }
+                lcode.Add(s);
+            }
+        }
+
 
 
         #region Dependent

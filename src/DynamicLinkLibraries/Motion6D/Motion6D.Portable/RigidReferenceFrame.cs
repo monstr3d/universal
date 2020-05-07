@@ -15,7 +15,7 @@ namespace Motion6D.Portable
     /// Rigid reference frame
     /// </summary>
     public class RigidReferenceFrame : CategoryObject,   IReferenceFrame, 
-       IPostLoadPosition
+       IPostLoadPosition, IPostSetArrow
     {
 
         #region Fields
@@ -195,9 +195,22 @@ namespace Motion6D.Portable
 
         #endregion
 
+        #region IPostSetArrow Members
+
+
+        void IPostSetArrow.PostSetArrow()
+        {
+            PostSetParameters();
+        }
+
+        #endregion
+
+
+
         #region Specific Members
 
         #region Public Members
+
 
         /// <summary>
         /// Copies position to relative reference frame
@@ -282,6 +295,16 @@ namespace Motion6D.Portable
         #endregion
 
         #region Protected Members
+
+        /// <summary>
+        /// Post set parameteres operation
+        /// </summary>
+        protected virtual void PostSetParameters()
+        {
+            Parameters = parameters;
+        }
+
+
 
         /// <summary>
         /// Base frame
@@ -400,6 +423,12 @@ namespace Motion6D.Portable
                 return parent.Own is IAngularVelocity;
             }
         }
+
+        #endregion
+
+        #region Internal Members
+
+        internal ReferenceFrame RelativeFrame => relative;
 
         #endregion
 

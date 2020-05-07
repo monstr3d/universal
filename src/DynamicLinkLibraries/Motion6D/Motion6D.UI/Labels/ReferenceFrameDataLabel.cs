@@ -26,7 +26,7 @@ namespace Motion6D.UI.Labels
         /// </summary>
         protected UserControlFrameData userControlFrameData;
 
-        ReferenceFrameDataBase frame;
+        Portable.ReferenceFrameDataBase frame;
 
         #endregion
 
@@ -38,6 +38,7 @@ namespace Motion6D.UI.Labels
         public ReferenceFrameDataLabel()
             : this(typeof(ReferenceFrameData), "", ResourceImage.DataFrame.ToBitmap())
         {
+
         }
 
 
@@ -50,8 +51,8 @@ namespace Motion6D.UI.Labels
         public ReferenceFrameDataLabel(Type type, string kind, Image icon)
             : base(type, kind, icon)
         {
-        }
 
+        }
 
         /// <summary>
         /// Deserialization constructor
@@ -61,6 +62,7 @@ namespace Motion6D.UI.Labels
         protected ReferenceFrameDataLabel(SerializationInfo info, StreamingContext context)
             : base(info, context)
         {
+
         }
 
         #endregion
@@ -92,11 +94,11 @@ namespace Motion6D.UI.Labels
             }
             set
             {
-                if (!(value is ReferenceFrameDataBase))
+                if (!(value is Portable.ReferenceFrameDataBase))
                 {
                     CategoryException.ThrowIllegalSourceException();
                 }
-                frame = value as ReferenceFrameDataBase;
+                frame = value as Portable.ReferenceFrameDataBase;
                 userControlFrameData.Frame = frame;
             }
         }

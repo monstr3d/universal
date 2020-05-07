@@ -16,15 +16,20 @@ namespace GeneratedProject
 		{
 			internal IntrenalDesktop()
 			{
-				objects.Add(new IntrenalDesktop.OblectLabel0("Satellite", this));
-				objects.Add(new IntrenalDesktop.OblectLabel1("Timer", this));
-				objects.Add(new IntrenalDesktop.OblectLabel2("Consumer", this));
+				objects.Add(new IntrenalDesktop.OblectLabel0("Motion", this));
+				objects.Add(new IntrenalDesktop.OblectLabel1("Plane frame", this));
+				objects.Add(new IntrenalDesktop.OblectLabel2("Forward frame", this));
+				objects.Add(new IntrenalDesktop.OblectLabel3("Consumer", this));
 				Diagram.UI.Labels.PureArrowLabel currALabel = null;
 				currALabel  = new IntrenalDesktop.ArrowLabel0("", this);
 				arrows.Add(currALabel);
-				currALabel.SourceNumber = (int)2;
-				currALabel.TargetNumber = new object[] {(int)0,"Motion equations" };
+				currALabel.SourceNumber = (int)1;
+				currALabel.TargetNumber = (int)0;
 				currALabel  = new IntrenalDesktop.ArrowLabel1("", this);
+				arrows.Add(currALabel);
+				currALabel.SourceNumber = (int)3;
+				currALabel.TargetNumber = (int)0;
+				currALabel  = new IntrenalDesktop.ArrowLabel2("", this);
 				arrows.Add(currALabel);
 				currALabel.SourceNumber = (int)2;
 				currALabel.TargetNumber = (int)1;
@@ -42,3242 +47,1137 @@ namespace GeneratedProject
 					obj.Object = this;
 				}
 		
-				internal class CategoryObject : Diagram.UI.ObjectContainerPortable
+				internal class CategoryObject : DataPerformer.Formula.VectorFormulaConsumer, FormulaEditor.Interfaces.ITreeCollectionProxyFactory
 				{
-					internal CategoryObject() : base(null)
+				
+					internal CategoryObject()
 					{
-						desktop = new Desktop(this);
-						Load();
+						proxyFactory = this;
+						formulaString = new string[]
+						{
+							"<Root>  <F>    <S type=\"FormulaEditor.Symbols.BracketsSymbol\" symbol=\"P\" S=\"( )\" Type=\"2\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"P\">      <F>        <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"t\" S=\"t\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">          <F />        </S>        <S type=\"FormulaEditor.Symbols.BinarySymbol\" symbol=\"-\" S=\"-\" Type=\"3\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\" />        <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"1\" S=\"1\" Type=\"5\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\">          <F />        </S>        <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"0\" S=\"0\" Type=\"5\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\">          <F />        </S>      </F>      <F />    </S>    <S type=\"FormulaEditor.Symbols.FractionSymbol\" symbol=\"F\" S=\"F\" Type=\"2\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"P\">      <F>        <S type=\"FormulaEditor.Symbols.FractionSymbol\" symbol=\"F\" S=\"F\" Type=\"2\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"P\">          <F>            <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"%\" S=\"π\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">              <F />            </S>          </F>          <F>            <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"2\" S=\"2\" Type=\"5\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\">              <F />            </S>          </F>        </S>        <S type=\"FormulaEditor.Symbols.BinarySymbol\" symbol=\"-\" S=\"-\" Type=\"3\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\" />        <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"a\" S=\"arctg\" Type=\"4\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\">          <F />        </S>        <S type=\"FormulaEditor.Symbols.BinarySymbol\" symbol=\"(\" S=\"(\" Type=\"3\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\" />        <S type=\"FormulaEditor.Symbols.FractionSymbol\" symbol=\"F\" S=\"F\" Type=\"2\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"P\">          <F>            <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"t\" S=\"t\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">              <F />            </S>            <S type=\"FormulaEditor.Symbols.BinarySymbol\" symbol=\"-\" S=\"-\" Type=\"3\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\" />            <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"1\" S=\"1\" Type=\"5\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\">              <F />            </S>            <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"0\" S=\"0\" Type=\"5\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\">              <F />            </S>          </F>          <F>            <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"0\" S=\"0\" Type=\"5\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\">              <F />            </S>            <S type=\"FormulaEditor.Symbols.BinarySymbol\" symbol=\".\" S=\".\" Type=\"3\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\" />            <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"1\" S=\"1\" Type=\"5\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\">              <F />            </S>          </F>        </S>        <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\")\" S=\")\" Type=\"4\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\">          <F />        </S>      </F>      <F>        <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"%\" S=\"π\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">          <F />        </S>      </F>    </S>    <S type=\"FormulaEditor.Symbols.BinarySymbol\" symbol=\"+\" S=\"+\" Type=\"3\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\" />    <S type=\"FormulaEditor.Symbols.FractionSymbol\" symbol=\"F\" S=\"F\" Type=\"2\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"P\">      <F>        <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"1\" S=\"1\" Type=\"5\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\">          <F />        </S>        <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"2\" S=\"2\" Type=\"5\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\">          <F />        </S>        <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"0\" S=\"0\" Type=\"5\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\">          <F />        </S>      </F>      <F>        <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"%\" S=\"π\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">          <F />        </S>      </F>    </S>    <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"s\" S=\"sin\" Type=\"4\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\">      <F />    </S>    <S type=\"FormulaEditor.Symbols.BinarySymbol\" symbol=\"(\" S=\"(\" Type=\"3\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\" />    <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"%\" S=\"π\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">      <F />    </S>    <S type=\"FormulaEditor.Symbols.FractionSymbol\" symbol=\"F\" S=\"F\" Type=\"2\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"P\">      <F>        <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"t\" S=\"t\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">          <F />        </S>        <S type=\"FormulaEditor.Symbols.BinarySymbol\" symbol=\"-\" S=\"-\" Type=\"3\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\" />        <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"1\" S=\"1\" Type=\"5\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\">          <F />        </S>        <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"0\" S=\"0\" Type=\"5\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\">          <F />        </S>      </F>      <F>        <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"1\" S=\"1\" Type=\"5\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\">          <F />        </S>        <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"2\" S=\"2\" Type=\"5\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\">          <F />        </S>        <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"0\" S=\"0\" Type=\"5\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\">          <F />        </S>      </F>    </S>    <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\")\" S=\")\" Type=\"4\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\">      <F />    </S>    <S type=\"FormulaEditor.Symbols.BinarySymbol\" symbol=\"(\" S=\"(\" Type=\"3\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\" />    <S type=\"FormulaEditor.Symbols.FractionSymbol\" symbol=\"F\" S=\"F\" Type=\"2\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"P\">      <F>        <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"%\" S=\"π\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">          <F />        </S>        <S type=\"FormulaEditor.Symbols.BinarySymbol\" symbol=\"+\" S=\"+\" Type=\"3\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\" />        <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"a\" S=\"arctg\" Type=\"4\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\">          <F />        </S>        <S type=\"FormulaEditor.Symbols.FractionSymbol\" symbol=\"F\" S=\"F\" Type=\"2\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"P\">          <F>            <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"t\" S=\"t\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">              <F />            </S>            <S type=\"FormulaEditor.Symbols.BinarySymbol\" symbol=\"-\" S=\"-\" Type=\"3\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\" />            <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"1\" S=\"1\" Type=\"5\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\">              <F />            </S>            <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"0\" S=\"0\" Type=\"5\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\">              <F />            </S>          </F>          <F>            <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"0\" S=\"0\" Type=\"5\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\">              <F />            </S>            <S type=\"FormulaEditor.Symbols.BinarySymbol\" symbol=\".\" S=\".\" Type=\"3\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\" />            <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"1\" S=\"1\" Type=\"5\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\">              <F />            </S>          </F>        </S>        <S type=\"FormulaEditor.Symbols.BinarySymbol\" symbol=\"-\" S=\"-\" Type=\"3\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\" />        <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"a\" S=\"arctg\" Type=\"4\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\">          <F />        </S>        <S type=\"FormulaEditor.Symbols.FractionSymbol\" symbol=\"F\" S=\"F\" Type=\"2\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"P\">          <F>            <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"t\" S=\"t\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">              <F />            </S>            <S type=\"FormulaEditor.Symbols.BinarySymbol\" symbol=\"-\" S=\"-\" Type=\"3\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\" />            <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"1\" S=\"1\" Type=\"5\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\">              <F />            </S>            <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"3\" S=\"3\" Type=\"5\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\">              <F />            </S>            <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"0\" S=\"0\" Type=\"5\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\">              <F />            </S>          </F>          <F>            <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"0\" S=\"0\" Type=\"5\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\">              <F />            </S>            <S type=\"FormulaEditor.Symbols.BinarySymbol\" symbol=\".\" S=\".\" Type=\"3\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\" />            <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"1\" S=\"1\" Type=\"5\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\">              <F />            </S>          </F>        </S>      </F>      <F>        <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"%\" S=\"π\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">          <F />        </S>      </F>    </S>    <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\")\" S=\")\" Type=\"4\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\">      <F />    </S>    <S type=\"FormulaEditor.Symbols.BinarySymbol\" symbol=\"+\" S=\"+\" Type=\"3\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\" />    <S type=\"FormulaEditor.Symbols.BinarySymbol\" symbol=\"(\" S=\"(\" Type=\"3\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\" />    <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"1\" S=\"1\" Type=\"5\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\">      <F />    </S>    <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"3\" S=\"3\" Type=\"5\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\">      <F />    </S>    <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"0\" S=\"0\" Type=\"5\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\">      <F />    </S>    <S type=\"FormulaEditor.Symbols.BinarySymbol\" symbol=\"-\" S=\"-\" Type=\"3\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\" />    <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"t\" S=\"t\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">      <F />    </S>    <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\")\" S=\")\" Type=\"4\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\">      <F />    </S>    <S type=\"FormulaEditor.Symbols.FractionSymbol\" symbol=\"F\" S=\"F\" Type=\"2\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"P\">      <F>        <S type=\"FormulaEditor.Symbols.FractionSymbol\" symbol=\"F\" S=\"F\" Type=\"2\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"P\">          <F>            <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"%\" S=\"π\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">              <F />            </S>          </F>          <F>            <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"2\" S=\"2\" Type=\"5\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\">              <F />            </S>          </F>        </S>        <S type=\"FormulaEditor.Symbols.BinarySymbol\" symbol=\"+\" S=\"+\" Type=\"3\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\" />        <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"a\" S=\"arctg\" Type=\"4\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\">          <F />        </S>        <S type=\"FormulaEditor.Symbols.FractionSymbol\" symbol=\"F\" S=\"F\" Type=\"2\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"P\">          <F>            <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"t\" S=\"t\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">              <F />            </S>            <S type=\"FormulaEditor.Symbols.BinarySymbol\" symbol=\"-\" S=\"-\" Type=\"3\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\" />            <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"1\" S=\"1\" Type=\"5\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\">              <F />            </S>            <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"3\" S=\"3\" Type=\"5\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\">              <F />            </S>            <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"0\" S=\"0\" Type=\"5\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\">              <F />            </S>          </F>          <F>            <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"0\" S=\"0\" Type=\"5\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\">              <F />            </S>            <S type=\"FormulaEditor.Symbols.BinarySymbol\" symbol=\".\" S=\".\" Type=\"3\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\" />            <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"1\" S=\"1\" Type=\"5\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\">              <F />            </S>          </F>        </S>      </F>      <F>        <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"%\" S=\"π\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">          <F />        </S>      </F>    </S>  </F></Root>",
+							"<Root>  <F>    <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"1\" S=\"1\" Type=\"5\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\">      <F />    </S>    <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"0\" S=\"0\" Type=\"5\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\">      <F />    </S>    <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"0\" S=\"0\" Type=\"5\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\">      <F />    </S>    <S type=\"FormulaEditor.Symbols.BinarySymbol\" symbol=\"-\" S=\"-\" Type=\"3\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\" />    <S type=\"FormulaEditor.Symbols.FractionSymbol\" symbol=\"F\" S=\"F\" Type=\"2\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"P\">      <F>        <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"1\" S=\"1\" Type=\"5\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\">          <F />        </S>        <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"2\" S=\"2\" Type=\"5\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\">          <F />        </S>        <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"0\" S=\"0\" Type=\"5\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\">          <F />        </S>      </F>      <F>        <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"%\" S=\"π\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">          <F />        </S>      </F>    </S>    <S type=\"FormulaEditor.Symbols.BinarySymbol\" symbol=\"*\" S=\"∙\" Type=\"3\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\" />    <S type=\"FormulaEditor.Symbols.FractionSymbol\" symbol=\"F\" S=\"F\" Type=\"2\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"P\">      <F>        <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"a\" S=\"arctg\" Type=\"4\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\">          <F />        </S>        <S type=\"FormulaEditor.Symbols.FractionSymbol\" symbol=\"F\" S=\"F\" Type=\"2\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"P\">          <F>            <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"t\" S=\"t\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">              <F />            </S>            <S type=\"FormulaEditor.Symbols.BinarySymbol\" symbol=\"-\" S=\"-\" Type=\"3\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\" />            <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"1\" S=\"1\" Type=\"5\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\">              <F />            </S>            <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"0\" S=\"0\" Type=\"5\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\">              <F />            </S>          </F>          <F>            <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"0\" S=\"0\" Type=\"5\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\">              <F />            </S>            <S type=\"FormulaEditor.Symbols.BinarySymbol\" symbol=\".\" S=\".\" Type=\"3\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\" />            <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"1\" S=\"1\" Type=\"5\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\">              <F />            </S>          </F>        </S>        <S type=\"FormulaEditor.Symbols.BinarySymbol\" symbol=\"-\" S=\"-\" Type=\"3\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\" />        <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"a\" S=\"arctg\" Type=\"4\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\">          <F />        </S>        <S type=\"FormulaEditor.Symbols.FractionSymbol\" symbol=\"F\" S=\"F\" Type=\"2\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"P\">          <F>            <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"t\" S=\"t\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">              <F />            </S>            <S type=\"FormulaEditor.Symbols.BinarySymbol\" symbol=\"-\" S=\"-\" Type=\"3\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\" />            <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"1\" S=\"1\" Type=\"5\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\">              <F />            </S>            <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"3\" S=\"3\" Type=\"5\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\">              <F />            </S>            <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"0\" S=\"0\" Type=\"5\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\">              <F />            </S>          </F>          <F>            <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"0\" S=\"0\" Type=\"5\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\">              <F />            </S>            <S type=\"FormulaEditor.Symbols.BinarySymbol\" symbol=\".\" S=\".\" Type=\"3\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\" />            <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"1\" S=\"1\" Type=\"5\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\">              <F />            </S>          </F>        </S>      </F>      <F>        <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"%\" S=\"π\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">          <F />        </S>      </F>    </S>    <S type=\"FormulaEditor.Symbols.BinarySymbol\" symbol=\"(\" S=\"(\" Type=\"3\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\" />    <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"c\" S=\"cos\" Type=\"4\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\">      <F />    </S>    <S type=\"FormulaEditor.Symbols.BracketsSymbol\" symbol=\"P\" S=\"( )\" Type=\"2\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"P\">      <F>        <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"%\" S=\"π\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">          <F />        </S>        <S type=\"FormulaEditor.Symbols.FractionSymbol\" symbol=\"F\" S=\"F\" Type=\"2\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"P\">          <F>            <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"t\" S=\"t\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">              <F />            </S>            <S type=\"FormulaEditor.Symbols.BinarySymbol\" symbol=\"-\" S=\"-\" Type=\"3\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\" />            <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"1\" S=\"1\" Type=\"5\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\">              <F />            </S>            <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"0\" S=\"0\" Type=\"5\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\">              <F />            </S>          </F>          <F>            <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"1\" S=\"1\" Type=\"5\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\">              <F />            </S>            <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"2\" S=\"2\" Type=\"5\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\">              <F />            </S>            <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"0\" S=\"0\" Type=\"5\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\">              <F />            </S>          </F>        </S>      </F>      <F />    </S>    <S type=\"FormulaEditor.Symbols.BinarySymbol\" symbol=\"-\" S=\"-\" Type=\"3\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\" />    <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"1\" S=\"1\" Type=\"5\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\">      <F />    </S>    <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\")\" S=\")\" Type=\"4\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\">      <F />    </S>    <S type=\"FormulaEditor.Symbols.BinarySymbol\" symbol=\"+\" S=\"+\" Type=\"3\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\" />    <S type=\"FormulaEditor.Symbols.FractionSymbol\" symbol=\"F\" S=\"F\" Type=\"2\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"P\">      <F>        <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"2\" S=\"2\" Type=\"5\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\">          <F />        </S>        <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"4\" S=\"4\" Type=\"5\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\">          <F />        </S>        <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"0\" S=\"0\" Type=\"5\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\">          <F />        </S>      </F>      <F>        <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"%\" S=\"π\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">          <F />        </S>      </F>    </S>    <S type=\"FormulaEditor.Symbols.FractionSymbol\" symbol=\"F\" S=\"F\" Type=\"2\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"P\">      <F>        <S type=\"FormulaEditor.Symbols.FractionSymbol\" symbol=\"F\" S=\"F\" Type=\"2\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"P\">          <F>            <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"%\" S=\"π\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">              <F />            </S>          </F>          <F>            <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"2\" S=\"2\" Type=\"5\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\">              <F />            </S>          </F>        </S>        <S type=\"FormulaEditor.Symbols.BinarySymbol\" symbol=\"+\" S=\"+\" Type=\"3\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\" />        <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"a\" S=\"arctg\" Type=\"4\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\">          <F />        </S>        <S type=\"FormulaEditor.Symbols.FractionSymbol\" symbol=\"F\" S=\"F\" Type=\"2\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"P\">          <F>            <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"t\" S=\"t\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">              <F />            </S>            <S type=\"FormulaEditor.Symbols.BinarySymbol\" symbol=\"-\" S=\"-\" Type=\"3\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\" />            <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"1\" S=\"1\" Type=\"5\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\">              <F />            </S>            <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"3\" S=\"3\" Type=\"5\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\">              <F />            </S>            <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"0\" S=\"0\" Type=\"5\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\">              <F />            </S>          </F>          <F>            <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"0\" S=\"0\" Type=\"5\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\">              <F />            </S>            <S type=\"FormulaEditor.Symbols.BinarySymbol\" symbol=\".\" S=\".\" Type=\"3\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\" />            <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"1\" S=\"1\" Type=\"5\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\">              <F />            </S>          </F>        </S>      </F>      <F>        <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"%\" S=\"π\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">          <F />        </S>      </F>    </S>  </F></Root>",
+							"<Root>  <F>    <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"0\" S=\"0\" Type=\"5\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\">      <F />    </S>  </F></Root>",
+							"<Root>  <F>    <S type=\"FormulaEditor.Symbols.FractionSymbol\" symbol=\"F\" S=\"F\" Type=\"2\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"P\">      <F>        <S type=\"FormulaEditor.Symbols.FractionSymbol\" symbol=\"F\" S=\"F\" Type=\"2\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"P\">          <F>            <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"%\" S=\"π\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">              <F />            </S>          </F>          <F>            <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"2\" S=\"2\" Type=\"5\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\">              <F />            </S>          </F>        </S>        <S type=\"FormulaEditor.Symbols.BinarySymbol\" symbol=\"-\" S=\"-\" Type=\"3\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\" />        <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"a\" S=\"arctg\" Type=\"4\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\">          <F />        </S>        <S type=\"FormulaEditor.Symbols.BracketsSymbol\" symbol=\"P\" S=\"( )\" Type=\"2\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"P\">          <F>            <S type=\"FormulaEditor.Symbols.FractionSymbol\" symbol=\"F\" S=\"F\" Type=\"2\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"P\">              <F>                <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"t\" S=\"t\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">                  <F />                </S>                <S type=\"FormulaEditor.Symbols.BinarySymbol\" symbol=\"-\" S=\"-\" Type=\"3\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\" />                <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"7\" S=\"7\" Type=\"5\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\">                  <F />                </S>                <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"0\" S=\"0\" Type=\"5\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\">                  <F />                </S>              </F>              <F>                <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"2\" S=\"2\" Type=\"5\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\">                  <F />                </S>                <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"0\" S=\"0\" Type=\"5\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\">                  <F />                </S>              </F>            </S>          </F>          <F />        </S>      </F>      <F>        <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"%\" S=\"π\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">          <F />        </S>      </F>    </S>  </F></Root>",
+							"<Root>  <F>    <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"0\" S=\"0\" Type=\"5\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\">      <F />    </S>  </F></Root>",
+							"<Root>  <F>    <S type=\"FormulaEditor.Symbols.BinarySymbol\" symbol=\"-\" S=\"-\" Type=\"3\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\" />    <S type=\"FormulaEditor.Symbols.FractionSymbol\" symbol=\"F\" S=\"F\" Type=\"2\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"P\">      <F>        <S type=\"FormulaEditor.Symbols.FractionSymbol\" symbol=\"F\" S=\"F\" Type=\"2\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"P\">          <F>            <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"%\" S=\"π\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">              <F />            </S>          </F>          <F>            <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"2\" S=\"2\" Type=\"5\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\">              <F />            </S>          </F>        </S>        <S type=\"FormulaEditor.Symbols.BinarySymbol\" symbol=\"+\" S=\"+\" Type=\"3\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\" />        <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"a\" S=\"arctg\" Type=\"4\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\">          <F />        </S>        <S type=\"FormulaEditor.Symbols.FractionSymbol\" symbol=\"F\" S=\"F\" Type=\"2\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"P\">          <F>            <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"t\" S=\"t\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">              <F />            </S>            <S type=\"FormulaEditor.Symbols.BinarySymbol\" symbol=\"-\" S=\"-\" Type=\"3\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\" />            <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"1\" S=\"1\" Type=\"5\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\">              <F />            </S>            <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"3\" S=\"3\" Type=\"5\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\">              <F />            </S>            <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"0\" S=\"0\" Type=\"5\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\">              <F />            </S>          </F>          <F>            <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"1\" S=\"1\" Type=\"5\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\">              <F />            </S>            <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"0\" S=\"0\" Type=\"5\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\">              <F />            </S>          </F>        </S>      </F>      <F>        <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"%\" S=\"π\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">          <F />        </S>      </F>    </S>  </F></Root>",
+							"<Root>  <F>    <S type=\"FormulaEditor.Symbols.FractionSymbol\" symbol=\"F\" S=\"F\" Type=\"2\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"P\">      <F>        <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"a\" S=\"arctg\" Type=\"4\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\">          <F />        </S>        <S type=\"FormulaEditor.Symbols.BracketsSymbol\" symbol=\"P\" S=\"( )\" Type=\"2\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"P\">          <F>            <S type=\"FormulaEditor.Symbols.FractionSymbol\" symbol=\"F\" S=\"F\" Type=\"2\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"P\">              <F>                <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"t\" S=\"t\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">                  <F />                </S>                <S type=\"FormulaEditor.Symbols.BinarySymbol\" symbol=\"-\" S=\"-\" Type=\"3\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\" />                <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"7\" S=\"7\" Type=\"5\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\">                  <F />                </S>                <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"0\" S=\"0\" Type=\"5\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\">                  <F />                </S>              </F>              <F>                <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"2\" S=\"2\" Type=\"5\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\">                  <F />                </S>                <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"0\" S=\"0\" Type=\"5\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\">                  <F />                </S>              </F>            </S>          </F>          <F />        </S>        <S type=\"FormulaEditor.Symbols.BinarySymbol\" symbol=\"-\" S=\"-\" Type=\"3\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\" />        <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"a\" S=\"arctg\" Type=\"4\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\">          <F />        </S>        <S type=\"FormulaEditor.Symbols.BracketsSymbol\" symbol=\"P\" S=\"( )\" Type=\"2\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"P\">          <F>            <S type=\"FormulaEditor.Symbols.FractionSymbol\" symbol=\"F\" S=\"F\" Type=\"2\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"P\">              <F>                <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"t\" S=\"t\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">                  <F />                </S>                <S type=\"FormulaEditor.Symbols.BinarySymbol\" symbol=\"-\" S=\"-\" Type=\"3\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\" />                <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"1\" S=\"1\" Type=\"5\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\">                  <F />                </S>                <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"3\" S=\"3\" Type=\"5\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\">                  <F />                </S>                <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"0\" S=\"0\" Type=\"5\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\">                  <F />                </S>              </F>              <F>                <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"1\" S=\"1\" Type=\"5\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\">                  <F />                </S>                <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"0\" S=\"0\" Type=\"5\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\">                  <F />                </S>              </F>            </S>          </F>          <F />        </S>      </F>      <F>        <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"%\" S=\"π\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">          <F />        </S>      </F>    </S>  </F></Root>"
+						};
+						isSerialized = true;
+						calculateDerivation = false;
+						deriOrder = 0;
+						arguments =  new List<string>()
+						{
+							"t = Time"
+						};
+						parameters =new Dictionary<string, object>()
+						{
+						};
+						operationNames = new Dictionary<System.Int32,System.String>()
+						{
+						};
+						Init();
 					}
 				
-					new internal class Desktop : Diagram.UI.PureDesktop
+					FormulaEditor.Interfaces.ITreeCollectionProxy FormulaEditor.Interfaces.ITreeCollectionProxyFactory.CreateProxy(FormulaEditor.Interfaces.ITreeCollection collection, Action<object> checkValue)
 					{
-						internal Desktop()
-						{
-							objects.Add(new IntrenalDesktop.OblectLabel0.CategoryObject.Desktop.OblectLabel0("Atmosphere", this));
-							objects.Add(new IntrenalDesktop.OblectLabel0.CategoryObject.Desktop.OblectLabel1("Gravity", this));
-							objects.Add(new IntrenalDesktop.OblectLabel0.CategoryObject.Desktop.OblectLabel2("Vector", this));
-							objects.Add(new IntrenalDesktop.OblectLabel0.CategoryObject.Desktop.OblectLabel3("G-transformation", this));
-							objects.Add(new IntrenalDesktop.OblectLabel0.CategoryObject.Desktop.OblectLabel4("A-transformation", this));
-							objects.Add(new IntrenalDesktop.OblectLabel0.CategoryObject.Desktop.OblectLabel5("Motion equations", this));
-							Diagram.UI.Labels.PureArrowLabel currALabel = null;
-							currALabel  = new IntrenalDesktop.OblectLabel0.CategoryObject.Desktop.ArrowLabel0("", this);
-							arrows.Add(currALabel);
-							currALabel.SourceNumber = (int)3;
-							currALabel.TargetNumber = (int)1;
-							currALabel  = new IntrenalDesktop.OblectLabel0.CategoryObject.Desktop.ArrowLabel1("", this);
-							arrows.Add(currALabel);
-							currALabel.SourceNumber = (int)4;
-							currALabel.TargetNumber = (int)0;
-							currALabel  = new IntrenalDesktop.OblectLabel0.CategoryObject.Desktop.ArrowLabel2("", this);
-							arrows.Add(currALabel);
-							currALabel.SourceNumber = (int)3;
-							currALabel.TargetNumber = (int)2;
-							currALabel  = new IntrenalDesktop.OblectLabel0.CategoryObject.Desktop.ArrowLabel3("", this);
-							arrows.Add(currALabel);
-							currALabel.SourceNumber = (int)4;
-							currALabel.TargetNumber = (int)2;
-							currALabel  = new IntrenalDesktop.OblectLabel0.CategoryObject.Desktop.ArrowLabel4("", this);
-							arrows.Add(currALabel);
-							currALabel.SourceNumber = (int)5;
-							currALabel.TargetNumber = (int)3;
-							currALabel  = new IntrenalDesktop.OblectLabel0.CategoryObject.Desktop.ArrowLabel5("", this);
-							arrows.Add(currALabel);
-							currALabel.SourceNumber = (int)5;
-							currALabel.TargetNumber = (int)4;
-							currALabel  = new IntrenalDesktop.OblectLabel0.CategoryObject.Desktop.ArrowLabel6("", this);
-							arrows.Add(currALabel);
-							currALabel.SourceNumber = (int)5;
-							currALabel.TargetNumber = (int)2;
-						}
-					
-						internal class OblectLabel0 : Diagram.UI.Labels.PureObjectLabel
-						{
-							internal OblectLabel0(string name, Diagram.UI.Interfaces.IDesktop desktop) : base(name, "", "", 0, 0)
-							{
-								this.desktop = desktop;
-								obj = new OblectLabel0.CategoryObject();
-								obj.Object = this;
-							}
-					
-							internal class CategoryObject : DinAtm.Portable.Atmosphere
-							{
-							internal CategoryObject()
-							{
-								int[] iff = new int[] { 150,6,140};
-								If = iff;
-							}
-							}
-						}
-					
-						internal class OblectLabel1 : Diagram.UI.Labels.PureObjectLabel
-						{
-							internal OblectLabel1(string name, Diagram.UI.Interfaces.IDesktop desktop) : base(name, "", "", 0, 0)
-							{
-								this.desktop = desktop;
-								obj = new OblectLabel1.CategoryObject();
-								obj.Object = this;
-							}
-					
-							internal class CategoryObject : Gravity_36_36.Wrapper.Gravity
-							{
-							internal CategoryObject()
-							{
-								object o = null;
-								double[] arr = null;
-								List<object> l = new List<object>();
-								arr = new double[]
-								{
-									398600.43599999999 ,
-									6378.1369999999997 ,
-									398600.40000000002
-								};
-							l.Add(arr);
-								arr = new double[]
-								{
-									-0.0004841650994 ,
-									9.5720110000000009E-07 ,
-									5.3952120000000001E-07 ,
-									6.8343299999999995E-08 ,
-									-1.4951350000000001E-07 ,
-									9.1300899999999999E-08 ,
-									4.8883199999999999E-08 ,
-									2.6862400000000001E-08 ,
-									5.4065000000000001E-08 ,
-									-4.9463800000000001E-08 ,
-									3.56285E-08 ,
-									4.01122E-08 ,
-									-2.1554900000000001E-08 ,
-									3.2274999999999999E-09 ,
-									-6.1890999999999996E-09 ,
-									1.7426599999999999E-08 ,
-									8.5246000000000001E-09 ,
-									-2.1551000000000001E-09 ,
-									1.9923799999999999E-08 ,
-									6.0954000000000003E-09 ,
-									-9.5104999999999994E-09 ,
-									-2.1642599999999999E-08 ,
-									-2.2919999999999999E-10 ,
-									5.1981000000000001E-09 ,
-									5.7589999999999997E-09 ,
-									3.7752E-09 ,
-									-9.9774999999999995E-09 ,
-									-2.5026E-09 ,
-									-6.7262999999999998E-09 ,
-									5.9286000000000004E-09 ,
-									-4.0391000000000002E-09 ,
-									-1.15E-09 ,
-									-4.5042000000000002E-09 ,
-									6.8919000000000002E-09 ,
-									-3.7241E-09 ,
-									-1.7000000000000001E-10 ,
-									2.0277141999999999E-06 ,
-									-5.3615110000000001E-07 ,
-									-5.8280200000000001E-08 ,
-									-7.6894199999999998E-08 ,
-									2.7486870000000002E-07 ,
-									2.3628199999999999E-08 ,
-									1.460968E-07 ,
-									8.1493500000000001E-08 ,
-									1.5143799999999999E-08 ,
-									-5.4500200000000003E-08 ,
-									-5.59665E-08 ,
-									-2.0669300000000001E-08 ,
-									1.3079399999999999E-08 ,
-									2.3769400000000001E-08 ,
-									-2.7380800000000001E-08 ,
-									-1.2802E-09 ,
-									-9.6288999999999993E-09 ,
-									5.2110999999999999E-09 ,
-									-1.71788E-08 ,
-									9.6642000000000006E-09 ,
-									6.3465E-09 ,
-									-5.0423000000000003E-09 ,
-									6.5866000000000004E-09 ,
-									-2.6663999999999998E-09 ,
-									3.9251E-09 ,
-									-7.3064999999999999E-09 ,
-									1.9969E-09 ,
-									-1.7521E-09 ,
-									4.6820999999999998E-09 ,
-									-1.9391000000000001E-09 ,
-									-3.1760999999999998E-09 ,
-									-1.409E-10 ,
-									-1.10388E-08 ,
-									2.3560000000000001E-09 ,
-									2.4390658000000001E-06 ,
-									9.044707E-07 ,
-									3.5021810000000001E-07 ,
-									6.52711E-07 ,
-									4.8734499999999999E-08 ,
-									3.2779499999999998E-07 ,
-									7.7598500000000005E-08 ,
-									2.2451399999999999E-08 ,
-									-9.1276599999999996E-08 ,
-									1.67542E-08 ,
-									1.2380799999999999E-08 ,
-									5.4324200000000001E-08 ,
-									-3.7195200000000001E-08 ,
-									-2.35054E-08 ,
-									-2.1291799999999999E-08 ,
-									-1.91519E-08 ,
-									1.31239E-08 ,
-									2.7528099999999999E-08 ,
-									1.7485999999999999E-08 ,
-									-6.1390000000000004E-09 ,
-									-1.9640799999999999E-08 ,
-									-1.3082700000000001E-08 ,
-									-2.1465E-09 ,
-									1.6401700000000001E-08 ,
-									-1.5745999999999999E-09 ,
-									3.6962000000000001E-09 ,
-									-1.19628E-08 ,
-									-2.5286000000000001E-09 ,
-									-9.2717999999999994E-09 ,
-									1.3617E-09 ,
-									8.3159999999999998E-09 ,
-									-6.8686E-09 ,
-									9.6775000000000001E-09 ,
-									-1.32095E-08 ,
-									-4.8740000000000003E-09 ,
-									7.2034250000000002E-07 ,
-									9.9093369999999997E-07 ,
-									-4.5233010000000002E-07 ,
-									5.7203199999999997E-08 ,
-									2.5122009999999999E-07 ,
-									-1.7785200000000001E-08 ,
-									-1.612938E-07 ,
-									-8.6059000000000006E-09 ,
-									-2.84259E-08 ,
-									4.2159799999999997E-08 ,
-									-2.11569E-08 ,
-									3.2988700000000002E-08 ,
-									5.4276799999999999E-08 ,
-									-3.4110900000000001E-08 ,
-									1.27131E-08 ,
-									-3.3637999999999999E-09 ,
-									-3.3835000000000002E-09 ,
-									-8.1594000000000006E-09 ,
-									2.6379199999999998E-08 ,
-									9.2975999999999998E-09 ,
-									-1.2194E-08 ,
-									-3.3461999999999999E-09 ,
-									-6.8316999999999999E-09 ,
-									9.0688999999999996E-09 ,
-									5.6586000000000003E-09 ,
-									2.4984E-09 ,
-									1.5286000000000001E-09 ,
-									3.8607999999999997E-09 ,
-									-6.3296999999999998E-09 ,
-									-1.5101E-09 ,
-									-5.4439999999999998E-09 ,
-									1.01568E-08 ,
-									2.137E-09 ,
-									-6.0150000000000004E-10 ,
-									-1.8877059999999999E-07 ,
-									-2.955841E-07 ,
-									-8.68265E-08 ,
-									-2.7556099999999999E-07 ,
-									-2.4633979999999998E-07 ,
-									-1.01377E-08 ,
-									-8.5342400000000006E-08 ,
-									-4.0683500000000002E-08 ,
-									-6.9557400000000001E-08 ,
-									-3.8557000000000002E-09 ,
-									-7.8510000000000001E-10 ,
-									-4.3480499999999997E-08 ,
-									3.9121999999999998E-08 ,
-									6.8146999999999996E-09 ,
-									5.2164700000000001E-08 ,
-									1.21511E-08 ,
-									1.4180000000000001E-09 ,
-									-9.4317E-09 ,
-									-3.8186E-09 ,
-									-1.9116200000000001E-08 ,
-									7.1524999999999999E-09 ,
-									5.1080999999999998E-09 ,
-									1.47221E-08 ,
-									5.8679999999999998E-10 ,
-									4.2378000000000004E-09 ,
-									-2.1991300000000001E-08 ,
-									-8.4529999999999997E-10 ,
-									-7.8644000000000003E-09 ,
-									2.0706999999999999E-09 ,
-									-3.2131E-09 ,
-									-4.4926999999999996E-09 ,
-									1.1719999999999999E-10 ,
-									8.4559999999999995E-10 ,
-									1.7376350000000001E-07 ,
-									-2.6733040000000002E-07 ,
-									1.3262E-09 ,
-									-2.5041100000000001E-08 ,
-									-1.71468E-08 ,
-									-5.1021499999999998E-08 ,
-									3.7614600000000001E-08 ,
-									3.1915900000000001E-08 ,
-									6.0720700000000002E-08 ,
-									2.5954799999999999E-08 ,
-									1.13901E-08 ,
-									-1.41227E-08 ,
-									-1.25322E-08 ,
-									1.9873E-09 ,
-									-1.5459700000000001E-08 ,
-									-1.34176E-08 ,
-									4.3733000000000002E-09 ,
-									-8.2423E-09 ,
-									8.0082000000000005E-09 ,
-									-6.0088000000000002E-09 ,
-									-3.7810999999999997E-09 ,
-									3.8380000000000002E-09 ,
-									1.57567E-08 ,
-									5.5800000000000002E-09 ,
-									-3.1614999999999999E-09 ,
-									-1.9984E-09 ,
-									-4.6503E-09 ,
-									5.0123999999999998E-09 ,
-									-4.8492999999999998E-09 ,
-									-4.0990999999999996E-09 ,
-									-6.2657E-09 ,
-									-3.5798E-09 ,
-									9.6846000000000002E-09 ,
-									-3.5883139999999999E-07 ,
-									-6.4923700000000003E-08 ,
-									6.3914300000000002E-08 ,
-									-3.70547E-08 ,
-									-3.9179999999999998E-10 ,
-									4.1892000000000004E-09 ,
-									-3.4153600000000001E-08 ,
-									-1.88109E-08 ,
-									3.4206899999999998E-08 ,
-									1.6911900000000001E-08 ,
-									-1.09756E-08 ,
-									1.5699699999999999E-08 ,
-									-3.8121000000000001E-09 ,
-									1.13814E-08 ,
-									-1.16607E-08 ,
-									1.38314E-08 ,
-									-1.2887200000000001E-08 ,
-									4.2666000000000001E-09 ,
-									1.46476E-08 ,
-									1.14084E-08 ,
-									3.1000000000000001E-12 ,
-									-2.3066999999999999E-09 ,
-									9.9066000000000005E-09 ,
-									7.8999999999999999E-11 ,
-									-1.9375E-09 ,
-									-5.9529E-09 ,
-									1.1794999999999999E-09 ,
-									-3.7860000000000002E-10 ,
-									1.5394999999999999E-09 ,
-									7.3451999999999998E-09 ,
-									9.7030000000000005E-10 ,
-									6.7462199999999996E-08 ,
-									-1.190107E-07 ,
-									7.5610999999999995E-09 ,
-									3.8816999999999999E-09 ,
-									-1.8389399999999999E-08 ,
-									3.5556E-09 ,
-									3.7678799999999999E-08 ,
-									5.6823599999999998E-08 ,
-									-6.9833000000000001E-09 ,
-									2.47642E-08 ,
-									5.8839000000000003E-09 ,
-									5.0711999999999996E-09 ,
-									-1.9405500000000001E-08 ,
-									-1.1822599999999999E-08 ,
-									1.4605799999999999E-08 ,
-									-6.1313000000000001E-09 ,
-									-2.4921000000000001E-09 ,
-									6.9129E-09 ,
-									-2.373E-10 ,
-									-1.28755E-08 ,
-									-8.5909999999999996E-10 ,
-									-4.4995999999999996E-09 ,
-									7.0755000000000002E-09 ,
-									3.4009999999999999E-10 ,
-									2.5424999999999999E-09 ,
-									-4.8291000000000002E-09 ,
-									4.4472999999999997E-09 ,
-									-1.1804E-09 ,
-									7.9530000000000004E-10 ,
-									-1.2419840000000001E-07 ,
-									1.8713229999999999E-07 ,
-									4.0054700000000001E-08 ,
-									-6.9703000000000002E-09 ,
-									-2.5516799999999999E-08 ,
-									-1.16966E-08 ,
-									-3.48919E-08 ,
-									-3.2726099999999997E-08 ,
-									-2.06218E-08 ,
-									3.7817099999999999E-08 ,
-									3.0129099999999997E-08 ,
-									2.9418400000000001E-08 ,
-									4.9121999999999996E-09 ,
-									-1.5243599999999999E-08 ,
-									-2.34988E-08 ,
-									5.5469000000000004E-09 ,
-									1.5658699999999998E-08 ,
-									5.1782000000000002E-09 ,
-									3.5160999999999999E-09 ,
-									-5.2480999999999997E-09 ,
-									-2.0044999999999999E-09 ,
-									-1.2184500000000001E-08 ,
-									1.6689999999999999E-09 ,
-									-1.19E-10 ,
-									1.0039600000000001E-08 ,
-									1.1497000000000001E-09 ,
-									-1.35093E-08 ,
-									2.3738999999999998E-09 ,
-									3.6649999999999998E-10 ,
-									-4.8132399999999999E-08 ,
-									1.243124E-07 ,
-									-3.2224800000000001E-08 ,
-									4.0905299999999998E-08 ,
-									2.4146700000000001E-08 ,
-									3.2298399999999998E-08 ,
-									1.1740299999999999E-08 ,
-									-2.4003700000000001E-08 ,
-									2.2023000000000001E-09 ,
-									-1.78758E-08 ,
-									2.2163999999999999E-09 ,
-									1.9012100000000001E-08 ,
-									1.5020300000000001E-08 ,
-									1.02897E-08 ,
-									-5.8560000000000003E-10 ,
-									-7.4084000000000002E-09 ,
-									-2.9785600000000001E-08 ,
-									-7.2797999999999996E-09 ,
-									1.65E-10 ,
-									8.2431000000000002E-09 ,
-									-5.0682000000000003E-09 ,
-									-5.4353E-09 ,
-									-1.4883999999999999E-09 ,
-									5.8073999999999996E-09 ,
-									3.0105999999999999E-09 ,
-									5.7399999999999997E-11 ,
-									-4.1607999999999999E-09 ,
-									2.3523999999999999E-09 ,
-									9.9753200000000004E-08 ,
-									-5.2064999999999997E-08 ,
-									-6.4899000000000001E-09 ,
-									4.1465899999999997E-08 ,
-									3.8510599999999998E-08 ,
-									1.1479299999999999E-08 ,
-									-1.09552E-08 ,
-									-2.5897999999999999E-09 ,
-									4.7002E-09 ,
-									-3.3704899999999998E-08 ,
-									-3.0161500000000002E-08 ,
-									-9.6824000000000004E-09 ,
-									5.1670999999999997E-09 ,
-									1.45345E-08 ,
-									1.13588E-08 ,
-									7.5752999999999997E-09 ,
-									-1.3095000000000001E-08 ,
-									-1.2852200000000001E-08 ,
-									-7.5322000000000001E-09 ,
-									8.4163000000000004E-09 ,
-									1.6217999999999999E-09 ,
-									1.9809999999999999E-10 ,
-									1.4409000000000001E-09 ,
-									-2.7284999999999998E-09 ,
-									-6.7001999999999997E-09 ,
-									-6.3194999999999999E-09 ,
-									1.3133E-09 ,
-									4.5318100000000001E-08 ,
-									1.05182E-08 ,
-									-4.4539099999999998E-08 ,
-									1.47653E-08 ,
-									-8.754E-10 ,
-									1.8427500000000001E-08 ,
-									-1.5788900000000001E-08 ,
-									-7.8403000000000007E-09 ,
-									1.5746500000000001E-08 ,
-									1.31223E-08 ,
-									8.4047000000000001E-09 ,
-									-3.4555999999999999E-09 ,
-									8.0666000000000002E-09 ,
-									1.1889299999999999E-08 ,
-									4.4306E-09 ,
-									-1.7838E-09 ,
-									2.7287999999999999E-09 ,
-									-4.1603000000000002E-09 ,
-									-5.7377999999999998E-09 ,
-									-1.10613E-08 ,
-									8.508E-10 ,
-									-5.4061999999999998E-09 ,
-									2.0112999999999999E-09 ,
-									-4.2243E-09 ,
-									3.2848000000000001E-09 ,
-									-4.0690000000000001E-10 ,
-									-3.3602E-09 ,
-									-3.1280300000000003E-08 ,
-									8.3128000000000005E-09 ,
-									-3.2455600000000001E-08 ,
-									1.9897400000000001E-08 ,
-									2.91379E-08 ,
-									-2.87346E-08 ,
-									-2.1222E-09 ,
-									-5.9513000000000003E-09 ,
-									-1.9521999999999999E-09 ,
-									-3.8281E-09 ,
-									1.70577E-08 ,
-									1.16255E-08 ,
-									-8.2097999999999995E-09 ,
-									-1.67307E-08 ,
-									-8.6416000000000004E-09 ,
-									1.4295999999999999E-09 ,
-									-2.6580000000000001E-09 ,
-									1.2371400000000001E-08 ,
-									2.7782999999999998E-09 ,
-									-1.2597199999999999E-08 ,
-									-6.8980000000000004E-10 ,
-									1.03061E-08 ,
-									6.7832000000000003E-09 ,
-									-7.2520000000000004E-10 ,
-									-6.1412900000000003E-08 ,
-									3.1958400000000002E-08 ,
-									-2.8757200000000002E-08 ,
-									1.3712400000000001E-08 ,
-									1.64865E-08 ,
-									-6.1816000000000002E-09 ,
-									-7.0963999999999996E-09 ,
-									2.77741E-08 ,
-									-1.85066E-08 ,
-									-1.69513E-08 ,
-									-1.11264E-08 ,
-									-2.5191000000000001E-09 ,
-									8.0623999999999998E-09 ,
-									1.7499999999999999E-10 ,
-									-4.5565999999999998E-09 ,
-									1.6575999999999999E-09 ,
-									-7.2729999999999996E-10 ,
-									1.34213E-08 ,
-									9.3804999999999992E-09 ,
-									4.1739999999999999E-09 ,
-									3.4056999999999999E-09 ,
-									-5.2037999999999998E-09 ,
-									-1.7808000000000001E-09 ,
-									-6.5508000000000002E-09 ,
-									-5.1785100000000002E-08 ,
-									5.4459E-09 ,
-									-1.96596E-08 ,
-									-1.4095600000000001E-08 ,
-									-8.8532999999999996E-09 ,
-									-4.8123999999999996E-09 ,
-									1.08561E-08 ,
-									2.0369799999999999E-08 ,
-									1.0178E-08 ,
-									5.8014000000000003E-09 ,
-									-2.0155699999999999E-08 ,
-									-2.0673100000000001E-08 ,
-									7.3957999999999996E-09 ,
-									1.6175999999999999E-08 ,
-									-6.2352999999999998E-09 ,
-									-6.1507000000000003E-09 ,
-									4.3796000000000001E-09 ,
-									-6.0838E-09 ,
-									-5.282E-10 ,
-									3.7931000000000001E-09 ,
-									-1.2805999999999999E-09 ,
-									-6.8707000000000003E-09 ,
-									-8.0168000000000007E-09 ,
-									-1.9573100000000001E-08 ,
-									-1.3478E-08 ,
-									5.3063999999999998E-09 ,
-									-3.9385700000000003E-08 ,
-									-1.7539299999999999E-08 ,
-									-2.4648099999999999E-08 ,
-									1.78471E-08 ,
-									2.6347199999999999E-08 ,
-									1.8417799999999999E-08 ,
-									6.6160999999999999E-09 ,
-									-3.6318999999999998E-09 ,
-									-1.3675E-08 ,
-									-2.3151E-09 ,
-									-1.08597E-08 ,
-									-7.7082999999999999E-09 ,
-									-1.6878999999999999E-09 ,
-									1.753E-09 ,
-									5.0419000000000001E-09 ,
-									-5.0421999999999998E-09 ,
-									-9.3209999999999991E-10 ,
-									-1.4351099999999999E-08 ,
-									7.5180000000000003E-10 ,
-									-3.6127000000000003E-08 ,
-									-2.9409900000000001E-08 ,
-									1.1331799999999999E-08 ,
-									-2.1050599999999999E-08 ,
-									-1.0692700000000001E-08 ,
-									8.4444999999999999E-09 ,
-									1.2215E-09 ,
-									6.8979000000000003E-09 ,
-									9.4515000000000003E-09 ,
-									1.5537999999999999E-09 ,
-									2.5097000000000001E-09 ,
-									4.3338999999999997E-09 ,
-									-3.1453999999999999E-09 ,
-									-1.6790000000000001E-10 ,
-									-8.8025999999999994E-09 ,
-									-4.6677999999999999E-09 ,
-									2.5011E-09 ,
-									4.3554999999999997E-09 ,
-									5.727E-10 ,
-									-4.1016999999999996E-09 ,
-									3.2539999999999998E-10 ,
-									-3.29779E-08 ,
-									3.6681999999999998E-09 ,
-									3.0652500000000003E-08 ,
-									4.4349000000000001E-09 ,
-									-5.6776000000000003E-09 ,
-									8.9480000000000001E-09 ,
-									-4.0493999999999997E-09 ,
-									-1.1989000000000001E-08 ,
-									-1.31607E-08 ,
-									-1.08818E-08 ,
-									4.5031000000000003E-09 ,
-									1.35711E-08 ,
-									4.1030000000000002E-10 ,
-									-6.5044E-09 ,
-									-3.9763E-09 ,
-									-5.1155000000000004E-09 ,
-									-4.3785999999999997E-09 ,
-									-5.5791000000000003E-09 ,
-									7.9109999999999999E-10 ,
-									5.4932999999999996E-09 ,
-									2.7593999999999998E-09 ,
-									3.3034200000000001E-08 ,
-									1.5241099999999999E-08 ,
-									2.43699E-08 ,
-									8.767E-09 ,
-									7.4795999999999997E-09 ,
-									-7.5720000000000003E-10 ,
-									6.0510000000000001E-10 ,
-									-1.31056E-08 ,
-									-2.6532999999999999E-09 ,
-									3.8205000000000002E-09 ,
-									-4.8796000000000004E-09 ,
-									-1.00442E-08 ,
-									-1.1248999999999999E-09 ,
-									8.2253999999999993E-09 ,
-									-9.6199999999999995E-09 ,
-									-1.0918099999999999E-08 ,
-									-4.4956000000000001E-09 ,
-									3.531E-10 ,
-									-2.3480000000000002E-09 ,
-									-4.7068000000000003E-09 ,
-									-2.7750800000000001E-08 ,
-									1.2513700000000001E-08 ,
-									-7.1168999999999997E-09 ,
-									-4.9207999999999998E-09 ,
-									6.5225999999999998E-09 ,
-									-1.1322000000000001E-09 ,
-									-8.0810000000000003E-10 ,
-									4.1720000000000001E-09 ,
-									-6.2726999999999996E-09 ,
-									-1.16142E-08 ,
-									2.5044000000000002E-09 ,
-									-1.3520000000000001E-10 ,
-									8.4762000000000002E-09 ,
-									-3.8300000000000002E-10 ,
-									4.4389999999999999E-10 ,
-									-4.2858000000000002E-09 ,
-									4.0221E-09 ,
-									-2.6306200000000002E-08 ,
-									-1.66678E-08 ,
-									9.8039999999999996E-09 ,
-									-4.9043999999999997E-09 ,
-									-6.2665000000000002E-09 ,
-									6.6383999999999997E-09 ,
-									6.3429999999999997E-10 ,
-									-1.8593E-09 ,
-									-6.0496000000000003E-09 ,
-									-3.9430000000000001E-09 ,
-									-2.2369E-09 ,
-									2.8537999999999998E-09 ,
-									-8.262E-10 ,
-									4.3770000000000001E-09 ,
-									-1.1465999999999999E-09 ,
-									-5.7191000000000002E-09 ,
-									7.5179999999999999E-09 ,
-									-2.4615599999999998E-08 ,
-									1.5767999999999999E-08 ,
-									1.1140300000000001E-08 ,
-									4.8717999999999997E-09 ,
-									-6.5966999999999998E-09 ,
-									5.9840999999999996E-09 ,
-									7.7244000000000003E-09 ,
-									-7.7158000000000002E-09 ,
-									-8.8595000000000007E-09 ,
-									-6.1490000000000002E-09 ,
-									-1.5404E-09 ,
-									1.7740000000000001E-09 ,
-									-5.6959999999999998E-10 ,
-									1.04901E-08 ,
-									6.2678000000000002E-09 ,
-									-8.9299000000000008E-09 ,
-									-1.7092300000000001E-08 ,
-									3.3958999999999998E-09 ,
-									-1.2772500000000001E-08 ,
-									1.21192E-08 ,
-									-5.4096E-09 ,
-									-1.0523E-09 ,
-									1.2454100000000001E-08 ,
-									-2.6737E-09 ,
-									-7.4700000000000001E-09 ,
-									-9.1124999999999997E-09 ,
-									-6.0012999999999999E-09 ,
-									-2.0442E-09 ,
-									2.2849999999999999E-09 ,
-									9.8619999999999997E-10 ,
-									4.5640000000000004E-09 ,
-									-7.1693E-09 ,
-									8.4211000000000002E-09 ,
-									-2.176E-10 ,
-									-5.0968E-09 ,
-									4.5908999999999999E-09 ,
-									-2.2659999999999998E-09 ,
-									3.3951E-09 ,
-									8.6391999999999997E-09 ,
-									6.7808000000000004E-09 ,
-									-7.0919999999999999E-10 ,
-									-1.4309999999999999E-09 ,
-									-6.7571999999999998E-09 ,
-									-9.853000000000001E-10 ,
-									1.1140300000000001E-08 ,
-									4.8717999999999997E-09 ,
-									6.7431E-09 ,
-									2.2200000000000002E-11 ,
-									9.6281999999999995E-09 ,
-									1.001E-10 ,
-									-2.6160000000000001E-09 ,
-									-3.0546999999999998E-09 ,
-									-4.6500999999999999E-09 ,
-									9.0192999999999992E-09 ,
-									4.8196999999999998E-09 ,
-									2.1631000000000001E-09 ,
-									1.7057E-09 ,
-									8.9667999999999993E-09 ,
-									3.6502000000000001E-09 ,
-									1.07286E-08 ,
-									5.6096999999999998E-09 ,
-									5.6260000000000002E-09 ,
-									3.4385000000000001E-09 ,
-									-1.6244899999999999E-08 ,
-									-1.80762E-08 ,
-									2.9450000000000001E-09 ,
-									5.8310000000000002E-09 ,
-									5.3013999999999999E-09 ,
-									3.4153E-09 ,
-									-8.3959999999999998E-10 ,
-									-5.8366999999999999E-09 ,
-									8.6338000000000005E-09 ,
-									9.0137999999999996E-09 ,
-									3.6889999999999999E-10 ,
-									-1.13406E-08 ,
-									4.2350000000000004E-09 ,
-									1.0518899999999999E-08 ,
-									2.4294999999999999E-09 ,
-									-4.6325999999999999E-09 ,
-									3.0975000000000001E-09 ,
-									6.8459999999999997E-09 ,
-									-7.3754999999999996E-09 ,
-									-6.7189E-09 ,
-									-5.6394999999999998E-09 ,
-									6.2000000000000003E-10 ,
-									-3.6279999999999999E-09 ,
-									-8.5760000000000002E-10 ,
-									1.2529700000000001E-08 ,
-									1.16954E-08 ,
-									-7.1207999999999996E-09 ,
-									7.2606000000000003E-09 ,
-									7.9714999999999996E-09 ,
-									-3.786E-09 ,
-									8.9150999999999995E-09 ,
-									2.9940000000000002E-09 ,
-									9.2619999999999997E-10 ,
-									1.0961E-09 ,
-									6.8818E-09 ,
-									1.9693999999999998E-09 ,
-									1.04845E-08 ,
-									2.1891999999999998E-09 ,
-									-2.1781000000000002E-09 ,
-									3.1745000000000002E-09 ,
-									-1.5941099999999999E-08 ,
-									5.1354000000000003E-09 ,
-									8.0871000000000003E-09 ,
-									2.7622999999999999E-09 ,
-									-5.4599999999999998E-11 ,
-									-9.4740000000000006E-10 ,
-									-4.2625999999999997E-09 ,
-									-3.1930000000000002E-10 ,
-									-1.6973299999999999E-08 ,
-									-2.6501999999999998E-09 ,
-									-8.9973999999999996E-09 ,
-									-9.1731999999999997E-09 ,
-									-3.2430000000000001E-09 ,
-									3.6344000000000002E-09 ,
-									-2.8722000000000001E-09 ,
-									6.4791999999999997E-09 ,
-									-5.8913000000000001E-09 ,
-									5.0965000000000003E-09 ,
-									6.5942000000000002E-09 ,
-									6.24E-09 ,
-									-5.3443000000000002E-09 ,
-									7.4786000000000002E-09 ,
-									2.4732000000000001E-09 ,
-									1.06401E-08 ,
-									6.0071000000000001E-09 ,
-									1.3699E-09 ,
-									-5.7815000000000004E-09 ,
-									-2.0539000000000001E-09 ,
-									-5.7021E-09 ,
-									-5.5092E-09 ,
-									-1.4267E-09 ,
-									1.3750999999999999E-09
-								};
-							l.Add(arr);
-								arr = new double[]
-								{
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									1.19E-09 ,
-									2.4921710000000002E-07 ,
-									-4.7343599999999998E-07 ,
-									-9.6083899999999997E-08 ,
-									2.69984E-08 ,
-									9.7465900000000002E-08 ,
-									5.8847200000000002E-08 ,
-									1.9970700000000001E-08 ,
-									-1.3027769999999999E-07 ,
-									-2.66145E-08 ,
-									-4.2095400000000003E-08 ,
-									3.9529299999999999E-08 ,
-									3.0458199999999998E-08 ,
-									7.0986999999999999E-09 ,
-									3.4085499999999998E-08 ,
-									-3.1844899999999999E-08 ,
-									-3.6262100000000003E-08 ,
-									-2.9679000000000001E-09 ,
-									5.8029999999999999E-09 ,
-									2.05518E-08 ,
-									-9.644000000000001E-10 ,
-									1.30062E-08 ,
-									-3.3126999999999999E-09 ,
-									-1.0529699999999999E-08 ,
-									-8.2429999999999998E-09 ,
-									-1.4270000000000001E-10 ,
-									6.2147999999999997E-09 ,
-									-3.1928E-09 ,
-									1.7543E-09 ,
-									-1.19952E-08 ,
-									3.4070000000000002E-10 ,
-									7.4670000000000002E-10 ,
-									2.4123E-09 ,
-									-5.7405000000000002E-09 ,
-									5.0525000000000001E-09 ,
-									-1.4000946E-06 ,
-									-6.1944769999999997E-07 ,
-									6.6301520000000002E-07 ,
-									-3.2386370000000002E-07 ,
-									-3.7401310000000002E-07 ,
-									9.3246699999999998E-08 ,
-									6.6008700000000003E-08 ,
-									-3.35532E-08 ,
-									-5.1102899999999999E-08 ,
-									-9.84958E-08 ,
-									3.1920600000000003E-08 ,
-									-6.3428299999999994E-08 ,
-									-3.3551000000000001E-09 ,
-									-3.33181E-08 ,
-									2.6832000000000002E-08 ,
-									7.7318000000000001E-09 ,
-									1.2939399999999999E-08 ,
-									-2.3289000000000001E-09 ,
-									1.37476E-08 ,
-									4.7932000000000004E-09 ,
-									-2.0825999999999998E-09 ,
-									-4.0370999999999996E-09 ,
-									1.34247E-08 ,
-									1.04728E-08 ,
-									9.2185000000000008E-09 ,
-									3.1719999999999998E-09 ,
-									-1.16064E-08 ,
-									-6.536E-10 ,
-									-3.0842000000000002E-09 ,
-									5.7275000000000003E-09 ,
-									-4.9376999999999996E-09 ,
-									1.5229E-09 ,
-									6.367E-09 ,
-									2.4944E-09 ,
-									-2.0946000000000002E-09 ,
-									1.4138845E-06 ,
-									-2.009274E-07 ,
-									-2.1529579999999999E-07 ,
-									9.3727999999999997E-09 ,
-									-2.1529269999999999E-07 ,
-									-8.6346999999999999E-08 ,
-									-7.5968299999999999E-08 ,
-									-1.5502819999999999E-07 ,
-									-1.4628950000000001E-07 ,
-									2.4672800000000001E-08 ,
-									9.6380799999999997E-08 ,
-									2.1021599999999999E-08 ,
-									1.5095699999999999E-08 ,
-									-2.7123000000000001E-08 ,
-									8.5514000000000001E-09 ,
-									-1.4744E-09 ,
-									-9.9510000000000001E-10 ,
-									3.0306500000000001E-08 ,
-									1.8713399999999999E-08 ,
-									8.2273999999999999E-09 ,
-									-1.7319300000000001E-08 ,
-									-8.2339999999999995E-09 ,
-									-1.4673900000000001E-08 ,
-									-3.1308E-09 ,
-									2.1284999999999998E-09 ,
-									9.0419999999999992E-09 ,
-									-8.2879999999999995E-09 ,
-									-9.4092999999999998E-09 ,
-									-8.6681000000000007E-09 ,
-									1.3112E-09 ,
-									2.6047999999999999E-09 ,
-									7.4330999999999999E-09 ,
-									3.5834999999999999E-09 ,
-									-9.9549E-09 ,
-									3.094237E-07 ,
-									4.96903E-08 ,
-									-4.7130640000000002E-07 ,
-									-1.2376720000000001E-07 ,
-									7.0179600000000002E-08 ,
-									1.89722E-08 ,
-									-7.8733999999999995E-08 ,
-									-6.4482600000000001E-08 ,
-									-2.8551999999999998E-09 ,
-									-1.3302799999999999E-08 ,
-									-1.9293299999999999E-08 ,
-									7.0734E-09 ,
-									4.5473400000000001E-08 ,
-									2.10642E-08 ,
-									2.0212E-09 ,
-									-4.2206999999999997E-09 ,
-									-2.2961599999999999E-08 ,
-									1.3932E-08 ,
-									1.43386E-08 ,
-									6.4666999999999996E-09 ,
-									3.7349000000000004E-09 ,
-									4.1832999999999998E-09 ,
-									-1.6528500000000001E-08 ,
-									9.2713999999999992E-09 ,
-									3.3269000000000002E-09 ,
-									-1.3639999999999999E-10 ,
-									-3.0520999999999998E-09 ,
-									-8.4769999999999998E-10 ,
-									-6.5448E-09 ,
-									3.1032000000000002E-09 ,
-									-3.7018000000000002E-09 ,
-									1.8778999999999999E-09 ,
-									-3.0954999999999999E-09 ,
-									-6.6890700000000005E-07 ,
-									-5.3678019999999995E-07 ,
-									1.8620000000000001E-08 ,
-									8.9462800000000001E-08 ,
-									-5.3773299999999998E-08 ,
-									-5.1106500000000002E-08 ,
-									5.03126E-08 ,
-									9.6522000000000002E-09 ,
-									6.4653700000000001E-08 ,
-									-1.62511E-08 ,
-									8.8505000000000004E-09 ,
-									3.3199999999999999E-11 ,
-									5.0564E-09 ,
-									2.9103599999999999E-08 ,
-									2.73694E-08 ,
-									-3.5994000000000002E-09 ,
-									9.7040000000000008E-10 ,
-									3.5020000000000001E-09 ,
-									-2.3535999999999998E-09 ,
-									-1.26654E-08 ,
-									-3.6623000000000001E-09 ,
-									1.06647E-08 ,
-									7.9196000000000007E-09 ,
-									3.2829999999999999E-10 ,
-									1.8419E-09 ,
-									-3.3849000000000002E-09 ,
-									-2.0512000000000001E-09 ,
-									5.4480000000000002E-10 ,
-									1.1091E-09 ,
-									5.9137000000000004E-09 ,
-									-8.9831999999999993E-09 ,
-									1.6489999999999999E-10 ,
-									-2.371348E-07 ,
-									1.517387E-07 ,
-									3.0912260000000001E-07 ,
-									2.2264820000000001E-07 ,
-									-7.8379799999999994E-08 ,
-									3.4921599999999998E-08 ,
-									4.0134500000000001E-08 ,
-									-4.2567999999999996E-09 ,
-									5.4355999999999997E-09 ,
-									-3.5833099999999999E-08 ,
-									-3.2851799999999998E-08 ,
-									-2.7477900000000001E-08 ,
-									-1.15996E-08 ,
-									2.0107700000000001E-08 ,
-									8.9349999999999996E-10 ,
-									1.8168E-09 ,
-									-5.2022999999999997E-09 ,
-									1.6717399999999999E-08 ,
-									9.0189999999999996E-10 ,
-									3.9236999999999996E-09 ,
-									-6.4851999999999999E-09 ,
-									6.2788000000000003E-09 ,
-									4.9177000000000001E-09 ,
-									6.8547999999999999E-09 ,
-									1.4467E-09 ,
-									3.3188000000000002E-09 ,
-									-8.5579000000000008E-09 ,
-									-4.8727000000000003E-09 ,
-									3.5989000000000001E-09 ,
-									6.0509000000000003E-09 ,
-									-4.6861999999999998E-09 ,
-									2.4083600000000001E-08 ,
-									7.5094800000000001E-08 ,
-									-9.6990999999999998E-08 ,
-									-3.3500999999999998E-09 ,
-									-8.9553700000000006E-08 ,
-									3.5816600000000001E-08 ,
-									-5.8835999999999998E-09 ,
-									-6.3812999999999999E-09 ,
-									6.1453000000000003E-09 ,
-									-7.0595000000000003E-09 ,
-									-3.5158000000000002E-09 ,
-									3.3473999999999998E-09 ,
-									-6.3048999999999996E-09 ,
-									-1.5386E-09 ,
-									3.5728999999999999E-09 ,
-									1.8228E-09 ,
-									2.8609999999999999E-09 ,
-									2.8966000000000001E-09 ,
-									-7.4194000000000002E-09 ,
-									1.1771E-09 ,
-									-2.3620999999999999E-09 ,
-									5.2728999999999999E-09 ,
-									-4.6636000000000003E-09 ,
-									1.4214999999999999E-09 ,
-									-2.4004000000000001E-09 ,
-									2.4856000000000002E-09 ,
-									-1.447E-10 ,
-									-3.3291E-09 ,
-									2.9285E-09 ,
-									4.1387999999999998E-09 ,
-									1.2017220000000001E-07 ,
-									-2.3538999999999999E-09 ,
-									-9.1679999999999998E-08 ,
-									2.5325099999999999E-08 ,
-									1.6192099999999999E-08 ,
-									-8.8472999999999994E-09 ,
-									-1.4984800000000001E-08 ,
-									2.35054E-08 ,
-									5.6651999999999998E-09 ,
-									3.9290999999999996E-09 ,
-									2.4813000000000001E-09 ,
-									-9.3126000000000003E-09 ,
-									3.4215999999999998E-09 ,
-									4.0666999999999996E-09 ,
-									2.1983000000000002E-09 ,
-									-1.5897E-09 ,
-									-4.8356999999999998E-09 ,
-									1.6270000000000001E-09 ,
-									1.4723E-09 ,
-									-9.8612999999999994E-09 ,
-									-5.3160000000000003E-09 ,
-									7.4112999999999998E-09 ,
-									2.5351000000000001E-09 ,
-									1.9169999999999999E-10 ,
-									3.0254999999999999E-09 ,
-									1.10768E-08 ,
-									3.7096000000000001E-09 ,
-									1.01232E-08 ,
-									-3.4356E-09 ,
-									9.8739200000000006E-08 ,
-									-3.8032800000000003E-08 ,
-									4.3290199999999997E-08 ,
-									2.43333E-08 ,
-									4.60357E-08 ,
-									2.7619999999999999E-08 ,
-									3.7432799999999998E-08 ,
-									-3.8312099999999998E-08 ,
-									-2.8306100000000001E-08 ,
-									3.44506E-08 ,
-									2.5673E-09 ,
-									-4.8859000000000003E-09 ,
-									6.8850000000000001E-09 ,
-									8.3147999999999995E-09 ,
-									-1.8424200000000001E-08 ,
-									-1.6283399999999999E-08 ,
-									1.3628E-08 ,
-									1.699E-09 ,
-									7.6482999999999997E-09 ,
-									-6.4752999999999998E-09 ,
-									-3.8188999999999997E-09 ,
-									-7.5010999999999993E-09 ,
-									1.742E-09 ,
-									1.0645E-09 ,
-									3.6263999999999998E-09 ,
-									4.0018999999999996E-09 ,
-									-1.7539999999999999E-09 ,
-									-1.2762E-09 ,
-									-2.24543E-08 ,
-									-1.7331000000000001E-08 ,
-									3.1763300000000001E-08 ,
-									-3.6184299999999998E-08 ,
-									-1.0119E-09 ,
-									1.5596100000000002E-08 ,
-									1.28282E-08 ,
-									1.8696999999999999E-08 ,
-									-5.1743999999999998E-09 ,
-									-6.9965999999999996E-09 ,
-									-5.4108000000000004E-09 ,
-									-5.8739999999999996E-10 ,
-									2.4126099999999999E-08 ,
-									-3.1763999999999999E-09 ,
-									1.7288400000000001E-08 ,
-									-4.7881999999999997E-09 ,
-									-4.2048999999999998E-09 ,
-									7.0209999999999998E-10 ,
-									7.9032999999999994E-09 ,
-									1.8968999999999999E-09 ,
-									-5.5394999999999997E-09 ,
-									-8.0774000000000003E-09 ,
-									-5.6584000000000002E-09 ,
-									5.3440000000000004E-10 ,
-									8.1729999999999996E-10 ,
-									6.8519999999999999E-09 ,
-									5.3536000000000002E-09 ,
-									-6.9074100000000006E-08 ,
-									-6.8163999999999997E-09 ,
-									-4.3063000000000003E-09 ,
-									-3.94554E-08 ,
-									1.9130899999999999E-08 ,
-									-2.9384000000000001E-09 ,
-									1.1855700000000001E-08 ,
-									2.1960999999999999E-09 ,
-									1.02937E-08 ,
-									-1.8428999999999999E-08 ,
-									-3.5139199999999999E-08 ,
-									-1.64381E-08 ,
-									1.5378899999999999E-08 ,
-									1.85777E-08 ,
-									7.9568999999999993E-09 ,
-									1.8849E-09 ,
-									-7.6154000000000008E-09 ,
-									2.3565999999999999E-09 ,
-									7.0721999999999996E-09 ,
-									9.9434000000000002E-09 ,
-									1.5715499999999999E-08 ,
-									4.811E-09 ,
-									-7.7170000000000005E-09 ,
-									2.4097000000000001E-09 ,
-									-1.8095E-09 ,
-									1.9426999999999999E-09 ,
-									-1.0879700000000001E-08 ,
-									8.7796399999999996E-08 ,
-									-3.13314E-08 ,
-									1.4775599999999999E-08 ,
-									6.1632000000000004E-09 ,
-									1.9377499999999999E-08 ,
-									-1.6901200000000001E-08 ,
-									8.1173000000000005E-09 ,
-									1.7357999999999999E-08 ,
-									1.40674E-08 ,
-									-8.7932000000000006E-09 ,
-									-1.33824E-08 ,
-									-5.5536000000000003E-09 ,
-									1.22275E-08 ,
-									1.7457000000000001E-09 ,
-									4.264E-10 ,
-									1.0900199999999999E-08 ,
-									-1.7172E-09 ,
-									-8.5304999999999999E-09 ,
-									3.1964999999999999E-09 ,
-									1.3919499999999999E-08 ,
-									1.01392E-08 ,
-									-2.4785000000000001E-09 ,
-									-5.4193000000000001E-09 ,
-									-3.4005E-09 ,
-									6.7812399999999994E-08 ,
-									4.5298900000000002E-08 ,
-									-4.2554E-09 ,
-									1.2041E-09 ,
-									2.0753099999999999E-08 ,
-									-3.46579E-08 ,
-									-2.8023499999999999E-08 ,
-									6.7269E-09 ,
-									1.36367E-08 ,
-									1.9729500000000001E-08 ,
-									-4.4651999999999998E-09 ,
-									2.7378000000000002E-09 ,
-									-1.16876E-08 ,
-									2.1769000000000002E-09 ,
-									-2.5631E-09 ,
-									5.5353000000000001E-09 ,
-									-1.7457999999999999E-09 ,
-									3.4719E-09 ,
-									3.6678000000000001E-09 ,
-									2.3826E-09 ,
-									5.2653999999999996E-09 ,
-									3.1756000000000001E-09 ,
-									2.5409000000000002E-09 ,
-									5.6450000000000003E-09 ,
-									-5.0039000000000001E-09 ,
-									-2.4319800000000001E-08 ,
-									-3.8677100000000002E-08 ,
-									1.1643800000000001E-08 ,
-									-1.2869300000000001E-08 ,
-									-1.2904300000000001E-08 ,
-									-1.39252E-08 ,
-									7.9162999999999992E-09 ,
-									7.7607999999999999E-09 ,
-									-2.0946999999999998E-09 ,
-									-6.0990000000000003E-10 ,
-									7.8295000000000007E-09 ,
-									6.5214999999999999E-09 ,
-									1.0670099999999999E-08 ,
-									-1.09321E-08 ,
-									-4.3945999999999997E-09 ,
-									6.0829999999999998E-09 ,
-									3.1072000000000002E-09 ,
-									3.3685000000000001E-09 ,
-									3.4849999999999999E-09 ,
-									7.1894999999999996E-09 ,
-									-6.7366000000000001E-09 ,
-									-4.1709999999999998E-09 ,
-									-5.1538000000000001E-09 ,
-									-3.33624E-08 ,
-									5.3556E-09 ,
-									-2.0874299999999999E-08 ,
-									-1.3702399999999999E-08 ,
-									-1.4079000000000001E-09 ,
-									1.09014E-08 ,
-									4.2003000000000001E-09 ,
-									-3.1340000000000001E-09 ,
-									-1.6102300000000001E-08 ,
-									-7.2531000000000001E-09 ,
-									7.6165999999999995E-09 ,
-									1.0877999999999999E-09 ,
-									-9.772000000000001E-10 ,
-									-6.2682000000000003E-09 ,
-									-1.9558999999999998E-09 ,
-									-3.3483000000000001E-09 ,
-									-7.7404000000000003E-09 ,
-									-1.7867E-09 ,
-									7.1017999999999996E-09 ,
-									8.7396999999999995E-09 ,
-									2.1175999999999998E-09 ,
-									3.7963999999999998E-09 ,
-									3.2960999999999998E-09 ,
-									7.1842999999999997E-09 ,
-									-7.5292E-09 ,
-									-2.663E-10 ,
-									-7.3172000000000003E-09 ,
-									-7.1399999999999997E-09 ,
-									1.11168E-08 ,
-									3.7851999999999997E-09 ,
-									-1.2863000000000001E-08 ,
-									-7.5036000000000004E-09 ,
-									1.6662999999999999E-09 ,
-									-1.19188E-08 ,
-									-1.31772E-08 ,
-									3.3800999999999999E-09 ,
-									5.2229000000000002E-09 ,
-									3.1105E-09 ,
-									3.7108E-09 ,
-									-2.2594999999999999E-09 ,
-									-1.2433E-09 ,
-									2.0824000000000002E-09 ,
-									-1.9037E-08 ,
-									5.0832999999999996E-09 ,
-									-1.37472E-08 ,
-									-1.25965E-08 ,
-									-5.9466999999999997E-09 ,
-									-1.34798E-08 ,
-									-1.1688E-08 ,
-									-4.6885999999999997E-09 ,
-									-1.4118E-09 ,
-									8.0827999999999994E-09 ,
-									9.3409999999999991E-10 ,
-									-3.4579999999999998E-09 ,
-									-2.8975E-09 ,
-									-4.3441000000000003E-09 ,
-									7.4653000000000007E-09 ,
-									9.8834E-09 ,
-									9.4764000000000001E-09 ,
-									4.0699999999999999E-10 ,
-									-7.2514E-09 ,
-									-4.4269000000000001E-09 ,
-									-1.0543400000000001E-08 ,
-									-8.7291000000000004E-09 ,
-									-5.9279999999999996E-10 ,
-									-9.4125999999999995E-09 ,
-									-1.4985199999999999E-08 ,
-									-1.20752E-08 ,
-									-9.5975999999999992E-09 ,
-									-1.2915100000000001E-08 ,
-									5.9036000000000002E-09 ,
-									1.09539E-08 ,
-									-2.9946E-09 ,
-									-3.669E-09 ,
-									-7.8313999999999992E-09 ,
-									1.9857999999999999E-09 ,
-									1.0409999999999999E-10 ,
-									-4.9602999999999999E-09 ,
-									-5.8118000000000001E-09 ,
-									-9.1086000000000006E-09 ,
-									4.0581000000000003E-09 ,
-									4.2819000000000003E-09 ,
-									1.0673400000000001E-08 ,
-									1.5313299999999999E-08 ,
-									-3.7544000000000002E-09 ,
-									9.0104999999999999E-09 ,
-									-8.6424999999999995E-09 ,
-									8.4412000000000002E-09 ,
-									2.9262000000000001E-09 ,
-									-4.1454000000000002E-09 ,
-									2.24177E-08 ,
-									5.7826000000000003E-09 ,
-									5.2409999999999998E-10 ,
-									2.2133999999999998E-09 ,
-									-1.4221000000000001E-09 ,
-									2.4841000000000001E-09 ,
-									4.2618999999999999E-09 ,
-									-4.3685000000000004E-09 ,
-									-3.5370000000000001E-09 ,
-									-1.12091E-08 ,
-									1.5860500000000002E-08 ,
-									1.8929099999999999E-08 ,
-									-1.0896400000000001E-08 ,
-									7.6167E-09 ,
-									-2.1785999999999999E-09 ,
-									-1.2914400000000001E-08 ,
-									2.3213999999999999E-09 ,
-									4.6444999999999998E-09 ,
-									3.0398999999999998E-09 ,
-									1.0770599999999999E-08 ,
-									5.6219999999999998E-09 ,
-									4.5399999999999998E-10 ,
-									-8.0768999999999997E-09 ,
-									-5.7621999999999998E-09 ,
-									2.8395E-09 ,
-									1.6190999999999999E-09 ,
-									-2.2236000000000001E-09 ,
-									2.23187E-08 ,
-									1.32542E-08 ,
-									-3.2617E-09 ,
-									-7.7411000000000001E-09 ,
-									1.6121E-09 ,
-									-5.5616000000000003E-09 ,
-									5.3421000000000004E-09 ,
-									-4.0463E-09 ,
-									-6.5115000000000001E-09 ,
-									5.2115E-09 ,
-									9.0297999999999996E-09 ,
-									3.0135E-09 ,
-									-5.7345E-09 ,
-									-1.5149999999999999E-10 ,
-									-4.7129999999999998E-09 ,
-									2.4227999999999999E-09 ,
-									3.6872999999999999E-09 ,
-									-1.9882999999999998E-09 ,
-									4.1806999999999998E-09 ,
-									8.4745999999999997E-09 ,
-									3.4241000000000002E-09 ,
-									-5.8837999999999999E-09 ,
-									7.0090000000000003E-10 ,
-									-5.5580999999999997E-09 ,
-									-9.0752999999999999E-09 ,
-									-2.0044999999999999E-09 ,
-									-1.3228699999999999E-08 ,
-									5.6377000000000001E-09 ,
-									4.1636E-09 ,
-									-6.4260000000000004E-10 ,
-									-1.0896400000000001E-08 ,
-									-9.1901000000000003E-09 ,
-									-1.0824E-08 ,
-									1.18854E-08 ,
-									-8.0894000000000006E-09 ,
-									2.9153000000000001E-09 ,
-									1.6815E-09 ,
-									-8.4043E-09 ,
-									6.1025000000000004E-09 ,
-									6.3699999999999997E-11 ,
-									-7.1528000000000004E-09 ,
-									-8.0674000000000005E-09 ,
-									-1.9524E-09 ,
-									7.7399999999999999E-11 ,
-									-3.2617E-09 ,
-									-7.7411000000000001E-09 ,
-									1.3169899999999999E-08 ,
-									-6.1479999999999999E-10 ,
-									-1.3781699999999999E-08 ,
-									-9.3040000000000001E-10 ,
-									-3.2619000000000001E-09 ,
-									-2.9426000000000002E-09 ,
-									6.8929999999999999E-10 ,
-									-6.2328999999999998E-09 ,
-									4.5286999999999999E-09 ,
-									4.8391E-09 ,
-									-4.5420999999999999E-09 ,
-									5.2190999999999999E-09 ,
-									1.4492999999999999E-09 ,
-									3.9942000000000001E-09 ,
-									-1.7208399999999999E-08 ,
-									6.3145000000000001E-09 ,
-									-1.5072300000000001E-08 ,
-									-1.7282999999999999E-09 ,
-									-5.5120999999999996E-09 ,
-									-1.04979E-08 ,
-									-9.5514999999999995E-09 ,
-									1.7015E-09 ,
-									1.3716100000000001E-08 ,
-									5.3569999999999996E-09 ,
-									-2.9276000000000001E-09 ,
-									2.9511999999999999E-09 ,
-									-8.6781000000000005E-09 ,
-									1.00453E-08 ,
-									-9.3520000000000004E-10 ,
-									-3.7771999999999997E-09 ,
-									2.7860000000000001E-09 ,
-									-1.3695600000000001E-08 ,
-									1.7638000000000001E-09 ,
-									7.3591000000000004E-09 ,
-									2.1540999999999998E-09 ,
-									1.1044E-09 ,
-									-1.2353000000000001E-09 ,
-									1.26688E-08 ,
-									1.0135699999999999E-08 ,
-									-7.0194999999999996E-09 ,
-									1.6316E-09 ,
-									-4.1028000000000003E-09 ,
-									-1.3122500000000001E-08 ,
-									7.3980999999999999E-09 ,
-									5.4994999999999999E-09 ,
-									-5.3912000000000002E-09 ,
-									-5.0892000000000002E-09 ,
-									2.8652E-09 ,
-									-2.5111000000000001E-09 ,
-									3.2099999999999998E-10 ,
-									-1.8440600000000001E-08 ,
-									-1.5044100000000001E-08 ,
-									-3.4620999999999999E-09 ,
-									-8.0465000000000003E-09 ,
-									3.3029999999999999E-09 ,
-									-4.1551000000000003E-09 ,
-									3.4309999999999998E-09 ,
-									4.0290999999999997E-09 ,
-									-4.7807000000000003E-09 ,
-									1.8070000000000001E-09 ,
-									-1.453E-10 ,
-									4.1452999999999997E-09 ,
-									-5.6003000000000002E-09 ,
-									-1.4377999999999999E-09 ,
-									-1.73273E-08 ,
-									-1.9148E-09 ,
-									3.6857000000000002E-09 ,
-									4.3111000000000001E-09 ,
-									-1.8424E-09 ,
-									5.9459999999999999E-10 ,
-									2.2099E-09 ,
-									1.1197E-09 ,
-									6.6707000000000001E-09 ,
-									-7.7810000000000003E-10 ,
-									2.4247000000000001E-09 ,
-									-4.1506000000000001E-09 ,
-									3.65E-09 ,
-									-6.0513000000000004E-09 ,
-									4.7941999999999998E-09 ,
-									8.9332999999999993E-09 ,
-									1.7421E-09 ,
-									-1.6236000000000001E-09 ,
-									-6.6836000000000004E-09 ,
-									9.6230000000000008E-10 ,
-									2.5193000000000002E-09 ,
-									4.8661999999999996E-09 ,
-									-4.9306000000000003E-09 ,
-									-9.0703999999999996E-09 ,
-									-3.8034999999999999E-09
-								};
-							l.Add(arr);
-								arr = new double[]
-								{
-									2 ,
-									3 ,
-									4 ,
-									5 ,
-									6 ,
-									7 ,
-									8 ,
-									9 ,
-									10 ,
-									11 ,
-									12 ,
-									13 ,
-									14 ,
-									15 ,
-									16 ,
-									17 ,
-									18 ,
-									19 ,
-									20 ,
-									21 ,
-									22 ,
-									23 ,
-									24 ,
-									25 ,
-									26 ,
-									27 ,
-									28 ,
-									29 ,
-									30 ,
-									31 ,
-									32 ,
-									33 ,
-									34 ,
-									35 ,
-									36 ,
-									37 ,
-									0
-								};
-							l.Add(arr);
-								arr = new double[]
-								{
-									-0.77521374153984801 ,
-									0.20191269014442059 ,
-									0.46216275755738345 ,
-									-0.91846253111728637 ,
-									0.96184679286579788 ,
-									-0.57281117105391044 ,
-									-0.073744610648750264 ,
-									0.68714684213274446 ,
-									-0.99162673830528192 ,
-									0.85029850589244216 ,
-									-0.32669943405196333 ,
-									-0.34377472463169556 ,
-									0.85969721510909869 ,
-									-0.98912346480052826 ,
-									0.67386698887665264 ,
-									-0.055658434693993897 ,
-									-0.58757262206188809 ,
-									0.96664717624394447 ,
-									-0.91114372642810604 ,
-									0.44601509824583918 ,
-									0.21962966023926622 ,
-									-0.78653495958025355 ,
-									0.99983575749693676 ,
-									-0.76363787740880351 ,
-									0.18412939475831602 ,
-									0.47815860333267984 ,
-									-0.92547963463630556 ,
-									0.95673045723800398 ,
-									-0.55786156016489963 ,
-									-0.091806562604626274 ,
-									0.7002009779541889 ,
-									-0.99380427729482856 ,
-									0.84062048636586839 ,
-									-0.30951682760663468 ,
-									-0.36073709036890161 ,
-									0.86881352668078371 ,
-									0
-								};
-							l.Add(arr);
-								arr = new double[]
-								{
-									-0.63169902242111298 ,
-									0.97940352539627062 ,
-									-0.88679512037840813 ,
-									0.39550800109938067 ,
-									0.27358864569601371 ,
-									-0.81968735644503399 ,
-									0.99727715926930993 ,
-									-0.72651855953375133 ,
-									0.1291371823992904 ,
-									0.52630072285441587 ,
-									-0.94512828747748701 ,
-									0.93905214908672763 ,
-									-0.51080397251162768 ,
-									-0.14708763163841454 ,
-									0.73885267902492824 ,
-									-0.99844986786889545 ,
-									0.80917143659629842 ,
-									-0.25611176595308527 ,
-									-0.41208871592256024 ,
-									0.89502543658644418 ,
-									-0.97558331901646655 ,
-									0.61754575325079231 ,
-									0.018123411117285659 ,
-									-0.64564478793418412 ,
-									0.98290201240303543 ,
-									-0.87827350526982217 ,
-									0.37879736782803719 ,
-									0.2909756556709846 ,
-									-0.82993402128746618 ,
-									0.99577686007595245 ,
-									-0.71394578958909549 ,
-									0.11114431353201515 ,
-									0.54162459130103269 ,
-									-0.95089396539694426 ,
-									0.93266754614502312 ,
-									-0.4951394307228002 ,
-									0
-								};
-							l.Add(arr);
-								arr = new double[]
-								{
-									0.905545953313311 ,
-									0.82001347356211318 ,
-									0.74255988264656336 ,
-									0.67242209682340259 ,
-									0.60890910869688364 ,
-									0.55139517931607795 ,
-									0.4993136733061419 ,
-									0.45215147629638142 ,
-									0.40944393964482767 ,
-									0.37077030265403327 ,
-									0.33574954717711142 ,
-									0.30403664377300987 ,
-									0.27531915242760979 ,
-									0.24931414435047269 ,
-									0.22576541452034124 ,
-									0.20444095751699723 ,
-									0.18513068177101538 ,
-									0.16764433971187734 ,
-									0.15180965342197253 ,
-									0.13747061733016347 ,
-									0.12448596122281225 ,
-									0.11272775842963538 ,
-									0.1020801654720368 ,
-									0.0924382807567561 ,
-									0.083707111070520188 ,
-									0.075800635693457408 ,
-									0.068640958910786878 ,
-									0.06215754257320831 ,
-									0.056286511145068635 ,
-									0.050970022393541481 ,
-									0.046155697518760329 ,
-									0.041796105110466643 ,
-									0.037848293847040866 ,
-									0.034273369333000944 ,
-									0.031036110905911539 ,
-									0.028104624637431314 ,
-									0
-								};
-							l.Add(arr);
-								arr = new double[]
-								{
-									0.99991944497295104 ,
-									0.99983889643501445 ,
-									0.99975835438566751 ,
-									0.99967781882438755 ,
-									0.99959728975065187 ,
-									0.99951676716393789 ,
-									0.99943625106372314 ,
-									0.99935574144948502 ,
-									0.99927523832070098 ,
-									0.99919474167684874 ,
-									0.99911425151740574 ,
-									0.99903376784184972 ,
-									0.99895329064965843 ,
-									0.99887281994030952 ,
-									0.99879235571328073 ,
-									0.99871189796804993 ,
-									0.99863144670409498 ,
-									0.99855100192089374 ,
-									0.99847056361792419 ,
-									0.9983901317946644 ,
-									0.99830970645059225 ,
-									0.99822928758518592 ,
-									0.99814887519792339 ,
-									0.99806846928828297 ,
-									0.99798806985574273 ,
-									0.99790767689978099 ,
-									0.99782729041987595 ,
-									0.99774691041550601 ,
-									0.99766653688614948 ,
-									0.99758616983128479 ,
-									0.99750580925039034 ,
-									0.99742545514294467 ,
-									0.99734510750842631 ,
-									0.99726476634631378 ,
-									0.99718443165608583 ,
-									0.997104103437221 ,
-									0
-								};
-							l.Add(arr);
-								arr = new double[]
-								{
-									3.6880761432033755 ,
-									0.39724065421947397 ,
-									-2.5965439860993542 ,
-									-0.48131577928267621 ,
-									2.24063708798354 ,
-									0.53237456138447226 ,
-									-2.0397232177849016 ,
-									-0.56887815481245729 ,
-									1.9042403752440282 ,
-									0.59691832060978645 ,
-									-1.8045006209904721 ,
-									-0.619320307328042 ,
-									1.7272531516491225 ,
-									0.6376440529582621 ,
-									-1.6655139061728648 ,
-									-0.65284814241236599 ,
-									1.6151859673681248 ,
-									0.66556546255746241 ,
-									-1.5736807521794829 ,
-									-0.67623547365067216 ,
-									1.5392725821206024 ,
-									0.68517448893064548 ,
-									-1.5107650728866642 ,
-									-0.69261594196159659 ,
-									1.4873053350092915 ,
-									0.69873481827076245 ,
-									-1.4682743824942375 ,
-									-0.70366313732387609 ,
-									1.4532195936777808 ,
-									0.70750007675297244 ,
-									-1.4418117555460372 ,
-									-0.71031872012349384 ,
-									1.4338172550317185 ,
-									0.71217056805881251 ,
-									-1.4290801104289517 ,
-									0 ,
-									0
-								};
-							l.Add(arr);
-								arr = new double[]
-								{
-									1 ,
-									36 ,
-									71 ,
-									106 ,
-									140 ,
-									173 ,
-									205 ,
-									236 ,
-									266 ,
-									295 ,
-									323 ,
-									350 ,
-									376 ,
-									401 ,
-									425 ,
-									448 ,
-									470 ,
-									491 ,
-									511 ,
-									530 ,
-									548 ,
-									565 ,
-									581 ,
-									596 ,
-									610 ,
-									623 ,
-									635 ,
-									646 ,
-									656 ,
-									665 ,
-									673 ,
-									680 ,
-									686 ,
-									691 ,
-									695 ,
-									698 ,
-									700 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0 ,
-									0
-								};
-							l.Add(arr);
-								l.Add((int)(36));
-								l.Add((int)(36));
-							Saver = l;
-							}
-							}
-						}
-					
-						internal class OblectLabel2 : Diagram.UI.Labels.PureObjectLabel
-						{
-							internal OblectLabel2(string name, Diagram.UI.Interfaces.IDesktop desktop) : base(name, "", "", 0, 0)
-							{
-								this.desktop = desktop;
-								obj = new OblectLabel2.CategoryObject();
-								obj.Object = this;
-							}
-					
-							internal class CategoryObject : DataPerformer.Formula.VectorFormulaConsumer, FormulaEditor.Interfaces.ITreeCollectionProxyFactory
-							{
-							
-								internal CategoryObject()
-								{
-									proxyFactory = this;
-									formulaString = new string[]
-									{
-										"<Root>  <F>    <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"x\" S=\"x\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">      <F />    </S>  </F></Root>",
-										"<Root>  <F>    <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"y\" S=\"y\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">      <F />    </S>  </F></Root>",
-										"<Root>  <F>    <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"z\" S=\"z\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">      <F />    </S>  </F></Root>",
-										"<Root>  <F>    <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"u\" S=\"u\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">      <F />    </S>  </F></Root>",
-										"<Root>  <F>    <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"v\" S=\"v\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">      <F />    </S>  </F></Root>",
-										"<Root>  <F>    <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"w\" S=\"w\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">      <F />    </S>  </F></Root>",
-										"<Root>  <F>    <S type=\"FormulaEditor.Symbols.RootSymbol\" symbol=\"Q\" S=\"Q\" Type=\"2\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"P\">      <F>        <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"u\" S=\"u\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">          <F>            <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"2\" S=\"2\" Type=\"5\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\">              <F />            </S>          </F>        </S>        <S type=\"FormulaEditor.Symbols.BinarySymbol\" symbol=\"+\" S=\"+\" Type=\"3\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\" />        <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"v\" S=\"v\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">          <F>            <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"2\" S=\"2\" Type=\"5\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\">              <F />            </S>          </F>        </S>        <S type=\"FormulaEditor.Symbols.BinarySymbol\" symbol=\"+\" S=\"+\" Type=\"3\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\" />        <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"w\" S=\"w\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">          <F>            <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"2\" S=\"2\" Type=\"5\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\">              <F />            </S>          </F>        </S>      </F>      <F />    </S>  </F></Root>",
-										"<Root>  <F>    <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"t\" S=\"t\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">      <F />    </S>  </F></Root>"
-									};
-									isSerialized = true;
-									calculateDerivation = true;
-									deriOrder = 1;
-									arguments =  new List<string>()
-									{
-										"t = Time"
-									};
-									parameters =new Dictionary<string, object>()
-									{
-										{"z", (double)89.399671865823294 },
-										{"v", (double)1.7737490756446463 },
-										{"x", (double)-5459.7131508253706 },
-										{"y", (double)-4448.9606869266245 },
-										{"u", (double)-0.90880321034635358 },
-										{"w", (double)7.4498631634359143 }
-									};
-									operationNames = new Dictionary<System.Int32,System.String>()
-									{
-									};
-									Init();
-								}
-							
-								FormulaEditor.Interfaces.ITreeCollectionProxy FormulaEditor.Interfaces.ITreeCollectionProxyFactory.CreateProxy(FormulaEditor.Interfaces.ITreeCollection collection, Action<object> checkValue)
-								{
-									FormulaEditor.Interfaces.ITreeCollection f = this;
-									return new Calculation(f.Trees);
-								}
-							
-								internal class Calculation : FormulaEditor.Interfaces.ITreeCollectionProxy
-								{
-									public void Update()
-									{
-										var_0 = (double)measurement0.Parameter();
-										var_1 = (double)aliasName1.Value;
-										var_2 = (double)measurement2.Parameter();
-										var_3 = (var_1) * (var_2);
-										var_4 = (double)aliasName4.Value;
-										var_5 = (double)measurement5.Parameter();
-										var_6 = (var_4) * (var_5);
-										var_7 = (double)measurement7.Parameter();
-										var_8 = (var_6) * (var_7);
-										var_9 = (double)measurement9.Parameter();
-										var_10 = (var_8) * (var_9);
-										var_11 = (var_3) - (var_10);
-										var_12 = (var_0) + (var_11);
-										var_13 = (double)aliasName13.Value;
-										var_14 = (double)measurement14.Parameter();
-										var_15 = (var_13) * (var_14);
-										var_16 = (var_12) + (var_15);
-										var_17 = (double)measurement17.Parameter();
-										var_18 = (double)measurement18.Parameter();
-										var_19 = (var_1) * (var_18);
-										var_20 = (var_4) * (var_5);
-										var_21 = (var_20) * (var_7);
-										var_22 = (double)measurement22.Parameter();
-										var_23 = (var_21) * (var_22);
-										var_24 = (var_19) - (var_23);
-										var_25 = (double)measurement25.Parameter();
-										var_26 = (var_13) * (var_25);
-										var_27 = (var_24) - (var_26);
-										var_28 = (var_17) + (var_27);
-										var_29 = (double)measurement29.Parameter();
-										var_30 = (var_4) * (var_5);
-										var_31 = (var_30) * (var_7);
-										var_32 = (double)measurement32.Parameter();
-										var_33 = (var_31) * (var_32);
-										var_34 = (var_29) - (var_33);
-										var_35 = (double)measurement35.Parameter();
-										var_36 = (double)measurement36.Parameter();
-										var_37 = (double)measurement37.Parameter();
-									}
-									
-									internal  Calculation(FormulaEditor.ObjectFormulaTree[] trees)
-									{
-										this.trees = trees;
-										measurement0 = DataPerformer.Formula.StaticExtensionDataPerformerFormula.ToMeasurement(trees[0]);
-										aliasName1 = DataPerformer.Formula.StaticExtensionDataPerformerFormula.ToAliasName(trees[1]);
-										measurement2 = DataPerformer.Formula.StaticExtensionDataPerformerFormula.ToMeasurement(trees[2]);
-										aliasName4 = DataPerformer.Formula.StaticExtensionDataPerformerFormula.ToAliasName(trees[4]);
-										measurement5 = DataPerformer.Formula.StaticExtensionDataPerformerFormula.ToMeasurement(trees[5]);
-										measurement7 = DataPerformer.Formula.StaticExtensionDataPerformerFormula.ToMeasurement(trees[7]);
-										measurement9 = DataPerformer.Formula.StaticExtensionDataPerformerFormula.ToMeasurement(trees[9]);
-										aliasName13 = DataPerformer.Formula.StaticExtensionDataPerformerFormula.ToAliasName(trees[13]);
-										measurement14 = DataPerformer.Formula.StaticExtensionDataPerformerFormula.ToMeasurement(trees[14]);
-										measurement17 = DataPerformer.Formula.StaticExtensionDataPerformerFormula.ToMeasurement(trees[17]);
-										measurement18 = DataPerformer.Formula.StaticExtensionDataPerformerFormula.ToMeasurement(trees[18]);
-										measurement22 = DataPerformer.Formula.StaticExtensionDataPerformerFormula.ToMeasurement(trees[22]);
-										measurement25 = DataPerformer.Formula.StaticExtensionDataPerformerFormula.ToMeasurement(trees[25]);
-										measurement29 = DataPerformer.Formula.StaticExtensionDataPerformerFormula.ToMeasurement(trees[29]);
-										measurement32 = DataPerformer.Formula.StaticExtensionDataPerformerFormula.ToMeasurement(trees[32]);
-										measurement35 = DataPerformer.Formula.StaticExtensionDataPerformerFormula.ToMeasurement(trees[35]);
-										measurement36 = DataPerformer.Formula.StaticExtensionDataPerformerFormula.ToMeasurement(trees[36]);
-										measurement37 = DataPerformer.Formula.StaticExtensionDataPerformerFormula.ToMeasurement(trees[37]);
-										dictionary[trees[0]] = Get_0;
-										dictionary[trees[1]] = Get_1;
-										dictionary[trees[2]] = Get_2;
-										dictionary[trees[3]] = Get_3;
-										dictionary[trees[4]] = Get_4;
-										dictionary[trees[5]] = Get_5;
-										dictionary[trees[6]] = Get_6;
-										dictionary[trees[7]] = Get_7;
-										dictionary[trees[8]] = Get_8;
-										dictionary[trees[9]] = Get_9;
-										dictionary[trees[10]] = Get_10;
-										dictionary[trees[11]] = Get_11;
-										dictionary[trees[12]] = Get_12;
-										dictionary[trees[13]] = Get_13;
-										dictionary[trees[14]] = Get_14;
-										dictionary[trees[15]] = Get_15;
-										dictionary[trees[16]] = Get_16;
-										dictionary[trees[17]] = Get_17;
-										dictionary[trees[18]] = Get_18;
-										dictionary[trees[19]] = Get_19;
-										dictionary[trees[20]] = Get_20;
-										dictionary[trees[21]] = Get_21;
-										dictionary[trees[22]] = Get_22;
-										dictionary[trees[23]] = Get_23;
-										dictionary[trees[24]] = Get_24;
-										dictionary[trees[25]] = Get_25;
-										dictionary[trees[26]] = Get_26;
-										dictionary[trees[27]] = Get_27;
-										dictionary[trees[28]] = Get_28;
-										dictionary[trees[29]] = Get_29;
-										dictionary[trees[30]] = Get_30;
-										dictionary[trees[31]] = Get_31;
-										dictionary[trees[32]] = Get_32;
-										dictionary[trees[33]] = Get_33;
-										dictionary[trees[34]] = Get_34;
-										dictionary[trees[35]] = Get_35;
-										dictionary[trees[36]] = Get_36;
-										dictionary[trees[37]] = Get_37;
-									}
-									
-									public FormulaEditor.GetValue this[FormulaEditor.ObjectFormulaTree tree]
-									{ get { return dictionary[tree]; }}
-									
-									Dictionary<FormulaEditor.ObjectFormulaTree, FormulaEditor.GetValue> dictionary = new Dictionary<FormulaEditor.ObjectFormulaTree, FormulaEditor.GetValue>();
-									
-									DataPerformer.Interfaces.IMeasurement measurement0;
-									Diagram.UI.Interfaces.IAliasName aliasName1;
-									DataPerformer.Interfaces.IMeasurement measurement2;
-									Diagram.UI.Interfaces.IAliasName aliasName4;
-									DataPerformer.Interfaces.IMeasurement measurement5;
-									DataPerformer.Interfaces.IMeasurement measurement7;
-									DataPerformer.Interfaces.IMeasurement measurement9;
-									Diagram.UI.Interfaces.IAliasName aliasName13;
-									DataPerformer.Interfaces.IMeasurement measurement14;
-									DataPerformer.Interfaces.IMeasurement measurement17;
-									DataPerformer.Interfaces.IMeasurement measurement18;
-									DataPerformer.Interfaces.IMeasurement measurement22;
-									DataPerformer.Interfaces.IMeasurement measurement25;
-									DataPerformer.Interfaces.IMeasurement measurement29;
-									DataPerformer.Interfaces.IMeasurement measurement32;
-									DataPerformer.Interfaces.IMeasurement measurement35;
-									DataPerformer.Interfaces.IMeasurement measurement36;
-									DataPerformer.Interfaces.IMeasurement measurement37;
-									FormulaEditor.ObjectFormulaTree currentTree = null;
-									object[] currentArray = null;
-									double doubleValue = 0;
-									FormulaEditor.ObjectFormulaTree[] trees = null;
-									double var_0 = 0;
-									double var_1 = 0;
-									double var_2 = 0;
-									double var_3 = 0;
-									double var_4 = 0;
-									double var_5 = 0;
-									double var_6 = 0;
-									double var_7 = 0;
-									double var_8 = 0;
-									double var_9 = 0;
-									double var_10 = 0;
-									double var_11 = 0;
-									double var_12 = 0;
-									double var_13 = 0;
-									double var_14 = 0;
-									double var_15 = 0;
-									double var_16 = 0;
-									double var_17 = 0;
-									double var_18 = 0;
-									double var_19 = 0;
-									double var_20 = 0;
-									double var_21 = 0;
-									double var_22 = 0;
-									double var_23 = 0;
-									double var_24 = 0;
-									double var_25 = 0;
-									double var_26 = 0;
-									double var_27 = 0;
-									double var_28 = 0;
-									double var_29 = 0;
-									double var_30 = 0;
-									double var_31 = 0;
-									double var_32 = 0;
-									double var_33 = 0;
-									double var_34 = 0;
-									double var_35 = 0;
-									double var_36 = 0;
-									double var_37 = 0;
-									
-									object Get_0()
-									{
-										return var_0;
-									}
-									
-									object Get_1()
-									{
-										return var_1;
-									}
-									
-									object Get_2()
-									{
-										return var_2;
-									}
-									
-									object Get_3()
-									{
-										return var_3;
-									}
-									
-									object Get_4()
-									{
-										return var_4;
-									}
-									
-									object Get_5()
-									{
-										return var_5;
-									}
-									
-									object Get_6()
-									{
-										return var_6;
-									}
-									
-									object Get_7()
-									{
-										return var_7;
-									}
-									
-									object Get_8()
-									{
-										return var_8;
-									}
-									
-									object Get_9()
-									{
-										return var_9;
-									}
-									
-									object Get_10()
-									{
-										return var_10;
-									}
-									
-									object Get_11()
-									{
-										return var_11;
-									}
-									
-									object Get_12()
-									{
-										return var_12;
-									}
-									
-									object Get_13()
-									{
-										return var_13;
-									}
-									
-									object Get_14()
-									{
-										return var_14;
-									}
-									
-									object Get_15()
-									{
-										return var_15;
-									}
-									
-									object Get_16()
-									{
-										return var_16;
-									}
-									
-									object Get_17()
-									{
-										return var_17;
-									}
-									
-									object Get_18()
-									{
-										return var_18;
-									}
-									
-									object Get_19()
-									{
-										return var_19;
-									}
-									
-									object Get_20()
-									{
-										return var_20;
-									}
-									
-									object Get_21()
-									{
-										return var_21;
-									}
-									
-									object Get_22()
-									{
-										return var_22;
-									}
-									
-									object Get_23()
-									{
-										return var_23;
-									}
-									
-									object Get_24()
-									{
-										return var_24;
-									}
-									
-									object Get_25()
-									{
-										return var_25;
-									}
-									
-									object Get_26()
-									{
-										return var_26;
-									}
-									
-									object Get_27()
-									{
-										return var_27;
-									}
-									
-									object Get_28()
-									{
-										return var_28;
-									}
-									
-									object Get_29()
-									{
-										return var_29;
-									}
-									
-									object Get_30()
-									{
-										return var_30;
-									}
-									
-									object Get_31()
-									{
-										return var_31;
-									}
-									
-									object Get_32()
-									{
-										return var_32;
-									}
-									
-									object Get_33()
-									{
-										return var_33;
-									}
-									
-									object Get_34()
-									{
-										return var_34;
-									}
-									
-									object Get_35()
-									{
-										return var_35;
-									}
-									
-									object Get_36()
-									{
-										return var_36;
-									}
-									
-									object Get_37()
-									{
-										return var_37;
-									}
-								
-								}
-							}
-						}
-					
-						internal class OblectLabel3 : Diagram.UI.Labels.PureObjectLabel
-						{
-							internal OblectLabel3(string name, Diagram.UI.Interfaces.IDesktop desktop) : base(name, "", "", 0, 0)
-							{
-								this.desktop = desktop;
-								obj = new OblectLabel3.CategoryObject();
-								obj.Object = this;
-							}
-					
-							internal class CategoryObject : DataPerformer.Portable.ObjectTransformer
-							{
-							internal CategoryObject()
-							{
-								links = new Dictionary<string, string>()
-								{
-									{ "x","Vector.Formula_1"},
-									{ "y","Vector.Formula_2"},
-									{ "z","Vector.Formula_3"}
-								};
-							}
-							}
-						}
-					
-						internal class OblectLabel4 : Diagram.UI.Labels.PureObjectLabel
-						{
-							internal OblectLabel4(string name, Diagram.UI.Interfaces.IDesktop desktop) : base(name, "", "", 0, 0)
-							{
-								this.desktop = desktop;
-								obj = new OblectLabel4.CategoryObject();
-								obj.Object = this;
-							}
-					
-							internal class CategoryObject : DataPerformer.Portable.ObjectTransformer
-							{
-							internal CategoryObject()
-							{
-								links = new Dictionary<string, string>()
-								{
-									{ "t","Vector.Formula_8"},
-									{ "x","Vector.Formula_1"},
-									{ "y","Vector.Formula_2"},
-									{ "z","Vector.Formula_3"}
-								};
-							}
-							}
-						}
-					
-						internal class OblectLabel5 : Diagram.UI.Labels.PureObjectLabel
-						{
-							internal OblectLabel5(string name, Diagram.UI.Interfaces.IDesktop desktop) : base(name, "", "", 0, 0)
-							{
-								this.desktop = desktop;
-								obj = new OblectLabel5.CategoryObject();
-								obj.Object = this;
-							}
-					
-							internal class CategoryObject : DataPerformer.Formula.DifferentialEquationSolver, FormulaEditor.Interfaces.ITreeCollectionProxyFactory
-							{
-							
-								internal CategoryObject()
-								{
-									proxyFactory = this;
-									vars = new Dictionary<object, object>()
-									{
-													{'v' , new object[] {"<Root>  <F>    <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"b\" S=\"b\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">      <F />    </S>    <S type=\"FormulaEditor.Symbols.BinarySymbol\" symbol=\"+\" S=\"+\" Type=\"3\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\" />    <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"q\" S=\"q\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">      <F />    </S>    <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"y\" S=\"y\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">      <F />    </S>    <S type=\"FormulaEditor.Symbols.BinarySymbol\" symbol=\"-\" S=\"-\" Type=\"3\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\" />    <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"s\" S=\"s\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">      <F />    </S>    <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"r\" S=\"r\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">      <F />    </S>    <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"m\" S=\"m\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">      <F />    </S>    <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"v\" S=\"v\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">      <F />    </S>    <S type=\"FormulaEditor.Symbols.BinarySymbol\" symbol=\"-\" S=\"-\" Type=\"3\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\" />    <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"o\" S=\"o\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">      <F />    </S>    <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"u\" S=\"u\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">      <F />    </S>  </F></Root>" , (System.Double)(1.2168189383400001)}}
-										,			{'u' , new object[] {"<Root>  <F>    <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"a\" S=\"a\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">      <F />    </S>    <S type=\"FormulaEditor.Symbols.BinarySymbol\" symbol=\"+\" S=\"+\" Type=\"3\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\" />    <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"q\" S=\"q\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">      <F />    </S>    <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"x\" S=\"x\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">      <F />    </S>    <S type=\"FormulaEditor.Symbols.BinarySymbol\" symbol=\"-\" S=\"-\" Type=\"3\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\" />    <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"s\" S=\"s\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">      <F />    </S>    <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"r\" S=\"r\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">      <F />    </S>    <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"m\" S=\"m\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">      <F />    </S>    <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"u\" S=\"u\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">      <F />    </S>    <S type=\"FormulaEditor.Symbols.BinarySymbol\" symbol=\"+\" S=\"+\" Type=\"3\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\" />    <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"o\" S=\"o\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">      <F />    </S>    <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"v\" S=\"v\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">      <F />    </S>  </F></Root>" , (System.Double)(-0.98539477743199999)}}
-										,			{'z' , new object[] {"<Root>  <F>    <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"w\" S=\"w\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">      <F />    </S>  </F></Root>" , (System.Double)(0)}}
-										,			{'y' , new object[] {"<Root>  <F>    <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"v\" S=\"v\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">      <F />    </S>  </F></Root>" , (System.Double)(-4463.9369842100004)}}
-										,			{'x' , new object[] {"<Root>  <F>    <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"u\" S=\"u\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">      <F />    </S>  </F></Root>" , (System.Double)(-5448.3481532400001)}}
-										,			{'w' , new object[] {"<Root>  <F>    <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"c\" S=\"c\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">      <F />    </S>    <S type=\"FormulaEditor.Symbols.BinarySymbol\" symbol=\"-\" S=\"-\" Type=\"3\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\" />    <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"s\" S=\"s\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">      <F />    </S>    <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"r\" S=\"r\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">      <F />    </S>    <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"m\" S=\"m\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">      <F />    </S>    <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"w\" S=\"w\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">      <F />    </S>  </F></Root>" , (System.Double)(7.45047785592)}}
-									};
-									pars = new Dictionary<object, object>()
-									{
-													{'r' , "A-transformation.Density"}
-										,			{'m' , "Vector.Formula_7"}
-										,			{'a' , "G-transformation.Gx"}
-										,			{'c' , "G-transformation.Gz"}
-										,			{'b' , "G-transformation.Gy"}
-									};
-									aliases = new Dictionary<object, object>()
-									{
-													{"s" , (System.Double)(1.6189340462770081E-13)}
-										,			{"q" , (System.Double)(5.3174953569821228E-09)}
-										,			{"v" , (System.Double)(1.2168189383400001)}
-										,			{"w" , (System.Double)(7.45047785592)}
-										,			{"u" , (System.Double)(-0.98539477743199999)}
-										,			{"z" , (System.Double)(0)}
-										,			{"x" , (System.Double)(-5448.3481532400001)}
-										,			{"y" , (System.Double)(-4463.9369842100004)}
-										,			{"o" , (System.Double)(0.00014584231700000001)}
-									};
-									isSerialized = true;
-									calculateDerivation = false;
-									deriOrder = 0;
-									arguments =  new List<string>()
-									{
-										"r = A-transformation.Density",
-										"m = Vector.Formula_7",
-										"a = G-transformation.Gx",
-										"c = G-transformation.Gz",
-										"b = G-transformation.Gy"
-									};
-								}
-								FormulaEditor.Interfaces.ITreeCollectionProxy FormulaEditor.Interfaces.ITreeCollectionProxyFactory.CreateProxy(FormulaEditor.Interfaces.ITreeCollection collection, Action<object> checkValue)
-								{
-									FormulaEditor.Interfaces.ITreeCollection f = this;
-									FormulaEditor.ObjectFormulaTree[] trees = FormulaEditor.StaticExtensionFormulaEditor.Transform(f.Trees);
-									return new Calculation(trees);
-								}
-							
-								internal class Calculation : FormulaEditor.Interfaces.ITreeCollectionProxy
-								{
-									public void Update()
-									{
-										var_0 = (double)measurement0.Parameter();
-										var_1 = (double)aliasName1.Value;
-										var_2 = (double)measurement2.Parameter();
-										var_3 = (var_1) * (var_2);
-										var_4 = (double)aliasName4.Value;
-										var_5 = (double)measurement5.Parameter();
-										var_6 = (var_4) * (var_5);
-										var_7 = (double)measurement7.Parameter();
-										var_8 = (var_6) * (var_7);
-										var_9 = (double)measurement9.Parameter();
-										var_10 = (var_8) * (var_9);
-										var_11 = (var_3) - (var_10);
-										var_12 = (var_0) + (var_11);
-										var_13 = (double)aliasName13.Value;
-										var_14 = (double)measurement14.Parameter();
-										var_15 = (var_13) * (var_14);
-										var_16 = (var_12) + (var_15);
-										var_17 = (double)measurement17.Parameter();
-										var_18 = (double)measurement18.Parameter();
-										var_19 = (var_1) * (var_18);
-										var_20 = (var_4) * (var_5);
-										var_21 = (var_20) * (var_7);
-										var_22 = (double)measurement22.Parameter();
-										var_23 = (var_21) * (var_22);
-										var_24 = (var_19) - (var_23);
-										var_25 = (double)measurement25.Parameter();
-										var_26 = (var_13) * (var_25);
-										var_27 = (var_24) - (var_26);
-										var_28 = (var_17) + (var_27);
-										var_29 = (double)measurement29.Parameter();
-										var_30 = (var_4) * (var_5);
-										var_31 = (var_30) * (var_7);
-										var_32 = (double)measurement32.Parameter();
-										var_33 = (var_31) * (var_32);
-										var_34 = (var_29) - (var_33);
-										var_35 = (double)measurement35.Parameter();
-										var_36 = (double)measurement36.Parameter();
-										var_37 = (double)measurement37.Parameter();
-									}
-									
-									internal  Calculation(FormulaEditor.ObjectFormulaTree[] trees)
-									{
-										this.trees = trees;
-										measurement0 = DataPerformer.Formula.StaticExtensionDataPerformerFormula.ToMeasurement(trees[0]);
-										aliasName1 = DataPerformer.Formula.StaticExtensionDataPerformerFormula.ToAliasName(trees[1]);
-										measurement2 = DataPerformer.Formula.StaticExtensionDataPerformerFormula.ToMeasurement(trees[2]);
-										aliasName4 = DataPerformer.Formula.StaticExtensionDataPerformerFormula.ToAliasName(trees[4]);
-										measurement5 = DataPerformer.Formula.StaticExtensionDataPerformerFormula.ToMeasurement(trees[5]);
-										measurement7 = DataPerformer.Formula.StaticExtensionDataPerformerFormula.ToMeasurement(trees[7]);
-										measurement9 = DataPerformer.Formula.StaticExtensionDataPerformerFormula.ToMeasurement(trees[9]);
-										aliasName13 = DataPerformer.Formula.StaticExtensionDataPerformerFormula.ToAliasName(trees[13]);
-										measurement14 = DataPerformer.Formula.StaticExtensionDataPerformerFormula.ToMeasurement(trees[14]);
-										measurement17 = DataPerformer.Formula.StaticExtensionDataPerformerFormula.ToMeasurement(trees[17]);
-										measurement18 = DataPerformer.Formula.StaticExtensionDataPerformerFormula.ToMeasurement(trees[18]);
-										measurement22 = DataPerformer.Formula.StaticExtensionDataPerformerFormula.ToMeasurement(trees[22]);
-										measurement25 = DataPerformer.Formula.StaticExtensionDataPerformerFormula.ToMeasurement(trees[25]);
-										measurement29 = DataPerformer.Formula.StaticExtensionDataPerformerFormula.ToMeasurement(trees[29]);
-										measurement32 = DataPerformer.Formula.StaticExtensionDataPerformerFormula.ToMeasurement(trees[32]);
-										measurement35 = DataPerformer.Formula.StaticExtensionDataPerformerFormula.ToMeasurement(trees[35]);
-										measurement36 = DataPerformer.Formula.StaticExtensionDataPerformerFormula.ToMeasurement(trees[36]);
-										measurement37 = DataPerformer.Formula.StaticExtensionDataPerformerFormula.ToMeasurement(trees[37]);
-										dictionary[trees[0]] = Get_0;
-										dictionary[trees[1]] = Get_1;
-										dictionary[trees[2]] = Get_2;
-										dictionary[trees[3]] = Get_3;
-										dictionary[trees[4]] = Get_4;
-										dictionary[trees[5]] = Get_5;
-										dictionary[trees[6]] = Get_6;
-										dictionary[trees[7]] = Get_7;
-										dictionary[trees[8]] = Get_8;
-										dictionary[trees[9]] = Get_9;
-										dictionary[trees[10]] = Get_10;
-										dictionary[trees[11]] = Get_11;
-										dictionary[trees[12]] = Get_12;
-										dictionary[trees[13]] = Get_13;
-										dictionary[trees[14]] = Get_14;
-										dictionary[trees[15]] = Get_15;
-										dictionary[trees[16]] = Get_16;
-										dictionary[trees[17]] = Get_17;
-										dictionary[trees[18]] = Get_18;
-										dictionary[trees[19]] = Get_19;
-										dictionary[trees[20]] = Get_20;
-										dictionary[trees[21]] = Get_21;
-										dictionary[trees[22]] = Get_22;
-										dictionary[trees[23]] = Get_23;
-										dictionary[trees[24]] = Get_24;
-										dictionary[trees[25]] = Get_25;
-										dictionary[trees[26]] = Get_26;
-										dictionary[trees[27]] = Get_27;
-										dictionary[trees[28]] = Get_28;
-										dictionary[trees[29]] = Get_29;
-										dictionary[trees[30]] = Get_30;
-										dictionary[trees[31]] = Get_31;
-										dictionary[trees[32]] = Get_32;
-										dictionary[trees[33]] = Get_33;
-										dictionary[trees[34]] = Get_34;
-										dictionary[trees[35]] = Get_35;
-										dictionary[trees[36]] = Get_36;
-										dictionary[trees[37]] = Get_37;
-									}
-									
-									public FormulaEditor.GetValue this[FormulaEditor.ObjectFormulaTree tree]
-									{ get { return dictionary[tree]; }}
-									
-									Dictionary<FormulaEditor.ObjectFormulaTree, FormulaEditor.GetValue> dictionary = new Dictionary<FormulaEditor.ObjectFormulaTree, FormulaEditor.GetValue>();
-									
-									DataPerformer.Interfaces.IMeasurement measurement0;
-									Diagram.UI.Interfaces.IAliasName aliasName1;
-									DataPerformer.Interfaces.IMeasurement measurement2;
-									Diagram.UI.Interfaces.IAliasName aliasName4;
-									DataPerformer.Interfaces.IMeasurement measurement5;
-									DataPerformer.Interfaces.IMeasurement measurement7;
-									DataPerformer.Interfaces.IMeasurement measurement9;
-									Diagram.UI.Interfaces.IAliasName aliasName13;
-									DataPerformer.Interfaces.IMeasurement measurement14;
-									DataPerformer.Interfaces.IMeasurement measurement17;
-									DataPerformer.Interfaces.IMeasurement measurement18;
-									DataPerformer.Interfaces.IMeasurement measurement22;
-									DataPerformer.Interfaces.IMeasurement measurement25;
-									DataPerformer.Interfaces.IMeasurement measurement29;
-									DataPerformer.Interfaces.IMeasurement measurement32;
-									DataPerformer.Interfaces.IMeasurement measurement35;
-									DataPerformer.Interfaces.IMeasurement measurement36;
-									DataPerformer.Interfaces.IMeasurement measurement37;
-									FormulaEditor.ObjectFormulaTree currentTree = null;
-									object[] currentArray = null;
-									double doubleValue = 0;
-									FormulaEditor.ObjectFormulaTree[] trees = null;
-									double var_0 = 0;
-									double var_1 = 0;
-									double var_2 = 0;
-									double var_3 = 0;
-									double var_4 = 0;
-									double var_5 = 0;
-									double var_6 = 0;
-									double var_7 = 0;
-									double var_8 = 0;
-									double var_9 = 0;
-									double var_10 = 0;
-									double var_11 = 0;
-									double var_12 = 0;
-									double var_13 = 0;
-									double var_14 = 0;
-									double var_15 = 0;
-									double var_16 = 0;
-									double var_17 = 0;
-									double var_18 = 0;
-									double var_19 = 0;
-									double var_20 = 0;
-									double var_21 = 0;
-									double var_22 = 0;
-									double var_23 = 0;
-									double var_24 = 0;
-									double var_25 = 0;
-									double var_26 = 0;
-									double var_27 = 0;
-									double var_28 = 0;
-									double var_29 = 0;
-									double var_30 = 0;
-									double var_31 = 0;
-									double var_32 = 0;
-									double var_33 = 0;
-									double var_34 = 0;
-									double var_35 = 0;
-									double var_36 = 0;
-									double var_37 = 0;
-									
-									object Get_0()
-									{
-										return var_0;
-									}
-									
-									object Get_1()
-									{
-										return var_1;
-									}
-									
-									object Get_2()
-									{
-										return var_2;
-									}
-									
-									object Get_3()
-									{
-										return var_3;
-									}
-									
-									object Get_4()
-									{
-										return var_4;
-									}
-									
-									object Get_5()
-									{
-										return var_5;
-									}
-									
-									object Get_6()
-									{
-										return var_6;
-									}
-									
-									object Get_7()
-									{
-										return var_7;
-									}
-									
-									object Get_8()
-									{
-										return var_8;
-									}
-									
-									object Get_9()
-									{
-										return var_9;
-									}
-									
-									object Get_10()
-									{
-										return var_10;
-									}
-									
-									object Get_11()
-									{
-										return var_11;
-									}
-									
-									object Get_12()
-									{
-										return var_12;
-									}
-									
-									object Get_13()
-									{
-										return var_13;
-									}
-									
-									object Get_14()
-									{
-										return var_14;
-									}
-									
-									object Get_15()
-									{
-										return var_15;
-									}
-									
-									object Get_16()
-									{
-										return var_16;
-									}
-									
-									object Get_17()
-									{
-										return var_17;
-									}
-									
-									object Get_18()
-									{
-										return var_18;
-									}
-									
-									object Get_19()
-									{
-										return var_19;
-									}
-									
-									object Get_20()
-									{
-										return var_20;
-									}
-									
-									object Get_21()
-									{
-										return var_21;
-									}
-									
-									object Get_22()
-									{
-										return var_22;
-									}
-									
-									object Get_23()
-									{
-										return var_23;
-									}
-									
-									object Get_24()
-									{
-										return var_24;
-									}
-									
-									object Get_25()
-									{
-										return var_25;
-									}
-									
-									object Get_26()
-									{
-										return var_26;
-									}
-									
-									object Get_27()
-									{
-										return var_27;
-									}
-									
-									object Get_28()
-									{
-										return var_28;
-									}
-									
-									object Get_29()
-									{
-										return var_29;
-									}
-									
-									object Get_30()
-									{
-										return var_30;
-									}
-									
-									object Get_31()
-									{
-										return var_31;
-									}
-									
-									object Get_32()
-									{
-										return var_32;
-									}
-									
-									object Get_33()
-									{
-										return var_33;
-									}
-									
-									object Get_34()
-									{
-										return var_34;
-									}
-									
-									object Get_35()
-									{
-										return var_35;
-									}
-									
-									object Get_36()
-									{
-										return var_36;
-									}
-									
-									object Get_37()
-									{
-										return var_37;
-									}
-								
-								}
-							}
-						}
-					
-						internal class ArrowLabel0 : Diagram.UI.Labels.PureArrowLabel
-						{
-							internal ArrowLabel0(string name, Diagram.UI.Interfaces.IDesktop desktop) : base(name, "", "", 0, 0)
-							{
-								this.desktop = desktop;
-								arrow = new ArrowLabel0.CategoryArrow();
-							}
-					
-							internal class CategoryArrow : DataPerformer.Portable.ObjectTransformerLink
-							{
-							}
-						}
-					
-						internal class ArrowLabel1 : Diagram.UI.Labels.PureArrowLabel
-						{
-							internal ArrowLabel1(string name, Diagram.UI.Interfaces.IDesktop desktop) : base(name, "", "", 0, 0)
-							{
-								this.desktop = desktop;
-								arrow = new ArrowLabel1.CategoryArrow();
-							}
-					
-							internal class CategoryArrow : DataPerformer.Portable.ObjectTransformerLink
-							{
-							}
-						}
-					
-						internal class ArrowLabel2 : Diagram.UI.Labels.PureArrowLabel
-						{
-							internal ArrowLabel2(string name, Diagram.UI.Interfaces.IDesktop desktop) : base(name, "", "", 0, 0)
-							{
-								this.desktop = desktop;
-								arrow = new ArrowLabel2.CategoryArrow();
-							}
-					
-							internal class CategoryArrow : DataPerformer.Portable.DataLink
-							{
-							}
-						}
-					
-						internal class ArrowLabel3 : Diagram.UI.Labels.PureArrowLabel
-						{
-							internal ArrowLabel3(string name, Diagram.UI.Interfaces.IDesktop desktop) : base(name, "", "", 0, 0)
-							{
-								this.desktop = desktop;
-								arrow = new ArrowLabel3.CategoryArrow();
-							}
-					
-							internal class CategoryArrow : DataPerformer.Portable.DataLink
-							{
-							}
-						}
-					
-						internal class ArrowLabel4 : Diagram.UI.Labels.PureArrowLabel
-						{
-							internal ArrowLabel4(string name, Diagram.UI.Interfaces.IDesktop desktop) : base(name, "", "", 0, 0)
-							{
-								this.desktop = desktop;
-								arrow = new ArrowLabel4.CategoryArrow();
-							}
-					
-							internal class CategoryArrow : DataPerformer.Portable.DataLink
-							{
-							}
-						}
-					
-						internal class ArrowLabel5 : Diagram.UI.Labels.PureArrowLabel
-						{
-							internal ArrowLabel5(string name, Diagram.UI.Interfaces.IDesktop desktop) : base(name, "", "", 0, 0)
-							{
-								this.desktop = desktop;
-								arrow = new ArrowLabel5.CategoryArrow();
-							}
-					
-							internal class CategoryArrow : DataPerformer.Portable.DataLink
-							{
-							}
-						}
-					
-						internal class ArrowLabel6 : Diagram.UI.Labels.PureArrowLabel
-						{
-							internal ArrowLabel6(string name, Diagram.UI.Interfaces.IDesktop desktop) : base(name, "", "", 0, 0)
-							{
-								this.desktop = desktop;
-								arrow = new ArrowLabel6.CategoryArrow();
-							}
-					
-							internal class CategoryArrow : DataPerformer.Portable.DataLink
-							{
-							}
-						}
-					
-				
-					CategoryTheory.ICategoryObject obj;
-				
-					internal Desktop(CategoryTheory.ICategoryObject obj) : this()
-					{
-						this.obj = obj;
+						FormulaEditor.Interfaces.ITreeCollection f = this;
+						return new Calculation(f.Trees);
 					}
 				
-					public override Diagram.UI.Interfaces.IDesktop Root
+					internal class Calculation : FormulaEditor.Interfaces.ITreeCollectionProxy
 					{
-						get
+						public void Update()
 						{
-							Diagram.UI.Labels.INamedComponent nc = obj.Object as Diagram.UI.Labels.INamedComponent;
-						return nc.Desktop.Root;
+							var_0 = (double)measurement0.Parameter();
+							var_2 = (var_0) - (var_1);
+							var_5 = (var_3) / (var_4);
+							var_7 = (var_0) - (var_6);
+							var_9 = (var_7) / (var_8);
+							var_10 = Math.Atan(var_9);
+							var_11 = (var_5) - (var_10);
+							var_13 = (var_11) / (var_12);
+							var_14 = (var_2) * (var_13);
+							var_17 = (var_15) / (var_16);
+							var_20 = (var_0) - (var_19);
+							var_22 = (var_20) / (var_21);
+							var_23 = (var_18) * (var_22);
+							var_24 = Math.Sin(var_23);
+							var_25 = (var_17) * (var_24);
+							var_28 = (var_0) - (var_27);
+							var_30 = (var_28) / (var_29);
+							var_31 = Math.Atan(var_30);
+							var_33 = (var_0) - (var_32);
+							var_35 = (var_33) / (var_34);
+							var_36 = Math.Atan(var_35);
+							var_37 = (var_31) - (var_36);
+							var_38 = (var_26) + (var_37);
+							var_40 = (var_38) / (var_39);
+							var_41 = (var_25) * (var_40);
+							var_42 = (var_14) + (var_41);
+							var_44 = (var_43) - (var_0);
+							var_47 = (var_45) / (var_46);
+							var_49 = (var_0) - (var_48);
+							var_51 = (var_49) / (var_50);
+							var_52 = Math.Atan(var_51);
+							var_53 = (var_47) + (var_52);
+							var_55 = (var_53) / (var_54);
+							var_56 = (var_44) * (var_55);
+							var_57 = (var_42) + (var_56);
+							var_61 = (var_59) / (var_60);
+							var_63 = (var_0) - (var_62);
+							var_65 = (var_63) / (var_64);
+							var_66 = Math.Atan(var_65);
+							var_68 = (var_0) - (var_67);
+							var_70 = (var_68) / (var_69);
+							var_71 = Math.Atan(var_70);
+							var_72 = (var_66) - (var_71);
+							var_74 = (var_72) / (var_73);
+							var_75 = (var_61) * (var_74);
+							var_78 = (var_0) - (var_77);
+							var_80 = (var_78) / (var_79);
+							var_81 = (var_76) * (var_80);
+							var_82 = Math.Cos(var_81);
+							var_84 = (var_82) - (var_83);
+							var_85 = (var_75) * (var_84);
+							var_86 = (var_58) - (var_85);
+							var_89 = (var_87) / (var_88);
+							var_92 = (var_90) / (var_91);
+							var_94 = (var_0) - (var_93);
+							var_96 = (var_94) / (var_95);
+							var_97 = Math.Atan(var_96);
+							var_98 = (var_92) + (var_97);
+							var_100 = (var_98) / (var_99);
+							var_101 = (var_89) * (var_100);
+							var_102 = (var_86) + (var_101);
+							var_106 = (var_104) / (var_105);
+							var_108 = (var_0) - (var_107);
+							var_110 = (var_108) / (var_109);
+							var_111 = Math.Atan(var_110);
+							var_112 = (var_106) - (var_111);
+							var_114 = (var_112) / (var_113);
+							var_118 = (var_116) / (var_117);
+							var_120 = (var_0) - (var_119);
+							var_122 = (var_120) / (var_121);
+							var_123 = Math.Atan(var_122);
+							var_124 = (var_118) + (var_123);
+							var_126 = (var_124) / (var_125);
+							var_127 = -(var_126);
+							var_129 = (var_0) - (var_128);
+							var_131 = (var_129) / (var_130);
+							var_132 = Math.Atan(var_131);
+							var_134 = (var_0) - (var_133);
+							var_136 = (var_134) / (var_135);
+							var_137 = Math.Atan(var_136);
+							var_138 = (var_132) - (var_137);
+							var_140 = (var_138) / (var_139);
 						}
+						
+						internal  Calculation(FormulaEditor.ObjectFormulaTree[] trees)
+						{
+							this.trees = trees;
+							measurement0 = DataPerformer.Formula.StaticExtensionDataPerformerFormula.ToMeasurement(trees[0]);
+							dictionary[trees[0]] = Get_0;
+							dictionary[trees[1]] = Get_1;
+							dictionary[trees[2]] = Get_2;
+							dictionary[trees[3]] = Get_3;
+							dictionary[trees[4]] = Get_4;
+							dictionary[trees[5]] = Get_5;
+							dictionary[trees[6]] = Get_6;
+							dictionary[trees[7]] = Get_7;
+							dictionary[trees[8]] = Get_8;
+							dictionary[trees[9]] = Get_9;
+							dictionary[trees[10]] = Get_10;
+							dictionary[trees[11]] = Get_11;
+							dictionary[trees[12]] = Get_12;
+							dictionary[trees[13]] = Get_13;
+							dictionary[trees[14]] = Get_14;
+							dictionary[trees[15]] = Get_15;
+							dictionary[trees[16]] = Get_16;
+							dictionary[trees[17]] = Get_17;
+							dictionary[trees[18]] = Get_18;
+							dictionary[trees[19]] = Get_19;
+							dictionary[trees[20]] = Get_20;
+							dictionary[trees[21]] = Get_21;
+							dictionary[trees[22]] = Get_22;
+							dictionary[trees[23]] = Get_23;
+							dictionary[trees[24]] = Get_24;
+							dictionary[trees[25]] = Get_25;
+							dictionary[trees[26]] = Get_26;
+							dictionary[trees[27]] = Get_27;
+							dictionary[trees[28]] = Get_28;
+							dictionary[trees[29]] = Get_29;
+							dictionary[trees[30]] = Get_30;
+							dictionary[trees[31]] = Get_31;
+							dictionary[trees[32]] = Get_32;
+							dictionary[trees[33]] = Get_33;
+							dictionary[trees[34]] = Get_34;
+							dictionary[trees[35]] = Get_35;
+							dictionary[trees[36]] = Get_36;
+							dictionary[trees[37]] = Get_37;
+							dictionary[trees[38]] = Get_38;
+							dictionary[trees[39]] = Get_39;
+							dictionary[trees[40]] = Get_40;
+							dictionary[trees[41]] = Get_41;
+							dictionary[trees[42]] = Get_42;
+							dictionary[trees[43]] = Get_43;
+							dictionary[trees[44]] = Get_44;
+							dictionary[trees[45]] = Get_45;
+							dictionary[trees[46]] = Get_46;
+							dictionary[trees[47]] = Get_47;
+							dictionary[trees[48]] = Get_48;
+							dictionary[trees[49]] = Get_49;
+							dictionary[trees[50]] = Get_50;
+							dictionary[trees[51]] = Get_51;
+							dictionary[trees[52]] = Get_52;
+							dictionary[trees[53]] = Get_53;
+							dictionary[trees[54]] = Get_54;
+							dictionary[trees[55]] = Get_55;
+							dictionary[trees[56]] = Get_56;
+							dictionary[trees[57]] = Get_57;
+							dictionary[trees[58]] = Get_58;
+							dictionary[trees[59]] = Get_59;
+							dictionary[trees[60]] = Get_60;
+							dictionary[trees[61]] = Get_61;
+							dictionary[trees[62]] = Get_62;
+							dictionary[trees[63]] = Get_63;
+							dictionary[trees[64]] = Get_64;
+							dictionary[trees[65]] = Get_65;
+							dictionary[trees[66]] = Get_66;
+							dictionary[trees[67]] = Get_67;
+							dictionary[trees[68]] = Get_68;
+							dictionary[trees[69]] = Get_69;
+							dictionary[trees[70]] = Get_70;
+							dictionary[trees[71]] = Get_71;
+							dictionary[trees[72]] = Get_72;
+							dictionary[trees[73]] = Get_73;
+							dictionary[trees[74]] = Get_74;
+							dictionary[trees[75]] = Get_75;
+							dictionary[trees[76]] = Get_76;
+							dictionary[trees[77]] = Get_77;
+							dictionary[trees[78]] = Get_78;
+							dictionary[trees[79]] = Get_79;
+							dictionary[trees[80]] = Get_80;
+							dictionary[trees[81]] = Get_81;
+							dictionary[trees[82]] = Get_82;
+							dictionary[trees[83]] = Get_83;
+							dictionary[trees[84]] = Get_84;
+							dictionary[trees[85]] = Get_85;
+							dictionary[trees[86]] = Get_86;
+							dictionary[trees[87]] = Get_87;
+							dictionary[trees[88]] = Get_88;
+							dictionary[trees[89]] = Get_89;
+							dictionary[trees[90]] = Get_90;
+							dictionary[trees[91]] = Get_91;
+							dictionary[trees[92]] = Get_92;
+							dictionary[trees[93]] = Get_93;
+							dictionary[trees[94]] = Get_94;
+							dictionary[trees[95]] = Get_95;
+							dictionary[trees[96]] = Get_96;
+							dictionary[trees[97]] = Get_97;
+							dictionary[trees[98]] = Get_98;
+							dictionary[trees[99]] = Get_99;
+							dictionary[trees[100]] = Get_100;
+							dictionary[trees[101]] = Get_101;
+							dictionary[trees[102]] = Get_102;
+							dictionary[trees[103]] = Get_103;
+							dictionary[trees[104]] = Get_104;
+							dictionary[trees[105]] = Get_105;
+							dictionary[trees[106]] = Get_106;
+							dictionary[trees[107]] = Get_107;
+							dictionary[trees[108]] = Get_108;
+							dictionary[trees[109]] = Get_109;
+							dictionary[trees[110]] = Get_110;
+							dictionary[trees[111]] = Get_111;
+							dictionary[trees[112]] = Get_112;
+							dictionary[trees[113]] = Get_113;
+							dictionary[trees[114]] = Get_114;
+							dictionary[trees[115]] = Get_115;
+							dictionary[trees[116]] = Get_116;
+							dictionary[trees[117]] = Get_117;
+							dictionary[trees[118]] = Get_118;
+							dictionary[trees[119]] = Get_119;
+							dictionary[trees[120]] = Get_120;
+							dictionary[trees[121]] = Get_121;
+							dictionary[trees[122]] = Get_122;
+							dictionary[trees[123]] = Get_123;
+							dictionary[trees[124]] = Get_124;
+							dictionary[trees[125]] = Get_125;
+							dictionary[trees[126]] = Get_126;
+							dictionary[trees[127]] = Get_127;
+							dictionary[trees[128]] = Get_128;
+							dictionary[trees[129]] = Get_129;
+							dictionary[trees[130]] = Get_130;
+							dictionary[trees[131]] = Get_131;
+							dictionary[trees[132]] = Get_132;
+							dictionary[trees[133]] = Get_133;
+							dictionary[trees[134]] = Get_134;
+							dictionary[trees[135]] = Get_135;
+							dictionary[trees[136]] = Get_136;
+							dictionary[trees[137]] = Get_137;
+							dictionary[trees[138]] = Get_138;
+							dictionary[trees[139]] = Get_139;
+							dictionary[trees[140]] = Get_140;
+						}
+						
+						public FormulaEditor.GetValue this[FormulaEditor.ObjectFormulaTree tree]
+						{ get { return dictionary[tree]; }}
+						
+						Dictionary<FormulaEditor.ObjectFormulaTree, FormulaEditor.GetValue> dictionary = new Dictionary<FormulaEditor.ObjectFormulaTree, FormulaEditor.GetValue>();
+						
+						DataPerformer.Interfaces.IMeasurement measurement0;
+						FormulaEditor.ObjectFormulaTree currentTree = null;
+						object[] currentArray = null;
+						double doubleValue = 0;
+						FormulaEditor.ObjectFormulaTree[] trees = null;
+						double var_0 = 0;
+						double var_1 = 10;
+						double var_2 = 0;
+						double var_3 = Math.PI;
+						double var_4 = 2;
+						double var_5 = 0;
+						double var_6 = 10;
+						double var_7 = 0;
+						double var_8 = 0.1;
+						double var_9 = 0;
+						double var_10 = 0;
+						double var_11 = 0;
+						double var_12 = Math.PI;
+						double var_13 = 0;
+						double var_14 = 0;
+						double var_15 = 120;
+						double var_16 = Math.PI;
+						double var_17 = 0;
+						double var_18 = Math.PI;
+						double var_19 = 10;
+						double var_20 = 0;
+						double var_21 = 120;
+						double var_22 = 0;
+						double var_23 = 0;
+						double var_24 = 0;
+						double var_25 = 0;
+						double var_26 = Math.PI;
+						double var_27 = 10;
+						double var_28 = 0;
+						double var_29 = 0.1;
+						double var_30 = 0;
+						double var_31 = 0;
+						double var_32 = 130;
+						double var_33 = 0;
+						double var_34 = 0.1;
+						double var_35 = 0;
+						double var_36 = 0;
+						double var_37 = 0;
+						double var_38 = 0;
+						double var_39 = Math.PI;
+						double var_40 = 0;
+						double var_41 = 0;
+						double var_42 = 0;
+						double var_43 = 130;
+						double var_44 = 0;
+						double var_45 = Math.PI;
+						double var_46 = 2;
+						double var_47 = 0;
+						double var_48 = 130;
+						double var_49 = 0;
+						double var_50 = 0.1;
+						double var_51 = 0;
+						double var_52 = 0;
+						double var_53 = 0;
+						double var_54 = Math.PI;
+						double var_55 = 0;
+						double var_56 = 0;
+						double var_57 = 0;
+						double var_58 = 100;
+						double var_59 = 120;
+						double var_60 = Math.PI;
+						double var_61 = 0;
+						double var_62 = 10;
+						double var_63 = 0;
+						double var_64 = 0.1;
+						double var_65 = 0;
+						double var_66 = 0;
+						double var_67 = 130;
+						double var_68 = 0;
+						double var_69 = 0.1;
+						double var_70 = 0;
+						double var_71 = 0;
+						double var_72 = 0;
+						double var_73 = Math.PI;
+						double var_74 = 0;
+						double var_75 = 0;
+						double var_76 = Math.PI;
+						double var_77 = 10;
+						double var_78 = 0;
+						double var_79 = 120;
+						double var_80 = 0;
+						double var_81 = 0;
+						double var_82 = 0;
+						double var_83 = 1;
+						double var_84 = 0;
+						double var_85 = 0;
+						double var_86 = 0;
+						double var_87 = 240;
+						double var_88 = Math.PI;
+						double var_89 = 0;
+						double var_90 = Math.PI;
+						double var_91 = 2;
+						double var_92 = 0;
+						double var_93 = 130;
+						double var_94 = 0;
+						double var_95 = 0.1;
+						double var_96 = 0;
+						double var_97 = 0;
+						double var_98 = 0;
+						double var_99 = Math.PI;
+						double var_100 = 0;
+						double var_101 = 0;
+						double var_102 = 0;
+						double var_103 = 0;
+						double var_104 = Math.PI;
+						double var_105 = 2;
+						double var_106 = 0;
+						double var_107 = 70;
+						double var_108 = 0;
+						double var_109 = 20;
+						double var_110 = 0;
+						double var_111 = 0;
+						double var_112 = 0;
+						double var_113 = Math.PI;
+						double var_114 = 0;
+						double var_115 = 0;
+						double var_116 = Math.PI;
+						double var_117 = 2;
+						double var_118 = 0;
+						double var_119 = 130;
+						double var_120 = 0;
+						double var_121 = 10;
+						double var_122 = 0;
+						double var_123 = 0;
+						double var_124 = 0;
+						double var_125 = Math.PI;
+						double var_126 = 0;
+						double var_127 = 0;
+						double var_128 = 70;
+						double var_129 = 0;
+						double var_130 = 20;
+						double var_131 = 0;
+						double var_132 = 0;
+						double var_133 = 130;
+						double var_134 = 0;
+						double var_135 = 10;
+						double var_136 = 0;
+						double var_137 = 0;
+						double var_138 = 0;
+						double var_139 = Math.PI;
+						double var_140 = 0;
+						
+						object Get_0()
+						{
+							return var_0;
+						}
+						
+						object Get_1()
+						{
+							return var_1;
+						}
+						
+						object Get_2()
+						{
+							return var_2;
+						}
+						
+						object Get_3()
+						{
+							return var_3;
+						}
+						
+						object Get_4()
+						{
+							return var_4;
+						}
+						
+						object Get_5()
+						{
+							return var_5;
+						}
+						
+						object Get_6()
+						{
+							return var_6;
+						}
+						
+						object Get_7()
+						{
+							return var_7;
+						}
+						
+						object Get_8()
+						{
+							return var_8;
+						}
+						
+						object Get_9()
+						{
+							return var_9;
+						}
+						
+						object Get_10()
+						{
+							return var_10;
+						}
+						
+						object Get_11()
+						{
+							return var_11;
+						}
+						
+						object Get_12()
+						{
+							return var_12;
+						}
+						
+						object Get_13()
+						{
+							return var_13;
+						}
+						
+						object Get_14()
+						{
+							return var_14;
+						}
+						
+						object Get_15()
+						{
+							return var_15;
+						}
+						
+						object Get_16()
+						{
+							return var_16;
+						}
+						
+						object Get_17()
+						{
+							return var_17;
+						}
+						
+						object Get_18()
+						{
+							return var_18;
+						}
+						
+						object Get_19()
+						{
+							return var_19;
+						}
+						
+						object Get_20()
+						{
+							return var_20;
+						}
+						
+						object Get_21()
+						{
+							return var_21;
+						}
+						
+						object Get_22()
+						{
+							return var_22;
+						}
+						
+						object Get_23()
+						{
+							return var_23;
+						}
+						
+						object Get_24()
+						{
+							return var_24;
+						}
+						
+						object Get_25()
+						{
+							return var_25;
+						}
+						
+						object Get_26()
+						{
+							return var_26;
+						}
+						
+						object Get_27()
+						{
+							return var_27;
+						}
+						
+						object Get_28()
+						{
+							return var_28;
+						}
+						
+						object Get_29()
+						{
+							return var_29;
+						}
+						
+						object Get_30()
+						{
+							return var_30;
+						}
+						
+						object Get_31()
+						{
+							return var_31;
+						}
+						
+						object Get_32()
+						{
+							return var_32;
+						}
+						
+						object Get_33()
+						{
+							return var_33;
+						}
+						
+						object Get_34()
+						{
+							return var_34;
+						}
+						
+						object Get_35()
+						{
+							return var_35;
+						}
+						
+						object Get_36()
+						{
+							return var_36;
+						}
+						
+						object Get_37()
+						{
+							return var_37;
+						}
+						
+						object Get_38()
+						{
+							return var_38;
+						}
+						
+						object Get_39()
+						{
+							return var_39;
+						}
+						
+						object Get_40()
+						{
+							return var_40;
+						}
+						
+						object Get_41()
+						{
+							return var_41;
+						}
+						
+						object Get_42()
+						{
+							return var_42;
+						}
+						
+						object Get_43()
+						{
+							return var_43;
+						}
+						
+						object Get_44()
+						{
+							return var_44;
+						}
+						
+						object Get_45()
+						{
+							return var_45;
+						}
+						
+						object Get_46()
+						{
+							return var_46;
+						}
+						
+						object Get_47()
+						{
+							return var_47;
+						}
+						
+						object Get_48()
+						{
+							return var_48;
+						}
+						
+						object Get_49()
+						{
+							return var_49;
+						}
+						
+						object Get_50()
+						{
+							return var_50;
+						}
+						
+						object Get_51()
+						{
+							return var_51;
+						}
+						
+						object Get_52()
+						{
+							return var_52;
+						}
+						
+						object Get_53()
+						{
+							return var_53;
+						}
+						
+						object Get_54()
+						{
+							return var_54;
+						}
+						
+						object Get_55()
+						{
+							return var_55;
+						}
+						
+						object Get_56()
+						{
+							return var_56;
+						}
+						
+						object Get_57()
+						{
+							return var_57;
+						}
+						
+						object Get_58()
+						{
+							return var_58;
+						}
+						
+						object Get_59()
+						{
+							return var_59;
+						}
+						
+						object Get_60()
+						{
+							return var_60;
+						}
+						
+						object Get_61()
+						{
+							return var_61;
+						}
+						
+						object Get_62()
+						{
+							return var_62;
+						}
+						
+						object Get_63()
+						{
+							return var_63;
+						}
+						
+						object Get_64()
+						{
+							return var_64;
+						}
+						
+						object Get_65()
+						{
+							return var_65;
+						}
+						
+						object Get_66()
+						{
+							return var_66;
+						}
+						
+						object Get_67()
+						{
+							return var_67;
+						}
+						
+						object Get_68()
+						{
+							return var_68;
+						}
+						
+						object Get_69()
+						{
+							return var_69;
+						}
+						
+						object Get_70()
+						{
+							return var_70;
+						}
+						
+						object Get_71()
+						{
+							return var_71;
+						}
+						
+						object Get_72()
+						{
+							return var_72;
+						}
+						
+						object Get_73()
+						{
+							return var_73;
+						}
+						
+						object Get_74()
+						{
+							return var_74;
+						}
+						
+						object Get_75()
+						{
+							return var_75;
+						}
+						
+						object Get_76()
+						{
+							return var_76;
+						}
+						
+						object Get_77()
+						{
+							return var_77;
+						}
+						
+						object Get_78()
+						{
+							return var_78;
+						}
+						
+						object Get_79()
+						{
+							return var_79;
+						}
+						
+						object Get_80()
+						{
+							return var_80;
+						}
+						
+						object Get_81()
+						{
+							return var_81;
+						}
+						
+						object Get_82()
+						{
+							return var_82;
+						}
+						
+						object Get_83()
+						{
+							return var_83;
+						}
+						
+						object Get_84()
+						{
+							return var_84;
+						}
+						
+						object Get_85()
+						{
+							return var_85;
+						}
+						
+						object Get_86()
+						{
+							return var_86;
+						}
+						
+						object Get_87()
+						{
+							return var_87;
+						}
+						
+						object Get_88()
+						{
+							return var_88;
+						}
+						
+						object Get_89()
+						{
+							return var_89;
+						}
+						
+						object Get_90()
+						{
+							return var_90;
+						}
+						
+						object Get_91()
+						{
+							return var_91;
+						}
+						
+						object Get_92()
+						{
+							return var_92;
+						}
+						
+						object Get_93()
+						{
+							return var_93;
+						}
+						
+						object Get_94()
+						{
+							return var_94;
+						}
+						
+						object Get_95()
+						{
+							return var_95;
+						}
+						
+						object Get_96()
+						{
+							return var_96;
+						}
+						
+						object Get_97()
+						{
+							return var_97;
+						}
+						
+						object Get_98()
+						{
+							return var_98;
+						}
+						
+						object Get_99()
+						{
+							return var_99;
+						}
+						
+						object Get_100()
+						{
+							return var_100;
+						}
+						
+						object Get_101()
+						{
+							return var_101;
+						}
+						
+						object Get_102()
+						{
+							return var_102;
+						}
+						
+						object Get_103()
+						{
+							return var_103;
+						}
+						
+						object Get_104()
+						{
+							return var_104;
+						}
+						
+						object Get_105()
+						{
+							return var_105;
+						}
+						
+						object Get_106()
+						{
+							return var_106;
+						}
+						
+						object Get_107()
+						{
+							return var_107;
+						}
+						
+						object Get_108()
+						{
+							return var_108;
+						}
+						
+						object Get_109()
+						{
+							return var_109;
+						}
+						
+						object Get_110()
+						{
+							return var_110;
+						}
+						
+						object Get_111()
+						{
+							return var_111;
+						}
+						
+						object Get_112()
+						{
+							return var_112;
+						}
+						
+						object Get_113()
+						{
+							return var_113;
+						}
+						
+						object Get_114()
+						{
+							return var_114;
+						}
+						
+						object Get_115()
+						{
+							return var_115;
+						}
+						
+						object Get_116()
+						{
+							return var_116;
+						}
+						
+						object Get_117()
+						{
+							return var_117;
+						}
+						
+						object Get_118()
+						{
+							return var_118;
+						}
+						
+						object Get_119()
+						{
+							return var_119;
+						}
+						
+						object Get_120()
+						{
+							return var_120;
+						}
+						
+						object Get_121()
+						{
+							return var_121;
+						}
+						
+						object Get_122()
+						{
+							return var_122;
+						}
+						
+						object Get_123()
+						{
+							return var_123;
+						}
+						
+						object Get_124()
+						{
+							return var_124;
+						}
+						
+						object Get_125()
+						{
+							return var_125;
+						}
+						
+						object Get_126()
+						{
+							return var_126;
+						}
+						
+						object Get_127()
+						{
+							return var_127;
+						}
+						
+						object Get_128()
+						{
+							return var_128;
+						}
+						
+						object Get_129()
+						{
+							return var_129;
+						}
+						
+						object Get_130()
+						{
+							return var_130;
+						}
+						
+						object Get_131()
+						{
+							return var_131;
+						}
+						
+						object Get_132()
+						{
+							return var_132;
+						}
+						
+						object Get_133()
+						{
+							return var_133;
+						}
+						
+						object Get_134()
+						{
+							return var_134;
+						}
+						
+						object Get_135()
+						{
+							return var_135;
+						}
+						
+						object Get_136()
+						{
+							return var_136;
+						}
+						
+						object Get_137()
+						{
+							return var_137;
+						}
+						
+						object Get_138()
+						{
+							return var_138;
+						}
+						
+						object Get_139()
+						{
+							return var_139;
+						}
+						
+						object Get_140()
+						{
+							return var_140;
+						}
+					
 					}
-				}
 				}
 			}
 		
@@ -3290,13 +1190,23 @@ namespace GeneratedProject
 					obj.Object = this;
 				}
 		
-				internal class CategoryObject : Event.Portable.Events.Timer
+				internal class CategoryObject : Motion6D.Portable.ReferenceFrameDataBase
 				{
-				internal CategoryObject()
-				{
-				var ts = this as Event.Interfaces.ITimerEvent;
-				ts.TimeSpan = TimeSpan.FromTicks(10000000);
-				}
+				
+					internal CategoryObject()
+					{
+						parameters = new List<string>()
+						{
+				"Motion.Formula_1",
+				"Motion.Formula_2",
+				"Motion.Formula_3",
+				"Motion.Formula_4",
+				"Motion.Formula_5",
+				"Motion.Formula_6",
+				"Motion.Formula_7"
+						};
+					}
+				
 				}
 			}
 		
@@ -3306,6 +1216,43 @@ namespace GeneratedProject
 				{
 					this.desktop = desktop;
 					obj = new OblectLabel2.CategoryObject();
+					obj.Object = this;
+				}
+		
+				internal class CategoryObject : Motion6D.Portable.RigidReferenceFrame
+				{
+				
+					internal CategoryObject()
+					{
+						relativePosition = new double[]
+						{
+				150
+				, 140
+				, 0
+						};
+				
+						relativeQuaternion = new double[]
+						{
+				0.70710678118654757
+				, 0
+				, 0.70710678118654746
+				, 0
+						};
+				
+						isSerialized = true;
+						Init();
+					}
+				
+				}
+				
+			}
+		
+			internal class OblectLabel3 : Diagram.UI.Labels.PureObjectLabel
+			{
+				internal OblectLabel3(string name, Diagram.UI.Interfaces.IDesktop desktop) : base(name, "", "", 0, 0)
+				{
+					this.desktop = desktop;
+					obj = new OblectLabel3.CategoryObject();
 					obj.Object = this;
 				}
 		
@@ -3338,7 +1285,20 @@ namespace GeneratedProject
 					arrow = new ArrowLabel1.CategoryArrow();
 				}
 		
-				internal class CategoryArrow : Event.Portable.Arrows.EventLink
+				internal class CategoryArrow : DataPerformer.Portable.DataLink
+				{
+				}
+			}
+		
+			internal class ArrowLabel2 : Diagram.UI.Labels.PureArrowLabel
+			{
+				internal ArrowLabel2(string name, Diagram.UI.Interfaces.IDesktop desktop) : base(name, "", "", 0, 0)
+				{
+					this.desktop = desktop;
+					arrow = new ArrowLabel2.CategoryArrow();
+				}
+		
+				internal class CategoryArrow : Motion6D.Portable.ReferenceFrameArrow
 				{
 				}
 			}
