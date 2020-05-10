@@ -193,7 +193,7 @@ namespace DataPerformer.Portable
         /// <summary>
         /// Names of aliases
         /// </summary>
-        public IList<string> AliasNames
+        public virtual IList<string> AliasNames
         {
             get
             {
@@ -209,7 +209,7 @@ namespace DataPerformer.Portable
         /// <summary>
         /// Access to alias object
         /// </summary>
-        public object this[string alias]
+        public virtual object this[string alias]
         {
             get
             {
@@ -226,7 +226,7 @@ namespace DataPerformer.Portable
         /// </summary>
         /// <param name="name">Object name</param>
         /// <returns>Returns type of alias object</returns>
-        public object GetType(string name)
+        public virtual object GetType(string name)
         {
             return AliasTypeDetector.Detector.DetectType(this[name]);
         }
@@ -477,7 +477,7 @@ namespace DataPerformer.Portable
         /// <summary>
         /// Input parameters
         /// </summary>
-        public string InputParameters
+        public virtual string InputParameters
         {
             get
             {

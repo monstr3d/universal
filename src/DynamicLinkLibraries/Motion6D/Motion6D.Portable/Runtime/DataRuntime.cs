@@ -17,7 +17,7 @@ namespace Motion6D.Portable.Runtime
     /// <summary>
     /// Runtime for 6D motion
     /// </summary>
-    public class DataRuntime : DataPerformer.Runtime.DataRuntime
+    public class DataRuntime : DataPerformer.Portable.Runtime.DataRuntime
     {
         #region Fields
 

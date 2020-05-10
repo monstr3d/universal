@@ -35,8 +35,6 @@ namespace Motion6D.UI
             control.LoadControlResources(Motion6D.UI.Utils.ControlUtilites.Resources);
         }
 
-        static private bool first = true;
-
         /// <summary>
         /// Inits itself
         /// </summary>

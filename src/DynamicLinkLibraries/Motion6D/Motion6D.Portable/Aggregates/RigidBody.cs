@@ -14,8 +14,6 @@ namespace Motion6D.Portable.Aggregates
     /// Rigid body aggregate
     /// </summary>
     public class RigidBody : AggregableMechanicalObjectDataConsumer, IStarted, INormalizable, IOrientation
-      /* !!! Replace IPropertiesEditor, 
-        ISeparatedAssemblyEditedObject */
     {
         #region Fields
 
@@ -142,11 +140,6 @@ namespace Motion6D.Portable.Aggregates
         private double[,] auxiliaryMatrixAdd = new double[3, 3];
 
         /// <summary>
-        /// Auxiliary matrix add
-        /// </summary>
-        private double[,] auxiliaryMatrixAddP = new double[3, 3];
-
-        /// <summary>
         /// Auxiliary quaternion
         /// </summary>
         private double[] quater = new double[4];
@@ -161,21 +154,12 @@ namespace Motion6D.Portable.Aggregates
         /// </summary>
         private double[] quaterAddP = new double[4];
 
-        /// <summary>
-        /// Auxiliary transformation matrix
-        /// </summary>
-        private double[,] transformMatrix = new double[3, 3];
-
+ 
 
         /// <summary>
         /// Matrix for quaternion transformation
         /// </summary>
         private double[,] qq = new double[4, 4];
-
-        /// <summary>
-        /// Editor of properties
-        /// </summary>
-    // !!!! CHANGE    ISeparatedPropertyEditor editor;
 
         /// <summary>
         /// Square of angular velocity
@@ -197,11 +181,7 @@ namespace Motion6D.Portable.Aggregates
         /// </summary>
         protected double[,] auxMatrix = new double[3, 3];
 
-        /// <summary>
-        /// Assembly bytes
-        /// </summary>
-        protected byte[] assemblyBytes;
-
+ 
         protected Action AddForce = delegate ()
         {
 
@@ -261,42 +241,6 @@ namespace Motion6D.Portable.Aggregates
            }
         }*/
 
-        #endregion
-
-        #region IPropertiesEditor Members
-/* !!! CHECK
-        public virtual object Editor
-        {
-            get
-            {
-                return this.GetEditor();
-            }
-        }
-
-        public virtual object Properties
-        {
-            get
-            {
-                object[] o = new object[] { momemtOfInertia, connections, aliasNames, inerialAccelerationStr, forcesStr, mass, initialState };
-                return new object[] { assemblyBytes, LibraryObjectWrapper.TransformToBytes(o) };
-            }
-            set
-            {
-                object[] ob = value as object[];
-                object[] o = null;
-                if (ob.Length == 2)
-                {
-                    assemblyBytes = ob[0] as byte[];
-                    o = LibraryObjectWrapper.TransformFromBytes(ob[1] as object[]) as object[];
-                }
-                else
-                {
-                    o = LibraryObjectWrapper.TransformFromBytes(ob) as object[];
-                }
-                SetProperties(o);
-            }
-        }
-*/
         #endregion
 
         #region IStarted Members

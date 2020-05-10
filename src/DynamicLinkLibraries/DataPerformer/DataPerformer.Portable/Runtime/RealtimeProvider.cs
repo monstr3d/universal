@@ -7,12 +7,11 @@ using System.Threading.Tasks;
 using BaseTypes;
 using BaseTypes.Attributes;
 
-using DataPerformer;
 using DataPerformer.Interfaces;
 using DataPerformer.Portable.Measurements;
 using Event.Interfaces;
 
-namespace DataPerformer.Runtime
+namespace DataPerformer.Portable.Runtime
 {
     /// <summary>
     /// Real time provider

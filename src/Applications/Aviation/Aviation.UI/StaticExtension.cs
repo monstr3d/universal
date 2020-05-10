@@ -118,6 +118,7 @@ namespace Aviation.UI
             buttons.Add(tabs, but);
             IApplicationInitializer[] init = new IApplicationInitializer[]
             {
+
             };
             Dictionary<string, object> dm = new Dictionary<string, object>();
  

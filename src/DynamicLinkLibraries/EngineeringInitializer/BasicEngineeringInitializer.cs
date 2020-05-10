@@ -22,18 +22,16 @@ namespace EngineeringInitializer
 
         private DataPerformer.Interfaces.IDifferentialEquationProcessor diffProcessor;
 
-        private IDataRuntimeFactory strategy;
 
         #region Ctor
 
         public BasicEngineeringInitializer(OrdinaryDifferentialEquations.IDifferentialEquationSolver ordSolver,
             DataPerformer.Interfaces.IDifferentialEquationProcessor diffProcessor,
-            IDataRuntimeFactory strategy, IApplicationInitializer[] initializers, 
+             IApplicationInitializer[] initializers, 
             bool throwsRepeatException) : base(initializers, throwsRepeatException)
         {
             this.ordSolver = ordSolver;
             this.diffProcessor = diffProcessor;
-            this.strategy = strategy;
         }
         #endregion
 
@@ -57,7 +55,6 @@ namespace EngineeringInitializer
             DataPerformer.StaticExtensionDataPerformerBase.SetLinkChecker();
             AliasTypeDetector.Detector = DataPerformer.DataAliasDetector.Singleton;
             OrdinaryDifferentialEquations.DifferentialEquationsPerformer.Default = ordSolver;
-            DataPerformer.Portable.StaticExtensionDataPerformerPortable.Factory = strategy;
             base.InitializeApplication();
            /* !!! CHECK VALUE  StaticExtensionFormulaEditor.CheckValue = (object o) =>
             {

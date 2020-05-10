@@ -2,9 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-
 using OrdinaryDifferentialEquations;
+
 using RealMatrixProcessor;
+
 using ClassicalAlgebra;
 
 namespace ControlSystems
@@ -492,5 +493,6 @@ namespace ControlSystems
 
 
         #endregion
+
     }
 }

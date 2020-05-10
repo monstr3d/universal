@@ -8,7 +8,6 @@ using Diagram.UI.Interfaces;
 
 using DataPerformer;
 using DataPerformer.Interfaces;
-using DataPerformer.Runtime;
 
 using Event.Interfaces;
 
@@ -19,12 +18,12 @@ namespace Motion6D.Portable.Runtime
     /// <summary>
     /// Strategy of moved objects
     /// </summary>
-    public class DataRuntimeFactory : DataPerformer.Runtime.DataRuntimeFactory 
+    public class DataRuntimeFactory : DataPerformer.Portable.Runtime.DataRuntimeFactory 
     {
         /// <summary>
         /// Singleton
         /// </summary>
-        new static public readonly DataRuntimeFactory Object = new DataRuntimeFactory();
+        new static public readonly DataRuntimeFactory Singleton = new DataRuntimeFactory();
 
  
         /// <summary>

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -74,6 +75,7 @@ namespace DataPerformer.Portable
         {
             new CSCodeCreator();
             TimeMeasureProviderFactory = new DefautFactory();
+            Factory = Runtime.DataRuntimeFactory.Singleton;
         }
 
         #endregion
@@ -1620,6 +1622,20 @@ namespace DataPerformer.Portable
             set
             {
                 factory = value;
+            }
+        }
+
+        /// <summary>
+        /// Sets base factory
+        /// </summary>
+        /// <param name="replace">Factory for replacement</param>
+        public static void SetBase(this IDataRuntimeFactory replace)
+        {
+            Type baseType = factory.GetType();
+            Type type = replace.GetType();
+            if (baseType.IsBase(type))
+            {
+                Factory = replace;
             }
         }
 

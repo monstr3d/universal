@@ -17,7 +17,7 @@ using DataPerformer.Helpers;
 
 using Event.Interfaces;
 
-namespace DataPerformer.Runtime
+namespace DataPerformer.Portable.Runtime
 {
     /// <summary>
     /// Simplest runtime fatory
@@ -31,6 +31,7 @@ namespace DataPerformer.Runtime
         /// </summary>
         protected DataRuntimeFactory()
         {
+
         }
 
         #endregion
@@ -162,7 +163,7 @@ namespace DataPerformer.Runtime
                 {
                     Tuple<IComponentCollection, ITimeMeasurementProvider> tuple = obj as
                                  Tuple<IComponentCollection, ITimeMeasurementProvider>;
-                    return new DataRuntime(tuple.Item1, StaticExtensionEventInterfaces.Realtime,
+                    return new Runtime.DataRuntime(tuple.Item1, StaticExtensionEventInterfaces.Realtime,
                         0);
                 }
                 Tuple<string, Tuple<IDataConsumer, IComponentCollection, ITimeMeasurementProvider, IAsynchronousCalculation>> t = obj as

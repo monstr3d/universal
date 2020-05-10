@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 using BaseTypes;
 using BaseTypes.Attributes;
 using DataPerformer.Portable.Measurements;
-using DataPerformer.Runtime;
 
-namespace DataPerformer.Runtime
+namespace DataPerformer.Portable.Runtime
 {
     class RealtimeProviderAnalysis :  RealtimeProvider
     {

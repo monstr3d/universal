@@ -29,10 +29,15 @@ namespace BasicEngineering.UI.Factory
         private static bool isInitialized;
 
         OrdinaryDifferentialEquations.IDifferentialEquationSolver ordSolver;
+
         DataPerformer.Portable.DifferentialEquationProcessors.DifferentialEquationProcessor diffProcessor;
-            IDataRuntimeFactory strategy;
+
+ 
             IApplicationInitializer[] initializers;
+
             bool throwsRepeatException;
+
+
             Dictionary<string, object>[] resources;
             private TextWriter logWriter = null;
 
@@ -42,13 +47,12 @@ namespace BasicEngineering.UI.Factory
 
         public EngineeringInitializer(IDatabaseCoordinator coordinator, OrdinaryDifferentialEquations.IDifferentialEquationSolver ordSolver,
            DataPerformer.Portable.DifferentialEquationProcessors.DifferentialEquationProcessor diffProcessor,
-            DataPerformer.Portable.Interfaces.IDataRuntimeFactory strategy, IApplicationInitializer[] initializers,
+           IApplicationInitializer[] initializers,
             bool throwsRepeatException, Dictionary<string, object>[] resources, TextWriter logWriter)
         {
             this.coordinator = coordinator;
             this.ordSolver = ordSolver;
             this.diffProcessor = diffProcessor;
-            this.strategy = strategy;
             this.initializers = initializers;
             this.throwsRepeatException = throwsRepeatException;
             if (coordinator == null)
@@ -79,7 +83,7 @@ namespace BasicEngineering.UI.Factory
             }
             isInitialized = true;
             StaticExtensionDataWarehouse.Coordinator = coordinator;
-            Initialize(ordSolver, strategy, coordinator, initializers, throwsRepeatException);
+            Initialize(ordSolver, coordinator, initializers, throwsRepeatException);
             if (logWriter == null)
             {
                 //DataPerformer.UI.Utils.ControlUtilites.ErrorHandler = DataPerformer.UI.Utils.DataPerformerErrorHandler.Object;
@@ -126,7 +130,7 @@ namespace BasicEngineering.UI.Factory
         #endregion
 
         private static void Initialize(OrdinaryDifferentialEquations.IDifferentialEquationSolver ordSolver,
-            IDataRuntimeFactory strategy, IDatabaseCoordinator coordinator, IApplicationInitializer[] initializers,
+          IDatabaseCoordinator coordinator, IApplicationInitializer[] initializers,
             bool throwsRepeatException)
         {
             StaticExtensionDiagramUISerializable.Init();
@@ -140,7 +144,7 @@ namespace BasicEngineering.UI.Factory
                 init = new List<IApplicationInitializer>(initializers);
             }
             IApplicationInitializer initializer = new BasicEngineeringInitializer(ordSolver, 
-                DataPerformer.Portable.DifferentialEquationProcessors.RungeProcessor.Processor, strategy, init.ToArray(), 
+                DataPerformer.Portable.DifferentialEquationProcessors.RungeProcessor.Processor,  init.ToArray(), 
                 throwsRepeatException);
             initializer.InitializeApplication();
         }

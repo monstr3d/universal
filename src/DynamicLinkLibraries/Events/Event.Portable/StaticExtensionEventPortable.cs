@@ -15,7 +15,7 @@ using BaseTypes.Attributes;
 
 using DataPerformer.Interfaces;
 using DataPerformer.Portable;
-using DataPerformer.Runtime;
+using DataPerformer.Portable.Runtime;
 
 using Event.Interfaces;
 using Event.Portable.Arrows;
@@ -464,7 +464,7 @@ namespace Event.Portable
             {
                 IRealtime r = disp as IRealtime;
                 RealtimeProvider p = r.TimeProvider as RealtimeProvider;
-                Dictionary<IReplacedMeasurementParameter, string> d;
+   //!!!             Dictionary<IReplacedMeasurementParameter, string> d;
 
             }
         }

@@ -16,7 +16,7 @@ using DataPerformer.Portable;
 using Event.Interfaces;
 using DataPerformer.Portable.DifferentialEquationProcessors;
 
-namespace DataPerformer.Runtime
+namespace DataPerformer.Portable.Runtime
 {
 
     /// <summary>

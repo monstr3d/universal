@@ -10,7 +10,6 @@ using CategoryTheory;
 using Diagram.UI;
 using Diagram.UI.Interfaces;
 
-using DataPerformer.Runtime;
 using DataPerformer.Interfaces;
 
 using Event.Interfaces;

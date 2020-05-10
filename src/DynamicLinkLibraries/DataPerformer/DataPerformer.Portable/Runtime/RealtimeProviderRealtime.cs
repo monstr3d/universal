@@ -4,9 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BaseTypes.Attributes;
-using DataPerformer.Runtime;
 
-namespace DataPerformer.Runtime
+namespace DataPerformer.Portable.Runtime
 {
     class RealtimeProviderRealtime : RealtimeProvider
     {

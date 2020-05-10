@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections;
-using System.Text;
 
 using CategoryTheory;
 
@@ -26,7 +25,7 @@ namespace DataPerformer.Formula
     /// Solver of ordinary differential equations system
     /// </summary>
     public class DifferentialEquationSolver : DataConsumerMeasurements, IDifferentialEquationSolver, 
-        IStarted, IAlias, ICheckCorrectness, IVariableDetector,
+        IStarted,  ICheckCorrectness, IVariableDetector,
         IDynamical, ITreeCollection, ITimeVariable, IStack, IRuntimeUpdate, IPostSetArrow
     {
 
@@ -822,7 +821,7 @@ namespace DataPerformer.Formula
         /// <summary>
         /// String of input parameters
         /// </summary>
-        public string InputParameters
+        public override string InputParameters
         {
             get
             {
@@ -925,7 +924,7 @@ namespace DataPerformer.Formula
         /// <summary>
         /// Names of aliases
         /// </summary>
-        public IList<string> AliasNames
+        public override IList<string> AliasNames
         {
             get
             {
@@ -941,7 +940,7 @@ namespace DataPerformer.Formula
         /// <summary>
         /// Access to alias object
         /// </summary>
-        public object this[string alias]
+        public override object this[string alias]
         {
             get
             {
@@ -959,22 +958,7 @@ namespace DataPerformer.Formula
             }
         }
 
-        /// <summary>
-        /// Gets object type
-        /// </summary>
-        /// <param name="name">Object name</param>
-        /// <returns>Returns type of alias object</returns>
-        public object GetType(string name)
-        {
-            return AliasTypeDetector.Detector.DetectType(this[name]);
-        }
-
-        event Action<IAlias, string> IAlias.OnChange
-        {
-            add { onChange += value; }
-            remove { onChange -= value; }
-        }
-
+  
         #endregion
 
         /// <summary>

@@ -7,6 +7,7 @@ using System.Windows.Forms;
 
 
 using CategoryTheory;
+
 using Diagram.UI;
 using Diagram.UI.Labels;
 using Diagram.UI.Factory;

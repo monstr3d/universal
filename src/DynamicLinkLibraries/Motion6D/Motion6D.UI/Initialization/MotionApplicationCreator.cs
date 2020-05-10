@@ -85,7 +85,7 @@ namespace Motion6D.UI.Initialization
             List<IApplicationInitializer> apps = new List<IApplicationInitializer>(initializers);
             apps.Add(Motion6D.ApplicationInitializer.Object);
             FormMain form = DefaultApplicationCreator.CreateForm(coordinator, holder, ordSolver, diffProcessor,
-                  Motion6D.Portable.Runtime.DataRuntimeFactory.Object,
+                 
                   apps.ToArray(),
               fact.ToArray(),
               throwsRepeatException,

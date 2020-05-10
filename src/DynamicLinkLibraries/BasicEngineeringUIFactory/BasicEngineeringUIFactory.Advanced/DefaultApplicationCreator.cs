@@ -188,7 +188,7 @@ namespace BasicEngineering.UI.Factory.Advanced
         public static FormMain CreateForm(IDatabaseCoordinator coordinator, ByteHolder holder,
             OrdinaryDifferentialEquations.IDifferentialEquationSolver ordSolver,
      DataPerformer.Portable.DifferentialEquationProcessors.DifferentialEquationProcessor diffProcessor,
-     DataPerformer.Portable.Interfaces.IDataRuntimeFactory strategy, IApplicationInitializer[] initializers,
+ IApplicationInitializer[] initializers,
             IUIFactory[] factories,
      bool throwsRepeatException, LightDictionary<string, ButtonWrapper[]> buttons, Dictionary<string, object>[]
             resources,
@@ -197,7 +197,7 @@ namespace BasicEngineering.UI.Factory.Advanced
         {
             EngineeringUIFactory factory = new EngineeringUIFactory(factories, true, ext);
             EngineeringInitializer initializer = new EngineeringInitializer(coordinator, ordSolver, diffProcessor, 
-                strategy, initializers, throwsRepeatException, resources, log);
+              initializers, throwsRepeatException, resources, log);
             DefaultApplicationCreator creator = new DefaultApplicationCreator(coordinator, buttons, icon, factory, holder, filename, start, 
               resources,  text,
             ext, fileFilter, initializer, log, testInterface);
@@ -207,7 +207,6 @@ namespace BasicEngineering.UI.Factory.Advanced
         public static FormMain CreateForm(IDatabaseCoordinator coordinator, ByteHolder holder,
              OrdinaryDifferentialEquations.IDifferentialEquationSolver ordSolver,
       DataPerformer.Portable.DifferentialEquationProcessors.DifferentialEquationProcessor diffProcessor,
-             DataPerformer.Portable.Interfaces.IDataRuntimeFactory strategy,
       IApplicationInitializer[] initializers,
          IUIFactory[] factories,
       bool throwsRepeatException, LightDictionary<string, ButtonWrapper[]> buttons,
@@ -222,35 +221,18 @@ namespace BasicEngineering.UI.Factory.Advanced
                 c = AssemblyService.StaticExtensionAssemblyService.GetFirstInterfaceObjectFromBaseDirectory<IDatabaseCoordinator>();
             }
             EngineeringInitializer initializer = new EngineeringInitializer(c, ordSolver, diffProcessor,
-                strategy, initializers, throwsRepeatException, resources, logWriter);
+              initializers, throwsRepeatException, resources, logWriter);
             DefaultApplicationCreator creator = new DefaultApplicationCreator(c, buttons, icon, factory, holder, 
                 filename, factory.Start, resources, text,
             ext, fileFilter, initializer, logWriter, testInterface);
             return CreateForm(creator);
         }
 
-        public static FormMain CreateForm(IDatabaseCoordinator coordinator, ByteHolder holder,
-      OrdinaryDifferentialEquations.IDifferentialEquationSolver ordSolver,
-DataPerformer.Portable.DifferentialEquationProcessors.DifferentialEquationProcessor diffProcessor,
-IApplicationInitializer[] initializers,
-  IUIFactory[] factories,
-bool throwsRepeatException, LightDictionary<string, ButtonWrapper[]> buttons,
-      Icon icon, string filename, Dictionary<string, object>[] resources, string text,
-      string ext, string fileFilter, TextWriter logWriter, TestCategory.Interfaces.ITestInterface testInterface)
-        {
-            EngineeringUIFactory factory = new EngineeringUIFactory(factories, true, ext);
-            EngineeringInitializer initializer = new EngineeringInitializer(coordinator, ordSolver, diffProcessor,
-             DataPerformer.Runtime.DataRuntimeFactory.Singleton, initializers, throwsRepeatException, resources, logWriter);
-            DefaultApplicationCreator creator = new DefaultApplicationCreator(coordinator, buttons, icon, factory, holder, filename, 
-                factory.Start, resources, text,
-            ext, fileFilter, initializer, logWriter, testInterface);
-            return CreateForm(creator);
-        }
-
-
-
-        
- 
+        /// <summary>
+        /// Crates form
+        /// </summary>
+        /// <param name="creator">Creator of applications</param>
+        /// <returns>The form</returns>
         public static FormMain CreateForm(IApplicationCreator creator)
         {
             FormMain f = new FormMain(creator);

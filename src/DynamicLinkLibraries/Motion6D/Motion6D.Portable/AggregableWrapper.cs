@@ -20,7 +20,7 @@ namespace Motion6D.Portable
     /// </summary>
     public class AggregableWrapper : CategoryObject, 
         IReferenceFrame,  IStarted,
-        IChildrenObject, IMeasurements, IPropertiesEditor, IPostSetArrow
+        IChildrenObject, IMeasurements, IPostSetArrow
     {
         #region Fields
 
@@ -240,58 +240,6 @@ namespace Motion6D.Portable
             }
             set
             {
-            }
-        }
-
-        #endregion
-
-        #region IPropertiesEditor Members
-
-        object IPropertiesEditor.Editor
-        {
-            get 
-            {
-                if (aggregate == null)
-                {
-                    return null;
-                }
-                if (!(aggregate is IPropertiesEditor))
-                {
-                    return null;
-                }
-                IPropertiesEditor p = aggregate as IPropertiesEditor;
-                return p.Editor;
-            }
-        }
-
-        object IPropertiesEditor.Properties
-        {
-            get
-            {
-                if (aggregate == null)
-                {
-                    return null;
-                }
-                if (!(aggregate is IPropertiesEditor))
-                {
-                    return null;
-                }
-                IPropertiesEditor p = aggregate as IPropertiesEditor;
-                return p.Properties;
-            }
-            set
-            {
-               if (aggregate == null)
-                {
-                    return;
-                }
-                if (!(aggregate is IPropertiesEditor))
-                {
-                    return;
-                }
-                IPropertiesEditor p = aggregate as IPropertiesEditor;
-                p.Properties = value;
-                Prepare();
             }
         }
 

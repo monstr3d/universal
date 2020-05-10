@@ -25,6 +25,14 @@ namespace Motion6D
 
         private ApplicationInitializer()
         {
+
+        }
+
+        static ApplicationInitializer()
+        {
+            IApplicationInitializer init = DataPerformer.DataPerformerInitializer.Initializer;
+            init.InitializeApplication();
+            PureDesktop.DesktopPostLoad += MotionDesktopPostLoad.Object.PostLoad;
         }
 
         #endregion
@@ -33,9 +41,7 @@ namespace Motion6D
 
         void IApplicationInitializer.InitializeApplication()
         {
-           IApplicationInitializer init = DataPerformer.DataPerformerInitializer.Initializer;
-           init.InitializeApplication();
-           PureDesktop.DesktopPostLoad += MotionDesktopPostLoad.Object.PostLoad;
+ 
         }
 
         #endregion

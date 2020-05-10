@@ -22,7 +22,7 @@ namespace Motion6D.Portable.Runtime
     /// <summary>
     /// Runtime of data consumer
     /// </summary>
-    public class DataConsumerRuntime : DataPerformer.Runtime.DataConsumerRuntime
+    public class DataConsumerRuntime : DataPerformer.Portable.Runtime.DataConsumerRuntime
     {
         #region Fields
 

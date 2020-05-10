@@ -39,7 +39,7 @@ namespace Event.Portable
         {
 
             DataPerformer.Portable.StaticExtensionDataPerformerPortable.Factory = 
-                DataPerformer.Runtime.DataRuntimeFactory.Singleton;
+                DataPerformer.Portable.Runtime.DataRuntimeFactory.Singleton;
             StaticExtensionEventPortable.ActionFactoryCreator =
                DataPerformer.Portable.StaticExtensionDataPerformerPortable.Factory as IActionFactoryCreator;
         }

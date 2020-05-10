@@ -9,17 +9,13 @@ using CategoryTheory;
 
 using Diagram.UI;
 using Diagram.UI.Interfaces;
-using Diagram.UI.Labels;
 
 using BaseTypes.Attributes;
 
 using DataPerformer.Interfaces;
-using DataPerformer.Runtime;
 
 using Event.Interfaces;
-
 using Event.Portable.Interfaces;
-using Event.Portable;
 
 namespace Event.Portable.Runtime
 {

@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DataPerformer.Interfaces;
+
 using Diagram.UI.Interfaces;
+
+using DataPerformer.Interfaces;
 
 namespace DataPerformer.Portable.Interfaces
 {

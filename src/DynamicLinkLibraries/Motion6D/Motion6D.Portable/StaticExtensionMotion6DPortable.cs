@@ -1,4 +1,5 @@
 ﻿using CategoryTheory;
+using DataPerformer.Portable;
 using Diagram.UI;
 using Diagram.UI.Interfaces;
 using Motion6D.Interfaces;
@@ -139,6 +140,7 @@ namespace Motion6D.Portable
         static StaticExtensionMotion6DPortable()
         {
             new CoreCreators.CSCodeCreator();
+            Runtime.DataRuntimeFactory.Singleton.SetBase();
         }
 
         #endregion

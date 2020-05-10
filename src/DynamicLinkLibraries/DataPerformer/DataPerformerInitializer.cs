@@ -26,6 +26,12 @@ namespace DataPerformer
 
         private DataPerformerInitializer()
         {
+
+        }
+
+        static  DataPerformerInitializer()
+        {
+            CSharpTreeCollectionProxyFactory.CodeCreator = CSharpCodeCreator.CodeCreator;
         }
 
         #endregion
@@ -34,9 +40,7 @@ namespace DataPerformer
 
         void IApplicationInitializer.InitializeApplication()
         {
-
-            CSharpTreeCollectionProxyFactory.CodeCreator =
-            FormulaEditor.CSharp.CSharpCodeCreator.CodeCreator; 
+     
         }
 
         #endregion

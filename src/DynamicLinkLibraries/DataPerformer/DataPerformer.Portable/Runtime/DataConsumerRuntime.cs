@@ -15,7 +15,7 @@ using DataPerformer.Portable;
 using DataPerformer.Portable.Interfaces;
 using DataPerformer.Portable.DifferentialEquationProcessors;
 
-namespace DataPerformer.Runtime
+namespace DataPerformer.Portable.Runtime
 {
     /// <summary>
     /// Runtime of data consumer
