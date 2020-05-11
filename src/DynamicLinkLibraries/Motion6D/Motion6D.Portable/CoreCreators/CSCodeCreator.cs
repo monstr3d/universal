@@ -5,6 +5,8 @@ using System.Text;
 
 using Diagram.UI;
 using Diagram.UI.Interfaces;
+using Motion6D.Interfaces;
+using Motion6D.Portable.Aggregates;
 
 namespace Motion6D.Portable.CoreCreators
 {
@@ -45,9 +47,17 @@ namespace Motion6D.Portable.CoreCreators
             {
                 str = "Motion6D.Portable.RelativeMeasurementsLink";
             }
+            if (obj is RelativeMeasurements)
+            {
+                str = "Motion6D.Portable.RelativeMeasurements";
+            }
             if (obj is MechanicalAggregateLink)
             {
                 return CreateMechanicalAggregateLink(obj as MechanicalAggregateLink);
+            }
+            if (obj is AggregableWrapper)
+            {
+                return CreateAggregableWrapper(obj as AggregableWrapper);
             }
             if (str == null)
             {
@@ -60,6 +70,90 @@ namespace Motion6D.Portable.CoreCreators
         }
 
         #endregion
+
+        List<string> CreateAggregableWrapper(AggregableWrapper data)
+        {
+            List<string> l = new List<string>();
+            l.Add("Motion6D.Portable.AggregableWrapper");
+            l.Add("{");
+            l.Add("");
+            l.Add("\tinternal CategoryObject()");
+            l.Add("\t{");
+            l.Add("\t\taggregate = new MechanicalAggregate();");
+            l.Add("\t\tPrepare();");
+            l.Add("\t}");
+            List<string> lt = new List<string>();
+            IAggregableMechanicalObject agg = data.Aggregate;
+            if (agg is RigidBody)
+            {
+                RigidBody rb = agg as RigidBody;
+                lt = CreateRigidBody(rb);
+            }
+            l.Add("\t\tinternal class MechanicalAggregate :");
+            for (int i = 0; i < lt.Count; i++)
+            {
+                string s = lt[i];
+                if (s.Contains("CategoryObject()"))
+                {
+                    lt[i] = s.Replace("CategoryObject()", "MechanicalAggregate()");
+                    break;
+                }
+            }
+            l.AddRange(lt);
+            l.Add("");
+            l.Add("}");
+            return l;
+        }
+
+        List<string> CreateRigidBody(RigidBody data)
+        {
+            List<string> l = new List<string>();
+            l.Add("Motion6D.Portable.Aggregates.RigidBody");
+            l.Add("{");
+            l.Add("");
+            l.Add("\tinternal CategoryObject()");
+            l.Add("\t{");
+            l.Add("\t\tmomentOfInertia =  new double[,]");
+            l.Add("\t\t{");
+            data.MomentOfInertia.ToCodeCreator(l);
+            l.Add("\t\t};");
+            l.Add("");
+            if (data.Connections != null)
+            {
+                l.Add("\t\tconnections =  new double[][]");
+                l.Add("\t\t{");
+                data.Connections.ToCodeCreator(l);
+                l.Add("\t\t};");
+                l.Add("");
+            }
+            l.Add("\t\taliasNames =  new Dictionary<int, string>()");
+            l.Add("\t\t{");
+            data.AliasNames.ToCodeCreator(l);
+            l.Add("\t\t};");
+            l.Add("");
+            l.Add("\t\tinerialAccelerationStr =  new string[]");
+            l.Add("\t\t{");
+            data.InertialAcceleration.ToCodeCreator(l);
+            l.Add("\t\t};");
+            l.Add("");
+            l.Add("\t\tforcesStr =  new string[]");
+            l.Add("\t\t{");
+            data.ForcesStr.ToCodeCreator(l);
+            l.Add("\t\t};");
+            l.Add("");
+            l.Add("\t\tmass = " + data.Mass.StringValue() + ";");
+            l.Add("");
+            l.Add("\t\tinitialState =  new double[]");
+            l.Add("\t\t{");
+            data.InitialState.ToCodeCreator(l);
+            l.Add("\t\t};");
+            l.Add("");
+            l.Add("\t}");
+            l.Add("");
+            l.Add("}");
+            l.Add("");
+            return l;
+        }
 
         List<string> CreateMechanicalAggregateLink(MechanicalAggregateLink data)
         {

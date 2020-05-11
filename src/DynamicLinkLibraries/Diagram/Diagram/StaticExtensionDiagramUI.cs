@@ -2280,11 +2280,97 @@ namespace Diagram.UI
         }
 
         /// <summary>
+        /// Adds double to code creator
+        /// </summary>
+        /// <param name="x">List of double</param>
+        /// <param name="lcode">List of code</param>
+        public static void ToCodeCreator(this double[][] x, List<string> lcode)
+        {
+            for (int i = 0; i < x.Length; i++)
+            {
+                lcode.Add("\t{");
+                double[] xx = x[i];
+                for (int j = 0; j < xx.Length; j++)
+                {
+                    string s = j == xx.Length - 1 ? "" :  ",";
+                    lcode.Add("\t\t" + xx[j].StringValue() + s);
+                }
+                string f = i == x.Length - 1 ? "}" : "},";
+                lcode.Add(f);
+            }
+        }
+
+        /// <summary>
+        /// Adss dictionary to code creator
+        /// </summary>
+        /// <typeparam name="T">Type</typeparam>
+        /// <param name="d">Dictionary</param>
+        /// <param name="lcode">Code</param>
+        public static void ToCodeCreator<T>(this Dictionary<T, string> d, List<string> lcode)
+        {
+            int c = d.Count;
+            int i = 0;
+            foreach (T key in d.Keys)
+            {
+                string s = "{ " + key.StringValue() + ", \"" + d[key] + "\"}";
+                ++i;
+                if (i != c)
+                {
+                    s += ",";
+                }
+                lcode.Add(s);
+            }
+        }
+
+        /// <summary>
+        /// Adds double to code creator
+        /// </summary>
+        /// <param name="x">List of double</param>
+        /// <param name="lcode">List of code</param>
+        public static void ToCodeCreator(this double[,] x, List<string> lcode)
+        {
+            for (int i = 0; i < x.GetLength(0); i++)
+            {
+                lcode.Add("\t{");
+                for (int j = 0; j < x.GetLength(1); j++)
+                {
+                    string s = j == x.GetLength(1) - 1 ? "" : ",";
+                    lcode.Add("\t\t" + x[i, j].StringValue() + s);
+                }
+                string f = i == x.GetLength(0) - 1 ? "}" : "},";
+                lcode.Add(f);
+            }
+        }
+
+        /// <summary>
         /// Adds strings to code creator
+        /// </summary>
+        /// <param name="list">List of strigs</param>
+        /// <param name="lcode">List of code</param>
+        public static void ToCodeCreator(this IEnumerable<string> list, List<string> lcode)
+        {
+            bool f = true;
+            foreach (string s in list)
+            {
+                string x = "\"" + s + "\"";
+                if (f)
+                {
+                    f = false;
+                }
+                else
+                {
+                    x = ", " + x;
+                }
+                lcode.Add(x);
+            }
+        }
+
+
+        /// <summary>
+        /// Adds double to code creator
         /// </summary>
         /// <param name="list">List of double</param>
         /// <param name="lcode">List of code</param>
-
         public static void ToCodeCreator(this IEnumerable<double> list, List<string> lcode)
         {
             bool first = true;

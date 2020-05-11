@@ -152,10 +152,6 @@ namespace DataPerformer.Portable.Runtime
         protected IAsynchronousCalculation realtimeStep;
 
 
-        static object locker = new object();
-
-
-
         #endregion
 
         #region Ctor

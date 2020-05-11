@@ -44,7 +44,6 @@ namespace Motion6D.Portable.Runtime
 
         #region Ctor
 
-
         /// <summary>
         /// Constructor
         /// </summary>
@@ -67,22 +66,32 @@ namespace Motion6D.Portable.Runtime
                 break;
             }
         }
- 
 
         #endregion
 
         #region Overriden
 
         /// <summary>
-        /// Prepares itself
+        /// Creates processor
         /// </summary>
-        protected override void Prepare()
+        /// <param name="collection">Collection</param>
+        /// <returns>Processor</returns>
+        protected override IDifferentialEquationProcessor CreateProcessor(IComponentCollection collection)
         {
-            base.Prepare();
+            IDifferentialEquationProcessor pr = base.CreateProcessor(collection);
+            IDifferentialEquationProcessor p = pr;
+            if (p == null)
+            {
+                p = DataPerformer.Portable.DifferentialEquationProcessors.DifferentialEquationProcessor.Processor.New;
+                p.Set(collection);
+            }
+            if (realtime != null & p != null)
+            {
+                p.TimeProvider = realtime;
+            }
             mechanicalEquationsNew = new Dictionary<AggregableWrapper, MechanicalAggregateEquation>();
             List<IDifferentialEquationSolver> lds = new List<IDifferentialEquationSolver>();
             IEnumerable<object> oll = collection.AllComponents;
-            IDifferentialEquationProcessor p = CreateProcessor(collection);
             if (p != null)
             {
                 MechanicalAggregateEquation.GetSolvers(mechanicalEquationsNew, oll);
@@ -98,13 +107,26 @@ namespace Motion6D.Portable.Runtime
             {
                 eq.Reset();
             }
-            base.Prepare();
             if (p != null)
             {
                 p.AddRange(lds);
             }
             mechanicalEquationsOld = mechanicalEquationsNew;
             p.UpdateDimension();
+            if (pr == null & lds.Count == 0)
+            {
+                return null;
+            }
+            return p;
+        }
+
+
+        /// <summary>
+        /// Prepares itself
+        /// </summary>
+        protected override void Prepare()
+        {
+            base.Prepare();
             IDesktop d = collection.Desktop;
             frames = ReferenceFrameArrow.Prepare(d);
             if (frames.Count == 0)

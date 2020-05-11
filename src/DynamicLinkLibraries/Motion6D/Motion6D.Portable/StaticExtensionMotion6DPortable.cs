@@ -144,7 +144,6 @@ namespace Motion6D.Portable
         static StaticExtensionMotion6DPortable()
         {
             new CoreCreators.CSCodeCreator();
-            return;
             DataRuntimeFactory.Singleton.SetBase();
             DataRuntimeFactory.Singleton.SetBaseAction();
         }

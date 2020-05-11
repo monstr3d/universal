@@ -407,6 +407,53 @@ namespace Motion6D.Portable.Aggregates
         }
 
         /// <summary>
+        /// Inertial acceleration string
+        /// </summary>
+        public IEnumerable<string> InertialAcceleration
+        {
+            get
+            {
+                return inerialAccelerationStr;
+            }
+        }
+
+        /// <summary>
+        /// Forces
+        /// </summary>
+        public IEnumerable<string> ForcesStr
+        {
+            get
+            {
+                return forcesStr;
+            }
+        }
+
+
+        /// <summary>
+        /// Connections
+        /// </summary>
+        public double[][] Connections
+        {
+            get
+            {
+                if (connections == null)
+                {
+                    return null;
+                }
+                double[][] c = new double[connections.Length][];
+                for (int i = 0; i < connections.Length; i++)
+                {
+                    double[] x = connections[i];
+                    double[] y = new double[x.Length];
+                    Array.Copy(x, y, x.Length);
+                    c[i] = y;
+                }
+
+                return c;
+            }
+        }
+
+        /// <summary>
         /// Gets connection coordinates
         /// </summary>
         /// <param name="num">Number of connection</param>
