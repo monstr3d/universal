@@ -2,8 +2,12 @@
 using DataPerformer.Portable;
 using Diagram.UI;
 using Diagram.UI.Interfaces;
+using Event.Interfaces;
+using Event.Portable;
+using Event.Portable.Interfaces;
 using Motion6D.Interfaces;
 using Motion6D.Portable.Interfaces;
+using Motion6D.Portable.Runtime;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -140,7 +144,9 @@ namespace Motion6D.Portable
         static StaticExtensionMotion6DPortable()
         {
             new CoreCreators.CSCodeCreator();
-            Runtime.DataRuntimeFactory.Singleton.SetBase();
+            return;
+            DataRuntimeFactory.Singleton.SetBase();
+            DataRuntimeFactory.Singleton.SetBaseAction();
         }
 
         #endregion

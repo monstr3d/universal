@@ -152,6 +152,19 @@ namespace CategoryTheory
 
         #region Other Members
 
+
+        /// <summary>
+        /// Checks whether the type is base type
+        /// </summary>
+        /// <param name="baseType">The base type</param>
+        /// <param name="type">The type</param>
+        /// <returns>True is base type and false otherwise</returns>
+        static public bool IsBase(this object baseType, object type)
+        {
+            return baseType.GetType().IsBase(type.GetType());
+        }
+
+
         /// <summary>
         /// Checks whether the type is base type
         /// </summary>

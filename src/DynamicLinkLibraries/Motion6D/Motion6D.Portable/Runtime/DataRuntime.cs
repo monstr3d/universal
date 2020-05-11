@@ -80,10 +80,9 @@ namespace Motion6D.Portable.Runtime
         {
             base.Prepare();
             mechanicalEquationsNew = new Dictionary<AggregableWrapper, MechanicalAggregateEquation>();
-            IDifferentialEquationProcessor p = 
-                DataPerformer.Portable.DifferentialEquationProcessors.DifferentialEquationProcessor.Processor;
             List<IDifferentialEquationSolver> lds = new List<IDifferentialEquationSolver>();
             IEnumerable<object> oll = collection.AllComponents;
+            IDifferentialEquationProcessor p = CreateProcessor(collection);
             if (p != null)
             {
                 MechanicalAggregateEquation.GetSolvers(mechanicalEquationsNew, oll);

@@ -566,8 +566,8 @@ namespace DataPerformer.Portable.Runtime
         /// <summary>
         /// Creates processor
         /// </summary>
-        /// <param name="collection"></param>
-        /// <returns></returns>
+        /// <param name="collection">Collection</param>
+        /// <returns>Processor</returns>
         protected virtual IDifferentialEquationProcessor CreateProcessor(IComponentCollection collection)
         {
             IDifferentialEquationProcessor pr = null;
@@ -772,10 +772,9 @@ namespace DataPerformer.Portable.Runtime
         {
             components.Clear();
             components.AddRange(collection.AllComponents);
-            collection.ForEach<ICategoryObject>((ICategoryObject l) => { objects.Add(l); });
+            collection.ForEach((ICategoryObject l) => { objects.Add(l); });
             arrows.Clear();
-            collection.ForEach<ICategoryArrow>((ICategoryArrow l) => { arrows.Add(l); });
-            IDifferentialEquationProcessor processor = DifferentialEquationProcessor.Processor;
+            collection.ForEach((ICategoryArrow l) => { arrows.Add(l); });
         }
 
         #endregion

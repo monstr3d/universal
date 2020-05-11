@@ -28,7 +28,7 @@ namespace Aviation.Light
         static void Main(string[] args)
         {
             string filename = "";
-      /*          Type t = typeof(Gravity_36_36.Wrapper.Serializable.Gravity);
+       /*         Type t = typeof(Motion6D.Aggregates.RigidBody);
                 string st = t.FullName + "," + t.Assembly; //*/
             TextWriter logWriter = null;
             if (args != null)

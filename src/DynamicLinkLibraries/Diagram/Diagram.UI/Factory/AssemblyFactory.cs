@@ -87,7 +87,7 @@ namespace Diagram.UI.Factory
                     if (kind.Length > 0) // Kind or additional parameter
                     {
                         // Searches constructor from string
-                        ConstructorInfo ci = t.GetConstructor(new System.Type[] { typeof(string) });
+                        ConstructorInfo ci = t.GetConstructor(new Type[] { typeof(string) });
                         if (ci != null)
                         {
                             // Creates an object

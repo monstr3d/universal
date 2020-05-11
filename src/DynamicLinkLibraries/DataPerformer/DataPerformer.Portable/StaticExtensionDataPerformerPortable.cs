@@ -21,6 +21,7 @@ using Diagram.UI;
 using Diagram.UI.Aliases;
 using Diagram.UI.Interfaces;
 using Diagram.UI.Labels;
+using Event.Interfaces;
 
 namespace DataPerformer.Portable
 {
@@ -76,6 +77,7 @@ namespace DataPerformer.Portable
             new CSCodeCreator();
             TimeMeasureProviderFactory = new DefautFactory();
             Factory = Runtime.DataRuntimeFactory.Singleton;
+            (Runtime.DataRuntimeFactory.Singleton as IActionFactoryCreator).SetBaseAction();
         }
 
         #endregion
@@ -1631,9 +1633,16 @@ namespace DataPerformer.Portable
         /// <param name="replace">Factory for replacement</param>
         public static void SetBase(this IDataRuntimeFactory replace)
         {
-            Type baseType = factory.GetType();
-            Type type = replace.GetType();
-            if (baseType.IsBase(type))
+            if (replace == null)
+            {
+                throw new Exception();
+            }
+            if (Factory == null)
+            {
+                Factory = replace;
+                return;
+            }
+            if (Factory.IsBase(replace))
             {
                 Factory = replace;
             }

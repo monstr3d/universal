@@ -1,4 +1,6 @@
-﻿using Diagram.UI.Interfaces;
+﻿using CategoryTheory;
+using Diagram.UI;
+using Diagram.UI.Interfaces;
 using Diagram.UI.Labels;
 using Motion6D.Portable.Aggregates;
 using System;
@@ -25,15 +27,31 @@ namespace Motion6D.UI.Forms
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="label">Label</param>
         public FormRigidBody(IObjectLabel label) : this()
         {
             this.label = label;
             object o = label.Object;
-            if (!(o is RigidBody))
+
+            if (o is RigidBody)
             {
-                throw new Exception();
+                rigidBody = o as RigidBody;
             }
-            rigidBody = o as RigidBody;
+            else
+            {
+                if (o is IChildrenObject)
+                {
+                    IChildrenObject co = o as IChildrenObject;
+                    rigidBody = co.GetChild<RigidBody>();
+                    if (rigidBody == null)
+                    {
+                        throw new Exception();
+                    }
+                }
+            }
             userControlRigidBody.RigidBody = rigidBody;
             UpdateFormUI();
         }

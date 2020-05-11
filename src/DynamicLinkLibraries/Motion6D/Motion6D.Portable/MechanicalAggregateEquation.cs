@@ -37,7 +37,8 @@ namespace Motion6D.Portable
         /// <summary>
         /// Numbers of aggregates
         /// </summary>
-        protected Dictionary<IAggregableMechanicalObject, int> numbers = new Dictionary<IAggregableMechanicalObject, int>();
+        protected Dictionary<IAggregableMechanicalObject, int> numbers = 
+            new Dictionary<IAggregableMechanicalObject, int>();
 
         /// <summary>
         /// Links if aggregates
@@ -217,9 +218,9 @@ namespace Motion6D.Portable
             foreach (AggregableWrapper aw in aggrWrappres)
             {
                 IAggregableMechanicalObject obj = aw.Aggregate;
-                if (obj is Diagram.UI.IUpdatableObject)
+                if (obj is IUpdatableObject)
                 {
-                    Diagram.UI.IUpdatableObject uo = obj as Diagram.UI.IUpdatableObject;
+                    IUpdatableObject uo = obj as IUpdatableObject;
                     if (uo.Update != null)
                     {
                         uo.Update();

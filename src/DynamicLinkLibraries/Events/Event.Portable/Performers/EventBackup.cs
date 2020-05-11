@@ -88,7 +88,7 @@ namespace Event.Portable.Performers
                 IAsynchronousCalculation>> tt = new Tuple<string, Tuple<IDataConsumer, IComponentCollection,
                 ITimeMeasurementProvider, IAsynchronousCalculation>>
                 (reason, tuple);
-            IActionFactory f = StaticExtensionEventPortable.ActionFactoryCreator[tt];
+            IActionFactory f = StaticExtensionEventInterfaces.ActionFactoryCreator[tt];
             List<INativeEvent> lnative = new List<INativeEvent>();
             List<INativeReader> lnativeR = new List<INativeReader>();
             if (events != null)

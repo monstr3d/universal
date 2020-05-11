@@ -7,7 +7,10 @@ using System.IO;
 
 
 using CategoryTheory;
+
 using Diagram.UI;
+
+using SerializationInterface;
 
 
 using Motion6D.Interfaces;
@@ -20,22 +23,25 @@ namespace Motion6D
     [Serializable()]
     public class AggregableWrapper : Portable.AggregableWrapper, ISerializable
     {
- 
+
         #region Ctor
 
         /// <summary>
         /// Constuctor
         /// </summary>
-        /// <param name="aggregate">Prototype</param>
-        public AggregableWrapper(IAggregableMechanicalObject aggregate)
+        /// <param name="aggregateType">Type of aggregate</param>
+        public AggregableWrapper(string aggregateType) : base(aggregateType)
         {
-            if (!(aggregate is ISerializable) &
-                ((aggregate as CategoryTheory.IAssociatedObject).GetObject<IPropertiesEditor>() == null))
-            {
-                throw new Exception();
-            }
-            this.aggregate = aggregate;
-            Prepare();
+
+        }
+
+        /// <summary>
+        /// Constuctor
+        /// </summary>
+        /// <param name="aggregate">Prototype</param>
+        public AggregableWrapper(IAggregableMechanicalObject aggregate) : base(aggregate)
+        {
+
         }
 
         /// <summary>
@@ -45,10 +51,7 @@ namespace Motion6D
         /// <param name="context">Streaming context</param>
         protected AggregableWrapper(SerializationInfo info, StreamingContext context)
         {
-            byte[] b = info.GetValue("Buffer", typeof(byte[])) as byte[];
-            MemoryStream stream = new MemoryStream(b);
-            BinaryFormatter bf = new BinaryFormatter();
-            aggregate = bf.Deserialize(stream) as IAggregableMechanicalObject;
+            aggregate = info.Deserialize<IAggregableMechanicalObject>("Aggregate");
             Prepare();
         }
 
@@ -58,11 +61,7 @@ namespace Motion6D
 
         void ISerializable.GetObjectData(SerializationInfo info, StreamingContext context)
         {
-            MemoryStream stream = new MemoryStream();
-            BinaryFormatter bf = new BinaryFormatter();
-            bf.Serialize(stream, aggregate);
-            byte[] b = stream.GetBuffer();
-            info.AddValue("Buffer", b, typeof(byte[]));
+            info.Serialize("Aggregate", aggregate);
         }
 
         #endregion

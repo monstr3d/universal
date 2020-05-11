@@ -12,6 +12,7 @@ using DataPerformer.Interfaces;
 
 using Motion6D.Interfaces;
 using DataPerformer.Portable.Measurements;
+using System.Reflection;
 
 namespace Motion6D.Portable
 {
@@ -35,9 +36,9 @@ namespace Motion6D.Portable
         private IAssociatedObject[] children;
 
         /// <summary>
-        /// Measures
+        /// Measurements
         /// </summary>
-        private IMeasurement[] measures;
+        private IMeasurement[] measurements;
 
         /// <summary>
         /// Type of measure
@@ -88,12 +89,26 @@ namespace Motion6D.Portable
         /// Parameters of position
         /// </summary>
         private object positionParameters;
-        
+
 
 
         #endregion
 
         #region Ctor
+
+
+        /// <summary>
+        /// Constuctor
+        /// </summary>
+        /// <param name="aggregateType">Type of aggregate</param>
+        public AggregableWrapper(string aggregateType)
+        {
+            Type type = Type.GetType(aggregateType);
+            ConstructorInfo constructor = type.GetConstructor(new Type[0]);
+            aggregate = constructor.Invoke(new object[0]) as IAggregableMechanicalObject;
+            Prepare();
+        }
+
 
         /// <summary>
         /// Constuctor
@@ -217,12 +232,12 @@ namespace Motion6D.Portable
 
         int IMeasurements.Count
         {
-            get { return measures.Length; }
+            get { return measurements.Length; }
         }
 
         IMeasurement IMeasurements.this[int n]
         {
-            get { return measures[n]; }
+            get { return measurements[n]; }
         }
 
         void IMeasurements.UpdateMeasurements()
@@ -272,32 +287,32 @@ namespace Motion6D.Portable
         /// </summary>
         private void createMeasurements()
         {
-            measures = new IMeasurement[aggregate.Dimension];
+            measurements = new IMeasurement[aggregate.Dimension];
             string[] s = { "X", "Y", "Z", "Vx", "Vy", "Vz", "Q0", "Q1", "Q2", "Q3", "OMGx", "OMGy", "OMGz" };
             int n = 0;
             int nc = 0;
             int nv = 0;
             for (int i = 0; i < 3; i++)
             {
-                measures[n] = new CoordinateMeasurement(aggregate, nc, nc, s[n]);
+                measurements[n] = new CoordinateMeasurement(aggregate, nc, nc, s[n]);
                 ++n;
                 ++nc;
             }
             for (int i = 0; i < 3; i++)
             {
-                measures[n] = new VelocityMeasurememt(aggregate, nv, s[n]);
+                measurements[n] = new VelocityMeasurememt(aggregate, nv, s[n]);
                 ++n;
                 ++nv;
             }
             for (int i = 0; i < 4; i++)
             {
-                measures[n] = new QuaternionMeasurement(quaternion, quaterDerivation, i, s[n]);
+                measurements[n] = new QuaternionMeasurement(quaternion, quaterDerivation, i, s[n]);
                 ++n;
                 ++nc;
             }
             for (int i = 0; i < 3; i++)
             {
-                measures[n] = new VelocityMeasurememt(aggregate, n, s[n]);
+                measurements[n] = new VelocityMeasurememt(aggregate, n, s[n]);
                 ++n;
                 ++nv;
             }
@@ -308,11 +323,11 @@ namespace Motion6D.Portable
             for (; nc < aggregate.Dimension; nc++)
             {
                 string sn = sq + q + ")";
-                measures[n] = new CoordinateMeasurement(aggregate, nc, nc + 1, sn);
+                measurements[n] = new CoordinateMeasurement(aggregate, nc, nc + 1, sn);
                 sn = sv + q + ")";
                 ++n;
                 ++nc;
-                measures[n] = new VelocityMeasurememt(aggregate, nc, sn);
+                measurements[n] = new VelocityMeasurememt(aggregate, nc, sn);
                 ++n;
                 ++q;
             }

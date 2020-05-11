@@ -84,6 +84,7 @@ namespace DataPerformer.Portable.DifferentialEquationProcessors
         /// </summary>
         protected DifferentialEquationProcessor()
         {
+
         }
 
         /// <summary>
@@ -103,7 +104,7 @@ namespace DataPerformer.Portable.DifferentialEquationProcessors
                            c.GetMeasurements(measurements);
                        }*/
             List<object> l = new List<object>();
-            cc.ForEach<IDifferentialEquationSolver>((IDifferentialEquationSolver solver) =>
+            cc.ForEach((IDifferentialEquationSolver solver) =>
             {
                 if (solver is IMeasurements)
                 {

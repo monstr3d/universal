@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using CategoryTheory;
+
 
 namespace Event.Interfaces
 {
@@ -53,6 +55,34 @@ namespace Event.Interfaces
         #endregion
 
         #region Public Members
+
+        /// <summary>
+        /// Action factory creator
+        /// </summary>
+        public static IActionFactoryCreator ActionFactoryCreator
+        { get; set; }
+
+        /// <summary>
+        /// Sets base action
+        /// </summary>
+        /// <param name="creator">Actiom creator</param>
+        public static void SetBaseAction(this IActionFactoryCreator creator)
+        {
+            if (creator == null)
+            {
+                throw new Exception();
+            }
+            if (ActionFactoryCreator == null)
+            {
+                ActionFactoryCreator = creator;
+                return;
+            }
+            if (ActionFactoryCreator.IsBase(creator))
+            {
+                ActionFactoryCreator = creator; 
+            }
+        }
+
 
         /// <summary>
         /// Checks where reason is realtime analysis

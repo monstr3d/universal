@@ -47,7 +47,6 @@ namespace Event.Portable
             OrdinaryDifferentialEquations.DifferentialEquationsPerformer.Default = ordSolver;
             DataPerformer.Portable.StaticExtensionDataPerformerPortable.Factory = strategy;
             base.InitializeApplication();
-            ApplicationInitializer.Singleton.InitializeApplication();
         }
 
 

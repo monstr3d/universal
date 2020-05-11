@@ -12,7 +12,6 @@ using Diagram.UI.Aliases;
 using FormulaEditor;
 
 using DataPerformer.Interfaces;
-using DataPerformer.Portable.Interfaces;
 
 namespace EngineeringInitializer
 {
@@ -20,7 +19,7 @@ namespace EngineeringInitializer
     {
         private OrdinaryDifferentialEquations.IDifferentialEquationSolver ordSolver;
 
-        private DataPerformer.Interfaces.IDifferentialEquationProcessor diffProcessor;
+        private IDifferentialEquationProcessor diffProcessor;
 
 
         #region Ctor

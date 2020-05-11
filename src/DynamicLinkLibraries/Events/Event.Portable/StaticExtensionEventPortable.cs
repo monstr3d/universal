@@ -50,7 +50,6 @@ namespace Event.Portable
 
         #endregion
 
-
         #region Ctor
         static StaticExtensionEventPortable()
         {
@@ -69,7 +68,6 @@ namespace Event.Portable
 
         }
 
-
         /// <summary>
         /// Enumerable tranformation
         /// </summary>
@@ -79,7 +77,6 @@ namespace Event.Portable
             set;
         }
 
-
         /// <summary>
         /// Runtime
         /// </summary>
@@ -87,6 +84,27 @@ namespace Event.Portable
         {
             get;
             set;
+        }
+
+        /// <summary>
+        /// Set base runtime
+        /// </summary>
+        /// <param name="runtime">The runtime to set</param>
+        public static void SetBase(this IRealtime runtime)
+        {
+            if (runtime == null)
+            {
+                throw new Exception();
+            }
+            if (Runtime == null)
+            {
+                Runtime = runtime;
+                return;
+            }
+            if (Runtime.IsBase(runtime))
+            {
+                Runtime = runtime;
+            }
         }
 
         /// <summary>
@@ -242,15 +260,22 @@ namespace Event.Portable
         /// <param name="runtime">Runtime</param>
         public static void Set(this IRealtime runtime)
         {
-            Runtime = runtime;
+            if (runtime == null)
+            {
+                throw new Exception();
+            }
+            if (Runtime == null)
+            {
+                Runtime = runtime;
+                return;
+            }
+            if (Runtime.IsBase(runtime))
+            {
+                Runtime = runtime;
+            }
         }
 
-        /// <summary>
-        /// Action factory creator
-        /// </summary>
-        public static IActionFactoryCreator ActionFactoryCreator
-        { get; set; }
- 
+  
         /// <summary>
         /// Start
         /// </summary>
