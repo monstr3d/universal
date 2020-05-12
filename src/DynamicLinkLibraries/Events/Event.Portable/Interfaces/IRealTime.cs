@@ -11,6 +11,7 @@ using Diagram.UI.Interfaces;
 using DataPerformer.Interfaces;
 
 using Event.Interfaces;
+using DataPerformer.Portable.Interfaces;
 
 namespace Event.Portable.Interfaces
 {
@@ -30,9 +31,12 @@ namespace Event.Portable.Interfaces
         /// <param name="dataConsumer">Data Consumer</param>
         /// <param name="log">log</param>
         /// <param name="reason">Reason</param>
+        /// <param name="timeMeasurementProviderFactory">Factory of time measurements</param>
+        /// <returns>Start runtime</returns>
         IRealtime Start(IComponentCollection collection,
             TimeType timeUnit, bool isAbsoluteTime, IAsynchronousCalculation stepAction, 
-            IDataConsumer dataConsumer, IEventLog log, string reason);
+            IDataConsumer dataConsumer, IEventLog log, string reason, 
+            ITimeMeasurementProviderFactory timeMeasurementProviderFactory);
 
         /// <summary>
         /// Current time

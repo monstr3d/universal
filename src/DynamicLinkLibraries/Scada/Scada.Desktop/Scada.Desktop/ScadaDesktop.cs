@@ -23,6 +23,7 @@ using Event.Portable;
 using Event.Portable.Events;
 
 using Scada.Interfaces;
+using DataPerformer.Portable.Interfaces;
 
 namespace Scada.Desktop
 {
@@ -37,7 +38,7 @@ namespace Scada.Desktop
         /// Singleton
         /// </summary>
         public static readonly ScadaDesktop Singleton = 
-            new ScadaDesktop(null, null, TimeType.Second, true, null, null);
+            new ScadaDesktop(null, null, TimeType.Second, true, null, null, null);
 
         /// <summary>
         /// The "is enabled" sign
@@ -58,6 +59,11 @@ namespace Scada.Desktop
         /// Name of consumer
         /// </summary>
         protected string consumerName;
+
+        /// <summary>
+        /// Provider of the time measurement
+        /// </summary>
+        protected ITimeMeasurementProviderFactory timeMeasurementProviderFactory;
 
         /// <summary>
         /// Time unit
@@ -114,12 +120,14 @@ namespace Scada.Desktop
         /// <param name="realtimeStep">Realtime Step</param>
         /// <param name="events">Events</param>
         protected ScadaDesktop(IDesktop desktop, string dataConsumer, TimeType timeUnit, bool isAbsoluteTime,
-            IAsynchronousCalculation realtimeStep, Event.Interfaces.IEvent[] events)
+            IAsynchronousCalculation realtimeStep, Event.Interfaces.IEvent[] events, 
+            ITimeMeasurementProviderFactory timeMeasurementProvider)
         {
             if (desktop == null)
             {
                 return;
             }
+            this.timeMeasurementProviderFactory = timeMeasurementProvider;
             this.realtimeStep = realtimeStep;
             this.desktop = desktop;
             this.timeUnit = timeUnit;
@@ -223,7 +231,8 @@ namespace Scada.Desktop
                 isEnabled = value;
                 if (value)
                 {
-                    collection.StartRealtime(timeUnit, isAbsoluteTime, realtimeStep, dataConsumer, null, "Realtime");
+                    collection.StartRealtime(timeUnit, isAbsoluteTime, 
+                        realtimeStep, dataConsumer, null, "Realtime", timeMeasurementProviderFactory);
                     onStart();
                 }
                 else
@@ -373,11 +382,11 @@ namespace Scada.Desktop
         /// <param name="isAbsoluteTime">The "is absolute time" sing</param>
         /// <param name="realtimeStep">Realtime Step</param>
         /// <returns>The scada</returns>
-        public  IScadaInterface Create(IDesktop desktop, string dataConsumer, TimeType timeUnit,
-            bool isAbsoluteTime, IAsynchronousCalculation realtimeStep)
+        public virtual IScadaInterface Create(IDesktop desktop, string dataConsumer, TimeType timeUnit,
+            bool isAbsoluteTime, IAsynchronousCalculation realtimeStep, ITimeMeasurementProviderFactory timeMeasurementProviderFactory)
         {
             IScadaInterface scada = new ScadaDesktop(desktop, 
-                dataConsumer, timeUnit, isAbsoluteTime, realtimeStep, null);
+                dataConsumer, timeUnit, isAbsoluteTime, realtimeStep, null, this.timeMeasurementProviderFactory);
             scada.OnCreateXml += (XElement document) =>
             {
                 onCreateXmlFactory(desktop, document);

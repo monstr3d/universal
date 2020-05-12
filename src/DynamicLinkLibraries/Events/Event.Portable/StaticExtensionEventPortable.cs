@@ -21,6 +21,7 @@ using Event.Interfaces;
 using Event.Portable.Arrows;
 using Event.Portable.Interfaces;
 using Event.Portable.Internal;
+using DataPerformer.Portable.Interfaces;
 
 namespace Event.Portable
 {
@@ -275,7 +276,7 @@ namespace Event.Portable
             }
         }
 
-  
+
         /// <summary>
         /// Start
         /// </summary>
@@ -284,9 +285,11 @@ namespace Event.Portable
         /// <param name="isAbsoluteTime">Components</param>
         /// <param name="realtimeStep">Realtime step</param>
         /// <param name="dataConsumer">Data consumer</param>
+        /// <param name="timeMeasurementProviderFactory">Factory of time measurements</param>
         public static IRealtime StartRealtime(this IComponentCollection collection,
             TimeType timeUnit, bool isAbsoluteTime, IAsynchronousCalculation realtimeStep,
-           IDataConsumer dataConsumer, IEventLog log, string reason)
+           IDataConsumer dataConsumer, IEventLog log, string reason, 
+           ITimeMeasurementProviderFactory timeMeasurementProviderFactory)
         {
             if (reason.Equals(StaticExtensionEventInterfaces.Realtime))
             {
@@ -296,7 +299,7 @@ namespace Event.Portable
                 }
                 start(reason);
                 currentRuntime = Runtime.Start(collection, timeUnit, isAbsoluteTime, realtimeStep,
-                    dataConsumer, log, reason);
+                    dataConsumer, log, reason, timeMeasurementProviderFactory);
                 if (currentRuntime == null)
                 {
                     stop();
@@ -306,7 +309,7 @@ namespace Event.Portable
             {
                 start(reason);
                 return Runtime.Start(collection, timeUnit, isAbsoluteTime, realtimeStep,
-                     dataConsumer, log, reason);
+                     dataConsumer, log, reason, timeMeasurementProviderFactory);
             }
             return currentRuntime;
         }
@@ -352,7 +355,7 @@ namespace Event.Portable
             StaticExtensionEventInterfaces.NewLog = null;
             using (IDisposable disp = collection.StartRealtime(timeType,
                  isAbsoluteTime, null, dataConsumer, null,
-                 reason) as IDisposable)
+                 reason, null) as IDisposable)
             {
                 IRealtime r = disp as IRealtime;
                 RealtimeProvider p = r.TimeProvider as RealtimeProvider;
@@ -485,7 +488,7 @@ namespace Event.Portable
             StaticExtensionEventInterfaces.NewLog = null;
             using (IDisposable disp = collection.StartRealtime(timeType,
                  isAbsoluteTime, null, dataConsumer, null,
-                 reason) as IDisposable)
+                 reason, null) as IDisposable)
             {
                 IRealtime r = disp as IRealtime;
                 RealtimeProvider p = r.TimeProvider as RealtimeProvider;
@@ -514,7 +517,7 @@ namespace Event.Portable
             StaticExtensionEventInterfaces.NewLog = null;
             using (IDisposable disp = collection.StartRealtime(timeType,
                  isAbsoluteTime, null, dataConsumer, null,
-                 reason) as IDisposable)
+                 reason, null) as IDisposable)
             {
                 IRealtime r = disp as IRealtime;
                 RealtimeProvider p = r.TimeProvider as RealtimeProvider;
@@ -729,7 +732,7 @@ namespace Event.Portable
             StaticExtensionEventInterfaces.NewLog = null;
             using (IDisposable disp = collection.StartRealtime(timeType,
                  isAbsoluteTime, null, dataConsumer, null,
-                 reason) as IDisposable)
+                 reason, null) as IDisposable)
             {
                 IRealtime r = disp as IRealtime;
                 RealtimeProvider p = r.TimeProvider as RealtimeProvider;

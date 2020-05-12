@@ -6,35 +6,145 @@ using System.Threading.Tasks;
 
 using BaseTypes.Attributes;
 
-using Diagram.UI;
+using CategoryTheory;
+
 using Diagram.UI.Interfaces;
 
 
 
 using Scada.Interfaces;
 using DataPerformer.Interfaces;
-
+using Event.Interfaces;
+using System.Reflection;
+using DataPerformer.Portable.Interfaces;
 
 namespace Scada.Desktop
 {
     /// <summary>
     /// Static Extension
     /// </summary>
+    [InitAssembly]
     public static class StaticExtensionScadaDesktop
     {
 
         #region Fields
 
+        static Dictionary<string, IScadaInterface> scadas =
+            new Dictionary<string, IScadaInterface>();
+
+        static Dictionary<string, IDesktop> desktops = new Dictionary<string, IDesktop>();
+
+        static Dictionary<string, PropertyInfo> desktopD = new Dictionary<string, PropertyInfo>();
+
+        #endregion
+
+        #region Constructor
+
+        static StaticExtensionScadaDesktop()
+        {
+            ScadaDesktop.Singleton.SetBase();
+        }
 
         #endregion
 
         #region Public Members
 
         /// <summary>
+        /// Sets assembly
+        /// </summary>
+        /// <param name="ass">The assembly</param>
+        static public void SetScadaAssembly(this Assembly ass)
+        {
+            Type[] types = ass.GetTypes();
+            foreach (Type type in types)
+            {
+                PropertyInfo fi = type.GetProperty("Desktop");
+                if (fi != null)
+                {
+                    Type tt = fi.GetType();
+                    if (tt == typeof(IDesktop))
+                    {
+                        desktopD[type.Name] = fi;
+                    }
+                }
+                if (type.HasAttribute<InitAssemblyAttribute>())
+                {
+                    MethodInfo mi = type.GetMethod("Init");
+                    mi.Invoke(null, null);
+                }
+            }
+
+        }
+
+
+        public static IScadaInterface ToScada(this string name,
+                string dataConsumer,
+                ITimerEventFactory timerEventFactory,
+                ITimerFactory timerEvent,
+                ITimeMeasurementProviderFactory timeMeasurementProviderFactory,
+                TimeType timeType, bool isAbsoluteTime,
+                IAsynchronousCalculation realtimeStep, bool unique)
+        {
+            if (unique)
+            {
+                if (scadas.ContainsKey(name))
+                {
+                    return scadas[name];
+                }
+            }
+            var temp = StaticExtensionEventInterfaces.TimerEventFactory;
+            var temp1 = StaticExtensionEventInterfaces.TimerFactory;
+            StaticExtensionEventInterfaces.TimerEventFactory = timerEventFactory;
+            StaticExtensionEventInterfaces.TimerFactory = timerEvent;
+            IDesktop desktop = desktopD[name].GetValue(null) as IDesktop;
+            IScadaInterface scada =
+                desktop.ScadaFromDesktop(dataConsumer, timeType, isAbsoluteTime, 
+                realtimeStep, timeMeasurementProviderFactory);
+            StaticExtensionEventInterfaces.TimerEventFactory = temp;
+            StaticExtensionEventInterfaces.TimerFactory = temp1;
+            if (unique)
+            {
+                scadas[name] = scada;
+            }
+            return scada;
+        }
+
+        /// <summary>
+        /// Inits itself
+        /// </summary>
+        static public void Init()
+        {
+
+        }
+
+        /// <summary>
         /// Scada factory
         /// </summary>
         static public IScadaFactory ScadaFactory
         { get; set; }
+
+
+        /// <summary>
+        /// Sets base factory
+        /// </summary>
+        /// <param name="replace">Factory for replacement</param>
+        public static void SetBase(this IScadaFactory replace)
+        {
+            if (replace == null)
+            {
+                throw new Exception();
+            }
+            if (ScadaFactory == null)
+            {
+                ScadaFactory = replace;
+                return;
+            }
+            if (ScadaFactory.IsBase(replace))
+            {
+                ScadaFactory = replace;
+            }
+        }
+
 
         /// <summary>
         /// Creates Scada from desktop
@@ -46,22 +156,51 @@ namespace Scada.Desktop
         /// <param name="realtimeStep">Realtime Step</param>
         /// <returns>Scada</returns>
         public static IScadaInterface ScadaFromDesktop(this IDesktop desktop,
-            string dataConsumer, TimeType timeType, bool isAbsoluteTime, IAsynchronousCalculation realtimeStep)
+            string dataConsumer, TimeType timeType, bool isAbsoluteTime, 
+            IAsynchronousCalculation realtimeStep, ITimeMeasurementProviderFactory timeMeasurementProviderFactory)
         {
             if (desktop == null)
             {
                 return null;
             }
-            return ScadaFactory.Create(desktop, dataConsumer, timeType, isAbsoluteTime, realtimeStep);
+            return ScadaFactory.Create(desktop, dataConsumer, timeType, 
+                isAbsoluteTime, realtimeStep, timeMeasurementProviderFactory);
         }
 
-        #endregion
-
-        #region Private Members
-
-        static StaticExtensionScadaDesktop()
+        /// <summary>
+        /// Creates Scada from desktop
+        /// </summary>
+        /// <param name="desktop">Desktop</param>
+        /// <param name="dataConsumer">Data consumer</param>
+        /// <param name="time">Time measure provider</param>
+        /// <param name="timerEvent">Time event privider</param>
+        /// <param name="timeType">Time type</param>
+        /// <param name="isAbsoluteTime">The "is absolute time" sign</param>
+        /// <param name="realtimeStep">Realtime Step</param>
+        /// <returns>Scada</returns>
+        public static IScadaInterface ScadaFromDesktop(this IDesktop desktop,
+            string dataConsumer, ITimerFactory time, ITimerEventFactory timerEvent, 
+            ITimeMeasurementProviderFactory timeMeasurementProviderFactory,
+            TimeType timeType, bool isAbsoluteTime, 
+            IAsynchronousCalculation realtimeStep)
         {
+            var temp = StaticExtensionEventInterfaces.TimerEventFactory;
+            var temp1 = StaticExtensionEventInterfaces.TimerFactory;
+            StaticExtensionEventInterfaces.TimerEventFactory = timerEvent;
+            StaticExtensionEventInterfaces.TimerFactory = time;
+            if (desktop == null)
+            {
+                return null;
+            }
+            IScadaInterface scada = 
+                desktop.ScadaFromDesktop(dataConsumer, timeType, 
+                isAbsoluteTime, realtimeStep, timeMeasurementProviderFactory);
+            StaticExtensionEventInterfaces.TimerEventFactory = temp;
+            StaticExtensionEventInterfaces.TimerFactory = temp1;
+            return scada;
         }
+
+
         #endregion
     }
 }

@@ -117,6 +117,7 @@ namespace DataPerformer.Portable
         /// </summary>
         static public ITimeMeasurementProviderFactory TimeMeasureProviderFactory
         { get; set; }
+        
         /// <summary>
         /// Creates disassembly object dictionary
         /// </summary>
@@ -2349,7 +2350,9 @@ namespace DataPerformer.Portable
 
         class DefautFactory : ITimeMeasurementProviderFactory
         {
-            ITimeMeasurementProvider ITimeMeasurementProviderFactory.Create(bool isAbsolute, TimeType timeUnit, string reason)
+
+            ITimeMeasurementProvider ITimeMeasurementProviderFactory.Create(bool isAbsolute, 
+                TimeType timeUnit, string reason)
             {
                 if (reason == "Realtime")
                 {

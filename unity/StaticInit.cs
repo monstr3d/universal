@@ -19,17 +19,24 @@ using Scada.Desktop;
 using Event.Portable.Runtime;
 using Event.Portable.Interfaces;
 using DataPerformer.Portable.Measurements;
+using System.Reflection;
+using Scada.Interfaces;
+using CategoryTheory;
 
 namespace StaticExtension
 {
 
  
-
-
-
     static class StaticInit
     {
- 
+
+        #region Fields
+
+   
+
+        #endregion
+
+
         static internal void ShowError(this Exception exception)
         {
             Debug.LogError(exception.Message);
@@ -38,9 +45,9 @@ namespace StaticExtension
 
         static private ITimerFactory timerFactory;
 
-        static private ITimeMeasureProviderFactory timeMeasureProviderFactory;
+        static private ITimeMeasurementProviderFactory timeMeasureProviderFactory;
         
-        static private ITimeMeasureProvider timeMeasureProvider;
+        static private ITimeMeasurementProvider timeMeasureProvider;
 
         static private Scada.Interfaces.IErrorHandler errorHandler = new ErrorHanller();
 
@@ -50,6 +57,7 @@ namespace StaticExtension
         static internal Scada.Interfaces.IErrorHandler ErrorHandler => errorHandler;
         internal static void Init()
         {
+
         }
 
         static internal void SetFactory(this MonoBehaviour script)
@@ -86,30 +94,19 @@ namespace StaticExtension
 
         static StaticInit()
         {
-            StandardEventRuntime.Singleton.Set();
-            StaticExtensionDataPerformerPortable.Factory = DataPerformer.Runtime.DataRuntimeFactory.Singleton; 
-            StaticExtensionScadaDesktop.ScadaFactory = ScadaDesktop.Singleton;
+            Assembly ass = typeof(StaticInit).Assembly;
+            ass.SetScadaAssembly();
+            ExtendedApplicationInitializer initializer =
+       new ExtendedApplicationInitializer(OrdinaryDifferentialEquations.Runge4Solver.Singleton,
+        RungeProcessor.Processor,
+           DataPerformer.Portable.Runtime.DataRuntimeFactory.Singleton, new IApplicationInitializer[]
+          {
 
-                    ExtendedApplicationInitializer initializer =
-               new ExtendedApplicationInitializer(OrdinaryDifferentialEquations.Runge4Solver.Singleton,
-                RungeProcessor.Processor,
-                   DataPerformer.Runtime.DataRuntimeFactory.Singleton, new IApplicationInitializer[]
-                  {
-                              Event.Portable.ApplicationInitializer.Singleton
-
-                  },
-                  true);
+          },
+          true);
             initializer.InitializeApplication();
-               Event.Portable.Factory.EmptyTimerEventFactory.Set();
-            StaticExtensionScadaDesktop.ScadaFactory = ScadaDesktop.Singleton;
-
-            (StandardEventRuntime.Singleton as IRealtime).OnError += (Exception ex) =>
-                {
-                    ex.ShowError();
-                };
 
             
-
         }
         class ErrorHanller : Scada.Interfaces.IErrorHandler
         {
@@ -126,18 +123,18 @@ namespace StaticExtension
 
    
 
-        class TimeMeasureProviderFactory : ITimeMeasureProviderFactory, ITimeMeasureProvider
+        class TimeMeasureProviderFactory : ITimeMeasurementProviderFactory, ITimeMeasurementProvider
         {
-            ITimeMeasureProvider ITimeMeasureProviderFactory.Create(bool isAbsolute, TimeType timeUnit, string reason)
+            ITimeMeasurementProvider ITimeMeasurementProviderFactory.Create(bool isAbsolute, TimeType timeUnit, string reason)
             {
                 return this;
             }
 
 
-            IMeasurement ITimeMeasureProvider.TimeMeasurement => m;
+            IMeasurement ITimeMeasurementProvider.TimeMeasurement => m;
 
-            double ITimeMeasureProvider.Time { get => Time.realtimeSinceStartup; set { } }
-            double ITimeMeasureProvider.Step { get; set; }
+            double ITimeMeasurementProvider.Time { get => Time.realtimeSinceStartup; set { } }
+            double ITimeMeasurementProvider.Step { get; set; }
 
             IMeasurement m = new Measurement(() => Time.realtimeSinceStartup, "Time");
 

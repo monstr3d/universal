@@ -47,7 +47,7 @@ namespace Scada.Desktop.Serializable
             IAsynchronousCalculation realtimeStep)
         {
             IDesktop desktop = buffer.DesktopFromBytes();
-            return desktop.ScadaFromDesktop(dataConsumer, timeType, isAbsoluteTime, realtimeStep);
+            return desktop.ScadaFromDesktop(dataConsumer, timeType, isAbsoluteTime, realtimeStep, null);
         }
 
         /// <summary>
@@ -64,7 +64,7 @@ namespace Scada.Desktop.Serializable
             IAsynchronousCalculation realtimeStep)
         {
             IDesktop desktop = stream.DesktopFromStream();
-            return desktop.ScadaFromDesktop(dataConsumer, timeType, isAbsoluteTime, realtimeStep);
+            return desktop.ScadaFromDesktop(dataConsumer, timeType, isAbsoluteTime, realtimeStep, null);
         }
 
         /// <summary>
@@ -81,7 +81,7 @@ namespace Scada.Desktop.Serializable
             IAsynchronousCalculation realtimeStep)
         {
             IDesktop desktop = fileName.DesktopFromFile();
-            return desktop.ScadaFromDesktop(dataConsumer, timeType, isAbsoluteTime, realtimeStep);
+            return desktop.ScadaFromDesktop(dataConsumer, timeType, isAbsoluteTime, realtimeStep, null);
         }
 
         /// <summary>

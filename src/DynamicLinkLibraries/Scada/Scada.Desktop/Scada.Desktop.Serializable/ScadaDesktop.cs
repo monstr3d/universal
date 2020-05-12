@@ -18,6 +18,7 @@ using DataPerformer.Interfaces;
 using Scada.Interfaces;
 
 using Web.Interfaces;
+using DataPerformer.Portable.Interfaces;
 
 namespace Scada.Desktop.Serializable
 {
@@ -32,8 +33,8 @@ namespace Scada.Desktop.Serializable
         /// <summary>
         /// Singleton
         /// </summary>
-        public static readonly ScadaDesktop Singleton =
-            new ScadaDesktop(null, null, TimeType.Second, true, null, null);
+        new public static readonly ScadaDesktop Singleton =
+            new ScadaDesktop(null, null, TimeType.Second, true, null, null, null);
 
         Dictionary<string, IUrlConsumer> urlConsumers = new Dictionary<string, IUrlConsumer>();
 
@@ -53,8 +54,9 @@ namespace Scada.Desktop.Serializable
         /// <param name="realtimeStep">Realtime Step</param>
         /// <param name="events">Events</param>
         protected ScadaDesktop(IDesktop desktop, string dataConsumer, TimeType timeUnit, bool isAbsoluteTime,
-            IAsynchronousCalculation realtimeStep, Event.Interfaces.IEvent[] events) :
-            base(desktop, dataConsumer, timeUnit, isAbsoluteTime, realtimeStep, events)
+            IAsynchronousCalculation realtimeStep, Event.Interfaces.IEvent[] events, 
+            ITimeMeasurementProviderFactory timeMeasurementProviderFactory) :
+            base(desktop, dataConsumer, timeUnit, isAbsoluteTime, realtimeStep, events, timeMeasurementProviderFactory)
         {
              onStop += () =>
              {
@@ -94,11 +96,14 @@ namespace Scada.Desktop.Serializable
         /// <param name="isAbsoluteTime">The "is absolute time" sing</param>
         /// <param name="realtimeStep">Realtime Step</param>
         /// <returns>The scada</returns>
-        public virtual IScadaInterface Create(IDesktop desktop, string dataConsumer, TimeType timeUnit,
-            bool isAbsoluteTime, IAsynchronousCalculation realtimeStep)
+        public override IScadaInterface Create(IDesktop desktop, string dataConsumer, TimeType timeUnit,
+            bool isAbsoluteTime, IAsynchronousCalculation realtimeStep, 
+            ITimeMeasurementProviderFactory timeMeasurementProviderFactory)
         {
 
-            IScadaInterface scada = new ScadaDesktop(desktop, dataConsumer, timeUnit, isAbsoluteTime, realtimeStep, eventsData);
+            IScadaInterface scada = 
+                new ScadaDesktop(desktop, dataConsumer, timeUnit, isAbsoluteTime, realtimeStep, eventsData,
+                timeMeasurementProviderFactory);
             scada.OnCreateXml += (XElement document) =>
             {
                 onCreateXmlFactory(desktop, document);

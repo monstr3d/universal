@@ -533,7 +533,25 @@ namespace Diagram.UI
 
         #region Public members
 
-  
+        /// <summary>
+        /// Loads assembly
+        /// </summary>
+        /// <param name="ass">The assembly</param>
+        public static void Load(this Assembly ass)
+        {
+            Type[] types = ass.GetTypes();
+            foreach (Type t in types)
+            {
+                if (t.HasAttribute<InitAssemblyAttribute>())
+                {
+                    MethodInfo mi = t.GetMethod("Init");
+                    mi.Invoke(null, null);
+                }
+            }
+
+        }
+
+
         /// <summary>
         /// Gets children
         /// </summary>

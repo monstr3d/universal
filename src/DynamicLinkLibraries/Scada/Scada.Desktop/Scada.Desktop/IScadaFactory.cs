@@ -13,6 +13,7 @@ using DataPerformer.Interfaces;
 
 using Scada.Interfaces;
 using System.Xml.Linq;
+using DataPerformer.Portable.Interfaces;
 
 namespace Scada.Desktop
 {
@@ -30,7 +31,8 @@ namespace Scada.Desktop
         /// <param name="realtimeStep">Realtime Step</param>
         /// <returns>The scada</returns>
         IScadaInterface Create(IDesktop desktop, string dataConsumer,
-            TimeType timeUnit, bool isAbsoluteTime, IAsynchronousCalculation realtimeStep);
+            TimeType timeUnit, bool isAbsoluteTime, IAsynchronousCalculation realtimeStep, 
+            ITimeMeasurementProviderFactory  timeMeasurementProviderFactory);
 
         /// <summary>
         /// Create Xml documet

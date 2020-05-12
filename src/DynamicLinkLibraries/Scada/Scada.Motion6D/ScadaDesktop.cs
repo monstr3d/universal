@@ -26,21 +26,18 @@ using Scada.Interfaces;
 using Scada.Desktop;
 using Scada.Motion6D.Interfaces;
 
-using Web.Interfaces;
 
 using Animation.Interfaces;
 
-using Scada.Desktop.Serializable;
-using AssemblyService;
 using Event.Portable.Interfaces;
-using Motion6D.Portable;
+using DataPerformer.Portable.Interfaces;
 
-namespace Scada.Motion6D.Factory
+namespace Scada.Motion6D
 {
     /// <summary>
     /// Scada desktop for 6D motion
     /// </summary>
-    public class ScadaDesktopMotion6D : Desktop.Serializable.ScadaDesktop, ICameraProvider
+    public class ScadaDesktop : Desktop.ScadaDesktop, ICameraProvider
     {
 
         #region Fields
@@ -50,7 +47,7 @@ namespace Scada.Motion6D.Factory
         /// <summary>
         /// Singleton
         /// </summary>
-        new public static readonly ScadaDesktopMotion6D Singleton = new ScadaDesktopMotion6D(null, null, TimeType.Second, true, null);
+        new public static readonly ScadaDesktop Singleton = new ScadaDesktop(null, null, TimeType.Second, true, null, null);
 
         Dictionary<string, Camera> cameras = new Dictionary<string, Camera>();
 
@@ -68,9 +65,11 @@ namespace Scada.Motion6D.Factory
         /// <param name="timeUnit">Time unit</param>
         /// <param name="isAbsoluteTime">The "is absolute time" sign</param>
         /// <param name="realtimeStep">Realtime Step</param>
-        protected ScadaDesktopMotion6D(IDesktop desktop, string dataConsumer,
-            TimeType timeUnit, bool isAbsoluteTime, IAsynchronousCalculation realtimeStep)
-            : base(desktop, dataConsumer, timeUnit, isAbsoluteTime, realtimeStep, null)
+        protected ScadaDesktop(IDesktop desktop, string dataConsumer,
+            TimeType timeUnit, bool isAbsoluteTime, IAsynchronousCalculation realtimeStep, 
+            ITimeMeasurementProviderFactory timeMeasurementProviderFactory)
+            : base(desktop, dataConsumer, timeUnit, isAbsoluteTime, realtimeStep, null, 
+                  timeMeasurementProviderFactory)
         {
 
         }
@@ -105,9 +104,11 @@ namespace Scada.Motion6D.Factory
         /// <param name="realtimeStep">Realtime Step</param>
         /// <returns>The scada</returns>
         public override IScadaInterface Create(IDesktop desktop, string dataConsumer, TimeType timeUnit,
-            bool isAbsoluteTime, IAsynchronousCalculation realtimeStep)
+            bool isAbsoluteTime, IAsynchronousCalculation realtimeStep, 
+            ITimeMeasurementProviderFactory timeMeasurementProviderFactory)
         {
-            IScadaInterface scada = new ScadaDesktopMotion6D(desktop, dataConsumer, timeUnit, isAbsoluteTime, realtimeStep);
+            IScadaInterface scada = new ScadaDesktop(desktop, dataConsumer, timeUnit, isAbsoluteTime, realtimeStep, 
+                timeMeasurementProviderFactory);
             scada.OnCreateXml += (XElement document) =>
             {
                 onCreateXmlFactory(desktop, document);
@@ -134,7 +135,7 @@ namespace Scada.Motion6D.Factory
                     }
                     if (value)
                     {
-                        var realtime = StartRealtime();
+                        var realtime = StartRealtime(timeMeasurementProviderFactory);
                         if (realtime == null)
                         {
                             throw new Exception("No runtime");
@@ -151,9 +152,6 @@ namespace Scada.Motion6D.Factory
             }
         }
 
-
-
-
         /// <summary>
         /// Factory from base directory
         /// </summary>
@@ -161,7 +159,7 @@ namespace Scada.Motion6D.Factory
         {
             get
             {
-                return AppDomain.CurrentDomain.BaseDirectory.GetSubclassObject<IScadaFactory>();
+                return null;
             }
             set
             {
@@ -199,7 +197,7 @@ namespace Scada.Motion6D.Factory
         #region Private Members
 
 
-        IRealtime StartRealtime()
+        IRealtime StartRealtime(ITimeMeasurementProviderFactory timeMeasurementProviderFactory)
         {
             IAsynchronousCalculation animation =
                collection.StartAnimation(new string[] {StaticExtensionEventInterfaces.Realtime,
@@ -210,7 +208,7 @@ namespace Scada.Motion6D.Factory
             }
            return  StaticExtensionEventPortable.StartRealtime(collection, timeUnit, isAbsoluteTime, animation,
                 dataConsumer, StaticExtensionEventInterfaces.NewLog,
-                StaticExtensionEventInterfaces.Realtime);
+                StaticExtensionEventInterfaces.Realtime, timeMeasurementProviderFactory);
         }
 
         #endregion

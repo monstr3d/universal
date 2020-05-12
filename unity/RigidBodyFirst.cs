@@ -5,7 +5,7 @@ using System.Text;
 
 namespace GeneratedProject
 {
-	public static class StaticExtensionGeneratedProject
+	public static class RigidBodyFirst
 	{
 
 		 static public bool SuccessLoad { get; private set; } = true;
@@ -47,6 +47,10 @@ namespace GeneratedProject
 				arrows.Add(currALabel);
 				currALabel.SourceNumber = (int)5;
 				currALabel.TargetNumber = (int)1;
+				currALabel  = new IntrenalDesktop.ArrowLabel6("", this);
+				arrows.Add(currALabel);
+				currALabel.SourceNumber = (int)5;
+				currALabel.TargetNumber = (int)2;
 				bool pl = PostLoad();
 				bool pd = PostDeserialize();
 				SuccessLoad = pl & pd;
@@ -339,6 +343,19 @@ namespace GeneratedProject
 				{
 					this.desktop = desktop;
 					arrow = new ArrowLabel5.CategoryArrow();
+				}
+		
+				internal class CategoryArrow : DataPerformer.Portable.DataLink
+				{
+				}
+			}
+		
+			internal class ArrowLabel6 : Diagram.UI.Labels.PureArrowLabel
+			{
+				internal ArrowLabel6(string name, Diagram.UI.Interfaces.IDesktop desktop) : base(name, "", "", 0, 0)
+				{
+					this.desktop = desktop;
+					arrow = new ArrowLabel6.CategoryArrow();
 				}
 		
 				internal class CategoryArrow : DataPerformer.Portable.DataLink

@@ -3,28 +3,28 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
+
+using CategoryTheory;
 
 using Diagram.UI.Interfaces;
 
 using DataPerformer.Interfaces;
 
 using Scada.Interfaces;
-using Scada.Motion6D.Factory;
-using Scada.Motion6D.Interfaces;
-
-using Animation.Interfaces;
-using System.Xml.Linq;
+using Scada.Desktop;
 
 namespace Scada.Motion6D
 {
     /// <summary>
     /// Static extension
     /// </summary>
+    [InitAssembly]
     public static class StaticExtensionScadaMotion6D 
     {
         #region Fields
 
-        private static IScadaInterface scada = global::Scada.Motion6D.Factory.ScadaDesktopMotion6D.Singleton;
+        private static IScadaInterface scada = ScadaDesktop.Singleton;
 
         static IAsynchronousCalculation currentCalculation;
 
@@ -33,6 +33,13 @@ namespace Scada.Motion6D
 
         #region Public Members
 
+        /// <summary>
+        /// Inits itself
+        /// </summary>
+        static public void Init()
+        {
+
+        }
 
         /// <summary>
         /// List of cameras
@@ -42,7 +49,7 @@ namespace Scada.Motion6D
         public static List<string> GetCameraList(this IScadaInterface scada)
         {
             XElement document = scada.XmlDocument;
-            return document.GetItems(ScadaDesktopMotion6D.Cameras);
+            return new List<string>();// document.GetItems(ScadaDesktop.Cameras);
         }
 
         /// <summary>
@@ -75,8 +82,7 @@ namespace Scada.Motion6D
 
         static StaticExtensionScadaMotion6D()
         {
-            global::Scada.Desktop.StaticExtensionScadaDesktop.ScadaFactory =
-                global::Scada.Motion6D.Factory.ScadaDesktopMotion6D.Singleton;
+            ScadaDesktop.Singleton.SetBase();
         }
 
         #endregion

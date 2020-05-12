@@ -1524,7 +1524,7 @@ namespace DataPerformer.UI.UserControls
             buttonStartStopRealtime.BackColor = Color.Red;
             userControlRealtime.Realtime = collection.StartRealtime(userControlTimeType.TimeUnit,
                 checkBoxAbsoluteTime.Checked, animation,
-                consumer, StaticExtensionEventInterfaces.NewLog, StaticExtensionEventInterfaces.Realtime);
+                consumer, StaticExtensionEventInterfaces.NewLog, StaticExtensionEventInterfaces.Realtime, null);
         }
 
         IEnumerable<PanelMeasureGraph> Panels

@@ -16,6 +16,7 @@ using DataPerformer.Interfaces;
 
 using Event.Interfaces;
 using Event.Portable.Interfaces;
+using DataPerformer.Portable.Interfaces;
 
 namespace Event.Portable.Runtime
 {
@@ -61,6 +62,7 @@ namespace Event.Portable.Runtime
         /// </summary>
         protected StandardEventRuntime()
         {
+
         }
 
         #endregion
@@ -77,19 +79,25 @@ namespace Event.Portable.Runtime
         /// <param name="dataConsumer">Data Consumer</param>
         /// <param name="log">log</param>
         /// <param name="reason">Reason</param>
+        /// <param name="timeMeasurementProviderFactory">Factory of time measurements</param>
+        /// <returns>Start runtime</returns>
         IRealtime IRealtime.Start(IComponentCollection collection,
             TimeType timeUnit, bool isAbsoluteTime, IAsynchronousCalculation stepAction,
-            IDataConsumer dataConsumer, IEventLog log, string reason)
+            IDataConsumer dataConsumer, IEventLog log, string reason, 
+            ITimeMeasurementProviderFactory timeMeasurementProviderFactory)
         {
             this.reason = reason;
             StaticExtensionEventPortable.StartRealtime(collection);
             StandardEventRuntime rt = new StandardEventRuntime();
             rt.collection = collection;
+            ITimeMeasurementProviderFactory f = timeMeasurementProviderFactory;
+            if (f == null)
+            {
+                f = DataPerformer.Portable.StaticExtensionDataPerformerPortable.TimeMeasureProviderFactory;
+            }
             try
             {
-                ITimeMeasurementProvider realTime =
-                    DataPerformer.Portable.StaticExtensionDataPerformerPortable.TimeMeasureProviderFactory.Create(
-                        isAbsoluteTime, timeUnit, reason);
+                ITimeMeasurementProvider realTime  =  f.Create(isAbsoluteTime, timeUnit, reason);
                 Tuple<IDataConsumer,IComponentCollection, ITimeMeasurementProvider, IAsynchronousCalculation> tuple =
                     new Tuple<IDataConsumer, IComponentCollection, 
                     ITimeMeasurementProvider, IAsynchronousCalculation>
