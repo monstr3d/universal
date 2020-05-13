@@ -4,6 +4,8 @@ using System;
 using Unity;
 using UnityEngine;
 
+using Diagram.UI;
+
 using BaseTypes.Attributes;
 using DataPerformer.Portable.Interfaces;
 using DataPerformer.Interfaces;
@@ -14,6 +16,7 @@ using Event.Interfaces;
 using Scada.Interfaces;
 using Scada.Desktop;
 using StaticExtension;
+using System.Collections.Generic;
 
 namespace Assets
 {
@@ -21,6 +24,8 @@ namespace Assets
         ITimeMeasurementProviderFactory, ITimeMeasurementProvider
     {
         private MonoBehaviour monoBehaviour;
+
+        
 
         private TimeSpan timeSpan;
 
@@ -31,6 +36,11 @@ namespace Assets
         TimeSpan ITimer.TimeSpan => timeSpan;
 
         private IScadaInterface scada;
+
+        private Diagram.UI.Interfaces.IDesktop desktop;
+
+        private Dictionary<string, Motion6D.Interfaces.IReferenceFrame> frames =
+            new Dictionary<string, Motion6D.Interfaces.IReferenceFrame>();
 
         double step;
 
@@ -47,8 +57,16 @@ namespace Assets
             {
                 scada = name.ToScada("Consumer", this, this, this, TimeType.Second, false, null, unique);
                 scada.ErrorHandler = StaticInit.ErrorHandler;
+                desktop = scada.GetDesktop();
+                desktop.ForEach((Motion6D.Interfaces.IReferenceFrame frame) =>
+                {
+                    string fn = frame.GetName(desktop);
+                    frames[fn] = frame;
+                });
             }
         }
+
+        public Dictionary<string, Motion6D.Interfaces.IReferenceFrame> Frames { get => frames; }
 
         public IScadaInterface Scada { get => scada; }
 

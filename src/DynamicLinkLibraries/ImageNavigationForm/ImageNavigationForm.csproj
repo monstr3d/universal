@@ -1,0 +1,324 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D62F0200-1F48-4562-B86E-625CED9BAA72}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ImageNavigation</RootNamespace>
+    <AssemblyName>ImageNavigationForm</AssemblyName>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Factory\ImageNavigationFactory.cs" />
+    <Compile Include="Forms\FormBitmapGraphSelection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormBitmapGraphSelection.Designer.cs">
+      <DependentUpon>FormBitmapGraphSelection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormBitmapSelection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormBitmapSelection.designer.cs">
+      <DependentUpon>FormBitmapSelection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inrefaces\IChartTable.cs" />
+    <Compile Include="Labels\BitmapGraphSelectionLabel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Labels\BitmapSelectionLabel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Labels\BitmapSelectionLabel.Designer.cs">
+      <DependentUpon>BitmapSelectionLabel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Labels\BitmapTableLabel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ResourceImage.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ResourceImage.resx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UserControlBitmapGraphSelection.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UserControlBitmapGraphSelection.Designer.cs">
+      <DependentUpon>UserControlBitmapGraphSelection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UserControlBitmapGraphSelectionTab.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UserControlBitmapGraphSelectionTab.Designer.cs">
+      <DependentUpon>UserControlBitmapGraphSelectionTab.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UserControlBitmapTable.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UserControlBitmapTable.Designer.cs">
+      <DependentUpon>UserControlBitmapTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utils\ControlUtilites.cs" />
+    <Compile Include="Utils\ResourceControl_Ru.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ResourceControl_Ru.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\ThirdParty\OfficePickers\OfficePickers.csproj">
+      <Project>{cad56b75-481b-4c76-b090-4bc2ff5e5681}</Project>
+      <Name>OfficePickers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AliasRegression\AliasRegression.csproj">
+      <Project>{C3EBDB3F-A0DE-4126-8E87-B23C09EA08EC}</Project>
+      <Name>AliasRegression</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BaseTypes\BaseTypes\BaseTypes.csproj">
+      <Project>{8a9c8c8b-40b2-418c-ac92-4bdbb6e071c3}</Project>
+      <Name>BaseTypes</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BasicEngineeringUIFactory\BasicEngineering.UI.Factory.csproj">
+      <Project>{6086F8AB-E2B0-4C22-A06F-5F5A164E82A7}</Project>
+      <Name>BasicEngineering.UI.Factory</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BitmapConsumer\BitmapConsumer.csproj">
+      <Project>{4F039C2F-907F-41CD-821F-63367CE59692}</Project>
+      <Name>BitmapConsumer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CategoryTheory\CategoryTheory\CategoryTheory\CategoryTheory.csproj">
+      <Project>{838e09e1-e3cd-49e7-b009-ca9dd244a8be}</Project>
+      <Name>CategoryTheory</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Chart\Chart.Drawing\Chart.Drawing.csproj">
+      <Project>{6881187E-42EB-4994-A557-8601C60E9BA6}</Project>
+      <Name>Chart.Drawing</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Chart\Chart.csproj">
+      <Project>{2E77AEE6-D898-4535-893A-CDA4C7F5D54B}</Project>
+      <Name>Chart</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common.UI.Resources\Common.UI.Resources.csproj">
+      <Project>{931B6526-5D65-40AD-ABA5-AD71EABEEB7E}</Project>
+      <Name>Common.UI.Resources</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataPerformer\DataPerformer.Base\DataPerformer.Base\DataPerformer.Base.csproj">
+      <Project>{cde580bc-cfe5-45d3-b9a2-76585e54a416}</Project>
+      <Name>DataPerformer.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataPerformer\DataPerformer.Basic\DataPerformer.Basic.csproj">
+      <Project>{5C0C307C-0352-4E34-9A9E-CB4F4EB31D6F}</Project>
+      <Name>DataPerformer.Basic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataPerformer\DataPerformer.Interfaces\DataPerformer.Interfaces.csproj">
+      <Project>{F9D68183-6801-4214-AFFC-737ACBEF498E}</Project>
+      <Name>DataPerformer.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataPerformer\DataPerformer.Portable\DataPerformer.Portable.csproj">
+      <Project>{4442e3e5-41b9-4f60-9c1a-07272d9c31d0}</Project>
+      <Name>DataPerformer.Portable</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataPerformer\DataPerformer.UI\DataPerformer.UI.csproj">
+      <Project>{9cbc2a5e-847f-4cdf-859a-711691c2ec5a}</Project>
+      <Name>DataPerformer.UI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataPerformer\DataPerformer.csproj">
+      <Project>{618B5522-01BD-4834-BB34-0C3AC7BB59EC}</Project>
+      <Name>DataPerformer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Diagram\Diagram.UI\Diagram.UI.csproj">
+      <Project>{3A2AB37F-17CD-4CB2-96C6-14D4EFBF8279}</Project>
+      <Name>Diagram.UI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Diagram\Diagram.UI.Forms\Diagram.UI.Forms.csproj">
+      <Project>{4FB6133D-2948-4E29-A7B2-5DD5FD750606}</Project>
+      <Name>Diagram.UI.Forms</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Diagram\Diagram.UI.Serializable\Diagram.UI.Serializable.csproj">
+      <Project>{868ADFD8-51C2-4CEC-8132-11E5A0F907E3}</Project>
+      <Name>Diagram.UI.Serializable</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Diagram\Diagram\Diagram.csproj">
+      <Project>{096F4EA8-6301-4545-96D6-286E67CCBA5C}</Project>
+      <Name>Diagram</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FormulaEditor\FormulaEditor\FormulaEditor.csproj">
+      <Project>{8613B23C-49B6-4056-83C5-E982D7F51F32}</Project>
+      <Name>FormulaEditor</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ImageNavigation\ImageNavigation.csproj">
+      <Project>{A3C7BD0F-94A4-41D9-83D4-5F8213562398}</Project>
+      <Name>ImageNavigation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ResourceService\ResourceService.csproj">
+      <Project>{A7719FB8-AECF-4F38-83E4-5A1352C8ACD3}</Project>
+      <Name>ResourceService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WindowsExtensions\WindowsExtensions.csproj">
+      <Project>{712b37a4-4fb4-4cc5-87d4-fade83194057}</Project>
+      <Name>WindowsExtensions</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Forms\FormBitmapGraphSelection.resx">
+      <DependentUpon>FormBitmapGraphSelection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormBitmapSelection.resx">
+      <DependentUpon>FormBitmapSelection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Labels\BitmapSelectionLabel.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>BitmapSelectionLabel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourceImage.resx">
+      <SubType>Designer</SubType>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ResourceImage.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserControlBitmapGraphSelection.resx">
+      <DependentUpon>UserControlBitmapGraphSelection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserControlBitmapGraphSelectionTab.resx">
+      <DependentUpon>UserControlBitmapGraphSelectionTab.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserControlBitmapTable.resx">
+      <DependentUpon>UserControlBitmapTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Utils\ResourceControl_Ru.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ResourceControl_Ru.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>Клиентский профиль .NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.VisualBasic.PowerPacks.10.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft Visual Basic PowerPacks 10.0</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Установщик Windows 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

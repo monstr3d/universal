@@ -53,18 +53,19 @@ namespace Scada.Desktop
         /// Sets assembly
         /// </summary>
         /// <param name="ass">The assembly</param>
-        static public void SetScadaAssembly(this Assembly ass)
+        /// <param name="action">The action</param>
+        static public void SetScadaAssembly(this Assembly ass, Action<Type> action = null)
         {
             Type[] types = ass.GetTypes();
             foreach (Type type in types)
             {
-                PropertyInfo fi = type.GetProperty("Desktop");
-                if (fi != null)
+                PropertyInfo pi = type.GetProperty("Desktop");
+                if (pi != null)
                 {
-                    Type tt = fi.GetType();
+                    Type tt = pi.PropertyType;
                     if (tt == typeof(IDesktop))
                     {
-                        desktopD[type.Name] = fi;
+                        desktopD[type.Name] = pi;
                     }
                 }
                 if (type.HasAttribute<InitAssemblyAttribute>())
@@ -72,11 +73,37 @@ namespace Scada.Desktop
                     MethodInfo mi = type.GetMethod("Init");
                     mi.Invoke(null, null);
                 }
+                if (action != null)
+                {
+                    action(type);
+                }
             }
 
         }
 
+        /// <summary>
+        /// Gets Desktop from SCADA
+        /// </summary>
+        /// <param name="scada">The Scada</param>
+        /// <returns>The desktop</returns>
+        public static IDesktop GetDesktop(this IScadaInterface scada)
+        {
+            return (scada as ScadaDesktop).Desktop;
+        }
 
+        /// <summary>
+        /// String to SCADA
+        /// </summary>
+        /// <param name="name">Name of class</param>
+        /// <param name="dataConsumer">Data consumer</param>
+        /// <param name="timerEventFactory">Timer Event Factory</param>
+        /// <param name="timerEvent">Timer Factory</param>
+        /// <param name="timeMeasurementProviderFactory">Tim eMeasurement Provider Factory</param>
+        /// <param name="timeType">Type of time</param>
+        /// <param name="isAbsoluteTime">Is absolute time sigh</param>
+        /// <param name="realtimeStep">Asynchronous Calculation</param>
+        /// <param name="unique">Unique sign</param>
+        /// <returns>The SCADA</returns>
         public static IScadaInterface ToScada(this string name,
                 string dataConsumer,
                 ITimerEventFactory timerEventFactory,

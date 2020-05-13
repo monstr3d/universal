@@ -22,6 +22,8 @@ using DataPerformer.Portable.Measurements;
 using System.Reflection;
 using Scada.Interfaces;
 using CategoryTheory;
+using Assets;
+using System.Runtime.InteropServices;
 
 namespace StaticExtension
 {
@@ -51,7 +53,10 @@ namespace StaticExtension
 
         static private Scada.Interfaces.IErrorHandler errorHandler = new ErrorHanller();
 
+        static Dictionary<string, MonoBehaviorWrapper> wrappers = 
+            new Dictionary<string, MonoBehaviorWrapper>();
 
+        static Dictionary<string, ConstructorInfo> updates = new Dictionary<string, ConstructorInfo>();
 
 
         static internal Scada.Interfaces.IErrorHandler ErrorHandler => errorHandler;
@@ -60,34 +65,72 @@ namespace StaticExtension
 
         }
 
-        static internal void SetFactory(this MonoBehaviour script)
+
+        public static Action Create(this MonoBehaviour mono, MonoBehaviorWrapper wrapper, string[] upd)
         {
-            if (timerFactory == null)
+            Action action = null;
+            foreach (string s in upd)
             {
-                if (script is ITimerFactory)
+                ConstructorInfo c = updates[s];
+                IUpdate up = c.Invoke(new object[0]) as IUpdate;
+                up.Set(wrapper, mono);
+                if (action == null)
                 {
-                    timerFactory = script as ITimerFactory;
-                    StaticExtensionEventInterfaces.TimerFactory = timerFactory;
+                    action = up.Update;
+                }
+                else
+                {
+                    action += up.Update;
                 }
             }
-            if (timerEventFactory == null)
+            return action;
+        }
+
+        public static MonoBehaviorWrapper   Create(MonoBehaviour monoBehaviour, bool unique, string  desktop, 
+            string[] inputs,
+            string[] outputs, 
+            out Action ev, out Action act, 
+            out Dictionary<string, Action<double>> ins, 
+            out Dictionary<string, Func<double>> outs)
+        {
+            Dictionary<string, Action<double>> insp = new Dictionary<string, Action<double>>();
+            Dictionary<string, Func<double>> outp = new Dictionary<string, Func<double>>();
+            bool exists = false;
+            ev = null;
+            act = null;
+            if (unique)
             {
-                if (script is ITimerEventFactory)
+                if (wrappers.ContainsKey(desktop))
                 {
-                    timerEventFactory = script as ITimerEventFactory;
-                    StaticExtensionEventInterfaces.TimerEventFactory = timerEventFactory;
+                    exists = true;
                 }
             }
-         /*   if (timeMeasureProvider == null)
+            MonoBehaviorWrapper wr = null;
+            if (exists)
             {
-                if (script is ITimeMeasureProvider)
-                {
-                    timeMeasureProvider = script as ITimeMeasureProvider;
-                    timeMeasureProviderFactory = new TimeMeasureProviderFactory();
-                    StaticExtensionDataPerformerPortable.TimeMeasureProviderFactory 
-                        = timeMeasureProviderFactory;
-                }
-            }*/
+                wr = wrappers[desktop];
+                ev = wr.Event;
+                act = () => { };
+            }
+            else
+            {
+                wr = new MonoBehaviorWrapper(monoBehaviour, desktop, unique);
+                ev = wr.Event;
+                act = ev;
+                wrappers[desktop] = wr;
+            }
+            IScadaInterface scada = wr.Scada;
+            foreach (var key in inputs)
+            {
+                insp[key] = scada.GetDoubleInput(key);
+            }
+            foreach (var key in inputs)
+            {
+                outp[key] = scada.GetDoubleOutput(key);
+            }
+            ins = insp;
+            outs = outp;
+            return wr;
         }
 
 
@@ -95,7 +138,16 @@ namespace StaticExtension
         static StaticInit()
         {
             Assembly ass = typeof(StaticInit).Assembly;
-            ass.SetScadaAssembly();
+          
+            ass.SetScadaAssembly((Type type) =>
+            {
+                if (type.GetInterfaces().Contains(typeof(IUpdate)))
+                {
+                    updates[type.Name] = type.GetConstructor(new Type[0]);
+                }
+            }
+
+                );
             ExtendedApplicationInitializer initializer =
        new ExtendedApplicationInitializer(OrdinaryDifferentialEquations.Runge4Solver.Singleton,
         RungeProcessor.Processor,
