@@ -29,6 +29,14 @@ namespace Scada.Interfaces
             get;
         }
 
+
+        /// <summary>
+        /// Sets a constant
+        /// </summary>
+        /// <param name="name">Constant name</param>
+        /// <param name="constant">Constant value</param>
+        void SetConstant(string name, object constant);
+
         /// <summary>
         /// Constants
         /// </summary>

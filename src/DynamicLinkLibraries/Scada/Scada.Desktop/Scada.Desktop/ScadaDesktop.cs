@@ -32,6 +32,7 @@ namespace Scada.Desktop
     /// </summary>
     public  class ScadaDesktop : ScadaInterface, IScadaFactory
     {
+
         #region Fields
 
         /// <summary>
@@ -78,7 +79,7 @@ namespace Scada.Desktop
         /// <summary>
         /// Error handler
         /// </summary>
-        protected Scada.Interfaces.IErrorHandler errorHandler;
+        protected Interfaces.IErrorHandler errorHandler;
 
         /// <summary>
         /// Create Xml documet
@@ -212,6 +213,7 @@ namespace Scada.Desktop
                     return o;
                 };
         }
+
 
         /// <summary>
         /// The "is enabled" sign

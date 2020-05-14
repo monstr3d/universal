@@ -43,6 +43,7 @@ namespace StaticExtension
         {
             Debug.LogError(exception.Message);
         }
+
         static private ITimerEventFactory timerEventFactory;
 
         static private ITimerFactory timerFactory;
@@ -86,7 +87,8 @@ namespace StaticExtension
             return action;
         }
 
-        public static MonoBehaviorWrapper   Create(MonoBehaviour monoBehaviour, bool unique, string  desktop, 
+        public static MonoBehaviorWrapper   Create(MonoBehaviour monoBehaviour, bool unique, 
+            string  desktop, 
             string[] inputs,
             string[] outputs, 
             out Action ev, out Action act, 
@@ -109,8 +111,8 @@ namespace StaticExtension
             if (exists)
             {
                 wr = wrappers[desktop];
-                ev = wr.Event;
                 act = () => { };
+                ev = act;
             }
             else
             {

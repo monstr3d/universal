@@ -85,6 +85,17 @@ namespace Scada.Interfaces
         }
 
         /// <summary>
+        /// Sets a constant
+        /// </summary>
+        /// <param name="name">Constant name</param>
+        /// <param name="constant">Constant value</param>
+        public virtual void SetConstant(string name, object constant)
+        {
+            throw new NotImplementedException();
+        }
+
+
+        /// <summary>
         /// The "is enabled" sign
         /// </summary>
         public override bool IsEnabled
@@ -159,5 +170,6 @@ namespace Scada.Interfaces
         {
             return XElement.Load(fileName);
         }
-    }
+
+     }
 }

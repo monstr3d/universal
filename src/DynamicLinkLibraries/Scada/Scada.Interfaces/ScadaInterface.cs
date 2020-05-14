@@ -18,7 +18,7 @@ namespace Scada.Interfaces
         protected Dictionary<string, object> inputs = new Dictionary<string, object>();
 
         protected Dictionary<string, object> outputs = new Dictionary<string, object>();
-        
+
         protected Dictionary<string, object> constants = new Dictionary<string, object>();
 
         protected List<string> events = new List<string>();
@@ -37,7 +37,7 @@ namespace Scada.Interfaces
         /// Create XML event
         /// </summary>
         protected Action<XElement> onCreateXml = (XElement document) => { };
- 
+
 
         /// <summary>
         /// On start event
@@ -49,7 +49,7 @@ namespace Scada.Interfaces
         /// </summary>
         protected Action onStop = () => { };
 
-  
+
         #endregion
 
         #region IScadaInterface Members
@@ -100,6 +100,19 @@ namespace Scada.Interfaces
         /// <param name="">Name</param>
         /// <returns>The object</returns>
         public abstract T GetObject<T>(string name) where T : class;
+
+        /// <summary>
+        /// Sets a constant
+        /// </summary>
+        /// <param name="name">Constant name</param>
+        /// <param name="constant">Constant value</param>
+        void IScadaInterface.SetConstant(string name, object constant)
+        {
+             Action<object> act = dConstant[name];
+             act(constant);
+        }
+
+
 
         /// <summary>
         /// Gets inputs

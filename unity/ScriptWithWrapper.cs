@@ -18,11 +18,15 @@ public class ScriptWithWrapper : MonoBehaviour
 
     public string desktop = "";
 
+    public string[] starts;
+
     public string[] inputs = new string[0];
     
     public string[] outputs = new string[0];
 
     public string[] updates = new string[0];
+
+    public string[] constants = new string[0];
 
     public GameObject[] transformations = new GameObject[0];
 
@@ -51,17 +55,48 @@ public class ScriptWithWrapper : MonoBehaviour
  
 
     IScadaInterface scada;
+
+    string[][] cons;
  
     private void Awake()
     {
         monoBehaviorWrapper = StaticInit.Create(this, unique, desktop, inputs, outputs,
             out ev, out act, out inps, out outs);
         scada = monoBehaviorWrapper.Scada;
+        SetConstants();
+        StaticInit.Create(this, monoBehaviorWrapper, starts)?.Invoke();
         AddAction(StaticInit.Create(this, monoBehaviorWrapper, updates));
         gameObject.transform.position = position;
         gameObject.transform.rotation = rotation;
         UpdateFrames();
-        
+        if (update == null)
+        {
+            update = () => { };
+        }
+    }
+
+    const double d = 0;
+
+    void SetConstants()
+    {
+        var consts = scada.Constants;
+        char[] sep = "=".ToCharArray();
+        foreach (string cc in constants)
+        {
+            string[] ss = cc.Split(sep);
+            if (consts.ContainsKey(ss[0]))
+            {
+                object o = consts[ss[0]];
+                if (o.GetType() == typeof(double))
+                {
+                    double a = double.Parse(ss[1],
+                        System.Globalization.CultureInfo.InvariantCulture);
+                    scada.SetConstant(ss[0], a);
+                }    
+
+            }
+        }
+
     }
 
     void AddAction(Action action)
@@ -101,35 +136,7 @@ public class ScriptWithWrapper : MonoBehaviour
         scada.IsEnabled = true;
     }
 
-    void CreateMotionFirst()
-    {
-        monoBehaviorWrapper = new MonoBehaviorWrapper(this, "MotionFirst", true);
-        scada = monoBehaviorWrapper.Scada;
-   /*     a = scada.GetDoubleInput("Input.a");
-        b = scada.GetDoubleInput("Input.b");
-        f1 = scada.GetDoubleOutput("Motion.Formula_1");
-        f2 = scada.GetDoubleOutput("Motion.Formula_1");
-        f3 = scada.GetDoubleOutput("Motion.Formula_1");
-        f4 = scada.GetDoubleOutput("Motion.Formula_1");
-        */
-    }
 
-    void CreateRigidBodyFirst()
-    {
- /*       var ou = scada.Outputs;
-        var inp = scada.Inputs;
-        fx = scada.GetDoubleInput("Force.Fx");
-        fy = scada.GetDoubleInput("Force.Fy");
-        fz = scada.GetDoubleInput("Force.Fz");
-        mx = scada.GetDoubleInput("Force.Mx");
-        my = scada.GetDoubleInput("Force.My");
-        mz = scada.GetDoubleInput("Force.Mz");
-        x = scada.GetDoubleOutput("Rigid Body.X");
-        y = scada.GetDoubleOutput("Rigid Body.Y");
-        d = scada.GetDoubleOutput("Measurements.Distance");
-        ox = scada.GetDoubleOutput("Rigid Body.OMGx");
-        */
-    }
 
 
     // Update is called once per frame
