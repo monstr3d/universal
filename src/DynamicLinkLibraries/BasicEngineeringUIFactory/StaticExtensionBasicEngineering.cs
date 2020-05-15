@@ -50,6 +50,23 @@ namespace BasicEngineering.UI.Factory
             }
         }
 
+
+        /// <summary>
+        /// Full screen sign
+        /// </summary>
+        public static bool FullScreen
+        {
+            get
+            {
+                return Properties.Settings.Default.FullScreen;
+            }
+            set
+            {
+                Properties.Settings.Default.FullScreen = value;
+            }
+        }
+
+
         /// <summary>
         /// Start time
         /// </summary>
@@ -337,20 +354,6 @@ namespace BasicEngineering.UI.Factory
             }
         }
 
-        /// <summary>
-        /// The "full screen" sign
-        /// </summary>
-        public static bool FullScreen
-        {
-            get
-            {
-                return Properties.Settings.Default.FullScreen;
-            }
-            set
-            {
-                Properties.Settings.Default.FullScreen = value;
-            }
-        }
 
         /// <summary>
         /// Level of checking
@@ -367,7 +370,25 @@ namespace BasicEngineering.UI.Factory
             }
         }
 
-       public static void Save()
+        /// <summary>
+        /// Level of checking
+        /// </summary>
+        public static string DirectoryOfGeneratedFiles
+        {
+            get
+            {
+                return Properties.Settings.Default.DirectoryOfGeneratedFiles;
+            }
+            set
+            {
+                Properties.Settings.Default.DirectoryOfGeneratedFiles = value;
+            }
+        }
+
+
+
+
+        public static void Save()
         {
             Properties.Settings.Default.Save();
         }

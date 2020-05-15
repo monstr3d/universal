@@ -372,6 +372,7 @@ namespace Scada.Desktop
                     {
                         alias[name] = o;
                     };
+                    constants[n] = t.Item2;
                 }
             });
             

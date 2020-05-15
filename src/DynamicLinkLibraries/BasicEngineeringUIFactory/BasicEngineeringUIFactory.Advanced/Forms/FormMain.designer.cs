@@ -138,6 +138,8 @@ namespace BasicEngineering.UI.Factory.Advanced.Forms
             this.containerDesignerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.derivationCalculatorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editorOfAliasesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripMenuGereratedFiles = new System.Windows.Forms.ToolStripMenuItem();
             this.databaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.connectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.readWriteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -1075,7 +1077,9 @@ namespace BasicEngineering.UI.Factory.Advanced.Forms
             this.wizardsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.containerDesignerToolStripMenuItem,
             this.derivationCalculatorToolStripMenuItem,
-            this.editorOfAliasesToolStripMenuItem});
+            this.editorOfAliasesToolStripMenuItem,
+            this.toolStripSeparator3,
+            this.toolStripMenuGereratedFiles});
             this.wizardsToolStripMenuItem.Name = "wizardsToolStripMenuItem";
             this.wizardsToolStripMenuItem.Size = new System.Drawing.Size(91, 29);
             this.wizardsToolStripMenuItem.Text = "Wizards";
@@ -1083,23 +1087,35 @@ namespace BasicEngineering.UI.Factory.Advanced.Forms
             // containerDesignerToolStripMenuItem
             // 
             this.containerDesignerToolStripMenuItem.Name = "containerDesignerToolStripMenuItem";
-            this.containerDesignerToolStripMenuItem.Size = new System.Drawing.Size(275, 34);
+            this.containerDesignerToolStripMenuItem.Size = new System.Drawing.Size(329, 34);
             this.containerDesignerToolStripMenuItem.Text = "Container designer";
             this.containerDesignerToolStripMenuItem.Click += new System.EventHandler(this.containerDesignerToolStripMenuItem_Click);
             // 
             // derivationCalculatorToolStripMenuItem
             // 
             this.derivationCalculatorToolStripMenuItem.Name = "derivationCalculatorToolStripMenuItem";
-            this.derivationCalculatorToolStripMenuItem.Size = new System.Drawing.Size(275, 34);
+            this.derivationCalculatorToolStripMenuItem.Size = new System.Drawing.Size(329, 34);
             this.derivationCalculatorToolStripMenuItem.Text = "Derivation calculator";
             this.derivationCalculatorToolStripMenuItem.Click += new System.EventHandler(this.derivationCalculatorToolStripMenuItem_Click);
             // 
             // editorOfAliasesToolStripMenuItem
             // 
             this.editorOfAliasesToolStripMenuItem.Name = "editorOfAliasesToolStripMenuItem";
-            this.editorOfAliasesToolStripMenuItem.Size = new System.Drawing.Size(275, 34);
+            this.editorOfAliasesToolStripMenuItem.Size = new System.Drawing.Size(329, 34);
             this.editorOfAliasesToolStripMenuItem.Text = "Editor of aliases";
             this.editorOfAliasesToolStripMenuItem.Click += new System.EventHandler(this.editorOfAliasesToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(326, 6);
+            // 
+            // toolStripMenuGereratedFiles
+            // 
+            this.toolStripMenuGereratedFiles.Name = "toolStripMenuGereratedFiles";
+            this.toolStripMenuGereratedFiles.Size = new System.Drawing.Size(329, 34);
+            this.toolStripMenuGereratedFiles.Text = "Directory of generated files";
+            this.toolStripMenuGereratedFiles.Click += new System.EventHandler(this.toolStripMenuGereratedFiles_Click);
             // 
             // databaseToolStripMenuItem
             // 
@@ -1368,6 +1384,8 @@ namespace BasicEngineering.UI.Factory.Advanced.Forms
         private System.Windows.Forms.ToolStripMenuItem openLogDirectoryToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem saveLogsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem checkDesktopToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuGereratedFiles;
     }
 }
 
