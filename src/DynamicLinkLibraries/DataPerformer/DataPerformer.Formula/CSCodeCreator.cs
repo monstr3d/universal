@@ -106,13 +106,23 @@ namespace DataPerformer.Formula
             l.Add("\tFormulaEditor.Interfaces.ITreeCollectionProxy FormulaEditor.Interfaces.ITreeCollectionProxyFactory.CreateProxy(FormulaEditor.Interfaces.ITreeCollection collection, Action<object> checkValue)");
             l.Add("\t{");
             l.Add("\t\tFormulaEditor.Interfaces.ITreeCollection f = this;");
+            l.Add("\t\tvar t = ");
+            l.Add("\t\t\tFormulaEditor.ObjectFormulaTree.CreateList(f.Trees, new List<FormulaEditor.ObjectFormulaTree>());");
+            l.Add("\t\tvar tt = t.ToArray();");
             if (check)
             {
-                l.Add("\t\treturn new Calculation(f.Trees, checkValue);");
+                l.Add("\t\treturn new Calculation(tt, checkValue);");
             }
+            /*
+             using System.Linq;
+
+    						var t = 
+							FormulaEditor.ObjectFormulaTree.CreateList(f.Trees, new List<FormulaEditor.ObjectFormulaTree>());
+         */
+
             else
             {
-                l.Add("\t\treturn new Calculation(f.Trees);");
+                l.Add("\t\treturn new Calculation(tt);");
             }
             l.Add("\t}");
             l.Add("");

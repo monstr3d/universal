@@ -39,7 +39,6 @@ namespace Diagram.UI
 
  
         #endregion
-
  
         #region Overriden Members
 

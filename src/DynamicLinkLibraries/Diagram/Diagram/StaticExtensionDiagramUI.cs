@@ -46,7 +46,8 @@ namespace Diagram.UI
         /// Standard header of calculation class
         /// </summary>
         private static readonly string StandardHeader = "using System;" + Environment.NewLine +
-            "using System.Collections.Generic;" + Environment.NewLine +
+            "using System.Collections.Generic;" + Environment.NewLine + 
+            "using System.Linq;" + Environment.NewLine +
             "using System.Text;" + Environment.NewLine + "" + Environment.NewLine + "";
 
         private static List<Func<object, bool>> nativeDetectors = new List<Func<object, bool>>();

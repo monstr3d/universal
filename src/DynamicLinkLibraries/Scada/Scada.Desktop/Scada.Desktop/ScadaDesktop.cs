@@ -234,7 +234,8 @@ namespace Scada.Desktop
                 if (value)
                 {
                     collection.StartRealtime(timeUnit, isAbsoluteTime, 
-                        realtimeStep, dataConsumer, null, "Realtime", timeMeasurementProviderFactory);
+                        realtimeStep, dataConsumer, null, "Realtime", 
+                        timeMeasurementProviderFactory, true);
                     onStart();
                 }
                 else

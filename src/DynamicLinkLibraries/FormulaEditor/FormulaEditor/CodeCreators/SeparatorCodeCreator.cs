@@ -31,6 +31,7 @@ namespace FormulaEditor.CodeCreators
         protected SeparatorCodeCreator(ObjectFormulaTree[] trees)
             : base(trees)
         {
+
         }
 
         #endregion

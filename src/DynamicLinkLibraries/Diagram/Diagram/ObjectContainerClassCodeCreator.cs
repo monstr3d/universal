@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,12 +19,24 @@ namespace Diagram.UI
         #region IClassCodeCreator Members
 
         List<string> IClassCodeCreator.CreateCode(string preffix, object obj)
-        {
+        {           
+            List<string> l = new List<string>();
+            string str = null;
+            if (obj is BelongsToCollectionPortable)
+            {
+                str = "Diagram.UI.BelongsToCollectionPortable";
+            }
+            if (str != null)
+            {
+                l.Add(str);
+                l.Add("{");
+                l.Add("}");
+                return l;
+            }
             if (!(obj is ObjectContainerPortable))
             {
                 return null;
             }
-            List<string> l = new List<string>();
             ObjectContainerPortable oc = obj as ObjectContainerPortable;
             l.Add("Diagram.UI.ObjectContainerPortable");
             l.Add("{");

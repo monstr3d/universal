@@ -210,6 +210,28 @@ namespace DataPerformer.Portable.Runtime
         #region Protected
 
         /// <summary>
+        /// Adds update all action
+        /// </summary>
+        /// <param name="act"></param>
+        protected void AddUpdateAll(Action act)
+        {
+            if (act == null)
+            {
+                return;
+            }
+            if (updateAll == null)
+            {
+                updateAll = act;
+            }
+            else
+            {
+                updateAll += act;
+            }
+        }
+
+
+
+        /// <summary>
         /// Adds dependent objects
         /// </summary>
         /// <param name="consumer">Data consumer</param>
@@ -262,8 +284,8 @@ namespace DataPerformer.Portable.Runtime
             }
             dynamical.ForEach((IDynamical dyn) => { dyn.Time = time; });
         }
-       
-       /// <summary>
+
+        /// <summary>
         /// Prepares itself
         /// </summary>
         protected virtual void Prepare()
@@ -301,12 +323,9 @@ namespace DataPerformer.Portable.Runtime
                 }
                 dynamical.Add(dyn);
             }
-             collection.ForEach<IStep>((IStep s) => { steps.Add(s); });
-            if (updatable.Count == 0)
-            {
-                updateAll = UpdateMeasurements;
-            }
-            else
+            collection.ForEach<IStep>((IStep s) => { steps.Add(s); });
+            AddUpdateAll(UpdateMeasurements);
+            if (updatable.Count >= 0)
             {
                 updateAll = () =>
                 {

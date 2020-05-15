@@ -135,7 +135,7 @@ namespace Scada.Motion6D
                     }
                     if (value)
                     {
-                        var realtime = StartRealtime(timeMeasurementProviderFactory);
+                        var realtime = StartRealtime(timeMeasurementProviderFactory, true);
                         if (realtime == null)
                         {
                             throw new Exception("No runtime");
@@ -197,7 +197,8 @@ namespace Scada.Motion6D
         #region Private Members
 
 
-        IRealtime StartRealtime(ITimeMeasurementProviderFactory timeMeasurementProviderFactory)
+        IRealtime StartRealtime(ITimeMeasurementProviderFactory timeMeasurementProviderFactory,
+            bool multiThread)
         {
             IAsynchronousCalculation animation =
                collection.StartAnimation(new string[] {StaticExtensionEventInterfaces.Realtime,
@@ -208,7 +209,8 @@ namespace Scada.Motion6D
             }
            return  StaticExtensionEventPortable.StartRealtime(collection, timeUnit, isAbsoluteTime, animation,
                 dataConsumer, StaticExtensionEventInterfaces.NewLog,
-                StaticExtensionEventInterfaces.Realtime, timeMeasurementProviderFactory);
+                StaticExtensionEventInterfaces.Realtime, 
+                timeMeasurementProviderFactory, multiThread);
         }
 
         #endregion

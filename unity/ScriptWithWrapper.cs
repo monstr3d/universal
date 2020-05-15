@@ -96,7 +96,6 @@ public class ScriptWithWrapper : MonoBehaviour
 
             }
         }
-
     }
 
     void AddAction(Action action)
@@ -121,10 +120,11 @@ public class ScriptWithWrapper : MonoBehaviour
             {
                 double[] pos = referenceFrame.Position;
                 double[] quater = referenceFrame.Quaternion;
-                gameObject.transform.position = new Vector3((float)pos[0], (float)pos[1], (float)pos[2]);//.Translate((float)pos[0], (float)pos[1], (float)pos[2]);
+                gameObject.transform.position = new Vector3((float)pos[0], 
+                    (float)pos[1], (float)pos[2]);
                 gameObject.transform.rotation =
-                new Quaternion((float)quater[1], (float)quater[2], (float)quater[3], (float)quater[0]);
-           //     new Vector3((float)pos[0], (float)pos[1], (float)pos[2]);
+                new Quaternion((float)quater[1], 
+                (float)quater[2], (float)quater[3], (float)quater[0]);
             };
             AddAction(act);
         }
@@ -133,7 +133,10 @@ public class ScriptWithWrapper : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        scada.IsEnabled = true;
+        if (!scada.IsEnabled)
+        {
+            scada.IsEnabled = true;
+        }
     }
 
 

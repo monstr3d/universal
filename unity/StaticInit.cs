@@ -24,6 +24,7 @@ using Scada.Interfaces;
 using CategoryTheory;
 using Assets;
 using System.Runtime.InteropServices;
+using Diagram.UI;
 
 namespace StaticExtension
 {
@@ -120,7 +121,7 @@ namespace StaticExtension
                 ev = wr.Event;
                 act = ev;
                 wrappers[desktop] = wr;
-            }
+             }
             IScadaInterface scada = wr.Scada;
             foreach (var key in inputs)
             {
@@ -136,11 +137,22 @@ namespace StaticExtension
         }
 
 
+        static Action<IDesktop> dAct = (IDesktop d) =>
+        {
+
+        };
+
+
+
 
         static StaticInit()
         {
             Assembly ass = typeof(StaticInit).Assembly;
-          
+
+            StaticExtensionDiagramUI.PostLoadDesktop += dAct;
+
+            PureDesktop.DesktopPostLoad += dAct;
+
             ass.SetScadaAssembly((Type type) =>
             {
                 if (type.GetInterfaces().Contains(typeof(IUpdate)))
