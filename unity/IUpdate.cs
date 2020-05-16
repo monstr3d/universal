@@ -7,9 +7,26 @@ using UnityEngine;
 
 namespace Assets
 {
+    /// <summary>
+    /// Update interface
+    /// </summary>
     public interface IUpdate
     {
-        void Set(MonoBehaviorWrapper wrapper, MonoBehaviour mono);
+        /// <summary>
+        /// Sets objects
+        /// </summary>
+        /// <param name="wrapper">Wrapper</param>
+        /// <param name="mono">Script</param>
+        void Set(MonoBehaviorWrapper wrapper, ScriptWithWrapper mono);
+
+        /// <summary>
+        /// Starts itself
+        /// </summary>
+        void Start();
+
+        /// <summary>
+        /// Updates
+        /// </summary>
         void Update();
     }
 }

@@ -7,7 +7,7 @@ using UnityEngine;
 using Scada.Interfaces;
 
 using Assets;
-using StaticExtension;
+
 using Diagram.UI.Interfaces;
 using Scada.Desktop;
 using Diagram.UI.Labels;
@@ -15,6 +15,8 @@ using Motion6D;
 
 public class ScriptWithWrapper : MonoBehaviour
 {
+
+    #region Fields
 
     public string desktop = "";
 
@@ -38,36 +40,34 @@ public class ScriptWithWrapper : MonoBehaviour
 
     private MonoBehaviorWrapper monoBehaviorWrapper;
 
-    internal Dictionary<string, Action<double>> inps = new Dictionary<string, Action<double>>();
+    internal Dictionary<string, Action<double>> 
+        inps = new Dictionary<string, Action<double>>();
 
-    internal Dictionary<string, Func<double>> outs = new Dictionary<string, Func<double>>();
+    internal Dictionary<string, Func<double>> outs = 
+        new Dictionary<string, Func<double>>();
+
+    internal Action<double>[] dInp;
+
+    internal Func<double>[] dOut;
 
     Action update = null;
 
-    private Action act;
+    Action start = null;
 
-    private Action ev;
-
-    Vector3 position = new Vector3();
-
-    Quaternion rotation = new Quaternion();
-
- 
+    internal Action ev;
 
     IScadaInterface scada;
 
-    string[][] cons;
- 
+    #endregion
+
+    #region Standard Members
+
     private void Awake()
     {
-        monoBehaviorWrapper = StaticInit.Create(this, unique, desktop, inputs, outputs,
-            out ev, out act, out inps, out outs);
+        monoBehaviorWrapper = StaticInit.Create(this, unique, desktop, inputs, outputs);
         scada = monoBehaviorWrapper.Scada;
         SetConstants();
-        StaticInit.Create(this, monoBehaviorWrapper, starts)?.Invoke();
-        AddAction(StaticInit.Create(this, monoBehaviorWrapper, updates));
-        gameObject.transform.position = position;
-        gameObject.transform.rotation = rotation;
+        AddAction(StaticInit.Create(this, monoBehaviorWrapper, updates, ref start));
         UpdateFrames();
         if (update == null)
         {
@@ -75,7 +75,41 @@ public class ScriptWithWrapper : MonoBehaviour
         }
     }
 
-    const double d = 0;
+    // Start is called before the first frame update
+    void Start()
+    {
+        start();
+        if (!scada.IsEnabled)
+        {
+            scada.IsEnabled = true;
+        }
+    }
+
+
+
+
+    // Update is called once per frame
+    void Update()
+    {
+        try
+        {
+            ev();
+            update();
+        }
+        catch (Exception exception)
+        {
+            exception.ShowError();
+        }
+    }
+
+    #endregion
+
+    #region Public Members
+
+    #endregion
+
+
+    #region  Private Members
 
     void SetConstants()
     {
@@ -130,73 +164,7 @@ public class ScriptWithWrapper : MonoBehaviour
         }
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        if (!scada.IsEnabled)
-        {
-            scada.IsEnabled = true;
-        }
-    }
+    #endregion
 
 
-
-
-    // Update is called once per frame
-    void Update()
-    {
-        try
-        {
-            ev();
-            update();
-        }
-        catch (Exception exception)
-        {
-            exception.ShowError();
-        }
-    }
-
-    void PrintRigid()
-    {
-     /*   if (Input.GetKey(KeyCode.A))
-        {
-            inps["Force.Fx"](0.1);
-        }
-        if (Input.GetKey(KeyCode.S))
-        {
-            fx(-0.1);
-        }
-        if (Input.GetKey(KeyCode.D))
-        {
-            mx(0.1);
-        }
-        if (Input.GetKey(KeyCode.F))
-        {
-            mx(-0.1);
-        }
-        print(x() + " " + ox());
-        */
-    }
-
-    void PrintFirst()
-    {
-      /*  if (Input.GetKey(KeyCode.A))
-        {
-            a(0.1);
-        }
-        if (Input.GetKey(KeyCode.S))
-        {
-            a(-0.1);
-        }
-        if (Input.GetKey(KeyCode.D))
-        {
-            b(0.1);
-        }
-        if (Input.GetKey(KeyCode.F))
-        {
-            b(-0.1);
-        }
-        print(x() + " " + ox());
-        */
-    }
 }

@@ -15,7 +15,6 @@ using Event.Interfaces;
 
 using Scada.Interfaces;
 using Scada.Desktop;
-using StaticExtension;
 using System.Collections.Generic;
 
 namespace Assets
@@ -23,9 +22,10 @@ namespace Assets
     public class MonoBehaviorWrapper  : ITimerFactory, ITimer, ITimerEventFactory, ITimerEvent,
         ITimeMeasurementProviderFactory, ITimeMeasurementProvider
     {
+        #region Fields
+
         private MonoBehaviour monoBehaviour;
 
-        
 
         private TimeSpan timeSpan;
 
@@ -43,6 +43,8 @@ namespace Assets
             new Dictionary<string, Motion6D.Interfaces.IReferenceFrame>();
 
         double step;
+
+        #endregion
 
         static MonoBehaviorWrapper()
         {

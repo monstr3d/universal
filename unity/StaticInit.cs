@@ -26,49 +26,213 @@ using Assets;
 using System.Runtime.InteropServices;
 using Diagram.UI;
 
-namespace StaticExtension
+
+
+namespace Assets
 {
 
  
-    static class StaticInit
+    public static class StaticInit
     {
 
         #region Fields
-
-   
-
-        #endregion
-
-
-        static internal void ShowError(this Exception exception)
-        {
-            Debug.LogError(exception.Message);
-        }
 
         static private ITimerEventFactory timerEventFactory;
 
         static private ITimerFactory timerFactory;
 
         static private ITimeMeasurementProviderFactory timeMeasureProviderFactory;
-        
+
         static private ITimeMeasurementProvider timeMeasureProvider;
 
         static private Scada.Interfaces.IErrorHandler errorHandler = new ErrorHanller();
 
-        static Dictionary<string, MonoBehaviorWrapper> wrappers = 
+        static Dictionary<string, MonoBehaviorWrapper> wrappers =
             new Dictionary<string, MonoBehaviorWrapper>();
 
         static Dictionary<string, ConstructorInfo> updates = new Dictionary<string, ConstructorInfo>();
 
 
         static internal Scada.Interfaces.IErrorHandler ErrorHandler => errorHandler;
+
+
+        #endregion
+
+        #region Members
+
+        static void GetComponents(this Component go,
+
+            Dictionary<string, List<GameObject>> objects, Dictionary<string, List<Component>> comp)
+        {
+            Component[] components = go.GetComponentsInChildren(typeof(Component), false);
+            foreach (Component component in components)
+            {
+                string name = component.name;
+                List<Component> lc;
+                if (comp.ContainsKey(name))
+                {
+                    lc = comp[name];
+                }
+                else
+                {
+                    lc = new List<Component>();
+                    comp[name] = lc;
+                }
+                if (lc.Contains(component))
+                {
+                    continue;
+                }
+                lc.Add(component);
+                GameObject gobj = component.gameObject;
+                if (gobj != null)
+                {
+                    name = gobj.name;
+                    List<GameObject> lo;
+                    if (objects.ContainsKey(name))
+                    {
+                        lo = objects[name];
+                    }
+                    else
+                    {
+                        lo = new List<GameObject>();
+                        objects[name] = lo;
+                    }
+                    if (lo.Contains(gobj))
+                    {
+                        return;
+                    }
+                    lo.Add(gobj);
+                    gobj.GetComponents(objects, comp);
+
+                }
+            }
+        }
+        static void GetComponents(this GameObject go, 
+            
+            Dictionary<string, List<GameObject>> objects, Dictionary<string, List<Component>> comp)
+        {
+            Component[] components = go.GetComponents(typeof(Component));
+            foreach (Component component in components)
+            {
+                string name = component.name;
+                List<Component> lc;
+                if (comp.ContainsKey(name))
+                {
+                    lc = comp[name];
+                }
+                else
+                {
+                    lc = new List<Component>();
+                    comp[name] = lc;
+                }
+                if (lc.Contains(component))
+                {
+                    continue;
+                }
+                lc.Add(component);
+                component.GetComponents(objects, comp);
+                GameObject gobj = component.gameObject;
+                if (gobj != null)
+                {
+                    name = gobj.name;
+                    List<GameObject> lo;
+                    if (objects.ContainsKey(name))
+                    {
+                        lo = objects[name];
+                    }
+                    else
+                    {
+                        lo = new List<GameObject>();
+                        objects[name] = lo;
+                    }
+                    if (lo.Contains(gobj))
+                    {
+                        continue;
+                    }
+                    lo.Add(gobj);
+                    gobj.GetComponents(objects, comp);
+                }
+            }
+        }
+
+        static public void Calculate<T>(this Func<T>[] func, int i, T[] t)
+        {
+            for (int j = 0; j < t.Length; j++)
+            {
+                t[j] = func[i + j]();
+            }
+        }
+
+        static public Quaternion Calculate(this Func<double>[] func, int i, double[] t)
+        {
+            func.Calculate<double>(i, t);
+            float p = t[1] > 0 ? 1f : -1f;
+            return new Quaternion(p * (float)t[1], p * (float)t[3], 
+                p * (float)t[0], p * (float)t[2]);
+        }
+
+
+
+
+        static public Dictionary<string, List<T>> GetComponents<T>(this Dictionary<string, List<Component>> comp)
+            where T : Component
+        {
+            Dictionary<string, List<T>> l = new Dictionary<string, List<T>>();
+            foreach (string name in comp.Keys)
+            {
+                List<T> lt = null;
+                List<Component> lc = comp[name];
+                foreach (Component component in lc)
+                {
+                    if (component is T)
+                    {
+                        T t = component as T;
+                        if (lt == null)
+                        {
+                            lt = new List<T>();
+                            l[name] = lt;
+                        }
+                        else
+                        {
+                            lt = l[name];
+                        }
+                        if (!lt.Contains(t))
+                        {
+                            lt.Add(t);
+                        }
+                    }
+                }
+            }
+            return l;
+        }
+
+        static public Dictionary<string, List<GameObject>> GetComponents(this GameObject gob, 
+            out Dictionary<string, List<Component>> comp)
+        {
+            Dictionary<string, List<GameObject>> dog = new Dictionary<string, List<GameObject>>();
+            comp = new Dictionary<string, List<Component>>();
+            gob.GetComponents(dog, comp);
+            return dog;
+        }
+
+        static public void Force(this Action<double>[] act, int i, float val)
+        {
+            MechanicalAction.Force(i, val, act);
+        }
+
+        static internal void ShowError(this Exception exception)
+        {
+            Debug.LogError(exception.Message);
+        }
+
         internal static void Init()
         {
 
         }
 
 
-        public static Action Create(this MonoBehaviour mono, MonoBehaviorWrapper wrapper, string[] upd)
+        public static Action Create(this ScriptWithWrapper mono, 
+            MonoBehaviorWrapper wrapper, string[] upd, ref Action start)
         {
             Action action = null;
             foreach (string s in upd)
@@ -84,23 +248,32 @@ namespace StaticExtension
                 {
                     action += up.Update;
                 }
+                if (start == null)
+                {
+                    start = up.Start;
+                }
+                else
+                {
+                    start += up.Start;
+                }
+            }
+            if (start == null)
+            {
+                start = () => { };
             }
             return action;
         }
 
-        public static MonoBehaviorWrapper   Create(MonoBehaviour monoBehaviour, bool unique, 
+        public static MonoBehaviorWrapper  Create(this ScriptWithWrapper monoBehaviour, 
+            bool unique, 
             string  desktop, 
             string[] inputs,
-            string[] outputs, 
-            out Action ev, out Action act, 
-            out Dictionary<string, Action<double>> ins, 
-            out Dictionary<string, Func<double>> outs)
+            string[] outputs)
         {
-            Dictionary<string, Action<double>> insp = new Dictionary<string, Action<double>>();
-            Dictionary<string, Func<double>> outp = new Dictionary<string, Func<double>>();
+            Dictionary<string, Action<double>> insp = monoBehaviour.inps;
+            Dictionary<string, Func<double>> outp = monoBehaviour.outs;
             bool exists = false;
-            ev = null;
-            act = null;
+            Action ev = null;
             if (unique)
             {
                 if (wrappers.ContainsKey(desktop))
@@ -112,27 +285,32 @@ namespace StaticExtension
             if (exists)
             {
                 wr = wrappers[desktop];
-                act = () => { };
-                ev = act;
+                ev = () => { };
             }
             else
             {
                 wr = new MonoBehaviorWrapper(monoBehaviour, desktop, unique);
                 ev = wr.Event;
-                act = ev;
                 wrappers[desktop] = wr;
-             }
+            }
             IScadaInterface scada = wr.Scada;
+            List<Action<double>> li = new List<Action<double>>();
             foreach (var key in inputs)
             {
-                insp[key] = scada.GetDoubleInput(key);
+                Action<double> ad = scada.GetDoubleInput(key);
+                insp[key] = ad;
+                li.Add(ad);
             }
-            foreach (var key in inputs)
+            List<Func<double>> lo = new List<Func<double>>();
+            foreach (var key in outputs)
             {
-                outp[key] = scada.GetDoubleOutput(key);
+                Func<double> fd = scada.GetDoubleOutput(key);
+                outp[key] = fd;
+                lo.Add(fd);
             }
-            ins = insp;
-            outs = outp;
+            monoBehaviour.dInp = li.ToArray();
+            monoBehaviour.dOut = lo.ToArray();
+            monoBehaviour.ev = ev;
             return wr;
         }
 
@@ -143,7 +321,9 @@ namespace StaticExtension
         };
 
 
+        #endregion
 
+        #region Constructor
 
         static StaticInit()
         {
@@ -174,6 +354,26 @@ namespace StaticExtension
 
             
         }
+
+        #endregion
+
+        #region Classes
+
+        class TimeMeasureProviderFactory : ITimeMeasurementProviderFactory, ITimeMeasurementProvider
+        {
+            ITimeMeasurementProvider ITimeMeasurementProviderFactory.Create(bool isAbsolute, TimeType timeUnit, string reason)
+            {
+                return this;
+            }
+            IMeasurement ITimeMeasurementProvider.TimeMeasurement => m;
+
+            double ITimeMeasurementProvider.Time { get => Time.realtimeSinceStartup; set { } }
+            double ITimeMeasurementProvider.Step { get; set; }
+
+            IMeasurement m = new Measurement(() => Time.realtimeSinceStartup, "Time");
+
+        }
+
         class ErrorHanller : Scada.Interfaces.IErrorHandler
         {
             void Scada.Interfaces.IErrorHandler.ShowError(Exception exception, object obj)
@@ -187,23 +387,7 @@ namespace StaticExtension
             }
         }
 
-   
 
-        class TimeMeasureProviderFactory : ITimeMeasurementProviderFactory, ITimeMeasurementProvider
-        {
-            ITimeMeasurementProvider ITimeMeasurementProviderFactory.Create(bool isAbsolute, TimeType timeUnit, string reason)
-            {
-                return this;
-            }
-
-
-            IMeasurement ITimeMeasurementProvider.TimeMeasurement => m;
-
-            double ITimeMeasurementProvider.Time { get => Time.realtimeSinceStartup; set { } }
-            double ITimeMeasurementProvider.Step { get; set; }
-
-            IMeasurement m = new Measurement(() => Time.realtimeSinceStartup, "Time");
-
-        }
+        #endregion
     }
 }
