@@ -1255,7 +1255,9 @@ MonoBehaviour:
   inputs: []
   outputs: []
   updates: []
-  constants: []
+  constants:
+  - Station motion.z=5
+  - Station motion.a=-0.05
   transformations: []
   transformation: Station frame
   frames: []
@@ -1357,8 +1359,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   desktop: RigidBodyStation
-  starts:
-  - CameraUpdate
+  starts: []
   inputs:
   - Force.Fx
   - Force.Fy
@@ -1377,9 +1378,7 @@ MonoBehaviour:
   - RigidBodyUpdateImpl
   - RigidBogyForces
   - CameraUpdate
-  constants:
-  - Station motion.z=5
-  - Station motion.a=-0.05
+  constants: []
   transformations: []
   transformation: Rigid Body
   frames:
@@ -3153,7 +3152,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1791015065}
   - component: {fileID: 1791015066}
-  - component: {fileID: 1791015067}
   - component: {fileID: 1791015064}
   m_Layer: 5
   m_Name: EuroHud_Panel
@@ -3177,6 +3175,8 @@ MonoBehaviour:
   isActive: 1
   aircraft: {fileID: 0}
   aircraftRB: {fileID: 0}
+  desktop: RigidBodyStation
+  measureName: Relative to station.Frame
   activeMsg: HUD Activated
   hudPanel: {fileID: 1791015065}
   useRoll: 1
@@ -3249,41 +3249,3 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1791015063}
   m_CullTransparentMesh: 1
---- !u!114 &1791015067
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1791015063}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 23151d268075c894994cc2bb54361148, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  desktop: RigidBodyStation
-  starts: []
-  inputs: []
-  outputs:
-  - Relative to station.x
-  - Relative to station.y
-  - Relative to station.z
-  - Relative to station.Distance
-  - Relative to station.Vx
-  - Relative to station.Vy
-  - Relative to station.Vz
-  - Relative to station.Velocity
-  - Relative to station.Q0
-  - Relative to station.Q1
-  - Relative to station.Q2
-  - Relative to station.Q3
-  - Relative to station.OMx
-  - Relative to station.OMy
-  - Relative to station.OMz
-  updates:
-  - EquipmentUpdate
-  constants: []
-  transformations: []
-  transformation: 
-  frames: []
-  unique: 1

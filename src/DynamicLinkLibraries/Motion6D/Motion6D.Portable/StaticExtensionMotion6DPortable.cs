@@ -27,6 +27,28 @@ namespace Motion6D.Portable
         #region Public Members
 
         /// <summary>
+        /// Gets relative frame
+        /// </summary>
+        /// <param name="baseFrame">Base frame</param>
+        /// <param name="relative">Relative frame</param>
+        /// <returns>Relative frame</returns>
+        public static  ReferenceFrame GetRelative(this ReferenceFrame baseFrame, 
+            ReferenceFrame relative)
+        {
+            ReferenceFrame frame;
+            if ((baseFrame is Motion6DAcceleratedFrame) & (relative is Motion6DAcceleratedFrame))
+            {
+                frame = new Motion6DAcceleratedFrame();
+            }
+            else
+            {
+                frame = new ReferenceFrame();
+            }
+            frame.Set(baseFrame, relative);
+            return frame;
+       }
+
+        /// <summary>
         /// Inits itself
         /// </summary>
         public static void Init()

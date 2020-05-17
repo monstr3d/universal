@@ -285,6 +285,7 @@ namespace Motion6D.Portable.Aggregates
             }
             set
             {
+
             }
         }
 
@@ -366,25 +367,6 @@ namespace Motion6D.Portable.Aggregates
             this.FullReset();
             measurements.UpdateChildrenData();
         }
-/* !!!! REPLACE 
-        /// <summary>
-        /// Serializes itself
-        /// </summary>
-        /// <param name="info">Serialization info</param>
-        protected void Serialize(SerializationInfo info)
-        {
-            info.AddValue("AliasNames", aliasNames, typeof(Dictionary<int, string>));
-        }
-
-        /// <summary>
-        /// Deserializes itself
-        /// </summary>
-        /// <param name="info">Serialization info</param>
-        protected void Deserialize(SerializationInfo info)
-        {
-            aliasNames = info.GetValue("AliasNames", typeof(Dictionary<int, string>)) as Dictionary<int, string>;
-        }
-*/
 
         /// <summary>
         /// Sets aliases

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 
@@ -48,32 +49,32 @@ namespace GeneratedProject
 				currALabel.TargetNumber = (int)5;
 				currALabel  = new IntrenalDesktop.ArrowLabel5("", this);
 				arrows.Add(currALabel);
-				currALabel.SourceNumber = (int)8;
-				currALabel.TargetNumber = (int)3;
-				currALabel  = new IntrenalDesktop.ArrowLabel6("", this);
-				arrows.Add(currALabel);
-				currALabel.SourceNumber = (int)8;
-				currALabel.TargetNumber = (int)4;
-				currALabel  = new IntrenalDesktop.ArrowLabel7("", this);
-				arrows.Add(currALabel);
 				currALabel.SourceNumber = (int)1;
 				currALabel.TargetNumber = (int)0;
-				currALabel  = new IntrenalDesktop.ArrowLabel8("", this);
+				currALabel  = new IntrenalDesktop.ArrowLabel6("", this);
 				arrows.Add(currALabel);
 				currALabel.SourceNumber = (int)7;
 				currALabel.TargetNumber = (int)6;
-				currALabel  = new IntrenalDesktop.ArrowLabel9("", this);
+				currALabel  = new IntrenalDesktop.ArrowLabel7("", this);
 				arrows.Add(currALabel);
 				currALabel.SourceNumber = (int)6;
 				currALabel.TargetNumber = (int)1;
-				currALabel  = new IntrenalDesktop.ArrowLabel10("", this);
+				currALabel  = new IntrenalDesktop.ArrowLabel8("", this);
 				arrows.Add(currALabel);
 				currALabel.SourceNumber = (int)8;
 				currALabel.TargetNumber = (int)6;
-				currALabel  = new IntrenalDesktop.ArrowLabel11("", this);
+				currALabel  = new IntrenalDesktop.ArrowLabel9("", this);
 				arrows.Add(currALabel);
 				currALabel.SourceNumber = (int)8;
 				currALabel.TargetNumber = (int)0;
+				currALabel  = new IntrenalDesktop.ArrowLabel10("", this);
+				arrows.Add(currALabel);
+				currALabel.SourceNumber = (int)8;
+				currALabel.TargetNumber = (int)3;
+				currALabel  = new IntrenalDesktop.ArrowLabel11("", this);
+				arrows.Add(currALabel);
+				currALabel.SourceNumber = (int)8;
+				currALabel.TargetNumber = (int)4;
 				bool pl = PostLoad();
 				bool pd = PostDeserialize();
 				SuccessLoad = pl & pd;
@@ -126,7 +127,10 @@ namespace GeneratedProject
 					FormulaEditor.Interfaces.ITreeCollectionProxy FormulaEditor.Interfaces.ITreeCollectionProxyFactory.CreateProxy(FormulaEditor.Interfaces.ITreeCollection collection, Action<object> checkValue)
 					{
 						FormulaEditor.Interfaces.ITreeCollection f = this;
-						return new Calculation(f.Trees);
+						var t = 
+							FormulaEditor.ObjectFormulaTree.CreateList(f.Trees, new List<FormulaEditor.ObjectFormulaTree>());
+						var tt = t.ToArray();
+						return new Calculation(tt);
 					}
 				
 					internal class Calculation : FormulaEditor.Interfaces.ITreeCollectionProxy
@@ -481,8 +485,8 @@ namespace GeneratedProject
 				"Station motion.Formula_1",
 				"Station motion.Formula_2",
 				"Station motion.Formula_3",
-				"Station motion.Formula_4",
 				"Station motion.Formula_5",
+				"Station motion.Formula_4",
 				"Station motion.Formula_6",
 				"Station motion.Formula_6"
 						};
@@ -807,7 +811,7 @@ namespace GeneratedProject
 					arrow = new ArrowLabel6.CategoryArrow();
 				}
 		
-				internal class CategoryArrow : DataPerformer.Portable.DataLink
+				internal class CategoryArrow : Motion6D.Portable.RelativeMeasurementsLink
 				{
 				}
 			}
@@ -820,7 +824,7 @@ namespace GeneratedProject
 					arrow = new ArrowLabel7.CategoryArrow();
 				}
 		
-				internal class CategoryArrow : DataPerformer.Portable.DataLink
+				internal class CategoryArrow : Motion6D.Portable.RelativeMeasurementsLink
 				{
 				}
 			}
@@ -833,7 +837,7 @@ namespace GeneratedProject
 					arrow = new ArrowLabel8.CategoryArrow();
 				}
 		
-				internal class CategoryArrow : Motion6D.Portable.RelativeMeasurementsLink
+				internal class CategoryArrow : DataPerformer.Portable.DataLink
 				{
 				}
 			}
@@ -846,7 +850,7 @@ namespace GeneratedProject
 					arrow = new ArrowLabel9.CategoryArrow();
 				}
 		
-				internal class CategoryArrow : Motion6D.Portable.RelativeMeasurementsLink
+				internal class CategoryArrow : DataPerformer.Portable.DataLink
 				{
 				}
 			}

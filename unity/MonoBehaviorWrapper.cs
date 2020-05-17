@@ -52,6 +52,13 @@ namespace Assets
             timeMeasurement = new Measurement(GetTime, "Time");
         }
 
+        public MonoBehaviorWrapper(string name = null, bool unique = false)
+        {
+            scada = name.ToScada("Consumer", this, this, this, TimeType.Second, false, null, unique);
+            scada.ErrorHandler = StaticInit.ErrorHandler;
+            desktop = scada.GetDesktop();
+        }
+
         public MonoBehaviorWrapper(MonoBehaviour monoBehaviour, string name = null, bool unique = false)
         {
             this.monoBehaviour = monoBehaviour;

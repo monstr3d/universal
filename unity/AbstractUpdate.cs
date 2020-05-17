@@ -35,7 +35,6 @@ namespace Assets
 
         #endregion
 
-
         #region Ctor
 
         /// <summary>
@@ -47,8 +46,6 @@ namespace Assets
         }
 
         #endregion
-
-
 
         #region IUpdate implementation
 

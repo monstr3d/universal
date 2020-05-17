@@ -13,7 +13,8 @@ namespace Motion6D.Portable.Aggregates
     /// <summary>
     /// Rigid body aggregate
     /// </summary>
-    public class RigidBody : AggregableMechanicalObjectDataConsumer, IStarted, INormalizable, IOrientation
+    public class RigidBody : AggregableMechanicalObjectDataConsumer, IStarted, 
+        INormalizable, IOrientation
     {
         #region Fields
 

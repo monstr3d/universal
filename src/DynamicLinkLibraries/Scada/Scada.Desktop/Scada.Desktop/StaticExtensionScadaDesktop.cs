@@ -73,10 +73,7 @@ namespace Scada.Desktop
                     MethodInfo mi = type.GetMethod("Init");
                     mi.Invoke(null, null);
                 }
-                if (action != null)
-                {
-                    action(type);
-                }
+                action?.Invoke(type);
             }
 
         }

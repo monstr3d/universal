@@ -306,6 +306,7 @@ namespace Scada.Desktop
             }
             dataConsumer = desktop.GetObject<IDataConsumer>(consumerName);
             collection = dataConsumer.CreateCollection("Realtime");
+            collection = desktop;
             collection.ForEach((Event.Interfaces.IEvent ev) =>
                 {
                     string s = (ev as IAssociatedObject).GetRootName();

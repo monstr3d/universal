@@ -48,7 +48,7 @@ namespace Motion6D.Portable
 
         private double[] quaternion = new double[4];
 
-
+        private IMeasurement measurementFrame;
 
         private IMeasurement[] measurements;
 
@@ -69,7 +69,9 @@ namespace Motion6D.Portable
 
         private ReferenceFrame targetFrame;
 
-        private ReferenceFrame relativeFrame = new ReferenceFrame();
+        private ReferenceFrame relativeFrame;
+
+        private IAngularVelocity angularVelocity;
 
         private ReferenceFrame sourceFrame;
 
@@ -81,19 +83,20 @@ namespace Motion6D.Portable
 
         private double[] omegaRelative = new double[3];
 
+        Action updFrame;
+
         #endregion
 
         #region Ctor
-
 
         /// <summary>
         /// Default constructor
         /// </summary>
         public RelativeMeasurements()
         {
+            measurementFrame = new Measurement(typeof(ReferenceFrame), GetFrame, "Frame");
             coordDel = new Func<object>[] { GetX, GetY, GetZ };
         }
-
 
         #endregion
 
@@ -114,6 +117,7 @@ namespace Motion6D.Portable
             try
             {
                 UpdateAll();
+                updFrame();
             }
             catch (Exception e)
             {
@@ -149,6 +153,8 @@ namespace Motion6D.Portable
         #endregion
 
         #region Specific Members
+
+        #region Public
 
         /// <summary>
         /// Source Position
@@ -192,6 +198,22 @@ namespace Motion6D.Portable
             }
         }
 
+        #endregion
+
+        #region Private
+
+        void UpdateFrame()
+        {
+            Array.Copy(relativePos, relativeFrame.Position, 3);
+            Array.Copy(quaternion, relativeFrame.Quaternion, 4);
+        }
+
+        void UpdateFrameAngularVelocity()
+        {
+            Array.Copy(omegaRelative, angularVelocity.Omega, 3);
+        }
+
+
         void updDistance()
         {
             double[] y = source.Position;
@@ -232,7 +254,10 @@ namespace Motion6D.Portable
             f.CalculateRotatedPosition(relative, relativePos);
         }
 
-
+        object GetFrame()
+        {
+            return relativeFrame;
+        }
 
         object GetDistance()
         {
@@ -350,6 +375,7 @@ namespace Motion6D.Portable
             }
         }
 
+
         void PostCreateMeasurements()
         {
             CreateConside();
@@ -397,11 +423,20 @@ namespace Motion6D.Portable
                 measurements = new IMeasurement[4];
                 Array.Copy(coord, measurements, 4);
             }
+            relativeFrame = targetFrame.GetRelative(sourceFrame);
             List<IMeasurement> lm = new List<IMeasurement>();
             lm.AddRange(measurements);
             lm.AddRange(CreateQuatenionMeasurements());
             lm.AddRange(CreateAngularVelicity());
+            lm.Add(measurementFrame);
             measurements = lm.ToArray();
+            updFrame = UpdateFrame;
+            if (relativeFrame is IAngularVelocity)
+            {
+                angularVelocity = relativeFrame as IAngularVelocity;
+                updFrame += UpdateFrameAngularVelocity;
+            }
+
         }
 
         private void CreateMeasurements()
@@ -583,8 +618,6 @@ namespace Motion6D.Portable
         }
 
 
-
-
         IMeasurement[] CreateVelocityMeasurements(IMeasurement[] acc)
         {
             if ((vSource == null) | (vTarget == null))
@@ -649,6 +682,8 @@ namespace Motion6D.Portable
         {
             return new IMeasurement[0];
         }
+
+        #endregion
 
 
         #endregion

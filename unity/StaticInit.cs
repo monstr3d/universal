@@ -2,31 +2,30 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
 using UnityEngine;
 
-using BaseTypes.Attributes;
-using DataPerformer.Interfaces;
-using DataPerformer.Portable;
-using DataPerformer.Portable.DifferentialEquationProcessors;
-using DataPerformer.Portable.Interfaces;
-using Diagram.UI.Interfaces;
-using Event.Interfaces;
-using Event.Portable;
-using Scada.Desktop;
-using Event.Portable.Runtime;
-using Event.Portable.Interfaces;
-using DataPerformer.Portable.Measurements;
-using System.Reflection;
-using Scada.Interfaces;
-using CategoryTheory;
-using Assets;
-using System.Runtime.InteropServices;
 using Diagram.UI;
 
+using Diagram.UI.Interfaces;
 
+
+using BaseTypes.Attributes;
+
+using DataPerformer.Interfaces;
+using DataPerformer.Portable.DifferentialEquationProcessors;
+using DataPerformer.Portable.Interfaces;
+using DataPerformer.Portable.Measurements;
+
+
+using Event.Interfaces;
+using Event.Portable;
+
+using Scada.Interfaces;
+using Scada.Desktop;
 
 namespace Assets
 {
@@ -50,6 +49,7 @@ namespace Assets
         static Dictionary<string, MonoBehaviorWrapper> wrappers =
             new Dictionary<string, MonoBehaviorWrapper>();
 
+
         static Dictionary<string, ConstructorInfo> updates = new Dictionary<string, ConstructorInfo>();
 
 
@@ -59,6 +59,12 @@ namespace Assets
         #endregion
 
         #region Members
+
+        public static IScadaInterface ToUniqueScada(this string desktop)
+        {
+            return desktop.ToScada("Consumer", null, null, null,
+                    TimeType.Second, false, null, true);
+        }
 
         static void GetComponents(this Component go,
 
@@ -163,12 +169,11 @@ namespace Assets
             }
         }
 
-        static public Quaternion Calculate(this Func<double>[] func, int i, double[] t)
+        static public Quaternion ToQuaternion(this  double[] t)
         {
-            func.Calculate<double>(i, t);
-            float p = t[1] > 0 ? 1f : -1f;
-            return new Quaternion(p * (float)t[1], p * (float)t[3], 
-                p * (float)t[0], p * (float)t[2]);
+            float p = t[0] > 0 ? 1f : -1f;
+            return new Quaternion(p * (float)t[1], p * (float)t[2], 
+                p * (float)t[3], p * (float)t[0]);
         }
 
 
@@ -222,7 +227,7 @@ namespace Assets
 
         static internal void ShowError(this Exception exception)
         {
-            Debug.LogError(exception.Message);
+            Debug.LogError(exception.StackTrace);
         }
 
         internal static void Init()
@@ -295,15 +300,33 @@ namespace Assets
             }
             IScadaInterface scada = wr.Scada;
             List<Action<double>> li = new List<Action<double>>();
+            var inp = scada.Inputs;
             foreach (var key in inputs)
             {
-                Action<double> ad = scada.GetDoubleInput(key);
-                insp[key] = ad;
-                li.Add(ad);
+                if (!inp.ContainsKey(key))
+                {
+                    Debug.LogError(key + "does not exist");
+                }
+                try
+                {
+                    Action<double> ad = scada.GetDoubleInput(key);
+                    insp[key] = ad;
+                    li.Add(ad);
+                }
+                catch (Exception ex)
+                {
+                    Debug.LogError(key);
+                    Debug.LogError(ex.StackTrace);
+                }
             }
             List<Func<double>> lo = new List<Func<double>>();
+            var outs = scada.Outputs;
             foreach (var key in outputs)
             {
+                if (!outs.ContainsKey(key))
+                {
+                    Debug.LogError(key + "does not exist");
+                }
                 Func<double> fd = scada.GetDoubleOutput(key);
                 outp[key] = fd;
                 lo.Add(fd);
@@ -311,6 +334,10 @@ namespace Assets
             monoBehaviour.dInp = li.ToArray();
             monoBehaviour.dOut = lo.ToArray();
             monoBehaviour.ev = ev;
+            if (ev == null)
+            {
+                Debug.LogError("Event" + monoBehaviour.gameObject.name);
+            }
             return wr;
         }
 
@@ -327,6 +354,7 @@ namespace Assets
 
         static StaticInit()
         {
+
             Assembly ass = typeof(StaticInit).Assembly;
 
             StaticExtensionDiagramUI.PostLoadDesktop += dAct;

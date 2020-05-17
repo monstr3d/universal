@@ -238,7 +238,8 @@ namespace DataPerformer.Portable.Runtime
 
                     if (collections.Count == 1)
                     {
-                        IDifferentialEquationProcessor pr = CreateProcessor(collection);
+                        IDifferentialEquationProcessor processor = 
+                            CreateProcessor(collection);
                         double[] dt = new double[1];
                         bool find = (reason.Equals(StaticExtensionEventInterfaces.Realtime) |
                             reason.Equals(StaticExtensionEventInterfaces.RealtimeLogAnalysis));
@@ -252,10 +253,10 @@ namespace DataPerformer.Portable.Runtime
                                     cc.ForEach((IRealtimeUpdate rud) => { lru.Add(rud); }, find);
                                     IDataRuntime drc = Copy(cc);
                                     double[] dtt = new double[1];
-                                    Action actp = CreateAction(drc, dtt, pr, logupd, lru.ToArray());
+                                    Action actp = CreateAction(drc, dtt, processor, logupd, lru.ToArray());
                                     realTimeData[cc] =
                                         new Tuple<IDataRuntime, double[], IDifferentialEquationProcessor, Action>
-                                        (drc, dtt, pr, actp);
+                                        (drc, dtt, processor, actp);
                                 }
                             });
                     }

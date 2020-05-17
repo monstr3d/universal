@@ -9,13 +9,26 @@ namespace Assets
 {
     public class RigidBodyUpdateImpl : AbstractUpdate
     {
+        public  RigidBodyUpdateImpl()
+        {
+
+        }
+
+
         public override void Start()
         {
 
         }
 
+        public override void Set(MonoBehaviorWrapper wrapper, ScriptWithWrapper mono)
+        {
+            base.Set(wrapper, mono);
+            Debug.LogWarning(dInp.Length);
+        }
+
         public override void Update()
         {
+            
             Debug.Log(dOut[0]() + " " + dOut[1]() + " " + dOut[2]());
             return;
             if (Input.GetKey(KeyCode.A))

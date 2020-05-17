@@ -14,6 +14,11 @@ namespace Assets
 
         }
 
+        public override void Set(MonoBehaviorWrapper wrapper, ScriptWithWrapper mono)
+        {
+            base.Set(wrapper, mono);
+        }
+
 
 
         #region Fields
@@ -63,34 +68,42 @@ namespace Assets
 
         public override void Start()
         {
+           
         }
 
         public override void Update()
         {
             ////// Controls: W-S (Pitch), A-D (Roll), Q-E (Yaw), R-F (Ligt),
-            if (Input.GetKey(KeyCode.S))
+            try
             {
-                ResetValue(ref mx, 1f, 3);
+                if (Input.GetKey(KeyCode.S))
+                {
+                    ResetValue(ref mx, 1f, 3);
+                }
+                if (Input.GetKey(KeyCode.W))
+                {
+                    ResetValue(ref mx, -1f, 3);
+                }
+                if (Input.GetKey(KeyCode.Q))
+                {
+                    ResetValue(ref my, -1f, 5);
+                }
+                if (Input.GetKey(KeyCode.E))
+                {
+                    ResetValue(ref my, 1f, 5);
+                }
+                if (Input.GetKey(KeyCode.A))
+                {
+                    ResetValue(ref mz, 1f, 4);
+                }
+                if (Input.GetKey(KeyCode.D))
+                {
+                    ResetValue(ref mz, -1f, 4);
+                }
             }
-            if (Input.GetKey(KeyCode.W))
+            catch (Exception ex)
             {
-                ResetValue(ref mx, -1f, 3);
-            }
-            if (Input.GetKey(KeyCode.Q))
-            {
-                ResetValue(ref my, -1f, 4);
-            }
-            if (Input.GetKey(KeyCode.E))
-            {
-                ResetValue(ref my, 1f, 4);
-            }
-            if (Input.GetKey(KeyCode.A))
-            {
-                ResetValue(ref mz, 1f, 5);
-            }
-            if (Input.GetKey(KeyCode.D))
-            {
-                ResetValue(ref mz, -1f, 5);
+                ex.ShowError();
             }
         }
     }
