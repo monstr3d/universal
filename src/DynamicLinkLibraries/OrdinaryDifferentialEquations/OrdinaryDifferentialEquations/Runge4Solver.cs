@@ -49,6 +49,7 @@ namespace OrdinaryDifferentialEquations
         /// </summary>
         private Runge4Solver()
         {
+
         }
 
         #endregion

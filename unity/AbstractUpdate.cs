@@ -11,7 +11,7 @@ using Scada.Interfaces;
 using Scada.Desktop;
 
 
-namespace Assets
+namespace Unity.Standard
 {
     /// <summary>
     /// Abstract update

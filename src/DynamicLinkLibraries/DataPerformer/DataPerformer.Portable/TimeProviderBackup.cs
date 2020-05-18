@@ -61,7 +61,8 @@ namespace DataPerformer.Portable
         /// <param name="processor">Differential equation processor</param>
         /// <param name="reason">Reason</param>
         /// <param name="priority">Priority</param>
-        public TimeProviderBackup(IDataConsumer consumer, ITimeMeasurementProvider provider, IDifferentialEquationProcessor processor, string reason, int priority)
+        public TimeProviderBackup(IDataConsumer consumer, ITimeMeasurementProvider provider, 
+            IDifferentialEquationProcessor processor, string reason, int priority)
         {
             this.consumer = consumer;
             collection = consumer.GetDependentCollection(priority);

@@ -7,6 +7,8 @@ using System.Text;
 using System.Threading.Tasks;
 
 using UnityEngine;
+using UnityEngine.UI;
+
 
 using Diagram.UI;
 
@@ -27,14 +29,20 @@ using Event.Portable;
 using Scada.Interfaces;
 using Scada.Desktop;
 
-namespace Assets
+namespace Unity.Standard
 {
 
  
-    public static class StaticInit
+    /// <summary>
+    /// Static 
+    /// </summary>
+    public static class StaticExtensionUnity
     {
 
         #region Fields
+
+
+        static private TimeMeasureProviderFactory factory = new TimeMeasureProviderFactory();
 
         static private ITimerEventFactory timerEventFactory;
 
@@ -60,10 +68,25 @@ namespace Assets
 
         #region Members
 
-        public static IScadaInterface ToUniqueScada(this string desktop)
+        /// <summary>
+        /// Text update
+        /// </summary>
+        static public ITextUpdate TextUpdate
+        { get; set; } 
+
+
+        /// <summary>
+        /// Gets unique scada
+        /// </summary>
+        /// <param name="desktop">Desktop name</param>
+        /// <returns>Scada</returns>
+        public static IScadaInterface ToUniqueScada(this string desktop,
+                         ITimerEventFactory timerEventFactory,
+                ITimerFactory timerEvent)
         {
-            return desktop.ToScada("Consumer", null, null, null,
-                    TimeType.Second, false, null, true);
+            return desktop.ToScada("Consumer", timerEventFactory,
+                 timerEvent,
+                factory, TimeType.Second, false, null, true);
         }
 
         static void GetComponents(this Component go,
@@ -176,9 +199,6 @@ namespace Assets
                 p * (float)t[3], p * (float)t[0]);
         }
 
-
-
-
         static public Dictionary<string, List<T>> GetComponents<T>(this Dictionary<string, List<Component>> comp)
             where T : Component
         {
@@ -218,11 +238,6 @@ namespace Assets
             comp = new Dictionary<string, List<Component>>();
             gob.GetComponents(dog, comp);
             return dog;
-        }
-
-        static public void Force(this Action<double>[] act, int i, float val)
-        {
-            MechanicalAction.Force(i, val, act);
         }
 
         static internal void ShowError(this Exception exception)
@@ -298,6 +313,7 @@ namespace Assets
                 ev = wr.Event;
                 wrappers[desktop] = wr;
             }
+            monoBehaviour.ev = ev;
             IScadaInterface scada = wr.Scada;
             List<Action<double>> li = new List<Action<double>>();
             var inp = scada.Inputs;
@@ -347,15 +363,32 @@ namespace Assets
 
         };
 
+        /// <summary>
+        /// Creates Text action
+        /// </summary>
+        /// <param name="scada">Scada</param>
+        /// <param name="parameter">Parameter</param>
+        /// <param name="format">Format</param>
+        /// <param name="text">Text</param>
+        /// <param name="scale">Scale</param>
+        /// <returns>The action</returns>
+        static public Action CreateTextAction(this IScadaInterface scada,
+                string parameter, string format,  Text text, float scale)
+        {
+            ITextUpdate up = TextUpdate;
+            return up.Create(scada, parameter, format,  text,  scale);
+        }
+
 
         #endregion
 
         #region Constructor
 
-        static StaticInit()
+        static StaticExtensionUnity()
         {
+            TextUpdate = new DefaultTextAction();
 
-            Assembly ass = typeof(StaticInit).Assembly;
+            Assembly ass = typeof(StaticExtensionUnity).Assembly;
 
             StaticExtensionDiagramUI.PostLoadDesktop += dAct;
 
@@ -387,6 +420,62 @@ namespace Assets
 
         #region Classes
 
+        class DefaultTextAction : ITextUpdate
+        {
+
+            Action ITextUpdate.Create(IScadaInterface scada, 
+                string parameter, string format, Text text, float scale)
+            {
+                string s = text.text + "";
+                float[] sc = new float[] { scale };
+                if (sc[0] == 0)
+                {
+                    sc[0] = 1;
+                }
+                if (!scada.Outputs.ContainsKey(parameter))
+                {
+                    return null;
+                }
+                string form = format;
+                if (form == null)
+                {
+                    form = "0";
+                }
+                object t = scada.Outputs[parameter];
+                if (t.GetType() == typeof(double))
+                {
+                    Func<double> fd = scada.GetDoubleOutput(parameter);
+                    if (form != null)
+                    {
+                        if (form.Length > 0)
+                        {
+                            return () =>
+                                {
+                                    float x = sc[0] * (float)fd();
+                                    text.text = s + " " + x.ToString(form);
+                                };
+                        }
+                    }
+                    return () =>
+                    {
+                        double x = sc[0] * fd();
+                        text.text = s + x.ToString();
+                    };
+
+
+
+                }
+
+                Func<object> f = scada.GetOutput(parameter);
+
+                return () =>
+                {
+                    text.text =
+                    f() + "";
+                };
+            }
+        }
+
         class TimeMeasureProviderFactory : ITimeMeasurementProviderFactory, ITimeMeasurementProvider
         {
             ITimeMeasurementProvider ITimeMeasurementProviderFactory.Create(bool isAbsolute, TimeType timeUnit, string reason)
@@ -398,8 +487,7 @@ namespace Assets
             double ITimeMeasurementProvider.Time { get => Time.realtimeSinceStartup; set { } }
             double ITimeMeasurementProvider.Step { get; set; }
 
-            IMeasurement m = new Measurement(() => Time.realtimeSinceStartup, "Time");
-
+            IMeasurement m = new Measurement(() => (double)Time.realtimeSinceStartup, "Time");
         }
 
         class ErrorHanller : Scada.Interfaces.IErrorHandler

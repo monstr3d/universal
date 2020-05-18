@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 
-namespace Assets
+namespace Unity.Standard
 {
     /// <summary>
     /// Update interface

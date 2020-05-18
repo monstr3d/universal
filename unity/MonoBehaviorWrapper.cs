@@ -17,7 +17,7 @@ using Scada.Interfaces;
 using Scada.Desktop;
 using System.Collections.Generic;
 
-namespace Assets
+namespace Unity.Standard
 {
     public class MonoBehaviorWrapper  : ITimerFactory, ITimer, ITimerEventFactory, ITimerEvent,
         ITimeMeasurementProviderFactory, ITimeMeasurementProvider
@@ -48,14 +48,14 @@ namespace Assets
 
         static MonoBehaviorWrapper()
         {
-            StaticInit.Init();
+            StaticExtensionUnity.Init();
             timeMeasurement = new Measurement(GetTime, "Time");
         }
 
         public MonoBehaviorWrapper(string name = null, bool unique = false)
         {
             scada = name.ToScada("Consumer", this, this, this, TimeType.Second, false, null, unique);
-            scada.ErrorHandler = StaticInit.ErrorHandler;
+            scada.ErrorHandler = StaticExtensionUnity.ErrorHandler;
             desktop = scada.GetDesktop();
         }
 
@@ -65,7 +65,7 @@ namespace Assets
             if (name != null)
             {
                 scada = name.ToScada("Consumer", this, this, this, TimeType.Second, false, null, unique);
-                scada.ErrorHandler = StaticInit.ErrorHandler;
+                scada.ErrorHandler = StaticExtensionUnity.ErrorHandler;
                 desktop = scada.GetDesktop();
                 desktop.ForEach((Motion6D.Interfaces.IReferenceFrame frame) =>
                 {
@@ -135,7 +135,7 @@ namespace Assets
 
         ITimer ITimerFactory.CreateTimer(TimeSpan timeSpan)
         {
-           this.timeSpan = timeSpan;
+            this.timeSpan = timeSpan;
             return this;
         }
 

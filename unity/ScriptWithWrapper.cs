@@ -6,12 +6,10 @@ using UnityEngine;
 
 using Scada.Interfaces;
 
-using Assets;
 
-using Diagram.UI.Interfaces;
-using Scada.Desktop;
-using Diagram.UI.Labels;
+
 using Motion6D;
+using Unity.Standard;
 
 public class ScriptWithWrapper : MonoBehaviour
 {
@@ -29,6 +27,8 @@ public class ScriptWithWrapper : MonoBehaviour
     public string[] updates = new string[0];
 
     public string[] constants = new string[0];
+
+    public bool isEnabled = true;
 
     public GameObject[] transformations = new GameObject[0];
 
@@ -64,16 +64,16 @@ public class ScriptWithWrapper : MonoBehaviour
 
     private void Awake()
     {
-        monoBehaviorWrapper = StaticInit.Create(this, unique, desktop, inputs, outputs);
+        monoBehaviorWrapper = StaticExtensionUnity.Create(this, unique, desktop, inputs, outputs);
         scada = monoBehaviorWrapper.Scada;
         SetConstants();
-        AddAction(StaticInit.Create(this, monoBehaviorWrapper, updates, ref start));
+        AddAction(StaticExtensionUnity.Create(this, monoBehaviorWrapper, updates, ref start));
         UpdateFrames();
-        if (update == null)
+        if ((update == null) | (!isEnabled))
         {
             update = () => { };
         }
-    }
+      }
 
     // Start is called before the first frame update
     void Start()
@@ -84,9 +84,6 @@ public class ScriptWithWrapper : MonoBehaviour
             scada.IsEnabled = true;
         }
     }
-
-
-
 
     // Update is called once per frame
     void Update()
