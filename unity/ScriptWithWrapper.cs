@@ -58,6 +58,33 @@ public class ScriptWithWrapper : MonoBehaviour
 
     IScadaInterface scada;
 
+    Action lateUpdate = () => { };
+
+    Action fixedAct = null;
+
+
+    Motion6D.Interfaces.IAngularVelocity angular;
+
+  
+    float prevtime = 0;
+
+    float lastTime;
+
+
+    double[,] qd = new double[4, 4];
+
+
+    double[] qder = new double[4];
+
+    double[] auxQuaternion = new double[4];
+
+    double[] pos;
+
+    double[] quater;
+
+    double[] newQuater = new double[4];
+
+
     #endregion
 
     #region Standard Members
@@ -90,6 +117,7 @@ public class ScriptWithWrapper : MonoBehaviour
     {
         try
         {
+            prevtime = Time.realtimeSinceStartup;
             ev();
             update();
         }
@@ -99,6 +127,31 @@ public class ScriptWithWrapper : MonoBehaviour
         }
     }
 
+    private void FixedUpdate()
+    {
+        try
+        {
+            fixedAct();
+        }
+        catch (Exception exception)
+        {
+            exception.ShowError();
+        }
+    }
+
+    private void LateUpdate()
+    {
+        try
+        {
+          //  fixedAct();
+        }
+        catch (Exception exception)
+        {
+            exception.ShowError();
+        }
+    }
+
+
     #endregion
 
     #region Public Members
@@ -107,6 +160,24 @@ public class ScriptWithWrapper : MonoBehaviour
 
 
     #region  Private Members
+
+    void AddFixed(Action action)
+    {
+        if (fixedAct == null)
+        {
+            fixedAct = action;
+            return;
+        }
+        fixedAct += action;
+    }
+
+    void SetAngularVelocity()
+    {
+        if (angular != null)
+        {
+
+        }
+    }
 
     void SetConstants()
     {
@@ -139,6 +210,8 @@ public class ScriptWithWrapper : MonoBehaviour
         update += action;
     }
 
+ 
+
     void UpdateFrames()
     {
         Dictionary<string, Motion6D.Interfaces.IReferenceFrame> frames
@@ -149,17 +222,74 @@ public class ScriptWithWrapper : MonoBehaviour
             ReferenceFrame referenceFrame = frame.Own;
             Action act = () =>
             {
-                double[] pos = referenceFrame.Position;
-                double[] quater = referenceFrame.Quaternion;
+                pos = referenceFrame.Position;
+                quater = referenceFrame.Quaternion;
                 gameObject.transform.position = new Vector3((float)pos[0], 
                     (float)pos[1], (float)pos[2]);
-                gameObject.transform.rotation =
-                new Quaternion((float)quater[1], 
-                (float)quater[2], (float)quater[3], (float)quater[0]);
+                gameObject.transform.rotation = quater.ToQuaternion();
+                lastTime = Time.realtimeSinceStartup;
             };
             AddAction(act);
+
+            var cam = gameObject.GetComponent<Camera>();
+            if (referenceFrame is Motion6D.Interfaces.IAngularVelocity)
+            {
+                var av = referenceFrame as Motion6D.Interfaces.IAngularVelocity;
+
+                act = () =>
+                {
+                    Vector3D.StaticExtensionVector3D.CalculateQuaternionDerivation(quater,
+                        av.Omega, qder, auxQuaternion);
+                };
+                AddAction(act);
+                act = () =>
+                {
+                    if (quater == null)
+                    {
+                        return;
+                    }
+                    double dt = Time.realtimeSinceStartup - lastTime;
+                    for (int i = 0; i < 4; i++)
+                    {
+                        newQuater[i] = quater[i] + dt * qder[i];
+                    }
+                    Vector3D.StaticExtensionVector3D.Normalize(newQuater);
+                    gameObject.transform.rotation = newQuater.ToQuaternion();
+                };
+                AddFixed(act);
+                lateUpdate = act;
+            }
+            if (fixedAct == null)
+            {
+                fixedAct = () => { };
+            }
+             if (cam != null)
+            {
+                lateUpdate = act;
+            }
+            return;
+            Rigidbody rb = gameObject.GetComponent<Rigidbody>();
+            if (rb != null)
+            {
+                if (true)
+                {
+                    if (referenceFrame is Motion6D.Interfaces.IAngularVelocity)
+                    {
+                        var av = referenceFrame as Motion6D.Interfaces.IAngularVelocity;
+                        act = () =>
+                        {
+                            var avv = av.Omega;
+                            rb.angularVelocity = new Vector3((float)avv[0], (float)avv[1], (float)avv[2]);
+                            int i = 0;
+                        };
+                        AddAction(act);
+                    }
+                }
+            }
         }
     }
+
+  
 
     #endregion
 

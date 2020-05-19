@@ -23,7 +23,8 @@ namespace Vector3D
         /// <param name="theta">Theta angle - hunting</param>
         /// <param name="gamma">Gamma angle - roll </param>
         /// <param name="matrix">The matrix</param>
-        public static void CalculateRotationMatrixFromPitchRollHunting(double psi, double theta, double gamma, double[,] matrix)
+        public static void CalculateRotationMatrixFromPitchRollHunting(double psi, 
+            double theta, double gamma, double[,] matrix)
         {
             double cp = Math.Cos(psi);
             double sp = Math.Sin(psi);
@@ -377,7 +378,8 @@ namespace Vector3D
   		/// <param name="omega">Angular velicity</param>
   		/// <param name="qq">Auxliary variable</param>
   		/// <param name="qd">Auxiliary varible</param>
-		public static void CalculateDynamics(double[] q, double[] der, double[,] m, double[] omega, double[,] qq, double[,] qd)
+		public static void CalculateDynamics(double[] q, double[] der, double[,] m, double[] omega, 
+            double[,] qq, double[,] qd)
 		{
             CalculateDynamics(q, der, omega, qd);
             for (int i = 0; i < 4; i++)
@@ -434,7 +436,8 @@ namespace Vector3D
         /// <param name="omega">Angular velocity</param>
         /// <param name="quaternionDerivation">Derivation of quaternion</param>
         /// <param name="auxQuaternion">Auxiliary quaternion</param>
-        public static void CalculateQuaternionDerivation(double[] quaternion, double[] omega, double[] quaternionDerivation, double[] auxQuaternion)
+        public static void CalculateQuaternionDerivation(double[] quaternion, double[] omega, 
+            double[] quaternionDerivation, double[] auxQuaternion)
         {
             auxQuaternion[0] = 0;
             Array.Copy(omega, 0, auxQuaternion, 1, 3);

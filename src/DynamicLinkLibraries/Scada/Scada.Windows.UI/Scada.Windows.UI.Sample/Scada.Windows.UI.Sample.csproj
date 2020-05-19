@@ -1,0 +1,222 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6B47C61E-1C74-4751-AF7C-667C9347B0B7}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Scada.Windows.UI.Sample</RootNamespace>
+    <AssemblyName>Scada.Windows.UI.Sample</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x64</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>x64</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="FormMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMain.Designer.cs">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMainScada.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormMain.resx">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="Resources\simple_control_system.cfa" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\BaseTypes\BaseTypes\BaseTypes.csproj">
+      <Project>{8a9c8c8b-40b2-418c-ac92-4bdbb6e071c3}</Project>
+      <Name>BaseTypes</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\DataPerformer\DataPerformer.Base\DataPerformer.Base\DataPerformer.Base.csproj">
+      <Project>{cde580bc-cfe5-45d3-b9a2-76585e54a416}</Project>
+      <Name>DataPerformer.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\DataPerformer\DataPerformer.Basic\DataPerformer.Basic.csproj">
+      <Project>{5c0c307c-0352-4e34-9a9e-cb4f4eb31d6f}</Project>
+      <Name>DataPerformer.Basic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\DataPerformer\DataPerformer.csproj">
+      <Project>{618b5522-01bd-4834-bb34-0c3ac7bb59ec}</Project>
+      <Name>DataPerformer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\DataPerformer\DataPerformer.Interfaces\DataPerformer.Interfaces.csproj">
+      <Project>{f9d68183-6801-4214-affc-737acbef498e}</Project>
+      <Name>DataPerformer.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\DataPerformer\DataPerformer.Portable\DataPerformer.Portable.csproj">
+      <Project>{4442e3e5-41b9-4f60-9c1a-07272d9c31d0}</Project>
+      <Name>DataPerformer.Portable</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Diagram\Diagram\Diagram.csproj">
+      <Project>{096f4ea8-6301-4545-96d6-286e67ccba5c}</Project>
+      <Name>Diagram</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Diagram\Diagram.UI.Serializable\Diagram.UI.Serializable.csproj">
+      <Project>{868adfd8-51c2-4cec-8132-11e5a0f907e3}</Project>
+      <Name>Diagram.UI.Serializable</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\EngineeringInitializer\EngineeringInitializer.csproj">
+      <Project>{96b0dda9-d250-479b-8bb8-7dadadb88fbe}</Project>
+      <Name>EngineeringInitializer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Events\Event.Basic.Data\Event.Basic.Data.csproj">
+      <Project>{d3cf3293-5ebe-42e4-958a-1f58b24238cd}</Project>
+      <Name>Event.Basic.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Events\Event.Basic\Event.Basic.csproj">
+      <Project>{b542e7df-96b1-4db9-9335-10b350d61b4e}</Project>
+      <Name>Event.Basic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Events\Event.Data.Remote\Event.Data.Interface\Event.Data.Interface.csproj">
+      <Project>{4407509d-87b1-4903-8a73-628f05f55c8d}</Project>
+      <Name>Event.Data.Interface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Events\Event.Interfaces\Event.Interfaces.csproj">
+      <Project>{3006114c-ed81-4966-a1a4-88149fddb9a5}</Project>
+      <Name>Event.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Events\Event.Portable\Event.Portable.csproj">
+      <Project>{b72a1bb1-13a5-4f04-91ae-dd777731c4f9}</Project>
+      <Name>Event.Portable</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Events\Event.Windows.Forms\Event.Windows.Forms.csproj">
+      <Project>{7409a8bb-d374-4b57-bb4c-4088d06f9b45}</Project>
+      <Name>Event.Windows.Forms</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\FormulaEditor\ExtendedFormulaEditor\ExtendedFormulaEditor.csproj">
+      <Project>{2e762fec-e32c-46bb-bf30-9599ef399fb4}</Project>
+      <Name>ExtendedFormulaEditor</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\FormulaEditor\FormulaEditor\FormulaEditor.csproj">
+      <Project>{8613b23c-49b6-4056-83c5-e982d7f51f32}</Project>
+      <Name>FormulaEditor</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\FormulaEditor\FormulaEditor.Serializable\FormulaEditor.Serializable.csproj">
+      <Project>{4a829781-f93e-4d53-81d6-e7678dc94a50}</Project>
+      <Name>FormulaEditor.Serializable</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\OrdinaryDifferentialEquations\OrdinaryDifferentialEquations\OrdinaryDifferentialEquations.csproj">
+      <Project>{76a28755-e93a-4a8d-b24d-38cb3c2afdbc}</Project>
+      <Name>OrdinaryDifferentialEquations</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\PropertyGrid\CustomControls\CustomControls.csproj">
+      <Project>{697b994e-2c45-40f7-ab2c-b81252dae446}</Project>
+      <Name>CustomControls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\RealMatrixProcessor\RealMatrixProcessor.csproj">
+      <Project>{4b250264-a0a4-41ba-991e-2a26eb23e8ba}</Project>
+      <Name>RealMatrixProcessor</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Scada.Desktop\Scada.Desktop.Serializable\Scada.Desktop.Serializable.csproj">
+      <Project>{8198fa9f-1f6b-40d6-b4d1-0ff7b613c48d}</Project>
+      <Name>Scada.Desktop.Serializable</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Scada.Desktop\Scada.Desktop\Scada.Desktop.csproj">
+      <Project>{96526a3d-5ae5-406d-b764-47b4dae115de}</Project>
+      <Name>Scada.Desktop</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Scada.Interfaces\Scada.Interfaces.csproj">
+      <Project>{cd3f1068-0706-4269-aef0-7eb28d6c8abb}</Project>
+      <Name>Scada.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Scada.Motion6D\Scada.Motion6D.csproj">
+      <Project>{bf1f2e85-14b4-4017-bfd5-5bb15bd5b5dd}</Project>
+      <Name>Scada.Motion6D</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Scada.Windows.UI.csproj">
+      <Project>{4ab6bc74-136f-411d-80f1-8e0bb823a443}</Project>
+      <Name>Scada.Windows.UI</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\scada.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

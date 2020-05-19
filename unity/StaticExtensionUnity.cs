@@ -89,6 +89,13 @@ namespace Unity.Standard
                 factory, TimeType.Second, false, null, true);
         }
 
+        static public Quaternion FromDouble(this double[] x)
+        {
+            float p = x[0] < 0 ? -1f : 1f;
+            return new Quaternion(p * (float)x[1],  p * (float)x[2], p * (float)x[3], p * (float)x[0]);
+        }
+
+
         static void GetComponents(this Component go,
 
             Dictionary<string, List<GameObject>> objects, Dictionary<string, List<Component>> comp)
@@ -386,6 +393,8 @@ namespace Unity.Standard
 
         static StaticExtensionUnity()
         {
+
+            Application.targetFrameRate = -1;
             TextUpdate = new DefaultTextAction();
 
             Assembly ass = typeof(StaticExtensionUnity).Assembly;
