@@ -67,33 +67,14 @@ public class OrientationCocpit : MonoBehaviour
     //Internal Calculation Variables
     Vector3 currentPosition, lastPosition, relativeSpeed, lastSpeed;
 
-    Action[] even;
+    MonoBehaviorTimerFactory factory;
 
     Action update;
 
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////// Inicialization
-    void Awake() 
-    {
-        
-        if (desktop != null)
-        {
-            try
-            {
-                IScadaInterface scada = MonoBehaviorTimerFactory.Create(desktop, out even);
-                update = () => { };
-                var ou = scada.Outputs;
-                Func<object> f = scada.GetOutput(measureName);
-                frame = f() as ReferenceFrame;
-                update = UpdateFrame;
-                return;
-            }
-            catch (Exception ex)
-            {
-                ex.ShowError();
-            }
-        }
-    }
+ 
+
    //////////////////////////////////////////////////////////////////////////////////////////////////////////////// Inicialization
 
     void UpdateFrame()
@@ -133,9 +114,40 @@ public class OrientationCocpit : MonoBehaviour
 
 
     /////////////////////////////////////////////////////// Updates and Calculations
+
+
+    void Awake()
+    {
+
+        if (desktop != null)
+        {
+            try
+            {
+                IScadaInterface scada = MonoBehaviorTimerFactory.Create(desktop,  out factory);
+                update = () => { };
+                var ou = scada.Outputs;
+                Func<object> f = scada.GetOutput(measureName);
+                frame = f() as ReferenceFrame;
+                update = UpdateFrame;
+                return;
+            }
+            catch (Exception ex)
+            {
+                ex.ShowError();
+            }
+        }
+    }
+
+    private void Start()
+    {
+        factory.Start();
+    }
+
+
+
     void Update()
     {
-        even[0]();
+        factory.Update();
         update();
     }
 

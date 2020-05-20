@@ -1,16 +1,19 @@
-﻿using CategoryTheory;
-using DataPerformer.Portable;
+﻿using System.Collections;
+using System.Collections.Generic;
+
+using CategoryTheory;
+
 using Diagram.UI;
 using Diagram.UI.Interfaces;
+
+
+using DataPerformer.Portable;
 using Event.Interfaces;
 using Event.Portable;
-using Event.Portable.Interfaces;
+
 using Motion6D.Interfaces;
 using Motion6D.Portable.Interfaces;
 using Motion6D.Portable.Runtime;
-using System;
-using System.Collections;
-using System.Collections.Generic;
 
 namespace Motion6D.Portable
 {
@@ -165,6 +168,8 @@ namespace Motion6D.Portable
 
         static StaticExtensionMotion6DPortable()
         {
+
+            PureDesktop.DesktopPostLoad += PostLoadPositions;
             new CoreCreators.CSCodeCreator();
             DataRuntimeFactory.Singleton.SetBase();
             DataRuntimeFactory.Singleton.SetBaseAction();

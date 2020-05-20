@@ -26,7 +26,7 @@ namespace Unity.Standard
 
         protected MonoBehaviorWrapper wrapper;
 
-        protected ScriptWithWrapper mono;
+        protected ReferenceFrameBehavior mono;
 
 
         protected IScadaInterface scada;
@@ -54,8 +54,8 @@ namespace Unity.Standard
         /// </summary>
         /// <param name="wrapper">Wrapper</param>
         /// <param name="mono">Script</param>
-        public virtual void Set(MonoBehaviorWrapper wrapper, 
-            ScriptWithWrapper mono)
+        public virtual void Set(MonoBehaviorWrapper wrapper,
+            ReferenceFrameBehavior mono)
         {
             this.wrapper = wrapper;
             this.mono = mono;

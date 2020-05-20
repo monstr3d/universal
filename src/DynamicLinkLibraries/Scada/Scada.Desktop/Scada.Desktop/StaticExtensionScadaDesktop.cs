@@ -89,6 +89,17 @@ namespace Scada.Desktop
         }
 
         /// <summary>
+        /// Existence of scada
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns>The sign of the existence</returns>
+        public static  bool ScadaExists(this string name)
+        {
+            return scadas.ContainsKey(name);
+        }
+
+
+        /// <summary>
         /// String to SCADA
         /// </summary>
         /// <param name="name">Name of class</param>

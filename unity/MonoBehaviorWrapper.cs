@@ -19,129 +19,53 @@ using System.Collections.Generic;
 
 namespace Unity.Standard
 {
-    public class MonoBehaviorWrapper  : ITimerFactory, ITimer, ITimerEventFactory, ITimerEvent,
-        ITimeMeasurementProviderFactory, ITimeMeasurementProvider
+    public class MonoBehaviorWrapper : MonoBehaviorTimerFactory
     {
         #region Fields
 
         private MonoBehaviour monoBehaviour;
 
 
-        private TimeSpan timeSpan;
-
-        private bool isEnabled = false;
-
-        static IMeasurement timeMeasurement;
-
-        TimeSpan ITimer.TimeSpan => timeSpan;
-
-        private IScadaInterface scada;
-
-        private Diagram.UI.Interfaces.IDesktop desktop;
-
         private Dictionary<string, Motion6D.Interfaces.IReferenceFrame> frames =
             new Dictionary<string, Motion6D.Interfaces.IReferenceFrame>();
 
-        double step;
+
 
         #endregion
 
-        static MonoBehaviorWrapper()
-        {
-            StaticExtensionUnity.Init();
-            timeMeasurement = new Measurement(GetTime, "Time");
-        }
+        #region Ctor
 
-        public MonoBehaviorWrapper(string name = null, bool unique = false)
+        public MonoBehaviorWrapper(MonoBehaviour monoBehaviour,
+             string name = null) : base(name)
         {
-            scada = name.ToScada("Consumer", this, this, this, TimeType.Second, false, null, unique);
-            scada.ErrorHandler = StaticExtensionUnity.ErrorHandler;
-            desktop = scada.GetDesktop();
-        }
-
-        public MonoBehaviorWrapper(MonoBehaviour monoBehaviour, string name = null, bool unique = false)
-        {
-            this.monoBehaviour = monoBehaviour;
-            if (name != null)
+            desktop.ForEach((Motion6D.Interfaces.IReferenceFrame frame) =>
             {
-                scada = name.ToScada("Consumer", this, this, this, TimeType.Second, false, null, unique);
-                scada.ErrorHandler = StaticExtensionUnity.ErrorHandler;
-                desktop = scada.GetDesktop();
-                desktop.ForEach((Motion6D.Interfaces.IReferenceFrame frame) =>
-                {
-                    string fn = frame.GetName(desktop);
-                    frames[fn] = frame;
-                });
-            }
+                string fn = frame.GetName(desktop);
+                frames[fn] = frame;
+            });
         }
+
+        #endregion
+
+        #region Members
+
+        #region Public Members
+
 
         public Dictionary<string, Motion6D.Interfaces.IReferenceFrame> Frames { get => frames; }
 
-        public IScadaInterface Scada { get => scada; }
+        #endregion
 
-         
-        static object GetTime()
-        {
-            return (double)Time.time;
-        }
+        #region Internal Members
+        #endregion
 
-        
+        #endregion
 
-        public void Event()
-        {
-            ev();
-        }
 
-        Action ev = () => { };
+        #region Private Members
 
-        bool ITimer.IsEnabled { get => isEnabled; set => isEnabled = value; }
-
-        ITimerEvent ITimerEventFactory.NewTimer => this;
-
-        TimeSpan ITimerEvent.TimeSpan { get => timeSpan; set => timeSpan = value; }
-       
-        bool Event.Interfaces.IEvent.IsEnabled { get => isEnabled; set => isEnabled = value; }
-
-        IMeasurement ITimeMeasurementProvider.TimeMeasurement => timeMeasurement;
-
-        double ITimeMeasurementProvider.Time { get => (double)Time.time; set { } }
-        double ITimeMeasurementProvider.Step { get => step; set => step = value; }
-
-        event Action ITimer.Event
-        {
-            add
-            {
-                ev += value;
-            }
-
-            remove
-            {
-                ev -= value;
-            }
-        }
-
-        event Action Event.Interfaces.IEvent.Event
-        {
-            add
-            {
-                ev += value;
-            }
-
-            remove
-            {
-                ev -= value;
-            }
-        }
-
-        ITimer ITimerFactory.CreateTimer(TimeSpan timeSpan)
-        {
-            this.timeSpan = timeSpan;
-            return this;
-        }
-
-        ITimeMeasurementProvider ITimeMeasurementProviderFactory.Create(bool isAbsolute, TimeType timeUnit, string reason)
-        {
-            return this;
-        }
+        #endregion
     }
+
 }
+

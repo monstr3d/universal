@@ -17,7 +17,7 @@ namespace Unity.Standard
         /// </summary>
         /// <param name="wrapper">Wrapper</param>
         /// <param name="mono">Script</param>
-        void Set(MonoBehaviorWrapper wrapper, ScriptWithWrapper mono);
+        void Set(MonoBehaviorWrapper wrapper, ReferenceFrameBehavior mono);
 
         /// <summary>
         /// Starts itself

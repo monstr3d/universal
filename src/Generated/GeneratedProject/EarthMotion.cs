@@ -68,6 +68,7 @@ namespace GeneratedProject
 				bool pl = PostLoad();
 				bool pd = PostDeserialize();
 				SuccessLoad = pl & pd;
+				PostLoad(this); 
 			}
 		
 			internal class OblectLabel0 : Diagram.UI.Labels.PureObjectLabel
@@ -912,7 +913,7 @@ namespace GeneratedProject
 				internal CategoryObject()
 				{
 				var ts = this as Event.Interfaces.ITimerEvent;
-				ts.TimeSpan = TimeSpan.FromTicks(10000000);
+				ts.TimeSpan = TimeSpan.FromTicks(100000000);
 				}
 				}
 			}

@@ -142,7 +142,8 @@ namespace Diagram.UI
         /// <param name="objects">Objects</param>
         /// <param name="arrows">Arrows</param>
         /// <param name="associated">Sign for setting associated objects</param>
-        public virtual void Copy(IEnumerable<IObjectLabel> objects, IEnumerable<IArrowLabel> arrows, bool associated)
+        public virtual void Copy(IEnumerable<IObjectLabel> objects, 
+            IEnumerable<IArrowLabel> arrows, bool associated)
         {
             List<IObjectLabel> objs = new List<IObjectLabel>();
             List<IObjectLabel> tobjs = new List<IObjectLabel>();

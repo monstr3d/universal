@@ -1,6 +1,7 @@
 using System;
 using Vector3D.Interfaces;
 
+
 namespace Vector3D
 {
 
@@ -15,6 +16,40 @@ namespace Vector3D
         private static readonly double[] idQuaternion = new double[] { 1, 0, 0, 0 };
 
         #endregion
+
+        /// <summary>
+        /// Rotated quaternion
+        /// </summary>
+        /// <param name="omega"></param>
+        /// <param name="quaternion"></param>
+        /// <param name="time"></param>
+        public static void RotateOmega(this double[] omega, double[] quaternion, double time)
+        {
+            double o = omega.PartialNorm(0, 3);
+            double phi = 0.5 * o * time;
+            double s = Math.Sin(phi);
+            quaternion[0] = Math.Sqrt(1 - s * s);
+            o = 1 / o;
+            for (int i = 0; i < 3; i++)
+            {
+                quaternion[i + 1] = o * s * omega[i];
+            }
+        }
+
+        /// <summary>
+        /// Rotated quaternion
+        /// </summary>
+        /// <param name="omega"></param>
+        /// <param name="time"></param>
+        /// <param name="source"></param>
+        /// <param name="target"></param>
+        /// <param name="aux"></param>
+        public static void RotateOmega(this double[] omega,  double time,
+           double[] source, double[] target, double[] aux)
+        {
+            omega.RotateOmega(aux, time);
+            QuaternionMultiply(source, aux, target);
+        }
 
         /// <summary>
         /// Calculates rotation matrix from Euler amgles
@@ -724,7 +759,7 @@ namespace Vector3D
         /// <param name="startIndex">startIndex</param>
         /// <param name="length">Length</param>
         /// <returns>The partial norm</returns>
-        public static double PartialNorm(double[] x, int startIndex, int length)
+        public static double PartialNorm(this double[] x, int startIndex, int length)
         {
             return Math.Sqrt(PartialSquare(x, startIndex, length));
         }
@@ -755,6 +790,18 @@ namespace Vector3D
         static public double[,] SquareReper(double[] x)
         {
             return ToSquare(Reper(x));
+        }
+
+
+        static public void RotateOmega(double[] omega, double dt, double[] quaternion)
+        {
+            double a = 0;
+            for (int i = 0; i < 3; i++)
+            {
+                double o = omega[i] * dt;
+                a += o * o;
+            }
+          //  a = Math.Sin(Math.)
         }
 
         /// <summary>

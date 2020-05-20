@@ -1,81 +1,189 @@
-﻿using Event.Interfaces;
+﻿using DataPerformer.Interfaces;
+using DataPerformer.Portable.Measurements;
+using Diagram.UI.Interfaces;
+using Event.Interfaces;
+using Scada.Desktop;
 using Scada.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 
+
 namespace Unity.Standard
 {
     public class MonoBehaviorTimerFactory : ITimerEventFactory,
-    ITimerEvent, ITimerFactory, ITimer
+    ITimerEvent, ITimerFactory, ITimer, IScadaUpdate
     {
+ 
 
         #region Fields
 
         private IScadaInterface scada;
+
+        protected IDesktop desktop;
  
         Action ev = () => { };
 
+        float currentTime;
 
-        Action[] eve;
+        float step;
+
+        protected bool exists;
+
+        TimeSpan timeSpan = new TimeSpan();
+
+        Action execute;
+
+        protected string desktopName;
+
+        static IMeasurement timeMeasurement;
+
+        Action update;
 
         #endregion
 
         #region Ctor
-
-        private MonoBehaviorTimerFactory(string desktop, out Action[] even)
+        static MonoBehaviorTimerFactory()
         {
-            scada = desktop.ToUniqueScada(this, this);
-            even = new Action[] { ev };
-            eve = even;
+            StaticExtensionUnity.Init();
+            timeMeasurement = new Measurement(GetTime, "Time");
+        }
+
+        protected MonoBehaviorTimerFactory(string desktopName)
+        {
+            exists = desktopName.ScadaExists();
+            this.desktopName = desktopName;
+            scada = desktopName.ToUniqueScada(this, this, this);
+            desktop = scada.GetDesktop();
+            update  = () => { };
+            if (!exists)
+            {
+                update = Event;
+            }
         }
 
         #endregion
 
         #region Members
 
+        #region Public Members
+
         /// <summary>
         /// Creates scada
         /// </summary>
         /// <param name="desktop">Desktop name</param>
-        /// <param name="even">Event</param>
+        /// <param name="factory">Event</param>
         /// <returns>The scada</returns>
-        public static IScadaInterface Create(string desktop, out Action[] even)
+        public static IScadaInterface Create(string desktop, 
+            out MonoBehaviorTimerFactory factory)
         {
-            MonoBehaviorTimerFactory f = new MonoBehaviorTimerFactory(desktop, out even);
-            return f.scada;
+            factory = new MonoBehaviorTimerFactory(desktop);
+            return factory.scada;
         }
+
+        public virtual Action Update
+        {
+            get
+            {
+                return update;
+            }
+        }
+
+
+        public IScadaInterface Scada { get => scada; }
+
+        /// <summary>
+        /// Starts itself
+        /// </summary>
+        public virtual void Start()
+        {
+            if (exists)
+            {
+                return;
+            }
+            execute = desktopName.ExecuteScadaUpdate();
+            ev += execute;
+            if (!scada.IsEnabled)
+            {
+                scada.IsEnabled = true;
+            }
+            currentTime = Time.realtimeSinceStartup;
+        }
+
+
+
+        protected virtual void Event()
+        {
+            float t = Time.realtimeSinceStartup;
+            if ((t - currentTime) < step)
+            {
+                return;
+            }
+            currentTime = t;
+            ev();
+        }
+
+
+
 
         #endregion
 
-        #region Implementation of interfacces
+        #region Private Members
+
+
+
+        static object GetTime()
+        {
+            return (double)Time.realtimeSinceStartup;
+        }
+
+
+        #endregion
+
+        #endregion
+
+        #region Implementation of interfaces
+
+        Action IScadaUpdate.Update { get; set; }
 
         ITimerEvent ITimerEventFactory.NewTimer => this;
 
-        TimeSpan ITimerEvent.TimeSpan { get; set; }
+        TimeSpan ITimerEvent.TimeSpan
+        {
+            get => timeSpan;
+            set
+            {
+                timeSpan = value;
+                step = (float)value.TotalSeconds;
+            }
+        }
+
         bool Event.Interfaces.IEvent.IsEnabled { get; set; } = false;
 
-        TimeSpan ITimer.TimeSpan => new TimeSpan();
-
         bool ITimer.IsEnabled { get; set; } = false;
+
+        TimeSpan ITimer.TimeSpan => timeSpan;
 
         event Action Event.Interfaces.IEvent.Event
         {
             add
             {
-                Action evr = eve[0];
-                evr += value;
-                eve[0] = evr;
+                if (!exists)
+                {
+                    ev += value;
+                }
             }
 
             remove
             {
-                Action evr = eve[0];
-                evr -= value;
-                eve[0] = evr;
+                if (!exists)
+                {
+                    ev -= value;
+                }
             }
         }
 
@@ -83,27 +191,33 @@ namespace Unity.Standard
         {
             add
             {
-                Action evr = eve[0];
-                evr += value;
-                eve[0] = evr;
+                if (!exists)
+                {
+                    ev += value;
+                }
             }
 
             remove
             {
-                Action evr = eve[0];
-                evr -= value;
-                eve[0] = evr;
+                if (!exists)
+                {
+                    ev -= value;
+                }
             }
         }
 
         ITimer ITimerFactory.CreateTimer(TimeSpan timeSpan)
         {
+            this.timeSpan = timeSpan;
+            step = (float)timeSpan.TotalSeconds;
             return this;
         }
 
 
 
+
         #endregion
+
 
     }
 }

@@ -519,7 +519,8 @@ namespace Diagram.UI
             l.Add("");
             l.Add("\t\tpublic static  Diagram.UI.Interfaces.IDesktop Desktop { get => new IntrenalDesktop(); }");
             l.Add("");
-            List<string> lt = (desktop as PureDesktop).CreateDesktopCode("", "IntrenalDesktop", "SuccessLoad = pl & pd;", true, "internal ");
+            List<string> lt = (desktop as PureDesktop).CreateDesktopCode("", "IntrenalDesktop",
+                "SuccessLoad = pl & pd;\n\t\t\t\tPostLoad(this); ", true, "internal ");
             l.Add("\t\tinternal class " + lt[0]);
             for (int i = 1; i < lt.Count; i++)
             {

@@ -1,4 +1,5 @@
 ﻿using Event.Interfaces;
+using Scada.Desktop;
 using Scada.Interfaces;
 using System;
 using System.Collections;
@@ -23,27 +24,32 @@ public class TextController : MonoBehaviour
 
     public float[] scales;
 
-
-
+    bool exists;
 
     public bool isEnabled = true;
 
     Action update = () => { };
 
 
-    Action[] ev;
+    Action ev = () => { };
 
     IScadaInterface scada;
 
+    MonoBehaviorTimerFactory factory;
+
     private void Awake()
     {
+        exists = desktop.ScadaExists();
         if (!isEnabled)
         {
             update = () => { };
-            ev = new Action[] { update };
             return;
         }
-        scada = MonoBehaviorTimerFactory.Create(desktop, out ev);
+        scada = MonoBehaviorTimerFactory.Create(desktop, out factory);
+        if (!exists)
+        {
+            ev = factory.Update;
+        }
         for (int i = 0; i < parameters.Length; i++)
         {
             if (i >= texts.Length)
@@ -73,6 +79,7 @@ public class TextController : MonoBehaviour
         {
             update = () => { };
         }
+        (factory as IScadaUpdate).Update = update;
     }
 
     
@@ -80,18 +87,15 @@ public class TextController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (!scada.IsEnabled)
-        {
-            scada.IsEnabled = true;
-        }
+        factory.Start();
     }
 
     // Update is called once per frame
     void Update()
     {
-        ev[0]();
-        update();
+        ev();
     }
+
 
     void AddUpdate(Action act)
     {

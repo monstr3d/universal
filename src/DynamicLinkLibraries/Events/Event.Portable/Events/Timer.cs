@@ -44,8 +44,6 @@ namespace Event.Portable.Events
 
 
         #endregion
-
- 
  
         #region IRemovableObject Members
 

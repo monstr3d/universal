@@ -300,11 +300,11 @@ namespace Motion6D.Portable
                     double[] linacc = acc.RelativeAcceleration;
                     for (int i = 0; i < linacc.Length; i++)
                     {
-                      //!!!ACC  linacc[i] = Measurement.GetDouble(secondDeriM[i]);
+                       linacc[i] = Measurement.GetDouble(secondDeriM[i]);
                     }
                     for (int i = 0; i < 4; i++)
                     {
-                        //!!!ACC                        angsec[i] = Measurement.GetDouble(secondDeriM[i + 3]);
+                       angsec[i] = Measurement.GetDouble(secondDeriM[i + 3]);
                     }
                     IAngularVelocity av = relative as IAngularVelocity;
                     double[] om = av.Omega;

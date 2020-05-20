@@ -52,14 +52,16 @@ public class ForcesMomentums : MonoBehaviour
 
     float vMz = 0f;
 
+    MonoBehaviorTimerFactory factory;
 
-    
+   
 
     Action<double>[] actions = new Action<double>[6];
 
-    Action[] ev;
-
+    
     bool isEnabled = true;
+
+    Action ev;
 
     Action update;
 
@@ -73,10 +75,10 @@ public class ForcesMomentums : MonoBehaviour
         if (!isEnabled)
         {
             update = () => { };
-            ev = new Action[] { update };
+            ev = update;
             return;
         }
-        scada = MonoBehaviorTimerFactory.Create(desktop, out ev);
+        scada = MonoBehaviorTimerFactory.Create(desktop,  out factory);
         string[] s = new string[] { fz, fy, fz, mx, my, mz };
         var inp = scada.Inputs;
         for (int i = 0; i < 6; i++)
@@ -110,7 +112,7 @@ public class ForcesMomentums : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        ev[0]();
+ //       factory.Update();
         update();
     }
 

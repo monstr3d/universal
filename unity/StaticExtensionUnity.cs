@@ -41,7 +41,6 @@ namespace Unity.Standard
 
         #region Fields
 
-
         static private TimeMeasureProviderFactory factory = new TimeMeasureProviderFactory();
 
         static private ITimerEventFactory timerEventFactory;
@@ -54,13 +53,16 @@ namespace Unity.Standard
 
         static private Scada.Interfaces.IErrorHandler errorHandler = new ErrorHanller();
 
-        static Dictionary<string, MonoBehaviorWrapper> wrappers =
-            new Dictionary<string, MonoBehaviorWrapper>();
+  
+        static private Dictionary<string, Tuple<object,
 
+            List<IScadaUpdate>>> scadaUpdates
+            = new Dictionary<string, Tuple<object,
+            List<IScadaUpdate>>>();
 
-        static Dictionary<string, ConstructorInfo> updates = new Dictionary<string, ConstructorInfo>();
-
-
+        static Dictionary<string, ConstructorInfo> updates = 
+            new Dictionary<string, ConstructorInfo>();
+    
         static internal Scada.Interfaces.IErrorHandler ErrorHandler => errorHandler;
 
 
@@ -72,7 +74,8 @@ namespace Unity.Standard
         /// Text update
         /// </summary>
         static public ITextUpdate TextUpdate
-        { get; set; } 
+        { get; set; }
+
 
 
         /// <summary>
@@ -82,11 +85,27 @@ namespace Unity.Standard
         /// <returns>Scada</returns>
         public static IScadaInterface ToUniqueScada(this string desktop,
                          ITimerEventFactory timerEventFactory,
-                ITimerFactory timerEvent)
+                ITimerFactory timerEvent, IScadaUpdate update)
         {
-            return desktop.ToScada("Consumer", timerEventFactory,
+            bool exists = desktop.ScadaExists();
+            IScadaInterface scada = desktop.ToScada("Consumer", timerEventFactory,
                  timerEvent,
                 factory, TimeType.Second, false, null, true);
+            scada.ErrorHandler = StaticExtensionUnity.ErrorHandler;
+            if (exists)
+            {
+                var t = scadaUpdates[desktop];
+                List<IScadaUpdate> l = t.Item2;
+                l.Add(update);
+            }
+            else
+            {
+                List<IScadaUpdate> l = new List<IScadaUpdate>() { update };
+                scadaUpdates[desktop] = new
+                    Tuple<object, List<IScadaUpdate>>
+                (new object(), l);   
+            }
+            return scada;
         }
 
         static public Quaternion FromDouble(this double[] x)
@@ -95,6 +114,11 @@ namespace Unity.Standard
             return new Quaternion(p * (float)x[1],  p * (float)x[2], p * (float)x[3], p * (float)x[0]);
         }
 
+
+        static public object GetLock(this string desktop)
+        {
+            return scadaUpdates[desktop].Item1;
+        }
 
         static void GetComponents(this Component go,
 
@@ -258,7 +282,7 @@ namespace Unity.Standard
         }
 
 
-        public static Action Create(this ScriptWithWrapper mono, 
+        public static Action Create(this ReferenceFrameBehavior mono, 
             MonoBehaviorWrapper wrapper, string[] upd, ref Action start)
         {
             Action action = null;
@@ -291,36 +315,48 @@ namespace Unity.Standard
             return action;
         }
 
-        public static MonoBehaviorWrapper  Create(this ScriptWithWrapper monoBehaviour, 
-            bool unique, 
-            string  desktop, 
+        static public Action ExecuteScadaUpdate(this string desktop)
+        {
+            var exe = scadaUpdates[desktop];
+            var o = exe.Item1;
+            var l = exe.Item2;
+            Action a = null;
+            foreach (var up in exe.Item2)
+            {
+                var act = up.Update;
+                if (act != null)
+                {
+                    if (a == null)
+                    {
+                        a = act;
+                        continue;
+                    }
+                    a += act;
+                }
+            }
+            if (a == null)
+            {
+                return () => { };
+            }
+            return () =>
+                {
+                    lock (o)
+                    {
+                        a();
+                    }
+                };
+        }
+
+
+        public static MonoBehaviorWrapper Create(this ReferenceFrameBehavior monoBehaviour,
+            bool unique, float step,
+            string desktop,
             string[] inputs,
             string[] outputs)
         {
             Dictionary<string, Action<double>> insp = monoBehaviour.inps;
             Dictionary<string, Func<double>> outp = monoBehaviour.outs;
-            bool exists = false;
-            Action ev = null;
-            if (unique)
-            {
-                if (wrappers.ContainsKey(desktop))
-                {
-                    exists = true;
-                }
-            }
-            MonoBehaviorWrapper wr = null;
-            if (exists)
-            {
-                wr = wrappers[desktop];
-                ev = () => { };
-            }
-            else
-            {
-                wr = new MonoBehaviorWrapper(monoBehaviour, desktop, unique);
-                ev = wr.Event;
-                wrappers[desktop] = wr;
-            }
-            monoBehaviour.ev = ev;
+            MonoBehaviorWrapper wr = new MonoBehaviorWrapper(monoBehaviour, desktop);
             IScadaInterface scada = wr.Scada;
             List<Action<double>> li = new List<Action<double>>();
             var inp = scada.Inputs;
@@ -356,11 +392,6 @@ namespace Unity.Standard
             }
             monoBehaviour.dInp = li.ToArray();
             monoBehaviour.dOut = lo.ToArray();
-            monoBehaviour.ev = ev;
-            if (ev == null)
-            {
-                Debug.LogError("Event" + monoBehaviour.gameObject.name);
-            }
             return wr;
         }
 
