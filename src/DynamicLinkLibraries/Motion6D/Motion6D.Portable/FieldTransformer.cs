@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 
 using BaseTypes;
+using Motion6D.Interfaces;
 
 namespace Motion6D.Portable
 {

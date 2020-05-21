@@ -69,6 +69,9 @@ public class ForcesMomentums : MonoBehaviour
 
     Action<double>[] dInp = new Action<double>[6];
 
+    float lastTime;
+
+    Action factotyUpdate;
 
     private void Awake()
     {
@@ -98,6 +101,8 @@ public class ForcesMomentums : MonoBehaviour
             throw new Exception(err);
         }
         update = UpdateForces;
+        lastTime = Time.realtimeSinceStartup;
+        factotyUpdate = factory.Update;
     }
 
     // Start is called before the first frame update
@@ -109,10 +114,15 @@ public class ForcesMomentums : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
- //       factory.Update();
+    }
+
+    // Update is called once per frame
+    void FixedUpdate()
+    {
+        //       factory.Update();
+        factotyUpdate();
         update();
     }
 
@@ -131,29 +141,29 @@ public class ForcesMomentums : MonoBehaviour
         ////// Controls: W-S (Pitch), A-D (Roll), Q-E (Yaw), R-F (Ligt),
         try
         {
-            if (Input.GetKey(KeyCode.S))
-            {
-                ResetValue(ref vMx, kMx, 3);
-            }
-            if (Input.GetKey(KeyCode.W))
+            if (Input.GetKeyUp(KeyCode.S))
             {
                 ResetValue(ref vMx, -kMx, 3);
             }
-            if (Input.GetKey(KeyCode.Q))
+            if (Input.GetKeyUp(KeyCode.W))
             {
-                ResetValue(ref vMy, -kMy, 5);
+                ResetValue(ref vMx, kMx, 3);
             }
-            if (Input.GetKey(KeyCode.E))
+            if (Input.GetKeyUp(KeyCode.Q))
             {
                 ResetValue(ref vMy, kMy, 5);
             }
-            if (Input.GetKey(KeyCode.A))
+            if (Input.GetKeyUp(KeyCode.E))
             {
-                ResetValue(ref vMz, kMz, 4);
+                ResetValue(ref vMy, -kMy, 5);
             }
-            if (Input.GetKey(KeyCode.D))
+            if (Input.GetKeyUp(KeyCode.A))
             {
                 ResetValue(ref vMz, -kMz, 4);
+            }
+            if (Input.GetKeyUp(KeyCode.D))
+            {
+                ResetValue(ref vMz, kMz, 4);
             }
             
         }
@@ -167,6 +177,12 @@ public class ForcesMomentums : MonoBehaviour
 
     void ResetValue(ref float value, float newValue, int i)
     {
+        float t = Time.realtimeSinceStartup;
+        if ((t - lastTime) < 0.5f)
+        {
+            return;
+        }
+        lastTime = t;
         if (value == newValue)
         {
             return;

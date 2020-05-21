@@ -17,6 +17,42 @@ namespace Vector3D
 
         #endregion
 
+        static double CopySign(double a, double b)
+        {
+            return  Math.Abs(a) * Math.Sign(b);
+        }
+
+        public static void Set(this EulerAngles angles, double[] quaternion)
+        {
+            angles.Set(quaternion[1], quaternion[2], quaternion[3], quaternion[0]);
+        }
+
+        public static void  Set(this EulerAngles angles, double x, double y, double z, double w)
+        {
+         
+            // roll (x-axis rotation)
+            double sinr_cosp = 2 * (w * x + y * z);
+            double cosr_cosp = 1 - 2 * (x * x + y * y);
+            angles.roll = Math.Atan2(sinr_cosp, cosr_cosp);
+
+            // pitch (y-axis rotation)
+            double sinp = 2 * (w * y - z * x);
+            if (Math.Abs(sinp) >= 1)
+            {
+                angles.pitch = CopySign(Math.PI / 2, sinp);
+                //std::copysign(M_PI / 2, sinp); // use 90 degrees if out of range
+            }
+            else
+            {
+                angles.pitch = Math.Asin(sinp);
+            }
+
+            // yaw (z-axis rotation)
+            double siny_cosp = 2 * (w * z + x * y);
+            double cosy_cosp = 1 - 2 * (y * y + z * z);
+            angles.yaw = Math.Atan2(siny_cosp, cosy_cosp);
+        }
+
         /// <summary>
         /// Rotated quaternion
         /// </summary>

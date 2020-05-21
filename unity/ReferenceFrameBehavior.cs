@@ -112,6 +112,9 @@ public class ReferenceFrameBehavior : MonoBehaviour
 
     ReferenceFrame referenceFrame;
 
+    Vector3D.EulerAngles angles = new Vector3D.EulerAngles();
+
+
     #endregion
 
     #region Standard Members
@@ -119,102 +122,34 @@ public class ReferenceFrameBehavior : MonoBehaviour
     private void Awake()
     {
         exists = desktop.ScadaExists();
-        Vector3 p = gameObject.transform.position;
-        Quaternion q = gameObject.transform.rotation;
-        currentPosition = p;
-        currentOrientation = q;
-        startPosition = p;
-        startOrientation = q;
-        nextPosition = p;
-        nextOrientation = q;
-        monoBehaviorWrapper =
+         monoBehaviorWrapper =
             StaticExtensionUnity.Create(this, unique, step,
             desktop, inputs, outputs);
         scada = monoBehaviorWrapper.Scada;
         SetConstants();
-        AddAction(StaticExtensionUnity.Create(this, monoBehaviorWrapper, updates, ref start));
-        //  UpdateFrames();
-        if ((update == null) | (!isEnabled))
-        {
-            update = () => { };
-        }
+        (monoBehaviorWrapper as IScadaUpdate).Update = null;
+            //ScadaUpdate;
+        wrapperUpdate = monoBehaviorWrapper.Update;
         Dictionary<string, Motion6D.Interfaces.IReferenceFrame> frames
      = monoBehaviorWrapper.Frames;
-        if (frames.ContainsKey(transformation))
+
+                if (frames.ContainsKey(transformation))
         {
             Motion6D.Interfaces.IReferenceFrame frame = frames[transformation];
             referenceFrame = frame.Own;
-            angular = referenceFrame as IAngularVelocity;
-            scadaUpdate = ScadaUpdateFramesFirst;
-            (monoBehaviorWrapper as IScadaUpdate).Update = ScadaUpdate;
-            wrapperUpdate = monoBehaviorWrapper.Update;
-            updatePosition = UpdateFramesFirst;
+            
         }
+
     }
 
     Action scadaUpdate;
 
-    void ScadaUpdateFramesFirst()
-    {
-        pos = referenceFrame.Position;
-        quater = referenceFrame.Quaternion;
-        currentPosition = new Vector3((float)pos[0],
-        (float)pos[1], (float)pos[2]);
-        currentOrientation = quater.ToQuaternion();
-        double[] om = angular.Omega;
-        V.StaticExtensionVector3D.RotateOmega(om, 1, quater, nextQ, auxQ);
-        nextOrientation = nextQ.ToQuaternion();
-        nextPosition = currentPosition;
-        startPosition = currentPosition;
-        startOrientation = currentOrientation;
-        lastTime = Time.realtimeSinceStartup;
-        updatePosition = UpdateFrameSecond;
-        scadaUpdate = ScadaUpdateFramesSecond;
-    }
-
-    void ScadaUpdateFramesSecond()
-    {
-        pos = referenceFrame.Position;
-        quater = referenceFrame.Quaternion;
-        currentPosition = new Vector3((float)pos[0],
-        (float)pos[1], (float)pos[2]);
-        currentOrientation = quater.ToQuaternion();
-        double[] om = angular.Omega;
-        V.StaticExtensionVector3D.RotateOmega(om, 1, quater, nextQ, auxQ);
-        nextOrientation = nextQ.ToQuaternion();
-        nextPosition = currentPosition;
-        startPosition = currentPosition;
-        startOrientation = currentOrientation;
-        lastTime = Time.realtimeSinceStartup;
-    }
-
-
-
-    void UpdateFramesFirst()
-    {
-        gameObject.transform.position = currentPosition;
-        gameObject.transform.rotation = currentOrientation;
-    }
-
-    void UpdateFrameSecond()
-    {
-        float dt = Time.realtimeSinceStartup - lastTime;
-        if (dt > 0)
-        {
-            currentOrientation = Quaternion.Lerp(startOrientation, nextOrientation,
-                dt);
-        }
-        gameObject.transform.position = currentPosition;
-        gameObject.transform.rotation = currentOrientation;
-    }
-
-
-
-
+ 
     void ScadaUpdate()
     {
-        update();
-        scadaUpdate();
+        gameObject.transform.rotation = referenceFrame.ToQuaternion(angles);
+        gameObject.transform.position = referenceFrame.Position.ToPosition();
+
     }
 
     // Start is called before the first frame update
@@ -226,14 +161,27 @@ public class ReferenceFrameBehavior : MonoBehaviour
 
     // Update is called once per frame
 
-
-
     void Update()
+    {
+        gameObject.transform.rotation = referenceFrame.ToQuaternion(angles);
+        gameObject.transform.position = referenceFrame.Position.ToPosition();
+        var rb = gameObject.GetComponent<Rigidbody>();
+        if (rb != null)
+        {
+            var ang = rb.angularVelocity;
+        }
+    }
+
+   
+
+
+    void FixedUpdate()
     {
         try
         {
+
             wrapperUpdate();
-            updatePosition();
+            //       updatePosition();
         }
         catch (Exception exception)
         {
@@ -252,24 +200,7 @@ public class ReferenceFrameBehavior : MonoBehaviour
 
     #region  Private Members
 
-    void AddFixed(Action action)
-    {
-        if (fixedAct == null)
-        {
-            fixedAct = action;
-            return;
-        }
-        fixedAct += action;
-    }
-
-    void SetAngularVelocity()
-    {
-        if (angular != null)
-        {
-
-        }
-    }
-
+  
     void SetConstants()
     {
         var consts = scada.Constants;
@@ -305,3 +236,62 @@ public class ReferenceFrameBehavior : MonoBehaviour
 
     #endregion
 }
+
+/*
+
+ void ScadaUpdateFramesFirst()
+ {
+     pos = referenceFrame.Position;
+     quater = referenceFrame.Quaternion;
+     currentPosition = new Vector3((float)pos[0],
+     (float)pos[1], (float)pos[2]);
+     currentOrientation = quater.ToQuaternion();
+     double[] om = angular.Omega;
+     V.StaticExtensionVector3D.RotateOmega(om, 1, quater, nextQ, auxQ);
+     nextOrientation = nextQ.ToQuaternion();
+     nextPosition = currentPosition;
+     startPosition = currentPosition;
+     startOrientation = currentOrientation;
+     lastTime = Time.realtimeSinceStartup;
+     updatePosition = UpdateFrameSecond;
+     scadaUpdate = ScadaUpdateFramesSecond;
+ }
+
+ void ScadaUpdateFramesSecond()
+ {
+     pos = referenceFrame.Position;
+     quater = referenceFrame.Quaternion;
+     currentPosition = new Vector3((float)pos[0],
+     (float)pos[1], (float)pos[2]);
+     currentOrientation = quater.ToQuaternion();
+     double[] om = angular.Omega;
+     V.StaticExtensionVector3D.RotateOmega(om, 1, quater, nextQ, auxQ);
+     nextOrientation = nextQ.ToQuaternion();
+     nextPosition = currentPosition;
+     startPosition = currentPosition;
+     startOrientation = currentOrientation;
+     lastTime = Time.realtimeSinceStartup;
+ }
+
+
+
+ void UpdateFramesFirst()
+ {
+     gameObject.transform.position = currentPosition;
+     gameObject.transform.rotation = currentOrientation;
+ }
+
+ void UpdateFrameSecond()
+ {
+     float dt = Time.realtimeSinceStartup - lastTime;
+     if (dt > 0)
+     {
+         currentOrientation = Quaternion.Lerp(startOrientation, nextOrientation,
+             dt);
+     }
+     gameObject.transform.position = currentPosition;
+     gameObject.transform.rotation = currentOrientation;
+ }
+
+ */
+

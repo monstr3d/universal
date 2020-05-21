@@ -913,7 +913,7 @@ namespace GeneratedProject
 				internal CategoryObject()
 				{
 				var ts = this as Event.Interfaces.ITimerEvent;
-				ts.TimeSpan = TimeSpan.FromTicks(100000000);
+				ts.TimeSpan = TimeSpan.FromTicks(100000);
 				}
 				}
 			}

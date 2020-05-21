@@ -82,6 +82,9 @@ namespace Unity.Standard
             out MonoBehaviorTimerFactory factory)
         {
             factory = new MonoBehaviorTimerFactory(desktop);
+            var outputs = factory.scada.Outputs;
+            var inputs = factory.scada.Inputs;
+            var constants = factory.scada.Constants;
             return factory.scada;
         }
 
@@ -118,8 +121,8 @@ namespace Unity.Standard
 
         protected virtual void Event()
         {
-            float t = Time.realtimeSinceStartup;
-            if ((t - currentTime) < step)
+            float t = Time.fixedTime;
+            if (Math.Abs(t - currentTime) < step)
             {
                 return;
             }

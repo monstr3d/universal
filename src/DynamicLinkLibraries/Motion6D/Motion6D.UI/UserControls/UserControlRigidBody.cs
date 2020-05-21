@@ -323,7 +323,7 @@ namespace Motion6D.UI.UserControls
             {
                 double[] p = coordinates;
                 double a = Double.Parse(textBoxRot.Text);
-                double[,] m = Motion6D.ReferenceFrame.CalucateViewMatrix(p, a);
+                double[,] m = Motion6D.Interfaces.ReferenceFrame.CalucateViewMatrix(p, a);
                 fillMatrix(m);
             }
             catch (Exception)

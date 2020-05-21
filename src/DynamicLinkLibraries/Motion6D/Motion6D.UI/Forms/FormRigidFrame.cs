@@ -153,7 +153,7 @@ namespace Motion6D.UI.Forms
             {
                 double[] p = Coordinates;
                 double a = Double.Parse(textBoxRot.Text);
-                double[,] m = ReferenceFrame.CalucateViewMatrix(p, a);
+                double[,] m = Interfaces.ReferenceFrame.CalucateViewMatrix(p, a);
                 Fill(m);
             }
             catch (Exception ex)

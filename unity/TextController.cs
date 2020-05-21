@@ -79,7 +79,7 @@ public class TextController : MonoBehaviour
         {
             update = () => { };
         }
-        (factory as IScadaUpdate).Update = update;
+        (factory as IScadaUpdate).Update = null;
     }
 
     
@@ -91,9 +91,14 @@ public class TextController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         ev();
+    }
+
+    void  Update()
+    {
+        update();
     }
 
 

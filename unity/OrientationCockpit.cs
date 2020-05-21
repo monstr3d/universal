@@ -9,8 +9,9 @@ using Scada.Interfaces;
 
 
 using Unity.Standard;
+using Motion6D.Interfaces;
 
-public class OrientationCocpit : MonoBehaviour
+public class OrientationCockpit : MonoBehaviour
 {
 
 
@@ -26,10 +27,12 @@ public class OrientationCocpit : MonoBehaviour
 
     private ReferenceFrame frame;
 
+    Vector3D.EulerAngles angles = new Vector3D.EulerAngles();
+
     //
 
 
-    
+
 
     public RectTransform hudPanel;
 
@@ -57,6 +60,8 @@ public class OrientationCocpit : MonoBehaviour
     public bool useSpeed = true;
     public float speedAmplitude = 1, speedOffSet = 0, speedFilterFactor = 0.25f;
     public Text speedTxt;
+
+   
     //
 
 
@@ -69,6 +74,8 @@ public class OrientationCocpit : MonoBehaviour
 
     MonoBehaviorTimerFactory factory;
 
+    Action fixedUpdate;
+
     Action update;
 
 
@@ -79,8 +86,8 @@ public class OrientationCocpit : MonoBehaviour
 
     void UpdateFrame()
     {
-        double[] x = frame.Quaternion;
-        Quaternion quaternion = x.ToQuaternion();
+        
+        Quaternion quaternion = frame.ToQuaternion(angles);
         Vector3 v = quaternion.eulerAngles;
         heading = v.x;
         roll = v.z;
@@ -123,8 +130,10 @@ public class OrientationCocpit : MonoBehaviour
         {
             try
             {
+
                 IScadaInterface scada = MonoBehaviorTimerFactory.Create(desktop,  out factory);
                 update = () => { };
+                fixedUpdate = factory.Update;
                 var ou = scada.Outputs;
                 Func<object> f = scada.GetOutput(measureName);
                 frame = f() as ReferenceFrame;
@@ -143,11 +152,16 @@ public class OrientationCocpit : MonoBehaviour
         factory.Start();
     }
 
+    
+
+    private void FixedUpdate()
+    {
+        fixedUpdate();
+    }
 
 
     void Update()
     {
-        factory.Update();
         update();
     }
 

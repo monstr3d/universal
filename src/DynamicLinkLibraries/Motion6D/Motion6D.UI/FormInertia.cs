@@ -219,7 +219,7 @@ namespace Motion6D.UI
             {
                 double[] p = coordinates;
                 double a = Double.Parse(textBoxRot.Text);
-                double[,] m = ReferenceFrame.CalucateViewMatrix(p, a);
+                double[,] m = Interfaces.ReferenceFrame.CalucateViewMatrix(p, a);
                 fill(m);
             }
             catch (Exception ex)

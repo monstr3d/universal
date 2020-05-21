@@ -28,6 +28,8 @@ using Event.Portable;
 
 using Scada.Interfaces;
 using Scada.Desktop;
+using Vector3D;
+using Motion6D.Interfaces;
 
 namespace Unity.Standard
 {
@@ -108,12 +110,12 @@ namespace Unity.Standard
             return scada;
         }
 
-        static public Quaternion FromDouble(this double[] x)
+      /*  static public Quaternion FromDouble(this double[] x)
         {
             float p = x[0] < 0 ? -1f : 1f;
             return new Quaternion(p * (float)x[1],  p * (float)x[2], p * (float)x[3], p * (float)x[0]);
         }
-
+        */
 
         static public object GetLock(this string desktop)
         {
@@ -223,12 +225,28 @@ namespace Unity.Standard
             }
         }
 
-        static public Quaternion ToQuaternion(this  double[] t)
+        const double RadToDeg = 180 / Math.PI;
+
+        static private UnityEngine.Quaternion ToQuaternion(this EulerAngles euler, double[] t)
         {
-            float p = t[0] > 0 ? 1f : -1f;
-            return new Quaternion(p * (float)t[1], p * (float)t[2], 
-                p * (float)t[3], p * (float)t[0]);
+            euler.Set(t);
+            return
+                UnityEngine.Quaternion.Euler((float)(RadToDeg * euler.pitch), 
+                (float)(RadToDeg * euler.roll), (float)(RadToDeg * euler.yaw));
         }
+
+
+        static public UnityEngine.Quaternion ToQuaternion(this 
+           ReferenceFrame frame, EulerAngles euler)
+        {
+            return euler.ToQuaternion(frame.Quaternion);
+        }
+
+        static public Vector3 ToPosition(this double[] t)
+        {
+            return new Vector3((float)t[0], (float)t[1], (float)t[2]);
+        }
+
 
         static public Dictionary<string, List<T>> GetComponents<T>(this Dictionary<string, List<Component>> comp)
             where T : Component
@@ -424,8 +442,18 @@ namespace Unity.Standard
 
         static StaticExtensionUnity()
         {
+           var ts = Time.timeScale;
+            /*         Quaternion q1 = new Quaternion(0.77f, 0.7f, 0, 0);
+                     Quaternion q2 = new Quaternion(0, 0, 1f, 0);
+                     Quaternion q3 = Quaternion.Slerp(q1, q2, 0.3456f);
+                     Quaternion q4 = new Quaternion(0, 0, 0.131f, -1f);
+                     Quaternion q5 = Quaternion.EulerRotation(1.357f, 2.432f, 3.756f);
+                     Quaternion q6 = Quaternion.EulerRotation(1.3671f, 2.432f, 3.756f);
+                     Vector3 v1 = q5.eulerAngles;
+                     Vector3 v2 = q6.eulerAngles;
+                     q6 = Quaternion.EulerRotation(0.02f, 0.04f, 0.06f);
+                     v2 = q6.eulerAngles;*/
 
-            Application.targetFrameRate = -1;
             TextUpdate = new DefaultTextAction();
 
             Assembly ass = typeof(StaticExtensionUnity).Assembly;
@@ -489,6 +517,43 @@ namespace Unity.Standard
                     {
                         if (form.Length > 0)
                         {
+                            if (form == "+-")
+                            {
+                                return () =>
+                                {
+                                    double x = fd();
+                                    if (x > 0)
+                                    {
+                                        text.text = s + "+";
+                                        return;
+                                    }
+                                    if (x < 0)
+                                    {
+                                        text.text = s + "-";
+                                        return;
+                                    }
+                                    text.text = "0";
+                                };
+                            }
+                            if (form == "+--")
+                            {
+                                return () =>
+                                {
+                                    double x = fd();
+                                    if (x > 0)
+                                    {
+                                        text.text = s + "-";
+                                        return;
+                                    }
+                                    if (x < 0)
+                                    {
+                                        text.text = s + "+";
+                                        return;
+                                    }
+                                    text.text = "0";
+                                };
+                            }
+
                             return () =>
                                 {
                                     float x = sc[0] * (float)fd();
