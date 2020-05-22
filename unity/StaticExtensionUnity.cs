@@ -30,6 +30,7 @@ using Scada.Interfaces;
 using Scada.Desktop;
 using Vector3D;
 using Motion6D.Interfaces;
+using System.Runtime.CompilerServices;
 
 namespace Unity.Standard
 {
@@ -239,14 +240,13 @@ namespace Unity.Standard
             }
         }
 
-        const double RadToDeg = 180 / Math.PI;
-
-        static private UnityEngine.Quaternion ToQuaternion(this EulerAngles euler, double[] t)
+   
+        static private Quaternion ToQuaternion(this EulerAngles euler, double[] t)
         {
             euler.Set(t);
             return
-                UnityEngine.Quaternion.Euler((float)(RadToDeg * euler.pitch), 
-                (float)(RadToDeg * euler.roll), (float)(RadToDeg * euler.yaw));
+               Quaternion.Euler(Mathf.Rad2Deg * (float)euler.pitch,
+                Mathf.Rad2Deg * (float)euler.roll, Mathf.Rad2Deg * (float)euler.yaw);
         }
 
 
@@ -355,6 +355,11 @@ namespace Unity.Standard
                 start = () => { };
             }
             return action;
+        }
+
+        public static float ToDegree(this double angle)
+        {
+            return Mathf.Rad2Deg * (float)angle;
         }
 
         static public Action ExecuteScadaUpdate(this string desktop)

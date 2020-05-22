@@ -86,7 +86,7 @@ public class OrientationCockpit : MonoBehaviour
 
     void UpdateFrame()
     {
-        
+        return;
         Quaternion quaternion = frame.ToQuaternion();
         Vector3 v = quaternion.eulerAngles;
         heading = v.x;

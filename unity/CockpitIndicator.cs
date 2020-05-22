@@ -220,6 +220,7 @@ public class CockpitIndicator : MonoBehaviour
         //////////////////////////////////////////// Roll
         if (useRoll)
         {
+            horizonRoll = null;
 //            roll = Mathf.LerpAngle(roll, aircraft.rotation.eulerAngles.z + rollOffSet, rollFilterFactor) % 360;
 
             //Send values to Gui and Instruments
@@ -239,10 +240,12 @@ public class CockpitIndicator : MonoBehaviour
         //////////////////////////////////////////// Pitch
         if (usePitch)
         {
-         //   pitch = Mathf.LerpAngle(pitch, -aircraft.eulerAngles.x + pitchOffSet, pitchFilterFactor);
-
+            //   pitch = Mathf.LerpAngle(pitch, -aircraft.eulerAngles.x + pitchOffSet, pitchFilterFactor);
+            horizonPitch = null;
             //Send values to Gui and Instruments
-            if (horizonPitch != null) horizonPitch.localPosition = new Vector3(-pitchAmplitude * pitch * Mathf.Sin(horizonPitch.transform.localEulerAngles.z * Mathf.Deg2Rad) + pitchXOffSet, pitchAmplitude * pitch * Mathf.Cos(horizonPitch.transform.localEulerAngles.z * Mathf.Deg2Rad) + pitchYOffSet, 0);
+            if (horizonPitch != null) horizonPitch.localPosition = 
+                    new Vector3(-pitchAmplitude * pitch * 
+                    Mathf.Sin(horizonPitch.transform.localEulerAngles.z * Mathf.Deg2Rad) + pitchXOffSet, pitchAmplitude * pitch * Mathf.Cos(horizonPitch.transform.localEulerAngles.z * Mathf.Deg2Rad) + pitchYOffSet, 0);
             if (horizonPitchTxt != null) horizonPitchTxt.text = pitch.ToString("0");
         }
         //////////////////////////////////////////// Pitch

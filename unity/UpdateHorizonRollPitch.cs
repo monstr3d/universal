@@ -15,11 +15,14 @@ namespace Assets
 {
     public class UpdateHorizonRollPitch : AbstractRectTransformUpdate
     {
- 
-        Text headingTxt;
-        Text Text;
-        Text Altitude_Txt;
-        Text Speed_Txt;
+        RectTransform horizonRoll;
+
+        RectTransform horizonPitch;
+
+        float rollAmplitude = 1, rollOffSet = 0, rollFilterFactor = 0.25f;
+        float pitchAmplitude = 1, pitchOffSet = 0, 
+            pitchXOffSet = 0, pitchYOffSet = 0,
+            pitchFilterFactor = 0.125f;
 
         public UpdateHorizonRollPitch()
         {
@@ -30,33 +33,37 @@ namespace Assets
             RectTransform transform)
         {
             base.Set(frame, angles, transform);
-            GameObject go = transform.gameObject;
-            Dictionary<string, List<Component>> comp;
-            var d = go.GetComponents(out comp);
-            var texts = comp.GetComponents<Text>();
-            headingTxt = texts["heading_Indicator"][0];
+            horizonRoll = transform;
+            horizonPitch = transform;
         }
 
         public override Action Update => UpdateInternal;
 
 
-        
+
         void UpdateInternal()
         {
-            float heading = (float)angles.pitch;
-            heading *= RadianToDegree;
-            if (headingTxt != null)
-            {
-                if (heading < 0)
-                {
-                    headingTxt.text = (heading + 360f).ToString("000");
-                }
-                else
-                {
-                    headingTxt.text = heading.ToString("000");
-                }
-            }
 
+            float heading = angles.pitch.ToDegree();
+            float roll = angles.yaw.ToDegree();
+            float pitch = angles.roll.ToDegree(); ;
+
+            //Send values to Gui and Instruments
+            if (horizonRoll != null)
+            {
+
+                horizonRoll.localRotation =
+                    Quaternion.Euler(0, 0, rollAmplitude * roll);
+            }
+            if (horizonPitch != null)
+            {
+                horizonPitch.localPosition = 
+                    new Vector3(-pitchAmplitude * pitch * 
+                    Mathf.Sin(horizonPitch.transform.localEulerAngles.z * 
+                    Mathf.Deg2Rad) + pitchXOffSet, pitchAmplitude * pitch * 
+                    Mathf.Cos(horizonPitch.transform.localEulerAngles.z * 
+                    Mathf.Deg2Rad) + pitchYOffSet, 0);
+            }
         }
     }
 }

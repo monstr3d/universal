@@ -28,7 +28,9 @@ public class Compass : MonoBehaviour
         if (isActive)
         {
             if(moveX) 
-                rawImg.uvRect = new Rect(factor * (heading + headingOffSet) / maxValue + startX, rawImg.uvRect.y, rawImg.uvRect.width, rawImg.uvRect.height);
+                rawImg.uvRect = new Rect(factor * (heading + headingOffSet) 
+                    / maxValue + startX, rawImg.uvRect.y, 
+                    rawImg.uvRect.width, rawImg.uvRect.height);
             headingTxt = null;
             if (headingTxt != null) 
             { if (heading < 0) 

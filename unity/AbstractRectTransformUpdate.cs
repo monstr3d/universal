@@ -17,8 +17,7 @@ namespace Unity.Standard
 
         #region Fields
 
-        public const float RadianToDegree = (float)(180.0 / Math.PI);
-
+    
         protected ReferenceFrame frame;
 
         protected EulerAngles angles;
