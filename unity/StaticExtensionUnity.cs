@@ -64,7 +64,12 @@ namespace Unity.Standard
 
         static Dictionary<string, ConstructorInfo> updates = 
             new Dictionary<string, ConstructorInfo>();
-    
+
+        static internal Dictionary<string, ConstructorInfo> updatesRectTransform =
+     new Dictionary<string, ConstructorInfo>();
+
+
+
         static internal Scada.Interfaces.IErrorHandler ErrorHandler => errorHandler;
 
 
@@ -129,6 +134,10 @@ namespace Unity.Standard
             Component[] components = go.GetComponentsInChildren(typeof(Component), false);
             foreach (Component component in components)
             {
+                if (component == null)
+                {
+                    continue;
+                }
                 string name = component.name;
                 List<Component> lc;
                 if (comp.ContainsKey(name))
@@ -169,6 +178,7 @@ namespace Unity.Standard
                 }
             }
         }
+
         static void GetComponents(this GameObject go, 
             
             Dictionary<string, List<GameObject>> objects, Dictionary<string, List<Component>> comp)
@@ -176,6 +186,10 @@ namespace Unity.Standard
             Component[] components = go.GetComponents(typeof(Component));
             foreach (Component component in components)
             {
+                if (component == null)
+                {
+                    continue;
+                }
                 string name = component.name;
                 List<Component> lc;
                 if (comp.ContainsKey(name))
@@ -236,11 +250,20 @@ namespace Unity.Standard
         }
 
 
-        static public UnityEngine.Quaternion ToQuaternion(this 
+        static private UnityEngine.Quaternion ToQuaternion(this 
            ReferenceFrame frame, EulerAngles euler)
         {
             return euler.ToQuaternion(frame.Quaternion);
         }
+
+        static public UnityEngine.Quaternion ToQuaternion(this
+   ReferenceFrame frame)
+        {
+            double[] ori = frame.Quaternion;
+            return new Quaternion((float)ori[1], (float)ori[2],
+                (float)ori[3], (float)ori[0]);
+        }
+
 
         static public Vector3 ToPosition(this double[] t)
         {
@@ -248,7 +271,8 @@ namespace Unity.Standard
         }
 
 
-        static public Dictionary<string, List<T>> GetComponents<T>(this Dictionary<string, List<Component>> comp)
+        static public Dictionary<string, List<T>> GetComponents<T>(this 
+            Dictionary<string, List<Component>> comp)
             where T : Component
         {
             Dictionary<string, List<T>> l = new Dictionary<string, List<T>>();
@@ -441,8 +465,15 @@ namespace Unity.Standard
         #region Constructor
 
         static StaticExtensionUnity()
-        {
-           var ts = Time.timeScale;
+        {                  
+            Quaternion q1 = new Quaternion(0.77f, 0.7f, 0, 0);
+            Quaternion q2 = new Quaternion(0.75f, 0.7f, 0, 0);
+            Quaternion.EulerRotation(0.77f, 0.7f, 0);
+            Quaternion.Euler(1, 2, 3);
+            Vector3 v1 = q1.eulerAngles;
+            Vector3 v2 = q2.eulerAngles;
+            v1 = v2;
+
             /*         Quaternion q1 = new Quaternion(0.77f, 0.7f, 0, 0);
                      Quaternion q2 = new Quaternion(0, 0, 1f, 0);
                      Quaternion q3 = Quaternion.Slerp(q1, q2, 0.3456f);
@@ -464,13 +495,26 @@ namespace Unity.Standard
 
             ass.SetScadaAssembly((Type type) =>
             {
-                if (type.GetInterfaces().Contains(typeof(IUpdate)))
+                ConstructorInfo ci = type.GetConstructor(new Type[0]);
+                if (ci == null)
                 {
-                    updates[type.Name] = type.GetConstructor(new Type[0]);
+                    return;
+                }
+                var types = type.GetInterfaces();
+                string name = type.Name;
+                if (types.Contains(typeof(IUpdate)))
+                {
+
+                    updates[name] = ci;
+                }
+                if (types.Contains(typeof(IUpdateRectTransform)))
+                {
+                    updatesRectTransform[name] = ci;
+
                 }
             }
+            );
 
-                );
             ExtendedApplicationInitializer initializer =
        new ExtendedApplicationInitializer(OrdinaryDifferentialEquations.Runge4Solver.Singleton,
         RungeProcessor.Processor,

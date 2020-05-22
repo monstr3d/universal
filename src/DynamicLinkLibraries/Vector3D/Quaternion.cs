@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Vector3D
+namespace Vector3D.Orientation
 {
     /// <summary>
     /// Quaternion

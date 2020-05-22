@@ -29,7 +29,7 @@ public class Compass : MonoBehaviour
         {
             if(moveX) 
                 rawImg.uvRect = new Rect(factor * (heading + headingOffSet) / maxValue + startX, rawImg.uvRect.y, rawImg.uvRect.width, rawImg.uvRect.height);
-
+            headingTxt = null;
             if (headingTxt != null) 
             { if (heading < 0) 
                     headingTxt.text = (heading + 360f).ToString("000"); 

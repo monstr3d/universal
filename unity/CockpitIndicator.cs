@@ -113,7 +113,7 @@ public class CockpitIndicator : MonoBehaviour
 
     void UpdateFrame()
     {
-        Quaternion quaternion = frame.ToQuaternion(angles);
+        Quaternion quaternion = frame.ToQuaternion();
         Vector3 v = quaternion.eulerAngles;
         heading = v.x;
         roll = v.z;
@@ -199,7 +199,19 @@ public class CockpitIndicator : MonoBehaviour
             //Send values to Gui and Instruments
             if (compassHSI != null) compassHSI.localRotation = Quaternion.Euler(0, 0, headingAmplitude * heading);
             if (compassBar != null) compassBar.heading = heading;
-            if (headingTxt != null) { if (heading < 0) headingTxt.text = (heading + 360f).ToString("000"); else headingTxt.text = heading.ToString("000"); }
+            headingTxt = null;
+            if (headingTxt != null)
+            {
+                if (heading < 0)
+                {
+                    headingTxt.text = (heading + 360f).ToString("000");
+                }
+                else
+                {
+                    headingTxt.text = heading.ToString("000");
+                }
+            }
+
 
         }
         //////////////////////////////////////////// Compass, Heading and/or HSI

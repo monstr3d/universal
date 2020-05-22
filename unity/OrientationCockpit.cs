@@ -87,7 +87,7 @@ public class OrientationCockpit : MonoBehaviour
     void UpdateFrame()
     {
         
-        Quaternion quaternion = frame.ToQuaternion(angles);
+        Quaternion quaternion = frame.ToQuaternion();
         Vector3 v = quaternion.eulerAngles;
         heading = v.x;
         roll = v.z;
@@ -156,7 +156,7 @@ public class OrientationCockpit : MonoBehaviour
 
     private void FixedUpdate()
     {
-        fixedUpdate();
+       // fixedUpdate();
     }
 
 

@@ -4,7 +4,6 @@ using System.Text;
 
 
 using Vector3D;
-using Motion6D.Interfaces;
 
 namespace Motion6D.Interfaces
 {

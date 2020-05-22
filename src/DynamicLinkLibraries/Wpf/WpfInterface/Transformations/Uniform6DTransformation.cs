@@ -75,7 +75,7 @@ namespace WpfInterface.Transformations
 
         private double currentTime;
 
-        private Motion6D.ReferenceFrame frame;
+        private Motion6D.Interfaces.ReferenceFrame frame;
 
         private DateTime startTime;
 
@@ -92,7 +92,7 @@ namespace WpfInterface.Transformations
 
         #region Ctor
 
-         internal Uniform6DTransformation(AnimatableWrapper wrapper, Motion6D.ReferenceFrame frame,
+         internal Uniform6DTransformation(AnimatableWrapper wrapper, Motion6D.Interfaces.ReferenceFrame frame,
             bool realtime, double[] changeFrameTime, TimeSpan forecastTime)
         {
             

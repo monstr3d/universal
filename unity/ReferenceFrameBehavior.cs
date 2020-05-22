@@ -15,6 +15,7 @@ using Scada.Desktop;
 using Motion6D.Interfaces;
 
 using V = Vector3D;
+using Vector3D;
 
 public class ReferenceFrameBehavior : MonoBehaviour
 {
@@ -57,9 +58,9 @@ public class ReferenceFrameBehavior : MonoBehaviour
 
     internal Func<double>[] dOut;
 
-    Action update = null;
+    Action update = () => { };
 
-    Action start = null;
+    Action lateUpdate = () => { };
 
     IScadaInterface scada;
 
@@ -112,7 +113,8 @@ public class ReferenceFrameBehavior : MonoBehaviour
 
     ReferenceFrame referenceFrame;
 
-    Vector3D.EulerAngles angles = new Vector3D.EulerAngles();
+
+  //  private Action update = { }
 
 
     #endregion
@@ -130,15 +132,25 @@ public class ReferenceFrameBehavior : MonoBehaviour
         (monoBehaviorWrapper as IScadaUpdate).Update = null;
             //ScadaUpdate;
         wrapperUpdate = monoBehaviorWrapper.Update;
-        Dictionary<string, Motion6D.Interfaces.IReferenceFrame> frames
+        Dictionary<string, IReferenceFrame> frames
      = monoBehaviorWrapper.Frames;
 
-                if (frames.ContainsKey(transformation))
+         if (frames.ContainsKey(transformation))
         {
-            Motion6D.Interfaces.IReferenceFrame frame = frames[transformation];
+            IReferenceFrame frame = frames[transformation];
             referenceFrame = frame.Own;
             
         }
+        var cam = gameObject.GetComponent<Camera>();
+        if (cam != null)
+        {
+            lateUpdate = UpdatePosition;
+        }
+        else
+        {
+            update = UpdatePosition;
+        }
+
 
     }
 
@@ -147,10 +159,11 @@ public class ReferenceFrameBehavior : MonoBehaviour
  
     void ScadaUpdate()
     {
-        gameObject.transform.rotation = referenceFrame.ToQuaternion(angles);
+        gameObject.transform.rotation = referenceFrame.ToQuaternion();
         gameObject.transform.position = referenceFrame.Position.ToPosition();
 
     }
+
 
     // Start is called before the first frame update
     void Start()
@@ -161,10 +174,14 @@ public class ReferenceFrameBehavior : MonoBehaviour
 
     // Update is called once per frame
 
+    void UpdatePosition()
+    {
+        gameObject.transform.rotation = referenceFrame.ToQuaternion();
+        gameObject.transform.position = referenceFrame.Position.ToPosition();
+    }
     void Update()
     {
-        gameObject.transform.rotation = referenceFrame.ToQuaternion(angles);
-        gameObject.transform.position = referenceFrame.Position.ToPosition();
+        update();
         var rb = gameObject.GetComponent<Rigidbody>();
         if (rb != null)
         {
@@ -172,7 +189,12 @@ public class ReferenceFrameBehavior : MonoBehaviour
         }
     }
 
-   
+    private void LateUpdate()
+    {
+        lateUpdate();
+    }
+
+
 
 
     void FixedUpdate()
@@ -221,7 +243,7 @@ public class ReferenceFrameBehavior : MonoBehaviour
             }
         }
     }
-
+    /*
     void AddAction(Action action)
     {
         if (update == null)
@@ -232,7 +254,7 @@ public class ReferenceFrameBehavior : MonoBehaviour
         update += action;
     }
 
-
+    */
 
     #endregion
 }
