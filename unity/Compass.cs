@@ -25,6 +25,7 @@ public class Compass : MonoBehaviour
     ///////////////////////////
     void Update()
     {
+        return;
         if (isActive)
         {
             if(moveX) 

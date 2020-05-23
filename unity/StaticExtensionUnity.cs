@@ -66,7 +66,7 @@ namespace Unity.Standard
         static Dictionary<string, ConstructorInfo> updates = 
             new Dictionary<string, ConstructorInfo>();
 
-        static internal Dictionary<string, ConstructorInfo> updatesRectTransform =
+        static internal Dictionary<string, ConstructorInfo> updatesGameObject =
      new Dictionary<string, ConstructorInfo>();
 
 
@@ -464,6 +464,9 @@ namespace Unity.Standard
             return up.Create(scada, parameter, format,  text,  scale);
         }
 
+        public static IReplaceActionFactory ReplaceActionFactory
+        { get; set; } = new FrameReplaceActionFactory();
+
 
         #endregion
 
@@ -512,9 +515,9 @@ namespace Unity.Standard
 
                     updates[name] = ci;
                 }
-                if (types.Contains(typeof(IUpdateRectTransform)))
+                if (types.Contains(typeof(IUpdateGameObject)))
                 {
-                    updatesRectTransform[name] = ci;
+                  updatesGameObject[name] = ci;
 
                 }
             }

@@ -13,7 +13,7 @@ using Motion6D.Interfaces;
 
 namespace Assets
 {
-    public class UpdateHeadingText : AbstractRectTransformUpdate
+    public class UpdateHeadingText : AbstractFrameUpdate
     {
         Text headingTxt;
         Text Text;
@@ -22,14 +22,14 @@ namespace Assets
 
         public UpdateHeadingText()
         {
+
         }
-        public override void Set(ReferenceFrame frame, EulerAngles angles,
-            RectTransform transform)
+
+        public override void Set(object[] obj, GameObject gameObject)
         {
-            base.Set(frame, angles, transform);
-            GameObject go = transform.gameObject;
+            base.Set(obj, gameObject);
             Dictionary<string, List<Component>> comp;
-            go.GetComponents(out comp);
+            gameObject.GetComponents(out comp);
             var texts = comp.GetComponents<Text>();
             headingTxt = texts["heading_Indicator"][0];
         }
@@ -52,7 +52,6 @@ namespace Assets
                     headingTxt.text = heading.ToString("000");
                 }
             }
-
         }
     }
 }

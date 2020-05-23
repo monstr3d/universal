@@ -7,27 +7,46 @@ using System.Threading.Tasks;
 using Unity.Standard;
 using UnityEngine;
 using UnityEngine.UI;
+
+using Unity.Standard;
+
 using Vector3D;
+
+
 
 namespace Assets
 {
-    public class UpdateCompass : AbstractRectTransformUpdate
+    public class UpdateCompass : AbstractFrameUpdate
     {
         float headingAmplitude = 1, headingOffSet = 0, headingFilterFactor = 0.1f;
-        float heading,  factor = 1, maxValue = 360;
-        float startX = 0, startY = 0, startWidth, startHeight;
+        float heading, factor = 1, maxValue = 360;
+        float startX = 0, startY,  
+            startWidth, startHeight;
+
+        RawImage rawImg;
 
         public UpdateCompass()
         {
-
+            var a = new float[] { headingAmplitude, headingOffSet, headingFilterFactor,
+            heading, factor, maxValue,
+            startX,  startWidth, startHeight };
         }
 
-        RawImage rawImg;
-        public override void Set(ReferenceFrame frame, EulerAngles angles, RectTransform transform)
+        public override void Set(object[] obj, GameObject gameObject)
         {
-            base.Set(frame, angles, transform);
-            Dictionary<string, List<Component>> comp;
-            transform.gameObject.GetComponents(out comp);
+            base.Set(obj, gameObject);
+            rawImg = gameObject.GetComponent<RawImage>();
+            startX = rawImg.uvRect.x; startY = rawImg.uvRect.y;
+            startWidth = rawImg.uvRect.width; startHeight = rawImg.uvRect.height;
+        }
+
+        public override int SetConstants(int offset, float[] constants)
+        {
+            int i = base.SetConstants(offset, constants);
+            return i;
+        }
+        //       Dictionary<string, List<Component>> comp;
+        /*    gameObject.GetComponents(out comp);
             foreach (var o in comp.Values)
             {
                 foreach (var a in o)
@@ -40,9 +59,8 @@ namespace Assets
                 }
             }
         m:
-            return;
-            
-       }
+            return;*/
+
 
         public override Action Update => UpdateInternal;
 

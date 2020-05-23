@@ -13,7 +13,7 @@ using Motion6D.Interfaces;
 
 namespace Assets
 {
-    public class UpdateHorizonRollPitch : AbstractRectTransformUpdate
+    public class UpdateHorizonRollPitch : AbstractFrameUpdate
     {
         RectTransform horizonRoll;
 
@@ -29,10 +29,12 @@ namespace Assets
 
         }
 
-        public override void Set(ReferenceFrame frame, EulerAngles angles,
-            RectTransform transform)
+        public override void Set(object[] o, GameObject gameObject)
         {
-            base.Set(frame, angles, transform);
+            base.Set(o, gameObject);
+            RectTransform transform = gameObject.GetComponent<RectTransform>();
+            
+           // base.Set(frame, angles, transform);
             horizonRoll = transform;
             horizonPitch = transform;
         }
@@ -57,12 +59,13 @@ namespace Assets
             }
             if (horizonPitch != null)
             {
-                horizonPitch.localPosition = 
+     /*           horizonPitch.localPosition = 
                     new Vector3(-pitchAmplitude * pitch * 
                     Mathf.Sin(horizonPitch.transform.localEulerAngles.z * 
                     Mathf.Deg2Rad) + pitchXOffSet, pitchAmplitude * pitch * 
                     Mathf.Cos(horizonPitch.transform.localEulerAngles.z * 
                     Mathf.Deg2Rad) + pitchYOffSet, 0);
+     */
             }
         }
     }
