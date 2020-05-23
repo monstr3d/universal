@@ -139,7 +139,8 @@ public class CockpitIndicator : MonoBehaviour
             else if (roll < -180) horizonRollTxt.text = (roll + 360).ToString("00");
             else horizonRollTxt.text = roll.ToString("00");
         }
-        if (horizonPitch != null) horizonPitch.localPosition = new Vector3(-pitchAmplitude * pitch * Mathf.Sin(horizonPitch.transform.localEulerAngles.z * Mathf.Deg2Rad) + pitchXOffSet, pitchAmplitude * pitch * Mathf.Cos(horizonPitch.transform.localEulerAngles.z * Mathf.Deg2Rad) + pitchYOffSet, 0);
+        if (horizonPitch != null) horizonPitch.localPosition = 
+                new Vector3(-pitchAmplitude * pitch * Mathf.Sin(horizonPitch.transform.localEulerAngles.z * Mathf.Deg2Rad) + pitchXOffSet, pitchAmplitude * pitch * Mathf.Cos(horizonPitch.transform.localEulerAngles.z * Mathf.Deg2Rad) + pitchYOffSet, 0);
         if (horizonPitchTxt != null) horizonPitchTxt.text = pitch.ToString("0");
 
     }

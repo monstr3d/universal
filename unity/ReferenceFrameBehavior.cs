@@ -16,6 +16,7 @@ using Motion6D.Interfaces;
 
 using V = Vector3D;
 using Vector3D;
+using System.Reflection;
 
 public class ReferenceFrameBehavior : MonoBehaviour
 {
@@ -35,6 +36,8 @@ public class ReferenceFrameBehavior : MonoBehaviour
     public string[] updates = new string[0];
 
     public string[] constants = new string[0];
+
+    public string onTriggerEnter = "";
 
     public bool isEnabled = true;
 
@@ -63,6 +66,8 @@ public class ReferenceFrameBehavior : MonoBehaviour
     Action lateUpdate = () => { };
 
     IScadaInterface scada;
+
+    Action<Collider> triggerEnter = (Collider c) => { };
 
 
     Action fixedAct = null;
@@ -113,8 +118,11 @@ public class ReferenceFrameBehavior : MonoBehaviour
 
     ReferenceFrame referenceFrame;
 
+    Action scadaUpdate;
 
-  //  private Action update = { }
+
+
+    //  private Action update = { }
 
 
     #endregion
@@ -150,51 +158,34 @@ public class ReferenceFrameBehavior : MonoBehaviour
         {
             update = UpdatePosition;
         }
-
-
-    }
-
-    Action scadaUpdate;
-
- 
-    void ScadaUpdate()
-    {
-        gameObject.transform.rotation = referenceFrame.ToQuaternion();
-        gameObject.transform.position = referenceFrame.Position.ToPosition();
+        if (onTriggerEnter.Length > 0)
+        {
+            ConstructorInfo c = StaticExtensionUnity.updatesTriggerAction[onTriggerEnter];
+            ITriggerAction ta = c.Invoke(new Type[0]) as ITriggerAction;
+            ta.Set(gameObject, scada);
+            triggerEnter = ta.Action;
+        }
 
     }
 
-
-    // Start is called before the first frame update
     void Start()
     {
         //start();
         monoBehaviorWrapper.Start();
     }
 
-    // Update is called once per frame
 
-    void UpdatePosition()
-    {
-        gameObject.transform.rotation = referenceFrame.ToQuaternion();
-        gameObject.transform.position = referenceFrame.Position.ToPosition();
-    }
+
     void Update()
     {
         update();
         var rb = gameObject.GetComponent<Rigidbody>();
-        if (rb != null)
-        {
-            var ang = rb.angularVelocity;
-        }
     }
 
     private void LateUpdate()
     {
         lateUpdate();
     }
-
-
 
 
     void FixedUpdate()
@@ -211,6 +202,43 @@ public class ReferenceFrameBehavior : MonoBehaviour
         }
     }
 
+    
+    private void OnTriggerEnter(Collider other)
+    {
+        triggerEnter(other);
+    }
+    
+    void OnCollisionEnter(Collision collision)
+    {
+       
+    }
+
+
+    #endregion
+
+    /*
+       void ScadaUpdate()
+       {
+           gameObject.transform.rotation = referenceFrame.ToQuaternion();
+           gameObject.transform.position = referenceFrame.Position.ToPosition();
+
+       }
+   */
+
+    // Start is called before the first frame update
+
+
+    // Update is called once per frame
+
+    void UpdatePosition()
+    {
+        gameObject.transform.rotation = referenceFrame.ToQuaternion();
+        gameObject.transform.position = referenceFrame.Position.ToPosition();
+    }
+
+    #region Standard Members
+
+ 
  
 
     #endregion

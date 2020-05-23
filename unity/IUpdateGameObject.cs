@@ -42,5 +42,6 @@ namespace Unity.Standard
         /// <param name="constants"></param>
         /// <returns>Resul offset</returns>
         int SetConstants(int offset, float[] constants);
+
     }
 }

@@ -70,6 +70,10 @@ namespace Unity.Standard
      new Dictionary<string, ConstructorInfo>();
 
 
+        static internal Dictionary<string, ConstructorInfo> updatesTriggerAction =
+     new Dictionary<string, ConstructorInfo>();
+
+
 
         static internal Scada.Interfaces.IErrorHandler ErrorHandler => errorHandler;
 
@@ -512,14 +516,17 @@ namespace Unity.Standard
                 string name = type.Name;
                 if (types.Contains(typeof(IUpdate)))
                 {
-
                     updates[name] = ci;
                 }
                 if (types.Contains(typeof(IUpdateGameObject)))
                 {
                   updatesGameObject[name] = ci;
-
                 }
+                if (types.Contains(typeof(ITriggerAction)))
+                {
+                    updatesTriggerAction[name] = ci;
+                }
+
             }
             );
 

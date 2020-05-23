@@ -19,24 +19,38 @@ namespace Assets
 
         RectTransform horizonPitch;
 
-        float rollAmplitude = 1, rollOffSet = 0, rollFilterFactor = 0.25f;
-        float pitchAmplitude = 1, pitchOffSet = 0, 
-            pitchXOffSet = 0, pitchYOffSet = 0,
-            pitchFilterFactor = 0.125f;
+        float rollAmplitude = 1, pitchAmplitude = 1,
+            pitchXOffSet = 0, pitchYOffSet = 0;
+           
+
+        float rollOffSet = 0, rollFilterFactor = 0.25f, pitchFilterFactor = 0.125f,
+            pitchOffSet;
+
 
         public UpdateHorizonRollPitch()
         {
-
+            constants = new float[] {rollAmplitude = 1, pitchAmplitude = 1,
+            pitchXOffSet = 0, pitchYOffSet};
         }
 
         public override void Set(object[] o, GameObject gameObject)
         {
             base.Set(o, gameObject);
             RectTransform transform = gameObject.GetComponent<RectTransform>();
-            
-           // base.Set(frame, angles, transform);
+
+            // base.Set(frame, angles, transform);
             horizonRoll = transform;
             horizonPitch = transform;
+        }
+
+        public override int SetConstants(int offset, float[] constants)
+        {
+            int i = base.SetConstants(offset, constants);
+            rollAmplitude = constants[0];
+            pitchAmplitude = constants[1];
+            pitchXOffSet = constants[2];
+            pitchYOffSet = constants[3];
+            return i;
         }
 
         public override Action Update => UpdateInternal;
@@ -59,14 +73,23 @@ namespace Assets
             }
             if (horizonPitch != null)
             {
-     /*           horizonPitch.localPosition = 
-                    new Vector3(-pitchAmplitude * pitch * 
-                    Mathf.Sin(horizonPitch.transform.localEulerAngles.z * 
-                    Mathf.Deg2Rad) + pitchXOffSet, pitchAmplitude * pitch * 
-                    Mathf.Cos(horizonPitch.transform.localEulerAngles.z * 
+                Vector3 v = new Vector3(
+                    -pitchAmplitude * pitch *
+                    Mathf.Sin(horizonPitch.transform.localEulerAngles.z *
+                    Mathf.Deg2Rad) + pitchXOffSet,
+                    pitchAmplitude * pitch *
+                    Mathf.Cos(horizonPitch.transform.localEulerAngles.z *
                     Mathf.Deg2Rad) + pitchYOffSet, 0);
-     */
+                horizonPitch.localPosition = v;
+
             }
+            /*           horizonPitch.localPosition = 
+                           new Vector3(-pitchAmplitude * pitch * 
+                           Mathf.Sin(horizonPitch.transform.localEulerAngles.z * 
+                           Mathf.Deg2Rad) + pitchXOffSet, pitchAmplitude * pitch * 
+                           Mathf.Cos(horizonPitch.transform.localEulerAngles.z * 
+                           Mathf.Deg2Rad) + pitchYOffSet, 0);
+            */
         }
     }
 }

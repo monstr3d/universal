@@ -165,7 +165,16 @@ public class ForcesMomentums : MonoBehaviour
             {
                 ResetValue(ref vMz, kMz, 4);
             }
-            
+            if (Input.GetKeyUp(KeyCode.LeftShift))
+            {
+                ResetValue(ref vx, kx, 2);
+            }
+            if (Input.GetKeyUp(KeyCode.LeftControl))
+            {
+                ResetValue(ref vx, -kx, 2);
+            }
+
+
         }
         catch (Exception ex)
         {
