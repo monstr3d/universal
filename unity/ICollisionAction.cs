@@ -1,49 +1,43 @@
-﻿using Motion6D.Interfaces;
-using Scada.Interfaces;
+﻿using Scada.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
-using Vector3D;
 
 namespace Unity.Standard
 {
-
     /// <summary>
-    /// Updates Rect transformation
+    /// Trigger action
     /// </summary>
-    public interface IUpdateGameObject
+    public interface ICollisionAction
     {
         /// <summary>
         /// Sets parameters
         /// </summary>
-        /// <param name="obj">Measurement object</param>
         /// <param name="gameObject">Game object</param>
-        /// <param name="scada">SCADA</param>
-        void Set(object[] obj, GameObject gameObject, IScadaInterface scada);
+        /// <param name="scada">Scada</param>
+        void Set(GameObject gameObject, IScadaInterface scada);
 
         /// <summary>
-        /// Update action
+        /// Collider action
         /// </summary>
-        Action Update { get; }
+        Action<Collision> Action { get; }
 
         /// <summary>
         /// Constants
         /// </summary>
-        float[] Constants
-        {
-            get;
-        }
+        float[] Constants { get; }
 
         /// <summary>
         /// Sets constants
         /// </summary>
-        /// <param name="Offset">Off set</param>
-        /// <param name="constants"></param>
-        /// <returns>Resul offset</returns>
+        /// <param name="offset">Offset</param>
+        /// <param name="constants">Constants</param>
+        /// <returns>New offset </returns>
         int SetConstants(int offset, float[] constants);
-
+ 
+        
     }
 }

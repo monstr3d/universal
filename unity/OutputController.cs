@@ -239,7 +239,7 @@ public class OutputController : MonoBehaviour
             {
                 IUpdateGameObject ua = constructors[actions.Item1].Invoke(new Type[0]) 
                     as IUpdateGameObject;
-                ua.Set(o, actions.Item2);
+                ua.Set(o, actions.Item2, scada);
                 int k = valuePairs[actions.Item1];
                 keyValuePairs[k] = ua;
                 AddGenAct(ua.Update);

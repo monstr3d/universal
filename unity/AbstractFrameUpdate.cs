@@ -1,4 +1,5 @@
 ﻿using Motion6D.Interfaces;
+using Scada.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,9 +21,9 @@ namespace Unity.Standard
 
         }
 
-        public override void Set(object[] obj, GameObject gameObject)
+        public override void Set(object[] obj, GameObject gameObject, IScadaInterface scada)
         {
-            base.Set(obj, gameObject);
+            base.Set(obj, gameObject, scada);
             frame = obj[0] as ReferenceFrame;
             if (obj.Length > 1)
             {

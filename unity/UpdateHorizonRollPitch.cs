@@ -10,6 +10,7 @@ using Unity.Standard;
 
 using Vector3D;
 using Motion6D.Interfaces;
+using Scada.Interfaces;
 
 namespace Assets
 {
@@ -33,9 +34,9 @@ namespace Assets
             pitchXOffSet = 0, pitchYOffSet};
         }
 
-        public override void Set(object[] o, GameObject gameObject)
+        public override void Set(object[] o, GameObject gameObject, IScadaInterface scada)
         {
-            base.Set(o, gameObject);
+            base.Set(o, gameObject, scada);
             RectTransform transform = gameObject.GetComponent<RectTransform>();
 
             // base.Set(frame, angles, transform);

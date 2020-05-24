@@ -9,16 +9,16 @@ using UnityEngine;
 
 namespace Assets
 {
-    public class SimpleTriggerAction : AbstractTriggerAction
+    public class SimpleCollisionAction : AbstractCollisionAction
     {
-        public SimpleTriggerAction()
+        public SimpleCollisionAction()
         {
 
         }
 
-        public override Action<Collider> Action => Update;
+        public override Action<Collision> Action => Update;
 
-        void Update(Collider collider)
+        void Update(Collision collision)
         {
             ReferenceFrame frame = scada.GetOutput("Relative to station.Frame")() as ReferenceFrame;
           //  scada.Outputs[]

@@ -10,6 +10,7 @@ using Unity.Standard;
 
 using Vector3D;
 using Motion6D.Interfaces;
+using Scada.Interfaces;
 
 namespace Assets
 {
@@ -25,9 +26,9 @@ namespace Assets
 
         }
 
-        public override void Set(object[] obj, GameObject gameObject)
+        public override void Set(object[] obj, GameObject gameObject, IScadaInterface scada)
         {
-            base.Set(obj, gameObject);
+            base.Set(obj, gameObject, scada);
             Dictionary<string, List<Component>> comp;
             gameObject.GetComponents(out comp);
             var texts = comp.GetComponents<Text>();

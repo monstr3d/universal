@@ -11,8 +11,7 @@ using UnityEngine.UI;
 using Unity.Standard;
 
 using Vector3D;
-
-
+using Scada.Interfaces;
 
 namespace Assets
 {
@@ -32,9 +31,9 @@ namespace Assets
             startX,  startWidth, startHeight };
         }
 
-        public override void Set(object[] obj, GameObject gameObject)
+        public override void Set(object[] obj, GameObject gameObject, IScadaInterface scada)
         {
-            base.Set(obj, gameObject);
+            base.Set(obj, gameObject, scada);
             rawImg = gameObject.GetComponent<RawImage>();
             startX = rawImg.uvRect.x; startY = rawImg.uvRect.y;
             startWidth = rawImg.uvRect.width; startHeight = rawImg.uvRect.height;

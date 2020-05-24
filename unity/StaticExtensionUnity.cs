@@ -72,6 +72,9 @@ namespace Unity.Standard
 
         static internal Dictionary<string, ConstructorInfo> updatesTriggerAction =
      new Dictionary<string, ConstructorInfo>();
+        
+        static internal Dictionary<string, ConstructorInfo> updatesCollisionAction =
+     new Dictionary<string, ConstructorInfo>();
 
 
 
@@ -81,6 +84,19 @@ namespace Unity.Standard
         #endregion
 
         #region Members
+
+        static public int SetConstants(this float[] input, int offset, float[] output)
+        {
+            int l = output.Length;
+            if (input.Length < offset + l)
+            {
+                return -1;
+            }
+            Array.Copy(input, offset, output, 0, l);
+            int k = l + offset;
+            return (k == input.Length) ? -1 : k;
+
+        }
 
         /// <summary>
         /// Text update
@@ -520,13 +536,16 @@ namespace Unity.Standard
                 }
                 if (types.Contains(typeof(IUpdateGameObject)))
                 {
-                  updatesGameObject[name] = ci;
+                    updatesGameObject[name] = ci;
                 }
                 if (types.Contains(typeof(ITriggerAction)))
                 {
                     updatesTriggerAction[name] = ci;
                 }
-
+                if (types.Contains(typeof(ICollisionAction)))
+                {
+                    updatesCollisionAction[name] = ci;
+                }
             }
             );
 

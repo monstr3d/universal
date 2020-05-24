@@ -17,6 +17,7 @@ using Motion6D.Interfaces;
 using V = Vector3D;
 using Vector3D;
 using System.Reflection;
+using UnityEngine.Rendering;
 
 public class ReferenceFrameBehavior : MonoBehaviour
 {
@@ -38,6 +39,10 @@ public class ReferenceFrameBehavior : MonoBehaviour
     public string[] constants = new string[0];
 
     public string onTriggerEnter = "";
+
+    public string onCollisionEnter = "";
+
+    public float[] collisionConstants = new float[0];
 
     public bool isEnabled = true;
 
@@ -68,6 +73,8 @@ public class ReferenceFrameBehavior : MonoBehaviour
     IScadaInterface scada;
 
     Action<Collider> triggerEnter = (Collider c) => { };
+
+    Action<Collision> collisionEnter = (Collision collision) => { };
 
 
     Action fixedAct = null;
@@ -120,6 +127,8 @@ public class ReferenceFrameBehavior : MonoBehaviour
 
     Action scadaUpdate;
 
+     
+
 
 
     //  private Action update = { }
@@ -165,6 +174,15 @@ public class ReferenceFrameBehavior : MonoBehaviour
             ta.Set(gameObject, scada);
             triggerEnter = ta.Action;
         }
+        if (onCollisionEnter.Length > 0)
+        {
+            ConstructorInfo c = StaticExtensionUnity.updatesCollisionAction[onCollisionEnter];
+            ICollisionAction ca = c.Invoke(new Type[0]) as ICollisionAction;
+            ca.Set(gameObject, scada);
+            collisionEnter = ca.Action;
+            ca.SetConstants(0, collisionConstants);
+        }
+
 
     }
 
@@ -210,7 +228,7 @@ public class ReferenceFrameBehavior : MonoBehaviour
     
     void OnCollisionEnter(Collision collision)
     {
-       
+        collisionEnter(collision);
     }
 
 

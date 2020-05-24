@@ -1,4 +1,5 @@
 ﻿using Motion6D.Interfaces;
+using Scada.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,6 +23,8 @@ namespace Unity.Standard
 
         protected object[] obj;
 
+        IScadaInterface scada;
+
         protected float[] constants = new float[0];
 
         #endregion
@@ -31,10 +34,12 @@ namespace Unity.Standard
         /// </summary>
         /// <param name="obj">Measurement object</param>
         /// <param name="gameObject">Game object</param>
-        public virtual void Set(object[] obj, GameObject gameObject)
+        /// <param name="scada">SCADA</param>
+        public virtual void Set(object[] obj, GameObject gameObject, IScadaInterface scada)
         {
             this.obj = obj;
             this.gameObject = gameObject;
+            this.scada = scada;
         }
 
         /// <summary>
@@ -56,17 +61,8 @@ namespace Unity.Standard
         /// <returns>Resul offset</returns>
         public virtual int SetConstants(int offset, float[] constants)
         {
-            int l = this.constants.Length;
-            if (constants.Length < offset + l)
-            {
-                return -1;
-            }
-            Array.Copy(constants, offset, this.constants, 0, l);
-            int k = l + offset;
-            return (k == constants.Length) ? -1 : k;
+            return constants.SetConstants(offset, this.constants);
         }
-
-
 
         /// <summary>
         /// Update action
