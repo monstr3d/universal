@@ -13,7 +13,7 @@ namespace Assets
     {
         public SimpleCollisionAction()
         {
-
+            constants = new float[6];
         }
 
         public override Action<Collision> Action => Update;
@@ -21,7 +21,7 @@ namespace Assets
         void Update(Collision collision)
         {
             ReferenceFrame frame = scada.GetOutput("Relative to station.Frame")() as ReferenceFrame;
-          //  scada.Outputs[]
+            scada.IsEnabled = false;
         }
     }
 }

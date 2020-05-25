@@ -333,7 +333,8 @@ namespace Event.Portable
         {
             if (currentRuntime == null)
             {
-                throw new Exception();
+                return;
+               /// !!!! OnError(new Exception(""))
             }
             currentRuntime.Stop();
             currentRuntime = null;

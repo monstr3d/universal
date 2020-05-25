@@ -95,7 +95,6 @@ namespace Unity.Standard
             Array.Copy(input, offset, output, 0, l);
             int k = l + offset;
             return (k == input.Length) ? -1 : k;
-
         }
 
         /// <summary>

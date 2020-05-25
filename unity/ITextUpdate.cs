@@ -27,5 +27,6 @@ namespace Unity.Standard
         /// <returns>The action</returns>
         Action Create(IScadaInterface scada, 
             string parameter, string format, Text text, float scale = 0);
+
     }
 }

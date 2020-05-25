@@ -24,6 +24,7 @@ using Event.Portable.Events;
 
 using Scada.Interfaces;
 using DataPerformer.Portable.Interfaces;
+using Event.Portable.Interfaces;
 
 namespace Scada.Desktop
 {
@@ -106,6 +107,11 @@ namespace Scada.Desktop
         /// Events with data
         /// </summary>
         protected Event.Interfaces.IEvent[] eventsData;
+
+        /// <summary>
+        /// Realtime
+        /// </summary>
+        protected IRealtime realtime;
 
         #endregion
 
@@ -233,7 +239,7 @@ namespace Scada.Desktop
                 isEnabled = value;
                 if (value)
                 {
-                    collection.StartRealtime(timeUnit, isAbsoluteTime, 
+                     collection.StartRealtime(timeUnit, isAbsoluteTime, 
                         realtimeStep, dataConsumer, null, "Realtime", 
                         timeMeasurementProviderFactory, true);
                     onStart();

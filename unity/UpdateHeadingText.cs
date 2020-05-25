@@ -29,10 +29,11 @@ namespace Assets
         public override void Set(object[] obj, GameObject gameObject, IScadaInterface scada)
         {
             base.Set(obj, gameObject, scada);
-            Dictionary<string, List<Component>> comp;
-            gameObject.GetComponents(out comp);
-            var texts = comp.GetComponents<Text>();
-            headingTxt = texts["heading_Indicator"][0];
+          /*   Dictionary<string, List<Component>> comp;
+             gameObject.GetComponents(out comp);
+             var texts = comp.GetComponents<Text>();*/
+            headingTxt = gameObject.GetComponent<Text>();
+                //texts["heading_Indicator"][0];
         }
 
         public override Action Update => UpdateInternal;

@@ -135,7 +135,7 @@ namespace Scada.Motion6D
                     }
                     if (value)
                     {
-                        var realtime = StartRealtime(timeMeasurementProviderFactory, true);
+                        realtime = StartRealtime(timeMeasurementProviderFactory, true);
                         if (realtime == null)
                         {
                             throw new Exception("No runtime");
@@ -144,13 +144,16 @@ namespace Scada.Motion6D
                     }
                     else
                     {
-                        StaticExtensionEventPortable.StopRealTime();
+                        realtime.Stop();
+                        realtime = null;
                         onStop();
                     }
                     isEnabled = value;
                 }
             }
         }
+
+
 
         /// <summary>
         /// Factory from base directory
