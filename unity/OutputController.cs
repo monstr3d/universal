@@ -33,7 +33,9 @@ public class OutputController : MonoBehaviour
 
     public float[] scales;
 
+    public string[] inputs;
 
+    public float[] inputConstants;
 
     public string[] generalizedParamerers;
 
@@ -42,35 +44,38 @@ public class OutputController : MonoBehaviour
     public GameObject[] gameObjects;
 
 
- 
+
 
 
     public bool isEnabled = true;
 
     bool exists;
 
-
-    Action update = () => { };
-
     public float[] constants;
 
     Action ev = null;
+
+    Action inpAct;
 
     IScadaInterface scada;
 
     IDesktop scadaDesktop;
 
+    Action up = null;
+
+    Action update;
+
     MonoBehaviorTimerFactory factory;
 
     private Dictionary<string, Tuple<object,
         Func<object>, List<Tuple<string, GameObject>>>> allparameters
-        = new Dictionary<string, Tuple<object, Func<object>, 
+        = new Dictionary<string, Tuple<object, Func<object>,
             List<Tuple<string, GameObject>>>>();
 
     private Dictionary<string, int> valuePairs = new Dictionary<string, int>();
 
-    private Dictionary<int, IUpdateGameObject> keyValuePairs = 
-        
+    private Dictionary<int, IUpdateGameObject> keyValuePairs =
+
         new Dictionary<int, IUpdateGameObject>();
 
     #region Standard Members
@@ -80,7 +85,6 @@ public class OutputController : MonoBehaviour
         exists = desktop.ScadaExists();
         if (!isEnabled)
         {
-            update = () => { };
             return;
         }
         scada = MonoBehaviorTimerFactory.Create(desktop, out factory);
@@ -119,21 +123,18 @@ public class OutputController : MonoBehaviour
                 parameters[i], format, text, scale);
             AddUpdate(act);
         }
-        if (update == null)
-        {
-            update = () => { };
-        }
         (factory as IScadaUpdate).Update = null;
     }
 
-    
+
 
     // Start is called before the first frame update
     void Start()
     {
         factory.Start();
+        UpdateInput();
         UpdateOutput();
-  //      UpdateTransforms();
+        //      UpdateTransforms();
     }
 
     // Update is called once per frame
@@ -142,9 +143,11 @@ public class OutputController : MonoBehaviour
         ev?.Invoke();
     }
 
-    void  Update()
+  
+
+    void Update()
     {
-        update();
+        update?.Invoke();
     }
 
 
@@ -185,9 +188,7 @@ public class OutputController : MonoBehaviour
         }
     }
 
-    Action up = null;
-
-    void AddGenAct(Action act)
+     void AddGenAct(Action act)
     {
         if (act == null)
         {
@@ -201,6 +202,22 @@ public class OutputController : MonoBehaviour
         up += act;
     }
 
+    /*
+    void AddInpAct(Action act)
+    {
+        if (act == null)
+        {
+            return;
+        }
+        if (inpAct == null)
+        {
+            inpAct = act;
+            return;
+        }
+        inpAct += act;
+    }
+    */
+
     private void UpdateOutput()
     {
         if (allparameters.Count == 0)
@@ -208,7 +225,8 @@ public class OutputController : MonoBehaviour
             return;
         }
         var factory = StaticExtensionUnity.ReplaceActionFactory;
-        Dictionary<string, ConstructorInfo> constructors = StaticExtensionUnity.updatesGameObject;
+        Dictionary<string, ConstructorInfo> constructors =
+            StaticExtensionUnity.updatesGameObject;
         foreach (var key in allparameters.Keys)
         {
             Action act = null;
@@ -220,7 +238,6 @@ public class OutputController : MonoBehaviour
             }
             if (o == null)
             {
-
                 o = new object[1];
                 if (v.Item1 != null)
                 {
@@ -231,22 +248,17 @@ public class OutputController : MonoBehaviour
                     };
                 }
             }
-            AddGenAct(act);
+            AddUpdate(act);
             var lt = v.Item3;
             foreach (var actions in lt)
             {
-                IUpdateGameObject ua = constructors[actions.Item1].Invoke(new Type[0]) 
+                IUpdateGameObject ua = constructors[actions.Item1].Invoke(new Type[0])
                     as IUpdateGameObject;
                 ua.Set(o, actions.Item2, scada);
                 int k = valuePairs[actions.Item1];
                 keyValuePairs[k] = ua;
-                AddGenAct(ua.Update);
+                AddUpdate(ua.Update);
             }
-
-        }
-        if (up != null)
-        {
-            update += up;
         }
         List<int> l = new List<int>(keyValuePairs.Keys);
         l.Sort();
@@ -262,6 +274,24 @@ public class OutputController : MonoBehaviour
         }
     }
 
+    private void UpdateInput()
+    {
+        if (inputs.Length == 0)
+        {
+            return;
+        }
+        Dictionary<string, ConstructorInfo> constructors =
+       StaticExtensionUnity.updatesGameObject;
+        int offset = 0;
+        foreach (var key in inputs)
+        {
+            IUpdateGameObject ua = constructors[key].Invoke(new Type[0])
+                as IUpdateGameObject;
+            ua.Set(null, gameObject, scada);
+            AddUpdate(ua.Update);
+            offset = ua.SetConstants(offset, inputConstants);
+        }
+    }
 
     void AddUpdate(Action act)
     {

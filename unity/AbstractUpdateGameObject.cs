@@ -13,7 +13,7 @@ namespace Unity.Standard
     /// <summary>
     /// Abstract implementation of update rect transformation
     /// </summary>
-    public abstract class AbstracUpdateGameObject : IUpdateGameObject
+    public abstract class AbstractUpdateGameObject : IUpdateGameObject
     {
 
         #region Fields
@@ -23,7 +23,7 @@ namespace Unity.Standard
 
         protected object[] obj;
 
-        IScadaInterface scada;
+        protected IScadaInterface scada;
 
         protected float[] constants = new float[0];
 

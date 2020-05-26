@@ -10,7 +10,7 @@ using Vector3D;
 
 namespace Unity.Standard
 {
-    public abstract class AbstractFrameUpdate : AbstracUpdateGameObject
+    public abstract class AbstractFrameUpdate : AbstractUpdateGameObject
     {
         protected ReferenceFrame frame;
 
