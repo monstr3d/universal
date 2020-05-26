@@ -20,7 +20,7 @@ namespace BaseTypes.Interfaces
         { get; }
 
         /// <summary>
-        /// Names of subobhects
+        /// Names of subobjects
         /// </summary>
         List<Tuple<string, object>>  Types
         { get; }

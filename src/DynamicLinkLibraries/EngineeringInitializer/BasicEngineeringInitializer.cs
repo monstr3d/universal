@@ -48,7 +48,7 @@ namespace EngineeringInitializer
             BaseTypes.StaticExtensionBaseTypesExtended.Binder.Add();
             FormulaEditor.Compiler.StaticExtensionFormulaEditorCompiler.Init();
             DataPerformer.DataPerformerInitializer.Initializer.InitializeApplication();
-            PureDesktop.DesktopPostLoad += DataPerformer.DataDesktopPostLoad.Object.PostLoad;
+            PureDesktop.DesktopPostLoad += DataPerformer.Portable.DataDesktopPostLoad.Object.PostLoad;
             IsInitialized = true;
             DataPerformer.Portable.DifferentialEquationProcessors.DifferentialEquationProcessor.Processor = diffProcessor;
             DataPerformer.StaticExtensionDataPerformerBase.SetLinkChecker();

@@ -4,16 +4,20 @@ using System.Text;
 using System.Runtime.Serialization;
 
 using CategoryTheory;
+
 using Diagram.UI;
-using Diagram.UI.Attributes;
+
 using BaseTypes;
-using DataPerformer;
-using DataPerformer.Attributes;
-using PhysicalField;
+
 using DataPerformer.Interfaces;
+using DataPerformer.Portable.Attributes;
+
+
 using Motion6D.Interfaces;
-using PhysicalField.Interfaces;
 using Motion6D.Portable;
+
+using PhysicalField.Interfaces;
+
 
 namespace Motion6D
 {

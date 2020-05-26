@@ -18,7 +18,7 @@ namespace Motion6D.Portable
     /// Reference frame controlled by data
     /// </summary>
     public class ReferenceFrameDataBase : RigidReferenceFrame,
-        IDataConsumer, IPostSetArrow
+        IDataConsumer, IMeasurements
     {
 
         #region Fields
@@ -29,9 +29,14 @@ namespace Motion6D.Portable
         private event Action onChangeInput = () => { };
 
         /// <summary>
-        /// Associates obhect
+        /// Associated object
         /// </summary>
         protected object obj;
+
+        /// <summary>
+        /// Output measurements
+        /// </summary>
+        protected IMeasurement[] outmeasurements = new IMeasurement[0];
 
         /// <summary>
         /// Names of parametrers
@@ -73,7 +78,23 @@ namespace Motion6D.Portable
         /// </summary>
         protected double[] angsec = new double[4];
 
-  
+        IVelocity velocity;
+
+        IAngularVelocity angularVelocity;
+
+        private Func<object>[] coordDel;
+
+        private Func<object>[] oriDel;
+
+        private Func<object>[] velocityDel;
+
+        private Func<object>[] angularDel;
+
+
+        private static readonly string[] names = new string[] {"x", "y", "z",  
+        "Vx", "Vy", "Vz",  "Q0", "Q1", "Q2", "Q3",
+                    "OMx", "OMy", "OMz", "A11", "A12", "A13", "A21", "A22", "A23", "A31", "A32", "A33"};
+
 
         #endregion
 
@@ -84,12 +105,15 @@ namespace Motion6D.Portable
         /// </summary>
         public ReferenceFrameDataBase()
         {
-
+            coordDel = new Func<object>[] { GetX, GetY, GetZ };
+            oriDel = new Func<object>[] { GetQ0, GetQ1, GetQ2, GetQ3 };
+            velocityDel = new Func<object>[] { GetVx, GetVy, GetVz };
+            angularDel = new Func<object>[] { GetOmegaX, GetOmegaY, GetOmegaZ };
         }
 
- 
+
         #endregion
- 
+
         #region IDataConsumer Members
 
         void IDataConsumer.Add(IMeasurements measurements)
@@ -145,9 +169,25 @@ namespace Motion6D.Portable
 
         #region IPostSetArrow Members
 
-        void IPostSetArrow.PostSetArrow()
+        public override void PostSetArrow()
         {
              SetParameters();
+        }
+
+        #endregion
+
+        #region IMeasurements Members
+
+        int IMeasurements.Count => outmeasurements.Length;
+
+        bool IMeasurements.IsUpdated { get => true; set { } }
+
+        IMeasurement IMeasurements.this[int number] => outmeasurements[number];
+
+
+        void IMeasurements.UpdateMeasurements()
+        {
+            
         }
 
         #endregion
@@ -159,7 +199,7 @@ namespace Motion6D.Portable
         /// </summary>
         public override void PostLoadPosition()
         {
-            CreateFrame();
+          //  CreateFrame();
         }
 
 
@@ -199,6 +239,7 @@ namespace Motion6D.Portable
         protected override void CreateFrame()
         {
             int order = 2;
+            List<IMeasurement> lm = new List<IMeasurement>();
             for (int i = 0; i < measurements.Length; i++)
             {
                 IMeasurement m = measurements[i];
@@ -245,6 +286,7 @@ namespace Motion6D.Portable
                 owp = new ReferenceFrame();       // Own reference frame
             }
        }
+
 
         /// <summary>
         /// Updates itself
@@ -373,6 +415,8 @@ namespace Motion6D.Portable
 
         #region Specific Members
 
+        #region Public Members
+
         /// <summary>
         /// All measurements
         /// </summary>
@@ -430,6 +474,10 @@ namespace Motion6D.Portable
 
         }
 
+        #endregion
+
+        #region Protected Members
+
         /// <summary>
         /// Sets parameters
         /// </summary>
@@ -455,8 +503,123 @@ namespace Motion6D.Portable
                     }
                 }
             }
+            CreateFrame();
+            CreateMeasurements();
         }
 
         #endregion
+
+        #region Private Members
+
+        void CreateMeasurements()
+        {
+            List<IMeasurement> lm = new List<IMeasurement>();
+            lm.Add(new Measurement(typeof(ReferenceFrame), GetFrame, "Frame"));
+            for (int i = 0; i < 3; i++)
+            {
+                lm.Add(new Measurement(coordDel[i], names[i]));
+            }
+            for (int i = 0; i < 4; i++)
+            {
+                lm.Add(new Measurement(oriDel[i], names[i + 6]));
+            }
+            if (own is IVelocity)
+            {
+                velocity = own as IVelocity;
+                for (int i = 0; i < 3; i++)
+                {
+                    lm.Add(new Measurement(velocityDel[i], names[i + 3]));
+                }
+            }
+            if (own is IAngularVelocity)
+            {
+                angularVelocity = own as IAngularVelocity;
+                for (int i = 0; i < 3; i++)
+                {
+                    lm.Add(new Measurement(angularDel[i], names[i + 10]));
+                }
+            }
+            outmeasurements = lm.ToArray();
+        }
+
+        object GetFrame()
+        {
+            return own;
+        }
+
+
+        object GetX()
+        {
+            return own.Position[0];
+        }
+
+        object GetY()
+        {
+            return own.Position[1];
+        }
+
+        object GetZ()
+        {
+            return own.Position[2];
+        }
+
+        object GetVx()
+        {
+            return velocity.Velocity[0];
+        }
+
+        object GetVy()
+        {
+            return velocity.Velocity[1];
+        }
+
+        object GetVz()
+        {
+            return velocity.Velocity[2];
+        }
+
+        object GetQ0()
+        {
+            return own.Quaternion[0];
+        }
+
+        object GetQ1()
+        {
+            return own.Quaternion[1];
+        }
+
+        object GetQ2()
+        {
+            return own.Quaternion[2];
+        }
+
+        object GetQ3()
+        {
+            return own.Quaternion[3];
+        }
+
+
+        object GetOmegaX()
+        {
+            return angularVelocity.Omega[0];
+        }
+
+
+        object GetOmegaY()
+        {
+            return angularVelocity.Omega[1];
+        }
+
+
+        object GetOmegaZ()
+        {
+            return angularVelocity.Omega[2];
+        }
+
+
+        #endregion
+
+        #endregion
+
     }
 }

@@ -168,8 +168,8 @@ namespace Motion6D.Portable
 
         static StaticExtensionMotion6DPortable()
         {
-
             PureDesktop.DesktopPostLoad += PostLoadPositions;
+            PureDesktop.DesktopPostLoad += MotionDesktopPostLoad.Object.PostLoad;
             new CoreCreators.CSCodeCreator();
             DataRuntimeFactory.Singleton.SetBase();
             DataRuntimeFactory.Singleton.SetBaseAction();

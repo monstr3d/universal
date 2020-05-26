@@ -42,7 +42,7 @@ namespace Unity.Standard
 
         static IMeasurement timeMeasurement;
 
-        Action update;
+        Action update = null;
 
         #endregion
 
@@ -59,7 +59,6 @@ namespace Unity.Standard
             this.desktopName = desktopName;
             scada = desktopName.ToUniqueScada(this, this, this);
             desktop = scada.GetDesktop();
-            update  = () => { };
             if (!exists)
             {
                 update = Event;
@@ -88,6 +87,9 @@ namespace Unity.Standard
             return factory.scada;
         }
 
+        /// <summary>
+        /// Update
+        /// </summary>
         public virtual Action Update
         {
             get

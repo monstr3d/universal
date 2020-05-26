@@ -121,7 +121,7 @@ public class ReferenceFrameBehavior : MonoBehaviour
 
     bool exists;
 
-    Action wrapperUpdate;
+    Action wrapperUpdate = null;
 
     ReferenceFrame referenceFrame;
 
@@ -211,7 +211,7 @@ public class ReferenceFrameBehavior : MonoBehaviour
         try
         {
 
-            wrapperUpdate();
+            wrapperUpdate?.Invoke();
             //       updatePosition();
         }
         catch (Exception exception)

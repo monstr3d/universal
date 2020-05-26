@@ -20,7 +20,7 @@ namespace Motion6D.Portable
 
         #region Fields
 
-        private ReferenceFrame own = new Motion6DAcceleratedFrame();
+        protected ReferenceFrame own = new Motion6DAcceleratedFrame();
 
         private ReferenceFrame relative = new Motion6DAcceleratedFrame();
 
@@ -113,7 +113,6 @@ namespace Motion6D.Portable
         }
 
 
-
         #endregion
 
         #region IPosition Members
@@ -197,15 +196,15 @@ namespace Motion6D.Portable
 
         #region IPostSetArrow Members
 
-
-        void IPostSetArrow.PostSetArrow()
+        /// <summary>
+        /// The operation that performs after arrows setting
+        /// </summary>
+        public virtual void PostSetArrow()
         {
             PostSetParameters();
         }
 
         #endregion
-
-
 
         #region Specific Members
 

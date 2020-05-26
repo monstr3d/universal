@@ -154,7 +154,7 @@ namespace FormulaEditor
         /// <summary>
         /// Shifts integer object
         /// </summary>
-        /// <param name="o">The obhect</param>
+        /// <param name="o">The object</param>
         /// <param name="shift">The shift</param>
         /// <returns>Shift result</returns>
         private object shift(object o, object shift)

@@ -54,7 +54,7 @@ public class OutputController : MonoBehaviour
 
     public float[] constants;
 
-    Action ev = () => { };
+    Action ev = null;
 
     IScadaInterface scada;
 
@@ -139,7 +139,7 @@ public class OutputController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        ev();
+        ev?.Invoke();
     }
 
     void  Update()
@@ -200,8 +200,6 @@ public class OutputController : MonoBehaviour
         }
         up += act;
     }
-
-
 
     private void UpdateOutput()
     {

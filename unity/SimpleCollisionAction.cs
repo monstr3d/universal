@@ -13,15 +13,16 @@ namespace Assets
     {
         public SimpleCollisionAction()
         {
-            constants = new float[6];
+            constants = new float[7];
         }
 
         public override Action<Collision> Action => Update;
 
         void Update(Collision collision)
         {
-            ReferenceFrame frame = scada.GetOutput("Relative to station.Frame")() as ReferenceFrame;
             scada.IsEnabled = false;
+            ReferenceFrame frame = scada.GetOutput("Relative to station.Frame")() as ReferenceFrame;
+            double time = (double)scada.GetOutput("Station motion.Formula_13")();
         }
     }
 }

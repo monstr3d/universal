@@ -7,11 +7,9 @@ using CategoryTheory;
 using Diagram.UI;
 using Diagram.UI.Interfaces;
 
-using DataPerformer;
+using DataPerformer.Portable;
 
-using Motion6D.Portable;
-
-namespace Motion6D
+namespace Motion6D.Portable
 {
     /// <summary>
     /// Post load operation

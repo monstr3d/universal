@@ -71,7 +71,7 @@ public class ForcesMomentums : MonoBehaviour
 
     float lastTime;
 
-    Action factotyUpdate;
+    Action factoryUpdate;
 
     private void Awake()
     {
@@ -102,7 +102,7 @@ public class ForcesMomentums : MonoBehaviour
         }
         update = UpdateForces;
         lastTime = Time.realtimeSinceStartup;
-        factotyUpdate = factory.Update;
+        factoryUpdate = factory.Update;
     }
 
     // Start is called before the first frame update
@@ -116,14 +116,14 @@ public class ForcesMomentums : MonoBehaviour
 
     void Update()
     {
+        update();
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
         //       factory.Update();
-        factotyUpdate();
-        update();
+        factoryUpdate?.Invoke();
     }
 
     ////// Controls: W-S (Pitch), A-D (Roll), Q-E (Yaw), R-F (Ligt), T-Space (Reset Attitude), Y (Toogle Sound), Shift-Ctrl (Faster/Slower speed)
@@ -139,6 +139,13 @@ public class ForcesMomentums : MonoBehaviour
     void UpdateForces()
     {
         ////// Controls: W-S (Pitch), A-D (Roll), Q-E (Yaw), R-F (Ligt),
+        if (!scada.IsEnabled)
+        {
+            for (int i = 0; i < 6; i++)
+            {
+                dInp[i](0);
+            }
+        }
         try
         {
             if (Input.GetKeyUp(KeyCode.S))
@@ -186,12 +193,14 @@ public class ForcesMomentums : MonoBehaviour
 
     void ResetValue(ref float value, float newValue, int i)
     {
+        /*
         float t = Time.realtimeSinceStartup;
         if ((t - lastTime) < 0.5f)
         {
             return;
         }
         lastTime = t;
+        */
         if (value == newValue)
         {
             return;

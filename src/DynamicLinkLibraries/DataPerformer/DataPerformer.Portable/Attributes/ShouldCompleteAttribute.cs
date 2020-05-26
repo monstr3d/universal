@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DataPerformer.Attributes
+namespace DataPerformer.Portable.Attributes
 {
     /// <summary>
     /// The "should complete" attribute

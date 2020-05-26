@@ -5,11 +5,11 @@ using System.Reflection;
 
 using Diagram.UI;
 using CategoryTheory;
-using DataPerformer.Attributes;
 using DataPerformer.Interfaces;
 using Diagram.UI.Interfaces;
+using DataPerformer.Portable.Attributes;
 
-namespace DataPerformer
+namespace DataPerformer.Portable
 {
     /// <summary>
     /// Post load of data desktop
