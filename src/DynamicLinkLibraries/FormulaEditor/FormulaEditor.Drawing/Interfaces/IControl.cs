@@ -6,6 +6,9 @@ using System.Drawing;
 
 namespace FormulaEditor.Drawing.Interfaces
 {
+    /// <summary>
+    /// Conrol proxy
+    /// </summary>
     public interface IControl
     {
         /// <summary>

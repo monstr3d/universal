@@ -136,7 +136,11 @@ namespace FormulaEditor.Drawing.Symbols
         /// <summary>
         /// The graphics
         /// </summary>
-        protected static Graphics graphics;
+        public static Graphics Graphics
+        {
+            get;
+            set;
+        }
 
         /// <summary>
         /// Auxiliary variable
@@ -164,6 +168,7 @@ namespace FormulaEditor.Drawing.Symbols
 
         public PureDrawableSymbol()
         {
+
         }
         /*
                 public static Brush SymbolBrush
@@ -188,11 +193,7 @@ namespace FormulaEditor.Drawing.Symbols
         }
 
 
-        public static void SetGraphics(Graphics g)
-        {
-            graphics = g;
-        }
-
+  
         /// <summary>
         /// Gets height of i - th level
         /// </summary>
@@ -210,17 +211,10 @@ namespace FormulaEditor.Drawing.Symbols
         /// <returns>the width</returns>
         public static int GetWidth(int i)
         {
-            return (int)(graphics.MeasureString("W", fontsBold[i]).Width * 0.3);
+            return (int)(Graphics.MeasureString("W", fontsBold[i]).Width * 0.3);
         }
 
-        public static Graphics Graphics
-        {
-            get
-            {
-                return graphics;
-            }
-        }
-
+  
 
         public static Font[] FontsBold
         {
@@ -652,6 +646,7 @@ namespace FormulaEditor.Drawing.Symbols
 
         public void SetImage(Image image)
         {
+            image.SetControlResolution();
             this.image = image;
         }
 

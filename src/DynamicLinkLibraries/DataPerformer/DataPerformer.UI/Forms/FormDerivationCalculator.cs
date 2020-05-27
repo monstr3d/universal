@@ -274,11 +274,6 @@ namespace DataPerformer.UI.Forms
                 derivFormula.CalculatePositions();
                 paintDeriv();
                 Refresh();
-        /*    }
-            catch (System.Exception ex)
-            {
-                WindowsExtensions.ControlExtensions.ShowMessageBoxModal(this, ex.Message);
-            }*/
 
         }
 

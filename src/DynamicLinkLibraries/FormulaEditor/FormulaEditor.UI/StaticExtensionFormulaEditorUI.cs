@@ -1,5 +1,8 @@
-﻿using System;
+﻿using FormulaEditor.Drawing;
+using FormulaEditor.Drawing.Symbols;
+using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
@@ -17,7 +20,14 @@ namespace FormulaEditor
 
         #region Public Members
 
+        public static Image FromControl(this Control control)
+        {
+            Image back = new Bitmap(control.Width, control.Height);
+            return back;
+        }
 
+ 
+ 
         #endregion
 
 

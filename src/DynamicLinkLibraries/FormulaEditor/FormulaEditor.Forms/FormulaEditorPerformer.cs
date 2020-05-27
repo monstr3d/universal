@@ -25,7 +25,7 @@ namespace FormulaEditor
 	/// <summary>
 	/// Performs all dynamic formula editior operations
 	/// </summary>
-	public class FormulaEditorPerformer : FormulaEditor.Drawing.FormulaEditorPerformer, IKeySymbol
+	public class FormulaEditorPerformer : Drawing.FormulaEditorPerformer, IKeySymbol
 	{
 
 		#region Fields
@@ -386,7 +386,6 @@ namespace FormulaEditor
 
 		#endregion
 
-
         #region ControlWrapper class
 
         class ControlWrapper : IControl
@@ -405,7 +404,6 @@ namespace FormulaEditor
             }
 
             #endregion
-
 
             #region IControl Members
 

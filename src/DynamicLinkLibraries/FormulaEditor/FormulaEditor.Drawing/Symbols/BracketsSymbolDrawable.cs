@@ -55,8 +55,6 @@ namespace FormulaEditor.Drawing.Symbols
 
         #endregion
 
-
-
         #region IDrawableSymbol Members
 
         PureDrawableSymbol IDrawableSymbol.PureDrawable
@@ -306,12 +304,11 @@ namespace FormulaEditor.Drawing.Symbols
             int h = (int)((1 + 2 * PureDrawableSymbol.C_HEIGHT) * fontB.Height);
             int w = (int)g.MeasureString(s + "ii", fontB).Width;
             Image image = new Bitmap(w, h);
+            pDrawable.SetImage(image);
             Graphics gr = Graphics.FromImage(image);
             gr.FillRectangle(PureDrawableSymbol.WhiteBrush, 0, 0, w, h);
             gr.DrawString(s, fontB, PureDrawableSymbol.SymbolBrush, gr.MeasureString("i", fontB).Width, PureDrawableSymbol.TOP_SHIFT);
             ((Bitmap)image).MakeTransparent(Color.White);
-            pDrawable.SetImage(image);
-
         }
 
         /// <summary>

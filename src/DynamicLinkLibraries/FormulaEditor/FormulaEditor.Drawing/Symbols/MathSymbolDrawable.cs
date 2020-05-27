@@ -692,6 +692,7 @@ namespace FormulaEditor.Drawing.Symbols
             int w = (int)g.MeasureString(s + "i", symbol.PureDrawable.Font).Width;
             g.Dispose();
             Bitmap im = new Bitmap(w, h);
+            symbol.PureDrawable.SetImage(im);
             Graphics gr = Graphics.FromImage(im);
             Pen pen = new Pen(Color.Black);
             Brush brush = new SolidBrush(Color.White);
@@ -711,7 +712,6 @@ namespace FormulaEditor.Drawing.Symbols
             }
             gr.Dispose();
             im.MakeTransparent(Color.White);
-            symbol.PureDrawable.SetImage(im);
         }
 
         /// <summary>
@@ -892,7 +892,7 @@ namespace FormulaEditor.Drawing.Symbols
                 PureDrawableSymbol.FontsItalic[i] = new Font("Times New Roman", sizes[i], FontStyle.Italic | FontStyle.Bold);
                 PureDrawableSymbol.FontsNoBoldItalic[i] = new Font("Times New Roman", sizes[i], FontStyle.Italic);
             }
-            PureDrawableSymbol.SetGraphics(g);
+            PureDrawableSymbol.Graphics = g;
         }
 
 
@@ -1153,6 +1153,7 @@ namespace FormulaEditor.Drawing.Symbols
             int w = (int)g.MeasureString(s + "i", pDrawable.Font).Width;
             g.Dispose();
             Bitmap im = new Bitmap(w, h);
+            pDrawable.SetImage(im);
             Graphics gr = Graphics.FromImage(im);
             Pen pen = new Pen(Color.Black);
             Brush brush = new SolidBrush(Color.White);
@@ -1161,7 +1162,6 @@ namespace FormulaEditor.Drawing.Symbols
             gr.DrawString(s, pDrawable.Font, PureDrawableSymbol.SymbolBrush, gr.MeasureString("i", pDrawable.Font).Width / 2, PureDrawableSymbol.TOP_SHIFT);
             gr.Dispose();
             im.MakeTransparent(Color.White);
-            pDrawable.SetImage(im);
         }
 
         /// <summary>
@@ -1293,25 +1293,6 @@ namespace FormulaEditor.Drawing.Symbols
         {
             SimpleSymbolDrawable.CalculatePositions(this);
         }
-        /*
-                public Rectangle FullRelativeRectangle
-                {
-                    get
-                    {
-                        // TODO:  Add PoweredIndexedSymbolDrawable.FullRelativeRectangle getter implementation
-                        return new Rectangle ();
-                    }
-                }
-
-                public Rectangle FullRectangle
-                {
-                    get
-                    {
-                        // TODO:  Add PoweredIndexedSymbolDrawable.FullRectangle getter implementation
-                        return new Rectangle ();
-                    }
-                }*/
-
         public Rectangle RelativeRectangle
         {
             get
@@ -1504,6 +1485,7 @@ namespace FormulaEditor.Drawing.Symbols
             int w = (int)g.MeasureString(s + "i", pDrawable.Font).Width;
             g.Dispose();
             Bitmap im = new Bitmap(w, h);
+            pDrawable.SetImage(im);
             Graphics gr = Graphics.FromImage(im);
             Pen pen = new Pen(Color.Black);
             Brush brush = new SolidBrush(Color.White);
@@ -1512,7 +1494,6 @@ namespace FormulaEditor.Drawing.Symbols
             gr.DrawString(s, pDrawable.Font, PureDrawableSymbol.SymbolBrush, gr.MeasureString("i", pDrawable.Font).Width / 2, PureDrawableSymbol.TOP_SHIFT);
             gr.Dispose();
             im.MakeTransparent(Color.White);
-            pDrawable.SetImage(im);
         }
 
 
@@ -1761,6 +1742,7 @@ namespace FormulaEditor.Drawing.Symbols
             int w1 = (int)g.MeasureString(s, pDrawable.Font).Width;
             g.Dispose();
             Bitmap im = new Bitmap(w, h);
+            pDrawable.SetImage(im);
             Graphics gr = Graphics.FromImage(im);
             Pen pen = new Pen(Color.Black);
             Brush brush = new SolidBrush(Color.White);
@@ -1771,7 +1753,6 @@ namespace FormulaEditor.Drawing.Symbols
             gr.DrawString(Index + "", PureDrawableSymbol.FontsBold[1], PureDrawableSymbol.SymbolBrush, x + w1, PureDrawableSymbol.TOP_SHIFT + h / 2);
             gr.Dispose();
             im.MakeTransparent(Color.White);
-            pDrawable.SetImage(im);
         }
 
         /// <summary>
@@ -1932,6 +1913,7 @@ namespace FormulaEditor.Drawing.Symbols
             int w1 = (int)g.MeasureString(s, pDrawable.Font).Width;
             g.Dispose();
             Bitmap im = new Bitmap(w, h);
+            pDrawable.SetImage(im);
             Graphics gr = Graphics.FromImage(im);
             Pen pen = new Pen(Color.Black);
             Brush brush = new SolidBrush(Color.White);
@@ -1942,7 +1924,6 @@ namespace FormulaEditor.Drawing.Symbols
             gr.DrawString(sub, PureDrawableSymbol.FontsBold[1], PureDrawableSymbol.SymbolBrush, x + w1, PureDrawableSymbol.TOP_SHIFT + h / 2);
             gr.Dispose();
             im.MakeTransparent(Color.White);
-            pDrawable.SetImage(im);
         }
 
         /// <summary>
@@ -2193,6 +2174,7 @@ namespace FormulaEditor.Drawing.Symbols
             int w = (int)g.MeasureString(s + "i", PureDrawableSymbol.FontsBold[0]).Width;
             g.Dispose();
             Bitmap im = new Bitmap(w, h);
+            pDrawable.SetImage(im);
             Graphics gr = Graphics.FromImage(im);
             gr.FillRectangle(PureDrawableSymbol.WhiteBrush, 1, 1, w - 2, h - 2);
             w = im.Width / 3;
@@ -2206,7 +2188,6 @@ namespace FormulaEditor.Drawing.Symbols
             gr.DrawLine(PureDrawableSymbol.LinePen, x + 6 + 2 * updown / 3, y - h / 2, x + 6 + 2 * updown / 3 + w, y - h / 2);
             gr.Dispose();
             im.MakeTransparent(Color.White);
-            pDrawable.SetImage(im);
         }
 
         public void CalculateRectangleForShow()
@@ -2402,6 +2383,7 @@ namespace FormulaEditor.Drawing.Symbols
             int w = (int)g.MeasureString(s + "i", PureDrawableSymbol.FontsBold[0]).Width;
             g.Dispose();
             Bitmap im = new Bitmap(w, h);
+            pDrawable.SetImage(im);
             g = Graphics.FromImage(im);
             g.FillRectangle(PureDrawableSymbol.WhiteBrush, 1, 1, w - 2, h - 2);
             g.DrawLine(PureDrawableSymbol.LinePen, 2, h / 2, w - 3, h / 2);
@@ -2409,7 +2391,6 @@ namespace FormulaEditor.Drawing.Symbols
             g.DrawRectangle(PureDrawableSymbol.LinePen, 3, h / 2 + 2, w - 7, h / 2 - 5);
             g.Dispose();
             im.MakeTransparent(Color.White);
-            pDrawable.SetImage(im);
         }
 
         public void CalculateRectangleForShow()

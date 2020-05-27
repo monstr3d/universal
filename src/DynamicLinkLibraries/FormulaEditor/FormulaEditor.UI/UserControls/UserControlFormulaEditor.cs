@@ -26,7 +26,7 @@ namespace FormulaEditor.UI.UserControls
     {
         #region Fields
 
-        private FormulaEditor.FormulaEditorPerformer performer = null;
+        private FormulaEditorPerformer performer = null;
 
         private int[] sizes;
 
@@ -350,7 +350,7 @@ namespace FormulaEditor.UI.UserControls
         private void BeforePrepare()
         {
             Control control = panelFormula;
-            performer = new FormulaEditor.FormulaEditorPerformer(panelFormula, null);
+            performer = new FormulaEditorPerformer(panelFormula, null);
 
             Hashtable table = new Hashtable();
             string[,] el = new string[,] {{"=", "="}, {"&", "AND"}, {"\u2216", "AND"}, {"\u2217", "OR"}, {"|", "OR"}, {"\u8835", "=>"}, {"l", "LIKE"}, {"p", "=>"}, 
@@ -375,9 +375,10 @@ namespace FormulaEditor.UI.UserControls
             Control control = panelFormula;
             Rectangle r = new Rectangle(40, bottom + 3, control.Width - 45, control.Height - bottom - 6);
             performer.FormulaRectangle = r;
-            Image back = new Bitmap(control.Width, control.Height);
-
+            Image back = this.FromControl();
+            back.SetControlResolution();
             Graphics g = Graphics.FromImage(back);
+            
             g.FillRectangle(new SolidBrush(Color.LightGray), 0, 0, back.Width, back.Height);
             g.DrawRectangle(new Pen(Color.Black), 0, 0, back.Width - 1, back.Height - 1);
             Font f = new Font("Serif", sizes[0], FontStyle.Bold | FontStyle.Italic);

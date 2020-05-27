@@ -105,31 +105,6 @@ namespace FormulaEditor.UI.Forms
             }
         }
 
-        /// <summary>
-        /// Creates image from formula
-        /// </summary>
-        /// <param name="formula">Formula</param>
-        /// <returns>Image</returns>
-        public static Image CreateImage(string formula)
-        {
-            Image im = new Bitmap(10, 10);
-            Graphics g = Graphics.FromImage(im);
-            SimpleSymbolDrawable.Prepare(new int[] { 8, 6, 5, 4 }, g);
-            MathFormulaDrawable f = new MathFormulaDrawable(MathFormula.FromString(new int[] { 8, 6, 5, 4 }, formula), DrawableConverter.Object);
-            f.CalculateFullRelativeRectangle();
-            Rectangle r = f.FullRelativeRectangle;
-            Point p = new Point(10, -r.Y);
-            f.Position = p;
-            f.CalculatePositions();
-            im = new Bitmap(r.Width + 20, r.Height);
-            Brush brush = new SolidBrush(Color.White);
-            g = Graphics.FromImage(im);
-            g.FillRectangle(brush, 0, 0, im.Width, im.Height);
-            f.Draw(g);
-            SimpleSymbolDrawable.Prepare(MathSymbolFactory.Sizes, g);
-            g.Dispose();
-            return im;
-        }
 
         /// <summary>
         /// The "is accepted" sign

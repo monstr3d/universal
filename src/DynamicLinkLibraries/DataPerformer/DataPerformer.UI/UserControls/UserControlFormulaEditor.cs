@@ -16,6 +16,8 @@ using ToolBox;
 
 using DataPerformer.Interfaces;
 using DataPerformer;
+using FormulaEditor.Drawing.Symbols;
+using FormulaEditor.Drawing;
 
 namespace DataPerformer.UI.UserControls
 {
@@ -255,6 +257,7 @@ namespace DataPerformer.UI.UserControls
 
         private void fillFormulas()
         {
+            Graphics g =  Graphics.FromHwnd(this.Handle);
             panelFormula.Controls.Clear();
             int w = panelFormula.Width;
             int y = 0;

@@ -130,6 +130,7 @@ namespace FormulaEditor.Drawing.Symbols
             int w1 = (int)g.MeasureString(s, pDrawable.Font).Width;
             g.Dispose();
             Bitmap im = new Bitmap(w, h);
+            pDrawable.SetImage(im);
             Graphics gr = Graphics.FromImage(im);
             Pen pen = new Pen(Color.Black);
             Brush brush = new SolidBrush(Color.White);
@@ -139,8 +140,7 @@ namespace FormulaEditor.Drawing.Symbols
             gr.DrawString(s, pDrawable.Font, PureDrawableSymbol.SymbolBrush, x, PureDrawableSymbol.TOP_SHIFT);
             gr.Dispose();
             im.MakeTransparent(Color.White);
-            pDrawable.SetImage(im);
-        }
+          }
 
         void IDrawableSymbol.CalculateRectangleForShow()
         {
