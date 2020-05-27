@@ -31,7 +31,7 @@ namespace Assets
             startX,  startWidth, startHeight };
         }
 
-        public override void Set(object[] obj, GameObject gameObject, IScadaInterface scada)
+        public override void Set(object[] obj, Component gameObject, IScadaInterface scada)
         {
             base.Set(obj, gameObject, scada);
             rawImg = gameObject.GetComponent<RawImage>();

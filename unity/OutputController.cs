@@ -41,10 +41,7 @@ public class OutputController : MonoBehaviour
 
     public string[] generalizedUpdates;
 
-    public GameObject[] gameObjects;
-
-
-
+    public Component[] indicators;
 
 
     public bool isEnabled = true;
@@ -68,9 +65,9 @@ public class OutputController : MonoBehaviour
     MonoBehaviorTimerFactory factory;
 
     private Dictionary<string, Tuple<object,
-        Func<object>, List<Tuple<string, GameObject>>>> allparameters
+        Func<object>, List<Tuple<string, Component>>>> allparameters
         = new Dictionary<string, Tuple<object, Func<object>,
-            List<Tuple<string, GameObject>>>>();
+            List<Tuple<string, Component>>>>();
 
     private Dictionary<string, int> valuePairs = new Dictionary<string, int>();
 
@@ -158,11 +155,11 @@ public class OutputController : MonoBehaviour
         for (int i = 0; i < generalizedParamerers.Length; i++)
         {
             string key = generalizedParamerers[i];
-            GameObject go = gameObjects[i];
+            Component go = indicators[i];
             string up = generalizedUpdates[i];
             Tuple<object,
-             Func<object>, List<Tuple<string, GameObject>>> t;
-            List<Tuple<string, GameObject>> l;
+             Func<object>, List<Tuple<string, Component>>> t;
+            List<Tuple<string, Component>> l;
             if (allparameters.ContainsKey(key))
             {
                 t = allparameters[key];
@@ -178,46 +175,17 @@ public class OutputController : MonoBehaviour
                     f = scada.GetOutput(key);
                     type = ou[key];
                 }
-                l = new List<Tuple<string, GameObject>>();
-                t = new Tuple<object, Func<object>, List<Tuple<string, GameObject>>>
+                l = new List<Tuple<string, Component>>();
+                t = new Tuple<object, Func<object>, List<Tuple<string, Component>>>
                     (type, f, l);
                 allparameters[key] = t;
             }
-            Tuple<string, GameObject> tt = new Tuple<string, GameObject>(up, go);
+            Tuple<string, Component> tt = new Tuple<string, Component>(up, go);
             l.Add(tt);
         }
     }
 
-     void AddGenAct(Action act)
-    {
-        if (act == null)
-        {
-            return;
-        }
-        if (up == null)
-        {
-            up = act;
-            return;
-        }
-        up += act;
-    }
-
-    /*
-    void AddInpAct(Action act)
-    {
-        if (act == null)
-        {
-            return;
-        }
-        if (inpAct == null)
-        {
-            inpAct = act;
-            return;
-        }
-        inpAct += act;
-    }
-    */
-
+ 
     private void UpdateOutput()
     {
         if (allparameters.Count == 0)
@@ -287,7 +255,7 @@ public class OutputController : MonoBehaviour
         {
             IUpdateGameObject ua = constructors[key].Invoke(new Type[0])
                 as IUpdateGameObject;
-            ua.Set(null, gameObject, scada);
+            ua.Set(null, null, scada);
             AddUpdate(ua.Update);
             offset = ua.SetConstants(offset, inputConstants);
         }

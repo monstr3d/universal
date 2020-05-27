@@ -21,9 +21,9 @@ namespace Unity.Standard
 
         }
 
-        public override void Set(object[] obj, GameObject gameObject, IScadaInterface scada)
+        public override void Set(object[] obj, Component indicator, IScadaInterface scada)
         {
-            base.Set(obj, gameObject, scada);
+            base.Set(obj, indicator, scada);
             frame = obj[0] as ReferenceFrame;
             if (obj.Length > 1)
             {

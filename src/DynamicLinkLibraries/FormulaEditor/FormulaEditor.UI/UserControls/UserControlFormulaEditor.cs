@@ -534,8 +534,7 @@ namespace FormulaEditor.UI.UserControls
             Control control = panelFormula;
             Rectangle r = new Rectangle(40, bottom + 3, control.Width - 45, control.Height - bottom - 6);
             performer.FormulaRectangle = r;
-            Image back = new Bitmap(control.Width, control.Height);
-
+            Image back = this.FromControl();
             Graphics g = Graphics.FromImage(back);
             g.FillRectangle(new SolidBrush(Color.LightGray), 0, 0, back.Width, back.Height);
             g.DrawRectangle(new Pen(Color.Black), 0, 0, back.Width - 1, back.Height - 1);

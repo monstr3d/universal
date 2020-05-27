@@ -160,6 +160,7 @@ RectTransform:
   - {fileID: 1810099031}
   - {fileID: 2114746652}
   - {fileID: 1818896414}
+  - {fileID: 400441398}
   m_Father: {fileID: 265199357}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -248,12 +249,12 @@ MonoBehaviour:
   inputs:
   - ForcesMomentumsUpdate
   inputConstants:
-  - 0
-  - 0
   - 0.001
-  - 0
-  - 0
-  - 0
+  - 0.001
+  - 0.001
+  - 0.001
+  - 0.001
+  - 0.001
   generalizedParamerers:
   - Rigid Body
   - Rigid Body
@@ -262,10 +263,10 @@ MonoBehaviour:
   - UpdateHeadingText
   - UpdateCompass
   - UpdateHorizonRollPitch
-  gameObjects:
-  - {fileID: 494601241}
-  - {fileID: 1015280793}
-  - {fileID: 1353250042}
+  indicators:
+  - {fileID: 494601242}
+  - {fileID: 1015280794}
+  - {fileID: 1353250043}
   isEnabled: 1
   constants:
   - -1
@@ -919,6 +920,85 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &400441397
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 400441398}
+  - component: {fileID: 400441400}
+  - component: {fileID: 400441399}
+  m_Layer: 5
+  m_Name: Message_Txt
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &400441398
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 400441397}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 79009178}
+  m_RootOrder: 19
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -100, y: -400}
+  m_SizeDelta: {x: 200, y: 30}
+  m_Pivot: {x: 0, y: 1}
+--- !u!114 &400441399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 400441397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 0, b: 0, a: 0.39215687}
+  m_RaycastTarget: 0
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 8e70d19f93cb5e7428908a24e6771b99, type: 3}
+    m_FontSize: 75
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 76
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 0
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
+    m_LineSpacing: 1
+  m_Text: 'Message
+
+'
+--- !u!222 &400441400
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 400441397}
+  m_CullTransparentMesh: 1
 --- !u!1 &454913474
 GameObject:
   m_ObjectHideFlags: 0
@@ -1006,7 +1086,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 454913474}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1.5}
+  m_LocalPosition: {x: 0, y: 0, z: 1.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1467747494}
@@ -1034,7 +1114,7 @@ MonoBehaviour:
   outputs: []
   updates: []
   constants:
-  - Station motion.z=1.5
+  - Station motion.z=1.3
   - Station motion.a=0.00
   - Station motion.q=0.00
   - Station motion.r=0.00
@@ -1043,6 +1123,7 @@ MonoBehaviour:
   onTriggerEnter: 
   onCollisionEnter: 
   collisionConstants: []
+  collisionIndicator: {fileID: 0}
   isEnabled: 1
   transformations: []
   transformation: Station frame
@@ -1153,8 +1234,8 @@ GameObject:
   - component: {fileID: 534669905}
   - component: {fileID: 534669904}
   - component: {fileID: 534669903}
-  - component: {fileID: 534669906}
   - component: {fileID: 534669907}
+  - component: {fileID: 534669906}
   - component: {fileID: 534669908}
   - component: {fileID: 534669909}
   m_Layer: 0
@@ -1270,6 +1351,7 @@ MonoBehaviour:
   - 0
   - 0
   - 200
+  collisionIndicator: {fileID: 534669907}
   isEnabled: 1
   transformations: []
   transformation: Rigid Body
@@ -1285,7 +1367,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 534669902}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e7de8c23e1e5c34997f15dfbf1d727d, type: 3}
+  m_Script: {fileID: 11500000, guid: 915f32d1f0a644a489f56598b5292ae2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!65 &534669908
@@ -1300,7 +1382,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.1, y: 0.1, z: 0.00001}
-  m_Center: {x: 0, y: 0, z: 0.304}
+  m_Center: {x: 0, y: 0, z: 0.2716}
 --- !u!54 &534669909
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2455,6 +2537,7 @@ MonoBehaviour:
   onTriggerEnter: 
   onCollisionEnter: 
   collisionConstants: []
+  collisionIndicator: {fileID: 0}
   isEnabled: 1
   transformations: []
   transformation: Earth

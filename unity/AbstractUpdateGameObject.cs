@@ -19,7 +19,7 @@ namespace Unity.Standard
         #region Fields
 
 
-        protected GameObject gameObject;
+        protected Component indicator;
 
         protected object[] obj;
 
@@ -33,12 +33,11 @@ namespace Unity.Standard
         /// Sets parameters
         /// </summary>
         /// <param name="obj">Measurement object</param>
-        /// <param name="gameObject">Game object</param>
+        /// <param name="indicator">Indicator</param>
         /// <param name="scada">SCADA</param>
-        public virtual void Set(object[] obj, GameObject gameObject, IScadaInterface scada)
+        public virtual void Set(object[] obj, Component indicator, IScadaInterface scada)
         {
             this.obj = obj;
-            this.gameObject = gameObject;
             this.scada = scada;
         }
 

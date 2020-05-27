@@ -44,6 +44,8 @@ public class ReferenceFrameBehavior : MonoBehaviour
 
     public float[] collisionConstants = new float[0];
 
+    public Component collisionIndicator = null;
+
     public bool isEnabled = true;
 
     public GameObject[] transformations = new GameObject[0];
@@ -76,8 +78,6 @@ public class ReferenceFrameBehavior : MonoBehaviour
 
     Action<Collision> collisionEnter = (Collision collision) => { };
 
-
-    Action fixedAct = null;
 
     Quaternion currentOrientation;
 
@@ -127,13 +127,7 @@ public class ReferenceFrameBehavior : MonoBehaviour
 
     Action scadaUpdate;
 
-     
-
-
-
-    //  private Action update = { }
-
-
+ 
     #endregion
 
     #region Standard Members
@@ -178,7 +172,7 @@ public class ReferenceFrameBehavior : MonoBehaviour
         {
             ConstructorInfo c = StaticExtensionUnity.updatesCollisionAction[onCollisionEnter];
             ICollisionAction ca = c.Invoke(new Type[0]) as ICollisionAction;
-            ca.Set(gameObject, scada);
+            ca.Set(gameObject, collisionIndicator, scada);
             collisionEnter = ca.Action;
             ca.SetConstants(0, collisionConstants);
         }

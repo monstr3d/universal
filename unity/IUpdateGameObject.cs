@@ -20,9 +20,9 @@ namespace Unity.Standard
         /// Sets parameters
         /// </summary>
         /// <param name="obj">Measurement object</param>
-        /// <param name="gameObject">Game object</param>
+        /// <param name="indicator">Indicator</param>
         /// <param name="scada">SCADA</param>
-        void Set(object[] obj, GameObject gameObject, IScadaInterface scada);
+        void Set(object[] obj, Component indicator, IScadaInterface scada);
 
         /// <summary>
         /// Update action

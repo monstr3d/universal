@@ -17,6 +17,8 @@ namespace Unity.Standard
 
         protected GameObject gameObject;
 
+        protected Component collisionIndicator;
+
         protected IScadaInterface scada;
 
         protected float[] constants = new float[0];
@@ -49,11 +51,14 @@ namespace Unity.Standard
         /// Sets parameters
         /// </summary>
         /// <param name="gameObject">Game object</param>
+        /// <param name="collisionIndicator">Collision Indicator</param>
         /// <param name="scada">Scada</param>
-        public virtual void Set(GameObject gameObject, IScadaInterface scada)
+        public virtual void Set(GameObject gameObject, Component collisionIndicator, 
+            IScadaInterface scada)
         {
             this.gameObject = gameObject;
             this.scada = scada;
+            this.collisionIndicator = collisionIndicator;
         }
     }
 }

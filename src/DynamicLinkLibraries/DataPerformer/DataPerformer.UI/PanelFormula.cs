@@ -93,7 +93,6 @@ namespace DataPerformer.UI
             button.Top = center - button.Height / 2;
             Controls.Add(button);
             button.Click += new EventHandler(onClick);
-
             setBkgnd();
 			Paint += new PaintEventHandler(onPaint);
  			formulaRect = new Rectangle(left, 5, width - left - 5, height - 10);
@@ -103,7 +102,7 @@ namespace DataPerformer.UI
 
         private void setBkgnd()
         {
-            bkgnd = new Bitmap(Width, Height);
+            bkgnd = this.FromControl();
             Graphics g = Graphics.FromImage(bkgnd);
             left = button.Left + button.Width + 30;
             g.FillRectangle(bkBrush, 0, 0, Width, Height);

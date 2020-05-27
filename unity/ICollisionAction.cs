@@ -17,8 +17,10 @@ namespace Unity.Standard
         /// Sets parameters
         /// </summary>
         /// <param name="gameObject">Game object</param>
+        /// <param name="collisionIndicator">Collision Indicator</param>
         /// <param name="scada">Scada</param>
-        void Set(GameObject gameObject, IScadaInterface scada);
+        void Set(GameObject gameObject, Component collisionIndicator, 
+            IScadaInterface scada);
 
         /// <summary>
         /// Collider action

@@ -46,9 +46,9 @@ namespace Assets
             constants = new float[] { kx, ky, kz, kMx, kMy, kMz };
         }
 
-        public override void Set(object[] obj, GameObject gameObject, IScadaInterface scada)
+        public override void Set(object[] obj, Component indicator, IScadaInterface scada)
         {
-            base.Set(obj, gameObject, scada);
+            base.Set(obj, indicator, scada);
             var s = "Force.";
             string[] ss = { "Fx", "Fy", "Fz", "Mx", "My", "Mz" };
             for (int i = 0; i < ss.Length; i++)

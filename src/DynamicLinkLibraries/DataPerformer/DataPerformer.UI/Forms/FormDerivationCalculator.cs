@@ -75,7 +75,7 @@ namespace DataPerformer.UI.Forms
             panelDeriv.Height = 300;//nel.Height;
             derivRect = new Rectangle(80, 20, 1100, panelDeriv.Height - 40);
             pointDeriv = new Point(derivRect.Left + 20, derivRect.Top + derivRect.Height / 2);
-            derivImage = new Bitmap(panelDeriv.Width, panelDeriv.Height);
+            derivImage = panelDeriv.FromControl();
             Graphics g = Graphics.FromImage(derivImage);
             g.FillRectangle(new SolidBrush(Color.LightGray), 0, 0, derivImage.Width, derivImage.Height);
             g.DrawRectangle(new Pen(Color.Black), 0, 0, derivImage.Width - 1, derivImage.Height - 1);

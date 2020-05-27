@@ -289,6 +289,20 @@ namespace Unity.Standard
             return new Vector3((float)t[0], (float)t[1], (float)t[2]);
         }
 
+        /// <summary>
+        /// MAIN !!!
+        /// </summary>
+        /// <typeparam name="T">Type</typeparam>
+        /// <param name="go">Game object</param>
+        /// <returns>Dictonary</returns>
+        static public Dictionary<string, List<T>> GetGameObjectComponents<T>(this
+            GameObject go)
+            where T : Component
+        {
+            Dictionary<string, List<Component>> comp = null;
+            go.GetComponents(out comp);
+            return comp.GetComponents<T>();
+        }
 
         static public Dictionary<string, List<T>> GetComponents<T>(this 
             Dictionary<string, List<Component>> comp)
