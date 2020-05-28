@@ -256,7 +256,10 @@ namespace Event.Portable.Events
                 }
                 ls.Add(t.Item1);
                 int[] k = new int[] { i };
-                Func<object> f = () => { return data[k[0]]; };
+                Func<object> f = () => 
+                { 
+                    return data[k[0]]; 
+                };
                 ltypes.Add(t.Item1);
                 IMeasurement m = new ReplacedParameterMeasurement(t.Item2, f, t.Item1);
                 data[i] = t.Item2.GetDefaultValue();

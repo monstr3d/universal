@@ -18,9 +18,7 @@ namespace Assets
 
         public float kz = 1f;
 
-
         public float kMx = 1f;
-
 
         public float kMy = 1f;
 
@@ -39,11 +37,32 @@ namespace Assets
 
         float vMz = 0f;
 
+        Dictionary<KeyCode, bool> pressed = new Dictionary<KeyCode, bool>();
+
+        
+
+        int Counter
+        {
+            get;
+            set;
+        }
+
         Action<double>[] dInp = new Action<double>[6];
 
         public ForcesMomentumsUpdate()
         {
             constants = new float[] { kx, ky, kz, kMx, kMy, kMz };
+            KeyCode[] codes = new KeyCode[]
+            {
+                KeyCode.Q, KeyCode.W, KeyCode.E,
+                KeyCode.A, KeyCode.S, KeyCode.D,
+                KeyCode.RightShift, KeyCode.RightControl,
+                KeyCode.UpArrow, KeyCode.DownArrow, KeyCode.LeftArrow, KeyCode.RightArrow
+            };
+            foreach (KeyCode keyCode in codes)
+            {
+                pressed[keyCode] = false;
+            }
         }
 
         public override void Set(object[] obj, Component indicator, IScadaInterface scada)
@@ -66,7 +85,7 @@ namespace Assets
             kz = cons[2];
             kMx = cons[3];
             kMy = cons[4];
-            kMx = cons[5];
+            kMz = cons[5];
             return i;
         }
 
@@ -74,22 +93,35 @@ namespace Assets
 
 
 
-        void ResetValue(ref float value, float newValue, int i)
-        {
 
-            if (value == newValue)
+        void ResetValue(ref float value, float newValue, int i, KeyCode code)
+        {
+            if (!pressed[code])
             {
                 return;
             }
-            if (Math.Abs(value - newValue) > 1.1 * Math.Abs(newValue))
+            if (value != newValue)
             {
-                value = 0f;
+                if (Math.Abs(value - newValue) > 1.1 * Math.Abs(newValue))
+                {
+                    value = 0f;
+                }
+                else
+                {
+                    value = newValue;
+                }
+                dInp[i](value);
             }
-            else
+            pressed[code] = false;
+        }
+
+        void KeyDown(KeyCode code)
+        {
+            if (pressed[code])
             {
-                value = newValue;
+                return;
             }
-            dInp[i](value);
+            pressed[code] = true;
         }
 
 
@@ -103,59 +135,108 @@ namespace Assets
                     dInp[i](0);
                 }
             }
- 
-            if (Input.GetKey(KeyCode.S))
+
+            if (Input.GetKeyUp(KeyCode.S))
             {
-                ResetValue(ref vMx, -kMx, 3);
+                ResetValue(ref vMx, -kMx, 3, KeyCode.S);
             }
-            if (Input.GetKey(KeyCode.W))
+            if (Input.GetKeyDown(KeyCode.S))
             {
-                ResetValue(ref vMx, kMx, 3);
+                KeyDown(KeyCode.S);
+            }
+            if (Input.GetKeyDown(KeyCode.W))
+            {
+                KeyDown(KeyCode.W);
+            }
+            if (Input.GetKeyUp(KeyCode.W))
+            {
+                ResetValue(ref vMx, kMx, 3, KeyCode.W);
             }
 
-            if (Input.GetKey(KeyCode.Q))
+            if (Input.GetKeyDown(KeyCode.Q))
             {
-                ResetValue(ref vMy, kMy, 5);
+                KeyDown(KeyCode.Q);
             }
-            if (Input.GetKey(KeyCode.E))
+            if (Input.GetKeyUp(KeyCode.Q))
             {
-                ResetValue(ref vMy, -kMy, 5);
+                ResetValue(ref vMy, kMy, 5, KeyCode.Q);
             }
-
-            if (Input.GetKey(KeyCode.A))
+            if (Input.GetKeyDown(KeyCode.E))
             {
-                ResetValue(ref vMz, -kMz, 4);
+                KeyDown(KeyCode.E);
             }
-            if (Input.GetKey(KeyCode.D))
+            if (Input.GetKeyUp(KeyCode.E))
             {
-                ResetValue(ref vMz, kMz, 4);
-            }
-
-            if (Input.GetKey(KeyCode.RightShift))
-            {
-                ResetValue(ref vx, kx, 2);
-            }
-            if (Input.GetKey(KeyCode.RightControl))
-            {
-                ResetValue(ref vx, -kx, 2);
+                ResetValue(ref vMy, -kMy, 5, KeyCode.E);
             }
 
-            if (Input.GetKey(KeyCode.LeftArrow))
+            if (Input.GetKeyDown(KeyCode.A))
             {
-                ResetValue(ref vy, ky, 0);
+                KeyDown(KeyCode.A);
             }
-            if (Input.GetKey(KeyCode.RightArrow))
+            if (Input.GetKeyUp(KeyCode.A))
             {
-                ResetValue(ref vy, -ky, 0);
+                ResetValue(ref vMz, -kMz, 4, KeyCode.A);
+            }
+            if (Input.GetKeyDown(KeyCode.D))
+            {
+                KeyDown(KeyCode.D);
+            }
+            if (Input.GetKeyUp(KeyCode.D))
+            {
+                ResetValue(ref vMz, kMz, 4, KeyCode.D);
             }
 
-            if (Input.GetKey(KeyCode.UpArrow))
+            if (Input.GetKeyDown(KeyCode.RightShift))
             {
-                ResetValue(ref vz, kz, 1);
+                KeyDown(KeyCode.RightShift);
             }
-            if (Input.GetKey(KeyCode.DownArrow))
+            if (Input.GetKeyUp(KeyCode.RightShift))
             {
-                ResetValue(ref vz, -kz, 1);
+                 ResetValue(ref vx, kx, 2, KeyCode.RightShift);
+            }
+
+            if (Input.GetKeyDown(KeyCode.RightControl))
+            {
+                KeyDown(KeyCode.RightControl);
+            }
+            if (Input.GetKeyUp(KeyCode.RightControl))
+            {
+                 ResetValue(ref vx, -kx, 2, KeyCode.RightControl);
+            }
+
+            if (Input.GetKeyDown(KeyCode.LeftArrow))
+            {
+                KeyDown(KeyCode.LeftArrow);
+            }
+            if (Input.GetKeyUp(KeyCode.LeftArrow))
+            {
+                ResetValue(ref vy, -ky, 0, KeyCode.LeftArrow);
+            }
+            if (Input.GetKeyDown(KeyCode.RightArrow))
+            {
+                KeyDown(KeyCode.RightArrow);
+            }
+            if (Input.GetKeyUp(KeyCode.RightArrow))
+            {
+                ResetValue(ref vy, ky, 0, KeyCode.RightArrow);
+            }
+
+            if (Input.GetKeyDown(KeyCode.UpArrow))
+            {
+                KeyDown(KeyCode.UpArrow);
+            }
+            if (Input.GetKeyUp(KeyCode.UpArrow))
+            {
+                ResetValue(ref vz, kz, 1, KeyCode.UpArrow);
+            }
+            if (Input.GetKeyDown(KeyCode.DownArrow))
+            {
+                KeyDown(KeyCode.DownArrow);
+            }
+            if (Input.GetKeyUp(KeyCode.DownArrow))
+            {
+                ResetValue(ref vz, -kz, 1, KeyCode.DownArrow);
             }
         }
     }

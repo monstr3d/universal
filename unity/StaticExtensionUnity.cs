@@ -69,6 +69,9 @@ namespace Unity.Standard
         static internal Dictionary<string, ConstructorInfo> updatesGameObject =
      new Dictionary<string, ConstructorInfo>();
 
+        static internal Dictionary<string, ConstructorInfo> activations =
+          new Dictionary<string, ConstructorInfo>();
+
 
         static internal Dictionary<string, ConstructorInfo> updatesTriggerAction =
      new Dictionary<string, ConstructorInfo>();
@@ -275,8 +278,8 @@ namespace Unity.Standard
             return euler.ToQuaternion(frame.Quaternion);
         }
 
-        static public UnityEngine.Quaternion ToQuaternion(this
-   ReferenceFrame frame)
+        static public Quaternion ToQuaternion(this
+            ReferenceFrame frame)
         {
             double[] ori = frame.Quaternion;
             return new Quaternion((float)ori[1], (float)ori[2],
@@ -299,7 +302,7 @@ namespace Unity.Standard
             GameObject go)
             where T : Component
         {
-            Dictionary<string, List<Component>> comp = null;
+            Dictionary<string, List<Component>> comp;
             go.GetComponents(out comp);
             return comp.GetComponents<T>();
         }
@@ -558,6 +561,10 @@ namespace Unity.Standard
                 if (types.Contains(typeof(ICollisionAction)))
                 {
                     updatesCollisionAction[name] = ci;
+                }
+                if (types.Contains(typeof(IActivation)))
+                {
+                    activations[name] = ci;
                 }
             }
             );

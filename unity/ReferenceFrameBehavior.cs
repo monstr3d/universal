@@ -127,6 +127,8 @@ public class ReferenceFrameBehavior : MonoBehaviour
 
     Action scadaUpdate;
 
+    ICollisionAction collisionAction;
+
  
     #endregion
 
@@ -139,7 +141,6 @@ public class ReferenceFrameBehavior : MonoBehaviour
             StaticExtensionUnity.Create(this, unique, step,
             desktop, inputs, outputs);
         scada = monoBehaviorWrapper.Scada;
-        SetConstants();
         (monoBehaviorWrapper as IScadaUpdate).Update = null;
             //ScadaUpdate;
         wrapperUpdate = monoBehaviorWrapper.Update;
@@ -171,17 +172,26 @@ public class ReferenceFrameBehavior : MonoBehaviour
         if (onCollisionEnter.Length > 0)
         {
             ConstructorInfo c = StaticExtensionUnity.updatesCollisionAction[onCollisionEnter];
-            ICollisionAction ca = c.Invoke(new Type[0]) as ICollisionAction;
-            ca.Set(gameObject, collisionIndicator, scada);
-            collisionEnter = ca.Action;
-            ca.SetConstants(0, collisionConstants);
+            collisionAction = c.Invoke(new Type[0]) as ICollisionAction;
         }
-
-
+        else if (collisionIndicator != null)
+        {
+            collisionAction = new StandardCollisionAction();
+        }
+        if (collisionAction != null)
+        {
+            collisionAction.Set(gameObject, collisionIndicator, scada);
+            collisionEnter = collisionAction.Action;
+        }
     }
 
     void Start()
     {
+        SetConstants();
+        if (collisionAction != null)
+        {
+            collisionAction.SetConstants(0, collisionConstants);
+        }
         //start();
         monoBehaviorWrapper.Start();
     }
@@ -190,13 +200,12 @@ public class ReferenceFrameBehavior : MonoBehaviour
 
     void Update()
     {
-        update();
-        var rb = gameObject.GetComponent<Rigidbody>();
+        update?.Invoke();
     }
 
     private void LateUpdate()
     {
-        lateUpdate();
+        lateUpdate?.Invoke();
     }
 
 
@@ -204,9 +213,7 @@ public class ReferenceFrameBehavior : MonoBehaviour
     {
         try
         {
-
             wrapperUpdate?.Invoke();
-            //       updatePosition();
         }
         catch (Exception exception)
         {
@@ -283,18 +290,8 @@ public class ReferenceFrameBehavior : MonoBehaviour
             }
         }
     }
-    /*
-    void AddAction(Action action)
-    {
-        if (update == null)
-        {
-            update = action;
-            return;
-        }
-        update += action;
-    }
-
-    */
+ 
+   
 
     #endregion
 }
