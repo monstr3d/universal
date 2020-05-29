@@ -39,6 +39,7 @@ namespace Unity.Standard
         {
             this.obj = obj;
             this.scada = scada;
+            this.indicator = indicator;
         }
 
         /// <summary>

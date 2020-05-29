@@ -73,6 +73,9 @@ namespace Motion6D.Portable
 
         private IAngularVelocity angularVelocity;
 
+        private IVelocity ivelocity;
+
+
         private ReferenceFrame sourceFrame;
 
         private double[] omegaRProduct = new double[3];
@@ -436,6 +439,11 @@ namespace Motion6D.Portable
                 angularVelocity = relativeFrame as IAngularVelocity;
                 updFrame += UpdateFrameAngularVelocity;
             }
+            if (relativeFrame is IVelocity)
+            {
+                ivelocity = relativeFrame as IVelocity;
+            }
+
 
         }
 
@@ -553,6 +561,7 @@ namespace Motion6D.Portable
                 a += x * relativePos[i];
             }
             velocity = a / distance;
+            Array.Copy(relativeVelocity, ivelocity.Velocity, 3);
         }
 
         void UpdateQuaternion()

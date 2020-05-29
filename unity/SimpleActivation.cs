@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Unity.Standard;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Assets
 {
@@ -20,10 +21,12 @@ namespace Assets
 
         static float kM = 0.0001f;
 
+        
+
         static private string[][] defalutStrings =
             new string[][]
-            {
-               new string[] {  "Station motion.z=3.5",
+            {//"Station motion.z=3.5" "Station motion.z=1.2"
+               new string[] {  "Station motion.z=2.2",
   "Station motion.a=0.00",
   "Station motion.q=0.00",
   "Station motion.r=0",
@@ -40,6 +43,10 @@ namespace Assets
             {
                 new float[6]
             };
+
+        static string controlString;
+
+        static int controlHeight;
 
         static private float[][] floatConstants;
         static public int Level
@@ -58,7 +65,7 @@ namespace Assets
 
         static SimpleActivation()
         {
-            Level = 1;
+            Level = 6;
         }
 
         public SimpleActivation()
@@ -84,6 +91,19 @@ namespace Assets
                 if (oc != null)
                 {
                     oc.inputConstants = floatConstants[0];
+                    var txts = oc.gameObject.GetGameObjectComponents<Text>();
+                    var tt = txts["Text"];
+                    foreach (var t in tt)
+                    {
+                        if (t.text.Contains("WASD"))
+                        {
+                            t.text = controlString;
+                            break;
+                        }
+                    }
+                    var cc = oc.gameObject.GetGameObjectComponents<RectTransform>();
+                    RectTransform rt = cc["Results"][0];
+                    rt.sizeDelta = new Vector2(rt.rect.width, (float)controlHeight);
                 }
                 if (name == "Station")
                 {
@@ -97,9 +117,42 @@ namespace Assets
             floatConstants[0][0] = kF;
             float[] f = floatConstants[0];
             f[0] = kF;
+            controlString = "Controls:\nRight Shift/Ctrl - Forward/Bakward";
             if (level == 1)
             {
+                controlHeight = 200;
                 return;
+            }
+            string sud = "\n\nUp/Down     -       Up/Down";
+            if (level == 2)
+            {
+                controlString += sud;
+                controlHeight = 300;
+            }
+
+            string slr = "\n\nLeft/Right     -    Left/Right";
+            if (level == 3)
+            {
+                controlString += sud + slr;
+                controlHeight = 400;
+            }
+            string   sroll = "\n\nQE            -          Roll\n\nDocking of ";
+            if (level == 4)
+            {
+                controlString += sroll;
+                controlHeight = 300;
+            }
+             string swasd = "\n\nQEAD        - Roll and Pitch";
+
+            if (level == 5)
+            {
+                controlString += sud + slr + swasd;
+                controlHeight = 500;
+            }
+            if (level == 6)
+            {
+                controlString += sud + slr + "\n\nQEWSAD  - Roll, Pitch, Yaw";
+                controlHeight = 500;
             }
             string[] sc = stringConstants[0];
             if (level >= 4)

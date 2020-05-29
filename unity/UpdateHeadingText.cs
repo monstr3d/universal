@@ -39,9 +39,13 @@ namespace Assets
 
         public override Action Update => UpdateInternal;
 
+        Action upd;
+
+
 
         void UpdateInternal()
         {
+            upd?.Invoke();
             float heading = angles.pitch.ToDegree();
             if (headingTxt != null)
             {

@@ -5,7 +5,9 @@ using UnityEngine;
 
 using Unity.Standard;
 
-
+/// <summary>
+/// Activation of level
+/// </summary>
 public class Activation : MonoBehaviour
 {
 
@@ -30,8 +32,4 @@ public class Activation : MonoBehaviour
             monoBehaviour.enabled = true;
         }
     }
-
-
-
-
 }

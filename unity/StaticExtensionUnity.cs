@@ -206,7 +206,8 @@ namespace Unity.Standard
             
             Dictionary<string, List<GameObject>> objects, Dictionary<string, List<Component>> comp)
         {
-            Component[] components = go.GetComponents(typeof(Component));
+            //Component[] components = go.GetComponents(typeof(Component));
+            Component[] components = go.GetComponentsInChildren<Component>(true);
             foreach (Component component in components)
             {
                 if (component == null)
