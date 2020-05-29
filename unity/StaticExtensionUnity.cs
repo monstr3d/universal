@@ -35,7 +35,7 @@ using System.Runtime.CompilerServices;
 namespace Unity.Standard
 {
 
- 
+
     /// <summary>
     /// Static 
     /// </summary>
@@ -56,14 +56,14 @@ namespace Unity.Standard
 
         static private Scada.Interfaces.IErrorHandler errorHandler = new ErrorHanller();
 
-  
+
         static private Dictionary<string, Tuple<object,
 
             List<IScadaUpdate>>> scadaUpdates
             = new Dictionary<string, Tuple<object,
             List<IScadaUpdate>>>();
 
-        static Dictionary<string, ConstructorInfo> updates = 
+        static Dictionary<string, ConstructorInfo> updates =
             new Dictionary<string, ConstructorInfo>();
 
         static internal Dictionary<string, ConstructorInfo> updatesGameObject =
@@ -75,7 +75,7 @@ namespace Unity.Standard
 
         static internal Dictionary<string, ConstructorInfo> updatesTriggerAction =
      new Dictionary<string, ConstructorInfo>();
-        
+
         static internal Dictionary<string, ConstructorInfo> updatesCollisionAction =
      new Dictionary<string, ConstructorInfo>();
 
@@ -83,10 +83,34 @@ namespace Unity.Standard
 
         static internal Scada.Interfaces.IErrorHandler ErrorHandler => errorHandler;
 
+        static private List<MonoBehaviour> monoBehaviours = new List<MonoBehaviour>();
 
         #endregion
 
         #region Members
+
+        /// <summary>
+        /// Clears itself
+        /// </summary>
+        static public void Clear()
+        {
+            StaticExtensionScadaDesktop.Clear();
+            foreach (MonoBehaviour monoBehaviour in monoBehaviours)
+            {
+                monoBehaviour.gameObject.SetActive(false);
+                monoBehaviour.enabled = false;
+            }
+            monoBehaviours.Clear();
+        }
+
+
+        static public void Add(this MonoBehaviour monoBehaviour)
+        {
+            if (!monoBehaviours.Contains(monoBehaviour))
+            {
+                monoBehaviours.Add(monoBehaviour);
+            }
+        }
 
         static public int SetConstants(this float[] input, int offset, float[] output)
         {

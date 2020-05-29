@@ -79,6 +79,7 @@ public class OutputController : MonoBehaviour
 
     private void Awake()
     {
+        this.Add();
         exists = desktop.ScadaExists();
         if (!isEnabled)
         {

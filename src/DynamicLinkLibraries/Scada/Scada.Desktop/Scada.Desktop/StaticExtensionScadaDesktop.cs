@@ -50,6 +50,21 @@ namespace Scada.Desktop
         #region Public Members
 
         /// <summary>
+        /// Clears scadas
+        /// </summary>
+        public static void Clear()
+        {
+            foreach (var scada in scadas.Values)
+            {
+                if (scada.IsEnabled)
+                {
+                    scada.IsEnabled = false;
+                }
+            }
+            scadas.Clear();
+        }
+
+        /// <summary>
         /// Sets assembly
         /// </summary>
         /// <param name="ass">The assembly</param>

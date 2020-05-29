@@ -10,19 +10,14 @@ public class AAALevel : MonoBehaviour
 {
 
     static Action update;
+
+    static int level;
     static public bool Unload
     {
         set
         {
-            update = UnloadScene;
 
         }
-    }
-
-    static void UnloadScene()
-    {
-        SceneManager.UnloadSceneAsync("SampleScene");
-        update = null; 
     }
 
 
@@ -59,8 +54,12 @@ public class AAALevel : MonoBehaviour
         Assets.SimpleActivation.Level = i;
         try
         {
-           
-            SceneManager.LoadScene("SampleScene", LoadSceneMode.Single);
+            string ss = "SampleScene";
+            if (level > 0)
+            {
+                ss += level;
+            }
+            SceneManager.LoadScene(ss, LoadSceneMode.Single);
         }
         catch (Exception ex)
         {

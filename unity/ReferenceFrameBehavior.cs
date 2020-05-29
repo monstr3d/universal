@@ -136,6 +136,7 @@ public class ReferenceFrameBehavior : MonoBehaviour
 
     private void Awake()
     {
+        this.Add();
         exists = desktop.ScadaExists();
          monoBehaviorWrapper =
             StaticExtensionUnity.Create(this, unique, step,

@@ -13,6 +13,7 @@ using DataPerformer.Portable;
 using Vector3D;
 using CategoryTheory;
 using UnityEngine.SceneManagement;
+using BaseTypes;
 
 public class ResultIndicator : MonoBehaviour
 {
@@ -63,7 +64,6 @@ public class ResultIndicator : MonoBehaviour
         parameters = o[2] as float[];
         scada.IsEnabled = false;
         ShowResults();
-        SceneManager.UnloadSceneAsync("LevelScene");
     }
 
     void ShowTable()
@@ -98,8 +98,8 @@ public class ResultIndicator : MonoBehaviour
         if (Input.GetKey(KeyCode.Q))
         {
             gameObject.SetActive(false);
+            StaticExtensionUnity.Clear();
             SceneManager.LoadScene("LevelScene", LoadSceneMode.Single);
-            AAALevel.Unload = true;
         }
     }
 
