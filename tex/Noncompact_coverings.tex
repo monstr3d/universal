@@ -1,0 +1,276 @@
+\documentclass{beamer}
+\usepackage{amsmath,amssymb,amsthm,slashed}
+
+
+
+\textwidth=110mm
+
+
+\title{Quantization of coverings of noncompact spaces}
+\institute
+{
+Noncommutative geometry and topology
+}
+
+\author{Petr R. Ivankov  }
+
+
+
+\theoremstyle{plain}
+\newtheorem{defn}{Definition}
+\newtheorem{rem}{Remark}
+\newtheorem{exm}{Example}
+\newtheorem*{claim}{Claim}
+\newtheorem{prop}{Proposition}
+\newtheorem{empt}[prop]{}%[section]
+\newtheorem{lem}{Lemma}%[section]
+\newtheorem{thm}{Theorem}%[section]
+
+
+
+\newcommand{\A}{\mathcal{A}}
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\Ga}{\Gamma}
+\newcommand{\B}{\mathcal{B}}
+\newcommand{\Cc}{\mathcal{C}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\D}{\mathcal{D}}
+\newcommand{\G}{\mathcal{G}}
+\newcommand{\Hc}{\mathcal{H}}
+\newcommand{\Lc}{\mathcal{L}}
+\newcommand{\Pc}{\mathcal{P}}
+\newcommand{\Sc}{\mathcal{S}}
+\newcommand{\U}{\mathcal{U}}
+\newcommand{\rar}{\rightarrow}
+\newcommand{\Ef}{\mathbb{E}}
+
+
+%Uppercase Gothic characters
+\newcommand{\gtA}{\mathfrak{A}}
+\newcommand{\gtB}{\mathfrak{B}}
+\newcommand{\gtM}{\mathfrak{M}}
+\newcommand{\gtN}{\mathfrak{N}}
+\newcommand{\gtP}{\mathfrak{P}}
+\newcommand{\gtS}{\mathfrak{S}}
+
+%Lowercase Gothic characters
+\newcommand{\gtf}{\mathfrak{f}}
+\newcommand{\gtg}{\mathfrak{g}}
+
+%Bold Characters
+\newcommand{\Cb}{\mathbb{C}}
+\newcommand{\Nb}{\mathbb{N}}
+\newcommand{\Rb}{\mathbb{R}}
+\newcommand{\Zb}{\mathbb{Z}}
+
+%Uppercase Greek characters
+\newcommand{\Gm}{\Gamma}
+\newcommand{\Te}{\Theta}
+\newcommand{\Om}{\Omega}
+\newcommand{\s}{ }
+
+%Lowercase Greek characters
+\newcommand{\al}{\alpha}
+\newcommand{\gm}{\gamma}
+\newcommand{\dl}{\delta}
+\newcommand{\sg}{\sigma}
+\newcommand{\ph}{\varphi}
+\newcommand{\te}{\theta}
+\newcommand{\ze}{\zeta}
+
+\newcommand{\Id}{\mathrm{Id}}
+\newcommand{\Aut}{\mathrm{Aut}}
+\newcommand{\Coo}{{\mathrm{C}}^\infty}
+\newcommand{\alg}{\mathrm{alg}}
+\newcommand{\diag}{\mathrm{diag}}
+\newcommand{\spinc}{\textbf{$spin^c$}}
+\newcommand{\Hom}{\mathrm{Hom}}
+\newcommand{\supp}{\mathrm{supp}}
+\newcommand{\Ccl}{\mathbf{C}l}
+\newcommand{\xto}{\xrightarrow}
+
+\newcommand{\lto}{\longrightarrow}
+\newcommand{\ox}{\otimes}
+\newcommand{\nb}{\nabla}
+\newcommand{\sS}{\mathcal{S}}
+\newcommand{\Dn}{D\!\!\!\!/}
+%\newcommand{\ij}{{i,j}}
+\newcommand{\aC}{\ensuremath{\underline{\Cb}} }
+\newcommand{\scp}[2]{\left\langle{#1},{#2}\right\rangle}
+\newcommand{\op}[1]{J{#1}J^\dag}
+
+\begin{document}
+%\titlepage
+\begin{frame}
+  \titlepage
+\end{frame}
+\begin{frame}
+	   \begin{definition} \alert{P. Ivankov}.
+		Let $\pi: A \to \widetilde{A}$ be an injective *-homomorphism of connected  $C^*$-algebras such that following conditions hold:
+		\begin{enumerate}
+			\item[(a)] If $\Aut\left(\widetilde{A} \right)$ is a group of *-automorphisms of $\widetilde{A}$ then the group  
+			\be\nonumber
+			G = \left\{ \left.g \in \Aut\left(\widetilde{A} \right)~\right|~ ga = a;~~\forall a \in A\right\}
+			\ee
+			is finite.
+			\item[(b)] 	$A \cong \widetilde{A}^G\stackrel{\text{def}}{=}\left\{\left.a\in \widetilde{A}~~\right|~ a = g a;~ \forall g \in G\right\}$.
+		\end{enumerate}
+		We say that the quadruple $\left(A, \widetilde{A}, G, \pi \right)$ and/or *-homomorphism $\pi: A \to \widetilde{A}$   is a \textit{noncommutative finite-fold  pre-covering}. 
+	\end{definition}
+\begin{lem}
+If $\left(A, \widetilde{A}, G, \pi \right)$ is noncommutative finite-fold  pre-covering such that
+\begin{itemize}
+	\item $A$ is commutative,
+	\item $\widetilde{A}$ is a finitely generated $A$-module.
+\end{itemize}
+then $\widetilde{A}$ is a commutative $C^*$-algebra.
+\end{lem}
+\end{frame}
+
+\begin{frame}
+\begin{example}
+If $\mathcal{X}$ is a locally compact Hausdorff space, $A = C_0\left(\mathcal{X}\right)$ and $\widetilde{A}= A\otimes \mathbb{M}_n\left(\mathbb{C} \right)$ then the group
+			\be\nonumber
+G = \left\{ \left.g \in \Aut\left(\widetilde{A} \right)~\right|~ ga = a;~~\forall a \in A\right\}
+\ee
+
+is not finite.
+\end{example}
+	\begin{theorem}\alert{A. Pavlov, E Troitsky}
+		Suppose $\mathcal X$ and $\mathcal Y$ are compact Hausdorff connected spaces and $p :\mathcal  Y \to \mathcal X$
+is a continuous surjection. If $C(\mathcal Y )$ is a projective finitely generated Hilbert module over
+$C(\mathcal X)$ with respect to the action
+\begin{equation*}
+(f\xi)(y) = f(y)\xi(p(y)), ~ f \in  C(\mathcal Y ), ~ \xi \in  C(\mathcal X),
+\end{equation*}
+then $p$ is a finite-fold  covering.
+	\end{theorem}
+\end{frame}
+\begin{frame}
+	
+\begin{corollary}\alert{P. Ivankov}
+	If $\left(A, \widetilde{A}, G, \pi \right)$ is noncommutative finite-fold  pre-covering such that
+	\begin{itemize}
+		\item $A$ is commutative,
+		\item Both $A$ and $\widetilde{A}$ are unital.
+		\item $\pi$ is unital 
+	\item $\widetilde{A}$	is a finitely generated $A$-module.
+	\end{itemize}
+	then $\pi$ corresponds to a finite-fold covering $ \widetilde{\mathcal  X}\to \mathcal  X$.
+\end{corollary}
+\begin{definition}
+	\alert{P. Ivankov}
+	  	Let $\left(A, \widetilde{A}, G, \pi \right)$ be a  noncommutative finite-fold  pre-covering. Suppose both $A$ and  $\widetilde{A}$ are unital. We say that $\left(A, \widetilde{A}, G, \pi \right)$ is an \textit{unital noncommutative finite-fold  covering} if $\widetilde{A}$ is a finitely generated projective  $A$-module.
+\end{definition}
+\end{frame}
+\begin{frame}
+
+\begin{definition}
+	A covering $ p:\widetilde{\mathcal  X}\to \mathcal  X$ is said to be \textit{transitive} if for any $x \in \mathcal  X$ the group
+	$$
+	G\left(\left.\widetilde{\mathcal  X} \right|\mathcal  X\right)= \left\{ \left.g \in \text{Homeo}\left(\widetilde{\mathcal X} \right)~\right|~ p(g\widetilde{x}) = p(\widetilde{x});~~\forall \widetilde{x} \in \widetilde{\mathcal  X}\right\} 
+	$$
+	transitively acts on $p^{-1}\left(x\right)$.
+\end{definition}
+\begin{fact}
+	If the space $ \mathcal  X$ is locally path connected then any transitive covering  of $ \mathcal  X$  is regular and vice versa.
+\end{fact}
+\begin{theorem}
+	\alert{P. Ivankov}
+	If $\mathcal  X$ is a compact Hausdorff space then there is a 1-1 correspondence between finite-fold transitive coverings of $\mathcal  X$ and unital noncommutative finite-fold  coverings of $C\left(\mathcal  X\right)$.
+\end{theorem}
+
+\end{frame}
+\begin{frame}
+\begin{definition}\label{top_cov_comp_defn}
+	A   covering $p: \widetilde{   \mathcal X } \to \mathcal X$ is said to be a \textit{ covering with compactification} if there are compactifications ${   \mathcal X } \to {   \mathcal Y }$ and $\widetilde{   \mathcal X } \to \widetilde{   \mathcal Y }$ such that:
+	\begin{itemize}
+		\item There is a covering $\widetilde{p}:\widetilde{   \mathcal Y }\to {   \mathcal Y }$,
+		\item The covering $p$ is the restriction of $\widetilde{p}$, i.e. $p = \widetilde{p}|_{\widetilde{   \mathcal X }}$.
+	\end{itemize}
+\end{definition}
+\begin{definition}\label{fin_comp_defn}\alert{P. Ivankov}
+	Let $\left(A, \widetilde{A}, G, \pi \right)$ be a noncommutative finite-fold  pre-covering such  that following conditions hold:
+	\begin{enumerate}
+		\item[(a)] 
+		There are unitizations $A \to B$, $\widetilde{A} \to \widetilde{B}$.
+		%	\item[(b)]$A = B\bigcap \widetilde{A}$,
+		\item[(b)] There is an %(strong) 
+		unital  noncommutative finite-fold covering	$\left(B ,\widetilde{B}, G, \widetilde{\pi} \right)$ such that $\pi = \widetilde{\pi}|_A$ (or, equivalently $A \cong \widetilde{A}\cap B$) and the action $G \times\widetilde{A} \to \widetilde{A}$ is induced by $G \times\widetilde{B} \to \widetilde{B}$.
+	\end{enumerate}
+	We say that the  quadruple $\left(A, \widetilde{A}, G, \pi \right)$ is a
+	\textit{noncommutative finite-fold covering with unitization}. 
+\end{definition}
+
+\end{frame}
+\begin{frame}
+\begin{example}
+	
+	Let $\mathcal X  = \C \setminus \{0\}$ be a complex plane with punctured 0, which is parametrized by the complex variable $z$. 
+	If $\widetilde{   \mathcal X } \cong \mathcal X$ then for any natural $n>1$ there is a finite-fold covering 
+	\begin{equation*}
+	p: \widetilde{   \mathcal X } \to \mathcal X,
+	\qquad	z \mapsto z^n.
+	\end{equation*}
+	which is not a covering with compactification.
+\end{example}
+\end{frame}
+\begin{definition}
+\alert{P. Ivankov}.	A $\left(A, \widetilde{A}, G, \pi \right)$  noncommutative finite-fold  pre-covering is said to be   \textit{noncommutative finite-fold covering} if there is an increasing net $\left\{u_\lambda\right\}_{\lambda\in\Lambda}\subset M\left( A\right)_+ $  of positive elements such that
+	\begin{enumerate}
+		\item[(a)] There is the limit 
+		$$
+		\beta\text{-}\lim_{\lambda \in \Lambda} u_\lambda = 1_{M\left(A \right) }
+		$$
+		in the strict topology of $M\left(A \right)$
+		\item[(b)]  If for all   $\lambda\in\Lambda$ both $A_\lambda$ and  $\widetilde A_\lambda$ are $C^*$-norm completions  of $u_\lambda A u_\lambda$ and  $u_\lambda\widetilde{A}u_\lambda$ respectively then for every $\lambda\in\Lambda$ a quadruple
+		$$
+		\left(A_\lambda, \widetilde{A}_\lambda, G, \left.\pi\right|_{A_\lambda} :A_\lambda\to \widetilde{A}_\lambda\right)	
+		$$
+		is a noncommutative finite-fold covering with unitization. The action 	$G \times \widetilde{A}_\lambda\to \widetilde{A}_\lambda$, is the restriction on $\widetilde{A}_\lambda\subset \widetilde{   A}$ of the action $G\times  \widetilde{A}\to \widetilde{A}$.
+	\end{enumerate}
+	
+\end{definition}
+
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+content...
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
