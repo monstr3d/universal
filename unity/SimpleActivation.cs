@@ -26,7 +26,7 @@ namespace Assets
         static private string[][] defalutStrings =
             new string[][]
             {//"Station motion.z=3.5" "Station motion.z=1.2"
-               new string[] {  "Station motion.z=2.2",
+               new string[] {  "Station motion.z=3.5",
   "Station motion.a=0.00",
   "Station motion.q=0.00",
   "Station motion.r=0",
@@ -49,7 +49,7 @@ namespace Assets
         static int controlHeight;
 
         static private float[][] floatConstants;
-        static public int Level
+        static public int StaticLevel
         {
             get
             {
@@ -63,9 +63,9 @@ namespace Assets
             }
         }
 
+   
         static SimpleActivation()
         {
-            Level = 6;
         }
 
         public SimpleActivation()
@@ -111,6 +111,9 @@ namespace Assets
                 }
             }
         }
+
+        int IActivation.Level { get => StaticLevel; set => StaticLevel = value; }
+
 
         private static void SetValues()
         {

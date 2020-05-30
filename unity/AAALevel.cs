@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Standard;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
@@ -51,7 +52,7 @@ public class AAALevel : MonoBehaviour
 
     void Click(int i)
     {
-        Assets.SimpleActivation.Level = i;
+        Assets.SimpleActivation.StaticLevel = i;
         try
         {
             string ss = "SampleScene";

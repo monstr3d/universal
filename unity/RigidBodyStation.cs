@@ -92,6 +92,10 @@ namespace GeneratedProject
 				arrows.Add(currALabel);
 				currALabel.SourceNumber = (int)3;
 				currALabel.TargetNumber = (int)2;
+				currALabel  = new IntrenalDesktop.ArrowLabel16("", this);
+				arrows.Add(currALabel);
+				currALabel.SourceNumber = (int)8;
+				currALabel.TargetNumber = (int)4;
 				bool pl = PostLoad();
 				bool pd = PostDeserialize();
 				SuccessLoad = pl & pd;
@@ -1086,6 +1090,19 @@ namespace GeneratedProject
 				}
 		
 				internal class CategoryArrow : Motion6D.Portable.ReferenceFrameArrow
+				{
+				}
+			}
+		
+			internal class ArrowLabel16 : Diagram.UI.Labels.PureArrowLabel
+			{
+				internal ArrowLabel16(string name, Diagram.UI.Interfaces.IDesktop desktop) : base(name, "", "", 0, 0)
+				{
+					this.desktop = desktop;
+					arrow = new ArrowLabel16.CategoryArrow();
+				}
+		
+				internal class CategoryArrow : Event.Portable.Arrows.EventLink
 				{
 				}
 			}

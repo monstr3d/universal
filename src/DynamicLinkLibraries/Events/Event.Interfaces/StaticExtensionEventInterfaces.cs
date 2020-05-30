@@ -50,7 +50,8 @@ namespace Event.Interfaces
         /// <summary>
         /// Locker
         /// </summary>
-        static public readonly object Locker = new object();
+       static public  object Locker
+        { get; set; }
 
         #endregion
 
@@ -120,6 +121,11 @@ namespace Event.Interfaces
         /// <returns>Locked action</returns>
         static public Action LockedAction(this Action action)
         {
+            if (Locker == null)
+            {
+                return action;
+            }
+             
             return () =>
             {
                 lock (Locker)

@@ -13,6 +13,8 @@ public class Activation : MonoBehaviour
 
     public string activation = "";
 
+    public int level;
+
 
     public MonoBehaviour[] components;
 
@@ -24,6 +26,7 @@ public class Activation : MonoBehaviour
             {
                 ConstructorInfo ci = StaticExtensionUnity.activations[this.activation];
                 IActivation activation = ci.Invoke(new object[0]) as IActivation;
+                activation.Level = level;
                 activation.Activate(components);
             }
         }

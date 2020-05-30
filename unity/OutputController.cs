@@ -256,7 +256,7 @@ public class OutputController : MonoBehaviour
         {
             IUpdateGameObject ua = constructors[key].Invoke(new Type[0])
                 as IUpdateGameObject;
-            ua.Set(null, null, scada);
+            ua.Set(new object[] { this }, gameObject.GetComponent<Component>(), scada);
             AddUpdate(ua.Update);
             offset = ua.SetConstants(offset, inputConstants);
         }

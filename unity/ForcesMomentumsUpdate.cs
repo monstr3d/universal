@@ -7,11 +7,28 @@ using System.Threading.Tasks;
 using Unity.Standard;
 using UnityEngine;
 using UnityEngine.Experimental.VFX;
+using UnityEngine.UI;
 
 namespace Assets
 {
     public class ForcesMomentumsUpdate : AbstractUpdateGameObject
     {
+        private static float interval = -1;
+
+        public static float Interval
+        {
+            set
+            {
+                if (interval < 0)
+                {
+                    if (value > 0)
+                    {
+                        interval = value;
+                    }
+                }
+            }
+        }
+
         public float kx = 1f;
 
         public float ky = 1f;
@@ -39,40 +56,114 @@ namespace Assets
 
         Dictionary<KeyCode, bool> pressed = new Dictionary<KeyCode, bool>();
 
-        
+        bool keyPressed = false;
 
-        int Counter
-        {
-            get;
-            set;
-        }
+
+        GameObject gameObject;
+
+        MonoBehaviour mb;
 
         Action<double>[] dInp = new Action<double>[6];
+
+        Func<double>[] dOut = new Func<double>[6];
+
+
+
+        KeyCode[] codes = { KeyCode.None };
+
+        Dictionary<KeyCode, KeyCode[]>  kkdic = new Dictionary<KeyCode, KeyCode[]>();
+
+        Dictionary<KeyCode,  Tuple<Action<double>, Func<double>, Text, double, double[]>>
+            actions = new Dictionary<KeyCode, Tuple<Action<double>, Func<double>, Text, double, double[]>>();
+
+        Dictionary<int, Tuple<int, KeyCode[]>> dicionary = new
+            Dictionary<int, Tuple<int, KeyCode[]>>
+        {
+            {3, new Tuple<int, KeyCode[]>(3, new KeyCode[]{KeyCode.W, KeyCode.S } )},
+            {5, new Tuple<int, KeyCode[]>(4, new KeyCode[]{KeyCode.Q, KeyCode.E } )},
+            {4, new Tuple<int, KeyCode[]>(5, new KeyCode[]{KeyCode.D, KeyCode.A } )},
+            {2, new Tuple<int, KeyCode[]>(0, new KeyCode[]{KeyCode.RightShift, KeyCode.RightControl} )},
+            {0, new Tuple<int, KeyCode[]>(1, new KeyCode[]{KeyCode.RightArrow, KeyCode.LeftArrow} )},
+           {1, new Tuple<int, KeyCode[]>(2, new KeyCode[]{KeyCode.UpArrow, KeyCode.DownArrow} )}
+        };
 
         public ForcesMomentumsUpdate()
         {
             constants = new float[] { kx, ky, kz, kMx, kMy, kMz };
-            KeyCode[] codes = new KeyCode[]
-            {
-                KeyCode.Q, KeyCode.W, KeyCode.E,
-                KeyCode.A, KeyCode.S, KeyCode.D,
-                KeyCode.RightShift, KeyCode.RightControl,
-                KeyCode.UpArrow, KeyCode.DownArrow, KeyCode.LeftArrow, KeyCode.RightArrow
-            };
-            foreach (KeyCode keyCode in codes)
+            return;
+             foreach (KeyCode keyCode in codes)
             {
                 pressed[keyCode] = false;
             }
         }
 
+    
+
         public override void Set(object[] obj, Component indicator, IScadaInterface scada)
         {
             base.Set(obj, indicator, scada);
+            mb = obj[0] as MonoBehaviour;
+            gameObject = mb.gameObject;
             var s = "Force.";
             string[] ss = { "Fx", "Fy", "Fz", "Mx", "My", "Mz" };
             for (int i = 0; i < ss.Length; i++)
             {
-                dInp[i] = scada.GetDoubleInput(s + ss[i]);
+                string key = s + ss[i];
+                dInp[i] = scada.GetDoubleInput(key);
+                dOut[i] = scada.GetDoubleOutput(key);
+            }
+        }
+
+        string[,] txt = new string[,] { { "Ax_Txt", "0.00" }, { "Ay_Txt", "0.00" }, { "Az_Txt", "0.00" }, 
+            { "Omx1_Txt", "+--" }, { "Omy1_Txt", "+--" } , { "Omz1_Txt", "+--" }  };
+
+        Dictionary<KeyCode, Tuple<Text, string[]>> texts = new Dictionary<KeyCode, Tuple<Text, string[]>>();
+
+        void Prepare()
+        {
+            List<KeyCode> l = new List<KeyCode>();
+            Dictionary<string, List<Text>> lt = gameObject.GetGameObjectComponents<Text>();
+            List<Tuple<Text, string[]>> ttt = new List<Tuple<Text, string[]>>();
+            for (int i = 0; i < txt.GetLength(0); i++)
+            {
+                Text tx = lt[txt[i, 0]][0];
+                Tuple<Text, string[]> tst = new Tuple<Text, string[]>(tx, new string[] { tx.text, txt[i, 1] });
+                ttt.Add(tst);
+            }
+            foreach (var i in dicionary.Keys)
+            {
+                var tst = ttt[i];
+                Action<double> a = dInp[i];
+                Func<double> f = dOut[i];
+                var tt = dicionary[i];
+                var j = tt.Item1;
+                double k = constants[j];
+                var kk = tt.Item2;
+                if (k < double.Epsilon)
+                {
+                    continue;
+                }
+                double[] val = new double[]{ 0 };
+                for (int m = 0; m < 2; m++)
+                {
+                    var kc = kk[m];
+                    texts[kc] = tst;
+                    kkdic[kc] = kk;
+                    if (l.Contains(kc))
+                    {
+                        throw new Exception();
+                    }
+                    l.Add(kc);
+                    double coeff = (m == 0) ? k : -k;
+                    var v = new Tuple<Action<double>, Func<double>, Text, double, double[]>
+                        (a, f, null, coeff, val);
+                    actions[kc] = v;
+                }
+            }
+            codes = l.ToArray();
+            foreach (var kk in codes)
+            {
+                pressed[kk] = true;
             }
         }
 
@@ -80,6 +171,8 @@ namespace Assets
         {
             int i = base.SetConstants(offset, constants);
             float[] cons = this.constants;
+            Prepare();
+            return i;
             kx = cons[0];
             ky = cons[1];
             kz = cons[2];
@@ -89,40 +182,97 @@ namespace Assets
             return i;
         }
 
+        KeyCode current;
+
         public override Action Update => UpdateInternal;
 
+        KeyCode lastCurrent;
 
-
-
-        void ResetValue(ref float value, float newValue, int i, KeyCode code)
+        void UpdateCurrent()
         {
-            if (!pressed[code])
+            if (current != lastCurrent)
             {
                 return;
             }
-            if (value != newValue)
-            {
-                if (Math.Abs(value - newValue) > 1.1 * Math.Abs(newValue))
-                {
-                    value = 0f;
-                }
-                else
-                {
-                    value = newValue;
-                }
-                dInp[i](value);
-            }
-            pressed[code] = false;
-        }
-
-        void KeyDown(KeyCode code)
-        {
-            if (pressed[code])
+            KeyCode code = current;
+            if (!actions.ContainsKey(current))
             {
                 return;
             }
-            pressed[code] = true;
+            /*     if (!keyPressed)
+                 {
+                     return;
+                 }*/
+            var t = actions[code];
+            double[] v = t.Item5;
+            double newValue = t.Item4;
+            double value = v[0];
+            if (value == newValue)
+            {
+                current = KeyCode.F10;
+                return;
+            }
+            if (Math.Abs(value - newValue) > (1 + double.Epsilon) * Math.Abs(newValue))
+            {
+                value = 0f;
+            }
+            else
+            {
+                value = newValue;
+            }
+            t.Item1(value);
+            double x = t.Item2();
+            if (Math.Abs(x - value) > double.Epsilon)
+            {
+                throw new Exception();
+            }
+            v[0] = value;
+            var tst = texts[code];
+            string ss = "0";
+            string f = tst.Item2[1];
+            string a = tst.Item2[0];
+            if (f == "+--")
+            {
+                if (x > double.Epsilon)
+                {
+                    ss = "+";
+                }
+                if (x < -double.Epsilon)
+                {
+                    ss = "-";
+                }
+            }
+            else
+            {
+                ss = x.ToString(f);
+            }
+            tst.Item1.text = a + " " + ss;
+            mb.StartCoroutine(coroutine);
+         }
+
+        bool Process(KeyCode code)
+        {
+            if (Input.GetKey(code))
+            {
+                current = code;
+                lastCurrent = code;
+                UpdateCurrent();
+            }
+            return false;
         }
+
+        System.Collections.IEnumerator coroutine
+        {
+            get
+            {
+                yield return new WaitForSeconds(interval);
+                UpdateCurrent();
+                current = KeyCode.F10;
+                yield return current;
+            }
+        }
+
+
 
 
 
@@ -135,109 +285,18 @@ namespace Assets
                     dInp[i](0);
                 }
             }
-
-            if (Input.GetKeyUp(KeyCode.S))
+            foreach (var code in actions.Keys)
             {
-                ResetValue(ref vMx, -kMx, 3, KeyCode.S);
+                Process(code);
             }
-            if (Input.GetKeyDown(KeyCode.S))
+            foreach (var code in actions.Keys)
             {
-                KeyDown(KeyCode.S);
-            }
-            if (Input.GetKeyDown(KeyCode.W))
-            {
-                KeyDown(KeyCode.W);
-            }
-            if (Input.GetKeyUp(KeyCode.W))
-            {
-                ResetValue(ref vMx, kMx, 3, KeyCode.W);
+                if (Input.GetKeyUp(code))
+                {
+                    current = KeyCode.F10;
+                }
             }
 
-            if (Input.GetKeyDown(KeyCode.Q))
-            {
-                KeyDown(KeyCode.Q);
-            }
-            if (Input.GetKeyUp(KeyCode.Q))
-            {
-                ResetValue(ref vMy, kMy, 5, KeyCode.Q);
-            }
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                KeyDown(KeyCode.E);
-            }
-            if (Input.GetKeyUp(KeyCode.E))
-            {
-                ResetValue(ref vMy, -kMy, 5, KeyCode.E);
-            }
-
-            if (Input.GetKeyDown(KeyCode.A))
-            {
-                KeyDown(KeyCode.A);
-            }
-            if (Input.GetKeyUp(KeyCode.A))
-            {
-                ResetValue(ref vMz, -kMz, 4, KeyCode.A);
-            }
-            if (Input.GetKeyDown(KeyCode.D))
-            {
-                KeyDown(KeyCode.D);
-            }
-            if (Input.GetKeyUp(KeyCode.D))
-            {
-                ResetValue(ref vMz, kMz, 4, KeyCode.D);
-            }
-
-            if (Input.GetKeyDown(KeyCode.RightShift))
-            {
-                KeyDown(KeyCode.RightShift);
-            }
-            if (Input.GetKeyUp(KeyCode.RightShift))
-            {
-                 ResetValue(ref vx, kx, 2, KeyCode.RightShift);
-            }
-
-            if (Input.GetKeyDown(KeyCode.RightControl))
-            {
-                KeyDown(KeyCode.RightControl);
-            }
-            if (Input.GetKeyUp(KeyCode.RightControl))
-            {
-                 ResetValue(ref vx, -kx, 2, KeyCode.RightControl);
-            }
-
-            if (Input.GetKeyDown(KeyCode.LeftArrow))
-            {
-                KeyDown(KeyCode.LeftArrow);
-            }
-            if (Input.GetKeyUp(KeyCode.LeftArrow))
-            {
-                ResetValue(ref vy, -ky, 0, KeyCode.LeftArrow);
-            }
-            if (Input.GetKeyDown(KeyCode.RightArrow))
-            {
-                KeyDown(KeyCode.RightArrow);
-            }
-            if (Input.GetKeyUp(KeyCode.RightArrow))
-            {
-                ResetValue(ref vy, ky, 0, KeyCode.RightArrow);
-            }
-
-            if (Input.GetKeyDown(KeyCode.UpArrow))
-            {
-                KeyDown(KeyCode.UpArrow);
-            }
-            if (Input.GetKeyUp(KeyCode.UpArrow))
-            {
-                ResetValue(ref vz, kz, 1, KeyCode.UpArrow);
-            }
-            if (Input.GetKeyDown(KeyCode.DownArrow))
-            {
-                KeyDown(KeyCode.DownArrow);
-            }
-            if (Input.GetKeyUp(KeyCode.DownArrow))
-            {
-                ResetValue(ref vz, -kz, 1, KeyCode.DownArrow);
-            }
         }
     }
 }

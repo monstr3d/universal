@@ -17,8 +17,11 @@ using BaseTypes;
 
 public class ResultIndicator : MonoBehaviour
 {
-    
 
+ 
+    public float interval = -1;
+
+  
     Action update;
 
     IScadaInterface scada;
@@ -35,9 +38,20 @@ public class ResultIndicator : MonoBehaviour
 
     float time;
 
+    private void Awake()
+    {
+   
+    }
+
+
     // Start is called before the first frame update
     void Start()
     {
+        if (interval > 0)
+        {
+            enabled = false;
+            return;
+        }
         update = ShowTable;
     }
 

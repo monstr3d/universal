@@ -645,9 +645,6 @@ namespace DataPerformer.Portable.Runtime
 
                 Action acttt = () =>
                      {
-                         // !!! REPLACED WITH GLOBAL LOCKER  lock(locker)
-                         // {
-
                          t[0] = rt.Time;
                          if (time[0] == t[0])
                          {
