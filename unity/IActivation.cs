@@ -18,7 +18,17 @@ namespace Unity.Standard
         /// <param name="monoBehaviours">Mono Behaviours</param>
         void Activate(MonoBehaviour[] monoBehaviours);
 
+        /// <summary>
+        /// Level
+        /// </summary>
         int Level
         { get; set; }
+
+        /// <summary>
+        /// Sets constants
+        /// </summary>
+        /// <param name="constants"></param>
+        /// <returns></returns>
+        int SetConstants(float[] constants);
     }
 }

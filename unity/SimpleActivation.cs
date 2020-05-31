@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 using Unity.Standard;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,7 +14,7 @@ namespace Assets
 
     public class SimpleActivation : IActivation
     {
-        static private int level;
+        static private int level = -1;
 
         static string[][] stringConstants;
 
@@ -25,7 +26,7 @@ namespace Assets
 
         static private string[][] defalutStrings =
             new string[][]
-            {//"Station motion.z=3.5" "Station motion.z=1.2"
+            {//"Station motion.z=3.5" "Station motion.z=1.2", "Station motion.z=1.5"
                new string[] {  "Station motion.z=3.5",
   "Station motion.a=0.00",
   "Station motion.q=0.00",
@@ -41,7 +42,7 @@ namespace Assets
 
         static private float[][] defaultfloatConstants = new float[][]
             {
-                new float[6]
+                new float[7]
             };
 
         static string controlString;
@@ -57,6 +58,15 @@ namespace Assets
             }
             set
             {
+                if (value == -1)
+                {
+                    level = value;
+                    return;
+                }
+                if (level > 0)
+                {
+                    return;
+                }
                 level = value;
                 Init();
                 SetValues();
@@ -66,12 +76,15 @@ namespace Assets
    
         static SimpleActivation()
         {
+
         }
 
         public SimpleActivation()
         {
 
         }
+
+        #region  IActivation Members
 
         void IActivation.Activate(MonoBehaviour[] monoBehaviours)
         {
@@ -103,7 +116,9 @@ namespace Assets
                     }
                     var cc = oc.gameObject.GetGameObjectComponents<RectTransform>();
                     RectTransform rt = cc["Results"][0];
+                    Vector3 anc = rt.anchoredPosition;
                     rt.sizeDelta = new Vector2(rt.rect.width, (float)controlHeight);
+                    rt.anchoredPosition = anc;
                 }
                 if (name == "Station")
                 {
@@ -114,48 +129,58 @@ namespace Assets
 
         int IActivation.Level { get => StaticLevel; set => StaticLevel = value; }
 
+        int IActivation.SetConstants(float[] constants)
+        {
+            floatConstants[0][6] = constants[0];
+            return -1;
+        }
+
+
+        #endregion
 
         private static void SetValues()
         {
             floatConstants[0][0] = kF;
             float[] f = floatConstants[0];
             f[0] = kF;
-            controlString = "Controls:\nRight Shift/Ctrl - Forward/Bakward";
+            controlString = "Controls:\n\nRight Shift/Ctrl - Forward/Bakward";
             if (level == 1)
             {
                 controlHeight = 200;
                 return;
             }
-            string sud = "\n\nUp/Down     -       Up/Down";
+            string sud = "\nUp/Down     -       Up/Down";
             if (level == 2)
             {
                 controlString += sud;
                 controlHeight = 300;
             }
 
-            string slr = "\n\nLeft/Right     -    Left/Right";
+            string slr = "\nLeft/Right     -    Left/Right";
             if (level == 3)
             {
                 controlString += sud + slr;
-                controlHeight = 400;
+                controlHeight = 350;
             }
-            string   sroll = "\n\nQE            -          Roll\n\nDocking of ";
+            string   sroll = "\nQE      -    Roll\n\nDocking of Soyuz 3";
             if (level == 4)
             {
                 controlString += sroll;
-                controlHeight = 300;
+                controlHeight = 350;
             }
              string swasd = "\n\nQEAD        - Roll and Pitch";
-
             if (level == 5)
             {
+                f[1] = f[2] = f[0];
                 controlString += sud + slr + swasd;
                 controlHeight = 500;
             }
             if (level == 6)
             {
+                f[1] = f[2] = f[0];
                 controlString += sud + slr + "\n\nQEWSAD  - Roll, Pitch, Yaw";
-                controlHeight = 500;
+                controlString += "\n\nDocking of Soyuz T-13";
+                controlHeight = 600;
             }
             string[] sc = stringConstants[0];
             if (level >= 4)
@@ -210,5 +235,6 @@ namespace Assets
             }
 
         }
-    }
+
+     }
 }

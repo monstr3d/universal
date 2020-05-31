@@ -3,23 +3,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
+
+using Motion6D.Interfaces;
+
+using Vector3D;
 
 using Scada.Interfaces;
 
 using Unity.Standard;
-using Motion6D.Interfaces;
-using DataPerformer.Portable;
-using Vector3D;
-using CategoryTheory;
-using UnityEngine.SceneManagement;
-using BaseTypes;
 
 public class ResultIndicator : MonoBehaviour
 {
-
- 
-    public float interval = -1;
 
   
     Action update;
@@ -38,21 +34,29 @@ public class ResultIndicator : MonoBehaviour
 
     float time;
 
-    private void Awake()
+    static int count = 0;
+
+    string resString = "Success";
+
+    string GetResult(double val, float lim, float scale, string format)
     {
-   
+        float f = (float)val * scale;
+        string s = " " + f.ToString(format) + " (" + lim.ToString(format) + ")";
+        if (Math.Abs(f) > lim)
+        {
+            s = s + " Crashed";
+            resString = "Crashed";
+        }
+        return s;
     }
+
+   
 
 
     // Start is called before the first frame update
     void Start()
     {
-        if (interval > 0)
-        {
-            enabled = false;
-            return;
-        }
-        update = ShowTable;
+         update = ShowTable;
     }
 
     private void Update()
@@ -65,7 +69,7 @@ public class ResultIndicator : MonoBehaviour
 
     public void Indicate(object ob)
     {
-        time = Time.realtimeSinceStartup;
+        time = (float)Activation.Time;
         object[] o = ob as object[];
         IScadaInterface scada = o[0] as IScadaInterface;
         ReferenceFrame frame = scada.GetOutput("Relative to station.Frame")() as ReferenceFrame;
@@ -86,22 +90,27 @@ public class ResultIndicator : MonoBehaviour
         Dictionary<string, List<Component>> tr =
               gameObject.GetGameObjectComponents<Component>();
         Component res = tr["Results"][0];
+        Dictionary<string, List<RectTransform>> rts =
+              gameObject.GetGameObjectComponents<RectTransform>(); 
+        RectTransform rt = rts["Results"][0];
+        rt.sizeDelta = new Vector2(rt.rect.width, 850f);
         Text text = res.GetComponentsInChildren<Text>(true)[0];
         EulerAngles angles = new EulerAngles();
         angles.Set(ori);
         string s = "Deviations\nY\t";
-        s += (pos[1] * 100).ToString("0.0");
-        s += "\nZ\t" + (pos[0] * 100).ToString("0.0");
-        s += "\nRoll\t" + (Mathf.Rad2Deg * angles.roll).ToString("0.0");
-        s += "\nPitch\t" + (Mathf.Rad2Deg * angles.pitch).ToString("0.0");
-        s += "\nYaw\t" + (Mathf.Rad2Deg * angles.yaw).ToString("0.0");
-        s += "\nVx\t" + (vel[2] * 100).ToString("0.0");
-        s += "\nVy\t" + (vel[1] * 100).ToString("0.0");
-        s += "\nVz\t" + (vel[0] * 100).ToString("0.0");
-        s += "\nOmega X\t" + (omega[0] * 100).ToString("0.0");
-        s += "\nOmega Y\t" + (omega[1] * 100).ToString("0.0");
-        s += "\nOmega Z\t" + (omega[2] * 100).ToString("0.0");
-        s += "\nTime\t" + time.ToString("0");
+        s += GetResult(pos[1], parameters[0], 100, "0.0");
+        s += "\nZ\t" + GetResult(pos[0], parameters[0], 100, "0.0");
+        s += "\nRoll\t" + GetResult(Mathf.Rad2Deg * angles.yaw, parameters[5], 1, "0.0");
+        s += "\nPitch\t" + GetResult(Mathf.Rad2Deg * angles.pitch, parameters[5], 1, "0.0"); (Mathf.Rad2Deg * angles.pitch).ToString("0.0");
+        s += "\nYaw\t" + GetResult(Mathf.Rad2Deg * angles.roll, parameters[5], 1, "0.0");
+        s += "\nVx\t" + GetResult(vel[2], parameters[3], 100, "0.0");
+        s += "\nVy\t" + GetResult(vel[1], parameters[3], 100, "0.0");
+        s += "\nVz\t" + GetResult(vel[0], parameters[3], 100, "0.0");
+        s += "\nOmega X\t" + GetResult(Mathf.Rad2Deg * omega[2], parameters[7], 1, "0.0");
+        s += "\nOmega Y\t" + GetResult(Mathf.Rad2Deg * omega[1], parameters[7], 1, "0.0");
+        s += "\nOmega Z\t" + GetResult(Mathf.Rad2Deg * omega[0], parameters[7], 1, "0.0");
+        s += "\nTime\t" + GetResult(time, parameters[11], 1, "0"); 
+        s += "\n\n" + resString;
         text.text = s;
         update = Quit;
         res.gameObject.SetActive(true);
@@ -113,6 +122,9 @@ public class ResultIndicator : MonoBehaviour
         {
             gameObject.SetActive(false);
             StaticExtensionUnity.Clear();
+            ++count;
+            Assets.SimpleActivation.StaticLevel = -1;
+            Activation.Disable();
             SceneManager.LoadScene("LevelScene", LoadSceneMode.Single);
         }
     }

@@ -712,10 +712,10 @@ namespace Unity.Standard
             }
             IMeasurement ITimeMeasurementProvider.TimeMeasurement => m;
 
-            double ITimeMeasurementProvider.Time { get => Time.realtimeSinceStartup; set { } }
+            double ITimeMeasurementProvider.Time { get => Activation.Time; set { } }
             double ITimeMeasurementProvider.Step { get; set; }
 
-            IMeasurement m = new Measurement(() => (double)Time.realtimeSinceStartup, "Time");
+            IMeasurement m = new Measurement(() => Activation.Time, "Time");
         }
 
         class ErrorHanller : Scada.Interfaces.IErrorHandler

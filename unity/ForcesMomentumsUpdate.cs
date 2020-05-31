@@ -1,34 +1,24 @@
-﻿using Scada.Interfaces;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Unity.Standard;
 using UnityEngine;
-using UnityEngine.Experimental.VFX;
 using UnityEngine.UI;
+
+using Unity.Standard;
+
+using Scada.Interfaces;
 
 namespace Assets
 {
     public class ForcesMomentumsUpdate : AbstractUpdateGameObject
     {
-        private static float interval = -1;
 
-        public static float Interval
-        {
-            set
-            {
-                if (interval < 0)
-                {
-                    if (value > 0)
-                    {
-                        interval = value;
-                    }
-                }
-            }
-        }
+        #region Fields
 
+        private float interval = 0;
+ 
         public float kx = 1f;
 
         public float ky = 1f;
@@ -56,8 +46,7 @@ namespace Assets
 
         Dictionary<KeyCode, bool> pressed = new Dictionary<KeyCode, bool>();
 
-        bool keyPressed = false;
-
+   
 
         GameObject gameObject;
 
@@ -87,17 +76,22 @@ namespace Assets
            {1, new Tuple<int, KeyCode[]>(2, new KeyCode[]{KeyCode.UpArrow, KeyCode.DownArrow} )}
         };
 
+        string[,] txt = new string[,] { { "Ax_Txt", "0.00" }, { "Ay_Txt", "0.00" }, { "Az_Txt", "0.00" },
+            { "Omx1_Txt", "+--" }, { "Omy1_Txt", "+--" } , { "Omz1_Txt", "+--" }  };
+
+        Dictionary<KeyCode, Tuple<Text, string[]>> texts = new Dictionary<KeyCode, Tuple<Text, string[]>>();
+
+        #endregion
+
+        #region Ctor
         public ForcesMomentumsUpdate()
         {
-            constants = new float[] { kx, ky, kz, kMx, kMy, kMz };
-            return;
-             foreach (KeyCode keyCode in codes)
-            {
-                pressed[keyCode] = false;
-            }
+            constants = new float[] { kx, ky, kz, kMx, kMy, kMz, 0 };
         }
 
-    
+        #endregion
+
+        #region Overriden Members   
 
         public override void Set(object[] obj, Component indicator, IScadaInterface scada)
         {
@@ -114,10 +108,28 @@ namespace Assets
             }
         }
 
-        string[,] txt = new string[,] { { "Ax_Txt", "0.00" }, { "Ay_Txt", "0.00" }, { "Az_Txt", "0.00" }, 
-            { "Omx1_Txt", "+--" }, { "Omy1_Txt", "+--" } , { "Omz1_Txt", "+--" }  };
 
-        Dictionary<KeyCode, Tuple<Text, string[]>> texts = new Dictionary<KeyCode, Tuple<Text, string[]>>();
+        public override int SetConstants(int offset, float[] constants)
+        {
+            int i = base.SetConstants(offset, constants);
+            interval = constants[6];
+            Prepare();
+            return i;
+            /*
+            kx = cons[0];
+            ky = cons[1];
+            kz = cons[2];
+            kMx = cons[3];
+            kMy = cons[4];
+            kMz = cons[5];
+            return i;*/
+        }
+
+        public override Action Update => UpdateInternal;
+
+
+
+        #endregion
 
         void Prepare()
         {
@@ -167,24 +179,7 @@ namespace Assets
             }
         }
 
-        public override int SetConstants(int offset, float[] constants)
-        {
-            int i = base.SetConstants(offset, constants);
-            float[] cons = this.constants;
-            Prepare();
-            return i;
-            kx = cons[0];
-            ky = cons[1];
-            kz = cons[2];
-            kMx = cons[3];
-            kMy = cons[4];
-            kMz = cons[5];
-            return i;
-        }
-
-        KeyCode current;
-
-        public override Action Update => UpdateInternal;
+      KeyCode current;
 
         KeyCode lastCurrent;
 

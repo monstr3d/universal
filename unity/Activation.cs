@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
+
 using UnityEngine;
 
 using Unity.Standard;
@@ -11,15 +13,29 @@ using Unity.Standard;
 public class Activation : MonoBehaviour
 {
 
+
     public string activation = "";
 
     public int level;
 
+    public float[] constants;
+    
+
+    static bool exists = false;
+
 
     public MonoBehaviour[] components;
 
+    static float startTime;
+
     private void Awake()
     {
+        startTime = UnityEngine.Time.realtimeSinceStartup;
+        if (exists)
+        {
+            throw new Exception();
+        }
+        exists = true;
         if (activation != null)
         {
             if (activation.Length > 0)
@@ -27,6 +43,7 @@ public class Activation : MonoBehaviour
                 ConstructorInfo ci = StaticExtensionUnity.activations[this.activation];
                 IActivation activation = ci.Invoke(new object[0]) as IActivation;
                 activation.Level = level;
+                activation.SetConstants(constants);
                 activation.Activate(components);
             }
         }
@@ -35,4 +52,17 @@ public class Activation : MonoBehaviour
             monoBehaviour.enabled = true;
         }
     }
-}
+
+    /// <summary>
+    /// Disables itsels
+    /// </summary>
+    static public void Disable()
+    {
+        exists = false;
+    }
+
+    static public double Time 
+    { 
+        get => UnityEngine.Time.realtimeSinceStartup - startTime; 
+    }
+ }

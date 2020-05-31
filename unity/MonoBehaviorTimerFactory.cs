@@ -116,7 +116,7 @@ namespace Unity.Standard
             {
                 scada.IsEnabled = true;
             }
-            currentTime = Time.realtimeSinceStartup;
+            currentTime = (float)Activation.Time;
         }
 
 
@@ -143,7 +143,7 @@ namespace Unity.Standard
 
         static object GetTime()
         {
-            return (double)Time.realtimeSinceStartup;
+            return Activation.Time;
         }
 
 

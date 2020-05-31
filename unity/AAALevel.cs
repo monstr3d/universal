@@ -12,7 +12,7 @@ public class AAALevel : MonoBehaviour
 
     static Action update;
 
-    static int level;
+    static int level = 0;
     static public bool Unload
     {
         set
@@ -58,9 +58,10 @@ public class AAALevel : MonoBehaviour
             string ss = "SampleScene";
             if (level > 0)
             {
-                ss += level;
+                ss +=  level;
             }
             SceneManager.LoadScene(ss, LoadSceneMode.Single);
+            ++level;
         }
         catch (Exception ex)
         {
