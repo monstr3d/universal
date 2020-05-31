@@ -17,7 +17,7 @@ using Unity.Standard;
 public class ResultIndicator : MonoBehaviour
 {
 
-  
+
     Action update;
 
     IScadaInterface scada;
@@ -28,7 +28,7 @@ public class ResultIndicator : MonoBehaviour
 
     double[] ori = new double[4];
 
-    double[] vel= new double[3];
+    double[] vel = new double[3];
 
     double[] omega = new double[3];
 
@@ -50,13 +50,13 @@ public class ResultIndicator : MonoBehaviour
         return s;
     }
 
-   
+
 
 
     // Start is called before the first frame update
     void Start()
     {
-         update = ShowTable;
+        update = ShowTable;
     }
 
     private void Update()
@@ -91,7 +91,7 @@ public class ResultIndicator : MonoBehaviour
               gameObject.GetGameObjectComponents<Component>();
         Component res = tr["Results"][0];
         Dictionary<string, List<RectTransform>> rts =
-              gameObject.GetGameObjectComponents<RectTransform>(); 
+              gameObject.GetGameObjectComponents<RectTransform>();
         RectTransform rt = rts["Results"][0];
         rt.sizeDelta = new Vector2(rt.rect.width, 850f);
         Text text = res.GetComponentsInChildren<Text>(true)[0];
@@ -109,11 +109,21 @@ public class ResultIndicator : MonoBehaviour
         s += "\nOmega X\t" + GetResult(Mathf.Rad2Deg * omega[2], parameters[7], 1, "0.0");
         s += "\nOmega Y\t" + GetResult(Mathf.Rad2Deg * omega[1], parameters[7], 1, "0.0");
         s += "\nOmega Z\t" + GetResult(Mathf.Rad2Deg * omega[0], parameters[7], 1, "0.0");
-        s += "\nTime\t" + GetResult(time, parameters[11], 1, "0"); 
+        s += "\nTime\t" + GetResult(time, parameters[11], 1, "0");
         s += "\n\n" + resString;
         text.text = s;
         update = Quit;
         res.gameObject.SetActive(true);
+    }
+
+    static public void Escape()
+    {
+        StaticExtensionUnity.Clear();
+        ++count;
+        Assets.SimpleActivation.StaticLevel = -1;
+        Activation.Disable();
+        SceneManager.LoadScene("LevelScene", LoadSceneMode.Single);
+
     }
 
     private void Quit()
@@ -121,11 +131,7 @@ public class ResultIndicator : MonoBehaviour
         if (Input.GetKey(KeyCode.Q))
         {
             gameObject.SetActive(false);
-            StaticExtensionUnity.Clear();
-            ++count;
-            Assets.SimpleActivation.StaticLevel = -1;
-            Activation.Disable();
-            SceneManager.LoadScene("LevelScene", LoadSceneMode.Single);
+            Escape();
         }
     }
 

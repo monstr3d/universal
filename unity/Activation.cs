@@ -18,6 +18,8 @@ public class Activation : MonoBehaviour
 
     public int level;
 
+    public string[] strings = new string[0];
+
     public float[] constants;
     
 
@@ -44,6 +46,7 @@ public class Activation : MonoBehaviour
                 IActivation activation = ci.Invoke(new object[0]) as IActivation;
                 activation.Level = level;
                 activation.SetConstants(constants);
+                activation.SetConstants(strings);
                 activation.Activate(components);
             }
         }

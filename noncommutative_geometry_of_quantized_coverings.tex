@@ -2066,22 +2066,26 @@ i.e. $M\left( \widetilde{A}'\right)$ is the finitely generated module over $M\le
 
 
 \begin{definition}
-Let	$\left(A, \widetilde{A}, G, \pi \right)$ be  a noncommutative finite-fold  quasi-covering. An let $\phi$ be a positive functional on $A$. Any positive functional $\psi:  \widetilde{A} \to \C$ is said to be a \textit{lift} of $\phi$ if $\left\| \psi\right\| =\left\| \phi\right\|$ and $\phi = \psi|_A$. We say that the lift $\psi$ is $G$-\textit{invariant} if $\psi\left( \widetilde{a}\right) = \psi\left( g \widetilde{a}\right)$ for each  $g \in G$ and $\widetilde{a}\in \widetilde{A}$.
+Let	$\left(A, \widetilde{A}, G, \pi \right)$ be  a noncommutative finite-fold  quasi-covering. A state $\varphi$ on $\widetilde{A}$ is said to be \textit {invariant}  if $\varphi\left( g\widetilde{a}\right)=\varphi\left( \widetilde{a}\right)$ for all $g \in G$ and $\widetilde{a}\in \widetilde{A}$.
 \end{definition}
 
 \begin{lemma}\label{state_cov_11_lem}
-If	$\left(A, \widetilde{A}, G, \pi \right)$ is  a noncommutative finite-fold  quasi-covering then there is the one-to-one correspondence between positive functionals on $A$ and their $G$-invariant lifts.
+If	$\left(A, \widetilde{A}, G, \pi \right)$ is  a noncommutative finite-fold  quasi-covering then there is the one-to-one correspondence between states on $A$ and invariant states on $\widetilde{A}$
 \end{lemma}
 \begin{proof}
-For any positive functional $\phi:A\to \C$ there is a $G$-invariant lift $\psi:  \widetilde{A} \to \C$ given by 
+If $\phi: A \to \C$ is a state on $A$ then there is the invariant state
 \be\label{state_down_eqn}
-\widetilde a \mapsto \frac{1}{\left|G\right|}\phi\left( \sum_{g \in G} g \widetilde{a} \right).
+\begin{split}
+	\varphi:  \widetilde{A}\to \C,\\
+\widetilde{a}\mapsto \frac{1}{\left|G\right|}\sum_{g \in G} \phi\left(g\widetilde{a} \right),
+\end{split}
 \ee
- If $\psi', \psi''$ are two $G$-invariant lifts of $\phi$ then for any $\widetilde{a} \in \widetilde{A}$ one has
+i.e. there is a  map from the set of states on $A$ to the set of invariant spaces on  $\widetilde{A}$. This map is invective, because $\varphi\left(a \right) = \phi\left(a\right)$ for all $a\in A$. If $\varphi: \widetilde{A}\to \C$ is an invariant state  then there is $\widetilde{a}\in \widetilde{A}$ such that $\varphi\left(\widetilde{a} \right)\neq 0$. So one has
 $$
-\psi'\left(\widetilde{a} \right) = \frac{1}{\left|G\right|}\sum_{g \in G} \psi'\left(g\widetilde{a} \right)= \frac{1}{\left|G\right|}\phi\left( \sum_{g \in G} g \widetilde{a} \right) = \frac{1}{\left|G\right|}\sum_{g \in G} \psi''\left(g\widetilde{a} \right)=\psi''\left(\widetilde{a} \right),
-$$
-i.e. $\psi' = \psi''$.
+\frac{1}{\left|G\right|}\sum_{g \in G} \varphi\left(g\widetilde{a} \right)\neq 0.
+ $$
+ In result the restriction $\phi \bydef \varphi|_A$ is not trivial, i.e. it is a state.  Since $\varphi$ and $\phi$ satisfy to \eqref{state_down_eqn} the map from the set of states on $A$ to the set of invariant spaces on  $\widetilde{A}$ is surjecive.
+
 \end{proof}
 
 \begin{lemma} \label{cov_spectrum_lem}
@@ -2113,8 +2117,8 @@ i.e. $\psi' = \psi''$.
 	\eean 
 	\\
 	The map $\widetilde{\rho} \mapsto \widetilde{\rho}_g$ gives a homeomorphism of $\widetilde{\mathcal X}$. Such homeomorphisms give an action $G \times \widetilde{\mathcal X} \to \widetilde{\mathcal X}$, such that $g\widetilde{\rho}= \widetilde{\rho}_g$ for any $g \in G$.\\
-	(ii) Let $\widetilde\tau : \widetilde A \to \C$ be a pure state on $\widetilde A$, and let $\tau \bydef \left.\widetilde\tau\right|_{A} A \to\C$ be the restriction. 
-		 If $\widetilde{a} \in \widetilde{A}_+$ is a positive element such that $\widetilde{\tau}\left(\widetilde{a} \right) \neq 0$ then $a = \sum_{g \in G} g \widetilde{a} \in A$ is a positive element such that $\widetilde{\tau}\left(a \right) \neq 0$. It turns out that the restriction $\tau\bydef \left. \widetilde{\tau}\right|_{A}: A \to \C$ is a state. Let  $p:A \to \C$ be a positive functional such that $p < \tau$. From the HahnÐBanach theorem it follows that there is a positive functional  $\widetilde p: \widetilde{A}\to\C$ such $\widetilde p < \widetilde \tau$. Since $\widetilde \tau$ is there is $t \in [0,1]$ such that $\widetilde p = t\widetilde \tau$. One has the $G$ invariant state 
+	(ii) Let $\widetilde\tau : \widetilde A \to \C$ be a pure state on $\widetilde A$, and let $\tau \bydef \left.\widetilde\tau\right|_{A}: A \to\C$ be the restriction. 
+		 If $\widetilde{a} \in \widetilde{A}_+$ is a positive element such that $\widetilde{\tau}\left(\widetilde{a} \right) \neq 0$ then $a = \sum_{g \in G} g \widetilde{a} \in A$ is a positive element such that $\widetilde{\tau}\left(a \right) \neq 0$. It turns out that the restriction $\tau\bydef \left. \widetilde{\tau}\right|_{A}: A \to \C$ is a state. Let  $p:A \to \C$ be a positive functional such that $p < \tau$. From the HahnÐBanach theorem it follows that there is a positive functional  $\widetilde p: \widetilde{A}\to\C$ such $\widetilde p < \widetilde \tau$. Since the state $\widetilde \tau$ is pure there is $t \in [0,1]$ such that $\widetilde p = t\widetilde \tau$. One has the $G$ invariant state 
 	\bean
 \widetilde \tau^\oplus: \widetilde{A}\to\C,\\
 \widetilde{a}\mapsto \frac{1}{\left|G\right|}\sum_{	g \in G} \widetilde \tau
@@ -2136,7 +2140,7 @@ So the state $\tau$ is pure, and the map $\widetilde\tau \mapsto \tau$ yields 	t
 	\ee 
 	so the preimage of   $\mathcal U$, is closed, it turns out that $p$ is continuous. From the Proposition \ref{sur_prop} it turns out that $p$ is a surjective map. From the condition (b) of the Definition \ref{fin_pre_defn} it turns out that $ga=a$ for any $a \in A$ and $g \in G$, so one has $\left(g\widetilde{\rho} \right)\left( a\right)= \widetilde{\rho}\left(a \right)$ for any $\widetilde{\rho} \in \widetilde{\mathcal X}$. It follows that $p \circ g = p;~~ \forall g \in G$.
 	From the Lemma \ref{state_cov_11_lem} it turns out that $p$ is a bijective map.  \\
-	(iii) Any pure state $\phi : A \to \C$ uniquely defines the given by \ref{state_down_eqn} invariant state $\widetilde{\phi}$. Otherwise $\widetilde{\phi}$  uniquely depends on the $G$-orbit of any pure state $\widetilde{\psi}:\widetilde \to \C$ such that $\left.\widetilde{\psi}\right|_A = \phi$. So the map $p_G:\widetilde{\mathcal X}/G \xrightarrow{\approx} {\mathcal X}$ is bijective. Open subsets of $\widetilde{\mathcal X}/G$ correspond to open subsets $\widetilde\sU\subset \widetilde\sX$ such that $G\widetilde\sU=\widetilde\sU$. Otherwise such open subset corresponds to the closed two-sided  $G$-invariant  ideal $\widetilde I$, i.e. $G\widetilde I=\widetilde I$. If $I\bydef A\cap \pi^{-1}\left( \widetilde I\right) $ then $\widetilde I$ is the generated by $\pi\left( I\right)$ ideal. There are mutually inverse maps between closed two sided ideals of $A$  an closed two-sided  $G$-invariant  ideals $\widetilde A$ given by
+	(iii) Any pure state $\phi : A \to \C$ uniquely defines the given by \eqref{state_down_eqn} invariant state $\widetilde{\phi}$. Otherwise $\widetilde{\phi}$  uniquely depends on the $G$-orbit of any pure state $\widetilde{\psi}:\widetilde \to \C$ such that $\left.\widetilde{\psi}\right|_A = \phi$. So the map $p_G:\widetilde{\mathcal X}/G \xrightarrow{\approx} {\mathcal X}$ is bijective. Open subsets of $\widetilde{\mathcal X}/G$ correspond to open subsets $\widetilde\sU\subset \widetilde\sX$ such that $G\widetilde\sU=\widetilde\sU$. Otherwise such open subset corresponds to the closed two-sided  $G$-invariant  ideal $\widetilde I$, i.e. $G\widetilde I=\widetilde I$. If $I\bydef A\cap \pi^{-1}\left( \widetilde I\right) $ then $\widetilde I$ is the generated by $\pi\left( I\right)$ ideal. There are mutually inverse maps between closed two sided ideals of $A$  an closed two-sided  $G$-invariant  ideals $\widetilde A$ given by
 	\bean
 	I \mapsto \text{ the generated by }\pi\left( I\right) \text{ ideal},\\
 	\widetilde I \mapsto  A\cap \pi^{-1}\left( \widetilde I\right) 

@@ -135,6 +135,16 @@ namespace Assets
             return -1;
         }
 
+        int IActivation.SetConstants(string[] constants)
+        {
+            if (constants.Length > 0)
+            {
+                stringConstants[0][0] = constants[0];
+            }
+            return -1;
+        }
+
+
 
         #endregion
 

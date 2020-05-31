@@ -249,6 +249,10 @@ namespace Assets
         {
             if (Input.GetKey(code))
             {
+                if (current == KeyCode.F11)
+                {
+                    return false;
+                }
                 current = code;
                 lastCurrent = code;
                 UpdateCurrent();
@@ -260,8 +264,8 @@ namespace Assets
         {
             get
             {
+                current = KeyCode.F11;
                 yield return new WaitForSeconds(interval);
-                UpdateCurrent();
                 current = KeyCode.F10;
                 yield return current;
             }
@@ -273,6 +277,10 @@ namespace Assets
 
         void UpdateInternal()
         {
+            if (Input.GetKey(KeyCode.Escape))
+            {
+                ResultIndicator.Escape();
+            }
             if (!scada.IsEnabled)
             {
                 for (int i = 0; i < 6; i++)

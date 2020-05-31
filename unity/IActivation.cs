@@ -27,8 +27,17 @@ namespace Unity.Standard
         /// <summary>
         /// Sets constants
         /// </summary>
-        /// <param name="constants"></param>
-        /// <returns></returns>
+        /// <param name="constants">Constants</param>
+        /// <returns>Number of constants</returns>
         int SetConstants(float[] constants);
+
+        /// <summary>
+        /// Sets constants
+        /// </summary>
+        /// <param name="constants">Constants</param>
+        /// <returns>Number of constants</returns>
+        int SetConstants(string[] constants);
+
+
     }
 }

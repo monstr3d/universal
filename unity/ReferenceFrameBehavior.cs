@@ -267,10 +267,7 @@ public class ReferenceFrameBehavior : MonoBehaviour
 
     #endregion
 
-
     #region  Private Members
-
-  
     void SetConstants()
     {
         var consts = scada.Constants;
@@ -292,7 +289,6 @@ public class ReferenceFrameBehavior : MonoBehaviour
         }
     }
  
-   
 
     #endregion
 }
