@@ -2066,25 +2066,26 @@ i.e. $M\left( \widetilde{A}'\right)$ is the finitely generated module over $M\le
 
 
 \begin{definition}
-Let	$\left(A, \widetilde{A}, G, \pi \right)$ be  a noncommutative finite-fold  quasi-covering. A state $\varphi$ on $\widetilde{A}$ is said to be \textit {invariant}  if $\varphi\left( g\widetilde{a}\right)=\varphi\left( \widetilde{a}\right)$ for all $g \in G$ and $\widetilde{a}\in \widetilde{A}$.
+Let	$\left(A, \widetilde{A}, G, \pi \right)$ be  a noncommutative finite-fold  quasi-covering. A state $\varphi$ on $\widetilde{A}$ is said to be \textit {invariant}  if $\widetilde{\tau}\left( g\widetilde{a}\right)=\widetilde{\tau}\left( \widetilde{a}\right)$ for all $g \in G$ and $\widetilde{a}\in \widetilde{A}$.
 \end{definition}
 
 \begin{lemma}\label{state_cov_11_lem}
 If	$\left(A, \widetilde{A}, G, \pi \right)$ is  a noncommutative finite-fold  quasi-covering then there is the one-to-one correspondence between states on $A$ and invariant states on $\widetilde{A}$
 \end{lemma}
 \begin{proof}
-If $\phi: A \to \C$ is a state on $A$ then there is the invariant state
+If $\tau: A \to \C$ is a state on $A$ then there is the invariant state
 \be\label{state_down_eqn}
 \begin{split}
-	\varphi:  \widetilde{A}\to \C,\\
-\widetilde{a}\mapsto \frac{1}{\left|G\right|}\sum_{g \in G} \phi\left(g\widetilde{a} \right),
+	\widetilde{\tau}:  \widetilde{A}\to \C,\\
+\widetilde{a}\mapsto \frac{1}{\left|G\right|}\sum_{g \in G} \tau\left(g\widetilde{a} \right),
 \end{split}
 \ee
-i.e. there is a  map from the set of states on $A$ to the set of invariant spaces on  $\widetilde{A}$. This map is invective, because $\varphi\left(a \right) = \phi\left(a\right)$ for all $a\in A$. If $\varphi: \widetilde{A}\to \C$ is an invariant state  then there is $\widetilde{a}\in \widetilde{A}$ such that $\varphi\left(\widetilde{a} \right)\neq 0$. So one has
+i.e. there is a given by $\tau \to \widetilde\tau$ map $\phi$ from the set of states on $A$ to the set of invariant spaces on  $\widetilde{A}$.% This map is invective, because $\widetilde{\tau}\left(a \right) = \tau\left(a\right)$ for all $a\in A$. 
+ If $\widetilde{\tau}: \widetilde{A}\to \C$ is an invariant state  then there is $\widetilde{a}\in \widetilde{A}$ such that $\widetilde{\tau}\left(\widetilde{a} \right)\neq 0$. So one has
 $$
-\frac{1}{\left|G\right|}\sum_{g \in G} \varphi\left(g\widetilde{a} \right)\neq 0.
+\frac{1}{\left|G\right|}\sum_{g \in G} \widetilde{\tau}\left(g\widetilde{a} \right)\neq 0.
  $$
- In result the restriction $\phi \bydef \varphi|_A$ is not trivial, i.e. it is a state.  Since $\varphi$ and $\phi$ satisfy to \eqref{state_down_eqn} the map from the set of states on $A$ to the set of invariant spaces on  $\widetilde{A}$ is surjecive.
+It follows that the restriction $\tau \bydef \widetilde{\tau}|_A: A\to \C$ is not trivial, i.e. $\tau$ is a state.  So there is the given by $\widetilde{\tau}\to \tau$ map $\varphi$ from the set of invariant states on $\widetilde{A}$ to states on $A$. The maps $\phi$ and $\varphi$ are mutually inverse.
 
 \end{proof}
 
@@ -2117,7 +2118,7 @@ $$
 	\eean 
 	\\
 	The map $\widetilde{\rho} \mapsto \widetilde{\rho}_g$ gives a homeomorphism of $\widetilde{\mathcal X}$. Such homeomorphisms give an action $G \times \widetilde{\mathcal X} \to \widetilde{\mathcal X}$, such that $g\widetilde{\rho}= \widetilde{\rho}_g$ for any $g \in G$.\\
-	(ii) Let $\widetilde\tau : \widetilde A \to \C$ be a pure state on $\widetilde A$, and let $\tau \bydef \left.\widetilde\tau\right|_{A}: A \to\C$ be the restriction. 
+	(ii) Let $\widetilde\tau : \widetilde A \to \C$ be a pure state on $\widetilde A$, and let $\tau \bydef \left.\widetilde\tau\right|_{A}: A \to\C$ be its restriction. 
 		 If $\widetilde{a} \in \widetilde{A}_+$ is a positive element such that $\widetilde{\tau}\left(\widetilde{a} \right) \neq 0$ then $a = \sum_{g \in G} g \widetilde{a} \in A$ is a positive element such that $\widetilde{\tau}\left(a \right) \neq 0$. It turns out that the restriction $\tau\bydef \left. \widetilde{\tau}\right|_{A}: A \to \C$ is a state. Let  $p:A \to \C$ be a positive functional such that $p < \tau$. From the HahnÐBanach theorem it follows that there is a positive functional  $\widetilde p: \widetilde{A}\to\C$ such $\widetilde p < \widetilde \tau$. Since the state $\widetilde \tau$ is pure there is $t \in [0,1]$ such that $\widetilde p = t\widetilde \tau$. One has the $G$ invariant state 
 	\bean
 \widetilde \tau^\oplus: \widetilde{A}\to\C,\\
@@ -2298,7 +2299,7 @@ There is  an isomorphism  $\widetilde{A} \approx A \bigoplus P$ of $A$-modules t
  \end{equation}
  
  
- Let us construct a Morita context $$\left( \widetilde{A} \rtimes G, A,~ _{\widetilde{A} \rtimes G}\widetilde{A}_A, ~ _A\widetilde{A}_{\widetilde{A} \rtimes G}, \varphi, \psi\right) $$ where both $_A\widetilde{A}_{\widetilde{A} \rtimes G}$ and $ _{\widetilde{A} \rtimes G}\widetilde{A}_A$ coincide with $\widetilde{A}$ as $\C$-spaces. Left and right action of $\widetilde{A} \rtimes G$ on $\widetilde{A}$ is given by
+ Let us construct a Morita context $$\left( \widetilde{A} \rtimes G, A,~ _{\widetilde{A} \rtimes G}\widetilde{A}_A, ~ _A\widetilde{A}_{\widetilde{A} \rtimes G}, \widetilde{\tau}, \psi\right) $$ where both $_A\widetilde{A}_{\widetilde{A} \rtimes G}$ and $ _{\widetilde{A} \rtimes G}\widetilde{A}_A$ coincide with $\widetilde{A}$ as $\C$-spaces. Left and right action of $\widetilde{A} \rtimes G$ on $\widetilde{A}$ is given by
  
  \begin{equation*}
  \begin{split}
@@ -7104,14 +7105,14 @@ The algebraic construction of finite-fold coverings requires the following defin
 	z \mapsto z^n.
 	\end{split}
 	\end{equation*}
-	If both  $\mathcal X \hookto\mathcal Y$, $\widetilde{   \mathcal X } \hookto \widetilde{   \mathcal Y }$ are compactifications, and $\overline{p}: \widetilde{   \mathcal Y } \to \mathcal Y$ is a covering such that $\overline{p}|_{\widetilde{   \mathcal X }} = p$ then from \eqref{x_0_eqn} it turns out $\overline{p}^{-1}\left(x_0 \right)= \left\{\widetilde{x}_0\right\}$ where $\widetilde{x}_0$ is the unique point such that following conditions hold:
+	If both  $\mathcal X \hookto\mathcal Y$, $\widetilde{   \mathcal X } \hookto \widetilde{   \mathcal Y }$ are compactifications, and $\overline{p}: \widetilde{   \mathcal Y } \to \mathcal Y$ is a covering such that $\widetilde{p}|_{\widetilde{   \mathcal X }} = p$ then from \eqref{x_0_eqn}!!! it turns out $\widetilde{p}^{-1}\left(x_0 \right)= \left\{\widetilde{x}_0\right\}$ where $\widetilde{x}_0$ is the unique point such that following conditions hold:
 	\begin{equation*}
 	\begin{split}
 	\widetilde{x}_0 = \lim_{\a} \widetilde{z}_\a \in \widetilde{   \mathcal Y },\\
 	\lim_{\a}\left|\widetilde{z}_\a\right|= 0.
 	\end{split}
 	\end{equation*}
-	It turns out $\left|\overline{p}^{-1}\left(x_0 \right) \right|=1$. However $\overline{p}$ is an $n$-fold covering and if $n >1$ then  $\left|\overline{p}^{-1}\left(x_0 \right) \right|=n>1$. It contradicts with $\left|\overline{p}^{-1}\left(x_0 \right) \right|=1$, and from the contradiction it turns out that for any $n > 1$ the map  $p$ is not a covering with  compactification.
+	It turns out $\left|\widetilde{p}^{-1}\left(x_0 \right) \right|=1$. However $\widetilde{p}$ is an $n$-fold covering and if $n >1$ then  $\left|\widetilde{p}^{-1}\left(x_0 \right) \right|=n>1$. It contradicts with $\left|\widetilde{p}^{-1}\left(x_0 \right) \right|=1$, and from the contradiction it turns out that for any $n > 1$ the map  $p$ is not a covering with  compactification.
 \end{example}
 
 %The application of the Definition \ref{fin_defn} requires the notion of covering with compactification given by the Definition \ref{top_cov_comp_defn}. Following examples explain the notion.

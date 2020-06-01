@@ -106,15 +106,16 @@ Noncommutative geometry and topology
   \titlepage
 \end{frame}
 \begin{frame}
-	   \begin{definition} \alert{P. Ivankov}.
+	   \begin{definition}\label{pre_defn} \alert{P. Ivankov}.
 		Let $\pi: A \to \widetilde{A}$ be an injective *-homomorphism of connected  $C^*$-algebras such that following conditions hold:
 		\begin{enumerate}
 			\item[(a)] If $\Aut\left(\widetilde{A} \right)$ is a group of *-automorphisms of $\widetilde{A}$ then the group  
-			\be\nonumber
+			$
 			G = \left\{ \left.g \in \Aut\left(\widetilde{A} \right)~\right|~ ga = a;~~\forall a \in A\right\}
-			\ee
+			$
 			is finite.
-			\item[(b)] 	$A \cong \widetilde{A}^G\stackrel{\text{def}}{=}\left\{\left.a\in \widetilde{A}~~\right|~ a = g a;~ \forall g \in G\right\}$.
+			\item[(b)] 	\be\label{cond_b_eqn}
+			A \cong \widetilde{A}^G\stackrel{\text{def}}{=}\left\{\left.a\in \widetilde{A}~~\right|~ a = g a;~ \forall g \in G\right\}.\ee
 		\end{enumerate}
 		We say that the quadruple $\left(A, \widetilde{A}, G, \pi \right)$ and/or *-homomorphism $\pi: A \to \widetilde{A}$   is a \textit{noncommutative finite-fold  pre-covering}. 
 	\end{definition}
@@ -155,7 +156,7 @@ then $p$ is a finite-fold  covering.
 		\item $A$ is commutative,
 		\item Both $A$ and $\widetilde{A}$ are unital.
 		\item $\pi$ is unital 
-	\item $\widetilde{A}$	is a finitely generated $A$-module.
+	\item $\widetilde{A}$	is a finitely generated projecive $A$-module.
 	\end{itemize}
 	then $\pi$ corresponds to a finite-fold covering $ \widetilde{\mathcal  X}\to \mathcal  X$.
 \end{corollary}
@@ -176,17 +177,39 @@ then $p$ is a finite-fold  covering.
 \begin{fact}
 	If the space $ \mathcal  X$ is locally path connected then any transitive covering  of $ \mathcal  X$  is regular and vice versa.
 \end{fact}
-\begin{theorem}
-	\alert{P. Ivankov}
-	If $\mathcal  X$ is a compact Hausdorff space then there is a 1-1 correspondence between finite-fold transitive coverings of $\mathcal  X$ and unital noncommutative finite-fold  coverings of $C\left(\mathcal  X\right)$.
-\end{theorem}
-
+\begin{fact}
+	A covering $ p:\widetilde{\mathcal  X}\to \mathcal  X$ is {transitive} if and only if there is the natural homeomoprphism
+	$$
+\mathcal  X \cong \widetilde{\mathcal  X}/		G\left(\left.\widetilde{\mathcal  X} \right|\mathcal  X\right).
+	$$
+	
+\end{fact}
 \end{frame}
 \begin{frame}
+\begin{lemma}
+	\alert{P. Ivankov}
+	If $\mathcal  X$ is a compact Hausdorff space then there is a 1-1 correspondence between finite-fold transitive coverings of $\mathcal  X$ and unital noncommutative finite-fold  coverings of $C\left(\mathcal  X\right)$.
+\end{lemma}
+
+\begin{proof}
+We already know that any  unital noncommutative finite-fold  covering corresponds to the finite-fold covering of $\widetilde{\mathcal  X}\to \mathcal  X$.  From the condition \eqref{cond_b_eqn} it follows that
+$$
+C\left(\mathcal  X\right)\cong C\left(\widetilde{\mathcal  X}\right)^{G\left(\left.\widetilde{\mathcal  X} \right|\mathcal  X\right)}.
+$$
+The above equation is equivalent to
+$$
+{\mathcal  X}\cong\widetilde{\mathcal  X}/ G\left(\left.\widetilde{\mathcal  X} \right|\mathcal  X\right).
+$$
+Converse theorem can be proved similarly.
+\end{proof}
+\end{frame}
+\begin{frame}
+
+
 \begin{definition}\label{top_cov_comp_defn}
 	A   covering $p: \widetilde{   \mathcal X } \to \mathcal X$ is said to be a \textit{ covering with compactification} if there are compactifications ${   \mathcal X } \to {   \mathcal Y }$ and $\widetilde{   \mathcal X } \to \widetilde{   \mathcal Y }$ such that:
 	\begin{itemize}
-		\item There is a covering $\widetilde{p}:\widetilde{   \mathcal Y }\to {   \mathcal Y }$,
+		\item There is a finite-fold  covering $\widetilde{p}:\widetilde{   \mathcal Y }\to {   \mathcal Y }$,
 		\item The covering $p$ is the restriction of $\widetilde{p}$, i.e. $p = \widetilde{p}|_{\widetilde{   \mathcal X }}$.
 	\end{itemize}
 \end{definition}
@@ -213,9 +236,32 @@ then $p$ is a finite-fold  covering.
 	p: \widetilde{   \mathcal X } \to \mathcal X,
 	\qquad	z \mapsto z^n.
 	\end{equation*}
-	which is not a covering with compactification.
+	which is not a covering with compactification. Really let  $\mathcal X \to\mathcal Y$ be any compactification. If both $\left\{z'_\al \in \mathcal X\right\}$, 	$\left\{z''_\al \in \mathcal X\right\}$ are  nets such that $\lim_{\al}\left|z'_\al\right|=\lim_\al\left|z''_\al\right| = 0$ then form $\lim_{\al}\left|z'_\al-z''_\al\right|= 0$ it turns out that
+	$
+	x_0 = \lim_{\al} z'_\al = \lim_{\al} z''_\al \in \mathcal Y
+	$. 	It turns out $\left|\widetilde{p}^{-1}\left(x_0 \right) \right|=1$. However $\widetilde{p}$ is an $n$-fold covering and if $n >1$ then  $\left|\widetilde{p}^{-1}\left(x_0 \right) \right|=n>1$.
 \end{example}
 \end{frame}
+\begin{frame}
+\begin{lemma}
+If $\mathcal X$ is a locally compact, connected, Hausdorff space then there is a one-to-one correspondence between transitive finite-fold coverings with compactifications and of $\mathcal X$ and noncommutative finite-fold coverings with unitization of $C_0\left(\mathcal X\right)$.
+\end{lemma}
+\begin{proof}
+	If $p: \widetilde{   \mathcal X }\to  \mathcal X$ is a finite fold covering and $\pi: C_0\left({   \mathcal X }\right)  \to C\left( \widetilde{   \mathcal X }\right)$ corresponding *-homomorphism then
+following pairs of conditions are equivalent.
+\begin{enumerate}
+	\item There are compactifications ${   \mathcal X } \to {   \mathcal Y }$ and $\widetilde{   \mathcal X } \to \widetilde{   \mathcal Y }$.
+	\item There is a finite-fold  covering $\widetilde{p}:\widetilde{   \mathcal Y }\to {   \mathcal Y }$ such that $p= \widetilde{p}|_{\widetilde{   \mathcal Y }}$
+\end{enumerate}
+\begin{enumerate}
+	\item There are unitizations $C_0\left( {   \mathcal X } \right) \to C\left(  {   \mathcal Y }\right) $ and $C_0\left({   \mathcal X }\right)  \to C\left( \widetilde{   \mathcal Y }\right) $.
+	\item There is an unital noncommutative finite-fold  covering $\widetilde{\pi}:C\left({   \mathcal Y } \right)\to C\left(  \widetilde{   \mathcal Y }\right) $ such that $\pi= \widetilde{\pi}|_{C_0\left( \widetilde{\mathcal X}\right)  }$
+\end{enumerate}
+
+\end{proof}
+
+\end{frame}
+
 \begin{definition}
 \alert{P. Ivankov}.	A $\left(A, \widetilde{A}, G, \pi \right)$  noncommutative finite-fold  pre-covering is said to be   \textit{noncommutative finite-fold covering} if there is an increasing net $\left\{u_\lambda\right\}_{\lambda\in\Lambda}\subset M\left( A\right)_+ $  of positive elements such that
 	\begin{enumerate}

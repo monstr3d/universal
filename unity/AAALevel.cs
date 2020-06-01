@@ -28,6 +28,11 @@ public class AAALevel : MonoBehaviour
     }
 
 
+    private void Awake()
+    {
+        
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -69,10 +74,10 @@ public class AAALevel : MonoBehaviour
         try
         {
             string ss = "SampleScene";
-            if (level > 0)
+     /*       if (level > 0)
             {
                 ss +=  level;
-            }
+            }*/
             SceneManager.LoadScene(ss, LoadSceneMode.Single);
             ++level;
         }
