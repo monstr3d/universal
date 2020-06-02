@@ -69,7 +69,7 @@ public class ResultIndicator : MonoBehaviour
 
     public void Indicate(object ob)
     {
-        time = (float)Activation.Time;
+        time = (float)StaticExtensionUnity.Time;
         object[] o = ob as object[];
         IScadaInterface scada = o[0] as IScadaInterface;
         ReferenceFrame frame = scada.GetOutput("Relative to station.Frame")() as ReferenceFrame;

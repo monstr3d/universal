@@ -85,6 +85,21 @@ namespace Unity.Standard
 
         static private List<MonoBehaviour> monoBehaviours = new List<MonoBehaviour>();
 
+        static double pauseTime;
+
+        static public double StartTime
+        {
+            get;
+            set;
+        }
+
+   
+
+        static public double Time
+        {
+            get => UnityEngine.Time.realtimeSinceStartup - StartTime;
+        }
+
         #endregion
 
         #region Members
@@ -102,6 +117,26 @@ namespace Unity.Standard
             }
             monoBehaviours.Clear();
         }
+
+        static public void Pause()
+        {
+            foreach (MonoBehaviour monoBehaviour in monoBehaviours)
+            {
+                monoBehaviour.enabled = false;
+            }
+            pauseTime = Time;
+        }
+
+        public static void Restart()
+        {
+            foreach (MonoBehaviour monoBehaviour in monoBehaviours)
+            {
+                monoBehaviour.enabled = true;
+            }
+            StartTime =  UnityEngine.Time.realtimeSinceStartup - pauseTime;
+        }
+
+        
 
 
         static public void Add(this MonoBehaviour monoBehaviour)
@@ -712,10 +747,10 @@ namespace Unity.Standard
             }
             IMeasurement ITimeMeasurementProvider.TimeMeasurement => m;
 
-            double ITimeMeasurementProvider.Time { get => Activation.Time; set { } }
+            double ITimeMeasurementProvider.Time { get => StaticExtensionUnity.Time; set { } }
             double ITimeMeasurementProvider.Step { get; set; }
 
-            IMeasurement m = new Measurement(() => Activation.Time, "Time");
+            IMeasurement m = new Measurement(() => StaticExtensionUnity.Time, "Time");
         }
 
         class ErrorHanller : Scada.Interfaces.IErrorHandler

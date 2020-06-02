@@ -25,14 +25,15 @@ public class Activation : MonoBehaviour
 
     static bool exists = false;
 
+    Action update = null;
+
 
     public MonoBehaviour[] components;
 
-    static float startTime;
-
+ 
     private void Awake()
     {
-        startTime = UnityEngine.Time.realtimeSinceStartup;
+        StaticExtensionUnity.StartTime = Time.realtimeSinceStartup;
         if (exists)
         {
             throw new Exception();
@@ -48,6 +49,7 @@ public class Activation : MonoBehaviour
                 activation.SetConstants(constants);
                 activation.SetConstants(strings);
                 activation.Activate(components);
+                update = activation.Update;
             }
         }
         foreach (MonoBehaviour monoBehaviour in components)
@@ -56,16 +58,16 @@ public class Activation : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        update?.Invoke();
+    }
+
     /// <summary>
     /// Disables itsels
     /// </summary>
     static public void Disable()
     {
         exists = false;
-    }
-
-    static public double Time 
-    { 
-        get => UnityEngine.Time.realtimeSinceStartup - startTime; 
     }
  }

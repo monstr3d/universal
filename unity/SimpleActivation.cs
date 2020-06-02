@@ -22,7 +22,7 @@ namespace Assets
 
         static float kM = 0.0001f;
 
-        
+        bool paused = false;
 
         static private string[][] defalutStrings =
             new string[][]
@@ -129,6 +129,8 @@ namespace Assets
 
         int IActivation.Level { get => StaticLevel; set => StaticLevel = value; }
 
+        Action IActivation.Update => UpdateInternal;
+
         int IActivation.SetConstants(float[] constants)
         {
             floatConstants[0][6] = constants[0];
@@ -147,6 +149,23 @@ namespace Assets
 
 
         #endregion
+
+        void UpdateInternal()
+        {
+            if (Input.GetKey(KeyCode.Escape))
+            {
+                //  ResultIndicator.Escape();
+                if (paused)
+                {
+                    StaticExtensionUnity.Restart();
+                    paused = false;
+                    return;
+                }
+                StaticExtensionUnity.Pause();
+                paused = true;
+            }
+
+        }
 
         private static void SetValues()
         {

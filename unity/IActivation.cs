@@ -38,6 +38,8 @@ namespace Unity.Standard
         /// <returns>Number of constants</returns>
         int SetConstants(string[] constants);
 
+        Action Update { get; }
+
 
     }
 }
