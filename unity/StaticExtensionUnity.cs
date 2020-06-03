@@ -353,7 +353,7 @@ namespace Unity.Standard
         }
 
         /// <summary>
-        /// MAIN !!!
+        /// Gets Game Object Components
         /// </summary>
         /// <typeparam name="T">Type</typeparam>
         /// <param name="go">Game object</param>

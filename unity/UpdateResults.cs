@@ -22,7 +22,8 @@ namespace Assets
 
         void UpdateMouse()
         {
-           if (Input.GetMouseButton(0))
+            indicator.gameObject.SetActive(true);
+            if (Input.GetMouseButton(0))
             {
                 indicator.gameObject.SetActive(false);
                 update = null;

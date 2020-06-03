@@ -1,12 +1,8 @@
-﻿using Motion6D.Interfaces;
-using Scada.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
+
 using UnityEngine;
-using Vector3D;
+
+using Scada.Interfaces;
 
 namespace Unity.Standard
 {

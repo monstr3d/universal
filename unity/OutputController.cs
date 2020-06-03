@@ -37,6 +37,8 @@ public class OutputController : MonoBehaviour
 
     public float[] inputConstants;
 
+    public Component[] inputComponents;
+
     public string[] generalizedParamerers;
 
     public string[] generalizedUpdates;
@@ -219,6 +221,9 @@ public class OutputController : MonoBehaviour
             }
             AddUpdate(act);
             var lt = v.Item3;
+            List<object> lo = new List<object>(o);
+            lo.Add(this);
+            o = lo.ToArray();
             foreach (var actions in lt)
             {
                 IUpdateGameObject ua = constructors[actions.Item1].Invoke(new Type[0])
@@ -252,11 +257,18 @@ public class OutputController : MonoBehaviour
         Dictionary<string, ConstructorInfo> constructors =
        StaticExtensionUnity.updatesGameObject;
         int offset = 0;
+        int n = 0;
         foreach (var key in inputs)
         {
             IUpdateGameObject ua = constructors[key].Invoke(new Type[0])
                 as IUpdateGameObject;
-            ua.Set(new object[] { this }, gameObject.GetComponent<Component>(), scada);
+            Component component = gameObject.GetComponent<Component>();
+            if (inputComponents.Length > n)
+            {
+                component = inputComponents[n];
+            }
+            ++n;
+            ua.Set(new object[] { this }, component, scada);
             AddUpdate(ua.Update);
             offset = ua.SetConstants(offset, inputConstants);
         }

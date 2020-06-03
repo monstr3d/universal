@@ -154,7 +154,6 @@ namespace Assets
         {
             if (Input.GetKey(KeyCode.Escape))
             {
-                //  ResultIndicator.Escape();
                 if (paused)
                 {
                     StaticExtensionUnity.Restart();

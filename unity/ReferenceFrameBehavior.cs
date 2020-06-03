@@ -54,8 +54,21 @@ public class ReferenceFrameBehavior : MonoBehaviour
 
     public string[] frames = new string[0];
 
+    public float jumpX = 1f;
+
+    public float jumpY = 1f;
+
+    public float jumpZ = 1f;
+
+    public float jumpPause = 0.1f;
+
+
+
     public bool unique = true;
 
+    Camera cam;
+
+ 
     private MonoBehaviorWrapper monoBehaviorWrapper;
 
     internal Dictionary<string, Action<double>>
@@ -68,9 +81,9 @@ public class ReferenceFrameBehavior : MonoBehaviour
 
     internal Func<double>[] dOut;
 
-    Action update = () => { };
+    Action update;
 
-    Action lateUpdate = () => { };
+    Action lateUpdate;
 
     IScadaInterface scada;
 
@@ -79,48 +92,6 @@ public class ReferenceFrameBehavior : MonoBehaviour
     Action<Collision> collisionEnter = (Collision collision) => { };
 
 
-    Quaternion currentOrientation;
-
-    Quaternion startOrientation;
-
-    Quaternion nextOrientation;
-
-    Vector3 currentPosition;
-
-    Vector3 startPosition;
-
-    Vector3 nextPosition;
-
-
-    IAngularVelocity angular;
-
-    double[] startQ = new double[4];
-
-    double[] auxQ = new double[4];
-
-    double[] nextQ = new double[4];
-
-
-    float lastTime;
-
-
-    double[,] qd = new double[4, 4];
-
-
-    double[] qder = new double[4];
-
-    double[] auxQuaternion = new double[4];
-
-    double[] pos;
-
-    double[] quater;
-
-    double[] newQuater = new double[4];
-
-    Action updatePosition;
-
-    bool exists;
-
     Action wrapperUpdate = null;
 
     ReferenceFrame referenceFrame;
@@ -128,6 +99,10 @@ public class ReferenceFrameBehavior : MonoBehaviour
     Action scadaUpdate;
 
     ICollisionAction collisionAction;
+
+    bool exists = false;
+
+    Quaternion jump;
 
  
     #endregion
@@ -154,7 +129,7 @@ public class ReferenceFrameBehavior : MonoBehaviour
             referenceFrame = frame.Own;
             
         }
-        var cam = gameObject.GetComponent<Camera>();
+        cam = gameObject.GetComponent<Camera>();
         if (cam != null)
         {
             lateUpdate = UpdatePosition;
@@ -186,6 +161,9 @@ public class ReferenceFrameBehavior : MonoBehaviour
         }
     }
 
+
+    // Start is called before the first frame update
+
     void Start()
     {
         SetConstants();
@@ -198,6 +176,8 @@ public class ReferenceFrameBehavior : MonoBehaviour
     }
 
 
+
+    // Update is called once per frame
 
     void Update()
     {
@@ -236,19 +216,58 @@ public class ReferenceFrameBehavior : MonoBehaviour
 
     #endregion
 
-    /*
-       void ScadaUpdate()
-       {
-           gameObject.transform.rotation = referenceFrame.ToQuaternion();
-           gameObject.transform.position = referenceFrame.Position.ToPosition();
-
-       }
-   */
-
-    // Start is called before the first frame update
 
 
-    // Update is called once per frame
+
+    #region Standard Members
+
+
+
+
+    #endregion
+
+    #region Public Members
+
+  
+    public void Jump()
+    {
+        float[] f = new float[] { jumpX, jumpY, jumpZ };
+        for (int i = 0; i < 3; i++)
+        {
+            float a = f[i];
+            f[i] = UnityEngine.Random.Range(-a, a);
+        }
+        Quaternion j = Quaternion.Euler(f[0], f[1], f[2]);
+        jump = gameObject.transform.rotation * j;
+        Set(UpdateJump);
+        this.StartCoroutine(jumpCoroutine);
+        
+    }
+
+    #endregion
+
+    #region  Private Members
+
+
+    IEnumerator jumpCoroutine
+    {
+        get
+        {
+            yield return new WaitForSeconds(jumpPause);
+            Set(UpdatePosition);
+            yield return 0;
+        }
+    }
+
+    void Set(Action act)
+    {
+        if (cam == null)
+        {
+            update = act;
+            return;
+        }
+        lateUpdate = act;
+    }
 
     void UpdatePosition()
     {
@@ -256,18 +275,14 @@ public class ReferenceFrameBehavior : MonoBehaviour
         gameObject.transform.position = referenceFrame.Position.ToPosition();
     }
 
-    #region Standard Members
 
- 
- 
+    void UpdateJump()
+    {
+        gameObject.transform.rotation = jump;
+        gameObject.transform.position = referenceFrame.Position.ToPosition();
 
-    #endregion
+    }
 
-    #region Public Members
-
-    #endregion
-
-    #region  Private Members
     void SetConstants()
     {
         var consts = scada.Constants;

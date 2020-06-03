@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
+
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,6 +15,18 @@ namespace Assets
     {
 
         #region Fields
+
+        RectTransform pivot;
+
+        KeyCode current;
+
+        KeyCode lastCurrent;
+
+
+
+        AudioSource torch;
+
+        AudioSource alarm;
 
         private float interval = 0;
  
@@ -46,7 +57,7 @@ namespace Assets
 
         Dictionary<KeyCode, bool> pressed = new Dictionary<KeyCode, bool>();
 
-   
+        ReferenceFrameBehavior referenceBehavior;
 
         GameObject gameObject;
 
@@ -56,7 +67,7 @@ namespace Assets
 
         Func<double>[] dOut = new Func<double>[6];
 
-
+        GameObject camera;
 
         KeyCode[] codes = { KeyCode.None };
 
@@ -71,15 +82,35 @@ namespace Assets
             {3, new Tuple<int, KeyCode[]>(3, new KeyCode[]{KeyCode.W, KeyCode.S } )},
             {5, new Tuple<int, KeyCode[]>(4, new KeyCode[]{KeyCode.Q, KeyCode.E } )},
             {4, new Tuple<int, KeyCode[]>(5, new KeyCode[]{KeyCode.D, KeyCode.A } )},
-            {2, new Tuple<int, KeyCode[]>(0, new KeyCode[]{KeyCode.RightShift, KeyCode.RightControl} )},
-            {0, new Tuple<int, KeyCode[]>(1, new KeyCode[]{KeyCode.RightArrow, KeyCode.LeftArrow} )},
-           {1, new Tuple<int, KeyCode[]>(2, new KeyCode[]{KeyCode.UpArrow, KeyCode.DownArrow} )}
+            {2, new Tuple<int, KeyCode[]>(0, new KeyCode[]{KeyCode.RightShift, 
+                KeyCode.RightControl} )},
+            {0, new Tuple<int, KeyCode[]>(1, new KeyCode[]{KeyCode.RightArrow, 
+                KeyCode.LeftArrow} )},
+           {1, new Tuple<int, KeyCode[]>(2, new KeyCode[]{KeyCode.UpArrow, 
+               KeyCode.DownArrow} )}
         };
+
+        Dictionary<int, int> active = new Dictionary<int, int>();
+
+        Dictionary<int, string[]> sprites = new Dictionary<int, string[]>()
+        {
+            {2, new string[] {"Forward", "Backward" } },
+           {0, new string[] {"Right", "Left" } },
+           {1, new string[] {"Up", "Down" } },
+        };
+
+        Dictionary<int, Image[]> blink = new Dictionary<int, Image[]>();
+
+        Component result;
+
+        Text resText;
 
         string[,] txt = new string[,] { { "Ax_Txt", "0.00" }, { "Ay_Txt", "0.00" }, { "Az_Txt", "0.00" },
             { "Omx1_Txt", "+--" }, { "Omy1_Txt", "+--" } , { "Omz1_Txt", "+--" }  };
 
         Dictionary<KeyCode, Tuple<Text, string[]>> texts = new Dictionary<KeyCode, Tuple<Text, string[]>>();
+
+        Dictionary<KeyCode, int> inverse = new Dictionary<KeyCode, int>();
 
         #endregion
 
@@ -96,8 +127,22 @@ namespace Assets
         public override void Set(object[] obj, Component indicator, IScadaInterface scada)
         {
             base.Set(obj, indicator, scada);
+            for (int i = 0; i < 6; i++)
+            {
+                active[i] = 0;
+            }
+            camera = indicator.gameObject;
+            referenceBehavior =
+                camera.GetComponentInChildren<ReferenceFrameBehavior>();
             mb = obj[0] as MonoBehaviour;
             gameObject = mb.gameObject;
+            Dictionary<string, List<Component>> components = 
+                gameObject.GetGameObjectComponents<Component>();
+            result = components["Results"][0];
+            resText = gameObject.GetGameObjectComponents<Text>()["Text"][0];
+            Dictionary<string, List<AudioSource>> las = camera.GetGameObjectComponents<AudioSource>();
+            torch = las["Torch"][0];
+            alarm = las["Alarm"][0];
             var s = "Force.";
             string[] ss = { "Fx", "Fy", "Fz", "Mx", "My", "Mz" };
             for (int i = 0; i < ss.Length; i++)
@@ -131,15 +176,71 @@ namespace Assets
 
         #endregion
 
+        #region Update
+
+        float ap = -30f;
+
+        
+
+        void UpdateInternal()
+        {
+            int k = Math.Sign(dOut[5]());
+            float r = ap * k;
+            Vector3 euler = new Vector3(0, 0, r);
+            pivot.rotation = Quaternion.Euler(euler);
+            if (Input.GetKey(KeyCode.Return))
+            {
+                ResultIndicator.Escape();
+            }
+            if (!scada.IsEnabled)
+            {
+                alarm.enabled = false;
+                torch.enabled = false;
+                for (int i = 0; i < 6; i++)
+                {
+                    dInp[i](0);
+                }
+                return;
+            }
+            UpdateAlarm();
+            foreach (var code in actions.Keys)
+            {
+                Process(code);
+            }
+            foreach (var code in actions.Keys)
+            {
+                if (Input.GetKeyUp(code))
+                {
+                    current = KeyCode.F10;
+                }
+            }
+
+        }
+
+
+        #endregion
+
+        #region Private
+
         void Prepare()
         {
             List<KeyCode> l = new List<KeyCode>();
-            Dictionary<string, List<Text>> lt = gameObject.GetGameObjectComponents<Text>();
+            Dictionary<string, List<Text>> lt = 
+                gameObject.GetGameObjectComponents<Text>();
             List<Tuple<Text, string[]>> ttt = new List<Tuple<Text, string[]>>();
             for (int i = 0; i < txt.GetLength(0); i++)
             {
-                Text tx = lt[txt[i, 0]][0];
-                Tuple<Text, string[]> tst = new Tuple<Text, string[]>(tx, new string[] { tx.text, txt[i, 1] });
+                Text tx = null;
+                if (lt.ContainsKey(txt[i, 0]))
+                {
+                    tx = lt[txt[i, 0]][0];
+                }
+                string text = "";
+                if (tx != null)
+                {
+                    text = tx.text;
+                }
+                Tuple<Text, string[]> tst = new Tuple<Text, string[]>(tx, new string[] { text, txt[i, 1] });
                 ttt.Add(tst);
             }
             foreach (var i in dicionary.Keys)
@@ -159,6 +260,7 @@ namespace Assets
                 for (int m = 0; m < 2; m++)
                 {
                     var kc = kk[m];
+                    inverse[kc] = i;
                     texts[kc] = tst;
                     kkdic[kc] = kk;
                     if (l.Contains(kc))
@@ -173,17 +275,35 @@ namespace Assets
                 }
             }
             codes = l.ToArray();
+            Dictionary<string, List<Image>> canv =
+                gameObject.GetGameObjectComponents<Image>();
+            Dictionary<string, List<RectTransform>> rtv =
+                gameObject.GetGameObjectComponents<RectTransform>();
+            pivot = rtv["_pivot"][0];
+            foreach (int key in sprites.Keys)
+            {
+                   Image[] im = new Image[2];
+                string[] ssi = sprites[key];
+                for (int i = 0; i < 2; i++)
+                {
+                    Image image = canv[ssi[i]][0];
+                    image.enabled = false;
+                    im[i] = image;
+                }
+                if (dicionary.ContainsKey(key))
+                {
+                    blink[key] = im;
+                }
+                mb.StartCoroutine(blinkc);
+            }
+
             foreach (var kk in codes)
             {
                 pressed[kk] = true;
             }
         }
 
-      KeyCode current;
-
-        KeyCode lastCurrent;
-
-        void UpdateCurrent()
+         void UpdateCurrent()
         {
             if (current != lastCurrent)
             {
@@ -194,6 +314,8 @@ namespace Assets
             {
                 return;
             }
+            int pp = inverse[current];
+
             /*     if (!keyPressed)
                  {
                      return;
@@ -207,6 +329,9 @@ namespace Assets
                 current = KeyCode.F10;
                 return;
             }
+            referenceBehavior.Jump();
+            torch.enabled = true;
+            mb.StartCoroutine(enumeratorT);
             if (Math.Abs(value - newValue) > (1 + double.Epsilon) * Math.Abs(newValue))
             {
                 value = 0f;
@@ -216,12 +341,14 @@ namespace Assets
                 value = newValue;
             }
             t.Item1(value);
+            int m = Math.Sign(value);
             double x = t.Item2();
             if (Math.Abs(x - value) > double.Epsilon)
             {
                 throw new Exception();
             }
             v[0] = value;
+            active[pp] = Math.Sign(value);
             var tst = texts[code];
             string ss = "0";
             string f = tst.Item2[1];
@@ -241,9 +368,53 @@ namespace Assets
             {
                 ss = x.ToString(f);
             }
-            tst.Item1.text = a + " " + ss;
+            if (tst.Item1 != null)
+            {
+                tst.Item1.text = a + " " + ss;
+            }
             mb.StartCoroutine(coroutine);
          }
+
+        float bp = 0.2f;
+
+        System.Collections.IEnumerator blinkc
+        {
+            get
+            {
+                while (true)
+                {
+                    yield return new WaitForSeconds(bp);
+                    foreach (Image[] im in blink.Values)
+                    {
+                        foreach (Image image in im)
+                        {
+                            image.enabled = false;
+                        }
+                    }
+                    yield return new WaitForSeconds(bp);
+                    foreach (var key in blink.Keys)
+                    {
+                        int k = active[key];
+                        if (k == 0)
+                        {
+                            continue;
+                        }
+                        int a = 1 - Math.Sign(k + 1);
+                        blink[key][a].enabled = true;
+                    }
+                }
+            }
+        }
+
+       System.Collections.IEnumerator enumeratorT
+        {
+            get
+            {
+                yield return new WaitForSeconds(0.5f);
+                torch.enabled = false;
+                yield return 0;
+            }
+        }
 
         bool Process(KeyCode code)
         {
@@ -271,35 +442,23 @@ namespace Assets
             }
         }
 
-
-
-
-
-        void UpdateInternal()
+        void UpdateAlarm()
         {
-            if (Input.GetKey(KeyCode.Escape))
+            string res = ResultIndicator.Result;
+            if (res == null)
             {
-                ResultIndicator.Escape();
+                alarm.enabled = false;
+                resText.text = "";
+        //        result.gameObject.SetActive(false);
+                return;
             }
-            if (!scada.IsEnabled)
-            {
-                for (int i = 0; i < 6; i++)
-                {
-                    dInp[i](0);
-                }
-            }
-            foreach (var code in actions.Keys)
-            {
-                Process(code);
-            }
-            foreach (var code in actions.Keys)
-            {
-                if (Input.GetKeyUp(code))
-                {
-                    current = KeyCode.F10;
-                }
-            }
-
+            alarm.enabled = true;
+            resText.text = res;
+            resText.color = Color.red;
+          //  result.gameObject.SetActive(true);
         }
+
+        #endregion
+
     }
 }

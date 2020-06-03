@@ -38,6 +38,8 @@ namespace Unity.Standard
         {
             this.constants = new float[constants.Length];
             Array.Copy(constants, this.constants, constants.Length);
+            ResultIndicator.Scada = scada;
+            ResultIndicator.Constants = this.constants;
             return -1;
         }
 
