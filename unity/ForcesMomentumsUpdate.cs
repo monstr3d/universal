@@ -16,7 +16,14 @@ namespace Assets
 
         #region Fields
 
+        float ap = -60f;
+
+
+
         RectTransform pivot;
+
+
+        RectTransform path;
 
         KeyCode current;
 
@@ -112,6 +119,9 @@ namespace Assets
 
         Dictionary<KeyCode, int> inverse = new Dictionary<KeyCode, int>();
 
+        float bp = 0.2f;
+
+
         #endregion
 
         #region Ctor
@@ -177,10 +187,6 @@ namespace Assets
         #endregion
 
         #region Update
-
-        float ap = -30f;
-
-        
 
         void UpdateInternal()
         {
@@ -280,6 +286,7 @@ namespace Assets
             Dictionary<string, List<RectTransform>> rtv =
                 gameObject.GetGameObjectComponents<RectTransform>();
             pivot = rtv["_pivot"][0];
+            path = rtv["Path"][0];
             foreach (int key in sprites.Keys)
             {
                    Image[] im = new Image[2];
@@ -375,8 +382,7 @@ namespace Assets
             mb.StartCoroutine(coroutine);
          }
 
-        float bp = 0.2f;
-
+  
         System.Collections.IEnumerator blinkc
         {
             get
@@ -384,6 +390,8 @@ namespace Assets
                 while (true)
                 {
                     yield return new WaitForSeconds(bp);
+                    pivot.gameObject.SetActive(false);
+                    path.gameObject.SetActive(false);
                     foreach (Image[] im in blink.Values)
                     {
                         foreach (Image image in im)
@@ -392,6 +400,8 @@ namespace Assets
                         }
                     }
                     yield return new WaitForSeconds(bp);
+                    pivot.gameObject.SetActive(true);
+                    path.gameObject.SetActive(true);
                     foreach (var key in blink.Keys)
                     {
                         int k = active[key];

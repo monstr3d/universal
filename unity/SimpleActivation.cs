@@ -22,8 +22,7 @@ namespace Assets
 
         static float kM = 0.0001f;
 
-        bool paused = false;
-
+   
         static private string[][] defalutStrings =
             new string[][]
             {//"Station motion.z=3.5" "Station motion.z=1.2", "Station motion.z=1.5"
@@ -154,16 +153,8 @@ namespace Assets
         {
             if (Input.GetKey(KeyCode.Escape))
             {
-                if (paused)
-                {
-                    StaticExtensionUnity.Restart();
-                    paused = false;
-                    return;
-                }
-                StaticExtensionUnity.Pause();
-                paused = true;
+                Activation.Escape();
             }
-
         }
 
         private static void SetValues()

@@ -13,6 +13,7 @@ using Unity.Standard;
 public class Activation : MonoBehaviour
 {
 
+    #region Fields
 
     public string activation = "";
 
@@ -22,7 +23,6 @@ public class Activation : MonoBehaviour
 
     public float[] constants;
     
-
     static bool exists = false;
 
     Action update = null;
@@ -30,9 +30,15 @@ public class Activation : MonoBehaviour
 
     public MonoBehaviour[] components;
 
- 
+    static bool isEscaped = false;
+
+    #endregion
+
+    #region Standard Members
+
     private void Awake()
     {
+        isEscaped = false;
         StaticExtensionUnity.StartTime = Time.realtimeSinceStartup;
         if (exists)
         {
@@ -63,6 +69,27 @@ public class Activation : MonoBehaviour
         update?.Invoke();
     }
 
+    #endregion
+
+    #region Public members
+
+    /// <summary>
+    /// Esapes game
+    /// </summary>
+    static public void Escape()
+    {
+        if (isEscaped)
+        {
+            StaticExtensionUnity.Restart();
+        }
+        else
+        {
+            StaticExtensionUnity.Pause();
+        }
+        isEscaped = !isEscaped;
+
+    }
+
     /// <summary>
     /// Disables itsels
     /// </summary>
@@ -70,4 +97,7 @@ public class Activation : MonoBehaviour
     {
         exists = false;
     }
- }
+
+    #endregion
+
+}

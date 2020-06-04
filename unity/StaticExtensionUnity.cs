@@ -116,6 +116,7 @@ namespace Unity.Standard
                 monoBehaviour.enabled = false;
             }
             monoBehaviours.Clear();
+            Activation.Disable();
         }
 
         static public void Pause()

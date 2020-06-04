@@ -111,7 +111,6 @@ public class ResultIndicator : MonoBehaviour
         StaticExtensionUnity.Clear();
         ++count;
         Assets.SimpleActivation.StaticLevel = -1;
-        Activation.Disable();
         SceneManager.LoadScene("LevelScene", LoadSceneMode.Single);
     }
 
