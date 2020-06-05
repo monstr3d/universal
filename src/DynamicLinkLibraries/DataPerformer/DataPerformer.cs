@@ -1027,7 +1027,7 @@ namespace DataPerformer
         /// <summary>
         /// Diagram calculator
         /// </summary>
-        private ArrayCalculator calculator;
+        private Action<int, int, double[], double[]> calculator;
 
         /// <summary>
         /// Constructor
@@ -1050,7 +1050,7 @@ namespace DataPerformer
                 arguments[i] = a[i] as string;
             }
             dim = formulas.Count;
-            calculator = new ArrayCalculator(calculate);
+            calculator = calculate;
             number = staticNumber;
             //AddCalculator(calculator);
         }
@@ -1102,7 +1102,7 @@ namespace DataPerformer
         /// <summary>
         /// Formula calculator
         /// </summary>
-        public ArrayCalculator Calculator
+        public Action<int, int, double[], double[]> Calculator
         {
             get
             {

@@ -78,9 +78,10 @@ namespace Motion6D.Portable
         /// </summary>
         protected double[] angsec = new double[4];
 
-        IVelocity velocity;
-
+ 
         IAngularVelocity angularVelocity;
+
+        new IVelocity velocity;
 
         private Func<object>[] coordDel;
 

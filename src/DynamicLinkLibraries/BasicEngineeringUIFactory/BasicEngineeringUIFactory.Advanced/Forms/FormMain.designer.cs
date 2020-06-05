@@ -158,6 +158,7 @@ namespace BasicEngineering.UI.Factory.Advanced.Forms
             this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.saveFileDialogScadaXml = new System.Windows.Forms.SaveFileDialog();
+            this.testToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelTop.SuspendLayout();
             this.panelTopTop.SuspendLayout();
             this.panelBottom.SuspendLayout();
@@ -780,7 +781,8 @@ namespace BasicEngineering.UI.Factory.Advanced.Forms
             this.saveLogsToolStripMenuItem,
             this.helpToolStripMenuItem,
             this.generateToolStripMenuItem,
-            this.openLogDirectoryToolStripMenuItem});
+            this.openLogDirectoryToolStripMenuItem,
+            this.testToolStripMenuItem});
             this.menuStripMain.Location = new System.Drawing.Point(0, 0);
             this.menuStripMain.Name = "menuStripMain";
             this.menuStripMain.Padding = new System.Windows.Forms.Padding(9, 2, 0, 2);
@@ -1227,6 +1229,13 @@ namespace BasicEngineering.UI.Factory.Advanced.Forms
             // 
             this.saveFileDialogScadaXml.Filter = "Xml Files|*.xml";
             // 
+            // testToolStripMenuItem
+            // 
+            this.testToolStripMenuItem.Name = "testToolStripMenuItem";
+            this.testToolStripMenuItem.Size = new System.Drawing.Size(58, 29);
+            this.testToolStripMenuItem.Text = "Test";
+            this.testToolStripMenuItem.Click += new System.EventHandler(this.testToolStripMenuItem_Click);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -1386,6 +1395,7 @@ namespace BasicEngineering.UI.Factory.Advanced.Forms
         private System.Windows.Forms.ToolStripMenuItem checkDesktopToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuGereratedFiles;
+        private System.Windows.Forms.ToolStripMenuItem testToolStripMenuItem;
     }
 }
 

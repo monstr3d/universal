@@ -8,7 +8,6 @@ using System.Runtime.Serialization;
 using System.IO;
 using System.Xml;
 
-using Localization.Helper;
 
 namespace DataPerformer.Basic
 {
@@ -17,7 +16,7 @@ namespace DataPerformer.Basic
     /// This table uses linear interpolation
     /// </summary>
     [Serializable()]
-    public class Table2D : DataPerformer.Portable.Basic.Table2D,  ISerializable
+    public class Table2D : Portable.Basic.Table2D,  ISerializable
     {
         #region Fields
   

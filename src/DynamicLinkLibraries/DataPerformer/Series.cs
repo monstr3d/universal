@@ -1,6 +1,5 @@
 using System;
 using System.Runtime.Serialization;
-using System.Runtime.Serialization.Formatters.Binary;
 using System.Collections;
 using System.Collections.Generic;
 using System.Xml;
@@ -26,11 +25,7 @@ namespace DataPerformer
 	{
 		
 		#region Fields
-        /// <summary>
-        /// Singleton
-        /// </summary>
-        public static readonly Series Singleton = new Series(false);
-
+   
 		#endregion
 
 		#region Constructors
@@ -40,8 +35,7 @@ namespace DataPerformer
         /// </summary>
 		public Series()
 		{
-			initialize();
-            initFunc();
+
 		}
 
 		/// <summary>
@@ -52,7 +46,6 @@ namespace DataPerformer
         protected Series(SerializationInfo info, StreamingContext context)
             : base(info, context)
         {
-            initFunc();
             try
             {
                 comments = (byte[])info.GetValue("Comments", typeof(byte[]));
@@ -70,7 +63,6 @@ namespace DataPerformer
             {
                 exc.ShowError(100); ;
             }
-
             Post();
         }
 
@@ -190,8 +182,26 @@ namespace DataPerformer
 
 		#endregion
 
-        #region Specific Members
+		#region Specific Members
 
+
+		/// <summary>
+		/// Imports series collecion from document
+		/// </summary>
+		/// <param name="doc">The document</param>
+		/// <returns>Collection of series</returns>
+		public static Series[] ImportSeriesCollection(XmlDocument doc)
+		{
+			XmlNodeList l = doc.DocumentElement.GetElementsByTagName("Series");
+			List<Series> ls = new List<Series>();
+			foreach (XmlElement e in l)
+			{
+				Series s = new Series();
+				s.Load(e);
+				ls.Add(s);
+			}
+			return ls.ToArray();
+		}
 
 		/// <summary>
 		/// Gets or sets comments
@@ -331,64 +341,7 @@ namespace DataPerformer
             base.initialize();
         }
 
-
-		private object parX()
-		{
-			InitialzeMeasurements();
-			return meaX;
-		}
-
-		private object parY()
-		{
-			InitialzeMeasurements();
-			return meaY;
-		}
-
-
-
-		/// <summary>
-		/// Checks whether series has equal step
-		/// </summary>
-		private void checkEqualStep()
-		{
-			if (points.Count < 2)
-			{
-				return;
-			}
-			double s =  0;
-			double t = 0;
-			for (int i = 0; i < points.Count; i++)
-			{
-				double[] p = points[i] as double[];
-				if (i == 1)
-				{
-					s = p[0] - t;
-				}
-				if (i > 1)
-				{
-					if (Math.Abs(s - (p[0] - t)) > (eps * Math.Abs(s)))
-					{
-						return;
-					}
-				}
-				t = p[0];
-			}
-			step = s;
-		}
-
-
-        private void initFunc()
-        {
-            Func<object> par = func;
-            function = new Measurement(Singleton, par, "Function");
-        }
-
-        private object func()
-        {
-            return this;
-        }
-
-
+ 
 
 		#endregion
 

@@ -149,7 +149,20 @@ namespace Assets
             Dictionary<string, List<Component>> components = 
                 gameObject.GetGameObjectComponents<Component>();
             result = components["Results"][0];
-            resText = gameObject.GetGameObjectComponents<Text>()["Text"][0];
+            Dictionary<string, List<Text>> texts = gameObject.GetGameObjectComponents<Text>();
+            foreach (string key in texts.Keys)
+            {
+                if (key == "Text")
+                {
+                    continue;
+                }
+                var ttx = texts[key];
+                foreach (var tttx in ttx)
+                {
+                    tttx.color = new Color(0, 1, 0, 1);
+                }
+            }
+            resText = texts["Text"][0];
             Dictionary<string, List<AudioSource>> las = camera.GetGameObjectComponents<AudioSource>();
             torch = las["Torch"][0];
             alarm = las["Alarm"][0];
@@ -381,8 +394,40 @@ namespace Assets
             }
             mb.StartCoroutine(coroutine);
          }
+        bool Process(KeyCode code)
+        {
+            if (Input.GetKey(code))
+            {
+                if (current == KeyCode.F11)
+                {
+                    return false;
+                }
+                current = code;
+                lastCurrent = code;
+                UpdateCurrent();
+            }
+            return false;
+        }
+        void UpdateAlarm()
+        {
+            string res = ResultIndicator.Result;
+            if (res == null)
+            {
+                alarm.enabled = false;
+                resText.text = "";
+                //        result.gameObject.SetActive(false);
+                return;
+            }
+            alarm.enabled = true;
+            resText.text = res;
+            resText.color = Color.red;
+            result.gameObject.SetActive(true);
+        }
 
-  
+        #endregion
+
+        #region Coroutines
+
         System.Collections.IEnumerator blinkc
         {
             get
@@ -398,6 +443,10 @@ namespace Assets
                         {
                             image.enabled = false;
                         }
+                    }
+                    if (!scada.IsEnabled)
+                    {
+                        break;
                     }
                     yield return new WaitForSeconds(bp);
                     pivot.gameObject.SetActive(true);
@@ -416,7 +465,7 @@ namespace Assets
             }
         }
 
-       System.Collections.IEnumerator enumeratorT
+        System.Collections.IEnumerator enumeratorT
         {
             get
             {
@@ -426,20 +475,7 @@ namespace Assets
             }
         }
 
-        bool Process(KeyCode code)
-        {
-            if (Input.GetKey(code))
-            {
-                if (current == KeyCode.F11)
-                {
-                    return false;
-                }
-                current = code;
-                lastCurrent = code;
-                UpdateCurrent();
-            }
-            return false;
-        }
+
 
         System.Collections.IEnumerator coroutine
         {
@@ -452,21 +488,7 @@ namespace Assets
             }
         }
 
-        void UpdateAlarm()
-        {
-            string res = ResultIndicator.Result;
-            if (res == null)
-            {
-                alarm.enabled = false;
-                resText.text = "";
-        //        result.gameObject.SetActive(false);
-                return;
-            }
-            alarm.enabled = true;
-            resText.text = res;
-            resText.color = Color.red;
-          //  result.gameObject.SetActive(true);
-        }
+
 
         #endregion
 

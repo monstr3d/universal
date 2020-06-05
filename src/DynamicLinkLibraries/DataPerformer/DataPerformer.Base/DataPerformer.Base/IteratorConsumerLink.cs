@@ -12,18 +12,8 @@ namespace DataPerformer
     /// Link to iterator consumer
     /// </summary>
     [Serializable()]
-    public class IteratorConsumerLink : ISerializable, ICategoryArrow, IRemovableObject
+    public class IteratorConsumerLink : Portable.IteratorConsumerLink, ISerializable
     {
-        #region Fields
-
-        private object obj;
-
-        IIterator iterator;
-
-        IIteratorConsumer consumer;
-
-        #endregion
-
         #region Ctor
 
         /// <summary>
@@ -32,6 +22,7 @@ namespace DataPerformer
         public IteratorConsumerLink()
         {
         }
+
 
         /// <summary>
         /// Deserialization constructor
@@ -52,59 +43,5 @@ namespace DataPerformer
 
         #endregion
 
-        #region ICategoryArrow Members
-
-        ICategoryObject ICategoryArrow.Source
-        {
-            get
-            {
-                return consumer as ICategoryObject;
-                
-            }
-            set
-            {
-               consumer = value.GetSource<IIteratorConsumer>();
-            }
-        }
-
-        ICategoryObject ICategoryArrow.Target
-        {
-            get
-            {
-                return iterator as ICategoryObject;
-            }
-            set
-            {
-                iterator =  value.GetTarget<IIterator>();
-                consumer.Add(iterator);
-            }
-        }
-
-        #endregion
-
-        #region IAssociatedObject Members
-
-        object IAssociatedObject.Object
-        {
-            get
-            {
-                return obj;
-            }
-            set
-            {
-               obj = value;
-            }
-        }
-
-        #endregion
-
-        #region IRemovableObject Members
-
-        void IRemovableObject.RemoveObject()
-        {
-            consumer.Remove(iterator);
-        }
-
-        #endregion
     }
 }

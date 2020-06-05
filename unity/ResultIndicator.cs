@@ -30,6 +30,7 @@ public class ResultIndicator : MonoBehaviour
 
    
     static IVelocity v;
+
     static IAngularVelocity av;
 
     static double[] spos = new double[3];
@@ -170,21 +171,21 @@ public class ResultIndicator : MonoBehaviour
                     return s;
                 }
             }
-            s = CheckResult("Vx", svel[2], Constants[3], 1);
+            s = CheckResult("Vx", svel[2], Constants[3], 100);
             {
                 if (s != null)
                 {
                     return s;
                 }
             }
-            s = CheckResult("Vy", svel[1], Constants[3], 1);
+            s = CheckResult("Vy", svel[1], Constants[3], 100);
             {
                 if (s != null)
                 {
                     return s;
                 }
             }
-            s = CheckResult("Vz", svel[0], Constants[3], 1);
+            s = CheckResult("Vz", svel[0], Constants[3], 100);
             {
                 if (s != null)
                 {

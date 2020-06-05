@@ -107,7 +107,7 @@ namespace DataPerformer.TestInterface.SeriesWrapper
             {
                 IDesktop desktop = collection as IDesktop;
                 IDataConsumer dataconsumer = desktop[name] as IDataConsumer;
-                Dictionary<string, DataPerformer.Basic.Series> d = GetSeries(collection); // Calculation of time dependent function
+                Dictionary<string, Portable.Basic.Series> d = GetSeries(collection); // Calculation of time dependent function
                 List<string> l = new List<string>();
                 foreach (string s in d.Keys)
                 {
@@ -134,7 +134,7 @@ namespace DataPerformer.TestInterface.SeriesWrapper
         /// <param name="collection">Collection of components</param>
         internal void Create(IComponentCollection collection)
         {
-            Dictionary<string, DataPerformer.Basic.Series> d = GetSeries(collection);
+            Dictionary<string, Portable.Basic.Series> d = GetSeries(collection);
             series.Clear();
             foreach (string key in d.Keys)
             {
@@ -142,7 +142,7 @@ namespace DataPerformer.TestInterface.SeriesWrapper
             }
         }
 
-        Dictionary<string, DataPerformer.Basic.Series> GetSeries(IComponentCollection collection)
+        Dictionary<string, Portable.Basic.Series> GetSeries(IComponentCollection collection)
         {
             IDataConsumer dataConsumer = collection.GetObject<IDataConsumer>(name);
             string[] ss = (values == null) ? series.Keys.ToArray() : values;

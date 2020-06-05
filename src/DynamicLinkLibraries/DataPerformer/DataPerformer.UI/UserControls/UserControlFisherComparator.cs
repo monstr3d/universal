@@ -25,7 +25,8 @@ namespace DataPerformer.UI.UserControls
         /// </summary>
         protected ObjectsCollection collection;
 
-        Dictionary<string, AliasRegression> items = new Dictionary<string, AliasRegression>();
+        Dictionary<string, Regression.AliasRegression> items = 
+            new Dictionary<string, Regression.AliasRegression>();
 
         #endregion
 
@@ -48,7 +49,7 @@ namespace DataPerformer.UI.UserControls
             set
             {
                 Type t = value.Type;
-                if (!t.Equals(typeof(AliasRegression)))
+                if (!t.Equals(typeof(Regression.AliasRegression)))
                 {
                     throw new Exception("Illegal type");
                 }
@@ -67,7 +68,8 @@ namespace DataPerformer.UI.UserControls
             int n = collection.Count;
             for (int i = 0; i < n; i++)
             {
-                AliasRegression ar = collection[i] as AliasRegression;
+                Regression.AliasRegression ar = collection[i] as
+                    Regression.AliasRegression;
                 string name = collection.GetRelativeName(ar) 
                     + "("  + ar.Dimension + ")";
                 checkedListBox.Items.Add(name);
@@ -82,7 +84,8 @@ namespace DataPerformer.UI.UserControls
             {
                 return;
             }
-            List<AliasRegression> arl = new List<AliasRegression>();
+            List<Regression.AliasRegression> arl = 
+                new List<Regression.AliasRegression>();
             foreach (string s in ch)
             {
                 arl.Add(items[s]);
@@ -91,14 +94,14 @@ namespace DataPerformer.UI.UserControls
             int n2 = arl[1].Dimension;
             int k1 = n1;
             int k2 = n2;
-            AliasRegression[] arr = null;
+            Regression.AliasRegression[] arr = null;
             if (n1 > n2)
             {
-                arr = new AliasRegression[] { arl[0], arl[1] };
+                arr = new Regression.AliasRegression[] { arl[0], arl[1] };
             }
             else
             {
-                arr = new AliasRegression[] { arl[1], arl[0] };
+                arr = new Regression.AliasRegression[] { arl[1], arl[0] };
                 k1 = n2;
                 k2 = n1;
             }
@@ -106,7 +109,7 @@ namespace DataPerformer.UI.UserControls
             int[] kk = new int[2];
             for (int i = 0; i < ss.Length; i++)
             {
-                AliasRegression aa = arr[i];
+                Regression.AliasRegression aa = arr[i];
                 int dim = aa.DataDimension - aa.Dimension;
                 ss[i] = aa.StandardDeviation / ((double)dim);
                 kk[i] = dim;

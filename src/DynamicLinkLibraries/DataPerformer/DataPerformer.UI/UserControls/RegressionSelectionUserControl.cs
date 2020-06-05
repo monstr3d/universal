@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Text;
 using System.Windows.Forms;
 using System.Collections;
 
@@ -29,7 +24,7 @@ namespace DataPerformer.UI.UserControls
     {
         IStructuredSelectionCollection s;
         Hashtable controls = new Hashtable();
-        AliasRegression reg;
+        Regression.AliasRegression     reg;
         string name;
 
         private RegressionSelectionUserControl()
@@ -42,7 +37,7 @@ namespace DataPerformer.UI.UserControls
         /// </summary>
         /// <param name="reg">Regression component</param>
         /// <param name="s">Selection</param>
-        public RegressionSelectionUserControl(AliasRegression reg, 
+        public RegressionSelectionUserControl(Regression.AliasRegression reg, 
             IStructuredSelectionCollection s) : this()
         {
             this.s = s;

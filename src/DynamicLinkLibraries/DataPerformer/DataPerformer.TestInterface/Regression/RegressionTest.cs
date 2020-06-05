@@ -137,7 +137,8 @@ namespace DataPerformer.TestInterface.Regression
         /// <returns>Residual parameter</returns>
         double GetValue(IComponentCollection collection)
         {
-            AliasRegression reg = collection.GetObject<AliasRegression>(name); // Regression component
+            global::Regression.AliasRegression reg = 
+                collection.GetObject <global::Regression.AliasRegression >(name); // Regression component
             for (int i = 0; i < number; i++)
             {
                 reg.FullIterate();                  // Iteration cylce

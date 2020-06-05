@@ -6,7 +6,6 @@ using System.Text;
 using CategoryTheory;
 using Diagram.UI;
 using GeneralLinearMethod;
-using AnalyticPolynom;
 using BaseTypes;
 using DataPerformer;
 using DataPerformer.Interfaces;

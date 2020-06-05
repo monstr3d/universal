@@ -36,7 +36,7 @@ namespace Chart.Objects
             pointList.Clear();
         }
 
-        public override void Add(DataPerformer.Basic.Series series)
+        public override void Add(DataPerformer.Portable.Basic.Series series)
         {
             base.Add(series);
             List<double[]> l = series.Points;

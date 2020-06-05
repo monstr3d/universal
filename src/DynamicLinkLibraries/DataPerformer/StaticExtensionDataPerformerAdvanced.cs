@@ -203,15 +203,15 @@ namespace DataPerformer
         /// <param name="argument">Argument</param>
         /// <param name="values">Values</param>
         /// <returns>Dictionary of series</returns>
-        public static Dictionary<string, DataPerformer.Basic.Series> GetSeries(this IDataConsumer consumer, double start, double step, int count,
+        public static Dictionary<string, Portable.Basic.Series> GetSeries(this IDataConsumer consumer, double start, double step, int count,
              string argument, string[] values)
         {
-            Dictionary<string, DataPerformer.Basic.Series> dic = new Dictionary<string, Basic.Series>();
+            Dictionary<string, Portable.Basic.Series> dic = new Dictionary<string, Portable.Basic.Series>();
             Dictionary<string, object> d = consumer.PerformFixed(start, step, count, argument, values);
             foreach (string key in d.Keys)
             {
                 ParametrizedSeries s = d[key] as ParametrizedSeries;
-                DataPerformer.Basic.Series ser = new DataPerformer.Basic.Series();
+                Portable.Basic.Series ser = new Portable.Basic.Series();
                 ser.CopyFrom(s);
                 dic[key] = ser;
             }

@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+
 using System.Xml;
 
-using Localization.Helper;
 
-namespace DataPerformer.Basic
+namespace DataPerformer.Portable.Basic
 {
     /// <summary>
     /// Basic series
@@ -18,18 +16,16 @@ namespace DataPerformer.Basic
         /// <summary>
         /// Type value
         /// </summary>
-        protected static readonly Double a = 0;
+        protected static readonly double a = 0;
 
-        /// <summary>
-        /// Little number
-        /// </summary>
-        protected readonly double eps = 1e-9;
-
+  
         /// <summary>
         /// Message strings
         /// </summary>
-        static public readonly string[] HasEqualStepString = new string[] {"This series has equal steps",
-																			  "This series has no equal steps"};
+        static public readonly string[] HasEqualStepString = 
+            new string[] {"This series has equal steps",
+                "This series has no equal steps"};
+
         /// <summary>
         /// Points
         /// </summary>
@@ -298,84 +294,7 @@ namespace DataPerformer.Basic
             get { return points; }
         }
 
-        /// <summary>
-        /// Creates correspond xml
-        /// </summary>
-        /// <param name="doc">document to create element</param>
-        /// <returns>The created element</returns>
-        public XmlElement ExportToXml(XmlDocument doc)
-        {
-            doc.LoadXml("<?xml version=\"1.0\" encoding=\"utf-8\"?><Series/>");
-            foreach (double[] p in points)
-            {
-                XmlElement ep = doc.CreateElement("PlotPoint");
-                XmlAttribute ax = doc.CreateAttribute("PlotX");
-                ax.Value = "" + p[0];
-                ep.Attributes.Append(ax);
-                XmlAttribute ay = doc.CreateAttribute("PlotY");
-                ay.Value = "" + p[1];
-                ep.Attributes.Append(ay);
-                doc.DocumentElement.AppendChild(ep);
-            }
-            return doc.DocumentElement;
-        }
-
-        /// <summary>
-        /// Export to xml
-        /// </summary>
-        public XmlDocument Xml
-        {
-            get
-            {
-                XmlDocument doc = new XmlDocument();
-                doc.LoadXml("<?xml version=\"1.0\" encoding=\"utf-8\"?><Series/>");
-                CreateElements(doc, doc.DocumentElement);
-                return doc;
-            }
-            set
-            {
-                points.Clear();
-                XmlElement e = value.DocumentElement;
-                Load(e);
-            }
-        }
-
-        /// <summary>
-        /// Exports array of series to single document
-        /// </summary>
-        /// <param name="seriesArray">Array of series</param>
-        /// <returns></returns>
-        public static XmlDocument Export(Series[] seriesArray)
-        {
-            XmlDocument doc = new XmlDocument();
-            doc.LoadXml("<?xml version=\"1.0\" encoding=\"utf-8\"?><SeriesCollection/>");
-            foreach (Series s in seriesArray)
-            {
-                XmlElement e = doc.CreateElement("Series");
-                doc.DocumentElement.AppendChild(e);
-                s.CreateElements(doc, e);
-            }
-            return doc;
-        }
-
-        /// <summary>
-        /// Imports series collecion from document
-        /// </summary>
-        /// <param name="doc">The document</param>
-        /// <returns>Collection of series</returns>
-        public static Series[] ImportSeriesCollection(XmlDocument doc)
-        {
-            XmlNodeList l = doc.DocumentElement.GetElementsByTagName("Series");
-            List<Series> ls = new List<Series>();
-            foreach (XmlElement e in l)
-            {
-                Series s = new Series();
-                s.Load(e);
-                ls.Add(s);
-            }
-            return ls.ToArray();
-        }
-
+ 
         /// <summary>
         /// Calculates increasing inverted function
         /// </summary>
@@ -483,7 +402,7 @@ namespace DataPerformer.Basic
         {
             get
             {
-                double[] x = points[i] as double[];
+                double[] x = points[i];
                 return x[j];
             }
         }
@@ -552,7 +471,6 @@ namespace DataPerformer.Basic
             {
                 if (this[0, 0] > x)
                 {
-                    //throw new Exception("Argument too small");
                     parameter[0] = this[0, 1];
                     parameter[1] = 0;
                     return parameter;
@@ -598,7 +516,7 @@ namespace DataPerformer.Basic
 
         #endregion
 
-        #region Proected Members
+        #region Protected Members
 
         /// <summary>
         /// Checks whether series has equal step
@@ -620,7 +538,8 @@ namespace DataPerformer.Basic
                 }
                 if (i > 1)
                 {
-                    if (Math.Abs(s - (p[0] - t)) > (eps * Math.Abs(s)))
+                    if (Math.Abs(s - (p[0] - t)) > (double.Epsilon * 
+                        Math.Abs(s)))
                     {
                         return;
                     }
@@ -632,43 +551,7 @@ namespace DataPerformer.Basic
 
         #endregion
 
-        #region Private Members
-
-        /// <summary>
-        /// Creates Elements
-        /// </summary>
-        /// <param name="doc">document</param>
-        /// <param name="e">root element</param>
-        void CreateElements(XmlDocument doc, XmlElement e)
-        {
-            foreach (double[] p in points)
-            {
-                XmlElement ep = doc.CreateElement("PlotPoint");
-                XmlAttribute ax = doc.CreateAttribute("PlotX");
-                ax.Value = p[0].Convert();
-                ep.Attributes.Append(ax);
-                XmlAttribute ay = doc.CreateAttribute("PlotY");
-                ay.Value = p[1].Convert();
-                ep.Attributes.Append(ay);
-                e.AppendChild(ep);
-            }
-        }
-
-        /// <summary>
-        /// Loads from element
-        /// </summary>
-        /// <param name="e">The element</param>
-        void Load(XmlElement e)
-        {
-            foreach (XmlElement el in e.ChildNodes)
-            {
-                AddXY(el.Attributes["PlotX"].Value.Convert(), el.Attributes["PlotY"].Value.Convert());
-            }
-        }
-
-        #endregion
-
-        #endregion
+         #endregion
 
     }
 }

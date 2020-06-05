@@ -1201,7 +1201,7 @@ namespace DataPerformer.Formula
         /// <summary>
         /// Order of derivation
         /// </summary>
-        public int DerivationOrder
+        new public int DerivationOrder
         {
             get
             {

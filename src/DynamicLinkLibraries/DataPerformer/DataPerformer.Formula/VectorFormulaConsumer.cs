@@ -242,8 +242,8 @@ namespace DataPerformer.Formula
                     string name = this.GetMeasurementsName(measurements);
                     for (int i = 0; i < measurements.Count; i++)
                     {
-                        IMeasurement measure = measurements[i];
-                        string p = name + "." + measure.Name;
+                        IMeasurement measurement = measurements[i];
+                        string p = name + "." + measurement.Name;
                         List<string> arg = new List<string>(arguments);
                         foreach (string s in arg)
                         {
@@ -263,11 +263,11 @@ namespace DataPerformer.Formula
                             //!!!TEMP ===
                             {
                                 char c = s[0];
-                                parameter.Add(c, measure);
+                                parameter.Add(c, measurement);
                                 string key = c + "";
                                 if (!acc.ContainsKey(key))
                                 {
-                                    acc[c + ""] = c.Create( measure, this);
+                                    acc[c + ""] = c.Create(measurement, this);
                                 }
                             }
                         }

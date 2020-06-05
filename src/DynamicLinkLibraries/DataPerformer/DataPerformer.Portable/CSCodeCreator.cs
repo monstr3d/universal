@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 using Diagram.UI.Interfaces;
 using Diagram.UI;
-using DataPerformer.Interfaces;
 
 namespace DataPerformer.Portable
 {
@@ -24,6 +21,10 @@ namespace DataPerformer.Portable
         {
             List<string> l = new List<string>();
             string str = null;
+            if (obj is SeriesBase)
+            {
+                return Get(obj as SeriesBase);
+            }
             if (obj is ObjectTransformer)
             { 
                     return GetObjectTransformer(obj as ObjectTransformer);
@@ -61,6 +62,34 @@ namespace DataPerformer.Portable
             l.Add("}");
             return l;
         }
+
+        List<string> Get(SeriesBase series)
+        {
+            List<string> l = new List<string>();
+            string str = "DataPerformer.Portable.SeriesBase";
+            l.Add(str);
+            l.Add("{");
+            l.Add("\tinternal CategoryObject()");
+            l.Add("\t{");
+            l.Add("\t\tpoints = new List<double[]>()");
+            l.Add("\t\t{");
+            for (int i = 0; i < series.Count; i++)
+            {
+                string s = "\t\t\tnew double[] { " + series[i, 0].StringValue() + ", " +
+                    series[i, 1].StringValue() + "}";
+                if (i < series.Count - 1)
+                {
+                    s += ",";
+                }
+                l.Add(s);
+            }
+            l.Add("\t\t};");
+            l.Add("}");
+            l.Add("}");
+            return l;
+        }
+
+
 
         List<string>  GetObjectTransformer(ObjectTransformer transformer)
         {

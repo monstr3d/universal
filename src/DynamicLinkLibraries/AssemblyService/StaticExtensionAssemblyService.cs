@@ -1,13 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.IO;
 using System.Reflection;
 
 using SerializationInterface;
 using Diagram.UI;
-
+using Diagram.Interfaces;
 
 namespace AssemblyService
 {
@@ -24,6 +22,7 @@ namespace AssemblyService
 
         static private bool firstBaseLoad = true;
 
+  
         #endregion
 
         #region Public Members
@@ -323,6 +322,22 @@ namespace AssemblyService
         }
 
         /// <summary>
+        /// Loads start
+        /// </summary>
+        public static void LoadStart()
+        {
+            Action<Assembly> act = (Assembly ass) =>
+            {
+                var st = ass.GetInterfaces<IAdditionalStart>();
+                foreach (var s in st)
+                {
+                    s.Start();
+                }
+            };
+            act.AssemblyAction();
+        }
+
+        /// <summary>
         /// Action for loaded assemblies
         /// </summary>
         /// <param name="action">Action</param>
@@ -433,7 +448,8 @@ namespace AssemblyService
 
         #region Private Members
 
-        static private void IteratedLoad(List<string> l, string[] files, Action<Exception> action)
+        static private void IteratedLoad(List<string> l, 
+            string[] files, Action<Exception> action)
         {
             int n = l.Count;
             foreach (string f in files)

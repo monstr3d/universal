@@ -1,8 +1,5 @@
 using System;
-using System.Collections.Generic;
-using System.Text;
 
-using DataPerformer;
 using DataPerformer.Interfaces;
 
 namespace Regression

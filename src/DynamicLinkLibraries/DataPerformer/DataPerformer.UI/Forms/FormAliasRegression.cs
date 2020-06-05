@@ -31,7 +31,7 @@ namespace DataPerformer.UI.Forms
     public partial class FormAliasRegression : Form, IUpdatableForm
     {
         private IObjectLabel label;
-        private AliasRegression regression;
+        private Regression.AliasRegression  regression;
 
         private Stack<Dictionary<IAliasName, double>> stack = new Stack<Dictionary<IAliasName, double>>();
 
@@ -50,7 +50,7 @@ namespace DataPerformer.UI.Forms
             : this()
         {
             this.label = label;
-            regression = label.Object as AliasRegression;
+            regression = label.Object as Regression.AliasRegression;
             UpdateFormUI();
             createAliasPanels(regression.Aliases.Count);
             fillAliasPanels();

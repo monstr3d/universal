@@ -4,7 +4,7 @@ using System.Text;
 
 using DataPerformer.Interfaces;
 
-namespace DataPerformer
+namespace DataPerformer.Portable
 {
     /// <summary>
     /// Consumer of iterator

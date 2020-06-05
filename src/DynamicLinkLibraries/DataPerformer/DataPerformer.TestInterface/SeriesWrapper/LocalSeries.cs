@@ -12,13 +12,13 @@ namespace DataPerformer.TestInterface.SeriesWrapper
     {
         #region Fields
 
-        DataPerformer.Basic.Series series;
+        Portable.Basic.Series series;
        
         #endregion
 
         #region Ctor
 
-        internal LocalSeries(DataPerformer.Basic.Series series)
+        internal LocalSeries(Portable.Basic.Series series)
         {
             this.series = series;
         }
@@ -26,7 +26,7 @@ namespace DataPerformer.TestInterface.SeriesWrapper
         private LocalSeries(SerializationInfo info, StreamingContext context)
         {
             byte[] b = info.GetValue("Series", typeof(byte[])) as byte[];
-            series = new DataPerformer.Basic.Series();
+            series = new Portable.Basic.Series();
             series.FromBlob(b);
         }
 
@@ -43,7 +43,7 @@ namespace DataPerformer.TestInterface.SeriesWrapper
 
         #region Members
 
-        internal bool Compare(DataPerformer.Basic.Series series)
+        internal bool Compare(Portable.Basic.Series series)
         {
            return this.series.Compare(series);
         }
