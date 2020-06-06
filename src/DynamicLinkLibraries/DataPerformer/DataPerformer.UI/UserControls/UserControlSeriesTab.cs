@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using System.Xml;
 
@@ -13,10 +7,10 @@ using BaseTypes.Interfaces;
 
 using Chart;
 using Chart.Utils;
-using Chart.Indicators;
 
-using DataPerformer;
 using DataPerformer.Formula;
+
+using FormulaEditor.Interfaces;
 
 namespace DataPerformer.UI.UserControls
 {
@@ -24,8 +18,8 @@ namespace DataPerformer.UI.UserControls
     /// Tab series control
     /// </summary>
     public partial class UserControlSeriesTab : UserControl, IObjectOperation,
-        FormulaEditor.Interfaces.IVariableDetector, 
-        FormulaEditor.Interfaces.IOperationAcceptor, IPowered
+        IVariableDetector, 
+       IOperationAcceptor, IPowered
     {
         #region Fields
 
@@ -83,7 +77,7 @@ namespace DataPerformer.UI.UserControls
 
         #region IVariableDetector Members
 
-        FormulaEditor.Interfaces.IOperationAcceptor 
+        IOperationAcceptor 
             FormulaEditor.Interfaces.IVariableDetector.Detect(FormulaEditor.Symbols.MathSymbol sym)
         {
             if (sym.Symbol == 't')
@@ -97,7 +91,7 @@ namespace DataPerformer.UI.UserControls
 
         #region IOperationAcceptor Members
 
-        IObjectOperation FormulaEditor.Interfaces.IOperationAcceptor.Accept(object type)
+        IObjectOperation IOperationAcceptor.Accept(object type)
         {
             return this;
         }

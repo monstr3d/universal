@@ -1,17 +1,13 @@
 using System;
 using System.Collections.Generic;
-using System.Text;
-
 
 using BaseTypes;
 using BaseTypes.Interfaces;
 
 using FormulaEditor.Interfaces;
-
-using RealMatrixProcessor;
 using FormulaEditor.Symbols;
 
-
+using RealMatrixProcessor;
 
 namespace FormulaEditor
 {

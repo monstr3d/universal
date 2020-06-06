@@ -1,16 +1,7 @@
 using System;
-using System.ComponentModel;
-using System.ComponentModel.Design;
-using System.IO;
-using System.Runtime.Serialization;
-using System.Runtime.Serialization.Formatters.Binary;
 using System.Windows.Forms;
 using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Collections;
 using System.Collections.Generic;
-using System.Configuration.Assemblies;
-using System.Resources;
 
 
 using FormulaEditor.Interfaces;

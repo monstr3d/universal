@@ -1,11 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Collections;
-using System.Text;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Reflection;
-using System.Security.Permissions;
 
 using FormulaEditor.Interfaces;
 using FormulaEditor.Symbols;

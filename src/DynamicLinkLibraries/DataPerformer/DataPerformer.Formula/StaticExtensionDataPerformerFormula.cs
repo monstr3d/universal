@@ -42,7 +42,7 @@ namespace DataPerformer.Formula
         /// <returns>AliasName</returns>
         static public IAliasName ToAliasName(ObjectFormulaTree tree)
         {
-   
+
             IObjectOperation op = tree.Operation;
             if (op is AliasNameVariable)
             {
@@ -58,7 +58,7 @@ namespace DataPerformer.Formula
         /// <returns>Measurement</returns>
         static public IMeasurement ToMeasurement(ObjectFormulaTree tree)
         {
-           IObjectOperation op = tree.Operation;
+            IObjectOperation op = tree.Operation;
             if (op is IMeasurementHolder)
             {
                 IMeasurementHolder h = op as IMeasurementHolder;
@@ -211,6 +211,7 @@ namespace DataPerformer.Formula
         }
 
         #endregion
+
 
         class DataPerformerSeparator : IOperationSeparator
         {

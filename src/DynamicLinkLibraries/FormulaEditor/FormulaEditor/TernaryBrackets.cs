@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-
 
 using BaseTypes;
 using BaseTypes.Interfaces;
@@ -17,7 +12,8 @@ namespace FormulaEditor
     /// <summary>
     /// Binary brackets operation
     /// </summary>
-    public class TernaryBrackets : IMultiVariableOperationAcceptor, IMultiVariableOperation
+    public class TernaryBrackets : IMultiVariableOperationAcceptor, 
+        IMultiVariableOperation
     {
         #region Fields
 
@@ -57,7 +53,6 @@ namespace FormulaEditor
 
         #endregion
 
-
         #region IObjectOperation Members
 
         object[] IObjectOperation.InputTypes
@@ -76,7 +71,6 @@ namespace FormulaEditor
         }
 
         #endregion
-
 
         #region IMultiVariableOperationAcceptor Members
 

@@ -62,7 +62,7 @@ namespace FormulaEditor
 
         #region IOperationDetector Members
 
-        IOperationAcceptor IOperationDetector.Detect(MathSymbol s)
+        BaseTypes.Interfaces.IOperationAcceptor IOperationDetector.Detect(MathSymbol s)
         {
             if (!(s is SimpleSymbol))
             {

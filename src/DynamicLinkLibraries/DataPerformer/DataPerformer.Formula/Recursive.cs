@@ -11,10 +11,7 @@ using Diagram.UI.Labels;
 using Diagram.UI.Interfaces;
 using Diagram.UI.Aliases;
 
-using BaseTypes;
 using BaseTypes.Interfaces;
-
-
 
 using DataPerformer.Interfaces;
 using DataPerformer.Portable;

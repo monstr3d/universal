@@ -1,30 +1,15 @@
 using System;
 using System.Runtime.Serialization;
-using System.Runtime.Serialization.Formatters.Binary;
 using System.Collections;
 using System.Collections.Generic;
-using System.Xml;
-using System.Linq;
 
-
-using CategoryTheory;
 
 using Diagram.UI;
-using Diagram.UI.Labels;
-using Diagram.UI.Interfaces;
-using Diagram.UI.Aliases;
 
 using BaseTypes.Interfaces;
 
 using SerializationInterface;
 
-using DataPerformer.Interfaces;
-using DataPerformer.Portable;
-using DataPerformer.Portable.Measurements;
-
-using FormulaEditor;
-using FormulaEditor.Interfaces;
-using FormulaEditor.Symbols;
 
 namespace DataPerformer
 {

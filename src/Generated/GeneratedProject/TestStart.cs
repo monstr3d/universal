@@ -22,7 +22,7 @@ namespace GeneratedProject
         {
             try
             {
-                IDesktop d = StaticExtensionGeneratedProject.Desktop;
+                IDesktop d = SimpleRegression.Desktop;
                 AliasRegression r = null;
                 d.ForEach((AliasRegression ar) => { r = ar; });
                 double a = r.Iterate();

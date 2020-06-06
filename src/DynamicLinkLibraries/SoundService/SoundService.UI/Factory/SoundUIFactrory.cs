@@ -1,14 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
-using CategoryTheory;
 
 using Diagram.UI.Factory;
 using Diagram.UI.Interfaces.Labels;
 using Diagram.UI.Interfaces;
-using Diagram.UI.Labels;
 using Diagram.UI;
 
 

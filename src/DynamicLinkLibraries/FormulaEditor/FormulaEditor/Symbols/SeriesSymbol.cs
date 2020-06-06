@@ -1,9 +1,8 @@
 using System;
 using System.Collections.Generic;
-using System.Text;
-using System.Collections;
 
-using FormulaEditor.Interfaces;
+
+using BaseTypes.Interfaces;
 
 namespace FormulaEditor.Symbols
 {

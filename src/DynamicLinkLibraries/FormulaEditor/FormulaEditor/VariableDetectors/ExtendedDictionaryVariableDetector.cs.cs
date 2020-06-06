@@ -23,7 +23,7 @@ namespace FormulaEditor.VariableDetectors
         /// </summary>
         /// <param name="types">Dictionary of types</param>
         public ExtendedDictionaryVariableDetector(Dictionary<string, object> types)
-            : base(new Dictionary<string, FormulaEditor.Interfaces.IOperationAcceptor>())
+            : base(new Dictionary<string, BaseTypes.Interfaces.IOperationAcceptor>())
         {
             foreach (string key in types.Keys)
             {

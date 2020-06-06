@@ -21,7 +21,7 @@ namespace DataPerformer.Formula
                 {
                     { (object o) => { return o is VectorFormulaConsumer; } , CreateVectorConsumer },
                     { (object o) => { return o is DifferentialEquationSolver; } , CreateDiffrerentialSolver },
-                    { (object o) => { return o is Recursive; } , CreateRecursive }
+                    { (object o) => { return o is Recursive; } , CreateRecursive },
                 };
 
 

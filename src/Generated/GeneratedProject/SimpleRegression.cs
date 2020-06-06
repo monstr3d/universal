@@ -6,7 +6,7 @@ using System.Text;
 
 namespace GeneratedProject
 {
-	public static class StaticExtensionGeneratedProject
+	public static class SimpleRegression
 	{
 
 		 static public bool SuccessLoad { get; private set; } = true;

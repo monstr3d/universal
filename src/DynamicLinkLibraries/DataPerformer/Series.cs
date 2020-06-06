@@ -12,7 +12,6 @@ using BaseTypes.Interfaces;
 
 using FormulaEditor.Interfaces;
 
-using DataPerformer.Portable.Measurements;
 
 namespace DataPerformer
 {
@@ -20,8 +19,7 @@ namespace DataPerformer
     /// Series
     /// </summary>
 	[Serializable()]
-	public class Series : SeriesBase,
-        IUnary, IObjectOperation, IPowered, IOperationAcceptor, IComments, IOneVariableFunction
+	public class Series : SeriesBase, IComments
 	{
 		
 		#region Fields
@@ -35,6 +33,8 @@ namespace DataPerformer
         /// </summary>
 		public Series()
 		{
+			initialize();
+			initFunc();
 
 		}
 
@@ -43,7 +43,7 @@ namespace DataPerformer
 		/// </summary>
 		/// <param name="info">Serialization info</param>
 		/// <param name="context">Streaming context</param>
-        protected Series(SerializationInfo info, StreamingContext context)
+		protected Series(SerializationInfo info, StreamingContext context)
             : base(info, context)
         {
             try
@@ -87,98 +87,6 @@ namespace DataPerformer
             info.AddValue("X", X, typeof(string));
             info.AddValue("Y", Y, typeof(string));
         }
-
-		#endregion
-
-		#region IObjectOperation Members
-
-		object IObjectOperation.this[object[] x]
-		{
-			get
-			{
-				double a = (double) x[0];
-				return GetValue(a);
-			}
-		}
-
-        /// <summary>
-        /// Return type
-        /// </summary>
-        public object ReturnType
-		{
-			get
-			{
-				return a;
-			}
-		}
-
-        object[] IObjectOperation.InputTypes
-        {
-            get { return new object[] { (double)0 }; }
-        }
-
-
-        /// <summary>
-        /// The "is powered" sign
-        /// </summary>
-        bool IPowered.IsPowered
-		{
-			get
-			{
-				return true;
-			}
-		}
-
-		#endregion
-
-        #region IOneVariableFunction Members
-
-        object IOneVariableFunction.VariableType
-        {
-            get { return a; }
-        }
-
-        #endregion
-
-		#region IOperationAcceptor Members
-
-        /// <summary>
-        /// Accepts operation
-        /// </summary>
-        /// <param name="type">Argument type</param>
-        /// <returns>The operation</returns>
-        public IObjectOperation Accept(object type)
-		{
-			if (type.Equals(a))
-			{
-				return this;
-			}
-			return null;
-		}
-
-		#endregion
-
-		#region IUnary Members
-
-		/// <summary>
-		/// Gets value of function
-		/// </summary>
-		/// <param name="x">Argument</param>
-		/// <returns></returns>
-		public double GetValue(double x)
-		{
-			return this[x][0];
-		}
-
-		/// <summary>
-		/// Gets derivation of function
-		/// </summary>
-		/// <param name="x">Argument</param>
-		/// <returns></returns>
-		public double GetDerivation(double x)
-		{
-			return this[x][1];
-		}
 
 		#endregion
 

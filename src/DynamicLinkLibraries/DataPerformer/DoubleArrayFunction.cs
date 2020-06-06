@@ -1,20 +1,15 @@
 using System;
-using System.Runtime.Serialization;
-using System.Runtime.Serialization.Formatters.Binary;
 using System.Collections;
-using System.Xml;
+
+using System.Runtime.Serialization;
 
 
 using CategoryTheory;
-using Diagram.UI;
+
 using BaseTypes;
 using BaseTypes.Interfaces;
 
-
-using GeneralLinearMethod;
-
 using FormulaEditor;
-using FormulaEditor.Interfaces;
 
 
 namespace DataPerformer

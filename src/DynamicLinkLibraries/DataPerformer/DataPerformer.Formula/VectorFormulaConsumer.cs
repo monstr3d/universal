@@ -1,17 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 using BaseTypes.Interfaces;
+
 using CategoryTheory;
-using DataPerformer.Formula.Interfaces;
-using DataPerformer.Interfaces;
-using DataPerformer.Portable;
+
 using Diagram.UI;
 using Diagram.UI.Aliases;
 using Diagram.UI.Labels;
-using Event.Interfaces;
+
+using DataPerformer.Formula.Interfaces;
+using DataPerformer.Interfaces;
+using DataPerformer.Portable;
+
 using FormulaEditor;
 using FormulaEditor.Interfaces;
 using FormulaEditor.Symbols;

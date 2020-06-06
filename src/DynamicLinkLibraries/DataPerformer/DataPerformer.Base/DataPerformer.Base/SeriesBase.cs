@@ -1,18 +1,13 @@
 using System;
 using System.Collections.Generic;
 using System.Collections;
-using System.Text;
 using System.Runtime.Serialization;
 using System.Xml;
 
 
-using CategoryTheory;
 using BaseTypes;
-using Diagram.UI.Labels;
 using Diagram.UI;
-using Diagram.UI.Interfaces;
 
-using DataPerformer.Interfaces;
 
 using Localization.Helper;
 using DataPerformer.Portable.Basic;
@@ -40,8 +35,7 @@ namespace DataPerformer
         /// </summary>
         /// <param name="info">Serialization info</param>
         /// <param name="context">Streaming context</param>
-        protected SeriesBase(SerializationInfo info, StreamingContext context) :
-            this()
+        protected SeriesBase(SerializationInfo info, StreamingContext context) 
         {
             foreach (string vn in vNames)
             {
