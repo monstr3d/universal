@@ -16,9 +16,10 @@ namespace Assets
 
         #region Fields
 
+ 
         float ap = -60f;
 
-
+        static public event Action<string, float[], float[]> Alarm;
 
         RectTransform pivot;
 
@@ -35,6 +36,8 @@ namespace Assets
 
         AudioSource alarm;
 
+        AudioSource engine;
+
         private float interval = 0;
  
         public float kx = 1f;
@@ -48,19 +51,6 @@ namespace Assets
         public float kMy = 1f;
 
         public float kMz = 1f;
-
-        float vx = 0f;
-
-        float vy = 0f;
-
-        float vz = 0f;
-
-        float vMx = 0f;
-
-
-        float vMy = 0f;
-
-        float vMz = 0f;
 
         Dictionary<KeyCode, bool> pressed = new Dictionary<KeyCode, bool>();
 
@@ -77,6 +67,8 @@ namespace Assets
         GameObject camera;
 
         KeyCode[] codes = { KeyCode.None };
+
+        
 
         Dictionary<KeyCode, KeyCode[]>  kkdic = new Dictionary<KeyCode, KeyCode[]>();
 
@@ -108,10 +100,13 @@ namespace Assets
 
         Dictionary<int, Image[]> blink = new Dictionary<int, Image[]>();
 
-        Component result;
+        Component[] results;
 
-        Text resText;
+        Slider slider;
 
+        Text sliderText;
+
+  
         string[,] txt = new string[,] { { "Ax_Txt", "0.00" }, { "Ay_Txt", "0.00" }, { "Az_Txt", "0.00" },
             { "Omx1_Txt", "+--" }, { "Omy1_Txt", "+--" } , { "Omz1_Txt", "+--" }  };
 
@@ -121,7 +116,7 @@ namespace Assets
 
         float bp = 0.2f;
 
-
+ 
         #endregion
 
         #region Ctor
@@ -148,11 +143,20 @@ namespace Assets
             gameObject = mb.gameObject;
             Dictionary<string, List<Component>> components = 
                 gameObject.GetGameObjectComponents<Component>();
-            result = components["Results"][0];
-            Dictionary<string, List<Text>> texts = gameObject.GetGameObjectComponents<Text>();
+            var sl =    gameObject.GetGameObjectComponents<Slider>();
+            slider = sl["SliderRight"][0];
+            Dictionary<string, List<Text>> texts = 
+                gameObject.GetGameObjectComponents<Text>();
+            sliderText = texts["SliderText"][0];
+            results = new Component[]
+            {
+                sliderText, 
+                slider,
+                 sl["SliderLeft"][0]
+            };
             foreach (string key in texts.Keys)
             {
-                if (key == "Text")
+                if (key == "Text" || key == "SliderText")
                 {
                     continue;
                 }
@@ -162,10 +166,13 @@ namespace Assets
                     tttx.color = new Color(0, 1, 0, 1);
                 }
             }
-            resText = texts["Text"][0];
-            Dictionary<string, List<AudioSource>> las = camera.GetGameObjectComponents<AudioSource>();
+            //resText = texts["Text"][0];
+            Dictionary<string, List<AudioSource>> las = 
+                camera.GetGameObjectComponents<AudioSource>();
             torch = las["Torch"][0];
             alarm = las["Alarm"][0];
+            engine = las["Engine"][0];
+  
             var s = "Force.";
             string[] ss = { "Fx", "Fy", "Fz", "Mx", "My", "Mz" };
             for (int i = 0; i < ss.Length; i++)
@@ -323,6 +330,22 @@ namespace Assets
             }
         }
 
+        int activeEn
+        {
+            get
+            {
+                int k = 0;
+                foreach (var i in active.Values)
+                {
+                    if (i != 0)
+                    {
+                        ++k;
+                    }
+                }
+                return k;
+            }
+        }
+
          void UpdateCurrent()
         {
             if (current != lastCurrent)
@@ -368,7 +391,26 @@ namespace Assets
                 throw new Exception();
             }
             v[0] = value;
+            int aco = activeEn;
             active[pp] = Math.Sign(value);
+            int acn = activeEn;
+            if (acn != aco)
+            {
+                if (acn == 0)
+                {
+                    engine.enabled = false;
+                    engine.Stop();
+                }
+                if (aco == 0)
+                {
+                    engine.enabled = true;
+                }
+                if (engine.enabled)
+                {
+                    engine.volume = acn / 6f;
+                    engine.Play();
+                }
+            }
             var tst = texts[code];
             string ss = "0";
             string f = tst.Item2[1];
@@ -408,25 +450,66 @@ namespace Assets
             }
             return false;
         }
+
+        float[] delta;
+
         void UpdateAlarm()
         {
-            string res = ResultIndicator.Result;
+            float[] yz = null;
+            float[] ddelta = null;
+            string res = ResultIndicator.GetResult(out yz, out ddelta);
+            Alarm(res, yz, ddelta);
             if (res == null)
             {
                 alarm.enabled = false;
-                resText.text = "";
+               // resText.text = "";
                 //        result.gameObject.SetActive(false);
                 return;
             }
             alarm.enabled = true;
-            resText.text = res;
-            resText.color = Color.red;
-            result.gameObject.SetActive(true);
+           // resText.text = res;
+         //   resText.color = Color.red;
+            //result.gameObject.SetActive(true);
+            if (delta == null & ddelta != null)
+            {
+                delta = ddelta;
+                mb.StartCoroutine(showDelta);
+                sliderText.text = res;
+            }
         }
+
 
         #endregion
 
         #region Coroutines
+
+        System.Collections.IEnumerator showDelta
+        {
+            get
+            {
+                while (true)
+                {
+                    float[] d = delta;
+                    if (d == null)
+                    {
+                        foreach (var v in results)
+                        {
+                            v.gameObject.SetActive(false);
+                        }
+                        break;
+                    }
+                    yield return new WaitForSeconds(0.2f);
+                    float x = (d[0] - d[1]) / d[1];
+                    slider.value = x;
+                    foreach (var v in results)
+                    {
+                        v.gameObject.SetActive(true);
+                    }
+                    yield return new WaitForSeconds(0.2f);
+
+                }
+            }
+        }
 
         System.Collections.IEnumerator blinkc
         {

@@ -81,7 +81,7 @@ namespace DataPerformer.UI.UserControls
 
         #region ISeriesGetter Members
 
-        Chart.Drawing.Interfaces.ISeries ISeriesGetter.Series
+        ISeries ISeriesGetter.Series
         {
             get
             {

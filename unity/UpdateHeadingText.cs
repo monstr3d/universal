@@ -1,15 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
 
 using Unity.Standard;
 
-using Vector3D;
-using Motion6D.Interfaces;
 using Scada.Interfaces;
 
 namespace Assets
@@ -17,9 +11,6 @@ namespace Assets
     public class UpdateHeadingText : AbstractFrameUpdate
     {
         Text headingTxt;
-        Text Text;
-        Text Altitude_Txt;
-        Text Speed_Txt;
 
         public UpdateHeadingText()
         {

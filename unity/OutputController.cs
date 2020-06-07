@@ -10,10 +10,8 @@ using Scada.Desktop;
 using Scada.Interfaces;
 
 
-using Motion6D.Interfaces;
 using Diagram.UI.Interfaces;
 using Diagram.UI;
-using Vector3D;
 
 using Unity.Standard;
 

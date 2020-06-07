@@ -221,12 +221,12 @@ namespace Assets
                 return;
             }
             f[2] = kF;
-            sc[8] = "Station motion.y=0.5";
+            sc[8] = "Station motion.y=0.05"; // !!!DEBUG "Station motion.y=0.5"
             if (level == 2)
             {
                 return;
             }
-            stringConstants[0][7] = "Station motion.x=0.5";
+            stringConstants[0][7] = "Station motion.x=0.05";
             f[1] = kF;
             if (level == 100)
             {
