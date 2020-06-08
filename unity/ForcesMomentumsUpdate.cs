@@ -18,7 +18,7 @@ namespace Assets
 
         Dictionary<string, List<Component>> components;
 
-        List<SliderWrapper> sliders = new List<SliderWrapper>();
+        Action updateIndicators;
 
  
         float ap = -60f;
@@ -194,7 +194,7 @@ namespace Assets
             sliders.Add(sw);
             sw = new SliderWrapper(c["MarkedLimitedNegativeSlider"][0], -100, 2, f);
             sliders.Add(sw);*/
-            sliders = gameObject.GetSliderWrappers();
+            updateIndicators = gameObject.GetIndicators().Update();
 
         }
 
@@ -255,10 +255,7 @@ namespace Assets
                     current = KeyCode.F10;
                 }
             }
-            foreach (var sl in sliders)
-            {
-                sl.Update();
-            }
+            updateIndicators?.Invoke();
         }
 
 

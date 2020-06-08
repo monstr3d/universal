@@ -1,0 +1,29 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Unity.Standard
+{
+    /// <summary>
+    /// Indicator
+    /// </summary>
+    public interface IIndicator
+    {
+        /// <summary>
+        /// Update action
+        /// </summary>
+        Action Update { get; }
+
+        /// <summary>
+        /// Set value
+        /// </summary>
+        object Value { set; }
+
+        /// <summary>
+        /// Type
+        /// </summary>
+        object Type { get; }
+    }
+}

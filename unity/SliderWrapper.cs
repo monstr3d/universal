@@ -8,7 +8,7 @@ using UnityEngine.UI;
 
 namespace Unity.Standard
 {
-    public class SliderWrapper
+    public class SliderWrapper : IIndicator
     {
         #region Fields
 
@@ -154,6 +154,21 @@ namespace Unity.Standard
             }
         }
 
+
+        #endregion
+
+        #region IIndicator
+
+        Action IIndicator.Update => update + updateText;
+
+        object IIndicator.Value { set => Value = (double)value; }
+
+        object IIndicator.Type => (double)0;
+
+
+        #endregion
+
+        #region Private
         void UpdateText()
         {
             if (text.color != current)
@@ -271,7 +286,6 @@ namespace Unity.Standard
 
 
         #endregion
-
 
 
     }

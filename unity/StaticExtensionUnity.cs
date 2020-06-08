@@ -87,6 +87,8 @@ namespace Unity.Standard
 
         static double pauseTime;
 
+        static List<IIndicatorFactory> indicatorFactories = new List<IIndicatorFactory>();
+
         static public double StartTime
         {
             get;
@@ -103,6 +105,48 @@ namespace Unity.Standard
         #endregion
 
         #region Members
+
+        /// <summary>
+        /// Gets all indicators from Geme object
+        /// </summary>
+        /// <param name="gameObject">The Game object</param>
+        /// <returns>Indicators</returns>
+        static public List<IIndicator> GetIndicators(this GameObject gameObject)
+        {
+            List<IIndicator> l = new List<IIndicator>();
+            List<GameObject> go = new List<GameObject>();
+            gameObject.GetIndicators(go, l);
+            return l;
+        }
+
+
+        /// <summary>
+        /// Action from indicators
+        /// </summary>
+        /// <param name="indicators">Indicators</param>
+        /// <returns>The action</returns>
+        static public Action Update(this IEnumerable<IIndicator> indicators)
+        {
+            Action update = null;
+            foreach (var i in indicators)
+            {
+                var a = i.Update;
+                if (a == null)
+                {
+                    continue;
+                }
+                if (update == null)
+                {
+                    update = a;
+                }
+                else
+                {
+                    update += a;
+                }
+
+            }
+            return update;
+        }
 
         /// <summary>
         /// Gets slider wrappers of the game object
@@ -229,6 +273,34 @@ namespace Unity.Standard
         #endregion
 
         #region Private
+
+
+        private static void GetIndicators(this GameObject gameObject,
+            List<GameObject> lg,
+            List<IIndicator> ls)
+        {
+            if (lg.Contains(gameObject))
+            {
+                return;
+            }
+            lg.Add(gameObject);
+            RectTransform[] rt = gameObject.GetComponentsInChildren<RectTransform>();
+            foreach (var r in rt)
+            {
+                r.gameObject.GetIndicators(lg, ls);
+            }
+            foreach (var factory in indicatorFactories)
+            {
+                var ind = factory.Get(gameObject);
+                if (ind != null)
+                {
+                    ls.Add(ind);
+                    break;
+                }
+            }
+        }
+
+
         private static void GetSliderWrappers(this GameObject gameObject, List<GameObject> lg,
      List<SliderWrapper> ls, Color normal, Color exceed)
         {
@@ -711,6 +783,12 @@ namespace Unity.Standard
                 {
                     activations[name] = ci;
                 }
+                if (types.Contains(typeof(IIndicatorFactory)))
+                {
+                    indicatorFactories.Add(ci.Invoke(new object[] { })
+                        as IIndicatorFactory);
+                }
+
             }
             );
 
