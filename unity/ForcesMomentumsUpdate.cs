@@ -16,6 +16,10 @@ namespace Assets
 
         #region Fields
 
+        Dictionary<string, List<Component>> components;
+
+        List<SliderWrapper> sliders = new List<SliderWrapper>();
+
  
         float ap = -60f;
 
@@ -106,7 +110,7 @@ namespace Assets
 
         Text sliderText;
 
-  
+   
         string[,] txt = new string[,] { { "Ax_Txt", "0.00" }, { "Ay_Txt", "0.00" }, { "Az_Txt", "0.00" },
             { "Omx1_Txt", "+--" }, { "Omy1_Txt", "+--" } , { "Omz1_Txt", "+--" }  };
 
@@ -141,9 +145,10 @@ namespace Assets
                 camera.GetComponentInChildren<ReferenceFrameBehavior>();
             mb = obj[0] as MonoBehaviour;
             gameObject = mb.gameObject;
-            Dictionary<string, List<Component>> components = 
+            components = 
                 gameObject.GetGameObjectComponents<Component>();
-            var sl =    gameObject.GetGameObjectComponents<Slider>();
+          
+            /*
             slider = sl["SliderRight"][0];
             Dictionary<string, List<Text>> texts = 
                 gameObject.GetGameObjectComponents<Text>();
@@ -167,6 +172,7 @@ namespace Assets
                 }
             }
             //resText = texts["Text"][0];
+            */
             Dictionary<string, List<AudioSource>> las = 
                 camera.GetGameObjectComponents<AudioSource>();
             torch = las["Torch"][0];
@@ -181,6 +187,15 @@ namespace Assets
                 dInp[i] = scada.GetDoubleInput(key);
                 dOut[i] = scada.GetDoubleOutput(key);
             }
+            /*
+            Func<double> f = scada.GetDoubleOutput("Relative to station.Velocity");
+            var c = components;
+            SliderWrapper sw = new SliderWrapper(c["MarkedLimitedSlider"][0], -100, 2, f);
+            sliders.Add(sw);
+            sw = new SliderWrapper(c["MarkedLimitedNegativeSlider"][0], -100, 2, f);
+            sliders.Add(sw);*/
+            sliders = gameObject.GetSliderWrappers();
+
         }
 
 
@@ -240,7 +255,10 @@ namespace Assets
                     current = KeyCode.F10;
                 }
             }
-
+            foreach (var sl in sliders)
+            {
+                sl.Update();
+            }
         }
 
 

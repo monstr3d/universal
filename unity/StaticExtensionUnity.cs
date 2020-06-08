@@ -105,6 +105,33 @@ namespace Unity.Standard
         #region Members
 
         /// <summary>
+        /// Gets slider wrappers of the game object
+        /// </summary>
+        /// <param name="gameObject">The game object</param>
+        /// <returns>The list</returns>
+        /// 
+        static public List<SliderWrapper> GetSliderWrappers(this GameObject gameObject)
+        {
+            return gameObject.GetSliderWrappers(Color.green, Color.red);
+        }
+
+        /// <summary>
+        /// Gets slider wrappers of the game object
+        /// </summary>
+        /// <param name="gameObject">The game object</param>
+        /// <param name="normal">Normal color</param>
+        /// <param name="exceed">Exceed color</param>
+        /// <returns>The list<returns>
+        static public List<SliderWrapper> GetSliderWrappers(this GameObject gameObject,
+            Color normal, Color exceed)
+        {
+            List<SliderWrapper> ls = new List<SliderWrapper>();
+            var go = new List<GameObject>();
+            gameObject.GetSliderWrappers(go, ls, normal, exceed);
+            return ls;
+        }
+
+        /// <summary>
         /// Clears itself
         /// </summary>
         static public void Clear()
@@ -137,9 +164,6 @@ namespace Unity.Standard
             StartTime =  UnityEngine.Time.realtimeSinceStartup - pauseTime;
         }
 
-        
-
-
         static public void Add(this MonoBehaviour monoBehaviour)
         {
             if (!monoBehaviours.Contains(monoBehaviour))
@@ -165,7 +189,6 @@ namespace Unity.Standard
         /// </summary>
         static public ITextUpdate TextUpdate
         { get; set; }
-
 
 
         /// <summary>
@@ -198,17 +221,78 @@ namespace Unity.Standard
             return scada;
         }
 
-      /*  static public Quaternion FromDouble(this double[] x)
-        {
-            float p = x[0] < 0 ? -1f : 1f;
-            return new Quaternion(p * (float)x[1],  p * (float)x[2], p * (float)x[3], p * (float)x[0]);
-        }
-        */
-
         static public object GetLock(this string desktop)
         {
             return scadaUpdates[desktop].Item1;
         }
+
+        #endregion
+
+        #region Private
+        private static void GetSliderWrappers(this GameObject gameObject, List<GameObject> lg,
+     List<SliderWrapper> ls, Color normal, Color exceed)
+        {
+            if (lg.Contains(gameObject))
+            {
+                return;
+            }
+            lg.Add(gameObject);
+            RectTransform[] rt = gameObject.GetComponentsInChildren<RectTransform>();
+            foreach (var r in rt)
+            {
+                r.gameObject.GetSliderWrappers(lg, ls, normal, exceed);
+            }
+            var txt = gameObject.GetGameObjectComponents<Text>();
+            var tt = new string[] { "ValueText", "Format", "Desktop", "Parameter", "Limit", "Scale" };
+            var d = new Dictionary<string, string>();
+            foreach (var key in tt)
+            {
+                if (!txt.ContainsKey(key))
+                {
+                    return;
+                }
+                if (txt[key].Count > 1)
+                {
+                    return;
+                }
+                d[key] = txt[key][0].text;
+            }
+            string desktop = d["Desktop"];
+            IScadaInterface scada = desktop.ToExistedScada();
+            Func<double> f = null;
+            if (scada != null)
+            {
+                double a = 0;
+                string so = d["Parameter"];
+                var ou = scada.Outputs;
+                if (ou.ContainsKey(so))
+                {
+                    if (ou[so].Equals(a))
+                    {
+                        f = scada.GetDoubleOutput(so);
+                    }
+                }
+            }
+            string format = "0.00";
+            if (d["Format"].Length > 0)
+            {
+                format = d["Format"];
+            }
+            float scale;
+            float limit;
+            if (!float.TryParse(d["Scale"], out scale))
+            {
+                scale = 1f;
+            }
+            if (!float.TryParse(d["Limit"], out limit))
+            {
+                limit = 1f;
+            }
+            var sw = new SliderWrapper(
+                 gameObject.GetComponent<Component>(), scale, limit, f, normal, exceed, format);
+            ls.Add(sw);
+        }
+
 
         static void GetComponents(this Component go,
 

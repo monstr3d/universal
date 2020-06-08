@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-using Unity.Standard;
 using Scada.Interfaces;
 using Scada.Desktop;
-using UnityEngine.UI;
-using UnityEditor.Experimental.UIElements;
+
+using Unity.Standard;
+
 
 public class SliderScript : MonoBehaviour
 {
@@ -19,9 +20,11 @@ public class SliderScript : MonoBehaviour
 
     public bool positive  = true;
 
+   // public float ratio = 0.5f;
+
     public Color normal = new Vector4(0, 0, 1, 1);
 
-    public Color exceed = new Vector4(1, 0, 0, 1);
+    public Color exceed = new Vector4(1, 1, 0, 0);
 
     public string desktop = "";
 
@@ -74,6 +77,7 @@ public class SliderScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        throw new Exception();
         if (desktop.Length == null)
         {
             enabled = false;
@@ -109,9 +113,20 @@ public class SliderScript : MonoBehaviour
             return;
         }
         var c = components;
+        RectTransform tr = gameObject.GetComponent<RectTransform>();
+        var tt = gameObject.GetComponentsInChildren<RectTransform>();
         left = c["SliderLeft"][1] as Slider;
         right = c["SliderRight"][1] as Slider;
+        Vector3 vp = new Vector3();
+         left.fillRect.sizeDelta = new Vector2(0, 0);
+       // left.fillRect.position = left...position;
+        left.GetComponentInChildren<Image>().color = normal;
+       // right.fillRect.sizeDelta = new Vector2(0, 0);
+ //       right.fillRect.position = vp;
+        right.value = 0;
+        right.GetComponentInChildren<Image>().color = exceed;
 
+        //  left.GetComponent<Image>().color = normal;
         update = SimpleUpdate;
 
     }
