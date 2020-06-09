@@ -26,7 +26,7 @@ namespace Assets
         static private string[][] defalutStrings =
             new string[][]
             {//"Station motion.z=3.5" "Station motion.z=1.2", "Station motion.z=1.5"
-               new string[] {  "Station motion.z=3.5",
+               new string[] {  "Station motion.z=1.1",
   "Station motion.a=0.00",
   "Station motion.q=0.00",
   "Station motion.r=0",
@@ -34,7 +34,9 @@ namespace Assets
   "Station motion.b=0.0",
   "Station motion.d=0.0",
   "Station motion.x=0.0",
-  "Station motion.y=0.0" }
+  "Station motion.y=0.0",
+  "Station motion.f=0.0"
+               }
             };
 
 
@@ -214,6 +216,8 @@ namespace Assets
                 f[5] = kM;
                 if (level == 5)
                 {
+                    f[3] = kM;
+                    sc[9] = "Station motion.y=0.00";
                     return;
                 }
                 sc[1] = "Station motion.a=0.01";
@@ -221,12 +225,12 @@ namespace Assets
                 return;
             }
             f[2] = kF;
-            sc[8] = "Station motion.y=0.05"; // !!!DEBUG "Station motion.y=0.5"
+            sc[8] = "Station motion.y=0.00"; // !!!DEBUG "Station motion.y=0.5"
             if (level == 2)
             {
                 return;
             }
-            stringConstants[0][7] = "Station motion.x=0.05";
+            stringConstants[0][7] = "Station motion.x=0.00"; // !!!DEBUG "Station motion.x=0.5"
             f[1] = kF;
             if (level == 100)
             {

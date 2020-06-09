@@ -1,0 +1,134 @@
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Runtime.Serialization;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
+
+using System.Text;
+using System.Threading.Tasks;
+using UnityEngine;
+
+namespace Assets
+{
+
+    [Serializable()]
+    public class Saver : ISerializable
+    {
+        #region Fields
+
+        public static Saver saver;
+
+        public int level = 1;
+  
+        public Dictionary<int, Tuple<int, KeyCode[]>> dictionary = new
+     Dictionary<int, Tuple<int, KeyCode[]>>
+        {
+            {3, new Tuple<int, KeyCode[]>(3, new KeyCode[]{KeyCode.W, KeyCode.S } )},
+            {5, new Tuple<int, KeyCode[]>(4, new KeyCode[]{KeyCode.Q, KeyCode.E } )},
+            {4, new Tuple<int, KeyCode[]>(5, new KeyCode[]{KeyCode.D, KeyCode.A } )},
+            {2, new Tuple<int, KeyCode[]>(0, new KeyCode[]{KeyCode.RightShift,
+                KeyCode.RightControl} )},
+            {0, new Tuple<int, KeyCode[]>(1, new KeyCode[]{KeyCode.RightArrow,
+                KeyCode.LeftArrow} )},
+           {1, new Tuple<int, KeyCode[]>(2, new KeyCode[]{KeyCode.UpArrow,
+               KeyCode.DownArrow} )}
+        };
+
+        Dictionary<string, int> d = new Dictionary<string, int>()
+        {
+            { "Pitch" , 3 },
+            { "Roll" , 5 },
+            { "Heading" , 4 },
+            { "X" , 2 },
+            { "Y" , 0 },
+            { "Z" , 1}
+         };
+
+        Dictionary<string, KeyCode[]> codes = new Dictionary<string, KeyCode[]>();
+
+        static string path;
+
+        #endregion
+
+        #region Cror
+
+        static Saver()
+        {
+            path = Application.persistentDataPath + "/gamesave.save";
+            if (File.Exists(path))
+            {
+                using (Stream stream = File.OpenRead(path))
+                {
+                    BinaryFormatter bf = new BinaryFormatter();
+                    saver = bf.Deserialize(stream) as Saver;
+                }
+            }
+            else
+            {
+                saver = new Saver();
+            }
+            Application.quitting += () =>
+            {
+                if (File.Exists(path))
+                {
+                    File.Delete(path);
+                }
+                using (Stream stream = File.OpenWrite(path))
+                {
+                    BinaryFormatter bf = new BinaryFormatter();
+                    bf.Serialize(stream, saver);
+                }
+            };
+        }
+
+
+        public Saver()
+        {
+            foreach (var key in d.Keys)
+            {
+                if (key.Length == 0)
+                {
+                    continue;
+                }
+                codes[key] = dictionary[d[key]].Item2;
+            }
+            SetCodes();
+        }
+
+        private Saver(SerializationInfo info, StreamingContext context)
+        {
+            dictionary = info.GetValue("Dictionary", typeof(Dictionary<int, Tuple<int, KeyCode[]>>)) as
+               Dictionary<int, Tuple<int, KeyCode[]>>;
+            level = info.GetInt32("Level");
+            SetCodes();
+        }
+
+        #endregion
+        public void SetCodes()
+        {
+            foreach (var key in codes.Keys)
+            {
+                var cc = codes[key];
+                var i = d[key];
+                var tt = dictionary[i];
+                var tcc = tt.Item2;
+                for (int k = 0; k < 2; k++)
+                {
+                    tcc[k] = cc[k];
+                }
+            }
+        }
+
+
+        void ISerializable.GetObjectData(SerializationInfo info, StreamingContext context)
+        {
+            info.AddValue("Dictionary", dictionary,
+                  typeof(Dictionary<int, Tuple<int, KeyCode[]>>));
+            info.AddValue("Level", level);
+        }
+
+ 
+    }
+}

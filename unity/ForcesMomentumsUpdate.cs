@@ -79,7 +79,7 @@ namespace Assets
         Dictionary<KeyCode,  Tuple<Action<double>, Func<double>, Text, double, double[]>>
             actions = new Dictionary<KeyCode, Tuple<Action<double>, Func<double>, Text, double, double[]>>();
 
-        Dictionary<int, Tuple<int, KeyCode[]>> dicionary = new
+        Dictionary<int, Tuple<int, KeyCode[]>> dictionary;/* = new
             Dictionary<int, Tuple<int, KeyCode[]>>
         {
             {3, new Tuple<int, KeyCode[]>(3, new KeyCode[]{KeyCode.W, KeyCode.S } )},
@@ -91,7 +91,7 @@ namespace Assets
                 KeyCode.LeftArrow} )},
            {1, new Tuple<int, KeyCode[]>(2, new KeyCode[]{KeyCode.UpArrow, 
                KeyCode.DownArrow} )}
-        };
+        };*/
 
         Dictionary<int, int> active = new Dictionary<int, int>();
 
@@ -265,6 +265,7 @@ namespace Assets
 
         void Prepare()
         {
+            dictionary = Saver.saver.dictionary;
             List<KeyCode> l = new List<KeyCode>();
             Dictionary<string, List<Text>> lt = 
                 gameObject.GetGameObjectComponents<Text>();
@@ -284,12 +285,12 @@ namespace Assets
                 Tuple<Text, string[]> tst = new Tuple<Text, string[]>(tx, new string[] { text, txt[i, 1] });
                 ttt.Add(tst);
             }
-            foreach (var i in dicionary.Keys)
+            foreach (var i in dictionary.Keys)
             {
                 var tst = ttt[i];
                 Action<double> a = dInp[i];
                 Func<double> f = dOut[i];
-                var tt = dicionary[i];
+                var tt = dictionary[i];
                 var j = tt.Item1;
                 double k = constants[j];
                 var kk = tt.Item2;
@@ -332,7 +333,7 @@ namespace Assets
                     image.enabled = false;
                     im[i] = image;
                 }
-                if (dicionary.ContainsKey(key))
+                if (dictionary.ContainsKey(key))
                 {
                     blink[key] = im;
                 }

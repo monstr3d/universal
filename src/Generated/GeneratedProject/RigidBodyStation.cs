@@ -92,10 +92,6 @@ namespace GeneratedProject
 				arrows.Add(currALabel);
 				currALabel.SourceNumber = (int)3;
 				currALabel.TargetNumber = (int)2;
-				currALabel  = new IntrenalDesktop.ArrowLabel16("", this);
-				arrows.Add(currALabel);
-				currALabel.SourceNumber = (int)8;
-				currALabel.TargetNumber = (int)4;
 				bool pl = PostLoad();
 				bool pd = PostDeserialize();
 				SuccessLoad = pl & pd;
@@ -122,8 +118,8 @@ namespace GeneratedProject
 							"<Root>  <F>    <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"x\" S=\"x\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">      <F />    </S>  </F></Root>",
 							"<Root>  <F>    <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"y\" S=\"y\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">      <F />    </S>  </F></Root>",
 							"<Root>  <F>    <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"z\" S=\"z\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">      <F />    </S>  </F></Root>",
-							"<Root>  <F>    <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"s\" S=\"sin\" Type=\"4\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\">      <F />    </S>    <S type=\"FormulaEditor.Symbols.BracketsSymbol\" symbol=\"P\" S=\"( )\" Type=\"2\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"P\">      <F>        <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"a\" S=\"a\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">          <F />        </S>        <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"t\" S=\"t\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">          <F />        </S>      </F>      <F />    </S>  </F></Root>",
-							"<Root>  <F>    <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"c\" S=\"cos\" Type=\"4\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\">      <F />    </S>    <S type=\"FormulaEditor.Symbols.BracketsSymbol\" symbol=\"P\" S=\"( )\" Type=\"2\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"P\">      <F>        <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"a\" S=\"a\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">          <F />        </S>        <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"t\" S=\"t\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">          <F />        </S>      </F>      <F />    </S>  </F></Root>",
+							"<Root>  <F>    <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"s\" S=\"sin\" Type=\"4\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\">      <F />    </S>    <S type=\"FormulaEditor.Symbols.BracketsSymbol\" symbol=\"P\" S=\"( )\" Type=\"2\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"P\">      <F>        <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"a\" S=\"a\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">          <F />        </S>        <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"t\" S=\"t\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">          <F />        </S>        <S type=\"FormulaEditor.Symbols.BinarySymbol\" symbol=\"+\" S=\"+\" Type=\"3\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\" />        <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"f\" S=\"f\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">          <F />        </S>      </F>      <F />    </S>  </F></Root>",
+							"<Root>  <F>    <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"c\" S=\"cos\" Type=\"4\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\">      <F />    </S>    <S type=\"FormulaEditor.Symbols.BracketsSymbol\" symbol=\"P\" S=\"( )\" Type=\"2\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"P\">      <F>        <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"a\" S=\"a\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">          <F />        </S>        <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"t\" S=\"t\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">          <F />        </S>        <S type=\"FormulaEditor.Symbols.BinarySymbol\" symbol=\"+\" S=\"+\" Type=\"3\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\" />        <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"f\" S=\"f\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">          <F />        </S>      </F>      <F />    </S>  </F></Root>",
 							"<Root>  <F>    <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"0\" S=\"0\" Type=\"5\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\">      <F />    </S>  </F></Root>",
 							"<Root>  <F>    <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"q\" S=\"q\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">      <F />    </S>  </F></Root>",
 							"<Root>  <F>    <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"r\" S=\"r\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">      <F />    </S>  </F></Root>",
@@ -150,6 +146,7 @@ namespace GeneratedProject
 							{"a", (double)0.01 },
 							{"q", (double)-20 },
 							{"d", (double)0 },
+							{"f", (double)0 },
 							{"z", (double)0 },
 							{"x", (double)0 },
 							{"y", (double)0 }
@@ -179,44 +176,47 @@ namespace GeneratedProject
 							var_4 = (double)aliasName4.Value;
 							var_5 = (double)measurement5.Parameter();
 							var_6 = (var_4) * (var_5);
-							var_7 = Math.Sin(var_6);
-							var_8 = Math.Cos(var_6);
-							var_9 = (double)measurement9.Parameter();
-							var_10 = (var_4) * (var_9);
-							var_11 = (var_8) * (var_10);
-							var_12 = (double)measurement12.Parameter();
-							var_13 = (var_4) * (var_12);
-							var_14 = (var_8) * (var_13);
-							var_15 = Math.Sin(var_6);
-							var_16 = -(var_15);
-							var_17 = (var_4) * (var_9);
-							var_18 = (var_16) * (var_17);
-							var_19 = (var_10) * (var_18);
-							var_20 = (var_14) + (var_19);
-							var_21 = (var_4) * (var_5);
-							var_22 = Math.Cos(var_21);
-							var_23 = Math.Sin(var_21);
-							var_24 = -(var_23);
-							var_25 = (var_4) * (var_9);
-							var_26 = (var_24) * (var_25);
-							var_27 = (var_4) * (var_12);
-							var_28 = (var_24) * (var_27);
-							var_29 = -(var_23);
-							var_30 = Math.Cos(var_21);
-							var_31 = (var_4) * (var_9);
-							var_32 = (var_30) * (var_31);
-							var_33 = (var_29) * (var_32);
-							var_34 = (var_25) * (var_33);
-							var_35 = (var_28) + (var_34);
-							var_37 = (double)aliasName37.Value;
-							var_38 = (double)aliasName38.Value;
-							var_39 = (double)aliasName39.Value;
+							var_7 = (double)aliasName7.Value;
+							var_8 = (var_6) + (var_7);
+							var_9 = Math.Sin(var_8);
+							var_10 = Math.Cos(var_8);
+							var_11 = (double)measurement11.Parameter();
+							var_12 = (var_4) * (var_11);
+							var_13 = (var_10) * (var_12);
+							var_14 = (double)measurement14.Parameter();
+							var_15 = (var_4) * (var_14);
+							var_16 = (var_10) * (var_15);
+							var_17 = Math.Sin(var_8);
+							var_18 = -(var_17);
+							var_19 = (var_4) * (var_11);
+							var_20 = (var_18) * (var_19);
+							var_21 = (var_12) * (var_20);
+							var_22 = (var_16) + (var_21);
+							var_23 = (var_4) * (var_5);
+							var_24 = (var_23) + (var_7);
+							var_25 = Math.Cos(var_24);
+							var_26 = Math.Sin(var_24);
+							var_27 = -(var_26);
+							var_28 = (var_4) * (var_11);
+							var_29 = (var_27) * (var_28);
+							var_30 = (var_4) * (var_14);
+							var_31 = (var_27) * (var_30);
+							var_32 = -(var_26);
+							var_33 = Math.Cos(var_24);
+							var_34 = (var_4) * (var_11);
+							var_35 = (var_33) * (var_34);
+							var_36 = (var_32) * (var_35);
+							var_37 = (var_28) * (var_36);
+							var_38 = (var_31) + (var_37);
+							var_40 = (double)aliasName40.Value;
 							var_41 = (double)aliasName41.Value;
-							var_42 = Math.Cos(var_41);
-							var_43 = Math.Sin(var_41);
+							var_42 = (double)aliasName42.Value;
 							var_44 = (double)aliasName44.Value;
 							var_45 = Math.Cos(var_44);
 							var_46 = Math.Sin(var_44);
+							var_47 = (double)aliasName47.Value;
+							var_48 = Math.Cos(var_47);
+							var_49 = Math.Sin(var_47);
 						}
 						
 						internal  Calculation(FormulaEditor.ObjectFormulaTree[] trees)
@@ -227,13 +227,14 @@ namespace GeneratedProject
 							aliasName3 = DataPerformer.Formula.StaticExtensionDataPerformerFormula.ToAliasName(trees[3]);
 							aliasName4 = DataPerformer.Formula.StaticExtensionDataPerformerFormula.ToAliasName(trees[4]);
 							measurement5 = DataPerformer.Formula.StaticExtensionDataPerformerFormula.ToMeasurement(trees[5]);
-							measurement9 = DataPerformer.Formula.StaticExtensionDataPerformerFormula.ToMeasurement(trees[9]);
-							measurement12 = DataPerformer.Formula.StaticExtensionDataPerformerFormula.ToMeasurement(trees[12]);
-							aliasName37 = DataPerformer.Formula.StaticExtensionDataPerformerFormula.ToAliasName(trees[37]);
-							aliasName38 = DataPerformer.Formula.StaticExtensionDataPerformerFormula.ToAliasName(trees[38]);
-							aliasName39 = DataPerformer.Formula.StaticExtensionDataPerformerFormula.ToAliasName(trees[39]);
+							aliasName7 = DataPerformer.Formula.StaticExtensionDataPerformerFormula.ToAliasName(trees[7]);
+							measurement11 = DataPerformer.Formula.StaticExtensionDataPerformerFormula.ToMeasurement(trees[11]);
+							measurement14 = DataPerformer.Formula.StaticExtensionDataPerformerFormula.ToMeasurement(trees[14]);
+							aliasName40 = DataPerformer.Formula.StaticExtensionDataPerformerFormula.ToAliasName(trees[40]);
 							aliasName41 = DataPerformer.Formula.StaticExtensionDataPerformerFormula.ToAliasName(trees[41]);
+							aliasName42 = DataPerformer.Formula.StaticExtensionDataPerformerFormula.ToAliasName(trees[42]);
 							aliasName44 = DataPerformer.Formula.StaticExtensionDataPerformerFormula.ToAliasName(trees[44]);
+							aliasName47 = DataPerformer.Formula.StaticExtensionDataPerformerFormula.ToAliasName(trees[47]);
 							dictionary[trees[0]] = Get_0;
 							dictionary[trees[1]] = Get_1;
 							dictionary[trees[2]] = Get_2;
@@ -281,6 +282,9 @@ namespace GeneratedProject
 							dictionary[trees[44]] = Get_44;
 							dictionary[trees[45]] = Get_45;
 							dictionary[trees[46]] = Get_46;
+							dictionary[trees[47]] = Get_47;
+							dictionary[trees[48]] = Get_48;
+							dictionary[trees[49]] = Get_49;
 						}
 						
 						public FormulaEditor.GetValue this[FormulaEditor.ObjectFormulaTree tree]
@@ -293,13 +297,14 @@ namespace GeneratedProject
 						Diagram.UI.Interfaces.IAliasName aliasName3;
 						Diagram.UI.Interfaces.IAliasName aliasName4;
 						DataPerformer.Interfaces.IMeasurement measurement5;
-						DataPerformer.Interfaces.IMeasurement measurement9;
-						DataPerformer.Interfaces.IMeasurement measurement12;
-						Diagram.UI.Interfaces.IAliasName aliasName37;
-						Diagram.UI.Interfaces.IAliasName aliasName38;
-						Diagram.UI.Interfaces.IAliasName aliasName39;
+						Diagram.UI.Interfaces.IAliasName aliasName7;
+						DataPerformer.Interfaces.IMeasurement measurement11;
+						DataPerformer.Interfaces.IMeasurement measurement14;
+						Diagram.UI.Interfaces.IAliasName aliasName40;
 						Diagram.UI.Interfaces.IAliasName aliasName41;
+						Diagram.UI.Interfaces.IAliasName aliasName42;
 						Diagram.UI.Interfaces.IAliasName aliasName44;
+						Diagram.UI.Interfaces.IAliasName aliasName47;
 						FormulaEditor.ObjectFormulaTree currentTree = null;
 						object[] currentArray = null;
 						double doubleValue = 0;
@@ -344,13 +349,16 @@ namespace GeneratedProject
 						double var_37 = 0;
 						double var_38 = 0;
 						double var_39 = 0;
-						double var_40 = 1;
+						double var_40 = 0;
 						double var_41 = 0;
 						double var_42 = 0;
-						double var_43 = 0;
+						double var_43 = 1;
 						double var_44 = 0;
 						double var_45 = 0;
 						double var_46 = 0;
+						double var_47 = 0;
+						double var_48 = 0;
+						double var_49 = 0;
 						
 						object Get_0()
 						{
@@ -586,6 +594,21 @@ namespace GeneratedProject
 						{
 							return var_46;
 						}
+						
+						object Get_47()
+						{
+							return var_47;
+						}
+						
+						object Get_48()
+						{
+							return var_48;
+						}
+						
+						object Get_49()
+						{
+							return var_49;
+						}
 					
 					}
 				}
@@ -731,7 +754,7 @@ namespace GeneratedProject
 				internal CategoryObject()
 				{
 				var ts = this as Event.Interfaces.ITimerEvent;
-				ts.TimeSpan = TimeSpan.FromTicks(100000);
+				ts.TimeSpan = TimeSpan.FromTicks(500000);
 				}
 				}
 			}
@@ -1090,19 +1113,6 @@ namespace GeneratedProject
 				}
 		
 				internal class CategoryArrow : Motion6D.Portable.ReferenceFrameArrow
-				{
-				}
-			}
-		
-			internal class ArrowLabel16 : Diagram.UI.Labels.PureArrowLabel
-			{
-				internal ArrowLabel16(string name, Diagram.UI.Interfaces.IDesktop desktop) : base(name, "", "", 0, 0)
-				{
-					this.desktop = desktop;
-					arrow = new ArrowLabel16.CategoryArrow();
-				}
-		
-				internal class CategoryArrow : Event.Portable.Arrows.EventLink
 				{
 				}
 			}

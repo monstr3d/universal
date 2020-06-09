@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Assets;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Standard;
@@ -12,7 +13,13 @@ public class AAALevel : MonoBehaviour
 
     static Action update;
 
-    static int level = 0;
+    static Saver saver;
+
+
+    static string path;
+
+
+
 
 
     public static void Exit()
@@ -30,7 +37,7 @@ public class AAALevel : MonoBehaviour
 
     private void Awake()
     {
-        
+        saver = Saver.saver;
     }
 
     // Start is called before the first frame update
@@ -43,6 +50,7 @@ public class AAALevel : MonoBehaviour
             {
                 int[] k = new int[] { i };
                 string s = i + "";
+                string ss = s;
                 if (button.name.Contains(s))
                 {
                     UnityAction act = () =>
@@ -50,6 +58,11 @@ public class AAALevel : MonoBehaviour
                         Click(k[0]);
                     };
                     button.onClick.AddListener(act);
+                    if (i > saver.level)
+                    {
+                        ss = "?";
+                    }
+                    button.GetComponentInChildren<Text>().text = ss;
                 }
             }
         }
@@ -79,7 +92,6 @@ public class AAALevel : MonoBehaviour
                 ss +=  level;
             }*/
             SceneManager.LoadScene(ss, LoadSceneMode.Single);
-            ++level;
         }
         catch (Exception ex)
         {

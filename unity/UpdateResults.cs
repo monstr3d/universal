@@ -32,6 +32,7 @@ namespace Assets
 
         void UpdateInternal()
         {
+            
             update?.Invoke();
         }
     }

@@ -16,9 +16,13 @@ namespace Assets
 {
     public class UpdateHorizonRollPitch : AbstractFrameUpdate
     {
+        static UpdateHorizonRollPitch current;
+
         RectTransform horizonRoll;
 
         RectTransform horizonPitch;
+
+        
 
         float rollAmplitude = 1, pitchAmplitude = 1,
             pitchXOffSet = 0, pitchYOffSet = 0;
@@ -34,11 +38,17 @@ namespace Assets
         Vector3 lpos;
 
         Func<double> omx;
+        static bool alarm = false;
+
+
+        Image image;
 
 
         float rollOffSet = 0, rollFilterFactor = 0.25f, pitchFilterFactor = 0.125f,
             pitchOffSet;
         RectTransform path;
+
+        MonoBehaviour mb;
 
 
         #region Constructor
@@ -55,24 +65,26 @@ namespace Assets
         public override void Set(object[] o, Component component, IScadaInterface scada)
         {
             base.Set(o, component, scada);
+            current = this;
             RectTransform transform = component.gameObject.GetComponent<RectTransform>();
+            image = component.gameObject.GetComponent<Image>();
             string[] s = new string[] { "My", "Mx"};
             for (int i = 0; i < 2; i++)
             {
                 omegas[i] = scada.GetDoubleOutput("Force." + s[i]);
             }
+            current = this;
 
             // base.Set(frame, angles, transform);
             horizonRoll = transform;
             horizonPitch = transform;
-            MonoBehaviour mb = o[2] as MonoBehaviour;
+            mb = o[2] as MonoBehaviour;
             GameObject cam = mb.gameObject;
             Dictionary<string, List<RectTransform>> l = 
                 cam.GetGameObjectComponents<RectTransform>();
             path = l["Path"][0];
             lpos = path.localPosition;
         }
-
 
 
 
@@ -87,6 +99,48 @@ namespace Assets
         }
 
         public override Action Update => UpdateInternal;
+
+        #endregion
+
+        #region Public Members
+
+        static public bool Alarm
+        {
+            set
+            {
+                if (alarm == value)
+                {
+                    return;
+                }
+                if (alarm)
+                {
+                    current.image.color = Color.red;
+                    current.mb.StartCoroutine(current.coroutine);
+                }
+                else
+                {
+                    current.image.color = Color.green;
+                }
+            }
+        }
+
+        System.Collections.IEnumerator coroutine
+        {
+            get
+            {
+                while (true)
+                {
+                    image.enabled = false;
+                    yield return new WaitForSeconds(0.2f);
+                    image.enabled = true;
+                    if (!alarm)
+                    {
+                        break;
+                    }
+                    yield return new WaitForSeconds(0.2f);
+                }
+            }
+        }
 
         #endregion
 
