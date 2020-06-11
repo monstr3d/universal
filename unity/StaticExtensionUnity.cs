@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
 
+using BaseTypes;
 
 using Diagram.UI;
 
@@ -43,6 +44,9 @@ namespace Unity.Standard
     {
 
         #region Fields
+
+        static public  Dictionary<string, List<IIndicator>> indicators =
+            new Dictionary<string, List<IIndicator>>();
 
         static private TimeMeasureProviderFactory factory = new TimeMeasureProviderFactory();
 
@@ -111,12 +115,30 @@ namespace Unity.Standard
         /// </summary>
         /// <param name="gameObject">The Game object</param>
         /// <returns>Indicators</returns>
-        static public List<IIndicator> GetIndicators(this GameObject gameObject)
+        static public Dictionary<string, List<IIndicator>> GetIndicators(this GameObject gameObject)
         {
-            List<IIndicator> l = new List<IIndicator>();
+            var l = new Dictionary<string, List<IIndicator>>();
             List<GameObject> go = new List<GameObject>();
             gameObject.GetIndicators(go, l);
             return l;
+        }
+
+
+        /// <summary>
+        /// Action from indicators
+        /// </summary>
+        /// <param name="indicators">Indicators</param>
+        /// <returns>The action</returns>
+        static public Action Update<T>(this Dictionary<T, List<IIndicator>> indicators)
+        {
+            Action update = null;
+            foreach (var l in indicators.Values)
+            foreach (var i in l)
+            {
+                var a = i.Update;
+                update = update.Add(a);
+            }
+            return update;
         }
 
 
@@ -131,19 +153,7 @@ namespace Unity.Standard
             foreach (var i in indicators)
             {
                 var a = i.Update;
-                if (a == null)
-                {
-                    continue;
-                }
-                if (update == null)
-                {
-                    update = a;
-                }
-                else
-                {
-                    update += a;
-                }
-
+                update = update.Add(a);
             }
             return update;
         }
@@ -180,6 +190,7 @@ namespace Unity.Standard
         /// </summary>
         static public void Clear()
         {
+            indicators.Clear();
             StaticExtensionScadaDesktop.Clear();
             foreach (MonoBehaviour monoBehaviour in monoBehaviours)
             {
@@ -277,7 +288,7 @@ namespace Unity.Standard
 
         private static void GetIndicators(this GameObject gameObject,
             List<GameObject> lg,
-            List<IIndicator> ls)
+           Dictionary<string, List<IIndicator>> ls)
         {
             if (lg.Contains(gameObject))
             {
@@ -294,7 +305,8 @@ namespace Unity.Standard
                 var ind = factory.Get(gameObject);
                 if (ind != null)
                 {
-                    ls.Add(ind);
+                    indicators.Add(ind.Parameter, ind);
+                    ls.Add(ind.Parameter, ind);
                     break;
                 }
             }
@@ -330,6 +342,7 @@ namespace Unity.Standard
                 d[key] = txt[key][0].text;
             }
             string desktop = d["Desktop"];
+            string par = desktop + ".";
             IScadaInterface scada = desktop.ToExistedScada();
             Func<double> f = null;
             if (scada != null)
@@ -341,6 +354,7 @@ namespace Unity.Standard
                 {
                     if (ou[so].Equals(a))
                     {
+                        par += so;
                         f = scada.GetDoubleOutput(so);
                     }
                 }
@@ -360,7 +374,7 @@ namespace Unity.Standard
             {
                 limit = 1f;
             }
-            var sw = new SliderWrapper(
+            var sw = new SliderWrapper(par,
                  gameObject.GetComponent<Component>(), scale, limit, f, normal, exceed, format);
             ls.Add(sw);
         }

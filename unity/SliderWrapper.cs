@@ -56,12 +56,15 @@ namespace Unity.Standard
 
         Slider[][] sliders;
 
+        string parameter;
+
         #endregion
 
         #region Constructor
         /// <summary>
         /// Constructor
         /// </summary>
+        /// <param name="parameter">Parameter</param>
         /// <param name="component">Component</param>
         /// <param name="scale">Scale</param>
         /// <param name="limit">Limit</param>
@@ -69,9 +72,9 @@ namespace Unity.Standard
         /// <param name="normal">Normal color</param>
         /// <param name="exceed">Exceed color</param>
         /// <param name="format">Format</param>
-        public SliderWrapper(Component component,
+        public SliderWrapper(string parameter, Component component,
           float scale, float limit, Func<double> output, Color normal, Color exceed, string format) :
-            this(component, scale, limit, output)
+            this(parameter, component, scale, limit, output)
         {
             this.normal = normal;
             this.exceed = exceed;
@@ -88,9 +91,10 @@ namespace Unity.Standard
 
         }
 
-        public SliderWrapper(Component component,
+        public SliderWrapper(string parameter, Component component,
             float scale, float limit, Func<double> output = null)
         {
+            this.parameter = parameter;
             this.component = component;
             components = component.gameObject.GetGameObjectComponents<Component>();
             this.scale = scale;
@@ -164,6 +168,8 @@ namespace Unity.Standard
         object IIndicator.Value { set => Value = (double)value; }
 
         object IIndicator.Type => (double)0;
+
+        string IIndicator.Parameter => parameter;
 
 
         #endregion

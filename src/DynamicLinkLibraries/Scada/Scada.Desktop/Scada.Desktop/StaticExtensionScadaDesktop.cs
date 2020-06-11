@@ -17,6 +17,7 @@ using DataPerformer.Interfaces;
 using Event.Interfaces;
 using System.Reflection;
 using DataPerformer.Portable.Interfaces;
+using System.Runtime.CompilerServices;
 
 namespace Scada.Desktop
 {
@@ -48,6 +49,16 @@ namespace Scada.Desktop
         #endregion
 
         #region Public Members
+
+        /// <summary>
+        /// String to existed SCADA
+        /// </summary>
+        /// <param name="name">The name of scada</param>
+        /// <returns>The SCADA</returns>
+        public static IScadaInterface ToExistedScada(this string name)
+        {
+            return scadas[name];
+        }
 
         /// <summary>
         /// Clears scadas

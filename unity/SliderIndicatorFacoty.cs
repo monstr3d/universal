@@ -37,6 +37,7 @@ namespace Unity.Standard
             string desktop = d["Desktop"];
             IScadaInterface scada = desktop.ToExistedScada();
             Func<double> f = null;
+            string par = desktop + ".";
             if (scada != null)
             {
                 double a = 0;
@@ -47,6 +48,7 @@ namespace Unity.Standard
                     if (ou[so].Equals(a))
                     {
                         f = scada.GetDoubleOutput(so);
+                        par += so;
                     }
                 }
             }
@@ -65,7 +67,7 @@ namespace Unity.Standard
             {
                 limit = 1f;
             }
-            return new SliderWrapper(
+            return new SliderWrapper(par,
                  gameObject.GetComponent<Component>(), scale, limit, f, Color.green, Color.red, format);
 
         }

@@ -1,13 +1,10 @@
-﻿using System;
+﻿using Motion6D.Portable;
+using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Runtime.Serialization;
-using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 
 namespace Assets
@@ -46,13 +43,19 @@ namespace Assets
             { "Z" , 1}
          };
 
+        List<string> l = new List<string>()
+        {
+            "X", "Y", "Z", "Roll", "Pitch", "Heading"
+
+        };
+
         Dictionary<string, KeyCode[]> codes = new Dictionary<string, KeyCode[]>();
 
         static string path;
 
         #endregion
 
-        #region Cror
+        #region Ctor
 
         static Saver()
         {
@@ -103,6 +106,26 @@ namespace Assets
                Dictionary<int, Tuple<int, KeyCode[]>>;
             level = info.GetInt32("Level");
             SetCodes();
+        }
+
+        public Dictionary<int, KeyCode> KeyValuePairs
+        {
+            get
+            {
+                var kk = new Dictionary<int, KeyCode>();
+                for (int i = 0; i < l.Count; i++)
+                {
+                    string s = l[i];
+                    var a = d[s];
+                    var tt = dictionary[a].Item2;
+                    var k = 2 * i;
+                    for (int j = 0; j < 2; j++)
+                    {
+                        kk[k + j] = tt[j];
+                    }
+                }
+                return kk;
+            }
         }
 
         #endregion

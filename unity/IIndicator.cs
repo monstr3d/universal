@@ -17,6 +17,12 @@ namespace Unity.Standard
         Action Update { get; }
 
         /// <summary>
+        /// The name of parameter
+        /// </summary>
+        string Parameter { get; }
+
+
+        /// <summary>
         /// Set value
         /// </summary>
         object Value { set; }
