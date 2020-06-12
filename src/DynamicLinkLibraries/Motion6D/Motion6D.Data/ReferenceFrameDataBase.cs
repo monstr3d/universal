@@ -32,7 +32,7 @@ namespace Motion6D
 
         public ReferenceFrameDataBase()
         {
-
+            ClearAliases();
         }
 
         /// <summary>
@@ -42,6 +42,7 @@ namespace Motion6D
         /// <param name="context">Streaming context</param>
         protected ReferenceFrameDataBase(SerializationInfo info, StreamingContext context)
         {
+            ClearAliases();
             parameters = info.GetValue("Parameters", typeof(List<string>)) as List<string>;
             isSerialized = true;
         }

@@ -1,8 +1,9 @@
-﻿using DataPerformer.Interfaces;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
+using Diagram.UI.Interfaces;
+
+using DataPerformer.Interfaces;
 using DataPerformer.Portable;
 
 using Motion6D.Interfaces;
@@ -14,7 +15,7 @@ namespace Motion6D.Portable.Aggregates
     /// Rigid body aggregate
     /// </summary>
     public class RigidBody : AggregableMechanicalObjectDataConsumer, IStarted, 
-        INormalizable, IOrientation
+        INormalizable, IOrientation, IAlias
     {
         #region Fields
 
@@ -32,6 +33,10 @@ namespace Motion6D.Portable.Aggregates
         /// Mass
         /// </summary>
         protected double mass = 1;
+
+        protected string[] names = { "X", "Y", "Z", "Vx", "Vy", "Vz", "Roll", "Pitch", "Yaw", "OMGx", "OMGx", "OMGz" };
+
+        protected Dictionary<string, int> alinames = new Dictionary<string, int>();
 
         /// <summary>
         /// Moment of inertia
@@ -155,7 +160,11 @@ namespace Motion6D.Portable.Aggregates
         /// </summary>
         private double[] quaterAddP = new double[4];
 
- 
+        event Action<IAlias, string> change;
+
+
+
+
 
         /// <summary>
         /// Matrix for quaternion transformation
@@ -197,6 +206,7 @@ namespace Motion6D.Portable.Aggregates
 
         #region Ctor
 
+ 
         protected RigidBody()
             : this(true)
         {
@@ -218,6 +228,10 @@ namespace Motion6D.Portable.Aggregates
         /// <param name="n">Number of variables</param>
         protected RigidBody(int n, bool setForce)
         {
+            for (int i = 0; i < names.Length; i++)
+            {
+                alinames[names[i]] = i;
+            }
             initialState = new double[n];
             for (int i = 0; i < n; i++)
             {
@@ -233,14 +247,6 @@ namespace Motion6D.Portable.Aggregates
             }
         }
 
-        /*protected RigidBody(SerializationInfo info, StreamingContext context)
-        {
-           Properties = Serialization.Deserialize<object>("Properties", info);
-           if (state == null)
-           {
-               state = new double[initialState.Length];
-           }
-        }*/
 
         #endregion
 
@@ -279,6 +285,35 @@ namespace Motion6D.Portable.Aggregates
         }
 
         #endregion
+
+
+        #region IAlias Members
+
+        IList<string> IAlias.AliasNames => names;
+
+        object IAlias.this[string name] { get => GetAliasValue(name); set => SetAliasValue(name, value); }
+
+        event Action<IAlias, string> IAlias.OnChange
+        {
+            add
+            {
+                change += value;
+            }
+
+            remove
+            {
+                change -= value;
+            }
+        }
+
+        object IAlias.GetType(string name)
+        {
+            return GetAliasType(name);
+        }
+
+        #endregion
+
+
 
         #region Overriden Members
 
@@ -382,6 +417,64 @@ namespace Motion6D.Portable.Aggregates
         #endregion
 
         #region Specific Members
+
+ 
+        EulerAngles angles = new EulerAngles();
+
+        protected virtual object GetAliasValue(string name)
+        {
+            int i = alinames[name];
+            if (i < 6)
+            {
+                return initialState[i];
+            }
+            if (i < 9)
+            {
+                angles.Set(6, initialState);
+                switch (i - 6)
+                {
+                    case 0: return angles.roll;
+                    case 1: return angles.pitch;
+                    case 2: return angles.yaw;
+                }
+            }
+            return initialState[i - 1];
+        }
+
+
+        protected virtual object SetAliasValue(string name, object value)
+        {
+            double v = (double)value;
+            int i = alinames[name];
+            if (i < 6)
+            {
+                initialState[i] = v;
+            }
+            if (i < 9)
+            {
+                angles.Set(6, initialState);
+                switch (i - 6)
+                {
+                    case 0:
+                        angles.roll = v;
+                        break;
+                    case 1:
+                        angles.pitch = v;
+                        break;
+                    case 2:
+                        angles.yaw = v;
+                        break;
+                }
+                angles.ToQuaternion(6, initialState);
+            }
+            return initialState[i - 1];
+        }
+
+
+        protected virtual object GetAliasType(string name)
+        {
+            return (double)0;
+        }
 
         protected virtual void PostStart(double time)
         {
@@ -504,9 +597,7 @@ namespace Motion6D.Portable.Aggregates
                 return inerialAccelerationStr;
             }
         }
-
-
-        private void SetOrientation()
+       private void SetOrientation()
         {
             Array.Copy(state, 6, quater, 0, 4);
             StaticExtensionVector3D.QuaternionToMatrix(quater, orientation, qq);
@@ -914,6 +1005,7 @@ namespace Motion6D.Portable.Aggregates
             CalculateInternalAccelerations();
         }
 
+ 
 
         #endregion
 

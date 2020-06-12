@@ -1,25 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace Vector3D
 {
     public class EulerAngles
     {
+        /// <summary>
+        /// Roll 
+        /// </summary>
         public double roll { get; set; }
 
+        /// <summary>
+        /// Pitch
+        /// </summary>
         public double pitch { get; set; }
 
+        /// <summary>
+        /// Yaw
+        /// </summary>
         public double yaw { get; set; }
 
-      
-     /*   {
-            this.roll = roll;
-            this.pitch = pitch;
-            this.yaw = yaw;
-        }*/
-
+ 
     }
 }

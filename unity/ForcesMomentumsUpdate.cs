@@ -18,8 +18,7 @@ namespace Assets
 
         Dictionary<string, List<Component>> components;
 
-        Action updateIndicators;
-
+      
  
         float ap = -60f;
 
@@ -194,7 +193,7 @@ namespace Assets
             sliders.Add(sw);
             sw = new SliderWrapper(c["MarkedLimitedNegativeSlider"][0], -100, 2, f);
             sliders.Add(sw);*/
-            updateIndicators = gameObject.GetIndicators().Update();
+            gameObject.GetIndicators();
 
         }
 
@@ -255,7 +254,7 @@ namespace Assets
                     current = KeyCode.F10;
                 }
             }
-            updateIndicators?.Invoke();
+            StaticExtensionUnity.UpdateIndicators();
         }
 
 

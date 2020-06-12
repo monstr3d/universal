@@ -31,5 +31,11 @@ namespace Unity.Standard
         /// Type
         /// </summary>
         object Type { get; }
+
+
+        /// <summary>
+        /// The "Is Active" sign
+        /// </summary>
+        bool IsActive { get; set; }
     }
 }

@@ -191,6 +191,43 @@ namespace BaseTypes
         }
 
         /// <summary>
+        /// For each operation
+        /// </summary>
+        /// <typeparam name="T">Key type</typeparam>
+        /// <typeparam name="S">Value type</typeparam>
+        /// <param name="dictionary">Dictionary</param>
+        /// <param name="keys">Keys</param>
+        /// <param name="action">Action</param>
+        public static void ForEach<T, S>(this Dictionary<T, List<S>> dictionary,
+            IEnumerable<T> keys,    Action<S> action)
+        {
+            foreach (T t in keys)
+            {
+                if (dictionary.ContainsKey(t))
+                {
+                    dictionary[t].ForEach(action);
+                }
+            }
+        }
+
+        /// <summary>
+        /// For each operation
+        /// </summary>
+        /// <typeparam name="T">Key type</typeparam>
+        /// <typeparam name="S">Value type</typeparam>
+        /// <param name="dictionary">Dictionary</param>
+        /// <param name="action">Action</param>
+        public static void ForEach<T, S>(this Dictionary<T, List<S>> dictionary,
+            Action<S> action)
+        {
+            foreach (var i in dictionary.Values)
+            {
+                i.ForEach(action);
+            }
+        }
+
+
+        /// <summary>
         /// Transformation to operation type
         /// </summary>
         /// <param name="type">Thw type</param>

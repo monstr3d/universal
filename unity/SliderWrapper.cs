@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,6 +9,8 @@ namespace Unity.Standard
     public class SliderWrapper : IIndicator
     {
         #region Fields
+
+        bool isActive;
 
         public float limit;
 
@@ -120,7 +120,7 @@ namespace Unity.Standard
             {
                 setValue(GetValue(output()));
             };
-
+            this.Add();
         }
 
         #endregion
@@ -170,6 +170,28 @@ namespace Unity.Standard
         object IIndicator.Type => (double)0;
 
         string IIndicator.Parameter => parameter;
+
+        bool IIndicator.IsActive 
+        { 
+            get => isActive; 
+            set
+            {
+                if (isActive == value)
+                {
+                    return;
+                }
+                isActive = value;
+                component.gameObject.SetActive(value);
+                if (value)
+                {
+                    this.Add();
+                }
+                else
+                {
+                    this.Remove();
+                }
+            }
+        }
 
 
         #endregion

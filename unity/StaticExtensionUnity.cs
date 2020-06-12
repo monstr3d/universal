@@ -3,8 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
+
 
 using UnityEngine;
 using UnityEngine.UI;
@@ -31,7 +30,6 @@ using Scada.Interfaces;
 using Scada.Desktop;
 using Vector3D;
 using Motion6D.Interfaces;
-using System.Runtime.CompilerServices;
 
 namespace Unity.Standard
 {
@@ -45,9 +43,7 @@ namespace Unity.Standard
 
         #region Fields
 
-        static public  Dictionary<string, List<IIndicator>> indicators =
-            new Dictionary<string, List<IIndicator>>();
-
+ 
         static private TimeMeasureProviderFactory factory = new TimeMeasureProviderFactory();
 
         static private ITimerEventFactory timerEventFactory;
@@ -99,6 +95,9 @@ namespace Unity.Standard
             set;
         }
 
+        static private Dictionary<string, Tuple<Func<object>, List<IIndicator>>>
+            indicators = new Dictionary<string, Tuple<Func<object>, List<IIndicator>>>();
+
    
 
         static public double Time
@@ -109,6 +108,77 @@ namespace Unity.Standard
         #endregion
 
         #region Members
+
+        /// <summary>
+        /// Adds indicator
+        /// </summary>
+        /// <param name="indicator"></param>
+        static public void Add(this IIndicator indicator)
+        {
+            string p = indicator.Parameter;
+            List<IIndicator> l;
+            if (indicators.ContainsKey(p))
+            {
+               l = indicators[p].Item2;
+            }
+            else
+            {
+                l = new List<IIndicator>();
+                int k = p.IndexOf(".");
+                string desktop = p.Substring(0, k);
+                IScadaInterface scada = desktop.ToExistedScada();
+                string par = p.Substring(k + 1);
+                Func<object> f = scada.GetOutput(par);
+                var tt = new Tuple<Func<object>, List<IIndicator>>(f, l);
+                indicators[p] = tt;
+            }
+            if (!l.Contains(indicator))
+            {
+                l.Add(indicator);
+            }
+        }
+
+        /// <summary>
+        /// Removes indicator
+        /// </summary>
+        /// <param name="indicator"></param>
+        static public void Remove(this IIndicator indicator)
+        {
+            string p = indicator.Parameter;
+            if (!indicators.ContainsKey(p))
+            {
+                return;
+            }
+            var l = indicators[p].Item2;
+            if (!l.Contains(indicator))
+            {
+                return;
+            }
+            l.Remove(indicator);
+            if (l.Count == 0)
+            {
+                indicators.Remove(p);
+            }
+        }
+
+        /// <summary>
+        /// Updates indicators
+        /// </summary>
+        public static void UpdateIndicators()
+        {
+            foreach (var t in indicators.Values)
+            {
+                var o = t.Item1();
+                var l = t.Item2;
+                foreach (var i in l)
+                {
+                    i.Value = o;
+                }
+            }
+        }
+
+
+
 
         /// <summary>
         /// Gets all indicators from Geme object
@@ -305,8 +375,7 @@ namespace Unity.Standard
                 var ind = factory.Get(gameObject);
                 if (ind != null)
                 {
-                    indicators.Add(ind.Parameter, ind);
-                    ls.Add(ind.Parameter, ind);
+                    ind.Add();
                     break;
                 }
             }
@@ -624,6 +693,11 @@ namespace Unity.Standard
             return action;
         }
 
+        /// <summary>
+        /// The transformation of angle to degree
+        /// </summary>
+        /// <param name="angle">The angle</param>
+        /// <returns>The degree</returns>
         public static float ToDegree(this double angle)
         {
             return Mathf.Rad2Deg * (float)angle;

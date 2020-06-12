@@ -27,6 +27,43 @@ namespace Vector3D
             angles.Set(quaternion[1], quaternion[2], quaternion[3], quaternion[0]);
         }
 
+        public static void Set(this EulerAngles angles, int offset, double[] quaternion)
+        {
+            angles.Set(quaternion[1 + offset], quaternion[2 + offset], 
+                quaternion[3 + offset], quaternion[offset]);
+        }
+
+        static public void ToQuaternion(this EulerAngles angles, double[] q)
+        {
+            // Abbreviations for the various angular functions
+            double cy = Math.Cos(angles.yaw * 0.5);
+            double sy = Math.Sin(angles.yaw * 0.5);
+            double cp = Math.Cos(angles.pitch * 0.5);
+            double sp = Math.Sin(angles.pitch * 0.5);
+            double cr = Math.Cos(angles.roll * 0.5);
+            double sr = Math.Sin(angles.roll * 0.5);
+            q[0] = cr * cp * cy + sr * sp * sy;
+            q[1] = sr * cp * cy - cr * sp * sy;
+            q[2] = cr * sp * cy + sr * cp * sy;
+            q[3] = cr * cp * sy - sr * sp * cy;
+        }
+
+        static public void ToQuaternion(this EulerAngles angles, int offset, double[] q)
+        {
+            // Abbreviations for the various angular functions
+            double cy = Math.Cos(angles.yaw * 0.5);
+            double sy = Math.Sin(angles.yaw * 0.5);
+            double cp = Math.Cos(angles.pitch * 0.5);
+            double sp = Math.Sin(angles.pitch * 0.5);
+            double cr = Math.Cos(angles.roll * 0.5);
+            double sr = Math.Sin(angles.roll * 0.5);
+            q[offset] = cr * cp * cy + sr * sp * sy;
+            q[offset + 1] = sr * cp * cy - cr * sp * sy;
+            q[offset + 2] = cr * sp * cy + sr * cp * sy;
+            q[offset + 3] = cr * cp * sy - sr * sp * cy;
+        }
+
+
         public static void  Set(this EulerAngles angles, double x, double y, double z, double w)
         {
          
