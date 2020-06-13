@@ -34,8 +34,11 @@ namespace Assets
 
         AudioSource alarm;
 
-        AudioSource engine;
+        public static AudioSource engine;
 
+        Dictionary<int, int> active = new Dictionary<int, int>();
+
+ 
         private float interval = 0;
  
         public float kx = 1f;
@@ -87,17 +90,7 @@ namespace Assets
                KeyCode.DownArrow} )}
         };*/
 
-        Dictionary<int, int> active = new Dictionary<int, int>();
-
-        Dictionary<int, string[]> sprites = new Dictionary<int, string[]>()
-        {
-            {2, new string[] {"Forward", "Backward" } },
-           {0, new string[] {"Right", "Left" } },
-           {1, new string[] {"Up", "Down" } },
-        };
-
-        Dictionary<int, Image[]> blink = new Dictionary<int, Image[]>();
-
+  
         Component[] results;
 
         Slider slider;
@@ -314,46 +307,14 @@ namespace Assets
             codes = l.ToArray();
             Dictionary<string, List<Image>> canv =
                 gameObject.GetGameObjectComponents<Image>();
-            Dictionary<string, List<RectTransform>> rtv =
-                gameObject.GetGameObjectComponents<RectTransform>();
-             foreach (int key in sprites.Keys)
-            {
-                   Image[] im = new Image[2];
-                string[] ssi = sprites[key];
-                for (int i = 0; i < 2; i++)
-                {
-                    Image image = canv[ssi[i]][0];
-                    image.enabled = false;
-                    im[i] = image;
-                }
-                if (dictionary.ContainsKey(key))
-                {
-                    blink[key] = im;
-                }
-                mb.StartCoroutine(blinkc);
-            }
-
+ 
             foreach (var kk in codes)
             {
                 pressed[kk] = true;
             }
         }
 
-        int activeEn
-        {
-            get
-            {
-                int k = 0;
-                foreach (var i in active.Values)
-                {
-                    if (i != 0)
-                    {
-                        ++k;
-                    }
-                }
-                return k;
-            }
-        }
+
 
          void UpdateCurrent()
         {
@@ -400,26 +361,6 @@ namespace Assets
                 throw new Exception();
             }
             v[0] = value;
-            int aco = activeEn;
-            active[pp] = Math.Sign(value);
-            int acn = activeEn;
-            if (acn != aco)
-            {
-                if (acn == 0)
-                {
-                    engine.enabled = false;
-                    engine.Stop();
-                }
-                if (aco == 0)
-                {
-                    engine.enabled = true;
-                }
-                if (engine.enabled)
-                {
-                    engine.volume = acn / 6f;
-                    engine.Play();
-                }
-            }
             var tst = texts[code];
             string ss = "0";
             string f = tst.Item2[1];

@@ -147,6 +147,8 @@ namespace Assets
 
         void UpdateInternal()
         {
+            return;
+
             float amp = 100;
             for (int i = 0; i < 2; i++)
             {

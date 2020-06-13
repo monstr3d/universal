@@ -1,4 +1,6 @@
 ﻿using BaseTypes;
+using Scada.Desktop;
+using Scada.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Unity.Standard;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Assets
 {
@@ -38,7 +41,7 @@ namespace Assets
 
         static internal ForcesIndicator indicator;
 
-        Action<object[]> update;
+        Action update;
 
         string parameter;
 
@@ -54,6 +57,27 @@ namespace Assets
 
         RectTransform pivot, path;
 
+        IScadaInterface scada;
+
+      
+        Dictionary<int, int> active = new Dictionary<int, int>();
+
+        Dictionary<int, string[]> sprites = new Dictionary<int, string[]>()
+        {
+            {2, new string[] {"Forward", "Backward" } },
+           {0, new string[] {"Right", "Left" } },
+           {1, new string[] {"Up", "Down" } },
+        };
+
+        int acn = 0;
+
+        AudioSource engine;
+
+
+
+        Dictionary<int, Image[]> blink = new Dictionary<int, Image[]>();
+
+
         #endregion
 
         #region Ctor
@@ -61,7 +85,10 @@ namespace Assets
         public ForcesIndicator(GameObject gameObject)
         {
             indicator = this;
-            var st = "RigidBodyStation.Force.";
+            engine = ForcesMomentumsUpdate.engine;
+            var s = "RigidBodyStation";
+            scada = s.ToExistedScada();
+            var st = s + ".Force.";
             parameter = "";
             string[] ss = { "Fx", "Fy", "Fz", "Mx", "My", "Mz" };
             foreach (var c in ss)
@@ -84,11 +111,32 @@ namespace Assets
                 parent.GetGameObjectComponents<RectTransform>();
             pivot = rtv["_pivot"][0];
             path = rtv["Path"][0];
+            lpos = path.localPosition;
+            var canv = parent.GetGameObjectComponents<Image>();
+            var dictionary = Saver.saver.dictionary;
+            foreach (int key in sprites.Keys)
+            {
+                Image[] im = new Image[2];
+                string[] ssi = sprites[key];
+                for (int i = 0; i < 2; i++)
+                {
+                    Image image = canv[ssi[i]][0];
+                    image.enabled = false;
+                    im[i] = image;
+                }
+                if (dictionary.ContainsKey(key))
+                {
+                    blink[key] = im;
+                }
+
+            }
+            update = update.Add(UpdateSound);
             update = update.Add(UpdatePivot);
+            update = update.Add(UpdatePath);
+            mb.StartCoroutine(blinkc);
         }
 
         #endregion
-
 
         #region IIndicator Members
 
@@ -96,7 +144,14 @@ namespace Assets
 
         string IIndicator.Parameter => parameter;
 
-        object IIndicator.Value { set => update?.Invoke(value as object[]); }
+        object IIndicator.Value
+        {
+            set
+            {
+                UpdateActive(value as object[]); 
+                update?.Invoke();
+            }
+        }
 
         object IIndicator.Type => typeof(object[]);
 
@@ -113,28 +168,104 @@ namespace Assets
             }
         }
 
+
+
         #endregion
 
         #region Members
+
+        void UpdateActive(object[] o)
+        {
+            this.o = o;
+            for (int i = 0; i < o.Length; i++)
+            {
+                active[i] = Math.Sign((double)o[i]);
+            }
+        }
+
+        void UpdatePath()
+        {
+            float amp = 100;
+            Vector2 p = new Vector2(lpos.x + active[4] * amp, lpos.y + active[3] * amp);
+            if (!p.Equals(path.localPosition))
+            {
+                path.localPosition = p;
+            }
+        }
+
+        void UpdateSound()
+        {
+            int aco = activeEn;
+            if (aco != acn)
+            {
+                if (acn != aco)
+                {
+                    if (acn == 0)
+                    {
+                        engine.enabled = false;
+                        engine.Stop();
+                    }
+                    if (aco != 0)
+                    {
+                        engine.enabled = true;
+                    }
+                    if (engine.enabled)
+                    {
+                        engine.volume = aco / 6f;
+                    }
+
+                }
+                acn = aco;
+            }
+        }
+
+        int activeEn
+        {
+            get
+            {
+                int k = 0;
+                foreach (var i in active.Values)
+                {
+                    if (i != 0)
+                    {
+                        ++k;
+                    }
+                }
+                return k;
+            }
+        }
+
+
+
 
         void Update()
         {
             if (o != null)
             {
-                update?.Invoke(o);
+                update?.Invoke();
             }
         }
 
         float ap = -60f;
 
+        int lastPivot;
 
-        void UpdatePivot(object[] o)
+        void UpdatePivot()
         {
-            int k = Math.Sign((double)o[5]);
+            int k = active[5];
+            if (k == lastPivot)
+            {
+                return;
+            }
+            lastPivot = k;
             float r = ap * k;
             Vector3 euler = new Vector3(0, 0, r);
             pivot.rotation = Quaternion.Euler(euler);
        }
+
+        Vector2 lpos;
+
+        float bp = 0.2f;
 
         System.Collections.IEnumerator blinkc
         {
