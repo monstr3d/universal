@@ -176,20 +176,12 @@ namespace Unity.Standard
             get => isActive; 
             set
             {
-                if (isActive == value)
+                if (!this.SetActive(value))
                 {
                     return;
                 }
                 isActive = value;
                 component.gameObject.SetActive(value);
-                if (value)
-                {
-                    this.Add();
-                }
-                else
-                {
-                    this.Remove();
-                }
             }
         }
 

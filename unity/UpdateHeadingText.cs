@@ -36,6 +36,7 @@ namespace Assets
 
         void UpdateInternal()
         {
+            return;
             upd?.Invoke();
             float heading = angles.pitch.ToDegree();
             if (headingTxt != null)

@@ -65,6 +65,7 @@ namespace Assets
 
         void UpdateInternal()
         {
+            return;
             float heading = angles.pitch.ToDegree();
             Rect r = new Rect(factor * (heading + headingOffSet)
                  / maxValue + startX, rawImg.uvRect.y,

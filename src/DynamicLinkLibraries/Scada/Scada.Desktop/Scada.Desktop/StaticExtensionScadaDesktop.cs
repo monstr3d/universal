@@ -57,6 +57,10 @@ namespace Scada.Desktop
         /// <returns>The SCADA</returns>
         public static IScadaInterface ToExistedScada(this string name)
         {
+            if (!scadas.ContainsKey(name))
+            {
+                return null;
+            }
             return scadas[name];
         }
 

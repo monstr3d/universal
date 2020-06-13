@@ -110,6 +110,31 @@ namespace Unity.Standard
         #region Members
 
         /// <summary>
+        /// Sets active state of indicator
+        /// </summary>
+        /// <param name="indicator">The indicator</param>
+        /// <param name="active">The state</param>
+        /// <returns>Change sign</returns>
+        public static bool SetActive(this IIndicator indicator, bool active)
+        {
+            if (indicator.IsActive == active)
+            {
+                return false;
+            }
+            if (active)
+            {
+                indicator.Add();
+            }
+            else
+            {
+                indicator.Remove();
+            }
+            return true;
+        }
+
+        
+
+        /// <summary>
         /// Adds indicator
         /// </summary>
         /// <param name="indicator"></param>
@@ -124,11 +149,26 @@ namespace Unity.Standard
             else
             {
                 l = new List<IIndicator>();
-                int k = p.IndexOf(".");
-                string desktop = p.Substring(0, k);
-                IScadaInterface scada = desktop.ToExistedScada();
-                string par = p.Substring(k + 1);
-                Func<object> f = scada.GetOutput(par);
+                Func<object> f = null;
+                if (indicator.Type.Equals(typeof(object[])))
+                {
+                    f = ArrayWrapper.FromString(p);
+                }
+                if (f == null)
+                {
+                    int k = p.IndexOf(".");
+                    string desktop = p.Substring(0, k);
+                    IScadaInterface scada = desktop.ToExistedScada();
+                    string par = p.Substring(k + 1);
+                    if (scada.Outputs.ContainsKey(par))
+                    {
+                        f = scada.GetOutput(par);
+                    }
+                }
+                if (f == null)
+                {
+                    f =  () => null;
+                }
                 var tt = new Tuple<Func<object>, List<IIndicator>>(f, l);
                 indicators[p] = tt;
             }
@@ -137,6 +177,8 @@ namespace Unity.Standard
                 l.Add(indicator);
             }
         }
+
+        
 
         /// <summary>
         /// Removes indicator
@@ -355,6 +397,7 @@ namespace Unity.Standard
 
         #region Private
 
+ 
 
         private static void GetIndicators(this GameObject gameObject,
             List<GameObject> lg,
@@ -376,7 +419,6 @@ namespace Unity.Standard
                 if (ind != null)
                 {
                     ind.Add();
-                    break;
                 }
             }
         }
@@ -896,6 +938,54 @@ namespace Unity.Standard
         #endregion
 
         #region Classes
+        class ArrayWrapper
+        {
+            object[] o;
+
+            Func<object>[] f;
+
+            internal ArrayWrapper(Func<object>[] f)
+            {
+                this.f = f;
+                o = new object[f.Length];
+            }
+
+            internal object Get()
+            {
+                for (int i = 0; i < o.Length; i++)
+                {
+                    o[i] = f[i]();
+                }
+                return o;
+            }
+
+            static internal Func<object> FromString(string s)
+            {
+                string[] ss = s.Split(";".ToCharArray());
+                var ff = new List<Func<object>>();
+                foreach (var str in ss)
+                {
+                    int k = str.IndexOf(".");
+                    if (k < 1)
+                    {
+                        continue;
+                    }
+                    string desktop = str.Substring(0, k);
+                    var scada = desktop.ToExistedScada();
+                    if (scada == null)
+                    {
+                        continue;
+                    }
+                    string par = str.Substring(k + 1);
+                    if (scada.Outputs.ContainsKey(par))
+                    {
+                        ff.Add(scada.GetOutput(par));
+                    }
+                }
+                ArrayWrapper arrayWrapper = new ArrayWrapper(ff.ToArray());
+                return arrayWrapper.Get;
+            }
+        }
 
         class DefaultTextAction : ITextUpdate
         {

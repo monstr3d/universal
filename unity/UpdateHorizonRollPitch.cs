@@ -162,6 +162,7 @@ namespace Assets
             float roll = angles.yaw.ToDegree();
             float pitch = angles.roll.ToDegree(); ;
 
+            return;
             //Send values to Gui and Instruments
             if (horizonRoll != null)
             {

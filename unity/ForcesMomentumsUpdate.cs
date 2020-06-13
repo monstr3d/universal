@@ -20,15 +20,10 @@ namespace Assets
 
       
  
-        float ap = -60f;
-
+     
         static public event Action<string, float[], float[]> Alarm;
 
-        RectTransform pivot;
-
-
-        RectTransform path;
-
+   
         KeyCode current;
 
         KeyCode lastCurrent;
@@ -224,10 +219,11 @@ namespace Assets
 
         void UpdateInternal()
         {
-            int k = Math.Sign(dOut[5]());
+/*            int k = Math.Sign(dOut[5]());
             float r = ap * k;
             Vector3 euler = new Vector3(0, 0, r);
             pivot.rotation = Quaternion.Euler(euler);
+*/
             if (Input.GetKey(KeyCode.Return))
             {
                 ResultIndicator.Escape();
@@ -320,9 +316,7 @@ namespace Assets
                 gameObject.GetGameObjectComponents<Image>();
             Dictionary<string, List<RectTransform>> rtv =
                 gameObject.GetGameObjectComponents<RectTransform>();
-            pivot = rtv["_pivot"][0];
-            path = rtv["Path"][0];
-            foreach (int key in sprites.Keys)
+             foreach (int key in sprites.Keys)
             {
                    Image[] im = new Image[2];
                 string[] ssi = sprites[key];
@@ -526,43 +520,7 @@ namespace Assets
             }
         }
 
-        System.Collections.IEnumerator blinkc
-        {
-            get
-            {
-                while (true)
-                {
-                    yield return new WaitForSeconds(bp);
-                    pivot.gameObject.SetActive(false);
-                    path.gameObject.SetActive(false);
-                    foreach (Image[] im in blink.Values)
-                    {
-                        foreach (Image image in im)
-                        {
-                            image.enabled = false;
-                        }
-                    }
-                    if (!scada.IsEnabled)
-                    {
-                        break;
-                    }
-                    yield return new WaitForSeconds(bp);
-                    pivot.gameObject.SetActive(true);
-                    path.gameObject.SetActive(true);
-                    foreach (var key in blink.Keys)
-                    {
-                        int k = active[key];
-                        if (k == 0)
-                        {
-                            continue;
-                        }
-                        int a = 1 - Math.Sign(k + 1);
-                        blink[key][a].enabled = true;
-                    }
-                }
-            }
-        }
-
+ 
         System.Collections.IEnumerator enumeratorT
         {
             get

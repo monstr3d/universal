@@ -4,20 +4,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-using Scada.Interfaces;
-
-
-
-using Motion6D;
-using Unity.Standard;
-using Scada.Desktop;
-
 using Motion6D.Interfaces;
 
-using V = Vector3D;
-using Vector3D;
+
+using Scada.Interfaces;
+using Scada.Desktop;
+
+
+
+using Unity.Standard;
+
+
+
 using System.Reflection;
-using UnityEngine.Rendering;
 
 public class ReferenceFrameBehavior : MonoBehaviour
 {
@@ -215,8 +214,6 @@ public class ReferenceFrameBehavior : MonoBehaviour
 
 
     #endregion
-
-
 
 
     #region Standard Members
