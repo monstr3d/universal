@@ -248,38 +248,6 @@ namespace DataPerformer.Formula
                 l.Add("\t\t" + s);
             }
             l.Add("\t}");
-            /*
-            List<string> lt = v.CreateCSharpAliasList();
-            l.Add("\t\tparameters =" + lt[0]);
-            for (int i = 1; i < lt.Count; i++)
-            {
-                l.Add("\t\t" + lt[i]);
-            }
-            List<string> lt  = v.OperationNames.GetDictionaryCSharpCode<int, string>();
-            l.Add("\t\toperationNames = " + lt[0]);
-            for (int i = 1; i < lt.Count; i++)
-            {
-                l.Add("\t\t" + lt[i]);
-            }
-            //  l.Add("\t\tInit();");
-            l.Add("\t}");
-            l.Add("");
-            if (false)
-            {
-                l.Add("\tprotected override void postDeserialize()");
-                l.Add("\t{");
-                l.Add("\t\tList<object> keys = new List<object>(parameters.Keys);");
-                // l.Add("\t\tkeys.Sort();");
-                l.Add("\t\tfor (int i = 0; i < keys.Count; i++)");
-                l.Add("\t\t{");
-                l.Add("\t\t\tstring s = keys[i] + \"\"; ");
-                l.Add("\t\t\tchar c = s[0];");
-                l.Add("\t\t\tvars[c] = new object[] { formulaString[i], parameters[s] };");
-                l.Add("\t\t}");
-                l.Add("\t\tbase.postDeserialize();");
-                l.Add("\t}");
-                l.Add("");
-            }*/
             l.Add("\tFormulaEditor.Interfaces.ITreeCollectionProxy FormulaEditor.Interfaces.ITreeCollectionProxyFactory.CreateProxy(FormulaEditor.Interfaces.ITreeCollection collection, Action<object> checkValue)");
             l.Add("\t{");
             l.Add("\t\tFormulaEditor.Interfaces.ITreeCollection f = this;");

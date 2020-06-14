@@ -36,7 +36,7 @@ namespace Unity.Standard
 
 
     /// <summary>
-    /// Static 
+    /// Static extension
     /// </summary>
     public static class StaticExtensionUnity
     {
@@ -96,7 +96,7 @@ namespace Unity.Standard
         }
 
         static private Dictionary<string, Tuple<Func<object>, List<IIndicator>>>
-            indicators = new Dictionary<string, Tuple<Func<object>, List<IIndicator>>>();
+            indicators1 = new Dictionary<string, Tuple<Func<object>, List<IIndicator>>>();
 
    
 
@@ -132,19 +132,15 @@ namespace Unity.Standard
             return true;
         }
 
-        
 
-        /// <summary>
-        /// Adds indicator
-        /// </summary>
-        /// <param name="indicator"></param>
-        static public void Add(this IIndicator indicator)
+        private static void Add(this IIndicator indicator, 
+            Dictionary<string, Tuple<Func<object>, List<IIndicator>>> ls)
         {
             string p = indicator.Parameter;
             List<IIndicator> l;
-            if (indicators.ContainsKey(p))
+            if (ls.ContainsKey(p))
             {
-               l = indicators[p].Item2;
+                l = ls[p].Item2;
             }
             else
             {
@@ -167,15 +163,26 @@ namespace Unity.Standard
                 }
                 if (f == null)
                 {
-                    f =  () => null;
+                    f = () => null;
                 }
                 var tt = new Tuple<Func<object>, List<IIndicator>>(f, l);
-                indicators[p] = tt;
+                ls[p] = tt;
             }
             if (!l.Contains(indicator))
             {
                 l.Add(indicator);
             }
+
+        }
+
+
+        /// <summary>
+        /// Adds indicator
+        /// </summary>
+        /// <param name="indicator"></param>
+        static public void Add(this IIndicator indicator)
+        {
+            //indicator.Add(indicators);
         }
 
         
@@ -186,6 +193,7 @@ namespace Unity.Standard
         /// <param name="indicator"></param>
         static public void Remove(this IIndicator indicator)
         {
+            /*
             string p = indicator.Parameter;
             if (!indicators.ContainsKey(p))
             {
@@ -201,13 +209,32 @@ namespace Unity.Standard
             {
                 indicators.Remove(p);
             }
+            */
         }
+
+        public static Action UpdateInicators<T>(this
+            Dictionary<T, Tuple<Func<object>, List<IIndicator>>> indicators)
+        {
+            return () =>
+            {
+                foreach (var t in indicators.Values)
+                {
+                    var o = t.Item1();
+                    var l = t.Item2;
+                    foreach (var i in l)
+                    {
+                        i.Value = o;
+                    }
+                }
+            };
+        }
+            
 
         /// <summary>
         /// Updates indicators
         /// </summary>
         public static void UpdateIndicators()
-        {
+        {/*
             foreach (var t in indicators.Values)
             {
                 var o = t.Item1();
@@ -217,13 +244,53 @@ namespace Unity.Standard
                     i.Value = o;
                 }
             }
+            */
+        }
+
+        /// <summary>
+        /// Gets full list of indicators
+        /// </summary>
+        /// <param name="gameObject">The game object</param>
+        /// <returns>Full list</returns>
+        static public Dictionary<string, Tuple<Func<object>, List<IIndicator>>>  GetIndicatorsFull(this GameObject gameObject)
+        {
+            var d = new Dictionary<string, Tuple<Func<object>, List<IIndicator>>>();
+            List<GameObject> go = new List<GameObject>();
+            gameObject.GetIndicators(go, d);
+            return d;
+        }
+
+        private static void GetIndicators(this GameObject gameObject,
+            List<GameObject> lg, 
+            Dictionary<string, Tuple<Func<object>, List<IIndicator>>> ls)
+        {
+            if (lg.Contains(gameObject))
+            {
+                return;
+            }
+            lg.Add(gameObject);
+            RectTransform[] rt = gameObject.GetComponentsInChildren<RectTransform>();
+            foreach (var r in rt)
+            {
+                r.gameObject.GetIndicators(lg, ls);
+            }
+            foreach (var factory in indicatorFactories)
+            {
+                var ind = factory.Get(gameObject);
+                if (ind != null)
+                {
+                    ind.Add(ls);
+                   // Dictionary<string, Tuple<Func<object>, List<IIndicator>>>
+                }
+            }
         }
 
 
 
 
+
         /// <summary>
-        /// Gets all indicators from Geme object
+        /// Gets all indicators from Game object
         /// </summary>
         /// <param name="gameObject">The Game object</param>
         /// <returns>Indicators</returns>
@@ -302,7 +369,7 @@ namespace Unity.Standard
         /// </summary>
         static public void Clear()
         {
-            indicators.Clear();
+           // indicators.Clear();
             StaticExtensionScadaDesktop.Clear();
             foreach (MonoBehaviour monoBehaviour in monoBehaviours)
             {

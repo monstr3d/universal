@@ -289,10 +289,6 @@ namespace FormulaEditor
                 }
                 CreateList(t, list, optional);
             }
-  /*          if (comparer)
-            {
-                list.Sort(new Comparer());
-            }*/
             return list;
         }
 

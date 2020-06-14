@@ -14,7 +14,7 @@ using Diagram.UI.Interfaces;
 using Diagram.UI;
 
 using Unity.Standard;
-
+using BaseTypes;
 
 public class OutputController : MonoBehaviour
 {
@@ -51,6 +51,9 @@ public class OutputController : MonoBehaviour
     public float[] constants;
 
     Action ev = null;
+
+    private Dictionary<string, Tuple<Func<object>, List<IIndicator>>>
+            indicatorsd = new Dictionary<string, Tuple<Func<object>, List<IIndicator>>>();
 
     Action inpAct;
 
@@ -125,14 +128,12 @@ public class OutputController : MonoBehaviour
     }
 
 
-
     // Start is called before the first frame update
     void Start()
     {
         factory.Start();
         UpdateInput();
         UpdateOutput();
-        //      UpdateTransforms();
     }
 
     // Update is called once per frame
@@ -189,6 +190,8 @@ public class OutputController : MonoBehaviour
  
     private void UpdateOutput()
     {
+        indicatorsd = gameObject.GetIndicatorsFull();
+        AddUpdate(indicatorsd.UpdateInicators());
         if (allparameters.Count == 0)
         {
             return;
@@ -270,20 +273,12 @@ public class OutputController : MonoBehaviour
             AddUpdate(ua.Update);
             offset = ua.SetConstants(offset, inputConstants);
         }
+        AddUpdate(indicatorsd.UpdateInicators());
     }
 
     void AddUpdate(Action act)
     {
-        if (act == null)
-        {
-            return;
-        }
-        if (update == null)
-        {
-            update = act;
-            return;
-        }
-        update += act;
+        update = update.Add(act);
     }
 
 }

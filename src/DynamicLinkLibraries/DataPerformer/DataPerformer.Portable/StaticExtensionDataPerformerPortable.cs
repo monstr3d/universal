@@ -1429,7 +1429,14 @@ namespace DataPerformer.Portable
         /// <returns>Alias</returns>
         public static AliasName FindAliasName(this IDataConsumer consumer, IDesktop desktop, string alias)
         {
-            object[] o = FindAlias(consumer, desktop, alias);
+            string ali = alias;
+            IDesktop desk = desktop;
+            if (ali.StartsWith("../"))
+            {
+                desk = desktop.Root;
+                ali = ali.Substring(3);
+            }
+            object[] o = FindAlias(consumer, desk, ali);
             if (o == null)
             {
                 return null;

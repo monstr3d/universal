@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Scada.Interfaces.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -168,6 +169,42 @@ namespace Scada.Interfaces
         }
 
         #endregion
+
+        /// <summary>
+        /// Input ouptut action
+        /// </summary>
+        /// <param name="input">Input</param>
+        /// <param name="output">Output</param>
+        /// <param name="compare">The "Compare" string</param>
+        /// <returns>The action</returns>
+        static public Action InputToOutput(this Func<object> input, Action<object> output,
+            bool compare = true)
+        {
+            var io = new InputOutputLink(input, output);
+            if (compare)
+            {
+                return io.UpdateCompare;
+            }
+            return io.Update;
+        }
+
+        /// <summary>
+        /// Input ouptut action
+        /// </summary>
+        /// <param name="input">Input</param>
+        /// <param name="output">Output</param>
+        /// <param name="compare">The "Compare" string</param>
+        /// <returns>The action</returns>
+        static public Action InputToOutput(this Tuple<IScadaInterface, string> input,
+            Tuple<IScadaInterface, string> output,
+            bool compare = true)
+        {
+            var inp = input.Item1.GetOutput(input.Item2);
+            var ou = output.Item1.GetInput(output.Item2);
+            return inp.InputToOutput(ou, compare);
+        }
+
+
 
 
         /// <summary>

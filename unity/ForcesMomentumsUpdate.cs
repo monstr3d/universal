@@ -34,7 +34,6 @@ namespace Assets
 
         AudioSource alarm;
 
-        public static AudioSource engine;
 
         Dictionary<int, int> active = new Dictionary<int, int>();
 
@@ -65,7 +64,7 @@ namespace Assets
 
         Func<double>[] dOut = new Func<double>[6];
 
-        GameObject camera;
+        public static GameObject camera;
 
         KeyCode[] codes = { KeyCode.None };
 
@@ -164,8 +163,7 @@ namespace Assets
                 camera.GetGameObjectComponents<AudioSource>();
             torch = las["Torch"][0];
             alarm = las["Alarm"][0];
-            engine = las["Engine"][0];
-  
+   
             var s = "Force.";
             string[] ss = { "Fx", "Fy", "Fz", "Mx", "My", "Mz" };
             for (int i = 0; i < ss.Length; i++)
@@ -181,8 +179,6 @@ namespace Assets
             sliders.Add(sw);
             sw = new SliderWrapper(c["MarkedLimitedNegativeSlider"][0], -100, 2, f);
             sliders.Add(sw);*/
-            gameObject.GetIndicators();
-
         }
 
 
@@ -243,7 +239,6 @@ namespace Assets
                     current = KeyCode.F10;
                 }
             }
-            StaticExtensionUnity.UpdateIndicators();
         }
 
 

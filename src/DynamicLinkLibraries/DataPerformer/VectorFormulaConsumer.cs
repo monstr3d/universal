@@ -97,7 +97,7 @@ namespace DataPerformer
                 }
                 try
                 {
-                    forwardAliases = info.Deserialize<Dictionary<int, string>>("ForwardAliases");
+                    forwardAliases = info.Deserialize<Dictionary<int, string> >("ForwardAliases");
                 }
                 catch (Exception exc)
                 {
@@ -158,9 +158,9 @@ namespace DataPerformer
                 info.AddValue("Comments", comments);
             }
             info.AddValue("DerivationOrder", deriOrder);
-            info.Serialize<Dictionary<int, string>>("Feedback", feedback);
+            info.Serialize("Feedback", feedback);
             info.AddValue("ShouldRuntimeUpdate", shouldRuntimeUpdate);
-            info.Serialize<Dictionary<int, string>>("ForwardAliases", forwardAliases);
+            info.Serialize("ForwardAliases", forwardAliases);
         }
 
         #endregion

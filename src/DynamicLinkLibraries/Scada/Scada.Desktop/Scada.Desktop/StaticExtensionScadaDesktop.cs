@@ -51,6 +51,28 @@ namespace Scada.Desktop
         #region Public Members
 
         /// <summary>
+        /// Input ouptut action
+        /// </summary>
+        /// <param name="input">Input</param>
+        /// <param name="output">Output</param>
+        /// <param name="compare">The "Compare" string</param>
+        /// <returns>The action</returns>
+        public static Action InputToOutput(this string input, string output,
+            bool compare = true)
+        {
+            var ss = new string[]{ input, output };
+            var tt = new Tuple<IScadaInterface, string>[2];
+            for (int i = 0; i < 2; i++)
+            {
+                var s = ss[i];
+                int k = s.IndexOf('.');
+                var scada = s.Substring(0, k).ToExistedScada();
+                tt[i] = new Tuple<IScadaInterface, string>(scada, s.Substring(k + 1));
+            }
+            return tt[0].InputToOutput(tt[1], compare);
+        }
+
+        /// <summary>
         /// String to existed SCADA
         /// </summary>
         /// <param name="name">The name of scada</param>

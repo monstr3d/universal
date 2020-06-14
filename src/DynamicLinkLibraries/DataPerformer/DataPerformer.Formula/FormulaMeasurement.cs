@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Linq;
 
 using CategoryTheory;
 
@@ -109,6 +109,7 @@ namespace DataPerformer.Formula
         {
             List<ObjectFormulaTree> list = new List<ObjectFormulaTree>();
             List<FormulaMeasurement> globalList = new List<FormulaMeasurement>();
+            var opt = new List<ObjectFormulaTree>();
             return GetTreesLocal(meas, list, globalList);
         }
 

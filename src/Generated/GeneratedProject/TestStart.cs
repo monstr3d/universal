@@ -22,10 +22,11 @@ namespace GeneratedProject
         {
             try
             {
-                IDesktop d = SimpleRegression.Desktop;
+              /*  IDesktop d = SimpleRegression.Desktop;
                 AliasRegression r = null;
                 d.ForEach((AliasRegression ar) => { r = ar; });
-                double a = r.Iterate();
+                double a = r.Iterate();*/
+                var d = RigidBodyStation.Desktop;
             }
             catch (Exception exception)
             {

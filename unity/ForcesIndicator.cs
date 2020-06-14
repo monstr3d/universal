@@ -17,7 +17,7 @@ namespace Assets
     {
         public ForcesIndicatorFactory()
         {
-
+            
         }
 
         IIndicator IIndicatorFactory.Get(GameObject gameObject)
@@ -85,7 +85,11 @@ namespace Assets
         public ForcesIndicator(GameObject gameObject)
         {
             indicator = this;
-            engine = ForcesMomentumsUpdate.engine;
+            GameObject camera = ForcesMomentumsUpdate.camera;
+            Dictionary<string, List<AudioSource>> las =
+            camera.GetGameObjectComponents<AudioSource>();
+            engine = las["Engine"][0];
+
             var s = "RigidBodyStation";
             scada = s.ToExistedScada();
             var st = s + ".Force.";
@@ -292,6 +296,10 @@ namespace Assets
                     path.gameObject.SetActive(true);
                     foreach (var key in blink.Keys)
                     {
+                        if (!active.ContainsKey(key))
+                        {
+                            continue;
+                        }
                         int k = active[key];
                         if (k == 0)
                         {

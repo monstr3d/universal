@@ -251,6 +251,7 @@ namespace FormulaEditor.CSharp
         public static IList<string> CreateCode(ObjectFormulaTree[] trees, ICodeCreator creator, out ICodeCreator local,
              out IList<string> variables, out IList<string> initializers)
         {
+            local = null;
             IList<string> l = StaticCodeCreator.CreateCode(trees, creator, out local,
                 out variables, out initializers);
             variables.Add("FormulaEditor.ObjectFormulaTree currentTree = null;");
