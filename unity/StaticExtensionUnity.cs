@@ -152,13 +152,10 @@ namespace Unity.Standard
                 }
                 if (f == null)
                 {
-                    int k = p.IndexOf(".");
-                    string desktop = p.Substring(0, k);
-                    IScadaInterface scada = desktop.ToExistedScada();
-                    string par = p.Substring(k + 1);
-                    if (scada.Outputs.ContainsKey(par))
+                    var s = p.ToScadaString();
+                    if (s.Item1.Outputs.ContainsKey(s.Item2))
                     {
-                        f = scada.GetOutput(par);
+                        f = s.Item1.GetOutput(s.Item2);
                     }
                 }
                 if (f == null)
@@ -212,23 +209,19 @@ namespace Unity.Standard
             */
         }
 
-        public static Action UpdateInicators<T>(this
+        public static void UpdateInicators<T>(this
             Dictionary<T, Tuple<Func<object>, List<IIndicator>>> indicators)
         {
-            return () =>
+            foreach (var t in indicators.Values)
             {
-                foreach (var t in indicators.Values)
+                var o = t.Item1();
+                var l = t.Item2;
+                foreach (var i in l)
                 {
-                    var o = t.Item1();
-                    var l = t.Item2;
-                    foreach (var i in l)
-                    {
-                        i.Value = o;
-                    }
+                    i.Value = o;
                 }
-            };
-        }
-            
+            }
+        }         
 
         /// <summary>
         /// Updates indicators
@@ -280,7 +273,6 @@ namespace Unity.Standard
                 if (ind != null)
                 {
                     ind.Add(ls);
-                   // Dictionary<string, Tuple<Func<object>, List<IIndicator>>>
                 }
             }
         }
@@ -408,8 +400,12 @@ namespace Unity.Standard
 
         static public int SetConstants(this float[] input, int offset, float[] output)
         {
+            if (offset < 0 | output.Length == 0)
+            {
+                return offset;
+            }
             int l = output.Length;
-            if (input.Length < offset + l)
+            if (input.Length > offset + l)
             {
                 return -1;
             }

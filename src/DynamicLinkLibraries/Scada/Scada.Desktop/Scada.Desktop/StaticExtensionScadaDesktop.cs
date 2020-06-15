@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Reflection;
 
 using BaseTypes.Attributes;
 
@@ -10,14 +8,12 @@ using CategoryTheory;
 
 using Diagram.UI.Interfaces;
 
+using DataPerformer.Interfaces;
+using DataPerformer.Portable.Interfaces;
 
+using Event.Interfaces;
 
 using Scada.Interfaces;
-using DataPerformer.Interfaces;
-using Event.Interfaces;
-using System.Reflection;
-using DataPerformer.Portable.Interfaces;
-using System.Runtime.CompilerServices;
 
 namespace Scada.Desktop
 {
@@ -49,6 +45,58 @@ namespace Scada.Desktop
         #endregion
 
         #region Public Members
+
+        /// <summary>
+        /// To SCADA and string
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns></returns>
+        static public Tuple<IScadaInterface, string> ToScadaString(this string str)
+        {
+            int k =  str.IndexOf('.');
+            if (k < 0 | k == str.Length - 1)
+            {
+                return null;
+            }
+            IScadaInterface scada = str.Substring(0, k).ToExistedScada();
+            if (scada == null)
+            {
+                return null;
+            }
+            return new Tuple<IScadaInterface, string>(scada, str.Substring(k + 1));
+        }
+
+        public static Tuple<Func<object>, Action<object>, object> 
+            DetectActions(this string[] str)
+        {
+            var tt = new Tuple<IScadaInterface, string>[2];
+            for (int i = 0; i < 2; i++)
+            {
+                var t = str[i].ToScadaString();
+                if (t == null)
+                {
+                    return null;
+                }
+                tt[i] = t;
+            }
+            if (!tt[0].Item1.Outputs.ContainsKey(tt[0].Item2))
+            {
+                return null;
+            }
+            var to = tt[0].Item1.Outputs[tt[0].Item2];
+            if (!tt[1].Item1.Inputs.ContainsKey(tt[1].Item2))
+            {
+                return null;
+            }
+            var ti = tt[1].Item1.Inputs[tt[1].Item2];
+            if (ti.Equals(to))
+            {
+                return new Tuple<Func<object>, Action<object>, object>(
+                    tt[0].Item1.GetOutput(tt[0].Item2),
+                    tt[1].Item1.GetInput(tt[1].Item2), to);
+            }
+            return null;
+        }
 
         /// <summary>
         /// Input ouptut action

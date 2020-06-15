@@ -1367,7 +1367,38 @@ namespace Diagram.UI
             IEnumerable<object> c = collection.AllComponents;
             ForEach<T>(c, action, find);
         }
- 
+
+        /// <summary>
+        /// Performs action for each collection objects
+        /// </summary>
+        /// <typeparam name="T">Type of object</typeparam>
+        /// <param name="collection">The collection</param>
+        /// <param name="action">The action</param>
+        public static void ForAll<T>(this IComponentCollection collection, 
+            Action<T> action, bool find = true) where T : class
+        {
+            IEnumerable<object> en = collection.AllComponents;
+            foreach (var a in en)
+            {
+                if (a is T)
+                {
+                    (a as T).Execute(action, find);
+                }
+                if (a is IObjectLabel)
+                {
+                    var o = (a as IObjectLabel).Object;
+                    if (o is T)
+                    {
+                        (o as T).Execute(action, find);
+                    }
+                    if (o is IObjectContainer)
+                    {
+                        (o as IObjectContainer).Desktop.ForAll(action, find);
+                    }
+                }
+            }
+        }
+
         /// <summary>
         /// Performs action for each desktop objects
         /// </summary>
@@ -2649,7 +2680,6 @@ namespace Diagram.UI
 
 
         #endregion
-
   
         #region Source
 
@@ -2870,7 +2900,6 @@ namespace Diagram.UI
         #endregion
 
         #region Private and Internal members
-
 
         private static IObjectContainer ParentContainer(INamedComponent nc)
         {

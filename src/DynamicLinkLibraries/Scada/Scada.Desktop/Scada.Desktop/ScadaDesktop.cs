@@ -1,9 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml;
 using System.Xml.Linq;
 
 using CategoryTheory;
@@ -57,6 +53,7 @@ namespace Scada.Desktop
         /// </summary>
         protected IDataConsumer dataConsumer;
 
+     
         /// <summary>
         /// Name of consumer
         /// </summary>
@@ -311,16 +308,15 @@ namespace Scada.Desktop
                 return;
             }
             dataConsumer = desktop.GetObject<IDataConsumer>(consumerName);
-            collection = dataConsumer.CreateCollection("Realtime");
-            collection = desktop;
-            collection.ForEach((Event.Interfaces.IEvent ev) =>
+            collection = dataConsumer.CreateCollection(StaticExtensionEventInterfaces.Realtime);
+            collection.ForAll((Event.Interfaces.IEvent ev) =>
                 {
                     string s = (ev as IAssociatedObject).GetRootName();
                     events.Add(s);
                     dEvents[s] = new EventWrapper(ev);
                 }
             );
-            collection.ForEach((IEventHandler eventHandler) =>
+            collection.ForAll((IEventHandler eventHandler) =>
             {
                 IEnumerable<Event.Interfaces.IEvent> evs = eventHandler.Events;
                 foreach (Event.Interfaces.IEvent ev in evs)
@@ -336,7 +332,7 @@ namespace Scada.Desktop
             });
             inputs.Clear();
             dInput.Clear();
-            collection.ForEach((ForcedEventData f) =>
+            collection.ForAll((ForcedEventData f) =>
             {
                 string s = (f as IAssociatedObject).GetRootName();
                 List<Tuple<string, object>> l = f.Types;
@@ -356,7 +352,7 @@ namespace Scada.Desktop
             });
             outputs.Clear();
             dOutput.Clear();
-            collection.ForEach((IMeasurements measurements) =>
+            collection.ForAll((IMeasurements measurements) =>
             {
                 string s = (measurements as IAssociatedObject).GetRootName();
                 for (int i = 0; i < measurements.Count; i++)
@@ -368,7 +364,7 @@ namespace Scada.Desktop
                 }
             });
             dConstant.Clear();
-            collection.ForEach((IAlias alias) =>
+            collection.ForAll((IAlias alias) =>
             {
                 string s = (alias as IAssociatedObject).GetRootName();
                 foreach (string name in alias.AliasNames)
@@ -382,7 +378,6 @@ namespace Scada.Desktop
                     constants[n] = t.Item2;
                 }
             });
-            
          }
 
         /// <summary>

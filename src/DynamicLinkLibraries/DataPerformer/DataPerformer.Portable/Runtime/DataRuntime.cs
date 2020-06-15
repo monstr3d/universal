@@ -293,7 +293,7 @@ namespace DataPerformer.Portable.Runtime
                     {
                         t.Item2[0] = startRuntime;
                     }
-                    collection.ForEach<IStarted>((IStarted st) => { st.Start(startRuntime); });
+                    collection.ForEach((IStarted st) => { st.Start(startRuntime); });
                 }
             }
         }
@@ -318,7 +318,7 @@ namespace DataPerformer.Portable.Runtime
         {
             provider.Time = time;
             List<IStarted> ls = new List<IStarted>();
-            collection.ForEach<IStarted>((IStarted s) => { ls.Add(s); s.Start(time); });
+            collection.ForEach((IStarted s) => { ls.Add(s); s.Start(time); });
             IStep st = this;
             st.Step = -1;
             IDifferentialEquationProcessor pr = DifferentialEquationProcessor.Processor;
@@ -471,11 +471,11 @@ namespace DataPerformer.Portable.Runtime
                 }
                 dynamical.Add(dyn);
             }
-            collection.ForEach<IMeasurements>(
+            collection.ForEach(
 
                 (IMeasurements m) => { measurements.Add(m); }
                 );
-            collection.ForEach<IStep>((IStep s) => { steps.Add(s); });
+            collection.ForEach((IStep s) => { steps.Add(s); });
             if (updatable.Count == 0)
             {
                 updateAll = UpdateMeasurements;
@@ -702,7 +702,7 @@ namespace DataPerformer.Portable.Runtime
         {
             IComponentCollection cc = dCollection[ev];
             List<IEventBlock> bl = new List<IEventBlock>();
-            cc.ForEach<IEventBlock>((IEventBlock block) =>
+            cc.ForEach((IEventBlock block) =>
                 {
                     if (block[ev])
                     {

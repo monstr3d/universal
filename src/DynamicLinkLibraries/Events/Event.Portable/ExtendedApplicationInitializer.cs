@@ -1,9 +1,11 @@
-﻿using DataPerformer.Portable.Interfaces;
+﻿using System;
+using System.Collections.Generic;
+
 using Diagram.UI;
 using Diagram.UI.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Text;
+
+using DataPerformer.Portable;
+using DataPerformer.Portable.Interfaces;
 
 namespace Event.Portable
 {
@@ -45,7 +47,7 @@ namespace Event.Portable
             IsInitialized = true;
             DataPerformer.Portable.DifferentialEquationProcessors.DifferentialEquationProcessor.Processor = diffProcessor;
             OrdinaryDifferentialEquations.DifferentialEquationsPerformer.Default = ordSolver;
-            DataPerformer.Portable.StaticExtensionDataPerformerPortable.Factory = strategy;
+            strategy.SetBase();
             base.InitializeApplication();
         }
 

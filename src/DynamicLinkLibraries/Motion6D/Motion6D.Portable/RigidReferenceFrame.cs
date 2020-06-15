@@ -71,9 +71,7 @@ namespace Motion6D.Portable
         /// </summary>
         protected double[] omega = new double[] { 0, 0, 0 };
 
-        protected string[] aliasNames = null;
-
-        protected string[] names = { "X", "Y", "Z", "Roll", "Pitch", "Yaw" };
+        protected string[] aliasNames = new string[] { "X", "Y", "Z", "Roll", "Pitch", "Yaw" };
 
         protected Dictionary<string, int> alinames = new Dictionary<string, int>();
 

@@ -31,6 +31,7 @@ using Animation.Interfaces;
 
 using Event.Portable.Interfaces;
 using DataPerformer.Portable.Interfaces;
+using DataPerformer.Portable;
 
 namespace Scada.Motion6D
 {

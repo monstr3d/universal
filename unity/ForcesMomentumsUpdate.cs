@@ -400,6 +400,7 @@ namespace Assets
 
         void UpdateAlarm()
         {
+            return;
             float[] yz = null;
             float[] ddelta = null;
             string res = ResultIndicator.GetResult(out yz, out ddelta);
