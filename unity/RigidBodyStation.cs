@@ -19,88 +19,88 @@ namespace GeneratedProject
 			{
 				objects.Add(new IntrenalDesktop.OblectLabel0("Station motion", this));
 				objects.Add(new IntrenalDesktop.OblectLabel1("First Rotation", this));
-				objects.Add(new IntrenalDesktop.OblectLabel2("Relative to station", this));
-				objects.Add(new IntrenalDesktop.OblectLabel3("Base station", this));
-				objects.Add(new IntrenalDesktop.OblectLabel4("Station frame", this));
+				objects.Add(new IntrenalDesktop.OblectLabel2("Base station", this));
+				objects.Add(new IntrenalDesktop.OblectLabel3("Station frame", this));
+				objects.Add(new IntrenalDesktop.OblectLabel4("Shifted Frame", this));
 				objects.Add(new IntrenalDesktop.OblectLabel5("Force", this));
-				objects.Add(new IntrenalDesktop.OblectLabel6("Timer", this));
-				objects.Add(new IntrenalDesktop.OblectLabel7("X - Control", this));
-				objects.Add(new IntrenalDesktop.OblectLabel8("Rigid Body", this));
-				objects.Add(new IntrenalDesktop.OblectLabel9("Consumer", this));
-				objects.Add(new IntrenalDesktop.OblectLabel10("Shifted Frame", this));
+				objects.Add(new IntrenalDesktop.OblectLabel6("Rigid Body", this));
+				objects.Add(new IntrenalDesktop.OblectLabel7("Relative to station", this));
+				objects.Add(new IntrenalDesktop.OblectLabel8("Timer", this));
+				objects.Add(new IntrenalDesktop.OblectLabel9("X - Control", this));
+				objects.Add(new IntrenalDesktop.OblectLabel10("Consumer", this));
 				Diagram.UI.Labels.PureArrowLabel currALabel = null;
 				currALabel  = new IntrenalDesktop.ArrowLabel0("", this);
 				arrows.Add(currALabel);
-				currALabel.SourceNumber = (int)8;
+				currALabel.SourceNumber = (int)6;
 				currALabel.TargetNumber = (int)5;
 				currALabel  = new IntrenalDesktop.ArrowLabel1("", this);
 				arrows.Add(currALabel);
-				currALabel.SourceNumber = (int)9;
-				currALabel.TargetNumber = (int)6;
-				currALabel  = new IntrenalDesktop.ArrowLabel2("", this);
-				arrows.Add(currALabel);
-				currALabel.SourceNumber = (int)4;
-				currALabel.TargetNumber = (int)0;
-				currALabel  = new IntrenalDesktop.ArrowLabel3("", this);
-				arrows.Add(currALabel);
-				currALabel.SourceNumber = (int)8;
-				currALabel.TargetNumber = (int)2;
-				currALabel  = new IntrenalDesktop.ArrowLabel4("", this);
-				arrows.Add(currALabel);
 				currALabel.SourceNumber = (int)10;
-				currALabel.TargetNumber = (int)0;
-				currALabel  = new IntrenalDesktop.ArrowLabel5("", this);
-				arrows.Add(currALabel);
-				currALabel.SourceNumber = (int)10;
-				currALabel.TargetNumber = (int)4;
-				currALabel  = new IntrenalDesktop.ArrowLabel6("", this);
-				arrows.Add(currALabel);
-				currALabel.SourceNumber = (int)2;
-				currALabel.TargetNumber = (int)10;
-				currALabel  = new IntrenalDesktop.ArrowLabel7("", this);
-				arrows.Add(currALabel);
-				currALabel.SourceNumber = (int)9;
-				currALabel.TargetNumber = (int)2;
-				currALabel  = new IntrenalDesktop.ArrowLabel8("", this);
-				arrows.Add(currALabel);
-				currALabel.SourceNumber = (int)9;
 				currALabel.TargetNumber = (int)8;
-				currALabel  = new IntrenalDesktop.ArrowLabel9("", this);
-				arrows.Add(currALabel);
-				currALabel.SourceNumber = (int)9;
-				currALabel.TargetNumber = (int)5;
-				currALabel  = new IntrenalDesktop.ArrowLabel10("", this);
-				arrows.Add(currALabel);
-				currALabel.SourceNumber = (int)9;
-				currALabel.TargetNumber = (int)0;
-				currALabel  = new IntrenalDesktop.ArrowLabel11("", this);
+				currALabel  = new IntrenalDesktop.ArrowLabel2("", this);
 				arrows.Add(currALabel);
 				currALabel.SourceNumber = (int)3;
 				currALabel.TargetNumber = (int)0;
+				currALabel  = new IntrenalDesktop.ArrowLabel3("", this);
+				arrows.Add(currALabel);
+				currALabel.SourceNumber = (int)6;
+				currALabel.TargetNumber = (int)7;
+				currALabel  = new IntrenalDesktop.ArrowLabel4("", this);
+				arrows.Add(currALabel);
+				currALabel.SourceNumber = (int)4;
+				currALabel.TargetNumber = (int)0;
+				currALabel  = new IntrenalDesktop.ArrowLabel5("", this);
+				arrows.Add(currALabel);
+				currALabel.SourceNumber = (int)4;
+				currALabel.TargetNumber = (int)3;
+				currALabel  = new IntrenalDesktop.ArrowLabel6("", this);
+				arrows.Add(currALabel);
+				currALabel.SourceNumber = (int)7;
+				currALabel.TargetNumber = (int)4;
+				currALabel  = new IntrenalDesktop.ArrowLabel7("", this);
+				arrows.Add(currALabel);
+				currALabel.SourceNumber = (int)10;
+				currALabel.TargetNumber = (int)7;
+				currALabel  = new IntrenalDesktop.ArrowLabel8("", this);
+				arrows.Add(currALabel);
+				currALabel.SourceNumber = (int)10;
+				currALabel.TargetNumber = (int)6;
+				currALabel  = new IntrenalDesktop.ArrowLabel9("", this);
+				arrows.Add(currALabel);
+				currALabel.SourceNumber = (int)10;
+				currALabel.TargetNumber = (int)5;
+				currALabel  = new IntrenalDesktop.ArrowLabel10("", this);
+				arrows.Add(currALabel);
+				currALabel.SourceNumber = (int)10;
+				currALabel.TargetNumber = (int)0;
+				currALabel  = new IntrenalDesktop.ArrowLabel11("", this);
+				arrows.Add(currALabel);
+				currALabel.SourceNumber = (int)2;
+				currALabel.TargetNumber = (int)0;
 				currALabel  = new IntrenalDesktop.ArrowLabel12("", this);
 				arrows.Add(currALabel);
-				currALabel.SourceNumber = (int)9;
-				currALabel.TargetNumber = (int)4;
+				currALabel.SourceNumber = (int)10;
+				currALabel.TargetNumber = (int)3;
 				currALabel  = new IntrenalDesktop.ArrowLabel13("", this);
 				arrows.Add(currALabel);
 				currALabel.SourceNumber = (int)1;
 				currALabel.TargetNumber = (int)0;
 				currALabel  = new IntrenalDesktop.ArrowLabel14("", this);
 				arrows.Add(currALabel);
-				currALabel.SourceNumber = (int)3;
+				currALabel.SourceNumber = (int)2;
 				currALabel.TargetNumber = (int)1;
 				currALabel  = new IntrenalDesktop.ArrowLabel15("", this);
 				arrows.Add(currALabel);
-				currALabel.SourceNumber = (int)4;
-				currALabel.TargetNumber = (int)3;
+				currALabel.SourceNumber = (int)3;
+				currALabel.TargetNumber = (int)2;
 				currALabel  = new IntrenalDesktop.ArrowLabel16("", this);
 				arrows.Add(currALabel);
-				currALabel.SourceNumber = new object[] {(int)7,"Mod" };
-				currALabel.TargetNumber = (int)2;
+				currALabel.SourceNumber = new object[] {(int)9,"Mod" };
+				currALabel.TargetNumber = (int)7;
 				currALabel  = new IntrenalDesktop.ArrowLabel17("", this);
 				arrows.Add(currALabel);
-				currALabel.SourceNumber = (int)9;
-				currALabel.TargetNumber = new object[] {(int)7,"Epsilon" };
+				currALabel.SourceNumber = (int)10;
+				currALabel.TargetNumber = new object[] {(int)9,"Epsilon" };
 				bool pl = PostLoad();
 				bool pd = PostDeserialize();
 				SuccessLoad = pl & pd;
@@ -661,8 +661,23 @@ namespace GeneratedProject
 					obj.Object = this;
 				}
 		
-				internal class CategoryObject : Motion6D.Portable.RelativeMeasurements
+				internal class CategoryObject : Motion6D.Portable.ReferenceFrameDataBase
 				{
+				
+					internal CategoryObject()
+					{
+						parameters = new List<string>()
+						{
+				"Station motion.Formula_6",
+				"Station motion.Formula_6",
+				"Station motion.Formula_6",
+				"Station motion.Formula_11",
+				"Station motion.Formula_6",
+				"Station motion.Formula_6",
+				"Station motion.Formula_12"
+						};
+					}
+				
 				}
 			}
 		
@@ -685,10 +700,10 @@ namespace GeneratedProject
 				"Station motion.Formula_6",
 				"Station motion.Formula_6",
 				"Station motion.Formula_6",
-				"Station motion.Formula_11",
+				"Station motion.Formula_5",
+				"Station motion.Formula_4",
 				"Station motion.Formula_6",
-				"Station motion.Formula_6",
-				"Station motion.Formula_12"
+				"Station motion.Formula_6"
 						};
 					}
 				
@@ -711,11 +726,11 @@ namespace GeneratedProject
 					{
 						parameters = new List<string>()
 						{
+				"Station motion.Formula_7",
+				"Station motion.Formula_8",
+				"Station motion.Formula_9",
+				"Station motion.Formula_10",
 				"Station motion.Formula_6",
-				"Station motion.Formula_6",
-				"Station motion.Formula_6",
-				"Station motion.Formula_5",
-				"Station motion.Formula_4",
 				"Station motion.Formula_6",
 				"Station motion.Formula_6"
 						};
@@ -772,6 +787,110 @@ namespace GeneratedProject
 					obj.Object = this;
 				}
 		
+				internal class CategoryObject : Motion6D.Portable.AggregableWrapper
+				{
+				
+					internal CategoryObject()
+					{
+						aggregate = new MechanicalAggregate();
+						Prepare();
+					}
+						internal class MechanicalAggregate :
+				Motion6D.Portable.Aggregates.RigidBody
+				{
+				
+					internal MechanicalAggregate()
+					{
+						momentOfInertia =  new double[,]
+						{
+					{
+						1,
+						0,
+						0
+				},
+					{
+						0,
+						1,
+						0
+				},
+					{
+						0,
+						0,
+						1
+				}
+						};
+				
+						aliasNames =  new Dictionary<int, string>()
+						{
+						};
+				
+						inerialAccelerationStr =  new string[]
+						{
+				""
+				, ""
+				, ""
+						};
+				
+						forcesStr =  new string[]
+						{
+				"Force.Fx"
+				, "Force.Fy"
+				, "Force.Fz"
+				, "Force.Mx"
+				, "Force.My"
+				, "Force.Mz"
+						};
+				
+						mass = 1;
+				
+						initialState =  new double[]
+						{
+				0
+				, 0
+				, 0
+				, 0
+				, 0
+				, 0
+				, 1
+				, 0
+				, 0
+				, 0
+				, 0
+				, 0
+				, 0
+						};
+				
+					}
+				
+				}
+				
+				
+				}
+			}
+		
+			internal class OblectLabel7 : Diagram.UI.Labels.PureObjectLabel
+			{
+				internal OblectLabel7(string name, Diagram.UI.Interfaces.IDesktop desktop) : base(name, "", "", 0, 0)
+				{
+					this.desktop = desktop;
+					obj = new OblectLabel7.CategoryObject();
+					obj.Object = this;
+				}
+		
+				internal class CategoryObject : Motion6D.Portable.RelativeMeasurements
+				{
+				}
+			}
+		
+			internal class OblectLabel8 : Diagram.UI.Labels.PureObjectLabel
+			{
+				internal OblectLabel8(string name, Diagram.UI.Interfaces.IDesktop desktop) : base(name, "", "", 0, 0)
+				{
+					this.desktop = desktop;
+					obj = new OblectLabel8.CategoryObject();
+					obj.Object = this;
+				}
+		
 				internal class CategoryObject : Event.Portable.Events.Timer
 				{
 				internal CategoryObject()
@@ -782,12 +901,12 @@ namespace GeneratedProject
 				}
 			}
 		
-			internal class OblectLabel7 : Diagram.UI.Labels.PureObjectLabel
+			internal class OblectLabel9 : Diagram.UI.Labels.PureObjectLabel
 			{
-				internal OblectLabel7(string name, Diagram.UI.Interfaces.IDesktop desktop) : base(name, "", "", 0, 0)
+				internal OblectLabel9(string name, Diagram.UI.Interfaces.IDesktop desktop) : base(name, "", "", 0, 0)
 				{
 					this.desktop = desktop;
-					obj = new OblectLabel7.CategoryObject();
+					obj = new OblectLabel9.CategoryObject();
 					obj.Object = this;
 				}
 		
@@ -803,19 +922,19 @@ namespace GeneratedProject
 					{
 						internal Desktop()
 						{
-							objects.Add(new IntrenalDesktop.OblectLabel7.CategoryObject.Desktop.OblectLabel0("Mod", this));
-							objects.Add(new IntrenalDesktop.OblectLabel7.CategoryObject.Desktop.OblectLabel1("Force", this));
-							objects.Add(new IntrenalDesktop.OblectLabel7.CategoryObject.Desktop.OblectLabel2("Epsilon", this));
+							objects.Add(new IntrenalDesktop.OblectLabel9.CategoryObject.Desktop.OblectLabel0("Mod", this));
+							objects.Add(new IntrenalDesktop.OblectLabel9.CategoryObject.Desktop.OblectLabel1("Force", this));
+							objects.Add(new IntrenalDesktop.OblectLabel9.CategoryObject.Desktop.OblectLabel2("Epsilon", this));
 							Diagram.UI.Labels.PureArrowLabel currALabel = null;
-							currALabel  = new IntrenalDesktop.OblectLabel7.CategoryObject.Desktop.ArrowLabel0("", this);
+							currALabel  = new IntrenalDesktop.OblectLabel9.CategoryObject.Desktop.ArrowLabel0("", this);
 							arrows.Add(currALabel);
 							currALabel.SourceNumber = (int)1;
 							currALabel.TargetNumber = (int)0;
-							currALabel  = new IntrenalDesktop.OblectLabel7.CategoryObject.Desktop.ArrowLabel1("", this);
+							currALabel  = new IntrenalDesktop.OblectLabel9.CategoryObject.Desktop.ArrowLabel1("", this);
 							arrows.Add(currALabel);
 							currALabel.SourceNumber = (int)2;
 							currALabel.TargetNumber = (int)1;
-							currALabel  = new IntrenalDesktop.OblectLabel7.CategoryObject.Desktop.ArrowLabel2("", this);
+							currALabel  = new IntrenalDesktop.OblectLabel9.CategoryObject.Desktop.ArrowLabel2("", this);
 							arrows.Add(currALabel);
 							currALabel.SourceNumber = (int)2;
 							currALabel.TargetNumber = (int)0;
@@ -1501,113 +1620,6 @@ namespace GeneratedProject
 				}
 			}
 		
-			internal class OblectLabel8 : Diagram.UI.Labels.PureObjectLabel
-			{
-				internal OblectLabel8(string name, Diagram.UI.Interfaces.IDesktop desktop) : base(name, "", "", 0, 0)
-				{
-					this.desktop = desktop;
-					obj = new OblectLabel8.CategoryObject();
-					obj.Object = this;
-				}
-		
-				internal class CategoryObject : Motion6D.Portable.AggregableWrapper
-				{
-				
-					internal CategoryObject()
-					{
-						aggregate = new MechanicalAggregate();
-						Prepare();
-					}
-						internal class MechanicalAggregate :
-				Motion6D.Portable.Aggregates.RigidBody
-				{
-				
-					internal MechanicalAggregate()
-					{
-						momentOfInertia =  new double[,]
-						{
-					{
-						1,
-						0,
-						0
-				},
-					{
-						0,
-						1,
-						0
-				},
-					{
-						0,
-						0,
-						1
-				}
-						};
-				
-						aliasNames =  new Dictionary<int, string>()
-						{
-						};
-				
-						inerialAccelerationStr =  new string[]
-						{
-				""
-				, ""
-				, ""
-						};
-				
-						forcesStr =  new string[]
-						{
-				"Force.Fx"
-				, "Force.Fy"
-				, "Force.Fz"
-				, "Force.Mx"
-				, "Force.My"
-				, "Force.Mz"
-						};
-				
-						mass = 1;
-				
-						initialState =  new double[]
-						{
-				0
-				, 0
-				, 0
-				, 0
-				, 0
-				, 0
-				, 1
-				, 0
-				, 0
-				, 0
-				, 0
-				, 0
-				, 0
-						};
-				
-					}
-				
-				}
-				
-				
-				}
-			}
-		
-			internal class OblectLabel9 : Diagram.UI.Labels.PureObjectLabel
-			{
-				internal OblectLabel9(string name, Diagram.UI.Interfaces.IDesktop desktop) : base(name, "", "", 0, 0)
-				{
-					this.desktop = desktop;
-					obj = new OblectLabel9.CategoryObject();
-					obj.Object = this;
-				}
-		
-				internal class CategoryObject : DataPerformer.Portable.DataConsumer
-				{
-				internal CategoryObject() : base(0)
-				{
-				}
-				}
-			}
-		
 			internal class OblectLabel10 : Diagram.UI.Labels.PureObjectLabel
 			{
 				internal OblectLabel10(string name, Diagram.UI.Interfaces.IDesktop desktop) : base(name, "", "", 0, 0)
@@ -1617,23 +1629,11 @@ namespace GeneratedProject
 					obj.Object = this;
 				}
 		
-				internal class CategoryObject : Motion6D.Portable.ReferenceFrameDataBase
+				internal class CategoryObject : DataPerformer.Portable.DataConsumer
 				{
-				
-					internal CategoryObject()
-					{
-						parameters = new List<string>()
-						{
-				"Station motion.Formula_7",
-				"Station motion.Formula_8",
-				"Station motion.Formula_9",
-				"Station motion.Formula_10",
-				"Station motion.Formula_6",
-				"Station motion.Formula_6",
-				"Station motion.Formula_6"
-						};
-					}
-				
+				internal CategoryObject() : base(0)
+				{
+				}
 				}
 			}
 		

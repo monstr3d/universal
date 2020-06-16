@@ -26,18 +26,21 @@ namespace Unity.Standard
 
         Action upd;
 
+        double coefficient;
+
         #endregion
 
         #region Ctor
 
-        private InputOutputIndicator(Action<object> output, string parameter, object type, bool compare = true)
+        private InputOutputIndicator(Action<object> output, string parameter, object type, 
+            double coefficient = 1, bool compare = true)
         {
             this.output = output;
             this.parameter = parameter;
             this.type = type;
+            this.coefficient = coefficient;
             o = type;
-            update = UpdateInernal;
-            upd = UpdateInernal;
+            CreateUpdate();
         }
 
         #endregion
@@ -77,9 +80,9 @@ namespace Unity.Standard
 
         #region Public
 
-        static public InputOutputIndicator  Create(Action<object> output, string parameter, object type, bool compare = true)
+        static public InputOutputIndicator  Create(Action<object> output, string parameter, object type, double coefficient = 1, bool compare = true)
         {
-            var i = new InputOutputIndicator(output, parameter, type, compare);
+            var i = new InputOutputIndicator(output, parameter, type, coefficient, compare);
             if (l.Contains(i))
             {
                 return null;
@@ -89,6 +92,20 @@ namespace Unity.Standard
         }
         #endregion
 
+        void CreateUpdate()
+        {
+            upd = UpdateInernal;
+            if (type.Equals((double)0))
+            {
+                if (Math.Abs(coefficient - 1) > double.Epsilon)
+                {
+                    update = UpdateCoeff;
+                    return;
+                }
+            }
+            update = UpdateInernal;
+        }
+
         void SetActive(bool active)
         {
             if (active == isActive)
@@ -97,8 +114,7 @@ namespace Unity.Standard
             }
             if (active)
             {
-                upd = UpdateInernal;
-                update = UpdateInernal;
+                CreateUpdate();
                 return;
             }
             update = (object o) => { };
@@ -119,5 +135,16 @@ namespace Unity.Standard
         {
             output(o);
         }
+        void UpdateCoeff(object x)
+        {
+            if (o.Equals(x))
+            {
+                return;
+            }
+            o = x;
+            double s = (double)o;
+            output(coefficient * s);
+        }
+
     }
 }

@@ -43,7 +43,12 @@ namespace Unity.Standard
             {
                 return null;
             }
-            return InputOutputIndicator.Create(a.Item2, tt[0], a.Item3);
+            double coefficient = 1;
+            if (ch.ContainsKey("Coefficient"))
+            {
+                coefficient = double.Parse(ch["Coefficient"][0].text);
+            }
+            return InputOutputIndicator.Create(a.Item2, tt[0], a.Item3, coefficient);
         }
     }
 }

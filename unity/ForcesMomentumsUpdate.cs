@@ -268,6 +268,8 @@ namespace Assets
                 Tuple<Text, string[]> tst = new Tuple<Text, string[]>(tx, new string[] { text, txt[i, 1] });
                 ttt.Add(tst);
             }
+            var co = scada.Constants;
+            scada.SetConstant("X - Control/Mod.k", (double)constants[0]);
             foreach (var i in dictionary.Keys)
             {
                 var tst = ttt[i];

@@ -2498,8 +2498,8 @@ namespace Diagram.UI
             {
                 return;
             }
-            IEnumerable<ICategoryArrow> arrows = root.GetObjectsAndArrows<ICategoryArrow>();
-            IEnumerable<ICategoryObject> objects = root.GetObjectsAndArrows<ICategoryObject>();
+            IEnumerable<ICategoryArrow> arrows = root.CategoryArrows;
+            IEnumerable<ICategoryObject> objects = root.CategoryObjects;
             obj.GetDependentObjects(arrows, objectCondition, arrowCondition, sourceCondition, output,
                 objects.ToList());
         }

@@ -294,6 +294,7 @@ namespace Motion6D.Portable
         public virtual void PostSetArrow()
         {
             PostSetParameters();
+            CreateFrame();
         }
 
         #endregion
