@@ -1,14 +1,16 @@
-﻿using BaseTypes;
-using Scada.Desktop;
-using Scada.Interfaces;
+﻿
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Unity.Standard;
 using UnityEngine;
 using UnityEngine.UI;
+
+using BaseTypes;
+
+using Scada.Interfaces;
+
+
+using Unity.Standard;
+using Scada.Desktop;
 
 namespace Assets
 {
@@ -35,6 +37,7 @@ namespace Assets
         }
     }
 
+    [JumpedIndicator]
     public class ForcesIndicator : IIndicator
     {
         #region Fields

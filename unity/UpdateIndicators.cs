@@ -1,10 +1,12 @@
-﻿using Scada.Interfaces;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 using UnityEngine;
+
+using Scada.Interfaces;
+
+using Scada.Desktop;
+
 
 namespace Unity.Standard
 {
@@ -14,6 +16,10 @@ namespace Unity.Standard
 
         Dictionary<string, Tuple<Func<object>, List<IIndicator>>>
             indicators = new Dictionary<string, Tuple<Func<object>, List<IIndicator>>>();
+
+        Dictionary<string, Tuple<Func<object>, List<IIndicator>>>
+            jumped = new Dictionary<string, Tuple<Func<object>, List<IIndicator>>>();
+
 
         protected Action update;
 
@@ -36,12 +42,24 @@ namespace Unity.Standard
         public override void Set(object[] obj, Component indicator, IScadaInterface scada)
         {
             base.Set(obj, indicator, scada);
-            indicators = indicator.gameObject.GetIndicatorsFull();
+            indicators = indicator.gameObject.GetIndicatorsFull(false);
+            jumped = indicator.gameObject.GetIndicatorsFull(true);
+            if (jumped.Count > 0  & eve != null)
+            {
+                var v = eve.Split(";".ToCharArray());
+                Action a = UpdateJumped;
+                a.AddToToScadaEvent(v);
+            }
         }
 
         #endregion
 
         #region Own Members
+
+        void UpdateJumped()
+        {
+            jumped.UpdateInicators();
+        }
 
         protected virtual void UpdateInternal()
         {

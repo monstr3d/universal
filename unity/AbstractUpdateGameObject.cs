@@ -23,6 +23,10 @@ namespace Unity.Standard
 
         protected float[] constants = new float[0];
 
+        protected string[] events;
+        
+        protected string eve;
+
         #endregion
 
         /// <summary>
@@ -60,10 +64,25 @@ namespace Unity.Standard
             return constants.SetConstants(offset, this.constants);
         }
 
+        string IUpdateGameObject.Events
+        {
+            get => eve;
+            set => eve = value;
+        }
+
         /// <summary>
         /// Update action
         /// </summary>
         public abstract Action Update { get; }
+
+        #region Own Members
+        
+        protected virtual void SetEvent(string ev)
+        {
+            eve = ev;
+        }
+        
+        #endregion
 
     }
 }

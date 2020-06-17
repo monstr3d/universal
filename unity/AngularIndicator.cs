@@ -13,6 +13,7 @@ using Vector3D;
 
 namespace Assets
 {
+    [JumpedIndicator]
     public class AngularIndicator : IIndicator
     {
         #region Fields

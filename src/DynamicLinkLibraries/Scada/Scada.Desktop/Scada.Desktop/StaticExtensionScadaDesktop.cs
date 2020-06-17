@@ -64,11 +64,66 @@ namespace Scada.Desktop
             return null;
         }
 
+        public static Interfaces.IEvent ToScadaEvent(this Tuple<IScadaInterface, string> tuple)
+        {
+            var s = tuple.Item1;
+            var e = tuple.Item2;
+            if (s.Events.Contains(e))
+            {
+                return s[e];
+            }
+            return null;
+        }
+
+        /// <summary>
+        /// Adds action to SCADA events
+        /// </summary>
+        /// <param name="action">The action</param>
+        /// <param name="str">Events</param>
+        public static void AddToToScadaEvent(this Action action, IEnumerable<string> str)
+        {
+            var t = str.ToScadaEvent();
+            foreach (var i in t)
+            {
+                i.Event += action;
+            }
+        }
+
+        public static IEnumerable<Interfaces.IEvent> ToScadaEvent(this IEnumerable<string> str)
+        {
+            var p = str.ToScadaString();
+            foreach (var pp in p)
+            {
+                var s = pp.ToScadaEvent();
+                if (s != null)
+                {
+                    yield return s;
+                }
+            }
+        }
+
         /// <summary>
         /// To SCADA and string
         /// </summary>
-        /// <param name="str"></param>
-        /// <returns></returns>
+        /// <param name="str">The string</param>
+        /// <returns>Scada and string</returns>
+        public static IEnumerable<Tuple<IScadaInterface, string>> ToScadaString(this IEnumerable<string> str)
+        {
+            foreach (var s in str)
+            {
+                var t = s.ToScadaString();
+                if (t != null)
+                {
+                    yield return t;
+                }
+            }
+        }
+
+        /// <summary>
+        /// To SCADA and string
+        /// </summary>
+        /// <param name="str">The string</param>
+        /// <returns>Scada and string</returns>
         static public Tuple<IScadaInterface, string> ToScadaString(this string str)
         {
             int k =  str.IndexOf('.');

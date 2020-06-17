@@ -38,4 +38,5 @@ namespace Unity.Standard
         /// </summary>
         bool IsActive { get; set; }
     }
+
 }

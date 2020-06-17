@@ -11,16 +11,17 @@ using Scada.Interfaces;
 
 namespace Assets
 {
-    public class ForcesMomentumsUpdate : AbstractUpdateGameObject
+    public class ForcesMomentumsUpdate : UpdateIndicators
     {
 
         #region Fields
 
         Dictionary<string, List<Component>> components;
 
-      
- 
-     
+        Action baseUpd;
+
+
+
         static public event Action<string, float[], float[]> Alarm;
 
    
@@ -122,9 +123,10 @@ namespace Assets
         public override void Set(object[] obj, Component indicator, IScadaInterface scada)
         {
             base.Set(obj, indicator, scada);
-            var ev = scada.Events;
+          //  var ev = scada.Events;
+            /*
             IEvent fe = scada["Force"];
-            fe.Event += Torch;
+            fe.Event += Torch;*/
             for (int i = 0; i < 6; i++)
             {
                 active[i] = 0;
@@ -190,6 +192,7 @@ namespace Assets
             int i = base.SetConstants(offset, constants);
             interval = constants[6];
             Prepare();
+            Action baseUpd = base.Update;
             return i;
             /*
             kx = cons[0];
@@ -201,7 +204,7 @@ namespace Assets
             return i;*/
         }
 
-        public override Action Update => UpdateInternal;
+        public override Action Update => UpdateForces + base.Update;
 
 
 
@@ -209,7 +212,7 @@ namespace Assets
 
         #region Update
 
-        void UpdateInternal()
+        void UpdateForces()
         {
 /*            int k = Math.Sign(dOut[5]());
             float r = ap * k;

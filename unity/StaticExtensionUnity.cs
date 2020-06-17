@@ -186,8 +186,8 @@ namespace Unity.Standard
         }
 
 
-        private static void Add(this IIndicator indicator, 
-            Dictionary<string, Tuple<Func<object>, List<IIndicator>>> ls)
+        public static void Add(this IIndicator indicator, 
+            Dictionary<string, Tuple<Func<object>, List<IIndicator>>> ls, bool jumped)
         {
             string p = indicator.Parameter;
             List<IIndicator> l;
@@ -220,11 +220,16 @@ namespace Unity.Standard
             }
             if (!l.Contains(indicator))
             {
-                l.Add(indicator);
+                var j = indicator.HasAttributeBT<JumpedIndicatorAttribute>();
+                if ((j & jumped) | (!j & !jumped))
+                {
+                    l.Add(indicator);
+                }
             }
-
         }
 
+
+  
 
         /// <summary>
         /// Adds indicator
@@ -297,18 +302,20 @@ namespace Unity.Standard
         /// Gets full list of indicators
         /// </summary>
         /// <param name="gameObject">The game object</param>
+        /// <param name="jumped">The "jumped" sign</param>
         /// <returns>Full list</returns>
-        static public Dictionary<string, Tuple<Func<object>, List<IIndicator>>>  GetIndicatorsFull(this GameObject gameObject)
+        static public Dictionary<string, Tuple<Func<object>, List<IIndicator>>>  GetIndicatorsFull(this GameObject gameObject, 
+            bool jumped = false)
         {
             var d = new Dictionary<string, Tuple<Func<object>, List<IIndicator>>>();
             List<GameObject> go = new List<GameObject>();
-            gameObject.GetIndicators(go, d);
+            gameObject.GetIndicators(go, d, jumped);
             return d;
         }
 
         private static void GetIndicators(this GameObject gameObject,
             List<GameObject> lg, 
-            Dictionary<string, Tuple<Func<object>, List<IIndicator>>> ls)
+            Dictionary<string, Tuple<Func<object>, List<IIndicator>>> ls, bool jumped)
         {
             if (lg.Contains(gameObject))
             {
@@ -318,14 +325,14 @@ namespace Unity.Standard
             RectTransform[] rt = gameObject.GetComponentsInChildren<RectTransform>();
             foreach (var r in rt)
             {
-                r.gameObject.GetIndicators(lg, ls);
+                r.gameObject.GetIndicators(lg, ls, jumped);
             }
             foreach (var factory in indicatorFactories)
             {
                 var ind = factory.Get(gameObject);
                 if (ind != null)
                 {
-                    ind.Add(ls);
+                    ind.Add(ls, jumped);
                 }
             }
         }

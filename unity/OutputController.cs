@@ -33,6 +33,9 @@ public class OutputController : MonoBehaviour
 
     public string[] inputs;
 
+    public string[] events;
+
+
     public float[] inputConstants;
 
     public Component[] inputComponents;
@@ -43,17 +46,16 @@ public class OutputController : MonoBehaviour
 
     public Component[] indicators;
 
-
     public bool isEnabled = true;
 
-    bool exists;
 
     public float[] constants;
 
+    bool exists;
+
+
     Action ev = null;
 
-    private Dictionary<string, Tuple<Func<object>, List<IIndicator>>>
-            indicatorsd = new Dictionary<string, Tuple<Func<object>, List<IIndicator>>>();
 
     Action inpAct;
 
@@ -190,8 +192,6 @@ public class OutputController : MonoBehaviour
  
     private void UpdateOutput()
     {
-        indicatorsd = gameObject.GetIndicatorsFull();
-        AddUpdate(() => { indicatorsd.UpdateInicators(); });
         if (allparameters.Count == 0)
         {
             return;
@@ -267,6 +267,10 @@ public class OutputController : MonoBehaviour
             if (inputComponents.Length > n)
             {
                 component = inputComponents[n];
+            }
+            if (events.Length > n)
+            {
+                ua.Events = events[n];
             }
             ++n;
             ua.Set(new object[] { this }, component, scada);
