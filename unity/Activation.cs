@@ -15,7 +15,10 @@ public class Activation : MonoBehaviour
 
     #region Fields
 
+
     public string activation = "";
+
+    public float delay = 1f;
 
     public int level;
 
@@ -27,10 +30,11 @@ public class Activation : MonoBehaviour
 
     Action update = null;
 
-
     public MonoBehaviour[] components;
 
     static bool isEscaped = false;
+
+    
 
     #endregion
 
@@ -44,6 +48,7 @@ public class Activation : MonoBehaviour
         {
             throw new Exception();
         }
+        StaticExtensionUnity.Activation = this;
         exists = true;
         if (activation != null)
         {

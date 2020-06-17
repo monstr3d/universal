@@ -46,6 +46,24 @@ namespace Scada.Desktop
 
         #region Public Members
 
+
+        /// <summary>
+        /// Gets name of SCADA
+        /// </summary>
+        /// <param name="scada">The scada</param>
+        /// <returns>The name</returns>
+        public static string GetScadaName(this IScadaInterface scada)
+        {
+            foreach (var key in scadas.Keys)
+            {
+                if (scadas[key] == scada)
+                {
+                    return key;
+                }
+            }
+            return null;
+        }
+
         /// <summary>
         /// To SCADA and string
         /// </summary>

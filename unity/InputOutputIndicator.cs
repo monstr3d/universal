@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UnityEngine;
 
 namespace Unity.Standard
 {
@@ -27,6 +28,8 @@ namespace Unity.Standard
         Action upd;
 
         double coefficient;
+
+        bool stopped = false;
 
         #endregion
 
@@ -137,13 +140,32 @@ namespace Unity.Standard
         }
         void UpdateCoeff(object x)
         {
+            if (stopped)
+            {
+                return;
+            }
             if (o.Equals(x))
             {
                 return;
             }
             o = x;
+            stopped = true;
+            enumerator.StartCoroutine();
+  /*          o = x;
             double s = (double)o;
-            output(coefficient * s);
+            output(coefficient * s);*/
+        }
+
+        System.Collections.IEnumerator enumerator
+        {
+           get
+            {
+                float delay = StaticExtensionUnity.Activation.delay;
+                yield return new WaitForSeconds(delay);
+                double s = (double)o;
+                output(coefficient * s);
+                stopped = false;
+            }
         }
 
     }

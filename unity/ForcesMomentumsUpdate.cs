@@ -117,11 +117,14 @@ namespace Assets
 
         #endregion
 
-        #region Overriden Members   
-
+        #region Overriden Members  
+ 
         public override void Set(object[] obj, Component indicator, IScadaInterface scada)
         {
             base.Set(obj, indicator, scada);
+            var ev = scada.Events;
+            IEvent fe = scada["Force"];
+            fe.Event += Torch;
             for (int i = 0; i < 6; i++)
             {
                 active[i] = 0;
@@ -246,6 +249,13 @@ namespace Assets
 
         #region Private
 
+
+        void Torch()
+        {
+            referenceBehavior.Jump();
+            torch.enabled = true;
+        }
+
         void Prepare()
         {
             dictionary = Saver.saver.dictionary;
@@ -339,8 +349,6 @@ namespace Assets
                 current = KeyCode.F10;
                 return;
             }
-            referenceBehavior.Jump();
-            torch.enabled = true;
             mb.StartCoroutine(enumeratorT);
             if (Math.Abs(value - newValue) > (1 + double.Epsilon) * Math.Abs(newValue))
             {

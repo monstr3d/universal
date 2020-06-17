@@ -45,9 +45,7 @@ namespace Unity.Standard
 
         void Update(Collision collision)
         {
-            MethodInfo mi = collisionIndicator.GetType().GetMethod("Indicate");
-            mi.Invoke(collisionIndicator, 
-                new object[] { new object[] { scada, collision, constants } });
+            this.CollisionEvent(gameObject, collisionIndicator, scada);
         }
     }
 }

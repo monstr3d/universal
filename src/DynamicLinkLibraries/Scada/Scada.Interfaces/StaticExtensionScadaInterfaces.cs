@@ -3,9 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml;
 using System.Xml.Linq;
 
 namespace Scada.Interfaces
@@ -59,6 +56,9 @@ namespace Scada.Interfaces
         /// </summary>
         static Dictionary<string, Type> typeDetector = new Dictionary<string, Type>();
 
+        static private event Action<IScadaInterface> onScadaIsEnabled;
+
+ 
         #endregion
 
         #region Public Members
@@ -169,6 +169,25 @@ namespace Scada.Interfaces
         }
 
         #endregion
+
+        /// <summary>
+        /// The change of enable status
+        /// </summary>
+        /// <param name="scada"></param>
+        static public void EnableChange(this IScadaInterface scada)
+        {
+            onScadaIsEnabled(scada);
+        }
+
+        /// <summary>
+        /// The scada enabled event
+        /// </summary>
+        static public event Action<IScadaInterface> OnScadaIsEnabled
+        {
+            add { onScadaIsEnabled += value; }
+            remove { onScadaIsEnabled -= value; }
+        }
+
 
         /// <summary>
         /// Input ouptut action

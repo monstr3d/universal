@@ -89,6 +89,40 @@ namespace Unity.Standard
 
         static List<IIndicatorFactory> indicatorFactories = new List<IIndicatorFactory>();
 
+        static event Action<bool> onEscape;
+
+        static event Action<Tuple<GameObject, Component,
+            IScadaInterface, ICollisionAction>> collision;
+
+        static event Action onStop;
+
+        static event Action OnStop
+        {
+            add { onStop += value; }
+            remove { onStop -= value; }
+        }
+
+
+
+        /// <summary>
+        /// Escape event
+        /// </summary>
+        static public event Action<bool> OnEscape
+        {
+            add { onEscape += value; }
+            remove { onEscape -= value; }
+        }
+
+        
+
+
+        static public event Action<Tuple<GameObject, Component,
+            IScadaInterface, ICollisionAction>> Collision
+        {
+            add { collision += value; }
+            remove { collision -= value; }
+        }
+
         static public double StartTime
         {
             get;
@@ -98,7 +132,11 @@ namespace Unity.Standard
         static private Dictionary<string, Tuple<Func<object>, List<IIndicator>>>
             indicators1 = new Dictionary<string, Tuple<Func<object>, List<IIndicator>>>();
 
-   
+        static public Activation Activation
+        {
+            get;
+            set;
+        }
 
         static public double Time
         {
@@ -108,6 +146,21 @@ namespace Unity.Standard
         #endregion
 
         #region Members
+
+        /// <summary>
+        /// Collision event
+        /// </summary>
+        /// <param name="action">Action</param>
+        /// <param name="go">Game object</param>
+        /// <param name="c">Component</param>
+        /// <param name="scada">Scada</param>
+        public static void CollisionEvent(this ICollisionAction action, GameObject go, Component c,
+            IScadaInterface scada)
+        {
+            var t = new Tuple<GameObject, Component,
+            IScadaInterface, ICollisionAction>(go, c, scada, action);
+            collision(t);
+        }
 
         /// <summary>
         /// Sets active state of indicator
@@ -278,9 +331,6 @@ namespace Unity.Standard
         }
 
 
-
-
-
         /// <summary>
         /// Gets all indicators from Game object
         /// </summary>
@@ -359,7 +409,7 @@ namespace Unity.Standard
         /// <summary>
         /// Clears itself
         /// </summary>
-        static public void Clear()
+        static  void Clear()
         {
            // indicators.Clear();
             StaticExtensionScadaDesktop.Clear();
@@ -372,6 +422,36 @@ namespace Unity.Standard
             Activation.Disable();
         }
 
+        /// <summary>
+        /// Stops itself
+        /// </summary>
+        static public void Stop()
+        {
+            Clear();
+            onStop();
+        }
+
+        /// <summary>
+        /// Starts Coroutine
+        /// </summary>
+        /// <param name="enumerator"></param>
+        public static void StartCoroutine(this System.Collections.IEnumerator enumerator)
+        {
+            MonoBehaviour mb = null; 
+            foreach (MonoBehaviour monoBehaviour in monoBehaviours)
+            {
+                mb = monoBehaviour;
+                if (mb.enabled)
+                {
+                    break;
+                }
+            }
+            mb.StartCoroutine(enumerator);
+        }
+
+        /// <summary>
+        /// Pause
+        /// </summary>
         static public void Pause()
         {
             foreach (MonoBehaviour monoBehaviour in monoBehaviours)
@@ -379,8 +459,12 @@ namespace Unity.Standard
                 monoBehaviour.enabled = false;
             }
             pauseTime = Time;
+            onEscape(true);
         }
 
+        /// <summary>
+        /// Restarts itself
+        /// </summary>
         public static void Restart()
         {
             foreach (MonoBehaviour monoBehaviour in monoBehaviours)
@@ -388,6 +472,7 @@ namespace Unity.Standard
                 monoBehaviour.enabled = true;
             }
             StartTime =  UnityEngine.Time.realtimeSinceStartup - pauseTime;
+            onEscape(false);
         }
 
         static public void Add(this MonoBehaviour monoBehaviour)

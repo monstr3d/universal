@@ -107,7 +107,7 @@ public class ResultIndicator : MonoBehaviour
 
     static public void Escape()
     {
-        StaticExtensionUnity.Clear();
+        StaticExtensionUnity.Stop();
         Assets.SimpleActivation.StaticLevel = -1;
         SceneManager.LoadScene("LevelScene", LoadSceneMode.Single);
     }

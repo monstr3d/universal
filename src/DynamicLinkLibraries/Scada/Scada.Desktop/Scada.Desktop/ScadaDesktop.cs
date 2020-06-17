@@ -246,6 +246,7 @@ namespace Scada.Desktop
                     StaticExtensionEventPortable.StopRealTime();
                     onStop();
                 }
+                this.EnableChange();
             }
         }
 
