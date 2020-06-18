@@ -7,26 +7,14 @@ using UnityEngine;
 
 namespace Unity.Standard
 {
-    public class InputOutputIndicator : IIndicator
+    public class InputOutputIndicator : AbstractIndicator
     {
         #region Fields
 
         static List<InputOutputIndicator> l = new List<InputOutputIndicator>();
 
         Action<object> output;
-
-        string parameter;
-
-        object o;
-
-        object type;
-
-        bool isActive;
-
-        Action<object> update;
-
-        Action upd;
-
+  
         double coefficient;
 
         bool stopped = false;
@@ -42,14 +30,15 @@ namespace Unity.Standard
             this.parameter = parameter;
             this.type = type;
             this.coefficient = coefficient;
-            o = type;
-            CreateUpdate();
+            obj = type;
+            SetActive(true);
+            SetActive(false);
         }
 
         #endregion
 
         #region IIndicator members
-
+        /*
         Action IIndicator.Update => upd;
 
         string IIndicator.Parameter => parameter;
@@ -59,6 +48,8 @@ namespace Unity.Standard
         object IIndicator.Type => type;
 
         bool IIndicator.IsActive { get => isActive; set => SetActive(value); }
+        
+        */
 
         #endregion
 
@@ -71,7 +62,7 @@ namespace Unity.Standard
                 return false;
             }
             InputOutputIndicator ii = obj as InputOutputIndicator;
-            return (ii.parameter.Equals(parameter) & ii.output == output);
+            return (ii.parameter.Equals(parameter) & ii.func == func);
         }
 
         public override int GetHashCode()
@@ -94,7 +85,7 @@ namespace Unity.Standard
             return i;
         }
         #endregion
-
+        /*
         void CreateUpdate()
         {
             upd = UpdateInernal;
@@ -153,7 +144,33 @@ namespace Unity.Standard
             enumerator.StartCoroutine();
   /*          o = x;
             double s = (double)o;
-            output(coefficient * s);*/
+            output(coefficient * s);
+        }
+        */
+
+        protected override void PostSetGlobal(string str)
+        {
+            
+        }
+
+        protected override void PostSetActive()
+        {
+            if (isActive)
+            {
+                setValue = Set;
+                return;
+            }
+            setValue = (object o) => { };
+        }
+
+        protected override void PostSet()
+        {
+            if (stopped)
+            {
+                return;
+            }
+            stopped = true;
+            enumerator.StartCoroutine();
         }
 
         System.Collections.IEnumerator enumerator
@@ -162,7 +179,7 @@ namespace Unity.Standard
             {
                 float delay = StaticExtensionUnity.Activation.delay;
                 yield return new WaitForSeconds(delay);
-                double s = (double)o;
+                double s = (double)obj;
                 output(coefficient * s);
                 stopped = false;
             }

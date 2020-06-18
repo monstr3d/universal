@@ -1,8 +1,6 @@
 ﻿using Assets;
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.Standard;
+
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;

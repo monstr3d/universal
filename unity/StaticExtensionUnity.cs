@@ -89,31 +89,31 @@ namespace Unity.Standard
 
         static List<IIndicatorFactory> indicatorFactories = new List<IIndicatorFactory>();
 
-        static event Action<bool> onEscape;
-
+ 
         static event Action<Tuple<GameObject, Component,
             IScadaInterface, ICollisionAction>> collision;
 
-        static event Action onStop;
+        static Action<string> global = (string s) => { };
 
-        static event Action OnStop
+
+
+ 
+        static public event Action<string> OnGlobal
         {
-            add { onStop += value; }
-            remove { onStop -= value; }
+            add { global += value; }
+            remove { global -= value; }
+        }
+
+        static public void AddGlobal(this Action<string> act)
+        {
+            OnGlobal += act;
         }
 
 
-
-        /// <summary>
-        /// Escape event
-        /// </summary>
-        static public event Action<bool> OnEscape
+        static public void Global(this string str)
         {
-            add { onEscape += value; }
-            remove { onEscape -= value; }
+            global(str);
         }
-
-        
 
 
         static public event Action<Tuple<GameObject, Component,
@@ -147,6 +147,45 @@ namespace Unity.Standard
 
         #region Members
 
+        public static void EnableDisable(this string command, bool active)
+        {
+            var s = active ? "on:" : "off:";
+            (s + command).Global();
+        }
+
+
+        /// <summary>
+        /// Enables indicator
+        /// </summary>
+        /// <param name="indicator">The indicator</param>
+        /// <param name="command">The command</param>
+        /// <returns>Success</returns>
+        static public bool EnableDisable(this IIndicator indicator, string command)
+        {
+            string[] ss = command.Split(":".ToCharArray());
+            if (ss.Length != 2)
+            {
+                return false;
+            }
+            bool b;
+            if (ss[0] == "on")
+            {
+                b = true;
+            }
+            else if (ss[0] == "off")
+            {
+                b = false;
+            }
+            else
+            {
+                return false;
+            }
+            if (ss[1] == indicator.Parameter)
+            {
+                indicator.IsActive = b;
+            }
+            return true;
+        }
         /// <summary>
         /// Collision event
         /// </summary>
@@ -333,6 +372,7 @@ namespace Unity.Standard
                 if (ind != null)
                 {
                     ind.Add(ls, jumped);
+                    ind.Global.AddGlobal();
                 }
             }
         }
@@ -435,7 +475,7 @@ namespace Unity.Standard
         static public void Stop()
         {
             Clear();
-            onStop();
+            "Stop".Global();
         }
 
         /// <summary>
@@ -466,7 +506,7 @@ namespace Unity.Standard
                 monoBehaviour.enabled = false;
             }
             pauseTime = Time;
-            onEscape(true);
+            "Escape:true".Global();
         }
 
         /// <summary>
@@ -479,7 +519,7 @@ namespace Unity.Standard
                 monoBehaviour.enabled = true;
             }
             StartTime =  UnityEngine.Time.realtimeSinceStartup - pauseTime;
-            onEscape(false);
+            "Escape:false".Global();
         }
 
         static public void Add(this MonoBehaviour monoBehaviour)

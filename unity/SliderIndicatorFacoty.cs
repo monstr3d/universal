@@ -10,9 +10,9 @@ using UnityEngine.UI;
 
 namespace Unity.Standard
 {
-    public class SliderIndicatorFacoty : IIndicatorFactory
+    public class SliderIndicatorFactory : IIndicatorFactory
     {
-        public SliderIndicatorFacoty()
+        public SliderIndicatorFactory()
         {
 
         }

@@ -115,6 +115,8 @@ namespace Assets
             }
         }
 
+        Action<string> IIndicator.Global => (string s) => { };
+
         #endregion
 
         #region Members

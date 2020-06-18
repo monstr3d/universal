@@ -37,6 +37,11 @@ namespace Unity.Standard
         /// The "Is Active" sign
         /// </summary>
         bool IsActive { get; set; }
+
+        /// <summary>
+        /// Global action
+        /// </summary>
+        Action<string> Global { get; }
     }
 
 }

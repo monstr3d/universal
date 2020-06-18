@@ -6,13 +6,9 @@ using UnityEngine.UI;
 
 namespace Unity.Standard
 {
-    public class SliderWrapper : IIndicator
+    public class SliderWrapper : AbstractIndicator
     {
         #region Fields
-
-        bool isActive;
-
-        public float limit;
 
         public float scale;
 
@@ -24,17 +20,10 @@ namespace Unity.Standard
 
         public Color exceed = new Vector4(1, 0, 0, 1);
 
-        Action update;
-
-        public string desktop = "";
-
-        public string pararmeter = "";
-
+  
         Dictionary<string, List<Component>> components;
 
         Component component;
-
-        Func<double> output;
 
         float currentValue;
 
@@ -44,7 +33,7 @@ namespace Unity.Standard
 
         GameObject gameObject;
 
-        Action<float> setValue;
+        Action<float> setFloatValue;
 
         string initialText = "";
 
@@ -56,7 +45,7 @@ namespace Unity.Standard
 
         Slider[][] sliders;
 
-        string parameter;
+        float limit;
 
         #endregion
 
@@ -95,7 +84,18 @@ namespace Unity.Standard
             float scale, float limit, Func<double> output = null)
         {
             this.parameter = parameter;
+            Find();
+            obj = (double)0;
+            setValue = (object o) =>
+            {
+                Set(o);
+                updateText?.Invoke();
+                setValue = Set;
+            };
+            type = obj;
             this.component = component;
+            SetActive(true);
+            SetActive(false);
             components = component.gameObject.GetGameObjectComponents<Component>();
             this.scale = scale;
             this.limit = limit;
@@ -118,13 +118,14 @@ namespace Unity.Standard
             }
             update = () =>
             {
-                setValue(GetValue(output()));
+                setFloatValue(GetValue(output()));
             };
             this.Add();
         }
 
         #endregion
 
+   
         #region Public Members
 
         /// <summary>
@@ -153,7 +154,7 @@ namespace Unity.Standard
         {
             set
             {
-                setValue(GetValue(value));
+                setFloatValue(GetValue(value));
                 updateText?.Invoke();
             }
         }
@@ -162,8 +163,8 @@ namespace Unity.Standard
         #endregion
 
         #region IIndicator
-
-        Action IIndicator.Update => update + updateText;
+/*
+        Action IIndicator.Update =>  + updateText;
 
         object IIndicator.Value { set => Value = (double)value; }
 
@@ -185,10 +186,15 @@ namespace Unity.Standard
             }
         }
 
+        Action<string> IIndicator.Global => (string s) => { };
+
+        */
 
         #endregion
 
         #region Private
+
+      
         void UpdateText()
         {
             if (text.color != current)
@@ -272,7 +278,7 @@ namespace Unity.Standard
             right.value = 0;
             right.GetComponentInChildren<Image>().color = exceed;
 
-            setValue = SetPositiveValue;
+            setFloatValue = SetPositiveValue;
         }
 
         void CreateNegative()
@@ -300,7 +306,23 @@ namespace Unity.Standard
                     sl.fillRect.sizeDelta = Vector2.zero;
                 }
             }
-            setValue = SetNegativeValue;
+            setFloatValue = SetNegativeValue;
+        }
+
+        protected override void PostSetGlobal(string str)
+        {
+          
+        }
+
+        protected override void PostSetActive()
+        {
+            component.gameObject.SetActive(isActive);
+        }
+
+
+        protected override void PostSet()
+        {
+            Value = (double)obj;
         }
 
 

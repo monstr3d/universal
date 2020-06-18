@@ -18,9 +18,6 @@ namespace Assets
 
         Dictionary<string, List<Component>> components;
 
-        Action baseUpd;
-
-
 
         static public event Action<string, float[], float[]> Alarm;
 
@@ -192,7 +189,6 @@ namespace Assets
             int i = base.SetConstants(offset, constants);
             interval = constants[6];
             Prepare();
-            Action baseUpd = base.Update;
             return i;
             /*
             kx = cons[0];
@@ -311,7 +307,10 @@ namespace Assets
                     double coeff = (m == 0) ? k : -k;
                     var v = new Tuple<Action<double>, Func<double>, Text, double, double[]>
                         (a, f, null, coeff, val);
-                    actions[kc] = v;
+                    if (StaticExtensionUnity.Activation.level > 0)
+                    {
+                        actions[kc] = v;
+                    }
                 }
             }
             codes = l.ToArray();

@@ -51,27 +51,55 @@ namespace Assets
         static int controlHeight;
 
         static private float[][] floatConstants;
+
+        static int fullLevel;
         static public int StaticLevel
         {
             get
             {
-                return level;
+                return fullLevel;
             }
             set
             {
-                if (value == -1)
+                if (value == 0)
                 {
-                    level = value;
+                    fullLevel = value;
                     return;
                 }
-                if (level > 0)
+                if (fullLevel != 0)
                 {
                     return;
                 }
-                level = value;
+                level = Math.Abs(value);
+                fullLevel = value;
                 Init();
                 SetValues();
+                SetActivation();
             }
+        }
+
+        static void SetActivation()
+        {
+            var ss = new string[] { "Relative to station.Velocity", "Relative to station.Distance" };
+            var l = new List<string>();
+            int lev = fullLevel;
+            
+            string s = "RigidBodyStation.";
+            foreach (var p in ss)
+            {
+                l.Add(s + p);
+            }
+            if (fullLevel > 0)
+            {
+                StaticExtensionUnity.Activation.enabledComponents = l.ToArray();
+                return;
+            }
+            ss = new string[] { "X - Control/Epsilon.Formula_1" };
+            foreach (var p in ss)
+            {
+                l.Add(s + p);
+            }
+            StaticExtensionUnity.Activation.enabledComponents = l.ToArray();
         }
 
    

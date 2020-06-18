@@ -32,9 +32,14 @@ public class Activation : MonoBehaviour
 
     public MonoBehaviour[] components;
 
+    public string[] enabledComponents;
+
+    public string[] disabledComponents;
+
     static bool isEscaped = false;
 
-    
+    IActivation act;
+
 
     #endregion
 
@@ -56,17 +61,19 @@ public class Activation : MonoBehaviour
             {
                 ConstructorInfo ci = StaticExtensionUnity.activations[this.activation];
                 IActivation activation = ci.Invoke(new object[0]) as IActivation;
+                act = activation;
                 activation.Level = level;
                 activation.SetConstants(constants);
                 activation.SetConstants(strings);
                 activation.Activate(components);
-                update = activation.Update;
+                update = UpdateFist;
             }
         }
         foreach (MonoBehaviour monoBehaviour in components)
         {
             monoBehaviour.enabled = true;
         }
+
     }
 
     private void Update()
@@ -77,6 +84,20 @@ public class Activation : MonoBehaviour
     #endregion
 
     #region Public members
+
+    void UpdateFist()
+    {
+        act.Update();
+        foreach (string s in disabledComponents)
+        {
+            s.EnableDisable(false);
+        }
+        foreach (string s in enabledComponents)
+        {
+            s.EnableDisable(true);
+        }
+        update = act.Update;
+    }
 
     /// <summary>
     /// Esapes game
