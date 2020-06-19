@@ -6,7 +6,7 @@ using System.Text;
 
 namespace GeneratedProject
 {
-	public static class RigidBodyStation
+	public static class StaticExtensionGeneratedProject
 	{
 
 		 static public bool SuccessLoad { get; private set; } = true;
@@ -1141,9 +1141,9 @@ namespace GeneratedProject
 					{
 						relativePosition = new double[]
 						{
-				0
+				-0.10000000000000001
 				, 0
-				, -1
+				, 0
 						};
 				
 						relativeQuaternion = new double[]

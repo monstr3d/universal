@@ -442,7 +442,7 @@ namespace Motion6D.Portable.Aggregates
         }
 
 
-        protected virtual object SetAliasValue(string name, object value)
+        protected virtual void SetAliasValue(string name, object value)
         {
             double v = (double)value;
             int i = alinames[name];
@@ -467,7 +467,11 @@ namespace Motion6D.Portable.Aggregates
                 }
                 angles.ToQuaternion(6, initialState);
             }
-            return initialState[i - 1];
+            else
+            {
+                initialState[i + 1] = v;
+            }
+            Array.Copy(initialState, state, state.Length);
         }
 
 

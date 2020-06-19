@@ -41,10 +41,5 @@ namespace Unity.Standard
         /// <returns>Resul offset</returns>
         int SetConstants(int offset, float[] constants);
 
-        /// <summary>
-        /// Events
-        /// </summary>
-        string Events { get; set; }
-
-    }
+     }
 }

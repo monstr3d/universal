@@ -84,6 +84,10 @@ namespace Motion6D.Portable
         /// </summary>
         public RigidReferenceFrame()
         {
+            for (int i = 0; i < aliasNames.Length; i++)
+            {
+                alinames[aliasNames[i]] = i;
+            }
             Init();
         }
 
@@ -117,7 +121,6 @@ namespace Motion6D.Portable
 
 
         #endregion
-
 
         #region IAlias Members
 
@@ -193,7 +196,7 @@ namespace Motion6D.Portable
                         angles.yaw = v;
                         break;
                 }
-                angles.ToQuaternion(6, relative.Quaternion);
+                angles.ToQuaternion(relative.Quaternion);
             }
         }
 
@@ -205,7 +208,6 @@ namespace Motion6D.Portable
 
 
         #endregion
-
 
         #region IPosition Members
 

@@ -42,7 +42,6 @@ namespace Unity.Standard
 
         #region Public Members
 
-
         public Dictionary<string, Motion6D.Interfaces.IReferenceFrame> Frames { get => frames; }
 
         #endregion

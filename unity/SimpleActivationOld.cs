@@ -12,7 +12,7 @@ namespace Assets
 {
     
 
-    public class SimpleActivation : IActivation
+    public class SimpleActivationOld : IActivation
     {
         static private int level = -1;
 
@@ -26,19 +26,16 @@ namespace Assets
         static private string[][] defalutStrings =
             new string[][]
             {//"Station motion.z=3.5" "Station motion.z=1.2", "Station motion.z=1.5"
-               new string[] {  "Station frame.X=0",
-  "Station frame.Y=0.00",
-  "Station frame.Z=1.2",
-  "Station frame.Vx=0",
-   "Station frame.Vy=0",
-  "Station frame.Vz=0.0",
-  "Station frame.Roll=0.0",
-  "Station frame.Pitch=0.0",
-  "Station frame.Yaw=0.0",
-  "Station frame.OMGx=0.0",
-  "Station frame.OMGy=0.0",
-  "Station frame.OMGz=0.0",
-  "Aim 1.Z=-1"
+               new string[] {  "Station motion.z=1.1",
+  "Station motion.a=0.00",
+  "Station motion.q=0.00",
+  "Station motion.r=0",
+   "Station motion.s=-1",
+  "Station motion.b=0.0",
+  "Station motion.d=0.0",
+  "Station motion.x=0.0",
+  "Station motion.y=0.0",
+  "Station motion.f=0.0"
                }
             };
 
@@ -97,7 +94,7 @@ namespace Assets
                 StaticExtensionUnity.Activation.enabledComponents = l.ToArray();
                 return;
             }
-            ss = new string[] { "X - Control 1/Epsilon.Formula_1" };
+            ss = new string[] { "X - Control/Epsilon.Formula_1" };
             foreach (var p in ss)
             {
                 l.Add(s + p);
@@ -106,12 +103,12 @@ namespace Assets
         }
 
    
-        static SimpleActivation()
+        static SimpleActivationOld()
         {
 
         }
 
-        public SimpleActivation()
+        public SimpleActivationOld()
         {
 
         }
@@ -173,9 +170,8 @@ namespace Assets
         {
             if (constants.Length > 0)
             {
-                stringConstants[0][2] = constants[0];
-                stringConstants[0][12] = constants[1];
-           }
+                stringConstants[0][0] = constants[0];
+            }
             return -1;
         }
 

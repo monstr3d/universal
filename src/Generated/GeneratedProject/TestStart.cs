@@ -26,7 +26,7 @@ namespace GeneratedProject
                 AliasRegression r = null;
                 d.ForEach((AliasRegression ar) => { r = ar; });
                 double a = r.Iterate();*/
-                var d = RigidBodyStation.Desktop;
+               // var d = RigidBodyStation.Desktop;
             }
             catch (Exception exception)
             {

@@ -113,7 +113,6 @@ public class Activation : MonoBehaviour
             StaticExtensionUnity.Pause();
         }
         isEscaped = !isEscaped;
-
     }
 
     /// <summary>

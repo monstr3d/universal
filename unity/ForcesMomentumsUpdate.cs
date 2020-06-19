@@ -19,16 +19,15 @@ namespace Assets
         Dictionary<string, List<Component>> components;
 
 
-        static public event Action<string, float[], float[]> Alarm;
+       // static public event Action<string, float[], float[]> Alarm;
 
+        Text timeTxt;
    
-        KeyCode current;
+        volatile KeyCode current;
 
         KeyCode lastCurrent;
 
 
-
-        AudioSource torch;
 
         AudioSource alarm;
 
@@ -87,18 +86,16 @@ namespace Assets
                KeyCode.DownArrow} )}
         };*/
 
-  
-        Component[] results;
+        Text telemerty;
 
-        Slider slider;
 
-        Text sliderText;
-
+   
    
         string[,] txt = new string[,] { { "Ax_Txt", "0.00" }, { "Ay_Txt", "0.00" }, { "Az_Txt", "0.00" },
             { "Omx1_Txt", "+--" }, { "Omy1_Txt", "+--" } , { "Omz1_Txt", "+--" }  };
 
-        Dictionary<KeyCode, Tuple<Text, string[]>> texts = new Dictionary<KeyCode, Tuple<Text, string[]>>();
+        Dictionary<KeyCode, Tuple<Text, string[]>> texts = 
+            new Dictionary<KeyCode, Tuple<Text, string[]>>();
 
         Dictionary<KeyCode, int> inverse = new Dictionary<KeyCode, int>();
 
@@ -110,13 +107,20 @@ namespace Assets
         #region Ctor
         public ForcesMomentumsUpdate()
         {
+            StaticExtensionUnity.Collision += (Tuple<GameObject, Component, IScadaInterface, ICollisionAction> obj) =>
+        {
+            telemerty.gameObject.SetActive(true);
+            scada.IsEnabled = false;
+
+        };
             constants = new float[] { kx, ky, kz, kMx, kMy, kMz, 0 };
         }
 
+ 
         #endregion
 
         #region Overriden Members  
- 
+
         public override void Set(object[] obj, Component indicator, IScadaInterface scada)
         {
             base.Set(obj, indicator, scada);
@@ -133,37 +137,12 @@ namespace Assets
                 camera.GetComponentInChildren<ReferenceFrameBehavior>();
             mb = obj[0] as MonoBehaviour;
             gameObject = mb.gameObject;
-            components = 
-                gameObject.GetGameObjectComponents<Component>();
-          
-            /*
-            slider = sl["SliderRight"][0];
-            Dictionary<string, List<Text>> texts = 
-                gameObject.GetGameObjectComponents<Text>();
-            sliderText = texts["SliderText"][0];
-            results = new Component[]
-            {
-                sliderText, 
-                slider,
-                 sl["SliderLeft"][0]
-            };
-            foreach (string key in texts.Keys)
-            {
-                if (key == "Text" || key == "SliderText")
-                {
-                    continue;
-                }
-                var ttx = texts[key];
-                foreach (var tttx in ttx)
-                {
-                    tttx.color = new Color(0, 1, 0, 1);
-                }
-            }
-            //resText = texts["Text"][0];
-            */
+            components =  gameObject.GetGameObjectComponents<Component>();
+            timeTxt = components["Time_Txt"][0].gameObject.GetComponent<Text>();
+            telemerty = components["Telemetry"][0].gameObject.GetComponent<Text>();
+            telemerty.gameObject.SetActive(false);
             Dictionary<string, List<AudioSource>> las = 
                 camera.GetGameObjectComponents<AudioSource>();
-            torch = las["Torch"][0];
             alarm = las["Alarm"][0];
    
             var s = "Force.";
@@ -210,6 +189,11 @@ namespace Assets
 
         void UpdateForces()
         {
+            timeTxt.text = "Time " + StaticExtensionUnity.Time.ToString("0.00");
+            if (!scada.IsEnabled)
+            {
+                return;
+            }
 /*            int k = Math.Sign(dOut[5]());
             float r = ap * k;
             Vector3 euler = new Vector3(0, 0, r);
@@ -222,7 +206,6 @@ namespace Assets
             if (!scada.IsEnabled)
             {
                 alarm.enabled = false;
-                torch.enabled = false;
                 for (int i = 0; i < 6; i++)
                 {
                     dInp[i](0);
@@ -249,12 +232,7 @@ namespace Assets
         #region Private
 
 
-        void Torch()
-        {
-            referenceBehavior.Jump();
-            torch.enabled = true;
-        }
-
+  
         void Prepare()
         {
             dictionary = Saver.saver.dictionary;
@@ -278,7 +256,7 @@ namespace Assets
                 ttt.Add(tst);
             }
             var co = scada.Constants;
-            scada.SetConstant("X - Control/Mod.k", (double)constants[0]);
+            scada.SetConstant("X - Control 1/Mod.k", (double)constants[0]);
             foreach (var i in dictionary.Keys)
             {
                 var tst = ttt[i];
@@ -351,7 +329,7 @@ namespace Assets
                 current = KeyCode.F10;
                 return;
             }
-            mb.StartCoroutine(enumeratorT);
+      //      mb.StartCoroutine(enumeratorT);
             if (Math.Abs(value - newValue) > (1 + double.Epsilon) * Math.Abs(newValue))
             {
                 value = 0f;
@@ -412,29 +390,8 @@ namespace Assets
 
         void UpdateAlarm()
         {
-            return;
-            float[] yz = null;
-            float[] ddelta = null;
-            string res = ResultIndicator.GetResult(out yz, out ddelta);
-            Alarm(res, yz, ddelta);
-            if (res == null)
-            {
-                alarm.enabled = false;
-               // resText.text = "";
-                //        result.gameObject.SetActive(false);
-                return;
-            }
-            alarm.enabled = true;
-           // resText.text = res;
-         //   resText.color = Color.red;
-            //result.gameObject.SetActive(true);
-            if (delta == null & ddelta != null)
-            {
-                delta = ddelta;
-                mb.StartCoroutine(showDelta);
-                sliderText.text = res;
-            }
         }
+
 
 
         #endregion
@@ -447,40 +404,30 @@ namespace Assets
             {
                 while (true)
                 {
-                    float[] d = delta;
-                    if (d == null)
-                    {
-                        foreach (var v in results)
-                        {
-                            v.gameObject.SetActive(false);
-                        }
-                        break;
-                    }
-                    yield return new WaitForSeconds(0.2f);
-                    float x = (d[0] - d[1]) / d[1];
-                    slider.value = x;
-                    foreach (var v in results)
-                    {
-                        v.gameObject.SetActive(true);
-                    }
+                    /*                   float[] d = delta;
+                                       if (d == null)
+                                       {
+                                           foreach (var v in results)
+                                           {
+                                               v.gameObject.SetActive(false);
+                                           }
+                                           break;
+                                       }
+                                       yield return new WaitForSeconds(0.2f);
+                                       float x = (d[0] - d[1]) / d[1];
+                                       slider.value = x;
+                                       foreach (var v in results)
+                                       {
+                                           v.gameObject.SetActive(true);
+                                       }*/
                     yield return new WaitForSeconds(0.2f);
 
+                    break;
                 }
             }
         }
 
  
-        System.Collections.IEnumerator enumeratorT
-        {
-            get
-            {
-                yield return new WaitForSeconds(0.5f);
-                torch.enabled = false;
-                yield return 0;
-            }
-        }
-
-
 
         System.Collections.IEnumerator coroutine
         {

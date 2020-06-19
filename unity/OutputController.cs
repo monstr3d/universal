@@ -33,8 +33,6 @@ public class OutputController : MonoBehaviour
 
     public string[] inputs;
 
-    public string[] events;
-
 
     public float[] inputConstants;
 
@@ -267,10 +265,6 @@ public class OutputController : MonoBehaviour
             if (inputComponents.Length > n)
             {
                 component = inputComponents[n];
-            }
-            if (events.Length > n)
-            {
-                ua.Events = events[n];
             }
             ++n;
             ua.Set(new object[] { this }, component, scada);

@@ -44,6 +44,14 @@ namespace Unity.Standard
 
         Action update = null;
 
+        static event Action<string> onStart = (string s) => { };
+
+        static public event Action<string> OnStart
+        {
+            add { onStart += value; }
+            remove { onStart -= value; }
+        }
+
         #endregion
 
         #region Ctor
@@ -114,6 +122,7 @@ namespace Unity.Standard
             ev += execute;
             if (!scada.IsEnabled)
             {
+                onStart(desktopName);
                 scada.IsEnabled = true;
             }
             currentTime = (float)StaticExtensionUnity.Time;

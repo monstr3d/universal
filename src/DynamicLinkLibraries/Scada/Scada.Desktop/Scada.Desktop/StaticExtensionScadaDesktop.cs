@@ -86,7 +86,7 @@ namespace Scada.Desktop
         /// </summary>
         /// <param name="action">The action</param>
         /// <param name="str">Events</param>
-        public static void AddToToScadaEvent(this Action action, 
+        public static void AddToScadaEvent(this Action action, 
             IEnumerable<string> str)
         {
             var t = str.ToScadaEvent();

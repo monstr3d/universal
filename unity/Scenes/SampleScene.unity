@@ -1040,10 +1040,6 @@ MonoBehaviour:
   - ForcesMomentumsUpdate
   - UpdateIndicators
   - UpdateIndicators
-  events:
-  - 
-  - RigidBodyStation.Force
-  - RigidBodyStation.Force
   inputConstants:
   - 0
   - 0
@@ -1620,7 +1616,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Station frame.OMx
+  m_Text: Station frame.OMGx
 --- !u!222 &114094006
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2708,7 +2704,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Station frame.OMy
+  m_Text: Station frame.OMGy
 --- !u!222 &233528608
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5302,16 +5298,19 @@ MonoBehaviour:
   outputs: []
   updates: []
   constants:
-  - Station motion.z=1
-  - Station motion.a=0.00
-  - Station motion.q=0.00
-  - Station motion.r=0
-  - Station motion.s=-1
-  - Station motion.b=0.0
-  - Station motion.d=0.0
-  - Station motion.x=0.0
-  - Station motion.y=0.05
-  - Station motion.f=0.0
+  - Station frame.X=0
+  - Station frame.Y=0.00
+  - Station frame.Z=1
+  - Station frame.Vx=0
+  - Station frame.Vy=0
+  - Station frame.Vz=0.0
+  - Station frame.Roll=0.0
+  - Station frame.Pitch=0.0
+  - Station frame.Yaw=0.0
+  - Station frame.OMGx=0.0
+  - Station frame.OMGy=0.0
+  - Station frame.OMGz=0.0
+  - Aim 1.Z=0.0
   onTriggerEnter: 
   onCollisionEnter: 
   collisionConstants: []
@@ -6230,10 +6229,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activation: SimpleActivation
-  delay: 1
-  level: -1
+  delay: 3
+  level: 1
   strings:
-  - Station motion.z=3.5
+  - Station frame.Z=3.5
+  - Aim 1.Z=0.0
   constants:
   - 2
   components:
@@ -11189,7 +11189,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: -1
+  m_Text: 1
 --- !u!222 &1021246387
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -13705,7 +13705,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Station frame.OMz
+  m_Text: Station frame.OMGz
 --- !u!222 &1243329959
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -22594,7 +22594,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: RigidBodyStation.X - Control/Epsilon.Formula_1
+  m_Text: RigidBodyStation.X - Control 1/Epsilon.Formula_1
 --- !u!222 &1996418817
 CanvasRenderer:
   m_ObjectHideFlags: 0

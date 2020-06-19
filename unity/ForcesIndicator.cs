@@ -37,20 +37,13 @@ namespace Assets
         }
     }
 
-    [JumpedIndicator]
-    public class ForcesIndicator : IIndicator
+    public class ForcesIndicator : AbstractIndicator, IJumpedIndicator
     {
         #region Fields
 
         static internal ForcesIndicator indicator;
 
-        Action update;
-
-        string parameter;
-
-        bool isActive = true;
-
-        MonoBehaviour mb;
+  
 
         GameObject gameObject;
 
@@ -76,7 +69,9 @@ namespace Assets
 
         AudioSource engine;
 
+        ReferenceFrameBehavior mb;
 
+        AudioSource torch;
 
         Dictionary<int, Image[]> blink = new Dictionary<int, Image[]>();
 
@@ -88,11 +83,13 @@ namespace Assets
         public ForcesIndicator(GameObject gameObject)
         {
             indicator = this;
+            type = typeof(object[]);
             GameObject camera = ForcesMomentumsUpdate.camera;
+            mb = camera.GetComponent<ReferenceFrameBehavior>();
             Dictionary<string, List<AudioSource>> las =
-            camera.GetGameObjectComponents<AudioSource>();
+               camera.GetGameObjectComponents<AudioSource>();
+            torch = las["Torch"][0];
             engine = las["Engine"][0];
-
             var s = "RigidBodyStation";
             scada = s.ToExistedScada();
             var st = s + ".Force.";
@@ -102,7 +99,6 @@ namespace Assets
             {
                 parameter += st + c + ";";
             }
-            this.Add();
             this.gameObject = gameObject;
             RectTransform[] rr = gameObject.GetComponentsInParent<RectTransform>();
             foreach (var r in rr)
@@ -113,7 +109,6 @@ namespace Assets
                     break;
                 }
             }
-            mb = parent.GetComponent<MonoBehaviour>();
             Dictionary<string, List<RectTransform>> rtv =
                 parent.GetGameObjectComponents<RectTransform>();
             pivot = rtv["_pivot"][0];
@@ -140,44 +135,41 @@ namespace Assets
             update = update.Add(UpdateSound);
             update = update.Add(UpdatePivot);
             update = update.Add(UpdatePath);
-            mb.StartCoroutine(blinkc);
+            blinkc.StartCoroutine();
         }
 
         #endregion
 
-        #region IIndicator Members
 
-        Action IIndicator.Update => Update;
+        #region Overriden
 
-        string IIndicator.Parameter => parameter;
-
-        object IIndicator.Value
+        protected override void PostSetGlobal(string str)
         {
-            set
-            {
-                UpdateActive(value as object[]); 
-                update?.Invoke();
-            }
+
         }
 
-        object IIndicator.Type => typeof(object[]);
-
-        bool IIndicator.IsActive
+        protected override void PostSetActive()
         {
-            get => isActive;
-            set
-            {
-                if (!this.SetActive(value))
-                {
-                    return;
-                }
-                isActive = value;
-            }
+
         }
 
+        protected override bool SetValue(object o)
+        {
+            base.SetValue(o);
+            return true;
+        }
 
+        protected override void PostSet()
+        {
+            UpdateActive(obj as object[]);
+        }
 
         #endregion
+
+        Vector2 lpos;
+
+        float bp = 0.2f;
+
 
         #region Members
 
@@ -188,7 +180,32 @@ namespace Assets
             {
                 active[i] = Math.Sign((double)o[i]);
             }
+            Torch();
+            UpdatePath();
+            UpdatePivot();
+            UpdateSound();
+       }
+
+
+        System.Collections.IEnumerator enumeratorT
+        {
+            get
+            {
+                yield return new WaitForSeconds(0.5f);
+                torch.enabled = false;
+                yield return 0;
+            }
         }
+
+
+
+        void Torch()
+        {
+            mb.Jump();
+            torch.enabled = true;
+            enumeratorT.StartCoroutine();
+        }
+
 
         void UpdatePath()
         {
@@ -270,10 +287,6 @@ namespace Assets
             pivot.rotation = Quaternion.Euler(euler);
        }
 
-        Vector2 lpos;
-
-        float bp = 0.2f;
-
         System.Collections.IEnumerator blinkc
         {
             get
@@ -315,7 +328,9 @@ namespace Assets
             }
         }
 
-        Action<string> IIndicator.Global => (string s) => { };
+    //    Action<string> IIndicator.Global => (string s) => { };
+
+        string[] IJumpedIndicator.JumpEvents => new string[] { "RigidBodyStation.Force" };
 
 
         #endregion

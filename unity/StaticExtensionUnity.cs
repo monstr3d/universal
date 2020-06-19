@@ -89,9 +89,11 @@ namespace Unity.Standard
 
         static List<IIndicatorFactory> indicatorFactories = new List<IIndicatorFactory>();
 
- 
+
         static event Action<Tuple<GameObject, Component,
-            IScadaInterface, ICollisionAction>> collision;
+            IScadaInterface, ICollisionAction>> collision = (Tuple<GameObject, Component,
+            IScadaInterface, ICollisionAction> t) =>
+            { };
 
         static Action<string> global = (string s) => { };
 
@@ -116,6 +118,9 @@ namespace Unity.Standard
         }
 
 
+        /// <summary>
+        /// Collosion event
+        /// </summary>
         static public event Action<Tuple<GameObject, Component,
             IScadaInterface, ICollisionAction>> Collision
         {
@@ -226,7 +231,7 @@ namespace Unity.Standard
 
 
         public static void Add(this IIndicator indicator, 
-            Dictionary<string, Tuple<Func<object>, List<IIndicator>>> ls, bool jumped)
+            Dictionary<string, Tuple<Func<object>, List<IIndicator>>> ls)
         {
             string p = indicator.Parameter;
             List<IIndicator> l;
@@ -259,8 +264,8 @@ namespace Unity.Standard
             }
             if (!l.Contains(indicator))
             {
-                var j = indicator.HasAttributeBT<JumpedIndicatorAttribute>();
-                if ((j & jumped) | (!j & !jumped))
+                var j = indicator is IJumpedIndicator;
+                if (!j)
                 {
                     l.Add(indicator);
                 }
@@ -337,24 +342,24 @@ namespace Unity.Standard
             */
         }
 
+       
+
         /// <summary>
         /// Gets full list of indicators
         /// </summary>
         /// <param name="gameObject">The game object</param>
-        /// <param name="jumped">The "jumped" sign</param>
         /// <returns>Full list</returns>
-        static public Dictionary<string, Tuple<Func<object>, List<IIndicator>>>  GetIndicatorsFull(this GameObject gameObject, 
-            bool jumped = false)
+        static public Dictionary<string, Tuple<Func<object>, List<IIndicator>>> GetIndicatorsFull(this GameObject gameObject)
         {
             var d = new Dictionary<string, Tuple<Func<object>, List<IIndicator>>>();
             List<GameObject> go = new List<GameObject>();
-            gameObject.GetIndicators(go, d, jumped);
+            gameObject.GetIndicators(go, d);
             return d;
         }
 
         private static void GetIndicators(this GameObject gameObject,
             List<GameObject> lg, 
-            Dictionary<string, Tuple<Func<object>, List<IIndicator>>> ls, bool jumped)
+            Dictionary<string, Tuple<Func<object>, List<IIndicator>>> ls)
         {
             if (lg.Contains(gameObject))
             {
@@ -364,14 +369,33 @@ namespace Unity.Standard
             RectTransform[] rt = gameObject.GetComponentsInChildren<RectTransform>();
             foreach (var r in rt)
             {
-                r.gameObject.GetIndicators(lg, ls, jumped);
+                r.gameObject.GetIndicators(lg, ls);
             }
             foreach (var factory in indicatorFactories)
             {
                 var ind = factory.Get(gameObject);
                 if (ind != null)
                 {
-                    ind.Add(ls, jumped);
+                    if (ind is IJumpedIndicator)
+                    {
+                        IJumpedIndicator i = ind as IJumpedIndicator;
+                        var pd = new Dictionary<string, Tuple<Func<object>, List<IIndicator>>>();
+                        ind.Add(pd);
+                        foreach (var iii in pd.Values)
+                        {
+                            var f = iii.Item1;
+                            Action act = () =>
+                            {
+                                 ind.Value = f();
+                            };
+                            act.AddToScadaEvent(i.JumpEvents);
+                            break;
+                        }
+                    }
+                    else
+                    {
+                        ind.Add(ls);
+                    }
                     ind.Global.AddGlobal();
                 }
             }

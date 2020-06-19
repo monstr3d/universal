@@ -36,7 +36,7 @@ namespace Assets
         #region Constructor
         public UpdateAlarm()
         {
-            ForcesMomentumsUpdate.Alarm += UpdateAlarmF;
+          //  ForcesMomentumsUpdate.Alarm += UpdateAlarmF;
         }
 
         #endregion

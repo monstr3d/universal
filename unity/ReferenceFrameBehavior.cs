@@ -103,7 +103,7 @@ public class ReferenceFrameBehavior : MonoBehaviour
 
     Quaternion jump;
 
- 
+
     #endregion
 
     #region Standard Members
@@ -111,22 +111,31 @@ public class ReferenceFrameBehavior : MonoBehaviour
     private void Awake()
     {
         this.Add();
+        MonoBehaviorTimerFactory.OnStart +=
+            (string s) =>
+            {
+                if (desktop == s)
+                {
+                    SetConstants();
+                    constants = new string[0];
+                }
+            };
         exists = desktop.ScadaExists();
-         monoBehaviorWrapper =
-            StaticExtensionUnity.Create(this, unique, step,
-            desktop, inputs, outputs);
+        monoBehaviorWrapper =
+           StaticExtensionUnity.Create(this, unique, step,
+           desktop, inputs, outputs);
         scada = monoBehaviorWrapper.Scada;
         (monoBehaviorWrapper as IScadaUpdate).Update = null;
-            //ScadaUpdate;
+        //ScadaUpdate;
         wrapperUpdate = monoBehaviorWrapper.Update;
         Dictionary<string, IReferenceFrame> frames
      = monoBehaviorWrapper.Frames;
 
-         if (frames.ContainsKey(transformation))
+        if (frames.ContainsKey(transformation))
         {
             IReferenceFrame frame = frames[transformation];
             referenceFrame = frame.Own;
-            
+
         }
         cam = gameObject.GetComponent<Camera>();
         if (cam != null)
@@ -165,12 +174,10 @@ public class ReferenceFrameBehavior : MonoBehaviour
 
     void Start()
     {
-        SetConstants();
         if (collisionAction != null)
         {
             collisionAction.SetConstants(0, collisionConstants);
         }
-        //start();
         monoBehaviorWrapper.Start();
     }
 
@@ -215,17 +222,9 @@ public class ReferenceFrameBehavior : MonoBehaviour
 
     #endregion
 
-
-    #region Standard Members
-
-
-
-
-    #endregion
-
     #region Public Members
 
-  
+
     public void Jump()
     {
         float[] f = new float[] { jumpX, jumpY, jumpZ };
@@ -238,8 +237,8 @@ public class ReferenceFrameBehavior : MonoBehaviour
         jump = gameObject.transform.rotation * j;
         Set(UpdateJump);
         this.StartCoroutine(jumpCoroutine);
-        
     }
+
 
     #endregion
 
