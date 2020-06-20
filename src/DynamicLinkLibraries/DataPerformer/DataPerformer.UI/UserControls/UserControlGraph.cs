@@ -1058,7 +1058,7 @@ namespace DataPerformer.UI.UserControls
                     double start = consumer.Start;
                     double step = consumer.Step;
                     int count = consumer.Steps;
-                    consumer.PerformFixed(start, step, count, DataPerformer.Portable.StaticExtensionDataPerformerPortable.Factory.TimeProvider,
+                    consumer.PerformFixed(start, step, count, StaticExtensionDataPerformerPortable.Factory.TimeProvider,
                     DifferentialEquationProcessor.Processor, reason, 1, act, calc);
                 };
                 StaticExtensionDataPerformerUI.StartSynchronousAnimation(this, animation);

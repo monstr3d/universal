@@ -13,7 +13,7 @@ using Diagram.UI.Interfaces;
 using DataPerformer.Interfaces;
 using DataPerformer.Portable.Interfaces;
 using DataPerformer.Portable;
-using DataPerformer.Helpers;
+using DataPerformer.Portable.Helpers;
 
 using Event.Interfaces;
 

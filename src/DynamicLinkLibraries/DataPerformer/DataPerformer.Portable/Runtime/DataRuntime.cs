@@ -10,7 +10,7 @@ using Diagram.UI.Interfaces;
 using Diagram.UI.Labels;
 
 using DataPerformer.Interfaces;
-using DataPerformer.Helpers;
+using DataPerformer.Portable.Helpers;
 using DataPerformer.Portable;
 
 using Event.Interfaces;

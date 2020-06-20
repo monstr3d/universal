@@ -85,69 +85,7 @@ namespace Unity.Standard
             return i;
         }
         #endregion
-        /*
-        void CreateUpdate()
-        {
-            upd = UpdateInernal;
-            if (type.Equals((double)0))
-            {
-                if (Math.Abs(coefficient - 1) > double.Epsilon)
-                {
-                    update = UpdateCoeff;
-                    return;
-                }
-            }
-            update = UpdateInernal;
-        }
-
-        void SetActive(bool active)
-        {
-            if (active == isActive)
-            {
-                return;
-            }
-            if (active)
-            {
-                CreateUpdate();
-                return;
-            }
-            update = (object o) => { };
-            upd = () => { };
-        }
-
-        void UpdateInernal(object x)
-        {
-            if (o.Equals(x))
-            {
-                return;
-            }
-            o = x;
-            output(o);
-        }
-
-        void UpdateInernal()
-        {
-            output(o);
-        }
-        void UpdateCoeff(object x)
-        {
-            if (stopped)
-            {
-                return;
-            }
-            if (o.Equals(x))
-            {
-                return;
-            }
-            o = x;
-            stopped = true;
-            enumerator.StartCoroutine();
-  /*          o = x;
-            double s = (double)o;
-            output(coefficient * s);
-        }
-        */
-
+ 
         protected override void PostSetGlobal(string str)
         {
             

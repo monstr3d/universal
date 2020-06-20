@@ -1,12 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+
 
 using DataPerformer.Interfaces;
 using DataPerformer.Portable.Measurements;
 
-namespace DataPerformer.Helpers
+namespace DataPerformer.Portable.Helpers
 {
     /// <summary>
     /// Simplest provider of time measurement

@@ -10,8 +10,7 @@ using Diagram.UI;
 using Diagram.UI.Interfaces;
 
 using DataPerformer.Interfaces;
-using DataPerformer.Helpers;
-using DataPerformer.Portable;
+using DataPerformer.Portable.Helpers;
 using DataPerformer.Portable.Interfaces;
 using DataPerformer.Portable.DifferentialEquationProcessors;
 

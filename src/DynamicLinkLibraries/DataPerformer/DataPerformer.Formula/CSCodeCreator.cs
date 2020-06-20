@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Linq;
+
 using Diagram.UI.Interfaces;
 using Diagram.UI;
 
@@ -63,6 +60,25 @@ namespace DataPerformer.Formula
             l.Add("\tinternal CategoryObject()");
             l.Add("\t{");
             l.Add("\t\tproxyFactory = this;");
+            bool beg = true;
+            var feed = v.Feedback;
+            l.Add("\t\tfeedback = new Dictionary<int, string>()");
+            l.Add("\t\t{");
+            foreach (var key in feed.Keys)
+            {
+                string s = "\t\t\t{ " + key + "," + "\"" + feed[key] + "\" }";
+                if (!beg)
+                {
+                    s = ", " + s;
+                }
+                else
+                {
+                    beg = false;
+                }
+                l.Add(s);
+            }
+            l.Add("\t\t};");
+            l.Add("");
             int dim = v.Dimension;
             l.Add("\t\tformulaString = new string[]");
             List<string> lf = new List<string>();
@@ -155,26 +171,30 @@ namespace DataPerformer.Formula
             l.Add("\t{");
             l.Add("\t\tproxyFactory = this;");
             int dim = v.Variables.Length;
-            /*!!!            l.Add("\t\tformulaString = new string[]");
-                        List<string> lf = new List<string>();
-                        for (int i = 0; i < dim; i++)
-                        {
-                            string sf = v.GetFormula(i);
-                            sf = sf.Replace("\r", "");
-                            sf = sf.Replace("\n", "");
-                            sf = sf.Replace("\"", "\\\"");
-                            lf.Add(sf);
-                        }
-                        List<string> lt = lf.GetCSharpCodeArray();
-                        foreach (string s in lt)
-                        {
-                            l.Add("\t\t" + s);
-                        }
-                        */
+            var feed = v.Feedback;
+            bool beg = true;
+
+            l.Add("\t\tfeedback = new Dictionary<int, string>()");
+            l.Add("\t\t{");
+            foreach (var key in feed.Keys)
+            {
+                string s = "\t\t\t{ " + key + "," + "\"" + feed[key] + "\" }";
+                if (!beg)
+                {
+                    s = ", " + s;
+                }
+                else
+                {
+                    beg = false;
+                }
+                l.Add(s);
+            }
+            l.Add("\t\t};");
+            l.Add("");
             Dictionary<object, object> vars = v.VariableValues;
             l.Add("\t\tvars = new Dictionary<object, object>()");
             l.Add("\t\t{");
-            bool beg = true;
+            beg = true;
             foreach (char c in vars.Keys)
             {
                 object[] oo = vars[c] as object[];

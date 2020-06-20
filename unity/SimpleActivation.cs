@@ -85,7 +85,7 @@ namespace Assets
         {
             var ss = new string[] { "Relative to station.Velocity", "Relative to station.Distance" };
             var l = new List<string>();
-            int lev = fullLevel;
+            int lev = Math.Abs(fullLevel);
             
             string s = "RigidBodyStation.";
             foreach (var p in ss)
@@ -101,6 +101,14 @@ namespace Assets
             foreach (var p in ss)
             {
                 l.Add(s + p);
+            }
+            if (lev > 1)
+            {
+                ss = new string[] { "Y - Control/Epsilon.Formula_1" };
+                foreach (var p in ss)
+                {
+                    l.Add(s + p);
+                }
             }
             StaticExtensionUnity.Activation.enabledComponents = l.ToArray();
         }
@@ -193,9 +201,17 @@ namespace Assets
 
         private static void SetValues()
         {
+            int lev = Math.Abs(fullLevel);
             floatConstants[0][0] = kF;
             float[] f = floatConstants[0];
+            string[] ds = stringConstants[0];
             f[0] = kF;
+            if (lev == 2)
+            {
+                f[1] = kF;
+                ds[1] = "Station frame.Y=0.5";
+                return;
+            }
             controlString = "Controls:\n\nRight Shift/Ctrl - Forward/Bakward";
             if (level == 1)
             {

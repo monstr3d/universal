@@ -56,6 +56,8 @@ namespace Unity.Standard
 
         static private Scada.Interfaces.IErrorHandler errorHandler = new ErrorHanller();
 
+        static private Dictionary<string, ConstructorInfo> stringUpates = 
+            new Dictionary<string, ConstructorInfo>();
 
         static private Dictionary<string, Tuple<object,
 
@@ -134,9 +136,6 @@ namespace Unity.Standard
             set;
         }
 
-        static private Dictionary<string, Tuple<Func<object>, List<IIndicator>>>
-            indicators1 = new Dictionary<string, Tuple<Func<object>, List<IIndicator>>>();
-
         static public Activation Activation
         {
             get;
@@ -151,6 +150,23 @@ namespace Unity.Standard
         #endregion
 
         #region Members
+
+        /// <summary>
+        /// Sets level
+        /// </summary>
+        public static void SetLevel()
+        {
+            string s = AbstractLevelStringUpdate.Level + 
+                Activation.level.ToString().Replace("-", "m");
+            stringUpates[s].Invoke(new object[0]);
+        }
+
+        public static void SendLevelMessage(this string message)
+        {
+            string s = AbstractLevelStringUpdate.Level + ":" +
+                 Activation.level + ":" + message;
+            s.Global();
+        }
 
         public static void EnableDisable(this string command, bool active)
         {
@@ -1137,6 +1153,12 @@ namespace Unity.Standard
                     indicatorFactories.Add(ci.Invoke(new object[] { })
                         as IIndicatorFactory);
                 }
+                if (types.Contains(typeof(IStringUpdate)))
+                {
+                    stringUpates[name] = ci; 
+                }
+
+
 
             }
             );

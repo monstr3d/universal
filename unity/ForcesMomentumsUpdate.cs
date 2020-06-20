@@ -257,6 +257,8 @@ namespace Assets
             }
             var co = scada.Constants;
             scada.SetConstant("X - Control 1/Mod.k", (double)constants[0]);
+            scada.SetConstant("Y - Control/Mod.k", (double)constants[0]);
+            scada.SetConstant("Z - Control/Mod.k", (double)constants[0]);
             foreach (var i in dictionary.Keys)
             {
                 var tst = ttt[i];

@@ -54,6 +54,7 @@ public class Activation : MonoBehaviour
             throw new Exception();
         }
         StaticExtensionUnity.Activation = this;
+        StaticExtensionUnity.SetLevel();
         exists = true;
         if (activation != null)
         {
