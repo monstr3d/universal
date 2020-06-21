@@ -27,6 +27,8 @@ namespace Assets
 
         KeyCode lastCurrent;
 
+        Motion6D.Interfaces.ReferenceFrame frame;
+
 
 
         AudioSource alarm;
@@ -124,10 +126,7 @@ namespace Assets
         public override void Set(object[] obj, Component indicator, IScadaInterface scada)
         {
             base.Set(obj, indicator, scada);
-          //  var ev = scada.Events;
-            /*
-            IEvent fe = scada["Force"];
-            fe.Event += Torch;*/
+            frame = scada.GetOutput("Relative to station.Frame")() as Motion6D.Interfaces.ReferenceFrame;
             for (int i = 0; i < 6; i++)
             {
                 active[i] = 0;
@@ -231,8 +230,8 @@ namespace Assets
 
         #region Private
 
+   
 
-  
         void Prepare()
         {
             dictionary = Saver.saver.dictionary;
@@ -257,7 +256,7 @@ namespace Assets
             }
             var co = scada.Constants;
             scada.SetConstant("X - Control 1/Mod.k", (double)constants[0]);
-            scada.SetConstant("Y - Control/Mod.k", (double)constants[0]);
+            scada.SetConstant("Y - Control/Igla/Mod.k", (double)constants[1]);
             scada.SetConstant("Z - Control/Mod.k", (double)constants[0]);
             foreach (var i in dictionary.Keys)
             {

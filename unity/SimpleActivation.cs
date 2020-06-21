@@ -81,12 +81,17 @@ namespace Assets
             }
         }
 
+        static public readonly string LongX = "X - Control 1/Epsilon.Formula_1";
+
+
+        static public readonly string RigidBodyStation = "RigidBodyStation";
+
         static void SetActivation()
         {
             var ss = new string[] { "Relative to station.Velocity", "Relative to station.Distance" };
             var l = new List<string>();
             int lev = Math.Abs(fullLevel);
-            
+
             string s = "RigidBodyStation.";
             foreach (var p in ss)
             {
@@ -97,14 +102,17 @@ namespace Assets
                 StaticExtensionUnity.Activation.enabledComponents = l.ToArray();
                 return;
             }
-            ss = new string[] { "X - Control 1/Epsilon.Formula_1" };
-            foreach (var p in ss)
+            ss = new string[] { LongX };
+            if (lev == 1)
             {
-                l.Add(s + p);
+                foreach (var p in ss)
+                {
+                    l.Add(s + p);
+                }
             }
             if (lev > 1)
             {
-                ss = new string[] { "Y - Control/Epsilon.Formula_1" };
+                ss = new string[] { "Y - Control/Limiter.Formula_1" };
                 foreach (var p in ss)
                 {
                     l.Add(s + p);
@@ -173,6 +181,11 @@ namespace Assets
 
         int IActivation.SetConstants(float[] constants)
         {
+            int ml = Math.Abs(StaticLevel);
+            if (ml > 1)
+            {
+                floatConstants[0][1] = constants[1];
+            }
             floatConstants[0][6] = constants[0];
             return -1;
         }
@@ -209,7 +222,7 @@ namespace Assets
             if (lev == 2)
             {
                 f[1] = kF;
-                ds[1] = "Station frame.Y=0.5";
+                ds[1] = "Station frame.Y=0.9";
                 return;
             }
             controlString = "Controls:\n\nRight Shift/Ctrl - Forward/Bakward";

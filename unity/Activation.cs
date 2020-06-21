@@ -54,7 +54,6 @@ public class Activation : MonoBehaviour
             throw new Exception();
         }
         StaticExtensionUnity.Activation = this;
-        StaticExtensionUnity.SetLevel();
         exists = true;
         if (activation != null)
         {
@@ -74,6 +73,11 @@ public class Activation : MonoBehaviour
         {
             monoBehaviour.enabled = true;
         }
+    }
+
+    private void Start()
+    {
+        StaticExtensionUnity.SetLevel();
 
     }
 

@@ -29,6 +29,11 @@ namespace Diagram.UI
         static private event Action<object> postCreateObject = (object o) => { };
 
         /// <summary>
+        /// Create code action
+        /// </summary>
+        static private event Action<List<string>> onCreateCode;
+
+        /// <summary>
         /// Handler of log
         /// </summary>
         private static IErrorHandler errorHandler;
@@ -393,6 +398,15 @@ namespace Diagram.UI
         #region C# Code Create
 
         /// <summary>
+        /// On Create Code Action
+        /// </summary>
+        public static event Action<List<string>> OnCreateCode
+        {
+            add { onCreateCode += value; }
+            remove { onCreateCode -= value; }
+        }
+
+        /// <summary>
         /// Creates desktop code
         /// </summary>
         /// <param name="desktop">The desktop</param>
@@ -528,6 +542,10 @@ namespace Diagram.UI
             }
             l.Add("\t}");
             l.Add("}");
+            if (onCreateCode != null)
+            {
+                onCreateCode(l);
+            }
             return l;
         }
 

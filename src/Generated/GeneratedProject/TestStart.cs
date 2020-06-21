@@ -9,14 +9,46 @@ using DataPerformer.Interfaces;
 using DataPerformer.Portable;
 
 using Regression.Portable;
-using DataPerformer.Event.Portable;
+using CategoryTheory;
+using System.IO;
 
 namespace GeneratedProject
 {
+    [InitAssembly]
     public class TestStart : IAdditionalStart, IErrorHandler
     {
 
         public static TestStart Singleton = new TestStart();
+
+        static TestStart()
+        {
+            string fileName = @"D:\0Unity\Motion\Assets\RigidBodyStation.cs";
+            StaticExtensionDiagramUI.OnCreateCode += (List<string> l) =>
+                {
+                    if (File.Exists(fileName))
+                    {
+                        File.Delete(fileName);
+                    }
+                    using (TextWriter w = new StreamWriter(fileName))
+                    {
+                        foreach (string s in l)
+                        {
+                            w.WriteLine(s);
+                        }
+                    }
+
+                };
+        }
+
+        /// <summary>
+        /// Inits itself
+        /// </summary>
+        static public void Init()
+        {
+
+        }
+
+
 
         private TestStart()
         {
@@ -27,7 +59,10 @@ namespace GeneratedProject
         {
             IDesktop d =  RigidBodyStation.Desktop;
             IDataConsumer dc = d["Consumer"].GetLabelObject<IDataConsumer>();
-            dc.PerformFixed(0, 0.01, 100, StaticExtensionDataPerformerInterfaces.Calculation,
+            IDataRuntime runtime = dc.CreateRuntime(StaticExtensionDataPerformerInterfaces.Calculation);
+            runtime.StartAll(0);
+            dc.FullReset();
+           dc.PerformFixed(0, 0.01, 3100, StaticExtensionDataPerformerInterfaces.Calculation,
           0, () =>
           {
 
