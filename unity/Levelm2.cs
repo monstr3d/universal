@@ -4,6 +4,7 @@ using Scada.Interfaces;
 using System;
 
 using Unity.Standard;
+using UnityEngine;
 
 namespace Assets
 {
@@ -30,6 +31,12 @@ namespace Assets
             scada["Force"].Event += Levelm2_Event;
             frame = scada.GetOutput("Relative to station.Frame")() as ReferenceFrame;
         }
+
+        public static void Set(MonoBehaviour monoBehavior)
+        {
+
+        }
+
 
         private void Levelm2_Event()
         {

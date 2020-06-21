@@ -56,8 +56,8 @@ namespace Unity.Standard
 
         static private Scada.Interfaces.IErrorHandler errorHandler = new ErrorHanller();
 
-        static private Dictionary<string, ConstructorInfo> stringUpates = 
-            new Dictionary<string, ConstructorInfo>();
+        static private Dictionary<string, Type> stringUpates = 
+            new Dictionary<string, Type>();
 
         static private Dictionary<string, Tuple<object,
 
@@ -156,9 +156,21 @@ namespace Unity.Standard
         /// </summary>
         public static void SetLevel()
         {
-            string s = AbstractLevelStringUpdate.Level + 
-                Activation.level.ToString().Replace("-", "m");
-            stringUpates[s].Invoke(new object[0]);
+           Level.GetConstructor(new Type[0]).Invoke(new object[0]);
+        }
+
+
+        /// <summary>
+        /// Level type
+        /// </summary>
+        public static Type Level
+        {
+            get
+            {
+                string s = AbstractLevelStringUpdate.Level +
+                    Activation.level.ToString().Replace("-", "m");
+                return stringUpates[s];
+            }
         }
 
         public static void SendLevelMessage(this string message)
@@ -938,7 +950,7 @@ namespace Unity.Standard
 
 
         public static Action Create(this ReferenceFrameBehavior mono, 
-            MonoBehaviorWrapper wrapper, string[] upd, ref Action start)
+            MonoBehaviourWrapper wrapper, string[] upd, ref Action start)
         {
             Action action = null;
             foreach (string s in upd)
@@ -1013,7 +1025,7 @@ namespace Unity.Standard
         }
 
 
-        public static MonoBehaviorWrapper Create(this ReferenceFrameBehavior monoBehaviour,
+        public static MonoBehaviourWrapper Create(this ReferenceFrameBehavior monoBehaviour,
             bool unique, float step,
             string desktop,
             string[] inputs,
@@ -1021,7 +1033,7 @@ namespace Unity.Standard
         {
             Dictionary<string, Action<double>> insp = monoBehaviour.inps;
             Dictionary<string, Func<double>> outp = monoBehaviour.outs;
-            MonoBehaviorWrapper wr = new MonoBehaviorWrapper(monoBehaviour, desktop);
+            MonoBehaviourWrapper wr = new MonoBehaviourWrapper(monoBehaviour, desktop);
             IScadaInterface scada = wr.Scada;
             List<Action<double>> li = new List<Action<double>>();
             var inp = scada.Inputs;
@@ -1155,7 +1167,7 @@ namespace Unity.Standard
                 }
                 if (types.Contains(typeof(IStringUpdate)))
                 {
-                    stringUpates[name] = ci; 
+                    stringUpates[name] = type; 
                 }
 
 

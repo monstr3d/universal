@@ -15,7 +15,7 @@ using UnityEngine;
 
 namespace Unity.Standard
 {
-    public class MonoBehaviorTimerFactory : ITimerEventFactory,
+    public class MonoBehaviourTimerFactory : ITimerEventFactory,
     ITimerEvent, ITimerFactory, ITimer, IScadaUpdate
     {
  
@@ -55,13 +55,13 @@ namespace Unity.Standard
         #endregion
 
         #region Ctor
-        static MonoBehaviorTimerFactory()
+        static MonoBehaviourTimerFactory()
         {
             StaticExtensionUnity.Init();
             timeMeasurement = new Measurement(GetTime, "Time");
         }
 
-        protected MonoBehaviorTimerFactory(string desktopName)
+        protected MonoBehaviourTimerFactory(string desktopName)
         {
             exists = desktopName.ScadaExists();
             this.desktopName = desktopName;
@@ -86,9 +86,9 @@ namespace Unity.Standard
         /// <param name="factory">Event</param>
         /// <returns>The scada</returns>
         public static IScadaInterface Create(string desktop, 
-            out MonoBehaviorTimerFactory factory)
+            out MonoBehaviourTimerFactory factory)
         {
-            factory = new MonoBehaviorTimerFactory(desktop);
+            factory = new MonoBehaviourTimerFactory(desktop);
             var outputs = factory.scada.Outputs;
             var inputs = factory.scada.Inputs;
             var constants = factory.scada.Constants;

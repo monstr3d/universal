@@ -19,7 +19,7 @@ namespace Unity.Standard
 
         protected Func<double>[] dOut;
 
-        protected MonoBehaviorWrapper wrapper;
+        protected MonoBehaviourWrapper wrapper;
 
         protected ReferenceFrameBehavior mono;
 
@@ -49,7 +49,7 @@ namespace Unity.Standard
         /// </summary>
         /// <param name="wrapper">Wrapper</param>
         /// <param name="mono">Script</param>
-        public virtual void Set(MonoBehaviorWrapper wrapper,
+        public virtual void Set(MonoBehaviourWrapper wrapper,
             ReferenceFrameBehavior mono)
         {
             this.wrapper = wrapper;

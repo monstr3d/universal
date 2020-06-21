@@ -40,7 +40,7 @@ public class SliderScript : MonoBehaviour
 
     bool isEnabled = true;
 
-    MonoBehaviorTimerFactory factory;
+    MonoBehaviourTimerFactory factory;
 
     Action ev;
 
@@ -66,7 +66,7 @@ public class SliderScript : MonoBehaviour
         {
             return;
         }
-        scada = MonoBehaviorTimerFactory.Create(desktop, out factory);
+        scada = MonoBehaviourTimerFactory.Create(desktop, out factory);
         components = gameObject.GetGameObjectComponents<Component>();
         if (!exists)
         {

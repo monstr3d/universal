@@ -1,6 +1,7 @@
 ﻿using System;
 
 using Unity.Standard;
+using UnityEngine;
 
 namespace Assets
 {
@@ -8,11 +9,18 @@ namespace Assets
     {
         public Levelm1()
         {
+
+        }
+
+ 
+        static Levelm1()
+        {
+
         }
 
         protected override void Update()
         {
-            throw new NotImplementedException();
+            
         }
     }
 }

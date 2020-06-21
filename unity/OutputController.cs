@@ -65,7 +65,7 @@ public class OutputController : MonoBehaviour
 
     Action update;
 
-    MonoBehaviorTimerFactory factory;
+    MonoBehaviourTimerFactory factory;
 
     private Dictionary<string, Tuple<object,
         Func<object>, List<Tuple<string, Component>>>> allparameters
@@ -88,7 +88,7 @@ public class OutputController : MonoBehaviour
         {
             return;
         }
-        scada = MonoBehaviorTimerFactory.Create(desktop, out factory);
+        scada = MonoBehaviourTimerFactory.Create(desktop, out factory);
         for (int i = 0; i < generalizedUpdates.Length; i++)
         {
             valuePairs[generalizedUpdates[i]] = i;

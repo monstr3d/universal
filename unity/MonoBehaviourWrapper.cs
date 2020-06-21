@@ -10,7 +10,7 @@ using Diagram.UI;
 
 namespace Unity.Standard
 {
-    public class MonoBehaviorWrapper : MonoBehaviorTimerFactory
+    public class MonoBehaviourWrapper : MonoBehaviourTimerFactory
     {
         #region Fields
 
@@ -26,7 +26,7 @@ namespace Unity.Standard
 
         #region Ctor
 
-        public MonoBehaviorWrapper(MonoBehaviour monoBehaviour,
+        public MonoBehaviourWrapper(MonoBehaviour monoBehaviour,
              string name = null) : base(name)
         {
             desktop.ForEach((Motion6D.Interfaces.IReferenceFrame frame) =>

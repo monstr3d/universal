@@ -68,7 +68,7 @@ public class ReferenceFrameBehavior : MonoBehaviour
     Camera cam;
 
  
-    private MonoBehaviorWrapper monoBehaviorWrapper;
+    private MonoBehaviourWrapper monoBehaviorWrapper;
 
     internal Dictionary<string, Action<double>>
         inps = new Dictionary<string, Action<double>>();
@@ -111,7 +111,7 @@ public class ReferenceFrameBehavior : MonoBehaviour
     private void Awake()
     {
         this.Add();
-        MonoBehaviorTimerFactory.OnStart +=
+        MonoBehaviourTimerFactory.OnStart +=
             (string s) =>
             {
                 if (desktop == s)

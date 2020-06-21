@@ -55,6 +55,8 @@ public class Activation : MonoBehaviour
         }
         StaticExtensionUnity.Activation = this;
         exists = true;
+        Type type = StaticExtensionUnity.Level;
+        MethodInfo mi = type.GetMethod("Set", new Type[] { typeof(MonoBehaviour) });
         if (activation != null)
         {
             if (activation.Length > 0)
@@ -71,6 +73,11 @@ public class Activation : MonoBehaviour
         }
         foreach (MonoBehaviour monoBehaviour in components)
         {
+            mi.Invoke(null, new object[] { monoBehaviour });
+        }
+
+        foreach (MonoBehaviour monoBehaviour in components)
+        {
             monoBehaviour.enabled = true;
         }
     }
@@ -78,7 +85,6 @@ public class Activation : MonoBehaviour
     private void Start()
     {
         StaticExtensionUnity.SetLevel();
-
     }
 
     private void Update()

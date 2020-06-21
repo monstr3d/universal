@@ -138,40 +138,6 @@ namespace Assets
         {
             foreach (var mono in monoBehaviours)
             {
-                ReferenceFrameBehavior rf = null;
-                OutputController oc = null;
-                if (mono is ReferenceFrameBehavior)
-                {
-                    rf = mono as ReferenceFrameBehavior;
-                }
-                if (mono is OutputController)
-                {
-                    oc = mono as OutputController;
-                }
-                string name = mono.gameObject.name;
-                if (oc != null)
-                {
-                    oc.inputConstants = floatConstants[0];
-                    var txts = oc.gameObject.GetGameObjectComponents<Text>();
-                    var tt = txts["Text"];
-                    foreach (var t in tt)
-                    {
-                        if (t.text.Contains("WASD"))
-                        {
-                            t.text = controlString;
-                            break;
-                        }
-                    }
-                    var cc = oc.gameObject.GetGameObjectComponents<RectTransform>();
-                    RectTransform rt = cc["Results"][0];
-                    Vector3 anc = rt.anchoredPosition;
-                    rt.sizeDelta = new Vector2(rt.rect.width, (float)controlHeight);
-                    rt.anchoredPosition = anc;
-                }
-                if (name == "Station")
-                {
-                    rf.constants = stringConstants[0];
-                }
             }
         }
 
