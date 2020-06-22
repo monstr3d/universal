@@ -21,27 +21,34 @@ namespace Assets
                 double[] p = frame.Position;
                 if (Math.Abs(p[1]) < 0.5)
                 {
-                    (SimpleActivation.RigidBodyStation + "." +
-                        SimpleActivation.LongX).EnableDisable(true);
+                    (Level0.RigidBodyStation + "." +
+                        Level0.LongX).EnableDisable(true);
                     update = () => { };
                 }
  
             };
-            IScadaInterface scada = SimpleActivation.RigidBodyStation.ToExistedScada();
+            IScadaInterface scada = Level0.RigidBodyStation.ToExistedScada();
             scada["Force"].Event += Levelm2_Event;
             frame = scada.GetOutput("Relative to station.Frame")() as ReferenceFrame;
         }
-
-        public static void Set(MonoBehaviour monoBehavior)
-        {
-
-        }
-
 
         private void Levelm2_Event()
         {
             update();
         }
+
+
+        public static void Set(MonoBehaviour monoBehaviour)
+        {
+            Level0.Set(monoBehaviour);
+        }
+
+ 
+    
+
+   
+
+
 
         protected override void Update()
         {

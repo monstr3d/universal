@@ -159,6 +159,12 @@ namespace Unity.Standard
            Level.GetConstructor(new Type[0]).Invoke(new object[0]);
         }
 
+        public static string ToZero(this string str)
+        {
+            int k = str.IndexOf("=");
+            return str.Substring(0, k + 1) + "0";
+        }
+
 
         /// <summary>
         /// Level type

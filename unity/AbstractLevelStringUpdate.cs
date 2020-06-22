@@ -45,7 +45,6 @@ namespace Unity.Standard
                 return;
             }
             post = post.Substring(k + 1);
-
         }
 
         protected abstract void Update();

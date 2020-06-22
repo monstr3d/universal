@@ -81,11 +81,7 @@ namespace Assets
             }
         }
 
-        static public readonly string LongX = "X - Control 1/Epsilon.Formula_1";
-
-
-        static public readonly string RigidBodyStation = "RigidBodyStation";
-
+  
         static void SetActivation()
         {
             var ss = new string[] { "Relative to station.Velocity", "Relative to station.Distance" };
@@ -102,7 +98,7 @@ namespace Assets
                 StaticExtensionUnity.Activation.enabledComponents = l.ToArray();
                 return;
             }
-            ss = new string[] { LongX };
+            ss = new string[] {  };
             if (lev == 1)
             {
                 foreach (var p in ss)

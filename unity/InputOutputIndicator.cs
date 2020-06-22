@@ -56,6 +56,7 @@ namespace Unity.Standard
 
         #region Overriden
 
+ 
         public override bool Equals(object obj)
         {
             if (!(obj is InputOutputIndicator))
@@ -114,7 +115,10 @@ namespace Unity.Standard
             float delay = StaticExtensionUnity.Activation.delay * stopped;
             yield return new WaitForSeconds(delay);
             double s = (double)obj;
-            output(coefficient * s);
+            if (isActive)
+            {
+                output(coefficient * s);
+            }
             stopped -= 1;
         }
     }

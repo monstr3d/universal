@@ -8,6 +8,7 @@ using UnityEngine.UI;
 using Unity.Standard;
 
 using Scada.Interfaces;
+using FormulaEditor;
 
 namespace Assets
 {
@@ -18,8 +19,10 @@ namespace Assets
 
         Dictionary<string, List<Component>> components;
 
+        static internal ForcesMomentumsUpdate forcesMomentumsUpdate;
 
-       // static public event Action<string, float[], float[]> Alarm;
+
+        // static public event Action<string, float[], float[]> Alarm;
 
         Text timeTxt;
    
@@ -109,13 +112,22 @@ namespace Assets
         #region Ctor
         public ForcesMomentumsUpdate()
         {
+            forcesMomentumsUpdate = this;
             StaticExtensionUnity.Collision += (Tuple<GameObject, Component, IScadaInterface, ICollisionAction> obj) =>
         {
             telemerty.gameObject.SetActive(true);
             scada.IsEnabled = false;
+            
 
         };
             constants = new float[] { kx, ky, kz, kMx, kMy, kMz, 0 };
+        }
+
+        static internal void Finish()
+        {
+            var a = forcesMomentumsUpdate.constants[0];
+            var scada = forcesMomentumsUpdate.scada;
+            scada.GetDoubleInput("Force.Fz")(a);
         }
 
  
@@ -255,9 +267,8 @@ namespace Assets
                 ttt.Add(tst);
             }
             var co = scada.Constants;
-            scada.SetConstant("X - Control 1/Mod.k", (double)constants[0]);
-            scada.SetConstant("Y - Control/Igla/Mod.k", (double)constants[1]);
-            scada.SetConstant("Z - Control/Mod.k", (double)constants[0]);
+            scada.SetConstant(Level0.LongXK, (double)constants[0]);
+            scada.SetConstant(Level0.ShortXK, (double)constants[0]);
             foreach (var i in dictionary.Keys)
             {
                 var tst = ttt[i];

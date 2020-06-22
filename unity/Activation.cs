@@ -6,6 +6,7 @@ using System.Reflection;
 using UnityEngine;
 
 using Unity.Standard;
+using Scada.Interfaces;
 
 /// <summary>
 /// Activation of level
@@ -56,6 +57,12 @@ public class Activation : MonoBehaviour
         StaticExtensionUnity.Activation = this;
         exists = true;
         Type type = StaticExtensionUnity.Level;
+        MethodInfo stop = type.GetMethod("Collision", 
+            new Type[] { typeof(Tuple<GameObject, Component, IScadaInterface, ICollisionAction>) });
+        StaticExtensionUnity.Collision += (Tuple<GameObject, Component, IScadaInterface, ICollisionAction> x) =>
+        {
+            stop.Invoke(null, new object[] { x });
+        };
         MethodInfo mi = type.GetMethod("Set", new Type[] { typeof(MonoBehaviour) });
         if (activation != null)
         {
@@ -68,14 +75,13 @@ public class Activation : MonoBehaviour
                 activation.SetConstants(constants);
                 activation.SetConstants(strings);
                 activation.Activate(components);
-                update = UpdateFist;
             }
+            update = UpdateFist;
         }
         foreach (MonoBehaviour monoBehaviour in components)
         {
             mi.Invoke(null, new object[] { monoBehaviour });
         }
-
         foreach (MonoBehaviour monoBehaviour in components)
         {
             monoBehaviour.enabled = true;
@@ -98,7 +104,7 @@ public class Activation : MonoBehaviour
 
     void UpdateFist()
     {
-        act.Update();
+        act?.Update();
         foreach (string s in disabledComponents)
         {
             s.EnableDisable(false);
@@ -107,7 +113,17 @@ public class Activation : MonoBehaviour
         {
             s.EnableDisable(true);
         }
-        update = act.Update;
+        if (act != null)
+        {
+            update = act.Update;
+        }
+        else
+        {
+            update = () =>
+            {
+
+            };
+        }
     }
 
     /// <summary>
