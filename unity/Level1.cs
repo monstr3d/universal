@@ -1,6 +1,11 @@
 ﻿using System;
 
+using UnityEngine;
+
+using Scada.Interfaces;
+
 using Unity.Standard;
+
 
 namespace Assets
 {
@@ -12,7 +17,19 @@ namespace Assets
 
         protected override void Update()
         {
-            throw new NotImplementedException();
+           
         }
+
+
+        static public void Collision(Tuple<GameObject, Component, IScadaInterface, ICollisionAction> stop)
+        {
+
+        }
+        public static void Set(MonoBehaviour monoBehaviour)
+        {
+            Level0.Set(monoBehaviour);
+        }
+
+
     }
 }

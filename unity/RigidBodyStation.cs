@@ -1045,7 +1045,7 @@ namespace GeneratedProject
 						{
 				0
 				, 0
-				, -0.050000000000000003
+				, -0.20000000000000001
 						};
 				
 						relativeQuaternion = new double[]

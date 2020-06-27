@@ -47,6 +47,8 @@ namespace Unity.Standard
 
         float limit;
 
+        bool enableDebug = false;
+
         #endregion
 
         #region Constructor
@@ -63,8 +65,8 @@ namespace Unity.Standard
         /// <param name="exceed">Exceed color</param>
         /// <param name="format">Format</param>
         public SliderWrapper(string parameter, Component component,
-          float scale, float limit, Func<double> output, Color normal, Color exceed, string format) :
-            this(parameter, component, scale, limit, output)
+          float scale, float limit, Func<double> output, Color normal, Color exceed, string format, bool enableDebug) :
+            this(parameter, component, scale, limit, output, enableDebug)
         {
             this.normal = normal;
             this.exceed = exceed;
@@ -82,11 +84,12 @@ namespace Unity.Standard
         }
 
         public SliderWrapper(string parameter, Component component,
-            float scale, float limit, Func<double> output = null)
+            float scale, float limit, Func<double> output = null, bool enableDebug = false)
         {
             this.parameter = parameter;
             Find();
             obj = (double)0;
+            this.enableDebug = enableDebug;
             setValue = (object o) =>
             {
                 Set(o);
@@ -96,7 +99,10 @@ namespace Unity.Standard
             type = obj;
             this.component = component;
             SetActive(true);
-            SetActive(false);
+            if (!enableDebug)
+            {
+                SetActive(false);
+            }
             components = component.gameObject.GetGameObjectComponents<Component>();
             this.scale = scale;
             this.limit = limit;
@@ -125,7 +131,6 @@ namespace Unity.Standard
         }
 
         #endregion
-
    
         #region Public Members
 
@@ -160,36 +165,6 @@ namespace Unity.Standard
             }
         }
 
-
-        #endregion
-
-        #region IIndicator
-/*
-        Action IIndicator.Update =>  + updateText;
-
-        object IIndicator.Value { set => Value = (double)value; }
-
-        object IIndicator.Type => (double)0;
-
-        string IIndicator.Parameter => parameter;
-
-        bool IIndicator.IsActive 
-        { 
-            get => isActive; 
-            set
-            {
-                if (!this.SetActive(value))
-                {
-                    return;
-                }
-                isActive = value;
-                component.gameObject.SetActive(value);
-            }
-        }
-
-        Action<string> IIndicator.Global => (string s) => { };
-
-        */
 
         #endregion
 

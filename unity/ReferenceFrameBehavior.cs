@@ -236,7 +236,7 @@ public class ReferenceFrameBehavior : MonoBehaviour
         Quaternion j = Quaternion.Euler(f[0], f[1], f[2]);
         jump = gameObject.transform.rotation * j;
         Set(UpdateJump);
-        this.StartCoroutine(jumpCoroutine);
+        StartCoroutine(jumpCoroutine);
     }
 
 

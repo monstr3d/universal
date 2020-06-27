@@ -20,6 +20,7 @@ namespace Unity.Standard
         volatile static int stopped = 0;
 
 
+
         #endregion
 
         #region Ctor
@@ -37,23 +38,7 @@ namespace Unity.Standard
         }
 
         #endregion
-
-        #region IIndicator members
-        /*
-        Action IIndicator.Update => upd;
-
-        string IIndicator.Parameter => parameter;
-
-        object IIndicator.Value { set => update(value); }
-
-        object IIndicator.Type => type;
-
-        bool IIndicator.IsActive { get => isActive; set => SetActive(value); }
-        
-        */
-
-        #endregion
-
+    
         #region Overriden
 
  
@@ -76,7 +61,8 @@ namespace Unity.Standard
 
         #region Public
 
-        static public InputOutputIndicator Create(Action<object> output, string parameter, object type, double coefficient = 1, bool compare = true)
+        static public InputOutputIndicator Create(Action<object> output, string parameter, object type, double coefficient = 1, 
+            bool compare = true)
         {
             var i = new InputOutputIndicator(output, parameter, type, coefficient, compare);
             if (l.Contains(i))
@@ -93,8 +79,10 @@ namespace Unity.Standard
 
         }
 
+ 
         protected override void PostSetActive()
         {
+
             if (isActive)
             {
                 setValue = Set;

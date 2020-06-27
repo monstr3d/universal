@@ -67,8 +67,15 @@ namespace Unity.Standard
             {
                 limit = 1f;
             }
+            bool enableDebug = false;
+            if (txt.ContainsKey("EnableDebug"))
+            {
+                string ed = txt["EnableDebug"][0].text;
+                enableDebug = ed == "1";
+            }
             return new SliderWrapper(par,
-                 gameObject.GetComponent<Component>(), scale, limit, f, Color.green, Color.red, format);
+                 gameObject.GetComponent<Component>(), scale, limit, f, 
+                 Color.green, Color.red, format, enableDebug);
 
         }
     }
