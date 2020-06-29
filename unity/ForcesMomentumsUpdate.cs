@@ -8,7 +8,6 @@ using UnityEngine.UI;
 using Unity.Standard;
 
 using Scada.Interfaces;
-using FormulaEditor;
 
 namespace Assets
 {
@@ -115,7 +114,11 @@ namespace Assets
             forcesMomentumsUpdate = this;
             StaticExtensionUnity.Collision += (Tuple<GameObject, Component, IScadaInterface, ICollisionAction> obj) =>
         {
+
+            ///DELETE AFTER TELEMETRY !!!
             telemerty.gameObject.SetActive(true);
+            telemerty.text = StaticExtensionUnity.Time + "";
+            
             scada.IsEnabled = false;
             
 
@@ -267,9 +270,16 @@ namespace Assets
                 ttt.Add(tst);
             }
             var co = scada.Constants;
-            scada.SetConstant(Level0.LongXK, (double)constants[0]);
-            scada.SetConstant(Level0.ShortXK, (double)constants[0]);
-            foreach (var i in dictionary.Keys)
+            if (StaticExtensionUnity.Activation.level < 0)
+            {
+                scada.SetConstant(Level0.LongXK, (double)constants[0]);
+                scada.SetConstant(Level0.ShortXK, (double)constants[0]);
+            }
+            if (StaticExtensionUnity.Activation.level < 1)
+            {
+                scada.SetConstant(Level0.YK, (double)constants[1]);
+            }
+                    foreach (var i in dictionary.Keys)
             {
                 var tst = ttt[i];
                 Action<double> a = dInp[i];

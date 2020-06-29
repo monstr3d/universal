@@ -28,7 +28,9 @@ using Event.Portable;
 
 using Scada.Interfaces;
 using Scada.Desktop;
+
 using Vector3D;
+
 using Motion6D.Interfaces;
 
 namespace Unity.Standard
@@ -152,6 +154,16 @@ namespace Unity.Standard
         #region Members
 
         /// <summary>
+        /// Adds action value
+        /// </summary>
+        /// <param name="action">The action</param>
+        /// <param name="value">The value</param>
+        public static void Add(this Action<object> action, object value)
+        {
+            Activation.Put(action, value);
+        }
+
+        /// <summary>
         /// Sets level
         /// </summary>
         public static void SetLevel()
@@ -263,7 +275,11 @@ namespace Unity.Standard
             return true;
         }
 
-
+        /// <summary>
+        /// Adds indicator to tuple
+        /// </summary>
+        /// <param name="indicator">The indicator</param>
+        /// <param name="ls">The tuple</param>
         public static void Add(this IIndicator indicator, 
             Dictionary<string, Tuple<Func<object>, List<IIndicator>>> ls)
         {

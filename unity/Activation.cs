@@ -6,7 +6,10 @@ using System.Reflection;
 using UnityEngine;
 
 using Unity.Standard;
+
 using Scada.Interfaces;
+using System.Threading;
+using BaseTypes;
 
 /// <summary>
 /// Activation of level
@@ -42,6 +45,8 @@ public class Activation : MonoBehaviour
     IActivation act;
 
 
+    volatile Queue<Tuple<Action<object>, object>> queue = new Queue<Tuple<Action<object>, object>>();
+
     #endregion
 
     #region Standard Members
@@ -59,10 +64,14 @@ public class Activation : MonoBehaviour
         Type type = StaticExtensionUnity.Level;
         MethodInfo stop = type.GetMethod("Collision", 
             new Type[] { typeof(Tuple<GameObject, Component, IScadaInterface, ICollisionAction>) });
-        StaticExtensionUnity.Collision += (Tuple<GameObject, Component, IScadaInterface, ICollisionAction> x) =>
+        if (stop != null)
         {
-            stop.Invoke(null, new object[] { x });
-        };
+            StaticExtensionUnity.Collision += (Tuple<GameObject, Component, IScadaInterface, ICollisionAction> x) =>
+            {
+                stop.Invoke(null, new object[] { x });
+            };
+        }
+
         MethodInfo mi = type.GetMethod("Set", new Type[] { typeof(MonoBehaviour) });
         if (activation != null)
         {
@@ -91,6 +100,7 @@ public class Activation : MonoBehaviour
     private void Start()
     {
         StaticExtensionUnity.SetLevel();
+        StartCoroutine(enumerator);
     }
 
     private void Update()
@@ -148,6 +158,54 @@ public class Activation : MonoBehaviour
     static public void Disable()
     {
         exists = false;
+    }
+
+    object l = new object();
+
+    bool evebool = true;
+
+    /// <summary>
+    /// Puts action into queue
+    /// </summary>
+    /// <param name="action">Action</param>
+    /// <param name="value">Value</param>
+    internal void Put(Action<object> action, object value)
+    {
+        lock (l)
+        {
+            var t = new Tuple<Action<object>, object>(action, value);
+            queue.Enqueue(t);
+            evebool = queue.Count == 1;
+        }
+    }
+
+    #endregion
+
+    #region Private Members
+
+    bool Predicate()
+    {
+        return evebool;
+    }
+
+    IEnumerator enumerator
+    {
+        get
+        {
+            while (true)
+            {
+                yield return new WaitUntil(Predicate);
+                evebool = false;
+                if (queue.Count ==  0)
+                {
+                    continue;
+                }
+                var t = queue.Dequeue();
+                t.Item1(t.Item2);
+                yield return new WaitForSeconds(delay);
+                evebool = true;
+           }
+        }
     }
 
     #endregion

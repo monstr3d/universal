@@ -2,7 +2,7 @@
 using Scada.Desktop;
 using Scada.Interfaces;
 using System;
-
+using System.Collections.Generic;
 using Unity.Standard;
 using UnityEngine;
 
@@ -10,31 +10,52 @@ namespace Assets
 {
     public class Levelm2 : AbstractLevelStringUpdate
     {
+
+        #region Fields
+
         ReferenceFrame frame;
 
-        Action update;
+        IEvent ev;
+
+        IScadaInterface scada;
+
+        double last = 0;
+
+        Func<double> func;
+
+        #endregion
 
         public Levelm2()
         {
-            update = () =>
+         Level0.Get(out scada, out ev, out frame);
+            ev.Event += Levelm2_Event;
+            func = scada.GetDoubleOutput("Force.Fz");
+            var ss = new string[] { Level0.LongXC, Level0.YControl };
+            var l = new List<string>();
+            foreach (var s in ss)
             {
-                double[] p = frame.Position;
-                if (Math.Abs(p[1]) < 0.5)
-                {
-                    (Level0.RigidBodyStation + "." +
-                        Level0.LongX).EnableDisable(true);
-                    update = () => { };
-                }
- 
-            };
-            IScadaInterface scada = Level0.RigidBodyStation.ToExistedScada();
-            scada["Force"].Event += Levelm2_Event;
-            frame = scada.GetOutput("Relative to station.Frame")() as ReferenceFrame;
+                l.Add(Level0.RigidBodyStation + "." + s);
+            }
+            StaticExtensionUnity.Activation.enabledComponents = l.ToArray();
+
         }
 
         private void Levelm2_Event()
         {
-            update();
+            double[] p = frame.Position;
+            var l = func();
+            if (Math.Abs(p[2]) < 0.01 & last != l)
+            {
+                ev.Event -= Levelm2_Event;
+                (Level0.RigidBodyStation + "." +
+                    Level0.LongXC).EnableDisable(false);
+                //             ForcesMomentumsUpdate.Finish();
+                (Level0.RigidBodyStation + "." +
+                  Level0.ShortXC).EnableDisable(true);// */
+            }
+            last = l;
+
+
         }
 
 
@@ -43,10 +64,16 @@ namespace Assets
             Level0.Set(monoBehaviour);
         }
 
- 
-    
+        static public void Collision(Tuple<GameObject, Component, IScadaInterface, ICollisionAction> stop)
+        {
+            // Time of flight UNKNOWN
+        }
+  
 
-   
+
+
+
+
 
 
 

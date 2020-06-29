@@ -93,10 +93,17 @@ namespace Unity.Standard
 
         protected override void PostSet()
         {
-            stopped += 1;
-            enumerator(output, obj, stopped, coefficient).StartCoroutine();
+            // stopped += 1;
+            //     enumerator(output, obj, stopped, coefficient).StartCoroutine();
+            object val = obj;
+            if (coefficient != 1)
+            {
+                val = coefficient * (double)obj;
+            }
+            output.Add(val);
         }
 
+        /*
         System.Collections.IEnumerator enumerator(Action<object> output, object obj, int count,
             double coefficient)
         {
@@ -109,5 +116,6 @@ namespace Unity.Standard
             }
             stopped -= 1;
         }
+        // */
     }
 }

@@ -11,53 +11,45 @@ namespace Assets
     public class Levelm1 : AbstractLevelStringUpdate
     {
 
-        Action update;
+
+        #region Fields
 
         ReferenceFrame frame;
 
-        bool stropped = false;
+        IEvent ev;
 
-        IVelocity v;
+        IScadaInterface scada;
+
+        #endregion
+
 
         public Levelm1()
         {
             // var ss = new string[] { Level0.Distance, Level0.Velocity,   Level0.VxLimiter,  Level0.Rz };
-            var ss = new string[] { Level0.LongX };
+            var ss = new string[] { Level0.LongXC };
             var l = new List<string>();
             foreach (var s in ss)
             {
-               l.Add(Level0.RigidBodyStation + "." + s);
+                l.Add(Level0.RigidBodyStation + "." + s);
             }
             StaticExtensionUnity.Activation.enabledComponents = l.ToArray();
-            IScadaInterface scada = Level0.RigidBodyStation.ToExistedScada();
-            scada["Force"].Event += Levelm1_Event;
-            frame = scada.GetOutput("X-Frame.Frame")() as ReferenceFrame;
-            v = frame as IVelocity;
-            update = () =>
-            {
-                if (stropped)
-                {
-                    return;
-                }
-                double[] p = v.Velocity;
-                if (Math.Abs(p[2]) > 0.01)
-                {
-                    stropped = true;
-                    (Level0.RigidBodyStation + "." +
-                        Level0.VxLimiter).EnableDisable(false);
-       //             ForcesMomentumsUpdate.Finish();
-                /*   (Level0.RigidBodyStation + "." +
-                        Level0.ShortX).EnableDisable(true);// */
-                    update = () => { };
-                }
-
-            };
-  
+            Level0.Get(out scada, out ev, out frame);
+            ev.Event += Levelm1_Event;
         }
 
         private void Levelm1_Event()
         {
-            update();
+            double[] p = frame.Position;
+            if (Math.Abs(p[2]) < 0.01)
+            {
+                ev.Event -= Levelm1_Event;
+                (Level0.RigidBodyStation + "." +
+                    Level0.LongXC).EnableDisable(false);
+                //             ForcesMomentumsUpdate.Finish();
+                (Level0.RigidBodyStation + "." +
+                  Level0.ShortXC).EnableDisable(true);// */
+            }
+
         }
 
         static Levelm1()
@@ -67,7 +59,7 @@ namespace Assets
 
         static public void Collision(Tuple<GameObject, Component, IScadaInterface, ICollisionAction>  stop)
         {
-            
+            // Time of flight = 115 s
         }
         public static void Set(MonoBehaviour monoBehaviour)
         {

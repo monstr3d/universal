@@ -1,5 +1,9 @@
-﻿using System;
+﻿using Motion6D.Interfaces;
+using Scada.Desktop;
+using Scada.Interfaces;
+using System;
 using System.Collections.Generic;
+using System.Dynamic;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -11,12 +15,25 @@ namespace Assets
 {
     static class Level0
     {
-        static internal readonly string ShortX = "X - Control.Formula_1";
-        static internal readonly string ShortXK = "X - Control.k";
-        static internal readonly string LongX = "X - Control 1.Formula_1";
-        static internal readonly string LongXK = "X - Control 1.k";
-        static internal readonly string XFrameZ = "X-Frame.z";
+        /*  static internal readonly string ShortX = "X - Control.Formula_1";
+          static internal readonly string ShortXK = "X - Control.k";
+          static internal readonly string LongX = "X - Control 1.Formula_1";
+          static internal readonly string LongXK = "X - Control 1.k";
+          static internal readonly string XFrameZ = "X-Frame.z";*/
+        static internal readonly string LongXK = "X-Control 1/Mod.k";
+        static internal readonly string ShortXK = "X-Control 2/Mod.k";
+        static internal readonly string LongXC = "X-Control 1/Epsilon.Formula_1";
+        static internal readonly string ShortXC = "X-Control 2/Epsilon.Formula_1";
+
+        static internal readonly string YControl = "Y-Control/Epsilon.Formula_1";
+
+        static internal readonly string YK = "Y-Control/Mod.k";
+
         static internal readonly string RigidBodyStation = "RigidBodyStation";
+
+        static internal readonly string[] Forces = new string[]
+            { "Fx", "Fy", "Fz", "Mx", "My", "Mz"};
+        
         static internal readonly string VxLimiter = "Vx limiter.Formula_1";
 
         static internal readonly string Station = "Station";
@@ -49,6 +66,12 @@ namespace Assets
 
 
 
+        internal static void Get(out IScadaInterface scada, out IEvent ev, out ReferenceFrame xFrame)
+        {
+            scada = RigidBodyStation.ToExistedScada();
+            ev = scada["Force"];
+            xFrame = scada.GetOutput("X-Frame.Frame")() as ReferenceFrame;
+        }
 
         internal static void Set(this MonoBehaviour monoBehaviour)
         {
