@@ -43,7 +43,19 @@ namespace Assets
         static internal readonly string Station = "Station";
 
         static internal readonly string Velocity = "Relative to station.Velocity";
+
         static internal readonly string Rz = "Relative to station.z";
+
+        static internal readonly string Vz = "Relative to station.Vz";
+
+        static internal readonly string Ry = "Relative to station.y";
+
+        static internal readonly string Vy = "Relative to station.Vy";
+
+        static internal readonly string Rx = "Relative to station.x";
+
+        static internal readonly string Vx = "Relative to station.Vx";
+
 
         static internal readonly string Distance = "Relative to station.Distance";
 
@@ -113,6 +125,11 @@ namespace Assets
         static void SetCamera(ReferenceFrameBehavior behavior)
         {
 
+        }
+
+        static public void Collision(Tuple<GameObject, Component, IScadaInterface, ICollisionAction> stop)
+        {
+            ForcesIndicator.indicator.StopAudio();
         }
 
 

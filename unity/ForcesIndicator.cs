@@ -173,6 +173,12 @@ namespace Assets
 
         #region Members
 
+        internal void StopAudio()
+        {
+            torch.enabled = false;
+            engine.enabled = false;
+        }
+
         void UpdateActive(object[] o)
         {
             this.o = o;

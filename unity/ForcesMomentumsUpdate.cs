@@ -270,16 +270,17 @@ namespace Assets
                 ttt.Add(tst);
             }
             var co = scada.Constants;
+            var ml = Math.Abs(StaticExtensionUnity.Activation.level);
             if (StaticExtensionUnity.Activation.level < 0)
             {
                 scada.SetConstant(Level0.LongXK, (double)constants[0]);
                 scada.SetConstant(Level0.ShortXK, (double)constants[0]);
             }
-            if (StaticExtensionUnity.Activation.level < 1)
+            if (StaticExtensionUnity.Activation.level < -1)
             {
                 scada.SetConstant(Level0.YK, (double)constants[1]);
             }
-            if (StaticExtensionUnity.Activation.level < 2)
+            if (StaticExtensionUnity.Activation.level < -2)
             {
                 scada.SetConstant(Level0.ZK, (double)constants[2]);
             }

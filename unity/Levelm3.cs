@@ -8,50 +8,56 @@ using Motion6D.Interfaces;
 using Scada.Interfaces;
 
 using Unity.Standard;
+using Diagram.UI;
 
 namespace Assets
 {
-    public class Levelm2 : Levelm
+    public class Levelm3 : Levelm
     {
 
-  
-        protected double last;
 
-        protected Levelm2(bool b)
+        public Levelm3()
         {
-        }
+            ev.Event += Levelm3_Event;
 
-
-        public Levelm2() : this(true)
-        {
-            ev.Event += Levelm2_Event;
-            var ss = new string[] { Level0.LongXC, Level0.YControl, Level0.Rz, Level0.Vz, Level0.Ry, Level0.Vy };
+            var ss = new string[] { Level0.ZControl, Level0.YControl, Level0.Rz, Level0.Vz, Level0.Ry, Level0.Vy,
+             Level0.Rx, Level0.Vx};
             var l = new List<string>();
             foreach (var s in ss)
             {
                 l.Add(Level0.RigidBodyStation + "." + s);
             }
             StaticExtensionUnity.Activation.enabledComponents = l.ToArray();
+
         }
 
-        private void Levelm2_Event()
+        private void Levelm3_Event()
         {
             double[] p = frame.Position;
-            var l = fx();
-            if (Math.Abs(p[2]) < 0.01 & last != l)
+            if (Math.Abs(p[0]) < 0.1)
             {
-                ev.Event -= Levelm2_Event;
+                ev.Event -= Levelm3_Event;
+                ev.Event += Ev_Event;
+                (Level0.RigidBodyStation + "." +
+                Level0.LongXC).EnableDisable(true);
+
+            }
+        }
+
+        private void Ev_Event()
+        {
+            double[] p = frame.Position;
+            if (Math.Abs(p[2]) < 0.01)
+            {
+                ev.Event -= Ev_Event;
                 (Level0.RigidBodyStation + "." +
                     Level0.LongXC).EnableDisable(false);
                 //             ForcesMomentumsUpdate.Finish();
                 (Level0.RigidBodyStation + "." +
                   Level0.ShortXC).EnableDisable(true);// */
             }
-            last = l;
-
 
         }
-
 
         public static void Set(MonoBehaviour monoBehaviour)
         {
@@ -60,13 +66,17 @@ namespace Assets
 
         static public void Collision(Tuple<GameObject, Component, IScadaInterface, ICollisionAction> stop)
         {
-            // Time of flight 116 s
+            // Time of flight 255.139
             (Level0.RigidBodyStation + "." +
    Level0.ShortXC).EnableDisable(false);
             (Level0.RigidBodyStation + "." +
          Level0.YControl).EnableDisable(false);
+            (Level0.RigidBodyStation + "." +
+   Level0.ZControl).EnableDisable(false);
 
             Level0.Collision(stop);
+
+
         }
 
 
@@ -79,10 +89,10 @@ namespace Assets
 
         protected override void Update()
         {
-            
+
         }
 
-        
+
     }
 }
 

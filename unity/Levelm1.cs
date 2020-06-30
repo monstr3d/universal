@@ -8,32 +8,22 @@ using UnityEngine;
 
 namespace Assets
 {
-    public class Levelm1 : AbstractLevelStringUpdate
+    public class Levelm1 : Levelm
     {
 
 
-        #region Fields
-
-        ReferenceFrame frame;
-
-        IEvent ev;
-
-        IScadaInterface scada;
-
-        #endregion
 
 
         public Levelm1()
         {
             // var ss = new string[] { Level0.Distance, Level0.Velocity,   Level0.VxLimiter,  Level0.Rz };
-            var ss = new string[] { Level0.LongXC };
+            var ss = new string[] { Level0.LongXC, Level0.Rz, Level0.Vz };
             var l = new List<string>();
             foreach (var s in ss)
             {
                 l.Add(Level0.RigidBodyStation + "." + s);
             }
             StaticExtensionUnity.Activation.enabledComponents = l.ToArray();
-            Level0.Get(out scada, out ev, out frame);
             ev.Event += Levelm1_Event;
         }
 
@@ -60,6 +50,9 @@ namespace Assets
         static public void Collision(Tuple<GameObject, Component, IScadaInterface, ICollisionAction>  stop)
         {
             // Time of flight = 115 s
+            (Level0.RigidBodyStation + "." +
+               Level0.ShortXC).EnableDisable(false);
+            Level0.Collision(stop);
         }
         public static void Set(MonoBehaviour monoBehaviour)
         {
