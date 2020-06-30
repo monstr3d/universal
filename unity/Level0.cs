@@ -29,6 +29,10 @@ namespace Assets
 
         static internal readonly string YK = "Y-Control/Mod.k";
 
+        static internal readonly string ZControl = "Z-Control/Epsilon.Formula_1";
+
+        static internal readonly string ZK = "Z-Control/Mod.k";
+
         static internal readonly string RigidBodyStation = "RigidBodyStation";
 
         static internal readonly string[] Forces = new string[]

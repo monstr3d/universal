@@ -279,7 +279,11 @@ namespace Assets
             {
                 scada.SetConstant(Level0.YK, (double)constants[1]);
             }
-                    foreach (var i in dictionary.Keys)
+            if (StaticExtensionUnity.Activation.level < 2)
+            {
+                scada.SetConstant(Level0.ZK, (double)constants[2]);
+            }
+            foreach (var i in dictionary.Keys)
             {
                 var tst = ttt[i];
                 Action<double> a = dInp[i];
