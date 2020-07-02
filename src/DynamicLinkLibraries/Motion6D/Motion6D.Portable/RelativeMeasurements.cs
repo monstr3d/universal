@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Text;
 
 using CategoryTheory;
 
@@ -10,6 +9,7 @@ using DataPerformer.Portable.Measurements;
 using DataPerformer.Interfaces;
 
 using Motion6D.Interfaces;
+using Vector3D;
 
 namespace Motion6D.Portable
 {
@@ -20,6 +20,8 @@ namespace Motion6D.Portable
     {
 
         #region Fields
+
+        EulerAngles angles = new EulerAngles();
 
         const Double a = 0;
 
@@ -62,8 +64,9 @@ namespace Motion6D.Portable
 
         private Func<object>[] coordDel;
 
-        private static readonly string[] names = new string[] {"x", "y", "z", "Distance", "Vx", "Vy", "Vz", "Velocity", "Q0", "Q1", "Q2", "Q3",
-                                                                  "OMx", "OMy", "OMz", "A11", "A12", "A13", "A21", "A22", "A23", "A31", "A32", "A33"};
+        private static readonly string[] names = new string[] {"x", "y", "z", "Distance", 
+            "Vx", "Vy", "Vz", "Velocity", "Q0", "Q1", "Q2", "Q3", "Roll", "Pitch", "Yaw",
+            "OMx", "OMy", "OMz", "A11", "A12", "A13", "A21", "A22", "A23", "A31", "A32", "A33"};
 
         private Action UpdateAll;
 
@@ -209,6 +212,7 @@ namespace Motion6D.Portable
         {
             Array.Copy(relativePos, relativeFrame.Position, 3);
             Array.Copy(quaternion, relativeFrame.Quaternion, 4);
+            angles.Set(quaternion);
         }
 
         void UpdateFrameAngularVelocity()
@@ -322,6 +326,20 @@ namespace Motion6D.Portable
             return quaternion[3];
         }
 
+        object GetRoll()
+        {
+            return angles.roll;
+        }
+
+        object GetPitch()
+        {
+            return angles.pitch;
+        }
+
+        object GetYaw()
+        {
+            return angles.yaw;
+        }
 
         object GetOmegaX()
         {
@@ -667,7 +685,7 @@ namespace Motion6D.Portable
             Func<object>[] parameters = new Func<object>[] { GetOmegaX, GetOmegaY, GetOmegaZ };
             for (int i = 0; i < parameters.Length; i++)
             {
-                measurements[i] = new Measurement(parameters[i], names[12 + i]);
+                measurements[i] = new Measurement(parameters[i], names[15 + i]);
             }
             return measurements;
         }
@@ -678,7 +696,8 @@ namespace Motion6D.Portable
             {
                 return new IMeasurement[0];
             }
-            Func<object>[] pars = new Func<object>[] { GetQ0, GetQ1, GetQ2, GetQ3 };
+            Func<object>[] pars = new Func<object>[] { GetQ0, GetQ1, GetQ2, GetQ3, 
+                GetRoll, GetPitch, GetYaw };
             IMeasurement[] m = new IMeasurement[pars.Length];
             for (int i = 0; i < m.Length; i++)
             {

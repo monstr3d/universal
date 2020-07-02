@@ -5,9 +5,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-using Unity.Standard;
+using Diagram.UI;
+using Diagram.UI.Interfaces;
 
 using Scada.Interfaces;
+using Scada.Desktop;
+
+
+using Unity.Standard;
 
 namespace Assets
 {
@@ -38,6 +43,7 @@ namespace Assets
 
         Dictionary<int, int> active = new Dictionary<int, int>();
 
+        IDesktop desktop;
  
         private float interval = 0;
  
@@ -177,10 +183,15 @@ namespace Assets
         }
 
 
+        Motion6D.Portable.Aggregates.RigidBody rigidBody;
+
         public override int SetConstants(int offset, float[] constants)
         {
             int i = base.SetConstants(offset, constants);
             interval = constants[6];
+            desktop = scada.GetDesktop();
+            rigidBody = desktop.GetAssociatedObject<Motion6D.Portable.Aggregates.RigidBody>(
+                "Rigid Body");
             Prepare();
             return i;
             /*
@@ -245,8 +256,6 @@ namespace Assets
 
         #region Private
 
-   
-
         void Prepare()
         {
             dictionary = Saver.saver.dictionary;
@@ -283,6 +292,11 @@ namespace Assets
             if (StaticExtensionUnity.Activation.level < -2)
             {
                 scada.SetConstant(Level0.ZK, (double)constants[2]);
+            }
+            if (constants[4] > float.Epsilon)
+            {
+                double k = rigidBody.MomentOfInertia[2, 2];
+                scada.SetConstant(Level0.OzK, (double)constants[4]);
             }
             foreach (var i in dictionary.Keys)
             {

@@ -17,6 +17,8 @@ namespace Assets
     {
         #region Fields
 
+        public const float MaxRoll = 10;
+
         bool isActive = true;
 
         GameObject gameObject;
@@ -43,6 +45,8 @@ namespace Assets
 
         RectTransform horisRollPitch;
 
+        Image _mask;
+
         #region Float fields
 
         float startX, startY, startWidth, startHeight;
@@ -61,12 +65,13 @@ namespace Assets
 
         public AngularIndicator(GameObject gameObject,
             IScadaInterface scada, Func<object> f, IReferenceFrame frame,
-             string parameter, Text headingTxt)
+             string parameter, Text headingTxt, Image _mask)
         {
             this.gameObject = gameObject;
             this.scada = scada;
             this.parameter = parameter;
             this.headingTxt = headingTxt;
+            this._mask = _mask;
             this.Add();
             Prepare();
             if (f != null)
@@ -130,6 +135,12 @@ namespace Assets
             UpdateHeading();
             UpdateCompass();
             UpdateRollPitchImage();
+            var exr = Math.Abs(roll) > (double)Mathf.Deg2Rad * MaxRoll;
+            Color c = exr ? Color.red : Color.green;
+            if (_mask.color != c)
+            {
+                _mask.color = c;
+            }
         }
 
         void UpdateRollPitchImage()

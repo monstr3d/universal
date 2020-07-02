@@ -3,86 +3,64 @@ using System.Collections.Generic;
 
 using UnityEngine;
 
-
-
 using Scada.Interfaces;
 
 using Unity.Standard;
 
 namespace Assets
 {
-    public class Levelm2 : Levelm
+    public class Levelm4 : Levelm
     {
 
-  
-        protected double last;
 
-        protected Levelm2(bool b)
+
+
+        public Levelm4()
         {
-        }
-
-
-        public Levelm2() : this(true)
-        {
-            ev.Event += Levelm2_Event;
-            var ss = new string[] { Level0.LongXC, Level0.YControl, Level0.Rz, Level0.Vz, Level0.Ry, Level0.Vy };
+            // var ss = new string[] { Level0.Distance, Level0.Velocity,   Level0.VxLimiter,  Level0.Rz };
+            var ss = new string[] { Level0.LongXC, Level0.OzControl, Level0.Rz, Level0.Vz, Level0.Oz };
             var l = new List<string>();
             foreach (var s in ss)
             {
                 l.Add(Level0.RigidBodyStation + "." + s);
             }
             StaticExtensionUnity.Activation.enabledComponents = l.ToArray();
+            ev.Event += Levelm1_Event;
         }
 
-        private void Levelm2_Event()
+        private void Levelm1_Event()
         {
             double[] p = frame.Position;
-            var l = fx();
-            if (Math.Abs(p[2]) < 0.01 & last != l)
+            if (Math.Abs(p[2]) < 0.01)
             {
-                ev.Event -= Levelm2_Event;
+                ev.Event -= Levelm1_Event;
                 (Level0.RigidBodyStation + "." +
                     Level0.LongXC).EnableDisable(false);
                 //             ForcesMomentumsUpdate.Finish();
                 (Level0.RigidBodyStation + "." +
                   Level0.ShortXC).EnableDisable(true);// */
             }
-            last = l;
-
 
         }
 
-
-        public static void Set(MonoBehaviour monoBehaviour)
-        {
-            Level0.Set(monoBehaviour);
-        }
+ 
 
         static public void Collision(Tuple<GameObject, Component, IScadaInterface, ICollisionAction> stop)
         {
-            // Time of flight 116 s
+            // Time of flight = UNKNOWN
             (Level0.RigidBodyStation + "." +
-   Level0.ShortXC).EnableDisable(false);
-            (Level0.RigidBodyStation + "." +
-         Level0.YControl).EnableDisable(false);
-
+               Level0.ShortXC).EnableDisable(false);
             Level0.Collision(stop);
         }
-
-
-
-
-
-
-
+        public static void Set(MonoBehaviour monoBehaviour)
+        {
+            Level4.Set(monoBehaviour);
+        }
 
 
         protected override void Update()
         {
-            
-        }
 
-        
+        }
     }
 }
-

@@ -1,17 +1,19 @@
-﻿using Diagram.UI;
-using Diagram.UI.Interfaces;
-using Motion6D.Interfaces;
-using Scada.Desktop;
-using Scada.Interfaces;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-using Unity.Standard;
 using UnityEngine;
 using UnityEngine.UI;
+
+
+using Diagram.UI;
+using Diagram.UI.Interfaces;
+
+using Motion6D.Interfaces;
+
+using Scada.Desktop;
+using Scada.Interfaces;
+
+using Unity.Standard;
 
 namespace Assets
 {
@@ -34,6 +36,7 @@ namespace Assets
         IIndicator IIndicatorFactory.Get(GameObject gameObject)
         {
             string[] ss = { "AngularDesktop", "AngularParameter" };
+            var im = gameObject.GetGameObjectComponents<Image>();
             var txt = gameObject.GetGameObjectComponents<Text>();
             var sdic = new Dictionary<string, string>();
             foreach (var s in ss)
@@ -81,7 +84,9 @@ namespace Assets
                 return null;
             }
             Text headT = txt["heading_Indicator"][0];
-            return new AngularIndicator(gameObject, scada, f, frame, desktop + "." + par, headT);
+            Image mask = im["_mask"][0];
+            return new AngularIndicator(gameObject, scada, f, frame, 
+                desktop + "." + par, headT, mask);
         }
     }
 }

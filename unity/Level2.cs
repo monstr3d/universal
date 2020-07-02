@@ -12,7 +12,7 @@ namespace Assets
 
         protected override void Update()
         {
-            throw new NotImplementedException();
+            
         }
     }
 }

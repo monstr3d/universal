@@ -5,6 +5,9 @@ using Scada.Desktop;
 
 namespace Unity.Standard
 {
+    /// <summary>
+    /// Abstract indicator
+    /// </summary>
     public abstract class AbstractIndicator : IIndicator
     {
 
@@ -28,6 +31,9 @@ namespace Unity.Standard
 
         #region Ctor
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
         protected AbstractIndicator()
         {
             setValue = Set;
@@ -48,18 +54,31 @@ namespace Unity.Standard
 
         #region Abstract Members
 
+        /// <summary>
+        /// Global post set
+        /// </summary>
+        /// <param name="str"></param>
         protected abstract void PostSetGlobal(string str);
 
-
+        /// <summary>
+        /// Active post set
+        /// </summary>
         protected abstract void PostSetActive();
 
 
+        /// <summary>
+        /// Active post set
+        /// </summary>
         protected abstract void PostSet();
 
         #endregion
 
         #region Virtual Members
 
+        /// <summary>
+        /// Sets active state
+        /// </summary>
+        /// <param name="str"></param>
         protected virtual void SetGlobal(string str)
         {
             if (this.EnableDisable(str))
@@ -69,6 +88,10 @@ namespace Unity.Standard
             PostSetGlobal(str);
         }
 
+        /// <summary>
+        /// Sets value
+        /// </summary>
+        /// <param name="o">Value</param>
         protected virtual void  Set(object o)
         {
             if (!SetValue(o))
@@ -78,6 +101,11 @@ namespace Unity.Standard
             PostSet();
         }
 
+        /// <summary>
+        /// Sets value
+        /// </summary>
+        /// <param name="o">Value</param>
+        /// <returns>True in success</returns>
         protected virtual bool  SetValue(object o)
         {
             if (o.Equals(obj))
@@ -88,12 +116,18 @@ namespace Unity.Standard
             return true;
         }
 
-  
+        /// <summary>
+        /// Internal update
+        /// </summary>
         protected virtual void UpdateInrternal()
         {
             update?.Invoke();
         }
 
+        /// <summary>
+        /// Sets active state
+        /// </summary>
+        /// <param name="active">The acrive</param>
         protected virtual void  SetActive(bool active)
         {
             if (active == isActive)
@@ -107,7 +141,9 @@ namespace Unity.Standard
         #endregion
 
         #region Own Members
-
+        /// <summary>
+        /// Finds the function
+        /// </summary>
         protected void Find()
         {
             func = parameter.DetectFunc();

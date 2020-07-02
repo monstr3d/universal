@@ -1,15 +1,14 @@
-﻿using Motion6D.Interfaces;
+﻿using System;
+
+using UnityEngine;
+
+
+using Motion6D.Interfaces;
+
 using Scada.Desktop;
 using Scada.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Dynamic;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
+
 using Unity.Standard;
-using UnityEngine;
 
 namespace Assets
 {
@@ -31,9 +30,21 @@ namespace Assets
 
         static internal readonly string ZControl = "Z-Control/Epsilon.Formula_1";
 
+        static internal readonly string OzK = "Oz-Control/Mod.k";
+
+        static internal readonly string OzControl = "Oz-Control/Epsilon.Formula_1";
+
+
+
         static internal readonly string ZK = "Z-Control/Mod.k";
+        
+        static internal readonly string Oz = "Relative to station.OMz";
+
 
         static internal readonly string RigidBodyStation = "RigidBodyStation";
+
+
+
 
         static internal readonly string[] Forces = new string[]
             { "Fx", "Fy", "Fz", "Mx", "My", "Mz"};
