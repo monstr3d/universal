@@ -31,10 +31,10 @@ namespace Assets
         static internal readonly string ZControl = "Z-Control/Epsilon.Formula_1";
 
         static internal readonly string OzK = "Oz-Control/Mod.k";
-
+  
         static internal readonly string OzControl = "Oz-Control/Epsilon.Formula_1";
 
-
+        static internal readonly string OzControl1 = "Oz-Control 1.Formula_1";
 
         static internal readonly string ZK = "Z-Control/Mod.k";
         

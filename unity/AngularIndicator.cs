@@ -47,6 +47,8 @@ namespace Assets
 
         Image _mask;
 
+        Image _maskR;
+
         #region Float fields
 
         float startX, startY, startWidth, startHeight;
@@ -65,13 +67,14 @@ namespace Assets
 
         public AngularIndicator(GameObject gameObject,
             IScadaInterface scada, Func<object> f, IReferenceFrame frame,
-             string parameter, Text headingTxt, Image _mask)
+             string parameter, Text headingTxt, Image _mask, Image _maskR)
         {
             this.gameObject = gameObject;
             this.scada = scada;
             this.parameter = parameter;
             this.headingTxt = headingTxt;
             this._mask = _mask;
+            this._maskR = _maskR;
             this.Add();
             Prepare();
             if (f != null)
@@ -135,12 +138,24 @@ namespace Assets
             UpdateHeading();
             UpdateCompass();
             UpdateRollPitchImage();
-            var exr = Math.Abs(roll) > (double)Mathf.Deg2Rad * MaxRoll;
-            Color c = exr ? Color.red : Color.green;
-            if (_mask.color != c)
+            var exr = Math.Abs(roll) > MaxRoll;
+            if (_mask.enabled)
             {
-                _mask.color = c;
+                if (exr)
+                {
+                    {
+                        _mask.enabled = false;
+                        _maskR.enabled = true;
+                    }
+                }
             }
+            else if (!exr)
+            {
+                _mask.enabled = true;
+                _maskR.enabled = false;
+            }
+
+
         }
 
         void UpdateRollPitchImage()

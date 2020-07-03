@@ -25,14 +25,15 @@ namespace GeneratedProject
 				objects.Add(new IntrenalDesktop.OblectLabel5("X-Frame", this));
 				objects.Add(new IntrenalDesktop.OblectLabel6("X-Control 1", this));
 				objects.Add(new IntrenalDesktop.OblectLabel7("Oz-Control", this));
-				objects.Add(new IntrenalDesktop.OblectLabel8("Z-Control", this));
-				objects.Add(new IntrenalDesktop.OblectLabel9("Y-Control", this));
-				objects.Add(new IntrenalDesktop.OblectLabel10("X-Frame-1", this));
-				objects.Add(new IntrenalDesktop.OblectLabel11("X-Control 2", this));
-				objects.Add(new IntrenalDesktop.OblectLabel12("Consumer", this));
-				objects.Add(new IntrenalDesktop.OblectLabel13("Shifted Frame", this));
-				objects.Add(new IntrenalDesktop.OblectLabel14("Aim 1", this));
-				objects.Add(new IntrenalDesktop.OblectLabel15("Aim 2", this));
+				objects.Add(new IntrenalDesktop.OblectLabel8("Oz-Control 1", this));
+				objects.Add(new IntrenalDesktop.OblectLabel9("Z-Control", this));
+				objects.Add(new IntrenalDesktop.OblectLabel10("Y-Control", this));
+				objects.Add(new IntrenalDesktop.OblectLabel11("X-Frame-1", this));
+				objects.Add(new IntrenalDesktop.OblectLabel12("X-Control 2", this));
+				objects.Add(new IntrenalDesktop.OblectLabel13("Consumer", this));
+				objects.Add(new IntrenalDesktop.OblectLabel14("Shifted Frame", this));
+				objects.Add(new IntrenalDesktop.OblectLabel15("Aim 1", this));
+				objects.Add(new IntrenalDesktop.OblectLabel16("Aim 2", this));
 				Diagram.UI.Labels.PureArrowLabel currALabel = null;
 				currALabel  = new IntrenalDesktop.ArrowLabel0("", this);
 				arrows.Add(currALabel);
@@ -40,7 +41,7 @@ namespace GeneratedProject
 				currALabel.TargetNumber = (int)0;
 				currALabel  = new IntrenalDesktop.ArrowLabel1("", this);
 				arrows.Add(currALabel);
-				currALabel.SourceNumber = (int)12;
+				currALabel.SourceNumber = (int)13;
 				currALabel.TargetNumber = (int)1;
 				currALabel  = new IntrenalDesktop.ArrowLabel2("", this);
 				arrows.Add(currALabel);
@@ -48,20 +49,20 @@ namespace GeneratedProject
 				currALabel.TargetNumber = (int)2;
 				currALabel  = new IntrenalDesktop.ArrowLabel3("", this);
 				arrows.Add(currALabel);
-				currALabel.SourceNumber = (int)13;
+				currALabel.SourceNumber = (int)14;
 				currALabel.TargetNumber = (int)4;
 				currALabel  = new IntrenalDesktop.ArrowLabel4("", this);
 				arrows.Add(currALabel);
 				currALabel.SourceNumber = (int)2;
-				currALabel.TargetNumber = (int)13;
+				currALabel.TargetNumber = (int)14;
 				currALabel  = new IntrenalDesktop.ArrowLabel5("", this);
 				arrows.Add(currALabel);
-				currALabel.SourceNumber = (int)12;
+				currALabel.SourceNumber = (int)13;
 				currALabel.TargetNumber = (int)2;
 				currALabel  = new IntrenalDesktop.ArrowLabel6("", this);
 				arrows.Add(currALabel);
-				currALabel.SourceNumber = (int)14;
-				currALabel.TargetNumber = (int)13;
+				currALabel.SourceNumber = (int)15;
+				currALabel.TargetNumber = (int)14;
 				currALabel  = new IntrenalDesktop.ArrowLabel7("", this);
 				arrows.Add(currALabel);
 				currALabel.SourceNumber = (int)3;
@@ -69,67 +70,79 @@ namespace GeneratedProject
 				currALabel  = new IntrenalDesktop.ArrowLabel8("", this);
 				arrows.Add(currALabel);
 				currALabel.SourceNumber = (int)5;
-				currALabel.TargetNumber = (int)14;
+				currALabel.TargetNumber = (int)15;
 				currALabel  = new IntrenalDesktop.ArrowLabel9("", this);
 				arrows.Add(currALabel);
-				currALabel.SourceNumber = (int)12;
+				currALabel.SourceNumber = (int)13;
 				currALabel.TargetNumber = (int)5;
 				currALabel  = new IntrenalDesktop.ArrowLabel10("", this);
 				arrows.Add(currALabel);
-				currALabel.SourceNumber = (int)12;
+				currALabel.SourceNumber = (int)13;
 				currALabel.TargetNumber = (int)0;
 				currALabel  = new IntrenalDesktop.ArrowLabel11("", this);
 				arrows.Add(currALabel);
-				currALabel.SourceNumber = (int)15;
-				currALabel.TargetNumber = (int)13;
+				currALabel.SourceNumber = (int)16;
+				currALabel.TargetNumber = (int)14;
 				currALabel  = new IntrenalDesktop.ArrowLabel12("", this);
 				arrows.Add(currALabel);
 				currALabel.SourceNumber = (int)3;
-				currALabel.TargetNumber = (int)10;
+				currALabel.TargetNumber = (int)11;
 				currALabel  = new IntrenalDesktop.ArrowLabel13("", this);
 				arrows.Add(currALabel);
-				currALabel.SourceNumber = (int)10;
-				currALabel.TargetNumber = (int)15;
+				currALabel.SourceNumber = (int)11;
+				currALabel.TargetNumber = (int)16;
 				currALabel  = new IntrenalDesktop.ArrowLabel14("", this);
 				arrows.Add(currALabel);
 				currALabel.SourceNumber = new object[] {(int)6,"Mod" };
 				currALabel.TargetNumber = (int)5;
 				currALabel  = new IntrenalDesktop.ArrowLabel15("", this);
 				arrows.Add(currALabel);
-				currALabel.SourceNumber = new object[] {(int)11,"Mod" };
-				currALabel.TargetNumber = (int)10;
+				currALabel.SourceNumber = new object[] {(int)12,"Mod" };
+				currALabel.TargetNumber = (int)11;
 				currALabel  = new IntrenalDesktop.ArrowLabel16("", this);
 				arrows.Add(currALabel);
-				currALabel.SourceNumber = (int)12;
+				currALabel.SourceNumber = (int)13;
 				currALabel.TargetNumber = new object[] {(int)6,"Epsilon" };
 				currALabel  = new IntrenalDesktop.ArrowLabel17("", this);
 				arrows.Add(currALabel);
-				currALabel.SourceNumber = (int)12;
-				currALabel.TargetNumber = new object[] {(int)11,"Epsilon" };
+				currALabel.SourceNumber = (int)13;
+				currALabel.TargetNumber = new object[] {(int)12,"Epsilon" };
 				currALabel  = new IntrenalDesktop.ArrowLabel18("", this);
 				arrows.Add(currALabel);
-				currALabel.SourceNumber = new object[] {(int)9,"Mod" };
+				currALabel.SourceNumber = new object[] {(int)10,"Mod" };
 				currALabel.TargetNumber = (int)2;
 				currALabel  = new IntrenalDesktop.ArrowLabel19("", this);
 				arrows.Add(currALabel);
-				currALabel.SourceNumber = (int)12;
-				currALabel.TargetNumber = new object[] {(int)9,"Epsilon" };
+				currALabel.SourceNumber = (int)13;
+				currALabel.TargetNumber = new object[] {(int)10,"Epsilon" };
 				currALabel  = new IntrenalDesktop.ArrowLabel20("", this);
 				arrows.Add(currALabel);
-				currALabel.SourceNumber = new object[] {(int)8,"Mod" };
+				currALabel.SourceNumber = new object[] {(int)9,"Mod" };
 				currALabel.TargetNumber = (int)2;
 				currALabel  = new IntrenalDesktop.ArrowLabel21("", this);
 				arrows.Add(currALabel);
-				currALabel.SourceNumber = (int)12;
-				currALabel.TargetNumber = new object[] {(int)8,"Epsilon" };
+				currALabel.SourceNumber = (int)13;
+				currALabel.TargetNumber = new object[] {(int)9,"Epsilon" };
 				currALabel  = new IntrenalDesktop.ArrowLabel22("", this);
 				arrows.Add(currALabel);
 				currALabel.SourceNumber = new object[] {(int)7,"Mod" };
 				currALabel.TargetNumber = (int)2;
 				currALabel  = new IntrenalDesktop.ArrowLabel23("", this);
 				arrows.Add(currALabel);
-				currALabel.SourceNumber = (int)12;
+				currALabel.SourceNumber = (int)13;
 				currALabel.TargetNumber = new object[] {(int)7,"Epsilon" };
+				currALabel  = new IntrenalDesktop.ArrowLabel24("", this);
+				arrows.Add(currALabel);
+				currALabel.SourceNumber = (int)8;
+				currALabel.TargetNumber = new object[] {(int)7,"Mod" };
+				currALabel  = new IntrenalDesktop.ArrowLabel25("", this);
+				arrows.Add(currALabel);
+				currALabel.SourceNumber = (int)8;
+				currALabel.TargetNumber = new object[] {(int)7,"Epsilon" };
+				currALabel  = new IntrenalDesktop.ArrowLabel26("", this);
+				arrows.Add(currALabel);
+				currALabel.SourceNumber = (int)13;
+				currALabel.TargetNumber = (int)8;
 				bool pl = PostLoad();
 				bool pd = PostDeserialize();
 				SuccessLoad = pl & pd;
@@ -1628,8 +1641,8 @@ namespace GeneratedProject
 									};
 									parameters =new Dictionary<string, object>()
 									{
-										{"b", (double)50000 },
-										{"a", (double)50000 }
+										{"b", (double)500 },
+										{"a", (double)500 }
 									};
 									operationNames = new Dictionary<System.Int32,System.String>()
 									{
@@ -1873,6 +1886,146 @@ namespace GeneratedProject
 					obj.Object = this;
 				}
 		
+				internal class CategoryObject : DataPerformer.Formula.VectorFormulaConsumer, FormulaEditor.Interfaces.ITreeCollectionProxyFactory
+				{
+				
+					internal CategoryObject()
+					{
+						proxyFactory = this;
+						feedback = new Dictionary<int, string>()
+						{
+						};
+				
+						formulaString = new string[]
+						{
+							"<Root>  <F>    <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"x\" S=\"x\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">      <F />    </S>    <S type=\"FormulaEditor.Symbols.BinarySymbol\" symbol=\"&gt;\" S=\"&gt;\" Type=\"3\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\" />    <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"a\" S=\"a\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">      <F />    </S>    <S type=\"FormulaEditor.Symbols.BinarySymbol\" symbol=\"?\" S=\"?\" Type=\"3\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\" />    <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"k\" S=\"k\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">      <F />    </S>    <S type=\"FormulaEditor.Symbols.BinarySymbol\" symbol=\":\" S=\":\" Type=\"3\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\" />    <S type=\"FormulaEditor.Symbols.BinarySymbol\" symbol=\"-\" S=\"-\" Type=\"3\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"0\" Bold=\"1\" Sb=\"\" />    <S type=\"FormulaEditor.Symbols.SimpleSymbol\" symbol=\"y\" S=\"y\" Type=\"1\" Index=\"1\" Level=\"0\" DoubleValue=\"0\" UlongValue=\"0\" BoolValue=\"False\" Italic=\"1\" Bold=\"1\" Sb=\"\">      <F />    </S>  </F></Root>"
+						};
+						isSerialized = true;
+						calculateDerivation = false;
+						deriOrder = 0;
+						arguments =  new List<string>()
+						{
+							"k = Oz-Control/Mod.Formula_2",
+							"x = Oz-Control/Mod.Formula_5",
+							"y = Oz-Control/Epsilon.Formula_1"
+						};
+						parameters =new Dictionary<string, object>()
+						{
+							{"a", (double)2 }
+						};
+						operationNames = new Dictionary<System.Int32,System.String>()
+						{
+						};
+						Init();
+					}
+				
+					FormulaEditor.Interfaces.ITreeCollectionProxy FormulaEditor.Interfaces.ITreeCollectionProxyFactory.CreateProxy(FormulaEditor.Interfaces.ITreeCollection collection, Action<object> checkValue)
+					{
+						FormulaEditor.Interfaces.ITreeCollection f = this;
+						var t = 
+							FormulaEditor.ObjectFormulaTree.CreateList(f.Trees, new List<FormulaEditor.ObjectFormulaTree>());
+						var tt = t.ToArray();
+						return new Calculation(tt);
+					}
+				
+					internal class Calculation : FormulaEditor.Interfaces.ITreeCollectionProxy
+					{
+						public void Update()
+						{
+							var_0 = (double)measurement0.Parameter();
+							var_1 = (double)aliasName1.Value;
+							var_2 = (var_0) > (var_1);
+							var_3 = (double)measurement3.Parameter();
+							var_4 = (double)measurement4.Parameter();
+							var_5 = -(var_4);
+							var_6 = (var_2) ? (var_3) : (var_5);
+						}
+						
+						internal  Calculation(FormulaEditor.ObjectFormulaTree[] trees)
+						{
+							this.trees = trees;
+							measurement0 = DataPerformer.Formula.StaticExtensionDataPerformerFormula.ToMeasurement(trees[0]);
+							aliasName1 = DataPerformer.Formula.StaticExtensionDataPerformerFormula.ToAliasName(trees[1]);
+							measurement3 = DataPerformer.Formula.StaticExtensionDataPerformerFormula.ToMeasurement(trees[3]);
+							measurement4 = DataPerformer.Formula.StaticExtensionDataPerformerFormula.ToMeasurement(trees[4]);
+							dictionary[trees[0]] = Get_0;
+							dictionary[trees[1]] = Get_1;
+							dictionary[trees[2]] = Get_2;
+							dictionary[trees[3]] = Get_3;
+							dictionary[trees[4]] = Get_4;
+							dictionary[trees[5]] = Get_5;
+							dictionary[trees[6]] = Get_6;
+						}
+						
+						public FormulaEditor.GetValue this[FormulaEditor.ObjectFormulaTree tree]
+						{ get { return dictionary[tree]; }}
+						
+						Dictionary<FormulaEditor.ObjectFormulaTree, FormulaEditor.GetValue> dictionary = new Dictionary<FormulaEditor.ObjectFormulaTree, FormulaEditor.GetValue>();
+						
+						DataPerformer.Interfaces.IMeasurement measurement0;
+						Diagram.UI.Interfaces.IAliasName aliasName1;
+						DataPerformer.Interfaces.IMeasurement measurement3;
+						DataPerformer.Interfaces.IMeasurement measurement4;
+						FormulaEditor.ObjectFormulaTree currentTree = null;
+						object[] currentArray = null;
+						double doubleValue = 0;
+						FormulaEditor.ObjectFormulaTree[] trees = null;
+						double var_0 = 0;
+						double var_1 = 0;
+						bool var_2 = false;
+						double var_3 = 0;
+						double var_4 = 0;
+						double var_5 = 0;
+						double var_6 = 0;
+						
+						object Get_0()
+						{
+							return var_0;
+						}
+						
+						object Get_1()
+						{
+							return var_1;
+						}
+						
+						object Get_2()
+						{
+							return var_2;
+						}
+						
+						object Get_3()
+						{
+							return var_3;
+						}
+						
+						object Get_4()
+						{
+							return var_4;
+						}
+						
+						object Get_5()
+						{
+							return var_5;
+						}
+						
+						object Get_6()
+						{
+							return var_6;
+						}
+					
+					}
+				}
+			}
+		
+			internal class OblectLabel9 : Diagram.UI.Labels.PureObjectLabel
+			{
+				internal OblectLabel9(string name, Diagram.UI.Interfaces.IDesktop desktop) : base(name, "", "", 0, 0)
+				{
+					this.desktop = desktop;
+					obj = new OblectLabel9.CategoryObject();
+					obj.Object = this;
+				}
+		
 				internal class CategoryObject : Diagram.UI.ObjectContainerPortable
 				{
 					internal CategoryObject() : base(null)
@@ -1885,19 +2038,19 @@ namespace GeneratedProject
 					{
 						internal Desktop()
 						{
-							objects.Add(new IntrenalDesktop.OblectLabel8.CategoryObject.Desktop.OblectLabel0("Mod", this));
-							objects.Add(new IntrenalDesktop.OblectLabel8.CategoryObject.Desktop.OblectLabel1("Force", this));
-							objects.Add(new IntrenalDesktop.OblectLabel8.CategoryObject.Desktop.OblectLabel2("Epsilon", this));
+							objects.Add(new IntrenalDesktop.OblectLabel9.CategoryObject.Desktop.OblectLabel0("Mod", this));
+							objects.Add(new IntrenalDesktop.OblectLabel9.CategoryObject.Desktop.OblectLabel1("Force", this));
+							objects.Add(new IntrenalDesktop.OblectLabel9.CategoryObject.Desktop.OblectLabel2("Epsilon", this));
 							Diagram.UI.Labels.PureArrowLabel currALabel = null;
-							currALabel  = new IntrenalDesktop.OblectLabel8.CategoryObject.Desktop.ArrowLabel0("", this);
+							currALabel  = new IntrenalDesktop.OblectLabel9.CategoryObject.Desktop.ArrowLabel0("", this);
 							arrows.Add(currALabel);
 							currALabel.SourceNumber = (int)1;
 							currALabel.TargetNumber = (int)0;
-							currALabel  = new IntrenalDesktop.OblectLabel8.CategoryObject.Desktop.ArrowLabel1("", this);
+							currALabel  = new IntrenalDesktop.OblectLabel9.CategoryObject.Desktop.ArrowLabel1("", this);
 							arrows.Add(currALabel);
 							currALabel.SourceNumber = (int)2;
 							currALabel.TargetNumber = (int)1;
-							currALabel  = new IntrenalDesktop.OblectLabel8.CategoryObject.Desktop.ArrowLabel2("", this);
+							currALabel  = new IntrenalDesktop.OblectLabel9.CategoryObject.Desktop.ArrowLabel2("", this);
 							arrows.Add(currALabel);
 							currALabel.SourceNumber = (int)2;
 							currALabel.TargetNumber = (int)0;
@@ -2595,12 +2748,12 @@ namespace GeneratedProject
 				}
 			}
 		
-			internal class OblectLabel9 : Diagram.UI.Labels.PureObjectLabel
+			internal class OblectLabel10 : Diagram.UI.Labels.PureObjectLabel
 			{
-				internal OblectLabel9(string name, Diagram.UI.Interfaces.IDesktop desktop) : base(name, "", "", 0, 0)
+				internal OblectLabel10(string name, Diagram.UI.Interfaces.IDesktop desktop) : base(name, "", "", 0, 0)
 				{
 					this.desktop = desktop;
-					obj = new OblectLabel9.CategoryObject();
+					obj = new OblectLabel10.CategoryObject();
 					obj.Object = this;
 				}
 		
@@ -2616,19 +2769,19 @@ namespace GeneratedProject
 					{
 						internal Desktop()
 						{
-							objects.Add(new IntrenalDesktop.OblectLabel9.CategoryObject.Desktop.OblectLabel0("Mod", this));
-							objects.Add(new IntrenalDesktop.OblectLabel9.CategoryObject.Desktop.OblectLabel1("Force", this));
-							objects.Add(new IntrenalDesktop.OblectLabel9.CategoryObject.Desktop.OblectLabel2("Epsilon", this));
+							objects.Add(new IntrenalDesktop.OblectLabel10.CategoryObject.Desktop.OblectLabel0("Mod", this));
+							objects.Add(new IntrenalDesktop.OblectLabel10.CategoryObject.Desktop.OblectLabel1("Force", this));
+							objects.Add(new IntrenalDesktop.OblectLabel10.CategoryObject.Desktop.OblectLabel2("Epsilon", this));
 							Diagram.UI.Labels.PureArrowLabel currALabel = null;
-							currALabel  = new IntrenalDesktop.OblectLabel9.CategoryObject.Desktop.ArrowLabel0("", this);
+							currALabel  = new IntrenalDesktop.OblectLabel10.CategoryObject.Desktop.ArrowLabel0("", this);
 							arrows.Add(currALabel);
 							currALabel.SourceNumber = (int)1;
 							currALabel.TargetNumber = (int)0;
-							currALabel  = new IntrenalDesktop.OblectLabel9.CategoryObject.Desktop.ArrowLabel1("", this);
+							currALabel  = new IntrenalDesktop.OblectLabel10.CategoryObject.Desktop.ArrowLabel1("", this);
 							arrows.Add(currALabel);
 							currALabel.SourceNumber = (int)2;
 							currALabel.TargetNumber = (int)1;
-							currALabel  = new IntrenalDesktop.OblectLabel9.CategoryObject.Desktop.ArrowLabel2("", this);
+							currALabel  = new IntrenalDesktop.OblectLabel10.CategoryObject.Desktop.ArrowLabel2("", this);
 							arrows.Add(currALabel);
 							currALabel.SourceNumber = (int)2;
 							currALabel.TargetNumber = (int)0;
@@ -3326,12 +3479,12 @@ namespace GeneratedProject
 				}
 			}
 		
-			internal class OblectLabel10 : Diagram.UI.Labels.PureObjectLabel
+			internal class OblectLabel11 : Diagram.UI.Labels.PureObjectLabel
 			{
-				internal OblectLabel10(string name, Diagram.UI.Interfaces.IDesktop desktop) : base(name, "", "", 0, 0)
+				internal OblectLabel11(string name, Diagram.UI.Interfaces.IDesktop desktop) : base(name, "", "", 0, 0)
 				{
 					this.desktop = desktop;
-					obj = new OblectLabel10.CategoryObject();
+					obj = new OblectLabel11.CategoryObject();
 					obj.Object = this;
 				}
 		
@@ -3340,12 +3493,12 @@ namespace GeneratedProject
 				}
 			}
 		
-			internal class OblectLabel11 : Diagram.UI.Labels.PureObjectLabel
+			internal class OblectLabel12 : Diagram.UI.Labels.PureObjectLabel
 			{
-				internal OblectLabel11(string name, Diagram.UI.Interfaces.IDesktop desktop) : base(name, "", "", 0, 0)
+				internal OblectLabel12(string name, Diagram.UI.Interfaces.IDesktop desktop) : base(name, "", "", 0, 0)
 				{
 					this.desktop = desktop;
-					obj = new OblectLabel11.CategoryObject();
+					obj = new OblectLabel12.CategoryObject();
 					obj.Object = this;
 				}
 		
@@ -3361,19 +3514,19 @@ namespace GeneratedProject
 					{
 						internal Desktop()
 						{
-							objects.Add(new IntrenalDesktop.OblectLabel11.CategoryObject.Desktop.OblectLabel0("Mod", this));
-							objects.Add(new IntrenalDesktop.OblectLabel11.CategoryObject.Desktop.OblectLabel1("Force", this));
-							objects.Add(new IntrenalDesktop.OblectLabel11.CategoryObject.Desktop.OblectLabel2("Epsilon", this));
+							objects.Add(new IntrenalDesktop.OblectLabel12.CategoryObject.Desktop.OblectLabel0("Mod", this));
+							objects.Add(new IntrenalDesktop.OblectLabel12.CategoryObject.Desktop.OblectLabel1("Force", this));
+							objects.Add(new IntrenalDesktop.OblectLabel12.CategoryObject.Desktop.OblectLabel2("Epsilon", this));
 							Diagram.UI.Labels.PureArrowLabel currALabel = null;
-							currALabel  = new IntrenalDesktop.OblectLabel11.CategoryObject.Desktop.ArrowLabel0("", this);
+							currALabel  = new IntrenalDesktop.OblectLabel12.CategoryObject.Desktop.ArrowLabel0("", this);
 							arrows.Add(currALabel);
 							currALabel.SourceNumber = (int)1;
 							currALabel.TargetNumber = (int)0;
-							currALabel  = new IntrenalDesktop.OblectLabel11.CategoryObject.Desktop.ArrowLabel1("", this);
+							currALabel  = new IntrenalDesktop.OblectLabel12.CategoryObject.Desktop.ArrowLabel1("", this);
 							arrows.Add(currALabel);
 							currALabel.SourceNumber = (int)2;
 							currALabel.TargetNumber = (int)1;
-							currALabel  = new IntrenalDesktop.OblectLabel11.CategoryObject.Desktop.ArrowLabel2("", this);
+							currALabel  = new IntrenalDesktop.OblectLabel12.CategoryObject.Desktop.ArrowLabel2("", this);
 							arrows.Add(currALabel);
 							currALabel.SourceNumber = (int)2;
 							currALabel.TargetNumber = (int)0;
@@ -4071,12 +4224,12 @@ namespace GeneratedProject
 				}
 			}
 		
-			internal class OblectLabel12 : Diagram.UI.Labels.PureObjectLabel
+			internal class OblectLabel13 : Diagram.UI.Labels.PureObjectLabel
 			{
-				internal OblectLabel12(string name, Diagram.UI.Interfaces.IDesktop desktop) : base(name, "", "", 0, 0)
+				internal OblectLabel13(string name, Diagram.UI.Interfaces.IDesktop desktop) : base(name, "", "", 0, 0)
 				{
 					this.desktop = desktop;
-					obj = new OblectLabel12.CategoryObject();
+					obj = new OblectLabel13.CategoryObject();
 					obj.Object = this;
 				}
 		
@@ -4088,12 +4241,12 @@ namespace GeneratedProject
 				}
 			}
 		
-			internal class OblectLabel13 : Diagram.UI.Labels.PureObjectLabel
+			internal class OblectLabel14 : Diagram.UI.Labels.PureObjectLabel
 			{
-				internal OblectLabel13(string name, Diagram.UI.Interfaces.IDesktop desktop) : base(name, "", "", 0, 0)
+				internal OblectLabel14(string name, Diagram.UI.Interfaces.IDesktop desktop) : base(name, "", "", 0, 0)
 				{
 					this.desktop = desktop;
-					obj = new OblectLabel13.CategoryObject();
+					obj = new OblectLabel14.CategoryObject();
 					obj.Object = this;
 				}
 		
@@ -4125,12 +4278,12 @@ namespace GeneratedProject
 				
 			}
 		
-			internal class OblectLabel14 : Diagram.UI.Labels.PureObjectLabel
+			internal class OblectLabel15 : Diagram.UI.Labels.PureObjectLabel
 			{
-				internal OblectLabel14(string name, Diagram.UI.Interfaces.IDesktop desktop) : base(name, "", "", 0, 0)
+				internal OblectLabel15(string name, Diagram.UI.Interfaces.IDesktop desktop) : base(name, "", "", 0, 0)
 				{
 					this.desktop = desktop;
-					obj = new OblectLabel14.CategoryObject();
+					obj = new OblectLabel15.CategoryObject();
 					obj.Object = this;
 				}
 		
@@ -4162,12 +4315,12 @@ namespace GeneratedProject
 				
 			}
 		
-			internal class OblectLabel15 : Diagram.UI.Labels.PureObjectLabel
+			internal class OblectLabel16 : Diagram.UI.Labels.PureObjectLabel
 			{
-				internal OblectLabel15(string name, Diagram.UI.Interfaces.IDesktop desktop) : base(name, "", "", 0, 0)
+				internal OblectLabel16(string name, Diagram.UI.Interfaces.IDesktop desktop) : base(name, "", "", 0, 0)
 				{
 					this.desktop = desktop;
-					obj = new OblectLabel15.CategoryObject();
+					obj = new OblectLabel16.CategoryObject();
 					obj.Object = this;
 				}
 		
@@ -4504,6 +4657,45 @@ namespace GeneratedProject
 				{
 					this.desktop = desktop;
 					arrow = new ArrowLabel23.CategoryArrow();
+				}
+		
+				internal class CategoryArrow : DataPerformer.Portable.DataLink
+				{
+				}
+			}
+		
+			internal class ArrowLabel24 : Diagram.UI.Labels.PureArrowLabel
+			{
+				internal ArrowLabel24(string name, Diagram.UI.Interfaces.IDesktop desktop) : base(name, "", "", 0, 0)
+				{
+					this.desktop = desktop;
+					arrow = new ArrowLabel24.CategoryArrow();
+				}
+		
+				internal class CategoryArrow : DataPerformer.Portable.DataLink
+				{
+				}
+			}
+		
+			internal class ArrowLabel25 : Diagram.UI.Labels.PureArrowLabel
+			{
+				internal ArrowLabel25(string name, Diagram.UI.Interfaces.IDesktop desktop) : base(name, "", "", 0, 0)
+				{
+					this.desktop = desktop;
+					arrow = new ArrowLabel25.CategoryArrow();
+				}
+		
+				internal class CategoryArrow : DataPerformer.Portable.DataLink
+				{
+				}
+			}
+		
+			internal class ArrowLabel26 : Diagram.UI.Labels.PureArrowLabel
+			{
+				internal ArrowLabel26(string name, Diagram.UI.Interfaces.IDesktop desktop) : base(name, "", "", 0, 0)
+				{
+					this.desktop = desktop;
+					arrow = new ArrowLabel26.CategoryArrow();
 				}
 		
 				internal class CategoryArrow : DataPerformer.Portable.DataLink

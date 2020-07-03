@@ -84,9 +84,10 @@ namespace Assets
                 return null;
             }
             Text headT = txt["heading_Indicator"][0];
-            Image mask = im["_mask"][0];
+            Image mask = im["Bank_fix"][0];
+            Image maskR = im["Bank_fix_Red"][0];
             return new AngularIndicator(gameObject, scada, f, frame, 
-                desktop + "." + par, headT, mask);
+                desktop + "." + par, headT, mask, maskR);
         }
     }
 }
