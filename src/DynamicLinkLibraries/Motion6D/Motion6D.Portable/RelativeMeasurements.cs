@@ -9,7 +9,9 @@ using DataPerformer.Portable.Measurements;
 using DataPerformer.Interfaces;
 
 using Motion6D.Interfaces;
+
 using Vector3D;
+using RealMatrixProcessor;
 
 namespace Motion6D.Portable
 {
@@ -24,6 +26,8 @@ namespace Motion6D.Portable
         EulerAngles angles = new EulerAngles();
 
         const Double a = 0;
+
+        double[] aux = new double[3];
 
 
         private IPosition source;
@@ -237,11 +241,11 @@ namespace Motion6D.Portable
 
         void UpdateAngularVelocity()
         {
-            Vector3D.StaticExtensionVector3D.QuaternionInvertOmega(quaternion, aSource.Omega, omegaRelative);
-            double[] om = aTarget.Omega;
+            aTarget.Omega.Multiply(relativeFrame.Matrix, aux);
+            double[] om = aSource.Omega;
             for (int i = 0; i < 3; i++)
             {
-                omegaRelative[i] = om[i] - omegaRelative[i];
+                omegaRelative[i] = om[i] - aux[i];
             }
         }
 
@@ -551,7 +555,7 @@ namespace Motion6D.Portable
         void UpdateOrientation(double[] x, double[] aux)
         {
             double[,] m = oTarget.Matrix;
-            RealMatrixProcessor.RealMatrix.Multiply(x, m, aux);
+            x.Multiply(m, aux);
             Array.Copy(aux, x, 3);
         }
 
@@ -584,14 +588,16 @@ namespace Motion6D.Portable
 
         void UpdateQuaternion()
         {
-            Vector3D.StaticExtensionVector3D.QuaternionInvertMultiply(oSource.Quaternion, oTarget.Quaternion, quaternion);
+            oTarget.Quaternion.QuaternionInvertMultiply(oSource.Quaternion, quaternion);
+            Array.Copy(quaternion, relativeFrame.Quaternion, 3);
+            relativeFrame.SetMatrix();
         }
 
         void AddAngularVelocity()
         {
             double[] om = aTarget.Omega;
-            Vector3D.StaticExtensionVector3D.VectorPoduct(relativePos, om, omegaRProduct);
-            RealMatrixProcessor.RealMatrix.PlusEqual(relativeVelocity, omegaRProduct);
+            relativePos.VectorPoduct(om, omegaRProduct);
+            relativeVelocity.PlusEqual( omegaRProduct);
         }
 
 

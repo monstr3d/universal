@@ -274,7 +274,7 @@ namespace Vector3D
 		/// <param name="x">First vector</param>
 		/// <param name="y">Second vector</param>
 		/// <param name="z">Result vector</param>
-		public static void VectorPoduct(double[] x, double[] y, double[] z)
+		public static void VectorPoduct(this double[] x, double[] y, double[] z)
 		{
 			z[0] = x[1] * y[2] - x[2] * y[1];
 			z[1] = x[2] * y[0] - x[0] * y[2];
@@ -718,7 +718,7 @@ namespace Vector3D
         /// <param name="x">First term</param>
         /// <param name="y">Second term</param>
         /// <param name="z">Product</param>
-        public static void QuaternionInvertMultiply(double[] x, double[] y, double[] z)
+        public static void QuaternionInvertMultiply(this double[] x, double[] y, double[] z)
         {
             z[0] = x[0] * y[0] + x[1] * y[1] + x[2] * y[2] + x[3] * y[3];
             z[1] = x[0] * y[1] - x[1] * y[0] - x[2] * y[3] + x[3] * y[2];
@@ -732,7 +732,7 @@ namespace Vector3D
         /// <param name="quaterinon">Quaterinon</param>
         /// <param name="omegaIn">Input omega</param>
         /// <param name="omegaOut">Output omega</param>
-        public static void QuaternionInvertOmega(double[] quaterinon, double[] omegaIn, double[] omegaOut)
+        public static void QuaternionInvertOmega(this double[] quaterinon, double[] omegaIn, double[] omegaOut)
         {
             omegaOut[0] = quaterinon[0] * omegaIn[0] - quaterinon[2] * omegaIn[2] + quaterinon[3] * omegaIn[1];
             omegaOut[1] = quaterinon[0] * omegaIn[1] - quaterinon[3] * omegaIn[0] + quaterinon[1] * omegaIn[2];

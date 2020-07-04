@@ -17,7 +17,7 @@ namespace Assets
     {
         #region Fields
 
-        public const float MaxRoll = 10;
+        public const float MaxRoll = 30;
 
         bool isActive = true;
 
@@ -28,7 +28,7 @@ namespace Assets
         Func<object> f;
 
         IReferenceFrame fr;
-
+//*/
         ReferenceFrame frame;
 
         string parameter;
