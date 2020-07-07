@@ -3230,6 +3230,22 @@ namespace Diagram.UI
                                 if (!dependent.Contains(s))
                                 {
                                     dependent.Add(s);
+                                    if (s is IChildrenObject)
+                                    {
+                                        IChildrenObject cob = s as IChildrenObject;
+                                        IEnumerable<ICategoryObject> en = 
+                                            cob.GetChildren<ICategoryObject>();
+                                        foreach (ICategoryObject co in en)
+                                        {
+                                            if (!dependent.Contains(co))
+                                            {
+                                                if (objectCondition(co))
+                                                {
+                                                    dependent.Add(co);
+                                                }
+                                            }
+                                        }
+                                    }
                                     s.GetDependentObjects(arrows,
                                         objectCondition, arrowCondition, sourceCondition, dependent);
                                 }

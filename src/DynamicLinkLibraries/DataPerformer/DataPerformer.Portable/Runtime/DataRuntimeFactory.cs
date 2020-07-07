@@ -311,11 +311,12 @@ namespace DataPerformer.Portable.Runtime
         {
             return new DataConsumerRuntime(this, consumer, reason);
         }
-        
+
+
         #endregion
 
         #endregion
 
 
-   }
+    }
 }

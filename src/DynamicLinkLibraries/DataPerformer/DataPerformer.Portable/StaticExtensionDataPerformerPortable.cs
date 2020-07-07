@@ -85,9 +85,28 @@ namespace DataPerformer.Portable
         #region Public Members
 
         /// <summary>
-        /// Inits itself
+        /// Converts object to differential equation solver
         /// </summary>
-        public static void Init()
+        /// <param name="obj">The object</param>
+        /// <returns>The solver</returns>
+        public static IDifferentialEquationSolver ToDifferentialEquationSolver(this object obj)
+        {
+            if (obj is IDifferentialEquationSolver)
+            {
+                return obj as IDifferentialEquationSolver;
+            }
+            if (obj is IChildrenObject)
+            {
+                return (obj as IChildrenObject).GetChild<IDifferentialEquationSolver>();
+            }
+            return null;
+        }
+
+
+/// <summary>
+/// Inits itself
+/// </summary>
+public static void Init()
         {
 
         }
@@ -1473,7 +1492,7 @@ namespace DataPerformer.Portable
         public static IComponentCollection GetDependentCollection(this IDataConsumer consumer,
             int priority = 0, string reason = null)
         {
-            return StaticExtensionDataPerformerPortable.Factory.CreateCollection(consumer, priority, reason);
+            return Factory.CreateCollection(consumer, priority, reason);
         }
 
         /// <summary>

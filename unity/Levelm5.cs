@@ -16,7 +16,8 @@ namespace Assets
         public Levelm5()
         {
             // var ss = new string[] { Level0.Distance, Level0.Velocity,   Level0.VxLimiter,  Level0.Rz };
-            var ss = new string[] { Level0.LongXC, Level0.OzControl1, 
+            var ss = new string[] {// Level0.LongXC, 
+                Level0.OzControl1, 
                 Level0.Rz, Level0.Vz, Level0.Oz };
             var l = new List<string>();
             foreach (var s in ss)
@@ -36,7 +37,7 @@ namespace Assets
                 (Level0.RigidBodyStation + "." +
                     Level0.LongXC).EnableDisable(false);
                 //             ForcesMomentumsUpdate.Finish();
-                (Level0.RigidBodyStation + "." +
+             /*   (Level0.RigidBodyStation + "." +
                   Level0.ShortXC).EnableDisable(true);// */
             }
 
@@ -65,7 +66,7 @@ namespace Assets
                 if (c[11].Contains("OMGz"))
                 {
                     c[11] = "Station frame.OMGz=-0.02";
-                    c[8] = "Station frame.Yaw=-2.7";
+                    c[8] = "Station frame.Yaw=-3.1416";
                 }
             }
         }

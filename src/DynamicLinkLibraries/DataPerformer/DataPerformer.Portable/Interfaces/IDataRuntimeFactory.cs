@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 using Diagram.UI.Interfaces;
 
@@ -72,6 +73,7 @@ namespace DataPerformer.Portable.Interfaces
         /// <param name="consumer">Data consumer</param>
         /// <returns>Update dependent objects action</returns>
         Action UpdateDependent(IDataConsumer consumer);
+
 
     }
 }

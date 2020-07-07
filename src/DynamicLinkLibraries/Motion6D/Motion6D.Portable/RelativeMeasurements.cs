@@ -11,6 +11,7 @@ using DataPerformer.Interfaces;
 using Motion6D.Interfaces;
 
 using Vector3D;
+
 using RealMatrixProcessor;
 
 namespace Motion6D.Portable
@@ -25,7 +26,7 @@ namespace Motion6D.Portable
 
         EulerAngles angles = new EulerAngles();
 
-        const Double a = 0;
+        const double a = 0;
 
         double[] aux = new double[3];
 

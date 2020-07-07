@@ -14,6 +14,7 @@ using Event.Portable;
 using Motion6D.Interfaces;
 using Motion6D.Portable.Interfaces;
 using Motion6D.Portable.Runtime;
+using DataPerformer.Interfaces;
 
 namespace Motion6D.Portable
 {
@@ -28,6 +29,8 @@ namespace Motion6D.Portable
         #endregion
 
         #region Public Members
+
+
 
         /// <summary>
         /// Gets relative frame
@@ -161,6 +164,33 @@ namespace Motion6D.Portable
             }
             return l;
         }
+
+        #endregion
+
+        #region Private Members
+
+
+        private static MechanicalAggregateEquation GetEquation(this AggregableWrapper agg, 
+            Dictionary<AggregableWrapper, MechanicalAggregateEquation> mechanicalEquationsOld,
+            Dictionary<AggregableWrapper, MechanicalAggregateEquation> mechanicalEquationsNew)
+        {
+            if (mechanicalEquationsNew.ContainsKey(agg))
+            {
+                MechanicalAggregateEquation equ = mechanicalEquationsNew[agg];
+                return equ;
+            }
+            if (mechanicalEquationsOld.ContainsKey(agg))
+            {
+                MechanicalAggregateEquation equ = mechanicalEquationsOld[agg];
+                mechanicalEquationsNew[agg] = equ;
+                return equ;
+            }
+            MechanicalAggregateEquation eq = MechanicalAggregateEquation.CreateAggregateEquation(agg);
+            mechanicalEquationsNew[agg] = eq;
+            return eq;
+        }
+
+
 
         #endregion
 

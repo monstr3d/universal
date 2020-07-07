@@ -156,11 +156,12 @@ namespace DataPerformer.Portable.Runtime
 
         void IDataRuntime.Check(IDataConsumer dataConsumer)
         {
+
         }
 
         IDifferentialEquationSolver IDataRuntime.GetDifferentialEquationSolver(object obj)
         {
-            return null;
+            return obj.ToDifferentialEquationSolver();
         }
 
         double IDataRuntime.Time

@@ -11,6 +11,7 @@ using Diagram.UI.Interfaces;
 using DataPerformer.Interfaces;
 
 using Motion6D.Interfaces;
+using DataPerformer.Portable;
 
 namespace Motion6D.Portable.Runtime
 {
@@ -208,6 +209,11 @@ namespace Motion6D.Portable.Runtime
         /// <returns></returns>
         public override IDifferentialEquationSolver GetDifferentialEquationSolver(object obj)
         {
+            var s = obj.ToDifferentialEquationSolver();
+            if (s != null)
+            {
+                return s;
+            }
             if (obj is IAssociatedObject)
             {
                 IAssociatedObject ao = obj as IAssociatedObject;
@@ -221,9 +227,9 @@ namespace Motion6D.Portable.Runtime
                     }
                 }
             }
-            if (obj is DataPerformer.Portable.MeasurementsWrapper)
+            if (obj is MeasurementsWrapper)
             {
-                DataPerformer.Portable.MeasurementsWrapper m = obj as DataPerformer.Portable.MeasurementsWrapper;
+                MeasurementsWrapper m = obj as DataPerformer.Portable.MeasurementsWrapper;
                 for (int i = 0; i < m.Count; i++)
                 {
                     if (m[i] is AggregableWrapper)
@@ -238,6 +244,7 @@ namespace Motion6D.Portable.Runtime
                 }
             }
             return null;
+
         }
 
 
@@ -265,7 +272,6 @@ namespace Motion6D.Portable.Runtime
             frames.UpdateFrames();
             base.UpdateAll();
         }
-
 
         private MechanicalAggregateEquation GetEquation(AggregableWrapper agg)
         {
