@@ -17,22 +17,44 @@ namespace Vector3D
 
         #endregion
 
+        /// <summary>
+        /// The copysign function
+        /// </summary>
+        /// <param name="a">Fisrt arqument</param>
+        /// <param name="b">Second argument</param>
+        /// <returns>The value of the function</returns>
         static double CopySign(double a, double b)
         {
             return  Math.Abs(a) * Math.Sign(b);
         }
 
+        /// <summary>
+        ///  Sets the Euler angles from the quaternion
+        /// </summary>
+        /// <param name="angles">The angles</param>
+        /// <param name="quaternion">The quaternion</param>
         public static void Set(this EulerAngles angles, double[] quaternion)
         {
             angles.Set(quaternion[1], quaternion[2], quaternion[3], quaternion[0]);
         }
 
+        /// <summary>
+        ///  Sets the Euler angles from the quaternion
+        /// </summary>
+        /// <param name="angles">The angles</param>
+        /// <param name="offset">The offset</param>
+        /// <param name="quaternion">The quaternion</param>
         public static void Set(this EulerAngles angles, int offset, double[] quaternion)
         {
             angles.Set(quaternion[1 + offset], quaternion[2 + offset], 
                 quaternion[3 + offset], quaternion[offset]);
         }
 
+        /// <summary>
+        /// Converts Euler angles to quaternion
+        /// </summary>
+        /// <param name="angles">The angles</param>
+        /// <param name="q">The quaternion</param>
         static public void ToQuaternion(this EulerAngles angles, double[] q)
         {
             // Abbreviations for the various angular functions
@@ -48,6 +70,12 @@ namespace Vector3D
             q[3] = cr * cp * sy - sr * sp * cy;
         }
 
+        /// <summary>
+        /// Converts Euler angles to quaternion
+        /// </summary>
+        /// <param name="angles">The angles</param>
+        /// <param name="offset">The offset</param>
+        /// <param name="q">The quaternion</param>
         static public void ToQuaternion(this EulerAngles angles, int offset, double[] q)
         {
             // Abbreviations for the various angular functions
@@ -64,6 +92,14 @@ namespace Vector3D
         }
 
 
+        /// <summary>
+        /// Sets Euler angles by quaternion components
+        /// </summary>
+        /// <param name="angles">The angles</param>
+        /// <param name="x">x - quaternion component</param>
+        /// <param name="y">y - quaternion component</param>
+        /// <param name="z">z - quaternion component</param>
+        /// <param name="w">w - quaternion component</param>
         public static void  Set(this EulerAngles angles, double x, double y, double z, double w)
         {
          
@@ -550,7 +586,7 @@ namespace Vector3D
             auxQuaternion[0] = 0;
             Array.Copy(omega, 0, auxQuaternion, 1, 3);
             QuaternionMultiply(quaternion, auxQuaternion, quaternionDerivation);
-            for (int i = 0; i < 3; i++)
+            for (int i = 0; i < 4; i++)
             {
                 quaternionDerivation[i] *= 0.5;
             }
