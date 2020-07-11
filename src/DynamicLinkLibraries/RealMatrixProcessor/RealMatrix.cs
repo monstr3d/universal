@@ -14,7 +14,7 @@ namespace RealMatrixProcessor
         /// </summary>
         /// <param name="a">Matrix to invert</param>
         /// <param name="aInverted">Result of inversion</param>
-		public static void Invert(double[,] a, double[,] aInverted)
+		public static void Invert(this double[,] a, double[,] aInverted)
 		{
 			double e, y, det, w, d = 0, d1;
 			int i, j, k, ir, ip, n = a.GetLength(0);

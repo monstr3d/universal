@@ -90,7 +90,7 @@ namespace Assets
             {
                 c[i] = c[i].ToZero();
             }
-            c[8] = "Station frame.Yaw=-2.7";
+            c[8] = "Station frame.Yaw=2.7";
         }
     }
 }

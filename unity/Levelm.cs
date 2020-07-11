@@ -15,6 +15,8 @@ namespace Assets
 
         protected ReferenceFrame frame;
 
+        protected IAngularVelocity av;
+
         protected IEvent ev;
 
         protected IScadaInterface scada;
@@ -25,15 +27,26 @@ namespace Assets
 
         protected Func<double> fz;
 
+        protected Action<double> ax;
+
+        protected Action<double> ay;
+
+        protected Action<double> az;
+
+
 
         #endregion
 
         public Levelm()
         {
             Level0.Get(out scada, out ev, out frame);
+            av = frame as IAngularVelocity;
             fx = scada.GetDoubleOutput("Force.Fz");
             fy = scada.GetDoubleOutput("Force.Fy");
             fz = scada.GetDoubleOutput("Force.Fx");
+            ax = scada.GetDoubleInput("Force.Fz");
+            ay = scada.GetDoubleInput("Force.Fy");
+            az = scada.GetDoubleInput("Force.Fx");
         }
 
     }

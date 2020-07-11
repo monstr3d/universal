@@ -514,6 +514,10 @@ namespace Motion6D.Portable
                 return false;
             }
             UpdateAll = UpdateCoinDistance;
+            if (oSource != null & oTarget != null)
+            {
+                UpdateAll += UpdateRelativePosition;
+            }
             if ((source is IVelocity) & (target is IVelocity))
             {
                 vSource = source as IVelocity;
@@ -535,8 +539,20 @@ namespace Motion6D.Portable
             if ((oSource != null) & (oTarget != null))
             {
                 UpdateAll += UpdateQuaternion;
+                if ((source is IVelocity) & (target is IVelocity))
+                {
+                    UpdateAll += UpdateVelocityRotation;
+                }
             }
             return true;
+        }
+
+        void UpdateVelocityRotation()
+        {
+            ReferenceFrame f = ReferenceFrame.GetOwnFrame(target);
+            f.CalculateRotatedPosition(relativeVelocity, aux);
+            Array.Copy(aux, relativeVelocity, 3);
+            Array.Copy(relativeVelocity, ivelocity.Velocity, 3);
         }
 
         void UpdateCoinDistance()
@@ -600,7 +616,6 @@ namespace Motion6D.Portable
             relativePos.VectorPoduct(om, omegaRProduct);
             relativeVelocity.PlusEqual( omegaRProduct);
         }
-
 
         IMeasurement[] zero
         {

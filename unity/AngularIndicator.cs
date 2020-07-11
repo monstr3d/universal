@@ -1,15 +1,15 @@
-﻿using Motion6D.Interfaces;
-using Scada.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using Unity.Standard;
+﻿using System;
 using UnityEngine;
 using UnityEngine.UI;
+
+using Scada.Interfaces;
+
+using Motion6D.Interfaces;
+
 using Vector3D;
+
+using Unity.Standard;
+
 
 namespace Assets
 {
@@ -17,7 +17,7 @@ namespace Assets
     {
         #region Fields
 
-        public const float MaxRoll = 30;
+        public const float MaxRoll = 10;
 
         bool isActive = true;
 

@@ -279,23 +279,28 @@ namespace Assets
                 ttt.Add(tst);
             }
             var co = scada.Constants;
-            var ml = Math.Abs(StaticExtensionUnity.Activation.level);
-            if (StaticExtensionUnity.Activation.level < 0)
+            var level = StaticExtensionUnity.Activation.level;
+            var ml = Math.Abs(level);
+            if (level < 0)
             {
                 scada.SetConstant(Level0.LongXK, (double)constants[0]);
                 scada.SetConstant(Level0.ShortXK, (double)constants[0]);
             }
-            if (StaticExtensionUnity.Activation.level < -1)
+            if (level < -1)
             {
                 scada.SetConstant(Level0.YK, (double)constants[1]);
             }
-            if (StaticExtensionUnity.Activation.level < -2)
+            if (level < -2)
             {
+                scada.SetConstant(Level0.ZK, (double)constants[2]);
+            }
+            if (level == -6)
+            {
+                scada.SetConstant(Level0.YK, (double)constants[1]);
                 scada.SetConstant(Level0.ZK, (double)constants[2]);
             }
             if (constants[4] > float.Epsilon)
             {
-                double k = rigidBody.MomentOfInertia[2, 2];
                 scada.SetConstant(Level0.OzK, (double)constants[4]);
             }
             foreach (var i in dictionary.Keys)

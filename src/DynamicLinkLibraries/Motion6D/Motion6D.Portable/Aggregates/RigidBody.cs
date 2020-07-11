@@ -7,7 +7,9 @@ using DataPerformer.Interfaces;
 using DataPerformer.Portable;
 
 using Motion6D.Interfaces;
+
 using Vector3D;
+using RealMatrixProcessor;
 
 namespace Motion6D.Portable.Aggregates
 {
@@ -192,12 +194,12 @@ namespace Motion6D.Portable.Aggregates
         protected double[,] auxMatrix = new double[3, 3];
 
  
-        protected Action AddForce = delegate ()
+        protected Action AddForce =  () =>
         {
 
         };
 
-        protected Action AddMomentum = delegate ()
+        protected Action AddMomentum =  () =>
         {
 
         };
@@ -286,7 +288,6 @@ namespace Motion6D.Portable.Aggregates
 
         #endregion
 
-
         #region IAlias Members
 
         IList<string> IAlias.AliasNames => names;
@@ -312,8 +313,6 @@ namespace Motion6D.Portable.Aggregates
         }
 
         #endregion
-
-
 
         #region Overriden Members
 
@@ -395,7 +394,7 @@ namespace Motion6D.Portable.Aggregates
         protected virtual void SetProperties(object[] o)
         {
             momentOfInertia = o[0] as double[,];
-            RealMatrixProcessor.RealMatrix.Invert(momentOfInertia, invertedMomentOfInertia);
+            momentOfInertia.Invert(invertedMomentOfInertia);
             if (o[1] != null)
             {
                 connections = o[1] as double[][];
@@ -900,6 +899,7 @@ namespace Motion6D.Portable.Aggregates
             for (int i = 0; i < 3; i++)
             {
                 double a = 0;
+                v3d[i] = 0;
                 IMeasurement m = inertialAccelationMea[i];
                 if (m != null)
                 {
@@ -910,7 +910,12 @@ namespace Motion6D.Portable.Aggregates
                 {
                     a += invertedMass * (double)m.Parameter();
                 }
-                internalAcceleration[i] += a;
+                v3d[i] = a;
+            }
+            orientation.Multiply(v3d, v3d1);
+            for (int i = 0; i < 3; i++)
+            {
+                internalAcceleration[i] += v3d1[i];
             }
         }
 
@@ -934,8 +939,8 @@ namespace Motion6D.Portable.Aggregates
             }
             AddForce();
             Array.Copy(state, 10, omega, 0, 3);
-            RealMatrixProcessor.RealMatrix.Multiply(momentOfInertia, omega, omegaAdd);
-            StaticExtensionVector3D.VectorPoduct(omega, omegaAdd, omegaAddP);
+            momentOfInertia.Multiply(omega, omegaAdd);
+            omega.VectorPoduct(omegaAdd, omegaAddP);
             for (int i = 0; i < 3; i++)
             {
                 internalAcceleration[i + 3] += omegaAddP[i];
@@ -973,7 +978,7 @@ namespace Motion6D.Portable.Aggregates
 
             // Angular acceleration
             Array.Copy(internalAcceleration, 3, v3d, 0, 3);
-            RealMatrixProcessor.RealMatrix.Multiply(v3d, orientation, v3d1);
+            v3d.Multiply(orientation, v3d1);
             Array.Copy(v3d1, 0, acc, 3, 3);
 
             // Linear acceleration
@@ -986,9 +991,9 @@ namespace Motion6D.Portable.Aggregates
                 acc[i] = internalAcceleration[i] + v3d1[i];
             }
             Array.Copy(x, v3d1, 3);
-            StaticExtensionVector3D.VectorPoduct(omega, v3d1, v3d2);
-            StaticExtensionVector3D.VectorPoduct(omega, v3d2, v3d1);
-            RealMatrixProcessor.RealMatrix.Multiply(v3d1, orientation, v3d);
+            omega.VectorPoduct(v3d1, v3d2);
+            omega.VectorPoduct(v3d2, v3d1);
+            v3d1.Multiply(orientation, v3d);
             for (int i = 0; i < 3; i++)
             {
                 acc[i] += v3d[i];

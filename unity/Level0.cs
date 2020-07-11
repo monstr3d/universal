@@ -23,6 +23,7 @@ namespace Assets
         static internal readonly string ShortXK = "X-Control 2/Mod.k";
         static internal readonly string LongXC = "X-Control 1/Epsilon.Formula_1";
         static internal readonly string ShortXC = "X-Control 2/Epsilon.Formula_1";
+        static internal readonly string LimitedXC = "X-limitation.Formula_1";
 
         static internal readonly string YControl = "Y-Control/Epsilon.Formula_1";
 
@@ -31,7 +32,11 @@ namespace Assets
         static internal readonly string ZControl = "Z-Control/Epsilon.Formula_1";
 
         static internal readonly string OzK = "Oz-Control/Mod.k";
-  
+        
+        static internal readonly string ZControl1 = "Z-Control 1/Epsilon.Formula_1";
+
+        static internal readonly string OzK1 = "Oz-Control 1/Mod.k";
+
         static internal readonly string OzControl = "Oz-Control/Epsilon.Formula_1";
 
         static internal readonly string OzControl1 = "Oz-Control 1.Formula_1";
@@ -71,36 +76,27 @@ namespace Assets
         static internal readonly string Distance = "Relative to station.Distance";
 
 
-        static internal void Set(OutputController behavior)
+        static internal void Set(OutputController behavior, int level)
         {
             var c = behavior.inputConstants;
-            int k = Math.Abs(StaticExtensionUnity.Activation.level);
-            for (int i = k; i < 6; i++)
+            for (int i = level; i < 6; i++)
             {
                 c[i] = 0;
             }
         }
 
-        static void SetStation(ReferenceFrameBehavior behavior)
+        
+
+        static void SetStation(ReferenceFrameBehavior behavior, int level)
         {
             var c = behavior.constants;
-            int k = Math.Abs(StaticExtensionUnity.Activation.level);
-            for (int i = k; i < c.Length; i++)
+            for (int i = level; i < c.Length; i++)
             {
                 c[i] = c[i].ToZero();
             }
         }
 
-
-
-        internal static void Get(out IScadaInterface scada, out IEvent ev, out ReferenceFrame xFrame)
-        {
-            scada = RigidBodyStation.ToExistedScada();
-            ev = scada["Force"];
-            xFrame = scada.GetOutput("X-Frame.Frame")() as ReferenceFrame;
-        }
-
-        internal static void Set(this MonoBehaviour monoBehaviour)
+        internal static void Set(this MonoBehaviour monoBehaviour, int level)
         {
             ReferenceFrameBehavior rf = null;
             OutputController oc = null;
@@ -111,7 +107,7 @@ namespace Assets
             if (monoBehaviour is OutputController)
             {
                 oc = monoBehaviour as OutputController;
-                Set(oc as OutputController);
+                Set(oc as OutputController, level);
                 return;
 
             }
@@ -124,13 +120,24 @@ namespace Assets
                 return;
             }
             string name = monoBehaviour.gameObject.name;
-            if (name == Station )
+            if (name == Station)
             {
-                SetStation(rf);
+                SetStation(rf, level);
                 return;
             }
             SetCamera(rf);
-            
+       }
+
+        internal static void Get(out IScadaInterface scada, out IEvent ev, out ReferenceFrame xFrame)
+        {
+            scada = RigidBodyStation.ToExistedScada();
+            ev = scada["Force"];
+            xFrame = scada.GetOutput("X-Frame.Frame")() as ReferenceFrame;
+        }
+
+        internal static void Set(this MonoBehaviour monoBehaviour)
+        {
+            monoBehaviour.Set(Math.Abs(StaticExtensionUnity.Activation.level));
         }
 
         static void SetCamera(ReferenceFrameBehavior behavior)

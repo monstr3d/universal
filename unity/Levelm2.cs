@@ -14,7 +14,7 @@ namespace Assets
     public class Levelm2 : Levelm
     {
 
-  
+
         protected double last;
 
         protected Levelm2(bool b)
@@ -56,8 +56,25 @@ namespace Assets
         public static void Set(MonoBehaviour monoBehaviour)
         {
             Level0.Set(monoBehaviour);
+            // !!! DELETE AFTER
+           /* //===
+            if (!(monoBehaviour is ReferenceFrameBehavior))
+            {
+                return;
+            }
+            ReferenceFrameBehavior behavior = monoBehaviour as ReferenceFrameBehavior;
+            var c = behavior.constants;
+            if (c.Length > 11)
+            {
+                if (c[11].Contains("OMGz"))
+                {
+                    c[1] = "Station frame.Y=-0.5";
+                    // c[8] = "Station frame.Yaw=2.7";
+                    // c[2] = c[2].ToZero();
+                }
+            }
+            //=== */
         }
-
         static public void Collision(Tuple<GameObject, Component, IScadaInterface, ICollisionAction> stop)
         {
             // Time of flight 116 s

@@ -68,12 +68,17 @@ public class ResultIndicator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        update = ShowTable;
+        // update = ShowTable;
     }
 
     private void Update()
     {
-        update?.Invoke();
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            Activation.Escape();
+        }
+
+     //   update?.Invoke();
     }
 
     #endregion

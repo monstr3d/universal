@@ -105,12 +105,7 @@ public class Activation : MonoBehaviour
 
     private void Update()
     {
-        /// !!! DELETE AFRER
-        if (Input.GetKey(KeyCode.Escape))
-        {
-            Escape();
-        }
-        update?.Invoke();
+         update?.Invoke();
     }
 
     #endregion
