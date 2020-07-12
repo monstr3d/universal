@@ -39,11 +39,15 @@ namespace Assets
 
         float roll, pitch, heading;
 
-        RawImage compass;
+        RawImage[] compasses = new RawImage[2];
 
-        Text headingTxt;
+        RectTransform[] horisRollPitch = new RectTransform[2];
 
-        RectTransform horisRollPitch;
+
+
+        Text[] headingTxt = new Text[2];
+
+     
 
         Image _mask;
 
@@ -67,7 +71,7 @@ namespace Assets
 
         public AngularIndicator(GameObject gameObject,
             IScadaInterface scada, Func<object> f, IReferenceFrame frame,
-             string parameter, Text headingTxt, Image _mask, Image _maskR)
+             string parameter, Text[] headingTxt, Image _mask, Image _maskR)
         {
             this.gameObject = gameObject;
             this.scada = scada;
@@ -160,51 +164,117 @@ namespace Assets
 
         void UpdateRollPitchImage()
         {
-            horisRollPitch.localRotation =
-                Quaternion.Euler(0, 0, rollAmplitude * roll);
-            Vector3 v = new Vector3(
-                -pitchAmplitude * pitch *
-                Mathf.Sin(horisRollPitch.transform.localEulerAngles.z *
-                Mathf.Deg2Rad) + pitchXOffSet,
-                pitchAmplitude * pitch *
-                Mathf.Cos(horisRollPitch.transform.localEulerAngles.z *
-                Mathf.Deg2Rad) + pitchYOffSet, 0);
-            horisRollPitch.localPosition = v;
+            foreach (var h in horisRollPitch)
+            {
+                h.localRotation =
+                    Quaternion.Euler(0, 0, rollAmplitude * roll);
+                Vector3 v = new Vector3(
+                    -pitchAmplitude * pitch *
+                    Mathf.Sin(h.transform.localEulerAngles.z *
+                    Mathf.Deg2Rad) + pitchXOffSet,
+                    pitchAmplitude * pitch *
+                    Mathf.Cos(h.transform.localEulerAngles.z *
+                    Mathf.Deg2Rad) + pitchYOffSet, 0);
+                h.localPosition = v;
+            }
+            bool b = Math.Abs(pitch) > MaxRoll;
+            if (b)
+            {
+                if (horisRollPitch[0].gameObject.activeSelf)
+                {
+                    horisRollPitch[0].gameObject.SetActive(false);
+                    horisRollPitch[1].gameObject.SetActive(true);
+                }
+                return;
+            }
+            if (horisRollPitch[1].gameObject.activeSelf)
+            {
+                horisRollPitch[1].gameObject.SetActive(false);
+                horisRollPitch[0].gameObject.SetActive(true);
+            }
+
         }
 
         void UpdateHeading()
         {
             if (heading < 0)
             {
-                headingTxt.text = (heading + 360f).ToString("000");
+                headingTxt[0].text = (heading + 360f).ToString("000");
             }
             else
             {
-                headingTxt.text = heading.ToString("000");
+                headingTxt[0].text = heading.ToString("000");
             }
-
-
+            Color c = (Math.Abs(heading) > MaxRoll) ? Color.red : Color.green;
+            if (headingTxt[0].color != c)
+            {
+                foreach (var h in headingTxt)
+                {
+                    h.color = c;
+                }
+            }
         }
 
         void UpdateCompass()
         {
+            var compass = compasses[0];
             Rect r = new Rect(factor * (heading + headingOffSet)
      / maxValue + startX, compass.uvRect.y,
      compass.uvRect.width, compass.uvRect.height);
-            compass.uvRect = r;
+            foreach (var c in compasses)
+            {
+                c.uvRect = r;
+            }
+            bool b = Math.Abs(heading) > MaxRoll;
+            if (b)
+            {
+                if (compass.gameObject.activeSelf)
+                {
+                    compass.enabled = false;
+                    compasses[1].enabled = true;
+                    foreach (var t in headingTxt)
+                    {
+                        t.color = Color.red;
+                    }
+                }
+                return;
+            }
+            if (!compass.gameObject.activeSelf)
+            {
+                compass.enabled = true;
+                compasses[1].enabled = false;
+                foreach (var t in headingTxt)
+                {
+                    t.color = Color.green;
+                }
+            }
+
 
         }
+
+
 
         void Prepare()
         {
             var comp = gameObject.GetGameObjectComponents<Component>();
-            compass = comp["CompassComponent"][0].GetComponent<RawImage>();
+
+            var ss = new string[] { "CompassComponent", "CompassComponent_Red" };
+            for (int i = 0; i < 2; i++)
+            {
+                compasses[i] = comp[ss[i]][0].GetComponent<RawImage>();
+            }
+            var compass = compasses[0];
             startX = compass.uvRect.x;
             startY = compass.uvRect.y;
             startWidth = compass.uvRect.width;
             startHeight = compass.uvRect.height;
-            horisRollPitch = comp["HorizonRollPitch"][0].GetComponent<RectTransform>();
-        }
+
+            ss = new string[] { "HorizonRollPitch", "HorizonRollPitch_Red" };
+            for (int i = 0; i < 2; i++)
+            {
+                horisRollPitch[i] = comp[ss[i]][0].GetComponent<RectTransform>();
+            }
+         }
 
         #endregion
     }

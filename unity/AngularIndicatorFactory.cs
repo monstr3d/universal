@@ -83,7 +83,7 @@ namespace Assets
             {
                 return null;
             }
-            Text headT = txt["heading_Indicator"][0];
+            Text[] headT = new Text[] { txt["heading_Indicator"][0], txt["Heading_Indicator_Text"][0] };
             Image mask = im["Bank_fix"][0];
             Image maskR = im["Bank_fix_Red"][0];
             return new AngularIndicator(gameObject, scada, f, frame, 

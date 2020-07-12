@@ -147,6 +147,7 @@ namespace Assets
         public override void Set(object[] obj, Component indicator, IScadaInterface scada)
         {
             base.Set(obj, indicator, scada);
+            var c = scada.Constants;
             frame = scada.GetOutput("Relative to station.Frame")() as Motion6D.Interfaces.ReferenceFrame;
             for (int i = 0; i < 6; i++)
             {
@@ -294,7 +295,7 @@ namespace Assets
             {
                 scada.SetConstant(Level0.ZK, (double)constants[2]);
             }
-            if (level == -6)
+            if (level <= -6)
             {
                 scada.SetConstant(Level0.YK, (double)constants[1]);
                 scada.SetConstant(Level0.ZK, (double)constants[2]);
@@ -302,6 +303,11 @@ namespace Assets
             if (constants[4] > float.Epsilon)
             {
                 scada.SetConstant(Level0.OzK, (double)constants[4]);
+            }
+            if (level < -6)
+            {
+                scada.SetConstant(Level0.OxK, (double)constants[3]);
+                scada.SetConstant(Level0.OyK, (double)constants[5]);
             }
             foreach (var i in dictionary.Keys)
             {

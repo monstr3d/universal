@@ -32,18 +32,28 @@ namespace Assets
         static internal readonly string ZControl = "Z-Control/Epsilon.Formula_1";
 
         static internal readonly string OzK = "Oz-Control/Mod.k";
-        
+        static internal readonly string OyK = "Oy-Control/Mod.k";
+        static internal readonly string OxK = "Ox-Control/Mod.k";
+
         static internal readonly string ZControl1 = "Z-Control 1/Epsilon.Formula_1";
 
         static internal readonly string OzK1 = "Oz-Control 1/Mod.k";
 
         static internal readonly string OzControl = "Oz-Control/Epsilon.Formula_1";
 
+        static internal readonly string OxControl = "Ox-Control/Epsilon.Formula_1";
+
+        static internal readonly string OyControl = "Oy-Control/Epsilon.Formula_1";
+
         static internal readonly string OzControl1 = "Oz-Control 1.Formula_1";
 
         static internal readonly string ZK = "Z-Control/Mod.k";
-        
+
         static internal readonly string Oz = "Relative to station.OMz";
+
+        static internal readonly string Ox = "Relative to station.OMx";
+
+        static internal readonly string Oy = "Relative to station.OMy";
 
 
         static internal readonly string RigidBodyStation = "RigidBodyStation";

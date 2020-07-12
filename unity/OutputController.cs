@@ -21,6 +21,9 @@ public class OutputController : MonoBehaviour
 
     public string desktop;
 
+    public string[] aliases;
+
+
     public string[] parameters;
 
 
@@ -33,7 +36,6 @@ public class OutputController : MonoBehaviour
 
     public string[] inputs;
 
-
     public float[] inputConstants;
 
     public Component[] inputComponents;
@@ -45,7 +47,6 @@ public class OutputController : MonoBehaviour
     public Component[] indicators;
 
     public bool isEnabled = true;
-
 
     public float[] constants;
 
@@ -83,6 +84,17 @@ public class OutputController : MonoBehaviour
     private void Awake()
     {
         this.Add();
+        MonoBehaviourTimerFactory.OnStart +=
+           (string s) =>
+           {
+               if (desktop == s)
+               {
+                   SetConstants();
+                   aliases = new string[0];
+               }
+           };
+
+
         exists = desktop.ScadaExists();
         if (!isEnabled)
         {
@@ -187,7 +199,30 @@ public class OutputController : MonoBehaviour
         }
     }
 
- 
+
+
+    void SetConstants()
+    {
+        var consts = scada.Constants;
+        char[] sep = "=".ToCharArray();
+        foreach (string cc in aliases)
+        {
+            string[] ss = cc.Split(sep);
+            if (consts.ContainsKey(ss[0]))
+            {
+                object o = consts[ss[0]];
+                if (o.GetType() == typeof(double))
+                {
+                    double a = double.Parse(ss[1],
+                        System.Globalization.CultureInfo.InvariantCulture);
+                    scada.SetConstant(ss[0], a);
+                }
+
+            }
+        }
+    }
+
+
     private void UpdateOutput()
     {
         if (allparameters.Count == 0)

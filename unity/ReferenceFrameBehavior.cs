@@ -10,11 +10,7 @@ using Motion6D.Interfaces;
 using Scada.Interfaces;
 using Scada.Desktop;
 
-
-
 using Unity.Standard;
-
-
 
 using System.Reflection;
 
