@@ -38,6 +38,14 @@ namespace Scada.Interfaces
         void SetConstant(string name, object constant);
 
         /// <summary>
+        /// Gets constant value
+        /// </summary>
+        /// <param name="name">The name of constant</param>
+        /// <returns>The value of constant</returns>
+        object GetConstantValue(string name);
+
+
+        /// <summary>
         /// Constants
         /// </summary>
         Dictionary<string, object> Constants
@@ -82,6 +90,7 @@ namespace Scada.Interfaces
         /// <param name="name">Constant</param>
         /// <returns>Constant</returns>
         Action<object> GetConstant(string name);
+
 
         /// <summary>
         /// Gets output

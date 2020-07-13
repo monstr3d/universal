@@ -3,8 +3,6 @@ using System.Collections.Generic;
 
 using Scada.Interfaces;
 
-using Vector3D;
-
 using Unity.Standard;
 
 using UnityEngine;
@@ -59,8 +57,8 @@ namespace Assets
                 {
                     //                c[1] = "Station frame.Y=-0.039";
                     //                c[2] = "Station frame.Z=-0.018";
-                    c[1] = "Station frame.Y=-0.39";
-                    c[2] = "Station frame.X=-0.18";
+                    c[1] = "Station frame.Y=-0.398";
+                    c[2] = "Station frame.X=-0.188";
                     c[6] = "Station frame.Roll=0.33";
                     c[7] = "Station frame.Pitch=-0.32";
                     c[8] = "Station frame.Yaw=0.3";

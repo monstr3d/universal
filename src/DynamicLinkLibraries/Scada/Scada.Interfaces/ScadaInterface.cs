@@ -26,6 +26,8 @@ namespace Scada.Interfaces
         protected Dictionary<string, Action<object>> dInput = new Dictionary<string, Action<object>>();
 
         protected Dictionary<string, Action<object>> dConstant = new Dictionary<string, Action<object>>();
+        
+        protected Dictionary<string, Func<object>> fConstant = new Dictionary<string, Func<object>>();
 
         protected Dictionary<string, Func<object>> dOutput = new Dictionary<string, Func<object>>();
 
@@ -203,6 +205,13 @@ namespace Scada.Interfaces
         /// Refresh
         /// </summary>
         public abstract void Refresh();
+
+        /// <summary>
+        /// Gets constant value
+        /// </summary>
+        /// <param name="name">The name of constant</param>
+        /// <returns>The value of constant</returns>
+        public abstract object GetConstantValue(string name);
 
         /// <summary>
         /// On refresh event

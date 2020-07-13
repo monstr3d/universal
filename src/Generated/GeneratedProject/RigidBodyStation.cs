@@ -1982,7 +1982,7 @@ namespace GeneratedProject
 									arguments =  new List<string>()
 									{
 										"x = ../Relative to station.Roll",
-										"y = ../Relative to station.OMz"
+										"y = ../Relative to station.OMx"
 									};
 									parameters =new Dictionary<string, object>()
 									{
@@ -2404,8 +2404,8 @@ namespace GeneratedProject
 									};
 									parameters =new Dictionary<string, object>()
 									{
-										{"b", (double)500 },
-										{"a", (double)500 }
+										{"b", (double)500000 },
+										{"a", (double)500000 }
 									};
 									operationNames = new Dictionary<System.Int32,System.String>()
 									{
@@ -3135,8 +3135,8 @@ namespace GeneratedProject
 									};
 									parameters =new Dictionary<string, object>()
 									{
-										{"b", (double)500 },
-										{"a", (double)500 }
+										{"b", (double)500000 },
+										{"a", (double)500000 }
 									};
 									operationNames = new Dictionary<System.Int32,System.String>()
 									{

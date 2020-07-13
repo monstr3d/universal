@@ -49,6 +49,8 @@ namespace Assets
                   Level0.OxControl).EnableDisable(true);
                 (Level0.RigidBodyStation + "." +
                   Level0.OzControl).EnableDisable(true);
+                (Level0.RigidBodyStation + "." +
+                  Level0.OyControl).EnableDisable(true);
             }
         }
 
@@ -117,27 +119,6 @@ namespace Assets
         public static void Set(MonoBehaviour monoBehaviour)
         {
             Level8.Set(monoBehaviour);
-            if (!(monoBehaviour is ReferenceFrameBehavior))
-            {
-                return;
-            }
-            ReferenceFrameBehavior behavior = monoBehaviour as ReferenceFrameBehavior;
-            var c = behavior.constants;
-            if (c.Length > 11)
-            {
-                if (c[11].Contains("OMGz"))
-                {
-                     //                c[1] = "Station frame.Y=-0.039";
-                    //                c[2] = "Station frame.Z=-0.018";
-                                   c[1] = "Station frame.Y=-0.39";
-                                   c[2] = "Station frame.X=-0.18";
-                    c[6] = "Station frame.Roll=0.33";
-                    c[7] = "Station frame.Pitch=-0.32";
-                    c[8] = "Station frame.Yaw=0.3";
-                }
-            }
-
-           
         }
 
 

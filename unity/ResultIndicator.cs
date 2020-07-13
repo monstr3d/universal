@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
 
 using Motion6D.Interfaces;
@@ -11,8 +7,14 @@ using Motion6D.Interfaces;
 using Vector3D;
 
 using Scada.Interfaces;
+using Scada.Desktop;
+
 
 using Unity.Standard;
+
+using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class ResultIndicator : MonoBehaviour
 {
@@ -77,7 +79,10 @@ public class ResultIndicator : MonoBehaviour
         {
             Activation.Escape();
         }
-
+   /*     var s = "RigidBodyStation".ToExistedScada();
+        var c = s.Constants;
+        var cc = s.GetConstantValue("Oy-Control/Mod.k");
+  */
      //   update?.Invoke();
     }
 

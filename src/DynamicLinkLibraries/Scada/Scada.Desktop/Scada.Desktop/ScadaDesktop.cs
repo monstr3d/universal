@@ -12,15 +12,14 @@ using Diagram.UI.Labels;
 
 using DataPerformer.Interfaces;
 using DataPerformer.Portable;
-
+using DataPerformer.Portable.Interfaces;
 
 using Event.Interfaces;
 using Event.Portable;
 using Event.Portable.Events;
+using Event.Portable.Interfaces;
 
 using Scada.Interfaces;
-using DataPerformer.Portable.Interfaces;
-using Event.Portable.Interfaces;
 
 namespace Scada.Desktop
 {
@@ -365,6 +364,7 @@ namespace Scada.Desktop
                 }
             });
             dConstant.Clear();
+            fConstant.Clear();
             collection.ForAll((IAlias alias) =>
             {
                 string s = (alias as IAssociatedObject).GetRootName();
@@ -376,7 +376,11 @@ namespace Scada.Desktop
                     {
                         alias[name] = o;
                     };
-                    constants[n] = t.Item2;
+                    fConstant[n] = () =>
+                    {
+                        return alias[name];
+                    };
+                   constants[n] = t.Item2;
                 }
             });
          }
@@ -400,6 +404,17 @@ namespace Scada.Desktop
             };
             return scada;
 
+        }
+
+
+        /// <summary>
+        /// Gets constant value
+        /// </summary>
+        /// <param name="name">The name of constant</param>
+        /// <returns>The value of constant</returns>
+        public override object GetConstantValue(string name)
+        {
+            return fConstant[name]();
         }
 
         /// <summary>
