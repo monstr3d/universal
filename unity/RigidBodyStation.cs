@@ -161,6 +161,10 @@ namespace GeneratedProject
 				arrows.Add(currALabel);
 				currALabel.SourceNumber = new object[] {(int)10,"Mod" };
 				currALabel.TargetNumber = (int)2;
+				currALabel  = new IntrenalDesktop.ArrowLabel31("", this);
+				arrows.Add(currALabel);
+				currALabel.SourceNumber = (int)15;
+				currALabel.TargetNumber = (int)8;
 				bool pl = PostLoad();
 				bool pd = PostDeserialize();
 				SuccessLoad = pl & pd;
@@ -928,8 +932,8 @@ namespace GeneratedProject
 									};
 									parameters =new Dictionary<string, object>()
 									{
-										{"b", (double)50000 },
-										{"a", (double)50000 }
+										{"b", (double)5000000 },
+										{"a", (double)5000000 }
 									};
 									operationNames = new Dictionary<System.Int32,System.String>()
 									{
@@ -6220,6 +6224,19 @@ namespace GeneratedProject
 				{
 					this.desktop = desktop;
 					arrow = new ArrowLabel30.CategoryArrow();
+				}
+		
+				internal class CategoryArrow : DataPerformer.Portable.DataLink
+				{
+				}
+			}
+		
+			internal class ArrowLabel31 : Diagram.UI.Labels.PureArrowLabel
+			{
+				internal ArrowLabel31(string name, Diagram.UI.Interfaces.IDesktop desktop) : base(name, "", "", 0, 0)
+				{
+					this.desktop = desktop;
+					arrow = new ArrowLabel31.CategoryArrow();
 				}
 		
 				internal class CategoryArrow : DataPerformer.Portable.DataLink

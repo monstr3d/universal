@@ -40,38 +40,99 @@ namespace Assets
         void LongEvent()
         {
             double[] p = frame.Position;
-            if (Math.Abs(p[2]) < 0.1)
+            double[] v = velocity.Velocity;
+            if (Math.Abs(p[2]) < 0.1 & v[2] < 0)
             {
                 ev.Event -= LongEvent;
-               (Level0.RigidBodyStation + "." +
-                  Level0.OxControl).EnableDisable(true);
                 (Level0.RigidBodyStation + "." +
-                  Level0.OxControl).EnableDisable(true);
+                   Level0.LongXC).EnableDisable(false);
+                ax(0);
+                ay(0);
+                az(0);
                 (Level0.RigidBodyStation + "." +
-                  Level0.OzControl).EnableDisable(true);
+                Level0.OxControl).EnableDisable(true);
                 (Level0.RigidBodyStation + "." +
                   Level0.OyControl).EnableDisable(true);
+                (Level0.RigidBodyStation + "." +
+                   Level0.OzControl).EnableDisable(true);
+                ev.Event += OmEvent;
             }
+        }
+
+        double k = 3;
+
+        void OmEvent()
+        {
+            if (Math.Abs(fx()) > double.Epsilon |
+     Math.Abs(fy()) > double.Epsilon |
+     Math.Abs(fz()) > double.Epsilon)
+            {
+                int i = 0;
+            }
+            ev.Event -= OmEvent;
+            ax(0);
+            ay(0);
+            az(0);
+            ev.Event += OmEvent;
+            var av = aVelocity.Omega;
+            var ov = orientation.Quaternion;
+            for (int i = 0; i < 3; i++)
+            {
+                if (Math.Abs(ov[i + 1]) > al * 2 * k)
+                {
+                    return;
+                }
+                if (Math.Abs(av[i])  > ol  * k)
+                {
+                    return;
+                }
+            }
+            (Level0.RigidBodyStation + "." +
+               Level0.YControl).EnableDisable(true);
+            (Level0.RigidBodyStation + "." +
+               Level0.ZControl).EnableDisable(true);
+
+            ev.Event -= OmEvent;
+
+            ev.Event += YZEvent;
         }
 
         private void YZEvent()
         {
-            double[] p = frame.Position;
-            if (Math.Abs(p[1]) < 0.02 & Math.Abs(p[0]) < 0.02)
+            var av = aVelocity.Omega;
+            var ov = orientation.Quaternion;
+            var v = velocity.Velocity;
+            for (int i = 0; i < 3; i++)
             {
-                ev.Event -= YZEvent;
-                (Level0.RigidBodyStation + "." +
-               Level0.OzControl1).EnableDisable(true);
-                //     ay(0);
-                ev.Event += YawEvent;
+                if (Math.Abs(ov[i + 1]) > al * 2 * k)
+                {
+                    return;
+                }
+                if (Math.Abs(av[i]) > ol * k)
+                {
+                    return;
+                }
+                if (Math.Abs(v[i]) > 0.0005)
+                {
+                    return;
+                }
             }
+
+            double[] p = frame.Position;
+            if (Math.Abs(p[1]) > 0.005 | Math.Abs(p[0]) > 0.005)
+            {
+                return;
+            }
+                        (Level0.RigidBodyStation + "." +
+               Level0.ShortXC).EnableDisable(true);
+
         }
 
 
         private void YawEvent()
         {
             angles.Set(frame.Quaternion);
-            if (Math.Abs(angles.yaw) < al & Math.Abs(av.Omega[2]) < ol)
+            if (Math.Abs(angles.yaw) < al & Math.Abs(aVelocity.Omega[2]) < ol)
             {
                 ev.Event -= YawEvent;
                 //       (Level0.RigidBodyStation + "." +

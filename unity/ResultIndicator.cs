@@ -79,10 +79,11 @@ public class ResultIndicator : MonoBehaviour
         {
             Activation.Escape();
         }
-   /*     var s = "RigidBodyStation".ToExistedScada();
+        return;
+        var s = "RigidBodyStation".ToExistedScada();
         var c = s.Constants;
-        var cc = s.GetConstantValue("Oy-Control/Mod.k");
-  */
+        var cc = s.GetConstantValue("Aim 1.Z");
+
      //   update?.Invoke();
     }
 

@@ -1634,6 +1634,10 @@ The Definition \ref{fin_defn} implicitly uses the given by the Lemma \ref{ind_mu
 	There are alternative theories of noncommutative coverings (e.g. \cite{clarisson:phd}), however I do not know the theory which gives a good definition of the fundamental group (cf. Remark \ref{comm_comm_rem}).
 \end{remark}
 
+\begin{definition}\label{pro_fin_defn}
+	Let $A \hookto \widetilde A$ be 
+\end{definition}
+
 
 \section{Basic constructions}\label{cov_fin_basc_sec}
    
@@ -19459,6 +19463,71 @@ We denote by $C_b\left(\mathcal X, M\left( A_x\right)_\bt,  \mathscr F\right)$ t
 	There are $C^*$-algebras with continuous trace which do not match to the Theorem \ref{ctr_cont_thm}, i.e. these algebras cannot be represented as  $C_0\left( \sX,  \left\{A_x\right\}, \sF\right)$.
 \end{remark} 
 
+\section{Inverse limits of $C^*$-algebras}
+
+\subsection{Projective systems}
+\paragraph*{}
+An \textit{inverse system} (also called a 
+\textit{projective system}) of sets consists of a directed set $D$, a set $X_d$ for each $d\in D$
+and functions $\pi_{d,e} : X_d \to X_e$ for all $d,e\in D$ with $d\ge e$, satisfying the consistency 
+conditions $\pi_{d,e}= \Id{X_d}$ and $\pi_{e,f}\circ \pi_{d,e} = \pi_{d,f}$. The inverse limit (or 
+projective limit) of the system $\left\{X_d\right\}$ is a set $X$ together with functions $\ka_d: X \to X_d$
+such that $\pi_{d,e}\circ \ka_e = \ka_d$ for $d \ge e$, and satisfying the following universal property: 
+given any set $Y$ and functions $\varphi_d : Y \to X_d$ such that $\pi_{d,e}\circ \varphi_{d,e} = \varphi_d$, there is a 
+unique function $\phi : Y \to X$ such that $\phi_s = \ka_d\circ \pi$ for all $d$. The inverse limit $X$ 
+is denoted by $\varprojlim X_d$, and it is clearly unique up to unique isomorphism. 
+	The definition of an inverse limit generalizes in an obvious way to any 
+	category, and it is easily seen that the same construction produces an inverse limit in 
+	the categories of abelian groups and homomorphisms, topological spaces and continuous 
+	maps, and topological *-algebras over $\C$ and continuous *-homomorphisms. 
+	(The product in (*) is given the product topology and the pointwise algebraic operations.)
+
+
+\subsection{Basic results}
+\begin{prop}\label{pro_c_prop}\cite{phillips:inv_lim_app}
+	%1.1.1. PROPOSITION. ([63]) 
+	Let $A$ be a topological $*$ -algebra over 
+	$\C$. Then $A$ is isomorphic, as a topological  $*$ -algebra, to an inverse limit of $C^*$- algebras in the above sense if and only if $A$ is Hausdorff, complete, and its topology 
+	is determined by the set of all continuous $C^*$-seminorms on $A$.
+\end{prop}	
+
+\begin{definition}\label{pro_c_defn}\cite{phillips:inv_lim_app}
+	%1.1.2. DEFINITION ([53], [7]). 
+	A topological $*$-algebra satisfying the 
+	conditions of the previous proposition is called a pro-$C^*$ -algebra. If it is a countable 
+	inverse limit of $C^*$-algebras (equivalently, if its topology is determined by countably 
+	many continuous $C^*$-seminorms), then it is called a $\sigma$-$C^*$-algebra. 
+	
+\end{definition}
+
+\begin{notn}
+	If $A$ is a pro-$C^*$-algebra, then $S(A)$ is the set of all 
+	continuous $C^*$-seminorms on $A$, ordered as in the proof of Proposition \ref{pro_c_prop}. For 
+	$p\in S\left(A\right)$, we let $\ker(p) \bydef \left\{\left.a\in A\right|p(a)=0\right\}$ and we let $A_p$ be the completion of 
+	$A/\ker(p)$ in the norm determined by $p$
+\end{notn}. 
+Note that $A_p$ is a $C^*$-algebra, and that the proof of Proposition \ref{pro_c_prop} 
+gives a canonical representation of $A$ as an inverse limit, namely $A = \varprojlim_{p\in S(A)} A_p$. 
+%+ÑPes(A) (S(A) is directed because if p,^ G S(A), then a ÈÑ>¥ max(p(a), q(a)) is also in S(A).) We will show in Corollary 1.2.8 that in fact A/Ker(p) is always already complete.
+\begin{definition}\label{pro_bound_defn}\cite{phillips:inv_lim_app}
+	%1.2.3. DEFINITION ([63]). 
+	Let $A$ be a pro-$C^*$-algebra. Then an 
+	element $a\in A$ i s called bounded if $\left\| a\right\|_\infty  \bydef \sup\left\{\left.p(a)\right| p\in S(A)\right\}<\infty$. The set of all 
+	bounded elements is denoted $b(A)$. 
+\end{definition}
+\begin{proposition}\label{pro_bound_prop}\cite{phillips:inv_lim_app}
+	%1.2.4. PROPOSITION ([63]). 
+	$b(A)$ is a $C^*$-algebra for the norm $\left\| \cdot\right\|_\infty$.
+	
+\end{proposition}
+\begin{corollary}\label{pro_bound_cor}\cite{phillips:inv_lim_app}
+	%	1.2.7. COROLLARY ([63]). 
+	$b(A)$ is dense in $A$.
+\end{corollary}
+
+\begin{prop}\label{pro_dir_lim_prop}\cite{phillips:inv_lim}
+Direct limits exist in the category of pro-$C^*$-algebras.
+\end{prop}
 
 \chapter{Spectral triples}
  	
@@ -21999,7 +22068,8 @@ pp 127-186, Print publication year: 1989.
 %\bibitem{phillips:inv_lim_app} N. Christopher Phillips {\it Inverse Limits of $C^*$ - algebras and Applications.} University of California at Los Angeles, Los Angeles, CA 90024, 1991.
 %\bibitem{phillips:ped_id}N. C. Phillips. \textit{A new approach to the multipliers of Pedersen's ideal}. Proc. American Mathematical Society, Volume 104, Number 3, November 1988.
 
-%\bibitem{phillips:inv_lim} N. Christopher Phillips. {\it Inverse Limits of $C^*$ - algebras.} Journal of Operator Theory Vol. 19, No. 1 (Winter 1988), pp. 159-195. 1988
+\bibitem{phillips:inv_lim} N. Christopher Phillips. {\it Inverse Limits of $C^*$ - algebras.} Journal of Operator Theory Vol. 19, No. 1 (Winter 1988), pp. 159-195. 1988.
+
 \bibitem{plymen:mor_s}
 R. J. Plymen, ``Strong Morita equivalence, spinors and symplectic
 spinors'', J. Oper. Theory {\bf 16} (1986), 305--324. 1986.

@@ -42,7 +42,7 @@ namespace Assets
             {
                 OutputController oc = monoBehaviour as OutputController;
                 var a = oc.aliases;
-                a[0] = "Aim 1.Z = -0.5";
+                a[0] = "Aim 1.Z=-0.3";
             }
             if (!(monoBehaviour is ReferenceFrameBehavior))
             {
@@ -64,9 +64,6 @@ namespace Assets
                     c[8] = "Station frame.Yaw=0.3";
                 }
             }
-
-           
-            
         }
 
 

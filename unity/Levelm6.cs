@@ -57,7 +57,7 @@ namespace Assets
         private void YawEvent()
         {
             angles.Set(frame.Quaternion);
-            if (Math.Abs(angles.yaw) < al & Math.Abs(av.Omega[2]) < ol)
+            if (Math.Abs(angles.yaw) < al & Math.Abs(aVelocity.Omega[2]) < ol)
             {
                 ev.Event -= YawEvent;
                 //       (Level0.RigidBodyStation + "." +

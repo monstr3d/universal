@@ -195,14 +195,13 @@ namespace Assets
 
         void UpdateHeading()
         {
-            /// !!! DELETE .000 twice
             if (heading < 0)
             {
-                headingTxt[0].text = (heading + 360f).ToString("000.000");
+                headingTxt[0].text = (heading + 360f).ToString("000");
             }
             else
             {
-                headingTxt[0].text = heading.ToString("000.000");
+                headingTxt[0].text = heading.ToString("000");
             }
             Color c = (Math.Abs(heading) > MaxRoll) ? Color.red : Color.green;
             if (headingTxt[0].color != c)
@@ -229,8 +228,8 @@ namespace Assets
             {
                 if (compass.gameObject.activeSelf)
                 {
-                    compass.enabled = false;
-                    compasses[1].enabled = true;
+                    compass.gameObject.SetActive(false);
+                    compasses[1].gameObject.SetActive(true);
                     foreach (var t in headingTxt)
                     {
                         t.color = Color.red;
@@ -240,8 +239,8 @@ namespace Assets
             }
             if (!compass.gameObject.activeSelf)
             {
-                compass.enabled = true;
-                compasses[1].enabled = false;
+                compass.gameObject.SetActive(true);
+                compasses[1].gameObject.SetActive(false);
                 foreach (var t in headingTxt)
                 {
                     t.color = Color.green;
