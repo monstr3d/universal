@@ -1635,7 +1635,17 @@ The Definition \ref{fin_defn} implicitly uses the given by the Lemma \ref{ind_mu
 \end{remark}
 
 \begin{definition}\label{pro_fin_defn}
-	Let $A \hookto \widetilde A$ be 
+	Let $\pi: A \hookto \widetilde A$ be an injective *-homomorphism of pro-$C^*$ algebras which can be regarded as an inclusion. Let $\Aut\left( \widetilde A\right)$ be a group of $*$-automorphisms of $\widetilde A$. Suppose that:
+	\begin{itemize}
+		\item [(a)]
+		\be\nonumber
+		G = \left\{ \left.g \in \Aut\left(\widetilde{A} \right)~\right|~ ga = a;~~\forall a \in A\right\}
+		\ee
+		is finite.
+		\item[(b)] 	$A \cong \widetilde{A}^G\stackrel{\text{def}}{=}\left\{\left.a\in \widetilde{A}~~\right|~ a = g a;~ \forall g \in G\right\}$.
+		\item[(c)] The quadruple $\left(b\left( A\right) , b\left( \widetilde{A}\right) , G, \pi|_{b\left( A\right)} \right)$ is a noncommutative finite-fold  covering.
+	\end{itemize}
+We say that the triple $\left(A, \widetilde{A}, G \right)$ and/or the quadruple $\left(A, \widetilde{A}, G, \pi \right)$ and/or *-homomorphism $\pi: A \hookto \widetilde{A}$   is a \textit{noncommutative finite-fold  covering  of pro-$C^*$ algebras}. 
 \end{definition}
 
 
@@ -3749,6 +3759,55 @@ From the Lemma \ref{spec_el_repr_lem} it turns out that there are the following 
 	\end{split}
 	\ee
 \end{remark}
+
+\section{Infinite coverings of pro-$C^*$-algebras}
+
+\paragraph*{}
+Following definitions are generalizations of 
+
+
+\begin{definition}\label{comp_pro_defn}
+	Let $\La$ be a countable directed set (cf. Definition \ref{directed_set_defn}) such that there is the unique minimal element $\la_{\min} \in \La$.
+	Let $A$ be a pro-$C^*$-algebra.  Let us consider a set noncommutative finite-fold coverings $\mathfrak{S}=\left\{ \pi_{\la}:A \hookto A_{\la}\right\}_{\la \in \La}$ indexed by  $\La$ such that $A_{\la_{\mathrm{min}}}= A$, and $\pi_{\la_{\mathrm{min}}}= \Id_A$. We do not claim that any noncommutative finite-fold covering $A \to \widetilde{A}$ belongs to $\mathfrak{S}$. Suppose that
+		$\mathfrak{S}=\left\{ \pi_{\la}:b\left( A\right)  \hookto b\left(  A_{\la}\right) \right\}_{\la \in \La}$, or equivalently $$\mathfrak{S}=\left\{ \left( b\left( A\right)  ,  b\left(A_{\la}\right) , G\left(\left.A_\la~\right|A \right) , \pi_{\la}\right) \right\}_{\la \in \La}$$
+	is  an {algebraical  finite covering category}.   
+	The set 
+	$\mathfrak{S}=\left\{ \pi_{\la}:A \hookto A_{\la}\right\}_{\la \in \La}$, or equivalently $$\mathfrak{S}=\left\{ \left( A , A_{\la}, G\left(\left.A_\la~\right|A \right) , \pi_{\la}\right) \right\}_{\la \in \La}$$
+	is said to be an \textit{algebraical  finite covering category of pro-$C^*$-algebras}. \\
+	We write $\mathfrak{S} \in$ pro-$\mathfrak{FinAlg}$.
+\end{definition}
+\
+\begin{definition}\label{comp_pt_pro_defn}
+	A subcategory $\mathfrak{S}^{\text{pt}}$  of an algebraical  finite covering category of pro-$C^*$-algebras $\mathfrak{S}$  is said to be a \textit{pointed algebraical  finite covering category of pro-$C^*$-algebras}  if it is equivalent to the pre-order category given by $\La$ (cf. Definition \ref{preordercat_defn} and Remark \ref{pre_order_rem}).  We write $\mathfrak{S}^{\text{pt}} \in$pro-$ \mathfrak{FinAlg}^{\text{pt}}$, and use the following notation
+	\be\label{comp_pt_pro_eqn}
+	\begin{split}
+		\mathfrak{S}^{\text{pt}} = \left(\left\{\pi_\la: A \hookto A_\la \right\}_{\la \in \La}, \left\{\pi^\mu_\nu: A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\ \nu > \mu}}\right),\\
+		\text{or simply} \quad \mathfrak{S}^{\text{pt}} = \left(\left\{\pi_\la: A \hookto A_\la \right\}, \left\{\pi^\mu_\nu\right\}\right).
+	\end{split}
+	\ee
+\end{definition}
+\begin{remark}
+If 	$\mathfrak{S}^{\text{pt}}$ is pointed algebraical  finite covering category of pro-$C^*$-algebras then
+\be\label{bounded_cat_eqn}
+\begin{split}
+	b\left( 	\mathfrak{S}^{\text{pt}}\right) \bydef \left(\left\{\pi_\la|_{b\left(A \right) }: b\left( A\right)  \hookto b\left( A_\la\right)  \right\}_{\la \in \La},\right.\\ \left.\left\{\pi^\mu_\nu|_{b\left(A_\mu \right) }: b\left(A_\mu\right)  \hookto b\left(A_\nu\right) \right\}_{\substack{\mu, \nu \in \La~~\nu > \mu}}\right)
+\end{split}
+\ee
+is a {pointed algebraical  finite covering category}.
+\end{remark}
+\begin{empt}\label{inv_pro_lim_empt}
+Let $\mathfrak{S}^{\text{pt}}$ is pointed algebraical  finite covering category of pro-$C^*$-algebras, and let 	$b\left( 	\mathfrak{S}^{\text{pt}}\right)$ is given by \eqref{bounded_cat_eqn}. Suppose that $b\left( 	\mathfrak{S}^{\text{pt}}\right)$ is good (cf. Definition \ref{mains_defn}) and let  $\left(b\left( A\right) , \widetilde{B}, G\right)$ be the {infinite noncommutative covering} of $b\left( \mathfrak{S}^{\mathrm{pt}}\right)$ (cf. Definition \ref{main_defn}). If $\widehat{B}\bydef \varinjlim b\left(A_\la \right)$ is the direct limit then there is the natural inclusion  $\widehat{B}\subset M\left( \widetilde{B}\right)$. From the Proposition \ref{pro_dir_lim_prop} there is the direct limit $\widehat{A}\bydef \varinjlim A_\la$ which is a pro-$C^*$-algebra. Moreover one has $\widehat{B} = b\left( \widehat{A}\right)$. From the  Proposition \ref{pro_bound_prop} there is a family $\left\{\widehat I_\a\right\}$ of closed two sided ideals of $\widehat{B}$ such that $\widehat{A}= \varprojlim \widehat{B}/ \widehat{I}_\a$. For all $\a$ denote by $J_\a\subset M\left(\widetilde B\right)$ the minimal ideal such that $J_\a \cap \widehat{B} = \widehat{I}_\a$. If $\widetilde{I}_\a\bydef J_\a \widetilde{B}$ then denote by
+\be\label{inv_pro_lim_eqn}
+\widetilde{A}\bydef \varprojlim \widetilde{B}/ \widetilde{I}_\a
+\ee
+the inverse limit.
+\end{empt}
+\begin{definition}\label{inv_pro_lim_defn}
+In the described in \ref{inv_pro_lim_empt} situation we say that the triple
+$\left(A, \widetilde{A}, G\right)$ is the 
+ \textit{ inverse noncommutative limit of $\mathfrak{S}^{\mathrm{pt}}$}
+\end{definition}
+
 
 
 \section{Infinite coverings of operator spaces}
@@ -19463,7 +19522,7 @@ We denote by $C_b\left(\mathcal X, M\left( A_x\right)_\bt,  \mathscr F\right)$ t
 	There are $C^*$-algebras with continuous trace which do not match to the Theorem \ref{ctr_cont_thm}, i.e. these algebras cannot be represented as  $C_0\left( \sX,  \left\{A_x\right\}, \sF\right)$.
 \end{remark} 
 
-\section{Inverse limits of $C^*$-algebras}
+\section{Inverse limits of $C^*$-algebras and local operator spaces}
 
 \subsection{Projective systems}
 \paragraph*{}
@@ -19483,7 +19542,7 @@ is denoted by $\varprojlim X_d$, and it is clearly unique up to unique isomorphi
 	(The product in (*) is given the product topology and the pointwise algebraic operations.)
 
 
-\subsection{Basic results}
+\subsection{Inverse limits of $C^*$-algebras}
 \begin{prop}\label{pro_c_prop}\cite{phillips:inv_lim_app}
 	%1.1.1. PROPOSITION. ([63]) 
 	Let $A$ be a topological $*$ -algebra over 
@@ -19494,40 +19553,72 @@ is denoted by $\varprojlim X_d$, and it is clearly unique up to unique isomorphi
 \begin{definition}\label{pro_c_defn}\cite{phillips:inv_lim_app}
 	%1.1.2. DEFINITION ([53], [7]). 
 	A topological $*$-algebra satisfying the 
-	conditions of the previous proposition is called a pro-$C^*$ -algebra. If it is a countable 
+	conditions of the previous proposition is called a \textit{pro}-$C^*$ -\textit{algebra}. If it is a countable 
 	inverse limit of $C^*$-algebras (equivalently, if its topology is determined by countably 
 	many continuous $C^*$-seminorms), then it is called a $\sigma$-$C^*$-algebra. 
 	
 \end{definition}
 
-\begin{notn}
+\begin{notn}\label{ap_notn}
 	If $A$ is a pro-$C^*$-algebra, then $S(A)$ is the set of all 
 	continuous $C^*$-seminorms on $A$, ordered as in the proof of Proposition \ref{pro_c_prop}. For 
 	$p\in S\left(A\right)$, we let $\ker(p) \bydef \left\{\left.a\in A\right|p(a)=0\right\}$ and we let $A_p$ be the completion of 
-	$A/\ker(p)$ in the norm determined by $p$
+	$A/\ker(p)$ in the norm determined by $p$. It is proven in \cite{phillips:inv_lim} that $A/\ker(p)$ is in fact already complete, so $A/\ker(p)\cong A_p$ is a $C^*$-algebra.  
 \end{notn}. 
 Note that $A_p$ is a $C^*$-algebra, and that the proof of Proposition \ref{pro_c_prop} 
 gives a canonical representation of $A$ as an inverse limit, namely $A = \varprojlim_{p\in S(A)} A_p$. 
 %+ÑPes(A) (S(A) is directed because if p,^ G S(A), then a ÈÑ>¥ max(p(a), q(a)) is also in S(A).) We will show in Corollary 1.2.8 that in fact A/Ker(p) is always already complete.
-\begin{definition}\label{pro_bound_defn}\cite{phillips:inv_lim_app}
-	%1.2.3. DEFINITION ([63]). 
-	Let $A$ be a pro-$C^*$-algebra. Then an 
-	element $a\in A$ i s called bounded if $\left\| a\right\|_\infty  \bydef \sup\left\{\left.p(a)\right| p\in S(A)\right\}<\infty$. The set of all 
-	bounded elements is denoted $b(A)$. 
+\begin{definition}\label{pro_bound_defn}\cite{phillips:inv_lim}
+	
+	%1.10. DEFINITION ([63]).
+	 
+	Let $A$ be a pro-$C^*$-algebra. Then the set of \textit{bounded elements} is the set
+	$$
+	b\left(A\right)\bydef \left\{ a \in A\left| \left\| a\right|_\infty = \sup\left\{p\left( a\right)\left| p\in S\left(a\right) \right.\right\}< \infty\right. \right\}.
+	$$
+	
+	%Then an 	element $a\in A$ i s called bounded if $\left\| a\right\|_\infty  \bydef \sup\left\{\left.p(a)\right| p\in S(A)\right\}<\infty$. The set of all 	bounded elements is denoted $b(A)$. 
 \end{definition}
+
+
 \begin{proposition}\label{pro_bound_prop}\cite{phillips:inv_lim_app}
-	%1.2.4. PROPOSITION ([63]). 
-	$b(A)$ is a $C^*$-algebra for the norm $\left\| \cdot\right\|_\infty$.
+Let $A$ be a pro-$C^*$-algebra. Then:
+
+\begin{enumerate}
+	\item $b\left(A\right)$ is a $C^*$-algebra in the norm $\left\| \cdot\right|_\infty$.
+	\item If $a \in A$ is normal and $f\in C\left(Sp\left(a\right)\right)$ is bounded then $f\left(a\right)\in b\left(A\right)$.
+	\item If $a \in A$ is normal then $a\in b\left(A\right)$ if and only if $sp\left(a\right)$ is bounded.
+	\item $b\left(A\right)$ is dense in $A$.
+	\item For $a\in b\left(A\right)$, we have $sp_{b\left(A\right)}\left(a \right)=\overline{sp_A\left(a \right)}$
+	\item If $q \in S\left(A\right)$ then the map from $b\left(A\right)$ to $A_q$ is surjective.
+\end{enumerate}
 	
 \end{proposition}
-\begin{corollary}\label{pro_bound_cor}\cite{phillips:inv_lim_app}
-	%	1.2.7. COROLLARY ([63]). 
-	$b(A)$ is dense in $A$.
-\end{corollary}
+
+
 
 \begin{prop}\label{pro_dir_lim_prop}\cite{phillips:inv_lim}
 Direct limits exist in the category of pro-$C^*$-algebras.
 \end{prop}
+
+\subsection{Local operator spaces}
+
+\begin{definition}\label{loc_op_sp_defn}\cite{dosi:multi,effros:loc_conv}
+Let $E$ be a linear space and let
+$p^{n} :\mathbb{M}_n(E)\to\left[0, \infty\right]$, $n \in \N$, be gauges (respectively, seminorms) over all matrix spaces. The
+family $p \bydef \left\{p^{n}\right\}_{n\in \N}$ is said to be a \textit{ matrix gauge} (respectively, \textit{matrix seminorm})  on $E$ if
+$p$ possesses the following properties:
+\begin{itemize}
+	\item [M1.] $p^{(m+n)}(v \oplus w)= \max\left( p^{(m)}\left(v \right), p^{(n)}\left(w \right)\right) $.
+	\item [M2.] $ p^{(n)}\left(avb \right)\le \left\|a \right\|   p^{(m)}\left(v \right)\left\|b \right\| $.
+\end{itemize}
+for all $v = [v_{ij}] \in\mathbb{M}_m(E),~w = [v_{ij}] \in\mathbb{M}_n(E), ~a = [a_{ij}] \in\mathbb{M}_{n,m}(\C),~b = [b_{ij}] \in\mathbb{M}_{m,n}(\C),~ n,m \in\N$. A linear space E with a (separated) family of matrix seminorms $\left\{p_\a\right\}_{\a\in \mathscr A}$ is called an
+\textit{abstract local operator space}.
+\end{definition}
+
+\begin{remark}\label{loc_op_sp_rem}
+	Any abstract operator local space $V$ is an inverse limit of operator spaces (cf. \cite{dosi:multi} Remark 4.1).
+\end{remark}
 
 \chapter{Spectral triples}
  	
@@ -21923,6 +22014,10 @@ J. C. V\'arilly and J. M. Gracia-Bond\'{\i}a, \textit{Algebras of distributions 
 
 \bibitem{dixmier_tr}J. Dixmier. {\it Traces sur les $C^*$-algebras}. Ann. Inst. Fourier, 13, 1(1963), 219-262, 1963.
 
+\bibitem{dosi:multi} Anar Dosi. \textit{Local operator spaces, unbounded operators and multinormed $C^*$-algebras}.      Journal of Functional Analysis 255(7):1724-1760. October 2008.
+
+
+\bibitem{effros:loc_conv} E.G. Effros, C. Webster,\textit{ Operator analogues of locally convex spaces}, in: Operator Algebras and Applications,Samos 1996, in: NATO Adv. Sci. Inst. Ser. C Math. Phys. Sci., vol. 495, Kluwer, Amsterdam, 1997.
 
 \bibitem{moyal_spectral} V. Gayral, J. M. Gracia-Bond\'{i}a, B. Iochum, T. Sch\"{u}cker, J. C. Varilly. {\it Moyal Planes are Spectral Triples}. arXiv:hep-th/0307241, 2003.
 
