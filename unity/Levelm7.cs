@@ -38,10 +38,13 @@ namespace Assets
 
         const double ol = 0.1 * Mathf.Deg2Rad;
 
+        double disst = 0.002;
+
         private void YZEvent()
         {
             double[] p = frame.Position;
-            if (Math.Abs(p[1]) < 0.02 & Math.Abs(p[0]) < 0.02)
+            var v = velocity.Velocity;
+            if (Math.Abs(p[1]) < disst & Math.Abs(p[0]) < disst)
             {
                 ev.Event -= YZEvent;
                 (Level0.RigidBodyStation + "." +
@@ -102,7 +105,8 @@ namespace Assets
         }
         public static void Set(MonoBehaviour monoBehaviour)
         {
-            Level0.Set(monoBehaviour, 6);
+            Level7.Set(monoBehaviour);
+   /*         Level0.Set(monoBehaviour, 6);
             if (!(monoBehaviour is ReferenceFrameBehavior))
             {
                 return;
@@ -117,6 +121,7 @@ namespace Assets
                     c[8] = "Station frame.Yaw=1.3";
                 }
             }
+   */
         }
 
 
