@@ -3024,19 +3024,25 @@ then
 \begin{defn}\label{triple_conn_lift_defn}
 	The operator $\widetilde{D}$ given by \eqref{d_defn_eqn} is said to be the $\left(A, \widetilde{A}, G \right)$-\textit{lift} of $D$. The spectral triple $\left( \widetilde{\A}, \widetilde{\H}, \widetilde{D}\right)$  is said to be the  $\left(A, \widetilde{A}, G \right)$-\textit{lift} of $\left( \A, \H, D \right)$.
 \end{defn}
-%\begin{rem}
-%	From \eqref{equiv_conn_eqn} it follows that the operator $\widetilde{D}$ is equivariant, i.e.
-%	\be\label{equiv_d_eqn}
-%	\widetilde{D}\left( g \widetilde{\xi}\right) = g \left( \widetilde{D}\widetilde{\xi}\right);~ \forall \widetilde{\xi} \in \Dom \widetilde{G}, ~ \forall g \in G.
-%	\ee
-%	There are two equivalent ways of definition of operator $\widetilde{D}$ from the Theorem  \ref{st_fin_thm}:
-%	\begin{enumerate}
-%		\item [(a)] Looking for an operator $\widetilde{ D}$ which satisfies to the Definition \ref{triple_lift_defn},
-%		\item[(b)] Application of the equation \eqref{d_defn_eqn}.
-%	\end{enumerate}
-%\end{rem}
+\begin{theorem}
+If $\left( \widetilde{\A}, \widetilde{\H}, \widetilde{D}\right)$  is the $\left(A, \widetilde{A}, G \right)$-{lift} of $\left( \A, \H, D \right)$ then the triple
+$\left(\A, \widetilde{\A}, G \right)$ is a finite-fold noncommutative covering of local operator spaces (cf. Definition \ref{fin_loc_op_defn})
+\end{theorem}
  
- 
+\begin{proof}
+ $\A$ is a multinormed *-algebra with the given by \eqref{s_semi_eqn} family $\left\{\left\| \cdot\right\|_s \right\}_{s\in \N^0}$ of seminorms. In particular  $\A$ is a local operator space.
+For all $s \in \N$ denote by $A_s$ the $C^*$-algebra which is the $\left\| \cdot\right\|_s$-completion of $\A$. If $s'' > s'$ then $\left\| \cdot\right\|_{s''} > \left\| \cdot\right\|_{s'}$ so there is a surjective *- homomorphism
+$A_{s'}\to A_{s''}$. In result there is a pro-$C^*$ algebra which is the inverse limit $A_\infty \bydef \varprojlim_{s \in \N} A_s$.  If  $\left( \widetilde{\A}, \widetilde{\H}, \widetilde{D}\right)$  is  the  $\left(A, \widetilde{A}, G \right)$-{lift} of $\left( \A, \H, D \right)$ then one can define  $C^*$-algebras  $\widetilde A_s$ and the inverse limit $\widetilde A_\infty \bydef \varprojlim_{s \in \N} \widetilde A_s$. The injective *-homomorphism $\A \to \widetilde \A$ induces the injective *-homomorphism $A_s \to \widetilde A_s$ for all $s\in\N$. It follows that there is an injecive *-homomorphism of pro-$C^*$-algebras  $ A_\infty\hookto \widetilde A_\infty$. Both $\A$ and $\widetilde\A$ are dense in  $ A_\infty$ and $\widetilde A_\infty$ it follows that
+
+\be\label{fin_thm_eqn}
+\begin{split}
+	 \left\{ \left.g \in \Aut\left(b\left( \widetilde{A}_\infty\right)  \right)~\right|~ ga = a;~~\forall a \in b\left( A_\infty\right) \right\}\cong \\ \cong
+ \left\{ \left.g \in \Aut\left(\widetilde{A}_\infty \right)~\right|~ ga = a;~~\forall a \in A_\infty\right\}\cong \\ \cong \left\{ \left.g \in \Aut\left(\widetilde{\A} \right)~\right|~ ga = a;~~\forall a \in \A\right\}\cong G;\\
+ b\left( \widetilde{A}_\infty\right)^G \cong  b\left( {A}_\infty\right).
+ \end{split}
+\ee
+Since $\widetilde{\A}$ is a finitely generated $\A$-module the pro-$C^*$-algebra $\widetilde{A}_\infty$ is a finitely generated $A_\infty$-module, so the pro-$C^*$-algebra  $\K\left(\widetilde{A}_\infty \right)$ of compact operators is unital (cf. \ref{pro_fin_comp_empt}). It turns out that  the -$C^*$-algebra  $\K\left(b\left( \widetilde{A}_\infty\right)  \right)$ of compact operators is unital. It turns out that  $b\left( \widetilde{A}_\infty\right)$ is a finitely generated $b\left( {A}_\infty\right)$-module (cf. Remark \ref{fin_gen_un_equ_rem}). Taking into account \eqref{fin_thm_eqn} we conclude that the triple $\left(b\left( \widetilde{A}_\infty\right), b\left( A_\infty\right), G\right)$ is a {unital noncommutative finite-fold  covering}  (cf. Definition \ref{fin_uni_defn}). Otherwise If $\widetilde X' \subset \widetilde A_\infty$ is a $\C$-linear space  such that $\A = \widetilde X' \cap  A_\infty$ and $G\widetilde X'= \widetilde X'$  then $\widetilde X' \subseteq \widetilde\A$. So the triple satisfies to conditions (a) and (b) of the Definition \ref{fin_loc_op_defn}.
+\end{proof}
  
  \section{Finite noncommutative coverings and flat connections}\label{flat_sec}
  \subsection{Basic construction}\label{nc_flat_sec}
@@ -19724,7 +19730,7 @@ Let $A$ be a pro-$C^*$-algebra. Then:
 Direct limits exist in the category of pro-$C^*$-algebras.
 \end{prop}
 \begin{empt}\label{pro_fin_comp_empt}
-There are explained in \cite{phillips:inv_lim} Hilbert modules over pro-$C^*$-algebras. It is shown that if $E_A$ is a finitely generated module over pro-$C^*$-algebra  $A$  then the  pro-$C^*$-algebra  $\mathcal{L}_A\left( X_A\right)$ adjointable is naturally isomorphic to the algebra $\K\left( X_A\right)$ of of compact operators.
+There are explained in \cite{phillips:inv_lim} Hilbert modules over pro-$C^*$-algebras. It is shown that if $E_A$ is a finitely generated module over pro-$C^*$-algebra  $A$  then the  pro-$C^*$-algebra  $\mathcal{L}_A\left( X_A\right)$ adjointable is naturally isomorphic to the algebra $\K\left( X_A\right)$ of  compact operators.
 \end{empt}
 \subsection{Local operator spaces}
 
@@ -19738,7 +19744,7 @@ $p$ possesses the following properties:
 	\item [M2.] $ p^{(n)}\left(avb \right)\le \left\|a \right\|   p^{(m)}\left(v \right)\left\|b \right\| $.
 \end{itemize}
 for all $v = [v_{ij}] \in\mathbb{M}_m(E),~w = [v_{ij}] \in\mathbb{M}_n(E), ~a = [a_{ij}] \in\mathbb{M}_{n,m}(\C),~b = [b_{ij}] \in\mathbb{M}_{m,n}(\C),~ n,m \in\N$. A linear space E with a (separated) family of matrix seminorms $\left\{p_\a\right\}_{\a\in \mathscr A}$ is called an
-\textit{abstract local operator space}.
+\textit{abstract local operator space}.   We claim that local space should be a closed subspace of multinormed *-algebra $A$ such that matrix seminorms of $E$ come from the natural matrix seminorms of $A$.
 \end{definition}
 
 \begin{remark}\label{loc_op_sp_rem}
