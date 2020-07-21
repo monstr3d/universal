@@ -11,20 +11,20 @@ using UnityEngine;
 
 namespace Assets
 {
-    public class Levelm7 : Levelm
+    public class Levelm8 : Levelm
     {
 
         EulerAngles angles = new EulerAngles();
 
 
-        public Levelm7()
+        public Levelm8()
         {
             /// Level0.ZControl, Level0.YControl,
             var ss = new string[] {
                 Level0.LongXC,
                Level0.YControl, Level0.ZControl,
                 Level0.Rz, Level0.Vz, Level0.Ry, Level0.Vy,
-             Level0.Rx, Level0.Vx, Level0.Oz};
+             Level0.Rx, Level0.Vx, Level0.Oz, Level0.Ox, Level0.Oy};
             var l = new List<string>();
             foreach (var s in ss)
             {
@@ -57,10 +57,8 @@ namespace Assets
 
         private void YawEvent()
         {
-            double[] p = frame.Position;
             angles.Set(frame.Quaternion);
-            if (Math.Abs(angles.yaw) < al & Math.Abs(aVelocity.Omega[2]) < ol & 
-               Math.Abs(p[1]) < disst & Math.Abs(p[0]) < disst)
+            if (Math.Abs(angles.yaw) < al & Math.Abs(aVelocity.Omega[2]) < ol)
             {
                 ev.Event -= YawEvent;
                 //       (Level0.RigidBodyStation + "." +
@@ -107,23 +105,7 @@ namespace Assets
         }
         public static void Set(MonoBehaviour monoBehaviour)
         {
-            Level7.Set(monoBehaviour);
-   /*         Level0.Set(monoBehaviour, 6);
-            if (!(monoBehaviour is ReferenceFrameBehavior))
-            {
-                return;
-            }
-            ReferenceFrameBehavior behavior = monoBehaviour as ReferenceFrameBehavior;
-            var c = behavior.constants;
-            if (c.Length > 11)
-            {
-                if (c[11].Contains("OMGz"))
-                {
-                    c[11] = "Station frame.OMGz=0.04";
-                    c[8] = "Station frame.Yaw=1.3";
-                }
-            }
-   */
+            Level8.Set(monoBehaviour);
         }
 
 

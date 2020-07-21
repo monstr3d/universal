@@ -160,6 +160,5 @@ namespace Assets
             ForcesIndicator.indicator.StopAudio();
         }
 
-
     }
 }

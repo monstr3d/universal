@@ -87,13 +87,6 @@ namespace Assets
         }
 
 
-
-
-
-
-
-
-
         protected override void Update()
         {
             

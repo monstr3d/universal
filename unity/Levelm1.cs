@@ -13,8 +13,6 @@ namespace Assets
     {
 
 
-
-
         public Levelm1()
         {
             // var ss = new string[] { Level0.Distance, Level0.Velocity,   Level0.VxLimiter,  Level0.Rz };
@@ -53,8 +51,10 @@ namespace Assets
             // Time of flight = 115 s
             (Level0.RigidBodyStation + "." +
                Level0.ShortXC).EnableDisable(false);
-            Level0.Collision(stop);
+            Level1.Collision(stop);
         }
+
+
         public static void Set(MonoBehaviour monoBehaviour)
         {
             Level0.Set(monoBehaviour);

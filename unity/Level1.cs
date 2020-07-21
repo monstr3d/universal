@@ -20,16 +20,15 @@ namespace Assets
            
         }
 
-
         static public void Collision(Tuple<GameObject, Component, IScadaInterface, ICollisionAction> stop)
         {
-
+            Level0.Collision(stop);
         }
+
         public static void Set(MonoBehaviour monoBehaviour)
         {
             Level0.Set(monoBehaviour);
         }
-
 
     }
 }

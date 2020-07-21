@@ -9,11 +9,11 @@ using UnityEngine;
 
 namespace Assets
 {
-    public class Level8 : Levelm
+    public class Level9 : Levelm
     {
 
 
-        public Level8()
+        public Level9()
         {
             /// Level0.ZControl, Level0.YControl,
             var ss = new string[] {
@@ -37,6 +37,13 @@ namespace Assets
         }
         public static void Set(MonoBehaviour monoBehaviour)
         {
+            Level0.Set(monoBehaviour, 6);
+            if (monoBehaviour is OutputController)
+            {
+                OutputController oc = monoBehaviour as OutputController;
+                var a = oc.aliases;
+                a[0] = "Aim 1.Z=-0.3";
+            }
             if (!(monoBehaviour is ReferenceFrameBehavior))
             {
                 return;
@@ -46,15 +53,15 @@ namespace Assets
             var c = behavior.constants;
             if (c.Length > 11)
             {
-                if (c.Length > 11)
+                if (c[11].Contains("OMGz"))
                 {
-                    if (c[11].Contains("OMGz"))
-                    {
-                       c[9] = "Station frame.OMGx=0.001";
-                        c[10] = "Station frame.OMGy=-0.0015";
-                c[11] = "Station frame.OMGz=0.04";
-                        c[8] = "Station frame.Yaw=1.3";
-                    }
+                    //                c[1] = "Station frame.Y=-0.039";
+                    //                c[2] = "Station frame.Z=-0.018";
+                    c[1] = "Station frame.Y=-0.398";
+                    c[2] = "Station frame.X=-0.188";
+                    c[6] = "Station frame.Roll=0.33";
+                    c[7] = "Station frame.Pitch=-0.32";
+                    c[8] = "Station frame.Yaw=0.3";
                 }
             }
         }
