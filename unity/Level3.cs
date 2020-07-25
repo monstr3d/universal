@@ -11,21 +11,13 @@ using Unity.Standard;
 
 namespace Assets
 {
-    public class Level2 : Levelm
+    public class Level3 : Levelm
     {
 
-
-        protected double last;
-
-        protected Level2(bool b) : base()
+        public Level3() 
         {
-
-        }
-
-
-        public Level2() : this(true)
-        {
-            var ss = new string[] { Level0.Rz, Level0.Vz, Level0.Ry, Level0.Vy };
+            var ss = new string[] { Level0.Rz, Level0.Vz, Level0.Ry, Level0.Vy,
+             Level0.Rz, Level0.Vz};
             var l = new List<string>();
             foreach (var s in ss)
             {
@@ -37,6 +29,9 @@ namespace Assets
 
         public static void Set(MonoBehaviour monoBehaviour)
         {
+            Level0.Set(monoBehaviour);
+            return;
+            /*
             ReferenceFrameBehavior rf = null;
             OutputController oc = null;
             if (monoBehaviour is ReferenceFrameBehavior)
@@ -65,18 +60,8 @@ namespace Assets
                 return;
             }
             Level0.SetCamera(rf);
+            */
         }
-
-        static internal void Set(OutputController behavior)
-        {
-            var c = behavior.inputConstants;
-            c[1] = 0;
-            for (int i = 3; i < 6; i++)
-            {
-                c[i] = 0;
-            }
-        }
-
 
         new static public void Collision(Tuple<GameObject, Component, IScadaInterface, ICollisionAction> stop)
         {

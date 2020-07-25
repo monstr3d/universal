@@ -9,10 +9,11 @@ using Unity.Standard;
 
 namespace Assets
 {
-    public class Level1 : AbstractLevelStringUpdate
+    public class Level1 : Levelm
     {
         public Level1()
         {
+
         }
 
         protected override void Update()
@@ -20,9 +21,9 @@ namespace Assets
            
         }
 
-        static public void Collision(Tuple<GameObject, Component, IScadaInterface, ICollisionAction> stop)
+        new static public void Collision(Tuple<GameObject, Component, IScadaInterface, ICollisionAction> stop)
         {
-            Level0.Collision(stop);
+            Levelm.Collision(stop);
         }
 
         public static void Set(MonoBehaviour monoBehaviour)

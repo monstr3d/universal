@@ -11,7 +11,7 @@ using Unity.Standard;
 
 namespace Assets
 {
-    public class Level4 : AbstractLevelStringUpdate
+    public class Level4 : Levelm
     {
 
         public Level4()
@@ -30,9 +30,9 @@ namespace Assets
 
         }
 
-        static public void Collision(Tuple<GameObject, Component, IScadaInterface, ICollisionAction> stop)
+        new static public void Collision(Tuple<GameObject, Component, IScadaInterface, ICollisionAction> stop)
         {
-
+            Levelm.Collision(stop);
         }
 
         public static void Set(MonoBehaviour monoBehaviour)
@@ -92,5 +92,7 @@ namespace Assets
             }
             c[8] = "Station frame.Yaw=2.7";
         }
+
+
     }
 }

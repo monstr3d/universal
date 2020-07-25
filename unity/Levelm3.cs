@@ -64,19 +64,10 @@ namespace Assets
             Level0.Set(monoBehaviour);
         }
 
-        static public void Collision(Tuple<GameObject, Component, IScadaInterface, ICollisionAction> stop)
+        new static public void Collision(Tuple<GameObject, Component, IScadaInterface, ICollisionAction> stop)
         {
-            // Time of flight 255.139
-            (Level0.RigidBodyStation + "." +
-   Level0.ShortXC).EnableDisable(false);
-            (Level0.RigidBodyStation + "." +
-         Level0.YControl).EnableDisable(false);
-            (Level0.RigidBodyStation + "." +
-   Level0.ZControl).EnableDisable(false);
-
-            Level0.Collision(stop);
-
-
+            // Time of flight 272.78
+            Levelm.Collision(stop);
         }
 
 

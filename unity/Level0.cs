@@ -97,7 +97,7 @@ namespace Assets
 
         
 
-        static void SetStation(ReferenceFrameBehavior behavior, int level)
+        static internal void SetStation(ReferenceFrameBehavior behavior, int level)
         {
             var c = behavior.constants;
             for (int i = level; i < c.Length; i++)
@@ -150,7 +150,7 @@ namespace Assets
             monoBehaviour.Set(Math.Abs(StaticExtensionUnity.Activation.level));
         }
 
-        static void SetCamera(ReferenceFrameBehavior behavior)
+        static internal void SetCamera(ReferenceFrameBehavior behavior)
         {
 
         }

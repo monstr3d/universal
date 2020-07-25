@@ -2727,14 +2727,14 @@ Let both  $\left(X, Y \right)$ and $\left(\widetilde X, \widetilde Y \right)$ ar
 \end{definition}
 
 
-\begin{empt}
-Let $X, Y$ be operator spaces, and let $\phi: X \to Y$ be complete quotient map (cf. \ref{complete_maps_empt}). Let $C^*_e\left(X \right)$ and $C^*_e\left(Y \right)$ $C^*$-envelopes of $X$ and $Y$ respectively (cf. Definition \ref{c_env_sp_defn}). If $I\subset C^*_e\left(X \right)$ is the intersection of all closed containing $\ker \phi$ ideals then there is an inclusion $Y \to C^*_e\left(X \right)/I$. Otherwise there is a surjective *-homomorphism  $C^*_e\left(X \right)/I \to  C^*_e\left(Y \right)$. It turns out that there is a surjective *-homomorphism  $C^*_e\left(X \right)/I \to  C^*_e\left(Y \right)$. 
-\end{empt}
+%\begin{empt}
+%Let $X, Y$ be operator spaces, and let $\phi: X \to Y$ be complete quotient map (cf. \ref{complete_maps_empt}). Let $C^*_e\left(X \right)$ and $C^*_e\left(Y \right)$ $C^*$-envelopes of $X$ and $Y$ respectively (cf. Definition \ref{c_env_sp_defn}). If $I\subset C^*_e\left(X \right)$ is the intersection of all closed containing $\ker \phi$ ideals then there is an inclusion $Y \to C^*_e\left(X \right)/I$. Otherwise there is a surjective *-homomorphism  $C^*_e\left(X \right)/I \to  C^*_e\left(Y \right)$. It turns out that there is a surjective *-homomorphism  $C^*_e\left(X \right)/I \to  C^*_e\left(Y \right)$. 
+%\end{empt}
 \begin{empt}\label{loc_op_env_empt}
 %Let $X$ be a local operator space represented by an inverse limit $X = \varprojlim X_\a$ of the directed set $\left\{X_\a\right\}$ spaces. The inverse limit  $C^*_e\left(X\right)=\varprojlim C^*_e\left(X_\a\right)$ is said to be the \textit{envelope pro}-$C^*$-\textit{algebra} of $X$.
-Let $X$ be a local operator space and let $\varphi : X \to B$ be a complete isometry into pro-$C^*$-algebra. Let $b\left( X\right) \bydef b\left(B \right) \cap B$. If $C_e\left( b\left( X\right)\right)$  {envelope } $C^*$-{algebra} of $b\left( X\right)$ then there is the surjective *- homomorphism $ b\left(B \right)\to C_e\left( b\left( X\right)\right)$. Let $b\left( I\right) \bydef \ker\left(  b\left(B \right)\to C_e\left( b\left( X\right)\right)\right)$. If
+Let $X$ be a local operator space and let $\varphi : X \to B$ be a complete isometry into pro-$C^*$-algebra (cf.  Remark \ref{loc_op_abs_conc_rem}). Let $b\left( X\right) \bydef b\left(B \right) \cap B$. If $C_e\left( b\left( X\right)\right)$  {envelope } $C^*$-{algebra} of $b\left( X\right)$ then there is the surjective *- homomorphism $ b\left(B \right)\to C_e\left( b\left( X\right)\right)$. Let $b\left( I\right) \bydef \ker\left(  b\left(B \right)\to C_e\left( b\left( X\right)\right)\right)$. If
 $$
-I \bydef \bigcap_{\substack{ J \text{ is an ideal of } B\\ J\cap b\left(B \right)= b\left( I\right)}}
+I \bydef \bigcap_{\substack{ J \text{ is an ideal of } B\\ J\cap b\left(B \right)\supset b\left( I\right)}}J
 $$
 then $A \bydef B/I$ is a pro $C^*$-algebra and there is the complete isometry $X \hookto A$.
 \end{empt}
@@ -2777,10 +2777,10 @@ Any complete isomerty $\phi: X \to Y$ of operator spaces induces an injecive *-h
 	\ee	
 \end{definition}
 \begin{definition}\label{op_loc_su_env_defn}
-	If a pair   $\left(X, Y \right)$ is {sub-unital} local operator space then the pro-$C^*$-\textit{envelope} of $\left(X, Y \right)$ is the $C^*$-algebra given by
+	If a pair   $\left(X, Y \right)$ is {sub-unital} local operator space then the pro-$C^*$-\textit{envelope} of $\left(X, Y \right)$ is the pro-$C^*$-algebra given by
 	\be\label{op_loc_su_env_eqn}
 	\begin{split}
-		C^*_e\left( X, Y\right) = \\ = \cap \left\{ \left.A \subset 	C^*_e\left( Y\right)~\right| ~ A  \text{ is a } C^*\text{-subalgebra of } C^*_e\left( Y\right) \text{ AND } X \subset A \right\},
+		C^*_e\left( X, Y\right) = \\ = \cap \left\{ \left.A \subset 	C^*_e\left( Y\right)~\right| ~ A  \text{ is a } \text{pro-}C^*\text{-subalgebra of } C^*_e\left( Y\right) \text{ AND } X \subset A \right\}.
 	\end{split}
 	\ee
 \end{definition}
@@ -3845,13 +3845,11 @@ From the Lemma \ref{spec_el_repr_lem} it turns out that there are the following 
 
 \section{Infinite coverings of pro-$C^*$-algebras}
 
-\paragraph*{}
-Following definitions are generalizations of 
 
 
 \begin{definition}\label{comp_pro_defn}
 	Let $\La$ be a countable directed set (cf. Definition \ref{directed_set_defn}) such that there is the unique minimal element $\la_{\min} \in \La$.
-	Let $A$ be a pro-$C^*$-algebra.  Let us consider a set noncommutative finite-fold coverings $\mathfrak{S}=\left\{ \pi_{\la}:A \hookto A_{\la}\right\}_{\la \in \La}$ indexed by  $\La$ such that $A_{\la_{\mathrm{min}}}= A$, and $\pi_{\la_{\mathrm{min}}}= \Id_A$. We do not claim that any noncommutative finite-fold covering $A \to \widetilde{A}$ belongs to $\mathfrak{S}$. Suppose that
+	Let $A$ be a pro-$C^*$-algebra.  Let us consider a set noncommutative finite-fold coverings  pro-$C^*$-algebras $\mathfrak{S}=\left\{ \pi_{\la}:A \hookto A_{\la}\right\}_{\la \in \La}$ (cf. Definition \ref{pro_fin_defn}) indexed by  $\La$ such that $A_{\la_{\mathrm{min}}}= A$, and $\pi_{\la_{\mathrm{min}}}= \Id_A$.  Suppose that
 		$\mathfrak{S}=\left\{ \pi_{\la}:b\left( A\right)  \hookto b\left(  A_{\la}\right) \right\}_{\la \in \La}$, or equivalently $$\mathfrak{S}=\left\{ \left( b\left( A\right)  ,  b\left(A_{\la}\right) , G\left(\left.A_\la~\right|A \right) , \pi_{\la}\right) \right\}_{\la \in \La}$$
 	is  an {algebraical  finite covering category}.   
 	The set 
@@ -3881,7 +3879,7 @@ is a {pointed algebraical  finite covering category}.
 \begin{empt}\label{inv_pro_lim_empt}
 Let $\mathfrak{S}^{\text{pt}}$ is pointed algebraical  finite covering category of pro-$C^*$-algebras, and let 	$b\left( 	\mathfrak{S}^{\text{pt}}\right)$ is given by \eqref{bounded_cat_eqn}. Suppose that $b\left( 	\mathfrak{S}^{\text{pt}}\right)$ is good (cf. Definition \ref{mains_defn}) and let  $\left(b\left( A\right) , \widetilde{B}, G\right)$ be the {infinite noncommutative covering} of $b\left( \mathfrak{S}^{\mathrm{pt}}\right)$ (cf. Definition \ref{main_defn}). If $\widehat{B}\bydef \varinjlim b\left(A_\la \right)$ is the direct limit then there is the natural inclusion  $\iota :\widehat{B}\hookto M\left( \widetilde{B}\right)$. From the Proposition \ref{pro_dir_lim_prop} there is the direct limit $\widehat{A}\bydef \varinjlim A_\la$ which is a pro-$C^*$-algebra. Moreover one has $\widehat{B} = b\left( \widehat{A}\right)$. For any $a \in \widehat{A}$ there is a net $\left\{a_\a\right\}\subset \widehat{B}$ such that $a =  \lim a_\a$ with respect to the topology of  $\widehat{A}$. We say that the net $\left\{a_\a\right\}$ is \textit{admissible}. The multiplicative  seminorm on $p: M\left(\widetilde A \right)\to \left[0, \infty\right)$ is said to  \textit{admissible} if the following conditions hold:
 \begin{itemize}
-	\item $p\left(\widetilde a \right)\le \left\| \widetilde a\right\| \forall \widetilde a \in \widetilde A$.
+	\item $p\left(\widetilde a \right)\le \left\| \widetilde a\right\|\quad  \forall \widetilde a \in \widetilde A$.
 	\item For any  {admissible} net  $\left\{a_\a\right\}$ the net $\left\{p\left(a_\a\right) \right\}$ is convergent.
 \end{itemize}
 Any {admissible}   seminorm yields  a multiplicative seminorm on $\widetilde B$. The $C^*$-algebra $\widetilde B$ and the family of all {admissible}   seminorms give a pro-$C^*$-algebra $\widetilde A$ such that $b\left(\widetilde A \right) \cong \widetilde B$.
@@ -19827,34 +19825,34 @@ pro-$C*$-algebras and unital homomorphisms.
 \subsection{Local operator spaces}
 
 \begin{definition}\label{loc_op_sp_defn}\cite{dosi:multi,effros:loc_conv}
-Let $E$ be a linear space and let
-$p^{n} :\mathbb{M}_n(E)\to\left[0, \infty\right]$, $n \in \N$, be gauges (respectively, seminorms) over all matrix spaces. The
-family $p \bydef \left\{p^{n}\right\}_{n\in \N}$ is said to be a \textit{ matrix gauge} (respectively, \textit{matrix seminorm})  on $E$ if
+Let $X$ be a linear space and let
+$p^{n} :\mathbb{M}_n(X)\to\left[0, \infty\right]$, $n \in \N$, be gauges (respectively, seminorms) over all matrix spaces. The
+family $p \bydef \left\{p^{n}\right\}_{n\in \N}$ is said to be a \textit{ matrix gauge} (respectively, \textit{matrix seminorm})  on $X$ if
 $p$ possesses the following properties:
 \begin{itemize}
 	\item [M1.] $p^{(m+n)}(v \oplus w)= \max\left( p^{(m)}\left(v \right), p^{(n)}\left(w \right)\right) $.
 	\item [M2.] $ p^{(n)}\left(avb \right)\le \left\|a \right\|   p^{(m)}\left(v \right)\left\|b \right\| $.
 \end{itemize}
-for all $v = [v_{ij}] \in\mathbb{M}_m(E),~w = [v_{ij}] \in\mathbb{M}_n(E), ~a = [a_{ij}] \in\mathbb{M}_{n,m}(\C),~b = [b_{ij}] \in\mathbb{M}_{m,n}(\C),~ n,m \in\N$. A linear space E with a (separated) family of matrix seminorms $\left\{p_\a\right\}_{\a\in \mathscr A}$ is called an
+for all $v = [v_{ij}] \in\mathbb{M}_m(X),~w = [v_{ij}] \in\mathbb{M}_n(E), ~a = [a_{ij}] \in\mathbb{M}_{n,m}(\C),~b = [b_{ij}] \in\mathbb{M}_{m,n}(\C),~ n,m \in\N$. A linear space $X$ with a (separated) family of matrix seminorms $\left\{p_\a\right\}_{\a\in \mathscr A}$ is called an
 \textit{abstract local operator space}. %  We claim that local space should be a closed subspace of multinormed *-algebra $A$ such that matrix seminorms of $E$ come from the natural matrix seminorms of $A$.
 \end{definition}
 \begin{remark}\label{la_los_rem}
 Any local operator $C^*$-algebra is an example of a local operator system (cf. \cite{dosi:multi}).
 \end{remark}
 
-\begin{example}
+\begin{example}\cite{dosi:multi}
 Any pro-$C^*$-algebra $A$ is abstract local operator space such that matrix seminorms of $p^{n}$ naturally come from seminorms of $A$.
 \end{example}
 
 \begin{empt}\label{complete_loc_maps_empt}
-Similarly to \ref{complete_loc_maps_empt}  we define a \textit{complete isometry}. 
+Similarly to \ref{complete_maps_empt}  we define a \textit{complete isometry}. 
 \textit{completely contractive} and \textit{complete quotient map}) of abstract local operator spaces.
 \end{empt}
 \begin{definition}\label{conc_loc_op_space}
 A \textit{(concrete) local operator space} is a  $\C$-linear subspace $X$ of a pro-$C^*$-algebra $A$ such that $1_A \in X$. 
 \end{definition}
-\begin{remark}
-	Any local operator space naturally possesses the  structure of an abstract  local operator space. This structure comes from the structure of an abstract  local operator space of pro-$C^*$-algebra $A$.
+\begin{remark}\label{loc_op_abs_conc_rem}
+	Any local operator space naturally possesses the  structure of an abstract  local operator space. This structure comes from the structure of an abstract  local operator space of pro-$C^*$-algebra $A$. Conversely  any abstract  local operator space is a concrete  local operator space, i.e. $\C$-subspace of a pro-$C^*$-algebra.
 \end{remark}
 
 
