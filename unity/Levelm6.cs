@@ -38,17 +38,19 @@ namespace Assets
 
         const double ol =  0.1 * Mathf.Deg2Rad;
 
+ 
+       
+
         private void YZEvent()
         {
             double[] p = frame.Position;
-            if (Math.Abs(p[1]) < 0.01)
+            if (Math.Abs(p[1]) < 0.005)
             {
                 ev.Event -= YZEvent;
                 (Level0.RigidBodyStation + "." +
                Level0.OzControl).EnableDisable(true);
                 (Level0.RigidBodyStation + "." +
                Level0.ZControl).EnableDisable(true);
-           //     ay(0);
                 ev.Event += YawEvent;
             }
         }
@@ -93,15 +95,12 @@ namespace Assets
         }
 
 
-
-
-        static public void Collision(Tuple<GameObject, Component, IScadaInterface, ICollisionAction> stop)
+        new static public void Collision(Tuple<GameObject, Component, IScadaInterface, ICollisionAction> stop)
         {
-            // Time of flight = UNKNOWN
-            (Level0.RigidBodyStation + "." +
-               Level0.ShortXC).EnableDisable(false);
-            Level0.Collision(stop);
+            // Time 227  260
+            Levelm.Collision(stop);
         }
+
         public static void Set(MonoBehaviour monoBehaviour)
         {
             Level0.Set(monoBehaviour, 6);

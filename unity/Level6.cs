@@ -29,20 +29,22 @@ namespace Assets
             StaticExtensionUnity.Activation.enabledComponents = l.ToArray();
         }
 
-        const double al = 1 * Mathf.Deg2Rad;
-
-        const double ol = 0.1 * Mathf.Deg2Rad;
-
-
-
-
+ 
         new static public void Collision(Tuple<GameObject, Component, IScadaInterface, ICollisionAction> stop)
         {
             Levelm.Collision(stop);
         }
+
         public static void Set(MonoBehaviour monoBehaviour)
         {
-            Level0.Set(monoBehaviour, 6);
+            if (monoBehaviour is OutputController)
+            {
+                OutputController oc = monoBehaviour as OutputController;
+                var cc = oc.inputConstants;
+                cc[3] = 0;
+                cc[5] = 0;
+                return;
+            }
             if (!(monoBehaviour is ReferenceFrameBehavior))
             {
                 return;
