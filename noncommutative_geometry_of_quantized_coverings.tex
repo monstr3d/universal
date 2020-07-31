@@ -3852,8 +3852,6 @@ From the Lemma \ref{spec_el_repr_lem} it turns out that there are the following 
 
 \section{Infinite coverings of pro-$C^*$-algebras}
 
-
-
 \begin{definition}\label{comp_pro_defn}
 	Let $\La$ be a countable directed set (cf. Definition \ref{directed_set_defn}) such that there is the unique minimal element $\la_{\min} \in \La$.
 	Let $A$ be a pro-$C^*$-algebra.  Let us consider a set noncommutative finite-fold coverings  pro-$C^*$-algebras $\mathfrak{S}=\left\{ \pi_{\la}:A \hookto A_{\la}\right\}_{\la \in \La}$ (cf. Definition \ref{pro_fin_defn}) indexed by  $\La$ such that $A_{\la_{\mathrm{min}}}= A$, and $\pi_{\la_{\mathrm{min}}}= \Id_A$.  Suppose that
@@ -3895,7 +3893,12 @@ Let us consider  a set  $\left(G, R\right)$ of  generators and relations  such t
 	\end{enumerate}
 All relations in $R$ satisfy to Example \ref{wa_exm}, $\left(G, R\right)$  is a weakly admissible set (cf. Definition \ref{weak_adm_defn}), from thre Proposition \ref{uni_pro_c_rep_prop} it follows that $C^*\left(G, R \right)$ is a pro-$C^*$-algebra. 
 Let  $\left(b\left( A\right) , \widetilde{B},  G\right)$ be the {disconnected infinite noncommutative covering} of $b\left( \mathfrak{S}^{\mathrm{pt}}\right)$ (cf. Definition \ref{main_defn}).
-There are natural inclusions $\widehat{A}\subset C^*_r\left(G,R\right)$ and  $M\left( \widetilde{B}\right)\subset C^*_r\left(G, G\right)$.Denote by $\overline A\subset C^*_r\left(G,R\right)$ the minimal pro-$C^*$-algebra such that for all $x, y \in \widehat{A}$ and $b\in \widetilde{B}$ it contains the product  $xby$. The natural action $G\times C^*_r\left(G,R\right)\to C^*_r\left(G,R\right)$ is such that $G\times \widetilde{B}=\widetilde{B}$ so there is the action $G\times \widetilde{A}\to \widetilde{A}$
+There are natural inclusions $\widehat{A}\subset C^*_r\left(G,R\right)$ and  $M\left( \widetilde{B}\right)\subset C^*_r\left(G,R\right)$. If
+\be\label{pro_ideal_eqn}
+\widetilde{I} \bydef \left\{\left.a \in  \widetilde{B} ~\right| \forall b \in C^*_r\left(G,R\right)\quad   ab, ba  \in b\left( C^*_r\left(G,R\right) \right)  \right\}
+\ee
+then $\widetilde{I}$ is a two sided ideal of $\widetilde{B}$ such that $G\widetilde{I}=\widetilde{I}$.
+Denote by $\widetilde A\subset C^*_r\left(G,R\right)$ the closure of $\widetilde I\in C^*_r\left(G,R\right)$ with respect to the topology of the pro-$C^*$-algebra $C^*_r\left(G,R\right)$.  One has $G\widetilde{A}=\widetilde{A}$.
 \end{empt}
 \begin{definition}\label{inv_pro_lim_defn}
 In the described in \ref{inv_pro_lim_empt} situation we say that the triple
@@ -7521,14 +7524,16 @@ Following conditions hold:
 	If $\sX$ is a completely regular space and $F$ is  the family of all compact spaces then the pair $\left(\sX, F\right)$ is 
  a  completely Hausdorff space
 with distinguished family of compact subsets $F$ (cf. Definition \ref{comm_pro_dist_defn}). Let  $C_F\left(\sX\right)$ where  $C\left(\sX \right)$ be a pro-$C^*$-algebra of continuous functions functions from $\sX$ to $\C$, 
-with the topology of uniform convergence on the members of $F$. If $p: \widetilde \sX \to \sX$ is a finite-fold covering then denote by $p^{-1}\left(F \right)$ the set of all compact subsets $ \widetilde K \subset \widetilde \sX$ such that $p\left(\widetilde K\right)\in F$. The family $p^{-1}\left(F \right)$ is distinguished because $p$ is a local homeomorphism.  The covering $p$ yields the natural injective  *-homomorphism
+with the topology of uniform convergence on the members of $F$. If $p: \widetilde \sX \to \sX$ is a finite-fold covering then denote by $p^{-1}\left(F \right)_c$ the set of all compact subsets $ \widetilde K \subset \widetilde \sX$ such that $p\left(\widetilde K\right)\in F$. The family $p^{-1}\left(F \right)_c$ is distinguished because $p$ is a local homeomorphism.  Any finite-fold covering $p$ yields the natural injective  *-homomorphism
 \be\label{top_pro_hom_eqn}
-C^*\left( p, F\right): C_F\left(\sX\right)\hookto C_{p^{-1}\left(F\right)}\left(\widetilde\sX\right)
+C_F\left( p\right): C_F\left(\sX\right)\hookto C_{p^{-1}\left(F\right)_c}\left(\widetilde\sX\right)
 \ee
 of pro-$C^*$-algebras.
 
+
+
 \begin{definition}\label{top_pro_inv_defn}
-In the above situation we say that $p^{-1}\left(F\right)$ is the $p$-\textit{lift} of $F$. The given by \eqref{top_pro_hom_eqn}  *-homomorphism is the $p$-$F$-\textit{homomorphism}.
+In the above situation we say that $p^{-1}\left(F\right)_c$ is the  $p$-\textit{lift} of $F$. The given by \eqref{top_pro_hom_eqn}  *-homomorphism is the $p$-$F$-\textit{homomorphism}.
 \end{definition}
 \begin{definition}\label{top_bt_cov_defn}
 Let $p:\widetilde\sX \to \sX$ be a covering. Let both $\bt\widetilde\sX$ and $\bt\widetilde\sX$ be Stone-\v{C}ech compactifications of $\widetilde\sX$ and $\sX$ respectively (cf. Definition \ref{sc_comp_defn}). We say that $p$ is a $\bt$-covering if there is a covering $p_\bt:\bt\widetilde\sX \to \bt\sX$ such that $p = \left.p_\bt\right|_{\widetilde\sX}$. 
@@ -8966,12 +8971,12 @@ is  a pointed topological finite covering category (cf. Definition \ref{top_sec_
 is  distinguished family of compact subsets $F$ (cf. Definition \ref{comm_pro_dist_defn}) on $\sX$ and for any $\la\in \La$ 
 and for any $\la$ there is the $p$-{lift} of $F$ (cf. Definition \ref{top_pro_inv_defn}). Moreover there are injective *-homomorphisms 
 \bean
-C_F\left( p_\la\right): C_F\left(\sX\right)\hookto C^*_{p_\la^{-1}\left(F\right)}\left(\sX_\la\right),\\
-C_{ p_\nu^{-1}\left(F \right)}\left( p^\mu_\nu\right): C_{p_\nu^{-1}\left(F \right) }\left(\sX_\nu\right)\hookto C_{p_\mu^{-1}\left(F \right) }\left(\sX_\mu\right)
+C_F\left( p_\la\right): C_F\left(\sX\right)\hookto C_{p_\la^{-1}\left(F\right)_c}\left(\sX_\la\right),\\
+C_{ p_\nu^{-1}\left(F \right)_c}\left( p^\mu_\nu\right): C_{p_\nu^{-1}\left(F \right)_c }\left(\sX_\nu\right)\hookto C_{p_\mu^{-1}\left(F \right)_c }\left(\sX_\mu\right)
 \eean
 From the Theorem \ref{top_pro_fin_thm} it follows that these *-homomorphisms are {noncommutative finite-fold  coverings  of pro-$C^*$ algebras} (cf. Definition \ref{pro_fin_defn}). So the pair 
 \be\label{top_pro_cat_eqn}
-\mathfrak{S}_{C_F\left(\sX \right) }\bydef \left\{ \left\{C^*\left( p_\la, F\right)\right\}_{\la\in \La}, \left\{C^*\left( p^\mu_\nu, p_\nu^{-1}\left(F \right)\right)\right\}_{\mu,\nu\in\La}\right\}
+\mathfrak{S}_{C_F\left(\sX \right) }\bydef \left\{ \left\{C_F\left( p_\la\right)\right\}_{\la\in \La}, \left\{C_{p_\nu^{-1}\left(F \right)_c}\left( p^\mu_\nu\right)\right\}_{\mu,\nu\in\La}\right\}
 \ee
 is a {pointed algebraical  finite covering category of pro-$C^*$-algebras} (cf. Definition \ref{comp_pt_pro_defn}).
 \begin{empt}\label{top_pro_empt}
@@ -8993,89 +8998,68 @@ and the triple
 \bean
 \left(C\left(\bt\sX \right), C_0\left( \overline\sY\right), G\left(\left.\overline\sY\right|\bt\sX\right)  \right) 
 \eean
-is the disconnected inverse noncommutative limit of $\mathfrak{S}_{C\left(\bt\sX \right) }$ (cf.  Definition \ref{main_defn}). The $C^*$-algebra $C_0\left( \overline\sY\right)$ corresponds to $\overline B$ in the construction \ref{inv_pro_lim_empt}. If $C^*\left(G, R \right)$ is the specialization of described in  \ref{inv_pro_lim_defn} pro-$C^*$-algebra then $b\left( C^*\left(G, R \right)\right)= M\left( C_0\left( \overline\sY\right)\right) = C_b\left( \overline\sY\right)$. If $\bt\overline p: \overline\sY\to \bt\sX$ is the natural covering and $\overline\sX \bydef \bt\overline p^{-1}\left( \sX\right)$ then $\overline p\bydef\left.\overline p\right|_{\overline\sX} \to \sX$ is a covering and for all $\la\in\La$ there is the natural covering  $\overline p_\la: \overline\sX\to \sX_\la$. Let $\overline K \subset \overline\sX$ be a connected compact subset such that $\overline p\left(\overline K \right) \in F$ and the restriction $p|_{\overline K }: \overline K\to \overline p\left( \overline K\right)$ if a homeomorphism. For any $\la\in\La$ there is the seminorm 
-\bean
-p_{\overline p_\la\left( \overline K\right)}:  C_{p_\la^{-1}\left(F\right)}\left(\sX_\la\right)\to \R_+,\\
-a_\la \mapsto \sup_{x_\la\in p_\la\left( \overline K\right)}\left|a_\la\left(x_\la \right)\right|
-\eean
-The family $\left\{p_{\overline p_\la\left( \overline K\right)}\right\}_{\la\in\La}$ yields an element of $\prod_{\la \in \La}S\left(C_{p_\la^{-1}\left(F\right)}\left(\sX_\la\right) \right)$ which satisfies to the Equation \eqref{seminorms_inv_lim}. !!!
-
-If $\widehat X = \varprojlim_{\la\in\La }\sX_\la$ then there is a bijective continuous map $\phi: \overline\sX \to \widehat X$ which induces an invective map 
-
-
-
-
-
-
-
- From 4 the of the Proposition \ref{pro_bound_prop} it follows that $C_b\left( \overline\sX\right)$ is dense in $C^*\left(G, R \right)$ with respect to the topology of $C^*\left(G, R \right)$. The topology of $C^*\left(G, R \right)$ is given by the family $\left\{p_\a\right\}$ of submultiplicative seminorms  such that
-$ \widetilde p_\a\left(a \right) < \infty$
- for all $a\in C^*\left(G, R \right)$. It is equivalent to 
- \be\label{top_semi_cond_eqn}
- \widetilde p_\a\left(\widehat a \right) < \infty\quad \forall \widehat a \in \varinjlim_{\la\in\La} C^*\left( p_\la, F\right)
- \ee
-Otherwise $\varinjlim_{\la\in\La} C^*\left( p_\la, F\right)$ is the completion of \\ $\varinjlim_{\la\in\La} b\left( C^*\left( p_\la, F\right)\right)\cong \varinjlim_{\la\in\La}C\left(\bt\sX \right)\cong C\left(\varprojlim_\la \bt \sX_\la \right)$ with respect to the given by \eqref{seminorms_inv_lim} seminorms. If $\widehat\sX \bydef  \varprojlim_\la \bt \sX_\la$ then there  is the natural continuous  bijective   map $\widehat{ \varphi}:\overline\sX\to \widehat{\sX}$.
-
-Suppose that $\sX$ locally connected. Then any $K \in F$ can be represented   as
-\bea\label{top_kcup_eqn}
-K = \bigcap^n_{j = 1} K_j;\\
-\label{top_kjp_eqn}
-K_j\text{ is connected compact and evenly covered by }p_\la \quad \forall\la\in\La.
-\eea
-If $F'  \subset F $ is a subfamily such that any  $K\in F'$ { is connected compact and evenly covered by } $p_\la \quad \forall\la\in\La$ then from the equations \eqref{top_kcup_eqn}, \eqref{top_kjp_eqn} it follows that the system of seminorms given by $F'$ is equivalent to the system of seminorms given by $F$. 
-Denote by $\overline p: \overline \sX\to \sX$ and $\overline p_\la: \overline \sX_\la$ the natural covering. If 
+is the disconnected inverse noncommutative limit of $\mathfrak{S}_{C\left(\bt\sX \right) }$ (cf.  Definition \ref{main_defn}). The $C^*$-algebra $C_0\left( \overline\sY\right)$ corresponds to $\overline B$ in the construction \ref{inv_pro_lim_empt}. If $C^*\left(G, R \right)$ is the specialization of described in  \ref{inv_pro_lim_defn} pro-$C^*$-algebra then $b\left( C^*\left(G, R \right)\right)= M\left( C_0\left( \overline\sY\right)\right) = C_b\left( \overline\sY\right)$. If $\bt\overline p: \overline\sY\to \bt\sX$ is the natural covering and $\overline\sX \bydef \bt\overline p^{-1}\left( \sX\right)$ then $\overline p\bydef\left.\overline p\right|_{\overline\sX}:\overline\sX \to \sX$ is a covering and for all $\la\in\La$ there is the natural covering  $\overline p_\la: \overline\sX\to \sX_\la$.  According to the proof of the Proposition \ref{pro_dir_lim_prop} any seminorm on $\varinjlim C_{p_\la^{-1}\left(F\right)_c}\left(\sX_\la\right)$ corresponds to a family $\left\{p_{K_\la}\right\}_{\la\in\La}\in\prod_{\la \in \La}S\left(C_{p_\la^{-1}\left(F\right)_c}\left(\sX_\la\right) \right)$ where $K_\la\in p_\la^{-1}\left(F \right)_c$.The family should satisfy  to the Equation \eqref{seminorms_inv_lim}, i.e.
 $$
-\overline F' = \left\{\left. \overline K \in \overline p^{-1}\left(F \right)\right| \overline K \text{ homeomorphically mapped onto }  \overline p\left(K \right)  \right\}
+p_{K_\mu}\circ C_0\left(p^\mu_\nu \right) \le p_{K_\nu},
 $$
-then any $\overline K\in \overline F'$ defines an element
+or equivalently $p^\mu_\nu\left( K_\mu\right)\subset K_\nu$. The set 
+\be\label{top_ok_eqn}
+\overline K = \bigcap_{\la\in\La}\overline p^{-1}_\la\left( {K_\la}\right) \subset \overline\sX
+\ee
+is a closed and $\overline p \left(\overline K \right) \in F$.  Denote by
+\be\label{top_okd_eqn}
+\overline p^{-1}\left( F\right) \bydef \left\{\left.\overline K \subset \overline\sX\right| \overline K \text{ is closed AND }\overline p\left(\overline K \right)\in F \right\}
+\ee
+
+The given by the family $\left\{p_{K_\la}\right\}_{\la\in\La}$ seminorm is equivalent to the seminorm given by the family  $\left\{\overline p_\la\left( \overline K\right) \right\}_{\la\in\La}$. If $\widehat K\bydef \varprojlim \overline p_\la\left( \overline K\right)$ then 
 $$
-\left\{p_{\overline p_\la\left(\overline K \right)}  \right\}_{\la\in\La}\in \prod_{\la \in \La} S\left(C\left(\sX_\la \right) \right)_{p_\la^{-1}\left(F \right) } 
+\left( \varinjlim C_{p_\la^{-1}\left(F\right)_c}\left(\sX_\la\right)\right)_{\left\{\overline p_\la\left( \overline K\right) \right\}}\cong C\left(\widehat K \right) 
 $$
-The element $\left\{p_{\overline p_\la\left(\overline K \right)}  \right\}$ satisfies  to the proof of the Proposition \ref{pro_dir_lim_prop}, i.e. it yields a seminorm on $\varinjlim_{\la\in\La} C^*\left( p_\la, F\right)$. This seminorm corresponds to the seminorm $p_{\overline K}$ on $C_b\left(\overline\sX \right)$. It follows that
-\be\label{top_pro_gr_eqn}
-C^*\left(G, R \right)\cong C_{\overline p*{-1}\left(F \right) }\left( \bt\overline\sX\right) 
+Otherwise there is the natural bijective continuous map $\overline K\to \widehat K$ which induces an injective *-homomorphism $\iota_{\widehat K }:C\left(\widehat K \right)\hookto C_b\left( \overline K\right)$. The associated with the family $\left\{\overline p_\la\left( \overline K\right) \right\}$ seminorm is given by
+$$
+a \mapsto \left\| \iota_{\widehat K }\left( a\right) \right\| 
+$$
+If $\left(G, R\right)$ is a specialization of the given by \ref{inv_pro_lim_empt} weakly admissible set then any representation of $\left(G, R\right)$ correspond to the given by \eqref{top_ok_eqn} set 
+$\overline K$. If $p_{\overline K}$ is the seminorm which corresponds to $\overline K$ then for any $a\in G$ one has
+$$
+p_{\overline K}\left(a \right)= \begin{cases}
+\sup_{x \in \overline K}a\left(x\right)& a \in C_b\left(\overline \sY \right) \\
+ p_{\overline K}\left(\iota_{\widehat K }\left( a\right) \right)& a \in \varinjlim C_{p_\la^{-1}\left(F\right)_c}\left(\sX_\la\right)
+\end{cases} 
+$$
+$C^*\left(G, R\right)$ is the Hausdorff completion of free algebra $F\left( G\right)$ with respect to seminorms  $p_{\overline K}$ (cf. Remark \ref{uni_pro_c_rep_rem}).
+ It follows that 
+\be\label{top_cgr_eqn}
+C^*\left(G, R\right)=\varprojlim_{\overline K \in \overline p^{-1}\left(F \right) } C_b\left(\overline \sY \right)_{p_{\overline K}}
 \ee
 \end{empt}
 \begin{theorem}\label{top_pro_thm}
-Consider the situation \ref{top_pro_empt}. Let $\widetilde \sX$ be the topological inverse limit of the given by \eqref{top_sbt_eqn}  pointed topological finite covering category and let $\widetilde p: \widetilde \sX\to\sX$ be the natural covering. Let $$\left(C\left( \bt\sX\right), C_0\left( \widetilde \sX\right) , G\left(\left.\widetilde \sX\right|\bt \sX \right) \right)$$ be the inverse noncommutative limit of pointed algebraic finite covering category  $\mathfrak{S}_{C\left(\bt\sX \right) }$ given by \eqref{top_csbt_eqn}. Suppose that the following conditions hold
-\begin{enumerate}
-	\item The space $\widetilde \sX$ is completely regular.
-	\item There is the sequence $\left\{\widetilde K_j\right\}_{j\im\N}\subset \widetilde p^{-1}\left(F \right)$ such that
-	\bean
-	\widetilde {K}_j\subset	 \mathring{\widetilde K}_{j+1},\\
-\bigcup_{j =1}^\infty  	\widetilde {K}_j = \bigcup_{\widetilde {K}\in \widetilde p^{-1}\left(F \right)} \widetilde {K}
-	\eean
-\end{enumerate}
-Then the triple 
-$$
-\left(C_F\left(\sX \right), C_{\widetilde p^{-1}\left(F \right)}  \left( \bt\widetilde \sX\right),G\left(\left.\widetilde \sX\right|\bt \sX \right) \right)  
-$$
-is the inverse noncommutative limit of the given by \eqref{top_pro_cat_eqn} {pointed algebraical  finite covering category of pro-$C^*$-algebras} $\mathfrak{S}_{C^*\left(\sX, F \right) }$. (cf. Definition \ref{inv_pro_lim_defn})
+	Consider the situation \ref{top_pro_empt}. Let $\widetilde \sX$ be the topological inverse limit of the given by \eqref{top_sbt_eqn}  pointed topological finite covering category and let $\widetilde p: \widetilde \sX\to\sX$ be the natural covering. Let $$\left(C\left( \bt\sX\right), C_0\left( \widetilde \sX\right) , G\left(\left.\widetilde \sX\right|\bt \sX \right) \right)$$ be the inverse noncommutative limit of pointed algebraic finite covering category  $\mathfrak{S}_{C\left(\bt\sX \right) }$ given by \eqref{top_csbt_eqn}. 
+	Then the triple 
+	$$
+	\left(C_F\left(\sX \right), C_{\widetilde p^{-1}\left(F \right)_c}  \left(\widetilde \sX\right),G\left(\left.\widetilde \sX\right| \sX \right) \right)  
+	$$
+	is the inverse noncommutative limit of the given by \eqref{top_pro_cat_eqn} {pointed algebraical  finite covering category of pro-$C^*$-algebras} $\mathfrak{S}_{C_F\left(\sX \right) }$. (cf. Definition \ref{inv_pro_lim_defn})
 \end{theorem}
 \begin{proof}
-If $\left(C_F\left(\sX \right), \widetilde{   A},G\left(\left.\widetilde \sX\right|\bt \sX \right) \right)$  is the inverse noncommutative limit of $\mathfrak{S}_{C^*\left(\sX, F \right) }$. then from \eqref{top_pro_gr_eqn} it follows that $\widetilde{   A}\subset  C_{\widetilde p^{-1}\left(F \right)}  \left( \bt\widetilde \sX\right)$. For all $f\in C_{\widetilde p^{-1}\left(F \right)}  \left( \bt\widetilde \sX\right)$ there is an increasing sequence $\left\{f_j\right\}_{j\in\N}$ such that 
-$$
-f_j \bydef \max_{x\in \widetilde K_j}\left|f(x)\right|
-$$
-For all $j$ there is the continuous map $g_j\in C\left( \bt\sX\right) $ such that
-$$
-g_j\left(x \right) = \begin{cases}
-jf_j & x \in \widetilde K_j\\
-(j+1)f_{j+1} & x \in \bt\sX\setminus  \widetilde K_{j+1}.
-\end{cases}
-$$
-There is an undounded continuous map $g : \bigcup_{j =1}^\infty  	\widetilde {K}_j\to \C$ such that
-$ g\left(\widetilde K_{j+1}\setminus \widetilde K_{j+1} \right) \in \left[f_j, f_{j+1}\right]$.
-There is $h \in C_0\left(\widetilde\sX \right)$ such that
-$$
-\left(ghg\right)\left(\widetilde x \right)= f\left(\widetilde x\right) \quad \forall \widetilde x \in   \bigcup_{\widetilde {K}\in \widetilde p^{-1}\left(F \right)} \widetilde {K}.
-$$ 
-
+Let $
+C^*\left(G, R\right)=\varprojlim_{\overline K \in \overline p^{-1}\left(F \right) } C_b\left(\overline \sY \right)_{p_{\overline K}}
+$
+be given by \eqref{top_cgr_eqn}. Similarly to \eqref{pro_ideal_eqn}
+consider the following ideal
+\bean
+\widetilde{I} \bydef \left\{\left.a \in  C_0\left(\widetilde \sY\right)   ~\right| \forall b \in C^*_r\left(G,R\right)\quad   ab, ba  \in b\left( C^*_r\left(G,R\right) \right)  \right\}
+\eean
+which satisfies to the following conditions
+\be\label{top_pro_inc_eqn}
+C_c\left(\overline \sX \right) \subset \widetilde{I}\subset C_0\left(\overline \sX \right)
+\ee
+$C_c\left( \widetilde \sX \right)$ is dense in  $C_0\left(\widetilde \sX \right)$ so from \eqref{top_pro_inc_eqn} it follows that $C_c\left(\overline \sX \right)$ is dense in $\widetilde{I}$. So the closure of $\widetilde{I}$ in $C^*_r\left(G,R\right)$ coincides with closure of $C_c\left( \widetilde \sX \right)$ with respect to the family $\left\{p_{\widetilde K}\right\}_{\widetilde K\in \widetilde p^{-1}\left( F\right) }$ (cf. \eqref{top_okd_eqn}). Otherwise one has
+\be\label{top_comps_eqn}
+p_{\overline K}\left( \widetilde{a}\right) = p_{\overline K\cap \supp  \widetilde{a} }\left( \widetilde{a}\right)~ \forall \widetilde a\in  C_c\left( \widetilde \sX \right)
+\ee
+However $\supp  \widetilde{a}$ is compact and $\overline K$ is closed, so $\overline K\cap \supp  \widetilde{a}$ is compact, i.e. $\overline K\cap \supp  \widetilde{a}\in \widetilde p^{-1}\left( F\right)_c$. From \eqref{top_comps_eqn} it turns out that the completion of $C_c\left( \widetilde \sX \right)$ with respect to $\left\{p_{\widetilde K}\right\}_{\widetilde K\in \widetilde p^{-1}\left( F\right) }$ coincides with the completion of $C_c\left( \widetilde \sX \right)$ with respect to $\left\{p_{\widetilde K}\right\}_{\widetilde K\in \widetilde p^{-1}\left( F\right)_c }$. In result one has $\widetilde A\cong C_{\widetilde p^{-1}\left(F \right)_c}  \left(\widetilde \sX\right)$.
 \end{proof}
-
-
-
-
 
 \subsection{Coverings of spectral triples}
 \paragraph*{} Let $\left(C^{\infty}\left( M\right) , L^2\left( M, S\right) ,\slashed D\right)$ be a commutative spectral triple (cf. Equation \eqref{comm_sp_tr_eqn}), and let $p:\widetilde{M} \to M$ be an infinite regular covering such that  the {covering group} $G\left( {\widetilde{M}}~|~M\right)$ (cf. Definition \ref{cov_proj_cov_grp_defn}) is residually finite (cf. Definition \ref{residually_finite_defn}). From the Lemma \ref{top_res_fin_lem} it it turns out that there is a (topological)  finite covering category $\mathfrak{S} = \left\{p_\la: M_\la \to M\right\}$ (cf. \ref{top_sec_defn}) such that  the {(topological) inverse limit} of $\mathfrak{S}$ is naturally homeomorphic  to $\widetilde{M}$. From the Proposition \ref{comm_cov_mani_prop} it follows that $\widetilde{M}$ and $M_\la$ ($\forall \la \in \La$)  have natural structure of the Riemannian manifolds. According to the Example \ref{top_vb_lift_desc_exm} denote by $\widetilde{S}\stackrel{\mathrm{def}}{=} C_0\left( \lift_p\left(S \right) \right) $ and $S_\la \stackrel{\mathrm{def}}{=} C_b\left( \lift_{p_\la}\left( S\right) \right) $  (for all $\la \in \La$) the lifts of the spin bundle (cf. \ref{top_vb_sub_sub}). Similarly to the Section  \ref{top_cov_sp_tr_sec} one can prove that for any $\la \in \La$ that there is the $p_\la$-{inverse image} $p^{-1}_\la \slashed D$ of $\slashed D$ (cf. Definition \ref{top_smooth_inv_im_defn}) and the operator  $p_\la^{-1} \slashed D$ can be regarded as an unbounded operator on  $L^2\left( M_\la, S_\la\right)$. Moreover there is the $\widetilde p$-{inverse image} $\widetilde p^{-1} \slashed D$ of $\slashed D$ (cf. Definition \ref{top_smooth_inv_im_defn}) and the operator  $\widetilde p^{-1} \slashed D$ is  an unbounded operator on  $L^2\left( \widetilde M, \widetilde S\right)$.
@@ -20007,7 +19991,7 @@ of $(G, R)$ in a pro-$C^*$-algebra has the obvious meaning.
 	satisfying $\sigma = \varphi \circ \rho$. If $(G,R)$ is admissible, then $C^*(G,R)$ is a $C^*$-algebra.
 \end{prop}
 \begin{remark}\label{uni_pro_c_rep_rem}
-The construction of $C^*(G,R)$ is described in the proof of the Proposition \ref{uni_pro_c_rep_rem}.  Let $D$ be the set of all $C^*$-seminorms on $F(G)$ of the form 
+The construction of $C^*(G,R)$ is described in the proof of the Proposition \ref{uni_pro_c_rep_prop}.  Let $D$ be the set of all $C^*$-seminorms on $F(G)$ of the form 
 $p(x) = \left\|\sigma\left(x \right)  \right\|$  for some representation $\sigma$ of $G$ in a $C^*$-algebra. Then take $C^*(G,R)$ 
 to be the Hausdorff completion of $F(G)$ in the family of $C^*$-seminorms $D$.
 \end{remark}
