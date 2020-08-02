@@ -3,8 +3,6 @@ using System.Collections.Generic;
 
 using Scada.Interfaces;
 
-using Vector3D;
-
 using Unity.Standard;
 
 using UnityEngine;
@@ -29,11 +27,11 @@ namespace Assets
             }
             StaticExtensionUnity.Activation.enabledComponents = l.ToArray();
         }
-
+/*
         const double al = 1 * Mathf.Deg2Rad;
 
         const double ol = 0.1 * Mathf.Deg2Rad;
-
+*/
    
 
 
@@ -58,6 +56,8 @@ namespace Assets
         {
             if (!(monoBehaviour is ReferenceFrameBehavior))
             {
+                OutputController oc = monoBehaviour as OutputController;
+                oc.aliases[0] = "Aim 1.Z=-0.3";
                 Set(monoBehaviour as OutputController);
                 return;
             }

@@ -21,8 +21,8 @@ namespace Assets
         {
             /// Level0.ZControl, Level0.YControl,
             var ss = new string[] {
-                Level0.LongXC,
-               Level0.YControl, Level0.ZControl,
+             //   Level0.LongXC,               Level0.YControl, 
+                Level0.ZControl,
                 Level0.Rz, Level0.Vz, Level0.Ry, Level0.Vy,
              Level0.Rx, Level0.Vx, Level0.Oz};
             var l = new List<string>();
@@ -31,14 +31,56 @@ namespace Assets
                 l.Add(Level0.RigidBodyStation + "." + s);
             }
             StaticExtensionUnity.Activation.enabledComponents = l.ToArray();
-            ev.Event += YZEvent;
+            ev.Event += ZEvent;
         }
 
         const double al = 1 * Mathf.Deg2Rad;
 
         const double ol = 0.1 * Mathf.Deg2Rad;
 
-        double disst = 0.002;
+        double disst = 0.005;
+
+        void ZEvent()
+        {
+            var p = frame.Position;
+            var v = velocity.Velocity;
+            if (Math.Abs(p[0]) < disst)
+            {
+                ev.Event -= ZEvent;
+                (Level0.RigidBodyStation + "." +
+                Level0.YControl).EnableDisable(true);
+                ev.Event += YEvent;
+
+            }
+        }
+
+        void YEvent()
+        {
+            var p = frame.Position;
+            if (Math.Abs(p[1]) < disst)
+            {
+                ev.Event -= YEvent;
+                (Level0.RigidBodyStation + "." +
+                Level0.LongXC).EnableDisable(true);
+                ev.Event += XEvent;
+            }
+
+        }
+
+        void XEvent()
+        {
+            double[] p = frame.Position;
+            if (Math.Abs(p[2]) < 0.01)
+            {
+                ev.Event -= XEvent;
+                   (Level0.RigidBodyStation + "." +
+                Level0.OzControl1).EnableDisable(true);
+                ev.Event += YawEvent;
+                // */
+            }
+
+
+        }
 
         private void YZEvent()
         {
@@ -60,7 +102,7 @@ namespace Assets
             double[] p = frame.Position;
             angles.Set(frame.Quaternion);
             if (Math.Abs(angles.yaw) < al & Math.Abs(aVelocity.Omega[2]) < ol & 
-               Math.Abs(p[1]) < disst & Math.Abs(p[0]) < disst)
+               Math.Abs(p[1]) < 0.5 *  disst & Math.Abs(p[0]) < 0.5 * disst)
             {
                 ev.Event -= YawEvent;
                 //       (Level0.RigidBodyStation + "." +
@@ -79,30 +121,9 @@ namespace Assets
             }
         }
 
-
-        private void Ev_Event()
-        {
-            double[] p = frame.Position;
-            if (Math.Abs(p[2]) < 0.01)
-            {
-                ev.Event -= Ev_Event;
-                (Level0.RigidBodyStation + "." +
-                    Level0.LongXC).EnableDisable(false);
-                //             ForcesMomentumsUpdate.Finish();
-                (Level0.RigidBodyStation + "." +
-                  Level0.ShortXC).EnableDisable(true);// */
-            }
-
-        }
-
-
-
-
-        static public void Collision(Tuple<GameObject, Component, IScadaInterface, ICollisionAction> stop)
+        new static public void Collision(Tuple<GameObject, Component, IScadaInterface, ICollisionAction> stop)
         {
             // Time of flight = UNKNOWN
-            (Level0.RigidBodyStation + "." +
-               Level0.ShortXC).EnableDisable(false);
             Level0.Collision(stop);
         }
         public static void Set(MonoBehaviour monoBehaviour)
