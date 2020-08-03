@@ -36,7 +36,7 @@ namespace Assets
 
         const double al = 1 * Mathf.Deg2Rad;
 
-        const double ol = 0.1 * Mathf.Deg2Rad;
+        const double ol = 0.5 * Mathf.Deg2Rad;
 
         double disst = 0.005;
 
@@ -46,11 +46,11 @@ namespace Assets
             var v = velocity.Velocity;
             if (Math.Abs(p[0]) < disst)
             {
+                Debug.Log("ZEvent");
                 ev.Event -= ZEvent;
                 (Level0.RigidBodyStation + "." +
                 Level0.YControl).EnableDisable(true);
                 ev.Event += YEvent;
-
             }
         }
 
@@ -59,10 +59,15 @@ namespace Assets
             var p = frame.Position;
             if (Math.Abs(p[1]) < disst)
             {
+                Debug.Log("YEvent");
+
                 ev.Event -= YEvent;
                 (Level0.RigidBodyStation + "." +
-                Level0.LongXC).EnableDisable(true);
-                ev.Event += XEvent;
+Level0.OzControl).EnableDisable(true);
+
+//                (Level0.RigidBodyStation + "." +
+//                Level0.LongXC).EnableDisable(true);
+                ev.Event += YawEvent;
             }
 
         }
@@ -72,6 +77,8 @@ namespace Assets
             double[] p = frame.Position;
             if (Math.Abs(p[2]) < 0.01)
             {
+                Debug.Log("XEvent");
+
                 ev.Event -= XEvent;
                    (Level0.RigidBodyStation + "." +
                 Level0.OzControl1).EnableDisable(true);
@@ -82,20 +89,7 @@ namespace Assets
 
         }
 
-        private void YZEvent()
-        {
-            double[] p = frame.Position;
-            var v = velocity.Velocity;
-            if (Math.Abs(p[1]) < disst & Math.Abs(p[0]) < disst)
-            {
-                ev.Event -= YZEvent;
-                (Level0.RigidBodyStation + "." +
-               Level0.OzControl1).EnableDisable(true);
-                //     ay(0);
-                ev.Event += YawEvent;
-            }
-        }
-
+   
 
         private void YawEvent()
         {
@@ -104,6 +98,7 @@ namespace Assets
             if (Math.Abs(angles.yaw) < al & Math.Abs(aVelocity.Omega[2]) < ol & 
                Math.Abs(p[1]) < 0.5 *  disst & Math.Abs(p[0]) < 0.5 * disst)
             {
+                Debug.Log("YawEvent");
                 ev.Event -= YawEvent;
                 //       (Level0.RigidBodyStation + "." +
                 //        Level0.LimitedXC).EnableDisable(true);
@@ -113,8 +108,8 @@ namespace Assets
                 //     Level0.YControl).EnableDisable(true);
                 //  (Level0.RigidBodyStation + "." +
                 //  Level0.ZControl).EnableDisable(true);
-                (Level0.RigidBodyStation + "." +
-                Level0.LongXC).EnableDisable(false);
+           //     (Level0.RigidBodyStation + "." +
+          //      Level0.LongXC).EnableDisable(false);
                 (Level0.RigidBodyStation + "." +
                 Level0.ShortXC).EnableDisable(true);
 
@@ -129,22 +124,6 @@ namespace Assets
         public static void Set(MonoBehaviour monoBehaviour)
         {
             Level7.Set(monoBehaviour);
-   /*         Level0.Set(monoBehaviour, 6);
-            if (!(monoBehaviour is ReferenceFrameBehavior))
-            {
-                return;
-            }
-            ReferenceFrameBehavior behavior = monoBehaviour as ReferenceFrameBehavior;
-            var c = behavior.constants;
-            if (c.Length > 11)
-            {
-                if (c[11].Contains("OMGz"))
-                {
-                    c[11] = "Station frame.OMGz=0.04";
-                    c[8] = "Station frame.Yaw=1.3";
-                }
-            }
-   */
         }
 
 
