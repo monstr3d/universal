@@ -3892,8 +3892,8 @@ Let us consider  a set  $\left(G, R\right)$ of  generators and relations  such t
 \item[(d)] Both  natural inclusions  $\widehat{A}\hookto F(G)$, $M\left( \widetilde{B}\right)\hookto F(G)$ are continuous. This relation satisfies to the condition 4 of  the Example \ref{wa_exm}.
 	\end{enumerate}
 All relations in $R$ satisfy to Example \ref{wa_exm}, $\left(G, R\right)$  is a weakly admissible set (cf. Definition \ref{weak_adm_defn}), from the Proposition \ref{uni_pro_c_rep_prop} it follows that $C^*\left(G, R \right)$ is a pro-$C^*$-algebra. 
-If  $\left(b\left( A\right) , \widetilde{B},  G\right)$ be the {infinite noncommutative covering} of $b\left( \mathfrak{S}^{\mathrm{pt}}\right)$ (cf. Definition \ref{main_defn}), then there are natural inclusions $\widetilde{B}\subset M\left( \widetilde{B}\right)\subset M\left( \overline{B}\right)\subset C^*\left(G,R\right)$ 
-Denote by $\widetilde A\subset C^*_r\left(G,R\right)$ the closure of $\widetilde B\in C^*_r\left(G,R\right)$ with respect to the topology of the pro-$C^*$-algebra $C^*_r\left(G,R\right)$.  From  $G\widetilde{B}=\widetilde{B}$ it turns out that $G\widetilde{A}=\widetilde{A}$.
+If  $\left(b\left( A\right) , \widetilde{B},  G\right)$ be the {infinite noncommutative covering} of $b\left( \mathfrak{S}^{\mathrm{pt}}\right)$ (cf. Definition \ref{main_defn}), then there are natural inclusions $\widetilde{B}\subset M\left( \widetilde{B}\right)\subset M\left( \overline{B}\right)\subset C^*\left(G,R\right)$. 
+Denote by $\widetilde A\subset C^*\left(G,R\right)$ the closure of $\widetilde B\in C^*\left(G,R\right)$ with respect to the topology of the pro-$C^*$-algebra $C^*\left(G,R\right)$.  From  $G\widetilde{B}=\widetilde{B}$ it turns out that $G\widetilde{A}=\widetilde{A}$.
 \end{empt}
 \begin{definition}\label{inv_pro_lim_defn}
 In the described in \ref{inv_pro_lim_empt} situation we say that the triple
@@ -8994,9 +8994,9 @@ and the triple
 \left(C\left(\bt\sX \right), C_0\left( \overline\sY\right), G\left(\left.\overline\sY\right|\bt\sX\right)  \right) 
 \eean
 is the disconnected inverse noncommutative limit of $\mathfrak{S}_{C\left(\bt\sX \right) }$ (cf.  Definition \ref{main_defn}). The $C^*$-algebra $C_0\left( \overline\sY\right)$ corresponds to $\overline B$ in the construction \ref{inv_pro_lim_empt}. If $C^*\left(G, R \right)$ is the specialization of described in  \ref{inv_pro_lim_defn} pro-$C^*$-algebra then $b\left( C^*\left(G, R \right)\right)= M\left( C_0\left( \overline\sY\right)\right) = C_b\left( \overline\sY\right)$. If $\bt\overline p: \overline\sY\to \bt\sX$ is the natural covering and $\overline\sX \bydef \bt\overline p^{-1}\left( \sX\right)$ then $\overline p\bydef\left.\overline p\right|_{\overline\sX}:\overline\sX \to \sX$ is a covering and for all $\la\in\La$ there is the natural covering  $\overline p_\la: \overline\sX\to \sX_\la$.  According to the proof of the Proposition \ref{pro_dir_lim_prop} any seminorm on $\varinjlim C_{p_\la^{-1}\left(F\right)_c}\left(\sX_\la\right)$ corresponds to a family $\left\{p_{K_\la}\right\}_{\la\in\La}\in\prod_{\la \in \La}S\left(C_{p_\la^{-1}\left(F\right)_c}\left(\sX_\la\right) \right)$ where $K_\la\in p_\la^{-1}\left(F \right)_c$.The family should satisfy  to the Equation \eqref{seminorms_inv_lim}, i.e.
-$$
+\be\label{top_pmnp_eqn}
 p_{K_\mu}\circ C_0\left(p^\mu_\nu \right) \le p_{K_\nu},
-$$
+\ee
 or equivalently $p^\mu_\nu\left( K_\mu\right)\subset K_\nu$. The set 
 \be\label{top_ok_eqn}
 \overline K = \bigcap_{\la\in\La}\overline p^{-1}_\la\left( {K_\la}\right) \subset \overline\sX
@@ -9027,6 +9027,42 @@ $C^*\left(G, R\right)$ is the Hausdorff completion of free algebra $F\left( G\ri
 \be\label{top_cgr_eqn}
 C^*\left(G, R\right)=\varprojlim_{\overline K \in \overline p^{-1}\left(F \right) } C_b\left(\overline \sY \right)_{p_{\overline K}}
 \ee
+Consider the family $\left\{p_{K_\la}\right\}_{\la\in\La}$ once again. If $K \bydef K_{\la_{\text{min}}}$ then from \eqref{top_pmnp_eqn} it follows that $K_\la \subset p^{-1}_\la\left(K \right)$ so one has $p_{K_\la} \le p_{p^{-1}_\la\left(K \right)}$ it turns out that there is there is a surjecuve *-homomorphism
+		$$
+		\left( \varinjlim C_{p_\la^{-1}\left(F\right)_c}\left(\sX_\la\right)\right)_{\left\{\overline p^{-1}_\la\left( K\right) \right\}}\to 	\left( \varinjlim C_{p_\la^{-1}\left(F\right)_c}\left(\sX_\la\right)\right)_{\left\{\overline p_\la\left( \overline K\right) \right\}}	
+		$$
+It follows that
+\be\label{top_pk_eqn}
+C^*\left(G, R\right)=\varprojlim_{K \in F} C_b\left(\overline \sY \right)_{p_{\overline p^{-1} \left( K\right) }}
+\ee
+Suppose than $\sX$ is locally connected and for any $x \in \sX$ we select an open connected neighborhood $\sV_x$ evenly covered by $\overline p$ (cf. Definition \ref{comm_cov_pr_defn}). Also select an compact neighborhood $K_x$ of $x$ such that $K_x\subset  \sV_x$ and denote by $\sU_x \subset K_x$ the maximal open subset of $K_x$. One has
+\be\label{top_xin_eqn}
+x \in  \sU_x \subset K_x \subset \sV_x
+\ee
+Denote by $F'$ the set of the constructed above compact sets and let
+\be
+F_{\overline p}\bydef \left\{\left.K \subset \sX\right| \exists K'\in F' \quad \exists K]'\in F'\quad K = K'\cap K'' \right\}\subset F.
+\ee
+Consider $F_{\overline p}$ as an indexed set, so  the equation \ref{top_xin_eqn} can be rewritten as
+\be\label{top_xina_eqn}
+\sU_\a \subset K_\a \subset \sV_\a\quad \a \in F_{\overline p}
+\ee
+For any $K \in F$ there is a finite set $\left\{\a_1, ..., \a_n\right\}\in F_{\overline p}$ such that
+$$
+K \subset \sU_{\a_1} \cup ... \cup \sU_{\a_n}.
+$$
+It follows that 
+\be\label{top_p_max_eqn}
+p_{\overline p^{-1} \left( K\right) }\le \max_{j = 1,..., n} p_{\overline p^{-1} \left( K_{\a_j}\right) }.
+\ee 
+Comparison of the equations \eqref{top_pk_eqn} and \eqref{top_p_max_eqn} yields the following
+\be\label{top_pkp_eqn}
+C^*\left(G, R\right)=\varprojlim_{K \in F_{\overline p}} C_b\left(\overline \sY \right)_{p_{\overline p^{-1} \left( K\right) }}
+\ee
+
+
+
+
 \end{empt}
 \begin{theorem}\label{top_pro_thm}
 	Consider the situation \ref{top_pro_empt}. Let $\widetilde \sX$ be the topological inverse limit of the given by \eqref{top_sbt_eqn}  pointed topological finite covering category and let $\widetilde p: \widetilde \sX\to\sX$ be the natural covering. Let $$\left(C\left( \bt\sX\right), C_0\left( \widetilde \sX\right) , G\left(\left.\widetilde \sX\right|\bt \sX \right) \right)$$ be the inverse noncommutative limit of pointed algebraic finite covering category  $\mathfrak{S}_{C\left(\bt\sX \right) }$ given by \eqref{top_csbt_eqn}. 
@@ -9037,23 +9073,46 @@ C^*\left(G, R\right)=\varprojlim_{\overline K \in \overline p^{-1}\left(F \right
 	is the inverse noncommutative limit of the given by \eqref{top_pro_cat_eqn} {pointed algebraical  finite covering category of pro-$C^*$-algebras} $\mathfrak{S}_{C_F\left(\sX \right) }$. (cf. Definition \ref{inv_pro_lim_defn})
 \end{theorem}
 \begin{proof}
-Let $
-C^*\left(G, R\right)=\varprojlim_{\overline K \in \overline p^{-1}\left(F \right) } C_b\left(\overline \sY \right)_{p_{\overline K}}
-$
-be given by \eqref{top_cgr_eqn}. Similarly to \eqref{pro_ideal_eqn}
-consider the following ideal
-\bean
-\widetilde{I} \bydef \left\{\left.a \in  C_0\left(\widetilde \sY\right)   ~\right| \forall b \in C^*_r\left(G,R\right)\quad   ab, ba  \in b\left( C^*_r\left(G,R\right) \right)  \right\}
-\eean
-which satisfies to the following conditions
-\be\label{top_pro_inc_eqn}
-C_c\left(\overline \sX \right) \subset \widetilde{I}\subset C_0\left(\overline \sX \right)
-\ee
-$C_c\left( \widetilde \sX \right)$ is dense in  $C_0\left(\widetilde \sX \right)$ so from \eqref{top_pro_inc_eqn} it follows that $C_c\left(\overline \sX \right)$ is dense in $\widetilde{I}$. So the closure of $\widetilde{I}$ in $C^*_r\left(G,R\right)$ coincides with closure of $C_c\left( \widetilde \sX \right)$ with respect to the family $\left\{p_{\widetilde K}\right\}_{\widetilde K\in \widetilde p^{-1}\left( F\right) }$ (cf. \eqref{top_okd_eqn}). Otherwise one has
+Let $C^*\left(G, R\right)=\varprojlim_{K \in F_{\overline p}} C_b\left(\overline \sY \right)_{p_{\overline p^{-1} \left( K\right) }}$
+be given by \eqref{top_pkp_eqn}. 
+$C_c\left( \widetilde \sY\right)$ is dense in  $C_0\left(\widetilde \sY \right)$ so the closure of $C_c\left( \widetilde \sY\right)$ in $C^*_r\left(G,R\right)$ coincides with closure of $C_0\left( \widetilde \sY \right)$ with respect to the family $\left\{p_{\widetilde K}\right\}_{\widetilde K\in \widetilde p^{-1}\left( F_{\overline p}\right) }$. Otherwise one has
 \be\label{top_comps_eqn}
-p_{\overline K}\left( \widetilde{a}\right) = p_{\overline K\cap \supp  \widetilde{a} }\left( \widetilde{a}\right)~ \forall \widetilde a\in  C_c\left( \widetilde \sX \right)
+p_{\overline p^{-1} \left( K\right) }\left( \widetilde{a}\right) = p_{\overline p^{-1} \left( K\right) \cap \supp  \widetilde{a} }\left( \widetilde{a}\right)\quad  \forall \widetilde a\in  C_c\left( \widetilde \sY \right)
 \ee
-However $\supp  \widetilde{a}$ is compact and $\overline K$ is closed, so $\overline K\cap \supp  \widetilde{a}$ is compact, i.e. $\overline K\cap \supp  \widetilde{a}\in \widetilde p^{-1}\left( F\right)_c$. From \eqref{top_comps_eqn} it turns out that the completion of $C_c\left( \widetilde \sX \right)$ with respect to $\left\{p_{\widetilde K}\right\}_{\widetilde K\in \widetilde p^{-1}\left( F\right) }$ coincides with the completion of $C_c\left( \widetilde \sX \right)$ with respect to $\left\{p_{\widetilde K}\right\}_{\widetilde K\in \widetilde p^{-1}\left( F\right)_c }$. In result one has $\widetilde A\cong C_{\widetilde p^{-1}\left(F \right)_c}  \left(\widetilde \sX\right)$.
+Let us prove that the set  $\overline p^{-1} \left( K\right) \cap \supp  \widetilde{a}\subset \sX$ is compact. 
+Similarly to \eqref{top_xina_eqn} consider inclusions 
+$	\sU \subset K \subset \sV$ where $\sV$ is a connected open set evenly covered by $\overline p$ (cf. Definition \ref{comm_cov_pr_defn}). There is a connected open set $\overline \sU \subset \overline \sX$ which homeomorphically mapped onto $\overline p\left(\overline\sU \right)= \sU$. 
+If $\overline G \bydef G\left(\left.\overline \sX\right|\sX\right)$ then $\overline p^{-1}\left(\sU \right) = \bigsqcup_{g \in \overline G}g \overline \sU$. If $\overline K \subset \overline\sU$ is such that $\overline p\left( \overline K\right)= K$ then $\overline K \cong K$ so $\overline K$ is compact. 
+If the set
+\bean
+\overline G' \bydef \left\{\left.g \in \overline G\right| g \overline K \cap \supp  \widetilde{a}\neq \emptyset \right\}\subset \overline G,\\
+\overline G'' \bydef \left\{\left.g \in G\overline G\right| g \overline \sU \cap \supp  \widetilde{a}\neq \emptyset \right\}\subset \overline G
+\eean
+then $\overline G' \subset \overline G''$
+Otherwise from
+$$
+\supp  \widetilde{a} \subset \left(\sqcup_{g \in \overline G''}g \overline \sU \right)\bigcap \left(\widetilde \sX \setminus \widetilde p^{-1} \left(K \right) \right)  
+$$
+and compactness of $\supp  \widetilde{a}$ if follows that the set $\overline G''$ is finite. So $\widetilde p^{-1} \left(K \right)\cap \supp  \widetilde{a}$ is a finite union
+$$
+ \widetilde p^{-1} \left(K \right)\cap \supp  \widetilde{a} = \bigcup_{g \in \overline G'}g \overline K'\cap \supp  \widetilde{a}
+$$
+of compact set, i.e. $\widetilde p^{-1} \left(K \right)\cap \supp  \widetilde{a}$ is compact. Otherwise 
+$$
+p_{\widetilde p^{-1} \left(K \right)}\left(\widetilde{a} \right) = p_{\widetilde p^{-1} \left(K\right)  \cap \supp  \widetilde{a}}\left(\widetilde{a} \right) 
+$$
+Taking into account that $\widetilde p^{-1} \left(K\right)  \cap \supp  \widetilde{a}\in \overline p^{-1}\left(F \right)_c$  one has
+$$
+\forall \widetilde{a} \in C_c\left( \widetilde \sY\right)\quad \forall K \in F_{\overline p}\quad \exists \widetilde K \in \widetilde p^{-1}\left(F \right)_c \quad  p_{\widetilde p^{-1} \left(K \right)} \left( \widetilde{a}\right) = p_{\widetilde K}\left(\widetilde a\right).
+$$, it follows that the completion of  $C_c\left( \widetilde \sY\right)$ with respect to the family $\left\{p_{\widetilde p^{-1} \left(K \right)}\right\}_{K \in F_{\overline p}}$ coincides with the completion of $C_c\left( \widetilde \sY\right)$ with respect to the family $\left\{p_{\widetilde K }\right\}_{\widetilde K \in \overline p^{-1}\left(F \right)_c}$ so one has
+$$
+\widetilde A =\varprojlim C_c\left( \widetilde \sY\right)_{p_{\overline p^{-1} \left( K\right) ~ K \in F} }\varprojlim C_c\left( \widetilde \sY\right)_{p_{\overline K}~ \K \in \overline p^{-1}\left(F \right)_c}
+$$
+or equivalently
+$$
+\widetilde A = \varprojlim_{p_{\widetilde K}~\widetilde K \in \widetilde p^{-1}\left(F_c \right)} C\left( K\right). 
+$$
+Applying the Lemma \ref{comm_pro_lim}  one has $\widetilde A\cong C_{\widetilde p^{-1}\left(F \right)_c}  \left(\widetilde \sX\right)$.
 \end{proof}
 
 \subsection{Coverings of spectral triples}
@@ -20047,7 +20106,7 @@ with distinguished families of compact subsets to the category of commutative un
 pro-$C^*$-algebras and unital homomorphisms. 
 \end{theorem}
 
-\begin{lemma}\cite{phillips:inv_lim}
+\begin{lemma}\label{comm_pro_lim}\cite{phillips:inv_lim}
 %Corollary 2.9 p 13
 Let $\sX$ be a completely Hausdorff quasitopological space. Then
 $$
