@@ -16,6 +16,10 @@ namespace Assets
 
         EulerAngles angles = new EulerAngles();
 
+        protected Levelm7(bool b)
+        {
+
+        }
 
         public Levelm7()
         {
@@ -40,7 +44,7 @@ namespace Assets
 
         double disst = 0.005;
 
-        void ZEvent()
+        protected void ZEvent()
         {
             var p = frame.Position;
             var v = velocity.Velocity;

@@ -3,35 +3,33 @@ using System.Collections.Generic;
 
 using Scada.Interfaces;
 
-using Vector3D;
-
 using Unity.Standard;
 
 using UnityEngine;
 
 namespace Assets
 {
-    public class Levelm8 : Levelm
+    public class Levelm8 : Levelm7
     {
 
-        EulerAngles angles = new EulerAngles();
+        //      EulerAngles angles = new EulerAngles();
 
 
-        public Levelm8()
+        public Levelm8() : base(true)
         {
             /// Level0.ZControl, Level0.YControl,
             var ss = new string[] {
-                Level0.LongXC,
-               Level0.YControl, Level0.ZControl,
+             //   Level0.LongXC,               Level0.YControl, 
+                Level0.ZControl,
                 Level0.Rz, Level0.Vz, Level0.Ry, Level0.Vy,
-             Level0.Rx, Level0.Vx, Level0.Oz, Level0.Ox, Level0.Oy};
+             Level0.Rx, Level0.Vx, Level0.Ox, Level0.Oy, Level0.Oz};
             var l = new List<string>();
             foreach (var s in ss)
             {
                 l.Add(Level0.RigidBodyStation + "." + s);
             }
             StaticExtensionUnity.Activation.enabledComponents = l.ToArray();
-            ev.Event += YZEvent;
+            ev.Event += ZEvent;
         }
 
         const double al = 1 * Mathf.Deg2Rad;
@@ -39,7 +37,7 @@ namespace Assets
         const double ol = 0.1 * Mathf.Deg2Rad;
 
         double disst = 0.002;
-
+/*
         private void YZEvent()
         {
             double[] p = frame.Position;
@@ -54,7 +52,7 @@ namespace Assets
             }
         }
 
-
+/*
         private void YawEvent()
         {
             angles.Set(frame.Quaternion);
@@ -88,10 +86,11 @@ namespace Assets
                     Level0.LongXC).EnableDisable(false);
                 //             ForcesMomentumsUpdate.Finish();
                 (Level0.RigidBodyStation + "." +
-                  Level0.ShortXC).EnableDisable(true);// */
+                  Level0.ShortXC).EnableDisable(true);// 
             }
 
         }
+*/
 
 
 
