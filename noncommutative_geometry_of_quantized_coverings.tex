@@ -2680,7 +2680,8 @@ $f: [0,1] \to  \mathrm{Aut}\left({A}\right)$ be a continuous function such that 
    	\end{split}
    	\ee	
    \end{definition}
-   \begin{definition}\label{op_su_env_defn}
+
+\begin{definition}\label{op_su_env_defn}
    	If a pair   $\left(X, Y \right)$ is {sub-unital} operator space then the $C^*$-\textit{envelope} of $\left(X, Y \right)$ is the $C^*$-algebra given by
    \be\label{op_su_env_eqn}
    \begin{split}
@@ -2804,6 +2805,16 @@ Similarly to the Remark \ref{loc_op_sp_rem} any abstract real operator local spa
 \begin{remark}
 Similarly to definition \ref{fin_loc_op_defn} one can define a finite-fold noncommutative covering for local real operator spaces.
 \end{remark}
+\begin{definition}\label{fin_oa_defn}
+	Let $A \hookto \widetilde{A}$ be an invective homomorphism of operator algebras which induces an injecive *- homomorphism $C^*_e\left(A \right)\hookto  C^*_e\left(\widetilde A \right)$  of their $C^*$-envelopes (cf.  Definition \ref{cov_fin_bas_sec}, Remark \ref{op_sum_space_defn}).  Suppose that 
+	following conditions hold:
+	\begin{enumerate}
+		\item[(a)] $\left(C^*_e\left(A\right) , C^*_e\left(\widetilde{A}\right) , G \right)$ is noncommutative finite-fold covering.
+		\item[(b)] If 	$\widetilde B \subset C^*_e\left(\widetilde{A}\right)$ is a subalgebra such that $B\cap C^*_e\left({A}\right)= A$ then $\widetilde B \subset \widetilde A$.
+	\end{enumerate}
+	Then we say that the triple $\left(A, \widetilde{A}, G \right)$ and/or the quadruple $\left(A, \widetilde{A}, G, \pi \right)$ and/or *-homomorphism $\pi: A \hookto \widetilde{A}$   is a \textit{noncommutative finite-fold covering of operator algebras}. 
+	
+\end{definition}
 
 
 \section{Coverings of spectral triples}\label{triple_fin_cov}
@@ -4012,6 +4023,32 @@ it turns out that  $\widetilde X'\cong\C\widetilde X$.
 \begin{remark}
 	Similarly to the Definition \ref{spec_loc_lim_defn} one can define inverse noncommutative limits for local real operator spaces.
 \end{remark}
+
+\begin{empt}\label{inf_cov_oa_empt}
+	Similarly to \ref{comp_op_pt_empt} consider a category 
+	$$
+	\mathfrak{S}^{\text{pt}} = \left(\left\{\pi_\la: A \hookto A_\la \right\}_{\la \in \La}, \left\{\pi^\mu_\nu: A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\ \nu > \mu}}\right)
+	$$
+	of noncommutative finite-fold coverings of operator algebras (cf. Definition \ref{fin_oa_defn}). Suppose that 
+	\bean
+	C^*_e\left( \mathfrak{S}^{\text{pt}}\right) \bydef\\\bydef \left(\left\{	C^*_e\left(\pi_\la\right) : 	C^*_e\left(A\right)  \hookto 	C^*_e\left(A_\la\right)  \right\}_{\la \in \La}, \left\{	C^*_e\left(\pi^\mu_\nu\right) : 	C^*_e\left(A_\mu\right)  \hookto 	C^*_e\left(A_\nu\right) \right\}_{\substack{\mu, \nu \in \La\\ \nu > \mu}}\right)
+	\eean
+	is good pointed algebraical  finite covering category (cf. Definition \ref{comp_pt_defn}). Let
+	$
+	\left(C^*_e\left(A\right), \widetilde B, G \right)
+	$
+	be the inverse noncommutative limit of $	C^*_e\left( \mathfrak{S}^{\text{pt}}\right)$ (cf. Definition \ref{main_defn}). For any $G$-invariant subalgebra $ \widetilde A'\subset  \widetilde B$ denote by
+	$$
+	M\left(\widetilde A'\right) \bydef \left\{\left.\widetilde a \in M\left( \widetilde B \right)  \right| \widetilde a\widetilde A'\subset \widetilde A' \text{ AND }\widetilde A'\widetilde a\subset \widetilde A'\right\}
+	$$
+	If $\varinjlim C^*_e\left(A_\la\right)$ is an algebraic direct limit then there is a dense inclusion $\varinjlim C^*_e\left(A_\la\right)\hookto C^*$-$\varinjlim C^*_e\left(A_\la\right)$. So there is an inclusion $\iota: \varinjlim C^*_e\left(A_\la\right)\hookto M\left( \widetilde B \right)$. We say that  $G$-invariant subalgebra $ \widetilde A'$ is \textit{is subordinated to}  $\mathfrak{S}^{\text{pt}}$ if $M\left(  \widetilde A'\right)\cap \iota \left( \varinjlim C^*_e\left(A_\la\right)\right) =  \iota \left(\varinjlim A_\la\right) $.
+\end{empt}
+\begin{definition}\label{inf_cov_oa_defn}
+	Consider the situation \ref{inf_cov_oa_empt}. If   there is the maximal  {subordinated to}  $\mathfrak{S}^{\text{pt}}$ algebra $\widetilde A$ then we say that the triple
+	$
+	\left(A,  \widetilde A, G \right)$ is the the \textit{inverse noncommutative limit} or \textit{infinite noncommutative covering}  of $\mathfrak{S}^{\text{pt}}$.
+\end{definition}
+
 
 \section{Universal  coverings and  fundamental groups}
 
