@@ -95,11 +95,9 @@ namespace Assets
 
 
 
-        static public void Collision(Tuple<GameObject, Component, IScadaInterface, ICollisionAction> stop)
+        new static public void Collision(Tuple<GameObject, Component, IScadaInterface, ICollisionAction> stop)
         {
-            // Time of flight = UNKNOWN
-            (Level0.RigidBodyStation + "." +
-               Level0.ShortXC).EnableDisable(false);
+            // Time of flight = 499
             Level0.Collision(stop);
         }
         public static void Set(MonoBehaviour monoBehaviour)

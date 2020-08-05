@@ -46,7 +46,7 @@ namespace Assets
 
         }
 
-        static public void Collision(Tuple<GameObject, Component, IScadaInterface, ICollisionAction>  stop)
+        new static public void Collision(Tuple<GameObject, Component, IScadaInterface, ICollisionAction>  stop)
         {
             // Time of flight = 115 s
             (Level0.RigidBodyStation + "." +

@@ -122,7 +122,7 @@ Level0.OzControl).EnableDisable(true);
 
         new static public void Collision(Tuple<GameObject, Component, IScadaInterface, ICollisionAction> stop)
         {
-            // Time of flight = UNKNOWN
+            // Time of flight = 532
             Level0.Collision(stop);
         }
         public static void Set(MonoBehaviour monoBehaviour)

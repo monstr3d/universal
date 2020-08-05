@@ -45,9 +45,10 @@ namespace Assets
 
         new static public void Collision(Tuple<GameObject, Component, IScadaInterface, ICollisionAction> stop)
         {
-            // Time of flight 115.607
+            // Time of flight 116
             Levelm.Collision(stop);
         }
+
         public static void Set(MonoBehaviour monoBehaviour)
         {
             Level4.Set(monoBehaviour);
