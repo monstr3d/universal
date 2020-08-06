@@ -4024,32 +4024,51 @@ it turns out that  $\widetilde X'\cong\C\widetilde X$.
 	Similarly to the Definition \ref{spec_loc_lim_defn} one can define inverse noncommutative limits for local real operator spaces.
 \end{remark}
 
-{\tiny \begin{empt}\label{inf_cov_oa_empt}
+ \begin{empt}\label{inf_cov_oa_empt}
 	Similarly to \ref{comp_op_pt_empt} consider a category 
-	$$
+	\be\label{inf_cov_oae_eqn}
 	\mathfrak{S}^{\text{pt}} = \left(\left\{\pi_\la: A \hookto A_\la \right\}_{\la \in \La}, \left\{\pi^\mu_\nu: A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\ \nu > \mu}}\right)
-	$$
+\ee
 	of noncommutative finite-fold coverings of operator algebras (cf. Definition \ref{fin_oa_defn}). Suppose that 
-	\bean
+	\be\label{inf_cov_oa_eqn}
+	\begin{split}
 	C^*_e\left( \mathfrak{S}^{\text{pt}}\right) \bydef\\\bydef \left(\left\{	C^*_e\left(\pi_\la\right) : 	C^*_e\left(A\right)  \hookto 	C^*_e\left(A_\la\right)  \right\}_{\la \in \La}, \left\{	C^*_e\left(\pi^\mu_\nu\right) : 	C^*_e\left(A_\mu\right)  \hookto 	C^*_e\left(A_\nu\right) \right\}_{\substack{\mu, \nu \in \La\\ \nu > \mu}}\right)
-	\eean
+	\end{split}
+	\ee
 	is good pointed algebraical  finite covering category (cf. Definition \ref{comp_pt_defn}). Let
 	$
 	\left(C^*_e\left(A\right), \widetilde B, G \right)
 	$
 	be the inverse noncommutative limit of $	C^*_e\left( \mathfrak{S}^{\text{pt}}\right)$ (cf. Definition \ref{main_defn}). For any $G$-invariant subalgebra $ \widetilde A'\subset  \widetilde B$ denote by
-	$$
+\be\label{inf_cov_oam_eqn}
 	M\left(\widetilde A'\right) \bydef \left\{\left.\widetilde a \in M\left( \widetilde B \right)  \right| \widetilde a\widetilde A'\subset \widetilde A' \text{ AND }\widetilde A'\widetilde a\subset \widetilde A'\right\}
-	$$
-	If $\varinjlim C^*_e\left(A_\la\right)$ is an algebraic direct limit then there is a dense inclusion $\varinjlim C^*_e\left(A_\la\right)\hookto C^*$-$\varinjlim C^*_e\left(A_\la\right)$. So there is an inclusion $\iota: \varinjlim C^*_e\left(A_\la\right)\hookto M\left( \widetilde B \right)$. We say that  $G$-invariant subalgebra $ \widetilde A'$ is \textit{is subordinated to}  $\mathfrak{S}^{\text{pt}}$ if $M\left(  \widetilde A'\right)\cap \iota \left( \varinjlim C^*_e\left(A_\la\right)\right) =  \iota \left(\varinjlim A_\la\right) $.
-\end{empt}
+\ee
+	If $\varinjlim C^*_e\left(A_\la\right)$ is an algebraic direct limit then there is a dense inclusion $\varinjlim C^*_e\left(A_\la\right)\hookto C^*$-$\varinjlim C^*_e\left(A_\la\right)$. So there is an inclusion $\iota: \varinjlim C^*_e\left(A_\la\right)\hookto M\left( \widetilde B \right)$.
+\end{empt}	
+\begin{definition}\label{inf_cov_oa_sub_defn}	
+	 We say that  $G$-invariant subalgebra $\widetilde A'$ of $\widetilde B$ is \textit{is subordinated to}  $\mathfrak{S}^{\text{pt}}$ if $M\left(  \widetilde A'\right)\cap \iota \left( \varinjlim C^*_e\left(A_\la\right)\right) =  \iota \left(\varinjlim A_\la\right) $. 
+\end{definition}
+\begin{remark}\label{inf_cov_oa_sub_rem}
+A $G$-invariant subalgebra $\widetilde A'$ of $\widetilde B$ is {is subordinated to}  $\mathfrak{S}^{\text{pt}}$ if and only if 
+\bean
+A_\la \widetilde A'\subset \widetilde A',\\
+ \widetilde A'A_\la\subset \widetilde A'
+\eean
+for all $\la\in \La$.
+\end{remark}
+\begin{remark}
+	 From the Zorn's lemma (cf. \ref{zorn}) it follows that there is there is the maximal  {subordinated to}  $\mathfrak{S}^{\text{pt}}$ algebra $\widetilde A$.
+\end{remark}	 
+
+
 \begin{definition}\label{inf_cov_oa_defn}
-	Consider the situation \ref{inf_cov_oa_empt}. If   there is the maximal  {subordinated to}  $\mathfrak{S}^{\text{pt}}$ algebra $\widetilde A$ then we say that the triple
+	Consider the situation \ref{inf_cov_oa_empt}. If $\widetilde A$   is the maximal  {subordinated to}  $\mathfrak{S}^{\text{pt}}$ algebra then we say that the triple
 	$
 	\left(A,  \widetilde A, G \right)$ is the the \textit{inverse noncommutative limit} or \textit{infinite noncommutative covering}  of $\mathfrak{S}^{\text{pt}}$.
 \end{definition}
 
-}
+
+
 \section{Universal  coverings and  fundamental groups}
 
 % \section{Basic construction}
@@ -5925,10 +5944,6 @@ The following Lemma is evident.
 	\eea
 \end{remark}
 
-
-
-
-
 \begin{definition}\label{top_lift_desc_defn}
 	Let $\sF$ 	continuity structure for $\sX$ {and the} $\left\{A_x\right\}_{x \in \sX}$, let $p: \widetilde{\sX}\to\sX$ be a covering. Let $\widetilde{\sU}$ be an open set such that the restriction $\left.p\right|_{\widetilde{\sU}}$ is injective. Let $\sU=p\left( \widetilde{\sU}\right)$. If $a \in C\left(\sX, \left\{A_x\right\}, \sF \right)$ is such that $\supp a \subset \sU$ and $\widetilde{a}= \lift_p\left( a\right)$ then 
 	the family 
@@ -7550,7 +7565,7 @@ Following conditions hold:
 	(ii)	The conditions (a)-(d) of the Definition \ref{compliant_covering_defn} directly follow from (a)-(d) of the Lemma \ref{comm_comply_lem}.
 	\end{proof}
 
-\begin{theorem}
+\begin{theorem}\label{top_oa_cov_thm}
 If $M$ is a smooth manifold then any  noncommutative finite-fold covering of operator algebra $C_0\left(M\right)\cap \Coo\left(M\right)$ (cf. Definition \ref{fin_oa_defn}) corresponds to a transitive finite fold covering $p: \widetilde M \to M$ and it is a quadruple 
 $$
 \left(C_0\left(M\right)\cap \Coo\left(M\right), C_0\left(\widetilde M\right)\cap \Coo\left(\widetilde M\right), G\left(\left.\widetilde M~ \right| M\right), \Coo\left(p \right) \right)
@@ -8884,79 +8899,51 @@ is  a pointed topological finite covering category (cf. Definition \ref{top_sec_
 	=\left(\left\{C_0\left( p_\la\right) : C_0\left(M \right)  \hookto C_0\left(M_\la \right)\right\}, \left\{C_0\left( p_\nu^\mu\right) : C_0\left(M_\nu \right) \hookto C_0\left(M_\mu \right)\right\}\right)
 \end{split}
 \ee
-is good  and the triple $\left(C_0\left(M\right), C_0\left(\varprojlim  \mathfrak{S}_{\left(M, x_0\right)}\right),G\left(\left.\widetilde M~\right| M\right)\right)$ is  the  { infinite noncommutative covering} of $\mathfrak{S}^{\mathrm{pt}}_{C_0\left(M\right)}$(cf. Definition \ref{main_defn}). The structure of smooth manifold $M$ and coverings $\widetilde p: \widetilde M \to M$, $p_\la: M_\la \to M$ (for all $\la\in\La$) induce structure of smooth manifolds on $\widetilde M$ and $M_\la$ (for all $\la\in\La$). If 
+is good  and the triple $\left(C_0\left(M\right), C_0\left(\widetilde M\right),G\left(\left.\widetilde M~\right| M\right)\right)$ is  the  { infinite noncommutative covering} of $\mathfrak{S}^{\mathrm{pt}}_{C_0\left(M\right)}$(cf. Definition \ref{main_defn}). The structure of smooth manifold $M$ and coverings $\widetilde p: \widetilde M \to M$, $p_\la: M_\la \to M$ (for all $\la\in\La$) induce structure of smooth manifolds on $\widetilde M$ and $M_\la$ (for all $\la\in\La$). If 
 \bean
-\Coo_0\left(M \right) \bydef C_0\left(M\right) \cap 
+\Coo_0\left(M \right) \bydef C_0\left(M\right) \cap  \Coo\left(M\right),\\
+\Coo_0\left(M_\la \right) \bydef C_0\left(M_\la\right) \cap  \Coo\left(M_\la\right),\\
+\Coo_0\left(\widetilde M \right) \bydef C_0\left(\widetilde M\right) \cap  \Coo\left(\widetilde M\right)
 \eean
-!!!!!
- 
+then from the Theorem \ref{top_oa_cov_thm} it follows that there is a category
+\bean
+	\mathfrak{S}^{\text{pt}}_{\Coo_0\left(M \right)} \bydef\\\bydef \left(\left\{\pi_\la: \Coo_0\left(M \right) \hookto \Coo_0\left(M \right) \right\}_{\la \in \La}, \left\{\pi^\mu_\nu: \Coo_0\left(M \right) \hookto \Coo_0\left(M \right)\right\}_{\substack{\mu, \nu \in \La\\ \nu > \mu}}\right)
+\eean
+ of noncommutative finite-fold coverings of operator algebras. Both 	$\mathfrak{S}^{\text{pt}}_{\Coo_0\left(M \right)}$ and $\mathfrak{S}^{\mathrm{pt}}_{C_0\left(M \right) }$ are specializations of both $\mathfrak{S}^{\text{pt}}$ and $	C^*_e\left( \mathfrak{S}^{\text{pt}}\right)$ given by equations \eqref{inf_cov_oae_eqn} and \eqref{inf_cov_oa_eqn} respectively. Moreover the described here situation is a specialization of \eqref{inf_cov_oa_empt}. Similarly to \eqref{inf_cov_oam_eqn}. From 
+ 	\bean
+ \Coo_0\left( M_\la \right)\Coo_0\left(\widetilde M \right)\subset \Coo_0\left(\widetilde M \right),\\
+\Coo_0\left(\widetilde M \right) \Coo_0\left( M_\la \right)\subset \Coo_0\left(\widetilde M \right)
+ \eean
+ it follows that $\Coo_0\left(\widetilde M \right)$ is subordinated to  	$\mathfrak{S}^{\text{pt}}_{\Coo_0\left(M \right)}$ (cf. Definition \ref{inf_cov_oa_sub_defn} and Remark \ref{inf_cov_oa_sub_defn}).
 	
-	Similarly to \ref{comp_op_pt_empt} consider a category 
-	$$
-	\mathfrak{S}^{\text{pt}} = \left(\left\{\pi_\la: A \hookto A_\la \right\}_{\la \in \La}, \left\{\pi^\mu_\nu: A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\ \nu > \mu}}\right)
-	$$
-	of noncommutative finite-fold coverings of operator algebras (cf. Definition \ref{fin_oa_defn}). Suppose that 
-	\bean
-	C^*_e\left( \mathfrak{S}^{\text{pt}}\right) \bydef\\\bydef \left(\left\{	C^*_e\left(\pi_\la\right) : 	C^*_e\left(A\right)  \hookto 	C^*_e\left(A_\la\right)  \right\}_{\la \in \La}, \left\{	C^*_e\left(\pi^\mu_\nu\right) : 	C^*_e\left(A_\mu\right)  \hookto 	C^*_e\left(A_\nu\right) \right\}_{\substack{\mu, \nu \in \La\\ \nu > \mu}}\right)
-	\eean
-	is good pointed algebraical  finite covering category (cf. Definition \ref{comp_pt_defn}). Let
-	$
-	\left(C^*_e\left(A\right), \widetilde B, G \right)
-	$
-	be the inverse noncommutative limit of $	C^*_e\left( \mathfrak{S}^{\text{pt}}\right)$ (cf. Definition \ref{main_defn}). For any $G$-invariant subalgebra $ \widetilde A'\subset  \widetilde B$ denote by
-	$$
-	M\left(\widetilde A'\right) \bydef \left\{\left.\widetilde a \in M\left( \widetilde B \right)  \right| \widetilde a\widetilde A'\subset \widetilde A' \text{ AND }\widetilde A'\widetilde a\subset \widetilde A'\right\}
-	$$
-	If $\varinjlim C^*_e\left(A_\la\right)$ is an algebraic direct limit then there is a dense inclusion $\varinjlim C^*_e\left(A_\la\right)\hookto C^*$-$\varinjlim C^*_e\left(A_\la\right)$. So there is an inclusion $\iota: \varinjlim C^*_e\left(A_\la\right)\hookto M\left( \widetilde B \right)$. We say that  $G$-invariant subalgebra $ \widetilde A'$ is \textit{is subordinated to}  $\mathfrak{S}^{\text{pt}}$ if $M\left(  \widetilde A'\right)\cap \iota \left( \varinjlim C^*_e\left(A_\la\right)\right) =  \iota \left(\varinjlim A_\la\right) $.
 \end{empt}
-\begin{definition}\label{inf_cov_oa_defn!}
-	Consider the situation \ref{inf_cov_oa_empt}. If   there is the maximal  {subordinated to}  $\mathfrak{S}^{\text{pt}}$ algebra $\widetilde A$ then we say that the triple
-	$
-	\left(A,  \widetilde A, G \right)$ is the the \textit{inverse noncommutative limit} or \textit{infinite noncommutative covering}  of $\mathfrak{S}^{\text{pt}}$.
-\end{definition}
-
-
-
-\begin{theorem}
-	If $M$ is a smooth manifold then any  noncommutative finite-fold covering of operator algebra $C_0\left(M\right)\cap \Coo\left(M\right)$ (cf. Definition \ref{fin_oa_defn}) corresponds to a transitive finite fold covering $p: \widetilde M \to M$ and it is a quadruple 
-	$$
-	\left(C_0\left(M\right)\cap \Coo\left(M\right), C_0\left(\widetilde M\right)\cap \Coo\left(\widetilde M\right), G\left(\left.\widetilde M~ \right| M\right), \Coo\left(p \right) \right)
-	$$
-	where both the smooth structure of $\widetilde M$  and the homomorphism $\Coo\left(p \right):C_0\left( M\right)\cap \Coo\left( M\right)\hookto C_0\left(\widetilde M\right)\cap \Coo\left(\widetilde M\right)$ are induced by $p$.
+\begin{theorem}\label{top_cov_oa_thm}
+In the situation \ref{top_cov_oa_empt} the triple
+$ 
+\left(\Coo_0\left(M \right), \Coo_0\left(\widetilde M \right), G\left(\left.\widetilde M~\right| M\right) \right)$ is the the  {infinite noncommutative covering}  of $	\mathfrak{S}^{\text{pt}}_{\Coo_0\left(M \right)}$ (cf. Definition \ref{inf_cov_oa_defn}).
 \end{theorem}
 \begin{proof}
-	$C_0\left(M\right)\cap \Coo\left(M\right)$ is a dense subalgebra of the $C^*$-algebra $C_0\left(M\right)$, it follows that $C_0\left(M\right)$ is the $C^*$-envelope of $C_0\left(M\right)\cap \Coo\left(M\right)$ (cf. Definition \ref{op_su_env_defn}, Remark \ref{op_su_env_rem}), i.e.
-	$$
-	C^*_e\left(C_0\left(M\right)\cap \Coo\left(M\right)\right)\cong C_0\left(M\right).
-	$$ 
-	From the Theorem \ref{comm_fin_thm} it turns out that any noncommutative finite-fold covering of $C_0\left(M\right)$  is given by
-	$\left(C_0\left(M\right), C_0\left(\widetilde M\right), G\left(\left.\widetilde M~ \right| M\right), C_0\left(p\right)\right)$. If $$\left(C_0\left(M\right)\cap \Coo\left(M\right), \widetilde A, G\left(\left.\widetilde M~ \right| M\right), \pi \right)$$ is a noncommutative finite-fold covering of operator algebra which corresponds to the noncommutative finite-fold covering $\left(C_0\left(M\right), C_0\left(\widetilde M\right), G\left(\left.\widetilde M~ \right| M\right), C_0\left(p\right)\right)$ then from 
-	$$
-	\left( C_0\left(\widetilde M\right)\cap  \Coo\left(\widetilde M\right)  \right)\bigcap C_0\left(M \right) =  C_0\left(M \right)\cap \Coo\left(M \right)
-	$$ 
-	and the condition (d) of the Definition \ref{fin_oa_defn} it follows that
-	$
-	C_0\left(\widetilde M\right)\cap  \Coo\left(\widetilde M\right) \subseteqq \widetilde A
-	$. If \ref{fin_oa_defn} it follows that
-	$
-	C_0\left(\widetilde M\right)\cap  \Coo\left(\widetilde M\right) \subsetneqq \widetilde A
-	$
-	then there is $\widetilde a \in \widetilde A\setminus C_0\left(\widetilde M\right)\cap  \Coo\left(\widetilde M\right)$. Since $\widetilde a \notin   \Coo\left(\widetilde M\right)$ there is $\widetilde x_0 \in \widetilde M$ such that $\widetilde a$ is not smooth at $\widetilde x_0$. There is a function $\widetilde b \in C_0\left(\widetilde M\right)\cap  \Coo\left(\widetilde M\right)$ which satisfies to following conditions:
-	\begin{itemize}
-		\item There is an open neighborhood $\widetilde \sU$ of $ \widetilde x_0$ such that $\widetilde b\left(\widetilde \sU\right)= \left\{1\right\}$.  
-		\item There is an open set $\widetilde \sV$ which is mapped homeomorphically onto $p\left( \widetilde \sV\right)$ such that $\widetilde b\left(\widetilde \sX\setminus\widetilde \sU\right)= \{0\}$. 
-	\end{itemize}
-	The product $\widetilde b \widetilde a \in \widetilde A$, however $\widetilde b \widetilde a$ is not smooth at $\widetilde x_0$.  From the condition (b) of the Definition \ref{fin_oa_defn} there is an action $G\left(\left.\widetilde M~ \right| M\right)\times \widetilde A\to \widetilde A$  and from (b) of the Definition \ref{fin_pre_defn} it follows that
-	$$
-	a \bydef \sum_{	g \in G\left(\left.\widetilde M~ \right| M\right)}g\left(\widetilde b \widetilde a \right)\in \widetilde A \cap  C_0\left( M\right). 
-	$$
-	However from the construction of $\widetilde b$ it turns out that $a$ is not smooth at $p\left( \widetilde x_0\right)$ therefore $a \notin \Coo\left(M \right)$. It contradicts with the condition (c) of the Definition \ref{fin_oa_defn}. In result one has
-	$$
-	C_0\left(\widetilde M\right)\cap  \Coo\left(\widetilde M\right) = \widetilde A.
-	$$
+From \ref{top_cov_oa_empt} it follows that {infinite noncommutative covering}  of $	\mathfrak{S}^{\text{pt}}_{\Coo_0\left(M \right)}$ is given by $
+\left(\Coo_0\left(M \right), \widetilde A, G\left(\left.\widetilde M~\right| M\right) \right)$, where $\Coo_0\left(\widetilde M \right)\subset \widetilde A$.	If $
+ \Coo_0\left(\widetilde M\right) \subsetneqq \widetilde A
+$
+then there is $\widetilde a \in \widetilde A\setminus   \Coo_0\left(\widetilde M\right)$. Since $\widetilde a \notin   \Coo\left(\widetilde M\right)$ there is $\widetilde x_0 \in \widetilde M$ such that $\widetilde a$ is not smooth at $\widetilde x_0$. There is a function $\widetilde b \in C_0\left(\widetilde M\right)\cap  \Coo\left(\widetilde M\right)$ which satisfies to following conditions:
+\begin{itemize}
+	\item There is an open neighborhood $\widetilde \sU$ of $ \widetilde x_0$ such that $\widetilde b\left(\widetilde \sU\right)= \left\{1\right\}$.  
+	\item There is an open set $\widetilde \sV$ which is mapped homeomorphically onto $p\left( \widetilde \sV\right)$ such that $\widetilde b\left(\widetilde \sX\setminus\widetilde \sU\right)= \{0\}$. 
+\end{itemize}
+The product $\widetilde b \widetilde a \in \widetilde A$, however $\widetilde b \widetilde a$ is not smooth at $\widetilde x_0$. Otherwise if $b \bydef \desc_{\widetilde p}\left(\widetilde b  \right) \in C_0\left(M \right)$ (cf. Definition \ref{top_lift_desc_defn}) then
+\bean
+b \widetilde a =  \widetilde b= \widetilde b \widetilde a= \widetilde a\widetilde b,\\
+b \in \Coo_0\left(M \right) 
+\eean
+and taking into account  Remark \ref{inf_cov_oa_sub_rem}  we have a contradiction.
+In result one has
+$$
+ \Coo_0\left(\widetilde M\right) = \widetilde A.
+$$
+
 \end{proof}
-
-
 
 
 
@@ -22155,6 +22142,9 @@ If a map $p:\left(\widetilde{M},~ \widetilde{\mathcal F} \right)\to\left({M},~ {
  		\end{enumerate}
  		
  	\end{remark}
+\begin{thm}\label{zorn}\cite{spanier:at}(Zorn's lemma)
+	A partially ordered set in which every  simply ordered set has an upper bound contains maximal elements.
+\end{thm}
  	
  \section{Flat connections in the differential geometry}\label{geom_flat_subsec}
  \paragraph*{}
