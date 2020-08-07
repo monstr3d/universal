@@ -1526,12 +1526,22 @@ We say that the triple $\left(A, \widetilde{A}, G \right)$ and/or the quadruple 
 \begin{remark}
 Any noncommutative finite-fold covering with unitization is a noncommutative finite-fold quasi-covering with unitization.
 \end{remark}
-
+\begin{empt}
+If $A$ is a $C^*$-algebra and $G\subset \Aut\left(A\right)$ then there is the action $G \times M\left(A \right) \to M\left( a\right)$ such that
+$$
+g\left(ab \right)= \left(ga\right)\left(gb\right),\quad
+g\left(ba \right)= \left(gb\right)\left(ga\right) \quad \forall a \in M\left(A\right),~ \forall b\in A, \forall g\in G
+$$ 
+The action is such that for any strictly convergent net $\left\{a_\a\right\}\in A$ one has
+\be\label{gma_act_eqn}
+g \left(\bt\text{-}\lim a_\a \right) \bydef \bt\text{-}\lim g a_\a.
+\ee
+\end{empt}
  \begin{lem}\label{ind_mult_inv_lem}
 	If $\left(A, \widetilde{A}, G, \pi \right)$ is a noncommutative finite-fold  quasi-covering then:
 	\begin{enumerate}
 		\item [(i)] There is the natural inclusion $ \varphi:M\left({A} \right) \hookto M\left(\widetilde{A} \right)$ of $C^*$-algebras.
-		\item[(ii)] If an	action of $G$ on $M\left(\widetilde{A} \right)$ is induced by the action  of $G$ on $\widetilde{A}$ then there is the natural *-isomorphism
+		\item[(ii)] If an	action of $G$ on $M\left(\widetilde{A} \right)$ is induced by the action  of $G$ on $\widetilde{A}$ (i.e. it is given by \eqref{gma_act_eqn}) then there is the natural *-isomorphism
 		\begin{equation}\label{mag_ma_acc_eqn}
 		\psi: M\left(\widetilde{A} \right)^G \cong  M\left(A \right)
 		\end{equation}
@@ -1651,36 +1661,7 @@ We say that the triple $\left(A, \widetilde{A}, G \right)$ and/or the quadruple 
 
 \section{Basic constructions}\label{cov_fin_basc_sec}
    
-    \begin{defn}\label{mult_G_act_defn} Let $\left(A, \widetilde{A}, G, \pi \right)$ be a noncommutative finite-fold  quasi-covering. If $M\left(\widetilde{A} \right)$ is the multiplier algebra of $\widetilde{A}$ then there is the natural action of $G$ on $M\left(\widetilde{A} \right)$ such that for any $\widetilde{a}\in M\left(\widetilde{A} \right)$, $\widetilde{b}\in\widetilde{A}$ and $g \in G$ a following condition holds
-\be\label{mult_G_act_eqn}
-\begin{split}
- 	\left(g \widetilde{a} \right)\widetilde{b} = g\left(\widetilde{a} \left( g^{-1}\widetilde{b} \right)  \right),\\
- 	\widetilde{b}\left(g \widetilde{a} \right) = g\left( \left( g^{-1}\widetilde{b} \right)\widetilde{a}  \right),\\
-\end{split}
-\ee
- 	We say that action of $G$ on $M\left(\widetilde{A} \right)$ is \textit{induced} by the action  of $G$ on $\widetilde{A}$.
- \end{defn}
 
-\begin{lem}\label{mult_inj_lem}
-Let $\left(A, \widetilde{A}, G, \pi \right)$ be a noncommutative finite-fold  quasi-covering.
-Suppose $\widetilde{B} \subset M\left(\widetilde{A} \right) $ is  such that $G\widetilde{B}= \widetilde{B}$ and ${B}$ is a unitization of  ${A}$ such that $B  =\widetilde{B}^G$.
- If % and $A \cong \widetilde{A}\cap B$. 
-\bean
-G = \left\{ \left.g \in \Aut\left(\widetilde{A} \right)~\right|~ ga = a;~~\forall a \in A\right\}\\
-\widetilde{G} = \left\{ \left.g \in \Aut\left(\widetilde{B} \right)~\right|~ gb = b;~~\forall b \in B\right\}
-\eean 
-then there is the natural injective homomorphism of groups
-$$
-G \hookto \widetilde{G}.
-$$
-\end{lem}
-\begin{proof}
-	If $b \in B$ then $b = \frac{1}{\left|G \right| } \sum_{g \in G}gb$. Otherwise from $\widetilde B \subset M\left(\widetilde{A}  \right)$ it turns out that it is a directed set $\left\{\widetilde{a}_\la\right\} \in \widetilde{A}$ such that there is the limit $b=\bt$-$\lim \widetilde{a}_\la$, so one has
-\be\label{b_inv_eqn}
-	b=\frac{1}{\left|G \right| }\sum_{g \in G}g\bt\text{-}\lim \widetilde{a}_\la= \frac{1}{\left|G \right| }\bt\text{-}\lim \sum_{g \in G}g\widetilde{a}_\la
-\ee
-For any $g \in G$ from $g\sum_{g' \in G}g'\widetilde{a}_\la= \sum_{g \in G}g'\widetilde{a}_\la$, and   \eqref{b_inv_eqn} one concludes $gb = b$, i.e. $g$ defines element $\widetilde g \in \widetilde{G}$.  From $\widetilde{A}\subset \widetilde{B}$ it turns out that the map $g \mapsto \widetilde{g}$ is injective.
-\end{proof}
 
  
 %\begin{corollary}\label{ind_mult_inv_cor_BAD}
@@ -1690,16 +1671,6 @@ For any $g \in G$ from $g\sum_{g' \in G}g'\widetilde{a}_\la= \sum_{g \in G}g'\wi
 %		\item[(ii)] There is the natural *-isomorphism $M\left(A\right)\cong M\left(\widetilde{A} \right)^G$.
 %	\end{enumerate}
 %\end{corollary}
-\begin{corollary}\label{quasi_cov_unital_cor}
-If $\left(A, \widetilde{A}, G, \pi \right)$ is a noncommutative finite-fold  quasi-covering and both $A$ and  $\widetilde{A}$ are connected  (cf. Definition \ref{conn_c_a_defn}) nonunital $C^*$-algebras then the inclusion $\pi: A \hookto \widetilde{A}$ is unital in sense of the Definition \ref{principal_non_defn}.
-\end{corollary}
-\begin{proof}
-The given by the Lemma \ref{ind_mult_inv_lem} *-homomorphism  $ \varphi:M\left({A} \right) \hookto M\left(\widetilde{A} \right)$ is injective, it follows that $\varphi\left( 1_{M\left( A\right) }\right) \neq 0$.  Otherwise $g 1_{M\left(\widetilde{A}\right)} = 1_{M\left(\widetilde{A}\right)}$ for any $g \in G$, it follows that $1_{M\left(\widetilde{A}\right)}\in \varphi\left(M\left({A} \right) \right)$. Since $\widetilde{A}$ is connected $1_{M\left(\widetilde{A}\right)}$ is the unique central idempotent of $M\left(\widetilde{A}\right)$ On the other hand  ${A}$ is connected, so $1_{M\left({A}\right)}$ is the unique central  idempotent of $M\left({A}\right)$. It follows that
-\bean
-\varphi\left( 1_{M\left( A\right) }\right) = 1_{M\left(\widetilde{A}\right)},\\ 
-\varphi\left( 1_{A^+ }\right) = 1_{\widetilde{A}^+}.
-\eean
-\end{proof}
 
  \begin{lemma}\label{frame_lem}
  	If $P$ is a finitely generated  Hilbert $A$-module then 
@@ -1763,165 +1734,17 @@ The given by the Lemma \ref{ind_mult_inv_lem} *-homomorphism  $ \varphi:M\left({
 \begin{proof}
 	Follows from \eqref{fin_comp_eqn}.
 \end{proof}
-\begin{lemma}\label{cov_mult_fin_lem}
-Let $\left(A, \widetilde{A}, G, \pi \right)$ be a {noncommutative finite-fold quasi-covering with unitization}. 	Let $\left(B ,\widetilde{B}, G, \widetilde{\pi} \right)$ be an 
-unital  noncommutative finite-fold quasi-covering which satisfies to conditions  (a), (b) of the Definition \ref{fin_comp_defn}. Then there is $\left\{  \widetilde{b}_1, ..., \widetilde{b}_n\right\} \subset \widetilde{B}$ such that 
-	\be\label{ma_fin_eqn}
-M\left(\widetilde{A} \right) = \widetilde{b}_1 M\left(A \right) + ... + \widetilde{b}_n M\left(A \right).
-\ee
 
-\end{lemma}
-\begin{proof} 
-	It is known that for any $\widetilde{a} \in M\left(\widetilde{A} \right)$ there is a directed set $\left\{\widetilde{a}_\la\right\} \in \widetilde{A}$ such that there is the limit $\widetilde{a}=\bt$-$\lim \widetilde{a}_\la$ with respect to the strict topology (cf. Definition \ref{strict_topology}). From the Remark \ref{frame_rem} turns out that there is finite subset $$\left\{ \widetilde{a}_1, ..., \widetilde{a}_n, \widetilde{b}_1, ..., \widetilde{b}_n\right\} \subset \widetilde{B}$$ such that
-	$$
-	\widetilde{b}=	\sum_{j=1}^{n}\widetilde{b}_j\left(  \sum_{g \in G} g\left(\widetilde{a}^*_j\widetilde{a} \right) \right); ~\forall \widetilde{b} \in \widetilde{B},
-	$$
-	so one has
-	$$
-	\widetilde{a}_\la=	\sum_{j=1}^{n}\widetilde{b}_j\left(  \sum_{g \in G} g\left(\widetilde{a}^*_j\widetilde{a}_\la \right) \right).
-	$$	
-	From the above equation it turns out
-	\be\nonumber
-	\begin{split}
-		\widetilde{a}=\bt\text{-}\lim \widetilde{a}_\la= \bt\text{-}\lim \sum_{j=1}^{n}\widetilde{b}_j\left(  \sum_{g \in G} g\left(\widetilde{a}^*_j\widetilde{a}_\la \right) \right)= \sum_{j=1}^{n}\widetilde{b}_j\left(  \sum_{g \in G} g\left(\widetilde{a}^*_j\bt\text{-}\lim\widetilde{a}_\la \right) \right)= \\
-		= \sum_{j=1}^{n}\widetilde{b}_j\left( \sum_{g \in G} g\left(\widetilde{a}^*_j\widetilde{a} \right) \right)= \sum_{j=1}^{n}\widetilde{b}_ja_j; \text{ where } a_j = \sum_{g \in G} g\left(\widetilde{a}^*_j\widetilde{a} \right)\in M\left(A \right) .
-	\end{split}
-	\ee 
-	The element $\widetilde{a} \in M\left(\widetilde{A} \right)$  is arbitrary, so one has
-	\be\nonumber
-	M\left(\widetilde{A} \right) = \widetilde{b}_1 M\left(A \right) + ... + \widetilde{b}_n M\left(A \right).
-	\ee
 
-\end{proof}
-
-\begin{remark}\label{cov_mult_fin_rem}
-	Any $\widetilde{b}\in \widetilde{B}$ is a multiplier of $\widetilde{A}$, in particular $\widetilde{b}_1, ..., \widetilde{b}_n \in M\left(\widetilde{A} \right)$,  so from \ref{ma_fin_eqn} it follows that  $M\left(\widetilde{A} \right)$ is a finitely generated  $M\left({A} \right)$-module. 
-\end{remark}
-	\begin{cor}\label{mult_cov_cor}
-	Let $\left(A, \widetilde{A}, G, \pi \right)$ be   a noncommutative finite-fold  quasi-covering with unitization (cf. Definition \ref{fin_comp_defn}). 
-\begin{enumerate}
-	\item [(i)]  There is an unital noncommutative finite-fold  quasi-covering $\left(M\left( A\right) , M\left( \widetilde{A}\right) , G, \phi \right)$.
-	\item[(ii)] Moreover if $\left(A, \widetilde{A}, G, \pi \right)$ is   a noncommutative finite-fold  covering with unitization (cf. Definition \ref{fin_comp_defn}) then $\left(M\left( A\right) , M\left( \widetilde{A}\right) , G, \phi \right)$ is   an unital  noncommutative finite-fold  covering (cf. Definition \ref{fin_uni_defn}).
-\end{enumerate}	
-\end{cor}
-\begin{proof}
-
-	From the Lemma \ref{cov_mult_fin_lem} it turns out that $M\left( \widetilde{A}\right)$ is a finitely generated $M\left( A\right)$-module. \\
-	(i)		The morphism $\phi: M\left({A} \right) \to M\left(\widetilde{A} \right)$  is injective, hence from the Lemma \ref{ind_mult_inv_lem} it turns out that $M\left({A} \right) = M\left(\widetilde{A} \right)^G$.\\
-(ii)	Both $A$ and $\widetilde{A}$ are essential ideals of $M\left( {A}\right)$ and $M\left( \widetilde{A}\right)$ respectively, so one has
-	\bean
-	\left\{ \left.g \in \Aut\left(M\left( \widetilde{A} \right)\right)~\right|~ga = a;~\forall a \in M\left( A\right) \right\} =\\= \left\{\left. g \in \Aut\left(\widetilde{A} \right)~\right|~ga = a;~~\forall a \in A\right\}=G,
-	\eean
-hence the group $\left\{ \left.g \in \Aut\left(M\left( \widetilde{A} \right)\right)~\right|~ga = a;~\forall a \in M\left( A\right) \right\}$ is finite.
-\end{proof}
-
-\begin{cor}\label{cov_tiet_cor}
-	Let $\left(A, \widetilde{A}, G, \pi \right)$ be a {noncommutative finite-fold quasi-covering with unitization}. Suppose both $A$ and  $\widetilde{A}$ are separable and   $\phi: M\left({A} \right) \hookto M\left(\widetilde{A} \right)$ is the injective *-homomorphism given by the Lemma \ref{ind_mult_inv_lem}.
-	Let $p: \widetilde{A} \to \widetilde{A}'$ be a surjective morphism of $C^*$-algebras which commutes with $G$; that is:
-	\be\label{sur_mult_inv_eqn}
-	g \circ p = p \circ g; \quad \forall G.
-	\ee
-	Then the following conditions hold:
-	\begin{enumerate}
-		\item [(i)] There is the natural action of $G$ on $\widetilde{A}'$;
-		\item[(ii)] If $A' = p\left(A \right) $ then $M\left( \widetilde{A}'\right)$ is a finitely generated Hilbert $M\left( A'\right)$-module. 
-	\end{enumerate}
-\end{cor}
-\begin{proof}
-	From the Corollary \ref{mult_cov_cor} it turns out that 
-	there is an unital noncommutative finite-fold  covering $\left(M\left( A\right) , M\left( \widetilde{A}\right) , G, \phi \right)$.\\ 
-	(i)	For any $\widetilde{a}' \in \widetilde{A}'$ there is   $\widetilde{a} \in \widetilde{A}$ such that $p\left( \widetilde{a}\right)  =\widetilde{a}'$, moreover if $\widetilde{a}_1, \widetilde{a}_2 \in \widetilde{A}$ are such that $p\left( \widetilde{a}_1\right)  =p\left( \widetilde{a}_2\right)  =\widetilde{a}'$ then from \eqref{sur_mult_inv_eqn} it turns out $p\left( g\widetilde{a}_1\right)  =p\left( g\widetilde{a}_2\right)$ for any $g \in G$. From this fact one can correctly define $g\widetilde{a}'\stackrel{\text{def}}{=} p\left( g\widetilde{a}\right)$.\\
-	(ii) From the Remark \ref{cov_mult_fin_rem} it turns out that there are  $\widetilde{a}_1,..., \widetilde{a}_n \in M\left( \widetilde{A}\right) $ such that
-	\be\nonumber
-	M\left(\widetilde{A} \right) = \widetilde{a}_1 M\left(A \right) + ... + \widetilde{a}_n M\left(A \right).
-	\ee
-	From the Lemma \ref{cov_sep_fin_lem} it follows that $\widetilde{A}$ is a separable $C^*$-algebra. From the Theorem \ref{noncom_tietze_thm} $p$ extends to the surjective morphism $p : M\left(\widetilde{A} \right)\to M\left(\widetilde{A}' \right)$.  For any $\widetilde{a}' \in M\left( \widetilde{A}'\right)$ there is $\widetilde{a} \in M\left( \widetilde{A}\right)$ such that $\widetilde{a}' = p\left(\widetilde{a}\right)$. Otherwise  
-	$$
-	\widetilde{a} = \widetilde{a}_1 a_1 + ... + \widetilde{a}_n a_n; \text{ where } a_1,...,a_n \in M\left( A\right), 
-	$$ hence one has
-	\bean
-	\widetilde{a}' = \widetilde{a}'_1 a'_1 + ... + \widetilde{a}'_n a'_n; ~\text{ where } 	\widetilde{a}'= p\left(\widetilde{a}\right), \\
-	{a}'_j= p\left({a}_j\right) \in M\left(A' \right), ~ 	\widetilde{a}'_j= p\left(\widetilde{a}_j\right), ~ \text{ for all } j =1,...,n.
-	\eean
-	Since $\widetilde{a}'$ is arbitrary element of $M\left( \widetilde{A}'\right)$ one has
-	$$
-	M\left( \widetilde{A}'\right) =  \widetilde{a}'_1 M\left( {A}'\right)+ ... + \widetilde{a}'_1 M\left( {A}'\right),
-	$$
-	i.e. $M\left( \widetilde{A}'\right)$ is a finitely generated $M\left( A'\right)$-module. Any $\widetilde{a}', \widetilde{b}'\in M\left( \widetilde{A}'\right)$ can be represented as strict limits
-	\bean
-	\widetilde{a}' = \bt\text{-}\lim \widetilde{a}'_\la; \quad \widetilde{a}'_\la \in \widetilde{A}',\\
-	\widetilde{b}' = \bt\text{-}\lim \widetilde{b}'_\la; \quad \widetilde{b}'_\la \in \widetilde{A}',
-	\eean
-	hence from $\sum_{g \in G}g\left(\widetilde{a}'^*_\la\widetilde{b}'_\la \right) \in A'$ one can define $M\left(A' \right)$-valued product
-	\be\label{m_a_prod_eqn}
-	\left\langle \widetilde{a}', \widetilde{b}' \right\rangle_{M \left( A'\right) } = \bt\text{-}\lim \sum_{g \in G} g\left(\widetilde{a}'^*_\la\widetilde{b}'_\la \right).
-	\ee 
-	and similarly to the Lemma \ref{fin_top_lem} one can prove that $M\left( \widetilde{A}'\right)$ is complete with respect to the topology induced by the product \eqref{m_a_prod_eqn}, i.e.  $M\left( \widetilde{A}'\right)$ is a  Hilbert $M\left( A'\right)$-module.   
-\end{proof}
-\begin{empt}\label{a'_m_empt}
-	If $A \subset \widetilde{A}$ is an inclusion of $C^*$-algebras such that there is an
-	approximate unit for $\widetilde{A}$ containing in $A$ then  from the Proposition \ref{mult_str_pos_prop} it turns out that the inclusion extends to an *-homomorphism $M\left( A\right) \to M\left( \widetilde{A}\right)$.  If $p: \widetilde{A} \to \widetilde{A}'$ is surjective morphism of $C^*$-algebras and $\left\{ \widetilde{u}_\la\right\}$ is an approximate unit for $\widetilde{A}$ then  $p\left( \left\{ \widetilde{u}_\la\right\}\right)$ is an approximate unit for $\widetilde{A}'$. From these circumstances it turns out if 	approximate unit for $\widetilde{A}$ containing in $A$ then there is approximate unit for $\widetilde{A}'$ containing in $A' = p\left(A \right)$, hence the inclusion $A' \subset \widetilde{A}'$ extends to a *-homomorphism $M\left( A'\right)\to M\left(  \widetilde{A}'\right)$. In particular from the proof of the Lemma \ref{ind_mult_inv_lem} it turns out that if inclusion $A \subset \widetilde{A}$ is such there is $\left(A, \widetilde{A}, G, \pi \right)$ is a noncommutative finite-fold  quasi-covering, then there is the natural *-homomorphism $M\left( A'\right)\to M\left(  \widetilde{A}'\right)$.
-\end{empt}
-
-\begin{lem}\label{cov_tiet_lem}
-	Let $\left(A, \widetilde{A}, G, \pi \right)$ be a {noncommutative finite-fold quasi-covering with unitization} (cf. Definitions \ref{fin_quasi_defn}, \ref{fin_uni_defn}), such that  $A$ is separable. Let $p: \widetilde{A} \to \widetilde{A}'$ a surjective morphisms of $C^*$-algebras which commutes with $G$; that is:
-	\be\label{sur_mult_inv1_eqn}
-	g \circ p = p \circ g; \quad \forall g \in G.
-	\ee
-If $A' = p\left( A\right)$ and the natural *-homomorphism $M\left( A'\right)\to M\left( \widetilde{A}'\right)$   
-is injective, and $\widetilde{A}'$ is connected
- then following conditions hold:
-	\begin{enumerate}
-		\item [(i)] There is an unital noncommutative finite-fold quasi-covering $$\left(M\left( A'\right) , M\left( \widetilde{A}'\right) , G, \widetilde{\pi} \right).$$
-		\item[(ii)] There is  a {noncommutative finite-fold quasi-covering with unitization} $$\left(A', \widetilde{A}', G, \left.\widetilde{\pi}\right|_{A'} \right).$$ 
-	\end{enumerate}
-\end{lem}
-\begin{rem}
-	From the Lemma \ref{cov_sep_fin_lem} it follows that $\widetilde{A}$ is a separable $C^*$-algebra.
-		From \eqref{sur_mult_inv1_eqn} it follows that there is correctly defined action $G \times \widetilde{A}' \to \widetilde{A}'$ given by $g p\left(  \widetilde{a}\right) =  p\left(  g\widetilde{a}\right)$ for any $g \in G$. This action follows from the equation  \eqref{sur_mult_inv1_eqn}. 
-\end{rem}
- \begin{proof}\textit{(of the Lemma \ref{cov_tiet_lem})}.
-		Firstly we prove that both quadruples $\left(A', \widetilde{A}', G, \left.\widetilde{\pi}\right|_{A'} \right)$ and $\left(M\left( A'\right) , M\left( \widetilde{A}'\right) , G, \widetilde{\pi} \right)$ are quasi-coverings, i.e. both  satisfy to  the Definition \ref{fin_quasi_defn}. 
-		If $a' \in A'$ then there is $a \in A$ such that $a'= p\left(a \right)$ hence one has $g a' = p\left( ga\right)= p\left(a \right)= a'$, i.e. $a \in \widetilde{A}'^G$. Conversely if $a' \in \widetilde{A}'^G$ then 
-		$$
-		a' = \frac{1}{\left|G\right|} \sum_{g \in G} g a'
-		$$
-		and if $a' = p\left( \widetilde{a}\right)$ then 
-		$$
-			a' = \frac{1}{\left|G\right|} p\left(  \sum_{g \in G} g \widetilde{a}\right) 
-		$$ 
-		and taking into account $\sum_{g \in G} g \widetilde{a} \in A$ one has $a \in p\left( A\right)=A'$. In result we conclude that $A' = \widetilde{A}'^G$. Otherwise $M\left( A'\right)\to M\left( \widetilde{A}'\right)$ is an injective *-homomorphism, so from the Lemma \ref{ind_mult_inv_lem} it turns out $M\left( A'\right) \cong M\left(\widetilde{A}' \right)^G$.\\
-(i)	One should prove that  $M\left( \widetilde{A}'\right)$ is a finitely generated Hilbert module over $ M\left( {A}'\right)$.  The application of  the equation \eqref{finite_hilb_mod_prod_eqn} and the Definition \ref{hilbert_product_defn} provides the structure of Hilbert $ M\left( {A}'\right)$-module on $M\left( \widetilde{A}'\right)$. From the Remark \ref{cov_mult_fin_rem} it turns out that $M\left( \widetilde{A}\right)$ is a finitely generated $C^*$-Hilbert module over $ M\left( {A}\right)$. Since there are $\widetilde{b}_1, ..., \widetilde{b}_n \in M\left( \widetilde{A}\right)$ such that
-$$
-M\left( \widetilde{A}\right)  = \widetilde{b}_1 M\left( {A}\right) + ...+\widetilde{b}_n M\left( {A}\right)
-$$
-the algebra $\widetilde{A}$ is separable. 
-From the Theorem \ref{noncom_tietze_thm} it turns out that there is the extension of $p$ up to surjective morphism $p: M\left( \widetilde{A}\right)  \to M\left( \widetilde{A}'\right)$. 
-For any $\widetilde{a}' \in M\left( \widetilde{A}'\right)$ there is $\widetilde{a} \in M\left( \widetilde{A}\right)$ such that $\widetilde{a}'=p\left( \widetilde{a}\right)$. If  
-$$
-\widetilde{a} = \widetilde{b}_1 a_1 + ...+\widetilde{b}_n a_n \text{ where } a_1, ..., a_n \in A
-$$
-then
-$$
-\widetilde{a}' = \widetilde{b}'_1  a'_1 + ...+\widetilde{b}'_n a'_n \text{ where } a'_1, ..., a'_n \in A'; ~ \widetilde{b}'_j = p\left( \widetilde{b}_j\right); ~ a'_j = p\left(a_j \right);~\forall j = 1,...,n. 
-$$
-So one has
-$$
-M\left( \widetilde{A}'\right)  = \widetilde{b}'_1 M\left( {A}'\right) + ...+\widetilde{b}'_n M\left( {A}'\right)
-$$
-i.e. $M\left( \widetilde{A}'\right)$ is the finitely generated module over $M\left( {A}'\right)$. It turns out that  $$\left(M\left( A'\right) , M\left( \widetilde{A}'\right) , G, \widetilde{\pi} \right)$$ is an unital noncommutative finite-fold quasi-covering (cf. Definition \ref{fin_uni_defn}).\\
-(ii) Both $A'$ and $\widetilde{A}'$ are essential ideals of $M\left( A'\right) $ and $M\left( \widetilde{A}'\right) $ respectively it turns out that $\left(A', \widetilde{A}', G, \left.\widetilde{\pi}\right|_{A'} \right)$ is  a {noncommutative finite-fold quasi-covering with unitization} (cf. Definition \ref{fin_comp_defn})
-
- \end{proof}
 \begin{empt}\label{hereditary_dir_sum_empt}
 	Let	$\left(A, \widetilde{A}, G, \pi \right)$ be  a noncommutative finite-fold pre-covering (cf. Definition \ref{fin_pre_defn}). Let $B\subset A$ a connected  $C^*$-subalgebra such that there is  $C^*$-subalgebra
 	$\widetilde{B}\subset \widetilde{A}$ which satisfies to the following conditions
 	\begin{itemize}
 		\item $B$ is not a direct sum of more then one $C^*$-algebras.
-		\item $\widetilde{B}\cup g \widetilde{B}= \{0\}$ for all nontrivial $g \in G$.
+		\item $\widetilde{B}\cap g \widetilde{B}= \{0\}$ for all nontrivial $g \in G$.
 		\item 
 		\be\label{decomp_dir_eqn}
-		\pi\left( B\right) \subset \bigoplus_{g\in G}g\widetilde{B}
+		\pi\left( B\right) \subset \bigoplus_{g\in G}g\widetilde{B}.
 		\ee
 		\item If $p_{\widetilde B}: \bigoplus_{g\in G}g\widetilde{B}\to \widetilde{B}$ is the natural projection $p_{\widetilde B}\circ \left.\pi\right|_B : B \xrightarrow{\approx} \widetilde{B}$ is *-isomorprhism.
 	\end{itemize} 
@@ -2094,8 +1917,8 @@ If $\tau: A \to \C$ is a state on $A$ then there is the invariant state
 \widetilde{a}\mapsto \frac{1}{\left|G\right|}\sum_{g \in G} \tau\left(g\widetilde{a} \right),
 \end{split}
 \ee
-i.e. there is a given by $\tau \to \widetilde\tau$ map $\phi$ from the set of states on $A$ to the set of invariant spaces on  $\widetilde{A}$.% This map is invective, because $\widetilde{\tau}\left(a \right) = \tau\left(a\right)$ for all $a\in A$. 
- If $\widetilde{\tau}: \widetilde{A}\to \C$ is an invariant state  then there is $\widetilde{a}\in \widetilde{A}$ such that $\widetilde{\tau}\left(\widetilde{a} \right)\neq 0$. So one has
+i.e. there is a given by $\tau \to \widetilde\tau$ map $\phi$ from the set of states on $A$ to the set of invariant spaces on  $\widetilde{A}$. % This map is invective, because $\widetilde{\tau}\left(a \right) = \tau\left(a\right)$ for all $a\in A$. 
+ If $\widetilde{\tau}: \widetilde{A}\to \C$ is an invariant state  then there is positive  $\widetilde{a}\in \widetilde{A}_+$ such that $\widetilde{\tau}\left(\widetilde{a} \right)\neq 0$. So one has
 $$
 \frac{1}{\left|G\right|}\sum_{g \in G} \widetilde{\tau}\left(g\widetilde{a} \right)\neq 0.
  $$
@@ -2136,12 +1959,12 @@ It follows that the restriction $\tau \bydef \widetilde{\tau}|_A: A\to \C$ is no
 		 If $\widetilde{a} \in \widetilde{A}_+$ is a positive element such that $\widetilde{\tau}\left(\widetilde{a} \right) \neq 0$ then $a = \sum_{g \in G} g \widetilde{a} \in A$ is a positive element such that $\widetilde{\tau}\left(a \right) \neq 0$. It turns out that the restriction $\tau\bydef \left. \widetilde{\tau}\right|_{A}: A \to \C$ is a state. Let  $p:A \to \C$ be a positive functional such that $p < \tau$. From the HahnÐBanach theorem it follows that there is a positive functional  $\widetilde p: \widetilde{A}\to\C$ such $\widetilde p < \widetilde \tau$. Since the state $\widetilde \tau$ is pure there is $t \in [0,1]$ such that $\widetilde p = t\widetilde \tau$. One has the $G$ invariant state 
 	\bean
 \widetilde \tau^\oplus: \widetilde{A}\to\C,\\
-\widetilde{a}\mapsto \frac{1}{\left|G\right|}\sum_{	g \in G} \widetilde \tau
+\widetilde{a}\mapsto \frac{1}{\left|G\right|}\sum_{	g \in G} \widetilde \tau\left( g\widetilde{a}\right). 
 \eean
 If 
 	\bean
 \widetilde p^\oplus: \widetilde{A}\to\C,\\
-\widetilde{a}\mapsto \frac{1}{\left|G\right|}p\left( \sum_{	g \in G} \widetilde \tau\right) 
+\widetilde{a}\mapsto \frac{1}{\left|G\right|} \sum_{	g \in G} \widetilde p\left( g\widetilde{a}\right) 
 \eean
 then from $\widetilde p^\oplus= t \widetilde \tau^\oplus$, $p= \left.\widetilde p^\oplus\right|_A$ and  $\tau= \left.\widetilde \tau^\oplus\right|_A$   it follows that $p = t\tau$.		 
 So the state $\tau$ is pure, and the map $\widetilde\tau \mapsto \tau$ yields 	the  given by \eqref{cov_spectrum_eqn} map.  Let us prove that the map is continuous.
@@ -2174,7 +1997,7 @@ So the state $\tau$ is pure, and the map $\widetilde\tau \mapsto \tau$ yields 	t
 
 
 \begin{cor}\label{fin_up_cor} 
-	Let $\left(A, \widetilde{A}, G, \pi \right)$ be a pure  noncommutative finite-fold  quasi-covering  (cf. Definition \ref{fin_comp_defn}). If the spectra  $\sX$ and $\widetilde\sX$ of both $A$ and $\widetilde{A}$ respectively then for any $n \in \N$ the set $$\sX_n = \left\{x \in \sX~|~\left|p^{-1}\left(x \right) \right|\ge n \right\}$$ is an open subset of $\sX$.
+	Let $\left(A, \widetilde{A}, G, \pi \right)$ be a pure  noncommutative finite-fold  quasi-covering  (cf. Definition \ref{fin_comp_defn}). If the spectra  $\sX$ and $\widetilde\sX$ of both $A$ and $\widetilde{A}$ respectively are Hausdorff then for any $n \in \N$ the set $$\sX_n = \left\{x \in \sX~\left|~\left|p^{-1}\left(x \right) \right|\ge n \right.\right\}$$ is an open subset of $\sX$.
 \end{cor}
 \begin{proof}
 	If $x \in \sX_n$ then there is $m\ge n$ such that  $\left|p^{-1} \left(x_0 \right) \right| = m$. There is a subset $\widetilde x_0 \in p^{-1} \left(x_0 \right)$ and the subset $ \left\{g_1, ..., g_m\right\}$ such that 
@@ -14801,7 +14624,7 @@ corresponds to the element of $\mathscr C^*_r\left(\overline{M}, \overline{\sF}\
 	\pi_a\left( \widehat x\right) \overline a \pi_a\left( \widehat y\right)\in \varphi\left( C^*_r\left(\overline M, \overline \sF\right)\right) .
 	$$
 	The $C^*$-algebra $\overline{A}$ is generated by weakly special elements, so one has
-	$\overline{A} \subset \overline \varphi\left(  C^*_r\left(\overline M, \overline \sF\right) \right)$
+	$\overline{A} \subset \overline \varphi\left(  C^*_r\left(\overline M, \overline \sF\right) \right)$.
 \end{proof}
 
 \begin{empt}\label{foli_transitive_empt}
@@ -15113,7 +14936,7 @@ C\left(\mathbb{T}^n_{\Theta}\right)_j \bydef \left\{\left.a \in C\left(\mathbb{T
 	$$
 	\widetilde a = \sum_{\widetilde x \in \Z^n} \widetilde{c}_{\widetilde x} \widetilde{U}_{\widetilde x}.
 	$$
-	Let $M \in \mathbb{M}_n\left(\Z\right)$ be such that $\Ga = M\Z^n$. The group $\Z^n / \Ga \cong \Z^n / M\Z^n$, let $N = \left| \Z^n / \Ga\right|$ and  $\left\lbrace \widetilde x_1,\dots, \widetilde x_N\right\rbrace  \subset  \Z^n$ is a set of representatives of  $\Z^n / \Ga$. If 
+	Let $M \in \mathbb{M}_n\left(\Z\right)$ be such that $\Ga = M\Z^n$. The group $\Z^n / \Ga \cong \Z^n / M\Z^n$, let $N = \left| \Z^n / \Ga\right|$ and  $\left\{ \widetilde x_1,\dots, \widetilde x_N\right\}  \subset  \Z^n$ is a set of representatives of  $\Z^n / \Ga$. If 
 	$$
 	b_j = \frac{1}{\left|\Z^n / \Ga\right|}\sum_{g \in \Z^n / \Ga}g \left( \widetilde{a}\widetilde{U}^*_{\widetilde x_j}\right) \in C\left(\T^n_\Th \right)
 	$$ then from the definition of $C\left(\T^n_\Th \right)$ the series
@@ -15124,12 +14947,42 @@ C\left(\mathbb{T}^n_{\Theta}\right)_j \bydef \left\{\left.a \in C\left(\mathbb{T
 	\be\label{nt_bj_eqn}
 	b_j \widetilde{U}_{\widetilde x_j}= \sum_{y \in \Z^n} \widetilde{c}_{My +\widetilde x_j} \widetilde{U}_{My+ \widetilde x_j}
 	\ee
-	Since $\left\lbrace \widetilde x_1,\dots, \widetilde x_N\right\rbrace  \subset  \Z^n$ is a set of representatives of  $\Z^n / \Ga$ from \eqref{nt_bj_eqn} it follows that
+	Since $\left\{ \widetilde x_1,\dots, \widetilde x_N\right\}  \subset  \Z^n$ is a set of representatives of  $\Z^n / \Ga$ from \eqref{nt_bj_eqn} it follows that
 	\be\label{nt_bjn_eqn}
 	\sum_{j = 1}^n b_j \widetilde{U}_{\widetilde x_j} = \sum_{\widetilde x \in \Z^n} \widetilde{c}_{\widetilde x} \widetilde{U}_{\widetilde x} = \widetilde a
 	\ee
-	The equation \ref{nt_bjn_eqn} means that $C\left(\T^{n}_{\widetilde{\Th}} \right)$ is a left  $C\left(\T^{n}_{{\Th}} \right)$-module generated by the finite set $\left\{\widetilde{U}_{\widetilde x_j}\right\}$.
+	The equation \eqref{nt_bjn_eqn} means that $C\left(\T^{n}_{\widetilde{\Th}} \right)$ is a left  $C\left(\T^{n}_{{\Th}} \right)$-module generated by the finite set $\left\{\widetilde{U}_{\widetilde x_j}\right\}$.
 \end{proof}
+\begin{thm}
+	In the above situation the quadruple $\left( C\left(\T^{n}_{{\Th}} \right), C\left(\T^{n}_{\widetilde{\Th}} \right), \Z^n / \Ga, \pi\right)$ is an unital noncommutative finite-fold  covering. 
+\end{thm}
+\begin{corollary}
+Consider the situation of the Theorem \ref{nt_fin_thm}.  If both operator algebras $\Coo 
+\left(\T^{n}_{{\Th}} \right)$ and  $\Coo\left(\T^{n}_{\widetilde{\Th}} \right)$ are given by \eqref{nt_coo_eqn} then the quadruple $$\left( \Coo\left(\T^{n}_{{\Th}} \right), \Coo\left(\T^{n}_{\widetilde{\Th}} \right), \Z^n / \Ga, \pi|_{\Coo\left(\T^{n}_{\widetilde{\Th}} \right)}\right)$$ is a noncommutative finite-fold covering of operator algebras (cf. Definition \ref{fin_oa_defn}).
+\end{corollary}
+\begin{proof}
+Both operator algebras $\Coo\left(\T^{n}_{{\Th}} \right)$ and  $\Coo\left(\T^{n}_{\widetilde{\Th}} \right)$  are dense subalgebras of $C^*$-algebras $C\left(\T^{n}_{{\Th}} \right)$ and  $C\left(\T^{n}_{\widetilde{\Th}} \right)$ respectively.  So both $C\left(\T^{n}_{{\Th}} \right)$ and  $C\left(\T^{n}_{\widetilde{\Th}} \right)$ are $C^*$-envelopes (cf.  Definition \ref{op_su_env_defn}, Remark \ref{op_su_env_rem}) of $\Coo\left(\T^{n}_{{\Th}} \right)$ and  $\Coo\left(\T^{n}_{\widetilde{\Th}} \right)$, i.e.
+\bean
+C^*_e\left(\Coo\left(\T^{n}_{{\Th}} \right) \right)\cong C\left(\T^{n}_{{\Th}} \right) ,\\
+C^*_e\left(\Coo\left(\T^{n}_{\widetilde{\Th}} \right) \right)\cong C\left(\T^{n}_{\widetilde{\Th}} \right)
+\eean
+From the Theorem \ref{nt_fin_thm} it follows that a noncommutative finite-fold covering of operator algebras looks like
+$$
+\left( \Coo\left(\T^{n}_{{\Th}} \right), \widetilde A, \Z^n / \Ga, \pi|_{\Coo\left(\T^{n}_{\widetilde{\Th}} \right)}\right)
+$$
+where $\widetilde A\subset C\left(\T^{n}_{\widetilde{\Th}} \right)$ and satisfies to the Definition \ref{fin_oa_defn}. From $\Coo\left(\T^{n}_{\widetilde{\Th}} \right)\cap C\left(\T^{n}_{{\Th}} \right)=\Coo\left(\T^{n}_{{\Th}} \right)$, $\Z^n / \Ga \times \Coo\left(\T^{n}_{\widetilde{\Th}} \right)= \Coo\left(\T^{n}_{\widetilde{\Th}} \right)$ and condition (d) of the Definition \ref{fin_oa_defn} it follows that $\Coo\left(\T^{n}_{\widetilde{\Th}} \right)\subseteqq  \widetilde A$. If $\Coo\left(\T^{n}_{\widetilde{\Th}} \right)\subsetneqq  \widetilde A$ then there is $\widetilde a\in \widetilde A\setminus \Coo\left(\T^{n}_{\widetilde{\Th}} \right)$. If $\left\{ \widetilde x_1,\dots, \widetilde x_N\right\}  \subset  \Z^n$ is a set of representatives of  $\Z^n / \Ga$ from \eqref{nt_bj_eqn} it follows that
+\bean
+\widetilde a= \sum_{j = 1}^n b_j \widetilde{U}_{\widetilde x_j} \quad b_1, ..., b_N\in C\left(\T^{n}_{{\Th}} \right).
+\eean
+Since $\widetilde a\notin \Coo\left(\T^{n}_{\widetilde{\Th}} \right)$ there is $j \in \left\{1,...,N\right\}$ such that $b_j \notin \Coo\left(\T^{n}_{{\Th}} \right)$. On the other hand from
+$$
+b_j = \sum_{g \in \Z^n / \Ga}g \left(\widetilde a \widetilde{U}^*_{\widetilde x_j}\right)\in \widetilde A\cap  \left(\T^{n}_{{\Th}} \right)
+$$
+and the condition (c) of the Definition \ref{fin_oa_defn} it follows that $b_j \in \Coo\left(\T^{n}_{{\Th}} \right)$. It is a contradiction, so the inclusion  $\Coo\left(\T^{n}_{\widetilde{\Th}} \right)\subsetneqq  \widetilde A$ is impossible, i.e. one has $\Coo\left(\T^{n}_{\widetilde{\Th}} \right)=  \widetilde A$.
+\end{proof}
+
+
+
 \begin{remark}\label{nt_diag_rem}
 		Let $\Th = J \th$ where $\th \in \R \setminus \Q$ and
 	$$
@@ -15401,7 +15254,7 @@ Using equations  \eqref{nt_basis_eqn} and \eqref{nt_l2_eqn} one has the followin
 
 
 \begin{lemma}\label{nt_smooth_matr_lem}
-Let $\left( C\left(\T^{n}_{{\Th}} \right), C\left(\T^{n}_{\widetilde{\Th}} \right), \Z^n / \Ga, \pi\right)$ be an unital noncommutative finite-fold  covering given by the Theorem \ref{nt_fin_thm}. Let $\left\lbrace \widetilde x_1,\dots, \widetilde x_N\right\rbrace  \subset  \Z^n$ is a set of representatives of  $\Z^n / \Ga$.
+Let $\left( C\left(\T^{n}_{{\Th}} \right), C\left(\T^{n}_{\widetilde{\Th}} \right), \Z^n / \Ga, \pi\right)$ be an unital noncommutative finite-fold  covering given by the Theorem \ref{nt_fin_thm}. Let $\left\{ \widetilde x_1,\dots, \widetilde x_N\right\}  \subset  \Z^n$ is a set of representatives of  $\Z^n / \Ga$.
 	\begin{itemize}
 		\item [(i)] The finite family $\left\{\widetilde U_{\widetilde x_j}\right\}_{j= 1, ..., N}\subset \Coo\left(\T^n_{\widetilde\Th }\right) $  satisfies to the Lemma \ref{smooth_matr_lem}.
 		\item[(ii)] 
@@ -15433,7 +15286,7 @@ Let us prove that $\left\{\widetilde U_{\widetilde x_j}\right\}$ satisfies to co
 		\left\langle \widetilde U_{\widetilde x_j},  \widetilde a \widetilde U_{\widetilde x_k}\right\rangle = \sum_{g \in \Z^n / \Ga} g\left( \widetilde U^*_{x_j}\widetilde a \widetilde U_{\widetilde x_k}\right)= \sum_{g \in \Z^n / \Ga} \sum_{l=1}^N g \left(\widetilde U_{\widetilde x_j}a_l \widetilde U_{\widetilde x_l}\widetilde U_{\widetilde x_k} \right) =\\
 		= \sum_{g \in \Z^n / \Ga} \sum_{l=1}^N\chi_{\overline{M^{-1}\left( \widetilde x_l + \widetilde x_k - \widetilde x_j\right) }} g   \left(\widetilde U_{\widetilde x_j}a_l \widetilde U_{\widetilde x_l}\widetilde U_{\widetilde x_k} \right)
 		\eean 
-		where $\overline {M^{-1}\left( \widetilde x_l + \widetilde x_k - \widetilde x_j\right) }\in \Ga^\vee/\Z^n$ (cf. \eqref{nt_dual_eqn}) represented by $M^{-1}\left( \widetilde x_l + \widetilde x_k - \widetilde x_j\right)\in \Q^n $ and $\chi_{\overline{M^{-1}\left( \widetilde x_l + \widetilde x_k - \widetilde x_j\right) }}$ is a character which corresponds to $\chi_{\overline{M^{-1}\left( \widetilde x_l + \widetilde x_k - \widetilde x_j\right) }}$. Since the set $\left\lbrace \widetilde x_1,\dots, \widetilde x_N\right\rbrace  \subset  \Z^n$ is a set of representatives of  $\Z^n / \Ga$
+		where $\overline {M^{-1}\left( \widetilde x_l + \widetilde x_k - \widetilde x_j\right) }\in \Ga^\vee/\Z^n$ (cf. \eqref{nt_dual_eqn}) represented by $M^{-1}\left( \widetilde x_l + \widetilde x_k - \widetilde x_j\right)\in \Q^n $ and $\chi_{\overline{M^{-1}\left( \widetilde x_l + \widetilde x_k - \widetilde x_j\right) }}$ is a character which corresponds to $\chi_{\overline{M^{-1}\left( \widetilde x_l + \widetilde x_k - \widetilde x_j\right) }}$. Since the set $\left\{ \widetilde x_1,\dots, \widetilde x_N\right\}  \subset  \Z^n$ is a set of representatives of  $\Z^n / \Ga$
 		one has
 		$$
 		\overline{M^{-1}\left( \widetilde x_l + \widetilde x_k - \widetilde x_j\right) }= 0\quad \Leftrightarrow \quad M^{-1}\left( \widetilde x_l + \widetilde x_k - \widetilde x_j\right)= 0.
@@ -20933,7 +20786,7 @@ then $C\left(\mathbb{T}^n_{\Theta}\right)$ is the universal $C^*$-algebra genera
  \begin{equation}\label{nt_norm_estimation_eqn}
  \left\|a \right\| \le \sum_{l \in \mathbb{Z}^{n}}\left| c_l\right|.
  \end{equation}
- In particular if $\mathrm{sup}_{l \in \mathbb{Z}^n}\left(1 + \|k\|\right)^s \left|c_l\right| < \infty, ~ \forall s \in \mathbb{N}$ then $\sum_{l \in \mathbb{Z}^{n}}\left| c_l\right|< \infty $ and taking into account the Equation \eqref{schwartz_z_eqn} there is the natural inclusion $\phi_\infty: \sS\left(\mathbb{Z}^n\right) \subset C\left(\mathbb{T}^n_{\Theta}\right)$ of vector spaces. If
+ In particular if $\mathrm{sup}_{l \in \mathbb{Z}^n}\left(1 + \|l\|\right)^s \left|c_l\right| < \infty, ~ \forall s \in \mathbb{N}$ then $\sum_{l \in \mathbb{Z}^{n}}\left| c_l\right|< \infty $ and taking into account the Equation \eqref{schwartz_z_eqn} there is the natural inclusion $\phi_\infty: \sS\left(\mathbb{Z}^n\right) \subset C\left(\mathbb{T}^n_{\Theta}\right)$ of vector spaces. If
  \be\label{nt_coo_eqn}
 \Coo\left(\mathbb{T}^n_{\Theta}\right)\bydef \phi_\infty \left( \sS\left(\mathbb{Z}^n\right)\right) \subset C\left(\mathbb{T}^n_{\Theta}\right)
  \ee
