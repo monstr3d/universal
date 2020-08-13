@@ -1975,30 +1975,6 @@ So the state $\tau$ is pure, and the map $\widetilde\tau \mapsto \tau$ yields 	t
 \end{remark}
 
 
-\begin{cor}\label{fin_up_cor} 
-	Let $\left(A, \widetilde{A}, G, \pi \right)$ be a pure  noncommutative finite-fold  quasi-covering  (cf. Definition \ref{fin_comp_defn}). If the spectra  $\sX$ and $\widetilde\sX$ of both $A$ and $\widetilde{A}$ respectively are Hausdorff then for any $n \in \N$ the set $$\sX_n = \left\{x \in \sX~\left|~\left|p^{-1}\left(x \right) \right|\ge n \right.\right\}$$ is an open subset of $\sX$.
-\end{cor}
-\begin{proof}
-	If $x \in \sX_n$ then there is $m\ge n$ such that  $\left|p^{-1} \left(x_0 \right) \right| = m$. There is a subset $\widetilde x_0 \in p^{-1} \left(x_0 \right)$ and the subset $ \left\{g_1, ..., g_m\right\}$ such that 
-	\bean
-	\forall j, k \in \left\{g_1, ..., g_m\right\} \quad j\neq k\quad  \Rightarrow\quad g_j\widetilde x_0\neq g_k\widetilde x_0
-	\eean
-	Since $\widetilde{\sX}$ is Hausdorff there is an open neighborhood $\widetilde{\sU}$ of $\widetilde{x}_0$ such that
-	\bean
-	\forall x \in \widetilde{\sU} \quad \forall j, k \in \left\{g_1, ..., g_m\right\} \quad j\neq k\quad  \Rightarrow\quad g_j\widetilde x\neq g_k\widetilde x.
-	\eean
-	So one has
-	$$
-	\forall \widetilde x \in \bigcup_{g\in G}g \widetilde{\sU}\quad \left|p^{-1} \left(x \right) \right| \ge m.
-	$$
-	From the Lemma \ref{cov_spectrum_lem} it turns out that there is an open subset $\sU \subset\sX$ such that $p^{-1} \left( \sU\right) = \bigcup_{g\in G}g \widetilde{\sU}$, so one has
-	$$
-	\forall x \in{\sU}\quad \left|p^{-1} \left(p\left(x\right) \right) \right| \ge m.
-	$$
-	
-\end{proof}
-
-
 \begin{empt}
 Suppose that	If $\left(A, \widetilde{A}, G, \pi \right)$ is  a noncommutative finite-fold  quasi-covering and $A$ is separable.
 There is  an isomorphism  $\widetilde{A} \approx A \bigoplus P$ of $A$-modules then any $\widetilde{a} \in \End\left( \widetilde{A}\right)_A$ can be represented as a sum $\widetilde{a}= \al\left(\widetilde{a} \right)+ \bt\left(\widetilde{a} \right)+\ga\left(\widetilde{a} \right)+\delta\left(\widetilde{a} \right)$ of $A$-module homomorphisms $\al : A \to A$, $\bt : P \to A$, $\ga : A \to P$, $\delta : P \to P$. If 
@@ -2091,7 +2067,7 @@ There is  an isomorphism  $\widetilde{A} \approx A \bigoplus P$ of $A$-modules t
  	\be\label{g_red_ker_eqn}
  	G_{\text{red}} = \ker  \left( G \to \mathrm{Homeo}\left(\widetilde{\sX} \right)\right). 
  	\ee
- 	In particular $G_{\text{red}}$ is normal subgroup of $G$ and there is the inclusion
+ 	In particular $G_{\text{red}}$ is a normal subgroup of $G$ and there is the inclusion
  	\be\label{g_red_inc_eqn}
  	G/G_{\text{red}} \subset \mathrm{Homeo}\left(\widetilde{\sX} \right). 
  	\ee
@@ -2105,7 +2081,7 @@ There is  an isomorphism  $\widetilde{A} \approx A \bigoplus P$ of $A$-modules t
  
  \paragraph{}
  The following result about algebraic Morita equivalence of Galois extensions is in fact rephrasing of described in \cite{auslander:galois,mont:hopf-morita} constructions. 
- Let $\left(A, \widetilde{A}, G\right)$ be an unital finite-fold noncommutative covering. Denote by $\widetilde{A} \rtimes G$ a \textit{crossed product}, i.e. $\widetilde{A} \rtimes G$ ia a $C^*$-algebra which coincides with a set of maps from $G$ to $\widetilde{A}$ as a set, and operations on  $\widetilde{A}$ are given by
+ Let $\left(A, \widetilde{A}, G\right)$ be an unital finite-fold noncommutative covering. Denote by $\widetilde{A} \rtimes G$ a \textit{crossed product}, i.e. $\widetilde{A} \rtimes G$ is a $C^*$-algebra which coincides with a set of maps from $G$ to $\widetilde{A}$ as a set, and operations on  $\widetilde{A}$ are given by
  \begin{equation}\label{crossed_prod_eqn}
  \begin{split}
  \left(a + b \right) \left( g \right)   = a \left( g \right)+ b \left( g \right),\\
@@ -2115,7 +2091,7 @@ There is  an isomorphism  $\widetilde{A} \approx A \bigoplus P$ of $A$-modules t
  \end{equation}
  
  
- Let us construct a Morita context $$\left( \widetilde{A} \rtimes G, A,~ _{\widetilde{A} \rtimes G}\widetilde{A}_A, ~ _A\widetilde{A}_{\widetilde{A} \rtimes G}, \widetilde{\tau}, \psi\right) $$ where both $_A\widetilde{A}_{\widetilde{A} \rtimes G}$ and $ _{\widetilde{A} \rtimes G}\widetilde{A}_A$ coincide with $\widetilde{A}$ as $\C$-spaces. Left and right action of $\widetilde{A} \rtimes G$ on $\widetilde{A}$ is given by
+ Let us construct a Morita context $$\left( \widetilde{A} \rtimes G, A,~ _{\widetilde{A} \rtimes G}\widetilde{A}_A, ~ _A\widetilde{A}_{\widetilde{A} \rtimes G}, \widetilde{\tau}, \psi\right) $$ where both $_A\widetilde{A}_{\widetilde{A} \rtimes G}$ and $ _{\widetilde{A} \rtimes G}\widetilde{A}_A$ coincide with $\widetilde{A}$ as $\C$-spaces. The left and right action of $\widetilde{A} \rtimes G$ on $\widetilde{A}$ is given by
  
  \begin{equation*}
  \begin{split}
@@ -2124,7 +2100,7 @@ There is  an isomorphism  $\widetilde{A} \approx A \bigoplus P$ of $A$-modules t
  \forall a \in \widetilde{A} \rtimes G,~~ \forall \widetilde{a}\in \widetilde{A}.
  \end{split}
  \end{equation*}
- Left (resp. right) action of $A$ on $\widetilde{A}$ we define as left (resp. right) multiplication by $A$.
+The left (resp. right) action of $A$ on $\widetilde{A}$ we define as left (resp. right) multiplication by $A$.
  Denote by $\varphi: \widetilde{A} \otimes_{A}  \widetilde{A}  \to \widetilde{A} \rtimes G$, $\psi: \widetilde{A} \otimes_{\widetilde{A} \rtimes G}  \widetilde{A} \to A$ the maps such that
  \begin{equation*}
  \begin{split}
@@ -2305,7 +2281,7 @@ Otherwise any $\widetilde{\xi}\in _A\widetilde{A}_{A \rtimes G}\otimes_{A \rtime
 
    \section{Noncommutative unique path lifting}
  
-   \paragraph*{} Here we generalize path-lifting property given by the Definition \ref{top_path_lifting_defn}. Because noncommutative geometry has no points it has no a direct generalization of paths, but there is an implicit generalization. Let $\widetilde{\mathcal{X}} \to \mathcal{X}$ be a covering. The following diagram reflects the path lifting problem.
+   \paragraph*{} Here we generalize  the path-lifting property given by the Definition \ref{top_path_lifting_defn}. Because noncommutative geometry has no points it has no a direct generalization of paths, but there is an implicit generalization. Let $\widetilde{\mathcal{X}} \to \mathcal{X}$ be a covering. The following diagram reflects the path lifting problem.
    \newline
    \hspace*{\fill}
    \begin{tikzpicture}
@@ -2509,7 +2485,7 @@ The action $G \times C^*_e\left(\widetilde X, \widetilde Y \right) \to C^*_e\lef
 \end{remark}
 \begin{definition}\label{op_su_r_space_defn}
 	Let $Y$ be a  real operator space (cf. Definitions \ref{real_os_defn}), and let $X\subset Y$ is its subspace. Let both $\C X$ and $\C Y$ are complexifications  (cf. \ref{complexification_empt}) of $X$ and $Y$ respectively.
-We say that a pair 	$\left(X, Y \right)$ is a \textit{sub-unital real operator space} is the  pair $\left(\C X, \C Y \right)$ where  $X$ is a closed with respect to $C^*$-norm subspace of $Y$ a pair $\left(\C X, \C Y \right)$ is sub-unital operator space (cf. Definition \ref{op_su_space_defn}).
+We say that a pair 	$\left(X, Y \right)$ is a \textit{sub-unital real operator space} if the  pair $\left(\C X, \C Y \right)$  is a sub-unital operator space (cf. Definition \ref{op_su_space_defn}).
 \end{definition}
    \begin{definition}\label{op_sum_r_space_defn}
 	If both  $\left(X, Y \right)$ and $\left(\widetilde X, \widetilde Y \right)$ are {sub-unital} real operator spaces then \textit{complete isometry} from $\left(X, Y \right)$ to $\left(\widetilde X, \widetilde Y \right)$  is a complete unital isometry $\pi_Y: Y \hookto \widetilde Y$ such that $\pi_Y\left(X \right) \subset \widetilde X$. We write
@@ -2537,7 +2513,7 @@ Let both  $\left(X, Y \right)$ and $\left(\widetilde X, \widetilde Y \right)$ ar
 %\end{empt}
 \begin{empt}\label{loc_op_env_empt}
 %Let $X$ be a local operator space represented by an inverse limit $X = \varprojlim X_\a$ of the directed set $\left\{X_\a\right\}$ spaces. The inverse limit  $C^*_e\left(X\right)=\varprojlim C^*_e\left(X_\a\right)$ is said to be the \textit{envelope pro}-$C^*$-\textit{algebra} of $X$.
-Let $X$ be a local operator space and let $\varphi : X \to B$ be a complete isometry into pro-$C^*$-algebra (cf.  Remark \ref{loc_op_abs_conc_rem}). Let $b\left( X\right) \bydef b\left(B \right) \cap B$. If $C_e\left( b\left( X\right)\right)$  {envelope } $C^*$-{algebra} of $b\left( X\right)$ then there is the surjective *- homomorphism $ b\left(B \right)\to C_e\left( b\left( X\right)\right)$. Let $b\left( I\right) \bydef \ker\left(  b\left(B \right)\to C_e\left( b\left( X\right)\right)\right)$. If
+Let $X$ be a local operator space and let $\varphi : X \to B$ be a complete isometry into pro-$C^*$-algebra (cf.  Remark \ref{loc_op_abs_conc_rem}). Let $b\left( X\right) \bydef b\left(B \right) \cap X$. If $C_e\left( b\left( X\right)\right)$  {envelope } $C^*$-{algebra} of $b\left( X\right)$ then there is the surjective *- homomorphism $ b\left(B \right)\to C_e\left( b\left( X\right)\right)$. Let $b\left( I\right) \bydef \ker\left(  b\left(B \right)\to C_e\left( b\left( X\right)\right)\right)$. If
 $$
 I \bydef \bigcap_{\substack{ J \text{ is an ideal of } B\\ J\cap b\left(B \right)\supset b\left( I\right)}}J
 $$
@@ -2546,8 +2522,7 @@ then $A \bydef B/I$ is a pro $C^*$-algebra and there is the complete isometry $X
 \begin{definition}\label{loc_op_env_defn}
 In the described in \ref{loc_op_env_empt} we say that $A$ is the \textit{envelope pro}-$C^*$-\textit{algebra} of $X$. We denote it by $C^*_e\left( X\right)$. 
 \end{definition}
-\begin{remark}
-$\varphi : X \to B$ be a complete isometry then there is the natural surjective *-homomorphism $B\to C^*_e\left( X\right)$. So $C^*_e\left( X\right)$ is unique up to *-isomorphism.
+\begin{remark} In the situation \ref{loc_op_env_empt},  \ref{loc_op_env_defn}  there is the natural surjective *-homomorphism $B\to C^*_e\left( X\right)$. So $C^*_e\left( X\right)$ is unique up to *-isomorphism.
 \end{remark}
 \begin{definition}\label{bounded_loc_op_el_defn}
 An element $a$ of local operator space $X$ is said to be \textit{bounded} if $a \in X \cap b\left(C^*_e\left(X\right) \right)$.  Denote by $b\left( X\right)$ the $\C$-space of bounded elements.  
@@ -2569,8 +2544,8 @@ Any complete isomerty $\phi: X \to Y$ of operator spaces induces an injecive *-h
 \end{remark}
 
   \begin{definition}\label{op_loc_su_space_defn}
-	Let $Y$ be an unital local operator space, and let $C^*_e\left( Y\right)$ be the $C^*$-envelope (cf. Definition \ref{c_env_sp_defn}) of $Y$. 
-	A \textit{sub-unital operator space} is a pair $\left(X, Y \right)$ where  $X$ is a closed with respect to !!! $C^*$-norm subspace of $Y$ such that $X = Y \oplus \C \cdot 1_{C^*_e\left( Y\right)}$ or $X = Y$.
+	Let $Y$ be an unital local operator space, and let $C^*_e\left( Y\right)$ be the envelope pro-$C^*$-algebra (cf. Definition \ref{loc_op_env_defn}) of $Y$. 
+	A \textit{sub-unital local operator space} is a pair $\left(X, Y \right)$ where  $X$ is a  subspace of $Y$ such that $Y = X \oplus \C \cdot 1_{C^*_e\left( Y\right)}$ or $X = Y$.
 \end{definition}
  \begin{definition}\label{op_loc_sum_space_defn}
 	If both  $\left(X, Y \right)$ and $\left(\widetilde X, \widetilde Y \right)$ are {sub-unital} local operator spaces then \textit{complete isometry} from $\left(X, Y \right)$ to $\left(\widetilde X, \widetilde Y \right)$  is a complete unital isometry $\pi_Y: Y \hookto \widetilde Y$ such that $\pi_Y\left(X \right) \subset \widetilde X$. We write
@@ -10826,20 +10801,16 @@ is dense in $\widetilde\sX$
 \end{corollary}
 \begin{proof}
 If $\widetilde{\sX}^\parallel$
-is not dense in $\widetilde\sX$ then there is nonempty open subset $\widetilde\sU\subset \widetilde{\sX}\setminus\widetilde{\sX}^\parallel$. For any $\widetilde x \in \widetilde\sU$ denote by $G_{\widetilde x}\bydef \left\{\left.g\in G\right| g\widetilde x = x\right\}$. If $n \bydef \min_{\widetilde x \in \widetilde\sU}\left|G_{\widetilde x}\right|$ then from the Corollary  \ref{fin_up_cor} it turns out that the set
-$$
-\widetilde\sU_n \bydef \left\{\left.\widetilde x\in \widetilde \sU\right| \left|G_{\widetilde x}\right|\le n\right\}
-$$
-is open. If $\widetilde x_0\in  \widetilde\sU_n$ and  $G' \bydef G\setminus G_{\widetilde x_0}$ then for any $g \in G'$ there is an open neighborhood $ \widetilde\sU_g$ such that $\widetilde\sU_g\cap g \sU_g= \emptyset$. The set $\widetilde\sU_{\widetilde x_0}\subset \cap_{g\in G'} \widetilde\sU_g$ is an open neighborhood of $\widetilde x_0$ such that $g \widetilde x\neq \widetilde x$ for all $\widetilde x\in \widetilde\sU_{\widetilde x_0}$ and $g \in G'$.
+is not dense in $\widetilde\sX$ then there is nonempty open subset $\widetilde\sU\subset \widetilde{\sX}\setminus\widetilde{\sX}^\parallel$. For any $\widetilde x \in \widetilde\sU$ denote by $G_{\widetilde x}\bydef \left\{\left.g\in G\right| g\widetilde x = x\right\}$. From the Corollary  \ref{ctr_sp_cov_cor} it turns that there is $n \in \N$ such that $\left|G_{\widetilde x}\right|= n$ for all ${\widetilde x}\in {\widetilde \sX}$. If   $G' \bydef G\setminus G_{\widetilde x_0}$ then for any $g \in G'$ there is an open neighborhood $ \widetilde\sU_g$ such that $\widetilde\sU_g\cap g \sU_g= \emptyset$. The set $\widetilde\sU_{\widetilde x_0}\subset \cap_{g\in G'} \widetilde\sU_g$ is an open neighborhood of $\widetilde x_0$ such that $g \widetilde x\neq \widetilde x$ for all $\widetilde x\in \widetilde\sU_{\widetilde x_0}$ and $g \in G'$.
 It follows for each $\widetilde x\in \widetilde\sU_{\widetilde x_0}$  one has
 \begin{itemize}
 	\item $G_{\widetilde x}= G_{\widetilde x_0}$.
 	\item $\rep_{ \widehat{x}}\left(\widetilde{A}_{\mathrm{red}} \right) \subsetneqq \rep_{ \widehat{x}}\left(\widetilde{A} \right)$
 \end{itemize} 
 It is easy check that 	$$
-\left\{\left.\rep_{ \widetilde{x}}\left(\sum_{	g \in G_{\widetilde x_0}}g  \widetilde a\right) \right|\widetilde a\in \widetilde A\right\}=	\rep_{ \widetilde{x}}\left(\widetilde{A}_{\mathrm{red}}\right)
+\left\{\left.\rep_{ \widetilde{x}}\left(\sum_{	g \in G'}g  \widetilde a\right) \right|\widetilde a\in \widetilde A\right\}=	\rep_{ \widetilde{x}}\left(\widetilde{A}_{\mathrm{red}}\right)
 $$
-for all $\widetilde x\in \widetilde\sU_0$. From the Lemma \ref{ctr_pre_red_lem} it follows that 
+for all $\widetilde x\in \widetilde\sU_{\widetilde x_0}$. From the Lemma \ref{ctr_pre_red_lem} it follows that 
 $$
 \left\{\left. g \in \Aut\left(\widetilde{A} \right)  \right| \forall \widetilde{a}_{\mathrm{red}}\in \widetilde{A}_{\mathrm{red}} \quad g \widetilde{a}_{\mathrm{red}}=\widetilde{a}_{\mathrm{red}}\right\}
 $$
@@ -18002,7 +17973,7 @@ $$
  \end{defn}
  
  \begin{rem}\label{morita_rem}
- 	The Morita context $\left( A,B,P,Q,\varphi,\psi\right)$  is a Morita equivalence if and only if $A$-module $P$ is a finitely generated projective generator (cf. \cite{bass} II 4.4)
+ 	The Morita context $\left( A,B,P,Q,\varphi,\psi\right)$  is a Morita equivalence if and only if $A$-module $P$ is a finitely generated projective generator (cf. \cite{bass} II 4.4).
  \end{rem}
  
 % \begin{cordefn}\label{invert_mod_defn}\cite{bass}
