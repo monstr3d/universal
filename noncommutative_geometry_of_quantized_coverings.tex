@@ -2889,6 +2889,19 @@ then
  is flat.
  \end{lemma} 
  \begin{proof}
+ 	
+ 	If we consider the given by the Equation  \eqref{eop_into_eqn} map
+ 	 		\bean
+ 	\nabla:  \mathcal E \otimes_{\A} \Om \to \mathcal E \otimes_{\A} \Om, \\	\nabla\left(\xi \otimes \om \right) \bydef \nabla\left(\xi \right) \om + \xi \otimes d\om; \quad\forall \xi \in \mathcal E, ~ \om \in \Om. 
+ 	\eean
+ 	or equivalently 
+ 	\bean
+ 	\nabla \bydef \Id_{\mathcal E} \otimes d.
+ 	\eean
+ 	It follows that
+ 	$$
+ 	\nabla_e\bydef	\left(e \otimes 1 \right)\left(\Id_{\mathcal E} \otimes d \right)
+ 	$$
  	From
  	$$
  	\left(e \otimes 1 \right)\left(\Id_{\mathcal E} \otimes d \right) \circ \left(e \otimes 1 \right)\left(\Id_{\mathcal E} \otimes d \right) = e \otimes d^2 = 0	
@@ -20250,14 +20263,21 @@ Thus any spectral triple $\left( \A, \H, D\right)$  naturally defines a cycle $\
  		is a connection on $e\E$,
  		\item[(b)] Any finitely generated projective module $\E$ admits a connection,
  		\item[(c)]  The space of connections is an affine space over the vector space $\Hom_{\sA}\left(\E, \E \otimes_{\A} \Om^1 \right)$, 
- 		\item[(d)] Any connection $\nabla$ extends uniquely up to a linear map of  $\widetilde{\mathcal E}= \mathcal E \otimes_{\A} \Om$ into itself
+ 		\item[(d)] Any connection $\nabla$ extends uniquely up to a linear map  of  $\widetilde{\mathcal E}= \mathcal E \otimes_{\A} \Om$ into itself
  		such that
  		\be\label{eop_into_eqn}
- 		\nabla\left(\xi \otimes \om \right) = \nabla\left(\xi \right) \om + \xi \otimes d\om; ~~\forall \xi \in \mathcal E, ~ \om \in \Om. 
+ 		\nabla\left(\xi \otimes \om \right) \bydef \nabla\left(\xi \right) \om + \xi \otimes d\om; \quad\forall \xi \in \mathcal E, ~ \om \in \Om. 
  		\ee
  	\end{enumerate}
  \end{prop}
- 
+ \begin{remark}\label{conn_rem}
+The Proposition \ref{conn_prop} implicitly assumes that $\mathcal E\cong  \mathcal E \otimes_{\A} \A\cong \mathcal E \otimes_{\A} \Om^0$ so  there is the natural inclusion
+\be\label{conn_eqn}
+\mathcal E \subset \mathcal E \otimes_{\A} \Om
+\ee
+of right $\A$-modules.
+
+ \end{remark}
  
  
  	
@@ -20267,7 +20287,7 @@ Thus any spectral triple $\left( \A, \H, D\right)$  naturally defines a cycle $\
  		\be
  		F_\nabla : \mathcal E \to \mathcal E \otimes_{\A} \Om^2
  		\ee
- 		defined as a restriction of $\nabla \circ \nabla$ to $\mathcal E$, that is, $F_{\nabla} = \nabla \circ \nabla |_{\mathcal E}$ where $\nabla$ is given by the Equation \eqref{eop_into_eqn}.
+ 		defined as the restriction of $\nabla \circ \nabla$ to $\mathcal E$, that is, $F_{\nabla}\bydef \left.\nabla \circ \nabla \right|_{\mathcal E}$ (cf. \eqref{eop_into_eqn},\eqref{conn_eqn}).
  		A connection is said to be \textit{flat} if
  		its curvature is identically equal to $0$ (cf. \cite{brzezinsky:flat_co}).
  	\end{definition}
@@ -20276,13 +20296,18 @@ Thus any spectral triple $\left( \A, \H, D\right)$  naturally defines a cycle $\
  	\begin{remark}
  		Above algebraic notions of curvature and flat connection are generalizations of corresponding geometrical notions explained in \cite{koba_nomi:fgd} and the Section \ref{geom_flat_subsec}.
  	\end{remark}
- 	For any projective $\A$ module $\mathcal E$ there is a \textit{trivial connection}
- 	
- 	\bean
- 	\nabla:  \mathcal E \otimes_{\A} \Om \to \mathcal E \otimes_{\A} \Om, \\
- 	\nabla = \Id_{\mathcal E} \otimes d.
- 	\eean
- 	From $d^2 = d \circ d = 0$ it follows that $\left(\Id_{\mathcal E} \otimes d \right) \circ   \left(\Id_{\mathcal E} \otimes d \right)$ = 0, i.e. any trivial connection is flat.
+ \begin{defn}\label{triv_conn_defn}
+
+   	For any projective $\A$ module $\mathcal E$ there is the unique \textit{trivial connection}
+ \bean
+ \nabla:  \mathcal E \otimes_{\A} \Om \to \mathcal E \otimes_{\A} \Om, \\
+ \nabla = \Id_{\mathcal E} \otimes d
+ \eean
+ From $d^2 = d \circ d = 0$ it follows that $\left(\Id_{\mathcal E} \otimes d \right) \circ   \left(\Id_{\mathcal E} \otimes d \right)$ = 0, i.e. any trivial connection is flat.
+  \end{defn}
+\begin{remark}\label{triv_conn_rem}
+From $d^2 = d \circ d = 0$ it follows that $\left(\Id_{\mathcal E} \otimes d \right) \circ   \left(\Id_{\mathcal E} \otimes d \right)$ = 0, i.e. any trivial connection is flat.
+\end{remark}
  	
  	
  	
