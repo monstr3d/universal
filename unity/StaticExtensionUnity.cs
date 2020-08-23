@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -32,6 +31,7 @@ using Scada.Desktop;
 using Vector3D;
 
 using Motion6D.Interfaces;
+using System.Collections;
 
 namespace Unity.Standard
 {
@@ -152,6 +152,69 @@ namespace Unity.Standard
         #endregion
 
         #region Members
+
+        
+        /// <summary>
+        /// Blinks limit indicators
+        /// </summary>
+        /// <param name="limits">Limits</param>
+        /// <param name="delay">Delay</param>
+        /// <param name="stop">Stop sign</param>
+        /// <returns>Enumerable for coroutine</returns>
+        static public IEnumerator BlinkLimits(this IEnumerable<ILimits> limits, 
+            float delay, Action<bool[]> stop)
+        {
+            bool exceeds = true;
+            bool[] st = new bool[] { false };
+            while (exceeds)
+            {
+                exceeds = false;
+                yield return new WaitForSeconds(delay);
+                foreach (var l in limits)
+                {
+                    l.Active = false;
+                }
+                yield return new WaitForSeconds(delay);
+                foreach (var l in limits)
+                {
+                    l.Active = true;
+                    if (!exceeds)
+                    {
+                        if (l.Exceeds)
+                        {
+                            exceeds = true;
+                        }
+                    }
+                    stop(st);
+                    if (st[0])
+                    {
+                        break;
+                    }
+                    if (exceeds)
+                    {
+                        st[0] = true;
+                        stop(st);
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Checks whether indicators exceed
+        /// </summary>
+        /// <param name="limits"></param>
+        /// <returns>True is excced</returns>
+        static public bool Exceeds(this IEnumerable<ILimits> limits)
+        {
+            foreach (var l in limits)
+            {
+                if (l.Exceeds)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
 
         /// <summary>
         /// Adds action value

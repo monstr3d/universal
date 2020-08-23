@@ -14,10 +14,12 @@ namespace Unity.Standard
     {
         #region Fields
 
+      
+
         Dictionary<string, Tuple<Func<object>, List<IIndicator>>>
             indicators = new Dictionary<string, Tuple<Func<object>, List<IIndicator>>>();
 
-  
+        Dictionary<string, List<ILimits>> limits = new Dictionary<string, List<ILimits>>();
 
         protected Action update;
 
@@ -41,6 +43,24 @@ namespace Unity.Standard
         {
             base.Set(obj, indicator, scada);
             indicators = indicator.gameObject.GetIndicatorsFull();
+            bool b = false;
+            foreach (var i in indicators.Keys)
+            {
+                var l = indicators[i];
+                var ll = l.Item2;
+                List<ILimits> li= new List<ILimits>();
+                limits[i] = li;
+                foreach (var ind in ll)
+                if (ind is ILimits)
+                {
+                        b = true;
+                        li.Add(ind as ILimits);
+                }
+            }
+            if (b)
+            {
+                update += UpdateLimits;
+            }
         }
  
         #endregion
@@ -51,6 +71,11 @@ namespace Unity.Standard
         protected virtual void UpdateInternal()
         {
             indicators.UpdateInicators();
+        }
+
+        void UpdateLimits()
+        {
+
         }
 
         #endregion

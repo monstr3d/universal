@@ -1,5 +1,5 @@
 ﻿using System;
-
+using System.Runtime.ExceptionServices;
 using CategoryTheory;
 using Scada.Desktop;
 
@@ -140,7 +140,35 @@ namespace Unity.Standard
 
         #endregion
 
-        #region Own Members
+        #region Own 
+
+        /// <summary>
+        /// Exceeds
+        /// </summary>
+        protected Func<float[], bool> Exceeds
+        {
+            get
+            { 
+                double a = 0;
+                if (a.Equals(type))
+                {
+                    return (float[] l) =>
+                    {
+                        double x = (double)obj;
+                        float y = (float)x;
+                        return (y < l[0]) | (y > l[1]);
+                    };
+                }
+                return (float[] l) =>
+                {
+                    float x = (float)obj;
+                    return (x < l[0]) | (x > l[1]);
+                };
+
+            }
+        }
+
+   
         /// <summary>
         /// Finds the function
         /// </summary>

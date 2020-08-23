@@ -5,7 +5,10 @@ using UnityEngine;
 using UnityEngine.UI;
 
 namespace Unity.Standard
-{
+{ 
+    /// <summary>
+    /// Slider wrapper
+    /// </summary>
     public class SliderWrapper : AbstractIndicator
     {
         #region Fields
@@ -21,19 +24,19 @@ namespace Unity.Standard
         public Color exceed = new Vector4(1, 0, 0, 1);
 
   
-        Dictionary<string, List<Component>> components;
+        protected Dictionary<string, List<Component>> components;
 
-        Component component;
+        protected Component component;
 
-        float currentValue;
+        protected  float currentValue;
 
-        Slider left;
+        protected Slider left;
 
-        Slider right;
+        protected Slider right;
 
         GameObject gameObject;
 
-        Action<float> setFloatValue;
+        protected  Action<float> setFloatValue;
 
         string initialText = "";
 
@@ -45,7 +48,7 @@ namespace Unity.Standard
 
         Slider[][] sliders;
 
-        float limit;
+        protected float limit;
 
         bool enableDebug = false;
 

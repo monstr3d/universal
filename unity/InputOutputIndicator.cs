@@ -7,6 +7,10 @@ using UnityEngine;
 
 namespace Unity.Standard
 {
+
+    /// <summary>
+    /// Indicators of input/output
+    /// </summary>
     public class InputOutputIndicator : AbstractIndicator
     {
         #region Fields
@@ -61,6 +65,15 @@ namespace Unity.Standard
 
         #region Public
 
+        /// <summary>
+        /// Crestes
+        /// </summary>
+        /// <param name="output">Otput</param>
+        /// <param name="parameter">Parameter</param>
+        /// <param name="type">Type</param>
+        /// <param name="coefficient">Coefficient</param>
+        /// <param name="compare">The compare sign</param>
+        /// <returns></returns>
         static public InputOutputIndicator Create(Action<object> output, string parameter, object type, double coefficient = 1, 
             bool compare = true)
         {
@@ -74,12 +87,21 @@ namespace Unity.Standard
         }
         #endregion
 
+        #region Overriden Protected
+
+
+        /// <summary>
+        /// Global post set
+        /// </summary>
+        /// <param name="str"></param>
         protected override void PostSetGlobal(string str)
         {
 
         }
 
- 
+        /// <summary>
+        /// Active post set
+        /// </summary>
         protected override void PostSetActive()
         {
 
@@ -91,10 +113,11 @@ namespace Unity.Standard
             setValue = (object o) => { };
         }
 
+        /// <summary>
+        /// Active post set
+        /// </summary>
         protected override void PostSet()
         {
-            // stopped += 1;
-            //     enumerator(output, obj, stopped, coefficient).StartCoroutine();
             object val = obj;
             if (coefficient != 1)
             {
@@ -103,19 +126,7 @@ namespace Unity.Standard
             output.Add(val);
         }
 
-        /*
-        System.Collections.IEnumerator enumerator(Action<object> output, object obj, int count,
-            double coefficient)
-        {
-            float delay = StaticExtensionUnity.Activation.delay * stopped;
-            yield return new WaitForSeconds(delay);
-            double s = (double)obj;
-            if (isActive)
-            {
-                output(coefficient * s);
-            }
-            stopped -= 1;
-        }
-        // */
+        #endregion
+
     }
 }

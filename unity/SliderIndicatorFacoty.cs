@@ -73,6 +73,14 @@ namespace Unity.Standard
                 string ed = txt["EnableDebug"][0].text;
                 enableDebug = ed == "1";
             }
+            if (txt.ContainsKey("Alias"))
+            {
+                string ali = txt["Alias"][0].text;
+                return new SliderWrapperLimits(par,
+                 gameObject.GetComponent<Component>(), scale, limit, f,
+                 Color.green, Color.red, format, enableDebug, ali, txt["Dimension"][0].text);
+            }
+              
             return new SliderWrapper(par,
                  gameObject.GetComponent<Component>(), scale, limit, f, 
                  Color.green, Color.red, format, enableDebug);

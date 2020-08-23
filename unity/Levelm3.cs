@@ -4,11 +4,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-using Motion6D.Interfaces;
 using Scada.Interfaces;
 
 using Unity.Standard;
-using Diagram.UI;
 
 namespace Assets
 {
