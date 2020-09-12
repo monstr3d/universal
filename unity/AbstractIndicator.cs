@@ -45,7 +45,7 @@ namespace Unity.Standard
 
         Action IIndicator.Update { get => update; }
         string IIndicator.Parameter { get => parameter; }
-        object IIndicator.Value { set => setValue(value); }
+        object IIndicator.Value { get => obj;  set => setValue(value); }
         object IIndicator.Type { get => type; }
         bool IIndicator.IsActive { get => isActive; set => SetActive(value); }
         Action<string> IIndicator.Global { get => SetGlobal; }

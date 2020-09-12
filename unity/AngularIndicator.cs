@@ -109,7 +109,7 @@ namespace Assets
 
         string IIndicator.Parameter => parameter;
 
-        object IIndicator.Value { set => update(); }
+        object IIndicator.Value { get => null;  set => update(); }
 
         object IIndicator.Type => typeof(ReferenceFrame);
 

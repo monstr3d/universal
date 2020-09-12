@@ -14,14 +14,22 @@ namespace Unity.Standard
     {
         #region Fields
 
-      
-
         Dictionary<string, Tuple<Func<object>, List<IIndicator>>>
             indicators = new Dictionary<string, Tuple<Func<object>, List<IIndicator>>>();
 
-        Dictionary<string, List<ILimits>> limits = new Dictionary<string, List<ILimits>>();
+        List<ILimits> limits = new List<ILimits>();
 
         protected Action update;
+
+        IIndicator indi;
+
+        const string key = "RigidBodyStation.Relative to station.z";
+
+        double lim = 10;
+
+        bool last = false;
+
+        bool[] b = new bool[] { false };
 
         #endregion
 
@@ -43,18 +51,22 @@ namespace Unity.Standard
         {
             base.Set(obj, indicator, scada);
             indicators = indicator.gameObject.GetIndicatorsFull();
+            if (indicators.ContainsKey(key))
+            {
+                indi = indicators[key].Item2[0];
+            }
             bool b = false;
             foreach (var i in indicators.Keys)
             {
                 var l = indicators[i];
                 var ll = l.Item2;
-                List<ILimits> li= new List<ILimits>();
-                limits[i] = li;
                 foreach (var ind in ll)
-                if (ind is ILimits)
                 {
+                    if (ind is ILimits)
+                    {
                         b = true;
-                        li.Add(ind as ILimits);
+                        limits.Add(ind as ILimits);
+                    }
                 }
             }
             if (b)
@@ -67,15 +79,30 @@ namespace Unity.Standard
 
         #region Own Members
 
+        void Stop(bool[] b)
+        {
+
+        }
+
  
         protected virtual void UpdateInternal()
         {
             indicators.UpdateInicators();
         }
+     
 
         void UpdateLimits()
         {
-
+            object o = indi.Value;
+            double a = (double)o * 100;
+            bool more = a > lim;
+            if (more)
+            {
+                if (!last)
+                {
+                    return;
+                }
+            }
         }
 
         #endregion

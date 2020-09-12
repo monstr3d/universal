@@ -21,7 +21,7 @@ namespace Unity.Standard
         /// <summary>
         /// Set value
         /// </summary>
-        object Value { set; }
+        object Value { get; set; }
 
         /// <summary>
         /// Type

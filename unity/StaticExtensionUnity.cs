@@ -1,11 +1,8 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-
-
-using UnityEngine;
-using UnityEngine.UI;
 
 using BaseTypes;
 
@@ -31,7 +28,10 @@ using Scada.Desktop;
 using Vector3D;
 
 using Motion6D.Interfaces;
-using System.Collections;
+
+using UnityEngine;
+using UnityEngine.UI;
+
 
 namespace Unity.Standard
 {
@@ -151,54 +151,8 @@ namespace Unity.Standard
 
         #endregion
 
-        #region Members
-
-        
-        /// <summary>
-        /// Blinks limit indicators
-        /// </summary>
-        /// <param name="limits">Limits</param>
-        /// <param name="delay">Delay</param>
-        /// <param name="stop">Stop sign</param>
-        /// <returns>Enumerable for coroutine</returns>
-        static public IEnumerator BlinkLimits(this IEnumerable<ILimits> limits, 
-            float delay, Action<bool[]> stop)
-        {
-            bool exceeds = true;
-            bool[] st = new bool[] { false };
-            while (exceeds)
-            {
-                exceeds = false;
-                yield return new WaitForSeconds(delay);
-                foreach (var l in limits)
-                {
-                    l.Active = false;
-                }
-                yield return new WaitForSeconds(delay);
-                foreach (var l in limits)
-                {
-                    l.Active = true;
-                    if (!exceeds)
-                    {
-                        if (l.Exceeds)
-                        {
-                            exceeds = true;
-                        }
-                    }
-                    stop(st);
-                    if (st[0])
-                    {
-                        break;
-                    }
-                    if (exceeds)
-                    {
-                        st[0] = true;
-                        stop(st);
-                    }
-                }
-            }
-        }
-
+        #region Public Members
+ 
         /// <summary>
         /// Checks whether indicators exceed
         /// </summary>
@@ -385,8 +339,6 @@ namespace Unity.Standard
             }
         }
 
-
-  
 
         /// <summary>
         /// Adds indicator
@@ -592,7 +544,7 @@ namespace Unity.Standard
         /// Starts Coroutine
         /// </summary>
         /// <param name="enumerator"></param>
-        public static void StartCoroutine(this System.Collections.IEnumerator enumerator)
+        public static void StartCoroutine(this IEnumerator enumerator)
         {
             MonoBehaviour mb = null; 
             foreach (MonoBehaviour monoBehaviour in monoBehaviours)
@@ -698,11 +650,74 @@ namespace Unity.Standard
             return scadaUpdates[desktop].Item1;
         }
 
+        /// <summary>
+        /// Starts blink
+        /// </summary>
+        /// <param name="limits">Limits</param>
+        /// <param name="delay">Delay</param>
+        /// <param name="start">Start actuin</param>
+        /// <param name="st">Start sign</param>
+        /// <param name="act">Action</param>
+        public static void StartBlink(this IEnumerable<ILimits> limits,
+            float delay, Func<bool> start, bool[] st, Action<bool> act)
+        {
+            bool s = start();
+            if (st[0] == s)
+            {
+                return;
+            }
+            act(s);
+            if (s)
+            {
+                st[0] = true;
+                limits.BlinkLimits(delay, start, st).StartCoroutine();
+            }
+        }
+
         #endregion
 
         #region Private
 
- 
+        /// <summary>
+        /// Blinks limit indicators
+        /// </summary>
+        /// <param name="limits">Limits</param>
+        /// <param name="delay">Delay</param>
+        /// <param name="start">Start func</param>
+        /// <param name="stop input">Start sign</param>
+        /// <returns>Enumerable for coroutine</returns>
+        static private IEnumerator BlinkLimits(this IEnumerable<ILimits> limits,
+            float delay, Func<bool> start, bool[] st)
+        {
+            bool exceeds = true;
+            while (exceeds)
+            {
+                exceeds = false;
+                yield return new WaitForSeconds(delay);
+                foreach (var l in limits)
+                {
+                    l.Active = false;
+                }
+                yield return new WaitForSeconds(delay);
+                foreach (var l in limits)
+                {
+                    l.Active = true;
+                    if (!exceeds)
+                    {
+                        if (l.Exceeds)
+                        {
+                            exceeds = true;
+                        }
+                    }
+                    if (!start() | !exceeds)
+                    {
+                        st[0] = false;
+                        break;
+                    }
+                }
+            }
+        }
+
 
         private static void GetIndicators(this GameObject gameObject,
             List<GameObject> lg,
@@ -727,9 +742,6 @@ namespace Unity.Standard
                 }
             }
         }
-
-
-  
 
         static void GetComponents(this Component go,
 
