@@ -661,16 +661,27 @@ namespace Unity.Standard
         public static void StartBlink(this IEnumerable<ILimits> limits,
             float delay, Func<bool> start, bool[] st, Action<bool> act)
         {
+            if (st[0])
+            {
+                return;
+            }
             bool s = start();
             if (st[0] == s)
             {
                 return;
             }
-            act(s);
             if (s)
             {
-                st[0] = true;
-                limits.BlinkLimits(delay, start, st).StartCoroutine();
+                foreach (var l in limits)
+                {
+                    if (l.Exceeds)
+                    {
+                        act(true);
+                        st[0] = true;
+                        limits.BlinkLimits(delay, start, st, act).StartCoroutine();
+                        return;
+                    }
+                }
             }
         }
 
@@ -684,10 +695,11 @@ namespace Unity.Standard
         /// <param name="limits">Limits</param>
         /// <param name="delay">Delay</param>
         /// <param name="start">Start func</param>
-        /// <param name="stop input">Start sign</param>
+        /// <param name="st">Start sign</param>
+        /// <param name="act">Action</param>
         /// <returns>Enumerable for coroutine</returns>
         static private IEnumerator BlinkLimits(this IEnumerable<ILimits> limits,
-            float delay, Func<bool> start, bool[] st)
+            float delay, Func<bool> start, bool[] st, Action<bool> act)
         {
             bool exceeds = true;
             while (exceeds)
@@ -696,7 +708,10 @@ namespace Unity.Standard
                 yield return new WaitForSeconds(delay);
                 foreach (var l in limits)
                 {
-                    l.Active = false;
+                    if (l.Exceeds)
+                    {
+                        l.Active = false;
+                    }
                 }
                 yield return new WaitForSeconds(delay);
                 foreach (var l in limits)
@@ -712,6 +727,7 @@ namespace Unity.Standard
                     if (!start() | !exceeds)
                     {
                         st[0] = false;
+                        act(false);
                         break;
                     }
                 }

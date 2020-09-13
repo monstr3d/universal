@@ -5,8 +5,7 @@ using UnityEngine;
 
 using Scada.Interfaces;
 
-using Scada.Desktop;
-
+using Assets;
 
 namespace Unity.Standard
 {
@@ -19,17 +18,16 @@ namespace Unity.Standard
 
         List<ILimits> limits = new List<ILimits>();
 
+        protected Action upd;
+        
         protected Action update;
 
-        IIndicator indi;
 
         const string key = "RigidBodyStation.Relative to station.z";
 
-        double lim = 10;
 
-        bool last = false;
+        private IIndicator indicator;
 
-        bool[] b = new bool[] { false };
 
         #endregion
 
@@ -37,7 +35,8 @@ namespace Unity.Standard
 
         public UpdateIndicators()
         {
-            update = UpdateInternal;
+            update = UpdateFirst;
+            upd = UpdateInternal;
             constants = new float[0];
         }
 
@@ -47,13 +46,15 @@ namespace Unity.Standard
 
         public override Action Update => update;
 
+        
+
         public override void Set(object[] obj, Component indicator, IScadaInterface scada)
         {
             base.Set(obj, indicator, scada);
             indicators = indicator.gameObject.GetIndicatorsFull();
             if (indicators.ContainsKey(key))
             {
-                indi = indicators[key].Item2[0];
+                this.indicator = indicators[key].Item2[0];
             }
             bool b = false;
             foreach (var i in indicators.Keys)
@@ -71,38 +72,47 @@ namespace Unity.Standard
             }
             if (b)
             {
-                update += UpdateLimits;
+                upd += UpdateLimits;
             }
         }
- 
+
         #endregion
 
         #region Own Members
 
-        void Stop(bool[] b)
-        {
+        const double bound = 30;
 
+        bool Start()
+        {
+            object o = indicator.Value;
+            double a = (double)o * 100;
+            return a < bound;
         }
 
- 
+   
         protected virtual void UpdateInternal()
         {
             indicators.UpdateInicators();
+        }
+
+        float delay = 0.1f;
+
+        bool[] st = new bool[] { false };
+
+
+        void UpdateFirst()
+        {
+            var indi = new Dictionary<string, Tuple<Func<object>, List<IIndicator>>>();
+            a
+            upd();
+            update = upd;
         }
      
 
         void UpdateLimits()
         {
-            object o = indi.Value;
-            double a = (double)o * 100;
-            bool more = a > lim;
-            if (more)
-            {
-                if (!last)
-                {
-                    return;
-                }
-            }
+            limits.StartBlink(delay, Start, st,
+                ForcesMomentumsUpdate.forcesMomentumsUpdate.AlarmAudio);
         }
 
         #endregion

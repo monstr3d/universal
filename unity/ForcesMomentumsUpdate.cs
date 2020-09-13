@@ -231,7 +231,7 @@ namespace Assets
             }
             if (!scada.IsEnabled)
             {
-                alarm.enabled = false;
+             //   alarm.enabled = false;
                 for (int i = 0; i < 6; i++)
                 {
                     dInp[i](0);
@@ -250,6 +250,11 @@ namespace Assets
                     current = KeyCode.F10;
                 }
             }
+        }
+
+        internal void AlarmAudio(bool b)
+        {
+            alarm.enabled = b;
         }
 
 
