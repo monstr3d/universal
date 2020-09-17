@@ -7,12 +7,11 @@
 
 %% \usepackage[francais]{babel}
 \usepackage[applemac]{inputenc}
-\usepackage{amsmath,amssymb,amsthm, hyperref, euscript}
+\usepackage{amssymb,hyperref, euscript}
 \usepackage[matrix,arrow,curve]{xy}
 \usepackage{graphicx}
 \usepackage{tabularx}
 \usepackage{float}
-\usepackage{hyperref}
 \usepackage{tikz}
 \usepackage{slashed}
 \usepackage{mathrsfs}
@@ -19757,6 +19756,7 @@ We denote by $C_b\left(\mathcal X, M\left( A_x\right)_\bt,  \mathscr F\right)$ t
 
 \section{Inverse limits of $C^*$-algebras and local operator spaces}
 
+
 \subsection{Projective systems}
 \paragraph*{}
 An \textit{inverse system} (also called a 
@@ -20029,6 +20029,83 @@ A \textit{(concrete) local operator space} is a  $\C$-linear subspace $X$ of a p
 \begin{remark}\label{loc_op_sp_rem}
 	Any abstract operator local space $V$ is an inverse limit of operator spaces (cf. \cite{dosi:multi} Remark 4.1).
 \end{remark}
+
+
+\section{Locally convex	quasi *-algebras and their representations}
+
+\paragraph*{}
+Here I follow to \cite{quasi_star}.
+\begin{definition}\label{guasi_defn}
+%	Definition 2.1.1 
+	A \textit{quasi *-algebra} $\left(\mathfrak{A}, \mathfrak{A}_0\right)$ is a pair consisting of a vector space $\mathfrak{A}$
+and a *-algebra $\mathfrak{A}_0$ contained in $\mathfrak{A}$ as a subspace, such that
+	\begin{itemize}
+		\item [(a)] $\mathfrak{A}$ carries an involution $a\mapsto a^*$
+	extending the involution of $\mathfrak{A}_0$;
+	\item [(b)] $\mathfrak{A}$ is a bimodule over $\mathfrak{A}$ and the module multiplications extend the multiplication
+		of $\mathfrak{A}_0$; In particular, the following associative laws hold:
+		\be\label{guasi_ass_eqn}
+		(xa)y = x(ay);\quad  a(xy) = (ax)y, ? a \in \mathfrak{A}, x,y \in \mathfrak{A}_0; %(2.1.1)
+		\ee
+\item [(c)]
+	$\left(ax\right)^*=x^*a^*$, for every $a \in \mathfrak{A}$ and $x\in \mathfrak{A}_0$.
+	\end{itemize}
+	We say that a quasi *-algebra $\left(\mathfrak{A}, \mathfrak{A}_0\right)$  is \textit{unital}, if there is an element $e \in \mathfrak{A}_0$,
+	such that $ae = a = ea$, for all $a \in \mathfrak{A}$; $e$ is unique and called unit of $\left(\mathfrak{A}, \mathfrak{A}_0\right)$.
+	We say that $\left(\mathfrak{A}, \mathfrak{A}_0\right)$ has a \textit{quasi-unit} if there exists an element $q \in \mathfrak{A}$, such that
+	$qx = xq = x$, for every $x \in \mathfrak{A}_0$. It is clear that the unit $e$, if any, is a quasi-unit but
+	the converse is false, in general.
+\end{definition}
+
+\begin{remark}
+If $\mathfrak{A}$ has no unit, it may always be embedded into a larger partial *-algebra with unit
+(the so-called unitization of $\mathfrak{A}$), in the standard fashion \cite{antoine:part_s}.
+\end{remark}
+
+\begin{definition}
+%Definition 2.2.3 
+Let $\left(\mathfrak{A}, \mathfrak{A}_0\right)$ be a quasi *-algebra and $\mathfrak{B}$ a partial *-algebra (cf. \cite{quasi_star}). A
+linear map  from $\mathfrak{A}$ into $\mathfrak{B}$ is called a homomorphism of $\left(\mathfrak{A}, \mathfrak{A}_0\right)$ into $\mathfrak{A}$ if,
+for $a \in\mathfrak{A}$ and $x\in\mathfrak{A}_0$ $\Phi\left(a \right) \Phi\left( x\right)$ and $\Phi\left( x\right) \Phi\left(a \right)$ are well defined in $\mathfrak{B}$ and $\Phi\left( a\right) \Phi\left( x\right)= \Phi(ax)$, $\Phi\left(x \right) \Phi\left(a \right)= \Phi(xa)$, respectively. The homomorphism is called a *-\textit{homomorphism} if $\Phi\left(a^*\right)
+) = \Phi\left(a\right)^*$, for every $a\in\mathfrak{A}$.
+\end{definition}
+
+
+\begin{empt}
+We denote by L†(D,H) the set of
+all (closable) linear operators X in H, such that D(X) = D, D(X
+?
+) ? D, where
+D(X) denotes the domain of X.
+The set L†(D,H) is a partial *-algebra with respect to the following operations:
+the usual sum X1 + X2, the scalar multiplication ?X, the involution X ? X† =
+X
+?D and the (weak) partial multiplication X1X2 = X1
+†?
+X2 (where X1
+†? ?
+(X1
+†)
+?
+). The latter is defined whenever X2 is a weak right multiplier of X1 (for
+this, we shall write X2 ? Rw(X1) or X1 ? Lw(X2), that is, if and only if, X2D ?
+D(X1
+†?
+) and X
+†
+1
+D ? D(X2
+?
+). The operator ID, restriction to D of the identity
+operator I on H, is the unit of the partial *-algebra L†(D,H). By L†(D,H)b we
+shall denote the bounded part of L†(D,H); i.e.,
+L†(D,H)b =
+
+X ? L†(D,H) : X ? B(H)
+
+,
+where X is the closure of X, i.e., a minimal closed extension of X.
+\end{empt}
 
 \chapter{Spectral triples}
  	
@@ -22331,6 +22408,9 @@ In the situation of the Definition \ref{comm_smooth_usual_defn} $\Coo\left(M\rig
 	
 %\bibitem{akhi:fa}	N. I. Akhiezer, I. M. Glazman. \textit{Theory of Linear Operators in Hilbert Space}. Dover Publications, New York, 1961, 1963.
 
+\bibitem{antoine:part_s} J.-P. Antoine, F.Mathot, \textit{Partial *-algebras of closed operators and their commutants. I. General
+structure}. Ann. Inst. H. Poincaré 46, 299–324 (1987), 1987.
+
 \bibitem{arveson:c_alg_invt} W. Arveson. {\it An Invitation to $C^*$-Algebras}, Springer-Verlag. ISBN 0-387-90176-0, 1981.
 	
 
@@ -22465,14 +22545,22 @@ J. C. V\'arilly and J. M. Gracia-Bond\'{\i}a, \textit{Algebras of distributions 
 \bibitem{dosi:multi} Anar Dosi. \textit{Local operator spaces, unbounded operators and multinormed $C^*$-algebras}.      Journal of Functional Analysis 255(7):1724-1760. October 2008.
 
 
-\bibitem{effros:loc_conv} E.G. Effros, C. Webster,\textit{ Operator analogues of locally convex spaces}, in: Operator Algebras and Applications,Samos 1996, in: NATO Adv. Sci. Inst. Ser. C Math. Phys. Sci., vol. 495, Kluwer, Amsterdam, 1997.
+\bibitem{effros:loc_conv} E.G. Effros, C. Webster \textit{ Operator analogues of locally convex spaces}, in: Operator Algebras and Applications,Samos 1996, in: NATO Adv. Sci. Inst. Ser. C Math. Phys. Sci., vol. 495, Kluwer, Amsterdam, 1997.
+
+
+\bibitem{fell:operator_fields}J. M. G. Fell. \textit{The structure of algebras of operator fields}. Acta Math. Volume 106, Number 3-4 (1961), 233-280. 1961.
+
+
+\bibitem{quasi_star}Maria Fragoulopoulo, Camillo Trapani \textit{Locally Convex
+	Quasi *-Algebras
+	and their
+	Representations}. Springer Nature Switzerland AG, 2020.
+
 
 \bibitem{moyal_spectral} V. Gayral, J. M. Gracia-Bond\'{i}a, B. Iochum, T. Sch\"{u}cker, J. C. Varilly. {\it Moyal Planes are Spectral Triples}. arXiv:hep-th/0307241, 2003.
 
 %\bibitem{godement:sheaf} Roger Godement, \textit{Topologie Algébrique et Théorie des Faisceaux}. Actualités Sci. Ind. No. 1252. Publ. Math. Univ. Strasbourg. No. 13 Hermann, Paris. 1958.
 
-
-\bibitem{fell:operator_fields}J. M. G. Fell. \textit{The structure of algebras of operator fields}. Acta Math. Volume 106, Number 3-4 (1961), 233-280. 1961.
 
 
 %\bibitem{gilkey:odd_space}P.B. Gilkey. {\it The eta invariant and the $K$-theory of odd dimensional spherical space forms}.Inventiones mathematicae, Springer-Verlag, 1984.
