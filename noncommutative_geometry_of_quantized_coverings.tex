@@ -154,7 +154,8 @@
 \newcommand{\cc}{\mathbf{c}}                 %% Hochschild cycle
 \DeclareMathOperator{\Cl}{C\ell}             %% Clifford algebra
 \newcommand{\F}{\mathcal{F}}                 %% space of test functions
-\newcommand{\G}{\mathcal{G}}                 %% Moyal L^2-filtration
+\newcommand{\G}{\mathcal{G}}                 %% 
+\newcommand{\D}{\mathcal{D}}                 %% Moyal L^2-filtration
 \renewcommand{\H}{\mathcal{H}}               %% Hilbert space
 \newcommand{\half}{\tfrac{1}{2}}             %% small fraction  1/2
 \newcommand{\hh}{\mathcal{H}}                %% Hilbert space
@@ -20062,51 +20063,151 @@ If $\mathfrak{A}$ has no unit, it may always be embedded into a larger partial *
 (the so-called unitization of $\mathfrak{A}$), in the standard fashion \cite{antoine:part_s}.
 \end{remark}
 
+\begin{definition}\cite{quasi_star}
+%Definition 2.2. 
+Let  $\left(\mathfrak{A}, \mathfrak{A}_0\right)$ be a quasi *-algebra and $\tau$  a locally convex topology on A. We say that $\left(\mathfrak{A}\left[\tau\right], \mathfrak{A}_0\right)$ is a locally
+convex quasi *-algebra if
+\begin{enumerate}
+	\item [(a)]  the map $a\in \mathfrak{A} \mapsto a^*\in\mathfrak{A}$ is continuous;
+	\item[(b)] for every $x\in \mathfrak{A}_0$, the maps $a \mapsto ax$, $a\mapsto xa$ are continuous in $\mathfrak{A}\left[\tau\right]$;
+	(iii) $\mathfrak{A}_0$ is $\tau$-dense in $\mathfrak{A}$.
+\end{enumerate}
+
+\end{definition}
+
 \begin{definition}
 %Definition 2.2.3 
 Let $\left(\mathfrak{A}, \mathfrak{A}_0\right)$ be a quasi *-algebra and $\mathfrak{B}$ a partial *-algebra (cf. \cite{quasi_star}). A
-linear map  from $\mathfrak{A}$ into $\mathfrak{B}$ is called a homomorphism of $\left(\mathfrak{A}, \mathfrak{A}_0\right)$ into $\mathfrak{A}$ if,
-for $a \in\mathfrak{A}$ and $x\in\mathfrak{A}_0$ $\Phi\left(a \right) \Phi\left( x\right)$ and $\Phi\left( x\right) \Phi\left(a \right)$ are well defined in $\mathfrak{B}$ and $\Phi\left( a\right) \Phi\left( x\right)= \Phi(ax)$, $\Phi\left(x \right) \Phi\left(a \right)= \Phi(xa)$, respectively. The homomorphism is called a *-\textit{homomorphism} if $\Phi\left(a^*\right)
+linear map 
+ from $\mathfrak{A}$ into $\mathfrak{B}$ is called a homomorphism of $\left(\mathfrak{A}, \mathfrak{A}_0\right)$ into $\mathfrak{A}$ if,
+for $a \in\mathfrak{A}$ and $x\in\mathfrak{A}_0$ 
+$\Phi\left(a \right) \Phi\left( x\right)$ and 
+$\Phi\left( x\right) \Phi\left(a \right)$ are well defined in $\mathfrak{B}$ and $\Phi\left( a\right) \Phi\left( x\right)= 
+\Phi(ax)$, 
+$\Phi\left(x \right) \Phi\left(a \right)= 
+\Phi(xa)$, respectively. The homomorphism is called a *-\textit{homomorphism} if 
+$\Phi\left(a^*\right)
 ) = \Phi\left(a\right)^*$, for every $a\in\mathfrak{A}$.
 \end{definition}
 
+\subsection{Quasi *-algebras and partial *-algebras of operators}
 
-\begin{empt}
-We denote by L (D,H) the set of
-all (closable) linear operators X in H, such that D(X) = D, D(X
-?
-) ? D, where
-D(X) denotes the domain of X.
-The set L (D,H) is a partial *-algebra with respect to the following operations:
-the usual sum X1 + X2, the scalar multiplication ?X, the involution X ? X  =
-X
-?D and the (weak) partial multiplication X1X2 = X1
- ?
-X2 (where X1
- ? ?
-(X1
- )
-?
-). The latter is defined whenever X2 is a weak right multiplier of X1 (for
-this, we shall write X2 ? Rw(X1) or X1 ? Lw(X2), that is, if and only if, X2D ?
-D(X1
- ?
-) and X
- 
-1
-D ? D(X2
-?
-). The operator ID, restriction to D of the identity
-operator I on H, is the unit of the partial *-algebra L (D,H). By L (D,H)b we
-shall denote the bounded part of L (D,H); i.e.,
-L (D,H)b =
-
-X ? L (D,H) : X ? B(H)
-
-,
-where X is the closure of X, i.e., a minimal closed extension of X.
+	Let $\D$ be a dense subspace of a Hilbert space $\H$.
+We denote by $\L^\dagger\left( \D, \H\right)$  the set of all (closable) linear operators $X$ in $\H$, such that $D\left( X\right) = \D$, $D\left( X^*\right)\supseteqq \D$ where $D\left( X\right)$ denotes the domain of $X$. The set $\L^\dagger\left( \D, \H\right)$ is a partial *-algebra with respect to the following operations:
+the usual sum $X_1 + X_2$, the scalar multiplication $\la X$, the involution $X \mapsto X^\dagger\bydef X^*\D$ and the (weak) partial multiplication $X1\square X_2\bydef X_1^{\dagger *}
+X_2$ (where $X_1^{\dagger *}\bydef  \left( X_1^{\dagger}\right)^*$). The latter is defined whenever $X_2$ is a \textit{weak right multiplier} of  $X_2$ (for this, we shall write $X_2\in R^w\left( X_1\right) $ or  $X_1\in L^w\left( X_1\right) $, that is, if and only if, $X_2\D\subset D\left(X_1^{\dagger *}\right)$ and $X_1^\dagger\D\in D\left(X_2^* \right)$. The operator $1_\D$, restriction to $\D$ of the identity
+operator $1_\H$ on $\H$, is the unit of the partial *-algebra$\L^\dagger\left( \D, \H\right)$. By $\L^\dagger\left( \D, \H\right)_b$ we shall denote the bounded part of $\L^\dagger\left( \D, \H\right)$; i.e.,
+$$
+\L^\dagger\left( \D, \H\right)_b\bydef\left\{\left.X\in \L^\dagger\left( \D, \H\right)\right|\overline{X}\in B\left(\H \right) \right\}
+$$
+where $\overline{X}$ is the closure of $X$, i.e., a minimal closed extension of $X$.
+Let us denote by $\L^\dagger\left(\D \right)$  the space of all linear operators $X:\D\to\D$, having an adjoint $X^\dagger : \D\to\D$, by which we simply mean that 
+$$
+\left(X\xi, \eta\right)= \left(\xi, X^\dagger\eta\right)\quad\forall \xi, \eta\in \D.
+$$
+If $\L^\dagger\left( \D, \H\right)$ is endowed with the strong *-topology $\mathrm{t}_{s^*}$ , defined by the set of seminorms
+$$
+p_\xi(X)\bydef \left\| X\xi\right\|  + \left\| X^\dagger\xi\right\| \quad \xi\in \D, \quad  X\in \L^\dagger\left( \D, \H\right),
+$$
+then $\left(\L^\dagger\left( \D, \H\right)\left[\mathrm{t}_{s^*}\right],\L\dagger(D)_b)\right)$ is a locally convex quasi ?-algebra or, more precisely, a \textit{locally convex quasi $C^*$-normed algebra}.
+If $\L^\dagger\left( \D, \H\right)$ is endowed with the weak topology $\mathrm{t}_w$ defined by the set of seminorms
+$$
+p_{\xi,\eta}(X)\bydef \left| \left(X\xi, \eta \right) \right|   \quad \xi, \eta\in \D, \quad  X\in \L^\dagger\left( \D, \H\right),
+$$
+then, again, $\left(\L^\dagger\left( \D, \H\right)\left[\mathrm{t}_{w}\right],\L\dagger(D)_b)\right)$. is a locally convex quasi *-algebra.
+\begin{definition}
+%Definition 2.2.5 
+Let $\left(\mathfrak{A}, \mathfrak{A}_0\right)$ be a quasi *-algebra and $\D_\pi$ a dense domain in a
+certain Hilbert space $\H_\pi$ . A linear map $\pi$ from $\mathfrak{A}$ into $\L^\dagger\left(\H_\pi, \D_\pi \right)$ is called a
+*-representation of $\left(\mathfrak{A}, \mathfrak{A}_0\right)$, if the following properties are fulfilled:
+\begin{enumerate}
+	\item [(a)] $\pi\left( a^*\right) = \pi\left( a\right)^\dagger\quad \forall a \in pi\left( a^*\right)$.
+	\item[(b)]  for $a\in \mathfrak{A}$ and $x\in \mathfrak{A}$ $\pi\left( a\right)\square \pi\left( x\right)$  is well defined and $\pi\left( a\right)\square \pi\left( x\right)=\pi\left(ax \right)$ 
+\end{enumerate}
+
+In other words,  $\pi$ is a *-homomorphism of $\left(\mathfrak{A}, \mathfrak{A}_0\right)$ into the partial *-algebra
+$\L^\dagger\left(\D_\pi, \H_\pi \right)$
+
+If $\left(\mathfrak{A}, \mathfrak{A}_0\right)$ has a unit $e \in \mathfrak{A}_0$, we assume $\pi\left(e \right)  = \Id_{\D_\pi}$, where $\Id_{\D_\pi}$ is the identity operator on the space $\D_\pi$. If $\pi_o\bydef\pi|_{ \mathfrak{A}_0}$  is a *-representation of the *-algebra $\mathfrak{A}_0$ into $\L^\dagger\left(\D_\pi \right) $ we say that $\pi$ is a qu*-representation.
+\end{definition}
+
+\begin{empt}If
+	$$
+\mathfrak{A}^+_0\bydef\left\{\sum_{k=1}^n x^*_kx_k\quad x_k \in  \mathfrak{A}_0\quad n\in \N \right\}
+	$$
+
+then, $\mathfrak{A}^+_0$ is a wedge in $\mathfrak{A}_0$ and we call the elements of $\mathfrak{A}^+_0$ \textit{positive elements} of $\mathfrak{A}_0$. We call \textit{positive elements} of $\mathfrak{A}\left[\tau\right]$ the elements of closure (with respect to $\tau$) of  $\mathfrak{A}^+_0$ in 
+and we denote them by $\mathfrak{A}^+$.
+
 \end{empt}
+\begin{proposition}
+If $a \ge 0$, then $\pi\left(a \right)\ge 0$ , for every $\left(\tau,\mathrm{t}_{w} \right)$-continuous *-representation of $\left(\mathfrak{A}\left[\tau\right], \mathfrak{A}_0\right)$.
+\end{proposition}
+\begin{theorem}
+%Theorem 6.2.2 
+Assume that $\mathfrak{A}^+\cap \left(-\mathfrak{A}^+\right)= \{0\}$. Let $a \in \mathfrak{A}^+$, $a\neq 0$. Then, there
+exists a continuous linear functional $\om$ on $\mathfrak{A}\left[\tau\right]$ with the properties:
+\begin{enumerate}
+	\item[(i)] $\om\left(b \right)\ge 0\quad \forall b \in \mathfrak{A}^+$;
+	\item[(ii)] $\om\left(a \right)> 0$.
+\end{enumerate}
 
+\end{theorem}
+
+Let $\left(\mathfrak{A}\left[\tau\right], \mathfrak{A}_0\right)$ be an arbitrary locally convex quasi *-algebra. %As we have seenin Sect. 6.2, (A[? ],A0) has a natural order related to the topology ? . 
+
+
+This order can
+be used to define bounded elements. In what follows, we shall assume that (A,A0)
+has a unit e.
+Let a ? A; put ((a) = 12
+(a + a
+?
+), )(a) = 1
+2i (a ? a
+?
+). Then, ((a), )(a) ? Ah
+and a = ((a) + i)(a).
+
+We recall that an unbounded C*-seminorm p on a partial *-algebra A is a seminorm
+defined on a partial *-subalgebra D(p) of A, the domain of p, with the properties:
+¥ p(ab) ² p(a)p(b), whenever ab is well-defined;
+¥ p(a
+?
+a) = p(a)2, whenever a
+?
+a is well-defined
+
+\begin{proposition}
+Proposition 6.4.14  á or
+b is an unbounded C*-norm on A with domain Ab.
+\end{proposition}
+
+\begin{definition}
+	Definition 6.4.15 Let A be a partial *-algebra. We say that A is a partial C*-
+	algebra if A is a Banach space under a norm  á  satisfying the following
+	properties:
+	(i) a
+	? = a, ? a ? A;
+	(ii) ab ² a b, whenever ab is well-defined;
+	(iii) a
+	?
+	a = a2, whenever a
+	?
+	a is well-defined.
+\end{definition}
+
+\begin{theorem}
+Theorem 6.4.16 Let (A[? ],A0) be a fully representable locally convex quasi *-
+algebra with unit e. Assume that A is ?s
+?-complete. Then, Ab is a partial C*-algebra
+under the weak multiplication  and the norm  á or
+b . Assume, in addition, that
+(R) If a, b ? A and ¹?(a)¹?(b) is well-defined, for every ? ? Rc(A,A0), then
+there exists c ? A, such that ¹?(a)¹?(b) = ¹?(c), for every ? ? Rc(A,A0).
+Then, Ab is a C*-algebra with the weak multiplication  and the norm  á or
+b .
+\end{theorem}
 \chapter{Spectral triples}
  	
  	\paragraph{}
@@ -22550,11 +22651,9 @@ J. C. V\'arilly and J. M. Gracia-Bond\'{\i}a, \textit{Algebras of distributions 
 
 \bibitem{fell:operator_fields}J. M. G. Fell. \textit{The structure of algebras of operator fields}. Acta Math. Volume 106, Number 3-4 (1961), 233-280. 1961.
 
+\bibitem{quasi_star_many} M. Fragoulopoulou , C. Trapani S. Triolo \textit{Locally convex quasi *-algebras with sufficiently many *-representations}.  J. Math. Anal. Appl. 388 (2012) 1180Ð1193, 2012.
 
-\bibitem{quasi_star}Maria Fragoulopoulo, Camillo Trapani \textit{Locally Convex
-	Quasi *-Algebras
-	and their
-	Representations}. Springer Nature Switzerland AG, 2020.
+\bibitem{quasi_star}Maria Fragoulopoulo, Camillo Trapani \textit{Locally Convex	Quasi *-Algebras 	and their	Representations}. Springer Nature Switzerland AG, 2020.
 
 
 \bibitem{moyal_spectral} V. Gayral, J. M. Gracia-Bond\'{i}a, B. Iochum, T. Sch\"{u}cker, J. C. Varilly. {\it Moyal Planes are Spectral Triples}. arXiv:hep-th/0307241, 2003.
