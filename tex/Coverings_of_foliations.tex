@@ -1,0 +1,494 @@
+\documentclass{beamer}
+\usepackage{amsmath,amssymb,amsthm,slashed, euscript}
+
+
+
+\textwidth=110mm
+
+
+\title{Noncommutative finite-fold coverings of foliations}
+\institute
+{
+Noncommutative geometry and topology
+}
+
+\author{Petr R. Ivankov  }
+
+
+
+\theoremstyle{plain}
+\newtheorem{defn}{Definition}
+\newtheorem{rem}{Remark}
+\newtheorem{exm}{Example}
+\newtheorem*{claim}{Claim}
+\newtheorem{prop}{Proposition}
+\newtheorem{empt}[prop]{}%[section]
+\newtheorem{lem}{Lemma}%[section]
+\newtheorem{thm}{Theorem}%[section]
+
+
+
+\newcommand{\A}{\mathcal{A}}
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\Ga}{\Gamma}
+\newcommand{\B}{\mathcal{B}}
+\newcommand{\Cc}{\mathcal{C}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\D}{\mathcal{D}}
+\newcommand{\G}{\mathcal{G}}
+\newcommand{\Hc}{\mathcal{H}}
+\newcommand{\Lc}{\mathcal{L}}
+\newcommand{\Pc}{\mathcal{P}}
+\newcommand{\Sc}{\mathcal{S}}
+\newcommand{\U}{\mathcal{U}}
+\newcommand{\rar}{\rightarrow}
+\newcommand{\Ef}{\mathbb{E}}
+
+
+%Uppercase Gothic characters
+\newcommand{\gtA}{\mathfrak{A}}
+\newcommand{\gtB}{\mathfrak{B}}
+\newcommand{\gtM}{\mathfrak{M}}
+\newcommand{\gtN}{\mathfrak{N}}
+\newcommand{\gtP}{\mathfrak{P}}
+\newcommand{\gtS}{\mathfrak{S}}
+
+%Lowercase Gothic characters
+\newcommand{\gtf}{\mathfrak{f}}
+\newcommand{\gtg}{\mathfrak{g}}
+
+%Bold Characters
+\newcommand{\Cb}{\mathbb{C}}
+\newcommand{\Nb}{\mathbb{N}}
+\newcommand{\Rb}{\mathbb{R}}
+\newcommand{\Zb}{\mathbb{Z}}
+
+%Uppercase Greek characters
+\newcommand{\Gm}{\Gamma}
+\newcommand{\Te}{\Theta}
+\newcommand{\Om}{\Omega}
+\newcommand{\s}{ }
+
+%Lowercase Greek characters
+\newcommand{\al}{\alpha}
+\newcommand{\gm}{\gamma}
+\newcommand{\dl}{\delta}
+\newcommand{\sg}{\sigma}
+\newcommand{\ph}{\varphi}
+\newcommand{\te}{\theta}
+\newcommand{\ze}{\zeta}
+
+\newcommand{\Id}{\mathrm{Id}}
+\newcommand{\Aut}{\mathrm{Aut}}
+\newcommand{\Coo}{{\mathrm{C}}^\infty}
+\newcommand{\alg}{\mathrm{alg}}
+\newcommand{\diag}{\mathrm{diag}}
+\newcommand{\spinc}{\textbf{$spin^c$}}
+\newcommand{\Hom}{\mathrm{Hom}}
+\newcommand{\supp}{\mathrm{supp}}
+\newcommand{\Ccl}{\mathbf{C}l}
+\newcommand{\xto}{\xrightarrow}
+
+\newcommand{\lto}{\longrightarrow}
+\newcommand{\ox}{\otimes}
+\newcommand{\nb}{\nabla}
+\newcommand{\sS}{\mathcal{S}}
+\newcommand{\Dn}{D\!\!\!\!/}
+%\newcommand{\ij}{{i,j}}
+\newcommand{\aC}{\ensuremath{\underline{\Cb}} }
+\newcommand{\scp}[2]{\left\langle{#1},{#2}\right\rangle}
+\newcommand{\op}[1]{J{#1}J^\dag}
+\newcommand{\sA}{\mathcal{A}} 
+\newcommand{\sB}{\mathcal{B}}       %%
+\newcommand{\sC}{\mathcal{C}}       %%
+\newcommand{\sD}{\mathcal{D}}       %%
+\newcommand{\sE}{\mathcal{E}}       %%
+\newcommand{\sF}{\mathcal{F}}       %%
+\newcommand{\sG}{\mathcal{G}}       %%
+\newcommand{\sH}{\mathcal{H}}       %%
+\newcommand{\sI}{\mathcal{I}}       %%
+\newcommand{\sJ}{\mathcal{J}}       %%
+\newcommand{\sK}{\mathcal{K}}       %%
+\newcommand{\sL}{\mathcal{L}}       %%
+\newcommand{\sM}{\mathcal{M}}       %%
+\newcommand{\sN}{\mathcal{N}}       %%
+\newcommand{\sO}{\mathcal{O}}       %%
+\newcommand{\sP}{\mathcal{P}}       %%
+\newcommand{\sQ}{\mathcal{Q}}       %%
+\newcommand{\sR}{\mathcal{R}}       %%
+\newcommand{\sT}{\mathcal{T}}       %%
+\newcommand{\sU}{\mathcal{U}}       %%
+\newcommand{\sV}{\mathcal{V}}       %%
+\newcommand{\sX}{\mathcal{X}}       %%
+\newcommand{\sY}{\mathcal{Y}}       %%
+\newcommand{\sZ}{\mathcal{Z}}       %%
+\newcommand{\N}{\mathbb{N}}                  %% 
+
+\renewcommand{\a}{\alpha}     
+\newcommand{\la}{\lambda}     
+\newcommand{\La}{\Lambda}
+\newcommand{\bt}{\beta}           %% short for  \beta
+ 
+    
+\newcommand{\bydef}{\stackrel{\mathrm{def}}{=}}  
+\newcommand{\hookto}{\hookrightarrow}        %% abbreviation
+  
+\begin{document}
+%\titlepage
+\begin{frame}
+  \titlepage
+\end{frame}
+\begin{frame}
+	   \begin{definition}\label{pre_defn} \alert{P. Ivankov}.
+		Let $\pi: A \hookto \widetilde{A}$ be an injective *-homomorphism of connected  $C^*$-algebras such that following conditions hold:
+		\begin{enumerate}
+			\item[(a)] If $\Aut\left(\widetilde{A} \right)$ is a group of *-automorphisms of $\widetilde{A}$ then the group  
+			$
+			G \bydef \left\{ \left.g \in \Aut\left(\widetilde{A} \right)~\right|~ ga = a;~~\forall a \in A\right\}
+			$
+			is finite.
+			\item[(b)] 	\be\label{cond_b_eqn}
+			A \cong \widetilde{A}^G\stackrel{\text{def}}{=}\left\{\left.a\in \widetilde{A}~~\right|~ a = g a;~ \forall g \in G\right\}.\ee
+		\end{enumerate}
+		We say that the quadruple $\left(A, \widetilde{A}, G, \pi \right)$ and/or *-homomorphism $\pi: A \to \widetilde{A}$   is a \textit{noncommutative finite-fold  pre-covering}. 
+	\end{definition}
+\begin{lem}
+If $\left(A, \widetilde{A}, G, \pi \right)$ is noncommutative finite-fold  pre-covering such that
+\begin{itemize}
+	\item $A$ is commutative,
+	\item $\widetilde{A}$ is a finitely generated $A$-module.
+\end{itemize}
+Then $\widetilde{A}$ is a commutative $C^*$-algebra.
+\end{lem}
+\end{frame}
+
+\begin{frame}
+\begin{example}
+Let $\widetilde{\sX} \to \sX$ be a covering of locally compact Hausdorff spaces.
+ $A \bydef C_0\left(\mathcal{X}\right)$ and $\widetilde{A}\bydef C_0\left(\mathcal{X}\right)$ then then $\widetilde{A}$ is a finitely generated $A$-module and the group
+			\be\nonumber
+G \bydef \left\{ \left.g \in \Aut\left(\widetilde{A} \right)~\right|~ ga = a;~~\forall a \in A\right\}
+\ee
+is finite.
+\end{example}\begin{example}
+If $\mathcal{X}$ is a locally compact Hausdorff space, $A = C_0\left(\mathcal{X}\right)$ and $\widetilde{A}= A\otimes \mathbb{M}_n\left(\mathbb{C} \right)$  then $\widetilde{A}$ is a finitely generated $A$-module and however the group
+\be\nonumber
+G \bydef \left\{ \left.g \in \Aut\left(\widetilde{A} \right)~\right|~ ga = a;~~\forall a \in A\right\}
+\ee
+
+is not finite.
+\end{example}
+\end{frame}
+\begin{frame}
+
+	\begin{theorem}\alert{A. Pavlov, E Troitsky}
+		Suppose $\mathcal X$ and $\mathcal Y$ are compact Hausdorff connected spaces and $p :\mathcal  Y \to \mathcal X$
+is a continuous surjection. If $C(\mathcal Y )$ is a projective finitely generated Hilbert module over
+$C(\mathcal X)$ with respect to the action
+\begin{equation*}
+(f\xi)(y) = f(y)\xi(p(y)), ~ f \in  C(\mathcal Y ), ~ \xi \in  C(\mathcal X),
+\end{equation*}
+then $p$ is a finite-fold  covering.
+	\end{theorem}
+
+
+\begin{corollary}\alert{P. Ivankov}
+	If $\left(A, \widetilde{A}, G, \pi \right)$ is noncommutative finite-fold  pre-covering such that
+	\begin{itemize}
+		\item $A$ is commutative,
+		\item Both $A$ and $\widetilde{A}$ are unital.
+		\item $\pi$ is unital 
+	\item $\widetilde{A}$	is a finitely generated projecive $A$-module.
+	\end{itemize}
+	then $\pi$ corresponds to a finite-fold covering $ \widetilde{\mathcal  X}\to \mathcal  X$.
+\end{corollary}
+\end{frame}
+\begin{frame}
+\begin{definition}
+	\alert{P. Ivankov}
+	  	Let $\left(A, \widetilde{A}, G, \pi \right)$ be a  noncommutative finite-fold  pre-covering. Suppose both $A$ and  $\widetilde{A}$ are unital. We say that $\left(A, \widetilde{A}, G, \pi \right)$ is an \textit{unital noncommutative finite-fold  covering} if \\ $\pi$ is unital and $\widetilde{A}$ is a finitely generated projective  $A$-module.
+\end{definition}
+\begin{corollary}\alert{P. Ivankov}
+	Any unital noncommutative finite-fold  covering $\left(A, \widetilde{A}, G, \pi \right)$ of a commutative $C^*$-algebra $A$ corresponds to a finite-fold covering $ \widetilde{\mathcal  X}\to \mathcal  X$.
+\end{corollary}
+\end{frame}
+
+\begin{frame}
+
+\begin{definition}
+	A covering $ p:\widetilde{\mathcal  X}\to \mathcal  X$ is said to be \textit{transitive} if for any $x \in \mathcal  X$ the group
+	$$
+	G\left(\left.\widetilde{\mathcal  X} \right|\mathcal  X\right)= \left\{ \left.g \in \text{Homeo}\left(\widetilde{\mathcal X} \right)~\right|~ p(g\widetilde{x}) = p(\widetilde{x});~~\forall \widetilde{x} \in \widetilde{\mathcal  X}\right\} 
+	$$
+	transitively acts on $p^{-1}\left(x\right)$.
+\end{definition}
+\begin{fact}
+	If the space $ \mathcal  X$ is locally path connected then any transitive covering  of $ \mathcal  X$  is regular and vice versa.
+\end{fact}
+\begin{fact}
+	A covering $ p:\widetilde{\mathcal  X}\to \mathcal  X$ is {transitive} if and only if there is the natural homeomoprphism
+	$$
+\mathcal  X \cong \widetilde{\mathcal  X}/		G\left(\left.\widetilde{\mathcal  X} \right|\mathcal  X\right).
+	$$
+	
+\end{fact}
+\end{frame}
+\begin{frame}
+\begin{lemma}
+	\alert{P. Ivankov}
+	If $\mathcal  X$ is a connected, compact, Hausdorff space then there is a 1-1 correspondence between finite-fold transitive coverings of $\mathcal  X$ and unital noncommutative finite-fold  coverings of $C\left(\mathcal  X\right)$.
+\end{lemma}
+
+\begin{proof}
+We already know that any  unital noncommutative finite-fold  covering corresponds to the finite-fold covering of $\widetilde{\mathcal  X}\to \mathcal  X$. One should prove that the covering is transitive. From the condition \eqref{cond_b_eqn} it follows that
+$$
+C\left(\mathcal  X\right)\cong C\left(\widetilde{\mathcal  X}\right)^{G\left(\left.\widetilde{\mathcal  X} \right|\mathcal  X\right)}.
+$$
+The above equation is equivalent to
+$$
+{\mathcal  X}\cong\widetilde{\mathcal  X}/ G\left(\left.\widetilde{\mathcal  X} \right|\mathcal  X\right).
+$$
+so the covering is transitive. The converse statement can be proved similarly.
+\end{proof}
+\end{frame}
+\begin{frame}
+
+
+\begin{definition}\label{top_cov_comp_defn}
+	\alert{P. Ivankov}. 	A   covering $p: \widetilde{   \mathcal X } \to \mathcal X$ is said to be a \textit{ covering with compactification} if there are compactifications ${   \mathcal X } \hookto {   \mathcal Y }$ and $\widetilde{   \mathcal X } \hookto \widetilde{   \mathcal Y }$ such that:
+	\begin{itemize}
+		\item There is a finite-fold  covering $\widetilde{p}:\widetilde{   \mathcal Y }\to {   \mathcal Y }$,
+		\item The covering $p$ is the restriction of $\widetilde{p}$, i.e. $p = \widetilde{p}|_{\widetilde{   \mathcal X }}$.
+	\end{itemize}
+\end{definition}
+\begin{definition}\label{fin_comp_defn}\alert{P. Ivankov}
+	Let $\left(A, \widetilde{A}, G, \pi \right)$ be a noncommutative finite-fold  pre-covering such  that following conditions hold:
+	\begin{enumerate}
+		\item[(a)] 
+		There are unitizations $A \hookto B$, $\widetilde{A} \hookto \widetilde{B}$.
+		%	\item[(b)]$A = B\bigcap \widetilde{A}$,
+		\item[(b)] There is an %(strong) 
+		unital  noncommutative finite-fold covering	$\left(B ,\widetilde{B}, G, \widetilde{\pi} \right)$ such that $\pi = \widetilde{\pi}|_A$ (or, equivalently $A \cong \widetilde{A}\cap B$) and the action $G \times\widetilde{A} \to \widetilde{A}$ is induced by $G \times\widetilde{B} \to \widetilde{B}$.
+	\end{enumerate}
+	We say that the  quadruple $\left(A, \widetilde{A}, G, \pi \right)$ is a
+	\textit{noncommutative finite-fold covering with unitization}. 
+\end{definition}
+
+\end{frame}
+\begin{frame}
+\begin{example}
+	
+	Let $\mathcal X  = \C \setminus \{0\}$ be a complex plane with punctured 0, which is parametrized by the complex variable $z$. 
+	If $\widetilde{   \mathcal X } \cong \mathcal X$ then for any natural $n>1$ there is a finite-fold covering 
+	\begin{equation*}
+	p: \widetilde{   \mathcal X } \to \mathcal X,
+	\qquad	z \mapsto z^n.
+	\end{equation*}
+	which is not a covering with compactification. Really let  $\mathcal X \to\mathcal Y$ be any compactification. If both $\left\{z'_\al \in \mathcal X\right\}$, 	$\left\{z''_\al \in \mathcal X\right\}$ are  nets such that $\lim_{\al}\left|z'_\al\right|=\lim_\al\left|z''_\al\right| = 0$ then form $\lim_{\al}\left|z'_\al-z''_\al\right|= 0$ it turns out that
+	$
+	x_0 = \lim_{\al} z'_\al = \lim_{\al} z''_\al \in \mathcal Y
+	$. 	It turns out $\left|\widetilde{p}^{-1}\left(x_0 \right) \right|=1$. However $\widetilde{p}$ is an $n$-fold covering and if $n >1$ then  $\left|\widetilde{p}^{-1}\left(x_0 \right) \right|=n>1$.
+\end{example}
+\end{frame}
+\begin{frame}
+\begin{lemma}
+	\alert{P. Ivankov}. If $\mathcal X$ is a locally compact, connected, Hausdorff space then there is a one-to-one correspondence between transitive finite-fold coverings with compactifications and of $\mathcal X$ and noncommutative finite-fold coverings with unitization of $C_0\left(\mathcal X\right)$.
+\end{lemma}
+\begin{proof}
+	If $p: \widetilde{   \mathcal X }\to  \mathcal X$ is a finite fold covering and $\pi: C_0\left({   \mathcal X }\right)  \to C\left( \widetilde{   \mathcal X }\right)$ corresponding *-homomorphism then
+following pairs of conditions are equivalent:
+\begin{enumerate}
+	\item There are compactifications ${   \mathcal X } \to {   \mathcal Y }$ and $\widetilde{   \mathcal X } \to \widetilde{   \mathcal Y }$,
+	\item There is a finite-fold  covering $\widetilde{p}:\widetilde{   \mathcal Y }\to {   \mathcal Y }$ such that $p= \widetilde{p}|_{\widetilde{   \mathcal Y }}$;
+\end{enumerate}
+\begin{enumerate}
+	\item There are unitizations $C_0\left( {   \mathcal X } \right) \to C\left(  {   \mathcal Y }\right) $ and $C_0\left({   \mathcal X }\right)  \to C\left( \widetilde{   \mathcal Y }\right) $,
+	\item There is an unital noncommutative finite-fold  covering $\widetilde{\pi}:C\left({   \mathcal Y } \right)\to C\left(  \widetilde{   \mathcal Y }\right) $ such that $\pi= \widetilde{\pi}|_{C_0\left( {\mathcal X}\right)  }$.
+\end{enumerate}
+
+\end{proof}
+
+\end{frame}
+\begin{frame}
+\begin{definition}
+	\alert{P. Ivankov}.	A   noncommutative finite-fold  pre-covering $\left(A, \widetilde{A}, G, \pi \right)$ is said to be  a \textit{noncommutative finite-fold covering} if there is an increasing net $\left\{u_\lambda\right\}_{\lambda\in\Lambda}\subset M\left( A\right)_+ $  of positive elements such that
+	\begin{enumerate}
+		\item[(a)] There is the limit 
+		$$
+		\beta\text{-}\lim_{\lambda \in \Lambda} u_\lambda = 1_{M\left(A \right) }
+		$$
+		in the strict topology of $M\left(A \right)$,
+		\item[(b)]  If for all   $\lambda\in\Lambda$ both $A_\lambda$ and  $\widetilde A_\lambda$ are $C^*$-norm completions  of $u_\lambda A u_\lambda$ and  $u_\lambda\widetilde{A}u_\lambda$ respectively then for every $\lambda\in\Lambda$ a quadruple
+		$$
+		\left(A_\lambda, \widetilde{A}_\lambda, G, \left.\pi\right|_{A_\lambda} :A_\lambda\to \widetilde{A}_\lambda\right)	
+		$$
+		is a noncommutative finite-fold covering with unitization. The action 	$G \times \widetilde{A}_\lambda\to \widetilde{A}_\lambda$, is the restriction on $\widetilde{A}_\lambda\subset \widetilde{   A}$ of the action $G\times  \widetilde{A}\to \widetilde{A}$.
+	\end{enumerate}
+	
+\end{definition}
+\end{frame}
+\begin{frame}
+
+\begin{theorem}
+	\alert{P. Ivankov}. 
+If $\mathcal X$ is a connected, locally connected, paracompact, Lindel\"{o}f, locally compact, Hausdorff space then there is a one-to-one correspondence between transitive coverings of  $\mathcal X$ and noncommutative finite-fold coverings of $C_0\left( \mathcal X\right)$. 
+\end{theorem}
+
+	\begin{lem}
+		\alert{P. Ivankov}. 	Let $\mathcal X$ be a connected, locally compact, Hausdorff space.
+		If the  quadruple $\left(C_0\left(\mathcal  X \right), \widetilde{A}, G,    \pi\right)$ is a noncommutative finite-fold covering then there is a connected space $\widetilde{   \mathcal X }$ and a transitive finite-fold covering  $p: \widetilde{   \mathcal X } \to \sX$ such that $\widetilde{A} \cong C_0\left( \widetilde{   \mathcal X }\right)$, $G \cong G\left(\left. \widetilde{   \mathcal X } ~\right| {   \mathcal X }\right)$ and $\pi$ corresponds to $p$.
+	\end{lem}
+\end{frame}
+\begin{frame}
+	\begin{proof}
+		Let $\bt\sX$ be the Stone-\v{C}ech compactification of $\sX$.
+		If $\left\{u_\la\right\}_{\la\in\La}\subset M\left( C_0\left( \sX\right) \right)_+ \cong C\left( \bt\sX\right)_+ $ is  an increasing net which satisfies to the conditions (a) and (b) of the Definition then  $\bt\text{-}\lim_{\la \in \La} u_\la = 1_{C\left( \bt\sX\right) }$. If
+		\be\nonumber
+		\begin{split}
+			%\sU_\la \bydef \mathrm{supp}~u_\la,\\
+			\mathcal U_\la \bydef \left\{\left.x \in \bt\sX\right|u_\la\left( x\right)> 0 \right\}\cap \sX
+		\end{split}
+		\ee 
+		then the norm closure of $u_\la C_0\left(\sX \right) u_\la$ coincides with $C_0\left(\mathcal U_\la \right)$. From the previous lemma it follows that there is a finite-fold transitive covering $p_\la:\widetilde\sU_\la\to \sU_\la$ such that 
+		$C_0\left(\widetilde\sU_\la \right)$ is the $C^*$-norm completion of $u_\la \widetilde A u_\la$. The union $\cup_{\la\in\La}u_\la \widetilde A u_\la\subset \cup_{\la\in\La}C_0\left(\mathcal U_\la \right)$ is a commutative algebra which is dense in $\widetilde A$. So $\widetilde A$ is commutative, i.e. $A \cong C_0\left(\widetilde \sX \right)$.  Both unions $\cup_{\la\in\La}C_0\left(\sU_\la\right)$ and $\cup_{\la\in\La}C_0\left(\widetilde\sU_\la\right)$ are dense in $C_0\left(\sX\right)$ and $C_0\left(\widetilde\sX\right)$ respectively, so one has $\sX = \cup_{\la\in\La}\sU_\la$ and  $\widetilde\sX = \cup_{\la\in\La}\widetilde\sU_\la$. The family $\left\{p_\la:\widetilde\sU_\la\to \sU_\la\right\}$ of transitive coverings yields the transitive covering $p:\widetilde\sX\to\sX$.
+	\end{proof} 
+\end{frame}
+
+
+\begin{frame}
+\begin{lemma}
+	\alert{P. Ivankov}. 	Suppose $\sX$ is a locally compact  Hausdorff space, and $\left\{\sV_\a \right\}_{\a \in  \La}$ is a  countable family of  of open subsets of $\sX$ such that  $\sX = \cup \sV_\a$. If for all $\a \in  \La$ one has:
+	\begin{itemize}
+	\item the set $\sV_\a$ is connected,
+	\item the closure of $\sV_\a$ is compact,
+\end{itemize}
+then for any $x_0 \in \mathcal X$ there is a finite or countable sequence $\sU_1 \subsetneqq  ...\subsetneqq \sU_n\subsetneqq ...$ of connected open subsets of $\sX$ such that
+\begin{itemize}
+	\item $x_0 \in \sU_1$,
+	\item  For any $n \in \N$ the closure of $\sU_n$ is compact,
+	\item $\cup~ \sU_n = \sX$.
+\end{itemize} 
+\end{lemma}
+\end{frame}
+\begin{frame}
+\begin{proof}
+	Let us define a finite or countable sequence $\sU_1 \subsetneqq  ...\subsetneqq \sU_n\subsetneqq ...$ by induction.
+	\begin{enumerate}
+		\item Let us select a $\la_0 \in  \La$ such that $x_0 \in \sV_{\la_0}$, and let $\sU_1 = \sV_{\la_0}$.
+		\item If $\sU_n$ is already defined then we looking for $\sV_\la$ such that
+		\be\label{seqvu_eqn}
+		\sV_\la \not\subset \sU_n;\quad
+		\sV_\la \cap \sU_n \neq \emptyset.
+		\ee
+		It there is no $\sV_\la$ which satisfies to \eqref{seqvu_eqn} then the sequence is competed. Otherwise one sets $\sU_{n+1}\bydef \sU_n \cup \sV_\la$.
+	\end{enumerate} 
+	Clearly that for every $n \in \N$ the set $ \sU_n$ is an open connected and has the compact closure. If  $\sX \neq \cup~ \sU_n$ then 
+	$$
+	\sX  = \cup ~\sU_n \bigsqcup \cup_{\la \in  \La_0} \sV_\la; \text{ where } \sV_\la \bigcap \cup ~\sU_n = \emptyset; ~~ \forall \la \in  \La_0,
+	$$ 
+	i.e. $\sX$ is not connected. So one has $\sX = \cup~ \sU_n$.
+\end{proof}
+
+\end{frame}
+\begin{frame}
+	
+	\begin{rem}\label{fin_comp_lin_empt}
+		If consider the situation of the previous Lemma and 	suppose that $\sX$ is paracompact, then  
+		there is a partition of unity 
+		$$
+		\sum_{ \la\in \La}f_\la
+		$$
+		dominated by  $\left\{\sV_\la \right\}_{\la \in \La}$. It turns out that for any $n \in \N$ there is a finite subset $\La_n \subset \La$ such that $\sU_n = \cup_{\la \in \La_n}\sV_\la$. If 
+		\be\label{fin_comp_lin_eqn}
+		f_n = \sum_{ \la \in \La_n}f_\la
+		\ee
+		then there is a point-wise limit
+		\be\label{fin_comp_lin_n_eqn}
+		1_{C_b\left(\sX \right) } = \lim_{n\to \infty}f_n.
+		\ee
+		Indeed it is the strict limit in $M\left(C_0\left( \sX\right)  \right)$. 
+	\end{rem}
+\end{frame}
+\begin{frame}
+\begin{lemma}\label{fin_comp_linl_lem}
+	\alert{P. Ivankov}. 	If  $\sX$ is a locally compact, connected, locally connected,  Lindel\"{o}f,  Hausdorff space  then there is a family $\left\{\sV_\la \right\}_{\la \in \La}$ of open subsets of $\sX$ which satisfies to conditions of the previous Lemma.
+\end{lemma}
+\begin{proof}
+	The space $\sX$ is a locally compact and locally connected, so for any point there is an open connected neighborhood $\sV_x$ such that the closure of $\sV_x$ is compact. The space is $\sX$ is  Lindel\"{o}f, so there is a finite or countable family $\left\{\sV_\la \right\}_{\la \in \La}$  such that $\left\{\sV_\la \right\}_{\la \in \La}\subset \left\{\sV_x \right\}_{x \in \sX}$ and $\sX = \cup_{\la \in \La} \sV_\la$.
+\end{proof}
+\end{frame}
+
+\begin{frame}
+\begin{lemma}
+		\alert{P. Ivankov}. 
+	Let $\mathcal X$ be a connected, locally connected,  Lindel\"{o}f, locally compact, Hausdorff space. Suppose that  $\widetilde{\mathcal X}\to \sX$ is a finite-fold covering.   Then for any $x_0 \in \mathcal X$ there is  a  finite or countable sequence $\sU_1 \subsetneqq  ...\subsetneqq \sU_n\subsetneqq ...$ of connected open subsets of $\sX$ such that
+	\begin{enumerate}
+		\item[(i)] $x_0 \in \sU_1$.
+		\item[(ii)]  For any $n \in \N$ the closure of $\sU_n$ is compact.
+		\item[(iii)] $\cup~ \sU_n = \sX$.
+		\item[(iv)] The space $p^{-1}\left( \sU_n\right)$ is connected for any $n \in \N$.
+	\end{enumerate}  
+\end{lemma}
+\end{frame}
+\begin{frame}
+	\begin{proof}
+	(i)-(iii) From the previous Lemma  it follows that there is a  finite or countable sequence $\sU_1 \subsetneqq  ...\subsetneqq \sU_n\subsetneqq ...$ of connected open subsets of $\sX$ such that conditions (i)-(iii) hold.\\
+	(iv)
+	Let $\widetilde x_0 \in p^{-1}\left( \sU_n\right)$ be any point, and let $\widetilde \sU^{\widetilde x_0}_n$ be a connected component of $p^{-1}\left( \sU_n\right)$ such that $\widetilde x_0\in \widetilde \sU^{\widetilde x_0}_n$. If $G_n = \left\{\left.g\in G\left( \widetilde{   \mathcal X }~|~\sX\right)\right| g   \widetilde x_0\in \sU^{\widetilde x_0}_n\right\}$ then there is  
+	is a nondecreasing sequence of  subgroups
+	$
+	G_1 \subseteq ... \subseteq G_n \subseteq ...
+	$
+	Since $G\left( \widetilde{   \mathcal X }~|~\sX\right)$ is finite there is $m \in \N$ such that $G_k = G_m$ for every $k \ge m$. If $J \in G\left( \widetilde{   \mathcal X }~|~\sX\right)$ is a set of representatives of $G\left( \widetilde{   \mathcal X }~|~\sX\right)/G_m$ and  $\widetilde\sU^{\widetilde x_0}= \cup_{n \in \N} \widetilde\sU^{\widetilde x_0}_n$ then one has
+	$
+	\widetilde\sX = \bigcup_{n \in \N}p^{-1}\left(\sU_n \right) = \bigsqcup_{g \in J}g \widetilde\sU^{\widetilde x_0}.$
+	Since the space $\widetilde\sX$ is connected the set $J$ is a singleton. It follows that $p^{-1}\left(\sU_k \right)= \widetilde\sU^{\widetilde x_0}_k$ for every $k \ge m$ i.e. $p^{-1}\left(\sU_k \right)$ is connected. So the finite or countable subsequence $\sU_m \subsetneqq  ...\subsetneqq \sU_k\subsetneqq ...$ of $\sU_1 \subsetneqq  ...\subsetneqq \sU_n\subsetneqq ...$ satisfies to the condition (iv).\\
+\end{proof}
+\end{frame}
+
+\begin{frame}
+\begin{lem}
+	\alert{P. Ivankov}. 	If $\mathcal X$ is a connected, locally connected,  Lindel\"{o}f, paracompact, locally compact, Hausdorff space  then any finite-fold transitive covering of $\sX$ corresponds to a noncommutative finite-fold  covering of $C_0\left(\sX \right)$. 
+\end{lem}
+\begin{proof}
+If $\widetilde\sX \to \sX$ is a finite-fold transitive covering then from the previous lemmas one has a sequence $\left\{f_n\right\}_{n\in \N}\subset C_c\left( \sX\right)$ such that $\bt$-$\lim f_n = 1_{C_b\left(\sX \right) }$ (cf. Equation \eqref{fin_comp_lin_n_eqn}).
+Moreover if 
+\be
+\begin{split}
+\sU_n \bydef \left\{\left. x \in \sX \right|f_n\left(x \right)> 0 \right\},\\
+\sV_n \bydef \mathrm{supp}~ f_n
+\end{split}
+\ee
+then $\sV_n$ is compact and $\sU_n$ is an open dense subset of $\sV_n$. So for any $n\in \N$ there is a covering with compactification $p_n:\widetilde\sU_n \to \sU_n$, and a covering with unitization $C_0\left( \sU_n\right) \hookto C_0\left( \widetilde\sU_n\right)$. $C_0\left(\sU_n \right)$ and $C_0\left(\widetilde\sU_n \right)$ are $C^*$-norm completions of $f_nC_0\left(\sX \right)f_n$ and $f_nC_0\left(\widetilde\sX \right)f_n$.
+\end{proof}
+\end{frame}
+
+
+
+
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

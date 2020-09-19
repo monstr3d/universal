@@ -20076,6 +20076,23 @@ convex quasi *-algebra if
 \end{definition}
 
 \begin{definition}
+%	Definition 2.1.2 
+	A \textit{partial *-algebra} is a complex vector space $\mathfrak{A}$, endowed with	an involution $a\mapsto a^*$(that is, a bijection, such that $a^{**}=a$, for all $a\in\mathfrak{A}$) and
+	a partial multiplication defined by a set $\Ga? \mathfrak{A} \times \mathfrak{A}$ (a binary relation), with the	following properties
+	\begin{enumerate}
+		\item [(a)]	$\left(a,b\right)\in\Ga$ implies $\left(b^*,a^*\right)\in\Ga$;
+		\item[(b)] $\left(a,b_1\right),\left(a,b_2\right)\in\Ga$ implies $\left(a,\la b_1 +  \mu bb_2\right)\in\Ga\forall \la,\mu\in\C$;
+	\item[(c)] for any $\left(a,b\right)\in\Ga$ , a product $a \cdot b \in \mathfrak{A}$ is defined, which is distributive with 		respect to the addition and satisfies the relation $\left( a^* \cdot b^*\right) = b^*a^*$
+	\end{enumerate}
+We shall assume that the partial *-algebra $\mathfrak{A}$ contains a unit $e$, if
+$$
+e= e^*, \left( e, a\right) \in \Ga, \forall a\in \mathfrak{A}  \quad \text{and} \quad e \cdot a = a \cdot e = a,\quad  \forall a \in  \mathfrak{A}.
+$$
+If $\mathfrak{A}$ has no unit, it may always be embedded into a larger partial *-algebra with unit
+(the so-called unitization of $\mathfrak{A}$), in the standard fashion (cf. \cite{antoine:part_s}).
+\end{definition}
+
+\begin{definition}
 %Definition 2.2.3 
 Let $\left(\mathfrak{A}, \mathfrak{A}_0\right)$ be a quasi *-algebra and $\mathfrak{B}$ a partial *-algebra (cf. \cite{quasi_star}). A
 linear map 
@@ -20154,60 +20171,28 @@ exists a continuous linear functional $\om$ on $\mathfrak{A}\left[\tau\right]$ w
 
 \end{theorem}
 
-Let $\left(\mathfrak{A}\left[\tau\right], \mathfrak{A}_0\right)$ be an arbitrary locally convex quasi *-algebra. %As we have seenin Sect. 6.2, (A[? ],A0) has a natural order related to the topology ? . 
-
-
-This order can
-be used to define bounded elements. In what follows, we shall assume that (A,A0)
-has a unit e.
-Let a ? A; put ((a) = 12
-(a + a
-?
-), )(a) = 1
-2i (a ? a
-?
-). Then, ((a), )(a) ? Ah
-and a = ((a) + i)(a).
-
-We recall that an unbounded C*-seminorm p on a partial *-algebra A is a seminorm
-defined on a partial *-subalgebra D(p) of A, the domain of p, with the properties:
-¥ p(ab) ² p(a)p(b), whenever ab is well-defined;
-¥ p(a
-?
-a) = p(a)2, whenever a
-?
-a is well-defined
-
-\begin{proposition}
-Proposition 6.4.14  á or
-b is an unbounded C*-norm on A with domain Ab.
-\end{proposition}
-
+If $\left(\mathfrak{A}\left[\tau\right], \mathfrak{A}_0\right)$ is an arbitrary locally convex quasi *-algebra then there is a natural order related to the topology $\tau$. This order can be  used to define bounded elements. In what follows, we shall assume that $\left(\mathfrak{A}\left[\tau\right], \mathfrak{A}_0\right)$
+has a unit $a$. Let $a\in \mathfrak{A}$; put  $\mathfrak{R}\left( a\right)\bydef \frac{1}{2}\left(a + a^* \right)$ $\mathfrak{J}\left( a\right)\bydef \frac{1}{2i}\left(a - a^* \right)$
+Then, $\mathfrak{R}\left( a\right),\mathfrak{J}\left( a\right) \in\mathfrak{A}_h$ and $a = \mathfrak{R}\left( a\right)+i\mathfrak{J}\left( a\right)$
 \begin{definition}
-	Definition 6.4.15 Let A be a partial *-algebra. We say that A is a partial C*-
-	algebra if A is a Banach space under a norm  á  satisfying the following
-	properties:
-	(i) a
-	? = a, ? a ? A;
-	(ii) ab ² a b, whenever ab is well-defined;
-	(iii) a
-	?
-	a = a2, whenever a
-	?
-	a is well-defined.
+%Definition 6.4.1 
+An element $a\in $ is called \textit{order bounded} if there exists $\ga \ge 0$, such that 
+$$\pm \mathfrak{R}\left( a\right) \le \ga e,\quad \pm \mathfrak{J}\left( a\right) \le \ga e$$.
+We denote by $\mathfrak{A}^{\mathrm{or}}_{\mathrm{b}}$
+b the set of all order bounded elements of $\mathfrak{A}\left[\tau\right]$.
 \end{definition}
 
-\begin{theorem}
-Theorem 6.4.16 Let (A[? ],A0) be a fully representable locally convex quasi *-
-algebra with unit e. Assume that A is ?s
-?-complete. Then, Ab is a partial C*-algebra
-under the weak multiplication  and the norm  á or
-b . Assume, in addition, that
-(R) If a, b ? A and ¹?(a)¹?(b) is well-defined, for every ? ? Rc(A,A0), then
-there exists c ? A, such that ¹?(a)¹?(b) = ¹?(c), for every ? ? Rc(A,A0).
-Then, Ab is a C*-algebra with the weak multiplication  and the norm  á or
-b .
-\end{theorem}
+
+We recall that an unbounded $C^*$-seminorm $p$ on a partial *-algebra $\mathfrak{A}$ is a seminorm defined on a partial $*$-subalgebra $D(p)$ of $\mathfrak{A}$, the domain of $p$, with the properties:
+\begin{itemize}
+	\item $p(ab) ² p(a)p(b)$, whenever $ab$ is well-defined;
+	\item $p\left(a^*a \right) = p\left(a \right)^2$  whenever $a^*a$ is well-defined
+\end{itemize}
+
+\begin{proposition}
+%Proposition 6.4.14 
+$\left\|\cdot \right\|^{\mathrm{or}}_{\mathrm{b}}$ is an unbounded $C^*$-norm on $\mathfrak{A}$ with domain $\mathfrak{A}_b$.
+\end{proposition}
 \chapter{Spectral triples}
  	
  	\paragraph{}
@@ -22506,6 +22491,7 @@ In the situation of the Definition \ref{comm_smooth_usual_defn} $\Coo\left(M\rig
 
 
 	\bibitem{apt_mult}	Charles A. Akemann, Gert K. Pedersen, Jun Tomiyama. \textit{Multipliers of $C^*$-algebras}. Journal of Functional Analysis Volume 13, Issue 3, July 1973, Pages 277-301, 1973.
+	
 	
 %\bibitem{akhi:fa}	N. I. Akhiezer, I. M. Glazman. \textit{Theory of Linear Operators in Hilbert Space}. Dover Publications, New York, 1961, 1963.
 
