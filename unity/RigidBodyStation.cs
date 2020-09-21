@@ -932,8 +932,8 @@ namespace GeneratedProject
 									};
 									parameters =new Dictionary<string, object>()
 									{
-										{"b", (double)5000000 },
-										{"a", (double)5000000 }
+										{"b", (double)50000 },
+										{"a", (double)50000 }
 									};
 									operationNames = new Dictionary<System.Int32,System.String>()
 									{

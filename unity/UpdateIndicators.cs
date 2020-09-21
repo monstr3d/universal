@@ -36,7 +36,7 @@ namespace Unity.Standard
         public UpdateIndicators()
         {
             update = UpdateFirst;
-            upd = UpdateInternal;
+            update = UpdateInternal;
             constants = new float[0];
         }
 
@@ -103,7 +103,6 @@ namespace Unity.Standard
         void UpdateFirst()
         {
             var indi = new Dictionary<string, Tuple<Func<object>, List<IIndicator>>>();
-            a
             upd();
             update = upd;
         }
