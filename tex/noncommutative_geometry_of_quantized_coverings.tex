@@ -20032,7 +20032,7 @@ A \textit{(concrete) local operator space} is a  $\C$-linear subspace $X$ of a p
 \end{remark}
 
 
-\section{Locally convex	quasi *-algebras and their representations}
+\section{Locally convex quasi *-algebras and their representations}
 
 \paragraph*{}
 Here I follow to \cite{quasi_star}.
@@ -20107,13 +20107,61 @@ $\Phi\left(a^*\right)
 ) = \Phi\left(a\right)^*$, for every $a\in\mathfrak{A}$.
 \end{definition}
 
+\subsection{Partial $O^*$-algebras}
+\paragraph*{}
+Define partial *-algebras of closable operators in Hilbert spaces. Let $\H$ be a Hilbert space with inner product $\left(\cdot, \cdot\right)_\H$ and $\D$ a dense subspace of $\H$. We denote by $\L\left(\D, \H \right)$ the set of all closable linear 
+operators $X$ in $\H$ uch that $\D\left(X \right)  =\D$ and put
+\be
+\begin{split}
+\L\left( \D\right) \bydef\left\{\left.X\in \L\left(\D, \H \right)\right|X\D\subset \D \right\},\\
+\L^\dagger\left( \D, \H\right) \bydef\left\{\left.X\in \L\left(\D, \H \right)\right|\D\left(X^* \right)\supset \D \right\},\\
+\L\left( \D\right) \bydef\left\{\left.X\in \L^\dagger\left(\D, \H \right)\cap \L\left( \D\right) \right|X^*\D\subset \D \right\}
+\end{split}
+\ee
+Then $\L^\dagger\left( \D, \H\right)$ is a vector space 
+with the usual operations: $X + Y$, $\la X$, and $\L\left(\D \right)$ is a subspace of $\L^\dagger\left( \D, \H\right)$ and 
+an algebra with the usual 
+multiplication $XY$
+For $\L^\dagger\left(\D, \H \right)$ 
+and $\L^\dagger\left(\D\right)$, we 
+have 
+the following
+\begin{proposition}\cite{antoine:part_o}
+	$\L^\dagger\left(\D, \H \right)$ is a partial *-algebra with respect to the following operations: the sum $X + Y$, the scalar multiplication $\la X$, the involution $X\mapsto X^\dagger\bydef X^*|_\D$  and the (weak) partial multiplication $X\square Y\bydef X^{\dagger *} Y$, defined whenever $X$ is a left multiplier of $Y$, ($X \in L^{\mathrm{w}}\left(Y \right)$ or $Y \in R^{\mathrm{w}}\left(X \right)$), that is, iff $Y\D\subset\D\left(X^{\dagger *} \right)$ and $X^\dagger\D\subset \D\left( Y^*\right)$. $\L^\dagger\left(\D\right)$ is a *-algebra 
+with the usual multiplication $XY$ (which here coincides with the weak multiplication $\square$) and the involution $X \mapsto X^\dagger$.
+\end{proposition} 
+\begin{remark}
+If 
+\be
+\begin{split}
+\L^\dagger\left( \D, \H\right)_b\bydef\left\{\left.X\in \L^\dagger\left( \D, \H\right)\right|\overline{X}\in B\left(\H \right) \right\},\\
+\L^\dagger\left( \D\right)_b\bydef \L^\dagger\left( \D, \H\right)_b\cap \L^\dagger\left(\D \right) 
+\end{split}
+\ee
+then the  inclusion $\L^\dagger\left( \D, \H\right)_b\subset B\left(\H \right)$ induces a norm  on $\L^\dagger\left( \D, \H\right)_b$ which is a $C^*$-norm on $\L^\dagger\left( \D\right)_b$.
+\end{remark}
+
+\begin{definition}\cite{antoine:part_o}
+A subset (subspace) of $\L^\dagger\left( \D, \H\right)$ is 
+called an $O$-\textit{family} ($O$-\textit{vector space}) 
+on $\D$, and a subalgebra of $\L\left( \D\right)$
+is called an $O$-\textit{algebra} on $\D$. A $\dagger$-
+invariant subset (subspace) of subset (subspace) of $\L^\dagger\left( \D, \H\right)$ is 
+called an $O^*$-\textit{family} ($O^*$-\textit{vector space}) 
+on $\D$. A partial *-subalgebra of $\L^\dagger\left( \D, \H\right)$ is called a partial $O^*$-\textit{algebra} on $\D$, and a 
+*-subalgebra of  $\L^\dagger\left( \D\right)$ is 
+called an $O^*$-algebra on $\D$. 
+
+
+\end{definition}
+
 \subsection{Quasi *-algebras and partial *-algebras of operators}
 
 	Let $\D$ be a dense subspace of a Hilbert space $\H$.
 We denote by $\L^\dagger\left( \D, \H\right)$  the set of all (closable) linear operators $X$ in $\H$, such that $D\left( X\right) = \D$, $D\left( X^*\right)\supseteqq \D$ where $D\left( X\right)$ denotes the domain of $X$. The set $\L^\dagger\left( \D, \H\right)$ is a partial *-algebra with respect to the following operations:
 the usual sum $X_1 + X_2$, the scalar multiplication $\la X$, the involution $X \mapsto X^\dagger\bydef X^*\D$ and the (weak) partial multiplication $X1\square X_2\bydef X_1^{\dagger *}
 X_2$ (where $X_1^{\dagger *}\bydef  \left( X_1^{\dagger}\right)^*$). The latter is defined whenever $X_2$ is a \textit{weak right multiplier} of  $X_2$ (for this, we shall write $X_2\in R^w\left( X_1\right) $ or  $X_1\in L^w\left( X_1\right) $, that is, if and only if, $X_2\D\subset D\left(X_1^{\dagger *}\right)$ and $X_1^\dagger\D\in D\left(X_2^* \right)$. The operator $1_\D$, restriction to $\D$ of the identity
-operator $1_\H$ on $\H$, is the unit of the partial *-algebra$\L^\dagger\left( \D, \H\right)$. By $\L^\dagger\left( \D, \H\right)_b$ we shall denote the bounded part of $\L^\dagger\left( \D, \H\right)$; i.e.,
+operator $1_\H$ on $\H$, is the unit of the partial *-algebra $\L^\dagger\left( \D, \H\right)$. By $\L^\dagger\left( \D, \H\right)_b$ we shall denote the bounded part of $\L^\dagger\left( \D, \H\right)$; i.e.,
 $$
 \L^\dagger\left( \D, \H\right)_b\bydef\left\{\left.X\in \L^\dagger\left( \D, \H\right)\right|\overline{X}\in B\left(\H \right) \right\}
 $$
@@ -22494,6 +22542,9 @@ In the situation of the Definition \ref{comm_smooth_usual_defn} $\Coo\left(M\rig
 	
 	
 %\bibitem{akhi:fa}	N. I. Akhiezer, I. M. Glazman. \textit{Theory of Linear Operators in Hilbert Space}. Dover Publications, New York, 1961, 1963.
+
+\bibitem{antoine:part_o}Antoine, Jean-Pierre, Inoue, Atsushi, Trapani, C.  \textit{Partial *- Algebras and Their Operator Realizations}. SPRINGER-SCIENCE+BUSINESS MEDIA, B.V. 2002.
+
 
 \bibitem{antoine:part_s} J.-P. Antoine, F.Mathot, \textit{Partial *-algebras of closed operators and their commutants. I. General
 structure}. Ann. Inst. H. Poincaré 46, 299–324 (1987), 1987.
