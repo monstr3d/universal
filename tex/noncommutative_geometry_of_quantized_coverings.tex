@@ -523,6 +523,9 @@
 	\begin{split}}
 {\end{split}
 	\end{equation}}
+\newcommand{\Hsquare}{%
+	\text{\fboxsep=-.2pt\fbox{\rule{0pt}{1ex}\rule{1ex}{0pt}}}%
+}
 
 \title{Noncommutative Geometry of Quantized Coverings}
 
@@ -1431,7 +1434,7 @@ If $\left(A, \widetilde{A}, G, \pi \right)$  is a {noncommutative finite-fold  q
 
 
    \begin{definition}\label{fin_pre_defn}
- 	Let $\pi: A \hookto \widetilde{A}$ be an injective unital *-homomorphism of connected  $C^*$-algebras such that following conditions hold:
+ 	Let $\pi: A \hookto \widetilde{A}$ be an injective unital *-homomorphism of connected  $*$-algebras such that following conditions hold:
 	\begin{enumerate}
 		\item[(a)] If $\Aut\left(\widetilde{A} \right)$ is a group of *-automorphisms of $\widetilde{A}$ then the group  
 				\be\nonumber
@@ -1468,7 +1471,7 @@ hence one has
 \end{empt}
 
    \begin{definition}\label{fin_uni_defn}
-   	Let $\left(A, \widetilde{A}, G, \pi \right)$ be a  noncommutative finite-fold  pre-covering (resp. quasi-covering). Suppose both $A$ and  $\widetilde{A}$ are unital. We say that $\left(A, \widetilde{A}, G, \pi \right)$ is an \textit{unital noncommutative finite-fold  covering} (resp. \textit{unital noncommutative finite-fold  quasi-covering}) if $\widetilde{A}$ is a finitely generated $C^*$-Hilbert left and/or right $A$-module with respect to product given by \eqref{finite_hilb_mod_prod_eqn}.
+   	Let $\left(A, \widetilde{A}, G, \pi \right)$ be a  noncommutative finite-fold  pre-covering (resp. quasi-covering). Suppose both $A$ and  $\widetilde{A}$ are unital $C^*$-algebras. We say that $\left(A, \widetilde{A}, G, \pi \right)$ is an \textit{unital noncommutative finite-fold  covering} (resp. \textit{unital noncommutative finite-fold  quasi-covering}) if $\widetilde{A}$ is a finitely generated $C^*$-Hilbert left and/or right $A$-module with respect to product given by \eqref{finite_hilb_mod_prod_eqn}.
    \end{definition}
    \begin{remark}
    	Above definition is motivated by the Theorem \ref{pavlov_troisky_thm}.
@@ -1481,7 +1484,7 @@ hence one has
 \end{remark}
 
 \begin{definition}\label{fin_comp_defn}
-   	Let $\left(A, \widetilde{A}, G, \pi \right)$ be a noncommutative finite-fold  pre-covering (resp. quasi-covering) such  that following conditions hold:
+   	Let $\left(A, \widetilde{A}, G, \pi \right)$ be a noncommutative finite-fold  pre-covering (resp. quasi-covering) of $C^*$-algebras $A$ and $\widetilde{A}$ such  that following conditions hold:
    	\begin{enumerate}
    		\item[(a)] 
    		There are unitizations $A \hookto B$, $\widetilde{A} \hookto \widetilde{B}$.
@@ -1548,7 +1551,7 @@ g \left(\bt\text{-}\lim a_\a \right) \bydef \bt\text{-}\lim g a_\a.
 
 
 \begin{definition}\label{fin_defn}
-A $\left(A, \widetilde{A}, G, \pi \right)$  noncommutative finite-fold  pre-covering is said to be   \textit{noncommutative finite-fold covering} if there is an increasing net $\left\{u_\la\right\}_{\la\in\La}\subset M\left( A\right)_+ $  of positive elements such that
+A $\left(A, \widetilde{A}, G, \pi \right)$  noncommutative finite-fold  pre-covering  of $C^*$-algebras $A$ and $\widetilde{A}$  is said to be   \textit{noncommutative finite-fold covering} if there is an increasing net $\left\{u_\la\right\}_{\la\in\La}\subset M\left( A\right)_+ $  of positive elements such that
 \begin{enumerate}
 	\item[(a)] There is the limit 
 	$$
@@ -2591,12 +2594,21 @@ Similarly to definition \ref{fin_loc_op_defn} one can define a finite-fold nonco
 		\item[(a)] $\left(C^*_e\left(A\right) , C^*_e\left(\widetilde{A}\right) , G \right)$ is noncommutative finite-fold covering (cf. Definition \ref{fin_defn}).
 		\item[(b)] $G\widetilde{A}= \widetilde{A}$.
 		\item[(c)] 	$\widetilde A\cap C^*_e\left({A}\right)= A$.
-		\item[(d)] If 	$\widetilde B \subset C^*_e\left(\widetilde{A}\right)$ is a subalgebra such that $\widetilde B\cap C^*_e\left({A}\right)= A$ then $\widetilde B \subset \widetilde A$.
-	\end{enumerate}
+		\end{enumerate}
 	Then we say that the triple $\left(A, \widetilde{A}, G \right)$ and/or the quadruple $\left(A, \widetilde{A}, G, \pi \right)$ and/or *-homomorphism $\pi: A \hookto \widetilde{A}$   is a \textit{noncommutative finite-fold covering of operator algebras}. 
-	
+!!! (d)	
 \end{definition}
+\section{Coverings of $O^*$-algebras}
+\paragraph*{}
 
+Let $\left(A, \widetilde{A}, G, \pi \right)$ be a finite-fold pre-covering (cf. Definition \ref{fin_pre_defn} such that $\widetilde{A}$ is an $O^*$-algebra (cf. Definition \ref{o*alg_defn}). If  $\widetilde{A}\subset \L^\dagger\left(\D\right)$ and $\widetilde{A}_b \bydef \widetilde{A}\subset \L^\dagger\left(\D\right)_b$ (cf. \eqref{o*b_eqn}). From the Remark \ref{o*b_rem} it follows that there are natural $C^*$-norms on $\widetilde{A}_b$ and $A_b\bydef \widetilde{A}_b$. If both $B$ and $\widetilde{B}$ are $C^*$-norm completions of $A_b$ and  $\widetilde{A}_b$  respectively then there is  be a finite-fold pre-covering
+\be\label{comp_q_eqn}
+\left(B, \widetilde{B}, G, \overline{\pi} \right)
+\ee
+where the action $G\times \widetilde{B} \to \widetilde{B}$ comes from   $G\times \widetilde{A} \to \widetilde{A}$ and $\pi= \left.\overline{\pi}\right|_A$.
+\begin{definition}
+In the above situation we say that $\left(A, \widetilde{A}, G, \pi \right)$ is a \textit{noncommutative finite-fold covering} of $O^*$-algebras if the  quadruple \ref{comp_q_eqn} is a  \textit{noncommutative finite-fold covering} (cf. Definition \ref{fin_defn}).
+\end{definition}
 
 \section{Coverings of spectral triples}\label{triple_fin_cov}
 
@@ -3654,7 +3666,7 @@ From the Lemma \ref{spec_el_repr_lem} it turns out that there are the following 
 \begin{definition}\label{comp_pro_defn}
 	Let $\La$ be a countable directed set (cf. Definition \ref{directed_set_defn}) such that there is the unique minimal element $\la_{\min} \in \La$.
 	Let $A$ be a pro-$C^*$-algebra.  Let us consider a set noncommutative finite-fold coverings  pro-$C^*$-algebras $\mathfrak{S}=\left\{ \pi_{\la}:A \hookto A_{\la}\right\}_{\la \in \La}$ (cf. Definition \ref{pro_fin_defn}) indexed by  $\La$ such that $A_{\la_{\mathrm{min}}}= A$, and $\pi_{\la_{\mathrm{min}}}= \Id_A$.  Suppose that
-		$\mathfrak{S}=\left\{ \pi_{\la}:b\left( A\right)  \hookto b\left(  A_{\la}\right) \right\}_{\la \in \La}$, or equivalently $$\mathfrak{S}=\left\{ \left( b\left( A\right)  ,  b\left(A_{\la}\right) , G\left(\left.A_\la~\right|A \right) , \pi_{\la}\right) \right\}_{\la \in \La}$$
+		$\mathfrak{S}_b=\left\{ \pi_{\la}:b\left( A\right)  \hookto b\left(  A_{\la}\right) \right\}_{\la \in \La}$, or equivalently $$\mathfrak{S}=\left\{ \left( b\left( A\right)  ,  b\left(A_{\la}\right) , G\left(\left.A_\la~\right|A \right) , \pi_{\la}\right) \right\}_{\la \in \La}$$
 	is  an {algebraical  finite covering category}.   
 	The set 
 	$\mathfrak{S}=\left\{ \pi_{\la}:A \hookto A_{\la}\right\}_{\la \in \La}$, or equivalently $$\mathfrak{S}=\left\{ \left( A , A_{\la}, G\left(\left.A_\la~\right|A \right) , \pi_{\la}\right) \right\}_{\la \in \La}$$
@@ -3702,7 +3714,59 @@ $\left(A, \widetilde{A}, G\right)$ is the
 \begin{remark}\label{inv_pro_lim_rem}
 From the conditions (a) and (c) of \ref{inv_pro_lim_empt} it turns out that $M\left(\widetilde B\right) = b\left( \widetilde A\right)$. 
 \end{remark}
+\section{Infinite coverings of $O^*$-algebras}
 
+\begin{definition}\label{comp_o*_defn}
+	Let $\La$ be a countable directed set (cf. Definition \ref{directed_set_defn}) such that there is the unique minimal element $\la_{\min} \in \La$.
+	Let $A$ be an $O^*$-algebra.  Let us consider a set noncommutative finite-fold coverings  $O^*$-algebras $\mathfrak{S}=\left\{ \pi_{\la}:A \hookto A_{\la}\right\}_{\la \in \La}$ (cf. Definition \ref{pro_fin_defn}) indexed by  $\La$ such that $A_{\la_{\mathrm{min}}}= A$, and $\pi_{\la_{\mathrm{min}}}= \Id_A$.  The union $\widehat A \bydef\cap_{\la\in \La} A_\la$ is a *-algebra. If $\widehat G \bydef \varprojlim G\left(\left.A_\la\right|A\right)$ then there is the natural action $\widehat G\times \widehat A\to \widehat A$. Suppose that $\widehat A$ is an $O^*$-algebra and there are a Hilbert space $\widehat\H$ and its dense subspace $\widehat \D\subset \widehat\H$ such that  $\widehat A\subset \L^\dagger\left(\widehat\D \right)$. Moreover  suppose that there is an equivariant action
+	$\widehat G\times \widehat \H\to \widehat \H$, i.e.
+	\bean
+	\widehat G\widehat \D= \widehat \D,\\
+	g\left(a\xi \right)= \left(ga\right) \left(g\xi\right)\quad \forall g\in\widehat G, ~\forall a\in\widehat A, ~ \forall \xi\in\widehat \D
+		\eean
+(cf. Definition \ref{equiv_defn})	
+Let $B$ is the $C^*$-norm completion of the bounded part of $A$ (cf. Remark \ref{o*b_rem}). Similarly for all $\la\in\La$ let $B_\la$ is the $C^*$-norm completion of the bounded part of $A_\la$.	Suppose that
+	$\mathfrak{S}_b=\left\{ \pi_{\la}:B \hookto  B_{\la} \right\}_{\la \in \La}$, or equivalently $$\mathfrak{S}_b=\left\{ \left( B ,  B_{\la} , G\left(\left.A_\la~\right|A \right) , \pi_{\la}\right) \right\}_{\la \in \La}$$
+	is  an {algebraical  finite covering category}.   
+	The set 
+	$\mathfrak{S}_b=\left\{ \pi_{\la}:A \hookto A_{\la}\right\}_{\la \in \La}$, or equivalently $$\mathfrak{S}=\left\{ \left( A , A_{\la}, G\left(\left.A_\la~\right|A \right) , \pi_{\la}\right) \right\}_{\la \in \La}$$
+	is said to be an \textit{algebraical  finite covering category of $O^*$-algebras}. \\
+	We write $\mathfrak{S} \in$ $O^*$-$\mathfrak{FinAlg}$.
+\end{definition}
+
+\begin{definition}\label{comp_pt_o*_defn}
+	A subcategory $\mathfrak{S}^{\text{pt}}$  of an algebraical  finite covering category of $O^*$-algebras $\mathfrak{S}$  is said to be a \textit{pointed algebraical  finite covering category of $O^*$-algebras}  if it is equivalent to the pre-order category given by $\La$ (cf. Definition \ref{preordercat_defn} and Remark \ref{pre_order_rem}).  We write $\mathfrak{S}^{\text{pt}} \in  O^*$-$ \mathfrak{FinAlg}^{\text{pt}}$, and use the following notation
+	\be\label{comp_pt_o*_eqn}
+	\begin{split}
+		\mathfrak{S}^{\text{pt}} = \left(\left\{\pi_\la: A \hookto A_\la \right\}_{\la \in \La}, \left\{\pi^\mu_\nu: A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\ \nu > \mu}}\right),\\
+		\text{or simply} \quad \mathfrak{S}^{\text{pt}} = \left(\left\{\pi_\la: A \hookto A_\la \right\}, \left\{\pi^\mu_\nu\right\}\right).
+	\end{split}
+	\ee
+\end{definition}
+\begin{remark}
+	If 	$\mathfrak{S}^{\text{pt}}$ is pointed algebraical  finite covering category of $O^*$-algebras then
+	\be\label{bounded_cat_o*_eqn}
+	\begin{split}
+		\mathfrak{S}^{\text{pt}}_b \bydef \left(\left\{\pi_\la|_{B }: B  \hookto B_\la \right\}_{\la \in \La}, \left\{\pi^\mu_\nu|_{B_\mu }: B_\mu  \hookto  B_\nu \right\}_{\substack{\mu, \nu \in \La~~\nu > \mu}}\right)
+	\end{split}
+	\ee
+	is a {pointed algebraical  finite covering category}.
+\end{remark}
+\begin{empt}\label{inv_o*_lim_empt}
+If $\widehat B\bydef C^*$-$\varinjlim B_\la$ then there is the natural equivariant representation $\widehat{\pi}: \widehat{B}\hookto B\left( \widehat{\H}\right)$ (cf. Definition \ref{equiv_defn}). Suppose that $	\mathfrak{S}^{\text{pt}}_b$ is $\widehat{\pi}$-good (cf. Definition \ref{mains_defn}).  Let  $\left(B, \widetilde{B}_{\widehat{\pi}}, G_{\widehat{\pi}}\right)$  be the  $\widehat{\pi}$-{infinite noncommutative covering} of  $\mathfrak{S}^{\mathrm{pt}}_b$. (cf. Definition \ref{main_defn}). Denote by $\widetilde{C}_{\widehat{\pi}}\bydef \widetilde{B}_{\widehat{\pi}}\cap \L^\dagger\left( \widehat D\right)$. If $\widetilde{A}_{\widehat{\pi}}\subset \L^\dagger\left( \widehat D\right)$ is a generated by the set
+$$
+\widetilde{C}_{\widehat{\pi}}\widehat A\widetilde{C}_{\widehat{\pi}}\subset \L^\dagger\left( \widehat D\right)
+$$
+then there is the natural action $ G_{\widehat{\pi}}\times \widetilde{A}_{\widehat{\pi}}\to \widetilde{A}_{\widehat{\pi}}$
+\end{empt}
+
+
+
+\begin{definition}\label{inv_o*_lim_defn}
+	In the described in \ref{inv_o*_lim_empt} situation we say that the triple
+	$\left(A, \widetilde{A}_{\widehat{\pi}}, G_{\widehat{\pi}}\right)$ is the 
+	$\widehat{\pi}$-\textit{ inverse noncommutative limit of $\mathfrak{S}^{\mathrm{pt}}$}.
+\end{definition}
 
 \section{Infinite coverings of (local) operator spaces}
 \paragraph*{}
@@ -20127,13 +20191,13 @@ and $\L^\dagger\left(\D\right)$, we
 have 
 the following
 \begin{proposition}\cite{antoine:part_o}
-	$\L^\dagger\left(\D, \H \right)$ is a partial *-algebra with respect to the following operations: the sum $X + Y$, the scalar multiplication $\la X$, the involution $X\mapsto X^\dagger\bydef X^*|_\D$  and the (weak) partial multiplication $X\square Y\bydef X^{\dagger *} Y$, defined whenever $X$ is a left multiplier of $Y$, ($X \in L^{\mathrm{w}}\left(Y \right)$ or $Y \in R^{\mathrm{w}}\left(X \right)$), that is, iff $Y\D\subset\D\left(X^{\dagger *} \right)$ and $X^\dagger\D\subset \D\left( Y^*\right)$. $\L^\dagger\left(\D\right)$ is a *-algebra 
-with the usual multiplication $XY$ (which here coincides with the weak multiplication $\square$) and the involution $X \mapsto X^\dagger$.
+	$\L^\dagger\left(\D, \H \right)$ is a partial *-algebra with respect to the following operations: the sum $X + Y$, the scalar multiplication $\la X$, the involution $X\mapsto X^\dagger\bydef X^*|_\D$  and the (weak) partial multiplication $X\Hsquare Y\bydef X^{\dagger *} Y$, defined whenever $X$ is a left multiplier of $Y$, ($X \in L^{\mathrm{w}}\left(Y \right)$ or $Y \in R^{\mathrm{w}}\left(X \right)$), that is, iff $Y\D\subset\D\left(X^{\dagger *} \right)$ and $X^\dagger\D\subset \D\left( Y^*\right)$. $\L^\dagger\left(\D\right)$ is a *-algebra 
+with the usual multiplication $XY$ (which here coincides with the weak multiplication $\Hsquare$) and the involution $X \mapsto X^\dagger$.
 \end{proposition} 
-\begin{remark}
+\begin{remark}\label{o*b_rem}
 If 
 \be
-\begin{split}
+\begin{split}\label{o*b_eqn}
 \L^\dagger\left( \D, \H\right)_b\bydef\left\{\left.X\in \L^\dagger\left( \D, \H\right)\right|\overline{X}\in B\left(\H \right) \right\},\\
 \L^\dagger\left( \D\right)_b\bydef \L^\dagger\left( \D, \H\right)_b\cap \L^\dagger\left(\D \right) 
 \end{split}
@@ -20141,16 +20205,16 @@ If
 then the  inclusion $\L^\dagger\left( \D, \H\right)_b\subset B\left(\H \right)$ induces a norm  on $\L^\dagger\left( \D, \H\right)_b$ which is a $C^*$-norm on $\L^\dagger\left( \D\right)_b$.
 \end{remark}
 
-\begin{definition}\cite{antoine:part_o}
+\begin{definition}\label{o*alg_defn}\cite{antoine:part_o}
 A subset (subspace) of $\L^\dagger\left( \D, \H\right)$ is 
 called an $O$-\textit{family} ($O$-\textit{vector space}) 
 on $\D$, and a subalgebra of $\L\left( \D\right)$
 is called an $O$-\textit{algebra} on $\D$. A $\dagger$-
 invariant subset (subspace) of subset (subspace) of $\L^\dagger\left( \D, \H\right)$ is 
 called an $O^*$-\textit{family} ($O^*$-\textit{vector space}) 
-on $\D$. A partial *-subalgebra of $\L^\dagger\left( \D, \H\right)$ is called a partial $O^*$-\textit{algebra} on $\D$, and a 
+on $\D$. A partial *-subalgebra of $\L^\dagger\left( \D, \H\right)$ is called a \textit{partial} $O^*$-\textit{algebra} on $\D$, and a 
 *-subalgebra of  $\L^\dagger\left( \D\right)$ is 
-called an $O^*$-algebra on $\D$. 
+called an $O^*$-\textit{algebra} on $\D$. 
 
 
 \end{definition}
