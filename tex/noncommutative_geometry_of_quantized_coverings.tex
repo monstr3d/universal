@@ -1627,19 +1627,22 @@ The Definition \ref{fin_defn} implicitly uses the given by the Lemma \ref{ind_mu
 \end{remark}
 
 \begin{definition}\label{pro_fin_defn}
-	Let $\pi: A \hookto \widetilde A$ be an injective *-homomorphism of pro-$C^*$ algebras which can be regarded as an inclusion. Let $\Aut\left( \widetilde A\right)$ be a group of $*$-automorphisms of $\widetilde A$. Suppose that:
-	\begin{itemize}
-		\item [(a)]
-		\be\nonumber
-		G = \left\{ \left.g \in \Aut\left(\widetilde{A} \right)~\right|~ ga = a;~~\forall a \in A\right\}
-		\ee
-		is finite.
-		\item[(b)] 	$A \cong \widetilde{A}^G\stackrel{\text{def}}{=}\left\{\left.a\in \widetilde{A}~~\right|~ a = g a;~ \forall g \in G\right\}$.
-		\item[(c)] The quadruple $\left(b\left( A\right) , b\left( \widetilde{A}\right) , G, \pi|_{b\left( A\right)} \right)$ is a noncommutative finite-fold  covering.
-	\end{itemize}
-We say that the triple $\left(A, \widetilde{A}, G \right)$ and/or the quadruple $\left(A, \widetilde{A}, G, \pi \right)$ and/or *-homomorphism $\pi: A \hookto \widetilde{A}$   is a \textit{noncommutative finite-fold  covering  of pro-$C^*$-algebras}. 
+	Let $\pi: A \hookto \widetilde A$ be an injective *-homomorphism of pro-$C^*$ algebras which can be regarded as an inclusion. Assume that the quadruple  $\left(A, \widetilde{A}, G, \pi \right)$  is a noncommutative finite-fold  pre-covering (cf. \ref{fin_pre_defn}). Suppose  $\widetilde B$ is an essential ideal of $b\left(\widetilde A \right)$ such that $G\widetilde B= \widetilde B$. If $B\bydef \widetilde B \cap A$ and $\left(B ,  \widetilde{B} , G, \pi|_{B} \right)$ is a noncommutative finite-fold  covering then we say that the triple $\left(A, \widetilde{A}, G \right)$ and/or the quadruple $\left(A, \widetilde{A}, G, \pi \right)$ and/or *-homomorphism $\pi: A \hookto \widetilde{A}$   is a \textit{noncommutative finite-fold  covering  of pro-$C^*$-algebras}.
+!!!
 \end{definition}
 
+
+\begin{empt}\label{o*fin_empt}
+	
+	Let $\left(A, \widetilde{A}, G, \pi \right)$ be a finite-fold pre-covering (cf. Definition \ref{fin_pre_defn} such that $\widetilde{A}$ is an $O^*$-algebra (cf. Definition \ref{o*alg_defn}). Denote by  $\widetilde{A}\subset \L^\dagger\left(\D\right)$, $\widetilde{A}_b \bydef \widetilde{A}\cap \L^\dagger\left(\D\right)_b$ (cf. \eqref{o*b_eqn}). From the Remark \ref{o*b_rem} it follows that there are natural $C^*$-norms on $\widetilde{A}_b$ and $A_b\bydef \widetilde{A}_b\cap A$. If both $B$ and $\widetilde{B}$ are essential ideals of $C^*$-norm completions of $A_b$ and  $\widetilde{A}_b$    respectively such that $G\left( \widetilde{B}\cap \widetilde{A}\right)  =\widetilde{B}\cap \widetilde{A}$ then there is  a finite-fold pre-covering
+	\be\label{comp_q_eqn}
+	\left(B, \widetilde{B}, G, \pi_B \right)
+	\ee
+	where the action $G\times \widetilde{B} \to \widetilde{B}$ comes from   $G\times \widetilde{A} \to \widetilde{A}$ and ${\pi}_B$ comes from $\pi$.
+\end{empt}
+\begin{definition}\label{o*fin_defn}
+	In the  situation \ref{o*fin_empt} we say that $\left(A, \widetilde{A}, G, \pi \right)$ is a \textit{noncommutative finite-fold covering of $O^*$-algebras} if the  quadruple \ref{comp_q_eqn} is a  \textit{noncommutative finite-fold covering} (cf. Definition \ref{fin_defn}).
+\end{definition}
 
 \section{Basic constructions}\label{cov_fin_basc_sec}
    
@@ -2594,20 +2597,10 @@ Similarly to definition \ref{fin_loc_op_defn} one can define a finite-fold nonco
 		\item[(a)] $\left(C^*_e\left(A\right) , C^*_e\left(\widetilde{A}\right) , G \right)$ is noncommutative finite-fold covering (cf. Definition \ref{fin_defn}).
 		\item[(b)] $G\widetilde{A}= \widetilde{A}$.
 		\item[(c)] 	$\widetilde A\cap C^*_e\left({A}\right)= A$.
-		\end{enumerate}
+				\item[(d)]  $\widetilde A$ is a maximal among subalgebras $\widetilde{B} \subset C^*_e\left(\widetilde{A}\right)$ such that $\widetilde B\cap C^*_e\left({A}\right)= A$.
+%			!!!! If 	$\widetilde B \subset C^*_e\left(\widetilde{A}\right)$ is a subalgebra such that $\widetilde B\cap C^*_e\left({A}\right)= A$ then $\widetilde B \subset \widetilde A$.
+				\end{enumerate}
 	Then we say that the triple $\left(A, \widetilde{A}, G \right)$ and/or the quadruple $\left(A, \widetilde{A}, G, \pi \right)$ and/or *-homomorphism $\pi: A \hookto \widetilde{A}$   is a \textit{noncommutative finite-fold covering of operator algebras}. 
-!!! (d)	
-\end{definition}
-\section{Coverings of $O^*$-algebras}
-\paragraph*{}
-
-Let $\left(A, \widetilde{A}, G, \pi \right)$ be a finite-fold pre-covering (cf. Definition \ref{fin_pre_defn} such that $\widetilde{A}$ is an $O^*$-algebra (cf. Definition \ref{o*alg_defn}). If  $\widetilde{A}\subset \L^\dagger\left(\D\right)$ and $\widetilde{A}_b \bydef \widetilde{A}\subset \L^\dagger\left(\D\right)_b$ (cf. \eqref{o*b_eqn}). From the Remark \ref{o*b_rem} it follows that there are natural $C^*$-norms on $\widetilde{A}_b$ and $A_b\bydef \widetilde{A}_b$. If both $B$ and $\widetilde{B}$ are essential ideals of $C^*$-norm completions of $A_b$ and  $\widetilde{A}_b$    respectively such that $G\left( \widetilde{B}\cap \widetilde{A}\right)  =\widetilde{B}\cap \widetilde{A}$ then there is  a finite-fold pre-covering
-\be\label{comp_q_eqn}
-\left(B, \widetilde{B}, G, \overline{\pi} \right)
-\ee
-where the action $G\times \widetilde{B} \to \widetilde{B}$ comes from   $G\times \widetilde{A} \to \widetilde{A}$ and $\pi= \left.\overline{\pi}\right|_A$.
-\begin{definition}
-In the above situation we say that $\left(A, \widetilde{A}, G, \pi \right)$ is a \textit{noncommutative finite-fold covering} of $O^*$-algebras if the  quadruple \ref{comp_q_eqn} is a  \textit{noncommutative finite-fold covering} (cf. Definition \ref{fin_defn}).
 \end{definition}
 
 \section{Coverings of spectral triples}\label{triple_fin_cov}
@@ -22605,6 +22598,34 @@ $\a = \left(\a_1, ..., \a_n\right)$ such that $\left|\a\right| = \a_1 + . . . + 
 In the situation of the Definition \ref{comm_smooth_usual_defn} $\Coo\left(M\right)$  is a local operator system (cf. Remark \ref{la_los_rem}).
 \end{rem}
 
+\section{Differential operators on manifolds}
+\begin{definition}\label{do_man_defn}
+%Definition 6.1 
+Given an $n$-dimensional smooth manifold $M$ and two
+smooth, complex vector bundles over $M$, say
+$\left(E_1, M, p_1\right)$ and $\left(E_1, M, p_1\right)$,
+let $\Coo\left(M, E_j \right)$  be the complex vector space of sections of the bundle
+$\left(E_j, M, p_j\right)$, i.e., smooth maps $s:M \to E_j$ such that $\pi_j\circ s=\Id_{M}$.
+A \textit{linear differential operator} means a linear map of vector spaces
+$$
+P: \Coo\left(M, E_1 \right)\to \Coo\left(M, E_2 \right)
+$$
+such that $\supp P(s) \subset  \supp s$.
+\end{definition}
+
+\begin{definition}
+%Definition 6.2
+ Let $M$ be a smooth manifold, $x_0\in M$. Let $E_1$, $E_2$ be two
+smooth vector bundles over $M$, and let
+$$
+P: \Coo\left(M, E_1 \right)\to \Coo\left(M, E_2 \right)
+$$
+be a linear differential operator, in the sense of Definition \ref{do_man_defn}.
+Then we say that $P$ \textit{has order} $n$ at the point $x_0$ if $n$ is the largest nonnegative
+integer such that there is some $s \in  \Coo\left(M, E_1 \right)$ and some smooth function
+$f$ defined in an open neighborhood of xo and vanishing at $x_0$ such that $P(f^ns)(x_0)=0$.
+The order of $P$ is the maximum of the orders of $P$ at all the points of $M$. 
+\end{definition}
  \end{appendices}
 
  
@@ -22815,6 +22836,9 @@ Birkhauser, Basel-Boston-Berlin 1991), viii + 202 pp. 3 7643 3496 7, sFr. 98. 19
 
 %\bibitem{kakariadis:corr}Evgenios T.A. Kakariadis, Elias G. Katsoulis, {\it Operator algebras and $C^*$-correspondences: A survey.} 	arXiv:1210.6067, 2012.
 
+\bibitem{kahn:glo_an} Donald W. Kahn. \textit{Introduction to Global Analysis}.  ACADEMIC PRESS
+A Subsidiary of Harcourt Brace Jovanovich, Publishers
+New York London Toronto Sydney San Francisco. 1980.  
 
 \bibitem{kasch:mr} \textit{Modules and Rings}. A translation of \textit{Moduln und Ringe}. German text by F. Kasch, Ludwig-Maximilian University, Munich, Germany, Translation and editing by D. A. R. WALLACE University of Stirling, Stirling, Scotland 1982 ACADEMIC PRESS. A Subsidiary of Harcourt Brace Jovanovich, Publishers LONDON, NEW YORK, PARIS, SAN DIEGO, SAN FRANCISCO, S\~{A}O PAULO, SYDNEY, TOKYO, TORONTO.  1982.
 
@@ -22834,15 +22858,17 @@ Birkhauser, Basel-Boston-Berlin 1991), viii + 202 pp. 3 7643 3496 7, sFr. 98. 19
 
 %\bibitem{kastler:connes_lott} Daniel Kastler, Thomas Schucker, {\it The Standard Model a la Connes-Lott}, arXiv:hep-th/9412185, 1994.
 
-\bibitem{kurosh:lga} A. G. Kurosh. \textit{Lectures on General Algebra}. PERGAMON PRESS.
-OXFORD . LONDON ¥ EDINBURGH ¥ NEW YORK ¥
-PARIS ¥ FRANKFURT. 1965.
-
 
 \bibitem{kelley:gt} John L. Kelley. {\it General Topology
 }. Springer, 1975. 
 
 \bibitem{koba_nomi:fgd} S. Kobayashi, K. Nomizu. {\it Foundations of Differential Geometry}. Volume 1. Interscience publishers a division of John Willey \& Sons, New York - London. 1963.
+
+
+\bibitem{kurosh:lga} A. G. Kurosh. \textit{Lectures on General Algebra}. PERGAMON PRESS.
+OXFORD . LONDON ¥ EDINBURGH ¥ NEW YORK ¥
+PARIS ¥ FRANKFURT. 1965.
+
 
 %\bibitem{kurat:topI} Kazimierz Kuratowski. \textit{Topology}. Volume 1. Academic Press, 1966
 
