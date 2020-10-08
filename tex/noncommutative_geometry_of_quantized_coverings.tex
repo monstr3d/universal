@@ -1628,7 +1628,7 @@ The Definition \ref{fin_defn} implicitly uses the given by the Lemma \ref{ind_mu
 
 \begin{definition}\label{pro_fin_defn}
 	Let $\pi: A \hookto \widetilde A$ be an injective *-homomorphism of pro-$C^*$ algebras which can be regarded as an inclusion. Assume that the quadruple  $\left(A, \widetilde{A}, G, \pi \right)$  is a noncommutative finite-fold  pre-covering (cf. \ref{fin_pre_defn}). Suppose  $\widetilde B$ is an essential ideal of $b\left(\widetilde A \right)$ such that $G\widetilde B= \widetilde B$. If $B\bydef \widetilde B \cap A$ and $\left(B ,  \widetilde{B} , G, \pi|_{B} \right)$ is a noncommutative finite-fold  covering then we say that the triple $\left(A, \widetilde{A}, G \right)$ and/or the quadruple $\left(A, \widetilde{A}, G, \pi \right)$ and/or *-homomorphism $\pi: A \hookto \widetilde{A}$   is a \textit{noncommutative finite-fold  covering  of pro-$C^*$-algebras}.
-!!!
+
 \end{definition}
 
 
@@ -3712,12 +3712,14 @@ From the conditions (a) and (c) of \ref{inv_pro_lim_empt} it turns out that $M\l
 	Let $\La$ be a countable directed set (cf. Definition \ref{directed_set_defn}) such that there is the unique minimal element $\la_{\min} \in \La$.
 	Let $A$ be an $O^*$-algebra.  Let us consider a set noncommutative finite-fold coverings  $O^*$-algebras $\mathfrak{S}=\left\{ \pi_{\la}:A \hookto A_{\la}\right\}_{\la \in \La}$ (cf. Definition \ref{pro_fin_defn}) indexed by  $\La$ such that $A_{\la_{\mathrm{min}}}= A$, and $\pi_{\la_{\mathrm{min}}}= \Id_A$.  The union $\widehat A \bydef\cup_{\la\in \La} A_\la$ is a *-algebra. If $\widehat G \bydef \varprojlim G\left(\left.A_\la\right|A\right)$ then there is the natural action $\widehat G\times \widehat A\to \widehat A$. Suppose that $\widehat A$ is an $O^*$-algebra and there are a Hilbert space $\widehat\H$ and its dense subspace $\widehat \D\subset \widehat\H$ such that  $\widehat A\subset \L^\dagger\left(\widehat\D \right)$. Moreover  suppose that there is an equivariant action
 	$\widehat G\times \widehat \H\to \widehat \H$, i.e.
-	\bean
+	\be\label{o*_dinv_eqn}
+	\begin{split}
 	\widehat G\widehat \D= \widehat \D,\\
 	g\left(a\xi \right)= \left(ga\right) \left(g\xi\right)\quad \forall g\in\widehat G, ~\forall a\in\widehat A, ~ \forall \xi\in\widehat \D
-		\eean
+	\end{split}
+		\ee
 (cf. Definition \ref{equiv_defn})	
-Let $B$ is the $C^*$-norm completion of the bounded part of $A$ (cf. Remark \ref{o*b_rem}). Similarly for all $\la\in\La$ let $B_\la$ is the $C^*$-norm completion of the bounded part of $A_\la$.	Suppose that
+Let $B$ is an essential ideal of the $C^*$-norm completion of the bounded part of $A$ (cf. Remark \ref{o*b_rem}). Similarly for all $\la\in\La$ let $B_\la$ is is an essential ideal of  the $C^*$-norm completion of the bounded part of $A_\la$.	Suppose that
 	$\mathfrak{S}_b=\left\{ \pi_{\la}:B \hookto  B_{\la} \right\}_{\la \in \La}$, or equivalently $$\mathfrak{S}_b=\left\{ \left( B ,  B_{\la} , G\left(\left.A_\la~\right|A \right) , \pi_{\la}\right) \right\}_{\la \in \La}$$
 	is  an {algebraical  finite covering category}.   
 	The set 
@@ -3769,7 +3771,7 @@ A *-subalgebra $\widetilde A'\subset \L^\dagger\left( \widetilde \D \right)$ is 
 	In the described in \ref{inv_o*_lim_empt} situation if $\widetilde A$ is a maximal  among *-subalgebras of $ \L^\dagger\left( \widetilde \D \right)$ 
 	which satisfies to \eqref{inv_o*_lim_eqn} then	
 	we say that the triple
-	$\left(A, \widetilde{A}_{\widehat{\pi}}, G_{\widehat{\pi}}\right)$ is the 
+	$\left(A, \widetilde{A}, G_{\widehat{\pi}}\right)$ is the 
 	$\widehat{\pi}$-\textit{ inverse noncommutative limit of $\mathfrak{S}^{\mathrm{pt}}$}.
 \end{definition}
 
@@ -7312,7 +7314,7 @@ satisfies to the conditions (a), (b) of the Definition \ref{fin_comp_defn}.
 \end{proof}
 
 \begin{theorem}\label{comm_fin_thm}
-	Let $\mathcal X$ be a locally compact, connected, locally connected, second-countable, Hausdorff space. 
+	Let $\mathcal X$ be a locally compact, connected, locally connected, paracompact,  Lindel\"{o}f, Hausdorff space. 
 	Following conditions hold:
 	\begin{enumerate}
 		\item [(i)] If the  quadruple $\left(C_0\left(\mathcal  X \right), \widetilde{A}, G,    \pi\right)$ is a noncommutative finite-fold covering (cf. Definition \ref{fin_defn}), $\widetilde{   \mathcal X }$ is the spectrum of $\widetilde{A}$ and $p: \widetilde{   \mathcal X } \to \sX$ is given by the Lemma \ref{cov_spectrum_lem}, then $p$ is a finite-fold transitive topological covering, $\widetilde{A} \cong C_0\left( \widetilde{   \mathcal X }\right)$ and $G \cong G\left(\left. \widetilde{   \mathcal X } ~\right| {   \mathcal X }\right)$.
@@ -7480,6 +7482,37 @@ $$
 C_0\left(\widetilde M\right)\cap  \Coo\left(\widetilde M\right) = \widetilde A.
 $$
 \end{proof}
+\subsection{Coverings of $O^*$-algebras}
+\paragraph*{}
+Let $M$ be an $n$-dimensional smooth manifold, let $\mu$ be a measure on $M$ which is locally given by an $n$-dimensional external differential form. If $\Coo_c\left(M \right)\bydef \Coo\left(M \right) \cap C_c\left(M \right)$ then
+$$
+a \in \Coo_c\left(M \right) \Rightarrow \int_M aa^*d\mu < \infty.
+$$ 
+So $\Coo_c\left(M \right)$ is a pre-Hilbert space, denote by $L^2\left(M, \mu \right)$ its completion. Also denote by $\D \bydef \Coo_c\left(M \right)$, $\H\bydef  L^2\left(M, \mu \right)$. Let  $D\left( M\right)$ be an algebra of linear differential operators $\Coo\left(M \right)  \to \Coo\left(M \right)$ (df. Definition \ref{do_man_defn}).
+From $D\left( M\right)\D = \D$ it follows that $D\left( M\right) \subset \L^\dagger\left(\D \right)$ (cf. Equation \eqref{l_dag_eqn}). If $D_0\left( M\right)\subset D\left( M\right)$ is a subalgebra of having order 0 operators (cf. Definition \ref{do_man_order_defn}) then $D_0\left( M\right)\cong \Coo\left(M \right)$. If $\L^\dagger\left(\D \right)_b$ is given by \eqref{o*b_eqn} then one has
+$$
+\L^\dagger\left(\D \right)_b\cap D\left( M\right)= D_0\left( M\right)\cap C_b\left( M\right)= \Coo\left( M\right)\cap C_b\left( M\right),
+$$
+so the $C^*$-norm completion of $\L^\dagger\left(\D \right)_b\cap D\left( M\right)$ coincides with $C_b\left( M\right)$. The $B \bydef C_0\left( M\right)$ is an essential ideal of $C_b\left( M\right)$.  If $p: \widetilde M\to M$ is a topological transitive finite-fold covering then $\widetilde M$ has the natural structure of smooth manifold. Similarly to the above construction of $\Coo\left( M\right)$,  $D\left( M\right)$, $\D \bydef \Coo_c\left(M \right)$, $D\left(M \right)$, $B \bydef C_0\left(M \right)$ one can obtain $\Coo\left(\widetilde M\right)$,  $D\left(\widetilde M\right)$, $\widetilde\D \bydef \Coo_c\left(\widetilde M \right)$, $D\left(\widetilde M \right)$, $\widetilde B \bydef C_0\left(\widetilde M \right)$. If $G \bydef G\left(\left. \widetilde M\right| M\right)$ then the action $G\times \widetilde M\to \widetilde M$ induces actions $G\times \widetilde \D\to \widetilde \D$, $G\times \widetilde \L^\dagger\left( \D\right) \to \widetilde \L^\dagger\left( \D\right) $, $G\times D\left( \widetilde M\right) \to D\left( \widetilde M\right) $, $G\times C_0\left( \widetilde M\right) \to C_0\left( \widetilde M\right)$. The covering $p: \widetilde M\to M$ naturally induces an invective  *-homomorhism   $\pi: D\left( \widetilde M\right) \hookto  D\left( M\right)$. Direct check shows that the quadruple
+$$
+\left( D\left( \widetilde M\right),  D\left( \widetilde M\right), G\left(\left. \widetilde M\right| M\right), \pi \right)
+$$
+is a {noncommutative finite-fold  pre-covering} (cf. Definition \ref{fin_pre_defn}).
+On the other hand from the Theorem \ref{comm_fin_thm} it follows that a triple 
+
+$$
+\left(B,  \widetilde B ,G\left(\left. \widetilde{   \mathcal X } ~\right| {   \mathcal X }\right),   \pi\right)=\left(C_0\left(M \right), C_0\left(  \widetilde{   M }\right) ,G\left(\left. \widetilde{   M } ~\right| {   M }\right)\right)
+$$
+is a  noncommutative finite-fold covering. Taking into account the Definition \ref{o*fin_defn} on can obtain the following theorem.
+\begin{theorem}
+In the described above situation the quadruple
+$$
+\left(D\left(M \right),D\left(  \widetilde{   M }\right) ,G\left(\left. \widetilde{   M } ~\right| {   M }\right)\right)
+$$
+{noncommutative finite-fold covering of $O^*$-algebras}
+(cf. Definition \ref{o*fin_defn}).
+\end{theorem}
+
 
 
 
@@ -20181,11 +20214,11 @@ $\Phi\left(a^*\right)
 \paragraph*{}
 Define partial *-algebras of closable operators in Hilbert spaces. Let $\H$ be a Hilbert space with inner product $\left(\cdot, \cdot\right)_\H$ and $\D$ a dense subspace of $\H$. We denote by $\L\left(\D, \H \right)$ the set of all closable linear 
 operators $X$ in $\H$ uch that $\D\left(X \right)  =\D$ and put
-\be
+\be\label{l_dag_eqn}
 \begin{split}
 \L\left( \D\right) \bydef\left\{\left.X\in \L\left(\D, \H \right)\right|X\D\subset \D \right\},\\
 \L^\dagger\left( \D, \H\right) \bydef\left\{\left.X\in \L\left(\D, \H \right)\right|\D\left(X^* \right)\supset \D \right\},\\
-\L\left( \D\right) \bydef\left\{\left.X\in \L^\dagger\left(\D, \H \right)\cap \L\left( \D\right) \right|X^*\D\subset \D \right\}
+\L^\dagger\left( \D\right) \bydef\left\{\left.X\in \L^\dagger\left(\D, \H \right)\cap \L\left( \D\right) \right|X^*\D\subset \D \right\}.
 \end{split}
 \ee
 Then $\L^\dagger\left( \D, \H\right)$ is a vector space 
@@ -22617,7 +22650,7 @@ $$
 such that $\supp P(s) \subset  \supp s$.
 \end{definition}
 
-\begin{definition}
+\begin{definition}\label{do_man_order_defn}
 %Definition 6.2
  Let $M$ be a smooth manifold, $x_0\in M$. Let $E_1$, $E_2$ be two
 smooth vector bundles over $M$, and let
