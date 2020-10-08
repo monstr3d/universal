@@ -3710,7 +3710,25 @@ From the conditions (a) and (c) of \ref{inv_pro_lim_empt} it turns out that $M\l
 
 \begin{definition}\label{comp_o*_defn}
 	Let $\La$ be a countable directed set (cf. Definition \ref{directed_set_defn}) such that there is the unique minimal element $\la_{\min} \in \La$.
-	Let $A$ be an $O^*$-algebra.  Let us consider a set noncommutative finite-fold coverings  $O^*$-algebras $\mathfrak{S}=\left\{ \pi_{\la}:A \hookto A_{\la}\right\}_{\la \in \La}$ (cf. Definition \ref{pro_fin_defn}) indexed by  $\La$ such that $A_{\la_{\mathrm{min}}}= A$, and $\pi_{\la_{\mathrm{min}}}= \Id_A$.  The union $\widehat A \bydef\cup_{\la\in \La} A_\la$ is a *-algebra. If $\widehat G \bydef \varprojlim G\left(\left.A_\la\right|A\right)$ then there is the natural action $\widehat G\times \widehat A\to \widehat A$. Suppose that $\widehat A$ is an $O^*$-algebra and there are a Hilbert space $\widehat\H$ and its dense subspace $\widehat \D\subset \widehat\H$ such that  $\widehat A\subset \L^\dagger\left(\widehat\D \right)$. Moreover  suppose that there is an equivariant action
+	Let $A$ be an $O^*$-algebra.  Let us consider a set noncommutative finite-fold coverings of  $O^*$-algebras\\ $\mathfrak{S}=\left\{ \pi_{\la}:A \hookto A_{\la}\right\}_{\la \in \La}$ (cf. Definition \ref{pro_fin_defn}) indexed by  $\La$ such that $A_{\la_{\mathrm{min}}}= A$, and $\pi_{\la_{\mathrm{min}}}= \Id_A$.  Suppose that there is a category $\mathfrak{S}^{\text{pt}}$  such that
+	\begin{enumerate}
+		\item [(a)] The set of objects of $\mathfrak{S}^{\text{pt}}$ is $\mathfrak{S}$.
+		\item[(b)] $\mathfrak{S}^{\text{pt}}$ is equivalent to the pre-order category given by $\La$ (cf. Definition \ref{preordercat_defn} and Remark \ref{pre_order_rem})
+		\item[(c]  For any $\mu, \nu\in \La$ such that $\mu\ge\nu$ there is the unique morphism from $A \hookto A_{\nu}$ to $A \hookto A_{\mu}$ which is a noncommutative finite-fold covering $\pi^\nu_\mu:  A_{\nu}\hookto A_\mu$ of  $O^*$-algebras  such that $\pi_\mu =\pi^\nu_\mu \circ \pi_\nu$.
+		\item[(d)] All morphisms of   $\mathfrak{S}^{\text{pt}}$ are described in (c).
+	\end{enumerate}
+We say that $\mathfrak{S}^{\text{pt}}$ is a \textit{pointed algebraic finite covering category of $O^*$-algebras}.   We write $\mathfrak{S}^{\text{pt}} \in  O^*$-$ \mathfrak{FinAlg}^{\text{pt}}$, and use the following notation
+\be\label{comp_pt_o*_eqn}
+\begin{split}
+	\mathfrak{S}^{\text{pt}} = \left(\left\{\pi_\la: A \hookto A_\la \right\}_{\la \in \La}, \left\{\pi^\mu_\nu: A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\ \nu > \mu}}\right),\\
+	\text{or simply} \quad \mathfrak{S}^{\text{pt}} = \left(\left\{\pi_\la: A \hookto A_\la \right\}, \left\{\pi^\mu_\nu\right\}\right).
+\end{split}
+\ee
+\end{definition}	
+	
+\begin{empt}\label{comp_pt_o*_empt}
+In the situation of the Definition \ref{comp_o*_defn} moprphisms of $\mathfrak{S}^{\text{pt}}$ can be regarded as inclusions of *-algebras.
+	The union $\widehat A \bydef\cup_{\la\in \La} A_\la$ is a *-algebra. If $\widehat G \bydef \varprojlim G\left(\left.A_\la\right|A\right)$ then there is the natural action $\widehat G\times \widehat A\to \widehat A$. Suppose that $\widehat A$ is an $O^*$-algebra and there are a Hilbert space $\widehat\H$ and its dense subspace $\widehat \D\subset \widehat\H$ such that  $\widehat A\subset \L^\dagger\left(\widehat\D \right)$. Moreover  suppose that there is an equivariant action
 	$\widehat G\times \widehat \H\to \widehat \H$, i.e.
 	\be\label{o*_dinv_eqn}
 	\begin{split}
@@ -3721,37 +3739,11 @@ From the conditions (a) and (c) of \ref{inv_pro_lim_empt} it turns out that $M\l
 (cf. Definition \ref{equiv_defn})	
 Let $B$ is an essential ideal of the $C^*$-norm completion of the bounded part of $A$ (cf. Remark \ref{o*b_rem}). Similarly for all $\la\in\La$ let $B_\la$ is is an essential ideal of  the $C^*$-norm completion of the bounded part of $A_\la$.	Suppose that
 	$\mathfrak{S}_b=\left\{ \pi_{\la}:B \hookto  B_{\la} \right\}_{\la \in \La}$, or equivalently $$\mathfrak{S}_b=\left\{ \left( B ,  B_{\la} , G\left(\left.A_\la~\right|A \right) , \pi_{\la}\right) \right\}_{\la \in \La}$$
-	is  an {algebraical  finite covering category}.   
-	The set 
-	$\mathfrak{S}_b=\left\{ \pi_{\la}:A \hookto A_{\la}\right\}_{\la \in \La}$, or equivalently $$\mathfrak{S}=\left\{ \left( A , A_{\la}, G\left(\left.A_\la~\right|A \right) , \pi_{\la}\right) \right\}_{\la \in \La}$$
-	is said to be an \textit{algebraical  finite covering category of $O^*$-algebras}. \\
-	We write $\mathfrak{S} \in$ $O^*$-$\mathfrak{FinAlg}$.
-\end{definition}
-
-\begin{definition}\label{comp_pt_o*_defn}
-	A subcategory $\mathfrak{S}^{\text{pt}}$  of an algebraical  finite covering category of $O^*$-algebras $\mathfrak{S}$  is said to be a \textit{pointed algebraical  finite covering category of $O^*$-algebras}  if it is equivalent to the pre-order category given by $\La$ (cf. Definition \ref{preordercat_defn} and Remark \ref{pre_order_rem}).  We write $\mathfrak{S}^{\text{pt}} \in  O^*$-$ \mathfrak{FinAlg}^{\text{pt}}$, and use the following notation
-	\be\label{comp_pt_o*_eqn}
-	\begin{split}
-		\mathfrak{S}^{\text{pt}} = \left(\left\{\pi_\la: A \hookto A_\la \right\}_{\la \in \La}, \left\{\pi^\mu_\nu: A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\ \nu > \mu}}\right),\\
-		\text{or simply} \quad \mathfrak{S}^{\text{pt}} = \left(\left\{\pi_\la: A \hookto A_\la \right\}, \left\{\pi^\mu_\nu\right\}\right).
-	\end{split}
-	\ee
-\end{definition}
-\begin{remark}
-	If 	$\mathfrak{S}^{\text{pt}}$ is pointed algebraical  finite covering category of $O^*$-algebras then
-	\be\label{bounded_cat_o*_eqn}
-	\begin{split}
-		\mathfrak{S}^{\text{pt}}_b \bydef \left(\left\{\pi_\la|_{B }: B  \hookto B_\la \right\}_{\la \in \La}, \left\{\pi^\mu_\nu|_{B_\mu }: B_\mu  \hookto  B_\nu \right\}_{\substack{\mu, \nu \in \La~~\nu > \mu}}\right)
-	\end{split}
-	\ee
-	is a {pointed algebraical  finite covering category}.
-\end{remark}
-\begin{empt}\label{inv_o*_lim_empt}
-	Consider the situation of the Definition \ref{comp_pt_o*_defn}.
+	is  an {pointed algebraical  finite covering category}  (cf. Definition \ref{comp_pt_defn}).   
 If $\widehat B\bydef C^*$-$\varinjlim B_\la$ then there is the natural equivariant representation $\widehat{\pi}: \widehat{B}\hookto B\left( \widehat{\H}\right)$ (cf. Definition \ref{equiv_defn}). Suppose that $	\mathfrak{S}^{\text{pt}}_b$ is $\widehat{\pi}$-good (cf. Definition \ref{mains_defn}).  Let  $\left(B, \widetilde{B}_{\widehat{\pi}}, G_{\widehat{\pi}}\right)$  be the  $\widehat{\pi}$-{infinite noncommutative covering} of  $\mathfrak{S}^{\mathrm{pt}}_b$. (cf. Definition \ref{main_defn}). If $\widetilde{\H}$ is the Hilbert norm completion of   $\widetilde{B}_{\widehat{\pi}}\widehat\H$ and there is the orthogonal sum $\widehat\H= \widetilde\H \oplus \H^\perp$ then from the condition (b) of the Definition \ref{mains_defn} it follows that $\widetilde{B}_{\widehat{\pi}}\H^\perp= \{0\}$.  
 From the above equations it turns out that
 \be\label{o*dom_eqn}
-\widetilde \D = \widehat{\D}\cap \widetilde\H\Rightarrow \widetilde{A}_{\widehat{\pi}}\subset \L^\dagger\left( \widetilde \D \right) .
+\widetilde \D = \widehat{\D}\cap \widetilde\H\Rightarrow \widetilde{B}_{\widehat{\pi}}\cap \widehat A\subset \L^\dagger\left( \widetilde \D \right) .
 \ee
 There is the natural inclusion $\L^\dagger\left( \widetilde \D \right)\subset \L^\dagger\left( \widehat \D \right)$. Also there are actions $G_\pi\times \widetilde\H\to \widetilde\H$ and $G_\pi\times \widetilde\D\to \widetilde\D$
 which come from the action $\widehat G\times \widehat \H\to \widehat \H$.
@@ -3759,17 +3751,17 @@ A *-subalgebra $\widetilde A'\subset \L^\dagger\left( \widetilde \D \right)$ is 
 \be\label{inv_o*_lim_eqn}
 \begin{split}
 	G_\pi \widetilde A' = \widetilde A',\\
-	\left(K\left(\widetilde A_\pi \right)\cap  \L^\dagger\left( \widetilde \D \right) \right) \widetilde A'	\left(K\left(\widetilde A_\pi \right)\cap  \L^\dagger\left( \widetilde \D \right) \right) = \\=	\left(K\left(\widetilde A_\pi \right)\cap  \L^\dagger\left( \widetilde \D \right) \right) \widehat A	\left(K\left(\widetilde A_\pi \right)\cap  \L^\dagger\left( \widetilde \D \right) \right)
+	\left(K\left(\widetilde B_\pi \right)\cap  \L^\dagger\left( \widetilde \D \right) \right) \widetilde A'	\left(K\left(\widetilde B_\pi \right)\cap  \L^\dagger\left( \widetilde \D \right) \right) = \\=	\left(K\left(\widetilde B_\pi \right)\cap  \L^\dagger\left( \widetilde \D \right) \right)\left(  \widehat A\cap \L^\dagger\left( \widetilde \D \right) \right) 	\left(K\left(\widetilde B_\pi \right)\cap  \L^\dagger\left( \widetilde \D \right) \right)
 \end{split}
 \ee
- where $K\left(\widetilde A_\pi \right)$ is the Pedersen's ideal of $\widetilde A_\pi$ (cf. Definition \ref{peder_id_defn}).
+ where $K\left(\widetilde B_\pi \right)$ is the Pedersen's ideal of $\widetilde A_\pi$ (cf. Definition \ref{peder_id_defn}).
 \end{empt}
 
 
 
 \begin{definition}\label{inv_o*_lim_defn}
-	In the described in \ref{inv_o*_lim_empt} situation if $\widetilde A$ is a maximal  among *-subalgebras of $ \L^\dagger\left( \widetilde \D \right)$ 
-	which satisfies to \eqref{inv_o*_lim_eqn} then	
+	In the described in \ref{comp_pt_o*_empt} situation if $\widetilde A$ is a maximal  among *-subalgebras of $ \L^\dagger\left( \widetilde \D \right)$ 
+	which satisfy to \eqref{inv_o*_lim_eqn} then	
 	we say that the triple
 	$\left(A, \widetilde{A}, G_{\widehat{\pi}}\right)$ is the 
 	$\widehat{\pi}$-\textit{ inverse noncommutative limit of $\mathfrak{S}^{\mathrm{pt}}$}.
@@ -7482,12 +7474,12 @@ $$
 C_0\left(\widetilde M\right)\cap  \Coo\left(\widetilde M\right) = \widetilde A.
 $$
 \end{proof}
-\subsection{Coverings of $O^*$-algebras}
+\subsection{Coverings of $*$-algebras of differential operators}\label{top_pd_fin_sec}
 \paragraph*{}
 Let $M$ be an $n$-dimensional smooth manifold, let $\mu$ be a measure on $M$ which is locally given by an $n$-dimensional external differential form. If $\Coo_c\left(M \right)\bydef \Coo\left(M \right) \cap C_c\left(M \right)$ then
-$$
+\be\label{top_coo_p_eqn}
 a \in \Coo_c\left(M \right) \Rightarrow \int_M aa^*d\mu < \infty.
-$$ 
+\ee
 So $\Coo_c\left(M \right)$ is a pre-Hilbert space, denote by $L^2\left(M, \mu \right)$ its completion. Also denote by $\D \bydef \Coo_c\left(M \right)$, $\H\bydef  L^2\left(M, \mu \right)$. Let  $D\left( M\right)$ be an algebra of linear differential operators $\Coo\left(M \right)  \to \Coo\left(M \right)$ (df. Definition \ref{do_man_defn}).
 From $D\left( M\right)\D = \D$ it follows that $D\left( M\right) \subset \L^\dagger\left(\D \right)$ (cf. Equation \eqref{l_dag_eqn}). If $D_0\left( M\right)\subset D\left( M\right)$ is a subalgebra of having order 0 operators (cf. Definition \ref{do_man_order_defn}) then $D_0\left( M\right)\cong \Coo\left(M \right)$. If $\L^\dagger\left(\D \right)_b$ is given by \eqref{o*b_eqn} then one has
 $$
@@ -7504,7 +7496,7 @@ $$
 \left(B,  \widetilde B ,G\left(\left. \widetilde{   \mathcal X } ~\right| {   \mathcal X }\right),   \pi\right)=\left(C_0\left(M \right), C_0\left(  \widetilde{   M }\right) ,G\left(\left. \widetilde{   M } ~\right| {   M }\right)\right)
 $$
 is a  noncommutative finite-fold covering. Taking into account the Definition \ref{o*fin_defn} on can obtain the following theorem.
-\begin{theorem}
+\begin{theorem}\label{top_d_fin_thm}
 In the described above situation the quadruple
 $$
 \left(D\left(M \right),D\left(  \widetilde{   M }\right) ,G\left(\left. \widetilde{   M } ~\right| {   M }\right)\right)
@@ -8862,6 +8854,75 @@ $$
 i.e. there is a  contradiction with \eqref{inf_cov_oa_sub_eqn}.
 \end{proof}
 
+\subsection{Coverings of $*$-algebras of differential operators}
+\paragraph*{}
+Let $M$ be an $n$-dimensional smooth manifold, and let 
+
+	\be\label{top_secm_p_eqn}
+\begin{split}
+	\mathfrak{S}_{\left( M, x_0\right) }\bydef\\
+	\bydef \left\{\left\{p_\la:\left( M_\la, x^\la_0\right) \to \left( M, x_0\right)\right\}_{\la\in\La}, \left\{p^\mu_{ \nu}:\left( M_\mu, x^\mu_0\right) \to \left( M_\nu, x^\nu_0\right)\right\}_{\substack{\mu,\nu\in\La\\
+			\mu\ge\nu}} \right\}\\
+	%\in \\
+	\mathfrak{S}_{\left( M, x_0\right) }\in \mathfrak{FinTop}^{\text{pt}}.
+\end{split}
+\ee
+be a pointed  topological finite covering category  (cf. Definition \ref{top_sec_p_defn}). From the Theorem \ref{top_d_fin_thm} it turns out that there is  a {pointed algebraic finite covering category of $O^*$-algebras} (cf. Definition \ref{comp_o*_defn}) given by
+\be\label{top_comp_pt_o*_eqn}
+\begin{split}
+ \mathfrak{S}^{\text{pt}}_{P\left(M \right) } = \left(\left\{\pi_\la: P\left( M\right)  \hookto P\left( M_\la \right) \right\}, \left\{\pi^\mu_\nu\right\}\right).
+\end{split}
+\ee
+such that  $D\left( M_\la \right)$ is a *-algebra of differential operators $P:\Coo\left( M_\la\right) \to \Coo\left( M_\la\right)$  on $M_\la$  (cf. Definition \ref{do_man_defn})   for all $\la\in\La$. Note that for every $\la\in\La$ the smooth structure of $M_\la$ comes from the smooth structure on $M$ and the covering $M_\la\to M$. Injective *-homomorphisms $\pi_\la: D\left( M \right)\hookto D\left( M_\la \right)$ and $\pi^\nu_\mu: D\left( M_\nu \right)\hookto D\left( M_\mu \right)$ come from the coverings $p_\la$ and $p^\mu_\nu$ respectively.  If $\overline M$ is the disconnected inverse limit of $\mathfrak{S}_{\left( M, x_0\right) }$ then there are natural coverings $\overline p: \overline M\to M$, $\overline p_\la: \overline M\to M_\la$ which induce the structure of smooth mainfold on $\overline M$. So for all $\la \in \La$ there is a natural injective *-homomorphism $D\left( M_\la \right)\hookto D\left(\overline M_\la \right)$. If this injecive *-homomorphism are regarded as inclusions then there is the following inclusion
+\be
+\widehat A \bydef \bigcup_{\La \in \la}D\left( M_\la \right)\subset D\left( \overline M \right)
+\ee
+Let  $\mu$ be a measure on $M$ which is locally given by an $n$-dimensional external differential form and let $\overline \mu$ be a $\overline p$-lift of $\mu$. Similarly to the Section \ref{top_pd_fin_sec} one can define the Hilbert space  $\widehat \H\bydef  L^2\left(\overline M, \overline \nu\right)$ and its dense subspace $\widehat \D\bydef  \Coo_c\left(\overline M, \right)$.   If $\widehat G \bydef \varprojlim G\left(\left.M_\la\right|M\right)$
+\paragraph{title}
+
+
+
+\begin{empt}\label{comp_pt_o*_empt!}
+	In the situation of the Definition \ref{comp_o*_defn} moprphisms of $\mathfrak{S}^{\text{pt}}$ can be regarded as inclusions of *-algebras.
+	The union $\widehat A \bydef\cup_{\la\in \La} A_\la$ is a *-algebra. If $\widehat G \bydef \varprojlim G\left(\left.A_\la\right|A\right)$ then there is the natural action $\widehat G\times \widehat A\to \widehat A$. Suppose that $\widehat A$ is an $O^*$-algebra and there are a Hilbert space $\widehat\H$ and its dense subspace $\widehat \D\subset \widehat\H$ such that  $\widehat A\subset \L^\dagger\left(\widehat\D \right)$. Moreover  suppose that there is an equivariant action!!!
+	$\widehat G\times \widehat \H\to \widehat \H$, i.e.
+	\be\label{o*_dinv_eqn!}
+	\begin{split}
+		\widehat G\widehat \D= \widehat \D,\\
+		g\left(a\xi \right)= \left(ga\right) \left(g\xi\right)\quad \forall g\in\widehat G, ~\forall a\in\widehat A, ~ \forall \xi\in\widehat \D
+	\end{split}
+	\ee
+	(cf. Definition \ref{equiv_defn})	
+	Let $B$ is an essential ideal of the $C^*$-norm completion of the bounded part of $A$ (cf. Remark \ref{o*b_rem}). Similarly for all $\la\in\La$ let $B_\la$ is is an essential ideal of  the $C^*$-norm completion of the bounded part of $A_\la$.	Suppose that
+	$\mathfrak{S}_b=\left\{ \pi_{\la}:B \hookto  B_{\la} \right\}_{\la \in \La}$, or equivalently $$\mathfrak{S}_b=\left\{ \left( B ,  B_{\la} , G\left(\left.A_\la~\right|A \right) , \pi_{\la}\right) \right\}_{\la \in \La}$$
+	is  an {pointed algebraical  finite covering category}  (cf. Definition \ref{comp_pt_defn}).   
+	If $\widehat B\bydef C^*$-$\varinjlim B_\la$ then there is the natural equivariant representation $\widehat{\pi}: \widehat{B}\hookto B\left( \widehat{\H}\right)$ (cf. Definition \ref{equiv_defn}). Suppose that $	\mathfrak{S}^{\text{pt}}_b$ is $\widehat{\pi}$-good (cf. Definition \ref{mains_defn}).  Let  $\left(B, \widetilde{B}_{\widehat{\pi}}, G_{\widehat{\pi}}\right)$  be the  $\widehat{\pi}$-{infinite noncommutative covering} of  $\mathfrak{S}^{\mathrm{pt}}_b$. (cf. Definition \ref{main_defn}). If $\widetilde{\H}$ is the Hilbert norm completion of   $\widetilde{B}_{\widehat{\pi}}\widehat\H$ and there is the orthogonal sum $\widehat\H= \widetilde\H \oplus \H^\perp$ then from the condition (b) of the Definition \ref{mains_defn} it follows that $\widetilde{B}_{\widehat{\pi}}\H^\perp= \{0\}$.  
+	From the above equations it turns out that
+	\be\label{o*dom_eqn}
+	\widetilde \D = \widehat{\D}\cap \widetilde\H\Rightarrow \widetilde{B}_{\widehat{\pi}}\cap \widehat A\subset \L^\dagger\left( \widetilde \D \right) .
+	\ee
+	There is the natural inclusion $\L^\dagger\left( \widetilde \D \right)\subset \L^\dagger\left( \widehat \D \right)$. Also there are actions $G_\pi\times \widetilde\H\to \widetilde\H$ and $G_\pi\times \widetilde\D\to \widetilde\D$
+	which come from the action $\widehat G\times \widehat \H\to \widehat \H$.
+	A *-subalgebra $\widetilde A'\subset \L^\dagger\left( \widetilde \D \right)$ is said to be \textit{admissible} it satisfies to the following conditions
+	\be\label{inv_o*_lim_eqn}
+	\begin{split}
+		G_\pi \widetilde A' = \widetilde A',\\
+		\left(K\left(\widetilde B_\pi \right)\cap  \L^\dagger\left( \widetilde \D \right) \right) \widetilde A'	\left(K\left(\widetilde B_\pi \right)\cap  \L^\dagger\left( \widetilde \D \right) \right) = \\=	\left(K\left(\widetilde B_\pi \right)\cap  \L^\dagger\left( \widetilde \D \right) \right)\left(  \widehat A\cap \L^\dagger\left( \widetilde \D \right) \right) 	\left(K\left(\widetilde B_\pi \right)\cap  \L^\dagger\left( \widetilde \D \right) \right)
+	\end{split}
+	\ee
+	where $K\left(\widetilde B_\pi \right)$ is the Pedersen's ideal of $\widetilde A_\pi$ (cf. Definition \ref{peder_id_defn}).
+\end{empt}
+
+
+
+\begin{definition}\label{inv_o*_lim_defn}
+	In the described in \ref{comp_pt_o*_empt} situation if $\widetilde A$ is a maximal  among *-subalgebras of $ \L^\dagger\left( \widetilde \D \right)$ 
+	which satisfy to \eqref{inv_o*_lim_eqn} then	
+	we say that the triple
+	$\left(A, \widetilde{A}, G_{\widehat{\pi}}\right)$ is the 
+	$\widehat{\pi}$-\textit{ inverse noncommutative limit of $\mathfrak{S}^{\mathrm{pt}}$}.
+\end{definition}
+\paragraph{title}
 
 
 \subsection{Universal  coverings and  fundamental groups}
@@ -22658,9 +22719,9 @@ $$
 P: \Coo\left(M, E_1 \right)\to \Coo\left(M, E_2 \right)
 $$
 be a linear differential operator, in the sense of Definition \ref{do_man_defn}.
-Then we say that $P$ \textit{has order} $n$ at the point $x_0$ if $n$ is the largest nonnegative
+Then we say that $P$ \textit{has order} $m$ at the point $x_0$ if $m$ is the largest nonnegative
 integer such that there is some $s \in  \Coo\left(M, E_1 \right)$ and some smooth function
-$f$ defined in an open neighborhood of xo and vanishing at $x_0$ such that $P(f^ns)(x_0)=0$.
+$f$ defined in an open neighborhood of $x_0$ and vanishing at $x_0$ such that $P(f^ms)(x_0)\neq0$.
 The order of $P$ is the maximum of the orders of $P$ at all the points of $M$. 
 \end{definition}
  \end{appendices}
