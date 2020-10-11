@@ -3755,11 +3755,12 @@ A *-subalgebra $\widetilde A'\subset \L^\dagger\left( \widetilde \D \right)$ is 
 	G_\pi \widetilde A' = \widetilde A',\\
 \label{inv_o*_blim_eqn}
 \widetilde A'_b \subset M\left(\widetilde{B}_{\widehat{\pi}} \right) ,\\	
-\label{inv_o*_llim_eqn}	\left(K\left(\widetilde{B}_{\widehat{\pi}} \right)\cap  \L^\dagger\left( \widetilde \D \right) \right) \widetilde A'= \left(K\left(\widetilde{B}_{\widehat{\pi}} \right)\cap  \L^\dagger\left( \widetilde \D \right) \right) \left( \bigcup_{\la\in \La} A_\la\right) ,\\	
-\label{inv_o*_rlim_eqn}\widetilde A' \left(K\left(\widetilde{B}_{\widehat{\pi}} \right)\cap  \L^\dagger\left( \widetilde \D \right) \right)= \left( \bigcup_{\la\in \La} A_\la\right)\left(K\left(\widetilde{B}_{\widehat{\pi}} \right)\cap  \L^\dagger\left( \widetilde \D \right) \right) 	
+\label{inv_o*_llim_eqn}	\mathrm{span}\left(K\left(\widetilde{B}_{\widehat{\pi}} \right)\cap  \L^\dagger\left( \widetilde \D \right) \right) \widetilde A'=\mathrm{span} \left(K\left(\widetilde{B}_{\widehat{\pi}} \right)\cap  \L^\dagger\left( \widetilde \D \right) \right) \left( \bigcup_{\la\in \La} A_\la\right) ,\\	
+\label{inv_o*_rlim_eqn}\mathrm{span}~\widetilde A' \left(K\left(\widetilde{B}_{\widehat{\pi}} \right)\cap  \L^\dagger\left( \widetilde \D \right) \right)= \mathrm{span}\left( \bigcup_{\la\in \La} A_\la\right)\left(K\left(\widetilde{B}_{\widehat{\pi}} \right)\cap  \L^\dagger\left( \widetilde \D \right) \right) 	
 \eea
- where $K\left(\widetilde B_{\widehat\pi} \right)$ is the Pedersen's ideal of $\widetilde A_\pi$ (cf. Definition \ref{peder_id_defn}).
+ where $K\left(\widetilde B_{\widehat\pi} \right)$ is the Pedersen's ideal of $\widetilde A_\pi$ (cf. Definition \ref{peder_id_defn}) and span means the $\C$-linear span.
 \end{empt}
+
 
 
 
@@ -16447,27 +16448,34 @@ where $P_j$ is a monomial of $\left\lbrace\partial/\partial x_1, ..., \partial/\
 	\eqref{nt_comp_pt_o*_eqn}
 \end{theorem}
 \begin{proof}
-From $\Coo\left(\T^{2N}_{\th/m_j^2} \right)\subset C\left(\T^{2N}_{\th/m_j^2} \right)\subset M\left(C_0\left( \R^{2N}_\th\right)\right)$ it follows that $\Coo\left(\T^{2N}_{\th/m_j^2} \right)C_c\left(\T^{2N}_{\th/m_j^2} \right)\subset C_c\left(\T^{2N}_{\th/m_j^2} \right)$  and $C_c\left(\T^{2N}_{\th/m_j^2} \right)\Coo\left(\T^{2N}_{\th/m_j^2} \right)\subset C_c\left(\T^{2N}_{\th/m_j^2} \right)$. Taking into account $\Coo\left(\T^{2N}_{\th/m_j^2} \right)\subset  \L^\dagger\left(\widetilde \D \right)$ one has
-\be
-\bigcup_{j=1}^\infty \Coo\left(\T^{2N}_{\th/m_j^2} \right)\subset \Coo\left( \R^{2N}_\th\right).
+From $\Coo\left(\T^{2N}_{\th/m_j^2} \right)\subset C\left(\T^{2N}_{\th/m_j^2} \right)\subset M\left(C_0\left( \R^{2N}_\th\right)\right)$ it follows that $\Coo\left(\T^{2N}_{\th/m_j^2} \right)C_c\left(\T^{2N}_{\th/m_j^2} \right)\subset C_c\left(\T^{2N}_{\th/m_j^2} \right)$  and $C_c\left(\T^{2N}_{\th/m_j^2} \right)\Coo\left(\T^{2N}_{\th/m_j^2} \right)\subset C_c\left(\T^{2N}_{\th/m_j^2} \right)$. Taking into account $\Coo\left(\T^{2N}_{\th/m_j^2} \right)\subset  \L^\dagger\left(\widetilde \D \right)$ one has $\bigcup_{j=1}^\infty \Coo\left(\T^{2N}_{\th/m_j^2} \right)\subset \Coo\left( \R^{2N}_\th\right)$ therefore one concludes
+\be\label{nt_uni_inc_eqn}
+\bigcup_{j=1}^\infty D\left(\T^{2N}_{\th/m_j^2} \right)\subset D\left( \R^{2N}_\th\right).
 \ee
 	Let us prove that $D\left(\R^{2N}_\th\right)$ is admissible, i.e. it satisfies to the equations \eqref{inv_o*_lim_eqn}-\eqref{inv_o*_rlim_eqn}; that is
 	\bea\label{nt_inv_o*_lim_eqn}
 	\Z^N D\left( \R^{2N}_\th\right)  = D\left(\R^{2N}_\th\right),\\
-	\label{top_inv_o*_blim_eqn!}
-%	\left(D\left( \T^{2N}_\th \right)_b =  C_b\left( \R^{2N}_\th \right) \cap \Coo\left( \widetilde{M}\right)  \subset M\left(\widetilde{B}_{\widehat{\pi}}= M\left( C_0\left( \widetilde{M}\right)\right)  \right)\cong C_b\left( \widetilde{M}\right), \\
-	\label{top_inv_o*_llim_eqn!}	
-	\Coo_c\left(\widetilde{M} \right)  D\left( \widetilde{M}\right)= \Coo_c\left( \widetilde{M}\right)\left(  \bigcup_{\la \in \La}D\left( M_\la \right)\right) ,\\	
-	\label{top_inv_o*_rlim_eqn!}D\left( \widetilde{M}\right)\Coo_c\left(\widetilde{M} \right)  = \left( \bigcup_{\la \in \La}D\left( M_\la \right)\right) \Coo_c\left( \widetilde{M}\right).	
-	\eea
+	\label{nt_inv_o*_blim_eqn}
+	C_b\left(\R^{2N}_\th \right) \cap \L^\dagger\left(\widetilde \D \right)\subset 	C_b\left(\R^{2N}_\th \right), \\
+	\label{nt_inv_o*_llim_eqn}	
+	\Coo_c\left(\R^{2N}_\th \right)  D\left( \R^{2N}_\th\right)= \Coo_c\left(\R^{2N}_\th\right) \left(  \bigcup_{j=1}^\infty D\left(\T^{2N}_{\th/m_j^2} \right)\right)  ,\\	
+	\label{nt_inv_o*_rlim_eqn}
+D\left( \R^{2N}_\th\right)\Coo_c\left(\R^{2N}_\th \right)  =\left(  \bigcup_{j=1}^\infty D\left(\T^{2N}_{\th/m_j^2} \right)	\right)\Coo_c\left(\R^{2N}_\th\right). 
+\eea
+
 	\begin{itemize}
-		\item The equation \eqref{top_inv_o*_lim_eqn} holds because any $g \in G\left(\left.\widetilde{M}\right|M\right)$ corresponds to a diffeomorphism of $\widetilde{M}$.
-		\item The equation \eqref{top_inv_o*_blim_eqn} follows from an evident inclusion $C_b\left( \widetilde{M}\right) \cap \Coo\left( \widetilde{M}\right)  \subset C_b\left( \widetilde{M}\right)$.
-		\item The equation  \eqref{top_inv_o*_llim_eqn} follows from $\Coo_c\left(\widetilde{M} \right)  D\left( \widetilde{M}\right)\subset \Coo_c\left( \widetilde{M}\right) \left( \bigcup_{\la \in \La}D\left( M_\la \right)\right) $.
-		Let  $\widetilde f \in \Coo_c\left( \widetilde{M}\right)$ and $\widetilde d \in  D\left( \widetilde{M}\right)$. There is $\widetilde h \in \Coo_c\left( \widetilde{M}\right)$ such that $\widetilde h\left(\supp \widetilde f \right)= \{1\}$. From the Lemma \ref{top_comp_la_lem} it follows that there is $\la\in\La$ such that $\supp \widetilde h$ is homeomorphically mapped onto $\widetilde p_\la\left(\supp\widetilde h \right)$. If $d_\la \bydef \desc_{\widetilde p_\la} \left(\widetilde h \widetilde d \right)$ then  $\widetilde f \widetilde d= \widetilde f d_\la$.
-		\item The equation  \eqref{top_inv_o*_rlim_eqn} follows from $  D\left( \widetilde{M}\right)\Coo_c\left(\widetilde{M} \right)\subset  \left( \bigcup_{\la \in \La}D\left( M_\la \right)\right) \Coo_c\left( \widetilde{M}\right)$.
-		Let  $\widetilde f \in \Coo_c\left( \widetilde{M}\right)$ and $\widetilde d \in  D\left( \widetilde{M}\right)$. There is $\widetilde h \in \Coo_c\left( \widetilde{M}\right)$ such that $\widetilde h\left(\supp \widetilde f \right)= \{1\}$. From the Lemma \ref{top_comp_la_lem} it follows that there is $\la\in\La$ such that $\supp \widetilde h$ is homeomorphically mapped onto $\widetilde p_\la\left(\supp\widetilde h \right)$. If $d_\la \bydef \desc_{\widetilde p_\la} \left(\widetilde d \widetilde h \right)$ then  $\widetilde d \widetilde f= d_\la \widetilde f$.
-		
+		\item The equation \eqref{nt_inv_o*_lim_eqn} follows from $	\Z^N \Coo\left( \R^{2N}_\th\right)=\Coo\left( \R^{2N}_\th\right)$ and \\	$\Z^N\left\lbrace\partial/\partial x_1, ..., \partial/\partial x_n \right\rbrace= \left\lbrace\partial/\partial x_1, ..., \partial/\partial x_n \right\rbrace$.
+		\item The equation \eqref{nt_inv_o*_blim_eqn} is a tautology.
+		\item From \eqref{nt_uni_inc_eqn} ir follows that
+		$$
+ \Coo_c\left(\R^{2N}_\th\right)\left(  \bigcup_{j=1}^\infty D\left(\T^{2N}_{\th/m_j^2} \right)\right)	\subset		\Coo_c\left(\R^{2N}_\th \right)  D\left( \R^{2N}_\th\right)
+ 			$$.
+ 		Conversely if $a \in \Coo_c\left(\R^{2N}_\th \right)$ and $P= P = \sum_{j=1}^m a_j P_j,\quad a_1,..., a_n\in \Coo\left( \R^{2N}_\th\right)\in  D\left( \R^{2N}_\th\right)$ (cf. \eqref{nt_diff1_eqn}) then 
+ 	\bean
+ 		aP = aa_1P_1 + ... + aa_mP_m = b_mP_1 + b_mP_1 =\\= b_1 1_{{\Coo\left(\T^{2N}_{\th/m_j^2} \right)} }P_1 + ... + b_m 1_{{\Coo\left(\T^{2N}_{\th/m_j^2} \right)} }P_m \in \Coo_c\left(\R^{2N}_\th\right) \left(  \bigcup_{j=1}^\infty D\left(\T^{2N}_{\th/m_j^2} \right)\right)
+ 	\eean
+ 	where $b_j \bydef aa_j \in  \Coo_c\left(\R^{2N}_\th\right)$ for any $j =1,...,m$.
+		\item The proof of the equation  \eqref{top_inv_o*_rlim_eqn} is similar to the proof of \eqref{top_inv_o*_rlim_eqn} 
 	\end{itemize}
 	Now one should prove that $D\left( \widetilde{M}\right)$ is a maximal *-algebra which satisfies to  the equations \eqref{inv_o*_lim_eqn}-\eqref{inv_o*_rlim_eqn}. If it is not maximal then there is $\widetilde d \in \L^\dagger\left( \widetilde \D\right)\setminus D\left(\widetilde M \right)$. There is $\widetilde f \in \Coo\left(\widetilde M \right)$ such that $\supp\widetilde d \widetilde f \not\subset\widetilde f$. There is $\widetilde h \in \Coo_c\left(\widetilde M  \right)$ such that $\widetilde h\left( \supp \widetilde d \widetilde f \setminus\supp f\right)   \neq \{0\}$. It follows that $\supp \widetilde h \widetilde d\widetilde f\not\subset \widetilde f$. So $\widetilde h \widetilde d \not\in \Coo_c\left( \widetilde M\right) D\left( M_\la\right) $ for all $\la\in\La$. 
 	
@@ -16521,13 +16529,6 @@ From $\Coo\left(\T^{2N}_{\th/m_j^2} \right)\subset C\left(\T^{2N}_{\th/m_j^2} \r
 	There is the natural inclusion $\L^\dagger\left( \widetilde \D \right)\subset \L^\dagger\left( \widehat \D \right)$. Also there are actions $G_\pi\times \widetilde\H\to \widetilde\H$ and $G_\pi\times \widetilde\D\to \widetilde\D$
 	which come from the action $\widehat G\times \widehat \H\to \widehat \H$.
 	A *-subalgebra $\widetilde A'\subset \L^\dagger\left( \widetilde \D \right)$ is said to be \textit{admissible} it satisfies to the following conditions
-	\bea\label{inv_o*_lim_eqn!}
-	G_\pi \widetilde A' = \widetilde A',\\
-	\label{inv_o*_blim_eqn!}
-	\widetilde A'_b \subset M\left(\widetilde{B}_{\widehat{\pi}} \right) ,\\	
-	\label{inv_o*_llim_eqn!}	\left(K\left(\widetilde{B}_{\widehat{\pi}} \right)\cap  \L^\dagger\left( \widetilde \D \right) \right) \widetilde A'= \left(K\left(\widetilde{B}_{\widehat{\pi}} \right)\cap  \L^\dagger\left( \widetilde \D \right) \right) \left( \bigcup_{\la\in \La} A_\la\right) ,\\	
-	\label{inv_o*_rlim_eqn!}\widetilde A' \left(K\left(\widetilde{B}_{\widehat{\pi}} \right)\cap  \L^\dagger\left( \widetilde \D \right) \right)= \left( \bigcup_{\la\in \La} A_\la\right)\left(K\left(\widetilde{B}_{\widehat{\pi}} \right)\cap  \L^\dagger\left( \widetilde \D \right) \right) 	
-	\eea
 	where $K\left(\widetilde B_{\widehat\pi} \right)$ is the Pedersen's ideal of $\widetilde A_\pi$ (cf. Definition \ref{peder_id_defn}).
 \end{empt}
 
