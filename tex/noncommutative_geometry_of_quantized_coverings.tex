@@ -15519,7 +15519,7 @@ Summarize above constructions one has the following theorem.
 
 According to \ref{nt_m_planes_empt}
 the algebra $C_b\left(\R^{2N}_\th \right)$  contains all plane waves.
-\begin{rem}\label{nt_c_k_eqn}
+???\begin{rem}\label{nt_c_k_eqn}
 	If $ \left\{c_k \in \C\right\}_{k \in \N^0} $ is such that $\sum_{k = 0}^\infty \left|c_k\right| < \infty$ then from $\left\| \exp\left(ik\cdot\right)\right\|_{\mathrm{op}}=1$ it turns out  $\left\|\sum_{k = 0}^\infty c_k\exp\left(ik\cdot\right)\right\|_{\mathrm{op}}< \sum_{k = 0}^\infty \left|c_k\right| < \infty$, i.e. $\sum_{k = 0}^\infty c_k\exp\left(ik\cdot\right) \in C_b\left(\R^{2N}_\th \right)$. 
 \end{rem}
 \begin{empt}\label{mp_nt_op_empt}
@@ -15876,7 +15876,15 @@ c_k = \frac{1}{m_j^{2N} }\int_I \exp\left(2\pi i \frac{k}{m_j} ~x \right)\sum_{g
 \eean
 \end{proof}
 
-
+\begin{remark}\label{nt_w*_top_rem}
+From (ii) of the Lemma \ref{nt_w*_top_lem} it follows that there is a $\C$-linear map
+\be\label{nt_w*_top_psi_eqn}
+\begin{split}
+\Psi : S\left(\R^{2N} _\th\right) \to \Coo\left(\T^{2N}_{\th}\right)\\
+\widetilde a \mapsto \sum_{g \in \Z^{2N}} g \widetilde{a}.
+\end{split}
+\ee
+\end{remark}
 
 
 \begin{lemma}\label{nt_w*_lem}
@@ -16398,7 +16406,6 @@ Otherwise from the Lemma \ref{nt_spec_c0_lem}  it  follows that any special elem
 	\end{enumerate}
 	(ii) and (iii) Follow from the proof of (i).
 \end{proof}
-\paragraph{title}
 
 \begin{empt}\label{nt_cov_oa_empt}
 Consider  a pointed algebraical  finite covering category  (cf. Definition \ref{comp_pt_defn})
@@ -16411,10 +16418,39 @@ Consider  a pointed algebraical  finite covering category  (cf. Definition \ref{
 given by (cf. \eqref{nt_cofinal_eqn}). If the representation  $\widehat\pi^\oplus: \varinjlim_{j\in\N}C\left(\T^{2N}_{\th/m_j^2} \right)\hookto B\left(L^2\left(\R^{2N} \right)\right)$ is given by \eqref{nt_equiv_eqn} the from the Theorem \ref{nt_inf_cov_thm} that	$\mathfrak{S}_{C\left(\T^{n}_{{\Th}} \right)}^\N$
 	is $\widehat\pi^\oplus$-good  (cf. Definition \ref{mains_defn}) and the triple  $\left(C\left(\mathbb{T}^{2N}_\th \right), C_0\left(\R^{2N}_\th\right), \Z^{2N} \right)$  is the $\widehat{\pi}^\oplus$-infinite noncommutative covering of $\mathfrak{S}^\N_\th$ (cf. Definition \ref{main_defn}). From the Corollary \ref{nt_fin_cor} it follows that 
 	\bean
-	\mathfrak{S}^\N_{\Coo_0\left(M \right)} \bydef\\\bydef \left(\left\{\pi_j: \Coo\left(M \right) \hookto \Coo_0\left(M \right) \right\}_{\la \in \La}, \left\{\pi^\mu_\nu: \Coo_0\left(M \right) \hookto \Coo_0\left(M \right)\right\}_{\substack{\mu, \nu \in \La\\ \nu > \mu}}\right)
+	\mathfrak{S}_{\Coo\left(\T^{n}_{{\Th}} \right)}^\N
+=\left( \left\{ \left( \Coo\left(\T^{2N}_{{\th}} \right), \Coo\left(\T^{2N}_{\th/m_j^2} \right), \Z^n_{m_j}, \pi_j\right)  \right\}_{\substack{j \in \N\\ ~\\~}}\right., \\ \left. \left\{  \pi^j_k: \Coo\left(\T^{2N}_{\th/m_j^2} \right)\hookto \Coo\left(\T^{2N}_{\th/m_k^2} \right) \right\}_{\substack{j,k \in \N\\ j < k}}\right).
 	\eean
-is a category	of noncommutative finite-fold coverings of operator algebras (cf. Definition \ref{inf_cov_oa_cat_defn}). Both 	$\mathfrak{S}^{\N}_{C\left(\T^{2N}_{\th} \right)}$ and $\mathfrak{S}^{\N}_{\Coo\left(\T^{2N}_{\th} \right)}$ are specializations of both $\mathfrak{S}^{\text{pt}}$ and $	C^*_e\left( \mathfrak{S}^{\text{pt}}\right)$ given by equations \eqref{inf_cov_oae_eqn} and \eqref{inf_cov_oa_eqn} respectively. 
+	is a category	of noncommutative finite-fold coverings of operator algebras (cf. Definition \ref{inf_cov_oa_cat_defn}). Both 	$\mathfrak{S}^{\N}_{C\left(\T^{2N}_{\th} \right)}$ and $\mathfrak{S}^{\N}_{\Coo\left(\T^{2N}_{\th} \right)}$ are specializations of both $\mathfrak{S}^{\text{pt}}$ and $	C^*_e\left( \mathfrak{S}^{\text{pt}}\right)$ given by equations \eqref{inf_cov_oae_eqn} and \eqref{inf_cov_oa_eqn} respectively. 
 \end{empt}
+\begin{empt}
+	Let 	$\Psi : S\left(\R^{2} _\th\right) \to \Coo\left(\T^{2}_{\th}\right)$ be the given by the Equation \eqref{nt_w*_top_psi_eqn} $\C$ linear map. For all $m, n \in \N^{0}$ denote by
+	$$
+	k_{mn}\bydef \left\|\Psi \left( f_{nm}\right) \right\| 
+	$$
+	where the norm means the given by \eqref{mp_op_eqn} operator norm.
+\end{empt}
+\begin{lemma}	
+	There is $M \in \N$ and $C \in \R$ such that
+	\be
+	k_{mn} < C m^M n^M
+	\ee
+\end{lemma}
+\begin{proof}
+	If $M$ does not exists then there is $\widetilde{a}\in S\left(\R^{2} _\th\right)$
+	such that
+	$\Psi\left( \widetilde{a}\right) \not\in \Coo\left(\T^{2}_{\th}\right)$. There is a contradiction.
+\end{proof}
+\begin{lemma}
+If $c_n = \frac{1}{\left( 2n\right) ^{M + 3}}$ and $\widetilde \bydef \sum_{}$.
+\end{lemma}
+\begin{empt}
+If $c_n = \frac{1}{n^{M + 3}}$ then the series 
+\be
+g
+\ee
+\end{empt}
+\paragraph{title}
 \begin{lemma}\label{nt_cov_oa_lem}
 	In the situation \ref{nt_cov_oa_empt} if  subalgebra $\widetilde A'$ of $\widetilde B$  {is subordinated to}  $\mathfrak{S}^{\text{pt}}_{\Coo\left(M \right) }$ (cf. Definition \ref{inf_cov_oa_sub_defn}) then
 	$\widetilde A'\subset C_0\left( \widetilde M\right) \cap \Coo\left( \widetilde M\right)$.
@@ -21581,11 +21617,23 @@ One has
  		C_0\left(\R^{2N}_\th\right) \cong \underbrace{C_0\left(\R^{2}_\th\right)\otimes\dots\otimes C_0\left(\R^{2}_\th\right)}_{N-\mathrm{times}} \approx \underbrace{\mathcal K\otimes\dots\otimes\mathcal K}_{N-\mathrm{times}} \approx \mathcal K
  		\end{equation}
  		where $\otimes$ means minimal or maximal tensor product ($\mathcal{K}$ is nuclear hence both products coincide).
- 		
- 		
- 		
+ 			
  	\end{rem}
- 	
+ 
+ \begin{definition}\cite{varilly_bondia:phobos}
+ %Denition 6.
+  For $s, t \in\R$ we denote by $\G_{s,t}$ the Hilbert space obtained by completing $\sS\left( \R^2 \right)$  with
+ respect to the norm
+ $$
+ \left\|\sum_{m,n = 0}^\infty c_{mn} f_{mn}\right\|= \sqrt{\sum_{m,n = 0}^\infty \left(2m + 1\right)^s \left(2n + 1\right)^t \left| c_{mn}\right|^2 }
+ $$
+ 
+ \end{definition}
+
+Denote by 
+\be
+\mathcal{I}_{s,t}\bydef \G_{s,0}\times \G_{0,t} = \left\{f\times g~ \left|~ f\in \G_{s,0}, \quad g\in \G_{0,t}  \right|\right\}
+\ee
  	
  	
  	
@@ -21759,7 +21807,7 @@ One has
 \be\label{mp_dpq_e_eqn}
 \begin{split}
  		\frac{\partial}{\partial p} f = \sqrt{2}\left( -i\left( a   +  \overline{a}\right) \times f +if \times \left( a   +  \overline{a}\right)\right) \\
- 		 		\frac{\partial}{\partial q} f = \sqrt{2}\left( -\left( a   -  \overline{a}\right) \times f -f \times \left( a   +  \overline{a}\right)\right)
+ 		 		\frac{\partial}{\partial q} f = \sqrt{2}\left( -\left( a   -  \overline{a}\right) \times f -f \times \left( a   +  \overline{a}\right)\right).
  		 \end{split}
 \ee
 %Substitution of \eqref{mp_hamd_act_eqn} into \eqref{mp_dpq_e_eqn} yields the following 
