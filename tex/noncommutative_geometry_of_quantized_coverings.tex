@@ -3825,14 +3825,21 @@ ${\pi}$-{ inverse noncommutative limit of $\mathfrak{S}^{\mathrm{pt}}_0$} (cf. D
 \mathfrak A^\la_0 \subset \L^\dagger\left(\widetilde \D \right) 
 \ee
 %Suppose that for all $\la \in \La$ the space  $\mathfrak A^\la$ is a space  adjointable sequilinear bounded functionals  $\varphi:\widetilde \D \times \widetilde \D  \to \C$ such that for all $a_\la\in \mathfrak A^\la_0$ both   $\left( \xi, \eta\right) \mapsto \varphi\left( \xi, a \eta\right)$ and  $\left( \xi, \eta\right) \mapsto \varphi\left( a^*\xi,  \eta\right)$ lie in $\mathfrak A^\la$. 
-Suppose that there is a quasi *-algebra  $\left( \widetilde{\mathfrak A}', \widetilde{\mathfrak A}_0\right)$ and an inclusion $\varphi:\bigcup_{\la\in \La} \left( \mathfrak A^\la, \mathfrak A^\la_0\right)\hookto \left( \widetilde{\mathfrak A}', \widetilde{\mathfrak A}_0\right)$ are said to be \textit{admissible} if following conditions hold
-\bea\label{inv_qo*_lim_eqn}
-G_\pi \widetilde{\mathfrak A}' =\widetilde{\mathfrak A}',\\
-\label{inv_phi_eqn}	
-\varphi|_{:\bigcup_{\la\in \La}  \mathfrak A^\la_0}, \text{ is the natural inclusion} \bigcup_{\la\in \La}  \mathfrak A^\la_0\hookto \widetilde{\mathfrak A}_0 \\
-\label{inv_qo*_llim_eqn}	\mathrm{span}\left(K\left(\widetilde{B}_{\widehat{\pi}} \right)\cap  \widetilde{\mathfrak A}_0 \right) \widetilde{\mathfrak A}'=\mathrm{span} \left(K\left(\widetilde{B}_{\widehat{\pi}} \right)\cap  \widetilde{\mathfrak A}_0  \right) \left( \bigcup_{\la\in \La} \mathfrak A_\la\right) ,\\	
- \label{inv_qo*_rlim_eqn}	\widetilde{\mathfrak A}'\mathrm{span}\left(K\left(\widetilde{B}_{\widehat{\pi}} \right)\cap  \widetilde{\mathfrak A}_0 \right) =\left( \bigcup_{\la\in \La} \mathfrak A_\la\right)\mathrm{span} \left(K\left(\widetilde{B}_{\widehat{\pi}} \right)\cap  \widetilde{\mathfrak A}_0  \right)  \eea
+Suppose that there is a quasi *-algebra  $\left( \widetilde{\mathfrak A}', \widetilde{\mathfrak A}_0\right)$ which satisfies to the following conditions
+\begin{enumerate}
+	\item[(a)]  !!! There is the action $G_\pi\times \left( \widetilde{\mathfrak A}', \widetilde{\mathfrak A}_0\right)\to \left( \widetilde{\mathfrak A}', \widetilde{\mathfrak A}_0\right)$ which induces the natural action $ G_\pi\times  \widetilde{\mathfrak A}_0\to  \widetilde{\mathfrak A}_0$.
+	\item[(b)] There is an inclusion $\varphi:\bigcup_{\la\in \La} \left( \mathfrak A^\la, \mathfrak A^\la_0\right)\hookto \left( \widetilde{\mathfrak A}', \widetilde{\mathfrak A}_0\right)$ such that
+	\be\label{inv_phi_eqn}	
+	\varphi|_{\bigcup_{\la\in \La}  \mathfrak A^\la_0} \text{ is the natural inclusion} \bigcup_{\la\in \La}  \mathfrak A^\la_0\hookto \widetilde{\mathfrak A}_0
+	\ee
+	\item[(c)] Following conditions hold
+\bea
+\label{inv_qo*_llim_eqn}	\left\lbrace \mathrm{span}\left(K\left(\widetilde{B}_{\widehat{\pi}} \right)\cap  \widetilde{\mathfrak A}_0 \right) \widetilde{\mathfrak A}'\right\rbrace =\left\lbrace \mathrm{span} \left(K\left(\widetilde{B}_{\widehat{\pi}} \right)\cap  \widetilde{\mathfrak A}_0  \right) \left( \bigcup_{\la\in \La} \mathfrak A_\la\right) \right\rbrace ,\\	
+\label{inv_qo*_rlim_eqn}\mathrm{span}\left\lbrace 	\widetilde{\mathfrak A}'\left(K\left(\widetilde{B}_{\widehat{\pi}} \right)\cap  \widetilde{\mathfrak A}_0 \right) \right\rbrace =\left\lbrace \left( \bigcup_{\la\in \La} \mathfrak A_\la\right)\mathrm{span} \left(K\left(\widetilde{B}_{\widehat{\pi}} \right)\cap  \widetilde{\mathfrak A}_0  \right) \right\rbrace  \eea
 where $K\left(\widetilde B_{\widehat\pi} \right)$ is the Pedersen's ideal of $\widetilde A_\pi$ (cf. Definition \ref{peder_id_defn}) and span means the $\C$-linear span.
+	
+\end{enumerate}
+Then $\left( \widetilde{\mathfrak A}', \widetilde{\mathfrak A}_0\right)$ is said to be \textit{admissible}.
 
 
 \end{empt}
@@ -9381,15 +9388,50 @@ From the Corollary \ref{top_q_fin_cor} it turns out that there  is a pointed alg
  \mathfrak{S}^{\text{pt}}_{\left(\Coo_c\left(M \right)', \Coo\left(M \right)    \right) } =\\=\left(\left\{\pi_\la: \left(\Coo_c\left(M \right)', \Coo\left(M \right)    \right) \hookto \left(\Coo_c\left(M_\la \right)', \Coo\left(M_\la \right)    \right) \right\}_{\la \in \La}, \left\{\pi^\mu_\nu: \right\}_{\substack{\mu, \nu \in \La\\ \nu > \mu}}\right).
 \end{split}
 \ee
-\begin{lemma}\label{top_inf_q*_lem}
-!!!	In the described above situation the triple
+\begin{theorem}\label{top_inf_q*_thm}
+	In the described above situation the triple
 	$$
 \left(\left(\Coo_c\left(M \right)', \Coo\left(M \right)    \right), \left(\Coo_c\left(\widetilde M \right)', \Coo\left( \widetilde M \right)    \right), G\left(\left. \widetilde M\right| M\right)\right)
 $$
  is the 
-	$\widehat{\pi}$-\textit{ inverse noncommutative limit of $\mathfrak{S}^{\mathrm{pt}}_{\Coo\left(M \right) }$} a {pointed algebraic finite covering category of quasi $*$-algebras} (cf. Definition \ref{comp_o*_defn}) given by
-	\eqref{top_comps_pt_o*_eqn}
-\end{lemma}
+	$\widehat{\pi}$- inverse noncommutative limit  (cf. Definition \ref{comp_qo*_defn}) of  a {pointed algebraic finite covering category of quasi $*$-algebras} $\mathfrak{S}^{\mathrm{pt}}_{\left(\Coo_c\left(M \right)', \Coo\left(M \right)    \right)  }$.
+\end{theorem}
+\begin{proof}
+	From the Lemma \ref{top_inf_o*_lem} it turns out that one should proof that $\left(\Coo_c\left(\widetilde M \right)', \Coo\left( \widetilde M \right)    \right)$ is maximal among admissible quasi *-algebras (cf. \ref{comp_pt_qo*_empt}). If a quasi *-algebra $\left(\widetilde{\mathfrak A}', \Coo\left( \widetilde M \right)    \right)$ is  admissible then from the equations \eqref{inv_qo*_lim_eqn}- \eqref{inv_qo*_rlim_eqn} it follows that
+		\bea\label{top_inv_qo*_lim_eqn}
+G\left(\left. \widetilde M\right| M\right) \widetilde{\mathfrak A}' =\Coo_c\left(\widetilde M \right)',\\
+	\label{top_inv_phi_eqn}	
+	\varphi|_{:\bigcup_{\la\in \La}  \mathfrak A^\la_0}, \text{ is the natural inclusion} \bigcup_{\la\in \La}  \mathfrak A^\la_0\hookto \widetilde{\mathfrak A}_0 \\
+	\label{top_inv_qo*_llim_eqn}	\mathrm{span}\left(K\left(\widetilde{B}_{\widehat{\pi}} \right)\cap  \widetilde{\mathfrak A}_0 \right) \widetilde{\mathfrak A}'=\mathrm{span} \left(K\left(\widetilde{B}_{\widehat{\pi}} \right)\cap  \widetilde{\mathfrak A}_0  \right) \left( \bigcup_{\la\in \La} \mathfrak A_\la\right) ,\\	
+	\label{top_inv_qo*_rlim_eqn}
+		\widetilde{\mathfrak A}'\mathrm{span}\left(K\left(\widetilde{B}_{\widehat{\pi}} \right)\cap  \widetilde{\mathfrak A}_0 \right) =\left( \bigcup_{\la\in \La} \mathfrak A_\la\right)\mathrm{span} \left(K\left(\widetilde{B}_{\widehat{\pi}} \right)\cap  \widetilde{\mathfrak A}_0  \right)  \eea
+	
+\end{proof}
+\begin{empt}\label{comp_pt_qo*_empt!}
+	Let $\mathfrak{S}^{\text{pt}}$ be a given by \eqref{comp_pt_qo*_eqn} category. Suppose that
+	the category
+	\be\label{comp_pt_qo*0_eqn}
+	\begin{split}
+		\mathfrak{S}_0^{\text{pt}}\bydef \left(\left\{\left.\pi_\la\right|_{\mathfrak A_0}: \mathfrak A_0 \hookto \mathfrak A_0^\la \right\}_{\la \in \La}, \left\{\left.\pi^\mu_\nu\right|_{\mathfrak A^\mu_0}: \mathfrak A_0^\mu \hookto \mathfrak A_0^\nu\right\}_{\substack{\mu, \nu \in \La\\ \nu > \mu}}\right)
+	\end{split}
+	\ee
+	satisfies to the conditions  described in \ref{comp_pt_o*_empt}, Suppose that  	$\left(\mathfrak A_0, \widetilde{\mathfrak A}_0, G_{\widehat{\pi}}\right)$ is the 
+	${\pi}$-{ inverse noncommutative limit of $\mathfrak{S}^{\mathrm{pt}}_0$} (cf. Definition \ref{inv_o*_lim_defn}). The union $\bigcup_{\la\in \La} \left( \mathfrak A^\la, \mathfrak A_0^\la \right)$ is a quasi-$O^*$-algebra. If $\widetilde \D$ is given by \eqref{o*dom_eqn} then for any $\la\in\La$ there is the natural inclusion
+	\be
+	\mathfrak A^\la_0 \subset \L^\dagger\left(\widetilde \D \right) 
+	\ee
+	%Suppose that for all $\la \in \La$ the space  $\mathfrak A^\la$ is a space  adjointable sequilinear bounded functionals  $\varphi:\widetilde \D \times \widetilde \D  \to \C$ such that for all $a_\la\in \mathfrak A^\la_0$ both   $\left( \xi, \eta\right) \mapsto \varphi\left( \xi, a \eta\right)$ and  $\left( \xi, \eta\right) \mapsto \varphi\left( a^*\xi,  \eta\right)$ lie in $\mathfrak A^\la$. 
+	Suppose that there is a quasi *-algebra  $\left( \widetilde{\mathfrak A}', \widetilde{\mathfrak A}_0\right)$ and an inclusion $\varphi:\bigcup_{\la\in \La} \left( \mathfrak A^\la, \mathfrak A^\la_0\right)\hookto \left( \widetilde{\mathfrak A}', \widetilde{\mathfrak A}_0\right)$ are said to be \textit{admissible} if following conditions hold
+	where $K\left(\widetilde B_{\widehat\pi} \right)$ is the Pedersen's ideal of $\widetilde A_\pi$ (cf. Definition \ref{peder_id_defn}) and span means the $\C$-linear span.
+	
+	
+\end{empt}
+\begin{definition}\label{inv_qo*_lim_defn!}
+	In the described in \ref{comp_pt_qo*_empt} situation 	 if $\left( \widetilde{\mathfrak A}', \widetilde{\mathfrak A}_0\right)$ is a maximal  among admissible a quasi *-algebras then 
+	we say that the triple
+	$\left(\left( {\mathfrak A}, {\mathfrak A}_0 \right), \left( \widetilde{\mathfrak A}, \widetilde{\mathfrak A}_0 \right), G_{\widehat{\pi}}\right)$ is the 
+	${\pi}$-\textit{ inverse noncommutative limit of $\mathfrak{S}^{\mathrm{pt}}$}.
+\end{definition}
 
 
 
