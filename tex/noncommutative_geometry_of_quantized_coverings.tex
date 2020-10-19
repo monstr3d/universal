@@ -3827,7 +3827,7 @@ If $\left( \widetilde{\mathfrak A}', \widetilde{\mathfrak A}_0\right)$ is a quas
 	\item[(b)] There is an injective *-homomorphism   $\varphi:\bigcup_{\la\in \La} \left( \mathfrak A^\la, \mathfrak A^\la_0\right)\hookto \left( \widetilde{\mathfrak A}', \widetilde{\mathfrak A}_0\right)$ such that the restriction $
 	\varphi|_{\bigcup_{\la\in \La}  \mathfrak A^\la_0}$ is the natural inclusion $ \bigcup_{\la\in \La}  \mathfrak A^\la_0\hookto \widetilde{\mathfrak A}_0$.
 	
-	\item[(c)] Following conditions hold
+	\item[(c)] Following conditions hold:
 \bea
 \label{inv_qo*_rzero_eqn}
 \forall\widetilde a\in \widetilde{\mathfrak A}'\quad \left( K\left(\widetilde{B}_{\widehat{\pi}} \right)\cap  \widetilde{\mathfrak A}_0 \right) \widetilde{a}= \{0\}\quad \Rightarrow\quad \widetilde{a}= 0, \\
@@ -9396,26 +9396,22 @@ $$
 	$\widehat{\pi}$- inverse noncommutative limit  (cf. Definition \ref{comp_qo*_defn}) of  a {pointed algebraic finite covering category of quasi $*$-algebras} $\mathfrak{S}^{\mathrm{pt}}_{\left(\Coo_c\left(M \right)', \Coo\left(M \right)    \right)  }$.
 \end{theorem}
 \begin{proof}
-	Consider a  partition of unity
-		\bean
-\sum_{\left( g, \al\right)  \in G\left(\left.\widetilde{M}~\right|M\right)\times \mathscr A  } g\widetilde{a}_\a = 1_{C_b\left(\widetilde{M} \right) }
-\eean
-which are compliant with $p:\widetilde{M}\to{M}$
-(cf. Definition \ref{comm_comply_defn}) such that $\widetilde{a}_\a\in \Coo\left( \widetilde{M}\right)\cap C_c\left( \widetilde{M}\right)$ for all $\a \in \mathscr A$ (cf. Proposition \ref{smooth_part_unity_prop}). Let $\left( \widetilde{\mathfrak A}', \Coo\left(M \right)\right)$ be an  quasi *-algebra, define the natural $\C$-linear map $\phi: \widetilde{\mathfrak A}'\to  \Coo_c\left(M \right)'$. For all $\widetilde a$ its support $\supp \widetilde a$. Suppose that 
-$$
-\widetilde b = \sum_{ {\a}\in {\left(g, \widetilde a \right) \mathscr A_0}} g \widetilde a_\a \widetilde b, \quad \widetilde b\in \Coo\left( \widetilde{M}\right)
-$$
-is a covering sum for $\supp \widetilde a$, that is $\mathscr A_0$ is a finite subset of $G\left(\left. \widetilde{M}~\right|M\right)\times \mathscr A$ and $b\left(\supp \widetilde a \right) = \{1\}$. From the condition !!! it follows that 
-%for all $g \widetilde a_\a\in \mathscr A_0$ there is $a_{\left(g \widetilde a_\a\right)}\in \Coo_c\left( M\right)$ such that  $\left( a_{\left(g \widetilde a_\a\right)}, \desc_p\left( \right) $.
-
-	\begin{defn}\label{top_cfs_defn!}
-	In the situation of the Corollary \ref{top_cfs_cor} we say that the finite sum
+	If $\left\{\widetilde f_j\right\}_{j\in \N}\subset C_c\left( \widetilde{M}\right)_+$ be a given by the Equation \eqref{fin_comp_lin_eqn} increasing sequence then for any compact $\widetilde{K}\subset \widetilde{M}$ there is $j_{\widetilde{K}}$ such that for all $j\ge j_{\widetilde{K}}$ one has $\widetilde f_j\left( \widetilde K\right) = \{1\}$.
+	then there is a point-wise limit $1_{C_b\left(\sX \right) } = \lim_{j\to \infty}f_j$. From the Proposition \ref{smooth_part_unity_prop} one can assume that $\left\{\widetilde f_j\right\}_{j\in \N}\subset \Coo_c\left( \widetilde{M}\right)_+$. If $\left( \widetilde{\mathfrak A}', \Coo\left( \widetilde{M}\right)\right) $ is an admissible quasi *-algebra (cf. Definition \ref{comp_pt_qo*_defn}) then from the Equation \ref{inv_qo*_llim_eqn}  it follows that
 	$$
-	\sum_{ {\a}\in {\mathscr A_\sY}} f_\a = \sum_{ {i}=1}^m f_{\a_j}
+\forall j\in \N\quad	\widetilde f_j \widetilde a \in \Coo_c\left( \widetilde{M}\right)\bigcap_{\la\in\La} \Coo_c\left( {M}_\la\right)'.
 	$$
-	is a \textit{covering sum} for $\sY$.
-\end{defn}
-	
+	On the other hand from $\bigcup_{\la\in\La} \Coo_c\left( {M}_\la\right)'\subset \Coo_c\left( \widetilde{M}\right)'$ it turns out that $\widetilde f_j \widetilde a\in \Coo_c\left( \widetilde{M}\right)'$.  For any  $\widetilde b \in \Coo_c\left( \widetilde{M}\right)$ one has
+	\be\label{top_sw_lim_eqn}
+j \ge j_{\supp b}\quad \Rightarrow \quad 	\left\langle \widetilde f_j \widetilde a , \widetilde b \right\rangle = 	\left\langle \widetilde f_{j_{\supp b}} \widetilde a , \widetilde b \right\rangle
+\ee
+The Equation \eqref{top_sw_lim_eqn} means that $ \left\lbrace \widetilde f_j \widetilde a\right\rbrace $ is convergent with respect to the weak topology of $\Coo_c\left( \widetilde{M}\right)'$. So there is a map
+\bean
+\Psi : \widetilde{\mathfrak A}'\to \Coo_c\left( \widetilde{M}\right)',\\
+\widetilde a\mapsto\lim_{j\to\infty} \widetilde f_j \widetilde a
+\eean 
+	where   $\left\langle\cdot, \cdot \right\rangle : \Coo_c\left( \widetilde{M}\right)'\times \Coo_c\left( \widetilde{M}\right)\to\C$ is the natural pairing. If $\widetilde a\in \ker \Psi$ then $\Coo_c\left( \widetilde{M}\right)\widetilde a= \{0\}$ so from \eqref{inv_qo*_rzero_eqn} it follows that $\widetilde a=0$. So one has $\ker \Psi = \{0\}$, $\Psi$ is an invective map and any admissible *- algebra $\left( \widetilde{\mathfrak A}', \Coo\left( \widetilde{M}\right)\right) $ is a quasi *-subalgebra  of 
+$\left( \Coo\left( \widetilde{M}\right)', \Coo\left( \widetilde{M}\right)\right)$.  Thus if we prove that  $\left( \Coo_c\left( \widetilde{M}\right)', \Coo\left( \widetilde{M}\right)\right)$ is admissible then the proof of this lemma would be completed (cf. Definition \ref{inv_qo*_lim_defn}). It means that one !!!
 \begin{defn}\label{comp_pt_qo*_defn!}
 	Let $\mathfrak{S}^{\text{pt}}$ be a given by \eqref{comp_pt_qo*_eqn} category. Suppose that
 	the category
@@ -9434,11 +9430,11 @@ is a covering sum for $\supp \widetilde a$, that is $\mathscr A_0$ is a finite s
 		
 		\item[(c)] Following conditions hold
 		\bea
-		\label{inv_qo*_rzero_eqn}
+		\label{!inv_qo*_rzero_eqn}
 		\forall\widetilde a\in \widetilde{\mathfrak A}'\quad \left( K\left(\widetilde{B}_{\widehat{\pi}} \right)\cap  \widetilde{\mathfrak A}_0 \right) \widetilde{a}= \{0\}\quad \Rightarrow\quad \widetilde{a}= 0, \\
 		\label{inv_qo*_lzero_eqn}
 		\forall\widetilde a\in \widetilde{\mathfrak A}'\quad \widetilde{a}\left( K\left(\widetilde{B}_{\widehat{\pi}} \right)\cap  \widetilde{\mathfrak A}_0 \right) = \{0\}\quad \Rightarrow\quad \widetilde{a}= 0, \\
-		\label{inv_qo*_llim_eqn}	\mathrm{span}\left\lbrace \left(K\left(\widetilde{B}_{\widehat{\pi}} \right)\cap  \widetilde{\mathfrak A}_0 \right) \widetilde{\mathfrak A}'\right\rbrace =\mathrm{span}\left\lbrace  \left(K\left(\widetilde{B}_{\widehat{\pi}} \right)\cap  \widetilde{\mathfrak A}_0  \right) \left( \bigcup_{\la\in \La} \mathfrak A_\la\right) \right\rbrace ,\\	
+		\label{!inv_qo*_llim_eqn}	\mathrm{span}\left\lbrace \left(K\left(\widetilde{B}_{\widehat{\pi}} \right)\cap  \widetilde{\mathfrak A}_0 \right) \widetilde{\mathfrak A}'\right\rbrace =\mathrm{span}\left\lbrace  \left(K\left(\widetilde{B}_{\widehat{\pi}} \right)\cap  \widetilde{\mathfrak A}_0  \right) \left( \bigcup_{\la\in \La} \mathfrak A_\la\right) \right\rbrace ,\\	
 		\label{inv_qo*_rlim_eqn}\mathrm{span}\left\lbrace 	\widetilde{\mathfrak A}'\left(K\left(\widetilde{B}_{\widehat{\pi}} \right)\cap  \widetilde{\mathfrak A}_0 \right) \right\rbrace =\mathrm{span}\left\lbrace \left( \bigcup_{\la\in \La} \mathfrak A_\la\right) \left(K\left(\widetilde{B}_{\widehat{\pi}} \right)\cap  \widetilde{\mathfrak A}_0  \right) \right\rbrace  \eea
 		where $K\left(\widetilde B_{\widehat\pi} \right)$ is the Pedersen's ideal of $\widetilde A_\pi$ (cf. Definition \ref{peder_id_defn}) and span means the $\C$-linear span.
 		
@@ -9447,7 +9443,7 @@ is a covering sum for $\supp \widetilde a$, that is $\mathscr A_0$ is a finite s
 	
 	
 \end{defn}
-\begin{definition}\label{inv_qo*_lim_defn}
+\begin{definition}\label{!inv_qo*_lim_defn}
 	In the described in \ref{comp_pt_qo*_empt} situation 	 if $\left( \widetilde{\mathfrak A}', \widetilde{\mathfrak A}_0\right)$ is a maximal  among admissible a quasi *-algebras then 
 	we say that the triple
 	$\left(\left( {\mathfrak A}, {\mathfrak A}_0 \right), \left( \widetilde{\mathfrak A}, \widetilde{\mathfrak A}_0 \right), G_{\widehat{\pi}}\right)$ is the 
