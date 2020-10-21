@@ -3734,9 +3734,8 @@ From the conditions (a) and (c) of \ref{inv_pro_lim_empt} it turns out that $M\l
 	Let $A$ be an $O^*$-algebra.  Let us consider a set noncommutative finite-fold coverings of  $O^*$-algebras\\ $\mathfrak{S}=\left\{ \pi_{\la}:A \hookto A_{\la}\right\}_{\la \in \La}$ (cf. Definition \ref{pro_fin_defn}) indexed by  $\La$ such that $A_{\la_{\mathrm{min}}}= A$, and $\pi_{\la_{\mathrm{min}}}= \Id_A$.  Suppose that there is a category $\mathfrak{S}^{\text{pt}}$  such that
 	\begin{enumerate}
 		\item [(a)] The set of objects of $\mathfrak{S}^{\text{pt}}$ is $\mathfrak{S}$.
-		\item[(b)] $\mathfrak{S}^{\text{pt}}$ is equivalent to the pre-order category given by $\La$ (cf. Definition \ref{preordercat_defn} and Remark \ref{pre_order_rem})
-		\item[(c]  For any $\mu, \nu\in \La$ such that $\mu\ge\nu$ there is the unique morphism from $A \hookto A_{\nu}$ to $A \hookto A_{\mu}$ which is a noncommutative finite-fold covering $\pi^\nu_\mu:  A_{\nu}\hookto A_\mu$ of  $O^*$-algebras  such that $\pi_\mu =\pi^\nu_\mu \circ \pi_\nu$.
-		\item[(d)] All morphisms of   $\mathfrak{S}^{\text{pt}}$ are described in (c).
+		\item[(b)]  For any $\mu, \nu\in \La$ such that $\mu\ge\nu$ there is the unique morphism from $A \hookto A_{\nu}$ to $A \hookto A_{\mu}$ which is a noncommutative finite-fold covering $\pi^\nu_\mu:  A_{\nu}\hookto A_\mu$ of  $O^*$-algebras  such that $\pi_\mu =\pi^\nu_\mu \circ \pi_\nu$.
+		\item[(c)] All morphisms of   $\mathfrak{S}^{\text{pt}}$ are described in (c).
 	\end{enumerate}
 We say that $\mathfrak{S}^{\text{pt}}$ is a \textit{pointed algebraic finite covering category of $O^*$-algebras}.   We write $\mathfrak{S}^{\text{pt}} \in  O^*$-$ \mathfrak{FinAlg}^{\text{pt}}$, and use the following notation
 \be\label{comp_pt_o*_eqn}
@@ -3746,10 +3745,13 @@ We say that $\mathfrak{S}^{\text{pt}}$ is a \textit{pointed algebraic finite cov
 \end{split}
 \ee
 \end{definition}	
-	
+\begin{remark}
+	The category \ref{comp_pt_o*_eqn}
+ is equivalent to the pre-order category given by $\La$ (cf. Definition \ref{preordercat_defn} and Remark \ref{pre_order_rem})
+\end{remark}
 \begin{empt}\label{comp_pt_o*_empt}
 In the situation of the Definition \ref{comp_o*_defn} moprphisms of $\mathfrak{S}^{\text{pt}}$ can be regarded as inclusions of *-algebras.
-	The union $\widehat A \bydef\cup_{\la\in \La} A_\la$ is a *-algebra. If $\widehat G \bydef \varprojlim G\left(\left.A_\la\right|A\right)$ then there is the natural action $\widehat G\times \widehat A\to \widehat A$. Suppose that $\widehat A$ is an $O^*$-algebra and there are a Hilbert space $\widehat\H$ and its dense subspace $\widehat \D\subset \widehat\H$ such that  $\widehat A\subset \L^\dagger\left(\widehat\D \right)$. Moreover  suppose that there is an equivariant action
+	The union $\widehat A \bydef\cup_{\la\in \La} A_\la$ is a *-algebra. If $\widehat G \bydef \varprojlim G\left(\left.A_\la\right|A\right)$ then there is the natural action $\widehat G\times \widehat A\to \widehat A$. Suppose that $\widehat A$ is an $O^*$-algebra and there are a Hilbert space $\widehat\H$ and its dense subspace $\widehat \D\subset \widehat\H$ such that there is an injecive *-homomorphism   $\pi: \widehat A\hookto \L^\dagger\left(\widehat\D \right)$. Moreover  suppose that there is an equivariant action
 	$\widehat G\times \widehat \H\to \widehat \H$, i.e.
 	\be\label{o*_dinv_eqn}
 	\begin{split}
@@ -3781,9 +3783,6 @@ A *-subalgebra $\widetilde A'\subset \L^\dagger\left( \widetilde \D \right)$ is 
 \eea
  where $K\left(\widetilde B_{\widehat\pi} \right)$ is the Pedersen's ideal of $\widetilde A_\pi$ (cf. Definition \ref{peder_id_defn}) and span means the $\C$-linear span.
 \end{empt}
-
-
-
 
 \begin{definition}\label{inv_o*_lim_defn}
 	In the described in \ref{comp_pt_o*_empt} situation if $\widetilde A$ is a maximal  among *-subalgebras of $ \L^\dagger\left( \widetilde \D \right)$ 
@@ -4005,7 +4004,9 @@ In the situation of the Definition \ref{inf_cov_oa_cat_defn} suppose that
 \label{inf_cov_oad_sub_eqn}
 K\left(\widetilde B \right) \cap \widetilde A'\text{ is dense in } \widetilde B ,\\
 \label{inf_cov_oan_sub_eqn}
-\left(K\left(\widetilde B \right) \cap \widetilde A'\right) a_\la \left(K\left(\widetilde B \right) \cap \widetilde A'\right) \not\subset \widetilde A' \quad  \forall a_\la \in C^*_e\left( A_\la\right) \setminus A_\la
+%\left(K\left(\widetilde B \right) \cap \widetilde A'\right) a_\la \left(K\left(\widetilde B \right) \cap \widetilde A'\right) \not\subset \widetilde A' \quad  \forall a_\la \in C^*_e\left( A_\la\right) \setminus A_\la
+\widetilde a \in K\left(\widetilde B \right) \cap \widetilde A' \quad \Rightarrow \quad \sum_{	g \in 
+	\ker\left(G\left(\left.\widetilde B\right|B \right)\to G\left(\left.B_\la\right|B \right)\right) }g\widetilde a \in A_\la
 	 \eea
 	 where  $K\left(\widetilde B \right)$ is the Pedersen's ideal of $\widetilde B$ (cf. Definition \ref{peder_id_defn}).
 \end{definition}
@@ -4015,9 +4016,9 @@ K\left(\widetilde B \right) \cap \widetilde A'\text{ is dense in } \widetilde B 
 
 
 \begin{definition}\label{inf_cov_oa_defn}
-If $\widetilde A$ is a    maximal  {subordinated to}  $\mathfrak{S}^{\text{pt}}$ algebra $\widetilde A$
+If $\widetilde A$ is a    maximal  {subordinated to}  $\mathfrak{S}^{\text{pt}}$ algebra then
 	$
-	\left(A,  \widetilde A, G \right)$ is the the \textit{inverse noncommutative limit} or \textit{infinite noncommutative covering}  of $\mathfrak{S}^{\text{pt}}$.
+	\left(A,  \widetilde A, G \right)$ is said to be an \textit{inverse noncommutative limit} or an \textit{infinite noncommutative covering}  of $\mathfrak{S}^{\text{pt}}$.
 \end{definition}
 
 \begin{remark}
@@ -8967,7 +8968,7 @@ If $\widetilde{{A}}$ is the   {infinite noncommutative covering}  of $	\mathfrak
 	\Coo_c\left(\widetilde M \right) a_\la \not\subset \Coo_0\left(\widetilde M \right);\quad
 	a_\la\Coo_c\left(\widetilde M \right) \not\subset \Coo_0\left(\widetilde M \right) \quad  \forall a_\la \in !!! CORRECT C_0\left( M_\la\right) \setminus \Coo_0\left( M_\la\right)
 	\eean
-However this system is a specialization of 		 \eqref{inf_cov_oa_sub_eqn}-\eqref{inf_cov_oan_sub_eqn}.
+However this system is a specialization of 		 !!!\eqref{inf_cov_oa_sub_eqn}-\eqref{inf_cov_oan_sub_eqn}.
 \end{proof}
 
 \subsection{Universal  coverings and  fundamental groups}
@@ -15379,7 +15380,7 @@ where $\Ga_1\subset  \Ga$ the natural homomorphism \\$\phi: G\left(\left.C\left(
 %\begin{proof}
 %	The linear span of the generators $\left\{\widetilde{U}_x\right\}\in M^{-1}\Z^n$ is dense in $C\left(\T^{n}_{\widetilde{\Th}} \right)$. For any $x \in M^{-1}\Z^n$ there is $m_x \in \N$ such that $m_xx \in \Z^n$, it follows that $\widetilde{U}_x^{m_x} = u_x \in C\left(\T^{n}_{{\Th}}\right) $. Moreover $u_x$ is unitary, so there is a Borel-measured $\varphi_x$ such that $\widetilde{U}_x = \varphi\left(u_x \right)$. From the Corollary \ref{borel_path_lift_cor} it turns out that $\left( C\left(\T^{n}_{{\Th}} \right), C\left(\T^{n}_{\widetilde{\Th}} \right), \Z^n / \Ga\right)$ has the {unique path lifting}
 %\end{proof}
-\subsection{Coverings of $O^*$-algebra}\label{nt_fin_o_sec}
+\subsection{Coverings of $O^*$-algebras}\label{nt_fin_o_sec}
 \paragraph{}
 
 Let $\left( C\left(\T^{n}_{{\Th}} \right), C\left(\T^{n}_{\widetilde{\Th}} \right), \Z^n / \Ga, \pi\right)$ be an unital noncommutative finite-fold  covering given by the Theorem  \ref{nt_fin_thm}. 
@@ -15407,6 +15408,10 @@ From $\delta_\mu \in D\left( \mathbb{T}^n_{\widetilde\Theta}\right)^{\Z^n / \Ga}
 	In the above situation the triple $\left( C\left(\T^{n}_{{\Th}} \right), C\left(\T^{n}_{\widetilde{\Th}} \right), \Z^n / \Ga, \overline \pi\right)$ is an unital noncommutative finite-fold  covering where $\overline \pi$ comes from $\pi$. Thus  $\left( D\left( \mathbb{T}^n_{\Theta}\right), D\left( \mathbb{T}^n_{\widetilde\Theta}\right), {\Z^n / \Ga}, \pi\right)$ satisfies to all conditions of the Definition \ref{o*fin_defn}). 
 	
 \end{proof}
+Similarly to  the Theorem \ref{nt_d_fin_thm} one can proof the following Lemma.
+\begin{lemma}\label{nt_d_fin_lem}
+	The quadruple $\left( \Coo\left( \mathbb{T}^n_{\Theta}\right), \Coo\left( \mathbb{T}^n_{\widetilde\Theta}\right), {\Z^n / \Ga}, \pi\right)$ is a \textit{noncommutative finite-fold covering of $O^*$-algebras} (cf. Definition \ref{o*fin_defn}).
+\end{lemma}
 
 
 
@@ -16625,6 +16630,53 @@ given by (cf. \eqref{nt_cofinal_eqn}). If the representation  $\widehat\pi^\oplu
 	\eean
 	is a category	of noncommutative finite-fold coverings of operator algebras (cf. Definition \ref{inf_cov_oa_cat_defn}). Both 	$\mathfrak{S}^{\N}_{C\left(\T^{2N}_{\th} \right)}$ and $\mathfrak{S}^{\N}_{\Coo\left(\T^{2N}_{\th} \right)}$ are specializations of both $\mathfrak{S}^{\text{pt}}$ and $	C^*_e\left( \mathfrak{S}^{\text{pt}}\right)$ given by equations \eqref{inf_cov_oae_eqn} and \eqref{inf_cov_oa_eqn} respectively. 
 \end{empt}
+\begin{lemma}
+For any positive $a \in C\left(\T^{2N}_\th \right)_+$ there is a positive trace-class  $\widetilde a \in C_0\left(\R^{2N}_\th \right)_+$ such that
+$$
+\sum_{g\in \Z^{2N}}\widetilde a = a.
+$$ 
+where the sum of the series means the strong convergence.
+\end{lemma}
+\begin{proof}
+If   $\widetilde b \in \SS\left(\T^{2N}_\th \right)_+$ is such that $\widetilde b>0$ and
+$$
+\left\| \sum_{g\in \Z^{2N}}\widetilde b\right\| < 1.
+$$
+then $\sqrt{a}\widetilde b\sqrt{a}\in C_0\left(\R^{2N}_\th \right)_+$ and 
+$$
+\sum_{g\in \Z^{2N}}g\left( \sqrt{a}\widetilde b\sqrt{a}\right)<a. 
+$$
+It turns out that the set
+$$
+\mathscr A_a = \left\{\widetilde{a}\in C_0\left(\R^{2N}_\th \right)_+\left| \sum_{g\in \Z^{2N}}\widetilde a\le a\right.\right\}
+$$
+is not empty. 
+From the Zorn's lemma and the Proposition \ref{increasing_convergent_w_lem} there is $\widetilde{a}\in B\left(L^2\left(\R^{2N}_\th \right) \right)$ such that
+$$
+\sum_{g\in \Z^{2N}}\widetilde a = a
+$$
+From the Equation \eqref{nt_trace_eqn} it follows that $\widetilde a$ is a trace-class operator, so it is compact, and taking into account \eqref{mp_2N_eqn} one has $\widetilde a\in C_0\left(\R^{2N}_\th \right)_+$.
+\end{proof}
+
+\begin{lemma}\label{nt_cov_sub_oa_lem}
+Denote by $$
+\mathscr A \bydef  \left\{\widetilde{a}\in C_0\left(\R^{2N}_\th \right)_+\left| \sum_{g\in \Z^{2N}}\widetilde a\in  C\left(\T^{2N}_\th \right)\right.\right\}
+$$
+In the situation \ref{nt_cov_oa_empt} if  subalgebra $\widetilde A'$ of $\widetilde B$  {is subordinated to}  $\mathfrak{S}^{\text{pt}}_{\Coo\left(M \right) }$ (cf. Definition \ref{inf_cov_oa_sub_defn}) then
+$\widetilde A'\cap \left(\mathscr A \setminus \SS\left( \R^{2N}_\th\right)  \right)=\emptyset$.
+\end{lemma}
+\begin{proof}
+If $\widetilde a \in \widetilde A'\cap \left(\mathscr A \setminus \SS\left( \R^{2N}_\th\right)  \right)$ then 
+$$
+a\bydef \sum_{g\in \Z^{2N}}\widetilde a \in C\left(\T^{2N}_\th \right)_+.
+$$
+\end{proof}
+
+\begin{lemma}\label{nt_cov_oa_lem!}
+	In the situation \ref{nt_cov_oa_empt} if  subalgebra $\widetilde A'$ of $\widetilde B$  {is subordinated to}  $\mathfrak{S}^{\text{pt}}_{\Coo\left(M \right) }$ (cf. Definition \ref{inf_cov_oa_sub_defn}) then
+	$\widetilde A'\subset C_0\left( \widetilde M\right) \cap \Coo\left( \widetilde M\right)$.
+\end{lemma}
+\paragraph{title}!!!! CONJECTURE DELETE.
 \begin{empt}
 	Let 	$\Psi : S\left(\R^{2} _\th\right) \to \Coo\left(\T^{2}_{\th}\right)$ be the given by the Equation \eqref{nt_w*_top_psi_eqn} $\C$ linear map. For all $m, n \in \N^{0}$ denote by
 	$$
@@ -16652,7 +16704,7 @@ If $c_n = \frac{1}{n^{M + 3}}$ then the series
 g
 \ee
 \end{empt}
-\paragraph{title}
+
 \begin{lemma}\label{nt_cov_oa_lem}
 	In the situation \ref{nt_cov_oa_empt} if  subalgebra $\widetilde A'$ of $\widetilde B$  {is subordinated to}  $\mathfrak{S}^{\text{pt}}_{\Coo\left(M \right) }$ (cf. Definition \ref{inf_cov_oa_sub_defn}) then
 	$\widetilde A'\subset C_0\left( \widetilde M\right) \cap \Coo\left( \widetilde M\right)$.
@@ -16662,7 +16714,7 @@ g
 	\be\label{nt_bel_fin_eqn}
 	\widetilde b a = \sum_{	g \in G}\widetilde b\widetilde a \in \widetilde A'.
 	\ee
-	The right part of \eqref{nt_bel_fin_eqn} lies in $\widetilde A'$ because it is a finite sum of $\widetilde A'$-elements. The Equation \eqref{nt_bel_fin_eqn} contradicts with \eqref{inf_cov_oan_sub_eqn}, from the contradiction it turms out that $\widetilde A'\cap C_c\left( \widetilde M\right)\subset \Coo\left( \widetilde M\right)$. If $\widetilde c \widetilde A'$ is such that $\widetilde c\not\in \Coo\left( \widetilde M\right)$ then there is $\widetilde x \in  \widetilde M$ such that $\widetilde c$ is not smooth at $\widetilde x$. On the other hand from the condition \ref{inf_cov_oad_sub_eqn} it follows that there is $\widetilde b\in \widetilde A'\cap C_c\left(\widetilde M \right) $ such that $\widetilde b\left(\widetilde x \right) \neq 0$. In result  one has $\widetilde b\widetilde c \in \widetilde A'\cap C_c\left(\widetilde M \right)$ but $\widetilde b\widetilde c\not\in \Coo\left(\widetilde M \right)$. It contradicts with the above construction. So any $\widetilde c \widetilde A'$ lies in $\Coo\left( \widetilde M\right)$.
+	The right part of \eqref{nt_bel_fin_eqn} lies in $\widetilde A'$ because it is a finite sum of $\widetilde A'$-elements. The Equation \eqref{nt_bel_fin_eqn} contradicts with !!!\eqref{inf_cov_oan_sub_eqn}, from the contradiction it turms out that $\widetilde A'\cap C_c\left( \widetilde M\right)\subset \Coo\left( \widetilde M\right)$. If $\widetilde c \widetilde A'$ is such that $\widetilde c\not\in \Coo\left( \widetilde M\right)$ then there is $\widetilde x \in  \widetilde M$ such that $\widetilde c$ is not smooth at $\widetilde x$. On the other hand from the condition \ref{inf_cov_oad_sub_eqn} it follows that there is $\widetilde b\in \widetilde A'\cap C_c\left(\widetilde M \right) $ such that $\widetilde b\left(\widetilde x \right) \neq 0$. In result  one has $\widetilde b\widetilde c \in \widetilde A'\cap C_c\left(\widetilde M \right)$ but $\widetilde b\widetilde c\not\in \Coo\left(\widetilde M \right)$. It contradicts with the above construction. So any $\widetilde c \widetilde A'$ lies in $\Coo\left( \widetilde M\right)$.
 \end{proof}
 \begin{theorem}\label{nt_cov_oa_thm}
 	In the situation \ref{nt_cov_oa_empt} if $\Coo_0\left( \widetilde M\right)\bydef\Coo\left( \widetilde M\right)\cap \C_0\left( \widetilde M\right)$ then the triple
@@ -16679,7 +16731,7 @@ g
 	\Coo_c\left(\widetilde M \right) a_\la \not\subset \Coo_0\left(\widetilde M \right);\quad
 	a_\la\Coo_c\left(\widetilde M \right) \not\subset \Coo_0\left(\widetilde M \right) \quad  \forall a_\la \in C_0\left( M_\la\right) \setminus \Coo_0\left( M_\la\right)
 	\eean
-	However this system is a specialization of 		 \eqref{inf_cov_oa_sub_eqn}-\eqref{inf_cov_oan_sub_eqn}.
+	However this system is a specialization of 		 !!!\eqref{inf_cov_oa_sub_eqn}-\eqref{inf_cov_oan_sub_eqn}.
 \end{proof}
 \paragraph{title}
 
@@ -16687,17 +16739,19 @@ g
 \subsection{Coverings of $O^*$-algebra}
 \paragraph*{}
 
- From the Theorem \ref{nt_d_fin_thm} it turns out that there is  a {pointed algebraic finite covering category of $O^*$-algebras} (cf. Definition \ref{comp_o*_defn}) given by
-\be\label{nt_comp_pt_o*_eqn}
-\begin{split}
-	\mathfrak{S}^{\N}_{D\left(\T^{2N}_\th \right) } = \left(\left\{\pi_j: D\left(\T^{2N}_\th\right)  \hookto D\left( \T^{2N}_{\th/m_j^2}\right) \right\}, \left\{\pi^l_k\right\}\right).
-\end{split}
-\ee
+ From the Theorem \ref{nt_d_fin_thm} and the Lemma \ref{nt_d_fin_lem} it turns out that there is  a {pointed algebraic finite covering categories of $O^*$-algebras} (cf. Definition \ref{comp_o*_defn}) given by
+\bea\label{nt_comp_pt_o*_eqn}
+	\mathfrak{S}^{\N}_{D\left(\T^{2N}_\th \right) } = \left(\left\{\pi_j: D\left(\T^{2N}_\th\right)  \hookto D\left( \T^{2N}_{\th/m_j^2}\right) \right\}, \left\{\pi^l_k\right\}\right),\\
+	\label{nt_comp_pt_of*_eqn}
+	\mathfrak{S}^{\N}_{\Coo\left(\T^{2N}_\th \right) } = \left(\left\{\pi_j: \Coo\left(\T^{2N}_\th\right)  \hookto \Coo\left( \T^{2N}_{\th/m_j^2}\right) \right\}, \left\{\pi^l_k\right\}\right).
+\eea
 The is a natural inclusion  $\SS\left(\R^{2N}_\th \right)\subset \L\left( \R^{2N}\right)$ such that $\SS\left(\R^{2N}_\th \right)$ is a dense subspace.  If $\widehat \H \bydef \bigoplus_{g \in J}L^2\left(\R^{2N}\right)$ is the described in the Section \ref{nt_inf_ind_repr_constr_sec} Hilbert space then an algebraic direct sum $\widehat \D \bydef \bigoplus_{g \in J}\sS\left(\R^{2N}_\th\right)$ is a dense subspace of $\widehat \D$.
- If given by \eqref{nt_comp_pt_o*_eqn} injecive *-homomorphisms are regarded as inclusions and $\widehat A \bydef \bigcup_{j \in \N} D\left( \T^{2N}_{\th/m_j^2}\right)$ then there is the following inclusion
-\be\label{nt_dinc_eqn}
-\pi:\bigcup_{j \in \N} D\left( \T^{2N}_{\th/m_j^2}\right) A\hookto \L^\dagger\left(\widehat \D \right) 
-\ee
+ If given by \eqref{nt_comp_pt_o*_eqn} and \eqref{nt_comp_pt_of*_eqn} injecive *-homomorphisms are regarded as inclusions  then there are the following inclusions
+\bea\label{nt_dinc_eqn}
+\pi:\bigcup_{j \in \N} D\left( \T^{2N}_{\th/m_j^2}\right) \hookto \L^\dagger\left(\widehat \D \right) ,\\
+\label{nt_dincf_eqn}
+\pi|_{\bigcup_{j \in \N} \Coo\left( \T^{2N}_{\th/m_j^2}\right)}:\bigcup_{j \in \N} \Coo\left( \T^{2N}_{\th/m_j^2}\right) \hookto \L^\dagger\left(\widehat \D \right) 
+\eea
  If $\widehat G \bydef \varprojlim  \Z^{2N}/\Z^{2N}_{m_j}$ there is the natural action $\widehat G\times \widehat \H\to \widehat \H$ which satisfies to \eqref{o*_dinv_eqn}. The bounded part of $D\left( \T^{2N}_{\th/m_j^2}\right)$ equals to $\Coo\left( \T^{2N}_{\th/m_j^2}\right)$. The $C^*$-norm completion of  $\Coo\left( \T^{2N}_{\th/m_j^2}\right)$ equals to $C\left( \T^{2N}_{\th/m_j^2}\right)$. Similarly to  \eqref{bl_cat_eqn}
 one has  a pointed algebraical  finite covering category
 \be\label{nt_bl_cat_eqn}
@@ -16784,6 +16838,73 @@ D\left( \R^{2N}_\th\right)\Coo_c\left(\R^{2N}_\th \right)  =\left(  \bigcup_{j=1
 	(cf. equations \eqref{inv_o*_llim_eqn} and \eqref{nt_inv_o*_llim_eqn}). However from $\Coo_c\left(\R^{2N}_\th\right) \left(  \bigcup_{j=1}^\infty D\left(\T^{2N}_{\th/m_j^2} \right)\right)\subset D_c\left(\R^{2N}_\th \right)$ and \eqref{nt_diff2_eqn} it follows that $\widetilde d \in  D\left(\widetilde \R^{2N}_\th \right)$. From this contradiction one concludes that $D\left( \widetilde \R^{2N}_\th\right)$ is a maximal *-algebra which satisfies to  the equations \eqref{inv_o*_lim_eqn}-\eqref{inv_o*_rlim_eqn}. 
 
 \end{proof}
+\begin{empt}
+	content...
+\end{empt}
+
+
+
+\begin{definition}\label{comp_o*_defn!}
+	Let $\La$ be a countable directed set (cf. Definition \ref{directed_set_defn}) such that there is the unique minimal element $\la_{\min} \in \La$.
+	Let $A$ be an $O^*$-algebra.  Let us consider a set noncommutative finite-fold coverings of  $O^*$-algebras\\ $\mathfrak{S}=\left\{ \pi_{\la}:A \hookto A_{\la}\right\}_{\la \in \La}$ (cf. Definition \ref{pro_fin_defn}) indexed by  $\La$ such that $A_{\la_{\mathrm{min}}}= A$, and $\pi_{\la_{\mathrm{min}}}= \Id_A$.  Suppose that there is a category $\mathfrak{S}^{\text{pt}}$  such that
+	\begin{enumerate}
+		\item [(a)] The set of objects of $\mathfrak{S}^{\text{pt}}$ is $\mathfrak{S}$.
+		\item[(b)] $\mathfrak{S}^{\text{pt}}$ is equivalent to the pre-order category given by $\La$ (cf. Definition \ref{preordercat_defn} and Remark \ref{pre_order_rem})
+		\item[(c]  For any $\mu, \nu\in \La$ such that $\mu\ge\nu$ there is the unique morphism from $A \hookto A_{\nu}$ to $A \hookto A_{\mu}$ which is a noncommutative finite-fold covering $\pi^\nu_\mu:  A_{\nu}\hookto A_\mu$ of  $O^*$-algebras  such that $\pi_\mu =\pi^\nu_\mu \circ \pi_\nu$.
+		\item[(d)] All morphisms of   $\mathfrak{S}^{\text{pt}}$ are described in (c).
+	\end{enumerate}
+	We say that $\mathfrak{S}^{\text{pt}}$ is a \textit{pointed algebraic finite covering category of $O^*$-algebras}.   We write $\mathfrak{S}^{\text{pt}} \in  O^*$-$ \mathfrak{FinAlg}^{\text{pt}}$, and use the following notation
+	\be\label{comp_pt_o*_eqn!}
+	\begin{split}
+		\mathfrak{S}^{\text{pt}} = \left(\left\{\pi_\la: A \hookto A_\la \right\}_{\la \in \La}, \left\{\pi^\mu_\nu: A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\ \nu > \mu}}\right),\\
+		\text{or simply} \quad \mathfrak{S}^{\text{pt}} = \left(\left\{\pi_\la: A \hookto A_\la \right\}, \left\{\pi^\mu_\nu\right\}\right).
+	\end{split}
+	\ee
+\end{definition}	
+
+\begin{empt}\label{comp_pt_o*_empt}
+	In the situation of the Definition \ref{comp_o*_defn} moprphisms of $\mathfrak{S}^{\text{pt}}$ can be regarded as inclusions of *-algebras.
+	The union $\widehat A \bydef\cup_{\la\in \La} A_\la$ is a *-algebra. If $\widehat G \bydef \varprojlim G\left(\left.A_\la\right|A\right)$ then there is the natural action $\widehat G\times \widehat A\to \widehat A$. Suppose that $\widehat A$ is an $O^*$-algebra and there are a Hilbert space $\widehat\H$ and its dense subspace $\widehat \D\subset \widehat\H$ such that  $\widehat A\subset \L^\dagger\left(\widehat\D \right)$. Moreover  suppose that there is an equivariant action
+	$\widehat G\times \widehat \H\to \widehat \H$, i.e.
+	\be\label{o*_dinv_eqn}
+	\begin{split}
+		\widehat G\widehat \D= \widehat \D,\\
+		g\left(a\xi \right)= \left(ga\right) \left(g\xi\right)\quad \forall g\in\widehat G, ~\forall a\in\widehat A, ~ \forall \xi\in\widehat \D
+	\end{split}
+	\ee
+	(cf. Definition \ref{equiv_defn})	
+	Let $B$ is an essential ideal of the $C^*$-norm completion of the bounded part of $A$ (cf. Remark \ref{o*b_rem}). Similarly for all $\la\in\La$ let $B_\la$ is is an essential ideal of  the $C^*$-norm completion of the bounded part of $A_\la$.	Suppose that
+	$\mathfrak{S}_b=\left\{ \overline\pi_{\la}:B \hookto  B_{\la} \right\}_{\la \in \La}$, or equivalently 
+	\be\label{bl_cat_eqn}
+	\mathfrak{S}^{\mathrm{pt}}_b=\left\{ \left( B ,  B_{\la} , G\left(\left.A_\la~\right|A \right) , \overline \pi_{\la}\right) \right\}_{\la \in \La}
+	\ee
+	is  a {pointed algebraical  finite covering category}  (cf. Definition \ref{comp_pt_defn}).   
+	If $\widehat B\bydef C^*$-$\varinjlim B_\la$ then there is the natural equivariant representation $\widehat{\pi}: \widehat{B}\hookto B\left( \widehat{\H}\right)$ (cf. Definition \ref{equiv_defn}). Suppose that $	\mathfrak{S}^{\text{pt}}_b$ is $\widehat{\pi}$-good (cf. Definition \ref{mains_defn}).  Let  $\left(B, \widetilde{B}_{\widehat{\pi}}, G_{\widehat{\pi}}\right)$  be the  $\widehat{\pi}$-{infinite noncommutative covering} of  $\mathfrak{S}^{\mathrm{pt}}_b$. (cf. Definition \ref{main_defn}). If $\widetilde{\H}$ is the Hilbert norm completion of   $\widetilde{B}_{\widehat{\pi}}\widehat\H$ and there is the orthogonal sum $\widehat\H= \widetilde\H \oplus \H^\perp$ then from the condition (b) of the Definition \ref{mains_defn} it follows that $\widetilde{B}_{\widehat{\pi}}\H^\perp= \{0\}$.  
+	From the above equations it turns out that
+	\be\label{o*dom_eqn}
+	\widetilde \D = \widehat{\D}\cap \widetilde\H\Rightarrow \widetilde{B}_{\widehat{\pi}}\cap \left( \bigcup_{\la\in \La} A_\la\right)\subset \L^\dagger\left( \widetilde \D \right) .
+	\ee
+	There is the natural inclusion $\L^\dagger\left( \widetilde \D \right)\subset \L^\dagger\left( \widehat \D \right)$. Also there are actions $G_\pi\times \widetilde\H\to \widetilde\H$ and $G_\pi\times \widetilde\D\to \widetilde\D$
+	which come from the action $\widehat G\times \widehat \H\to \widehat \H$.
+	A *-subalgebra $\widetilde A'\subset \L^\dagger\left( \widetilde \D \right)$ is said to be \textit{admissible} it satisfies to the following conditions
+	\bea\label{inv_o*_lim_eqn}
+	G_\pi \widetilde A' = \widetilde A',\\
+	\label{inv_o*_blim_eqn}
+	\widetilde A'_b \subset M\left(\widetilde{B}_{\widehat{\pi}} \right) ,\\	
+	\label{inv_o*_llim_eqn}	\mathrm{span}\left(K\left(\widetilde{B}_{\widehat{\pi}} \right)\cap  \L^\dagger\left( \widetilde \D \right) \right) \widetilde A'=\mathrm{span} \left(K\left(\widetilde{B}_{\widehat{\pi}} \right)\cap  \L^\dagger\left( \widetilde \D \right) \right) \left( \bigcup_{\la\in \La} A_\la\right) ,\\	
+	\label{inv_o*_rlim_eqn}\mathrm{span}~\widetilde A' \left(K\left(\widetilde{B}_{\widehat{\pi}} \right)\cap  \L^\dagger\left( \widetilde \D \right) \right)= \mathrm{span}\left( \bigcup_{\la\in \La} A_\la\right)\left(K\left(\widetilde{B}_{\widehat{\pi}} \right)\cap  \L^\dagger\left( \widetilde \D \right) \right) 	
+	\eea
+	where $K\left(\widetilde B_{\widehat\pi} \right)$ is the Pedersen's ideal of $\widetilde A_\pi$ (cf. Definition \ref{peder_id_defn}) and span means the $\C$-linear span.
+\end{empt}
+
+\begin{definition}\label{inv_o*_lim_defn}
+	In the described in \ref{comp_pt_o*_empt} situation if $\widetilde A$ is a maximal  among *-subalgebras of $ \L^\dagger\left( \widetilde \D \right)$ 
+	which satisfy to equations  \eqref{inv_o*_lim_eqn}-\eqref{inv_o*_rlim_eqn} then	
+	we say that the triple
+	$\left(A, \widetilde{A}, G_{\widehat{\pi}}\right)$ is the 
+	${\pi}$-\textit{ inverse noncommutative limit of $\mathfrak{S}^{\mathrm{pt}}$}.
+\end{definition}
+
 
 
 
