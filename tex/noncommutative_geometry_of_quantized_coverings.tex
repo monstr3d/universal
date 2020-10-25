@@ -18919,6 +18919,125 @@ weak topology of $X$.
 \begin{remark}\label{weak_convergence_rem}\cite{rudin:fa}
 In the above situation the net $\left\{x_\a\right\}_{\a\in \mathscr A}\in X$ is convergent with respect to weak topology if the net $\left\{\La x_\a\right\}\in \C$ is convergent for all $\La \in X^*$. Similarly the net $\left\{\La_\a\right\}_{\a\in \mathscr A}\in X^*$ is convergent with respect to weak*-topology if the net $\left\{\La_\a x\right\}\in \C$ is convergent for all $x\in X$.
 \end{remark}
+\section{Unbounded operators}
+
+\begin{definition}\label{unb_defn}(cf. \cite{kreyszig:fa})
+Let $\H$ be a Hilbert space, and let $\D\subset \H$ is a dense subspace. A $\C$-linear map $T: \D \to \H$ is an \textit{unbounded operator} if there is no $\widetilde T \in B\left( \H\right)$ such that $T = \left.\widetilde T\right|_\D= T$. Denote by
+\be\label{unb_eqn}
+\D\left(T \right) \bydef \D = \Dom T.
+\ee 
+\end{definition}
+
+\begin{definition}\label{unb_ext_defn}(cf. \cite{kreyszig:fa})
+Let $T, S$ be unbounded operator. We say that $T$ is an \textit{extension of} $S$ if one has
+	\be\label{unb_ext_eqn}
+	\begin{split}
+	\D\left(S\right)\subset	\D\left(T \right),\\
+	\left.T\right|_{\D\left(S\right) }= S.
+	\end{split}
+	\ee 
+\end{definition}
+
+\begin{definition}\cite{kreyszig:fa}
+Let $T: \D\left( T\right)\to \H$  be
+a (possibly unbounded) densely defined linear operator in a complex
+Hilbert space $\H$. Then the \textit{Hilbert-adjoint operator} (or simply adjoint) $T^*: \D\left(T^*\right) \to \H$ of $T$ is defined as follows. The domain $\D\left(T^*\right)$ of $T^*$ consists of all $y\in \H$
+such that there is a $y\in \H$ satisfying
+\be
+\left( Tx, y\right)_\H = \left(x, y^*\right)_\H 
+\ee
+for all $x\in\D\left(T^*\right)$. For each such $y\in \D\left(T^*\right)$ the Hilbert-adjoint operator
+$T^*$ is then defined in terms of that $y$ by
+\be
+y^* \bydef T^*y.
+\ee
+
+\end{definition}
+\begin{theorem}\cite{kreyszig:fa}
+%10.2-1 Theorem (Hilbert-adjoint operator). 
+Let $S: \D\left( S\right)\to \H$ and
+$T: \D\left( T\right)\to \H$ be linear operators which are densely defined in a
+complex Hilbert space $\H$. Then:
+\begin{enumerate}
+	\item[(a)] If $S \subset T$ then $T^*\subset S^*$.
+	\item[(b)]  If $\D\left( T\right)$ is dense in $\H$ then $T\subset T^{**}$.
+\end{enumerate}
+\end{theorem}
+\begin{definition}
+%10.2-3 Definition (Symmetric linear operator). 
+Let $T: \D\left( T\right)\to\H$
+be a linear operator which is densely defined in a complex Hilbert
+space $\H$. Then $T$ is called a \textit{symmetric linear operator} if for all $x, y \in \D\left( T\right)$
+\be
+(Tx, y)_\H=(x, Ty)_\H.
+\ee
+\end{definition}
+\begin{lemma}
+%10.2-4 Lemma (Symmetric operator). 
+A densely defined linear operator
+$T$ in a complex Hilbert space H is symmetric if and only if
+\be
+T \subset T^*.
+\ee
+\end{lemma}
+\begin{definition}
+%10.2-5 Definition (Self-adjoint linear operator). 
+Let $T: \D\left( T\right)\to\H$ be a linear operator which is densely defined in a complex Hilbert
+space H. Then T is called a \textit{self-adjoint linear operator} if
+\be
+T = T^*
+\ee
+
+Every self-adjoint linear operator is symmetric.
+\end{definition}
+\begin{definition}
+%10.3á1 Definition (Closed linear operator). 
+Let $T: \D\left( T\right)\to\H$ be a
+linear operator, where $\D\left( T\right)\subset\H$) and $\H$ is a complex Hilbert space.
+Then $T$ is called a closed linear operator if its graph
+$$
+\G\left(T\right)\bydef\left\{\left(x, y \right) \in \H\times \H\left|\right.x \in \D\left( T\right), \quad y = Tx\right\}
+$$
+is closed in $\H\times \H$, where the norm on $\H\times \H$ is defined by
+$$
+ \left\| \left(x, y \right) \right\| \bydef \sqrt{\left\|x \right\|^2+ \left\|y \right\|^2}
+$$
+and results from the inner product defined by
+$$
+\left(\left(x_1, y_1 \right), \left(x_2, y_2 \right)\right)_{\H\times \H} = \left(x_1, x_2 \right)_\H + \left(y_1, y_2 \right)_\H
+$$
+\end{definition}
+\begin{theorem}
+%10.3-2 Theorem (Closed linear operator). 
+Let $T: \D\left( T\right)\to\H$ be a
+linear operator, where $\D\left( T\right)\subset \H$ and $\H$ is a complex Hilbert space.
+Then:
+\begin{enumerate}
+	\item [(a)] $T$ is closed if and only if
+	\be
+	x_\a  \to x \quad \{x_\a\}\subset \D\left( T\right) \quad \text{and} \quad 	Tx_\a  \to y
+	\ee
+	together imply that $x \in \D\left( T\right)$ and $Tx = y$.
+	\item[(b)]  If $T$ is closed and $\D\left( T\right)$ is closed, then $T$ is bounded.
+	\item[(c)] Let $T$ be bounded. Then $T$ is closed if and only if $\D\left( T\right)$ is
+	closed.
+\end{enumerate}
+\end{theorem}
+\begin{definition}
+%10.3-4 Definition (Closable operator, closure).
+ If a linear operator $T$
+has an extension $T_1$ which is a closed linear operator, then $T$ is said to
+be \textit{closable}, and $T_1$ is called a closed linear extension of $T$.
+A closed linear extension $\widetilde{T}$ of a closable linear operator T is said
+to be \textit{minimal} if every closed linear extension $T_1$ of $T$ is a closed linear
+extension of  $\widetilde{T}$. This minimal extension $\widetilde{T}$ of $T$ -if it exists-is called
+the \textit{closure} of $T$.
+\end{definition}
+\begin{theorem}
+	Let $T: \D\left( T\right)\to\H$  be a linear operator,
+	where $\H$ is a complex Hilbert space and $\D\left( T\right)$ is dense in $\H$. Then if $T$ is
+	symmetric, its closure $\widetilde{T}$ exists and is unique.
+\end{theorem}
 
 
  \section{Fourier transformation}
@@ -23687,6 +23806,8 @@ PARIS ¥ FRANKFURT. 1965.
 
 \bibitem{krajewski:finite}
 Thomas Krajewski. \textit{Classification of finite spectral triples}. Journal of Geometry and Physics Volume 28, Issues 1â November 1998, Pages 1-30, 1998.
+
+\bibitem{kreyszig:fa} Erwin Kreyszig. \textit{Introductory Functional Analysis with Applications}.  New York, N.Y. : Wiley, 1978.
 
 \bibitem{lawson_m}
 H. B. Lawson, Jr. and M.-L. Michelsohn, {\it Spin Geometry}, Princeton

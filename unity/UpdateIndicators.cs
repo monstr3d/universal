@@ -35,7 +35,6 @@ namespace Unity.Standard
 
         public UpdateIndicators()
         {
-            update = UpdateFirst;
             update = UpdateInternal;
             constants = new float[0];
         }
@@ -73,12 +72,34 @@ namespace Unity.Standard
             if (b)
             {
                 upd += UpdateLimits;
+                StaticExtensionUnity.OnGlobal += AddClobal;
             }
         }
+
+        
 
         #endregion
 
         #region Own Members
+
+        void AddClobal(string global)
+        {
+            if (global.StartsWith("on:"))
+            {
+                string key = global.Substring(3);
+                if (indicators.ContainsKey(key))
+                {
+                    var i = indicators[key];
+                    foreach (var ii in i.Item2)
+                    {
+                        if (ii is ILimits)
+                        {
+                            limits.Add(ii as ILimits);
+                        }
+                    }
+                }
+            }
+        }
 
         const double bound = 30;
 

@@ -7,11 +7,12 @@ using Scada.Interfaces;
 
 using Unity.Standard;
 
+
 namespace Assets
 {
-    public class Levelm1 : Levelm
+    public class Levelm10 : Levelm
     {
-        public Levelm1()
+        public Levelm10()
         {
             // var ss = new string[] { Level0.Distance, Level0.Velocity,   Level0.VxLimiter,  Level0.Rz };
             var ss = new string[] { Level0.LongXC, Level0.Rz, Level0.Vz };
@@ -44,7 +45,7 @@ namespace Assets
 
         }
 
-        new static public void Collision(Tuple<GameObject, Component, IScadaInterface, ICollisionAction>  stop)
+        new static public void Collision(Tuple<GameObject, Component, IScadaInterface, ICollisionAction> stop)
         {
             // Time of flight = 115 s
             (Level0.RigidBodyStation + "." +
@@ -61,7 +62,7 @@ namespace Assets
 
         protected override void Update()
         {
-            
+
         }
 
     }

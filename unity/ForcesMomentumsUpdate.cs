@@ -126,7 +126,6 @@ namespace Assets
             telemerty.text = StaticExtensionUnity.Time + "";
             
             scada.IsEnabled = false;
-            
 
         };
             constants = new float[] { kx, ky, kz, kMx, kMy, kMz, 0 };
