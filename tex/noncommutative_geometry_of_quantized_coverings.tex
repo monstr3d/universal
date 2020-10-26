@@ -6535,7 +6535,7 @@ yields a presheaf.
 	Let  $\sF$ be a continuity structure  for  $\sX$ {and the} $\left\{A_x\right\}_{x \in \sX}$, and let $\mathscr C \bydef\mathscr C \left(\sX, \left\{A_x\right\}, \sF \right)$ be the {sheaf of the continuity structure} $\sF$ (cf. Definition \ref{top_cs_sheaf_defn}). From the Lemma \ref{op_cont_con_lem} for any open subset $\sU \subset \sX$ there is the natural action $C_b\left(\sX \right)\times \mathscr C\left(\sU\right) \to \mathscr C \left(\sU\right)$. If $\mathscr  S \subset\mathscr C$ is a subsheaf of $\mathscr C$ then it is possible that $C_b\left(\sX \right) \mathscr S\left(\sU\right)\not\subset   \mathscr S\left(\sU\right)$. However it is possible that there is a subring $R \subset  C_b\left(\sX \right)$ such that $R\mathscr S\left(\sU\right)\subset   \mathscr S\left(\sU\right)$. 
 \end{empt}
 \begin{definition}\label{top_smooth_sheaf_defn}
-	Let $M$ be a Riemannian manifold
+	Let $M$ be a smooth manifold
 	Let  $\sF$ be a continuity structure  for  $M$ {and the} $\left\{A_x\right\}_{x \in M}$, and let $\mathscr C \bydef\mathscr C \left(M, \left\{A_x\right\}, \sF \right)$ be the {sheaf of the continuity structure} $\sF$ (cf. Definition \ref{top_cs_sheaf_defn}). Let $\sU\subset M$ be an open subset, and let $\Coo\left(M \right)\times \mathscr C\left(\sU\right) \to \mathscr C \left(\sU\right)$ be the action induced by the action $C_b\left(M \right)\times \mathscr C\left(\sU\right) \to \mathscr C \left(\sU\right)$.  A subsheaf $\mathscr  S \subset\mathscr C$ is said to be \textit{smooth} if $\Coo\left(M \right)\mathscr S\left(\sU\right)\subset   \mathscr S\left(\sU\right)$ for all open $\sU \subset M$.
 \end{definition}
 \begin{lemma}\label{top_s_smooth_lem}
@@ -6557,7 +6557,7 @@ yields a presheaf.
 \end{example}
 
 \begin{lemma}\label{top_inv_sub_lem}
-	Consider the situation of the Definition \ref{top_smooth_sheaf_defn} and suppose that $p: \widetilde M \to M$ be a transitive covering of  where  $\widetilde M$ has given by the Proposition \ref{comm_cov_mani_prop}  structure of a Riemannian manifold. If subsheaf  $\mathscr  S \subset\mathscr C\bydef\mathscr C \left(M, \left\{A_x\right\}, \sF \right)$ is {smooth} then the inverse image $p^{-1}\mathscr  S \subset p^{-1}\mathscr C$ is smooth.
+	Consider the situation of the Definition \ref{top_smooth_sheaf_defn} and suppose that $p: \widetilde M \to M$ be a  covering of  where the structure of the manifold  $\widetilde M$ has given by the Proposition \ref{comm_cov_mani_prop}  structure of a Riemannian manifold. If subsheaf  $\mathscr  S \subset\mathscr C\bydef\mathscr C \left(M, \left\{A_x\right\}, \sF \right)$ is {smooth} then the inverse image $p^{-1}\mathscr  S \subset p^{-1}\mathscr C$ is smooth.
 \end{lemma}
 \begin{proof}
 	
@@ -6570,17 +6570,23 @@ yields a presheaf.
 	\ee
 	From \eqref{top_inv_sub_eqn} it follows that $\Coo\left( \widetilde\sU_\a\right)p^{-1}\mathscr S\left( {\widetilde\sU_\a}\right)\subset p^{-1}\mathscr S\left( {\widetilde\sU_\a}\right)$ and taking into account the Lemma \ref{top_s_smooth_lem} we conclude that the sheaf $\mathscr S$ is smooth. 
 \end{proof}
+\begin{remark}
+From the  Lemma \ref{top_inv_sub_lem} there is the natural  $\C$-linear map
+	\be\label{top_smooth_lift_eqn}
+	\lift_p: \mathscr S\left( M\right) \hookto p^{-1}\mathscr S\left(\widetilde M\right)
+	\ee 
+\end{remark}
 \begin{example}
 	The space $\Coo_c\left(M \right)'$  of distribution densities (cf. Definition \ref{top_distr_dens_def})  can be regarded as a space of global sections of a smooth sheaf  $\mathscr S$, i.e.
 	$$
-	\Coo_c\left(M \right)'\cong \mathscr S\left(M \right) .
+\Coo_c\left(M \right)'\cong \mathscr S\left(M \right) .
 	$$
-	From the Lemma \ref{top_inv_sub_lem} one can deduce that for any covering $p: \widetilde M \to M$ there is a $\C$-linear map
+	and taking into account \eqref{top_smooth_lift_eqn} one has the following $\C$-linear map.
 	\be\label{top_distr_lift_eqn}
-\Coo_c\left(M \right)'\hookto\Coo_c\left(\widetilde M \right)'.
+\lift_p: \Coo_c\left(M \right)'\hookto\Coo_c\left(\widetilde M \right)'.
 	\ee
 \end{example}
-
+!!! LATER EXAMPLES CORRECT.
 
 
 If $\mathscr  S$ and  $\mathscr  G$ are smooth sheaves then the sheaf of local morphisms  $\mathscr Hom \left(\mathscr S,
@@ -7636,7 +7642,7 @@ $$
 C_0\left(\widetilde M\right)\cap  \Coo\left(\widetilde M\right) = \widetilde A.
 $$
 \end{proof}
-\subsection{Coverings of quasi-$*$-algebras}\label{top_pd_fin_sec}
+\subsection{Coverings of $O^*$-algebras and quasi $*$-algebras}\label{top_pd_fin_sec}
 \paragraph*{}
 Let $M$ be an $n$-dimensional smooth manifold, let $\mu$ be a measure on $M$ which is locally given by an $n$-dimensional external differential form. If $\Coo_c\left(M \right)\bydef \Coo\left(M \right) \cap C_c\left(M \right)$ then
 \be\label{top_coo_p_eqn}
@@ -15051,7 +15057,7 @@ If $C^{m,R}_f \bydef C''\left(1 + \left(2R\right)\right)^m +  C^m_f 2^m$ then
 
 
 \section{Finite-fold coverings}
-\subsection{Coverings of $C^*$-algebra}
+\subsection{Coverings of $C^*$-algebras}
 \paragraph{}
 
 The finite-fold coverings of  noncommutative tori are described in \cite{clarisson:phd,schwieger:nt_cov}. Here we would like to prove that these coverings comply with the general theory of noncommutative coverings described in \ref{cov_fin_bas_sec}. 
@@ -15431,9 +15437,61 @@ where $\Ga_1\subset  \Ga$ the natural homomorphism \\$\phi: G\left(\left.C\left(
 %	The linear span of the generators $\left\{\widetilde{U}_x\right\}\in M^{-1}\Z^n$ is dense in $C\left(\T^{n}_{\widetilde{\Th}} \right)$. For any $x \in M^{-1}\Z^n$ there is $m_x \in \N$ such that $m_xx \in \Z^n$, it follows that $\widetilde{U}_x^{m_x} = u_x \in C\left(\T^{n}_{{\Th}}\right) $. Moreover $u_x$ is unitary, so there is a Borel-measured $\varphi_x$ such that $\widetilde{U}_x = \varphi\left(u_x \right)$. From the Corollary \ref{borel_path_lift_cor} it turns out that $\left( C\left(\T^{n}_{{\Th}} \right), C\left(\T^{n}_{\widetilde{\Th}} \right), \Z^n / \Ga\right)$ has the {unique path lifting}
 %\end{proof}
 \subsection{Coverings of $O^*$-algebras}\label{nt_fin_o_sec}
-\paragraph{}
 
-Let $\left( C\left(\T^{n}_{{\Th}} \right), C\left(\T^{n}_{\widetilde{\Th}} \right), \Z^n / \Ga, \pi\right)$ be an unital noncommutative finite-fold  covering given by the Theorem  \ref{nt_fin_thm}. 
+\paragraph*{}
+There is the given by \eqref{nt_repr_eqn} representation $\pi: C\left(\T^n_\Th \right)\to B\left(L^2\left( \T^n_\Th, \tau\right)  \right)$. If  $	\Psi_\Th:C\left(\mathbb{T}^n_{\Theta}\right) \hookto L^2\left(C\left(\mathbb{T}^n_{\Theta}\right), \tau\right)$ is the given by  \eqref{nt_to_hilbert_eqn}  and
+\be
+\D\left(\mathbb{T}^n_{\Theta}\right)  \bydef \Psi_\Th\left(\Coo\left(\mathbb{T}^n_{\Theta}\right) \right) 
+\ee
+then 	$\D\left(\mathbb{T}^n_{\Theta}\right)$ is a dense subset of $L^2\left(C\left(\mathbb{T}^n_{\Theta}\right), \tau\right)$,
+
+\begin{lemma}
+	In the above situation there is an *-isomorphism
+	$$
+	\Coo\left(\mathbb{T}^{2N}_{\Theta}\right)\cong   C\left(\mathbb{T}^{2N}_{\Theta}\right)\cap \L^\dagger\left(	\D\left(\mathbb{T}^n_{\Theta}\right)\right) .
+	$$
+\end{lemma}
+\begin{proof}
+	If $\xi \in \D\left(\mathbb{T}^n_{\Theta}\right)$ then there is $a_\xi \in \Coo\left(\mathbb{T}^n_{\Theta}\right)$ such that $\xi = \Psi_\Th\left(a_\psi \right)$. For all $a \in \Coo\left(\mathbb{T}^n_{\Theta}\right)$
+	one has
+	$$
+	\pi\left(a \right)\xi =  \Psi_\Th\left(aa_\xi \right)
+	$$ 
+	and from $aa_\psi\in \Coo\left(\mathbb{T}^n_{\Theta}\right)$ it turns out that
+	$$
+	\pi\left(a \right)\xi \in  \Psi_\Th\left(\Coo\left(\mathbb{T}^n_{\Theta}\right) \right)= \D\left(\mathbb{T}^n_{\Theta}\right)
+	$$
+	It follows that
+	$$
+	\pi\left(\Coo\left(\mathbb{T}^n_{\Theta}\right)\right)\D\left(\mathbb{T}^n_{\Theta}\right) = \D\left(\mathbb{T}^n_{\Theta}\right),
+	$$
+	or, equivalently
+	$$
+	\pi\left(\Coo\left(\mathbb{T}^n_{\Theta}\right)\right) \subset \L^\dagger\left(	\D\left(\mathbb{T}^n_{\Theta}\right)\right).
+	$$
+	So from $\Coo\left(\mathbb{T}^n_{\Theta}\right)\subset C\left(\mathbb{T}^n_{\Theta}\right)$ it turns out that
+	$$
+	\Coo\left(\mathbb{T}^{2N}_{\Theta}\right)\subset C\left(\mathbb{T}^{2N}_{\Theta}\right)\cap \L^\dagger\left(	\D\left(\mathbb{T}^n_{\Theta}\right)\right).
+	$$
+	Conversely suppose that $
+	C\left(\mathbb{T}^{2N}_{\Theta}\right)\cap \L^\dagger\left(	\D\left(\mathbb{T}^n_{\Theta}\right)\right)\not\subset\Coo\left(\mathbb{T}^{2N}_{\Theta}\right).
+	$, i.e. there is $b\in C\left(\mathbb{T}^{2N}_{\Theta}\right)\cap \L^\dagger\left(	\D\left(\mathbb{T}^n_{\Theta}\right)\right)$ such that $b\notin \Coo\left(\mathbb{T}^{2N}_{\Theta}\right)$.
+	If $\xi \bydef \Psi_\Th\left( 1_{\Coo\left(\mathbb{T}^{2N}_{\Theta}\right)}\right)\in \D\left(\mathbb{T}^n_{\Theta}\right)$ then 
+	$$
+	\pi\left( b\right) \xi = \Psi_\Th\left(b\right)\notin \D\left(\mathbb{T}^n_{\Theta}\right)
+	$$ 
+	and
+	$$
+	b\notin \L^\dagger\left(	\D\left(\mathbb{T}^n_{\Theta}\right)\right);
+	$$
+	It contradicts with $b\in C\left(\mathbb{T}^{2N}_{\Theta}\right)\cap \L^\dagger\left(	\D\left(\mathbb{T}^n_{\Theta}\right)\right)$. So one has
+	$$
+	C\left(\mathbb{T}^{2N}_{\Theta}\right)\cap \L^\dagger\left(	\D\left(\mathbb{T}^n_{\Theta}\right)\right)\subset\Coo\left(\mathbb{T}^{2N}_{\Theta}\right).
+	$$
+	
+\end{proof}
+
+!!! CHECK Let $\left( C\left(\T^{n}_{{\Th}} \right), C\left(\T^{n}_{\widetilde{\Th}} \right), \Z^n / \Ga, \pi\right)$ be an unital noncommutative finite-fold  covering given by the Theorem  \ref{nt_fin_thm}. 
 If a *-algebra  $\Coo\left(\mathbb{T}^n_{\widetilde\Theta}\right)$  is given by \eqref{nt_coo_eqn} and $\tau$ is given by \eqref{nt_state_eqn} then described in \ref{nt_gns_empt} GNS- construction yields the Hilbert space $\widetilde \H\bydef  L^2\left(C\left(\mathbb{T}^n_{\widetilde\Theta}\right), \tau\right)$, such that $\widetilde  \D\bydef \Coo\left(\mathbb{T}^n_{\widetilde\Theta}\right)$ is a dense subspace of $\widetilde \H$. If $\widetilde \delta_\mu: \Coo\left(\mathbb{T}^n_{\widetilde\Theta}\right)\to \Coo\left(\mathbb{T}^n_{\widetilde\Theta}\right)$ are given by \eqref{nt_diff_eqn} then $\widetilde\delta_\mu \in \L^\dagger\left(\widetilde\D \right)$. From  $\delta_\mu\left(\Coo\left(\mathbb{T}^n_{\Theta}\right) \right) \subset \Coo\left(\mathbb{T}^n_{\Theta}\right)$ operators can be regarded as linear maps: $\widetilde \delta_\mu: \Coo\left(\mathbb{T}^n_{\Theta}\right)\to \Coo\left(\mathbb{T}^n_{\Theta}\right)$. Denote by $D\left( \mathbb{T}^n_{\widetilde\Theta}\right)\subset \L^\dagger\left(\widetilde\D \right)$ a generated by $\Coo\left( \mathbb{T}^n_{\widetilde\Theta}\right)\sqcup\left\{\widetilde\delta_1,..., \widetilde\delta_n \right\}$ subalgebra of $\L^\dagger\left(\widetilde\D \right)$. There is the unique action $\Z^n / \Ga\times\times D\left( \mathbb{T}^n_{\widetilde\Theta}\right)\to D\left( \mathbb{T}^n_{\widetilde\Theta}\right)$ which is induced by the action $\Z^n / \Ga\times\times \Coo\left( \mathbb{T}^n_{\widetilde\Theta}\right)\to \Coo\left( \mathbb{T}^n_{\widetilde\Theta}\right)$ and such that  $\delta_\mu \in D\left( \mathbb{T}^n_{\widetilde\Theta}\right)^{\Z^n / \Ga}$. If
 \be\label{nt_d_inv_eqn}
 D\left( \mathbb{T}^n_{\Theta}\right)\bydef D\left( \mathbb{T}^n_{\widetilde\Theta}\right)^{\Z^n / \Ga}.
@@ -15464,45 +15522,24 @@ Similarly to  the Theorem \ref{nt_d_fin_thm} one can proof the following Lemma.
 \end{lemma}
 
 \subsection{Coverings of quasi $*$-algebras}
-
-\begin{empt}\label{mp_nt_op_empt}
-	The equation \eqref{mp_wave_prod_eqn} is similar to  the equation \eqref{nt_unitary_product_eqn} which defines $C\left(\mathbb{T}^{2N}_{\theta}\right)$. From this fact and from the Remark \ref{nt_c_k_eqn} it follows that there is an injective *-homomorphism
-	$\Coo\left(\mathbb{T}^{2N}_{\theta}\right) \hookto C_b\left(\R_\th^{2N} \right);~	U_k \mapsto \exp\left(2\pi ik\cdot\right)$. An algebra $\Coo\left(\mathbb{T}^{2N}_{\theta}\right)$ is dense in $C\left(\mathbb{T}^{2N}_{\theta}\right)$ so there is an injective *-homomorphism
-	$C\left(\mathbb{T}^{2N}_{\theta}\right) \hookto C_b\left(\R_\th^{2N} \right)$. The faithful representation $C_b\left(\mathbb{R}^{2N}_{\theta}\right)\to B\left(L^2\left( \R^{2N}\right) \right)$
-	gives a representation $\pi: C\left(\mathbb{T}^{2N}_{\theta}\right) \to B\left(L^2\left( \R^{2N}\right) \right)$
-	\begin{equation}\label{nt_l2r_eqn}
-		\begin{split}
-			\pi: C\left(\mathbb{T}^{2N}_{\theta}\right) \to B\left(L^2\left( \R^{2N}\right) \right), \\
-			U_k \mapsto \exp\left(2\pi ik\cdot\right)
-		\end{split}
-	\end{equation}
-	where $U_k\in C\left(\mathbb{T}^n_{\Theta}\right)$ is given by the Definition \ref{nt_uni_defn}.
-	The space  $\SS\left(\R^{2N} \right)$ is a dense subspace of $ L^2\left(\R^{2N} \right)$.
-\end{empt} 
-\begin{lemma}
-The given by \eqref{nt_l2r_eqn} representation yields *-isomorphism
-$$
-\Coo\left(\mathbb{T}^{2N}_{\theta}\right)\cong   C\left(\mathbb{T}^{2N}_{\theta}\right)\cap L^\dagger\left( \SS\left(\R^{2N} \right)\right). 
-$$
-\end{lemma}
-\begin{proof}
-!!!
-\end{proof}
-\begin{empt}
+\paragraph*{}
+++++++
+!!! DOWN
 Let  $\SS'\left( \R^{n}\right) $ the vector space dual to $\SS\left( \R^{n}\right) $ (cf. Definition \ref{mp_mult_defn}).The action $\Z^n \times \R^n\to \R^n$ yields the action  $\Z^n \times \SS'\left( \R^{n}\right)\to \SS'\left( \R^{n}\right)$ denote by
 \be
-\Coo\left(\mathbb{T}^{2N}_{\Theta}\right)' \bydef \left\{\left.T\in \SS'\left( \R^{n}\right)\right| gT = T \quad \forall a \in \Z^n \in \right\}
+???\Coo\left(\mathbb{T}^{2N}_{\Theta}\right)' \bydef \left\{\left.T\in \SS'\left( \R^{n}\right)\right| gT = T \quad \forall a \in \Z^n \in \right\}
 \ee
-Similarly to \ref{mp_star_ext_eqn} we define following products 
++++++++\\
+If $\Coo\left( \T^n\right)'$ is  the space of distribution densities (cf. Definition \ref{top_distr_dens_def}) and $ \<\cdot , \cdot a>:\Coo\left( \T^n\right)'\times \Coo\left( \T^n\right)\to \C$ is the natural pairing then similarly to \ref{mp_star_ext_eqn} we define following products: 
 \be\label{nt_distr_prod}
 \begin{split}
-\Coo\left(\mathbb{T}^{2N}_{\Theta}\right) \times \Coo\left(\mathbb{T}^{2N}_{\Theta}\right)' \to \Coo\left(\mathbb{T}^{2N}_{\Theta}\right)'\quad 
-	\<T a, \xi>\bydef \<T, a  \xi>;\\
 \Coo\left(\mathbb{T}^{2N}_{\Theta}\right)' \times \Coo\left(\mathbb{T}^{2N}_{\Theta}\right) \to \Coo\left(\mathbb{T}^{2N}_{\Theta}\right)'\quad 
-\<aT , \xi>\bydef \<T, \xi a> \\
+	\<T a, \xi>\bydef \<T, a  \xi>;\\
+\Coo\left(\mathbb{T}^{2N}_{\Theta}\right) \times \Coo\left(\mathbb{T}^{2N}_{\Theta}\right)' \to \Coo\left(\mathbb{T}^{2N}_{\Theta}\right)'\quad 
+\<aT , \xi>\bydef \<T, \xi a>.
 \end{split}
 \ee
-where  $\xi \in \SS'\left( \R^{n}\right) $, $a \in \Coo\left(\mathbb{T}^{2N}_{\Theta}\right)$, $T \in \Coo\left(\mathbb{T}^{2N}_{\Theta}\right)'$ and  $\left\langle\cdot,\cdot \right\rangle:\SS'\left( \R^{n}\right)\times \SS\left( \R^{n}\right)\to\C  $ is the natural scalar product. The products \eqref{nt_distr_prod} yield a quasi *-algebra
+The products \eqref{nt_distr_prod} yield a quasi *-algebra
 \be
 \left(\Coo\left(\mathbb{T}^{2N}_{\Theta}\right)', \Coo\left(\mathbb{T}^{2N}_{\Theta}\right)  \right) 
 \ee
@@ -15511,7 +15548,7 @@ If $\left( \Coo\left( \mathbb{T}^{2N}_{\Theta}\right), \Coo\left( \mathbb{T}^{2N
 \pi':\left(\Coo\left(\mathbb{T}^{2N}_{\Theta}\right)', \Coo\left(\mathbb{T}^{2N}_{\Theta}\right)  \right)\hookto \left(\Coo\left(\mathbb{T}^{2N}_{\widetilde\Theta}\right)', \Coo\left(\mathbb{T}^{2N}_{\widetilde\Theta}\right)  \right) 
 \ee
 of quasi *-algebras such that $\left.\pi'\right|_{\Coo\left(\mathbb{T}^{2N}_{\Theta}\right)}= \pi$.
-\end{empt}
+
 \begin{lemma}\label{nt_quasi_fin_lem}
 In the described situation the quadruple
 \be
@@ -15841,6 +15878,21 @@ the algebra $C_b\left(\R^{2N}_\th \right)$  contains all plane waves.
 ???\begin{rem}\label{nt_c_k_eqn}
 	If $ \left\{c_k \in \C\right\}_{k \in \N^0} $ is such that $\sum_{k = 0}^\infty \left|c_k\right| < \infty$ then from $\left\| \exp\left(ik\cdot\right)\right\|_{\mathrm{op}}=1$ it turns out  $\left\|\sum_{k = 0}^\infty c_k\exp\left(ik\cdot\right)\right\|_{\mathrm{op}}< \sum_{k = 0}^\infty \left|c_k\right| < \infty$, i.e. $\sum_{k = 0}^\infty c_k\exp\left(ik\cdot\right) \in C_b\left(\R^{2N}_\th \right)$. 
 \end{rem}
+\begin{empt}\label{mp_nt_op_empt}
+	The equation \eqref{mp_wave_prod_eqn} is similar to  the equation \eqref{nt_unitary_product_eqn} which defines $C\left(\mathbb{T}^{2N}_{\theta}\right)$. From this fact and from the Remark \ref{nt_c_k_eqn} it follows that there is an injective *-homomorphism
+	$\Coo\left(\mathbb{T}^{2N}_{\theta}\right) \hookto C_b\left(\R_\th^{2N} \right);~	U_k \mapsto \exp\left(2\pi ik\cdot\right)$. An algebra $\Coo\left(\mathbb{T}^{2N}_{\theta}\right)$ is dense in $C\left(\mathbb{T}^{2N}_{\theta}\right)$ so there is an injective *-homomorphism
+	$C\left(\mathbb{T}^{2N}_{\theta}\right) \hookto C_b\left(\R_\th^{2N} \right)$. The faithful representation $C_b\left(\mathbb{R}^{2N}_{\theta}\right)\to B\left(L^2\left( \R^{2N}\right) \right)$
+	gives a representation $\pi: C\left(\mathbb{T}^{2N}_{\theta}\right) \to B\left(L^2\left( \R^{2N}\right) \right)$
+	\begin{equation}\label{nt_l2r_eqn}
+		\begin{split}
+			\pi: C\left(\mathbb{T}^{2N}_{\theta}\right) \to B\left(L^2\left( \R^{2N}\right) \right), \\
+			U_k \mapsto \exp\left(2\pi ik\cdot\right)
+		\end{split}
+	\end{equation}
+	where $U_k\in C\left(\mathbb{T}^n_{\Theta}\right)$ is given by the Definition \ref{nt_uni_defn}.
+	The space  $\SS\left(\R^{2N} \right)$ is a dense subspace of $ L^2\left(\R^{2N} \right)$.
+\end{empt} 
+
 \begin{empt}\label{nt_repr_not_empt}
 	
 	Denote by $\left\{U^{\theta/m_j}_{k}\in U\left( C\left(\T^{2N}_{\th/m_{j}}\right)\right) \right\}_{k \in \Z^{2N}}$ the basis of $C\left(\T^{2N}_{\th/m_{j}}\right)$. Similarly to \eqref{nt_l2r_eqn} there is the representation $\pi_j: C\left(\T^{2N}_{\th/m_{j}}\right) \to B\left(L^2\left( \R^{2N}\right)  \right)$ given by
@@ -16933,6 +16985,19 @@ An application of both the Lemma \ref{nt_quasi_fin_lem} and the given by \eqref{
 	\text{where } \left( \mathfrak A, \mathfrak A_0 \right)\bydef\left(\Coo\left(\mathbb{T}^{2N}_{\theta}\right)', \Coo\left(\mathbb{T}^{2N}_{\theta}\right)  \right),\\ \left( \mathfrak A^j, \mathfrak A_0^j \right)\bydef\left(\Coo\left(\mathbb{T}^{2N}_{\theta/m_j^2}\right)', \Coo\left(\mathbb{T}^{2N}_{\theta/m_j^2}\right)  \right).
 	\end{split}
 \ee
+\begin{empt}DOWN TO ININITE COV !!!
+	Let  $\SS'\left( \R^{n}\right) $ the vector space dual to $\SS\left( \R^{n}\right) $ (cf. Definition \ref{mp_mult_defn}).The action $\Z^n \times \R^n\to \R^n$ yields the action  $\Z^n \times \SS'\left( \R^{n}\right)\to \SS'\left( \R^{n}\right)$ denote by
+	\be
+	\Coo\left(\mathbb{T}^{2N}_{\Theta}\right)' \bydef \left\{\left.T\in \SS'\left( \R^{n}\right)\right| gT = T \quad \forall a \in \Z^n \in \right\}
+	\ee
+
+	If $\left( \Coo\left( \mathbb{T}^{2N}_{\Theta}\right), \Coo\left( \mathbb{T}^{2N}_{\widetilde\Theta}\right), {\Z^{2N} / \Ga}, \pi\right)$ is given by the Lemma \ref{nt_d_fin_lem} then there is an injective *-homomoprhism
+	\be
+	\pi':\left(\Coo\left(\mathbb{T}^{2N}_{\Theta}\right)', \Coo\left(\mathbb{T}^{2N}_{\Theta}\right)  \right)\hookto \left(\Coo\left(\mathbb{T}^{2N}_{\widetilde\Theta}\right)', \Coo\left(\mathbb{T}^{2N}_{\widetilde\Theta}\right)  \right) 
+	\ee
+	of quasi *-algebras such that $\left.\pi'\right|_{\Coo\left(\mathbb{T}^{2N}_{\Theta}\right)}= \pi$.
+\end{empt}
+
 \begin{lemma}
 In  the described above situation the triple
 $$
