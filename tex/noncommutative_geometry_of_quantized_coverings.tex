@@ -4794,7 +4794,30 @@ However from the Lemma 	\ref{top_covp_cat_lem} it follows that $G_{\widetilde x_
  \end{proof}
 \begin{definition}\label{top_gen_path_defn}
 Let $\sX$ be a connected, locally connected, locally compact, Hausdorff space.
-Let $\left\{\sU_\a\right\}_{\a \in \mathscr A}$ be a finite or countable family of connected open subsets of $\sX$, such that $\sX = \cup~ \sU_\a$ and for all $\a$ the closure of $\sU_\a$ is compact. An ordered finite subset $\left(\sU_{\a_1},...,\sU_{\a_n}\right)$ of the family $\left\{\sU_\a\right\}$ is said to be an  $\left\{\sU_\a\right\}$-\textit{path} if  $\sU_{\a_j}\cap \sU_{\a_{j+1}}\neq \emptyset$ for all $j = 1,...,n-1$ 
+Let $\mathfrak A\bydef\left\{\sU_\a\right\}_{\a \in \mathscr A}$ be a  family of connected open subsets of $\sX$, such that $\sX = \cup~ \sU_\a$ and for all $\a$ the closure of $\sU_\a$ is compact. Let $\La$ be an ordinal (cf. Section \ref{ord_sec}). An indexed by $\La$ family $\left\{\sV_\la\right\}_{\la \le \La}$ is said to be
+ an  $\mathfrak A$-\textit{path} if $\sV_\la\in \mathfrak A$ for all $\la\in\La$ and for all $\la \in \La$
+\be\label{top_gen_path_eqn}
+ \forall \mu, \la\in \La\quad \mu <  \la \Rightarrow \left( \bigcup_{\substack{\nu \in \La\\\mu \le  \nu < \la}}\sV_\nu\right)\bigcap \sV_\la \neq\emptyset.
+\ee
+\end{definition}
+\begin{remark}
+If $\la$ in the Equation \eqref{top_gen_path_eqn} is a successor ordinal (cf. Section \ref{ord_sec}) then the condition \eqref{top_gen_path_eqn} is equivalent to
+\be\label{top_gen_s_path_eqn}
+\sV_{\la - 1}\bigcap \sV_\la \neq\emptyset
+\ee
+\end{remark}
+\begin{definition}\label{top_path_comp_defn}
+	If both $\mathfrak p'=\left\{\sV'_{\la'}\right\}_{\la' \le \La'}$ and $\mathfrak p''=\left\{\sV''_{\la''}\right\}_{\la'' \le \La''}$ are paths such that $\sV'_{\La'} = \sV''_{0}$ then there is a path $\mathfrak p=\left\{\sV_{\la}\right\}_{\la \le \La' + \La''}$ such that
+	\be
+	\begin{split}
+	\forall \la' \le \La'\quad \sV_{\la'} = \sV'_{\la'},\\
+	\forall \la'' \le \La'' \quad\sV_{\La' + \la''} = \sV''_{\la''}.
+	\end{split}
+	\ee
+The path $\mathfrak p$ is said to be the \textit{composition} of $\mathfrak p'$ and $\mathfrak p''$. We write
+	\be\label{top_path_comp_eqn}
+	\mathfrak p'\circ \mathfrak p''\bydef\mathfrak p.
+	\ee
 \end{definition}
 \begin{lemma}\label{top_gen_path_lem}
 Consider the situation of the Definition \ref{top_gen_path_defn}. If the space $\sX$ is Lindel\"{o}f then for any $\sU_{\a'}, \sU_{\a''} \in \sX$ there is a $\left\{\sU_\a\right\}$-{path} $\left(\sU_{\a_1},...,\sU_{\a_n}\right)$ such that $\sU_{\a_1}=\sU_{\a'}$ and $\sU_{\a_n}=\sU_{\a''}$ .
@@ -4802,12 +4825,7 @@ Consider the situation of the Definition \ref{top_gen_path_defn}. If the space $
 \begin{proof}
 If $x' \in \sU_{\a'}$ and $x'' \in \sU_{\a''}$ then from the Lemma 	\ref{fin_comp_lin_lem} it follows that there is the sequence of connected compact sets $\left\{\sU_j\right\}_{j \in \N}$ such that $x' \in \sU_1$ and $\sX = \cup~\sU_j$. Let $n \in \N$ be such that $x'' \in \sU_n$ and $x'' \notin \sU_{n-1}$. From the proof of the Lemma  \ref{fin_comp_lin_lem} it turns out that there is a path $\left(\sU_{\a'_1},...,\sU_{\a'_k}\right)$ such that $x'$ lies in the closure of $\sU_{\a_1}$ and $x''$ lies in the closure of $\sU_{\a_k}$ The path $\left\{\sU_\a\right\}$-{path} $\left(\sU_{\a'}, \sU_{\a'_1},...,\sU_{\a'_k }, \sU_{\a''}\right)$ satisfies to this lemma.
 \end{proof}
-\begin{definition}\label{top_path_comp_defn}
-If both $\mathfrak p'=\left(\sU_{\a'_1},...,\sU_{\a'_k}\right)$ and $\mathfrak p''=\left(\sU_{\a''_1},...,\sU_{\a''_l}\right)$ are paths such that $\sU_{\a'_k} = \sU_{\a''_1}$ then the path $\mathfrak p=\left(\sU_{\a'_1},...,\sU_{\a'_k},\sU_{\a''_2},...,\sU_{\a''_l} \right)$  is said to be the \textit{composition} of $\mathfrak p'$ and $\mathfrak p''$. We write
-\be\label{top_path_comp_eqn}
-\mathfrak p'\circ \mathfrak p''\bydef\mathfrak p.
-\ee
-\end{definition}
+
 \begin{empt}\label{top_lconn_part}
 	Let $\sX$ be a connected, locally connected,  Lindel\"{o}f, paracompact, locally compact Hausdorff space. Let $p: \widetilde{   \mathcal X }\to \sX$ is a transitive covering such that $G\left(\left.\widetilde{\sX}~\right|\sX\right)$ is countable. There is a countable set $\left\{\sU_\a\right\}_{\a \in \mathscr A}$  set of open connected subsets of $\sX$ such that following conditions hold:
 	\begin{itemize}
@@ -23043,7 +23061,37 @@ If a map $p:\left(\widetilde{M},~ \widetilde{\mathcal F} \right)\to\left({M},~ {
 
 
  	\chapter{Miscellany}
- 		\section{Pre-order category}
+ 	\section{Ordinals}\label{ord_sec}
+ 	\paragraph*{}
+ 	Here the book \cite{harzheim:os} is cited.
+ 	A linearly ordered set is called \textit{well-ordered}, if each non-empty 
+ 	subset of it has a first (or least) element.
+ 	We recall in short, without going into the details, the construction of 
+ 	the class of ordinal numbers by the method of von Neumann. Consider 
+ 	the sequence 
+ $	\emptyset ,\{\emptyset\},\{\emptyset, \{\emptyset\}\},\{\emptyset, \{\emptyset\}, \{\emptyset, \{\emptyset\}\}\},....$, where from every element x of 
+ 	the sequence we create its immediate successor by forming the set $x \cup \{x\}$. 
+ 	This step can be repeated transfinitely. The formal definition is: 
+ 	A set $M$ whose elements are again sets is called an \textit{ordinal} if there 
+ 	holds: $M$, with the relation $\subseteqq$, is well-ordered, and each $x\in M$ is the 
+ 	set of all elements of M which are $\subset x$. 
+ 	This entails that the class On of all ordinals is well-ordered, and if
+ 	$\a$ and $\bt$ are ordinals, we have 
+ 	$$
+ \a < \bt \Leftrightarrow a \text{ is a proper subset of }\bt \Leftrightarrow\a\in \bt.
+ 	$$.
+ 	The first infinite ordinal is denoted by $\om$ or $\om_0$, and the finite  
+ 	ordinals by $0,1,2,...$. 
+ 	If $\la$ is an ordinal $\neq \emptyset$, for which the set of ordinals which are $< \la$ has 
+ 	no greatest element, then $\la$ is called a \textit{limit ordinal} or \textit{limit number}. If 
+ 	this set has a greatest element $\kappa$, $\la$ is said to be a \textit{successor ordinal} or 
+ 	\textit{successor number}, and then we also denote $\kappa$ by $\la -1$. 
+ 	In On we have operations + and $\bullet$  which can be defined by transfinite 
+ 	recursion: 
+ 	If $a$ is an ordinal we put $a + 0 = a$ and define $a + 1$ to be the least 
+ 	ordinal which is $> a$. If for an ordinal $\bt$ we have already defined $\a +  \bt$
+ 	we put $\a + (\bt + 1) = (a + \bt) + 1$.
+ \section{Pre-order category}
  	\begin{definition}\label{preordercat_defn}\cite{goldblatt:topoi}
  		A category is said to be a \textit{pre-order category} if there is at most one morphism between different objects.
  	\end{definition}
@@ -23807,6 +23855,13 @@ J. C. V\'arilly and J. M. Gracia-Bond\'{\i}a, \textit{Algebras of distributions 
 {\it Lecture notes on noncommutative geometry and quantum groups}, Edited by Piotr M. Hajac.
 
 \bibitem{hamermesh:group} M. Hamermesh. \textit{Group Theory and its Applications to Physical Problems}, Addison-Wesley, 1962.
+
+
+\bibitem{harzheim:os} Egbert Harzheim. \textit{Ordered sets}.
+Springer Science+Business Media, Inc. 2005.
+
+
+
 
 %\bibitem{isaacs:auto} I.M. Isaacs. \textit{Automorphisms of matrix algebras over commutative rings}. Linear Algebra and its Applications, Volume 31, June 1980, Pages 215-231, 1980.
 
