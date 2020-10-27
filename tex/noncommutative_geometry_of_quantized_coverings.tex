@@ -4797,15 +4797,30 @@ Let $\sX$ be a connected, locally connected, locally compact, Hausdorff space.
 Let $\mathfrak A\bydef\left\{\sU_\a\right\}_{\a \in \mathscr A}$ be a  family of connected open subsets of $\sX$, such that $\sX = \cup~ \sU_\a$ and for all $\a$ the closure of $\sU_\a$ is compact. Let $\La$ be an ordinal (cf. Section \ref{ord_sec}). An indexed by $\La$ family $\left\{\sV_\la\right\}_{\la \le \La}$ is said to be
  an  $\mathfrak A$-\textit{path} if $\sV_\la\in \mathfrak A$ for all $\la\in\La$ and for all $\la \in \La$
 \be\label{top_gen_path_eqn}
- \forall \mu, \la\in \La\quad \mu <  \la \Rightarrow \left( \bigcup_{\substack{\nu \in \La\\\mu \le  \nu < \la}}\sV_\nu\right)\bigcap \sV_\la \neq\emptyset.
+ \forall\la\in \La\quad \exists \mu \in \La\quad \mu <  \la \quad\text{ AND }\quad \forall\nu\in \La \quad \mu \le  \nu < \la\Rightarrow \sV_\nu \cap \sV_\la \neq \emptyset.
 \ee
 \end{definition}
 \begin{remark}
 If $\la$ in the Equation \eqref{top_gen_path_eqn} is a successor ordinal (cf. Section \ref{ord_sec}) then the condition \eqref{top_gen_path_eqn} is equivalent to
 \be\label{top_gen_s_path_eqn}
-\sV_{\la - 1}\bigcap \sV_\la \neq\emptyset
+\sV_{\la - 1}\cap \sV_\la \neq\emptyset
 \ee
 \end{remark}
+\begin{lemma}
+Let $\sX$ be a connected, locally connected, locally compact, Hausdorff space.
+Let $\mathfrak A\bydef\left\{\sU_\a\right\}_{\a \in \mathscr A}$ be a  family of connected open subsets of $\sX$, such that $\sX = \cup~ \sU_\a$. For any $\sU_{\a'}, \sU_{\a'}\in \mathfrak A$ there is an $\mathfrak A$-path $\left\{\sV_\la\right\}_{\la \le \La}$ such that $\sV_0 = \sU_{\a'}$  and $\sV_\La = \sU_{\a''}$.
+\end{lemma}
+\begin{proof}
+Denote by
+$$
+\mathfrak{A}_{\a'}\bydef \left\{\sU_\a\in \mathfrak A\left|\exists \text{ path }\left\{\sV_\la\right\}_{\la \le \La}\quad \sV_\La = \sU_\a \right.\right\}.
+$$
+If $\mathfrak{A}_{\a'}= \mathfrak{A}$ then this lemma is proven. If not then
+$$
+\bigcup_{\sU_\a\in \mathfrak{A}_{\a'}}\sU_\a\neq \sX.
+$$
+\end{proof}
+
 \begin{definition}\label{top_path_comp_defn}
 	If both $\mathfrak p'=\left\{\sV'_{\la'}\right\}_{\la' \le \La'}$ and $\mathfrak p''=\left\{\sV''_{\la''}\right\}_{\la'' \le \La''}$ are paths such that $\sV'_{\La'} = \sV''_{0}$ then there is a path $\mathfrak p=\left\{\sV_{\la}\right\}_{\la \le \La' + \La''}$ such that
 	\be
