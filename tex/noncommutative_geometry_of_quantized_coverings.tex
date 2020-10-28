@@ -1553,7 +1553,7 @@ g \left(\bt\text{-}\lim a_\a \right) \bydef \bt\text{-}\lim g a_\a.
 
 
 \begin{definition}\label{fin_defn}
-A $\left(A, \widetilde{A}, G, \pi \right)$  noncommutative finite-fold  pre-covering  of $C^*$-algebras $A$ and $\widetilde{A}$  is said to be   \textit{noncommutative finite-fold covering} if there is an increasing net $\left\{u_\la\right\}_{\la\in\La}\subset M\left( A\right)_+ $  of positive elements such that
+A noncommutative finite-fold  pre-covering  $\left(A, \widetilde{A}, G, \pi \right)$  of $C^*$-algebras $A$ and $\widetilde{A}$  is said to be   \textit{noncommutative finite-fold covering} if there is an increasing net $\left\{u_\la\right\}_{\la\in\La}\subset M\left( A\right)_+ $  of positive elements such that
 \begin{enumerate}
 	\item[(a)] There is the limit 
 	$$
@@ -5027,7 +5027,7 @@ It contradicts with our assumption.
 
 
 
-\begin{lemma}\label{top_fin_comp_lin_cov_lem}
+\begin{lemma}\label{top_fin_comp_lin_cov_lem!}DELETE!!!
 	Let $\mathcal X$ be a connected, locally connected,  locally compact, Hausdorff, Lindel\"{o}f space. Suppose that  $\widetilde{\mathcal X}\to \sX$ be a transitive finite-fold covering.   Then for any $x_0 \in \mathcal X$ there is  a  finite or countable sequence $\sU_1 \subsetneqq  ...\subsetneqq \sU_n\subsetneqq ...$ of connected open subsets of $\sX$ such that
 	\begin{enumerate}
 		\item[(i)] $x_0 \in \sU_1$.
@@ -5052,7 +5052,7 @@ It contradicts with our assumption.
 \end{proof}
 
 \begin{lemma}\label{top_conn_cov_lem}
-	Let $\sX$ be a  connected, locally connected, locally compact, Hausdorff space, and let $\sU \subset \sX$ be a connected open subspace. If $p:	\widetilde{   \mathcal X } \to \mathcal X$ is a transitive covering, such that such that the space $\widetilde{\sU} = p^{-1}\left(\sU \right)$ is connected then the restriction $p|_{\widetilde{\sU}}: \widetilde{\sU}\to {\sU}$ is a transitive covering. Moreover  the map
+	Let $\sX$ be a  connected, locally connected, locally compact, Hausdorff space, and let $\sU \subset \sX$ be a connected open subspace. If $p:	\widetilde{   \mathcal X } \to \mathcal X$ is a transitive covering, !!!! CONNECTED DELETE such that such that the space $\widetilde{\sU} = p^{-1}\left(\sU \right)$ is connected then the restriction $p|_{\widetilde{\sU}}: \widetilde{\sU}\to {\sU}$ is a transitive covering. Moreover  the map
 	\be\label{top_res_iso_eqn}
 	\begin{split}
 		h:	G\left(\left. \widetilde{   \sX }~\right|\sX\right)\to G\left(\left. \widetilde{   \sU }~\right|\sU\right),\\
@@ -6746,7 +6746,7 @@ dominated by $\left\{\mathcal U_\a\right\}_{\a \in \mathscr A}$.
 	\left\|a- a\left( \sum_{\a \in \mathscr A_0}a_\a\right)  \right\|+\left\|a- \left( \sum_{\a \in \mathscr A_0}a_\a\right) a \right\|< \eps. 
 	$$ 
 \end{proof}
-\begin{remark}\label{comm_fn_bt_lim_rem}
+\begin{remark}\label{comm_fn_bt_lim_rem!!!}!!! DELETE
 	In the situation of the Lemma \ref{fin_comp_lin_empt} if $f_n \in C_0\left( \sX\right)$ is given by \eqref{fin_comp_lin_eqn} then  from the Lemma \ref{top_part_of_unity_strict_lem} it follows that there is the limit
 	\be\label{comm_fn_bt_lim_eqn}
 		1_{C_b\left(\mathcal X \right) }= \bt\text{-}\lim_{n\to \infty} f_n.
@@ -7482,29 +7482,70 @@ satisfies to the conditions (a), (b) of the Definition \ref{fin_comp_defn}.
 \end{enumerate}
 
 \end{proof}
-\begin{empt}
-	Let $\mathcal X$ be a locally compact Hausdorff space and $x_0\subset \sX$ be any point. If
-\bean
+\begin{empt}\label{top_ua_empt}
+	Let $\mathcal X$ be a locally compact, locally connected, connected, Hausdorff space and $x_0\subset \sX$ be any point. If
+\be\nonumber
+\begin{split}
 \mathfrak F=	\left\{u_\la\right\}_{\la \in \La}\bydef\\\bydef \left\{\left.u_\la\in C_c\left(\sX	
-	\right)_+\right|u_\la\left(\sX \right)\subset \left[0,1\right] , \quad u_\a\left(x_0 \right)> 0,\quad u^{-1}_\la\left(\left(0,1\right]\right) \text{ is connected}    \right\}
-\eean
-ordered  by the following way
+\right)_+\right|u_\la\left(\sX \right)\subset \left[0,1\right] , ~ u_\a\left(x_0 \right)> 0,\quad u^{-1}_\la\left(\left(0,1\right]\right) \text{ is connected}    \right\}
+\end{split}
+\ee
+ where the notion $u^{-1}_\la\left(\left(0,1\right]\right)$  means the inverse image.
+If $\La$ is ordered  by the following way
 $$
-\bt, \ga \in \La\quad \bt \le \ga \Leftrightarrow f_\bt \le f_\ga
+\mu, \nu \in \La\quad \bt \le \ga \Leftrightarrow f_\mu \le f_\nu
 $$
-then $\La$ is a directed set. 
+then $\La$ is a directed set because $u_{\mu\vee \nu}\bydef \max\left(u_\mu, u_\nu \right)\in \mathfrak F$ and  $u_{\mu\vee \nu}\ge u_{\mu}$, $~u_{\mu\vee \nu}\ge u_{\nu}$.
 \end{empt}
 \begin{lemma}\label{comm_slfin_lem}
-In the above situation there is the  limit (cf. Definition \ref{strict_topology})
+ In the above situation there is the  limit (cf. Definition \ref{strict_topology})
 $$
 \bt\text{-}\lim_{\la\in \La}u_\la= 1_{C_b\left(\sX \right) }
 $$
 with respect to the strict topology of $M\left( C_0\left(\sX \right) \right) \cong C_b\left(\sX \right)$ (cf. Definition \ref{strict_topology})
 \end{lemma}
 \begin{proof}
-!!!!
+If $x_0\in \sX$ be a point such that $\lim_{\la\in \La}u_\la\left(x_0\right) > 0$ then there is $\la_0\in \La$ such that $u_{\la_0}\left(x_0\right)> 0$. Suppose $f_{x_0}\in C_c\left(\sX \right)_+$ is given by the Lemma \ref{com_a_u_lem} that is there is an open neighborhood $\sU$ of $x_0$ such that $f_{x_0}\left(\sU \right) = \{1\}$. One can assume that $\supp f_{x_0}\subset \supp u_{\la_0}$. If $u'_{\la_0}\bydef \max \left( f_{x_0} ,  u_{\la_0} \right)$ then one has
+\bean
+u'_{\la_0}\in\mathfrak F,\\
+u'_{\la_0}\left(\sU \right) = \{1\}
+\eean
+(cf. \ref{top_ua_empt}).
+So the set
+$$
+\sV \bydef \left\{\left.x\in \sX	
+\right| \lim_{\la\in \La}u_\la\left(x \right)=1   \right\}
+$$
+is open.
+If $\sV \neq \sX$ then since $\sX$ is connected there is $x_1 \in \sX\setminus\sV$ such that if $\sU_1$ is a neighborhood of $x_1$ then $\sU_1\cap\sV \neq 0$. Suppose  $f_{x_1}\in C_c\left( \sX\right)_+$ is such that $f_{x_1}\left( x_1\right)> 0$ and $f_{x_1}\left( \sX\right) \subset \left[0,1\right]$. Let 
+$$
+\sU_1 = \left\{\left.x \in \sX\right|f_{x_1}\left(x \right) > 0 \right\}
+$$
+and let $\sU'_1\subset \sU_1$ be the connected component of $x_1$. Since $\sX$ is locally connected there is $f'_{x_1}\in C_c\left( \sX\right)_+$ such that
+$$
+f'_{x_1}\left(x \right) = \begin{cases}
+f_{x_1}\left(x \right)& x \in \sU'_1\\
+0& x \not\in \sU'_1
+\end{cases}
+$$
+There is $u_{\la_1}\in\mathfrak F$ such that $u_{\la_1}\left(\sU'_1 \right) \neq \{0\}$. If $u'_{
+\la_1}\bydef \max \left( f'_{x_1} ,  u_{\la_1} \right)$ then 
+\bean
+u'_{\la_1}\in\mathfrak F,\\
+u'_{\la_1}\left(\sU'_1 \right) \subset \left(0, 1 \right] .
+\eean
+Since $\sU'_1 \not\subset \sV$ there is $x \in \sU'_1 \setminus\sV$ such that $u'_{\la_1}\left(x \right)> 0$ similarly to the above proof one has
+$$
+\lim_{\la\in\La}u_\la\left(x \right)=1 
+$$ 
+so $x\in \sV$. It is a contradiction so $\sX = \sV$, i.e. $\lim_{\la\in\La}u_\la\left(x \right)= 1$ for all $x\in \sX$.
+If $a \in C_c\left(\sX\right)$ be any element then for all $x \in \supp a$ there is $u_x\in \mathfrak F$ such that $u_x\left(x\right)> 0$. Similarly to the above proof one can obtain $u'_x\in \mathfrak F$ such that there is an open neighborhood $\sU_x$ of $x$ such that $u'_x\left(\sU_x \right) = \{1\}$. For all $a\in C_c\left(\sX \right)$ the set $\supp a$ is compact so from $\sX = \bigcap_{x\in \sX}\sU_x$ it follows that there is a finite set $\left\{x_1, ..., x_n\right\}\subset \sX$ such that $\supp a \subset \sU_{x_1}\cup ...\cup  \sU_{x_n}$. If $u_\vee = \max\left(u'_{x_1},..., u'_{x_n}  \right)$ then  $u_\vee\in \mathfrak F$, i.e. there is $\la_\vee\in\La$ such that $u_\vee= u_{\la_\vee}$. On the other hand for all $\la\ge \la_\vee$ one has $u_\la\left( \supp a\right)= 1$. It follows that there are  following $C^*$-norm limits
+$$
+a = \lim_{\la \in \La} u_\la a = \lim_{\la \in \La} a u_\la.
+$$ 
+From the above equation it follows that $\bt\text{-}\lim_{\la\in \La}u_\la= 1_{C_b\left(\sX \right) }$.
 \end{proof}
-!!!\begin{theorem}\label{comm_fin_thm}
+\begin{theorem}\label{comm_fin_thm}
 	Let $\mathcal X$ be a locally compact, connected, locally connected, Hausdorff space. 
 	Following conditions hold:
 	\begin{enumerate}
@@ -7539,33 +7580,23 @@ such that
 \begin{itemize}
 	\item For all $\la\in\La$ the set $u^{-1}_\la\left(\left(0,1\right]\right)$ is connected.
 	\item There is the  limit (cf. Definition \ref{strict_topology})
-	$$
+\be\label{comm_fn_bt_liml_eqn}
 	\bt\text{-}\lim_{\la\in \La}u_\la= 1_{C_b\left(\sX \right) }
-	$$
+\ee
 	with respect to the strict topology of $M\left( C_0\left(\sX \right) \right) \cong C_b\left(\sX \right)$ (cf. Definition \ref{strict_topology})
 \end{itemize} 
-!!!
-The space	$\mathcal X$ is second-countable 
-hence from the Theorem \ref{lindel_thm} it follows that $\sX$ is a Lindel\"{o}f space. Let us consider a  finite or countable sequence $\sU_1 \subsetneqq  ...\subsetneqq \sU_n\subsetneqq ...$ of connected open subsets of $\sX$ given by the Lemma  \ref{top_fin_comp_lin_cov_lem}. In particular following condition hold:
-\begin{itemize}
-	\item  For any $n \in \N$ the closure $\sV_n$ of $\sU_n$ is compact.
-	\item $\cup~ \sU_n = \sX$.
-	\item The space $p^{-1}\left( \sU_n\right)$ is connected for any $n \in \N$.
-\end{itemize}
- From the Remark \ref{comm_fn_bt_lim_rem} it turns out that there are $f_n \in C_0\left(\sU_n \right)\subset C_0\left(\sX \right)$ such that there is the limit
-\be\label{comm_fn_bt_liml_eqn}
-1_{C_b\left(\mathcal X \right) }= \bt\text{-}\lim_{n\to \infty} f_n
-\ee
-with respect to the strict topology on the multiplier algebra $M\left(C_0\left(\mathcal X \right)  \right)\cong C_b\left(\mathcal X \right)$ (cf. Definition \ref{strict_topology}). 
-Let us check conditions (a), (b) of the Definition \ref{fin_defn}. 		
+Since $u_\la\in C_c\left( \sX\right)$  the space $\supp u_\la$ compact, and $u_\la^{-1}\left(\left(0,1 \right]  \right)$ is an open subspace of $\supp u_\la$. 
+Let us prove that the family $\left\{u_\la\right\}$ satisfies to conditions (a), (b) of the Definition \ref{fin_defn}.
 \begin{enumerate}
 	\item[(a)] Follows from the Equation \eqref{comm_fn_bt_liml_eqn}.
-	\item[(b)] If both  $A_n$ and $\widetilde A_n$ are the $C^*$-norm completions of $f_nC_0\left(\sX \right)f_n$ and $f_nC_0\left(\widetilde \sX \right)f_n$ respectively   then both $A_n$ and $\widetilde A_n$ are hereditary subalgebras of $C_0\left(\sX \right)$ and $C_0\left(\widetilde \sX \right)$. From the Proposition \ref{hered_spectrum_prop} it follows that both spectra $\sU_n$ and $\widetilde \sU_n$ of $A_n$ and $\widetilde A_n$ are open subsets of  $\sX$ and $\widetilde \sX$ respectively. Otherwise the closure $\sV_n$  of $\sU_n$ is compact, and taking into account that $p$ is a finite-fold covering the closure $\widetilde{\sV}_n$ of $\widetilde{\sU}_n$ is also compact, so from the Theorem \ref{pavlov_troisky_thm} it turns out that $C\left(\widetilde{\sV}_n \right)$ is a finitely generated $C\left({\sV}_n \right)$-module. Clearly the covering $p_{\widetilde{\sV}_n}: \widetilde{\sV}_n \to {\sV}_n$ is transitive, and taking into account the Lemma \ref{top_conn_cov_lem} for every $n \in \N$ there is the natural isomorphism of groups
+	\item[(b)] If both  $A_\la$ and $\widetilde A_\la$ are the $C^*$-norm completions of $u_\la C_0\left(\sX \right)u_\la$ and $u_\la C_0\left(\widetilde \sX \right)u_\la$ respectively   then both $A_\la$ and $\widetilde A_\la$ are hereditary subalgebras of $C_0\left(\sX \right)$ and $C_0\left(\widetilde \sX \right)$. If $\sU_\la \bydef u_\la^{-1}\left(\left(0,1 \right]  \right)$ and $\widetilde \sU_\la\bydef p^{-1} \left(\sU_\la\right)$ then one has $A_\la\cong C_0\left(\sU_\la\right)$ and $\widetilde A_\la\cong C_0\left(\widetilde\sU_\la\right)$. If $\sV_\la \bydef \supp u_\la^{-1}$ and $\widetilde \sV_\la\bydef p^{-1} \left(\sV_\la\right)$ then both sets $\sV_\la$ and $\widetilde \sV_\la$ are compact and both $C_0\left(\sU_\la\right)$ and $C_0\left(\widetilde\sU_\la\right)$ are essential ideals of $C\left(\sV_\la\right)$ and $C\left(\widetilde\sV_\la\right)$ respectively.
+	From the Theorem \ref{pavlov_troisky_thm} it turns out that $C\left(\widetilde{\sV}_\la \right)$ is a finitely generated $C\left({\sV}_\la \right)$-module. Clearly the covering $p_{\widetilde{\sV}_\la}: \widetilde{\sV}_\la \to {\sV}_\la$ is transitive, and taking into account the Lemma \ref{top_conn_cov_lem} for every $\la\in\La$ there is the natural isomorphism of groups
 	$
-	G\left(\left.\widetilde{\sV}_n ~\right|~{\sV}_n \right) \cong 	G\left(\left.\widetilde{\sX} ~\right|~{\sX} \right)
-	$, hence $\left(C\left(\mathcal  V_n \right), C\left(  \widetilde{   \mathcal V }_n\right) ,G\left( \left.\widetilde{   \mathcal X } ~\right| {   \mathcal X }\right),  \left. \pi\right|_{C\left(\widetilde{   \mathcal V }_n \right)}\right)$ is a {unital noncommutative finite-fold  covering} (cf. Definition \ref{fin_uni_defn}).	On the other hand both $C_0\left( {\sU}_n\right) $ and $C_0\left( \widetilde{\sU}_n\right) $ are essential ideals of $C\left( {\sV}_n\right) $ and $C\left( \widetilde{\sV}_n\right) $ respectively (cf. Example \ref{comm_ess_exm}), so  for every $n \in \N$ the quadruple
-	 $$\left(C_0\left(\mathcal  U_n \right), C_0\left(  \widetilde{   \mathcal U }_n\right) ,G\left(\left. \widetilde{   \mathcal X } ~\right|~ {   \mathcal X }\right),   \left.\pi\right|_{C_0\left(\widetilde{   \mathcal U }_n \right)}\right)$$ is a   noncommutative finite-fold covering with unitization (cf. Definition \ref{fin_comp_defn}).
+	G\left(\left.\widetilde{\sV}_\la ~\right|~{\sV}_\la \right) \cong 	G\left(\left.\widetilde{\sX} ~\right|~{\sX} \right)
+	$, hence $\left(C\left(\mathcal  V_\la \right), C\left(  \widetilde{   \mathcal V }_\la\right) ,G\left( \left.\widetilde{   \mathcal X } ~\right| {   \mathcal X }\right),  \left. \pi\right|_{C\left(\widetilde{   \mathcal V }_\la \right)}\right)$ is a {unital noncommutative finite-fold  covering} (cf. Definition \ref{fin_uni_defn}).	On the other hand both $C_0\left( {\sU}_\la\right) $ and $C_0\left( \widetilde{\sU}_\la\right) $ are essential ideals of $C\left( {\sV}_\la\right) $ and $C\left( \widetilde{\sV}_\la\right) $ respectively (cf. Example \ref{comm_ess_exm}), so  for every $\la\in\La$ the quadruple
+	$$\left(C_0\left(\mathcal  U_\la \right), C_0\left(  \widetilde{   \mathcal U }_\la\right) ,G\left(\left. \widetilde{   \mathcal X } ~\right|~ {   \mathcal X }\right),   \left.\pi\right|_{C_0\left(\widetilde{   \mathcal U }_\la \right)}\right)$$ is a   noncommutative finite-fold covering with unitization (cf. Definition \ref{fin_comp_defn}).
 \end{enumerate}
+		
 \end{proof}
 
 \begin{remark}\label{comm_comm_rem}
@@ -16336,14 +16367,35 @@ $$
 $$
 where the sum of the series means the strong convergence in $B\left( L^2\left(\R^{2N}_\th \right)\right)$. 
 \end{proof}
+\begin{lemma}
+For any $n\in \N$ and $m > n$ the series
+	\be\label{nt_intc_sum}
+	\sum_{x \in \Z^n\setminus \{0\}} \frac{1}{ \left\|{x}\right\|^m  }
+\ee
+is convergent.	
+\end{lemma}
+\begin{proof}
+!!!
+For any $k \in \N$ denote by
+$$
+\Delta_k \bydef \left\{\left.\left(x_1,..., x_n \right) \in \Z^n\setminus \{0\}\right| -k \le x_j \le k\quad \forall j=1,..., n\right\}
+$$
+One has $\left|\Delta_k \right|= n^k-1$ where $\left|\Delta_k \right|$ means the cardinal number of $\Delta_k$. One has 
+$$
+\left| \Delta_k-\Delta_{k-1}\right| = \left| \Delta_k\right| -\left| \Delta_{k-1}\right|= (n-1) k^{n-1}+ p\left(k \right) 
+$$
+where $f$ is a polynomial of $k$ of degree $n-2$. There is.
 
+
+ 
+\end{proof}
 \begin{lemma}\label{nt_cmn_lem}
 	If $m > n$ then there is $C^{m,n} > 0$ such that for any $k \in \N$ one has
 	\be\label{nt_int_sum}
 	s_k = \frac{1}{k^n}	\sum_{x \in \Z^n} \frac{1}{\left(1 + \left\|\frac{x}{k} \right\|  \right)^m} < C^{m,n}
 	\ee
 \end{lemma}
-\begin{proof}
+\begin{proof}!!!
 	If $f: \R^n \to \R$ and $\phi_k :\R^n \to \Z^n$ are given by
 	\bean
 	f\left( x\right) = \frac{1}{\left(1 + \left\|x\right\|  \right)^m},\\
@@ -23661,8 +23713,8 @@ A pair $\left(\Coo_c \left(M  \right)', \Coo \left(M  \right)\right)$ is a quasi
 % \begin{theorem}\label{dini_thm}\cite{rudin:pa}
 %7.13 
 % Theorem Suppose $K$ is compact, and 
-% \begin{enumerate}
-% 	\item[(a)]  $\left\{f_n\right\}_{n \in \N}$ is a sequence of continuous functions on $K$, 
+%\begin{enumerate}
+ %	\item[(a)]  $\left\{f_n\right\}_{n \in \N}$ is a sequence of continuous functions on $K$, 
 % \item[(b)]  $\left\{f_n\right\}$ converges point-wise to a continuous function $f$ on $K$, 
 % \item[(c)] $f_n(x)\ge f_{n+l}(x)$ for all $x\in K$, $n = 1, 2, 3,...$. 
 % \end{enumerate}
