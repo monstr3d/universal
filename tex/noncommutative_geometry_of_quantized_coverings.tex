@@ -1491,7 +1491,7 @@ hence one has
    		\item[(a)] 
    		There are unitizations $A \hookto B$, $\widetilde{A} \hookto \widetilde{B}$.
    	%	\item[(b)]$A = B\bigcap \widetilde{A}$,
-   		\item[(b)] There is an %(strong) 
+   		\item[(b)] There is a %(strong) 
    	  unital  noncommutative finite-fold quasi-covering	$\left(B ,\widetilde{B}, G, \widetilde{\pi} \right)$ such that $\pi = \widetilde{\pi}|_A$ (or, equivalently $A \cong \widetilde{A}\cap B$) and the action $G \times\widetilde{A} \to \widetilde{A}$ is induced by $G \times\widetilde{B} \to \widetilde{B}$.
    	\end{enumerate}
 We say that the triple $\left(A, \widetilde{A}, G \right)$ and/or the quadruple $\left(A, \widetilde{A}, G, \pi \right)$ and/or *-homomorphism $\pi: A \hookto \widetilde{A}$ is a
@@ -7500,11 +7500,11 @@ $$
 then $\La$ is a directed set because $u_{\mu\vee \nu}\bydef \max\left(u_\mu, u_\nu \right)\in \mathfrak F$ and  $u_{\mu\vee \nu}\ge u_{\mu}$, $~u_{\mu\vee \nu}\ge u_{\nu}$.
 \end{empt}
 \begin{lemma}\label{comm_slfin_lem}
- In the above situation there is the  limit (cf. Definition \ref{strict_topology})
+ In the above situation there is the  limit 
 $$
 \bt\text{-}\lim_{\la\in \La}u_\la= 1_{C_b\left(\sX \right) }
 $$
-with respect to the strict topology of $M\left( C_0\left(\sX \right) \right) \cong C_b\left(\sX \right)$ (cf. Definition \ref{strict_topology})
+with respect to the strict topology of $M\left( C_0\left(\sX \right) \right) \cong C_b\left(\sX \right)$ (cf. Definition \ref{strict_topology}).
 \end{lemma}
 \begin{proof}
 If $x_0\in \sX$ be a point such that $\lim_{\la\in \La}u_\la\left(x_0\right) > 0$ then there is $\la_0\in \La$ such that $u_{\la_0}\left(x_0\right)> 0$. Suppose $f_{x_0}\in C_c\left(\sX \right)_+$ is given by the Lemma \ref{com_a_u_lem} that is there is an open neighborhood $\sU$ of $x_0$ such that $f_{x_0}\left(\sU \right) = \{1\}$. One can assume that $\supp f_{x_0}\subset \supp u_{\la_0}$. If $u'_{\la_0}\bydef \max \left( f_{x_0} ,  u_{\la_0} \right)$ then one has
@@ -13906,7 +13906,7 @@ C_b\left( M\right)\subset M\left(C^*_r \left(M, \mathcal{F}\right) \right).
 	i.e. $p^2_1$ is a  covering. 	From   the Corollary  \ref{top_covp_cat_cor} it turns that  the map $p^2_1$ is a transitive covering.\\	
 \end{proof}
 \begin{corollary}\label{foli_gi_cor}
-	If  $\left(M, \sF \right)$ is a foliated manifold and  $p:\left(M, \sF \right)\to \left(\widetilde{M},\widetilde{\sF}\right)$ is a regular finite-fold covering of foliation then there is the natural isomorphism
+	If  $\left(M, \sF \right)$ is a foliated manifold and  $p:\left(M, \sF \right)\to \left(\widetilde{M},\widetilde{\sF}\right)$ is a regular finite-fold covering of foliation (cf. Definition \ref{foli_reg_cov_defn}) then there is the natural isomorphism
 	$$
 	G\left(\left.\widetilde M\right|M \right)\cong G \bydef\left\{\left.g\in \Aut\left( C^*_r\left(\widetilde{M},\widetilde{\sF}\right)\right) \right| ga = a\quad\forall a \in C^*_r\left({M},{\sF}\right)\right\}.
 	$$
@@ -13915,11 +13915,61 @@ C_b\left( M\right)\subset M\left(C^*_r \left(M, \mathcal{F}\right) \right).
 	From the Lemma \ref{foli_comply_lem} it follows that any $g \in G$ corresponds to a covering $\widetilde p: \widetilde M\to \widetilde M$ such that $p = p\circ \widetilde p$. Otherwise from the Definition \ref{cov_proj_cov_grp_defn} it turns out that $\widetilde p$ corresponds to an element $g \in G\left(\left.\widetilde M\right|M \right)$. 
 \end{proof}
 
+\begin{lemma}\label{foli_quasi_lem}
+	Let  $\left(M, \sF \right)$ is a foliated manifold, and  let $p:\left(M, \sF \right)\to \left(\widetilde{M},\widetilde{\sF}\right)$ is a regular finite-fold covering of foliation (cf. Definition \ref{foli_reg_cov_defn}).
+	Suppose $u \in C_c\left(M \right)_+$ is such that the set $\sU\bydef\left\{\left.x \in M\right| u\left( x\right) > 0\right\}$ is connected. If both $A$ and $\widetilde A$ are $C^*$-norm completions of $uC^*_r\left(M, \sF \right)u$ and $uC^*_r\left(\widetilde M, \widetilde\sF \right)u$ then there is a finite fold covering with unitization (cf. Definition \ref{fin_comp_defn}) given by
+	$$
+\left(A, \widetilde{A},G\left( \left.\widetilde{M}~\right|M\right), \pi\right)
+	$$
+\end{lemma}
+\begin{proof}
+	The natural inclusion $uC^*_r\left(M, \sF \right)u\hookto uC^*_r\left(\widetilde M, \widetilde\sF \right)u$ uniquely defines an injective *-homomorphism $\pi: A \hookto\widetilde A$
+If  $\widetilde\sU \bydef p^{-1}\left(\sU \right)$ then the restriction $p_{\widetilde\sU} : \widetilde\sU\to\sU$ is a covering. Since $\sU$ is connected one has $G\left( \left.\widetilde{\sU}~\right|\sU\right)\cong G\left( \left.\widetilde{M}~\right|M\right)$. The actions $G\left( \left.\widetilde{M}~\right|M\right)\times \widetilde M\to \widetilde M$ and $G\left( \left.\widetilde{\sU}~\right|\sU\right)\times \widetilde \sU\to \widetilde \sU$ induce the action 
+$G\left( \left.\widetilde{M}~\right|M\right)\times \widetilde A\to \widetilde A$. From the Corollary  \ref{foli_gi_cor} it follows that $\left(A, \widetilde{A},G\left( \left.\widetilde{M}~\right|M\right), \pi\right)$ is a noncommutative finite-fold  pre-covering (cf. Definition \ref{fin_pre_defn}).  Similarly to the Equation \eqref{foli_center_eqn} one can proof that
+\bean
+C\left(\supp u \right) \subset M\left( A \right),\\
+C\left(p^{-1}\left( \supp u \right) \right) \subset M\left(\widetilde A \right).
+\eean
+If $B\subset M\left( A \right)$ and $\widetilde B\subset M\left(\widetilde A \right)$ a $C^*$ - algebras generated by $C\left(\supp u \right)\cup A$ and $C\left(p^{-1}\left( \supp u \right) \right)\cup \widetilde A$ then both $B$ and $B$ are unital. Let us prove that $\left(A, \widetilde{A},G\left( \left.\widetilde{M}~\right|M\right), \pi\right)$ satisfies to the conditions (a), (b) of the Definition \ref{fin_comp_defn}
+\begin{enumerate}
+	\item[(a)] Both $A$ and $\widetilde A$ are essential ideals of $B$ and $\widetilde B$, there are unitizations $A \hookto B$, so $\widetilde{A} \hookto \widetilde{B}$.
+	\item[(b)]   One need check that the triple
+	\be\label{foli_ext_uni_eqn}
+	\left( B, \widetilde B, G\left(\left.\widetilde{M}~\right|M\right)\right) 
+	\ee
+	is a 	unital  noncommutative finite-fold quasi-covering.
+	From the Remark \ref{comm_unity_rem} it follows that there is a finite set \\$\set{\widetilde{e}_{{\a}}}_{\a \in \mathscr A} \subset C\left(p^{-1}\left(\supp u \right)  \right)$ which satisfies to the following equations
+	\be\label{foli_unity_sum_eqn}
+	1_{C\left(p^{-1}\left(\supp u \right)  \right) }= \sum_{\a \in {\mathscr A} }\widetilde{e}^2_{{\a}}
+	\ee
+	\be\label{foli_unity_orth_eqn}
+	\begin{split}
+		\widetilde{e}_{{\a}}	\left(g \widetilde{e}_{{\a}} \right) = 0; \quad \text{ for any notrivial } g \in G\left(\left.\widetilde{M}~\right|M\right).
+	\end{split}
+	\ee
+	If $\widetilde{a} \in \widetilde B$ then from \eqref{foli_unity_sum_eqn} it turns out that
+	$$
+	\widetilde{a} = \sum_{\a \in {\mathscr A}} \widetilde{e}_{{\a}}\left( \widetilde{e}_{{\a}} \widetilde{a}\right).
+	$$
+	Otherwise from \eqref{foli_unity_orth_eqn} it follows that  $\widetilde{e}_{{\a}}\left(g \left(\widetilde{e}_{{\a}} \widetilde{a}\right)\right) = 0$	\text{ for any notrivial } $g \in G\left(\left.\widetilde{M}~\right|M\right)$, it turns out
+	\bean
+	\widetilde{e}_{{\a}}\left( \widetilde{e}_{{\a}} \widetilde{a}\right) = \widetilde{e}_{{\a}}\sum_{g \in G\left(\left.\widetilde{M}~\right|M\right)}g\left( \widetilde{e}_{{\a}} \widetilde{a}\right),\\
+	\widetilde a = \sum_{\a \in {\mathscr A}} \widetilde{e}_{{\a}}a_\a;\quad \text{where}\quad a_\a \bydef \sum_{g \in G\left(\left.\widetilde{M}~\right|M\right)}g \left( \widetilde{e}_{{\a}}\widetilde a\right) \in B.
+	\eean
+So  $\widetilde B$ is a  $B$-module generated by the finite set $\set{\widetilde{e}_{{\a}}}$.
+Taking into account  $B = \widetilde B^{G\left(\left.\widetilde{M}~\right|M\right)}$ on concludes that the triple is a 	unital  noncommutative finite-fold quasi-covering.
+	
+\end{enumerate}
 
-\begin{definition}\label{foli_cov_comp_defn}
+
+\end{proof}
+
+\begin{definition}\label{foli_cov_comp_defn!!!}
+	!!! DELETE
 	If 	$\left(\widetilde{M},~ \widetilde{\mathcal F} \right)\to \left({M},~ {\mathcal F} \right)$ is a regular finite-fold covering of foliations (cf. Definition \ref{foli_reg_cov_defn}) is such that $\widetilde{M}\to M$ is a covering with compactification (cf. Definition \ref{top_cov_comp_defn}) then  $\left(\widetilde{M},~ \widetilde{\mathcal F} \right)\to \left({M},~ {\mathcal F} \right)$ is said to be a \textit{finite-fold covering with compactification}.
 \end{definition}
-\begin{empt}\label{foli_fin_gr_empt}
+\begin{empt}\label{foli_fin_gr_empt!!!}
+	!!! DELETE
 	Let $\left(\widetilde{M},~ \widetilde{\mathcal F} \right)\to \left({M},~ {\mathcal F} \right)$ is a  finite-fold covering with compactification (cf. Definition \ref{foli_cov_comp_defn}). Let both $M \subset \sY$ a $\widetilde M\subset \widetilde \sY$ are compactifications such that there is a transitive finite fold covering $p_\sY: \widetilde\sY \to \sY$ and the covering $p_M: \widetilde{M} \to M$ is the restriction of $p_\sY$, i.e. $p_M = \left.p_\sY\right|_M$. If both   $E^*_{ \sY}\left({M},~ {\mathcal F} \right)$ and $E^*_{\widetilde \sY}\left(\widetilde{M},~ \widetilde{\mathcal F} \right)$ are $\sY$ and $\widetilde \sY$-extended algebras  of foliations (cf. Definition \ref{foli_a_ext_defn}) respectively  then the natural inclusions  $C\left( \sY\right)\hookto C\left(\widetilde\sY\right)$ and   $C^*_r\left({M},~ {\mathcal F} \right)\hookto C^*_r\left(\widetilde{M},~ \widetilde{\mathcal F} \right)$ yield the inclusion  $E^*_{ \sY}\left({M},~ {\mathcal F} \right)\hookto E^*_{\widetilde \sY}\left(\widetilde{M},~ \widetilde{\mathcal F} \right)$.
 \end{empt}
 \begin{lemma}\label{foli_fin_gr_lem}
@@ -13998,28 +14048,6 @@ C_b\left( M\right)\subset M\left(C^*_r \left(M, \mathcal{F}\right) \right).
 		G\left(\left.\widetilde{M}~\right|M\right) \cong  \left\{\left. g \in \Aut\left( C^*_r\left(\widetilde{M},~ \widetilde{\mathcal F} \right)\right)~\right| ~g a = a; ~ \forall a \in C^*_r\left( M,\mathcal F\right) \right\} \cong \\
 		\cong	\left\{\left. g \in \Aut\left( E^*_{C\left(\widetilde \sX \right)}\left(\widetilde{M},~ \widetilde{\mathcal F} \right)\right)~\right| ~g a = a; ~ \forall a \in E^*_{C\left(\sX \right)  }\left( M,\mathcal F\right) \right\}.
 		\eean
-		\item[(b)] One need check that the triple
-		\be\label{foli_ext_uni_eqn}
-		\left( E^*_{\sY }\left( M, \mathcal{F}\right), E^*_{\widetilde{\sY} }\left(\widetilde{M},~ \widetilde{\mathcal F} \right), G\left(\left.\widetilde{M}~\right|M\right)\right) 
-		\ee
-		is an 	unital  noncommutative finite-fold covering. From the Lemma \ref{foli_fin_gr_lem} it follows that \eqref{foli_ext_uni_eqn} is a noncommutative finite-fold pre-covering. From the Remark \ref{comm_unity_rem} it follows that there is a finite set $\set{\widetilde{e}_{{\a}}}_{\a \in \mathscr A} \subset C\left(\widetilde{\mathcal Y} \right)$ which satisfies to the following equations
-		\be\label{foli_unity_sum_eqn}
-		1_{C\left(\widetilde{\mathcal Y} \right) }= \sum_{\a \in {\mathscr A} }\widetilde{e}^2_{{\a}}
-		\ee
-		\be\label{foli_unity_orth_eqn}
-		\begin{split}
-			\widetilde{e}_{{\a}}	\left(g \widetilde{e}_{{\a}} \right) = 0; \text{ for any notrivial } g \in G\left(\left.\widetilde{M}~\right|M\right)
-		\end{split}
-		\ee
-		If $\widetilde{a} \in E^*_{\widetilde{\sY} }\left(\widetilde{M},~ \widetilde{\mathcal F} \right)$ then from \eqref{foli_unity_sum_eqn} it turns out that
-		$$
-		\widetilde{a} = \sum_{\a \in {\mathscr A}} \widetilde{e}_{{\a}}\left( \widetilde{e}_{{\a}} \widetilde{a}\right).
-		$$
-		Otherwise from \eqref{foli_unity_orth_eqn} it follows that  $\widetilde{e}_{{\a}}\left(g \left(\widetilde{e}_{{\a}} \widetilde{a}\right)\right) = 0$	\text{ for any notrivial } $g \in G\left(\left.\widetilde{M}~\right|M\right)$, it turns out
-		\bean
-		\widetilde{e}_{{\a}}\left( \widetilde{e}_{{\a}} \widetilde{a}\right) = \widetilde{e}_{{\a}}\sum_{g \in G\left(\left.\widetilde{M}~\right|M\right)}g\left( \widetilde{e}_{{\a}} \widetilde{a}\right)
-		\eean
-		From $\sum_{g \in G\left(\left.\widetilde{M}~\right|M\right)}g\left( \widetilde{e}_{{\a}} \widetilde{a}\right)\in E^*_{{\sY}}\left({M},~ {\mathcal F} \right)$ it follows that $E^*_{\widetilde{\sY} }\left(\widetilde{M},~ \widetilde{\mathcal F} \right)$ is a  $E^*_{{\sY}}\left({M},~ {\mathcal F} \right)$-module generated by the finite set $\set{\widetilde{e}_{{\a}}}$.
 		
 	\end{enumerate}
 	
@@ -14063,38 +14091,44 @@ Secondly we prove that the triple \eqref{foli_ae_eqn} satisfies to the condition
 \end{enumerate}
 \end{proof}
 \begin{theorem}\label{foli_fin_thm}
-Let $\left(\widetilde{M},~ \widetilde{\mathcal F} \right)\to \left({M},~ {\mathcal F} \right)$ be a regular finite-fold covering of foliated spaces (cf. Definition \ref{foli_reg_cov_defn}). If the manifold $M$ is second-countable and connected then the quadruple  $$\left(	C^*_r\left( M, \mathcal{F}\right),  C^*_r\left(\widetilde{M},~ \widetilde{\mathcal F} \right),{G\left( \left.\widetilde{M}~\right|M\right)}, C^*_r\left( p\right)  \right)$$ is a noncommutative finite-fold covering (cf. Definition \ref{fin_defn}).
+Let $\left(\widetilde{M},~ \widetilde{\mathcal F} \right)\to \left({M},~ {\mathcal F} \right)$ be a regular finite-fold covering of foliated spaces (cf. Definition \ref{foli_reg_cov_defn}). If  both $M$ and $\widetilde M$ are connected then the quadruple  $$\left(	C^*_r\left( M, \mathcal{F}\right),  C^*_r\left(\widetilde{M},~ \widetilde{\mathcal F} \right),{G\left( \left.\widetilde{M}~\right|M\right)}, C^*_r\left( p\right)  \right)$$ is a noncommutative finite-fold covering (cf. Definition \ref{fin_defn}).
 \end{theorem}
 \begin{proof}
-The space	$M$ is second-countable 
-hence from the Theorem \ref{lindel_thm} it follows that $M$ is a Lindel\"{o}f space. Let us consider a  finite or countable sequence $\sU'_1 \subsetneqq  ...\subsetneqq \sU'_n\subsetneqq ...$ of connected open subsets of $M$ given by the Lemma  \ref{top_fin_comp_lin_cov_lem}. In particular following condition hold:
-\begin{itemize}
-	\item  For any $n \in \N$ the closure $\sV_n$ of $\sU'_n$ is compact.
-	\item $\cup~ \sU'_n = \sX$.
-	\item The space $p^{-1}\left( \sU'_n\right)$ is connected for any $n \in \N$.
-\end{itemize}
-From the Remark \ref{comm_fn_bt_lim_rem} it turns out that there there is an increasing net $\left\{f_n\right\}_{n\in \N}\subset C_c\left(M \right)$ such that  $\supp f_n \subset \sU'_n $ and there is the limit
-$
-1_{C_b\left(M\right) }= \bt\text{-}\lim_{n\to \infty} f_n
-$
-with respect to the strict topology on the multiplier algebra $M\left(C_0\left(\mathcal X \right)  \right)\cong C_b\left(\mathcal X \right)$ (cf. Definition \ref{strict_topology}).  This limit is also the limit 
-\be\label{foli_fn_bt_liml_eqn}
-1_{M\left(C^*_r\left(M,\sF \right)  \right) }= \bt\text{-}\lim_{n\to \infty} f_n
-\ee
- with respect to the strict topology of the multiplier algebra $M\left(C^*_r\left(M,\sF \right)  \right)$.
-Let us check  that the net $\left\{f_n\right\}_{n\in\N}$ satisfies to the conditions (a) and (b) of the Definition \ref{fin_defn}. 		
+From the Corollary \ref{foli_gi_cor} it follows that the quadruple	$$\left(	C^*_r\left( M, \mathcal{F}\right),  C^*_r\left(\widetilde{M},~ \widetilde{\mathcal F} \right),{G\left( \left.\widetilde{M}~\right|M\right)}, C^*_r\left( p\right)  \right)$$
+is a	noncommutative finite-fold  pre-covering (cf Definition \ref{fin_pre_defn}).
+$  $Let   $\set{u_\la}_{\la \in \La}\subset C_c\left( M\right) $ be  a family defined in \ref{top_ua_empt}.
+Let us check  that the net $\set{u_\la}$ satisfies to the conditions (a)-(c) of the Definition \ref{fin_defn}. 
 \begin{enumerate}
-	\item[(a)] Follows from the Equation \eqref{foli_fn_bt_liml_eqn}.
-	\item[(b)] If  
+	\item [(a)] If $a \in C^*_r\left( M, \mathcal{F}\right)$ then for all $\eps > 0$ there is $a'\in Ga_c\left( \G\left( M, \mathcal{F}\right),\Om^{1/2}\right)$ such that $\left\| a - a'\right\| < \eps$ (cf. Definition \ref{foli_red_defn}). If $\sV \bydef \supp a'\subset \G\left( M, \mathcal{F}\right)$ then $\sV$ is compact. It follows that both $s\left( \sV\right)\subset M$ and $r\left( \sV\right)\subset M$ are compact. So $\sU\bydef s\left( \sV\right)\cup r\left( \sV\right)$ is compact. From the proof of the Lemma \ref{comm_slfin_lem} it follows that there is $\la_\sU \in \La$ such that
+	$$
+	\forall \la\ge\la_\sU \quad u_\la\left( \sU\right) = 1
+	$$
+	so one has
+	$$
+	\forall \la\ge\la_\sU \quad  u_\la a' = a'u_\la = a'
+	$$
+	It turns out that
 	\bean
-	\sU_n \bydef \left\{\left. x \in M\right| f_n\left(x\right)> 0\right\},\\
-	\widetilde\sU_n \bydef p^{-1}\left(\sU_n \right) 
-	\eean
-	then the $C^*$-norm completions of both $f_n\left.C^*_r\left({M},{\sF}\right)\right|_{\widetilde\sU}f_n$ and\\ $f_n\left.C^*_r\left(\widetilde{M},\widetilde{\sF}\right)\right|_{\widetilde\sU}f_n$   are the explained in \ref{foli_ae_empt} $C^*$-algebras $\left.C^*_r\left({M},{\sF}\right)\right|_{\sU_n}$ and $\left.C^*_r\left(\widetilde{M},\widetilde{\sF}\right)\right|_{\widetilde\sU_n}$ 
-Otherwise from the Lemma \ref{foli_ae_lem} it turns out that 
- for every $n \in \N$ the triple
-	$$\left( \left. C^*_r\left({M},~ {\mathcal F} \right)\right|_{\sU_n},\left. C^*_r\left(\widetilde{M},~ \widetilde{\mathcal F} \right)\right|_{\widetilde\sU_n}, G\left( \left.\widetilde{\sU}_n~\right|\sU_n\right)\cong G\left( \left.\widetilde{M}~\right|M\right)\right)$$ is a   noncommutative finite-fold covering with unitization (cf. Definition \ref{fin_comp_defn}). The action 	$G\left( \left.\widetilde{\sU}_n~\right|\sU_n\right) \times \left. C^*_r\left(\widetilde{M},~ \widetilde{\mathcal F} \right)\right|_{\widetilde\sU_n}\to \left. C^*_r\left(\widetilde{M},~ \widetilde{\mathcal F} \right)\right|_{\widetilde\sU_n}$, is the restriction on $\left. C^*_r\left(\widetilde{M},~ \widetilde{\mathcal F} \right)\right|_{\widetilde\sU_n}\subset \left. C^*_r\left(\widetilde{M},~ \widetilde{\mathcal F} \right)\right.$ of the action $G\left( \left.\widetilde{\sU}_n~\right|\sU_n\right)\times \left. C^*_r\left(\widetilde{M},~ \widetilde{\mathcal F} \right)\right.\to \left. C^*_r\left(\widetilde{M},~ \widetilde{\mathcal F} \right)\right.$.
-\end{enumerate}
+	\la \ge\la_\sU \Rightarrow \left\| u_\la a - a \right\|=  \left\|a - a' - u_\la a + u_\la a'\right\|= \\=\left\|\left(1 - u_\la \right) \left( a - a'\right)\right\|\le \left\|1 - u_\la\right\|\left\| a - a'\right\|.
+	\eean 
+Taking into account $\left\| a - a'\right\| < \eps$,  $\left\|1 - u_\la\right\| =1$
+	one has 
+	$$
+		\forall \la\ge\la_\sU \quad \left\| u_\la a - a \right\|< \eps.
+	$$
+	Similarly one can show that
+	$$
+\forall \la\ge\la_\sU \quad \left\| a u_\la  - a \right\|< \eps.
+$$
+	
+From the above equations it follows that there is the limit
+	$$
+	\bt\text{-}\lim_{\la\in \La}u_\la= 1_{M\left( C^*_r\left( M, \mathcal{F}\right)\right) }
+	$$
+	with respect to the strict topology of $M\left( C^*_r\left( M, \mathcal{F}\right)\right)$ (cf. Definition \ref{strict_topology}).
+\item[(b)] Follows from the Lemma \ref{foli_quasi_lem}.
+\item[(c)] The manifold $\widetilde{M}$ is connected so the $C^*$-algebra $C^*_r\left(\widetilde{M},~ \widetilde{\mathcal F} \right)$ is connected.
+\end{enumerate}	
 \end{proof}
 \begin{empt}\label{foli_fin_empt}
 Let $p:\left(\widetilde{M},~ \widetilde{\mathcal F} \right)\to \left({M},~ {\mathcal F} \right)$ be a regular  covering of foliated spaces (cf. Definition \ref{foli_reg_cov_defn}). Suppose that $N$ is a complete transversal (cf. Remark \ref{foli_comp_trans_rem}). If $\widetilde N \bydef p^{-1}\left(N \right) \subset \widetilde M$ then $\widetilde N$ meets any leaf of $\left(\widetilde{M},~ \widetilde{\mathcal F} \right)$ i.e. $\widetilde N$ is a complete transversal. If both $\G^N_N$ and $\G^{\widetilde N}_{\widetilde N}$ are given by \eqref{foli_gnn_eqn} then the map $p$ yields a surjective homomorphism $p_\G:\G^{\widetilde N}_{\widetilde N}\to \G^{ N}_{ N}$ of groupoids that is; $p_\G$ a functor between small categories. The functor induces an injecive *-homomorphism $\pi_\G: C^*_r\left(\G^{ N}_{ N}\right)\hookto C^*_r\left(\G^{\widetilde N}_{\widetilde N}\right)$. From  the Lemma \ref{foli_stab_lem} it follows that there are *-isomorphisms
