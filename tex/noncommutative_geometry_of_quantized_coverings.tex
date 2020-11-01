@@ -16277,7 +16277,7 @@ $$
 $$
 where the sum of the series means the strong convergence in $B\left( L^2\left(\R^{2N}_\th \right)\right)$. 
 \end{proof}
-\begin{lemma}\label{nt_xm_lem}
+\begin{lemma}
 For any $n\in \N$ and $m > n+1$ the series
 	\be\label{nt_intc_sum}
 	\sum_{x \in \Z^n\setminus \{0\}} \frac{1}{ \left\|{x}\right\|^m  }
@@ -16286,11 +16286,9 @@ is convergent.
 \end{lemma}
 \begin{proof}
 For any $k \in \N$ denote by
-\bea\label{nt_dk_eqn}
-\Delta_k \bydef \left\{\left.\left(x_1,..., x_n \right) \in \Z^n\setminus \{0\}\right| -k \le x_j \le k\quad \forall j=1,..., n\right\},\\
-\label{nt_drk_eqn}
-\Delta^\R_k \bydef \left\{\left.\left(x_1,..., x_n \right) \in \R^n\setminus \{0\}\right| -k \le x_j \le k\quad \forall j=1,..., n\right\}
-\eea
+\be\label{nt_dk_eqn}
+\Delta_k \bydef \left\{\left.\left(x_1,..., x_n \right) \in \Z^n\setminus \{0\}\right| -k \le x_j \le k\quad \forall j=1,..., n\right\}
+\ee
 One has $\left|\Delta_k \right|= \left( 2k+1\right)^n-1$ where $\left|\Delta_k \right|$ means the cardinal number of $\Delta_k$. One has 
 $$
 \left| \Delta_k\setminus\Delta_{k-1}\right| = \left| \Delta_k\right| -\left| \Delta_{k-1}\right|= (n-1) \left( 2k+1\right)^{n-1}+ p\left(k \right) 
@@ -16335,38 +16333,35 @@ From
 it follows that the series \eqref{nt_intc_sum} is convergent.
 \end{proof}
 \begin{lemma}\label{nt_cmn_lem}
-	If $m > n +1 $ then there is $C^{m,n} > 0$ such that for any $k \in \N$ one has
+	If $m > n$ then there is $C^{m,n} > 0$ such that for any $k \in \N$ one has
 	\be\label{nt_int_sum}
-\frac{1}{k^n}	\sum_{x \in \Z^n} \frac{1}{\left(1 + \left\|\frac{x}{k} \right\|  \right)^m} < C^{m,n}
+	s_k = \frac{1}{k^n}	\sum_{x \in \Z^n} \frac{1}{\left(1 + \left\|\frac{x}{k} \right\|  \right)^m} < C^{m,n}
 	\ee
 \end{lemma}
-\begin{proof}
-If  $\Delta_k \subset \R^n$ is given by the Equation \eqref{nt_dk_eqn} then one has
-\be\label{nt_ee1_eqn}
-\begin{split}
-	\sum_{x \in \Z^n} \frac{1}{\left(1 + \left\|\frac{x}{k} \right\|  \right)^m} = 	\sum_{\substack{x \in \Z^n\\ kx \in \Delta_2}} \frac{1}{\left(1 + \left\|\frac{x}{k} \right\|  \right)^m}+ \sum_{\substack{x \in \R^n\\ kx \in \Z^n\setminus\Delta_2}} \frac{1}{\left(1 + \left\|\frac{x}{k} \right\|  \right)^m}\le\\
-	(4k + 1)^n + \sum_{\substack{x \in \R^n\\ kx \in \Z^n\setminus\Delta_2}} \frac{1}{\left(1 + \left\|\frac{x}{k} \right\|  \right)^m}
-\end{split}
-\ee
-If $\Delta^\R_1$ is given by the equation \eqref{nt_drk_eqn} then one has
-\be\label{nt_xy_eqn}
-y \in \Delta^\R_1, \quad x \in \R^n\setminus\Delta_2 \Rightarrow 1 + \left\|z + x \right\| \ge \sqrt{n} + 1  + \left\| y \right\|.
-\ee
-Using inequality \eqref{nt_xy_eqn}, similarly to the proof of the Lemma \ref{nt_xm_lem} one can show that if
-$$
-s_y\bydef 	\sum_{z \in \Z^n\setminus\Delta_2} \frac{1}{\left(1+  \left\|z + y \right\|  \right)^m}
-$$
-then there is $C> 0$ such that
-$$
-\forall  y \in \Delta^\R_2\quad s_y < C.
-$$
-On the other hand one has
-\be\label{nt_ee2_eqn}
-\sum_{\substack{x \in \R^n\\ kx \in \Z^n\setminus\Delta_2}} \frac{1}{\left(1 + \left\|\frac{x}{k} \right\|  \right)^m} \le \sum_{\substack{y \in \R^n\\ ky \in \Delta_1}}s_y \le \left( 2k+1\right)^n s_y\le \left( 2k+1\right)^nC  
-\ee
-From the equations \eqref{nt_ee1_eqn}, \eqref{nt_ee2_eqn} it follows that there is $C^{m,n}$ which satisfies to the condition \eqref{nt_int_sum}
+\begin{proof}!!!
+	If $f: \R^n \to \R$ and $\phi_k :\R^n \to \Z^n$ are given by
+	\bean
+	f\left( x\right) = \frac{1}{\left(1 + \left\|x\right\|  \right)^m},\\
+	\phi_k\left(x_1, ..., x_n \right) = \left(y_1, ..., y_n \right)\in \Z^n,\quad 
+	y_j \le kx_j < y_{j}+1 \quad j =1,..., n
+	\eean
+	then one has
+	$$
+	s_k = \int_{\R^n} f\left(\phi_k\left(\frac{x}{k} \right)  \right) dx.
+	$$
+	Otherwise from
+	$$
+	f\left(\phi_k\left(\frac{x}{k} \right) \right) \le 2^m f\left(x \right) \quad \forall x \in \R^n 
+	$$
+	it follows that
+	$$
+	s_k <   \int_{\R^n}\frac{2^m}{\left(1 + \left\|x\right\|  \right)^m}dx.
+	$$
+	From $m > n$ it follows that the integral $\int_{\R^n}\frac{1}{\left(1 + \left\|x\right\|  \right)^m}dx$ is convergent so one can assume
+	$$
+	C^{m,n} = \int_{\R^n}\frac{2^m}{\left(1 + \left\|x\right\|  \right)^m}dx
+	$$
 \end{proof}
-
 \begin{corollary}\label{nt_cmn_cor}
 	Let  $m > 2N$ and  $\widetilde{a} \in \SS\left( \R^{2N}_\th\right)$ is such that $$\left\| \sF \widetilde{a}\left(x \right)  \right\| < \frac{1}{\left(1 + \left\|x\right\|  \right)^m}
 	$$
