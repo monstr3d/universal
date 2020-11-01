@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E26F3FFE-AC3C-42BB-9C1D-19433F7E5DBF}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Http.Meteo</RootNamespace>
+    <AssemblyName>Http.Meteo</AssemblyName>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Factory\MeteoFactory.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Services\MeteoService.cs" />
+    <Compile Include="StaticExtensionMeteo.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\DynamicLinkLibraries\CategoryTheory\CategoryTheory\CategoryTheory\CategoryTheory.csproj">
+      <Project>{01323E7D-DA29-4D48-8C46-A44C117A8D12}</Project>
+      <Name>CategoryTheory</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\DynamicLinkLibraries\DataPerformer\DataPerformer.Base\DataPerformer.Base\DataPerformer.Base.csproj">
+      <Project>{cde580bc-cfe5-45d3-b9a2-76585e54a416}</Project>
+      <Name>DataPerformer.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\DynamicLinkLibraries\DataPerformer\DataPerformer.Interfaces\DataPerformer.Interfaces.csproj">
+      <Project>{F9D68183-6801-4214-AFFC-737ACBEF498E}</Project>
+      <Name>DataPerformer.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\DynamicLinkLibraries\DataPerformer\DataPerformer.Portable\DataPerformer.Portable.csproj">
+      <Project>{4442e3e5-41b9-4f60-9c1a-07272d9c31d0}</Project>
+      <Name>DataPerformer.Portable</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\DynamicLinkLibraries\Diagram\Diagram\Diagram.csproj">
+      <Project>{096f4ea8-6301-4545-96d6-286e67ccba5c}</Project>
+      <Name>Diagram</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\DynamicLinkLibraries\Diagram\Diagram.UI.Serializable\Diagram.UI.Serializable.csproj">
+      <Project>{868adfd8-51c2-4cec-8132-11e5a0f907e3}</Project>
+      <Name>Diagram.UI.Serializable</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\DynamicLinkLibraries\Events\Event.Interfaces\Event.Interfaces.csproj">
+      <Project>{3006114c-ed81-4966-a1a4-88149fddb9a5}</Project>
+      <Name>Event.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\DynamicLinkLibraries\SerializationInterface\SerializationInterface.csproj">
+      <Project>{7d532180-b3ec-4344-bb15-11de8e8e7967}</Project>
+      <Name>SerializationInterface</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

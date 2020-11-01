@@ -1,0 +1,231 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B6F26938-3301-46B4-BB01-AAEA4D0BD2D4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Motion6D</RootNamespace>
+    <AssemblyName>Motion6DData</AssemblyName>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\Motion6DData.XML</DocumentationFile>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DocumentationFile>bin\Debug\Motion6DData.XML</DocumentationFile>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AcceleratedPosition.cs" />
+    <Compile Include="AggregableWrapper.cs" />
+    <Compile Include="Aggregates\RigidBody.cs" />
+    <Compile Include="ApplicationInitializer.cs" />
+    <Compile Include="FacetPhysicalField3D.cs" />
+    <Compile Include="FieldComponent.cs" />
+    <Compile Include="FieldConsumer3D.cs" />
+    <Compile Include="InertialSensorData.cs" />
+    <Compile Include="PhysicalFieldMeasurements3D.cs" />
+    <Compile Include="ReferenceFrameDataBase.cs" />
+    <Compile Include="ReferenceFrameDataPitchRollHunting.cs" />
+    <Compile Include="RelativeField.cs" />
+    <Compile Include="InertialReferenceFrame.cs" />
+    <Compile Include="PhysicalField3D.cs" />
+    <Compile Include="PositionCollectionData.cs" />
+    <Compile Include="ReferenceFrameData.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RelativeMeasurements.cs" />
+    <Compile Include="RelativeMeasurementsLink.cs" />
+    <Compile Include="StaticExtensionMotion6DData.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\AliasRegression\AliasRegression.csproj">
+      <Project>{C3EBDB3F-A0DE-4126-8E87-B23C09EA08EC}</Project>
+      <Name>AliasRegression</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\BaseTypes\BaseTypes\BaseTypes.csproj">
+      <Project>{8A9C8C8B-40B2-418C-AC92-4BDBB6E071C3}</Project>
+      <Name>BaseTypes</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\CategoryTheory\CategoryTheory\CategoryTheory\CategoryTheory.csproj">
+      <Project>{01323e7d-da29-4d48-8c46-a44c117a8d12}</Project>
+      <Name>CategoryTheory</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DataPerformer\DataPerformer.Base\DataPerformer.Base\DataPerformer.Base.csproj">
+      <Project>{cde580bc-cfe5-45d3-b9a2-76585e54a416}</Project>
+      <Name>DataPerformer.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DataPerformer\DataPerformer.csproj">
+      <Project>{618B5522-01BD-4834-BB34-0C3AC7BB59EC}</Project>
+      <Name>DataPerformer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DataPerformer\DataPerformer.Interfaces\DataPerformer.Interfaces.csproj">
+      <Project>{f9d68183-6801-4214-affc-737acbef498e}</Project>
+      <Name>DataPerformer.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DataPerformer\DataPerformer.Portable\DataPerformer.Portable.csproj">
+      <Project>{4442e3e5-41b9-4f60-9c1a-07272d9c31d0}</Project>
+      <Name>DataPerformer.Portable</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Diagram\Diagram.UI.Serializable\Diagram.UI.Serializable.csproj">
+      <Project>{868ADFD8-51C2-4CEC-8132-11E5A0F907E3}</Project>
+      <Name>Diagram.UI.Serializable</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Diagram\Diagram\Diagram.csproj">
+      <Project>{096f4ea8-6301-4545-96d6-286e67ccba5c}</Project>
+      <Name>Diagram</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Events\Event.Basic\Event.Basic.csproj">
+      <Project>{b542e7df-96b1-4db9-9335-10b350d61b4e}</Project>
+      <Name>Event.Basic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Events\Event.Interfaces\Event.Interfaces.csproj">
+      <Project>{3006114c-ed81-4966-a1a4-88149fddb9a5}</Project>
+      <Name>Event.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\GeneralLinearMethod\GeneralLinearMethod.csproj">
+      <Project>{2A0D2CF4-E584-4DB1-931F-A01AD17F240F}</Project>
+      <Name>GeneralLinearMethod</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\PhysicalField\PhysicalField.Interfaces\PhysicalField.Interfaces.csproj">
+      <Project>{A190AF0C-C139-45E5-B05E-92CEE8ED18FD}</Project>
+      <Name>PhysicalField.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\PhysicalField\PhysicalField.Portable\PhysicalField.Portable.csproj">
+      <Project>{bab74fbd-3a79-4679-a63a-351a6a2f743a}</Project>
+      <Name>PhysicalField.Portable</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Motion6D.csproj">
+      <Project>{D20072FA-274E-4D9C-BEBF-E15B13BEDE69}</Project>
+      <Name>Motion6D</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\PhysicalField\PhysicalFieldSupport\PhysicalFieldSupport.csproj">
+      <Project>{B862E422-6C7A-4153-A6E4-B5D5C9450F4A}</Project>
+      <Name>PhysicalFieldSupport</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\PhysicalField\PhysicalField.csproj">
+      <Project>{D27FCA8D-F0D6-4362-8B14-782100A07BD9}</Project>
+      <Name>PhysicalField</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\RealMatrixProcessor\RealMatrixProcessor.csproj">
+      <Project>{4B250264-A0A4-41BA-991E-2A26EB23E8BA}</Project>
+      <Name>RealMatrixProcessor</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\SerializationInterface\SerializationInterface.csproj">
+      <Project>{7D532180-B3EC-4344-BB15-11DE8E8E7967}</Project>
+      <Name>SerializationInterface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Vector3D\Vector3D.csproj">
+      <Project>{60B5B05A-EF3E-4455-89EB-74AD8630EE05}</Project>
+      <Name>Vector3D</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Motion6D.Interfaces\Motion6D.Interfaces.csproj">
+      <Project>{cb323095-3866-45a7-bf13-7d8bf1abc666}</Project>
+      <Name>Motion6D.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Motion6D.Portable\Motion6D.Portable.csproj">
+      <Project>{b23404b4-ce0f-4e64-a585-8181bae90fcd}</Project>
+      <Name>Motion6D.Portable</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{B4F97281-0DBD-4835-9ED8-7DFB966E87FF}" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.VisualBasic.PowerPacks.10.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft Visual Basic PowerPacks 10.0</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+</Project>
