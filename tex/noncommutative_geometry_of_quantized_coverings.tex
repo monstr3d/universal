@@ -16911,23 +16911,29 @@ $$
 $$
 Similarly one can proof that the Fourier transformation of  partial derivations of any orders are continuous functions. 
 
-\paragraph*{title}
-!!!
-From the Equation \eqref{nt_prodf_duality} it follows that
-$$
-\sF a \diamond \sF b = \sF a \times \widetilde F \sF b;
-$$
-where $\widetilde F$ is  the given by \eqref{eq:Fsympl} simpletic   Fourier transformation, such that $\widetilde F b \in \SS\left(\R^{2N} \right)$. On the other hand one has $$
-\frac{\partial \left( \partial a\times \widetilde F b\right) }{\partial x_j}= \frac{a }{\partial x_j}\times  b
-$$
-(cf.  Equation \eqref{mp_part_prod_eqn}),
-
-
-\paragraph*{title}
-
+\end{proof}
+\begin{lemma}
+In the situation of the Lemma \ref{nt_cont_lem}. The Fourier transformation of any partial derivation of  $a\times b\in \SS\left(\R^{2N}_\th \right) $ of any order  to a complex-valued continuous map on $\R^{2N}$.
+\end{lemma}
+\begin{proof}
+	From the Proposition \ref{mp_factor_prop} it follows that $b = b' \times b''$ where $b', b'' \in \SS\left(\R^{2N}_\th \right)$. From $\SS\left(\R^{2N}_\th \right)\subset L^2\left(\R^{2N}_\th \right)$ and $C\left( \T^{2N}_\th\right)\times L^2\left(\R^{2N}_\th \right)= L^2\left(\R^{2N}_\th \right)$ it follows that
+	$$
+	a \times b = \left( a \times b'\right) \times b'' \subset  L^2\left( \R^{2N}\right)\times L^2\left( \R^{2N}\right),
+	$$
+	and taking into account the Remark \ref{mp_l2_rem} one has
+	$$
+	a \times b\in C_0\left( \R^{2N}\right).
+	$$
+Similarly from
+\bean
+\partial_j \left( a \times b \right)=	\partial_j a \times b + a \times \partial_jb,
+\partial_j a \in C\left( \T^{2N}_\th\right),\\
+\partial_jb
+\eean
+one can deduce that $\partial_j \left( a \times b \right)\in C_0\left( \R^{2N}\right)$. Similar operation can be performed for all differential operator of any order, so $a \times b$ is a smooth function. Taking into account  the Lemma \ref{nt_smooth_lem} one has $$a\times b\in \SS\left(\R^{2N}_\th \right) $
+\end{rem}
 
 \end{proof}
-
  From the Theorem \ref{nt_d_fin_thm} and the Lemma \ref{nt_d_fin_lem} it turns out that there is  a {pointed algebraic finite covering categories of $O^*$-algebras}  given by
 \bea
 \label{nt_comp_pt_o*_eqn}
@@ -22136,7 +22142,7 @@ then $C\left(\mathbb{T}^n_{\Theta}\right)$ is the universal $C^*$-algebra genera
  \mathcal{F}\left(f \star_\th g\right) \left(x \right) =    	\int_{\R^{2N}}\mathcal{F}{f}\left(x-y \right) \mathcal{F}{g}\left(y\right)e^{ \pi i  y \cdot \Th x }~dy.
  \end{equation}
  \begin{prop}\label{mp_factor_prop}\cite{moyal_spectral}
- 	The algebra $\SS\left(\R^{2N}, \star_\th \right)$  has the (nonunique) factorization property:
+The algebra $\SS\left(\R^{2N}, \star_\th \right)$  has the (nonunique) factorization property:
  	for all $h \in  \SS\left(\R^{2N} \right)$ there exist $f,g \in  \SS\left(\R^{2N} \right)$ that $h = f \star_\th g$.
  \end{prop}
  	% Denition 2.8 
@@ -22386,15 +22392,15 @@ Denote by
  		It is proven in \cite{varilly_bondia:phobos} $f, g \in L^2\left( \R^2\right)$, then $f\times g \in L^2\left( \R^2\right)$ and $\left\|f\times g  \right\|\le\left\|f \right\|\left\| g  \right\|$.
  		Moreover, $f \times g$ lies in $C_0\left( \R^2\right)$ : the continuity follows by adapting the analogous argument for (ordinary) convolution. 
  	\end{rem}
- 	%\begin{rem}\label{mp_smooth_rem}\cite{varilly_bondia:deimos}
- 	%The Leibniz formula assures us that $f \times g \in C_0^m\left(\R^2 \right)$ 
- 	% whenever
- 	% $$
- 	%f, g \in \bigcup \left\{\G_{st}~|~ s > 2m, t > 2m, s + t > 4m + 2\right\}
- 	%$$
- 	%analogously to what happens in the usual Sobolev spaces, the distributions in $\G_{st}$ grow more
- 	%regular as $s, t$ become larger in a suitable way.
- 	%\end{rem}
+ %	\begin{rem}\label{mp_smooth_rem}\cite{varilly_bondia:deimos}
+ %	The Leibniz formula assures us that $f \times g \in C_0^m\left(\R^2 \right)$ 
+ %	 whenever
+ %	 $$
+% 	f, g \in \bigcup \left\{\G_{st}~|~ s > 2m, t > 2m, s + t > 4m + 2\right\}
+% 	$$
+% 	analogously to what happens in the usual Sobolev spaces, the distributions in $\G_{st}$ grow more
+% 	regular as $s, t$ become larger in a suitable way.
+ %	\end{rem}
  	\begin{rem}\label{mp_ss_rem}
  		It is shown in \cite{varilly_bondia:phobos} that 
  		\begin{equation}\label{mp_ssin_eqn}
