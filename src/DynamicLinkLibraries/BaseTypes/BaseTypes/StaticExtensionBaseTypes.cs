@@ -139,6 +139,79 @@ namespace BaseTypes
         #region Public Members
 
         /// <summary>
+        /// Adds the action
+        /// </summary>
+        /// <param name="action">The action</param>
+        /// <param name="addition">The addition</param>
+        /// <returns>The sum of actions</returns>
+        public static Action Add(this Action action, Action addition)
+        {
+            if (addition == null)
+            {
+                return action;
+            }
+            if (action == null)
+            {
+                return addition;
+            }
+            return action + addition;
+        }
+
+        /// <summary>
+        /// Adds the action
+        /// </summary>
+        /// <typeparam name="T">Action type</typeparam>
+        /// <param name="action">The action</param>
+        /// <param name="addition">The addition</param>
+        /// <returns>The sum of actions</returns>
+        public static Action<T> Add<T>(this Action<T> action, Action<T> addition)
+        {
+            if (addition == null)
+            {
+                return action;
+            }
+            if (action == null)
+            {
+                return addition;
+            }
+            return action + addition;
+        }
+
+
+        /// <summary>
+        /// Adds element to dictionary
+        /// </summary>
+        /// <typeparam name="T">Key type</typeparam>
+        /// <typeparam name="S">Value type</typeparam>
+        /// <param name="dictionary">Dictionary</param>
+        /// <param name="key">Key</param>
+        /// <param name="value">Value</param>
+        /// <param name="unique">The "unique" sign</param>
+        public static void Add<T, S>(this Dictionary<T, List<S>> dictionary, T key, S value, 
+            bool unique = true)
+        {
+            List<S> l;
+            if (dictionary.ContainsKey(key))
+            {
+                l = dictionary[key];
+            }
+            else
+            {
+                l = new List<S>();
+                dictionary[key] = l;
+            }
+            if (!unique)
+            {
+                l.Add(value);
+                return;
+            }
+            if (!l.Contains(value))
+            {
+                l.Add(value);
+            }
+        }
+
+        /// <summary>
         /// Transformation to operation type
         /// </summary>
         /// <param name="type">Thw type</param>

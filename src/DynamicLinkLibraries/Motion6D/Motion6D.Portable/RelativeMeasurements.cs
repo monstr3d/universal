@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Text;
 
 using CategoryTheory;
 
@@ -10,6 +9,10 @@ using DataPerformer.Portable.Measurements;
 using DataPerformer.Interfaces;
 
 using Motion6D.Interfaces;
+
+using Vector3D;
+
+using RealMatrixProcessor;
 
 namespace Motion6D.Portable
 {
@@ -21,7 +24,11 @@ namespace Motion6D.Portable
 
         #region Fields
 
-        const Double a = 0;
+        EulerAngles angles = new EulerAngles();
+
+        const double a = 0;
+
+        double[] aux = new double[3];
 
 
         private IPosition source;
@@ -62,8 +69,9 @@ namespace Motion6D.Portable
 
         private Func<object>[] coordDel;
 
-        private static readonly string[] names = new string[] {"x", "y", "z", "Distance", "Vx", "Vy", "Vz", "Velocity", "Q0", "Q1", "Q2", "Q3",
-                                                                  "OMx", "OMy", "OMz", "A11", "A12", "A13", "A21", "A22", "A23", "A31", "A32", "A33"};
+        private static readonly string[] names = new string[] {"x", "y", "z", "Distance", 
+            "Vx", "Vy", "Vz", "Velocity", "Q0", "Q1", "Q2", "Q3", "Roll", "Pitch", "Yaw",
+            "OMx", "OMy", "OMz", "A11", "A12", "A13", "A21", "A22", "A23", "A31", "A32", "A33"};
 
         private Action UpdateAll;
 
@@ -209,6 +217,7 @@ namespace Motion6D.Portable
         {
             Array.Copy(relativePos, relativeFrame.Position, 3);
             Array.Copy(quaternion, relativeFrame.Quaternion, 4);
+            angles.Set(quaternion);
         }
 
         void UpdateFrameAngularVelocity()
@@ -233,11 +242,11 @@ namespace Motion6D.Portable
 
         void UpdateAngularVelocity()
         {
-            Vector3D.StaticExtensionVector3D.QuaternionInvertOmega(quaternion, aSource.Omega, omegaRelative);
-            double[] om = aTarget.Omega;
+            aTarget.Omega.Multiply(relativeFrame.Matrix, aux);
+            double[] om = aSource.Omega;
             for (int i = 0; i < 3; i++)
             {
-                omegaRelative[i] = om[i] - omegaRelative[i];
+                omegaRelative[i] = om[i] - aux[i];
             }
         }
 
@@ -322,6 +331,20 @@ namespace Motion6D.Portable
             return quaternion[3];
         }
 
+        object GetRoll()
+        {
+            return angles.roll;
+        }
+
+        object GetPitch()
+        {
+            return angles.pitch;
+        }
+
+        object GetYaw()
+        {
+            return angles.yaw;
+        }
 
         object GetOmegaX()
         {
@@ -491,6 +514,10 @@ namespace Motion6D.Portable
                 return false;
             }
             UpdateAll = UpdateCoinDistance;
+            if (oSource != null & oTarget != null)
+            {
+                UpdateAll += UpdateRelativePosition;
+            }
             if ((source is IVelocity) & (target is IVelocity))
             {
                 vSource = source as IVelocity;
@@ -512,8 +539,20 @@ namespace Motion6D.Portable
             if ((oSource != null) & (oTarget != null))
             {
                 UpdateAll += UpdateQuaternion;
+                if ((source is IVelocity) & (target is IVelocity))
+                {
+                    UpdateAll += UpdateVelocityRotation;
+                }
             }
             return true;
+        }
+
+        void UpdateVelocityRotation()
+        {
+            ReferenceFrame f = ReferenceFrame.GetOwnFrame(target);
+            f.CalculateRotatedPosition(relativeVelocity, aux);
+            Array.Copy(aux, relativeVelocity, 3);
+            Array.Copy(relativeVelocity, ivelocity.Velocity, 3);
         }
 
         void UpdateCoinDistance()
@@ -533,7 +572,7 @@ namespace Motion6D.Portable
         void UpdateOrientation(double[] x, double[] aux)
         {
             double[,] m = oTarget.Matrix;
-            RealMatrixProcessor.RealMatrix.Multiply(x, m, aux);
+            x.Multiply(m, aux);
             Array.Copy(aux, x, 3);
         }
 
@@ -566,16 +605,17 @@ namespace Motion6D.Portable
 
         void UpdateQuaternion()
         {
-            Vector3D.StaticExtensionVector3D.QuaternionInvertMultiply(oSource.Quaternion, oTarget.Quaternion, quaternion);
+            oTarget.Quaternion.QuaternionInvertMultiply(oSource.Quaternion, quaternion);
+            Array.Copy(quaternion, relativeFrame.Quaternion, 3);
+            relativeFrame.SetMatrix();
         }
 
         void AddAngularVelocity()
         {
             double[] om = aTarget.Omega;
-            Vector3D.StaticExtensionVector3D.VectorPoduct(relativePos, om, omegaRProduct);
-            RealMatrixProcessor.RealMatrix.PlusEqual(relativeVelocity, omegaRProduct);
+            relativePos.VectorPoduct(om, omegaRProduct);
+            relativeVelocity.PlusEqual( omegaRProduct);
         }
-
 
         IMeasurement[] zero
         {
@@ -667,7 +707,7 @@ namespace Motion6D.Portable
             Func<object>[] parameters = new Func<object>[] { GetOmegaX, GetOmegaY, GetOmegaZ };
             for (int i = 0; i < parameters.Length; i++)
             {
-                measurements[i] = new Measurement(parameters[i], names[12 + i]);
+                measurements[i] = new Measurement(parameters[i], names[15 + i]);
             }
             return measurements;
         }
@@ -678,7 +718,8 @@ namespace Motion6D.Portable
             {
                 return new IMeasurement[0];
             }
-            Func<object>[] pars = new Func<object>[] { GetQ0, GetQ1, GetQ2, GetQ3 };
+            Func<object>[] pars = new Func<object>[] { GetQ0, GetQ1, GetQ2, GetQ3, 
+                GetRoll, GetPitch, GetYaw };
             IMeasurement[] m = new IMeasurement[pars.Length];
             for (int i = 0; i < m.Length; i++)
             {

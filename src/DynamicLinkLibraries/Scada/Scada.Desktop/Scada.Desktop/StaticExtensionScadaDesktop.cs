@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Reflection;
 
 using BaseTypes.Attributes;
 
@@ -10,13 +8,12 @@ using CategoryTheory;
 
 using Diagram.UI.Interfaces;
 
+using DataPerformer.Interfaces;
+using DataPerformer.Portable.Interfaces;
 
+using Event.Interfaces;
 
 using Scada.Interfaces;
-using DataPerformer.Interfaces;
-using Event.Interfaces;
-using System.Reflection;
-using DataPerformer.Portable.Interfaces;
 
 namespace Scada.Desktop
 {
@@ -48,6 +45,206 @@ namespace Scada.Desktop
         #endregion
 
         #region Public Members
+
+
+        /// <summary>
+        /// Gets name of SCADA
+        /// </summary>
+        /// <param name="scada">The scada</param>
+        /// <returns>The name</returns>
+        public static string GetScadaName(this IScadaInterface scada)
+        {
+            foreach (var key in scadas.Keys)
+            {
+                if (scadas[key] == scada)
+                {
+                    return key;
+                }
+            }
+            return null;
+        }
+
+        /// <summary>
+        /// Finds SACDA Event
+        /// </summary>
+        /// <param name="tuple">Input</param>
+        /// <returns>The event</returns>
+        public static Interfaces.IEvent ToScadaEvent(this 
+            Tuple<IScadaInterface, string> tuple)
+        {
+            var s = tuple.Item1;
+            var e = tuple.Item2;
+            if (s.Events.Contains(e))
+            {
+                return s[e];
+            }
+            return null;
+        }
+
+        /// <summary>
+        /// Adds action to SCADA events
+        /// </summary>
+        /// <param name="action">The action</param>
+        /// <param name="str">Events</param>
+        public static void AddToScadaEvent(this Action action, 
+            IEnumerable<string> str)
+        {
+            var t = str.ToScadaEvent();
+            foreach (var i in t)
+            {
+                i.Event += action;
+            }
+        }
+
+        /// <summary>
+        /// Finds Scada events
+        /// </summary>
+        /// <param name="str">Input</param>
+        /// <returns>Events</returns>
+
+        public static IEnumerable<Interfaces.IEvent> 
+            ToScadaEvent(this IEnumerable<string> str)
+        {
+            var p = str.ToScadaString();
+            foreach (var pp in p)
+            {
+                var s = pp.ToScadaEvent();
+                if (s != null)
+                {
+                    yield return s;
+                }
+            }
+        }
+
+        /// <summary>
+        /// To SCADA and string
+        /// </summary>
+        /// <param name="str">The string</param>
+        /// <returns>Scada and string</returns>
+        public static IEnumerable<Tuple<IScadaInterface, string>> 
+            ToScadaString(this IEnumerable<string> str)
+        {
+            foreach (var s in str)
+            {
+                var t = s.ToScadaString();
+                if (t != null)
+                {
+                    yield return t;
+                }
+            }
+        }
+
+        /// <summary>
+        /// To SCADA and string
+        /// </summary>
+        /// <param name="str">The string</param>
+        /// <returns>Scada and string</returns>
+        static public Tuple<IScadaInterface, string> ToScadaString(this string str)
+        {
+            int k =  str.IndexOf('.');
+            if (k < 0 | k == str.Length - 1)
+            {
+                return null;
+            }
+            IScadaInterface scada = str.Substring(0, k).ToExistedScada();
+            if (scada == null)
+            {
+                return null;
+            }
+            return new Tuple<IScadaInterface, string>(scada, str.Substring(k + 1));
+        }
+
+        /// <summary>
+        ///  Detects function
+        /// </summary>
+        /// <param name="str">Input</param>
+        /// <returns>The function</returns>
+        public static Func<object> DetectFunc(this string str)
+        {
+            var t = str.ToScadaString();
+            if (t == null)
+            {
+                return null;
+            }
+            if (!t.Item1.Outputs.ContainsKey(t.Item2))
+            {
+                return null;
+            }
+            return t.Item1.GetOutput(t.Item2);
+        }
+
+        /// <summary>
+        /// Detects actions
+        /// </summary>
+        /// <param name="str">Input</param>
+        /// <returns>Action</returns>
+        public static Tuple<Func<object>, Action<object>, object> 
+            DetectActions(this string[] str)
+        {
+            var tt = new Tuple<IScadaInterface, string>[2];
+            for (int i = 0; i < 2; i++)
+            {
+                var t = str[i].ToScadaString();
+                if (t == null)
+                {
+                    return null;
+                }
+                tt[i] = t;
+            }
+            if (!tt[0].Item1.Outputs.ContainsKey(tt[0].Item2))
+            {
+                return null;
+            }
+            var to = tt[0].Item1.Outputs[tt[0].Item2];
+            if (!tt[1].Item1.Inputs.ContainsKey(tt[1].Item2))
+            {
+                return null;
+            }
+            var ti = tt[1].Item1.Inputs[tt[1].Item2];
+            if (ti.Equals(to))
+            {
+                return new Tuple<Func<object>, Action<object>, object>(
+                    tt[0].Item1.GetOutput(tt[0].Item2),
+                    tt[1].Item1.GetInput(tt[1].Item2), to);
+            }
+            return null;
+        }
+
+        /// <summary>
+        /// Input ouptut action
+        /// </summary>
+        /// <param name="input">Input</param>
+        /// <param name="output">Output</param>
+        /// <param name="compare">The "Compare" string</param>
+        /// <returns>The action</returns>
+        public static Action InputToOutput(this string input, string output,
+            bool compare = true)
+        {
+            var ss = new string[]{ input, output };
+            var tt = new Tuple<IScadaInterface, string>[2];
+            for (int i = 0; i < 2; i++)
+            {
+                var s = ss[i];
+                int k = s.IndexOf('.');
+                var scada = s.Substring(0, k).ToExistedScada();
+                tt[i] = new Tuple<IScadaInterface, string>(scada, s.Substring(k + 1));
+            }
+            return tt[0].InputToOutput(tt[1], compare);
+        }
+
+        /// <summary>
+        /// String to existed SCADA
+        /// </summary>
+        /// <param name="name">The name of scada</param>
+        /// <returns>The SCADA</returns>
+        public static IScadaInterface ToExistedScada(this string name)
+        {
+            if (!scadas.ContainsKey(name))
+            {
+                return null;
+            }
+            return scadas[name];
+        }
 
         /// <summary>
         /// Clears scadas

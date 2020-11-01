@@ -23,6 +23,8 @@ namespace Unity.Standard
 
         protected float[] constants = new float[0];
 
+        protected string[] events;
+  
         #endregion
 
         /// <summary>
@@ -60,10 +62,16 @@ namespace Unity.Standard
             return constants.SetConstants(offset, this.constants);
         }
 
+  
         /// <summary>
         /// Update action
         /// </summary>
         public abstract Action Update { get; }
+
+        #region Own Members
+        
+    
+        #endregion
 
     }
 }

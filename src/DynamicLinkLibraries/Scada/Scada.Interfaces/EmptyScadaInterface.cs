@@ -171,5 +171,15 @@ namespace Scada.Interfaces
             return XElement.Load(fileName);
         }
 
-     }
+
+        /// <summary>
+        /// Gets constant value
+        /// </summary>
+        /// <param name="name">The name of constant</param>
+        /// <returns>The value of constant</returns>
+        public override object GetConstantValue(string name)
+        {
+            throw new NotImplementedException();
+        }
+    }
 }

@@ -80,12 +80,13 @@ namespace FormulaEditor.CSharp
         List<string> ITreeCollectionCodeCreator.CreateCode(ObjectFormulaTree[] trees, 
             string className, string constructorModifier, bool checkValue)
         {
+            this.trees = trees;
             IList<string> variables;
             IList<string> initializers;
             List<string> l = new List<string>();
             l.Add(" : FormulaEditor.Interfaces.ITreeCollectionProxy");
             l.Add("{");
-
+            local = null;
             IList<string> lt = PreCreateCode(out local, out variables, out initializers);
             /*foreach (string s in initializers)
             {
@@ -225,6 +226,7 @@ namespace FormulaEditor.CSharp
             List<string> l = new List<string>();
             l.Add(CSharpCodeCreator.StandardHeader);
             l.Add(CSharpCodeCreator.GetGuidClass(new Type[] { typeof(ITreeCollectionProxy) }));
+            local = null;
             IList<string> lt = PreCreateCode(out local, out variables, out initializers);
             l.Add("\t\t");
             List<string> ltt = PostCreateCode(local, lt, variables, initializers, "public Calculate", checkValue != null);

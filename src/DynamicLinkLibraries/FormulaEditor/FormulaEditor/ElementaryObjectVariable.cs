@@ -140,7 +140,7 @@ namespace FormulaEditor
         /// <summary>
         /// Types of input parameters
         /// </summary>
-        object[] BaseTypes.Interfaces.IObjectOperation.InputTypes
+        object[] IObjectOperation.InputTypes
         {
             get
             {

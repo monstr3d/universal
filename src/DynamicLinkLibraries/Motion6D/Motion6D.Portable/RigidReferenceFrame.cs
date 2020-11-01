@@ -4,7 +4,7 @@ using System.Text;
 
 
 using CategoryTheory;
-
+using Diagram.UI.Interfaces;
 using Motion6D.Interfaces;
 
 using Vector3D;
@@ -14,8 +14,8 @@ namespace Motion6D.Portable
     /// <summary>
     /// Rigid reference frame
     /// </summary>
-    public class RigidReferenceFrame : CategoryObject,   IReferenceFrame, 
-       IPostLoadPosition, IPostSetArrow
+    public class RigidReferenceFrame : CategoryObject, IReferenceFrame,
+       IPostLoadPosition, IPostSetArrow, IAlias
     {
 
         #region Fields
@@ -63,14 +63,17 @@ namespace Motion6D.Portable
         /// Linear velocity
         /// </summary>
         protected double[] velocity = new double[] { 0, 0, 0 };
-        
-       // protected double[] relativeVelocity = new double[] { 0, 0, 0 };
+
+        // protected double[] relativeVelocity = new double[] { 0, 0, 0 };
 
         /// <summary>
         /// Angular velocity
         /// </summary>
         protected double[] omega = new double[] { 0, 0, 0 };
 
+        protected string[] aliasNames = new string[] { "X", "Y", "Z", "Roll", "Pitch", "Yaw" };
+
+        protected Dictionary<string, int> alinames = new Dictionary<string, int>();
 
         #endregion
 
@@ -81,6 +84,10 @@ namespace Motion6D.Portable
         /// </summary>
         public RigidReferenceFrame()
         {
+            for (int i = 0; i < aliasNames.Length; i++)
+            {
+                alinames[aliasNames[i]] = i;
+            }
             Init();
         }
 
@@ -110,6 +117,93 @@ namespace Motion6D.Portable
         List<IPosition> IReferenceFrame.Children
         {
             get { return children; }
+        }
+
+
+        #endregion
+
+        #region IAlias Members
+
+        IList<string> IAlias.AliasNames => aliasNames;
+
+        object IAlias.this[string name] { get => GetAliasValue(name); set => SetAliasValue(name, value); }
+
+        event Action<IAlias, string> change;
+
+        event Action<IAlias, string> IAlias.OnChange
+        {
+            add
+            {
+                change += value;
+            }
+
+            remove
+            {
+                change -= value;
+            }
+        }
+
+        object IAlias.GetType(string name)
+        {
+            return GetAliasType(name);
+        }
+
+        #endregion
+
+        #region IAlias Support
+
+
+        EulerAngles angles = new EulerAngles();
+
+        protected virtual object GetAliasValue(string name)
+        {
+            int i = alinames[name];
+            if (i < 3)
+            {
+                return relative.Position[i];
+            }
+            angles.Set(relative.Quaternion);
+            switch (i - 3)
+            {
+                case 0: return angles.roll;
+                case 1: return angles.pitch;
+                case 2: return angles.yaw;
+            }
+            return 0;
+        }
+
+
+        protected virtual void SetAliasValue(string name, object value)
+        {
+            double v = (double)value;
+            int i = alinames[name];
+            if (i < 3)
+            {
+                relative.Position[i] = v;
+            }
+            if (i < 9)
+            {
+                angles.Set(relative.Quaternion);
+                switch (i - 6)
+                {
+                    case 0:
+                        angles.roll = v;
+                        break;
+                    case 1:
+                        angles.pitch = v;
+                        break;
+                    case 2:
+                        angles.yaw = v;
+                        break;
+                }
+                angles.ToQuaternion(relative.Quaternion);
+            }
+        }
+
+
+        protected virtual object GetAliasType(string name)
+        {
+            return (double)0;
         }
 
 
@@ -202,6 +296,7 @@ namespace Motion6D.Portable
         public virtual void PostSetArrow()
         {
             PostSetParameters();
+            CreateFrame();
         }
 
         #endregion
@@ -365,6 +460,12 @@ namespace Motion6D.Portable
             {
                 relative = value;
             }
+        }
+
+        protected void ClearAliases()
+        {
+            aliasNames = new string[0];
+            alinames.Clear();
         }
 
         /// <summary>

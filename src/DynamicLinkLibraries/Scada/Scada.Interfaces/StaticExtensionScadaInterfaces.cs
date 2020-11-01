@@ -1,10 +1,8 @@
-﻿using System;
+﻿using Scada.Interfaces.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml;
 using System.Xml.Linq;
 
 namespace Scada.Interfaces
@@ -58,6 +56,9 @@ namespace Scada.Interfaces
         /// </summary>
         static Dictionary<string, Type> typeDetector = new Dictionary<string, Type>();
 
+        static private event Action<IScadaInterface> onScadaIsEnabled;
+
+ 
         #endregion
 
         #region Public Members
@@ -168,6 +169,61 @@ namespace Scada.Interfaces
         }
 
         #endregion
+
+        /// <summary>
+        /// The change of enable status
+        /// </summary>
+        /// <param name="scada"></param>
+        static public void EnableChange(this IScadaInterface scada)
+        {
+            onScadaIsEnabled(scada);
+        }
+
+        /// <summary>
+        /// The scada enabled event
+        /// </summary>
+        static public event Action<IScadaInterface> OnScadaIsEnabled
+        {
+            add { onScadaIsEnabled += value; }
+            remove { onScadaIsEnabled -= value; }
+        }
+
+
+        /// <summary>
+        /// Input ouptut action
+        /// </summary>
+        /// <param name="input">Input</param>
+        /// <param name="output">Output</param>
+        /// <param name="compare">The "Compare" string</param>
+        /// <returns>The action</returns>
+        static public Action InputToOutput(this Func<object> input, Action<object> output,
+            bool compare = true)
+        {
+            var io = new InputOutputLink(input, output);
+            if (compare)
+            {
+                return io.UpdateCompare;
+            }
+            return io.Update;
+        }
+
+        /// <summary>
+        /// Input ouptut action
+        /// </summary>
+        /// <param name="input">Input</param>
+        /// <param name="output">Output</param>
+        /// <param name="compare">The "Compare" string</param>
+        /// <returns>The action</returns>
+        static public Action InputToOutput(this Tuple<IScadaInterface, string> input,
+            Tuple<IScadaInterface, string> output,
+            bool compare = true)
+        {
+            var inp = input.Item1.GetOutput(input.Item2);
+            var ou = output.Item1.GetInput(output.Item2);
+            return inp.InputToOutput(ou, compare);
+        }
+
+
 
 
         /// <summary>

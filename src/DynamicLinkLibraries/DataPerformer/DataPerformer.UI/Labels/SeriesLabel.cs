@@ -1,32 +1,14 @@
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Text;
 using System.Windows.Forms;
 using System.Runtime.Serialization;
-using System.Collections;
-using System.IO;
-using System.Runtime.Serialization.Formatters.Binary;
 
 using CategoryTheory;
 
-using Diagram.UI;
 using Diagram.UI.Labels;
 using Diagram.UI.Interfaces;
 
-using DataPerformer;
-
 using DataPerformer.UI.UserControls;
-
-using ToolBox;
-
-using Chart;
-using Chart.Interfaces;
-using Chart.Drawing.Interfaces;
-using Chart.Drawing.Painters;
-using Chart.Panels;
 
 
 namespace DataPerformer.UI.Labels
@@ -64,6 +46,7 @@ namespace DataPerformer.UI.Labels
         public SeriesLabel()
             : base(typeof(DataPerformer.Series), "", ResourceImage.Series.ToBitmap())
         {
+
         }
 
 

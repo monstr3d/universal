@@ -106,6 +106,7 @@ namespace Motion6D.Portable
         /// </summary>
         public ReferenceFrameDataBase()
         {
+            ClearAliases();
             coordDel = new Func<object>[] { GetX, GetY, GetZ };
             oriDel = new Func<object>[] { GetQ0, GetQ1, GetQ2, GetQ3 };
             velocityDel = new Func<object>[] { GetVx, GetVy, GetVz };

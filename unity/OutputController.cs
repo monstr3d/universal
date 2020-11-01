@@ -10,18 +10,19 @@ using Scada.Desktop;
 using Scada.Interfaces;
 
 
-using Motion6D.Interfaces;
 using Diagram.UI.Interfaces;
 using Diagram.UI;
-using Vector3D;
 
 using Unity.Standard;
-
+using BaseTypes;
 
 public class OutputController : MonoBehaviour
 {
 
     public string desktop;
+
+    public string[] aliases;
+
 
     public string[] parameters;
 
@@ -45,14 +46,15 @@ public class OutputController : MonoBehaviour
 
     public Component[] indicators;
 
-
     public bool isEnabled = true;
-
-    bool exists;
 
     public float[] constants;
 
+    bool exists;
+
+
     Action ev = null;
+
 
     Action inpAct;
 
@@ -64,7 +66,7 @@ public class OutputController : MonoBehaviour
 
     Action update;
 
-    MonoBehaviorTimerFactory factory;
+    MonoBehaviourTimerFactory factory;
 
     private Dictionary<string, Tuple<object,
         Func<object>, List<Tuple<string, Component>>>> allparameters
@@ -82,12 +84,23 @@ public class OutputController : MonoBehaviour
     private void Awake()
     {
         this.Add();
+        MonoBehaviourTimerFactory.OnStart +=
+           (string s) =>
+           {
+               if (desktop == s)
+               {
+                   SetConstants();
+                   aliases = new string[0];
+               }
+           };
+
+
         exists = desktop.ScadaExists();
         if (!isEnabled)
         {
             return;
         }
-        scada = MonoBehaviorTimerFactory.Create(desktop, out factory);
+        scada = MonoBehaviourTimerFactory.Create(desktop, out factory);
         for (int i = 0; i < generalizedUpdates.Length; i++)
         {
             valuePairs[generalizedUpdates[i]] = i;
@@ -127,14 +140,12 @@ public class OutputController : MonoBehaviour
     }
 
 
-
     // Start is called before the first frame update
     void Start()
     {
         factory.Start();
         UpdateInput();
         UpdateOutput();
-        //      UpdateTransforms();
     }
 
     // Update is called once per frame
@@ -188,7 +199,30 @@ public class OutputController : MonoBehaviour
         }
     }
 
- 
+
+
+    void SetConstants()
+    {
+        var consts = scada.Constants;
+        char[] sep = "=".ToCharArray();
+        foreach (string cc in aliases)
+        {
+            string[] ss = cc.Split(sep);
+            if (consts.ContainsKey(ss[0]))
+            {
+                object o = consts[ss[0]];
+                if (o.GetType() == typeof(double))
+                {
+                    double a = double.Parse(ss[1],
+                        System.Globalization.CultureInfo.InvariantCulture);
+                    scada.SetConstant(ss[0], a);
+                }
+
+            }
+        }
+    }
+
+
     private void UpdateOutput()
     {
         if (allparameters.Count == 0)
@@ -276,16 +310,7 @@ public class OutputController : MonoBehaviour
 
     void AddUpdate(Action act)
     {
-        if (act == null)
-        {
-            return;
-        }
-        if (update == null)
-        {
-            update = act;
-            return;
-        }
-        update += act;
+        update = update.Add(act);
     }
 
 }

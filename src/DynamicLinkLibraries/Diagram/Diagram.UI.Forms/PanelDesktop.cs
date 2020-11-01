@@ -2123,7 +2123,7 @@ namespace Diagram.UI
             bool b = d.Load(stream, null, true);
           //  d.Refresh();
             List<string> l = d.CreateInitDesktopCSharpCode(namespacE, className);
-            using (System.IO.TextWriter w = new System.IO.StreamWriter(fileName))
+            using (TextWriter w = new StreamWriter(fileName))
             {
                 foreach (string s in l)
                 {

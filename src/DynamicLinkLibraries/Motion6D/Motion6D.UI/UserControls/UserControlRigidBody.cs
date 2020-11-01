@@ -1,16 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using Diagram.UI;
 using Diagram.UI.Utils;
 
 using Motion6D.Portable.Aggregates;
+
 using Vector3D;
 
 namespace Motion6D.UI.UserControls
@@ -132,6 +129,25 @@ namespace Motion6D.UI.UserControls
             {
                 angular[i].Text = init[i + 10] + "";
             }
+            EulerAngles angles = new EulerAngles();
+            angles.Set(q);
+            textBoxRoll.Text = angles.roll + "";
+            textBoxPitch.Text = angles.pitch + "";
+            textBoxYaw.Text = angles.yaw + "";
+        }
+
+        void fillFromEuler()
+        {
+            double roll = double.Parse(textBoxRoll.Text);
+            double pitch = double.Parse(textBoxPitch.Text);
+            double yaw = double.Parse(textBoxYaw.Text);
+            EulerAngles angles = new EulerAngles(roll, pitch, yaw);
+            double[] q = new double[4];
+            angles.ToQuaternion(q);
+            double[,] m = new double[3, 3];
+            double[,] qq = new double[4, 4];
+            q.QuaternionToMatrix(m, qq);
+            fillMatrix(m);
         }
 
 
@@ -332,6 +348,19 @@ namespace Motion6D.UI.UserControls
 
         }
 
+        private void buttonSetEuler_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                fillFromEuler();
+            }
+            catch (Exception exception)
+            {
+                exception.ShowError();
+            }
+        }
+
         #endregion
+
     }
 }

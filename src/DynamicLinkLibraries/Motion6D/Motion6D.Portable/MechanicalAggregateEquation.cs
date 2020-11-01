@@ -392,7 +392,35 @@ namespace Motion6D.Portable
         }
 
         #endregion
-  
+
+        #region Overriden Members
+
+        /// <summary>
+        /// The comparation
+        /// </summary>
+        /// <param name="obj">Compared object</param>
+        /// <returns>True if equals</returns>
+        public override bool Equals(object obj)
+        {
+            if (obj is MechanicalAggregateEquation)
+            {
+                MechanicalAggregateEquation eq = obj as MechanicalAggregateEquation;
+                return eq.aggregate == aggregate;
+            }
+            return false;
+        }
+
+        /// <summary>
+        /// Gets hash code
+        /// </summary>
+        /// <returns>The hash code</returns>
+        public override int GetHashCode()
+        {
+            return aggregate.GetHashCode();
+        }
+
+        #endregion
+
         #region Specific Members
 
         /// <summary>

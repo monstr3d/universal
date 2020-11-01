@@ -1,14 +1,10 @@
-﻿
-using System;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
-using UnityEngine;
-using UnityEngine.UI;
-
+using BaseTypes;
 
 using Diagram.UI;
 
@@ -28,22 +24,28 @@ using Event.Portable;
 
 using Scada.Interfaces;
 using Scada.Desktop;
+
 using Vector3D;
+
 using Motion6D.Interfaces;
-using System.Runtime.CompilerServices;
+
+using UnityEngine;
+using UnityEngine.UI;
+
 
 namespace Unity.Standard
 {
 
 
     /// <summary>
-    /// Static 
+    /// Static extension
     /// </summary>
     public static class StaticExtensionUnity
     {
 
         #region Fields
 
+ 
         static private TimeMeasureProviderFactory factory = new TimeMeasureProviderFactory();
 
         static private ITimerEventFactory timerEventFactory;
@@ -56,6 +58,8 @@ namespace Unity.Standard
 
         static private Scada.Interfaces.IErrorHandler errorHandler = new ErrorHanller();
 
+        static private Dictionary<string, Type> stringUpates = 
+            new Dictionary<string, Type>();
 
         static private Dictionary<string, Tuple<object,
 
@@ -87,13 +91,58 @@ namespace Unity.Standard
 
         static double pauseTime;
 
+        static List<IIndicatorFactory> indicatorFactories = new List<IIndicatorFactory>();
+
+
+        static event Action<Tuple<GameObject, Component,
+            IScadaInterface, ICollisionAction>> collision = (Tuple<GameObject, Component,
+            IScadaInterface, ICollisionAction> t) =>
+            { };
+
+        static Action<string> global = (string s) => { };
+
+
+
+ 
+        static public event Action<string> OnGlobal
+        {
+            add { global += value; }
+            remove { global -= value; }
+        }
+
+        static public void AddGlobal(this Action<string> act)
+        {
+            OnGlobal += act;
+        }
+
+
+        static public void Global(this string str)
+        {
+            global(str);
+        }
+
+
+        /// <summary>
+        /// Collosion event
+        /// </summary>
+        static public event Action<Tuple<GameObject, Component,
+            IScadaInterface, ICollisionAction>> Collision
+        {
+            add { collision += value; }
+            remove { collision -= value; }
+        }
+
         static public double StartTime
         {
             get;
             set;
         }
 
-   
+        static public Activation Activation
+        {
+            get;
+            set;
+        }
 
         static public double Time
         {
@@ -102,13 +151,376 @@ namespace Unity.Standard
 
         #endregion
 
-        #region Members
+        #region Public Members
+ 
+        /// <summary>
+        /// Checks whether indicators exceed
+        /// </summary>
+        /// <param name="limits"></param>
+        /// <returns>True is excced</returns>
+        static public bool Exceeds(this IEnumerable<ILimits> limits)
+        {
+            foreach (var l in limits)
+            {
+                if (l.Exceeds)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        /// <summary>
+        /// Adds action value
+        /// </summary>
+        /// <param name="action">The action</param>
+        /// <param name="value">The value</param>
+        public static void Add(this Action<object> action, object value)
+        {
+            Activation.Put(action, value);
+        }
+
+        /// <summary>
+        /// Sets level
+        /// </summary>
+        public static void SetLevel()
+        {
+           Level.GetConstructor(new Type[0]).Invoke(new object[0]);
+        }
+
+        public static string ToZero(this string str)
+        {
+            int k = str.IndexOf("=");
+            return str.Substring(0, k + 1) + "0";
+        }
+
+
+        /// <summary>
+        /// Level type
+        /// </summary>
+        public static Type Level
+        {
+            get
+            {
+                string s = AbstractLevelStringUpdate.Level +
+                    Activation.level.ToString().Replace("-", "m");
+                return stringUpates[s];
+            }
+        }
+
+        public static void SendLevelMessage(this string message)
+        {
+            string s = AbstractLevelStringUpdate.Level + ":" +
+                 Activation.level + ":" + message;
+            s.Global();
+        }
+
+        public static void EnableDisable(this string command, bool active)
+        {
+            var s = active ? "on:" : "off:";
+            (s + command).Global();
+        }
+
+
+        /// <summary>
+        /// Enables indicator
+        /// </summary>
+        /// <param name="indicator">The indicator</param>
+        /// <param name="command">The command</param>
+        /// <returns>Success</returns>
+        static public bool EnableDisable(this IIndicator indicator, string command)
+        {
+            string[] ss = command.Split(":".ToCharArray());
+            if (ss.Length != 2)
+            {
+                return false;
+            }
+            bool b;
+            if (ss[0] == "on")
+            {
+                b = true;
+            }
+            else if (ss[0] == "off")
+            {
+                b = false;
+            }
+            else
+            {
+                return false;
+            }
+            if (ss[1] == indicator.Parameter)
+            {
+                indicator.IsActive = b;
+            }
+            return true;
+        }
+        /// <summary>
+        /// Collision event
+        /// </summary>
+        /// <param name="action">Action</param>
+        /// <param name="go">Game object</param>
+        /// <param name="c">Component</param>
+        /// <param name="scada">Scada</param>
+        public static void CollisionEvent(this ICollisionAction action, GameObject go, Component c,
+            IScadaInterface scada)
+        {
+            var t = new Tuple<GameObject, Component,
+            IScadaInterface, ICollisionAction>(go, c, scada, action);
+            collision(t);
+        }
+
+        /// <summary>
+        /// Sets active state of indicator
+        /// </summary>
+        /// <param name="indicator">The indicator</param>
+        /// <param name="active">The state</param>
+        /// <returns>Change sign</returns>
+        public static bool SetActive(this IIndicator indicator, bool active)
+        {
+            if (indicator.IsActive == active)
+            {
+                return false;
+            }
+            if (active)
+            {
+                indicator.Add();
+            }
+            else
+            {
+                indicator.Remove();
+            }
+            return true;
+        }
+
+        /// <summary>
+        /// Adds indicator to tuple
+        /// </summary>
+        /// <param name="indicator">The indicator</param>
+        /// <param name="ls">The tuple</param>
+        public static void Add(this IIndicator indicator, 
+            Dictionary<string, Tuple<Func<object>, List<IIndicator>>> ls)
+        {
+            string p = indicator.Parameter;
+            List<IIndicator> l;
+            if (ls.ContainsKey(p))
+            {
+                l = ls[p].Item2;
+            }
+            else
+            {
+                l = new List<IIndicator>();
+                Func<object> f = null;
+                if (indicator.Type.Equals(typeof(object[])))
+                {
+                    f = ArrayWrapper.FromString(p);
+                }
+                if (f == null)
+                {
+                    var s = p.ToScadaString();
+                    if (s.Item1.Outputs.ContainsKey(s.Item2))
+                    {
+                        f = s.Item1.GetOutput(s.Item2);
+                    }
+                }
+                if (f == null)
+                {
+                    f = () => null;
+                }
+                var tt = new Tuple<Func<object>, List<IIndicator>>(f, l);
+                ls[p] = tt;
+            }
+            if (!l.Contains(indicator))
+            {
+                var j = indicator is IJumpedIndicator;
+                if (!j)
+                {
+                    l.Add(indicator);
+                }
+            }
+        }
+
+
+        /// <summary>
+        /// Adds indicator
+        /// </summary>
+        /// <param name="indicator"></param>
+        static public void Add(this IIndicator indicator)
+        {
+            //indicator.Add(indicators);
+        }
+
+        
+
+        /// <summary>
+        /// Removes indicator
+        /// </summary>
+        /// <param name="indicator"></param>
+        static public void Remove(this IIndicator indicator)
+        {
+            /*
+            string p = indicator.Parameter;
+            if (!indicators.ContainsKey(p))
+            {
+                return;
+            }
+            var l = indicators[p].Item2;
+            if (!l.Contains(indicator))
+            {
+                return;
+            }
+            l.Remove(indicator);
+            if (l.Count == 0)
+            {
+                indicators.Remove(p);
+            }
+            */
+        }
+
+        public static void UpdateInicators<T>(this
+            Dictionary<T, Tuple<Func<object>, List<IIndicator>>> indicators)
+        {
+            foreach (var t in indicators.Values)
+            {
+                var o = t.Item1();
+                var l = t.Item2;
+                foreach (var i in l)
+                {
+                    i.Value = o;
+                }
+            }
+        }         
+
+        /// <summary>
+        /// Updates indicators
+        /// </summary>
+        public static void UpdateIndicators()
+        {/*
+            foreach (var t in indicators.Values)
+            {
+                var o = t.Item1();
+                var l = t.Item2;
+                foreach (var i in l)
+                {
+                    i.Value = o;
+                }
+            }
+            */
+        }
+
+       
+
+        /// <summary>
+        /// Gets full list of indicators
+        /// </summary>
+        /// <param name="gameObject">The game object</param>
+        /// <returns>Full list</returns>
+        static public Dictionary<string, Tuple<Func<object>, List<IIndicator>>> GetIndicatorsFull(this GameObject gameObject)
+        {
+            var d = new Dictionary<string, Tuple<Func<object>, List<IIndicator>>>();
+            List<GameObject> go = new List<GameObject>();
+            gameObject.GetIndicators(go, d);
+            return d;
+        }
+
+        private static void GetIndicators(this GameObject gameObject,
+            List<GameObject> lg, 
+            Dictionary<string, Tuple<Func<object>, List<IIndicator>>> ls)
+        {
+            if (lg.Contains(gameObject))
+            {
+                return;
+            }
+            lg.Add(gameObject);
+            RectTransform[] rt = gameObject.GetComponentsInChildren<RectTransform>();
+            foreach (var r in rt)
+            {
+                r.gameObject.GetIndicators(lg, ls);
+            }
+            foreach (var factory in indicatorFactories)
+            {
+                var ind = factory.Get(gameObject);
+                if (ind != null)
+                {
+                    if (ind is IJumpedIndicator)
+                    {
+                        IJumpedIndicator i = ind as IJumpedIndicator;
+                        var pd = new Dictionary<string, Tuple<Func<object>, List<IIndicator>>>();
+                        ind.Add(pd);
+                        foreach (var iii in pd.Values)
+                        {
+                            var f = iii.Item1;
+                            Action act = () =>
+                            {
+                                 ind.Value = f();
+                            };
+                            act.AddToScadaEvent(i.JumpEvents);
+                            break;
+                        }
+                    }
+                    else
+                    {
+                        ind.Add(ls);
+                    }
+                    ind.Global.AddGlobal();
+                }
+            }
+        }
+
+
+        /// <summary>
+        /// Gets all indicators from Game object
+        /// </summary>
+        /// <param name="gameObject">The Game object</param>
+        /// <returns>Indicators</returns>
+        static public Dictionary<string, List<IIndicator>> GetIndicators(this GameObject gameObject)
+        {
+            var l = new Dictionary<string, List<IIndicator>>();
+            List<GameObject> go = new List<GameObject>();
+            gameObject.GetIndicators(go, l);
+            return l;
+        }
+
+
+        /// <summary>
+        /// Action from indicators
+        /// </summary>
+        /// <param name="indicators">Indicators</param>
+        /// <returns>The action</returns>
+        static public Action Update<T>(this Dictionary<T, List<IIndicator>> indicators)
+        {
+            Action update = null;
+            foreach (var l in indicators.Values)
+            foreach (var i in l)
+            {
+                var a = i.Update;
+                update = update.Add(a);
+            }
+            return update;
+        }
+
+
+        /// <summary>
+        /// Action from indicators
+        /// </summary>
+        /// <param name="indicators">Indicators</param>
+        /// <returns>The action</returns>
+        static public Action Update(this IEnumerable<IIndicator> indicators)
+        {
+            Action update = null;
+            foreach (var i in indicators)
+            {
+                var a = i.Update;
+                update = update.Add(a);
+            }
+            return update;
+        }
 
         /// <summary>
         /// Clears itself
         /// </summary>
-        static public void Clear()
+        static  void Clear()
         {
+           // indicators.Clear();
             StaticExtensionScadaDesktop.Clear();
             foreach (MonoBehaviour monoBehaviour in monoBehaviours)
             {
@@ -119,6 +531,36 @@ namespace Unity.Standard
             Activation.Disable();
         }
 
+        /// <summary>
+        /// Stops itself
+        /// </summary>
+        static public void Stop()
+        {
+            Clear();
+            "Stop".Global();
+        }
+
+        /// <summary>
+        /// Starts Coroutine
+        /// </summary>
+        /// <param name="enumerator"></param>
+        public static void StartCoroutine(this IEnumerator enumerator)
+        {
+            MonoBehaviour mb = null; 
+            foreach (MonoBehaviour monoBehaviour in monoBehaviours)
+            {
+                mb = monoBehaviour;
+                if (mb.enabled)
+                {
+                    break;
+                }
+            }
+            mb.StartCoroutine(enumerator);
+        }
+
+        /// <summary>
+        /// Pause
+        /// </summary>
         static public void Pause()
         {
             foreach (MonoBehaviour monoBehaviour in monoBehaviours)
@@ -126,8 +568,12 @@ namespace Unity.Standard
                 monoBehaviour.enabled = false;
             }
             pauseTime = Time;
+            "Escape:true".Global();
         }
 
+        /// <summary>
+        /// Restarts itself
+        /// </summary>
         public static void Restart()
         {
             foreach (MonoBehaviour monoBehaviour in monoBehaviours)
@@ -135,10 +581,8 @@ namespace Unity.Standard
                 monoBehaviour.enabled = true;
             }
             StartTime =  UnityEngine.Time.realtimeSinceStartup - pauseTime;
+            "Escape:false".Global();
         }
-
-        
-
 
         static public void Add(this MonoBehaviour monoBehaviour)
         {
@@ -150,8 +594,12 @@ namespace Unity.Standard
 
         static public int SetConstants(this float[] input, int offset, float[] output)
         {
+            if (offset < 0 | output.Length == 0)
+            {
+                return offset;
+            }
             int l = output.Length;
-            if (input.Length < offset + l)
+            if (input.Length > offset + l)
             {
                 return -1;
             }
@@ -165,7 +613,6 @@ namespace Unity.Standard
         /// </summary>
         static public ITextUpdate TextUpdate
         { get; set; }
-
 
 
         /// <summary>
@@ -198,23 +645,125 @@ namespace Unity.Standard
             return scada;
         }
 
-      /*  static public Quaternion FromDouble(this double[] x)
-        {
-            float p = x[0] < 0 ? -1f : 1f;
-            return new Quaternion(p * (float)x[1],  p * (float)x[2], p * (float)x[3], p * (float)x[0]);
-        }
-        */
-
         static public object GetLock(this string desktop)
         {
             return scadaUpdates[desktop].Item1;
+        }
+
+        /// <summary>
+        /// Starts blink
+        /// </summary>
+        /// <param name="limits">Limits</param>
+        /// <param name="delay">Delay</param>
+        /// <param name="start">Start actuin</param>
+        /// <param name="st">Start sign</param>
+        /// <param name="act">Action</param>
+        public static void StartBlink(this IEnumerable<ILimits> limits,
+            float delay, Func<bool> start, bool[] st, Action<bool> act)
+        {
+            if (st[0])
+            {
+                return;
+            }
+            bool s = start();
+            if (st[0] == s)
+            {
+                return;
+            }
+            if (s)
+            {
+                foreach (var l in limits)
+                {
+                    if (l.Exceeds)
+                    {
+                        act(true);
+                        st[0] = true;
+                        limits.BlinkLimits(delay, start, st, act).StartCoroutine();
+                        return;
+                    }
+                }
+            }
+        }
+
+        #endregion
+
+        #region Private
+
+        /// <summary>
+        /// Blinks limit indicators
+        /// </summary>
+        /// <param name="limits">Limits</param>
+        /// <param name="delay">Delay</param>
+        /// <param name="start">Start func</param>
+        /// <param name="st">Start sign</param>
+        /// <param name="act">Action</param>
+        /// <returns>Enumerable for coroutine</returns>
+        static private IEnumerator BlinkLimits(this IEnumerable<ILimits> limits,
+            float delay, Func<bool> start, bool[] st, Action<bool> act)
+        {
+            bool exceeds = true;
+            while (exceeds)
+            {
+                exceeds = false;
+                yield return new WaitForSeconds(delay);
+                foreach (var l in limits)
+                {
+                    if (l.Exceeds)
+                    {
+                        l.Active = false;
+                    }
+                }
+                yield return new WaitForSeconds(delay);
+                foreach (var l in limits)
+                {
+                    l.Active = true;
+                    if (!exceeds)
+                    {
+                        if (l.Exceeds)
+                        {
+                            exceeds = true;
+                        }
+                    }
+                    if (!start() | !exceeds)
+                    {
+                        st[0] = false;
+                        act(false);
+                        break;
+                    }
+                }
+            }
+        }
+
+
+        private static void GetIndicators(this GameObject gameObject,
+            List<GameObject> lg,
+           Dictionary<string, List<IIndicator>> ls)
+        {
+            if (lg.Contains(gameObject))
+            {
+                return;
+            }
+            lg.Add(gameObject);
+            RectTransform[] rt = gameObject.GetComponentsInChildren<RectTransform>();
+            foreach (var r in rt)
+            {
+                r.gameObject.GetIndicators(lg, ls);
+            }
+            foreach (var factory in indicatorFactories)
+            {
+                var ind = factory.Get(gameObject);
+                if (ind != null)
+                {
+                    ind.Add();
+                }
+            }
         }
 
         static void GetComponents(this Component go,
 
             Dictionary<string, List<GameObject>> objects, Dictionary<string, List<Component>> comp)
         {
-            Component[] components = go.GetComponentsInChildren(typeof(Component), false);
+            Component[] components = go.GetComponentsInChildren(typeof(Component), true);
             foreach (Component component in components)
             {
                 if (component == null)
@@ -422,7 +971,7 @@ namespace Unity.Standard
 
 
         public static Action Create(this ReferenceFrameBehavior mono, 
-            MonoBehaviorWrapper wrapper, string[] upd, ref Action start)
+            MonoBehaviourWrapper wrapper, string[] upd, ref Action start)
         {
             Action action = null;
             foreach (string s in upd)
@@ -454,6 +1003,11 @@ namespace Unity.Standard
             return action;
         }
 
+        /// <summary>
+        /// The transformation of angle to degree
+        /// </summary>
+        /// <param name="angle">The angle</param>
+        /// <returns>The degree</returns>
         public static float ToDegree(this double angle)
         {
             return Mathf.Rad2Deg * (float)angle;
@@ -492,7 +1046,7 @@ namespace Unity.Standard
         }
 
 
-        public static MonoBehaviorWrapper Create(this ReferenceFrameBehavior monoBehaviour,
+        public static MonoBehaviourWrapper Create(this ReferenceFrameBehavior monoBehaviour,
             bool unique, float step,
             string desktop,
             string[] inputs,
@@ -500,7 +1054,7 @@ namespace Unity.Standard
         {
             Dictionary<string, Action<double>> insp = monoBehaviour.inps;
             Dictionary<string, Func<double>> outp = monoBehaviour.outs;
-            MonoBehaviorWrapper wr = new MonoBehaviorWrapper(monoBehaviour, desktop);
+            MonoBehaviourWrapper wr = new MonoBehaviourWrapper(monoBehaviour, desktop);
             IScadaInterface scada = wr.Scada;
             List<Action<double>> li = new List<Action<double>>();
             var inp = scada.Inputs;
@@ -627,6 +1181,18 @@ namespace Unity.Standard
                 {
                     activations[name] = ci;
                 }
+                if (types.Contains(typeof(IIndicatorFactory)))
+                {
+                    indicatorFactories.Add(ci.Invoke(new object[] { })
+                        as IIndicatorFactory);
+                }
+                if (types.Contains(typeof(IStringUpdate)))
+                {
+                    stringUpates[name] = type; 
+                }
+
+
+
             }
             );
 
@@ -646,6 +1212,54 @@ namespace Unity.Standard
         #endregion
 
         #region Classes
+        class ArrayWrapper
+        {
+            object[] o;
+
+            Func<object>[] f;
+
+            internal ArrayWrapper(Func<object>[] f)
+            {
+                this.f = f;
+                o = new object[f.Length];
+            }
+
+            internal object Get()
+            {
+                for (int i = 0; i < o.Length; i++)
+                {
+                    o[i] = f[i]();
+                }
+                return o;
+            }
+
+            static internal Func<object> FromString(string s)
+            {
+                string[] ss = s.Split(";".ToCharArray());
+                var ff = new List<Func<object>>();
+                foreach (var str in ss)
+                {
+                    int k = str.IndexOf(".");
+                    if (k < 1)
+                    {
+                        continue;
+                    }
+                    string desktop = str.Substring(0, k);
+                    var scada = desktop.ToExistedScada();
+                    if (scada == null)
+                    {
+                        continue;
+                    }
+                    string par = str.Substring(k + 1);
+                    if (scada.Outputs.ContainsKey(par))
+                    {
+                        ff.Add(scada.GetOutput(par));
+                    }
+                }
+                ArrayWrapper arrayWrapper = new ArrayWrapper(ff.ToArray());
+                return arrayWrapper.Get;
+            }
+        }
 
         class DefaultTextAction : ITextUpdate
         {

@@ -10,7 +10,7 @@ using Diagram.UI.Interfaces;
 using Diagram.UI.Labels;
 
 using DataPerformer.Interfaces;
-using DataPerformer.Helpers;
+using DataPerformer.Portable.Helpers;
 using DataPerformer.Portable;
 
 using Event.Interfaces;
@@ -164,7 +164,7 @@ namespace DataPerformer.Portable.Runtime
         /// <param name="priority">Priority</param>
         /// <param name="dataConsumer">Data consumer</param>
         /// <param name="realtimeStep">Realtime step</param>
-        /// <param name="realtime">Realtime provider</param>
+        /// <param name="ret">Realtime provider</param>
         public DataRuntime(IComponentCollection collection, string reason, int priority,
             IDataConsumer dataConsumer = null,
             IAsynchronousCalculation realtimeStep = null,
@@ -175,12 +175,13 @@ namespace DataPerformer.Portable.Runtime
             this.reason = reason;
             this.realtimeStep = realtimeStep;
             Prepare();
+            List<IRealtimeUpdate> lr = new List<IRealtimeUpdate>();
+            Action logupd = null;
             if (realtime != null & priority == 0)
             {
                 if (reason == StaticExtensionEventInterfaces.Realtime |
                     reason.IsRealtimeAnalysis())
                 {
-                    List<IRealtimeUpdate> lr = new List<IRealtimeUpdate>();
                     realTimeData =
                         new Dictionary<IComponentCollection, Tuple<IDataRuntime, double[],
                             IDifferentialEquationProcessor, Action>>();
@@ -199,7 +200,6 @@ namespace DataPerformer.Portable.Runtime
                     {
                         log = StaticExtensionEventInterfaces.NewLog;
                     }
-                    Action logupd = null;
                     if (log != null)
                     {
                         Dictionary<IMeasurement, string> namem = new Dictionary<IMeasurement, string>();
@@ -235,66 +235,66 @@ namespace DataPerformer.Portable.Runtime
                             }
                         }
                     }
-
-                    if (collections.Count == 1)
-                    {
-                        IDifferentialEquationProcessor processor = 
-                            CreateProcessor(collection);
-                        double[] dt = new double[1];
-                        bool find = (reason.Equals(StaticExtensionEventInterfaces.Realtime) |
-                            reason.Equals(StaticExtensionEventInterfaces.RealtimeLogAnalysis));
-                        collection.ForEach((IRealtimeUpdate ru) => { lr.Add(ru); }, find);
-                        collection.ForEach((IEvent ev) =>
-                            {
-                                IComponentCollection cc = CreateCollection(ev);
-                                if (!realTimeData.ContainsKey(cc))
-                                {
-                                    List<IRealtimeUpdate> lru = new List<IRealtimeUpdate>();
-                                    cc.ForEach((IRealtimeUpdate rud) => { lru.Add(rud); }, find);
-                                    IDataRuntime drc = Copy(cc);
-                                    double[] dtt = new double[1];
-                                    Action actp = CreateAction(drc, dtt, processor, logupd, lru.ToArray());
-                                    realTimeData[cc] =
-                                        new Tuple<IDataRuntime, double[], IDifferentialEquationProcessor, Action>
-                                        (drc, dtt, processor, actp);
-                                }
-                            });
-                    }
-                    else
-                    {
-                        foreach (IComponentCollection coll in collections)
+                }
+                if (collections.Count == 1)
+                {
+                    IDifferentialEquationProcessor processor =
+                        CreateProcessor(collection);
+                    double[] dt = new double[1];
+                    bool find = (reason.Equals(StaticExtensionEventInterfaces.Realtime) |
+                        reason.Equals(StaticExtensionEventInterfaces.RealtimeLogAnalysis));
+                    collection.ForEach((IRealtimeUpdate ru) => { lr.Add(ru); }, find);
+                    collection.ForEach((IEvent ev) =>
                         {
-                            List<IRealtimeUpdate> lu = new List<IRealtimeUpdate>();
-                            foreach (object o in coll.AllComponents)
+                            IComponentCollection cc = CreateCollection(ev);
+                            if (!realTimeData.ContainsKey(cc))
                             {
-                                if (o is IObjectLabel)
+                                List<IRealtimeUpdate> lru = new List<IRealtimeUpdate>();
+                                cc.ForEach((IRealtimeUpdate rud) => { lru.Add(rud); }, find);
+                                IDataRuntime drc = Copy(cc);
+                                double[] dtt = new double[1];
+                                Action actp = CreateAction(drc, dtt, processor,
+                                    logupd, lru.ToArray());
+                                realTimeData[cc] =
+                                    new Tuple<IDataRuntime, double[], IDifferentialEquationProcessor, Action>
+                                    (drc, dtt, processor, actp);
+                            }
+                        });
+                }
+                else
+                {
+                    foreach (IComponentCollection coll in collections)
+                    {
+                        List<IRealtimeUpdate> lu = new List<IRealtimeUpdate>();
+                        foreach (object o in coll.AllComponents)
+                        {
+                            if (o is IObjectLabel)
+                            {
+                                IRealtimeUpdate ru = (o as IObjectLabel).Object.GetObject<IRealtimeUpdate>();
+                                if (ru != null)
                                 {
-                                    IRealtimeUpdate ru = (o as IObjectLabel).Object.GetObject<IRealtimeUpdate>();
-                                    if (ru != null)
-                                    {
-                                        lu.Add(ru);
-                                    }
+                                    lu.Add(ru);
                                 }
                             }
-                            IDataRuntime rt = Copy(coll);
-                            IDifferentialEquationProcessor pr = CreateProcessor(collection);
-                            double[] dt = new double[1];
-                            Action act = CreateAction(rt, dt, pr, null, lr.ToArray());
-                            realTimeData[coll] = new Tuple<IDataRuntime, double[], IDifferentialEquationProcessor, Action>
-                                (rt, dt, pr, act);
                         }
+                        IDataRuntime rt = Copy(coll);
+                        IDifferentialEquationProcessor pr = CreateProcessor(collection);
+                        double[] dt = new double[1];
+                        Action act = CreateAction(rt, dt, pr, null, lr.ToArray());
+                        realTimeData[coll] = new Tuple<IDataRuntime, double[], IDifferentialEquationProcessor, Action>
+                            (rt, dt, pr, act);
                     }
-                    if (realtime is IRealtimeUpdate)
-                    {
-                        (realtime as IRealtimeUpdate).Update();
-                    }
-                    startRuntime = provider.Time;
-                    foreach (Tuple<IDataRuntime, double[], IDifferentialEquationProcessor, Action> t in realTimeData.Values)
-                    {
-                        t.Item2[0] = startRuntime;
-                    }
-                    collection.ForEach<IStarted>((IStarted st) => { st.Start(startRuntime); });
                 }
+                if (realtime is IRealtimeUpdate)
+                {
+                    (realtime as IRealtimeUpdate).Update();
+                }
+                startRuntime = provider.Time;
+                foreach (Tuple<IDataRuntime, double[], IDifferentialEquationProcessor, Action> t in realTimeData.Values)
+                {
+                    t.Item2[0] = startRuntime;
+                }
+                collection.ForEach((IStarted st) => { st.Start(startRuntime); });
             }
         }
 
@@ -318,7 +318,7 @@ namespace DataPerformer.Portable.Runtime
         {
             provider.Time = time;
             List<IStarted> ls = new List<IStarted>();
-            collection.ForEach<IStarted>((IStarted s) => { ls.Add(s); s.Start(time); });
+            collection.ForEach((IStarted s) => { ls.Add(s); s.Start(time); });
             IStep st = this;
             st.Step = -1;
             IDifferentialEquationProcessor pr = DifferentialEquationProcessor.Processor;
@@ -366,7 +366,7 @@ namespace DataPerformer.Portable.Runtime
         /// <returns>The solver</returns>
         public virtual IDifferentialEquationSolver GetDifferentialEquationSolver(object obj)
         {
-            return null;
+            return obj.ToDifferentialEquationSolver();
         }
 
         double IDataRuntime.Time
@@ -471,11 +471,11 @@ namespace DataPerformer.Portable.Runtime
                 }
                 dynamical.Add(dyn);
             }
-            collection.ForEach<IMeasurements>(
+            collection.ForEach(
 
                 (IMeasurements m) => { measurements.Add(m); }
                 );
-            collection.ForEach<IStep>((IStep s) => { steps.Add(s); });
+            collection.ForEach((IStep s) => { steps.Add(s); });
             if (updatable.Count == 0)
             {
                 updateAll = UpdateMeasurements;
@@ -702,7 +702,7 @@ namespace DataPerformer.Portable.Runtime
         {
             IComponentCollection cc = dCollection[ev];
             List<IEventBlock> bl = new List<IEventBlock>();
-            cc.ForEach<IEventBlock>((IEventBlock block) =>
+            cc.ForEach((IEventBlock block) =>
                 {
                     if (block[ev])
                     {

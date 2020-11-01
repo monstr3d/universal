@@ -14,7 +14,7 @@ namespace RealMatrixProcessor
         /// </summary>
         /// <param name="a">Matrix to invert</param>
         /// <param name="aInverted">Result of inversion</param>
-		public static void Invert(double[,] a, double[,] aInverted)
+		public static void Invert(this double[,] a, double[,] aInverted)
 		{
 			double e, y, det, w, d = 0, d1;
 			int i, j, k, ir, ip, n = a.GetLength(0);
@@ -306,7 +306,7 @@ namespace RealMatrixProcessor
         /// <param name="vector">The vector</param>
         /// <param name="matrix">The matrix</param>
         /// <param name="product">The product</param>
-		static public void Multiply(double[] vector, double[,] matrix, double[] product)
+		static public void Multiply(this double[] vector, double[,] matrix, double[] product)
 		{
 			if ((matrix.GetLength(0) != vector.Length) | (matrix.GetLength(1) != product.Length))
 			{
@@ -733,7 +733,7 @@ namespace RealMatrixProcessor
         /// </summary>
         /// <param name="x">First argument</param>
         /// <param name="y">Secong Argument</param>
-        public static void PlusEqual(double[] x, double[] y)
+        public static void PlusEqual(this double[] x, double[] y)
         {
             for (int i = 0; i < x.Length; i++)
             {

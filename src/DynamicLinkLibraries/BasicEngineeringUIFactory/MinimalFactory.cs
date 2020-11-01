@@ -291,7 +291,7 @@ namespace BasicEngineering.UI.Factory
             {
                 return (new DataPerformer.UI.Labels.DrawSeriesLabel()).CreateLabelUI(image, false);
             }
-            if (t.Equals(typeof(DataPerformer.Table2D)))
+            if (t.Equals(typeof(Table2D)))
             {
                 return (new DataPerformer.UI.Labels.Table2DLabel()).CreateLabelUI(image, false);
             }

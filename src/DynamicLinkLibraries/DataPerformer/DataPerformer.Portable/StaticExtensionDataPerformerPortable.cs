@@ -85,12 +85,152 @@ namespace DataPerformer.Portable
         #region Public Members
 
         /// <summary>
-        /// Inits itself
+        /// Converts object to differential equation solver
         /// </summary>
-        public static void Init()
+        /// <param name="obj">The object</param>
+        /// <returns>The solver</returns>
+        public static IDifferentialEquationSolver ToDifferentialEquationSolver(this object obj)
+        {
+            if (obj is IDifferentialEquationSolver)
+            {
+                return obj as IDifferentialEquationSolver;
+            }
+            if (obj is IChildrenObject)
+            {
+                return (obj as IChildrenObject).GetChild<IDifferentialEquationSolver>();
+            }
+            return null;
+        }
+
+
+/// <summary>
+/// Inits itself
+/// </summary>
+public static void Init()
         {
 
         }
+
+
+        /// <summary>
+        /// Performs action with fixed step
+        /// </summary>
+        /// <param name="consumer">Data consumer</param>
+        /// <param name="start">Start</param>
+        /// <param name="step">Step</param>
+        /// <param name="count">Count of steps</param>
+        /// <param name="reason">Reason</param>
+        /// <param name="priority">Priority</param>
+        /// <param name="action">Additional action</param>
+        public static void PerformFixed(this IDataConsumer consumer, double start, double step, int count, string reason,
+           int priority, Action action, IAsynchronousCalculation asynchronousCalculation = null, IErrorHandler errorHandler = null)
+        {
+            consumer.PerformFixed(start, step, count,
+                   StaticExtensionDataPerformerPortable.Factory.TimeProvider,
+                   DifferentialEquationProcessors.DifferentialEquationProcessor.Processor,
+                reason, priority, action, asynchronousCalculation, errorHandler);
+        }
+
+
+        /// <summary>
+        /// Performs action with fixed step
+        /// </summary>
+        /// <param name="consumer">Data consumer</param>
+        /// <param name="start">Start</param>
+        /// <param name="step">Step</param>
+        /// <param name="count">Count of steps</param>
+        /// <param name="provider">Provider of time measure</param>
+        /// <param name="processor">Differential equation processor</param>
+        /// <param name="reason">Reason</param>
+        /// <param name="priority">Priority</param>
+        /// <param name="action">Additional action</param>
+        /// <param name="errorHandler">Error handler</param>
+        /// <param name="asynchronousCalculation">Asynchronous calculation</param>
+        static public void PerformFixed(this IDataConsumer consumer, double start, double step, int count,
+            ITimeMeasurementProvider provider,
+              IDifferentialEquationProcessor processor, string reason,
+             int priority, Action action, IAsynchronousCalculation asynchronousCalculation = null,
+             IErrorHandler errorHandler = null)
+        {
+            try
+            {
+                using (TimeProviderBackup backup = new TimeProviderBackup(consumer, provider, processor, reason, priority))
+                {
+                    IDataRuntime runtime = backup.Runtime;
+                    ITimeMeasurementProvider old = processor.TimeProvider;
+                    processor.TimeProvider = provider;
+                    IStep st = null;
+                    if (runtime is IStep)
+                    {
+                        st = runtime as IStep;
+                    }
+                    provider.Time = start;
+                    double t = start;
+                    double last = t;
+                    Action<double, double, long> act = runtime.Step(processor,
+                        (double time) => { provider.Time = time; }, reason, asynchronousCalculation);
+                    for (int i = 0; i < count; i++)
+                    {
+                        t = start + i * step;
+                        act(last, t, i);
+                        last = t;
+                        action();
+                    }
+                    processor.TimeProvider = old;
+                }
+            }
+            catch (Exception ex)
+            {
+                if (errorHandler != null)
+                {
+                    errorHandler.ShowError(ex, 10);
+                }
+                else
+                {
+                    ex.ShowError(10);
+                }
+            }
+        }
+
+
+        /// <summary>
+        /// Performs action with fixed step
+        /// </summary>
+        /// <param name="collection">Desktop</param>
+        /// <param name="start">Start</param>
+        /// <param name="step">Step</param>
+        /// <param name="count">Count of steps</param>
+        /// <param name="provider">Provider of time measure</param>
+        /// <param name="processor">Differential equation processor</param>
+        /// <param name="priority">Priority</param>
+        /// <param name="action">Additional action</param>
+        /// <param name="reason">Reason</param>
+        static public void PerformFixed(this IComponentCollection collection, double start, double step, int count, ITimeMeasurementProvider provider,
+            IDifferentialEquationProcessor processor, int priority, Action action, string reason)
+        {
+            using (TimeProviderBackup backup = new
+                TimeProviderBackup(collection, provider, processor, priority, reason))
+            {
+                List<IMeasurements> measurements = backup.Measurements;
+                IDataRuntime runtime = backup.Runtime;
+                ITimeMeasurementProvider old = processor.TimeProvider;
+                processor.TimeProvider = provider;
+                Action<double, double, long> act = runtime.Step(processor,
+                    (double time) => { provider.Time = time; }, reason);
+                double last = start;
+                double t = start;
+                for (int i = 0; i < count; i++)
+                {
+                    t = start + i * step;
+                    act(last, t, (long)i);
+                    last = t;
+                    action();
+                }
+                processor.TimeProvider = old;
+            }
+        }
+
+
 
         /// <summary>
         /// Gets all iterators of consumer
@@ -1352,7 +1492,7 @@ namespace DataPerformer.Portable
         public static IComponentCollection GetDependentCollection(this IDataConsumer consumer,
             int priority = 0, string reason = null)
         {
-            return StaticExtensionDataPerformerPortable.Factory.CreateCollection(consumer, priority, reason);
+            return Factory.CreateCollection(consumer, priority, reason);
         }
 
         /// <summary>
@@ -1427,9 +1567,21 @@ namespace DataPerformer.Portable
         /// <param name="desktop">Desktop</param>
         /// <param name="alias">Alias name</param>
         /// <returns>Alias</returns>
-        public static AliasName FindAliasName(this IDataConsumer consumer, IDesktop desktop, string alias)
+        public static AliasName FindAliasName(this IDataConsumer consumer, 
+            IDesktop desktop, string alias)
         {
-            object[] o = FindAlias(consumer, desktop, alias);
+            string ali = alias;
+            IDesktop desk = null;
+            if (ali.StartsWith("../"))
+            {
+                int k = ali.LastIndexOf('.');
+                string n = ali.Substring(0, k);
+                INamedComponent nc = PureDesktop.GetFromRoot(desktop, n);
+                desk = nc.Desktop;
+                k = ali.LastIndexOf("/");
+                ali = ali.Substring(k + 1);
+            }
+            object[] o = FindAlias(consumer, desk, ali);
             if (o == null)
             {
                 return null;
@@ -2119,8 +2271,6 @@ namespace DataPerformer.Portable
                 }
             }
         }
-
-
 
         static private Dictionary<IMeasurement, string> GetMeasurementsDictionaryPrivate(this IDataConsumer dataConsumer)
         {

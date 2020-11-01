@@ -386,6 +386,23 @@ namespace BasicEngineering.UI.Factory
         }
 
 
+        /// <summary>
+        /// Level of checking
+        /// </summary>
+        public static string GeneratedClassName
+        {
+            get
+            {
+                return Properties.Settings.Default.GeneratedClassName;
+            }
+            set
+            {
+                Properties.Settings.Default.GeneratedClassName = value;
+                Properties.Settings.Default.Save();
+            }
+        }
+
+
 
 
         public static void Save()

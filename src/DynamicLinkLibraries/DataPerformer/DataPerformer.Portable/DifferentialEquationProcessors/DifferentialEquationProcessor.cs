@@ -98,13 +98,20 @@ namespace DataPerformer.Portable.DifferentialEquationProcessors
             IDataRuntime rt = StaticExtensionDataPerformerPortable.Factory.Create(cc, 0);
             Clear();
             variablesStr.Clear();
-            /*           IEnumerable<IDataConsumer> consumers = cc.GetAll<IDataConsumer>();
-                       foreach (IDataConsumer c in consumers)
-                       {
-                           c.GetMeasurements(measurements);
-                       }*/
+            foreach (var o in cc.GetObjectsAndArrows())
+            {
+                var s = rt.GetDifferentialEquationSolver(o);
+                if (s != null)
+                {
+                    Add(s);
+                }
+                if (s is INormalizable)
+                {
+                    Add(s as INormalizable);
+                }
+            }
             List<object> l = new List<object>();
-            cc.ForEach((IDifferentialEquationSolver solver) =>
+            foreach (var solver in equations)
             {
                 if (solver is IMeasurements)
                 {
@@ -118,7 +125,6 @@ namespace DataPerformer.Portable.DifferentialEquationProcessors
                     (solver as IDataConsumer).GetDependentObjects(l);
                 }
             }
-            );
             foreach (object o in l)
             {
                 if (o is IMeasurements)
@@ -126,30 +132,8 @@ namespace DataPerformer.Portable.DifferentialEquationProcessors
                     measurements.Add(o as IMeasurements);
                 }
             }
-            foreach (IMeasurements m in measurements)
-            {
-                IDataRuntimeFactory s = StaticExtensionDataPerformerPortable.Factory;
-                if (m is IDifferentialEquationSolver)
-                {
-                    IDifferentialEquationSolver ds = m as IDifferentialEquationSolver;
-                    Add(ds);
-                }
-                else if (s != null)
-                {
-                    IDifferentialEquationSolver ds = rt.GetDifferentialEquationSolver(m);
-                    if (ds != null)
-                    {
-                        Add(ds);
-                    }
-                }
-                if (m is INormalizable)
-                {
-                    Add(m as INormalizable);
-                }
-            }
             measurements.SortMeasurements();
         }
-
 
         /// <summary>
         /// Adds solver
@@ -161,14 +145,7 @@ namespace DataPerformer.Portable.DifferentialEquationProcessors
             {
                 return;
             }
-            /*           string n = solver.GetName();
-                       List<string> var = solver.Variables;
-                       foreach (string s in var)
-                       {
-                           variablesStr.Add(new string[] { n, s });
-                       }*/
             equations.Add(solver);
-
             if (solver is INormalizable)
             {
                 Add(solver as INormalizable);
@@ -216,9 +193,6 @@ namespace DataPerformer.Portable.DifferentialEquationProcessors
             }
         }
 
-
-
-
         /// <summary>
         /// Count of equations system
         /// </summary>
@@ -237,7 +211,7 @@ namespace DataPerformer.Portable.DifferentialEquationProcessors
         {
             get
             {
-                return equations[i] as IDifferentialEquationSolver;
+                return equations[i];
             }
         }
 

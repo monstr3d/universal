@@ -201,7 +201,8 @@ namespace Motion6D
         /// </summary>
         public InertialReferenceFrame()
         {
-            init();
+            ClearAliases();
+             init();
         }
 
         /// <summary>

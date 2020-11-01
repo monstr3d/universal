@@ -13,7 +13,7 @@ using Diagram.UI.Interfaces;
 using DataPerformer.Interfaces;
 using DataPerformer.Portable.Interfaces;
 using DataPerformer.Portable;
-using DataPerformer.Helpers;
+using DataPerformer.Portable.Helpers;
 
 using Event.Interfaces;
 
@@ -311,11 +311,12 @@ namespace DataPerformer.Portable.Runtime
         {
             return new DataConsumerRuntime(this, consumer, reason);
         }
-        
+
+
         #endregion
 
         #endregion
 
 
-   }
+    }
 }

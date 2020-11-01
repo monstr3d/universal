@@ -98,7 +98,7 @@ namespace Motion6D.Portable.Runtime
         /// <returns>Collection</returns>
         public override IComponentCollection CreateCollection(IDataConsumer consumer, int priority, string reason)
         {
-            base.CreateCollection(consumer, priority, reason);
+            //var collection = base.CreateCollection(consumer, priority, reason);
             Func<ICategoryObject, bool> cond = (ICategoryObject obj) =>
             {
                 if (obj is IRuntimeUpdate)

@@ -1,20 +1,20 @@
-﻿using CategoryTheory;
+﻿using System;
+using System.Windows.Forms;
+
+
+using CategoryTheory;
+
 using Diagram.UI;
 using Diagram.UI.Interfaces;
 using Diagram.UI.Labels;
+
 using Motion6D.Portable.Aggregates;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace Motion6D.UI.Forms
 {
+    /// <summary>
+    /// Rigid bogy form
+    /// </summary>
     public partial class FormRigidBody : Form, IUpdatableForm
     {
 
@@ -52,10 +52,16 @@ namespace Motion6D.UI.Forms
                     }
                 }
             }
+            UserControls.UserControlRigidBody userControlRigidBody = new UserControls.UserControlRigidBody();
+            userControlRigidBody.Dock = DockStyle.Fill;
+            panelCenter.Controls.Add(userControlRigidBody);
             userControlRigidBody.RigidBody = rigidBody;
             UpdateFormUI();
         }
 
+        /// <summary>
+        /// Updates form UI
+        /// </summary>
         public void UpdateFormUI()
         {
             Text = label.Name;

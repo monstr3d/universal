@@ -5,36 +5,46 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-using Unity.Standard;
+using Diagram.UI;
+using Diagram.UI.Interfaces;
 
 using Scada.Interfaces;
+using Scada.Desktop;
+
+
+using Unity.Standard;
 
 namespace Assets
 {
-    public class ForcesMomentumsUpdate : AbstractUpdateGameObject
+    public class ForcesMomentumsUpdate : UpdateIndicators
     {
 
         #region Fields
 
-        float ap = -60f;
+        Dictionary<string, List<Component>> components;
+
+        static internal ForcesMomentumsUpdate forcesMomentumsUpdate;
 
 
+        // static public event Action<string, float[], float[]> Alarm;
 
-        RectTransform pivot;
-
-
-        RectTransform path;
-
-        KeyCode current;
+        Text timeTxt;
+   
+        volatile KeyCode current;
 
         KeyCode lastCurrent;
 
+        Motion6D.Interfaces.ReferenceFrame frame;
 
 
-        AudioSource torch;
 
         AudioSource alarm;
 
+
+        Dictionary<int, int> active = new Dictionary<int, int>();
+
+        IDesktop desktop;
+ 
         private float interval = 0;
  
         public float kx = 1f;
@@ -49,19 +59,6 @@ namespace Assets
 
         public float kMz = 1f;
 
-        float vx = 0f;
-
-        float vy = 0f;
-
-        float vz = 0f;
-
-        float vMx = 0f;
-
-
-        float vMy = 0f;
-
-        float vMz = 0f;
-
         Dictionary<KeyCode, bool> pressed = new Dictionary<KeyCode, bool>();
 
         ReferenceFrameBehavior referenceBehavior;
@@ -74,16 +71,18 @@ namespace Assets
 
         Func<double>[] dOut = new Func<double>[6];
 
-        GameObject camera;
+        public static GameObject camera;
 
         KeyCode[] codes = { KeyCode.None };
+
+        
 
         Dictionary<KeyCode, KeyCode[]>  kkdic = new Dictionary<KeyCode, KeyCode[]>();
 
         Dictionary<KeyCode,  Tuple<Action<double>, Func<double>, Text, double, double[]>>
             actions = new Dictionary<KeyCode, Tuple<Action<double>, Func<double>, Text, double, double[]>>();
 
-        Dictionary<int, Tuple<int, KeyCode[]>> dicionary = new
+        Dictionary<int, Tuple<int, KeyCode[]>> dictionary;/* = new
             Dictionary<int, Tuple<int, KeyCode[]>>
         {
             {3, new Tuple<int, KeyCode[]>(3, new KeyCode[]{KeyCode.W, KeyCode.S } )},
@@ -95,48 +94,60 @@ namespace Assets
                 KeyCode.LeftArrow} )},
            {1, new Tuple<int, KeyCode[]>(2, new KeyCode[]{KeyCode.UpArrow, 
                KeyCode.DownArrow} )}
-        };
+        };*/
 
-        Dictionary<int, int> active = new Dictionary<int, int>();
+        Text telemerty;
 
-        Dictionary<int, string[]> sprites = new Dictionary<int, string[]>()
-        {
-            {2, new string[] {"Forward", "Backward" } },
-           {0, new string[] {"Right", "Left" } },
-           {1, new string[] {"Up", "Down" } },
-        };
 
-        Dictionary<int, Image[]> blink = new Dictionary<int, Image[]>();
-
-        Component result;
-
-        Text resText;
-
+   
+   
         string[,] txt = new string[,] { { "Ax_Txt", "0.00" }, { "Ay_Txt", "0.00" }, { "Az_Txt", "0.00" },
             { "Omx1_Txt", "+--" }, { "Omy1_Txt", "+--" } , { "Omz1_Txt", "+--" }  };
 
-        Dictionary<KeyCode, Tuple<Text, string[]>> texts = new Dictionary<KeyCode, Tuple<Text, string[]>>();
+        Dictionary<KeyCode, Tuple<Text, string[]>> texts = 
+            new Dictionary<KeyCode, Tuple<Text, string[]>>();
 
         Dictionary<KeyCode, int> inverse = new Dictionary<KeyCode, int>();
 
         float bp = 0.2f;
 
-
+ 
         #endregion
 
         #region Ctor
         public ForcesMomentumsUpdate()
         {
+            forcesMomentumsUpdate = this;
+            StaticExtensionUnity.Collision += (Tuple<GameObject, Component, IScadaInterface, ICollisionAction> obj) =>
+        {
+
+            ///DELETE AFTER TELEMETRY !!!
+            telemerty.gameObject.SetActive(true);
+            telemerty.text = StaticExtensionUnity.Time + "";
+            
+            scada.IsEnabled = false;
+
+        };
             constants = new float[] { kx, ky, kz, kMx, kMy, kMz, 0 };
         }
 
+        static internal void Finish()
+        {
+            var a = forcesMomentumsUpdate.constants[0];
+            var scada = forcesMomentumsUpdate.scada;
+            scada.GetDoubleInput("Force.Fz")(a);
+        }
+
+ 
         #endregion
 
-        #region Overriden Members   
+        #region Overriden Members  
 
         public override void Set(object[] obj, Component indicator, IScadaInterface scada)
         {
             base.Set(obj, indicator, scada);
+            var c = scada.Constants;
+            frame = scada.GetOutput("Relative to station.Frame")() as Motion6D.Interfaces.ReferenceFrame;
             for (int i = 0; i < 6; i++)
             {
                 active[i] = 0;
@@ -146,26 +157,14 @@ namespace Assets
                 camera.GetComponentInChildren<ReferenceFrameBehavior>();
             mb = obj[0] as MonoBehaviour;
             gameObject = mb.gameObject;
-            Dictionary<string, List<Component>> components = 
-                gameObject.GetGameObjectComponents<Component>();
-            result = components["Results"][0];
-            Dictionary<string, List<Text>> texts = gameObject.GetGameObjectComponents<Text>();
-            foreach (string key in texts.Keys)
-            {
-                if (key == "Text")
-                {
-                    continue;
-                }
-                var ttx = texts[key];
-                foreach (var tttx in ttx)
-                {
-                    tttx.color = new Color(0, 1, 0, 1);
-                }
-            }
-            resText = texts["Text"][0];
-            Dictionary<string, List<AudioSource>> las = camera.GetGameObjectComponents<AudioSource>();
-            torch = las["Torch"][0];
+            components =  gameObject.GetGameObjectComponents<Component>();
+            timeTxt = components["Time_Txt"][0].gameObject.GetComponent<Text>();
+            telemerty = components["Telemetry"][0].gameObject.GetComponent<Text>();
+            telemerty.gameObject.SetActive(false);
+            Dictionary<string, List<AudioSource>> las = 
+                camera.GetGameObjectComponents<AudioSource>();
             alarm = las["Alarm"][0];
+   
             var s = "Force.";
             string[] ss = { "Fx", "Fy", "Fz", "Mx", "My", "Mz" };
             for (int i = 0; i < ss.Length; i++)
@@ -174,13 +173,25 @@ namespace Assets
                 dInp[i] = scada.GetDoubleInput(key);
                 dOut[i] = scada.GetDoubleOutput(key);
             }
+            /*
+            Func<double> f = scada.GetDoubleOutput("Relative to station.Velocity");
+            var c = components;
+            SliderWrapper sw = new SliderWrapper(c["MarkedLimitedSlider"][0], -100, 2, f);
+            sliders.Add(sw);
+            sw = new SliderWrapper(c["MarkedLimitedNegativeSlider"][0], -100, 2, f);
+            sliders.Add(sw);*/
         }
 
+
+        Motion6D.Portable.Aggregates.RigidBody rigidBody;
 
         public override int SetConstants(int offset, float[] constants)
         {
             int i = base.SetConstants(offset, constants);
             interval = constants[6];
+            desktop = scada.GetDesktop();
+            rigidBody = desktop.GetAssociatedObject<Motion6D.Portable.Aggregates.RigidBody>(
+                "Rigid Body");
             Prepare();
             return i;
             /*
@@ -193,7 +204,7 @@ namespace Assets
             return i;*/
         }
 
-        public override Action Update => UpdateInternal;
+        public override Action Update => UpdateForces + base.Update;
 
 
 
@@ -201,20 +212,25 @@ namespace Assets
 
         #region Update
 
-        void UpdateInternal()
+        void UpdateForces()
         {
-            int k = Math.Sign(dOut[5]());
+            timeTxt.text = "Time " + StaticExtensionUnity.Time.ToString("0.00");
+            if (!scada.IsEnabled)
+            {
+                return;
+            }
+/*            int k = Math.Sign(dOut[5]());
             float r = ap * k;
             Vector3 euler = new Vector3(0, 0, r);
             pivot.rotation = Quaternion.Euler(euler);
+*/
             if (Input.GetKey(KeyCode.Return))
             {
                 ResultIndicator.Escape();
             }
             if (!scada.IsEnabled)
             {
-                alarm.enabled = false;
-                torch.enabled = false;
+             //   alarm.enabled = false;
                 for (int i = 0; i < 6; i++)
                 {
                     dInp[i](0);
@@ -233,7 +249,11 @@ namespace Assets
                     current = KeyCode.F10;
                 }
             }
+        }
 
+        internal void AlarmAudio(bool b)
+        {
+            alarm.enabled = b;
         }
 
 
@@ -243,6 +263,7 @@ namespace Assets
 
         void Prepare()
         {
+            dictionary = Saver.saver.dictionary;
             List<KeyCode> l = new List<KeyCode>();
             Dictionary<string, List<Text>> lt = 
                 gameObject.GetGameObjectComponents<Text>();
@@ -262,12 +283,42 @@ namespace Assets
                 Tuple<Text, string[]> tst = new Tuple<Text, string[]>(tx, new string[] { text, txt[i, 1] });
                 ttt.Add(tst);
             }
-            foreach (var i in dicionary.Keys)
+            var co = scada.Constants;
+            var level = StaticExtensionUnity.Activation.level;
+            var ml = Math.Abs(level);
+            if (level < 0)
+            {
+                scada.SetConstant(Level0.LongXK, (double)constants[0]);
+                scada.SetConstant(Level0.ShortXK, (double)constants[0]);
+            }
+            if (level < -1)
+            {
+                scada.SetConstant(Level0.YK, (double)constants[1]);
+            }
+            if (level < -2)
+            {
+                scada.SetConstant(Level0.ZK, (double)constants[2]);
+            }
+            if (level <= -6)
+            {
+                scada.SetConstant(Level0.YK, (double)constants[1]);
+                scada.SetConstant(Level0.ZK, (double)constants[2]);
+            }
+            if (constants[4] > float.Epsilon)
+            {
+                scada.SetConstant(Level0.OzK, (double)constants[4]);
+            }
+            if (level < -6)
+            {
+                scada.SetConstant(Level0.OxK, (double)constants[3]);
+                scada.SetConstant(Level0.OyK, (double)constants[5]);
+            }
+            foreach (var i in dictionary.Keys)
             {
                 var tst = ttt[i];
                 Action<double> a = dInp[i];
                 Func<double> f = dOut[i];
-                var tt = dicionary[i];
+                var tt = dictionary[i];
                 var j = tt.Item1;
                 double k = constants[j];
                 var kk = tt.Item2;
@@ -290,38 +341,23 @@ namespace Assets
                     double coeff = (m == 0) ? k : -k;
                     var v = new Tuple<Action<double>, Func<double>, Text, double, double[]>
                         (a, f, null, coeff, val);
-                    actions[kc] = v;
+                    if (StaticExtensionUnity.Activation.level > 0)
+                    {
+                        actions[kc] = v;
+                    }
                 }
             }
             codes = l.ToArray();
             Dictionary<string, List<Image>> canv =
                 gameObject.GetGameObjectComponents<Image>();
-            Dictionary<string, List<RectTransform>> rtv =
-                gameObject.GetGameObjectComponents<RectTransform>();
-            pivot = rtv["_pivot"][0];
-            path = rtv["Path"][0];
-            foreach (int key in sprites.Keys)
-            {
-                   Image[] im = new Image[2];
-                string[] ssi = sprites[key];
-                for (int i = 0; i < 2; i++)
-                {
-                    Image image = canv[ssi[i]][0];
-                    image.enabled = false;
-                    im[i] = image;
-                }
-                if (dicionary.ContainsKey(key))
-                {
-                    blink[key] = im;
-                }
-                mb.StartCoroutine(blinkc);
-            }
-
+ 
             foreach (var kk in codes)
             {
                 pressed[kk] = true;
             }
         }
+
+
 
          void UpdateCurrent()
         {
@@ -349,9 +385,7 @@ namespace Assets
                 current = KeyCode.F10;
                 return;
             }
-            referenceBehavior.Jump();
-            torch.enabled = true;
-            mb.StartCoroutine(enumeratorT);
+      //      mb.StartCoroutine(enumeratorT);
             if (Math.Abs(value - newValue) > (1 + double.Epsilon) * Math.Abs(newValue))
             {
                 value = 0f;
@@ -368,7 +402,6 @@ namespace Assets
                 throw new Exception();
             }
             v[0] = value;
-            active[pp] = Math.Sign(value);
             var tst = texts[code];
             string ss = "0";
             string f = tst.Item2[1];
@@ -408,74 +441,49 @@ namespace Assets
             }
             return false;
         }
+
+        float[] delta;
+
         void UpdateAlarm()
         {
-            string res = ResultIndicator.Result;
-            if (res == null)
-            {
-                alarm.enabled = false;
-                resText.text = "";
-                //        result.gameObject.SetActive(false);
-                return;
-            }
-            alarm.enabled = true;
-            resText.text = res;
-            resText.color = Color.red;
-            result.gameObject.SetActive(true);
         }
+
+
 
         #endregion
 
         #region Coroutines
 
-        System.Collections.IEnumerator blinkc
+        System.Collections.IEnumerator showDelta
         {
             get
             {
                 while (true)
                 {
-                    yield return new WaitForSeconds(bp);
-                    pivot.gameObject.SetActive(false);
-                    path.gameObject.SetActive(false);
-                    foreach (Image[] im in blink.Values)
-                    {
-                        foreach (Image image in im)
-                        {
-                            image.enabled = false;
-                        }
-                    }
-                    if (!scada.IsEnabled)
-                    {
-                        break;
-                    }
-                    yield return new WaitForSeconds(bp);
-                    pivot.gameObject.SetActive(true);
-                    path.gameObject.SetActive(true);
-                    foreach (var key in blink.Keys)
-                    {
-                        int k = active[key];
-                        if (k == 0)
-                        {
-                            continue;
-                        }
-                        int a = 1 - Math.Sign(k + 1);
-                        blink[key][a].enabled = true;
-                    }
+                    /*                   float[] d = delta;
+                                       if (d == null)
+                                       {
+                                           foreach (var v in results)
+                                           {
+                                               v.gameObject.SetActive(false);
+                                           }
+                                           break;
+                                       }
+                                       yield return new WaitForSeconds(0.2f);
+                                       float x = (d[0] - d[1]) / d[1];
+                                       slider.value = x;
+                                       foreach (var v in results)
+                                       {
+                                           v.gameObject.SetActive(true);
+                                       }*/
+                    yield return new WaitForSeconds(0.2f);
+
+                    break;
                 }
             }
         }
 
-        System.Collections.IEnumerator enumeratorT
-        {
-            get
-            {
-                yield return new WaitForSeconds(0.5f);
-                torch.enabled = false;
-                yield return 0;
-            }
-        }
-
-
+ 
 
         System.Collections.IEnumerator coroutine
         {

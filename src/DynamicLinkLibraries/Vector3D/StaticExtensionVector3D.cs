@@ -17,16 +17,89 @@ namespace Vector3D
 
         #endregion
 
+        /// <summary>
+        /// The copysign function
+        /// </summary>
+        /// <param name="a">Fisrt arqument</param>
+        /// <param name="b">Second argument</param>
+        /// <returns>The value of the function</returns>
         static double CopySign(double a, double b)
         {
             return  Math.Abs(a) * Math.Sign(b);
         }
 
+        /// <summary>
+        ///  Sets the Euler angles from the quaternion
+        /// </summary>
+        /// <param name="angles">The angles</param>
+        /// <param name="quaternion">The quaternion</param>
         public static void Set(this EulerAngles angles, double[] quaternion)
         {
             angles.Set(quaternion[1], quaternion[2], quaternion[3], quaternion[0]);
         }
 
+        /// <summary>
+        ///  Sets the Euler angles from the quaternion
+        /// </summary>
+        /// <param name="angles">The angles</param>
+        /// <param name="offset">The offset</param>
+        /// <param name="quaternion">The quaternion</param>
+        public static void Set(this EulerAngles angles, int offset, double[] quaternion)
+        {
+            angles.Set(quaternion[1 + offset], quaternion[2 + offset], 
+                quaternion[3 + offset], quaternion[offset]);
+        }
+
+        /// <summary>
+        /// Converts Euler angles to quaternion
+        /// </summary>
+        /// <param name="angles">The angles</param>
+        /// <param name="q">The quaternion</param>
+        static public void ToQuaternion(this EulerAngles angles, double[] q)
+        {
+            // Abbreviations for the various angular functions
+            double cy = Math.Cos(angles.yaw * 0.5);
+            double sy = Math.Sin(angles.yaw * 0.5);
+            double cp = Math.Cos(angles.pitch * 0.5);
+            double sp = Math.Sin(angles.pitch * 0.5);
+            double cr = Math.Cos(angles.roll * 0.5);
+            double sr = Math.Sin(angles.roll * 0.5);
+            q[0] = cr * cp * cy + sr * sp * sy;
+            q[1] = sr * cp * cy - cr * sp * sy;
+            q[2] = cr * sp * cy + sr * cp * sy;
+            q[3] = cr * cp * sy - sr * sp * cy;
+        }
+
+        /// <summary>
+        /// Converts Euler angles to quaternion
+        /// </summary>
+        /// <param name="angles">The angles</param>
+        /// <param name="offset">The offset</param>
+        /// <param name="q">The quaternion</param>
+        static public void ToQuaternion(this EulerAngles angles, int offset, double[] q)
+        {
+            // Abbreviations for the various angular functions
+            double cy = Math.Cos(angles.yaw * 0.5);
+            double sy = Math.Sin(angles.yaw * 0.5);
+            double cp = Math.Cos(angles.pitch * 0.5);
+            double sp = Math.Sin(angles.pitch * 0.5);
+            double cr = Math.Cos(angles.roll * 0.5);
+            double sr = Math.Sin(angles.roll * 0.5);
+            q[offset] = cr * cp * cy + sr * sp * sy;
+            q[offset + 1] = sr * cp * cy - cr * sp * sy;
+            q[offset + 2] = cr * sp * cy + sr * cp * sy;
+            q[offset + 3] = cr * cp * sy - sr * sp * cy;
+        }
+
+
+        /// <summary>
+        /// Sets Euler angles by quaternion components
+        /// </summary>
+        /// <param name="angles">The angles</param>
+        /// <param name="x">x - quaternion component</param>
+        /// <param name="y">y - quaternion component</param>
+        /// <param name="z">z - quaternion component</param>
+        /// <param name="w">w - quaternion component</param>
         public static void  Set(this EulerAngles angles, double x, double y, double z, double w)
         {
          
@@ -237,7 +310,7 @@ namespace Vector3D
 		/// <param name="x">First vector</param>
 		/// <param name="y">Second vector</param>
 		/// <param name="z">Result vector</param>
-		public static void VectorPoduct(double[] x, double[] y, double[] z)
+		public static void VectorPoduct(this double[] x, double[] y, double[] z)
 		{
 			z[0] = x[1] * y[2] - x[2] * y[1];
 			z[1] = x[2] * y[0] - x[0] * y[2];
@@ -513,7 +586,7 @@ namespace Vector3D
             auxQuaternion[0] = 0;
             Array.Copy(omega, 0, auxQuaternion, 1, 3);
             QuaternionMultiply(quaternion, auxQuaternion, quaternionDerivation);
-            for (int i = 0; i < 3; i++)
+            for (int i = 0; i < 4; i++)
             {
                 quaternionDerivation[i] *= 0.5;
             }
@@ -681,7 +754,7 @@ namespace Vector3D
         /// <param name="x">First term</param>
         /// <param name="y">Second term</param>
         /// <param name="z">Product</param>
-        public static void QuaternionInvertMultiply(double[] x, double[] y, double[] z)
+        public static void QuaternionInvertMultiply(this double[] x, double[] y, double[] z)
         {
             z[0] = x[0] * y[0] + x[1] * y[1] + x[2] * y[2] + x[3] * y[3];
             z[1] = x[0] * y[1] - x[1] * y[0] - x[2] * y[3] + x[3] * y[2];
@@ -695,7 +768,7 @@ namespace Vector3D
         /// <param name="quaterinon">Quaterinon</param>
         /// <param name="omegaIn">Input omega</param>
         /// <param name="omegaOut">Output omega</param>
-        public static void QuaternionInvertOmega(double[] quaterinon, double[] omegaIn, double[] omegaOut)
+        public static void QuaternionInvertOmega(this double[] quaterinon, double[] omegaIn, double[] omegaOut)
         {
             omegaOut[0] = quaterinon[0] * omegaIn[0] - quaterinon[2] * omegaIn[2] + quaterinon[3] * omegaIn[1];
             omegaOut[1] = quaterinon[0] * omegaIn[1] - quaterinon[3] * omegaIn[0] + quaterinon[1] * omegaIn[2];

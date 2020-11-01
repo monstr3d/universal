@@ -29,6 +29,11 @@ namespace Diagram.UI
         static private event Action<object> postCreateObject = (object o) => { };
 
         /// <summary>
+        /// Create code action
+        /// </summary>
+        static private event Action<List<string>> onCreateCode;
+
+        /// <summary>
         /// Handler of log
         /// </summary>
         private static IErrorHandler errorHandler;
@@ -393,6 +398,15 @@ namespace Diagram.UI
         #region C# Code Create
 
         /// <summary>
+        /// On Create Code Action
+        /// </summary>
+        public static event Action<List<string>> OnCreateCode
+        {
+            add { onCreateCode += value; }
+            remove { onCreateCode -= value; }
+        }
+
+        /// <summary>
         /// Creates desktop code
         /// </summary>
         /// <param name="desktop">The desktop</param>
@@ -528,6 +542,10 @@ namespace Diagram.UI
             }
             l.Add("\t}");
             l.Add("}");
+            if (onCreateCode != null)
+            {
+                onCreateCode(l);
+            }
             return l;
         }
 
@@ -1367,7 +1385,38 @@ namespace Diagram.UI
             IEnumerable<object> c = collection.AllComponents;
             ForEach<T>(c, action, find);
         }
- 
+
+        /// <summary>
+        /// Performs action for each collection objects
+        /// </summary>
+        /// <typeparam name="T">Type of object</typeparam>
+        /// <param name="collection">The collection</param>
+        /// <param name="action">The action</param>
+        public static void ForAll<T>(this IComponentCollection collection, 
+            Action<T> action, bool find = true) where T : class
+        {
+            IEnumerable<object> en = collection.AllComponents;
+            foreach (var a in en)
+            {
+                if (a is T)
+                {
+                    (a as T).Execute(action, find);
+                }
+                if (a is IObjectLabel)
+                {
+                    var o = (a as IObjectLabel).Object;
+                    if (o is T)
+                    {
+                        (o as T).Execute(action, find);
+                    }
+                    if (o is IObjectContainer)
+                    {
+                        (o as IObjectContainer).Desktop.ForAll(action, find);
+                    }
+                }
+            }
+        }
+
         /// <summary>
         /// Performs action for each desktop objects
         /// </summary>
@@ -2467,8 +2516,8 @@ namespace Diagram.UI
             {
                 return;
             }
-            IEnumerable<ICategoryArrow> arrows = root.GetObjectsAndArrows<ICategoryArrow>();
-            IEnumerable<ICategoryObject> objects = root.GetObjectsAndArrows<ICategoryObject>();
+            IEnumerable<ICategoryArrow> arrows = root.CategoryArrows;
+            IEnumerable<ICategoryObject> objects = root.CategoryObjects;
             obj.GetDependentObjects(arrows, objectCondition, arrowCondition, sourceCondition, output,
                 objects.ToList());
         }
@@ -2649,7 +2698,6 @@ namespace Diagram.UI
 
 
         #endregion
-
   
         #region Source
 
@@ -2870,7 +2918,6 @@ namespace Diagram.UI
         #endregion
 
         #region Private and Internal members
-
 
         private static IObjectContainer ParentContainer(INamedComponent nc)
         {
@@ -3183,6 +3230,22 @@ namespace Diagram.UI
                                 if (!dependent.Contains(s))
                                 {
                                     dependent.Add(s);
+                                    if (s is IChildrenObject)
+                                    {
+                                        IChildrenObject cob = s as IChildrenObject;
+                                        IEnumerable<ICategoryObject> en = 
+                                            cob.GetChildren<ICategoryObject>();
+                                        foreach (ICategoryObject co in en)
+                                        {
+                                            if (!dependent.Contains(co))
+                                            {
+                                                if (objectCondition(co))
+                                                {
+                                                    dependent.Add(co);
+                                                }
+                                            }
+                                        }
+                                    }
                                     s.GetDependentObjects(arrows,
                                         objectCondition, arrowCondition, sourceCondition, dependent);
                                 }

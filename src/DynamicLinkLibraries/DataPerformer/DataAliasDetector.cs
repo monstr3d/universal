@@ -3,12 +3,10 @@ using System.Collections.Generic;
 using System.Text;
 
 
-using Diagram.UI;
 using Diagram.UI.Aliases;
 
 using BaseTypes;
 
-using FormulaEditor;
 
 namespace DataPerformer
 {
