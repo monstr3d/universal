@@ -16867,15 +16867,15 @@ $$
 \subsection{Coverings of $O^*$-algebras}
 \paragraph*{}
 If $a\in \Coo\left( \T^{2N}_\th\right)$ and $b\in \SS\left( \R^{2N}_\th\right)$ then  there is the product $a\times b\in L^2\left(\R^{2N}_\th \right)$ (cf. Equation \eqref{nt_l2r_eqn}.
-\begin{lemma}
-Consider the above situation. If $\sF\left(a\times b \right)$ is the Fourier transformation of  $a\times b\in L^2\left(\R^{2N}_\th \right)$ then $\sF\left(a\times b \right)$ corresponds to a complex-valued continuous map on $\R^2N$.
+\begin{lemma}\label{nt_cont_lem}
+Consider the above situation. If $\sF\left(a\times b \right)$ is the Fourier transformation of  $a\times b\in L^2\left(\R^{2N}_\th \right)$ then $\sF\left(a\times b \right)$ corresponds to a complex-valued continuous map on $\R^{2N}$.
 \end{lemma}
 \begin{proof}
 From \eqref{nt_prod_duality_eqn} if turns out that
 $$
 \mathcal{F}\left(a \times b \right) = \mathcal{F} a \diamond  \sF b.
 $$
-If $a = \sum_{k\in \Z^{2N}} c_k U_k$ (cf. Equation \eqref{nt_series_eqn}) then from the Lemma \ref{nt_xm_lem} it follows that the series $\sum_{k \in \mathbb{Z}^{2N}}\left| c_k \right|$ is convergent. The Fourier transformation of $a$ is given by
+If $a = \sum_{k\in \Z^{2N}} c_k U_k$ (cf. Equation \eqref{nt_series_eqn}) then the Fourier transformation of $a$ is given by
 $$
 \sF\left(a \right) = \sum_{k\in \Z^2N}c_k\delta_k
 $$
@@ -16887,12 +16887,30 @@ From the Equation \eqref{nt_diamond_eqn} it follows that
 From $b \in \SS\left( \R^{2N}_\th\right)$ it turns out  that $\sF b \in \SS\left( \R^{2N}\right)$, in particular $\sF b\in C_b\left( \R^{2N}\right)$,
 If $C \bydef \left\|\sF b  \right\|_{C_b\left( \R^{2N}\right)}$ where $\left\|\cdot  \right\|_{C_b\left( \R^{2N}\right)}$ is the uniform norm on $C_b\left( \R^{2N}\right)$ then
 $$
-\left\|t \mapsto  e^{-ik \cdot t} \mathcal{F} b\left(t \right)  \right\|_{C_b\left( \R^{2N}\right)}=C\quad \forall k \in \Z^{2N}
+\left\|t \mapsto  e^{-ik \cdot t} \mathcal{F} b\left(t \right)  \right\|_{C_b\left( \R^{2N}\right)}=C\quad \forall k \in \Z^{2N}.
 $$
-and taking into account $\sum_{k \in \mathbb{Z}^{2N}}\left| c_k \right|<\infty$ one concludes that the right part of the Equation \eqref{nt_mp_d_eqn} is uniformly convergent. So one has
+On the other hand  from \eqref{schwartz_z_eqn} and the Lemma \ref{nt_xm_lem} it follows that the series $\sum_{k \in \mathbb{Z}^{2N}}\left| c_k \right|$ is convergent, so the right part of the Equation \eqref{nt_mp_d_eqn} is  convergent with respect to $\left\|\cdot  \right\|_{C_b\left( \R^{2N}\right)}$ norm. Thus one has
 $$
 \mathcal{F} a \diamond  \sF b\in C_b\left(\R^{2N} \right).
 $$.
+\end{proof}
+\begin{lemma}\label{nt_smooth_lem}
+In the situation of the Lemma \ref{nt_cont_lem}. The Fourier transformation of any partial derivation of  $a\times b$ of any order  to a complex-valued continuous map on $\R^{2N}$.
+\end{lemma}
+\begin{proof}
+Form \eqref{mp_parial_mult_eqn} it follows that
+$$
+	\partial_j \left( a \times b \right)=	\partial_j a \times b + a \times \partial_j b
+$$
+From $\partial_j b\in \SS\left( \R^{2N}\right)$ and the above proof it follows that $\sF\left(a\times\partial_j b \right)$ lies in   $C_b\left(\R^{2N} \right)$. On the other hand similarly to the above construction one has
+$$
+\sF\left( \partial_j a \times b\right) = c_k k_j e^{-ik \cdot t} \mathcal{F} b\left(t \right)
+$$ From \eqref{schwartz_z_eqn} and the Lemma \ref{nt_xm_lem} it follows that the series $\sum_{k \in \mathbb{Z}^{2N}}\left| c_kk_j \right|$ is    convergent with respect to $\left\|\cdot  \right\|_{C_b\left( \R^{2N}\right)}$ norm, so on has
+$$
+\sF\left( \partial_j a \times b\right)\in C_b\left( \R^{2N}\right)\Rightarrow 	\partial_j \left( a \times b \right)\in C_b\left( \R^{2N}\right)
+$$
+Similarly one can proof that the Fourier transformation of  partial derivations of any orders are continuous functions. 
+
 \paragraph*{title}
 !!!
 From the Equation \eqref{nt_prodf_duality} it follows that
@@ -22151,10 +22169,12 @@ then $C\left(\mathbb{T}^n_{\Theta}\right)$ is the universal $C^*$-algebra genera
  		\end{equation} 
  	\end{defn}
  	In \cite{varilly_bondia:phobos} it is proven that
- 	\begin{equation}\label{mp_mult_distr}
+ 	\bea\label{mp_mult_distr}
  	\M_R^\th \star_{\theta} \SS'\left(\R^{2N}\right) = \SS'\left(\R^{2N}\right) \text{ and }
- 	\SS'\left(\R^{2N}\right) \star_{\theta} \M_L^\th = \SS'\left(\R^{2N}\right).
- 	\end{equation}
+ 	\SS'\left(\R^{2N}\right) \star_{\theta} \M_L^\th = \SS'\left(\R^{2N}\right),\\
+ 	\label{mp_parial_mult_eqn}
+ 	\partial_j S \times f = 	\partial_j \left( S \times f \right) - f \times \partial_j S \quad \forall S \in \M_L^\th \quad \forall f \in \SS(\R^{2})
+ 	\eea
  	
  	
  	It is known \cite{moyal_spectral} that the domain of  the Moyal plane product can be extended up to $L^2\left(\R^{2N} \right)$. 
