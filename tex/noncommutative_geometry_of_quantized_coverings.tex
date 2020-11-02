@@ -16172,8 +16172,12 @@ Below we use the '$\times$' symbol for the Moyal plane product using  the descri
 		\ee
 		where $\left\{c_k \in \C\right\}_{k \in \Z^{2N}}$ are rapidly decreasing coefficients given by
 		\begin{equation}\label{mp_fourier_torus_eqn}
-		c_k = \frac{1}{m_j^{2N} } \int_{\R^{2N}} \overline{a}\left(x \right)  \exp\left(2\pi i \frac{k}{m_j}\cdot x\right) dx = \frac{1}{m_j^{2N} } \mathcal{F}\overline{a}\left( \frac{k}{m_j}\right)   .
+		c_k = \frac{1}{m_j^{2N} } \int_{\R^{2N}} \overline{a}\left(x \right)  \exp\left(2\pi i \frac{k}{m_j}\cdot x\right) dx = \frac{1}{m_j^{2N} } \mathcal{F}\overline{a}\left( \frac{k}{m_j}\right).
 		\end{equation}
+	\item[(iii)] For any $j$ the equation \eqref{nt_w*_top_eqn} yields the $\C$-linear surjective map
+	\be\label{nt_ss_nt_map_eqn}
+\varphi_j:	S\left(\R^{2N}\right)\to \Coo\left(\T^{2N}_{\th/m^2_j} \right) 
+	\ee
 	\end{enumerate}
 \end{lemma}
 \begin{proof}
@@ -16214,10 +16218,35 @@ i.e. the series \ref{nt_w*_top_eqn} is convergent with respect to the weak*-topo
 c_k = \frac{1}{m_j^{2N} }\int_I \exp\left(2\pi i \frac{k}{m_j} ~x \right)\sum_{g \in\ker\left( \Z^{2N} \to \Z^{2N}_{m_j}\right)}\left( g \overline a\right)\left( x\right) dx  =\\
 = \frac{1}{m_j^{2N} }\sum_{g \in\ker\left( \Z^{2N} \to \Z^{2N}_{m_j}\right)}\int_{gI}\exp\left(2\pi i \frac{k}{m_j} ~x \right) \overline a\left(x\right)dx=\\= \frac{1}{m_j^{2N} }\int_{\R^{2N}}\exp\left(2\pi i \frac{k}{m_j} ~x \right)\overline a\left(x\right)dx= \frac{1}{m_j^{2N} } \mathcal{F}\overline{a}\left( \frac{k}{m_j}\right).
 \eean
+	(iii) Since given by \eqref{mp_fourier_torus_eqn} coefficients a rapidly decreasing one has	$a_j\in \Coo\left(\T^{2N}_{\th/m^2_j} \right)$, i.e. one has a $\C$-linear  map
+$$
+\varphi_j : 	S\left(\R^{2N}\right)\to \Coo\left(\T^{2N}_{\th/m^2_j} \right).
+$$
+Let us prove that $\varphi$ is a surjective map. Suppose that
+$$
+a'_j = \sum_{k \in Z^{2N}} c_k \exp\left(2\pi i \frac{k}{m_j} ~\cdot \right)
+$$ 
+If $\phi$ is a map $\R^{2N}\to \R$ such that
+\be
+\begin{split}
+	\phi \in \SS\left(\R^{2N}\right),\\
+	\phi \left(\R^{2N}\right) = \left[0,1\right],\\
+	\supp  \phi  \subset \left\{x \in \R^{2N}\left|\left\|x\right\|< \frac{1}{2m_j}\right.\right\}.	
+\end{split}
+\ee
+and
+$$
+\widetilde b'(x) \bydef \sum_{k\in \Z^{2N}} c'_k \phi\left(x - k \right) 	
+$$
+then  $b'\left( k\right)= c'_k$ for all $k\in \Z^{2N}$. Moreover $\widetilde b'\in \SS\left( \R^{2N}\right)$ because $\set{c_k}$ are rapidly decreasing. If $\widetilde a'= \sF \widetilde b'$ then $\widetilde a'\in \SS\left( \R^{2N}\right)$. From  the Equation \eqref{mp_fourier_torus_eqn} it follows that
+$$
+a'_j = \varphi_j\left( a'\right),
+$$
+i.e. the map $\varphi$ is surjective.
 \end{proof}
 
 \begin{remark}\label{nt_w*_top_rem}
-From (ii) of the Lemma \ref{nt_w*_top_lem} it follows that there is a $\C$-linear map
+From (iii) of the Lemma \ref{nt_w*_top_lem} it follows that there is a $\C$-linear surjective  map
 \be\label{nt_w*_top_psi_eqn}
 \begin{split}
 \Psi : S\left(\R^{2N} _\th\right) \to \Coo\left(\T^{2N}_{\th}\right)\\
@@ -16803,65 +16832,7 @@ Otherwise from the Lemma \ref{nt_spec_c0_lem}  it  follows that any special elem
 		\item[(b)] 	From the Lemma \ref{nt_l2_spec_lem} it turns out that  algebraic direct sum $\bigoplus_{g \in J}	 gC_0\left( \R^{2N}_\th\right)$ is a dense subalgebra of $\overline{A}_{\widehat{\pi}^\oplus}$.
 		\item [(c)] The homomorphism $\Z^{2N} \to \Z^{2N}/\Ga_\la$ is surjective,.
 	\end{enumerate}
-	(ii) and (iii) Follow from the proof of (i).
-\end{proof}
-
-\begin{empt}\label{nt_cov_oa_empt}
-Consider  a pointed algebraical  finite covering category  (cf. Definition \ref{comp_pt_defn})
-\be\label{nt_bls_cat_eqn}
-\begin{split}
-	\mathfrak{S}_{C\left(\T^{n}_{{\Th}} \right)}^\N
-	=\left( \left\{ \left( C\left(\T^{2N}_{{\th}} \right), C\left(\T^{2N}_{\th/m_j^2} \right), \Z^n_{m_j}, \pi_j\right)  \right\}_{\substack{j \in \N\\ ~\\~}}\right., \\ \left. \left\{  \pi^j_k: C\left(\T^{2N}_{\th/m_j^2} \right)\hookto C\left(\T^{2N}_{\th/m_k^2} \right) \right\}_{\substack{j,k \in \N\\ j < k}}\right) \subset \mathfrak{S}^{\text{pt}}_{C\left(\mathbb{T}^n_{\Theta}\right)}.
-\end{split} 
-\ee
-given by (cf. \eqref{nt_cofinal_eqn}). If the representation  $\widehat\pi^\oplus: \varinjlim_{j\in\N}C\left(\T^{2N}_{\th/m_j^2} \right)\hookto B\left(L^2\left(\R^{2N} \right)\right)$ is given by \eqref{nt_equiv_eqn} the from the Theorem \ref{nt_inf_cov_thm} that	$\mathfrak{S}_{C\left(\T^{n}_{{\Th}} \right)}^\N$
-	is $\widehat\pi^\oplus$-good  (cf. Definition \ref{mains_defn}) and the triple  $\left(C\left(\mathbb{T}^{2N}_\th \right), C_0\left(\R^{2N}_\th\right), \Z^{2N} \right)$  is the $\widehat{\pi}^\oplus$-infinite noncommutative covering of $\mathfrak{S}^\N_\th$ (cf. Definition \ref{main_defn}). From the Corollary \ref{nt_fin_cor} it follows that 
-	\bean
-	\mathfrak{S}_{\Coo\left(\T^{n}_{{\Th}} \right)}^\N
-=\left( \left\{ \left( \Coo\left(\T^{2N}_{{\th}} \right), \Coo\left(\T^{2N}_{\th/m_j^2} \right), \Z^n_{m_j}, \pi_j\right)  \right\}_{\substack{j \in \N\\ ~\\~}}\right., \\ \left. \left\{  \pi^j_k: \Coo\left(\T^{2N}_{\th/m_j^2} \right)\hookto \Coo\left(\T^{2N}_{\th/m_k^2} \right) \right\}_{\substack{j,k \in \N\\ j < k}}\right).
-	\eean
-	is a category	of noncommutative finite-fold coverings of operator algebras (cf. Definition \ref{inf_cov_oa_cat_defn}). Both 	$\mathfrak{S}^{\N}_{C\left(\T^{2N}_{\th} \right)}$ and $\mathfrak{S}^{\N}_{\Coo\left(\T^{2N}_{\th} \right)}$ are specializations of both $\mathfrak{S}^{\text{pt}}$ and $	C^*_e\left( \mathfrak{S}^{\text{pt}}\right)$ given by equations \eqref{inf_cov_oae_eqn} and \eqref{inf_cov_oa_eqn} respectively. 
-\end{empt}
-\begin{lemma}
-For any positive $a \in C\left(\T^{2N}_\th \right)_+$ there is a positive trace-class  $\widetilde a \in C_0\left(\R^{2N}_\th \right)_+$ such that
-$$
-\sum_{g\in \Z^{2N}}\widetilde a = a.
-$$ 
-where the sum of the series means the strong convergence.
-\end{lemma}
-\begin{proof}
-If   $\widetilde b \in \SS\left(\T^{2N}_\th \right)_+$ is such that $\widetilde b>0$ and
-$$
-\left\| \sum_{g\in \Z^{2N}}\widetilde b\right\| < 1.
-$$
-then $\sqrt{a}\widetilde b\sqrt{a}\in C_0\left(\R^{2N}_\th \right)_+$ and 
-$$
-\sum_{g\in \Z^{2N}}g\left( \sqrt{a}\widetilde b\sqrt{a}\right)<a. 
-$$
-It turns out that the set
-$$
-\mathscr A_a = \left\{\widetilde{a}\in C_0\left(\R^{2N}_\th \right)_+\left| \sum_{g\in \Z^{2N}}\widetilde a\le a\right.\right\}
-$$
-is not empty. 
-From the Zorn's lemma and the Proposition \ref{increasing_convergent_w_lem} there is $\widetilde{a}\in B\left(L^2\left(\R^{2N}_\th \right) \right)$ such that
-$$
-\sum_{g\in \Z^{2N}}\widetilde a = a
-$$
-From the Equation \eqref{nt_trace_eqn} it follows that $\widetilde a$ is a trace-class operator, so it is compact, and taking into account \eqref{mp_2N_eqn} one has $\widetilde a\in C_0\left(\R^{2N}_\th \right)_+$.
-\end{proof}
-
-\begin{lemma}\label{nt_cov_sub_oa_lem}
-Denote by $$
-\mathscr A \bydef  \left\{\widetilde{a}\in C_0\left(\R^{2N}_\th \right)_+\left| \sum_{g\in \Z^{2N}}\widetilde a\in  C\left(\T^{2N}_\th \right)\right.\right\}
-$$
-In the situation \ref{nt_cov_oa_empt} if  subalgebra $\widetilde A'$ of $\widetilde B$  {is subordinated to}  $\mathfrak{S}^{\text{pt}}_{\Coo\left(M \right) }$ (cf. Definition \ref{inf_cov_oa_sub_defn}) then
-$\widetilde A'\cap \left(\mathscr A \setminus \SS\left( \R^{2N}_\th\right)  \right)=\emptyset$.
-\end{lemma}
-\begin{proof}
-If $\widetilde a \in \widetilde A'\cap \left(\mathscr A \setminus \SS\left( \R^{2N}_\th\right)  \right)$ then 
-$$
-a\bydef \sum_{g\in \Z^{2N}}\widetilde a \in C\left(\T^{2N}_\th \right)_+.
-$$
+	(ii) and (iii) follow from the proof of (i).
 \end{proof}
 
 \subsection{Coverings of $O^*$-algebras}
@@ -16912,8 +16883,8 @@ $$
 Similarly one can proof that the Fourier transformation of  partial derivations of any orders are continuous functions. 
 
 \end{proof}
-\begin{lemma}
-In the situation of the Lemma \ref{nt_cont_lem}. The Fourier transformation of any partial derivation of  $a\times b\in \SS\left(\R^{2N}_\th \right) $ of any order  to a complex-valued continuous map on $\R^{2N}$.
+\begin{lemma}\label{nt_ss_lem}
+In the situation of the Lemma \ref{nt_cont_lem}. The Fourier transformation of any partial derivation of  $a\times b\in \SS\left(\R^{2N}_\th \right)$.
 \end{lemma}
 \begin{proof}
 	From the Proposition \ref{mp_factor_prop} it follows that $b = b' \times b''$ where $b', b'' \in \SS\left(\R^{2N}_\th \right)$. From $\SS\left(\R^{2N}_\th \right)\subset L^2\left(\R^{2N}_\th \right)$ and $C\left( \T^{2N}_\th\right)\times L^2\left(\R^{2N}_\th \right)= L^2\left(\R^{2N}_\th \right)$ it follows that
@@ -16926,13 +16897,43 @@ In the situation of the Lemma \ref{nt_cont_lem}. The Fourier transformation of a
 	$$
 Similarly from
 \bean
-\partial_j \left( a \times b \right)=	\partial_j a \times b + a \times \partial_jb,
+\partial_j \left( a \times b \right)=	\partial_j a \times b + a \times \partial_jb,\\
 \partial_j a \in C\left( \T^{2N}_\th\right),\\
-\partial_jb
+\partial_jb \in \SS\left( \R^{2N}\right)
 \eean
-one can deduce that $\partial_j \left( a \times b \right)\in C_0\left( \R^{2N}\right)$. Similar operation can be performed for all differential operator of any order, so $a \times b$ is a smooth function. Taking into account  the Lemma \ref{nt_smooth_lem} one has $$a\times b\in \SS\left(\R^{2N}_\th \right) $
-\end{rem}
-
+one can deduce that $\partial_j \left( a \times b \right)\in C_0\left( \R^{2N}\right)$. Similar operation can be performed for all differential operator of any order, so $a \times b$ is a smooth function. Taking into account  the Lemma \ref{nt_smooth_lem} one has $a\times b\in \SS\left(\R^{2N}_\th \right) $.
+\end{proof}
+\begin{lemma}
+For all $a \in  C\left( \T^{2N}_\th\right)\setminus  \Coo\left( \T^{2N}_\th\right)$ one has $a \times \SS\left(\R^{2N}_\th \right)\not\subset \SS\left(\R^{2N}_\th \right)$
+\end{lemma}\label{nt_ss_c_lem}
+\begin{proof} Let $\phi$ is a map $\R^{2N}\to \R$ such that
+	\be
+	\begin{split}
+	\sF \phi \in \SS\left(\R^{2N}\right),\\
+	\sF \phi \left(\R^{2N}\right) = \left[0,1\right],\\
+	\supp \sF \phi  \subset \left\{x \in \R^{2N}\left|\left\|x\right\|< \frac{1}{2}\right.\right\}.	
+	\end{split}
+\ee
+If $a = \sum_{k\in \Z^{2N}} c_k U_k\in  C\left( \T^{2N}_\th\right)\setminus  \Coo\left( \T^{2N}_\th\right)$ then from the Equation \eqref{mp_znorm_eqn} it follows that there is $M\in N$ such that the map
+\bean
+f_\N: \Z^{2N}\to \R,\\
+k \mapsto \left| c_k\right|  \left\|k \right\|^M 
+\eean
+If $f_\R \bydef \left| \sF\left( a \times \phi\right)\left(x \right) \right\| \left\|x \right\|^M $ then from  
+From \eqref{nt_mp_d_eqn} it follows that
+$$
+f_\R\left(k \right) = f_\N\left( k\right) 
+$$
+so the map $f_\R$ is not bounded. It turns out that $\sF a \diamond\sF\phi \not\in \SS\left(\R^{2N} \right)$ or, equivalently $  a \times\phi \not\in \SS\left(\R^{2N} \right)$.
+\end{proof}
+\begin{lemma}
+If we consider the inclusion  $\Coo\left( \T^{2N}_\th\right)\subset B\left( L^2\left(\R^{N} \right) \right)$ then one has  $\Coo\left( \T^{2N}_\th\right)=  C\left( \T^{2N}_\th\right)\cap \L^\dagger\left(\SS\left(\R^{2N} \right)  \right)$. 
+\end{lemma}
+\begin{proof}
+From the Lemma \ref{nt_ss_lem} it follows that $\Coo\left( \T^{2N}_\th\right)\subset \L^\dagger\left(\SS\left(\R^{2N} \right)\right) $. Conversely from the Lemma  \ref{nt_ss_c_lem} it follows that
+$$
+a\in C\left( \T^{2N}_\th\right)\setminus  \Coo\left( \T^{2N}_\th\right)\quad \Rightarrow \quad a\notin \L^\dagger\left(\SS\left(\R^{2N} \right)\right).
+$$
 \end{proof}
  From the Theorem \ref{nt_d_fin_thm} and the Lemma \ref{nt_d_fin_lem} it turns out that there is  a {pointed algebraic finite covering categories of $O^*$-algebras}  given by
 \bea
@@ -17086,6 +17087,34 @@ D\left( \R^{2N}_\th\right)\Coo_c\left(\R^{2N}_\th \right)  =\left(  \bigcup_{j=1
 
 \subsection{Coverings of quasi $*$-algebras}
 \paragraph*{}
+
+Let  $\SS'\left( \R^{n}\right) $ the vector space dual to $\SS\left( \R^{n}\right) $ (cf. Definition \ref{mp_mult_defn}), and let $G_j\bydef ker\left( \Z^{2N} \to \Z^{2N}_{m_j}\right)$
+
+The action $G_j \times \R^n\to \R^n$ yields the action  $G_j \times \SS'\left( \R^{n}\right)\to \SS'\left( \R^{n}\right)$ denote by
+\be
+\left( \SS\left(\mathbb{R}^{2N}_{\theta}\right)'\right)^{G_j}  \bydef \left\{\left.T\in \SS'\left( \R^{2N}\right)\right| gT = T \quad \forall a \in G_j \in \right\}
+\ee
+\begin{lemma}
+	Let 
+	$\varphi_j:	S\left(\R^{2N}\right)\to \Coo\left(\T^{2N}_{\th/m^2_j} \right)$  be a given by \eqref{nt_ss_nt_map_eqn} surjective map.
+	
+	In the described above situation there is the natural isomorphism.
+	$$
+	\left( \SS\left(\mathbb{R}^{2N}_{\theta}\right)'\right)^{G_j}\cong \Coo\left(\mathbb{T}^{2N}_{\theta/m_j^2}\right)'
+	$$
+\end{lemma}
+\begin{proof}
+	Let $\phi\in \left( \SS\left(\mathbb{R}^{2N}_{\theta}\right)'\right)^{G_j}$. Define $\psi_j\in \Coo\left(\mathbb{T}^{2N}_{\theta/m_j^2}\right)'$ by the following way
+	$$
+	\psi\left(a_j \right)\bydef \phi\left(\widetilde a \right) \quad  \text{where} \quad a_j = \varphi_j\left( \widetilde a\right). 
+	$$
+	Above definition is correct because $\varphi_j$ is surective and $\phi$ is $G_j$-invariant. Conversely let $\psi_j\in \Coo\left(\mathbb{T}^{2N}_{\theta/m_j^2}\right)'$. Define $\phi\in \left( \SS\left(\mathbb{R}^{2N}_{\theta}\right)'\right)^{G_j}$  by the following way
+	$$
+	\phi\left(\widetilde a \right) \bydef \psi\left(a_j \right) \quad  \text{where} \quad a_j = \varphi_j\left( \widetilde a\right). 
+	$$
+	Constructed $\C$-linear maps are mutually inverse.
+\end{proof}
+
 An application of both the Lemma \ref{nt_quasi_fin_lem} and the given by \eqref{nt_comp_pt_of*_eqn} category 	$\mathfrak{S}^{\N}_{\Coo\left(\T^{2N}_\th \right) }$ yields a \textit{pointed algebraic finite covering category of quasi-$*$-algebras}
 (cf. Definition \ref{comp_qo*_defn})  given by
 \be\label{nt_distr_inf_eqn}
@@ -17094,18 +17123,7 @@ An application of both the Lemma \ref{nt_quasi_fin_lem} and the given by \eqref{
 	\text{where } \left( \mathfrak A, \mathfrak A_0 \right)\bydef\left(\Coo\left(\mathbb{T}^{2N}_{\theta}\right)', \Coo\left(\mathbb{T}^{2N}_{\theta}\right)  \right),\\ \left( \mathfrak A^j, \mathfrak A_0^j \right)\bydef\left(\Coo\left(\mathbb{T}^{2N}_{\theta/m_j^2}\right)', \Coo\left(\mathbb{T}^{2N}_{\theta/m_j^2}\right)  \right).
 	\end{split}
 \ee
-\begin{empt}DOWN TO ININITE COV !!!
-	Let  $\SS'\left( \R^{n}\right) $ the vector space dual to $\SS\left( \R^{n}\right) $ (cf. Definition \ref{mp_mult_defn}).The action $\Z^n \times \R^n\to \R^n$ yields the action  $\Z^n \times \SS'\left( \R^{n}\right)\to \SS'\left( \R^{n}\right)$ denote by
-	\be
-	\Coo\left(\mathbb{T}^{2N}_{\Theta}\right)' \bydef \left\{\left.T\in \SS'\left( \R^{n}\right)\right| gT = T \quad \forall a \in \Z^n \in \right\}
-	\ee
 
-	If $\left( \Coo\left( \mathbb{T}^{2N}_{\Theta}\right), \Coo\left( \mathbb{T}^{2N}_{\widetilde\Theta}\right), {\Z^{2N} / \Ga}, \pi\right)$ is given by the Lemma \ref{nt_d_fin_lem} then there is an injective *-homomoprhism
-	\be
-	\pi':\left(\Coo\left(\mathbb{T}^{2N}_{\Theta}\right)', \Coo\left(\mathbb{T}^{2N}_{\Theta}\right)  \right)\hookto \left(\Coo\left(\mathbb{T}^{2N}_{\widetilde\Theta}\right)', \Coo\left(\mathbb{T}^{2N}_{\widetilde\Theta}\right)  \right) 
-	\ee
-	of quasi *-algebras such that $\left.\pi'\right|_{\Coo\left(\mathbb{T}^{2N}_{\Theta}\right)}= \pi$.
-\end{empt}
 
 \begin{lemma}
 In  the described above situation the triple
