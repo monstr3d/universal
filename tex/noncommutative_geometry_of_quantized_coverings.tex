@@ -4617,6 +4617,11 @@ Let $\sX$ be a locally compact, locally connected, Hausdorff space, and let $p: 
 	\item [(a)] For all $j=1,..., n$ the open set $\sU_j\bydef\left\{\left. x\in\sX\right| f_j\left( x\right)> 0 \right\}$ is connected.
 	\item[(b)] The set $\sU_j$ is evenly covered by $p$ (cf. Definition \ref{comm_cov_pr_defn}).
 \end{enumerate}
+Similarly covering sum $ \sum_{j = 1}^n \widetilde f_j$ of compact set $\widetilde \sY\subset\widetilde\sX$ is said to be \textit{subordinated to} $p$ if following condition hold:
+\begin{enumerate}
+	\item [(a)] For all $j=1,..., n$ the open set $\widetilde\sU_j\bydef\left\{\left. \widetilde x\in\widetilde\sX\right| \widetilde f_j\left( x\right)> 0 \right\}$ is connected.
+	\item[(b)]	 The set $p\left( \widetilde\sU_j\right) $ is evenly covered by $p$ (cf. Definition \ref{comm_cov_pr_defn}).
+\end{enumerate}
 \end{definition}
 \begin{remark}
 A direct construction shows that  subordinated covering sums always exist for all coverings of all locally compact, locally connected, Hausdorff spaces.
@@ -6657,47 +6662,84 @@ $$
 	$$
 	where $\widetilde a_j \bydef  f_{\a_j} \widetilde a 	$ for every $j=1,...,m$. If $\widetilde a$ is positive then $\widetilde a_j$ is positive for each $j=1,...,m$. 
 \end{proof}
-\begin{empt}
-	Let $\sX$ be a  compact, Hausdorff space; and for each $x$ in $\sX$, let $A_x$ be a (complex) Banach space. Let us consider a continuity structure $\sF$ for $\sX$. If $p: \widetilde \sX \to \sX$ is a finite-fold covering then $C\left(\widetilde \sX\right)$ is a finitely generated $C\left( \sX\right)$-module (cf. Theorem \ref{pavlov_troisky_thm}). There is the map
-	\be\label{top_tensor_comact_iso_eqn}
+	\begin{empt}
+	Let $\sX$ be a locally compact, paracompact, Hausdorff space; and for each $x$ in $\sX$, let $A_x$ be a (complex) Banach space. Let us consider a continuity structure $\sF$ for $\sX$. If $p: \widetilde \sX \to \sX$ is a covering then $C_c\left(\widetilde \sX\right)$ is a  $C_0\left( \sX\right)$-module. There is the map
+	\be\label{top_tensor_lccomact_iso_eqn}
 	\begin{split}
-		\phi: C\left(\widetilde \sX\right)\otimes_{C\left( \sX\right)}C\left(\sX, 
-		\left\{A_x\right\}, \sF \right) \to \lift_p\left[C\left(\sX, 
-		\left\{A_x\right\}, \sF \right)\right];\\
-		\sum_{j=1}^n \widetilde a_j \otimes \xi_j\mapsto  \sum_{j=1}^n\widetilde a_j \lift_p\left(\xi_j\right).
+		\phi: C_c\left(\widetilde \sX\right)\otimes_{C_0\left( \sX\right)}C\left(\sX, 
+		\left\{A_x\right\}, \sF \right) \to C_c\left( \lift_p\left[C\left(\sX, 
+		\left\{A_x\right\}, \sF \right)\right]\right) ;\\
+		\sum_{j=1}^n \widetilde a_j \otimes \xi_j\mapsto  \widetilde a_j \lift_p\left(\xi_j\right)
 	\end{split}
 	\ee
 	The map $\phi$ can be described by the following way. If for all $j = 1,...,n$  and $\xi_j$ is represented by the family  $\left\{\xi_{j x}\right\}_{ x\in  \sX}$ respectively then $\phi\left( \sum_{j=1}^n \widetilde a_j \otimes \xi_j\mapsto  \widetilde a_j \lift_p\left(\xi_j\right)\right)$ is represented by the family
-	\be\label{top_tensor_fam_eqn}
+	\be\label{top_tensor_lcfam_eqn}
 	\left\{\sum_{j=1}^n \widetilde a_{j}\left(\widetilde x \right)  c^{-1}_{\widetilde x}\left( \xi_{j x}\right)  \right\}_{{\widetilde x}\in {\widetilde \sX}}\quad  \text{ where } c_{\widetilde x}\text{ is given by } \eqref{top_ct_iso_eqn}.
 	\ee
 \end{empt}
-
-
-\begin{lemma}\label{top_tensor_comact_lem}
-	The given by \eqref{top_tensor_comact_iso_eqn} map $\phi$ is the isomorphism of left $C\left(\widetilde \sX\right)$-modules.
+\begin{lemma}\label{top_tensor_lcomact_lem}
+	The given by \eqref{top_tensor_lccomact_iso_eqn} map $\phi$ is the isomorphism of left $C_0\left(\widetilde \sX\right)$-modules.
 \end{lemma}
-\begin{proof}
-	For all $\widetilde a \in C\left(\widetilde\sX\right)$ one has
-	\bean
-	\phi\left(\widetilde a  \sum_{j=1}^n \widetilde a_j \otimes \xi_j \right)= \phi\left( \sum_{j=1}^n\widetilde a  \widetilde a_j \otimes \xi_j \right)=\\= \sum_{j=1}^n\widetilde a  \widetilde a_j \otimes \lift_p\left(\xi_j\right)= \widetilde a\sum_{j=1}^n  \widetilde a_j \otimes \lift_p\left(\xi_j\right)=\widetilde a\phi\left(  \sum_{j=1}^n \widetilde a_j \otimes \xi_j \right),
-	\eean
-	i.e. $\phi$ is the homomorphism of left $C\left(\widetilde \sX\right)$-modules.
-	!!!! From the equation \eqref{comm_unity_sum_eqn} it follows that
-	\be\label{top_tensore_fam_eqn}
+\begin{proof}  
+	
+For all $\widetilde a \in C_0\left(\widetilde\sX\right)$ one has
+\bean
+\phi\left(\widetilde a  \sum_{j=1}^n \widetilde a_j \otimes \xi_j \right)= \phi\left( \sum_{j=1}^n\widetilde a  \widetilde a_j \otimes \xi_j \right)=\\= \sum_{j=1}^n\widetilde a  \widetilde a_j \otimes \lift_p\left(\xi_j\right)= \widetilde a\left( \sum_{j=1}^n  \widetilde a_j \otimes \lift_p\left(\xi_j\right)\right) =\widetilde a\phi\left(  \sum_{j=1}^n \widetilde a_j \otimes \xi_j \right),
+\eean
+i.e. $\phi$ is the homomorphism of left $C_0\left(\widetilde \sX\right)$-modules.
+
+
+For all   $\widetilde \xi_1, ..., \xi_n\in C_c\left( \lift_p\left[C\left(\sX, 
+\left\{A_x\right\}, \sF \right)\right]\right)$ the set $\widetilde\sY\bydef \cup_{j=1}^n\supp \cup \widetilde \xi$ is compact.  
+If 
+$
+ \sum_{l=1 }^m\widetilde{a}_l
+$
+is a subordinated to $p$ covering sum of compact set $ \widetilde \sY$ (cf. Definitions \ref{top_cfs_defn} and  \ref{top_cfs_sub_defn}) then one has
+$$
+\widetilde \xi_j= \sum_{l=1 }^m\widetilde{a}_l \widetilde \xi_j.
+$$
+From the above equation it turns out that
+	\be\label{top_tensore_lcfam_eqn}
 	\begin{split}
-		\sum_{j=1}^n \widetilde a_j \otimes \xi_j= \sum_{\widetilde\a \in \widetilde{\mathscr A} } \sum_{j=1}^n \widetilde{e}_{\widetilde{\a}}\widetilde{e}_{\widetilde{\a}}\widetilde a_j \otimes \xi_j= \sum_{\widetilde\a \in \widetilde{\mathscr A} } \sum_{j=1}^n \widetilde{e}_{\widetilde{\a}} \desc_p\left(\widetilde{e}_{\widetilde{\a}}\widetilde a_j \right) \otimes \xi_j = \\
-		\sum_{\widetilde\a \in \widetilde{\mathscr A} } \sum_{j=1}^n \widetilde{e}_{\widetilde{\a}}\otimes \desc_p\left(\widetilde{e}_{\widetilde{\a}}\widetilde a_j \right)  \xi_j.
+		\sum_{j=1}^n \widetilde a_j \otimes \xi_j= \sum_{l=1}^m \sum_{j=1}^n \widetilde{e}_{l}\widetilde{e}_{l}\widetilde a_j \otimes \xi_j= \sum_{l=1}^m\sum_{j=1}^n \widetilde{e}_{l} \desc_p\left(\widetilde e_j \right) \otimes \xi_j = \\
+		\sum_{l=1}^m\sum_{j=1}^n \widetilde{e}_{l}\otimes \desc_p\left(\widetilde{e}_{l}\widetilde a_j   \xi_j\right) 
 	\end{split}
 	\ee
-	If $\phi\left(\sum_{j=1}^n \widetilde a_j \otimes \xi_j \right) = 0$ then 
-	from \eqref{top_tensor_fam_eqn}  it follows that $\sum_{j=1}^n \widetilde a_{j}\left(\widetilde x \right)  c^{-1}_{\widetilde x}\left( \xi_{j x}\right)=0$ for all $\widetilde x \in \widetilde\sX$. It turns out that $\sum_{j=1}^n \widetilde{e}_{\widetilde{\a}}\widetilde a_{j}\left(\widetilde x \right)  c^{-1}_{\widetilde x}\left( \xi_{j x}\right)=0$, hence one has $\desc_p\left(\widetilde{e}_{\widetilde{\a}}\widetilde a_j \right)  \xi_j = 0$, and taking into account \eqref{top_tensore_fam_eqn} we conclude that $\sum_{j=1}^n \widetilde a_j \otimes \xi_j=0$, i.e. the map $\phi$ is injective. \\
-	For all $\widetilde \xi \in \lift_p\left[C\left(\sX, 
-	\left\{A_x\right\}, \sF \right)\right]$ one has
+	where $e_l\bydef\sqrt{a_l}$.
+	If $\phi\left(\sum_{j=1}^n \widetilde a_j \otimes \xi_j \right) = 0$ then from \eqref{top_tensor_lcfam_eqn}  it follows that $\sum_{j=1}^n \widetilde a_{j}\left(\widetilde x \right)  c^{-1}_{\widetilde x}\left( \xi_{j x}\right)=0$ for all $\widetilde x \in \widetilde\sX$. It turns out that $\sum_{j=1}^n \widetilde{e}_{l}\widetilde a_{j}\left(\widetilde x \right)  c^{-1}_{\widetilde x}\left( \xi_{j x}\right)=0$ for all  $l=1,...,m$ hence one has $\desc_p\left(\widetilde{e}_{l}\widetilde a_j \right)  \xi_j = 0$, and taking into account \ref{top_tensore_lcfam_eqn} we conclude $\sum_{j=1}^n \widetilde a_j \otimes \xi_j=0$, i.e. the map $\phi$ is injective. \\
+	For all $\widetilde \xi \in C_c\left(\sX, 
+	\left\{A_x\right\}, \sF \right) \to C_c\left( \lift_p\left[C\left(\sX, 
+	\left\{A_x\right\}, \sF \right)\right]\right)$ the set $\supp \widetilde \xi$ is compact. If  $
+	\sum_{l=1 }^k\widetilde{a}'_l
+	$
+	is a subordinated to $p$ covering sum of compact set $\supp\widetilde \xi$ (cf. Definitions \ref{top_cfs_defn} and  \ref{top_cfs_sub_defn}) then one has
 	$$
-	\widetilde \xi = \phi\left( \sum_{\widetilde\a \in \widetilde{\mathscr A}} \widetilde{e}_{\widetilde{\a}}\otimes \desc_p\left( \widetilde{e}_{\widetilde{\a}} \widetilde \xi \right) \right), 
+	\widetilde \xi= \sum_{l=1 }^k\widetilde{a}'_l \widetilde \xi= \sum_{l=1 }^k\widetilde{e}'_l\widetilde{e}'_l \widetilde \xi=\sum_{l=1 }^k\widetilde{e}'_l\desc_p\left( \widetilde{e}'_l  \widetilde \xi \right).
 	$$
-	hence the map $\phi$ is surjective.
+		where $e'_l\bydef\sqrt{a'_l}$. From the above equation it turns out that
+	
+	\bean
+	\widetilde \xi = \phi\left( \sum_{l=1}^k \widetilde{e}'_{l}\otimes \desc_p\left( \widetilde{e}'_{l} \widetilde \xi \right) \right), 
+	\eean
+	it turns out that the map $\phi$ is surjective.
+	\begin{defn}\label{top_cfs_defn!}
+		Let $\sY\subset\sX$ is a compact subset of a locally compact Hausdorff space $\sX$. The given by the Equation \eqref{top_cfs_eqn} sum 
+		is said to be a \textit{covering sum} for $\sY$.
+	\end{defn}
+	\begin{definition}\label{top_cfs_sub_defn!}
+		Let $\sX$ be a locally compact, locally connected, Hausdorff space, and let $p: \widetilde \sX\to\sX$ be a covering. A covering sum $ \sum_{j = 1}^n f_j$ of compact set $\sY\subset\sX$ is said to be \textit{subordinated to} $p$ if following condition hold:
+		\begin{enumerate}
+			\item [(a)] For all $j=1,..., n$ the open set $\sU_j\bydef\left\{\left. x\in\sX\right| f_j\left( x\right)> 0 \right\}$ is connected.
+			\item[(b)] The set $\sU_j$ is evenly covered by $p$ (cf. Definition \ref{comm_cov_pr_defn}).
+		\end{enumerate}
+		Similarly covering sum $ \sum_{j = 1}^n \widetilde f_j$ of compact set $\widetilde \sY\subset\widetilde\sX$ is said to be \textit{subordinated to} $p$ if following condition hold:
+		\begin{enumerate}
+			\item [(a)] For all $j=1,..., n$ the open set $\widetilde\sU_j\bydef\left\{\left. \widetilde x\in\widetilde\sX\right| \widetilde f_j\left( x\right)> 0 \right\}$ is connected.
+			\item[(b)]	 The set $p\left( \widetilde\sU_j\right) $ is evenly covered by $p$ (cf. Definition \ref{comm_cov_pr_defn}).
+		\end{enumerate}
+	\end{definition}
+	
 \end{proof}
 
 
