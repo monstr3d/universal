@@ -1552,7 +1552,7 @@ g \left(\bt\text{-}\lim a_\a \right) \bydef \bt\text{-}\lim g a_\a.
 \end{proof}
 
 
-\begin{definition}\label{fin_defn} CHECK ALL REF!!!
+\begin{definition}\label{fin_defn}
 A noncommutative finite-fold  pre-covering  $\left(A, \widetilde{A}, G, \pi \right)$  of $C^*$-algebras $A$ and $\widetilde{A}$  is said to be   \textit{noncommutative finite-fold covering} if there is an increasing net $\left\{u_\la\right\}_{\la\in\La}\subset M\left( A\right)_+ $  of positive elements such that
 \begin{enumerate}
 	\item[(a)] There is the limit 
@@ -4587,107 +4587,48 @@ f\left(t\right)=	\left\{\begin{array}{c l}
 	\widetilde{f}_{\widetilde{x}_0} \stackrel{\mathrm{def}}{=} 	\widetilde{f}.
 	\ee
 \end{empt}
-\section{Partitions of unity and compact subsets}
-
-\begin{lemma}\label{fin_comp_lin_lem!}
-	Suppose $\sX$ is a locally compact  Hausdorff space, and $\left\{\sV_\a \right\}_{\a \in \mathscr A}$ is a  countable family of  of open subsets of $\sX$ such that  $\sX = \cup \sV_\a$. If for all $\a \in \mathscr A$ one has:
-	\begin{itemize}
-		\item the set $\sV_\a$ is connected,
-		\item the closure of $\sV_\a$ is compact
-	\end{itemize}
-	then for any $x_0 \in \mathcal X$ there is a finite or countable sequence $\sU_1 \subsetneqq  ...\subsetneqq \sU_n\subsetneqq ...$ of connected open subsets of $\sX$ such that
-	\begin{itemize}
-		\item $x_0 \in \sU_1$.
-		\item  For any $n \in \N$ the closure of $\sU_n$ is compact.
-		\item $\cup~ \sU_n = \sX$.
-	\end{itemize} 
-\end{lemma}
-\begin{proof}
-	 Let us define a finite or countable sequence $\sU_1 \subsetneqq  ...\subsetneqq \sU_n\subsetneqq ...$ by induction.
-	\begin{enumerate}
-		\item Select  $\a_0 \in \mathscr A$ such that $x_0 \in \sV_{\a_0}$, and let $\sU_1 = \sV_{\a_0}$.
-		\item If $\sU_n$ is already defined then we looking for $\sV_\a$ such that
-		\be\label{seqvu_eqn}
-		\sV_\a \not\subset \sU_n;\quad
-		\sV_\a \cap \sU_n \neq \emptyset.
-		\ee
-		It there is no $\sV_\a$ which satisfies to \eqref{seqvu_eqn} then the sequence is competed. Otherwise one sets $\sU_{n+1}\bydef \sU_n \cup \sV_\a$.
-	\end{enumerate} 
-	Clearly that for every $n \in \N$ the set $ \sU_n$ is an open connected and have the compact closure. If  $\sX \neq \cup~ \sU_n$ then 
-	$$
-	\sX  = \cup ~\sU_n \bigsqcup \cup_{\a \in \mathscr A_0} \sV_\a; \text{ where } \sV_\a \bigcap \cup ~\sU_n = \emptyset; ~~ \forall \a \in \mathscr A_0,
-	$$ 
-	i.e. $\sX$ is not connected. So one has $\sX = \cup~ \sU_n$.
-\end{proof}
-\begin{lemma}\label{fin_comp_linl_lem}
-	If  $\sX$ is a locally compact, connected, locally connected,  Lindel\"{o}f (cf. Definition \ref{lindel_defn}),  Hausdorff space  then there is a family $\left\{\sV_\a \right\}_{\a \in \mathscr A}$ of open subsets of $\sX$ which satisfies to conditions of the Lemma \ref{fin_comp_lin_lem}.
-\end{lemma}
-\begin{proof}
-	The space $\sX$ is a locally compact, so for any point there is an open neighborhood $\sV_x$ such that the closure of $\sV_x$ is compact. Moreover one can assume that $\sV_x$ is connected since $\sX$ is locally connected. The space is $\sX$ is  Lindel\"{o}f, so there is a finite or countable family $\left\{\sV_\a \right\}_{\a \in \mathscr A}$  such that $\left\{\sV_\a \right\}_{\a \in \mathscr A}\subset \left\{\sV_x \right\}_{x \in \sX}$ and $\sX = \cup_{\a \in \mathscr A} \sV_\a$.
-\end{proof}
-
-\begin{empt}\label{fin_comp_lin_empt}
-	Let us  consider the situation of the Lemma \ref{fin_comp_linl_lem} and 	suppose that $\sX$ is paracompact. From the proof of the Lemma \ref{fin_comp_linl_lem} it follows that there is an open covering  $\sX = \cup \mathcal W_\bt$ where $\mathcal W_\bt$ is an open set with having compact closure.  Since $\sX$ is paracompact there is a locally finite open refinement $\sX = \cup~\sV_{   \al}$ of $\sX = \cup \mathcal W_\bt$ (cf. Definition \ref{top_paracompact_defn}). The closure of $\sV_{   \al}$ is compact for all $\a$. Since $\sX$ is locally connected one has
-\be\label{top_fin_eqn}
-\sV_{   \al} = \sqcup \sV_{\a\iota}	
-\ee
-where $\sV_{\a\iota}$ is connected for all $\a$ and $\iota$ (cf. Theorem \ref{top_loc_conn_thm}). Since  the closure of $\sV_{   \al}$ is compact the right part of \ref{top_fin_eqn} is a finite union of connected components. 
-There is a covering $\sX = \cup\sU_\la $ which contains any $ \sV_{\a\iota}$ and satisfies to the following conditions:
 
 
-\begin{itemize}
-	\item $\sX = \cup\sU_\la $  is locally finite because $\sV_{   \al}$ is locally finite and  he right part of \ref{top_fin_eqn} is a finite union of connected components. 
-	\item The closure of $\sU_\la$ is compact for all $\la$.
-\end{itemize} 		
-From  the Theorem \ref{top_part_u_thm} it turns out that 
-	there is a partition of unity 
-	$$
-	\sum_{ \la\in \La}f_\la
-	$$
-	dominated by  $\left\{\sV_\la \right\}_{\la \in \La}$. From the proof of the Lemma \ref{fin_comp_lin_lem} it turns out that for any $n \in \N$ there is a finite subset $\La_n \subset \La$ such that $\sU_n = \cup_{\la \in \La_n}\sV_\la$. If 
-	\be\label{fin_comp_lin_eqn}
-	f_n = \sum_{ \la \in \La_n}f_\la
-	\ee
-	then there is a point-wise limit $1_{C_b\left(\sX \right) } = \lim_{n\to \infty}f_n$.
-\end{empt}
+\section{Partitions of unity of compact subsets}
+\paragraph*{}
 
-\begin{lemma}\label{top_fin_int_lem}
-	If a countable  indexed family of  subsets $\left\{\sU_\al\right\}_{\al \in \mathscr A}$ of topological space $\sX$ is {locally finite} (cf. Definition \ref{top_loc_fin_defn}) and a subspace $\sY$ of $\sX$ is compact then there is finitely many $\al$ such that  $\sU_\al \cap \sY \neq \emptyset$. 
-\end{lemma}
-\begin{proof}
-	Denote by 
-	$$
-	\mathscr A' = \left\{\al \in \mathscr A~|~ \sU_\al \cap \sY \neq \emptyset\right\}
-	$$
-	and for any $\al \in \mathscr A'$ we select $x_\a \in \sU_\al \cap \sY$. If $\mathscr A'$ is not finite then since $\sY$ is compact then there is an infinite directed subset $\mathscr A'' \subset \mathscr A'$ such that the net $\left\{x_\a \right\}_{\a \in \mathscr A''}$ is convergent. If $y = \lim_{\a \in \mathscr A''}x_\a$ then any neighborhood of $y$ intersects with infinitely many sets $\sU_\al$. It is a contradiction with the Definition \ref{top_loc_fin_defn}.
-\end{proof}
-
-
-\begin{corollary}\label{top_cfs_cor}
-Let $\sX$ be a   topological space,  and let 
+Let $\sX$ be a locally compact Hausdorff space, and let $\sY \subset\sX$ be a compact subset.
+For all $x \in \sX$ select a positive $f_x \in C_c\left(\sX \right)$ such that $f_x\left(x \right)> 1$. If 
 $$
-1_{C_b\left( \sX\right) }= \sum_{ {\a}\in {\mathscr A}} f_\a
-$$ 
-be a partition of unity
-(cf. \ref{top_part_of_unity_defn}). For any compact subset $\sY \subset \sX$  there is a finite subset $\mathscr A_\sY\subset \mathscr A$ such that
+\sU_x \bydef \left\{\left. x\in\sX\right| f_x\left( x\right)> 1 \right\}
+$$  
+then there is a finite set $\left\{x_1,..., x_n \right\}\subset \sX$ such that $\sY \subset \bigcup_{j=1}^n \sU_{x_j}$.
+If $f \bydef f_{x_1} + ... +  f_{x_n}$ then $f\left(x \right) > 1$ for all $x \in \sV$. If 
+$$
+f_j \bydef \frac{f_{x_j}}{\max\left(1, f\right)}\in C_c\left(\sX \right) 
+$$
+then
 \be\label{top_cfs_eqn}
-\sum_{ {\a}\in {\mathscr A_\sY}} f_\a\left(x\right)= 1\quad \forall x \in \sY.
+\sum_{j = 1}^n f_j\left( x\right) = 1\quad\forall x \in \sY.
 \ee
-\end{corollary}
-\begin{proof}
-	From the Definition \ref{top_part_of_unity_defn} it follows that the family $\left\{\supp f_\a\right\}_{ {\a}\in {\mathscr A}}$ is locally finite, from the Lemma \ref{top_fin_int_lem} it turns out that the set
-	$$
-	\mathscr A_\sY \bydef \left\{\left.\a\in \mathscr A\right| \supp f_\a \cap \sY \neq \sY\right\}
-	$$ 
-	is finite.
-\end{proof}
- \begin{defn}\label{top_cfs_defn}
- 	In the situation of the Corollary \ref{top_cfs_cor} we say that the finite sum
- 	$$
-\sum_{ {\a}\in {\mathscr A_\sY}} f_\a = \sum_{ {i}=1}^m f_{\a_j}
- 	$$
-is a \textit{covering sum} for $\sY$.
+
+\begin{defn}\label{top_cfs_defn}
+	Let $\sY\subset\sX$ is a compact subset of a locally compact Hausdorff space $\sX$. The given by the Equation \eqref{top_cfs_eqn} sum 
+	is said to be a \textit{covering sum} for $\sY$.
 \end{defn}
+\begin{definition}\label{top_cfs_sub_defn}
+Let $\sX$ be a locally compact, locally connected, Hausdorff space, and let $p: \widetilde \sX\to\sX$ be a covering. A covering sum $ \sum_{j = 1}^n f_j$ of compact set $\sY\subset\sX$ is said to be \textit{subordinated to} $p$ if following condition hold:
+\begin{enumerate}
+	\item [(a)] For all $j=1,..., n$ the open set $\sU_j\bydef\left\{\left. x\in\sX\right| f_j\left( x\right)> 0 \right\}$ is connected.
+	\item[(b)] The set $\sU_j$ is evenly covered by $p$ (cf. Definition \ref{comm_cov_pr_defn}).
+\end{enumerate}
+\end{definition}
+\begin{remark}
+A direct construction shows that  subordinated covering sums always exist for all coverings of all locally compact, locally connected, Hausdorff spaces.
+\end{remark}
+\begin{remark}\label{top_smooth_part_unity_rem}
+	Similarly to the Proposition \ref{top_smooth_part_unity_prop} if $\sX$ is a smooth manifold that for all compact set $\sY$ there is covering sum 
+	$
+	\sum_{j = 1}^n f_j\left( x\right) = 1\quad\forall x \in \sY.
+	$
+	such that $f_j$ is smooth for all $j = 1, ..., n$.
+\end{remark}
+
 
 
 \section{Transitive coverings}
@@ -4819,14 +4760,13 @@ It contradicts with our assumption.
 	\ee
 \end{definition}
 \begin{empt}\label{top_lconn_part}
-	Let $\sX$ be a connected, locally connected,  Lindel\"{o}f, paracompact, locally compact Hausdorff space. Let $p: \widetilde{   \mathcal X }\to \sX$ is a transitive covering such that $G\left(\left.\widetilde{\sX}~\right|\sX\right)$ is countable. There is a countable set $\left\{\sU_\a\right\}_{\a \in \mathscr A}$  set of open connected subsets of $\sX$ such that following conditions hold:
+	Let $\sX$ be a connected, locally connected locally compact Hausdorff space. Let $p: \widetilde{   \mathcal X }\to \sX$ is a transitive covering. There is a  set $\left\{\sU_\a\right\}_{\a \in \mathscr A}$  set of open connected subsets of $\sX$ such that following conditions hold:
 	\begin{itemize}
 		\item $\sX = \cup_{\a \in \mathscr A} \sU_\a$.
 		\item The closure of $\sU_{\a}$ is a compact set for all $\a \in \mathscr A$.
 		\item $\sU_\a$ is evenly covered by $p$.
-		\item The family $\left\{\sU_\a\right\}$ is locally finite (cf. Definition \ref{top_loc_fin_defn}).
 	\end{itemize}
-	From the Theorem \ref{top_part_u_thm}  it turns out that there is a partition of unity $\sum_{\a \in \mathscr A}a_\a\left(x\right)=1$ subordinated $\left\{\sU_\a\right\}_{\a \in \mathscr A}$. Consider the situation \ref{top_lconn_part}. For any $\a \in \mathscr A$ we select an open connected set $\widetilde \sU_\a \in \widetilde\sX$. The family $\left\{g \widetilde \sU_\a\right\}_{\left(g, \a\right)\in  G\left(\left.\widetilde{\sX}~\right|\sX\right)\times \mathscr A}$ is locally finite and 
+  For any $\a \in \mathscr A$ we select an open connected set $\widetilde \sU_\a \in \widetilde\sX$. One has
 	$$
 	\widetilde \sX=\bigcup_{\left(g, \a\right)\in  G\left(\left.\widetilde{\sX}~\right|\sX\right)\times \mathscr A} 	g \widetilde \sU_\a
 	$$
@@ -4843,7 +4783,7 @@ It contradicts with our assumption.
 \end{remark}
 
 \begin{empt}\label{top_path_lift_empt}
-	Let $\sX$ be a connected, locally connected,  Lindel\"{o}f, paracompact, Hausdorff space, and let  $p: \widetilde{   \mathcal X }\to \sX$ be a transitive covering, such that $\widetilde{   \mathcal X }$ is connected. Consider a described in \ref{top_lconn_part} family $\left\{\sU_\a\right\}_{\a \in \mathscr A}$ of open subsets of $\sX$. Denote by $\left\{\widetilde \sU_{\widetilde \a }\right\}_{\widetilde{ \a}\in \widetilde{\mathscr A}}~$ the $p$-lift of $\left\{\sU_\a\right\}_{\a \in \mathscr A}$ (cf. Definition \ref{top_lconn_defn} and Equation \eqref{top_lconn_eqn}).
+	Let $\sX$ be a connected, locally connected, Hausdorff space, and let  $p: \widetilde{   \mathcal X }\to \sX$ be a transitive covering, such that $\widetilde{   \mathcal X }$ is connected. Consider a described in \ref{top_lconn_part} family $\left\{\sU_\a\right\}_{\a \in \mathscr A}$ of open subsets of $\sX$. Denote by $\left\{\widetilde \sU_{\widetilde \a }\right\}_{\widetilde{ \a}\in \widetilde{\mathscr A}}~$ the $p$-lift of $\left\{\sU_\a\right\}_{\a \in \mathscr A}$ (cf. Definition \ref{top_lconn_defn} and Equation \eqref{top_lconn_eqn}).
 \end{empt}
 \begin{definition}\label{top_path_desc_defn}
 	Consider the situation \ref{top_path_lift_empt}.  If $\widetilde{\mathfrak p}=\left(\widetilde\sU_{\widetilde\a_1},...,\widetilde\sU_{\widetilde\a_n}\right)$ is a $\left\{\widetilde \sU_{\widetilde \a }\right\}$-path  then clearly $\mathfrak p=\left(p\left( \widetilde\sU_{\widetilde\a_1}\right) ,...,p\left( \sU_{\widetilde\a_n}\right) \right)$ is a $\left\{\sU_\a\right\}$-path. We say that ${\mathfrak p}$ is the $p$-\textit{descend} of $\widetilde{\mathfrak p}$ and we write
@@ -5029,32 +4969,9 @@ It contradicts with our assumption.
 
 
 
-\begin{lemma}\label{top_fin_comp_lin_cov_lem!}DELETE!!!
-	Let $\mathcal X$ be a connected, locally connected,  locally compact, Hausdorff, Lindel\"{o}f space. Suppose that  $\widetilde{\mathcal X}\to \sX$ be a transitive finite-fold covering.   Then for any $x_0 \in \mathcal X$ there is  a  finite or countable sequence $\sU_1 \subsetneqq  ...\subsetneqq \sU_n\subsetneqq ...$ of connected open subsets of $\sX$ such that
-	\begin{enumerate}
-		\item[(i)] $x_0 \in \sU_1$.
-		\item[(ii)]  For any $n \in \N$ the closure of $\sU_n$ is compact.
-		\item[(iii)] $\cup~ \sU_n = \sX$.
-		\item[(iv)] The space $p^{-1}\left( \sU_n\right)$ is connected for any $n \in \N$.
-	\end{enumerate}  
-\end{lemma}
-\begin{proof}
-	(i)-(iii) From the Lemma \ref{fin_comp_lin_lem} it follows that there is a  finite or countable sequence $\sU_1 \subsetneqq  ...\subsetneqq \sU_n\subsetneqq ...$ of connected open subsets of $\sX$ such that conditions (i)-(iii) holds.\\
-	(iv)
-	Let $\widetilde x_0 \in p^{-1}\left( \sU_n\right)$ be any point, and let $\widetilde \sU^{\widetilde x_0}_n$ be a connected component of $p^{-1}\left( \sU_n\right)$ such that $\widetilde x_0\in \widetilde \sU^{\widetilde x_0}_n$. If $G_n = \left\{\left.g\in G\left( \widetilde{   \mathcal X }~|~\sX\right)\right| g   \widetilde x_0\in \sU^{\widetilde x_0}_n\right\}$ then there is  
-	is a nondecreasing sequence of  subgroups
-	$$
-	G_1 \subseteq ... \subseteq G_n \subseteq ...
-	$$
-	Since $G\left( \widetilde{   \mathcal X }~|~\sX\right)$ is finite there is $m \in \N$ such that $G_k = G_m$ for every $k \ge m$. If $J \in G\left( \widetilde{   \mathcal X }~|~\sX\right)$ is a set of representatives of $G\left( \widetilde{   \mathcal X }~|~\sX\right)/G_m$ and  $\widetilde\sU^{\widetilde x_0}= \cup_{n \in \N} \widetilde\sU^{\widetilde x_0}_n$ then one has
-	$$
-	\widetilde\sX = \bigcup_{n \in \N}p^{-1}\left(\sU_n \right) = \bigsqcup_{g \in J}g \widetilde\sU^{\widetilde x_0}
-	$$
-	Since the space $\widetilde\sX$ is connected the set $J$ is a singleton. It follows that $p^{-1}\left(\sU_k \right)= \widetilde\sU^{\widetilde x_0}_k$ for every $k \ge m$ i.e. $p^{-1}\left(\sU_k \right)$ is connected. So the finite or countable subsequence $\sU_m \subsetneqq  ...\subsetneqq \sU_k\subsetneqq ...$ of $\sU_1 \subsetneqq  ...\subsetneqq \sU_n\subsetneqq ...$ satisfies to the condition (iv).\\
-\end{proof}
 
 \begin{lemma}\label{top_conn_cov_lem}
-	Let $\sX$ be a  connected, locally connected, locally compact, Hausdorff space, and let $\sU \subset \sX$ be a connected open subspace. If $p:	\widetilde{   \mathcal X } \to \mathcal X$ is a transitive covering, !!!! CONNECTED DELETE such that such that the space $\widetilde{\sU} = p^{-1}\left(\sU \right)$ is connected then the restriction $p|_{\widetilde{\sU}}: \widetilde{\sU}\to {\sU}$ is a transitive covering. Moreover  the map
+	Let $\sX$ be a  connected, locally connected, locally compact, Hausdorff space, and let $\sU \subset \sX$ be a connected open subspace. The restriction $p|_{\widetilde{\sU}}: \widetilde{\sU}\to {\sU}$ is a transitive covering. Moreover  the map
 	\be\label{top_res_iso_eqn}
 	\begin{split}
 		h:	G\left(\left. \widetilde{   \sX }~\right|\sX\right)\to G\left(\left. \widetilde{   \sU }~\right|\sU\right),\\
@@ -5396,12 +5313,10 @@ Let us define $\left\|\cdot\right\|: C\left(\sX, \left\{A_x\right\},\sF\right)\t
 
 \begin{lemma}
 	Let $\sF$ be a continuity structure $\sF$ for $\sX$ {and the} $\left\{A_x\right\}$, such that $\sF \subset C_0\left( \sX, \left\{A_x\right\}, \sF\right)$.
-	If $\sX$ is paracompact (cf. Definition \ref{top_paracompact_defn})	then the space $C_0\left(\sX \right)\sF$ is dense in 	$C_0\left(\sX, \left\{A_x\right\}, \sF \right)$ with respect to the norm topology.
+The space $C_0\left(\sX \right)\sF$ is dense in 	$C_0\left(\sX, \left\{A_x\right\}, \sF \right)$ with respect to the norm topology.
 \end{lemma}
 \begin{proof}
-	Suppose $a \in C_0\left(\sX, \left\{A_x\right\}, \sF \right)$ is represented by the family $\left\{a_x \in A_x\right\}$ and let $\eps > 0$. For any $x' \in \sX$ we select an open neighborhood $\sU_{x'} \subset \sX$ and $a^{x'} \in \sF$  represented by the family $\left\{a'_x \in A_x\right\}$ such that $\left\| a_x  - a^{x'}_x\right\|< \eps/4$ for all $x \in \sU_{x'}$. From  $\sX = \cup_{x' \in \sX} \sU_{x'}$ and the Theorem \ref{top_part_u_thm} there exists a partition of unity 
-	$$\sum_{x' \in \sX}f_{x'}\left(x\right)=1\quad \forall x \in \sX
-	$$ dominated by $\left\{\mathcal{U}_{x'} \right\}$. The  set $\sU \bydef \left\{\left. x \in \sX~\right| \left\| a_x\right\| \ge \eps/4\right\}$ is compact so there is a finite covering sum 
+	Suppose $a \in C_0\left(\sX, \left\{A_x\right\}, \sF \right)$ is represented by the family $\left\{a_x \in A_x\right\}$ and let $\eps > 0$. For any $x' \in \sX$ we select an open neighborhood $\sU_{x'} \subset \sX$ and $a^{x'} \in \sF$  represented by the family $\left\{a'_x \in A_x\right\}$ such that $\left\| a_x  - a^{x'}_x\right\|< \eps/4$ for all $x \in \sU_{x'}$.  The  set $\sU \bydef \left\{\left. x \in \sX~\right| \left\| a_x\right\| \ge \eps/4\right\}$ is compact so there is a finite covering sum 
 	$
 	\sum_{j=1}^n f_{x_j}
 	$
@@ -6723,84 +6638,6 @@ Otherwise from the Equation \eqref{top_hom_eqn} it turns out that  $\widetilde \
 
 \paragraph*{}
 
-Let $\mathcal X$ be a second-countable, locally compact, Hausdorff space. Let $p: \widetilde{\mathcal X} \to \mathcal X$ be a transitive covering (cf. Definition \ref{top_transitive_defn}). It turns out that for any $x \in \mathcal X$ there is a connected open neighborhood  $\mathcal U_x$ evenly covered by $p$.   Since $\mathcal X$ be a second-countable there is a countable subset $\left\{ x_\a\right\}_{\a \in \mathscr A} \subset \mathcal X$ such that $\mathcal X = \bigcup_{\a \in \mathscr A} \mathcal U_{x_\a}$. Denote by $\mathcal U_\a \stackrel{\text{def}}{=}\mathcal U_{x_\a}$. From the Theorems \ref{lindel_thm} and \ref{lindel_para_thm} it turns out that $\mathcal X$ is paracompact, and from the Theorem \ref{top_part_u_thm} it turns out that there is a partition of unity
-\be\label{top_sup_part_eqn}
-\sum_{\a \in \mathscr A}a_\a=1_{C_b\left( \mathcal X\right) }
-\ee
-dominated by $\left\{\mathcal U_\a\right\}_{\a \in \mathscr A}$. 
-\begin{lemma}\label{top_part_of_unity_strict_lem}
-	If $\mathcal X$ is a second countable, locally compact, Hausdorff space and 
-	\be\label{top_part_of_unity_strict_eqn}
-	1_{C_b\left(\mathcal X \right) }= \sum_{\a \in \mathscr A} a_\a
-	\ee
-	is a partition of unity
-	(cf. Definition \ref{top_part_of_unity_defn} then the series \eqref{top_part_of_unity_strict_eqn} is convergent with respect to the strict topology on the multiplier algebra $M\left(C_0\left(\mathcal X \right)  \right)$ (cf. Definition \ref{strict_topology}).
-\end{lemma}
-
-\begin{proof}
-	Suppose the partition of unity is dominated by a countable covering $\mathcal X = \bigcup_{\a \in \mathscr A} \mathcal U_\a$. If $a \in C_0\left(\mathcal X \right)$ and  $\eps > 0$ then from the Definition \ref{c_c_def_2} it turns out that there is a compact set $\mathcal U \subset \mathcal X$ such that $\left|a\left( x\right) \right| <\eps/2$ for every $x \in \mathcal X \setminus \mathcal U$. Since $\sU$ is compact from the Corollary \ref{top_cfs_cor} it turns out that there is a covering sum 
-	$
-	\sum_{ {\a}\in {\mathscr A_0}} a_\a 
-	$
-	for $\sU$ (cf. Definition \ref{top_cfs_defn}) where 
-	the  subset $\mathscr A_0\subset \mathscr A$ if finite. For all $x \in \sU$ one has $\sum_{ {\a}\in {\mathscr A_0}} a_\a\left(x \right)= 1$, it follows that 
-	$$
-	\left\|a- a\left( \sum_{\a \in \mathscr A_0}a_\a\right)  \right\|+\left\|a- \left( \sum_{\a \in \mathscr A_0}a_\a\right) a \right\|< \eps. 
-	$$ 
-\end{proof}
-\begin{remark}\label{comm_fn_bt_lim_rem!!!}!!! DELETE
-	In the situation of the Lemma \ref{fin_comp_lin_empt} if $f_n \in C_0\left( \sX\right)$ is given by \eqref{fin_comp_lin_eqn} then  from the Lemma \ref{top_part_of_unity_strict_lem} it follows that there is the limit
-	\be\label{comm_fn_bt_lim_eqn}
-		1_{C_b\left(\mathcal X \right) }= \bt\text{-}\lim_{n\to \infty} f_n.
-	\ee
- with respect to the strict topology on the multiplier algebra $M\left(C_0\left(\mathcal X \right)  \right)$ (cf. Definition \ref{strict_topology}).
-\end{remark}
- 
-\begin{lemma}\label{top_sub_part_lem}
-	Let us consider the situation described in \ref{top_lconn_part}. For every $\a \in \mathscr A$ we select an open connected subset $\widetilde{\sU}_\a$  of $\widetilde{\sX}$ which is homeomorphically mapped onto $\sU_\a$. One has
-	
-	\begin{enumerate}
-		\item[(i)] 
-		\be\label{top_comply_union_eqn}
-		\widetilde{\sX} =\bigcup_{g \in G\left(\left.\widetilde{\sX}~\right|\sX\right),~ \a \in \mathscr A  } g\widetilde{\sU}_\a
-	\ee
-		\item [(ii)] If $\widetilde{a}_\a = \lift_{\widetilde{\sU}_\a}\left( a_\a\right)  \in C_0\left(\widetilde{   \mathcal X } \right)$ then the series 
-		\be\label{top_comply_part_eqn}
-		\sum_{\left( g, \al\right)  \in G\left(\left.\widetilde{\sX}~\right|\sX\right)\times \mathscr A  } g\widetilde{a}_\a = 1_{C_b\left(\widetilde{\mathcal X} \right) }
-		\ee
-		is a partition of unity dominated by the family 
-		\be\label{top_cov_fam_eqn}
-		\left\{g \widetilde{\mathcal U}_\a\right\}_{g \in G\left(\left.\widetilde{\sX}~\right|\sX\right),~\a \in \mathscr A }.
-		\ee
-	\end{enumerate}
-
-\end{lemma}
-\begin{proof}(i)
-Let $\widetilde{x}_0 \in \widetilde{\mathcal X}$ and let $x_0 = p\left(\widetilde{x}_0  \right)$. There is $\a \in \mathscr A$ such that $x_0 \in \sU_\a$. If $\widetilde{x}'_0  \in \widetilde{\mathcal U}_\a$ is such that $p\left( \widetilde{x}'_0\right) = x_0$ then there is $g \in  G\left(\left.\widetilde{\sX}~\right|\sX\right)$ such that $\widetilde{x}_0 = g\widetilde{x}'_0$, hence one has $\widetilde{x}_0 \in g \widetilde{\mathcal U}_\a$.\\
-(ii) 
-The series \eqref{top_sup_part_eqn} is a partition of unity it turns out there is an open connected neighborhood $\mathcal U$ of $x_0$ and a finite subset $\mathscr A_0 \subset \La$ such that $\mathcal U \bigcap \mathcal \supp~ a_\a = \emptyset$ for any $\a \in \mathscr A \setminus \mathscr A_0$ and $\mathcal U \bigcap \mathcal U_\a \neq \emptyset$ for any $\a \in  \mathscr A_0$.
-There is the unique connected open neighborhood  $\widetilde{\mathcal U}$ of $\widetilde{x}_0$ such that $\widetilde{\mathcal U}$ which is mapped homeomorphically onto $\sU$. For any $\a \in \mathscr A_0$ there is $\mathcal U \bigcap \supp~ a_\a\neq\emptyset$, so there is $x_\a \in \mathcal U \bigcap \supp~ a_\a$. Otherwise there are  $\widetilde{x}_\a \in \widetilde{\mathcal U}$, $\widetilde{x}'_\a \in \widetilde{\mathcal U}_\a$ such that $p\left(\widetilde{x}_\a \right)=  p\left(\widetilde{x}'_\a \right)= x_\a$. The covering $p$ is a transitive, so there is the unique $g_\a \in G\left(\left.\widetilde{\sX}~\right|\sX\right)$ such that $g_\a \widetilde{x}'_\a = \widetilde{x}_\a$. It follows that $g_\a \supp~ \widetilde{a}_\a \bigcap \widetilde{\mathcal U}\cong \supp~ a_\a \bigcap {\mathcal U}$. So there is a finite subset 
-$$
-\widetilde{\mathscr A}_0=\left\{ g_\a \widetilde{\mathcal U}_\a\right\}_{\a \in \mathscr A_0} \subset \left\{g \widetilde{\mathcal U}_\a\right\}_{g \in G\left(\left.\widetilde{\sX}~\right|\sX\right),~\a \in \mathscr A }
-$$ 
-such that $\widetilde{\mathcal U} \bigcap g_\a \supp~ \widetilde{a}_\a \neq \emptyset$ if $\mathcal U \bigcap g_\a \supp~ \widetilde{a}_\a \in \widetilde{\La}_0$ and $\widetilde{\mathcal U} \bigcap g_\a \widetilde{\mathcal U}_\a =\emptyset$ if $\widetilde{\mathcal U} \bigcap g_\a \supp~ \widetilde{a}_\a \notin \widetilde{\La}_0$. It follows that the family \eqref{top_cov_fam_eqn} is locally finite. From 
-$$
-\sum_{\a \in \mathscr A_0} a\left(x_0 \right) = 1
-$$
-it follows that
-$$
-\sum_{\a \in \mathscr A_0} g_\a \widetilde{a}\left(\widetilde{x}_0 \right) = 1
-$$
-i.e. the series \eqref{top_comply_part_eqn} is a partition of unity dominated by the family \eqref{top_cov_fam_eqn}.\\
-%(ii) Follows from the Lemma \ref{top_part_of_unity_strict_lem}.
-\end{proof}
-\begin{definition}\label{comm_comply_defn}
-A partition of unity \eqref{top_comply_part_eqn} given by the Lemma \ref{top_sub_part_lem} is said to be \textit{compliant to} the covering  $p:\widetilde{\mathcal X}\to{\mathcal X}$. The union \eqref{top_comply_union_eqn}, i.e.
-$$
-		\widetilde{\sX} =\bigcup_{g \in G\left(\left.\widetilde{\sX}~\right|\sX\right),~ \a \in \mathscr A  } g\widetilde{\sU}_\a
-$$
-is also said to be \textit{compliant to} the covering  $p:\widetilde{\mathcal X}\to{\mathcal X}$.
-\end{definition}
 
 \begin{lemma}\label{top_comp_sum_lem}
 		Let $\widetilde{   \mathcal X }$ be a second-countable, connected, locally connected, locally compact, Hausdorff space. Let $p: \widetilde{   \mathcal X }\to \sX$ be a transitive covering. Let us use the notation of the Definition \ref{top_cs_funct_b_defn}.  Any $\widetilde a \in A_c\left( \widetilde{\sX}\right)$ can be represented by the following way
@@ -6810,396 +6647,58 @@ is also said to be \textit{compliant to} the covering  $p:\widetilde{\mathcal X}
 		where  $ \widetilde a_j\in A_c\left( \widetilde{   \mathcal X }\right)$ and the set $\widetilde \sU_j = \left\{\left.\widetilde x \in \widetilde{   \mathcal X}\right|\widetilde a_j\left(\widetilde x\right)\neq 0 \right\}$ is homeomorphically mapped onto $p\left( \widetilde \sU_j\right)$   for all $j = 1,..., m$. Moreover if	$\widetilde a$ is positive then one can select positive $\widetilde a_1,..., \widetilde a_m$. 
 \end{lemma}
 \begin{proof}
-Consider the compliant to $p$ 
+If $\sum_{j=1}^mf_j$ is  a subordinated to $p$ covering  sum for $\supp \widetilde  a$ (cf. Definitions  \ref{top_cfs_defn}  and  \ref{top_cfs_sub_defn}) then one has
 $$
-1_{C_b\left(\widetilde \sX\right)} = \sum_{ {\a}\in {\mathscr A}} \widetilde a_\a
-$$
-partition of unity (cf. Definition \ref{comm_comply_defn}).  The set $\widetilde \sU \bydef\supp \widetilde a$ is compact so from the Corollary \ref{top_cfs_cor} it turns out that there is a covering sum 
-	$$
-	\sum_{ {\a}\in {\mathscr A_\sU}} f_\a = \sum_{ {i}=1}^m f_{\a_j}
-$$
-for $\sU$ (cf. Definition \ref{top_cfs_defn}). So one has
-$$
-	\widetilde a =  f_{\a_1}	\widetilde a 	  + ... +  f_{\a_m}	\widetilde a 
+	\widetilde a =  f_{1}	\widetilde a 	  + ... +  f_{m}	\widetilde a 
 $$
 or, equivalently
 $$
 	\widetilde a =	\widetilde a_1 + ... + \widetilde a_m 
 	$$
-	where $\widetilde a_j =  f_{\a_j} \widetilde a 	$ for every $j=1,...,m$. If $\widetilde a$ is positive then $\widetilde a_j$ is positive for each $j=1,...,m$. From
-	$$
-\widetilde \sU_j \subset 	\widetilde \sU_{\a_j}
-	$$ 
-	it follows that  $\widetilde \sU_j$ is homeomorphically mapped onto $p\left( \widetilde \sU_j\right)$.
+	where $\widetilde a_j \bydef  f_{\a_j} \widetilde a 	$ for every $j=1,...,m$. If $\widetilde a$ is positive then $\widetilde a_j$ is positive for each $j=1,...,m$. 
 \end{proof}
-
-
-\begin{lemma}\label{top_dis_complient_lem}
-If $p: \widetilde{\sX} \to \sX$ is a covering and the union 
-$$
-\widetilde{\sX} =\bigcup_{g \in G\left(\left.\widetilde{\sX}~\right|\sX\right),~ \a \in \mathscr A  } g\widetilde{\sU}_\a
-$$
-is {compliant to} $p: \widetilde{\sX} \to \sX$ (cf. Definition \ref{comm_comply_defn}) then there is the natural homeomorphism
-\be\label{top_dis_complient_eqn}
-\begin{split}
-\widetilde{\sX} \cong\bigsqcup_{g \in G\left(\left.\widetilde{\sX}~\right|\sX\right),~ \a \in \mathscr A  } g\widetilde{\sU}_\a / \sim\\
-\mathrm{where}~\widetilde{x}' \sim \widetilde{x}'' \Leftrightarrow  ~ \widetilde{x}'\in  g'\widetilde{\sU}_{\a'}~\mathrm{AND}~ \widetilde{x}''\in  g''\widetilde{\sU}_{\a''}~\mathrm{AND}\\ \mathrm{AND}~ g'\widetilde{\sU}_{\a'}\cap g''\widetilde{\sU}_{\a''}\neq \emptyset ~\mathrm{AND}~ p\left(\widetilde{x}' \right) = p\left(\widetilde{x}'' \right).
-\end{split}
-\ee
-\end{lemma}
-\begin{proof}
-If $\widetilde{x}'\in  g'\widetilde{\sU}_{\a'}$,  $\widetilde{x}''\in  g''\widetilde{\sU}_{\a''}$ and $g'\widetilde{\sU}_{\a'}\cap g''\widetilde{\sU}_{\a''}= \emptyset$ then clearly $\widetilde{x}'\neq \widetilde{x}''$. Otherwise if $g'\widetilde{\sU}_{\a'}\cap g''\widetilde{\sU}_{\a''}\neq \emptyset$ then $g'\widetilde{\sU}_{\a'}\cap g''\widetilde{\sU}_{\a''}$ is homeomorphically mapped onto $p\left( g'\widetilde{\sU}_{\a'}\cap g''\widetilde{\sU}_{\a''}\right)$, hence from $p\left(\widetilde{x}' \right) = p\left(\widetilde{x}''\right) $ it turns out $\widetilde{x}'= \widetilde{x}''$. 
-\end{proof}
-\begin{remark}\label{comm_unity_rem}
-If both ${\mathcal X}$ and $ \widetilde{\mathcal X}$ are compact and $G\left(\left.\widetilde{\sX}~\right|\sX\right)$ is finite then one can select a finite $\mathscr A$. Moreover
-if $\widetilde{\mathscr A} = G\left(\left.\widetilde{\sX}~\right|\sX\right)\times \mathscr A$ and $\widetilde{e}_{\left(g,  \a\right) }= g\sqrt{\widetilde a_\a}$ one has
-\be\label{comm_unity_sum_eqn}
-1_{C\left(\widetilde{\mathcal X} \right) }= \sum_{\widetilde\a \in \widetilde{\mathscr A} }\widetilde{e}^2_{\widetilde{\a}}
-\ee
-If $g \in G\left(\left.\widetilde{\sX}~\right|\sX\right)$ is not trivial then from $g \widetilde{\sU}_{\widetilde \a}\cap \widetilde{\sU}_{\widetilde \a} = \emptyset$ it follows that
-\be\label{comm_unity_orth_eqn}
-\begin{split}
-\widetilde{e}_{\widetilde{\a}}	\left(g \widetilde{e}_{\widetilde{\a}} \right) = 0.
-\end{split}
-\ee
-From the equations \eqref{comm_unity_sum_eqn} and \eqref{comm_unity_orth_eqn} it follows that
-\begin{equation}\label{comm_unity_eqn}
-\begin{split}
-1_{C\left(\widetilde{\mathcal X} \right) }= \sum_{\widetilde\a \in \widetilde{\mathscr A} }\widetilde{e}_{\widetilde{\a}} \left\rangle \right\langle \widetilde{e}_{\widetilde{\a}}
-\end{split}
-\end{equation}
-where $\widetilde{e}_{\widetilde{\a}} \left\rangle \right\langle \widetilde{e}_{\widetilde{\a}}$ means a compact operator induced by the $C^*$-Hilbert module structure given by \eqref{finite_hilb_mod_prod_eqn}. 
-\end{remark}
-%\subsection{Coverings and multipliers}
-%\begin{empt}\label{comm_cov_mull_empt}
-%	Let $\mathcal X$ be a locally compact Hausdorff space. If	$p: \widetilde{\mathcal X}\to\mathcal{X}$ is a covering of  then  $p$ is continuous ans surjective, hence there is the natural injective *-homomorphism
-%	$$
-%	C_0\left({\mathcal X}\right) \hookto M\left( C_0\left( \widetilde{\mathcal X} \right)\right) = C_b\left( \widetilde{\mathcal X}\right).
-%	$$
-%\end{empt}
-
 \begin{empt}
-Let $\sX$ be a  compact, Hausdorff space; and for each $x$ in $\sX$, let $A_x$ be a (complex) Banach space. Let us consider a continuity structure $\sF$ for $\sX$. If $p: \widetilde \sX \to \sX$ is a finite-fold covering then $C\left(\widetilde \sX\right)$ is a finitely generated $C\left( \sX\right)$-module (cf. Theorem \ref{pavlov_troisky_thm}). There is the map
-\be\label{top_tensor_comact_iso_eqn}
-\begin{split}
-\phi: C\left(\widetilde \sX\right)\otimes_{C\left( \sX\right)}C\left(\sX, 
-\left\{A_x\right\}, \sF \right) \to \lift_p\left[C\left(\sX, 
-\left\{A_x\right\}, \sF \right)\right];\\
-\sum_{j=1}^n \widetilde a_j \otimes \xi_j\mapsto  \sum_{j=1}^n\widetilde a_j \lift_p\left(\xi_j\right).
-\end{split}
-\ee
+	Let $\sX$ be a  compact, Hausdorff space; and for each $x$ in $\sX$, let $A_x$ be a (complex) Banach space. Let us consider a continuity structure $\sF$ for $\sX$. If $p: \widetilde \sX \to \sX$ is a finite-fold covering then $C\left(\widetilde \sX\right)$ is a finitely generated $C\left( \sX\right)$-module (cf. Theorem \ref{pavlov_troisky_thm}). There is the map
+	\be\label{top_tensor_comact_iso_eqn}
+	\begin{split}
+		\phi: C\left(\widetilde \sX\right)\otimes_{C\left( \sX\right)}C\left(\sX, 
+		\left\{A_x\right\}, \sF \right) \to \lift_p\left[C\left(\sX, 
+		\left\{A_x\right\}, \sF \right)\right];\\
+		\sum_{j=1}^n \widetilde a_j \otimes \xi_j\mapsto  \sum_{j=1}^n\widetilde a_j \lift_p\left(\xi_j\right).
+	\end{split}
+	\ee
 	The map $\phi$ can be described by the following way. If for all $j = 1,...,n$  and $\xi_j$ is represented by the family  $\left\{\xi_{j x}\right\}_{ x\in  \sX}$ respectively then $\phi\left( \sum_{j=1}^n \widetilde a_j \otimes \xi_j\mapsto  \widetilde a_j \lift_p\left(\xi_j\right)\right)$ is represented by the family
 	\be\label{top_tensor_fam_eqn}
 	\left\{\sum_{j=1}^n \widetilde a_{j}\left(\widetilde x \right)  c^{-1}_{\widetilde x}\left( \xi_{j x}\right)  \right\}_{{\widetilde x}\in {\widetilde \sX}}\quad  \text{ where } c_{\widetilde x}\text{ is given by } \eqref{top_ct_iso_eqn}.
 	\ee
 \end{empt}
+
+
 \begin{lemma}\label{top_tensor_comact_lem}
-The given by \eqref{top_tensor_comact_iso_eqn} map $\phi$ is the isomorphism of left $C\left(\widetilde \sX\right)$-modules.
+	The given by \eqref{top_tensor_comact_iso_eqn} map $\phi$ is the isomorphism of left $C\left(\widetilde \sX\right)$-modules.
 \end{lemma}
 \begin{proof}
-For all $\widetilde a \in C\left(\widetilde\sX\right)$ one has
+	For all $\widetilde a \in C\left(\widetilde\sX\right)$ one has
 	\bean
 	\phi\left(\widetilde a  \sum_{j=1}^n \widetilde a_j \otimes \xi_j \right)= \phi\left( \sum_{j=1}^n\widetilde a  \widetilde a_j \otimes \xi_j \right)=\\= \sum_{j=1}^n\widetilde a  \widetilde a_j \otimes \lift_p\left(\xi_j\right)= \widetilde a\sum_{j=1}^n  \widetilde a_j \otimes \lift_p\left(\xi_j\right)=\widetilde a\phi\left(  \sum_{j=1}^n \widetilde a_j \otimes \xi_j \right),
 	\eean
 	i.e. $\phi$ is the homomorphism of left $C\left(\widetilde \sX\right)$-modules.
-From the equation \eqref{comm_unity_sum_eqn} it follows that
-\be\label{top_tensore_fam_eqn}
-\begin{split}
-	\sum_{j=1}^n \widetilde a_j \otimes \xi_j= \sum_{\widetilde\a \in \widetilde{\mathscr A} } \sum_{j=1}^n \widetilde{e}_{\widetilde{\a}}\widetilde{e}_{\widetilde{\a}}\widetilde a_j \otimes \xi_j= \sum_{\widetilde\a \in \widetilde{\mathscr A} } \sum_{j=1}^n \widetilde{e}_{\widetilde{\a}} \desc_p\left(\widetilde{e}_{\widetilde{\a}}\widetilde a_j \right) \otimes \xi_j = \\
-	\sum_{\widetilde\a \in \widetilde{\mathscr A} } \sum_{j=1}^n \widetilde{e}_{\widetilde{\a}}\otimes \desc_p\left(\widetilde{e}_{\widetilde{\a}}\widetilde a_j \right)  \xi_j.
-\end{split}
-\ee
-If $\phi\left(\sum_{j=1}^n \widetilde a_j \otimes \xi_j \right) = 0$ then 
-from \eqref{top_tensor_fam_eqn}  it follows that $\sum_{j=1}^n \widetilde a_{j}\left(\widetilde x \right)  c^{-1}_{\widetilde x}\left( \xi_{j x}\right)=0$ for all $\widetilde x \in \widetilde\sX$. It turns out that $\sum_{j=1}^n \widetilde{e}_{\widetilde{\a}}\widetilde a_{j}\left(\widetilde x \right)  c^{-1}_{\widetilde x}\left( \xi_{j x}\right)=0$, hence one has $\desc_p\left(\widetilde{e}_{\widetilde{\a}}\widetilde a_j \right)  \xi_j = 0$, and taking into account \eqref{top_tensore_fam_eqn} we conclude that $\sum_{j=1}^n \widetilde a_j \otimes \xi_j=0$, i.e. the map $\phi$ is injective. \\
-For all $\widetilde \xi \in \lift_p\left[C\left(\sX, 
-\left\{A_x\right\}, \sF \right)\right]$ one has
-$$
-\widetilde \xi = \phi\left( \sum_{\widetilde\a \in \widetilde{\mathscr A}} \widetilde{e}_{\widetilde{\a}}\otimes \desc_p\left( \widetilde{e}_{\widetilde{\a}} \widetilde \xi \right) \right), 
-$$
-hence the map $\phi$ is surjective.
-\end{proof}
-	
-	\begin{empt}
-		Let $\sX$ be a locally compact, paracompact, Hausdorff space; and for each $x$ in $\sX$, let $A_x$ be a (complex) Banach space. Let us consider a continuity structure $\sF$ for $\sX$. If $p: \widetilde \sX \to \sX$ is a covering then $C_c\left(\widetilde \sX\right)$ is a  $C_0\left( \sX\right)$-module. There is the map
-		\be\label{top_tensor_lccomact_iso_eqn}
-		\begin{split}
-			\phi: C_c\left(\widetilde \sX\right)\otimes_{C_0\left( \sX\right)}C\left(\sX, 
-			\left\{A_x\right\}, \sF \right) \to C_c\left( \lift_p\left[C\left(\sX, 
-			\left\{A_x\right\}, \sF \right)\right]\right) ;\\
-			\sum_{j=1}^n \widetilde a_j \otimes \xi_j\mapsto  \widetilde a_j \lift_p\left(\xi_j\right)
-		\end{split}
-		\ee
-		The map $\phi$ can be described by the following way. If for all $j = 1,...,n$  and $\xi_j$ is represented by the family  $\left\{\xi_{j x}\right\}_{ x\in  \sX}$ respectively then $\phi\left( \sum_{j=1}^n \widetilde a_j \otimes \xi_j\mapsto  \widetilde a_j \lift_p\left(\xi_j\right)\right)$ is represented by the family
-		\be\label{top_tensor_lcfam_eqn}
-		\left\{\sum_{j=1}^n \widetilde a_{j}\left(\widetilde x \right)  c^{-1}_{\widetilde x}\left( \xi_{j x}\right)  \right\}_{{\widetilde x}\in {\widetilde \sX}}\quad  \text{ where } c_{\widetilde x}\text{ is given by } \eqref{top_ct_iso_eqn}.
-		\ee
-	\end{empt}
-	\begin{lemma}\label{top_tensor_lcomact_lem}
-		The given by \eqref{top_tensor_lccomact_iso_eqn} map $\phi$ is the isomorphism of left $C_0\left(\widetilde \sX\right)$-modules.
-	\end{lemma}
-	\begin{proof}
-Similarly the Lemma \ref{top_tensor_comact_lem}	one can proof that the map $\phi$ is a homomorphism of left $C_0\left(\widetilde \sX\right)$-modules.
-	Denote by
-		\be\label{comm_unity_lcsum_eqn}
-		1_{C_b\left(\widetilde{\mathcal X} \right) }= \sum_{\widetilde\a \in \widetilde{\mathscr A} }\widetilde{a}_{\widetilde{\a}}= \sum_{\widetilde\a \in \widetilde{\mathscr A} }\widetilde{e}^2_{\widetilde{\a}}; \quad \widetilde{e}_{\widetilde{\a}}\bydef\sqrt{\widetilde{a}_{\widetilde{\a}}}~\quad \forall\widetilde\a \in \widetilde{\mathscr A}
-		\ee
-	the {compliant to} the covering  $p:\widetilde{\mathcal X}\to{\mathcal X}$ (cf. Definition \ref{comm_comply_defn})	partition of unity. For any finite sum 	$\sum_{j=1}^n \widetilde a_j \otimes \xi_j\in C_c\left(\widetilde \sX\right)\otimes_{C\left( \sX\right)}C\left(\sX, 
-	\left\{A_x\right\}, \sF \right)$ the set $\widetilde \sU = \cup_{j =  1}^n \supp \widetilde a_j$ is the finite union of compact sets, so that $\widetilde \sU$ is compact. From the Corollary \ref{top_cfs_cor} it follows that there is a {covering sum} (cf. Definition \ref{top_cfs_defn}) for $\widetilde\sU$, i.e. a finite subset $\widetilde{\mathscr A}_{\widetilde{\sU}}\subset \widetilde{\mathscr A}$ such that 
-	$$
-	 \sum_{\widetilde\a \in \widetilde{\mathscr A_{\widetilde{\sU}}} }\widetilde{e}^2_{\widetilde{\a}}\left(\widetilde x \right)= 1 \quad \forall \widetilde x \in \widetilde\sU 
-	$$
-	It follows that 
-	$$
-		 \sum_{\widetilde\a \in \widetilde{\mathscr A_{\widetilde{\sU}}}} \widetilde{e}^2_{\widetilde{\a}}\widetilde a_j= \widetilde a_j\quad\forall j = 1,...,n.
-	$$
-	Hence one has
-		\be\label{top_tensore_lcfam_eqn}
-		\begin{split}
-			\sum_{j=1}^n \widetilde a_j \otimes \xi_j= \sum_{\widetilde\a \in \widetilde{\mathscr A}_{\widetilde{\sU}} } \sum_{j=1}^n \widetilde{e}_{\widetilde{\a}}\widetilde{e}_{\widetilde{\a}}\widetilde a_j \otimes \xi_j= \sum_{\widetilde\a \in \widetilde{\mathscr A}_{\widetilde{\sU}} } \sum_{j=1}^n \widetilde{e}_{\widetilde{\a}} \desc_p\left(\widetilde{e}_{\widetilde{\a}}\widetilde a_j \right) \otimes \xi_j = \\
-			\sum_{\widetilde\a \in \widetilde{\mathscr A}_{\widetilde{\sU}} } \sum_{j=1}^n \widetilde{e}_{\widetilde{\a}}\otimes \desc_p\left(\widetilde{e}_{\widetilde{\a}}\widetilde a_j \right)  \xi_j.
-		\end{split}
-		\ee
-		If $\phi\left(\sum_{j=1}^n \widetilde a_j \otimes \xi_j \right) = 0$ then from \eqref{top_tensor_lcfam_eqn}  it follows that $\sum_{j=1}^n \widetilde a_{j}\left(\widetilde x \right)  c^{-1}_{\widetilde x}\left( \xi_{j x}\right)=0$ for all $\widetilde x \in \widetilde\sX$. It turns out that $\sum_{j=1}^n \widetilde{e}_{\widetilde{\a}}\widetilde a_{j}\left(\widetilde x \right)  c^{-1}_{\widetilde x}\left( \xi_{j x}\right)=0$, hence one has $\desc_p\left(\widetilde{e}_{\widetilde{\a}}\widetilde a_j \right)  \xi_j = 0$, and taking into account \ref{top_tensore_lcfam_eqn} we conclude $\sum_{j=1}^n \widetilde a_j \otimes \xi_j=0$, i.e. the map $\phi$ is injective. \\
-		For all $\widetilde \xi \in C_c\left(\sX, 
-		\left\{A_x\right\}, \sF \right) \to C_c\left( \lift_p\left[C\left(\sX, 
-		\left\{A_x\right\}, \sF \right)\right]\right)$ the set $\supp \widetilde \xi$ is compact. From the Corollary \ref{top_cfs_cor} it follows that there is a {covering sum} for $\supp \widetilde \xi$, i.e. a finite subset $\widetilde{\mathscr A}_{\supp \widetilde \xi}\subset \widetilde{\mathscr A}$ such that 
-		$$
-		\sum_{\widetilde\a \in \widetilde{\mathscr A}_{\supp \widetilde \xi}} \widetilde{e}^2_{\widetilde{\a}}\left(\widetilde x \right)= 1 \quad \forall \widetilde x \in \supp \widetilde \xi,
-		$$
-		hence one has
-		\bean
-		\sum_{\widetilde\a \in \widetilde{\mathscr A}_{\supp \widetilde \xi}} \widetilde{e}^2_{\widetilde{\a}}\widetilde \xi = \widetilde \xi,\\
-		\widetilde \xi = \phi\left( \sum_{\widetilde\a \in \widetilde{\mathscr A}_{\widetilde{\sU}}} \widetilde{e}_{\widetilde{\a}}\otimes \desc_p\left( \widetilde{e}_{\widetilde{\a}} \widetilde \xi \right) \right), 
-		\eean
-		it turns out that the map $\phi$ is surjective.
-	\end{proof}
-\begin{empt}\label{top_homo_c_empt}
-Let $A$ be a {homogeneous of order} $n$ $C^*$-algebra (cf. Definition \ref{ctr_homo_defn}). If $\sX$ is the spectrum of $A$ then the Theorem \ref{dauns_hofmann_thm} yields an the inclusion $f: C_b\left(\sX \right)\hookto M\left( A\right)$. Taking into account that the $C^*$-algebra   $\mathbb{M}_n\left(\C \right)$ is unital it is  easy to prove that the inclusion $f$ induces the inclusion
-\be\label{top_ca_inc_eqn}
-C_0\left(\sX \right)\hookto A
-\ee
-The $C^*$-algebra $A$ can be represented by the following way
-$$
-A = C_0\left(\sX, \left\{\mathbb{M}_n\left(\C \right)_x\right\}_{x \in \sX}, A \right) 
-$$
-Suppose that $B$ is a left $A$-module such that $B = C_0\left(\sX, \left\{B_x\right\}_{x \in \sX}, B \right)$ such that there is the action $\mathbb{M}_n\left(\C \right)_x \times B_x \to B_x$ and the action $A \times B \to B$ is given by
-$$
-\left( \left\{a_x \in \mathbb{M}_n\left(\C \right)_x\right\}, \left\{\xi_x \in B_x\right\}\right) \mapsto   \left\{a_x \xi_x\right\}
-$$
-If $\sX$ is compact and $p:\widetilde\sX \to \sX$ is a finite-fold covering then there is the map
-\be\label{top_atensor_comact_iso}
-\begin{split}
-	\phi: \lift_p\left[C\left(\sX, \left\{\mathbb{M}_n\left(\C \right)_x\right\}_{x \in \sX}, A \right) \right] \otimes_{A}B \to \lift_p\left[C_0\left(\sX, \left\{B_x\right\}_{x \in \sX}, B \right)\right];\\
-	\sum_{j=1}^n \left\{\widetilde a_{j\widetilde x}\right\} \otimes \left\{\xi_{jx}\right\}\mapsto  \left\{\sum_{j=1}^n \widetilde a_{j}\left(\widetilde x \right)  c^{-1}_{\widetilde x}\left( \xi_{j x}\right)  \right\}_{{\widetilde x}\in {\widetilde \sX}}\\ \text{ where } c_{\widetilde x}\text{ is given by } \eqref{top_ct_iso_eqn}
-\end{split}
-\ee
-\end{empt}
-\begin{lemma}\label{top_homo_c_lem}
-The given by \eqref{top_atensor_comact_iso} map is the isomorphism of \\$\lift_p\left[C\left(\sX, \left\{\mathbb{M}_n\left(\C \right)_x\right\}, A \right) \right]$-modules.
-\end{lemma}
-\begin{proof}
-	Similarly the Lemma \ref{top_tensor_comact_lem}	one can proof that the map $\phi$ is a homomorphism of left $\lift_p\left[C\left(\sX, \left\{\mathbb{M}_n\left(\C \right)_x\right\}, A \right) \right]$-modules.
-Since $\sX$ is compact and $p$ is a finite-fold covering the space ${\widetilde \sX}$ is also compact. It turns out that
-$C_0\left( \widetilde \sX\right) = C\left( \widetilde \sX\right)$ and from the Lemma \ref{top_c0_cont_str_cor} it follows that
-\bean
-\lift_p\left[C\left(\sX, \left\{\mathbb{M}_n\left(\C \right)_x\right\}_{x \in \sX}, A \right) \right]= C_0\left( \lift_p\left[C\left(\sX, \left\{\mathbb{M}_n\left(\C \right)_x\right\}_{x \in \sX}, A \right) \right]\right) ;\\
-\lift_p\left[C_0\left(\sX, \left\{B_x\right\}_{x \in \sX}, B \right)\right] = C_0\left(\lift_p\left[C_0\left(\sX, \left\{B_x\right\}_{x \in \sX}, B \right)\right] \right). 
-\eean 
-If we consider the finite sum \eqref{comm_unity_sum_eqn}
-		\bean
-1_{C\left(\widetilde{\mathcal X} \right) }= \sum_{\widetilde\a \in \widetilde{\mathscr A} }\widetilde{e}^2_{\widetilde{\a}}
-\eean
-then from the inclusion \eqref{top_ca_inc_eqn} it turns out that the elements $\widetilde{e}_{\widetilde{\a}}$ can be regarded as elements of the $C^*$-algebra $C_0\left( \lift_p\left[C\left(\sX, \left\{\mathbb{M}_n\left(\C \right)_x\right\}_{x \in \sX}, A \right) \right]\right)$. The following proof of this lemma is similar to the proof of the Lemma \ref{top_tensor_comact_lem}.
-\end{proof}
-\begin{example}
-	If $M$ is compact Riemannian manifold with a spin bundle $\sS$ (cf. \ref{spin_mani_sec}) and $p: \widetilde M \to M$ is a transitive covering. Suppose that $C\left(M\right)$-module $B$ in the equation \eqref{top_atensor_comact_iso} is the space of sections $\Ga\left(M,\sS\right)$.	
-	Then one has 
-	\bean
-	A = [C\left(M, \left\{\mathbb{M}_n\left(\C \right)_x\right\}_{x \in \sX}, A \right) = C\left(M\right)\otimes\mathbb{M}_n\left(\C \right),\\
-\lift_p\left[C\left(M, \left\{\mathbb{M}_n\left(\C \right)_x\right\}_{x \in \sX}, A \right) \right] = C\left(\widetilde M\right) \otimes\mathbb{M}_n\left(\C \right),\\
-C_0\left(\lift_p\left[C_0\left(\sX, \left\{B_x\right\}_{x \in \sX}, B \right)\right] \right)= \Ga\left(\widetilde M, \widetilde\sS\right).
-	\eean
-	The specialization of the given by \eqref{top_atensor_comact_iso} isomorphism of $C\left(\widetilde M\right) \otimes\mathbb{M}_n\left(\C \right)$-modules satisfies to the following equation
-	\be\label{top_atensor_s_comact_iso}
+	!!!! From the equation \eqref{comm_unity_sum_eqn} it follows that
+	\be\label{top_tensore_fam_eqn}
 	\begin{split}
-	C\left(\widetilde M\right) \otimes\mathbb{M}_n\left(\C \right) \otimes_{	C\left( M\right) \otimes\mathbb{M}_n\left(\C \right)} \Ga\left(M,\sS\right) \xrightarrow{\approx}\Ga\left(\widetilde M, \widetilde\sS\right);\\
-	\sum_{j=1}^m \widetilde a_j \otimes\xi_j \mapsto \widetilde a_j\lift_p\left(\xi_j \right). 
+		\sum_{j=1}^n \widetilde a_j \otimes \xi_j= \sum_{\widetilde\a \in \widetilde{\mathscr A} } \sum_{j=1}^n \widetilde{e}_{\widetilde{\a}}\widetilde{e}_{\widetilde{\a}}\widetilde a_j \otimes \xi_j= \sum_{\widetilde\a \in \widetilde{\mathscr A} } \sum_{j=1}^n \widetilde{e}_{\widetilde{\a}} \desc_p\left(\widetilde{e}_{\widetilde{\a}}\widetilde a_j \right) \otimes \xi_j = \\
+		\sum_{\widetilde\a \in \widetilde{\mathscr A} } \sum_{j=1}^n \widetilde{e}_{\widetilde{\a}}\otimes \desc_p\left(\widetilde{e}_{\widetilde{\a}}\widetilde a_j \right)  \xi_j.
 	\end{split}
 	\ee
-\end{example}
-	\begin{empt}
-		Consider the similar to \ref{top_homo_c_empt} situation. But now we suppose that $\sX$ is a locally compact, paracompact, Hausdorff space. There is the map
-	\be\label{top_tensorct_lccomact_iso}
-	\begin{split}
-	\phi: C_c\left( \lift_p\left[C\left(\sX, \left\{\mathbb{M}_n\left(\C \right)_x\right\}, A \right) \right]\right)  \otimes_{A}B \to C_c\left( \lift_p\left[C_0\left(\sX, \left\{B_x\right\}, B \right)\right]\right) ;\\
-\sum_{j=1}^n \left\{\widetilde a_{j\widetilde x}\right\} \otimes \left\{\xi_{jx}\right\}\mapsto  \left\{\sum_{j=1}^n \widetilde a_{j}\left(\widetilde x \right)  c^{-1}_{\widetilde x}\left( \xi_{j x}\right)  \right\}_{{\widetilde x}\in {\widetilde \sX}}\\ \text{ where } c_{\widetilde x}\text{ is given by } \eqref{top_ct_iso_eqn}
-	\end{split}
-	\ee
-\end{empt}
-\begin{lemma}\label{top_homo_c_inf_lem}
-	The given by \eqref{top_tensorct_lccomact_iso} map is the isomorphism of\\ $C_0\left( \lift_p\left[C\left(\sX, \left\{\mathbb{M}_n\left(\C \right)_x\right\}, A \right) \right]\right)$-modules.
-\end{lemma}
-\begin{proof}
-	Similarly the Lemma \ref{top_tensor_comact_lem}	one can proof that the map $\phi$ is a homomorphism of left $C_0\left( \lift_p\left[C\left(\sX, \left\{\mathbb{M}_n\left(\C \right)_x\right\}, A \right) \right]\right)$-modules.
-	Denote by
-			\bean
-	1_{C_b\left(\widetilde{\mathcal X} \right) }= \sum_{\widetilde\a \in \widetilde{\mathscr A} }\widetilde{e}^2_{\widetilde{\a}}
-	\eean
-	the given by \eqref{comm_unity_lcsum_eqn} {compliant to} the covering  $p:\widetilde{\mathcal X}\to{\mathcal X}$ 	partition of unity (cf. Definition \ref{comm_comply_defn}). 
-From the inclusion \eqref{top_ca_inc_eqn} it turns out that the elements $\widetilde{e}_{\widetilde{\a}}$ can be regarded as elements of the involutive algebra $C_c\left( \lift_p\left[C\left(\sX, \left\{\mathbb{M}_n\left(\C \right)_x\right\}_{x \in \sX}, A \right) \right]\right)$. The following proof of this lemma is similar to the proof of the Lemma \ref{top_tensor_lcomact_lem}.
+	If $\phi\left(\sum_{j=1}^n \widetilde a_j \otimes \xi_j \right) = 0$ then 
+	from \eqref{top_tensor_fam_eqn}  it follows that $\sum_{j=1}^n \widetilde a_{j}\left(\widetilde x \right)  c^{-1}_{\widetilde x}\left( \xi_{j x}\right)=0$ for all $\widetilde x \in \widetilde\sX$. It turns out that $\sum_{j=1}^n \widetilde{e}_{\widetilde{\a}}\widetilde a_{j}\left(\widetilde x \right)  c^{-1}_{\widetilde x}\left( \xi_{j x}\right)=0$, hence one has $\desc_p\left(\widetilde{e}_{\widetilde{\a}}\widetilde a_j \right)  \xi_j = 0$, and taking into account \eqref{top_tensore_fam_eqn} we conclude that $\sum_{j=1}^n \widetilde a_j \otimes \xi_j=0$, i.e. the map $\phi$ is injective. \\
+	For all $\widetilde \xi \in \lift_p\left[C\left(\sX, 
+	\left\{A_x\right\}, \sF \right)\right]$ one has
+	$$
+	\widetilde \xi = \phi\left( \sum_{\widetilde\a \in \widetilde{\mathscr A}} \widetilde{e}_{\widetilde{\a}}\otimes \desc_p\left( \widetilde{e}_{\widetilde{\a}} \widetilde \xi \right) \right), 
+	$$
+	hence the map $\phi$ is surjective.
 \end{proof}
-\begin{example}
-	If $M$ is compact Riemannian manifold with a spin bundle $\sS$ (cf. \ref{spin_mani_sec}) and $p: \widetilde M \to M$ is a transitive covering. Suppose that $C\left(M\right)$-module $B$ in the equation \eqref{top_atensor_comact_iso} is the space of sections $\Ga\left(M,\sS\right)$.	
-	Then one has 
-	\bean
-	A = [C\left(M, \left\{\mathbb{M}_n\left(\C \right)_x\right\}_{x \in \sX}, A \right) = C\left(M\right)\otimes\mathbb{M}_n\left(\C \right),\\
-	C_c\left( \lift_p\left[C\left(M, \left\{\mathbb{M}_n\left(\C \right)_x\right\}_{x \in \sX}, A \right) \right]\right)  = C_c\left(\widetilde M\right) \otimes\mathbb{M}_n\left(\C \right),\\
-	C_0\left(\lift_p\left[C_0\left(\sX, \left\{B_x\right\}_{x \in \sX}, B \right)\right] \right)= \Ga_c\left(\widetilde M, \widetilde\sS\right).
-	\eean
-	The specialization of the given by \eqref{top_atensor_comact_iso} isomorphism of $C_0\left(\widetilde M\right) \otimes\mathbb{M}_n\left(\C \right)$-modules satisfies to the following equation
-	\be\label{top_atensor_s_lcomact_iso}
-	\begin{split}
-		C_c\left(\widetilde M\right) \otimes\mathbb{M}_n\left(\C \right) \otimes_{	C\left( M\right) \otimes\mathbb{M}_n\left(\C \right)} \Ga\left(M,\sS^k\right) \xrightarrow{\approx}\Ga_c\left(\widetilde M, \widetilde\sS^k\right);\\
-		\sum_{j=1}^m \widetilde a_j \otimes\xi_j \mapsto \widetilde a_j\lift_p\left(\xi_j \right). 
-	\end{split}
-	\ee
-\end{example}
-
-
-
-\section{Geometrical lifts of spectral triples}\label{top_cov_sp_tr_sec}
-\subsection{Finite-fold lifts}\label{top_cov_sp_tr_fs_sec}
-\paragraph*{} Let $\left(C^{\infty}\left( M\right) , L^2\left( M, S\right) ,\slashed D\right)$ be a commutative spectral triple (cf. Equation \eqref{comm_sp_tr_eqn}), and  let $p:\widetilde{M} \to M$  be a finite-fold covering . From the Proposition \ref{comm_cov_mani_prop} it follows that $\widetilde{M}$ has natural structure of the Riemannian manifold. If $TM$ is a tangent bundle then from the Lemma \ref{top_bundle_cs_lem} it follows that $\Ga\left( M, TM\right)$ is a continuity structure for $M$ and the family $\left\{T_xM\right\}_{x \in M}$ of tangent spaces (cf. Definition \ref{op_fields_defn}) such that
-$$
-\Ga\left( M, TM\right)=C\left(M, \left\{T_xM\right\}, \Ga\left( M, TM\right) \right). 
-$$ 
-It is known \cite{koba_nomi:fgd} that the tangent bundle $T\widetilde{M}$ of $\widetilde{M}$ is the inverse image of $TM$ (cf. Definition \ref{vb_inv_img_funct_defn}). From the Theorem \ref{top_lift_bundle_lem} it follows that $\Ga\left(\widetilde{M}, T\widetilde{M} \right)$ is the $p$-lift of  $C\left(M, \left\{T_xM\right\}, \Ga\left( M, TM\right) \right)$ i.e. 
-\be\label{top_tf_lift_eqn}
-\Ga\left(\widetilde{M}, T\widetilde{M} \right)\cong \lift_p\left[C\left(M, \left\{T_xM\right\}, \Ga\left( M, TM\right) \right)\right]
-\ee
-The described in \ref{spin_mani_sec} tensor fields on $\widetilde{M}$ are lifts of  corresponding tensor fields on $M$.  
-In particular the metric tensor $g$ on $M$ corresponds to an element of the module $\Ga\left(M, TM \right)\otimes_{C\left( M\right) }\Ga\left(M, TM \right)$. The metric tensor $\widetilde g$ of $\widetilde M$ is given by $\widetilde g = \lift_p\left( g\right)$. Similarly  the given by \eqref{top_vol_eqn} volume elements $v$ and $\widetilde v$ on $M$ and $\widetilde M$ satisfy to the equation 
-\be\label{top_vol_lift_eqn}
-\widetilde v = \lift_p\left(v \right).
-\ee
-If both 	$\C\ell(M) \to M$ and 	$\C\ell(\widetilde M) \to \widetilde M$ are described in \ref{spin_mani_sec} bundles of $C^*$ algebras then $\Ga\left(\widetilde M, \C\ell(\widetilde M) \right)\cong \lift_p\left[C\left( M, \left\{C\ell(M)_x\right\}, \Ga\left( M, \C\ell( M) \right)\right) \right]$. If  $\widetilde{S} = p^*S$ the inverse image of the spinor bundle $\sS$ (cf. Definition \ref{vb_inv_img_funct_defn}) then
-$$
-\Ga\left(\widetilde M, \widetilde S \right)\cong  \lift_p\left[C\left( M, \left\{S_x\right\}, \Ga\left( M, S \right)\right) \right]
-$$
-For any $x \in M$ there is the natural isomorphism $\C\ell(M)_x \cong \End_\C\left(S_x \right)$, so taking into account $\C\ell( \widetilde M)_{ \widetilde x}\cong \C\ell( M)_{p\left(  \widetilde x\right) }$ and $\End_\C\left( \widetilde S_{ \widetilde x} \right)\cong \End_\C\left(  S_{ p\left( \widetilde x\right)}  \right)$ for any $ \widetilde x \in \widetilde  M$    there is the natural isomorphism $\C\ell( \widetilde M)_{ \widetilde x} \cong \End_\C\left( \widetilde S_{ \widetilde x} \right)$. It follows that the bundle $\widetilde S$ yields the  spin$^c$ structure on $T\widetilde M$. (cf. Definition \ref{spin_str_defn}). The given by \eqref{top_vol_lift_eqn} volume form yields the measure $\widetilde \mu$ on $\widetilde M$, in result one has the Hilbert space
-$$
-\widetilde \H \bydef L^2\left(\widetilde M, \widetilde S, \widetilde\mu\right).
-$$
-
-Using the Definition \ref{top_smooth_m_defn} one can construct the  $\Coo\left(  M\right)$-module $\Ga^\infty\left(  M,  S\right)$ and  $\Coo\left( \widetilde M\right)$-module $\Ga^\infty\left( \widetilde M, \widetilde S\right)$   of smooth sections. Also there is  the spin$^c$ connection $\nabla^S$ (cf. \eqref{spin_conn_eqn}). Similarly to the Equation \eqref{comm_dirac_eqn} one can define the Dirac operator
-\bean
-\widetilde \Dslash:\Ga^\infty\left( \widetilde M, \widetilde S\right) \to \Ga^\infty\left( \widetilde M, \widetilde S\right) 
-\eean
-which can be regarded us an unbounded operator on $\widetilde \sH$. So one has the spectral triple $\left( \Coo\left(\widetilde M \right), L^2\left(\widetilde M, \widetilde S, \widetilde\mu\right), \widetilde \Dslash \right)$.
-\begin{definition}\label{top_geom_lift_defn}
-The constructed above spectral triple $\left( \Coo\left(\widetilde M \right), L^2\left(\widetilde M, \widetilde S, \widetilde\mu\right), \widetilde \Dslash \right)$ is said to be the \textit{geometrical} $p$-\textit{lift} of the spectral triple $\left( \Coo\left( M \right), L^2\left( M,  S, \mu\right),  \Dslash \right)$.
-\end{definition}
-The Dirac operator $\widetilde \Dslash$ can be defined as the section of a sheaf. Let \\$\mathscr C \left(M, \left\{S_x\right\}, \Ga\left( M,  S\right) \right)$ be sheaf of the continuity structure $\Ga\left( M,  S\right)$ (cf. Definition \ref{top_cs_sheaf_defn}). According to the Example \ref{top_ga_smooth_exm} the $\Coo\left( M\right)$-module  $\Ga^\infty\left( M,  S\right)$ induces the smooth subsheaf 
-\be\label{top_base_sheaf}
-\mathscr C^\infty \left({M}, \left\{\SS_{{x}}\right\}_{{x} \in {M}}, \Ga\left({M}, {\sS} \right) \right)\subset \mathscr C\left({M}, \left\{\SS_{{x}}\right\}_{{x} \in {M}}, \Ga\left({M}, {\sS} \right) \right)
-\ee
-(cf. Definition \ref{top_smooth_sheaf_defn}). The given by
-\be\label{top_lift_sheaf_eqn}
-\mathscr C^\infty \left(\widetilde{M}, \left\{\SS_{\widetilde{x}}\right\}_{\widetilde{x} \in \widetilde{M}}, \Ga\left(\widetilde{M}, \widetilde{\sS} \right) \right) \bydef p^{-1} \mathscr C^\infty \left(M, \left\{\sS_x\right\}_{x \in M}, \Ga\left(M, \sS \right) \right)
-\ee
-inverse image is such that
-\be\label{top_lift_sheaf_sec_eqn}
- \Ga^\infty\left(\widetilde M, \widetilde S \right)=\mathscr C^\infty \left(\widetilde{M}, \left\{\SS_{\widetilde{x}}\right\}_{\widetilde{x} \in \widetilde{M}}, \Ga\left(\widetilde{M}, \widetilde{\sS} \right) \right)\left(\widetilde M \right). 
-\ee
-If $\widetilde{M}$ is locally compact then denote by
-\be\label{top_lift_lc_sheaf_sec_eqn}
-\Ga^\infty_c\left(\widetilde M, \widetilde S \right)\bydef\mathscr C^\infty \left(\widetilde{M}, \left\{\SS_{\widetilde{x}}\right\}_{\widetilde{x} \in \widetilde{M}}, \Ga\left(\widetilde{M}, \widetilde{\sS} \right) \right)\left(\widetilde M \right)\cap \Ga_c\left(\widetilde M, \widetilde \sS \right).
-\ee
-From the Example \ref{top_ga_smooth_exm} it follows that 
-$$
-\slashed D \in \mathscr End \left(\mathscr C^\infty \left(M, \left\{\sS_x\right\}_{x \in M}, \Ga\left(M, \sS \right) \right)\right)\left(M\right).
-$$
-
-The operator $\widetilde \Dslash$ is the 
- $p$-{inverse image} $p^{-1} \slashed D$ of $\slashed D$ (cf. Definition \ref{top_smooth_inv_im_defn}), i.e.
-\be\label{top_geom_dirac_lift_eqn}
-\begin{split}
-\widetilde \Dslash = p^{-1} \slashed D \in
-\mathscr End \left(p^{-1}\mathscr C^\infty \left(M, \left\{\sS_x\right\}, \Ga\left(M, \sS \right) \right)\right)\left(\widetilde M \right)=\\=
-\mathscr End \left(\mathscr C^\infty \left(\widetilde M, \left\{\widetilde \sS_{\widetilde x}\right\}, \Ga\left(\widetilde M,\widetilde \sS \right) \right) \right)\left(\widetilde M \right) .
-\end{split}
-\ee
-
-
-\subsection{Infinite lifts}\label{top_cov_sp_tr_ifs_sec}
-\paragraph*{}
-Let $\left(C^{\infty}\left( M\right) , L^2\left( M, S\right) ,\slashed D\right)$ be a commutative spectral triple (cf. Equation \eqref{comm_sp_tr_eqn}), and  let $p:\widetilde{M} \to M$  be an infinite covering . From the Proposition \ref{comm_cov_mani_prop} it follows that $\widetilde{M}$ has natural structure of the Riemannian manifold. Similarly to the Section \ref{top_cov_sp_tr_fs_sec} on can define the bundle $\widetilde \sS \to \widetilde M$ which corresponds to the $C_0\left(\widetilde M \right)$-module 
-\be\label{top_cov_ga_ifs_sec}
-\Ga\left(\widetilde M, \widetilde S \right) = \lift_p\left[C\left( M, \left\{S_x\right\}, \Ga\left( M, S \right)\right)\right].
-\ee
-Similarly to the Equation \eqref{top_vol_lift_eqn} there is the natural volume form $\widetilde v = \lift_p\left(v \right)$ which induces the measure $\widetilde \mu$ on $\widetilde M$. If
-\be\label{top_cov_gac_ifs_sec}
-\Ga_c\left(\widetilde M, \widetilde S \right) \bydef C_c\left(\lift_p\left[C\left( M, \left\{S_x\right\}, \Ga\left( M, S \right)\right)\right] \right) 
-\ee
-then any $\widetilde \xi \in \Ga_c\left(\widetilde M, \widetilde S \right)$ has compact support, hence
-\be\label{top_comp_h_norm_eqn}
-\forall \widetilde \xi \in \Ga_c\left(\widetilde M, \widetilde S \right)\quad\left\|\widetilde\xi \right\|\bydef\sqrt{\int_{\widetilde M}\left\|\widetilde\xi_{\widetilde x} \right\|^2 d\widetilde\mu} < \infty. 
-\ee
-The completion of $\Ga_c\left(\widetilde M, \widetilde S \right)$ with respect to the given by \eqref{top_comp_h_norm_eqn} norm is a Hilbert space which is denoted by $L^2\left(\widetilde M, \widetilde S, \widetilde\mu \right)$, or simply $L^2\left(\widetilde M, \widetilde S \right)$. Similarly to the Equations \eqref{top_base_sheaf} and \eqref{top_lift_sheaf_eqn}
-we define following sheaves
-\be\label{top_sh_inc_eqn}
-\begin{split}
-\mathscr C^\infty \left({M}, \left\{\SS_{{x}}\right\}_{{x} \in {M}}, \Ga\left({M}, {\sS} \right) \right)\subset \mathscr C\left({M}, \left\{\SS_{{x}}\right\}_{{x} \in {M}}, \Ga\left({M}, {\sS} \right) \right)
-\\
-\mathscr C^\infty \left(\widetilde{M}, \left\{\widetilde \SS_{\widetilde{x}}\right\}_{\widetilde{x} \in \widetilde{M}}, \Ga\left(\widetilde{M}, \widetilde{\sS} \right) \right) \bydef p^{-1} \mathscr C^\infty \left(M, \left\{\sS_x\right\}_{x \in M}, \Ga\left(M, \sS \right) \right).
-\end{split}
-\ee
-and the given by \eqref{top_geom_dirac_lift_eqn}  Dirac operator 
-\be\label{top_d_inf_eqn}
-\begin{split}
-\widetilde \Dslash = p^{-1} \slashed D \in
-\mathscr End \left(p^{-1}\mathscr C^\infty \left(M, \left\{\sS_x\right\}, \Ga\left(M, \sS \right) \right)\right)\left(\widetilde M \right)=\\=
-\mathscr End \left(\mathscr C^\infty \left(\widetilde M, \left\{\widetilde \sS_{\widetilde x}\right\}, \Ga\left(\widetilde M,\widetilde \sS \right) \right) \right)\left(\widetilde M \right).
-\end{split}
-\ee
-If 
-\be
-\Ga^\infty_c\left(\widetilde M,\widetilde \sS \right) \bydef \Ga_c\left(\widetilde M,\widetilde \sS \right)\cap \mathscr C^\infty \left(\widetilde M, \left\{\widetilde \sS_{\widetilde x}\right\}_{\widetilde x \in \widetilde M}, \Ga\left(\widetilde M,\widetilde \sS \right) \right)\left(\widetilde M\right)
-\ee
-then $\widetilde\Dslash$ can be regarded as a $\C$-linear map
-$$
-\widetilde\Dslash:\Ga^\infty_c\left(\widetilde M,\widetilde \sS \right)\to \Ga^\infty_c\left(\widetilde M,\widetilde \sS \right). 
-$$
-However the subspace $\Ga^\infty_c\left(\widetilde M,\widetilde \sS \right)\subset L^2\left(\widetilde M, \widetilde S \right)$ is dense with respect to the given by \eqref{top_comp_h_norm_eqn} norm. It follows that $\widetilde\Dslash$ can be regarded as an unbounded operator on  $ L^2\left(\widetilde M, \widetilde S \right)$.
-There is the  family $\left\{\End~ \widetilde S_{\widetilde x} \right\}_{\widetilde x \in \widetilde M}$ of Banach spaces such that
-for any  $\widetilde a \in  \Coo\left( \widetilde M\right)$ the commutator $\left[\widetilde \Dslash, \widetilde a\right]$ corresponds to a family $\left\{\widetilde \om_{\widetilde x} \right\}_{\widetilde x \in \widetilde M}$, where $\widetilde \om_{\widetilde x} \in \End ~\widetilde S_{\widetilde x}$ for all $\widetilde x \in \widetilde M$. On the other hand for all $\widetilde x$ there is the natural isomorphism of algebras $\End ~\widetilde S_{\widetilde x} \cong \C\ell_{\widetilde x}$ (cf. Section \ref{spin_mani_sec}). So $\widetilde \om_{\widetilde x}$ can be regarded as element of $\C\ell_{\widetilde x}$.
-Moreover the space $\Ga\left(\widetilde M,  \C\ell\left( \widetilde M\right) \right)$ is the continuity structure for $\widetilde M$ and  $\left\{\C\ell_{\widetilde x}\right\}$ (cf. Definition \ref{op_fields_defn}) such that the $\left\{\widetilde \om_{\widetilde x} \right\}$ is continuous with respect to $\Ga\left(\widetilde M,  \C\ell\left( \widetilde M\right) \right)$ (cf. Definition \ref{op_cont_fields_defn}). So one can write
-$$
-\left[\widetilde \Dslash, \widetilde a\right] \in C\left(\widetilde M,  \Ga\left(\widetilde M, \left\{\C\ell_{\widetilde x}\right\}, \C\ell\left( \widetilde M\right) \right)\right). 
-$$
-
- Similarly to the Equations \eqref{s_diff1_repr_equ}, \eqref{s_diff_repr_equ} for any $s \in \N$ the operator $\widetilde\Dslash$ yields the representation
-$$
-\pi^s: \Coo\left(\widetilde M \right)\to B\left(L^2\left(\widetilde M, \widetilde S \right)^{2^s} \right).  
-$$
-
-For any $\widetilde a \in  \Coo\left( \widetilde M\right) $ the element $\pi^s\left(\widetilde a \right)$ corresponds to a continuous section of the family $\left\{\mathbb{M}_{2^s}\left(\C\ell_{\widetilde x} \right) \right\}_{\widetilde{x} \in \widetilde{M}}$, i.e.
-$$
-\pi^s\left(\widetilde a \right)\in C \left(\widetilde{M}, \left\{\mathbb{M}_{2^s}\left(\C\ell_{\widetilde x} \right) \right\}_{\widetilde{x} \in \widetilde{M}}, \mathbb{M}_{2^s}\left( \Ga\left(\widetilde M, \left\{\C\ell_{\widetilde x}\right\}, \C\ell\left( \widetilde M\right) \right)\right) \right) . 
-$$
-Denote by
-\be\label{top_coo_eqn}
-\begin{split}
-\Coo_0\left(\widetilde M \right)\bydef \\\bydef \left\{ \widetilde a \in \Coo\left(\widetilde M \right)\right| \pi^s\left(\widetilde a \right)\in \\
-\in \left. C_0\left(\widetilde{M}, \left\{\mathbb{M}_{2^s}\left(\C\ell_{\widetilde x} \right) \right\}, \mathbb{M}_{2^s}\left( \Ga\left(\widetilde M, \left\{\C\ell_{\widetilde x}\right\}, \C\ell\left( \widetilde M\right) \right)\right) \right)~\forall s \in \N\right\}.
-\end{split}
-\ee
-\begin{definition}\label{top_geom_lift_lc_defn}
-	The triple $\left( \Coo_0\left(\widetilde M \right), L^2\left(\widetilde M, \widetilde S, \widetilde\mu\right), \widetilde \Dslash \right)$ is said to be the \textit{geometrical} $p$-\textit{lift} of the spectral triple $\left( \Coo\left( M \right), L^2\left( M,  S, \mu\right),  \Dslash \right)$.
-\end{definition}
-
-
-
 
 
 \section{Finite-fold coverings}
@@ -7551,8 +7050,8 @@ From the above equation it follows that $\bt\text{-}\lim_{\la\in \La}u_\la= 1_{C
 	Let $\mathcal X$ be a locally compact, connected, locally connected, Hausdorff space. 
 	Following conditions hold:
 	\begin{enumerate}
-		\item [(i)] If the  quadruple $\left(C_0\left(\mathcal  X \right), \widetilde{A}, G,    \pi\right)$ is a noncommutative finite-fold covering (cf. Definition \ref{fin_defn}), $\widetilde{   \mathcal X }$ is the spectrum of $\widetilde{A}$ and $p: \widetilde{   \mathcal X } \to \sX$ is given by the Lemma \ref{cov_spectrum_lem}, then $p$ is a finite-fold transitive topological covering, $\widetilde{A} \cong C_0\left( \widetilde{   \mathcal X }\right)$ and $G \cong G\left(\left. \widetilde{   \mathcal X } ~\right| {   \mathcal X }\right)$.
-		\item[(ii)] If $p: \widetilde{   \mathcal X } \to \sX$ is a finite-fold transitive topological covering and $\pi : C_0\left( {   \mathcal X }\right) \hookto C_0\left( \widetilde{   \mathcal X }\right)$ is the *-homomorphism induced by $p$ and the action $G\left(\left. \widetilde{   \mathcal X } ~\right| {   \mathcal X }\right)\times C_0\left( \widetilde{   \mathcal X  }\right) \to C_0\left( \widetilde{   \mathcal X }\right)$ is induced by $G\left( \widetilde{   \mathcal X } ~|~ {   \mathcal X }\right)\times  \widetilde{   \mathcal X }\to  \widetilde{   \mathcal X }$  then there is the  noncommutative finite-fold covering $\left(C_0\left(\mathcal  X \right), C_0\left(  \widetilde{   \mathcal X }\right) ,G\left(\left. \widetilde{   \mathcal X } ~\right| {   \mathcal X }\right),   \pi\right)$  (cf. Definition \ref{fin_defn}).
+		\item [(i)] If the  quadruple $\left(C_0\left(\mathcal  X \right), \widetilde{A}, G,    \pi\right)$ is a noncommutative finite-fold covering (cf. Definition \ref{fin_defn}), $\widetilde{   \mathcal X }$ is the spectrum of $\widetilde{A}$ and $p: \widetilde{   \mathcal X } \to \sX$ is given by the Lemma \ref{cov_spectrum_lem}, then $p$ is a finite-fold transitive topological covering, $\widetilde{   \mathcal X }$ is a connected space. $\widetilde{A} \cong C_0\left( \widetilde{   \mathcal X }\right)$ and $G \cong G\left(\left. \widetilde{   \mathcal X } ~\right| {   \mathcal X }\right)$.
+		\item[(ii)] If $\widetilde{   \mathcal X }$  is a connected space, $p: \widetilde{   \mathcal X } \to \sX$ is a finite-fold transitive topological covering and $\pi : C_0\left( {   \mathcal X }\right) \hookto C_0\left( \widetilde{   \mathcal X }\right)$ is the *-homomorphism induced by $p$ and the action $G\left(\left. \widetilde{   \mathcal X } ~\right| {   \mathcal X }\right)\times C_0\left( \widetilde{   \mathcal X  }\right) \to C_0\left( \widetilde{   \mathcal X }\right)$ is induced by $G\left( \widetilde{   \mathcal X } ~|~ {   \mathcal X }\right)\times  \widetilde{   \mathcal X }\to  \widetilde{   \mathcal X }$  then there is the  noncommutative finite-fold covering $\left(C_0\left(\mathcal  X \right), C_0\left(  \widetilde{   \mathcal X }\right) ,G\left(\left. \widetilde{   \mathcal X } ~\right| {   \mathcal X }\right),   \pi\right)$  (cf. Definition \ref{fin_defn}).
 	\end{enumerate}
 \end{theorem}
 	\begin{proof}
@@ -7564,7 +7063,7 @@ From the Lemma \ref{comm_fin_lem} it follows that the $C^*$-algebra $\widetilde{
 $$
  G\left(\left. C_0\left( \widetilde{   \mathcal X }\right)  ~\right| C_0\left( {   \mathcal X }\right) \right)\cong  G\left(\left. \widetilde{   \mathcal X } ~\right| {   \mathcal X }\right)
 $$
-is clear.
+is clear.  From the condition (c) of the Definition \ref{fin_defn} it follows that a $C^*$-algebra $C_0\left( \widetilde{   \mathcal X }\right)$, so the space $\widetilde{   \mathcal X }$ is connected.
 \\ 
 (ii) Firstly we prove that the quadruple  $\left(C_0\left(\mathcal  X \right), C_0\left(  \widetilde{   \mathcal X }\right) ,G\left(\left. \widetilde{   \mathcal X } ~\right| {   \mathcal X }\right),   \pi\right)$ is a finite-fold noncommutative pre-covering, i.e. it satisfies to the conditions  (a)  and (b) of the Definition \ref{fin_pre_defn}.
 \begin{enumerate}
@@ -7576,7 +7075,7 @@ G = \left\{ \left.g \in \Aut\left(C_0\left(\widetilde{   \mathcal X }\right) \ri
 is finite.
 \item[(b)] 	$C_0\left({   \mathcal X }\right) \cong C_0\left(\widetilde{   \mathcal X }\right)^G$.
 \end{enumerate}
-\ref{fin_defn}
+
 From the Lemma \ref{comm_slfin_lem} it follows that there is the indexed by a directed set  $\mathscr A$  family $\left\{u_\la\right\}_{\la \in \La}\subset C_c\left(\sX \right)$
 such that
 \begin{itemize}
@@ -7588,7 +7087,7 @@ such that
 	with respect to the strict topology of $M\left( C_0\left(\sX \right) \right) \cong C_b\left(\sX \right)$ (cf. Definition \ref{strict_topology})
 \end{itemize} 
 Since $u_\la\in C_c\left( \sX\right)$  the space $\supp u_\la$ compact, and $u_\la^{-1}\left(\left(0,1 \right]  \right)$ is an open subspace of $\supp u_\la$. 
-Let us prove that the family $\left\{u_\la\right\}$ satisfies to conditions (a), (b) of the Definition \ref{fin_defn}.
+Let us prove that the family $\left\{u_\la\right\}$ satisfies to conditions (a)-(c) of the Definition \ref{fin_defn}.
 \begin{enumerate}
 	\item[(a)] Follows from the Equation \eqref{comm_fn_bt_liml_eqn}.
 	\item[(b)] If both  $A_\la$ and $\widetilde A_\la$ are the $C^*$-norm completions of $u_\la C_0\left(\sX \right)u_\la$ and $u_\la C_0\left(\widetilde \sX \right)u_\la$ respectively   then both $A_\la$ and $\widetilde A_\la$ are hereditary subalgebras of $C_0\left(\sX \right)$ and $C_0\left(\widetilde \sX \right)$. If $\sU_\la \bydef u_\la^{-1}\left(\left(0,1 \right]  \right)$ and $\widetilde \sU_\la\bydef p^{-1} \left(\sU_\la\right)$ then one has $A_\la\cong C_0\left(\sU_\la\right)$ and $\widetilde A_\la\cong C_0\left(\widetilde\sU_\la\right)$. If $\sV_\la \bydef \supp u_\la^{-1}$ and $\widetilde \sV_\la\bydef p^{-1} \left(\sV_\la\right)$ then both sets $\sV_\la$ and $\widetilde \sV_\la$ are compact and both $C_0\left(\sU_\la\right)$ and $C_0\left(\widetilde\sU_\la\right)$ are essential ideals of $C\left(\sV_\la\right)$ and $C\left(\widetilde\sV_\la\right)$ respectively.
@@ -7597,6 +7096,7 @@ Let us prove that the family $\left\{u_\la\right\}$ satisfies to conditions (a),
 	G\left(\left.\widetilde{\sV}_\la ~\right|~{\sV}_\la \right) \cong 	G\left(\left.\widetilde{\sX} ~\right|~{\sX} \right)
 	$, hence $\left(C\left(\mathcal  V_\la \right), C\left(  \widetilde{   \mathcal V }_\la\right) ,G\left( \left.\widetilde{   \mathcal X } ~\right| {   \mathcal X }\right),  \left. \pi\right|_{C\left(\widetilde{   \mathcal V }_\la \right)}\right)$ is a {unital noncommutative finite-fold  covering} (cf. Definition \ref{fin_uni_defn}).	On the other hand both $C_0\left( {\sU}_\la\right) $ and $C_0\left( \widetilde{\sU}_\la\right) $ are essential ideals of $C\left( {\sV}_\la\right) $ and $C\left( \widetilde{\sV}_\la\right) $ respectively (cf. Example \ref{comm_ess_exm}), so  for every $\la\in\La$ the quadruple
 	$$\left(C_0\left(\mathcal  U_\la \right), C_0\left(  \widetilde{   \mathcal U }_\la\right) ,G\left(\left. \widetilde{   \mathcal X } ~\right|~ {   \mathcal X }\right),   \left.\pi\right|_{C_0\left(\widetilde{   \mathcal U }_\la \right)}\right)$$ is a   noncommutative finite-fold covering with unitization (cf. Definition \ref{fin_comp_defn}).
+	\item[(c)] The space $\widetilde{\sX}$, so the $C^*$-algebra $C_0\left( \widetilde{\sX}\right)$ is connected.
 \end{enumerate}
 		
 \end{proof}
@@ -7679,44 +7179,6 @@ Following conditions hold:
 	(ii)	The conditions (a)-(d) of the Definition \ref{compliant_covering_defn} directly follow from (a)-(d) of the Lemma \ref{comm_comply_lem}.
 	\end{proof}
 
-\begin{theorem}\label{top_oa_cov_thm}
-If $M$ is a smooth manifold then any  noncommutative finite-fold covering of operator algebra $C_0\left(M\right)\cap \Coo\left(M\right)$ (cf. Definition \ref{fin_oa_defn}) corresponds to a transitive finite fold covering $p: \widetilde M \to M$ and it is a quadruple 
-$$
-\left(C_0\left(M\right)\cap \Coo\left(M\right), C_0\left(\widetilde M\right)\cap \Coo\left(\widetilde M\right), G\left(\left.\widetilde M~ \right| M\right), \Coo\left(p \right) \right)
-$$
-where both the smooth structure of $\widetilde M$  and the homomorphism $\Coo\left(p \right):C_0\left( M\right)\cap \Coo\left( M\right)\hookto C_0\left(\widetilde M\right)\cap \Coo\left(\widetilde M\right)$ are induced by $p$.
-\end{theorem}
-\begin{proof}
-	$C_0\left(M\right)\cap \Coo\left(M\right)$ is a dense subalgebra of the $C^*$-algebra $C_0\left(M\right)$, it follows that $C_0\left(M\right)$ is the $C^*$-envelope of $C_0\left(M\right)\cap \Coo\left(M\right)$ (cf. Definition \ref{op_su_env_defn}, Remark \ref{op_su_env_rem}), i.e.
-	$$
-	C^*_e\left(C_0\left(M\right)\cap \Coo\left(M\right)\right)\cong C_0\left(M\right).
-	$$ 
-	From the Theorem \ref{comm_fin_thm} it turns out that any noncommutative finite-fold covering of $C_0\left(M\right)$  is given by
-$\left(C_0\left(M\right), C_0\left(\widetilde M\right), G\left(\left.\widetilde M~ \right| M\right), C_0\left(p\right)\right)$. If $$\left(C_0\left(M\right)\cap \Coo\left(M\right), \widetilde A, G\left(\left.\widetilde M~ \right| M\right), \pi \right)$$ is a noncommutative finite-fold covering of operator algebra which corresponds to the noncommutative finite-fold covering $\left(C_0\left(M\right), C_0\left(\widetilde M\right), G\left(\left.\widetilde M~ \right| M\right), C_0\left(p\right)\right)$ then from 
-$$
-\left( C_0\left(\widetilde M\right)\cap  \Coo\left(\widetilde M\right)  \right)\bigcap C_0\left(M \right) =  C_0\left(M \right)\cap \Coo\left(M \right)
-$$ 
-and the condition (d) of the Definition \ref{fin_oa_defn} it follows that
-$
-C_0\left(\widetilde M\right)\cap  \Coo\left(\widetilde M\right) \subseteqq \widetilde A
-$. From the Definition \ref{fin_oa_defn} it follows that
-$
-C_0\left(\widetilde M\right)\cap  \Coo\left(\widetilde M\right) \subsetneqq \widetilde A
-$
-then there is $\widetilde a \in \widetilde A\setminus C_0\left(\widetilde M\right)\cap  \Coo\left(\widetilde M\right)$. Since $\widetilde a \notin   \Coo\left(\widetilde M\right)$ there is $\widetilde x_0 \in \widetilde M$ such that $\widetilde a$ is not smooth at $\widetilde x_0$. There is a function $\widetilde b \in C_0\left(\widetilde M\right)\cap  \Coo\left(\widetilde M\right)$ which satisfies to following conditions:
-\begin{itemize}
-\item There is an open neighborhood $\widetilde \sU$ of $ \widetilde x_0$ such that $\widetilde b\left(\widetilde \sU\right)= \left\{1\right\}$.  
-\item There is an open set $\widetilde \sV$ which is mapped homeomorphically onto $p\left( \widetilde \sV\right)$ such that $\widetilde b\left(\widetilde \sX\setminus\widetilde \sU\right)= \{0\}$. 
-\end{itemize}
-The product $\widetilde b \widetilde a \in \widetilde A$, however $\widetilde b \widetilde a$ is not smooth at $\widetilde x_0$.  From the condition (b) of the Definition \ref{fin_oa_defn} there is an action $G\left(\left.\widetilde M~ \right| M\right)\times \widetilde A\to \widetilde A$  and from (b) of the Definition \ref{fin_pre_defn} it follows that
-$$
-a \bydef \sum_{	g \in G\left(\left.\widetilde M~ \right| M\right)}g\left(\widetilde b \widetilde a \right)\in \widetilde A \cap  C_0\left( M\right). 
-$$
-However from the construction of $\widetilde b$ it turns out that $a$ is not smooth at $p\left( \widetilde x_0\right)$ therefore $a \notin \Coo\left(M \right)$. It contradicts with the condition (c) of the Definition \ref{fin_oa_defn}. In result one has
-$$
-C_0\left(\widetilde M\right)\cap  \Coo\left(\widetilde M\right) = \widetilde A.
-$$
-\end{proof}
 \subsection{Coverings of $O^*$-algebras and quasi $*$-algebras}\label{top_pd_fin_sec}
 \paragraph*{}
 Let $M$ be an $n$-dimensional smooth manifold, let $\mu$ be a measure on $M$ which is locally given by an $n$-dimensional external differential form. If $\Coo_c\left(M \right)\bydef \Coo\left(M \right) \cap C_c\left(M \right)$ then
@@ -7837,7 +7299,7 @@ G = \left\{ \left.g \in \Aut\left(\Coo\left(\widetilde M \right) \right)~\right|
 \ee
 is finite.\\
 (b) 	$\Coo\left( M \right) \cong \Coo\left(\widetilde M \right)^G$.\\
-(c) From  the Proposition \ref{smooth_part_unity_prop} it follows that $\Coo\left(\widetilde M \right)$ is a finitely generated  $\Coo\left( M\right)$-module, i.e.
+(c) From  the Proposition \ref{top_smooth_part_unity_prop} and the Remark \ref{top_smooth_part_unity_rem} it follows that $\Coo\left(\widetilde M \right)$ is a finitely generated  $\Coo\left( M\right)$-module, i.e.
 	$$
 \exists ~\widetilde a_1, ..., 	~\widetilde a_n \in \Coo\left(\widetilde M \right)\quad \Coo\left(\widetilde M \right) = \widetilde a_1\Coo\left( M \right)+ ...+ \widetilde a_n\Coo\left( M \right)
 	$$
@@ -7915,7 +7377,7 @@ If $\widetilde{a} \otimes \xi, \widetilde{b} \otimes \eta \in C\left(\widetilde{
 =  \left(\phi\left(  \widetilde{a}\otimes\xi\right) ,  \phi \left( \widetilde{b}\otimes\eta\right)\right)_{L^2\left(\widetilde{M},\widetilde{S} \right)}
 \end{split} 
 \end{equation}
-where $\phi$ is given by \eqref{top_tensor_comact_iso_eqn} and both finite families $\left\{\widetilde{a}_{\widetilde{\a}}\right\}_{\widetilde{\a}\in \widetilde{\mathscr A}},~\left\{\widetilde{e}_{\widetilde{\a}}\right\}_{\widetilde{\a}\in \widetilde{\mathscr A}}\subset C\left(\widetilde M \right) $ are explained in the Remark \ref{comm_unity_rem}.
+where $\phi$ is given by \eqref{top_tensor_comact_iso_eqn} and both finite families $\left\{\widetilde{a}_{\widetilde{\a}}\right\}_{\widetilde{\a}\in \widetilde{\mathscr A}},~\left\{\widetilde{e}_{\widetilde{\a}}\right\}_{\widetilde{\a}\in \widetilde{\mathscr A}}\subset C\left(\widetilde M \right) $ are explained in  \ref{comm_unity_empt}.
 The equation \eqref{comm_ind_l2_eqn} means that $\left(\cdot, \cdot \right)_{\text{ind}}= \left(\cdot, \cdot \right)_{L^2\left(\widetilde{M},\widetilde{S} \right)}$, and taking into account the dense inclusion $C\left(\widetilde{M} \right) \otimes_{C\left(M \right) } \Ga\left( M, S\right) \subset L^2\left(\widetilde{M},\widetilde{S} \right)$ with respect to the Hilbert norm of $L^2\left(\widetilde{M},\widetilde{S}\right) $
 one concludes that the space of induced representation coincides with $L^2\left(\widetilde{M},\widetilde{S}\right)$. It means that induced representation $C\left(\widetilde{M}\right) \times L^2\left(\widetilde{M},\widetilde{S} \right) \to L^2\left(\widetilde{M},\widetilde{S} \right)$ is given by \eqref{comm_bundle_repr_eqn}. So one has the following lemma.
 \begin{lemma}\label{comm_ind_lem}
@@ -10519,6 +9981,7 @@ Here we find a relation between  noncommutative finite-fold coverings of $C^*$-a
 	\end{enumerate}
 \end{lemma}
 \begin{proof}
+	!!!! CHECK fin defn.
 	(i)	From the Lemma \ref{stable_pre_lem} it turns out that the quadruple
 	$$
 	\left( A \otimes \K, \widetilde{A}  \otimes \K, G, \pi  \otimes \Id_\K \right)
@@ -10591,6 +10054,7 @@ Here we find a relation between  noncommutative finite-fold coverings of $C^*$-a
 \end{theorem}
 
 \begin{proof}
+	!!!! CHECK fin defn.
 	(i)
 	From the Lemma \ref{stable_pre_lem} it turns out that $\left(A  \otimes \mathcal K, \widetilde{A} \otimes \mathcal K, G, \pi \otimes 1_{\K^+ } \right)$ is a a noncommutative finite-fold  pre-covering.
 	From the Definition \ref{fin_defn} it turns out that $\left(A, \widetilde{A}, G, \pi \right)$ is  a noncommutative finite-fold  pre-covering such that  there is increasing net $\left\{u_\la\right\}_{\la\in\La}\subset M\left( A\right)_+ $  of positive elements such that
@@ -10615,7 +10079,7 @@ Here we find a relation between  noncommutative finite-fold coverings of $C^*$-a
 		\item[(b)]Follows from (i) of the Lemma \ref{stable_fin_cov_comp_lem}.
 	\end{enumerate}
 	(ii)  From (ii) of the Lemma \ref{stable_pre_lem} it turns out that there is a noncommutative finite-fold pre-covering   $\left( A, \widetilde{A}, G, \pi\right)$ $\widetilde{A}$ such that the quadruple  $\left( A \otimes \K, \widetilde{A}^\K, G,{\pi}^\K   \right)$ is equivalent to $\left(A  \otimes \mathcal K, \widetilde{A} \otimes \mathcal K, G, \pi \otimes 1_{\K^+ } \right)$.   Moreover the Lemma \ref{stable_pre_lem} implies that conditions (I), (II) of this Lemma hold.	Let $\left\{u^\K_\la\right\}_{\la\in\La}\subset M\left( A\otimes\K\right)$ be a net which satisfies to  to (a) and (b) of the Definition \ref{fin_defn}, i.e.
-	
+	!!!! CHECK fin defn.
 	\begin{enumerate}
 		\item[(a)] There is the limit 
 		$$
@@ -11399,7 +10863,7 @@ Let $\widetilde \sX$ be the spectrum of $\widetilde{A}$ and let $\widetilde x\in
 	\eea	
 \end{corollary}
 \begin{proof}
-	Firstly we proof that the right part of \ref{ctr_spc_to_a_eqn} is a covering with unitization. Clearly  $\left(A, A_0\left(\widetilde \sX \right) , G\left(\left.\widetilde \sX \right|\sX \right) , A_0\left( p\right)  \right)$ is a noncommutative finite-fold precovering. From the Theorems  \ref{dauns_hofmann_thm} \ref{ctr_hat_check_thm} it follows that there is the inclusion $C\left(\sX \right)\to M\left( A \right)$ and $C\left(\widetilde \sX\right) \to M\left(A_0\left(\widetilde \sX \right) \right)$. Let both $B$ and $\widetilde B$ are $C^*$-subalgebras of $M\left( A \right)$ and $M\left(\widetilde A \right)$ generated by $A\cup C\left(\sX \right)$ and $A_0\left(\widetilde \sX \right)\cup C\left(\widetilde \sX\right)$ respectively.  The *-homomorphism $M\left( A \right)\hookto M\left(\widetilde A \right)$ naturally induces the injective *-homomorphism $\widetilde\pi: B\hookto \widetilde B$. The quadruple $\left(B, \widetilde B,G\left(\left.\widetilde \sX \right|\sX \right),  \widetilde\pi\right)$ is a precovering. The map $p: \widetilde \sX \to\sX$ is a transitive finite-fold  covering and both  spaces $ \sX$ and $\widetilde \sX$ are compact, hence from the Remark \ref{comm_unity_rem} it follows that there is a finite sum
+	Firstly we proof that the right part of \ref{ctr_spc_to_a_eqn} is a covering with unitization. Clearly  $\left(A, A_0\left(\widetilde \sX \right) , G\left(\left.\widetilde \sX \right|\sX \right) , A_0\left( p\right)  \right)$ is a noncommutative finite-fold precovering. From the Theorems  \ref{dauns_hofmann_thm} \ref{ctr_hat_check_thm} it follows that there is the inclusion $C\left(\sX \right)\to M\left( A \right)$ and $C\left(\widetilde \sX\right) \to M\left(A_0\left(\widetilde \sX \right) \right)$. Let both $B$ and $\widetilde B$ are $C^*$-subalgebras of $M\left( A \right)$ and $M\left(\widetilde A \right)$ generated by $A\cup C\left(\sX \right)$ and $A_0\left(\widetilde \sX \right)\cup C\left(\widetilde \sX\right)$ respectively.  The *-homomorphism $M\left( A \right)\hookto M\left(\widetilde A \right)$ naturally induces the injective *-homomorphism $\widetilde\pi: B\hookto \widetilde B$. The quadruple $\left(B, \widetilde B,G\left(\left.\widetilde \sX \right|\sX \right),  \widetilde\pi\right)$ is a precovering. The map $p: \widetilde \sX \to\sX$ is a transitive finite-fold  covering and both  spaces $ \sX$ and $\widetilde \sX$ are compact, hence from  \ref{comm_unity_empt} it follows that there is a finite sum
 	\be\label{ctr_unity_sum_eqn}
 	1_{C\left(\widetilde{\mathcal X} \right) }= \sum_{\widetilde\a \in \widetilde{\mathscr A} }\widetilde{e}^2_{\widetilde{\a}}\quad \widetilde{e}_{\widetilde{\a}}\in C\left(\widetilde \sX\right)
 	\ee
@@ -11458,6 +10922,7 @@ is a noncommutative finite-fold covering  with unitization (cf. Definition \ref{
 \end{theorem}
 
 \begin{proof}
+	!!!! CHECK fin defn.
 	For our proof we need  the  finite or countable sequence $\sU_1 \subsetneqq  ...\subsetneqq \sU_n\subsetneqq ...$ of connected open subsets of $\sX$ given by the Lemma \ref{top_fin_comp_lin_cov_lem} which satisfies to the following conditions
 	\begin{itemize}
 		\item For any $n \in \N$ the closure $\sV_n$ of $\sU_n$ is compact.
@@ -13938,7 +13403,7 @@ If $B\subset M\left( A \right)$ and $\widetilde B\subset M\left(\widetilde A \ri
 	\left( B, \widetilde B, G\left(\left.\widetilde{M}~\right|M\right)\right) 
 	\ee
 	is a 	unital  noncommutative finite-fold quasi-covering.
-	From the Remark \ref{comm_unity_rem} it follows that there is a finite set \\$\set{\widetilde{e}_{{\a}}}_{\a \in \mathscr A} \subset C\left(p^{-1}\left(\supp u \right)  \right)$ which satisfies to the following equations
+	From  \ref{comm_unity_empt} it follows that there is a finite set \\$\set{\widetilde{e}_{{\a}}}_{\a \in \mathscr A} \subset C\left(p^{-1}\left(\supp u \right)  \right)$ which satisfies to the following equations
 	\be\label{foli_unity_sum_eqn}
 	1_{C\left(p^{-1}\left(\supp u \right)  \right) }= \sum_{\a \in {\mathscr A} }\widetilde{e}^2_{{\a}}
 	\ee
@@ -13968,6 +13433,7 @@ Taking into account  $B = \widetilde B^{G\left(\left.\widetilde{M}~\right|M\righ
 Let $\left(\widetilde{M},~ \widetilde{\mathcal F} \right)\to \left({M},~ {\mathcal F} \right)$ be a regular finite-fold covering of foliated spaces (cf. Definition \ref{foli_reg_cov_defn}). If  both $M$ and $\widetilde M$ are connected then the quadruple  $$\left(	C^*_r\left( M, \mathcal{F}\right),  C^*_r\left(\widetilde{M},~ \widetilde{\mathcal F} \right),{G\left( \left.\widetilde{M}~\right|M\right)}, C^*_r\left( p\right)  \right)$$ is a noncommutative finite-fold covering (cf. Definition \ref{fin_defn}).
 \end{theorem}
 \begin{proof}
+	!!!! CHECK fin defn.
 From the Corollary \ref{foli_gi_cor} it follows that the quadruple	$$\left(	C^*_r\left( M, \mathcal{F}\right),  C^*_r\left(\widetilde{M},~ \widetilde{\mathcal F} \right),{G\left( \left.\widetilde{M}~\right|M\right)}, C^*_r\left( p\right)  \right)$$
 is a	noncommutative finite-fold  pre-covering (cf Definition \ref{fin_pre_defn}).
 $  $Let   $\set{u_\la}_{\la \in \La}\subset C_c\left( M\right) $ be  a family defined in \ref{top_ua_empt}.
@@ -15285,6 +14751,7 @@ and the condition (c) of the Definition \ref{fin_oa_defn} it follows that $b_j \
 	is commutative then the pair  $\left(\pi_1, \pi_2\right)$ is compliant (cf. Definition \ref{compliant_covering_defn}),
 \end{lemma}	
 \begin{proof}
+	!!!! CHECK fin defn.
 	It is proven in   that for the inclusions $\pi_1, \pi_2$ there are  invertible $n \times n$-matrices $M_1$, $M_2$ with integer valued entries such that
 	\bean
 		\Th \in M_1^{\text{T}} \widetilde{\Th}_1 M_1 + \mathbb{M}_n\left( \Z\right),\\
@@ -18619,13 +18086,7 @@ Every regular space with a countable basis is normal.
  			\item $\sum_{\alpha \in \mathscr A}\phi_\alpha\left(x\right)=1$ for any $x \in \mathcal X$.
  		\end{enumerate}
  	\end{defn}
- \begin{definition}\label{top_paracompact_defn}\cite{munkres:topology}
- 	A space $\sX$ is \textit{paracompact} if every open covering $\sX = \cup~\sU_{   \a}$ has a locally finite open refinement $\sX = \cup~\sV_{   \bt}$.
- \end{definition}	
- 	\begin{thm}\label{top_part_u_thm}\cite{munkres:topology}
- 		Let $\mathcal X$ be a paracompact Hausdorff space; let $\left\{\mathcal U_\alpha\in \mathcal X\right\}_{\alpha \in \mathscr A}$ be an indexed open covering of $\mathcal{X}$. Then there exists a partition of unity, dominated by $\left\{\mathcal{U}_\alpha \right\}$.  
- 	\end{thm}
- \begin{prop}\label{smooth_part_unity_prop}\cite{brickell_clark:diff_m}
+ \begin{prop}\label{top_smooth_part_unity_prop}\cite{brickell_clark:diff_m}
  	A differential manifold $M$ admits a (smooth) partition of unity if and only if it is paracompact. 
  \end{prop}
 %\begin{theorem}\label{top_paracompact_norm_thm}
