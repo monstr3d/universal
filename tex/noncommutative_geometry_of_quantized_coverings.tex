@@ -2107,7 +2107,77 @@ There is  an isomorphism  $\widetilde{A} \approx A \bigoplus P$ of $A$-modules t
  	\sX \cong \widetilde{\sX}/\left(G/G_{\text{red}} \right). 
  	\ee
  \end{rem}
- 
+\begin{definition}\label{fin_red_defn}
+A noncommutative finite-fold  covering  $\left(A, \widetilde{A}, G, \pi \right)$ (cf. Definition \ref{fin_defn}) is said to be \textit{reducible} if $\widetilde{A}= \widetilde{A}_{\text{red}}$.
+\end{definition}
+
+%\begin{empt}
+%There  is a decomposition 
+%\be\label{dec_red_eqn}
+%\begin{split}
+%\widetilde A= \widetilde A_{\text{red}}\oplus \widetilde A^\perp,\\
+%\widetilde a= \widetilde a_{\text{red}}+ \widetilde a^\perp,\\
+% \widetilde a_{\text{red}}= \frac{1}{\left|  G_{\text{red}}\right|}\sum_{	g \in G_{\text{red}}}g\widetilde a,\\
+%\widetilde a^\perp= \widetilde a-\widetilde a_{\text{red}}, 	 
+%\end{split}	
+%\ee
+%such that
+%\be\label{gred_inv_eqn}
+%\begin{split}
+%\widetilde a'\in \widetilde A_{\text{red}}\quad\Leftrightarrow\quad\forall g\in  G_{\text{red}}\quad g \widetilde a' = \widetilde a',\\
+%\widetilde a''\in \widetilde A^\perp \quad\Leftrightarrow\quad \sum_{	g \in G_{\text{red}}}g\widetilde a'' = 0.
+%\end{split}	
+%\ee
+%From \eqref{gred_inv_eqn} it follows that
+%\be\label{gred_invp_eqn}
+%\begin{split}
+%	\widetilde a'\in \widetilde A_{\text{red}},\quad 	\widetilde a''\in \widetilde A^\perp\quad\Rightarrow\quad 	\widetilde a'	\widetilde a'',~~ 	\widetilde a''	\widetilde a'\in \widetilde A^\perp,\\
+%	\widetilde b', \widetilde b''\in \widetilde A_{\text{red}}	\quad\Rightarrow\quad \widetilde b' \widetilde b''\widetilde A_{\text{red}}
+%\end{split}	
+%\ee
+%Indeed $\widetilde A$ is a Hilbert $\widetilde A_{\text{red}}$ module with the product given by
+%\be
+%\left\langle \widetilde a, \widetilde b\right\rangle_{\widetilde A_{\text{red}}} \bydef \sum_{	g \in G_{\text{red}}}g \left( \widetilde a^*\widetilde b \right) \in \widetilde A_{\text{red}}.
+%\ee
+%Let  $\widetilde{\sX}$ be the spectrum of both  $\widetilde{A}$ and $\widetilde{A}_{\text{red}}$, let  $\widetilde x\in\widetilde{\sX}$ be a point. If both
+%\be
+%\begin{split}
+%	\rep^{\widetilde A_{\text{red}}}: \widetilde A_{\text{red}}\to B\left( \H^{\text{red}}_{\widetilde x}\right) ,\\
+%\rep^{\widetilde A}_{ \widetilde{x}}: \widetilde A\to B\left( \H_{\widetilde x}\right),
+%\end{split}
+%\ee
+%are corresponding to $\widetilde x$ irreducible representations then $\rep^{\widetilde A}_{ \widetilde{x}}$ is an induced representation (cf. Definition \ref{ind_repr_defn}), i.e.
+%	\be
+%		\rep^{\widetilde A}_{ \widetilde{x}}=  \widetilde A-\Ind^{\widetilde A}_{\widetilde A_{\text{red}}}	\rep^{\widetilde A_{\text{red}}}_{ \widetilde{x}}
+%	\ee
+%	From the Definition \ref{ind_repr_defn} it follows that
+%	\be\label{dec_hh_eqn}
+%	\begin{split}
+%	\H_{\widetilde x}= \widetilde A\otimes_{\widetilde A_{\text{red}}} \H^{\text{red}}_{\widetilde x}\cong  \left(\widetilde A_{\text{red}}\oplus \widetilde A^\perp\right) \otimes_{\widetilde A_{\text{red}}} \H^{\text{red}}_{\widetilde x}\cong\\\cong\widetilde A_{\text{red}}\otimes_{\widetilde A_{\text{red}}} \H^{\text{red}}_{\widetilde x}\oplus \widetilde A^\perp\otimes_{\widetilde A_{\text{red}}} \H^{\text{red}}_{\widetilde x}\cong \H^{\text{red}}_{\widetilde x}\oplus\H^{\perp}_{\widetilde x},\\ \text{where} \quad \H^{\perp}_{\widetilde x}\bydef \widetilde A^\perp\otimes_{\widetilde A_{\text{red}}} \H^{\text{red}}_{\widetilde x}.
+%	\end{split}
+%	\ee
+%	The decomposition \eqref{dec_hh_eqn} yields a following matrix representation
+%	$$
+%	\rep^{\widetilde A}_{ \widetilde{x}}\left(\widetilde{a} \right) = \begin{pmatrix}
+%		\a_{\widetilde x}\left( \widetilde{a} \right)  & \bt_{\widetilde x}\left( \widetilde{a} \right)\\
+%		\ga_{\widetilde x}\left( \widetilde{a} \right)  & \delta_{\widetilde x}\left( \widetilde{a} \right)\\
+%	\end{pmatrix}
+%	$$
+%	where $	\a_{\widetilde x}\left( \widetilde{a} \right) \in B\left(\H^{\text{red}}_{\widetilde x} \right)$,  $	\bt_{\widetilde x}\left( \widetilde{a} \right) \in B\left(\H^{\perp},\H^{\text{red}}_{\widetilde x} \right)$, $	\ga_{\widetilde x}\left( \widetilde{a} \right) \in B\left(\H^{\text{red}}_{\widetilde x}, \H^{\perp}_{\widetilde x}  \right)$, $	\delta_{\widetilde x}\left( \widetilde{a} \right) \in B\left(\H^{\perp}_{\widetilde x} \right)$.
+%	From equations  \eqref{gred_invp_eqn}, \eqref{dec_hh_eqn} it turns out that
+%	$$
+%\widetilde a_{\text{red}}\in \widetilde A_{\text{red}}	\Rightarrow 	\rep^{\widetilde A}_{ \widetilde{x}}\left(\widetilde{a} \right) = \begin{pmatrix}
+%	\a_{\widetilde x}\left( \widetilde{a}_{\text{red}} \right)  & 0\\
+%	0 & \delta_{\widetilde x}\left( \widetilde{a}_{\text{red}} \right)\\
+%\end{pmatrix}
+%	$$
+%On the other hand from 	\eqref{dec_hh_eqn} it follows that
+%\bean
+%\widetilde a^{\perp}\in \widetilde A^{\perp}	\Rightarrow 	\a_{\widetilde x}\left( \widetilde{a}^{\perp} \right)= 0,\\
+%\rep^{\widetilde A}_{ \widetilde{x}}\left( a^{\perp}\right) \H^{\text{red}}_{\widetilde x}\subset \H^{\perp}_{\widetilde x}
+%\eean
+
+%\end{empt} 
  \section{Strong Morita equivalence of finite-fold coverings}
  
  \paragraph{}
@@ -4061,9 +4131,9 @@ it turns out that  $\widetilde X'\cong\C\widetilde X$.
 Very natural choice of fundamental group is proposed in \cite{milne:etale}, where the fundamental group of algebraic manifold is an inverse limit of finite covering groups. However this theory does not yield the fundamental group, it provides its the profinite completion of the fundamental group. Another way is the construction of the noncommutative universal covering using  construction \ref{inf_bas_constr_sec}. This  construction yields fundamental group in the commutative case $A = C_0\left( \mathcal X\right)$ for described below class of spaces.
 \subsection{Universal coverings of $C^*$-algebras}\label{uni_sec}
 \begin{definition}\label{fg_bas_defn} 
-	Let $A$ be a connected $C^*$-algebra. Let us consider the family $\left\{ \pi_\la:A \hookto A_\la\right\}_{\la \in \La} $ of \textit{all} noncommutative finite-fold coverings of $A$.
+	Let $A$ be a connected $C^*$-algebra. Let us consider the family $\left\{ \pi_\la:A \hookto A_\la\right\}_{\la \in \La} $ of \textit{all} noncommutative finite-fold coverings (resp. \textit{all} reducible noncommutative finite-fold coverings (cf. Definition \ref{fin_red_defn}))of $A$.
 Denote by $\mathfrak{S} = \left\{ \pi_\la:A \hookto A_\la\right\}_{\la \in \La}$ and suppose that there is   a  {pointed  algebraical  finite covering category} category $\mathfrak{S}^{\mathrm{pt}} = \left( \left\{ \pi_\la:A \hookto A_\la\right\},\left\{\pi^\nu_\mu\right\} \right)$  which is good.
-	The { connected infinite noncommutative covering }  $\left(A, \widetilde{A}, G\left(\left.\widetilde{A}~\right|{A}  \right) \right)$ of $\mathfrak{S}$ is said to be the \textit{universal  covering} of $A$. We also say that $\widetilde{A}$ the \textit{universal  covering} of $A$. The group $G\left(\left.\widetilde{A}~\right|{A}  \right)$  is said to be the \textit{fundamental group} of the pair  $\left( A, \left\{\pi^\nu_\mu\right\}\right) $. We use the following notation
+	The { connected infinite noncommutative covering }  $\left(A, \widetilde{A}, G\left(\left.\widetilde{A}~\right|{A}  \right) \right)$ of $\mathfrak{S}$ is said to be the \textit{universal  covering} of $A$. We also say that $\widetilde{A}$ the \textit{universal  covering} (resp. \textit{reducible universal  covering}) of $A$. The group $G\left(\left.\widetilde{A}~\right|{A}  \right)$  is said to be the \textit{fundamental group} (resp. \textit{reducible fundamental group}) of the pair  $\left( A, \left\{\pi^\nu_\mu\right\}\right) $. We use the following notation
 	\be\label{fg_bas_eqn}
 	\pi_1\left(A, \left\{\pi^\nu_\mu\right\} \right) \stackrel{\mathrm{def}}{=} G\left(\left.\widetilde{A}~\right|{A} \right).
 	\ee
@@ -4318,7 +4388,7 @@ such that
 G\left(\left.\widetilde{A}_\pi~\right|A \right)\widetilde\D = \widetilde\D,\\
 g\left(\widetilde a, \widetilde \xi \right) = \left(g\widetilde a \right); \left(g\widetilde \xi\right)\quad g\in G\left(\left.\widetilde{A}_\pi~\right|A \right), \quad \forall \widetilde a \in \widetilde A_\pi,\quad \widetilde\xi\in \widetilde H.
 \eean
-Assume that there are $\rho_D$ and $\left.\rho_D\right|_{\bigcup_{\la\in\La} \A_{D_\la}}$-inverse noncommutative limits (cf. Definition \ref{inv_o*_lim_defn})  of both $\mathfrak{S}^{\text{pt}}_{\A_D}$  and $\mathfrak{S}^{\text{pt}}_{\A}$  which we denote by $\left( \A_D, \widetilde{\A}_D, G\left(\left.\widetilde{A}_\pi~\right|A \right) \right)$ and $\left( \A, \widetilde{\A}, G\left(\left.\widetilde{A}_\pi~\right|A \right) \right)$ respectively.  From the Definition \ref{inv_o*_lim_defn} it follows that there is an injective *-homomorphism  $\phi: \A_D \to \widetilde{\A}_D$. Denote by $\widetilde{D} \bydef \phi\left( D\right)$. From our construction it follows that $\widetilde{D} \in \L^\dagger\left(\widetilde{\D} \right)$. 
+Assume that there are $\rho_D$ and $\left.\rho_D\right|_{\bigcup_{\la\in\La} \A_{\la}}$-inverse noncommutative limits (cf. Definition \ref{inv_o*_lim_defn})  of both $\mathfrak{S}^{\text{pt}}_{\A_D}$  and $\mathfrak{S}^{\text{pt}}_{\A}$  which we denote by $\left( \A_D, \widetilde{\A}_D, G\left(\left.\widetilde{A}_\pi~\right|A \right) \right)$ and $\left( \A, \widetilde{\A}, G\left(\left.\widetilde{A}_\pi~\right|A \right) \right)$ respectively.  From the Definition \ref{inv_o*_lim_defn} it follows that there is an injective *-homomorphism  $\phi: \A_D \to \widetilde{\A}_D$. Denote by $\widetilde{D} \bydef \phi\left( D\right)$. From our construction it follows that $\widetilde{D} \in \L^\dagger\left(\widetilde{\D} \right)$. 
 
 \end{empt}
 
@@ -4330,161 +4400,6 @@ Assume that there are $\rho_D$ and $\left.\rho_D\right|_{\bigcup_{\la\in\La} \A_
 
 
 
-
-\subsection{Constructive approach}\label{str_cov_sec}
-\paragraph*{}
-From the inclusions $\left[D_\la, \A_\la\right]\in B\left(\H_\la \right)$ and  \eqref{bl_inc_eqn} one has the natural inclusion
-\be\label{da_la_eqn}
-\left[D_\la, \A_\la\right]\subset B\left( \widetilde\H\right)
-\ee
-For any $s \in \N$ the given by \eqref{bl_act_eqn} action 
-$
-B\left( \H_\la\right)\times \widetilde\H \to \widetilde\H
-$ naturally induces an action
-$$
-B\left( \H^{2^s}_\la\right)\times \widetilde\H^{2^s} \to \widetilde\H^{2^s}
-$$
-hence there is an inclusion
-\be\label{h2s_inc_eqn}
-B\left( \H^{2^s}_\la\right)\subset B\left(\widetilde\H^{2^s} \right). 
-\ee
-If $\pi^s_\la: \A_\la \hookto B\left( \H^{2^s}_\la \right)$ is given by  \eqref{s_diff1_repr_equ}, \eqref{s_diff_repr_equ} then from \eqref{h2s_inc_eqn} it turns out that there is the inclusion
-\be\label{ps_inc_eqn}
-\pi^s_\la\left( \A_\la\right) \subset B\left(\widetilde\H^{2^s} \right) 
-\ee
-	If $\Om^1_D$ is the {module of differential forms associated} with the spectral triple  $\left( \A, \H, D\right)$ (cf. Definition \ref{ass_cycle_defn}) then from $\Om^1_D\subset B\left( \H\right)$ and the given by \eqref{apb_inc_eqn} $\widetilde{A}_\pi \otimes_A B\left( \H\right)\subset B\left( \widetilde\H\right)$ inclusion it follows that there is the following inclusion 
-\be\label{ao_inc_eqn}
-\widetilde{A}_\pi \otimes_A \Om^1_D\subset B\left( \widetilde\H\right).
-\ee
-
-
-
-\begin{defn}\label{smooth_el_defn}
-	Let us consider the  situation of the Definition \ref{cov_sec_triple_defn}.
-	Let $\Om^1_D$ be the {module of differential forms associated} with the spectral triple  $\left( \A, \H, D\right)$ (cf. Definition \ref{ass_cycle_defn}).
-	An element $\widetilde{a}  \in \widetilde{A}_\pi$ is said to be $\mathfrak{S}_{\left(\sA, \sH, D\right)}$- \textit{smooth} if the following conditions hold:
-	\begin{enumerate}
-		\item[(a)] The element $\widetilde{a}$ lies in the Pedersen's ideal of $\widetilde{A}_\pi$, i.e. $\widetilde{a}  \in K\left( \widetilde{A}_\pi\right) $.
-		\item[(b)] For any $\la \in \La$ the series 
-		$$
-		a_\la=	\sum_{g \in \ker\left(  G\left(\left.\widetilde{A}_\pi\right|A \right)\to G\left(\left.A_\la\right|A \right)\right) } ~ g \widetilde{a} 
-		$$
-		is convergent with respect to strict topology of $M\left(\widetilde{A}_\pi\right)$ and
-		$a_\la \in \A_\la$ where the inclusion $\A_\la\subset A_\la\subset M\left(\widetilde{A}_\pi\right)$ is implied.
-		\item[(c)]  If for any $\la \in \La$ and $s \in \N$ the representation $\pi^s_\la: \A_\la \hookto B\left( \H^{2^s}_\la \right)$ is given by  \eqref{s_diff1_repr_equ}, \eqref{s_diff_repr_equ} 
-		and  
-		 inclusion $\pi^s_\la\left( \A_\la\right) \subset B\left(\widetilde\H^{2^s} \right)$ (cf.  \eqref{ps_inc_eqn})  is implied then  the net $\left\{\pi^s_\la\left(a_\la \right)\right\}_{\la \in\La}$  is convergent with respect to the strong topology of  $B\left(\widetilde{\H}^{2^s} \right)$.	
-		\item[(d)] If for any $\la\in \La$ the given by \eqref{da_la_eqn}  inclusion $
-		\left[D_\la, \A_\la\right]\subset B\left( \widetilde\H\right)
-		$ is implied then the net $\left\{\left[D_\la, a_\la\right]\right\}_{\la \in\La}$ is convergent with respect to the strong topology of  $B\left(\widetilde{\H}^{2^s} \right)$.	
-	Moreover one has
-		$$
-		\lim_{\la\in \La} \left[D_\la, a_\la\right] \in K\left(\widetilde{A}_\pi\right) \otimes_{\A} \Om^1_D \subset B\left(\widetilde{\H}  \right)
-		$$
-		where left part of the above equation means the limit with respect  to the strong topology of  $B\left(\widetilde{\H}\right)$, and the right part implies the inclusion  $K\left(\widetilde{A}_\pi\right) \otimes_{\A} \Om^1_D \subset \widetilde{A}_\pi \otimes_A \Om^1_D\subset B\left( \widetilde\H\right)$ (cf. \eqref{ao_inc_eqn}).
-	\end{enumerate}
-	Denote by $\widetilde{a}^s\bydef \lim_{\la\in\La}  \pi^s_\la\left(a_\la \right) \in B\left(\widetilde\H^{2^s} \right)$ in sense the strong convergence of $B\left(\widetilde\H^{2^s} \right)$, and denote by $\widetilde{W}^\infty$ the space of smooth elements. 
-\end{defn}
-\begin{empt}\label{smooth_alg_empt}
-	There is a subalgebra $\widetilde{A}_{\text{smooth}} \subset \widetilde{A}$ generated by smooth elements. For any $s > 0$ there is a seminorm $\left\| \cdot \right\|_s$  on $\widetilde{A}_{\text{smooth}}$ given by
-	\begin{equation}\label{smooth_seminorms_eqn}
-	\left\| \widetilde{a}\right\|_s \bydef \left\|\widetilde{a}^s \right\|=\lim_{\la\in\La}\left\| \pi^s_\la\left(a_\la \right) \right\|.
-	\end{equation}
-\end{empt}
-\begin{defn}\label{smooth_alg_defn}
-	The completion of $\widetilde{A}_{\text{smooth}}$ in the topology induced by the seminorms $\left\| \cdot \right\|_s$ is said to be a \textit{smooth algebra} of the coherent set \eqref{spectral_triple_sec_eqn} of spectral triples. This algebra is denoted by $\widetilde{\A}$. 
-	We say that the set of spectral triples is \textit{good} if $\widetilde{\A}$ is dense in $\widetilde{A}$. 
-\end{defn}
-\begin{empt}\label{dirac_inf_constr_empt}
-	For any $\widetilde{a}  \in \widetilde{W}^\infty$ we denote by
-	\begin{equation}\label{a_d_eqn}
-	\widetilde{a}_D = \lim_{\la \in \La}\left[D_\la, a_\la \right] = \sum_{j = 1}^k \widetilde{a}_D^j\otimes \om_j \in K\left(\widetilde{A}\right)\otimes_{\A} \Om^1_D
-	\end{equation}
-	where $a_\la \bydef \sum_{g \in\ker\left(  G\left(\left.\widetilde{A}_\pi\right|A \right)\to G\left(\left.A_\la\right|A \right)\right)}\widetilde{a}\in \A_\la$.
-	If $\H^\infty = \bigcap_{n = 0}^\infty \Dom D^n$ then for any $\widetilde{a} \otimes \xi \in \widetilde{W}^\infty \otimes_{\A} \H^\infty$ we denote by
-	\begin{equation}\label{inf_lift_D_eqn}
-	\widetilde{D}\left(\widetilde{a} \otimes \xi \right) \stackrel{\mathrm{def}}{=} \sum_{j = 1}^k \widetilde{a}_D^j\otimes \om_j \left(\xi \right)  +\widetilde{a} \otimes D\xi \in K\left(\widetilde{A}\right) \otimes_A \H,
-	\end{equation}
-	i.e. $\widetilde{D}$ is a $\C$-linear map from $W^\infty \otimes_{\A} \H^\infty$ to $K\left(\widetilde{A}\right) \otimes_A \H$.
-	The space $\widetilde{W}^\infty \otimes_{\A} \H^\infty$ is dense in $\widetilde{\H}$, hence the operator $\widetilde{D}$ can be regarded as an unbounded operator on $\widetilde{\H}$.
-\end{empt}
-
-
-\subsection{Axiomatic approach}\label{axiomatic_cov_sec}
-\paragraph*{}
-	Let us consider the  situation of the Definition \ref{cov_sec_triple_defn}. If $\widetilde \pi: \widetilde A  \to B\left(\widetilde \H \right)$ is a faithful representation then for every $\la \in \La$ the injective *-homomorphisms $A_\la \hookto M\left(\widetilde A\right)$ and $M\left(\widetilde A\right)$ induce the faithful representation $\pi_\la:A_\la  \hookto B\left(\widetilde \H \right)$. If $\widetilde D$ is an unbounded operatoron $\widetilde \H$ then similarly to 
-	\eqref{s_diff1_repr_equ} and \eqref{s_diff_repr_equ} we can define representations 
-	$$
-	\widetilde\pi^s_{\la}: \A_\la \hookto B\left(	\widetilde\H^{2^s}\right) = 	B\left( \widetilde\H\right). 
-	$$
-	We imply that $	\widetilde\pi^s_{\la} \left( a\right)$ is bounded for any $a \in \A_\la$. Using the Proposition \ref{st_cycle_connes_prop} one can define *-representation  
-\be\label{wpla_eqn}
-\begin{split}
-	\widetilde \pi_\la : \Om^*\A_\la \to   B\left(\widetilde \H \right),\\
-		\widetilde \pi_\la(a_0da_1 ... da_n) = a_0\left[\widetilde D, a_1\right] ... \left[ \widetilde D, a_n\right] \quad \forall a_j \in \A_\la.
-	\end{split}
-\ee
- of the reduced    universal
-	algebra $\Om^*\A_\la$  (cf. \eqref{diff_repr_eqn}).
-	
-\begin{definition}\label{axiomatic_d_defn}
-An unbounded operator $\widetilde D$ on $\widetilde \H$ is said to be $\left( A, \widetilde{A}, G\left(\left.\widetilde{A}~\right|A \right) \right)$-\textit{axiomatic lift} of the weakly coherent set of spectral triples 	$\mathfrak{S}_{\left(\sA, \sH, D\right)}= \left\{\left(\sA_\la, \sH_\la, D_\la \right)\right\}_{\la \in \La}$ (cf. Definition \ref{wcov_sec_triple_defn}) if following conditions hold:
-\begin{enumerate}
-	\item [(a)] If $\pi^s_{\la}: \A_\la \hookto B\left(	\H^{2^s}_\la \right)$ is given by 	\eqref{s_diff1_repr_equ} and \eqref{s_diff_repr_equ} then for any $a \in \A_\la$ one has
-	$$
-	\left\|\widetilde\pi^s_{\la}\left(a\right) \right\| = 	\left\|\pi^s_{\la}\left(a\right) \right\|.
-	$$
-	\item[(b)] If 
-	\be\label{wpla_l_eqn}
-	\begin{split}
-		 \pi_\la : \Om^*\A_\la \to   B\left( \H_\la \right),\\
-		\pi_\la(a_0da_1 ... da_n) = a_0[D_\la, a_1] ... [D_\la, a_n] \quad \forall a_j \in \A_\la.
-	\end{split}
-	\ee
-	and $\widetilde \pi_\la$ is given by \eqref{wpla_eqn} then $\ker  \pi_\la = \ker \widetilde \pi_\la$, where both $\ker  \pi_\la$ and $\ker  \widetilde \pi_\la$ are graded ideals given by the equation \eqref{junk_grad_eqn}.
-\end{enumerate}
-\end{definition}
-
-\begin{remark}
-If   $J_0 = \ker \pi_\la$ and $\widetilde J_0 = \ker \widetilde \pi_\la$ are graded two-sided ideals given by \eqref{junk_grad_eqn} then from  $J_0 = \widetilde J_0$ it follows that 
-$$
-J_0 + d J_0 = \widetilde J_0 + d \widetilde J_0,
-$$
-so one has
-\be\label{connes_cycle_dd_eqn}
-\Om^*\A_\la / \left(   J_0 + d  J_0\right) = \Om^*\A_\la / \left(  \widetilde J_0 + d \widetilde J_0\right)
-\ee
-and taking into account \eqref{connes_cycle_eqn} we conclude that
-$$
-\Om_{D_\la}=\Om_{\widetilde D}.
-$$
-Thus the representation $A_\la \to B\left(\H_\la \right)$ and the operator $D_\la$ yield a graded involutive algebra $\Om_{D_\la}$ which coincides with the algebra $\Om_{\widetilde D}$ given by the representation $A_\la \to B\left(\widetilde\H \right)$ and the operator $\widetilde D$.
-\end{remark}
-
-\begin{defn}\label{ax_smooth_el_defn}
-	Let us consider the  situation of the Definition \ref{axiomatic_d_defn}. An element $\widetilde{a}  \in \widetilde{A}$ is said to be $\mathfrak{S}_{\left(\sA, \sH, D\right)}$- \textit{axiomatically smooth} if the following conditions hold:
-	\begin{enumerate}
-		\item[(a)] The element $\widetilde{a}$ lies in the Pedersen's ideal of $\widetilde{A}$, i.e. $\widetilde{a}  \in K\left( \widetilde{A}\right) $.
-		\item[(b)] For any $\la \in \La$ the series 
-		$$
-		a_\la=	\sum_{g \in \ker\left(  G\left(\left.\widetilde{A}~\right|A \right)\to G\left(\left.A_\la~\right|A \right)\right) } ~ g \widetilde{a} 
-		$$
-		is convergent with respect to strict topology of $M\left(\widetilde{A}\right)$ and
-		$a_\la \in \A_\la$ for any $\la \in \La$.% following condition holds $$\left[D_\la, a_\la\right] \in \A_\la \otimes_{\A} \
-		\item[(c)]  If $\widetilde \pi^s: \widetilde A  \to B\left(\widetilde \H^{2^s} \right)$ is constructed similarly to equations \eqref{s_diff1_repr_equ} and \eqref{s_diff_repr_equ} from the representation $\widetilde \pi: \widetilde A  \to B\left(\widetilde \H \right)$ and the operator $ \widetilde D$,  then for all $s \in \N$ following condition holds
-		\be
-		\left\| \widetilde \pi^s\left(\widetilde a\right)\right\| < \infty. 
-		\ee
-	\end{enumerate}
-\end{defn}
-\begin{defn}\label{ex_smooth_alg_defn}
-	Let $\widetilde{A}_{\text{ax smooth}} \subset\widetilde A $ is a generated by axiomatically smooth elements involutive algebra.
-		The completion of $\widetilde{A}_{\text{ax smooth}}$ in the topology induced by the seminorms $\left\| \cdot \right\|_s= \left\|  \widetilde \pi^s\left( \cdot\right) \right\|$ is said to be a \textit{axiomatically smooth algebra} of the coherent set \eqref{spectral_triple_sec_eqn} of spectral triples. This algebra is denoted by $\widetilde{\A}_{\text{ax}}$. 
-		We say that the set of spectral triples is \textit{axiomatically good} if $\widetilde{\A}_{\text{ax}}$ is dense in $\widetilde{A}$. 
-	\end{defn}
-\begin{remark}
-	It is not known  whether the axiomatic approach is equivalent to the constructive one. Also it is not known whether the axiomatic approach yields the unique result.
-\end{remark}
 
 \chapter{Coverings of commutative $C^*$-algebras and their operator subspaces}\label{top_chap}
 %\section{Basic constructions}
@@ -6383,6 +6298,12 @@ If we consider the situation of the Definition \ref{sheaf_inv_im_defn} then \tex
 p^{-1}_{\mathscr  G}:\mathscr  G\left(\sX\right)\hookto f^{-1}\mathscr  G\left(\sY\right)
 \ee
 of Abelian groups.
+\begin{example}\label{top_radon_lift_exm}
+For any topological space $\sX$ there is a sheaf $\mathscr R\left(\sX \right)$  of Radon measures (cf. \cite{bogachev_measure_v2}). If $p: \widetilde \sX \to \sX$ is a covering then there is an injective $\R$-linear homomorphism.
+$$
+\mathscr R\left(\sX \right)\hookto \mathscr R\left(\widetilde\sX \right).
+$$
+\end{example}
 
 Let  $\sF$ be a continuity structure  for $\sX$ {and the} $\left\{A_x\right\}_{x \in \sX}$, and let  $C\left(\sX, \left\{A_x\right\}, \sF \right)$ the $C_b\left(\sX \right)$-module of continuous sections (with respect to) $\sF$ vector fields. For any $a \in  C\left(\sX, \left\{A_x\right\}, \sF \right)$ there is a family $\left\{a_x \in A_x\right\}_{x \in \sX}$. For any open subset  $\sU \subset \sX$ there is the restriction $\left.a\right|_{\sU}$ which is a family $\left\{a_x \in A_x\right\}_{x \in \sU}$. The image of the map $a \mapsto \left.a\right|_{\sU}$ is an Abelian group we denote it by $\mathscr G \left(\sX, \left\{A_x\right\}, \sF \right)\left( \sU\right)$. Clearly  the map
 \be\label{top_cs_sheaf_eqn}
@@ -6645,7 +6566,7 @@ Otherwise from the Equation \eqref{top_hom_eqn} it turns out that  $\widetilde \
 
 
 \begin{lemma}\label{top_comp_sum_lem}
-		Let $\widetilde{   \mathcal X }$ be a second-countable, connected, locally connected, locally compact, Hausdorff space. Let $p: \widetilde{   \mathcal X }\to \sX$ be a transitive covering. Let us use the notation of the Definition \ref{top_cs_funct_b_defn}.  Any $\widetilde a \in A_c\left( \widetilde{\sX}\right)$ can be represented by the following way
+		Let $\widetilde{   \mathcal X }$ be a  connected, locally connected, locally compact, Hausdorff space. Let $p: \widetilde{   \mathcal X }\to \sX$ be a transitive covering. Let us use the notation of the Definition \ref{top_cs_funct_b_defn}.  Any $\widetilde a \in A_c\left( \widetilde{\sX}\right)$ can be represented by the following way
 			$$
 	\widetilde a =	\widetilde a_1 + ... + \widetilde a_m 
 		$$
@@ -6664,7 +6585,7 @@ $$
 \end{proof}
 	\begin{empt}
 	Let $\sX$ be a locally compact, paracompact, Hausdorff space; and for each $x$ in $\sX$, let $A_x$ be a (complex) Banach space. Let us consider a continuity structure $\sF$ for $\sX$. If $p: \widetilde \sX \to \sX$ is a covering then $C_c\left(\widetilde \sX\right)$ is a  $C_0\left( \sX\right)$-module. There is the map
-	\be\label{top_tensor_lccomact_iso_eqn}
+	\be\label{top_tensor_lccompact_iso_eqn}
 	\begin{split}
 		\phi: C_c\left(\widetilde \sX\right)\otimes_{C_0\left( \sX\right)}C\left(\sX, 
 		\left\{A_x\right\}, \sF \right) \to C_c\left( \lift_p\left[C\left(\sX, 
@@ -6677,8 +6598,8 @@ $$
 	\left\{\sum_{j=1}^n \widetilde a_{j}\left(\widetilde x \right)  c^{-1}_{\widetilde x}\left( \xi_{j x}\right)  \right\}_{{\widetilde x}\in {\widetilde \sX}}\quad  \text{ where } c_{\widetilde x}\text{ is given by } \eqref{top_ct_iso_eqn}.
 	\ee
 \end{empt}
-\begin{lemma}\label{top_tensor_lcomact_lem}
-	The given by \eqref{top_tensor_lccomact_iso_eqn} map $\phi$ is the isomorphism of left $C_0\left(\widetilde \sX\right)$-modules.
+\begin{lemma}\label{top_tensor_lcompact_lem}
+	The given by \eqref{top_tensor_lccompact_iso_eqn} map $\phi$ is the isomorphism of left $C_0\left(\widetilde \sX\right)$-modules.
 \end{lemma}
 \begin{proof}  
 	
@@ -7363,7 +7284,7 @@ From \ref{top_herm_bundle_empt} it follows that $L^2\left( M, S, \mu\right)$ is 
 $$
 \Ga\left(M, \sS\right) \cong C\left(M, \left\{\SS_x\right\},  \Ga\left(M, \sS\right)\right). 
 $$
-If $p: \widetilde{M} \to M$ is a finite-fold  transitive covering then from the Lemma \ref{top_tensor_comact_lem} it follows that there is the natural isomorphism
+If $p: \widetilde{M} \to M$ is a finite-fold  transitive covering then from the Lemma \ref{top_tensor_lccompact_iso_eqn} it follows that there is the natural isomorphism
 \be\label{top_lift_g_eqn}
 	\phi: C\left(\widetilde \sX\right)\otimes_{C\left(M\right)} C\left(M,\left\{\SS_x\right\},  \Ga\left(M, \sS\right)\right) \xrightarrow{\approx}\lift_p\left[C\left(M, \left\{\SS_x\right\},  \Ga\left(M, \sS\right)\right)\right]
 \ee
@@ -7392,12 +7313,13 @@ $$
 \a \ge \a_0 \quad \Rightarrow \left\| \sum_{j = 1}^n \widetilde a_j \otimes \xi_{j\a_0} - \sum_{j = 1}^n \widetilde a_j \otimes \xi_{j\a}\right\|_{L^2\left(\widetilde M, \widetilde\sS\right)} < \eps.
 $$
 The above equation it follows that the net $\left\{\sum_{j = 1}^n \widetilde a_j \otimes \xi_{j\a}\right\}_\a$ satisfies to the Cauchy condition, so it is convergent with respect to the topology of $L^2\left(\widetilde M, \widetilde\sS\right)$.\\
-(ii) From the Lemma \ref{top_tensor_comact_lem} it follows that the image of $C\left(\widetilde M\right)\otimes_{C\left(M\right)} L^2\left(M, \sS\right)$ in $L^2\left(\widetilde M, \widetilde\sS\right)$ contains $\Ga\left(\widetilde{M}, \widetilde{\SS} \right)$, however $\Ga\left(\widetilde{M}, \widetilde{\SS} \right)$ is dense in $L^2\left(\widetilde{M}, \widetilde{\SS} \right)$. It follows that  $\phi\left(  C\left(\widetilde M\right)\otimes_{C\left(M\right)} L^2\left(M, \sS\right)\right)$ is dense in $L^2\left(\widetilde{M}, \widetilde{\SS} \right)$. 
+(ii) From the Lemma \ref{top_tensor_lccompact_iso_eqn} it follows that the image of $C\left(\widetilde M\right)\otimes_{C\left(M\right)} L^2\left(M, \sS\right)$ in $L^2\left(\widetilde M, \widetilde\sS\right)$ contains $\Ga\left(\widetilde{M}, \widetilde{\SS} \right)$, however $\Ga\left(\widetilde{M}, \widetilde{\SS} \right)$ is dense in $L^2\left(\widetilde{M}, \widetilde{\SS} \right)$. It follows that  $\phi\left(  C\left(\widetilde M\right)\otimes_{C\left(M\right)} L^2\left(M, \sS\right)\right)$ is dense in $L^2\left(\widetilde{M}, \widetilde{\SS} \right)$. 
 \end{proof}
 \begin{remark}
 	Indeed the image of $C\left(\widetilde M\right)\otimes_{C\left(M\right)} L^2\left(M, \sS\right)$ coincides with $L^2\left(\widetilde{M}, \widetilde{\SS} \right)$. However this fact is not used here.
 \end{remark}
-Let both $\mu$ and $\widetilde{\mu}$ be Riemannian measures (cf.  \cite{do_carmo:rg}) on both $M$ and $\widetilde{M}$ respectively which correspond to both the volume element (cf. \eqref{top_vol_eqn}) and its $p$-lift (cf. \eqref{top_vol_lift_eqn}).
+
+Let both $\mu$ and $\widetilde{\mu}$ be Riemannian measures (cf.  \cite{do_carmo:rg}) on both $M$ and $\widetilde{M}$ respectively which correspond to both the volume element (cf. \eqref{top_vol_eqn}) and its $p$-lift (cf. Example  \ref{top_radon_lift_exm}).
 If $\widetilde{a} \otimes \xi, \widetilde{b} \otimes \eta \in C\left(\widetilde{M} \right) \otimes_{C\left(M \right) } \Ga\left( M, S\right) \subset L^2\left(\widetilde{M},\widetilde{S} \right)$  then  the given by the Equation \eqref{induced_prod_equ} scalar product $\left(\cdot, \cdot \right)_{\text{ind}}$ on  $ \Ga\left( M, S\right) \otimes L^2\left({M},{S}, \mu\right)$ satisfies to the following equation
 \begin{equation}\label{comm_ind_l2_eqn}
 \begin{split}
@@ -8682,7 +8604,7 @@ where $K\left( C_0\left( \widetilde M\right)\right)$ is Pedersen's ideal of $C_0
 $$
 \Ga_c\left(\widetilde M, \widetilde S \right)\bydef C_c\left( \lift_p\left[C\left(M, \left\{S_x\right\}, \Ga\left(M, S\right)\right)\right]\right)  
 $$
-then from the Lemma \ref{top_tensor_lcomact_lem} it follows that there is the given by \eqref{top_tensor_lccomact_iso_eqn} isomorphism
+then from the Lemma \ref{top_tensor_lcompact_lem} it follows that there is the given by \eqref{top_tensor_lccompact_iso_eqn} isomorphism
 $$
 C_c\left(\widetilde M\right)\otimes_{C\left(M\right)}\Ga\left(M,S \right) \xrightarrow{\approx}\Ga_c\left(\widetilde M, \widetilde S \right)
 $$
@@ -8713,7 +8635,7 @@ of left $C_0\left(\widetilde M \right)$-modules.
 	\a \ge \a_0 \quad \Rightarrow \left\| \sum_{j = 1}^n \widetilde a_j \otimes \xi_{j\a_0} - \sum_{j = 1}^n \widetilde a_j \otimes \xi_{j\a}\right\|_{L^2\left(\widetilde M, \widetilde\sS\right)} < \eps.
 	$$
 	The above equation it follows that the net $\left\{\sum_{j = 1}^n \widetilde a_j \otimes \xi_{j\a}\right\}_\a$ satisfies to the Cauchy condition, so it is convergent with respect to the topology of $L^2\left(\widetilde M, \widetilde\sS\right)$.\\
-	(ii) From the Lemma \eqref{top_tensor_lcomact_lem} it follows that the image of $C_c\left(\widetilde M\right)\otimes_{C\left(M\right)} L^2\left(M, \sS\right)$ in $L^2\left(\widetilde M, \widetilde\sS\right)$ contains $\Ga_c\left(\widetilde{M}, \widetilde{\SS} \right)$, however $\Ga_c\left(\widetilde{M}, \widetilde{\SS} \right)$ is dense in $L^2\left(\widetilde{M}, \widetilde{\SS} \right)$. It follows that  $\phi\left(  C_c\left(\widetilde M\right)\otimes_{C\left(M\right)} L^2\left(M, \sS\right)\right)$ is dense in $L^2\left(\widetilde{M}, \widetilde{\SS} \right)$. 
+	(ii) From the Lemma \eqref{top_tensor_lcompact_lem} it follows that the image of $C_c\left(\widetilde M\right)\otimes_{C\left(M\right)} L^2\left(M, \sS\right)$ in $L^2\left(\widetilde M, \widetilde\sS\right)$ contains $\Ga_c\left(\widetilde{M}, \widetilde{\SS} \right)$, however $\Ga_c\left(\widetilde{M}, \widetilde{\SS} \right)$ is dense in $L^2\left(\widetilde{M}, \widetilde{\SS} \right)$. It follows that  $\phi\left(  C_c\left(\widetilde M\right)\otimes_{C\left(M\right)} L^2\left(M, \sS\right)\right)$ is dense in $L^2\left(\widetilde{M}, \widetilde{\SS} \right)$. 
 \end{proof}
 Let both $\mu$ and $\widetilde{\mu}$ be Riemannian measure (cf.  \cite{do_carmo:rg}) on both $M$ and $\widetilde{M}$ respectively which correspond to both the volume element (cf. \eqref{top_vol_eqn}) and its $p$-lift (cf. \eqref{top_vol_lift_eqn}).
 Let
@@ -8748,7 +8670,7 @@ The given by the Equation \eqref{comp_hilb_eqn} scalar product $\left(\cdot, \cd
 =  \left(\phi\left(  \widetilde{a}\otimes\xi\right) ,  \phi \left( \widetilde{b}\otimes\eta\right)\right)_{L^2\left(\widetilde{M},\widetilde{S} \right)}
 \end{split} 
 \end{equation}
-where $\phi$ is given by \eqref{top_tensor_lccomact_iso_eqn}.
+where $\phi$ is given by \eqref{top_tensor_lccompact_iso_eqn}.
 The equation \eqref{comm_ind_l2_lc_eqn} means that $\left(\cdot, \cdot \right)_{\text{ind}}= \left(\cdot, \cdot \right)_{L^2\left(\widetilde{M},\widetilde{S} \right)}$, and taking into account the dense inclusion $C\left(\widetilde{M} \right) \otimes_{C\left(M \right) } \Ga\left( M, S\right) \subset L^2\left(\widetilde{M},\widetilde{S} \right)$ with respect to the Hilbert norm of $L^2\left(\widetilde{M},\widetilde{S}\right) $
 one concludes that the space of induced representation coincides with $L^2\left(\widetilde{M},\widetilde{S}\right)$. It means that induced representation $C\left(\widetilde{M}\right) \times L^2\left(\widetilde{M},\widetilde{S} \right) \to L^2\left(\widetilde{M},\widetilde{S} \right)$ is given by \eqref{comm_bundle_repr_eqn}. So one has the following lemma.
 \begin{lemma}\label{comm_ind_lc_lem}
@@ -9249,7 +9171,7 @@ $$
  \lim_{\la\in\La}\left[\Dslash_\la, a_\la\right] \in C_c\left(\widetilde M \right)\otimes \Om^1_\Dslash = K\left( C_0\left(\widetilde M \right)\right) \otimes \Om^1_\Dslash
  $$
  \end{proof}
-Similarly to \eqref{top_tensor_lccomact_iso_eqn} one can define a $\Coo_c\left(\widetilde M \right)$-module  homomorphism
+Similarly to \eqref{top_tensor_lccompact_iso_eqn} one can define a $\Coo_c\left(\widetilde M \right)$-module  homomorphism
 \be\label{top_phinfi_eqn}
 \begin{split}
 \widetilde	\phi_\infty :\Coo_c\left(\widetilde M \right)\otimes_{\Coo\left( M\right) } \Ga^\infty\left(M, \sS \right)  \to \Ga^\infty_c\left(\widetilde M, \widetilde\sS \right),\\
@@ -9261,7 +9183,7 @@ where both   $\Ga^\infty\left(M, \sS \right)$ and $\Ga^\infty_c\left(\widetilde 
 	The given by the Equation \eqref{top_phinfi_eqn} homomorphism is an isomorphism.
 \end{lemma}
 \begin{proof}
-	The proof of the Lemma \ref{top_tensor_lcomact_lem} uses the partition of unity. However from the Proposition \ref{smooth_part_unity_prop} it turns out that there is a smooth partition of unity. Using it one can proof this lemma as well as the Lemma \ref{top_tensor_lcomact_lem} has been proved.
+	The proof of the Lemma \ref{top_tensor_lcompact_lem} uses the partition of unity. However from the Proposition \ref{smooth_part_unity_prop} it turns out that there is a smooth partition of unity. Using it one can proof this lemma as well as the Lemma \ref{top_tensor_lcompact_lem} has been proved.
 \end{proof}
 
 \begin{empt}\label{top_dirac_construction_empt}
@@ -12561,7 +12483,7 @@ where both   $\Ga^\infty\left(M, \sS \right)$ and $\Ga^\infty_c\left(\widetilde 
 	The given by the Equation \eqref{ctr_phinfi_eqn} homomorphism is an isomorphism.
 \end{lemma}
 \begin{proof}
-	The proof of the Lemma \ref{top_tensor_lcomact_lem} uses the partition of unity. However from the Proposition \ref{smooth_part_unity_prop} it turns out that there is a smooth partition of unity. Using it one can proof this lemma as well as the Lemma \ref{top_tensor_lcomact_lem} has been proved.
+	The proof of the Lemma \ref{top_tensor_lcompact_lem} uses the partition of unity. However from the Proposition \ref{smooth_part_unity_prop} it turns out that there is a smooth partition of unity. Using it one can proof this lemma as well as the Lemma \ref{top_tensor_lcompact_lem} has been proved.
 \end{proof}
 
 \begin{empt}\label{ctr_dirac_construction_empt}
@@ -19630,7 +19552,6 @@ In this section we consider an analogue of the $A \otimes_B - : \ _B\mathcal{M}\
 	The complete proof of above facts is contained in the Proposition 2.66 \cite{rae:ctr_morita}
 \end{empt}
 \begin{defn}\label{ind_repr_defn}
-
 	Let us consider the situation \ref{herm_functor_empt}. 	The functor $X \otimes_{B} -: \mathbf{Herm}(B)\to \mathbf{Herm}(A)$ is said to be the \textit{Rieffel correspondence}. If $\pi: B \to B\left( \H_B\right)$ a representation then the representation $\rho :  A \to B\left( \H_A\right)$  given by the functor $X \otimes_{B} -: \mathbf{Herm}(B)\to \mathbf{Herm}(A)$ is said to be the \textit{induced representation}. We use following notation
 	\be\label{ind_repr_eqn}
 	\rho = X-\Ind^A_B\pi \text{ or } 	\rho = \Ind^A_B\pi \text{ or } 	\rho = X-\Ind\pi
@@ -23234,7 +23155,7 @@ A pair $\left(\Coo_c \left(M  \right)', \Coo \left(M  \right)\right)$ is a quasi
 
 %\begin{theorem}\label{radon_repr_thm}\cite{bogachev_measure_v2} (Riesz representation theorem)
 %$Theorem. 7.10.4 $
-% Let $K$ be a compact space. Then, for every continuous linear functional $L$ on the Banach space $C\left(K \right)$ , there exists a unique
+%Let $K$ be a compact space. Then, for every continuous linear functional $L$ on the Banach space $C\left(K \right)$ , there exists a unique
 % Radon measure $\mu$ such that
 % $$
 % L\left(f \right) = \int_{K} f ~\d\mu \quad \forall f \in C\left(K \right). 
