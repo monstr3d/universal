@@ -2108,8 +2108,12 @@ There is  an isomorphism  $\widetilde{A} \approx A \bigoplus P$ of $A$-modules t
  	\ee
  \end{rem}
 \begin{definition}\label{fin_red_defn}
-A noncommutative finite-fold  covering  $\left(A, \widetilde{A}, G, \pi \right)$ (cf. Definition \ref{fin_defn}) is said to be \textit{reducible} if $\widetilde{A}= \widetilde{A}_{\text{red}}$.
+A noncommutative finite-fold  covering  $\left(A, \widetilde{A}, G, \pi \right)$ (cf. Definition \ref{fin_defn}) is said to be \textit{reduced} if $\widetilde{A}= \widetilde{A}_{\text{red}}$.
 \end{definition}
+
+\begin{remark}
+	I do not know whether exists a noncommutative finite-fold  covering which is not reduced.
+\end{remark}
 
 %\begin{empt}
 %There  is a decomposition 
@@ -13181,9 +13185,9 @@ Above representations yield the representation
 \rho\bydef \prod_{x \in M}\rho_x: \Ga_c \left(\mathcal G , \Omega_{\mathcal G}^{1/2}\right)\to B\left(\bigoplus_{x \in M} L^2\left(\mathcal \G_x \right)\right)
 \ee
 Similarly for all $x \in M$, there  is the representation, $\pi_x: \Coo_b\left(M\right) \to B\left( L^2\left(\mathcal \G_x \right)\right) $ given by
-$$
+\be\label{foli_m_act_eqn}
 \pi_x\left( f\right) \xi = \left.f\right|_{\G_x}\xi,
-$$
+\ee
 where $\left.f\right|_{\G_x} \in C_b\left(\G_x\right)$ and the the product means the well known  product $ C_b\left(\G_x\right)\times L^2\left(\mathcal \G_x \right)\to L^2\left(\mathcal \G_x \right)$. There is the following representation  
 \be\label{foli_mnor_eqn}
 \pi\bydef \prod_{x \in M}\pi_x: \Coo_b\left(M\right)\to B\left(\bigoplus_{x \in M} L^2\left(\mathcal \G_x \right)\right).
@@ -13257,7 +13261,7 @@ C_b\left( M\right)\subset M\left(C^*_r \left(M, \mathcal{F}\right) \right).
 	\be\label{foli_matr_eqn}
 	\begin{pmatrix} a_{g_1g_1}  & \dots & a_{g_1g_n} \\
 		\vdots  & \ddots & \vdots \\
-		a_{g_ng_n}  & \dots & a_{g_ng_n} 
+		a_{g_ng_1}  & \dots & a_{g_ng_n} 
 	\end{pmatrix}
 	\ee
 	where $n = \left| G\left(\left.\widetilde M_2~\right|M\right)\right|$, $\left\{g_1,...,g_n\right\}= G\left(\left.\widetilde M_2~\right|M\right)$ and $a_{g_jg_k}\in B\left(\widetilde\H_2^{g_k\widetilde\sU_2}, \widetilde\H_2^{g_j\widetilde\sU_2} \right)$ where $j,k = 1,...,n$.
@@ -13285,11 +13289,11 @@ C_b\left( M\right)\subset M\left(C^*_r \left(M, \mathcal{F}\right) \right).
 	\bean
 	A^\parallel = \begin{pmatrix} a^\parallel_{g_1g_1}  & \dots & a^\parallel_{g_1g_n} \\
 		\vdots  & \ddots & \vdots \\
-		a^\parallel_{g_ng_n}  & \dots & a^\parallel_{g_ng_n}
+		a^\parallel_{g_ng_1}  & \dots & a^\parallel_{g_ng_n}
 	\end{pmatrix}
 	\quad \text{and} \quad A^\perp = \begin{pmatrix} a^\perp_{g_1g_1}  & \dots & a^\perp_{g_1g_n} \\
 		\vdots  & \ddots & \vdots \\
-		a^\perp_{g_ng_n}  & \dots & a^\perp_{g_ng_n}
+		a^\perp_{g_ng_1}  & \dots & a^\perp_{g_ng_n}
 	\end{pmatrix}
 	\eean
 	are matrices which represent  $\widetilde a_1^\parallel$ and $\widetilde a_1^\perp$ respectively then from $\widetilde a_1^\parallel\widetilde a_1^\perp = \widetilde a_1^\perp\widetilde a_1^\parallel= 0$ it follows that $A^\parallel A^\perp = A^\perp A^\parallel= 0$.  Otherwise from \eqref{foli_dia_matr_eqn} it follows that $A^\parallel +A^\perp$ is a diagonal matrix, so one has
@@ -13397,7 +13401,6 @@ Taking into account  $B = \widetilde B^{G\left(\left.\widetilde{M}~\right|M\righ
 Let $\left(\widetilde{M},~ \widetilde{\mathcal F} \right)\to \left({M},~ {\mathcal F} \right)$ be a regular finite-fold covering of foliated spaces (cf. Definition \ref{foli_reg_cov_defn}). If  both $M$ and $\widetilde M$ are connected then the quadruple  $$\left(	C^*_r\left( M, \mathcal{F}\right),  C^*_r\left(\widetilde{M},~ \widetilde{\mathcal F} \right),{G\left( \left.\widetilde{M}~\right|M\right)}, C^*_r\left( p\right)  \right)$$ is a noncommutative finite-fold covering (cf. Definition \ref{fin_defn}).
 \end{theorem}
 \begin{proof}
-	!!!! CHECK fin defn.
 From the Corollary \ref{foli_gi_cor} it follows that the quadruple	$$\left(	C^*_r\left( M, \mathcal{F}\right),  C^*_r\left(\widetilde{M},~ \widetilde{\mathcal F} \right),{G\left( \left.\widetilde{M}~\right|M\right)}, C^*_r\left( p\right)  \right)$$
 is a	noncommutative finite-fold  pre-covering (cf Definition \ref{fin_pre_defn}).
 $  $Let   $\set{u_\la}_{\la \in \La}\subset C_c\left( M\right) $ be  a family defined in \ref{top_ua_empt}.
@@ -13531,7 +13534,7 @@ Follows from the Theorem \ref{foli_fin_thm}, Lemma \ref{foli_g_lem}, and (ii) of
 
 
 \subsection{Coverings and irreducible representations}\label{foli_irred_cov_sec}
-If $p:\left(\widetilde M,\widetilde \sF\right) \to \left( M, \sF\right)$ is the regular finite-fold covering then from the Lemma \ref{foli_fin_comp_lem} it follows that  there is  the natural noncommutative finite-fold covering \\$ C^*_r\left(M, \sF\right) \hookto  C^*_r\left(\widetilde M,\widetilde \sF\right)$. From the Lemma \ref{cov_spectrum_lem} it turns out that there is the natural surjective map from the spectrum of  $C^*_r\left(\widetilde M,\widetilde \sF\right)$ to the spectrum of $ C^*_r\left( M, \sF\right)$.
+If $p:\left(\widetilde M,\widetilde \sF\right) \to \left( M, \sF\right)$ is the regular finite-fold covering then from the Theorem \ref{foli_fin_thm} it follows that  there is  the natural noncommutative finite-fold covering \\$ C^*_r\left(M, \sF\right) \hookto  C^*_r\left(\widetilde M,\widetilde \sF\right)$. From the Lemma \ref{cov_spectrum_lem} it turns out that there is the natural surjective map from the spectrum of  $C^*_r\left(\widetilde M,\widetilde \sF\right)$ to the spectrum of $ C^*_r\left( M, \sF\right)$.
 \begin{lemma}\label{foli_cov_spectrum_lem}
 	In the above situation the given by the Lemma \ref{cov_spectrum_lem}  map from the spectrum of  $C^*_r\left(\widetilde M,\widetilde \sF\right)$ to the spectrum of $ C^*_r\left( M, \sF\right)$ corresponds to natural map
 	\be
@@ -13596,7 +13599,39 @@ If $p:\left(\widetilde M,\widetilde \sF\right) \to \left( M, \sF\right)$ is the 
 	\eean
 	it follows that the limit of the series  \eqref{foli_strict_eqn} equals to $\desc_p\left( \widetilde a \right)$.
 \end{proof}
+\subsection{Reduced noncommutative finite-fold coverings}
+\paragraph*{}
+Let $\left(\widetilde M,\widetilde \sF\right)$ be a connected foliated manifold, and let $C^*_r\left(\widetilde M,\widetilde \sF\right)$  be its reduced $C^*$-algebra (cf.  Definition \ref{foli_groupoid_red_defn}). Any irreducible $\rho: C^*_r\left(\widetilde M,\widetilde \sF\right)\to B\left( \H\right)$    representation corresponds a leaf of $L\subset M$ which has no holonomy (cf. Theorem \ref{foli_irred_hol_thm}), and $\H\cong L^2\left(L \right)$. Suppose that a quadruple
+$\left(C^*_r\left(\widetilde M,\widetilde \sF\right), \widetilde A, G, \pi\right)$ is a reduced finite-fold covering (cf. Definitions \ref{fin_defn}, \ref{fin_red_defn}). If both $\mathcal X$  and $\widetilde{\mathcal X}$ are spectra of both $C^*_r\left(\widetilde M,\widetilde \sF\right)$ and  $\widetilde A$ then from the Lemma  \ref{cov_spectrum_lem} it follows that there is a surjective map 	$q:\widetilde{\mathcal X} \to {\mathcal X}$. The covering $\left(C^*_r\left(\widetilde M,\widetilde \sF\right), \widetilde A, G, \pi\right)$ is reduced so one has
+\bean
+	\rep_{ \widetilde{x}}\left(\widetilde{A}\right) = \rep_{ \widetilde{x}}\left(C^*_r\left(\widetilde M,\widetilde \sF\right)\right)
+\eean
+(cf. Equation \eqref{red_inc_eqn}). It turns out that for all irreducible representation 
+\eqref{foli_m_act_eqn}
 
+. 
+\begin{lemma} \label{cov_spectrum_lem!}
+	If $\left(A, \widetilde{A}, G, \pi \right)$ is  a noncommutative finite-fold  quasi-covering  then following conditions hold:
+	\begin{itemize}
+		\item [(i)] 
+		If $\widetilde{\mathcal X}= \widetilde{A}^\wedge$ is the spectrum of $\widetilde{A}$ then there is the natural action $G \times \widetilde{\mathcal X} \to \widetilde{\mathcal X}$,
+		
+		\item[(ii)]  If $\mathcal X = \hat A$ is the spectrum of $A$ then there is the natural surjective continuous map 
+		\be\label{cov_spectrum_eqn!}
+		\begin{split}
+			p:\widetilde{\mathcal X} \to {\mathcal X};\\
+			\rep^{\widetilde{A}}_{ \widetilde{x}} \mapsto \left.\rep^{\widetilde{A}}_{ \widetilde{x}}\right|_A \cong \rep^A_{p\left(\widetilde{x} \right) }
+		\end{split}
+		\ee
+		(cf. Proposition \ref{sur_prop}, and \eqref{rep_x_eqn}), which is $G$-invariant, i.e.
+		\be\label{cov_spectrum_inv_eqn!}
+		p \circ g = p;~~ \forall g \in G,
+		\ee
+		\item[(iii)] The map $p$ naturally induces the homeomorphism  $p_G:\widetilde{\mathcal X}/G \xrightarrow{\approx} {\mathcal X}$.
+	\end{itemize}
+\end{lemma}
+\
+ 
 \section{Infinite coverings}
 
 \begin{definition}\label{foli_sec_defn}
@@ -22010,6 +22045,8 @@ $$
 $$
 is said to be the \textit{reduced algebra} of $\G$. It will be denoted by $C^*_r\left(\G\right)$.
 \end{definition}
+
+
  	\section{Foliations and pseudogroups}
  	%\paragraph{}
  	% Here I follow to \cite{connes:ncg94}
