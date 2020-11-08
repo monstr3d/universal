@@ -13373,47 +13373,6 @@ where the action $G\left( \left.\widetilde{M}~\right|M\right)\times C^*_r\left(\
 \begin{proof}
 Follows from the Theorem \ref{foli_fin_thm}, Lemma \ref{foli_g_lem}, and (ii) of the Theorem \ref{stable_fin_cov_thm}.
 \end{proof}
-\paragraph{title}
-\begin{definition}\label{compliant_covering_defn!}
-	Let us consider the following diagram\\
-	\newline
-	\begin{tikzpicture}
-		\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
-		{
-			\widetilde A_1  &  & \widetilde A_2\\
-			& A & \\};
-		\path[-stealth]
-		(m-1-1) edge[dashed] node [above] {$\pi^1_2$} (m-1-3)
-		(m-2-2) edge node [left]  {$\pi_1~~$} (m-1-1)
-		(m-2-2) edge node [right] {$~~\pi_2$} (m-1-3);
-		%\draw[dashed,->]   (m-1-1) -- (m-1-3);
-	\end{tikzpicture}
-	\\
-	where $A$, $\widetilde A_1$, $\widetilde A_2$ are $C^*$-algebras and $\pi_1$, $\pi_2$, are noncommutative finite-fold coverings. We say that the unordered pair $\left( \pi_1,\pi_2\right) $ is \textit{compliant} if  it satisfies to following conditions:
-	\begin{enumerate}
-		\item[(a)]
-		If there is an injective  *-homomorphism $\pi^1_2: \widetilde A_1 \to \widetilde A_2$ such that $\pi_2 = \pi^1_2 \circ \pi_1$ then $\pi^1_2$ is  a noncommutative finite-fold  covering (cf. Definition \ref{fin_defn}).
-		\item[(b)] Following condition holds
-		\be\label{g_sur_eqn}
-		G\left(\left.\widetilde A_2~\right|A \right)\pi^1_2\left(\widetilde A_1\right)=  \pi^1_2\left(\widetilde A_1\right).
-		\ee 
-		\item[(c)] From \eqref{g_sur_eqn} it turns out that there is the homomorphism $h: G\left(\left.\widetilde A_2~\right|A \right)\to 	G\left(\left.\widetilde A_1~\right|A \right)$ such that 
-		\be\label{g_sur_pi_eqn}
-		\pi^1_2\left( h\left(g \right)a_1\right) = g \circ \pi^1_2\left(a_1 \right)
-		\ee 
-		for each $a_1 \in \widetilde A_1$.  
-		We claim that $h$ is surjective. 
-		\item[(d)] If  $\rho: \widetilde A_1 \to \widetilde A_2$ is any injective *-homomorphism  such that $\pi_2 = \rho \circ \pi_1$ then there is the unique $g \in 	G\left(\left.\widetilde A_1~\right|A \right)$ such that 
-		\be\label{compliant_covering_g_eqn}
-		\rho =  \pi^1_2 \circ g.
-		\ee
-	\end{enumerate}
-	
-\end{definition}
-
-
-
-\paragraph{title}
 \begin{lemma}\label{foli_comply_f_lem}
 	Let $\left(M, \sF\right)$ be a foliated space such that $M$ is a connected, second-countable  manifold.  If both $p_1:\left(\widetilde M_1, \widetilde \sF_1 \right) \to \left(M, \sF\right)$ and  $p_2:\left(\widetilde M_2, \widetilde \sF_2 \right) \to \left(M, \sF\right)$ are regular coverings then the unordered pair of *-homomorphisms 
 	$$
@@ -13465,7 +13424,48 @@ From the Corollary  \ref{top_covp_cat_cor} it follows that there is a covering $
 		\rho = \pi^1_2 \circ g.
 		$$	
 	\end{enumerate}	
+\paragraph{title}
+\begin{definition}\label{compliant_covering_defn!}
+	Let us consider the following diagram\\
+	\newline
+	\begin{tikzpicture}
+		\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
+		{
+			\widetilde A_1  &  & \widetilde A_2\\
+			& A & \\};
+		\path[-stealth]
+		(m-1-1) edge[dashed] node [above] {$\pi^1_2$} (m-1-3)
+		(m-2-2) edge node [left]  {$\pi_1~~$} (m-1-1)
+		(m-2-2) edge node [right] {$~~\pi_2$} (m-1-3);
+		%\draw[dashed,->]   (m-1-1) -- (m-1-3);
+	\end{tikzpicture}
+	\\
+	where $A$, $\widetilde A_1$, $\widetilde A_2$ are $C^*$-algebras and $\pi_1$, $\pi_2$, are noncommutative finite-fold coverings. We say that the unordered pair $\left( \pi_1,\pi_2\right) $ is \textit{compliant} if  it satisfies to following conditions:
+	\begin{enumerate}
+		\item[(a)]
+		If there is an injective  *-homomorphism $\pi^1_2: \widetilde A_1 \to \widetilde A_2$ such that $\pi_2 = \pi^1_2 \circ \pi_1$ then $\pi^1_2$ is  a noncommutative finite-fold  covering (cf. Definition \ref{fin_defn}).
+		\item[(b)] Following condition holds
+		\be\label{g_sur_eqn!}
+		G\left(\left.\widetilde A_2~\right|A \right)\pi^1_2\left(\widetilde A_1\right)=  \pi^1_2\left(\widetilde A_1\right).
+		\ee 
+		\item[(c)] From \eqref{g_sur_eqn} it turns out that there is the homomorphism $h: G\left(\left.\widetilde A_2~\right|A \right)\to 	G\left(\left.\widetilde A_1~\right|A \right)$ such that 
+		\be\label{g_sur_pi_eqn!}
+		\pi^1_2\left( h\left(g \right)a_1\right) = g \circ \pi^1_2\left(a_1 \right)
+		\ee 
+		for each $a_1 \in \widetilde A_1$.  
+		We claim that $h$ is surjective. 
+		\item[(d)] If  $\rho: \widetilde A_1 \to \widetilde A_2$ is any injective *-homomorphism  such that $\pi_2 = \rho \circ \pi_1$ then there is the unique $g \in 	G\left(\left.\widetilde A_1~\right|A \right)$ such that 
+		\be\label{compliant_covering_g_eqn!}
+		\rho =  \pi^1_2 \circ g.
+		\ee
+	\end{enumerate}
 	
+\end{definition}
+
+
+
+\paragraph{title}
+\	
 	
 \end{proof}
 
@@ -13538,8 +13538,18 @@ If $p:\left(\widetilde M,\widetilde \sF\right) \to \left( M, \sF\right)$ is the 
 \end{proof}
 \subsection{Reduced noncommutative finite-fold coverings}
 \paragraph*{}
-Let $\left(\widetilde M,\widetilde \sF\right)$ be a connected foliated manifold, and let $C^*_r\left(\widetilde M,\widetilde \sF\right)$  be its reduced $C^*$-algebra (cf.  Definition \ref{foli_groupoid_red_defn}). Any irreducible $\rho: C^*_r\left(\widetilde M,\widetilde \sF\right)\to B\left( \H\right)$    representation corresponds a leaf of $L\subset M$ which has no holonomy (cf. Theorem \ref{foli_irred_hol_thm}), and $\H\cong L^2\left(L \right)$. Suppose that a quadruple
-$\left(C^*_r\left(\widetilde M,\widetilde \sF\right), \widetilde A, G, \pi\right)$ is a reduced finite-fold covering (cf. Definitions \ref{fin_defn}, \ref{fin_red_defn}). If both $\mathcal X$  and $\widetilde{\mathcal X}$ are spectra of both $C^*_r\left(\widetilde M,\widetilde \sF\right)$ and  $\widetilde A$ then from the Lemma  \ref{cov_spectrum_lem} it follows that there is a surjective map 	$q:\widetilde{\mathcal X} \to {\mathcal X}$. The covering $\left(C^*_r\left(\widetilde M,\widetilde \sF\right), \widetilde A, G, \pi\right)$ is reduced so one has
+The Theorem \ref{foli_fin_thm} yields some  noncommutative finite-fold coverings of reduced $C^*$-algebra $C^*_r\left( M, \sF\right)$ of foliated manifold $\left(\widetilde M,\widetilde \sF\right)$. We prove that any reduced noncommutative finite-fold covering (cf. Definition \ref{fin_red_defn}) is described by the Theorem \ref{foli_fin_thm} 
+\begin{theorem}
+Let $\left( M, \sF\right)$ be a connected foliated manifold, and let $C^*_r\left( M, \sF\right)$  be its reduced $C^*$-algebra (cf.  Definition \ref{foli_groupoid_red_defn}).
+If a quadruple
+$\left(C^*_r\left( M, \sF\right), \widetilde A, G, \pi\right)$ is a reduced finite-fold covering (cf. Definitions \ref{fin_defn}, \ref{fin_red_defn}) then there is a transitive finite-fold covering $p: \widetilde M\to M$ such that
+$$
+\left(C^*_r\left( M, \sF\right), \widetilde A, G, \pi\right)\cong \left(	C^*_r\left( M, \mathcal{F}\right),  C^*_r\left(\widetilde{M},~ \widetilde{\mathcal F} \right),{G\left( \left.\widetilde{M}~\right|M\right)}, C^*_r\left( p\right)  \right)
+$$
+where $\left(\widetilde{M},~ \widetilde{\mathcal F} \right)$ is the $p$-\textit{lift} of $\left(M,\mathcal F \right)$ (cf. Definition \ref{fol_cov_defn}).
+\end{theorem}
+\begin{proof}
+ Any irreducible $\rho: C^*_r\left(\widetilde M,\widetilde \sF\right)\to B\left( \H\right)$    representation corresponds a leaf of $L\subset M$ which has no holonomy (cf. Theorem \ref{foli_irred_hol_thm}), and $\H\cong L^2\left(L \right)$. If both $\mathcal X$  and $\widetilde{\mathcal X}$ are spectra of both $C^*_r\left(\widetilde M,\widetilde \sF\right)$ and  $\widetilde A$ then from the Lemma  \ref{cov_spectrum_lem} it follows that there is a surjective map 	$q:\widetilde{\mathcal X} \to {\mathcal X}$. The covering $\left(C^*_r\left(\widetilde M,\widetilde \sF\right), \widetilde A, G, \pi\right)$ is reduced so one has
 \bean
 	\rep_{ \widetilde{x}}\left(\widetilde{A}\right) = \rep_{ \widetilde{x}}\left(C^*_r\left( M, \sF\right)\right)
 \eean
@@ -13548,24 +13558,26 @@ Denote by
 \bean
 \widetilde C \bydef \left\{\left. \widetilde a \in M\left(\widetilde A\right)\right| \forall \widetilde{x}\in \widetilde{\sX}\quad \exists  f \in C_b\left( L_{ \widetilde{x}}\right)\quad \forall \widetilde{\xi}\in L^2\left( L_{ \widetilde{x}}\right)\quad \rep_{ \widetilde{x}}\left( \widetilde a \right)\widetilde{\xi}=f\widetilde{\xi}  \right\},
 \eean
-from the above definition it follows that $\widetilde C$ is a commutative $C^*$-algebra. 
-From the Lemma \ref{ind_mult_inv_lem} it follows that there is an injective *-homomorphism $\phi : M\left( C^*_r\left( M, \sF\right)\right)\hookto M\left( \widetilde A\right)$ and taking into account  the equation \eqref{foli_m_act_eqn} one has that $\phi\left( C_0\left( M\right) \right)\subset \widetilde C$. So there is an injective *-homomorphism $\varphi: \widetilde C_b\left(M \right) \to \widetilde C$. On the other hand $\widetilde C$ is a commutative $C^*$-algebra, so if $\widetilde \sX$ is the spectrum of $\widetilde C$ the  *-homomorphism $\varphi$ corresponds a surjective map $q: \widetilde \sX \to \bt M$ where  $\bt M$. Since $\left(C^*_r\left( M, \sF\right), \widetilde A, G, \pi\right)$ is a noncommutative  finite-fold covering it should satisfy to the Definition \ref{fin_defn}. Let $\left\{u_\la\right\}_{\la\in\La}\subset M\left(C^*_r\left( M, \sF\right)\right)_+$ be an increasing net required by the Definition \ref{fin_defn}. For any $\la\in \La$ denote by the following right ideal
+from the above definition it follows that $\widetilde C$ is a commutative $C^*$-algebra. From the Lemma \ref{cov_spectrum_lem} it turns out that there is the natural action $G\times \widetilde{\sX}\to \widetilde{\sX}$ which induces the natural action  $G\times \widetilde{C}\to \widetilde{C}$ such that
 $$
-R_\la \bydef \left\{\left. a \in C_b\left(M \right)\right| au_\la= 0 \right\}
+\forall f \in \widetilde{C}\quad \forall g \in G \quad \forall \widetilde{\xi}\in L^2\left( L_{ \widetilde{x}}\right)\quad \rep_{ \widetilde{x}}\left( g\widetilde a \right)\widetilde{\xi}  =\rep_{ g\widetilde{x}}\left( \widetilde a \right)\widetilde{\xi}
 $$
-and the hereditary subalgebras $C_\la$ and $\widetilde C_\la$ of  $C_b\left( M\right)$ and $C\left( \widetilde \sX\right)$ 
+where the natural isomorphism $L^2\left( L_{ \widetilde{x}}\right)\cong L^2\left( L_{ \widetilde{x}}\right)$ of Hilbert spaces is implied. Clearly one has $C \cong \widetilde{C}^G$.
+From the Lemma \ref{ind_mult_inv_lem} it follows that there is an injective *-homomorphism $\phi : M\left( C^*_r\left( M, \sF\right)\right)\hookto M\left( \widetilde A\right)$ and taking into account  the equation \eqref{foli_m_act_eqn} one has that $\phi\left( C_0\left( M\right) \right)\subset \widetilde C$. So there is an injective *-homomorphism $\varphi: \widetilde C_b\left(M \right) \to \widetilde C$. On the other hand $\widetilde C$ is a commutative $C^*$-algebra, so if $\widetilde \sZ$ is the spectrum of $\widetilde C$ the  *-homomorphism $\varphi$ corresponds a surjective map $q: \widetilde \sZ \to \bt M$ where  $\bt M$. Since $\left(C^*_r\left( M, \sF\right), \widetilde A, G, \pi\right)$ is a noncommutative  finite-fold covering it should satisfy to the Definition \ref{fin_defn}. Let $\left\{u_\la\right\}_{\la\in\La}\subset M\left(C^*_r\left( M, \sF\right)\right)_+$ be an increasing net required by the Definition \ref{fin_defn}. For any $\la\in\La$ both 
 \bean
-C_\la  \bydef \left\{\left. a \in C_b\left(M \right)\right| r_1ar^*_2= 0 \quad  \forall r_1, r_2 \in R_\la \right\},\\
-\widetilde C_\la \bydef  \left\{\left. \widetilde a \in C\left(\widetilde \sX \right)\right| r_1\widetilde ar^*_2= 0 \quad  \forall r_1, r_2 \in R_\la  \right\}.
+C_\la  \bydef \left\{\left. a \in C_b\left(M \right)\right| u_\la a u_\la = a \right\},\\
+\widetilde C_\la \bydef  \left\{\left. \widetilde a \in C\left(\widetilde \sX \right)\right| u_\la \widetilde a u_\la =  \widetilde a  \right\}.
 \eean 
-From the Proposition \ref{hered_spectrum_prop} it follows that there are open subsets $\sU_\la\subset M$ and $\widetilde \sU_\la\subset \widetilde\sX$ such that $C_\la \cong C_0\left(\sU_\la\right)$ and  $\widetilde C_\la \cong C_0\left(\widetilde \sU_\la \right)$. If  $A_\la$ and  $\widetilde A_\la$ are $C^*$-norm completions  of $u_\la C^*_r\left( M, \sF\right) u_\la$ and  $u_\la\widetilde{A}u_\la$ then from the condition (c) of the definition  \ref{fin_defn} it turns out that 		$$
+are hereditary subalgebras of both $C$ and 
+$\widetilde C$ respectively.
+From the Proposition \ref{hered_spectrum_prop} it follows that there are open subsets $\sU_\la\subset M$ and $\widetilde \sU_\la\subset \widetilde\sZ$ such that $C_\la \cong C_0\left(\sU_\la\right)$ and  $\widetilde C_\la \cong C_0\left(\widetilde \sU_\la \right)$. If  $A_\la$ and  $\widetilde A_\la$ are $C^*$-norm completions  of $u_\la C^*_r\left( M, \sF\right) u_\la$ and  $u_\la\widetilde{A}u_\la$ then from the condition (c) of the definition  \ref{fin_defn} it turns out that 		$$
 \left(A_\la, \widetilde{A}_\la, G, \left.\pi\right|_{A_\la} :A_\la\hookto \widetilde{A}_\la\right)	
 $$
 is a noncommutative finite-fold covering with unitization (cf. Definition \ref{fin_comp_defn}). Let  $\left(B_\la ,\widetilde{B}_\la, G, \widetilde{\pi}_\la \right)$ be an untital  pre-covering which is required by the condition (b) of the Definition \ref{fin_comp_defn}.
 If
 \bean
+ D_\la \bydef \left\{\left.  a \in  B_\la\right| \forall  b\in    C_\la \quad   a   b=   b  a\in  C_\la  \right\},
 \widetilde D_\la \bydef \left\{\left. \widetilde a \in \widetilde B_\la\right| \forall \widetilde b\in   \widetilde C_\la \quad  \widetilde a  \widetilde b=  \widetilde b \widetilde a\in \widetilde C_\la  \right\},\\
- D_\la \bydef \left\{\left.  a \in  B_\la\right| \forall  b\in    C_\la \quad   a   b=   b  a\in  C_\la  \right\}
 \eean
 then $ D_\la\subset M\left(  D_\la\right)$ and $\widetilde D_\la\subset M\left( \widetilde D_\la\right)$. So both   $C_\la$ and $\widetilde C_\la$ are essential ideals of $D_\la$ and $\widetilde D_\la$ respectively. Since both $D_\la$ and $\widetilde D_\la$ commutative and unital (because $1_{B_\la}\in D_\la$ and  $1_{\widetilde B_\la}\in \widetilde D_\la$) there are compact sets $\sY_\la$ and $\widetilde\sY_\la$ such that $ D_\la\subset C\left(  \sY_\la\right)$ and  $\widetilde D_\la\subset C\left( \widetilde \sY_\la\right)$. Moreover both $\sU_\la$ and $\widetilde\sU_\la$ are dense subsets of $\sY_\la$ and $\widetilde\sY_\la$ respectively (cf. Example \ref{comm_ess_exm}).
  If $C\left(\widetilde\sY_\la\right)$ is not  a finitely generated $C\left(\sY_\la\right)$-module then from the Theorem \ref{fin_gen_thm} it follows that there is an infinite set $\left\{M^\a_\la\right\}_{\a\in\mathscr A}$ of $C_0\left(\sY_\la \right)$ submodules of $C\left(\widetilde{\sY}_\la\right)$ such that 
@@ -13574,7 +13586,7 @@ C\left(\widetilde{\sY}\right)=\sum_{\a\in\mathscr A} A^\a_\la,
 $$
 but there is no  a finite subset $\mathscr A_0\subset \mathscr A$  such that 
 $$
-C\left(\widetilde{\sY}\right) = \sum_{\a\in\mathscr A_0} A^\a_\la.
+C\left(\widetilde{\sY}_\la\right) = \sum_{\a\in\mathscr A_0} A^\a_\la.
 $$
 For any $\a\in\mathscr A$ the space  $ A^\a_\la \widetilde{B}_\la$ is a right $B_\la$-submodule of $\widetilde{B}_\la$.
 From $C\left(\sY_\la \right) B_\la = B_\la$ and $C\left(\widetilde\sY_\la \right) \widetilde  B_\la = \widetilde B_\la$ one has 
@@ -13589,10 +13601,10 @@ From the Theorem \ref{fin_gen_thm} it follows $\widetilde{B}_\la$ is not a finit
 $$
 \widetilde{	p}: \bigcup_{\la\in \La} \widetilde\sU_\la\to \bigcup_{\la\in \La} \sU_\la
 $$
-From the equation \eqref{fin_u_eqn} it follows that 	$\bt\text{-}\lim_{\la \in \La} u_\la = 1_{M\left(C^*_r\left( M, \sF\right)  \right) }$ so one has $\bigcup_{\la\in \La} \widetilde\sU_\la= M$. If $\widetilde M \bydef  \bigcup_{\la\in \La} \widetilde\sU_\la$ then one has a transitive finite-fold covering  $\widetilde{	p}: \widetilde{M}\to M$.
-
-!!! ACTION OF G
- 
+From the equation \eqref{fin_u_eqn} it follows that 	$\bt\text{-}\lim_{\la \in \La} u_\la = 1_{M\left(C^*_r\left( M, \sF\right)  \right) }$ so one has $\bigcup_{\la\in \La} \widetilde\sU_\la= M$. If $\widetilde M \bydef  \bigcup_{\la\in \La} \widetilde\sU_\la$ then one has a  finite-fold covering  $\widetilde{	p}: \widetilde{M}\to M$. From the action $G\times \widetilde{C}\to \widetilde{C}$ such that $C \cong \widetilde{C}^G$ it follows that the covering $\widetilde{	p}: \widetilde{M}\to M$ is transitive and $G\cong G\left( \left.\widetilde{M}~\right|M\right)$. 
+If $\widetilde{ \mathcal W}$
+be the spectrum of $C^*_r\left(\widetilde{M},~ \widetilde{\mathcal F} \right)$ then there is natural continuous map $\widetilde{ \mathcal W}$
+\end{proof}
 \section{Infinite coverings}
 
 \begin{definition}\label{foli_sec_defn}
@@ -21316,657 +21328,6 @@ $$
  		\item[(iii)] \textit{Odd-odd case}. This case is not considered it this work, so it not described here.
  	\end{enumerate}
  
- 	\chapter{Noncommutative torus and Moyal plane}\label{nt_descr_sec}
- \section{Noncommutative torus $\mathbb{T}^n_{\Theta}$}\label{nt_descr_subsec}
- 	  	\subsection{Definition of noncommutative torus $\mathbb{T}^n_{\Theta}$}
- 	\begin{definition}\label{nt_qirr_defn}\cite{wagner:pb}
- 		Denote by "$\cdot$" the scalar product on $\R^n$.
- 		The matrix $\Theta$ is called \emph{quite irrational} if, for all $\lambda \in \Z^n$, the condition $\exp(2\pi i \, \lambda\cdot \Theta  \mu) = 1$ for all $
- 		\la,\mu \in \Z^n$ implies $\lambda = 0$.
- 	\end{definition}
- 	\begin{definition}\label{nt_defn}
- 		Let $\Theta$ be an invertible, real  skew-symmetric quite irrational $n \times n$ matrix. A noncommutative torus $C\left(\mathbb{T}^n_{\Theta}\right)$ is the universal $C^*$-algebra generated by the set $\left\{U_k\right\}_{k \in \Z^n}$ of unitary elements which satisfy to the following relations.
- 		\begin{equation}\label{nt_unitary_product_eqn}
- 		U_k U_p = e^{-\pi ik ~\cdot~ \Theta p} U_{k + p}; ~~~   \end{equation}
- 	\end{definition}
- 		Following condition holds
- 		\begin{equation}\label{nt_unitary_product_comm_eqn}
- 		U_k U_p = e^{-2\pi ik ~\cdot~ \Theta p}U_p U_k.
- 		\end{equation}
- An alternative description of $\C\left(\mathbb{T}^n_{\Theta}\right)$ is such that if
- \begin{equation}\label{nt_th_eqn}
- \Th = \begin{pmatrix}
- 0& \th_{12} &\ldots & \th_{1n}\\
- \th_{21}& 0 &\ldots & \th_{2n}\\
- \vdots& \vdots &\ddots & \vdots\\
- \th_{n1}& \th_{n2} &\ldots & 0
- \end{pmatrix}
- \end{equation}
-then $C\left(\mathbb{T}^n_{\Theta}\right)$ is the universal $C^*$-algebra generated by unitary elements   $u_1,..., u_n \in U\left( C\left(\mathbb{T}^n_{\Theta}\right)\right) $ such that following condition holds
- 		\begin{equation}\label{nt_com_eqn}
- 		\begin{split}
- 		u_j u_k = e^{-2\pi i \theta_{jk} }u_k u_j.
- 		\end{split}
- 		\end{equation}
- 		Unitary  operators $u_1,..., u_n$ correspond to the standard basis of $\mathbb{Z}^n$ and they are given by
- 		\be\label{nt_gen_eqn}
- 		u_j = U_{k_j },\quad \text{ where } k_j=\left(0,...,\underbrace{ 1}_{j^{\text{th}}-\text{place}},...,0 \right)
- 		\ee
- 	\begin{defn}\label{nt_uni_defn}
- 	The unitary elements 
- 		$u_1,..., u_n \in U\left(C\left(\mathbb{T}^n_{\theta}\right)\right)$ which satisfy the relations \eqref{nt_com_eqn}, \eqref{nt_gen_eqn}
- 		are said to be \textit{generators} of $C\left(\mathbb{T}^n_{\Theta}\right)$. The set $\left\{U_l\right\}_{l \in \Z^n}$ is said to be the \textit{basis} of $C\left(\mathbb{T}^n_{\Theta}\right)$.
- 	\end{defn}
-
-        If $a \in C\left(\mathbb{T}^n_{\Th}\right)$ is presented by a series
-\be\label{nt_series_eqn}
- a = \sum_{l \in \mathbb{Z}^{n}}c_l U_l;~~ c_l \in \mathbb{C}
-\ee
- and the series $\sum_{l \in \mathbb{Z}^{n}}\left| c_l\right| $ is convergent then from the triangle inequality it follows that the series is $C^*$-norm convergent and the following condition holds.
- \begin{equation}\label{nt_norm_estimation_eqn}
- \left\|a \right\| \le \sum_{l \in \mathbb{Z}^{n}}\left| c_l\right|.
- \end{equation}
- In particular if $\mathrm{sup}_{l \in \mathbb{Z}^n}\left(1 + \|l\|\right)^s \left|c_l\right| < \infty, ~ \forall s \in \mathbb{N}$ then $\sum_{l \in \mathbb{Z}^{n}}\left| c_l\right|< \infty $ and taking into account the Equation \eqref{schwartz_z_eqn} there is the natural inclusion $\phi_\infty: \sS\left(\mathbb{Z}^n\right) \subset C\left(\mathbb{T}^n_{\Theta}\right)$ of vector spaces. If
- \be\label{nt_coo_eqn}
-\Coo\left(\mathbb{T}^n_{\Theta}\right)\bydef \phi_\infty \left( \sS\left(\mathbb{Z}^n\right)\right) \subset C\left(\mathbb{T}^n_{\Theta}\right)
- \ee
- then $\Coo\left(\mathbb{T}^n_{\Theta}\right)$ is a pre-$C^*$-algebra, and the Fourier transformation \ref{nt_fourier_eqn} yields the $\C$-isomorphism
-  \be\label{nt_coo_iso_eqn}
- \Coo\left(\mathbb{T}^n\right)\cong \Coo\left(\mathbb{T}^n_{\Theta}\right).
- \ee
- \begin{empt}\label{nt_gns_empt}
- 	There is a  state 
- 	\be\label{nt_state_eqn}
- 	\begin{split}
- 		\tau: C\left(\mathbb{T}^n_{\Theta}\right) \to \C;\\
- 		\sum_{k \in \Z^n} a_k U_k \mapsto a_{\left(0,...,0\right) }; \quad \text{ where } a_k \in \C,
- 	\end{split}
- 	\ee
- 	which induces the faithful GNS representation. 
- The $C^*$-norm completion  $C\left(\mathbb{T}^n_{\Theta}\right)$ of $\Coo\left(\mathbb{T}^n_{\Theta}\right)$ is a $C^*$-algebra and there is a faithful representation
- \begin{equation}\label{nt_repr_eqn}
- C\left(\mathbb{T}^n_{\Theta}\right) \to B\left( L^2\left(C\left(\mathbb{T}^n_{\Theta}\right), \tau\right)\right) .
- \end{equation}
-  	 (cf. Definition \ref{gns_defn}).  Similarly to the equation \eqref{from_a_to_l2_eqn} there is a $\C$-linear map 
- 	\begin{equation}\label{nt_to_hilbert_eqn}
- 	\Psi_\Th:C\left(\mathbb{T}^n_{\Theta}\right) \hookto L^2\left(C\left(\mathbb{T}^n_{\Theta}\right), \tau\right).
- 	\end{equation}
- 	If 
- 	\be\label{nt_xik_eqn}
- 	\xi_k \bydef \Psi_\Th\left(U_k \right)
- 	\ee 
- 	 then from \eqref{nt_unitary_product_eqn}, \eqref{nt_state_eqn} it turns out
- 	\begin{equation}\label{nt_h_product_eqn}
- 	\tau\left(U^*_k  U_l \right) = \left(\xi_k, \xi_l \right)  = \delta_{kl},   
- 	\end{equation} 
- 	i.e. the subset $\left\{\xi_k\right\}_{k \in \mathbb{Z}^n}\subset L^2\left(C\left(\mathbb{T}^n_{\Theta}\right), \tau\right)$ is an orthogonal basis of  $L^2\left(C\left(\mathbb{T}^n_{\Theta}\right), \tau\right)$.
- 	Hence the Hilbert space  $L^2\left(C\left(\mathbb{T}^n_{\Theta}\right), \tau\right)$ is naturally isomorphic to the Hilbert space $\ell^2\left(\mathbb{Z}^n\right)$ given by
- 	\begin{equation*}
- 	\ell^2\left(\mathbb{Z}^n\right) = \left\{\xi = \left\{\xi_k \in \mathbb{C}\right\}_{k\in \mathbb{Z}^n} \in \mathbb{C}^{\mathbb{Z}^n}~|~ \sum_{k\in \mathbb{Z}^n} \left|\xi_k\right|^2 < \infty\right\}
- 	\end{equation*}
- 	and the $\C$-valued scalar product on $\ell^2\left(\mathbb{Z}^n\right)$ is given by
- 	\begin{equation}\label{nt_xi_eqn}
- 	\left(\xi,\eta\right)_{ \ell^2\left(\mathbb{Z}^n\right)}= \sum_{k\in \mathbb{Z}^n}    \overline{\xi}_k\eta_k.
- 	\end{equation}
- 	From \eqref{nt_unitary_product_eqn} and \eqref{nt_xik_eqn} it follows that the representation $C\left(\mathbb{T}^n_{\Theta}\right)\hookto B\left( L^2\left(C\left(\mathbb{T}^n_{\Theta}\right), \tau\right)\right)$ corresponds to the following action
- 	\be\label{nt_l2_eqn}
- 	\begin{split}
- 		C\left(\mathbb{T}^n_{\Theta}\right)\times  L^2\left(C\left(\mathbb{T}^n_{\Theta}\right), \tau\right)\to  L^2\left(C\left(\mathbb{T}^n_{\Theta}\right), \tau\right);\\
- 		U_k\xi_l = e^{-\pi ik ~\cdot~ \Theta l}\xi_{k + l} .
- 	\end{split}
- \ee
- 	\end{empt}
- 	
- 	
- 	
-\subsection{Geometry of noncommutative tori}\label{nt_geom_sec}
- 	In the below text we imply that  $\Theta$ is {quite irrational}. 
- The restriction of given by \eqref{nt_state_eqn}  state on $\Coo\left(\mathbb{T}^n_{\Theta}\right)$ satisfies to the following equation
- 	\begin{equation}\label{nt__smotth_state_eqn}
- 	\tau\left(f\right)= \widehat{f}\left(0\right)
- 	\end{equation}
- 	where $\widehat{f}$ means the Fourier transformation.
- 	From  $\Coo\left(\mathbb{T}^n_{\Theta} \right) \approx \SS\left( \Z^n\right)$ it follows  that there is a $\C$-linear isomorphism 
- 	\begin{equation}\label{nt_varphi_inf_eqn}
- 	\varphi_\infty: \Coo\left(\mathbb{T}^n_{\Theta} \right) \xrightarrow{\approx}  \Coo\left(\mathbb{T}^n \right).
- 	\end{equation} 
- 	such that following condition holds
- 	\begin{equation}\label{nt_state_integ_eqn}
- 	\tau\left(f \right)=  \frac{1}{\left( 2\pi\right)^n }\int_{\mathbb{T}^n} \varphi_\infty\left( f\right) ~dx.
- 	\end{equation}
-  	From \eqref{nt_state_integ_eqn} it follows that for any $a, b \in \Coo\left(\mathbb{T}^n_{\Theta}\right)$  the scalar product on $L^2\left(C\left(\mathbb{T}^n_{\Theta}\right), \tau\right)$ is given by
- 	\begin{equation}\label{nt_int_sc_pr_eqn}
- 	\left(a, b \right)= \int_{\T^n} a_{\text{comm}}^*b_{\text{comm}}dx 
- 	\end{equation}
- 	where $a_{\text{comm}}\in \Coo\left(\T^n \right)$ (resp. $b_{\text{comm}})$ is a commutative function which corresponds to $a$ (resp. $b$).
- 	  	\begin{defn}\label{nt_symplectic_defn}
- 		If  $\Theta$ is non-degenerated, that is to say,
- 		$\sigma(s,t) \stackrel{\mathrm{def}}{=} s\.\Theta t$ to be \textit{symplectic}. This implies even
- 		dimension, $n = 2N$. One then selects
- 		\begin{equation}\label{nt_simpectic_theta_eqn}
- 		\Theta = \theta J
- 		\stackrel{\mathrm{def}}{=} \th \begin{pmatrix} 0 & 1_N \\ -1_N & 0 \end{pmatrix}
- 		\end{equation}
- 		where  $\th > 0$ is defined by $\th^{2N} \stackrel{\mathrm{def}}{=} \det\Theta$.
- 		Denote by $\Coo\left(\mathbb{T}^{2N}_\th\right)\stackrel{\mathrm{def}}{=}\Coo\left(\mathbb{T}^{2N}_\Th\right)$ and $C\left(\mathbb{T}^{2N}_\th\right)\stackrel{\mathrm{def}}{=}C\left(\mathbb{T}^{2N}_\Th\right)$.
- 	\end{defn}
- 
- 	
- 	\paragraph*{}
- 	
- 	Denote by $\delta_{\mu}$ ($\mu = 1,\dots, n$) the analogues of the partial derivatives $ \frac{1}{i}\frac{\partial}{\partial x^{\mu}}$ on $C^{\infty}(\mathbb{T}^n)$ which are derivations on the algebra $C^{\infty}(\mathbb{T}^n_{\Theta})$ given by
- 	\be\label{nt_diff_eqn}
- 	\delta_{\mu}(U_k)=k_{\mu} U_k.
- 	\ee
- 	These derivations have the following property
- 	$$
- 	\delta_{\mu}(a^*)=-(\delta_{\mu}a)^*,
- $$
- 	and also satisfy  the integration by parts formula
- 	$$\tau(a\delta_{\mu}b)=-\tau((\delta_{\mu}a)b),\quad a,b\in C^{\infty}(\mathbb{T}^n_{\Theta}).$$
- 	
- 	The spectral triple describing the noncommutative geometry of noncommutative $n$-torus consists of the algebra $C^{\infty}(\mathbb{T}^n_{\Theta})$, the Hilbert space $\mathcal{H}=L^2\left(C\left(\mathbb{T}^n_{\Theta}\right), \tau\right)\otimes\mathbb{C}^{m}$, where $m=2^{[n/2]}$ with  the representation  $\pi\otimes 1_{B\left(\C^m \right) }:C^{\infty}(\mathbb{T}^n_{\Theta})\to B\left( \H\right) $  where $\pi: C^{\infty}(\mathbb{T}^n_{\Theta})\to B\left( L^2\left(C\left(\mathbb{T}^n_{\Theta}\right), \tau\right)\right)$ is given by \eqref{nt_repr_eqn}.
- 	The Dirac operator is given by
- 	\begin{equation}\label{nt_dirac_eqn}
- 	D=\slashed{\partial}\stackrel{\mathrm{def}}{=}\sum_{\mu =1}^{n}\partial_{\mu}\otimes\gamma^{\mu}\cong\sum_{\mu =1}^{n}\delta_{\mu} \otimes\gamma^{\mu},
- 	\end{equation}
- 	where $\partial_{\mu}=\delta_{\mu}$, seen as an unbounded self-adjoint operator on $L^2\left(C\left(\mathbb{T}^n_{\Theta}\right), \tau\right) $ and $\gamma^{\mu}$s are Clifford (Gamma) matrices in $\mathbb{M}_m(\mathbb{C})$ satisfying the relation
- 	\be\label{nt_gam_eqn}\gamma^i\gamma^j+\gamma^j\gamma^i=2\delta_{ij} 1_{\mathbb{M}_m(\mathbb{C})}.\ee
- 	There is a spectral triple 
- 	\begin{equation}\label{nt_sp_tr_eqn}
- 	\left( C^{\infty}(\mathbb{T}^n_{\Theta}),L^2\left(C\left(\mathbb{T}^n_{\Theta}\right), \tau\right)\otimes\mathbb{C}^{m},D\right).
- 	\end{equation}
- 	
- 	
- 	
- 	%There is useful an alternative description of $D$. Note that there are
- 	%\begin{itemize}
- 	%	\item A $\C$- linear isomorphism $\Coo\left(\T \right) \xrightarrow{\approx} \Coo\left(\T_\Th \right)$,
- 	%	\item An infinite covering $\R^n \to \R^n/2\pi\Z^n = \T^n$.
- 	%\end{itemize}
- 	%Above objects enables represent elements of $\Coo\left(\T_\Th \right)$ by smooth $2\pi$ periodic functions on $\R^n$. If $x_1, ..., x_n$ are Cartesian coordinates then one has
- 	%\begin{equation}
- 	%\delta_{\mu} = \frac{\partial}{\partial x_\mu}.
- 	%\end{equation}
- 	There is an alternative description of $D$. The space  $\Coo\left(\T^n \right)$ (resp. $\Coo\left(\T^n_\Th \right)$ ) is dense in $L^2\left( \T^n\right)$ (resp. $L^2\left( \Coo\left(\T^n_\Th \right), \tau\right)$ ), hence from the $\C$-linear isomorphism $\varphi_\infty:\Coo\left(\mathbb{T}^n_{\Theta} \right) \xrightarrow{\approx}  \Coo\left(\mathbb{T}^n \right)$ given by \eqref{nt_varphi_inf_eqn} it follows isomorphism of Hilbert spaces 
- 	\begin{equation*}
- 	\varphi: L^2\left(C\left(\mathbb{T}^n_{\Theta}\right), \tau\right) \xrightarrow{\approx} L^2\left(\T^n \right). 
- 	\end{equation*}
- 	Otherwise $\T^n$ admits a spin bundle $S$ such that $L^2\left(\T^2,S \right) \approx L^2\left(\T^n \right) \otimes \mathbb{C}^{m}$. It turns out an isomorphism of Hilbert spaces
- 	\begin{equation*}
- 	\varPhi: L^2\left(C\left(\mathbb{T}^n_{\Theta}\right), \tau\right)\otimes \mathbb{C}^{m} \xrightarrow{\approx} L^2\left(\T^n,S \right). 
- 	\end{equation*}
- 	There is a commutative spectral triple 
- 	\begin{equation}\label{nt_ct_tr_eqn}
- 	\left( \Coo\left(\mathbb{T}^n \right),  L^2\left(\T^n,S \right), \slashed D\right)
- 	\end{equation} 
- 	such that $D$ is given by
- 	\begin{equation}\label{nt_comm_dirac_eqn}
- 	D = \Phi^{-1} \circ \slashed D \circ \Phi.
- 	\end{equation}
- 	Noncommutative geometry replaces differentials with commutators such that the differential $df$ corresponds to $\frac{1}{i}\left[ \slashed D, f\right]$ and the well known equation
- 	\begin{equation*}
- 	d f = \sum_{\mu = 1}^n \frac{\partial f}{\partial x_\mu} dx_\mu
- 	\end{equation*}
- 	is replaced with 
- 	\begin{equation}\label{nt_comm_diff_eqn}
- 	\left[\slashed D, f \right]  = \sum_{\mu = 1}^n \frac{\partial f}{\partial x_\mu} \left[\slashed D, x_\mu \right]
- 	\end{equation}
- 	In case of commutative torus we on has
- 	\begin{equation*}
- 	dx_\mu = iu^*_\mu du_\mu
- 	\end{equation*}
- 	where $u_\mu = e^{-ix_\mu}$, so what equation \eqref{nt_comm_diff_eqn} can be written by the following way
- 	\begin{equation}\label{nt_comm_diff_mod_eqn}
- 	\left[\slashed D, f \right]  = \sum_{\mu = 1}^n \frac{\partial f}{\partial x_\mu} u^*_\mu \left[\slashed D, u_\mu \right]
- 	\end{equation}
- 	We  would like to prove a noncommutative analog of \eqref{nt_comm_diff_mod_eqn}, i.e. for any $a \in \Coo\left(\mathbb{T}^n_\Th \right)$ following condition holds
- 	\begin{equation}\label{nt_diff_mod_eqn}
- 	\left[D, a \right]  = \sum_{\mu = 1}^n \frac{\partial a}{\partial x_\mu} u^*_\mu \left[ D, u_\mu \right]
- 	\end{equation}
- 	From \eqref{nt_dirac_eqn} it follows that \eqref{nt_diff_mod_eqn} is true if and only if 
- 	\begin{equation}\label{nt_mu_mod_eqn}
- 	\left[\delta_{\mu}, a \right]  = \sum_{\mu = 1}^n \frac{\partial a}{\partial x_\mu} u^*_\mu \left[ \delta_{\mu}, u_\mu \right]; ~ \mu =1,\dots n.
- 	\end{equation}
- 	In the above equation $\frac{\partial a}{\partial x_\mu}$ means that one considers $a$ as element of $\Coo\left(\mathbb{T}^n\right)$, takes $\frac{\partial}{\partial x_\mu}$ of it and then the result of derivation considers as element of $\Coo\left(\mathbb{T}^n_\Th \right)$. Since the linear span of elements $U_k$ is dense in both $\Coo\left(\mathbb{T}^n_\Th \right)$ and $L^2\left(C\left(\mathbb{T}^n_{\Theta}\right), \tau\right)$ the equation \eqref{nt_mu_mod_eqn} is true if  for any $k, l \in \Z^n$ following condition holds
- 	\begin{equation*}\label{nt_mu_mod_eqn1}
- 	\left[\delta_{\mu}, U_k \right]U_l  =  \frac{\partial U_k}{\partial x_\mu} u^*_\mu \left[ \delta_{\mu}, u_\mu \right]U_l.
- 	\end{equation*}
- 	The above equation is a consequence of the following calculations: 
- 	\begin{equation*}
- 	\begin{split}
- 	\left[\delta_{\mu}, U_k \right]U_l = \delta_{\mu} U_k U_l - U_k \delta_k U_l = (k + l) U_k U_l - l U_k U_l = k U_kU_l, \\
- 	\frac{\partial U_k}{\partial x_\mu} u^*_\mu \left[ \delta_{\mu}, u_\mu \right]U_l = kU_k u^*\left(\delta_{\mu} u_\mu U_l - u_\mu \delta U_l \right)= kU_k u^*\left(\left(l + 1 \right)  u_\mu U_l - l u_\mu \delta U_l \right) =\\=
- 	k U_ku^*_\mu u_\mu U_l = k U_kU_l.
- 	\end{split}
- 	\end{equation*}
- 	For any $k \in \Z^n$ following condition holds
- 	$$
- 	u^*_\mu \left[ \delta_{\mu}, u_\mu \right]U_k = u^*_\mu \delta_{\mu} u_\mu U_k - u^*_\mu \ u_\mu \delta_{\mu} U_k = u^*_\mu \left(\left(k + 1 \right)  u_\mu U_k - k  u_\mu U_k\right) = U_k
- 	$$
- 	it turns out
- 	\begin{equation}\label{nt_diff_1_eqn}
- 	u^*_\mu \left[ \delta_{\mu}, u_\mu \right]= 1_{C\left(\mathbb{T}^n_{\Theta}\right)}; ~~ u^*_\mu \left[ D, u_\mu \right] = \ga^\mu.
- 	\end{equation}
- 	
- 	
- 	From \eqref{nt_dirac_eqn}, \eqref{nt_diff_mod_eqn} and \eqref{nt_diff_1_eqn} it turns out
- 	
- 	\begin{equation}\label{nt_comm_diff_mod_gamma_eqn}
- 	\left[D, f \right]  = \sum_{\mu = 1}^n \frac{\partial f}{\partial x_\mu} \ga^\mu.
- 	\end{equation}
- 	\begin{equation}\label{nt_comm_diff_gamma_in_eqn}
- 	\ga^\mu \in \Om^1_D
- 	\end{equation}
- 	where $\Om^1_D$ is the {module of differential forms associated} with the spectral triple  \eqref{nt_sp_tr_eqn} (cf. Definition \ref{ass_cycle_defn}).
- 			\section{Moyal plane}
- 	
- 	\begin{defn}
- 		Denote the \textit{Moyal plane} product $\star_\th$ on $\SS\left(\R^{2N} \right)$ given by
- 		\begin{equation}\label{mp_prod_eqn}
- 		\left(f \star_\th h \right)\left(u \right)= \int_{y \in \R^{2N} } f\left(u - \frac{1}{2}\Th y\right) g\left(u + v \right)e^{2\pi i y \cdot v }  dydv
- 		\end{equation}
- 		
- 		where $\Th$ is given by \eqref{nt_simpectic_theta_eqn}.
- 	\end{defn}
-  There is the tracial property \cite{moyal_spectral} of the Moyal product
- \begin{equation}\label{nt_tracial_prop}
- \int_{\R^{2N}} \left( f\star_\th g\right) \left(x \right)dx =  \int_{\R^{2N}}  f\left(x \right) g\left(x \right)dx.
- \end{equation}
- The Fourier transformation of the star product satisfies to the following condition.
- \begin{equation}\label{mp_fourier_eqn}
- \mathcal{F}\left(f \star_\th g\right) \left(x \right) =    	\int_{\R^{2N}}\mathcal{F}{f}\left(x-y \right) \mathcal{F}{g}\left(y\right)e^{ \pi i  y \cdot \Th x }~dy.
- \end{equation}
- \begin{prop}\label{mp_factor_prop}\cite{moyal_spectral}
-The algebra $\SS\left(\R^{2N}, \star_\th \right)$  has the (nonunique) factorization property:
- 	for all $h \in  \SS\left(\R^{2N} \right)$ there exist $f,g \in  \SS\left(\R^{2N} \right)$ that $h = f \star_\th g$.
- \end{prop}
- 	% Denition 2.8 
- 	\begin{defn}\label{mp_mult_defn}\cite{varilly_bondia:phobos}
- 		\label{df:Moyal-alg}	Denote by $\SS'\left( \R^{n}\right) $ the vector space dual to $\SS\left( \R^{n}\right) $, i.e. the space of continuous functionals on $\SS\left( \R^{n}\right)$.
- 		The Moyal product can be defined, by duality, on larger sets than
- 		$\SS\left(\R^{2N}\right)$. For $T \in \SS'\left(\R^{2N}\right)$, write the evaluation on $g \in \SS\left(\R^{2N}\right)$ as
- 		$\<T, g> \in \C$; then, for $f \in \SS$ we may define $T \star_{\theta} f$ and
- 		$f \star_{\theta} T$ as elements of~$\SS'\left(\R^{2N}\right)$ by
- 		\begin{equation}\label{mp_star_ext_eqn}
- 		\begin{split}
- 		\<T \star_{\theta} f, g> \stackrel{\mathrm{def}}{=} \<T, f \star_{\theta} g>\\
- 		\<f \star_{\theta} T, g> \stackrel{\mathrm{def}}{=} \<T, g \star_{\theta} f>	\end{split}
- 		\end{equation}  using the continuity of the
- 		star product on~$\SS\left(\R^{2N}\right)$. Also, the involution is extended to  by
- 		$\<T^*,g> \stackrel{\mathrm{def}}{=} \overline{\<T,g^*>}$.	
- 		%	We shall soon argue~\cite{varilly_bondia:phobos} that if $T \in \SS'\left(\R^{2N}\right)$ and	$f \in \SS\left(\R^{2N}\right)$, then $T \star_{\theta} f,\,f \star_{\theta} T \in C^\infty(\R^{2N})$.
- 		Consider the left and right multiplier algebras:
- 		\begin{equation}\label{mp_multi_eqn}
- 		\begin{split}
- 		\M_L^\th
- 		&\stackrel{\mathrm{def}}{=} \set{T \in \SS'(\R^{2N}) : T \star_{\theta} h \in \SS(\R^{2N})
- 			\text{ for all } h \in \SS(\R^{2N})},
- 		\\
- 		\M_R^\th
- 		&\stackrel{\mathrm{def}}{=} \set{T \in \SS'(\R^{2N}) : h \star_{\theta} T \in \SS(\R^{2N})
- 			\text{ for all } h \in \SS(\R^{2N})},\\
- 		\M^\th &\stackrel{\mathrm{def}}{=} \M_L^\th \cap \M_R^\th.\\
- 		\end{split}
- 		\end{equation} 
- 	\end{defn}
- 	In \cite{varilly_bondia:phobos} it is proven that
- 	\bea\label{mp_mult_distr}
- 	\M_R^\th \star_{\theta} \SS'\left(\R^{2N}\right) = \SS'\left(\R^{2N}\right) \text{ and }
- 	\SS'\left(\R^{2N}\right) \star_{\theta} \M_L^\th = \SS'\left(\R^{2N}\right),\\
- 	\label{mp_parial_mult_eqn}
- 	\partial_j S \times f = 	\partial_j \left( S \times f \right) - f \times \partial_j S \quad \forall S \in \M_L^\th \quad \forall f \in \SS(\R^{2})
- 	\eea
- 	
- 	
- 	It is known \cite{moyal_spectral} that the domain of  the Moyal plane product can be extended up to $L^2\left(\R^{2N} \right)$. 
- 	
- 	\begin{lem}\label{nt_l_2_est_lem}\cite{moyal_spectral}
- 		If $f,g \in L^2 \left(\R^{2N} \right)$, then $f\star_\th g \in L^2 \left(\R^{2N} \right)$ and $\left\|f\right\|_{\mathrm{op}} < \left(2\pi\th \right)^{-\frac{N}{2}} \left\|f\right\|_2$.
- 		where	$\left\|\cdot\right\|_{2}$ be the $L^2$-norm given by
- 		\begin{equation}\label{nt_l2_norm_eqn}
- 		\left\|f\right\|_{2} \stackrel{\mathrm{def}}{=} \left|\int_{\R^{2N}} \left|f\right|^2 dx \right|^{\frac{1}{2}}.
- 		\end{equation}
- 		and the operator norm
- 		\be\label{mp_op_eqn}
- 		\|T\|_{\mathrm{op}} \stackrel{\mathrm{def}}{=}\sup\set{\|T \star g\|_2/\|g\|_2 : 0 \neq g \in L^2\left( \R^{2N})\right) }
- 		\ee 
- 	\end{lem}
- 	%\begin{rem}\label{norm_remark}
- 	%	Since $\SS\left(\R{2N} \right)$ is dense in $L^2\left(\R{2N} \right)$ the operator norm is given by $\|T\|_{\mathrm{op}} =\sup\set{\|T \star g\|_2/\|g\|_2 : 0 \neq g \in \SS\left( \R^{2N}\right) }$ 
- 	%\end{rem}
- 	
- 	\begin{defn}\label{mp_star_alg_defn}
- 		Denote by $\SS\left(\R^{2N}_\th \right)$  (resp. $L^2\left(\R^{2N}_\th \right)$ ) the operator algebra  which is $\C$-linearly isomorphic to $\SS\left(\R^{2N} \right)$  (resp. $L^2\left(\R^{2N} \right)$ ) and product coincides with  $\star_\th$. Both  $\SS\left(\R^{2N}_\th \right)$ and $L^2\left(\R^{2N}_\th \right)$ act on the Hilbert space $L^2\left(\R^{2N} \right)$. Denote by
- 		\begin{equation}\label{mp_psi_th_eqn}
- 		\Psi_\th:  \SS\left(\R^{2N} \right)\xrightarrow{\approx}\SS\left(\R^{2N}_\th \right)
- 		\end{equation}
- 		the natural $\C$-linear isomorphism.  
- 	\end{defn}
- 	\begin{defn}\label{nt_r_2_N_repr_defn}\cite{moyal_spectral} Let $\SS'\left(\R^{2N} \right)$ be a vector space dual to $\SS\left(\R^{2N} \right)$. Denote by $C_b\left(\R^{2N}_\th\right)\stackrel{\mathrm{def}}{=} \set{T \in \SS'\left(\R^{2N}\right) : T \star_\th g \in L^2\left(\R^{2N}\right) \text{ for all } g \in L^2(\R^{2N})}$, provided with the given by \eqref{mp_op_eqn} operator norm $	\|\cdot\|_{\mathrm{op}}$.
- 		Denote by $C_0\left(\R^{2N}_\th \right)$ the operator norm completion of $\SS\left(\R^{2N}_\th \right).$  
- 	\end{defn}
- 	\begin{rem}
- 		Obviously $\SS\left(\R^{2N}_\th\right)  \hookto C_b\left(\R^{2N}_\th\right)$. But $\SS\left(\R^{2N}_\th\right)$ is not dense in $C_b\left(\R^{2N}_\th\right)$, i.e. $C_0\left(\R^{2N}_\th\right) \subsetneq C_b\left(\R^{2N}_\th\right)$  (cf. \cite{moyal_spectral}).
- 	\end{rem}
- 	
- 	\begin{rem}
- 		$L^2\left(\R^{2N}_\th\right)$ is the $\|\cdot\|_2$ norm completion of $\SS\left(\R^{2N}_\th\right)$ hence 
- 		from the Lemma \ref{nt_l_2_est_lem} it follows that 
- 		\begin{equation}\label{mp_2_op_eqn}
- 		L^2\left(\R^{2N}_\th\right) \subset C_0\left(\R^{2N}_\th\right).
- 		\end{equation} 
- 	\end{rem}
- 	\begin{rem}
- 		Notation of the Definition \ref{nt_r_2_N_repr_defn} differs from \cite{moyal_spectral}. Here symbols $A_\th, \A_\th, A^0_\th$ are replaced with $C_b\left(\R^{2N}_\th\right), \SS\left(\R^{2N}_\th\right), C_0\left(\R^{2N}_\th\right)$ respectively.
- 	\end{rem}
- 	\begin{rem}
- 		The $\C$-linear space $C_0\left(\R^{2N}_\th \right)$ is not isomorphic to $C_0\left(\R^{2N}\right)$. 
- 	\end{rem}
- 	
- 	
- 	There are elements $\left\{f_{nm}\in\SS\left(\R^{2} \right)\right\}_{m,n \in \N^0}$, described in \cite{varilly_bondia:phobos}, which satisfy to the following Lemma. 
-       \begin{lem}\label{mp_osc_lem} {\rm\cite{varilly_bondia:phobos}}
- 	\label{lm:osc-basis}
- 	Let $m,n,k,l \in \N$. Then $f_{mn} \star_\th f_{kl} = \delta_{nk}f_{ml}$
- 	and $f_{mn}^* = f_{nm}$. Thus $f_{nn}$ is an orthogonal projection and
- 	$f_{mn}$ is nilpotent for $m \neq n$. Moreover,
- 	$\left\langle f_{mn}, f_{kl}\right\rangle  = %2^N\,
- 	\delta_{mk}\,\delta_{nl}$. The family
- 	$\set{f_{mn} : m,n\in \N^0} \subset \sS\left( \mathbb{R}^{2}\right) \subset L^2(\R^{2})$ is an
- 	orthogonal basis.
- \end{lem}
-\begin{remark}
-One has 
-\be\label{nt_dmn_eqn}
-\int_{\R^2} f_{mn} = \delta_{mn}.
-\ee
-\end{remark}
- 	
- 	
- 	%Theorem 6: 
- 	\begin{prop}\label{mp_fmn_prop}\cite{moyal_spectral,varilly_bondia:phobos}
- 		Let $N = 1$. Then $\SS\left(\R^{2N}_\th\right)=\SS\left(\R^{2}_\th\right) $ has a Fr\'echet algebra isomorphism with
- 		the matrix algebra of rapidly decreasing double sequences
- 		$c = (c_{mn})$ of complex numbers such that, for each $k \in \N$,
- 		\begin{equation}\label{mp_matr_norm}
- 		r_k(c) \stackrel{\mathrm{def}}{=} \biggl( \sum_{m,n=0}^\infty
- 		\th^{2k}  \left( m+\half\right)^k \left( n+\half\right)^k |c_{mn}|^2 \biggr)^{1/2}
- 		\end{equation}
- 		
- 		is finite, topologized by all the seminorms $(r_k)$; via the
- 		decomposition $f = \sum_{m,n=0}^\infty c_{mn} f_{mn}$ of~$\SS(\R^2)$ in
- 		the $\{f_{mn}\}$ basis.
- 		The twisted product $f \star_\th g$ is
- 		the matrix product $ab$, where
- 		\begin{equation}\label{mp_mult_eqn}
- 		\left( ab\right)_{mn} \stackrel{\mathrm{def}}{=} \sum_{k= 0}^{\infty} a_{\mu\nu}b_{kn}.
- 		\end{equation}
- 		
- 		For $N > 1$, $\Coo\left(\R^{2N}_\th\right)$ is isomorphic to the (projective) tensor product
- 		of $N$ matrix algebras of this kind, i.e.
- 		\begin{equation}\label{mp_tensor_prod}
- 		\SS\left(\R^{2N}_\th\right) \cong \underbrace{\SS\left(\R^{2}_\th\right)\otimes\dots\otimes\SS\left(\R^{2}_\th\right)}_{N-\mathrm{times}}
- 		\end{equation}
- 		with the projective topology induced by seminorms $r_k$ given by \eqref{mp_matr_norm}.	
- 	\end{prop}
- 	\begin{rem}
- 		If $A$ is  $C^*$-norm completion of the matrix algebra with the norm \eqref{mp_matr_norm} then $A \approx \mathcal K$, i.e.
- 		\begin{equation}\label{mp_2_eqn}
- 		C_0\left(\R^{2}_\th\right) \approx \mathcal K.
- 		\end{equation}
- 		Form \eqref{mp_tensor_prod} and \eqref{mp_2_eqn} it follows that
- 		\begin{equation}\label{mp_2N_eqn}
- 		C_0\left(\R^{2N}_\th\right) \cong \underbrace{C_0\left(\R^{2}_\th\right)\otimes\dots\otimes C_0\left(\R^{2}_\th\right)}_{N-\mathrm{times}} \approx \underbrace{\mathcal K\otimes\dots\otimes\mathcal K}_{N-\mathrm{times}} \approx \mathcal K
- 		\end{equation}
- 		where $\otimes$ means minimal or maximal tensor product ($\mathcal{K}$ is nuclear hence both products coincide).
- 			
- 	\end{rem}
- 
- \begin{definition}\cite{varilly_bondia:phobos}
- %Denition 6.
-  For $s, t \in\R$ we denote by $\G_{s,t}$ the Hilbert space obtained by completing $\sS\left( \R^2 \right)$  with
- respect to the norm
- $$
- \left\|\sum_{m,n = 0}^\infty c_{mn} f_{mn}\right\|= \sqrt{\sum_{m,n = 0}^\infty \left(2m + 1\right)^s \left(2n + 1\right)^t \left| c_{mn}\right|^2 }
- $$
- 
- \end{definition}
-
-Denote by 
-\be
-\mathcal{I}_{s,t}\bydef \G_{s,0}\times \G_{0,t} = \left\{f\times g~ \left|~ f\in \G_{s,0}, \quad g\in \G_{0,t}  \right|\right\}
-\ee
- 	
- 	
- 	
- 	\begin{empt}\label{nt_m_planes_empt}\cite{moyal_spectral}
- 		By plane waves we understand all functions of the form
- 		$$
- 		x \mapsto \exp(ik\cdot x) 
- 		$$
- 		for $k\in \R^{2N}$.  One obtains for the Moyal
- 		product of plane waves:
- 		\begin{equation}\label{mp_wave_prod_eqn}
- 		\begin{split}
- 		\exp\left(ik\cdot\right) \star_{\Theta}\exp\left(ik\cdot\right)=\exp\left(ik\cdot\right) \star_{\theta}\exp\left(ik\cdot\right)= \exp\left(i\left( k+l\right) \cdot\right) e^{-\pi i k \cdot \Th l}.
- 		\end{split}
- 		\end{equation}
- 		It is proven in \cite{moyal_spectral} that plane waves lie in $C_b\left(\R^{2N}_\th \right)$. 	
- 	\end{empt}
- 	
- 	
- 	\begin{empt}\label{mp_scaling_empt}
- 		
- 		
- 		
- 		Let us consider the unitary dilation operators $E_a$ given
- 		by
- 		$$
- 		E_af(x) \stackrel{\mathrm{def}}{=} a^{N/2} f(a^{1/2}x),
- 		$$
- 		It is proven in \cite{moyal_spectral} that
- 		\begin{equation}\label{eq:starscale}
- 		f {\star_{\theta}} g =
- 		(\th/2)^{-N/2} E_{2/\th}(E_{\th/2}f \star_2 E_{\th/2}g).
- 		\end{equation}
- 		We can simplify our construction by setting $\th = 2$. Thanks to
- 		the scaling relation~\eqref{eq:starscale} any qualitative result can is true if it is true in case of 
- 		$\th = 2$. We use the following notation
- 		\begin{equation}\label{mp_times_eqn}
- 		f {\times} g\stackrel{\mathrm{def}}{=}f {\star_{2}} g
- 		\end{equation}
- 
-
- Introduce the symplectic Fourier transform $F$ by
- \begin{equation}
- Ff(x) \stackrel{\text{def}}{=} (2\pi)^{-N} \int f(t) e^{ix \cdot Jt} \,d^{2N}t; \quad 	\widetilde Ff(x) \stackrel{\text{def}}{=} (2\pi)^{-N} \int f(t) e^{ix \cdot Jt} \,d^{2N}t; 
- \label{eq:Fsympl}
- \end{equation}
- The \textit{twisted convolution} \cite{varilly_bondia:phobos} $f\diamond g$ is defined by
- \begin{equation}\label{nt_diamond_eqn}
- f\diamond g \left(u \right) \stackrel{\text{def}}{=} \int f\left(u - t\right)  g\left(t \right)e^{-iu \cdot J t}  dt.
- \end{equation}
- Following conditions hold \cite{varilly_bondia:phobos}:
- \bea\label{nt_prod_duality_eqn}
- \mathcal{F}\left(f \times g \right) = \mathcal{F} f \diamond  \sF g ;\quad \mathcal{F}\left(f \diamond g \right) = \mathcal{F} f \times \mathcal{F} g;\\
- \label{nt_prodf_duality}
- f \times g = Ff \diamond g = f \diamond  \widetilde Fg;  \quad f \diamond g = Ff \times g = f \times \widetilde F g;\\
- \label{nt_prod_ass_eqn}
- \left( f \times g \right) \times h= f \times \left(g \times h\right);  \quad \left( f \diamond g \right) \diamond h= f \diamond \left(g \diamond h\right);\\
-\label{nt_prod_*_eqn}
-\left( f \times g \right)^* = g^*\times h^*;  \quad \left( f \diamond g \right)^* = g^*\diamond h^*.
- \eea
- 
-\end{empt} 
-\	
- 	
- 	\begin{defn}
- 		\label{df:Gst}\cite{moyal_spectral}
- 		We may as well introduce more Hilbert spaces $\G_{st}$ (for
- 		$s,t \in \R$) of those 
- 		$$
- 		f \in \SS'(\R^2) = \sum_{m,n = 0}^\infty c_{mn} f_{mn}
- 		$$ for which the following sum
- 		is finite:
- 		$$
- 		\|f\|_{st}^2 \stackrel{\mathrm{def}}{=} \sum_{m,n=0}^\infty
- 		(m+\half)^s (n+\half)^t |c_{mn}|^2.
- 		$$
- 		%	We define $\G_{st}$, for $s,t$ now in $\R^N$, as the tensor product	of Hilbert spaces $\G_{s_1t_1} \oxyox \G_{s_Nt_N}$. In other	words, the elements $(2\pi)^{-N/2} 	(m+\half)^{-s/2} (n+\half)^{-t/2} f_{mn}$ (with an obvious multiindex 	notation), for $m,n \in \N^N$, are declared to be an orthonormal basis
- 		for~$\G_{st}$.
- 	\end{defn}
- 	%\begin{rem}\cite{varilly_bondia:phobos}
- 	%	Observe that 
- 	%	\begin{equation*}
- 	%\G_{0,0} = L^2\left( \R^2\right)
- 	%	\end{equation*}
- 	
- 	%	$\G_{0,0} = L^2\left( \R^2\right)$. 
- 	%\end{rem}
- 	\begin{rem}\label{mp_l2_rem}
- 		It is proven in \cite{varilly_bondia:phobos} $f, g \in L^2\left( \R^2\right)$, then $f\times g \in L^2\left( \R^2\right)$ and $\left\|f\times g  \right\|\le\left\|f \right\|\left\| g  \right\|$.
- 		Moreover, $f \times g$ lies in $C_0\left( \R^2\right)$ : the continuity follows by adapting the analogous argument for (ordinary) convolution. 
- 	\end{rem}
- %	\begin{rem}\label{mp_smooth_rem}\cite{varilly_bondia:deimos}
- %	The Leibniz formula assures us that $f \times g \in C_0^m\left(\R^2 \right)$ 
- %	 whenever
- %	 $$
-% 	f, g \in \bigcup \left\{\G_{st}~|~ s > 2m, t > 2m, s + t > 4m + 2\right\}
-% 	$$
-% 	analogously to what happens in the usual Sobolev spaces, the distributions in $\G_{st}$ grow more
-% 	regular as $s, t$ become larger in a suitable way.
- %	\end{rem}
- 	\begin{rem}\label{mp_ss_rem}
- 		It is shown in \cite{varilly_bondia:phobos} that 
- 		\begin{equation}\label{mp_ssin_eqn}
- 		\SS\left( \R^2\right) = \bigcap_{s, t \in \R} \G_{st}.
- 		\end{equation}
- 	\end{rem}
- 	
- 	\begin{empt}\label{mp_coord_constr}
- 		This part contains a useful equations proven in \cite{varilly_bondia:phobos}.
- 		There are coordinate functions $p,q$ on $\R^2$ such that for any $f \in \SS\left( \R^2\right)$ following conditions hold
- 		\begin{equation}\label{mp_pq_mult_eqn}
- 		\begin{split}
- 		q \times f = \left(q + i \frac{\partial}{\partial p} \right)  f; ~~p \times f = \left(p - i \frac{\partial}{\partial q} \right)  f;\\
- 		f \times q = \left(q - i \frac{\partial}{\partial p} \right)  f; ~~f \times p = \left(p + i \frac{\partial}{\partial q} \right)  f.
- 		\end{split}
- 		\end{equation}
- 		From $q \times f, f \times q,p  \times f, f \times p \in \SS\left(\R^{2N} \right)$ it follows that $p, q \in \M^2$ (cf. \eqref{mp_multi_eqn}). From 
- 		\eqref{mp_mult_distr} it follows that
- 		\begin{equation}\label{mp_pq_mult}
- 		\begin{split}
- 		q \times \SS'\left(\R^{2N} \right) \subset \SS'\left(\R^{2N} \right); ~~p \times \SS'\left(\R^{2N} \right) \subset \SS'\left(\R^{2N} \right);\\
- 		\SS'\left(\R^{2N} \right) \times q \subset \SS'\left(\R^{2N} \right); ~~\SS'\left(\R^{2N} \right) \times p \subset \SS'\left(\R^{2N} \right).
- 		\end{split}
- 		\end{equation}
- 		If $f \in \SS'\left( \R^2\right)$ then from \eqref{mp_pq_mult_eqn} it follows that
- 		\begin{equation}\label{mp_partial_eqn}
- 		\frac{\partial}{\partial p} f = -iq \times f + i f \times q, ~~  \frac{\partial}{\partial q} f = ip \times f - i f \times p
- 		\end{equation}
- 		
- 		
- 		If 
- 		\begin{equation}\label{mp_ham_eqn}
- 		\begin{split}
- 		a \stackrel{\mathrm{def}}{=} \frac{q + ip}{\sqrt{2}}, ~~\overline{a} \stackrel{\mathrm{def}}{=} \frac{q - ip}{\sqrt{2}},\\
- 		\frac{\partial}{\partial a}\stackrel{\mathrm{def}}{=} \frac{\partial_q + i\partial_p}{\sqrt{2}}, ~~ \frac{\partial}{\partial \overline{a}}\stackrel{\mathrm{def}}{=} \frac{\partial_q - i\partial_p}{\sqrt{2}},\\
- 		H \stackrel{\mathrm{def}}{=}a \overline{a}= \frac{1}{2}\left(p^2 + q^2 \right) , \\
- 		\overline{a}\times a = H - 1, ~~ a \times \overline{a} = H + 1
- 		\end{split}
- 		\end{equation}
- 		then
- 		\begin{equation}\label{mp_ap_eqn}
- 		\begin{split}
- 		a \times f = af + \frac{\partial f}{\partial \overline{a}}, ~~ f \times a = af - \frac{\partial f}{\partial \overline{a}}, \\
- 		\overline{a} \times f = \overline{a}f - \frac{\partial f}{\partial a}, ~~ f \times a = \overline{a}f + \frac{\partial f}{\partial a}, \\
- 		\end{split}
- 		\end{equation} \begin{equation}\label{mp_ham_act_eqn}
- 		\begin{split}
- 		H\times f_{mn} = (2m + 1) f_{mn};~~f_{mn} \times H = 2(n + 1)f_{mn}
- 		\end{split}
- 		\end{equation} 
- 		\begin{equation}\label{mp_hamd_act_eqn}
- 		\begin{split}
- 		a \times f_{mn} = \sqrt{2m}f_{m-1,n};~~ f_{mn}\times a = \sqrt{2n + 2} f_{m, n+1};\\
- 		\overline{a} \times f_{mn} = \sqrt{2m+2}f_{m+1,n};~~ f_{m+1,n}\times \overline{a} = \sqrt{2n} f_{m, n-1}.
- 		\end{split}
- 		\end{equation} 
- 		
- 		
- 		It is proven in \cite{varilly_bondia:phobos} that
- 		\begin{equation}\label{mp_part_prod_eqn}
- 		\partial_j\left(f \times g \right)  = \partial_j f \times g + f \times \partial_jg;
- 		\end{equation}
- 		where $\partial_j = \frac{\partial}{ \partial x_{j}}$ is the partial derivation in $\SS\left(\R^{2N} \right)$. 
- 	\end{empt}
- 	
- 	From \eqref{mp_ham_eqn} it follows that 
- 	$$
- 	q =  \sqrt{2}\left( a   +  \overline{a}\right), \quad p =  \sqrt{2} i\left( a   -  \overline{a}\right),
- 	$$
- 	so taking into account \eqref{mp_partial_eqn} one has
-\be\label{mp_dpq_e_eqn}
-\begin{split}
- 		\frac{\partial}{\partial p} f = \sqrt{2}\left( -i\left( a   +  \overline{a}\right) \times f +if \times \left( a   +  \overline{a}\right)\right) \\
- 		 		\frac{\partial}{\partial q} f = \sqrt{2}\left( -\left( a   -  \overline{a}\right) \times f -f \times \left( a   +  \overline{a}\right)\right).
- 		 \end{split}
-\ee
-%Substitution of \eqref{mp_hamd_act_eqn} into \eqref{mp_dpq_e_eqn} yields the following 
-%\be\label{mp_dfin_eqn}
-%!!!
-%\ee
-
- 	
- 	
- 	
- 	
- 	
- 	% If $C_0\left(\R^{2N}_\th\right)''$ is enveloping $W^*$-algebra of $C_0\left(\R^{2N}_\th\right)''$ then $C_0\left(\R^{2N}_\th\right)''$ is the weak closure of the generated by elements $f_{mn}$ algebra.
- 	%\begin{empt}
- 	%       If $f \in \SS\left( \R^{2N}\right)$, $\om \in \R^{2N}$ and
- 	%       	$$
- 	%       	f_{\om}\left(u \right) = \int_{y \in \R^{2N} } \exp\left(2 \pi i \om\left(u - \frac{1}{2}\Th y\right)\right)  g\left(u + v \right)e^{2\pi i y \cdot v }  dydv 
- 	%       	$$ 
- 	%      	then $f_\om  \in \SS\left( \R^{2N}\right)$. The map $V_\om:  \SS\left( \R^{2N}\right) \to  \SS\left( \R^{2N}\right)$ given by
- 	%      	\begin{equation}\label{nt_vom_eqn}
- 	%      V_\om\left(f \right) = f_\om
- 	%       	\end{equation}
- 	%  can be uniquely extended up to an unitary  operator $V_\om:L^2\left( \R^{2N}\right) \to L^2\left( \R^{2N}\right)$, i.e. $V_\om \in U\left( B\left(L^2\left( \R^{2N}\right) \right)\right)  $. Following condition holds
- 	%       	\begin{equation*}
- 	%       	V_{\om_1} V_{\om_2}= e^{-\pi i\om_1 ~\cdot~ \Theta \om_2} V_{\om_1 + \om_1}
- 	%       	\end{equation*}
- 	
- 	% \begin{equation*}
- 	% \exp\left(ik\cdot \right) \star_{\th} f \exp\left(-ik\cdot \right)= f(x + \th Sk)
- 	% \end{equation*}
- 	%     \end{empt}
- 	%        \begin{lem}\label{mp_convergece_lem}
- 	%  	If the sequence $\left\{a_n \in C_b\left(\R^{2N}_\th\right)\right\}_{n \in N}  $ is such that
- 	%  	\begin{itemize}
- 	%   		\item The sequence is convergent in the topology of \underbrace{\SS\left(\R^{2}_\th\right)\otimes\dots\otimes\SS\left(\R^{2}_\th\right)}_{N-\mathrm{times}} and $b = \lim^{\SS'\left(\R^{2N}\right)}_{n \to \infty} a_n$ is its limit in the topology of \underbrace{\SS\left(\R^{2}_\th\right)\otimes\dots\otimes\SS\left(\R^{2}_\th\right)}_{N-\mathrm{times}},
- 	%  		\item $b \in  C_b\left(\R^{2N}_\th\right)$,
- 	%  	\end{itemize}
- 	%  	then  the sequence is convergent in the strong topology and $b$ is the strong limit of the sequence $\{a_n\}$.
- 	%  \end{lem}\label{mp_pointwize_weak_lem}
- 	%   \begin{proof}
- 	%   	If $T \in \SS'\left(\R^{2N} \right)$ then for any $u \in \R^{2N}$ there is a linear functional $\varphi^T_u:\SS\left(\R^{2N} \right) \to \C$ given by
- 	%   	$$
- 	%   	\varphi^T_u\left( g\right) = 
- 	%   	\left(T \star_\th h \right)\left(u \right) \int_{y \in \R^{2N} } T\left(u - \frac{1}{2}\Th y\right) g\left(u + v \right)e^{2\pi i y \cdot v }  dydv.
- 	% 	$$ 
- 	
- 	% 	where we consider the integral of distribution. From $b = \lim^{\SS'\left(\R^{2N}\right)}_{n \to \infty} a_n$ it follows that for any $u \in \R^{2N}$ following condition holds
- 	%   	$$
- 	%  	\phi^b\left(g \right)\left(u \right)  = \lim_{n \to \infty} \phi^{a_n}\left(g \right)\left(u \right)
- 	%  	$$
- 	% 	If $g \in \SS\left(\R^{2N} \right)$ then from $b \in C_b\left(\R^{2N}_\th\right)$ it follows that $\phi^b\left(g \right)\left(\cdot \right) \in L^2\left(\R^{2N} \right)$. So there  is the sequence $\left\{\phi^{a_n}\left(g \right)\left(\cdot \right)\in  L^2\left( \R^{2N}\right) \right\}_{n \in \N}$ with point-wise convergence to $\phi^{b}\left(g \right)\left(\cdot \right)\in  L^2\left( \R^{2N}\right)$. It turns out there is the convergence of  $\left\{\phi^{a_n}\left(g \right)\left(\cdot \right)\right\}$ in the $L^2\left(\R^{2N} \right)$ topology. If means that for any $g \in \SS\left(\R^{2N} \right)$ the sequence $a_n \star_\th g$ tends to $b \star_\th g$ in the $L^2\left(\R^{2N} \right)$ topology. Since $\SS\left(\R^{2N} \right)$ is dense in $L^2\left(\R^{2N} \right)$ for any $\xi \in L^2\left(\R^{2N} \right)$ the sequence $a_n \star_\th \xi$ tends to $b \star_\th \xi$, i.e. $\lim_{n \to \infty} a_n = b$ in sense of the strong topology.
- 	%\end{proof}
- 	
- 	
- 	
- 	
  		\chapter{Foliations, pseudogroups and operator algebras}\label{foliations_sec}
   	\section{Groupoids}
  	\paragraph*{}
@@ -22589,6 +21950,657 @@ Every regular covering map $p:\left(\widetilde{M},~ \widetilde{\mathcal F} \righ
 \begin{remark}\label{foli_trans_rem}
 If a map $p:\left(\widetilde{M},~ \widetilde{\mathcal F} \right)\to\left({M},~ {\mathcal F} \right)$ is regular covering of foliations  and a leaf $\widetilde L \in \widetilde M$ has no holonomy then  $g\widetilde L \neq \widetilde L$ for all nontrivial $g \in G\left( \left.\widetilde{M}~\right|M\right)$, i.e. $G\left( \left.\widetilde{M}~\right|M\right)$ transitively acts on leaves having no holonomy.
 \end{remark}
+
+	\chapter{Noncommutative torus and Moyal plane}\label{nt_descr_sec}
+\section{Noncommutative torus $\mathbb{T}^n_{\Theta}$}\label{nt_descr_subsec}
+\subsection{Definition of noncommutative torus $\mathbb{T}^n_{\Theta}$}
+\begin{definition}\label{nt_qirr_defn}\cite{wagner:pb}
+	Denote by "$\cdot$" the scalar product on $\R^n$.
+	The matrix $\Theta$ is called \emph{quite irrational} if, for all $\lambda \in \Z^n$, the condition $\exp(2\pi i \, \lambda\cdot \Theta  \mu) = 1$ for all $
+	\la,\mu \in \Z^n$ implies $\lambda = 0$.
+\end{definition}
+\begin{definition}\label{nt_defn}
+	Let $\Theta$ be an invertible, real  skew-symmetric quite irrational $n \times n$ matrix. A noncommutative torus $C\left(\mathbb{T}^n_{\Theta}\right)$ is the universal $C^*$-algebra generated by the set $\left\{U_k\right\}_{k \in \Z^n}$ of unitary elements which satisfy to the following relations.
+	\begin{equation}\label{nt_unitary_product_eqn}
+		U_k U_p = e^{-\pi ik ~\cdot~ \Theta p} U_{k + p}; ~~~   \end{equation}
+\end{definition}
+Following condition holds
+\begin{equation}\label{nt_unitary_product_comm_eqn}
+	U_k U_p = e^{-2\pi ik ~\cdot~ \Theta p}U_p U_k.
+\end{equation}
+An alternative description of $\C\left(\mathbb{T}^n_{\Theta}\right)$ is such that if
+\begin{equation}\label{nt_th_eqn}
+	\Th = \begin{pmatrix}
+		0& \th_{12} &\ldots & \th_{1n}\\
+		\th_{21}& 0 &\ldots & \th_{2n}\\
+		\vdots& \vdots &\ddots & \vdots\\
+		\th_{n1}& \th_{n2} &\ldots & 0
+	\end{pmatrix}
+\end{equation}
+then $C\left(\mathbb{T}^n_{\Theta}\right)$ is the universal $C^*$-algebra generated by unitary elements   $u_1,..., u_n \in U\left( C\left(\mathbb{T}^n_{\Theta}\right)\right) $ such that following condition holds
+\begin{equation}\label{nt_com_eqn}
+	\begin{split}
+		u_j u_k = e^{-2\pi i \theta_{jk} }u_k u_j.
+	\end{split}
+\end{equation}
+Unitary  operators $u_1,..., u_n$ correspond to the standard basis of $\mathbb{Z}^n$ and they are given by
+\be\label{nt_gen_eqn}
+u_j = U_{k_j },\quad \text{ where } k_j=\left(0,...,\underbrace{ 1}_{j^{\text{th}}-\text{place}},...,0 \right)
+\ee
+\begin{defn}\label{nt_uni_defn}
+	The unitary elements 
+	$u_1,..., u_n \in U\left(C\left(\mathbb{T}^n_{\theta}\right)\right)$ which satisfy the relations \eqref{nt_com_eqn}, \eqref{nt_gen_eqn}
+	are said to be \textit{generators} of $C\left(\mathbb{T}^n_{\Theta}\right)$. The set $\left\{U_l\right\}_{l \in \Z^n}$ is said to be the \textit{basis} of $C\left(\mathbb{T}^n_{\Theta}\right)$.
+\end{defn}
+
+If $a \in C\left(\mathbb{T}^n_{\Th}\right)$ is presented by a series
+\be\label{nt_series_eqn}
+a = \sum_{l \in \mathbb{Z}^{n}}c_l U_l;~~ c_l \in \mathbb{C}
+\ee
+and the series $\sum_{l \in \mathbb{Z}^{n}}\left| c_l\right| $ is convergent then from the triangle inequality it follows that the series is $C^*$-norm convergent and the following condition holds.
+\begin{equation}\label{nt_norm_estimation_eqn}
+	\left\|a \right\| \le \sum_{l \in \mathbb{Z}^{n}}\left| c_l\right|.
+\end{equation}
+In particular if $\mathrm{sup}_{l \in \mathbb{Z}^n}\left(1 + \|l\|\right)^s \left|c_l\right| < \infty, ~ \forall s \in \mathbb{N}$ then $\sum_{l \in \mathbb{Z}^{n}}\left| c_l\right|< \infty $ and taking into account the Equation \eqref{schwartz_z_eqn} there is the natural inclusion $\phi_\infty: \sS\left(\mathbb{Z}^n\right) \subset C\left(\mathbb{T}^n_{\Theta}\right)$ of vector spaces. If
+\be\label{nt_coo_eqn}
+\Coo\left(\mathbb{T}^n_{\Theta}\right)\bydef \phi_\infty \left( \sS\left(\mathbb{Z}^n\right)\right) \subset C\left(\mathbb{T}^n_{\Theta}\right)
+\ee
+then $\Coo\left(\mathbb{T}^n_{\Theta}\right)$ is a pre-$C^*$-algebra, and the Fourier transformation \ref{nt_fourier_eqn} yields the $\C$-isomorphism
+\be\label{nt_coo_iso_eqn}
+\Coo\left(\mathbb{T}^n\right)\cong \Coo\left(\mathbb{T}^n_{\Theta}\right).
+\ee
+\begin{empt}\label{nt_gns_empt}
+	There is a  state 
+	\be\label{nt_state_eqn}
+	\begin{split}
+		\tau: C\left(\mathbb{T}^n_{\Theta}\right) \to \C;\\
+		\sum_{k \in \Z^n} a_k U_k \mapsto a_{\left(0,...,0\right) }; \quad \text{ where } a_k \in \C,
+	\end{split}
+	\ee
+	which induces the faithful GNS representation. 
+	The $C^*$-norm completion  $C\left(\mathbb{T}^n_{\Theta}\right)$ of $\Coo\left(\mathbb{T}^n_{\Theta}\right)$ is a $C^*$-algebra and there is a faithful representation
+	\begin{equation}\label{nt_repr_eqn}
+		C\left(\mathbb{T}^n_{\Theta}\right) \to B\left( L^2\left(C\left(\mathbb{T}^n_{\Theta}\right), \tau\right)\right) .
+	\end{equation}
+	(cf. Definition \ref{gns_defn}).  Similarly to the equation \eqref{from_a_to_l2_eqn} there is a $\C$-linear map 
+	\begin{equation}\label{nt_to_hilbert_eqn}
+		\Psi_\Th:C\left(\mathbb{T}^n_{\Theta}\right) \hookto L^2\left(C\left(\mathbb{T}^n_{\Theta}\right), \tau\right).
+	\end{equation}
+	If 
+	\be\label{nt_xik_eqn}
+	\xi_k \bydef \Psi_\Th\left(U_k \right)
+	\ee 
+	then from \eqref{nt_unitary_product_eqn}, \eqref{nt_state_eqn} it turns out
+	\begin{equation}\label{nt_h_product_eqn}
+		\tau\left(U^*_k  U_l \right) = \left(\xi_k, \xi_l \right)  = \delta_{kl},   
+	\end{equation} 
+	i.e. the subset $\left\{\xi_k\right\}_{k \in \mathbb{Z}^n}\subset L^2\left(C\left(\mathbb{T}^n_{\Theta}\right), \tau\right)$ is an orthogonal basis of  $L^2\left(C\left(\mathbb{T}^n_{\Theta}\right), \tau\right)$.
+	Hence the Hilbert space  $L^2\left(C\left(\mathbb{T}^n_{\Theta}\right), \tau\right)$ is naturally isomorphic to the Hilbert space $\ell^2\left(\mathbb{Z}^n\right)$ given by
+	\begin{equation*}
+		\ell^2\left(\mathbb{Z}^n\right) = \left\{\xi = \left\{\xi_k \in \mathbb{C}\right\}_{k\in \mathbb{Z}^n} \in \mathbb{C}^{\mathbb{Z}^n}~|~ \sum_{k\in \mathbb{Z}^n} \left|\xi_k\right|^2 < \infty\right\}
+	\end{equation*}
+	and the $\C$-valued scalar product on $\ell^2\left(\mathbb{Z}^n\right)$ is given by
+	\begin{equation}\label{nt_xi_eqn}
+		\left(\xi,\eta\right)_{ \ell^2\left(\mathbb{Z}^n\right)}= \sum_{k\in \mathbb{Z}^n}    \overline{\xi}_k\eta_k.
+	\end{equation}
+	From \eqref{nt_unitary_product_eqn} and \eqref{nt_xik_eqn} it follows that the representation $C\left(\mathbb{T}^n_{\Theta}\right)\hookto B\left( L^2\left(C\left(\mathbb{T}^n_{\Theta}\right), \tau\right)\right)$ corresponds to the following action
+	\be\label{nt_l2_eqn}
+	\begin{split}
+		C\left(\mathbb{T}^n_{\Theta}\right)\times  L^2\left(C\left(\mathbb{T}^n_{\Theta}\right), \tau\right)\to  L^2\left(C\left(\mathbb{T}^n_{\Theta}\right), \tau\right);\\
+		U_k\xi_l = e^{-\pi ik ~\cdot~ \Theta l}\xi_{k + l} .
+	\end{split}
+	\ee
+\end{empt}
+
+
+
+\subsection{Geometry of noncommutative tori}\label{nt_geom_sec}
+In the below text we imply that  $\Theta$ is {quite irrational}. 
+The restriction of given by \eqref{nt_state_eqn}  state on $\Coo\left(\mathbb{T}^n_{\Theta}\right)$ satisfies to the following equation
+\begin{equation}\label{nt__smotth_state_eqn}
+	\tau\left(f\right)= \widehat{f}\left(0\right)
+\end{equation}
+where $\widehat{f}$ means the Fourier transformation.
+From  $\Coo\left(\mathbb{T}^n_{\Theta} \right) \approx \SS\left( \Z^n\right)$ it follows  that there is a $\C$-linear isomorphism 
+\begin{equation}\label{nt_varphi_inf_eqn}
+	\varphi_\infty: \Coo\left(\mathbb{T}^n_{\Theta} \right) \xrightarrow{\approx}  \Coo\left(\mathbb{T}^n \right).
+\end{equation} 
+such that following condition holds
+\begin{equation}\label{nt_state_integ_eqn}
+	\tau\left(f \right)=  \frac{1}{\left( 2\pi\right)^n }\int_{\mathbb{T}^n} \varphi_\infty\left( f\right) ~dx.
+\end{equation}
+From \eqref{nt_state_integ_eqn} it follows that for any $a, b \in \Coo\left(\mathbb{T}^n_{\Theta}\right)$  the scalar product on $L^2\left(C\left(\mathbb{T}^n_{\Theta}\right), \tau\right)$ is given by
+\begin{equation}\label{nt_int_sc_pr_eqn}
+	\left(a, b \right)= \int_{\T^n} a_{\text{comm}}^*b_{\text{comm}}dx 
+\end{equation}
+where $a_{\text{comm}}\in \Coo\left(\T^n \right)$ (resp. $b_{\text{comm}})$ is a commutative function which corresponds to $a$ (resp. $b$).
+\begin{defn}\label{nt_symplectic_defn}
+	If  $\Theta$ is non-degenerated, that is to say,
+	$\sigma(s,t) \stackrel{\mathrm{def}}{=} s\.\Theta t$ to be \textit{symplectic}. This implies even
+	dimension, $n = 2N$. One then selects
+	\begin{equation}\label{nt_simpectic_theta_eqn}
+		\Theta = \theta J
+		\stackrel{\mathrm{def}}{=} \th \begin{pmatrix} 0 & 1_N \\ -1_N & 0 \end{pmatrix}
+	\end{equation}
+	where  $\th > 0$ is defined by $\th^{2N} \stackrel{\mathrm{def}}{=} \det\Theta$.
+	Denote by $\Coo\left(\mathbb{T}^{2N}_\th\right)\stackrel{\mathrm{def}}{=}\Coo\left(\mathbb{T}^{2N}_\Th\right)$ and $C\left(\mathbb{T}^{2N}_\th\right)\stackrel{\mathrm{def}}{=}C\left(\mathbb{T}^{2N}_\Th\right)$.
+\end{defn}
+
+
+\paragraph*{}
+
+Denote by $\delta_{\mu}$ ($\mu = 1,\dots, n$) the analogues of the partial derivatives $ \frac{1}{i}\frac{\partial}{\partial x^{\mu}}$ on $C^{\infty}(\mathbb{T}^n)$ which are derivations on the algebra $C^{\infty}(\mathbb{T}^n_{\Theta})$ given by
+\be\label{nt_diff_eqn}
+\delta_{\mu}(U_k)=k_{\mu} U_k.
+\ee
+These derivations have the following property
+$$
+\delta_{\mu}(a^*)=-(\delta_{\mu}a)^*,
+$$
+and also satisfy  the integration by parts formula
+$$\tau(a\delta_{\mu}b)=-\tau((\delta_{\mu}a)b),\quad a,b\in C^{\infty}(\mathbb{T}^n_{\Theta}).$$
+
+The spectral triple describing the noncommutative geometry of noncommutative $n$-torus consists of the algebra $C^{\infty}(\mathbb{T}^n_{\Theta})$, the Hilbert space $\mathcal{H}=L^2\left(C\left(\mathbb{T}^n_{\Theta}\right), \tau\right)\otimes\mathbb{C}^{m}$, where $m=2^{[n/2]}$ with  the representation  $\pi\otimes 1_{B\left(\C^m \right) }:C^{\infty}(\mathbb{T}^n_{\Theta})\to B\left( \H\right) $  where $\pi: C^{\infty}(\mathbb{T}^n_{\Theta})\to B\left( L^2\left(C\left(\mathbb{T}^n_{\Theta}\right), \tau\right)\right)$ is given by \eqref{nt_repr_eqn}.
+The Dirac operator is given by
+\begin{equation}\label{nt_dirac_eqn}
+	D=\slashed{\partial}\stackrel{\mathrm{def}}{=}\sum_{\mu =1}^{n}\partial_{\mu}\otimes\gamma^{\mu}\cong\sum_{\mu =1}^{n}\delta_{\mu} \otimes\gamma^{\mu},
+\end{equation}
+where $\partial_{\mu}=\delta_{\mu}$, seen as an unbounded self-adjoint operator on $L^2\left(C\left(\mathbb{T}^n_{\Theta}\right), \tau\right) $ and $\gamma^{\mu}$s are Clifford (Gamma) matrices in $\mathbb{M}_m(\mathbb{C})$ satisfying the relation
+\be\label{nt_gam_eqn}\gamma^i\gamma^j+\gamma^j\gamma^i=2\delta_{ij} 1_{\mathbb{M}_m(\mathbb{C})}.\ee
+There is a spectral triple 
+\begin{equation}\label{nt_sp_tr_eqn}
+	\left( C^{\infty}(\mathbb{T}^n_{\Theta}),L^2\left(C\left(\mathbb{T}^n_{\Theta}\right), \tau\right)\otimes\mathbb{C}^{m},D\right).
+\end{equation}
+
+
+
+%There is useful an alternative description of $D$. Note that there are
+%\begin{itemize}
+%	\item A $\C$- linear isomorphism $\Coo\left(\T \right) \xrightarrow{\approx} \Coo\left(\T_\Th \right)$,
+%	\item An infinite covering $\R^n \to \R^n/2\pi\Z^n = \T^n$.
+%\end{itemize}
+%Above objects enables represent elements of $\Coo\left(\T_\Th \right)$ by smooth $2\pi$ periodic functions on $\R^n$. If $x_1, ..., x_n$ are Cartesian coordinates then one has
+%\begin{equation}
+%\delta_{\mu} = \frac{\partial}{\partial x_\mu}.
+%\end{equation}
+There is an alternative description of $D$. The space  $\Coo\left(\T^n \right)$ (resp. $\Coo\left(\T^n_\Th \right)$ ) is dense in $L^2\left( \T^n\right)$ (resp. $L^2\left( \Coo\left(\T^n_\Th \right), \tau\right)$ ), hence from the $\C$-linear isomorphism $\varphi_\infty:\Coo\left(\mathbb{T}^n_{\Theta} \right) \xrightarrow{\approx}  \Coo\left(\mathbb{T}^n \right)$ given by \eqref{nt_varphi_inf_eqn} it follows isomorphism of Hilbert spaces 
+\begin{equation*}
+	\varphi: L^2\left(C\left(\mathbb{T}^n_{\Theta}\right), \tau\right) \xrightarrow{\approx} L^2\left(\T^n \right). 
+\end{equation*}
+Otherwise $\T^n$ admits a spin bundle $S$ such that $L^2\left(\T^2,S \right) \approx L^2\left(\T^n \right) \otimes \mathbb{C}^{m}$. It turns out an isomorphism of Hilbert spaces
+\begin{equation*}
+	\varPhi: L^2\left(C\left(\mathbb{T}^n_{\Theta}\right), \tau\right)\otimes \mathbb{C}^{m} \xrightarrow{\approx} L^2\left(\T^n,S \right). 
+\end{equation*}
+There is a commutative spectral triple 
+\begin{equation}\label{nt_ct_tr_eqn}
+	\left( \Coo\left(\mathbb{T}^n \right),  L^2\left(\T^n,S \right), \slashed D\right)
+\end{equation} 
+such that $D$ is given by
+\begin{equation}\label{nt_comm_dirac_eqn}
+	D = \Phi^{-1} \circ \slashed D \circ \Phi.
+\end{equation}
+Noncommutative geometry replaces differentials with commutators such that the differential $df$ corresponds to $\frac{1}{i}\left[ \slashed D, f\right]$ and the well known equation
+\begin{equation*}
+	d f = \sum_{\mu = 1}^n \frac{\partial f}{\partial x_\mu} dx_\mu
+\end{equation*}
+is replaced with 
+\begin{equation}\label{nt_comm_diff_eqn}
+	\left[\slashed D, f \right]  = \sum_{\mu = 1}^n \frac{\partial f}{\partial x_\mu} \left[\slashed D, x_\mu \right]
+\end{equation}
+In case of commutative torus we on has
+\begin{equation*}
+	dx_\mu = iu^*_\mu du_\mu
+\end{equation*}
+where $u_\mu = e^{-ix_\mu}$, so what equation \eqref{nt_comm_diff_eqn} can be written by the following way
+\begin{equation}\label{nt_comm_diff_mod_eqn}
+	\left[\slashed D, f \right]  = \sum_{\mu = 1}^n \frac{\partial f}{\partial x_\mu} u^*_\mu \left[\slashed D, u_\mu \right]
+\end{equation}
+We  would like to prove a noncommutative analog of \eqref{nt_comm_diff_mod_eqn}, i.e. for any $a \in \Coo\left(\mathbb{T}^n_\Th \right)$ following condition holds
+\begin{equation}\label{nt_diff_mod_eqn}
+	\left[D, a \right]  = \sum_{\mu = 1}^n \frac{\partial a}{\partial x_\mu} u^*_\mu \left[ D, u_\mu \right]
+\end{equation}
+From \eqref{nt_dirac_eqn} it follows that \eqref{nt_diff_mod_eqn} is true if and only if 
+\begin{equation}\label{nt_mu_mod_eqn}
+	\left[\delta_{\mu}, a \right]  = \sum_{\mu = 1}^n \frac{\partial a}{\partial x_\mu} u^*_\mu \left[ \delta_{\mu}, u_\mu \right]; ~ \mu =1,\dots n.
+\end{equation}
+In the above equation $\frac{\partial a}{\partial x_\mu}$ means that one considers $a$ as element of $\Coo\left(\mathbb{T}^n\right)$, takes $\frac{\partial}{\partial x_\mu}$ of it and then the result of derivation considers as element of $\Coo\left(\mathbb{T}^n_\Th \right)$. Since the linear span of elements $U_k$ is dense in both $\Coo\left(\mathbb{T}^n_\Th \right)$ and $L^2\left(C\left(\mathbb{T}^n_{\Theta}\right), \tau\right)$ the equation \eqref{nt_mu_mod_eqn} is true if  for any $k, l \in \Z^n$ following condition holds
+\begin{equation*}\label{nt_mu_mod_eqn1}
+	\left[\delta_{\mu}, U_k \right]U_l  =  \frac{\partial U_k}{\partial x_\mu} u^*_\mu \left[ \delta_{\mu}, u_\mu \right]U_l.
+\end{equation*}
+The above equation is a consequence of the following calculations: 
+\begin{equation*}
+	\begin{split}
+		\left[\delta_{\mu}, U_k \right]U_l = \delta_{\mu} U_k U_l - U_k \delta_k U_l = (k + l) U_k U_l - l U_k U_l = k U_kU_l, \\
+		\frac{\partial U_k}{\partial x_\mu} u^*_\mu \left[ \delta_{\mu}, u_\mu \right]U_l = kU_k u^*\left(\delta_{\mu} u_\mu U_l - u_\mu \delta U_l \right)= kU_k u^*\left(\left(l + 1 \right)  u_\mu U_l - l u_\mu \delta U_l \right) =\\=
+		k U_ku^*_\mu u_\mu U_l = k U_kU_l.
+	\end{split}
+\end{equation*}
+For any $k \in \Z^n$ following condition holds
+$$
+u^*_\mu \left[ \delta_{\mu}, u_\mu \right]U_k = u^*_\mu \delta_{\mu} u_\mu U_k - u^*_\mu \ u_\mu \delta_{\mu} U_k = u^*_\mu \left(\left(k + 1 \right)  u_\mu U_k - k  u_\mu U_k\right) = U_k
+$$
+it turns out
+\begin{equation}\label{nt_diff_1_eqn}
+	u^*_\mu \left[ \delta_{\mu}, u_\mu \right]= 1_{C\left(\mathbb{T}^n_{\Theta}\right)}; ~~ u^*_\mu \left[ D, u_\mu \right] = \ga^\mu.
+\end{equation}
+
+
+From \eqref{nt_dirac_eqn}, \eqref{nt_diff_mod_eqn} and \eqref{nt_diff_1_eqn} it turns out
+
+\begin{equation}\label{nt_comm_diff_mod_gamma_eqn}
+	\left[D, f \right]  = \sum_{\mu = 1}^n \frac{\partial f}{\partial x_\mu} \ga^\mu.
+\end{equation}
+\begin{equation}\label{nt_comm_diff_gamma_in_eqn}
+	\ga^\mu \in \Om^1_D
+\end{equation}
+where $\Om^1_D$ is the {module of differential forms associated} with the spectral triple  \eqref{nt_sp_tr_eqn} (cf. Definition \ref{ass_cycle_defn}).
+\section{Moyal plane}
+
+\begin{defn}
+	Denote the \textit{Moyal plane} product $\star_\th$ on $\SS\left(\R^{2N} \right)$ given by
+	\begin{equation}\label{mp_prod_eqn}
+		\left(f \star_\th h \right)\left(u \right)= \int_{y \in \R^{2N} } f\left(u - \frac{1}{2}\Th y\right) g\left(u + v \right)e^{2\pi i y \cdot v }  dydv
+	\end{equation}
+	
+	where $\Th$ is given by \eqref{nt_simpectic_theta_eqn}.
+\end{defn}
+There is the tracial property \cite{moyal_spectral} of the Moyal product
+\begin{equation}\label{nt_tracial_prop}
+	\int_{\R^{2N}} \left( f\star_\th g\right) \left(x \right)dx =  \int_{\R^{2N}}  f\left(x \right) g\left(x \right)dx.
+\end{equation}
+The Fourier transformation of the star product satisfies to the following condition.
+\begin{equation}\label{mp_fourier_eqn}
+	\mathcal{F}\left(f \star_\th g\right) \left(x \right) =    	\int_{\R^{2N}}\mathcal{F}{f}\left(x-y \right) \mathcal{F}{g}\left(y\right)e^{ \pi i  y \cdot \Th x }~dy.
+\end{equation}
+\begin{prop}\label{mp_factor_prop}\cite{moyal_spectral}
+	The algebra $\SS\left(\R^{2N}, \star_\th \right)$  has the (nonunique) factorization property:
+	for all $h \in  \SS\left(\R^{2N} \right)$ there exist $f,g \in  \SS\left(\R^{2N} \right)$ that $h = f \star_\th g$.
+\end{prop}
+% Denition 2.8 
+\begin{defn}\label{mp_mult_defn}\cite{varilly_bondia:phobos}
+	\label{df:Moyal-alg}	Denote by $\SS'\left( \R^{n}\right) $ the vector space dual to $\SS\left( \R^{n}\right) $, i.e. the space of continuous functionals on $\SS\left( \R^{n}\right)$.
+	The Moyal product can be defined, by duality, on larger sets than
+	$\SS\left(\R^{2N}\right)$. For $T \in \SS'\left(\R^{2N}\right)$, write the evaluation on $g \in \SS\left(\R^{2N}\right)$ as
+	$\<T, g> \in \C$; then, for $f \in \SS$ we may define $T \star_{\theta} f$ and
+	$f \star_{\theta} T$ as elements of~$\SS'\left(\R^{2N}\right)$ by
+	\begin{equation}\label{mp_star_ext_eqn}
+		\begin{split}
+			\<T \star_{\theta} f, g> \stackrel{\mathrm{def}}{=} \<T, f \star_{\theta} g>\\
+			\<f \star_{\theta} T, g> \stackrel{\mathrm{def}}{=} \<T, g \star_{\theta} f>	\end{split}
+	\end{equation}  using the continuity of the
+	star product on~$\SS\left(\R^{2N}\right)$. Also, the involution is extended to  by
+	$\<T^*,g> \stackrel{\mathrm{def}}{=} \overline{\<T,g^*>}$.	
+	%	We shall soon argue~\cite{varilly_bondia:phobos} that if $T \in \SS'\left(\R^{2N}\right)$ and	$f \in \SS\left(\R^{2N}\right)$, then $T \star_{\theta} f,\,f \star_{\theta} T \in C^\infty(\R^{2N})$.
+	Consider the left and right multiplier algebras:
+	\begin{equation}\label{mp_multi_eqn}
+		\begin{split}
+			\M_L^\th
+			&\stackrel{\mathrm{def}}{=} \set{T \in \SS'(\R^{2N}) : T \star_{\theta} h \in \SS(\R^{2N})
+				\text{ for all } h \in \SS(\R^{2N})},
+			\\
+			\M_R^\th
+			&\stackrel{\mathrm{def}}{=} \set{T \in \SS'(\R^{2N}) : h \star_{\theta} T \in \SS(\R^{2N})
+				\text{ for all } h \in \SS(\R^{2N})},\\
+			\M^\th &\stackrel{\mathrm{def}}{=} \M_L^\th \cap \M_R^\th.\\
+		\end{split}
+	\end{equation} 
+\end{defn}
+In \cite{varilly_bondia:phobos} it is proven that
+\bea\label{mp_mult_distr}
+\M_R^\th \star_{\theta} \SS'\left(\R^{2N}\right) = \SS'\left(\R^{2N}\right) \text{ and }
+\SS'\left(\R^{2N}\right) \star_{\theta} \M_L^\th = \SS'\left(\R^{2N}\right),\\
+\label{mp_parial_mult_eqn}
+\partial_j S \times f = 	\partial_j \left( S \times f \right) - f \times \partial_j S \quad \forall S \in \M_L^\th \quad \forall f \in \SS(\R^{2})
+\eea
+
+
+It is known \cite{moyal_spectral} that the domain of  the Moyal plane product can be extended up to $L^2\left(\R^{2N} \right)$. 
+
+\begin{lem}\label{nt_l_2_est_lem}\cite{moyal_spectral}
+	If $f,g \in L^2 \left(\R^{2N} \right)$, then $f\star_\th g \in L^2 \left(\R^{2N} \right)$ and $\left\|f\right\|_{\mathrm{op}} < \left(2\pi\th \right)^{-\frac{N}{2}} \left\|f\right\|_2$.
+	where	$\left\|\cdot\right\|_{2}$ be the $L^2$-norm given by
+	\begin{equation}\label{nt_l2_norm_eqn}
+		\left\|f\right\|_{2} \stackrel{\mathrm{def}}{=} \left|\int_{\R^{2N}} \left|f\right|^2 dx \right|^{\frac{1}{2}}.
+	\end{equation}
+	and the operator norm
+	\be\label{mp_op_eqn}
+	\|T\|_{\mathrm{op}} \stackrel{\mathrm{def}}{=}\sup\set{\|T \star g\|_2/\|g\|_2 : 0 \neq g \in L^2\left( \R^{2N})\right) }
+	\ee 
+\end{lem}
+%\begin{rem}\label{norm_remark}
+%	Since $\SS\left(\R{2N} \right)$ is dense in $L^2\left(\R{2N} \right)$ the operator norm is given by $\|T\|_{\mathrm{op}} =\sup\set{\|T \star g\|_2/\|g\|_2 : 0 \neq g \in \SS\left( \R^{2N}\right) }$ 
+%\end{rem}
+
+\begin{defn}\label{mp_star_alg_defn}
+	Denote by $\SS\left(\R^{2N}_\th \right)$  (resp. $L^2\left(\R^{2N}_\th \right)$ ) the operator algebra  which is $\C$-linearly isomorphic to $\SS\left(\R^{2N} \right)$  (resp. $L^2\left(\R^{2N} \right)$ ) and product coincides with  $\star_\th$. Both  $\SS\left(\R^{2N}_\th \right)$ and $L^2\left(\R^{2N}_\th \right)$ act on the Hilbert space $L^2\left(\R^{2N} \right)$. Denote by
+	\begin{equation}\label{mp_psi_th_eqn}
+		\Psi_\th:  \SS\left(\R^{2N} \right)\xrightarrow{\approx}\SS\left(\R^{2N}_\th \right)
+	\end{equation}
+	the natural $\C$-linear isomorphism.  
+\end{defn}
+\begin{defn}\label{nt_r_2_N_repr_defn}\cite{moyal_spectral} Let $\SS'\left(\R^{2N} \right)$ be a vector space dual to $\SS\left(\R^{2N} \right)$. Denote by $C_b\left(\R^{2N}_\th\right)\stackrel{\mathrm{def}}{=} \set{T \in \SS'\left(\R^{2N}\right) : T \star_\th g \in L^2\left(\R^{2N}\right) \text{ for all } g \in L^2(\R^{2N})}$, provided with the given by \eqref{mp_op_eqn} operator norm $	\|\cdot\|_{\mathrm{op}}$.
+	Denote by $C_0\left(\R^{2N}_\th \right)$ the operator norm completion of $\SS\left(\R^{2N}_\th \right).$  
+\end{defn}
+\begin{rem}
+	Obviously $\SS\left(\R^{2N}_\th\right)  \hookto C_b\left(\R^{2N}_\th\right)$. But $\SS\left(\R^{2N}_\th\right)$ is not dense in $C_b\left(\R^{2N}_\th\right)$, i.e. $C_0\left(\R^{2N}_\th\right) \subsetneq C_b\left(\R^{2N}_\th\right)$  (cf. \cite{moyal_spectral}).
+\end{rem}
+
+\begin{rem}
+	$L^2\left(\R^{2N}_\th\right)$ is the $\|\cdot\|_2$ norm completion of $\SS\left(\R^{2N}_\th\right)$ hence 
+	from the Lemma \ref{nt_l_2_est_lem} it follows that 
+	\begin{equation}\label{mp_2_op_eqn}
+		L^2\left(\R^{2N}_\th\right) \subset C_0\left(\R^{2N}_\th\right).
+	\end{equation} 
+\end{rem}
+\begin{rem}
+	Notation of the Definition \ref{nt_r_2_N_repr_defn} differs from \cite{moyal_spectral}. Here symbols $A_\th, \A_\th, A^0_\th$ are replaced with $C_b\left(\R^{2N}_\th\right), \SS\left(\R^{2N}_\th\right), C_0\left(\R^{2N}_\th\right)$ respectively.
+\end{rem}
+\begin{rem}
+	The $\C$-linear space $C_0\left(\R^{2N}_\th \right)$ is not isomorphic to $C_0\left(\R^{2N}\right)$. 
+\end{rem}
+
+
+There are elements $\left\{f_{nm}\in\SS\left(\R^{2} \right)\right\}_{m,n \in \N^0}$, described in \cite{varilly_bondia:phobos}, which satisfy to the following Lemma. 
+\begin{lem}\label{mp_osc_lem} {\rm\cite{varilly_bondia:phobos}}
+	\label{lm:osc-basis}
+	Let $m,n,k,l \in \N$. Then $f_{mn} \star_\th f_{kl} = \delta_{nk}f_{ml}$
+	and $f_{mn}^* = f_{nm}$. Thus $f_{nn}$ is an orthogonal projection and
+	$f_{mn}$ is nilpotent for $m \neq n$. Moreover,
+	$\left\langle f_{mn}, f_{kl}\right\rangle  = %2^N\,
+	\delta_{mk}\,\delta_{nl}$. The family
+	$\set{f_{mn} : m,n\in \N^0} \subset \sS\left( \mathbb{R}^{2}\right) \subset L^2(\R^{2})$ is an
+	orthogonal basis.
+\end{lem}
+\begin{remark}
+	One has 
+	\be\label{nt_dmn_eqn}
+	\int_{\R^2} f_{mn} = \delta_{mn}.
+	\ee
+\end{remark}
+
+
+%Theorem 6: 
+\begin{prop}\label{mp_fmn_prop}\cite{moyal_spectral,varilly_bondia:phobos}
+	Let $N = 1$. Then $\SS\left(\R^{2N}_\th\right)=\SS\left(\R^{2}_\th\right) $ has a Fr\'echet algebra isomorphism with
+	the matrix algebra of rapidly decreasing double sequences
+	$c = (c_{mn})$ of complex numbers such that, for each $k \in \N$,
+	\begin{equation}\label{mp_matr_norm}
+		r_k(c) \stackrel{\mathrm{def}}{=} \biggl( \sum_{m,n=0}^\infty
+		\th^{2k}  \left( m+\half\right)^k \left( n+\half\right)^k |c_{mn}|^2 \biggr)^{1/2}
+	\end{equation}
+	
+	is finite, topologized by all the seminorms $(r_k)$; via the
+	decomposition $f = \sum_{m,n=0}^\infty c_{mn} f_{mn}$ of~$\SS(\R^2)$ in
+	the $\{f_{mn}\}$ basis.
+	The twisted product $f \star_\th g$ is
+	the matrix product $ab$, where
+	\begin{equation}\label{mp_mult_eqn}
+		\left( ab\right)_{mn} \stackrel{\mathrm{def}}{=} \sum_{k= 0}^{\infty} a_{\mu\nu}b_{kn}.
+	\end{equation}
+	
+	For $N > 1$, $\Coo\left(\R^{2N}_\th\right)$ is isomorphic to the (projective) tensor product
+	of $N$ matrix algebras of this kind, i.e.
+	\begin{equation}\label{mp_tensor_prod}
+		\SS\left(\R^{2N}_\th\right) \cong \underbrace{\SS\left(\R^{2}_\th\right)\otimes\dots\otimes\SS\left(\R^{2}_\th\right)}_{N-\mathrm{times}}
+	\end{equation}
+	with the projective topology induced by seminorms $r_k$ given by \eqref{mp_matr_norm}.	
+\end{prop}
+\begin{rem}
+	If $A$ is  $C^*$-norm completion of the matrix algebra with the norm \eqref{mp_matr_norm} then $A \approx \mathcal K$, i.e.
+	\begin{equation}\label{mp_2_eqn}
+		C_0\left(\R^{2}_\th\right) \approx \mathcal K.
+	\end{equation}
+	Form \eqref{mp_tensor_prod} and \eqref{mp_2_eqn} it follows that
+	\begin{equation}\label{mp_2N_eqn}
+		C_0\left(\R^{2N}_\th\right) \cong \underbrace{C_0\left(\R^{2}_\th\right)\otimes\dots\otimes C_0\left(\R^{2}_\th\right)}_{N-\mathrm{times}} \approx \underbrace{\mathcal K\otimes\dots\otimes\mathcal K}_{N-\mathrm{times}} \approx \mathcal K
+	\end{equation}
+	where $\otimes$ means minimal or maximal tensor product ($\mathcal{K}$ is nuclear hence both products coincide).
+	
+\end{rem}
+
+\begin{definition}\cite{varilly_bondia:phobos}
+	%Denition 6.
+	For $s, t \in\R$ we denote by $\G_{s,t}$ the Hilbert space obtained by completing $\sS\left( \R^2 \right)$  with
+	respect to the norm
+	$$
+	\left\|\sum_{m,n = 0}^\infty c_{mn} f_{mn}\right\|= \sqrt{\sum_{m,n = 0}^\infty \left(2m + 1\right)^s \left(2n + 1\right)^t \left| c_{mn}\right|^2 }
+	$$
+	
+\end{definition}
+
+Denote by 
+\be
+\mathcal{I}_{s,t}\bydef \G_{s,0}\times \G_{0,t} = \left\{f\times g~ \left|~ f\in \G_{s,0}, \quad g\in \G_{0,t}  \right|\right\}
+\ee
+
+
+
+\begin{empt}\label{nt_m_planes_empt}\cite{moyal_spectral}
+	By plane waves we understand all functions of the form
+	$$
+	x \mapsto \exp(ik\cdot x) 
+	$$
+	for $k\in \R^{2N}$.  One obtains for the Moyal
+	product of plane waves:
+	\begin{equation}\label{mp_wave_prod_eqn}
+		\begin{split}
+			\exp\left(ik\cdot\right) \star_{\Theta}\exp\left(ik\cdot\right)=\exp\left(ik\cdot\right) \star_{\theta}\exp\left(ik\cdot\right)= \exp\left(i\left( k+l\right) \cdot\right) e^{-\pi i k \cdot \Th l}.
+		\end{split}
+	\end{equation}
+	It is proven in \cite{moyal_spectral} that plane waves lie in $C_b\left(\R^{2N}_\th \right)$. 	
+\end{empt}
+
+
+\begin{empt}\label{mp_scaling_empt}
+	
+	
+	
+	Let us consider the unitary dilation operators $E_a$ given
+	by
+	$$
+	E_af(x) \stackrel{\mathrm{def}}{=} a^{N/2} f(a^{1/2}x),
+	$$
+	It is proven in \cite{moyal_spectral} that
+	\begin{equation}\label{eq:starscale}
+		f {\star_{\theta}} g =
+		(\th/2)^{-N/2} E_{2/\th}(E_{\th/2}f \star_2 E_{\th/2}g).
+	\end{equation}
+	We can simplify our construction by setting $\th = 2$. Thanks to
+	the scaling relation~\eqref{eq:starscale} any qualitative result can is true if it is true in case of 
+	$\th = 2$. We use the following notation
+	\begin{equation}\label{mp_times_eqn}
+		f {\times} g\stackrel{\mathrm{def}}{=}f {\star_{2}} g
+	\end{equation}
+	
+	
+	Introduce the symplectic Fourier transform $F$ by
+	\begin{equation}
+		Ff(x) \stackrel{\text{def}}{=} (2\pi)^{-N} \int f(t) e^{ix \cdot Jt} \,d^{2N}t; \quad 	\widetilde Ff(x) \stackrel{\text{def}}{=} (2\pi)^{-N} \int f(t) e^{ix \cdot Jt} \,d^{2N}t; 
+		\label{eq:Fsympl}
+	\end{equation}
+	The \textit{twisted convolution} \cite{varilly_bondia:phobos} $f\diamond g$ is defined by
+	\begin{equation}\label{nt_diamond_eqn}
+		f\diamond g \left(u \right) \stackrel{\text{def}}{=} \int f\left(u - t\right)  g\left(t \right)e^{-iu \cdot J t}  dt.
+	\end{equation}
+	Following conditions hold \cite{varilly_bondia:phobos}:
+	\bea\label{nt_prod_duality_eqn}
+	\mathcal{F}\left(f \times g \right) = \mathcal{F} f \diamond  \sF g ;\quad \mathcal{F}\left(f \diamond g \right) = \mathcal{F} f \times \mathcal{F} g;\\
+	\label{nt_prodf_duality}
+	f \times g = Ff \diamond g = f \diamond  \widetilde Fg;  \quad f \diamond g = Ff \times g = f \times \widetilde F g;\\
+	\label{nt_prod_ass_eqn}
+	\left( f \times g \right) \times h= f \times \left(g \times h\right);  \quad \left( f \diamond g \right) \diamond h= f \diamond \left(g \diamond h\right);\\
+	\label{nt_prod_*_eqn}
+	\left( f \times g \right)^* = g^*\times h^*;  \quad \left( f \diamond g \right)^* = g^*\diamond h^*.
+	\eea
+	
+\end{empt} 
+\	
+
+\begin{defn}
+	\label{df:Gst}\cite{moyal_spectral}
+	We may as well introduce more Hilbert spaces $\G_{st}$ (for
+	$s,t \in \R$) of those 
+	$$
+	f \in \SS'(\R^2) = \sum_{m,n = 0}^\infty c_{mn} f_{mn}
+	$$ for which the following sum
+	is finite:
+	$$
+	\|f\|_{st}^2 \stackrel{\mathrm{def}}{=} \sum_{m,n=0}^\infty
+	(m+\half)^s (n+\half)^t |c_{mn}|^2.
+	$$
+	%	We define $\G_{st}$, for $s,t$ now in $\R^N$, as the tensor product	of Hilbert spaces $\G_{s_1t_1} \oxyox \G_{s_Nt_N}$. In other	words, the elements $(2\pi)^{-N/2} 	(m+\half)^{-s/2} (n+\half)^{-t/2} f_{mn}$ (with an obvious multiindex 	notation), for $m,n \in \N^N$, are declared to be an orthonormal basis
+	for~$\G_{st}$.
+\end{defn}
+%\begin{rem}\cite{varilly_bondia:phobos}
+%	Observe that 
+%	\begin{equation*}
+%\G_{0,0} = L^2\left( \R^2\right)
+%	\end{equation*}
+
+%	$\G_{0,0} = L^2\left( \R^2\right)$. 
+%\end{rem}
+\begin{rem}\label{mp_l2_rem}
+	It is proven in \cite{varilly_bondia:phobos} $f, g \in L^2\left( \R^2\right)$, then $f\times g \in L^2\left( \R^2\right)$ and $\left\|f\times g  \right\|\le\left\|f \right\|\left\| g  \right\|$.
+	Moreover, $f \times g$ lies in $C_0\left( \R^2\right)$ : the continuity follows by adapting the analogous argument for (ordinary) convolution. 
+\end{rem}
+%	\begin{rem}\label{mp_smooth_rem}\cite{varilly_bondia:deimos}
+%	The Leibniz formula assures us that $f \times g \in C_0^m\left(\R^2 \right)$ 
+%	 whenever
+%	 $$
+% 	f, g \in \bigcup \left\{\G_{st}~|~ s > 2m, t > 2m, s + t > 4m + 2\right\}
+% 	$$
+% 	analogously to what happens in the usual Sobolev spaces, the distributions in $\G_{st}$ grow more
+% 	regular as $s, t$ become larger in a suitable way.
+%	\end{rem}
+\begin{rem}\label{mp_ss_rem}
+	It is shown in \cite{varilly_bondia:phobos} that 
+	\begin{equation}\label{mp_ssin_eqn}
+		\SS\left( \R^2\right) = \bigcap_{s, t \in \R} \G_{st}.
+	\end{equation}
+\end{rem}
+
+\begin{empt}\label{mp_coord_constr}
+	This part contains a useful equations proven in \cite{varilly_bondia:phobos}.
+	There are coordinate functions $p,q$ on $\R^2$ such that for any $f \in \SS\left( \R^2\right)$ following conditions hold
+	\begin{equation}\label{mp_pq_mult_eqn}
+		\begin{split}
+			q \times f = \left(q + i \frac{\partial}{\partial p} \right)  f; ~~p \times f = \left(p - i \frac{\partial}{\partial q} \right)  f;\\
+			f \times q = \left(q - i \frac{\partial}{\partial p} \right)  f; ~~f \times p = \left(p + i \frac{\partial}{\partial q} \right)  f.
+		\end{split}
+	\end{equation}
+	From $q \times f, f \times q,p  \times f, f \times p \in \SS\left(\R^{2N} \right)$ it follows that $p, q \in \M^2$ (cf. \eqref{mp_multi_eqn}). From 
+	\eqref{mp_mult_distr} it follows that
+	\begin{equation}\label{mp_pq_mult}
+		\begin{split}
+			q \times \SS'\left(\R^{2N} \right) \subset \SS'\left(\R^{2N} \right); ~~p \times \SS'\left(\R^{2N} \right) \subset \SS'\left(\R^{2N} \right);\\
+			\SS'\left(\R^{2N} \right) \times q \subset \SS'\left(\R^{2N} \right); ~~\SS'\left(\R^{2N} \right) \times p \subset \SS'\left(\R^{2N} \right).
+		\end{split}
+	\end{equation}
+	If $f \in \SS'\left( \R^2\right)$ then from \eqref{mp_pq_mult_eqn} it follows that
+	\begin{equation}\label{mp_partial_eqn}
+		\frac{\partial}{\partial p} f = -iq \times f + i f \times q, ~~  \frac{\partial}{\partial q} f = ip \times f - i f \times p
+	\end{equation}
+	
+	
+	If 
+	\begin{equation}\label{mp_ham_eqn}
+		\begin{split}
+			a \stackrel{\mathrm{def}}{=} \frac{q + ip}{\sqrt{2}}, ~~\overline{a} \stackrel{\mathrm{def}}{=} \frac{q - ip}{\sqrt{2}},\\
+			\frac{\partial}{\partial a}\stackrel{\mathrm{def}}{=} \frac{\partial_q + i\partial_p}{\sqrt{2}}, ~~ \frac{\partial}{\partial \overline{a}}\stackrel{\mathrm{def}}{=} \frac{\partial_q - i\partial_p}{\sqrt{2}},\\
+			H \stackrel{\mathrm{def}}{=}a \overline{a}= \frac{1}{2}\left(p^2 + q^2 \right) , \\
+			\overline{a}\times a = H - 1, ~~ a \times \overline{a} = H + 1
+		\end{split}
+	\end{equation}
+	then
+	\begin{equation}\label{mp_ap_eqn}
+		\begin{split}
+			a \times f = af + \frac{\partial f}{\partial \overline{a}}, ~~ f \times a = af - \frac{\partial f}{\partial \overline{a}}, \\
+			\overline{a} \times f = \overline{a}f - \frac{\partial f}{\partial a}, ~~ f \times a = \overline{a}f + \frac{\partial f}{\partial a}, \\
+		\end{split}
+	\end{equation} \begin{equation}\label{mp_ham_act_eqn}
+		\begin{split}
+			H\times f_{mn} = (2m + 1) f_{mn};~~f_{mn} \times H = 2(n + 1)f_{mn}
+		\end{split}
+	\end{equation} 
+	\begin{equation}\label{mp_hamd_act_eqn}
+		\begin{split}
+			a \times f_{mn} = \sqrt{2m}f_{m-1,n};~~ f_{mn}\times a = \sqrt{2n + 2} f_{m, n+1};\\
+			\overline{a} \times f_{mn} = \sqrt{2m+2}f_{m+1,n};~~ f_{m+1,n}\times \overline{a} = \sqrt{2n} f_{m, n-1}.
+		\end{split}
+	\end{equation} 
+	
+	
+	It is proven in \cite{varilly_bondia:phobos} that
+	\begin{equation}\label{mp_part_prod_eqn}
+		\partial_j\left(f \times g \right)  = \partial_j f \times g + f \times \partial_jg;
+	\end{equation}
+	where $\partial_j = \frac{\partial}{ \partial x_{j}}$ is the partial derivation in $\SS\left(\R^{2N} \right)$. 
+\end{empt}
+
+From \eqref{mp_ham_eqn} it follows that 
+$$
+q =  \sqrt{2}\left( a   +  \overline{a}\right), \quad p =  \sqrt{2} i\left( a   -  \overline{a}\right),
+$$
+so taking into account \eqref{mp_partial_eqn} one has
+\be\label{mp_dpq_e_eqn}
+\begin{split}
+	\frac{\partial}{\partial p} f = \sqrt{2}\left( -i\left( a   +  \overline{a}\right) \times f +if \times \left( a   +  \overline{a}\right)\right) \\
+	\frac{\partial}{\partial q} f = \sqrt{2}\left( -\left( a   -  \overline{a}\right) \times f -f \times \left( a   +  \overline{a}\right)\right).
+\end{split}
+\ee
+%Substitution of \eqref{mp_hamd_act_eqn} into \eqref{mp_dpq_e_eqn} yields the following 
+%\be\label{mp_dfin_eqn}
+%!!!
+%\ee
+
+
+
+
+
+
+% If $C_0\left(\R^{2N}_\th\right)''$ is enveloping $W^*$-algebra of $C_0\left(\R^{2N}_\th\right)''$ then $C_0\left(\R^{2N}_\th\right)''$ is the weak closure of the generated by elements $f_{mn}$ algebra.
+%\begin{empt}
+%       If $f \in \SS\left( \R^{2N}\right)$, $\om \in \R^{2N}$ and
+%       	$$
+%       	f_{\om}\left(u \right) = \int_{y \in \R^{2N} } \exp\left(2 \pi i \om\left(u - \frac{1}{2}\Th y\right)\right)  g\left(u + v \right)e^{2\pi i y \cdot v }  dydv 
+%       	$$ 
+%      	then $f_\om  \in \SS\left( \R^{2N}\right)$. The map $V_\om:  \SS\left( \R^{2N}\right) \to  \SS\left( \R^{2N}\right)$ given by
+%      	\begin{equation}\label{nt_vom_eqn}
+%      V_\om\left(f \right) = f_\om
+%       	\end{equation}
+%  can be uniquely extended up to an unitary  operator $V_\om:L^2\left( \R^{2N}\right) \to L^2\left( \R^{2N}\right)$, i.e. $V_\om \in U\left( B\left(L^2\left( \R^{2N}\right) \right)\right)  $. Following condition holds
+%       	\begin{equation*}
+%       	V_{\om_1} V_{\om_2}= e^{-\pi i\om_1 ~\cdot~ \Theta \om_2} V_{\om_1 + \om_1}
+%       	\end{equation*}
+
+% \begin{equation*}
+% \exp\left(ik\cdot \right) \star_{\th} f \exp\left(-ik\cdot \right)= f(x + \th Sk)
+% \end{equation*}
+%     \end{empt}
+%        \begin{lem}\label{mp_convergece_lem}
+%  	If the sequence $\left\{a_n \in C_b\left(\R^{2N}_\th\right)\right\}_{n \in N}  $ is such that
+%  	\begin{itemize}
+%   		\item The sequence is convergent in the topology of \underbrace{\SS\left(\R^{2}_\th\right)\otimes\dots\otimes\SS\left(\R^{2}_\th\right)}_{N-\mathrm{times}} and $b = \lim^{\SS'\left(\R^{2N}\right)}_{n \to \infty} a_n$ is its limit in the topology of \underbrace{\SS\left(\R^{2}_\th\right)\otimes\dots\otimes\SS\left(\R^{2}_\th\right)}_{N-\mathrm{times}},
+%  		\item $b \in  C_b\left(\R^{2N}_\th\right)$,
+%  	\end{itemize}
+%  	then  the sequence is convergent in the strong topology and $b$ is the strong limit of the sequence $\{a_n\}$.
+%  \end{lem}\label{mp_pointwize_weak_lem}
+%   \begin{proof}
+%   	If $T \in \SS'\left(\R^{2N} \right)$ then for any $u \in \R^{2N}$ there is a linear functional $\varphi^T_u:\SS\left(\R^{2N} \right) \to \C$ given by
+%   	$$
+%   	\varphi^T_u\left( g\right) = 
+%   	\left(T \star_\th h \right)\left(u \right) \int_{y \in \R^{2N} } T\left(u - \frac{1}{2}\Th y\right) g\left(u + v \right)e^{2\pi i y \cdot v }  dydv.
+% 	$$ 
+
+% 	where we consider the integral of distribution. From $b = \lim^{\SS'\left(\R^{2N}\right)}_{n \to \infty} a_n$ it follows that for any $u \in \R^{2N}$ following condition holds
+%   	$$
+%  	\phi^b\left(g \right)\left(u \right)  = \lim_{n \to \infty} \phi^{a_n}\left(g \right)\left(u \right)
+%  	$$
+% 	If $g \in \SS\left(\R^{2N} \right)$ then from $b \in C_b\left(\R^{2N}_\th\right)$ it follows that $\phi^b\left(g \right)\left(\cdot \right) \in L^2\left(\R^{2N} \right)$. So there  is the sequence $\left\{\phi^{a_n}\left(g \right)\left(\cdot \right)\in  L^2\left( \R^{2N}\right) \right\}_{n \in \N}$ with point-wise convergence to $\phi^{b}\left(g \right)\left(\cdot \right)\in  L^2\left( \R^{2N}\right)$. It turns out there is the convergence of  $\left\{\phi^{a_n}\left(g \right)\left(\cdot \right)\right\}$ in the $L^2\left(\R^{2N} \right)$ topology. If means that for any $g \in \SS\left(\R^{2N} \right)$ the sequence $a_n \star_\th g$ tends to $b \star_\th g$ in the $L^2\left(\R^{2N} \right)$ topology. Since $\SS\left(\R^{2N} \right)$ is dense in $L^2\left(\R^{2N} \right)$ for any $\xi \in L^2\left(\R^{2N} \right)$ the sequence $a_n \star_\th \xi$ tends to $b \star_\th \xi$, i.e. $\lim_{n \to \infty} a_n = b$ in sense of the strong topology.
+%\end{proof}
+
+
+
 
 
  	\chapter{Miscellany}
