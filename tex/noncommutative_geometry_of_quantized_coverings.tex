@@ -1774,13 +1774,13 @@ The Definition \ref{fin_defn} implicitly uses the given by the Lemma \ref{ind_mu
 	then there the following conditions hold:
 	\begin{itemize}
 		\item If $p_e: \bigoplus_{g_2\in G_2}g_2\widetilde{B}_2\to \widetilde{B}_2$ is the natural projection then there is the unique $g_1' \in G_1$ such that
-		$$
+	\be\label{hereditary_g_eqn}
 		p_e\circ \pi^1_2\left(g_1'\widetilde{B}_1 \right)\neq\{0\}.
-		$$
+		\ee
 		\item If $\widetilde{B}'_1\bydef g_1' \widetilde{B}_1$ then there is the surjecive homomorphism	$\phi: G_2 \to G_1$ such that
-		\bean
+		\be\label{hereditary_g1_eqn}
 		\pi^1_2\left(g_1\widetilde B'_1 \right) \subset \bigoplus_{\stackrel{g_2 \in G_2}{\phi\left(g_2 \right)=g_1 }}g_2\widetilde{B}'_2 
-		\eean	 
+		\ee	 
 	\end{itemize}
 \end{lemma}
 \begin{proof}
@@ -12756,8 +12756,8 @@ The atomic representation $\pi_a$ of  $C^*_r\left(M, \sF\right)$ (cf. Definition
  $C^*_r\left(p \right) : C^*_r\left({M}, {\sF} \right)\hookto  C^*_r\left(\widetilde{M}, \widetilde{\sF} \right)$ is given by \eqref{foli_f_inc_eqn}  then from the proof of the Lemma \ref{foli_cov_inc_lem} it follows that 
 \be\label{foli_fin_eqn}
 \begin{split}
-\left.C^*_r\left(p \right)\right|_{C^*_r\left(\left.\sU,\sF\right|_{\sU}\right)}C^*_r\left(\left.\sU,\sF\right|_{\sU}\right)\hookto \bigoplus_{g\in G\left(\left.\widetilde M\right| M\right)}C^*_r\left(\left.\widetilde{\sU},\widetilde{\sF}\right|_{\widetilde{\sU}}\right),
-a \mapsto   \sum_{g\in G\left(\left.\widetilde M\right| M\right)}\lift^p_{\widetilde{\sU}}\left(a \right)
+\left.C^*_r\left(p \right)\right|_{C^*_r\left(\left.\sU,\sF\right|_{\sU}\right)}:C^*_r\left(\left.\sU,\sF\right|_{\sU}\right)\hookto \bigoplus_{g\in G\left(\left.\widetilde M\right| M\right)}gC^*_r\left(\left.\widetilde{\sU},\widetilde{\sF}\right|_{\widetilde{\sU}}\right),\\
+a \mapsto   \sum_{g\in G\left(\left.\widetilde M\right| M\right)}g~\lift^p_{\widetilde{\sU}}\left(a \right)
 \end{split}
 \ee
 where $\lift^p_{\widetilde{\sU}}\left(a \right)$ is given by the Equation \eqref{foli_lift_eqn}
@@ -13229,130 +13229,6 @@ C_b\left( M\right)\subset M\left(C^*_r \left(M, \mathcal{F}\right) \right).
 \section{Finite-fold coverings}
 \subsection{Coverings of $C^*$-algebras}
 
-\begin{lemma}\label{foli_comply_lem}
-	If  $\left(M, \sF \right)$ is a foliated manifold and both $p_1:\left(M, \sF \right)\to \left(\widetilde{M}_1,\widetilde{\sF}_1\right)$  $p_2:\left(M, \sF \right)\to \left(\widetilde{M}_2,\widetilde{\sF}_2\right)$ are regular finite-fold coverings of foliations and $\pi^1_2 : C^*_r\left(\widetilde{M}_1,\widetilde{\sF}_1\right) \to C^*_r\left(\widetilde{M}_2,\widetilde{\sF}_2\right)$ is an injective *-homomorphism such that $C^*_r\left( p_1\right) = \pi^1_2 \circ C^*_r\left( p_2\right)$ then there is the regular covering $p^2_1:\left(\widetilde M_2, \widetilde \sF_2 \right)\to \left(\widetilde{M}_1,\widetilde{\sF}_1\right)$  such that  $\pi^1_2 = C^*_r\left(p^2_1\right)$.
-\end{lemma}
-\begin{proof}
-	Let  $\mathfrak{A}= \left\{\sU_\iota\right\}_{\iota \in \I}$ be 	a regular foliated atlas of $M$. Suppose that $\mathfrak{A}$ is  simultaneously  {subordinated} to $p_1$ and $p_2$ (cf. Definition \ref{foli_sub_a_defn}). Let both $\widetilde{ \mathfrak{A}}_1$ and $\widetilde{ \mathfrak{A}}_2$ are the $p_1$-{lift} and $p_2$-{lift} of $\mathfrak{A}$ respectively (cf. Definition \ref{foli_lift_a_defn}).
-	Let us select $\widetilde x^2_0\in \widetilde M_2$ and   $\widetilde\sU_2$ be neighborhood of 	
-	of $\widetilde x^2_0$ such that $\widetilde\sU_2 \in \widetilde{ \mathfrak{A}}_2$  Let  $\sU = p_2\left( \widetilde \sU_2\right)\in \mathfrak A$ and  $\widetilde\sU_1\in  \widetilde{ \mathfrak{A}}_1$ be  such that $p_1\left( \widetilde\sU_1\right) = \sU$.
-	\bean
-	p_1^{-1}\left(\sU \right) = \bigsqcup_{g_1 \in G\left(\left.\widetilde M_1\right|M\right) } g_1\widetilde\sU_1,
-	\eean
-	otherwise one has
-	\bean
-	p_2^{-1}\left(\sU \right) = \bigsqcup_{g_2 \in G\left(\left.\widetilde M_2\right|M\right) } g_2\widetilde\sU_2.
-	\eean
-	From the Proposition  \ref{foli_res_inc_prop} it turns out that the restrictions $\left.C^*_r\left(p_1\right)\right|_{C^*_r\left(\sU, \left.\sF\right|_{\sU}\right)}$ , $\left.C^*_r\left(p_2\right)\right|_{C^*_r\left(\sU, \left.\sF\right|_{\sU}\right)}$ can be regarded as following injective *-homomorphisms
-	\be\label{foli_au_diag_eqn}
-	\begin{split}
-		\left.C^*_r\left(p_1\right)\right|_{C^*_r\left(\sU, \left.\sF\right|_{\sU}\right)} : C^*_r\left(\sU, \left.\sF\right|_{\sU}\right)\hookto   \bigoplus_{g_1 \in G\left(\left.\widetilde M_1\right|M\right) }  C^*_r\left(g_1\widetilde\sU_1, \left.\widetilde\sF\right|_{g_1\widetilde\sU_1}\right),\\
-		\left.C^*_r\left(p_2\right)\right|_{C^*_r\left(\sU, \left.\sF\right|_{\sU}\right)} : C^*_r\left(\sU, \left.\sF\right|_{\sU}\right)\hookto   \bigoplus_{g_2 \in G\left(\left.\widetilde M_2\right|M\right) }  C^*_r\left(g_2\widetilde\sU_2, \left.\widetilde\sF\right|_{g_2\widetilde\sU_2}\right)
-	\end{split}
-	\ee
-	such that $C^*_r\left(\sU, \left.\sF\right|_{\sU}\right) \cong C^*_r\left(\widetilde\sU_1, \left.\widetilde\sF\right|_{g_1\widetilde\sU_1}\right) \cong C^*_r\left(\widetilde\sU_2, \left.\widetilde\sF\right|_{g_2\widetilde\sU_2}\right)$ for all $g_1 \in G\left(\left.\widetilde M_1\right|M\right)$ and $g_2 \in G\left(\left.\widetilde M_2\right|M\right)$. Indeed both given by \eqref{foli_au_diag_eqn} maps are diagonal, i.e.
-	\be\label{foli_diag_eqn}
-	\begin{split}
-		\left.C^*_r\left(p_1\right)\right|_{C^*_r\left(\sU, \left.\sF\right|_{\sU}\right)}\left(a \right) =\left(\underbrace{a~,...,~a}_{\left|G\left(\left.\widetilde M_1\right|M\right) \right| -\text{times}}\right), \\ \left.C^*_r\left(p_2\right)\right|_{C^*_r\left(\sU, \left.\sF\right|_{\sU}\right)}\left(a \right)=  \left(\underbrace{a~,...,~a}_{\left|G\left(\left.\widetilde M_2\right|M\right) \right| -\text{times}}\right);
-	\end{split}
-	\ee
-	for all  $a \in C^*_r\left(\sU, \left.\sF\right|_{\sU}\right)$. 
-	Let	$\pi^1_a:C^*_r\left(\widetilde M_2, \widetilde \sF_2 \right) \to B\left(\widetilde\H_2 \right)$ be  the atomic representation and for any $g_2 \in G\left(\left.\widetilde M_2\right|M\right)$ denote by $\widetilde\H_2^{g_2\widetilde\sU_2}\bydef \pi^1_a\left( C^*_r\left(g_2\widetilde\sU_2, \left.\widetilde\sF\right|_{g_2\widetilde\sU_2}\right)\right) \widetilde\H_2 
-	$. For any $g'_2 , g''_2 \in G\left(\left.\widetilde M_2\right|M\right)$ one has $g'_2 \neq g''_2 \Rightarrow \widetilde\H_2^{g'_2\widetilde\sU_2}\perp \widetilde\H_2^{g''_2\widetilde\sU_2}$. For all $a \in C^*_r\left(\sU, \left.\sF\right|_{\sU}\right)$ one has
-	$$
-	\pi^1_a\left( a\right) \in B\left(\bigoplus_{ g_2 \in G\left(\left.\widetilde M_2\right|M\right)}\widetilde\H_2^{g_2\widetilde\sU_2} \right). 
-	$$
-	Any element of $B\left(\bigoplus_{ g_2 \in G\left(\left.\widetilde M_2\right|M\right)}\widetilde\H_2^{g_2\widetilde\sU_2} \right)$ corresponds to a matrix
-	\be\label{foli_matr_eqn}
-	\begin{pmatrix} a_{g_1g_1}  & \dots & a_{g_1g_n} \\
-		\vdots  & \ddots & \vdots \\
-		a_{g_ng_1}  & \dots & a_{g_ng_n} 
-	\end{pmatrix}
-	\ee
-	where $n = \left| G\left(\left.\widetilde M_2~\right|M\right)\right|$, $\left\{g_1,...,g_n\right\}= G\left(\left.\widetilde M_2~\right|M\right)$ and $a_{g_jg_k}\in B\left(\widetilde\H_2^{g_k\widetilde\sU_2}, \widetilde\H_2^{g_j\widetilde\sU_2} \right)$ where $j,k = 1,...,n$.
-	From the Equation \eqref{foli_diag_eqn} it follows that $\pi^1_a\left( a\right)$ corresponds to the diagonal matrix
-	\be\label{foli_dia_matr_eqn}
-	\pi^1_a\left( a\right) = \begin{pmatrix} a  & \dots & 0 \\
-		\vdots  & \ddots & \vdots \\
-		0  & \dots & a 
-	\end{pmatrix}
-	\ee
-	where elements of matrix correspond to bounded operators of $B\left(\widetilde\H_2^{g'_2\widetilde\sU_2}, \widetilde\H_2^{g''_2\widetilde\sU_2} \right)$ for any $g'_2 , g''_2 \in G\left(\left.\widetilde M_2~\right|M\right)$. For any $g_1 \in G\left(\left.\widetilde M_1\right|M\right)$ denote by 
-	$$
-	\left.\pi\right._{g_1\widetilde\sU_1}: \bigoplus_{g'_1 \in G\left(\left.\widetilde M_1\right|M\right) }  C^*_r\left(g'_1\widetilde\sU_1, \left.\widetilde\sF\right|_{g'_1\widetilde\sU_1}\right)\to  C^*_r\left(g_1\widetilde\sU_1, \left.\widetilde\sF\right|_{g_1\widetilde\sU_1}\right)
-	$$
-	the natural projection. If $a \in  C^*_r\left(\sU, \left.\sF\right|_{\sU}\right)_+$ is positive then both  
-	\bean
-	\widetilde a_1\bydef \left.C^*_r\left(p_1\right)\right|_{C^*_r\left(\sU, \left.\sF\right|_{\sU}\right)}\left(a \right),\\ \widetilde a_1^\parallel\bydef \left.\pi\right._{g_1\widetilde\sU_1}\left(\widetilde a_1 \right)
-	\eean
-	If $\widetilde a_1^\perp \bydef \widetilde a_1- \widetilde a_1^\parallel$ 
-	then
-	$$
-	\widetilde a_1^\perp \in \bigoplus_{\substack{g'_1 \in G\left(\left.\widetilde M_1\right|M\right)\\g_1' \neq g_1} }  C^*_r\left(g'_1\widetilde\sU_1, \left.\widetilde\sF\right|_{g'_1\widetilde\sU_1}\right)
-	$$
-	and taking into account $\widetilde a_1^\parallel \in   C^*_r\left(g_1\widetilde\sU_1, \left.\widetilde\sF\right|_{g_1\widetilde\sU_1}\right)$ one has $\widetilde a_1^\parallel\widetilde a_1^\perp = \widetilde a_1^\perp\widetilde a_1^\parallel= 0$. Otherwise  $\widetilde a_2^\perp$ is a sum of $\left|G\left(\left.\widetilde M_1\right|M\right) \right| -1$ positive elements, so $\widetilde a_1^\perp$ is positive.  Both $\widetilde a_1^\parallel\bydef \pi^1_2\left( \widetilde a_1^\parallel\right)$ and $\widetilde a_1^\perp\bydef\pi^1_2\left( \widetilde a_1^\perp\right)$. If both
-	\bean
-	A^\parallel = \begin{pmatrix} a^\parallel_{g_1g_1}  & \dots & a^\parallel_{g_1g_n} \\
-		\vdots  & \ddots & \vdots \\
-		a^\parallel_{g_ng_1}  & \dots & a^\parallel_{g_ng_n}
-	\end{pmatrix}
-	\quad \text{and} \quad A^\perp = \begin{pmatrix} a^\perp_{g_1g_1}  & \dots & a^\perp_{g_1g_n} \\
-		\vdots  & \ddots & \vdots \\
-		a^\perp_{g_ng_1}  & \dots & a^\perp_{g_ng_n}
-	\end{pmatrix}
-	\eean
-	are matrices which represent  $\widetilde a_1^\parallel$ and $\widetilde a_1^\perp$ respectively then from $\widetilde a_1^\parallel\widetilde a_1^\perp = \widetilde a_1^\perp\widetilde a_1^\parallel= 0$ it follows that $A^\parallel A^\perp = A^\perp A^\parallel= 0$.  Otherwise from \eqref{foli_dia_matr_eqn} it follows that $A^\parallel +A^\perp$ is a diagonal matrix, so one has
-	$j \neq k \Rightarrow a^\parallel_{g_jg_k}= -a^\perp_{g_jg_k}$. If  there are $j \neq k$ such that $a^\parallel_{g_jg_k}\neq 0$ then there is  $\xi \in \widetilde\H_2^{g_j\widetilde\sU_2}$ such that $\eta = a^\parallel_{g_jg_k}\xi\neq 0$. From $\eta\in \widetilde\H_2^{g_k\widetilde\sU_2}$ it turns out that $\xi\perp\eta$. If $\H\cong\C^2$ is the $\C$-linear span of $\left\{\xi, \eta\right\}$ and $p_\H:\bigoplus_{ g_2 \in G\left(\left.\widetilde M_2\right|M\right)}\widetilde\H_2^{g_2\widetilde\sU_2} \to \H$ is the natural projection then both $p  A^\parallel  p$ and  $p  A^\perp_  p$ correspond to positive complex matrices $2 \times 2$ matrices
-	\bean
-	B^\parallel = \begin{pmatrix} b^\parallel_{1,1}  &  b^\parallel_{1,2} \\
-		b^\parallel_{2,1} &  b^\parallel_{2,2}
-	\end{pmatrix}\in \mathbb{M}_2\left(\C \right)  \quad \text{and}\quad 
-	B^\perp = \begin{pmatrix} b^\perp_{1,1}  &  b^\perp_{1,2} \\
-		b^\perp_{2,1} &  b^\perp_{2,2}\end{pmatrix}\in \mathbb{M}_2\left(\C \right)
-	\eean
-	The matrix $B^\perp$ is positive because the operator $A^\perp$ is positive,  and from $b^\perp_{1,2}\neq 0$ it follows that $B^\perp$ is invertible. There is $\xi \in \H$ such that
-	$$
-	B^\perp \xi = \begin{pmatrix} 1\\ 0
-	\end{pmatrix}. 
-	$$
-	From $b^\parallel_{1,2} \neq 0$ it turns out
-	$$
-	B^\parallel\begin{pmatrix} 1\\ 0
-	\end{pmatrix} = B^\parallel B^\perp \xi \neq 0,
-	$$
-	hence $B^\parallel B^\perp \neq 0$. Therefore one has  
-	$A^\parallel A^\perp\neq 0$, i.e. there is a contradiction. From this contradiction it follows that $A^\parallel$ is diagonal, so \\
-	$\pi^1_2\left( \widetilde a_1^\parallel\right)\in \bigoplus_{g_2 \in G\left(\left.\widetilde M_2\right|M\right) }  C^*_r\left(g_2\widetilde\sU_2, \left.\widetilde\sF\right|_{g_2\widetilde\sU_2}\right)$. On the other hand the composition $\left.\pi\right._{g_1\widetilde\sU_1}\circ\left.C^*_r\left(p_1\right)\right|_{C^*_r\left(\sU, \left.\sF\right|_{\sU}\right)}$ is *-isomorphism, so that  
-	
-	\be\label{foli_sums_eqn}
-	\begin{split}
-		\pi^1_2\left( C^*_r\left(g_1\widetilde\sU_1, \left.\widetilde\sF\right|_{g_1\widetilde\sU_1}\right)\right)\subset  \bigoplus_{g_2 \in G\left(\left.\widetilde M_2\right|M\right) }  C^*_r\left(g_2\widetilde\sU_2, \left.\widetilde\sF\right|_{g_2\widetilde\sU_2}\right),\\
-		\pi^1_2\left(	\bigoplus_{g \in G\left(\left.\widetilde{M}_1~\right|M\right)} C^*_r\left(g_1\widetilde\sU_1, \left.\widetilde\sF\right|_{g_1\widetilde\sU_1}\right)\right)\subset  \bigoplus_{g_2 \in G\left(\left.\widetilde M_2\right|M\right) }  C^*_r\left(g_2\widetilde\sU_2, \left.\widetilde\sF\right|_{g_2\widetilde\sU_2}\right)\\
-	\end{split}
-	\ee
-	i.e. there are  {direct sum decompositions} of both \\ $\left(C^*_r\left({M},{\sF}\right), C^*_r\left(\widetilde{M}_1,\widetilde{\sF}_1\right), G\left(\left.\widetilde{M}_1\right| M\right) ,C^*_r\left(p_1\right) \right)$\\ and $\left(C^*_r\left({M},{\sF}\right), C^*_r\left(\widetilde{M}_2,\widetilde{\sF}_2\right), G\left(\left.\widetilde{M}_2\right| M\right) ,C^*_r\left(p_2\right) \right)$
-	(cf.  Definition \ref{hereditary_dir_sum_defn}). The system of equations \eqref{foli_sums_eqn} is  a special instance of the  \eqref{hereditary_dir_sum_eqn}. If\\ $p_e:\bigoplus_{g_2 \in G\left(\left.\widetilde M_2\right|M\right) }  C^*_r\left(g_2\widetilde\sU_2, \left.\widetilde\sF\right|_{g_2\widetilde\sU_2}\right) \to  C^*_r\left(g_2\widetilde\sU_2, \left.\widetilde\sF\right|_{g_2\widetilde\sU_2}\right)$ is the natural projection then from the  Lemma \ref{hereditary_dir_sum_lem} it follows that there is the unique $g_1 \in G_1$ such that $p_e\circ 	\pi^1_2\left( C^*_r\left(g_1\widetilde\sU_1, \left.\widetilde\sF\right|_{g_1\widetilde\sU_1}\right)\right) \neq \{0\}$. Both homeomorphisms $\widetilde \sU_2\cong\sU$ and $g_1\widetilde \sU_1\cong\sU$ yield a homeomorphism $\varphi : \widetilde \sU_2\to g_1\widetilde \sU_1\cong\sU$. Assume that $p^2_1\left( \widetilde x^2_0\right) \bydef \varphi\left(\widetilde x^0_2 \right)$. This definition does not depend on choice of the sets $\sU$, $\widetilde \sU_1$, $\widetilde \sU_2$ because if we select $\sU'\subset \sU$, $\widetilde \sU_1'\subset \widetilde \sU_1$, $\widetilde \sU_2' \subset \widetilde \sU_2$ such that $\widetilde x_2\in \widetilde \sU'_2$ then we obtain the same $p^2_1\left( \widetilde x^0_2\right)$. In result one has a continuous map $p^2_1: \widetilde \sX_2\to \widetilde \sX_1$ which is surjective because $\pi^1_2$ is injective.
-	In result one has a continuous map $p^2_1: \widetilde \sX_2\to \widetilde \sX_1$ which is surjective because $\pi^1_2$ is injective.
-	From the Lemma \ref{hereditary_dir_sum_lem} it follows that there is the surjecive homomorphism	$\phi: G_2 \to G_1$ such that
-	\bean
-		\pi^1_2\left(C^*_r\left(g_1\widetilde\sU_1, \left.\widetilde\sF\right|_{g_1\widetilde\sU_1}\right) \right) \subset \bigoplus_{g_2 \in \ker\phi } C^*_r\left(g_2\widetilde\sU_2, \left.\widetilde\sF\right|_{g_2\widetilde\sU_2}\right)
-	\eean
-	It turns out that
-	$$
-	\left( p^2_1\right)^{-1}\left( g_1\widetilde \sU_2\right) = \bigsqcup_{g_2 \in \ker\phi}g_2\widetilde \sU_1,
-	$$
-	i.e. $p^2_1$ is a  covering. 	From   the Corollary  \ref{top_covp_cat_cor} it turns that  the map $p^2_1$ is a transitive covering.\\	
-\end{proof}
-\begin{corollary}\label{foli_gi_cor}
-	If  $\left(M, \sF \right)$ is a foliated manifold and  $p:\left(M, \sF \right)\to \left(\widetilde{M},\widetilde{\sF}\right)$ is a regular finite-fold covering of foliation (cf. Definition \ref{foli_reg_cov_defn}) then there is the natural isomorphism
-	$$
-	G\left(\left.\widetilde M\right|M \right)\cong G \bydef\left\{\left.g\in \Aut\left( C^*_r\left(\widetilde{M},\widetilde{\sF}\right)\right) \right| ga = a\quad\forall a \in C^*_r\left({M},{\sF}\right)\right\}.
-	$$
-\end{corollary}
-\begin{proof}
-	From the Lemma \ref{foli_comply_lem} it follows that any $g \in G$ corresponds to a covering $\widetilde p: \widetilde M\to \widetilde M$ such that $p = p\circ \widetilde p$. Otherwise from the Definition \ref{cov_proj_cov_grp_defn} it turns out that $\widetilde p$ corresponds to an element $g \in G\left(\left.\widetilde M\right|M \right)$. 
-\end{proof}
-
 \begin{lemma}\label{foli_quasi_lem}
 	Let  $\left(M, \sF \right)$ is a foliated manifold, and  let $p:\left(M, \sF \right)\to \left(\widetilde{M},\widetilde{\sF}\right)$ is a regular finite-fold covering of foliation (cf. Definition \ref{foli_reg_cov_defn}).
 	Suppose $u \in C_c\left(M \right)_+$ is such that the set $\sU\bydef\left\{\left.x \in M\right| u\left( x\right) > 0\right\}$ is connected. If both $A$ and $\widetilde A$ are $C^*$-norm completions of $uC^*_r\left(M, \sF \right)u$ and $uC^*_r\left(\widetilde M, \widetilde\sF \right)u$ then there is a finite fold covering with unitization (cf. Definition \ref{fin_comp_defn}) given by
@@ -13498,7 +13374,7 @@ where the action $G\left( \left.\widetilde{M}~\right|M\right)\times C^*_r\left(\
 Follows from the Theorem \ref{foli_fin_thm}, Lemma \ref{foli_g_lem}, and (ii) of the Theorem \ref{stable_fin_cov_thm}.
 \end{proof}
 \paragraph{title}
-\begin{definition}\label{compliant_covering_defn}
+\begin{definition}\label{compliant_covering_defn!}
 	Let us consider the following diagram\\
 	\newline
 	\begin{tikzpicture}
@@ -13534,64 +13410,9 @@ Follows from the Theorem \ref{foli_fin_thm}, Lemma \ref{foli_g_lem}, and (ii) of
 	\end{enumerate}
 	
 \end{definition}
-\begin{definition}\label{compliant_comes_defn}
-	In the situation of the Definition \ref{compliant_covering_defn} we say that the homomorphism $h: G\left(\left.\widetilde A_2~\right|A \right)\to 	G\left(\left.\widetilde A_1~\right|A \right)$ which satisfies to \eqref{g_sur_pi_eqn} \textit{comes} from $\pi^1_2$.
-\end{definition}
-\begin{remark}
-	From the Definition \ref{compliant_covering_defn} it turns out that if $\rho': \widetilde A_1 \to \widetilde A_2$ and $\rho': \widetilde A_2 \to \widetilde A_1$ are *-homomorphisms such that $\pi_2 = \rho' \circ \pi_1$ and $\pi_1 = \rho'' \circ \pi_2$ then both $\rho'$ and $\rho''$ are *-isomorphisms.
-\end{remark}
 
 
-\begin{empt}\label{hereditary_dir_sum_empt}
-	Let	$\left(A, \widetilde{A}, G, \pi \right)$ be  a noncommutative finite-fold pre-covering (cf. Definition \ref{fin_pre_defn}). Let $B\subset A$ a connected !!! $C^*$-subalgebra such that there is  $C^*$-subalgebra
-	$\widetilde{B}\subset \widetilde{A}$ which satisfies to the following conditions
-	\begin{itemize}
-		\item $B$ is not a direct sum of more then one $C^*$-algebras.
-		\item $\widetilde{B}\cap g \widetilde{B}= \{0\}$ for all nontrivial $g \in G$.
-		\item 
-		\be\label{decomp_dir_eqn}
-		\pi\left( B\right) \subset \bigoplus_{g\in G}g\widetilde{B}.
-		\ee
-		\item If $p_{\widetilde B}: \bigoplus_{g\in G}g\widetilde{B}\to \widetilde{B}$ is the natural projection $p_{\widetilde B}\circ \left.\pi\right|_B : B \xrightarrow{\approx} \widetilde{B}$ is *-isomorprhism.
-	\end{itemize} 
-\end{empt}
-\begin{definition}\label{hereditary_dir_sum_defn}
-	In the described in \ref{hereditary_dir_sum_empt} situation we say that the Equation \eqref{decomp_dir_eqn}  a \textit{direct sum decomposition} of $\left(A, \widetilde{A}, G, \pi \right)$.
-\end{definition}
-\begin{lemma}\label{hereditary_dir_sum_lem}
-	Let	$\left(A, \widetilde{A}_1, G_1, \pi_1 \right)$, 		$\left(A, \widetilde{A}_2, G_2, \pi_2 \right)$ be finite-fold noncommutative precoveings. Let $B\subset A$ be a  $C^*$ subalgebras such there are $\widetilde{B}_1\subset \widetilde{A}_1$,  $\widetilde{B}_2\subset \widetilde{A}_2$ and direct summand decompositions (cf. Definition \ref{hereditary_dir_sum_defn}).
-	\be\label{hereditary_dir_sum_eqn}
-	\begin{split}
-		\pi_1\left( B\right) \subset \bigoplus_{g_1\in G_1}g_1\widetilde{B}_1,\\
-		\pi_2\left( B\right) \subset \bigoplus_{g_2\in G_2}g_2\widetilde{B}_2.
-	\end{split}
-	\ee
-	If there is a injective *- homomorphism   $\pi^1_2:\widetilde{A}_1\hookto \widetilde{A}_2$ such that $\pi_2 = \pi^1_2 \circ \pi_1$ 
-	then there the following conditions hold:
-	\begin{itemize}
-		\item If $p_e: \bigoplus_{g_2\in G_2}g_2\widetilde{B}_2\to \widetilde{B}_2$ is the natural projection then there is the unique $g_1' \in G_1$ such that
-		$$
-		p_e\circ \pi^1_2\left(g_1'\widetilde{B}_1 \right)\neq\{0\}.
-		$$
-		\item If $\widetilde{B}'_1\bydef g_1' \widetilde{B}_1$ then there is the surjecive homomorphism	$\phi: G_2 \to G_1$ such that
-		\bean
-		\pi^1_2\left(g_1\widetilde B'_1 \right) \subset \bigoplus_{\stackrel{g_2 \in G_2}{\phi\left(g_2 \right)=g_1 }}g_2\widetilde{B}'_2 
-		\eean	 
-	\end{itemize}
-\end{lemma}
-\begin{remark}
-	Consider the situation of (ii) of the Lemma \ref{foli_cov_inc_lem}. Let 	Let   $\mathfrak{A}= \left\{\sU_\iota\right\}_{\iota \in \I}$ of $M$ be a {subordinated} to $p$ regular foliated atlas, and let  $\sU\in \mathfrak{A}$. If $\widetilde\sU\subset \widetilde M$ is mapped homemorphically onto $\sU$ and 
-	$C^*_r\left(p \right) : C^*_r\left({M}, {\sF} \right)\hookto  C^*_r\left(\widetilde{M}, \widetilde{\sF} \right)$ is given by \eqref{foli_f_inc_eqn}  then from the proof of the Lemma \ref{foli_cov_inc_lem} it follows that 
-	\be\label{foli_fin_eqn}
-	\begin{split}
-		\left.C^*_r\left(p \right)\right|_{C^*_r\left(\left.\sU,\sF\right|_{\sU}\right)}C^*_r\left(\left.\sU,\sF\right|_{\sU}\right)\hookto \bigoplus_{g\in G\left(\left.\widetilde M\right| M\right)}C^*_r\left(\left.\widetilde{\sU},\widetilde{\sF}\right|_{\widetilde{\sU}}\right),
-		a \mapsto   \sum_{g\in G\left(\left.\widetilde M\right| M\right)}\lift^p_{\widetilde{\sU}}\left(a \right)
-	\end{split}
-	\ee
-	where $\lift^p_{\widetilde{\sU}}\left(a \right)$ is given by the Equation \eqref{foli_lift_eqn}
-\end{remark}
 
-!!!
 \paragraph{title}
 \begin{lemma}\label{foli_comply_f_lem}
 	Let $\left(M, \sF\right)$ be a foliated space such that $M$ is a connected, second-countable  manifold.  If both $p_1:\left(\widetilde M_1, \widetilde \sF_1 \right) \to \left(M, \sF\right)$ and  $p_2:\left(\widetilde M_2, \widetilde \sF_2 \right) \to \left(M, \sF\right)$ are regular coverings then the unordered pair of *-homomorphisms 
@@ -13601,11 +13422,26 @@ Follows from the Theorem \ref{foli_fin_thm}, Lemma \ref{foli_g_lem}, and (ii) of
 	is {compliant} (cf. Definition \ref{compliant_covering_defn}).
 \end{lemma}
 
-\begin{proof}
+\begin{proof} 
+	From the Equation \ref{foli_fin_eqn} it turns out that there are a  direct sum decompositions of (cf. Definitition \ref{hereditary_dir_sum_defn} 
+!!!! CHECK BELOW EQUATION	
+\bean
+	\left.C^*_r\left(p \right)\right|_{C^*_r\left(\left.\sU,\sF\right|_{\sU}\right)}:C^*_r\left(\left.\sU,\sF\right|_{\sU}\right)\hookto \bigoplus_{g\in G\left(\left.\widetilde M_1\right| M\right)}gC^*_r\left(\left.\widetilde{\sU}_1,\widetilde{\sF}\right|_{\widetilde{\sU}_1}\right),\\
+		\left.C^*_r\left(p \right)\right|_{C^*_r\left(\left.\sU,\sF\right|_{\sU}\right)}:C^*_r\left(\left.\sU,\sF\right|_{\sU}\right)\hookto \bigoplus_{g\in G\left(\left.\widetilde M\right| M\right)}gC^*_r\left(\left.\widetilde{\sU},\widetilde{\sF}\right|_{\widetilde{\sU}}\right),
+\eean
+of 
+!!!! CHECK BELOW EQUATION
+\bean
+\left(	C^*_r\left( M, \mathcal{F}\right),  C^*_r\left(\widetilde{M},~ \widetilde{\mathcal F} \right),{G\left( \left.\widetilde{M}~\right|M\right)}, C^*_r\left( p\right)  \right),\\
+\left(	C^*_r\left( M, \mathcal{F}\right),  C^*_r\left(\widetilde{M},~ \widetilde{\mathcal F} \right),{G\left( \left.\widetilde{M}~\right|M\right)}, C^*_r\left( p\right)  \right)
+\eean
+
+From the Corollary  \ref{top_covp_cat_cor} it follows that there is a covering $p':\widetilde{M}_2\to \widetilde{M}_1$ such that $p_2 = p'\circ p_1$. 
 	One needs check (a)-(d) of the Definition \ref{compliant_covering_defn}
 	\begin{enumerate}
 		\item[(a)]
-		Suppose that	there is a *-homomorphism $\pi^1_2: C^*_r\left(\widetilde M_1, \widetilde \sF_1 \right) \to C^*_r\left(\widetilde M_2, \widetilde \sF_2 \right)$ such that $C^*_r\left(p_2\right) = \pi^1_2 \circ C^*_r\left(p_1\right)$. From the Lemma \ref{foli_comply_lem} it turns out that there is a regular covering $p^2_1: \left(\widetilde M_2, \widetilde \sF_2\right)\to \left(\widetilde M_1, \widetilde \sF_1\right)$ such that $\pi^1_2 = C^*_r\left(p^2_1 \right)$. Both $\widetilde M_1$ and $\widetilde M_2$ are compact hence from the Lemma \ref{foli_fin_comp_lem} it follows that $C^*_r\left(p^2_1 \right)$ is a noncommutative finite-fold  covering.
+		Suppose that	there is a *-homomorphism $\pi^1_2: C^*_r\left(\widetilde M_1, \widetilde \sF_1 \right) \to C^*_r\left(\widetilde M_2, \widetilde \sF_2 \right)$ such that $C^*_r\left(p_2\right) = \pi^1_2 \circ C^*_r\left(p_1\right)$. From the Lemma \ref{hereditary_dir_sum_lem} it follows that there is the unique $g \in G\left( \left.\widetilde{M}_1~\right|M\right)$ which satisfies to equations  \eqref{hereditary_g_eqn}  and 
+		\eqref{hereditary_g1_eqn}. If $p^2_1\bydef p'\circ g$ then $\pi^1_2 = C^*_r\left( p^2_1\right)$.  From the Theorem \ref{foli_fin_thm} it follows that $\pi^1_2 = C^*_r\left( p^2_1\right)$ is a noncommutative finite-fold covering.
 		\item[(b)] There are natural isomorphisms 
 		\bean
 		G\left(\left. \widetilde{   M }_1 ~\right| { M}\right)\cong G\left(\left.C^*_r\left(\widetilde M_1, \widetilde \sF_1 \right)~\right| C^*_r\left( M,  \sF \right)\right),\\
@@ -13619,7 +13455,7 @@ Follows from the Theorem \ref{foli_fin_thm}, Lemma \ref{foli_g_lem}, and (ii) of
 		\ee
 		For all $g \in G\left(\left.C^*_r\left(\widetilde M_2, \widetilde \sF_2 \right)~\right| C^*_r\left( M,  \sF \right)\right)$ and $\widetilde{a}\in C^*_r\left(\widetilde M_1, \widetilde \sF_1 \right)$ one has $g \widetilde{a} = h'\left( g\right) \widetilde{a}$ and taking into account that $h'\left( g\right)$ is a *-automorphism of $C^*_r\left(\widetilde M_1, \widetilde \sF_1 \right)$ one has $g \widetilde{a} \in C^*_r\left(\widetilde M_1, \widetilde \sF_1 \right)$.
 		\item[(c)] It is already proven the existence of the surjecive homomorphism \eqref{foli_sur_eqn}.
-		\item[(d)] 
+		\item[(d)] !!!
 		If  $\rho:C^*_r\left(\widetilde M_1, \widetilde \sF_1 \right) \to C^*_r\left(\widetilde M_1, \widetilde \sF_1 \right)$ is any *-homomorphism  such that $C^*_r\left(p_2 \right)  = \rho \circ C^*_r\left(p_1 \right)$ then from the the Lemma \ref{foli_comply_lem} it turns out that there is  $g \in G\left(\left. \widetilde{   M}_2 ~\right| {   \widetilde{   M }_1}\right)$ such that 
 		\be\label{foli_gc_eqn}	
 		q = g \circ p.
