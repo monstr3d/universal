@@ -10571,6 +10571,44 @@ Let $A$ be a  $C^*$-algebra which has continuous trace. We say that a {sub-unita
 	\ee
 	
 \end{empt}
+Our following constructions require an analog of the Dini theorem.
+ \begin{lemma}\label{ctr_dini_lem} USE IT LATER
+	Let $A$ be a {continuous-trace} $C^*$-\textit{algebra} (cf. Definition \ref{continuous_trace_c_a_defn}) having a compact spectrum $\sX$. Let $\La$ be a directed set, and let $\left\{a_\la\right\}_{\la\in\La}\subset A$ be a net (cf. Definition \ref{top_net_defn}) such that
+	\begin{itemize}
+		\item 
+		\be\label{ctr_sup_eqn}
+		\forall \mu, \nu \in \La \quad \mu \ge\nu\quad \Rightarrow \quad  a_\mu\ge a_\nu.	
+		\ee
+		\item  There is $a\in A$ such that for all $x \in \sX$ there is the following limit
+		$$
+		\lim_{\la\in\La}\rep_x\left( a_\la\right) = \rep_x\left( a\right)
+		$$
+	\end{itemize}
+	Then there is the $C^*$-norm limit $	\lim_{\la\in\La}a_\la = a$.
+	
+\end{lemma}
+\begin{proof}
+	Put $b_\la\bydef a-a_\la\in A$. We have to prove that $b_\la \to 0$ with respect to the $C^*$-norm topology.
+	Let $\eps> 0$ be given. From (b) of the Lemma \ref{ctr_rep_eq_lem} it turns out that for all $\la\in \La$ the map
+	$$
+	x\mapsto \left\|  \rep_x\left(b_\la\right)\right\|
+	$$
+	is continuous, so the set 
+	$$
+	\sX_\la \bydef \left\{x \in \sX \left|\left\|  \rep_x\left(b_\la\right)\right\|\le\eps \right. \right\}
+	$$
+	is closed. Moreover $\sX_\la$ is compact because it is a subset of a compact space $\sX$. From \eqref{ctr_sup_eqn} it follows that 
+	$$
+	\forall \mu, \nu \in \La \quad \mu \ge\nu\quad \Rightarrow \quad  \sX_\mu \supset  \sX_\nu.	
+	$$
+	. Fix $x\in \sX$. Since $\rep_x\left(b_\a\right) \to 0$
+	we see that $x\notin \sX_\la$ if $\la$ is sufficiently large. Thus $x \notin \bigcap \sX_\la$. In other words, 
+	$\bigcap   \sX_\la$ is empty. Hence $\sX_{\la_0}$ is empty for some $\la_0\in\La$ %(Theorem 2.36). 
+	It follows that  $0\le \left\|  \rep_x\left(b_\la\right)\right\| < \eps$ for all $x \in \sX$  and for all $\la\ge \la_0$. This proves the theorem.
+\end{proof}
+\begin{remark}
+	The prove of the Lemma \ref{ctr_dini_lem} is similar to the proof of the Theorem \ref{dini_thm}
+\end{remark}
 
 
 
@@ -18084,10 +18122,10 @@ I am very grateful to Prof. Joseph C Varilly  and Arup Kumar Pal
  \begin{definition}\label{cofinal_defn}\cite{engelking:general_topology}
  	A subset $\Xi \subset \La$ is said to be \textit{cofinal} in $\La$ if for every $\la \in \La$ there is $\chi \in \Xi$ such that $\la \le \chi$. 
  \end{definition}
- 	\begin{definition}\cite{engelking:general_topology}
+ 	\begin{definition}\label{top_net_defn}\cite{engelking:general_topology}
  		A \textit{net in topological space} $\mathcal{ X}$ is an arbitrary function from a non-empty directed set $\La$ to the space $\mathcal{ X}$. Nets will be denoted by $S = \left\{x_\la \in \mathcal{ X}\right\}_{\la \in \La}$. 
  	\end{definition}
- 	\begin{definition}\cite{engelking:general_topology}
+ 	\begin{definition}\label{top_net_lim_defn}\cite{engelking:general_topology}
  		A point $ x \in \mathcal{ X}$ is called a \textit{limit of a net} $S = \left\{x_\la \in \mathcal{ X}\right\}_{\la \in \La}$ if for every neighborhood $\mathcal U$ of $x$  there exists $\la_0 \in \La$ such that $x_\la \in \mathcal U$ for every $\la \ge \la_0$; we say that $\left\{x_\la \right\}$ \textit{converges} to $x$. The limit will be denoted by $x = \lim S$, or $x = \lim_{\la \in \La} x_\la$, or $\lim x_\la$.
  	\end{definition}
  	\begin{remark}
@@ -23060,6 +23098,10 @@ Following text is the citation of the proof of \ref{sheaf_prdf} (cf. \cite{harts
 	\item[(2)] for each $x \in \sU$, there is a neighborhood $\sV$ of $x$ contained in $\sU$ and an element $t \in \mathscr F\left(\sV\right)$, such that for all $y \in \sV$ the germ $t_y$ of $t$ at $y$ is equal to $s\left(y\right)$.
 \end{itemize}
 \end{empt}
+
+\begin{remark}\label{sheaf_rem}
+Similarly to the construction \ref{sheaf_empt} one can define a group $\mathscr F\left(\sV\right)$ for any subset $\sV\subset\sX$.   !!! USE LATER
+\end{remark}
 \begin{definition}\label{sheaf_inv_im_defn}\cite{hartshorne:ag}
 	Let $f: \sX\to \sY$ be a continuous map of topological spaces. For any sheaf $\mathscr F$ on $\sX$, we define the \textit{direct image} sheaf $f_*\mathscr F$ on $\sY$ by $\left(f_*\mathscr F\right)\left(\sV\right)= \mathscr F\left(f^{-1}\left(\sV\right)\right)$ for any open set $\sV \subseteq \sY$. For any sheaf $\mathscr G$ on $\sY$, we define the \textit{inverse image} sheaf $f^{-1}\mathscr G$ on $\sX$ be the sheaf associated to the presheaf $\sU \mapsto \lim_{\sV \supseteq f\left(\sU\right)} \mathscr G\left(\sV\right)$, where $\sU$ is any open set in $\sX$, and the limit is taken over all open sets $\sV$ of $\sV$ containing $f\left(\sU\right)$.
 \end{definition}
@@ -23329,7 +23371,8 @@ A pair $\left(\Coo_c \left(M  \right)', \Coo \left(M  \right)\right)$ is a quasi
 
 
  \section{Miscellany}
-
+ 
+\paragraph*{} Our constructions require an analog of Dini's theorem. Below there are  citations of  Dini's theorem it and its proof.
  \begin{theorem}\label{dini_thm}\cite{rudin:pa}
 %7.13  Theorem 
 Suppose $K$ is compact, and 
@@ -23341,9 +23384,9 @@ Suppose $K$ is compact, and
 Then $f_n \to f$ uniformly on $K$. 
  \end{theorem}
 \begin{proof}
-Put $g_n\bydef f_nÑf$ Then $g_n$ is continuous, $g_n\to 0$ pointwise, and $g_n\ge g_{n+1}$. We have to prove that $g_n \to 0$ uniformly on K. 
-Let $\eps> 0$ be given. Let $K_n$ be the set of all $x\in K$ with $g_n\left( x\right) > \eps$. 
-Since $g_n$ is continuous, Kn is closed %(Theorem 4.8), 
+Put $g_n\bydef f_n-f$. Then $g_n$ is continuous, $g_n\to 0$ pointwise, and $g_n\ge g_{n+1}$. We have to prove that $g_n \to 0$ uniformly on $K$. 
+Let $\eps> 0$ be given. Let $K_n$ be the set of all $x\in K$ with $g_n\left( x\right) > \eps$.  
+Since $g_n$ is continuous, $K_n$ is closed %(Theorem 4.8), 
 hence compact.%(Theorem 2.35).
  Since $g_n > g_{n+1}$, we have $K_n\supset K_{n+`1}$. Fix $x\in K$. Since $g_n\left(x\right) \to x$
 we see that $x\notin K_n$ if $n$ is sufficiently large. Thus $x \notin \bigcap K_n$. In other words, 
