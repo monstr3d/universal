@@ -10571,8 +10571,8 @@ Let $A$ be a  $C^*$-algebra which has continuous trace. We say that a {sub-unita
 	\ee
 	
 \end{empt}
-Our following constructions require an analog of the Dini theorem.
- \begin{lemma}\label{ctr_dini_lem} USE IT LATER
+Our following constructions require an analog of the Dini's theorem.
+ \begin{lemma}\label{ctr_dini_lem} USE IT LATER !!!
 	Let $A$ be a {continuous-trace} $C^*$-\textit{algebra} (cf. Definition \ref{continuous_trace_c_a_defn}) having a compact spectrum $\sX$. Let $\La$ be a directed set, and let $\left\{a_\la\right\}_{\la\in\La}\subset A$ be a net (cf. Definition \ref{top_net_defn}) such that
 	\begin{itemize}
 		\item 
@@ -13066,12 +13066,13 @@ X_{C_b\left(\sY \right) } \stackrel{\text{def}}{=} C_b\left(\sY,  \left\{ \H_y\r
 \ee
 is the converging to zero submodule (cf. Definition \ref{top_cc_c0_defn} and \eqref{top_c0_eqn}) then from  \eqref{top_xb_prod_eqn} it follows that $X_{C_b\left(\sY \right) }$ has the natural structure of Hilbert $C_b\left(\sY \right)$-module. Moreover for any $y \in \sY$ the structure of Hilbert space $\H_y$ comes from the structure of the Hilbert module  $X_{C_0\left(\sY \right) }$. 
 From the Equation \eqref{foli_stalk_ph_eqn} it follows that
-\be
+\be\label{foli_t1_eqn}
 \mathscr C^*_r\left(M,\sF\right)\left(\sV\right) \cong \K\left(X_{C_b\left(\sY \right) }\right).
 \ee 
 From the above construction it follows that 
-\be\label{foli_cd_eqn}
+\be\label{foli_cd_eqn!}
 \begin{split}
+	BAD!!!
 	\forall f \in C_0\left(\sV \right)\cap \Coo\left(\sV \right) \quad \forall a\in C^*_r\left(M,\sF\right)\left(\sV\right)\quad \exists f\cdot a \in C^*_r\left(M,\sF\right),\\
 	\left(f' + f''\right)\cdot a = f \cdot a + f''\cdot a. 
 \end{split}
@@ -13181,7 +13182,8 @@ From
 \eean
 it turns out
 \be\label{foli_cb_k_eqn}
-\mathscr C^*_r\left(M,\sF\right)\left(\sV_b \right)= \K\left(X^s_{C_0\left(\sY \right) }\oplus X^r_{C_0\left(\sY \right) } \right) = \K\left(X_{C_0\left(\sY \right) }\right) .
+\mathscr C^*_r\left(M,\sF\right)\left(\sV_b \right)= \K\left(X^s_{C_0\left(\sY \right) }\oplus X^r_{C_0\left(\sY \right) } \right) = \K\left(X_{C_b\left(\sY \right) }\right) .
+(CB PROOVE !!!)
 \ee
 where
 \be\label{foli_hp_mod_eqn}
@@ -13197,15 +13199,23 @@ X_{C_0\left(\sY \right) } = X^s_{C_0\left(\sY \right) }\oplus X^r_{C_0\left(\sY 
 	\ee
 	where $L^2\left( \G_x\right) \to \H^s_x \oplus \H^r_x$ means the projection of the Hilbert space $L^2\left( \G_x\right)$ onto its subspace $\H^s_x \oplus \H^r_x$.
 \end{remark}
-\begin{remark}\label{foli_cd_rem}
+\begin{remark}\label{foli_cd_rem!!!}
+	BAD!!!
 	Similarly to the type I one can proof the analog of the Equation \eqref{foli_cd_eqn}, i.e. 
-	\be\label{foli_cd_II_eqn}
+	\be\label{foli_cd_II_eqn!}
 	\begin{split}
+		BAD!!!
 		\forall f \in C_0\left(\sV_b \right)\quad \forall a\in C^*_r\left(M,\sF\right)\left(\sV_b\right)\quad \exists f\cdot a \in C^*_r\left(M,\sF\right),\\
 		\left(f' + f''\right)\cdot a = f \cdot a + f''\cdot a. 
 	\end{split}
 	\ee
 \end{remark}
+\begin{lemma}!!!
+Let $\left(M,\sF\right)$ be a foliated manifold such that any leaf of it is simply connected. If $s \in \mathscr C^*_r\left(M,\sF\right)\left( \G\left(M,\sF\right)\right)$ is a global section such that the support $\supp s$ is compact (cf. Equation \ref{sheaf_supp_eqn}) then $s$ is represented by an element $a \in C^*_r\left(M,\sF\right)$.
+\end{lemma}
+\begin{proof}
+Both the section $s$ and $a$ correspond operators which belong to $B\left(\bigoplus L^2\left(\G_{x_L}\right)\right)$ (cf. Equation \eqref{foli_leaf_repr_eqn})
+\end{proof}
 
 
 
@@ -23108,9 +23118,11 @@ Similarly to the construction \ref{sheaf_empt} one can define a group $\mathscr 
 \begin{definition}\label{sheaf_hom_defn}\cite{hartshorne:ag}
 	Let $\mathscr F$, $\mathscr G$ be sheaves of Abelian  groups  on $\sX$. For any open set $\sU \subseteq \sX$ the set of morphisms $\Hom\left(\left.\mathscr F\right|_{\sU}, \left.\mathscr G\right|_{\sU}\right)$ has the natural structure of Abelian group. It is a sheaf (cf. \cite{hartshorne:ag}). It is called the \textit{sheaf of local morphisms} of $\mathscr F\to \mathscr G$, "sheaf hom" for short, and is denoted by $\mathscr Hom \left(\mathscr F, \mathscr G\right)$.
 \end{definition}
-
-
-Recall that for $s \in \mathscr{F}\left(\sX \right)$, $\supp s= \left\{\left.x \in \sX \right|s\left(x \right)\neq 0  \right\}$ denotes the \textit{support} of the section $s$.
+For all $s \in \mathscr{F}\left(\sX \right)$, 
+\be\label{sheaf_supp_eqn}
+\supp s= \left\{\left.x \in \sX \right|s\left(x \right)\neq 0  \right\}
+\ee
+denotes the \textit{support} of the section $s$.
 
 
 
