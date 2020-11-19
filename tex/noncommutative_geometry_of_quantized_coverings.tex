@@ -10572,7 +10572,7 @@ Let $A$ be a  $C^*$-algebra which has continuous trace. We say that a {sub-unita
 	
 \end{empt}
 Our following constructions require an analog of the Dini's theorem.
- \begin{lemma}\label{ctr_dini_lem} USE IT LATER !!!
+ \begin{lemma}\label{ctr_dini_lem}
 	Let $A$ be a {continuous-trace} $C^*$-\textit{algebra} (cf. Definition \ref{continuous_trace_c_a_defn}) having a compact spectrum $\sX$. Let $\La$ be a directed set, and let $\left\{a_\la\right\}_{\la\in\La}\subset A$ be a net (cf. Definition \ref{top_net_defn}) such that
 	\begin{itemize}
 		\item 
@@ -13006,7 +13006,11 @@ Let us consider the foliation chart $\varphi_{\sU}:\sU \xrightarrow{\approx} \le
 \bean
 {   \mathcal W }\bydef \left\{\left.\ga\in \Pi\left( M,\sF\right)\right|s\left(\ga\right), r\left(\ga\right)\in\sU\right\}.
 \eean
-Let $\overline\sV\subset\Pi\left( M,\sF\right)$ be the connected component of ${   \mathcal W }$  which contain the constant path $\ga$. Denote by $\sV \bydef \Phi\left(\overline\sV \right)\subset  \G\left( M,\sF\right)$ where the map $\Phi$ is given by the Equation \eqref{foli_cov_map_eqn}. If $\overline\sV$ is the closure of $\sV$ then there are natural homeomorphisms
+Let $\overline\sV\subset\Pi\left( M,\sF\right)$ be the connected component of ${   \mathcal W }$  which contain the constant path $\ga$. Denote by 
+\be\label{foli_sv_eqn}
+\sV \bydef \Phi\left(\overline\sV \right)\subset  \G\left( M,\sF\right)
+\ee 
+where the map $\Phi$ is given by the Equation \eqref{foli_cov_map_eqn}. If $\overline\sV$ is the closure of $\sV$ then there are natural homeomorphisms
 \bean
 \phi: \sV\cong \left(0,1 \right)^{q}  \times   \left(0,1 \right)^{n-q}\times   \left(0,1 \right)^{n-q}\\
 \overline \phi: \overline \sV\cong \left[0,1 \right]^{q}  \times   \left[0,1 \right]^{n-q}\times   \left[0,1 \right]^{n-q}
@@ -13210,12 +13214,52 @@ X_{C_0\left(\sY \right) } = X^s_{C_0\left(\sY \right) }\oplus X^r_{C_0\left(\sY 
 	\end{split}
 	\ee
 \end{remark}
-\begin{lemma}!!!
+\begin{lemma}
 Let $\left(M,\sF\right)$ be a foliated manifold such that any leaf of it is simply connected. If $s \in \mathscr C^*_r\left(M,\sF\right)\left( \G\left(M,\sF\right)\right)$ is a global section such that the support $\supp s$ is compact (cf. Equation \ref{sheaf_supp_eqn}) then $s$ is represented by an element $a \in C^*_r\left(M,\sF\right)$.
 \end{lemma}
 \begin{proof}
-Both the section $s$ and $a$ correspond operators which belong to $B\left(\bigoplus L^2\left(\G_{x_L}\right)\right)$ (cf. Equation \eqref{foli_leaf_repr_eqn})
+Both the section $s$ and $a$ correspond operators which belong to $B\left(\bigoplus L^2\left(\G_{x_L}\right)\right)$ (cf. Equation \eqref{foli_leaf_repr_eqn}), i.e. this lemma states the equality of operators. Let $\La$ be an ordered set and let $\left\{a_\la\right\}_{\la\in\La}\subset C^*_r\left(M,\sF\right)_+$ be a  family  such that
+\bean
+\forall \la \in \La \quad 0 \le a_\la \le s,\\
+\forall \mu,\nu \in \La \quad \mu \ge\nu \quad a_\mu \ge a_\nu.
+\eean
+If $\phi: \R\to\R$ is given by
+$$
+\phi\left( x\right) - \begin{cases}
+	0 & x\le 0\\
+	x & x > 0
+\end{cases}
+$$
+and $b \bydef a_\mu +\phi\left(a_\nu-a_\mu \right)$ then 
+\bean
+b \ge a_\mu,\\
+b \ge a_\nu,\\
+0 \le b \le s.
+\eean
+From the above equations it follows that the set $\La$ is directed and 
+the family $\left\{a_\la\right\}_{\la\in\La}$ is a net. Since $\supp s$ is compact there are finite families $\left\{\sV_{\a'}\right\}_{\a'\in \mathscr A'}$ , $\left\{\sV^b_{\a''}\right\}_{\a''\in \mathscr A''}$ such that $\supp s \subset \cup \sV_{\a'}\bigcup \cup \sV^b_{\a''}$  where $\sV_{\a'}$ and $\sV^b_{\a''}$ are given by  \eqref{foli_sv_eqn} and given by  \eqref{foli_svb_eqn}. Let $\eps> 0$ be given.
+From the equations \eqref{foli_t1_eqn} \eqref{foli_cb_k_eqn} and the Lemma \ref{ctr_dini_lem} it follows that for any $\a'\in \mathscr A'$ and $\a''\in \mathscr A''$ there are $\la', \la'' \in \La$ such that
+\bean
+\left\|s - a_{\la'} \right\|_{\sV_{\a'}} < \eps,\\
+\left\|s - a_{\la''} \right\|_{\sV^b_{\a''}} < \eps.
+\eean
+Since both $\mathscr A'$ and $\mathscr A''$ are finite there is $\la_0\in\La$ such that
+\bean
+\forall \a'\in \mathscr A'\quad \la \ge\la_0 \quad \Rightarrow\quad\left\|s - a_{\la} \right\|_{\sV_{\a'}} < \eps,\\
+\forall \a''\in \mathscr A'' \quad \la \ge\la_0 \quad \Rightarrow\quad\left\|s - a_{\la} \right\|_{\sV^b_{\a''}} < \eps.
+\eean
+and taking into account $\supp s \subset \cup \sV_{\a'}\bigcup \cup \sV^b_{\a''}$ one concludes that
+$$
+\la \ge\la_0 \quad \Rightarrow\quad\left\|s - a_{\la} \right\| < \eps
+$$
+From the above equation it follows that there is the $C^*$-norm limit
+$$
+s = \lim_{\la \in \La}a_\la
+$$
+it follows that $s \in  C^*_r\left(M,\sF\right)$.
+
 \end{proof}
+
 
 
 
