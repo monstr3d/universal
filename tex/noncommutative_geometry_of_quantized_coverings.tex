@@ -13214,18 +13214,35 @@ X_{C_0\left(\sY \right) } = X^s_{C_0\left(\sY \right) }\oplus X^r_{C_0\left(\sY 
 	\end{split}
 	\ee
 \end{remark}
-\begin{lemma}
+\begin{lemma}BAD !!!!
 Let $\left(M,\sF\right)$ be a foliated manifold such that any leaf of it is simply connected. If $s \in \mathscr C^*_r\left(M,\sF\right)\left( \G\left(M,\sF\right)\right)$ is a global section such that the support $\supp s$ is compact (cf. Equation \ref{sheaf_supp_eqn}) then $s$ is represented by an element $a \in C^*_r\left(M,\sF\right)$.
 \end{lemma}
+
+\begin{empt}
+From the Equation \eqref{foli_ag_v_eqn}	it turns out that there is the natural inclusion 
+$$
+\mathscr C^*_r\left(M,\sF\right)\left( \G\left(M,\sF\right)\right)\subset
+B\left( \bigoplus_{L \in M/\sF_{\mathrm{no~hol}}}  L^2\left(\G_{x_L}\right)\right)
+$$
+of the space of the global sections of the sheaf $\mathscr C^*_r\left(M,\sF\right)$ into the operator algebra $B\left( \bigoplus_{L \in M/\sF_{\mathrm{no~hol}}}  L^2\left(\G_{x_L}\right)\right)$. On the other hand the atomic representation of $C^*_r\left(M,\sF\right)$ (cf. \ref{atomic_repr_defn}) yields the natural inclusion
+$$
+C^*_r\left(M,\sF\right)\subset
+B\left( \bigoplus_{L \in M/\sF_{\mathrm{no~hol}}}  L^2\left(\G_{x_L}\right)\right)
+$$
+
+\end{empt}
+\begin{lemma}
+Let $s \in \mathscr C^*_r\left(M,\sF\right)\left( \G\left(M,\sF\right)\right)$ is such that its image in $B\left( \bigoplus_{L \in M/\sF_{\mathrm{no~hol}}}  L^2\left(\G_{x_L}\right)\right)$ is positive. If there is a positive $a \in C^*_r\left(M,\sF\right)_+$ such that $0\le s \le a$ then $s \in C^*_r\left(M,\sF\right)_+$.
+\end{lemma}
 \begin{proof}
-Both the section $s$ and $a$ correspond operators which belong to $B\left(\bigoplus L^2\left(\G_{x_L}\right)\right)$ (cf. Equation \eqref{foli_leaf_repr_eqn}), i.e. this lemma states the equality of operators. Let $\La$ be an ordered set and let $\left\{a_\la\right\}_{\la\in\La}\subset C^*_r\left(M,\sF\right)_+$ be a  family  such that
+ Let $\La$ be an ordered set and let $\left\{a_\la\right\}_{\la\in\La}\subset C^*_r\left(M,\sF\right)_+$ be a  family  such that
 \bean
 \forall \la \in \La \quad 0 \le a_\la \le s,\\
 \forall \mu,\nu \in \La \quad \mu \ge\nu \quad a_\mu \ge a_\nu.
 \eean
 If $\phi: \R\to\R$ is given by
 $$
-\phi\left( x\right) - \begin{cases}
+\phi\left( x\right) = \begin{cases}
 	0 & x\le 0\\
 	x & x > 0
 \end{cases}
@@ -13237,7 +13254,63 @@ b \ge a_\nu,\\
 0 \le b \le s.
 \eean
 From the above equations it follows that the set $\La$ is directed and 
-the family $\left\{a_\la\right\}_{\la\in\La}$ is a net. Since $\supp s$ is compact there are finite families $\left\{\sV_{\a'}\right\}_{\a'\in \mathscr A'}$ , $\left\{\sV^b_{\a''}\right\}_{\a''\in \mathscr A''}$ such that $\supp s \subset \cup \sV_{\a'}\bigcup \cup \sV^b_{\a''}$  where $\sV_{\a'}$ and $\sV^b_{\a''}$ are given by  \eqref{foli_sv_eqn} and given by  \eqref{foli_svb_eqn}. Let $\eps> 0$ be given.
+the family $\left\{a_\la\right\}_{\la\in\La}$ is a net (cf. Definition \ref{top_net_defn}). Let $\eps > 0$ be given, and let $\delta > 0$ be such that $2 \sqrt{ \left\| a	 \right\|}\delta + \delta^2 < \eps/2$. Form the proof of the Lemma \ref{foli_lt_lem} it follows that 
+\paragraph{title}
+
+
+\begin{lemma}\label{foli_lt_lem!}
+	If the foliation groupoid  $\G\left(M, \sF \right)$ is Hausdorff and $a \in C_r\left(M, \sF \right)_+$ is a positive element  then for any $\eps> 0$ there is an open set $\sV \subset  \G\left(M, \sF \right)$ such that
+	\begin{itemize}
+		\item The closure of $\sV$ is compact.
+		\item $\left\|\left(1-  P_\sV\right)  \pi_a\left(a \right)\left( 1-P_\sV\right) \right\| < \eps$ (cf. Equations \eqref{foli_atomic_eqn} and \eqref{foli_ag_v_eqn}) .
+	\end{itemize}
+\end{lemma}
+\begin{proof}
+	There is $\delta > 0$ such that $2 \sqrt{ \left\| a	 \right\|}\delta + \delta^2 < \eps$. From the Definition \ref{foli_red_defn} it follows that there is $b \in \Ga_c\left( \G\left(M, \sF \right),\Om^{1/2}\right)$ such that $\left\| \sqrt{a} - b	 \right\|< \delta$. From the above inequalities it follows that $\left\| a - bb^*	 \right\|< \eps$. Otherwise $bb^* \in \Ga_c\left( \G\left(M, \sF \right),\Om^{1/2}\right)$ so the support of $bb^*$ is compact. If $\sV$ be the maximal open subset of the support of $bb^*$ then $P_\sV = Q_\sV$ because $bb^*$ is positive (cf. Equation \ref{foli_ag_v_eqn}). There is the following representation
+	\bean
+	\pi_a\left(a \right)= \begin{pmatrix}
+		P_\V \pi_a\left(a \right)P_\sV & P_\sV \pi_a\left(a \right)\left( 1-P_\sV\right) \\
+		\left(1- P_\sV \right) \pi_a\left(a \right)P_\sV &\left(1-  P_\sV\right)  \pi_a\left(a \right)\left( 1-P_\sV\right)\end{pmatrix},\\ 
+	bb^*=  \begin{pmatrix}
+		d & 0 \\
+		0 &0
+	\end{pmatrix},\\
+	\eean
+	hence from $\left\| a - bb^*	 \right\|< \eps$ it follows that $\left\|\left(1-  P_\sV\right)  \pi_a\left(a \right)\left( 1-P_\sV\right) \right\| < \eps$.
+\end{proof}
+\
+
+\begin{corollary}\label{foli_lt_cor!}
+	If $\G\left(M, \sF \right)$ is Hausdorff and $a \in C_r\left(M, \sF \right)_+$ is a positive  then for any $\eps> 0$ there is an open set $\sV \subset  \G\left(M, \sF \right)$ such that
+	\begin{itemize}
+		\item The closure of $\sV$ is compact.
+		\item $\left\|\pi_a\left(a \right)  - 	a|_\sV \right\| < \eps$ (cf. Equations \eqref{foli_atomic_eqn} and \eqref{foli_ag_v_eqn}) .
+	\end{itemize}
+\end{corollary}
+\begin{proof}
+	There is $\delta > 0$ such that $\delta+ 2 \sqrt{\delta \left\| a	 \right\|}< \eps$.  From the Lemma \ref{foli_lt_lem} it follows that there is an open set $\sV \subset  \G\left(M, \sF \right)$ such that
+	\begin{itemize}
+		\item The closure of $\sV$ is compact.
+		\item $\left\|\left(1-  P_\sV\right)  \pi_a\left(a \right)\left( 1-P_\sV\right) \right\| < \delta$ (cf. Equations \eqref{foli_atomic_eqn} and \eqref{foli_ag_v_eqn}) .
+	\end{itemize}
+	
+	
+	
+	There is the following representation
+	\bean
+	\pi_a\left(a \right)= \begin{pmatrix}
+		P_\V \pi_a\left(a \right)P_\sV & P_\sV \pi_a\left(a \right)\left( 1-P_\sV\right) \\
+		\left(1- P_\sV \right) \pi_a\left(a \right)P_\sV &\left(1-  P_\sV\right)  \pi_a\left(a \right)\left( 1-P_\sV\right)\end{pmatrix},\\
+	a|_\sV= \begin{pmatrix}
+		P_\sV \pi_a\left(a \right)P_\sV & 0 \\
+		0 &0\end{pmatrix}
+	\eean
+	From   $\delta+ 2 \sqrt{\delta \left\| a	 \right\|}< \eps$,  $\left\| \left(1-  P_\sV\right)  \pi_a\left(a \right)\left( 1-P_\sV\right)\right\| < \delta$ and  the Equation \eqref{positive_ineq_eqn} one has $\left\|\pi_a\left(a \right)  - 	a|_\sV \right\| < \eps$.
+	
+\end{proof}
+
+
+ Since $\supp s$ is compact there are finite families $\left\{\sV_{\a'}\right\}_{\a'\in \mathscr A'}$ , $\left\{\sV^b_{\a''}\right\}_{\a''\in \mathscr A''}$ such that $\supp s \subset \cup \sV_{\a'}\bigcup \cup \sV^b_{\a''}$  where $\sV_{\a'}$ and $\sV^b_{\a''}$ are given by  \eqref{foli_sv_eqn} and given by  \eqref{foli_svb_eqn}. Let $\eps> 0$ be given.
 From the equations \eqref{foli_t1_eqn} \eqref{foli_cb_k_eqn} and the Lemma \ref{ctr_dini_lem} it follows that for any $\a'\in \mathscr A'$ and $\a''\in \mathscr A''$ there are $\la', \la'' \in \La$ such that
 \bean
 \left\|s - a_{\la'} \right\|_{\sV_{\a'}} < \eps,\\
