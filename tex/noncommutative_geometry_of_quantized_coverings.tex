@@ -14477,7 +14477,7 @@ a \bydef \sum_{	g \in G\left( \left. \overline M\right| M\right) }g \overline a.
 Let   $\eps > 0$ 	be given, and let $\delta > 0$ be such that $\delta+ 2 \sqrt{\delta \left\| a	 \right\|}< \eps /3$.  From the Lemma \ref{foli_lt_lem} it follows that there is an open set $\sV \subset  \G\left(M, \sF \right)$ such that
 \begin{itemize}
 	\item The closure of $\sV$ is compact.
-	\item $\left\|\left(1-  P_\sV\right)  \pi_a\left(a \right)\left( 1-P_\sV\right) \right\| < \delta$ (cf. Equations \eqref{foli_atomic_eqn} and \eqref{foli_ag_v_eqn}) .
+	\item $\left\|\left(1-  P_\sV\right)  a \left( 1-P_\sV\right) \right\| < \delta$ (cf. Equations \eqref{foli_atomic_eqn} and \eqref{foli_ag_v_eqn}) .
 \end{itemize}
  Since $\sV$ has  compact closure  there are finite families $\left\{\sV_{\iota'}\right\}_{\iota'\in \I'}$ , $\left\{\sV^b_{\iota''}\right\}_{\iota''\in \I''}$ such that $\sV \subset \cup \sV_{\iota'}\bigcup \cup \sV^b_{\iota''}$  where $\sV_{\\iota'}$ and $\sV^b_{\iota''}$ are given by  \eqref{foli_sv_eqn} and given by  \eqref{foli_svb_eqn}.   For any $\iota'\in \I'$ (resp. $\iota''\in \I''$) we select $\overline \sV_{\iota'}\subset\G\left(\overline M,\overline\sF\right)$ (resp. $\overline \sV^b_{\iota''}\subset\G\left(\overline M,\overline\sF\right)$) which is homeomorphically mapped onto $\sV_{\iota'}$ (resp. $\sV^b_{\iota''}$). From the Equation \ref{foli_sum_eqn} it follows that
  \be\label{foli_sums_eqn}
@@ -14493,108 +14493,33 @@ From the equations \eqref{foli_t1_eqn} \eqref{foli_cb_k_eqn} and the Lemma \ref{
  \sum_{	g \in G\left( \left. \overline M\right| M\right) \setminus G_{\iota''}} \left\| \left.\overline a\right|_{g \overline \sV^b_{\iota''}}\right\| <  \frac{\eps}{3\left(\left|\I' \right| + \left|\I'' \right| \right) } 
 \end{split}
 \ee
-The set $G \bydef \cup_{\iota' \in \I'} G_{\iota'} \bigcup \cup_{\iota'' \in \I''} G_{\iota''}\subset G\left( \left. \overline M\right| M\right)$ is finite.
+The set $G' \bydef \cup_{\iota' \in \I'} G_{\iota'} \bigcup \cup_{\iota'' \in \I''} G_{\iota''}\subset G\left( \left. \overline M\right| M\right)$ is finite. From the equations \eqref{foli_t1_eqn} \eqref{foli_cb_k_eqn} and the Lemma \ref{ctr_dini_lem} it follows that for all $\left(g, \iota'\right) \in G'\times \I''$ and $\left(g, \iota'\right) \in G'\times \I''$ there are $\a_{\left(g, \iota'\right)},\a_{\left(g, \iota'\right)}\in \mathscr A$ such that 
 
+ \be\label{foli_al_eqn}
+\begin{split}
+\left\|\left.a_{\a_{\left(g, \iota'\right)}}\right|_{g \overline \sV_{\iota'}}-\left.\overline a\right|_{g \overline \sV_{\iota'}} \right\| - <  \frac{\eps}{3\left|G' \right| \left(\left|\I' \right| + \left|\I'' \right| \right) },\\ \left\|\left.a_{\a_{\left(g, \iota''\right)}}\right|_{g \overline \sV^b_{\iota''}}-\left.\overline a\right|_{g \overline \sV^b_{\iota''}} \right\| - <  \frac{\eps}{3\left|G' \right| \left(\left|\I' \right| + \left|\I'' \right| \right) } 
+\end{split}
+\ee
+If 
+$$
+\a_0 \bydef \max\left( \max_{\left(g, \iota' \right)\in G'\times \I'}\a_{\left(g, \iota' \right)}, \max_{\left(g, \iota'' \right)\in G'\times \I''}\a_{\left(g, \iota'' \right)} \right)
+$$
+then form \eqref{foli_al_eqn}
+it follows that
+\be
+\left\|\left.\overline a\right|_{\sV }- \left.a_{\la_0}\right|_{\sV } \right\| < \frac{\eps}{3}
+\ee
+From $a_{\la_0}\le \overline a$ it follows that $\left\|\left(1-  P_\sV\right) a_{\la_0} \left( 1-P_\sV\right) \right\| < \delta$, so from the Lemma \ref{positive_ineq_lem} it follows that
+\be
+\left\|a_{\la_0}- \left.a_{\la_0}\right|_{\sV } \right\|< \delta+ 2 \sqrt{\delta \left\| a	 \right\|}< \eps /3
+\ee 
 
+From the Equations it follows that
+\be\nonumber
+\left\|\left.\overline a\right.- \left.a_{\la_0}\right. \right\|< \left\|\overline a-\left.\overline a\right|_{\sV }\right\|+  \left\|\left.\overline a\right|_{\sV }-\left.a_{\la_0}\right|_{\sV }\right\|+ \left\|\left.a_{\la_0}\right|_{\sV }-a_{\la_0}\right\|<\frac{\eps}{3}+ \frac{\eps}{3}+ \frac{\eps}{3}=\eps
+\ee 
+and taking into account $a_{\la_0}\in C^*_r\left(\overline{M}, \overline{\sF}\right)$ one has $\overline a \in C^*_r\left(\overline{M}, \overline{\sF}\right)$.
 
-for any $\a'\in \mathscr A'$ and $\a''\in \mathscr A''$ there are $\la', \la'' \in \La$ such that
-\bean
-\left\|s - a_{\la'} \right\|_{\sV_{\a'}} < \frac{\eps}{3\left(\left|\mathscr A' \right| + \left|\mathscr A'' \right| \right) },\\
-\left\|s - a_{\la''} \right\|_{\sV^b_{\a''}} < \frac{\eps}{3\left(\left|\mathscr A' \right| + \left|\mathscr A'' \right| \right) }.
-\eean
-Since both $\mathscr A'$ and $\mathscr A''$ are finite there is $\la_0\in\La$ such that
-\bean
-\forall \a'\in \mathscr A'\quad \la \ge\la_0 \quad \Rightarrow\quad\left\|s - a_{\la} \right\|_{\sV_{\a'}} < \left\|s - a_{\la'} \right\|_{\sV_{\a'}} < \frac{\eps}{3\left(\left|\mathscr A' \right| + \left|\mathscr A'' \right| \right) },\\
-\forall \a''\in \mathscr A'' \quad \la \ge\la_0 \quad \Rightarrow\quad\left\|s - a_{\la} \right\|_{\sV^b_{\a''}} < \left\|s - a_{\la'} \right\|_{\sV_{\a'}} < \frac{\eps}{3\left(\left|\mathscr A' \right| + \left|\mathscr A'' \right| \right) }.
-\eean
-
-
-
-\begin{lemma}\label{positive_ineq_lem!}
-	Let $\H'$ and $\H''$ be Hilbert spaces. If
-	$$
-	a \bydef		\begin{pmatrix}
-		b & c\\
-		c^*&d
-	\end{pmatrix}\in B\left(\H'\oplus\H''\right)_+ 
-	$$
-	is a positive bounded operator then one has
-	\be\label{positive_ineq_eqn!}
-	\left\|a - 	\begin{pmatrix}
-		b & 0\\
-		0&0
-	\end{pmatrix} \right\| \le  \left\| d	 \right\|+ 2 \sqrt{\left\| d	 \right\|\left\| b	 \right\|}\le  \left\| d	 \right\|+ 2 \sqrt{\left\| d	 \right\|\left\| a	 \right\|}.
-	\ee
-\end{lemma}
-
-	!!! BAD
-	
-	
-	From the Definition \ref{foli_sec_defn} that there is the minimal $\la_{ \min}\in \La$ such that $\left({M}, {\sF}\right)= \left({M}_{\la_{ \min}}, {\sF}_{\la_{ \min}}\right)$. Let $a = a_{\la_{ \min}}\in C^*_r\left({M}, {\sF}\right)_+$ be given by the Equation \ref{spec_a_eqn}.
-	If $\eps > 0$ and $\delta > 0$ is such that $\delta+ 2 \sqrt{\delta \left\|  a	 \right\|}<\frac{\eps}{2}$ then from the Lemma \ref{foli_lt_lem} 
-	there is an open set $\sV \subset  \G\left(M, \sF \right)$ such that
-	\begin{itemize}
-		\item The closure of $\sV$ is compact,
-		\item $\left\|\left(1-  P_\sV\right)  \pi_a\left(a \right)\left( 1-P_\sV\right) \right\| < \delta$
-	\end{itemize}
-	where $\pi_a: C^*_r\left({M}, {\sF}\right)\hookto B\left( \H_a\right)$ is the atomic representation (cf. Definition \ref{atomic_repr_defn}). If $\widehat{  C^*_r\left({M}, {\sF}\right)} \bydef C^*$-$\varinjlim_{\la\in\La} C^*_r\left({M}, {\sF}\right)$ and $\widehat\pi_a:\widehat{  C^*_r\left({M}, {\sF}\right)} \to B\left( \widehat \H_a\right)$ is the atomic representation then  $P_\sV$ can be regarded as the element of $B\left( \widehat\H_a\right)$, i.e. there is $\widehat P_\sV\in B\left( \widehat\H_a\right)$ such that there is the natural *-isomorphism
-	$$
-	P_\sV\pi_a\left(C^*_r\left({M}, {\sF}\right) \right) P_\sV \cong \widehat P_\sV\widehat\pi_a\left(C^*_r\left({M}, {\sF}\right) \right) \widehat P_\sV
-	$$
-	From $\overline a < \widehat \pi_a\left(a \right)$ it follows that $\left(1-  \widehat P_\sV\right)  \overline a \left( 1-\widehat P_\sV\right) <  \left(1-  \widehat P_\sV\right)  \widehat \pi_a\left(a \right)\left( 1-\widehat P_\sV\right)$, so one has
-	$$
-	\left\|\left(1-  \widehat P_\sV\right)   \overline a\left( 1-\widehat P_\sV\right) \right\| < \delta.
-	$$
-	From $\delta+ 2 \sqrt{\delta \left\|  a	 \right\|}<\frac{\eps}{2}$ and the Lemma \ref{positive_ineq_lem} it follows that
-	\be\label{foli_pap_eqn}
-	\left\|\overline a- \widehat P_\sV \overline a \widehat P_\sV	 \right\|<\frac{\eps}{2}
-	\ee
-	The set $\G\left({M}, {\sF}\right)$ can be represented as a union $\G\left({M}, {\sF}\right)\cup_{\a\in \mathscr A}\sV_\a$ where for all $\a\in \mathscr A$ the set  $\sV_\a$ is described in the Section \ref{foli_cases_sec}. If $\overline q: \G\left(\overline{M}, \overline{\sF}\right)\to \G\left(\overline{M}, \overline{\sF}\right)$ is the natural covering the using subordinated atlas (cf. Definition \ref{foli_sub_a_defn}) one can suppose that $\sV_\a$ is evenly covered by $\overline q$ (cf. Definition \ref{comm_cov_pr_defn}). Since the closure of $\sV$ is compact there is a covering sum for $\sV$ (cf. Definition \ref{top_cfs_cor}), i.e. a finite subset $\mathscr A_0\subset \mathscr A$ and a family $\left\{f_\a \in C_c\left( \G\left(\overline{M}, \overline{\sF}\right)\right) \right\}$ such that $\Dom f_\a = \left[0,1\right]$ and
-	$$
-	\forall x \in \sV\quad f\left( x\right) =	\sum_{ {\a}\in {\mathscr A_0}} f_\a \left(x\right)=1.
-	$$
-	For all $\al \in {\mathscr A_0}$ we select a connected set $\overline \sV_\al$  which is mapped homeomorphically onto $\sV_\a$, and $\overline f_\a \bydef \lift^q_{\widetilde{\sU}}\left(f_\a \right)$ (cf. Definition  \ref{top_lift_desc_eqn}).  From the Lemma \ref{foli_sheaf_lem} it follows that the element $\overline a$ corresponds to the section $\overline s \in \mathscr C^*_r\left(\overline{M}, \overline{\sF}\right)\left(\G\left(\overline{M}, \overline{\sF}\right) \right)$. From the Equations \eqref{foli_cd_eqn}, \eqref{foli_cd_II_eqn} for any $\al \in {\mathscr A_0}$ and $g \in G\left(\left.\overline M\right|M\right)$ one can define $\left( g \overline f_\a\right)\cdot \left.\overline s\right|_{g\overline\sV_\a}\in C^*_r\left(\overline{M}, \overline{\sF}\right)$. If
-	$$
-	\overline f' \bydef 1-\sum_{\substack{  \al \in \mathscr A_0\\ 	g \in G\left(\left.\overline M\right|M\right)}} \in C_b\left(\G\left(\overline{M}, \overline{\sF}\right)\right)
-	$$
-	then $\left\|f' \right\|= 1$. From the inequalities \eqref{foli_np_eqn}, BAD !!!\eqref{foli_pap_eqn} and taking into account
-	$$
-	\overline a - \sum_{\substack{  \al \in \mathscr A_0\\ 	g \in G\left(\left.\overline M\right|M\right)}} \left( g \overline f_\a\right)\cdot\left.\overline s\right|_{g\overline\sV_\a}= \overline f'\cdot \left(   \overline a- \widehat P_\sV \overline a \widehat P_\sV\right) 
-	$$
-	one has
-	\be\label{foli_sum_e_eqn}
-	\left\|\overline a - \sum_{\substack{  \al \in \mathscr A_0\\ 	g \in G\left(\left.\overline M\right|M\right)}} \left( g \overline f_\a\right)\cdot\left.\overline s\right|_{g\overline\sV_\a} \right\| < \frac{\eps}{2}.
-	\ee
-	On the other hand from the Equation \eqref{foli_sva_eqn} it  turns out that 
-	for all $\a \in \mathscr A_0$ the following condition holds
-	$$
-	\sum_{ 	g \in G\left(\left.\overline M\right|M\right)} \left( g \overline f_\a\right)\cdot\left.\overline s\right|_{g\overline\sV_\a}
-	\in   \K\left(X_{C_0\left(\bigsqcup_{ 	g \in G\left(\left.\overline M\right|M\right)} \right)g\overline\sV_\a}\right), 
-	$$
-	hence for all $\a\in \mathscr A_0$ there is $G_\a \subset  G\left(\left.\overline M\right|M\right)$ such that 
-	$$
-	\forall g \in G\left(\left.\overline M\right|M\right)\setminus G_\a \quad \left\| \left( g \overline f_\a\right)\cdot\left.\overline s\right|_{g\overline\sV_\a} \right\|< \frac{\eps}{2\left|\mathscr A_0\right|}.
-	$$
-	Otherwise if $P_{g\overline\sV_\a}$ and $Q_{g\overline\sV_\a}$	are given by \eqref{foli_res_g_eqn} then one has
-	\be
-	\begin{split}\label{foli_sum_ine_eqn}
-		\forall g', g''\in G\left(\left.\overline M\right|M\right)\quad g'\neq g''\Rightarrow \\\Rightarrow s\left(g'\overline\sV_\a \right) \cap s\left(g''\overline\sV_\a \right) = \emptyset \text{ AND } r\left(g'\overline\sV_\a \right) \cap r\left(g''\overline\sV_\a \right) = \emptyset \Rightarrow \\\Rightarrow P_{g'\overline\sV_\a} \widehat\H_a \perp P_{g''\overline\sV_\a} \widehat\H_a  \text{ AND }  Q_{g'\overline\sV_\a} \widehat\H_a \perp Q_{g''\overline\sV_\a} \widehat\H_a
-	\end{split}
-	\ee
-	From the Equation \eqref{foli_sum_ine_eqn} it follows that 
-	\bean
-	\forall \a\in \mathscr A_0\quad\left\|\overline a - \sum_{\substack{   	g \in G\left(\left.\overline M\right|M\right)\setminus G_\a}} \left( g \overline f_\a\right)\cdot\left.\overline s\right|_{g\overline\sV_\a} \right\| < \frac{\eps}{2\left|\mathscr A_0\right|}.
-	\eean
-	and taking into account the inequality \eqref{foli_sum_ine_eqn} one has
-	$$
-	\left\|\overline a -  \sum_{ \al \in \mathscr A_0}\sum_{	g \in G_\a} \left( g \overline f_\a\right)\cdot\left.\overline s\right|_{g\overline\sV_\a} \right\| < \eps.
-	$$
-	One the other hand the sum $\overline b \bydef \sum_{ \al \in \mathscr A_0}\sum_{	g \in G_\a} \left( g \overline f_\a\right)\cdot\left.\overline s\right|_{g\overline\sV_\a}$ has a finite set of summands and any summand lies in $C^*_r\left(\overline M, \overline \sF\right)$, it follows that $ \overline b \in C^*_r\left(\overline M, \overline \sF\right)$. In result one has
-	$$
-	\forall\eps> 0~\exists b \in C^*_r\left(\overline M, \overline \sF\right)\quad \left\|\overline a - \overline b \right\|<\eps,
-	$$
-	hence $\overline a \in C^*_r\left(\overline M, \overline \sF\right)$.
-	
 \end{proof}
 
 
