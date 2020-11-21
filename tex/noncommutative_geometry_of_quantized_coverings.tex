@@ -3780,6 +3780,12 @@ From the Lemma \ref{spec_el_repr_lem} it turns out that there are the following 
 		\sum_{g\in G_\la  } \left(z^*\left(  g\overline a\right) z   \right)^2    \in A_\la. 
 	\end{split}
 	\ee
+	In particular if $\la=\la_{\text{min}}$ and $z = 1_{A^+}$ then one has
+	\be\label{spec_a_sum_eqn}
+a \bydef	\sum_{g \in G\left(\left.\overline A\right|A \right) }g\overline a\in A= A_{\la_{\text{min}}}.
+	\ee
+	
+	
 \end{remark}
 
 \section{Infinite coverings of unbounded *-algebras}
@@ -13216,15 +13222,15 @@ X_{C_0\left(\sY \right) } = X^s_{C_0\left(\sY \right) }\oplus X^r_{C_0\left(\sY 
 \end{remark}
 \begin{empt}
 From the Equation \eqref{foli_ag_v_eqn}	it turns out that there is the natural inclusion 
-$$
+\be\label{foli_sheaf_inc_eqn}
 \mathscr C^*_r\left(M,\sF\right)\left( \G\left(M,\sF\right)\right)\subset
 B\left( \bigoplus_{L \in M/\sF_{\mathrm{no~hol}}}  L^2\left(\G_{x_L}\right)\right)
-$$
+\ee
 of the space of the global sections of the sheaf $\mathscr C^*_r\left(M,\sF\right)$ into the operator algebra $B\left( \bigoplus_{L \in M/\sF_{\mathrm{no~hol}}}  L^2\left(\G_{x_L}\right)\right)$. On the other hand the atomic representation of $C^*_r\left(M,\sF\right)$ (cf. \ref{atomic_repr_defn}) yields the natural inclusion
-$$
+\be\label{foli_repr_inc_eqn}
 C^*_r\left(M,\sF\right)\subset
 B\left( \bigoplus_{L \in M/\sF_{\mathrm{no~hol}}}  L^2\left(\G_{x_L}\right)\right)
-$$
+\ee
 
 \end{empt}
 \begin{lemma}\label{foli_sec_in_lem}
@@ -14426,10 +14432,76 @@ corresponds to the element of $\mathscr C^*_r\left(\overline{M}, \overline{\sF}\
 \begin{proof}
 	There is family $\left\{\sV_\a\subset \G\left(\overline{M}, \overline{\sF}\right)\right\}$ such that $\left(\overline{M}, \overline{\sF}\right)$ such that $\sV_\a$ satisfies to the conditions (a), (b) of the Lemma \ref{foli_s_v_lem}. From the Lemma \ref{foli_s_v_lem} it follows that the family $\left\{\overline{a}_{\overline{x}} \right\}$ yields the family $\left\{ \overline{s}_{\overline{\a}} \in \mathscr C^*_r\left(\overline{M}, \overline{\sF}\right)\left(\overline{\sV}_{\overline{\a}} \right) \right\}_{\overline{a}\subset \overline{\mathscr A}}$. Moreover one has $\left.\overline{s}_{\overline{\a}'}\right|_{\overline{\sV}_{\overline{\a}'}\cap \overline{\sV}_{\overline{\a}''}}= \left.\overline{s}_{\overline{\a}''}\right|_{\overline{\sV}_{\overline{\a}'}\cap \overline{\sV}_{\overline{\a}''}}$, hence the family $\left\{ \overline{s}_{\overline{\a}} \right\}$ gives the global section $\overline{s} \in \mathscr C^*_r\left(\overline{M}, \overline{\sF}\right)\left(\G\left(\overline{M}, \overline{\sF}\right) \right)$.
 \end{proof}
-\begin{corollary}\label{foli_sheaf_cor}
+\begin{remark}
+	Similarly to the Equations \eqref{foli_sheaf_inc_eqn} and \eqref{foli_repr_inc_eqn} there are the following inclusions 
+\bean
+\mathscr C^*_r\left(\overline{M}, \overline{\sF}\right)\left(\G\left(\overline{M}, \overline{\sF}\right) \right)\subset
+B\left( \bigoplus_{\overline L \in \overline M/\overline \sF_{\mathrm{no~hol}}}  L^2\left(\G_{\overline x_{\overline L}}\right)\right),\\
+C^*_r\left(\overline M,\overline\sF\right)\subset
+B\left( \bigoplus_{\overline L \in \overline M/\overline \sF_{\mathrm{no~hol}}}  L^2\left(\G_{\overline x_{\overline L}}\right)\right).
+\eean
+The following lemma states that the images of these inclusions are identical.
+\end{remark}
+\begin{lemma}\label{foli_sheaf_lem}
 	If $ \overline a  \in B\left(\widehat \H_a \right)$ is a special element (cf. Definition \ref{special_element_defn}) then $\overline a \in   C^*_r\left(\overline M, \overline \sF\right)$ 	where we assume the given by  the Equation \eqref{foli_phi_eqn} inclusion $C^*_r\left(\overline M, \overline \sF\right)\subset B\left(\widehat \H_a \right)$.
-\end{corollary}
+\end{lemma}
 \begin{proof}
+From the Definition \ref{foli_presheaf_defn} it follows that
+$$
+C^*_r\left(\overline M,\overline\sF\right)\subset\mathscr C^*_r\left(\overline{M}, \overline{\sF}\right)\left(\G\left(\overline{M}, \overline{\sF}\right) \right)
+$$.
+Let $\mathscr A$ be an ordered set and let $\left\{a_\a\right\}_{\a\in \mathscr  A}\subset C^*_r\left(M,\sF\right)_+$ be a  family  such that
+\bean
+\forall \a \in \mathscr A \quad 0 \le a_\a \le \overline a,\\
+\forall \bt,\ga \in \mathscr A \quad \bt \ge\ga \quad a_\bt \ge a_\ga.
+\eean
+If $\phi: \R\to\R$ is given by
+$$
+\phi\left( x\right) = \begin{cases}
+	0 & x\le 0\\
+	x & x > 0
+\end{cases}
+$$
+and $\overline b \bydef a_\bt +\phi\left(a_\ga-a_\bt \right)$ then 
+\bean
+\overline b \ge a_\bt,\\
+\overline b \ge a_\ga,\\
+0 \le \overline b \le \overline a.
+\eean
+From the above equations it follows that the set $\mathscr A$ is directed (cf. Definition \ref{directed_set_defn}) and 
+the family $\left\{a_\a\right\}_{\a\in \mathscr  A}$ is a net (cf. Definition \ref{top_net_defn}).
+Let $a \in C^*_r\left(\overline M,\overline\sF\right)$ is given by the Equation \eqref{spec_a_sum_eqn}; that is
+$$
+a \bydef \sum_{	g \in G\left( \left. \overline M\right| M\right) }g \overline a.
+$$
+Let   $\eps > 0$ 	be given, and let $\delta > 0$ be such that $\delta+ 2 \sqrt{\delta \left\| a	 \right\|}< \eps /3$.  From the Lemma \ref{foli_lt_lem} it follows that there is an open set $\sV \subset  \G\left(M, \sF \right)$ such that
+\begin{itemize}
+	\item The closure of $\sV$ is compact.
+	\item $\left\|\left(1-  P_\sV\right)  \pi_a\left(a \right)\left( 1-P_\sV\right) \right\| < \delta$ (cf. Equations \eqref{foli_atomic_eqn} and \eqref{foli_ag_v_eqn}) .
+\end{itemize}
+
+
+
+\begin{lemma}\label{positive_ineq_lem!}
+	Let $\H'$ and $\H''$ be Hilbert spaces. If
+	$$
+	a \bydef		\begin{pmatrix}
+		b & c\\
+		c^*&d
+	\end{pmatrix}\in B\left(\H'\oplus\H''\right)_+ 
+	$$
+	is a positive bounded operator then one has
+	\be\label{positive_ineq_eqn!}
+	\left\|a - 	\begin{pmatrix}
+		b & 0\\
+		0&0
+	\end{pmatrix} \right\| \le  \left\| d	 \right\|+ 2 \sqrt{\left\| d	 \right\|\left\| b	 \right\|}\le  \left\| d	 \right\|+ 2 \sqrt{\left\| d	 \right\|\left\| a	 \right\|}.
+	\ee
+\end{lemma}
+
+	!!! BAD
+	
+	
 	From the Definition \ref{foli_sec_defn} that there is the minimal $\la_{ \min}\in \La$ such that $\left({M}, {\sF}\right)= \left({M}_{\la_{ \min}}, {\sF}_{\la_{ \min}}\right)$. Let $a = a_{\la_{ \min}}\in C^*_r\left({M}, {\sF}\right)_+$ be given by the Equation \ref{spec_a_eqn}.
 	If $\eps > 0$ and $\delta > 0$ is such that $\delta+ 2 \sqrt{\delta \left\|  a	 \right\|}<\frac{\eps}{2}$ then from the Lemma \ref{foli_lt_lem} 
 	there is an open set $\sV \subset  \G\left(M, \sF \right)$ such that
@@ -14453,7 +14525,7 @@ corresponds to the element of $\mathscr C^*_r\left(\overline{M}, \overline{\sF}\
 	$$
 	\forall x \in \sV\quad f\left( x\right) =	\sum_{ {\a}\in {\mathscr A_0}} f_\a \left(x\right)=1.
 	$$
-	For all $\al \in {\mathscr A_0}$ we select a connected set $\overline \sV_\al$  which is mapped homeomorphically onto $\sV_\a$, and $\overline f_\a \bydef \lift^q_{\widetilde{\sU}}\left(f_\a \right)$ (cf. Definition  \ref{top_lift_desc_eqn}).  From the Corollary \ref{foli_sheaf_cor} it follows that the element $\overline a$ corresponds to the section $\overline s \in \mathscr C^*_r\left(\overline{M}, \overline{\sF}\right)\left(\G\left(\overline{M}, \overline{\sF}\right) \right)$. From the Equations \eqref{foli_cd_eqn}, \eqref{foli_cd_II_eqn} for any $\al \in {\mathscr A_0}$ and $g \in G\left(\left.\overline M\right|M\right)$ one can define $\left( g \overline f_\a\right)\cdot \left.\overline s\right|_{g\overline\sV_\a}\in C^*_r\left(\overline{M}, \overline{\sF}\right)$. If
+	For all $\al \in {\mathscr A_0}$ we select a connected set $\overline \sV_\al$  which is mapped homeomorphically onto $\sV_\a$, and $\overline f_\a \bydef \lift^q_{\widetilde{\sU}}\left(f_\a \right)$ (cf. Definition  \ref{top_lift_desc_eqn}).  From the Lemma \ref{foli_sheaf_lem} it follows that the element $\overline a$ corresponds to the section $\overline s \in \mathscr C^*_r\left(\overline{M}, \overline{\sF}\right)\left(\G\left(\overline{M}, \overline{\sF}\right) \right)$. From the Equations \eqref{foli_cd_eqn}, \eqref{foli_cd_II_eqn} for any $\al \in {\mathscr A_0}$ and $g \in G\left(\left.\overline M\right|M\right)$ one can define $\left( g \overline f_\a\right)\cdot \left.\overline s\right|_{g\overline\sV_\a}\in C^*_r\left(\overline{M}, \overline{\sF}\right)$. If
 	$$
 	\overline f' \bydef 1-\sum_{\substack{  \al \in \mathscr A_0\\ 	g \in G\left(\left.\overline M\right|M\right)}} \in C_b\left(\G\left(\overline{M}, \overline{\sF}\right)\right)
 	$$
