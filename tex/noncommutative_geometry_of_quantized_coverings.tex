@@ -634,7 +634,7 @@ The Chapter \ref{cov_fin_chap} contains the construction of noncommutative   of 
 \end{itemize}
 
 \paragraph*{}
-The Chapter \ref{cov_inf_chap} is devoted to  noncommutative   infinite coverings of $C^*$-algebras and operator spaces. Sections \ref{inf_bas_constr_sec} - \ref{inf_ind_repr_subsection} are  basic. The Section \ref{str_cov_sec} is interesting for  those who are interested in coverings of spectral triples.
+The Chapter \ref{cov_inf_chap} is devoted to  noncommutative   infinite coverings of $C^*$-algebras and operator spaces. Sections \ref{inf_bas_constr_sec} - \ref{inf_ind_repr_subsection} are  basic. The Section \ref{str_cov_glo_sec} is interesting for  those who are interested in coverings of spectral triples.
 \paragraph*{}
 The Chapter \ref{top_chap} contains applications of described in Chapters  \ref{cov_fin_chap} and \ref{cov_inf_chap} to commutative coverings. It is proven the one to one correspondence between geometry of topological coverings and "noncommutative ones" presented in the Table \ref{add_mapping_table}.
 \paragraph*{}
@@ -656,7 +656,13 @@ In the Chapter \ref{stab_chap} it is proven that properties of noncommutative co
 
 
 \paragraph*{} 
-The Chapter \ref{su_chap} is devoted to  the two-listed covering of quantum $SO\left( 3\right)$ by  quantum $SU\left( 2\right)$;
+The Chapter \ref{su_chap} is devoted to  the two-listed covering of quantum $SO\left( 3\right)$ by  quantum $SU\left( 2\right)$.
+
+\paragraph*{}
+In the Chapter \ref{haus_non_haus_dul_sec} we show Hausdorff - non Hausdorff duality, i.e. a $C^*$-algebra with non Hausdorff spectrum can have a covering  $C^*$-algebra with  Hausdorff spectrum. In principle having physical models with 
+Hausdorff spectrum one can  construct physical models with 
+non Hausdorff spectrum.
+
 
 \chapter{Preliminaries}\label{prel_chap}
 
@@ -788,7 +794,7 @@ Following table contains  special symbols.
 %where $A^+$ is the minimal unitization of $A$ (cf. Definition \ref{multiplier_min_defn}).
 %\end{empt}
 \begin{definition}\label{principal_non_defn}
-	An injective *-homomorphism $\phi: A \to B$  is said to be \textit{unital} if it is unital in the sense of the Definition \ref{principal_defn} or can be uniquely extended up to the unital (in sense of the Definition \ref{principal_defn}) of *-homomorphism $\phi^{\sim}: A^{\sim} \to B^{\sim}$ where $A^+$ and $B^+$ are minimal unitizations of $A$ and $B$ (cf. Definition \ref{multiplier_min_defn}).
+	An injective *-homomorphism $\phi: A \to B$  is said to be \textit{unital} if it is unital in the sense of the Definition \ref{principal_defn} or can be uniquely extended up to the unital (in sense of the Definition \ref{principal_defn}) of *-homomorphism $\phi^{\sim}: A^{\sim} \to B^{\sim}$ where $^{\sim}\bydef A^+$ and $B^{\sim} \bydef B^+$ are minimal unitizations of $A$ and $B$ (cf. Definition \ref{multiplier_min_defn}).
 \end{definition}
 \begin{remark}
 	The Definition \ref{principal_non_defn} is a generalization of the Definition \ref{principal_defn}.
@@ -1404,7 +1410,7 @@ We write
 	\lim_\la \left\|x- x\left( g\widetilde{u}_\la\right)  \right\| = 	\lim_\la \left\|g\left(g^{-1} x- \left(g^{-1} x \right) \widetilde{u}_\la\right)   \right\|=\\=\left\|g\lim_\la\left(g^{-1} x- \left(g^{-1} x \right) \widetilde{u}_\la\right)   \right\| =0,
 \eean
 	i.e.  $\left\{g\widetilde{u}_\la \right\}_{\la \in \La}$ is an approximate unit of  $\widetilde{A}$. 
-	If ${v}_\la = \frac{1}{\left|G\right|}\sum g\widetilde{u}_\la \in A$, then, of course,  $\left\{{v}_\la \right\}_{\la \in \La}$ is an approximate unit of  $\widetilde{A}$, i.e. $\left\{{v}_\la \right\}$ is an approximate unit of  $\widetilde{A}$ contained in $A$.
+	If ${v}_\la \bydef \frac{1}{\left|G\right|}\sum g\widetilde{u}_\la \in A$, then, of course,  $\left\{{v}_\la \right\}_{\la \in \La}$ is an approximate unit of  $\widetilde{A}$, i.e. $\left\{{v}_\la \right\}$ is an approximate unit of  $\widetilde{A}$ contained in $A$.
 \end{proof}
 
 \begin{lemma}\label{fin_top_lem}
@@ -1573,8 +1579,8 @@ A noncommutative finite-fold  pre-covering  $\left(A, \widetilde{A}, G, \pi \rig
 \begin{remark}
 The Definition \ref{fin_defn} implicitly uses the given by the Lemma \ref{ind_mult_inv_lem} inclusion $	M\left(A \right)\subset  M\left(\widetilde{A} \right)$.   
 \end{remark}
-    \begin{remark}!!! CONNECTED ADD
-   	If  $\left\{u_\la\right\}_{\la\in\La} = \left\{1_{M\left(A \right) }\right\}$ then the Definition \ref{fin_defn} yields a noncommutative finite-fold covering with unitization, i.e. 
+    \begin{remark}
+   	If  $\left\{u_\la\right\}_{\la\in\La} = \left\{1_{M\left(A \right) }\right\}$ and $\widetilde A$ is connected then the Definition \ref{fin_defn} yields a noncommutative finite-fold covering with unitization, i.e. 
    	every noncommutative finite-fold covering with unitization is a  noncommutative finite-fold covering.
    \end{remark}
 
@@ -17780,7 +17786,7 @@ $$
 $$
 where $\Coo\left( SO_q\left(3\right)\right)= C\left( SO_q\left(3\right)\right)\bigcap \Coo\left( SU_q\left(2\right)\right)$ and $D = \widetilde{ D}|_{L^2\left( C\left( SU_q\left(2\right)\right), h\right)^{\Z_2}}$.
 
-\chapter{Application. String field theory and Hausdorff non-Hausdorff duality}
+\chapter{Application. String field theory and Hausdorff non-Hausdorff duality}\label{haus_non_haus_dul_sec}
 \paragraph*{}
 
 The most impressive directions of present day theoretical physics are superstring theory and noncommutative geometry. Both directions  are aimed to describe fundamental physical laws, i.e. these directions have the single purpose. However these directions seem very different. The superstring theory operates with the classical geometry of Hausdorff spaces. Noncommutative geometry replaces spaces with $C^*$-algebras, which simultaneously describe both "outer space" (stars and galaxies) and "inner space" (fundamental particles and forces). The spectra of $C^*$-algebras should or  should not be Hausdorff. In \cite{connes_lott:particle} the Standard model is described by an operator algebra which generates a $C^*$-algebra with Hausdorff spectrum (cf. Section \ref{oa_sec}). In \cite{connes_rieffel:nc_ym} a physical model is described by a $C^*$-algebra with non-Hausdorff spectrum.
@@ -19748,7 +19754,7 @@ for some $a\in A$ and $x\in \sX$.
 	If $X_A$ is a countably generated Hilbert $A$-module, then $X_A \oplus \ell^2\left( A\right) \cong \ell^2\left( A\right)$.
 \end{thm}
 \begin{lemma}\label{fin_hpro_lem}\cite{matro:hcm}
-	Let  $X$ be a finitely generated Hilbert submodule in a Hilbert module $Y$ over a unital $C^*$-algebra. Then $Y$ is an orthogonal direct summand in $X$.
+	Let  $X$ be a finitely generated Hilbert submodule in a Hilbert module $Y$ over an unital $C^*$-algebra. Then $Y$ is an orthogonal direct summand in $X$.
 \end{lemma}
 
 \begin{remark}\label{fin_gen_un_equ_rem}
