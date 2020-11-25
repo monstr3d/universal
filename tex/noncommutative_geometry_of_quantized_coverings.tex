@@ -5205,8 +5205,10 @@ is said to be the \textit{total space for} $\left(\sX, \left\{A_x\right\}, \sF \
 		\ee.
 		\item[(ii)] Looking for $b$ which satisfies to \eqref{top_ak_eqn}.
 	\end{enumerate}
-	(i) For any $x \in \sV$ we select $s^x \in C\left(\sX, \left\{A_x\right\}, \sF \right)$ such that $\left\|s^x_x - a_x\right\|< \eps$. There is an open neighborhood $\sU'_x$ of $x$ such that  $\left\|s^x_y \right\| < \eps+ \left\|a \right\|$ for all $y \in \sU'_x$.  	
-	Clearly $a\in \mathfrak{O}\left(\sU'_x, s^x, 2\eps\right)$. For all $x \in \sX$ select a positive $f_x \in C_c\left(\sX \right)_+$ such that $f_x\left(x \right)> 1$. If for all $x \in \sV$ one has
+	(i) For any $x \in \sV$ we select $s^x \in C\left(\sX, \left\{A_x\right\}, \sF \right)$ such that $\left\|s^x_x - a_x\right\|< \frac{\eps}{2}$. There is an open neighborhood $\sU'_x$ of $x$ with compact closure such that \be\label{ctr_up_eqn}
+	\left\|s^x_y \right\| < \eps+ \left\|a \right\|\quad \forall y \in \sU'_x.
+	\ee
+ For all $x \in \sX$ select a positive $f_x \in C_c\left(\sX \right)_+$ such that $f_x\left(x \right)> 1$. If for all $x \in \sV$ one has
 \bean
 	\sV_x \bydef \left\{\left.y\in \sX \right| f_x \left( y\right) > 1\quad \left\|s^x_x - a_x\right\|< \eps\right\},\\
 \eean
@@ -5222,7 +5224,7 @@ It follows that if $s \bydef \sum_{j = 1}^n \phi_j s^{x_j}$ then
 $$
 \forall x \in\sV \quad\left\|s_x - a_x\right\|< \eps.
 $$
-From the Theorem \ref{tietze_ext_thm} it turns out that there is $\psi\in C_0\left(\sX \right)$ such that $\psi\left( \sX\right) = \left[0, 1\right]$ and
+From the Theorem \ref{tietze_ext_thm} it turns out that there is $\psi\in C_c\left(\sX \right)_+$ such that $\psi\left( \sX\right) = \left[0, 1\right]$ and
 	$$
 	\psi\left(x\right)= \begin{cases}
 	1 & x \in \sV\\
@@ -5237,13 +5239,14 @@ From the Theorem \ref{tietze_ext_thm} it turns out that there is $\psi\in C_0\le
 		n > 1 \quad\Rightarrow \quad	\left\|b_n\right\|< \frac{5\eps}{2^{n-1}}.
 	\end{split}
 	\ee
-	From \eqref{top_abk_eqn}  it follows that there is  $b_1\in C\left(\sX, \left\{A_x\right\}, \sF \right)$ such that
+	From \eqref{top_abk_eqn}  it follows that there is  $b_1\bydef b\in C\left(\sX, \left\{A_x\right\}, \sF \right)$ such that
 	\bean
 	\begin{split}
 		\left\|a - \left.b_1\right|_\sV \right\| < \eps,\\
-		\left\| b_1\right\| <  \left\|a \right\|+ 3 \eps.
+		\left\| b_1\right\| <  \left\|a \right\|+ 3 \eps
 	\end{split}
 	\eean
+	(cf. Equation \eqref{ctr_up_eqn}).
 	If  $a_1 \bydef a - \left.b\right|_\sV$ then one has $\left\|a_1 \right\|< \eps$. Applying \eqref{top_abk_eqn} once again (replacing $\eps$ with $\eps/2$) one can obtain  $b_2\in C\left(\sU, \left\{A_x\right\}, \sF \right)$ such that
 	\bean
 	\begin{split}
@@ -5251,7 +5254,7 @@ From the Theorem \ref{tietze_ext_thm} it turns out that there is $\psi\in C_0\le
 		\left\| b_2\right\| <  \left\|a_1 \right\|+ \frac{3\eps}{2} < \frac{5\eps}{2}.
 	\end{split}
 	\eean
-	If  $a_2\bydef a_1 = \left.b_2\right|_\sV$ then  $a_1, a_2, b_1, b_2$ satisfy to the Equations \eqref{top_abn_eqn}. If $a_n$ and $b_n$ are known then using \eqref{top_abk_eqn} one can find $b_{n+1}$ such that
+	If  $a_2\bydef a_1 - \left.b_2\right|_\sV$ then  $a_1, a_2, b_1, b_2$ satisfy to the Equations \eqref{top_abn_eqn}. If $a_n$ and $b_n$ are known then using \eqref{top_abk_eqn} one can find $b_{n+1}$ such that
 	\be\label{top_abnp_eqn}
 	\begin{split}
 		\left\|a_n - \left.b_{n+1}\right|_\sV \right\| < \frac{\eps}{2^n},\\
