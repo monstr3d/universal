@@ -5205,14 +5205,31 @@ is said to be the \textit{total space for} $\left(\sX, \left\{A_x\right\}, \sF \
 		\ee.
 		\item[(ii)] Looking for $b$ which satisfies to \eqref{top_ak_eqn}.
 	\end{enumerate}
-	(i) For any $x \in \sV$ we select $s^x \in C\left(\sX, \left\{A_x\right\}, \sF \right)$ such that $\left\|s^x_x - a_x\right|< \eps$. There is an open neighborhood $\sU'_x$ of $x$ such that $\left\|s^x_y \right\| < \eps+ \left\|a \right\|$ for all $y \in \sU'_x$. Clearly $a_x \in \mathfrak{O}\left(\sU'_x, s^x, 2\eps\right)$. There is an open neighborhood $\sU_x$ of $x$ such that $a^x_y \in \mathfrak{O}\left(\sU'_x, s, 2\eps\right)$ for all $y \in \sU_x$. (FINITE SUM !!!)One has $\sV \subset \cup_{x \in \sV}\sU_x$, and since $\sV$ is compact there is finite $\left\{x_1, ..., x_n\right\}\in \sV$ such that $\sV\subset \cup_{j=1}^n\sU_{x_j}$. If $1_{C\left(\sV \right)= }\sum_{j=1}^n\phi'_j$ is a subordinated by $\sV \subset \cup_{j=1}^n\sU_{x_j}$ partition of unity then from the Theorem  \ref{tietze_ext_thm} it follows that for any $j = 1,..., n$ there is $\phi''_j \in C_0\left(\sX \right)$ such that  $\phi''_j\left( \sX\right) = \left[0, 1\right]$ and $\left.\phi''_j \right|_{\sV} = \phi_j$. Similarly  from the Theorem \ref{tietze_ext_thm} it turns out that there is $\psi\in C_0\left(\sX \right)$ such that $\psi\left( \sX\right) = \left[0, 1\right]$ and
+	(i) For any $x \in \sV$ we select $s^x \in C\left(\sX, \left\{A_x\right\}, \sF \right)$ such that $\left\|s^x_x - a_x\right\|< \eps/2$. There is an open neighborhood $\sU'_x$ of $x$ such that  $\left\|s^x_y \right\| < \eps+ \left\|a \right\|$ for all $y \in \sU'_x$.  	
+	Clearly $a\in \mathfrak{O}\left(\sU'_x, s^x, 2\eps\right)$. For all $x \in \sX$ select a positive $f_x \in C_c\left(\sX \right)_+$ such that $f_x\left(x \right)> 1$. If for all $x \in \sV$ one has
+\bean
+	\sV_x \bydef \left\{\left.y\in \sX \right| f_x \left( y\right) > 1\quad \left\|s^x_x - a_x\right\|< \eps\right\},\\
+\eean
+then there is a finite set $\left\{x_1,..., x_n \right\}\subset \sX$ such that $\sV \subset \bigcup_{j=1}^n 	\sV_{x_j}$. If $f \bydef f_{x_1} + ... +  f_{x_n}$ then $f\left(x \right) > 1$ for all $x \in \sV$. If 
+$$
+\phi_j \bydef \frac{f_{x_j}}{\max\left(1, f\right)}\in C_c\left(\sX \right)_+ 
+$$
+then
+\be\nonumber
+\sum_{j = 1}^n \phi_j\left( x\right) = 1\quad\forall x \in \sV
+\ee
+It follows that if $s \bydef \sum_{j = 1}^n \phi_j s^{x_j}$ then
+$$
+\forall x \in\sV \quad\left\|s_x - a_x\right\|< \eps.
+$$
+From the Theorem \ref{tietze_ext_thm} it turns out that there is $\psi\in C_0\left(\sX \right)$ such that $\psi\left( \sX\right) = \left[0, 1\right]$ and
 	$$
 	\psi\left(x\right)= \begin{cases}
 	1 & x \in \sV\\
-	0 & x \notin \cup_{j=1}^n\sU_{x_j}
+	0 & x \notin \cup_{j=1}^n\sU'_{x_j}.
 	\end{cases}
 	$$
-	For all $j=1,..., n$ denote by $\phi_j \bydef \psi\phi'_j$. There is $s \in C\left(\sV, \left\{A_x\right\}, \sF \right)$ given by $b \bydef \sum_{j=1}^n \phi_j s^{x_j}$. From our construction it follows that $b$ satisfies to the Equations 	\eqref{top_abk_eqn}.\\
+	For all $j=1,..., n$ denote by $\varphi_j \bydef \psi\phi_j$. There is $b\in C\left(\sV, \left\{A_x\right\}, \sF \right)$ given by $b \bydef \sum_{j=1}^n \varphi_j s^{x_j}$. From our construction it follows that $b$ satisfies to the Equations 	\eqref{top_abk_eqn}.\\
 	(ii)  Let $\eps > 0$. Using induction we construct the sequence $\left\{a_n\right\}_{n\in \N} \subset  C\left(\sV, \left\{A_x\right\}, \sF \right)$, $\left\{b_n\right\}_{n\in \N} \subset  C\left(\sX, \left\{A_x\right\}, \sF \right)$ such that 
 	\be\label{top_abn_eqn}
 	\begin{split}
