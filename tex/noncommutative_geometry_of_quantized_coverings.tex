@@ -5187,51 +5187,52 @@ is said to be the \textit{total space for} $\left(\sX, \left\{A_x\right\}, \sF \
 
 
 \begin{lemma}\label{top_ax_k_lem}
-	Let $\sX$ be a locally compact, normal space; and for each $x$ in $\sX$, let $A_x$ be a (complex) Banach space. Let us consider a continuity structure $\sF$ for $\sX$ {and the} $\left\{A_x\right\}_{x \in \sX}$ (cf. Definition \ref{op_fields_defn}). If $\sV \subset \sX$ is compact then the restriction map $C_0\left(\sX, \left\{A_x\right\}, \sF \right) \to C\left(\sV, \left\{A_x\right\}, \sF \right)$ is surjective.
+	Let $\sX$ be a locally compact, normal space; and for each $x$ in $\sX$, let $A_x$ be a (complex) Banach space. Let us consider a continuity structure $\sF$ for $\sX$ {and the} $\left\{A_x\right\}_{x \in \sX}$ (cf. Definition \ref{op_fields_defn}). If $\sY \subset \sX$ is compact then the restriction map $C_0\left(\sX, \left\{A_x\right\}, \sF \right) \to C\left(\sY, \left\{A_x\right\}, \sF \right)$ is surjective.
 \end{lemma}
 \begin{proof}  
-	One needs prove that for any $a\in C\left(\sV, \left\{A_x\right\}, \sF \right)$ there is $b\in C\left(\sX, \left\{A_x\right\}, \sF \right)$ such that
+	One needs prove that for any $a\in C\left(\sY, \left\{A_x\right\}, \sF \right)$ there is $b\in C\left(\sX, \left\{A_x\right\}, \sF \right)$ such that
 	\be\label{top_ak_eqn}
-	a = \left. b\right|_\sV.
+	a = \left. b\right|_\sY.
 	\ee
 	Our proof has two parts:
 	\begin{enumerate}
-		\item [(i)] For all $a\in C\left(\sV, \left\{A_x\right\}, \sF \right)$ and $\eps > 0$ there is $b\in C\left(\sX, \left\{A_x\right\}, \sF \right)$ such that
+		\item [(i)] For all $a\in C\left(\sY, \left\{A_x\right\}, \sF \right)$ and $\eps > 0$ there is $b\in C\left(\sX, \left\{A_x\right\}, \sF \right)$ such that
 		\be\label{top_abk_eqn}
 		\begin{split}
-			\left\|a - \left.b\right|_\sV \right\| < \eps,\\
+			\left\|a - \left.b\right|_\sY \right\| < \eps,\\
 			\left\| b\right\| <  \left\|a \right\|+ 3 \eps.
 		\end{split}
-		\ee.
+		\ee
 		\item[(ii)] Looking for $b$ which satisfies to \eqref{top_ak_eqn}.
 	\end{enumerate}
-	(i) For any $x \in \sV$ we select $s^x \in C\left(\sX, \left\{A_x\right\}, \sF \right)$ such that $\left\|s^x_x - a_x\right\|< \frac{\eps}{2}$. There is an open neighborhood $\sU'_x$ of $x$ with compact closure such that \be\label{ctr_up_eqn}
+	(i) For any $x \in \sY$ we select $s^x \in C\left(\sX, \left\{A_x\right\}, \sF \right)$ such that $\left\|s^x_x - a_x\right\|< {\eps}/{2}$. There is an open neighborhood $\sU'_x$ of $x$ with compact closure such that \be\label{ctr_up_eqn}
 	\left\|s^x_y \right\| < \eps+ \left\|a \right\|\quad \forall y \in \sU'_x.
 	\ee
  For all $x \in \sX$ select a positive $f_x \in C_c\left(\sX \right)_+$ such that $f_x\left(x \right)> 1$. If for all $x \in \sV$ one has
 \bean
-	\sV_x \bydef \left\{\left.y\in \sX \right| f_x \left( y\right) > 1\quad \left\|s^x_x - a_x\right\|< \eps\right\},\\
+	\sV_x \bydef \left\{\left.y\in \sX \right| f_x \left( y\right) > 1\quad \left\|s^x_y - a_y\right\|< \eps\right\}\cap \sU'_x,\\
 \eean
-then there is a finite set $\left\{x_1,..., x_n \right\}\subset \sX$ such that $\sV \subset \bigcup_{j=1}^n 	\sV_{x_j}$. If $f \bydef f_{x_1} + ... +  f_{x_n}$ then $f\left(x \right) > 1$ for all $x \in \sV$. If 
+then there is a finite set $\left\{x_1,..., x_n \right\}\subset \sX$ such that $\sY \subset \bigcup_{j=1}^n 	\sV_{x_j}$. If $f \bydef f_{x_1} + ... +  f_{x_n}$ then $f\left(y \right) > 1$ for all $y \in \sY$. If 
 $$
 \phi_j \bydef \frac{f_{x_j}}{\max\left(1, f\right)}\in C_c\left(\sX \right)_+ 
 $$
 then
 \be\nonumber
-\sum_{j = 1}^n \phi_j\left( x\right) = 1\quad\forall x \in \sV
+\sum_{j = 1}^n \phi_j\left( y\right) = 1\quad\forall y \in \sY.
 \ee
 It follows that if $s \bydef \sum_{j = 1}^n \phi_j s^{x_j}$ then
 $$
-\forall x \in\sV \quad\left\|s_x - a_x\right\|< \eps.
+\forall y \in\sV \quad\left\|s_y - a_y\right\|< \eps.
 $$
+The closure of the union $\bigcap_{j=1}^n\sU'_{x_j}$ is compact, so it is normal (cf. Theorem \ref{comp_normal_thm}).
 From the Theorem \ref{tietze_ext_thm} it turns out that there is $\psi\in C_c\left(\sX \right)_+$ such that $\psi\left( \sX\right) = \left[0, 1\right]$ and
 	$$
 	\psi\left(x\right)= \begin{cases}
-	1 & x \in \sV\\
+	1 & x \in \sY\\
 	0 & x \notin \cup_{j=1}^n\sU'_{x_j}.
 	\end{cases}
 	$$
-	For all $j=1,..., n$ denote by $\varphi_j \bydef \psi\phi_j$. There is $b\in C\left(\sV, \left\{A_x\right\}, \sF \right)$ given by $b \bydef \sum_{j=1}^n \varphi_j s^{x_j}$. From our construction it follows that $b$ satisfies to the Equations 	\eqref{top_abk_eqn}.\\
+	For all $j=1,..., n$ denote by $\varphi_j \bydef \psi\phi_j$. There is $b\in C\left(\sX, \left\{A_x\right\}, \sF \right)$ given by $b \bydef \sum_{j=1}^n \varphi_j s^{x_j}$. From our construction and \eqref{ctr_up_eqn} it follows that $b$ satisfies to the Equations 	\eqref{top_abk_eqn}.\\
 	(ii)  Let $\eps > 0$. Using induction we construct the sequence $\left\{a_n\right\}_{n\in \N} \subset  C\left(\sV, \left\{A_x\right\}, \sF \right)$, $\left\{b_n\right\}_{n\in \N} \subset  C\left(\sX, \left\{A_x\right\}, \sF \right)$ such that 
 	\be\label{top_abn_eqn}
 	\begin{split}
@@ -5243,10 +5244,9 @@ From the Theorem \ref{tietze_ext_thm} it turns out that there is $\psi\in C_c\le
 	\bean
 	\begin{split}
 		\left\|a - \left.b_1\right|_\sV \right\| < \eps,\\
-		\left\| b_1\right\| <  \left\|a \right\|+ 3 \eps
+		\left\| b_1\right\| <  \left\|a \right\|+ 3 \eps.
 	\end{split}
 	\eean
-	(cf. Equation \eqref{ctr_up_eqn}).
 	If  $a_1 \bydef a - \left.b\right|_\sV$ then one has $\left\|a_1 \right\|< \eps$. Applying \eqref{top_abk_eqn} once again (replacing $\eps$ with $\eps/2$) one can obtain  $b_2\in C\left(\sU, \left\{A_x\right\}, \sF \right)$ such that
 	\bean
 	\begin{split}
@@ -17956,9 +17956,9 @@ Every regular space with a countable basis is normal.
 % 		Every metrizable space is normal.
 % 	\end{thm}
  	
-% 	\begin{thm}\label{comp_normal}\cite{munkres:topology}
-% 		Every compact Hausdorff space is normal.
-% 	\end{thm}
+	\begin{thm}\label{comp_normal_thm}\cite{munkres:topology}
+ 		Every compact Hausdorff space is normal.
+ 	\end{thm}
  	
  	%\begin{thm}\cite{munkres:topology}\label{urysohn_metr_lem}\textbf{ Urysohn metrization theorem.}
  	%	Every regular space with a countable basis is metrizable.
