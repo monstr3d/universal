@@ -4327,7 +4327,7 @@ A direct construction shows that  subordinated covering sums always exist for al
 \end{remark}
 \begin{empt}\label{comm_unity_empt}
 Consider the situation of the Definition \ref{top_cfs_sub_defn}. Sometimes the sums  $\sum_{j = 1}^n f_j$ and  $\sum_{j = 1}^n \widetilde f_j$ are replaced with $\sum_{\widetilde \a\in \mathscr A} a_\a$ and  $\sum_{\widetilde \a\in \widetilde{\mathscr A}} \widetilde a_{\widetilde \a}$ where both ${\mathscr A}$ and $\widetilde{\mathscr A}$ are finite sets $a_\a\in C_c\left(\sX \right)_+$, $\quad\widetilde a_{\widetilde \a}\in C_c\left(\widetilde\sX \right)_+$. Denote by
-\be\label{comm_unity_eqn}
+\be\label{comm_eunity_eqn}
 \begin{split}
  e_{ \a}\bydef \sqrt{ a_{ \a}}~,\\
 \widetilde e_{\widetilde \a}\bydef \sqrt{\widetilde a_{\widetilde \a}}~.
@@ -6446,7 +6446,91 @@ From the above equation it turns out that
 	\eean
 	it turns out that the map $\phi$ is surjective.
 \end{proof}
+\paragraph{title}
+\begin{lemma}\label{top_sub_part_lem}
+	Let us consider the situation described in \ref{top_lconn_part}. For every $\a \in \mathscr A$ we select an open connected subset $\widetilde{\sU}_\a$  of $\widetilde{\sX}$ which is homeomorphically mapped onto $\sU_\a$. One has
+	
+	\begin{enumerate}
+		\item[(i)] 
+		\be\label{top_comply_union_eqn}
+		\widetilde{\sX} =\bigcup_{g \in G\left(\left.\widetilde{\sX}~\right|\sX\right),~ \a \in \mathscr A  } g\widetilde{\sU}_\a
+		\ee
+		\item [(ii)] If $\widetilde{a}_\a = \lift_{\widetilde{\sU}_\a}\left( a_\a\right)  \in C_0\left(\widetilde{   \mathcal X } \right)$ then the series 
+		\be\label{top_comply_part_eqn}
+		\sum_{\left( g, \al\right)  \in G\left(\left.\widetilde{\sX}~\right|\sX\right)\times \mathscr A  } g\widetilde{a}_\a = 1_{C_b\left(\widetilde{\mathcal X} \right) }
+		\ee
+		is a partition of unity dominated by the family 
+		\be\label{top_cov_fam_eqn}
+		\left\{g \widetilde{\mathcal U}_\a\right\}_{g \in G\left(\left.\widetilde{\sX}~\right|\sX\right),~\a \in \mathscr A }.
+		\ee
+	\end{enumerate}
+	
+\end{lemma}
+\begin{proof}(i)
+	Let $\widetilde{x}_0 \in \widetilde{\mathcal X}$ and let $x_0 = p\left(\widetilde{x}_0  \right)$. There is $\a \in \mathscr A$ such that $x_0 \in \sU_\a$. If $\widetilde{x}'_0  \in \widetilde{\mathcal U}_\a$ is such that $p\left( \widetilde{x}'_0\right) = x_0$ then there is $g \in  G\left(\left.\widetilde{\sX}~\right|\sX\right)$ such that $\widetilde{x}_0 = g\widetilde{x}'_0$, hence one has $\widetilde{x}_0 \in g \widetilde{\mathcal U}_\a$.\\
+	(ii) 
+	The series \eqref{top_sup_part_eqn} is a partition of unity it turns out there is an open connected neighborhood $\mathcal U$ of $x_0$ and a finite subset $\mathscr A_0 \subset \La$ such that $\mathcal U \bigcap \mathcal \supp~ a_\a = \emptyset$ for any $\a \in \mathscr A \setminus \mathscr A_0$ and $\mathcal U \bigcap \mathcal U_\a \neq \emptyset$ for any $\a \in  \mathscr A_0$.
+	There is the unique connected open neighborhood  $\widetilde{\mathcal U}$ of $\widetilde{x}_0$ such that $\widetilde{\mathcal U}$ which is mapped homeomorphically onto $\sU$. For any $\a \in \mathscr A_0$ there is $\mathcal U \bigcap \supp~ a_\a\neq\emptyset$, so there is $x_\a \in \mathcal U \bigcap \supp~ a_\a$. Otherwise there are  $\widetilde{x}_\a \in \widetilde{\mathcal U}$, $\widetilde{x}'_\a \in \widetilde{\mathcal U}_\a$ such that $p\left(\widetilde{x}_\a \right)=  p\left(\widetilde{x}'_\a \right)= x_\a$. The covering $p$ is a transitive, so there is the unique $g_\a \in G\left(\left.\widetilde{\sX}~\right|\sX\right)$ such that $g_\a \widetilde{x}'_\a = \widetilde{x}_\a$. It follows that $g_\a \supp~ \widetilde{a}_\a \bigcap \widetilde{\mathcal U}\cong \supp~ a_\a \bigcap {\mathcal U}$. So there is a finite subset 
+	$$
+	\widetilde{\mathscr A}_0=\left\{ g_\a \widetilde{\mathcal U}_\a\right\}_{\a \in \mathscr A_0} \subset \left\{g \widetilde{\mathcal U}_\a\right\}_{g \in G\left(\left.\widetilde{\sX}~\right|\sX\right),~\a \in \mathscr A }
+	$$ 
+	such that $\widetilde{\mathcal U} \bigcap g_\a \supp~ \widetilde{a}_\a \neq \emptyset$ if $\mathcal U \bigcap g_\a \supp~ \widetilde{a}_\a \in \widetilde{\La}_0$ and $\widetilde{\mathcal U} \bigcap g_\a \widetilde{\mathcal U}_\a =\emptyset$ if $\widetilde{\mathcal U} \bigcap g_\a \supp~ \widetilde{a}_\a \notin \widetilde{\La}_0$. It follows that the family \eqref{top_cov_fam_eqn} is locally finite. From 
+	$$
+	\sum_{\a \in \mathscr A_0} a\left(x_0 \right) = 1
+	$$
+	it follows that
+	$$
+	\sum_{\a \in \mathscr A_0} g_\a \widetilde{a}\left(\widetilde{x}_0 \right) = 1
+	$$
+	i.e. the series \eqref{top_comply_part_eqn} is a partition of unity dominated by the family \eqref{top_cov_fam_eqn}.\\
+	%(ii) Follows from the Lemma \ref{top_part_of_unity_strict_lem}.
+\end{proof}
+\begin{definition}\label{comm_comply_defn}
+	A partition of unity \eqref{top_comply_part_eqn} given by the Lemma \ref{top_sub_part_lem} is said to be \textit{compliant to} the covering  $p:\widetilde{\mathcal X}\to{\mathcal X}$. The union \eqref{top_comply_union_eqn}, i.e.
+	$$
+	\widetilde{\sX} =\bigcup_{g \in G\left(\left.\widetilde{\sX}~\right|\sX\right),~ \a \in \mathscr A  } g\widetilde{\sU}_\a
+	$$
+	is also said to be \textit{compliant to} the covering  $p:\widetilde{\mathcal X}\to{\mathcal X}$.
+\end{definition}
 
+
+\begin{lemma}\label{top_dis_complient_lem}
+	If $p: \widetilde{\sX} \to \sX$ is a covering and the union 
+	$$
+	\widetilde{\sX} =\bigcup_{g \in G\left(\left.\widetilde{\sX}~\right|\sX\right),~ \a \in \mathscr A  } g\widetilde{\sU}_\a
+	$$
+	is {compliant to} $p: \widetilde{\sX} \to \sX$ (cf. Definition \ref{comm_comply_defn}) then there is the natural homeomorphism
+	\be\label{top_dis_complient_eqn}
+	\begin{split}
+		\widetilde{\sX} \cong\bigsqcup_{g \in G\left(\left.\widetilde{\sX}~\right|\sX\right),~ \a \in \mathscr A  } g\widetilde{\sU}_\a / \sim\\
+		\mathrm{where}~\widetilde{x}' \sim \widetilde{x}'' \Leftrightarrow  ~ \widetilde{x}'\in  g'\widetilde{\sU}_{\a'}~\mathrm{AND}~ \widetilde{x}''\in  g''\widetilde{\sU}_{\a''}~\mathrm{AND}\\ \mathrm{AND}~ g'\widetilde{\sU}_{\a'}\cap g''\widetilde{\sU}_{\a''}\neq \emptyset ~\mathrm{AND}~ p\left(\widetilde{x}' \right) = p\left(\widetilde{x}'' \right).
+	\end{split}
+	\ee
+\end{lemma}
+\begin{proof}
+	If $\widetilde{x}'\in  g'\widetilde{\sU}_{\a'}$,  $\widetilde{x}''\in  g''\widetilde{\sU}_{\a''}$ and $g'\widetilde{\sU}_{\a'}\cap g''\widetilde{\sU}_{\a''}= \emptyset$ then clearly $\widetilde{x}'\neq \widetilde{x}''$. Otherwise if $g'\widetilde{\sU}_{\a'}\cap g''\widetilde{\sU}_{\a''}\neq \emptyset$ then $g'\widetilde{\sU}_{\a'}\cap g''\widetilde{\sU}_{\a''}$ is homeomorphically mapped onto $p\left( g'\widetilde{\sU}_{\a'}\cap g''\widetilde{\sU}_{\a''}\right)$, hence from $p\left(\widetilde{x}' \right) = p\left(\widetilde{x}''\right) $ it turns out $\widetilde{x}'= \widetilde{x}''$. 
+\end{proof}
+\begin{remark}\label{comm_unity_rem}
+	If both ${\mathcal X}$ and $ \widetilde{\mathcal X}$ are compact and $G\left(\left.\widetilde{\sX}~\right|\sX\right)$ is finite then one can select a finite $\mathscr A$. Moreover
+	if $\widetilde{\mathscr A} = G\left(\left.\widetilde{\sX}~\right|\sX\right)\times \mathscr A$ and $\widetilde{e}_{\left(g,  \a\right) }= g\sqrt{\widetilde a_\a}$ one has
+	\be\label{comm_unity_sum_eqn}
+	1_{C\left(\widetilde{\mathcal X} \right) }= \sum_{\widetilde\a \in \widetilde{\mathscr A} }\widetilde{e}^2_{\widetilde{\a}}
+	\ee
+	If $g \in G\left(\left.\widetilde{\sX}~\right|\sX\right)$ is not trivial then from $g \widetilde{\sU}_{\widetilde \a}\cap \widetilde{\sU}_{\widetilde \a} = \emptyset$ it follows that
+	\be\label{comm_unity_orth_eqn}
+	\begin{split}
+		\widetilde{e}_{\widetilde{\a}}	\left(g \widetilde{e}_{\widetilde{\a}} \right) = 0.
+	\end{split}
+	\ee
+	From the equations \eqref{comm_unity_sum_eqn} and \eqref{comm_unity_orth_eqn} it follows that
+	\begin{equation}\label{comm_unity_eqn}
+		\begin{split}
+			1_{C\left(\widetilde{\mathcal X} \right) }= \sum_{\widetilde\a \in \widetilde{\mathscr A} }\widetilde{e}_{\widetilde{\a}} \left\rangle \right\langle \widetilde{e}_{\widetilde{\a}}
+		\end{split}
+	\end{equation}
+	where $\widetilde{e}_{\widetilde{\a}} \left\rangle \right\langle \widetilde{e}_{\widetilde{\a}}$ means a compact operator induced by the $C^*$-Hilbert module structure given by \eqref{finite_hilb_mod_prod_eqn}. 
+\end{remark}
+\paragraph{title}
 
 \section{Finite-fold coverings}
 \paragraph*{} This section contains an algebraic version of the Proposition \ref{pavlov_troisky_thm} in case of finite-fold coverings. 
@@ -7128,12 +7212,50 @@ If the representation  $\widetilde{\rho}: C\left(\widetilde{M}\right) \to  B\lef
 	(b) From the Lemma \ref{top_hilb_homo_lem}  it follows that the map 		$	C\left(\widetilde M\right)\otimes_{C\left(M\right)} L^2\left(M, \sS\right) \xrightarrow{\approx} L^2\left(\widetilde{M}, \widetilde{\SS} \right)$ is the homomorphism of $C\left(\widetilde M\right)$ modules, so the given by \eqref{comm_bundle_repr_eqn} $C\left(\widetilde M\right)$-action coincides with the $C\left(\widetilde M\right)$-action  the given by \eqref{ind_act_form_eqn}.
 	\end{proof}
 
-\begin{remark}\label{comm_ind_rem}
-	If the spectral triple $\left( \Coo\left(\widetilde M \right), L^2\left(\widetilde M, \widetilde S, \widetilde\mu\right), \widetilde \Dslash \right)$ is the {geometrical} $p$-{lift} of the spectral triple $\left( \Coo\left( M \right), L^2\left( M,  S, \mu\right),  \Dslash \right)$ (cf. Definition \ref{top_geom_lift_defn}), then clearly the corresponding to $\left( \Coo\left( M \right), L^2\left( M,  S, \mu\right),  \Dslash \right)$ representation of $C\left(M \right)$ equals to the given by the Lemma \ref{comm_ind_lem} representation .
-\end{remark}
+\paragraph*{title}
+\subsection{Coverings of spectral triples}\label{triple_fin_cov}
+
+\paragraph*{}
+If $\left( \A, \H, D\right)$ is a spectral triple then from the Axioms \ref{regularity_axiom}, \ref{finiteness_axiom} it follows that:
+\begin{itemize}
+	\item The space  
+	$
+	\D\bydef	\bigcap_{k\in\bN} \Dom D^k
+	$
+	is dense in $\H$.
+	\item One has
+	\bean
+	\A\subset \L^\dagger \left(\D \right), \\
+	D \in 	\L^\dagger \left(\D \right).
+	\eean
+\end{itemize}
+\begin{definition}\label{ext_st_alg_defn}
+	If $\left( \A, \H, D\right)$ is a spectral triple then the generated by $\A\cup \{D\}$ subalgebra of $\L^\dagger \left(\D \right)$ is said to be the \textit{extended algebra of the spectral triple} $\left( \A, \H, D\right)$.
+\end{definition}
+\begin{empt}
+	Let both $\left( \A, \H, D\right)$ and $\left( \widetilde\A, \widetilde\H, \widetilde D\right)$ be   spectral triples such that both $A$ and $\widetilde A$ are  $C^*$-norm completions of $\A$ and $\widetilde A$ respectively. Let $\left( A, \widetilde A, G\right)$  be an unital noncommutative finite-fold covering (cf. Definition \ref{fin_uni_defn}). Denote by $\A_D$ and $\widetilde \A_{\widetilde D}$ {extended algebras of  spectral triples} $\left( \A, \H, D\right)$, $\left( \widetilde\A, \widetilde\H, \widetilde D\right)$.
+\end{empt}
+\begin{defn}\label{triple_conn_lift_defn} 	Consider the above situation. The spectral triple $\left( \widetilde{\A}, \widetilde{\H}, \widetilde{D}\right)$  is said to be the  $\left(A, \widetilde{A}, G, \pi \right)$-\textit{lift} of $\left( \A, \H, D \right)$ if following condition holds:
+	\begin{enumerate}
+		\item [(a)] The representation $\widetilde{A}\hookto B\left(\widetilde{\H} \right)$ is induced by {is induced by the pair} $\left(\rho,\left(A, \widetilde{A}, G, \pi\right)  \right)$ (cf. Definition \ref{induced_repr_defn}).
+		\item[(b)] There are noncommutative finite-fold covering of $O^*$-algebras (cf. Definition \ref{o*fin_defn}) $\left(\A, \widetilde{\A}, G, \pi|_{\A}\right)$ and  $\left(\A_D, \widetilde{\A}_{\widetilde D}, G, \pi_{D}\right)$, such that $\left.\pi_{D}\right|_{\A}= \pi|_{\A}$ and actions $G\times \widetilde{\A}\to \widetilde{\A}$, $\quad G\times \widetilde{\A}_{\widetilde \D}\to \widetilde{A}_{\widetilde D}$ comply with the action $G\times \widetilde{A}\to \widetilde{A}$.
+		\item[(c)] $\widetilde D =  \pi_{D}\left( D\right)$.  
+	\end{enumerate} 
+\end{defn} 
+
+
+\paragraph*{title}
 
 \subsection{Coverings of spectral triples}\label{comm_d_sec}
-Consider the situation of the Section \ref{comm_induced_finite_sec}. Suppose that 
+Consider the situation of the Section \ref{comm_induced_finite_sec}. Suppose that there is a spectral triple $\left(\Coo\left(M \right), L^2\left( M, \sS\right), \slashed D  \right)$ explained in the Section \ref{comm_sp_tr_sec}. If $p: \widetilde M \to M$ is a transitive finite-fold covering then $\widetilde M$ has a (unique) structure of Riemannian manifold given by the Proposition \ref{comm_cov_mani_prop}. From the Theorem \ref{comm_fin_thm} it follows that the quadruple
+$$
+\left(C\left(M \right), C\left(\widetilde M \right)   , G\left(\left. \widetilde M \right|M \right) , C\left(p \right) \right)  
+$$
+is an (unital) noncommutative finite-fold covering. Let $\sS$ be $p$
+
+
+
+Suppose that 
 \be\label{top_ta_eqn}
 		\sum_{g \in G\left(\left.\widetilde{M}~\right|M\right),~ \a \in \mathscr A  } g\widetilde{a}_\a = 1_{C\left(\widetilde{M} \right) }
 \ee
@@ -7141,7 +7263,7 @@ is the compliant with  the covering $p:\widetilde{M}\to{M}$ partition of unity (
 \bean
 \sum_{ \widetilde\a \in \widetilde{ \mathscr A} } \widetilde{a}_{\widetilde\a} = 1_{C\left(\widetilde{M} \right) }.
 \eean
-From the Proposition \ref{smooth_part_unity_prop} one can assume that $\widetilde{a}_{\widetilde\a}\in \Coo\left( \widetilde{M}\right)$ and
+From the Proposition \ref{top_smooth_part_unity_prop} one can assume that $\widetilde{a}_{\widetilde\a}\in \Coo\left( \widetilde{M}\right)$ and
 \be\label{top_te_eqn}
 \begin{split}
 	\widetilde{e}_{\widetilde\a}\bydef \sqrt{\widetilde{a}_{\widetilde\a}}\in \Coo\left( \widetilde{M}\right),\\
@@ -7237,7 +7359,7 @@ where both   $\Ga^\infty\left(M, \sS \right)$ and $\Ga^\infty\left(\widetilde M,
 The given by the Equation \eqref{top_phinf_eqn} homomorphism is an isomorphism.
 \end{lemma}
 \begin{proof}
-The proof of the Lemma \ref{top_tensor_comact_lem} uses the partition of unity. However from the Proposition \ref{smooth_part_unity_prop} it turns out that there is a smooth partition of unity. Using it one can proof this lemma as well as the Lemma \ref{top_tensor_comact_lem} has been proved.
+The proof of the Lemma \ref{top_tensor_comact_lem} uses the partition of unity. However from the Proposition \ref{top_smooth_part_unity_prop} it turns out that there is a smooth partition of unity. Using it one can proof this lemma as well as the Lemma \ref{top_tensor_comact_lem} has been proved.
 \end{proof}
 
 Now we have  the  $G\left( \left.\widetilde{M}~\right|M\right)$-{equivariant} connection $\widetilde{\slashed{\nabla}}$, so on can find the specialization of explained in  \ref{triple_conn_lift_empt} construction of the operator
@@ -8727,7 +8849,7 @@ $$
 \end{theorem}
 \begin{proof}
 	If $\left\{\widetilde f_j\right\}_{j\in \N}\subset C_c\left( \widetilde{M}\right)_+$ be a given by the Equation \eqref{fin_comp_lin_eqn} increasing sequence then for any compact $\widetilde{K}\subset \widetilde{M}$ there is $j_{\widetilde{K}}$ such that for all $j\ge j_{\widetilde{K}}$ one has $\widetilde f_j\left( \widetilde K\right) = \{1\}$.
-	then there is a point-wise limit $1_{C_b\left(\sX \right) } = \lim_{j\to \infty}f_j$. From the Proposition \ref{smooth_part_unity_prop} one can assume that $\left\{\widetilde f_j\right\}_{j\in \N}\subset \Coo_c\left( \widetilde{M}\right)_+$. If $\left( \widetilde{\mathfrak A}', \Coo\left( \widetilde{M}\right)\right) $ is an admissible quasi *-algebra (cf. Definition \ref{comp_pt_qo*_defn}) then from the Equation \ref{inv_qo*_llim_eqn}  it follows that
+	then there is a point-wise limit $1_{C_b\left(\sX \right) } = \lim_{j\to \infty}f_j$. From the Proposition \ref{top_smooth_part_unity_prop} one can assume that $\left\{\widetilde f_j\right\}_{j\in \N}\subset \Coo_c\left( \widetilde{M}\right)_+$. If $\left( \widetilde{\mathfrak A}', \Coo\left( \widetilde{M}\right)\right) $ is an admissible quasi *-algebra (cf. Definition \ref{comp_pt_qo*_defn}) then from the Equation \ref{inv_qo*_llim_eqn}  it follows that
 	$$
 \forall j\in \N\quad	\widetilde f_j \widetilde a \in \Coo_c\left( \widetilde{M}\right)\bigcap_{\la\in\La} \Coo_c\left( {M}_\la\right)'.
 	$$
@@ -8955,7 +9077,7 @@ where both   $\Ga^\infty\left(M, \sS \right)$ and $\Ga^\infty_c\left(\widetilde 
 	The given by the Equation \eqref{top_phinfi_eqn} homomorphism is an isomorphism.
 \end{lemma}
 \begin{proof}
-	The proof of the Lemma \ref{top_tensor_lcompact_lem} uses the partition of unity. However from the Proposition \ref{smooth_part_unity_prop} it turns out that there is a smooth partition of unity. Using it one can proof this lemma as well as the Lemma \ref{top_tensor_lcompact_lem} has been proved.
+	The proof of the Lemma \ref{top_tensor_lcompact_lem} uses the partition of unity. However from the Proposition \ref{top_smooth_part_unity_prop} it turns out that there is a smooth partition of unity. Using it one can proof this lemma as well as the Lemma \ref{top_tensor_lcompact_lem} has been proved.
 \end{proof}
 
 \begin{empt}\label{top_dirac_construction_empt}
@@ -11071,7 +11193,7 @@ where both   $\Ga^\infty\left(M, \sS \right)$ and $\Ga^\infty\left(\widetilde M,
 	The given by the Equation \eqref{top_phinf_eqn} homomorphism is an isomorphism.
 \end{lemma}
 \begin{proof}
-	The proof of the Lemma \ref{top_tensor_comact_lem} uses the partition of unity. However from the Proposition \ref{smooth_part_unity_prop} it turns out that there is a smooth partition of unity. Using it one can proof this lemma as well as the Lemma \ref{top_tensor_comact_lem} has been proved.
+	The proof of the Lemma \ref{top_tensor_comact_lem} uses the partition of unity. However from the Proposition \ref{top_smooth_part_unity_prop} it turns out that there is a smooth partition of unity. Using it one can proof this lemma as well as the Lemma \ref{top_tensor_comact_lem} has been proved.
 \end{proof}
 
 Now we have  the  $G\left( \left.\widetilde{M}~\right|M\right)$-{equivariant} connection $\widetilde\nabla$, so on can find the specialization of explained in  \ref{triple_conn_lift_empt} construction of the operator
@@ -12293,7 +12415,7 @@ where both   $\Ga^\infty\left(M, \sS \right)$ and $\Ga^\infty_c\left(\widetilde 
 	The given by the Equation \eqref{ctr_phinfi_eqn} homomorphism is an isomorphism.
 \end{lemma}
 \begin{proof}
-	The proof of the Lemma \ref{top_tensor_lcompact_lem} uses the partition of unity. However from the Proposition \ref{smooth_part_unity_prop} it turns out that there is a smooth partition of unity. Using it one can proof this lemma as well as the Lemma \ref{top_tensor_lcompact_lem} has been proved.
+	The proof of the Lemma \ref{top_tensor_lcompact_lem} uses the partition of unity. However from the Proposition \ref{top_smooth_part_unity_prop} it turns out that there is a smooth partition of unity. Using it one can proof this lemma as well as the Lemma \ref{top_tensor_lcompact_lem} has been proved.
 \end{proof}
 
 \begin{empt}\label{ctr_dirac_construction_empt}
