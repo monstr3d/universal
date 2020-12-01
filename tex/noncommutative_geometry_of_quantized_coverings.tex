@@ -4356,6 +4356,37 @@ Consider the situation of the Definition \ref{top_cfs_sub_defn}. Sometimes the s
 \ee
 \end{empt}
 
+\begin{lemma}\label{fin_comp_lin_lem}
+	Suppose $\sX$ is a locally compact connected locally connected Lindel\"{o}f Hausdorff space. Then for any $x_0 \in \mathcal X$ there is a finite or countable sequence $\sU_1 \subsetneqq  ...\subsetneqq \sU_n\subsetneqq ...$ of connected open subsets of $\sX$ such that
+	\begin{itemize}
+		\item $x_0 \in \sU_1$.
+		\item  For any $n \in \N$ the closure of $\sU_n$ is compact.
+		\item $\cup~ \sU_n = \sX$.
+	\end{itemize} 
+\end{lemma}
+\begin{proof}
+	The space $\sX$ is a locally compact, so for any point there is an open neighborhood $\sV_x$ such that the closure of $\sV_x$ is compact. Moreover one can assume that $\sV_x$ is connected since $\sX$ is locally connected. The space is $\sX$ is  Lindel\"{o}f, so there is a finite or countable set $\left\{\sV_\la \right\}_{\la \in \La}$ of connected open subspaces of $\sX$ such that the closure of $\sV_\la$ is compact for all $\la \in \La$. Let us define a finite or countable sequence $\sU_1 \subsetneqq  ...\subsetneqq \sU_n\subsetneqq ...$ by induction.
+	\begin{enumerate}
+		\item Let us select a $\la_0 \in \La$ such that $x_0 \in \sV_{\la_0}$, and let $\sU_1 = \sV_{\la_0}$.
+		\item If $\sU_n$ is already defined then we looking for $\sV_\la$ such that
+		\be\label{seqvu_eqn}
+		\sV_\la \not\subset \sU_n;\quad
+		\sV_\la \cap \sU_n \neq \emptyset.
+		\ee
+		It there is no $\sV_\la$ which satisfies to \eqref{seqvu_eqn} then the sequence is competed. Otherwise one sets $\sU_{n+1}= \sU_n \cup \sV_\la$.
+	\end{enumerate} 
+	Clearly that for every $n \in \N$ the set $ \sU_n$ is an open connected and have the compact closure. If  $\sX \neq \cup~ \sU_n$ then 
+	$$
+	\sX  = \cup ~\sU_n \bigsqcup \cup_{\la \in \La_0} \sV_\la; \text{ where } \sV_\la \bigcap \cup ~\sU_n = \emptyset; ~~ \forall \la \in \La_0,
+	$$ 
+	i.e. $\sX$ is not connected. So one has $\sX = \cup~ \sU_n$.
+\end{proof}
+Consider the situation of the Lemma \ref{fin_comp_lin_lem} and suppose that $\sX$ is paracompact. From the proof of the Lemma \ref{fin_comp_lin_lem} it turns out that for any $n \in \N$ there is a finite subset $\La_n \subset \La$ such that $\sU_n = \cup_{\la \in \La_n}\sV_\la$. If 
+\be\label{fin_comp_lin_eqn}
+f_n = \sum_{ \la \in \La_n}f_\la
+\ee
+then there is a point-wise limit $1_{C_b\left(\sX \right) } = \lim_{n\to \infty}f_n$.
+
 
 \section{Transitive coverings}
 \paragraph*{}
@@ -8731,7 +8762,77 @@ It follows that
 The Equation \eqref{top_inv_qo*_llim_eqn} follows from \eqref{top_cc_l_inc_eqn} and \eqref{top_cc_r_inc_eqn}. The Equation \eqref{top_inv_qo*_rlim_eqn} is equivalent to the Equation \eqref{top_inv_qo*_llim_eqn}.
 
 \end{proof}
+\paragraph*{title}
+\begin{definition}\label{comp_qo*_defn!}
+	Let $\La$ be a countable directed set (cf. Definition \ref{directed_set_defn}) such that there is the unique minimal element $\la_{\min} \in \La$.
+	Let $\left( \mathfrak A, \mathfrak A_0 \right) $ be a quasi-$O^*$-algebra  (cf. Definitions \ref{quasi_defn}, \ref{o*alg_defn}).  Let us consider a set noncommutative finite-fold coverings of  quasi-$O^*$-algebras\\ $\mathfrak{S}=\left\{ \pi_{\la}:\left( \mathfrak A, \mathfrak A_0 \right) \hookto \left( \mathfrak A^\la, \mathfrak A_0^\la \right)\right\}_{\la \in \La}$ (cf. Definition \ref{oq*fin_defn}) indexed by  $\La$ such that $\left( \mathfrak A^{{\la_{\mathrm{min}}}}, \mathfrak A_0^{{\la_{\mathrm{min}}}} \right)= \left( \mathfrak A, \mathfrak A_0 \right)$, and $\pi_{\la_{\mathrm{min}}}= \Id_{\left( \mathfrak A, \mathfrak A_0 \right)}$.  Suppose that there is a category $\mathfrak{S}^{\text{pt}}$  such that 
+	\begin{enumerate}
+		\item [(a)] The set of objects of $\mathfrak{S}^{\text{pt}}$ is $\mathfrak{S}$.
+		\item[(b)]  For any $\mu, \nu\in \La$ such that $\mu\ge\nu$ there is the unique morphism from $\left( \mathfrak A, \mathfrak A_0 \right) \hookto \left( \mathfrak A^\nu, \mathfrak A_0^\nu \right)$ to $\left( \mathfrak A, \mathfrak A_0 \right) \hookto \left( \mathfrak A^\mu, \mathfrak A_0^\mu \right)$ which is a noncommutative finite-fold covering $\pi^\nu_\mu:  \left( \mathfrak A^\nu, \mathfrak A^\nu_0 \right) \hookto \left( \mathfrak A^\mu, \mathfrak A_0^\mu \right)$ of  quasi-$O^*$-algebras  such that $\pi_\mu =\pi^\nu_\mu \circ \pi_\nu$.
+		\item[(c)] All morphisms of   $\mathfrak{S}^{\text{pt}}$ are described in (b).
+	\end{enumerate}
+	We say that $\mathfrak{S}^{\text{pt}}$ is a \textit{pointed algebraic finite covering category of quasi-$*$-algebras}.   We write $\mathfrak{S}^{\text{pt}} \in  QO^*$-$ \mathfrak{FinAlg}^{\text{pt}}$, and use the following notation
+	\be\label{comp_pt_qo*_eqn!}
+	\begin{split}
+		\mathfrak{S}^{\text{pt}} =\\= \left(\left\{\pi_\la: \left( \mathfrak A, \mathfrak A_0 \right) \hookto \left( \mathfrak A^\la, \mathfrak A_0^\la \right) \right\}_{\la \in \La}, \left\{\pi^\mu_\nu: \left( \mathfrak A^\nu, \mathfrak A^\nu_0 \right) \hookto \left( \mathfrak A^\mu, \mathfrak A_0^\mu \right)\right\}_{\substack{\mu, \nu \in \La\\ \nu > \mu}}\right),\\
+		\text{or simply} \quad \mathfrak{S}^{\text{pt}} =\left(\left\{\pi_\la: \left( \mathfrak A, \mathfrak A_0 \right) \hookto \left( \mathfrak A^\la, \mathfrak A_0^\la \right) \right\}_{\la \in \La}, \left\{\pi^\mu_\nu: \right\}_{\substack{\mu, \nu \in \La\\ \nu > \mu}}\right).
+	\end{split}
+	\ee
+\end{definition}
+\begin{empt}\label{comp_qo*_empt!}
+	Consider the given by the Definition \ref{comp_qo*_defn}. If invective *-homomorphisms are regarded as inclusions then there is a union $\widehat{\mathfrak A_0}\bydef\bigcup_{\la \in \La} \mathfrak A_0^\la$ which is a *-algebra. Suppose that similarly to \eqref{pi_o*_eqn} there is an injective *-homomorphism
+	\be\label{pi_o*f_eqn!}
+	\pi: \widehat{\mathfrak A}_0\hookto \L^\dagger\left(\widehat\D \right)
+	\ee
+	where $\widehat\D$ is a dense subset of the Hilbert space $\widehat\H$. Denote by $\widehat G \bydef \varprojlim G\left(\left.\mathfrak A_0^\la\right|\mathfrak A_0\right)$ and suppose that $\widehat G$, $\widehat\D$ and $\widehat \H$ satify  all described in \ref{comp_pt_o*_empt} relations.
+	Suppose that
+	the category
+	\be\label{comp_pt_qo*0_eqn!}
+	\begin{split}
+		\mathfrak{S}_0^{\text{pt}}\bydef \left(\left\{\left.\pi_\la\right|_{\mathfrak A_0}: \mathfrak A_0 \hookto \mathfrak A_0^\la \right\}_{\la \in \La}, \left\{\left.\pi^\mu_\nu\right|_{\mathfrak A^\mu_0}: \mathfrak A_0^\mu \hookto \mathfrak A_0^\nu\right\}_{\substack{\mu, \nu \in \La\\ \nu > \mu}}\right)
+	\end{split}
+	\ee
+	satisfies to the conditions  described in \ref{comp_pt_o*_empt}, Suppose that  	$\left(\mathfrak A_0, \widetilde{\mathfrak A}_0, G_{\widehat{\pi}}\right)$ is the 
+	${\pi}$-{ inverse noncommutative limit of $\mathfrak{S}^{\mathrm{pt}}_0$} (cf. Definition \ref{inv_o*_lim_defn}).
+	Similarly to \eqref{bl_cat_eqn} consider  {pointed algebraical  finite covering category} a
+	\be\label{blu_cat_eqn!}
+	\mathfrak{S}^{\mathrm{pt}}_b=\left\{ \left( B ,  B_{\la} , G\left(\left.\mathfrak A_0^\la~\right|\mathfrak A_0 \right) , \overline \pi_{\la}|_{\mathfrak A_0}\right) \right\}_{\la \in \La}
+	\ee
+	If $\widehat B\bydef C^*$-$\varinjlim B_\la$ then there is the natural equivariant representation $\widehat{\pi}: \widehat{B}\hookto B\left( \widehat{\H}\right)$ (cf. Definition \ref{equiv_defn}). Suppose that $	\mathfrak{S}^{\text{pt}}_b$ is $\widehat{\pi}$-good (cf. Definition \ref{mains_defn}).  Let  $\left(B, \widetilde{B}_{\widehat{\pi}}, G_{\widehat{\pi}}\cong G_\pi\right)$  be the  $\widehat{\pi}$-{infinite noncommutative covering} of  $\mathfrak{S}^{\mathrm{pt}}_b$. (cf. Definition \ref{main_defn}).
+	
+\end{empt}
 
+\begin{defn}\label{comp_pt_qo*_defn!}
+	Consider the situation described in \ref{comp_qo*_empt}.  The union $\bigcup_{\la\in \La} \left( \mathfrak A^\la, \mathfrak A_0^\la \right)$ is a quasi $*$-algebra. 
+	If $\left( \widetilde{\mathfrak A}', \widetilde{\mathfrak A}_0\right)$ is a quasi *-algebra  such that
+	\begin{enumerate}
+		\item[(a)]  There is an  action $G_\pi\times \left( \widetilde{\mathfrak A}', \widetilde{\mathfrak A}_0\right)\to \left( \widetilde{\mathfrak A}', \widetilde{\mathfrak A}_0\right)$ which complies with the natural action $ G_\pi\times  \widetilde{\mathfrak A}_0\to  \widetilde{\mathfrak A}_0$.
+		\item[(b)] There is an injective *-homomorphism   $\pi:\bigcup_{\la\in \La} \left( \mathfrak A^\la, \mathfrak A^\la_0\right)\hookto \left( \widetilde{\mathfrak A}', \widetilde{\mathfrak A}_0\right)$ such that the restriction $
+		\pi|_{\bigcup_{\la\in \La}  \mathfrak A^\la_0}$ is the natural inclusion $ \bigcup_{\la\in \La}  \mathfrak A^\la_0\hookto \widetilde{\mathfrak A}_0$.
+		
+		\item[(c)] Following conditions hold:
+		\bea
+		\label{inv_qo*_rzero_eqn}
+		\forall\widetilde a\in \widetilde{\mathfrak A}'\quad \left( K\left(\widetilde{B}_{\widehat{\pi}} \right)\cap  \widetilde{\mathfrak A}_0 \right) \widetilde{a}= \{0\}\quad \Rightarrow\quad \widetilde{a}= 0, \\
+		\label{inv_qo*_lzero_eqn}
+		\forall\widetilde a\in \widetilde{\mathfrak A}'\quad \widetilde{a}\left( K\left(\widetilde{B}_{\widehat{\pi}} \right)\cap  \widetilde{\mathfrak A}_0 \right) = \{0\}\quad \Rightarrow\quad \widetilde{a}= 0, \\
+		\label{inv_qo*_llim_eqn}	\mathrm{span}\left\lbrace \left(K\left(\widetilde{B}_{\widehat{\pi}} \right)\cap  \widetilde{\mathfrak A}_0 \right) \widetilde{\mathfrak A}'\right\rbrace =\mathrm{span}\left\lbrace  \left(K\left(\widetilde{B}_{\widehat{\pi}} \right)\cap  \widetilde{\mathfrak A}_0  \right) \left( \bigcup_{\la\in \La} \mathfrak A_\la\right) \right\rbrace ,\\	
+		\label{inv_qo*_rlim_eqn}\mathrm{span}\left\lbrace 	\widetilde{\mathfrak A}'\left(K\left(\widetilde{B}_{\widehat{\pi}} \right)\cap  \widetilde{\mathfrak A}_0 \right) \right\rbrace =\mathrm{span}\left\lbrace \left( \bigcup_{\la\in \La} \mathfrak A_\la\right) \left(K\left(\widetilde{B}_{\widehat{\pi}} \right)\cap  \widetilde{\mathfrak A}_0  \right) \right\rbrace  \eea
+		where $K\left(\widetilde B_{\widehat\pi} \right)$ is the Pedersen's ideal of $\widetilde A_\pi$ (cf. Definition \ref{peder_id_defn}) and span means the $\C$-linear span.
+		
+	\end{enumerate}
+	then $\left( \widetilde{\mathfrak A}', \widetilde{\mathfrak A}_0\right)$ is said to be \textit{admissible}.
+\end{defn}
+
+
+\begin{definition}\label{inv_qo*_lim_defn}
+	If $\left( \widetilde{\mathfrak A}, \widetilde{\mathfrak A}_0\right)$ is a maximal  among admissible a quasi *-algebras then 
+	we say that the triple
+	$\left(\left( {\mathfrak A}, {\mathfrak A}_0 \right), \left( \widetilde{\mathfrak A}, \widetilde{\mathfrak A}_0 \right), G_{\widehat{\pi}}\right)$ is the 
+	${\pi}$-\textit{ inverse noncommutative limit of $\mathfrak{S}^{\mathrm{pt}}$}.
+\end{definition}
+
+\paragraph*{title}
 \subsection{Coverings of spectral triples}
 \paragraph*{} Let $\left(C^{\infty}\left( M\right) , L^2\left( M, S\right) ,\slashed D\right)$ be a commutative spectral triple (cf. Equation \eqref{comm_sp_tr_eqn}), and let $p:\widetilde{M} \to M$ be an infinite regular covering such that  the {covering group} $G\left( {\widetilde{M}}~|~M\right)$ (cf. Definition \ref{cov_proj_cov_grp_defn}) is residually finite (cf. Definition \ref{residually_finite_defn}). From the Lemma \ref{top_res_fin_lem} it it turns out that there is a (topological)  finite covering category $\mathfrak{S} = \left\{p_\la: M_\la \to M\right\}$ (cf. \ref{top_sec_defn}) such that  the {(topological) inverse limit} of $\mathfrak{S}$ is naturally homeomorphic  to $\widetilde{M}$. From the Proposition \ref{comm_cov_mani_prop} it follows that $\widetilde{M}$ and $M_\la$ ($\forall \la \in \La$)  have natural structure of the Riemannian manifolds. According to the Example \ref{top_vb_lift_desc_exm} denote by $\widetilde{S}\stackrel{\mathrm{def}}{=} C_0\left( \lift_p\left(S \right) \right) $ and $S_\la \stackrel{\mathrm{def}}{=} C_b\left( \lift_{p_\la}\left( S\right) \right) $  (for all $\la \in \La$) the lifts of the spin bundle (cf. \ref{top_vb_sub_sub}). Similarly to the Section  \ref{top_cov_sp_tr_sec} one can prove that for any $\la \in \La$ that there is the $p_\la$-{inverse image} $p^{-1}_\la \slashed D$ of $\slashed D$ (cf. Definition \ref{top_smooth_inv_im_defn}) and the operator  $p_\la^{-1} \slashed D$ can be regarded as an unbounded operator on  $L^2\left( M_\la, S_\la\right)$. Moreover there is the $\widetilde p$-{inverse image} $\widetilde p^{-1} \slashed D$ of $\slashed D$ (cf. Definition \ref{top_smooth_inv_im_defn}) and the operator  $\widetilde p^{-1} \slashed D$ is  an unbounded operator on  $L^2\left( \widetilde M, \widetilde S\right)$.
  From the Lemma \ref{comm_t_a_lem} and the Theorem \ref{comm_main_thm} it turns out that 
@@ -17994,19 +18095,19 @@ Every regular space with a countable basis is normal.
 %	Theorem 41.1. 
 %Every paracompact Hausdorff space $\sX$ is normal
 %\end{theorem}
- %\begin{defn}
- %A space for which every open covering contains a countable subcovering is called a \textit{Lindel\"{o}f space}.
- %\end{defn}
+ \begin{defn}
+ A space for which every open covering contains a countable subcovering is called a \textit{Lindel\"{o}f space}.
+ \end{defn}
  %\begin{defn}\label{lindel_defn}\cite{engelking:general_topology}
 % We say that a topological space $\sX$ is a \textit{Lindel\"{o}f space}, or has  a \textit{Lindel\"{o}f property}, if $\sX$ is regular and every open cover of $\sX$ contains a countable subcover. 
 % \end{defn}
 %\begin{theorem}\label{lindel_thm}\cite{engelking:general_topology}
 %Every regular second-countable space in Lindel\"{o}f.
 %\end{theorem}
-%\begin{theorem}\label{lindel_para_thm}\cite{munkres:topology}
+\begin{theorem}\label{lindel_para_thm}\cite{munkres:topology}
 	%Theorem 41.5. 
-%	Every regular Lindel\"{o}f space is paracompact.
-%	\end{theorem}
+	Every regular Lindel\"{o}f space is paracompact.
+	\end{theorem}
 \begin{definition}\label{top_comp_defn}\cite{munkres:topology}
 	If $\sY$ is a compact Hausdorff space and $\sX$ is a proper subspace of $\sY$ whose
 	closure equals $\sY$, then $\sY$ is said to be a \textit{compactification} of $\sX$. If $\sY\setminus\sX$ equals a single
