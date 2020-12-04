@@ -4358,15 +4358,17 @@ If $\left\{f_\a\right\}_{\a\in \mathscr A}\subset C_c\left(\sX \right)$ is the d
 (iii) A point-wise limit 	$1_{C_b\left( \sX\right) }= \lim_{\a \in \mathscr A }f_\a$ is clear. If  $g\in C_c\left( \sX\right)$ then there is $\a_0\in  \in \mathscr A$ such that $\supp g \subset f^{1}_\a\left( 1\right)$ for all $\a\ge\a_0$. So one has $\a \ge \a_0 \Rightarrow f_a g = g$, it turns out that there is the following $C^*$-norm limit $\lim_{\a \in \mathscr A }f_\a g = g$. The limit is true for all $g \in  C_c\left( \sX\right)$ since $C_c\left( \sX\right)$ is dense in $C_0\left( \sX\right)$ one has $C^*$-norm limit $\lim_{\a \in \mathscr A }f_\a h = \lim_{\a \in \mathscr A }hf_\a= h$  for all $h \in  C_0\left( \sX\right)$. From the Definition \ref{strict_topology} it follows that there is the strict limit $	1_{C_b\left( \sX\right) }= \bt$-$\lim_{\a \in \mathscr A }f_\a$
 \end{proof}
 
-\begin{empt}\label{comm_unity_empt}
-Consider the situation of the Definition \ref{top_cfs_defn}. Sometimes the sums  $\sum_{j = 1}^n f_j$ and  $\sum_{j = 1}^n \widetilde f_j$ are replaced with $\sum_{\widetilde \a\in \mathscr A} a_\a$ and  $\sum_{\widetilde \a\in \widetilde{\mathscr A}} \widetilde a_{\widetilde \a}$ where both ${\mathscr A}$ and $\widetilde{\mathscr A}$ are finite sets $a_\a\in C_c\left(\sX \right)_+$, $\quad\widetilde a_{\widetilde \a}\in C_c\left(\widetilde\sX \right)_+$. Denote by
-\be\label{comm_eunity_eqn}
-\begin{split}
-	e_{ \a}\bydef \sqrt{ a_{ \a}}~,\\
-	\widetilde e_{\widetilde \a}\bydef \sqrt{\widetilde a_{\widetilde \a}}~.
-\end{split}
+\begin{empt}\label{comm_unity_empt}!!! CHECK REFERENCES
+Let $\sX$ be a locally connected, compact, Hausdorff space and let $\widetilde \sX \to \sX$ be a finite-fold covering. For any $x \in \sX$ select an open evenly covered by $p$ (cf. Definition \ref{comm_cov_pr_defn}) neighborhood $\sU_x$. Since $\sX$ is compact  there finite set $\left\{x_1, ..., x_n \right\}\subset \sX$ and a covering  sum (cf. Definition \ref{top_cfs_defn})  given by
+\be\label{top_cfsx_eqn}
+\sum_{j = 1}^n f_j\left( x\right) = 1\quad\forall x \in \sX.
 \ee
-Similarly one can select the smooth functions in the construction \ref{comm_direct_lem}.
+where $\supp f_j \subset\sU_{j}$ for all $j=1,...,n$.
+Instead of \eqref{top_cfsx_eqn} we write
+\be\label{top_cfsxa_eqn}
+\sum_{\a\in \mathscr A} a_\a\left( x\right) = 1\quad\forall x \in \sX.
+\ee
+where $\mathscr A$ is a finite set of indices.
 \end{empt}
 
 
@@ -5686,6 +5688,45 @@ The following Lemma is evident.
 	\end{split}
 	\end{equation}	
 \end{remark}
+\begin{empt}\label{comm_unitylu_empt}!!! CHECK REFERENCES
+	Consider the situation \ref{comm_unity_empt}. If 
+		\be\nonumber
+	\sum_{\a\in \mathscr A} a_\a\left( x\right) = 1\quad\forall x \in \sX.
+	\ee
+	is given by \eqref{top_cfsxa_eqn} then for all $\a\in \mathscr A$ the set
+	$$
+	\sU_{ \a}\bydef\left\{\left.x\in\sX\right|a_\a\left( x\right)> 0\right\}
+	$$
+	is an open set evenly covered by $p:\widetilde\sX\to \sX$.
+	For all $\a\in \mathscr A$ we select an open connected subset $\widetilde \sU_\a \subset \widetilde\sX$ which is mapped homeomorphically onto $\sU_\a$. For any $\a$
+	!!!!
+		\be\label{ctr_unity_sum_eqn}
+	1_{C\left(\widetilde{\mathcal X} \right) }= \sum_{\widetilde\a \in \widetilde{\mathscr A} }\widetilde{e}^2_{\widetilde{\a}}\quad \widetilde{e}_{\widetilde{\a}}\in C\left(\widetilde \sX\right)
+	\ee
+	such that 		for any nontrivial $g\in G\left(\left.\widetilde \sX \right|\sX \right)$	one has
+	\be\label{ctr_unity_orth_eqn}
+	\begin{split}
+		\widetilde{e}_{\widetilde{\a}}	\left(g \widetilde{e}_{\widetilde{\a}} \right) = 0.
+	\end{split}
+	\ee
+	If $\widetilde a \in \widetilde B$ then from \eqref{ctr_unity_sum_eqn} it follows that
+	\be\label{ctr_unity_orthx_eqn}
+	\widetilde a = \sum_{\widetilde\a \in \widetilde{\mathscr A} }\widetilde{e}_{\widetilde{\a}}\left( \widetilde{e}_{\widetilde{\a}}\widetilde a\right) 
+	\ee
+	From \eqref{ctr_unity_orth_eqn} it follows that if $g\in G\left(\left.\widetilde \sX \right|\sX \right)$ is not trivial then 
+	\be\label{ctr_unity_orthxx_eqn}
+	\widetilde{e}_{\widetilde{\a}}\left(g\left(  \widetilde{e}_{\widetilde{\a}}\widetilde a\right) \right) = 		\widetilde{e}_{\widetilde{\a}}	\left(g \widetilde{e}_{\widetilde{\a}} \right) \left(g \widetilde{\a} \right) = 0\cdot \left(g \widetilde{\a} \right) = 0.
+	\ee
+	From the equations \ref{ctr_unity_orthx_eqn} and \ref{ctr_unity_orthx_eqn} it follows that
+	$$
+	\widetilde a = \sum_{\widetilde\a \in \widetilde{\mathscr A} }\widetilde{e}_{\widetilde{\a}} a_\a\quad\text{where}\quad a_\a \bydef \sum_{g\in G\left(\left.\widetilde \sX \right|\sX \right)}g\left( \widetilde{e}_{\widetilde{\a}}\widetilde a\right)\in B, 
+	$$
+	i.e. $\widetilde B$ is a finitely generated $B$-module. So $\left(B, \widetilde B,G\left(\left.\widetilde \sX \right|\sX \right),  \widetilde\pi\right)$ is an unital noncommutative finite fold covering (cf. Definition \ref{fin_uni_defn}). From $ B \cap A_0\left(\widetilde \sX \right)=A$ and $G\left(\left.\widetilde \sX \right|\sX \right) \times A_0\left(\widetilde \sX \right)= A_0\left(\widetilde \sX \right)$ it follows that $\left( A,A_0\left(\widetilde \sX \right) , G\left(\left.\widetilde \sX \right|\sX \right) , A_0\left( p\right)  \right)$ is a noncommutative finite-fold covering with unitization.\\
+	
+	From Corollary \ref{ctr_uni_cov_cor} it follows that the image of the map \eqref{ctr_a_to_spc_eqn} contains finite-fold transitive coverings only.
+	
+\end{empt}
+
 \begin{lemma}\label{top_lift_bundle_lem}
 	Let  $\left( E, \pi, \mathcal X\right)$ be  vector bundle with the family of fibers $\left\{E_x\right\}_{x \in \sX}$ and let $\Ga\left( E, \pi, \mathcal X\right)$ be a $\left( E, \pi, \mathcal X\right)$-continuous structure (cf. Lemma \ref{top_bundle_cs_lem}). If $p: \widetilde{\sX} \to \sX$ is a covering and $\left( E\times_\sX\widetilde\sX,\rho, \widetilde\sX\right)$ is the {inverse image} of $\left( E, \pi, \mathcal X\right)$ by $p$ (cf. Definition \ref{vb_inv_img_funct_defn}) then there is the natural $\C$-isomorphism
 	$$
@@ -10455,44 +10496,48 @@ is a noncommutative finite-fold covering  with unitization (cf. Definition \ref{
 	\label{ctr_a_to_spt_eqn}
 	\left(A, \widetilde A, G, \pi \right) \mapsto \left(\mathrm{the~ given~ by~the~Equation~}\eqref{cov_spectrum_eqn} \mathrm{~map~} p: \widetilde \sX \to \sX \right).    
 	\eea
+	(cf. Definition \ref{fin_defn}).
 \end{theorem}
 
 \begin{proof}
-
-	For our proof we need  the  finite or countable sequence $\sU_1 \subsetneqq  ...\subsetneqq \sU_n\subsetneqq ...$ of connected open subsets of $\sX$ given by the Lemma \ref{top_fin_comp_lin_cov_lem} which satisfies to the following conditions
-	\begin{itemize}
-		\item For any $n \in \N$ the closure $\sV_n$ of $\sU_n$ is compact.
-		\item $\cup~ \sU_n = \sX$.
-		\item The space $p^{-1}\left( \sU_n\right)$ is connected for any $n \in \N$.
-	\end{itemize}
-	
-	Firstly proof that the image of the map \eqref{ctr_spt_to_a_eqn} contains finite-fold noncommutative coverings only. 
-Clearly the quadruple  $\left(A, A_0\left(\widetilde \sX \right) , G\left(\left.\widetilde \sX \right|\sX \right) , A_0\left( p\right)  \right)$ is a noncommutative finite-fold precovering (cf. Definition \ref{fin_pre_defn}). 
-	If $\left.A\right|^{\sV_n}$ is given by \eqref{closed_ideal_eqn} then from the the Proposition \ref{ctr_hered_prop} it follows that $\left.A\right|^{\sV_n}$ is a continuous trace $C^*$-algebra. Moreover from the Lemma \ref{top_ax_sp_lem} it turns out  that the spectrum of $\left.A\right|^{\sV_n}$ equals to $\sV_n$. If $\widetilde\sV_n\bydef p^{-1}\left(\sV_n\right)$ then $\left.p\right|_{\widetilde\sV_n}: \widetilde\sV_n\to \sV_n$ is a finite-fold transitive covering. From the Corollary \ref{comp_axcp_cor} it follows that there is a noncommutative finite-fold covering with unitization
+	Let $\left\{u_\la\right\}_{\la\in \La}\subset C_c\left( \sX\right)_+$ be a family such that
+		$$
+		u_\la\left(\sX \right)\subset \left[0,1\right] 
+		$$
+		If the order on $\La$ is given by
+		$$
+	\forall\mu,\nu \in \La \quad \mu \ge \nu \quad \Leftrightarrow u_\mu \ge u_\nu	
+		$$ 
+		then $\La$ is a directed set (cf. Definition \ref{directed_set_defn}). Similarly to the proof of the Lemma \ref{comm_slfin_lem} one can prove that there is a following strict limit
+\be	\label{ctr_fn_bt_lim_eqn}
+	\bt\text{-}\lim_{\la \in \La }u_\la = 1_{C_b\left( \sX\right)} = 1_{M\left(A \right) }
+\ee
+		(cf. Definition \ref{strict_topology}).
+		For all $\la\in \La$ denote by $\sV_\la \bydef \supp u_\la$ and let $\sU_\la$ be a maximal open subset of $\sV_\la$.
+	Firstly we prove that the image of the map \eqref{ctr_spt_to_a_eqn} contains finite-fold noncommutative coverings only. 
+Clearly the quadruple  \\$\left(A, A_0\left(\widetilde \sX \right) , G\left(\left.\widetilde \sX \right|\sX \right) , A_0\left( p\right)  \right)$ is a noncommutative finite-fold precovering (cf. Definition \ref{fin_pre_defn}). 
+	If $\left.A\right|^{\sV_\la}$ is given by \eqref{closed_ideal_eqn} then from the the Proposition \ref{ctr_hered_prop} it follows that $\left.A\right|^{\sV_\la}$ is a continuous trace $C^*$-algebra. Moreover from the Lemma \ref{top_ax_sp_lem} it turns out  that the spectrum of $\left.A\right|^{\sV_\la}$ equals to $\sV_\la$. If $\widetilde\sV_\la\bydef p^{-1}\left(\sV_\la\right)$ then $\left.p\right|_{\widetilde\sV_\la}: \widetilde\sV_\la\to \sV_\la$ is a finite-fold transitive covering. From the Corollary \ref{comp_axcp_cor} it follows that there is a noncommutative finite-fold covering with unitization
 	$$
-	\left(\left.A\right|^{\sV_n}, \left.A_0\left(\widetilde\sX\right)\right|^{p^{-1}\left(\sV_n\right)} , G\left(\left.\widetilde\sV_n\right|\sV_n \right)\right) 
+	\left(\left.A\right|^{\sV_\la}, \left.A_0\left(\widetilde\sX\right)\right|^{p^{-1}\left(\sV_\la\right)} , G\left(\left.\widetilde\sV_\la\right|\sV_\la \right)\right) 
 	$$
 	From the Corollary \ref{comp_axc_cor} it follows that
 	\bean
-	\left(\left.\left.A\right|^{\sV_n}\right|_{\sU_n}, \left.\left.A_0\left(\widetilde\sX\right)\right|^{p^{-1}\left(\sV_n\right)}\right|_{p^{-1}\left( \sU_n\right)}, G\left(\left.\widetilde\sU_n\right|\sU_n \right)\right) =\\
+	\left(\left.\left.A\right|^{\sV_\la}\right|_{\sU_n}, \left.\left.A_0\left(\widetilde\sX\right)\right|^{p^{-1}\left(\sV_\la\right)}\right|_{p^{-1}\left( \sU_n\right)}, G\left(\left.\widetilde\sU_n\right|\sU_n \right)\right) =\\
 	= \left(A|_{\sU_n}, \left.\left.A_0\left(\widetilde\sX\right)\right.\right|_{p^{-1}\left( \sU_n\right)}, G\left(\left.\widetilde\sU_n\right|\sU_n \right)\right) 
 	\eean
 	is a noncommutative finite-fold covering with unitization. 
 	From the Remark \ref{comm_fn_bt_lim_rem} it follows that there is the increasing sequence $\left\{u_n\in C_c\left( \sX\right)_+\right\}_{n\in \N}$ such that
-	\be\label{ctr_fn_bt_lim_eqn}
-	1_{C_b\left(\mathcal X \right) }= \bt\text{-}\lim_{n\to \infty} u_n\quad \supp u_n = \sV_n
-	\ee
 	with respect to the strict topology on the multiplier algebra $M\left(C_0\left(\mathcal X \right)  \right)$ (cf. Definition \ref{strict_topology}). The limit can be regarded as a limit with respect to strict  topology of $M\left( A\right)$. From the Lemma \ref{ctr_fact_lem} it follows that both $C^*$-algebras $\left. A\right|_{\sU_n}$ and $ \left.\widetilde A\right|_{\widetilde \sU_n}$ are $C^*$-norm completions of $u_nAu_n$ and $u_n\widetilde Au_n$ respectively. 
 	So 	right part of \eqref{ctr_spt_to_a_eqn} satisfies to the Definition \ref{fin_defn}, i.e. it is a finite-fold noncommutative covering.
 	\\
 	
 	Let us prove that the right part of the Equation \eqref{ctr_a_to_spt_eqn} contains finite fold coverings only. Consider an increasing net $\left\{u_\la\right\}_{\la\in\La}\subset M\left( A\right)_+ $ and coverings with unitizations	$\left(A_\la, \widetilde{A}_\la, G, \left.\pi\right|_{A_\la}\right)$ required by the Definition \ref{fin_defn}.	
 	For all $\la\in\La$ the subalgebra $A_\la\subset A$ is hereditary (cf. Remark \ref{hered_fin_rem}), so from the Proposition \ref{ctr_hered_prop} is a $C^*$-algebra with continuous trace. If both $\sX_\la$ and  $\widetilde\sX_\la$ are spectra of ${A}_\la$ and $\widetilde{A}_\la$ which are open subsets of $\sX$ and  $\widetilde\sX$ (cf. Proposition \ref{hered_spectrum_prop}).  From $\bt\text{-}\lim_{\la\in \La} u_\la = 1_{M\left(A\right)}$ and the Lemma \ref{ind_qusai_lem} it follows that $\left\{u_\la\right\}$ is an approximate unit for $M\left(\widetilde A\right)$, so the union $\cup {A}_\la$ is dense in $A$. For any $ x_0\in \sX$ there is $ a \in  A$ such that $\left\| \rep_{ {x}_0}\left( a \right)\right\| > 1$. Otherwise since  $\cup {A}_\la$ is dense in $A$ there is $\la_0\in \La$ and $a_0\in A_{\la_0}$ such that $\left\|a - a_0 \right\| < 1/2$. It follows that $\left\| \rep_{ {x}_0}\left( a \right)\right\| > 1/2$ so one has $x_0\in \sX_{\la_0}$.  It turns out that $\sX = \cup\sX_\la$. Similarly one can prove that  $\widetilde\sX = \cup\widetilde\sX_\la$.
-	For any $n \in \N$ the set $\sV_n$ is compact, hence from $\sX = \cup\sX_\la$  there is $\la_n\in\La$ such that $\sV_n\subset \sX_{\la_n}$. If $\left.A_\la\right|^{\sV_n}$ the $\sV_n$-restriction (cf. \ref{top_a_res_rem} and the Definition \ref{ctr_restr_defn}) then from the Lemma \ref{top_ax_sp_lem} it follows that $\left.A_\la\right|^{\sV_n}$ is a $C^*$-algebra with continuous trace and the spectrum of $\left.\widetilde A_\la\right|^{\widetilde\sV_n}$ equals to $\widetilde\sV_n$. (cf. Lemma \ref{top_ax_sp_lem}) .From the Corollary \ref{comp_axcp_cor} there is a noncommutative  finite-fold covering with unitization
+	For any $n \in \N$ the set $\sV_\la$ is compact, hence from $\sX = \cup\sX_\la$  there is $\la_n\in\La$ such that $\sV_\la\subset \sX_{\la_n}$. If $\left.A_\la\right|^{\sV_\la}$ the $\sV_\la$-restriction (cf. \ref{top_a_res_rem} and the Definition \ref{ctr_restr_defn}) then from the Lemma \ref{top_ax_sp_lem} it follows that $\left.A_\la\right|^{\sV_\la}$ is a $C^*$-algebra with continuous trace and the spectrum of $\left.\widetilde A_\la\right|^{\widetilde\sV_\la}$ equals to $\widetilde\sV_\la$. (cf. Lemma \ref{top_ax_sp_lem}) .From the Corollary \ref{comp_axcp_cor} there is a noncommutative  finite-fold covering with unitization
 	$$
-	\left( \left.A_\la\right|^{\sV_n}, \left.\widetilde A_\la\right|^{\widetilde\sV_n}, G\left(\left.\widetilde\sV_n\right|\sV_n \right) \right) 
+	\left( \left.A_\la\right|^{\sV_\la}, \left.\widetilde A_\la\right|^{\widetilde\sV_\la}, G\left(\left.\widetilde\sV_\la\right|\sV_\la \right) \right) 
 	$$
-	From the Corollary \ref{comp_axcp_cor} it turns out that the given by the Lemma \ref{cov_spectrum_lem} map $\left.p\right|_{\widetilde\sV_n}: \widetilde\sV_n\to\sV_n$ is a finite-fold transitive covering. From $\sX = \cup\sV_n$ and $\widetilde\sX = \cup\widetilde\sV_n$ it follows that $p: \widetilde\sX\to\sX$ is a transitive covering.
+	From the Corollary \ref{comp_axcp_cor} it turns out that the given by the Lemma \ref{cov_spectrum_lem} map $\left.p\right|_{\widetilde\sV_\la}: \widetilde\sV_\la\to\sV_\la$ is a finite-fold transitive covering. From $\sX = \cup\sV_\la$ and $\widetilde\sX = \cup\widetilde\sV_\la$ it follows that $p: \widetilde\sX\to\sX$ is a transitive covering.
 \end{proof}
 
 
@@ -22630,7 +22675,26 @@ For all $s \in \mathscr{F}\left(\sX \right)$,
 \ee
 denotes the \textit{support} of the section $s$.
 
+\section{Measure theory}
+ \begin{empt}
+ 	We need the notion of essential support  functions described in \cite{elliot:an}. For a given Borel measure $\mu$ let $f$ be a Borel-measurable function. Consider the collection $\widetilde{\Om}$ of open subsets $\om$ with the property that $f\left(x \right)=0$ for $\mu$-almost every $x \in \om$ and let the open set $\om^*$ be the union of all $\om$'s in  $\widetilde{\Om}$.
 
+ \end{empt}
+ \begin{defn}
+The  \textit{essential support} of $f$ or $\mathfrak{ess~supp}\left( f\right)$ is the complement of $\om^*$. There is the following formula
+	$$
+	\mathfrak{ess~supp}\left( f\right) = \mathcal X \setminus \bigcup \left\{\om \in \mathcal X~|~ \om \text{ is open and } f=0~\mu-\text{almost everywhere in }\om\right\}.
+ 	$$
+	If $x \notin \mathfrak{ess~supp}\left( f\right)$ then there is an open neighborhood $\mathcal U$ of $x$ and representative $\varphi$ of $f$ such that $\varphi\left({\mathcal U}\right) = \{0\}$. 
+\end{defn}
+
+
+%\begin{theorem}\label{lusin_thm}\cite{bogachev_measure_v1}(Lusin theorem)
+%2.2.10. Theorem. 
+%A function $f$ on an interval I with Lebesgue measure
+%is measurable precisely when for each ? > 0, there exist a continuous function
+%f? and a compact set K? such that ?(I\K?) < ? and f = f? on K?.
+%\end{theorem}
 
 \section{Isospectral deformations}
 \paragraph*{}A very general construction of isospectral
@@ -22974,7 +23038,7 @@ M. F. Atiyah, R. Bott and A. Shapiro, \textit{Clifford Modules}, Topology{\bf 3}
 
 %\bibitem{blecher:hilb_gen} D.P. Blecher. {\it A generalization of Hilbert modules}, J.Funct. An. 136, 365-421 1996.
 
-%\bibitem{bogachev_measure_v1}V. I. Bogachev. {\it Measure Theory} (volume 1). Springer-Verlag, Berlin, 2007.
+\bibitem{bogachev_measure_v1}V. I. Bogachev. {\it Measure Theory} (volume 1). Springer-Verlag, Berlin, 2007.
 
 \bibitem{bogachev_measure_v2}V. I. Bogachev. {\it Measure Theory}. (volume 2). Springer-Verlag, Berlin, 2007.
 
@@ -23081,6 +23145,8 @@ J. C. V\'arilly and J. M. Gracia-Bond\'{\i}a, \textit{Algebras of distributions 
 
 
 \bibitem{effros:loc_conv} E.G. Effros, C. Webster \textit{ Operator analogues of locally convex spaces}, in: Operator Algebras and Applications,Samos 1996, in: NATO Adv. Sci. Inst. Ser. C Math. Phys. Sci., vol. 495, Kluwer, Amsterdam, 1997.
+
+\bibitem{elliot:an} Elliott H. Lieb, Michael Loss. \textit{Analysis}, American Mathematical Soc., 2001.
 
 
 \bibitem{fell:operator_fields}J. M. G. Fell. \textit{The structure of algebras of operator fields}. Acta Math. Volume 106, Number 3-4 (1961), 233-280. 1961.
