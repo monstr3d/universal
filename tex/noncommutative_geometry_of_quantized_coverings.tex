@@ -7932,7 +7932,7 @@ Taking into account the bijective map $\overline\sX \to \widehat{\sX}$ one has  
 Indeed the image of $\phi$ is contained in the *-algebra of bounded D-Borel functions
 (cf. \ref{st_rep_sec}).
 
-\begin{empt}
+\begin{empt}\label{top_mu_empt}
 	Denote by  
 	\bean
 	\begin{split}
@@ -7988,6 +7988,41 @@ Indeed the image of $\phi$ is contained in the *-algebra of bounded D-Borel func
 	\ee  
 	Any $\pi_\mu$-weakly special element (cf. Definition of the category \ref{weakly_spec_defn}) lies in $B\left(L^2\left(\overline  \sX , \overline \mu\right) \right)$. If follows that if $\overline A_{\pi_\mu}$ is the $\pi_\mu$-{ disconnected algebraical inverse noncommutative limit} (cf. Definition \ref{main_defn_full_defn}) then $\overline A_{\pi_\mu}\subset B\left(L^2\left(\overline  \sX , \overline \mu\right) \right)$.
 \end{empt}
+
+
+\begin{lemma}\label{comm_lift_desc_sum_mu_strong_lem}
+	Consider the  situation \ref{top_mu_empt}. Suppose that  $\mathcal U\subset \mathcal X$  is a connected open subset evenly {covered} by $\overline{\mathcal U}\subset \overline{\mathcal X}$. If $\overline a \in C_0\left(\overline\sX \right)$ be  an  element such that 
+	$\supp \overline a \subset \overline \sU$ then the following conditions hold:
+	\begin{enumerate}
+	\item [(i)] The series 	
+	\be\label{comm_lift_desc_sum_mu__strong_eqn}
+	\sum_{g \in G\left(\left.\overline{\sX}~\right|\sX\right) } \pi_\mu\left( g\overline{a}\right).
+	\ee 
+	is convergent in the strong  topology of $B\left(L^2\left(\overline  \sX , \overline \mu\right)\right)$  (cf. Definition \ref{strong_topology_defn}).
+	\item[(ii)] 
+	\be\label{comm_desc_sum_mu_strong_eqn}
+	\begin{split}
+		\sum_{g \in G\left(\left.\overline{\sX}~\right|\sX\right) } \pi_\mu\left( g\overline{a}\right)  = \pi_\mu\left(  \desc_{\overline p}\left( \overline{a}\right)\right)
+	\end{split}
+	\ee
+where $\desc_{\overline p}$ means the descent (cf. Definition \ref{top_lift_desc_defn}).
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+(i) Let $\eps > 0$ and $\xi \in L^2\left(\overline  \sX , \overline \mu\right)$ be given. There is a compact set $\overline \sY\subset \overline\sX$ such that $\left\|\chi_{\overline  \sY } \xi\right\|  \left\|\overline a\right\| < \eps$ where $\chi_{\overline  \sY }\in L^\infty\left(\overline  \sX \right) $ is the characteristic function of $\overline  \sY$. Since $\overline \sY$ is compact there is a finite subset $G' \subset G\left(\left.\overline{\sX}~\right|\sX\right)$ such that $\bigcup_{g\in \left(G\left(\left.\overline{\sX}~\right|\sX\right)\setminus G'\right)} g \overline{\mathcal U} = \emptyset$. From the above construction it follows that for any finite set $G \subset G\left(\left.\overline{\sX}~\right|\sX\right)$ one has
+$$
+G'\subset G \quad \Rightarrow\quad \left\|\left( 	\sum_{g \in G } \pi_\mu\left( g\overline{a}\right)-	\sum_{g \in G' } \pi_\mu\left( g\overline{a}\right)\right) \xi\right\|< \eps.
+$$ 
+The above equations means that 	the series \eqref{comm_lift_desc_sum_mu__strong_eqn}
+is convergent in the strong  topology of $B\left(L^2\left(\overline  \sX , \overline \mu\right)\right)$.\\
+(ii) From the proof of (i) it turns out that for any finite set $G \subset G\left(\left.\overline{\sX}~\right|\sX\right)$ one has
+$$
+G'\subset G \quad \Rightarrow\quad \left\|\left( 	\sum_{g \in G } \pi_\mu\left( g\overline{a}\right)-\pi_\mu\left(  \desc_{\overline p}\left( \overline{a}\right)\right)\right) \xi\right\|< \eps.
+$$ 
+The above equation means that the strong limit of the series \eqref{comm_lift_desc_sum_mu__strong_eqn} equals to $\pi_\mu\left(  \desc_{\overline p}\left( \overline{a}\right)\right)$.
+\end{proof}
+
+
 \begin{lemma}\label{comm_disc_inc_mu_lem}
 	If $\overline A_{\pi_\mu}$ is the $\pi_\mu$-disconnected infinite noncommutative covering of $\mathfrak{S}_{C_0\left( \mathcal{X}\right)}$ then the map \eqref{comm_sp_x_eqn} there is an inclusion of $C^*$- algebras
 \be\label{comm_inc_mu_eqn}
@@ -7995,6 +8030,83 @@ Indeed the image of $\phi$ is contained in the *-algebra of bounded D-Borel func
 \ee
 where $\phi_\mu$ is given by the Equation \eqref{top_phi_mu_eqn}
 \end{lemma}
+\begin{definition}\label{special_element_defn!}
+	Let $\mathfrak{S}^{\mathrm{pt}}=\left(\left\{\pi_\la: A \hookto A_\la \right\}, \left\{\pi^\mu_\nu\right\}\right)\in \mathfrak{FinAlg}^{\mathrm{pt}}$  be a  {pointed algebraical  finite covering category}. $\widehat{A} \bydef C^*\text{-}\varinjlim_{\la \in \La} A_{\la}$ be the $C^*$-inductive limit of $C^*$-algebras, and let $\widehat{G}\bydef \varprojlim_{\la \in \La} G\left(
+	\left.  A_\la~ \right|A\right)$ be the projective limit of groups.
+	Let $G_\la \bydef \ker\left(  \widehat G\to  G\left(\left.A_\la~\right|~A \right)\right)$, and let $A_{\la}^{\sim}$ be given by \eqref{unital_notation_eqn}. Let $\pi:\widehat{A}\to B\left(\H \right)$ be an equivariant representation. 
+	A  positive element $\overline a \in B\left(\H\right)_+$ is said to be $\pi$-\textit{special} if for any $\la_0 \in \La$, $\eps > 0$ and  $z \in A_{\la_0}^{\sim}$
+	it satisfies to the following conditions:	
+	\begin{enumerate}
+		\item[(a)] 	If   $f_\eps: \R \to \R$ is a continuous function given by 
+		\begin{equation}\label{f_eps_eqn}
+			f_\eps\left( x\right)  =\left\{
+			\begin{array}{c l}
+				0 &x \le \eps \\
+				x - \eps & x > \eps
+			\end{array}\right.
+		\end{equation}%\label{spec_el_eqn}
+		then for all $\la \ge \la_0$  there are $ a_\la, b_\la, a^\eps_\la \in A_\la$ such that
+		\be\label{spec_a_eps_eqn!}
+		\begin{split}
+			\sum_{g\in G_\la } \pi \left(z\right)^*\left(  g\overline a\right) \pi\left( z\right)   = \pi\left(a_\la \right),\\
+			\sum_{g\in G_\la } f_\eps\left(\pi \left(z\right)^* \left( g\overline a\right) \pi\left( z\right)\right)    = \pi\left(a^\eps_\la \right),\\
+			\sum_{g\in G_\la  } \left(\pi \left(z\right)^* \left( g\overline a\right) \pi\left( z\right)\right)^2    = \pi\left(b_\la \right) 
+		\end{split}
+		\ee
+		where sums of the above series mean the strong convergence in  $B\left(\H\right)$ and the action  $G_\la\times B\left(\H\right)\to B\left(\H\right)$ is given by \eqref{equivb_eqn}.
+		\item[(b)] There is $\mu \in \La$ such that $\mu \ge \la_0$ and
+		\be\label{special_set_eqn!}
+		\forall \la  \in \La \quad	 \la \ge \mu  \Rightarrow  \left\|a_\la^2 - b_\la\right\| < \eps
+		\ee
+		where $a_\la, b_\la \in A_\la$ are given by \eqref{spec_a_eps_eqn!}.
+	\end{enumerate}
+	If $\pi$ is the atomic representation then $\overline a$ is said to be \textit{special}.
+\end{definition}
+\
+\begin{proof}
+	Denote by	$\overline{p}: \overline{   \mathcal X } \to \sX$ and $\overline{p}_\la: \overline{   \mathcal X } \to \sX_\la$ the natural coverings. 	
+	If $\overline a \in C_c\left(\overline\sX\right)_+$ is a positive function then $\overline{   \mathcal U } \bydef \left\{\left.\overline x \in \overline{   \mathcal X }\right| \overline a \left(\overline x\right)> 0\right\}$ is an open set.
+	Suppose that  $\overline{   \mathcal U } \subset \overline{   \mathcal X }$ is homeomorphically mapped onto $\sU = \overline{p}\left(  \overline{   \mathcal U }\right)  \subset {   \mathcal X }$. Let us prove that $\overline a$ is special, i.e. it  satisfies to the conditions (a) and (b) of the Definition \ref{special_element_defn}.
+	\begin{enumerate}
+		\item [(a)] If $f_\eps$ is given by \eqref{f_eps_eqn} then  for each $\eps > 0$ one has 
+		\bean
+		f_\eps\left(\overline a\right)  \in C_c\left( \overline{   \mathcal X }\right)_+,\\
+		\supp f_\eps\left(\overline a\right)  \subset \overline{   \mathcal U}.
+		\eean
+		From the Lemma \ref{comm_lift_desc_sum_mu_strong_lem} it turns out that
+		$$
+		\sum_{g \in  \ker\left(  G\left(\left.\widetilde{\sX}~\right|\sX\right) \to G\left(\left.{\sX}_\la~\right|\sX\right) \right)  }  ~~\pi_\mu\left( gf_\eps\left( \widetilde{a}\right) \right) = \pi_\mu\left(  \desc_{\overline p_\la}\left( f_\eps\left( \widetilde{a}\right)\right)\right).
+		$$
+		where $ \desc_{\overline p_\la}\left( f_\eps\left( \widetilde{a}\right)\right) \in C_0\left( \sX_\la\right) $ is the $\overline p_\la$-descend of $f_\eps\left( \widetilde{a}\right)$ of (cf. Definition \ref{top_lift_desc_defn}).
+		Otherwise $\desc_{\overline p_\la}\left( f_\eps\left( \widetilde{a}\right)\right) \in C_0\left(\sX_\la \right)$ for any $\la \in \La$. 
+		\item[(b)] For every $\la \in \La$ the set $\overline \sU$ is mapped homeomorhically onto its image in $\sX_\la$, it turns out that		if $a_\la \in C_0\left(\sX_\la \right)$ is given by \eqref{spec_a_eqn} then according to the Lemma \ref{comm_lift_desc_sum_mu_strong_lem} one has
+		$
+		a_\la = \desc_{\overline p_\la}\left( \overline{a}\right)$. Similarly for all  $\la_0 \in \La$ and
+		for every $z \in C_0\left(\sX_{\la_0}\right) ^+$ following  condition holds $\supp z^*\widetilde{a}z \subset \overline{   \mathcal U }$ so from the Lemma \ref{comm_lift_desc_sum_strong_lem} one has
+		$$
+		\la > \la_0 \quad\Rightarrow\quad 			\sum_{g \in \ker\left(  G\left(\left.\widetilde{\sX}~\right|\sX\right) \to G\left(\left.{\sX}_\la~\right|\sX\right) \right)  }  ~~\pi_\mu\left( g\left( z^*\widetilde{a}z\right) \right) = \pi_\mu\left(  \desc_{\overline p_\la}\left( z^*\widetilde{a}z\right)\right).
+		$$
+		From the above equation it turns out that
+		\be\label{top_desc2_mu_eqn}
+		\begin{split}
+			\forall \mu, \nu \in \La \quad	\nu \ge \mu \ge \la \quad \Rightarrow \\\Rightarrow \quad \sum_{g \in G\left(\left.\sX_\nu\right|\sX_\mu\right)} g\left( z^* a_\nu z\right)= \desc_{{p}^\mu_\nu}	\left( z^* a_\nu z\right)\text{ AND }\\
+			\text{ AND }\sum_{g \in G\left(\left.\sX_\nu\right|\sX_\mu\right)} g\left( z^* a_\nu z\right)^2= \desc_{{p}^\mu_\nu}	\left( z^* a_\nu z\right)^2
+		\end{split}
+		\ee
+		where $p^\mu_\nu: \sX_\mu \to \sX_\nu$ is the natural covering.
+		The equation \eqref{top_desc2_eqn} yields the following
+		\be\label{top_specialp_set_eqn}
+		\forall \mu, \nu \in \La \quad	\nu \ge \mu \ge \la  \Rightarrow  \left\|\left(z^* a_\mu z\right)^2  - \sum_{g \in G\left(\left.\sX_\nu\right|\sX_\mu\right)} g\left( z^* a_\nu z\right)^2\right\| =0
+		\ee
+		which is a specialization of \eqref{special_set_eqn}.
+		
+	\end{enumerate}
+	
+	Now taking into account the Lemma	\ref{top_comp_sum_lem} one concludes that $C_c\left( \overline{\sX}\right)_+\subset \varphi\left( \overline{A}\right)$. Since $C_c\left( \overline{\sX}\right)$ is dense in $C_0\left( \overline{\sX}\right)$ (cf. Definition \ref{c_c_def_1}) and $\overline{   A}$ is $C^*$-norm closed  we have $C_0\left( \overline{\sX}\right)\subset \varphi\left( \overline{A}\right)$.
+\end{proof}
+
+
+
 
 \begin{lemma}\label{comm_disc_inc_lem}
 	If $\overline{A}$ is the disconnected infinite noncommutative covering of $\mathfrak{S}_{C_0\left( \mathcal{X}\right)}$ then the map \eqref{comm_sp_x_eqn} yields the natural injective *-homomorphism
@@ -8055,12 +8167,6 @@ If $\overline a \in C_c\left(\overline\sX\right)_+$ is a positive function then 
 	
 Now taking into account the Lemma	\ref{top_comp_sum_lem} one concludes that $C_c\left( \overline{\sX}\right)_+\subset \varphi\left( \overline{A}\right)$. Since $C_c\left( \overline{\sX}\right)$ is dense in $C_0\left( \overline{\sX}\right)$ (cf. Definition \ref{c_c_def_1}) and $\overline{   A}$ is $C^*$-norm closed  we have $C_0\left( \overline{\sX}\right)\subset \varphi\left( \overline{A}\right)$.
 \end{proof}
-\begin{empt}!!!
-	
-\end{empt}
-\begin{lemma}!!!!
-	content...
-\end{lemma}
 
 \begin{empt}
 	Denote by $G_\la = G\left(\mathcal X_\la~|~\mathcal X \right)$ groups of covering transformations and $\widehat{G} = \varprojlim G_\la$. Denote by $\overline{p}:\overline{  \mathcal X} \to \mathcal X$, $\overline{p}_\la:\overline{  \mathcal X} \to \mathcal X_\la$, $p^\la:  \mathcal X_\la \to \mathcal X$, $p^\mu_\la:  \mathcal X_\mu \to \mathcal X_\la$ ($\mu > \la$) the natural covering projections.
@@ -10586,9 +10692,10 @@ is a noncommutative finite-fold covering  with unitization (cf. Definition \ref{
 
 \begin{proof}
 	Let $\left\{u_\la\right\}_{\la\in \La}\subset C_c\left( \sX\right)_+$ be a family such that
-		$$
-		u_\la\left(\sX \right)\subset \left[0,1\right] 
-		$$
+	\bean
+		u_\la\left(\sX \right)\subset \left[0,1\right],
+\\	\left\{\left. x\in\sX\right|u_\la\left( x\right) > 0 \right\} \quad \text{is connected set}.
+\eean
 		If the order on $\La$ is given by
 		$$
 	\forall\mu,\nu \in \La \quad \mu \ge \nu \quad \Leftrightarrow u_\mu \ge u_\nu	
