@@ -7645,6 +7645,8 @@ and the covering $\widetilde\sX\to \sX$ is transitive.
 \begin{definition}\label{top_topological_inv_lim_defn}
 	The given by the Lemma  \ref{top_universal_covering_lem} final object $\left(\left(\widetilde{\sX}, \widetilde{x}_0\right),p^{\widetilde{\mathcal X}} \right)$ of the category $\downarrow\mathfrak{S}_{\left( \sX, x_0\right)}$ is said to be the \textit{topological inverse limit} of $\mathfrak{S}_{\left( \sX, x_0\right)}$.  The notation $\left(\left(\widetilde{\sX}, \widetilde{x}_0\right),p^{\widetilde{\mathcal X}} \right) = \varprojlim  \mathfrak{S}_{\left( \sX, x_0\right)}$ or simply $~\widetilde{\mathcal{X}} =  \varprojlim \mathfrak{S}_{\left( \sX, x_0\right)}$ will be used. The given by (ii) of the Lemma \ref{top_spec_top_constr_lem} space $\overline{\mathcal X}$ is said to be the \textit{disconnected inverse limit} of $\mathfrak{S}_{\left( \sX, x_0\right)}$.
 \end{definition}
+
+
 \begin{lemma}\label{top_comp_la_lem}
 	Let  $\mathfrak{S}_{\left( \sX, x_0\right) }= \left\{\left( \sX_\la, x^\la_0\right) \to \left( \sX, x_0\right)\right\}_{\la \in \La} \in \mathfrak{FinTop}^{\mathrm{pt}}$ be a pointed topological finite covering category, and let $\overline{   \mathcal X}$ be the {disconnected inverse limit} of $\mathfrak{S}_{\left( \sX, x_0\right)}$.
 	For any compact $\overline{   \mathcal U } \subset \overline{   \mathcal X }$ there is $\la_{\overline{   \mathcal U }} \in \La$ such that for any  $\la \ge \la_{\overline{   \mathcal U }} \in \La$ such that for  any  $\la \ge \la_{\overline{   \mathcal U }}$ the set $\overline{   \mathcal U }$  is mapped homeomorphically onto  $\overline{p}_\la\left(\overline{   \mathcal U } \right) \subset \sX_\la$ where $\overline{p}_\la:   \overline{   \mathcal X}   \to  \sX_\la$ is the natural covering. 
@@ -7808,8 +7810,9 @@ If	$\mathfrak{S}_{\left(\sX, x_0\right)}= \left\{p_\la:\left( \sX_\la, x^\la_0\r
 is a {pointed algebraical  finite covering category} (cf. Definition \ref{comp_pt_defn}).
 \end{lemma}
 \begin{proof}
-According to our construction for any $\mu >\nu$ the category $	\mathfrak{S}_{C_0\left(\sX \right) }$ contains the unique injective *-homomorphism from $C_0\left(\sX_\nu \right)$ to $C_0\left(\sX_\mu \right)$. This lemma follows from the Remark \ref{comp_pt_rem}.
+According to our construction for any $\mu >\nu$ the category $	\mathfrak{S}_{C_0\left(\sX \right) }$ contains the unique injective *-homomorphism from $C_0\left(\sX_\nu \right)$ to $C_0\left(\sX_\mu \right)$. This lemma follows from the Remark \ref{comp_pt_rem}. 
 \end{proof}
+
 
 
 \begin{empt}\label{top_poi_alg}
@@ -7926,7 +7929,72 @@ Taking into account the bijective map $\overline\sX \to \widehat{\sX}$ one has  
 	\end{split}
 	\ee
 \end{empt}
+Indeed the image of $\phi$ is contained in the *-algebra of bounded D-Borel functions
+(cf. \ref{st_rep_sec}).
 
+\begin{empt}
+	Denote by  
+	\bean
+	\begin{split}
+		\mathfrak{S}_{\left( \sX, x_0\right) }\bydef\\
+		\bydef \left\{\left\{p_\la:\left( \sX_\la, x^\la_0\right) \to \left( \sX, x_0\right)\right\}_{\la\in\La}, \left\{p^\mu_{ \nu}:\left( \sX_\mu, x^\mu_0\right) \to \left( \sX_\nu, x^\nu_0\right)\right\}_{\substack{\mu,\nu\in\La\\
+				\mu\ge\nu}} \right\}\\
+		%\in \\
+		\mathfrak{S}_{\left( \sX, x_0\right) }\in \mathfrak{FinTop}^{\text{pt}}.
+	\end{split}
+	\eean
+	a	pointed topological finite covering category (cf. Definition \ref{top_sec_p_defn}).
+	Denote by 	\bean
+	\begin{split}
+		\mathfrak{S}_{ C_0\left(\sX \right) } = \\
+		=\left(\left\{ C_0\left( p_\la\right) :  C_0\left(\sX \right)  \hookto  C_0\left(\sX_\la \right)\right\}, \left\{ C_0\left( p_\nu^\mu\right) :  C_0\left(\sX_\nu \right) \hookto  C_0\left(\sX_\mu \right)\right\}\right).
+	\end{split}
+	\eean
+	the given by the Lemma \ref{top_base_point_lem}
+	{pointed algebraical  finite covering category} (cf. Definition \ref{comp_pt_defn}).
+	
+	Let $\tau: C_0\left(\sX \right)\to \C$ be a faithful state given by  \eqref{meafunc_eqn}, i.e. there exists a Borel
+	measure $\mu$ on $\sX$ with values in $\left[0, +\infty\right]$ such that
+	\be\label{top_meafunc_eqn}
+	\tau\left(a \right) = \int_{\sX} a~ d\mu \quad \forall a\in C_0\left(\sX \right).
+	\ee
+	Since the state $\tau$ is faithful $\mu\left( \sU\right) > 0$ for all nonempty open set $\sU\subset\sX$. Let $\overline{\mathcal X}$ be to be the \textit{disconnected inverse limit} of $\mathfrak{S}_{\left( \sX, x_0\right)}$	(cf. Definition \ref{top_topological_inv_lim_defn}), and let $\overline p: \overline{\mathcal X}\to\sX$, $\overline p_\la: \overline{\mathcal X}\to\sX_\la$ be natural coverings. From the Lemma \ref{state_cov_11_lem} it follows that for all $\la\in \La$ there is a faithful representation 
+	\be
+	\begin{split}
+		\tau_\la : C_0\left(\sX_\la \right)\to \C,\\
+		a_\la \mapsto \frac{1}{\left|G\left(\left.M_\la~\right|M \right) \right|}\tau\left( \sum_{g \in G\left(\left.M_\la~\right|M \right) }ga\right) 
+	\end{split}
+	\ee
+	where $\sum_{g \in G\left(\left.M_\la~\right|M \right)}ga$ is regarded as an element of $C_0\left( \sX\right)$. From the Theorem \ref{meafunc_thm} it turns out that $\tau_\la$ is given by 	
+	\bean
+	\tau_\la\left(a_\la \right) = \int_{\sX_\la} a_\la~ d{\mu_\la} \quad \forall f \in C_0\left(\sX \right).
+	\eean
+	where $\mu_\la$ is  a Borel measure $\sX_\la$. Indeed for all $\la\in\La$ the measure $\mu$ is the image of $\mu_\la$ (cf. Definition \ref{measure_image_defn}). For all $\la\in \La$ similarly to equations \eqref{tau_prod_eqn} and \eqref{mu_prod_eqn} one can define the $\C$-valued product $\left(\cdot, \cdot \right):C_0\left( \sX_\la\right) \times C_0\left( \sX_\la\right) \to\C$ given by
+	\bean
+	\left(a_\la, b_\la \right) \bydef \tau_\la\left( a_\la, b_\la\right) \cong \int_{\sX_\la} a_\la b_\la~ d{\mu_\la} 
+	\eean
+	so $C_0\left( \sX_\la\right)$ becomes a pre-Hilbert space.
+	Denote by $L^2\left(\sX_\la, \mu_\la \right)$ the Hilbert norm completion of $C_0\left( \sX_\la\right)$. Let us define he $\C$-valued product $\left(\cdot, \cdot \right):C_c\left( \overline\sX\right) \times C_c\left(\overline  \sX\right) \to\C$. From the Theorem \eqref{top_comp_la_lem} for any  $\overline a \in C_c\left(\overline\sX \right)$ there is $\la_{\supp \overline  a}$ such that the restriction $\left.\overline p_{\la_{\supp \overline  a}}\right|_{{\supp \overline  a}}$ homeomorphically maps $\supp \overline  a$ onto $\overline p_{\la_{\supp \overline  a}}\left( \supp \overline  a\right)$. The product is given by
+	\bean
+	\left(\overline  a, \overline  b\right)\bydef \left|G\left(\left.M_\la~\right|M \right) \right|\tau_\la\left(\desc_{\overline p_\la}\left( \overline  a^*\overline  b\right)  \right) 
+	\eean
+	where $\desc$ means the descent (cf. Definition \ref{top_lift_desc_defn}). Thus  $C_c\left(\overline  \sX\right)$ becomes a pre-Hilbert space denote by $L^2\left(\overline  \sX , \overline \mu\right)$ its norm completion. A natural action $C_b\left(\overline  \sX \right)  \times C_c\left(\overline  \sX \right)\to C_c\left(\overline  \sX \right)$ yields an action $C_b\left(\overline  \sX \right)  \times  L^2\left(\overline  \sX , \overline \mu\right)\to L^2\left(\overline  \sX , \overline \mu\right)$ which gives  a faithful representation
+	\be\label{top_phi_mu_eqn}
+	\phi_\mu :  C_b\left(\overline  \sX \right)\hookto B\left(L^2\left(\overline  \sX , \overline \mu\right) \right)
+	\ee
+	The inclusions $C_0\left(  \sX_\la \right)  \hookto C_b\left(\overline  \sX \right)$ yield representations $C_0\left(  \sX_\la \right) \hookto B\left(L^2\left(\overline  \sX , \overline \mu\right) \right)$. The natural combination of these representations yield a faithful representation
+	\be\label{top_pi_mu_eqn}
+	\pi_\mu: \widehat{C_0\left(\sX \right) }\bydef C^*\text{-}\lim_{\la\in \La} C_0\left(  \sX_\la \right)\hookto B\left(L^2\left(\overline  \sX , \overline \mu\right) \right).
+	\ee  
+	Any $\pi_\mu$-weakly special element (cf. Definition of the category \ref{weakly_spec_defn}) lies in $B\left(L^2\left(\overline  \sX , \overline \mu\right) \right)$. If follows that if $\overline A_{\pi_\mu}$ is the $\pi_\mu$-{ disconnected algebraical inverse noncommutative limit} (cf. Definition \ref{main_defn_full_defn}) then $\overline A_{\pi_\mu}\subset B\left(L^2\left(\overline  \sX , \overline \mu\right) \right)$.
+\end{empt}
+\begin{lemma}\label{comm_disc_inc_mu_lem}
+	If $\overline A_{\pi_\mu}$ is the $\pi_\mu$-disconnected infinite noncommutative covering of $\mathfrak{S}_{C_0\left( \mathcal{X}\right)}$ then the map \eqref{comm_sp_x_eqn} there is an inclusion of $C^*$- algebras
+\be\label{comm_inc_mu_eqn}
+\phi_\mu \left( C_0\left(\overline  \sX \right)\right) \subset \overline A_{\pi_\mu}.
+\ee
+where $\phi_\mu$ is given by the Equation \eqref{top_phi_mu_eqn}
+\end{lemma}
 
 \begin{lemma}\label{comm_disc_inc_lem}
 	If $\overline{A}$ is the disconnected infinite noncommutative covering of $\mathfrak{S}_{C_0\left( \mathcal{X}\right)}$ then the map \eqref{comm_sp_x_eqn} yields the natural injective *-homomorphism
@@ -7987,8 +8055,12 @@ If $\overline a \in C_c\left(\overline\sX\right)_+$ is a positive function then 
 	
 Now taking into account the Lemma	\ref{top_comp_sum_lem} one concludes that $C_c\left( \overline{\sX}\right)_+\subset \varphi\left( \overline{A}\right)$. Since $C_c\left( \overline{\sX}\right)$ is dense in $C_0\left( \overline{\sX}\right)$ (cf. Definition \ref{c_c_def_1}) and $\overline{   A}$ is $C^*$-norm closed  we have $C_0\left( \overline{\sX}\right)\subset \varphi\left( \overline{A}\right)$.
 \end{proof}
-
-
+\begin{empt}!!!
+	
+\end{empt}
+\begin{lemma}!!!!
+	content...
+\end{lemma}
 
 \begin{empt}
 	Denote by $G_\la = G\left(\mathcal X_\la~|~\mathcal X \right)$ groups of covering transformations and $\widehat{G} = \varprojlim G_\la$. Denote by $\overline{p}:\overline{  \mathcal X} \to \mathcal X$, $\overline{p}_\la:\overline{  \mathcal X} \to \mathcal X_\la$, $p^\la:  \mathcal X_\la \to \mathcal X$, $p^\mu_\la:  \mathcal X_\mu \to \mathcal X_\la$ ($\mu > \la$) the natural covering projections.
@@ -18520,6 +18592,61 @@ the \textit{closure} of $T$.
  \widehat h\left(p\right) = \widehat f\left( p\right). 
  \end{equation}  
  
+ \section{Measure theory}
+ \begin{theorem}\label{meafunc_thm}\cite{bogachev_measure_v2}
+% 7.11.3. Theorem. 
+ Let $\sX$ be a locally compact space and let $L$ be a linear
+ function on $C_0\left(\sX \right)$  such that $L\left(f\right)\ge 0$ if $f\ge 0$. Then, there exists a Borel
+ measure $\mu$ on $\sX$ with values in $\left[0, +\infty\right]$ such that
+ \be\label{meafunc_eqn}
+ L\left(f \right) = \int_{\sX} f~ d\mu \quad \forall f \in C_0\left(\sX \right).
+ \ee
+ %In addition, one can choose $\mu$ in such a way that it will be Radon on all sets of finite measure (and even inner compact regular on B(X), and there is only one measure with this property).
+ \end{theorem}
+ 
+ \begin{defn}\label{measure_image_defn}\cite{bogachev_measure_v2}
+ 	Let $\mu$ be a Borel measure on a topological space $\mathcal{X}$ and let $f$ be a $\mu$- measurable mapping from $\mathcal{X}$ to a topological space $\mathcal{Y}$ . Then on $\mathcal{Y}$ we obtain
+ 	the Borel measure $\nu = \mu \circ f^{-1}: B \mapsto \mu \circ f^{-1}\left( B\right)$. The measure $\nu$ is called
+ 	the \textit{image} of $\mu$ under the mapping $f$, and $\mu$ is called a \textit{preimage} of $\nu$. The  same terms are used in the case of general measurable mappings of measurable  spaces.
+ \end{defn}
+ \begin{thm}\label{comm_image_thm}\cite{bogachev_measure_v2}
+ 	Let $ \mathcal{X}$ and $\mathcal{Y}$ be two Hausdorff spaces.
+ 	Let $f : \mathcal{X}\to \mathcal{Y}$ be a continuous mapping. If a measure $\mu$ on $\mathcal{X}$ is Radon, then so is $\mu \circ f^{-1}$.
+ \end{thm} 
+ \begin{thm}\label{comm_mea_preimage_thm}\cite{bogachev_measure_v2}
+ 	Let $f$ be a mapping from a topological space $\mathcal X$ to a
+ 	topological space $\mathcal Y$ with a Radon measure $\nu$. Suppose that there exists an increasing sequence of compact sets $K_n \subset \mathcal X$ such that $f$ is continuous on every $K_n$ and 
+ 	\begin{equation*}
+ 		\lim_{n \to \infty } \left|\nu\right|f\left(K_n \right) = \left\|\nu\right\|.
+ 	\end{equation*}
+ 	Then, there exists a Radon measure $\mu$ on $\mathcal X$ with $\mu \circ f^{-1} = \nu$. In addition,
+ 	this measure can be chosen with the property $\left\|\nu\right\| = \left\|\mu\right\|$. In particular, this
+ 	is true if $\mathcal X$ and $\mathcal X$ are compact and $f$ is a continuous surjection.
+ \end{thm}
+ %Proposition 7.2.3.
+ \begin{prop}\cite{cohn_measure}
+ 	Let $\mathcal X$ be a locally compact Hausdorff space that has a countable base, and let $\mu$ be a Borel measure on $\mathcal X$ that is finite on compact sets. Then $\mu$ is regular.
+ \end{prop} 
+ 
+ %\begin{empt}
+ %	We need the notion of essential support  functions described in \cite{elliot:an}. For a given Borel measure $\mu$ let $f$ be a Borel-measurable function. Consider the collection $\widetilde{\Om}$ of open subsets $\om$ with the property that $f\left(x \right)=0$ for $\mu$-almost every $x \in \om$ and let the open set $\om^*$ be the union of all $\om$'s in  $\widetilde{\Om}$.
+ % \end{empt}
+% \begin{defn}
+% 	The  \textit{essential support} of $f$ or $\mathfrak{ess~supp}\left( f\right)$ is the complement of $\om^*$. There is the following formula
+% 	$$
+% 	\mathfrak{ess~supp}\left( f\right) = \mathcal X \setminus \bigcup \left\{\om \in \mathcal X~|~ \om \text{ is open and } f=0~\mu-\text{almost everywhere in }\om\right\}.
+% 	$$
+ %	If $x \notin \mathfrak{ess~supp}\left( f\right)$ then there is an open neighborhood $\mathcal U$ of $x$ and representative $\varphi$ of $f$ such that $\varphi\left({\mathcal U}\right) = \{0\}$. 
+ %\end{defn}
+ 
+ 
+ %\begin{theorem}\label{lusin_thm}\cite{bogachev_measure_v1}(Lusin theorem)
+ %2.2.10. Theorem. 
+ %A function $f$ on an interval I with Lebesgue measure
+ %is measurable precisely when for each ? > 0, there exist a continuous function
+ %f? and a compact set K? such that ?(I\K?) < ? and f = f? on K?.
+ %\end{theorem}
+ 
  
 \chapter{Operator algebras}
 
@@ -18865,9 +18992,9 @@ $$
 \paragraph*{}
 
 Any state $\tau$ of  $C^*$-algebra $A$  induces a faithful GNS representation  \cite{murphy}. There is a $\mathbb{C}$-valued product on $A$ given by
-\begin{equation*}
+\begin{equation}\label{tau_prod_eqn}
 \left(a, b\right)\bydef\tau\left(a^*b\right).
-\end{equation*}
+\end{equation}
 This product induces a product on $A/\mathcal{I}_\tau$ where $\mathcal{I}_\tau\bydef\left\{a \in A \ | \ \tau(a^*a)=0\right\}$. So $A/\mathcal{I}_\tau$ is a pre-Hilbert space. Denote by $L^2\left(A, \tau\right)$ the Hilbert  completion of $A/\mathcal{I}_\tau$.  The Hilbert space  $L^2\left(A, \tau\right)$ is a space of a  GNS representation  $A\to B\left(L^2\left(A, \tau\right) \right)$ (or equivalently $A\times L^2\left(A, \tau\right)\to(L^2\left(A, \tau\right) $) which comes from the Hilbert norm completion of the natural action $A \times A/\mathcal{I}_\tau \to A/\mathcal{I}_\tau$. The natural map  $A \to A/\mathcal{I}_\tau$ induces the homomorphism of left $A$-modules
 \be\label{from_a_to_l2_eqn}
 \begin{split}
@@ -18883,16 +19010,16 @@ such that $f_\tau\left(A \right)$ is a dense subspace of $L^2\left(A, \tau\right
 	The given by the Theorem \ref{state_repr_thm} representation is said to be a \textit{GNS reprerentation}.
 \end{defn}
 \begin{empt}\label{l2_mu}
-	If $\mathcal X$ is a second-countable locally compact Hausdorff space then from the Theorem \ref{comm_sep_thm} it follows that $C_0\left(\mathcal X\right)$ is a separable algebra. Therefore $C_0\left(\mathcal X\right)$ has a state $\tau$ such that associated with $\tau$   GNS representation  \cite{murphy} is faithful. From \cite{bogachev_measure_v2} it follows that the state $\tau$ can be represented as the following integral
+	 From the Theorem \ref{meafunc_thm} it follows that the state $\tau$ can be represented as the following integral
 	\begin{equation}\label{hilb_integral}
 	\tau\left(a\right)= \int_{\mathcal X}a \ d\mu
 	\end{equation}
-	where $\mu$ is a positive Radon measure.   
+	where $\mu$ is a positive Borel measure.   
 	In analogy with the Riemann integration, one can define the integral of a 	bounded continuous function $a$ on $\mathcal{X}$. There is a $\mathbb{C}$-valued product on $C_0\left(\mathcal X\right)$ given by
-	\begin{equation*}
+	\begin{equation}\label{mu_prod_eqn}
 	\left(a, b\right)=\tau\left(a^*b\right)= \int_{\mathcal X}a^*b \ d\mu,
-	\end{equation*}
-	hence $C_0\left(\mathcal X\right)$ is a phe-Hilbert space. Denote by $L^2\left(C_0\left(\mathcal X\right), \tau\right)$ or $L^2\left(\mathcal X, \mu\right)$ the Hilbert space completion of $C_0\left(\mathcal X\right)$. %From  \cite{murphy,takesaki:oa_ii} it   follows that the strong closure of  $C_0\left(\mathcal X\right)$ in $B\left(L^2\left(\mathcal X, \mu\right) \right)$ is isomorphic to the algebra $L^{\infty}\left(\mathcal X, \mu\right)$ (of classes of) essentially bounded complex-valued measurable functions.  The  $L^{\infty}\left(\mathcal X, \mu\right)$ is a $C^*$-algebra with the pointwise-defined operations and the essential norm $f \mapsto \|f\|_\infty$.
+	\end{equation}
+	hence $C_0\left(\mathcal X\right)$ is a pre-Hilbert space. Denote by $L^2\left(C_0\left(\mathcal X\right), \tau\right)$ or $L^2\left(\mathcal X, \mu\right)$ the Hilbert space completion of $C_0\left(\mathcal X\right)$. %From  \cite{murphy,takesaki:oa_ii} it   follows that the strong closure of  $C_0\left(\mathcal X\right)$ in $B\left(L^2\left(\mathcal X, \mu\right) \right)$ is isomorphic to the algebra $L^{\infty}\left(\mathcal X, \mu\right)$ (of classes of) essentially bounded complex-valued measurable functions.  The  $L^{\infty}\left(\mathcal X, \mu\right)$ is a $C^*$-algebra with the pointwise-defined operations and the essential norm $f \mapsto \|f\|_\infty$.
 \end{empt}
 %\begin{lemma}\label{domi_mult_repr_lem}\cite{pedersen:ca_aut}
 	%	3.3.8. COROLLARY. 
@@ -22687,27 +22814,6 @@ For all $s \in \mathscr{F}\left(\sX \right)$,
 \supp s= \left\{\left.x \in \sX \right|s\left(x \right)\neq 0  \right\}
 \ee
 denotes the \textit{support} of the section $s$.
-
-\section{Measure theory}
- \begin{empt}
- 	We need the notion of essential support  functions described in \cite{elliot:an}. For a given Borel measure $\mu$ let $f$ be a Borel-measurable function. Consider the collection $\widetilde{\Om}$ of open subsets $\om$ with the property that $f\left(x \right)=0$ for $\mu$-almost every $x \in \om$ and let the open set $\om^*$ be the union of all $\om$'s in  $\widetilde{\Om}$.
-
- \end{empt}
- \begin{defn}
-The  \textit{essential support} of $f$ or $\mathfrak{ess~supp}\left( f\right)$ is the complement of $\om^*$. There is the following formula
-	$$
-	\mathfrak{ess~supp}\left( f\right) = \mathcal X \setminus \bigcup \left\{\om \in \mathcal X~|~ \om \text{ is open and } f=0~\mu-\text{almost everywhere in }\om\right\}.
- 	$$
-	If $x \notin \mathfrak{ess~supp}\left( f\right)$ then there is an open neighborhood $\mathcal U$ of $x$ and representative $\varphi$ of $f$ such that $\varphi\left({\mathcal U}\right) = \{0\}$. 
-\end{defn}
-
-
-%\begin{theorem}\label{lusin_thm}\cite{bogachev_measure_v1}(Lusin theorem)
-%2.2.10. Theorem. 
-%A function $f$ on an interval I with Lebesgue measure
-%is measurable precisely when for each ? > 0, there exist a continuous function
-%f? and a compact set K? such that ?(I\K?) < ? and f = f? on K?.
-%\end{theorem}
 
 \section{Isospectral deformations}
 \paragraph*{}A very general construction of isospectral
