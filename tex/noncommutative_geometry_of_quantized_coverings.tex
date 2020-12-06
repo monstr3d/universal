@@ -7192,6 +7192,19 @@ i.e.  the triple 	$\left(\left(\Coo_c\left(M \right)', \Coo\left(M \right)    \r
  	is a {noncommutative finite-fold covering of quasi $*$-algebras}.
 \end{proof}
 
+\begin{exercise}
+	Let $M$ be a smooth manifold and let $p:\widetilde M\to M$ be a transitive finite-fold covering. Let $E\to M$ be a smooth bundle, and $\widetilde E\to  \widetilde M$ is the inverse image of $E$ by $p$ (cf. Definition \ref{vb_inv_img_funct_defn}). Let $D\left(M, E \right)$ and  $D\left(\widetilde M,  \widetilde E \right)$)  be an $O^*$-algebra of differential operators \ref{do_man_defn} such that 
+	\bean
+	D\left( M,   E \right)= \left\{P: \Coo\left(M, E \right)\to \Coo\left(M, E \right)\right\},\\
+	D\left(\widetilde M,  \widetilde E \right)= \left\{\widetilde P: \Coo\left(\widetilde M, \widetilde E \right)\to \Coo\left(\widetilde M, \widetilde E \right)\right\}
+	\eean
+	Prove that there is a {noncommutative finite-fold covering of $O^*$-algebras} given by
+	(cf. Definition \ref{fino*_defn})
+	$$
+	\left(D\left(M, E \right),D\left(  \widetilde{   M }, \widetilde E\right) ,G\left(\left. \widetilde{   M } ~\right| {   M }\right)\right)
+	$$
+\end{exercise}
+
 
 \subsection{Coverings of local operator spaces}
 
@@ -8334,11 +8347,11 @@ Consider the described in \ref{top_r_inf_empt} situation and suppose that $\wide
 	\be\label{top_meafunc_eqn}
 	\tau\left(a \right) = \int_{\sX} a~ d\mu \quad \forall a\in C_0\left(\sX \right).
 	\ee
-	Since the state $\tau$ is faithful $\mu\left( \sU\right) > 0$ for all nonempty open set $\sU\subset\sX$. Let $\overline{\mathcal X}$ be to be the \textit{disconnected inverse limit} of $\mathfrak{S}_{\left( \sX, x_0\right)}$	(cf. Definition \ref{top_topological_inv_lim_defn}), and let $\overline p: \overline{\mathcal X}\to\sX$, $\overline p_\la: \overline{\mathcal X}\to\sX_\la$ be natural coverings. From the Lemma \ref{state_cov_11_lem} it follows that for all $\la\in \La$ there is a faithful representation 
+	Since the state $\tau$ is faithful $\mu\left( \sU\right) > 0$ for all nonempty open set $\sU\subset\sX$. Let $\overline{\mathcal X}$ be to be the \textit{disconnected inverse limit} of $\mathfrak{S}_{\left( \sX, x_0\right)}$	(cf. Definition \ref{top_topological_inv_lim_defn}), and let $\overline p: \overline{\mathcal X}\to\sX$, $\overline p_\la: \overline{\mathcal X}\to\sX_\la$ be natural coverings. From the Lemma \ref{state_cov_11_lem} it follows that for all $\la\in \La$ there is a functional
 	\be
 	\begin{split}
 		\tau_\la : C_0\left(\sX_\la \right)\to \C,\\
-		a_\la \mapsto \frac{1}{\left|G\left(\left.M_\la~\right|M \right) \right|}\tau\left( \sum_{g \in G\left(\left.M_\la~\right|M \right) }ga\right) 
+		a_\la \mapsto \tau\left( \sum_{g \in G\left(\left.M_\la~\right|M \right) }ga\right) 
 	\end{split}
 	\ee
 	where $\sum_{g \in G\left(\left.M_\la~\right|M \right)}ga$ is regarded as an element of $C_0\left( \sX\right)$. From the Theorem \ref{meafunc_thm} it turns out that $\tau_\la$ is given by 	
@@ -8347,7 +8360,7 @@ Consider the described in \ref{top_r_inf_empt} situation and suppose that $\wide
 	\eean
 	where $\mu_\la$ is  a Borel measure $\sX_\la$. Indeed for all $\la\in\La$ the measure $\mu$ is the image of $\mu_\la$ (cf. Definition \ref{measure_image_defn}). For all $\la\in \La$ similarly to equations \eqref{tau_prod_eqn} and \eqref{mu_prod_eqn} one can define the $\C$-valued product $\left(\cdot, \cdot \right):C_0\left( \sX_\la\right) \times C_0\left( \sX_\la\right) \to\C$ given by
 	\bean
-	\left(a_\la, b_\la \right) \bydef \tau_\la\left( a_\la, b_\la\right) \cong \int_{\sX_\la} a_\la b_\la~ d{\mu_\la} 
+	\left(a_\la, b_\la \right) \bydef \tau_\la\left( a^*_\la, b_\la\right) \cong \int_{\sX_\la} a^*_\la b_\la~ d{\mu_\la} 
 	\eean
 	so $C_0\left( \sX_\la\right)$ becomes a pre-Hilbert space.
 	Denote by $L^2\left(\sX_\la, \mu_\la \right)$ the Hilbert norm completion of $C_0\left( \sX_\la\right)$. Let us define he $\C$-valued product $\left(\cdot, \cdot \right):C_c\left( \overline\sX\right) \times C_c\left(\overline  \sX\right) \to\C$. From the Theorem \eqref{top_comp_la_lem} for any  $\overline a \in C_c\left(\overline\sX \right)$ there is $\la_{\supp \overline  a}$ such that the restriction $\left.\overline p_{\la_{\supp \overline  a}}\right|_{{\supp \overline  a}}$ homeomorphically maps $\supp \overline  a$ onto $\overline p_{\la_{\supp \overline  a}}\left( \supp \overline  a\right)$. The product is given by
@@ -9153,6 +9166,22 @@ The equation \eqref{top_inv_qo*_llimp_eqn} follows from \eqref{top_cc_l_inc_eqn}
 \end{enumerate}
 
 \end{proof}
+
+\begin{exercise}
+	Let $M$ be a smooth manifold and let $p:\widetilde M\to M$ be a transitive infinite covering such that the covering group $G\left(\left. \widetilde{   M } ~\right| {   M }\right)$ is residually finite (cf. Definition \ref{residually_finite_defn}). Let $E\to M$ be a smooth bundle, and $\widetilde E\to  \widetilde M$ is the inverse image of $E$ by $p$ (cf. Definition \ref{vb_inv_img_funct_defn}). Let $D\left(M, E \right)$ and  $D\left(\widetilde M,  \widetilde E \right)$)  be an $O^*$-algebra of differential operators \ref{do_man_defn} such that 
+	\bean
+	D\left( M,   E \right)= \left\{P: \Coo\left(M, E \right)\to \Coo\left(M, E \right)\right\},\\
+	D\left(\widetilde M,  \widetilde E \right)= \left\{\widetilde P: \Coo\left(\widetilde M, \widetilde E \right)\to \Coo\left(\widetilde M, \widetilde E \right)\right\}
+	\eean
+	Prove that there is an equivariant representation $\pi: C^*$-$\varinjlim_{\la \in \La}C_0\left( M_\la\right)\to B\left( \H\right)$  
+	a $\pi$-{noncommutative finite-fold covering of $O^*$-algebras} given by
+	(cf. Definition \ref{fino*_defn})
+	$$
+	\left(D\left(M, E \right),D\left(  \widetilde{   M }, \widetilde E\right) ,G\left(\left. \widetilde{   M } ~\right| {   M }\right)\right)
+	$$
+\end{exercise}
+
+
 
 \subsection{Coverings of spectral triples}
 \paragraph*{} Let $\left(C^{\infty}\left( M\right) , L^2\left( M, S\right) ,\slashed D\right)$ be a commutative spectral triple (cf. equation \eqref{comm_sp_tr_eqn}), and let $p:\widetilde{M} \to M$ be an infinite regular covering such that  the {covering group} $G\left( {\widetilde{M}}~|~M\right)$ (cf. Definition \ref{cov_proj_cov_grp_defn}) is residually finite (cf. Definition \ref{residually_finite_defn}). From the Lemma \ref{top_res_fin_lem} it it turns out that there is a (topological)  finite covering category 
