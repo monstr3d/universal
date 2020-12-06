@@ -8496,7 +8496,7 @@ If $\overline a \in B\left(L^2\left(\overline  \sX , \overline  \mu \right)  \ri
 	\begin{split}
 		\sum_{g\in G_\la } \pi_\tau \left(z\right)^*\left(  g\overline a\right) \pi_\tau\left( z\right) = 	\sum_{g\in G_\la }  g\overline a = \pi_\tau\left(a_\la \right),\\
 		\sum_{g\in G_\la } f_\eps\left(\pi_\tau \left(z\right)^* \left( g\overline a\right) \pi_\tau\left( z\right)\right)=\sum_{g\in G_\la } f_\eps\left(g\overline a\right)     = \pi_\tau\left(a^\eps_\la \right),\\
-		\sum_{g\in G_\la  } \left(\pi_\tau \left(z\right)^* \left( g\overline a\right)=	\sum_{g\in G_\la } \left(g\overline a\right)^2 \pi_\tau\left( z\right)\right)^2    = \pi_\tau\left(b_\la \right) 
+		\sum_{g\in G_\la  } \left(\pi_\tau \left(z\right)^* \left( g\overline a\right)\pi_\tau\left( z\right)\right)^2=	\sum_{g\in G_\la } \left(g\overline a\right)^2     = \pi_\tau\left(b_\la \right).
 	\end{split}
 	\ee
 	where sums of the above series mean the strong convergence in  $B\left(L^2\left(\overline  \sX , \overline  \mu \right) \right)$.
@@ -8506,22 +8506,29 @@ If $\overline a \in B\left(L^2\left(\overline  \sX , \overline  \mu \right)  \ri
 	\ee
 	where $a_\la, b_\la \in A_\la$ are given by \eqref{spec_a_eps_eqn}.
 \end{enumerate}
-From the Lemma \ref{spec_strong_lim_lem} it follows that there is the following strong limit
-\be\label{top_mu_spec_strong_lim_eqn}
-\overline a = \lim_{\la \in \La}\pi_\tau\left(a_\la \right)
-\ee 
-If $\overline f : \overline X \to \R$ is given by
+ Denote by $	\overline f_\la, \overline f^\eps_\la, \overline h_\la\in C_b\left( \overline \sX\right)$ by the following way 
+\be\label{comm_special_mu_set2_eqn}
+\begin{split}
+	\overline f_\la = \lift_{\overline p_\la}\left( a_\la  \right)  ,\\
+	\overline f^\eps_\la = \lift_{\overline p_\la}\left( a^\eps  \right),\\
+	\overline h_\la = \lift_{\overline p_\la}\left( b_\la  \right).
+\end{split}
+\ee
+where $\overline p_\la: \overline \sX \to \sX_\la$ is the natural covering and  $\lift_{\overline p_\la}$ means the $\lift_{\overline p_\la}$-lift (cf. Definition \ref{top_lift_defn}).
+If $\overline f : \overline \sX \to \R$ is given by
 $$
 \overline f\left(\overline x \right) \bydef \lim_{\la\in \La} a_{\la}\left( \overline p_\la\left( \overline x\right) \right) 
 $$ 
-then $\overline f$ is a Borel-measured function and $\overline f$ is representative of $\overline a$.
-
-
-Let $\eps$ be given, according to (b) one can select $\mu'\in\La$ such that 
-	\be\label{top_nu_special_set_eqn}
-\forall \la  \in \La \quad	 \la \ge \mu'  \Rightarrow  \left\|a_\la^2 - b_\la\right\| < 2\eps^2
+then   $\overline f$ is  a Borel-measured function because it is a point-wise limit of the decreasing net $\left\{\overline f_\la\right\}$ of continuous maps. Otherwise
+From the Lemma \ref{spec_strong_lim_lem} it follows that there is the following strong limit
+\be\label{top_mu_spec_strong_lim_eqn}
+\overline a = \lim_{\la \in \La}\pi_\tau\left(a_\la \right)
 \ee
-	For all  $\la> \mu'$ denote by  $p_\la\bydef  p^\la_{\mu'}: \mathcal X_\la \to\mathcal X_{\mu}$.
+so  $\overline f$ is representative of $\overline a$.  Let $\eps$ be given, according to (b) one can select $\mu'\in\La$ such that 
+\be\label{top_nu_special_set_eqn}
+\forall \la  \in \La \quad	 \la \ge \mu'  \Rightarrow  \left\|a_\la^2 - b_\la\right\| < 2\eps^2.
+\ee
+For all  $\la> \mu'$ denote by  $p_\la\bydef  p^\la_{\mu'}: \mathcal X_\la \to\mathcal X_{\mu'}$.
 Let $\widetilde{x}_1, \widetilde{x}_2 \in \mathcal X_{\la}$  be such that
 \begin{equation}\label{comm_mu_neq_eqn}
 	\begin{split}
@@ -8530,43 +8537,51 @@ Let $\widetilde{x}_1, \widetilde{x}_2 \in \mathcal X_{\la}$  be such that
 		a_\la\left( \widetilde{x}_1\right) \ge  \eps; \quad a_\la\left( \widetilde{x}_2\right) \ge \eps.
 	\end{split}
 \end{equation}
-Note that from \eqref{} it turns out that 
 
-From  the equations \eqref{top_mu_spec_a_eps_eqn}, it turns out that for all $\la\in\La$ such that $\la > \mu'$ one has
-\begin{equation}\label{comm_mu_a_la_eqn}
-	\begin{split}
-		a_{\mu'}= \sum_{	g \in G\left(\left.{\sX}_\la~\right|\sX_{\mu'}\right)} ga_\la, \\
-		b_{\mu'}= \sum_{	g \in G\left(\left.{\sX}_\la~\right|\sX_{\mu'}\right)} gb_\la=\sum_{	g \in G\left(\left.{\sX}_\la~\right|\sX_{\mu'}\right)} ga^2_\la. 
-	\end{split}
+\begin{equation}\label{comm_mup_la_eqn}
+\begin{split}
+	a_{\mu'}\left(x \right)  = \sum_{\widetilde{x} \in  p_\la^{-1}\left( x\right)  } a_{\la}\left( \widetilde{x}\right),\\
+	b_{\mu'}\left(x \right)  = \sum_{\widetilde{x} \in  p_\la^{-1}\left( x\right)  } b_{\la}\left( \widetilde{x}\right),\\
+	a_{\la}\left(\widetilde x \right)  = \sum_{\overline{x} \in \overline p_\la ^{-1}\left( \widetilde x\right)  } \overline f_{\la}\left( \overline{x}\right).\\
+	b_{\la}\left(\widetilde x \right)  = \sum_{\overline{x} \in \overline p_\la ^{-1}\left(\widetilde x\right)  } \overline f^2\left( \overline{x}\right).
+\end{split}
 \end{equation}
 From the above equation  it turns out that
 \begin{equation*}
-	\begin{split}
-		a^2_{\mu'}\left( x \right)\ge \sum_{{x}_\la \in  p_\la^{-1}\left(  x_\la\right)  } a^2\left( {x}_\la\right)
-		+ \sum_{\substack{\left({x}'_\la, {x}''_\la \right)\in p_\la^{-1}\left(\widetilde x \right)\times\overline p_\la^{-1}\left(\widetilde x \right)\\\overline{x}' \neq \overline{x}'' }}~ \overline f\left(\overline{x}' \right) \overline f\left(\overline{x}'' \right)\ge\\\ge \sum_{\overline{x} \in \left( \overline p_\la\right) ^{-1}\left( \widetilde x\right)  } \overline f^2_{\la}\left( \overline{x}\right)= h_{\la}\left(\widetilde x \right).
-		\\
-		f_{\mu}^2\left(x \right)= \sum_{\widetilde{x} \in p_\la^{-1}\left( x\right)} f_\la^2\left( \widetilde{x}\right) + \sum_{\substack{\left(\widetilde{x}', \widetilde{x}'' \right)\in p_\la^{-1}\left(x \right)\times p_\la^{-1}\left(x \right)\\\widetilde{x}' \neq \widetilde{x}'' }}~ f_\la\left(\widetilde{x}' \right) f_\la\left(\widetilde{x}'' \right)\ge\\
-		\ge
-		\sum_{\widetilde{x} \in p_\la^{-1}\left( x\right)} f_\la^2\left( \widetilde{x}\right) + f_\la\left( \widetilde{x}_1\right) f_\la\left( \widetilde{x}_2\right)+f_\la\left( \widetilde{x}_2\right) f_\la\left( \widetilde{x}_1\right)\ge\\\ge \sum_{\widetilde{x} \in p_\la^{-1}\left( x\right)} h_\la\left( \widetilde{x}\right) + 2  f_\la\left( \widetilde{x}_1\right) f_\la\left( \widetilde{x}_2\right)\ge   h_\mu\left( {x}\right) + 2\eps^2, 
-	\end{split}
+\begin{split}
+	a^2_{\la}\left(\widetilde x \right)= \sum_{\overline{x} \in  \overline p_\la ^{-1}\left( \widetilde x\right)  } \overline f^2\left( \overline{x}\right)
+	+ \sum_{\substack{\left(\overline{x}', \overline{x}'' \right)\in\overline p_\la^{-1}\left(\widetilde x \right)\times\overline p_\la^{-1}\left(\widetilde x \right)\\\overline{x}' \neq \overline{x}'' }}~ \overline f\left(\overline{x}' \right) \overline f\left(\overline{x}'' \right)\ge\\\ge \sum_{\overline{x} \in \left( \overline p_\la\right) ^{-1}\left( \widetilde x\right)  } \overline f^2_{\la}\left( \overline{x}\right)= h_{\la}\left(\widetilde x \right).
+	\\
+	a_{\mu'}^2\left(x \right)= \sum_{\widetilde{x} \in p_\la^{-1}\left( x\right)} a_\la^2\left( \widetilde{x}\right) + \sum_{\substack{\left(\widetilde{x}', \widetilde{x}'' \right)\in p_\la^{-1}\left(x \right)\times p_\la^{-1}\left(x \right)\\\widetilde{x}' \neq \widetilde{x}'' }}~ a_\la\left(\widetilde{x}' \right) a_\la\left(\widetilde{x}'' \right)\ge\\
+	\ge
+	\sum_{\widetilde{x} \in p_\la^{-1}\left( x\right)} a_\la^2\left( \widetilde{x}\right) + a_\la\left( \widetilde{x}_1\right) a_\la\left( \widetilde{x}_2\right)+a_\la\left( \widetilde{x}_2\right) a_\la\left( \widetilde{x}_1\right)\ge\\\ge \sum_{\widetilde{x} \in p_\la^{-1}\left( x\right)} b_\la\left( \widetilde{x}\right) + 2  a_\la\left( \widetilde{x}_1\right) a_\la\left( \widetilde{x}_2\right)\ge   b_{\mu'}\left( {x}\right) + 2\eps^2, 
+\end{split}
 \end{equation*}
 hence one has 
 $$
-\left\|f_\mu^2 - g_\mu\right\|  \ge 2\eps^2
+\left\|a^2_{\mu'} -b_{\mu'}\right\|  \ge 2\eps^2.
 $$
 However the above equation 	contradicts with 
-\eqref{comm_delta_eqn}, so the situation \eqref{comm_neq_eqn} is impossible. 
+\eqref{top_nu_special_set_eqn}, so the situation \eqref{comm_mu_neq_eqn} is impossible. 
 It follows that for all $\la > \mu$ one has
-\begin{equation}\label{comm_x1_eq_x2_eqn}
-	\begin{split}
-		p_\la\left( \widetilde{x}_1\right) = p_\la\left( \widetilde{x}_2\right)=x \text{ AND }
-		f_\la\left( \widetilde{x}_1\right) \ge \eps\text{ AND }f_\la\left( \widetilde{x}_2\right) \ge \eps\Rightarrow \widetilde{x}_1 = \widetilde{x}_2.
-	\end{split}
+\begin{equation}\label{comm_x1_mu_eq_x2_eqn}
+\begin{split}
+	p_\la\left( \widetilde{x}_1\right) = p_\la\left( \widetilde{x}_2\right)=x \text{ AND }
+	f_\la\left( \widetilde{x}_1\right) \ge \eps\text{ AND }f_\la\left( \widetilde{x}_2\right) \ge \eps\Rightarrow \widetilde{x}_1 = \widetilde{x}_2.
+\end{split}
 \end{equation}
-The equation \eqref{comm_x1_eq_x2_eqn} is equivalent to the condition (b) of the Lemma \ref{comm_main_lem}, so $\overline{f}$ satisfies conditions (a), (b) of the Lemma \ref{comm_main_lem}, hence one has $\overline f \in C_0\left(\overline \sX\right)$. 
-
-
+Now from the Lemma \ref{comm_main_lem} it follows that $\overline f\in C_0\left(\overline\sX\right)$. If $\widehat{C_0\left(\sX \right) }\bydef C^*$-$\varinjlim_{\la\in\La} C\left(\sX_\la \right)$ then there is the natural inclusion   $\widehat{C_0\left(\sX \right) }\subset C_b\left(\overline\sX \right)$ which complies with both inclusions $\widehat{C_0\left(\sX \right) }\subset B\left(L^2\left(\overline  \sX , \overline  \mu \right)$ and $C_b\left(\overline\sX \right)\subset B\left(L^2\left(\overline  \sX , \overline  \mu \right)$. If $\overline b\in B\left(L^2\left(\overline  \sX , \overline  \mu \right)\right)$ is $\pi_\tau$-weakly special (cf. Definition \ref{weakly_spec_defn}) then	\be\nonumber
+\overline b=	\pi_\tau\left(\widehat{x}\right)\overline a \pi_\tau\left(\widehat{y}\right)
+\ee
+where $\widehat{x}, \widehat{y}\in \widehat{C_0\left(\sX \right) }$ and $\widehat a$ is special. From the above construction it follows that there is $\overline g\in C_0\left(\overline\sX\right)$ such that  
+$$
+\overline b = \varphi_\tau\left( \overline g\right).
+$$
+or $\overline b = \varphi_\tau\left( \overline g\right)\in \overline b = \varphi_\tau\left( C_0\left(\overline\sX\right)\right)$. Since 
+	$\overline A_{\pi_\tau}$ is the generated by $\pi_\tau$-weakly special elements $C^*$-algebra and $C_0\left(\overline\sX\right)$ is $C^*$-norm closed one has $	\overline A_{\pi_\tau}\subset	\phi_\tau \left( C_0\left(\overline  \sX \right)\right)$.
 \end{proof}
+
+
 \paragraph*{title}
 
 
