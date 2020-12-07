@@ -4339,14 +4339,23 @@ then
 	Let $\sY\subset\sX$ is a compact subset of a locally compact Hausdorff space $\sX$. The given by the equation \eqref{top_cfs_eqn} sum 
 	is said to be a \textit{covering sum} for $\sY$.
 \end{defn}
+\begin{remark}
+Sometimes instead of \eqref{top_cfs_eqn} we use the following notation for a finite sum
+\be\label{top_cfsa_eqn}
+\sum_{\a\in \mathscr A} a_\a
+\ee
+where $\mathscr A$ is a finite set.
+\end{remark}
 \begin{definition}\label{top_cfs_sub_defn}
 Let $p:\widetilde\sX \to \sX$ be a covering. Let both $\sY\subset\sX$ and $\widetilde\sY\subset\widetilde\sX$ are compact subsets. A covering sum $\sum_{j = 1}^n f_j$ for $\sY$ is said to be \textit{subordinated to} $p$ if for all $j=1,..., n$ the set $\left\{\left.x\in\sX\right|f_j\left( x\right)>  0 \right\}$ is evenly covered by $p$ (cf. Definition \ref{comm_cov_pr_defn}). A covering sum $\sum_{j = 1}^n \widetilde f_j$ for $\widetilde \sY$ is said to be \textit{subordinated to} $p$ if for all $j=1,..., n$ the set $\left\{\left.\widetilde x\in\widetilde\sX\right|\widetilde f_j\left(\widetilde x\right)>  0 \right\}$ is homeomorphically mapped onto $p\left(\widetilde\sX\right)$. 
 \end{definition}
 
 
+
 \begin{remark}\label{top_cfs_rem}
 From the above construction it follows that for any compact subset $\sY\subset\sX$ there is a covering sum.
 \end{remark}
+
 \begin{empt}\label{comm_direct_empt}
 	Let $\left\{f_\a\right\}_{\a\in \mathscr A}\subset C_c\left(\sX \right)_+$ be a family of functions such that $f\left(\sX \right)  = \left[0,`1\right]$. If 
 	$$
@@ -5706,6 +5715,15 @@ The following Lemma is evident.
 	\end{split}
 	\end{equation}	
 \end{remark}
+
+\begin{empt}
+	If $\sum_{j = 1}^n \widetilde f_j$ is a {subordinated to} $p$ covering sum for $\widetilde \sY$ (cf. Definitions \ref{top_cfs_defn} and \ref{top_cfs_sub_defn}) then one has
+	\be\label{top_desc_fin_eqn}
+	\widetilde f_j= \sqrt{ \widetilde f_j}\sqrt{ \desc_p\left( \widetilde f_j\right) }
+	\ee
+\end{empt}
+
+
 \begin{empt}\label{comm_unitylu_empt}!!! CHECK REFERENCES
 	Consider the situation \ref{comm_unity_empt}. If 
 		\be\nonumber
@@ -6555,69 +6573,6 @@ From the above equation it turns out that
 	it turns out that the map $\phi$ is surjective.
 \end{proof}
 
-\begin{lemma}\label{top_sub_part_lem}
-	Let us consider the situation described in \ref{top_lconn_part}. For every $\a \in \mathscr A$ we select an open connected subset $\widetilde{\sU}_\a$  of $\widetilde{\sX}$ which is homeomorphically mapped onto $\sU_\a$. One has
-	
-	\begin{enumerate}
-		\item[(i)] 
-		\be\label{top_comply_union_eqn}
-		\widetilde{\sX} =\bigcup_{g \in G\left(\left.\widetilde{\sX}~\right|\sX\right),~ \a \in \mathscr A  } g\widetilde{\sU}_\a
-		\ee
-		\item [(ii)] If $\widetilde{a}_\a = \lift_{\widetilde{\sU}_\a}\left( a_\a\right)  \in C_0\left(\widetilde{   \mathcal X } \right)$ then the series 
-		\be\label{top_comply_part_eqn}
-		\sum_{\left( g, \al\right)  \in G\left(\left.\widetilde{\sX}~\right|\sX\right)\times \mathscr A  } g\widetilde{a}_\a = 1_{C_b\left(\widetilde{\mathcal X} \right) }
-		\ee
-		is a partition of unity dominated by the family 
-		\be\label{top_cov_fam_eqn}
-		\left\{g \widetilde{\mathcal U}_\a\right\}_{g \in G\left(\left.\widetilde{\sX}~\right|\sX\right),~\a \in \mathscr A }.
-		\ee
-	\end{enumerate}
-	
-\end{lemma}
-\begin{proof}(i)
-	Let $\widetilde{x}_0 \in \widetilde{\mathcal X}$ and let $x_0 = p\left(\widetilde{x}_0  \right)$. There is $\a \in \mathscr A$ such that $x_0 \in \sU_\a$. If $\widetilde{x}'_0  \in \widetilde{\mathcal U}_\a$ is such that $p\left( \widetilde{x}'_0\right) = x_0$ then there is $g \in  G\left(\left.\widetilde{\sX}~\right|\sX\right)$ such that $\widetilde{x}_0 = g\widetilde{x}'_0$, hence one has $\widetilde{x}_0 \in g \widetilde{\mathcal U}_\a$.\\
-	(ii) 
-	The series \eqref{top_sup_part_eqn} is a partition of unity it turns out there is an open connected neighborhood $\mathcal U$ of $x_0$ and a finite subset $\mathscr A_0 \subset \La$ such that $\mathcal U \bigcap \mathcal \supp~ a_\a = \emptyset$ for any $\a \in \mathscr A \setminus \mathscr A_0$ and $\mathcal U \bigcap \mathcal U_\a \neq \emptyset$ for any $\a \in  \mathscr A_0$.
-	There is the unique connected open neighborhood  $\widetilde{\mathcal U}$ of $\widetilde{x}_0$ such that $\widetilde{\mathcal U}$ which is mapped homeomorphically onto $\sU$. For any $\a \in \mathscr A_0$ there is $\mathcal U \bigcap \supp~ a_\a\neq\emptyset$, so there is $x_\a \in \mathcal U \bigcap \supp~ a_\a$. Otherwise there are  $\widetilde{x}_\a \in \widetilde{\mathcal U}$, $\widetilde{x}'_\a \in \widetilde{\mathcal U}_\a$ such that $p\left(\widetilde{x}_\a \right)=  p\left(\widetilde{x}'_\a \right)= x_\a$. The covering $p$ is a transitive, so there is the unique $g_\a \in G\left(\left.\widetilde{\sX}~\right|\sX\right)$ such that $g_\a \widetilde{x}'_\a = \widetilde{x}_\a$. It follows that $g_\a \supp~ \widetilde{a}_\a \bigcap \widetilde{\mathcal U}\cong \supp~ a_\a \bigcap {\mathcal U}$. So there is a finite subset 
-	$$
-	\widetilde{\mathscr A}_0=\left\{ g_\a \widetilde{\mathcal U}_\a\right\}_{\a \in \mathscr A_0} \subset \left\{g \widetilde{\mathcal U}_\a\right\}_{g \in G\left(\left.\widetilde{\sX}~\right|\sX\right),~\a \in \mathscr A }
-	$$ 
-	such that $\widetilde{\mathcal U} \bigcap g_\a \supp~ \widetilde{a}_\a \neq \emptyset$ if $\mathcal U \bigcap g_\a \supp~ \widetilde{a}_\a \in \widetilde{\La}_0$ and $\widetilde{\mathcal U} \bigcap g_\a \widetilde{\mathcal U}_\a =\emptyset$ if $\widetilde{\mathcal U} \bigcap g_\a \supp~ \widetilde{a}_\a \notin \widetilde{\La}_0$. It follows that the family \eqref{top_cov_fam_eqn} is locally finite. From 
-	$$
-	\sum_{\a \in \mathscr A_0} a\left(x_0 \right) = 1
-	$$
-	it follows that
-	$$
-	\sum_{\a \in \mathscr A_0} g_\a \widetilde{a}\left(\widetilde{x}_0 \right) = 1
-	$$
-	i.e. the series \eqref{top_comply_part_eqn} is a partition of unity dominated by the family \eqref{top_cov_fam_eqn}.\\
-	%(ii) Follows from the Lemma \ref{top_part_of_unity_strict_lem}.
-\end{proof}
-\begin{definition}\label{comm_comply_defn}
-	A partition of unity \eqref{top_comply_part_eqn} given by the Lemma \ref{top_sub_part_lem} is said to be \textit{compliant to} the covering  $p:\widetilde{\mathcal X}\to{\mathcal X}$. The union \eqref{top_comply_union_eqn}, i.e.
-	$$
-	\widetilde{\sX} =\bigcup_{g \in G\left(\left.\widetilde{\sX}~\right|\sX\right),~ \a \in \mathscr A  } g\widetilde{\sU}_\a
-	$$
-	is also said to be \textit{compliant to} the covering  $p:\widetilde{\mathcal X}\to{\mathcal X}$.
-\end{definition}
-
-
-\begin{lemma}\label{top_dis_complient_lem}
-	If $p: \widetilde{\sX} \to \sX$ is a covering and the union 
-	$$
-	\widetilde{\sX} =\bigcup_{g \in G\left(\left.\widetilde{\sX}~\right|\sX\right),~ \a \in \mathscr A  } g\widetilde{\sU}_\a
-	$$
-	is {compliant to} $p: \widetilde{\sX} \to \sX$ (cf. Definition \ref{comm_comply_defn}) then there is the natural homeomorphism
-	\be\label{top_dis_complient_eqn}
-	\begin{split}
-		\widetilde{\sX} \cong\bigsqcup_{g \in G\left(\left.\widetilde{\sX}~\right|\sX\right),~ \a \in \mathscr A  } g\widetilde{\sU}_\a / \sim\\
-		\mathrm{where}~\widetilde{x}' \sim \widetilde{x}'' \Leftrightarrow  ~ \widetilde{x}'\in  g'\widetilde{\sU}_{\a'}~\mathrm{AND}~ \widetilde{x}''\in  g''\widetilde{\sU}_{\a''}~\mathrm{AND}\\ \mathrm{AND}~ g'\widetilde{\sU}_{\a'}\cap g''\widetilde{\sU}_{\a''}\neq \emptyset ~\mathrm{AND}~ p\left(\widetilde{x}' \right) = p\left(\widetilde{x}'' \right).
-	\end{split}
-	\ee
-\end{lemma}
-\begin{proof}
-	If $\widetilde{x}'\in  g'\widetilde{\sU}_{\a'}$,  $\widetilde{x}''\in  g''\widetilde{\sU}_{\a''}$ and $g'\widetilde{\sU}_{\a'}\cap g''\widetilde{\sU}_{\a''}= \emptyset$ then clearly $\widetilde{x}'\neq \widetilde{x}''$. Otherwise if $g'\widetilde{\sU}_{\a'}\cap g''\widetilde{\sU}_{\a''}\neq \emptyset$ then $g'\widetilde{\sU}_{\a'}\cap g''\widetilde{\sU}_{\a''}$ is homeomorphically mapped onto $p\left( g'\widetilde{\sU}_{\a'}\cap g''\widetilde{\sU}_{\a''}\right)$, hence from $p\left(\widetilde{x}' \right) = p\left(\widetilde{x}''\right) $ it turns out $\widetilde{x}'= \widetilde{x}''$. 
-\end{proof}
 \begin{remark}\label{comm_unity_rem}
 	If both ${\mathcal X}$ and $ \widetilde{\mathcal X}$ are compact and $G\left(\left.\widetilde{\sX}~\right|\sX\right)$ is finite then one can select a finite $\mathscr A$. Moreover
 	if $\widetilde{\mathscr A} = G\left(\left.\widetilde{\sX}~\right|\sX\right)\times \mathscr A$ and $\widetilde{e}_{\left(g,  \a\right) }= g\sqrt{\widetilde a_\a}$ one has
@@ -7249,11 +7204,19 @@ is a {noncommutative finite-fold  covering  of pro-$C^*$ algebras} (cf. Definiti
 
 \subsection{Induced representation}\label{comm_induced_finite_sec}
  \paragraph*{} 
-Let us consider a compact  Riemannian manifold $M$ with a  spin bundle $\sS$ (cf. \ref{spin_mani_sec}). Denote by $\mu$  the Riemannian measure (cf.  \cite{do_carmo:rg}) on $M$ which corresponds to the given by  the equation \eqref{top_vol_eqn} volume element. The bundle $S$ is Hermitian (cf. Definition \ref{top_herm_bundle_defn}) so there is a Hilbert space $L^2\left( M, S, \mu\right)$ (or  $L^2\left( M, S\right)$ in a simplified notation) (cf. \ref{top_herm_bundle_empt}) with the given by \eqref{top_bundle_herm_scalar_eqn} scalar product, i.e.
-\be\label{comm_bundle_herm_scalar_eqn}
-	\left( \xi, \eta\right)_{L^2\left(M, S\right)}\stackrel{\text{def}}{=} \int_{M}\left( \xi_x, \eta_x\right)_xd\mu.
-\ee
-Moreover from 	\eqref{comm_bundle_repr_eqn} it follows that there is the natural representation
+Let us consider a compact  Riemannian manifold $M$ with a  spin bundle $\sS$ (cf. \ref{spin_mani_sec}). 
+Denote by $\mu$  the Riemannian measure (cf.  \cite{do_carmo:rg}) on $M$ which corresponds to the given by  the equation \eqref{top_vol_eqn} volume element. The bundle $S$ is Hermitian (cf. Definition \ref{top_herm_bundle_defn}). Let $\tau:C\left( M\right) \to \C$ be a faithful state such that 
+ $$
+ \tau\left(a \right) = \int_{M} a~ d\mu
+ $$
+ (cf. equation \ref{meafunc_eqn}). Define the $\C$-valued product
+ \be
+ \begin{split}
+ 		\left( \cdot, \cdot \right): \Ga\left( M, S\right)\times \Ga\left( M, S\right) \to \C,\\
+ \left(\xi, \eta \right) \mapsto \tau\left( \left\langle\xi, \eta \right\rangle \right) 
+ \end{split}
+ \ee
+where the pairing $	\left\langle \cdot, \cdot \right\rangle:  \Ga\left( M, S\right)\times \Ga\left( M, S\right)$ is given by \eqref{top_gg_eqn}. This product yields the structure of pre-Hilbert space on $\Ga\left( M, S\right)$ denote by $ L^2\left(  M, S\right)\cong  L^2\left(  M, S, \mu\right)$ the Hilbert norm completion of $\Ga\left( M, S\right)$. The natural action $C\left( M\right) \times \Ga\left( M, S\right)\to \Ga\left( M, S\right)$ induces  the natural representation
 \be\label{comm_m_bundle_repr_eqn}
 C\left(M\right) \to B\left( L^2\left(  M, S\right)\right). 
 \ee
@@ -7267,17 +7230,28 @@ If $p: \widetilde{M} \to M$ is a finite-fold  transitive covering then from the 
 \ee
 of $C\left(\widetilde{M} \right)$-modules. From the Lemma \ref{top_lift_bundle_lem} it follows that $\lift_p\left[C\left(M, \left\{\SS_x\right\},  \Ga\left(M, \sS\right)\right)\right]\cong \Ga\left(\widetilde{M}, \widetilde{\SS} \right)$ where $\widetilde{\SS}$ is the {inverse image} of $\SS$ by $p$ (cf. Definition \ref{vb_inv_img_funct_defn}). Hence the equation \eqref{top_lift_g_eqn} can be rewritten by the following way
 \be\label{top_lift_gs_eqn}
-\phi: C\left(\widetilde M\right)\otimes_{C\left(M\right)} \Ga\left(M, \sS\right) \xrightarrow{\approx} \Ga\left(\widetilde{M}, \widetilde{\SS} \right)
+\phi: C\left(\widetilde M\right)\otimes_{C\left(M\right)} \Ga\left(M, \sS\right) \xrightarrow{\approx} \Ga\left(\widetilde{M}, \widetilde{\SS} \right).
+\ee
+From the Lemma \ref{state_cov_11_lem} it follows that for all $\la\in \La$ there is a functional
+\be\label{top_wt_eqn}
+\begin{split}
+\widetilde	\tau : C\left(\widetilde M \right)\to \C,\\
+\widetilde	a \mapsto \tau\left( \sum_{g \in G\left(\left.\widetilde M~\right|M \right) }g\widetilde a\right)=  \int_{\widetilde M} \widetilde a~ d\widetilde\mu 
+\end{split}
+\ee
+	where a sum $\sum_{g \in G\left(\left.\widetilde M~\right|M \right) }g\widetilde a$ is regarded as an element of $C\left( \widetilde M\right)$. Similarly to the above construction we have a Hilbert space $L^2\left(\widetilde{M}, \widetilde{S} \right)= L^2\left(\widetilde{M}, \widetilde{S}, \widetilde\mu \right)$ and a representation 
+\be\label{comm_bundle_repr_eqn}
+	C\left(\widetilde M\right) \to B\left( L^2\left( \widetilde M, \widetilde S\right)\right).
 \ee
 \begin{lemma}\label{top_hilb_homo_lem}
 Following conditions hold:
 	\begin{itemize}
 		\item [(i)] The map \eqref{top_lift_gs_eqn} can be extended up to the following homomorphism 
 		$$
-		C\left(\widetilde M\right)\otimes_{C\left(M\right)} L^2\left(M, \sS\right) \xrightarrow{\approx} L^2\left(\widetilde{M}, \widetilde{\SS} \right)
+		C\left(\widetilde M\right)\otimes_{C\left(M\right)} L^2\left(M, S\right) \xrightarrow{\approx} L^2\left(\widetilde{M}, \widetilde{S} \right)
 		$$
 		of left $C\left(\widetilde M\right)$-modules.
-		\item[(ii)] The image of $C\left(\widetilde M\right)\otimes_{C\left(M\right)} L^2\left(M, \sS\right)$ is dense in $L^2\left(\widetilde{M}, \widetilde{\SS} \right)$.
+		\item[(ii)] The image of $C\left(\widetilde M\right)\otimes_{C\left(M\right)} L^2\left(M, S\right)$ is dense in $L^2\left(\widetilde{M}, \widetilde{S} \right)$.
 	\end{itemize}
 \end{lemma}
 \begin{proof}(i)
@@ -8341,22 +8315,21 @@ Consider the described in \ref{top_r_inf_empt} situation and suppose that $\wide
 	\eean
 	the given by the Lemma \ref{top_base_point_lem}
 	{pointed algebraical  finite covering category} (cf. Definition \ref{comp_pt_defn}).
-	
 	Let $\tau: C_0\left(\sX \right)\to \C$ be a faithful state given by  \eqref{meafunc_eqn}, i.e. there exists a Borel
 	measure $\mu$ on $\sX$ with values in $\left[0, +\infty\right]$ such that
 	\be\label{top_meafunc_eqn}
 	\tau\left(a \right) = \int_{\sX} a~ d\mu \quad \forall a\in C_0\left(\sX \right).
 	\ee
 	Since the state $\tau$ is faithful $\mu\left( \sU\right) > 0$ for all nonempty open set $\sU\subset\sX$. Let $\overline{\mathcal X}$ be to be the \textit{disconnected inverse limit} of $\mathfrak{S}_{\left( \sX, x_0\right)}$	(cf. Definition \ref{top_topological_inv_lim_defn}), and let $\overline p: \overline{\mathcal X}\to\sX$, $\overline p_\la: \overline{\mathcal X}\to\sX_\la$ be natural coverings. From the Lemma \ref{state_cov_11_lem} it follows that for all $\la\in \La$ there is a functional
-	\be
+	\be\label{top_wtl_eqn}
 	\begin{split}
 		\tau_\la : C_0\left(\sX_\la \right)\to \C,\\
 		a_\la \mapsto \tau\left( \sum_{g \in G\left(\left.M_\la~\right|M \right) }ga\right) 
 	\end{split}
 	\ee
-	where $\sum_{g \in G\left(\left.M_\la~\right|M \right)}ga$ is regarded as an element of $C_0\left( \sX\right)$. From the Theorem \ref{meafunc_thm} it turns out that $\tau_\la$ is given by 	
+	where a $\sum_{g \in G\left(\left.M_\la~\right|M \right)}ga$ is regarded as an element of $C_0\left( \sX\right)$. From the Theorem \ref{meafunc_thm} it turns out that $\tau_\la$ is given by 	
 	\bean
-	\tau_\la\left(a_\la \right) = \int_{\sX_\la} a_\la~ d{\mu_\la} \quad \forall f \in C_0\left(\sX \right).
+	\tau_\la\left(a_\la \right) = \int_{\sX_\la} a_\la~ d{\mu_\la} \quad \forall a_\la \in C_0\left(\sX_\la \right).
 	\eean
 	where $\mu_\la$ is  a Borel measure $\sX_\la$. Indeed for all $\la\in\La$ the measure $\mu$ is the image of $\mu_\la$ (cf. Definition \ref{measure_image_defn}). For all $\la\in \La$ similarly to equations \eqref{tau_prod_eqn} and \eqref{mu_prod_eqn} one can define the $\C$-valued product $\left(\cdot, \cdot \right):C_0\left( \sX_\la\right) \times C_0\left( \sX_\la\right) \to\C$ given by
 	\bean
@@ -8369,11 +8342,15 @@ Consider the described in \ref{top_r_inf_empt} situation and suppose that $\wide
 	\overline\tau:\left(\overline a \right)\bydef \tau_\la\left(\desc_{\overline p_\la}\left( \overline  a\right)\right)\quad\la\ge \la_{\supp \overline  a}
 	\ee
 	and does not depend on $\la\ge \la_{\supp \overline  a}$
-	Let us define the $\C$-valued product $\left(\cdot, \cdot \right):C_c\left( \overline\sX\right) \times C_c\left(\overline  \sX\right) \to\C$
+	Let us define the $\C$-valued product $\left(\cdot, \cdot \right):C_c\left( \overline\sX\right) \times C_c\left(\overline  \sX\right) \to\C$.
 	The product is given by
 	\bean
 	\left(\overline  a, \overline  b\right)\bydef \overline\tau \left( \overline  a^*\overline  b\right).
 	\eean
+	There is an infinite positive measure $\overline \mu$ on $\overline M$ such that 
+	\be\label{top_meafunco_eqn}
+		\overline\tau:\left(\overline a \right) \int_{\overline\sX} a~ d\overline\mu \quad \forall \overline a\in C_c\left(\overline \sX \right).
+		\ee
  Thus  $C_c\left(\overline  \sX\right)$ becomes a pre-Hilbert space denote by $L^2\left(\overline  \sX , \overline \mu\right)$ its norm completion.  A natural action $C_b\left(\overline  \sX \right)  \times C_c\left(\overline  \sX \right)\to C_c\left(\overline  \sX \right)$ yields an action $C_b\left(\overline  \sX \right)  \times  L^2\left(\overline  \sX , \overline \mu\right)\to L^2\left(\overline  \sX , \overline \mu\right)$ which gives  a faithful representation	\be\label{top_phi_mu_eqn}
 	\phi_\tau :  C_b\left(\overline  \sX \right)\hookto B\left(L^2\left(\overline  \sX , \overline \mu\right) \right).
 	\ee
@@ -8659,126 +8636,6 @@ Otherwise from the Corollary \ref{top_cov_pi1_cor} it follows that $\pi_1\left( 
 	$$
 	%  then  $\left( C_0\left( {   \mathcal X }\right) ,  C_0\left( \widetilde{   \mathcal X }\right), G\left( \left.{\widetilde{\sX}}~\right|\sX\right) \right)$ is the (algebraical) universal approximately finite covering (cf. exercise \ref{fg_bas_defn}).
 \end{exercise}
-
-\subsection{Induced representation}\label{comm_induced_infinite_sec}
-
-\paragraph*{} 
-Similarly to the section \ref{comm_induced_finite_sec} consider a compact  Riemannian manifold $M$ with a  spinor bundle $S$ (cf. \ref{comm_sp_tr_sec}). Denote by $\mu$  the Riemannian measure (cf.  \cite{do_carmo:rg}) on $M$ which corresponds to the given by \eqref{top_vol_eqn} volume element. The bundle $S$ is Hermitian (cf. Definition \ref{top_herm_bundle_defn}) so there is a Hilbert space $L^2\left( M, S, \mu\right)$ (or  $L^2\left( M, S\right)$ in a simplified notation) (cf. \ref{top_herm_bundle_empt}) with the given by \eqref{top_bundle_herm_scalar_eqn} scalar product, i.e.
-\be\label{comm_bundle_herm_inf_scalar_eqn}
-\left( \xi, \eta\right)_{L^2\left(M, S\right)}\stackrel{\text{def}}{=} \int_{M}\left( \xi_x, \eta_x\right)_xd\mu
-\ee
-Moreover from 	\eqref{comm_bundle_repr_eqn} it follows that there is the natural representation
-\be\label{comm_m_bundle_inf_repr_eqn}
-\rho: C\left(M\right) \to B\left( L^2\left(  M, S\right)\right). 
-\ee
-From \ref{top_herm_bundle_empt} it follows that $L^2\left( M, S, \mu\right)$ is the Hilbert norm completion of $\Ga\left(M, \sS\right)$. Let $p: \widetilde M \to M$ be an infinite transitive covering, such that the group $G\left(\left.\widetilde M   ~\right| M\right)$ is residually finite. From the Lemma \ref{top_res_fin_lem} and the  Theorem \ref{comm_main_thm} it turns out that the triple  $\left(C\left( M\right) , C_0\left( \widetilde M\right) G\left(\left.\widetilde M   ~\right| M\right)\right)$ is an infinite noncommutative covering (cf. Definition \ref{main_defn}).  
-
-\begin{lemma}\label{comm_allows_lem}
-	If $\mathfrak{S}_{\left( \mathcal X, x_0\right) } = \left\{\left( \mathcal{X}_\la,x_0^\la\right)  \to \left( \mathcal X, x_0\right) \right\}_{\la \in \La} \in \mathfrak{FinTop}^{\mathrm{pt}}$, \\
-	$\mathfrak{S}_{C_0\left(\mathcal{X}\right) }\left( \mathcal X, x_0\right) =
-	\left( \left\{C_0\left( \mathcal{X}\right) \hookto  C_0\left( \mathcal{X}_\la\right) \right\}, \left\{C_0\left( \mathcal{X}_\mu\right) \hookto  C_0\left( \mathcal{X}_\nu\right) \right\} \right) $ then $\mathfrak{S}^{\mathrm{pt}}_{C_0\left(\mathcal{X}\right) }$ allows inner product (cf. Definition \ref{inf_hilb_prod_defn}). 
-\end{lemma}
-\begin{proof}
-	%	Denote by $G_\la = G\left(\mathcal X_\la~|~\mathcal X \right)$ groups of covering transformations and $\widehat{G} = \varprojlim G_\la$. 
-	Denote by $\overline{p}:\left( \overline{  \mathcal X}, \overline x_0\right)  \to\left(  \mathcal X, x_0\right) $, $\overline{p}_\la:\left( \overline{  \mathcal X}, \overline x_0\right)  \to\left(  \mathcal X_\la, x^\la_0\right) $, $p^\la: \left(  \mathcal X_\la, x^\la_0\right)  \to \left( \mathcal X, x_0\right) $, $p^\mu_\nu:  \left( \mathcal X_\mu, x^\mu_0 \right) \to \left( \mathcal X_\nu, x^\nu_0\right) $ ($\mu > \nu$) the natural pointed coverings.
-	If $\widetilde{\sX}= \varprojlim \mathfrak{S}_{\left(\sX, x_0 \right)}$ then  	from the Theorem \ref{comm_main_thm} it turns out	
-	$$\left(C_0\left(\mathcal{X}\right), C_0\left(\widetilde{\sX}\right),G\left(\widetilde{\sX}~|~ \mathcal X\right)\right)$$ is  the  { infinite noncommutative covering} of $\mathfrak{S}_{C_0\left(\mathcal{X}\right)}$ (cf. Definition \ref{main_defn}). 	 	It is shown in \cite{pedersen:mea_c} that the Pedersen's ideal $K\left(C_0\left(\widetilde{\sX} \right)\right) $ of $C_0\left(\widetilde{\sX} \right)$ coincides with $C_c\left(\widetilde{\sX} \right)$. If $\widetilde{a}, \widetilde{b} \in C_c\left(\widetilde{\sX} \right)$ then $\supp \overline{a}$ is compact. 	
-	From the Lemma \ref{top_comp_la_lem} it follows that there is $\la_0 \in \La$ such that for all $\la \ge \la_0$ the restriction $\left.\overline{p}_\la\right|_{\supp \overline{a}}$ is injective. From (ii) of the Lemma  \ref{comm_lift_desc_sum_lem} it follows that
-	\begin{equation}\nonumber
-		\begin{split}
-			c_{\la} = \sum_{g \in \ker\left(G\left(\left.\widetilde{\sX}~\right|\sX \right)  \to  G\left( \sX_{\la}~|~\sX \right)\right)} g \left(\widetilde{a}^* \widetilde{b}  \right) = \desc_{\overline{p}_\la}\left( \widetilde{a}\widetilde{b}\right) 
-		\end{split}
-	\end{equation}
-	where notation  $\desc_{\overline{p}_\la}$ means  the descent	(cf. Definition \ref{top_lift_desc_defn}). From the properties of the descent it turns out that $\desc_{\overline{p}_\la}\left( \widetilde{a}\widetilde{b}\right) \in C_0\left( \sX_{\la}\right)$, i.e. $c_\la \in C_0\left( \sX_{\la}\right)$.  Taking into account the Remark \ref{inf_hilb_prod_low_rem} we conclude that  $c_\la \in C_0\left( \sX_{\la}\right)$ for all $\la \in \La$.
-\end{proof}
-From the Lemma \ref{comm_allows_lem} it follows that the  induced by $\left(\rho, \left(C\left( M\right) , C_0\left( \widetilde M\right) G\left(\left.\widetilde M   ~\right| M\right)\right)\right)$ representation $\widetilde \rho: C_0\left( \widetilde M\right)\hookto B\left( \widetilde \H\right)$ (cf. Definition \ref{induced_repr_inf_defn}), such that $\widetilde \H$ is the Hilbert norm completion of
-$$
-K\left( C_0\left( \widetilde M\right)\right)\otimes_{C\left( {M}\right)} L^2\left(  M, S\right)
-$$
-where $K\left( C_0\left( \widetilde M\right)\right)$ is Pedersen's ideal of $C_0\left( \widetilde M\right)$ (cf. Definition \ref{peder_id_defn} and Remark \ref{ap_act_hilb_rem}). On the other hand 	it is proven in \cite{pedersen:mea_c} that the Pedersen's ideal $K\left(C_0\left(\widetilde{\sX} \right)\right) $ of $C_0\left(\widetilde{\sX} \right)$ coincides with $C_c\left(\widetilde{\sX} \right)$.  If
-$$
-\Ga_c\left(\widetilde M, \widetilde S \right)\bydef C_c\left( \lift_p\left[C\left(M, \left\{S_x\right\}, \Ga\left(M, S\right)\right)\right]\right)  
-$$
-then from the Lemma \ref{top_tensor_lcompact_lem} it follows that there is the given by \eqref{top_tensor_lccompact_iso_eqn} isomorphism
-$$
-C_c\left(\widetilde M\right)\otimes_{C\left(M\right)}\Ga\left(M,S \right) \xrightarrow{\approx}\Ga_c\left(\widetilde M, \widetilde S \right)
-$$
-of left $C_0\left(\widetilde M \right)$-modules. On the other hand 
-then from \ref{top_herm_bundle_empt} it follows that there is the dense with respect to the Hilbert norm inclusion $\Ga_c\left(\widetilde M, \widetilde S \right)\subset L^2\left(\widetilde M, \widetilde S \right)$, hence there is  the homomorphism
-\be\label{top_lift_g_inf_eqn}
-\phi: C_c\left(\widetilde M\right)\otimes_{C\left(M\right)}\Ga\left(M,S \right) \to L^2\left(\widetilde M, \widetilde S \right)
-\ee
-of left $C_0\left(\widetilde M \right)$-modules.
-\begin{lemma}\label{top_hilb_inf_lem}
-	Following conditions hold:
-	\begin{itemize}
-		\item [(i)] The map \eqref{top_lift_g_inf_eqn} can be extended up to the following homomorphism 
-		$$
-		C_c\left(\widetilde M\right)\otimes_{C\left(M\right)} L^2\left(M, \sS\right) \xrightarrow{\approx} L^2\left(\widetilde{M}, \widetilde{\SS} \right)
-		$$
-		of left $C_0\left(\widetilde M\right)$-modules.
-		\item[(ii)] The image of $C_c\left(\widetilde M\right)\otimes_{C\left(M\right)} L^2\left(M, \sS\right)$ is dense in $L^2\left(\widetilde{M}, \widetilde{\SS} \right)$.
-	\end{itemize}
-\end{lemma}
-\begin{proof}(i)
-	Let $\sum_{j = 1}^n \widetilde a_j \otimes \xi_j\in 	C_c\left(\widetilde M\right)\otimes_{C\left(M\right)} L^2\left(M, \sS\right)$ be any element. From \ref{top_herm_bundle_empt}  it turns out that $L^2\left( M, S, \mu\right)$ is the Hilbert norm completion of $\Ga\left(M, \sS\right)$. Hence for any $j =1,..., n$ there is a net $\left\{\xi_{j\a}\right\}\subset \Ga\left(M, \sS\right)$ such that $\xi_j = \lim_\a \xi_{j\a}$ where we mean the convergence with respect to the Hilbert norm $\left\| \cdot\right\|_{L^2\left(M, \sS\right)}$. If $C = \max_{j = 1,...,n}\left\|\widetilde a_j\right\|$ then there is $\a_0$ such that
-	$$
-	\a \ge \a_0 \quad \Rightarrow \left\| \xi_j - \xi_{j\a}\right\|_{L^2\left(M, \sS\right)} < \frac{\eps}{nC},
-	$$
-	so one has
-	$$
-	\a \ge \a_0 \quad \Rightarrow \left\| \sum_{j = 1}^n \widetilde a_j \otimes \xi_{j\a_0} - \sum_{j = 1}^n \widetilde a_j \otimes \xi_{j\a}\right\|_{L^2\left(\widetilde M, \widetilde\sS\right)} < \eps.
-	$$
-	The above equation it follows that the net $\left\{\sum_{j = 1}^n \widetilde a_j \otimes \xi_{j\a}\right\}_\a$ satisfies to the Cauchy condition, so it is convergent with respect to the topology of $L^2\left(\widetilde M, \widetilde\sS\right)$.\\
-	(ii) From the Lemma \eqref{top_tensor_lcompact_lem} it follows that the image of $C_c\left(\widetilde M\right)\otimes_{C\left(M\right)} L^2\left(M, \sS\right)$ in $L^2\left(\widetilde M, \widetilde\sS\right)$ contains $\Ga_c\left(\widetilde{M}, \widetilde{\SS} \right)$, however $\Ga_c\left(\widetilde{M}, \widetilde{\SS} \right)$ is dense in $L^2\left(\widetilde{M}, \widetilde{\SS} \right)$. It follows that  $\phi\left(  C_c\left(\widetilde M\right)\otimes_{C\left(M\right)} L^2\left(M, \sS\right)\right)$ is dense in $L^2\left(\widetilde{M}, \widetilde{\SS} \right)$. 
-\end{proof}
-Let both $\mu$ and $\widetilde{\mu}$ be Riemannian measure (cf.  \cite{do_carmo:rg}) on both $M$ and $\widetilde{M}$ respectively which correspond to both the volume element (cf. \eqref{top_vol_eqn}) and its $p$-lift (cf.  Example  \eqref{top_radon_lift_exm}).
-Let
-\bean
-1_{C_b\left(\widetilde{\mathcal X} \right) }= \sum_{\widetilde\a \in \widetilde{\mathscr A} }\widetilde{a}_{\widetilde{\a}}= \sum_{\widetilde\a \in \widetilde{\mathscr A} }\widetilde{e}^2_{\widetilde{\a}}; \quad \widetilde{e}_{\widetilde{\a}}\bydef\sqrt{\widetilde{a}_{\widetilde{\a}}}~\quad \forall\widetilde\a \in \widetilde{\mathscr A}
-\eean
-be a partition of unity,
-{compliant to} the covering  $p:\widetilde{M}\to M$ (cf. Definition \ref{comm_comply_defn}). 
-If $\widetilde{a} \otimes \xi, \widetilde{b} \otimes \eta \in C_c\left(\widetilde{M} \right) \otimes_{C\left(M \right) } \Ga\left( M, S\right) \subset L^2\left(\widetilde{M},\widetilde{S} \right)$  then $\supp \widetilde{a}$ is compact, so there exists {covering sum} for $\supp \widetilde{a}$ (cf. Definition \ref{top_cfs_defn}), i.e. a finite subset $\widetilde{\mathscr A}_{\supp \widetilde{a}}\subset \widetilde{\mathscr A}$ such that 
-	$$
-	\sum_{ {\a}\in {\mathscr A_{\supp \widetilde{a}}}} \widetilde{a}_\a \left( \widetilde{x}\right) = 1 \quad \forall \widetilde{x}\in \supp \widetilde{a}.
-	$$
-The given by the equation \eqref{comp_hilb_eqn} scalar product $\left(\cdot, \cdot \right)_{\text{ind}}$ on  $C_c\left(\widetilde{M} \right) \otimes_{C\left(M \right) } \Ga\left( M, S\right)$ satisfies to the following equation
-\begin{equation}\label{comm_ind_l2_lc_eqn}
-\begin{split}
-\left( \widetilde{a} \otimes \xi ,    \widetilde{b} \otimes \eta\right)_{\text{ind}}= \left(\xi, \left\langle \widetilde{a}, \widetilde{b}\right\rangle_{C\left(\widetilde{M} \right) } \eta \right)_{L^2\left({M},{S} \right)}=\\=\sum_{\widetilde{\a}\in \widetilde{\mathscr A}_{\supp \widetilde{a}}}\left(\xi, \left\langle \widetilde{a}_{\widetilde{\a}}\widetilde{a}, \widetilde{b}\right\rangle_{C\left(\widetilde{M} \right) } \eta \right)_{L^2\left({M},{S} \right)}=
-\\
-= \sum_{\widetilde{\a}\in \widetilde{\mathscr A}_{\supp \widetilde{a}}}\left(\xi, \mathfrak{desc}\left( \widetilde{a}_{\widetilde{\a}} \widetilde{a}^* \widetilde{b}\right)  \eta \right)_{L^2\left({M},{S} \right)}=
-\\
-=
-\sum_{\widetilde{\a}\in \widetilde{\mathscr A}_{\supp \widetilde{a}}}~\int_M \left(\xi_x, \mathfrak{desc}\left( \widetilde{a}_{\widetilde{\a}} \widetilde{a}^* \widetilde{b}\right)  \eta_x \right)_x d\mu=
-\\
-=
-\sum_{\widetilde{\a}\in \widetilde{\mathscr A}_{\supp \widetilde{a}}}~\int_M \left(\mathfrak{desc}\left( \widetilde{e}_{\widetilde{\a}} \widetilde{a}\right)\xi_x, \mathfrak{desc}\left( \widetilde{e}_{\widetilde{\a}}  \widetilde{b}\right)  \eta_x \right)_x d\mu=
-\\
-=\sum_{\widetilde{\a}\in \widetilde{\mathscr A}_{\supp \widetilde{a}}}~ \int_{\widetilde{M}}\left(\widetilde{a} \lift_{\widetilde{\sU}_{\widetilde{\a}}}\left({e}_{\widetilde{\a}}\xi \right)_{\widetilde{x}},  \widetilde{b} ~\lift_{\widetilde{\sU}_{\widetilde{\a}}}\left({e}_{\widetilde{\a}}\eta \right)_{\widetilde{x}}\right)_{\widetilde{x}}d \widetilde{   \mu} =
-\\
-=\sum_{\widetilde{\a}\in \widetilde{\mathscr A}_{\supp \widetilde{a}}}~ \int_{\widetilde{M}}\widetilde{a}_{\widetilde{\a}}\left(\widetilde{a} \lift_{\widetilde{\sU}_{\widetilde{\a}}}\left(\xi \right)_{\widetilde{x}},  \widetilde{b} ~\lift_{\widetilde{\sU}_{\widetilde{\a}}}\left(\eta \right)_{\widetilde{x}}\right)_{\widetilde{x}}d \widetilde{   \mu} =
-\\
-= \int_{\widetilde{M}}\left( \widetilde{a} \lift_p\left(\xi \right)_{\widetilde{x}},  \widetilde{b} ~\lift_p\left(\eta \right)_{\widetilde{x}}\right)_{\widetilde{x}}d \widetilde{   \mu}
-= \left( \widetilde{a}~ \lift_p\left(\xi \right),  \widetilde{b} ~\lift_p\left(\eta \right)\right)_{L^2\left(\widetilde{M},\widetilde{S} \right)} =\\
-=  \left(\phi\left(  \widetilde{a}\otimes\xi\right) ,  \phi \left( \widetilde{b}\otimes\eta\right)\right)_{L^2\left(\widetilde{M},\widetilde{S} \right)}
-\end{split} 
-\end{equation}
-where $\phi$ is given by \eqref{top_tensor_lccompact_iso_eqn}.
-The equation \eqref{comm_ind_l2_lc_eqn} means that $\left(\cdot, \cdot \right)_{\text{ind}}= \left(\cdot, \cdot \right)_{L^2\left(\widetilde{M},\widetilde{S} \right)}$, and taking into account the dense inclusion $C\left(\widetilde{M} \right) \otimes_{C\left(M \right) } \Ga\left( M, S\right) \subset L^2\left(\widetilde{M},\widetilde{S} \right)$ with respect to the Hilbert norm of $L^2\left(\widetilde{M},\widetilde{S}\right) $
-one concludes that the space of induced representation coincides with $L^2\left(\widetilde{M},\widetilde{S}\right)$. It means that induced representation $C\left(\widetilde{M}\right) \times L^2\left(\widetilde{M},\widetilde{S} \right) \to L^2\left(\widetilde{M},\widetilde{S} \right)$ is given by \eqref{comm_bundle_repr_eqn}. So one has the following lemma.
-\begin{lemma}\label{comm_ind_lc_lem}
-	If the representation  $\widetilde{\rho}: C\left(\widetilde{M}\right) \to  B\left( \widetilde{   \H}\right)  $ is induced by the pair $$\left(C\left(M \right)\to B\left(  L^2\left(M,S \right)\right) ,\left(C\left(M \right) , C_0\left( \widetilde{M}\right) , G\left( \left.\widetilde{M}~\right|M\right) \right)  \right)$$ (cf. Definition \ref{induced_repr_inf_defn}) then following conditions hold:
-	\begin{enumerate}
-		\item[(a)] There is the homomorphism of Hilbert spaces $\widetilde{   \H}\cong L^2\left(\widetilde{M},\widetilde{S} \right)$,
-		\item[(b)] The representation $\widetilde{\rho}$ is given by the natural action of $C_0\left(\widetilde{M}\right)$ on $ L^2\left(\widetilde{M},\widetilde{S} \right)$ (cf. \ref{comm_bundle_repr_eqn}).
-	\end{enumerate}
-\end{lemma}
-\begin{proof}
-	(a) Follows from \eqref{comm_ind_l2_lc_eqn},\\
-	(b) From the Lemma \ref{top_hilb_homo_lem}  it follows that the map 		$	C_c\left(\widetilde M\right)\otimes_{C\left(M\right)} L^2\left(M, \sS\right) \xrightarrow{\approx} L^2\left(\widetilde{M}, \widetilde{\SS} \right)$ is the homomorphism of $C_0\left(\widetilde M\right)$ modules, so the given by \eqref{comm_bundle_repr_eqn} $C_0\left(\widetilde M\right)$-action coincides with the $C_0\left(\widetilde M\right)$-action  the given by \eqref{comp_hilb_actf_eqn}.
-\end{proof}
 
 \subsection{Coverings of pro-$C^*$-algebras}
 
@@ -9186,6 +9043,142 @@ The equation \eqref{top_inv_qo*_llimp_eqn} follows from \eqref{top_cc_l_inc_eqn}
 	\left(D\left(M, E \right),D\left(  \widetilde{   M }, \widetilde E\right) ,G\left(\left. \widetilde{   M } ~\right| {   M }\right)\right)
 	$$
 \end{exercise}
+\subsection{Induced representation}\label{comm_induced_infinite_sec}
+
+\paragraph*{} 
+Similarly to the section \ref{comm_induced_finite_sec} consider a compact  Riemannian manifold $M$ with a  spinor bundle $S$ (cf. \ref{comm_sp_tr_sec}). 
+Let $\tau:C\left( M\right) \to \C$ be a faithful state such that 
+$$
+\tau\left(a \right) = \int_{M} a~ d\mu
+$$
+Similarly to the Section \ref{comm_induced_finite_sec} there is a Hilbert space $ L^2\left(  M, S\right)\cong  L^2\left(  M, S, \mu\right)$ and   the natural representation
+\be\label{comm_m_bundle_inf_repr_eqn}
+\rho: C\left(M\right) \to B\left( L^2\left(  M, S\right)\right). 
+\ee
+ Let $p: \widetilde M \to M$ be an infinite transitive covering, such that the group $G\left(\left.\widetilde M   ~\right| M\right)$ is residually finite. From the Lemma \ref{top_res_fin_lem} and the  Theorem \ref{comm_main_thm} it turns out that the triple  $\left(C\left( M\right) , C_0\left( \widetilde M\right) G\left(\left.\widetilde M   ~\right| M\right)\right)$ is an infinite noncommutative covering (cf. Definition \ref{main_defn}). Similarly to \eqref{top_ot_eqn} one can construct a functional
+\bean
+\widetilde\tau: C_c\left(\widetilde M \right) \to \C. 
+\eean 
+ Define the $\C$-valued product
+\be
+\begin{split}
+	\left( \cdot, \cdot \right): \Ga_c\left(\widetilde M, \widetilde S\right)\times \Ga_c\left( \widetilde M, \widetilde S\right) \to \C,\\
+	\left(\widetilde\xi,\widetilde \eta \right) \mapsto \widetilde \tau\left( \left\langle\widetilde\xi, \widetilde\eta \right\rangle_c \right) 
+\end{split}
+\ee
+where the pairing $	\left\langle \cdot, \cdot \right\rangle_c:  \Ga_c\left(\widetilde M,\widetilde S\right)\times \Ga_c\left(\widetilde M, \widetilde S\right)\to C_c\left(\widetilde M \right) $ is given by \eqref{top_ggc_eqn}.
+This product yields the structure of pre-Hilbert space on $\Ga_c\left(\widetilde M,\widetilde S\right)$. Denote by $ L^2\left(\widetilde  M,\widetilde S\right)\cong  L^2\left( \widetilde M, \widetilde S, \widetilde \mu\right)$ the Hilbert norm completion of $\Ga_c\left(\widetilde M,\widetilde S\right)$. The natural action $C_0\left(\widetilde M\right) \times \Ga_c\left(\widetilde M,\widetilde S\right)\to \Ga_c\left(\widetilde M,  \widetilde S\right)$ induces  the natural representation
+\be\label{comm_bundlei_repr_eqn}
+C_0\left(\widetilde M\right) \to B\left( L^2\left(\widetilde  M, \widetilde S\right)\right). 
+\ee 
+
+\begin{lemma}\label{comm_allows_lem}
+	If $\mathfrak{S}_{\left( \mathcal X, x_0\right) } = \left\{\left( \mathcal{X}_\la,x_0^\la\right)  \to \left( \mathcal X, x_0\right) \right\}_{\la \in \La} \in \mathfrak{FinTop}^{\mathrm{pt}}$, \\
+	$\mathfrak{S}_{C_0\left(\mathcal{X}\right) }\left( \mathcal X, x_0\right) =
+	\left( \left\{C_0\left( \mathcal{X}\right) \hookto  C_0\left( \mathcal{X}_\la\right) \right\}, \left\{C_0\left( \mathcal{X}_\mu\right) \hookto  C_0\left( \mathcal{X}_\nu\right) \right\} \right) $ then $\mathfrak{S}^{\mathrm{pt}}_{C_0\left(\mathcal{X}\right) }$ allows inner product (cf. Definition \ref{inf_hilb_prod_defn}). 
+\end{lemma}
+\begin{proof}
+	%	Denote by $G_\la = G\left(\mathcal X_\la~|~\mathcal X \right)$ groups of covering transformations and $\widehat{G} = \varprojlim G_\la$. 
+	Denote by $\overline{p}:\left( \overline{  \mathcal X}, \overline x_0\right)  \to\left(  \mathcal X, x_0\right) $, $\overline{p}_\la:\left( \overline{  \mathcal X}, \overline x_0\right)  \to\left(  \mathcal X_\la, x^\la_0\right) $, $p^\la: \left(  \mathcal X_\la, x^\la_0\right)  \to \left( \mathcal X, x_0\right) $, $p^\mu_\nu:  \left( \mathcal X_\mu, x^\mu_0 \right) \to \left( \mathcal X_\nu, x^\nu_0\right) $ ($\mu > \nu$) the natural pointed coverings.
+	If $\widetilde{\sX}= \varprojlim \mathfrak{S}_{\left(\sX, x_0 \right)}$ then  	from the Theorem \ref{comm_main_thm} it turns out	
+	$$\left(C_0\left(\mathcal{X}\right), C_0\left(\widetilde{\sX}\right),G\left(\widetilde{\sX}~|~ \mathcal X\right)\right)$$ is  the  { infinite noncommutative covering} of $\mathfrak{S}_{C_0\left(\mathcal{X}\right)}$ (cf. Definition \ref{main_defn}). 	 	It is shown in \cite{pedersen:mea_c} that the Pedersen's ideal $K\left(C_0\left(\widetilde{\sX} \right)\right) $ of $C_0\left(\widetilde{\sX} \right)$ coincides with $C_c\left(\widetilde{\sX} \right)$. If $\widetilde{a}, \widetilde{b} \in C_c\left(\widetilde{\sX} \right)$ then $\supp \overline{a}$ is compact. 	
+	From the Lemma \ref{top_comp_la_lem} it follows that there is $\la_0 \in \La$ such that for all $\la \ge \la_0$ the restriction $\left.\overline{p}_\la\right|_{\supp \overline{a}}$ is injective. From (ii) of the Lemma  \ref{comm_lift_desc_sum_lem} it follows that
+	\begin{equation}\nonumber
+		\begin{split}
+			c_{\la} = \sum_{g \in \ker\left(G\left(\left.\widetilde{\sX}~\right|\sX \right)  \to  G\left( \sX_{\la}~|~\sX \right)\right)} g \left(\widetilde{a}^* \widetilde{b}  \right) = \desc_{\overline{p}_\la}\left( \widetilde{a}\widetilde{b}\right) 
+		\end{split}
+	\end{equation}
+	where notation  $\desc_{\overline{p}_\la}$ means  the descent	(cf. Definition \ref{top_lift_desc_defn}). From the properties of the descent it turns out that $\desc_{\overline{p}_\la}\left( \widetilde{a}\widetilde{b}\right) \in C_0\left( \sX_{\la}\right)$, i.e. $c_\la \in C_0\left( \sX_{\la}\right)$.  Taking into account the Remark \ref{inf_hilb_prod_low_rem} we conclude that  $c_\la \in C_0\left( \sX_{\la}\right)$ for all $\la \in \La$.
+\end{proof}
+From the Lemma \ref{comm_allows_lem} it follows that the  induced by $\left(\rho, \left(C\left( M\right) , C_0\left( \widetilde M\right) G\left(\left.\widetilde M   ~\right| M\right)\right)\right)$ representation $\widetilde \rho: C_0\left( \widetilde M\right)\hookto B\left( \widetilde \H\right)$ (cf. Definition \ref{induced_repr_inf_defn}), such that $\widetilde \H$ is the Hilbert norm completion of
+$$
+K\left( C_0\left( \widetilde M\right)\right)\otimes_{C\left( {M}\right)} L^2\left(  M, S\right)
+$$
+where $K\left( C_0\left( \widetilde M\right)\right)$ is Pedersen's ideal of $C_0\left( \widetilde M\right)$ (cf. Definition \ref{peder_id_defn} and Remark \ref{ap_act_hilb_rem}). On the other hand 	it is proven in \cite{pedersen:mea_c} that the Pedersen's ideal $K\left(C_0\left(\widetilde{\sX} \right)\right) $ of $C_0\left(\widetilde{\sX} \right)$ coincides with $C_c\left(\widetilde{\sX} \right)$.  If
+$$
+\Ga_c\left(\widetilde M, \widetilde S \right)\bydef C_c\left( \lift_p\left[C\left(M, \left\{S_x\right\}, \Ga\left(M, S\right)\right)\right]\right)  
+$$
+then from the Lemma \ref{top_tensor_lcompact_lem} it follows that there is the given by \eqref{top_tensor_lccompact_iso_eqn} isomorphism
+$$
+C_c\left(\widetilde M\right)\otimes_{C\left(M\right)}\Ga\left(M,S \right) \xrightarrow{\approx}\Ga_c\left(\widetilde M, \widetilde S \right)
+$$
+of left $C_0\left(\widetilde M \right)$-modules. On the other hand 
+then from \ref{top_herm_bundle_empt} it follows that there is the dense with respect to the Hilbert norm inclusion $\Ga_c\left(\widetilde M, \widetilde S \right)\subset L^2\left(\widetilde M, \widetilde S \right)$, hence there is  the homomorphism
+\be\label{top_lift_g_inf_eqn}
+\phi: C_c\left(\widetilde M\right)\otimes_{C\left(M\right)}\Ga\left(M,S \right) \to L^2\left(\widetilde M, \widetilde S \right)
+\ee
+of left $C_0\left(\widetilde M \right)$-modules.
+\begin{lemma}\label{top_hilb_inf_lem}
+	Following conditions hold:
+	\begin{itemize}
+		\item [(i)] The map \eqref{top_lift_g_inf_eqn} can be extended up to the following homomorphism 
+		$$
+		C_c\left(\widetilde M\right)\otimes_{C\left(M\right)} L^2\left(M, \sS\right) \xrightarrow{\approx} L^2\left(\widetilde{M}, \widetilde{\SS} \right)
+		$$
+		of left $C_0\left(\widetilde M\right)$-modules.
+		\item[(ii)] The image of $C_c\left(\widetilde M\right)\otimes_{C\left(M\right)} L^2\left(M, \sS\right)$ is dense in $L^2\left(\widetilde{M}, \widetilde{\SS} \right)$.
+	\end{itemize}
+\end{lemma}
+\begin{proof}(i)
+	Let $\sum_{j = 1}^n \widetilde a_j \otimes \xi_j\in 	C_c\left(\widetilde M\right)\otimes_{C\left(M\right)} L^2\left(M, \sS\right)$ be any element. From \ref{top_herm_bundle_empt}  it turns out that $L^2\left( M, S, \mu\right)$ is the Hilbert norm completion of $\Ga\left(M, \sS\right)$. Hence for any $j =1,..., n$ there is a net $\left\{\xi_{j\a}\right\}\subset \Ga\left(M, \sS\right)$ such that $\xi_j = \lim_\a \xi_{j\a}$ where we mean the convergence with respect to the Hilbert norm $\left\| \cdot\right\|_{L^2\left(M, \sS\right)}$. If $C = \max_{j = 1,...,n}\left\|\widetilde a_j\right\|$ then there is $\a_0$ such that
+	$$
+	\a \ge \a_0 \quad \Rightarrow \left\| \xi_j - \xi_{j\a}\right\|_{L^2\left(M, \sS\right)} < \frac{\eps}{nC},
+	$$
+	so one has
+	$$
+	\a \ge \a_0 \quad \Rightarrow \left\| \sum_{j = 1}^n \widetilde a_j \otimes \xi_{j\a_0} - \sum_{j = 1}^n \widetilde a_j \otimes \xi_{j\a}\right\|_{L^2\left(\widetilde M, \widetilde\sS\right)} < \eps.
+	$$
+	The above equation it follows that the net $\left\{\sum_{j = 1}^n \widetilde a_j \otimes \xi_{j\a}\right\}_\a$ satisfies to the Cauchy condition, so it is convergent with respect to the topology of $L^2\left(\widetilde M, \widetilde\sS\right)$.\\
+	(ii) From the Lemma \eqref{top_tensor_lcompact_lem} it follows that the image of $C_c\left(\widetilde M\right)\otimes_{C\left(M\right)} L^2\left(M, \sS\right)$ in $L^2\left(\widetilde M, \widetilde\sS\right)$ contains $\Ga_c\left(\widetilde{M}, \widetilde{\SS} \right)$, however $\Ga_c\left(\widetilde{M}, \widetilde{\SS} \right)$ is dense in $L^2\left(\widetilde{M}, \widetilde{\SS} \right)$. It follows that  $\phi\left(  C_c\left(\widetilde M\right)\otimes_{C\left(M\right)} L^2\left(M, \sS\right)\right)$ is dense in $L^2\left(\widetilde{M}, \widetilde{\SS} \right)$. 
+\end{proof}
+
+\begin{empt} 
+If $\widetilde{a} \otimes \xi, \widetilde{b} \otimes \eta \in C_c\left(\widetilde{M} \right) \otimes_{C\left(M \right) } \Ga\left( M, S\right) \subset L^2\left(\widetilde{M},\widetilde{S} \right)$  then $\supp \widetilde{a}$ is compact, so there exists a subordinated to $\widetilde p$ {covering sum} for $\supp \widetilde{a}$ (cf. Definitions \ref{top_cfs_defn} and \ref{top_cfs_sub_defn}) 
+\bean
+\sum_{\widetilde \a\in \widetilde{\mathscr A}} \widetilde a_{\widetilde\a}.
+\eean
+where a given by \eqref{top_cfsa_eqn} is used. If $\widetilde e_\a \bydef \sqrt{\widetilde a_\a}$ and $e_\a = \desc_{\widetilde p}\left( \widetilde e_\a\right) $ means $\widetilde p$-descent (cf. Definition \ref{top_lift_desc_defn}) then from \eqref{top_desc_fin_eqn} it turns out that
+$$
+\forall\a\in \mathscr A \quad \widetilde a_\a = \widetilde e_\a e_\a.
+$$
+
+The given by the equation \eqref{comp_hilb_eqn} scalar product $\left(\cdot, \cdot \right)_{\text{ind}}$ on  $C_c\left(\widetilde{M} \right) \otimes_{C\left(M \right) } \Ga\left( M, S\right)$ satisfies to the following equation
+\begin{equation}\label{comm_ind_l2_lc_eqn}
+	\begin{split}
+		\left( \widetilde{a} \otimes \xi ,    \widetilde{b} \otimes \eta\right)_{\text{ind}}= \left(\xi, \left\langle \widetilde{a}, \widetilde{b}\right\rangle_{C\left(\widetilde{M} \right) } \eta \right)_{L^2\left({M},{S} \right)}=\\=\sum_{\widetilde{\a}\in \widetilde{\mathscr A}_{\supp \widetilde{a}}}\left(\xi, \left\langle \widetilde{a}_{\widetilde{\a}}\widetilde{a}, \widetilde{b}\right\rangle_{C\left(\widetilde{M} \right) } \eta \right)_{L^2\left({M},{S} \right)}=
+		\\
+		= \sum_{\widetilde{\a}\in \widetilde{\mathscr A}_{\supp \widetilde{a}}}\left(\xi, \mathfrak{desc}\left( \widetilde{a}_{\widetilde{\a}} \widetilde{a}^* \widetilde{b}\right)  \eta \right)_{L^2\left({M},{S} \right)}=
+		\\
+		=
+		\sum_{\widetilde{\a}\in \widetilde{\mathscr A}_{\supp \widetilde{a}}}~\int_M \left(\xi_x, \mathfrak{desc}\left( \widetilde{a}_{\widetilde{\a}} \widetilde{a}^* \widetilde{b}\right)  \eta_x \right)_x d\mu=
+		\\
+		=
+		\sum_{\widetilde{\a}\in \widetilde{\mathscr A}_{\supp \widetilde{a}}}~\int_M \left(\mathfrak{desc}\left( \widetilde{e}_{\widetilde{\a}} \widetilde{a}\right)\xi_x, \mathfrak{desc}\left( \widetilde{e}_{\widetilde{\a}}  \widetilde{b}\right)  \eta_x \right)_x d\mu=
+		\\
+		=\sum_{\widetilde{\a}\in \widetilde{\mathscr A}_{\supp \widetilde{a}}}~ \int_{\widetilde{M}}\left(\widetilde{a} \lift_{\widetilde{\sU}_{\widetilde{\a}}}\left({e}_{\widetilde{\a}}\xi \right)_{\widetilde{x}},  \widetilde{b} ~\lift_{\widetilde{\sU}_{\widetilde{\a}}}\left({e}_{\widetilde{\a}}\eta \right)_{\widetilde{x}}\right)_{\widetilde{x}}d \widetilde{   \mu} =
+		\\
+		=\sum_{\widetilde{\a}\in \widetilde{\mathscr A}_{\supp \widetilde{a}}}~ \int_{\widetilde{M}}\widetilde{a}_{\widetilde{\a}}\left(\widetilde{a} \lift_{\widetilde{\sU}_{\widetilde{\a}}}\left(\xi \right)_{\widetilde{x}},  \widetilde{b} ~\lift_{\widetilde{\sU}_{\widetilde{\a}}}\left(\eta \right)_{\widetilde{x}}\right)_{\widetilde{x}}d \widetilde{   \mu} =
+		\\
+		= \int_{\widetilde{M}}\left( \widetilde{a} \lift_p\left(\xi \right)_{\widetilde{x}},  \widetilde{b} ~\lift_p\left(\eta \right)_{\widetilde{x}}\right)_{\widetilde{x}}d \widetilde{   \mu}
+		= \left( \widetilde{a}~ \lift_p\left(\xi \right),  \widetilde{b} ~\lift_p\left(\eta \right)\right)_{L^2\left(\widetilde{M},\widetilde{S} \right)} =\\
+		=  \left(\phi\left(  \widetilde{a}\otimes\xi\right) ,  \phi \left( \widetilde{b}\otimes\eta\right)\right)_{L^2\left(\widetilde{M},\widetilde{S} \right)}
+	\end{split} 
+\end{equation}
+where $\phi$ is given by \eqref{top_tensor_lccompact_iso_eqn}.
+The equation \eqref{comm_ind_l2_lc_eqn} means that $\left(\cdot, \cdot \right)_{\text{ind}}= \left(\cdot, \cdot \right)_{L^2\left(\widetilde{M},\widetilde{S} \right)}$, and taking into account the dense inclusion $C\left(\widetilde{M} \right) \otimes_{C\left(M \right) } \Ga\left( M, S\right) \subset L^2\left(\widetilde{M},\widetilde{S} \right)$ with respect to the Hilbert norm of $L^2\left(\widetilde{M},\widetilde{S}\right) $
+one concludes that the space of induced representation coincides with $L^2\left(\widetilde{M},\widetilde{S}\right)$. It means that induced representation $C\left(\widetilde{M}\right) \times L^2\left(\widetilde{M},\widetilde{S} \right) \to L^2\left(\widetilde{M},\widetilde{S} \right)$ is given by \eqref{comm_bundle_repr_eqn}. So one has the following lemma.
+\end{empt}
+\begin{lemma}\label{comm_ind_lc_lem}
+	If the representation  $\widetilde{\rho}: C\left(\widetilde{M}\right) \to  B\left( \widetilde{   \H}\right)  $ is induced by the pair $$\left(C\left(M \right)\to B\left(  L^2\left(M,S \right)\right) ,\left(C\left(M \right) , C_0\left( \widetilde{M}\right) , G\left( \left.\widetilde{M}~\right|M\right) \right)  \right)$$ (cf. Definition \ref{induced_repr_inf_defn}) then following conditions hold:
+	\begin{enumerate}
+		\item[(a)] There is the homomorphism of Hilbert spaces $\widetilde{   \H}\cong L^2\left(\widetilde{M},\widetilde{S} \right)$,
+		\item[(b)] The representation $\widetilde{\rho}$ is given by the natural action of $C_0\left(\widetilde{M}\right)$ on $ L^2\left(\widetilde{M},\widetilde{S} \right)$ (cf. \ref{comm_bundlei_repr_eqn}).
+	\end{enumerate}
+\end{lemma}
+\begin{proof}
+	(a) Follows from \eqref{comm_ind_l2_lc_eqn},\\
+	(b) From the Lemma \ref{top_hilb_homo_lem}  it follows that the map 		$	C_c\left(\widetilde M\right)\otimes_{C\left(M\right)} L^2\left(M, \sS\right) \xrightarrow{\approx} L^2\left(\widetilde{M}, \widetilde{\SS} \right)$ is the homomorphism of $C_0\left(\widetilde M\right)$ modules, so the given by \eqref{comm_bundle_repr_eqn} $C_0\left(\widetilde M\right)$-action coincides with the $C_0\left(\widetilde M\right)$-action  the given by \eqref{comp_hilb_actf_eqn}.
+\end{proof}
 
 
 
@@ -18440,16 +18433,12 @@ Let $\xi = \left( E, \pi, \mathcal X\right)$ be a {vector bundle}. Then a \texti
  		\be\label{top_bundle_scalar_eqn}
  		\left( \cdot, \cdot \right)_x: \SS_x \times \SS_x \to \C.
  		\ee
- 		 If $\Ga_c\left( M, S\right) $ is the space of compactly supported continuous sections
- 		of $S$ then we suppose that for any $\xi, \eta \in  \Ga_c\left( M, S\right)$ the map $\mathcal X \to \C$ given by $x \mapsto \left( \xi_x, \eta_x\right)_x$ is continuous. If    $\mu_{\mathcal{X}}$ is a measure on $\mathcal X$ then there is the scalar product $\left( \cdot, \cdot \right) :  \Ga_c\left( M, \SS\right) \times \Ga_c\left( M, \SS\right) \to \C$ given by
- 	\be\label{top_bundle_herm_scalar_eqn}
- 		\left( \xi, \eta\right)\stackrel{\text{def}}{=} \int_{\mathcal X}\left( \xi_x, \eta_x\right)_xd~\mu_{\mathcal{X}}
- 	\ee
- 		Denote by $L^2\left( \mathcal X, \SS, \mu_{\mathcal X}\right) $ or $L^2\left( \mathcal X, \SS\right) $ the Hilbert norm completion of $\Ga_c\left( M, S\right) $, and denote by $\left( \cdot, \cdot \right)_{L^2\left( \mathcal X, \SS, \mu_{\mathcal X}\right)}$ or $\left( \cdot, \cdot \right)_{L^2\left( \mathcal X, \SS\right)}$ the given by \eqref{top_bundle_herm_scalar_eqn} scalar product.
- 		There is the natural representation
- 		\begin{equation}\label{comm_bundle_repr_eqn}
- 		C_0\left(\mathcal{X} \right) \to B\left( L^2\left( \mathcal X, \SS\right)\right). 
- 		\end{equation}
+ 	If  $\Ga\left( M, S\right) $  and $\Ga_c\left( M, S\right)$ are spaces of vanishing and compactly supported coverings then the equation \eqref{top_bundle_scalar_eqn} yield pairings
+ 	\bea\label{top_gg_eqn}
+ \left\langle \cdot, \cdot \right\rangle:  \Ga\left( M, S\right)\times \Ga\left( M, S\right) \to C_0\left( M\right) \quad \left(\xi, \eta \right) \mapsto \left(x \mapsto \left(\xi, \eta \right)_x  \right),\\
+ \label{top_ggc_eqn}
+  \left\langle \cdot, \cdot \right\rangle_c:  \Ga_c\left( M, S\right)\times \Ga_c\left( M, S\right) \to C_c\left( M\right) \quad \left(\xi, \eta \right) \mapsto \left(x \mapsto \left(\xi, \eta \right)_x  \right) 
+ 	\eea
  	\end{empt}
  	\begin{defn}\label{top_herm_bundle_defn}
  		In the situation of \ref{top_herm_bundle_empt} we say that $S$ is \textit{Hermitian vector bundle}.
