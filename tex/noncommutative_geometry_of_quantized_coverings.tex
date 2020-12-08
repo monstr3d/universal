@@ -1765,6 +1765,37 @@ The Definition \ref{fin_defn} implicitly uses the given by the Lemma \ref{ind_mu
 \begin{proof}
 	Follows from \eqref{fin_comp_eqn}.
 \end{proof}
+\begin{lemma}\label{cov_mult_fin_lem}
+	Let $\left(A, \widetilde{A}, G, \pi \right)$ be a {noncommutative finite-fold quasi-covering with unitization}. 	Let $\left(B ,\widetilde{B}, G, \widetilde{\pi} \right)$ be an 
+	unital  noncommutative finite-fold quasi-covering which satisfies to conditions  (a), (b) of the Definition \ref{fin_comp_defn}. Then there is $\left\{  \widetilde{b}_1, ..., \widetilde{b}_n\right\} \subset \widetilde{B}$ such that 
+	\be\label{ma_fin_eqn}
+	M\left(\widetilde{A} \right) = \widetilde{b}_1 M\left(A \right) + ... + \widetilde{b}_n M\left(A \right).
+	\ee
+	
+\end{lemma}
+\begin{proof} 
+	It is known that for any $\widetilde{a} \in M\left(\widetilde{A} \right)$ there is a directed set $\left\{\widetilde{a}_\la\right\} \in \widetilde{A}$ such that there is the limit $\widetilde{a}=\bt$-$\lim \widetilde{a}_\la$ with respect to the strict topology (cf. Definition \ref{strict_topology}). From the Remark \ref{frame_rem} turns out that there is finite subset $$\left\{ \widetilde{a}_1, ..., \widetilde{a}_n, \widetilde{b}_1, ..., \widetilde{b}_n\right\} \subset \widetilde{B}$$ such that
+	$$
+	\widetilde{b}=	\sum_{j=1}^{n}\widetilde{b}_j\left(  \sum_{g \in G} g\left(\widetilde{a}^*_j\widetilde{b} \right) \right)\quad \forall \widetilde{b} \in \widetilde{B} \quad \text{(cf. }\eqref{frame_rem_eqn}\text{)}.
+	$$
+So one has
+	$$
+	\widetilde{a}_\la=	\sum_{j=1}^{n}\widetilde{b}_j\left(  \sum_{g \in G} g\left(\widetilde{a}^*_j\widetilde{a}_\la \right) \right).
+	$$	
+	From the above equation it turns out
+	\be\nonumber
+	\begin{split}
+		\widetilde{a}=\bt\text{-}\lim \widetilde{a}_\la= \bt\text{-}\lim \sum_{j=1}^{n}\widetilde{b}_j\left(  \sum_{g \in G} g\left(\widetilde{a}^*_j\widetilde{a}_\la \right) \right)= \sum_{j=1}^{n}\widetilde{b}_j\left(  \sum_{g \in G} g\left(\widetilde{a}^*_j\bt\text{-}\lim\widetilde{a}_\la \right) \right)= \\
+		= \sum_{j=1}^{n}\widetilde{b}_j\left( \sum_{g \in G} g\left(\widetilde{a}^*_j\widetilde{a} \right) \right)= \sum_{j=1}^{n}\widetilde{b}_ja_j; \text{ where } a_j = \sum_{g \in G} g\left(\widetilde{a}^*_j\widetilde{a} \right)\in M\left(A \right) .
+	\end{split}
+	\ee 
+	The element $\widetilde{a} \in M\left(\widetilde{A} \right)$  is arbitrary, so one has
+	\be\nonumber
+	M\left(\widetilde{A} \right) = \widetilde{b}_1 M\left(A \right) + ... + \widetilde{b}_n M\left(A \right).
+	\ee
+	
+\end{proof}
+
 
 
 \begin{empt}\label{hereditary_dir_sum_empt}
@@ -5192,6 +5223,18 @@ such that $\phi_{ \bt x}\left(  C_b\left(\sX, \left\{A_x\right\}, \sF \right)\ri
 	The inclusion $A \subset \bt\sF$ induces the inclusion $A \subset C_b\left(\bt\sX, \left\{\bt A_{\bt x}\right\}, \bt\sF  \right)$. From the Corollaries \ref{top_c0_cont_str_cor} and \ref{top_cl_cc_iso_cor} it follows that  $A = C_b\left(\bt\sX, \left\{\bt A_{\bt x}\right\}, \bt\sF  \right)$, and taking into account $C_b\left(\bt\sX, \left\{\bt A_{\bt x}\right\}, \bt\sF  \right)\cong C_b\left(\sX, \left\{ A_{x}\right\}, \sF  \right)$ one has \ref{top_cb_lem_eqn}.
 \end{proof}
 
+%\begin{empt}\label{top_cy_eqn}
+%	Let $\sF$ be a continuity structure  for $\sX$ {and the} $\left\{A_x\right\}_{x\in\sX}$. If $\sX \subset \sY$ is a commodification  then $C_0\left( \sX\right)$  is an inclusion of $C\left( \sY\right)\subset C_b\left(\sX \right)$ of $C^*$-algebras. Denote by
+%	\be
+%\sF_\sY	C_\sY \left(\sX, \left\{A_x\right\}, \sF  \right)\bydef \left\{\left.a \in 	C_b \left(\sX, \left\{A_x\right\}, \sF  \right)\right|\mathrm{norm}_a \in C\left( \sY\right)\right\}
+%	\ee
+%	For any $y\in C\left( \sY\right)$ there is an ideal $I_y\subset C\left( \sY\right)$. Similarly to \eqref{top_cx_eqn} for all $y\in \sY$ one can define a normed space
+%		\be\label{top_cyx_eqn}
+%	C_y = C_\sY\left(\sX, \left\{A_x\right\}, \sF \right)/I_y C_\sY\left(\sX, \left\{A_x\right\}, \sF \right)
+%	\ee 
+%If $A_y$ is the norm completion of $C_y$ then $\sF_\sY$ is a continuity structure for $\sY$ !!!
+%\end{empt}
+ 
 \begin{definition}\label{top_total_defn}
 	For any family of Banach spaces $\left\{A_x\right\}_{x \in \sX}$ the union $\widehat{\left\{A_x\right\}}\bydef \cup_{x \in \sX} A_x$ is said to be the \textit{total set} of $\left\{A_x\right\}_{x \in \sX}$. The natural map 
 	\bean
@@ -6180,7 +6223,7 @@ is convergent in the strong  topology of $B\left(\H_a\right)$.\\
 
 
 
-\section{Continuous structures  and sheaves}
+\section{Continuous structures and sheaves}
 
 \paragraph*{}
 
@@ -10748,6 +10791,41 @@ is a noncommutative finite-fold covering  with unitization (cf. Definition \ref{
 \end{enumerate}	 
 	
 \end{proof}
+\begin{lemma}\label{ctr_uc_lem}
+Let  $A$ be a separable continuous trace $C^*$-algebra. If $\left(A, \widetilde A, G, \pi \right)$ is a finite-fold covering with unitization (cf. \ref{fin_comp_defn}) then there is a finite-fold $p: \widetilde \sX \to\sX$ covering with such that $\left(A, \widetilde A, G, \pi \right)$ is equivalent to $\left(A, A_0\left( \widetilde \sX\right) ,G\left(\left.\widetilde \sX \right|\sX \right), C_0\left(p \right)  \right)$ 
+\end{lemma}
+\begin{proof}
+
+From the Definition \ref{fin_comp_defn} it follows that
+  	\begin{enumerate}
+		\item[(a)] 
+		There are unitizations $A \hookto B$, $\widetilde{A} \hookto \widetilde{B}$.
+		%	\item[(b)]$A = B\bigcap \widetilde{A}$,
+		\item[(b)] There is a %(strong) 
+		unital  noncommutative finite-fold quasi-covering	$\left(B ,\widetilde{B}, G, \widetilde{\pi} \right)$ such that $\pi = \widetilde{\pi}|_A$ (or, equivalently $A \cong \widetilde{A}\cap B$) and the action $G \times\widetilde{A} \to \widetilde{A}$ is induced by $G \times\widetilde{B} \to \widetilde{B}$.
+	\end{enumerate}
+If $\sX$, $~\widetilde \sX$, $~\sY$ and $~\widetilde \sY$ are spectra of $A$, $~\widetilde A$, $~B$ and $\widetilde B$ respectively then from there are compactifications $\sX\subset \sY$ and  (cf. Remark \ref{ideal_open_inc_rem})		From the Lemma \ref{ideal_open_inc_rem} it follows that the space  $\widetilde\sX$ is Hausdorff. Let $\widetilde p: \widetilde\sY\to\sY$ be given by the Lemma \ref{cov_spectrum_lem} map, so $C\left(\widetilde\sY\right)$ is a $C\left(\sY\right)$-module. On the the other hand both $B$ and $\widetilde B$ is a type I $C^*$-algebra, hence from and the Theorems \ref{ctr_hat_check_thm} and \ref{dauns_hofmann_thm} it follows that $\widetilde B$ is $C\left(\widetilde\sY\right)$ module.
+If $C\left(\widetilde\sY\right)$ is not  a finitely generated $C\left(\sY\right)$-module then from the Theorem \ref{fin_gen_thm} it follows that there is an infinite set $\left\{M_\la\right\}_{\la\in\La}$ of $C_0\left(\sY \right)$ submodules of $C\left(\widetilde{\sX}\right)$ such that 
+$$
+C\left(\widetilde{\sY}\right)=\sum_{\la \in \La} M_\la,
+$$
+but there is no  a finite subset $\La_0\subset \La$  such that 
+$$
+C\left(\widetilde{\sY}\right) = \sum_{\la \in \La_0} M_\la.
+$$
+For any $\la\in \La$ the space  $M_\la \widetilde{B}$ is a $B$-submodule of $\widetilde{B}$.
+From $C\left(\sY \right) B = B$ and $C\left(\widetilde\sY \right) \widetilde  B = \widetilde B$ one has 
+$$
+\widetilde{B}=\sum_{\la \in \La}M_\la \widetilde{B} 
+$$
+but there is no  a finite subset $\La_0\subset \La$  such that 
+$$
+\widetilde{B}=\sum_{\la \in \La_0}M_\la \widetilde{B}.
+$$
+From the Theorem \ref{fin_gen_thm} it follows $\widetilde{B}$ is not a finitely generated $B$-module, it contradicts with the definition \ref{fin_uni_defn}. So $C\left(\widetilde\sY\right)$ is   a finitely generated $C\left(\sY\right)$-module, and from the Theorem \ref{pavlov_troisky_thm} it follows that $p$ is a finite fold covering. The given by \eqref{g_red_eqn} and \eqref{g_red_ker_eqn} group $G_{\text{red}}$ is a normal subgroup of $G$.
+There is the group $G_0 \bydef G/G_{\text{red}}= G / \ker\left(G \to \Homeo\left(\widetilde{A} \right) \right)$  such that  the action of $G_0\times \widetilde{\mathcal Y}\to \widetilde{\mathcal Y}$ is not trivial.  It follows that $\widetilde p: \widetilde\sY\to\sY$ is transitive finite fold covering. Let $ p: \widetilde\sX\to\sX$ be given by the Lemma \ref{cov_spectrum_lem} map then $p = \left.\widetilde p\right|_{\widetilde\sX}$ so $p$  is a transitive finite fold covering. Now similarly to the proof of (iii) of the Corollary \ref{ctr_uni_cov_cor} one can proof that $\widetilde A \cong A_0\left(\widetilde\sX\right)$.
+\end{proof}
+
 
 \begin{theorem}\label{ctr_fin_thm}
 	Let  $A$ be  a separable continuous trace $C^*$-algebra and $\sX$  is a spectrum of $A$. Suppose that $\mathcal X$ be a locally compact, connected, locally connected, second-countable, Hausdorff space. 
@@ -10765,7 +10843,7 @@ is a noncommutative finite-fold covering  with unitization (cf. Definition \ref{
 	Let $\left\{u_\la\right\}_{\la\in \La}\subset C_c\left( \sX\right)_+$ be a family such that
 	\bean
 		u_\la\left(\sX \right)\subset \left[0,1\right],
-\\	\left\{\left. x\in\sX\right|u_\la\left( x\right) > 0 \right\} \quad \text{is connected set}.
+\\\sU_\la\bydef	\left\{\left. x\in\sX\right|u_\la\left( x\right) > 0 \right\} \quad \text{is connected set}.
 \eean
 		If the order on $\La$ is given by
 		$$
@@ -10776,31 +10854,30 @@ is a noncommutative finite-fold covering  with unitization (cf. Definition \ref{
 	\bt\text{-}\lim_{\la \in \La }u_\la = 1_{C_b\left( \sX\right)} = 1_{M\left(A \right) }
 \ee
 		(cf. Definition \ref{strict_topology}).
-		For all $\la\in \La$ denote by $\sV_\la \bydef \supp u_\la$ and let $\sU_\la$ be a maximal open subset of $\sV_\la$.
+		For all $\la\in \La$ denote by $\sV_\la \bydef \supp u_\la$ which is the closure of $\sU_\la$.
 	Firstly we prove that the image of the map \eqref{ctr_spt_to_a_eqn} contains finite-fold noncommutative coverings only. 
 Clearly the quadruple  \\$\left(A, A_0\left(\widetilde \sX \right) , G\left(\left.\widetilde \sX \right|\sX \right) , A_0\left( p\right)  \right)$ is a noncommutative finite-fold precovering (cf. Definition \ref{fin_pre_defn}). 
 	If $\left.A\right|^{\sV_\la}$ is given by \eqref{closed_ideal_eqn} then from the the Proposition \ref{ctr_hered_prop} it follows that $\left.A\right|^{\sV_\la}$ is a continuous trace $C^*$-algebra. Moreover from the Lemma \ref{top_ax_sp_lem} it turns out  that the spectrum of $\left.A\right|^{\sV_\la}$ equals to $\sV_\la$. If $\widetilde\sV_\la\bydef p^{-1}\left(\sV_\la\right)$ then $\left.p\right|_{\widetilde\sV_\la}: \widetilde\sV_\la\to \sV_\la$ is a finite-fold transitive covering. From the Corollary \ref{comp_axcp_cor} it follows that there is a noncommutative finite-fold covering with unitization
 	$$
-	\left(\left.A\right|^{\sV_\la}, \left.A_0\left(\widetilde\sX\right)\right|^{p^{-1}\left(\sV_\la\right)} , G\left(\left.\widetilde\sV_\la\right|\sV_\la \right)\right) 
+	\left(\left.A\right|^{\sV_\la}, \left.A_0\left(\widetilde\sX\right)\right|^{p^{-1}\left(\sV_\la\right)} , G\left(\left.\widetilde\sV_\la\right|\sV_\la \right)\right). 
 	$$
 	From the Corollary \ref{comp_axc_cor} it follows that
 	\bean
-	\left(\left.\left.A\right|^{\sV_\la}\right|_{\sU_n}, \left.\left.A_0\left(\widetilde\sX\right)\right|^{p^{-1}\left(\sV_\la\right)}\right|_{p^{-1}\left( \sU_n\right)}, G\left(\left.\widetilde\sU_n\right|\sU_n \right)\right) =\\
-	= \left(A|_{\sU_n}, \left.\left.A_0\left(\widetilde\sX\right)\right.\right|_{p^{-1}\left( \sU_n\right)}, G\left(\left.\widetilde\sU_n\right|\sU_n \right)\right) 
+	\left(\left.\left.A\right|^{\sV_\la}\right|_{\sU_\la}, \left.\left.A_0\left(\widetilde\sX\right)\right|^{p^{-1}\left(\sV_\la\right)}\right|_{p^{-1}\left( \sU_\la\right)}, G\left(\left.\widetilde\sU_\la\right|\sU_\la \right)\right) =\\
+	= \left(A|_{\sU_\la}, \left.\left.A_0\left(\widetilde\sX\right)\right.\right|_{p^{-1}\left( \sU_\la\right)}, G\left(\left.\widetilde\sU_\la\right|\sU_\la \right)\right) 
 	\eean
 	is a noncommutative finite-fold covering with unitization. 
-	From the Remark \ref{comm_fn_bt_lim_rem} it follows that there is the increasing sequence $\left\{u_n\in C_c\left( \sX\right)_+\right\}_{n\in \N}$ such that
-	with respect to the strict topology on the multiplier algebra $M\left(C_0\left(\mathcal X \right)  \right)$ (cf. Definition \ref{strict_topology}). The limit can be regarded as a limit with respect to strict  topology of $M\left( A\right)$. From the Lemma \ref{ctr_fact_lem} it follows that both $C^*$-algebras $\left. A\right|_{\sU_n}$ and $ \left.\widetilde A\right|_{\widetilde \sU_n}$ are $C^*$-norm completions of $u_nAu_n$ and $u_n\widetilde Au_n$ respectively. 
+Similarly to the proof of the Lemma \ref{comm_direct_lem} one can prove that there is the following limit
+$$
+\bt\text{-}\lim_{\la\in\La} u_\la = 1_{M\left(A \right) }
+$$
+in the strict topology of $M\left( A\right)$ (cf. Definition \ref{strict_topology}). From the Lemma \ref{ctr_fact_lem} it follows that both $C^*$-algebras $\left. A\right|_{\sU_\la}$ and $ \left.\widetilde A\right|_{\widetilde \sU_\la}$ are $C^*$-norm completions of $u_\la Au_\la$ and $u_\la\widetilde Au_\la$ respectively. 
 	So 	right part of \eqref{ctr_spt_to_a_eqn} satisfies to the Definition \ref{fin_defn}, i.e. it is a finite-fold noncommutative covering.
 	\\
 	
 	Let us prove that the right part of the equation \eqref{ctr_a_to_spt_eqn} contains finite fold coverings only. Consider an increasing net $\left\{u_\la\right\}_{\la\in\La}\subset M\left( A\right)_+ $ and coverings with unitizations	$\left(A_\la, \widetilde{A}_\la, G, \left.\pi\right|_{A_\la}\right)$ required by the Definition \ref{fin_defn}.	
-	For all $\la\in\La$ the subalgebra $A_\la\subset A$ is hereditary (cf. Remark \ref{hered_fin_rem}), so from the Proposition \ref{ctr_hered_prop} is a $C^*$-algebra with continuous trace. If both $\sX_\la$ and  $\widetilde\sX_\la$ are spectra of ${A}_\la$ and $\widetilde{A}_\la$ which are open subsets of $\sX$ and  $\widetilde\sX$ (cf. Proposition \ref{hered_spectrum_prop}).  From $\bt\text{-}\lim_{\la\in \La} u_\la = 1_{M\left(A\right)}$ and the Lemma \ref{ind_qusai_lem} it follows that $\left\{u_\la\right\}$ is an approximate unit for $M\left(\widetilde A\right)$, so the union $\cup {A}_\la$ is dense in $A$. For any $ x_0\in \sX$ there is $ a \in  A$ such that $\left\| \rep_{ {x}_0}\left( a \right)\right\| > 1$. Otherwise since  $\cup {A}_\la$ is dense in $A$ there is $\la_0\in \La$ and $a_0\in A_{\la_0}$ such that $\left\|a - a_0 \right\| < 1/2$. It follows that $\left\| \rep_{ {x}_0}\left( a \right)\right\| > 1/2$ so one has $x_0\in \sX_{\la_0}$.  It turns out that $\sX = \cup\sX_\la$. Similarly one can prove that  $\widetilde\sX = \cup\widetilde\sX_\la$.
-	For any $n \in \N$ the set $\sV_\la$ is compact, hence from $\sX = \cup\sX_\la$  there is $\la_n\in\La$ such that $\sV_\la\subset \sX_{\la_n}$. If $\left.A_\la\right|^{\sV_\la}$ the $\sV_\la$-restriction (cf. \ref{top_a_res_rem} and the Definition \ref{ctr_restr_defn}) then from the Lemma \ref{top_ax_sp_lem} it follows that $\left.A_\la\right|^{\sV_\la}$ is a $C^*$-algebra with continuous trace and the spectrum of $\left.\widetilde A_\la\right|^{\widetilde\sV_\la}$ equals to $\widetilde\sV_\la$. (cf. Lemma \ref{top_ax_sp_lem}) .From the Corollary \ref{comp_axcp_cor} there is a noncommutative  finite-fold covering with unitization
-	$$
-	\left( \left.A_\la\right|^{\sV_\la}, \left.\widetilde A_\la\right|^{\widetilde\sV_\la}, G\left(\left.\widetilde\sV_\la\right|\sV_\la \right) \right) 
-	$$
-	From the Corollary \ref{comp_axcp_cor} it turns out that the given by the Lemma \ref{cov_spectrum_lem} map $\left.p\right|_{\widetilde\sV_\la}: \widetilde\sV_\la\to\sV_\la$ is a finite-fold transitive covering. From $\sX = \cup\sV_\la$ and $\widetilde\sX = \cup\widetilde\sV_\la$ it follows that $p: \widetilde\sX\to\sX$ is a transitive covering.
+	For all $\la\in\La$ the subalgebra $A_\la\subset A$ is hereditary (cf. Remark \ref{hered_fin_rem}), so from the Proposition \ref{ctr_hered_prop} is a $C^*$-algebra with continuous trace. If both $\sU_\la$ and  $\widetilde\sU_\la$ are spectra of ${A}_\la$ and $\widetilde{A}_\la$ which are open subsets of $\sX$ and  $\widetilde\sX$ (cf. Proposition \ref{hered_spectrum_prop}).  From $\bt\text{-}\lim_{\la\in \La} u_\la = 1_{M\left(A\right)}$ and the Lemma \ref{ind_qusai_lem} it follows that $\left\{u_\la\right\}$ is an approximate unit for $M\left(\widetilde A\right)$, so the union $\cup {A}_\la$ is dense in $A$, and from the Lemma \ref{fin_def_lem} it follows that  the union $\cup \widetilde{A}_\la$ is dense in $\widetilde A$.	
+	 It turns out that $\sX = \cup\sU_\la$ and  $\widetilde\sX = \cup\widetilde\sU_\la$. From the Lemma \ref{ctr_uc_lem} it follows that $\left(A_\la, \widetilde{A}_\la, G, \left.\pi\right|_{A_\la}\right)$ is equivalent to $\left(\left.A\right|_{\sU_\la}, , G, \left.\pi\right|_{A_\la}\right)$. So there a directed set of transitive coverings $\widetilde\sU_\la \to \sU_\la$. Equation $\sX = \cup\sU_\la$ and  $\widetilde\sX = \cup\widetilde\sU_\la$ yield a  transitive covering $\widetilde\sX \to \sX$.
 \end{proof}
 
 
