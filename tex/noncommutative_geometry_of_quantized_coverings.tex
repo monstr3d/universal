@@ -7,9 +7,10 @@
 
 %% \usepackage[francais]{babel}
 \usepackage[applemac]{inputenc}
-\usepackage{amssymb,hyperref, euscript}
+\usepackage{amssymb, euscript}
 \usepackage[matrix,arrow,curve]{xy}
 \usepackage{graphicx}
+\usepackage{hyperref}
 \usepackage{tabularx}
 \usepackage{float}
 \usepackage{tikz}
@@ -92,7 +93,7 @@
 \newcommand{\Dslash}{{D\mkern-11.5mu/\,}}    %% Dirac operator
 
 
-\newcommand\myeq{\stackrel{\mathclap{\normalfont\mbox{def}}}{=}}
+%\newcommand\myeq{\stackrel{\mathclap{\normalfont\mbox{def}}}{=}}
 \newcommand{\nor}[1]{\left\Vert #1\right\Vert}    %\nor{x}=||x||
 \newcommand{\vertiii}[1]{{\left\vert\kern-0.25ex\left\vert\kern-0.25ex\left\vert #1
     \right\vert\kern-0.25ex\right\vert\kern-0.25ex\right\vert}}
@@ -1384,10 +1385,8 @@ If $A \neq \phi\left(B_1\oplus \{0\}  \right) \oplus \phi\left(\{0\} \oplus B_2 
 
 
    \begin{definition}\label{fin_quasi_defn}
-	Let $A$ be connected $C^*$-algebra (cf. Definition \ref{conn_c_a_defn}) $\pi: A \hookto \widetilde{A}$ be an injective unital (cf. Definition \ref{principal_non_defn}) *-homomorphism of % connected
-	  $C^*$-algebras. Let $G$ be  group of *-automorphisms of $\widetilde{A}$ such that 	$A \cong \widetilde{A}^G\stackrel{\text{def}}{=}\left\{a\in \widetilde{A}~|~ a = g a;~ \forall g \in G\right\}$.
-	We say that the triple $\left(A, \widetilde{A}, G \right)$ and/or the quadruple $\left(A, \widetilde{A}, G, \pi \right)$ and/or *-homomorphism $\pi: A \hookto \widetilde{A}$   is a \textit{noncommutative finite-fold  quasi-covering}.
-We write
+	Let $A$ be connected $C^*$-algebra (cf. Definition \ref{conn_c_a_defn}) $\pi: A \hookto \widetilde{A}$ be an injective unital (cf. Definition \ref{principal_non_defn}) *-homomorphism of % connected	  
+	$C^*$-algebras. Let $G$ be  group of *-automorphisms of $\widetilde{A}$ such that 	$A \cong \widetilde{A}^G\stackrel{\text{def}}{=}\left\{a\in \widetilde{A}~|~ a = g a;~ \forall g \in G\right\}$.	We say that the triple $\left(A, \widetilde{A}, G \right)$ and/or the quadruple $\left(A, \widetilde{A}, G, \pi \right)$ and/or *-homomorphism $\pi: A \hookto \widetilde{A}$   is a \textit{noncommutative finite-fold  quasi-covering}. We write
 	\be\label{fin_cov_gr_eqn}
 	G\left(\left.\widetilde{A}~\right| {A} \right) \stackrel{\text{def}}{=}  	G.
 	\ee
@@ -10922,7 +10921,16 @@ Secondly  we proof that any noncommutative finite-fold  covering $$\left(\left(X
 \end{proof}
 
 \subsection{Induced representation}\label{ctr_induced_finite_sec}
-\paragraph*{} 
+\paragraph*{}
+Let $A$ be a continuous trace $C^*$-algebra, and let $\sX$ be a spectrum of $\tau$. If $\tau : C_c\left(\sX \right) \to C$ be a functional such that $\tau\left(a \right) > 0$ for any positive $a$ there is a functional 
+\be
+\begin{split}
+\tr_\tau : K\left( A\right)\to \C,
+a \mapsto \tau\left(\tr_a \right)  
+\end{split} 
+\ee
+%where $K\left( A\right)$ is Pedersen's ideal (cf. Definition \ref{peder_id_defn}) and  $\tr \bydef \hat a$ is given by \eqref{ctr_hat_eqn}. Note that $\tr_a\in C_c\left(\sX \right)$ for all  $a \in K\left( A\right)$.
+Let $M$ be a manifold and let $\tau : C_c\left( M\right) \to \C$
 Let us consider a compact  Riemannian manifold $M$ with a spinor bundle $S$. The algebra $C\left(M \right) \otimes \mathbb{M}_n\left(\C \right)$ is a homogeneous of order $n$ $C^*$-algebra (cf. Definition \ref{ctr_homo_defn}). If $p: \widetilde M \to M$ is a finite-fold transitive covering then from the Theorem \ref{ctr_fin_thm} it follows that there is a noncommutative finite-fold covering
 \be\label{ctr_act_declr_eqn}
 \left(C\left(M \right) \otimes \mathbb{M}_m\left(\C \right), C\left(\widetilde M~ \right) \otimes \mathbb{M}_m\left(\C \right), G\left(\left.\widetilde M \right| M\right) \right) 
@@ -19056,7 +19064,7 @@ $$
 \end{thm}
 
 \begin{defn}\label{peder_id_defn}
-	The ideal $K(A)$ from the theorem \ref{peder_id_thm} is said to be the {\it Pedersen's ideal of $A$}. %Henceforth Pedersen's ideal shall be denoted by $K(A)$.
+	The ideal $K\left( A\right) $ from the theorem \ref{peder_id_thm} is said to be the {\it Pedersen's ideal of $A$}. %Henceforth Pedersen's ideal shall be denoted by $K(A)$.
 \end{defn}
 
 
