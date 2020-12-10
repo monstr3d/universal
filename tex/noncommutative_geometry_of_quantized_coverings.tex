@@ -1,6 +1,7 @@
 % !TeX spellcheck = en_US
 %\documentclass[10]{article}
 \documentclass[11pt]{book}
+\usepackage{hyperref}
 \usepackage{amsfonts,amssymb,amsmath,amsthm,cite}
 \usepackage{graphicx}
 \usepackage[toc,page]{appendix}
@@ -10,7 +11,6 @@
 \usepackage{amssymb, euscript}
 \usepackage[matrix,arrow,curve]{xy}
 \usepackage{graphicx}
-%\usepackage{hyperref}
 \usepackage{tabularx}
 \usepackage{float}
 \usepackage{tikz}
@@ -32,6 +32,7 @@
 
 \usepackage[sc]{mathpazo}
 \usepackage{environ}
+
 \linespread{1.05}         % Palatino needs more leading (space between lines)
 
 
@@ -10927,11 +10928,42 @@ Secondly  we proof that any noncommutative finite-fold  covering $$\left(\left(X
 Let $A$ be a continuous trace $C^*$-algebra, and let $\sX$ be a spectrum of $\tau$. If $\tau : C_c\left(\sX \right) \to C$ be a functional such that $\tau\left(a \right) > 0$ for any positive $a$ there is a functional 
 \be
 \begin{split}
-\tr_\tau : K\left( A\right)\to \C,
-a \mapsto \tau\left(\tr_a \right)  
+\tr_\tau : K\left( A\right)\to \C,\\
+a \mapsto \tau\left(\tr_a \right).  
 \end{split} 
 \ee
-%where $K\left( A\right)$ is Pedersen's ideal (cf. Definition \ref{peder_id_defn}) and  $\tr \bydef \hat a$ is given by \eqref{ctr_hat_eqn}. Note that $\tr_a\in C_c\left(\sX \right)$ for all  $a \in K\left( A\right)$.
+where $K\left( A\right)$ is Pedersen's ideal (cf. Definition \ref{peder_id_defn}) and  $\tr \bydef \hat a$ is given by \eqref{ctr_hat_eqn}. Note that $\tr_a\in C_c\left(\sX \right)$ for all  $a \in K\left( A\right)$. There is a $\C$-valued product on $ K\left( A\right)$ given by
+\bean
+\left(\cdot, \cdot\right) K\left( A\right)\times K\left( A\right)\to C,\\
+\left(a,b\right)\mapsto \tr_\tau\left(a^*b\right),
+\eean
+so $K\left( A\right)$ becomes a pre-Hilbert space. Denote by $L^2\left(A, \tr_\tau\right)$ the Hilbert norm completion of $K\left( A\right)$.
+Suppose that $A$ is a {homogeneous of order} $n$ $C^*$-algebra (cf. Definition \ref{ctr_homo_defn}), and $S \to \sX$ is a Hermitian vector bundle (cf. Definition \ref{top_herm_bundle_defn}). Assume that for any $x \in \sX$ there is an action
+\be\label{top_repxs_eqn}
+\rep_x\left(A\right)\times S_x\to S_x
+\ee
+where $\rep_x$ is given by \eqref{rep_x_eqn}, and $S_x$ is the of $S$ at the point $x$ (cf. Definition \ref{top_vb_fiber_defn}). Suppose that for all $a, b\in A$ and $\xi,\eta''\in \Ga\left(\sX, S\right) $ one has
+\bean
+\forall x\in \sX\quad \left(\rep_x\left(a\right)\xi_x, \rep_x\left(b\right)\eta_x \right)_{x} = \tr\left(\rep_x\left(a^*\right), \rep_x\left(b\right) \right) \left(\xi_x, \eta_x \right)_{x}, \\
+\forall \xi_x \in S_x\quad \rep_x\left(a\right)\xi_x= 0\quad \Rightarrow\quad \rep_x\left(a\right)= 0
+\eean
+where $\left(\cdot, \cdot \right)_x$ corresponds to the equation \eqref{top_bundle_scalar_eqn}. Assume that a family $$\left\{\rep_x\left(A\right)\times S_x\to S_x\right\}_{x\in\sX}$$ induces an action
+$A \times \Ga_c\left(\sX, S \right)\to \Ga_c\left(\sX, S \right)$. 
+There is a $\C$ valued scalar product
+\bean
+\left(\cdot, \cdot \right): \Ga_c\left(\sX, S \right)\times \Ga_c\left(\sX, S \right)\to \C,\\
+\left(\xi, \eta \right)\bydef \tau\left(\left\langle \xi, \eta \right\rangle_c \right) 
+\eean 
+where $	\left\langle \cdot, \cdot \right\rangle_c$ is given by the equation \eqref{top_ggc_eqn}. It follows that $\Ga_c\left(\sX, S \right)$ is a pre Hilbert space, denote by $L^2\left(\sX, S, \tau \right)$ (or shortly $L^2\left(\sX, S \right)$) the Hilbert norm completion of $\Ga_c\left(\sX, S \right)$. An action $A \times \Ga_c\left(\sX, S \right)\to \Ga_c\left(\sX, S \right)$ induces an action $A \times L^2\left(\sX, S \right)\to L^2\left(\sX, S \right)$
+\begin{exercise}
+Prove that the action $A \times L^2\left(\sX, S \right)\to L^2\left(\sX, S \right)$  corresponds to a faithful *-representation
+\be\label{ctr_rho_eqn}
+\rho: A \to B\left(L^2\left(\sX, S \right) \right).
+\ee
+\end{exercise}
+Consider the above situation. If  $\left(A, \widetilde{{A}}, G, \pi \right)$ is a finite-fold noncommutative covering  (cf. Definition \ref{fin_defn}), and $\widetilde \sX$ is the spectrum of $\widetilde A$ then from the Theorem \ref{ctr_fin_thm} it follows that $\widetilde \sX$ is Hausdorff, the given by the Lemma \ref{cov_spectrum_lem} map $p:$. 
+
+
 Let $M$ be a manifold and let $\tau : C_c\left( M\right) \to \C$
 Let us consider a compact  Riemannian manifold $M$ with a spinor bundle $S$. The algebra $C\left(M \right) \otimes \mathbb{M}_n\left(\C \right)$ is a homogeneous of order $n$ $C^*$-algebra (cf. Definition \ref{ctr_homo_defn}). If $p: \widetilde M \to M$ is a finite-fold transitive covering then from the Theorem \ref{ctr_fin_thm} it follows that there is a noncommutative finite-fold covering
 \be\label{ctr_act_declr_eqn}
@@ -18380,7 +18412,7 @@ A local homeomorphism is an open map.
  	\section{Vector bundles}\label{top_vb_sub_sub}
  	\paragraph*{}
  	Let $k$ be the field of real or complex numbers, and let $\sX$ be a topological space.
- 	\begin{definition}\cite{karoubi:k}
+ 	\begin{definition}\label{top_vb_fiber_defn}\cite{karoubi:k}
  		A \textit{quasi-vector bundle with base} $\mathcal X$ is given by:
  		\begin{enumerate}
  			\item [(a)] A finite dimensional $k$-vector space $E_x$ for every point $x$ of $\mathcal X$.
@@ -19641,7 +19673,7 @@ If $A$ is an unital $C^*$-algebra and $X_A$ is a Hilbert $A$-module then the fol
 \paragraph*{}
 In this section we consider an analogue of the $A \otimes_B - : \ _B\mathcal{M}\to _A\mathcal{M}$ functor or an algebraic generalization of continuous maps. Following text is in fact a citation of \cite{rieffel_morita}.
 
-\begin{defn}
+\begin{defn}\label{herm_mod_defn}
 	\cite{rieffel_morita} Let $B$ be a $C^*$-algebra. By a (left) {\it Hermitian $B$-module} we will mean the Hilbert space $\H$ of a non-degenerate *-representation $A \rightarrow B(\H)$. Denote by $\mathbf{Herm}(B)$ the category of Hermitian $B$-modules.
 \end{defn}
 \begin{empt}
