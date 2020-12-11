@@ -3711,7 +3711,7 @@ A *-subalgebra $\widetilde A'\subset \L^\dagger\left( \widetilde \D \right)$ is 
 \label{inv_o*_llim_eqn}	\mathrm{span}\left(K\left(\widetilde{B}_{\widehat{\pi}} \right)\cap  \L^\dagger\left( \widetilde \D \right) \right) \widetilde A'=\mathrm{span} \left(K\left(\widetilde{B}_{\widehat{\pi}} \right)\cap  \L^\dagger\left( \widetilde \D \right) \right) \left( \bigcup_{\la\in \La} A_\la\right) ,\\	
 \label{inv_o*_rlim_eqn}\mathrm{span}~\widetilde A' \left(K\left(\widetilde{B}_{\widehat{\pi}} \right)\cap  \L^\dagger\left( \widetilde \D \right) \right)= \mathrm{span}\left( \bigcup_{\la\in \La} A_\la\right)\left(K\left(\widetilde{B}_{\widehat{\pi}} \right)\cap  \L^\dagger\left( \widetilde \D \right) \right) 	
 \eea
- where $K\left(\widetilde B_{\widehat\pi} \right)$ is the Pedersen's ideal of $\widetilde A_\pi$ (cf. Definition \ref{peder_id_defn}) and span means the $\C$-linear span.
+ where $K\left(\widetilde B_{\widehat\pi} \right)$ is the Pedersen's ideal of $\widetilde A_\pi$ (cf. Definition \ref{peder_id_defn}) $\widetilde A'_b\subset A'$ is the subalgebra of bounded elements (cf. equation \eqref{*_bound_eqn}) and span means the $\C$-linear span.
 \end{empt}
 
 \begin{definition}\label{inv_o*_lim_defn}
@@ -7060,11 +7060,11 @@ Following conditions hold:
 
 \subsection{Coverings of $O^*$-algebras and quasi $*$-algebras}\label{top_pd_fin_sec}
 \paragraph*{}
-Let $M$ be an $n$-dimensional smooth manifold. If $\tau: C_0\left( M\right) \to \C$ be faithful state
+Let $M$ be an $n$-dimensional smooth manifold. If $\tau: C_c\left( M\right) \to \C$ is a functional
 $$
 a \mapsto \int_M a ~d\mu. 
 $$
-(cf. Theorem \ref{meafunc_thm}).
+such that $a > 0\quad\Rightarrow\quad \tau\left(a\right)> 0$ (cf. Theorem \ref{meafunc_thm}).
 There is a $\C$-valued sesquilinear product of $\Coo_c\left(M \right)\bydef \Coo\left(M \right) \cap C_c\left(M \right)$ given by
 \be\label{top_coo_p_eqn}
 \left(a, b\right)\bydef \tau\left( a^*b\right) 
@@ -8857,15 +8857,19 @@ Above construction is a version of the described in \ref{comp_pt_o*_empt} genera
 	\bea\label{top_inv_o*_lim_eqn}
 	G\left(\left.\widetilde{M}\right|M\right) D\left( \widetilde{M}\right)  = D\left( \widetilde{M}\right),\\
 	\label{top_inv_o*_blim_eqn}
-	\widetilde A'_b = C_b\left( \widetilde{M}\right) \cap \Coo\left( \widetilde{M}\right)  \subset M\left(\widetilde{B}_{\pi_\tau}= M\left( C_0\left( \widetilde{M}\right)\right)  \right)\cong C_b\left( \widetilde{M}\right), \\
+	\widetilde A'_b\bydef C_b\left( \widetilde{M}\right) \cap \Coo\left( \widetilde{M}\right)  \subset M\left(\widetilde{B}_{\pi_\tau}= M\left( C_0\left( \widetilde{M}\right)\right)  \right)\cong C_b\left( \widetilde{M}\right), \\
 	\label{top_inv_o*_llim_eqn}	
-	\Coo_c\left(\widetilde{M} \right)  D\left( \widetilde{M}\right)= \Coo_c\left( \widetilde{M}\right)\left(  \bigcup_{\la \in \La}D\left( M_\la \right)\right) ,\\	
-	\label{top_inv_o*_rlim_eqn}D\left( \widetilde{M}\right)\Coo_c\left(\widetilde{M} \right)  = \left( \bigcup_{\la \in \La}D\left( M_\la \right)\right) \Coo_c\left( \widetilde{M}\right).	
+	\mathrm{span}~\Coo_c\left(\widetilde{M} \right)  D\left( \widetilde{M}\right)= \mathrm{span}~\Coo_c\left( \widetilde{M}\right)\left(  \bigcup_{\la \in \La}D\left( M_\la \right)\right) ,\\	
+	\label{top_inv_o*_rlim_eqn}
+	\mathrm{span}~D\left( \widetilde{M}\right)\Coo_c\left(\widetilde{M} \right)  = \mathrm{span}~\left( \bigcup_{\la \in \La}D\left( M_\la \right)\right) \Coo_c\left( \widetilde{M}\right).	
 	\eea
 	\begin{itemize}
 		\item The equation \eqref{top_inv_o*_lim_eqn} holds because any $g \in G\left(\left.\widetilde{M}\right|M\right)$ corresponds to a diffeomorphism of $\widetilde{M}$.
 		\item The equation \eqref{top_inv_o*_blim_eqn} follows from an evident dense inclusion $C_b\left( \widetilde{M}\right) \cap \Coo\left( \widetilde{M}\right)  \subset C_b\left( \widetilde{M}\right)$.
-		\item The equation  \eqref{top_inv_o*_llim_eqn} follows from $\Coo_c\left(\widetilde{M} \right)  D\left( \widetilde{M}\right)\subset \Coo_c\left( \widetilde{M}\right) \left( \bigcup_{\la \in \La}D\left( M_\la \right)\right) $.
+		\item From $  D\left( \widetilde{M}\right)\subset  \left( \bigcup_{\la \in \La}D\left( M_\la \right)\right)$ it follows that $\Coo_c\left(\widetilde{M} \right)  D\left( \widetilde{M}\right)\subset \Coo_c\left( \widetilde{M}\right) \left( \bigcup_{\la \in \La}D\left( M_\la \right)\right)$
+		
+		
+		The equation  \eqref{top_inv_o*_llim_eqn} 
 		Let  $\widetilde f \in \Coo_c\left( \widetilde{M}\right)$ and $\widetilde d \in  D\left( \widetilde{M}\right)$. There is $\widetilde h \in \Coo_c\left( \widetilde{M}\right)$ such that $\widetilde h\left(\supp \widetilde f \right)= \{1\}$. From the Lemma \ref{top_comp_la_lem} it follows that there is $\la\in\La$ such that $\supp \widetilde h$ is homeomorphically mapped onto $\widetilde p_\la\left(\supp\widetilde h \right)$. If $d_\la \bydef \desc_{\widetilde p_\la} \left(\widetilde h \widetilde d \right)$ then  $\widetilde f \widetilde d= \widetilde f d_\la$.
 		\item The equation  \eqref{top_inv_o*_rlim_eqn} follows from $  D\left( \widetilde{M}\right)\Coo_c\left(\widetilde{M} \right)\subset  \left( \bigcup_{\la \in \La}D\left( M_\la \right)\right) \Coo_c\left( \widetilde{M}\right)$.
 		Let  $\widetilde f \in \Coo_c\left( \widetilde{M}\right)$ and $\widetilde d \in  D\left( \widetilde{M}\right)$. There is $\widetilde h \in \Coo_c\left( \widetilde{M}\right)$ such that $\widetilde h\left(\supp \widetilde f \right)= \{1\}$. From the Lemma \ref{top_comp_la_lem} it follows that there is $\la\in\La$ such that $\supp \widetilde h$ is homeomorphically mapped onto $\widetilde p_\la\left(\supp\widetilde h \right)$. If $d_\la \bydef \desc_{\widetilde p_\la} \left(\widetilde d \widetilde h \right)$ then  $\widetilde d \widetilde f= d_\la \widetilde f$.
@@ -11091,10 +11095,10 @@ In the described above situation there is the given by
 		&	&\\
 		1 & $\A$   &  $\Coo\left(M \right)\otimes\mathbb{M}_m\left(\C \right)$ \\ & & \\
 		2	& $\left(A, \widetilde A, \Z_2\right)$ & $\left(C\left(M \right)\otimes\mathbb{M}_m\left(\C \right), C\left(\widetilde M\right)\otimes\mathbb{M}_m\left(\C \right), \Z_2 \right)$   \\  & & \\
-		3 & $\rho: A \to B\left(\H \right)$ & $C\left(M \right)\otimes\mathbb{M}_m\left(\C \right)\to B\left( L^2\left({M}, {\SS}\right)^k\right) $  \\ & & \\
-		4	& $D$ & $\slashed D \otimes \Ga_{\mathrm{fin}}+ \Id_{L^2\left( M, \sS \right)^k} \otimes D_{\mathrm{fin}}$ \\  & & \\
-		5	& $\left(\widetilde{\A}, \widetilde{\H}, \widetilde{D} \right)$ & $	\left(\Coo\left(\widetilde M \right) \otimes\mathbb{M}_m\left(\C \right) , L^2\left(\widetilde{M}, \widetilde{\SS}\right)^k, \widetilde D  \right)$ \\
-		&& where $\widetilde D \bydef \widetilde\Dslash \otimes \Ga_{\mathrm{fin}}+ \Id_{L^2\left(\widetilde M, \widetilde\sS \right)^k} \otimes D_{\mathrm{fin}}$\\ && \\
+		3 & $\rho: A \to B\left(\H \right)$ & $C\left(M \right)\otimes\mathbb{M}_m\left(\C \right)\to B\left( L^2\left({M}, {\SS}\right)^N\right) $  \\ & & \\
+		4	& $D$ & $\slashed D \otimes \Ga_{\mathrm{fin}}+ \Id_{L^2\left( M, \sS \right)^N} \otimes D_{\mathrm{fin}}$ \\  & & \\
+		5	& $\left(\widetilde{\A}, \widetilde{\H}, \widetilde{D} \right)$ & $	\left(\Coo\left(\widetilde M \right) \otimes\mathbb{M}_m\left(\C \right) , L^2\left(\widetilde{M}, \widetilde{\SS}\right)^N, \widetilde D  \right)$ \\
+		&& where $\widetilde D \bydef \widetilde\Dslash \otimes \Ga_{\mathrm{fin}}+ \Id_{L^2\left(\widetilde M, \widetilde\sS \right)^N} \otimes D_{\mathrm{fin}}$\\ && \\
 		\hline
 	\end{tabular}
 	\\
