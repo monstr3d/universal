@@ -1775,7 +1775,7 @@ The Definition \ref{fin_defn} implicitly uses the given by the Lemma \ref{ind_mu
 	
 \end{lemma}
 \begin{proof} 
-	It is known that for any $\widetilde{a} \in M\left(\widetilde{A} \right)$ there is a directed set $\left\{\widetilde{a}_\la\right\} \in \widetilde{A}$ such that there is the limit $\widetilde{a}=\bt$-$\lim \widetilde{a}_\la$ with respect to the strict topology (cf. Definition \ref{strict_topology}). From the Remark \ref{frame_rem} turns out that there is finite subset $$\left\{ \widetilde{a}_1, ..., \widetilde{a}_n, \widetilde{b}_1, ..., \widetilde{b}_n\right\} \subset \widetilde{B}$$ such that
+	It is known that for any $\widetilde{a} \in M\left(\widetilde{A} \right)$ there is a net  $\left\{\widetilde{a}_\la\right\} \subset \widetilde{A}$ (cf. Definition \ref{top_net_defn}) such that there is the limit $\widetilde{a}=\bt$-$\lim \widetilde{a}_\la$ with respect to the strict topology (cf. Definition \ref{strict_topology}). From the Remark \ref{frame_rem} turns out that there is finite subset $$\left\{ \widetilde{a}_1, ..., \widetilde{a}_n, \widetilde{b}_1, ..., \widetilde{b}_n\right\} \subset \widetilde{B}$$ such that
 	$$
 	\widetilde{b}=	\sum_{j=1}^{n}\widetilde{b}_j\left(  \sum_{g \in G} g\left(\widetilde{a}^*_j\widetilde{b} \right) \right)\quad \forall \widetilde{b} \in \widetilde{B} \quad \text{(cf. }\eqref{frame_rem_eqn}\text{)}.
 	$$
@@ -4336,7 +4336,7 @@ f\left(t\right)=	\left\{\begin{array}{c l}
 	\end{array}
 	\right.
 	\ee
-	then $f\left(a \right): \mathcal X \to \left[0,1 \right]$ satisfies to  conditions of this lemma.
+	then $f\left(a \right): \mathcal X \to \left[0,1 \right]$ satisfies to  conditions of this lemma. 
 \end{proof}
 \begin{corollary}\label{com_a_u_cor}
 	Let $\mathcal X$ be a locally compact,   
@@ -4350,6 +4350,7 @@ f\left(t\right)=	\left\{\begin{array}{c l}
 	\be\label{top_fx_eqn}
 {f}_{{x}_0} \stackrel{\mathrm{def}}{=} 	{f}.
 \ee
+We suppose that $\supp {f}_{{x}_0}$ is connected.
 	Let $p: \widetilde{\sX} \to {\sX}$ be a covering. Let $\widetilde{x}_0\in   \widetilde{\sX}$, and let $\widetilde{\sU}$ be an open neighborhood of $\widetilde{x}_0$ such that the restriction $\left.p\right|_{\widetilde{\sU}}:\widetilde{\sU}\xrightarrow{\approx}\sU \bydef p\left(\widetilde{\sU} \right)$ is a homeomorphism. Since $\widetilde{\sX}$ is locally compact and Hausdorff there is $	\widetilde{f} \in C_c\left(\widetilde{\sX} \right)$ and open subset  $\widetilde{\sV}$ such that $\{\widetilde{x}_0\} \subset \widetilde{\sV} \subset {\widetilde{\sU}}$, $\widetilde{f}\left(\widetilde{\sV} \right)= 1$,  $\widetilde{f}\left(\widetilde{\sX} \right)= \left[0,1\right]$ and $\supp 	\widetilde{f} \subset \widetilde{\sU}$. We write 
 	\be\label{top_tfx_eqn}
 	\widetilde{f}_{\widetilde{x}_0} \stackrel{\mathrm{def}}{=} 	\widetilde{f}.
@@ -4385,6 +4386,9 @@ then
 	is said to be a \textit{covering sum} for $\sY$. We also say that the covering sum \eqref{top_cfs_eqn} is \textit{dominated} by the family 
 	$\left\{\sV_x\right\}_{x\in\sX}$ (cf. equation \ref{top_vx_eqn}).
 	\end{defn}
+\begin{remark}\label{top_cfsc_rem}
+If $\sY$ is connected the a covering sum for $\sY$ is connected since $\supp f_{x_j}$ is connected for all $j = 1,..., n$.
+\end{remark}
 \begin{remark}
 Sometimes instead of \eqref{top_cfs_eqn} we use the following notation for a finite sum
 \be\label{top_cfsa_eqn}
@@ -6903,9 +6907,10 @@ satisfies to the conditions (a), (b) of the Definition \ref{fin_comp_defn}.
  where the notion $u^{-1}_\la\left(\left(0,1\right]\right)$  means the inverse image.
 If $\La$ is ordered  by the following way
 $$
-\mu, \nu \in \La\quad \bt \le \ga \Leftrightarrow f_\mu \le f_\nu
+\mu, \nu \in \La\quad \mu \le \nu \Leftrightarrow u_\mu \le u_\nu.
 $$
-then from the Lemma \ref{top_comp_comm_cor} it follows that $\La$ is a directed.
+If $\mu, \nu \in \La$ then $\supp u_\mu \cup \supp u_\nu$ is compact.
+From the Corollary \ref{top_comp_comm_cor} it follows that there is a connected compact set $\sY\subset \sX$ such that $\supp f_\mu \cup \supp f_\nu\subset \sY$ if $u_\sY$ is a finite sum of $\sY$ (cf. Definition \ref{top_cfs_defn}) then $\supp f$ is connected (cf. Remark \ref{top_cfsc_rem}), $u_\sY \in \left\{u_\la\right\}_{\la \in \La}$ and $\exists\la\in \La\quad u_\sY= u_\la$. If follows that $\la \ge \mu$ and  $\la \ge \mu$, i.e. $\La$ is a directed set (cf. Definition \ref{directed_set_defn}).
 \end{empt}
 \begin{lemma}\label{comm_slfin_lem}
  In the above situation there is the  limit 
@@ -10980,6 +10985,7 @@ which is an analog of the representation\ref{ctr_a_eqn}.
 \begin{exercise}
 Prove that $\rho_{\widetilde\tau}:\widetilde A \hookto B\left(L^2\left(\widetilde A, \tr_{\widetilde\tau}\right) \right)$  {is induced by the pair} $\left(\rho_{\tau},\left(A, \widetilde{A}, G, \pi\right)  \right)$ (cf. Definition \ref{induced_repr_defn}).
 \end{exercise}
+\begin{empt}\label{str_spin_c_empt}
 Suppose that $A$ is a {homogeneous of order} $n$ $C^*$-algebra (cf. Definition \ref{ctr_homo_defn}), and $S \to \sX$ is a Hermitian vector bundle (cf. Definition \ref{top_herm_bundle_defn}). Assume that for any $x \in \sX$ there is an action
 \be\label{top_repxs_eqn}
 \rep_x\left(A\right)\times S_x\to S_x
@@ -10992,6 +10998,8 @@ There is a $\C$ valued scalar product
 \left(\xi, \eta \right)\bydef \tau\left(\left\langle \xi, \eta \right\rangle_c \right) 
 \eean 
 where $	\left\langle \cdot, \cdot \right\rangle_c$ is given by the equation \eqref{top_ggc_eqn}. It follows that $\Ga_c\left(\sX, S \right)$ is a pre-Hilbert space, denote by $L^2\left(\sX, S, \tau \right)$ (or shortly $L^2\left(\sX, S \right)$) the Hilbert norm completion of $\Ga_c\left(\sX, S \right)$. An action $A \times \Ga_c\left(\sX, S \right)\to \Ga_c\left(\sX, S \right)$ induces an action $A \times L^2\left(\sX, S \right)\to L^2\left(\sX, S \right)$.
+\end{empt}
+
 \begin{exercise}
 Prove that the action $A \times L^2\left(\sX, S \right)\to L^2\left(\sX, S \right)$  corresponds to a faithful *-representation
 \be\label{ctr_rho_eqn}
@@ -11044,17 +11052,41 @@ Results of this section a closed to the  Section \ref{top_pd_fin_sec}. Exercises
 		$$
 		is a noncommutative finite-fold covering of $O^*$-algebras (cf. Definition \ref{fino*_defn}).
 	\end{exercise}
+
 	\begin{exercise}\label{ctr_smoothc_exer}
 		Let both  $D\left( M,  E \right)$ and $D\left(\widetilde M, \widetilde E \right)$ be *-algebras of differential operators 
 		$\Ga^\infty \left(M, E \right)  \to \Ga^\infty \left(M, E \right)$ and $\Ga^\infty \left(\widetilde M,  \widetilde E \right)  \to \Ga^\infty \left(\widetilde M, \widetilde E \right)$ respectively (cf. Definition \ref{do_man_defn}).
-		Construct  a noncommutative finite-fold covering of $O^*$-algebras 	$\left(D\left(\widetilde M, \widetilde E \right) ,D\left(\widetilde M, \widetilde E \right)  , G\left(\left.\widetilde M \right|M \right) , \rho \right)$ such that $\rho|_{\Ga^\infty\left( M,  E \right)}= \pi^\infty$.
+		Construct  a noncommutative finite-fold covering of $O^*$-algebras 	$\left(D\left(\widetilde M, \widetilde E \right) ,D\left(\widetilde M, \widetilde E \right)  , G\left(\left.\widetilde M \right|M \right) , \rho \right)$ such that $\pi^\infty= \left.\rho\right|_{\Ga^\infty\left( M,  E \right)}$.
 	\end{exercise}
+\begin{empt}\label{str_spinc_c_empt}
+	Suppose that  $\left( S, r, M\right)$ is a Hermitian bundle  such that if   $S_x$ is the {fiber} of $\left( S, r, M\right)$ at the point $x$ (cf. Definition \ref{top_vb_fiber_defn}) 
+there is an action
+\be\label{foli_rep_eqn}
+\rep_x\left(A \right)\times S_x\to S_x 
+\ee
+such that $S_x$ is a Hermitian 	$	\rep_x\left(A \right)$-module (cf. Definition \ref{herm_mod_defn})
+Suppose that a given by \eqref{foli_rep_eqn} family of actions induces the following action
+\be\label{foli_me_eqn}
+\Ga\left( M, E\right) \times \Ga\left( M, S\right) \to \Ga\left( M, S\right) 
+\ee
+
+
+If $S$ has structure of smooth manifold then similarly to the above construction one can obtain spaces of smooth sections $\Ga_c^\infty\left(M, S \right)$ and $\Ga_c^\infty\left(\widetilde M, \widetilde S \right)$ which are dense in $L^2\left( M, S \right)$ and $L^2\left(\widetilde M, \widetilde S \right)$ respectively (cf. Equations \ref{ctr_rho_eqn} and \ref{ctr_wrho_eqn}). There is the natural inclusion $\Ga^\infty\left(M, S \right)\subset \Ga^\infty\left(\widetilde M, \widetilde S \right)$
+If the action $\Ga\left( M,  E \right)\times\Ga\left( M,  S \right)\to  \Ga\left( M,  S \right)$ is such that 
+\be\label{foli_sm_eqn}
+\Ga^\infty\left( M,  E \right)\times\Ga^\infty\left( M,  S \right)\subset  \Ga^\infty\left( M,  S \right)
+\ee
+then one has
+$$
+\Ga^\infty\left(\widetilde M, \widetilde E \right)\times\Ga^\infty\left(\widetilde M, \widetilde S \right)\subset  \Ga^\infty\left(\widetilde M, \widetilde S \right)
+$$
+\end{empt}
+
+
 	\begin{exercise}\label{ctr_smoothdiff_exer}
-		!!! CORRECT
-		Suppose that  $\left( S, r, M\right)$ is a Hermitian bundle  such that  $S_x$ is a Hermitian $\rep_x\left(A\right)$-module for all $x\in S_x$ (cf. Definition \ref{herm_mod_defn}). If $S$ has structure of smooth manifold then similarly to the above construction one can obtain spaces of smooth sections $\Ga_c^\infty\left(M, S \right)$ and $\Ga_c^\infty\left(\widetilde M, \widetilde S \right)$ which are dense in $L^2\left( M, S \right)$ and $L^2\left(\widetilde M, \widetilde S \right)$ respectively (cf. Equations \ref{ctr_rho_eqn} and \ref{ctr_wrho_eqn}). Let both  $D\left( \A, S\right)$ and $D\left(\widetilde \A, \widetilde S\right)$ are algebras of differential operators 
-		$C^\infty \left(M, S \right)  \to C^\infty \left(M, S \right)$ and $C^\infty \left(\widetilde M,  \widetilde S \right)  \to C^\infty \left(\widetilde M, \widetilde S \right)$ respectively (cf. Definition \ref{do_man_defn}).
-		Construct  a noncommutative finite-fold covering of $O^*$-algebras 	$$\left(D\left( \A, S\right) ,D\left(  \widetilde \A, \widetilde S\right)  , G\left(\left.\widetilde M \right|M \right) , \phi \right)$$
-		such that $\phi|_{\A}= \left.A_0\left( p\right)\right|_\A$.
+		Suppose that  $\left( S, r, M\right)$ is a Hermitian bundle  such that  $S_x$ is a Hermitian $\rep_x\left(A\right)$-module for all $x\in S_x$ (cf. Definition \ref{herm_mod_defn}). If $S$ has structure of smooth manifold then similarly to the above construction one can obtain spaces of smooth sections $\Ga_c^\infty\left(M, S \right)$ and $\Ga_c^\infty\left(\widetilde M, \widetilde S \right)$ which are dense in $L^2\left( M, S \right)$ and $L^2\left(\widetilde M, \widetilde S \right)$ respectively (cf. Equations \ref{ctr_rho_eqn} and \ref{ctr_wrho_eqn}). Let both  $D\left( M, S\right)$ and $D\left(\widetilde M, \widetilde S\right)$ are algebras of differential operators 
+		$\Ga^\infty \left(M, S \right)  \to\Ga^\infty \left(M, S \right)$ and $\Ga^\infty \left(\widetilde M,  \widetilde S \right)  \to \Ga^\infty \left(\widetilde M, \widetilde S \right)$ respectively (cf. Definition \ref{do_man_defn}).
+		Construct  a noncommutative finite-fold covering of $O^*$-algebras 	$$\left(D\left( M, S\right) ,D\left(  \widetilde M, \widetilde S\right)  , G\left(\left.\widetilde M \right|M \right) , \phi \right).$$
 	\end{exercise}
 	
 
@@ -11881,12 +11913,12 @@ Prove following statements:
 \end{split}
 \ee	
 \item The representation $\pi$ is equivariant (cf. Definition \ref{equiv_defn}).
-\item Suppose that  $\mathcal U\subset \mathcal X$  is a connected open subset evenly {covered} by $\overline{\mathcal U}\subset \overline{\mathcal X}$. If $\overline a \in A_0\left(\overline\sX \right)$ be  an  element such that 
+\item Suppose that  $\mathcal U\subset \mathcal X$  is a connected open subset evenly {covered} by $\overline{\mathcal U}\subset \overline{\mathcal X}$. If $\overline a \in A_0\left(\overline\sX \right)$ is  an  element such that 
 $\supp \overline a \subset \overline \sU$ then the following conditions hold:
 	\begin{enumerate}
 	\item [(i)] The series 	
 	\be\nonumber
-	\sum_{g \in G\left(\left.\overline{\sX}~\right|\sX\right) } \overline \pi\left( g\overline{a}\right).
+	\sum_{g \in G\left(\left.\overline{\sX}~\right|\sX\right) } \overline \pi\left( g\overline{a}\right)
 	\ee 
 	is convergent in the strong  topology of $B\left(L^2\left(A_0\left( \overline\sX\right), \tr_{\overline\tau}  \right) \right)$  (cf. Definition \ref{strong_topology_defn}).
 	\item[(ii)] 
@@ -12209,10 +12241,11 @@ one concludes that the space of induced representation coincides with $L^2\left(
 Discussed below results close to  the Section \ref{top_inf_o_sec} ones. Exercises of this Section can be solved similarly to proofs of Lemmas and Theorems of the Section \ref{top_inf_o_sec}.
 \begin{empt}
 	Similarly to \ref{ctr_fin_o_empt} 	let $M$ be a smooth manifold, and let $A$ be  a {homogeneous of order} $n$ $C^*$-algebra (cf. Definition \ref{ctr_homo_defn}) such that  $M$ is the spectrum of $A$. There is a linear bundle $\left(E, q, M\right)  $ with fibers $\C^{n^2}$ such that there is $C_b\left( M\right)$-linear isomorphism $A \cong 
-	\Ga_0\left(M, E \right)$ (cf. \ref{ctr_fin_o_empt}). If $E$ has structure of smooth manifold such that the map $E\to M$ is smooth.  	From  \eqref{ctr_fin_o_empt} it turns out that  $\Ga^\infty\left(M, E \right)$ is *-algebra.  If	$\mathfrak{S}_{\left(M, x_0\right)}= \left\{p_\la:\left(M_\la, x^\la_0\right) \to \left( M, x_0\right)\right\}_{\la \in \La}$ is a pointed topological finite covering category the the Lemma \ref{ctr_base_point_lem} yields  {pointed algebraical  finite covering category} (cf. Definition \ref{comp_pt_defn}) given by 		\be\nonumber
+	\Ga_0\left(M, E \right)$ (cf. \ref{ctr_fin_o_empt}). If $E$ has structure of smooth manifold such that the map $E\to M$ is smooth.  	From  \eqref{ctr_fin_o_empt} it turns out that  $\Ga^\infty\left(M, E \right)$ is *-algebra.  If	$\mathfrak{S}_{\left(M, x_0\right)}= \left\{p_\la:\left(M_\la, x^\la_0\right) \to \left( M, x_0\right)\right\}_{\la \in \La}$ is a pointed topological finite covering category the the Lemma \ref{ctr_base_point_lem} yields  {pointed algebraical  finite covering category} (cf. Definition \ref{comp_pt_defn}) given by 		
+	\be\label{ctr_bases_point_eqn}
 	\begin{split}
 		\mathfrak{S}^{\mathrm{pt}}_{A } = \\
-		=\left\{A_0\left( p_\la\right) : A  \hookto A_0\left(M_\la \right)\right\}, \left\{A_0\left( p_\nu^\mu\right) : A_0\left(M_\nu \right) \hookto A_0\left(M_\mu \right)\right\}
+		=\left\{A_0\left( p_\la\right) : A  \hookto A_0\left(M_\la \right)\right\}, \left\{A_0\left( p_\nu^\mu\right) : A_0\left(M_\nu \right) \hookto A_0\left(M_\mu \right)\right\}.
 	\end{split}
 	\ee
 If $\overline M$ is a disconnected inverse limit of $\mathfrak{S}_{\left(M, x_0\right)}$ (cf. Definition \ref{top_topological_inv_lim_defn}) then there the natural covering $\overline p: \overline M \to M$. From the Proposition \ref{top_cov_mani_prop} it follows that $\overline M$ has a (unique) structure of smooth manifold such that $\overline p$ is smooth. If $\left(\overline E, \overline q,  \overline M\right)$  is the {inverse image} of $\left( E, q, M\right)$ by $p$ (cf. Definition \ref{vb_inv_img_funct_defn}) then there is a transitive  covering  $\overline E \to E$  so from the Proposition \ref{top_cov_mani_prop} it turns out that there is the unique smooth structure on $\overline E$ such that map $\overline E\to E$ is smooth. So there is a *-algebra $\Ga^\infty\left(\overline M, \overline E \right)$. 
@@ -12252,6 +12285,10 @@ $$
 	where $\L^\dagger\left(\widehat\D \right)$ is given by \eqref{l_dag_eqn}.
 
 \end{empt}
+%\begin{exercise}
+%Formulate and prove a related to the given by \eqref{ctr_bases_point_eqn} pointed topological finite 	analog of the Exercise \ref{ctr_hilbert_exer}
+%\end{exercise}
+
 \begin{exercise}
 Let $\widetilde M$ be inverse limit of $\mathfrak{S}_{\left(M, x_0\right)}$ (cf. Definition \ref{top_topological_inv_lim_defn}). 	Using the Exercise \ref{ctr_hilbert_exer}
 prove following statements:
@@ -12259,8 +12296,14 @@ prove following statements:
 	\item The triple $\left(D\left( M,   E \right),D\left(\widetilde M, \widetilde  E \right), G\left(\left.\widetilde M\right|  M\right)\right) $ is the $\pi$-inverse noncommutative limit of $\mathfrak{S}^{\text{pt}}_{D\left( M,   E \right)}$ (cf. Definition \ref{inv_o*_lim_defn}).
 		\item The triple $\left(\Ga^\infty\left( M,   E \right),\Ga^\infty\left(\widetilde M, \widetilde  E \right), G\left(\left.\widetilde M\right|  M\right)\right) $ is the  $\left.\pi\right|_{\cup_{\la \in \La} \Ga^\infty \left( M_\la,   E_\la \right)}$-inverse noncommutative limit of $\mathfrak{S}^{\text{pt}}_{\Ga^\infty\left( M_\la,   E_\la \right)}$.
 	\end{enumerate}
-
 \end{exercise}
+\begin{empt}\label{str_spinc_inf_c_empt}
+	Suppose that  $\left( S, r, M\right)$ is a Hermitian bundle  
+\end{empt}
+
+!!!
+
+
 \subsection{Coverings of spectral triples}
 \paragraph*{} Let $\slashed{\mathrm{T}}\bydef\left(C^{\infty}\left( M\right) , L^2\left( M, S\right) ,\slashed D\right)$ be a commutative spectral triple (cf. equation \eqref{comm_sp_tr_eqn}), and let $\widetilde p:\widetilde{M} \to M$ be an infinite regular covering such that  the {covering group} $G\left( {\widetilde{M}}~|~M\right)$ (cf. Definition \ref{cov_proj_cov_grp_defn}) is residually finite (cf. Definition \ref{residually_finite_defn}). From the Lemma \ref{top_res_fin_lem} it it turns out that there is a (topological)  finite covering category $\mathfrak{S} = \left\{p_\la: M_\la \to M\right\}$ (cf. \ref{top_sec_defn}) such that  the {(topological) inverse limit} of $\mathfrak{S}$ is naturally homeomorphic  to $\widetilde{M}$. From the Proposition \ref{comm_cov_mani_prop} it follows that $\widetilde{M}$ and $M_\la$ ($\forall \la \in \La$)  have natural structure of the Riemannian manifolds. According to the Example \ref{top_vb_lift_desc_exm} denote by $\widetilde{S}\stackrel{\mathrm{def}}{=} C_0\left( \lift_p\left(S \right) \right) $ and $S_\la \stackrel{\mathrm{def}}{=} C_b\left( \lift_{p_\la}\left( S\right) \right) $  (for all $\la \in \La$) the lifts of the spin bundle (cf. \ref{top_vb_sub_sub}). Similarly to the Section  \ref{top_cov_sp_tr_sec} one can prove that for any $\la \in \La$ that there is the $p_\la$-{inverse image} $p^{-1}_\la \slashed D$ of $\slashed D$ (cf. Definition \ref{top_smooth_inv_im_defn}) and the operator  $p_\la^{-1} \slashed D$ can be regarded as an unbounded operator on  $L^2\left( M_\la, S_\la\right)$. Moreover there is the $\widetilde p$-{inverse image} $\widetilde p^{-1} \slashed D$ of $\slashed D$ (cf. Definition \ref{top_smooth_inv_im_defn}) and the operator  $\widetilde p^{-1} \slashed D$ is  an unbounded operator on  $L^2\left( \widetilde M, \widetilde S\right)$.
 From the Lemma \ref{comm_t_a_lem} and the Theorem \ref{comm_main_thm} it turns out that 
@@ -12410,21 +12453,6 @@ such that following conditions hold:
 \end{enumerate}
 
 \end{exercise}
-\begin{exercise}
-Let $M$ be a finite dimensional manifold and let $\Coo_0\left(M \right) \bydef C_0\left(M \right)\cap \Coo\left(M \right)$. Suppose that 
-\bean
-\A\bydef\mathbb{M}_n\left( \mathbb{K}\right),
-\eean
-where $\mathbb{M}_{n}\left( \mathbb{K}\right)$ denotes the algebra of square matrices of order $n$ with entries in the field $\mathbb{K}=\R$, $\C$ or $\mathbb{H}$ (cf. \eqref{fin_oa_eqn}). Suppose $p: \widetilde M\to M$ is a transitive covering and $\widetilde M$ possesses a structure of a smooth manifold given by $M$ and $p$.
-Prove that the following conditions hold:
-\begin{enumerate}
-	\item If the covering $p$ is finite-fold then 
-	$$\left(\Coo_0\left(M \right)\otimes\A, \Coo_0\left(\widetilde M \right)\otimes\A, G\left(\left.\widetilde M~ \right| M\right), \left.C_0\left( p\right)  \right|_{\Coo_0\left(M \right)}\otimes \Id_\A\right)$$ is a noncommutative finite-fold covering of operator algebras (cf. Definition \ref{fin_oa_defn}).
-	\item If the group $G\left(\left.\widetilde M~ \right| M\right)$ is residually finite then
-	$$\left(\Coo_0\left(M \right)\otimes\A, \Coo_0\left(\widetilde M \right)\otimes\A, G\left(\left.\widetilde M~ \right| M\right)\right)$$ it an infinite noncommutative covering (cf. Definition \ref{inf_cov_oa_defn})
-\end{enumerate}
-\end{exercise}
-
 
 
 \chapter{Foliations, pseudogroups  and their coverings}\label{foliations_chap}
@@ -23150,7 +23178,7 @@ let $\Coo\left(M, E_j \right)$  be the complex vector space of sections of the b
 $\left(E_j, M, p_j\right)$, i.e., smooth maps $s:M \to E_j$ such that $\pi_j\circ s=\Id_{M}$.
 A \textit{linear differential operator} means a linear map of vector spaces
 $$
-P: \Coo\left(M, E_1 \right)\to \Coo\left(M, E_2 \right)
+P: \Ga^\infty\left(M, E_1 \right)\to \Ga^\infty\left(M, E_2 \right)
 $$
 such that $\supp P(s) \subset  \supp s$.
 \end{definition}
