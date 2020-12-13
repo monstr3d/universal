@@ -1377,6 +1377,7 @@ If $A \neq \phi\left(B_1\oplus \{0\}  \right) \oplus \phi\left(\{0\} \oplus B_2 
 
 \chapter{Noncommutative finite-fold coverings}\label{cov_fin_chap}
    \section{Basic definitions}\label{cov_fin_bas_sec}
+   \subsection{Coverings of $C^*$-algebras}
    \paragraph{}
  Here the noncommutative generalization of the Theorem \ref{pavlov_troisky_thm} is being considered.  
 
@@ -1634,7 +1635,7 @@ The Definition \ref{fin_defn} implicitly uses the given by the Lemma \ref{ind_mu
 \begin{remark}
 	There are alternative theories of noncommutative coverings (e.g. \cite{clarisson:phd}), however I do not know the theory which gives a good definition of the fundamental group (cf. Remark \ref{comm_comm_rem}).
 \end{remark}
-
+\subsection{Coverings of *-algebras and quasi *-algebras}
 \begin{definition}\label{fin_pre*_defn}
 	Let $\pi: A \hookto \widetilde{A}$ be an injective  *-homomorphism of % connected
 	$*$-algebras such that following conditions hold:
@@ -1665,7 +1666,7 @@ The Definition \ref{fin_defn} implicitly uses the given by the Lemma \ref{ind_mu
 	where the action $G\times \widetilde{B} \to \widetilde{B}$ comes from   $G\times \widetilde{A} \to \widetilde{A}$ and ${\pi}_B$ comes from $\pi$.
 \end{empt}
 \begin{definition}\label{fino*_defn}
-	In the  situation \ref{o*fin_empt} we say that $\left(A, \widetilde{A}, G, \pi \right)$ is a \textit{noncommutative finite-fold covering of $O^*$-algebras} if the  quadruple \eqref{comp_q_eqn} is a  \textit{noncommutative finite-fold covering} (cf. Definition \ref{fin_defn}).
+	In the  situation \ref{o*fin_empt} we say that $\left(A, \widetilde{A}, G, \pi \right)$, or $\left(A, \widetilde{A}, G  \right)$, or $\pi$ is a \textit{noncommutative finite-fold covering of $O^*$-algebras} if the  quadruple \eqref{comp_q_eqn} is a  \textit{noncommutative finite-fold covering} (cf. Definition \ref{fin_defn}).
 \end{definition}
 
 \begin{definition}\label{fin_preq_defn}
@@ -7089,6 +7090,113 @@ Following conditions hold:
 	So one has a functor from  $\mathfrak{FinCov}$-$\sX$ to  $\mathfrak{FinCov}$-$C_0\left( \sX\right)$. Let us define the inverse  functor. From the Theorem \ref{comm_fin_thm} it follows that any object $\pi: C_0\left( \sX\right) \hookto C_0\left( \widetilde{\sX}\right)$ of $\mathfrak{FinCov}$-$C_0\left( \sX\right) $ corresponds to a transitive finite-fold covering $p: \widetilde{\sX} \to \sX$ such that $\pi = C_0\left(p \right)$. If $C\left(p' \right): C_0\left( {\sX}\right)\to  C_0\left( \widetilde{\sX}'\right) $ and $C\left(p'' \right): C_0\left( {\sX}\right)\to C_0\left( \widetilde{\sX}''\right)$ are objects of $\mathfrak{FinCov}$-$C_0\left( \sX\right)$  and $\pi: C_0\left( \widetilde{\sX}''\right)    \to C_0\left( \widetilde{\sX}'\right)$ is a *-homomorphism such that $ C_0\left(p'\right) = \pi \circ C_0\left(p''\right)$ then from the Lemma \ref{comm_comply_lem} it turns out that there is a finite-fold  transitive covering $p: \widetilde{\sX}' \to \widetilde{\sX}''$ such than  $\pi= C_0\left( p\right) $ and $p'= p \circ p''$. So one has the inverse functor from   $\mathfrak{FinCov}$-$C_0\left( \sX\right)$ to $\mathfrak{FinCov}$-$\sX$.\\
 	(ii)	The conditions (a)-(d) of the Definition \ref{compliant_covering_defn} directly follow from (a)-(d) of the Lemma \ref{comm_comply_lem}.
 	\end{proof}
+\subsection{Induced representations}\label{comm_induced_finite_sec}
+\paragraph*{} 
+Let us consider a compact  Riemannian manifold $M$ with a  spin bundle $\sS$ (cf. \ref{spin_mani_sec}). 
+The bundle $S$ is Hermitian (cf. Definition \ref{top_herm_bundle_defn}). Let $\tau:C\left( M\right) \to \C$ be a faithful state such that 
+$$
+\tau\left(a \right) = \int_{M} a~ d\mu
+$$
+(cf. equation \ref{meafunc_eqn}). Define the $\C$-valued product
+\be
+\begin{split}
+	\left( \cdot, \cdot \right): \Ga\left( M, S\right)\times \Ga\left( M, S\right) \to \C,\\
+	\left(\xi, \eta \right) \mapsto \tau\left( \left\langle\xi, \eta \right\rangle \right) 
+\end{split}
+\ee
+where the pairing $	\left\langle \cdot, \cdot \right\rangle:  \Ga\left( M, S\right)\times \Ga\left( M, S\right)$ is given by \eqref{top_gg_eqn}. This product yields the structure of pre-Hilbert space on $\Ga\left( M, S\right)$ denote by $ L^2\left(  M, S\right)\cong  L^2\left(  M, S, \mu\right)$ the Hilbert norm completion of $\Ga\left( M, S\right)$. The natural action $C\left( M\right) \times \Ga\left( M, S\right)\to \Ga\left( M, S\right)$ induces an action $C\left( M\right) \times L^2\left( M, S\right)\to L^2\left( M, S\right)$ so there is a following representation
+\be\label{comm_m_bundle_repr_eqn}
+C\left(M\right) \to B\left( L^2\left(  M, S\right)\right). 
+\ee
+From \ref{top_herm_bundle_empt} it follows that $L^2\left( M, S, \mu\right)$ is the Hilbert norm completion of $\Ga\left(M, \sS\right)$. On the other hand from the Lemma \ref{top_bundle_cs_lem}  it follows that $\Ga\left(M, \sS\right)$ is {continuity structure for} $\sX$ {and the} $\left\{\SS_x\right\}_{x \in \sX}$ (cf. Definition \ref{op_fields_defn}), such that
+$$
+\Ga\left(M, \sS\right) \cong C\left(M, \left\{\SS_x\right\},  \Ga\left(M, \sS\right)\right). 
+$$
+If $p: \widetilde{M} \to M$ is a finite-fold  transitive covering then from the Lemma \ref{top_tensor_lccompact_iso_eqn} it follows that there is the natural isomorphism
+\be\label{top_lift_g_eqn}
+\phi: C\left(\widetilde \sX\right)\otimes_{C\left(M\right)} C\left(M,\left\{\SS_x\right\},  \Ga\left(M, \sS\right)\right) \xrightarrow{\approx}\lift_p\left[C\left(M, \left\{\SS_x\right\},  \Ga\left(M, \sS\right)\right)\right]
+\ee
+of $C\left(\widetilde{M} \right)$-modules. From the Lemma \ref{top_lift_bundle_lem} it follows that $\lift_p\left[C\left(M, \left\{\SS_x\right\},  \Ga\left(M, \sS\right)\right)\right]\cong \Ga\left(\widetilde{M}, \widetilde{\SS} \right)$ where $\widetilde{\SS}$ is the {inverse image} of $\SS$ by $p$ (cf. Definition \ref{vb_inv_img_funct_defn}). Hence the equation \eqref{top_lift_g_eqn} can be rewritten by the following way
+\be\label{top_lift_gs_eqn}
+\phi: C\left(\widetilde M\right)\otimes_{C\left(M\right)} \Ga\left(M, \sS\right) \xrightarrow{\approx} \Ga\left(\widetilde{M}, \widetilde{\SS} \right).
+\ee
+From the Lemma \ref{state_cov_11_lem} it follows that for all $\la\in \La$ there is a functional
+\be\label{top_wt_eqn}
+\begin{split}
+	\widetilde	\tau : C\left(\widetilde M \right)\to \C,\\
+	\widetilde	a \mapsto \tau\left( \sum_{g \in G\left(\left.\widetilde M~\right|M \right) }g\widetilde a\right)=  \int_{\widetilde M} \widetilde a~ d\widetilde\mu 
+\end{split}
+\ee
+where a sum $\sum_{g \in G\left(\left.\widetilde M~\right|M \right) }g\widetilde a$ is regarded as an element of $C\left(  M\right)$. Similarly to the above construction we have a Hilbert space $L^2\left(\widetilde{M}, \widetilde{S} \right)= L^2\left(\widetilde{M}, \widetilde{S}, \widetilde\mu \right)$ and a representation 
+\be\label{comm_bundle_repr_eqn}
+C\left(\widetilde M\right) \to B\left( L^2\left( \widetilde M, \widetilde S\right)\right).
+\ee
+\begin{lemma}\label{top_hilb_homo_lem}
+	Following conditions hold:
+	\begin{itemize}
+		\item [(i)] The map \eqref{top_lift_gs_eqn} can be extended up to the following homomorphism 
+		$$
+		C\left(\widetilde M\right)\otimes_{C\left(M\right)} L^2\left(M, S\right) \xrightarrow{\approx} L^2\left(\widetilde{M}, \widetilde{S} \right)
+		$$
+		of left $C\left(\widetilde M\right)$-modules.
+		\item[(ii)] The image of $C\left(\widetilde M\right)\otimes_{C\left(M\right)} L^2\left(M, S\right)$ is dense in $L^2\left(\widetilde{M}, \widetilde{S} \right)$.
+	\end{itemize}
+\end{lemma}
+\begin{proof}(i)
+	Let $\sum_{j = 1}^n \widetilde a_j \otimes \xi_j\in 	C\left(\widetilde M\right)\otimes_{C\left(M\right)} L^2\left(M, \sS\right)$ be any element. From  \ref{top_herm_bundle_empt} $L^2\left( M, S, \mu\right)$ is the Hilbert norm completion of $\Ga\left(M, \sS\right)$. Hence for any $j =1,..., n$ there is a net $\left\{\xi_{j\a}\right\}\subset \Ga\left(M, \sS\right)$ such that $\xi_j = \lim_\a \xi_{j\a}$ where we mean the convergence with respect to the Hilbert norm $\left\| \cdot\right\|_{L^2\left(M, \sS\right)}$. If $C = \max_{j = 1,...,n}\left\|\widetilde a_j\right\|$ then there is $\a_0$ such that
+	$$
+	\a \ge \a_0 \quad \Rightarrow \left\| \xi_j - \xi_{j\a}\right\|_{L^2\left(M, \sS\right)} < \frac{\eps}{nC},
+	$$
+	so one has
+	$$
+	\a \ge \a_0 \quad \Rightarrow \left\| \sum_{j = 1}^n \widetilde a_j \otimes \xi_{j\a_0} - \sum_{j = 1}^n \widetilde a_j \otimes \xi_{j\a}\right\|_{L^2\left(\widetilde M, \widetilde\sS\right)} < \eps.
+	$$
+	The above equation it follows that the net $\left\{\sum_{j = 1}^n \widetilde a_j \otimes \xi_{j\a}\right\}_\a$ satisfies to the Cauchy condition, so it is convergent with respect to the topology of $L^2\left(\widetilde M, \widetilde\sS\right)$.\\
+	(ii) From the Lemma \ref{top_tensor_lccompact_iso_eqn} it follows that the image of $C\left(\widetilde M\right)\otimes_{C\left(M\right)} L^2\left(M, \sS\right)$ in $L^2\left(\widetilde M, \widetilde\sS\right)$ contains $\Ga\left(\widetilde{M}, \widetilde{\SS} \right)$, however $\Ga\left(\widetilde{M}, \widetilde{\SS} \right)$ is dense in $L^2\left(\widetilde{M}, \widetilde{\SS} \right)$. It follows that  $\phi\left(  C\left(\widetilde M\right)\otimes_{C\left(M\right)} L^2\left(M, \sS\right)\right)$ is dense in $L^2\left(\widetilde{M}, \widetilde{\SS} \right)$. 
+\end{proof}
+\begin{remark}
+	Indeed the image of $C\left(\widetilde M\right)\otimes_{C\left(M\right)} L^2\left(M, \sS\right)$ coincides with $L^2\left(\widetilde{M}, \widetilde{\SS} \right)$. However this fact is not used here.
+\end{remark}
+
+In the above situation   the given by the equation \eqref{induced_prod_equ} scalar product $\left(\cdot, \cdot \right)_{\text{ind}}$ on  $ \Ga\left( M, S\right) \otimes L^2\left({M},{S}, \mu\right)$ satisfies to the following equation
+\begin{equation}\label{comm_ind_l2_eqn}
+	\begin{split}
+		\left( \widetilde{a} \otimes \xi ,    \widetilde{b} \otimes \eta\right)_{\text{ind}}= \left(\xi, \left\langle \widetilde{a}, \widetilde{b}\right\rangle_{C\left(\widetilde{M} \right) } \eta \right)_{L^2\left({M},{S} \right)}=\\=\sum_{\widetilde{\a}\in \widetilde{\mathscr A}}\left(\xi, \left\langle \widetilde{a}_{\widetilde{\a}}\widetilde{a}, \widetilde{b}\right\rangle_{C\left(\widetilde{M} \right) } \eta \right)_{L^2\left({M},{S} \right)}
+		= \sum_{\widetilde{\a}\in \widetilde{\mathscr A}}\left(\xi, \mathfrak{desc}\left( \widetilde{a}_{\widetilde{\a}} \widetilde{a}^* \widetilde{b}\right)  \eta \right)_{L^2\left({M},{S} \right)}=
+		\\
+		=
+		\sum_{\widetilde{\a}\in \widetilde{\mathscr A}}~\int_M \left(\xi_x, \mathfrak{desc}\left( \widetilde{a}_{\widetilde{\a}} \widetilde{a}^* \widetilde{b}\right)  \eta_x \right)_x d\mu=
+		\\
+		=
+		\sum_{\widetilde{\a}\in \widetilde{\mathscr A}}~\int_M \left(\mathfrak{desc}\left( \widetilde{e}_{\widetilde{\a}} \widetilde{a}\right)\xi_x, \mathfrak{desc}\left( \widetilde{e}_{\widetilde{\a}}  \widetilde{b}\right)  \eta_x \right)_x d\mu=
+		\\
+		=\sum_{\widetilde{\a}\in \widetilde{\mathscr A}}~ \int_{\widetilde{M}}\left(\widetilde{a} \lift_{\widetilde{\sU}_{\widetilde{\a}}}\left({e}_{\widetilde{\a}}\xi \right)_{\widetilde{x}},  \widetilde{b} ~\lift_{\widetilde{\sU}_{\widetilde{\a}}}\left({e}_{\widetilde{\a}}\eta \right)_{\widetilde{x}}\right)_{\widetilde{x}}d \widetilde{   \mu} =
+		\\
+		=\sum_{\widetilde{\a}\in \widetilde{\mathscr A}}~ \int_{\widetilde{M}}\widetilde{a}_{\widetilde{\a}}\left(\widetilde{a} \lift_{\widetilde{\sU}_{\widetilde{\a}}}\left(\xi \right)_{\widetilde{x}},  \widetilde{b} ~\lift_{\widetilde{\sU}_{\widetilde{\a}}}\left(\eta \right)_{\widetilde{x}}\right)_{\widetilde{x}}d \widetilde{   \mu} =
+		\\
+		= \int_{\widetilde{M}}\left( \widetilde{a} \lift_p\left(\xi \right)_{\widetilde{x}},  \widetilde{b} ~\lift_p\left(\eta \right)_{\widetilde{x}}\right)_{\widetilde{x}}d \widetilde{   \mu}
+		= \left( \widetilde{a}~ \lift_p\left(\xi \right),  \widetilde{b} ~\lift_p\left(\eta \right)\right)_{L^2\left(\widetilde{M},\widetilde{S} \right)} =\\
+		=  \left(\phi\left(  \widetilde{a}\otimes\xi\right) ,  \phi \left( \widetilde{b}\otimes\eta\right)\right)_{L^2\left(\widetilde{M},\widetilde{S} \right)}
+	\end{split} 
+\end{equation}
+where $\phi$ is given by \eqref{top_lift_gs_eqn} and both finite families $\left\{\widetilde{a}_{\widetilde{\a}}\right\}_{\widetilde{\a}\in \widetilde{\mathscr A}},~\left\{\widetilde{e}_{\widetilde{\a}}\right\}_{\widetilde{\a}\in \widetilde{\mathscr A}}\subset C\left(\widetilde M \right) $ are explained in  \ref{ctr_unity_empt}.
+The equation \eqref{comm_ind_l2_eqn} means that $\left(\cdot, \cdot \right)_{\text{ind}}= \left(\cdot, \cdot \right)_{L^2\left(\widetilde{M},\widetilde{S} \right)}$, and taking into account the dense inclusion $C\left(\widetilde{M} \right) \otimes_{C\left(M \right) } \Ga\left( M, S\right) \subset L^2\left(\widetilde{M},\widetilde{S} \right)$ with respect to the Hilbert norm of $L^2\left(\widetilde{M},\widetilde{S}\right) $
+one concludes that the space of induced representation coincides with $L^2\left(\widetilde{M},\widetilde{S}\right)$. It means that induced representation $C\left(\widetilde{M}\right) \times L^2\left(\widetilde{M},\widetilde{S} \right) \to L^2\left(\widetilde{M},\widetilde{S} \right)$ is given by \eqref{comm_bundle_repr_eqn}. So one has the following lemma.
+\begin{lemma}\label{comm_ind_lem}
+	If the representation  $\widetilde{\rho}: C\left(\widetilde{M}\right) \to  B\left( \widetilde{   \H}\right)  $ is induced by the pair $$\left(C\left(M \right)\to B\left(  L^2\left(M,S \right)\right) ,\left(C\left(M \right) , C\left( \widetilde{M}\right) , G\left( \left.\widetilde{M}~\right|M\right) \right)  \right)$$ (cf. Definition \ref{induced_repr_defn}) then following conditions holds
+	\begin{enumerate}
+		\item[(a)] There is the homomorphism of Hilbert spaces $\widetilde{   \H}\cong L^2\left(\widetilde{M},\widetilde{S} \right)$,
+		\item[(b)] The representation $\widetilde{\rho}$ is given by the natural action of $C\left(\widetilde{M}\right)$ on $ L^2\left(\widetilde{M},\widetilde{S} \right)$ (cf.   \eqref{comm_bundle_repr_eqn}).
+	\end{enumerate}
+\end{lemma}
+\begin{proof}
+	(a) Follows from \eqref{comm_ind_l2_eqn}.\\
+	(b) From the Lemma \ref{top_hilb_homo_lem}  it follows that the map 		$	C\left(\widetilde M\right)\otimes_{C\left(M\right)} L^2\left(M, \sS\right) \xrightarrow{\approx} L^2\left(\widetilde{M}, \widetilde{\SS} \right)$ is the homomorphism of $C\left(\widetilde M\right)$ modules, so the given by \eqref{comm_bundle_repr_eqn} $C\left(\widetilde M\right)$-action coincides with the $C\left(\widetilde M\right)$-action  the given by \eqref{ind_act_form_eqn}.
+\end{proof}
+
+
+
+
 
 \subsection{Coverings of $O^*$-algebras and quasi $*$-algebras}\label{top_pd_fin_sec}
 \paragraph*{}
@@ -7209,113 +7317,6 @@ is a {noncommutative finite-fold  covering  of pro-$C^*$ algebras} (cf. Definiti
 \eean
  is a finite-fold noncommutative covering.
 \end{proof}
-\subsection{Induced representation}\label{comm_induced_finite_sec}
-\paragraph*{} 
-Let us consider a compact  Riemannian manifold $M$ with a  spin bundle $\sS$ (cf. \ref{spin_mani_sec}). 
-The bundle $S$ is Hermitian (cf. Definition \ref{top_herm_bundle_defn}). Let $\tau:C\left( M\right) \to \C$ be a faithful state such that 
-$$
-\tau\left(a \right) = \int_{M} a~ d\mu
-$$
-(cf. equation \ref{meafunc_eqn}). Define the $\C$-valued product
-\be
-\begin{split}
-	\left( \cdot, \cdot \right): \Ga\left( M, S\right)\times \Ga\left( M, S\right) \to \C,\\
-	\left(\xi, \eta \right) \mapsto \tau\left( \left\langle\xi, \eta \right\rangle \right) 
-\end{split}
-\ee
-where the pairing $	\left\langle \cdot, \cdot \right\rangle:  \Ga\left( M, S\right)\times \Ga\left( M, S\right)$ is given by \eqref{top_gg_eqn}. This product yields the structure of pre-Hilbert space on $\Ga\left( M, S\right)$ denote by $ L^2\left(  M, S\right)\cong  L^2\left(  M, S, \mu\right)$ the Hilbert norm completion of $\Ga\left( M, S\right)$. The natural action $C\left( M\right) \times \Ga\left( M, S\right)\to \Ga\left( M, S\right)$ induces an action $C\left( M\right) \times L^2\left( M, S\right)\to L^2\left( M, S\right)$ so there is a following representation
-\be\label{comm_m_bundle_repr_eqn}
-C\left(M\right) \to B\left( L^2\left(  M, S\right)\right). 
-\ee
-From \ref{top_herm_bundle_empt} it follows that $L^2\left( M, S, \mu\right)$ is the Hilbert norm completion of $\Ga\left(M, \sS\right)$. On the other hand from the Lemma \ref{top_bundle_cs_lem}  it follows that $\Ga\left(M, \sS\right)$ is {continuity structure for} $\sX$ {and the} $\left\{\SS_x\right\}_{x \in \sX}$ (cf. Definition \ref{op_fields_defn}), such that
-$$
-\Ga\left(M, \sS\right) \cong C\left(M, \left\{\SS_x\right\},  \Ga\left(M, \sS\right)\right). 
-$$
-If $p: \widetilde{M} \to M$ is a finite-fold  transitive covering then from the Lemma \ref{top_tensor_lccompact_iso_eqn} it follows that there is the natural isomorphism
-\be\label{top_lift_g_eqn}
-\phi: C\left(\widetilde \sX\right)\otimes_{C\left(M\right)} C\left(M,\left\{\SS_x\right\},  \Ga\left(M, \sS\right)\right) \xrightarrow{\approx}\lift_p\left[C\left(M, \left\{\SS_x\right\},  \Ga\left(M, \sS\right)\right)\right]
-\ee
-of $C\left(\widetilde{M} \right)$-modules. From the Lemma \ref{top_lift_bundle_lem} it follows that $\lift_p\left[C\left(M, \left\{\SS_x\right\},  \Ga\left(M, \sS\right)\right)\right]\cong \Ga\left(\widetilde{M}, \widetilde{\SS} \right)$ where $\widetilde{\SS}$ is the {inverse image} of $\SS$ by $p$ (cf. Definition \ref{vb_inv_img_funct_defn}). Hence the equation \eqref{top_lift_g_eqn} can be rewritten by the following way
-\be\label{top_lift_gs_eqn}
-\phi: C\left(\widetilde M\right)\otimes_{C\left(M\right)} \Ga\left(M, \sS\right) \xrightarrow{\approx} \Ga\left(\widetilde{M}, \widetilde{\SS} \right).
-\ee
-From the Lemma \ref{state_cov_11_lem} it follows that for all $\la\in \La$ there is a functional
-\be\label{top_wt_eqn}
-\begin{split}
-	\widetilde	\tau : C\left(\widetilde M \right)\to \C,\\
-	\widetilde	a \mapsto \tau\left( \sum_{g \in G\left(\left.\widetilde M~\right|M \right) }g\widetilde a\right)=  \int_{\widetilde M} \widetilde a~ d\widetilde\mu 
-\end{split}
-\ee
-where a sum $\sum_{g \in G\left(\left.\widetilde M~\right|M \right) }g\widetilde a$ is regarded as an element of $C\left(  M\right)$. Similarly to the above construction we have a Hilbert space $L^2\left(\widetilde{M}, \widetilde{S} \right)= L^2\left(\widetilde{M}, \widetilde{S}, \widetilde\mu \right)$ and a representation 
-\be\label{comm_bundle_repr_eqn}
-C\left(\widetilde M\right) \to B\left( L^2\left( \widetilde M, \widetilde S\right)\right).
-\ee
-\begin{lemma}\label{top_hilb_homo_lem}
-	Following conditions hold:
-	\begin{itemize}
-		\item [(i)] The map \eqref{top_lift_gs_eqn} can be extended up to the following homomorphism 
-		$$
-		C\left(\widetilde M\right)\otimes_{C\left(M\right)} L^2\left(M, S\right) \xrightarrow{\approx} L^2\left(\widetilde{M}, \widetilde{S} \right)
-		$$
-		of left $C\left(\widetilde M\right)$-modules.
-		\item[(ii)] The image of $C\left(\widetilde M\right)\otimes_{C\left(M\right)} L^2\left(M, S\right)$ is dense in $L^2\left(\widetilde{M}, \widetilde{S} \right)$.
-	\end{itemize}
-\end{lemma}
-\begin{proof}(i)
-	Let $\sum_{j = 1}^n \widetilde a_j \otimes \xi_j\in 	C\left(\widetilde M\right)\otimes_{C\left(M\right)} L^2\left(M, \sS\right)$ be any element. From  \ref{top_herm_bundle_empt} $L^2\left( M, S, \mu\right)$ is the Hilbert norm completion of $\Ga\left(M, \sS\right)$. Hence for any $j =1,..., n$ there is a net $\left\{\xi_{j\a}\right\}\subset \Ga\left(M, \sS\right)$ such that $\xi_j = \lim_\a \xi_{j\a}$ where we mean the convergence with respect to the Hilbert norm $\left\| \cdot\right\|_{L^2\left(M, \sS\right)}$. If $C = \max_{j = 1,...,n}\left\|\widetilde a_j\right\|$ then there is $\a_0$ such that
-	$$
-	\a \ge \a_0 \quad \Rightarrow \left\| \xi_j - \xi_{j\a}\right\|_{L^2\left(M, \sS\right)} < \frac{\eps}{nC},
-	$$
-	so one has
-	$$
-	\a \ge \a_0 \quad \Rightarrow \left\| \sum_{j = 1}^n \widetilde a_j \otimes \xi_{j\a_0} - \sum_{j = 1}^n \widetilde a_j \otimes \xi_{j\a}\right\|_{L^2\left(\widetilde M, \widetilde\sS\right)} < \eps.
-	$$
-	The above equation it follows that the net $\left\{\sum_{j = 1}^n \widetilde a_j \otimes \xi_{j\a}\right\}_\a$ satisfies to the Cauchy condition, so it is convergent with respect to the topology of $L^2\left(\widetilde M, \widetilde\sS\right)$.\\
-	(ii) From the Lemma \ref{top_tensor_lccompact_iso_eqn} it follows that the image of $C\left(\widetilde M\right)\otimes_{C\left(M\right)} L^2\left(M, \sS\right)$ in $L^2\left(\widetilde M, \widetilde\sS\right)$ contains $\Ga\left(\widetilde{M}, \widetilde{\SS} \right)$, however $\Ga\left(\widetilde{M}, \widetilde{\SS} \right)$ is dense in $L^2\left(\widetilde{M}, \widetilde{\SS} \right)$. It follows that  $\phi\left(  C\left(\widetilde M\right)\otimes_{C\left(M\right)} L^2\left(M, \sS\right)\right)$ is dense in $L^2\left(\widetilde{M}, \widetilde{\SS} \right)$. 
-\end{proof}
-\begin{remark}
-	Indeed the image of $C\left(\widetilde M\right)\otimes_{C\left(M\right)} L^2\left(M, \sS\right)$ coincides with $L^2\left(\widetilde{M}, \widetilde{\SS} \right)$. However this fact is not used here.
-\end{remark}
-
-In the above situation   the given by the equation \eqref{induced_prod_equ} scalar product $\left(\cdot, \cdot \right)_{\text{ind}}$ on  $ \Ga\left( M, S\right) \otimes L^2\left({M},{S}, \mu\right)$ satisfies to the following equation
-\begin{equation}\label{comm_ind_l2_eqn}
-	\begin{split}
-		\left( \widetilde{a} \otimes \xi ,    \widetilde{b} \otimes \eta\right)_{\text{ind}}= \left(\xi, \left\langle \widetilde{a}, \widetilde{b}\right\rangle_{C\left(\widetilde{M} \right) } \eta \right)_{L^2\left({M},{S} \right)}=\\=\sum_{\widetilde{\a}\in \widetilde{\mathscr A}}\left(\xi, \left\langle \widetilde{a}_{\widetilde{\a}}\widetilde{a}, \widetilde{b}\right\rangle_{C\left(\widetilde{M} \right) } \eta \right)_{L^2\left({M},{S} \right)}
-		= \sum_{\widetilde{\a}\in \widetilde{\mathscr A}}\left(\xi, \mathfrak{desc}\left( \widetilde{a}_{\widetilde{\a}} \widetilde{a}^* \widetilde{b}\right)  \eta \right)_{L^2\left({M},{S} \right)}=
-		\\
-		=
-		\sum_{\widetilde{\a}\in \widetilde{\mathscr A}}~\int_M \left(\xi_x, \mathfrak{desc}\left( \widetilde{a}_{\widetilde{\a}} \widetilde{a}^* \widetilde{b}\right)  \eta_x \right)_x d\mu=
-		\\
-		=
-		\sum_{\widetilde{\a}\in \widetilde{\mathscr A}}~\int_M \left(\mathfrak{desc}\left( \widetilde{e}_{\widetilde{\a}} \widetilde{a}\right)\xi_x, \mathfrak{desc}\left( \widetilde{e}_{\widetilde{\a}}  \widetilde{b}\right)  \eta_x \right)_x d\mu=
-		\\
-		=\sum_{\widetilde{\a}\in \widetilde{\mathscr A}}~ \int_{\widetilde{M}}\left(\widetilde{a} \lift_{\widetilde{\sU}_{\widetilde{\a}}}\left({e}_{\widetilde{\a}}\xi \right)_{\widetilde{x}},  \widetilde{b} ~\lift_{\widetilde{\sU}_{\widetilde{\a}}}\left({e}_{\widetilde{\a}}\eta \right)_{\widetilde{x}}\right)_{\widetilde{x}}d \widetilde{   \mu} =
-		\\
-		=\sum_{\widetilde{\a}\in \widetilde{\mathscr A}}~ \int_{\widetilde{M}}\widetilde{a}_{\widetilde{\a}}\left(\widetilde{a} \lift_{\widetilde{\sU}_{\widetilde{\a}}}\left(\xi \right)_{\widetilde{x}},  \widetilde{b} ~\lift_{\widetilde{\sU}_{\widetilde{\a}}}\left(\eta \right)_{\widetilde{x}}\right)_{\widetilde{x}}d \widetilde{   \mu} =
-		\\
-		= \int_{\widetilde{M}}\left( \widetilde{a} \lift_p\left(\xi \right)_{\widetilde{x}},  \widetilde{b} ~\lift_p\left(\eta \right)_{\widetilde{x}}\right)_{\widetilde{x}}d \widetilde{   \mu}
-		= \left( \widetilde{a}~ \lift_p\left(\xi \right),  \widetilde{b} ~\lift_p\left(\eta \right)\right)_{L^2\left(\widetilde{M},\widetilde{S} \right)} =\\
-		=  \left(\phi\left(  \widetilde{a}\otimes\xi\right) ,  \phi \left( \widetilde{b}\otimes\eta\right)\right)_{L^2\left(\widetilde{M},\widetilde{S} \right)}
-	\end{split} 
-\end{equation}
-where $\phi$ is given by \eqref{top_lift_gs_eqn} and both finite families $\left\{\widetilde{a}_{\widetilde{\a}}\right\}_{\widetilde{\a}\in \widetilde{\mathscr A}},~\left\{\widetilde{e}_{\widetilde{\a}}\right\}_{\widetilde{\a}\in \widetilde{\mathscr A}}\subset C\left(\widetilde M \right) $ are explained in  \ref{ctr_unity_empt}.
-The equation \eqref{comm_ind_l2_eqn} means that $\left(\cdot, \cdot \right)_{\text{ind}}= \left(\cdot, \cdot \right)_{L^2\left(\widetilde{M},\widetilde{S} \right)}$, and taking into account the dense inclusion $C\left(\widetilde{M} \right) \otimes_{C\left(M \right) } \Ga\left( M, S\right) \subset L^2\left(\widetilde{M},\widetilde{S} \right)$ with respect to the Hilbert norm of $L^2\left(\widetilde{M},\widetilde{S}\right) $
-one concludes that the space of induced representation coincides with $L^2\left(\widetilde{M},\widetilde{S}\right)$. It means that induced representation $C\left(\widetilde{M}\right) \times L^2\left(\widetilde{M},\widetilde{S} \right) \to L^2\left(\widetilde{M},\widetilde{S} \right)$ is given by \eqref{comm_bundle_repr_eqn}. So one has the following lemma.
-\begin{lemma}\label{comm_ind_lem}
-	If the representation  $\widetilde{\rho}: C\left(\widetilde{M}\right) \to  B\left( \widetilde{   \H}\right)  $ is induced by the pair $$\left(C\left(M \right)\to B\left(  L^2\left(M,S \right)\right) ,\left(C\left(M \right) , C\left( \widetilde{M}\right) , G\left( \left.\widetilde{M}~\right|M\right) \right)  \right)$$ (cf. Definition \ref{induced_repr_defn}) then following conditions holds
-	\begin{enumerate}
-		\item[(a)] There is the homomorphism of Hilbert spaces $\widetilde{   \H}\cong L^2\left(\widetilde{M},\widetilde{S} \right)$,
-		\item[(b)] The representation $\widetilde{\rho}$ is given by the natural action of $C\left(\widetilde{M}\right)$ on $ L^2\left(\widetilde{M},\widetilde{S} \right)$ (cf.   \eqref{comm_bundle_repr_eqn}).
-	\end{enumerate}
-\end{lemma}
-\begin{proof}
-	(a) Follows from \eqref{comm_ind_l2_eqn}.\\
-	(b) From the Lemma \ref{top_hilb_homo_lem}  it follows that the map 		$	C\left(\widetilde M\right)\otimes_{C\left(M\right)} L^2\left(M, \sS\right) \xrightarrow{\approx} L^2\left(\widetilde{M}, \widetilde{\SS} \right)$ is the homomorphism of $C\left(\widetilde M\right)$ modules, so the given by \eqref{comm_bundle_repr_eqn} $C\left(\widetilde M\right)$-action coincides with the $C\left(\widetilde M\right)$-action  the given by \eqref{ind_act_form_eqn}.
-\end{proof}
-
-
-
-
 \subsection{Coverings of spectral triples}\label{comm_d_sec}
 \paragraph*{}
 Consider the situation of the Section \ref{comm_induced_finite_sec}. Suppose that there is a spectral triple $\left(\Coo\left(M \right), L^2\left( M, S\right), \slashed D  \right)$ explained in the Section \ref{comm_sp_tr_sec}. If $p: \widetilde M \to M$ is a transitive finite-fold covering then $\widetilde M$ has a (unique) structure of Riemannian manifold given by the Proposition \ref{comm_cov_mani_prop}. From the Theorem \ref{comm_fin_thm} it follows that the quadruple
@@ -10944,85 +10945,7 @@ If $\widetilde X' \subset C^*_e\left(\widetilde X, \widetilde Y \right)$ is a $\
 
 Secondly  we proof that any noncommutative finite-fold  covering $$\left(\left(X, Y \right),\left(\widetilde X, \widetilde Y \right), G, \left(\pi_X, \pi_Y \right) \right)$$  of the subunital operator space $\left(X, Y\right)$ yields  the transitive finite-fold covering $p: \widetilde\sX \to\sX$. From  (a) of the Definition \ref{fin_op_defn} it follows that $$\left(\left(X, Y \right),\left(\widetilde X, \widetilde Y \right), G, \left(\pi_X, \pi_Y \right) \right)$$ corresponds to noncommutative covering $\left( C^*_e\left( X,  Y \right), C^*_e\left(\widetilde X, \widetilde Y \right), G, \rho \right)$ of $C^*$-algebras. However  $C^*_e\left( X,  Y \right)$ has continuous trace, so and taking into account the Theorem \ref{ctr_fin_thm} on can find required covering $p: \widetilde \sX\to \sX$.
 \end{proof}
-\subsection{Coverings of $O^*$-algebras}\label{ctr_fin_o_sec}
-\paragraph*{}
-Results of this section a closed to the  Section \ref{top_pd_fin_sec}. Exercises of this Section can be solved similarly to proofs of Lemmas and Theorems of the Section \ref{top_pd_fin_sec}.
-\begin{empt}\label{ctr_fin_o_empt}
-	Let $M$ be a smooth manifold, and let $A$ be  a {homogeneous of order} $n$ $C^*$-algebra (cf. Definition \ref{ctr_homo_defn}). If $M$ is a spectrum of $A$ than from the Theorem  \ref{ctr_as_field_thm} it follows that  $A$ corresponds to a vector bundle $\left( E, q, M\right)$ (cf. Definition \ref{top_vb_defn}), such that any fiber is isomorphic to $\C^{n^2}\cong \mathbb{M}_n\left(\C\right)$, and there is the natural isomorphism $A \cong \Ga_0\left(M, E \right)$ of $C_b\left(M \right)$ modules (cf. Lemma \ref{top_bundle_cs_lem}).   Suppose that $E$ has a structure of smooth manifold such that the map $q: E \to M$ is smooth. Any fiber of $E$ is isomorphic to $\mathbb{M}_n\left(\C \right)$  so similarly to the Lemma \ref{op_cont_module_lem} one can proof that the space of sections $\Ga^\infty\left(M, E \right)$ is *-algebra.	
-	If $\Ga^\infty\left(M, E \right)$ is a space of  smooth sections of  $\left( E, q,  M\right)$ then 
-	 $\Ga^\infty_0\left(M, E \right)$ is a *-subalgebra of $\Ga^\infty\left(M, E \right)$.
-	 If $p: \widetilde M \to M$ is a transitive finite-fold  covering then  from the Proposition \ref{top_cov_mani_prop} it follows that $\widetilde M$ has a (unique) structure of smooth manifold such that $p$ is smooth. 
-	On the other hand  from 
-	the Theorem  \ref{ctr_fin_thm} it follows that \\ $\left(A, A_0\left(\widetilde M \right) , G\left(\left.\widetilde M \right|M \right) , A_0\left( p\right) \right)$ a noncommutative finite-fold covering (cf. Definition \ref{fin_defn}). If $\left(\widetilde E, \widetilde q,  \widetilde M\right)$  is the {inverse image} of $\left( E, q, M\right)$ by $p$ (cf. Definition \ref{vb_inv_img_funct_defn}) then there is a transitive finite-fold covering  $\widetilde E \to E$  so from the Proposition \ref{top_cov_mani_prop} it turns out that there is the unique smooth structure on $\widetilde E$ such that map $\widetilde E\to E$ is smooth. 
-	Similarly to the above construction one has a space of smooth sections of  $\left(\widetilde E,  \widetilde q,\widetilde  M\right)$ then $\Ga^\infty\left(\widetilde M, \widetilde E \right)$ is an   *-algebra. Since smooth sections of $E$ are mapped to smooth sections of $\widetilde E$ one has *-homomorphism $\pi^\infty: \Ga^\infty\left( M,  E \right)\hookto\Ga^\infty\left(\widetilde M, \widetilde E \right)$ $A_0\left( p\right)\left(\A \right)\subset\widetilde\A$. Let $\tau: C_c\left(M \right)\to \C$ be a discussed in \ref{ctr_induced_finite_sec} functional, let both \be\label{ctr_sa_eqn}
-	\begin{split}
-		\rho_\tau: A \hookto B\left(L^2\left(A, \tr_\tau\right) \right),\\ 
-		\rho_{\widetilde\tau}: \widetilde A \hookto B\left(L^2\left(\widetilde A, \tr_{\widetilde\tau}\right) \right). 
-	\end{split}
-	\ee
-	are given by equations \eqref{ctr_a_eqn} and \eqref{ctr_wt_eqn} representations. If 
-	\bean
-	\D \bydef \Ga^\infty_c\left( M,  E \right),\\
-	\widetilde \D \bydef \Ga^\infty_c\left(\widetilde M, \widetilde E \right)
-	\eean
-	then there are dense inclusions $ \D \subset  L^2\left( A, \tr_{\tau}\right) $ and $\widetilde \D \subset  L^2\left(\widetilde A, \tr_{\widetilde\tau}\right)$ such that there are natural inclusions 
-	\be\label{ctr_smooth_inc_eqn}
-	\begin{split}
-	\Ga^\infty\left( M,  E \right)\hookto	\L^\dagger\left( \D\right),\\
-	\Ga^\infty\left(\widetilde M, \widetilde E \right) \hookto	\L^\dagger\left( \widetilde\D\right).
-	\end{split}
-	\ee
-	(cf. Equations \ref{l_dag_eqn}).
-\end{empt}{
-	\begin{exercise}\label{ctr_smooth_exer}
-		Using equations \eqref{ctr_smooth_inc_eqn} prove that a quadruple 
-		$$
-		\left(\Ga^\infty\left( M,  E \right), \Ga^\infty\left(\widetilde M, \widetilde E \right), G\left(\left.\widetilde M \right|M \right) , \pi^\infty \right)
-		$$
-		is a noncommutative finite-fold covering of $O^*$-algebras (cf. Definition \ref{fino*_defn}).
-	\end{exercise}
 
-	\begin{exercise}\label{ctr_smoothc_exer}
-		Let both  $D\left( M,  E \right)$ and $D\left(\widetilde M, \widetilde E \right)$ be *-algebras of differential operators 
-		$\Ga^\infty \left(M, E \right)  \to \Ga^\infty \left(M, E \right)$ and $\Ga^\infty \left(\widetilde M,  \widetilde E \right)  \to \Ga^\infty \left(\widetilde M, \widetilde E \right)$ respectively (cf. Definition \ref{do_man_defn}).
-		Construct  a noncommutative finite-fold covering of $O^*$-algebras 	$\left(D\left(\widetilde M, \widetilde E \right) ,D\left(\widetilde M, \widetilde E \right)  , G\left(\left.\widetilde M \right|M \right) , \rho \right)$ such that $\pi^\infty= \left.\rho\right|_{\Ga^\infty\left( M,  E \right)}$.
-	\end{exercise}
-
-
-\begin{empt}\label{str_spinc_c_empt}
-	Suppose that  $\left( S, r, M\right)$ is a Hermitian bundle  such that if   $S_x$ is the {fiber} of $\left( S, r, M\right)$ at the point $x$ (cf. Definition \ref{top_vb_fiber_defn}) 
-there is an action
-\be\label{foli_rep_eqn}
-\rep_x\left(A \right)\times S_x\to S_x 
-\ee
-such that $S_x$ is a Hermitian 	$	\rep_x\left(A \right)$-module (cf. Definition \ref{herm_mod_defn})
-Suppose that a given by \eqref{foli_rep_eqn} family of actions induces the following action
-\be\label{foli_me_eqn}
-\Ga\left( M, E\right) \times \Ga\left( M, S\right) \to \Ga\left( M, S\right) 
-\ee
-If $S$ has structure of smooth manifold then similarly to the above construction one can obtain spaces of smooth sections $\Ga_c^\infty\left(M, S \right)$ and $\Ga_c^\infty\left(\widetilde M, \widetilde S \right)$ which are dense in $L^2\left( M, S \right)$ and $L^2\left(\widetilde M, \widetilde S \right)$ respectively (cf. Equations \ref{ctr_rho_eqn} and \ref{ctr_wrho_eqn}). There is the natural inclusion $\Ga^\infty\left(M, S \right)\subset \Ga^\infty\left(\widetilde M, \widetilde S \right)$
-If the action $\Ga\left( M,  E \right)\times\Ga\left( M,  S \right)\to  \Ga\left( M,  S \right)$ is such that 
-\be\label{foli_sm_eqn}
-\Ga^\infty\left( M,  E \right)\times\Ga^\infty\left( M,  S \right)\subset  \Ga^\infty\left( M,  S \right)
-\ee
-then one has
-$$
-\Ga^\infty\left(\widetilde M, \widetilde E \right)\times\Ga^\infty\left(\widetilde M, \widetilde S \right)\subset  \Ga^\infty\left(\widetilde M, \widetilde S \right).
-$$
-There are dense subspaces
-\bean
-\D_S \bydef  \Ga^c\infty\left( M,  S \right)\subset  L^2\left( M,  S \right),
-\widetilde \D_{\widetilde S} \bydef  \Ga^c\infty\left(\widetilde M, \widetilde S \right)\subset  L^2\left(\widetilde M, \widetilde S \right)
-\eean
-\end{empt}
-
-
-	\begin{exercise}\label{ctr_smoothdiff_exer}
- Let both  $D\left( M, S\right)$ and $D\left(\widetilde M, \widetilde S\right)$ are algebras of differential operators 
-		$ \left(M, S \right)  \to\Ga^\infty \left(M, S \right)$ and $\Ga^\infty \left(\widetilde M,  \widetilde S \right)  \to \Ga^\infty \left(\widetilde M, \widetilde S \right)$ respectively (cf. Definition \ref{do_man_defn}).
-	Using inclusions $D\left( M, S\right)\subset \L^\dagger\left( \D_S\right)$ and $D\left(\widetilde M,\widetilde S\right)\subset \L^\dagger\left( \\widetilde \D_{\widetilde S}\right)$ 	prove that there is a noncommutative finite-fold covering of $O^*$-algebras 	$$\left(D\left( M, S\right) ,D\left(  \widetilde M, \widetilde S\right)  , G\left(\left.\widetilde M \right|M \right) , \phi \right).$$
-	\end{exercise}
-	
 \subsection{Induced representations}\label{ctr_induced_finite_sec}
 \paragraph*{}
 Let $A$ be a continuous trace $C^*$-algebra, and let $\sX$ be a spectrum of $\tau$. If $\tau : C_c\left(\sX \right) \to \C$ be a functional such that $\tau\left(a \right) > 0$ for any positive $a$ there is a functional 
@@ -11047,16 +10970,14 @@ If  $\left(A, \widetilde{{A}}, G, \pi \right)$ is a finite-fold noncommutative c
 Similarly to the equation \eqref{top_wt_eqn} one has a functional
 \be\label{ctr_wt_eqn}
 \begin{split}
-	\widetilde	\tau : C_c\left(\widetilde \sX \right)\to \C,\\
-	\widetilde	a \mapsto \tau\left( \sum_{g \in G\left(\left.\widetilde \sX~\right|\sX \right) }g\widetilde a\right)
+	\widetilde	\tau : C_c\left(\widetilde \sX \right)\to \C.
 \end{split}
 \ee
-where a sum $\sum_{g \in G\left(\left.\widetilde \sX~\right|\sX \right) }g\widetilde a$ is regarded as an element of $C_c\left( \sX\right)$. 
 Now one can construct a faithful representation 
 \be\label{ctr_wa_eqn}
 \rho_{\widetilde\tau}: \widetilde A \hookto B\left(L^2\left(\widetilde A, \tr_{\widetilde\tau}\right) \right). 
 \ee
-which is an analog of the representation\ref{ctr_a_eqn}.
+which is an analog of the representation \ref{ctr_a_eqn}.
 \begin{exercise}
 	Prove that $\rho_{\widetilde\tau}:\widetilde A \hookto B\left(L^2\left(\widetilde A, \tr_{\widetilde\tau}\right) \right)$  {is induced by the pair} $\left(\rho_{\tau},\left(A, \widetilde{A}, G, \pi\right)  \right)$ (cf. Definition \ref{induced_repr_defn}).
 \end{exercise}
@@ -11095,7 +11016,85 @@ which is an analog of the representation\ref{ctr_a_eqn}.
 
 
 
+\subsection{Coverings of $O^*$-algebras}\label{ctr_fin_o_sec}
+\paragraph*{}
+Results of this section a closed to the  Section \ref{top_pd_fin_sec}. Exercises of this Section can be solved similarly to proofs of Lemmas and Theorems of the Section \ref{top_pd_fin_sec}.
+\begin{empt}\label{ctr_fin_o_empt}
+	Let $M$ be a smooth manifold, and let $A$ be  a {homogeneous of order} $n$ $C^*$-algebra (cf. Definition \ref{ctr_homo_defn}). If $M$ is a spectrum of $A$ than from the Theorem  \ref{ctr_as_field_thm} it follows that  $A$ corresponds to a vector bundle $\left( E, q, M\right)$ (cf. Definition \ref{top_vb_defn}), such that any fiber is isomorphic to $\C^{n^2}\cong \mathbb{M}_n\left(\C\right)$, and there is the natural isomorphism $A \cong \Ga_0\left(M, E \right)$ of $C_b\left(M \right)$ modules (cf. Lemma \ref{top_bundle_cs_lem}).   Suppose that $E$ has a structure of smooth manifold such that the map $q: E \to M$ is smooth. Any fiber of $E$ is isomorphic to $\mathbb{M}_n\left(\C \right)$  so similarly to the Lemma \ref{op_cont_module_lem} one can proof that the space of sections $\Ga^\infty\left(M, E \right)$ is *-algebra.	
+	If $\Ga^\infty_0\infty\left(M, E \right)$ is a space of  smooth vanishing at infinity sections of  $\left( E, q,  M\right)$ then 
+	 $\Ga^\infty_0\left(M, E \right)$ is a *-subalgebra of $\Ga^\infty\left(M, E \right)$.
+	 If $p: \widetilde M \to M$ is a transitive finite-fold  covering then  from the Proposition \ref{top_cov_mani_prop} it follows that $\widetilde M$ has a (unique) structure of smooth manifold such that $p$ is smooth. 
+	On the other hand  from 
+	the Theorem  \ref{ctr_fin_thm} it follows that \\ $\left(A, A_0\left(\widetilde M \right) , G\left(\left.\widetilde M \right|M \right) , A_0\left( p\right) \right)$ a noncommutative finite-fold covering (cf. Definition \ref{fin_defn}). If $\left(\widetilde E, \widetilde q,  \widetilde M\right)$  is the {inverse image} of $\left( E, q, M\right)$ by $p$ (cf. Definition \ref{vb_inv_img_funct_defn}) then there is a transitive finite-fold covering  $\widetilde E \to E$  so from the Proposition \ref{top_cov_mani_prop} it turns out that there is the unique smooth structure on $\widetilde E$ such that map $\widetilde E\to E$ is smooth. 
+	Similarly to the above construction one has a space of smooth sections of  $\left(\widetilde E,  \widetilde q,\widetilde  M\right)$ then $\Ga^\infty\left(\widetilde M, \widetilde E \right)$ is an   *-algebra. Since smooth sections of $E$ are mapped to smooth sections of $\widetilde E$ one has *-homomorphism $\pi^\infty: \Ga^\infty\left( M,  E \right)\hookto\Ga^\infty\left(\widetilde M, \widetilde E \right)$. Let $\tau: C_c\left(M \right)\to \C$ be a discussed in \ref{ctr_induced_finite_sec} functional, let both \be\label{ctr_sa_eqn}
+	\begin{split}
+		\rho_\tau: A \hookto B\left(L^2\left(A, \tr_\tau\right) \right),\\ 
+		\rho_{\widetilde\tau}: \widetilde A \hookto B\left(L^2\left(\widetilde A, \tr_{\widetilde\tau}\right) \right). 
+	\end{split}
+	\ee
+	are given by equations \eqref{ctr_a_eqn} and \eqref{ctr_wa_eqn} representations. If 
+	\bean
+	\D \bydef \Ga^\infty_c\left( M,  E \right),\\
+	\widetilde \D \bydef \Ga^\infty_c\left(\widetilde M, \widetilde E \right)
+	\eean
+	then there are dense inclusions $ \D \subset  L^2\left( A, \tr_{\tau}\right) $ and $\widetilde \D \subset  L^2\left(\widetilde A, \tr_{\widetilde\tau}\right)$ such that there are natural inclusions 
+	\be\label{ctr_smooth_inc_eqn}
+	\begin{split}
+	\Ga^\infty\left( M,  E \right)\hookto	\L^\dagger\left( \D\right),\\
+	\Ga^\infty\left(\widetilde M, \widetilde E \right) \hookto	\L^\dagger\left( \widetilde\D\right)
+	\end{split}
+	\ee
+where both $\L^\dagger\left( \D\right)$ and $\L^\dagger\left( \widetilde\D\right)$ are given by \eqref{l_dag_eqn}).
+\end{empt}{
+	\begin{exercise}\label{ctr_smooth_exer}
+		Using equations \eqref{ctr_smooth_inc_eqn} prove that a quadruple 
+		$$
+		\left(\Ga^\infty\left( M,  E \right), \Ga^\infty\left(\widetilde M, \widetilde E \right), G\left(\left.\widetilde M \right|M \right) , \pi^\infty \right)
+		$$
+		is a noncommutative finite-fold covering of $O^*$-algebras (cf. Definition \ref{fino*_defn}).
+	\end{exercise}
 
+	\begin{exercise}\label{ctr_smoothc_exer}
+		Let both  $D\left( M,  E \right)$ and $D\left(\widetilde M, \widetilde E \right)$ be *-algebras of differential operators 
+		$\Ga^\infty \left(M, E \right)  \to \Ga^\infty \left(M, E \right)$ and $\Ga^\infty \left(\widetilde M,  \widetilde E \right)  \to \Ga^\infty \left(\widetilde M, \widetilde E \right)$ respectively (cf. Definition \ref{do_man_defn}).
+		Construct  a noncommutative finite-fold covering of $O^*$-algebras 	$\left(D\left(\widetilde M, \widetilde E \right) ,D\left(\widetilde M, \widetilde E \right)  , G\left(\left.\widetilde M \right|M \right) , \rho \right)$ such that $\pi^\infty= \left.\rho\right|_{\Ga^\infty\left( M,  E \right)}$.
+	\end{exercise}
+
+
+\begin{empt}\label{str_spinc_c_empt}
+	Suppose that  $\left( S, r, M\right)$ is a Hermitian bundle  such that if   $S_x$ is the {fiber} of $\left( S, r, M\right)$ at the point $x$ (cf. Definition \ref{top_vb_fiber_defn}) 
+there is an action
+\be\label{foli_rep_eqn}
+\rep_x\left(A \right)\times S_x\to S_x 
+\ee
+such that $S_x$ is a Hermitian 	$	\rep_x\left(A \right)$-module (cf. Definition \ref{herm_mod_defn})
+Suppose that a given by \eqref{foli_rep_eqn} family of actions induces the following action
+\be\label{foli_me_eqn}
+\Ga\left( M, E\right) \times \Ga\left( M, S\right) \to \Ga\left( M, S\right) 
+\ee
+If $S$ has structure of smooth manifold then similarly to the above construction one can obtain spaces of smooth sections $\Ga_c^\infty\left(M, S \right)$ and $\Ga_c^\infty\left(\widetilde M, \widetilde S \right)$ which are dense in $L^2\left( M, S \right)$ and $L^2\left(\widetilde M, \widetilde S \right)$ respectively (cf. Equations \ref{ctr_rho_eqn} and \ref{ctr_wrho_eqn}). There is the natural inclusion $\Ga^\infty\left(M, S \right)\subset \Ga^\infty\left(\widetilde M, \widetilde S \right)$
+If the action $\Ga\left( M,  E \right)\times\Ga\left( M,  S \right)\to  \Ga\left( M,  S \right)$ is such that 
+\be\label{foli_sm_eqn}
+\Ga^\infty\left( M,  E \right)\times\Ga^\infty\left( M,  S \right)\subset  \Ga^\infty\left( M,  S \right)
+\ee
+then one has
+$$
+\Ga^\infty\left(\widetilde M, \widetilde E \right)\times\Ga^\infty\left(\widetilde M, \widetilde S \right)\subset  \Ga^\infty\left(\widetilde M, \widetilde S \right).
+$$
+There are dense subspaces
+\bean
+\D_S \bydef  \Ga_c^\infty\left( M,  S \right)\subset  L^2\left( M,  S \right),\\
+\widetilde \D_{\widetilde S} \bydef  \Ga_c^\infty\left(\widetilde M, \widetilde S \right)\subset  L^2\left(\widetilde M, \widetilde S \right).
+\eean
+\end{empt}
+
+
+	\begin{exercise}\label{ctr_smoothdiff_exer}
+ Let both  $D\left( M, S\right)$ and $D\left(\widetilde M, \widetilde S\right)$ are algebras of differential operators 
+		$ \left(M, S \right)  \to\Ga^\infty \left(M, S \right)$ and $\Ga^\infty \left(\widetilde M,  \widetilde S \right)  \to \Ga^\infty \left(\widetilde M, \widetilde S \right)$ respectively (cf. Definition \ref{do_man_defn}).
+	Using inclusions $D\left( M, S\right)\subset \L^\dagger\left( \D_S\right)$ and $D\left(\widetilde M,\widetilde S\right)\subset \L^\dagger\left( \widetilde \D_{\widetilde S}\right)$ 	prove that there is a noncommutative finite-fold covering of $O^*$-algebras 	$$\left(D\left( M, S\right) ,D\left(  \widetilde M, \widetilde S\right)  , G\left(\left.\widetilde M \right|M \right) , \phi \right).$$
+	\end{exercise}
+	
 \subsection{Coverings of spectral triples}\label{ctr_d_sec}
 \paragraph*{}
 Let $M$ be a Riemannian compact manifold, and 	let 
@@ -11116,11 +11115,15 @@ If $p: \widetilde M\to M$ is a finite-fold covering then from the Theorem \ref{c
 $$
 \left(C\left(M \right)\otimes  \mathbb{M}_{n}\left( \C\right) , C_0\left(\widetilde M \right)\otimes  \mathbb{M}_{n}\left( \C\right) , G\left(\left.\widetilde M \right|M \right) , C_0\left( p\right) \otimes \Id_{ \mathbb{M}_{n}\left( \C\right) } \right).
 $$
-is a noncommutative finite-fold covering (cf. Definition \ref{fin_defn}). If both Let both  $D\left( \Coo\left( M\right) , S^N\right)$ and $D\left( \Coo\left( \widetilde M\right), \widetilde S^N\right)$ are algebras of differential operators  then from the Exercise  \ref{ctr_smoothdiff_exer} it follows that there is a *-homomorphism  $\phi: D\left( \Coo\left( M\right) , S^N\right)\hookto D\left( \Coo\left(\widetilde M\right) ,\widetilde S^N\right)$ such that 
+is a noncommutative finite-fold covering (cf. Definition \ref{fin_defn}). If both Let both  $D\left( M , S^N\right)$ and $D\left( M, \widetilde S^N\right)$ are algebras of differential operators  then from the Exercise  \ref{ctr_smoothdiff_exer} it follows that there is a *-homomorphism  $\phi: D\left( M , S^N\right)\hookto D\left( \widetilde M ,\widetilde S^N\right)$ such that 
 it follows that
-	$$\left(D\left( \Coo\left( M\right), S^N\right) ,D\left(  \Coo\left(\widetilde M\right), \widetilde S^N\right)  , G\left(\left.\widetilde M \right|M \right) , \phi \right)$$
-a noncommutative finite-fold covering of $O^*$-algebras. From $D\left( \Coo\left( M\right), S^N\right)$ it turns out that  $\widetilde D \bydef \phi\left( D\right) \in D\left( \Coo\left(\widetilde M\right), \widetilde S^N\right)$.
-\begin{exercise}
+	$$\left(D\left( M, S^N\right) ,D\left(  \widetilde M, \widetilde S^N\right)  , G\left(\left.\widetilde M \right|M \right) , \phi \right)$$
+is a noncommutative finite-fold covering of $O^*$-algebras.
+Put
+\be\label{ctr_td_eqn}
+\widetilde D \bydef \phi\left( D\right) \in D\left( \widetilde M, \widetilde S^N\right).
+\ee
+ \begin{exercise}
 Prove that 
 $$
 \widetilde D = \widetilde \Dslash\otimes \Ga_{\mathrm{fin}}+ \Id_{L^2\left( \widetilde M,\widetilde S \right)} \otimes D_{\mathrm{fin}}
@@ -11128,9 +11131,9 @@ $$
 where $\widetilde \Dslash$ is given by the equation \eqref{top_td_eqn}.
 \end{exercise} 
 
-There are the natural inclusions $\Coo\left( M\right)\otimes \mathbb{M}_n\left( \C\right)\subset D\left( \Coo\left( M\right),  S^N\right)$ and $\Coo\left(\widetilde M\right)\otimes \mathbb{M}_n\left( \C\right)\subset D\left( \Coo\left(\widetilde M\right), \widetilde S^N\right)$. Let both $\Coo\left( M\right)_{ D}$ and $\Coo\left(\widetilde M\right)_{\widetilde D}$ are subalgebras of $D\left( \Coo\left(\widetilde M\right), \widetilde S^N\right)$ and $D\left( \Coo\left(\widetilde M\right), \widetilde S^N\right)$ generated by $\Coo\left( M\right)\otimes \mathbb{M}_n\left( \C\right)\sqcup D$ and  $\Coo\left( \widetilde M\right)\otimes \mathbb{M}_n\left( \C\right)\sqcup \widetilde D$ respectively.
+There are the natural inclusions $\Coo\left( M\right)\otimes \mathbb{M}_n\left( \C\right)\subset D\left( M,  S^N\right)$ and $\Coo\left(\widetilde M\right)\otimes \mathbb{M}_n\left( \C\right)\subset D\left( \widetilde M, \widetilde S^N\right)$. Let both $\Coo\left( M\right)_{ D}$ and $\Coo\left(\widetilde M\right)_{\widetilde D}$ are subalgebras of $D\left( M,  S^N\right)$ and $D\left( \Coo\left(\widetilde M\right), \widetilde S^N\right)$ generated by $\Coo\left( M\right)\otimes \mathbb{M}_n\left( \C\right)\sqcup D$ and  $\Coo\left( \widetilde M\right)\otimes \mathbb{M}_n\left( \C\right)\sqcup \widetilde D$ respectively.
 \begin{exercise}
- Prove that $\left(\Coo\left( M\right)_{ D} , \Coo\left(\widetilde M\right)_{\widetilde D}, G\left(\left.\widetilde M \right|M \right)\right)$ a noncommutative finite-fold covering of $O^*$-algebras.
+ Prove that $\left(\Coo\left( M\right)_{ D} , \Coo\left(\widetilde M\right)_{\widetilde D}, G\left(\left.\widetilde M \right|M \right)\right)$ is a noncommutative finite-fold covering of $O^*$-algebras (cf. Definition \ref{fino*_defn}).
 \end{exercise}
 \begin{exercise}
 	Prove that the spectral triple $\left(\Coo\left(\widetilde M\right)\otimes \mathbb{M}_n\left( \C\right), L^2\left(\widetilde M, \widetilde S \right)^N, \widetilde D\right)$ is the 
@@ -11145,7 +11148,7 @@ Consider the described in the Section \ref{comm_sp_tr} situation, i.e. one has
 \begin{itemize}
 	\item The Riemannian manifold $\widetilde M$ with the spinor bundle $\widetilde\SS$ such that there is the spectral triple $\left(\Coo\left(\widetilde{M},  \right) , L^2\left(\widetilde{M},\widetilde{\sS} \right), \widetilde\Dslash \right)$.
 	\item The unoriented Riemannian manifold $M$ with the two listed covering $p:\widetilde M\to M$ and the bundle $\SS \to M$ such that $\widetilde{\sS}$ is the $p$-inverse image of $\SS$.
-	\item The unoriented spectral triple $\left(\Coo\left({M},  \right) , L^2\left({M},{\sS} \right), \Dslash \right)$ given by the Theorem \ref{com_unori_thm}
+	\item The unoriented spectral triple $\left(\Coo\left({M},  \right) , L^2\left({M},{\sS} \right), \Dslash \right)$ given by the Theorem \ref{com_unori_thm}.
 \end{itemize}
 
 \begin{theorem}\label{ctr_unori_thm}
@@ -12108,6 +12111,33 @@ Following theorem gives universal  coverings of operator spaces with continuous 
 \begin{proof}
 	Follows from the Theorem \ref{ctr_uni_lim_thm} Corollary \ref{ctr_uni_lim_thm} and the Definition \eqref{fg_bas_os_defn}.
 \end{proof}
+\subsection{Induced representations}\label{ctr_induced_infinite_sec}
+
+
+\paragraph*{}
+Let $A$ be a continuous trace $C^*$-algebra, and let $\sX$ be a spectrum of $\tau$. If  $\tau : C_c\left(\sX \right) \to \C$ be a functional such that $\tau\left(a \right) > 0$ for any positive $a$ then there is a given by \eqref{ctr_a_eqn} representation
+\be\nonumber
+\tr_\tau: A \hookto B\left(L^2\left(A, \tr_\tau\right) \right). 
+\ee
+If 
+\be\nonumber
+\begin{split}
+	\mathfrak{S}^{\mathrm{pt}}_{A } = \\
+	=\left\{A_0\left( p_\la\right) : A  \hookto A_0\left(\sX_\la \right)\right\}, \left\{A_0\left( p_\nu^\mu\right) : A_0\left(\sX_\nu \right) \hookto A_0\left(\sX_\mu \right)\right\}
+\end{split}
+\ee
+is a given by the Lemma \ref{ctr_base_point_lem} {pointed algebraical  finite covering category} (cf. Definition \ref{comp_pt_defn}) then from the Theorem \ref{ctr_main_thm} it follows that is  the  { infinite noncommutative covering} of $\mathfrak{S}_{A}$ (cf. Definition \ref{main_defn}) given by
+$\left(A, A_0\left(\widetilde\sX\right),G\left(\left.\widetilde\sX~\right|~ \mathcal X\right)\right)$ where $\widetilde\sX \bydef \varprojlim  \mathfrak{S}_{\mathcal{X}}$ (cf. Definition \ref{top_topological_inv_lim_defn}).  Similarly to \eqref{ctr_tx_eqn} define a scalar product $K\left( A_0\left(  \widetilde\sX\right)\right) \times K\left( A_0\left(  \widetilde\sX\right)\right)\to\C$ and denote by $L^2\left(A_0\left(\widetilde\sX \right) , \tr_{\widetilde\tau}\right)$.
+\begin{exercise}
+	Prove that the natural representation $A_0\left(\widetilde\sX \right)\hookto B\left(L^2\left(A_0\left(\widetilde\sX \right) , \tr_{\widetilde\tau}\right)\right)$   is {induced} by $\left( \tr_\tau, \left( A, A_0\left(\widetilde M \right) , G\left(\left.\widetilde M~\right|M \right) \right)\right)$ (cf. Definition \ref{induced_repr_inf_defn})
+\end{exercise}
+\begin{exercise}
+	Prove that in the described in \ref{str_spinc_infc_empt} situation 
+	the  representation $A_0\left(\widetilde\sX \right)\hookto B\left(L^2\left(\widetilde M, \widetilde S\right)\right)$   is {induced} by $\left( \rho, \left( A, A_0\left(\widetilde M \right) , G\left(\left.\widetilde M~\right|M \right) \right)\right)$ (cf. Definition \ref{induced_repr_inf_defn}) where $\rho: A\hookto B\left(L^2\left(M, S\right)\right)$ is the  natural representation.
+\end{exercise}
+
+
+
 
 
 \subsection{Coverings of $O^*$-algebras}
@@ -12137,9 +12167,10 @@ Discussed below results close to  the Section \ref{top_inf_o_sec} ones. Exercise
 	\be
 	\begin{split}
 		\Ga^\infty \left( M,   E \right)\subset D \left( M,   E \right)\subset \L^\dagger\left( D \right),\\ 
-		\Ga^\infty \left(\overline M,  \overline E \right)\subset D\left(\overline M,  \overline E \right)\subset \L^\dagger\left(\widehat \D \right).
+		\Ga^\infty \left(\overline M,  \overline E \right)\subset D\left(\overline M,  \overline E \right)\subset \L^\dagger\left(\widehat \D \right)
 	\end{split}
 	\ee
+		where both $\L^\dagger\left(\D \right)$  and $\L^\dagger\left(\widehat\D \right)$ are given by \eqref{l_dag_eqn}.
 	For all $\la\in \La$ one can construct *-algebras $\Ga^\infty \left( M_\la,   E_\la \right)$ and $D \left( M_\la,   E_\la \right)$, such that there are following inclusions
 	\bean
 	\forall \la\in\La \quad \Ga^\infty \left( M_\la,   E_\la \right)\subset D \left( M_\la,   E_\la \right),\\
@@ -12156,7 +12187,7 @@ Discussed below results close to  the Section \ref{top_inf_o_sec} ones. Exercise
 	$$
 	\pi: \bigcup_{\la \in \La} D \left( M_\la,   E_\la \right)\hookto \L^\dagger\left(\widehat\D \right).
 	$$
-	where $\L^\dagger\left(\widehat\D \right)$ is given by \eqref{l_dag_eqn}.
+
 	
 \end{empt}
 %\begin{exercise}
@@ -12164,7 +12195,7 @@ Discussed below results close to  the Section \ref{top_inf_o_sec} ones. Exercise
 %\end{exercise}
 
 \begin{exercise}
-	Let $\widetilde M$ be inverse limit of $\mathfrak{S}_{\left(M, x_0\right)}$ (cf. Definition \ref{top_topological_inv_lim_defn}). 	Using the Exercise \ref{ctr_hilbert_exer}
+	Let $\widetilde M$ be the topological inverse limit of $\mathfrak{S}_{\left(M, x_0\right)}$ (cf. Definition \ref{top_topological_inv_lim_defn}). 	Using the Exercise \ref{ctr_hilbert_exer}
 	prove following statements:
 	\begin{enumerate}
 		\item The triple $\left(D\left( M,   E \right),D\left(\widetilde M, \widetilde  E \right), G\left(\left.\widetilde M\right|  M\right)\right) $ is the $\pi$-inverse noncommutative limit of $\mathfrak{S}^{\text{pt}}_{D\left( M,   E \right)}$ (cf. Definition \ref{inv_o*_lim_defn}).
@@ -12173,7 +12204,7 @@ Discussed below results close to  the Section \ref{top_inf_o_sec} ones. Exercise
 \end{exercise}
 
 \begin{empt}\label{str_spinc_infc_empt}
-	Suppose that  $\left( S, r, M\right)$ is a Hermitian bundle which possesses the described in \ref{str_spinc_c_empt} properties. If $\widetilde  S$ and $\overline  S$ are {inverse image} of $S$ by $\widetilde p$ and $\overline p$ (cf. Definition \ref{vb_inv_img_funct_defn}) then $\overline S$ is a smooth manifold such that the map $\overline S \to S$ is smooth. Similarly to \eqref{ctr_gac_prod} there are $\C$-valued product 
+	Suppose that  $\left( S, r, M\right)$ is a Hermitian bundle which possesses the described in \ref{str_spinc_c_empt} properties. If both $\widetilde  S$ and $\overline  S$ are {inverse images} of $S$ by $\widetilde p$ and $\overline p$ (cf. Definition \ref{vb_inv_img_funct_defn}) then both $\widetilde  S$ and $\overline  S$ are  smooth manifolds such that both maps $\widetilde S \to S$ and $\overline S \to S$ are smooth. Similarly to \eqref{ctr_gac_prod} there are $\C$-valued product 
 	\be\nonumber
 	\begin{split}
 		\left(\cdot, \cdot \right): \Ga_c\left(\overline M, \overline S \right)\times \Ga_c\left(\overline M,\overline S \right)\to \C,\\
@@ -12209,33 +12240,6 @@ where $\L^\dagger\left(\widehat\D \right)$ is given by \eqref{l_dag_eqn}.
 
 
 
-\subsection{Induced representations}\label{ctr_induced_infinite_sec}
-
-
-\paragraph*{}
-Let $A$ be a continuous trace $C^*$-algebra, and let $\sX$ be a spectrum of $\tau$. If  $\tau : C_c\left(\sX \right) \to \C$ be a functional such that $\tau\left(a \right) > 0$ for any positive $a$ then there is a given by \eqref{ctr_a_eqn} representation
-\be\nonumber
-\tr_\tau: A \hookto B\left(L^2\left(A, \tr_\tau\right) \right). 
-\ee
-If 
-	\be\nonumber
-\begin{split}
-	\mathfrak{S}^{\mathrm{pt}}_{A } = \\
-	=\left\{A_0\left( p_\la\right) : A  \hookto A_0\left(\sX_\la \right)\right\}, \left\{A_0\left( p_\nu^\mu\right) : A_0\left(\sX_\nu \right) \hookto A_0\left(\sX_\mu \right)\right\}
-\end{split}
-\ee
-is a given by the Lemma \ref{ctr_base_point_lem} {pointed algebraical  finite covering category} (cf. Definition \ref{comp_pt_defn}) then from the Theorem \ref{ctr_main_thm} it follows that is  the  { infinite noncommutative covering} of $\mathfrak{S}_{A}$ (cf. Definition \ref{main_defn}) given by
-$\left(A, A_0\left(\widetilde\sX\right),G\left(\left.\widetilde\sX~\right|~ \mathcal X\right)\right)$ where $\widetilde\sX \bydef \varprojlim  \mathfrak{S}_{\mathcal{X}}$ (cf. Definition \ref{top_topological_inv_lim_defn}).  Similarly to \eqref{ctr_tx_eqn} define a scalar product $K\left( A_0\left(  \widetilde\sX\right)\right) \times K\left( A_0\left(  \widetilde\sX\right)\right)\to\C$ and denote by $L^2\left(A_0\left(\widetilde\sX \right) , \tr_{\widetilde\tau}\right)$.
-\begin{exercise}
-Prove that the natural representation $A_0\left(\widetilde\sX \right)\hookto B\left(L^2\left(A_0\left(\widetilde\sX \right) , \tr_{\widetilde\tau}\right)\right)$   is {induced} by $\left( \tr_\tau, \left( A, A_0\left(\widetilde M \right) , G\left(\left.\widetilde M~\right|M \right) \right)\right)$ (cf. Definition \ref{induced_repr_inf_defn})
-\end{exercise}
-\begin{exercise}
-Prove that in the described in \ref{str_spinc_infc_empt} situation 
-the  representation $A_0\left(\widetilde\sX \right)\hookto B\left(L^2\left(M, S\right)\right)$   is {induced} by $\left( \rho, \left( A, A_0\left(\widetilde M \right) , G\left(\left.\widetilde M~\right|M \right) \right)\right)$ (cf. Definition \ref{induced_repr_inf_defn}) where $\rho: A\hookto B\left(L^2\left(M, S\right)\right)$ is the  natural representation.
-\end{exercise}
-
-
-
 \subsection{Coverings of spectral triples}
 \paragraph*{}
 Let $M$ be a Riemannian compact manifold, and 	let $\left(\A, \H, D\right)$ be a given by \eqref{ctr_st_eqn}  spectral triple, i.e.
@@ -12262,7 +12266,7 @@ a {pointed topological finite covering category} (cf. Definition \ref{top_sec_p_
  	\item Using $\mathfrak{S}_{\left( M, x_0\right) }$  construct a coherent set of spectral triples 
  			\begin{equation}\nonumber
  		\begin{split}
- 			\mathfrak{S}_{\left(\sA, \sH, D\right)}= \left\{\left(\sA_\la, L^2\left( M_\la, S_\la\right) , D_\la \right)\right\}_{\la \in \La}
+ 			\mathfrak{S}_{\left(\sA, \sH, D\right)}= \left\{\left(\sA_\la, L^2\left( M_\la, S_\la\right)\otimes\C^N , D_\la \right)\right\}_{\la \in \La}
  		\end{split}
  	\end{equation}
  (cf. Definition \ref{cov_sec_triple_defn}), such that
@@ -12276,7 +12280,7 @@ a {pointed topological finite covering category} (cf. Definition \ref{top_sec_p_
  $$
  $\A_{D_\la}$ is the {extended algebra of the spectral triple} $\left( \A_\la, L^2\left(M_\la, S_\la \right) , D_\la\right)$ (cf. Definition \ref{ext_st_alg_defn}).
  \item Find 
- $\left(A, A_0\left(\widetilde M \right),G\left(\left. \widetilde M\right|M \right)\right)$-lift of $\left( \widetilde{\A}, \widetilde{\H}, \widetilde{D}\right)$ of $\left( {\A}, {\H}, {D}\right)$
+ $\left(A, A_0\left(\widetilde M \right),G\left(\left. \widetilde M\right|M \right)\right)$-lift  $\left( \widetilde{\A}, \widetilde{\H}, \widetilde{D}\right)$ of $\left( {\A}, {\H}, {D}\right)$
  \ref{reg_triple_defn} and prove that 
  \be\nonumber
  \begin{split} 
@@ -12320,6 +12324,7 @@ such that following conditions hold:
 
 \section{Basic constructions}
 \subsection{Irreducible representations}
+\paragraph{}}
 For any foliated space $\left(M, \sF\right)$ denote by $M/\sF$ the set of all leaves, and for any leaf $L \in M/\sF$ we select a point $x_L \in L$. We write 
 \be\label{foli_leaf_repr_eqn}
 \rho_L \stackrel{\text{def}}{=} \rho_{x_L}: C^*_r\left(M, \sF\right) \to B\left( L^2\left(\G_{x_L}\right)\right) 
@@ -12430,7 +12435,7 @@ The atomic representation $\pi_a$ of  $C^*_r\left(M, \sF\right)$ (cf. Definition
 		\be\label{foli_mult_inc_eqn}
 		C^*_b\left(p \right) : C^*_r\left({M}, {\sF} \right)\hookto M\left( C^*_r\left(\widetilde{M}, \widetilde{\sF} \right)\right)
 		\ee
-		\item[(ii)] If $p$ is a finite-fold covering then 	$C^*_b\left(p \right)\left( C^*_r\left({M}, {\sF} \right)\right) \subset C^*_r\left(\widetilde{M}, \widetilde{\sF} \right)$, i.e. 
+		\item[(ii)] If $p$ is a finite-fold covering then 	$C^*_b\left(p \right):\left( C^*_r\left({M}, {\sF} \right)\right) \subset C^*_r\left(\widetilde{M}, \widetilde{\sF} \right)$, i.e. 
 		is the natural injective *-homomorphism
 		\be\label{foli_f_inc_eqn}
 		C^*_r\left(p \right) : C^*_r\left({M}, {\sF} \right)\hookto  C^*_r\left(\widetilde{M}, \widetilde{\sF} \right).
@@ -12699,7 +12704,7 @@ Here we research local structure of the reduced sheaf, it enables us to construc
 
 
 
-\paragraph{Type I}\label{foli_type_I_par}
+\paragraph{Type I.}\label{foli_type_I_par}
 Let $\ga \in \left(M,\sF\right)$ is a constant path such that $s\left(\ga\right)=r\left(\ga\right)=x_0\in M$.
 Let us consider the foliation chart $\varphi_{\sU}:\sU \xrightarrow{\approx} \left(0,1 \right)^{q} \times   \left(0,1 \right)^{n-q}$ where $\sU  \subset M$ . Suppose that $\sU$ is an open neighborhood of $x_0$, and $\varphi_{\sU}$ can extended up to the homeomorphism  $\varphi_{\overline \sU}:\overline \sU \to \left[0,1 \right]^{q} \times   \left[0,1 \right]^{n-q}$ where $\overline \sU$ is the closure of $\sU$. Select $\om  \in\Om^{1/2}$ such that the restriction of $\om_x \otimes \om_x$  on $\sU$ corresponds to the Lebesgue measure on $\left(0,1 \right)^{n-q}$. Let $\Pi\left( M,\sF\right)$ be the space of paths on leaves (cf. \ref{foli_path_space_defn}), denote by 
 \bean
@@ -12765,7 +12770,7 @@ In result we have the following lemma
 
 
 
-\paragraph{Type II}\label{foli_type_II_par}
+\paragraph{Type II.}\label{foli_type_II_par}
 Consider a subset $\sV_\a$ given by \eqref{foli_chart_eqn} i.e.
 \bean
 \sV_{   \a} =	 \G\left(\sU_{\iota_0} \right)~...~\G\left(\sU_{\iota_k} \right) \in \G\left(M, \sF\right) \quad \a = \left({\iota_0},...,{\iota_k}\right)
@@ -13006,14 +13011,37 @@ every $f \in \Coo_b\left( M\right)$ is a multiplier of $C^*_r \left(M, \mathcal{
 \be\label{foli_center_eqn}
 C_b\left( M\right)\subset M\left(C^*_r \left(M, \mathcal{F}\right) \right).
 \ee
-\begin{lemma}
-For any positive $a\in C^*_r \left(M, \mathcal{F}\right)_+$ and $\eps > 0$ there is a positive $f \in C_c\left( M\right)_+$ such that
+\begin{lemma}\label{foli_slfin_lem}
+For any positive $a\in C^*_r \left(M, \mathcal{F}\right)$ and $\eps > 0$ there is a positive $f \in C_c\left( M\right)_+$ such that
 \bean
 f\left( M\right) = \left[0, 1\right],\\
-\left\| faf - a\right\| < \eps
+\left\| faf - a\right\| < \eps.
 \eean
+and $\supp f$ is a connected set.
 \end{lemma}
-
+\begin{proof}
+Let $\eps > 0$ be given. From the Corollary \ref{foli_cov_alg_cor} it follows that there is $b \in C^*_r \left(M, \mathcal{F}\right)$ such that
+	\bean
+b = \sum^n_{k = 1} j_{\sU_{\iota_{k,0}}}\left(  a_{ \iota_{k,0}}\right) \cdot ...\cdot j_{\sU_{\iota_{k,j_k}}}\left(  a_{ \iota_{k,j_k}}\right), \quad a_{ \iota_{k,j_l}}\in   \Ga_c\left(  \G\left(\sU_{ \iota_{j,l}} \right) , \widetilde \Om^{1/2}\right),\\
+\left\|a-b\right\| < \frac{\eps}{2}.
+\eean
+There is a  compact subset $\sY\subset M$ such that
+$$
+\bigcup^n_{k = 1}\left(\bigcup_{l=0}^{j_k} \sU_{kl}\right) \subset \sY
+$$
+From the Lemma \ref{comm_direct_lem} it follows there is $f \in C_c\left( M\right)_+$ such that
+$
+f\left( M\right) = \left[0, 1\right]$ and $f\left( \sY\right) = \{1\}$. One has $b = fbf$ and $\left\|f\right\|=1$ if $f$ is regarded as element of $M\left( C^*_r \left(M, \mathcal{F}\right)\right)$.
+If follows that
+\bean
+ \left\|f\left( a-b\right) f\right\|=  \left\|faf-fbf\right\|< \left\|a-b\right\|< \frac{\eps/2},
+ fbf = b.
+\eean
+ So one has
+\bean
+ \left\| faf - a\right\|\le \left\| faf - fbf\right\|+ \left\| fbf  -b\right\|+ \left\|b - a\right\|= \left\| faf - fbf\right\|+  \left\|b - a\right\|<\eps.
+\eean
+\end{proof}
 
 \section{Finite-fold coverings}
 \subsection{Coverings of $C^*$-algebras}
@@ -13072,11 +13100,11 @@ Let $\left(\widetilde{M},~ \widetilde{\mathcal F} \right)\to \left({M},~ {\mathc
 \end{theorem}
 \begin{proof}
 From the Corollary \ref{foli_gi_cor} it follows that the quadruple	$$\left(	C^*_r\left( M, \mathcal{F}\right),  C^*_r\left(\widetilde{M},~ \widetilde{\mathcal F} \right),{G\left( \left.\widetilde{M}~\right|M\right)}, C^*_r\left( p\right)  \right)$$
-is a	noncommutative finite-fold  pre-covering (cf Definition \ref{fin_pre_defn}).
+is a	noncommutative finite-fold  pre-covering (cf. Definition \ref{fin_pre_defn}).
 $  $Let   $\set{u_\la}_{\la \in \La}\subset C_c\left( M\right) $ be  a family defined in \ref{top_ua_empt}.
 Let us check  that the net $\set{u_\la}$ satisfies to the conditions (a)-(c) of the Definition \ref{fin_defn}. 
 \begin{enumerate}
-	\item [(a)] If $a \in C^*_r\left( M, \mathcal{F}\right)$ then for all $\eps > 0$ there is $a'\in Ga_c\left( \G\left( M, \mathcal{F}\right),\Om^{1/2}\right)$ such that $\left\| a - a'\right\| < \eps$ (cf. Definition \ref{foli_red_defn}). If $\sV \bydef \supp a'\subset \G\left( M, \mathcal{F}\right)$ then $\sV$ is compact. It follows that both $s\left( \sV\right)\subset M$ and $r\left( \sV\right)\subset M$ are compact. So $\sU\bydef s\left( \sV\right)\cup r\left( \sV\right)$ is compact. From the proof of the Lemma \ref{comm_slfin_lem} it follows that there is $\la_\sU \in \La$ such that
+	\item [(a)] If $a \in C^*_r\left( M, \mathcal{F}\right)$ then for all $\eps > 0$ there is $a'\in \Ga_c\left( \G\left( M, \mathcal{F}\right),\Om^{1/2}\right)$ such that $\left\| a - a'\right\| < \eps$ (cf. Definition \ref{foli_red_defn}). If $\sV \bydef \supp a'\subset \G\left( M, \mathcal{F}\right)$ then $\sV$ is compact. It follows that both $s\left( \sV\right)\subset M$ and $r\left( \sV\right)\subset M$ are compact. So $\sU\bydef s\left( \sV\right)\cup r\left( \sV\right)$ is compact. From the proof of the Lemma \ref{foli_slfin_lem} it follows that there is $\la_\sU \in \La$ such that
 	$$
 	\forall \la\ge\la_\sU \quad u_\la\left( \sU\right) = 1
 	$$
@@ -20133,7 +20161,7 @@ We denote by $C_b\left(\mathcal X, M\left( A_x\right)_\bt,  \mathscr F\right)$ t
 
 
 \begin{theorem}\label{ctr_as_field_thm}\cite{dixmier_ca}
-	Let $A$ be a liminal $C^*$-algebra whose spectrum $\sX$ is Hausdorff. Let  $\left(\sX, \left\{A_x\right\}_{x \in \sX}. \sF\right)$ be the continuous field of non-zero elementary $C^*$-algebras over $\sX$ defined by $A$. Let $A'$ be the  $C^*$-algebra
+	Let $A$ be a liminal $C^*$-algebra whose spectrum $\sX$ is Hausdorff. Let  $\left(\sX, \left\{A_x\right\}_{x \in \sX}, \sF\right)$ be the continuous field of non-zero elementary $C^*$-algebras over $\sX$ defined by $A$. Let $A'$ be the  $C^*$-algebra
 	defined by $\left(\sX, \left\{A_x\right\}_{x \in \sX}, \sF\right)$. For every $a \in A$, let $a'  = \left\{a\left(x\right)\in A_x\right\}_{x \in \sX}$ be the element of  $C_0\left( \sX, \left\{A_x\right\}_{x \in \sX}, \sF\right)$  defined by $a$.  Then $a' \in A'$ and $a \mapsto a'$ is an isomorphism of $A$ onto $A'$.
 \end{theorem}
 \begin{empt}\label{cross_mult_empt}\cite{apt_mult}
