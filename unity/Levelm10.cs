@@ -57,6 +57,16 @@ namespace Assets
         public static void Set(MonoBehaviour monoBehaviour)
         {
             Level0.Set(monoBehaviour);
+            if (monoBehaviour.name != Level0.Station)
+            {
+                return;
+            }
+            ReferenceFrameBehavior beh = monoBehaviour as ReferenceFrameBehavior;
+            var c = beh.constants;
+            c[0] = "Station frame.Z=1.2";
+            c[1] = "Station frame.Y=0";
+            c[2] = "Station frame.X=0";
+            c[5] = "Station frame.Vz=-0.03";
         }
 
 

@@ -9,11 +9,11 @@ using UnityEngine;
 
 namespace Assets
 {
-    public class Level9 : Levelm
+    public class Level9BAD : Levelm
     {
 
 
-        public Level9()
+        public Level9BAD()
         {
             /// Level0.ZControl, Level0.YControl,
             var ss = new string[] {

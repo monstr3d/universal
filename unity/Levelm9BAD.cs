@@ -11,13 +11,13 @@ using UnityEngine;
 
 namespace Assets
 {
-    public class Levelm9 : Levelm
+    public class Levelm9BAD : Levelm
     {
 
         EulerAngles angles = new EulerAngles();
 
 
-        public Levelm9()
+        public Levelm9BAD()
         {
             /// Level0.ZControl, Level0.YControl,
             var ss = new string[] {
