@@ -24,7 +24,10 @@ namespace Unity.Standard
         /// Active
         /// </summary>
         bool Active
-        { set; }
+        {
+            get;
+            set; 
+        }
 
      }
 }

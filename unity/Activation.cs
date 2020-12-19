@@ -22,7 +22,7 @@ public class Activation : MonoBehaviour
 
     public string activation = "";
 
-    public float delay = 1f;
+    public float delay = 0.1f;
 
     public int level;
 

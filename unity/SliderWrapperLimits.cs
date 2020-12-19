@@ -31,10 +31,11 @@ namespace Unity.Standard
 
         {
             l = new float[] { -limit, limit };
-            if (left == null)
+   /* !!! CHECK        if (left == null)
             {
                 l[0] = 0;
             }
+   */
             Tuple<float[], string[]> tuple = new Tuple<float[], string[]>(l,
                 new string[] {alias, dimension });
             limits[parameter] = tuple;
@@ -43,8 +44,11 @@ namespace Unity.Standard
 
         Dictionary<string, Tuple<float[], string[]>> ILimits.Limits => limits;
 
-        bool ILimits.Active { set => component.gameObject.SetActive(value); }
-
+        bool ILimits.Active 
+        {
+            get => isVisible;
+            set => SetVisible(value); 
+        }
         bool ILimits.Exceeds => exceeds(l);
     }
 }

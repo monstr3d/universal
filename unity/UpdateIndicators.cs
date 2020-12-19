@@ -43,7 +43,7 @@ namespace Unity.Standard
 
         #region Overriden
 
-        public override Action Update => update;
+        public override Action Update => updateLocal;
 
         
 
@@ -71,7 +71,8 @@ namespace Unity.Standard
             }
             if (b)
             {
-                upd += UpdateLimits;
+      //          upd += UpdateLimits;
+                update += UpdateLimits;
                 StaticExtensionUnity.OnGlobal += AddClobal;
             }
         }
@@ -81,6 +82,11 @@ namespace Unity.Standard
         #endregion
 
         #region Own Members
+
+        void updateLocal()
+        {
+            update();
+        }
 
         void AddClobal(string global)
         {
@@ -101,7 +107,7 @@ namespace Unity.Standard
             }
         }
 
-        const double bound = 30;
+        const double bound = 20;
 
         bool Start()
         {
@@ -116,7 +122,7 @@ namespace Unity.Standard
             indicators.UpdateInicators();
         }
 
-        float delay = 0.1f;
+        float delay = 1f;
 
         bool[] st = new bool[] { false };
 

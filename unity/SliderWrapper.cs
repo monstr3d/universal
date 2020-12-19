@@ -17,6 +17,11 @@ namespace Unity.Standard
 
         Color current;
 
+
+        protected bool isVisible = true;
+
+
+
         // public float ratio = 0.5f;
 
         public Color normal = new Vector4(0, 1, 0, 1);
@@ -37,6 +42,8 @@ namespace Unity.Standard
         GameObject gameObject;
 
         protected  Action<float> setFloatValue;
+
+        private Action disableSliders;
 
         string initialText = "";
 
@@ -134,8 +141,13 @@ namespace Unity.Standard
         }
 
         #endregion
-   
+
         #region Public Members
+
+        public override string ToString()
+        {
+            return parameter;
+        }
 
         /// <summary>
         /// Initial text
@@ -171,11 +183,40 @@ namespace Unity.Standard
 
         #endregion
 
-        #region Private
+        #region Protected Members
 
-      
+        /// <summary>
+        /// Sets visible sign
+        /// </summary>
+        /// <param name="visible">The sign value</param>
+        protected void SetVisible(bool visible)
+        {
+            if (visible == isVisible)
+            {
+                return;
+            }
+            isVisible = visible;
+            if (!visible)
+            {
+                text.text = "";
+                disableSliders();
+                return;
+            }
+            updateText?.Invoke();
+            setFloatValue(currentValue);
+        }
+
+        #endregion
+
+
+        #region Private Members
+
         void UpdateText()
         {
+            if (!isVisible)
+            {
+                return;
+            }
             if (text.color != current)
             {
                 text.color = current;
@@ -184,11 +225,7 @@ namespace Unity.Standard
         }
 
 
-        #endregion
-
-        #region Private Members
-
-
+  
         float GetValue(double val)
         {
             currentValue = scale * (float)val;
@@ -258,6 +295,11 @@ namespace Unity.Standard
             right.GetComponentInChildren<Image>().color = exceed;
 
             setFloatValue = SetPositiveValue;
+            disableSliders = () =>
+            {
+                left.value = 0;
+                right.value = 0;
+            };
         }
 
         void CreateNegative()
@@ -286,6 +328,16 @@ namespace Unity.Standard
                 }
             }
             setFloatValue = SetNegativeValue;
+            disableSliders = () =>
+            {
+                foreach (var ss in sliders)
+                {
+                    foreach (var s in ss)
+                    {
+                        s.value = 0;
+                    }
+                }
+            };
         }
 
         protected override void PostSetGlobal(string str)

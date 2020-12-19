@@ -706,17 +706,36 @@ namespace Unity.Standard
             {
                 exceeds = false;
                 yield return new WaitForSeconds(delay);
+                int i = 0;
+                int k = 0;
                 foreach (var l in limits)
                 {
+                    ++k;
+                    if (l == null)
+                    {
+                        continue;
+                    }
                     if (l.Exceeds)
                     {
-                        l.Active = false;
+                        exceeds = true;
+                        if (l.Active)
+                        {
+                            l.Active = false;
+                            ++i;
+                        }
                     }
                 }
                 yield return new WaitForSeconds(delay);
                 foreach (var l in limits)
                 {
-                    l.Active = true;
+                    if (l == null)
+                    {
+                        continue;
+                    }
+                    if (!l.Active)
+                    {
+                        l.Active = true;
+                    }
                     if (!exceeds)
                     {
                         if (l.Exceeds)

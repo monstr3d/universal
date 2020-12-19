@@ -47,7 +47,12 @@ namespace Unity.Standard
         string IIndicator.Parameter { get => parameter; }
         object IIndicator.Value { get => obj;  set => setValue(value); }
         object IIndicator.Type { get => type; }
-        bool IIndicator.IsActive { get => isActive; set => SetActive(value); }
+        bool IIndicator.IsActive 
+        { 
+            get => isActive; 
+            set => SetActive(value); 
+        }
+
         Action<string> IIndicator.Global { get => SetGlobal; }
 
         #endregion
