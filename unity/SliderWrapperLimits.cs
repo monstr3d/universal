@@ -18,7 +18,7 @@ namespace Unity.Standard
 
         Dictionary<string, Tuple<float[], string[]>> limits = new Dictionary<string, Tuple<float[], string[]>>();
 
-        Func<float[], bool> exceeds;
+      //  Func<float[], bool> exceeds;
 
         float[] l;
 
@@ -39,7 +39,7 @@ namespace Unity.Standard
             Tuple<float[], string[]> tuple = new Tuple<float[], string[]>(l,
                 new string[] {alias, dimension });
             limits[parameter] = tuple;
-            exceeds = Exceeds;
+          //  exceeds = Exceeds;
         }
 
         Dictionary<string, Tuple<float[], string[]>> ILimits.Limits => limits;
@@ -49,6 +49,6 @@ namespace Unity.Standard
             get => isVisible;
             set => SetVisible(value); 
         }
-        bool ILimits.Exceeds => exceeds(l);
+        bool ILimits.Exceeds => exceeds();
     }
 }

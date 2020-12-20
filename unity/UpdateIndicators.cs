@@ -107,7 +107,7 @@ namespace Unity.Standard
             }
         }
 
-        const double bound = 20;
+        const double bound = 31;
 
         bool Start()
         {
@@ -122,7 +122,7 @@ namespace Unity.Standard
             indicators.UpdateInicators();
         }
 
-        float delay = 1f;
+        float blinkDelay = 0.4f;
 
         bool[] st = new bool[] { false };
 
@@ -137,7 +137,7 @@ namespace Unity.Standard
 
         void UpdateLimits()
         {
-            limits.StartBlink(delay, Start, st,
+            limits.StartBlink(blinkDelay, Start, st,
                 ForcesMomentumsUpdate.forcesMomentumsUpdate.AlarmAudio);
         }
 

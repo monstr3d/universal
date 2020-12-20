@@ -20,6 +20,8 @@ namespace Unity.Standard
 
         protected bool isVisible = true;
 
+        protected Func<bool> exceeds;
+
 
 
         // public float ratio = 0.5f;
@@ -43,7 +45,7 @@ namespace Unity.Standard
 
         protected  Action<float> setFloatValue;
 
-        private Action disableSliders;
+        private Action<bool> disableSliders;
 
         string initialText = "";
 
@@ -56,6 +58,14 @@ namespace Unity.Standard
         Slider[][] sliders;
 
         protected float limit;
+
+        Sign sign = Sign.positive;
+
+        enum Sign
+        {
+            positive,
+            negative
+        }
 
         bool enableDebug = false;
 
@@ -196,10 +206,10 @@ namespace Unity.Standard
                 return;
             }
             isVisible = visible;
+            disableSliders(visible);
             if (!visible)
             {
                 text.text = "";
-                disableSliders();
                 return;
             }
             updateText?.Invoke();
@@ -207,7 +217,6 @@ namespace Unity.Standard
         }
 
         #endregion
-
 
         #region Private Members
 
@@ -257,6 +266,7 @@ namespace Unity.Standard
             }
             current = exceed;
             act[1].value = x;
+            sign = Sign.negative;
         }
 
         void SetPositiveValue(float value)
@@ -280,6 +290,11 @@ namespace Unity.Standard
 
         void CreatePositive()
         {
+            exceeds = () =>
+            {
+                float x = (float)currentValue / limit;
+                return x > 1;
+            };
             var c = components;
  //           RectTransform tr = gameObject.GetComponent<RectTransform>();
   //          var tt = gameObject.GetComponentsInChildren<RectTransform>();
@@ -295,15 +310,21 @@ namespace Unity.Standard
             right.GetComponentInChildren<Image>().color = exceed;
 
             setFloatValue = SetPositiveValue;
-            disableSliders = () =>
+            disableSliders = (bool b) =>
             {
-                left.value = 0;
-                right.value = 0;
+                left.enabled = b;
+                right.enabled = b;
             };
         }
 
         void CreateNegative()
         {
+            exceeds = () =>
+            {
+                float x = (float)currentValue / limit;
+                return Math.Abs(x) > 1;
+            };
+
             var c = components;
             //           RectTransform tr = gameObject.GetComponent<RectTransform>();
             //          var tt = gameObject.GetComponentsInChildren<RectTransform>();
@@ -328,13 +349,13 @@ namespace Unity.Standard
                 }
             }
             setFloatValue = SetNegativeValue;
-            disableSliders = () =>
+            disableSliders = (bool b)  =>
             {
                 foreach (var ss in sliders)
                 {
                     foreach (var s in ss)
                     {
-                        s.value = 0;
+                        s.gameObject.SetActive(b);
                     }
                 }
             };

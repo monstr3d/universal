@@ -66,7 +66,7 @@ namespace Assets
             var c = beh.constants;
             c[0] = "Station frame.Z=1.3";
             c[1] = "Station frame.Y=0.1";
-            c[2] = "Station frame.X=0";
+            c[2] = "Station frame.X=0.1";
             c[4] = "Station frame.Vy=0.0001";
             c[5] = "Station frame.Vz=-0.015";
 

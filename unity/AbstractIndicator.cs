@@ -147,7 +147,7 @@ namespace Unity.Standard
 
         #region Own 
 
-        /// <summary>
+  /*      /// <summary>
         /// Exceeds
         /// </summary>
         protected Func<float[], bool> Exceeds
@@ -172,7 +172,7 @@ namespace Unity.Standard
 
             }
         }
-
+  !!! */
    
         /// <summary>
         /// Finds the function
