@@ -107,7 +107,7 @@ namespace Unity.Standard
             }
         }
 
-        const double bound = 31;
+        const double bound = 20;
 
         bool Start()
         {

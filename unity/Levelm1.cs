@@ -55,7 +55,7 @@ namespace Assets
 
         public static void Set(MonoBehaviour monoBehaviour)
         {
-            Level0.Set(monoBehaviour);
+            Level1.Set(monoBehaviour);
         }
 
 
