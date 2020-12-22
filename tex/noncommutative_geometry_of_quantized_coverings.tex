@@ -10460,7 +10460,141 @@ Denote by $\widehat{A} = C^*\text{-}\varinjlim A_\la$, $G_\la = G\left( A_\la ~|
 
 
 
+\chapter{Hausdorff blowing-up and coverings}
+\paragraph*{}
+If the spectrum of  $C^*$-algebra $A$ is Hausdorff then $A$ possess  a family of good properties. Sometimes the spectrum of $C^*$-algebra can by replaced by its Hausdorff blowing-up and some results concerning $C^*$-algebras with  Hausdorff spectrum can be translated to $C^*$-algebras with Hausdorff blowing-up. The results of this chapter are used in both $C^*$-algebras with continuous trace (Hausdorff spectrum) and algebras of foliations   (non - Hausdorff spectrum). The Hausdorff blowing-up  associated with a Hausdorff space $\sY$ and a partial surjective map from  $\sY$ to the spectrum.
+	The motivation of the "blowing-up" word is inspired by algebraic geometry  where "blowing-up" used for excluding of singular points (cf. \cite{hartshorne:ag}).
+\section{Basic construction}
 
+\paragraph*{}
+
+
+\begin{definition}\label{blowing_defn}
+	Any  commutative $C^*$-subalgebra $C\cong C_0\left( \sY\right) \subset M\left(A \right)$ is said to be  a \textit{Hausdorff blowing-up} of $A$  if there is the the strict topology (cf. Definition \ref{strict_topology})  limit
+	\be\label{blowing_eqn}
+	1_{M\left(A \right)  }= \bt~\text{-}\lim_{\la \in \La }u_\la
+	\ee
+	where $\mathfrak F\left(\sY \right) = \left\{u_\la\right\}_{\la\in \La}\subset C_c\left(\sY \right)_+$ is the given by \eqref{top_fxu_eqn} net.
+\end{definition}
+\begin{example}
+	If $A$ is a continuous trace $C^*$-algebra and $\sX$ is its spectrum then from \ref{dauns_hofmann_thm} and \ref{ctr_hat_check_thm} one has the natural inclusion $C_0\left(\sX \right) \hookto M\left( A\right)$. For all $a \in A$ and $\eps> 0$ the subset
+	$$
+	\sY \bydef \left\{\left.x \in \sX\right| \left\| \rep_x\left(a\right)\right\|\ge \eps \right\}\subset\sY
+	$$
+	is compact (cf. Lemma \ref{ctr_rep_eq_lem}). If $u_\la \in F\left(\sY \right)$ is covering sum for $\sY$ (cf. Definition \ref{top_cfs_defn}) then for any $\la'\ge\la$ one has
+	\bean
+	\left\|au_{\la' }- a \right\|< \eps \\
+	\left\|u_{\la' }a- a \right\|< \eps 
+	\eean
+	From the above equations there is the 	limit $
+	1_{M\left(A \right)  }= \bt~\text{-}\lim_{\la \in \La }u_\la
+	$
+	with respect to the strict topology (cf. Definition \ref{strict_topology}) of $M\left( A\right)$. It turns out that $C_0\left(\sX \right) \hookto M\left( A\right)$ is a {Hausdorff blowing-up} of $A$ (cf. Definition \ref{blowing_defn}).
+\end{example}
+\section{Applications to finite-fold coverings}
+\begin{theorem}\label{blowing_thm}
+	Let $\left(A,\widetilde A, G, \pi \right)$ be a finite-fold noncommutative pre-covering (cf. Definition \ref{fin_pre_defn}), and let $C_0\left( \sY\right)\hookto M\left(A \right)$ (resp. $C_0\left( \widetilde \sY\right)\hookto M\left(\widetilde A \right)$) be a blowing-up of $A$ (resp. $\widetilde A$)  such that 
+	\begin{itemize}
+		\item $\widetilde A$ is a connected $C^*$-algebra (cf. Definition \ref{conn_c_a_defn}).
+		\item If $\phi: M\left(A \right)\hookto M\left(\widetilde A\right)$  is given by the Lemma \ref{ind_mult_inv_lem} then $\phi\left( C_0\left( \sY\right)\right) \subset C_0\left( \widetilde\sY\right)$ and there is a finite-fold covering $p: \widetilde\sY\to\sY$ such that $\left.\phi\right|_{ C_0\left( \sY\right)}= C_0\left( p\right)$.
+		\item The natural action $G\times M\left(\widetilde A \right)\to M\left(\widetilde A \right)$ is such that $G C_0\left( \widetilde \sY\right)= C_0\left( \widetilde \sY\right)$ and any nontrivial $g\in G$ induces a nontrivial homeomorphism of $ \widetilde \sY$.
+	\end{itemize}
+	Then $\left(A,\widetilde A, G, \pi \right)$ be a finite-fold noncommutative covering (cf. Definition \ref{fin_defn}).
+\end{theorem}
+\begin{proof} !!! CHECK PROOF
+	From $M\left(A \right)\cong M\left(\widetilde A\right)^G$ it follows that $C_0\left(  \sY\right)\cong C_0\left( \widetilde \sY\right)^G$, so one has $\sY \cong \widetilde \sY/G$ and $G\cong G\left(\left.\widetilde \sY\right| \sY \right)$. 
+	If   $\mathfrak F_c\left(\sY \right) = \left\{u_\la\right\}_{\la\in \La}\subset C_c\left(\sY \right)_+$ is the given by \eqref{top_fxuc_eqn} net then form \eqref{blowing_eqn} and the Lemma \ref{top_coff_lem} it turns out that $	1_{M\left(A \right)  }= \bt~\text{-}\lim_{\la \in \La }u_\la$.
+	
+	If 
+	\bean
+	\sU_\la \bydef \left\{\left.x \in \sX\right| u_\la\left(x \right)> 0 \right\},\\
+	\widetilde\sU_\la \bydef \left\{\left.\widetilde x \in \widetilde \sX\right|\phi\circ u_\la\left(\widetilde x \right)> 0 \right\}.
+	\eean
+	then both $\sU_\la$ and $\widetilde \sU_\la$ are dense subsets of $\supp u_\la$ and $\supp \phi\circ u_\la$ respectively. 
+	If  $\la\in\La$ and  both $A_\la$ and  $\widetilde A_\la$ are $C^*$-norm completions  of $u_\la A u_\la$ and  $u_\la\widetilde{A}u_\la$ respectively, then there is a finite-fold pre-covering PROOF!!!
+	$\left(A_\la,\widetilde A_\la, G, \pi|_{A_\la} \right)$.
+	
+	
+	There are natural inclusions
+	\bean
+	C\left(\supp  u_\la \right) \subset M\left(  A_\la\right),\\ 
+	C\left(\supp \phi\circ u_\la \right) \subset M\left( \widetilde A_\la\right),\\ 
+	\eean
+	Put $B_\la\subset  M\left(  A_\la\right) $ and $\widetilde B_\la \subset M\left( \widetilde A_\la\right)$ the $C^*$-albebras generated by  of $A_\la \cup C\left(\supp  u_\la \right)$ and  $\widetilde A_\la \cup C\left(\supp \phi\circ u_\la \right)$ respectively.
+	There is a covering $p|_{\supp \phi\circ u_\la}: \supp \phi\circ u_\la\to \supp  u_\la$ of compact spaces, so $C\left(\supp \phi\circ u_\la\right)$ is a finitely generated $C\left( u_\la\right)$-module (cf. Theorem \ref{pavlov_troisky_thm}). Hence from  \ref{ctr_unity_empt} it follows that there is a finite sum
+	\be\label{ctr_unity_sum_eqn}
+	1_{C\left(\phi\circ u_\la \right) }= \sum_{\widetilde\a \in \widetilde{\mathscr A} }\widetilde{e}^2_{\widetilde{\a}}\quad \widetilde{e}_{\widetilde{\a}}\in C\left(\supp \phi\circ u_\la\right)
+	\ee
+	such that 		for any nontrivial $g\in G$	one has
+	\be\label{ctr_unity_orth_eqn}
+	\begin{split}
+		\widetilde{e}_{\widetilde{\a}}	\left(g \widetilde{e}_{\widetilde{\a}} \right) = 0.
+	\end{split}
+	\ee
+	If $\widetilde a \in \widetilde B_\la$ then from \eqref{ctr_unity_sum_eqn} it follows that
+	\be\label{ctr_unity_orthx_eqn}
+	\widetilde a = \sum_{\widetilde\a \in \widetilde{\mathscr A} }\widetilde{e}_{\widetilde{\a}}\left( \widetilde{e}_{\widetilde{\a}}\widetilde a\right) 
+	\ee
+	From \eqref{ctr_unity_orth_eqn} it follows that if $g\in G$ is not trivial then 
+	\be\label{ctr_unity_orthxx_eqn}
+	\widetilde{e}_{\widetilde{\a}}\left(g\left(  \widetilde{e}_{\widetilde{\a}}\widetilde a\right) \right) = 		\widetilde{e}_{\widetilde{\a}}	\left(g \widetilde{e}_{\widetilde{\a}} \right) \left(g \widetilde{\a} \right) = 0\cdot \left(g \widetilde{\a} \right) = 0.
+	\ee
+	From the equations \ref{ctr_unity_orthx_eqn} and \ref{ctr_unity_orthx_eqn} it follows that
+	$$
+	\widetilde a = \sum_{\widetilde\a \in \widetilde{\mathscr A} }\widetilde{e}_{\widetilde{\a}} a_\a\quad\text{where}\quad a_\a \bydef \sum_{g\in G\left(\left.\widetilde \sX \right|\sX \right)}g\left( \widetilde{e}_{\widetilde{\a}}\widetilde a\right)\in B_\la, 
+	$$
+	i.e. $\widetilde B_\la$ is a finitely generated $B_\la$-module. 
+	So $\left(B_\la, \widetilde B_\la,G, \widetilde \pi_\la\right)$ is an unital noncommutative finite fold covering (cf. Definition \ref{fin_uni_defn}). 
+	From  $B_\la\subset  M\left(  A_\la\right) $ and $\widetilde B_\la \subset M\left( \widetilde A_\la\right)$ it turns out that both   $A_\la$ and $\widetilde A_\la$ are essentials ideal of  $B_\la$ and $\widetilde B_\la$ respectively. From the above construction if follows that 
+	$\left(A_\la,\widetilde A_\la, G, \pi|_{A_\la} \right)$ is  a noncommutative finite-fold covering with unitization (cf. Definition \ref{fin_comp_defn})
+	Let us prove that $\left(A_\la,\widetilde A_\la, G, \pi|_{A_\la} \right)$ satisfies to (a) - (c) of the Definition \ref{fin_defn}.
+	\begin{enumerate}
+		\item [(a)] Follows from  \eqref{blowing_eqn} and the Lemma \ref{top_coff_lem}.
+		\item [(b)] Follows from the above construction, i.e. for all $\la \in \La$ a quadruple $\left(A_\la,\widetilde A_\la, G, \pi|_{A_\la} \right)$ is  a noncommutative finite-fold covering with unitization.
+		\item[(c)] Follows from the conditions of this lemma.
+	\end{enumerate}
+	
+	
+\end{proof}
+\begin{definition}\label{fin_uni_defn!}
+	Let $\left(A, \widetilde{A}, G, \pi \right)$ be a  noncommutative finite-fold  pre-covering (resp. quasi-covering). Suppose both $A$ and  $\widetilde{A}$ are unital $C^*$-algebras. We say that $\left(A, \widetilde{A}, G, \pi \right)$ is an \textit{unital noncommutative finite-fold  covering} (resp. \textit{unital noncommutative finite-fold  quasi-covering}) if $\widetilde{A}$ is a finitely generated $C^*$-Hilbert left and/or right $A$-module with respect to product given by \eqref{finite_hilb_mod_prod_eqn}.
+\end{definition}
+
+\begin{lemma}\label{blowing_uni_lem}
+	Let both $\sY$ and $\widetilde \sY$ be compact Hausdorff spaces, suppose that $\sY$ is connected.
+	Let $\left(A,\widetilde A, G, \pi \right)$ be a unital noncommutative finite-fold  quasi-covering (cf. Definition \ref{fin_uni_defn}), and let $C\left( \sY\right)\hookto A$ (resp. $C\left( \widetilde \sY\right)\hookto \widetilde A$) be a blowing-up of $A$ (resp. $\widetilde A$)  such that 
+	\begin{itemize}
+		\item  $\pi\left( C\left( \sY\right)\right) \subset C\left( \widetilde\sY\right)$ and there is a continuous  map $p: \widetilde\sY\to\sY$ such that $\left.\pi\right|_{ C_0\left( \sY\right)}$ is induced by $p$.
+		\item The natural action $G\times \widetilde A\to \widetilde A$ is such that $G C_0\left( \widetilde \sY\right)= C_0\left( \widetilde \sY\right)$ and any nontrivial $g\in G$ induces a nontrivial homeomorphism of $ \widetilde \sY$.
+	\end{itemize}
+	Then the map $p$ is a transitive finite-fold covering.
+\end{lemma}
+
+\begin{proof}
+	From the Definition \ref{fin_uni_defn} it follows that  there is a finite set $\left\{\widetilde a_1, ..., \widetilde a_n\right\}$ such that $\widetilde A = \widetilde a_1 A + ... + \widetilde a_n A$. In particular there are $a_1, ..., a_n \in A$ such that
+	\be\label{ctr_un_eqn}
+	1_{\widetilde A}= \widetilde a_1 a_1 + ... + \widetilde a_n a_n
+	\ee
+	If $C\left(\widetilde\sX\right)$ is not  a finitely generated $C\left(\sX\right)$-module then from the Theorem \ref{fin_gen_thm} it follows that there is an infinite set $\left\{M_\la\right\}_{\la\in\La}$ of $C_0\left(\sX \right)$-submodules of $C\left(\widetilde{\sX}\right)$ such that 
+	$$
+	C\left(\widetilde{\sX}\right)=\sum_{\la \in \La} M_\la,
+	$$
+	but there is no  a finite subset $\La_0\subset \La$  such that 
+	$$
+	C\left(\widetilde{\sX}\right) = \sum_{\la \in \La_0} M_\la.
+	$$
+	For any $\la\in \La$ the space  $M_\la \widetilde{A}$ is a right $A$-submodule of $\widetilde{A}$.
+	From $C\left(\sX \right) A = A$ and $C\left(\widetilde\sX \right) \widetilde  A = \widetilde A$ one has 
+	$$
+	\widetilde{A}=\sum_{\la \in \La}M_\la \widetilde{A} 
+	$$
+	but there is no  a finite subset $\La_0\subset \La$  such that 
+	$$
+	\widetilde{A}=\sum_{\la \in \La_0}M_\la \widetilde{A}.
+	$$
+	From the Theorem \ref{fin_gen_thm} it follows $\widetilde{A}$ is not a finitely generated $A$-module, it contradicts with the definition \ref{fin_uni_defn}. So $C\left(\widetilde\sX\right)$ is   a finitely generated $C\left(\sX\right)$, and from the Theorem \ref{pavlov_troisky_thm} it follows that $p$ is a finite-fold covering. 
+\end{proof}
+\
 
 
 \chapter{Coverings of continuous trace operator spaces}\label{ctr_chap}
@@ -10577,97 +10711,6 @@ Our following constructions require an analog of the Dini's theorem.
 	The prove of the Lemma \ref{ctr_dini_lem} is similar to the proof of the Theorem \ref{dini_thm}
 \end{remark}
 
-\subsection{Hausdorff blowing-up and coverings}
-\paragraph*{}
-
-
-\begin{definition}\label{blowing_defn}
-	Any  commutative $C^*$-subalgebra $C\cong C_0\left( \sY\right) \subset M\left(A \right)$ is said to be  a \textit{Hausdorff blowing-up} of $A$  if there is the the strict topology (cf. Definition \ref{strict_topology})  limit
-	\be\label{blowing_eqn}
-	1_{M\left(A \right)  }= \bt~\text{-}\lim_{\la \in \La }u_\la
-	\ee
- where $\mathfrak F\left(\sY \right) = \left\{u_\la\right\}_{\la\in \La}\subset C_c\left(\sY \right)_+$ is the given by \eqref{top_fxu_eqn} net.
-\end{definition}
-\begin{example}
-	If $A$ is a continuous trace $C^*$-algebra and $\sX$ is its spectrum then from \ref{dauns_hofmann_thm} and \ref{ctr_hat_check_thm} one has the natural inclusion $C_0\left(\sX \right) \hookto M\left( A\right)$. For all $a \in A$ and $\eps> 0$ the subset
-	$$
-	\sY \bydef \left\{\left.x \in \sX\right| \left\| \rep_x\left(a\right)\right\|\ge \eps \right\}\subset\sY
-	$$
-	is compact (cf. Lemma \ref{ctr_rep_eq_lem}). If $u_\la \in F\left(\sY \right)$ is covering sum for $\sY$ (cf. Definition \ref{top_cfs_defn}) then for any $\la'\ge\la$ one has
-	\bean
-	\left\|au_{\la' }- a \right\|< \eps \\
-	\left\|u_{\la' }a- a \right\|< \eps 
-	\eean
-	From the above equations there is the 	limit $
-	1_{M\left(A \right)  }= \bt~\text{-}\lim_{\la \in \La }u_\la
-	$
-	with respect to the strict topology (cf. Definition \ref{strict_topology}) of $M\left( A\right)$. It turns out that $C_0\left(\sX \right) \hookto M\left( A\right)$ is a {Hausdorff blowing-up} of $A$ (cf. Definition \ref{blowing_defn}).
-\end{example}
-\begin{theorem}\label{blowing_thm}
-	Let $\left(A,\widetilde A, G, \pi \right)$ be a finite-fold noncommutative pre-covering (cf. Definition \ref{fin_pre_defn}), and let $C_0\left( \sY\right)\hookto M\left(A \right)$ (resp. $C_0\left( \widetilde \sY\right)\hookto M\left(\widetilde A \right)$) be a blowing-up of $A$ (resp. $\widetilde A$)  such that 
-	\begin{itemize}
-		\item $\widetilde A$ is a connected $C^*$-algebra (cf. Definition \ref{conn_c_a_defn}).
-		\item If $\phi: M\left(A \right)\hookto M\left(\widetilde A\right)$  is given by the Lemma \ref{ind_mult_inv_lem} then $\phi\left( C_0\left( \sY\right)\right) \subset C_0\left( \widetilde\sY\right)$ and there is a finite-fold covering $p: \widetilde\sY\to\sY$ such that $\left.\phi\right|_{ C_0\left( \sY\right)}= C_0\left( p\right)$.
-		\item The natural action $G\times M\left(\widetilde A \right)\to M\left(\widetilde A \right)$ is such that $G C_0\left( \widetilde \sY\right)= C_0\left( \widetilde \sY\right)$ and any nontrivial $g\in G$ induces a nontrivial homeomorphism of $ \widetilde \sY$.
-	\end{itemize}
- Then $\left(A,\widetilde A, G, \pi \right)$ be a finite-fold noncommutative covering (cf. Definition \ref{fin_defn}).
-\end{theorem}
-\begin{proof} !!! CHECK PROOF
-	From $M\left(A \right)\cong M\left(\widetilde A\right)^G$ it follows that $C_0\left(  \sY\right)\cong C_0\left( \widetilde \sY\right)^G$, so one has $\sY \cong \widetilde \sY/G$ and $G\cong G\left(\left.\widetilde \sY\right| \sY \right)$. 
-If   $\mathfrak F_c\left(\sY \right) = \left\{u_\la\right\}_{\la\in \La}\subset C_c\left(\sY \right)_+$ is the given by \eqref{top_fxuc_eqn} net then form \eqref{blowing_eqn} and the Lemma \ref{top_coff_lem} it turns out that $	1_{M\left(A \right)  }= \bt~\text{-}\lim_{\la \in \La }u_\la$.
-
-	If 
-	\bean
-	\sU_\la \bydef \left\{\left.x \in \sX\right| u_\la\left(x \right)> 0 \right\},\\
-	\widetilde\sU_\la \bydef \left\{\left.\widetilde x \in \widetilde \sX\right|\phi\circ u_\la\left(\widetilde x \right)> 0 \right\}.
-	\eean
-	then both $\sU_\la$ and $\widetilde \sU_\la$ are dense subsets of $\supp u_\la$ and $\supp \phi\circ u_\la$ respectively. 
-If  $\la\in\La$ and  both $A_\la$ and  $\widetilde A_\la$ are $C^*$-norm completions  of $u_\la A u_\la$ and  $u_\la\widetilde{A}u_\la$ respectively, then there is a finite-fold pre-covering PROOF!!!
-$\left(A_\la,\widetilde A_\la, G, \pi|_{A_\la} \right)$.
-
-
-There are natural inclusions
-\bean
-C\left(\supp  u_\la \right) \subset M\left(  A_\la\right),\\ 
-C\left(\supp \phi\circ u_\la \right) \subset M\left( \widetilde A_\la\right),\\ 
-\eean
-Put $B_\la\subset  M\left(  A_\la\right) $ and $\widetilde B_\la \subset M\left( \widetilde A_\la\right)$ the $C^*$-albebras generated by  of $A_\la \cup C\left(\supp  u_\la \right)$ and  $\widetilde A_\la \cup C\left(\supp \phi\circ u_\la \right)$ respectively.
-There is a covering $p|_{\supp \phi\circ u_\la}: \supp \phi\circ u_\la\to \supp  u_\la$ of compact spaces, so $C\left(\supp \phi\circ u_\la\right)$ is a finitely generated $C\left( u_\la\right)$-module (cf. Theorem \ref{pavlov_troisky_thm}). Hence from  \ref{ctr_unity_empt} it follows that there is a finite sum
-\be\label{ctr_unity_sum_eqn}
-1_{C\left(\phi\circ u_\la \right) }= \sum_{\widetilde\a \in \widetilde{\mathscr A} }\widetilde{e}^2_{\widetilde{\a}}\quad \widetilde{e}_{\widetilde{\a}}\in C\left(\supp \phi\circ u_\la\right)
-\ee
-such that 		for any nontrivial $g\in G$	one has
-\be\label{ctr_unity_orth_eqn}
-\begin{split}
-	\widetilde{e}_{\widetilde{\a}}	\left(g \widetilde{e}_{\widetilde{\a}} \right) = 0.
-\end{split}
-\ee
-If $\widetilde a \in \widetilde B_\la$ then from \eqref{ctr_unity_sum_eqn} it follows that
-\be\label{ctr_unity_orthx_eqn}
-\widetilde a = \sum_{\widetilde\a \in \widetilde{\mathscr A} }\widetilde{e}_{\widetilde{\a}}\left( \widetilde{e}_{\widetilde{\a}}\widetilde a\right) 
-\ee
-From \eqref{ctr_unity_orth_eqn} it follows that if $g\in G$ is not trivial then 
-\be\label{ctr_unity_orthxx_eqn}
-\widetilde{e}_{\widetilde{\a}}\left(g\left(  \widetilde{e}_{\widetilde{\a}}\widetilde a\right) \right) = 		\widetilde{e}_{\widetilde{\a}}	\left(g \widetilde{e}_{\widetilde{\a}} \right) \left(g \widetilde{\a} \right) = 0\cdot \left(g \widetilde{\a} \right) = 0.
-\ee
-From the equations \ref{ctr_unity_orthx_eqn} and \ref{ctr_unity_orthx_eqn} it follows that
-$$
-\widetilde a = \sum_{\widetilde\a \in \widetilde{\mathscr A} }\widetilde{e}_{\widetilde{\a}} a_\a\quad\text{where}\quad a_\a \bydef \sum_{g\in G\left(\left.\widetilde \sX \right|\sX \right)}g\left( \widetilde{e}_{\widetilde{\a}}\widetilde a\right)\in B_\la, 
-$$
-i.e. $\widetilde B_\la$ is a finitely generated $B_\la$-module. 
-So $\left(B_\la, \widetilde B_\la,G, \widetilde \pi_\la\right)$ is an unital noncommutative finite fold covering (cf. Definition \ref{fin_uni_defn}). 
-From  $B_\la\subset  M\left(  A_\la\right) $ and $\widetilde B_\la \subset M\left( \widetilde A_\la\right)$ it turns out that both   $A_\la$ and $\widetilde A_\la$ are essentials ideal of  $B_\la$ and $\widetilde B_\la$ respectively. From the above construction if follows that 
-$\left(A_\la,\widetilde A_\la, G, \pi|_{A_\la} \right)$ is  a noncommutative finite-fold covering with unitization (cf. Definition \ref{fin_comp_defn})
-Let us prove that $\left(A_\la,\widetilde A_\la, G, \pi|_{A_\la} \right)$ satisfies to (a) - (c) of the Definition \ref{fin_defn}.
-\begin{enumerate}
-	\item [(a)] Follows from  \eqref{blowing_eqn} and the Lemma \ref{top_coff_lem}.
-	\item [(b)] Follows from the above construction, i.e. for all $\la \in \La$ a quadruple $\left(A_\la,\widetilde A_\la, G, \pi|_{A_\la} \right)$ is  a noncommutative finite-fold covering with unitization.
-	\item[(c)] Follows from the conditions of this lemma.
-\end{enumerate}
-
-
-\end{proof}
-
 \section{Finite-fold coverings}
 \subsection{Coverings of $C^*$-algebras}
 \begin{lemma}\label{ctr_cont_tr_lem}
@@ -10705,41 +10748,7 @@ If $A$ is a continuous trace $C^*$-algebra with compact spectrum and \\$\left(A,
 \end{itemize}
 \end{corollary}
 \begin{proof}(i) If $\widetilde A_{\text{red}}$ the reduced algebra of $\left(A, \widetilde{A}, G, \pi \right)$ (cf. Definition \ref{red_alg_defn}) then  from the  Lemma \ref{ctr_cont_tr_lem} it follows that the  spectrum $\widetilde \sX_{\text{red}}$ of $\widetilde A_{\text{red}}$ is Hausdorff. However the spectrum of $\widetilde A_{\text{red}}$ (cf. Remark \ref{red_sp_rem}) coincides with the spectrum of $\widetilde A$ (cf. Remark \ref{red_sp_rem}), i.e. $\widetilde \sX= \widetilde \sX_{\text{red}}$\\
-(ii)	 
-	Let both $A \hookto B$, $\widetilde{A} \hookto \widetilde{B}$ be unitizations which satisfy to conditions (a) and (b) of the Definition \ref{fin_comp_defn}. The $C^*$-algebras $A$ and $\widetilde A$ are essential ideals of   $B$ and $\widetilde B$ so the spectra of $B$ and $\widetilde B$ is  compactifications of $\sX$ and $\widetilde\sX$. Since $\sX$ is compact the spectra of $B$ is $\sX$. From the condition (b) of the Definition \ref{fin_comp_defn} it follows that the triple $\left(B ,\widetilde{B}, G, \widetilde{\pi} \right)$ is an  %(strong) 
-	unital  noncommutative finite-fold quasi-covering (cf. Definition \ref{fin_uni_defn}), so there is a finite set $\left\{\widetilde b_1, ..., \widetilde b_n\right\}$ such that $\widetilde B = \widetilde b_1 B + ... + \widetilde b_n B$. In particular there are $b_1, ..., b_n \in B$ such that
-	\be\label{ctr_un_eqn}
-	1_{\widetilde B}= \widetilde b_1 b_1 + ... + \widetilde b_n b_n
-	\ee
-Let  $\widetilde x \in \widetilde\sX$ and $x= p\left( \widetilde x\right)$. If  $a \in A$ is such that $\rep_x\left(a\right)$ is a rank-one operator then $\rep_{\widetilde x}\left(\widetilde b_j\widetilde{\pi}\left( b_ja\right) \right)$ is a rank-one operator for any $j=1,...n$. From the equation \ref{ctr_un_eqn} it follows that
-\be\label{ctr_un_ro_eqn}
-\rep_{\widetilde x}\left(\widetilde{\pi}\left( a\right) \right)= \rep_{\widetilde x}\left(\widetilde b_1\widetilde{\pi}\left( b_1a\right) \right)+...+\rep_{\widetilde x}\left(\widetilde b_n\widetilde{\pi}\left( b_na\right) \right).
-\ee
-From the equation \ref{ctr_un_ro_eqn} it turns out that the rank of $\rep_{\widetilde x}\left(\widetilde{\pi}\left( a\right) \right)$ does not exceed $n$, so from the Lemma \ref{typeI_lem}  it follows that $\K \subset \rep_{\widetilde x}\left(\widetilde B \right)$, i.e. $\widetilde B$ is an algebra of type I. If $\widetilde \sY_{\widetilde B}$ 
- is the spectrum of $\widetilde B$ then $\widetilde\sX$ is an open dense subset of  it  $\widetilde \sY_{\widetilde B}$. Otherwise from the Lemma  \ref{cov_spectrum_lem} it follows that there is the continuous surjective map  $p_B:\widetilde \sY_{\widetilde B}\to  \sY_{ B}$ from   $\widetilde \sY_{\widetilde B}$ to the spectrum of $B$. However from $\sY_{ B}= \sX$ and taking into account the map $p: \widetilde\sX\to\sX$ one has
- $$
- \sY_{\widetilde B}= p_B^{-1}\left(\sX \right)= p^{-1}\left(\sX \right)= \widetilde \sX.
- $$
- Since $\widetilde B$ is unital the space $\widetilde \sX$ is compact. From the map $p: \widetilde\sX\to\sX$ it follows that $C\left(\widetilde\sX\right)$ is a $C\left(\sX\right)$-module. On the the other hand  $\widetilde B$ is a type I $C^*$-algebra, hence from and the Theorems \ref{ctr_hat_check_thm} and \ref{dauns_hofmann_thm} it follows that $\widetilde B$ is $C\left(\widetilde\sX\right)$ module.
- If $C\left(\widetilde\sX\right)$ is not  a finitely generated $C\left(\sX\right)$-module then from the Theorem \ref{fin_gen_thm} it follows that there is an infinite set $\left\{M_\la\right\}_{\la\in\La}$ of $C_0\left(\sX \right)$-submodules of $C\left(\widetilde{\sX}\right)$ such that 
- $$
- C\left(\widetilde{\sX}\right)=\sum_{\la \in \La} M_\la,
- $$
- but there is no  a finite subset $\La_0\subset \La$  such that 
- $$
- C\left(\widetilde{\sX}\right) = \sum_{\la \in \La_0} M_\la.
- $$
- For any $\la\in \La$ the space  $M_\la \widetilde{B}$ is a left $B$-submodule of $\widetilde{B}$.
- From $C\left(\sX \right) B = B$ and $C\left(\widetilde\sX \right) \widetilde  B = \widetilde B$ one has 
-	$$
-\widetilde{B}=\sum_{\la \in \La}M_\la \widetilde{B} 
-$$
-but there is no  a finite subset $\La_0\subset \La$  such that 
-$$
-\widetilde{B}=\sum_{\la \in \La_0}M_\la \widetilde{B}.
-$$
-	From the Theorem \ref{fin_gen_thm} it follows $\widetilde{B}$ is not a finitely generated $B$-module, it contradicts with the definition \ref{fin_uni_defn}. So $C\left(\widetilde\sX\right)$ is   a finitely generated $C\left(\sX\right)$, and from the Theorem \ref{pavlov_troisky_thm} it follows that $p$ is a finite fold covering. The given by \eqref{g_red_eqn} and \eqref{g_red_ker_eqn} group $G_{\text{red}}$ is a normal subgroup of $G$.
-	There is the group $G_0 \bydef G/G_{\text{red}}= G / \ker\left(G \to \Homeo\left(\widetilde{A} \right) \right)$  such that  the action of $G_0\times \widetilde{\mathcal X}\to \widetilde{\mathcal X}$ is not trivial. From the Lemma \ref{cov_spectrum_lem} it turns out that the action is transitive. 
+(ii)!!!REPLACE	 
 \end{proof}
 
 \begin{lemma}\label{ctr_pre_red_lem}
