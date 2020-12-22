@@ -46,7 +46,7 @@ namespace Assets
 
         new static public void Collision(Tuple<GameObject, Component, IScadaInterface, ICollisionAction>  stop)
         {
-            // Time of flight = 115 s
+            // Time of flight = 115 s  48 s
             (Level0.RigidBodyStation + "." +
                Level0.ShortXC).EnableDisable(false);
             Level1.Collision(stop);

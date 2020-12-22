@@ -59,6 +59,8 @@ namespace Assets
 
         public float kMz = 1f;
 
+        public float classBound = 20;
+
         Dictionary<KeyCode, bool> pressed = new Dictionary<KeyCode, bool>();
 
         ReferenceFrameBehavior referenceBehavior;
@@ -189,6 +191,7 @@ namespace Assets
         {
             int i = base.SetConstants(offset, constants);
             interval = constants[6];
+          //  bound = (float)constants[7];
             desktop = scada.GetDesktop();
             rigidBody = desktop.GetAssociatedObject<Motion6D.Portable.Aggregates.RigidBody>(
                 "Rigid Body");

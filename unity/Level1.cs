@@ -35,13 +35,22 @@ namespace Assets
         public static void Set(MonoBehaviour monoBehaviour)
         {
             Level0.Set(monoBehaviour);
-            if (monoBehaviour.name != Level0.Station)
+            if (monoBehaviour is OutputController)
+            {
+                OutputController oc = monoBehaviour as OutputController;
+                var a = oc.aliases;
+                a[0] = "Aim 1.Z=-0.3";
+                a[0] = "Aim 1.Z=-0.01";
+                return;
+            }
+             if (monoBehaviour.name != Level0.Station)
             {
                 return;
             }
             ReferenceFrameBehavior beh = monoBehaviour as ReferenceFrameBehavior;
             var c = beh.constants;
             c[0] = "Station frame.Z=1.5";
+   
         }
 
     }

@@ -69,6 +69,13 @@ namespace Assets
             c[2] = "Station frame.X=0.1";
             c[4] = "Station frame.Vy=0.0001";
             c[5] = "Station frame.Vz=-0.015";
+            if (monoBehaviour is OutputController)
+            {
+                OutputController oc = monoBehaviour as OutputController;
+                var a = oc.aliases;
+                a[0] = "Aim 1.Z=-0.3";
+            }
+
 
             /*
         [0]	"Station frame.Z=3.5"	string

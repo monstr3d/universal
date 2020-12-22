@@ -1498,7 +1498,9 @@ hence one has
    		There are unitizations $A \hookto B$, $\widetilde{A} \hookto \widetilde{B}$.
    	%	\item[(b)]$A = B\bigcap \widetilde{A}$,
    		\item[(b)] There is a %(strong) 
-   	  unital  noncommutative finite-fold quasi-covering	$\left(B ,\widetilde{B}, G, \widetilde{\pi} \right)$ such that $\pi = \widetilde{\pi}|_A$ (or, equivalently $A \cong \widetilde{A}\cap B$) and the action $G \times\widetilde{A} \to \widetilde{A}$ is induced by $G \times\widetilde{B} \to \widetilde{B}$.
+   	  unital  noncommutative finite-fold quasi-covering	$\left(B ,\widetilde{B}, G, \widetilde{\pi} \right)$ such that
+   	  $\pi = \widetilde{\pi}|_A$ (or, equivalently $A \cong \widetilde{A}\cap B$) and
+   	   the action $G \times\widetilde{A} \to \widetilde{A}$ is induced by $G \times\widetilde{B} \to \widetilde{B}$.
    	\end{enumerate}
 We say that the triple $\left(A, \widetilde{A}, G \right)$ and/or the quadruple $\left(A, \widetilde{A}, G, \pi \right)$ and/or *-homomorphism $\pi: A \hookto \widetilde{A}$ is a
    		 \textit{noncommutative finite-fold covering with unitization}, (resp. \textit{noncommutative finite-fold quasi-covering with unitization}). 
@@ -1513,6 +1515,10 @@ We say that the triple $\left(A, \widetilde{A}, G \right)$ and/or the quadruple 
  \left(A ,\widetilde{A}, G, {\pi} \right)\text{ is a pre-covering } \quad \Rightarrow\quad \left(B ,\widetilde{B}, G, \widetilde{\pi} \right) \text{ is a pre-covering }.
  \ee
  \end{remark}
+\begin{remark}\label{fin_ded_rem}
+	The equation   $\pi = \widetilde{\pi}|_A$ (or, equivalently $A \cong \widetilde{A}\cap B$) follows from the actions $G \times\widetilde{A} \to \widetilde{A}$ and $G \times\widetilde{B} \to \widetilde{B}$. Really 
+	if $ \widetilde a\in \widetilde{A}\cap B$, or   equivalently  $ \widetilde a \in \widetilde \pi\left( A\right)$ then from $\widetilde a\in B$ it follows that	$	\widetilde a = \frac{1}{\left|G \right| }\sum_{	g \in G}\widetilde a$, so one has $\widetilde a \in \widetilde A^G = A$. It turns out that $\pi = \widetilde{\pi}|_A$ (or, equivalently $A = \widetilde{A}\cap B$).
+\end{remark}
 \begin{remark}
 Any noncommutative finite-fold covering with unitization is a noncommutative finite-fold quasi-covering with unitization.
 \end{remark}
@@ -6897,23 +6903,34 @@ satisfies to the conditions (a), (b) of the Definition \ref{fin_comp_defn}.
 
 \end{proof}
 \begin{empt}\label{top_ua_empt}
-	Let $\mathcal X$ be a locally compact, locally connected, connected, Hausdorff space and $x_0\subset \sX$ be any point. If
-\be\nonumber
+	Let $\mathcal X$ be a locally compact, locally connected, connected, Hausdorff space.
+Put 
+\be\label{top_fxu_eqn}
 \begin{split}
-\mathfrak F=	\left\{u_\la\right\}_{\la \in \La}\bydef\\\bydef \left\{\left.u_\la\in C_c\left(\sX	
-\right)_+\right|u_\la\left(\sX \right)\subset \left[0,1\right] , ~ u_\a\left(x_0 \right)> 0,\quad u^{-1}_\la\left(\left(0,1\right]\right) \text{ is connected}    \right\}
+	\mathfrak F\left(\sX \right) =	\left\{u_\la\right\}_{\la \in \La}\bydef \left\{\left.u_\la\in C_c\left(\sX	
+	\right)_+\right|u_\la\left(\sX \right)\subset \left[0,1\right] \right\}
 \end{split}
-\ee
- where the notion $u^{-1}_\la\left(\left(0,1\right]\right)$  means the inverse image.
+\ee	
 If $\La$ is ordered  by the following way
-$$
-\mu, \nu \in \La\quad \mu \le \nu \Leftrightarrow u_\mu \le u_\nu.
-$$
-If $\mu, \nu \in \La$ then $\supp u_\mu \cup \supp u_\nu$ is compact.
-From the Corollary \ref{top_comp_comm_cor} it follows that there is a connected compact set $\sY\subset \sX$ such that $\supp f_\mu \cup \supp f_\nu\subset \sY$ if $u_\sY$ is a finite sum of $\sY$ (cf. Definition \ref{top_cfs_defn}) then $\supp f$ is connected (cf. Remark \ref{top_cfsc_rem}), $u_\sY \in \left\{u_\la\right\}_{\la \in \La}$ and $\exists\la\in \La\quad u_\sY= u_\la$. If follows that $\la \ge \mu$ and  $\la \ge \mu$, i.e. $\La$ is a directed set (cf. Definition \ref{directed_set_defn}).
+	 $$
+	 \mu, \nu \in \La\quad \mu \le \nu \Leftrightarrow u_\mu \le u_\nu.
+	 $$
+	 then the set $\La$ is directed (cf. Definition \ref{directed_set_defn}).
 \end{empt}
+\begin{lemma}\label{top_coff_lem}
+The set
+\be\label{top_fxuc_eqn}
+\mathfrak F_c\left(\sX \right)\bydef \left\{\left.u_\la\in \mathfrak F \left(\sX	
+\right)\right| u^{-1}_\la\left(\left(0,1\right]\right) \mathrm{~is~connected}    \right\}
+\ee
+is a cofinal subset of $\mathfrak F_c\left(\sX \right)$.
+\end{lemma}
+\begin{proof}
+	For all $\mu\in\La$  $\supp u_\mu$ is compact.
+	From the Corollary \ref{top_comp_comm_cor} it follows that there is a connected compact set $\sY\subset \sX$ such that $\supp f_\mu \subset \sY$. If $u_\sY$ is a finite sum of $\sY$ (cf. Definition \ref{top_cfs_defn}) then $\supp u_\sY$ is connected (cf. Remark \ref{top_cfsc_rem}), i.e. $u_\sY \in \mathfrak F_c\left(\sX \right)$. On the other hand $u_\sY \in \left\{u_\la\right\}_{\la \in \La}$ and $\exists\nu\in \La\quad u_\sY= u_\nu$. From $u_\nu > u_\mu$ it turns that $\nu > \mu$.
+\end{proof}
 \begin{lemma}\label{comm_slfin_lem}
- In the above situation there is the  limit 
+ In the  situation \ref{top_ua_empt} there is the  limit 
 $$
 \bt\text{-}\lim_{\la\in \La}u_\la= 1_{C_b\left(\sX \right) }
 $$
@@ -6925,7 +6942,7 @@ If $x_0\in \sX$ be a point such that $\lim_{\la\in \La}u_\la\left(x_0\right) > 0
 u'_{\la_0}\in\mathfrak F,\\
 u'_{\la_0}\left(\sU \right) = \{1\}
 \eean
-(cf. \ref{top_ua_empt}).
+(cf. \ref{top_ua_empt}!!!).
 So the set
 $$
 \sV \bydef \left\{\left.x\in \sX	
@@ -10562,58 +10579,54 @@ Our following constructions require an analog of the Dini's theorem.
 
 \subsection{Hausdorff blowing-up and coverings}
 \paragraph*{}
-Let $A$ be a $C^*$-algebra, and let $\sX\bydef\hat A$ be its spectrum (cf. Definition \ref{equiv_repr_defn}). Suppose that there is a commutative $C^*$-subalgebra $C\cong C\left( \sY\right) \subset M\left(A \right)$ of the multiplier algebra. Any $y \in \sY$ corresponds  an ideal $I_y \subset C\left( \sY\right)$. There is a partial multi-valued mapping
-\bean
-t: \sY \to \sX,\\
-y \mapsto\left\{x \in \sX\left| \rep_x\left(I_y \right) \neq  \rep_x\left(C\left(\sY \right)  \right)\right.\right\}
-\eean
-where $\rep_x$ is given by \eqref{rep_x_eqn}.
-\begin{definition}\label{blowing_defn}
-	Any  commutative $C^*$-subalgebra $C\cong C_0\left( \sY\right) \subset M\left(A \right)$ is said to be  a \textit{Hausdorff blowing-up} of $A$ if following conditions hold the map $t$ is single-valued and surjective.
-	\begin{itemize}
-		\item The map $t$ is single-valued and surjective.
-		\item  If $\left\{f_\la\right\}_{\la\in \La}\subset C_c\left(\sY \right)_+$ is the described in \ref{comm_direct_empt} net (cf. Lemma \ref{comm_direct_lem}) then there is the  limit
-	\be\label{blowing_eqn}
-		1_{M\left(A \right)  }= \bt~\text{-}\lim_{\la \in \La }f_\la
-\ee
-		with respect to the strict topology of $M\left( A\right)$. 
-	\end{itemize}
-	
-	
-\end{definition}
 
-\begin{remark}
-	The motivation of the "blowing-up" word is inspired by algebraic geometry and used for excluding of singular points (cf. \cite{hartshorne:ag}).
-\end{remark}
-\begin{empt}
-	Let $A$ be a $C^*$-algebra, and let $C\cong C_0\left( \sY\right) \subset M\left(A \right)$  be  the {Hausdorff blowing-up} of $A$. Let $y\in\Dom t$ be such that and $I_y\subset C_0\left( \sY\right)$ is the corresponding to $y$ maximal ideal.
-	If $x = t\left(y\right)$ then $J_y\bydef \rep_x\left(I_y \right)$ is an ideal of $\rep_x\left(C_0\left( \sY\right)\right) $. If $J_y$ is not maximal ideal of $\rep_x\left(C_0\left( \sY\right)\right)$ then there is $b\in  C_0\left( \sY\right)$ such that $\rep_x\left( b\right)\notin J_y$  the generated by $\left\{\rep_x\left( b\right)\right\} \cup J_y$ set is an ideal of  $ C_0\left( \sY\right)$. Since $I_y$ is a maximal ideal and $b\notin I_y$ the generated by $I_y \cup\left\{b\right\}$ algebra coincides with $C_0\left( \sY\right)$ so he generated by $\left\{\rep_x\left( b\right)\right\} \cup J_y$ subalgebra is $\rep_x\left(C_0\left( \sY\right) \right)$ i.e. not own ideal. From this contradiction it follows that $J_y$ is a maximal ideal of $\rep_x\left(C_0\left( \sY\right) \right)$. It follows that  $\rep_x\left(C_0\left( \sY\right) \right)$ the commutative $C^*$-algebra of the space $t^{=1}\left( x\right)$.  
-	%For any $x \in \sX$ there is a commutative unital  $C^*$-algebra $\rep_x\left(C\left(\sY \right)  \right)$ which we denote by $C\left(\sY_x \right)$. If $y \in\sY$ is such that $p\left\left( y \right)  = x$ then $\rep_x\left( I_y\right)$ is an ideal of  
-\end{empt}
-\begin{empt}\label{blowing_cov_empt}
-Let $A$ be a $C^*$-algebra, and let $\sX\bydef\hat A$ be its spectrum (cf. Definition \ref{equiv_repr_defn}). Suppose that there is a {Hausdorff blowing-up}   $C_0\left( \sY\right) \subset M\left(A \right)$ of $A$. If $\left(A,\widetilde A, G, \pi \right)$ is a finite-fold pre-covering (cf. Definition \ref{fin_pre_defn}) then the Lemma \ref{cov_spectrum_lem} yields a continuous map $p: \widetilde \sX \to \sX$ where both $\sX$ and $\widetilde \sX$ are spectra of $A$ and  $\widetilde A$ respectively. From the Lemma \ref{ind_mult_inv_lem} it follows that there is the natural inclusion  $M\left({A} \right) \hookto M\left(\widetilde{A} \right)$ so there is the natural inclusion $C_0\left( \sY\right) \hookto M\left(\widetilde{A} \right)$. If
-\be\label{top_c_inc_eqn}
-\widetilde C \bydef \left\{\widetilde f \in M\left(\widetilde{A}\right) \left|~\forall \widetilde x \in \widetilde \sX \quad \rep_{ \widehat{x}}\left( f\right) \in \rep_{ \widehat{x}}\left( C_0\left( \sY\right)\right)\right.\right\}
-\ee
-then $\widetilde C$ is a commutative $C^*$-algebra because $\rep_{ \widehat{x}}\left( C_0\left( \sY\right)\right)$ is commutative for all $\widetilde x \in \widetilde \sX$. From \eqref{top_c_inc_eqn} it follows that there is the natural inclusion $\phi:C_0\left( \sY\right)\hookto 	C_0\left( \widetilde \sY\right)$.
-\end{empt}
-\begin{lemma}
-	Consider the situation \ref{blowing_cov_empt} and suppose that the following conditions hold:
+
+\begin{definition}\label{blowing_defn}
+	Any  commutative $C^*$-subalgebra $C\cong C_0\left( \sY\right) \subset M\left(A \right)$ is said to be  a \textit{Hausdorff blowing-up} of $A$  if there is the the strict topology (cf. Definition \ref{strict_topology})  limit
+	\be\label{blowing_eqn}
+	1_{M\left(A \right)  }= \bt~\text{-}\lim_{\la \in \La }u_\la
+	\ee
+ where $\mathfrak F\left(\sY \right) = \left\{u_\la\right\}_{\la\in \La}\subset C_c\left(\sY \right)_+$ is the given by \eqref{top_fxu_eqn} net.
+\end{definition}
+\begin{example}
+	If $A$ is a continuous trace $C^*$-algebra and $\sX$ is its spectrum then from \ref{dauns_hofmann_thm} and \ref{ctr_hat_check_thm} one has the natural inclusion $C_0\left(\sX \right) \hookto M\left( A\right)$. For all $a \in A$ and $\eps> 0$ the subset
+	$$
+	\sY \bydef \left\{\left.x \in \sX\right| \left\| \rep_x\left(a\right)\right\|\ge \eps \right\}\subset\sY
+	$$
+	is compact (cf. Lemma \ref{ctr_rep_eq_lem}). If $u_\la \in F\left(\sY \right)$ is covering sum for $\sY$ (cf. Definition \ref{top_cfs_defn}) then for any $\la'\ge\la$ one has
+	\bean
+	\left\|au_{\la' }- a \right\|< \eps \\
+	\left\|u_{\la' }a- a \right\|< \eps 
+	\eean
+	From the above equations there is the 	limit $
+	1_{M\left(A \right)  }= \bt~\text{-}\lim_{\la \in \La }u_\la
+	$
+	with respect to the strict topology (cf. Definition \ref{strict_topology}) of $M\left( A\right)$. It turns out that $C_0\left(\sX \right) \hookto M\left( A\right)$ is a {Hausdorff blowing-up} of $A$ (cf. Definition \ref{blowing_defn}).
+\end{example}
+\begin{theorem}\label{blowing_thm}
+	Let $\left(A,\widetilde A, G, \pi \right)$ be a finite-fold noncommutative pre-covering (cf. Definition \ref{fin_pre_defn}), and let $C_0\left( \sY\right)\hookto M\left(A \right)$ (resp. $C_0\left( \widetilde \sY\right)\hookto M\left(\widetilde A \right)$) be a blowing-up of $A$ (resp. $\widetilde A$)  such that 
 	\begin{itemize}
-		\item $\widetilde C= C_0\left( \widetilde \sY\right)\subset M\left(\widetilde A \right)$  a {Hausdorff blowing-up} of $\widetilde A$ (cf. Definition \ref{blowing_defn}).
-		\item  The natural action $G\times M\left(\widetilde A \right)\to M\left(\widetilde A \right)$ is such that $G C_0\left( \widetilde \sY\right)= C_0\left( \widetilde \sY\right)$ and any nontrivial $g\in G$ induces a nontrivial *-automorphism of $ C_0\left( \widetilde \sY\right)$.
-		\item The inclusion  $\phi:C_0\left( \sY\right)\hookto 	C_0\left( \widetilde \sY\right)$ induces a finite-fold covering $p:\widetilde \sY\to\sX$. 
+		\item $\widetilde A$ is a connected $C^*$-algebra (cf. Definition \ref{conn_c_a_defn}).
+		\item If $\phi: M\left(A \right)\hookto M\left(\widetilde A\right)$  is given by the Lemma \ref{ind_mult_inv_lem} then $\phi\left( C_0\left( \sY\right)\right) \subset C_0\left( \widetilde\sY\right)$ and there is a finite-fold covering $p: \widetilde\sY\to\sY$ such that $\left.\phi\right|_{ C_0\left( \sY\right)}= C_0\left( p\right)$.
+		\item The natural action $G\times M\left(\widetilde A \right)\to M\left(\widetilde A \right)$ is such that $G C_0\left( \widetilde \sY\right)= C_0\left( \widetilde \sY\right)$ and any nontrivial $g\in G$ induces a nontrivial homeomorphism of $ \widetilde \sY$.
 	\end{itemize}
-Then $\left(A,\widetilde A, G, \pi \right)$ is a noncommutative finite-fold covering (cf. Definition \ref{fin_defn}).
-\end{lemma}
-\begin{proof} $\left\{u_\la\right\}_{\la\in \La}\subset C_c\left(\sY \right)_+$ is the described in \ref{comm_direct_empt} net. 
+ Then $\left(A,\widetilde A, G, \pi \right)$ be a finite-fold noncommutative covering (cf. Definition \ref{fin_defn}).
+\end{theorem}
+\begin{proof} !!! CHECK PROOF
+	From $M\left(A \right)\cong M\left(\widetilde A\right)^G$ it follows that $C_0\left(  \sY\right)\cong C_0\left( \widetilde \sY\right)^G$, so one has $\sY \cong \widetilde \sY/G$ and $G\cong G\left(\left.\widetilde \sY\right| \sY \right)$. 
+If   $\mathfrak F_c\left(\sY \right) = \left\{u_\la\right\}_{\la\in \La}\subset C_c\left(\sY \right)_+$ is the given by \eqref{top_fxuc_eqn} net then form \eqref{blowing_eqn} and the Lemma \ref{top_coff_lem} it turns out that $	1_{M\left(A \right)  }= \bt~\text{-}\lim_{\la \in \La }u_\la$.
+
 	If 
 	\bean
 	\sU_\la \bydef \left\{\left.x \in \sX\right| u_\la\left(x \right)> 0 \right\},\\
 	\widetilde\sU_\la \bydef \left\{\left.\widetilde x \in \widetilde \sX\right|\phi\circ u_\la\left(\widetilde x \right)> 0 \right\}.
 	\eean
 	then both $\sU_\la$ and $\widetilde \sU_\la$ are dense subsets of $\supp u_\la$ and $\supp \phi\circ u_\la$ respectively. 
-Let  $\la\in\La$ and let both $A_\la$ and  $\widetilde A_\la$ are $C^*$-norm completions  of $u_\la A u_\la$ and  $u_\la\widetilde{A}u_\la$ respectively. There are natural inclusions
+If  $\la\in\La$ and  both $A_\la$ and  $\widetilde A_\la$ are $C^*$-norm completions  of $u_\la A u_\la$ and  $u_\la\widetilde{A}u_\la$ respectively, then there is a finite-fold pre-covering PROOF!!!
+$\left(A_\la,\widetilde A_\la, G, \pi|_{A_\la} \right)$.
+
+
+There are natural inclusions
 \bean
 C\left(\supp  u_\la \right) \subset M\left(  A_\la\right),\\ 
 C\left(\supp \phi\circ u_\la \right) \subset M\left( \widetilde A_\la\right),\\ 
@@ -10621,7 +10634,7 @@ C\left(\supp \phi\circ u_\la \right) \subset M\left( \widetilde A_\la\right),\\
 Put $B_\la\subset  M\left(  A_\la\right) $ and $\widetilde B_\la \subset M\left( \widetilde A_\la\right)$ the $C^*$-albebras generated by  of $A_\la \cup C\left(\supp  u_\la \right)$ and  $\widetilde A_\la \cup C\left(\supp \phi\circ u_\la \right)$ respectively.
 There is a covering $p|_{\supp \phi\circ u_\la}: \supp \phi\circ u_\la\to \supp  u_\la$ of compact spaces, so $C\left(\supp \phi\circ u_\la\right)$ is a finitely generated $C\left( u_\la\right)$-module (cf. Theorem \ref{pavlov_troisky_thm}). Hence from  \ref{ctr_unity_empt} it follows that there is a finite sum
 \be\label{ctr_unity_sum_eqn}
-1_{C\left(\phi\circ u_\la \right) }= \sum_{\widetilde\a \in \widetilde{\mathscr A} }\widetilde{e}^2_{\widetilde{\a}}\quad \widetilde{e}_{\widetilde{\a}}\in C\left(\phi\circ u_\la\right)
+1_{C\left(\phi\circ u_\la \right) }= \sum_{\widetilde\a \in \widetilde{\mathscr A} }\widetilde{e}^2_{\widetilde{\a}}\quad \widetilde{e}_{\widetilde{\a}}\in C\left(\supp \phi\circ u_\la\right)
 \ee
 such that 		for any nontrivial $g\in G$	one has
 \be\label{ctr_unity_orth_eqn}
@@ -10641,30 +10654,16 @@ From the equations \ref{ctr_unity_orthx_eqn} and \ref{ctr_unity_orthx_eqn} it fo
 $$
 \widetilde a = \sum_{\widetilde\a \in \widetilde{\mathscr A} }\widetilde{e}_{\widetilde{\a}} a_\a\quad\text{where}\quad a_\a \bydef \sum_{g\in G\left(\left.\widetilde \sX \right|\sX \right)}g\left( \widetilde{e}_{\widetilde{\a}}\widetilde a\right)\in B_\la, 
 $$
-i.e. $\widetilde B_\la$ is a finitely generated $B_\la$-module. So $\left(B_\la, \widetilde B_\la,G\right)$ is an unital noncommutative finite fold covering (cf. Definition \ref{fin_uni_defn}). 
-Let us check that $\left(A,\widetilde A, G, \pi \right)$ 
-
-!!!!
-From $ B_\la \cap \widetilde A_0\left(\widetilde \sX \right)=A$ and $G\left(\left.\widetilde \sX \right|\sX \right) \times A_0\left(\widetilde \sX \right)= A_0\left(\widetilde \sX \right)$ it follows that $\left( A,A_0\left(\widetilde \sX \right) , G\left(\left.\widetilde \sX \right|\sX \right) , A_0\left( p\right)  \right)$ is a noncommutative finite-fold covering with unitization.\\
-
-
-\begin{definition}\label{fin_defn!}
-	A noncommutative finite-fold  pre-covering  $\left(A, \widetilde{A}, G, \pi \right)$  of $C^*$-algebras $A$ and $\widetilde{A}$  is said to be   \textit{noncommutative finite-fold covering} if there is an increasing net $\left\{u_\la\right\}_{\la\in\La}\subset M\left( A\right)_+ $  of positive elements such that
-	\begin{enumerate}
-		\item[(a)] There is the limit 
-		\be\label{fin_u_eqn!}
-		\bt\text{-}\lim_{\la \in \La} u_\la = 1_{M\left(A \right) }
-		\ee
-		in the strict topology of $M\left(A \right)$ (cf. Definition \ref{strict_topology}).
-		\item[(b)]  If for all   $\la\in\La$ both $A_\la$ and  $\widetilde A_\la$ are $C^*$-norm completions  of $u_\la A u_\la$ and  $u_\la\widetilde{A}u_\la$ respectively then for every $\la\in\La$ a quadruple
-		$$
-		\left(A_\la, \widetilde{A}_\la, G, \left.\pi\right|_{A_\la} :A_\la\hookto \widetilde{A}_\la\right)	
-		$$
-		is a noncommutative finite-fold covering with unitization. The action 	$G \times \widetilde{A}_\la\to \widetilde{A}_\la$, is the restriction on $\widetilde{A}_\la\subset \widetilde{   A}$ of the action $G\times  \widetilde{A}\to \widetilde{A}$.
-		\item[(c)] The $C^*$-algebra $\widetilde A$ is connected (cf. Definition \ref{conn_c_a_defn}).
-	\end{enumerate}
-	
-\end{definition}
+i.e. $\widetilde B_\la$ is a finitely generated $B_\la$-module. 
+So $\left(B_\la, \widetilde B_\la,G, \widetilde \pi_\la\right)$ is an unital noncommutative finite fold covering (cf. Definition \ref{fin_uni_defn}). 
+From  $B_\la\subset  M\left(  A_\la\right) $ and $\widetilde B_\la \subset M\left( \widetilde A_\la\right)$ it turns out that both   $A_\la$ and $\widetilde A_\la$ are essentials ideal of  $B_\la$ and $\widetilde B_\la$ respectively. From the above construction if follows that 
+$\left(A_\la,\widetilde A_\la, G, \pi|_{A_\la} \right)$ is  a noncommutative finite-fold covering with unitization (cf. Definition \ref{fin_comp_defn})
+Let us prove that $\left(A_\la,\widetilde A_\la, G, \pi|_{A_\la} \right)$ satisfies to (a) - (c) of the Definition \ref{fin_defn}.
+\begin{enumerate}
+	\item [(a)] Follows from  \eqref{blowing_eqn} and the Lemma \ref{top_coff_lem}.
+	\item [(b)] Follows from the above construction, i.e. for all $\la \in \La$ a quadruple $\left(A_\la,\widetilde A_\la, G, \pi|_{A_\la} \right)$ is  a noncommutative finite-fold covering with unitization.
+	\item[(c)] Follows from the conditions of this lemma.
+\end{enumerate}
 
 
 \end{proof}
@@ -10882,20 +10881,21 @@ Let $\widetilde \sX$ be the spectrum of $\widetilde{A}$ and let $\widetilde x\in
 	Let  $A$ be a separable $C^*$-algebra with continuous trace and $\sX$  is a spectrum of $A$. If $\sX$ is compact
 	there is 1-1 correspondence between transitive coverings $\widetilde \sX \to \sX$ and noncommutative finite-fold coverings $\left(A, \widetilde A, G, \pi \right)$ with unitization (cf. Definition \ref{fin_comp_defn}).
 	The correspondence is given by
-	\bea\label{ctr_spc_to_a_eqn}
-	\left(p: \widetilde \sX \to \sX \right)\mapsto \left(A, A_0\left(\widetilde \sX \right) , G\left(\left.\widetilde \sX \right|\sX \right) , A_0\left( p\right)  \right),\\
+	\bea
+	%\label{ctr_spc_to_a_eqn}
+%	\left(p: \widetilde \sX \to \sX \right)\mapsto \left(A, A_0\left(\widetilde \sX \right) , G\left(\left.\widetilde \sX \right|\sX \right) , A_0\left( p\right)  \right),\\
 	\label{ctr_a_to_spc_eqn}
 	\left(A, \widetilde A, G, \pi \right) \mapsto \left(\mathrm{the~ given~ by~the~equation~}\eqref{cov_spectrum_eqn} \mathrm{~map~} p: \widetilde \sX \to \sX \right).    
 	\eea	
 \end{corollary}
 \begin{proof}
-	Firstly we proof that the right part of \ref{ctr_spc_to_a_eqn} is a covering with unitization. Clearly  $\left(A, A_0\left(\widetilde \sX \right) , G\left(\left.\widetilde \sX \right|\sX \right) , A_0\left( p\right)  \right)$ is a noncommutative finite-fold precovering. From the Theorems  \ref{dauns_hofmann_thm} \ref{ctr_hat_check_thm} it follows that there is the inclusion $C\left(\sX \right)\to M\left( A \right)$ and $C\left(\widetilde \sX\right) \to M\left(A_0\left(\widetilde \sX \right) \right)$. Let both $B$ and $\widetilde B$ are $C^*$-subalgebras of $M\left( A \right)$ and $M\left(\widetilde A \right)$ generated by $A\cup C\left(\sX \right)$ and $A_0\left(\widetilde \sX \right)\cup C\left(\widetilde \sX\right)$ respectively.  The *-homomorphism $M\left( A \right)\hookto M\left(\widetilde A \right)$ naturally induces the injective *-homomorphism $\widetilde\pi: B\hookto \widetilde B$. The quadruple $\left(B, \widetilde B,G\left(\left.\widetilde \sX \right|\sX \right),  \widetilde\pi\right)$ is a precovering. !!!!	
+!!!REPLACE	Firstly we proof that the right part of \ref{ctr_spc_to_a_eqn} is a covering with unitization. Clearly  $\left(A, A_0\left(\widetilde \sX \right) , G\left(\left.\widetilde \sX \right|\sX \right) , A_0\left( p\right)  \right)$ is a noncommutative finite-fold precovering. From the Theorems  \ref{dauns_hofmann_thm} \ref{ctr_hat_check_thm} it follows that there is the inclusion $C\left(\sX \right)\to M\left( A \right)$ and $C\left(\widetilde \sX\right) \to M\left(A_0\left(\widetilde \sX \right) \right)$. Let both $B$ and $\widetilde B$ are $C^*$-subalgebras of $M\left( A \right)$ and $M\left(\widetilde A \right)$ generated by $A\cup C\left(\sX \right)$ and $A_0\left(\widetilde \sX \right)\cup C\left(\widetilde \sX\right)$ respectively.  The *-homomorphism $M\left( A \right)\hookto M\left(\widetilde A \right)$ naturally induces the injective *-homomorphism $\widetilde\pi: B\hookto \widetilde B$. The quadruple $\left(B, \widetilde B,G\left(\left.\widetilde \sX \right|\sX \right),  \widetilde\pi\right)$ is a precovering. !!!!	
 	From Corollary \ref{ctr_uni_cov_cor} it follows that the image of the map \eqref{ctr_a_to_spc_eqn} contains finite-fold transitive coverings only.
 \end{proof}
 
 
 
-\begin{corollary}\label{comp_axc_cor}
+\begin{corollary}!!!REPLACE\label{comp_axc_cor}
 Let  $A$ be a separable continuous trace $C^*$-algebra  such that the spectrum  $\sX$ of $A$ is compact. If $\sU \subset \sX$ is a dense open subspace and $\left.A\right|_{\sU}\subset A$ is the given by \eqref{open_ideal_eqn} two sided ideal. For any finite-fold transitive covering $p: \widetilde \sX \to \sX$  the quadruple
 \be\label{ctr_uni_eqn}
 \left(\left.A\right|_{\sU},  \left.A_0\left(\widetilde \sX\right) \right|_{p^{-1}\left( \sU\right)},G\left(\left.\widetilde \sX \right|\sX \right), \left.A_0\left( p\right) \right|_{\left.A\right|_{\sU}} \right)
@@ -10915,7 +10915,7 @@ is a noncommutative finite-fold covering  with unitization (cf. Definition \ref{
 
 
 
-\begin{theorem}\label{ctr_fin_thm}
+\begin{theorem}!!!REPLACE\label{ctr_fin_thm}
 	Let  $A$ be  a separable continuous trace $C^*$-algebra and $\sX$  is a spectrum of $A$. Suppose that $\mathcal X$ be a locally compact, connected, locally connected, second-countable, Hausdorff space. 
 	There is 1-1 correspondence between finite-fold transitive coverings $\widetilde \sX \to \sX$ with  and finite-fold noncommutative coverings $\left(A, \widetilde A, G, \pi \right)$.
 	The correspondence is given by
@@ -10937,7 +10937,7 @@ is a noncommutative finite-fold covering  with unitization (cf. Definition \ref{
 		$$
 	\forall\mu,\nu \in \La \quad \mu \ge \nu \quad \Leftrightarrow u_\mu \ge u_\nu	
 		$$ 
-		then $\La$ is a directed set (cf. Definition \ref{directed_set_defn}). Similarly to the proof of the Lemma \ref{comm_slfin_lem} one can prove that there is a following strict limit
+		then $\La$ is a directed set (cf. Definition \ref{directed_set_defn}). Similarly to the !!! proof of the Lemma \ref{comm_slfin_lem} one can prove that there is a following strict limit
 \be	\label{ctr_fn_bt_lim_eqn}
 	\bt\text{-}\lim_{\la \in \La }u_\la = 1_{C_b\left( \sX\right)} = 1_{M\left(A \right) }
 \ee
@@ -13107,15 +13107,24 @@ every $f \in \Coo_b\left( M\right)$ is a multiplier of $C^*_r \left(M, \mathcal{
 C_b\left( M\right)\subset M\left(C^*_r \left(M, \mathcal{F}\right) \right).
 \ee
 \begin{lemma}\label{foli_slfin_lem}
-For any positive $a\in C^*_r \left(M, \mathcal{F}\right)$ and $\eps > 0$ there is a positive $f \in C_c\left( M\right)_+$ such that
-\bean
-f\left( M\right) = \left[0, 1\right],\\
-\left\| faf - a\right\| < \eps.
-\eean
-and $\supp f$ is a connected set.
+Following conditions hold:
+\begin{enumerate}
+	\item[(a)] For any positive $a\in C^*_r \left(M, \mathcal{F}\right)$ and $\eps > 0$ there is a positive $f \in C_c\left( M\right)_+$ such that
+	\bean
+	f\left( M\right) = \left[0, 1\right],\\
+	\left\| faf - a\right\| < \eps.
+	\eean
+	and $\supp f$ is a connected set.
+	\item[(b)] If $\mathfrak F\left(M \right) = \left\{u_\la\right\}_{\la\in \La}\subset C_c\left(M \right)_+$ is the given by \eqref{top_fxu_eqn} net then there is the following  net\ref{strict_topology})  limit
+	\be\label{ctr_blowing_eqn}
+	1_{M\left(C^*_r \left(M, \mathcal{F}\right)\right)  }= \bt~\text{-}\lim_{\la \in \La }u_\la
+	\ee
+	with respect to the strict topology of  $M\left(C^*_r \left(M, \mathcal{F}\right)\right)$ (cf. Definition  \ref{strict_topology})
+\end{enumerate}
+
 \end{lemma}
 \begin{proof}
-Let $\eps > 0$ be given. From the Corollary \ref{foli_cov_alg_cor} it follows that there is $b \in C^*_r \left(M, \mathcal{F}\right)$ such that
+(i) Let $\eps > 0$ be given. From the Corollary \ref{foli_cov_alg_cor} it follows that there is $b \in C^*_r \left(M, \mathcal{F}\right)$ such that
 	\bean
 b = \sum^n_{k = 1} j_{\sU_{\iota_{k,0}}}\left(  a_{ \iota_{k,0}}\right) \cdot ...\cdot j_{\sU_{\iota_{k,j_k}}}\left(  a_{ \iota_{k,j_k}}\right), \quad a_{ \iota_{k,j_l}}\in   \Ga_c\left(  \G\left(\sU_{ \iota_{j,l}} \right) , \widetilde \Om^{1/2}\right),\\
 \left\|a-b\right\| < \frac{\eps}{2}.
@@ -13135,7 +13144,25 @@ If follows that
 \bean
  \left\| faf - a\right\|\le \left\| faf - fbf\right\|+ \left\| fbf  -b\right\|+ \left\|b - a\right\|= \\=\left\| faf - fbf\right\|+  \left\|b - a\right\|<\eps.
 \eean
+(b) From the definition of $f$ it follows that $\exists \la_0 \in \La$ such that $f= u_{\la_0}$. For all $\la\ge\la_0$ from $\left\|u_\la \right\|= 1$ and
+\bean
+\left\|u_\la\left( a-b\right) \right\|=  \left\|u_\la a- u_\la b\right\|< \left\|a-b\right\|< \frac{\eps}{2}~.
+\eean
+it follows that
+\bean
+\left\| u_\la a - a\right\|\le \left\| u_\la a - u_\la b\right\|+ \left\| u_\la b  -b\right\|+ \left\|b - a\right\|= \\=\left\| u_\la a - u_\la b\right\|+  \left\|b - a\right\|<\eps.
+\eean
+Similarly one  has
+\bean
+\left\|a u_\la  - a\right\|<\eps,
+\eean
+it follows that
+$	1_{M\left(C^*_r \left(M, \mathcal{F}\right)\right)  }= \bt~\text{-}\lim_{\la \in \La }u_\la$'
+
 \end{proof}
+\begin{corollary}\label{foli_slfin_cor}
+If an inclusion $C_0\left( M\right)\subset M\left(C^*_r \left(M, \mathcal{F}\right) \right)$ comes from \eqref{foli_center_eqn} then it is  a \textit{Hausdorff blowing-up} of $C^*_r \left(M, \mathcal{F}\right)$ (cf. Definition \ref{blowing_defn}).
+\end{corollary}
 
 \section{Finite-fold coverings}
 \subsection{Coverings of $C^*$-algebras}
@@ -13179,96 +13206,20 @@ From $\left\|\widetilde b-\widetilde a \right\| < \eps$ if follows $\left\| b-\w
 
 
 \end{proof}
-\begin{lemma}\label{foli_quasi_lem}
-	Let  $\left(M, \sF \right)$ is a foliated manifold, and  let $p:\left(M, \sF \right)\to \left(\widetilde{M},\widetilde{\sF}\right)$ is a regular finite-fold covering of foliation (cf. Definition \ref{foli_reg_cov_defn}).
-	Suppose $u \in C_c\left(M \right)_+$ is such that the set $\sU\bydef\left\{\left.x \in M\right| u\left( x\right) > 0\right\}$ is connected. If both $A$ and $\widetilde A$ are $C^*$-norm completions of $uC^*_r\left(M, \sF \right)u$ and $uC^*_r\left(\widetilde M, \widetilde\sF \right)u$ then there is a finite fold covering with unitization (cf. Definition \ref{fin_comp_defn}) given by
-	$$
-\left(A, \widetilde{A},G\left( \left.\widetilde{M}~\right|M\right), \pi\right)
-	$$
-\end{lemma}
-\begin{proof}
-	The natural inclusion $uC^*_r\left(M, \sF \right)u\hookto uC^*_r\left(\widetilde M, \widetilde\sF \right)u$ uniquely defines an injective *-homomorphism $\pi: A \hookto\widetilde A$. 	Similarly to the Lemma \ref{foli_pre_lem} one can proof that the quadruple  $\left(A, \widetilde{A},G\left( \left.\widetilde{M}~\right|M\right), \pi\right)$   is a noncommutative finite-fold  pre-covering (cf. Definition \ref{fin_pre_defn}).
-If  $\widetilde\sU \bydef p^{-1}\left(\sU \right)$ then the restriction $p_{\widetilde\sU} : \widetilde\sU\to\sU$ is a covering. Since $\sU$ is connected one has $G\left( \left.\widetilde{\sU}~\right|\sU\right)\cong G\left( \left.\widetilde{M}~\right|M\right)$. The actions $G\left( \left.\widetilde{M}~\right|M\right)\times \widetilde M\to \widetilde M$ and $G\left( \left.\widetilde{\sU}~\right|\sU\right)\times \widetilde \sU\to \widetilde \sU$ induce the action 
-$G\left( \left.\widetilde{M}~\right|M\right)\times \widetilde A\to \widetilde A$. 
-
-  Similarly to the equation \eqref{foli_center_eqn} one can proof that
-\bean
-C\left(\supp u \right) \subset M\left( A \right),\\
-C\left(p^{-1}\left( \supp u \right) \right) \subset M\left(\widetilde A \right).
-\eean
-If $B\subset M\left( A \right)$ and $\widetilde B\subset M\left(\widetilde A \right)$ a $C^*$ - algebras generated by $C\left(\supp u \right)\cup A$ and $C\left(p^{-1}\left( \supp u \right) \right)\cup \widetilde A$ then both $B$ and $B$ are unital. Let us prove that $\left(A, \widetilde{A},G\left( \left.\widetilde{M}~\right|M\right), \pi\right)$ satisfies to the conditions (a), (b) of the Definition \ref{fin_comp_defn}
-\begin{enumerate}
-	\item[(a)] Both $A$ and $\widetilde A$ are essential ideals of $B$ and $\widetilde B$, there are unitizations $A \hookto B$, so $\widetilde{A} \hookto \widetilde{B}$.
-	\item[(b)]   One need check that the triple
-	\be\label{foli_ext_uni_eqn}
-	\left( B, \widetilde B, G\left(\left.\widetilde{M}~\right|M\right)\right) 
-	\ee
-	is a 	unital  noncommutative finite-fold quasi-covering.
-	From  \ref{ctr_unity_empt} it follows that there is a finite set $\set{\widetilde{e}_{{\a}}}_{\a \in \mathscr A} \subset C\left(p^{-1}\left(\supp u \right)  \right)$ which satisfies to the following equations
-	\be\label{foli_unity_sum_eqn}
-	1_{C\left(p^{-1}\left(\supp u \right)  \right) }= \sum_{\a \in {\mathscr A} }\widetilde{e}^2_{{\a}}
-	\ee
-	\be\label{foli_unity_orth_eqn}
-	\begin{split}
-		\widetilde{e}_{{\a}}	\left(g \widetilde{e}_{{\a}} \right) = 0; \quad \text{ for any notrivial } g \in G\left(\left.\widetilde{M}~\right|M\right).
-	\end{split}
-	\ee
-	If $\widetilde{a} \in \widetilde B$ then from \eqref{foli_unity_sum_eqn} it turns out that
-	$$
-	\widetilde{a} = \sum_{\a \in {\mathscr A}} \widetilde{e}_{{\a}}\left( \widetilde{e}_{{\a}} \widetilde{a}\right).
-	$$
-	Otherwise from \eqref{foli_unity_orth_eqn} it follows that  $\widetilde{e}_{{\a}}\left(g \left(\widetilde{e}_{{\a}} \widetilde{a}\right)\right) = 0$	\text{ for any notrivial } $g \in G\left(\left.\widetilde{M}~\right|M\right)$, it turns out
-	\bean
-	\widetilde{e}_{{\a}}\left( \widetilde{e}_{{\a}} \widetilde{a}\right) = \widetilde{e}_{{\a}}\sum_{g \in G\left(\left.\widetilde{M}~\right|M\right)}g\left( \widetilde{e}_{{\a}} \widetilde{a}\right),\\
-	\widetilde a = \sum_{\a \in {\mathscr A}} \widetilde{e}_{{\a}}a_\a;\quad \text{where}\quad a_\a \bydef \sum_{g \in G\left(\left.\widetilde{M}~\right|M\right)}g \left( \widetilde{e}_{{\a}}\widetilde a\right) \in B.
-	\eean
-So  $\widetilde B$ is a  $B$-module generated by the finite set $\set{\widetilde{e}_{{\a}}}$.
-Taking into account  $B = \widetilde B^{G\left(\left.\widetilde{M}~\right|M\right)}$ on concludes that the triple is a 	unital  noncommutative finite-fold quasi-covering.
-	
-\end{enumerate}
-
-
-\end{proof}
-
+If $C^*_r\left( M, \mathcal{F}\right)$ is a reduced foliation $C^*$-algebra then from \eqref{foli_center_eqn}  it turns out that there is an inclusion
+\be\label{foli_center0_eqn}
+C_0\left( M\right)\subset M\left(C^*_r \left(M, \mathcal{F}\right) \right).
+\ee
+If $f\in C_b\left( M\right)_+$ is a positive element and $\sU \bydef \left\{\left. x \in M\right|f\left(x\right)> 0 \right\}$
+then $C^*_r\left(\sU, \mathcal{F}|_{\sU}\right)$ is the $C^*$-norm completion of $uC^*_r\left( M, \mathcal{F}\right)u$. On the other hand there is an inclusion $C_0\left(\sU \right) \subset M\left( C^*_r\left(\sU, \mathcal{F}|_{\sU}\right)\right)$. Similarly to the Corollary \ref{foli_slfin_cor} one can obtain the following proposition.
+\begin{proposition}\label{foli_slfin_prop}
+In the above situation an inclusion $C_0\left(\sU \right) \subset M\left( C^*_r\left(\sU, \mathcal{F}|_{\sU}\right)\right)$ is a {Hausdorff blowing-up} of $\left( C^*_r\left(\sU, \mathcal{F}|_{\sU}\right)\right)$ (cf. Definition \ref{blowing_defn}) 
+\end{proposition}
 \begin{theorem}\label{foli_fin_thm}
 Let $\left(\widetilde{M},~ \widetilde{\mathcal F} \right)\to \left({M},~ {\mathcal F} \right)$ be a regular finite-fold covering of foliated spaces (cf. Definition \ref{foli_reg_cov_defn}). If  both $M$ and $\widetilde M$ are connected then the quadruple  $$\left(	C^*_r\left( M, \mathcal{F}\right),  C^*_r\left(\widetilde{M},~ \widetilde{\mathcal F} \right),{G\left( \left.\widetilde{M}~\right|M\right)}, C^*_r\left( p\right)  \right)$$ is a noncommutative finite-fold covering (cf. Definition \ref{fin_defn}).
 \end{theorem}
 \begin{proof}
-From the Lemma \ref{foli_pre_lem} it follows that the quadruple	$$\left(	C^*_r\left( M, \mathcal{F}\right),  C^*_r\left(\widetilde{M},~ \widetilde{\mathcal F} \right),{G\left( \left.\widetilde{M}~\right|M\right)}, C^*_r\left( p\right)  \right)$$
-is a	noncommutative finite-fold  pre-covering (cf. Definition \ref{fin_pre_defn}).
-$  $Let   $\set{u_\la}_{\la \in \La}\subset C_c\left( M\right) $ be  a family defined in \ref{top_ua_empt}.
-Let us check  that the net $\set{u_\la}$ satisfies to the conditions (a)-(c) of the Definition \ref{fin_defn}. 
-\begin{enumerate}
-	\item [(a)] If $a \in C^*_r\left( M, \mathcal{F}\right)$ then for all $\eps > 0$ there is $a'\in \Ga_c\left( \G\left( M, \mathcal{F}\right),\Om^{1/2}\right)$ such that $\left\| a - a'\right\| < \eps$ (cf. Definition \ref{foli_red_defn}). If $\sV \bydef \supp a'\subset \G\left( M, \mathcal{F}\right)$ then $\sV$ is compact. It follows that both $s\left( \sV\right)\subset M$ and $r\left( \sV\right)\subset M$ are compact. So $\sU\bydef s\left( \sV\right)\cup r\left( \sV\right)$ is compact. From the proof of the Lemma \ref{foli_slfin_lem} it follows that there is $\la_\sU \in \La$ such that
-	$$
-	\forall \la\ge\la_\sU \quad u_\la\left( \sU\right) = 1
-	$$
-	so one has
-	$$
-	\forall \la\ge\la_\sU \quad  u_\la a' = a'u_\la = a'
-	$$
-	It turns out that
-	\bean
-	\la \ge\la_\sU \Rightarrow \left\| u_\la a - a \right\|=  \left\|a - a' - u_\la a + u_\la a'\right\|= \\=\left\|\left(1 - u_\la \right) \left( a - a'\right)\right\|\le \left\|1 - u_\la\right\|\left\| a - a'\right\|.
-	\eean 
-Taking into account $\left\| a - a'\right\| < \eps$,  $\left\|1 - u_\la\right\| =1$
-	one has 
-	$$
-		\forall \la\ge\la_\sU \quad \left\| u_\la a - a \right\|< \eps.
-	$$
-	Similarly one can show that
-	$$
-\forall \la\ge\la_\sU \quad \left\| a u_\la  - a \right\|< \eps.
-$$
-	
-From the above equations it follows that there is the limit
-	$$
-	\bt\text{-}\lim_{\la\in \La}u_\la= 1_{M\left( C^*_r\left( M, \mathcal{F}\right)\right) }
-	$$
-	with respect to the strict topology of $M\left( C^*_r\left( M, \mathcal{F}\right)\right)$ (cf. Definition \ref{strict_topology}).
-\item[(b)] Follows from the Lemma \ref{foli_quasi_lem}.
-\item[(c)] The manifold $\widetilde{M}$ is connected so the $C^*$-algebra $C^*_r\left(\widetilde{M},~ \widetilde{\mathcal F} \right)$ is connected.
-\end{enumerate}	
+	Follows from the Proposition \ref{foli_slfin_prop} and the Theorem \ref{blowing_thm}.
 \end{proof}
 \begin{empt}\label{foli_fin_empt}
 Let $p:\left(\widetilde{M},~ \widetilde{\mathcal F} \right)\to \left({M},~ {\mathcal F} \right)$ be a regular  covering of foliated spaces (cf. Definition \ref{foli_reg_cov_defn}). Suppose that $N$ is a complete transversal (cf. Remark \ref{foli_comp_trans_rem}). If $\widetilde N \bydef p^{-1}\left(N \right) \subset \widetilde M$ then $\widetilde N$ meets any leaf of $\left(\widetilde{M},~ \widetilde{\mathcal F} \right)$ i.e. $\widetilde N$ is a complete transversal. If both $\G^N_N$ and $\G^{\widetilde N}_{\widetilde N}$ are given by \eqref{foli_gnn_eqn} then the map $p$ yields a surjective homomorphism $p_\G:\G^{\widetilde N}_{\widetilde N}\to \G^{ N}_{ N}$ of groupoids that is; $p_\G$ a functor between small categories. The functor induces an injecive *-homomorphism $\pi_\G: C^*_r\left(\G^{ N}_{ N}\right)\hookto C^*_r\left(\G^{\widetilde N}_{\widetilde N}\right)$. From  the Lemma \ref{foli_stab_lem} it follows that there are *-isomorphisms

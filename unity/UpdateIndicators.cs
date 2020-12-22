@@ -28,6 +28,8 @@ namespace Unity.Standard
 
         private IIndicator indicator;
 
+        static  internal  double bound = 20;
+
 
         #endregion
 
@@ -107,8 +109,7 @@ namespace Unity.Standard
             }
         }
 
-        const double bound = 20;
-
+ 
         bool Start()
         {
             object o = indicator.Value;
