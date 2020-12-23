@@ -10476,6 +10476,20 @@ If the spectrum of  $C^*$-algebra $A$ is Hausdorff then $A$ possess  a family of
 	\ee
 	where $\mathfrak F\left(\sY \right) = \left\{u_\la\right\}_{\la\in \La}\subset C_c\left(\sY \right)_+$ is the given by \eqref{top_fxu_eqn} net.
 \end{definition}
+
+\begin{empt}
+	Let  $C\left( \sY\right)\hookto M\left( A\right) $ be a blowing-up of $A$. For any open subset $\sU \subset \sY$ put
+	\be\label{blowig_su_eqn}
+	A_\sU \bydef \left\{\left.a \in A\right|\forall f \in C_b\left( \right) \quad f\left(\sU \right)= 1 \Rightarrow faf = a \right\}
+	\ee
+\end{empt}
+\begin{definition}\label{blowing_good_defn}
+A Hausdorff blowing-up	$C\cong C_0\left( \sY\right) \subset M\left(A \right)$ is said to be \textit{good} if for any family of open sets $\left\{\sU_\a\subset \sX\right\}$ such that $\sX = \cup\sU_\a$ the set $\sigma A_{\sU_\a}$ generates $A$ as $C^*$-algebra.
+\end{definition}
+\begin{remark}\label{blowing_good_rem}
+	If $\sX = \cup\sU_\bt$ is such that for all $\a$ there is $\bt$ such that $\sU_\bt \subset \sU_\a$ and $\sigma A_{\sU_\bt}$ generates $A$ then  $\sigma A_{\sU_\a}$ generates $A$.  
+\end{remark}
+
 \begin{example}
 	If $A$ is a continuous trace $C^*$-algebra and $\sX$ is its spectrum then from \ref{dauns_hofmann_thm} and \ref{ctr_hat_check_thm} one has the natural inclusion $C_0\left(\sX \right) \hookto M\left( A\right)$. For all $a \in A$ and $\eps> 0$ the subset
 	$$
@@ -10491,6 +10505,8 @@ If the spectrum of  $C^*$-algebra $A$ is Hausdorff then $A$ possess  a family of
 	$
 	with respect to the strict topology (cf. Definition \ref{strict_topology}) of $M\left( A\right)$. It turns out that $C_0\left(\sX \right) \hookto M\left( A\right)$ is a {Hausdorff blowing-up} of $A$ (cf. Definition \ref{blowing_defn}).
 \end{example}
+
+
 \section{Applications to finite-fold coverings}
 \begin{theorem}\label{blowing_thm}
 	Let $\left(A,\widetilde A, G, \pi \right)$ be a finite-fold noncommutative pre-covering (cf. Definition \ref{fin_pre_defn}), and let $C_0\left( \sY\right)\hookto M\left(A \right)$ (resp. $C_0\left( \widetilde \sY\right)\hookto M\left(\widetilde A \right)$) be a blowing-up of $A$ (resp. $\widetilde A$)  such that 
@@ -10556,35 +10572,30 @@ If the spectrum of  $C^*$-algebra $A$ is Hausdorff then $A$ possess  a family of
 	
 	
 \end{proof}
-\begin{definition}\label{fin_uni_defn!}
-	Let $\left(A, \widetilde{A}, G, \pi \right)$ be a  noncommutative finite-fold  pre-covering (resp. quasi-covering). Suppose both $A$ and  $\widetilde{A}$ are unital $C^*$-algebras. We say that $\left(A, \widetilde{A}, G, \pi \right)$ is an \textit{unital noncommutative finite-fold  covering} (resp. \textit{unital noncommutative finite-fold  quasi-covering}) if $\widetilde{A}$ is a finitely generated $C^*$-Hilbert left and/or right $A$-module with respect to product given by \eqref{finite_hilb_mod_prod_eqn}.
-\end{definition}
+
 
 \begin{lemma}\label{blowing_uni_lem}
 	Let both $\sY$ and $\widetilde \sY$ be compact Hausdorff spaces, suppose that $\sY$ is connected.
 	Let $\left(A,\widetilde A, G, \pi \right)$ be a unital noncommutative finite-fold  quasi-covering (cf. Definition \ref{fin_uni_defn}), and let $C\left( \sY\right)\hookto A$ (resp. $C\left( \widetilde \sY\right)\hookto \widetilde A$) be a blowing-up of $A$ (resp. $\widetilde A$)  such that 
 	\begin{itemize}
 		\item  $\pi\left( C\left( \sY\right)\right) \subset C\left( \widetilde\sY\right)$ and there is a continuous  map $p: \widetilde\sY\to\sY$ such that $\left.\pi\right|_{ C_0\left( \sY\right)}$ is induced by $p$.
-		\item The natural action $G\times \widetilde A\to \widetilde A$ is such that $G C_0\left( \widetilde \sY\right)= C_0\left( \widetilde \sY\right)$ and any nontrivial $g\in G$ induces a nontrivial homeomorphism of $ \widetilde \sY$.
+		\item The natural action $G\times \widetilde A\to \widetilde A$ is such that $G !!! DELETE C_0\left( \widetilde \sY\right)= C_0\left( \widetilde \sY\right)$ and any nontrivial $g\in G$ %%%induces a nontrivial homeomorphism of $ \widetilde \sY$.
 	\end{itemize}
 	Then the map $p$ is a transitive finite-fold covering.
 \end{lemma}
 
 \begin{proof}
-	From the Definition \ref{fin_uni_defn} it follows that  there is a finite set $\left\{\widetilde a_1, ..., \widetilde a_n\right\}$ such that $\widetilde A = \widetilde a_1 A + ... + \widetilde a_n A$. In particular there are $a_1, ..., a_n \in A$ such that
-	\be\label{ctr_un_eqn}
-	1_{\widetilde A}= \widetilde a_1 a_1 + ... + \widetilde a_n a_n
-	\ee
-	If $C\left(\widetilde\sX\right)$ is not  a finitely generated $C\left(\sX\right)$-module then from the Theorem \ref{fin_gen_thm} it follows that there is an infinite set $\left\{M_\la\right\}_{\la\in\La}$ of $C_0\left(\sX \right)$-submodules of $C\left(\widetilde{\sX}\right)$ such that 
+	From the Definition \ref{fin_uni_defn} it follows that $\widetilde A$ is a finitely generated left and right $A$-module.
+	If $C\left(\widetilde\sY\right)$ is not  a finitely generated $C\left(\sY\right)$-module then from the Theorem \ref{fin_gen_thm} it follows that there is an infinite set $\left\{M_\la\right\}_{\la\in\La}$ of $C_0\left(\sY \right)$-submodules of $C\left(\widetilde{\sY}\right)$ such that 
 	$$
-	C\left(\widetilde{\sX}\right)=\sum_{\la \in \La} M_\la,
+	C\left(\widetilde{\sY}\right)=\sum_{\la \in \La} M_\la,
 	$$
 	but there is no  a finite subset $\La_0\subset \La$  such that 
 	$$
-	C\left(\widetilde{\sX}\right) = \sum_{\la \in \La_0} M_\la.
+	C\left(\widetilde{\sY}\right) = \sum_{\la \in \La_0} M_\la.
 	$$
 	For any $\la\in \La$ the space  $M_\la \widetilde{A}$ is a right $A$-submodule of $\widetilde{A}$.
-	From $C\left(\sX \right) A = A$ and $C\left(\widetilde\sX \right) \widetilde  A = \widetilde A$ one has 
+	From $C\left(\sY \right) A = A$ and $C\left(\widetilde\sY \right) \widetilde  A = \widetilde A$ one has 
 	$$
 	\widetilde{A}=\sum_{\la \in \La}M_\la \widetilde{A} 
 	$$
@@ -10592,9 +10603,41 @@ If the spectrum of  $C^*$-algebra $A$ is Hausdorff then $A$ possess  a family of
 	$$
 	\widetilde{A}=\sum_{\la \in \La_0}M_\la \widetilde{A}.
 	$$
-	From the Theorem \ref{fin_gen_thm} it follows $\widetilde{A}$ is not a finitely generated $A$-module, it contradicts with the definition \ref{fin_uni_defn}. So $C\left(\widetilde\sX\right)$ is   a finitely generated $C\left(\sX\right)$, and from the Theorem \ref{pavlov_troisky_thm} it follows that $p$ is a finite-fold covering. 
+	From the Theorem \ref{fin_gen_thm} it follows $\widetilde{A}$ is not a finitely generated $A$-module, it contradicts with the definition \ref{fin_uni_defn}. So $C\left(\widetilde\sY\right)$ is   a finitely generated $C\left(\sY\right)$, and from the Theorem \ref{pavlov_troisky_thm} it follows that $p$ is a finite-fold covering. 
 \end{proof}
-\
+\begin{theorem}
+	Let $\left(A,\widetilde A, G, \pi \right)$ be a unital noncommutative finite-fold  reduced covering (cf. Definitions \ref{fin_uni_defn}, \ref{fin_red_defn}), and let $C = C\left( \sY\right)\hookto A$  be a good  blowing-up of $A$ (cf. Definitions \ref{blowing_defn}, \ref{blowing_good_defn}). Then there is  be a good  blowing-up of  $\widetilde C C\left( \sY\right)\hookto A$ of A such that 	
+	\begin{itemize}
+		\item  $\pi\left( C\left( \sY\right)\right) \subset C\left( \widetilde\sY\right)$ and there is a continuous  map $p: \widetilde\sY\to\sY$ such that $\left.\pi\right|_{ C_0\left( \sY\right)}$ is induced by $p$.
+		\item The natural action $G\times \widetilde A\to \widetilde A$ is such that $G C_0\left( \widetilde \sY\right)= C_0\left( \widetilde \sY\right)$ and any nontrivial $g\in G$ induces a nontrivial homeomorphism of $ \widetilde \sY$.
+		\end{itemize}
+\end{theorem}
+\begin{proof}
+	Let $\sX$ and $\widetilde\sX$ be spectra of $A$ and $\widetilde A$ respectively, and let $q: \widetilde\sX\to\sX$ be a given by the Lemma \ref{cov_spectrum_lem}.
+	Since $\left(A,\widetilde A, G, \pi \right)$ is reduced one has $\rep_{ \widetilde{x}}\left(\widetilde A \right) \cong \rep_{p\left(  \widetilde{x}\right) }\left(\widetilde A \right) = \rep_{p\left(  \widetilde{x}\right) }\left( A \right)$.
+	Put 
+\be\label{blowing_wc_eqn}
+	\widetilde C \bydef \left\{\left.\widetilde c \in \widetilde A\right| \forall \widetilde x \in \widetilde \sX \quad \rep_{p\left(  \widetilde{x}\right) }\left( \widetilde c \right)\in \rep_{p\left(  \widetilde{x}\right) }\left( C\right) \right\}.
+\ee
+A $C^*$-algebra	$C$ is a commutative, so for all $\widetilde x\in \widetilde\sX$ both $\rep_{p\left(  \widetilde{x}\right) }\left( C\right) $ and $\rep_{  \widetilde{x }}\left(\widetilde C\right)$ are commutative, it turns out that $\widetilde C$ is a commutative  $C^*$-algebra. From an injective *- homomorphism $C \hookto \widetilde C$ it follows that $\widetilde C$ is unital.  If $\widetilde\sY$ is the spectrum of $\widetilde C$ then $\widetilde C \cong C\left(\widetilde\sY\right)$.
+The algebra	$\rep_{p\left(  \widetilde{x}\right) }\left( C\right)$ is $G$-invariant for all $\widetilde x \in \widetilde\sX$, so the natural action $G\times \widetilde A\to \widetilde A$ is such that $G C\left( \widetilde \sY\right)=C\left( \widetilde \sY\right)$, so one can define the natural action $G \times  \widetilde \sY\to \widetilde \sY$. From the Lemma \ref{blowing_uni_lem} it follows that the induced by $C\left(\sY\right)\hookto C\left(\widetilde\sY\right)$ map $p: \widetilde\sY\to\sY$ is a finite-fold covering.   Let $\left\{\widetilde \sU_\bt\subset \widetilde\sY\right\}_{\bt \in \mathscr B}$ be a family of open sets such that $\widetilde\sY = \cup\widetilde\sU_\bt$.  Since $\widetilde\sY$ is compct
+
+!!!
+
+There is $\left\{\widetilde \sU_\a\subset \widetilde\sY\right\}_{\a \in \mathscr A}$ such that $g\left\{\widetilde \sU_\a\right\}= \left\{\widetilde \sU_\a\right\}$ for all $g \in G$ and for all $\a \in \mathscr A$ there is $\bt \in \mathscr B$ such that $\sU_\a \subset \sU_\bt$.
+
+If $\sum A_{\widetilde \sU_\a}$ does not generate $\widetilde A$ there is $\widetilde a \in \widetilde A\setminus\{0\}$ such that $\widetilde a  A_{\widetilde \sU_\a} = \{0\}$ for all $\a \in \mathscr A$ (cf. Lemma \ref{essential_lem}). We can suppose that $\widetilde a > 0$. If $a \bydef \sum_{	g \in G} g \widetilde a \in A$ then since IS GOOD !!! there is $\a$ such that $a A_{p\left(\widetilde \sU_\a \right) }\neq \{0\}$.
+
+
+
+then $\widetilde\sY = \cup_{g \in G, \a}g\widetilde\sU_\a$.
+		
+\end{proof}
+
+\begin{remark}\label{blowing_good_rem!}
+	If $\sX = \cup\sU_\bt$ is such that for all $\a$ there is $\bt$ such that $\sU_\bt \subset \sU_\a$ and $\sum A_{\sU_\bt}$ generates $A$ then  $\sum A_{\sU_\a}$ generates $A$.  
+\end{remark}
+
 
 
 \chapter{Coverings of continuous trace operator spaces}\label{ctr_chap}
