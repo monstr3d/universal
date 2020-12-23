@@ -10480,14 +10480,14 @@ If the spectrum of  $C^*$-algebra $A$ is Hausdorff then $A$ possess  a family of
 \begin{empt}
 	Let  $C\left( \sY\right)\hookto M\left( A\right) $ be a blowing-up of $A$. For any open subset $\sU \subset \sY$ put
 	\be\label{blowig_su_eqn}
-	A_\sU \bydef \left\{\left.a \in A\right|\forall f \in C_b\left( \right) \quad f\left(\sU \right)= 1 \Rightarrow faf = a \right\}
+	A_\sU \bydef C^*\text{-norm completion of } C_0\left(\sU \right) A  C_0\left(\sU \right).
 	\ee
 \end{empt}
 \begin{definition}\label{blowing_good_defn}
-A Hausdorff blowing-up	$C\cong C_0\left( \sY\right) \subset M\left(A \right)$ is said to be \textit{good} if for any family of open sets $\left\{\sU_\a\subset \sX\right\}$ such that $\sX = \cup\sU_\a$ the set $\sigma A_{\sU_\a}$ generates $A$ as $C^*$-algebra.
+A Hausdorff blowing-up	$C\cong C_0\left( \sY\right) \subset M\left(A \right)$ is said to be \textit{good} if for any family of open sets $\left\{\sU_\a\subset \sX\right\}$ such that $\sX = \cup\sU_\a$ the set $\sum A_{\sU_\a}$ generates $A$ as $C^*$-algebra.
 \end{definition}
 \begin{remark}\label{blowing_good_rem}
-	If $\sX = \cup\sU_\bt$ is such that for all $\a$ there is $\bt$ such that $\sU_\bt \subset \sU_\a$ and $\sigma A_{\sU_\bt}$ generates $A$ then  $\sigma A_{\sU_\a}$ generates $A$.  
+	If $\sX = \cup\sU_\bt$ is such that for all $\bt$ there is $\a$ such that $\sU_\bt \subset \sU_\a$ and $\sum A_{\sU_\bt}$ generates $A$ then  $\sum A_{\sU_\a}$ generates $A$.  
 \end{remark}
 
 \begin{example}
@@ -10620,23 +10620,31 @@ A Hausdorff blowing-up	$C\cong C_0\left( \sY\right) \subset M\left(A \right)$ is
 	\widetilde C \bydef \left\{\left.\widetilde c \in \widetilde A\right| \forall \widetilde x \in \widetilde \sX \quad \rep_{p\left(  \widetilde{x}\right) }\left( \widetilde c \right)\in \rep_{p\left(  \widetilde{x}\right) }\left( C\right) \right\}.
 \ee
 A $C^*$-algebra	$C$ is a commutative, so for all $\widetilde x\in \widetilde\sX$ both $\rep_{p\left(  \widetilde{x}\right) }\left( C\right) $ and $\rep_{  \widetilde{x }}\left(\widetilde C\right)$ are commutative, it turns out that $\widetilde C$ is a commutative  $C^*$-algebra. From an injective *- homomorphism $C \hookto \widetilde C$ it follows that $\widetilde C$ is unital.  If $\widetilde\sY$ is the spectrum of $\widetilde C$ then $\widetilde C \cong C\left(\widetilde\sY\right)$.
-The algebra	$\rep_{p\left(  \widetilde{x}\right) }\left( C\right)$ is $G$-invariant for all $\widetilde x \in \widetilde\sX$, so the natural action $G\times \widetilde A\to \widetilde A$ is such that $G C\left( \widetilde \sY\right)=C\left( \widetilde \sY\right)$, so one can define the natural action $G \times  \widetilde \sY\to \widetilde \sY$. From the Lemma \ref{blowing_uni_lem} it follows that the induced by $C\left(\sY\right)\hookto C\left(\widetilde\sY\right)$ map $p: \widetilde\sY\to\sY$ is a finite-fold covering.   Let $\left\{\widetilde \sU_\bt\subset \widetilde\sY\right\}_{\bt \in \mathscr B}$ be a family of open sets such that $\widetilde\sY = \cup\widetilde\sU_\bt$.  Since $\widetilde\sY$ is compct
+The algebra	$\rep_{p\left(  \widetilde{x}\right) }\left( C\right)$ is $G$-invariant for all $\widetilde x \in \widetilde\sX$, so the natural action $G\times \widetilde A\to \widetilde A$ is such that $G C\left( \widetilde \sY\right)=C\left( \widetilde \sY\right)$, so one can define the natural action $G \times  \widetilde \sY\to \widetilde \sY$. From the Lemma \ref{blowing_uni_lem} it follows that the induced by $C\left(\sY\right)\hookto C\left(\widetilde\sY\right)$ map $p: \widetilde\sY\to\sY$ is a finite-fold covering.   Let $\left\{\widetilde \sU_\bt\subset \widetilde\sY\right\}_{\bt \in \mathscr B}$ be a family of open sets such that $\widetilde\sY = \cup\widetilde\sU_\bt$. Since $\widetilde \sY$ is compact there is a finite subfamily  $\left\{\widetilde \sU_\bt\right\}_{\bt \in \mathscr B_0}\subset \left\{\widetilde \sU_\bt\right\}_{\bt \in \mathscr B}$ be a family of open sets such that $\widetilde\sY = \cup_{\bt \in \mathscr B_0}\widetilde\sU_\bt$ For any point $\widetilde y \in \widetilde\sY$ we select an open connected neighborhood $\widetilde \sU_{\widetilde y}$ such that
+\begin{itemize}
+	\item The restriction $p|_{\widetilde y}$ is injective.
+	\item $ \forall \bt \in \mathscr B_0 \quad\forall g\in G\quad g \widetilde y\in \widetilde \sU_\bt \Rightarrow g \widetilde \sU_{\widetilde y}\subset  \widetilde \sU_\bt$.
+\end{itemize}
+Since $\widetilde\sY$ is compact there is a finite set $\left\{\widetilde y_1, ..., \widetilde y_n\right\}$ such that
+$$
+\widetilde\sY = \bigcup_{g \in G}\left(\bigcup_{j = 1}^n g\widetilde \sU_{y_j} \right) 
+$$
+Let us prove that the set $\sum_{\left( g, j\right)  \in G\times \{1,...n\}}$ generates $C^*$-algebra $A$. Firstly note that that 
+for all $\left( g, j\right)  \in G\times \{1,...n\}\bigcup_{j = 1}^n g\widetilde \sU_{y_j}$  one has
+\be\label{blowing_c0_eqn}
+C_0\left(g\widetilde \sU_{y_j} \right) \widetilde A C_0\left(g\widetilde \sU_{y_j} \right) = C_0\left(g\widetilde \sU_{y_j} \right)  A C_0\left(g\widetilde \sU_{y_j} \right).
+\ee
+Really any $\widetilde f =\in C_0\left( g\widetilde \sU_{y_j} \right)$ can be represented as $\widetilde f' \widetilde f''$ where $\widetilde f' \in  C_0\left( g\widetilde \sU_{y_j} \right)$ and $f \in C_0\left( p\left(\widetilde \sU_{y_j} \right) \right)$. So any $\widetilde a \in C_0\left(g\widetilde \sU_{y_j} \right) \widetilde A C_0\left(g\widetilde \sU_{y_j} \right)$ is given by $\widetilde a = \widetilde f'_1  \widetilde f'_1 \widetilde a' \widetilde f'_2\widetilde f''_2$. On the other hand $\widetilde f'_1 \widetilde a' \widetilde f'_2\in C_0\left(g\widetilde \sU_{y_j} \right) \widetilde A C_0\left(g\widetilde \sU_{y_j} \right)$. If $a = \bydef \frac{1}{\left|G\right|}\sum_{g \in G}ga'\in A$ then $\widetilde a = \widetilde f'_2 a \widetilde f'_2$. From \eqref{blowing_c0_eqn} it follows that
+\be\label{blowibg_ker_eqn}
+g \in \ker\left(G \to \Homeo \widetilde \sY \right)\Rightarrow \forall \widetilde a \in \widetilde A_{g'\widetilde \sU_{y_j}}\quad g \widetilde a = \widetilde a 
+\ee
+It the algebraic sum $\sum_{\left(g,\widetilde j \right)\in G\left\{1,...,n\right\}}   \widetilde A_{g \widetilde \sU_j}$ does not generate  $\widetilde A$ there is $\widetilde a \in \widetilde A\setminus\{0\}$ such that $\widetilde a  A_{\widetilde \sU_\a} = \{0\}$ for all $\left(g,\widetilde j \right)\in G\left\{1,...,n\right\}$ (cf. Lemma \ref{essential_lem}). We can suppose that $\widetilde a > 0$. If $a \bydef \sum_{	g \in G} g \widetilde a \in A$ then since IS GOOD !!! there is $j\in \{1,...,n\} \in $ such that $b \in  A_{p\left(\widetilde \sU_j \right) }$ such that $ba\neq \{0\}$. However any from \eqref{blowing_c0_eqn} it follows that for all  $a \in  A_{p\left(\widetilde \sU_j\right) } $ there is %$\widetilde b \in  A_{\widetilde \sU_j}$ such that $b = \sum_{	g \in G}g\widetilde b$. So there is 
+For any $\bt \in \mathscr B_0$ there is $\left(g,\widetilde j \right)\in G\times\left\{1,...,n\right\}$ so from the Remark \ref{blowing_good_rem} if follows that $\sum A_{\widetilde \sU_\bt}$ generates $\widetilde A$ GOOD.
+From \eqref{blowibg_ker_eqn} it follows that $\ker\left(G \to \Homeo \widetilde \sY \right)$ trivially acts on $\widetilde A$, so the non triviality of $\ker\left(G \to \Homeo \widetilde \sY \right)$ contradicts with Definition \ref{fin_pre_defn}. So any nontrivial $g\in G$ induces a nontrivial homeomorphism of $ \widetilde \sY$
 
-!!!
-
-There is $\left\{\widetilde \sU_\a\subset \widetilde\sY\right\}_{\a \in \mathscr A}$ such that $g\left\{\widetilde \sU_\a\right\}= \left\{\widetilde \sU_\a\right\}$ for all $g \in G$ and for all $\a \in \mathscr A$ there is $\bt \in \mathscr B$ such that $\sU_\a \subset \sU_\bt$.
-
-If $\sum A_{\widetilde \sU_\a}$ does not generate $\widetilde A$ there is $\widetilde a \in \widetilde A\setminus\{0\}$ such that $\widetilde a  A_{\widetilde \sU_\a} = \{0\}$ for all $\a \in \mathscr A$ (cf. Lemma \ref{essential_lem}). We can suppose that $\widetilde a > 0$. If $a \bydef \sum_{	g \in G} g \widetilde a \in A$ then since IS GOOD !!! there is $\a$ such that $a A_{p\left(\widetilde \sU_\a \right) }\neq \{0\}$.
-
-
-
-then $\widetilde\sY = \cup_{g \in G, \a}g\widetilde\sU_\a$.
 		
 \end{proof}
 
-\begin{remark}\label{blowing_good_rem!}
-	If $\sX = \cup\sU_\bt$ is such that for all $\a$ there is $\bt$ such that $\sU_\bt \subset \sU_\a$ and $\sum A_{\sU_\bt}$ generates $A$ then  $\sum A_{\sU_\a}$ generates $A$.  
-\end{remark}
 
 
 
