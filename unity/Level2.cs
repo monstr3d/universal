@@ -37,34 +37,52 @@ namespace Assets
 
         public static void Set(MonoBehaviour monoBehaviour)
         {
-            ReferenceFrameBehavior rf = null;
-            OutputController oc = null;
-            if (monoBehaviour is ReferenceFrameBehavior)
-            {
-                rf = monoBehaviour as ReferenceFrameBehavior;
-            }
+            Level0.Set(monoBehaviour);
             if (monoBehaviour is OutputController)
             {
-                oc = monoBehaviour as OutputController;
-                Set(oc);
+                OutputController oc = monoBehaviour as OutputController;
+                var a = oc.aliases;
+   //             a[0] = "Aim 1.Z=-0.3";
+                a[0] = "Aim 1.Z=-0.07";
                 return;
+            }
+            if (monoBehaviour.name != Level0.Station)
+            {
+                return;
+            }
+            ReferenceFrameBehavior beh = monoBehaviour as ReferenceFrameBehavior;
+            var c = beh.constants;
+            c[0] = "Station frame.Z=1.5";
+            c[1] = "Station frame.Y=0.2";
+            return;
+            /*         ReferenceFrameBehavior rf = null;
+           /          oc = null;
+                     if (monoBehaviour is ReferenceFrameBehavior)
+                     {
+                         rf = monoBehaviour as ReferenceFrameBehavior;
+                     }
+                     if (monoBehaviour is OutputController)
+                     {
+                         oc = monoBehaviour as OutputController;
+                         Set(oc);
+                         return;
 
-            }
-            if (rf == null)
-            {
-                return;
-            }
-            if (rf.desktop != Level0.RigidBodyStation)
-            {
-                return;
-            }
-            string name = monoBehaviour.gameObject.name;
-            if (name == Level0.Station)
-            {
-                Level0.SetStation(rf, StaticExtensionUnity.Activation.level);
-                return;
-            }
-            Level0.SetCamera(rf);
+                     }
+                     if (rf == null)
+                     {
+                         return;
+                     }
+                     if (rf.desktop != Level0.RigidBodyStation)
+                     {
+                         return;
+                     }
+                     string name = monoBehaviour.gameObject.name;
+                     if (name == Level0.Station)
+                     {
+                         Level0.SetStation(rf, StaticExtensionUnity.Activation.level);
+                         return;
+                     }
+                     Level0.SetCamera(rf);//*/
         }
 
         static internal void Set(OutputController behavior)

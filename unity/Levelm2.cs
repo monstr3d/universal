@@ -45,17 +45,29 @@ namespace Assets
                 (Level0.RigidBodyStation + "." +
                     Level0.LongXC).EnableDisable(false);
                 //             ForcesMomentumsUpdate.Finish();
-                (Level0.RigidBodyStation + "." +
-                  Level0.ShortXC).EnableDisable(true);// */
+ // */
+                ev.Event += Ev_Event;
+                Debug.Log(p[1] + "UU");
+
             }
             last = l;
 
         }
 
+        private void Ev_Event()
+        {
+            double[] p = frame.Position;
+            if (Math.Abs(p[1]) < 0.01)
+            {
+                (Level0.RigidBodyStation + "." +
+                     Level0.ShortXC).EnableDisable(true);
+                Debug.Log(p[1]);
+            }
+        }
 
         public static void Set(MonoBehaviour monoBehaviour)
         {
-            Level0.Set(monoBehaviour);
+            Level2.Set(monoBehaviour);
             // !!! DELETE AFTER
            /* //===
             if (!(monoBehaviour is ReferenceFrameBehavior))
@@ -78,7 +90,7 @@ namespace Assets
 
         new static public void Collision(Tuple<GameObject, Component, IScadaInterface, ICollisionAction> stop)
         {
-            // Time of flight 116 s
+            // Time of flight 116 s  71 s.
             (Level0.RigidBodyStation + "." +
    Level0.ShortXC).EnableDisable(false);
             (Level0.RigidBodyStation + "." +

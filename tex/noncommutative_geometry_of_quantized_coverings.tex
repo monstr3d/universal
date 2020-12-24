@@ -10462,21 +10462,31 @@ Denote by $\widehat{A} = C^*\text{-}\varinjlim A_\la$, $G_\la = G\left( A_\la ~|
 
 \chapter{Hausdorff blowing-up and coverings}
 \paragraph*{}
-If the spectrum of  $C^*$-algebra $A$ is Hausdorff then $A$ possess  a family of good properties. Sometimes the spectrum of $C^*$-algebra can by replaced by its Hausdorff blowing-up and some results concerning $C^*$-algebras with  Hausdorff spectrum can be translated to $C^*$-algebras with Hausdorff blowing-up. The results of this chapter are used in both $C^*$-algebras with continuous trace (Hausdorff spectrum) and algebras of foliations   (non - Hausdorff spectrum). The Hausdorff blowing-up  associated with a Hausdorff space $\sY$ and a partial surjective map from  $\sY$ to the spectrum.
-	The motivation of the "blowing-up" word is inspired by algebraic geometry  where "blowing-up" used for excluding of singular points (cf. \cite{hartshorne:ag}).
+If the spectrum of  $C^*$-algebra $A$ is Hausdorff then $A$ possess  a family of good properties. For example noncommutative coverings of $C^*$-algebras with Hausdorff spectra correspond to coverings of their spectra. Sometimes the spectrum of $C^*$-algebra can by replaced by its Hausdorff blowing-up and some results concerning $C^*$-algebras with  Hausdorff spectrum can be translated to $C^*$-algebras with Hausdorff blowing-up. We prove that noncommutative coverings of $C^*$-algebras correspond to coverings of Hausdorff blowing-up. The results of this chapter are used in both $C^*$-algebras with continuous trace (Hausdorff spectrum) and algebras of foliations   (non - Hausdorff spectrum). 
+	The "blowing-up" word is inspired by following reasons:
+	\begin{itemize}
+		\item There is  the natural partially defined multi-valued surjective  map from the Hausdorff blowing-up to the spectrum (cf. Remark \ref{blowing_rem}).
+		\item  In the algebraic geometry  where "blowing-up"  used for excluding of singular points (cf. \cite{hartshorne:ag}).
+	\end{itemize}
+	
 \section{Basic construction}
 
 \paragraph*{}
 
 
 \begin{definition}\label{blowing_defn}
-	Any  commutative $C^*$-subalgebra $C\cong C_0\left( \sY\right) \subset M\left(A \right)$ is said to be  a \textit{Hausdorff blowing-up} of $A$  if there is the the strict topology (cf. Definition \ref{strict_topology})  limit
-	\be\label{blowing_eqn}
-	1_{M\left(A \right)  }= \bt~\text{-}\lim_{\la \in \La }u_\la
-	\ee
-	where $\mathfrak F\left(\sY \right) = \left\{u_\la\right\}_{\la\in \La}\subset C_c\left(\sY \right)_+$ is the given by \eqref{top_fxu_eqn} net.
+	Any  commutative $C^*$-subalgebra $C\cong C_0\left( \sY\right) \subset M\left(A \right)$ is said to be  a \textit{Hausdorff blowing-up} of $A$  if any approximate unit for $C_0\left( \sY\right)$ is an approximate unit for $A$ (cf. Definition \ref{app_unit_defn}).
 \end{definition}
-
+\begin{remark}\label{blowing_rem}
+If $\sX$ is the spectrum of $A$ then	for any $y\in \sY$ there is 
+the set
+$$
+\sX_y \bydef \left\{\left. x\in\sX\right| \rep_x\left(C_0\left( \sY\right)\right)\neq I_y  \right\}
+$$
+where $I_y = \left\{\left. a\in C_0\left( \sY\right) \right| a\left( y\right)= 0  \right\}$
+The map $y \mapsto \sX_y$ yields a partially defined multi-valued map.
+The map is surjective because for any $x \in \sX$ and for any maximal ideal $J_x \subset \rep_x\left(C_0\left( \sY\right)\right) $ there is a maximal ideal $I_y\subset C_0\left( \sY\right)$ such that $J_x= \rep_x\left(I_y\right)$.
+\end{remark}
 \begin{empt}
 	Let  $C\left( \sY\right)\hookto M\left( A\right) $ be a blowing-up of $A$. For any open subset $\sU \subset \sY$ put
 	\be\label{blowig_su_eqn}
@@ -10587,8 +10597,11 @@ Prove that GOOD!!!
 	$\left(A_\la,\widetilde A_\la, G, \pi|_{A_\la} \right)$ is  a noncommutative finite-fold covering with unitization (cf. Definition \ref{fin_comp_defn})
 	Let us prove that $\left(A_\la,\widetilde A_\la, G, \pi|_{A_\la} \right)$ satisfies to (a) - (c) of the Definition \ref{fin_defn}.
 	\begin{enumerate}
-		\item [(a)] Follows from  \eqref{blowing_eqn} and the Lemma \ref{top_coff_lem}.
-		\item [(b)] Follows from the above construction, i.e. for all $\la \in \La$ a quadruple $\left(A_\la,\widetilde A_\la, G, \pi|_{A_\la} \right)$ is  a noncommutative finite-fold covering with unitization.
+		\item [(a)] From the Definition  \ref{blowing_defn} it follows that there is the limit $
+		\bt\text{-}\lim_{\la \in \La} u_\la = 1_{M\left(A \right) }
+		$
+		with respect to the strict topology of $M\left(A \right)$ (cf. Definition \ref{strict_topology}).
+		\item [(b)] Follows from the above construction, i.e. for all $\la \in \La$ a quadruple\\ $\left(A_\la,\widetilde A_\la, G, \pi|_{A_\la} \right)$ is  a noncommutative finite-fold covering with unitization.
 		\item[(c)] Follows from the conditions of this lemma.
 	\end{enumerate}
 	
