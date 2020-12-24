@@ -1401,9 +1401,9 @@ If $A \neq \phi\left(B_1\oplus \{0\}  \right) \oplus \phi\left(\{0\} \oplus B_2 
 %	\left( I\widetilde{A}I\right)^G = I
 %	$ it turns out $\widetilde{I}^G = I$.
 %\end{proof}
-\begin{lem}\label{ind_qusai_lem}
+\begin{lemma}\label{ind_qusai_lem}
 	If $\left(A, \widetilde{A}, G, \pi \right)$ is a noncommutative finite-fold  quasi-covering then there is an  approximate unit of  $\widetilde{A}$ which is contained in $A$.
-\end{lem}
+\end{lemma}
 \begin{proof}
 	From the Theorem \ref{app_unit_thm} there is an approximate unit  $\left\{\widetilde{u}_\la \right\}_{\la \in \La}$ of  $\widetilde{A}$. For any $g \in G$ and $\widetilde{x}\in  \widetilde{A}$ one has 
 \bean
@@ -6917,18 +6917,6 @@ If $\La$ is ordered  by the following way
 	 $$
 	 then the set $\La$ is directed (cf. Definition \ref{directed_set_defn}).
 \end{empt}
-\begin{lemma}\label{top_coff_lem}
-The set
-\be\label{top_fxuc_eqn}
-\mathfrak F_c\left(\sX \right)\bydef \left\{\left.u_\la\in \mathfrak F \left(\sX	
-\right)\right| u^{-1}_\la\left(\left(0,1\right]\right) \mathrm{~is~connected}    \right\}
-\ee
-is a cofinal subset of $\mathfrak F_c\left(\sX \right)$.
-\end{lemma}
-\begin{proof}
-	For all $\mu\in\La$  $\supp u_\mu$ is compact.
-	From the Corollary \ref{top_comp_comm_cor} it follows that there is a connected compact set $\sY\subset \sX$ such that $\supp f_\mu \subset \sY$. If $u_\sY$ is a finite sum of $\sY$ (cf. Definition \ref{top_cfs_defn}) then $\supp u_\sY$ is connected (cf. Remark \ref{top_cfsc_rem}), i.e. $u_\sY \in \mathfrak F_c\left(\sX \right)$. On the other hand $u_\sY \in \left\{u_\la\right\}_{\la \in \La}$ and $\exists\nu\in \La\quad u_\sY= u_\nu$. From $u_\nu > u_\mu$ it turns that $\nu > \mu$.
-\end{proof}
 \begin{lemma}\label{comm_slfin_lem}
  In the  situation \ref{top_ua_empt} there is the  limit 
 $$
@@ -6977,6 +6965,19 @@ a = \lim_{\la \in \La} u_\la a = \lim_{\la \in \La} a u_\la.
 $$ 
 From the above equation it follows that $\bt\text{-}\lim_{\la\in \La}u_\la= 1_{C_b\left(\sX \right) }$.
 \end{proof}
+\begin{lemma}\label{top_coff_lem}
+	The set
+	\be\label{top_fxuc_eqn}
+	\mathfrak F_c\left(\sX \right)\bydef \left\{\left.u_\la\in \mathfrak F \left(\sX	
+	\right)\right| u^{-1}_\la\left(\left(0,1\right]\right) \mathrm{~is~connected}    \right\}
+	\ee
+	is a cofinal subset of $\mathfrak F\left(\sX \right)$.
+\end{lemma}
+\begin{proof}
+	For all $\mu\in\La$  $\supp u_\mu$ is compact.
+	From the Corollary \ref{top_comp_comm_cor} it follows that there is a connected compact set $\sY\subset \sX$ such that $\supp f_\mu \subset \sY$. If $u_\sY$ is a finite sum of $\sY$ (cf. Definition \ref{top_cfs_defn}) then $\supp u_\sY$ is connected (cf. Remark \ref{top_cfsc_rem}), i.e. $u_\sY \in \mathfrak F_c\left(\sX \right)$. On the other hand $u_\sY \in \left\{u_\la\right\}_{\la \in \La}$ and $\exists\nu\in \La\quad u_\sY= u_\nu$. From $u_\nu > u_\mu$ it turns that $\nu > \mu$.
+\end{proof}
+
 \begin{theorem}\label{comm_fin_thm}
 	Let $\mathcal X$ be a locally compact, connected, locally connected, Hausdorff space. 
 	Following conditions hold:
@@ -10520,8 +10521,8 @@ $$
 Since $\sY$ is compact there is $y\in\sY$ such that for all $\la\in \La$ and for any open   neighborhood $\sU_y$ one has $\sU_y \cap \sX_\la\neq \emptyset$.
 \end{proof}
 
-\begin{example}
-	If $A$ is a continuous trace $C^*$-algebra and $\sX$ is its spectrum then from \ref{dauns_hofmann_thm} and \ref{ctr_hat_check_thm} one has the natural inclusion $C_0\left(\sX \right) \hookto M\left( A\right)$. For all $a \in A$ and $\eps> 0$ the subset
+\begin{example}\label{blowing_ctr_exm}
+	If $A$ is a $C^*$-algebra with Hausdorff and $\sX$ is its spectrum then from \ref{dauns_hofmann_thm} and \ref{ctr_hat_check_thm} one has the natural inclusion $C_0\left(\sX \right) \hookto M\left( A\right)$. For all $a \in A$ and $\eps> 0$ the subset
 	$$
 	\sY \bydef \left\{\left.x \in \sX\right| \left\| \rep_x\left(a\right)\right\|\ge \eps \right\}\subset\sY
 	$$
@@ -10535,12 +10536,55 @@ Since $\sY$ is compact there is $y\in\sY$ such that for all $\la\in \La$ and for
 	$
 	with respect to the strict topology (cf. Definition \ref{strict_topology}) of $M\left( A\right)$. It turns out that $C_0\left(\sX \right) \hookto M\left( A\right)$ is a {Hausdorff blowing-up} of $A$ (cf. Definition \ref{blowing_defn}).
 \end{example}
-\begin{exercise}
-Prove that GOOD!!!
+\begin{exercise}\label{blowing_ctr_exer}
+Prove that the given by the Example \ref{blowing_ctr_exm} Hausdorff blowing-up of $A$ is good (cf. Definition \ref{blowing_good_defn})
 \end{exercise}
 
-\section{Applications to finite-fold coverings}
-\begin{theorem}\label{blowing_thm}
+\section{Blowing-up and noncommutative finite-fold coverings}
+\paragraph*{}
+Let $\left(A,\widetilde A, G, \pi \right)$ be a finite-fold noncommutative pre-covering (cf. Definition \ref{fin_pre_defn})  let $C_0\left( \sY\right)\hookto M\left(A \right)$  be a blowing-up of $A$.  Let $\sX$ and $\widetilde\sX$ be spectra of $A$ and $\widetilde A$ respectively, and let $q: \widetilde\sX\to\sX$ be a given by the Lemma \ref{cov_spectrum_lem}.
+Since $\left(A,\widetilde A, G, \pi \right)$ is reduced one has $\rep_{ \widetilde{x}}\left(\widetilde A \right) \cong \rep_{q\left(  \widetilde{x}\right) }\left(\widetilde A \right) = \rep_{q\left(  \widetilde{x}\right) }\left( A \right)$.
+Put 
+\be\nonumber
+\widetilde C' \bydef \left\{\left.\widetilde c \in M\left( \widetilde A\right) \right| \forall \widetilde x \in \widetilde \sX \quad \rep_{q\left(  \widetilde{x}\right) }\left( \widetilde c \right)\in \rep_{q\left(  \widetilde{x}\right) }\left( C\right) \right\}.
+\ee
+A $C^*$-algebra	$C$ is a commutative, so for all $\widetilde x\in \widetilde\sX$ both $\rep_{q\left(  \widetilde{x}\right) }\left( C\right) $ and $\rep_{  \widetilde{x }}\left(\widetilde C'\right)$ are commutative, it turns out that $\widetilde C'$ is a commutative  $C^*$-algebra.  The algebra	$\rep_{q\left(  \widetilde{x}\right) }\left( C\right)$ is $G$-invariant for all $\widetilde x \in \widetilde\sX$, so the action  $G\times  M\left( \widetilde A\right)\to  M\left( \widetilde A\right)$ is such that $G \widetilde C'=\widetilde C'$, so one can define the natural action $G \times  \widetilde C'\to \widetilde C'$. If 
+\be\label{blowing_wc_eqn}
+\widetilde C \bydef \left\{\left.\widetilde c \in \widetilde C' \right|\sum_{	g \in G}g\widetilde c'\in C \right\}.
+\ee
+then there is an injective *- homomorphism $C \hookto \widetilde C$.  If $\widetilde\sY$ is the spectrum of $\widetilde C$ then $\widetilde C \cong C_0\left(\widetilde\sY\right)$ and the  homomorphism $C \hookto \widetilde C$ induces a surjective continuous map $p:\widetilde\sY\to \sY$. From \eqref{blowing_wc_eqn} it follows that $G \times  \widetilde C= \widetilde C$ so there is the natural action $G \times  \widetilde C\to \widetilde C$, so one can define the natural action $G \times  \widetilde \sY\to \widetilde \sY$. There is the natural inclusion  
+\be\label{blowing_inc_eqn}
+C_0\left(\widetilde\sY\right)\hookto M\left(\widetilde A \right) 
+\ee
+If $\left\{\widetilde u_\la\right\}_{\la\in \La}$ is an approximate unit for $C_0\left( \widetilde\sY\right)$ then from  the Lemma \ref{ind_qusai_lem} it follows that  $\left\{\frac{1}{\left| G\right| }\sum_{	g \in G}g\widetilde u_\la\right\}_{\la\in \La}$ is an approximate unit for $A$. If $\left\{\widetilde u_\la\right\}$ is not an approximate unit for $\widetilde A$ then  there is a positive $\widetilde b \in \widetilde A_+$  such that $\left\| \widetilde b \widetilde u_\la\right\| + \left\|  \widetilde u_\la \widetilde b\right\|> \frac{1}{\left| G\right|}> \eps$ for all $\la \in \La$ then 
+$$
+\forall\la\in\La\quad \left\| \widetilde b \frac{1}{\left| G\right| }\sum_{	g \in G}g\widetilde u_\la\right\| + \left\|  \left( \frac{1}{\left| G\right| }\sum_{	g \in G}g\widetilde u_\la\right) \widetilde b\right\|> \frac{1}{\left| G\right|},
+$$
+i.e. $\left\{\frac{1}{\left| G\right| }\sum_{	g \in G}g\widetilde u_\la\right\}_{\la\in \La}$ is not an approximate unit for $A$. From this contradiction it turns out that $\left\{\widetilde u_\la\right\}$ is not an approximate unit for $\widetilde A$. So the given by \eqref{blowing_inc_eqn} inclusion is  a Hausdorff blowing-up of $ \widetilde A$ (cf. Definition \ref{blowing_defn})
+
+\begin{lemma}
+Let $\left(A,\widetilde A, G, \pi \right)$ be a finite-fold unital noncommutative covering. Let $\sY$ be a compact set and $C_0\left( \sY\right)= C\left( \sY\right) \hookto M\left(A \right)=A$  is a good  Hausdorff blowing-up of $A$. If   the given by
+\eqref{blowing_inc_eqn}  inclusion
+$C\left(\widetilde\sY\right)\hookto  \widetilde A $ corresponds to a finite-fold covering $p: \widetilde\sY\to\sY$ then 
+$C\left(\widetilde\sY\right)\hookto  \widetilde A $ is a good Hausdorff blowing-up of $\widetilde A$.
+\end{lemma}
+\begin{proof}
+	!!!
+	From the Lemma \ref{blowing_uni_lem} it follows that the induced by $C\left(\sY\right)\hookto C\left(\widetilde\sY\right)$ map $p: \widetilde\sY\to\sY$ is a finite-fold covering.!!!
+If $\widetilde a \in \widetilde A_+$ is a positive element then $\sum_{	g \in G}ga \in A_+$ is also positive. From the Lemma \ref{blowing_compact_lem} it follows that is $y \in \sY$ such that for any open neighborhood $\sU_y$ one has $a A_{\sU_y}\neq\{0\}$.   Consider a directed set $\left\{\sU_\a\right\}_{\a\in \mathscr A}$ of all connected evenly covered by $p$ neighborhoods of $y$. For all $ \a\in \mathscr A$ there is $a_\a\in A_{\sU_a}$ such that 
+++++
+
+
+++++
+$$
+\sum_{g_1, g_2 \in G}\left( g_1a\right) \left(  g_2\widetilde a_\a\right) \neq \{0\}
+$$
+There is a pair $g_1, g_2 \in G$ such that $ g_1a g_2\widetilde a_\a \neq \{0\}$ since $g^{-1}$ is *-automorphism
+$$
+g^{-1}\left( \left( g_1a\right) \left(  g_2\widetilde a_\a\right)\right) = a\left( g_1^{-1}g_2 \widetilde a_\a\right)   \neq \{0\}
+$$ !!!
+\end{proof}
+\begin{lemma}\label{blowing_pc_lem}
 	Let $\left(A,\widetilde A, G, \pi \right)$ be a finite-fold noncommutative pre-covering (cf. Definition \ref{fin_pre_defn}), and let $C_0\left( \sY\right)\hookto M\left(A \right)$ (resp. $C_0\left( \widetilde \sY\right)\hookto M\left(\widetilde A \right)$) be a blowing-up of $A$ (resp. $\widetilde A$)  such that 
 	\begin{itemize}
 		\item $\widetilde A$ is a connected $C^*$-algebra (cf. Definition \ref{conn_c_a_defn}).
@@ -10548,7 +10592,7 @@ Prove that GOOD!!!
 		\item The natural action $G\times M\left(\widetilde A \right)\to M\left(\widetilde A \right)$ is such that $G C_0\left( \widetilde \sY\right)= C_0\left( \widetilde \sY\right)$ and any nontrivial $g\in G$ induces a nontrivial homeomorphism of $ \widetilde \sY$.
 	\end{itemize}
 	Then $\left(A,\widetilde A, G, \pi \right)$ be a finite-fold noncommutative covering (cf. Definition \ref{fin_defn}).
-\end{theorem}
+\end{lemma}
 \begin{proof} !!! CHECK PROOF
 	From $M\left(A \right)\cong M\left(\widetilde A\right)^G$ it follows that $C_0\left(  \sY\right)\cong C_0\left( \widetilde \sY\right)^G$, so one has $\sY \cong \widetilde \sY/G$ and $G\cong G\left(\left.\widetilde \sY\right| \sY \right)$. 
 	If   $\mathfrak F_c\left(\sY \right) = \left\{u_\la\right\}_{\la\in \La}\subset C_c\left(\sY \right)_+$ is the given by \eqref{top_fxuc_eqn} net then form \eqref{blowing_eqn} and the Lemma \ref{top_coff_lem} it turns out that $	1_{M\left(A \right)  }= \bt~\text{-}\lim_{\la \in \La }u_\la$.
@@ -10648,25 +10692,7 @@ Prove that GOOD!!!
 		\end{itemize}
 \end{lemma}
 \begin{proof}
-	Let $\sX$ and $\widetilde\sX$ be spectra of $A$ and $\widetilde A$ respectively, and let $q: \widetilde\sX\to\sX$ be a given by the Lemma \ref{cov_spectrum_lem}.
-	Since $\left(A,\widetilde A, G, \pi \right)$ is reduced one has $\rep_{ \widetilde{x}}\left(\widetilde A \right) \cong \rep_{p\left(  \widetilde{x}\right) }\left(\widetilde A \right) = \rep_{p\left(  \widetilde{x}\right) }\left( A \right)$.
-	Put 
-\be\label{blowing_wc_eqn}
-	\widetilde C \bydef \left\{\left.\widetilde c \in \widetilde A\right| \forall \widetilde x \in \widetilde \sX \quad \rep_{p\left(  \widetilde{x}\right) }\left( \widetilde c \right)\in \rep_{p\left(  \widetilde{x}\right) }\left( C\right) \right\}.
-\ee
-A $C^*$-algebra	$C$ is a commutative, so for all $\widetilde x\in \widetilde\sX$ both $\rep_{p\left(  \widetilde{x}\right) }\left( C\right) $ and $\rep_{  \widetilde{x }}\left(\widetilde C\right)$ are commutative, it turns out that $\widetilde C$ is a commutative  $C^*$-algebra. From an injective *- homomorphism $C \hookto \widetilde C$ it follows that $\widetilde C$ is unital.  If $\widetilde\sY$ is the spectrum of $\widetilde C$ then $\widetilde C \cong C\left(\widetilde\sY\right)$.
-The algebra	$\rep_{p\left(  \widetilde{x}\right) }\left( C\right)$ is $G$-invariant for all $\widetilde x \in \widetilde\sX$, so the natural action $G\times \widetilde A\to \widetilde A$ is such that $G C\left( \widetilde \sY\right)=C\left( \widetilde \sY\right)$, so one can define the natural action $G \times  \widetilde \sY\to \widetilde \sY$. From the Lemma \ref{blowing_uni_lem} it follows that the induced by $C\left(\sY\right)\hookto C\left(\widetilde\sY\right)$ map $p: \widetilde\sY\to\sY$ is a finite-fold covering.  If $\widetilde a \in \widetilde A_+$ is a positive element then $\sum_{	g \in G}ga \in A_+$ is also positive. From the Lemma \ref{blowing_compact_lem} it follows that is $y \in \sY$ such that for any open neighborhood $\sU_y$ one has $a A_{\sU_y}\neq\{0\}$.   Consider a directed set $\left\{\sU_\a\right\}_{\a\in \mathscr A}$ of all connected evenly covered by $p$ neighborhoods of $y$. For all $ \a\in \mathscr A$ there is $a_\a\in A_{\sU_a}$ such that 
-++++
 
-
-++++
-$$
-\sum_{g_1, g_2 \in G}\left( g_1a\right) \left(  g_2\widetilde a_\a\right) \neq \{0\}
-$$
-There is a pair $g_1, g_2 \in G$ such that $ g_1a g_2\widetilde a_\a \neq \{0\}$ since $g^{-1}$ is *-automorphism
-$$
-g^{-1}\left( \left( g_1a\right) \left(  g_2\widetilde a_\a\right)\right) = a\left( g_1^{-1}g_2 \widetilde a_\a\right)   \neq \{0\}
-$$ 
 For any $\a$ and there is a nonempty finite subset
 $\widetilde\sY_\a \in p^{-1}\left( y\right)$ such that for all  $\widetilde y \in \widetilde\sY_\a$ if $\sU_{\widetilde y}$ is an open neighborhood of $\widetilde y$ homemorphically mapped onto $\sU_y$ then
 $\widetilde a A_{\sU_{\widetilde y}}\neq\{0\}$. The set $\cap\widetilde\sY_\a$ is not empty, any $y\in \sY$ satisfies to the Lemma  \ref{blowing_compact_lem}
@@ -10826,9 +10852,11 @@ $$
 $$
 
 \end{proof}
+\section{Blowing-up and  infinite noncommutative coverings}
+!!!!
+\subsection{Reduced fundamental group}
 
-
-\chapter{Coverings of continuous trace operator spaces}\label{ctr_chap}
+\chapter{Coverings of $C^*$-algebras with Hausdorff spectrum}\label{ctr_chap}
 \paragraph*{}
 The notion of the operator space with continuous trace is a generalization of the notion of the $C^*$-algebra with continuous trace (cf. Section \ref{ctr_oa_sec}). Here we consider noncommutative coverings of these spaces.
 
@@ -10944,43 +10972,33 @@ Our following constructions require an analog of the Dini's theorem.
 
 \section{Finite-fold coverings}
 \subsection{Coverings of $C^*$-algebras}
-\begin{lemma}\label{ctr_cont_tr_lem}
-	If $\left(A, \widetilde{A}, G, \pi \right)$ is a  noncommutative finite-fold quasi-covering, such that $A$ is a $C^*$-algebra with continuous trace then the reduced algebra of $\left(A, \widetilde{A}, G, \pi \right)$ (cf. Definition \ref{red_alg_defn}) is a  continuous trace $C^*$-algebra.
-\end{lemma}
+
+
+\begin{theorem}\label{ctr_fin_red_thm}
+If  $A$ is a $C^*$- algebra with Hausdorff spectrum $\sX$, then following condition hold.
+\begin{enumerate}
+	\item[(i)] There is 1-1 correspondence between finite-fold transitive coverings $p: \widetilde \sX \to \sX$ and  reduced finite-fold noncommutative coverings  $\left(A, \widetilde A, G, \pi \right)$ such $G \cong G\left(\left.\widetilde \sX \right|\sX \right)$.
+	\item[(ii)] The space $\widetilde\sX$ is the  that spectrum of $\widetilde A$, the map   $p$ is given by the Lemma \ref{cov_spectrum_lem}
+	\item[(ii)] In the above situation $\widetilde A\cong A_0\left(\widetilde \sX\right)$ and $\pi\cong A_0\left(p\right)$.
+\end{enumerate}
+\end{theorem}
 \begin{proof}
-	Let $\mathcal X$ (resp. $\widetilde{\mathcal X}$) be the spectrum of $A$ (resp. $\widetilde{A}$), and let  $p:\widetilde{\mathcal X} \to {\mathcal X}$ be a continuous map given by the Lemma  \ref{cov_spectrum_lem}. Let $\widetilde{x}_0 \in \widetilde{\mathcal X}$ be any point and let $x_0 = p\left( \widetilde{x}_0\right) \in \mathcal X$ . From the Proposition \ref{continuous_trace_c_a_proposition} it turns  out that there is an Abelian  $a' \in A$ such that $\hat{a}'\in K\left(\mathcal X\right)$ and $\tr\left( \rep_{x_0}\left( a'\right)\right) =1$. If  $\widetilde A_{\text{red}}$  is the reduced algebra of $\left(A, \widetilde{A}, G, \pi \right)$ (cf. Definition \ref{red_alg_defn}) then there is the inclusion $\phi: A\hookto \widetilde A_{\text{red}}$. If $\widetilde a'\bydef\phi\left(a \right)$ then from  the equation \ref{red_inc_eqn} it follows that the rank of $\rep_{\widetilde{x}}\left( \widetilde a'\right)$ does not exceed 1 for all $\widetilde x \in \widetilde\sX$. Let  both $\hat a: \sX \to \R$ and $\hat{\widetilde a'}: \sX \to \R$ are given by $x \mapsto \tr\left(\rep_{x}\left(a' \right)  \right)$ and $\widetilde x \mapsto \tr\left(\rep_{\widetilde x}\left(\widetilde a' \right)  \right)$ respectively. One has $f_0\in C_0\left(\sX \right)$ and taking into account that the map $\widetilde\sX \to \sX$ is surjective and continuous we conclude that  $\hat{\widetilde a'}$ is continuous. 
-	 It $0 < \eps < 1$ and $f_\eps$ is given by \eqref{f_eps_eqn} then since $\widetilde a'$ is positive there is $\widetilde a = \frac{1}{1 - \eps} f_\eps\left(\widetilde a \right) \in A_+$, which satisfies to following conditions:
-	\begin{enumerate}
-		\item [(a)] $\dim \rep_{ \widetilde{x}}\left( \widetilde a\right) \le   \dim \rep_{ \widetilde{x}}\left(\widetilde a'\right) \le 1$ for any $\widetilde{x}\in\widetilde{\mathcal X}$,
-		\item[(b)] $\hat{\widetilde a}= \frac{1}{1 - \eps} f_\eps\left(\hat{\widetilde a'} \right)$. 
-	\end{enumerate}
-	From (a) it turns out that $\widetilde a a$ is an Abelian element of $\widetilde A_{\text{red}}$. From (b)
-	it follows that 
-	$\hat{\widetilde a} \in K\left( \widetilde{\mathcal X}\right)$. So $\widetilde a$ satisfies to (iii) of the Proposition \ref{continuous_trace_c_a_proposition}. Hence from the Proposition \ref{continuous_trace_c_a_proposition} it turns out that $\widetilde A_{\text{red}}$ is a  continuous trace $C^*$-algebra.
+(i) Follows from the  Example \ref{blowing_ctr_exm}, Exercise \ref{blowing_ctr_exer} and the Theorems \ref{blowing_cov_thm},!!!!
 \end{proof}
 
-\begin{lemma}\label{ctr_ess_dense_lem}
-If $A$ is a $C^*$-algebra with the Hausdorff spectrum $\sX$ then the bijective map \eqref{ctr_open_id_eqn} yields the one-to-one correspondence between essential ideals and open dense subsets of $\sX$. 
-\end{lemma}
-\begin{proof}
-The given by\eqref{ctr_open_id_eqn} map $	\sU \leftrightarrow 	A|_{\mathcal U}$ yields the one-to-one correspondence between  ideals and open  subsets of $\sX$ (cf. Remark \ref{ctr_open_res_rem}). 
+\begin{theorem}!!!REPLACE\label{ctr_fin_thm}
+	Let  $A$ be  a separable continuous trace $C^*$-algebra and $\sX$  is a spectrum of $A$. Suppose that $\mathcal X$ be a locally compact, connected, locally connected, second-countable, Hausdorff space. 
+	There is 1-1 correspondence between finite-fold transitive coverings $\widetilde \sX \to \sX$ with  and finite-fold noncommutative coverings $\left(A, \widetilde A, G, \pi \right)$.
+	The correspondence is given by
+	\bea\label{ctr_spt_to_a_eqn}
+	\left(p: \widetilde \sX \to \sX \right)\mapsto \left(A, A_0\left(\widetilde \sX \right) , G\left(\left.\widetilde \sX \right|\sX \right) , A_0\left( p\right)  \right),\\
+	\label{ctr_a_to_spt_eqn}
+	\left(A, \widetilde A, G, \pi \right) \mapsto \left(\mathrm{the~ given~ by~the~equation~}\eqref{cov_spectrum_eqn} \mathrm{~map~} p: \widetilde \sX \to \sX \right).    
+	\eea
+	(cf. Definition \ref{fin_defn}).
+\end{theorem}
 
-Suppose that $\sU \subset \sX$ is a dense subset of $\sX$ and
-  $a \in A$ be such that $a\neq 0$ and $a A|_{\mathcal U}=\left\{0\right\}$. From the Lemma \ref{ctr_rep_eq_lem} it follows that there is an open subset $\sV \subset \sX$ such that $\rep_x\left( a\right) \neq 0$ for all $x \in \sV$. Since $\sU$ is dense, one has $\sV \cap \sU \neq \emptyset$. There is $x_0\in \sU$  such that  $\rep_{x_0}\left( a\right) \neq 0$. From the Exercise \ref{top_completely_regular_exer} it follows that the space $\sX$ is completely regular (cf. Definition \ref{top_completely_regular_defn}). There is a continuous function $f_\sU: \mathcal X \to \left[0,1 \right]$ such that $f_\sU\left(x_0 \right)= 1$ and $f_\sU\left(\mathcal X\setminus\sU \right)= \left\{0\right\} $.  Otherwise from the Lemma \ref{ctr_fact_lem} if follows that $f_\sU a^* \in A|_{\mathcal U}$.  From $\left\|\rep_{x_0}\left( a\left(  f_\sU a^*\right) \right) \right\| = \left\|\rep_{x_0}\left( a \right) \right\|^2\neq 0$ it follows that $a A|_{\mathcal U}\neq\left\{0\right\}$.  From the Lemma \ref{essential_lem} it turns out that $A|_{\mathcal U}$ is an essential ideal. 
-  	
-  	If $\sU$ is not dense then there is an open subset $\sV \subset \sX$ such that $\sU\cap\sV= \emptyset$. There is $a \in A$ such that and $x_0\in \sV$ such that $\rep_{x_0}\left(a\right)\neq 0$. There is a continuous function $f_\sV: \mathcal X \to \left[0,1 \right]$ such that $f_\sV\left(x_0 \right)= 1$ and $f_\sV\left(\mathcal X\setminus\sV \right)= \left\{0\right\}$, and $\rep_{x_0}\left( f_\sV a \right)= \rep_{x_0}\left(  a \right)\neq 0$. So $f_\sV a\neq 0$. Otherwise for all $f \in C_0\left(\sU \right)$ from $f_\sV f= 0$ it follows that $\left(f_\sV a \right)\left(fb\right)= 0$ for all $b \in A$.  On the other hand form the Lemma \ref{ctr_fact_lem} it follows that  $A|_{\mathcal U}$ is the $C^*$-norm closure of $C_0\left(\sU \right)A$, so one has $\left(f_\sV a \right)A|_{\mathcal U}=\left\{0\right\}$, i.e. the ideal  $A|_{\mathcal U}$ is not essential.
-\end{proof}
 
-\begin{corollary}\label{ctr_sp_cov_cor}
-If $A$ is a continuous trace $C^*$-algebra with compact spectrum and \\$\left(A, \widetilde{A}, G, \pi \right)$ is a  noncommutative finite-fold covering with unitization (cf. Definition \ref{fin_comp_defn}) then following conditions hold:
-\begin{itemize}
-	\item[(i)] The spectrum $\widetilde\sX$ of $\widetilde A$ is a Hausdorff space.
-	\item[(ii)] The given by the equation  \eqref{cov_spectrum_eqn} map $p: \widetilde\sX\to\sX$ is a transitive finite-fold covering. 
-\end{itemize}
-\end{corollary}
-\begin{proof}(i) If $\widetilde A_{\text{red}}$ the reduced algebra of $\left(A, \widetilde{A}, G, \pi \right)$ (cf. Definition \ref{red_alg_defn}) then  from the  Lemma \ref{ctr_cont_tr_lem} it follows that the  spectrum $\widetilde \sX_{\text{red}}$ of $\widetilde A_{\text{red}}$ is Hausdorff. However the spectrum of $\widetilde A_{\text{red}}$ (cf. Remark \ref{red_sp_rem}) coincides with the spectrum of $\widetilde A$ (cf. Remark \ref{red_sp_rem}), i.e. $\widetilde \sX= \widetilde \sX_{\text{red}}$\\
-(ii)!!!REPLACE	 
-\end{proof}
 
 \begin{lemma}\label{ctr_pre_red_lem}
 Let $A$ be a continuous trace $C^*$-algebra, and let  $\left(A, \widetilde{A}, G, \pi \right)$ be a  noncommutative finite-fold quasi-covering. Suppose  that there is an open subset $\widetilde\sU$ of the spectrum $\widetilde\sX$ of  $\widetilde{A}$ such that
