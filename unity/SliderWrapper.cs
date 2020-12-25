@@ -207,9 +207,10 @@ namespace Unity.Standard
             }
             isVisible = visible;
             disableSliders(visible);
+            text.gameObject.SetActive(visible);
             if (!visible)
             {
-                text.text = "";
+               // text.enabled []
                 return;
             }
             updateText?.Invoke();

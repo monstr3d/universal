@@ -80,8 +80,6 @@ namespace Assets
             this.headingTxt = headingTxt;
             this._mask = _mask;
             this._maskR = _maskR;
-            Dictionary<string, List<Component>> com;
-            var cc = _maskR.gameObject.GetComponents(out com);
             this.Add();
             Prepare();
             if (f != null)
@@ -152,12 +150,8 @@ namespace Assets
 
         #region Members
 
-        public override string ToString()
-        {
-            return "Ang"; // DELETE AFTER
-        }
 
-        bool isLActive = true; // !!!
+        bool isLActive = true; 
 
         void SetLActive(bool act)
         {
@@ -179,7 +173,8 @@ namespace Assets
 
         void SetRoll(bool act)
         {
-             _maskR.enabled = act;
+             _maskR.gameObject.SetActive(act);
+            //_mask.enabled = true;
         }
 
         bool ExceedsRoll
