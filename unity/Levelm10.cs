@@ -69,6 +69,7 @@ namespace Assets
             c[2] = "Station frame.X=0.1";
             c[4] = "Station frame.Vy=0.0001";
             c[5] = "Station frame.Vz=-0.015";
+            c[8] = "Station frame.Yaw=20.0";
             if (monoBehaviour is OutputController)
             {
                 OutputController oc = monoBehaviour as OutputController;

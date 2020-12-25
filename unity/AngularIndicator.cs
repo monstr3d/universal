@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,10 +12,9 @@ using Vector3D;
 
 using Unity.Standard;
 
-
 namespace Assets
 {
-    public class AngularIndicator : IIndicator
+    public class AngularIndicator : IIndicator, ILimits
     {
         #region Fields
 
@@ -79,6 +80,8 @@ namespace Assets
             this.headingTxt = headingTxt;
             this._mask = _mask;
             this._maskR = _maskR;
+            Dictionary<string, List<Component>> com;
+            var cc = _maskR.gameObject.GetComponents(out com);
             this.Add();
             Prepare();
             if (f != null)
@@ -128,10 +131,62 @@ namespace Assets
 
         Action<string> IIndicator.Global => (string s) => { };
 
-    
+
+        #endregion
+
+        #region ILimits Members
+
+        private Dictionary<string, Tuple<float[], string[]>> d = new Dictionary<string, Tuple<float[], string[]>>();
+
+        Dictionary<string, Tuple<float[], string[]>> ILimits.Limits => d; // !!!
+
+        bool ILimits.Exceeds => ExceedsRoll;
+
+        bool ILimits.Active 
+        { 
+            get => isLActive; 
+            set => SetLActive(value); 
+        }
+
         #endregion
 
         #region Members
+
+        public override string ToString()
+        {
+            return "Ang"; // DELETE AFTER
+        }
+
+        bool isLActive = true; // !!!
+
+        void SetLActive(bool act)
+        {
+            if (act == isLActive)
+            {
+                return;
+            }
+            isLActive = act;
+            var exr = ExceedsRoll;
+            if (exr)
+            {
+                SetRoll(act);
+            }
+            if (!act)
+            {
+                SetRoll(true);
+            }
+        }
+
+        void SetRoll(bool act)
+        {
+             _maskR.enabled = act;
+        }
+
+        bool ExceedsRoll
+        {
+            get => Math.Abs(roll) > MaxRoll;
+        }
+
 
         void UpdateInternal()
         {
@@ -142,7 +197,7 @@ namespace Assets
             UpdateHeading();
             UpdateCompass();
             UpdateRollPitchImage();
-            var exr = Math.Abs(roll) > MaxRoll;
+            var exr = ExceedsRoll;
             if (_mask.enabled)
             {
                 if (exr)
@@ -193,6 +248,7 @@ namespace Assets
 
         }
 
+  
         void UpdateHeading()
         {
             if (heading < 0)

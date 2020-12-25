@@ -86,7 +86,6 @@ namespace Assets
         {
             var c = behavior.constants;
             c[0] = "Station frame.Z=3.5";
-            c[0] = "Station frame.Z=1.5";
             for (int i = 1; i < c.Length; i++)
             {
                 c[i] = c[i].ToZero();

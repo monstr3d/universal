@@ -10470,13 +10470,19 @@ If the spectrum of  $C^*$-algebra $A$ is Hausdorff then $A$ possess  a family of
 		\item  In the algebraic geometry  where "blowing-up"  used for excluding of singular points (cf. \cite{hartshorne:ag}).
 	\end{itemize}
 	
-\section{Basic construction}
+\section{Basic definitions}
 
-\paragraph*{}
+%\paragraph*{}
 
 
 \begin{definition}\label{blowing_defn}
-	Any  commutative $C^*$-subalgebra $C\cong C_0\left( \sY\right) \subset M\left(A \right)$ is said to be  a \textit{Hausdorff blowing-up} of $A$  if any approximate unit for $C_0\left( \sY\right)$ is an approximate unit for $A$ (cf. Definition \ref{app_unit_defn}).
+	Any  commutative $C^*$-subalgebra $C\cong C_0\left( \sY\right) \subset M\left(A \right)$ is said to be  a \textit{Hausdorff blowing-up} of $A$  if following conditions hold:
+	\begin{itemize}
+		\item 	Any approximate unit for $C_0\left( \sY\right)$ is an approximate unit for $A$ (cf. Definition \ref{app_unit_defn}).
+		\item For any irreducible representation $\rho: A \to B\left( \H\right)$ the space $\rho\left( C\right) \H$ is dense in $\H$. 
+	\end{itemize}
+	
+
 \end{definition}
 \begin{remark}\label{blowing_rem}
 If $\sX$ is the spectrum of $A$ then	for any $y\in \sY$ there is 
@@ -10500,12 +10506,13 @@ A Hausdorff blowing-up	$C\cong C_0\left( \sY\right) \subset M\left(A \right)$ is
 \begin{remark}\label{blowing_good_rem}
 	If $\sX = \cup\sU_\bt$ is such that for all $\bt$ there is $\a$ such that $\sU_\bt \subset \sU_\a$ and $\sum A_{\sU_\bt}$ generates $A$ then  $\sum A_{\sU_\a}$ generates an essential ideal of $A$. 
 \end{remark}
+\begin{remark}\label{blowing_good_ess_rem}
+If for all nonzero  $a \in A\setminus \{0\}$ there is $y \in \sY$ such that for any open neighborhood $\sU_y$ one has $a A_{\sU_y}\neq\{0\}$ then from the Lemma  \ref{essential_lem} it follows that the Hausdorff blowing-up	$C\cong C\left( \sY\right) \subset M\left(A \right)$ is {good}.
+\end{remark}
 \begin{lemma}\label{blowing_compact_lem}
-Let $\sY$ be a compact space. A Hausdorff blowing-up	$C\cong C\left( \sY\right) \subset M\left(A \right)$ is {good} if and only if for all nonzero  $a \in A\setminus \{0\}$ there is $y \in \sY$ such that for any open neighborhood $\sU_y$ one has $a A_{\sU_y}\neq\{0\}$.   
+Let $\sY$ be a compact space. If a Hausdorff blowing-up	$C\cong C\left( \sY\right) \subset M\left(A \right)$ is {good} then for all nonzero  $a \in A\setminus \{0\}$ there is $y \in \sY$ such that for any open neighborhood $\sU_y$ one has $a A_{\sU_y}\neq\{0\}$.   
 \end{lemma}
 \begin{proof}
-!!!! ADD INVERSE STATEMENT
-
 Let $a \in A$.
 	Consider a  set $\La$ of all families $\left\{\left\{\sU_{\a\la}\subset \sX\right\}_{\a_\la\in \mathscr A_\la}\right\}_{\la\in\La}$ such that
 $\bigcup_{\a_\la\in \mathscr A_\la}\sU_{\a_\la}=\sX$ for all $\la\in\La$.
@@ -10556,35 +10563,132 @@ then there is an injective *- homomorphism $C \hookto \widetilde C$.  If $\widet
 \be\label{blowing_inc_eqn}
 C_0\left(\widetilde\sY\right)\hookto M\left(\widetilde A \right) 
 \ee
-If $\left\{\widetilde u_\la\right\}_{\la\in \La}$ is an approximate unit for $C_0\left( \widetilde\sY\right)$ then from  the Lemma \ref{ind_qusai_lem} it follows that  $\left\{\frac{1}{\left| G\right| }\sum_{	g \in G}g\widetilde u_\la\right\}_{\la\in \La}$ is an approximate unit for $A$. If $\left\{\widetilde u_\la\right\}$ is not an approximate unit for $\widetilde A$ then  there is a positive $\widetilde b \in \widetilde A_+$  such that $\left\| \widetilde b \widetilde u_\la\right\| + \left\|  \widetilde u_\la \widetilde b\right\|> \frac{1}{\left| G\right|}> \eps$ for all $\la \in \La$ then 
-$$
-\forall\la\in\La\quad \left\| \widetilde b \frac{1}{\left| G\right| }\sum_{	g \in G}g\widetilde u_\la\right\| + \left\|  \left( \frac{1}{\left| G\right| }\sum_{	g \in G}g\widetilde u_\la\right) \widetilde b\right\|> \frac{1}{\left| G\right|},
-$$
-i.e. $\left\{\frac{1}{\left| G\right| }\sum_{	g \in G}g\widetilde u_\la\right\}_{\la\in \La}$ is not an approximate unit for $A$. From this contradiction it turns out that $\left\{\widetilde u_\la\right\}$ is not an approximate unit for $\widetilde A$. So the given by \eqref{blowing_inc_eqn} inclusion is  a Hausdorff blowing-up of $ \widetilde A$ (cf. Definition \ref{blowing_defn})
-
 \begin{lemma}
-Let $\left(A,\widetilde A, G, \pi \right)$ be a finite-fold unital noncommutative covering. Let $\sY$ be a compact set and $C_0\left( \sY\right)= C\left( \sY\right) \hookto M\left(A \right)=A$  is a good  Hausdorff blowing-up of $A$. If   the given by
-\eqref{blowing_inc_eqn}  inclusion
-$C\left(\widetilde\sY\right)\hookto  \widetilde A $ corresponds to a finite-fold covering $p: \widetilde\sY\to\sY$ then 
-$C\left(\widetilde\sY\right)\hookto  \widetilde A $ is a good Hausdorff blowing-up of $\widetilde A$.
+The given by \eqref{blowing_inc_eqn} inclusion is a Hausdorff blowing up for !!!
 \end{lemma}
 \begin{proof}
 	!!!
-	From the Lemma \ref{blowing_uni_lem} it follows that the induced by $C\left(\sY\right)\hookto C\left(\widetilde\sY\right)$ map $p: \widetilde\sY\to\sY$ is a finite-fold covering.!!!
-If $\widetilde a \in \widetilde A_+$ is a positive element then $\sum_{	g \in G}ga \in A_+$ is also positive. From the Lemma \ref{blowing_compact_lem} it follows that is $y \in \sY$ such that for any open neighborhood $\sU_y$ one has $a A_{\sU_y}\neq\{0\}$.   Consider a directed set $\left\{\sU_\a\right\}_{\a\in \mathscr A}$ of all connected evenly covered by $p$ neighborhoods of $y$. For all $ \a\in \mathscr A$ there is $a_\a\in A_{\sU_a}$ such that 
-++++
+If $\left\{\widetilde u_\la\right\}_{\la\in \La}$ is an approximate unit for $C_0\left( \widetilde\sY\right)$ then from  the Lemma \ref{ind_qusai_lem} it follows that  $\left\{\frac{1}{\left| G\right| }\sum_{	g \in G}g\widetilde u_\la\right\}_{\la\in \La}$ is an approximate unit for $A$. If $\left\{\widetilde u_\la\right\}$ is not an approximate unit for $\widetilde A$ then  there is a positive $\widetilde b \in \widetilde A_+$  such that $\left\| \widetilde b \widetilde u_\la\right\| + \left\|  \widetilde u_\la \widetilde b\right\|>  \eps$ for all $\la \in \La$ then 
+$$
+\forall\la\in\La\quad \left\| \widetilde b \frac{1}{\left| G\right| }\sum_{	g \in G}g\widetilde u_\la\right\| + \left\|  \left( \frac{1}{\left| G\right| }\sum_{	g \in G}g\widetilde u_\la\right) \widetilde b\right\|> \frac{\eps}{\left| G\right|},
+$$
+i.e. $\left\{\frac{1}{\left| G\right| }\sum_{	g \in G}g\widetilde u_\la\right\}_{\la\in \La}$ is not an approximate unit for $A$. From this contradiction it turns out that $\left\{\widetilde u_\la\right\}$ is not an approximate unit for $\widetilde A$. So the given by \eqref{blowing_inc_eqn} inclusion is  a Hausdorff blowing-up of $ \widetilde A$ (cf. Definition \ref{blowing_defn}).
+\end{proof}
+\begin{lemma}\label{blowing_uni_lem}
+	Let both $\sY$ and $\widetilde \sY$ be compact Hausdorff spaces, suppose that $\sY$ is connected.
+	Let $\left(A,\widetilde A, G, \pi \right)$ be a unital noncommutative finite-fold  quasi-covering (cf. Definition \ref{fin_uni_defn}), and let $C\left( \sY\right)\hookto A$ (resp. $C\left( \widetilde \sY\right)\hookto \widetilde A$) be a blowing-up of $A$ (resp. $\widetilde A$)  such that 
+	\begin{itemize}
+		\item  $\pi\left( C\left( \sY\right)\right) \subset C\left( \widetilde\sY\right)$ and there is a continuous  map $p: \widetilde\sY\to\sY$ such that $\left.\pi\right|_{ C_0\left( \sY\right)}$ is induced by $p$.
+		\item The natural action $G\times \widetilde A\to \widetilde A$ is such that $G !!! DELETE C_0\left( \widetilde \sY\right)= C_0\left( \widetilde \sY\right)$ and any nontrivial $g\in G$ %%%induces a nontrivial homeomorphism of $ \widetilde \sY$.
+	\end{itemize}
+	Then the map $p$ is a transitive finite-fold covering.
+\end{lemma}
 
+\begin{proof}
+	From the Definition \ref{fin_uni_defn} it follows that $\widetilde A$ is a finitely generated left and right $A$-module.
+	If $C\left(\widetilde\sY\right)$ is not  a finitely generated $C\left(\sY\right)$-module then from the Theorem \ref{fin_gen_thm} it follows that there is an infinite set $\left\{M_\la\right\}_{\la\in\La}$ of $C_0\left(\sY \right)$-submodules of $C\left(\widetilde{\sY}\right)$ such that 
+	$$
+	C\left(\widetilde{\sY}\right)=\sum_{\la \in \La} M_\la,
+	$$
+	but there is no  a finite subset $\La_0\subset \La$  such that 
+	$$
+	C\left(\widetilde{\sY}\right) = \sum_{\la \in \La_0} M_\la.
+	$$
+	For any $\la\in \La$ the space  $M_\la \widetilde{A}$ is a right $A$-submodule of $\widetilde{A}$.
+	From $C\left(\sY \right) A = A$ and $C\left(\widetilde\sY \right) \widetilde  A = \widetilde A$ one has 
+	$$
+	\widetilde{A}=\sum_{\la \in \La}M_\la \widetilde{A} 
+	$$
+	but there is no  a finite subset $\La_0\subset \La$  such that 
+	$$
+	\widetilde{A}=\sum_{\la \in \La_0}M_\la \widetilde{A}.
+	$$
+	From the Theorem \ref{fin_gen_thm} it follows $\widetilde{A}$ is not a finitely generated $A$-module, it contradicts with the definition \ref{fin_uni_defn}. So $C\left(\widetilde\sY\right)$ is   a finitely generated $C\left(\sY\right)$, and from the Theorem \ref{pavlov_troisky_thm} it follows that $p$ is a finite-fold covering. 
+\end{proof}
 
-++++
+\begin{lemma}
+
+Let $\left(A,\widetilde A, G, \pi \right)$ be an unital finite-fold  noncommutative covering (cf. Definition \ref{fin_quasi_defn}) and let $C\left( \sY\right) \hookto M\left(A \right)$  be a good  Hausdorff blowing-up of $A$ with compact $\sY$. The given by
+\eqref{blowing_inc_eqn}  Hausdorff blowing-up
+$C\left(\widetilde\sY\right)\hookto  M\left( \widetilde A\right)  $  of  $\widetilde A$  is a good.
+\end{lemma}
+\begin{proof}
+	From the Lemma \ref{blowing_uni_lem} it follows that the induced by $C\left(\sY\right)\hookto C\left(\widetilde\sY\right)$ map $p: \widetilde\sY\to\sY$ is a finite-fold covering.
+		Let $G_0\bydef \ker \left(G\to \Homeo\left( \widetilde \sY\right)  \right)$. 
+If $\widetilde a \in \widetilde A_+$ is a positive element then $\sum_{	g \in G}ga \in A_+$ is also positive. From the Lemma \ref{blowing_compact_lem} it follows that is $y \in \sY$ such that for any open neighborhood $\sU_y$ one has $a A_{\sU_y}\neq\{0\}$. If $\widetilde y\in \widetilde \sY$ is such that $p\left(\widetilde y \right) =y$  then $p^{-1} \left(y\right)= G\widetilde y$ Consider a directed set $\left\{\sU_\a\right\}_{\a\in \mathscr A}$ of all connected evenly covered by $p$ neighborhoods of $y$, such that 
+$
+\forall\bt,\ga\in \mathscr A \quad \bt \ge \ga \Leftrightarrow \sU_\bt\subset \sU_\ga.
+$
+For any $\a$ select an open connected neighborhood $\widetilde \sU_\a$ of $\widetilde y$ such that $p\left(\widetilde \sU_\a \right) = \sU_\a$. If  $b_\a  \bydef f'_\a a f''_\a$ where $f'_\a,f''_\a\in C_0\left(\sU_\a \right)$. If we put $\widetilde f'_\a \bydef  \frac{\left| G_0\right|}{\left| G\right| }\lift_{\widetilde \sU_\a}\left( f'\right) $ and $\widetilde f''_\a \bydef  \frac{\left| G_0\right|}{\left| G\right| }\lift_{\widetilde \sU_\a}\left( f''\right)  $ where $\lift_{\widetilde \sU_\a}$ is given by \eqref{top_lift_desc_eqn} then
+$$
+ f'_\a a f''_\a = \sum_{	g \in G}\widetilde f'  a\widetilde f''.
+$$
+On the other hand $\widetilde f'  a\widetilde f''\in \widetilde A_{\widetilde \sU_\a}$ it turns out that for all $ a_\a \in \widetilde A_{ \sU_\a}$ there is  $\widetilde a_\a \in \widetilde A_{\widetilde \sU_\a}$ such that $a_\a = \sum_{	g \in G}g\widetilde a_\a$. From $a A_{\sU_\a}\neq\{0\}$ it follows that
+there is $a_\a$ such that $a a_\a \neq 0$. If $a_\a = \sum_{	g \in G}g\widetilde a_\a$ then 
 $$
 \sum_{g_1, g_2 \in G}\left( g_1a\right) \left(  g_2\widetilde a_\a\right) \neq \{0\}
 $$
 There is a pair $g_1, g_2 \in G$ such that $ g_1a g_2\widetilde a_\a \neq \{0\}$ since $g^{-1}$ is *-automorphism
 $$
 g^{-1}\left( \left( g_1a\right) \left(  g_2\widetilde a_\a\right)\right) = a\left( g_1^{-1}g_2 \widetilde a_\a\right)   \neq \{0\}
-$$ !!!
+$$ 
+It follows that for all $\a\in \mathscr A$ there is a nonempty set
+$
+G_\a \bydef\left\{g\in G\left| a\widetilde A_{g \widetilde \sU_\a }\neq \{0\}\right.\right\}.
+$
+From $
+\forall\bt,\ga\in \mathscr A \quad \bt \ge \ga \Leftrightarrow G_\bt\subset G_\ga.
+$
+it follows that 
+$$
+G'\bydef \bigcap_{\ga\in \mathscr A} G_\a\neq \emptyset
+$$
+And for all $g\in G'$ and any neighborhood $\widetilde \sU$ of $g\widetilde y$ one has
+$\widetilde a \widetilde A_{\widetilde\sU}\neq \{0\}$.
 \end{proof}
+\begin{lemma}\label{blowing_uni_cov_lem}
+	Let $\left(A,\widetilde A, G, \pi \right)$ be a unital noncommutative finite-fold  reduced covering (cf. Definitions \ref{fin_uni_defn}, \ref{fin_red_defn}), and let $C = C\left( \sY\right)\hookto A$  be a good  blowing-up of $A$ (cf. Definitions \ref{blowing_defn}, \ref{blowing_good_defn}). Then there is  be a good  blowing-up of  $\widetilde C \cong C\left( \sY\right)\hookto A$ of A such that 	
+	\begin{itemize}
+		\item  $\pi\left( C\left( \sY\right)\right) \subset C\left( \widetilde\sY\right)$ and there is a continuous  map $p: \widetilde\sY\to\sY$ such that $\left.\pi\right|_{ C_0\left( \sY\right)}$ is induced by $p$.
+		\item The natural action $G\times \widetilde A\to \widetilde A$ is such that $G C_0\left( \widetilde \sY\right)= C_0\left( \widetilde \sY\right)$ and any nontrivial $g\in G$ induces a nontrivial homeomorphism of $ \widetilde \sY$.
+	\end{itemize}
+\end{lemma}
+\begin{proof}
+	
+	For any $\a$ and there is a nonempty finite subset
+	$\widetilde\sY_\a \in p^{-1}\left( y\right)$ such that for all  $\widetilde y \in \widetilde\sY_\a$ if $\sU_{\widetilde y}$ is an open neighborhood of $\widetilde y$ homemorphically mapped onto $\sU_y$ then
+	$\widetilde a A_{\sU_{\widetilde y}}\neq\{0\}$. The set $\cap\widetilde\sY_\a$ is not empty, any $y\in \sY$ satisfies to the Lemma  \ref{blowing_compact_lem}
+	
+	
+	++++++++++++++++++++++++++\\
+	Let $\left\{\widetilde \sU_\bt\subset \widetilde\sY\right\}_{\bt \in \mathscr B}$ be a family of open sets such that $\widetilde\sY = \cup\widetilde\sU_\bt$. Since $\widetilde \sY$ is compact there is a finite subfamily  $\left\{\widetilde \sU_\bt\right\}_{\bt \in \mathscr B_0}\subset \left\{\widetilde \sU_\bt\right\}_{\bt \in \mathscr B}$ be a family of open sets such that $\widetilde\sY = \cup_{\bt \in \mathscr B_0}\widetilde\sU_\bt$ For any point $\widetilde y \in \widetilde\sY$ we select an open connected neighborhood $\widetilde \sU_{\widetilde y}$ such that
+	\begin{itemize}
+		\item The restriction $p|_{\widetilde y}$ is injective.
+		\item $ \forall \bt \in \mathscr B_0 \quad\forall g\in G\quad g \widetilde y\in \widetilde \sU_\bt \Rightarrow g \widetilde \sU_{\widetilde y}\subset  \widetilde \sU_\bt$.
+	\end{itemize}
+	Since $\widetilde\sY$ is compact there is a finite set $\left\{\widetilde y_1, ..., \widetilde y_n\right\}$ such that
+	$$
+	\widetilde\sY = \bigcup_{g \in G}\left(\bigcup_{j = 1}^n g\widetilde \sU_{y_j} \right) 
+	$$
+	\\++++++++++++++++++++++\\
+	Let us prove that the set $\sum_{\left( g, j\right)  \in G\times \{1,...n\}}$ generates $C^*$-algebra $A$. Firstly note that that 
+	for all $\left( g, j\right)  \in G\times \{1,...n\}\bigcup_{j = 1}^n g\widetilde \sU_{y_j}$  one has
+	\be\label{blowing_c0_eqn}
+	C_0\left(g\widetilde \sU_{y_j} \right) \widetilde A C_0\left(g\widetilde \sU_{y_j} \right) = C_0\left(g\widetilde \sU_{y_j} \right)  A C_0\left(g\widetilde \sU_{y_j} \right).
+	\ee
+	Really any $\widetilde f =\in C_0\left( g\widetilde \sU_{y_j} \right)$ can be represented as $\widetilde f' \widetilde f''$ where $\widetilde f' \in  C_0\left( g\widetilde \sU_{y_j} \right)$ and $f \in C_0\left( p\left(\widetilde \sU_{y_j} \right) \right)$. So any $\widetilde a \in C_0\left(g\widetilde \sU_{y_j} \right) \widetilde A C_0\left(g\widetilde \sU_{y_j} \right)$ is given by $\widetilde a = \widetilde f'_1  \widetilde f'_1 \widetilde a' \widetilde f'_2\widetilde f''_2$. On the other hand $\widetilde f'_1 \widetilde a' \widetilde f'_2\in C_0\left(g\widetilde \sU_{y_j} \right) \widetilde A C_0\left(g\widetilde \sU_{y_j} \right)$. If $a = \bydef \frac{1}{\left|G\right|}\sum_{g \in G}ga'\in A$ then $\widetilde a = \widetilde f'_2 a \widetilde f'_2$. From \eqref{blowing_c0_eqn} it follows that
+	\be\label{blowibg_ker_eqn}
+	g \in \ker\left(G \to \Homeo \widetilde \sY \right)\Rightarrow \forall \widetilde a \in \widetilde A_{g'\widetilde \sU_{y_j}}\quad g \widetilde a = \widetilde a 
+	\ee
+	It the algebraic sum $\sum_{\left(g,\widetilde j \right)\in G\left\{1,...,n\right\}}   \widetilde A_{g \widetilde \sU_j}$ does not generate  $\widetilde A$ there is $\widetilde a \in \widetilde A\setminus\{0\}$ such that $\widetilde a  A_{\widetilde \sU_\a} = \{0\}$ for all $\left(g,\widetilde j \right)\in G\left\{1,...,n\right\}$ (cf. Lemma \ref{essential_lem}). We can suppose that $\widetilde a > 0$. If $a \bydef \sum_{	g \in G} g \widetilde a \in A$ then since IS GOOD !!! there is $j\in \{1,...,n\} \in $ such that $b \in  A_{p\left(\widetilde \sU_j \right) }$ such that $ba\neq \{0\}$. However any from \eqref{blowing_c0_eqn} it follows that for all  $a \in  A_{p\left(\widetilde \sU_j\right) } $ there is %$\widetilde b \in  A_{\widetilde \sU_j}$ such that $b = \sum_{	g \in G}g\widetilde b$. So there is 
+	For any $\bt \in \mathscr B_0$ there is $\left(g,\widetilde j \right)\in G\times\left\{1,...,n\right\}$ so from the Remark \ref{blowing_good_rem} if follows that $\sum A_{\widetilde \sU_\bt}$ generates $\widetilde A$ GOOD.
+	From \eqref{blowibg_ker_eqn} it follows that $\ker\left(G \to \Homeo \widetilde \sY \right)$ trivially acts on $\widetilde A$, so the non triviality of $\ker\left(G \to \Homeo \widetilde \sY \right)$ contradicts with Definition \ref{fin_pre_defn}. So any nontrivial $g\in G$ induces a nontrivial homeomorphism of $ \widetilde \sY$
+	
+	
+\end{proof}
+
 \begin{lemma}\label{blowing_pc_lem}
+	
 	Let $\left(A,\widetilde A, G, \pi \right)$ be a finite-fold noncommutative pre-covering (cf. Definition \ref{fin_pre_defn}), and let $C_0\left( \sY\right)\hookto M\left(A \right)$ (resp. $C_0\left( \widetilde \sY\right)\hookto M\left(\widetilde A \right)$) be a blowing-up of $A$ (resp. $\widetilde A$)  such that 
 	\begin{itemize}
 		\item $\widetilde A$ is a connected $C^*$-algebra (cf. Definition \ref{conn_c_a_defn}).
@@ -10595,7 +10699,7 @@ $$ !!!
 \end{lemma}
 \begin{proof} !!! CHECK PROOF
 	From $M\left(A \right)\cong M\left(\widetilde A\right)^G$ it follows that $C_0\left(  \sY\right)\cong C_0\left( \widetilde \sY\right)^G$, so one has $\sY \cong \widetilde \sY/G$ and $G\cong G\left(\left.\widetilde \sY\right| \sY \right)$. 
-	If   $\mathfrak F_c\left(\sY \right) = \left\{u_\la\right\}_{\la\in \La}\subset C_c\left(\sY \right)_+$ is the given by \eqref{top_fxuc_eqn} net then form \eqref{blowing_eqn} and the Lemma \ref{top_coff_lem} it turns out that $	1_{M\left(A \right)  }= \bt~\text{-}\lim_{\la \in \La }u_\la$.
+	If   $\mathfrak F_c\left(\sY \right) = \left\{u_\la\right\}_{\la\in \La}\subset C_c\left(\sY \right)_+$ is the given by \eqref{top_fxuc_eqn} net then form the Lemma \ref{top_coff_lem} it turns out that $	1_{M\left(A \right)  }= \bt~\text{-}\lim_{\la \in \La }u_\la$.
 	
 	If 
 	\bean
@@ -10653,103 +10757,22 @@ $$ !!!
 \end{proof}
 
 
-\begin{lemma}\label{blowing_uni_lem}
-	Let both $\sY$ and $\widetilde \sY$ be compact Hausdorff spaces, suppose that $\sY$ is connected.
-	Let $\left(A,\widetilde A, G, \pi \right)$ be a unital noncommutative finite-fold  quasi-covering (cf. Definition \ref{fin_uni_defn}), and let $C\left( \sY\right)\hookto A$ (resp. $C\left( \widetilde \sY\right)\hookto \widetilde A$) be a blowing-up of $A$ (resp. $\widetilde A$)  such that 
-	\begin{itemize}
-		\item  $\pi\left( C\left( \sY\right)\right) \subset C\left( \widetilde\sY\right)$ and there is a continuous  map $p: \widetilde\sY\to\sY$ such that $\left.\pi\right|_{ C_0\left( \sY\right)}$ is induced by $p$.
-		\item The natural action $G\times \widetilde A\to \widetilde A$ is such that $G !!! DELETE C_0\left( \widetilde \sY\right)= C_0\left( \widetilde \sY\right)$ and any nontrivial $g\in G$ %%%induces a nontrivial homeomorphism of $ \widetilde \sY$.
-	\end{itemize}
-	Then the map $p$ is a transitive finite-fold covering.
-\end{lemma}
-
-\begin{proof}
-	From the Definition \ref{fin_uni_defn} it follows that $\widetilde A$ is a finitely generated left and right $A$-module.
-	If $C\left(\widetilde\sY\right)$ is not  a finitely generated $C\left(\sY\right)$-module then from the Theorem \ref{fin_gen_thm} it follows that there is an infinite set $\left\{M_\la\right\}_{\la\in\La}$ of $C_0\left(\sY \right)$-submodules of $C\left(\widetilde{\sY}\right)$ such that 
-	$$
-	C\left(\widetilde{\sY}\right)=\sum_{\la \in \La} M_\la,
-	$$
-	but there is no  a finite subset $\La_0\subset \La$  such that 
-	$$
-	C\left(\widetilde{\sY}\right) = \sum_{\la \in \La_0} M_\la.
-	$$
-	For any $\la\in \La$ the space  $M_\la \widetilde{A}$ is a right $A$-submodule of $\widetilde{A}$.
-	From $C\left(\sY \right) A = A$ and $C\left(\widetilde\sY \right) \widetilde  A = \widetilde A$ one has 
-	$$
-	\widetilde{A}=\sum_{\la \in \La}M_\la \widetilde{A} 
-	$$
-	but there is no  a finite subset $\La_0\subset \La$  such that 
-	$$
-	\widetilde{A}=\sum_{\la \in \La_0}M_\la \widetilde{A}.
-	$$
-	From the Theorem \ref{fin_gen_thm} it follows $\widetilde{A}$ is not a finitely generated $A$-module, it contradicts with the definition \ref{fin_uni_defn}. So $C\left(\widetilde\sY\right)$ is   a finitely generated $C\left(\sY\right)$, and from the Theorem \ref{pavlov_troisky_thm} it follows that $p$ is a finite-fold covering. 
-\end{proof}
-\begin{lemma}\label{blowing_uni_cov_lem}
-	Let $\left(A,\widetilde A, G, \pi \right)$ be a unital noncommutative finite-fold  reduced covering (cf. Definitions \ref{fin_uni_defn}, \ref{fin_red_defn}), and let $C = C\left( \sY\right)\hookto A$  be a good  blowing-up of $A$ (cf. Definitions \ref{blowing_defn}, \ref{blowing_good_defn}). Then there is  be a good  blowing-up of  $\widetilde C \cong C\left( \sY\right)\hookto A$ of A such that 	
-	\begin{itemize}
-		\item  $\pi\left( C\left( \sY\right)\right) \subset C\left( \widetilde\sY\right)$ and there is a continuous  map $p: \widetilde\sY\to\sY$ such that $\left.\pi\right|_{ C_0\left( \sY\right)}$ is induced by $p$.
-		\item The natural action $G\times \widetilde A\to \widetilde A$ is such that $G C_0\left( \widetilde \sY\right)= C_0\left( \widetilde \sY\right)$ and any nontrivial $g\in G$ induces a nontrivial homeomorphism of $ \widetilde \sY$.
-		\end{itemize}
-\end{lemma}
-\begin{proof}
-
-For any $\a$ and there is a nonempty finite subset
-$\widetilde\sY_\a \in p^{-1}\left( y\right)$ such that for all  $\widetilde y \in \widetilde\sY_\a$ if $\sU_{\widetilde y}$ is an open neighborhood of $\widetilde y$ homemorphically mapped onto $\sU_y$ then
-$\widetilde a A_{\sU_{\widetilde y}}\neq\{0\}$. The set $\cap\widetilde\sY_\a$ is not empty, any $y\in \sY$ satisfies to the Lemma  \ref{blowing_compact_lem}
-
-
-++++++++++++++++++++++++++\\
- Let $\left\{\widetilde \sU_\bt\subset \widetilde\sY\right\}_{\bt \in \mathscr B}$ be a family of open sets such that $\widetilde\sY = \cup\widetilde\sU_\bt$. Since $\widetilde \sY$ is compact there is a finite subfamily  $\left\{\widetilde \sU_\bt\right\}_{\bt \in \mathscr B_0}\subset \left\{\widetilde \sU_\bt\right\}_{\bt \in \mathscr B}$ be a family of open sets such that $\widetilde\sY = \cup_{\bt \in \mathscr B_0}\widetilde\sU_\bt$ For any point $\widetilde y \in \widetilde\sY$ we select an open connected neighborhood $\widetilde \sU_{\widetilde y}$ such that
-\begin{itemize}
-	\item The restriction $p|_{\widetilde y}$ is injective.
-	\item $ \forall \bt \in \mathscr B_0 \quad\forall g\in G\quad g \widetilde y\in \widetilde \sU_\bt \Rightarrow g \widetilde \sU_{\widetilde y}\subset  \widetilde \sU_\bt$.
-\end{itemize}
-Since $\widetilde\sY$ is compact there is a finite set $\left\{\widetilde y_1, ..., \widetilde y_n\right\}$ such that
-$$
-\widetilde\sY = \bigcup_{g \in G}\left(\bigcup_{j = 1}^n g\widetilde \sU_{y_j} \right) 
-$$
-\\++++++++++++++++++++++\\
-Let us prove that the set $\sum_{\left( g, j\right)  \in G\times \{1,...n\}}$ generates $C^*$-algebra $A$. Firstly note that that 
-for all $\left( g, j\right)  \in G\times \{1,...n\}\bigcup_{j = 1}^n g\widetilde \sU_{y_j}$  one has
-\be\label{blowing_c0_eqn}
-C_0\left(g\widetilde \sU_{y_j} \right) \widetilde A C_0\left(g\widetilde \sU_{y_j} \right) = C_0\left(g\widetilde \sU_{y_j} \right)  A C_0\left(g\widetilde \sU_{y_j} \right).
-\ee
-Really any $\widetilde f =\in C_0\left( g\widetilde \sU_{y_j} \right)$ can be represented as $\widetilde f' \widetilde f''$ where $\widetilde f' \in  C_0\left( g\widetilde \sU_{y_j} \right)$ and $f \in C_0\left( p\left(\widetilde \sU_{y_j} \right) \right)$. So any $\widetilde a \in C_0\left(g\widetilde \sU_{y_j} \right) \widetilde A C_0\left(g\widetilde \sU_{y_j} \right)$ is given by $\widetilde a = \widetilde f'_1  \widetilde f'_1 \widetilde a' \widetilde f'_2\widetilde f''_2$. On the other hand $\widetilde f'_1 \widetilde a' \widetilde f'_2\in C_0\left(g\widetilde \sU_{y_j} \right) \widetilde A C_0\left(g\widetilde \sU_{y_j} \right)$. If $a = \bydef \frac{1}{\left|G\right|}\sum_{g \in G}ga'\in A$ then $\widetilde a = \widetilde f'_2 a \widetilde f'_2$. From \eqref{blowing_c0_eqn} it follows that
-\be\label{blowibg_ker_eqn}
-g \in \ker\left(G \to \Homeo \widetilde \sY \right)\Rightarrow \forall \widetilde a \in \widetilde A_{g'\widetilde \sU_{y_j}}\quad g \widetilde a = \widetilde a 
-\ee
-It the algebraic sum $\sum_{\left(g,\widetilde j \right)\in G\left\{1,...,n\right\}}   \widetilde A_{g \widetilde \sU_j}$ does not generate  $\widetilde A$ there is $\widetilde a \in \widetilde A\setminus\{0\}$ such that $\widetilde a  A_{\widetilde \sU_\a} = \{0\}$ for all $\left(g,\widetilde j \right)\in G\left\{1,...,n\right\}$ (cf. Lemma \ref{essential_lem}). We can suppose that $\widetilde a > 0$. If $a \bydef \sum_{	g \in G} g \widetilde a \in A$ then since IS GOOD !!! there is $j\in \{1,...,n\} \in $ such that $b \in  A_{p\left(\widetilde \sU_j \right) }$ such that $ba\neq \{0\}$. However any from \eqref{blowing_c0_eqn} it follows that for all  $a \in  A_{p\left(\widetilde \sU_j\right) } $ there is %$\widetilde b \in  A_{\widetilde \sU_j}$ such that $b = \sum_{	g \in G}g\widetilde b$. So there is 
-For any $\bt \in \mathscr B_0$ there is $\left(g,\widetilde j \right)\in G\times\left\{1,...,n\right\}$ so from the Remark \ref{blowing_good_rem} if follows that $\sum A_{\widetilde \sU_\bt}$ generates $\widetilde A$ GOOD.
-From \eqref{blowibg_ker_eqn} it follows that $\ker\left(G \to \Homeo \widetilde \sY \right)$ trivially acts on $\widetilde A$, so the non triviality of $\ker\left(G \to \Homeo \widetilde \sY \right)$ contradicts with Definition \ref{fin_pre_defn}. So any nontrivial $g\in G$ induces a nontrivial homeomorphism of $ \widetilde \sY$
-
-		
-\end{proof}
 
 \begin{theorem}\label{blowing_cov_thm}
-	Let $\left(A,\widetilde A, G, \pi \right)$ be a  noncommutative finite-fold  reduced covering (cf. Definitions \ref{fin_defn}, \ref{fin_red_defn}), and let $C = C_0\left( \sY\right)\hookto M\left( A\right) $  be a good  blowing-up of $A$ (cf. Definitions \ref{blowing_defn}, \ref{blowing_good_defn}). Then there is  be a good  blowing-up of  $\widetilde C \cong C_0\left( \sY\right)\hookto M\left(\widetilde A \right) $ of A such that 	
-	\begin{itemize}
-		\item  $\pi\left( C\left( \sY\right)\right) \subset C\left( \widetilde\sY\right)$ and there is a continuous  map $p: \widetilde\sY\to\sY$ such that $\left.\pi\right|_{ C_0\left( \sY\right)}$ is induced by $p$.
-		\item The natural action $G\times \widetilde A\to \widetilde A$ is such that $G C_0\left( \widetilde \sY\right)= C_0\left( \widetilde \sY\right)$ and any nontrivial $g\in G$ induces a nontrivial homeomorphism of $ \widetilde \sY$.
-	\end{itemize}
+	Let $\left(A,\widetilde A, G, \pi \right)$ be a  noncommutative finite-fold  reduced covering (cf. Definitions \ref{fin_defn}, \ref{fin_red_defn}), and let $C = C_0\left( \sY\right)\hookto M\left( A\right) $  be a good  blowing-up of $A$ (cf. Definitions \ref{blowing_defn}, \ref{blowing_good_defn}). If $\widetilde C = C_0\left( \widetilde \sY\right)\hookto M\left( \widetilde A\right) $ is the given by \eqref{blowing_inc_eqn} then the natural map $p: \widetilde \sY\to \sY$ is a transitive finite-fold covering such that $G\cong G\left(\left.\widetilde \sY\right| \sY \right)$. 
 \end{theorem}
+
 \begin{proof}
-	Similarly to \eqref{blowing_wc_eqn} define  blowing-up of  $\widetilde A$
-\be\label{blowing_wc0_eqn}
-\widetilde C \bydef \left\{\left.\widetilde c \in M\left( \widetilde A\right) \right| \forall \widetilde x \in \widetilde \sX \quad \rep_{p\left(  \widetilde{x}\right) }\left( \widetilde c \right)\in \rep_{p\left(  \widetilde{x}\right) }\left( C\right) \right\}\hookto M\left( \widetilde A\right).
-\ee
-Consider an increasing net $\left\{u_\la\right\}_{\la\in\La}\subset M\left( A\right)_+ $ and coverings with unitizations	$\left(A_\la, \widetilde{A}_\la, G, \left.\pi\right|_{A_\la}\right)$ required by the Definition \ref{fin_defn}.
-\\++++++++++++++++++++++	
-For all $\la\in\La$ the subalgebra $A_\la\subset A$ is hereditary (cf. Remark \ref{hered_fin_rem}), so from the Proposition \ref{ctr_hered_prop} is a $C^*$-algebra with continuous trace. If both $\sU_\la$ and  $\widetilde\sU_\la$ are spectra of ${A}_\la$ and $\widetilde{A}_\la$ which are open subsets of $\sX$ and  $\widetilde\sX$ (cf. Proposition \ref{hered_spectrum_prop}).  From $\bt\text{-}\lim_{\la\in \La} u_\la = 1_{M\left(A\right)}$ and the Lemma \ref{ind_qusai_lem} it follows that $\left\{u_\la\right\}$ is an approximate unit for $M\left(\widetilde A\right)$, so the union $\cup {A}_\la$ is dense in $A$, and from the Lemma \ref{fin_def_lem} it follows that  the union $\cup \widetilde{A}_\la$ is dense in $\widetilde A$.	
-It turns out that $\sX = \cup\sU_\la$ and  $\widetilde\sX = \cup\widetilde\sU_\la$. From the Corollary \ref{ctr_uni_cov_cor} it follows that the map  $\widetilde\sU_\la\to \sU_\la$ is a transitive finite-fold covering. So there a directed set of transitive coverings $\widetilde\sU_\la \to \sU_\la$. Equation $\sX = \cup\sU_\la$ and  $\widetilde\sX = \cup\widetilde\sU_\la$ yield a  transitive covering $\widetilde\sX \to \sX$.
-+++++++++++++++++++\\
+Consider an increasing net $\left\{u_\la\right\}_{\la\in\La}\subset M\left( A\right)_+ $ 	required by the Definition \ref{fin_defn}.
+
 For any $\la\in\La$ both 
 \bean
 C_\la  \bydef \left\{\left. a \in C\right| a\left\{\left. b \in M\left( A\right) \right| u_\la b u_\la = 0 \right\}=\{0\}  \right\},\\
-\widetilde C_\la \bydef  \left\{\left.\widetilde a \in C_b\left(\widetilde \sZ \right)\right| \widetilde a\left\{\left.\widetilde b \in C_b\left(\widetilde \sZ \right)\right| u_\la\widetilde b u_\la = 0 \right\}=\{0\}  \right\}.
+\widetilde C_\la \bydef  \left\{\left.\widetilde a \in \widetilde C \right| \widetilde a\left\{\left.\widetilde b \in M\left(\widetilde A \right)\right| u_\la\widetilde b u_\la = 0 \right\}=\{0\}  \right\}.
 \eean 
 are  ideals of both $C$ and 
 $\widetilde C$ respectively.
-From the Proposition \ref{hered_spectrum_prop} it follows that there are open subsets $\sU_\la\subset M$ and $\widetilde \sU_\la\subset \widetilde\sZ$ such that $C_\la \cong C_0\left(\sU_\la\right)$ and  $\widetilde C_\la \cong C_0\left(\widetilde \sU_\la \right)$. If  $A_\la$ and  $\widetilde A_\la$ are $C^*$-norm completions  of $u_\la A u_\la$ and  $u_\la\widetilde{A}u_\la$ then from the condition (c) of the definition  \ref{fin_defn} it turns out that 		$$
+From the Proposition \ref{hered_spectrum_prop} it follows that there are open subsets $\sU_\la\subset \sY$ and $\widetilde \sU_\la\subset \widetilde\sY$ such that $C_\la \cong C_0\left(\sU_\la\right)$ and  $\widetilde C_\la \cong C_0\left(\widetilde \sU_\la \right)$. If  $A_\la$ and  $\widetilde A_\la$ are $C^*$-norm completions  of $u_\la A u_\la$ and  $u_\la\widetilde{A}u_\la$ then from the condition (c) of the definition  \ref{fin_defn} it turns out that 		$$
 \left(A_\la, \widetilde{A}_\la, G, \left.\pi\right|_{A_\la} :A_\la\hookto \widetilde{A}_\la\right)	
 $$
 is a noncommutative finite-fold covering with unitization (cf. Definition \ref{fin_comp_defn}). Let  $\left(B_\la ,\widetilde{B}_\la, G, \widetilde{\pi}_\la \right)$ be an untital  pre-covering which is required by the condition (b) of the Definition \ref{fin_comp_defn}.
@@ -10758,10 +10781,10 @@ If
 D_\la \bydef \left\{\left.  a \in  B_\la\right| \forall  b\in    C_\la \quad   a   b=   b  a\in  C_\la  \right\},\\
 \widetilde D_\la \bydef \left\{\left. \widetilde a \in \widetilde B_\la\right| \forall \widetilde b\in   \widetilde C_\la \quad  \widetilde a  \widetilde b=  \widetilde b \widetilde a\in \widetilde C_\la  \right\},\\
 \eean
-then $ D_\la\subset M\left(  D_\la\right)$ and $\widetilde D_\la\subset M\left( \widetilde D_\la\right)$. So both   $C_\la$ and $\widetilde C_\la$ are essential ideals of $D_\la$ and $\widetilde D_\la$ respectively. Since both $D_\la$ and $\widetilde D_\la$ commutative and unital (because $1_{B_\la}\in D_\la$ and  $1_{\widetilde B_\la}\in \widetilde D_\la$) there are compact sets $\sY_\la$ and $\widetilde\sY_\la$ such that $ D_\la\subset C\left(  \sY_\la\right)$ and  $\widetilde D_\la\subset C\left( \widetilde \sY_\la\right)$. Moreover both $\sU_\la$ and $\widetilde\sU_\la$ are dense subsets of $\sY_\la$ and $\widetilde\sY_\la$ respectively (cf. Example \ref{comm_ess_exm}).
+then $ D_\la\subset M\left(  C_\la\right)$ and $\widetilde D_\la\subset M\left( \widetilde C_\la\right)$. So both   $C_\la$ and $\widetilde C_\la$ are essential ideals of $D_\la$ and $\widetilde D_\la$ respectively. Since both $D_\la$ and $\widetilde D_\la$ commutative and unital (because $1_{B_\la}\in D_\la$ and  $1_{\widetilde B_\la}\in \widetilde D_\la$) there are compact sets $\sY_\la$ and $\widetilde\sY_\la$ such that $ D_\la= C\left(  \sY_\la\right)$ and  $\widetilde D_\la= C\left( \widetilde \sY_\la\right)$. Moreover both $\sU_\la$ and $\widetilde\sU_\la$ are dense subsets of $\sY_\la$ and $\widetilde\sY_\la$ respectively (cf. Example \ref{comm_ess_exm}).
 From the Lemma \ref{blowing_uni_cov_lem}
-it follows that 
-
+it follows that the inclusion $ D_\la\hookto \widetilde D_\la$ yields a  is a transitive finite-fold covering $\widetilde p: \widetilde \sY_\la\to \sY_\la$ such that $G\cong G\left(\left.\widetilde \sY_\la\right| \sY_\la \right)$.
+The restriction $\left.p_\la\right|_{\widetilde \sU_\la}: \widetilde \sU_\la\to \widetilde \sU_\la$ is also a covering.
 +++++++++++++++++++++
 If $C\left(\widetilde\sY_\la\right)$ is not  a finitely generated $C\left(\sY_\la\right)$-module then from the Theorem \ref{fin_gen_thm} it follows that there is an infinite set $\left\{A^\a_\la\right\}_{\a\in\mathscr A}$ of $C_0\left(\sY_\la \right)$ submodules of $C\left(\widetilde{\sY}_\la\right)$ such that 
 $$
@@ -10787,71 +10810,20 @@ From the Lemma \ref{blowing_uni_cov_lem} it follows that the natural map $p_{\wi
 $$
 \widetilde{	p}: \bigcup_{\la\in \La} \widetilde\sU_\la\to \bigcup_{\la\in \La} \sU_\la
 $$
-From the equation \eqref{fin_u_eqn} it follows that 	$\bt\text{-}\lim_{\la \in \La} u_\la = 1_{M\left(A \right) }$ so one has $\bigcup_{\la\in \La} \widetilde\sU_\la= \sY$. If $\widetilde \sY \bydef  \bigcup_{\la\in \La} \widetilde\sU_\la$ then one has a  finite-fold covering  $\widetilde{	p}: \widetilde{\sY}\to \sY$. From the action $G\times \widetilde{C}\to \widetilde{C}$ such that $C \cong \widetilde{C}^G$ it follows that the covering $\widetilde{	p}: \widetilde{\sY}\to \sY$ is transitive and $G\cong G\left( \left.\widetilde{\sY}~\right|\sY\right)$. Let $\left(\widetilde{\sY},~ \widetilde{\mathcal F} \right)$ be  the $p$-\textit{lift} of $A$ (cf. Definition \ref{fol_cov_defn}). If $m \in L_x$ is a point then there is a maximal proper ideal $I_m \subsetneqq C\left( \sY\right)$ which corresponds to $m$. The algebra $\rep_x \left(I_m \right)$ is a maximal proper ideal of $C_0\left( L_x\right)$ and for all $x'\neq x$ the algebra   $\rep_{x'} \left(I_m \right)$ is not a maximal proper ideal of $C_0\left( L_{x'}\right)$. On the other hand $\rep_{\widetilde x} \left(I_m \right)$ is 	a maximal proper ideal of $C_0\left(L_{\widetilde x} \right)$   for all $\widetilde x \in q^{-1}\left( x\right)$. Conversely if $\widetilde x' \notin q^{-1}\left( x\right)$ then  $\rep_{\widetilde x} \left(I_m \right)$ is not	a maximal proper ideal of $C_0\left(L_{\widetilde x'} \right)$. On the other hand if $\widetilde m \in p^{-1}\left( m\right)$ and $I_{\widetilde m}$ is the maximal proper ideal which corresponds to $\widetilde m$ then  $\rep_{\widetilde x} \left(I_{\widetilde m} \right)= \rep_{\widetilde x} \left(I_m \right)$. If for any $\widetilde x\in \widetilde  M$ we select a point $\widetilde m\in \widetilde M$ such that $\rep_{\widetilde x} \left(I_{\widetilde m} \right)$ is a  maximal proper ideal of $C_0\left( L_{\widetilde x}\right)$ then we obtain  the natural one-to-one map $\varphi$ between $\widetilde  M$ and leaves of $\left(\widetilde{M},~ \widetilde{\mathcal F} \right)$ given by
-$$
-\widetilde x \mapsto \text{ the leaf of } \left(\widetilde{M},~ \widetilde{\mathcal F} \right) \text{ which contains } \widetilde m.
-$$
-This circumstance enables us assume that space of leaves of  $\left( \widetilde M, \widetilde\sF\right) $ having no holonomy  coincides with the spectrum of $C^*_r\left(\widetilde{M},~ \widetilde{\mathcal F} \right)$ as a set. Moreover the homeomorphism $L_{\widetilde x}\cong L_{q\left( \widetilde x\right) }$ is induced by the covering $p$.
-There are natural inclusions 
-\bean
-\phi : \widetilde A \hookto B\left(\sum_{\widetilde x\in \widetilde  M} L^2\left( L_{\widetilde x}\right)  \right),\\ 
-\psi : C^*_r\left(\widetilde{M},~ \widetilde{\mathcal F} \right) \hookto B\left(\sum_{\widetilde x\in \widetilde M} L^2\left( L_{\widetilde x}\right)  \right),\\ 
-\eean
-Let us proof that $\psi \left(  C^*_r\left(\widetilde{M},~ \widetilde{\mathcal F} \right)\right) \subset \phi \left(  \widetilde A\right)$. Let $\widetilde \sU \subset \widetilde{M}$ be a subordinated  to $p$ foliation chart (cf. Definition \ref{foli_sub_a_defn}), and let $\sU \bydef p\left(\widetilde \sU \right)$.
-If $a \in C^*_r\left(\left.\sU,\sF\right|_{\sU}\right)\subset C^*_r\left({M},~ {\mathcal F} \right)$ then from the above construction it follows that
-$$
-\phi\left(\pi\left( a \right) \right) = \psi\left(\sum_{g\in G\left(\left.\widetilde M\right| M\right)}g~\lift^p_{\widetilde{\sU}}\left(a \right) \right) 
-$$ 
-(cf. equation \ref{foli_fin_eqn}). There is a function $\widetilde f\in C_0\left( \widetilde M\right)$ such that $\widetilde f\left( \widetilde{\sU}\right) = \{1\}$ and   $\widetilde f\left( g\widetilde{\sU}\right) = \{0\}$ for any nontrivial $g \in G\left( \left.\widetilde{M}~\right|M\right)$. Since $C_0\left( \widetilde M\right)\subset M\left( \widetilde A\right)$ one has $\widetilde  f  \pi\left( a \right) \in \widetilde A$. One the other hand from 
-$$
-\widetilde f\sum_{g\in G\left(\left.\widetilde M\right| M\right)}g~\lift^p_{\widetilde{\sU}}\left(a \right) =\lift^p_{\widetilde{\sU}}\left(a \right) 
-$$
-it follows that
-$$
-\phi\left(\widetilde f\pi\left( a \right) \right)=  \psi\left(~\lift^p_{\widetilde{\sU}}\left(a \right) \right)  
-$$
-From 
-$$
-C^*_r\left(\left.\widetilde \sU,\widetilde \sF\right|_{\widetilde\sU}\right)= \lift^p_{\widetilde{\sU}}\left( C^*_r\left(\left.\sU,\sF\right|_{\sU}\right)\right) 
-$$
-it follows that
-\be\label{foli_u_eqn}
-\psi \left( C^*_r\left(\left.\widetilde \sU,\widetilde \sF\right|_{\widetilde\sU}\right)\right) \subset \phi\left( \widetilde A\right). 
-\ee
-On the other hand if $\left\{\widetilde \sU_\iota\right\}_{\iota\in I}$ is a family of all subordinated to $p$ foliated charts of $\left(\widetilde{M},~ \widetilde{\mathcal F} \right)$ then $C^*_r\left(\widetilde{M},~ \widetilde{\mathcal F} \right)$ is generated by its subalgebras  $C^*_r\left(\left.\widetilde \sU_\iota,\widetilde \sF\right|_{\widetilde\sU_\iota}\right)$ so from \eqref{foli_u_eqn} it follows that $\psi \left(  C^*_r\left(\widetilde{M},~ \widetilde{\mathcal F} \right)\right) \subset \phi \left(  \widetilde A\right)$, or shortly we write $C^*_r\left(\widetilde{M},~ \widetilde{\mathcal F} \right) \subset  \widetilde A$. Let $\widetilde\sV\subset \G\left( \widetilde{M},~ \widetilde{\mathcal F}\right)$ be an open set which is mapped homeomorphically onto  $\sV\subset \G\left( {M},~ {\mathcal F}\right)$. If both $\mathscr C^*_r\left(M,\sF\right)$ and $\mathscr C^*_r\left(\widetilde M, \widetilde\sF\right)$ are reduced sheaves of foliated manifolds $\left(M,\sF\right)$ and $\left(\widetilde M, \widetilde\sF\right)$ (cf. Definition \ref{foli_presheaf_defn}) then there is the natural $\C$-linear isomorphism
-\be\label{foli_desc_v_eqn}
-\desc_{\widetilde\sV}: \mathscr C^*_r\left(\widetilde M, \widetilde\sF\right)\left( \widetilde \sV\right)\xrightarrow{\approx}\mathscr C^*_r\left( M, \sF\right)\left(  \sV\right).
-\ee
-If $P_\sV, Q_\sV \in B\left( \bigoplus_{x\in  M}  L^2\left(L_x\right)\right)$ and $P_{\widetilde \sV}, Q_{\widetilde \sV} \in B\left( \bigoplus_{\widetilde x\in \widetilde M}  L^2\left(L_{\widetilde x}\right)\right)$ are projectors which come from the equations \ref{foli_a_v_eqn} \eqref{foli_ag_v_eqn}, then one has
-\bean
-P_{ \sV} C^*_r\left( M, \sF\right)Q_{ \sV} \subset   \mathscr C^*_r\left( M, \sF\right)\left(  \sV\right),\\
-P_{\widetilde \sV} C^*_r\left(\widetilde M, \widetilde\sF\right)Q_{\widetilde \sV} \subset   \mathscr C^*_r\left(\widetilde M, \widetilde\sF\right)\left( \widetilde \sV\right)
-\eean 
-If there is $\widetilde a\in \widetilde A$ such that
-$P_{\widetilde \sV} \widetilde aQ_{\widetilde \sV} \notin   \mathscr C^*_r\left(\widetilde M, \widetilde\sF\right)\left( \widetilde \sV\right)$ then from 
-$$
-P_{ \sV}\left(  \sum_{g \in G\left( \left.\widetilde{M}~\right|M\right)}\left( \left.\widetilde{M}~\right|M\right)g \widetilde a\right) Q_{ \sV}=  \desc_{\widetilde\sV}\left( P_{\widetilde \sV} \widetilde a Q_{ \widetilde\sV}\right) \notin \mathscr C^*_r\left( M, \sF\right)\left(  \sV\right)
-$$
-so $\sum_{g \in G\left( \left.\widetilde{M}~\right|M\right)}ga\notin C^*_r\left( M, \sF\right)$. But from $\sum_{g \in G\left( \left.\widetilde{M}~\right|M\right)}ga\in \widetilde A^{G\left( \left.\widetilde{M}~\right|M\right)}$ it turns out that $\sum_{g \in G\left( \left.\widetilde{M}~\right|M\right)}ga\in C^*_r\left( M, \sF\right)$.  Using this contradiction we conclude that 
-$$
-\widetilde a\in \widetilde A\quad \Rightarrow \quad P_{\widetilde V} \widetilde aQ_{\widetilde \sV} \in   \mathscr C^*_r\left(\widetilde M, \widetilde\sF\right)\left( \widetilde \sV\right).
-$$
-The above equation has the following consequence
-$$
-\widetilde A \subset \mathscr C^*_r\left(\widetilde M, \widetilde\sF\right)\left(\G\left(\widetilde M, \widetilde\sF\right)\right).
-$$
-If $\widetilde a \in \widetilde A_+$ is a positive element then $a \bydef \sum_{g \in G\left( \left.\widetilde{M}~\right|M\right)}g\widetilde a\in C^*_r\left( M, \sF\right)$ is a positive element. From $a \in C^*_r\left(\widetilde M, \widetilde\sF\right)$, $\widetilde a < a$ and the Lemma 
-\ref{foli_sec_in_lem} it follows that 
-$\widetilde a \in C^*_r\left(\widetilde M, \widetilde\sF\right)$ and
-$$
-\widetilde A \subset C^*_r\left(\widetilde{M},~ \widetilde{\mathcal F} \right)
-$$
-Taking into account $C^*_r\left(\widetilde{M},~ \widetilde{\mathcal F} \right)\subset \widetilde A$ we conclude that
-$$
-\widetilde A = C^*_r\left(\widetilde{M},~ \widetilde{\mathcal F} \right).
-$$
 
 \end{proof}
+
+\begin{definition}
+We say that a Hausdorff blowing-up $C\cong C_0\left( \sY\right) \subset M\left(A \right)$  \textit{separates coverings} if
+\begin{enumerate}
+	\item[(a)]  Any cov!!!
+	\item[(b)] Separates
+\end{enumerate}
+\end{definition}
+
+\begin{lemma}
+	If separates then separates.
+\end{lemma}
 \section{Blowing-up and  infinite noncommutative coverings}
 !!!!
 \subsection{Reduced fundamental group}

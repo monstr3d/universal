@@ -1,11 +1,15 @@
 ﻿using System;
 
+using UnityEngine;
+
+
 using Motion6D.Interfaces;
 
 using Scada.Interfaces;
 
+using Vector3D;
+
 using Unity.Standard;
-using UnityEngine;
 
 namespace Assets
 {
@@ -13,6 +17,8 @@ namespace Assets
     {
 
         #region Fields
+
+        protected EulerAngles angles = new EulerAngles();
 
         protected ReferenceFrame frame;
 
