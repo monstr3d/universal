@@ -168,9 +168,9 @@ namespace Assets
 
         void UpdateInternal()
         {
-            if (Input.GetKey(KeyCode.Escape))
+            if (Input.GetKey(ResultIndicator.Pause))
             {
-                Activation.Escape();
+                Activation.PauseRestart();
             }
         }
 

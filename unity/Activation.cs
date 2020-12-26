@@ -139,7 +139,7 @@ public class Activation : MonoBehaviour
     /// <summary>
     /// Esapes game
     /// </summary>
-    static public void Escape()
+    static public void PauseRestart()
     {
         if (isEscaped)
         {

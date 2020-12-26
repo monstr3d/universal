@@ -61,6 +61,14 @@ public class ResultIndicator : MonoBehaviour
 
     static EulerAngles angles = new EulerAngles();
 
+    static internal KeyCode Pause = KeyCode.Escape;
+
+
+    static internal KeyCode StopKey = KeyCode.Return;
+
+    static internal KeyCode QuitKey = KeyCode.Q;
+
+
 
 
     #endregion
@@ -75,9 +83,9 @@ public class ResultIndicator : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKey(KeyCode.Escape))
+        if (Input.GetKey(ResultIndicator.Pause))
         {
-            Activation.Escape();
+            Activation.PauseRestart();
         }
         return;
         var s = "RigidBodyStation".ToExistedScada();
@@ -116,7 +124,7 @@ public class ResultIndicator : MonoBehaviour
         ShowResults();
     }
 
-    static public void Escape()
+    static public void Stop()
     {
         StaticExtensionUnity.Stop();
         Assets.SimpleActivation.StaticLevel = -1;
@@ -242,10 +250,10 @@ public class ResultIndicator : MonoBehaviour
     #region Private Members
     private void Quit()
     {
-        if (Input.GetKey(KeyCode.Q))
+        if (Input.GetKey(QuitKey))
         {
             gameObject.SetActive(false);
-            Escape();
+            Stop();
         }
     }
 

@@ -229,7 +229,7 @@ namespace Assets
 */
             if (Input.GetKey(KeyCode.Return))
             {
-                ResultIndicator.Escape();
+                ResultIndicator.Stop();
             }
             if (!scada.IsEnabled)
             {
