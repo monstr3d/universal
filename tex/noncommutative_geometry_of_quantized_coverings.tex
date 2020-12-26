@@ -1533,7 +1533,7 @@ The action is such that for any strictly convergent net $\left\{a_\a\right\}\in 
 g \left(\bt\text{-}\lim a_\a \right) \bydef \bt\text{-}\lim g a_\a.
 \ee
 \end{empt}
- \begin{lem}\label{ind_mult_inv_lem}
+ \begin{lemma}\label{ind_mult_inv_lem}
 	If $\left(A, \widetilde{A}, G, \pi \right)$ is a noncommutative finite-fold  quasi-covering then:
 	\begin{enumerate}
 		\item [(i)] There is the natural inclusion $ \varphi:M\left({A} \right) \hookto M\left(\widetilde{A} \right)$ of $C^*$-algebras.
@@ -1542,7 +1542,7 @@ g \left(\bt\text{-}\lim a_\a \right) \bydef \bt\text{-}\lim g a_\a.
 		\psi: M\left(\widetilde{A} \right)^G \cong  M\left(A \right).
 		\end{equation}
 	\end{enumerate}
-\end{lem}
+\end{lemma}
 
 
 
@@ -4562,8 +4562,14 @@ The notion of "regular covering" has no any good noncommutative generalization. 
 \end{proof}
 \begin{definition}\label{top_gen_path_defn}
 	Let $\sX$ be a connected, locally connected, locally compact, Hausdorff space.
-	Let $\left\{\sU_\a\right\}_{\a \in \mathscr A}$ be a family of connected open subsets of $\sX$, such that $\sX = \cup~ \sU_\a$ and for all $\a$ the closure of $\sU_\a$ is compact. An ordered finite subset $\left(\sU_{\a_1},...,\sU_{\a_n}\right)$ of the family $\left\{\sU_\a\right\}$ is said to be an  $\left\{\sU_\a\right\}$-\textit{path} if  $\sU_{\a_j}\cap \sU_{\a_{j+1}}\neq \emptyset$ for all $j = 1,...,n-1$ 
+	Let $\left\{\sU_\a\right\}_{\a \in \mathscr A}$ be a family of connected open subsets of $\sX$, such that $\sX = \cup~ \sU_\a$ and for all $\a$ the closure of $\sU_\a$ is compact. An ordered finite subset $\left(\sU_{\a_1},...,\sU_{\a_n}\right)$ of the family $\left\{\sU_\a\right\}$ is said to be an  $\left\{\sU_\a\right\}$-\textit{path} if  $\sU_{\a_j}\cap \sU_{\a_{j+1}}\neq \emptyset$ for all $j = 1,...,n-1$. 
 \end{definition}
+\begin{remark}
+	There is an involution * on the set of path such that
+	\be\label{top_path_inv_eqn}
+	\left(\sU_{\a_1},...,\sU_{\a_n}\right)^*\bydef \left(\sU_{\a_n},...,\sU_{\a_1}\right).
+	\ee
+\end{remark}
 \begin{lemma}\label{top_gen_path_lem}
 	Consider the situation of the Definition \ref{top_gen_path_defn}. For any $\sU_{\a'}, \sU_{\a''} \in \sX$ there is a $\left\{\sU_\a\right\}$-{path} $\left(\sU_{\a_1},...,\sU_{\a_n}\right)$ such that $\sU_{\a_1}=\sU_{\a'}$ and $\sU_{\a_n}=\sU_{\a''}$ .
 \end{lemma}
@@ -4595,7 +4601,7 @@ $$
 is a finite union of compact sets, so it is compact. On the other hand $\sY\subset\sZ$.
 \end{proof}
 \begin{definition}\label{top_path_comp_defn}
-	If both $\mathfrak p'=\left(\sU_{\a'_1},...,\sU_{\a'_k}\right)$ and $\mathfrak p''=\left(\sU_{\a''_1},...,\sU_{\a''_l}\right)$ are paths such that $\sU_{\a'_k} = \sU_{\a''_1}$ then the path $\mathfrak p=\left(\sU_{\a'_1},...,\sU_{\a'_k},\sU_{\a''_2},...,\sU_{\a''_l} \right)$  is said to be the \textit{composition} of $\mathfrak p'$ and $\mathfrak p''$. We write
+	If both $\mathfrak p'=\left(\sU_{\a'_1},...,\sU_{\a'_k}\right)$ and $\mathfrak p''=\left(\sU_{\a''_1},...,\sU_{\a''_l}\right)$ are paths such that $\sU_{\a'_k} = \sU_{\a''_1}$ then we say that  then that $\left( \mathfrak p', \mathfrak p''\right)$ is \textit{composable} and path $\mathfrak p=\left(\sU_{\a'_1},...,\sU_{\a'_k},\sU_{\a''_2},...,\sU_{\a''_l} \right)$  is said to be the \textit{composition} of $\mathfrak p'$ and $\mathfrak p''$. We write
 	\be\label{top_path_comp_eqn}
 	\mathfrak p'\circ \mathfrak p''\bydef\mathfrak p.
 	\ee
@@ -10758,9 +10764,9 @@ $\widetilde a \widetilde A_{\widetilde\sU}\neq \{0\}$.
 
 
 
-\begin{theorem}\label{blowing_cov_thm}
+\begin{lemma}\label{blowing_cov_lem}
 	Let $\left(A,\widetilde A, G, \pi \right)$ be a  noncommutative finite-fold  reduced covering (cf. Definitions \ref{fin_defn}, \ref{fin_red_defn}), and let $C = C_0\left( \sY\right)\hookto M\left( A\right) $  be a good  blowing-up of $A$ (cf. Definitions \ref{blowing_defn}, \ref{blowing_good_defn}). If $\widetilde C = C_0\left( \widetilde \sY\right)\hookto M\left( \widetilde A\right) $ is the given by \eqref{blowing_inc_eqn} then the natural map $p: \widetilde \sY\to \sY$ is a transitive finite-fold covering such that $G\cong G\left(\left.\widetilde \sY\right| \sY \right)$. 
-\end{theorem}
+\end{lemma}
 
 \begin{proof}
 Consider an increasing net $\left\{u_\la\right\}_{\la\in\La}\subset M\left( A\right)_+ $ 	required by the Definition \ref{fin_defn}.
@@ -10785,45 +10791,64 @@ then $ D_\la\subset M\left(  C_\la\right)$ and $\widetilde D_\la\subset M\left( 
 From the Lemma \ref{blowing_uni_cov_lem}
 it follows that the inclusion $ D_\la\hookto \widetilde D_\la$ yields a  is a transitive finite-fold covering $\widetilde p: \widetilde \sY_\la\to \sY_\la$ such that $G\cong G\left(\left.\widetilde \sY_\la\right| \sY_\la \right)$.
 The restriction $\left.p_\la\right|_{\widetilde \sU_\la}: \widetilde \sU_\la\to \widetilde \sU_\la$ is also a covering.
-+++++++++++++++++++++
-If $C\left(\widetilde\sY_\la\right)$ is not  a finitely generated $C\left(\sY_\la\right)$-module then from the Theorem \ref{fin_gen_thm} it follows that there is an infinite set $\left\{A^\a_\la\right\}_{\a\in\mathscr A}$ of $C_0\left(\sY_\la \right)$ submodules of $C\left(\widetilde{\sY}_\la\right)$ such that 
-$$
-C\left(\widetilde{\sY}\right)=\sum_{\a\in\mathscr A} A^\a_\la,
-$$
-but there is no  a finite subset $\mathscr A_0\subset \mathscr A$  such that 
-$$
-C\left(\widetilde{\sY}_\la\right) = \sum_{\a\in\mathscr A_0} A^\a_\la.
-$$
-For any $\a\in\mathscr A$ the space  $ A^\a_\la \widetilde{B}_\la$ is a right $B_\la$-submodule of $\widetilde{B}_\la$.
-From $C\left(\sY_\la \right) B_\la = B_\la$ and $C\left(\widetilde\sY_\la \right) \widetilde  B_\la = \widetilde B_\la$ one has 
-$$
-\widetilde{B}_\la =\sum_{\a\in\mathscr A}A^\a_\la \widetilde{B} 
-$$
-but there is no  a finite subset $\mathscr A_0\subset \mathscr A$  such that 
-$$
-\widetilde{B}=\sum_{\a \in \mathscr A_0}A^\a_\la \widetilde{B}.
-$$
-From the Theorem \ref{fin_gen_thm} it follows $\widetilde{B}_\la$ is not a finitely generated right $B_\la$-module, it contradicts with the definition \ref{fin_uni_defn}. So $C\left(\widetilde\sY_\la\right)$ is   a finitely generated  $C\left(\sY\right)$-module, and 
-++++++++++++++++++++++++++++\\
-
-From the Lemma \ref{blowing_uni_cov_lem} it follows that the natural map $p_{\widetilde\sY_\la}: \widetilde\sY_\la\to \sY_\la$ is a finite fold covering transitive covering such that $G\left(\left.\widetilde\sY\right|\sY\right)\cong G$. It turns out that  $p_{\widetilde\sU_\la}\bydef  \left.p_{\widetilde\sY_\la}\right|_{\widetilde\sU_\la}\widetilde\sU_\la\to \sU_\la$ is a covering. From $\nu \le \mu $ it follows that $u_\nu \le u_\mu$ and  $\sU_\nu \subset \sU_\mu$. The family of coverings $\left\{p_{\widetilde\sU_\la}: \widetilde\sU_\la\to \sU_\la\right\}_{\la\in \La}$ yields a covering
+It turns out that  $p_{\widetilde\sU_\la}\bydef  \left.p_{\widetilde\sY_\la}\right|_{\widetilde\sU_\la}\widetilde\sU_\la\to \sU_\la$ is a covering. From $\nu \le \mu $ it follows that $u_\nu \le u_\mu$ and  $\sU_\nu \subset \sU_\mu$. The family of coverings $\left\{p_{\widetilde\sU_\la}: \widetilde\sU_\la\to \sU_\la\right\}_{\la\in \La}$ yields a covering
 $$
 \widetilde{	p}: \bigcup_{\la\in \La} \widetilde\sU_\la\to \bigcup_{\la\in \La} \sU_\la
 $$
 
 \end{proof}
 
-\begin{definition}
-We say that a Hausdorff blowing-up $C\cong C_0\left( \sY\right) \subset M\left(A \right)$  \textit{separates coverings} if
-\begin{enumerate}
-	\item[(a)]  Any cov!!!
-	\item[(b)] Separates
-\end{enumerate}
-\end{definition}
-
-\begin{lemma}
-	If separates then separates.
+\begin{lemma}\label{blowing_covi_lem}
+ Let $A$ be a $C^*$-algebra, and let $C = C_0\left( \sY\right)\hookto M\left( A\right) $  be a good  blowing-up of $A$ (cf. Definitions \ref{blowing_defn}, \ref{blowing_good_defn}).
+	Suppose that $\sY$ is a connected, locally connected space. For any transitive covering $p: \widetilde \sY\to \sY$ there is 	be a  noncommutative finite-fold  reduced covering $\left(A,\widetilde A, G, \pi \right)$ (cf. Definitions \ref{fin_defn}, \ref{fin_red_defn}) such that following conditions hold:
+	\begin{itemize}
+		\item There is the natural isomorphism $G \cong G\left(\left.\widetilde \sY\right| \sY \right)$.
+		\item If $\varphi : M\left( A\right) \to M\left(\widetilde A\right)$ is given by the Lemma \ref{ind_mult_inv_lem} then
+		$\left.\varphi\right|_{C_0\left( \sY\right) }= C_0\left(p \right)$. 
+	\end{itemize}
+	 
 \end{lemma}
+\begin{proof}
+Let  $\left\{\sU_\a\right\}_{\a \in \mathscr A}$ be a {compliant with} $p$ family (cf. Definition and let $\left\{\widetilde\sU_{\widetilde\a}\right\}_{\widetilde\a \in \widetilde{\mathscr A}}$  the $p$-{lift} of $\left\{\sU_\a\right\}_{\a \in \mathscr A}$. (cf. Definition 
+\ref{top_lconn_defn})
+Let $\mathfrak P$ be a set of $\left\{\widetilde\sU_{\widetilde\a}\right\}$- paths (cf. Definition \ref{top_gen_path_defn}).  Consider a subset  $\mathfrak G \subset \mathfrak P\times A$ such that $\left( \mathfrak p,a \right)\in \mathfrak G$ if $\mathfrak p= \left(\widetilde\sU_{\widetilde\a_1}, ..., \widetilde\sU_{\widetilde\a_n}\right)$ then there are $a_1\in A_{p\left(\widetilde\sU_{\widetilde\a_1 }\right) },...,a_n\in A_{p\left(\widetilde\sU_{\widetilde\a_n }\right) }$ such that $a = a_1\cdot...\cdot a_n$. There is an involution on $\mathfrak G$ given by $\left( \mathfrak p,a \right)^*= \left( \mathfrak p^*,a^* \right)$. The action $G\left(\left.\widetilde \sY\right| \sY \right)\times \widetilde \sY\to \widetilde \sY$ induces an action of $G\left(\left.\widetilde \sY\right| \sY \right)\times \mathfrak G\to \mathfrak G$.
+Let $\B$ is a generated by $\mathfrak G$ free Abelian group, then both  involution and action of $G\left(\left.\widetilde \sY\right| \sY \right)$ on $\mathfrak G$ induce involution and action of $G\left(\left.\widetilde \sY\right| \sY \right)$ on $\B$. There is multiplication on $\B$ such that
+\bean
+\left( \mathfrak p_1,a_2 \right)\left( \mathfrak p_2,a_2 \right)
+\bydef \\
+\bydef\begin{cases}
+0 & \left( \mathfrak p_1,\mathfrak p_2 \right)\text{ is not composable (cf. Definition \ref{top_path_comp_defn})}\\
+\left( \mathfrak p_1\circ \mathfrak p_2,a_1a_2 \right) & \left( \mathfrak p_1,\mathfrak p_2 \right)\text{ is  composable}
+\end{cases}
+\eean
+where  $\mathfrak p_1\circ \mathfrak p_2$ is given by \eqref{top_path_comp_eqn}, so  $\B$ becomes a *-algebra. If $\B\subset A$ be the algebraically generated by $\sum A_{\sU_\a}$ subalgebra then 
+++++
+DEFINE INCLUSION B to B
++++++
+
+ there is the $\B$ is an $\A$-bimodule. 
+There is a homomorphism $p_\B: \B \to A$ given by $\left( \mathfrak p,a \right)\mapsto a$ and $G\left(\left.\widetilde \sY\right| \sY \right)$-invariant  *-seminorm $\left\|\cdot \right\|_\B$
+\bean
+\left\|b \right\|_\B = \sqrt{\left\|p_B\left( bb^*\right)  \right\|}
+\eean 
+The set
+$$
+I_\B = \left\{\left.b \in \B\right| \left\|b \right\|_\B\right\}
+$$
+is an involutive two sided ideal. The seminorm on $\left\|\cdot \right\|_\B$ induces a norm on $\widetilde \B/I_\B$, denote by $\widetilde \A$ the norm completion of $\widetilde \B$.  FROM NORM PROVE!!! $\A\hookto\widetilde \A$. On the other hand $\widetilde \A$ is Hilbert $A$-module so there is an injective *-homomorhism
+$$
+\widetilde \A\hookto \End_A\left( \widetilde \A\right) 
+$$
+where $\End_A\left( \widetilde \A\right)$ means the $C^*$-algebra of adjoint endomorphisms.
+The $C^*$-norm on $\End_A\left( \widetilde \A\right)$ induces the $C^*$-norm on $\widetilde \A$ (COMPLETE PROOF!!!). So $\widetilde \A$ is a $C^*$-algebra. !!!! PRECOV Similarly to the Lemma \ref{ind_mult_inv_lem} there is an injective map $M\left(\A \right)\hookto M\left(\widetilde \A \right)$. If $\widetilde A$ be a generated by
+$$
+\left\{\left. \widetilde a\in  M\left(\widetilde \A \right)_+\right|\sum_{	g \in G} \widetilde a\in A\right\}
+$$
+then there is $A \hookto \widetilde \A$.
+
+PROOF THAT IS COV.
+
+\end{proof}
 \section{Blowing-up and  infinite noncommutative coverings}
 !!!!
 \subsection{Reduced fundamental group}
