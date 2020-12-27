@@ -4264,7 +4264,7 @@ Assume that there are $\rho_D$ and $\left.\rho_D\right|_{\bigcup_{\la\in\La} \A_
 
 
 
-\chapter{Coverings of commutative $C^*$-algebras and their operator subspaces}\label{top_chap}
+\chapter{Coverings of commutative $C^*$-algebras}\label{top_chap}
 %\section{Basic constructions}
 %\paragraph*{}
 \section{Multiples of continuous functions}
@@ -6153,52 +6153,6 @@ Consider the above situation. If   $\sY \subset \sX$ is compact then the followi
 	Otherwise the representation $\pi_a$ can be uniquely extended up to $\pi_a: A_b\left( \widetilde\sX\right) \to B\left(\H_{a}\right)$. 
 	From \eqref{top_cb_defn_eqn} it turns out there is the injective *-homomorphism $\lift_p:A_0\left(\sX \right) \hookto A_b\left(\widetilde\sX \right)$  so  $A_0\left(\sX \right)$ can be regarded as a subalgebra of $A_b\left(\widetilde\sX \right)$.
 \end{empt}
-
-\begin{lemma}\label{comm_lift_desc_sum_strong_lem}
-		Consider the situation \ref{comm_lift_desc_sum_strong_empt}. Suppose that  $\mathcal U\subset \mathcal X$  is a connected open subset evenly {covered} by $\widetilde{\mathcal U}\subset \widetilde{\mathcal X}$. Let $\widetilde a \in A_0\left(\widetilde\sX \right)$ be  an  element such that 
-	$\supp \widetilde a \subset \widetilde \sU$. The following conditions hold:
-	\begin{enumerate}
-		\item [(i)] The series 	
-		\be\label{comm_lift_desc_sum_strong_eqn}
-		\sum_{g \in G\left(\left.\widetilde{\sX}~\right|\sX\right) } \pi_a\left( g\widetilde{a}\right).
-		\ee 
-		is convergent in the strong  topology of $B\left(\H_a\right)$  (cf. Definition \ref{strong_topology_defn} ),
-		\item[(ii)] 
-		\be\label{comm_desc_sum_strong_eqn}
-		\begin{split}
-			\sum_{g \in G\left(\left.\widetilde{\sX}~\right|\sX\right) } \pi_a\left( g\widetilde{a}\right)  = \pi_a\left(  \desc_p\left( \widetilde{a}\right)\right)
-		\end{split}
-		\ee
-	\end{enumerate}
-	where $\desc_p\left( \widetilde{a}\right) \in A$ is the $p$-descend $\widetilde{a}$ of (cf. Definition \ref{top_lift_desc_defn})  and $A$ is regarded as a subalgebra of $A_b\left(\widetilde\sX \right)$ (cf. Lemma \ref{comm_lift_desc_sum_lem}).
-\end{lemma}
-
-
-\begin{proof}
-	(i) Since $\H_a$ is the Hilbert completion of the algebraic direct sum $\bigoplus_{\widetilde x\in\widetilde\sX}\H_{\widetilde{x}}$ one can apply the Lemma \ref{sum_hilb_rep_lem}. If  
-	$$
-	\zeta =\left(0,...~, \underbrace{ \zeta_{\widetilde{x}}}_{\widetilde{x}^{\text{th}}-\text{place}} ,~...,0\right)
-	$$
-	For all  $g \in  G\left(\left.\widetilde{\sX}~\right|\sX\right)$ one has 
-	\bean
-	\left(g \widetilde a \right)\zeta = \begin{cases}
-		0 & \widetilde{x}\notin g\widetilde \sU\\
-		\left(g \widetilde a \right)\zeta = \desc_p\left( \widetilde a\right)\zeta & 	\widetilde{x}\in g\widetilde \sU
-	\end{cases} ,
-	\eean
-	hence for each finite subset $G \subset G\left(\left.\widetilde{\sX}~\right|\sX\right)$ the following condition holds
-\be\label{commp_lift_desc_sum_strong_eqn}
-\left( \sum_{	g \in G}g\widetilde a\right) \zeta = \begin{cases}
-	0 & \widetilde{x}\notin \cup_{g\in G}g\widetilde \sU\\
-	\left(g \widetilde a \right)\zeta = \desc_p\left( \widetilde a\right)\zeta & 	\widetilde{x}\in \cup_{g\in G} g\widetilde \sU
-\end{cases} 
-\ee	
-From the Equitation \eqref{commp_lift_desc_sum_strong_eqn} it follows that the series $
-\left( \sum_{	g \in G\left(\left.\widetilde{\sX}~\right|\sX\right)}g\widetilde a\right) \zeta$ is norm convergent. From the Lemma \ref{sum_hilb_rep_lem} it turns out that the series \ref{comm_lift_desc_sum_strong_eqn}	
-is convergent in the strong  topology of $B\left(\H_a\right)$.\\
-(ii) Follows from the equation \eqref{commp_lift_desc_sum_strong_eqn}.
-\end{proof}
-
 
 
 \section{Continuous structures and sheaves}
@@ -10431,14 +10385,18 @@ where $I_y = \left\{\left. a\in C_0\left( \sY\right) \right| a\left( y\right)= 0
 The map $y \mapsto \sX_y$ yields a partially defined multi-valued map.
 The map is surjective because for any $x \in \sX$ and for any maximal ideal $J_x \subset \rep_x\left(C_0\left( \sY\right)\right) $ there is a maximal ideal $I_y\subset C_0\left( \sY\right)$ such that $J_x= \rep_x\left(I_y\right)$.
 \end{remark}
+\begin{definition}\label{blowing_spectal_defn}
+If the described in the Remark \ref{blowing_rem} map is single valued then we say that it is \textit{spectral}.
+\end{definition}
 \begin{empt}
 	Let  $C\left( \sY\right)\hookto M\left( A\right) $ be a blowing-up of $A$. For any open subset $\sU \subset \sY$ put
 	\be\label{blowig_su_eqn}
 	A_\sU \bydef C^*\text{-norm completion of } C_0\left(\sU \right) A  C_0\left(\sU \right).
 	\ee
 \end{empt}
+
 \begin{definition}\label{blowing_good_defn}
-A Hausdorff blowing-up	$C\cong C_0\left( \sY\right) \subset M\left(A \right)$ is said to be \textit{good} if for any family of open sets $\left\{\sU_\a\subset \sX\right\}$ such that $\sX = \cup\sU_\a$ the set $\sum A_{\sU_\a}$ generates an essential ideal of $A$.
+A Hausdorff blowing-up	$C\cong C_0\left( \sY\right) \subset M\left(A \right)$ is said to be \textit{good} if for any family of open sets $\left\{\sU_\a\subset \sX\right\}$ such that $\sX = \cup\sU_\a$ the set $\sum A_{\sU_\a}$ generates  $A$.
 \end{definition}
 \begin{remark}\label{blowing_good_rem}
 	If $\sX = \cup\sU_\bt$ is such that for all $\bt$ there is $\a$ such that $\sU_\bt \subset \sU_\a$ and $\sum A_{\sU_\bt}$ generates $A$ then  $\sum A_{\sU_\a}$ generates an essential ideal of $A$. 
@@ -10524,6 +10482,10 @@ Let $A$ be a $C^*$- algebra and let $C_0\left( \sY\right)\hookto M\left(A \right
 	\begin{definition}\label{blowing_a0_x_defn}
 !!!$\widetilde A_0\left(\widetilde\sX  \right)\bydef$ 
 	\end{definition}
+\begin{remark}
+	AGREES WITH!!!
+\end{remark}
+
 \begin{definition}\label{blowing_lift_defn}
 	Let $\sF$  be a	continuity structure for $\sX$ {and the} $\left\{A_x\right\}_{x \in \sX}$, let $p: \widetilde{\sX} \to \sX$ be a covering. For any $a \in C\left(\sX, \left\{A_x\right\}, \sF \right)$ we define 
 	the family 
@@ -10535,6 +10497,9 @@ Let $A$ be a $C^*$- algebra and let $C_0\left( \sY\right)\hookto M\left(A \right
 	\left\{\widetilde{a}_{\widetilde{x}}\right\}\bydef \lift_p\left( a\right) .
 	\ee
 \end{definition}
+\begin{remark}
+	AGREES WITH!!!
+\end{remark}
 \begin{definition}\label{blowing_lift_desc_defn}
 	Let $\sF$ 	continuity structure for $\sX$ {and the} $\left\{A_x\right\}_{x \in \sX}$, let $p: \widetilde{\sX}\to\sX$ be a covering. Let $\widetilde{\sU}$ be an open set such that the restriction $\left.p\right|_{\widetilde{\sU}}$ is injective. Let $\sU=p\left( \widetilde{\sU}\right)$. If $a \in C\left(\sX, \left\{A_x\right\}, \sF \right)$ is such that $\supp a \subset \sU$ and $\widetilde{a}= \lift_p\left( a\right)$ then 
 	the family 
@@ -10552,6 +10517,9 @@ Let $A$ be a $C^*$- algebra and let $C_0\left( \sY\right)\hookto M\left(A \right
 	\end{split}
 	\ee
 \end{definition}
+\begin{remark}
+	AGREES WITH!!!
+\end{remark}
 
 
 Let $\left(A,\widetilde A, G, \pi \right)$ be a finite-fold noncommutative pre-covering (cf. Definition \ref{fin_pre_defn})  let $C_0\left( \sY\right)\hookto M\left(A \right)$  be a blowing-up of $A$.  Let $\sX$ and $\widetilde\sX$ be spectra of $A$ and $\widetilde A$ respectively, and let $q: \widetilde\sX\to\sX$ be a given by the Lemma \ref{cov_spectrum_lem}.
@@ -10568,7 +10536,7 @@ then there is an injective *- homomorphism $C \hookto \widetilde C$.  If $\widet
 \be\label{blowing_inc_eqn}
 C_0\left(\widetilde\sY\right)\hookto M\left(\widetilde A \right) 
 \ee
-//!!! LIFT DESCEND PATH CONSTRUCTION OF ALGEBRA//
+
 \subsection{Finite-fold coverings}
 \begin{lemma}
 The given by \eqref{blowing_inc_eqn} inclusion is a Hausdorff blowing up for !!!
@@ -10816,7 +10784,7 @@ $$
 $$
 then there is $A \hookto \widetilde \A$.
 
-PROOF THAT IS COV.
+PROOF THAT IS COVERING !!!.
 
 \end{proof}
 \begin{theorem}\label{blowing_fin_thm}
@@ -10834,7 +10802,7 @@ So there is an injective  $\widetilde \B/I\to \widetilde \B'$. PROOF SURJECTIVE.
 !!!
 \end{proof}
 
-\section{Blowing-up and  infinite noncommutative coverings}
+\subsection{Infinite noncommutative coverings}
 \begin{lemma}\label{blowing_comply_lem}
 	ADAPT TO BLOWING UP\\
 	Let   $A\stackrel{\mathrm{def}}{=} C_0\left(\sX, \left\{A_x\right\}_{x \in \sX}, \sF \right)$ be a $C^*$-algebra described in \ref{comm_lift_desc_sum_strong_empt}, and suppose that $\sX$ is a connected, locally connected, locally compact, Hausdorff space. 
@@ -10955,138 +10923,627 @@ So there is an injective  $\widetilde \B/I\to \widetilde \B'$. PROOF SURJECTIVE.
 
 \begin{lemma}\label{blowing_comp_lem}
 BLOWING COMPOSITION LEMMA
+
+!!! PROOF THAT GOOD
 \end{lemma}
 \begin{proof}
 BLOWING !!!!
 \end{proof}
-
-\begin{lemma}\label{blowing_cov_inc_lem}!!!
-	If $\left(M,\sF\right)$ is  a foliated space, and  $p:\left( \widetilde{M}, \widetilde\sF \right) \to \left( M, \sF\right)$ is a regular  covering (cf. Definition \ref{foli_reg_cov_defn}) then one has: 
-	\begin{enumerate}
-		\item [(i)] There is the natural injective *-homomorphism
-		\be\label{foli_mult_inc_eqn}
-		C^*_b\left(p \right) : C^*_r\left({M}, {\sF} \right)\hookto M\left( C^*_r\left(\widetilde{M}, \widetilde{\sF} \right)\right)
-		\ee
-		\item[(ii)] If $p$ is a finite-fold covering then 	$C^*_b\left(p \right)\left( C^*_r\left({M}, {\sF} \right)\right) \subset C^*_r\left(\widetilde{M}, \widetilde{\sF} \right)$, i.e. 
-		is the natural injective *-homomorphism
-		\be\label{foli_f_inc_eqn}
-		C^*_r\left(p \right) : C^*_r\left({M}, {\sF} \right)\hookto  C^*_r\left(\widetilde{M}, \widetilde{\sF} \right).
-		\ee
-	\end{enumerate} 
+\begin{lemma}\label{blowing_spectal_lem}
+	
+	SPECTRAL COVERING SPECTRAL.
 \end{lemma}
 \begin{proof}
-!!!	(i)
-	Let   $\mathfrak{A}= \left\{\sU_\iota\right\}_{\iota \in \I}$ of $M$ be a {subordinated} to $p$ regular foliated atlas. Let $\widetilde{ \mathfrak{A}}= \left\{\widetilde \sU_{\widetilde \iota }\right\}_{\widetilde \iota  \in \widetilde \I}$ be the $p$-\textit{lift} of $\mathfrak{A}$.  For any $\sU_\iota \in \mathfrak{A}$ and $\widetilde \sU_{\widetilde \iota }\in \widetilde{ \mathfrak{A}}$ consider given by \eqref{foli_inc_gc_eqn} maps, i.e.
-	\bean
-	j_{\sU_{\iota}} : \Ga_c\left(  \G\left(\sU_{\iota} \right) ,\Om^{1/2}\right)  \hookto \Ga_c\left( \G\left( M\right) ,\Om^{1/2}\right),\\
-	j_{\widetilde \sU_{\widetilde \iota}} : \Ga_c\left(  \G\left(\widetilde \sU_{\widetilde\iota} \right) ,\widetilde\Om^{1/2}\right)  \hookto \Ga_c\left( \G\left( \widetilde M\right) ,\widetilde\Om^{1/2}\right)
-	\eean
-	Let $\sV_{   \a'} = \G\left(\sU_{\iota'_0} \right)...~\G\left(\sU_{\iota'_{k'}} \right)\neq \emptyset$ and let $\widetilde{\sV}_{   \widetilde{\a''}} = \G\left(\widetilde{\sU}_{\widetilde{\iota}''_0} \right)...~\G\left(\widetilde{\sU}_{\widetilde{\iota}''_{k''}} \right)\neq \emptyset$. Let  
-	\bean
-	a'_{\a'}= j_{\sU_{\iota'_0}}\left( a'_{\iota'_0}\right) \cdot ...\cdot j_{\sU_{\iota_{k'}}}\left( a'_{\iota'_{k'}}\right) \in \Ga_c\left(\sV_{   \a'},\Om^{1/2} \right), \quad a'_{\iota'_j}\in \Ga_c\left(  \G\left(\sU_{\iota'_j} \right) ,\Om^{1/2}\right);\\ 
-	\widetilde{a}''_{\widetilde{\a}''}=j_{\widetilde \sU_{\widetilde \iota''_0}}\left(\widetilde  a''_{\widetilde \iota'_0}\right) \cdot ...\cdot j_{\sU_{\widetilde \iota_{k''}}}\left(\widetilde  a''_{\widetilde \iota''_{k''}}\right) \in \Ga_c\left(\widetilde \sV_{   \widetilde \a''},\widetilde \Om^{1/2} \right), \quad \widetilde a''_{\widetilde \iota'_j}\in \Ga_c\left(  \G\left(\sU_{\widetilde \iota''_j} \right) , \widetilde \Om^{1/2}\right)
-	\eean
-	and suppose
-	\bea\label{foli_a_eqn}
-	{a} = \phi_{{\a}'}\left({a}'_{{\a}'} \right)\in C^*_r\left({M}, {\sF} \right),\\
-	\label{foli_wa_eqn}
-	\widetilde{a} = \phi_{\widetilde{\a}''}\left(\widetilde{a}''_{\widetilde{\a}''} \right)\in C^*_r\left(\widetilde{M}, \widetilde{\sF} \right),
-	\eea
-	(cf. \eqref{foli_phi_a_eqn}).
-	One has $p^{-1}  \left(\sU_{\iota'_{k'}} \right) = \bigsqcup_{\la \in \La} \widetilde{\sU}^\la_{\widetilde{\iota}'_{k'}}$. There is no more then one $\la_0 \in \La$ such that $\widetilde{\sU}^{\la_0}_{\widetilde{\iota}'_{k'}}\cap \widetilde{\sU}_{\widetilde{\iota}''_0}\neq \emptyset$. If $\widetilde{\sU}^{\la_0}_{\widetilde{\iota}'_{k'}}\cap \widetilde{\sU}_{\widetilde{\iota}''_0}=\emptyset$ then we set
-	$\widetilde{a}a = 0$. Otherwise we set $\widetilde{\sU}_{\widetilde{\iota}'_{k'}}=\widetilde{\sU}^{\la_0}_{\widetilde{\iota}'_{k'}}$ and according to the Lemma \ref{ctr_lift_lem} there is the unique tuple 
-	$
-	\left\{	\widetilde \sU'_{\widetilde \iota_0 }, ....,\widetilde \sU'_{\widetilde \iota'_{k'-1} }\right\}
-	$		such that 
-	\begin{itemize}
-		\item $p\left(\widetilde \sU'_{\widetilde \iota'_0 }\right)= \sU_{\iota'_j}$ for any $j =1,..., k-1$.
-		\item $\G\left(\widetilde \sU'_{\widetilde \iota'_0} \right)...~\G\left(\widetilde \sU'_{\widetilde \iota'_k} \right) \neq \emptyset$.			
-	\end{itemize}
-	We define
-	$$
-	a \widetilde{a}  = \phi_{{\a}'}\left(\lift_p^{\widetilde \sU_{\widetilde \iota'_0}}\left(a'_{\iota'_0}\right)\cdot...\cdot\lift_p^{\widetilde \sU_{\widetilde \iota'_{k'}}}\left(a'_{\iota'_{k'}}\right) \right)  \widetilde{a}  \in  C^*_r\left(\widetilde{M}, \widetilde{\sF}\right) 
-	$$
-	Similarly one can define $\widetilde{a} a \in C^*_r\left(\widetilde{M}, \widetilde{\sF}\right)$. By linearity this product can be extended up to any  finite sum of given by \eqref{foli_wa_eqn} elements. Since the $\C$-linear span of  given by \eqref{foli_wa_eqn} is dense in $C^*_r\left(\widetilde{M}, \widetilde{\sF} \right)$ we have products $a \widetilde{a}$ and $\widetilde{a} a$ for every $a \in C^*_r\left(\widetilde{M}, \widetilde{\sF}\right)$. Using the same reasons the products $a \widetilde{a}$ and $\widetilde{a} a$  can be extended up to the linear span of given by \eqref{foli_a_eqn} elements, hence  for any $a \in C^*_r\left({M}, {\sF} \right)$ and $\widetilde{a} =\in C^*_r\left(\widetilde{M}, \widetilde{\sF} \right)$ one has $a \widetilde{a}, \widetilde{a} a \in C^*_r\left(\widetilde{M}, \widetilde{\sF} \right)$.\\
-	(ii) If $p$ is a finite-fold covering then for any $\iota \in \I$ and $p^{-1}  \left(\sU_{ \iota} \right) =\bigsqcup_{\la \in \La} \widetilde{\sU}^\la_{ \iota}$ then the set $\La$ is finite. So for any
-	\be\label{foli_au_eqn}
-	a \in C^*_r\left(\sU_\iota, \left.\sF\right|_{\sU_\iota} \right) \subset C^*_r\left(\sX, \left.\sF\right. \right)
-	\ee one has
-	$$
-	\sum_{ \la \in \La} \lift_p^{\widetilde{\sU}^\la_{ \iota}}\left(a\right)\in C^*_r\left(\widetilde{M}, \widetilde{\sF} \right),
-	$$
-	i.e. there is a map
-	$$
-	C^*_r\left(\sU_\iota, \left.\sF\right|_{\sU_\iota} \right) \hookto C^*_r\left(\widetilde{M}, \widetilde{\sF} \right)
-	$$
-	So one has
-	\be\label{foli_sl_eqn}
-	\sum_{\la \in \La} \lift_{\widetilde{\sV}^{\la}_{   \a'}}\left( a\right)\in C^*_r\left(\widetilde{M}, \widetilde{\sF} \right).
-	\ee
-	Above equation gives a map from the  minimal algebra $X$ which contains given by  \eqref{foli_au_eqn} elements  to $C^*_r\left(\widetilde{M}, \widetilde{\sF} \right)$. Otherwise $X$ is dense in $C^*_r\left({M}, {\sF} \right)$ (cf. the Corollary \ref{foli_cov_alg_cor}) so the map $X \to C^*_r\left(\widetilde{M}, \widetilde{\sF} \right)$ can be uniquely extended up to the injective *-homomorphism $C^*_r\left({M}, {\sF} \right)\hookto  C^*_r\left(\widetilde{M}, \widetilde{\sF} \right)$.
+!!!!
 \end{proof}
 
-\begin{lemma}\label{blowing_cov_inc_strict_lem}
-	Let $\left(M,\sF\right)$ be  a foliated space, and let $p: \widetilde{M} \to M$ be a transitive covering. Let $\left(\widetilde{M}, \widetilde{\sF} \right)$ be the foliated space which comes from $p$. If $\widetilde{\sU}\subset \widetilde{M}$ is a connected open subset such that the restriction $\left.p\right|_{\widetilde{\sU}}$  is injective, $\widetilde a\in C^*_r\left(\widetilde{M}, \widetilde{\sF} \right)$ is such that $\widetilde b\in C^*_r\left(\widetilde{\sU}, \widetilde{\sF}_{\sU} \right)$ (cf. Lemma \ref{fol_res_lem}) then the following series
-	\be\label{foli_strict_eqn}
-	\sum_{g \in G\left(\left.\widetilde M\right|M \right)} g \widetilde a
-	\ee
-	is convergent with respect to the strict topology of $M\left(C^*_r\left(\widetilde{M}, \widetilde{\sF} \right) \right)$. Moreover the sum of the series in sense of the strict topology is equal to $\desc_p\left( \widetilde a\right)$.  
+\begin{empt}
+Let $A$ be a $C^*$-subalgebra, and let $C\cong C_0\left( \sY\right) \subset M\left(A \right)$  be  a good {Hausdorff blowing-up} of $A$ such that the  $\sY$ is a connected, locally connected space. Let  $\widetilde{p}:\left( \widetilde{\sX}, \widetilde{x}_0\right) \to \left( \sX, x_0\right)$. If $\mathfrak{S}_{\left( \sX, x_0  \right) }=\left\{ p_\la: \left( \sX_\la, x^\la_0\right) \to \left( \sX, x_0\right)\right\}_{\la \in \La} $ be a a pointed a topological finite covering category given by the Lemma \ref{top_res_fin_lem}
+\end{empt}
+\begin{lemma}\label{blowing_t_a_lem}
+	Let $A$ be a separable $C^*$-algebra with continuous trace let $\sX = \hat A$ be the spectrum of $A$. Suppose that $\sX$ is a connected, locally connected, second-countable space.
+	Let us consider the situation \ref{comm_t_a_empt} and suppose that 
+	\bean
+	A \bydef C_0\left(\sX, \left\{A_x\right\}_{x \in \sX}, A \right)
+	\eean
+	and $A_0$ is the given by the  Definition \ref{top_c_funct_defn} functor.
+	Following conditions hold:
+	\begin{enumerate}
+		\item[(i)] 	If
+		$
+		\mathfrak{S}_{ \mathcal{X} } = \left\{p_{\la}:\mathcal{X}_\la \to  \mathcal{X}  \right\}_{\la \in \La}\in \mathfrak{FinTop}
+		$
+		is  a  topological  finite covering category (cf. Definition \ref{top_sec_defn}) then there is the natural  algebraical  finite covering category (cf. Definition \ref{comp_defn}).
+		\begin{equation*}
+			\mathfrak{S}_{A } = \left\{\pi_\la=A_0\left( p_{\la}\right) :A  \hookto A_0\left( \mathcal{X}_\la\right) \right\}_{\la \in \La}\in \mathfrak{FinAlg}.
+		\end{equation*}
+		\item[(ii)] Conversely any directed algebraical  finite covering category
+		\begin{equation}
+			\mathfrak{S}_{A } = \left\{ \pi_{\la} :A  \hookto A_0\left( \mathcal{X}_\la\right) \right\}_{\la \in \La}\in \mathfrak{FinAlg}.
+		\end{equation}
+		naturally induces 
+		directed topological  finite covering category $$
+		\mathfrak{S}_{\mathcal{X}} = \left\{p_{\la}:\mathcal{X}_\la \to \mathcal{X}\right\}_{\la \in \La}\in \mathfrak{FinTop}.$$
+		
+	\end{enumerate}
+	
 \end{lemma}
 \begin{proof}
-	Let   $\mathfrak{A}= \left\{\sU_\iota\right\}_{\iota \in \I}$ of $M$ be a {subordinated} to $p$ regular foliated atlas. Let $\widetilde{ \mathfrak{A}}= \left\{\widetilde \sU_{\widetilde \iota }\right\}_{\widetilde \iota  \in \widetilde \I}$ be the $p$-\textit{lift} of $\mathfrak{A}$.
-	For all $\widetilde b' \in  C^*_r\left(\widetilde{M}, \widetilde{\sF} \right)$ and $\eps > 0$ there is $\widetilde b\in  \Ga_c\left( \G\left( \widetilde M\right) , \widetilde \Om^{1/2}\right)$ such that
+	(i)
+	One needs check the conditions (a) and (b) of the Definition \ref{comp_defn}.
+	\begin{enumerate}
+		\item[(a)] 	The conditions (a)-(d) of the Definition \ref{compliant_covering_defn}  directly follow from (a)-(d) of the Lemma \ref{comm_comply_lem}.
+		\item[(b)] Follows from the Corollary \ref{ctr_functor_cor}.
+		
+		
+		
+	\end{enumerate}	
+	(ii) From the Theorem \ref{ctr_fin_thm} it turns out that any object $ \pi_\la :A  \hookto A_0\left( \mathcal{X}_\la\right)$ of the category $\mathfrak{S}_{A }$ corresponds to the object $p_\la: \sX_\la \to \sX$ of the category $\mathfrak{S}_{ \mathcal{X}}$, i.e. $p_\la$ is a transitive finite-fold covering. If $\mu, \nu \in \La$ are such that $\mu > \nu$ then from (b) of the Definition \ref{comp_defn} it follows that there is *-homomorphism $\pi: A_0\left( \mathcal{X}_\nu\right)\to A_0\left( \mathcal{X}_\mu\right)$ such that 
+	\be\label{ctr_inf_pp_eqn}
+	A_0\left( p_\mu\right)= \pi \circ A_0\left( p_\nu\right).
+	\ee
+	From (a) of the Definition \ref{comp_defn} it turns out that the homomorphism $\pi$ is a noncommutative  finite fold covering, so taking into account the Corollary \ref{ctr_functor_cor} one has the topological finite-fold covering $p: \mathcal{X}_\mu\to \mathcal{X}_\nu$ such that $\pi = A_0\left(p\right)$. From \eqref{ctr_inf_pp_eqn} it follows that $p_\mu = p \circ p_\nu$.
+\end{proof}
+
+\begin{lemma}\label{blowing_base_point_lem}
+	If	$\mathfrak{S}_{\left(\sX, x_0\right)}= \left\{p_\la:\left( \sX_\la, x^\la_0\right) \to \left( \sX, x_0\right)\right\}_{\la \in \La} \in \mathfrak{FinTop}^{\mathrm{pt}}$ is a pointed topological finite covering category such that for any $\mu > \nu$ there is the unique  pointed  covering $p^\mu_{ \nu}: \left(\sX_{\mu}, x^\mu_0 \right) \to \left(\sX_{\nu}, x^\nu_0 \right)$ then
+	\be\label{ctr_base_point_eqn}
+	\begin{split}
+		\mathfrak{S}^{\mathrm{pt}}_{A } = \\
+		=\left\{A_0\left( p_\la\right) : A  \hookto A_0\left(\sX_\la \right)\right\}, \left\{A_0\left( p_\nu^\mu\right) : A_0\left(\sX_\nu \right) \hookto A_0\left(\sX_\mu \right)\right\}
+	\end{split}
+	\ee
+	is a {pointed algebraical  finite covering category} (cf. Definition \ref{comp_pt_defn}).
+\end{lemma}
+\begin{proof}
+	According to our construction for any $\mu >\nu$ the category $	\mathfrak{S}_{A }$ contains the unique *-homomorphism from $A_0\left(\sX_\nu \right)$ to $A_0\left(\sX_\mu \right)$. This lemma follows from the Remark \ref{comp_pt_rem}.
+\end{proof}
+
+\begin{empt}\label{blowing_implicit_inc_full_empt}
+	Consider the specialization of Lemma  \ref{top_atomic_lem} such that $A = \left(\sX, \left\{A_x\right\}_{x \in \sX}, A\right)$, and   $A_0$, and the given by the Lemma \ref{top_atomic_lem} functor.
+	Suppose that  $\H_x$ is  the space of the given by \eqref{rep_x_eqn} representation  $\rep_x: A \to B\left(\H_x\right)$ and  $\K\stackrel{\text{def}}{=} \rep_x\left( A\right) $ where $\K = \mathbb{M}_n\left(\C\right)$ or $\K = \K\left( L^2\left(\N \right) \right)$. 
+	From the Lemma \ref{ctr_base_point_lem} it follows that \eqref{ctr_base_point_eqn} is the pointed algebraical  finite covering category. 	
+	Let $\widehat{A}\stackrel{\text{def}}{=} C^*$-$\varinjlim_{\la \in \La} A_0\left( {\sX}_\la\right)$ the $C^*$-inductive limit, and let $\pi_a:\widehat{A} \hookto B\left(\H_a\right)$ be the atomic representation (cf. Definition \ref{atomic_repr_defn}). If $\overline{A}$ is  the disconnected algebraical inverse noncommutative limit of $\mathfrak{S}^{\mathrm{pt}}_{A }$ (cf. Definition \ref{main_defn_full_defn}) then there is the natural inclusion $\overline{A} \subset B\left(\H_a \right)$. Otherwise $\H_a = \bigoplus_{ \widehat x \in \widehat \sX} \H_{\widehat x}$ where $\widehat\sX$ is the spectrum of $\widehat A$ and $\H_{\widehat x}$ is the space of representation $\rep_{\widehat x}\left(  \widehat A\right) \to B\left( \H_{\widehat x}\right)$. If $\widehat \sX$ is the spectrum of $\widehat A$ then from the Lemma \ref{inverse_lim_sp_lem} it follows that $\widehat \sX = \varprojlim_{\la \in \La}\sX_\la$. Otherwise if $\overline \sX$ is the  disconnected inverse limit of 	$\mathfrak{S}_{\left(\sX, x_0\right)}$ then there is the natural bijective continuous map $\phi:\overline \sX \to \widehat \sX$ if $\widehat p : \widehat \sX \to \sX$ is the natural map and both $\rep_{\overline x} \overline A\to B\left( \H_{\overline x}\right)$, $\rep_{\overline x} \overline A\to B\left( \H_{\overline x}\right)$ are natural irreducible representations then $\H_{\overline x} \cong \H_{\widehat p \circ \phi\left( \overline x\right)}$,   $\H_{\widehat x} \cong \H_{\widehat p \left( \overline x\right)}$, hence $ \H_{\overline x} \cong \H_{\phi\left( \overline x\right)}$ for all $\overline x \in \overline\sX$. So one has
+	$$
+	\bigoplus_{ \widehat x \in \widehat \sX} \H_{\widehat x}\cong \bigoplus_{ \overline x \in \overline \sX} \H_{\overline x}
+	$$
+	The left part of the above equation is the space of the atomic representation of $\widehat A$, right part is the space of the atomic representation of $A_0\left(\overline \sX\right)$. So the atomic representation of $A_0\left(\overline \sX\right)$ can be regarded as the natural inclusion 
+	\be\label{ctr_ca_inc_eqn}
+	\varphi_A: A_0\left(\overline \sX\right)\hookto B\left( \H_a\right).
+	\ee
+\end{empt}
+
+\begin{remark}\label{blowing_implicit_inc_full_rem}
+	Below the given by the equation \eqref{ctr_ca_inc_eqn} *-homomorphism will be replaced with the inclusion $A_0\left(\overline \sX\right)\subset B \left( \widehat \H_a\right)$ of $C^*$-algebras.
+	Similarly to the Remark \ref{implicit_inc_full_rem}
+	below for all $\la\in\La$ we implicitly assume that $A_0\left( \sX_\la\right) \subset  B\left(\H_a \right)$. Similarly the following natural inclusion 
 	\bean
-	\widetilde b' = \sum^n_{k = 1} j_{\widetilde\sU_{\widetilde\iota_{k,0}}}\left( \widetilde a_{\widetilde \iota_{k,0}}\right) \cdot ...\cdot j_{\widetilde\sU_{\widetilde\iota_{k,j_k}}}\left( \widetilde a_{\widetilde \iota_{k,j_k}}\right), \quad\widetilde a_{\widetilde \iota_{k,j_l}}\in   \Ga_c\left(  \G\left(\sU_{\widetilde \iota_{j,l}} \right) , \widetilde \Om^{1/2}\right),\\
-	\left\|\widetilde b'-\widetilde b \right\| < \frac{\eps }{\left\|\widetilde a \right\|}
+	C^*\text{-}\varinjlim_{\la\in\La} A_0\left( \sX_\la\right) \subset B\left(\widehat \H_a\right)
+	\eean
+	will be implicitly used. These inclusions enable us replace the equations \ref{spec_a_eps_eqn} with the following equivalent system of equations
+	\be\label{ctr_spec_a_eps_imp_eqn}
+	\begin{split}
+		\sum_{g\in G_\la } z^*\left(  g\overline a\right) z   \in A_0\left( \sX_\la\right) ,\\
+		\sum_{g\in G_\la } f_\eps\left(z^*\left(  g\overline a\right) z   \right)   \in A_0\left( \sX_\la\right),\\
+		\sum_{g\in G_\la  } \left(z^*\left(  g\overline a\right) z   \right)^2    \in A_0\left( \sX_\la\right). 
+	\end{split}
+	\ee
+	where $G_\la \bydef \ker\left(G\left(\left.\overline\sX\right|\sX\right)\to G\left(\left.\sX_\la\right|\sX\right) \right)$. 
+\end{remark}
+\begin{example}\label{ctr_implicit_inc_full_exm}
+	Let $X_{C_0\left(\sX\right)}\bydef  C_0\left(\sX, \left\{\H_x \right\},   X_{C_0\left(\sX\right)}  \right) $ be a Hilbert $C_0\left(\sX \right)$-module given by \eqref{top_c0_hilb_iso_eqn}. If	$\mathfrak{S}_{\left(\sX, x_0\right)}= \left\{p_\la:\left( \sX_\la, x^\la_0\right) \to \left( \sX, x_0\right)\right\}_{\la \in \La} \in \mathfrak{FinTop}^{\mathrm{pt}}$ is a pointed topological finite covering category then for each $\la\in \La$ define
+	\bean
+	X_{C_0\left(\sX\right)}\bydef C_0\left(  \lift_{p_\la}\left[ X_{C_0\left(\sX\right)} \right]  \right) 
+	\eean
+	If	$\mathfrak{S}_{\left(\sX, x_0\right)}= \left\{p_\la:\left( \sX_\la, x^\la_0\right) \to \left( \sX, x_0\right)\right\}_{\la \in \La} \in \mathfrak{FinTop}^{\mathrm{pt}}$ is a pointed topological finite covering category  them from the Lemma \ref{ctr_base_point_lem} it follows that there is a {pointed algebraical  finite covering category} (cf. Definition \ref{comp_pt_defn}) given by
+	\be\label{ctr_x_base_point_eqn}
+	\begin{split}
+		\mathfrak{S}^{\mathrm{pt}}_{\K\left(X_{C_0\left(\sX\right)} \right)  } \bydef \\
+		\bydef\left\{\left\{\K\left( p_\la\right) : \K\left(X_{C_0\left(\sX\right)} \right) \hookto \K\left(X_{C_0\left(\sX_\la\right)} \right)  \right\},\left\{\K\left( p_\nu^\mu\right)\right\}\right\}
+	\end{split}
+	\ee
+	If $\widehat \K \bydef C^*\text{-}\varinjlim_{\la\in\La} \K\left(X_{C_0\left(\sX_\la\right)} \right)$ and $\widehat \K\hookto B\left(\widehat \H_a \right)$ is the atomic representation then from \ref{ctr_implicit_inc_full_empt} it follows that
+	\be\label{ctr_atom_eqn}
+	\widehat \H_a=	\bigoplus_{ \overline x \in \overline \sX} \H_{\overline x}	
+	\ee
+	where $\bigoplus$ means the Hilbert norm completion of the algebraic direct sum. 	
+\end{example}
+
+\begin{lemma}\label{blowing_cov_inc_strong_lem}
+	Consider the situation of the Lemma \ref{blowing_cov_inc_strict_lem}.
+	If $\pi_a: \left(\widetilde{M}, \widetilde{\sF} \right)\hookto B\left( \H_a\right)$ is the atomic representation (cf. Definition \ref{atomic_repr_defn}) then the series \eqref{blowing_strict_eqn} 
+	is convergent with respect to the strong topology of $B\left( \H_a\right)$. Moreover the sum of the series in sense of the strong topology of $B\left( \H_a\right)$ is equal to $\desc_p\left( \widetilde a\right)$ (cf. Definition \ref{blowing_desc_defn}).  
+\end{lemma}
+\begin{proof}
+	From \eqref{blowing_atomic_eqn} it follows that $\H_a \cong \bigoplus_{\widetilde L \in \widetilde M/\widetilde \sF_{\mathrm{no~hol}}}  L^2\left(\G_{x_L}\right)$.
+	If	$\xi \in \H_a$ is given by
+	$$
+	\xi =\left(...~, \underbrace{ \xi_{\widetilde{L}}}_{\widetilde{L}^{\text{th}}-\text{place}} ,~...\right)
+	$$
+	and $\eps > 0$ then there is a finite subset  is a finite subset $F = \left\{\widetilde  L_1,..., \widetilde  L_m\right\}\subset \widetilde M/\widetilde \sF_{\mathrm{no~hol}}$ such that 
+	$$
+	\eta_{\widetilde L}= \begin{cases}
+		\xi_{\widetilde L}& {\widetilde L}\in F\\
+		0& {\widetilde x}\notin F\\
+	\end{cases}\text{ AND }	\eta =\left(...~, \underbrace{ \eta_{\widetilde{L}}}_{\widetilde{L}^{\text{th}}-\text{place}} ,~...\right)	 \quad \Rightarrow \quad \left\|\widetilde\xi- \widetilde\eta\right\|< \frac{\eps} {2\left\|a\right\|}.
+	$$
+	For any  $\widetilde L\in F$	there is the irreducible representation $\rho_L \stackrel{\text{def}}{=} \rho_{x_L}: C^*_r\left(\widetilde M, \widetilde \sF\right) \to B\left( L^2\left(\G_{\widetilde x_{\widetilde L}}\right)\right)$ (cf. \eqref{blowing_leaf_repr_eqn}) and the state $\tau_{\widetilde L}: C^*_r\left(\widetilde M, \widetilde \sF\right) \to \C$, such that $L^2\left( \G_{\widetilde x_{\widetilde L}}\right) \cong L^2\left(C^*_r\left(\widetilde M, \widetilde \sF\right), \tau_{\tau_{\widetilde L}}\right)$ where $L^2\left(C^*_r\left(\widetilde M, \widetilde \sF\right), \tau_{\tau_{\widetilde L}}\right)$ is given by the GNS-construction (cf. Section \ref{gns_constr_sec}).  Otherwise there is the specialization  $f_{\tau_{\widetilde L}}:C^*_r\left(\widetilde M, \widetilde \sF\right)\to  L^2\left(C^*_r\left(\widetilde M, \widetilde \sF\right), \tau_{{\widetilde L}}\right)$ of given by \eqref{from_a_to_l2_eqn} homomorphism of left $C^*_r\left(\widetilde M, \widetilde \sF\right)$-modules such that $f_{\tau_{\widetilde L}}:C^*_r\left(\widetilde M, \widetilde \sF\right)$ is dense in $L^2\left(C^*_r\left(\widetilde M, \widetilde \sF\right), \tau_{{\widetilde L}}\right)$.
+	Let   $\mathfrak{A}= \left\{\sU_\iota\right\}_{\iota \in \I}$ of $M$ be a {subordinated} to $p$ regular foliated atlas. Let $\widetilde{ \mathfrak{A}}= \left\{\widetilde \sU_{\widetilde \iota }\right\}_{\widetilde \iota  \in \widetilde \I}$ be the $p$-\textit{lift} of $\mathfrak{A}$. $\widetilde b\in  \Ga_c\left( \G\left( \widetilde M\right) , \widetilde \Om^{1/2}\right)$ such that
+	\bean
+	\widetilde b_{\widetilde L}= \sum^n_{k = 1} j_{\widetilde\sU_{\widetilde\iota_{k,0}}}\left( \widetilde a_{\widetilde \iota_{k,0}}\right) \cdot ...\cdot j_{\widetilde\sU_{\widetilde\iota_{k,j_k}}}\left( \widetilde a_{\widetilde \iota_{k,j_k}}\right), \quad\widetilde a_{\widetilde \iota_{k,j_l}}\in   \Ga_c\left(  \G\left(\sU_{\widetilde \iota_{j,l}} \right) , \widetilde \Om^{1/2}\right),\\
+	\left\|f_{\tau_{\widetilde L}}\left( \widetilde b_{\widetilde L}\right) -\widetilde \eta_{\widetilde L} \right\| < \frac{\eps }{2 \left|F\right|\left\|\widetilde a \right\|}
 	\eean
 	where $\widetilde\sU_{\widetilde\iota_{k,l}} \in \widetilde{ \mathfrak{A}}$ for all $k,l$ and $j_{\widetilde\sU_{\widetilde\iota_{k,l}}}$ are given by
-	\eqref{foli_inc_gc_eqn} maps. For all $k = 1,...,n$ there is no more than one $g \in  G\left(\left.\widetilde M\right|M \right)$ such that $g \widetilde\sU\cap\widetilde\sU_{\widetilde\iota_{k,0}}\neq \emptyset$.
-	It follows that the set 
-	\bean
-	G'_0 \bydef 
-	\subset \left\{\left.g \in G\left(\left.\widetilde M\right|M \right)\right|\exists k \in \left\{1,...,n \right\}g \widetilde\sU\cap\widetilde\sU_{\widetilde\iota_{k,0}}\neq \emptyset\right\}
-	\eean
-	is finite. Similarly the set
+	\eqref{blowing_inc_gc_eqn} maps. Similarly to \eqref{blowing_g'_eqn} the set
 	$$
-	G''_0 = \left\{\left.g \in G\left(\left.\widetilde M\right|M \right)\right|\exists k \in \left\{1,...,n \right\}g \widetilde\sU\cap\widetilde\sU_{\widetilde\iota_{k,j_k}}\neq \emptyset\right\}
+	G'_{\widetilde L} \bydef\left\{\left.g \in G\left(\left.\widetilde M\right|M \right)\right|\left(g \widetilde a \right) \widetilde b_{\widetilde L}\neq 0 \right\}
+	$$
+	hence the set
+	$$
+	G_{\widetilde L} \bydef\left\{\left.g \in G\left(\left.\widetilde M\right|M \right)\right|\left(g \widetilde a \right) f_{\tau_{\widetilde L}}\left( \widetilde b_{\widetilde L}\right) \neq 0 \right\}\subset G_{\widetilde L}
+	$$
+	is also finite. If $G \bydef \cap_{\widetilde L \in F} G_{\widetilde L}$ then
+	$$
+	\sum_{g \in G} g \widetilde a\left(\sum_{\widetilde L \in F} f_{\tau_{\widetilde L}}\left( \widetilde b_{\widetilde L}\right) \right)=  \sum_{g \in G\left(\left.\widetilde M\right|M \right)} g \widetilde a\left(\sum_{\widetilde L \in F} f_{\tau_{\widetilde L}}\left( \widetilde b_{\widetilde L}\right) \right),
+	$$
+	so taking into account  $\left\|\widetilde\xi- \widetilde\eta\right\|< \frac{\eps} {2\left\|a\right\|}$ and 	$\left\|f_{\tau_{\widetilde L}}\left( \widetilde b_{\widetilde L}\right) -\widetilde \eta_{\widetilde L} \right\| < \frac{\eps }{2 \left|F\right|\left\|\widetilde a \right\|}$ for all $\widetilde L\in F$ one has
+	$$
+	\left\| \sum_{g \in G} \left( g \widetilde a\right) \xi-  \sum_{g \in G\left(\left.\widetilde M\right|M \right)} \left( g \widetilde a\right) \xi \right\| < \eps.
+	$$
+	So the series \eqref{blowing_strict_eqn} is strongly convergent. On the other hand from
+	\bean
+	\left(g \widetilde a \right) \widetilde b_{\widetilde L}\neq 0 \Rightarrow \desc_p\left( \widetilde a \right)  \widetilde b_{\widetilde L}=\left(g \widetilde a \right) \widetilde b_{\widetilde L} \Rightarrow \desc_p\left( \widetilde a \right)  f_{\tau_{\widetilde L}}\left( \widetilde b_{\widetilde L}\right)=\left(g \widetilde a \right) f_{\tau_{\widetilde L}}\left( \widetilde b_{\widetilde L}\right)
+	\eean
+	it follows that the limit of the series  \eqref{blowing_strict_eqn} equals to $\desc_p\left( \widetilde a \right)$.
+\end{proof}
+
+\begin{empt}\label{blowing_q_empt}
+	Select $\la_0\in \La$ and $z \in C^*_r\left(M_{\la_0}, \sF_{\la_0} \right)^\sim$.
+	Let $\mathfrak{A}= \left\{\sU_\iota\right\}_{\iota \in \I}$ be a regular {subordinated} to $\overline p:\overline M \to M $ foliated atlas   of $M$  (cf. Definition \ref{blowing_sub_a_defn}). Let $\mathfrak{A}^\la =\left\{\sU^\la_{\iota^\la}\subset M_\la\right\}$, $\overline{\mathfrak{A}}=\left\{\overline \sU_{\overline  \iota}\subset \overline M\right\}$  be $p_\la$ and $\overline p$-lifts of ${\mathfrak{A}}$  respectively (cf. Definition \ref{blowing_lift_a_defn}). Let $q \in C^*_r\left(M_{\la_0}, \sF_{\la_0} \right)$ be given by
+	\be\label{blowing_q_eqn}
+	\begin{split}
+		q = \sum_{j = 0}^n q_{\iota^{\la_0}_{j,0}}\cdot ... \cdot q_{\iota^{\la_0}_{j,k_j}}; \quad q_{\iota^{\la_0}_{j,k_j}} \in C^*_r\left(\sU^{\la_0}_{\iota^{\la_0}_{j,k_j}}, \left.\sF_{\la_0}\right|_{\sU^{\la_0}_{\iota^{\la_0}_{j,k_j}}} \right)\quad \sU^{\la_0}_{\iota^{\la_0}_{j,k_j}}\in \mathfrak{A}^{\la_0},\\
+	\end{split}
+	\ee
+	Suppose that there is $\overline{\sU}\in \overline{\mathfrak{A}}$ such that for any $j \in \{1,...,n\}$ there is $l \in \left\{1, ..., k_j\right\}$ such that $\overline p_{\la_0}\left( \overline{\sU}\right) = \sU^{\la_0}_{\iota^{\la_0}_{j,0}}$. From the Lemma \ref{blowing_lift_lem} it follows that for any $j \in \{1,...,n\}$ there is the unique tuple $
+	\left\{	\overline \sU_{\overline \iota_{j,1} }, ....,\overline \sU_{\overline \iota_{j,k} }\right\}$ such that 
+	\begin{itemize}
+		\item $\overline p_{\la_0}\left(\overline \sU_{\overline \iota_{j,l} }\right)= \sU^{\la_0}_{\iota^{\la_0}_{j,l}}$ for any $l =1,..., k_j$.
+		\item $\G\left(\overline \sU_{\overline \iota_{j,0} } \right)...~\G\left(\overline \sU_{\overline \iota_{j,k_j} } \right) \neq \emptyset$.			
+	\end{itemize}
+	
+	Denote by
+	\be\label{blowing_suq_eqn}
+	\overline \sU^q = \bigcup_{j=0 }^n\left(\bigcup_{l = 0}^{k_j} \overline \sU_{\overline \iota_{j,l}}\right).
+	\ee
+	For any $j \in \{1,..., n\}$  and $l\in\left\{1, ..., k_j\right\}$, we select $\overline q_{j, l}\in C^*_r\left(\overline \sU_{\overline\iota_{j,l}}, \left.\overline \sF\right|_{\overline \sU_{\overline\iota_{j,l}}} \right)$ such that $\desc_{\overline p_{\la_0}}\left(\overline q_{j, l}\right)= q_{\iota^{\la_0}_{j,l}}$. Let 
+	\be\label{blowing_oq_eqn}
+	\overline	q \bydef \sum_{j = 1}^n \overline q_{\overline \iota_{j,0}}\cdot ... \cdot \overline q_{\overline \iota_{j,k_j}}\in C^*_r\left(\overline \sU^q, \left.\overline \sF\right|_{\overline \sU^q}\right) .
+	\ee
+\end{empt}
+\begin{definition}\label{blowing_q_defn}
+	In the situation \ref{blowing_q_empt} we say that $\overline	q$ is $\overline p_{\la_0}$-$\overline\sU$-\textit{extended lift of} $q$ and we write  $\mathfrak{ext}$-$\lift_{ \overline{p}_{\la_0}}^{\overline\sU}\left( q\right) \bydef \overline q$.
+\end{definition}
+\begin{remark}\label{blowing_q_rem}
+	The given by \eqref{blowing_suq_eqn} set $\overline \sU^q$ is a finite union of the sets with compact closure. So the  closure of $\overline \sU^q$ is compact. From the  Lemma \ref{top_comp_la_lem} there is $\la_{\overline{   \mathcal U }^q} \in \La$ such that for any  $\la \ge \la_{\overline{   \mathcal U }^q} \in \La$ such that for  any  $\la \ge \la_{\overline{   \mathcal U }^q}$ the set $\overline{   \mathcal U }^q$  is mapped homeomorphically onto  $\overline{p}_\la\left(\overline{   \mathcal U }^q \right) \subset  M_\la$. 
+	
+\end{remark}
+\begin{lemma}\label{blowing_ycomp_lem}
+	Consider the above situation.
+	Let $\overline  \sU \in \overline{\mathfrak A}$  and let $\overline a\in C^*_r\left(\overline \sU, \left.\overline \sF\right|_{\overline \sU} \right)_+$ be a positive element. If   $\la_0 \in \La$ and $z\in C^*_r\left(\overline M, \overline \sF \right)^\sim$.  For any $\eps > 0$ there is $y \in C^*_r\left(\overline M, \overline \sF \right)^\sim$  and an open subset $\overline\sU^y\subset \overline M$ with compact closure such that  
+	\bean
+	\left\| y - z\right\|< \eps,\\
+	y^*\overline a y \in C^*_r\left(\overline \sU^y, \left.\overline \sF\right|_{\overline \sU^y}\right).
+	\eean 
+\end{lemma}
+
+\begin{proof}
+	For any $\la\in \La$ denote by $a_\la \bydef \desc_{\overline{p}_\la}\left(\overline a \right)$. If in the equation \eqref{blowing_q_eqn} $q_{\iota^{\la_0}_{j,0}}= \sqrt{a_{\la_0}}$ for all $j\in \{1,..., n\}$ and $\overline q$ is given by the equation \eqref{blowing_oq_eqn} then
+	\be\label{blowing_qq_eqn}
+	\overline q^*\overline q= \left(  \sum_{j = 1}^n \overline q^*_{\overline \iota_{j,k_j}}\cdot ... \cdot \overline q^*_{\overline \iota_{j,1}}\right) \overline a \left(  \sum_{j = 1}^n \overline q_{\overline \iota_{j,1}}\cdot ... \cdot \overline q_{\overline \iota_{j,k_j}}\right)\in C^*_r\left(\overline \sU^q, \left.\overline \sF\right|_{\overline \sU^q}\right)
+	\ee
+	Any $z\in C^*_r\left(\overline M, \overline \sF \right)^\sim$  can be presented by the sum Let $z = z_0 + c$ where $z_0 \in C^*_r\left(M_{\la_0}, \sF_{\la_0} \right)$ and $c \in \C$. From (i) of the Lemma \ref{blowing_cov_inc_lem} it turns out that $z$ can be regarded as an element of $M\left(C^*_r\left(\overline M, \overline \sF\right) \right)$ so one has $z^*\overline a z \in C^*_r\left(\overline M, \overline \sF\right)$. 
+	For all $\eps > 0$ there is $t_0 \in C^*_r\left(M_{\la_0}, \sF_{\la_0} \right)$ such that
+	\be\label{blowing_t_eqn}
+	\begin{split}
+		t_0 = \sum_{j = 1}^n t_{\iota^{\la_0}_{j,1}}\cdot ... \cdot t_{\iota^{\la_0}_{j,k_j}}; \quad t_{\iota^{\la_0}_{j,k_j}} \in C^*_r\left(\sU^{\la_0}_{\iota^{\la_0}_{j,k_j}}, \left.\sF_{\la_0}\right|_{\sU^{\la_0}_{\iota^{\la_0}_{j,k_j}}} \right)\quad \sU^{\la_0}_{\iota^{\la_0}_{j,k_j}}\in \mathfrak{A}^{\la_0},\\
+		\left\| t_0 - z_0\right\|<\eps,\\
+		y \bydef c + t_0 = c+ \sum_{j = 1}^n t_{\iota^{\la_0}_{j,1}}\cdot ... \cdot t_{\iota^{\la_0}_{j,k_j}};\\
+		\left\| y - z\right\|<\eps.
+	\end{split}
+	\ee
+	If  $I \subset \left\{1,...,n\right\}$ is such that $j \in I \Leftrightarrow \overline p_\la\left( \overline \sU \right) \cap \sU^\la_{\iota^\la_{1,k_j}} \neq \emptyset$ and
+	$$
+	r = c + \sum_{j \in I} t_{\iota^{\la_0}_{j,1}}\cdot ... \cdot t_{\iota^{\la_0}_{j,k_j}}
+	$$
+	then one has 
+	\be\label{blowing_rar_eqn}
+	\begin{split}
+		r^*\overline a r = y^*\overline a y,\\
+		\forall\la\in\La \quad \la \ge\la_0 \quad \Rightarrow \quad r^*\desc_{\overline p_{\la}}\left( \overline a\right)  r = y^*\desc_{\overline p_{\la}}\left( \overline a\right) 
+	\end{split}
+	\ee
+	On the other hand from $j \in I \Leftrightarrow \overline p_\la\left( \overline \sU \right) \cap \sU^\la_{\iota^\la_{1,k_j}} \neq \emptyset$ if follows that the sum
+	$$
+	q = c \sqrt{\desc_{\overline p_{\la_0}}\left( \overline a\right)}+ \sum_{j\in I} \sqrt{\desc_{\overline p_{\la_0}}\left( \overline a\right)} t_{\iota^{\la_0}_{j,1}}\cdot ... \cdot t_{\iota^{\la_0}_{j,k_j}}
+	$$
+	complies with the construction \ref{blowing_q_empt}, so there is $p_\la$-$\overline\sU$-{extended lift $\mathfrak{ext}$-$\lift_{ \overline{p}_{\la}}^{\overline\sU}\left( q\right)$ of} $q$ (cf. Definition \ref{blowing_q_defn}) given by 
+	\be\label{blowing_oqt_eqn}
+	\overline	q = \sqrt{\overline a} +  \sum_{j\in I } \sqrt{\overline a} ~\overline t_{\overline \iota_{j,0}}\cdot ... \cdot \overline t_{\overline \iota_{j,k_j}}\in C^*_r\left(\overline \sU^q, \left.\overline \sF\right|_{\overline \sU^q}\right) .
+	\ee
+	where the closure of $\overline\sU^q$ is compact. From the equations \ref{blowing_qq_eqn} and \eqref{blowing_rar_eqn} it follows that 
+	\bean
+	y^*\overline a y =\overline	q^*\overline	q \in C^*_r\left(\overline \sU^q, \left.\overline \sF\right|_{\overline \sU^q}\right).
+	\eean
+	Define $\overline\sU^y \bydef \overline\sU^q$.
+\end{proof}
+
+
+
+
+\begin{corollary}\label{blowing_spec2_cor}
+	Consider the above situation.
+	Let $\overline  \sU \in \overline{\mathfrak A}$  and let $\overline a\in C^*_r\left(\overline \sU, \left.\overline \sF\right|_{\overline \sU} \right)$ a positive element. If   $\la_0 \in \La$ and $z\in C^*_r\left(\overline M, \overline \sF \right)^\sim$ then following conditions hold:
+	\begin{enumerate}
+		\item[(i)] The series 
+		$$
+		\sum_{g\in G_\la } g\left( z^*\overline a  z\right)^2
+		$$
+		is strongly convergent in $B\left(\widehat\H_a\right)$.
+		\item[(ii)] For any $\eps > 0$ there is $y\in C^*_r\left(\overline M, \overline \sF \right)^\sim$ such that for all $\la \ge \la_0$ one has
+		\bea\label{blowing_spec21_eqn}
+		\left\| y - z\right\|<\eps,\\
+		\label{blowing_spec22_eqn}
+		\left\| \sum_{g\in G_\la } g\left( z^*\overline a  z\right)^2 - \sum_{g\in G_\la } g\left( y^*\overline a  y\right)^2\right\|<\eps,\\
+		\label{blowing_spec23_eqn}
+		\exists\mu\ge \la_0\quad		\la \ge \mu\quad \Rightarrow \quad\sum_{g\in G_\la } g\left( y^*\overline a  y\right)^2=
+		\left(\sum_{g\in G_\la } g\left( y^*\overline a  y\right)\right)^2.
+		\eea
+	\end{enumerate}
+\end{corollary}
+\begin{proof}
+	(i)	For all $g\in G_\la$ one has
 	$$ 
-	is also finite. 
-	According to the given by the Lemma \ref{foli_cov_inc_lem} construction one has
-	\be\label{foli_desc_eqn}
+	\left(  g\overline a \right)   z z^* \left(  g\overline a  \right)\le\left\| z\right\|^2\left(  g\overline a  \right)  \left(  g\overline a  \right).
+	$$
+	On the other hand $\sum_{g\in G_\la } \left\| z\right\|^2\left(  g\overline a  \right)  \left(  g\overline a \right) = \sum_{g\in G_\la } \left\| z\right\|^2\left(  g\overline a  \right)^2 = \left\| z\right\|^2\pi_a\left( \desc_{\overline p_\la}\left( \overline a\right)^2\right)$,
+	hence for any finite subset  $G^0_\la\subset G_\la$ one has
+	$$
+	\sum_{g\in G^0_\la } \left(  g\overline a  \right)   z z^* \left(  g\overline a  \right)\le \left\| z\right\|^2\pi_a\left( \desc_{\overline p_\la}\left( \overline a\right)^2\right),
+	$$
+	i.e. an increasing series $\sum_{g\in G_\la } \left(  g\overline a  \right)   z z^* \left(  g\overline a  \right)$ is bounded. 
+	From the Lemma \ref{increasing_convergent_w_lem} it turns ot that the series 	$\sum_{g\in G_\la } \left(  g\overline a  \right)   z z^* \left(  g\overline a  \right)$ is strongly convergent in $B\left(\widehat\H_a\right)$. It follows that the series
+	\bean
+	\sum_{g\in G_\la } g\left( z^*\  \overline a  z\right)^2=\\
+	= z^* \left( \sum_{g\in G_\la } \left(  g\overline a  \right)   z z^* \left(  g\overline a  \right)\right)z 
+	\eean 
+	is also strongly convergent in $B\left(\widehat\H_a\right)$.\\
+	(ii) For all $\Delta\in  C^*_r\left(M_{\la_0}, \sF_{\la_0} \right)^\sim$ such that $\left\|\Delta\right\|= \delta$ one has
+	\be\label{blowing_zz_eqn}
 	\begin{split}
-		\desc_p\left( \widetilde a\right)\cdot  j_{\widetilde\sU_{\widetilde\iota_{k,0}}}\left( \widetilde a_{\widetilde \iota_{k,0}}\right) \cdot ...\cdot j_{\widetilde\sU_{\widetilde\iota_{k,j_k}}}\left( \widetilde a_{\widetilde \iota_{k,j_k}}\right) = \\=\begin{cases}
-			\left( g \widetilde a\right)  j_{\widetilde\sU_{\widetilde\iota_{k,0}}}\left( \widetilde a_{\widetilde \iota_{k,0}}\right) \cdot ...\cdot  j_{\widetilde\sU_{\widetilde\iota_{k,j_k}}}\left( \widetilde a_{\widetilde \iota_{k,j_k}}\right) & g \widetilde\sU\cap\widetilde\sU_{\widetilde\iota_{k,0}}\neq \emptyset\\
-			0 & \forall g \in G\left(\left.\widetilde M\right|M \right)~~g \widetilde\sU\cap\widetilde\sU_{\widetilde\iota_{k,0}}= \emptyset
-		\end{cases},\\
-		j_{\widetilde\sU_{\widetilde\iota_{k,0}}}\left( \widetilde a_{\widetilde \iota_{k,0}}\right) \cdot ...\cdot j_{\widetilde\sU_{\widetilde\iota_{k,j_k}}}\left( \widetilde a_{\widetilde \iota_{k,j_k}}\right)\desc_p\left( \widetilde a\right)  = \\=\begin{cases}
-			j_{\widetilde\sU_{\widetilde\iota_{k,0}}}\left( \widetilde a_{\widetilde \iota_{k,0}}\right) \cdot ...\cdot  j_{\widetilde\sU_{\widetilde\iota_{k,j_k}}}\left( \widetilde a_{\widetilde \iota_{k,j_k}}\right) \left( g \widetilde a\right) & g \widetilde\sU\cap\widetilde\sU_{\widetilde\iota_{k,j_k}}\neq \emptyset\\
-			0 & \forall g \in G\left(\left.\widetilde M\right|M \right)~~g \widetilde\sU\cap\widetilde\sU_{\widetilde\iota_{k,j_k}}= \emptyset.\\
-		\end{cases}
+		\sum_{g\in G_\la } \left(  g\overline a  \right)   z z^* \left(  g\overline a  \right)\le \\
+		\le\left\| z\right\|^2 \sum_{g\in G_\la } \left(  g\overline a  \right)  \left(  g\overline a  \right)= \left\| z\right\|^2\desc_{\overline p_\la}\left( \overline a\right)^2.\\
+		\sum_{g\in G_\la } \left(  g\overline a  \right)   \pi_a \left(z + \Delta \right) \left(z + \Delta\right)^* \left(  g\overline a  \right)\le  \left( \left\| z\right\|+\delta\right) ^2\desc_{\overline p_\la}\left( \overline a\right)^2,\\
+		\left\|\sum_{g\in G_\la } \left(  g\overline a  \right)   z z^* \left(  g\overline a  \right)\right\|\le  \left\| z\right\|^2 \left\| \overline a\right\|^2,\\ 
+		\left\|\sum_{g\in G_\la } \left(  g\overline a  \right)   \pi_a \left(z + \Delta \right) \left(z + \Delta\right)^* \left(  g\overline a  \right)\right\|\le  \left( \left\| z\right\|+\delta\right)^2 \left\| \overline a\right\|^2
 	\end{split}
 	\ee
-	If follows that both sets
-	\be\label{foli_g'_eqn}
+	The series in the equations \eqref{blowing_zz_eqn} contain positive summands only and from \eqref{blowing_zz_eqn} it turns out that they are bounded.
+	From the \ref{increasing_convergent_w_lem} it follows that the series in the equations \eqref{blowing_zz_eqn} are  strongly convergent in $B\left(\widehat \H_a\right)$.
+	\bean
+	\left(z + \Delta\right)^*\left( \sum_{g\in G_\la } \left(  g\overline a  \right)   \left(z + \Delta\right) \left(z + \Delta\right)^* \left(  g\overline a  \right)\right)  \left(z + \Delta\right)^*=\\
+	=
+	z^*\left( \sum_{g\in G_\la } \left(  g\overline a  \right)   \left(z + \Delta\right) \left(z + \Delta\right)^* \left(  g\overline a  \right)\right)  \left(z + \Delta\right)^* +\\
+	+
+	\pi_a \left(\Delta\right)^*\left( \sum_{g\in G_\la } \left(  g\overline a  \right)   \left(z + \Delta\right) \left(z + \Delta\right)^* \left(  g\overline a  \right)\right)  \left(z + \Delta\right)^*.
+	\eean
+	From the equation \eqref{blowing_zz_eqn} it follows that 
+	\bean
+	\left\| 
+	\pi_a \left(\Delta\right)^*\left( \sum_{g\in G_\la } \left(  g\overline a  \right)   \left(z + \Delta\right) \left(z + \Delta\right)^* \left(  g\overline a  \right)\right)  \left(z + \Delta\right)^*\right\|\le\\ \le\delta\left(  \left\| z\right\|+\delta\right)^3 \left\| \overline a\right\|^2
+	\eean
+	Similarly one has
+	\bean
+	\left\| 
+	z^*\left( \sum_{g\in G_\la } \left(  g\overline a  \right)   \left(z + \Delta\right) \left(z + \Delta\right)^* \left(  g\overline a  \right)\right)  \Delta ^*\right\|\le\\ \le\delta\left(  \left\| z\right\|+\delta\right)^2 \left\| z\right\|\left\| \overline a\right\|^2
+	\eean
+	
+	One has
+	$$
+	\left\|\left(z + \Delta\right) \left(z + \Delta\right)^*- z z^*\right\|< \delta^2+ 2\delta \left\| z\right\|
+	$$
+	If $P\bydef \left|      \left(z + \Delta\right) \left(z + \Delta\right)^*- z z^*\right|\in B\left( \widehat\H_a\right) $  is given by the Proposition \ref{polar_decomposition_prop} then following conditions hold
+	\begin{itemize}
+		\item 
+		\bean
+		\left\|P\right\|= \left\|\left(z + \Delta\right) \left(z + \Delta\right)^*- z z^*\right\|  <\delta^2+ 2\delta \left\| z\right\|
+		\eean
+		\item \bean\left|\left(  g\overline a  \right)\left(   \left(z + \Delta\right) \left(z + \Delta\right)^*- z z^*\right)\left(  g\overline a  \right)\right|=\\
+		=\left(  g\overline a \right)  P\left(  g\overline a  \right).
+		\eean
+		\item 
+		\be\label{blowing_mod_eqn}
+		\begin{split}
+			\left\| \sum_{g\in G_\la} \left(  g\overline a  \right) \left(  \left(z + \Delta\right) \left(z + \Delta\right)^*- z z^*\right) \left(  g\overline a  \right)\right\| \le\\
+			\left\| \sum_{g\in G_\la }\left(  g\overline a  \right) P \left(  g\overline a  \right)\right\| 
+			\le \left\| P\right\|\left\|  \sum_{g\in G_\la }\left(  g\overline a  \right)^2 \right\|=\\
+			=\left\| P\right\|\left\| \overline a\right\|^2\le \left( \delta^2+ 2\delta \left\| z\right\|\right)\left\| \overline a\right\|^2 
+		\end{split}
+		\ee
+	\end{itemize} 
+	If $y \bydef z + \Delta$ then
+	From the equation \ref{blowing_mnorm_eqn} it follows that
+	\bean
+	\left\|z^* \left( \sum_{g\in G_\la} \left(  g\overline a  \right) \left(  y y^*- z z^*\right) \left(  g\overline a  \right)\right) z\right\| \le\\
+	\le \left( \delta^2+ 2\delta \left\| z\right\|\right)\left\| \overline a\right\|^2  \left\| z\right\|^2.
+	\eean 
+	From the above equations it follows that
+	\be
+	\left\| \sum_{g\in G_\la } g\left( y^*  \overline a  y\right)^2-\sum_{g\in G_\la } g\left( z^*  \overline a  z\right)^2\right\|\le
+	\phi\left(\delta \right) 
+	\ee
+	where $\delta= \left\|y- z\right\|$ and $\phi:\R_+\to \R_+$ is a continuous function given by
+	\be
 	\begin{split}
-		G' \bydef\left\{\left.g \in G\left(\left.\widetilde M\right|M \right)\right|\left(g \widetilde a \right) \widetilde b \neq 0 \right\}\subset G'_0,\\
-		G'' \bydef\left\{\left.g \in G\left(\left.\widetilde M\right|M \right)\right|\widetilde b\left(g \widetilde a \right)  \neq 0 \right\}\subset G''_0
+		\phi\left(\delta \right) = \delta\left(  \left\| z\right\|+\delta\right)^3 \left\| \overline a\right\|^2+\delta\left(  \left\| z\right\|+\delta\right)^2 \left\| z\right\|\left\| \overline a\right\|^2  +\\
+		+\left( \delta^2+ 2\delta \left\| z\right\|\right)\left\| \overline a\right\|^2  \left\| z\right\|^2=\\
+		= \delta\left\| \overline a\right\|^2\left(\left( \left\| z\right\|+\delta\right)^3 +\left(  \left\| z\right\|+\delta\right)^2 \left\| z\right\|+ \left( \delta+ 2 \left\| z\right\|\right)\ \left\| z\right\|^2\right). 
 	\end{split}
 	\ee
-	are finite.
-	From \eqref{foli_desc_eqn} it follows that 
+	Since $\phi\left(0 \right)= 0$ for any $\eps > 0$ there is $\delta_\eps > 0$ such that $\phi\left(\delta_\eps \right) < \eps$.
+	From the Lemma \ref{blowing_ycomp_lem} it follows that there is  $y \in C^*_r\left(\overline M, \overline \sF \right)^\sim$  an open subset $\overline\sU^y\subset \overline M$ with compact closure such that
 	\bean
-	\sum_{g \in G\left(\left.\widetilde M\right|M \right)} \left( g \widetilde a \right) \widetilde b'= \sum_{g \in G'\cup G''} \left( g \widetilde a \right) \widetilde b',\\
-	\sum_{g \in G\left(\left.\widetilde M\right|M \right)}  \widetilde b'\left( g \widetilde a \right)= \sum_{g \in G'\cup G''} \widetilde b'\left( g \widetilde a \right),\\
+	\left\| y - z\right\|< \min \left( \eps,\delta_\eps \right) ,\\
+	y^*\overline a y \in C^*_r\left(\overline \sU^y, \left.\overline \sF\right|_{\overline \sU^y}\right).
 	\eean 
-	and taking into account $	\left\|\widetilde b'-\widetilde b \right\| < \frac{\eps }{\left\|\widetilde a \right\|}$ one has 
+	From our above construction it turns out that $y$ satisfies to inequalities  \ref{blowing_spec21_eqn}, \ref{blowing_spec22_eqn}. From the Lemma \ref{top_comp_la_lem} it follows that there is $\mu\in\La$ such that for  any  $\la \ge \la_{\overline{   \mathcal U }}$ the set $\overline{   \mathcal U }^y$  is mapped homeomorphically onto  $\overline{p}_\la\left(\overline{   \mathcal U }^y \right)$. From the Lemma \ref{blowing_cov_inc_strong_lem} it turns out that for all $\la\ge\mu$ following conditions hold
 	\bean
-	\left\| \sum_{g \in G\left(\left.\widetilde M\right|M \right)} \left( g \widetilde a \right) \widetilde b-\sum_{g \in G'\cup G''} \left( g \widetilde a \right) \widetilde b\right\|< \eps ,\\
-	\left\|\sum_{g \in G\left(\left.\widetilde M\right|M \right)}  \widetilde b\left( g  \widetilde a \right)- \sum_{g \in G'\cup G''} \widetilde b\left( g \widetilde a \right)\right\| <\eps.
-	\eean 
+	\sum_{g\in G_\la } g\left( y^*\overline a  y\right)=\desc_{\overline p_\la}\left(y^*\overline a  y \right),\\
+	\sum_{g\in G_\la } g\left( y^*\overline a  y\right)^2=\desc_{\overline p_\la}\left(y^*\overline a  y \right)^2,
+	\eean
+	hence one has
+	$$
+	\sum_{g\in G_\la } g\left( y^*\overline a  y\right)^2= \left( \sum_{g\in G_\la } g\left( y^*\overline a  y\right)\right)^2
+	$$
+	i.e. $y$ satisfies to the equation \ref{blowing_spec23_eqn}.
 	
 \end{proof}
 
+\begin{lemma}\label{blowing_spec_lem}
+	Consider the above situation.
+	If $\overline  \sU \in \overline{\mathfrak A}$  then any positive element  $\overline a\in C^*_r\left(\overline \sU, \left.\overline \sF\right|_{\overline \sU} \right) \subset C^*_r\left(\overline M, \overline \sF\right)\subset  B \left( \widehat \H_a\right)$  is special (cf. Definition \ref{special_element_defn}).
+\end{lemma}	
+\begin{proof}
+	Let $\la_0 \in \La$, $\eps > 0$ and  $z \in C^*_r\left( M_{\la_0},  \sF_{\la_0}\right)^{\sim}$. Let us check conditions (a), (b) of the Definition \ref{special_element_defn}.\\
+	(a) One needs check that
+	\bea\label{blowing_spec_a_eps_imp1_eqn}
+	\sum_{g\in G_\la } z^*\left(  g\overline a\right) z   \in C^*_r\left( M_{\la},  \sF_{\la}\right),\\
+	\label{blowing_spec_a_eps_imp2_eqn}
+	\sum_{g\in G_\la } f_\eps\left(z^*\left(  g\overline a\right) z   \right)   \in C^*_r\left( M_{\la},  \sF_{\la}\right),\\
+	\label{blowing_spec_a_eps_imp3_eqn}
+	\sum_{g\in G_\la  } \left(z^*\left(  g\overline a\right) z   \right)^2    \in C^*_r\left( M_{\la},  \sF_{\la}\right). 
+	\eea
+	(cf. Remark \ref{implicit_inc_full_rem}).
+	\begin{enumerate}
+		\item 	 Proof of \eqref{blowing_spec_a_eps_imp1_eqn}. One has $\sum_{g\in G_\la } z^*\left(  g\overline a\right) z= z^*\left( \sum_{g\in G_\la } g\overline a\right) z$. From the Lemma \ref{blowing_cov_inc_strong_lem} it turns out that there is the strong limit $\sum_{g\in G_\la } g\overline a= \desc_{\overline p_{\la}}\left( \overline a\right)\in  C^*_r\left( M_{\la},  \sF_{\la}\right)$, so one has $\sum_{g\in G_\la } z^*\left(  g\overline a\right) z\in C^*_r\left( M_{\la},  \sF_{\la}\right)$.
+		\item 	 Proof of \eqref{blowing_spec_a_eps_imp2_eqn}. From $f_\eps\left(z^*\left(  g\overline a\right) z   \right)\le z^*\left(  g\overline a\right) z$ it follows that $\sum_{g\in G^0_\la } f_\eps\left(z^*\left(  g\overline a\right) z   \right)\le a_\la$ for any finite subset $G^0_\la\subset G_\la$ so from the Lemma  \ref{increasing_convergent_w_lem} it turns out that the series \\$\sum_{g\in G_\la } f_\eps\left(z^*\left(  g\overline a\right) z   \right)$ is strongly convergent in $B\left(\widehat\H_a\right)$. Moreover one has
+		\be\label{blowing_a0_eqn}
+		\left\| \sum_{g\in G_\la } f_\eps\left(z^*\left(  g\overline a\right) z   \right)\right\| \le \left\| a_{\la_0}\right\|.
+		\ee 
+		From the Lemma \ref{blowing_ycomp_lem} it follows that for all 
+		For all  $\delta> 0$ there is $y \in C^*_r\left( M_{\la_0},  \sF_{\la_0}\right)^{\sim}$ such that $\left\| y-z\right\|< \delta$   and an open subset $\overline\sU^y\subset \overline\sX$ with compact closure such that  
+		\bean
+		y^*\overline a y \in C^*_r\left(\overline \sU^y, \left.\overline \sF\right|_{\overline \sU^y}\right).
+		\eean
+		If $\delta' > 0$ and select  $\delta $   is  such that 
+		$\delta \left( \delta + 2\left\| z\right\|\right) \left\| \overline a\right\|< \delta' $ then
+		\be\label{blowing_dp_eqn}
+		\begin{split}
+			\left\| y-z\right\|< \delta \quad\Rightarrow\quad \left\| y^*\overline a y -  z^*\overline a z\right\|<\delta',\\
+			\left\| y-z\right\|< \delta \quad\Rightarrow\quad\left\| y^*\desc_{\overline p_{\la}}\left( \overline a\right)y -  z^*\desc_{\overline p_{\la}}\left( \overline a\right) z\right\|< \delta'.
+		\end{split}
+		\ee
+		If $\widehat \H_a^\perp$ is given by
+		$$
+		\widehat \H_a^\perp \bydef \left\{\left.\xi\in \widehat \H_a\right| \left( y^*\desc_{\overline p_{\la_0}}\left( \overline a\right)y\right) \xi=0 \right\}\subset \widehat \H_a,
+		$$
+		and $p^\perp_y: \widehat \H_a \to \widehat \H_a^\perp$ is the natural projection and $p_y \bydef\left( 1- p^\perp_y\right) $ then there is the following matrix representation
+		\bean
+		z^*\desc_{\overline p_{\la}}\left( \overline a\right) z= 
+		\begin{pmatrix}
+			p_yz^*\desc_{\overline p_{\la}}\left( \overline a\right) zp_y & p_yz^*\desc_{\overline p_{\la}}\left( \overline a\right) zp_y^\perp\\
+			p_y^\perp z^*\desc_{\overline p_{\la}}\left( \overline a\right) zp_y & p_y^\perp z^*\desc_{\overline p_{\la}}\left( \overline a\right) z p_y^\perp
+		\end{pmatrix},\\
+		y^*\desc_{\overline p_{\la}}\left( \overline a\right) y= 
+		\begin{pmatrix}
+			p_y y^*\desc_{\overline p_{\la}}\left( \overline a\right) yp_y & 0\\
+			0 & 0
+		\end{pmatrix},\\
+		z^*\overline a  z= \begin{pmatrix}p_y z^*\overline a  z p_y & p_y z^* \overline a zp_y^\perp\\
+			p_y^\perp z^* \overline a zp_y & p_y^\perp z^* \overline a zp_y^\perp
+		\end{pmatrix},\\
+		y^*\overline a  y= 
+		\begin{pmatrix}
+			p_y y^*\overline a  y p_y & 0\\
+			0 & 0
+		\end{pmatrix},
+		\eean 
+		hence from the inequality \eqref{blowing_dp_eqn} it turns out that 	$\left\| p_y^\perp z^*\overline a zp_y^\perp\right\|<\delta'$ and
+		$\left\| p_y^\perp  z^*\desc_{\overline p_{\la}}\left( \overline a\right) zp_y^\perp\right\|< \delta'$.  Taking into account that
+		\bean
+		p_y^\perp f_\eps\left( z^*\overline a z\right) p_y^\perp\le p_y^\perp z^*\overline a zp_y^\perp
+		\\
+		p_y^\perp f_\eps\left( 	z^*\desc_{\overline p_{\la}}\left( \overline a\right) z\right) p_y^\perp\le p_y^\perp  z^*\desc_{\overline p_{\la}}\left( \overline a\right) zp_y^\perp
+		\eean 
+		\be\label{blowing_dpp_eqn}
+		\begin{split}
+			\left\| p_y^\perp f_\eps\left( z^*\overline a z\right)p_y^\perp\right\|<\delta',\\
+			\left\| p_y^\perp  f_\eps\left( 	z^*\desc_{\overline p_{\la}}\left( \overline a\right) z\right)p_y^\perp\right\|< \delta'.
+		\end{split}
+		\ee
+		From the above inequalities and the Lemma \ref{positive_ineq_lem} it follows that
+		\be\label{blowing_pos_eqn}
+		\begin{split}
+			\left\| f_\eps\left( z^*\overline a z\right)-\begin{pmatrix}p_y f_\eps\left( z^*\overline a z\right) p_y & 0\\
+				0 & 0
+			\end{pmatrix}\right\|<\\
+			< \delta' + 2\sqrt{\delta'\left\| z\right\|^2\left\|\overline a \right\|},\\
+			\left\| f_\eps\left( z^*\desc_{\overline p_{\la}}\left( \overline a\right) z\right)-\begin{pmatrix}p_y f_\eps\left( z^*\desc_{\overline p_{\la}}\left( \overline a\right) z\right) p_y & 0\\
+				0 & 0
+			\end{pmatrix}\right\|<\\
+			< \delta' + 2\sqrt{\delta'\left\| z\right\|^2\left\|\overline a \right\|}.
+		\end{split}
+		\ee
+		From the Corollary \ref{top_comp_la_cor} it follows that there is $\mu \bydef \la_{\overline{   \mathcal U }^y}$ and a continuous map $f_\mu: M_\mu \to [0,1]$ such that $f_\mu \left(\overline p_\mu\left( \overline{   \mathcal U }^y\right)  \right) = \{1\}$ and $g\supp f_\mu\cap \supp f_\mu=\emptyset$ for all nontrivial $g\in G\left( \left.{{\sX}}_\mu~\right|\sX\right)$. From the equation \eqref{blowing_center_eqn} it follows that $f_\mu$ is a multiplier of $C^*_r\left(M_\la, \sF_\la \right)$ for any $\la\ge\mu$ such that $f_\la p_y = p_y f_\la = p_y$.
+		It follows that 
+		\be\label{blowing_fm_eqn}
+		\begin{split}
+			p_yf_\eps\left( z^*\overline a z\right) p_y= p_yf_\mu f_\eps\left(z^*  \overline a z\right) f_\mu p_y,\\
+			p_yf_\eps\left( z^*\desc_{\overline p_{\la}}\left( \overline a\right) z\right) p_y= p_yf_\mu f_\eps\left( z^*\desc_{\overline p_{\la}}\left( \overline a\right) z\right) f_\mu p_y,\\
+		\end{split}
+		\ee
+		so one has
+		\bean
+		f_\mu f_\eps\left( z^*\overline a  z\right)f_\mu
+		=\begin{pmatrix}p_y f_\eps\left( z^*\overline a  z\right) p_y & p_y f_\mu f_\eps\left( z^*\overline a  z\right)f_\mu p_y^\perp\\
+			p_y^\perp f_\mu f_\eps\left( z^*\overline a  z\right)f_\mu p_y & p_y^\perp f_\mu f_\eps\left( z^*\overline a  z\right)f_\mu p_y^\perp
+		\end{pmatrix},\\
+		f_\mu f_\eps\left( z^*\desc_{\overline p_{\la}}\left( \overline a\right) z\right)f_\mu = \\
+		=
+		\begin{pmatrix}
+			p_yf_\eps\left( z^*\desc_{\overline p_{\la}}\left( \overline a\right) z\right)p_y & p_y f_\mu f_\eps\left( z^*\desc_{\overline p_{\la}}\left( \overline a\right) z\right) f_\mu p_y^\perp\\
+			p_y^\perp f_\mu  f_\eps\left( z^*\desc_{\overline p_{\la}}\left( \overline a\right) z\right)f_\mu p_y & p_y^\perp f_\mu  f_\eps\left( z^*\desc_{\overline p_{\la}}\left( \overline a\right) z\right) f_\mu p_y^\perp
+		\end{pmatrix},\\
+		\eean
+		From $f_\mu \le 1$ and \eqref{blowing_dpp_eqn} it turns out that 
+		\be\label{blowing_dppf_eqn}
+		\begin{split}
+			\left\| p_y^\perp f_\mu f_\eps\left( z^*\overline a z\right)  f_\mu p_y^\perp\right\|<\delta',\\
+			\left\| p_y^\perp  f_\mu f_\eps\left( z^*\desc_{\overline p_{\la}}\left( \overline a\right) z\right) f_\mu p_y^\perp\right\|< \delta'.
+		\end{split}
+		\ee
+		On the other hand from $\left\| f_\eps\left( z^*\overline a z\right)  z\right\|\le \left\| z^*\overline a  z\right\| \le \left\| z\right\|^2\left\|\overline a \right\|$,\\  $\left\| f_\eps\left( z^*\desc_{\overline p_{\la}}\left( \overline a\right) z\right)  z\right\|\le\left\| z^*\desc_{\overline p_{\la}}\left( \overline a\right)  z\right\| \le \left\| z\right\|^2\left\|\overline a \right\|$, inequalities \eqref{blowing_dpp_eqn} and the Lemma \ref{positive_ineq_lem} it turns out that
+		\be\label{blowing_posm_eqn}
+		\begin{split}
+			\left\|f_\mu  f_\eps\left( z^*\overline a z\right)f_\mu -\begin{pmatrix}p_yf_\mu  f_\eps\left( z^*\overline a z\right)f_\mu  p_y & 0\\
+				0 & 0
+			\end{pmatrix}\right\|
+			< \delta' + 2\sqrt{\delta'\left\| z\right\|^2\left\|\overline a \right\|},\\
+			\left\| f_\mu f_\eps\left( z^*\desc_{\overline p_{\la}}\left( \overline a\right) z\right)f_\mu -\begin{pmatrix}p_yf_\mu  f_\eps\left( z^*\desc_{\overline p_{\la}}\left( \overline a\right) z\right)f_\mu  p_y & 0\\
+				0 & 0
+			\end{pmatrix}\right\|<\\
+			< \delta' + 2\sqrt{\delta'\left\| z\right\|^2\left\|\overline a \right\|}.
+		\end{split}
+		\ee
+		The combination of inequalities \eqref{blowing_pos_eqn}  and \eqref{blowing_posm_eqn} yields the following
+		\bean
+		\left\| f_\eps\left( z^*\overline a z\right)-f_\mu  f_\eps\left( z^*\overline a z\right)f_\mu\right\|< 2\left( \delta' + 2\sqrt{\delta'\left\| z\right\|^2\left\|\overline a \right\|}\right),\\
+		\left\|  f_\eps\left( z^*\desc_{\overline p_{\la}}\left( \overline a\right)z\right) -f_\mu f_\eps\left( z^*\desc_{\overline p_{\la}}\left( \overline a\right) z\right)f_\mu\right\|
+		< 2\left( \delta' + 2\sqrt{\delta'\left\| z\right\|^2\left\|\overline a \right\|}\right) .
+		\eean
+		For any  $\eps' > 0$ select $\delta' > 0$ such that $\eps' < 2\left( \delta' + 2\sqrt{\delta'\left\| z\right\|^2\left\|\overline a \right\|}\right)$. Select $\delta > 0$ such that  
+		$\delta \left( \delta + 2\left\| z\right\|\right) \left\| \overline a\right\|< \delta' $. From  the above description it follows that 
+		\be\label{blowing_a1_eqn}
+		\begin{split}
+			\left\| z - y\right\|<\delta \quad\Rightarrow\quad\left\| f_\eps\left( z^*\overline a z\right)-f_\mu  f_\eps\left( z^*\overline a z\right)f_\mu\right\|< \eps',\\
+			\left\| z - y\right\|<\delta \quad\Rightarrow\quad\left\|  f_\eps\left( z^*\desc_{\overline p_{\la}}\left( \overline a\right)z\right) -f_\mu f_\eps\left( z^*\desc_{\overline p_{\la}}\left( \overline a\right) z\right)f_\mu\right\|
+			<\eps'.
+		\end{split}
+		\ee
+		From the inequality \eqref{blowing_a1_eqn}  it follows that 
+		\be\label{blowing_ep_eqn}
+		\forall \la\ge\la_0\quad \left\|\sum_{	g \in G_\la}gf_\eps\left( z^* \overline a z\right) - \sum_{	g \in G_\la}g\left( f_\mu f_\eps\left( z^* \overline az\right)f_\mu\right) 	 \right\|\le \eps'.
+		\ee
+		On the other hand from the Lemma \ref{blowing_cov_inc_strong_lem} it follows that
+		\bean
+		\forall \la\ge\mu\quad  \sum_{	g \in G_\la}g\left( f_\mu f_\eps\left( z^* \overline az\right)f_\mu\right) 	= \desc_{\widetilde p_\la}\left( f_\mu f_\eps\left( z^* \overline az\right)f_\mu\right) \in C^*_r\left(M_\la, \sF_\la \right),
+		\eean
+		so from the Lemma \ref{special_element_cut_lem} it turns out that
+		\be\label{blowing_eep_eqn}
+		\forall \la\ge\la_0\quad  \sum_{	g \in G_\la}g\left( f_\mu f_\eps\left( z^* \overline az\right)f_\mu\right) 	 \in C^*_r\left(M_\la, \sF_\la \right)
+		\ee
+		From the equations \eqref{blowing_ep_eqn} and \eqref{blowing_eep_eqn} it turns out that
+		$$
+		\forall \eps'> 0\quad \forall \la\ge\la_0\quad \exists a_\la \in C^*_r\left(M_\la, \sF_\la \right) \quad 	\left\| \sum_{g \in G_\la}gf_\eps\left( z^* \overline a z\right)-a_\la \right\|< \eps',
+		$$
+		so one has
+		$$
+		\forall \la\ge\la_0\quad \sum_{g \in G_\la}gf_\eps\left( z^* \overline a z\right)\in C^*_r\left(M_\la, \sF_\la \right).
+		$$
+		\item 	 Proof of \eqref{blowing_spec_a_eps_imp3_eqn}.
+		From the Corollary \ref{blowing_spec2_cor} it turns out that for any $\eps > 0$ there is $y \in C^*_r\left(M_\la, \sF_\la \right)^+$ which satisfies to the equations \eqref{blowing_spec22_eqn} and \eqref{blowing_spec23_eqn}. It is already proven that for any $\la\ge\la_0$
+		$$
+		\sum_{g\in G_\la } g\left( y^*\overline a  y\right)= y^*\desc_{\overline p_{\la}}\left(\overline a\right)  y\in  C^*_r\left(M_\la, \sF_\la \right)
+		$$
+		so 
+		$$
+		\left(\sum_{g\in G_\la } g\left( y^*\overline a  y\right)= y^*\desc_{\overline p_{\la}}\left(\overline a\right)  y\right)^2\in  C^*_r\left(M_\la, \sF_\la \right).
+		$$
+		From the equation \eqref{blowing_spec23_eqn} it follows that  
+		$$
+		\exists\mu\ge \la_0\quad		\la \ge \mu\quad \Rightarrow \quad\sum_{g\in G_\la } g\left( y^*\overline a  y\right)^2\in C^*_r\left(M_\la, \sF_\la \right) 
+		$$ 
+		and taking into account the Lemma \ref{special_element_cut_lem} one has
+		\be\label{blowing_2_eqn}
+		\forall\la\ge \la_0\quad\sum_{g\in G_\la } g\left( y^*\overline a  y\right)^2\in C^*_r\left(M_\la, \sF_\la \right)
+		\ee
+		Using the equations \eqref{blowing_spec22_eqn} and \eqref{blowing_2_eqn} one concludes that 
+		$$
+		\forall\eps > 0\quad	\forall\la\ge \la_0\quad  \exists b_\la \in C^*_r\left(M_\la, \sF_\la \right)\quad 	\left\| \sum_{g\in G_\la } g\left( f_\eps\left( z^*\overline a  z\right)\right)^2 - b_\la\right\|<\eps.
+		$$
+		Hence one has $\sum_{g\in G_\la } g\left( f_\eps\left( z^*\overline a  z\right)\right)^2 \in C^*_r\left(M_\la, \sF_\la \right)$.
+	\end{enumerate}
+	(b) If $\delta > 0$ is such that $\delta \left(\delta + 2  \left\| y - z\right\|\right)\left\|\overline a\right\| < \delta'$ then from $\left\| y - z\right\|<\delta$ it follows that 
+	\be
+	\left\| \sum_{g\in G_\la } g\left( z^*\overline a  z\right) - \sum_{g\in G_\la } g\left( y^*\overline a  y\right)\right\| < \delta'
+	\ee
+	If $\delta'$ is such that $\delta'\left\|\overline a\right\|\left\|\overline z\right\|^2\left(\delta' + 2\left\|\overline a\right\|\left\|\overline z\right\|^2 \right)<\eps/2$ then from  $\left\| y - z\right\|<\delta$ it follows that
+	\be\label{blowing_e21_eqn}
+	\left\| \left( \sum_{g\in G_\la } g\left( z^*\overline a  z\right)\right)^2  - \left( \sum_{g\in G_\la } g\left( y^*\overline a  y\right)\right)^2 \right\| < \frac{\eps}{2}.
+	\ee 
+	Otherwise from the Corollary \ref{blowing_spec2_cor} there is $y\in C^*_r\left(M_{\la_0}, \sF_{\la_0} \right)$ such that $\left\| y - z\right\|< \min\left(\eps/2, \delta \right)$ such that  
+	\be\label{blowing_e22_eqn}
+	\left\| \sum_{g\in G_\la } g\left( z^*\overline a  z\right)^2 - \sum_{g\in G_\la } g\left( y^*\overline a  y\right)^2\right\| < \frac{\eps}{2}
+	\ee
+	From the equations \eqref{blowing_e21_eqn}, \eqref{blowing_e22_eqn} and taking into account \eqref{blowing_spec22_eqn} it follows that
+	\be\label{blowing_e23_eqn}
+	\exists\mu\ge \la_0\quad		\la \ge \mu\quad \Rightarrow 	\left\| \left( \sum_{g\in G_\la } g\left( z^*\overline a  z\right)\right)^2  - \sum_{g\in G_\la } g\left( z^*\overline a z\right)^2\right\|<\eps
+	\ee
+	The equation \eqref{blowing_e23_eqn} is version of \eqref{special_set_eqn}.
+\end{proof}
 
-\subsection{Reduced fundamental group}
+\begin{cor}\label{blowing_c0_inc_cor} 
+	Let
+	$$
+	\mathfrak{S}_{\left(M, \sF, x_0\right)}\bydef \left\{\left\{p_\la:\left(M_\la, \sF_\la\right) \to \left(M, \sF\right)\right\}_{\la \in \La}, \left\{p^\mu_\nu: \left(M_\mu, \sF_\mu\right) \to \left(M_\nu, \sF_\nu\right)\right\}_{\substack{\mu, \nu \in \La\\ \mu \ge \nu}}\right\}
+	$$
+	be  {pointed finite foliation category} (cf. Definition (ref. \ref{comp_pt_defn}), and let $\overline M$ be the disconnected inverse limit \ref{top_topological_inv_lim_defn} 	of a  {pointed topological finite covering category} 
+	\bean
+	\mathfrak{S}_{\left( M, x_0\right) }\bydef\\
+	\bydef \left\{\left\{p_\la:\left( M_\la, x^\la_0\right) \to \left( M, x_0\right)\right\}_{\la\in\La}, \left\{p^\mu_{ \nu}:\left( M_\mu, x^\mu_0\right) \to \left( \sX_\nu, x^\nu_0\right)\right\}_{\substack{\mu,\nu\in\La\\
+			\mu\ge\nu}} \right\}
+	\in \mathfrak{FinTop}^{\text{pt}},
+	\eean
+	(cf. Definition \ref{top_sec_p_defn}) and $\overline p: \overline M \to M$ be the natural covering. Let $\left(\overline M,\overline \sF\right)$ be the induced by $\overline p$ foliated space (cf. Definition \ref{fol_cov_defn}).
+	If 
+	\be\nonumber
+	\begin{split}
+		\left\{\left\{C^*_r\left( p_\la\right) : C^*_r\left(M, \sF\right)\hookto C^*_r\left(M_\la, \sF_\la\right)\right\}, \left\{C^*_r\left(p^\mu_\nu\right) : C^*_r\left(M_\nu, \sF_\nu\right) \hookto C^*_r\left(M_\mu, \sF_\mu\right)\right\}\right\}.
+	\end{split}
+	\ee
+	is  a pointed algebraical  finite covering category $\mathfrak{S}_{C^*_r\left(M, \sF, x_0\right)}$ (cf. Definition (ref. \ref{comp_pt_defn}) given by the Lemma \ref{blowing_poi_alg_lem} and $\overline A\in B\left(\H_a\right)$ is its disconnected algebraical infinite noncommutative covering  (cf. Definition \ref{main_defn_full_defn}) then there is the natural inclusion
+	$$
+	C^*_r\left(\overline M, \overline \sF\right)\subset \overline A.
+	$$
+\end{cor}
+
+
+\begin{proof}
+	The $C^*$-algebra $C^*_r\left(\overline M, \overline \sF\right)$ is generated by special elements given by the Lemma \ref{blowing_spec_lem}.
+\end{proof}
+
+
+
 
 \chapter{Coverings of $C^*$-algebras with Hausdorff spectrum}\label{ctr_chap}
 \paragraph*{}
@@ -11617,157 +12074,6 @@ In the described above situation there is the given by
 
 \section{Infinite coverings}\label{ctr_case_sec}
 \subsection{Coverings of $C^*$-algebras}
-
-\begin{lemma}\label{ctr_t_a_lem}
-		Let $A$ be a separable $C^*$-algebra with continuous trace let $\sX = \hat A$ be the spectrum of $A$. Suppose that $\sX$ is a connected, locally connected, second-countable space.
-	Let us consider the situation \ref{comm_t_a_empt} and suppose that 
-	\bean
-	A \bydef C_0\left(\sX, \left\{A_x\right\}_{x \in \sX}, A \right)
-	\eean
-	 and $A_0$ is the given by the  Definition \ref{top_c_funct_defn} functor.
-	Following conditions hold:
-	\begin{enumerate}
-		\item[(i)] 	If
-		$
-		\mathfrak{S}_{ \mathcal{X} } = \left\{p_{\la}:\mathcal{X}_\la \to  \mathcal{X}  \right\}_{\la \in \La}\in \mathfrak{FinTop}
-		$
-		is  a  topological  finite covering category (cf. Definition \ref{top_sec_defn}) then there is the natural  algebraical  finite covering category (cf. Definition \ref{comp_defn}).
-		\begin{equation*}
-		\mathfrak{S}_{A } = \left\{\pi_\la=A_0\left( p_{\la}\right) :A  \hookto A_0\left( \mathcal{X}_\la\right) \right\}_{\la \in \La}\in \mathfrak{FinAlg}.
-		\end{equation*}
-		\item[(ii)] Conversely any directed algebraical  finite covering category
-		\begin{equation}
-		\mathfrak{S}_{A } = \left\{ \pi_{\la} :A  \hookto A_0\left( \mathcal{X}_\la\right) \right\}_{\la \in \La}\in \mathfrak{FinAlg}.
-		\end{equation}
-		naturally induces 
-		directed topological  finite covering category $$
-		\mathfrak{S}_{\mathcal{X}} = \left\{p_{\la}:\mathcal{X}_\la \to \mathcal{X}\right\}_{\la \in \La}\in \mathfrak{FinTop}.$$
-		
-	\end{enumerate}
-	
-\end{lemma}
-\begin{proof}
-	(i)
-	One needs check the conditions (a) and (b) of the Definition \ref{comp_defn}.
-\begin{enumerate}
-	\item[(a)] 	The conditions (a)-(d) of the Definition \ref{compliant_covering_defn}  directly follow from (a)-(d) of the Lemma \ref{comm_comply_lem}.
-	\item[(b)] Follows from the Corollary \ref{ctr_functor_cor}.
-	
-	
-
-\end{enumerate}	
-	(ii) From the Theorem \ref{ctr_fin_thm} it turns out that any object $ \pi_\la :A  \hookto A_0\left( \mathcal{X}_\la\right)$ of the category $\mathfrak{S}_{A }$ corresponds to the object $p_\la: \sX_\la \to \sX$ of the category $\mathfrak{S}_{ \mathcal{X}}$, i.e. $p_\la$ is a transitive finite-fold covering. If $\mu, \nu \in \La$ are such that $\mu > \nu$ then from (b) of the Definition \ref{comp_defn} it follows that there is *-homomorphism $\pi: A_0\left( \mathcal{X}_\nu\right)\to A_0\left( \mathcal{X}_\mu\right)$ such that 
-	\be\label{ctr_inf_pp_eqn}
-	A_0\left( p_\mu\right)= \pi \circ A_0\left( p_\nu\right).
-	\ee
-	From (a) of the Definition \ref{comp_defn} it turns out that the homomorphism $\pi$ is a noncommutative  finite fold covering, so taking into account the Corollary \ref{ctr_functor_cor} one has the topological finite-fold covering $p: \mathcal{X}_\mu\to \mathcal{X}_\nu$ such that $\pi = A_0\left(p\right)$. From \eqref{ctr_inf_pp_eqn} it follows that $p_\mu = p \circ p_\nu$.
-\end{proof}
-
-\begin{lemma}\label{ctr_base_point_lem}
-	If	$\mathfrak{S}_{\left(\sX, x_0\right)}= \left\{p_\la:\left( \sX_\la, x^\la_0\right) \to \left( \sX, x_0\right)\right\}_{\la \in \La} \in \mathfrak{FinTop}^{\mathrm{pt}}$ is a pointed topological finite covering category such that for any $\mu > \nu$ there is the unique  pointed  covering $p^\mu_{ \nu}: \left(\sX_{\mu}, x^\mu_0 \right) \to \left(\sX_{\nu}, x^\nu_0 \right)$ then
-	\be\label{ctr_base_point_eqn}
-	\begin{split}
-		\mathfrak{S}^{\mathrm{pt}}_{A } = \\
-		=\left\{A_0\left( p_\la\right) : A  \hookto A_0\left(\sX_\la \right)\right\}, \left\{A_0\left( p_\nu^\mu\right) : A_0\left(\sX_\nu \right) \hookto A_0\left(\sX_\mu \right)\right\}
-	\end{split}
-	\ee
-	is a {pointed algebraical  finite covering category} (cf. Definition \ref{comp_pt_defn}).
-\end{lemma}
-\begin{proof}
-	According to our construction for any $\mu >\nu$ the category $	\mathfrak{S}_{A }$ contains the unique *-homomorphism from $A_0\left(\sX_\nu \right)$ to $A_0\left(\sX_\mu \right)$. This lemma follows from the Remark \ref{comp_pt_rem}.
-\end{proof}
-
-\begin{empt}\label{ctr_implicit_inc_full_empt}
-	Consider the specialization of Lemma  \ref{top_atomic_lem} such that $A = \left(\sX, \left\{A_x\right\}_{x \in \sX}, A\right)$, and   $A_0$, and the given by the Lemma \ref{top_atomic_lem} functor.
-	Suppose that  $\H_x$ is  the space of the given by \eqref{rep_x_eqn} representation  $\rep_x: A \to B\left(\H_x\right)$ and  $\K\stackrel{\text{def}}{=} \rep_x\left( A\right) $ where $\K = \mathbb{M}_n\left(\C\right)$ or $\K = \K\left( L^2\left(\N \right) \right)$. 
-	From the Lemma \ref{ctr_base_point_lem} it follows that \eqref{ctr_base_point_eqn} is the pointed algebraical  finite covering category. 	
-	Let $\widehat{A}\stackrel{\text{def}}{=} C^*$-$\varinjlim_{\la \in \La} A_0\left( {\sX}_\la\right)$ the $C^*$-inductive limit, and let $\pi_a:\widehat{A} \hookto B\left(\H_a\right)$ be the atomic representation (cf. Definition \ref{atomic_repr_defn}). If $\overline{A}$ is  the disconnected algebraical inverse noncommutative limit of $\mathfrak{S}^{\mathrm{pt}}_{A }$ (cf. Definition \ref{main_defn_full_defn}) then there is the natural inclusion $\overline{A} \subset B\left(\H_a \right)$. Otherwise $\H_a = \bigoplus_{ \widehat x \in \widehat \sX} \H_{\widehat x}$ where $\widehat\sX$ is the spectrum of $\widehat A$ and $\H_{\widehat x}$ is the space of representation $\rep_{\widehat x}\left(  \widehat A\right) \to B\left( \H_{\widehat x}\right)$. If $\widehat \sX$ is the spectrum of $\widehat A$ then from the Lemma \ref{inverse_lim_sp_lem} it follows that $\widehat \sX = \varprojlim_{\la \in \La}\sX_\la$. Otherwise if $\overline \sX$ is the  disconnected inverse limit of 	$\mathfrak{S}_{\left(\sX, x_0\right)}$ then there is the natural bijective continuous map $\phi:\overline \sX \to \widehat \sX$ if $\widehat p : \widehat \sX \to \sX$ is the natural map and both $\rep_{\overline x} \overline A\to B\left( \H_{\overline x}\right)$, $\rep_{\overline x} \overline A\to B\left( \H_{\overline x}\right)$ are natural irreducible representations then $\H_{\overline x} \cong \H_{\widehat p \circ \phi\left( \overline x\right)}$,   $\H_{\widehat x} \cong \H_{\widehat p \left( \overline x\right)}$, hence $ \H_{\overline x} \cong \H_{\phi\left( \overline x\right)}$ for all $\overline x \in \overline\sX$. So one has
-	$$
-	\bigoplus_{ \widehat x \in \widehat \sX} \H_{\widehat x}\cong \bigoplus_{ \overline x \in \overline \sX} \H_{\overline x}
-	$$
-	The left part of the above equation is the space of the atomic representation of $\widehat A$, right part is the space of the atomic representation of $A_0\left(\overline \sX\right)$. So the atomic representation of $A_0\left(\overline \sX\right)$ can be regarded as the natural inclusion 
-	\be\label{ctr_ca_inc_eqn}
-	\varphi_A: A_0\left(\overline \sX\right)\hookto B\left( \H_a\right).
-	\ee
-	\end{empt}
-
-\begin{remark}\label{ctr_implicit_inc_full_rem}
-	Below the given by the equation \eqref{ctr_ca_inc_eqn} *-homomorphism will be replaced with the inclusion $A_0\left(\overline \sX\right)\subset B \left( \widehat \H_a\right)$ of $C^*$-algebras.
-	Similarly to the Remark \ref{implicit_inc_full_rem}
-	below for all $\la\in\La$ we implicitly assume that $A_0\left( \sX_\la\right) \subset  B\left(\H_a \right)$. Similarly the following natural inclusion 
-	\bean
-	C^*\text{-}\varinjlim_{\la\in\La} A_0\left( \sX_\la\right) \subset B\left(\widehat \H_a\right)
-	\eean
-	will be implicitly used. These inclusions enable us replace the equations \ref{spec_a_eps_eqn} with the following equivalent system of equations
-	\be\label{ctr_spec_a_eps_imp_eqn}
-	\begin{split}
-		\sum_{g\in G_\la } z^*\left(  g\overline a\right) z   \in A_0\left( \sX_\la\right) ,\\
-		\sum_{g\in G_\la } f_\eps\left(z^*\left(  g\overline a\right) z   \right)   \in A_0\left( \sX_\la\right),\\
-				\sum_{g\in G_\la  } \left(z^*\left(  g\overline a\right) z   \right)^2    \in A_0\left( \sX_\la\right). 
-	\end{split}
-	\ee
-	where $G_\la \bydef \ker\left(G\left(\left.\overline\sX\right|\sX\right)\to G\left(\left.\sX_\la\right|\sX\right) \right)$. 
-\end{remark}
-\begin{example}\label{ctr_implicit_inc_full_exm}
-Let $X_{C_0\left(\sX\right)}\bydef  C_0\left(\sX, \left\{\H_x \right\},   X_{C_0\left(\sX\right)}  \right) $ be a Hilbert $C_0\left(\sX \right)$-module given by \eqref{top_c0_hilb_iso_eqn}. If	$\mathfrak{S}_{\left(\sX, x_0\right)}= \left\{p_\la:\left( \sX_\la, x^\la_0\right) \to \left( \sX, x_0\right)\right\}_{\la \in \La} \in \mathfrak{FinTop}^{\mathrm{pt}}$ is a pointed topological finite covering category then for each $\la\in \La$ define
-\bean
-X_{C_0\left(\sX\right)}\bydef C_0\left(  \lift_{p_\la}\left[ X_{C_0\left(\sX\right)} \right]  \right) 
-\eean
-	If	$\mathfrak{S}_{\left(\sX, x_0\right)}= \left\{p_\la:\left( \sX_\la, x^\la_0\right) \to \left( \sX, x_0\right)\right\}_{\la \in \La} \in \mathfrak{FinTop}^{\mathrm{pt}}$ is a pointed topological finite covering category  them from the Lemma \ref{ctr_base_point_lem} it follows that there is a {pointed algebraical  finite covering category} (cf. Definition \ref{comp_pt_defn}) given by
-		\be\label{ctr_x_base_point_eqn}
-	\begin{split}
-		\mathfrak{S}^{\mathrm{pt}}_{\K\left(X_{C_0\left(\sX\right)} \right)  } \bydef \\
-	\bydef\left\{\left\{\K\left( p_\la\right) : \K\left(X_{C_0\left(\sX\right)} \right) \hookto \K\left(X_{C_0\left(\sX_\la\right)} \right)  \right\},\left\{\K\left( p_\nu^\mu\right)\right\}\right\}
-	\end{split}
-	\ee
-	If $\widehat \K \bydef C^*\text{-}\varinjlim_{\la\in\La} \K\left(X_{C_0\left(\sX_\la\right)} \right)$ and $\widehat \K\hookto B\left(\widehat \H_a \right)$ is the atomic representation then from \ref{ctr_implicit_inc_full_empt} it follows that
-	\be\label{ctr_atom_eqn}
-\widehat \H_a=	\bigoplus_{ \overline x \in \overline \sX} \H_{\overline x}	
-	\ee
-	where $\bigoplus$ means the Hilbert norm completion of the algebraic direct sum. 	
-\end{example}
-
-  
-\begin{lemma}\label{ctr_c0_inc_lem}
-	If the spectrum of $A$ is locally connected then 
-	there is the natural inclusion
-	$$
-A_0\left( \overline{\sX}\right)\subset  \overline{A}
-	$$
-	(cf. equation \eqref{ctr_ca_inc_eqn}).
-\end{lemma}
-
-\begin{proof}
-	Denote by	$\overline{p}: \overline{   \mathcal X } \to \sX$ and $\overline{p}_\la: \overline{   \mathcal X } \to \sX_\la$. 
-	If $\overline{   \mathcal U } \subset \overline{   \mathcal X }$ is an open set which is homeomorphically mapped onto $\sU = \overline{p}\left(  \overline{   \mathcal U }\right)  \subset \overline{   \mathcal X }$ then $\overline{   \mathcal U }$ is homeomorpfilally mapped onto $\sU_\la = \overline{p}_\la\left(  \overline{   \mathcal U }\right)  \subset \overline{   \mathcal X }_\la$ for any $\la \in \La$. Let $\overline{a} \in A_0\left( \overline{   \mathcal X }\right)_+$ is a positive element such that $\supp \overline{a} \subset  \overline{   \mathcal U }$  (cf. Definition \ref{top_cc_supp_defn}). Following proof contains two parts:
-	\begin{enumerate}
-		\item [(i)] Element $\overline{a}$ is special.
-		\item[(ii)] 	$ A_0\left( \overline{\sX}\right)\subset  \overline{A}$.
-	\end{enumerate}
-(i) One needs check that.  $\overline{a}$  satisfies to the  conditions (a), (b) of the Definition  \ref{special_element_defn}.
-\begin{enumerate}
-	\item[(a)] For any $\eps \ge 0$,  $\la \in \La$ and  $z \in A_{\la}^+$  there is $a^\eps_\la \in A_\la$ one has\\ $\supp z^* \overline az, \supp f_\eps\left(z^* \overline az\right),  \supp \left( z^* \overline az\right)^2 \subset \overline{   \mathcal U }$, so from the Lemma \ref{comm_lift_desc_sum_strong_lem} it turns out that 
-	\bean
-	\sum_{g\in \ker\left(  \widehat G\to  G\left(\left.\sX_\la~\right|~\sX \right)\right) } g\left(z^* \overline a z\right) =\desc_{\overline{p}_\la}\left(z^* \overline az\right) \in A_0\left(\sX_\la \right) ,\\ 
-	\sum_{g\in \ker\left(  \widehat G\to  G\left(\left.\sX_\la~\right|~\sX \right)\right) } gf_\eps\left(z^* \overline a z\right)    =\desc_{\overline{p}_\la}\left(\ f_\eps\left(z^* \overline az\right) \right) \in A_0\left(\sX_\la \right) ,\\ 
-	\sum_{g\in \ker\left(  \widehat G\to  G\left(\left.\sX_\la~\right|~\sX \right)\right) } g\left(z^* \overline a z\right)^2    =b_\la \desc_{\overline{p}_\la}\left(z^* \overline az\right)^2 \in A_0\left(\sX_\la \right)
-	\eean
-	where the strong convergence of the series is implied. Above equations coincide with \eqref{ctr_spec_a_eps_imp_eqn}.
-	
-	\item[(b)] 
-From $a_\la = \desc_{\overline{p}_\la}\left(z^* \overline az\right)$ and $b_\la = \desc_{\overline{p}_\la}\left(z^* \overline az\right)^2$ it turns out that
-$$
-	\forall \la  \in \La \quad \Rightarrow \quad \left\|a_\la^2 - b_\la\right\|=0,
-$$
-i.e. $a_\la$ and  $b_\la$ satisfy the inequality \eqref{special_set_eqn}.
-\end{enumerate}
-(ii) If $\overline a\in A_c\left( \overline{\sX}\right)$ (cf. \eqref{top_cb_defn_eqn})  then from the Lemma \ref{top_comp_sum_lem} and (i) it turns that
-$$
-\overline a = \overline a_1 + ... + \overline a_n
-$$
-where $\overline a_1, ... ,\overline a_n\in A_c\left( \overline{\sX}\right)$.
-So one has $\overline a\in \overline A$ and $A_c\left( \overline{\sX}\right)\subset  \overline{A}$. Since $ A_0\left( \overline{\sX}\right)$ is the $C^*$-norm closure of $ A_c\left( \overline{\sX}\right)$ and $\overline{A}$ $C^*$-norm closed one has  $ A_0\left( \overline{\sX}\right)\subset  \overline{A}$.
-\end{proof}
 \begin{empt}
 Consider the situation of the Example \ref{ctr_implicit_inc_full_exm}, i.e. $\widehat \K \bydef C^*\text{-}\varinjlim_{\la\in\La} \K\left(X_{C_0\left(\sX_\la\right)} \right)$ and the atomic representation $\widehat \K\hookto B\left(\widehat \H_a \right)$ where
 \bean
@@ -13276,51 +13582,17 @@ $	1_{M\left(C^*_r \left(M, \mathcal{F}\right)\right)  }= \bt~\text{-}\lim_{\la \
 
 \end{proof}
 \begin{corollary}\label{foli_slfin_cor}
-If an inclusion $C_0\left( M\right)\subset M\left(C^*_r \left(M, \mathcal{F}\right) \right)$ comes from \eqref{foli_center_eqn} then it is  a \textit{Hausdorff blowing-up} of $C^*_r \left(M, \mathcal{F}\right)$ (cf. Definition \ref{blowing_defn}).
+If an inclusion $C_0\left( M\right)\subset M\left(C^*_r \left(M, \mathcal{F}\right) \right)$ comes from \eqref{foli_center_eqn} then it is  a good spectral {Hausdorff blowing-up} of $C^*_r \left(M, \mathcal{F}\right)$ (cf. Definition \ref{blowing_defn}).
 \end{corollary}
+\begin{proof}
+	From the Lemma \ref{foli_slfin_lem} it follows that $C_0\left( M\right)\subset M\left(C^*_r \left(M, \mathcal{F}\right) \right)$  is  a  Hausdorff blowing-up, from  the Corollary \ref{foli_cov_alg_cor} it turns out that the blowing-up is good.
+	
+	PROVE THAT SPECTRAL
+\end{proof}
 
 \section{Finite-fold coverings}
 \subsection{Coverings of $C^*$-algebras}
 
-\begin{lemma}\label{foli_pre_lem}
-	Let  $\left(M, \sF \right)$ is a foliated manifold, and  let $p:\left(M, \sF \right)\to \left(\widetilde{M},\widetilde{\sF}\right)$ is a regular finite-fold covering of foliation (cf. Definition \ref{foli_reg_cov_defn}).
-The quadruple $$\left(C^*_r\left(M, \sF \right), C^*_r\left(\widetilde{M},\widetilde{\sF}\right), G\left( \left.\widetilde{M}~\right|M\right), C^*_r\left(p \right)  \right)$$  is a noncommutative finite-fold  pre-covering (cf. Definition \ref{fin_pre_defn}).
-\end{lemma}
-\begin{proof}
-	Suppose that
-					\be\label{foli_g_eqn}
-	G \bydef \left\{ \left.g \in \Aut\left(C^*_r\left(\widetilde{M},\widetilde{\sF}\right) \right)~\right|~ ga = a;~~\forall a \in C^*_r\left({M},{\sF}\right)\right\}
-	\ee
-	The natural action $G\left( \left.\widetilde{M}~\right|M\right)\times C^*_r\left(\widetilde{M},\widetilde{\sF}\right) \to C^*_r\left(\widetilde{M},\widetilde{\sF}\right) $ yields an injective homomorphism $\iota: G\left( \left.\widetilde{M}~\right|M\right)\hookto G$. Let $\mathfrak{A}= \left\{\sU_\iota\right\}_{\iota \in \I}$ of $M$   be a {subordinated} to $p$ regular foliation atlas (cf. Definition \ref{foli_sub_a_defn}), and let  $\widetilde{ \mathfrak{A}}$ be the $p$-{lift} of $\mathfrak{A}$ (cf. Definition \ref{foli_lift_a_defn}). From the Corollary \ref{foli_cov_alg_cor} it follows that any $\a \in \Aut\left(C^*_r\left(\widetilde{M},\widetilde{\sF}\right) \right)$ uniquely depends on the family 
-	\be\label{foli_fam_eqn}
-	\left\{\a \widetilde a \right\}_{\substack{\widetilde a\in C^*_r\left(\left.\widetilde{\sU},\widetilde{\sF}\right|_{\widetilde{\sU}}\right)\\\widetilde{\sU}\in \widetilde{ \mathfrak{A}} }}
-	\ee
-One should check conditions (a), (b) of the Definition \ref{fin_pre_defn}.
-\begin{enumerate}
-	\item[(a)] 	
-	Let $\sU\in \mathfrak A$ and $\widetilde{ \sU}\in \widetilde{ \mathfrak{A}}$ be such that ${ \sU}= p\left(\widetilde{ \sU} \right)$. A subalgebra $\widetilde B\subset C^*_r\left(\widetilde{M},\widetilde{\sF}\right)$ is said to be \textit{subordinated to}  $\sU$ if following condition hold:
-	\begin{itemize}
-		\item $C^*_r\left(\left.\sU,\sF\right|_{\sU}\right) \widetilde B=  \widetilde B C^*_r\left(\left.\sU,\sF\right|_{\sU}\right) = \widetilde B$, i.e. $\widetilde B$ is a $C^*_r\left(\left.\sU,\sF\right|_{\sU}\right)$-bimodule.
-		\item The  map $C^*_r\left(M, \sF \right)\hookto C^*_r\left(\widetilde{M},\widetilde{\sF}\right)$ induces a *-isomorphism\\ $C^*_r\left(\left.\sU,\sF\right|_{\sU}\right)\cong  \widetilde B$ of $C^*$-algebras which is an isomorphism of  $C^*_r\left(\left.\sU,\sF\right|_{\sU}\right)$-bimodules. 
-	\end{itemize}
-From the equation \eqref{foli_fin_eqn} it follows that any {subordinated to}  $\sU$  subalgebra is $g'C^*_r\left(\left.\widetilde{\sU},\widetilde{\sF}\right|_{\widetilde{\sU}}\right)$ where $g' \in G\left( \left.\widetilde{M}~\right|M\right)$. Any $g\in G$ corresponds to a transposition of {subordinated to}  $\sU$  subalgebras so one has a surjective homomorphism $h_{\widetilde{\sU}} : G\to  G\left( \left.\widetilde{M}~\right|M\right)$. From $\iota \circ h_{\widetilde{\sU}}=\iota$ it follows that $h_{\widetilde{\sU}}$ does not depend on $h_{\widetilde{\sU}}\sU$. So for any $g\in G$ a family $\left\{g \widetilde a \right\}_{\substack{\widetilde a\in C^*_r\left(\left.\widetilde{\sU},\widetilde{\sF}\right|_{\widetilde{\sU}}\right)\ }}$
-uniquely depends on $g'\in G\left( \left.\widetilde{M}~\right|M\right)$. Taking into account that $\a \in \Aut\left(C^*_r\left(\widetilde{M},\widetilde{\sF}\right) \right)$ uniquely depends on the family \eqref{foli_fam_eqn} one has $G\cong G\left( \left.\widetilde{M}~\right|M\right)$.
-\item[(b)] Let $\eps > 0$ be given. If $\widetilde a \in C^*_r\left(\widetilde{M},\widetilde{\sF}\right)^{G}$ then $\widetilde a = \frac{1}{\left| G\right| }\sum_{	g \in G}g \widetilde a$. From the  Corollary \ref{foli_cov_alg_cor} it follows that for all $\eps> 0$ there is $\widetilde b \in\Ga_c\left(  \G\left(\widetilde{M},\widetilde{\sF} \right) , \widetilde \Om^{1/2}\right)$
-\bean
-\widetilde b = \sum^n_{k = 1} j_{\widetilde\sU_{\widetilde\iota_{k,0}}}\left( \widetilde a_{\widetilde \iota_{k,0}}\right) \cdot ...\cdot j_{\widetilde\sU_{\widetilde\iota_{k,j_k}}}\left( \widetilde a_{\widetilde \iota_{k,j_k}}\right), \quad\widetilde a_{\widetilde \iota_{k,j_l}}\in   \Ga_c\left(  \G\left(\sU_{\widetilde \iota_{j,l}} \right) , \widetilde \Om^{1/2}\right),\\
-\left\|\widetilde b-\widetilde a \right\| < \eps
-\eean
-If $b\bydef \frac{1}{\left| G\right| }\sum_{	g \in G}g \widetilde a$ then
-$$
-b = \frac{1}{\left| G\right| }\sum^n_{k = 1} \desc_p\left( j_{\widetilde\sU_{\widetilde\iota_{k,0}}}\left( \widetilde a_{\widetilde \iota_{k,0}}\right)\right)  \cdot ...\cdot \desc_p\left(j_{\widetilde\sU_{\widetilde\iota_{k,j_k}}}\left( \widetilde a_{\widetilde \iota_{k,j_k}}\right)\right) \in \Ga_c\left(  \G\left({M},{\sF} \right) ,  \Om^{1/2}\right)
-$$
-where $\desc_p$ is given by the Definition \ref{foli_desc_defn}.
-From $\left\|\widetilde b-\widetilde a \right\| < \eps$ if follows $\left\| b-\widetilde a \right\| < \eps$ since $\eps$ is  arbitrary small one has $a \in C^*_r\left(M, \sF \right)$. 
-\end{enumerate}
-
-
-
-\end{proof}
 If $C^*_r\left( M, \mathcal{F}\right)$ is a reduced foliation $C^*$-algebra then from \eqref{foli_center_eqn}  it turns out that there is an inclusion
 \be\label{foli_center0_eqn}
 C_0\left( M\right)\subset M\left(C^*_r \left(M, \mathcal{F}\right) \right).
@@ -13391,57 +13663,6 @@ where the action $G\left( \left.\widetilde{M}~\right|M\right)\times C^*_r\left(\
 \begin{proof}
 Follows from the Theorem \ref{foli_fin_thm}, Lemma \ref{foli_g_lem}, and (ii) of the Theorem \ref{stable_fin_cov_thm}.
 \end{proof}
-\begin{lemma}\label{foli_comply_f_lem}
-	Let $\left(M, \sF\right)$ be a foliated space such that $M$ is a connected, second-countable  manifold.  If both $p_1:\left(\widetilde M_1, \widetilde \sF_1 \right) \to \left(M, \sF\right)$ and  $p_2:\left(\widetilde M_2, \widetilde \sF_2 \right) \to \left(M, \sF\right)$ are regular coverings then the unordered pair of *-homomorphisms 
-	$$
-	\left(C^*_r\left(p_1\right): C^*_r\left( M,  \sF \right)\hookto C^*_r\left(\widetilde M_1, \widetilde \sF_1 \right) , C^*_r\left(p_2\right): C^*_r\left( M,  \sF \right)\hookto C^*_r\left(\widetilde M_2, \widetilde \sF_2\right)\right)
-	$$
-	is {compliant} (cf. Definition \ref{compliant_covering_defn}).
-\end{lemma}
-
-\begin{proof} 
-	From the equation \ref{foli_fin_eqn} it turns out that there are  direct sum decompositions 
-\bean
-	\left.C^*_r\left(p_1 \right)\right|_{C^*_r\left(\left.\sU,\sF\right|_{\sU}\right)}:C^*_r\left(\left.\sU,\sF\right|_{\sU}\right)\hookto \bigoplus_{g\in G\left(\left.\widetilde M_1\right| M\right)}gC^*_r\left(\left.\widetilde{\sU}_1,\widetilde{\sF}\right|_{\widetilde{\sU}_1}\right),\\
-		\left.C^*_r\left(p_2 \right)\right|_{C^*_r\left(\left.\sU,\sF\right|_{\sU}\right)}:C^*_r\left(\left.\sU,\sF\right|_{\sU}\right)\hookto \bigoplus_{g\in G\left(\left.\widetilde M\right| M\right)}gC^*_r\left(\left.\widetilde{\sU}_2,\widetilde{\sF}\right|_{\widetilde{\sU}_2}\right),
-\eean
-of 
-\bean
-\left(	C^*_r\left( M, \mathcal{F}\right),  C^*_r\left(\widetilde{M}_1,~ \widetilde{\mathcal F}_1 \right),{G\left( \left.\widetilde{M}_1~\right|M\right)}, C^*_r\left( p_1\right)  \right),\\
-\left(	C^*_r\left( M, \mathcal{F}\right),  C^*_r\left(\widetilde{M}_2,~ \widetilde{\mathcal F}_2 \right),{G\left( \left.\widetilde{M}_2~\right|M\right)}, C^*_r\left( p_2\right)  \right)
-\eean
- (cf. Definition \ref{hereditary_dir_sum_defn}).
-From the Corollary  \ref{top_covp_cat_cor} it follows that there is a covering $p':\widetilde{M}_2\to \widetilde{M}_1$ such that $p_2 = p'\circ p_1$. 
-	One needs check (a)-(d) of the Definition \ref{compliant_covering_defn}
-	\begin{enumerate}
-		\item[(a)]
-		Suppose that	there is a *-homomorphism $\pi^1_2: C^*_r\left(\widetilde M_1, \widetilde \sF_1 \right) \to C^*_r\left(\widetilde M_2, \widetilde \sF_2 \right)$ such that $C^*_r\left(p_2\right) = \pi^1_2 \circ C^*_r\left(p_1\right)$. From the Lemma \ref{hereditary_dir_sum_lem} it follows that there is the unique $g \in G\left( \left.\widetilde{M}_1~\right|M\right)$ which satisfies to equations  \eqref{hereditary_g_eqn}  and 
-		\eqref{hereditary_g1_eqn}. If $p^2_1\bydef p'\circ g$ then $\pi^1_2 = C^*_r\left( p^2_1\right)$.  From the Theorem \ref{foli_fin_thm} it follows that $\pi^1_2 = C^*_r\left( p^2_1\right)$ is a noncommutative finite-fold covering.
-		\item[(b)] There are natural isomorphisms 
-		\bean
-		G\left(\left. \widetilde{   M }_1 ~\right| { M}\right)\cong G\left(\left.C^*_r\left(\widetilde M_1, \widetilde \sF_1 \right)~\right| C^*_r\left( M,  \sF \right)\right),\\
-		G\left(\left. \widetilde{   M }_2 ~\right| { M}\right)\cong G\left(\left.C^*_r\left(\widetilde M_2, \widetilde \sF_2 \right)~\right| C^*_r\left( M,  \sF \right)\right),
-		\eean
-		hence the natural surjective homomorphism $h:  G\left(\left. \widetilde{   M }_2 ~\right| { M}\right) \to  G\left(\left. \widetilde{   M }_1 ~\right| { M}\right)$ induces the surjective homomorphism 
-		\be\label{foli_sur_eqn}
-		\begin{split}
-			h':  G\left(\left.C^*_r\left(\widetilde M_2, \widetilde \sF_2 \right)~\right| C^*_r\left( M,  \sF \right)\right)\to  G\left(\left.C^*_r\left(\widetilde M_1, \widetilde \sF_1 \right)~\right| C^*_r\left( M,  \sF \right)\right).
-		\end{split}
-		\ee
-		For all $g \in G\left(\left.C^*_r\left(\widetilde M_2, \widetilde \sF_2 \right)~\right| C^*_r\left( M,  \sF \right)\right)$ and $\widetilde{a}\in C^*_r\left(\widetilde M_1, \widetilde \sF_1 \right)$ one has $g \widetilde{a} = h'\left( g\right) \widetilde{a}$ and taking into account that $h'\left( g\right)$ is a *-automorphism of $C^*_r\left(\widetilde M_1, \widetilde \sF_1 \right)$ one has $g \widetilde{a} \in C^*_r\left(\widetilde M_1, \widetilde \sF_1 \right)$.
-		\item[(c)] It is already proven the existence of the surjecive homomorphism \eqref{foli_sur_eqn}.
-		\item[(d)]
-		If  $\rho:C^*_r\left(\widetilde M_1, \widetilde \sF_1 \right) \to C^*_r\left(\widetilde M_1, \widetilde \sF_1 \right)$ is any *-homomorphism  such that $C^*_r\left(p_2 \right)  = \rho \circ C^*_r\left(p_1 \right)$ then from the the Lemma \ref{foli_pre_lem} it turns out that there is  $g \in G\left(\left. \widetilde{   M}_2 ~\right| {   \widetilde{   M }_1}\right)$ such that 
-		\be\label{foli_gc_eqn}	
-		q = g \circ p.
-		\ee
-		If we consider $g$ as element of $G\left(\left.  C^*_r\left(\widetilde M_2, \widetilde \sF_2 \right)  ~\right|  C^*_r\left(\widetilde M_1, \widetilde \sF_1 \right) \right)$ from \eqref{foli_gc_eqn} it follows that
-		$$
-		\rho = \pi^1_2 \circ g.
-		$$	
-	\end{enumerate}	
-	
-\end{proof}
 
 %\begin{corollary}\label{foli_gi_cor}
 %	If  $\left(M, \sF \right)$ is a foliated manifold and  $p:\left(M, \sF \right)\to \left(\widetilde{M},\widetilde{\sF}\right)$ is a regular finite-fold covering of foliation (cf. Definition \ref{foli_reg_cov_defn}) then there is the natural isomorphism
@@ -13474,53 +13695,6 @@ If $p:\left(\widetilde M,\widetilde \sF\right) \to \left( M, \sF\right)$ is the 
 	The equation \eqref{foli_cov_spectrum_eqn} is the special case of \eqref{cov_spectrum_eqn}.
 \end{proof}
 
-\begin{lemma}\label{foli_cov_inc_strong_lem}
-	Consider the situation of the Lemma \ref{foli_cov_inc_strict_lem}.
-	If $\pi_a: \left(\widetilde{M}, \widetilde{\sF} \right)\hookto B\left( \H_a\right)$ is the atomic representation (cf. Definition \ref{atomic_repr_defn}) then the series \eqref{foli_strict_eqn} 
-	is convergent with respect to the strong topology of $B\left( \H_a\right)$. Moreover the sum of the series in sense of the strong topology of $B\left( \H_a\right)$ is equal to $\desc_p\left( \widetilde a\right)$ (cf. Definition \ref{foli_desc_defn}).  
-\end{lemma}
-\begin{proof}
-	From \eqref{foli_atomic_eqn} it follows that $\H_a \cong \bigoplus_{\widetilde L \in \widetilde M/\widetilde \sF_{\mathrm{no~hol}}}  L^2\left(\G_{x_L}\right)$.
-	If	$\xi \in \H_a$ is given by
-	$$
-	\xi =\left(...~, \underbrace{ \xi_{\widetilde{L}}}_{\widetilde{L}^{\text{th}}-\text{place}} ,~...\right)
-	$$
-	and $\eps > 0$ then there is a finite subset  is a finite subset $F = \left\{\widetilde  L_1,..., \widetilde  L_m\right\}\subset \widetilde M/\widetilde \sF_{\mathrm{no~hol}}$ such that 
-	$$
-	\eta_{\widetilde L}= \begin{cases}
-	\xi_{\widetilde L}& {\widetilde L}\in F\\
-	0& {\widetilde x}\notin F\\
-	\end{cases}\text{ AND }	\eta =\left(...~, \underbrace{ \eta_{\widetilde{L}}}_{\widetilde{L}^{\text{th}}-\text{place}} ,~...\right)	 \quad \Rightarrow \quad \left\|\widetilde\xi- \widetilde\eta\right\|< \frac{\eps} {2\left\|a\right\|}.
-	$$
-	For any  $\widetilde L\in F$	there is the irreducible representation $\rho_L \stackrel{\text{def}}{=} \rho_{x_L}: C^*_r\left(\widetilde M, \widetilde \sF\right) \to B\left( L^2\left(\G_{\widetilde x_{\widetilde L}}\right)\right)$ (cf. \eqref{foli_leaf_repr_eqn}) and the state $\tau_{\widetilde L}: C^*_r\left(\widetilde M, \widetilde \sF\right) \to \C$, such that $L^2\left( \G_{\widetilde x_{\widetilde L}}\right) \cong L^2\left(C^*_r\left(\widetilde M, \widetilde \sF\right), \tau_{\tau_{\widetilde L}}\right)$ where $L^2\left(C^*_r\left(\widetilde M, \widetilde \sF\right), \tau_{\tau_{\widetilde L}}\right)$ is given by the GNS-construction (cf. Section \ref{gns_constr_sec}).  Otherwise there is the specialization  $f_{\tau_{\widetilde L}}:C^*_r\left(\widetilde M, \widetilde \sF\right)\to  L^2\left(C^*_r\left(\widetilde M, \widetilde \sF\right), \tau_{{\widetilde L}}\right)$ of given by \eqref{from_a_to_l2_eqn} homomorphism of left $C^*_r\left(\widetilde M, \widetilde \sF\right)$-modules such that $f_{\tau_{\widetilde L}}:C^*_r\left(\widetilde M, \widetilde \sF\right)$ is dense in $L^2\left(C^*_r\left(\widetilde M, \widetilde \sF\right), \tau_{{\widetilde L}}\right)$.
-	Let   $\mathfrak{A}= \left\{\sU_\iota\right\}_{\iota \in \I}$ of $M$ be a {subordinated} to $p$ regular foliated atlas. Let $\widetilde{ \mathfrak{A}}= \left\{\widetilde \sU_{\widetilde \iota }\right\}_{\widetilde \iota  \in \widetilde \I}$ be the $p$-\textit{lift} of $\mathfrak{A}$. $\widetilde b\in  \Ga_c\left( \G\left( \widetilde M\right) , \widetilde \Om^{1/2}\right)$ such that
-	\bean
-	\widetilde b_{\widetilde L}= \sum^n_{k = 1} j_{\widetilde\sU_{\widetilde\iota_{k,0}}}\left( \widetilde a_{\widetilde \iota_{k,0}}\right) \cdot ...\cdot j_{\widetilde\sU_{\widetilde\iota_{k,j_k}}}\left( \widetilde a_{\widetilde \iota_{k,j_k}}\right), \quad\widetilde a_{\widetilde \iota_{k,j_l}}\in   \Ga_c\left(  \G\left(\sU_{\widetilde \iota_{j,l}} \right) , \widetilde \Om^{1/2}\right),\\
-	\left\|f_{\tau_{\widetilde L}}\left( \widetilde b_{\widetilde L}\right) -\widetilde \eta_{\widetilde L} \right\| < \frac{\eps }{2 \left|F\right|\left\|\widetilde a \right\|}
-	\eean
-	where $\widetilde\sU_{\widetilde\iota_{k,l}} \in \widetilde{ \mathfrak{A}}$ for all $k,l$ and $j_{\widetilde\sU_{\widetilde\iota_{k,l}}}$ are given by
-	\eqref{foli_inc_gc_eqn} maps. Similarly to \eqref{foli_g'_eqn} the set
-	$$
-	G'_{\widetilde L} \bydef\left\{\left.g \in G\left(\left.\widetilde M\right|M \right)\right|\left(g \widetilde a \right) \widetilde b_{\widetilde L}\neq 0 \right\}
-	$$
-	hence the set
-	$$
-	G_{\widetilde L} \bydef\left\{\left.g \in G\left(\left.\widetilde M\right|M \right)\right|\left(g \widetilde a \right) f_{\tau_{\widetilde L}}\left( \widetilde b_{\widetilde L}\right) \neq 0 \right\}\subset G_{\widetilde L}
-	$$
-	is also finite. If $G \bydef \cap_{\widetilde L \in F} G_{\widetilde L}$ then
-	$$
-	\sum_{g \in G} g \widetilde a\left(\sum_{\widetilde L \in F} f_{\tau_{\widetilde L}}\left( \widetilde b_{\widetilde L}\right) \right)=  \sum_{g \in G\left(\left.\widetilde M\right|M \right)} g \widetilde a\left(\sum_{\widetilde L \in F} f_{\tau_{\widetilde L}}\left( \widetilde b_{\widetilde L}\right) \right),
-	$$
-	so taking into account  $\left\|\widetilde\xi- \widetilde\eta\right\|< \frac{\eps} {2\left\|a\right\|}$ and 	$\left\|f_{\tau_{\widetilde L}}\left( \widetilde b_{\widetilde L}\right) -\widetilde \eta_{\widetilde L} \right\| < \frac{\eps }{2 \left|F\right|\left\|\widetilde a \right\|}$ for all $\widetilde L\in F$ one has
-	$$
-	\left\| \sum_{g \in G} \left( g \widetilde a\right) \xi-  \sum_{g \in G\left(\left.\widetilde M\right|M \right)} \left( g \widetilde a\right) \xi \right\| < \eps.
-	$$
-	So the series \eqref{foli_strict_eqn} is strongly convergent. On the other hand from
-	\bean
-	\left(g \widetilde a \right) \widetilde b_{\widetilde L}\neq 0 \Rightarrow \desc_p\left( \widetilde a \right)  \widetilde b_{\widetilde L}=\left(g \widetilde a \right) \widetilde b_{\widetilde L} \Rightarrow \desc_p\left( \widetilde a \right)  f_{\tau_{\widetilde L}}\left( \widetilde b_{\widetilde L}\right)=\left(g \widetilde a \right) f_{\tau_{\widetilde L}}\left( \widetilde b_{\widetilde L}\right)
-	\eean
-	it follows that the limit of the series  \eqref{foli_strict_eqn} equals to $\desc_p\left( \widetilde a \right)$.
-\end{proof}
 \subsection{Reduced noncommutative finite-fold coverings}
 \paragraph*{}
 The Theorem \ref{foli_fin_thm} yields some  noncommutative finite-fold coverings of reduced $C^*$-algebra $C^*_r\left( M, \sF\right)$ of foliated manifold $\left(\widetilde M,\widetilde \sF\right)$. We prove that any reduced noncommutative finite-fold covering (cf. Definition \ref{fin_red_defn}) is described by the Theorem \ref{foli_fin_thm} 
@@ -13795,453 +13969,7 @@ $$
 				\sum_{g\in G_\la  } \left(z^*\left(  g\overline a\right) z   \right)^2    \in C^*_r\left( M_\la,  \sF_\la \right).
 	\end{split}
 	\ee
-\end{remark}
-\begin{empt}\label{foli_q_empt}
-	Select $\la_0\in \La$ and $z \in C^*_r\left(M_{\la_0}, \sF_{\la_0} \right)^\sim$.
-	Let $\mathfrak{A}= \left\{\sU_\iota\right\}_{\iota \in \I}$ be a regular {subordinated} to $\overline p:\overline M \to M $ foliated atlas   of $M$  (cf. Definition \ref{foli_sub_a_defn}). Let $\mathfrak{A}^\la =\left\{\sU^\la_{\iota^\la}\subset M_\la\right\}$, $\overline{\mathfrak{A}}=\left\{\overline \sU_{\overline  \iota}\subset \overline M\right\}$  be $p_\la$ and $\overline p$-lifts of ${\mathfrak{A}}$  respectively (cf. Definition \ref{foli_lift_a_defn}). Let $q \in C^*_r\left(M_{\la_0}, \sF_{\la_0} \right)$ be given by
-	\be\label{foli_q_eqn}
-	\begin{split}
-		q = \sum_{j = 0}^n q_{\iota^{\la_0}_{j,0}}\cdot ... \cdot q_{\iota^{\la_0}_{j,k_j}}; \quad q_{\iota^{\la_0}_{j,k_j}} \in C^*_r\left(\sU^{\la_0}_{\iota^{\la_0}_{j,k_j}}, \left.\sF_{\la_0}\right|_{\sU^{\la_0}_{\iota^{\la_0}_{j,k_j}}} \right)\quad \sU^{\la_0}_{\iota^{\la_0}_{j,k_j}}\in \mathfrak{A}^{\la_0},\\
-	\end{split}
-	\ee
-	Suppose that there is $\overline{\sU}\in \overline{\mathfrak{A}}$ such that for any $j \in \{1,...,n\}$ there is $l \in \left\{1, ..., k_j\right\}$ such that $\overline p_{\la_0}\left( \overline{\sU}\right) = \sU^{\la_0}_{\iota^{\la_0}_{j,0}}$. From the Lemma \ref{foli_lift_lem} it follows that for any $j \in \{1,...,n\}$ there is the unique tuple $
-	\left\{	\overline \sU_{\overline \iota_{j,1} }, ....,\overline \sU_{\overline \iota_{j,k} }\right\}$ such that 
-	\begin{itemize}
-		\item $\overline p_{\la_0}\left(\overline \sU_{\overline \iota_{j,l} }\right)= \sU^{\la_0}_{\iota^{\la_0}_{j,l}}$ for any $l =1,..., k_j$.
-		\item $\G\left(\overline \sU_{\overline \iota_{j,0} } \right)...~\G\left(\overline \sU_{\overline \iota_{j,k_j} } \right) \neq \emptyset$.			
-	\end{itemize}
-	
-	Denote by
-	\be\label{foli_suq_eqn}
-	\overline \sU^q = \bigcup_{j=0 }^n\left(\bigcup_{l = 0}^{k_j} \overline \sU_{\overline \iota_{j,l}}\right).
-	\ee
-	For any $j \in \{1,..., n\}$  and $l\in\left\{1, ..., k_j\right\}$, we select $\overline q_{j, l}\in C^*_r\left(\overline \sU_{\overline\iota_{j,l}}, \left.\overline \sF\right|_{\overline \sU_{\overline\iota_{j,l}}} \right)$ such that $\desc_{\overline p_{\la_0}}\left(\overline q_{j, l}\right)= q_{\iota^{\la_0}_{j,l}}$. Let 
-	\be\label{foli_oq_eqn}
-	\overline	q \bydef \sum_{j = 1}^n \overline q_{\overline \iota_{j,0}}\cdot ... \cdot \overline q_{\overline \iota_{j,k_j}}\in C^*_r\left(\overline \sU^q, \left.\overline \sF\right|_{\overline \sU^q}\right) .
-	\ee
-\end{empt}
-\begin{definition}\label{foli_q_defn}
-	In the situation \ref{foli_q_empt} we say that $\overline	q$ is $\overline p_{\la_0}$-$\overline\sU$-\textit{extended lift of} $q$ and we write  $\mathfrak{ext}$-$\lift_{ \overline{p}_{\la_0}}^{\overline\sU}\left( q\right) \bydef \overline q$.
-\end{definition}
-\begin{remark}\label{foli_q_rem}
-	The given by \eqref{foli_suq_eqn} set $\overline \sU^q$ is a finite union of the sets with compact closure. So the  closure of $\overline \sU^q$ is compact. From the  Lemma \ref{top_comp_la_lem} there is $\la_{\overline{   \mathcal U }^q} \in \La$ such that for any  $\la \ge \la_{\overline{   \mathcal U }^q} \in \La$ such that for  any  $\la \ge \la_{\overline{   \mathcal U }^q}$ the set $\overline{   \mathcal U }^q$  is mapped homeomorphically onto  $\overline{p}_\la\left(\overline{   \mathcal U }^q \right) \subset  M_\la$. 
-	
-\end{remark}
-\begin{lemma}\label{foli_ycomp_lem}
-	Consider the above situation.
-	Let $\overline  \sU \in \overline{\mathfrak A}$  and let $\overline a\in C^*_r\left(\overline \sU, \left.\overline \sF\right|_{\overline \sU} \right)_+$ be a positive element. If   $\la_0 \in \La$ and $z\in C^*_r\left(\overline M, \overline \sF \right)^\sim$.  For any $\eps > 0$ there is $y \in C^*_r\left(\overline M, \overline \sF \right)^\sim$  and an open subset $\overline\sU^y\subset \overline M$ with compact closure such that  
-	\bean
-	\left\| y - z\right\|< \eps,\\
-	y^*\overline a y \in C^*_r\left(\overline \sU^y, \left.\overline \sF\right|_{\overline \sU^y}\right).
-	\eean 
-\end{lemma}
-
-\begin{proof}
-	For any $\la\in \La$ denote by $a_\la \bydef \desc_{\overline{p}_\la}\left(\overline a \right)$. If in the equation \eqref{foli_q_eqn} $q_{\iota^{\la_0}_{j,0}}= \sqrt{a_{\la_0}}$ for all $j\in \{1,..., n\}$ and $\overline q$ is given by the equation \eqref{foli_oq_eqn} then
-	\be\label{foli_qq_eqn}
-	\overline q^*\overline q= \left(  \sum_{j = 1}^n \overline q^*_{\overline \iota_{j,k_j}}\cdot ... \cdot \overline q^*_{\overline \iota_{j,1}}\right) \overline a \left(  \sum_{j = 1}^n \overline q_{\overline \iota_{j,1}}\cdot ... \cdot \overline q_{\overline \iota_{j,k_j}}\right)\in C^*_r\left(\overline \sU^q, \left.\overline \sF\right|_{\overline \sU^q}\right)
-	\ee
-	Any $z\in C^*_r\left(\overline M, \overline \sF \right)^\sim$  can be presented by the sum Let $z = z_0 + c$ where $z_0 \in C^*_r\left(M_{\la_0}, \sF_{\la_0} \right)$ and $c \in \C$. From (i) of the Lemma \ref{foli_cov_inc_lem} it turns out that $z$ can be regarded as an element of $M\left(C^*_r\left(\overline M, \overline \sF\right) \right)$ so one has $z^*\overline a z \in C^*_r\left(\overline M, \overline \sF\right)$. 
-	For all $\eps > 0$ there is $t_0 \in C^*_r\left(M_{\la_0}, \sF_{\la_0} \right)$ such that
-	\be\label{foli_t_eqn}
-	\begin{split}
-		t_0 = \sum_{j = 1}^n t_{\iota^{\la_0}_{j,1}}\cdot ... \cdot t_{\iota^{\la_0}_{j,k_j}}; \quad t_{\iota^{\la_0}_{j,k_j}} \in C^*_r\left(\sU^{\la_0}_{\iota^{\la_0}_{j,k_j}}, \left.\sF_{\la_0}\right|_{\sU^{\la_0}_{\iota^{\la_0}_{j,k_j}}} \right)\quad \sU^{\la_0}_{\iota^{\la_0}_{j,k_j}}\in \mathfrak{A}^{\la_0},\\
-		\left\| t_0 - z_0\right\|<\eps,\\
-		y \bydef c + t_0 = c+ \sum_{j = 1}^n t_{\iota^{\la_0}_{j,1}}\cdot ... \cdot t_{\iota^{\la_0}_{j,k_j}};\\
-		\left\| y - z\right\|<\eps.
-	\end{split}
-	\ee
-	If  $I \subset \left\{1,...,n\right\}$ is such that $j \in I \Leftrightarrow \overline p_\la\left( \overline \sU \right) \cap \sU^\la_{\iota^\la_{1,k_j}} \neq \emptyset$ and
-	$$
-	r = c + \sum_{j \in I} t_{\iota^{\la_0}_{j,1}}\cdot ... \cdot t_{\iota^{\la_0}_{j,k_j}}
-	$$
-	then one has 
-	\be\label{foli_rar_eqn}
-	\begin{split}
-		r^*\overline a r = y^*\overline a y,\\
-		\forall\la\in\La \quad \la \ge\la_0 \quad \Rightarrow \quad r^*\desc_{\overline p_{\la}}\left( \overline a\right)  r = y^*\desc_{\overline p_{\la}}\left( \overline a\right) 
-	\end{split}
-	\ee
-	On the other hand from $j \in I \Leftrightarrow \overline p_\la\left( \overline \sU \right) \cap \sU^\la_{\iota^\la_{1,k_j}} \neq \emptyset$ if follows that the sum
-	$$
-	q = c \sqrt{\desc_{\overline p_{\la_0}}\left( \overline a\right)}+ \sum_{j\in I} \sqrt{\desc_{\overline p_{\la_0}}\left( \overline a\right)} t_{\iota^{\la_0}_{j,1}}\cdot ... \cdot t_{\iota^{\la_0}_{j,k_j}}
-	$$
-	complies with the construction \ref{foli_q_empt}, so there is $p_\la$-$\overline\sU$-{extended lift $\mathfrak{ext}$-$\lift_{ \overline{p}_{\la}}^{\overline\sU}\left( q\right)$ of} $q$ (cf. Definition \ref{foli_q_defn}) given by 
-	\be\label{foli_oqt_eqn}
-	\overline	q = \sqrt{\overline a} +  \sum_{j\in I } \sqrt{\overline a} ~\overline t_{\overline \iota_{j,0}}\cdot ... \cdot \overline t_{\overline \iota_{j,k_j}}\in C^*_r\left(\overline \sU^q, \left.\overline \sF\right|_{\overline \sU^q}\right) .
-	\ee
-	where the closure of $\overline\sU^q$ is compact. From the equations \ref{foli_qq_eqn} and \eqref{foli_rar_eqn} it follows that 
-	\bean
-	y^*\overline a y =\overline	q^*\overline	q \in C^*_r\left(\overline \sU^q, \left.\overline \sF\right|_{\overline \sU^q}\right).
-	\eean
-	Define $\overline\sU^y \bydef \overline\sU^q$.
-\end{proof}
-
-
-
-
-\begin{corollary}\label{foli_spec2_cor}
-	Consider the above situation.
-	Let $\overline  \sU \in \overline{\mathfrak A}$  and let $\overline a\in C^*_r\left(\overline \sU, \left.\overline \sF\right|_{\overline \sU} \right)$ a positive element. If   $\la_0 \in \La$ and $z\in C^*_r\left(\overline M, \overline \sF \right)^\sim$ then following conditions hold:
-	\begin{enumerate}
-		\item[(i)] The series 
-		$$
-		\sum_{g\in G_\la } g\left( z^*\overline a  z\right)^2
-		$$
-		is strongly convergent in $B\left(\widehat\H_a\right)$.
-		\item[(ii)] For any $\eps > 0$ there is $y\in C^*_r\left(\overline M, \overline \sF \right)^\sim$ such that for all $\la \ge \la_0$ one has
-		\bea\label{foli_spec21_eqn}
-		\left\| y - z\right\|<\eps,\\
-		\label{foli_spec22_eqn}
-		\left\| \sum_{g\in G_\la } g\left( z^*\overline a  z\right)^2 - \sum_{g\in G_\la } g\left( y^*\overline a  y\right)^2\right\|<\eps,\\
-		\label{foli_spec23_eqn}
-		\exists\mu\ge \la_0\quad		\la \ge \mu\quad \Rightarrow \quad\sum_{g\in G_\la } g\left( y^*\overline a  y\right)^2=
-		\left(\sum_{g\in G_\la } g\left( y^*\overline a  y\right)\right)^2.
-		\eea
-	\end{enumerate}
-\end{corollary}
-\begin{proof}
-	(i)	For all $g\in G_\la$ one has
-	$$ 
-	\left(  g\overline a \right)   z z^* \left(  g\overline a  \right)\le\left\| z\right\|^2\left(  g\overline a  \right)  \left(  g\overline a  \right).
-	$$
-	On the other hand $\sum_{g\in G_\la } \left\| z\right\|^2\left(  g\overline a  \right)  \left(  g\overline a \right) = \sum_{g\in G_\la } \left\| z\right\|^2\left(  g\overline a  \right)^2 = \left\| z\right\|^2\pi_a\left( \desc_{\overline p_\la}\left( \overline a\right)^2\right)$,
-	hence for any finite subset  $G^0_\la\subset G_\la$ one has
-	$$
-	\sum_{g\in G^0_\la } \left(  g\overline a  \right)   z z^* \left(  g\overline a  \right)\le \left\| z\right\|^2\pi_a\left( \desc_{\overline p_\la}\left( \overline a\right)^2\right),
-	$$
-	i.e. an increasing series $\sum_{g\in G_\la } \left(  g\overline a  \right)   z z^* \left(  g\overline a  \right)$ is bounded. 
-	From the Lemma \ref{increasing_convergent_w_lem} it turns ot that the series 	$\sum_{g\in G_\la } \left(  g\overline a  \right)   z z^* \left(  g\overline a  \right)$ is strongly convergent in $B\left(\widehat\H_a\right)$. It follows that the series
-	\bean
-	\sum_{g\in G_\la } g\left( z^*\  \overline a  z\right)^2=\\
-	= z^* \left( \sum_{g\in G_\la } \left(  g\overline a  \right)   z z^* \left(  g\overline a  \right)\right)z 
-	\eean 
-	is also strongly convergent in $B\left(\widehat\H_a\right)$.\\
-	(ii) For all $\Delta\in  C^*_r\left(M_{\la_0}, \sF_{\la_0} \right)^\sim$ such that $\left\|\Delta\right\|= \delta$ one has
-	\be\label{foli_zz_eqn}
-	\begin{split}
-		\sum_{g\in G_\la } \left(  g\overline a  \right)   z z^* \left(  g\overline a  \right)\le \\
-		\le\left\| z\right\|^2 \sum_{g\in G_\la } \left(  g\overline a  \right)  \left(  g\overline a  \right)= \left\| z\right\|^2\desc_{\overline p_\la}\left( \overline a\right)^2.\\
-		\sum_{g\in G_\la } \left(  g\overline a  \right)   \pi_a \left(z + \Delta \right) \left(z + \Delta\right)^* \left(  g\overline a  \right)\le  \left( \left\| z\right\|+\delta\right) ^2\desc_{\overline p_\la}\left( \overline a\right)^2,\\
-		\left\|\sum_{g\in G_\la } \left(  g\overline a  \right)   z z^* \left(  g\overline a  \right)\right\|\le  \left\| z\right\|^2 \left\| \overline a\right\|^2,\\ 
-		\left\|\sum_{g\in G_\la } \left(  g\overline a  \right)   \pi_a \left(z + \Delta \right) \left(z + \Delta\right)^* \left(  g\overline a  \right)\right\|\le  \left( \left\| z\right\|+\delta\right)^2 \left\| \overline a\right\|^2
-	\end{split}
-	\ee
-	The series in the equations \eqref{foli_zz_eqn} contain positive summands only and from \eqref{foli_zz_eqn} it turns out that they are bounded.
-	From the \ref{increasing_convergent_w_lem} it follows that the series in the equations \eqref{foli_zz_eqn} are  strongly convergent in $B\left(\widehat \H_a\right)$.
-	\bean
-	\left(z + \Delta\right)^*\left( \sum_{g\in G_\la } \left(  g\overline a  \right)   \left(z + \Delta\right) \left(z + \Delta\right)^* \left(  g\overline a  \right)\right)  \left(z + \Delta\right)^*=\\
-	=
-	z^*\left( \sum_{g\in G_\la } \left(  g\overline a  \right)   \left(z + \Delta\right) \left(z + \Delta\right)^* \left(  g\overline a  \right)\right)  \left(z + \Delta\right)^* +\\
-	+
-	\pi_a \left(\Delta\right)^*\left( \sum_{g\in G_\la } \left(  g\overline a  \right)   \left(z + \Delta\right) \left(z + \Delta\right)^* \left(  g\overline a  \right)\right)  \left(z + \Delta\right)^*.
-	\eean
-	From the equation \eqref{foli_zz_eqn} it follows that 
-	\bean
-	\left\| 
-	\pi_a \left(\Delta\right)^*\left( \sum_{g\in G_\la } \left(  g\overline a  \right)   \left(z + \Delta\right) \left(z + \Delta\right)^* \left(  g\overline a  \right)\right)  \left(z + \Delta\right)^*\right\|\le\\ \le\delta\left(  \left\| z\right\|+\delta\right)^3 \left\| \overline a\right\|^2
-	\eean
-	Similarly one has
-	\bean
-	\left\| 
-	z^*\left( \sum_{g\in G_\la } \left(  g\overline a  \right)   \left(z + \Delta\right) \left(z + \Delta\right)^* \left(  g\overline a  \right)\right)  \Delta ^*\right\|\le\\ \le\delta\left(  \left\| z\right\|+\delta\right)^2 \left\| z\right\|\left\| \overline a\right\|^2
-	\eean
-	
-	One has
-	$$
-	\left\|\left(z + \Delta\right) \left(z + \Delta\right)^*- z z^*\right\|< \delta^2+ 2\delta \left\| z\right\|
-	$$
-	If $P\bydef \left|      \left(z + \Delta\right) \left(z + \Delta\right)^*- z z^*\right|\in B\left( \widehat\H_a\right) $  is given by the Proposition \ref{polar_decomposition_prop} then following conditions hold
-	\begin{itemize}
-		\item 
-		\bean
-		\left\|P\right\|= \left\|\left(z + \Delta\right) \left(z + \Delta\right)^*- z z^*\right\|  <\delta^2+ 2\delta \left\| z\right\|
-		\eean
-		\item \bean\left|\left(  g\overline a  \right)\left(   \left(z + \Delta\right) \left(z + \Delta\right)^*- z z^*\right)\left(  g\overline a  \right)\right|=\\
-		=\left(  g\overline a \right)  P\left(  g\overline a  \right).
-		\eean
-		\item 
-		\be\label{foli_mod_eqn}
-		\begin{split}
-			\left\| \sum_{g\in G_\la} \left(  g\overline a  \right) \left(  \left(z + \Delta\right) \left(z + \Delta\right)^*- z z^*\right) \left(  g\overline a  \right)\right\| \le\\
-			\left\| \sum_{g\in G_\la }\left(  g\overline a  \right) P \left(  g\overline a  \right)\right\| 
-			\le \left\| P\right\|\left\|  \sum_{g\in G_\la }\left(  g\overline a  \right)^2 \right\|=\\
-			=\left\| P\right\|\left\| \overline a\right\|^2\le \left( \delta^2+ 2\delta \left\| z\right\|\right)\left\| \overline a\right\|^2 
-		\end{split}
-		\ee
-	\end{itemize} 
-	If $y \bydef z + \Delta$ then
-	From the equation \ref{foli_mnorm_eqn} it follows that
-	\bean
-	\left\|z^* \left( \sum_{g\in G_\la} \left(  g\overline a  \right) \left(  y y^*- z z^*\right) \left(  g\overline a  \right)\right) z\right\| \le\\
-	\le \left( \delta^2+ 2\delta \left\| z\right\|\right)\left\| \overline a\right\|^2  \left\| z\right\|^2.
-	\eean 
-	From the above equations it follows that
-	\be
-	\left\| \sum_{g\in G_\la } g\left( y^*  \overline a  y\right)^2-\sum_{g\in G_\la } g\left( z^*  \overline a  z\right)^2\right\|\le
-	\phi\left(\delta \right) 
-	\ee
-	where $\delta= \left\|y- z\right\|$ and $\phi:\R_+\to \R_+$ is a continuous function given by
-	\be
-	\begin{split}
-		\phi\left(\delta \right) = \delta\left(  \left\| z\right\|+\delta\right)^3 \left\| \overline a\right\|^2+\delta\left(  \left\| z\right\|+\delta\right)^2 \left\| z\right\|\left\| \overline a\right\|^2  +\\
-		+\left( \delta^2+ 2\delta \left\| z\right\|\right)\left\| \overline a\right\|^2  \left\| z\right\|^2=\\
-		= \delta\left\| \overline a\right\|^2\left(\left( \left\| z\right\|+\delta\right)^3 +\left(  \left\| z\right\|+\delta\right)^2 \left\| z\right\|+ \left( \delta+ 2 \left\| z\right\|\right)\ \left\| z\right\|^2\right). 
-	\end{split}
-	\ee
-	Since $\phi\left(0 \right)= 0$ for any $\eps > 0$ there is $\delta_\eps > 0$ such that $\phi\left(\delta_\eps \right) < \eps$.
-	From the Lemma \ref{foli_ycomp_lem} it follows that there is  $y \in C^*_r\left(\overline M, \overline \sF \right)^\sim$  an open subset $\overline\sU^y\subset \overline M$ with compact closure such that
-	\bean
-	\left\| y - z\right\|< \min \left( \eps,\delta_\eps \right) ,\\
-	y^*\overline a y \in C^*_r\left(\overline \sU^y, \left.\overline \sF\right|_{\overline \sU^y}\right).
-	\eean 
-	From our above construction it turns out that $y$ satisfies to inequalities  \ref{foli_spec21_eqn}, \ref{foli_spec22_eqn}. From the Lemma \ref{top_comp_la_lem} it follows that there is $\mu\in\La$ such that for  any  $\la \ge \la_{\overline{   \mathcal U }}$ the set $\overline{   \mathcal U }^y$  is mapped homeomorphically onto  $\overline{p}_\la\left(\overline{   \mathcal U }^y \right)$. From the Lemma \ref{foli_cov_inc_strong_lem} it turns out that for all $\la\ge\mu$ following conditions hold
-	\bean
-	\sum_{g\in G_\la } g\left( y^*\overline a  y\right)=\desc_{\overline p_\la}\left(y^*\overline a  y \right),\\
-	\sum_{g\in G_\la } g\left( y^*\overline a  y\right)^2=\desc_{\overline p_\la}\left(y^*\overline a  y \right)^2,
-	\eean
-	hence one has
-	$$
-	\sum_{g\in G_\la } g\left( y^*\overline a  y\right)^2= \left( \sum_{g\in G_\la } g\left( y^*\overline a  y\right)\right)^2
-	$$
-	i.e. $y$ satisfies to the equation \ref{foli_spec23_eqn}.
-	
-\end{proof}
-
-\begin{lemma}\label{foli_spec_lem}
-	Consider the above situation.
-	If $\overline  \sU \in \overline{\mathfrak A}$  then any positive element  $\overline a\in C^*_r\left(\overline \sU, \left.\overline \sF\right|_{\overline \sU} \right) \subset C^*_r\left(\overline M, \overline \sF\right)\subset  B \left( \widehat \H_a\right)$  is special (cf. Definition \ref{special_element_defn}).
-\end{lemma}	
-\begin{proof}
-	Let $\la_0 \in \La$, $\eps > 0$ and  $z \in C^*_r\left( M_{\la_0},  \sF_{\la_0}\right)^{\sim}$. Let us check conditions (a), (b) of the Definition \ref{special_element_defn}.\\
-	(a) One needs check that
-	\bea\label{foli_spec_a_eps_imp1_eqn}
-	\sum_{g\in G_\la } z^*\left(  g\overline a\right) z   \in C^*_r\left( M_{\la},  \sF_{\la}\right),\\
-	\label{foli_spec_a_eps_imp2_eqn}
-	\sum_{g\in G_\la } f_\eps\left(z^*\left(  g\overline a\right) z   \right)   \in C^*_r\left( M_{\la},  \sF_{\la}\right),\\
-	\label{foli_spec_a_eps_imp3_eqn}
-	\sum_{g\in G_\la  } \left(z^*\left(  g\overline a\right) z   \right)^2    \in C^*_r\left( M_{\la},  \sF_{\la}\right). 
-	\eea
-	(cf. Remark \ref{implicit_inc_full_rem}).
-	\begin{enumerate}
-		\item 	 Proof of \eqref{foli_spec_a_eps_imp1_eqn}. One has $\sum_{g\in G_\la } z^*\left(  g\overline a\right) z= z^*\left( \sum_{g\in G_\la } g\overline a\right) z$. From the Lemma \ref{foli_cov_inc_strong_lem} it turns out that there is the strong limit $\sum_{g\in G_\la } g\overline a= \desc_{\overline p_{\la}}\left( \overline a\right)\in  C^*_r\left( M_{\la},  \sF_{\la}\right)$, so one has $\sum_{g\in G_\la } z^*\left(  g\overline a\right) z\in C^*_r\left( M_{\la},  \sF_{\la}\right)$.
-		\item 	 Proof of \eqref{foli_spec_a_eps_imp2_eqn}. From $f_\eps\left(z^*\left(  g\overline a\right) z   \right)\le z^*\left(  g\overline a\right) z$ it follows that $\sum_{g\in G^0_\la } f_\eps\left(z^*\left(  g\overline a\right) z   \right)\le a_\la$ for any finite subset $G^0_\la\subset G_\la$ so from the Lemma  \ref{increasing_convergent_w_lem} it turns out that the series \\$\sum_{g\in G_\la } f_\eps\left(z^*\left(  g\overline a\right) z   \right)$ is strongly convergent in $B\left(\widehat\H_a\right)$. Moreover one has
-		\be\label{foli_a0_eqn}
-		\left\| \sum_{g\in G_\la } f_\eps\left(z^*\left(  g\overline a\right) z   \right)\right\| \le \left\| a_{\la_0}\right\|.
-		\ee 
-		From the Lemma \ref{foli_ycomp_lem} it follows that for all 
-		For all  $\delta> 0$ there is $y \in C^*_r\left( M_{\la_0},  \sF_{\la_0}\right)^{\sim}$ such that $\left\| y-z\right\|< \delta$   and an open subset $\overline\sU^y\subset \overline\sX$ with compact closure such that  
-		\bean
-		y^*\overline a y \in C^*_r\left(\overline \sU^y, \left.\overline \sF\right|_{\overline \sU^y}\right).
-		\eean
-		If $\delta' > 0$ and select  $\delta $   is  such that 
-		$\delta \left( \delta + 2\left\| z\right\|\right) \left\| \overline a\right\|< \delta' $ then
-		\be\label{foli_dp_eqn}
-		\begin{split}
-			\left\| y-z\right\|< \delta \quad\Rightarrow\quad \left\| y^*\overline a y -  z^*\overline a z\right\|<\delta',\\
-			\left\| y-z\right\|< \delta \quad\Rightarrow\quad\left\| y^*\desc_{\overline p_{\la}}\left( \overline a\right)y -  z^*\desc_{\overline p_{\la}}\left( \overline a\right) z\right\|< \delta'.
-		\end{split}
-		\ee
-		If $\widehat \H_a^\perp$ is given by
-		$$
-		\widehat \H_a^\perp \bydef \left\{\left.\xi\in \widehat \H_a\right| \left( y^*\desc_{\overline p_{\la_0}}\left( \overline a\right)y\right) \xi=0 \right\}\subset \widehat \H_a,
-		$$
-		and $p^\perp_y: \widehat \H_a \to \widehat \H_a^\perp$ is the natural projection and $p_y \bydef\left( 1- p^\perp_y\right) $ then there is the following matrix representation
-		\bean
-		z^*\desc_{\overline p_{\la}}\left( \overline a\right) z= 
-		\begin{pmatrix}
-			p_yz^*\desc_{\overline p_{\la}}\left( \overline a\right) zp_y & p_yz^*\desc_{\overline p_{\la}}\left( \overline a\right) zp_y^\perp\\
-			p_y^\perp z^*\desc_{\overline p_{\la}}\left( \overline a\right) zp_y & p_y^\perp z^*\desc_{\overline p_{\la}}\left( \overline a\right) z p_y^\perp
-		\end{pmatrix},\\
-		y^*\desc_{\overline p_{\la}}\left( \overline a\right) y= 
-		\begin{pmatrix}
-			p_y y^*\desc_{\overline p_{\la}}\left( \overline a\right) yp_y & 0\\
-			0 & 0
-		\end{pmatrix},\\
-		z^*\overline a  z= \begin{pmatrix}p_y z^*\overline a  z p_y & p_y z^* \overline a zp_y^\perp\\
-			p_y^\perp z^* \overline a zp_y & p_y^\perp z^* \overline a zp_y^\perp
-		\end{pmatrix},\\
-		y^*\overline a  y= 
-		\begin{pmatrix}
-			p_y y^*\overline a  y p_y & 0\\
-			0 & 0
-		\end{pmatrix},
-		\eean 
-		hence from the inequality \eqref{foli_dp_eqn} it turns out that 	$\left\| p_y^\perp z^*\overline a zp_y^\perp\right\|<\delta'$ and
-		$\left\| p_y^\perp  z^*\desc_{\overline p_{\la}}\left( \overline a\right) zp_y^\perp\right\|< \delta'$.  Taking into account that
-		\bean
-		p_y^\perp f_\eps\left( z^*\overline a z\right) p_y^\perp\le p_y^\perp z^*\overline a zp_y^\perp
-		\\
-		p_y^\perp f_\eps\left( 	z^*\desc_{\overline p_{\la}}\left( \overline a\right) z\right) p_y^\perp\le p_y^\perp  z^*\desc_{\overline p_{\la}}\left( \overline a\right) zp_y^\perp
-		\eean 
-		\be\label{foli_dpp_eqn}
-		\begin{split}
-			\left\| p_y^\perp f_\eps\left( z^*\overline a z\right)p_y^\perp\right\|<\delta',\\
-			\left\| p_y^\perp  f_\eps\left( 	z^*\desc_{\overline p_{\la}}\left( \overline a\right) z\right)p_y^\perp\right\|< \delta'.
-		\end{split}
-		\ee
-		From the above inequalities and the Lemma \ref{positive_ineq_lem} it follows that
-		\be\label{foli_pos_eqn}
-		\begin{split}
-			\left\| f_\eps\left( z^*\overline a z\right)-\begin{pmatrix}p_y f_\eps\left( z^*\overline a z\right) p_y & 0\\
-				0 & 0
-			\end{pmatrix}\right\|<\\
-			< \delta' + 2\sqrt{\delta'\left\| z\right\|^2\left\|\overline a \right\|},\\
-			\left\| f_\eps\left( z^*\desc_{\overline p_{\la}}\left( \overline a\right) z\right)-\begin{pmatrix}p_y f_\eps\left( z^*\desc_{\overline p_{\la}}\left( \overline a\right) z\right) p_y & 0\\
-				0 & 0
-			\end{pmatrix}\right\|<\\
-			< \delta' + 2\sqrt{\delta'\left\| z\right\|^2\left\|\overline a \right\|}.
-		\end{split}
-		\ee
-		From the Corollary \ref{top_comp_la_cor} it follows that there is $\mu \bydef \la_{\overline{   \mathcal U }^y}$ and a continuous map $f_\mu: M_\mu \to [0,1]$ such that $f_\mu \left(\overline p_\mu\left( \overline{   \mathcal U }^y\right)  \right) = \{1\}$ and $g\supp f_\mu\cap \supp f_\mu=\emptyset$ for all nontrivial $g\in G\left( \left.{{\sX}}_\mu~\right|\sX\right)$. From the equation \eqref{foli_center_eqn} it follows that $f_\mu$ is a multiplier of $C^*_r\left(M_\la, \sF_\la \right)$ for any $\la\ge\mu$ such that $f_\la p_y = p_y f_\la = p_y$.
-		It follows that 
-		\be\label{foli_fm_eqn}
-		\begin{split}
-			p_yf_\eps\left( z^*\overline a z\right) p_y= p_yf_\mu f_\eps\left(z^*  \overline a z\right) f_\mu p_y,\\
-			p_yf_\eps\left( z^*\desc_{\overline p_{\la}}\left( \overline a\right) z\right) p_y= p_yf_\mu f_\eps\left( z^*\desc_{\overline p_{\la}}\left( \overline a\right) z\right) f_\mu p_y,\\
-		\end{split}
-		\ee
-		so one has
-		\bean
-		f_\mu f_\eps\left( z^*\overline a  z\right)f_\mu
-		=\begin{pmatrix}p_y f_\eps\left( z^*\overline a  z\right) p_y & p_y f_\mu f_\eps\left( z^*\overline a  z\right)f_\mu p_y^\perp\\
-			p_y^\perp f_\mu f_\eps\left( z^*\overline a  z\right)f_\mu p_y & p_y^\perp f_\mu f_\eps\left( z^*\overline a  z\right)f_\mu p_y^\perp
-		\end{pmatrix},\\
-		f_\mu f_\eps\left( z^*\desc_{\overline p_{\la}}\left( \overline a\right) z\right)f_\mu = \\
-		=
-		\begin{pmatrix}
-			p_yf_\eps\left( z^*\desc_{\overline p_{\la}}\left( \overline a\right) z\right)p_y & p_y f_\mu f_\eps\left( z^*\desc_{\overline p_{\la}}\left( \overline a\right) z\right) f_\mu p_y^\perp\\
-			p_y^\perp f_\mu  f_\eps\left( z^*\desc_{\overline p_{\la}}\left( \overline a\right) z\right)f_\mu p_y & p_y^\perp f_\mu  f_\eps\left( z^*\desc_{\overline p_{\la}}\left( \overline a\right) z\right) f_\mu p_y^\perp
-		\end{pmatrix},\\
-		\eean
-		From $f_\mu \le 1$ and \eqref{foli_dpp_eqn} it turns out that 
-		\be\label{foli_dppf_eqn}
-		\begin{split}
-			\left\| p_y^\perp f_\mu f_\eps\left( z^*\overline a z\right)  f_\mu p_y^\perp\right\|<\delta',\\
-			\left\| p_y^\perp  f_\mu f_\eps\left( z^*\desc_{\overline p_{\la}}\left( \overline a\right) z\right) f_\mu p_y^\perp\right\|< \delta'.
-		\end{split}
-		\ee
-		On the other hand from $\left\| f_\eps\left( z^*\overline a z\right)  z\right\|\le \left\| z^*\overline a  z\right\| \le \left\| z\right\|^2\left\|\overline a \right\|$,\\  $\left\| f_\eps\left( z^*\desc_{\overline p_{\la}}\left( \overline a\right) z\right)  z\right\|\le\left\| z^*\desc_{\overline p_{\la}}\left( \overline a\right)  z\right\| \le \left\| z\right\|^2\left\|\overline a \right\|$, inequalities \eqref{foli_dpp_eqn} and the Lemma \ref{positive_ineq_lem} it turns out that
-		\be\label{foli_posm_eqn}
-		\begin{split}
-			\left\|f_\mu  f_\eps\left( z^*\overline a z\right)f_\mu -\begin{pmatrix}p_yf_\mu  f_\eps\left( z^*\overline a z\right)f_\mu  p_y & 0\\
-				0 & 0
-			\end{pmatrix}\right\|
-			< \delta' + 2\sqrt{\delta'\left\| z\right\|^2\left\|\overline a \right\|},\\
-			\left\| f_\mu f_\eps\left( z^*\desc_{\overline p_{\la}}\left( \overline a\right) z\right)f_\mu -\begin{pmatrix}p_yf_\mu  f_\eps\left( z^*\desc_{\overline p_{\la}}\left( \overline a\right) z\right)f_\mu  p_y & 0\\
-				0 & 0
-			\end{pmatrix}\right\|<\\
-			< \delta' + 2\sqrt{\delta'\left\| z\right\|^2\left\|\overline a \right\|}.
-		\end{split}
-		\ee
-		The combination of inequalities \eqref{foli_pos_eqn}  and \eqref{foli_posm_eqn} yields the following
-		\bean
-		\left\| f_\eps\left( z^*\overline a z\right)-f_\mu  f_\eps\left( z^*\overline a z\right)f_\mu\right\|< 2\left( \delta' + 2\sqrt{\delta'\left\| z\right\|^2\left\|\overline a \right\|}\right),\\
-		\left\|  f_\eps\left( z^*\desc_{\overline p_{\la}}\left( \overline a\right)z\right) -f_\mu f_\eps\left( z^*\desc_{\overline p_{\la}}\left( \overline a\right) z\right)f_\mu\right\|
-		< 2\left( \delta' + 2\sqrt{\delta'\left\| z\right\|^2\left\|\overline a \right\|}\right) .
-		\eean
-		For any  $\eps' > 0$ select $\delta' > 0$ such that $\eps' < 2\left( \delta' + 2\sqrt{\delta'\left\| z\right\|^2\left\|\overline a \right\|}\right)$. Select $\delta > 0$ such that  
-		$\delta \left( \delta + 2\left\| z\right\|\right) \left\| \overline a\right\|< \delta' $. From  the above description it follows that 
-		\be\label{foli_a1_eqn}
-		\begin{split}
-			\left\| z - y\right\|<\delta \quad\Rightarrow\quad\left\| f_\eps\left( z^*\overline a z\right)-f_\mu  f_\eps\left( z^*\overline a z\right)f_\mu\right\|< \eps',\\
-			\left\| z - y\right\|<\delta \quad\Rightarrow\quad\left\|  f_\eps\left( z^*\desc_{\overline p_{\la}}\left( \overline a\right)z\right) -f_\mu f_\eps\left( z^*\desc_{\overline p_{\la}}\left( \overline a\right) z\right)f_\mu\right\|
-			<\eps'.
-		\end{split}
-		\ee
-		From the inequality \eqref{foli_a1_eqn}  it follows that 
-		\be\label{foli_ep_eqn}
-		\forall \la\ge\la_0\quad \left\|\sum_{	g \in G_\la}gf_\eps\left( z^* \overline a z\right) - \sum_{	g \in G_\la}g\left( f_\mu f_\eps\left( z^* \overline az\right)f_\mu\right) 	 \right\|\le \eps'.
-		\ee
-		On the other hand from the Lemma \ref{foli_cov_inc_strong_lem} it follows that
-		\bean
-		\forall \la\ge\mu\quad  \sum_{	g \in G_\la}g\left( f_\mu f_\eps\left( z^* \overline az\right)f_\mu\right) 	= \desc_{\widetilde p_\la}\left( f_\mu f_\eps\left( z^* \overline az\right)f_\mu\right) \in C^*_r\left(M_\la, \sF_\la \right),
-		\eean
-		so from the Lemma \ref{special_element_cut_lem} it turns out that
-		\be\label{foli_eep_eqn}
-		\forall \la\ge\la_0\quad  \sum_{	g \in G_\la}g\left( f_\mu f_\eps\left( z^* \overline az\right)f_\mu\right) 	 \in C^*_r\left(M_\la, \sF_\la \right)
-		\ee
-		From the equations \eqref{foli_ep_eqn} and \eqref{foli_eep_eqn} it turns out that
-		$$
-		\forall \eps'> 0\quad \forall \la\ge\la_0\quad \exists a_\la \in C^*_r\left(M_\la, \sF_\la \right) \quad 	\left\| \sum_{g \in G_\la}gf_\eps\left( z^* \overline a z\right)-a_\la \right\|< \eps',
-		$$
-		so one has
-		$$
-		\forall \la\ge\la_0\quad \sum_{g \in G_\la}gf_\eps\left( z^* \overline a z\right)\in C^*_r\left(M_\la, \sF_\la \right).
-		$$
-		\item 	 Proof of \eqref{foli_spec_a_eps_imp3_eqn}.
-		From the Corollary \ref{foli_spec2_cor} it turns out that for any $\eps > 0$ there is $y \in C^*_r\left(M_\la, \sF_\la \right)^+$ which satisfies to the equations \eqref{foli_spec22_eqn} and \eqref{foli_spec23_eqn}. It is already proven that for any $\la\ge\la_0$
-		$$
-		\sum_{g\in G_\la } g\left( y^*\overline a  y\right)= y^*\desc_{\overline p_{\la}}\left(\overline a\right)  y\in  C^*_r\left(M_\la, \sF_\la \right)
-		$$
-		so 
-		$$
-		\left(\sum_{g\in G_\la } g\left( y^*\overline a  y\right)= y^*\desc_{\overline p_{\la}}\left(\overline a\right)  y\right)^2\in  C^*_r\left(M_\la, \sF_\la \right).
-		$$
-		From the equation \eqref{foli_spec23_eqn} it follows that  
-		$$
-		\exists\mu\ge \la_0\quad		\la \ge \mu\quad \Rightarrow \quad\sum_{g\in G_\la } g\left( y^*\overline a  y\right)^2\in C^*_r\left(M_\la, \sF_\la \right) 
-		$$ 
-		and taking into account the Lemma \ref{special_element_cut_lem} one has
-		\be\label{foli_2_eqn}
-		\forall\la\ge \la_0\quad\sum_{g\in G_\la } g\left( y^*\overline a  y\right)^2\in C^*_r\left(M_\la, \sF_\la \right)
-		\ee
-		Using the equations \eqref{foli_spec22_eqn} and \eqref{foli_2_eqn} one concludes that 
-		$$
-		\forall\eps > 0\quad	\forall\la\ge \la_0\quad  \exists b_\la \in C^*_r\left(M_\la, \sF_\la \right)\quad 	\left\| \sum_{g\in G_\la } g\left( f_\eps\left( z^*\overline a  z\right)\right)^2 - b_\la\right\|<\eps.
-		$$
-		Hence one has $\sum_{g\in G_\la } g\left( f_\eps\left( z^*\overline a  z\right)\right)^2 \in C^*_r\left(M_\la, \sF_\la \right)$.
-	\end{enumerate}
-	(b) If $\delta > 0$ is such that $\delta \left(\delta + 2  \left\| y - z\right\|\right)\left\|\overline a\right\| < \delta'$ then from $\left\| y - z\right\|<\delta$ it follows that 
-	\be
-	\left\| \sum_{g\in G_\la } g\left( z^*\overline a  z\right) - \sum_{g\in G_\la } g\left( y^*\overline a  y\right)\right\| < \delta'
-	\ee
-	If $\delta'$ is such that $\delta'\left\|\overline a\right\|\left\|\overline z\right\|^2\left(\delta' + 2\left\|\overline a\right\|\left\|\overline z\right\|^2 \right)<\eps/2$ then from  $\left\| y - z\right\|<\delta$ it follows that
-	\be\label{foli_e21_eqn}
-	\left\| \left( \sum_{g\in G_\la } g\left( z^*\overline a  z\right)\right)^2  - \left( \sum_{g\in G_\la } g\left( y^*\overline a  y\right)\right)^2 \right\| < \frac{\eps}{2}.
-	\ee 
-	Otherwise from the Corollary \ref{foli_spec2_cor} there is $y\in C^*_r\left(M_{\la_0}, \sF_{\la_0} \right)$ such that $\left\| y - z\right\|< \min\left(\eps/2, \delta \right)$ such that  
-	\be\label{foli_e22_eqn}
-	\left\| \sum_{g\in G_\la } g\left( z^*\overline a  z\right)^2 - \sum_{g\in G_\la } g\left( y^*\overline a  y\right)^2\right\| < \frac{\eps}{2}
-	\ee
-	From the equations \eqref{foli_e21_eqn}, \eqref{foli_e22_eqn} and taking into account \eqref{foli_spec22_eqn} it follows that
-	\be\label{foli_e23_eqn}
-	\exists\mu\ge \la_0\quad		\la \ge \mu\quad \Rightarrow 	\left\| \left( \sum_{g\in G_\la } g\left( z^*\overline a  z\right)\right)^2  - \sum_{g\in G_\la } g\left( z^*\overline a z\right)^2\right\|<\eps
-	\ee
-	The equation \eqref{foli_e23_eqn} is version of \eqref{special_set_eqn}.
-\end{proof}
-
-\begin{cor}\label{foli_c0_inc_cor} 
-	Let
-	$$
-	\mathfrak{S}_{\left(M, \sF, x_0\right)}\bydef \left\{\left\{p_\la:\left(M_\la, \sF_\la\right) \to \left(M, \sF\right)\right\}_{\la \in \La}, \left\{p^\mu_\nu: \left(M_\mu, \sF_\mu\right) \to \left(M_\nu, \sF_\nu\right)\right\}_{\substack{\mu, \nu \in \La\\ \mu \ge \nu}}\right\}
-	$$
-	be  {pointed finite foliation category} (cf. Definition (ref. \ref{comp_pt_defn}), and let $\overline M$ be the disconnected inverse limit \ref{top_topological_inv_lim_defn} 	of a  {pointed topological finite covering category} 
-	\bean
-	\mathfrak{S}_{\left( M, x_0\right) }\bydef\\
-	\bydef \left\{\left\{p_\la:\left( M_\la, x^\la_0\right) \to \left( M, x_0\right)\right\}_{\la\in\La}, \left\{p^\mu_{ \nu}:\left( M_\mu, x^\mu_0\right) \to \left( \sX_\nu, x^\nu_0\right)\right\}_{\substack{\mu,\nu\in\La\\
-			\mu\ge\nu}} \right\}
-	\in \mathfrak{FinTop}^{\text{pt}},
-	\eean
-	(cf. Definition \ref{top_sec_p_defn}) and $\overline p: \overline M \to M$ be the natural covering. Let $\left(\overline M,\overline \sF\right)$ be the induced by $\overline p$ foliated space (cf. Definition \ref{fol_cov_defn}).
-	If 
-	\be\nonumber
-	\begin{split}
-		\left\{\left\{C^*_r\left( p_\la\right) : C^*_r\left(M, \sF\right)\hookto C^*_r\left(M_\la, \sF_\la\right)\right\}, \left\{C^*_r\left(p^\mu_\nu\right) : C^*_r\left(M_\nu, \sF_\nu\right) \hookto C^*_r\left(M_\mu, \sF_\mu\right)\right\}\right\}.
-	\end{split}
-	\ee
-	is  a pointed algebraical  finite covering category $\mathfrak{S}_{C^*_r\left(M, \sF, x_0\right)}$ (cf. Definition (ref. \ref{comp_pt_defn}) given by the Lemma \ref{foli_poi_alg_lem} and $\overline A\in B\left(\H_a\right)$ is its disconnected algebraical infinite noncommutative covering  (cf. Definition \ref{main_defn_full_defn}) then there is the natural inclusion
-	$$
-	C^*_r\left(\overline M, \overline \sF\right)\subset \overline A.
-	$$
-\end{cor}
-
-
-\begin{proof}
-	The $C^*$-algebra $C^*_r\left(\overline M, \overline \sF\right)$ is generated by special elements given by the Lemma \ref{foli_spec_lem}.
-\end{proof}
-
-Any special element $ \overline a  =\widehat{\pi}_a\left( \widehat{x} \right)   \overline b   \widehat{\pi}_a\left( \widehat{x} \right)\in B\left(\widehat \H_a \cong	\bigoplus_{\overline x \in \overline M^{\mathrm{~no ~ hol}}} L^2\left(\G_{\overline x}\right) \right)$ yields the family of operators $$\left\{{\overline{a}}_{\overline{x}}\in B\left(L^2\left(\G_{\overline{x}}\right)\right) \right\}_{\overline{x} \in \overline M^{\mathrm{~no ~ hol}}}.$$
+\end{remark}Any special element $ \overline a  =\widehat{\pi}_a\left( \widehat{x} \right)   \overline b   \widehat{\pi}_a\left( \widehat{x} \right)\in B\left(\widehat \H_a \cong	\bigoplus_{\overline x \in \overline M^{\mathrm{~no ~ hol}}} L^2\left(\G_{\overline x}\right) \right)$ yields the family of operators $$\left\{{\overline{a}}_{\overline{x}}\in B\left(L^2\left(\G_{\overline{x}}\right)\right) \right\}_{\overline{x} \in \overline M^{\mathrm{~no ~ hol}}}.$$
 We would like to prove that $\left\{\overline{a}_{\overline{x}}\right\}$ gives an element of $\mathscr C^*_r\left(\overline{M}, \overline{\sF}\right)\left( \G\left(\overline{M}, \overline{\sF}\right)\right) $. To do it one should find the covering $\G\left(\overline{M}, \overline{\sF}\right)= \bigcup \overline{\sV}_{\overline{\a}}$ such that for all $\overline{\a}$ the family $\left\{\overline{a}_{\overline{x}}\right\}$ represents element $\overline{s}_{\overline{x}} \in \mathscr C^*_r\left(\overline{M}, \overline{\sF}\right)\left(\overline{\sV}_{\overline{\a}} \right)$. From the construction  \ref{foli_sheaf_empt} one should proof that the family
 $$
 p^{{\overline{x}}}_{\overline{\sV}_{\overline{\a}}}\overline{a}_{\overline{x}} q^{{\overline{x}}}_{\overline{\sV}_{\overline{\a}}}
