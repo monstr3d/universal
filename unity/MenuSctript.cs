@@ -26,6 +26,8 @@ public class MenuSctript : MonoBehaviour
     {
         Dictionary<int, KeyCode> d = Saver.saver.KeyValuePairs;
         components = gameObject.GetGameObjectComponents<Component>();
+        var canvas = gameObject.GetComponentInParent<Canvas>();
+        var comp = canvas.gameObject.GetGameObjectComponents<Component>()["PanelStop"][0];//.gameObject.GetGameObjectComponents<Component>(); 
         foreach (var key in components.Keys)
         {
             if (key.Contains("(") & key.Contains("Button"))
@@ -44,8 +46,10 @@ public class MenuSctript : MonoBehaviour
                             Click(b);
                         };
                         b.onClick.AddListener(act);
-                        b.GetComponentInChildren<Text>().text = d[i] + "";
-
+                        if (d.ContainsKey(i))
+                        {
+                            b.GetComponentInChildren<Text>().text = d[i] + "";
+                        }
                     }
                 }
             }

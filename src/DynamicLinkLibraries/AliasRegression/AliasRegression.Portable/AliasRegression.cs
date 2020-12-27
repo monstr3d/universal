@@ -802,7 +802,6 @@ namespace Regression.Portable
         public void FullIterate()
         {
             UpdateSelections();
-            INamedComponent nc = Object as INamedComponent;
             Iterate();
             SetAliases();
         }

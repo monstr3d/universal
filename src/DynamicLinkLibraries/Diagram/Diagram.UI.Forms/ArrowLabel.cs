@@ -29,10 +29,12 @@ namespace Diagram.UI.Labels
 	[Serializable()]
 	public class ArrowLabel : NamedComponent, ISerializable, IArrowLabelUI
 	{
-		/// <summary>
-		/// Width
-		/// </summary>
-		const int width = 40;
+        #region Fields
+
+        /// <summary>
+        /// Width
+        /// </summary>
+        const int width = 40;
 
 		/// <summary>
 		/// Height
@@ -109,11 +111,16 @@ namespace Diagram.UI.Labels
 		/// </summary>
 		new private Brush textBrush;
 
-		/// <summary>
-		/// Constructor
-		/// </summary>
-		private ArrowLabel()
+        #endregion
+
+        #region Ctor
+
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        private ArrowLabel()
 		{
+
 		}
 
 		/// <summary>
@@ -143,7 +150,19 @@ namespace Diagram.UI.Labels
 			sourceNumber = (int)info.GetValue("SourceNumber", typeof(int));
 			targetNumber = (int)info.GetValue("TargetNumber", typeof(int));
 		}
-		
+
+		#endregion
+
+
+		/// <summary>
+		/// Overriden to string
+		/// </summary>
+		/// <returns></returns>
+		public override string ToString()
+		{
+			return RootName + " (" + base.ToString() + ")";
+		}
+
 		/// <summary>
 		/// ISerializable interface implementation
 		/// </summary>

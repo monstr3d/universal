@@ -8,6 +8,7 @@ using CategoryTheory;
 
 using Diagram.UI.Factory;
 using Diagram.UI.Interfaces;
+using Diagram.UI.Labels;
 
 namespace Diagram.UI
 {

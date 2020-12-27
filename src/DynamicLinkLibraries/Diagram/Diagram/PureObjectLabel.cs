@@ -281,6 +281,15 @@ namespace Diagram.UI.Labels
         #region Specific members
 
         /// <summary>
+        /// Overriden to string
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            return RootName + " (" + base.ToString() + ")";
+        }
+
+        /// <summary>
         /// Gets root component
         /// </summary>
         /// <param name="comp">Prototype</param>

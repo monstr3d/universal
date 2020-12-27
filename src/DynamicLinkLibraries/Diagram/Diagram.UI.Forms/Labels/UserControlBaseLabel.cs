@@ -93,6 +93,15 @@ namespace Diagram.UI.Labels
         #region Members
 
         /// <summary>
+        /// Overriden to string
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            return (this as IObjectLabel).RootName + " (" + base.ToString() + ")";
+        }
+
+        /// <summary>
         /// Creates User control label
         /// </summary>
         /// <param name="changeSize">The "change size" sign</param>

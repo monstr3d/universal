@@ -78,7 +78,6 @@ namespace Diagram.UI.Labels
 
 
         #endregion
-
    
         #region Ctor
 
@@ -186,6 +185,15 @@ namespace Diagram.UI.Labels
         }
 
         #endregion
+
+        /// <summary>
+        /// Overriden to string
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            return RootName + " (" + base.ToString() + ")";
+        }
 
         #region INamedComponent Members
 
@@ -348,6 +356,8 @@ namespace Diagram.UI.Labels
         #endregion
 
         #region Specific members
+
+
 
         /// <summary>
         /// Sets type

@@ -103,7 +103,6 @@ namespace Diagram.UI.Labels
 
         #endregion
 
-
         #region Ctor
 
         /// <summary>
@@ -283,6 +282,15 @@ namespace Diagram.UI.Labels
 			}
 			theObject = null;
 			GC.Collect();
+		}
+
+		/// <summary>
+		/// Overriden to string
+		/// </summary>
+		/// <returns></returns>
+		public override string ToString()
+		{
+			return RootName + " (" + base.ToString() + ")";
 		}
 
 		/// <summary>

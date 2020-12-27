@@ -42,6 +42,26 @@ namespace CategoryTheory
 
         #region Public Members
 
+        /// <summary>
+        /// Name of category object or arrow
+        /// </summary>
+        /// <param name="obj">Object or arrow</param>
+        /// <returns>Name</returns>
+        static public string ObjectArrowName(this IAssociatedObject obj)
+        {
+            if ((obj is ICategoryObject) | (obj is ICategoryArrow))
+            {
+                string t = obj.Object + "";
+                if (t.Contains("("))
+                {
+                    return t.Substring(0, t.IndexOf('(') + 1);
+                }
+
+            }
+            return "";
+        }
+
+
 
         #region Pure XML Members
 

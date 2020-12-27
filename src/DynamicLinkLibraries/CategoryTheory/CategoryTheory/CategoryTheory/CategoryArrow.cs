@@ -61,5 +61,18 @@ namespace CategoryTheory
 
         #endregion
 
-     }
+        #region Overriden Members
+
+        /// <summary>
+        /// Overriden to string
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            return this.ObjectArrowName() + base.ToString() + ")";
+        }
+
+        #endregion
+
+    }
 }

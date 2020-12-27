@@ -72,7 +72,6 @@ namespace Diagram.UI
             remove { postLoadDesktop -= value; }
         }
 
-
         /// <summary>
         /// Post load desktop
         /// </summary>
