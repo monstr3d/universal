@@ -21,13 +21,16 @@ public class MenuSctript : MonoBehaviour
 
     Dictionary<Button, int> buttons = new Dictionary<Button, int>();
 
+ 
+    Dictionary<int, KeyCode> dd = new Dictionary<int, KeyCode>();
 
     private void Awake()
     {
-        Dictionary<int, KeyCode> d = Saver.saver.KeyValuePairs;
+        d = Saver.saver.KeyValuePairs;
+        dd = Saver.saver.Dict;
         components = gameObject.GetGameObjectComponents<Component>();
         var canvas = gameObject.GetComponentInParent<Canvas>();
-        var comp = canvas.gameObject.GetGameObjectComponents<Component>()["PanelStop"][0];//.gameObject.GetGameObjectComponents<Component>(); 
+        var comp = canvas.gameObject.GetGameObjectComponents<Component>()["PanelStop"][0].gameObject.GetGameObjectComponents<Component>();
         foreach (var key in components.Keys)
         {
             if (key.Contains("(") & key.Contains("Button"))
@@ -40,23 +43,43 @@ public class MenuSctript : MonoBehaviour
                         Button b = cc as Button;
                         Text text = b.GetComponentInChildren<Text>();
                         int i = int.Parse(text.text);
-                        buttons[b] = i;
-                        UnityAction act = () =>
+                        if (i < 12)
                         {
-                            Click(b);
-                        };
-                        b.onClick.AddListener(act);
-                        if (d.ContainsKey(i))
+                            buttons[b] = i;
+                            if (i > 11)
+                            {
+                                continue;
+                            }
+                            UnityAction act = () =>
+                            {
+                                Click(b);
+                            };
+                            b.onClick.AddListener(act);
+                            if (d.ContainsKey(i))
+                            {
+                                b.GetComponentInChildren<Text>().text = d[i] + "";
+                            }
+                        }
+                        else
                         {
-                            b.GetComponentInChildren<Text>().text = d[i] + "";
+                            buttons[b] = i;
+                            UnityAction act = () =>
+                            {
+                                Click(b);
+                            };
+                            b.onClick.AddListener(act);
+                            if (dd.ContainsKey(i))
+                            {
+                                b.GetComponentInChildren<Text>().text = dd[i] + "";
+                            }
+
                         }
                     }
                 }
             }
         }
     }
- 
-
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -89,8 +112,14 @@ public class MenuSctript : MonoBehaviour
     {
         var i = buttons[button];
         button.GetComponentInChildren<Text>().text = currentKey + "";
-        d[i] = currentKey;
+        if (i < 12)
+        {
+            d[i] = currentKey;
+        }
+        else
+        {
+            dd[i] = currentKey;
+        }
     }
 
-
-}
+ }

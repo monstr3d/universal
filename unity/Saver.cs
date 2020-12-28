@@ -18,7 +18,7 @@ namespace Assets
         public static Saver saver;
 
         public int level = 1;
-  
+
         public Dictionary<int, Tuple<int, KeyCode[]>> dictionary = new
      Dictionary<int, Tuple<int, KeyCode[]>>
         {
@@ -33,6 +33,11 @@ namespace Assets
                KeyCode.DownArrow} )}
         };
 
+        public Dictionary<int, KeyCode> dict = new Dictionary<int, KeyCode>() { { 12, KeyCode.Escape}, { 13, KeyCode.Return }, { 14, KeyCode.Q } };
+
+
+
+
         Dictionary<string, int> d = new Dictionary<string, int>()
         {
             { "Pitch" , 3 },
@@ -46,12 +51,17 @@ namespace Assets
         List<string> l = new List<string>()
         {
             "X", "Y", "Z", "Roll", "Pitch", "Heading"
-
         };
 
         Dictionary<string, KeyCode[]> codes = new Dictionary<string, KeyCode[]>();
 
         static string path;
+
+        public  Dictionary<int, KeyCode> Dict
+        {
+            get { return new Dictionary<int, KeyCode>(dict); }
+            set { dict = value; }
+        }
 
         #endregion
 
@@ -104,6 +114,8 @@ namespace Assets
         {
             dictionary = info.GetValue("Dictionary", typeof(Dictionary<int, Tuple<int, KeyCode[]>>)) as
                Dictionary<int, Tuple<int, KeyCode[]>>;
+            dict = info.GetValue("Dict", typeof(Dictionary<int, KeyCode>)) as
+               Dictionary<int,  KeyCode>;
             level = info.GetInt32("Level");
             SetCodes();
         }
@@ -126,6 +138,21 @@ namespace Assets
                 }
                 return kk;
             }
+            set
+            {
+                for (int i = 0; i < l.Count; i++)
+                {
+                    string s = l[i];
+                    var a = d[s];
+                    var tt = dictionary[a].Item2;
+                    var k = 2 * i;
+                    for (int j = 0; j < 2; j++)
+                    {
+                        tt[j] = value[k + j];
+                    }
+                }
+            }
+
         }
 
         #endregion
@@ -149,6 +176,7 @@ namespace Assets
         {
             info.AddValue("Dictionary", dictionary,
                   typeof(Dictionary<int, Tuple<int, KeyCode[]>>));
+            info.AddValue("Dict", dict, typeof(Dictionary<int, KeyCode>));
             info.AddValue("Level", level);
         }
 
