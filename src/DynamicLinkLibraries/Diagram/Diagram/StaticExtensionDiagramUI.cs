@@ -553,6 +553,27 @@ namespace Diagram.UI
         #region Public members
 
         /// <summary>
+        /// Compares values
+        /// </summary>
+        /// <typeparam name="T">Value type</typeparam>
+        /// <typeparam name="S"Key type</typeparam>
+        /// <param name="dictionary">Dictionary</param>
+        /// <param name="list">List</param>
+        /// <returns>Double value</returns>
+        public static T CompareValue<T, S>(this Dictionary<S, T> dictionary, List<T> list)
+        { 
+            foreach (var t in dictionary.Values)
+            {
+                if (list.Contains(t))
+                {
+                    return t;
+                }
+                list.Add(t);
+            }
+            return default(T);
+        }
+
+        /// <summary>
         /// Loads assembly
         /// </summary>
         /// <param name="ass">The assembly</param>

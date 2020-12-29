@@ -7,79 +7,25 @@ using UnityEngine.Events;
 using UnityEngine.UI;
 
 using Unity.Standard;
+using Diagram.UI;
 
 public class MenuSctript : MonoBehaviour
 {
 
     int current = -1;
 
-    Dictionary<int, KeyCode> d = new Dictionary<int, KeyCode>();
-
-    KeyCode currentKey;
-
-    Dictionary<string, List<Component>> components;
-
-    Dictionary<Button, int> buttons = new Dictionary<Button, int>();
-
- 
-    Dictionary<int, KeyCode> dd = new Dictionary<int, KeyCode>();
+    MenuKeyPerformer keyPerformer;
 
     private void Awake()
     {
-        d = Saver.saver.KeyValuePairs;
-        dd = Saver.saver.Dict;
-        components = gameObject.GetGameObjectComponents<Component>();
-        var canvas = gameObject.GetComponentInParent<Canvas>();
-        var comp = canvas.gameObject.GetGameObjectComponents<Component>()["PanelStop"][0].gameObject.GetGameObjectComponents<Component>();
-        foreach (var key in components.Keys)
-        {
-            if (key.Contains("(") & key.Contains("Button"))
-            {
-                var l = components[key];
-                foreach (var cc in l)
-                {
-                    if (cc is Button)
-                    {
-                        Button b = cc as Button;
-                        Text text = b.GetComponentInChildren<Text>();
-                        int i = int.Parse(text.text);
-                        if (i < 12)
-                        {
-                            buttons[b] = i;
-                            if (i > 11)
-                            {
-                                continue;
-                            }
-                            UnityAction act = () =>
-                            {
-                                Click(b);
-                            };
-                            b.onClick.AddListener(act);
-                            if (d.ContainsKey(i))
-                            {
-                                b.GetComponentInChildren<Text>().text = d[i] + "";
-                            }
-                        }
-                        else
-                        {
-                            buttons[b] = i;
-                            UnityAction act = () =>
-                            {
-                                Click(b);
-                            };
-                            b.onClick.AddListener(act);
-                            if (dd.ContainsKey(i))
-                            {
-                                b.GetComponentInChildren<Text>().text = dd[i] + "";
-                            }
-
-                        }
-                    }
-                }
-            }
-        }
+        keyPerformer = new MenuKeyPerformer(gameObject, new KaySaver());
     }
-    
+
+    class KaySaver : ISaverLoadSave
+    {
+        Dictionary<int, KeyCode> ISaverLoadSave.Dictionary { get => Saver.saver.KeyValuePairs; set => Saver.saver.KeyValuePairs = value; }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -93,33 +39,11 @@ public class MenuSctript : MonoBehaviour
 
     private void OnGUI()
     {
-        foreach (KeyCode kcode in Enum.GetValues(typeof(KeyCode)))
-        {
-            if (Input.GetKeyDown(kcode))
-            {
-                string k = kcode + "";
-                if (k.Contains("Mouse"))
-                {
-                    break;
-                }
-                currentKey = kcode;
-                break;
-            }
-        }
+        keyPerformer.OnGUI();
     }
 
-    void Click(Button button)
+    public KeyCode CheckSaver(List<KeyCode> l)
     {
-        var i = buttons[button];
-        button.GetComponentInChildren<Text>().text = currentKey + "";
-        if (i < 12)
-        {
-            d[i] = currentKey;
-        }
-        else
-        {
-            dd[i] = currentKey;
-        }
+       return  keyPerformer.CheckSaver(l);
     }
-
  }
