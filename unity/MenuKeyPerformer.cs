@@ -15,7 +15,7 @@ namespace Assets
 
         KeyCode currentKey;
 
-        Dictionary<string, List<Component>> components;
+   //     Dictionary<string, List<Component>> components;
 
         Dictionary<Button, int> buttons = new Dictionary<Button, int>();
 
@@ -34,30 +34,23 @@ namespace Assets
 
         internal void Awake()
         {
-            components = gameObject.GetGameObjectComponents<Component>();
-            foreach (var key in components.Keys)
+            var components = gameObject.GetComponentsInChildren<Button>();
+            foreach (var b in components)
             {
+                string key = b.name;
                 if (key.Contains("(") & key.Contains("Button"))
                 {
-                    var l = components[key];
-                    foreach (var cc in l)
+                    Text text = b.GetComponentInChildren<Text>();
+                    int i = int.Parse(text.text);
+                    UnityAction act = () =>
                     {
-                        if (cc is Button)
-                        {
-                            Button b = cc as Button;
-                            Text text = b.GetComponentInChildren<Text>();
-                            int i = int.Parse(text.text);
-                            UnityAction act = () =>
-                            {
-                                Click(b);
-                            };
-                            b.onClick.AddListener(act);
-                            buttons[b] = i;
-                            if (d.ContainsKey(i))
-                            {
-                                b.GetComponentInChildren<Text>().text = d[i] + "";
-                            }
-                        }
+                        Click(b);
+                    };
+                    b.onClick.AddListener(act);
+                    buttons[b] = i;
+                    if (d.ContainsKey(i))
+                    {
+                        b.GetComponentInChildren<Text>().text = d[i] + "";
                     }
                 }
             }

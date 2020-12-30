@@ -1384,11 +1384,6 @@ If $ \A$ is  category then a related to $ \A$ construction is said to be \textit
    \subsection{Coverings of $C^*$-algebras}
    \paragraph{}
  Here the noncommutative generalization of the Theorem \ref{pavlov_troisky_thm} is being considered.  
-
- 
-
-
-
    \begin{definition}\label{fin_quasi_defn}
 	Let $A$ be connected $C^*$-algebra (cf. Definition \ref{conn_c_a_defn}) $\pi: A \hookto \widetilde{A}$ be an injective unital (cf. Definition \ref{principal_non_defn}) *-homomorphism of % connected	  
 	$C^*$-algebras. Let $G$ be  group of *-automorphisms of $\widetilde{A}$ such that 	$A \cong \widetilde{A}^G\stackrel{\text{def}}{=}\left\{a\in \widetilde{A}~|~ a = g a;~ \forall g \in G\right\}$.	We say that the triple $\left(A, \widetilde{A}, G \right)$ and/or the quadruple $\left(A, \widetilde{A}, G, \pi \right)$ and/or *-homomorphism $\pi: A \hookto \widetilde{A}$   is a \textit{noncommutative finite-fold  quasi-covering}. We write
@@ -3495,43 +3490,59 @@ Conversely suppose that $\left\| a_\a\right\| < C$ for all $\a\in \mathscr A$.
 	\eean
 \end{proof}
 
-
-\begin{empt}
-Consider the situation of the Lemma \ref{inverse_lim_sp_lem}. Any $\xi \in \widehat \H_a$ corresponds to the family
+\begin{lemma}\label{direct_sum_strong_lim_lem}
+	Let $\left\{\H_\la\right\}_{\la\in\La}$ be a family of Hilbert spaces, and let $\H$ be the norm completion of the algebraic direct sum $\oplus_{\la\in\La}\H_\la$. Let $\left\{a_\a\right\}_{\a\in\mathscr A}\in B\left(\H\right)$ be net such that
+	\begin{itemize}
+		\item There is $C > 0$ such that $\left\|a_\a \right\|$ for all $\a\in\mathscr A$.
+		\item $a_\a \H_\la \in \H_\la$ where the natural inclusion $\H_\la\subset \H$ is implied.
+	\item	For all $\la \in \La$ there is a limit $\lim_{\a \in \mathscr A}a_\a|_{\H_\la} = a_\la$ with respect to the strong topology of $B\left( \H_\a\right)$. 
+		
+	\end{itemize} 
+Then the net $\left\{a_\a\right\}$ is convergent  with respect to the strong topology of $B\left( \H\right)$. If
+$\xi \in \H$ corresponds to the family
+\be\nonumber
+\left\{\xi_{\la}\in \H_{\la}\right\}_{\widehat \la\in \La}.
+\ee
+then $\left(\lim_{\a \in \mathscr A } \right) \xi$ is represented by the family
+$$
+\left\{ \left( \lim_{\a \in \mathscr A } a_\a|_{\H_\la}\right) \xi_{\la}\in \H_{\la}\right\}_{\la\in \La}.
+$$
+\end{lemma}\label{sum_act_repr_lem}
+\begin{proof}
+From the Lemma \ref{sum_hilb_rep_lem} it follows that $\left\{a_\a\right\}$ is convergent  with respect to the strong topology of $B\left( \H\right)$. If $\xi= \left(\xi_\la\right)_{\la\in \La} \in \H$ 
+and $\eps > 0$ then there is a finite subset   $\La_0\subset \La$ and  $\eta \in \oplus_{\la\in\La}\H_\la$ such that
+\be\label{cunv_unp_eqn}
+\eta_{\la}= \begin{cases}
+	\xi_{\la}& \la\in \La_0\\
+	0& \la\notin \La_0\\
+\end{cases}\text{ AND }	\eta =\left(\eta_{\la}\in \H_{\la}\right)_{\la\in \La}	 \quad \Rightarrow \quad \left\|\xi- \eta\right\|< \frac{\eps} {2C}.
+\ee
+For any $\la \in \La_0$ there is $\a_\la \in \mathscr A$ such that
+\be\label{cunv_2p_un_eqn}
+\bt , \ga \ge \a_\la \quad \Rightarrow \quad \left\|\left(a_\bt- a_{\ga}\right)\xi_{\la}\right\|< \frac{\eps} {2\left|\La_0\right|C}
+\ee
+If $\a_{\max} \ge a_\la$ for every $\la\in\La_0$ then  one has 
+\bean
+\bt , \ga \ge \a_{\max} \quad \Rightarrow \quad \left\|\left(a_\bt- a_{\ga}\right)\xi\right\|< \eps.
+\eean
+\end{proof}\begin{lemma}\label{spec_el_repr_lem}
+Let $\overline a \in B\left( \widehat \H_a\right)_+$ be a special element. If $\widehat\xi \in \widehat \H_a$ given by the family
+to the family
 \be\label{hat_h_fam_eqn}
 \left\{\xi_{\widehat x}\in \H_{\widehat x}\right\}_{\widehat x\in \widehat\sX}.
 \ee
-\end{empt}
-\begin{lemma}\label{spec_el_repr_lem}
-Let $\overline a \in B\left( \widehat \H_a\right)_+$ be a special element. There is the family $\left\{\overline a_{\widehat x}\in B\left( \H_{\widehat x}\right) \right\}_{\widehat x\in \widehat\sX}$ such that for any $\widehat\xi \in \widehat \H_a$ given by the family \eqref{hat_h_fam_eqn} element $\overline a\xi$ is represented by the family
+then $\overline a\xi$ is represented by the family
 $$
-\left\{ \overline a_{\widehat x}\xi_{\widehat x}\in \H_{\widehat x}\right\}_{\widehat x\in \widehat\sX}.
+\left\{ \rep_{  \widetilde{x }}\left( \overline a\right) \xi_{\widehat x}\in \H_{\widehat x}\right\}_{\widehat x\in \widehat\sX}.
 $$
+Moreover if $a_\la$ is given by \eqref{spec_a_eqn}  then one has
+\be\label{spec_el_repr_eqn}
+\rep_{\widehat x}\left(\overline a \right) =  \lim_{\la \in \La}\rep_{\widehat x}\left(a_\la\right).
+\ee	
 \end{lemma}
 \begin{proof}
-For all $\la \in \La$ we consider the implicit inclusion $A_\la \subset \widehat A$ so for any $\widehat x\in \widehat\sX$ there is the representation $\rep_{\widehat x} :A_\la \to B\left( \H_{\widehat x}\right)$. From the Lemma  \ref{spec_strong_lim_lem} it follows that there is the decreasing net $\left\{a_\la\in \widehat A_+\right\}_{\la \in \La}$ such that $a_\la\in A_\la$ and there is the limit $\overline a = \lim_{\la \in \La} a_\la$ with respect to the strong topology of $B\left(\widehat \H_a \right)$. From the Lemma \ref{increasing_convergent_w_lem} for any $\widehat x\in \widehat\sX$ there is the  limit $\overline a_{\widehat x} = \lim_{\la \in \La}\rep_{\widehat x}\left(a_\la\right)$  with respect to the strong topology of $B\left(\widehat \H_{\widehat x} \right)$. If	$\xi \in \widehat\H_a$ is given by the family \eqref{hat_h_fam_eqn}
-and $\eps > 0$ then there is a finite subset  is a finite subset $F = \left\{\widehat  x_1,..., \widehat  x_n\right\}\subset \widehat \sX$ such that 
-\be\label{rep_1_un_eqn}
-\eta_{\widehat x}= \begin{cases}
-\xi_{\widehat x}& {\widehat x}\in F\\
-0& {\widetilde x}\notin F\\
-\end{cases}\text{ AND }	\eta =\left\{\eta_{\widehat x}\in \H_{\widehat x}\right\}_{\widehat x\in \widehat\sX}	 \quad \Rightarrow \quad \left\|\xi- \eta\right\|< \frac{\eps} {2\left\|a\right\|}.
-\ee
-For any $j = 1, ..., n$ there is $\la_j \in \La$ such that
-\be\label{rep_2_un_eqn}
-\mu \ge \nu \ge \la_j \quad \Rightarrow \quad \left\|\rep_{\widehat x}\left(a_\mu- a_{\nu}\right)\xi_{\widehat x}\right\|< \frac{\eps} {2n\left\|a\right\|}
-\ee
-If $\la_{\max} \ge \la_1$ AND  ... AND $\la_{\max} \ge \la_n$ then from the  equations \eqref{rep_1_un_eqn} and \eqref{rep_2_un_eqn} it turns out that if $\zeta$ is represented by the family $\left\{ \overline a_{\widehat x}\xi_{\widehat x}\in \H_{\widehat x}\right\}_{\widehat x\in \widehat\sX}$ then one has 
-\bean
-\left\|\overline a\xi - \zeta\right\|< \eps.
-\eean
+This lemma is a specialization of the Lemma \ref{direct_sum_strong_lim_lem}.
 \end{proof}
-\begin{remark}\label{spec_el_repr_rem}
-In the situation of the Lemma \ref{spec_el_repr_lem} denote by
-\be\label{spec_el_repr_eqn}
-\rep_{\widehat x}\left(\overline a \right) \bydef  \lim_{\la \in \La}\rep_{\widehat x}\left(a_\la\right).
-\ee	
-\end{remark}
 
  \begin{definition}\label{main_sdefn}
 	Any  maximal connected $C^*$-subalgebra $\widetilde{A}_\pi \subset \overline{A}_\pi$  is said to be a $\pi$-\textit{connected component} of $\mathfrak{S}$. The maximal subgroup $G_\pi\subset G\left(\overline{A}_\pi~|~ A\right)$ among subgroups $G\subset G\left(\overline{A}_\pi~|~ A\right)$ such that $G\widetilde{A}_\pi=\widetilde{A}_\pi$  is said to be the $\widetilde{A}_\pi \subset \overline{A}_\pi$  is said to be a $\pi$-\textit{connected component} $\widetilde{A}_\pi$-\textit{invariant group} of $\mathfrak{S}^{\mathrm{pt}}$. If $\pi$ is the atomic representation then  $\widetilde{A}_\pi \subset \overline{A}_\pi$  is said to be a \textit{connected component} $\mathfrak{S}$ and we write $\widetilde{A}\bydef \widetilde{A}_\pi$.
@@ -4848,6 +4859,38 @@ is a finite union of compact sets, so it is compact. On the other hand $\sY\subs
 
 
 
+\begin{lemma}\label{top_comply_lem}
+	Let   $\sX$ be a connected, locally connected, locally compact, Hausdorff space. 
+	Let both $p_1: \widetilde{\sX}_1\to \sX$,  $p_2: \widetilde{\sX}_2\to \sX$ are transitive coverings.
+	If  $p^2_1 : \widetilde{\sX}_2\to  \widetilde{\sX}_1$ is surjective continuous map such  that $p_2 = p_1\circ p^2_1$  then following conditions hold:
+	\begin{enumerate}
+		\item[(a)] The map  $p^2_1$ is a transitive finite-fold covering.
+		\item[(b)] If
+		\be\label{top_gr_iso_alg_eqn}
+		G_j \bydef G\left(\left.\widetilde \sX_j~\right|\sX \right), \quad j=1,2
+		\ee
+		then there is the natural surjective homomorphism of groups $h: G_2\to G_1$ such that for all $g \in G_2$ one has $p^2_1 \circ g = h\left( g\right) \circ p^2_1$.
+		
+		\item[(c)] The  homomorphism $h: G_2\to 	G_1$ 
+		is surjective. 
+		\item[(d)] If  $q:\widetilde{\sX}_2\to  \widetilde{\sX}_1$ is any surjective continuous map such that $p_2 = q \circ  p_1$ then there is the unique $g \in 	G_1$ such that 
+		\be\nonumber
+		q =  g\circ  p^2_1.
+		\ee
+	\end{enumerate}
+	
+\end{lemma}
+\begin{proof}
+	
+If $x_0 \in \sX$ is any point then from the Lemma  \ref{top_homo_lem} it follows that the natural surjective map $p_2^{-1}\left(x_0 \right) \to p_2^{-1}\left(x_0 \right)$ induces the natural surjective homomorphism 
+$ h :  G\left(\widetilde{   \mathcal X }'~|~{   \mathcal X } \right)\to G\left(\widetilde{   \mathcal X }''~|~{   \mathcal X } \right)$ of groups. Let us prove (a)-(d).
+	(a)  Follows from the Corollary \ref{top_covp_cat_cor}.\\		
+	(b) Follows from the Lemma  \ref{top_homo_lem}.\\
+	(c) The given by  the Lemma  \ref{top_homo_lem} homomorphism is surjective.\\
+	(d) From (a) it turns out that $q$ is a covering, i.e. there are two transitive coverings $p_1: \widetilde{\sX}_1\to \sX$ and $q: \widetilde{\sX}_1\to \sX$. If $\widetilde x_2 \in \widetilde \sX_2$ is any point then $p_1\left(p^2_1\left(\widetilde x_2 \right)  \right) = p_1\left(q\left(\widetilde x_2 \right)  \right)$, so there is the unique $g \in G_1$ such that $q\left(\widetilde x_2 \right) = gp^2_1\left(\widetilde x_2 \right)$. From the Lemma  \ref{top_trans_tp_cov_lem} it follows that 	$q =  g\circ  p^2_1$.
+\end{proof}
+
+
 
 \section{Vector bundles and spaces of sections}
 \paragraph*{} This section is not exclusively devoted to commutative $C^*$-algebras. It contains a more general theory, where $C^*$-algebras are represented by locally trivial  bundles. Homogeneous $C^*$-algebras and $C^*$-algebras with continuous trace  can be represented as locally trivial bundles. Any commutative $C^*$-algebra is also a vector bundle with one-dimensional fibers. So this theory is used in this chapter and the chapters \ref{ctr_chap},  \ref{foliations_chap}. 
@@ -4907,7 +4950,6 @@ is a finite union of compact sets, so it is compact. On the other hand $\sY\subs
 	\ee
 	and $\Ga_b$ is a functor to the category of Banach spaces and isometries.
 \end{empt}
-
 
 \section{Continuous structures lift and descent}\label{top_lif_desc_sec}
 \paragraph*{}
@@ -5865,7 +5907,7 @@ Consider the above situation. If   $\sY \subset \sX$ is compact then the followi
 	\end{itemize}
 \end{empt}
 \begin{definition}\label{top_cs_funct_defn}
-	The described in \ref{top_cs_funct_empt} contravariant functor $A_0$   is from the category  the category  $\mathfrak{FinCov}$-$\sX$ to the category of $C^*$- algebras and *-homomorphisms is said to by the \textit{finite covering functor associated with} $A = \left(\sX, \left\{A_x\right\}_{x \in \sX}, \sF \right)$.
+	The described in \ref{top_cs_funct_empt} contravariant functor $A_0$   is from the category  the category  $\mathfrak{FinCov}$-$\sX$ to the category of $C^*$-algebras and *-homomorphisms is said to by the \textit{finite covering functor associated with} $A = \left(\sX, \left\{A_x\right\}_{x \in \sX}, \sF \right)$.
 \end{definition}
 
 \begin{definition}\label{top_cs_funct_b_defn}
@@ -6004,6 +6046,7 @@ Consider the above situation. If   $\sY \subset \sX$ is compact then the followi
 	Otherwise the representation $\pi_a$ can be uniquely extended up to $\pi_a: A_b\left( \widetilde\sX\right) \to B\left(\H_{a}\right)$. 
 	From \eqref{top_cb_defn_eqn} it turns out there is the injective *-homomorphism $\lift_p:A_0\left(\sX \right) \hookto A_b\left(\widetilde\sX \right)$  so  $A_0\left(\sX \right)$ can be regarded as a subalgebra of $A_b\left(\widetilde\sX \right)$.
 \end{empt}
+
 
 
 \section{Continuous structures and sheaves}
@@ -6849,9 +6892,30 @@ Following conditions hold:
 	\be\label{top_c_funct_lem_eqn}
 	C_0\left(p \right):  C_0\left( \widetilde{\sX}''\right)    \to C_0\left( \widetilde{\sX}'\right).
 	\ee
-	So one has a functor from  $\mathfrak{FinCov}$-$\sX$ to  $\mathfrak{FinCov}$-$C_0\left( \sX\right)$. Let us define the inverse  functor. From the Theorem \ref{comm_fin_thm} it follows that any object $\pi: C_0\left( \sX\right) \hookto C_0\left( \widetilde{\sX}\right)$ of $\mathfrak{FinCov}$-$C_0\left( \sX\right) $ corresponds to a transitive finite-fold covering $p: \widetilde{\sX} \to \sX$ such that $\pi = C_0\left(p \right)$. If $C\left(p' \right): C_0\left( {\sX}\right)\to  C_0\left( \widetilde{\sX}'\right) $ and $C\left(p'' \right): C_0\left( {\sX}\right)\to C_0\left( \widetilde{\sX}''\right)$ are objects of $\mathfrak{FinCov}$-$C_0\left( \sX\right)$  and $\pi: C_0\left( \widetilde{\sX}''\right)    \to C_0\left( \widetilde{\sX}'\right)$ is a *-homomorphism such that $ C_0\left(p'\right) = \pi \circ C_0\left(p''\right)$ then from the Lemma \ref{comm_comply_lem} it turns out that there is a finite-fold  transitive covering $p: \widetilde{\sX}' \to \widetilde{\sX}''$ such than  $\pi= C_0\left( p\right) $ and $p'= p \circ p''$. So one has the inverse functor from   $\mathfrak{FinCov}$-$C_0\left( \sX\right)$ to $\mathfrak{FinCov}$-$\sX$.\\
-	(ii)	The conditions (a)-(d) of the Definition \ref{compliant_covering_defn} directly follow from (a)-(d) of the Lemma \ref{comm_comply_lem}.
+	So one has a functor from  $\mathfrak{FinCov}$-$\sX$ to  $\mathfrak{FinCov}$-$C_0\left( \sX\right)$. Let us define the inverse  functor. From the Theorem \ref{comm_fin_thm} it follows that any object $\pi: C_0\left( \sX\right) \hookto C_0\left( \widetilde{\sX}\right)$ of $\mathfrak{FinCov}$-$C_0\left( \sX\right) $ corresponds to a transitive finite-fold covering $p: \widetilde{\sX} \to \sX$ such that $\pi = C_0\left(p \right)$. If $C\left(p' \right): C_0\left( {\sX}\right)\to  C_0\left( \widetilde{\sX}'\right) $ and $C\left(p'' \right): C_0\left( {\sX}\right)\to C_0\left( \widetilde{\sX}''\right)$ are objects of $\mathfrak{FinCov}$-$C_0\left( \sX\right)$  and $\pi: C_0\left( \widetilde{\sX}''\right)    \to C_0\left( \widetilde{\sX}'\right)$ is a *-homomorphism such that $ C_0\left(p'\right) = \pi \circ C_0\left(p''\right)$ then from the Lemma !!!
+	\begin{corollary}\label{com_norm_cor!} !!!
+	Let $\sX$, $\sX'$ and $\sX''$ be connected, locally connected, locally compact, Hausdorff spaces.
+	If $p': \sX' \to \sX$ and $p'': \sX'' \to \sX'$ are finite-fold  transitive  coverings such that $p'' \circ p'$ is transitive then
+	\begin{enumerate}
+		\item[(i)] There is an exact sequence of group homomorphisms
+		$$
+		\left\{e\right\} \to 	G\left(\left.\sX''~\right|~\sX' \right) \to 	G\left(\left.\sX''~\right|~\sX \right) \to 	G\left(\sX'~|~\sX \right) \to \left\{e\right\}.
+		$$
+		\item[(ii)]
+		For any $g \in 	G\left(\left.\sX''~\right|~\sX \right)$ one has
+		$
+		gC_0\left(\sX' \right) = C_0\left(\sX' \right). 
+		$
+	\end{enumerate}
+\end{corollary}
+
+\begin{corollary}\label{top_covp_cat_cor!} !!!
+Consider the situation of the Lemma \ref{top_covp_cat_lem}. If the map $p$ is surjective and the covering $p_1$ is transitive then map $p$ is a transitive covering.
+\end{corollary}
+	\ref{comm_comply_lem} it turns out that there is a finite-fold  transitive covering $p: \widetilde{\sX}' \to \widetilde{\sX}''$ such than  $\pi= C_0\left( p\right) $ and $p'= p \circ p''$. So one has the inverse functor from   $\mathfrak{FinCov}$-$C_0\left( \sX\right)$ to $\mathfrak{FinCov}$-$\sX$.\\
+	(ii)  !!!	The conditions (a)-(d) of the Definition \ref{compliant_covering_defn} directly follow from (a)-(d) of the Lemma \ref{top_comply_lem}.
 	\end{proof}
+
 \subsection{Induced representations}\label{comm_induced_finite_sec}
 \paragraph*{} 
 Let us consider a compact  Riemannian manifold $M$ with a  spin bundle $\sS$ (cf. \ref{spin_mani_sec}). 
@@ -10212,11 +10276,13 @@ If the spectrum of  $C^*$-algebra $A$ is Hausdorff then $A$ possess  a family of
 		\item  In the algebraic geometry  where "blowing-up"  used for excluding of singular points (cf. \cite{hartshorne:ag}).
 	\end{itemize}
 
-\section{Illustrative example}
+\section{Basic definitions}
+
 \paragraph*{}
-For all $\th\in \R_+$ there  is the natural action of group  $G\bydef \th\Z/ \Z$ on the circle. 
+Before the  definition of blowing we consider an illustrative example.
+For all $\th\in \R_+$ there  is the natural action of group  $G\bydef \Z\th/ \Z$ on the circle. 
 $\sX\bydef S^1$. If $\th$ is rational then the space $\sX/G$ is Hausdorff otherwise it is not Hausdorff. How can we obtain $\sX/G$ algebraically? The Table \ref{hnh_alg_table} shows different methods of obtaining of the spectra.
- \newline
+\newline
 \begin {table}[H]
 \caption {Comparison of an invariant algebra and a crossed product} \label{hnh_alg_table}
 \begin{tabular}{|c|c|c|}
@@ -10224,19 +10290,19 @@ $\sX\bydef S^1$. If $\th$ is rational then the space $\sX/G$ is Hausdorff otherw
 	&$\sX/G$ is Hausdorff & $\sX/G$ is not Hausdorff\\
 	\hline
 	&&\\
-$C\left( \sX\right)^G$ 	& $C\left( \sX/G\right)$	&$\C$\\
-& & \\
-%	&&\\
-Spectrum of $C\left( \sX\right)\rtimes G$ 	& $ \sX/G$	& A point\\
-& & \\
+	$C\left( \sX\right)^G$ 	& $C\left( \sX/G\right)$	&$\C$\\
+	& & \\
+	%	&&\\
+	Spectrum of $C\left( \sX\right)\rtimes G$ 	& $ \sX/G$	& A point\\
+	& & \\
 	\hline
 	&&\\
-$C\left( \sX\right)\rtimes G$ 	& $C\left( \sX\right)\rtimes G\neq\C$	&$C\left( \sX\right)\rtimes G\neq\C$\\
-& & \\
-%&&\\
-Spectrum of $C\left( \sX\right)\rtimes G$ 	& $ \sX/G$	& $\sX/G$\\
-& & \\
-
+	$C\left( \sX\right)\rtimes G$ 	& $C\left( \sX\right)\rtimes G\neq\C$	&$C\left( \sX\right)\rtimes G\neq\C$\\
+	& & \\
+	%&&\\
+	Spectrum of $C\left( \sX\right)\rtimes G$ 	& $ \sX/G$	& $\sX/G$\\
+	& & \\
+	
 	\hline
 \end{tabular}
 \end{table}
@@ -10244,28 +10310,28 @@ Thus the $C\left( \sX\right)^G$ invariant $C^*$-algebra does not always yield $\
 Moreover since $C\left( \sX/G\right)$ can be trivial it does not know the map $\sX \to \sX/G$  but $C\left( \sX\right)\rtimes G$ knows it, because there  is an inclusion.
 $C\left(\sX \right) \subset C\left( \sX\right)\rtimes G$. If $\sX/G$ is Hausdorff then sometimes a covering of $\sX/G$ can by find by following way
 \begin{enumerate}
-	\item Find a covering $\widetilde\sX \to\sX$ with an action $G\times \widetilde\sX \to \widetilde\sX$.
-	\item Then there is the covering $\widetilde\sX / G \to \sX/G$.
+\item Find a covering $\widetilde\sX \to\sX$ with an action $G\times \widetilde\sX \to \widetilde\sX$.
+\item Then there is the covering $\widetilde\sX / G \to \sX/G$.
 \end{enumerate}
-However if $\sX/G$ is not Hausdorff this construction does not work if $\sX/G$. 
+However if $\sX/G$ is not Hausdorff this construction does not work. 
 However there is an algebraic version it given by
 \begin{enumerate}
-	\item Find a covering $\widetilde\sX \to\sX$ with an action $G\times \widetilde\sX \to \widetilde\sX$, and invective *-homomorphism $C\left( \sX\right)\hookto  C\left( \widetilde\sX\right)$.
-	\item Find a noncommutative covering  $C\left( \sX\right)\rtimes G\hookto C\left( \widetilde\sX\right)\rtimes G $.
+\item Find a covering $\widetilde\sX \to\sX$ with an action $G\times \widetilde\sX \to \widetilde\sX$, and invective *-homomorphism $C\left( \sX\right)\hookto  C\left( \widetilde\sX\right)$.
+\item Then there a noncommutative covering  $C\left( \sX\right)\rtimes G\hookto C\left( \widetilde\sX\right)\rtimes G $.
 \end{enumerate}
-The algebraic construction can be applied if $\sX/G$ is not Hausdorff. 
+The algebraic construction can be applied if $\sX/G$ is not Hausdorff.  The map $\sX \to \sX/G$ is yields a specialization of discussed below Hausdorff blowing up. 
 
-\section{Basic definitions}
+
 
 %\paragraph*{}
 
 
 \begin{definition}\label{blowing_defn}
 	Any  commutative $C^*$-subalgebra $C\cong C_0\left( \sY\right) \subset M\left(A \right)$ is said to be  a \textit{Hausdorff blowing-up} of $A$  if following conditions hold:
-	\begin{itemize}
-		\item 	Any approximate unit for $C_0\left( \sY\right)$ is an approximate unit for $A$ (cf. Definition \ref{app_unit_defn}).
-		\item For any irreducible representation $\rho: A \to B\left( \H\right)$ the space $\rho\left( C\right) \H$ is dense in $\H$. 
-	\end{itemize}
+	\begin{enumerate}
+		\item[(a)] 	Any approximate unit for $C_0\left( \sY\right)$ is an approximate unit for $A$ (cf. Definition \ref{app_unit_defn}).
+		\item[(b)] For any irreducible representation $\rep_x: A \to B\left( \H\right)$ the space $\rep_x\left( C\right) \H$ is dense in $\H$. 
+	\end{enumerate}
 	
 
 \end{definition}
@@ -10273,30 +10339,34 @@ The algebraic construction can be applied if $\sX/G$ is not Hausdorff.
 If $\sX$ is the spectrum of $A$ then	for any $y\in \sY$ there is 
 the set
 $$
-\sX_y \bydef \left\{\left. x\in\sX\right| \rep_x\left(C_0\left( \sY\right)\right)\neq I_y  \right\}
+\sX_y \bydef \left\{\left. x\in\sX\right| \rep_x\left(C_0\left( \sY\right)\right)\neq \rep_x\left( I_y\right)   \right\}
 $$
 where $I_y = \left\{\left. a\in C_0\left( \sY\right) \right| a\left( y\right)= 0  \right\}$
 The map $y \mapsto \sX_y$ yields a partially defined multi-valued map.
 The map is surjective because for any $x \in \sX$ and for any maximal ideal $J_x \subset \rep_x\left(C_0\left( \sY\right)\right) $ there is a maximal ideal $I_y\subset C_0\left( \sY\right)$ such that $J_x= \rep_x\left(I_y\right)$.
 \end{remark}
 \begin{definition}\label{blowing_spectal_defn}
-If the described in the Remark \ref{blowing_rem} map is single valued then we say that it is \textit{spectral}.
+If the described in the Remark \ref{blowing_rem} map is single-valued then we say that it is \textit{spectral}.
 \end{definition}
 \begin{empt}
 	Let  $C\left( \sY\right)\hookto M\left( A\right) $ be a blowing-up of $A$. For any open subset $\sU \subset \sY$ put
 	\be\label{blowig_su_eqn}
 	A_\sU \bydef C^*\text{-norm completion of } C_0\left(\sU \right) A  C_0\left(\sU \right).
 	\ee
+	Form \eqref{blowig_su_eqn} it turns out that
+	\be\label{blowig_sue_eqn}
+	\sU'\cap \sU'' =\emptyset\Leftrightarrow A_{\sU'}A_{\sU''}=A_{\sU''}A_{\sU'}= \{0\}.
+	\ee
 \end{empt}
 
 \begin{definition}\label{blowing_good_defn}
-A Hausdorff blowing-up	$C\cong C_0\left( \sY\right) \subset M\left(A \right)$ is said to be \textit{good} if for any family of open sets $\left\{\sU_\a\subset \sX\right\}$ such that $\sX = \cup\sU_\a$ the set $\sum A_{\sU_\a}$ generates  $A$.
+A Hausdorff blowing-up	$C\cong C_0\left( \sY\right) \subset M\left(A \right)$ is said to be \textit{good} if for any family of open sets $\left\{\sU_\a\subset \sX\right\}$ such that $\sX = \cup \ \sU_\a$ the set $\cup A_{\sU_\a}$ generates $C^*$-algebra $A$.
 \end{definition}
 \begin{remark}\label{blowing_good_rem}
-	If $\sX = \cup\sU_\bt$ is such that for all $\bt$ there is $\a$ such that $\sU_\bt \subset \sU_\a$ and $\sum A_{\sU_\bt}$ generates $A$ then  $\sum A_{\sU_\a}$ generates an essential ideal of $A$. 
+	If both $\left\{\sU_\a\subset \sX\right\}$  and $\left\{\sU_\bt\subset \sX\right\}$ are families  of open sets such that f $\sX = \cup~\sU_\bt$ is such that for any $\bt$ there is $\a$ such that $\sU_\bt \subset \sU_\a$ and $\cup A_{\sU_\bt}$ generates $C^*$-algebra $A$ then the union  $\cup A_{\sU_\a}$ generates  $A$. 
 \end{remark}
 \begin{remark}\label{blowing_good_ess_rem}
-If for all nonzero  $a \in A\setminus \{0\}$ there is $y \in \sY$ such that for any open neighborhood $\sU_y$ one has $a A_{\sU_y}\neq\{0\}$ then from the Lemma  \ref{essential_lem} it follows that the Hausdorff blowing-up	$C\cong C\left( \sY\right) \subset M\left(A \right)$ is {good}.
+If for all nonzero  $a \in A\setminus \{0\}$ there is $y \in \sY$ such that for any open neighborhood $\sU_y$ one has $a A_{\sU_y}\neq\{0\}$ then from the Lemma  \ref{essential_lem} it follows that for any family  $\left\{\sU_\a\subset \sX\right\}$   of open sets such that  $\sX = \cup\sU_\a$ the  $C^*$-algebra generated by the union $\cup A_{\sU_\a}$  is an essential ideal of $A$.
 \end{remark}
 \begin{lemma}\label{blowing_compact_lem}
 Let $\sY$ be a compact space. If a Hausdorff blowing-up	$C\cong C\left( \sY\right) \subset M\left(A \right)$ is {good} then for all nonzero  $a \in A\setminus \{0\}$ there is $y \in \sY$ such that for any open neighborhood $\sU_y$ one has $a A_{\sU_y}\neq\{0\}$.   
@@ -10310,15 +10380,20 @@ $$
 \mu\ge \nu \Leftrightarrow \forall \a_\mu  \in \mathscr A_\mu \quad\exists \a_\nu \in \mathscr A_\nu \quad \sU_{\a_\mu}\subset \sU_{\a_\nu}
 $$
 then $\La$ becomes a directed set.
-For all $\la\in \La$ define 
+If for all $\la\in \La$
 $$
-\sX_\la \bydef \left\{\left. \cup\sU_{\a_\la}\right| a A_{\sU_{\a_\la}}\neq\{0\}\right\}
+\sY_\la \bydef \left\{\left. \cup~\sU_{\a_\la}\right| a A_{\sU_{\a_\la}}\neq\{0\}\right\}\neq \emptyset.
 $$
-Since $\sY$ is compact there is $y\in\sY$ such that for all $\la\in \La$ and for any open   neighborhood $\sU_y$ one has $\sU_y \cap \sX_\la\neq \emptyset$.
+then from the Lemma \ref{essential_lem} it turns out that $\forall\la\in\La \quad \sY_\la \neq \emptyset$.
+The space $\sY$ is compact, so taking into account
+$
+ \forall \mu,\nu \in \La \quad \mu\ge \nu \Rightarrow \sY_\mu \subset \sY_\nu
+$
+one can obtain a convergent net $\left\{y_\la \right\} \ \sY$ such that $y_\la\in \sY_\la$ for all $\la\in\La$. If $y\bydef \lim y_\la$ then  for any open   neighborhood $\sU_y$ one has $\sU_y \cap \sY_\la\neq \emptyset$. It turns out that for any open neighborhood $\sU_y$ one has $a A_{\sU_y}\neq\{0\}$.
 \end{proof}
 
 \begin{example}\label{blowing_ctr_exm}
-	If $A$ is a $C^*$-algebra with Hausdorff and $\sX$ is its spectrum then from \ref{dauns_hofmann_thm} and \ref{ctr_hat_check_thm} one has the natural inclusion $C_0\left(\sX \right) \hookto M\left( A\right)$. For all $a \in A$ and $\eps> 0$ the subset
+	If $A$ is a $C^*$-algebra with Hausdorff and $\sX$ is its spectrum then from the Theorems \ref{oa_haus_prim_thm} and  \ref{dauns_hofmann_thm} one has the natural inclusion $C_0\left(\sX \right) \hookto M\left( A\right)$. For all $a \in A$ and $\eps> 0$ the subset
 	$$
 	\sY \bydef \left\{\left.x \in \sX\right| \left\| \rep_x\left(a\right)\right\|\ge \eps \right\}\subset\sY
 	$$
@@ -10330,7 +10405,9 @@ Since $\sY$ is compact there is $y\in\sY$ such that for all $\la\in \La$ and for
 	From the above equations there is the 	limit $
 	1_{M\left(A \right)  }= \bt~\text{-}\lim_{\la \in \La }u_\la
 	$
-	with respect to the strict topology (cf. Definition \ref{strict_topology}) of $M\left( A\right)$. It turns out that $C_0\left(\sX \right) \hookto M\left( A\right)$ is a {Hausdorff blowing-up} of $A$ (cf. Definition \ref{blowing_defn}).
+	with respect to the strict topology (cf. Definition \ref{strict_topology}) of $M\left( A\right)$. It turns out that $C_0\left(\sX \right) \hookto M\left( A\right)$ satisfies to the condition (a)  Definition \ref{blowing_defn}). If $\rep_x: A \to B\left( \H\right)$ is an irreducible representation then if $f \in C_0\left(\sX \right)$ is such that $f\left(x \right)  = 1$ then $\rep_x\left( f\right) = 1_{B\left(\H \right) }$ and $\rep_x\left(f \right)\H = \H$, i.e.  $C_0\left(\sX \right) \hookto M\left( A\right)$ satisfies to the condition (b)  Definition \ref{blowing_defn}).
+	So  $C_0\left(\sX \right) \hookto M\left( A\right)$
+	is a {Hausdorff blowing-up} of $A$ (cf. Definition \ref{blowing_defn}).
 \end{example}
 \begin{exercise}\label{blowing_ctr_exer}
 Prove that the given by the Example \ref{blowing_ctr_exm} Hausdorff blowing-up of $A$ is good (cf. Definition \ref{blowing_good_defn})
@@ -10342,7 +10419,7 @@ Let $A$ be a $C^*$- algebra and let $C_0\left( \sY\right)\hookto M\left(A \right
 	Let  $\left\{\sU_\a\right\}_{\a \in \mathscr A}$ be a {compliant with} $p$ family (cf. Definition and let $\left\{\widetilde\sU_{\widetilde\a}\right\}_{\widetilde\a \in \widetilde{\mathscr A}}$  the $p$-{lift} of $\left\{\sU_\a\right\}_{\a \in \mathscr A}$. (cf. Definition 
 	\ref{top_lconn_defn})
 	Let $\mathfrak P$ be a set of $\left\{\widetilde\sU_{\widetilde\a}\right\}$- paths (cf. Definition \ref{top_gen_path_defn}).  Consider a subset  $\mathfrak G \subset \mathfrak P\times A$ such that $\left( \mathfrak p,a \right)\in \mathfrak G$ if $\mathfrak p= \left(\widetilde\sU_{\widetilde\a_1}, ..., \widetilde\sU_{\widetilde\a_n}\right)$ then there are $a_1\in A_{p\left(\widetilde\sU_{\widetilde\a_1 }\right) },...,a_n\in A_{p\left(\widetilde\sU_{\widetilde\a_n }\right) }$ such that $a = a_1\cdot...\cdot a_n$. There is an involution on $\mathfrak G$ given by $\left( \mathfrak p,a \right)^*= \left( \mathfrak p^*,a^* \right)$. The action $G\left(\left.\widetilde \sY\right| \sY \right)\times \widetilde \sY\to \widetilde \sY$ induces an action of $G\left(\left.\widetilde \sY\right| \sY \right)\times \mathfrak G\to \mathfrak G$.
-	Let $\widetilde\B$ is a generated by $\mathfrak G$ free Abelian group, then both  involution and action of $G\left(\left.\widetilde \sY\right| \sY \right)$ on $\mathfrak G$ induce involution and action of $G\left(\left.\widetilde \sY\right| \sY \right)$ on $\B$. There is multiplication on $\B$ such that
+	Let $\widetilde\B$ is a generated by $\mathfrak G$ free Abelian group, then both  involution and action of $G\left(\left.\widetilde \sY\right| \sY \right)$ on $\mathfrak G$ induce involution and action of $G\left(\left.\widetilde \sY\right| \sY \right)$ on $\widetilde\B$. There is multiplication on $\widetilde\B$ such that
 	\bean
 	\left( \mathfrak p_1,a_2 \right)\left( \mathfrak p_2,a_2 \right)
 	\bydef \\
@@ -10351,34 +10428,36 @@ Let $A$ be a $C^*$- algebra and let $C_0\left( \sY\right)\hookto M\left(A \right
 		\left( \mathfrak p_1\circ \mathfrak p_2,a_1a_2 \right) & \left( \mathfrak p_1,\mathfrak p_2 \right)\text{ is  composable}
 	\end{cases}
 	\eean
-	where  $\mathfrak p_1\circ \mathfrak p_2$ is given by \eqref{top_path_comp_eqn}, so  $\B$ becomes a *-algebra. If $\B\subset A$ be the algebraically generated by $\sum A_{\sU_\a}$ subalgebra then 
-	++++
-	DEFINE BIMODULE STRUCTURE B to B
-	+++++
-	
-	there is the $\widetilde\B$ is an $\B$-bimodule. 
-	There is a homomorphism $p_{\widetilde\B}: \widetilde\B \to A$ given by $\left( \mathfrak p,a \right)\mapsto a$ and $G\left(\left.\widetilde \sY\right| \sY \right)$-invariant  *-seminorm $\left\|\cdot \right\|_{\widetilde{\B}}$ on $\widetilde \B$ given by
+	where  $\mathfrak p_1\circ \mathfrak p_2$ is given by \eqref{top_path_comp_eqn}, so  $\widetilde\B$ becomes a *-algebra. If $\A\subset A$ be the algebraically generated by $\cup A_{\sU_\a}$ subalgebra then there is the left and right action of $\A$ on $\widetilde\B$. Let  $a \in A_{\sU_\a}$ and let $\widetilde b \in \widetilde \B$ be represented by the pair $\left(\mathfrak p, b\right)$ such that $\mathfrak p= \left(\widetilde\sU_{\widetilde\a_1}, ..., \widetilde\sU_{\widetilde\a_n}\right)$. If $p\left( \widetilde\sU_{\widetilde\a_1}\cap \sU_{\widetilde\a}\right) = \emptyset$, then we put $a\widetilde b = 0$. Otherwise there is the unique path $\mathfrak p' = \mathfrak p'' \circ \mathfrak p$ such that $\mathfrak p'' = \left(\widetilde \sU_\a\right)$ and $\mathfrak p\left( \widetilde \sU_\a\right) \cap \sU_\a \neq \emptyset$ (cf. Lemma \ref{top_path_lift_lem}). We put $a \widetilde b =\left(\mathfrak p', ab\right)$. Since $\cup A_{\sU_\a}$ algebraically generates $\A$ one has an action $\A \times \widetilde \B \to \widetilde B$. Using *-operation one can obtain the right action of $\A$ on $\widetilde \B$ such that $\widetilde \B$ becomes an $\A$-bimodule.	There is a surjective *-homomorphism $p_{\widetilde\B}: \widetilde\B \to A$ given by $\left( \mathfrak p,a \right)\mapsto a$ and $G\left(\left.\widetilde \sY\right| \sY \right)$-invariant  *-seminorm $\left\|\cdot \right\|_{\widetilde{\B}}$ on $\widetilde \B$ given by
 	\bean
 	\left\|\widetilde b \right\|_{\widetilde{\B}} = \sqrt{\left\|p|_{\widetilde{\B}}\left(\widetilde b\widetilde b^*\right)  \right\|}
 	\eean 
 	The set
+	$
+	I_{\widetilde{\B}} = \left\{\left.\widetilde b \in \widetilde\B\right| \left\| \widetilde b \right\|_\B=0\right\}
+	$
+	is an involutive two sided ideal. The seminorm on $\left\|\cdot \right\|_{	I_{\widetilde{\B}}}$ induces a norm $\left\|\cdot \right\|_{\widetilde B/ I_{\widetilde{\B}}}$ on $\widetilde \A\bydef\widetilde \B/	I_{\widetilde{\B}}$, denote by $\widetilde A$ the $\left\|\cdot \right\|_{\widetilde B/ I_\B}$-norm completion of $\widetilde \A$.  The structure of $\A$-bimodule of $\widetilde{\B}$ induces the structure of the Hilbert $A$-bimodule on $\widetilde A$. On the other hand  there is an injective *-homomorhism
 	$$
-	I_{\widetilde{\B}} = \left\{\left.\widetilde b \in \widetilde\B\right| \left\| \widetilde b \right\|_\B\right\}
+	\widetilde A\hookto \End_A\left( \widetilde A\right) 
 	$$
-	is an involutive two sided ideal. The seminorm on $\left\|\cdot \right\|_\B$ induces a norm $\left\|\cdot \right\|_{\widetilde B/ I_\B}$ on $\widetilde \B/I_\B$, denote by $\widetilde \A$ the norm completion of $\widetilde \B$.  FROM NORM PROVE!!! $\A\hookto\widetilde \A$. On the other hand $\widetilde \A$ is Hilbert $A$-module so there is an injective *-homomorhism
-	$$
-	\widetilde \A\hookto \End_A\left( \widetilde \A\right) 
-	$$
-	where $\End_A\left( \widetilde \A\right)$ means the $C^*$-algebra of adjoint endomorphisms. 
-	The $C^*$-norm on $\End_A\left( \widetilde \A\right)$ induces the $C^*$-norm on $\widetilde \A$ Similarly to the Lemma \ref{fin_top_lem} one can proof that $C^*$-norm on $\widetilde \A$ is equivalent to the norm $\left\|\cdot \right\|_{\widetilde B/ I_\B}$
-	so $\widetilde \A$ is a $C^*$-algebra.
+	where $\End_A\left( \widetilde A\right)$ means the $C^*$-algebra of adjoint endomorphisms. 
+	The $C^*$-norm on $\End_A\left( \widetilde A\right)$ induces the $C^*$-norm on $\widetilde A$ Similarly to the Lemma \ref{fin_top_lem} one can proof that $C^*$-norm on $\widetilde A$ is equivalent to the norm $\left\|\cdot \right\|_{\widetilde B/ I_{\widetilde{\B}}}$
+	so $\widetilde A$ is a $C^*$-algebra.
 	
 	\begin{definition}\label{blowing_a0_x_defn}
-!!!$\widetilde A_0\left(\widetilde\sX  \right)\bydef$ 
+		In the above situation denote by
+		\be\label{blowing_a0_x_eqn}
+		\widetilde A_0\left(\widetilde\sX  \right)\bydef \widetilde A
+		\ee
 	\end{definition}
-\begin{remark}
-	AGREES WITH!!!
-\end{remark}
+\begin{exercise}\label{blowing_cs_funct_exer}
+Prove that 	the equation \eqref{blowing_a0_x_eqn} yields 
+a contravariant functor $A_0$ from  the category  $\mathfrak{FinCov}$-$\sX$ (cf. Definition \ref{top_fin_cov_defn}) to the category of $C^*$-algebras and *-homomorphisms. The functor $A_0$ is said to by the \textit{finite covering functor associated with} $A$.
+\end{exercise}
+
+\begin{exercise}
+	Consider the Example \ref{blowing_ctr_exm}. Prove that the explained in \ref{top_cs_funct_empt} functor $A_0$ is a specialization of the given by the Exercise \ref{blowing_cs_funct_exer}  functor.
+	\end{exercise}
 
 \begin{definition}\label{blowing_lift_defn}
 	Let $\sF$  be a	continuity structure for $\sX$ {and the} $\left\{A_x\right\}_{x \in \sX}$, let $p: \widetilde{\sX} \to \sX$ be a covering. For any $a \in C\left(\sX, \left\{A_x\right\}, \sF \right)$ we define 
@@ -10391,9 +10470,10 @@ Let $A$ be a $C^*$- algebra and let $C_0\left( \sY\right)\hookto M\left(A \right
 	\left\{\widetilde{a}_{\widetilde{x}}\right\}\bydef \lift_p\left( a\right) .
 	\ee
 \end{definition}
-\begin{remark}
+\begin{exercise}
+	Consider the Example \ref{blowing_ctr_exm}. Prove that $A$
 	AGREES WITH!!!
-\end{remark}
+\end{exercise}
 \begin{definition}\label{blowing_lift_desc_defn}
 	Let $\sF$ 	continuity structure for $\sX$ {and the} $\left\{A_x\right\}_{x \in \sX}$, let $p: \widetilde{\sX}\to\sX$ be a covering. Let $\widetilde{\sU}$ be an open set such that the restriction $\left.p\right|_{\widetilde{\sU}}$ is injective. Let $\sU=p\left( \widetilde{\sU}\right)$. If $a \in C\left(\sX, \left\{A_x\right\}, \sF \right)$ is such that $\supp a \subset \sU$ and $\widetilde{a}= \lift_p\left( a\right)$ then 
 	the family 
@@ -10789,81 +10869,86 @@ $$
 So there is an injective  $\widetilde \B/I\to \widetilde \B'$. PROOF SURJECTIVE. 
 !!!
 \end{proof}
-
-\subsection{Infinite noncommutative coverings}
-\begin{lemma}\label{blowing_comply_lem}
-	ADAPT TO BLOWING UP\\
-	Let   $A\stackrel{\mathrm{def}}{=} C_0\left(\sX, \left\{A_x\right\}_{x \in \sX}, \sF \right)$ be a $C^*$-algebra described in \ref{comm_lift_desc_sum_strong_empt}, and suppose that $\sX$ is a connected, locally connected, locally compact, Hausdorff space. 
-	Let both $p_1: \widetilde{\sX}_1\to \sX$,  $p_2: \widetilde{\sX}_2\to \sX$ are transitive coverings.
-	If  $\pi^1_2 : A_0\left( \widetilde{\sX}_1\right)  \to A_0\left( \widetilde{\sX}_2\right)$ is an injective *-homomorphism such that $A_0\left( p_1\right) = \pi^1_2 \circ A_0\left( p_2\right)$ (cf. Notation \eqref{blowing_c0_ob_eqn}) then following conditions hold:
-	\begin{enumerate}
-		\item[(a)] There is the transitive covering $p^2_1:\widetilde \sX_2 \to  \widetilde \sX_1$  such that  $\pi^1_2 = A_0\left(p^2_1\right)$ (cf. equation \eqref{blowing_cb_defn_eqn}).
-		
-		\item[(b)] If
-		\be\label{com_gr_iso_alg_eqn}
-		G_j = \left\{\left. g \in \Aut\left( A_0\left( \widetilde{\sX}_j\right) \right)~\right|~ ga = a \quad \forall a \in  A\right\}, \quad j=1,2
-		\ee
-		then for  there are the natural isomorphisms 
-		\be\label{com_gr_iso_eqn}
-		G_j \cong G\left(\left.\widetilde \sX_j~\right|\sX \right), \quad j=1,2.
-		\ee
-		Moreover  one has
-		\be\nonumber
-		G_2\pi^1_2\left( A_0\left( \widetilde{\sX}_1\right)\right)=  \pi^1_2\left(A_0\left( \widetilde{\sX}_1\right)\right).
-		\ee 
-		
-		\item[(c)] The natural homomorphism $h: G_2\to 	G_1$ such that 
-		\be\nonumber
-		\pi^1_2\left( h\left(g \right)a_1\right) = g \circ \pi^1_2\left(a_1 \right), \quad \forall a_1 \in  A_0\left( \widetilde{\sX}_1\right) 
-		\ee 
-		is surjective. 
-		\item[(d)] If  $\rho:  A_0\left( \widetilde{\sX}_1\right)  \to  A_0\left( \widetilde{\sX}_2\right) $ is any injective *-homomorphism  such that $ A_0\left( p_2\right) = \rho \circ  A_0\left( p_1\right)$ then there is the unique $g \in 	G_1$ such that 
-		\be\nonumber
-		\rho =  \pi^1_2 \circ g.
-		\ee
-	\end{enumerate}
-	
+\begin{lemma}
+Let $A$ be a $C^*$-algebra, and let $C_0\left(\sY \right) \to M\left( A\right)$ be a good Hausdorff blowing-up. If there are transitive coverings $p_1: \widetilde\sY_1 \to \sY$ and  $p_2: \widetilde\sY_2 \to \sY$ such that there is a   commutative diagram  
+		\newline
+\begin{tikzpicture}
+	\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
+	{
+		\widetilde A_0\left(  \widetilde\sY_1\right)   & & 	\widetilde A_0\left(  \widetilde\sY_2\right)\\ 
+		& A  & \\};
+	\path[-stealth]
+	(m-1-1) edge node [above] {$\pi$} (m-1-3)
+	(m-2-2) edge node [left]  {$A_0\left(p_1 \right) ~~$} (m-1-1)
+	(m-2-2) edge node [right] {$~~A_0\left(p_2 \right)$} (m-1-3);
+\end{tikzpicture}
+\\ 	
+with  invective *-homomorphism  $\pi$ then there is a transitive covering $p^2_1: \widetilde\sY_1 \to \widetilde \sY_2$ such that $\pi = A_0\left( \widetilde\sY_1\right)_0\left(p^2_1 \right)$.
 \end{lemma}
 \begin{proof}
-		ADAPT TO BLOWING UP\\
-	(a) Let $\widetilde x_2 \in \widetilde\sX_2$. Let $\widetilde\sU'_2$ is a connected open subset neighborhood of $\widetilde x_2$ which is mapped homeomorphically onto $p_2\left(\widetilde\sU'_2 \right)$. There is a connected open subset $\widetilde\sU'_1\subset \widetilde\sX_1 $ which is mapped homeomorphically onto $p_1\left(\widetilde\sU'_1 \right)$ and  $p_2\left(\widetilde x_2 \right)\in p_1\left(\widetilde\sU'_1 \right)$. Let us select an open connected neighborhood $\sU$ of $p_2\left(\widetilde x_2 \right)$ such that $\sU \subset p_1\left(\widetilde\sU'_1 \right)\cap p_2\left(\widetilde\sU'_2 \right)$ and let $\widetilde\sU_1\bydef \widetilde\sU'_1\cap p^{-1}_1\left( \sU\right)$ and $\widetilde\sU_2\bydef \widetilde\sU'_2\cap p^{-1}_2\left( \sU\right)$.	
-	If the ideals $\left.A\right|_{\sU}\subset A$, $\left.A_0\left( \widetilde{\sX}_1\right) \right|_{\widetilde \sU_1}\subset A_0\left( \widetilde{\sX}_1\right) $ and $\left.A_0\left( \widetilde{\sX}_2\right) \right|_{\widetilde \sU_2}\subset A_0\left( \widetilde{\sX}_2\right) $  are given by the equation \eqref{open_ideal_eqn} ideals then the generated by $A_0\left(p_1 \right) \left(\left.A\right|_{\sU} \right)$ and $A_0\left(p_2 \right) \left(\left.A\right|_{\sU} \right)$ hereditary subalgebras of $A_0\left( \widetilde{\sX}_1\right)$ and $A_0\left( \widetilde{\sX}_2\right)$ are equal to
-	\be\label{ctrl_dir_eqn}
-	\begin{split}
-		\bigoplus_{g_1 \in G\left( \left.\widetilde\sX_1\right|\sX\right)}g_1 \left.A_0\left( \widetilde{\sX}_1\right) \right|_{\widetilde \sU_1} \subset A_0\left( \widetilde{\sX}_1\right),\\
-		\bigoplus_{g_2 \in G\left( \left.\widetilde\sX_2\right|\sX\right)}g_2 \left.A_0\left( \widetilde{\sX}_2\right) \right|_{\widetilde \sU_2} \subset A_0\left( \widetilde{\sX}_2\right),\\
-	\end{split}
-	\ee
-	i.e. there are  {direct sum decompositions} of both $\left(A, A_0\left( \widetilde{\sX}_1\right), G\left(\left.\widetilde{\sX}_1\right|\sX\right) ,A_0\left(p_1\right) \right)$ and  $\left(A, A_0\left( \widetilde{\sX}_2\right), G\left(\left.\widetilde{\sX}_2\right|\sX\right) ,A_0\left(p_2\right) \right)$
-	(cf.  Definition \ref{hereditary_dir_sum_defn}). The system of equations \eqref{ctrl_dir_eqn} is  a special instance of the equations \eqref{hereditary_dir_sum_eqn}. If\\ $p_e:\bigoplus_{g \in G\left( \left.\widetilde\sX_2\right|\sX\right)}g \left.A_0\left( \widetilde{\sX}_2\right) \right|_{\widetilde \sU_2} \to \left.A_0\left( \widetilde{\sX}_2\right) \right|_{\widetilde \sU_2}$ is the natural projection then from the  Lemma \ref{hereditary_dir_sum_lem} it follows that there is the unique $g_1 \in G_1$ such that\\ $p_e\circ \pi^1_2\left( g_1\left.A_0\left( \widetilde{\sX}_1\right) \right|_{\widetilde \sU_1}\right) \neq \{0\}$. Both homeomorphisms $\widetilde \sU_2\cong\sU$ and $g_1\widetilde \sU_1\cong\sU$ yield a homeomorphism $\varphi : \widetilde \sU_2\to g_1\widetilde \sU_1\cong\sU$. Assume that $p^2_1\left( \widetilde x_2\right) \bydef \varphi\left(\widetilde x_2 \right)$. This definition does not depend on choice of the sets $\sU$, $\widetilde \sU_1$, $\widetilde \sU_2$ because if we select $\sU'\subset \sU$, $\widetilde \sU_1'\subset \widetilde \sU_1$, $\widetilde \sU_2' \subset \widetilde \sU_2$ such that $\widetilde x_2\in \widetilde \sU'_2$ then we obtain the same $p^2_1\left( \widetilde x_2\right)$. In result one has a continuous map $p^2_1: \widetilde \sX_2\to \widetilde \sX_1$ which is surjective because $\pi^1_2$ is injective.
-	From the Lemma \ref{hereditary_dir_sum_lem} it follows that there is the surjecive homomorphism	$\phi: G_2 \to G_1$ such that
-	\bean
-	\pi^1_2\left(g_1 \left.A_0\left( \widetilde{\sX}_1\right) \right|_{\widetilde \sU_1} \right) \subset \bigoplus_{g_2 \in \ker\phi }g_2 \left.A_0\left( \widetilde{\sX}_2\right) \right|_{\widetilde \sU_2} 
-	\eean
-	It turns out that
+From the Lemma \ref{ind_qusai_lem}  there is an  approximate unit of $A_0\left(  \widetilde\sY_2\right)$ contained in $A$. The $A_0\left(p_1 \right)$ image of this  approximate unit  is the same approximate unit of  $A_0\left(  \widetilde\sY_2\right)$. From  the Proposition \ref{mult_str_pos_prop} it turns out that there is the natural inclusion $M\left(A_0\left(  \widetilde\sY_1\right)\right)\to M\left(  A_0\left(  \widetilde\sY_2\right)\right)$. Let $y_1 \in  \widetilde\sY_1$ be a point and let $\widetilde\sU_1$ be a connected neighborhood of $\widetilde\sU_2$ which is mapped homeomorphically on $\sU \subset \sY$. The there is an open connected set which is mapped homeomorhically on  !!! CHECK FINISH
+ \end{proof}
+\begin{lem}\label{blowing_functor_lem}!!! ADAPT IT
+	Let $\sX$ be a connected,  locally compact, Hausdorff space.
+	Denote by $\mathfrak{FinCov}$-$C_0\left(\sX \right)$ a category of noncommutative  finite-fold  coverings of $C_0\left(\sX \right)$,  i. e.
+	\begin{itemize}
+		\item  Objects of $\mathfrak{FinCov}$-$C_0\left(\sX \right)$ are noncommutative  finite-fold  coverings of $C_0\left(\sX \right)$.
+		\item If $\pi': C_0\left(\sX \right)\to  C_0\left( \widetilde{\sX}'\right)$ and  $\pi'':C_0\left(\sX \right) \to C_0\left( \widetilde{\sX}'' \right)$ are objects of $\mathfrak{FinCov}$-$C_0\left(\sX \right)$ then the morphism from $\pi'$ to $\pi''$ is an injective *-homomorphism $\pi: C_0\left( \widetilde{\sX}' \right) \to  C_0\left( \widetilde{\sX}'' \right)$ such that the following diagram commutative.
+		\newline
+		\begin{tikzpicture}
+			\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
+			{
+				C_0\left(\sX' \right)  & & C_0\left(\sX'' \right) \\ 
+				& C_0\left(\sX \right)  & \\};
+			\path[-stealth]
+			(m-1-3) edge node [above] {$\pi$} (m-1-1)
+			(m-2-2) edge node [left]  {$\pi'~~$} (m-1-1)
+			(m-2-2) edge node [right] {$~~\pi''$} (m-1-3);
+		\end{tikzpicture}
+		\\ 	
+	\end{itemize}
+	Following conditions hold:
+	\begin{enumerate}
+		\item [(i)] 	If the category $\mathfrak{FinCov}$-$\sX$ is given by the Definition \ref{top_fin_cov_defn} then there is the natural equivalence of the categories $C_0:\mathfrak{FinCov}$-$\sX \cong \mathfrak{FinCov}$-$C_0\left(\sX \right)$.
+		\item[(ii)] Any unordered pair of *-homomorphisms $\left( \pi',\pi''\right) $ from the above diagram is {compliant} (cf. Definition \ref{compliant_covering_defn}).
+	\end{enumerate}
+	
+\end{lem}
+\begin{proof}
+	(i) From the Theorem \ref{comm_fin_thm} it follows that there is a one-to-one correspondence between objects of $\mathfrak{FinCov}$-$\sX$ and objects of  $\mathfrak{FinCov}$-$C_0\left(\sX \right)$ given by
 	$$
-	\left( p^2_1\right)^{-1}\left( g_1\widetilde \sU_2\right) = \bigsqcup_{g_2 \in \ker\phi}g_2\widetilde \sU_1,
+	\left(p:\widetilde{\sX} \to \sX \right) \mapsto 	C_0\left( p\right) :   C_0\left( \sX\right)    \hookto C_0\left( \widetilde{\sX}\right)
 	$$
-	i.e. $p^2_1$ is a  covering. From   the Corollary  \ref{blowing_covp_cat_cor} it turns that  the map $p^2_1$ is a transitive covering.\\		
-	(b)	If $g_j \in G_j$ then from (a) of this lemma it follows that there is a covering $q_j : \widetilde{\sX}_j \to \widetilde{\sX}_j$ such that $q_j = p_j \circ q_j$ and $A_0\left(q_j \right) = g$. From the Definition  \ref{cov_proj_cov_grp_defn} it turns out that $q_j \in  G\left(\left.\widetilde \sX_j~\right|\sX \right)$ and one has the isomorphism
-	\bean
-	G_j \cong G\left(\left.\widetilde \sX_j~\right|\sX \right),\\
-	g_j \mapsto q_j.
-	\eean
-	The equation 
-	\be\nonumber
-	G_2\pi^1_2\left( A_0\left( \widetilde{\sX}_1\right)\right)=  \pi^1_2\left(A_0\left( \widetilde{\sX}_1\right)\right).
-	\ee 
-	follows from \eqref{blowing_g_c0_inv_eqn} and the isomorphism $G_j \cong G\left(\left.\widetilde \sX_j~\right|\sX \right)$.\\
-	(c) Follows from \eqref{com_gr_iso_eqn} and the natural surjective homomorphism $ G\left(\left.\widetilde \sX_2~\right|\sX \right)\to  G\left(\left.\widetilde \sX_1~\right|\sX \right).$\\
-	(d)
-	If  $\rho:  A_0\left( \widetilde{\sX}_1\right)  \to  A_0\left( \widetilde{\sX}_2\right) $ is any *-homomorphism  then from (a) of this lemma it turns out that there is a covering $q : \widetilde{\sX}_1 \to {\sX}$ such that $p_1 \circ q = p_2$ and $\rho=C_0\left( q\right)$. From  the Lemma \ref{blowing_compliant_covering_lem} it follows that there is $g \in  G\left(\left.\widetilde \sX_1~\right|\sX \right)$ such that $q =g \circ p$. It follow that 
-	\be\label{blowing_cpqg_eqn}
-	C_0\left( q\right)= C_0\left( p^2_1 \right) \circ g
+	where $C_0\left(p\right)$ is given by the Definition \ref{top_c_funct_defn}. If $p':\widetilde{\sX}' \to \sX$ and $p'':\widetilde{\sX}'' \to \sX$ are objects of $\mathfrak{FinCov}$-$\sX$ and $p: \widetilde{\sX}' \to \widetilde{\sX}''$ is a morphism of $\mathfrak{FinCov}$-$\sX$ then from the Corollary \ref{top_covp_cat_cor} it turns out that $p$ is a transitive finite-fold covering. From the equation \eqref{top_c0_p_eqn} it follows that $p$ corresponds to the injective *-homomorphism
+	\be\label{top_c_funct_lem_eqn}
+	C_0\left(p \right):  C_0\left( \widetilde{\sX}''\right)    \to C_0\left( \widetilde{\sX}'\right).
 	\ee
-	where $g$ is regarded as element of $\Aut\left(A_0\left( \widetilde \sX_1 \right) \right)$. Taking into account $\rho = C_0\left(q \right)$ and $\pi^1_2=C_0\left( p^2_1 \right)$ the equation \eqref{blowing_cpqg_eqn} is equivalent to $
-	\rho =  \pi^1_2 \circ g$.
+	So one has a functor from  $\mathfrak{FinCov}$-$\sX$ to  $\mathfrak{FinCov}$-$C_0\left( \sX\right)$. Let us define the inverse  functor. From the Theorem \ref{comm_fin_thm} it follows that any object $\pi: C_0\left( \sX\right) \hookto C_0\left( \widetilde{\sX}\right)$ of $\mathfrak{FinCov}$-$C_0\left( \sX\right) $ corresponds to a transitive finite-fold covering $p: \widetilde{\sX} \to \sX$ such that $\pi = C_0\left(p \right)$. If $C\left(p' \right): C_0\left( {\sX}\right)\to  C_0\left( \widetilde{\sX}'\right) $ and $C\left(p'' \right): C_0\left( {\sX}\right)\to C_0\left( \widetilde{\sX}''\right)$ are objects of $\mathfrak{FinCov}$-$C_0\left( \sX\right)$  and $\pi: C_0\left( \widetilde{\sX}''\right)    \to C_0\left( \widetilde{\sX}'\right)$ is a *-homomorphism such that $ C_0\left(p'\right) = \pi \circ C_0\left(p''\right)$ then from the Lemma !!!
+	\begin{corollary}\label{com_norm_cor!} !!!
+		Let $\sX$, $\sX'$ and $\sX''$ be connected, locally connected, locally compact, Hausdorff spaces.
+		If $p': \sX' \to \sX$ and $p'': \sX'' \to \sX'$ are finite-fold  transitive  coverings such that $p'' \circ p'$ is transitive then
+		\begin{enumerate}
+			\item[(i)] There is an exact sequence of group homomorphisms
+			$$
+			\left\{e\right\} \to 	G\left(\left.\sX''~\right|~\sX' \right) \to 	G\left(\left.\sX''~\right|~\sX \right) \to 	G\left(\sX'~|~\sX \right) \to \left\{e\right\}.
+			$$
+			\item[(ii)]
+			For any $g \in 	G\left(\left.\sX''~\right|~\sX \right)$ one has
+			$
+			gC_0\left(\sX' \right) = C_0\left(\sX' \right). 
+			$
+		\end{enumerate}
+	\end{corollary}
+	
+	\begin{corollary}\label{top_covp_cat_cor!} !!!
+		Consider the situation of the Lemma \ref{top_covp_cat_lem}. If the map $p$ is surjective and the covering $p_1$ is transitive then map $p$ is a transitive covering.
+	\end{corollary}
+	\ref{comm_comply_lem} it turns out that there is a finite-fold  transitive covering $p: \widetilde{\sX}' \to \widetilde{\sX}''$ such than  $\pi= C_0\left( p\right) $ and $p'= p \circ p''$. So one has the inverse functor from   $\mathfrak{FinCov}$-$C_0\left( \sX\right)$ to $\mathfrak{FinCov}$-$\sX$.\\
+	(ii)  !!!	The conditions (a)-(d) of the Definition \ref{compliant_covering_defn} directly follow from (a)-(d) of the Lemma \ref{top_comply_lem}.
 \end{proof}
+
+
+\subsection{Infinite noncommutative coverings}
 \begin{corollary}\label{blowing_comply_cor}
 	COMPLIES!!!  Definition \ref{compliant_covering_defn}
 \end{corollary}
@@ -11067,7 +11152,10 @@ Let $A$ be a $C^*$-subalgebra, and let $C\cong C_0\left( \sY\right) \subset M\le
 	
 \end{lemma}
 
-\begin{proof} (i)
+\begin{proof}
+	Note that 
+	
+	\paragraph{title} (i)
 	If $\widetilde{b} \in C_0\left( \lift_p\left[C\left(\mathcal{X}, \left\{A_x\right\}, \sF \right)\right] \right)$ and $\eps > 0$ then from the Definition \ref{c_c_def_2} it turns out there is a compact set $\widetilde{\mathcal V}\subset \widetilde{\mathcal X}$ such that $\left\| \widetilde{b} \left(\widetilde{x}  \right) \right\| < \frac{\eps}{2\left\|\widetilde{a}\right\|}$ for any $\widetilde{x} \in \widetilde{\mathcal X} \setminus \widetilde{\mathcal V}$. Let us prove that the set
 	$$
 	G_0=\left\{\left. g \in G\left(\left.\widetilde{\sX}~\right|\sX\right)\right| \widetilde \sV \cap g \widetilde\sU \neq \emptyset \right\}
@@ -11093,51 +11181,20 @@ Let $A$ be a $C^*$-subalgebra, and let $C\cong C_0\left( \sY\right) \subset M\le
 \end{proof}
 
 \begin{lemma}\label{blowing_cov_inc_strong_lem}
-	Consider the situation of the Lemma \ref{blowing_cov_inc_strict_lem}.
+	Consider the situation of the Lemma \ref{blowing_cov_inc_strict_lem}. Let $\widetilde\sX$ is the spectrum of $\widetilde{A}$ and let $\rep_{  \widetilde{x }}: \widetilde A \to B\left( \H_{ \widetilde{x}}\right)$ be the corresponding to 
+	!!!
+	Suppose that for all $\widetilde x \in \widetilde\sX$ for all $\widetilde x \in \widetilde\sX$ there is the following  convergent  with respect to the strong topology of $B\left( \H_{ \widetilde{x}}\right)$ series
+	$$
+\sum_{g \in G\left(\left.\widetilde{\sX}~\right|\sX\right) } \rep_{  \widetilde{x }}\left(g \widetilde a \right)= \rep_{  \widetilde{x }}\left( \lift_p \circ \desc_p\left( \widetilde{a}\right) \right) 
+	$$
+	w,
 	If $\pi_a: \left(\widetilde{M}, \widetilde{\sF} \right)\hookto B\left( \H_a\right)$ is the atomic representation (cf. Definition \ref{atomic_repr_defn}) then the series \eqref{blowing_strict_eqn} 
 	is convergent with respect to the strong topology of $B\left( \H_a\right)$. Moreover the sum of the series in sense of the strong topology of $B\left( \H_a\right)$ is equal to $\desc_p\left( \widetilde a\right)$ (cf. Definition \ref{blowing_desc_defn}).  
 \end{lemma}
 \begin{proof}
-	From \eqref{blowing_atomic_eqn} it follows that $\H_a \cong \bigoplus_{\widetilde L \in \widetilde M/\widetilde \sF_{\mathrm{no~hol}}}  L^2\left(\G_{x_L}\right)$.
-	If	$\xi \in \H_a$ is given by
-	$$
-	\xi =\left(...~, \underbrace{ \xi_{\widetilde{L}}}_{\widetilde{L}^{\text{th}}-\text{place}} ,~...\right)
-	$$
-	and $\eps > 0$ then there is a finite subset  is a finite subset $F = \left\{\widetilde  L_1,..., \widetilde  L_m\right\}\subset \widetilde M/\widetilde \sF_{\mathrm{no~hol}}$ such that 
-	$$
-	\eta_{\widetilde L}= \begin{cases}
-		\xi_{\widetilde L}& {\widetilde L}\in F\\
-		0& {\widetilde x}\notin F\\
-	\end{cases}\text{ AND }	\eta =\left(...~, \underbrace{ \eta_{\widetilde{L}}}_{\widetilde{L}^{\text{th}}-\text{place}} ,~...\right)	 \quad \Rightarrow \quad \left\|\widetilde\xi- \widetilde\eta\right\|< \frac{\eps} {2\left\|a\right\|}.
-	$$
-	For any  $\widetilde L\in F$	there is the irreducible representation $\rho_L \stackrel{\text{def}}{=} \rho_{x_L}: C^*_r\left(\widetilde M, \widetilde \sF\right) \to B\left( L^2\left(\G_{\widetilde x_{\widetilde L}}\right)\right)$ (cf. \eqref{blowing_leaf_repr_eqn}) and the state $\tau_{\widetilde L}: C^*_r\left(\widetilde M, \widetilde \sF\right) \to \C$, such that $L^2\left( \G_{\widetilde x_{\widetilde L}}\right) \cong L^2\left(C^*_r\left(\widetilde M, \widetilde \sF\right), \tau_{\tau_{\widetilde L}}\right)$ where $L^2\left(C^*_r\left(\widetilde M, \widetilde \sF\right), \tau_{\tau_{\widetilde L}}\right)$ is given by the GNS-construction (cf. Section \ref{gns_constr_sec}).  Otherwise there is the specialization  $f_{\tau_{\widetilde L}}:C^*_r\left(\widetilde M, \widetilde \sF\right)\to  L^2\left(C^*_r\left(\widetilde M, \widetilde \sF\right), \tau_{{\widetilde L}}\right)$ of given by \eqref{from_a_to_l2_eqn} homomorphism of left $C^*_r\left(\widetilde M, \widetilde \sF\right)$-modules such that $f_{\tau_{\widetilde L}}:C^*_r\left(\widetilde M, \widetilde \sF\right)$ is dense in $L^2\left(C^*_r\left(\widetilde M, \widetilde \sF\right), \tau_{{\widetilde L}}\right)$.
-	Let   $\mathfrak{A}= \left\{\sU_\iota\right\}_{\iota \in \I}$ of $M$ be a {subordinated} to $p$ regular foliated atlas. Let $\widetilde{ \mathfrak{A}}= \left\{\widetilde \sU_{\widetilde \iota }\right\}_{\widetilde \iota  \in \widetilde \I}$ be the $p$-\textit{lift} of $\mathfrak{A}$. $\widetilde b\in  \Ga_c\left( \G\left( \widetilde M\right) , \widetilde \Om^{1/2}\right)$ such that
-	\bean
-	\widetilde b_{\widetilde L}= \sum^n_{k = 1} j_{\widetilde\sU_{\widetilde\iota_{k,0}}}\left( \widetilde a_{\widetilde \iota_{k,0}}\right) \cdot ...\cdot j_{\widetilde\sU_{\widetilde\iota_{k,j_k}}}\left( \widetilde a_{\widetilde \iota_{k,j_k}}\right), \quad\widetilde a_{\widetilde \iota_{k,j_l}}\in   \Ga_c\left(  \G\left(\sU_{\widetilde \iota_{j,l}} \right) , \widetilde \Om^{1/2}\right),\\
-	\left\|f_{\tau_{\widetilde L}}\left( \widetilde b_{\widetilde L}\right) -\widetilde \eta_{\widetilde L} \right\| < \frac{\eps }{2 \left|F\right|\left\|\widetilde a \right\|}
-	\eean
-	where $\widetilde\sU_{\widetilde\iota_{k,l}} \in \widetilde{ \mathfrak{A}}$ for all $k,l$ and $j_{\widetilde\sU_{\widetilde\iota_{k,l}}}$ are given by
-	\eqref{blowing_inc_gc_eqn} maps. Similarly to \eqref{blowing_g'_eqn} the set
-	$$
-	G'_{\widetilde L} \bydef\left\{\left.g \in G\left(\left.\widetilde M\right|M \right)\right|\left(g \widetilde a \right) \widetilde b_{\widetilde L}\neq 0 \right\}
-	$$
-	hence the set
-	$$
-	G_{\widetilde L} \bydef\left\{\left.g \in G\left(\left.\widetilde M\right|M \right)\right|\left(g \widetilde a \right) f_{\tau_{\widetilde L}}\left( \widetilde b_{\widetilde L}\right) \neq 0 \right\}\subset G_{\widetilde L}
-	$$
-	is also finite. If $G \bydef \cap_{\widetilde L \in F} G_{\widetilde L}$ then
-	$$
-	\sum_{g \in G} g \widetilde a\left(\sum_{\widetilde L \in F} f_{\tau_{\widetilde L}}\left( \widetilde b_{\widetilde L}\right) \right)=  \sum_{g \in G\left(\left.\widetilde M\right|M \right)} g \widetilde a\left(\sum_{\widetilde L \in F} f_{\tau_{\widetilde L}}\left( \widetilde b_{\widetilde L}\right) \right),
-	$$
-	so taking into account  $\left\|\widetilde\xi- \widetilde\eta\right\|< \frac{\eps} {2\left\|a\right\|}$ and 	$\left\|f_{\tau_{\widetilde L}}\left( \widetilde b_{\widetilde L}\right) -\widetilde \eta_{\widetilde L} \right\| < \frac{\eps }{2 \left|F\right|\left\|\widetilde a \right\|}$ for all $\widetilde L\in F$ one has
-	$$
-	\left\| \sum_{g \in G} \left( g \widetilde a\right) \xi-  \sum_{g \in G\left(\left.\widetilde M\right|M \right)} \left( g \widetilde a\right) \xi \right\| < \eps.
-	$$
-	So the series \eqref{blowing_strict_eqn} is strongly convergent. On the other hand from
-	\bean
-	\left(g \widetilde a \right) \widetilde b_{\widetilde L}\neq 0 \Rightarrow \desc_p\left( \widetilde a \right)  \widetilde b_{\widetilde L}=\left(g \widetilde a \right) \widetilde b_{\widetilde L} \Rightarrow \desc_p\left( \widetilde a \right)  f_{\tau_{\widetilde L}}\left( \widetilde b_{\widetilde L}\right)=\left(g \widetilde a \right) f_{\tau_{\widetilde L}}\left( \widetilde b_{\widetilde L}\right)
-	\eean
-	it follows that the limit of the series  \eqref{blowing_strict_eqn} equals to $\desc_p\left( \widetilde a \right)$.
+	
+	BOUNDED !!!
+	Follows from the Lemma \ref{direct_sum_strong_lim_lem}
 \end{proof}
 
 \begin{empt}\label{blowing_q_empt}
@@ -18666,27 +18723,12 @@ such that $f_\tau\left(A \right)$ is a dense subspace of $L^2\left(A, \tau\right
 	For each non-degenerate representation $\pi: A \to B\left(\H \right)$ of a $C^*$-algebra $A$ there is a unique  normal morphism of  $A''$ onto $\pi\left( A\right)''$ which extends $\pi$.   
 \end{thm}
 
-\begin{definition}\label{prim_sp_defn}
-	Let $A$ be a $C^*$-algebra.
-	The \textit{primitive spectrum} is the space of the primitive ideals of $A$, we shall denote the primitive spectrum by $\check{A}$.
+\begin{definition}\cite{pedersen:ca_aut}
+An ideal $I$ in a $C^*$-algebra $A$ is prime  if $xAy \subset I$  implies $x\im I$  or $y\im I$
+for all $x$, $y$ in $A$.  
+We say that $I$ is a primitive ideal if $I= \ker\pi$ for some irreducible 
+representation $\pi: A \to B\left(\H \right)$. The set of prime ideals will be denoted by $\check{A}$ and the set of primitive ideals will be denoted by $\hat A$. 
 \end{definition}
-\begin{remark}
-	There is the natural surjective map 
-	\be\label{check_hat_eqn}
-	\hat{A}\to \check{A}
-	\ee
-	which maps an irreducible representation to its kernel.
-\end{remark}
-%\begin{theorem}\label{oa_sc_prim_thm}
-	%	Theorem A.49. 
-%	Every prime ideal in a separable $C^*$-algebra is primitive. 
-%\end{theorem}
-\begin{theorem}\label{oa_haus_prim_thm}
-%	Theorem A.50. 
-Suppose that $A$ 
-	is a $C^*$-algebra such that $\check{A}$
-	is either second-countable or almost Hausdorff. Then every prime ideal is primitive. 
-\end{theorem}
 \begin{empt}
 	For each set $F$ in $\check{A}$ define a closed ideal 
 	\be\label{ker_f_eqn}
@@ -18696,17 +18738,40 @@ Suppose that $A$
 	\be\label{hull_eqn}
 	\mathrm{hull}\left( I\right) = \left\{t \in \check{A}~|~I \subset t \right\}
 	\ee
-	Using a surjective map $\hat A \to \check{A}$ one can define the $\mathrm{hull}\left( I\right)\subset \hat A$ as the preimage of $\mathrm{hull}\left( I\right)$ in $\check{A}$
+	Using a surjective map\be\label{check_hat_eqn}
+	\hat{A}\to \check{A}
+	\ee
+	 one can define the $\mathrm{hull}\left( I\right)\subset \hat A$ as the preimage of $\mathrm{hull}\left( I\right)$ in $\check{A}$
 \end{empt}
 \begin{theorem}\label{jtop_thm}
 	The class $\left\{\mathrm{hull}\left( I\right)~|~I \subset A\right\}$ form the closed sets for a topology on $\check{A}$. There is a bijective order preserving isomorphism between open sets in this topology and the closed ideals in $A$.
 \end{theorem}
 \begin{definition}\label{jtop_defn}
-	The topology on  $\check{A}$ defined in the Theorem \ref{jtop_thm} is called be the \textit{Jacobson topology}. The topology on $\hat A$ induced by the surjecive map $\hat{A}\to \check{A}$ and the {Jacobson topology} on  $\check{A}$ is also called to be  the \textit{Jacobson topology}.
+	The topology on  $\check{A}$ defined in the Theorem \ref{jtop_thm} is called be the \textit{Jacobson topology}. The topology on $\hat A$ induced by the surjecive map 	$
+	\hat{A}\to \check{A}
+$ (cf. \ref{check_hat_eqn})
+	 and the {Jacobson topology} on  $\check{A}$ is also called to be  the \textit{Jacobson topology}.
 \end{definition}
 \begin{remark}
 	In the following text we consider the only Jacobson topology on both $\hat{A}$ and $\check{A}$.
 \end{remark}
+\begin{proposition}\label{oa_sc_prim_thm}\cite{pedersen:ca_aut}
+	%	4.3.6. PROPOSITION (cf. 3.13.10). 
+	If $A$ is a separable $C^*$-algebra then every closed prime ideal is primitive. 
+\end{proposition}
+
+\begin{definition}\cite{rae:ctr_morita}
+	A topological space is called \textit{almost Hausdorff} if every closed subset
+	has a dense open subset which is Hausdorff in the relative topology.
+\end{definition}
+
+\begin{theorem}\label{oa_haus_prim_thm}
+	%	Theorem A.50. 
+	Suppose that $A$ 
+	is a $C^*$-algebra such that $\check{A}$
+	is either second-countable or almost Hausdorff. Then every prime ideal is primitive. 
+\end{theorem}
+\
 \begin{proposition}\label{hered_spectrum_prop}\cite{pedersen:ca_aut}
 	If $B$ is a hereditary $C^*$-subalbebra of $A$ then there is the natural homeomorphism between $\hat A\setminus \mathrm{hull}\left( B\right)$ and $\hat B$, where 
 	$$
@@ -18794,12 +18859,6 @@ Suppose that $A$
 	%4.5.13. Corollary. For each C*-algebra A we have &sa c °U(A) and the atomic representation is faithful on 0&.
 	For each $C^*$-algebra $A$  the atomic representation is faithful on the enveloping Borel *-algebra $\mathscr B\left(A\right)$ of $A$ (cf. Definition \ref{borel_env_defn}).
 \end{corollary}
-
-\begin{proposition}\label{oa_sc_prim_thm}\cite{pedersen:ca_aut}
-%	4.3.6. PROPOSITION (cf. 3.13.10). 
-If $A$ is a separable $C^*$-algebra then every closed prime ideal is primitive. 
-\end{proposition}
-
 %\begin{definition}
 	%	3.8.1. 
 %	With each (non-degenerate) representation $\pi: A \to B\left(\H\right)$ of a $C^*$-algebra $A$ we associate the projection $c\left(\pi\right)$ in the center of $A''$ for which $A''\left(\pi\right)$ is isomorphic 	to $\pi(A)''$( = $\pi''\left(A'' \right)$ ). We say that  $c\left(\pi\right)$ is the \textit{central cover} of $\pi: A \to B\left(\H\right)$

@@ -16,19 +16,22 @@ public class MenuSctript : MonoBehaviour
 
     MenuKeyPerformer keyPerformer;
 
+    Action gui;
+
     private void Awake()
     {
-        keyPerformer = new MenuKeyPerformer(gameObject, new KaySaver());
-    }
-
-    class KaySaver : ISaverLoadSave
-    {
-        Dictionary<int, KeyCode> ISaverLoadSave.Dictionary { get => Saver.saver.KeyValuePairs; set => Saver.saver.KeyValuePairs = value; }
+        var b = gameObject.GetComponentInChildren<Button>();
+        UnityAction act = () =>
+        {
+            Click();
+        };
+    //    b.onClick.AddListener(act);
     }
 
     // Start is called before the first frame update
     void Start()
     {
+        keyPerformer = new MenuKeyPerformer(gameObject, new KeySaver());
     }
 
     // Update is called once per frame
@@ -39,11 +42,22 @@ public class MenuSctript : MonoBehaviour
 
     private void OnGUI()
     {
-        keyPerformer.OnGUI();
+        keyPerformer?.OnGUI();
     }
 
     public KeyCode CheckSaver(List<KeyCode> l)
     {
        return  keyPerformer.CheckSaver(l);
     }
- }
+
+    void Click()
+    {
+
+    }
+
+    class KeySaver : ISaverLoadSave
+    {
+        Dictionary<int, KeyCode> ISaverLoadSave.Dictionary { get => Saver.saver.KeyValuePairs; set => Saver.saver.KeyValuePairs = value; }
+    }
+
+}
