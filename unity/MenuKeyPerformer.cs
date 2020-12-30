@@ -23,11 +23,15 @@ namespace Assets
 
         ISaverLoadSave saver;
 
-        internal MenuKeyPerformer(GameObject go,  ISaverLoadSave saver)
+        MonoBehaviour mb;
+
+
+        internal MenuKeyPerformer(GameObject go, MonoBehaviour mb, ISaverLoadSave saver)
         {
             gameObject = go;
             this.saver = saver;
             d = saver.Dictionary;
+            this.mb = mb;
             Awake();
         }
 
@@ -40,12 +44,14 @@ namespace Assets
                 string key = b.name;
                 if (key.Contains("(") & key.Contains("Button"))
                 {
+
                     Text text = b.GetComponentInChildren<Text>();
                     int i = int.Parse(text.text);
                     UnityAction act = () =>
                     {
                         Click(b);
                     };
+                    b.onClick.AddListener(act);
                     b.onClick.AddListener(act);
                     buttons[b] = i;
                     if (d.ContainsKey(i))

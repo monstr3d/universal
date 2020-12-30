@@ -20,6 +20,7 @@ public class MenuSctript : MonoBehaviour
 
     private void Awake()
     {
+        keyPerformer = new MenuKeyPerformer(gameObject, this, new KeySaver());
         var b = gameObject.GetComponentInChildren<Button>();
         UnityAction act = () =>
         {
@@ -31,7 +32,6 @@ public class MenuSctript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        keyPerformer = new MenuKeyPerformer(gameObject, new KeySaver());
     }
 
     // Update is called once per frame
