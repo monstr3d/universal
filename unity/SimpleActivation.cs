@@ -74,6 +74,7 @@ namespace Assets
                     return;
                 }
                 level = Math.Abs(value);
+                return;
                 fullLevel = value;
                 Init();
                 SetValues();
@@ -87,6 +88,7 @@ namespace Assets
             var ss = new string[] { "Relative to station.Velocity", "Relative to station.Distance" };
             var l = new List<string>();
             int lev = Math.Abs(fullLevel);
+            
 
             string s = "RigidBodyStation.";
             foreach (var p in ss)
@@ -95,7 +97,7 @@ namespace Assets
             }
             if (fullLevel > 0)
             {
-                StaticExtensionUnity.Activation.enabledComponents = l.ToArray();
+            //    StaticExtensionUnity.Activation.enabledComponents = l.ToArray();
                 return;
             }
             ss = new string[] {  };

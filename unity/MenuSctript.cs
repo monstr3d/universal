@@ -40,11 +40,6 @@ public class MenuSctript : MonoBehaviour
         
     }
 
-    private void OnGUI()
-    {
-        keyPerformer?.OnGUI();
-    }
-
     public KeyCode CheckSaver(List<KeyCode> l)
     {
        return  keyPerformer.CheckSaver(l);

@@ -13,7 +13,7 @@ namespace Assets
 
         internal Dictionary<int, KeyCode> d = new Dictionary<int, KeyCode>();
 
-        KeyCode currentKey;
+        static KeyCode currentKey;
 
    //     Dictionary<string, List<Component>> components;
 
@@ -67,7 +67,7 @@ namespace Assets
             saver.Dictionary = d;
         }
 
-        internal void OnGUI()
+        internal static void OnGUI()
         {
             foreach (KeyCode kcode in Enum.GetValues(typeof(KeyCode)))
             {
