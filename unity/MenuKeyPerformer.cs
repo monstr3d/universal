@@ -87,6 +87,10 @@ namespace Assets
 
         void Click(Button button)
         {
+            if (currentKey == default(KeyCode))
+            {
+                return;
+            }
             var i = buttons[button];
             button.GetComponentInChildren<Text>().text = currentKey + "";
             d[i] = currentKey;

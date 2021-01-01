@@ -28,6 +28,14 @@ public class MenuStopScript : MonoBehaviour
         
     }
 
+
+    public KeyCode CheckSaver(List<KeyCode> l)
+    {
+        return keyPerformer.CheckSaver(l);
+    }
+
+
+
     class KeySaver : ISaverLoadSave
     {
         Dictionary<int, KeyCode> ISaverLoadSave.Dictionary { get => Saver.saver.dict; set => Saver.saver.dict = value; }

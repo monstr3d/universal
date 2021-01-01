@@ -32,7 +32,7 @@ public class KeySaverMonobevavior : MonoBehaviour
         foreach (var bt in btn)
         {
             string n = bt.name;
-            if (name == "ButtonOK")
+            if (n == "ButtonOK")
             {
                 UnityAction act = OK;
                 bt.onClick.AddListener(act);
@@ -54,7 +54,17 @@ public class KeySaverMonobevavior : MonoBehaviour
         {
             MethodInfo mi = mb.GetType().GetMethod("CheckSaver");
             KeyCode kc = (KeyCode)mi.Invoke(mb, o);
+            if (kc != default(KeyCode))
+            {
+                ShowMessage(kc);
+                return;
+            }
         }
+    }
+
+    void ShowMessage(KeyCode keyCode)
+    {
+
     }
 
     public void Cancel()
