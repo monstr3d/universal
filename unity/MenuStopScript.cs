@@ -5,9 +5,9 @@ using UnityEngine;
 
 using Assets;
 
-public class MenuSctript : MonoBehaviour
-{
 
+public class MenuStopScript : MonoBehaviour
+{
     MenuKeyPerformer keyPerformer;
 
 
@@ -16,14 +16,10 @@ public class MenuSctript : MonoBehaviour
         keyPerformer = new MenuKeyPerformer(gameObject, this, new KeySaver());
     }
 
-    private void OnGUI()
-    {
-        MenuKeyPerformer.OnGUI();
-    }
-
     // Start is called before the first frame update
     void Start()
     {
+        
     }
 
     // Update is called once per frame
@@ -32,14 +28,9 @@ public class MenuSctript : MonoBehaviour
         
     }
 
-    public KeyCode CheckSaver(List<KeyCode> l)
-    {
-       return  keyPerformer.CheckSaver(l);
-    }
-
     class KeySaver : ISaverLoadSave
     {
-        Dictionary<int, KeyCode> ISaverLoadSave.Dictionary { get => Saver.saver.KeyValuePairs; set => Saver.saver.KeyValuePairs = value; }
+        Dictionary<int, KeyCode> ISaverLoadSave.Dictionary { get => Saver.saver.dict; set => Saver.saver.dict = value; }
     }
 
 }

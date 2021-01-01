@@ -89,10 +89,7 @@ namespace Assets
         {
             var i = buttons[button];
             button.GetComponentInChildren<Text>().text = currentKey + "";
-            if (i < 12)
-            {
-                d[i] = currentKey;
-            }
+            d[i] = currentKey;
         }
 
         internal void SaveSaver()
