@@ -33,9 +33,8 @@ namespace Assets
                KeyCode.DownArrow} )}
         };
 
-        public Dictionary<int, KeyCode> dict = new Dictionary<int, KeyCode>() { { 12, KeyCode.Escape}, { 13, KeyCode.Return }, { 14, KeyCode.Q } };
-
-
+        public Dictionary<int, KeyCode> dict = 
+            new Dictionary<int, KeyCode>() { { 12, KeyCode.Escape}, { 13, KeyCode.Return }, { 14, KeyCode.F1 } };
 
 
         Dictionary<string, int> d = new Dictionary<string, int>()
@@ -120,6 +119,8 @@ namespace Assets
             SetCodes();
         }
 
+        #endregion
+
         public Dictionary<int, KeyCode> KeyValuePairs
         {
             get
@@ -155,7 +156,6 @@ namespace Assets
 
         }
 
-        #endregion
         public void SetCodes()
         {
             foreach (var key in codes.Keys)

@@ -37,6 +37,11 @@ public class MenuSctript : MonoBehaviour
        return  keyPerformer.CheckSaver(l);
     }
 
+
+    public void SaveSaver()
+    {
+        keyPerformer.SaveSaver();
+    }
     class KeySaver : ISaverLoadSave
     {
         Dictionary<int, KeyCode> ISaverLoadSave.Dictionary { get => Saver.saver.KeyValuePairs; set => Saver.saver.KeyValuePairs = value; }

@@ -35,6 +35,13 @@ public class MenuStopScript : MonoBehaviour
     }
 
 
+    public void SaveSaver()
+    {
+        keyPerformer.SaveSaver();
+    }
+
+
+
 
     class KeySaver : ISaverLoadSave
     {

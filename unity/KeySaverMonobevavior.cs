@@ -36,7 +36,13 @@ public class KeySaverMonobevavior : MonoBehaviour
             {
                 UnityAction act = OK;
                 bt.onClick.AddListener(act);
+                continue;
             }
+            if (n == "ButtonCancel")
+            {
+                bt.onClick.AddListener(Cancel);
+            }
+
         }
 
     }
@@ -60,6 +66,12 @@ public class KeySaverMonobevavior : MonoBehaviour
                 return;
             }
         }
+        foreach (var mb in l)
+        {
+            MethodInfo mi = mb.GetType().GetMethod("SaveSaver");
+            mi.Invoke(mb, null);
+        }
+        Cancel();
     }
 
     void ShowMessage(KeyCode keyCode)
