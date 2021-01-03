@@ -38,6 +38,11 @@ public class MenuSctript : MonoBehaviour
     }
 
 
+    public void ResetButtons()
+    {
+        keyPerformer.LoadButtons();
+    }
+
     public void SaveSaver()
     {
         keyPerformer.SaveSaver();

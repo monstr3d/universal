@@ -40,7 +40,10 @@ public class MenuStopScript : MonoBehaviour
         keyPerformer.SaveSaver();
     }
 
-
+    public void ResetButtons()
+    {
+        keyPerformer.LoadButtons();
+    }
 
 
     class KeySaver : ISaverLoadSave

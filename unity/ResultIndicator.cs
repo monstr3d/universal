@@ -63,10 +63,9 @@ public class ResultIndicator : MonoBehaviour
 
     static internal KeyCode Pause = KeyCode.Escape;
 
-
     static internal KeyCode StopKey = KeyCode.Return;
 
-    static internal KeyCode QuitKey = KeyCode.Q;
+    static internal KeyCode QuitKey = KeyCode.F1;
 
 
 

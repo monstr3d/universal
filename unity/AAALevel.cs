@@ -70,7 +70,26 @@ public class AAALevel : MonoBehaviour
         {
             Application.Quit();
         };
-        buttons[0].onClick.AddListener(exit);
+        foreach (Button b in buttons)
+        {
+            var n = b.name;
+            if (n == "Exit")
+            {
+                b.onClick.AddListener(exit);
+                continue;
+            }
+            if (n == "SelectKeys")
+            {
+                UnityAction sel = () =>
+                {
+                    SceneManager.LoadScene("KeySelection", LoadSceneMode.Single);
+                };
+
+                b.onClick.AddListener(sel);
+                continue;
+            }
+
+        }
     }
 
     // Update is called once per frame

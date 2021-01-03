@@ -19,22 +19,8 @@ namespace Assets
 
         public int level = 1;
 
-        public Dictionary<int, Tuple<int, KeyCode[]>> dictionary = new
-     Dictionary<int, Tuple<int, KeyCode[]>>
-        {
-            {3, new Tuple<int, KeyCode[]>(3, new KeyCode[]{KeyCode.W, KeyCode.S } )},
-            {5, new Tuple<int, KeyCode[]>(4, new KeyCode[]{KeyCode.Q, KeyCode.E } )},
-            {4, new Tuple<int, KeyCode[]>(5, new KeyCode[]{KeyCode.D, KeyCode.A } )},
-            {2, new Tuple<int, KeyCode[]>(0, new KeyCode[]{KeyCode.RightShift,
-                KeyCode.RightControl} )},
-            {0, new Tuple<int, KeyCode[]>(1, new KeyCode[]{KeyCode.RightArrow,
-                KeyCode.LeftArrow} )},
-           {1, new Tuple<int, KeyCode[]>(2, new KeyCode[]{KeyCode.UpArrow,
-               KeyCode.DownArrow} )}
-        };
-
-        public Dictionary<int, KeyCode> dict = 
-            new Dictionary<int, KeyCode>() { { 12, KeyCode.Escape}, { 13, KeyCode.Return }, { 14, KeyCode.F1 } };
+        public Dictionary<int, Tuple<int, KeyCode[]>> dictionary;
+        public Dictionary<int, KeyCode> dict;
 
 
         Dictionary<string, int> d = new Dictionary<string, int>()
@@ -55,7 +41,6 @@ namespace Assets
         Dictionary<string, KeyCode[]> codes = new Dictionary<string, KeyCode[]>();
 
         static string path;
-
         public  Dictionary<int, KeyCode> Dict
         {
             get { return new Dictionary<int, KeyCode>(dict); }
@@ -98,6 +83,7 @@ namespace Assets
 
         public Saver()
         {
+            Reset();
             foreach (var key in d.Keys)
             {
                 if (key.Length == 0)
@@ -180,6 +166,28 @@ namespace Assets
             info.AddValue("Level", level);
         }
 
- 
+
+        internal void Reset()
+        {
+            dict =
+            new Dictionary<int, KeyCode>() { { 12, KeyCode.Escape }, { 13, KeyCode.Return }, { 14, KeyCode.F1 } };
+
+            dictionary = new
+     Dictionary<int, Tuple<int, KeyCode[]>>()
+        {
+            {3, new Tuple<int, KeyCode[]>(3, new KeyCode[]{KeyCode.W, KeyCode.S } )},
+            {5, new Tuple<int, KeyCode[]>(4, new KeyCode[]{KeyCode.Q, KeyCode.E } )},
+            {4, new Tuple<int, KeyCode[]>(5, new KeyCode[]{KeyCode.D, KeyCode.A } )},
+            {2, new Tuple<int, KeyCode[]>(0, new KeyCode[]{KeyCode.RightShift,
+                KeyCode.RightControl} )},
+            {0, new Tuple<int, KeyCode[]>(1, new KeyCode[]{KeyCode.RightArrow,
+                KeyCode.LeftArrow} )},
+           {1, new Tuple<int, KeyCode[]>(2, new KeyCode[]{KeyCode.UpArrow,
+               KeyCode.DownArrow} ) }
+                };
+        }
+
+
+
     }
 }

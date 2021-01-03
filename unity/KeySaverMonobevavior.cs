@@ -2,9 +2,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
-
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class KeySaverMonobevavior : MonoBehaviour
@@ -12,6 +13,8 @@ public class KeySaverMonobevavior : MonoBehaviour
 
 
     Action act = () => { };
+
+    
 
     List<MonoBehaviour> l = new List<MonoBehaviour>();
 
@@ -41,10 +44,18 @@ public class KeySaverMonobevavior : MonoBehaviour
             if (n == "ButtonCancel")
             {
                 bt.onClick.AddListener(Cancel);
+                continue;
             }
-
+            if (n == "ButtonReset")
+            {
+                bt.onClick.AddListener(() => 
+                { 
+                    Assets.Saver.saver.Reset(); 
+                    Execute("ResetButtons"); 
+                });
+                continue;
+            }
         }
-
     }
 
     // Update is called once per frame
@@ -66,21 +77,27 @@ public class KeySaverMonobevavior : MonoBehaviour
                 return;
             }
         }
+        Execute("SaveSaver");
+        Cancel();
+    }
+
+    void Execute(string func)
+    {
         foreach (var mb in l)
         {
-            MethodInfo mi = mb.GetType().GetMethod("SaveSaver");
+            MethodInfo mi = mb.GetType().GetMethod(func);
             mi.Invoke(mb, null);
         }
-        Cancel();
+
     }
 
     void ShowMessage(KeyCode keyCode)
     {
-
+        EditorUtility.DisplayDialog("Error", "The key " + keyCode + " is already defined", "OK");
     }
 
     public void Cancel()
     {
-
+        SceneManager.LoadScene("LevelScene", LoadSceneMode.Single);
     }
 }

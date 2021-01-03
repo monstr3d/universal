@@ -32,11 +32,20 @@ namespace Assets
             this.saver = saver;
             d = saver.Dictionary;
             this.mb = mb;
-            Awake();
+            LoadButtons(true);
         }
 
+        internal  void LoadButtons()
+        {
+            d = saver.Dictionary;
+            foreach (var b in buttons.Keys)
+            {
+                var i = buttons[b];
+                b.GetComponentInChildren<Text>().text = d[i] + "";
+            }
+        }
 
-        internal void Awake()
+        internal void LoadButtons(bool addClick)
         {
             var components = gameObject.GetComponentsInChildren<Button>();
             foreach (var b in components)
@@ -44,15 +53,17 @@ namespace Assets
                 string key = b.name;
                 if (key.Contains("(") & key.Contains("Button"))
                 {
-
                     Text text = b.GetComponentInChildren<Text>();
                     int i = int.Parse(text.text);
-                    UnityAction act = () =>
+                    if (addClick)
                     {
-                        Click(b);
-                    };
-                    b.onClick.AddListener(act);
-                    b.onClick.AddListener(act);
+                        UnityAction act = () =>
+                        {
+                            Click(b);
+                        };
+                        b.onClick.AddListener(act);
+                    }
+  //                  b.onClick.AddListener(act);
                     buttons[b] = i;
                     if (d.ContainsKey(i))
                     {
@@ -62,6 +73,7 @@ namespace Assets
             }
         }
 
+  
         internal void Save()
         {
             saver.Dictionary = d;
