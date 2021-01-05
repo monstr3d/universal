@@ -54,6 +54,10 @@ public class Activation : MonoBehaviour
     private void Awake()
     {
         isEscaped = false;
+        if (StaticExtensionUnity.StaticLevel > 0)
+        {
+            level = StaticExtensionUnity.StaticLevel;
+        }
         StaticExtensionUnity.StartTime = Time.realtimeSinceStartup;
         if (exists)
         {
@@ -112,6 +116,7 @@ public class Activation : MonoBehaviour
 
     #region Public members
 
+  
     void UpdateFist()
     {
         act?.Update();

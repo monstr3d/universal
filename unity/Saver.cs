@@ -17,8 +17,8 @@ namespace Assets
 
         public static Saver saver;
 
-        public int level = 1;
-
+        public int level = 0;
+ 
         public Dictionary<int, Tuple<int, KeyCode[]>> dictionary;
         public Dictionary<int, KeyCode> dict;
 

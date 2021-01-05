@@ -41,6 +41,7 @@ namespace Assets
                 var a = oc.aliases;
                 a[0] = "Aim 1.Z=-0.3";
                 a[0] = "Aim 1.Z=-0.01";
+                a[0] = "Aim 1.Z=0.1";
                 return;
             }
              if (monoBehaviour.name != Level0.Station)

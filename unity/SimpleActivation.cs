@@ -74,7 +74,6 @@ namespace Assets
                     return;
                 }
                 level = Math.Abs(value);
-                return;
                 fullLevel = value;
                 Init();
                 SetValues();

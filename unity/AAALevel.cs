@@ -1,10 +1,12 @@
-﻿using Assets;
-using System;
-
+﻿using System;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+
+using Unity.Standard;
+
+using Assets;
 
 public class AAALevel : MonoBehaviour
 {
@@ -44,7 +46,7 @@ public class AAALevel : MonoBehaviour
         Button[] buttons = gameObject.GetComponentsInChildren<Button>();
         foreach (Button button in buttons)
         {
-            for (int i = 1; i < 7; i++)
+            for (int i = 1; i < 9; i++)
             {
                 int[] k = new int[] { i };
                 string s = i + "";
@@ -58,7 +60,7 @@ public class AAALevel : MonoBehaviour
                     button.onClick.AddListener(act);
                     if (i > saver.level)
                     {
-                        ss = "?";
+                        ss = (i <= 1)? ss : "?";
                     }
                     button.GetComponentInChildren<Text>().text = ss;
                 }
@@ -82,6 +84,10 @@ public class AAALevel : MonoBehaviour
             {
                 UnityAction sel = () =>
                 {
+                    if (saver.level == 0)
+                    {
+                        saver.level = 1;
+                    }
                     SceneManager.LoadScene("KeySelection", LoadSceneMode.Single);
                 };
 
@@ -100,14 +106,15 @@ public class AAALevel : MonoBehaviour
 
     void Click(int i)
     {
-        Assets.SimpleActivation.StaticLevel = i;
+        if (saver.level == 0)
+        {
+            UnityEditor.EditorUtility.DisplayDialog("Warning", "Select keys please", "OK");
+            return;
+        }
+        StaticExtensionUnity.StaticLevel = i;
         try
         {
             string ss = "SampleScene";
-     /*       if (level > 0)
-            {
-                ss +=  level;
-            }*/
             SceneManager.LoadScene(ss, LoadSceneMode.Single);
         }
         catch (Exception ex)
