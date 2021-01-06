@@ -8,7 +8,7 @@ using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class KeySaverMonobevavior : MonoBehaviour
+public class KeySaverMonobehavior : MonoBehaviour
 {
 
 
