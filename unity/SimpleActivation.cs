@@ -180,7 +180,7 @@ namespace Assets
         {
             if (Input.GetKey(ResultIndicator.Pause))
             {
-                Activation.PauseRestart();
+          //      Activation.PauseRestart();
             }
         }
 

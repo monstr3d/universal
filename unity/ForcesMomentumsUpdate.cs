@@ -249,7 +249,7 @@ namespace Assets
             {
                 if (Input.GetKeyUp(code))
                 {
-                    current = KeyCode.F10;
+                    current = default(KeyCode);
                 }
             }
         }
@@ -385,7 +385,7 @@ namespace Assets
             double value = v[0];
             if (value == newValue)
             {
-                current = KeyCode.F10;
+                current = default(KeyCode);
                 return;
             }
       //      mb.StartCoroutine(enumeratorT);
@@ -432,9 +432,10 @@ namespace Assets
          }
         bool Process(KeyCode code)
         {
+            var unused = Saver.saver.unused;
             if (Input.GetKey(code))
             {
-                if (current == KeyCode.F11)
+                if (current == unused)
                 {
                     return false;
                 }
@@ -492,9 +493,9 @@ namespace Assets
         {
             get
             {
-                current = KeyCode.F11;
+                current = Saver.saver.unused;
                 yield return new WaitForSeconds(interval);
-                current = KeyCode.F10;
+                current = default(KeyCode);
                 yield return current;
             }
         }

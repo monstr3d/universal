@@ -78,6 +78,7 @@ public class KeySaverMonobevavior : MonoBehaviour
             }
         }
         Execute("SaveSaver");
+        Assets.Saver.saver.SetUnused();
         Cancel();
     }
 

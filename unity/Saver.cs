@@ -20,7 +20,10 @@ namespace Assets
         public int level = 0;
  
         public Dictionary<int, Tuple<int, KeyCode[]>> dictionary;
+        
         public Dictionary<int, KeyCode> dict;
+
+        internal KeyCode unused = KeyCode.F11;
 
 
         Dictionary<string, int> d = new Dictionary<string, int>()
@@ -101,6 +104,7 @@ namespace Assets
                Dictionary<int, Tuple<int, KeyCode[]>>;
             dict = info.GetValue("Dict", typeof(Dictionary<int, KeyCode>)) as
                Dictionary<int,  KeyCode>;
+            unused = (KeyCode)info.GetValue("unused",  typeof(KeyCode));
             level = info.GetInt32("Level");
             SetCodes();
         }
@@ -142,6 +146,30 @@ namespace Assets
 
         }
 
+        internal void SetUnused()
+        {
+            List<KeyCode> l = new List<KeyCode>();
+            l.AddRange(KeyValuePairs.Values);
+            l.AddRange(dict.Values);
+            if (l.Contains(unused))
+            {
+                var en = Enum.GetValues(typeof(KeyCode));
+                foreach (KeyCode k in en)
+                {
+                    if (k == default(KeyCode))
+                    {
+                        continue;
+                    }
+                    if (!l.Contains(k))
+                    {
+                        unused = k;
+                        return;
+                    }
+                }
+            }
+
+        }
+
         public void SetCodes()
         {
             foreach (var key in codes.Keys)
@@ -163,6 +191,7 @@ namespace Assets
             info.AddValue("Dictionary", dictionary,
                   typeof(Dictionary<int, Tuple<int, KeyCode[]>>));
             info.AddValue("Dict", dict, typeof(Dictionary<int, KeyCode>));
+            info.AddValue("unused", unused, typeof(KeyCode));
             info.AddValue("Level", level);
         }
 
@@ -185,6 +214,7 @@ namespace Assets
            {1, new Tuple<int, KeyCode[]>(2, new KeyCode[]{KeyCode.UpArrow,
                KeyCode.DownArrow} ) }
                 };
+            unused = KeyCode.F11;
         }
 
 

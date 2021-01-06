@@ -10374,7 +10374,11 @@ The map $y \mapsto \sX_y$ yields a partially defined multi-valued map.
 The map is surjective because for any $x \in \sX$ and for any maximal ideal $J_x \subset \rep_x\left(C_0\left( \sY\right)\right) $ there is a maximal ideal $I_y\subset C_0\left( \sY\right)$ such that $J_x= \rep_x\left(I_y\right)$.
 \end{remark}
 \begin{definition}\label{blowing_spectal_defn}
-If the described in the Remark \ref{blowing_rem} map is single-valued then we say that it is \textit{spectral}.
+If the described in the Remark \ref{blowing_rem} map is single-valued then we say that it is \textit{spectral}. It means that one has a subset $s\left( \sY\right)\subset \sY$ with the following equation 
+\be\label{blowing_spectal_eqn}
+\sY\supset s\left( \sY\right)\xrightarrow{s_\sY} \sX
+\ee
+where a map $s_\sY$ is surjective.
 \end{definition}
 \begin{empt}
 	Let  $C\left( \sY\right)\hookto M\left( A\right) $ be a blowing-up of $A$. For any open subset $\sU \subset \sY$ put
@@ -10856,9 +10860,27 @@ Let $A$ be  a  $C^*$-algebra with Hausdorff spectrum $\sX$. If $\sX$ is connecte
 	\end{split}
 	\ee
 	then  ideals $I_{q\left(\widetilde y_1 \right) }= \widetilde I_{\widetilde y_1}\cap C_0\left( \sY\right)$  and $I_{q\left(\widetilde y_2 \right) }= \widetilde I_{\widetilde y_2}\cap C_0\left( \sY\right)$ are different since the Hausdorff blowing up $C_0\left(\sY \right) \to M\left( A\right)$ is spectral. So $\widetilde I_{\widetilde y_1}\neq \widetilde I_{\widetilde y_2}$ If $p\left(\widetilde x_1 \right) =\left(\widetilde x_2 \right)$ and $\widetilde x_1\neq \widetilde x_2$ then there is a nontrivial $g \in G$ such that $\widetilde x_2 = g \widetilde x_1$. If $\widetilde I_{\widetilde y_1}$, $~\widetilde I_{\widetilde y_2}$ are satisfying to \eqref{blowing_ideals_eqn} ideals the $q\left( \widetilde y_1\right) \neq q\left( \widetilde y_2\right)$ or $q\left( \widetilde y_1\right) = q\left( \widetilde y_2\right)$. If $q\left( \widetilde y_1\right) \neq q\left( \widetilde y_2\right)$ then $\widetilde I_{\widetilde y_1}\neq \widetilde I_{\widetilde y_2}$. If $q\left( \widetilde y_1\right) = q\left( \widetilde y_2\right)$ then $ \widetilde y_2= g \widetilde y_1$, so since $G$ freely acts on $ \widetilde \sY$ one has $I_{\widetilde y_1}\neq \widetilde I_{\widetilde y_2}$.
-	
-	
 \end{proof}
+\begin{remark}\label{blowing_cov_sp_rem}
+From the Lemma \ref{blowing_spectal_lem} it turns out that there is the following commutative diagram
+			\newline
+	\begin{tikzpicture}
+		\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
+		{
+	\widetilde	\sX   & s\left(\widetilde \sY \right)  & 	\widetilde\sY \\ 
+\sX   & s\left(\sY \right)  & 	\sY\\};
+		\path[-stealth]
+		(m-1-2) edge node [above] {$s_{\widetilde\sY}$} (m-1-1)
+		(m-1-2) edge node [above] {$\subset$} (m-1-3)
+		(m-2-2) edge node [above] {$s_{\sY}$} (m-2-1)
+(m-2-2) edge node [above] {$\subset$} (m-2-3)
+		(m-1-1) edge node [right]  {$~p$} (m-2-1)
+		(m-1-2) edge node [right]  {$~p|_{ s\left(\widetilde \sY \right)}$} (m-2-2)
+		(m-1-3) edge node [right] {$~q$} (m-2-3);
+	\end{tikzpicture}
+	\\ 	
+	where both  sets $s\left( \sY \right)$, $~s\left(\widetilde \sY \right)$ and both maps $s_{\sY}$, $~s_{\widetilde\sY}$ are given by \eqref{blowing_spectal_eqn}, a continuous map  $p$ is given by the Lemma \ref{cov_spectrum_lem}, a transitive covering $q$ is given by the Lemma \ref{blowing_cov_lem}. 
+\end{remark}
 
 \begin{lemma}
 Let $A$ be a $C^*$-algebra, and let $C_0\left(\sY \right) \to M\left( A\right)$ be a good semilocally 1-connected Hausdorff blowing-up (cf. Definitions \ref{blowing_defn}, \ref{blowing_good_defn}, \ref{blowing_semi1_defn}). If there are transitive coverings $p_1: \widetilde\sY_1 \to \sY$ and  $p_2: \widetilde\sY_2 \to \sY$ such that there is a   commutative diagram  
@@ -10950,64 +10972,15 @@ Let $A$ be a $C^*$-algebra, and let $C_0\left(\sY \right) \to M\left( A\right)$ 
 	!!! 	Consider the Example \ref{blowing_ctr_exm}. Prove that the explained in \ref{top_cs_funct_empt} functor $A_0$ is a specialization of the given by the Exercise \ref{blowing_cs_funct_exer}  functor.
 \end{exercise}
 \subsection{Infinite noncommutative coverings}
-\begin{corollary}\label{blowing_comply_cor}
-	COMPLIES!!!  Definition \ref{compliant_covering_defn}
-\end{corollary}
-\begin{proof}
-	!!!
-	\begin{definition}\label{compliant_covering_defn!}
-		!!! DELETE AFTER PROOF
-		Let us consider the following diagram\\
-		\newline
-		\begin{tikzpicture}
-			\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
-			{
-				\widetilde A_1  &  & \widetilde A_2\\
-				& A & \\};
-			\path[-stealth]
-			(m-1-1) edge[dashed] node [above] {$\pi^1_2$} (m-1-3)
-			(m-2-2) edge node [left]  {$\pi_1~~$} (m-1-1)
-			(m-2-2) edge node [right] {$~~\pi_2$} (m-1-3);
-			%\draw[dashed,->]   (m-1-1) -- (m-1-3);
-		\end{tikzpicture}
-		\\
-		where $A$, $\widetilde A_1$, $\widetilde A_2$ are $C^*$-algebras and $\pi_1$, $\pi_2$, are noncommutative finite-fold coverings. We say that the unordered pair $\left( \pi_1,\pi_2\right) $ is \textit{compliant} if  it satisfies to following conditions:
-		\begin{enumerate}
-			\item[(a)]
-			If there is an injective  *-homomorphism $\pi^1_2: \widetilde A_1 \to \widetilde A_2$ such that $\pi_2 = \pi^1_2 \circ \pi_1$ then $\pi^1_2$ is  a noncommutative finite-fold  covering (cf. Definition \ref{fin_defn}).
-			\item[(b)] Following condition holds
-			\be\label{g_sur_eqn!}
-			G\left(\left.\widetilde A_2~\right|A \right)\pi^1_2\left(\widetilde A_1\right)=  \pi^1_2\left(\widetilde A_1\right).
-			\ee 
-			\item[(c)] From \eqref{g_sur_eqn!} it turns out that there is the homomorphism $h: G\left(\left.\widetilde A_2~\right|A \right)\to 	G\left(\left.\widetilde A_1~\right|A \right)$ such that 
-			\be\label{g_sur_pi_eqn!}
-			\pi^1_2\left( h\left(g \right)a_1\right) = g \circ \pi^1_2\left(a_1 \right)
-			\ee 
-			for each $a_1 \in \widetilde A_1$.  
-			We claim that $h$ is surjective. 
-			\item[(d)] If  $\rho: \widetilde A_1 \to \widetilde A_2$ is any injective *-homomorphism  such that $\pi_2 = \rho \circ \pi_1$ then there is the unique $g \in 	G\left(\left.\widetilde A_1~\right|A \right)$ such that 
-			\be\label{compliant_covering_g_eqn!}
-			\rho =  \pi^1_2 \circ g.
-			\ee
-		\end{enumerate}
-		
-	\end{definition}
-	\
-\end{proof}
-
-\begin{lemma}\label{blowing_comp_lem}
-BLOWING COMPOSITION LEMMA
-
-!!! PROOF THAT GOOD
-\end{lemma}
-\begin{proof}
-BLOWING !!!!
-\end{proof}
-
-\begin{empt}
-Let $A$ be a $C^*$-subalgebra, and let $C\cong C_0\left( \sY\right) \subset M\left(A \right)$  be  a good {Hausdorff blowing-up} of $A$ such that the  $\sY$ is a connected, locally connected space. Let  $\widetilde{p}:\left( \widetilde{\sX}, \widetilde{x}_0\right) \to \left( \sX, x_0\right)$. If $\mathfrak{S}_{\left( \sX, x_0  \right) }=\left\{ p_\la: \left( \sX_\la, x^\la_0\right) \to \left( \sX, x_0\right)\right\}_{\la \in \La} $ be a a pointed a topological finite covering category given by the Lemma \ref{blowing_res_fin_lem}
+\begin{empt}\label{blowing_inf_empt}
+	Let $A$ be a $C^*$-algebra, and let $C_0\left(\sY \right) \to M\left( A\right)$ be a good,  semilocally 1-connected,  Hausdorff blowing-up (cf. Definitions \ref{blowing_defn},\ref{blowing_spectal_defn} \ref{blowing_good_defn}, \ref{blowing_semi1_defn}) such that the  $\sY$ is a connected, locally connected space. Let  $\widetilde{p}:\left( \widetilde{\sY}, \widetilde{y}_0\right) \to \left( \sY, y_0\right)$ be a transitive covering such that a covering group  $\left(\left.\widetilde \sY \right| \sY\right)$ is residually finite (cf. Definition \ref{residually_finite_defn}).
+ $\mathfrak{S}_{\left( \sY, x_0  \right) }=\left\{ p_\la: \left( \sY_\la, x^\la_0\right) \to \left( \sY, x_0\right)\right\}_{\la \in \La} $ be a a pointed a topological finite covering category given by the Lemma \ref{top_res_fin_lem}
 \end{empt}
+
 \begin{lemma}\label{blowing_t_a_lem}
+	Consider the situation \ref{blowing_inf_empt}
+!!! CHANGE ALL COVERINGS
+
 	Let $A$ be a separable $C^*$-algebra with continuous trace let $\sX = \hat A$ be the spectrum of $A$. Suppose that $\sX$ is a connected, locally connected, second-countable space.
 	Let us consider the situation \ref{comm_t_a_empt} and suppose that 
 	\bean
@@ -11053,24 +11026,51 @@ Let $A$ be a $C^*$-subalgebra, and let $C\cong C_0\left( \sY\right) \subset M\le
 \end{proof}
 
 \begin{lemma}\label{blowing_base_point_lem}
-	If	$\mathfrak{S}_{\left(\sX, x_0\right)}= \left\{p_\la:\left( \sX_\la, x^\la_0\right) \to \left( \sX, x_0\right)\right\}_{\la \in \La} \in \mathfrak{FinTop}^{\mathrm{pt}}$ is a pointed topological finite covering category such that for any $\mu > \nu$ there is the unique  pointed  covering $p^\mu_{ \nu}: \left(\sX_{\mu}, x^\mu_0 \right) \to \left(\sX_{\nu}, x^\nu_0 \right)$ then
-	\be\label{ctr_base_point_eqn}
+		Consider the situation \ref{blowing_inf_empt}
+	
+	If	$\mathfrak{S}_{\left(\sY, x_0\right)}= \left\{p_\la:\left( \sY_\la, x^\la_0\right) \to \left( \sY, x_0\right)\right\}_{\la \in \La} \in \mathfrak{FinTop}^{\mathrm{pt}}$ is a pointed topological finite covering category such that for any $\mu > \nu$ there is the unique  pointed  covering $p^\mu_{ \nu}: \left(\sY_{\mu}, x^\mu_0 \right) \to \left(\sY_{\nu}, x^\nu_0 \right)$ then
+	\be\label{blowing_base_point_eqn}
 	\begin{split}
 		\mathfrak{S}^{\mathrm{pt}}_{A } = \\
-		=\left\{A_0\left( p_\la\right) : A  \hookto A_0\left(\sX_\la \right)\right\}, \left\{A_0\left( p_\nu^\mu\right) : A_0\left(\sX_\nu \right) \hookto A_0\left(\sX_\mu \right)\right\}
+		=\left\{A_0\left( p_\la\right) : A  \hookto A_0\left(\sY_\la \right)\right\}, \left\{A_0\left( p_\nu^\mu\right) : A_0\left(\sY_\nu \right) \hookto A_0\left(\sY_\mu \right)\right\}
 	\end{split}
 	\ee
 	is a {pointed algebraical  finite covering category} (cf. Definition \ref{comp_pt_defn}).
 \end{lemma}
 \begin{proof}
-	According to our construction for any $\mu >\nu$ the category $	\mathfrak{S}_{A }$ contains the unique *-homomorphism from $A_0\left(\sX_\nu \right)$ to $A_0\left(\sX_\mu \right)$. This lemma follows from the Remark \ref{comp_pt_rem}.
+	According to our construction for any $\mu >\nu$ the category $	\mathfrak{S}_{A }$ contains the unique *-homomorphism from $A_0\left(\sY_\nu \right)$ to $A_0\left(\sY_\mu \right)$. This lemma follows from the Remark \ref{comp_pt_rem}.
 \end{proof}
 
 \begin{empt}\label{blowing_implicit_inc_full_empt}
-	Consider the specialization of Lemma  \ref{blowing_atomic_lem} such that $A = \left(\sX, \left\{A_x\right\}_{x \in \sX}, A\right)$, and   $A_0$, and the given by the Lemma \ref{blowing_atomic_lem} functor.
-	Suppose that  $\H_x$ is  the space of the given by \eqref{rep_x_eqn} representation  $\rep_x: A \to B\left(\H_x\right)$ and  $\K\stackrel{\text{def}}{=} \rep_x\left( A\right) $ where $\K = \mathbb{M}_n\left(\C\right)$ or $\K = \K\left( L^2\left(\N \right) \right)$. 
-	From the Lemma \ref{ctr_base_point_lem} it follows that \eqref{ctr_base_point_eqn} is the pointed algebraical  finite covering category. 	
-	Let $\widehat{A}\stackrel{\text{def}}{=} C^*$-$\varinjlim_{\la \in \La} A_0\left( {\sX}_\la\right)$ the $C^*$-inductive limit, and let $\pi_a:\widehat{A} \hookto B\left(\H_a\right)$ be the atomic representation (cf. Definition \ref{atomic_repr_defn}). If $\overline{A}$ is  the disconnected algebraical inverse noncommutative limit of $\mathfrak{S}^{\mathrm{pt}}_{A }$ (cf. Definition \ref{main_defn_full_defn}) then there is the natural inclusion $\overline{A} \subset B\left(\H_a \right)$. Otherwise $\H_a = \bigoplus_{ \widehat x \in \widehat \sX} \H_{\widehat x}$ where $\widehat\sX$ is the spectrum of $\widehat A$ and $\H_{\widehat x}$ is the space of representation $\rep_{\widehat x}\left(  \widehat A\right) \to B\left( \H_{\widehat x}\right)$. If $\widehat \sX$ is the spectrum of $\widehat A$ then from the Lemma \ref{inverse_lim_sp_lem} it follows that $\widehat \sX = \varprojlim_{\la \in \La}\sX_\la$. Otherwise if $\overline \sX$ is the  disconnected inverse limit of 	$\mathfrak{S}_{\left(\sX, x_0\right)}$ then there is the natural bijective continuous map $\phi:\overline \sX \to \widehat \sX$ if $\widehat p : \widehat \sX \to \sX$ is the natural map and both $\rep_{\overline x} \overline A\to B\left( \H_{\overline x}\right)$, $\rep_{\overline x} \overline A\to B\left( \H_{\overline x}\right)$ are natural irreducible representations then $\H_{\overline x} \cong \H_{\widehat p \circ \phi\left( \overline x\right)}$,   $\H_{\widehat x} \cong \H_{\widehat p \left( \overline x\right)}$, hence $ \H_{\overline x} \cong \H_{\phi\left( \overline x\right)}$ for all $\overline x \in \overline\sX$. So one has
+	Consider the situation \ref{blowing_inf_empt}, suppose that the Hausdorff blowing-up $C_0\left(\sY \right) \to M\left( A\right)$ spectral (cf. Definition \ref{blowing_spectal_defn}). If $\sY_\la$ is the spectrum of $A\left(\sY_\la\right)$ then from the Lemma \ref{cov_spectrum_lem} it follows that for any $\mu, \nu\in \Lambda$ such that $\mu\ge\nu$ there is the natural transitive covering $q^\nu_\mu : \sY_\nu \to  \sY_\nu$. Similarly to the Remark \ref{blowing_cov_sp_rem}
+ there is the following commutative diagram
+	 	\newline
+	 	\begin{tikzpicture}
+	 		\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
+	 		{
+	 				\sX_\mu   & s\left( \sY_\mu \right)  & 	\sY_\mu \\ 
+	 			\sX_\nu   & s\left(\sY_\nu \right)  & 	\sY_\nu \\};
+	 		\path[-stealth]
+	 		(m-1-2) edge node [above] {$s_{\sY_\mu}$} (m-1-1)
+	 		(m-1-2) edge node [above] {$\subset$} (m-1-3)
+	 		(m-2-2) edge node [above] {$s_{\sY_\nu}$} (m-2-1)
+	 		(m-2-2) edge node [above] {$\subset$} (m-2-3)
+	 		(m-1-1) edge node [right]  {$~p^\mu_\nu$} (m-2-1)
+	 		(m-1-2) edge node [right]  {$~p^\mu_\nu|_{ s\left( \sY_\mu \right)}$} (m-2-2)
+	 		(m-1-3) edge node [right] {$~q^\mu_\nu$} (m-2-3);
+	 	\end{tikzpicture}
+	 	\\ 	
+	From the Lemma \ref{blowing_base_point_lem} it follows that \eqref{blowing_base_point_eqn} is a pointed algebraical  finite covering category. 	
+	Let $\widehat{A}\stackrel{\text{def}}{=} C^*$-$\varinjlim_{\la \in \La} A_0\left( {\sY}_\la\right)$ be the $C^*$-inductive limit, and let $\pi_a:\widehat{A} \hookto B\left(\H_a\right)$ be the atomic representation (cf. Definition \ref{atomic_repr_defn}).  Otherwise if $\widehat \sY \bydef \varprojlim_{\la \in \La}\sY_\la$ and $\widehat{ s\left( \sY \right)} \bydef \varprojlim_{\la \in \La}s\left(  \sY_\la\right)$ then from inclusions $s\left(  \sY_\la\right)\subset \sY_\la$ and surjective maps $s_{\sY_\la}: s\left(  \sY_\la\right)\to \sX_\la$ one has the following inclusion and surjective map
+	\bean
+	\widehat{ s\left( \sY \right)}\subset \widehat\sY,\\
+	\widehat{ s\left( \sY \right)}\to \widehat\sX,\\
+	\eean
+If $\overline{A}$ is  the disconnected algebraical inverse noncommutative limit of $\mathfrak{S}^{\mathrm{pt}}_{A }$ (cf. Definition \ref{main_defn_full_defn}) then there is the natural inclusion $\overline{A} \subset B\left(\H_a \right)$. Otherwise $\H_a = \bigoplus_{ \widehat x \in \widehat \sX} \H_{\widehat x}$ where $\widehat\sX$ is the spectrum of $\widehat A$ and $\H_{\widehat x}$ is the space of representation $\rep_{\widehat x}\left(  \widehat A\right) \to B\left( \H_{\widehat x}\right)$. From the Lemma \ref{inverse_lim_sp_lem} it follows that $\widehat \sX$ is the spectrum of $\widehat A$.
+	Otherwise if $\overline \sY$ is the  disconnected inverse limit of 	$\mathfrak{S}_{\left(\sY, x_0\right)}$ then there is the natural bijective continuous map $\phi:\overline \sY \to \widehat \sY$. If $s\left( \overline \sY\right) \bydef \phi^{-1} \left(\widehat{ s\left( \sY \right)} \right) \subset \overline \sY$ then there is the surjective map 	$\widehat{ s\left( \sY \right)}\to \widehat\sX$ induces a surjective map $s\left( \overline \sY\right)\to \widehat \sX$. On the other hand the spectrum of $A_0\left( \overline \sY\right)$ is $\widehat \sX$. 
+	
+!!!	
+	if $\widehat p : \widehat \sX \to \sX$ is the natural map and both $\rep_{\overline x} \overline A\to B\left( \H_{\overline x}\right)$, $\rep_{\overline x} \overline A\to B\left( \H_{\overline x}\right)$ are natural irreducible representations then $\H_{\overline x} \cong \H_{\widehat p \circ \phi\left( \overline x\right)}$,   $\H_{\widehat x} \cong \H_{\widehat p \left( \overline x\right)}$, hence $ \H_{\overline x} \cong \H_{\phi\left( \overline x\right)}$ for all $\overline x \in \overline\sX$. So one has
 	$$
 	\bigoplus_{ \widehat x \in \widehat \sX} \H_{\widehat x}\cong \bigoplus_{ \overline x \in \overline \sX} \H_{\overline x}
 	$$
