@@ -82,10 +82,6 @@ public class ResultIndicator : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKey(ResultIndicator.Pause))
-        {
-            Activation.PauseRestart();
-        }
         return;
         var s = "RigidBodyStation".ToExistedScada();
         var c = s.Constants;

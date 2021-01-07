@@ -416,6 +416,24 @@ namespace Unity.Standard
             */
         }
 
+        /// <summary>
+        /// Key interval
+        /// </summary>
+        static public float KeyInterval
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// Unused key
+        /// </summary>
+        static public KeyCode UnusedKey
+        {
+            get;
+            set;
+        }
+
        
 
         /// <summary>

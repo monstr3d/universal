@@ -163,6 +163,7 @@ namespace Assets
                     if (!l.Contains(k))
                     {
                         unused = k;
+                        Unity.Standard.StaticExtensionUnity.UnusedKey = unused;
                         return;
                     }
                 }
@@ -193,6 +194,7 @@ namespace Assets
             info.AddValue("Dict", dict, typeof(Dictionary<int, KeyCode>));
             info.AddValue("unused", unused, typeof(KeyCode));
             info.AddValue("Level", level);
+            Unity.Standard.StaticExtensionUnity.UnusedKey = unused;
         }
 
 

@@ -245,7 +245,18 @@ namespace Assets
             {
                 Process(code);
             }
+            foreach (var code in Saver.saver.dict.Values)
+            {
+                Process(code);
+            }
             foreach (var code in actions.Keys)
+            {
+                if (Input.GetKeyUp(code))
+                {
+                    current = default(KeyCode);
+                }
+            }
+            foreach (var code in Saver.saver.dict.Values)
             {
                 if (Input.GetKeyUp(code))
                 {
@@ -360,8 +371,6 @@ namespace Assets
             }
         }
 
-
-
          void UpdateCurrent()
         {
             if (current != lastCurrent)
@@ -369,6 +378,12 @@ namespace Assets
                 return;
             }
             KeyCode code = current;
+            if (current == ResultIndicator.Pause)
+            {
+                Activation.PauseRestart();
+                mb.StartCoroutine(coroutine);
+                return;
+            }
             if (!actions.ContainsKey(current))
             {
                 return;
@@ -430,6 +445,7 @@ namespace Assets
             }
             mb.StartCoroutine(coroutine);
          }
+
         bool Process(KeyCode code)
         {
             var unused = Saver.saver.unused;
