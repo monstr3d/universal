@@ -4233,15 +4233,16 @@ If $\widetilde X$ is the universal covering of $\left(X, Y\right)$ and $\widetil
 Similarly to the Definition \ref{fg_bas_os_defn} one can define the universal covering and the fundamental group of real operator space.
 \end{remark}
 \subsection{Homotopy groups}
-Let us construct noncommutative generalization of homotopy groups $\pi_n$ ($n \ge 0)$). It is well known that If $X=\coprod_{\iota \in I} X_{\iota}$ is disjoint union of connected components then $\pi_0(X)\simeq \bigcup_{\iota \in I} \{X_{\iota}\}$ and $C(X)\simeq \oplus_{\iota} C(X_{\iota})$.
+\paragraph{}
+Let us construct noncommutative generalization of homotopy groups $\pi_n$ ($n \ge 0)$). It is well known that If $\sX=\coprod_{\iota \in I} \sX_{\iota}$ is disjoint union of connected components then $\pi_0(\sX)\simeq \bigcup_{\iota \in I} \{\sX_{\iota}\}$ and $C(X)\simeq \oplus_{\iota} C(\sX_{\iota})$.
 This fact provides evident generalization, i.e if $A = \oplus_{\iota \in I} A_{\iota}$ and $A_{\iota}$ is not a direct sum of algebras $\forall \iota \in I$ then 
 \begin{equation}\label{p_0_defn}
 	\pi_0(A)\simeq \bigcup_{\iota \in I} \{A_{\iota}\} = \bigcup \mathrm{Hom}^0_{\mathbb{C}}(\mathbb{C}, A)
 \end{equation}
-Generalization of $\pi_1$ can is described by other chapters of this article.
+
 Generalization of $\pi_n$ can be given as generalization of following formula 
 \begin{equation}\label{higher_homot_gr_top}
-	\pi_{n+m} (X, x_0) = \pi_n(\Omega^m(X, x_0)),
+	\pi_{n+m} (\sX, x_0) = \pi_n(\Omega^m(\sX, x_0)),
 \end{equation}
 where $\Omega^m(X, x_0)$ is the $m$ times iterated loop space (see \ref{topological_loop_spaces}).
 Definition \ref{pointed_noncommutative_loop_defn} supplies noncommutative generalization of the loop space. So noncommutative homotopy groups can be given as
@@ -4255,15 +4256,15 @@ or
 where $\Omega^{n}(A)$ is noncommutative generalization of $n$-times iterated loop space. Formulas  (\ref{higher_homot_gr_top_0}),(\ref{higher_homot_gr_top_1}) mean set theory functions only.
 Noncommutative loop space is described in \ref{noncom_loop_space_section}. There are two versions of the noncommutative loop space:
 \begin{enumerate}
-	\item Pointed version $\Omega(A)$. This version is applicable for pointed $C^*$ algebras only (See definition \ref{poined_alg_defn}). Pointed version supplies a group structure on
+	\item Pointed version $\Omega_0(A)$ (cf. Definition \ref{pointed_noncommutative_loop_defn}). This version is applicable for pointed $C^*$ algebras only (See definition \ref{poined_alg_defn}). Pointed version supplies a group structure on
 	\begin{equation}\nonumber
-		\mathrm{Hom}(B, \Omega(A)).
+		\mathrm{Hom}(B, \Omega_0(A)).
 	\end{equation}
-	\item Unpointed version $\Omega_0(A)$ This version is applicable for any (pro-) $C^*$ - algebra. Unpointed version does not supply a group structure.
+	\item Unpointed version $\Omega(A)$ (cf. Definition \ref{unpointed_noncommutative_loop_defn} below). This version is applicable for any (pro-)$C^*$ - algebra. Unpointed version does not supply a group structure.
 \end{enumerate}
-If $A = C(X)$ then 
+If $A = C(\sX)$ then 
 \begin{equation}\nonumber
-	\pi_0(\Omega(A))=\pi_1(X)
+	\pi_0(\Omega(A))=\pi_1(\sX)
 \end{equation}
 \begin{equation}\nonumber
 	\pi_0(\Omega_0(A))=\pi_1(X)/[\pi_1(X), \pi_1(X)]
@@ -4276,9 +4277,7 @@ Although pointed version supplies a group structure there are a lot of interesti
 \begin{equation}\nonumber
 	A_{\theta}\to \mathbb{C}
 \end{equation}
-does not exist, i.e. noncommutative torus is not a pointed algebra. However there are 
-
-noncommutative torus $A_{\theta}$ is not a pointed algebra. According to (\ref{higher_homot_gr_top_0}), (\ref{higher_homot_gr_top_1}) we can define $\pi_1(A_{\theta})$ by following two ways
+does not exist, i.e. noncommutative torus is not a pointed algebra. However there are noncommutative torus $A_{\theta}$ is not a pointed algebra. According to (\ref{higher_homot_gr_top_0}), (\ref{higher_homot_gr_top_1}) we can define $\pi_1(A_{\theta})$ by following two ways
 \begin{equation}\label{higher_homot_gr_top_0_nctorus}
 	\pi_{n} (A_{\theta}) = \pi_0(\Omega_0^n(A_{\theta})),
 \end{equation}
@@ -4287,12 +4286,30 @@ or
 	\pi_{n} (A_{\theta}) = \pi_1(\Omega_0^{n - 1}(A_{\theta})).
 \end{equation}
 Formula (\ref{higher_homot_gr_top_0_nctorus}) does not supply group structure on $\pi_{n} (A_{\theta})$ but formula supplies(\ref{higher_homot_gr_top_1_nctorus} it.
+	\begin{defn}\label{unpointed_noncommutative_loop_defn}
+	Let $A$ be a  pro-$C^*$-algebra. We
+	construct a pointed pro-$C^*$-algebra $\Omega A$ in terms of generators and relations as
+	follows. Let the generating set $G$ consist of the symbols $z(a, \zeta)$ for a $a \in A$ and $f \in S^1$, and let the relations $R$ be as follows:
+	\begin{enumerate}
+		\item The map $(a, \zeta) \mapsto z(a, \zeta)$ continuous.
+		\item For each fixed $\zeta \in S^1$, the elements $z(a, \zeta)$ satisfy all the algebraic
+		relations satisfied by the corresponding elements of $A$.
+%		\item $z(1,\zeta) = z(1,1)$ $\forall S^1$ .
+%		\item $z(a, 1) = z(\alpha(a)1, 1)$ $\forall \in  A$.
+	\end{enumerate}
+	Then the pro-$C^*$-algebra  $\Omega A\bydef C^*(G, R)$  is said to be \textit{unpointed noncommutative loop space} of $A$.
+\end{defn}
+\begin{definition}\label{hn_bas_defn}
+Let $A$ be a pro-$C^*$-algebra, let $b\left(\Omega^{n-1} A \right)$ be a $C^*$-algebra of bounded elements of  $n-1$ times iterated unpointed noncommutative loop space. A given by
+	\be\label{hn_bas_eqn}
+\pi_n\left(A, \left\{\pi^\nu_\mu\right\} \right) \bydef\pi_1\left(b\left(\Omega^{n-1} A \right), \left\{\pi^\nu_\mu\right\} \right)
+\ee
+group (cf. \eqref{fg_bas_eqn}) is said to be the $n^{\text{th}}$ \textit{homotopy group} of $A$. (cf. Definition \ref{top_hn_bas_defn}).
+\end{definition}
 
 
 
 
-\
-%
 \section{Induced representations}\label{inf_ind_repr_subsection}
 
    \begin{definition}\label{inf_hilb_prod_defn}
@@ -17419,7 +17436,7 @@ where $\Coo\left( SO_q\left(3\right)\right)= C\left( SO_q\left(3\right)\right)\b
 	\begin{defn}\label{top_semi1_defn}
 		A space $\sX$ is said to by \textit{semilocally} 1-\textit{connected} if every point $x_0$ has a neighborhood $N$ such that $\pi_1\left( N, x_0\right) \to \pi_1\left(\sX, x_0 \right)$ is trivial. 
 	\end{defn} 
-	\section{Coverings}
+	\section{Coverings and homotop groups}
 	\paragraph*{}
 	Results of this section are copied from \cite{spanier:at}. The \textit{covering projection} word is replaced with \textit{covering} outside this section.
 	
@@ -17602,6 +17619,15 @@ where $\Coo\left( SO_q\left(3\right)\right)= C\left( SO_q\left(3\right)\right)\b
 	\end{lem}
 	
 	
+
+\begin{definition}\label{top_hn_bas_defn}\cite{switzer:at}
+	% 2.60 page 34
+	For $n\ge1$  we define  $n^{\text{th}}$ \textit{homotopy group} $\pi_n\left(\sX, x_0 \right)$ of $\left(\sX, x_0 \right)$ as 
+	$$
+	\pi_n\left( \sX, x_0\right) \bydef \pi_0\left( \Om^n\sX, \om_0\right) \cong \pi_1\left( \Om^{n -1}\sX, \om'_0\right).
+	$$
+\end{definition}
+
 	\section{Vector bundles}\label{top_vb_sub_sub}
 	\paragraph*{}
 	Let $k$ be the field of real or complex numbers, and let $\sX$ be a topological space.
@@ -20098,7 +20124,7 @@ A \textit{pointed} (pro-)$C^*$-algebra is a pair $\left(A,\a)\right)$, where $A$
 		If $(A, \alpha)$ is a pointed pro-$C^*$-algebra, than its
 		suspension is the pro-$C^*$-algebra $\Sigma A = \{f : S^1 \to A \ \mathrm{continuous} \ : \alpha(f(\zeta)) \cdot 1 = f(1), \ \forall \zeta \in S^1\}$, together with the homomorphism $ev_1 : \Sigma A \to \mathrm{C}$ of evaluation at 1. Here $S^1$ is
 		identified with $\{\zeta \in \mathbb{C}:|\zeta| = 1\}$. (Note that $ev_1$ makes sense as a homomorphism
-		to $\mathbb{C} since f(1) \in \mathbb{C} \cdot 1$ for $f \in \Sigma A$.)
+		to $\mathbb{C}$ since $f(1) \in \mathbb{C} \cdot 1$ for $f \in \Sigma A$.)
 	\end{defn}
 	Note that $\Sigma(A^+) = (SA)^+$ , where $SA$ is the conventional suspension $C_0(\mathbb{R} \otimes A$. A left adjoint for $\Sigma$ in the pointed category immediately gives a left
 	adjoint for $S$ in the category of pro-$C^*$-algebras and arbitrary homomoprhisms,
@@ -20116,7 +20142,7 @@ A \textit{pointed} (pro-)$C^*$-algebra is a pair $\left(A,\a)\right)$, where $A$
 			\item $z(1,\zeta) = z(1,1)$ $\forall S^1$ .
 			\item $z(a, 1) = z(\alpha(a)1, 1)$ $\forall \in  A$.
 		\end{enumerate}
-		Then set $\Omega A= C^*(G, R)$. The required homomorphism from  $\Omega A$ to $\mathbb{C}$ is given by $z(a, \zeta) \mapsto \alpha(a)$  for $a \in A$ and $\zeta \in S^1$.
+		Then set $\Omega_0 A= C^*(G, R)$. The required homomorphism from  $\Omega A$ to $\mathbb{C}$ is given by $z(a, \zeta) \mapsto \alpha(a)$  for $a \in A$ and $\zeta \in S^1$.
 	\end{defn}
 	\begin{thm}
 		The map $\Phi : Hom_+(\Omega A, B) \to Hom_+(A, \Sigma B]$ defined by $\Phi(\varphi)(a)(\zeta) = \phi(z((a, \zeta))))$, is a natural bijection, and also defines a natural bijection $[\Omega A,B]^+ \to [A, \Sigma B]^+$ . In particular, $\Omega$ is a left adjoint for the functor
@@ -20130,7 +20156,7 @@ A \textit{pointed} (pro-)$C^*$-algebra is a pair $\left(A,\a)\right)$, where $A$
 		and representations $\rho$ in $B$ of $(G, R)$ which correspond to pointed homomorphisms
 		from $\Omega A$ to $B$. If $\beta : B \to C$ is the homomorphism making $B$ a pointed algebra,
 		then the conditions on $\rho$ are $\rho(z(1, 1)) = 1$ and $\beta \circ \rho(z(a, \zeta))= \alpha(a)$ for $a \in A$ and
-		$\zeta in S^1$. Using the universal property defining an inverse limit on the isomorphism
+		$\zeta \in S^1$. Using the universal property defining an inverse limit on the isomorphism
 		$B = \lim_{p \in S(\mathrm{Ker}}(\beta))(\mathrm{Ker}(\beta)_p)^+$ , and conditions (3) and (4) of the definition of weak
 		
 		admissibility (Definition \ref{weak_adm_defn}), we see that it suffices to consider the case in which
