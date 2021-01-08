@@ -45,8 +45,15 @@ namespace Unity.Standard
 
         #region Fields
 
- 
+        volatile static KeyCode current;
+
+        static KeyCode lastCurrent;
+
+
         static private TimeMeasureProviderFactory factory = new TimeMeasureProviderFactory();
+
+        static private Dictionary<KeyCode, Action<KeyCode>> keyListenres = new Dictionary<KeyCode, Action<KeyCode>>();
+
 
         static private ITimerEventFactory timerEventFactory;
 
@@ -103,7 +110,7 @@ namespace Unity.Standard
 
 
 
- 
+        
         static public event Action<string> OnGlobal
         {
             add { global += value; }
@@ -119,6 +126,50 @@ namespace Unity.Standard
         static public void Global(this string str)
         {
             global(str);
+        }
+
+        /// <summary>
+        /// Processes key code
+        /// </summary>
+        /// <param name="code">The code</param>
+        /// <returns>True in succces</returns>
+        static public bool Process(this KeyCode code)
+        {
+            var unused = UnusedKey;
+            if (Input.GetKey(code))
+            {
+                current = code;
+            }
+            if (current == unused)
+            {
+                return false;
+            }
+            current = code;
+            lastCurrent = code;
+            UpdateCurrent();
+            return true;
+        }
+
+
+        /// <summary>
+        /// Adds a key listener
+        /// </summary>
+        /// <param name="keyListener">The key listener for addinion</param>
+        static public void AddKeyListener(this IKeyListener keyListener)
+        {
+            var l = keyListenres.Keys;
+            var p = keyListener.Keys;
+            foreach (var key in l)
+            {
+                if (p.Contains(key))
+                {
+                    throw new Exception();
+                }
+            }
+            foreach (var key in p)
+            {
+                keyListenres[key] = keyListener.Action;
+            }
         }
 
 
@@ -152,6 +203,22 @@ namespace Unity.Standard
         #endregion
 
         #region Public Members
+
+        /// <summary>
+        /// Processes codes
+        /// </summary>
+        static public void ProcessCodes()
+        {
+            foreach (var key in keyListenres.Keys)
+            {
+                key.Process();
+                if (Input.GetKeyUp(key))
+                {
+                    current = default(KeyCode);
+                }
+
+            }
+        }
  
         /// <summary>
         /// Checks whether indicators exceed
@@ -715,6 +782,45 @@ namespace Unity.Standard
         #endregion
 
         #region Private
+
+
+        static void UpdateCurrent()
+        {
+            if (current != lastCurrent)
+            {
+                return;
+            }
+            KeyCode code = current;
+            if (keyListenres.ContainsKey(current))
+            {
+                keyListenres[current].Invoke(current);
+            }
+            StartCoroutine(coroutine);
+
+            /*         if (current == ResultIndicator.Pause)
+                     {
+                         Activation.PauseRestart();
+                         mb.StartCoroutine(coroutine);
+                         return;
+                     }*/
+            //      mb.StartCoroutine(enumeratorT);
+            //     mb.StartCoroutine(coroutine);
+        }
+
+
+        static IEnumerator coroutine
+        {
+            get
+            {
+                current = UnusedKey;
+                yield return new WaitForSeconds(KeyInterval);
+                current = default(KeyCode);
+                yield return current;
+            }
+        }
+
+
+
 
         /// <summary>
         /// Blinks limit indicators

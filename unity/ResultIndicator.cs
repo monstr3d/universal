@@ -61,12 +61,6 @@ public class ResultIndicator : MonoBehaviour
 
     static EulerAngles angles = new EulerAngles();
 
-    static internal KeyCode Pause = KeyCode.Escape;
-
-    static internal KeyCode StopKey = KeyCode.Return;
-
-    static internal KeyCode QuitKey = KeyCode.F1;
-
 
 
 
@@ -245,11 +239,12 @@ public class ResultIndicator : MonoBehaviour
     #region Private Members
     private void Quit()
     {
-        if (Input.GetKey(QuitKey))
+  /*      if (Input.GetKey(QuitKey))
         {
             gameObject.SetActive(false);
             Stop();
         }
+  */
     }
 
  

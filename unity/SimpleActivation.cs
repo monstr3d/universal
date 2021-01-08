@@ -86,11 +86,11 @@ namespace Assets
         {
             var kc = Saver.saver.dict;
 
-            ResultIndicator.Pause = kc[12];
+            KeyActivation.Pause = kc[12];
 
-            ResultIndicator.StopKey = kc[13];
+            KeyActivation.StopKey = kc[13];
 
-            ResultIndicator.QuitKey = kc[14];
+            KeyActivation.QuitKey = kc[14];
 
 
             var ss = new string[] { "Relative to station.Velocity", "Relative to station.Distance" };
@@ -178,10 +178,7 @@ namespace Assets
 
         void UpdateInternal()
         {
-            if (Input.GetKey(ResultIndicator.Pause))
-            {
-          //      Activation.PauseRestart();
-            }
+           
         }
 
         private static void SetValues()

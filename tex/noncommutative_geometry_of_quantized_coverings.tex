@@ -1137,9 +1137,8 @@ a = \sum_{j = 1}^\infty \xi_j\left\rangle \right\langle \eta_j \in \K\left(Y_A \
  \iota\left(\eta \right)p' \in X_A~\iota_{\K}\left( \K\left(Y_A \right)\right),\\
  \left\|\iota\left(\eta \right) - \iota\left(\eta \right)p' \right\|\le \delta.
  \eean 
- However $\delta$ is arbitrary real number, it turns out $\iota\left( \eta\right)$ lies in the closure of  $ X_A~\iota_{\K}\left( \K\left(Y_A \right)\right)$.\\
+ However $\delta$ is arbitrary real number, it turns out $\iota\left( \eta\right)$ lies in the closure of \\ $ X_A~\iota_{\K}\left( \K\left(Y_A \right)\right)$.\\
 \end{proof}
-
 
 \section{Miscellany}
 
@@ -1340,6 +1339,12 @@ If $A \neq \phi\left(B_1\oplus \{0\}  \right) \oplus \phi\left(\{0\} \oplus B_2 
 \begin{definition}\label{natural_defn}
 If $ \A$ is  category then a related to $ \A$ construction is said to be \textit{natural} or \textit{functorial} if it is invariant with respect to isomorphisms of $ \A$.
 \end{definition}
+
+\begin{definition}\label{spec_mult_defn}
+	Let $A$ be a $C^*$-algebra. The \textit{spectral multiplier} of $A$ is the maximal among $C^*$-subalgebras of $A' \subset M\left(A \right)$ such that the spectrum of $A'$ coincides with the spectrum of $A$ (cf. Proposition \ref{hered_spectrum_prop}). We  denote the spectral multiplier by $M_{\mathrm{sp}}\left(A \right)$.
+\end{definition}
+
+
 
 
 %\begin{lemma}
@@ -11200,7 +11205,7 @@ Let $A$ be a $C^*$-algebra, and let $C_0\left(\sY \right) \to M\left( A\right)$ 
 	Let $A$ be a separable $C^*$-algebra with continuous trace let $\sX = \hat A$ be the spectrum of $A$. Suppose that $\sX$ is a connected, locally connected, second-countable space.
 	Let us consider the situation \ref{comm_t_a_empt} and suppose that 
 	\bean
-	A \bydef C_0\left(\sX, \left\{A_x\right\}_{x \in \sX}, A \right)
+!!!	A \bydef C_0\left(\sX, \left\{A_x\right\}_{x \in \sX}, A \right)
 	\eean
 	and $A_0$ is the given by the  Definition \ref{blowing_c_funct_defn} functor.
 	Following conditions hold:
@@ -11209,7 +11214,7 @@ Let $A$ be a $C^*$-algebra, and let $C_0\left(\sY \right) \to M\left( A\right)$ 
 		$
 		\mathfrak{S}_{ \mathcal{X} } = \left\{p_{\la}:\mathcal{X}_\la \to  \mathcal{X}  \right\}_{\la \in \La}\in \mathfrak{FinTop}
 		$
-		is  a  topological  finite covering category (cf. Definition \ref{blowing_sec_defn}) then there is the natural  algebraical  finite covering category (cf. Definition \ref{comp_defn}).
+		is  a  topological  finite covering category (cf. Definition \ref{top_sec_defn}) then there is the natural  algebraical  finite covering category (cf. Definition \ref{comp_defn}).
 		\begin{equation*}
 			\mathfrak{S}_{A } = \left\{\pi_\la=A_0\left( p_{\la}\right) :A  \hookto A_0\left( \mathcal{X}_\la\right) \right\}_{\la \in \La}\in \mathfrak{FinAlg}.
 		\end{equation*}
@@ -11374,7 +11379,7 @@ Let $\mathfrak{S}_{A } = \left\{ \pi_{\la} :A  \hookto A_0\left( \mathcal{Y}_\la
 Let $r \in A_0\left(\sY_{\la_0} \right)$ be given by
 	\be\label{blowing_q_eqn}
 	\begin{split}
-		r = \sum_{j = 0}^n r_{\a^{\la_0}_{j,0}}\cdot ... \cdot r_{\a^{\la_0}_{j,k_j}}; \quad r_{\a^{\la_0}_{j,k_j}} \in A_0\left(\sY_{\la_0} \right)_{\sU^{\la_0}_{\a^{\la_0}_{j,k_j}}}\quad \sU^{\la_0}_{\a^{\la_0}_{j,k_j}}\in \left\{\overline\sU_{\overline\a_{\la_0}}\right\},\\
+		r = \sum_{j = 0}^n r_{\a^{\la_0}_{j,0}}\cdot ... \cdot r_{\a^{\la_0}_{j,k_j}}; \quad r_{\a^{\la_0}_{j,k_j}} \in A_0\left(\sY_{\la_0} \right)_{\sU^{\la_0}_{\a^{\la_0}_{j,k_j}}}\quad \sU^{\la_0}_{\a^{\la_0}_{j,k_j}}\in \left\{\sU_{\a_{\la_0}}\right\},\\
 	\end{split}
 	\ee
 	Suppose that there is $\overline{\sU}\in \left\{\overline\sU_{\overline\a}\right\}$ such that for any $j \in \{1,...,n\}$ there is $l \in \left\{1, ..., k_j\right\}$ such that $\overline p_{\la_0}\left( \overline{\sU}\right) = \sU^{\la_0}_{\a^{\la_0}_{j,0}}$. From the Lemma \ref{top_lift_lem} it follows that for any $j \in \{1,...,n\}$ there is the unique tuple $
@@ -11452,10 +11457,11 @@ Let $r \in A_0\left(\sY_{\la_0} \right)$ be given by
 
 
 
-
 \begin{corollary}\label{blowing_spec2_cor}
-Let us	consider the above situation, and use the notation \eqref{}.
-	Let $\overline  \sU \in \overline{\mathfrak A}$  and let $\overline a\in A_0\left(\overline \sY\right)_{\overline \sU}$ a positive element. If   $\la_0 \in \La$ and $z\in A_0\left(\overline \sY\right)^\sim$ then following conditions hold:
+Let us	consider the above situation, and use the notation \eqref{spec_a_eps_imp_eqn}.
+	Let $\overline  \sU \in \left\{\sU_{\overline\a}\right\}$  and let $\overline a\in A_0\left(\overline \sY\right)_{\overline \sU}$ a positive element,
+	
+	 If   $\la_0 \in \La$ and $z\in A_0\left(\overline \sY\right)^\sim$ then following conditions hold:
 	\begin{enumerate}
 		\item[(i)] The series 
 		$$
@@ -11583,27 +11589,31 @@ Let us	consider the above situation, and use the notation \eqref{}.
 
 \begin{lemma}\label{blowing_spec_lem}
 	Consider the above situation.
-	If $\overline  \sU \in \overline{\mathfrak A}$  then any positive element  $\overline a\in A_0\left(\overline \sY\right)_{\overline \sU} \subset A_0\left(\overline \sY\right)\subset  B \left( \widehat \H_a\right)$  is special (cf. Definition \ref{special_element_defn}).
+	If $\overline  \sU \in \left\{\sU_{\overline\a}\right\}$  and $\overline a\in A_0\left(\overline \sY\right)_{\overline \sU} \subset A_0\left(\overline \sY\right)\subset  B \left( \widehat \H_a\right)$ is a positive element    such that for all $\overline x\in \overline\sX$ the series 
+\be
+	\sum_{g \in G\left(\left.\overline{\sX}~\right|\sX\right) } \rep_{  \overline{x }}\left(g \overline a \right)= \rep_{  \overline{x }}\left( \lift_p \circ \desc_p\left( \overline{a}\right) \right)
+	\ee
+	is strongly convergent in $B\left(\H_{\overline x}\right)$ then $\overline a$ is special (cf. Definition \ref{special_element_defn}).
 \end{lemma}	
 \begin{proof}
-	Let $\la_0 \in \La$, $\eps > 0$ and  $z \in C^*_r\left( M_{\la_0},  \sF_{\la_0}\right)^{\sim}$. Let us check conditions (a), (b) of the Definition \ref{special_element_defn}.\\
+	Let $\la_0 \in \La$, $\eps > 0$ and  $z \in A_0\left(\sY_{\la_0} \right)^{\sim}$. Let us check conditions (a), (b) of the Definition \ref{special_element_defn}.\\
 	(a) One needs check that
 	\bea\label{blowing_spec_a_eps_imp1_eqn}
-	\sum_{g\in G_\la } z^*\left(  g\overline a\right) z   \in C^*_r\left( M_{\la},  \sF_{\la}\right),\\
+	\sum_{g\in G_\la } z^*\left(  g\overline a\right) z   \in A_0\left(\sY_{\la} \right),\\
 	\label{blowing_spec_a_eps_imp2_eqn}
-	\sum_{g\in G_\la } f_\eps\left(z^*\left(  g\overline a\right) z   \right)   \in C^*_r\left( M_{\la},  \sF_{\la}\right),\\
+	\sum_{g\in G_\la } f_\eps\left(z^*\left(  g\overline a\right) z   \right)   \in A_0\left(\sY_{\la} \right),\\
 	\label{blowing_spec_a_eps_imp3_eqn}
-	\sum_{g\in G_\la  } \left(z^*\left(  g\overline a\right) z   \right)^2    \in C^*_r\left( M_{\la},  \sF_{\la}\right). 
+	\sum_{g\in G_\la  } \left(z^*\left(  g\overline a\right) z   \right)^2    \in A_0\left(\sY_{\la} \right). 
 	\eea
 	(cf. Remark \ref{implicit_inc_full_rem}).
 	\begin{enumerate}
-		\item 	 Proof of \eqref{blowing_spec_a_eps_imp1_eqn}. One has $\sum_{g\in G_\la } z^*\left(  g\overline a\right) z= z^*\left( \sum_{g\in G_\la } g\overline a\right) z$. From the Lemma \ref{blowing_cov_inc_strong_lem} it turns out that there is the strong limit $\sum_{g\in G_\la } g\overline a= \desc_{\overline p_{\la}}\left( \overline a\right)\in  C^*_r\left( M_{\la},  \sF_{\la}\right)$, so one has $\sum_{g\in G_\la } z^*\left(  g\overline a\right) z\in C^*_r\left( M_{\la},  \sF_{\la}\right)$.
+		\item 	 Proof of \eqref{blowing_spec_a_eps_imp1_eqn}. One has $\sum_{g\in G_\la } z^*\left(  g\overline a\right) z= z^*\left( \sum_{g\in G_\la } g\overline a\right) z$. From the Lemma \ref{blowing_cov_inc_strong_lem} it turns out that there is the strong limit $\sum_{g\in G_\la } g\overline a= \desc_{\overline p_{\la}}\left( \overline a\right)\in  A_0\left(\sY_{\la} \right)$, so one has $\sum_{g\in G_\la } z^*\left(  g\overline a\right) z\in A_0\left(\sY_{\la} \right)$.
 		\item 	 Proof of \eqref{blowing_spec_a_eps_imp2_eqn}. From $f_\eps\left(z^*\left(  g\overline a\right) z   \right)\le z^*\left(  g\overline a\right) z$ it follows that $\sum_{g\in G^0_\la } f_\eps\left(z^*\left(  g\overline a\right) z   \right)\le a_\la$ for any finite subset $G^0_\la\subset G_\la$ so from the Lemma  \ref{increasing_convergent_w_lem} it turns out that the series \\$\sum_{g\in G_\la } f_\eps\left(z^*\left(  g\overline a\right) z   \right)$ is strongly convergent in $B\left(\widehat\H_a\right)$. Moreover one has
 		\be\label{blowing_a0_eqn}
 		\left\| \sum_{g\in G_\la } f_\eps\left(z^*\left(  g\overline a\right) z   \right)\right\| \le \left\| a_{\la_0}\right\|.
 		\ee 
 		From the Lemma \ref{blowing_ycomp_lem} it follows that for all 
-		For all  $\delta> 0$ there is $y \in C^*_r\left( M_{\la_0},  \sF_{\la_0}\right)^{\sim}$ such that $\left\| y-z\right\|< \delta$   and an open subset $\overline\sU^y\subset \overline\sX$ with compact closure such that  
+		For all  $\delta> 0$ there is $y \in A_0\left(\sY_{\la_0} \right)^{\sim}$ such that $\left\| y-z\right\|< \delta$   and an open subset $\overline\sU^y\subset \overline\sX$ with compact closure such that  
 		\bean
 		y^*\overline a y \in A_0\left(\overline\sY\right)_{\overline \sU^y}.
 		\eean
@@ -11666,7 +11676,7 @@ Let us	consider the above situation, and use the notation \eqref{}.
 			< \delta' + 2\sqrt{\delta'\left\| z\right\|^2\left\|\overline a \right\|}.
 		\end{split}
 		\ee
-		From the Corollary \ref{blowing_comp_la_cor} it follows that there is $\mu \bydef \la_{\overline{   \mathcal U }^y}$ and a continuous map $f_\mu: M_\mu \to [0,1]$ such that $f_\mu \left(\overline p_\mu\left( \overline{   \mathcal U }^y\right)  \right) = \{1\}$ and $g\supp f_\mu\cap \supp f_\mu=\emptyset$ for all nontrivial $g\in G\left( \left.{{\sX}}_\mu~\right|\sX\right)$. From the equation \eqref{blowing_center_eqn} it follows that $f_\mu$ is a multiplier of $A_0\left(\sY_{\la} \right)$ for any $\la\ge\mu$ such that $f_\la p_y = p_y f_\la = p_y$.
+		From the Corollary \ref{top_comp_la_cor} it follows that there is $\mu \bydef \la_{\overline{   \mathcal U }^y}$ and a continuous map $f_\mu: \sY_\mu \to [0,1]$ such that $f_\mu \left(\overline p_\mu\left( \overline{   \mathcal U }^y\right)  \right) = \{1\}$ and $g\supp f_\mu\cap \supp f_\mu=\emptyset$ for all nontrivial $g\in G\left( \left.{{\sY}}_\mu~\right|\sY\right)$. Otherwise $f_\mu$ is a multiplier of $A_0\left(\sY_{\la} \right)$ for any $\la\ge\mu$ such that $f_\la p_y = p_y f_\la = p_y$.
 		It follows that 
 		\be\label{blowing_fm_eqn}
 		\begin{split}
@@ -11784,11 +11794,14 @@ Let us	consider the above situation, and use the notation \eqref{}.
 	The equation \eqref{blowing_e23_eqn} is version of \eqref{special_set_eqn}.
 \end{proof}
 
-\begin{cor}\label{blowing_c0_inc_cor} 
+\begin{cor}!!!\label{blowing_c0_inc_cor}
+	
+USE LEMMA \ref{blowing_cov_inc_strong_lem}!!!
 	Let
 	$$
-	\mathfrak{S}_{\left(M, \sF, x_0\right)}\bydef \left\{\left\{p_\la:\left(M_\la, \sF_\la\right) \to \left(M, \sF\right)\right\}_{\la \in \La}, \left\{p^\mu_\nu: \left(M_\mu, \sF_\mu\right) \to \left(M_\nu, \sF_\nu\right)\right\}_{\substack{\mu, \nu \in \La\\ \mu \ge \nu}}\right\}
+	\mathfrak{S}_{A}\bydef\left\{ \pi_{\la}= A_0\left(p_\la \right)  :A  \hookto A_0\left( \mathcal{Y}_\la\right) \right\}_{\la \in \La}
 	$$
+	be given by \eqref{blowing_cat_eqn}
 	be  {pointed finite foliation category} (cf. Definition (ref. \ref{comp_pt_defn}), and let $\overline M$ be the disconnected inverse limit \ref{blowing_topological_inv_lim_defn} 	of a  {pointed topological finite covering category} 
 	\bean
 	\mathfrak{S}_{\left( M, x_0\right) }\bydef\\

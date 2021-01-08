@@ -16,7 +16,7 @@ using Unity.Standard;
 
 namespace Assets
 {
-    public class ForcesMomentumsUpdate : UpdateIndicators
+    public class ForcesMomentumsUpdate : UpdateIndicators, IKeyListener
     {
 
         #region Fields
@@ -30,10 +30,7 @@ namespace Assets
 
         Text timeTxt;
    
-        volatile KeyCode current;
-
-        KeyCode lastCurrent;
-
+   
         Motion6D.Interfaces.ReferenceFrame frame;
 
 
@@ -119,6 +116,7 @@ namespace Assets
         #region Ctor
         public ForcesMomentumsUpdate()
         {
+            this.AddKeyListener();
             forcesMomentumsUpdate = this;
             StaticExtensionUnity.Collision += (Tuple<GameObject, Component, IScadaInterface, ICollisionAction> obj) =>
         {
@@ -213,7 +211,76 @@ namespace Assets
 
         #endregion
 
+
+        #region IKeyListener Members
+
+        List<KeyCode> IKeyListener.Keys => new List<KeyCode>(Saver.saver.KeyValuePairs.Values);
+
+        Action<KeyCode> IKeyListener.Action => KeyAction;
+
+        #endregion
         #region Update
+
+        void KeyAction(KeyCode keyCode)
+        {
+            var code = keyCode;
+            var current = keyCode;
+            if (!actions.ContainsKey(current))
+            {
+                return;
+            }
+            int pp = inverse[current];
+
+            /*     if (!keyPressed)
+                 {
+                     return;
+                 }*/
+            var t = actions[code];
+            double[] v = t.Item5;
+            double newValue = t.Item4;
+            double value = v[0];
+ 
+            if (Math.Abs(value - newValue) > (1 + double.Epsilon) * Math.Abs(newValue))
+            {
+                value = 0f;
+            }
+            else
+            {
+                value = newValue;
+            }
+            t.Item1(value);
+            int m = Math.Sign(value);
+            double x = t.Item2();
+            if (Math.Abs(x - value) > double.Epsilon)
+            {
+                throw new Exception();
+            }
+            v[0] = value;
+            var tst = texts[code];
+            string ss = "0";
+            string f = tst.Item2[1];
+            string a = tst.Item2[0];
+            if (f == "+--")
+            {
+                if (x > double.Epsilon)
+                {
+                    ss = "+";
+                }
+                if (x < -double.Epsilon)
+                {
+                    ss = "-";
+                }
+            }
+            else
+            {
+                ss = x.ToString(f);
+            }
+            if (tst.Item1 != null)
+            {
+                tst.Item1.text = a + " " + ss;
+            }
+
+        }
 
         void UpdateForces()
         {
@@ -241,28 +308,7 @@ namespace Assets
                 return;
             }
             UpdateAlarm();
-            foreach (var code in actions.Keys)
-            {
-                Process(code);
-            }
-            foreach (var code in Saver.saver.dict.Values)
-            {
-                Process(code);
-            }
-            foreach (var code in actions.Keys)
-            {
-                if (Input.GetKeyUp(code))
-                {
-                    current = default(KeyCode);
-                }
-            }
-            foreach (var code in Saver.saver.dict.Values)
-            {
-                if (Input.GetKeyUp(code))
-                {
-                    current = default(KeyCode);
-                }
-            }
+            StaticExtensionUnity.ProcessCodes();
         }
 
         internal void AlarmAudio(bool b)
@@ -371,101 +417,11 @@ namespace Assets
             }
         }
 
-         void UpdateCurrent()
-        {
-            if (current != lastCurrent)
-            {
-                return;
-            }
-            KeyCode code = current;
-            if (current == ResultIndicator.Pause)
-            {
-                Activation.PauseRestart();
-                mb.StartCoroutine(coroutine);
-                return;
-            }
-            if (!actions.ContainsKey(current))
-            {
-                return;
-            }
-            int pp = inverse[current];
-
-            /*     if (!keyPressed)
-                 {
-                     return;
-                 }*/
-            var t = actions[code];
-            double[] v = t.Item5;
-            double newValue = t.Item4;
-            double value = v[0];
-            if (value == newValue)
-            {
-                current = default(KeyCode);
-                return;
-            }
-      //      mb.StartCoroutine(enumeratorT);
-            if (Math.Abs(value - newValue) > (1 + double.Epsilon) * Math.Abs(newValue))
-            {
-                value = 0f;
-            }
-            else
-            {
-                value = newValue;
-            }
-            t.Item1(value);
-            int m = Math.Sign(value);
-            double x = t.Item2();
-            if (Math.Abs(x - value) > double.Epsilon)
-            {
-                throw new Exception();
-            }
-            v[0] = value;
-            var tst = texts[code];
-            string ss = "0";
-            string f = tst.Item2[1];
-            string a = tst.Item2[0];
-            if (f == "+--")
-            {
-                if (x > double.Epsilon)
-                {
-                    ss = "+";
-                }
-                if (x < -double.Epsilon)
-                {
-                    ss = "-";
-                }
-            }
-            else
-            {
-                ss = x.ToString(f);
-            }
-            if (tst.Item1 != null)
-            {
-                tst.Item1.text = a + " " + ss;
-            }
-            mb.StartCoroutine(coroutine);
-         }
-
-        bool Process(KeyCode code)
-        {
-            var unused = Saver.saver.unused;
-            if (Input.GetKey(code))
-            {
-                if (current == unused)
-                {
-                    return false;
-                }
-                current = code;
-                lastCurrent = code;
-                UpdateCurrent();
-            }
-            return false;
-        }
-
         float[] delta;
 
         void UpdateAlarm()
         {
+
         }
 
 
@@ -503,21 +459,7 @@ namespace Assets
             }
         }
 
- 
-
-        System.Collections.IEnumerator coroutine
-        {
-            get
-            {
-                current = Saver.saver.unused;
-                yield return new WaitForSeconds(interval);
-                current = default(KeyCode);
-                yield return current;
-            }
-        }
-
-
-
+   
         #endregion
 
     }
