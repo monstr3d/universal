@@ -4292,7 +4292,7 @@ or
 Formula (\ref{higher_homot_gr_top_0_nctorus}) does not supply group structure on $\pi_{n} (A_{\theta})$ but formula supplies(\ref{higher_homot_gr_top_1_nctorus} it.
 	\begin{defn}\label{unpointed_noncommutative_loop_defn}
 	Let $A$ be an unital  pro-$C^*$-algebra. We
-	construct a pointed pro-$C^*$-algebra $\Omega A$ in terms of generators and relations as
+	construct a pointed pro-$C^*$-algebra $\Omega_{\mathrm{un}} A$ in terms of generators and relations as
 	follows. Let the generating set $G$ consist of the symbols $z(a, \zeta)$ for a $a \in A$ and $\zeta \in [0,1]$, and let the relations $R$ be as follows:
 	\begin{enumerate}
 		\item The map $(a, \zeta) \mapsto z(a, \zeta)$ continuous.
@@ -4304,10 +4304,10 @@ Formula (\ref{higher_homot_gr_top_0_nctorus}) does not supply group structure on
 \forall z(a, 1)\quad  a \in 1_A\C.
 \eean		
 	\end{enumerate}
-	Then the pro-$C^*$-algebra  $\Omega A\bydef C^*(G, R)$  is said to be \textit{unpointed noncommutative loop space} of $A$.
+	Then the pro-$C^*$-algebra  $\Omega_{\mathrm{un}} A\bydef C^*(G, R)$  is said to be the \textit{unreduced noncommutative loop space} of $A$.
 \end{defn}
 \begin{empt}\label{hom_top_poi_empt}
-There are  unital *-homomorphisms $\a_0, \a_1: \Omega A\to \C$ such that
+There are  unital *-homomorphisms $\a_0, \a_1: \Omega_{\mathrm{un}} A\to \C$ such that
 \be\label{hom_top_poi_eqn}
 \begin{split}
 \a_{j}\left(z\left(a, \zeta \right)  \right)= \begin{cases}
@@ -4316,35 +4316,58 @@ There are  unital *-homomorphisms $\a_0, \a_1: \Omega A\to \C$ such that
 \end{cases} \quad \forall j =0,1
 \end{split}
 \ee
-so a pair $\left({\Omega A}, \a_0\right) $ is a  {pointed} (pro-)$C^*$-algebra (cf. Definition \ref{poined_alg_defn}). 
+so a pair $\left({\Omega_{\mathrm{un}} A}, \a_0\right) $ is a  {pointed} (pro-)$C^*$-algebra (cf. Definition \ref{poined_alg_defn}). 
 \end{empt}
 \begin{empt}\label{pi_2_empt}
-Let $b\left(\Omega A \right)$ be a $C^*$-algebra of all bounded elements of $\Om A$.
-Let us consider the family of \textit{all} $\left\{ \pi_\la:\Om A \hookto A_\la\right\}_{\la \in \La}$ reduced noncommutative finite-fold coverings (cf. Definitions \ref{fin_defn}, \ref{fin_red_defn}). 
-Suppose that the family is an {algebraical  finite covering category} (cf. Definition \ref{comp_defn}). If $\sX$ is the spectrum of $\Om A$ then the given by \eqref{hom_top_poi_eqn} *-homomorphism $\a_0$ correspond to a point $x_0\in\sX$. For all $\la\in \La$ there is the given by the Lemma \ref{cov_spectrum_lem} surjective continuous map $p_\la: \sX_\la \to \sX$ from the spectrum $\sX_\la$ of $A_\la$ to the spectrum of $A$. So for every $\la\in \La$ one can select a point $\x^\la_0\in \sX_\la$ such that $p_\la\left( x_0^\la\right) = x_0$. For all $\mu, \nu \in \La$ such that $\mu\le\nu$ we select the unique finite fold noncommutative covering $\pi^\mu_\nu: A_\mu\hookto A_\nu$ such that
+Let $b\left(\Omega_{\mathrm{un}} A \right)$ be a $C^*$-algebra of all bounded elements of $\Om_{\mathrm{un}} A$.
+Let us consider the family of \textit{all} $\left\{ \pi_\la:\Om_{\mathrm{un}} A \hookto A_\la\right\}_{\la \in \La}$ reduced noncommutative finite-fold coverings (cf. Definitions \ref{fin_defn}, \ref{fin_red_defn}). 
+Suppose that the family is an {algebraical  finite covering category} (cf. Definition \ref{comp_defn}). If $\sX$ is the spectrum of $\Om_{\mathrm{un}} A$ then the given by \eqref{hom_top_poi_eqn} *-homomorphism $\a_0$ correspond to a point $x_0\in\sX$. For all $\la\in \La$ there is the given by the Lemma \ref{cov_spectrum_lem} surjective continuous map $p_\la: \sX_\la \to \sX$ from the spectrum $\sX_\la$ of $A_\la$ to the spectrum of $A$. So for every $\la\in \La$ one can select a point $\x^\la_0\in \sX_\la$ such that $p_\la\left( x_0^\la\right) = x_0$. For all $\mu, \nu \in \La$ such that $\mu\le\nu$ we select the unique finite fold noncommutative covering $\pi^\mu_\nu: A_\mu\hookto A_\nu$ such that
 \begin{itemize}
 	\item $\pi^\mu_\nu $ satisfies to the equitation \eqref{fg_ord_eqn},
 	\item $\pi^\mu_\nu $ corresponds to a pointed  map $\left( \sX_\nu, x^\nu_0\right) \to \left( \sX_\mu, x^\mu_0\right)$. 
 \end{itemize}
 In result there is   a  {pointed  algebraical  finite covering} category
 \be\label{om_p_cat_eqn}
-\mathfrak{S}_{\left( \Om A, \a_0\right) } = \left( \left\{ \pi_\la:\Om A \hookto A_\la\right\},\left\{pi^\mu_\nu: A_\mu\hookto A_\nu\right\} \right)
+\mathfrak{S}_{\left( \Om_{\mathrm{un}} A, \a_0\right) } = \left( \left\{ \pi_\la:\Om_{\mathrm{un}} A \hookto A_\la\right\},\left\{\pi^\mu_\nu: A_\mu\hookto A_\nu\right\} \right)
 \ee
-Suppose that $\mathfrak{S}_{\left( \Om A, \a_0\right) }$ is good (cf. Definition \ref{mains_defn}) 
+Suppose that $\mathfrak{S}_{\left( \Om_{\mathrm{un}} A, \a_0\right) }$ is good (cf. Definition \ref{mains_defn}) 
 \end{empt}
 \begin{definition}\label{pi_n_defn}
 In the above situation denote by
 $$
-\pi_2\left(A, \a_0 \right) \bydef \pi_1\left(\Om A, \left\{\pi^\nu_\mu\right\} \right) 
+\pi_2\left(A, \a_0 \right) \bydef \pi_1\left(\Om_{\mathrm{un}} A, \left\{\pi^\nu_\mu\right\} \right) 
 $$
 (cf. Equation \ref{fg_bas_eqn}).
 We say that $\pi_2\left(A, \a_0 \right) $ is the second \textit{homotopy group} of $A$. By similar way we define   $n^{\text{th}}$ \textit{homotopy group} $\pi_n\left(\sX, x_0 \right)$  of $A$
 \be
-\pi_n\left(A, \a_0 \right) \bydef \pi_1\left(\Om^{n-1} A, \left\{\pi^\nu_\mu\right\} \right) 
+\pi_n\left(A, \a_0 \right) \bydef \pi_1\left(\Om_{\mathrm{un}}^{n-1} A, \left\{\pi^\nu_\mu\right\} \right). 
 \ee
 \end{definition}
+\begin{definition}
+If $A$ be an unital $C^*$-algebra then the \textit{unreduced suspension} $\Sigma_{\mathrm{un}}$ is a $C^*$-algebra of continuous maps $f: [0,1]\to A$ such that  $f(0), f(1)\in 1_A\C$.
+\end{definition}
 
-
+\begin{thm}\label{nc_s_un_loop_iso_thm}
+The map $\Phi : \Hom(\Omega_{\mathrm{un}} A, B) \xrightarrow{\approx} \Hom(A, \Sigma_{\mathrm{un}} B)$ defined by 
+\be\label{nc_s_un_loop_iso_eqn}
+\Phi(\varphi)(a)(\zeta) = \varphi\left( z\left( a, \zeta\right) \right), 
+\ee is a natural bijection, and also defines a natural bijection $[\Omega_{\mathrm{un}} A,B]\xrightarrow{\approx} [A, \Sigma_{\mathrm{un}} B]$ . In particular, $\Omega_{\mathrm{un}}$ is a left adjoint for the functor
+$\Sigma_{\mathrm{un}}$.
+\end{thm}
+\begin{proof}
+			The statement about homotopy classes follows from the statement
+	about homomorphisms on replacing $B$ by $B \otimes C([0, 1])$. Therefore we only
+	consider the statement about homomorphisms.
+	If $\psi: A\to \Sigma_{\mathrm{un}} B$ is then we define 
+\be	\label{nc_s_un_loop_iso_inv_eqn}
+	\rho\left( z\left(a, \zeta \right) \right) \bydef \phi\left( a\right)\left( \zeta\right)
+	\ee
+Similarly to the proof of the Theorem \ref{nc_s_loop_iso} one can prove that:
+\begin{itemize}
+	\item the map $\Phi$ is correctly defined;%and continuous.
+	\item the map $\psi \mapsto \rho$ equals to $\Phi^{-1} $. %and also continuous.
+\end{itemize}
+\end{proof}
 
 \section{Induced representations}\label{inf_ind_repr_subsection}
 
@@ -20212,8 +20235,8 @@ A \textit{pointed} (pro-)$C^*$-algebra is a pair $\left(A,\a)\right)$, where $A$
 		\end{enumerate}
 		Then set $\Omega_0 A= C^*(G, R)$. The required homomorphism from  $\Omega A$ to $\mathbb{C}$ is given by $z(a, \zeta) \mapsto \alpha(a)$  for $a \in A$ and $\zeta \in S^1$.
 	\end{defn}
-	\begin{thm}
-		The map $\Phi : Hom_+(\Omega A, B) \to Hom_+(A, \Sigma B]$ defined by $\Phi(\varphi)(a)(\zeta) = \phi(z((a, \zeta))))$, is a natural bijection, and also defines a natural bijection $[\Omega A,B]^+ \to [A, \Sigma B]^+$ . In particular, $\Omega$ is a left adjoint for the functor
+	\begin{thm}\label{nc_s_loop_iso}
+		The map $\Phi : \Hom_+(\Omega A, B) \to \Hom_+(A, \Sigma B)$ defined by $\Phi(\varphi)(a)(\zeta) = \varphi(z((a, \zeta))))$, is a natural bijection, and also defines a natural bijection $[\Omega A,B]^+ \to [A, \Sigma B]^+$ . In particular, $\Omega$ is a left adjoint for the functor
 		$\Sigma$.
 	\end{thm}
 	\begin{proof}
@@ -20222,35 +20245,23 @@ A \textit{pointed} (pro-)$C^*$-algebra is a pair $\left(A,\a)\right)$, where $A$
 		consider the statement about homomorphisms. It is sufficient to prove that $\Phi$ defines
 		a one to one correspondence between pointed homomorphisms from $A$ to $\Sigma B$
 		and representations $\rho$ in $B$ of $(G, R)$ which correspond to pointed homomorphisms
-		from $\Omega A$ to $B$. If $\beta : B \to C$ is the homomorphism making $B$ a pointed algebra,
+		from $\Omega A$ to $B$. If $\beta : B \to \C$ is the homomorphism making $B$ a pointed algebra,
 		then the conditions on $\rho$ are $\rho(z(1, 1)) = 1$ and $\beta \circ \rho(z(a, \zeta))= \alpha(a)$ for $a \in A$ and
 		$\zeta \in S^1$. Using the universal property defining an inverse limit on the isomorphism
-		$B = \lim_{p \in S(\mathrm{Ker}}(\beta))(\mathrm{Ker}(\beta)_p)^+$ , and conditions (3) and (4) of the definition of weak
-		
+		$B = \lim_{p \in S(\mathrm{Ker}(\beta))}(\mathrm{Ker}(\beta)_p)^+$ , and conditions (3) and (4) of the definition of weak		
 		admissibility (Definition \ref{weak_adm_defn}), we see that it suffices to consider the case in which
 		$B$ is a $C^*$-algebra.
 		\newline
 		Let $\rho : G \to B$ be a representation of $(G,R)$ such that $\rho(z(1,1)) = 1$
-		and $\beta \rho(z(a, \zeta))= \alpha(a)$. Define $\psi : A \to \Sigma B$ by $\psi(a)(\zeta) = \rho(z(a, \zeta)$. Then $\psi: A\to \Sigma B$
+		and $\beta \circ \rho(z(a, \zeta))= \alpha(a)$. Define $\psi : A \to \Sigma B$ by $\psi(a)(\zeta) = \rho(z(a, \zeta))$. Then $\psi: A\to \Sigma B$
 		is certainly a unital *-homomorphism satisfying $ev_1(\psi(a)) = \rho(z(a, 1)) = \alpha(a)$, as
 		desired. (Note that $\psi(a) \in \Sigma B$, by the relations (3) and (4).) That $\psi$ is continuous
-		follows from relation (l) and the compactness of $S^l$ : if $a_i \to a$ then the joint continuity of $\rho : A \times S^1 \to B$ forces $\rho(z(a_i, \zeta))$ to converge uniformly in $\zeta$ to
+		follows from relation (l) and the compactness of $S^1$ : if $a_i \to a$ then the joint continuity of $\rho : A \times S^1 \to B$ forces $\rho(z(a_i, \zeta))$ to converge uniformly in $\zeta$ to
 		$\rho(z(a, \zeta))$. This shows that the definition of $\Phi$ makes sense.
 		Conversely, let $\psi : A \to \Sigma B$ be a pointed morphism. Define $p(z(a, \zeta)) = \psi(a)(\zeta)$. Clearly $\rho(z(1, 1)) = 1$ and $\beta \circ \rho ((z(a,\zeta)) = \beta(\psi(a)(\zeta) = \beta(\psi(a)(\zeta) = \alpha(a)$.
 		Also, the relations of the definition all hold: (l) because $\psi$ is continuous for the supremum norm on $\Sigma B$; (2) because evaluation at $\zeta$ composed with $\psi$ is a homomorphism
 		for all $\zeta$; (3) because $\psi$ is unital; and (4) because $\psi(a) = \beta(\psi(a)(1)) \cdot 1$ for $a\in A$. 
-		
 	\end{proof}
-	\begin{empt}\label{unpointed_loop_suspension}
-		It is an analog $\Omega_0$ of a loop algebra construction without basepoint. Letting $SB$ usual suspension of pro-$C^*$-algebra $B$, and identifying it with $\{f:S^1\to B \ | \ f(1)=0 \}$ we have
-		\begin{equation}\nonumber
-			\mathrm{Hom}(\Omega_0 A, B)\simeq \mathrm{Hom}(SA,B),
-		\end{equation} 
-		\begin{equation}\nonumber
-			[\Omega_0 A,B ]\simeq [A,SB].
-		\end{equation} 
-	\end{empt}
-	
 	
 	
 	\section{Local operator spaces}
@@ -21731,7 +21742,6 @@ A \textit{pointed} (pro-)$C^*$-algebra is a pair $\left(A,\a)\right)$, where $A$
 	\begin{remark}\label{foli_trans_rem}
 		If a map $p:\left(\widetilde{M},~ \widetilde{\mathcal F} \right)\to\left({M},~ {\mathcal F} \right)$ is regular covering of foliations  and a leaf $\widetilde L \in \widetilde M$ has no holonomy then  $g\widetilde L \neq \widetilde L$ for all nontrivial $g \in G\left( \left.\widetilde{M}~\right|M\right)$, i.e. $G\left( \left.\widetilde{M}~\right|M\right)$ transitively acts on leaves having no holonomy.
 	\end{remark}
-	\chapter{String field theory}
 	\chapter{Noncommutative torus and Moyal plane}\label{nt_descr_sec}
 	\section{Noncommutative torus $\mathbb{T}^n_{\Theta}$}\label{nt_descr_subsec}
 	\subsection{Definition of noncommutative torus $\mathbb{T}^n_{\Theta}$}
