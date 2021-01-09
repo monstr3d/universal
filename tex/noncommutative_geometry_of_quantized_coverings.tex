@@ -4176,7 +4176,7 @@ Very natural choice of fundamental group is proposed in \cite{milne:etale}, wher
 \subsection{Universal coverings of $C^*$-algebras}\label{uni_sec}
 \begin{definition}\label{fg_bas_defn} 
 	Let $A$ be a connected $C^*$-algebra. Let us consider the family $\left\{ \pi_\la:A \hookto A_\la\right\}_{\la \in \La} $  \textit{all} noncommutative finite-fold coverings (cf. Definition \ref{fin_defn}) (resp. \textit{all} reduced noncommutative finite-fold coverings (cf. Definition \ref{fin_red_defn}))  of $A$. Suppose that the family $\left\{ \pi_\la:A \hookto A_\la\right\}_{\la \in \La}$ is an {algebraical  finite covering category} (cf. Definition \ref{comp_defn}).
-!!! Denote by $\mathfrak{S} = \left\{ \pi_\la:A \hookto A_\la\right\}_{\la \in \La}$ and suppose that there is   a  {pointed  algebraical  finite covering} category $\mathfrak{S}^{\mathrm{pt}} = \left( \left\{ \pi_\la:A \hookto A_\la\right\},\left\{\pi^\nu_\mu\right\} \right)$  which is good.
+ Denote by $\mathfrak{S} = \left\{ \pi_\la:A \hookto A_\la\right\}_{\la \in \La}$ and suppose that there is   a  {pointed  algebraical  finite covering} category $\mathfrak{S}^{\mathrm{pt}} = \left( \left\{ \pi_\la:A \hookto A_\la\right\},\left\{\pi^\nu_\mu\right\} \right)$  which is good.
 	The { connected infinite noncommutative covering }  $\left(A, \widetilde{A}, G\left(\left.\widetilde{A}~\right|{A}  \right) \right)$ of $\mathfrak{S}$ is said to be the \textit{universal  covering} (resp. \textit{reduced universal  covering})% (resp. \textit{prime universal  covering}) 
 	of $A$. We also say that $\widetilde{A}$ the \textit{universal  covering} (resp. \textit{reduced universal  covering}) of $A$. The group $G\left(\left.\widetilde{A}~\right|{A}  \right)$  is said to be the \textit{fundamental group} (resp. \textit{reduced fundamental group}) %(resp. \textit{prime fundamental group}) 
 	of the pair  $\left( A, \left\{\pi^\nu_\mu\right\}\right) $. We use the following notation
@@ -4307,35 +4307,42 @@ Formula (\ref{higher_homot_gr_top_0_nctorus}) does not supply group structure on
 	Then the pro-$C^*$-algebra  $\Omega A\bydef C^*(G, R)$  is said to be \textit{unpointed noncommutative loop space} of $A$.
 \end{defn}
 \begin{empt}\label{hom_top_poi_empt}
-There is an unital *-homomorphism 
+There are  unital *-homomorphisms $\a_0, \a_1: \Omega A\to \C$ such that
 \be\label{hom_top_poi_eqn}
 \begin{split}
-\a_{\Omega A}: \Omega A\to \C;\\
-\a_{\Omega A}\left(z\left(a, \zeta \right)  \right)= \begin{cases}
-	a & \zeta = 0\\
-	0 & \zeta \neq 0
-\end{cases} 
+\a_{j}\left(z\left(a, \zeta \right)  \right)= \begin{cases}
+	a & \zeta = j\\
+	0 & \zeta \neq j
+\end{cases} \quad \forall j =0,1
 \end{split}
 \ee
-so a pair $\left({\Omega A}, \a_{\Omega A} \right)$ is a  {pointed} (pro-)$C^*$-algebra (cf. Definition \ref{poined_alg_defn}). 
+so a pair $\left({\Omega A}, \a_0\right) $ is a  {pointed} (pro-)$C^*$-algebra (cf. Definition \ref{poined_alg_defn}). 
 \end{empt}
-\begin{empt}
+\begin{empt}\label{pi_2_empt}
 Let $b\left(\Omega A \right)$ be a $C^*$-algebra of all bounded elements of $\Om A$.
-Let us consider the family of \textit{all} reduced noncommutative finite-fold coverings (cf. Definitions \ref{fin_defn}, \ref{fin_red_defn}). 
-Suppose that the family 
-
-For any $\la\in \La$ we select 
-\end{empt}
-
-
-\begin{definition}\label{hn_bas_defn}
-Let $A$ be an unital pro-$C^*$-algebra, let $b\left(\Omega^{n-1} A \right)$ be a $C^*$-algebra of bounded elements of  $n-1$ times iterated unpointed noncommutative loop space. A given by
-	\be\label{hn_bas_eqn}
-\pi_n\left(A, \left\{\pi^\nu_\mu\right\} \right) \bydef\pi_1\left(b\left(\Omega^{n-1} A \right), \left\{\pi^\nu_\mu\right\} \right)
+Let us consider the family of \textit{all} $\left\{ \pi_\la:\Om A \hookto A_\la\right\}_{\la \in \La}$ reduced noncommutative finite-fold coverings (cf. Definitions \ref{fin_defn}, \ref{fin_red_defn}). 
+Suppose that the family is an {algebraical  finite covering category} (cf. Definition \ref{comp_defn}). If $\sX$ is the spectrum of $\Om A$ then the given by \eqref{hom_top_poi_eqn} *-homomorphism $\a_0$ correspond to a point $x_0\in\sX$. For all $\la\in \La$ there is the given by the Lemma \ref{cov_spectrum_lem} surjective continuous map $p_\la: \sX_\la \to \sX$ from the spectrum $\sX_\la$ of $A_\la$ to the spectrum of $A$. So for every $\la\in \La$ one can select a point $\x^\la_0\in \sX_\la$ such that $p_\la\left( x_0^\la\right) = x_0$. For all $\mu, \nu \in \La$ such that $\mu\le\nu$ we select the unique finite fold noncommutative covering $\pi^\mu_\nu: A_\mu\hookto A_\nu$ such that
+\begin{itemize}
+	\item $\pi^\mu_\nu $ satisfies to the equitation \eqref{fg_ord_eqn},
+	\item $\pi^\mu_\nu $ corresponds to a pointed  map $\left( \sX_\nu, x^\nu_0\right) \to \left( \sX_\mu, x^\mu_0\right)$. 
+\end{itemize}
+In result there is   a  {pointed  algebraical  finite covering} category
+\be\label{om_p_cat_eqn}
+\mathfrak{S}_{\left( \Om A, \a_0\right) } = \left( \left\{ \pi_\la:\Om A \hookto A_\la\right\},\left\{pi^\mu_\nu: A_\mu\hookto A_\nu\right\} \right)
 \ee
-group (cf. \eqref{fg_bas_eqn}) is said to be the $n^{\text{th}}$ \textit{homotopy group} of $A$. (cf. Definition \ref{top_hn_bas_defn}).
+Suppose that $\mathfrak{S}_{\left( \Om A, \a_0\right) }$ is good (cf. Definition \ref{mains_defn}) 
+\end{empt}
+\begin{definition}\label{pi_n_defn}
+In the above situation denote by
+$$
+\pi_2\left(A, \a_0 \right) \bydef \pi_1\left(\Om A, \left\{\pi^\nu_\mu\right\} \right) 
+$$
+(cf. Equation \ref{fg_bas_eqn}).
+We say that $\pi_2\left(A, \a_0 \right) $ is the second \textit{homotopy group} of $A$. By similar way we define   $n^{\text{th}}$ \textit{homotopy group} $\pi_n\left(\sX, x_0 \right)$  of $A$
+\be
+\pi_n\left(A, \a_0 \right) \bydef \pi_1\left(\Om^{n-1} A, \left\{\pi^\nu_\mu\right\} \right) 
+\ee
 \end{definition}
-
 
 
 

@@ -21,19 +21,18 @@ namespace Assets
 
         #region Fields
 
+
+        Motion6D.Portable.Aggregates.RigidBody rigidBody;
+
         Dictionary<string, List<Component>> components;
 
         static internal ForcesMomentumsUpdate forcesMomentumsUpdate;
 
 
-        // static public event Action<string, float[], float[]> Alarm;
-
         Text timeTxt;
    
    
         Motion6D.Interfaces.ReferenceFrame frame;
-
-
 
         AudioSource alarm;
 
@@ -146,6 +145,15 @@ namespace Assets
         public override void Set(object[] obj, Component indicator, IScadaInterface scada)
         {
             base.Set(obj, indicator, scada);
+ /** !!! DELETE AFTER           scada.OnStart += () =>
+            {
+                KeyExecuteMonobehavior.keyExecuteMonobehavior.enabled = false;
+            };
+            scada.OnStop += () =>
+            {
+                KeyExecuteMonobehavior.keyExecuteMonobehavior.enabled = true;
+            };
+ */
             var c = scada.Constants;
             frame = scada.GetOutput("Relative to station.Frame")() as Motion6D.Interfaces.ReferenceFrame;
             for (int i = 0; i < 6; i++)
@@ -182,9 +190,6 @@ namespace Assets
             sliders.Add(sw);*/
         }
 
-
-        Motion6D.Portable.Aggregates.RigidBody rigidBody;
-
         public override int SetConstants(int offset, float[] constants)
         {
             int i = base.SetConstants(offset, constants);
@@ -219,10 +224,15 @@ namespace Assets
         Action<KeyCode> IKeyListener.Action => KeyAction;
 
         #endregion
+
         #region Update
 
         void KeyAction(KeyCode keyCode)
         {
+            if (!scada.IsEnabled)
+            {
+                return;
+            }
             var code = keyCode;
             var current = keyCode;
             if (!actions.ContainsKey(current))
@@ -294,10 +304,6 @@ namespace Assets
             Vector3 euler = new Vector3(0, 0, r);
             pivot.rotation = Quaternion.Euler(euler);
 */
-            if (Input.GetKey(KeyCode.Return))
-            {
-                ResultIndicator.Stop();
-            }
             if (!scada.IsEnabled)
             {
              //   alarm.enabled = false;
@@ -308,7 +314,7 @@ namespace Assets
                 return;
             }
             UpdateAlarm();
-            StaticExtensionUnity.ProcessCodes();
+            StaticExtensionUnity.ProcessKeyCodes();
         }
 
         internal void AlarmAudio(bool b)

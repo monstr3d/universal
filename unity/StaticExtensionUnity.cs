@@ -117,12 +117,20 @@ namespace Unity.Standard
             remove { global -= value; }
         }
 
+        /// <summary>
+        /// Adds global event
+        /// </summary>
+        /// <param name="act">Action</param>
         static public void AddGlobal(this Action<string> act)
         {
             OnGlobal += act;
         }
 
 
+        /// <summary>
+        /// Executes glbal event
+        /// </summary>
+        /// <param name="str"></param>
         static public void Global(this string str)
         {
             global(str);
@@ -133,7 +141,7 @@ namespace Unity.Standard
         /// </summary>
         /// <param name="code">The code</param>
         /// <returns>True in succces</returns>
-        static public bool Process(this KeyCode code)
+        static public bool ProcessKeyCode(this KeyCode code)
         {
             var unused = UnusedKey;
             if (Input.GetKey(code))
@@ -207,11 +215,11 @@ namespace Unity.Standard
         /// <summary>
         /// Processes codes
         /// </summary>
-        static public void ProcessCodes()
+        static public void ProcessKeyCodes()
         {
             foreach (var key in keyListenres.Keys)
             {
-                key.Process();
+                key.ProcessKeyCode();
                 if (Input.GetKeyUp(key))
                 {
                     current = default(KeyCode);
@@ -782,7 +790,6 @@ namespace Unity.Standard
         #endregion
 
         #region Private
-
 
         static void UpdateCurrent()
         {

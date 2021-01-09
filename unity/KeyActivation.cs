@@ -69,7 +69,10 @@ namespace Assets
                 Activation.PauseRestart();
                 return;
             }
+            if (keyCode == StopKey)
+            {
+                ResultIndicator.Stop();
+            }
         }
-
     }
 }
