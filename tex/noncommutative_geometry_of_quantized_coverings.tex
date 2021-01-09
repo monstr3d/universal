@@ -4175,9 +4175,8 @@ it turns out that  $\widetilde X'\cong\C\widetilde X$.
 Very natural choice of fundamental group is proposed in \cite{milne:etale}, where the fundamental group of algebraic manifold is an inverse limit of finite covering groups. However this theory does not yield the fundamental group, it provides its the profinite completion of the fundamental group. Another way is the construction of the noncommutative universal covering using  construction \ref{inf_bas_constr_sec}. This  construction yields fundamental group in the commutative case $A = C_0\left( \mathcal X\right)$ for described below class of spaces.
 \subsection{Universal coverings of $C^*$-algebras}\label{uni_sec}
 \begin{definition}\label{fg_bas_defn} 
-	Let $A$ be a connected $C^*$-algebra. Let us consider the family $\left\{ \pi_\la:A \hookto A_\la\right\}_{\la \in \La} $ of \textit{all} noncommutative finite-fold coverings (cf. Definition \ref{fin_defn}) (resp. \textit{all} reduced noncommutative finite-fold coverings (cf. Definition \ref{fin_red_defn})% (resp. \textit{all} prime noncommutative finite-fold coverings (cf. Definition \ref{fin_prime_defn})
-	 of $A$.
-Denote by $\mathfrak{S} = \left\{ \pi_\la:A \hookto A_\la\right\}_{\la \in \La}$ and suppose that there is   a  {pointed  algebraical  finite covering category} category $\mathfrak{S}^{\mathrm{pt}} = \left( \left\{ \pi_\la:A \hookto A_\la\right\},\left\{\pi^\nu_\mu\right\} \right)$  which is good.
+	Let $A$ be a connected $C^*$-algebra. Let us consider the family $\left\{ \pi_\la:A \hookto A_\la\right\}_{\la \in \La} $  \textit{all} noncommutative finite-fold coverings (cf. Definition \ref{fin_defn}) (resp. \textit{all} reduced noncommutative finite-fold coverings (cf. Definition \ref{fin_red_defn}))  of $A$. Suppose that the family $\left\{ \pi_\la:A \hookto A_\la\right\}_{\la \in \La}$ is an {algebraical  finite covering category} (cf. Definition \ref{comp_defn}).
+!!! Denote by $\mathfrak{S} = \left\{ \pi_\la:A \hookto A_\la\right\}_{\la \in \La}$ and suppose that there is   a  {pointed  algebraical  finite covering} category $\mathfrak{S}^{\mathrm{pt}} = \left( \left\{ \pi_\la:A \hookto A_\la\right\},\left\{\pi^\nu_\mu\right\} \right)$  which is good.
 	The { connected infinite noncommutative covering }  $\left(A, \widetilde{A}, G\left(\left.\widetilde{A}~\right|{A}  \right) \right)$ of $\mathfrak{S}$ is said to be the \textit{universal  covering} (resp. \textit{reduced universal  covering})% (resp. \textit{prime universal  covering}) 
 	of $A$. We also say that $\widetilde{A}$ the \textit{universal  covering} (resp. \textit{reduced universal  covering}) of $A$. The group $G\left(\left.\widetilde{A}~\right|{A}  \right)$  is said to be the \textit{fundamental group} (resp. \textit{reduced fundamental group}) %(resp. \textit{prime fundamental group}) 
 	of the pair  $\left( A, \left\{\pi^\nu_\mu\right\}\right) $. We use the following notation
@@ -4237,7 +4236,7 @@ If $\widetilde X$ is the universal covering of $\left(X, Y\right)$ and $\widetil
 \begin{remark}\label{real_op_rem}
 Similarly to the Definition \ref{fg_bas_os_defn} one can define the universal covering and the fundamental group of real operator space.
 \end{remark}
-\subsection{Homotopy groups}
+\section{Homotopy groups}
 \paragraph{}
 Let us construct noncommutative generalization of homotopy groups $\pi_n$ ($n \ge 0)$). It is well known that If $\sX=\coprod_{\iota \in I} \sX_{\iota}$ is disjoint union of connected components then $\pi_0(\sX)\simeq \bigcup_{\iota \in I} \{\sX_{\iota}\}$ and $C(X)\simeq \oplus_{\iota} C(\sX_{\iota})$.
 This fact provides evident generalization, i.e if $A = \oplus_{\iota \in I} A_{\iota}$ and $A_{\iota}$ is not a direct sum of algebras $\forall \iota \in I$ then 
@@ -4292,20 +4291,45 @@ or
 \end{equation}
 Formula (\ref{higher_homot_gr_top_0_nctorus}) does not supply group structure on $\pi_{n} (A_{\theta})$ but formula supplies(\ref{higher_homot_gr_top_1_nctorus} it.
 	\begin{defn}\label{unpointed_noncommutative_loop_defn}
-	Let $A$ be a  pro-$C^*$-algebra. We
+	Let $A$ be an unital  pro-$C^*$-algebra. We
 	construct a pointed pro-$C^*$-algebra $\Omega A$ in terms of generators and relations as
-	follows. Let the generating set $G$ consist of the symbols $z(a, \zeta)$ for a $a \in A$ and $f \in S^1$, and let the relations $R$ be as follows:
+	follows. Let the generating set $G$ consist of the symbols $z(a, \zeta)$ for a $a \in A$ and $\zeta \in [0,1]$, and let the relations $R$ be as follows:
 	\begin{enumerate}
 		\item The map $(a, \zeta) \mapsto z(a, \zeta)$ continuous.
-		\item For each fixed $\zeta \in S^1$, the elements $z(a, \zeta)$ satisfy all the algebraic
+		\item For each fixed $\zeta \in [0,1]$, the elements $z(a, \zeta)$ satisfy all the algebraic
 		relations satisfied by the corresponding elements of $A$.
-%		\item $z(1,\zeta) = z(1,1)$ $\forall S^1$ .
-%		\item $z(a, 1) = z(\alpha(a)1, 1)$ $\forall \in  A$.
+		\item
+\bean
+\forall z(a, 0)\quad  a \in 1_A\C,\\
+\forall z(a, 1)\quad  a \in 1_A\C.
+\eean		
 	\end{enumerate}
 	Then the pro-$C^*$-algebra  $\Omega A\bydef C^*(G, R)$  is said to be \textit{unpointed noncommutative loop space} of $A$.
 \end{defn}
+\begin{empt}\label{hom_top_poi_empt}
+There is an unital *-homomorphism 
+\be\label{hom_top_poi_eqn}
+\begin{split}
+\a_{\Omega A}: \Omega A\to \C;\\
+\a_{\Omega A}\left(z\left(a, \zeta \right)  \right)= \begin{cases}
+	a & \zeta = 0\\
+	0 & \zeta \neq 0
+\end{cases} 
+\end{split}
+\ee
+so a pair $\left({\Omega A}, \a_{\Omega A} \right)$ is a  {pointed} (pro-)$C^*$-algebra (cf. Definition \ref{poined_alg_defn}). 
+\end{empt}
+\begin{empt}
+Let $b\left(\Omega A \right)$ be a $C^*$-algebra of all bounded elements of $\Om A$.
+Let us consider the family of \textit{all} reduced noncommutative finite-fold coverings (cf. Definitions \ref{fin_defn}, \ref{fin_red_defn}). 
+Suppose that the family 
+
+For any $\la\in \La$ we select 
+\end{empt}
+
+
 \begin{definition}\label{hn_bas_defn}
-Let $A$ be a pro-$C^*$-algebra, let $b\left(\Omega^{n-1} A \right)$ be a $C^*$-algebra of bounded elements of  $n-1$ times iterated unpointed noncommutative loop space. A given by
+Let $A$ be an unital pro-$C^*$-algebra, let $b\left(\Omega^{n-1} A \right)$ be a $C^*$-algebra of bounded elements of  $n-1$ times iterated unpointed noncommutative loop space. A given by
 	\be\label{hn_bas_eqn}
 \pi_n\left(A, \left\{\pi^\nu_\mu\right\} \right) \bydef\pi_1\left(b\left(\Omega^{n-1} A \right), \left\{\pi^\nu_\mu\right\} \right)
 \ee
@@ -20142,6 +20166,16 @@ Each primitive ideal of a $C^*$-algebra is prime.
 	%If $(G,R)$ is admissible, then the directed set $D$ has a largest element
 	%$\rho$, so that $C^*(G,R)$ is a $C^*$-algebra with the norm $p$.
 	%\end{proof}
+		\begin{definition}\label{abelianization_defn}\cite{phillips:inv_lim_app}
+%1.5.7 DEFINITION. 
+Let $A$ be a pro-$C^*$-algebra. Then the \textit{abelianization} of $A$ is the Hausdorff completion of $A$ in the topology determined by all 
+continuous $C^*$-seminorms which vanish on the closed ideal $[A, A]$ generated by all 
+commutators $xy Ñ yx$ for $x,y \in  A$. 
+The abelianization can also be described as the completion of $A/[A, A]$ 
+with respect to the quotient topology, or as the inverse limit $\varprojlim A_p/[A_p, A_p]$. It is 
+the largest abelian quotient of $A$. 	
+\end{definition}
+	
 	\begin{definition}\label{poined_alg_defn}\cite{phillips:inv_lim_app}
 %2.5.1. DEFINITION. 
 A \textit{pointed} (pro-)$C^*$-algebra is a pair $\left(A,\a)\right)$, where $A$ is a unital (pro-)$C^*$-algebra and $\a : A \to \C$ is a unital homomorphism.
@@ -20213,7 +20247,6 @@ A \textit{pointed} (pro-)$C^*$-algebra is a pair $\left(A,\a)\right)$, where $A$
 	
 	
 	\section{Local operator spaces}
-	
 	\begin{definition}\label{loc_op_sp_defn}\cite{dosi:multi,effros:loc_conv}
 		Let $X$ be a linear space and let
 		$p^{n} :\mathbb{M}_n(X)\to\left[0, \infty\right]$, $n \in \N$, be gauges (respectively, seminorms) over all matrix spaces. The
