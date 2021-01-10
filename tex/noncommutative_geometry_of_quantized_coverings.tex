@@ -4335,12 +4335,12 @@ Suppose that $\mathfrak{S}_{\left( b\left(\Omega_{\mathrm{un}} A \right), \a_0\r
 \end{empt}
 \begin{definition}\label{pi_n_defn}
 In the above situation denote by
-$$
+\be\label{pi_2_eqn}
 \pi_2\left(A, \a_0 \right) \bydef \pi_1\left(b\left(\Omega_{\mathrm{un}} A \right), \left\{\pi^\nu_\mu\right\} \right) 
-$$
+\ee
 (cf. Equation \ref{fg_bas_eqn}).
 We say that $\pi_2\left(A, \a_0 \right) $ is the second \textit{homotopy group} of $A$. By similar way we define   $n^{\text{th}}$ \textit{homotopy group} $\pi_n\left(\sX, x_0 \right)$  of $A$
-\be
+\be\label{pi_n_eqn}
 \pi_n\left(A, \a_0 \right) \bydef \pi_1\left(b\left(\Omega^{n-1}_{\mathrm{un}} A \right), \left\{\pi^\nu_\mu\right\} \right). 
 \ee
 \end{definition}
@@ -4349,10 +4349,11 @@ If $A$ be an unital $C^*$-algebra then the \textit{unreduced suspension} $\Sigma
 \end{definition}
 
 \begin{thm}\label{nc_s_un_loop_iso_thm}
-The map $\Phi : \Hom(\Omega_{\mathrm{un}} A, B) \xrightarrow{\approx} \Hom(A, \Sigma_{\mathrm{un}} B)$ defined by 
+If $A$ and $B$ are pro-$C^*$-algebras then the map
+ $\Phi : \Hom(\Omega_{\mathrm{un}} A, B) \xrightarrow{\approx} \Hom(A, \Sigma_{\mathrm{un}} B)$ defined by 
 \be\label{nc_s_un_loop_iso_eqn}
 \Phi(\varphi)(a)(\zeta) = \varphi\left( z\left( a, \zeta\right) \right), 
-\ee is a natural bijection, and also defines a natural bijection $\left[\Omega_{\mathrm{un}} A,B\right]\xrightarrow{\approx} \left[A, \Sigma_{\mathrm{un}} B\right]$ . In particular, $\Omega_{\mathrm{un}}$ is a left adjoint for the functor
+\ee is a natural bijection, and also defines a natural bijection $\left[\Omega_{\mathrm{un}} A,B\right]\xrightarrow{\approx} \left[A, \Sigma_{\mathrm{un}} B\right]$ between classes of *-homomorphisms with respect to homotopy equivalence. In particular, $\Omega_{\mathrm{un}}$ is a left adjoint for the functor
 $\Sigma_{\mathrm{un}}$.
 \end{thm}
 \begin{proof}
@@ -4369,32 +4370,11 @@ Similarly to the proof of the Theorem \ref{nc_s_loop_iso} one can prove that:
 	\item the map $\psi \mapsto \rho$ equals to $\Phi^{-1} $. %and also continuous.
 \end{itemize}
 \end{proof}
-\section{Homotopy groups}
-\paragraph*{}
-Let $\sX$ be a compact, connected, locally path-connected space, and let  $\Omega_{\mathrm{un}} C\left(\sX\right)$ be the {unreduced noncommutative loop space} of $A$ (cf. Definition \ref{unreduced_noncommutative_loop_defn}). If $\Sigma_{\mathrm{un}} C\left( S^1\right)$ is the unreduced suspension  of $C\left( S^1\right)$ (cf. Definition \ref{un_sus_defn}) then one has
-$$
-\Sigma_{\mathrm{un}} C\left( S^1\right) \cong  C\left( \Sigma_{\mathrm{un}} S^1\right)
-$$
-where $\Sigma_{\mathrm{un}} S^1$ is the unreduced suspension of $S^1$ (cf. Definition \ref{top_sus_defn}).
-From the Theorem \ref{nc_s_un_loop_iso_thm} it follows that 
-$$
-\left[\Omega_{\mathrm{un}} C\left(\sX\right),C\left( S^1\right) \right]\cong  \left[C\left(\sX \right) , \Sigma_{\mathrm{un}} C\left(S^1 \right) \right]
-$$
-Denote by  $\Omega^{\mathrm{ab}}_{\mathrm{un}} C\left(\sX\right)$ the abelianization (cf. Defintion \ref{abelianization_defn}) of $\Omega_{\mathrm{un}} C\left(\sX\right)$ and $\Omega_{\mathrm{un}}\sX$ the spectrum of $\Omega^{\mathrm{ab}}_{\mathrm{un}} C\left(\sX\right)$.
-Taking into account that  $\Sigma_{\mathrm{un}} C\left(S^1\right)= C\left(S^2\right)$ and $\left[\Omega_{\mathrm{un}} C\left(\sX\right),C\left( S^1\right) \right]\cong \left[\Omega^{\mathrm{ab}}_{\mathrm{un}} C\left(\sX\right),C\left( S^1\right) \right]\cong\left[ C\left(\Omega_{\mathrm{un}}\sX\right),C\left( S^1\right) \right]$
-one has
-$$
-\left[ C\left(\Omega_{\mathrm{un}}\sX\right),C\left( S^1\right) \right]\cong  \left[C\left(\sX \right) , C\left(S^2 \right) \right]
-$$
-or equivalently
-\be\label{top_p_1_p2_eqn}
-\pi_1\left( \Omega_{\mathrm{un}}\sX\right) \cong \pi_2\left( \sX\right) 
-\ee
-Since the group $\pi_2\left( \sX\right)$ is Abelian both left and right part of the equation \ref{top_p_1_p2_eqn} do not depend on base point up to the natural isomorphism.
-\begin{lemma}
-The $!!!b\left( \Omega^{\mathrm{ab}}_{\mathrm{un}} C\left(\sX\right)\right)$ is a with Hausdorff spectrum  
-\end{lemma}
-
+\begin{corollary}\label{nc_s_un_loop_iso_cor}
+	If $A$  is a pro-$C^*$-algebra and $B$ is a $C^*$-algebras then the map  \eqref{nc_s_un_loop_iso_eqn} induces bijections 
+	$\Hom(b\left( \Omega_{\mathrm{un}} A\right) , B) \cong \Hom(A, \Sigma_{\mathrm{un}} B)$ and  $\left[b\left( \Omega_{\mathrm{un}} A\right) ,B\right]\cong \left[A, \Sigma_{\mathrm{un}} B\right]$ . In particular, $b\circ \Omega_{\mathrm{un}}$ is a left adjoint for the functor
+	$\Sigma_{\mathrm{un}}$.
+\end{corollary}
 \section{Induced representations}\label{inf_ind_repr_subsection}
 
    \begin{definition}\label{inf_hilb_prod_defn}
@@ -13215,6 +13195,61 @@ Following theorem gives universal  coverings of operator spaces with continuous 
 \begin{proof}
 	Follows from the Theorem \ref{ctr_uni_lim_thm} Corollary \ref{ctr_uni_lim_thm} and the Definition \eqref{fg_bas_os_defn}.
 \end{proof}
+\subsection{Homotopy groups}
+\paragraph*{}
+Let $\sX$ be a compact, connected, locally path-connected space, and let  $\Omega_{\mathrm{un}} C\left(\sX\right)$ be the {unreduced noncommutative loop space} of $A$ (cf. Definition \ref{unreduced_noncommutative_loop_defn}). If $\Sigma_{\mathrm{un}} C\left( S^1\right)$ is the unreduced suspension  of $C\left( S^1\right)$ (cf. Definition \ref{un_sus_defn}) then one has
+$$
+\Sigma_{\mathrm{un}} C\left( S^1\right) \cong  C\left( \Sigma_{\mathrm{un}} S^1\right)\cong C\left(S^2 \right) 
+$$
+where $\Sigma_{\mathrm{un}} S^1$ is the unreduced suspension of $S^1$ (cf. Definition \ref{top_sus_defn}).
+From the Corollary \ref{nc_s_un_loop_iso_cor} it follows that 
+$$
+\left[b\left( \Omega_{\mathrm{un}} C\left(\sX\right)\right) ,C\left( S^1\right) \right]\cong  \left[C\left(\sX \right) , \Sigma_{\mathrm{un}} C\left(S^1 \right) \right]\cong   \left[C\left(\sX \right) ,  C\left(S^2 \right) \right].
+$$
+Denote by  $\Omega^{\mathrm{ab}}_{\mathrm{un}} C\left(\sX\right)$ the abelianization (cf. Defintion \ref{abelianization_defn}) of $\Omega_{\mathrm{un}} C\left(\sX\right)$ and $\Omega_{\mathrm{un}}\sX$ the spectrum of $b\left( \Omega^{\mathrm{ab}}_{\mathrm{un}} C\left(\sX\right)\right) $.
+From commutativity of  $C\left( S^1\right)$ it turns out that $\left[b\left( \Omega_{\mathrm{un}} C\left(\sX\right)\right) ,C\left( S^1\right) \right]\cong \left[b\left( \Omega^{\mathrm{ab}}_{\mathrm{un}} C\left(\sX\right)\right) ,C\left( S^1\right) \right]\cong\left[ C\left(\Omega_{\mathrm{un}}\sX\right),C\left( S^1\right) \right]$
+(cf. Remark \ref{abelianization_rem}), so one has
+$$
+\left[ C\left(\Omega_{\mathrm{un}}\sX\right),C\left( S^1\right) \right]\cong  \left[C\left(\sX \right) , C\left(S^2 \right) \right]
+$$
+or equivalently
+\bea\label{top_p_1_p2]_eqn}
+\left[ \Omega_{\mathrm{un}}\sX, S^1 \right]\cong  \left[\sX  , S^2  \right],\\
+\label{top_p_1_p2_eqn}
+\pi_1\left( \Omega_{\mathrm{un}}\sX\right) \cong \pi_2\left( \sX\right) 
+\eea
+Since the group $\pi_2\left( \sX\right)$ is Abelian both left and right part of the equation \eqref{top_p_1_p2_eqn} do not depend on base point up to the natural isomorphism.
+\begin{lemma}
+	The spectrum of $C^*$-algebra  $b\left( \Omega_{\mathrm{un}} C\left(\sX\right)\right)$ is naturally homeomorphic to the  Hausdorff  spectrum $\Omega_{\mathrm{un}}\sX$ of the commutative $C^*$-albebra    $b\left( \Omega^{\mathrm{ab}}_{\mathrm{un}} C\left(\sX\right)\right)$.
+\end{lemma}
+\begin{proof}
+	If $\sY$ is the spectrum of $b\left( \Omega_{\mathrm{un}} C\left(\sX\right)\right)$ then any for any $y \in \sY$ there is one dimensional representation
+	\bean
+	\rep^{\mathrm{ab}}_y : b\left( \Omega^{\mathrm{ab}}_{\mathrm{un}} C\left(\sX\right)\right)\to \C,\\ 
+	a + \left[b\left( \Omega_{\mathrm{un}} C\left(\sX\right)\right),b\left( \Omega_{\mathrm{un}} C\left(\sX\right)\right)\right]\mapsto\\\mapsto \rep_y\left(a \right) +  \left[\rep_y\left( b\left( \Omega_{\mathrm{un}} C\left(\sX\right)\right)\right) ,\rep_y\left( b\left( \Omega_{\mathrm{un}} C\left(\sX\right)\right)\right)\right]\in\\\in \rep_y\left( b\left( \Omega_{\mathrm{un}} C\left(\sX\right)\right)\right)/\left[\rep_y\left( b\left( \Omega_{\mathrm{un}} C\left(\sX\right)\right)\right) ,\rep_y\left( b\left( \Omega_{\mathrm{un}} C\left(\sX\right)\right)\right)\right].
+	\eean
+	
+\end{proof}
+
+\begin{corollary}
+	There is the natural isomorphism
+	$$
+	\pi_2\left(C\left(\sX \right) , \a_0 \right)\cong \pi_2\left(\sX  , x_0 \right)
+	$$
+	(cf. \eqref{pi_2_eqn}).
+\end{corollary}
+\begin{proof}
+	Follows from the Theorem !!! HAUSDORFF SPECTRUM
+\end{proof}
+\begin{exercise}
+	Proof that for all $n > 1$ there is the natural is the natural isomorphism
+	$$
+	\pi_n\left(C\left(\sX \right) , \a_0 \right)\cong \pi_n\left(\sX  , x_0 \right)
+	$$
+		(cf. \eqref{pi_n_eqn}).
+\end{exercise}
+
+\
 \subsection{Induced representations}\label{ctr_induced_infinite_sec}
 
 
@@ -20231,6 +20266,10 @@ The abelianization can also be described as the completion of $A/[A, A]$
 with respect to the quotient topology, or as the inverse limit $\varprojlim A_p/[A_p, A_p]$. It is 
 the largest abelian quotient of $A$. 	
 \end{definition}
+\begin{remark}\label{abelianization_rem}
+	If $B$ is a commutative pro-$C^*$-algebra then there is the natural bijection $\Hom\left(A, B\right)\cong \Hom\left(A^{\text{ab}}, B\right)$ where $A^{\text{ab}}$ is the abelianization of $A$.
+\end{remark}
+
 	
 	\begin{definition}\label{poined_alg_defn}\cite{phillips:inv_lim_app}
 %2.5.1. DEFINITION. 
@@ -20241,7 +20280,7 @@ A \textit{pointed} (pro-)$C^*$-algebra is a pair $\left(A,\a)\right)$, where $A$
 		If $(A, \alpha)$ is a pointed pro-$C^*$-algebra, than its
 		suspension is the pro-$C^*$-algebra $\Sigma A = \{f : S^1 \to A \ \mathrm{continuous} \ : \alpha(f(\zeta)) \cdot 1 = f(1), \ \forall \zeta \in S^1\}$, together with the homomorphism $ev_1 : \Sigma A \to \mathrm{C}$ of evaluation at 1. Here $S^1$ is
 		identified with $\{\zeta \in \mathbb{C}:|\zeta| = 1\}$. (Note that $ev_1$ makes sense as a homomorphism
-		to $\mathbb{C}$ since $f(1) \in \mathbb{C} \cdot 1$ for $f \in \Sigma A$.)
+		to $\mathbb{C}$ since $f(1) \in \mathbb{C} \cdot 1$ for $f \in \Sigma A$).
 	\end{defn}
 	Note that $\Sigma(A^+) = (SA)^+$ , where $SA$ is the conventional suspension $C_0(\mathbb{R} \otimes A$. A left adjoint for $\Sigma$ in the pointed category immediately gives a left
 	adjoint for $S$ in the category of pro-$C^*$-algebras and arbitrary homomoprhisms,
