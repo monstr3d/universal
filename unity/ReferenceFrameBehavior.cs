@@ -220,7 +220,9 @@ public class ReferenceFrameBehavior : MonoBehaviour
 
     #region Public Members
 
-
+    /// <summary>
+    /// Jump
+    /// </summary>
     public void Jump()
     {
         float[] f = new float[] { jumpX, jumpY, jumpZ };

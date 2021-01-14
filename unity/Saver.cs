@@ -105,6 +105,7 @@ namespace Assets
             dict = info.GetValue("Dict", typeof(Dictionary<int, KeyCode>)) as
                Dictionary<int,  KeyCode>;
             unused = (KeyCode)info.GetValue("unused",  typeof(KeyCode));
+            Unity.Standard.StaticExtensionUnity.UnusedKey = unused;
             level = info.GetInt32("Level");
             SetCodes();
         }
@@ -194,7 +195,6 @@ namespace Assets
             info.AddValue("Dict", dict, typeof(Dictionary<int, KeyCode>));
             info.AddValue("unused", unused, typeof(KeyCode));
             info.AddValue("Level", level);
-            Unity.Standard.StaticExtensionUnity.UnusedKey = unused;
         }
 
 

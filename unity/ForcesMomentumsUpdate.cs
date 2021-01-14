@@ -115,6 +115,7 @@ namespace Assets
         #region Ctor
         public ForcesMomentumsUpdate()
         {
+            StaticExtensionUnity.UnusedKey = Saver.saver.unused;
             this.AddKeyListener();
             forcesMomentumsUpdate = this;
             StaticExtensionUnity.Collision += (Tuple<GameObject, Component, IScadaInterface, ICollisionAction> obj) =>
@@ -215,7 +216,6 @@ namespace Assets
 
 
         #endregion
-
 
         #region IKeyListener Members
 

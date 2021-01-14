@@ -9,7 +9,7 @@ using UnityEngine;
 
 namespace Assets
 {
-    public class Level7 : AbstractLevelStringUpdate
+    public class Level7 : Levelm
     {
 
 

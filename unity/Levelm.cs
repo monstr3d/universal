@@ -75,6 +75,12 @@ namespace Assets
             controls = new string[] { Level0.LongXK, Level0.ShortXK,
              Level0.LongXC, Level0.ShortXC, Level0.LimitedXC, Level0.YControl, Level0.OzK1,
              Level0.ZControl, Level0.OxControl, Level0.OyControl, Level0.OzControl1, Level0.OzControl};
+            ev.Event += () =>
+            {
+                ForcesIndicator.indicator.Torch();
+
+            };
+
         }
  
         protected void StopAll()

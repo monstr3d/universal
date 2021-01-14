@@ -186,7 +186,7 @@ namespace Assets
             {
                 active[i] = Math.Sign((double)o[i]);
             }
-            Torch();
+   /// !!!         Torch();
             UpdatePath();
             UpdatePivot();
             UpdateSound();
@@ -205,7 +205,7 @@ namespace Assets
 
 
 
-        void Torch()
+        public void Torch()
         {
             mb.Jump();
             torch.enabled = true;

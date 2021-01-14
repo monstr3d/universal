@@ -22,6 +22,7 @@ namespace Assets
             StaticExtensionUnity.Activation.enabledComponents = l.ToArray();
         }
 
+
         protected override void Update()
         {
            

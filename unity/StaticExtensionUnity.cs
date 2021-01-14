@@ -219,13 +219,13 @@ namespace Unity.Standard
         {
             foreach (var key in keyListenres.Keys)
             {
-                key.ProcessKeyCode();
                 if (Input.GetKeyUp(key))
                 {
                     current = default(KeyCode);
+                    return;
                 }
-
-            }
+                key.ProcessKeyCode();
+             }
         }
  
         /// <summary>
@@ -800,7 +800,8 @@ namespace Unity.Standard
             KeyCode code = current;
             if (keyListenres.ContainsKey(current))
             {
-                keyListenres[current].Invoke(current);
+                Action<KeyCode> act = keyListenres[current];
+                act(current);
             }
             StartCoroutine(coroutine);
 
