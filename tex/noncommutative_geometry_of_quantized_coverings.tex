@@ -7664,7 +7664,7 @@ $$
 	\begin{enumerate}
 		\item[(a)] 	Let 
 		$f_\eps: \R \to \R$ is a continuous function given by 
-		\eqref{f_eps_eqn}. From \\$\supp f_\eps\left( z^*\overline a' z\right) \subset \supp z^*\overline a' z = \left( \supp z^*\overline a' z\right)^2 \subset \supp \overline a' \subset \overline\sU$ and the Lemma \ref{comm_lift_desc_sum_strong_lem}it turns out that if $a_\la \bydef \desc_{\overline{p}_\la}\left(z^*\overline a' z \right)\in C_0\left(\sX_\la \right)$,   $\quad a^\eps_\la \bydef f_\eps\left( \desc_{\overline{p}_\la}\left(z^*\overline a' z \right)\right) \in C_0\left(\sX_\la \right)$ and $b_\la\bydef  \desc_{\overline{p}_\la}\left(z^*\overline a' z \right)^2\in C_0\left(\sX_\la \right)$ then one has
+		\eqref{f_eps_eqn}. From \\$\supp f_\eps\left( z^*\overline a' z\right) \subset \supp z^*\overline a' z = \left( \supp z^*\overline a' z\right)^2 \subset \supp \overline a' \subset \overline\sU$ and the Lemma \ref{comm_lift_desc_sum_strong_lem} it turns out that if $a_\la \bydef \desc_{\overline{p}_\la}\left(z^*\overline a' z \right)\in C_0\left(\sX_\la \right)$,   $\quad a^\eps_\la \bydef f_\eps\left( \desc_{\overline{p}_\la}\left(z^*\overline a' z \right)\right) \in C_0\left(\sX_\la \right)$ and $b_\la\bydef  \desc_{\overline{p}_\la}\left(z^*\overline a' z \right)^2\in C_0\left(\sX_\la \right)$ then one has
 		\be\label{top_specc_a_eps_eqn}
 		\begin{split}
 			\sum_{g\in G_\la } \pi_a \left(z\right)^*\left(  g\overline a'\right) \pi_a\left( z\right)   = \pi_a\left(a_\la\right) ,\\
@@ -11716,9 +11716,66 @@ In the described above situation there is the given by
 	!!! 	Consider the Example \ref{blowing_ctr_exm}. Prove that the explained in \ref{top_cs_funct_empt} functor $A_0$ is a specialization of the given by the Exercise \ref{blowing_cs_funct_exer}  functor.
 \end{exercise}
 \paragraph{title}
+  
+\begin{lemma}\label{ctr_c0_inc_lem}
+	If the spectrum of $A$ is locally connected then 
+	there is the natural inclusion
+	$$
+	A_0\left( \overline{\sX}\right)\subset  \overline{A}
+	$$
+	(cf. equation \eqref{ctr_ca_inc_eqn}).
+\end{lemma}
+
+\begin{proof}
+	This Lemma is a specialization of the  Corollary \ref{blowing_c0_inc_cor}, but the proof of the Corollary \ref{blowing_c0_inc_cor} is very complicated, because it is very general. Here we provide a simple proof of this lemma.
+	Denote by	$\overline{p}: \overline{   \mathcal X } \to \sX$ and $\overline{p}_\la: \overline{   \mathcal X } \to \sX_\la$. 
+	If $\overline{   \mathcal U } \subset \overline{   \mathcal X }$ is an open set which is homeomorphically mapped onto $\sU = \overline{p}\left(  \overline{   \mathcal U }\right)  \subset \overline{   \mathcal X }$ then $\overline{   \mathcal U }$ is homeomorpfilally mapped onto $\sU_\la = \overline{p}_\la\left(  \overline{   \mathcal U }\right)  \subset \overline{   \mathcal X }_\la$ for any $\la \in \La$. Let $\overline{a} \in A_0\left( \overline{   \mathcal X }\right)_+$ is a positive element such that $\supp \overline{a} \subset  \overline{   \mathcal U }$  (cf. Definition \ref{top_cc_supp_defn}). Following proof contains two parts:
+	\begin{enumerate}
+		\item [(i)] Element $\overline{a}$ is special.
+		\item[(ii)] 	$ A_0\left( \overline{\sX}\right)\subset  \overline{A}$.
+	\end{enumerate}
+	(i) One needs check that.  $\overline{a}$  satisfies to the  conditions (a), (b) of the Definition  \ref{special_element_defn}.
+	\begin{enumerate}
+		\item[(a)] For any $\eps \ge 0$,  $\la \in \La$ and  $z \in A_{\la}^+$  there is $a^\eps_\la \in A_\la$ one has\\ $\supp z^* \overline az, \supp f_\eps\left(z^* \overline az\right),  \supp \left( z^* \overline az\right)^2 \subset \overline{   \mathcal U }$, so from the Lemma \ref{blowing_lift_desc_sum_strong_lem} it turns out that 
+		\bean
+		\sum_{g\in \ker\left(  \widehat G\to  G\left(\left.\sX_\la~\right|~\sX \right)\right) } g\left(z^* \overline a z\right) =\desc_{\overline{p}_\la}\left(z^* \overline az\right) \in A_0\left(\sX_\la \right) ,\\ 
+		\sum_{g\in \ker\left(  \widehat G\to  G\left(\left.\sX_\la~\right|~\sX \right)\right) } gf_\eps\left(z^* \overline a z\right)    =\desc_{\overline{p}_\la}\left(\ f_\eps\left(z^* \overline az\right) \right) \in A_0\left(\sX_\la \right) ,\\ 
+		\sum_{g\in \ker\left(  \widehat G\to  G\left(\left.\sX_\la~\right|~\sX \right)\right) } g\left(z^* \overline a z\right)^2    =b_\la \desc_{\overline{p}_\la}\left(z^* \overline az\right)^2 \in A_0\left(\sX_\la \right)
+		\eean
+		where the strong convergence of the series is implied. Above equations coincide with \eqref{ctr_spec_a_eps_imp_eqn}.
+		
+		\item[(b)] 
+		From $a_\la = \desc_{\overline{p}_\la}\left(z^* \overline az\right)$ and $b_\la = \desc_{\overline{p}_\la}\left(z^* \overline az\right)^2$ it turns out that
+		$$
+		\forall \la  \in \La \quad \Rightarrow \quad \left\|a_\la^2 - b_\la\right\|=0,
+		$$
+		i.e. $a_\la$ and  $b_\la$ satisfy the inequality \eqref{special_set_eqn}.
+	\end{enumerate}
+	(ii) If $\overline a\in A_c\left( \overline{\sX}\right)$ (cf. \eqref{top_cb_defn_eqn})  then from the Lemma \ref{top_comp_sum_lem} and (i) it turns that
+	$$
+	\overline a = \overline a_1 + ... + \overline a_n
+	$$
+	where $\overline a_1, ... ,\overline a_n\in A_c\left( \overline{\sX}\right)$.
+	So one has $\overline a\in \overline A$ and $A_c\left( \overline{\sX}\right)\subset  \overline{A}$. Since $ A_0\left( \overline{\sX}\right)$ is the $C^*$-norm closure of $ A_c\left( \overline{\sX}\right)$ and $\overline{A}$ $C^*$-norm closed one has  $ A_0\left( \overline{\sX}\right)\subset  \overline{A}$.
+\end{proof}
+
 
 \begin{empt}
-From the Corollary \ref{blowing_c0_inc_cor} it follows that there is the natural inclusion $A_0\left(\overline \sX\right)\subset \overline A$. On the other hand the spectrum $\overline \sX'$ of $\overline A$ coincides with  $\overline\sX$ as a set, so the topology of $\overline \sX'$ is finer than the topology of $\overline \sX$. In particular the space $\overline \sX'$ is Hausdorff. From the Theorem \ref{ctr_big_thm} it follows that there is 	are dense open subset $\overline \sU\subset \overline \sX$ such that $A_0\left(\overline \sX\right)_{\overline \sU}$ is a continuous trace algebra. Any element $x\in $ !!! NOT CONTINUOUS  IS  limit.	\begin{prop}\label{continuous_trace_c_a_proposition!!!}\cite{pedersen:ca_aut}
+The spectrum $\overline \sX'$ of $\overline A$ coincides with  $\overline\sX$ as a set, so the topology of $\overline \sX'$ is finer than the topology of $\overline \sX$. In particular the space $\overline \sX'$ is Hausdorff. From the Theorem \ref{ctr_big_thm} it follows that there  	are dense open subsets $\overline \sU\subset \overline \sX$ and $\overline \sU'\subset \overline \sX'$ such that both  $A_0\left(\overline \sX\right)_{\overline \sU}$ and $\overline A_{\overline \sU'}$ are  continuous trace  $C^*$-algebras. If $\overline a \in \overline a \in \overline A$ is a special element and $z \in A_{\sU}$ is Abelian then $z^* \overline az$ is Abelian and special (cf. Exercise \ref{spec_mult_exer}), From the Definition \ref{special_element_defn} if follows that the map
+\bean
+f: \overline\sX \to \R\\
+x \mapsto \tr z^* \overline az.
+\eean
+WEAKEST TOPOLOGY
+
+ from $\sX \to \R$ $x \mapsto \tr z^* \overline az$ satisfies to the conditions of the  \ref{comm_main_f_thm}
+\\ \\
+===
+\\ \\
+If $A_0\left(\overline \sX\right)_{\overline \sU\cap \overline \sU'}\subsetneqq\overline A_{\overline \sU\cap \overline \sU'}$ then there is an Abelian element $\overline a \in \overline A_{\overline \sU\cap \overline \sU'}\setminus A_0\left(\overline \sX\right)_{\overline \sU\cap \overline \sU'}$, such that $\tr_{\overline a} = \text{norm}_a\in C_0\left(\overline \sX' \right) \setminus  C_0\left(\overline \sX \right)$. Suppose that 
+ 
+ 
+ Any element $x\in $ !!! NOT CONTINUOUS  IS  limit. 	\begin{prop}\label{continuous_trace_c_a_proposition!!!}\cite{pedersen:ca_aut}
 	!!! DELETE
 	Let $A$ be a $C^*$ - algebra with continuous trace. Then
 	\begin{enumerate}
