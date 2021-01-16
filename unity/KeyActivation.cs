@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
+using UnityEngine;
+
 
 using Unity.Standard;
-using UnityEngine;
+using Scada.Interfaces;
 
 namespace Assets
 {
@@ -19,11 +19,22 @@ namespace Assets
 
         static internal KeyCode QuitKey = KeyCode.F1;
 
+        static GameObject explosion;
+
+        static GameObject station;
+
+
         #region Ctor
 
         public KeyActivation()
         {
             this.AddKeyListener();
+            StaticExtensionUnity.Collision += (Tuple<GameObject, Component, IScadaInterface, ICollisionAction> obj) =>
+            {
+
+                Explosion();
+            };
+
         }
 
         #endregion
@@ -47,7 +58,17 @@ namespace Assets
 
         void IActivation.Activate(MonoBehaviour[] monoBehaviours)
         {
-
+            foreach (var m in monoBehaviours)
+            {
+                if (m.name == "Station")
+                {
+                    station = m.gameObject;
+                }
+                if (m.name == "Main Camera")
+                {
+                    explosion = m.gameObject.GetGameObjectComponents<Component>()["Explosion"][0].gameObject;
+                }
+            }
         }
 
         int IActivation.SetConstants(float[] constants)
@@ -58,6 +79,16 @@ namespace Assets
         int IActivation.SetConstants(string[] constants)
         {
             return 0;
+        }
+
+        #endregion
+
+        #region Internal Members
+
+        static internal void Explosion()
+        {
+            explosion.SetActive(true);
+            station.SetActive(false);
         }
 
         #endregion

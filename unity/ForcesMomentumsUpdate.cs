@@ -146,7 +146,7 @@ namespace Assets
         public override void Set(object[] obj, Component indicator, IScadaInterface scada)
         {
             base.Set(obj, indicator, scada);
- /** !!! DELETE AFTER           scada.OnStart += () =>
+            scada.OnStart += () =>
             {
                 KeyExecuteMonobehavior.keyExecuteMonobehavior.enabled = false;
             };
@@ -154,7 +154,6 @@ namespace Assets
             {
                 KeyExecuteMonobehavior.keyExecuteMonobehavior.enabled = true;
             };
- */
             var c = scada.Constants;
             frame = scada.GetOutput("Relative to station.Frame")() as Motion6D.Interfaces.ReferenceFrame;
             for (int i = 0; i < 6; i++)
