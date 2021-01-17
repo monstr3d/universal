@@ -49,11 +49,9 @@ namespace Unity.Standard
 
         static KeyCode lastCurrent;
 
-
         static private TimeMeasureProviderFactory factory = new TimeMeasureProviderFactory();
 
         static private Dictionary<KeyCode, Action<KeyCode>> keyListenres = new Dictionary<KeyCode, Action<KeyCode>>();
-
 
         static private ITimerEventFactory timerEventFactory;
 
@@ -90,8 +88,6 @@ namespace Unity.Standard
         static internal Dictionary<string, ConstructorInfo> updatesCollisionAction =
      new Dictionary<string, ConstructorInfo>();
 
-
-
         static internal Scada.Interfaces.IErrorHandler ErrorHandler => errorHandler;
 
         static private List<MonoBehaviour> monoBehaviours = new List<MonoBehaviour>();
@@ -107,9 +103,6 @@ namespace Unity.Standard
             { };
 
         static Action<string> global = (string s) => { };
-
-
-
         
         static public event Action<string> OnGlobal
         {

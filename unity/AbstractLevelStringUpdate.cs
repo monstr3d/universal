@@ -26,6 +26,11 @@ namespace Unity.Standard
             StaticExtensionUnity.OnGlobal += Update;
         }
 
+
+        /// <summary>
+        /// Updates string
+        /// </summary>
+        /// <param name="str">The string parameter</param>
         public void Update(string str)
         {
             int k = str.IndexOf(":");
