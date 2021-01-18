@@ -194,6 +194,7 @@ namespace Assets
         {
             int i = base.SetConstants(offset, constants);
             interval = constants[6];
+            StaticExtensionUnity.KeyInterval = interval;
           //  bound = (float)constants[7];
             desktop = scada.GetDesktop();
             rigidBody = desktop.GetAssociatedObject<Motion6D.Portable.Aggregates.RigidBody>(

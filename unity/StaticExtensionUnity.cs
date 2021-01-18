@@ -137,7 +137,7 @@ namespace Unity.Standard
         static public bool ProcessKeyCode(this KeyCode code)
         {
             var unused = UnusedKey;
-            if (Input.GetKey(code))
+            if (Input.GetKeyDown(code))
             {
                 current = code;
             }
@@ -145,7 +145,6 @@ namespace Unity.Standard
             {
                 return false;
             }
-            current = code;
             lastCurrent = code;
             UpdateCurrent();
             return true;
@@ -205,6 +204,7 @@ namespace Unity.Standard
 
         #region Public Members
 
+
         /// <summary>
         /// Processes codes
         /// </summary>
@@ -212,15 +212,17 @@ namespace Unity.Standard
         {
             foreach (var key in keyListenres.Keys)
             {
+                if (key.ProcessKeyCode())
+                {
+                    return;
+                }
                 if (Input.GetKeyUp(key))
                 {
                     current = default(KeyCode);
-                    return;
                 }
-                key.ProcessKeyCode();
-             }
+            }
         }
- 
+
         /// <summary>
         /// Checks whether indicators exceed
         /// </summary>
@@ -790,24 +792,13 @@ namespace Unity.Standard
             {
                 return;
             }
-            KeyCode code = current;
             if (keyListenres.ContainsKey(current))
             {
                 Action<KeyCode> act = keyListenres[current];
                 act(current);
             }
             StartCoroutine(coroutine);
-
-            /*         if (current == ResultIndicator.Pause)
-                     {
-                         Activation.PauseRestart();
-                         mb.StartCoroutine(coroutine);
-                         return;
-                     }*/
-            //      mb.StartCoroutine(enumeratorT);
-            //     mb.StartCoroutine(coroutine);
         }
-
 
         static IEnumerator coroutine
         {
