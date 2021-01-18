@@ -249,8 +249,12 @@ namespace Assets
             double[] v = t.Item5;
             double newValue = t.Item4;
             double value = v[0];
- 
-            if (Math.Abs(value - newValue) > (1 + double.Epsilon) * Math.Abs(newValue))
+            double delta = Math.Abs(value - newValue);
+            if (delta < double.Epsilon)
+            {
+                return;
+            }
+            if (delta > (1 + double.Epsilon) * Math.Abs(newValue))
             {
                 value = 0f;
             }

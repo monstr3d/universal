@@ -141,7 +141,7 @@ namespace Unity.Standard
             {
                 current = code;
             }
-            if (current == unused)
+            if ((current == unused)  | (current == default(KeyCode)))
             {
                 return false;
             }

@@ -9153,7 +9153,7 @@ Let $A$ be a  connected $C^*$-algebra, and let $C_0\left( \sY\right)\hookto M\le
 j_{\sU}: A_\sU \hookto \widetilde A_\sU.
 \ee
 \begin{definition}\label{blowing_semi1_defn}
-Let $A$ be a  connected $C^*$- algebra. A Hausdorff  blowing-up $C_0\left( \sY\right)\hookto M\left(A \right)$ of $A$ is said to be \textit{semilocally} 1-\textit{connected} if for any $y\in \sY$ and every open neighborhood $\sV$ of $y$   there is an open neighborhood $\sU$ such that $\sU\subset \sV$ and  $A_\sU$ (cf. \eqref{blowig_su_eqn}) is reducibly simply connected (cf. Definition \ref{simply_connected_red_defn})
+Let $A$ be a  connected $C^*$- algebra. A Hausdorff  blowing-up $C_0\left( \sY\right)\hookto M\left(A \right)$ of $A$ is said to be \textit{(reducibly) semilocally} 1-\textit{connected} if for any $y\in \sY$ and every open neighborhood $\sV$ of $y$   there is an open neighborhood $\sU$ such that $\sU\subset \sV$ and  $A_\sU$ (cf. \eqref{blowig_su_eqn}) is (reducibly) simply connected (cf. Definitions \ref{simply_connected_defn} \ref{simply_connected_red_defn})
 \end{definition}
 
 
@@ -9648,8 +9648,8 @@ From the corollary \ref{top_covp_cat_cor} it follows that $p^2_1$ is a transitiv
 \end{proof}
 
 \begin{theorem}\label{blowing_functor_thm}!!! ADAPT IT
-Let $A$ be a $C^*$-algebra, and let $C_0\left(\sY \right) \to M\left( A\right)$ be a good semilocally 1-connected Hausdorff blowing-up (cf. Definitions \ref{blowing_defn}, \ref{blowing_good_defn}, \ref{blowing_semi1_defn}).	Let $\sX$ be a connected,  locally compact, Hausdorff space.
-Denote by $\mathfrak{FinCov}$-$C_0\left(\sX \right)$ a category of noncommutative  finite-fold  coverings of $C_0\left(\sX \right)$,  i. e.
+Let $A$ be a $C^*$-algebra, and let $C_0\left(\sY \right) \to M\left( A\right)$ be a good (reducibly) semilocally 1-connected Hausdorff blowing-up (cf. Definitions \ref{blowing_defn}, \ref{blowing_good_defn}, \ref{blowing_semi1_defn}).	Let $\sX$ be a connected,  locally compact, Hausdorff space.
+Denote by $\mathfrak{FinCov}$-$C_0\left(\sX \right)$ a category of (reduced) noncommutative  finite-fold  coverings of $C_0\left(\sX \right)$,  i. e.
 \begin{itemize}
 	\item  Objects of $\mathfrak{FinCov}$-$C_0\left(\sX \right)$ are noncommutative  finite-fold  coverings of $C_0\left(\sX \right)$.
 	\item If $\pi': C_0\left(\sX \right)\to  C_0\left( \widetilde{\sX}'\right)$ and  $\pi'':C_0\left(\sX \right) \to C_0\left( \widetilde{\sX}'' \right)$ are objects of $\mathfrak{FinCov}$-$C_0\left(\sX \right)$ then the morphism from $\pi'$ to $\pi''$ is an injective *-homomorphism $\pi: C_0\left( \widetilde{\sX}' \right) \to  C_0\left( \widetilde{\sX}'' \right)$ such that the following diagram commutative.
@@ -11340,14 +11340,14 @@ Our following constructions require an analog of the Dini's theorem.
 \subsection{Coverings of $C^*$-algebras}
 \subsubsection{Coverings of $C^*$-algebras with Hausdorff spectra}
 
-\begin{theorem}\label{ctr_fin_red_lem}
+\begin{lemma}\label{ctr_fin_red_lem}
 If  $A$ is a $C^*$- algebra with Hausdorff spectrum $\sX$, such that $\sX$ is connected and locally connected then following condition hold.
 \begin{enumerate}
 	\item[(i)] There is 1-1 correspondence between finite-fold transitive coverings $p: \widetilde \sX \to \sX$ and  reduced finite-fold noncommutative coverings  $\left(A, \widetilde A, G, \pi \right)$ such $G \cong G\left(\left.\widetilde \sX \right|\sX \right)$.
 	\item[(ii)] The space $\widetilde\sX$ is the  that spectrum of $\widetilde A$, the map   $p$ is given by the Lemma \ref{cov_spectrum_lem}
 	\item[(ii)] In the above situation $\widetilde A\cong A_0\left(\widetilde \sX\right)$ and $\pi\cong A_0\left(p\right)$.
 \end{enumerate}
-\end{theorem}
+\end{lemma}
 \begin{proof}
 (i) Follows from the  Example \ref{blowing_ctr_exm}, Exercise \ref{blowing_ctr_exer} and the Theorems \ref{blowing_fin_thm}.\\
 (ii) PROVE!!!!
@@ -11428,8 +11428,20 @@ $$
 and taking into account \eqref{ctr_inf_eqn} one has infinitely many different automorphisms $g_\eps$.
 	Thus the group $G_{\text{red}}$ is not finite.
 \end{proof}
-
-
+\begin{corollary}
+	If $A$ is a $C^*$-algebra with Hausdorff spectrum then any noncommutative covering $\left(A, \widetilde{A}, G, \pi \right)$ of $A$ (cf. Definition \ref{fin_defn}) if reduced (cf. Definition \ref{fin_red_defn}).
+\end{corollary}
+\begin{proof}
+Let both $\sX$ and $\widetilde \sX$ be spectra of $A$ and $\widetilde A$ respectively. Denote by
+ 	\bean
+G_{\text{red}} \bydef \ker  \left( G \to \mathrm{Homeo}\left(\widetilde{\sX} \right)\right). 
+\eean
+(cf. \eqref{g_red_ker_eqn}).
+From the Theorem \ref{ctr_big_thm} it turns out that there is an open dense subset $\widetilde \sU$  of $\widetilde \sX$ such that $\widetilde{A}_{\widetilde{\sU}}$ is a continuous trace $C^*$-algebra. From the Lemma \ref{ctr_pre_red_lem} it follows that $\rep_{\widetilde x}\left(g \widetilde a \right) = \rep_{\widetilde x}\left(\widetilde a \right)$ for all $g \in G_{\text{red}}$, $~\widetilde x \in \widetilde{\sU}$ and $\widetilde a \in \widetilde A$. Moreover if $g \in G_{\text{red}}$ and $g \widetilde a \neq g \widetilde a$ then there is $\widetilde x_0 \in \widetilde\sX\setminus\sU$ such that $ \rep_{\widetilde x}\left(\widetilde a \right)\neq  \rep_{\widetilde x}\left(g\widetilde a \right)$. One has $\left\|  \rep_{\widetilde x}\left(g\widetilde a-\widetilde a \right)\right\| = 0$ for all $\widetilde x \in \setminus\sU$ but $\left\|  \rep_{\widetilde x_0}\left(g\widetilde a-\widetilde a \right)\right\|> 0$. It contradicts with the 
+\end{proof}
+\begin{exercise}
+Let 	$A$ be a $C^*$-algebra with Hausdorff spectrum. If the spectrum of $A$ is simply connected then $A$ is simply connected (cf. Definition \ref{blowing_simply_conn_lem}) !!! CHANGE LEMMA TO DEFN
+\end{exercise}
 \begin{lemma}\label{ctr_cont_tr_lem}
 	If $\left(A, \widetilde{A}, G, \pi \right)$ is a  noncommutative finite-fold quasi-covering, such that $A$ is a $C^*$-algebra with continuous trace then the  algebra $\widetilde{A}$ is a  continuous trace $C^*$-algebra.
 \end{lemma}
@@ -11783,7 +11795,7 @@ In the described above situation there is the given by
 	!!! 	Consider the Example \ref{blowing_ctr_exm}. Prove that the explained in \ref{top_cs_funct_empt} functor $A_0$ is a specialization of the given by the Exercise \ref{blowing_cs_funct_exer}  functor.
 \end{exercise}
 
-  
+  \paragraph*{title}
 \begin{lemma}\label{ctr_c0_inc_lem}
 	If the spectrum of $A$ is locally connected then 
 	there is the natural inclusion
@@ -11946,7 +11958,6 @@ $$
 $$
 
  \end{proof}	
-
 
 
 \begin{empt} From the  Corollary \ref{ctr_spec_inc_cor}  it follows that disconnected inverse noncommutative limit of $\mathfrak{S}_{A}$ is isomorphic to $A_0\left( \overline{   \mathcal X }\right)$. 
