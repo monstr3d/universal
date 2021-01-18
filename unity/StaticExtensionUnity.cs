@@ -811,9 +811,6 @@ namespace Unity.Standard
             }
         }
 
-
-
-
         /// <summary>
         /// Blinks limit indicators
         /// </summary>
@@ -878,7 +875,6 @@ namespace Unity.Standard
             }
         }
 
-
         private static void GetIndicators(this GameObject gameObject,
             List<GameObject> lg,
            Dictionary<string, List<IIndicator>> ls)
@@ -902,7 +898,6 @@ namespace Unity.Standard
                 }
             }
         }
-
         static void GetComponents(this Component go,
 
             Dictionary<string, List<GameObject>> objects, Dictionary<string, List<Component>> comp)
@@ -954,7 +949,6 @@ namespace Unity.Standard
                 }
             }
         }
-
         static void GetComponents(this GameObject go, 
             
             Dictionary<string, List<GameObject>> objects, Dictionary<string, List<Component>> comp)
@@ -1016,7 +1010,6 @@ namespace Unity.Standard
             }
         }
 
-   
         static private Quaternion ToQuaternion(this EulerAngles euler, double[] t)
         {
             euler.Set(t);
@@ -1039,7 +1032,6 @@ namespace Unity.Standard
             return new Quaternion((float)ori[1], (float)ori[2],
                 (float)ori[3], (float)ori[0]);
         }
-
 
         static public Vector3 ToPosition(this double[] t)
         {
