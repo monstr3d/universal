@@ -9048,7 +9048,7 @@ Follows from the construction \ref{top_reg_triple_empt} which is a specializatio
 If the spectrum of  $C^*$-algebra $A$ is Hausdorff then $A$ possess  a family of good properties. For example noncommutative coverings of $C^*$-algebras with Hausdorff spectra correspond to coverings of their spectra. Sometimes the spectrum of $C^*$-algebra can by replaced by its Hausdorff blowing-up and some results concerning $C^*$-algebras with  Hausdorff spectrum can be applied to $C^*$-algebras with Hausdorff blowing-up. We prove that noncommutative coverings of $C^*$-algebras correspond to coverings of Hausdorff blowing-up. The results of this chapter are used in both $C^*$-algebras with continuous trace (Hausdorff spectrum) and algebras of foliations   (non - Hausdorff spectrum). 
 The "blowing-up" word is inspired by following reasons:
 \begin{itemize}
-	\item There is  the natural partially defined multi-valued surjective  map from the Hausdorff blowing-up to the spectrum (cf. Remark \ref{blowing_rem}).
+	\item There is  the natural partially defined multi-valued surjective  map from the Hausdorff blowing-up to the spectrum (cf. \ref{blowing_empt}).
 	\item  In the algebraic geometry   "blowing-up" means  excluding of singular points  (cf. \cite{hartshorne:ag}).
 \end{itemize}
 
@@ -9104,10 +9104,10 @@ The algebraic construction can be applied if $\sX/G$ is not Hausdorff.  The map 
 
 \begin{definition}\label{blowing_defn}
 Any  commutative $C^*$-subalgebra $C\cong C_0\left( \sY\right) \subset M\left(A \right)$ is said to be  a \textit{Hausdorff blowing-up} of $A$  if for any irreducible representation $\rep_x: A \to B\left( \H\right)$ the space $\rep_x\left( C\right) \H$ is dense in $\H$. 
-
-
 \end{definition}
-\begin{remark}\label{blowing_rem}
+
+
+\begin{empt}\label{blowing_empt}
 If $\sX$ is the spectrum of $A$ then	for any $y\in \sY$ there is 
 the set
 $$
@@ -9116,9 +9116,9 @@ $$
 where $I_y = \left\{\left. a\in C_0\left( \sY\right) \right| a\left( y\right)= 0  \right\}$.
 The map $y \mapsto \sX_y$ yields a partially defined multi-valued map.
 The map is surjective because for any $x \in \sX$ and for any maximal ideal $J_x \subset \rep_x\left(C_0\left( \sY\right)\right) $ there is a maximal ideal $I_y\subset C_0\left( \sY\right)$ such that $J_x= \rep_x\left(I_y\right)$.
-\end{remark}
+\end{empt}
 \begin{definition}\label{blowing_spectal_defn}
-If the described in the Remark \ref{blowing_rem} map is single-valued then we say that it is \textit{spectral}. It means that one has a subset $s\left( \sY\right)\subset \sY$ with the following equation 
+If the described in  \ref{blowing_empt} map is single-valued then we say that it is \textit{spectral}. It means that one has a subset $s\left( \sY\right)\subset \sY$ with the following equation 
 \be\label{blowing_spectal_eqn}
 \sY\supset s\left( \sY\right)\xrightarrow{s_\sY} \sX
 \ee
@@ -9141,7 +9141,10 @@ A Hausdorff blowing-up	$C\cong C_0\left( \sY\right) \subset M\left(A \right)$ is
 \begin{remark}\label{blowing_good_rem}
 Let both $\left\{\sU_\a\subset \sX\right\}$  and $\left\{\sU_\bt\subset \sX\right\}$ be families  of open sets such that  $\sX = \cup~\sU_\bt$ and for any $\bt$ there is $\a$ such that $\sU_\bt \subset \sU_\a$. If a union $\cup A_{\sU_\bt}$ generates $C^*$-algebra $A$ then  $\cup A_{\sU_\a}$ also generates  $A$. 
 \end{remark}
-
+\begin{exercise}\label{blowing_exer}
+Let $A$ be a  $C^*$-algebra, and let $C$ be the center of $M\left(A \right)$.
+Proof that the inclusion $C\subset M\left( A\right)$  is a good {Hausdorff blowing-up}. 
+\end{exercise}
 
 \section{Blowing-up and noncommutative  coverings}
 \paragraph*{}
@@ -9426,7 +9429,8 @@ Let $\left(A,\widetilde A, G, \pi \right)$ be a unital noncommutative finite-fol
 	\item  $\pi\left( C\left( \sY\right)\right) \subset C\left( \widetilde\sY\right)$ and there is a continuous  map $p: \widetilde\sY\to\sY$ such that $\left.\pi\right|_{ C_0\left( \sY\right)}$ is induced by $p$.
 	\item The natural action $G\times \widetilde A\to \widetilde A$ is such that $G C\left( \widetilde \sY\right)= C\left( \widetilde \sY\right)$ and any nontrivial $g\in G$ %%%induces a nontrivial homeomorphism of $ \widetilde \sY$.
 \end{itemize}
-Then the map $p$ is a transitive finite-fold covering such that $G \cong G\left( \left.\widetilde \sY\right|\sY\right)$.
+Then the map $p$ is a transitive finite-fold covering.\\
+ Moreover if $\left(A,\widetilde A, G, \pi \right)$ is a free noncomutative covering (cf. Definition \ref{fin_free_defn}) then $G\cong G\left( \left.\widetilde \sY\right|\sY\right)$.
 \end{lemma}
 
 \begin{proof}
@@ -9448,25 +9452,25 @@ but there is no  a finite subset $\La_0\subset \La$  such that
 $$
 \widetilde{A}=\sum_{\la \in \La_0}M_\la \widetilde{A}.
 $$
-From the Theorem \ref{fin_gen_thm} it follows $\widetilde{A}$ is not a finitely generated $A$-module, it contradicts with the definition \ref{fin_uni_defn}. So $C\left(\widetilde\sY\right)$ is   a finitely generated $C\left(\sY\right)$, and from the Theorem \ref{pavlov_troisky_thm} it follows that $p$ is a finite-fold covering. The action $G \times \widetilde A\to \widetilde A$ induces the action $G \times \widetilde \sY\to \sY$ which yields the a homomorphsm $G \to  G\left( \left.\widetilde \sY\right|\sY\right)$. If $G' \bydef \ker \left(G \to  G\left( \left.\widetilde \sY\right|\sY\right)\right)$ then $G/G'$ naturally acts on $\widetilde A^{G'}$. On the other hand $C\left( \widetilde \sY\right) \to \widetilde A^{G'} $ is  a Hausdorff blowing-up of $\widetilde A^{G'}$. It follows that $\widetilde A$ is an $\widetilde A^{G'}$-module  generated by the single element $1_{C\left(\widetilde \sY\right)}$, so one has $\widetilde A=\widetilde A^{G'}$ and $G'$ is trivial, or equivalently $G\cong G\left( \left.\widetilde \sY\right|\sY\right)$. 
+From the Theorem \ref{fin_gen_thm} it follows $\widetilde{A}$ is not a finitely generated $A$-module, it contradicts with the definition \ref{fin_uni_defn}. So $C\left(\widetilde\sY\right)$ is   a finitely generated $C\left(\sY\right)$, and from the Theorem \ref{pavlov_troisky_thm} it follows that $p$ is a finite-fold covering. The action $G \times \widetilde A\to \widetilde A$ induces the action $G \times \widetilde \sY\to \sY$ which yields a surjective homomorphsm $G \to  G\left( \left.\widetilde \sY\right|\sY\right)$. If $G' \bydef \ker \left(G \to  G\left( \left.\widetilde \sY\right|\sY\right)\right)$ then $G/G'$ nontivially acts on $\widetilde\sY$ and $\sY \cong \widetilde\sY/\left(G/G'\right)$. So the covering $p$ is transitive.\\
+If  $\left(A,\widetilde A, G, \pi \right)$ is a free noncomutative covering then $G'$ is trivial, so $G\cong G\left( \left.\widetilde \sY\right|\sY\right)$
 \end{proof}
 
 
 \begin{lemma}\label{blowing_cov_lem}
-Let $\left(A,\widetilde A, G, \pi \right)$ be a  noncommutative finite-fold  reduced covering (cf. Definitions \ref{fin_defn}, \ref{fin_red_defn}), and let $C = C_0\left( \sY\right)\hookto M\left( A\right) $  be a good  Hausdorff blowing-up of $A$ (cf. Definitions \ref{blowing_defn}, \ref{blowing_good_defn}). If $\widetilde C = C_0\left( \widetilde \sY\right)\hookto M\left( \widetilde A\right) $ is the given by \eqref{blowing_inc_eqn} then following conditions hold:
+Let $\left(A,\widetilde A, G, \pi \right)$ be a  noncommutative finite-fold   covering (cf. Definition \ref{fin_defn}), and let $C = C_0\left( \sY\right)\hookto M\left( A\right) $  be a good  Hausdorff blowing-up of $A$ (cf. Definitions \ref{blowing_defn}, \ref{blowing_good_defn}). If $\widetilde C = C_0\left( \widetilde \sY\right)\hookto M\left( \widetilde A\right) $ is the given by \eqref{blowing_inc_eqn} then following conditions hold:
 \begin{enumerate}
 	\item [(i)] There is the natural transitive finite-fold covering $p: \widetilde \sY\to \sY$.
-	\item[(ii)] If  the Hausdorff blowing-up $C_0\left( \sY\right)\hookto M\left( A\right) $   is semilocally 1-connected (cf. Definition \ref{blowing_semi1_defn})	then one has 
-	\be
+	\item[(ii)] If  $\left(A,\widetilde A, G, \pi \right)$ is a reduced  noncommutative finite-fold   covering (cf. Definition  \ref{fin_red_defn}) and the Hausdorff blowing-up $C_0\left( \sY\right)\hookto M\left( A\right) $   is semilocally 1-connected (cf. Definition \ref{blowing_semi1_defn})	then one has 
+	\bean
 	\left(A,\widetilde A, G, \pi \right)\cong \left(A,\widetilde A\left(\widetilde\sY \right) , G\left( \left. \widetilde \sY\right|\sY\right) , A_0\left( p\right)  \right).
-	\ee 
+	\eean
+		\item[(iii)] If  $\left(A,\widetilde A, G, \pi \right)$ is a free  noncommutative finite-fold   covering (cf. Definition  \ref{fin_free_defn})	then one has 
+		\bean
+		\left(A,\widetilde A, G, \pi \right)\cong \left(A,\widetilde A\left(\widetilde\sY \right) , G\left( \left. \widetilde \sY\right|\sY\right) , A_0\left( p\right)  \right).
+		\eean
 \end{enumerate}	
-
-
-
-
 \end{lemma}
-
 \begin{proof}(i) 
 Consider an increasing net $\left\{u_\la\right\}_{\la\in\La}\subset M\left( A\right)_+ $ 	required by the Definition \ref{fin_defn}.
 For any $\la\in\La$ both 
@@ -9535,7 +9539,8 @@ The action of $G\times \widetilde\sY\to \widetilde\sY$ yields a surjective homom
 \varphi_{\widetilde \B}:\widetilde \B \to \widetilde A,\\
 \left(\mathfrak p = \left(g_1\widetilde \sU_{y_1},..., g_n\widetilde \sU_{y_n}\right),a= a_1\cdot ...\cdot a_n \right) \mapsto \lift^p_{g_1\widetilde{\sU}_{y_1}}\left(a_1 \right) \cdot ...\cdot  \lift^p_{g_n\widetilde{\sU}_{y_n}}\left(a_n \right) 
 \eean
-where $\lift^p_{\widetilde{\sU}}$ means the $p$-$\widetilde{\sU}$-{lift} (cf. Definition \ref{blowing_lift_desc_defn}). Direct check shows that $\varphi_{\widetilde \B}$ is *-homomorphism and $\ker \varphi_{\widetilde \B} =I_{\widetilde \B} $ where is the given by \eqref{blowing_ideal_eqn} two sided ideal. So there is an inclusion $\varphi_{\widetilde \B/I_{\widetilde \B}}:{\widetilde \B} /I_{\widetilde \B} \hookto \widetilde A$ which is dense because the image of $\varphi_{\widetilde \B/I_{\widetilde \B}}$ contains the union  $\bigcup_{\left(g,y\right)\in G \times \sY} g \widetilde A_{\widetilde \sU_y}$. Since the $C^*$-norm  induced by the inclusion $\varphi_{\widetilde \B/I_{\widetilde \B}}$ is equivalent to the explained in \ref{blowing_b_empt} norm on $\widetilde \B/I_{\widetilde \B}$ the completion of $\varphi_{\widetilde \B/I_{\widetilde \B}}\left( \varphi_{\widetilde \B/I_{\widetilde \B}}\right)$ in $\widetilde A$ is naturally isomorphic to $A_0\left(\widetilde \sY \right)$  (cf. Definition \ref{blowing_ab_x_defn}). Using the direct check one can prove that $\pi = A_0\left(p\right)$.
+where $\lift^p_{\widetilde{\sU}}$ means the $p$-$\widetilde{\sU}$-{lift} (cf. Definition \ref{blowing_lift_desc_defn}). Direct check shows that $\varphi_{\widetilde \B}$ is *-homomorphism and $\ker \varphi_{\widetilde \B} =I_{\widetilde \B} $ where is the given by \eqref{blowing_ideal_eqn} two sided ideal. So there is an inclusion $\varphi_{\widetilde \B/I_{\widetilde \B}}:{\widetilde \B} /I_{\widetilde \B} \hookto \widetilde A$ which is dense because the image of $\varphi_{\widetilde \B/I_{\widetilde \B}}$ contains the union  $\bigcup_{\left(g,y\right)\in G \times \sY} g \widetilde A_{\widetilde \sU_y}$. Since the $C^*$-norm  induced by the inclusion $\varphi_{\widetilde \B/I_{\widetilde \B}}$ is equivalent to the explained in \ref{blowing_b_empt} norm on $\widetilde \B/I_{\widetilde \B}$ the completion of $\varphi_{\widetilde \B/I_{\widetilde \B}}\left( \varphi_{\widetilde \B/I_{\widetilde \B}}\right)$ in $\widetilde A$ is naturally isomorphic to $A_0\left(\widetilde \sY \right)$  (cf. Definition \ref{blowing_ab_x_defn}). Using the direct check one can prove that $\pi = A_0\left(p\right)$.\\
+(iii) PROOF!!!
 \end{proof}
 \begin{corollary}
 Let $A$ be  a  $C^*$-algebra with Hausdorff spectrum $\sX$. If $\sX$ is connected, locally connected, topologically simply connected (cf. Definition \ref{top_simp_conn_defn}) then $A$ is reducibly simply connected.
@@ -9552,10 +9557,7 @@ Let $A$ be a $C^*$-algebra, and let $C_0\left(\sY \right) \to M\left( A\right)$ 
 \end{lemma}
 \begin{proof}
 \ref{blowing_good_rem}
-Denote by $p:  \widetilde \sY\to \sY$ the given by the Lemma \ref{blowing_cov_lem} finite-fold transitive covering. 
-
-
-Let $\left\{\widetilde\sU_\a \subset \widetilde \sY \right\}_{\a\in \mathscr A}$ be a family of open subsets, such that $\widetilde \sY = \cup \widetilde \sU_\a$. For any $y\in \sY$ select a connected evenly covered by $p$ neighborhood $\sV_y$. If $\left\{\widetilde y_1, ..., \widetilde y_n\right\}\bydef p^{-1}\left(y \right)$ then for all $j= 1,...,n$ we select $\a_j \in  \mathscr A$ such that $\widetilde y_j \in \widetilde\sU_{\a_j}$. Let $\sU_y$ be a connected open neighborhood of $y$ such that $\sU_y \subset \sV_y \bigcap \left(\bigcap_{j=1}^n p\left( \widetilde\sU_{\a_j}\right) \right)$
+Denote by $p:  \widetilde \sY\to \sY$ the given by the Lemma \ref{blowing_cov_lem} finite-fold transitive covering. Let $\left\{\widetilde\sU_\a \subset \widetilde \sY \right\}_{\a\in \mathscr A}$ be a family of open subsets, such that $\widetilde \sY = \cup \widetilde \sU_\a$. For any $y\in \sY$ select a connected evenly covered by $p$ neighborhood $\sV_y$. If $\left\{\widetilde y_1, ..., \widetilde y_n\right\}\bydef p^{-1}\left(y \right)$ then for all $j= 1,...,n$ we select $\a_j \in  \mathscr A$ such that $\widetilde y_j \in \widetilde\sU_{\a_j}$. Let $\sU_y$ be a connected open neighborhood of $y$ such that $\sU_y \subset \sV_y \bigcap \left(\bigcap_{j=1}^n p\left( \widetilde\sU_{\a_j}\right) \right)$
 The  family of open sets $\left\{\widetilde\sU_y  \right\}_{y\in \sY}$ satisfies to conditions of \ref{top_lconn_part}. If $\left\{\widetilde\sU_\bt \subset \widetilde \sY \right\}_{\a\in \mathscr B}$ is the $p$-\textit{lift} of $\left\{\sU_y\right\}$ (cf. Definition \ref{top_lconn_defn}) then from the proof of the Lemma \ref{blowing_cov_lem} it follows that a union $\cup~\widetilde\sU_\bt$ generates $C^*$-algebra $A_0\left(\widetilde\sY \right)$. On the other hand each $\bt\in \mathscr B$  there is $\a\in \mathscr A$ such that $\widetilde\sU_\bt \subset \widetilde\sU_\a$, so a union $\cup~\widetilde\sU_\a$ generates $C^*$-algebra $A_0\left(\widetilde\sY \right)$ (cf. Remark \ref{blowing_good_rem}), so  Hausdorff blowing-up $C_0\left( \widetilde \sY\right) \to M\left(  \widetilde A\right)$ is good.
 
 !!! SEMILOCALLY  USE LIFT.
@@ -10435,17 +10437,17 @@ or equivalently
 \\
 ====
 \\
-Denote by $A \bydef \pi_1\left( \Omega\sX\right)$ and $I \bydef \left[A, A\right]$  the closed ideal $[A, A]$ generated by all commutators $xy-yx$ for $x,y \in  A$, so $A/I$ is the abelianization of $A$ cf Definition \ref{abelianization_defn}. Since $A/I$ is a commutative $C^*$ algebra there is a locally compact Hausdorff space $\sX^{\mathrm{ab}}$ which is a spectrum of $A/I$. If $\sX$ is the spectrum of $A$ then form the Theorem \ref{ideal_spectrum_thm} it follows that there is the following set theoretic disjoint union
+Denote by $A \bydef \pi_1\left( \Omega\sX\right)$ and $I \bydef \left[A, A\right]$  the closed ideal $[A, A]$ generated by all commutators $xy-yx$ for $x,y \in  A$, so $A/I$ is the abelianization of $A$ cf Definition \ref{abelianization_defn}. Since $A/I$ is a commutative $C^*$ algebra there is a locally compact Hausdorff space $\sY^{\mathrm{ab}}$ which is a spectrum of $A/I$. If $\sY$ is the spectrum of $A$ then form the Theorem \ref{ideal_spectrum_thm} it follows that there is the following set theoretic disjoint union
 \be\label{ho_gr_sp_dec}
 \begin{split}
-\sX = \sX^{\mathrm{ab}}\sqcup \sX^{\mathrm{c}},\\
-\sX^{\mathrm{ab}}\cong \left(A/I\right)\check{~}; \quad \sX^{\mathrm{c}}\cong\check I
+\sY = \sY^{\mathrm{ab}}\sqcup \sY^{\mathrm{c}},\\
+\sY^{\mathrm{ab}}\cong \left(A/I\right)\check{~}; \quad \sY^{\mathrm{c}}\cong\check I
 \end{split}
 \ee
 Any element of $x^{\mathrm{c}} \in \hat A^{\mathrm{c}}$ corresponds  to the primary ideal $I_{x^{\mathrm{c}}}$ of $A$ such that $I_{x^{\mathrm{c}}}\cap I \neq I$. It follows that $I_{x^{\mathrm{c}}}/\left( I_{x^{\mathrm{c}}}\cap I\right)$ is a not trivial prime ideal  of $A/I$. 
 
 
-From Propositions  \ref{lift_prop} and \ref{state_prop} any irreducible  representation $ \rep_{x^{\mathrm{c}}} : I \to B\left(\sH_{x^{\mathrm{c}}} \right)$ can be uniquely extended up to  $\rep_{x} : A \to B\left(\sH_{x} \right)$, which induces a representation $\rep_{x^{\mathrm{ab}}}: A/I \to \C$.  The correspondence $x^{\mathrm{c}}\mapsto x^{\mathrm{ab}}$ yields a  map $\phi\hat~: \sX^{\mathrm{c}}\to \sX^{\mathrm{ab}}$. From $\ker\rep_{\phi\left( x^{\mathrm{c}}\right)\subset }\ker\rep_{x^{\mathrm{c}}}$ it follows that $x^{\mathrm{c}}$ lies in the closure of $\phi\hat~\left( x^{\mathrm{c}}\right)$  where both $x^{\mathrm{c}}$ and $\phi\hat~\left( x^{\mathrm{c}}\right)$ are regarded as elements of $\sX$ (cf. equation \ref{ho_gr_sp_dec}). 
+From Propositions  \ref{lift_prop} and \ref{state_prop} any irreducible  representation $ \rep_{x^{\mathrm{c}}} : I \to B\left(\sH_{x^{\mathrm{c}}} \right)$ can be uniquely extended up to  $\rep_{x} : A \to B\left(\sH_{x} \right)$, which induces a representation $\rep_{x^{\mathrm{ab}}}: A/I \to \C$.  The correspondence $x^{\mathrm{c}}\mapsto x^{\mathrm{ab}}$ yields a  map $\phi\hat~: \sY^{\mathrm{c}}\to \sY^{\mathrm{ab}}$. From $\ker\rep_{\phi\left( x^{\mathrm{c}}\right)\subset }\ker\rep_{x^{\mathrm{c}}}$ it follows that $x^{\mathrm{c}}$ lies in the closure of $\phi\hat~\left( x^{\mathrm{c}}\right)$  where both $x^{\mathrm{c}}$ and $\phi\hat~\left( x^{\mathrm{c}}\right)$ are regarded as elements of $\sY$ (cf. equation \ref{ho_gr_sp_dec}). 
 If $\check A$ is the prime spectrum of $A$ then form the Theorem \ref{ideal_spectrum_thm} it follows that there is the following set theoretic disjoint union
 \be\label{ho_gr_spp_eqn}
 \begin{split}
@@ -10458,46 +10460,76 @@ corresponds  to the prime ideal $I_{\check x^{\mathrm{c}}}$ of $A$ such that
 $I_{\check x^{\mathrm{c}}}\cap I \neq I$. 
 It follows that $I_{\check x^{\mathrm{c}}}/\left( I_{\check x^{\mathrm{c}}}\cap I\right)$ is a not trivial prime ideal  of $A/I$. From  \eqref{ho_gr_spp_dec} it follows that $I_{\check x^{\mathrm{c}}}/\left( I_{\check x^{\mathrm{c}}}\cap I\right)$ corresponds to a point $\check x^{\mathrm{ab}}\in \check{A}^{\mathrm{ab}}$. The correspondence $x^{\mathrm{c}}\mapsto x^{\mathrm{ab}}$ yields a  map $\phi\check~: \check A^{\mathrm{c}}\to \check A^{\mathrm{ab}}$.
 On the other hand from $I_{\phi\check~\left(\check x^{\mathrm{c}} \right) }\subset I_{\check x^{\mathrm{c}} }$ if follows that  $\check x^{\mathrm{c}}$ lies in the closure of $\phi\hat~\left(\check x^{\mathrm{c}}\right)$.
-The $C^*$-algebra  $A/I$ is commutative, so $\sX^{\mathrm{ab}}\cong \check{A}^{\mathrm{ab}}$.
+The $C^*$-algebra  $A/I$ is commutative, so $\sY^{\mathrm{ab}}\cong \check{A}^{\mathrm{ab}}$.
 \begin{lemma}
-The center of $M\left(A \right)$ is naturally isomorphic to $C_b\left( \sX^{\mathrm{ab}}\right)$. 
+The following conditions hold:
+\begin{enumerate}
+	\item [(i)] The center of $M\left(A \right)$ is naturally isomorphic to $C_b\left( \sY^{\mathrm{ab}}\right)$.
+	\item [(ii)] The inclusion $\phi: C_b\left( \sY^{\mathrm{ab}}\right)\hookto M\left(A \right)$ is such that $\phi\left(C_0\left( \sY^{\mathrm{ab}}\right)\right)\subset A$, i.e. there is the natural inclusion $C_0\left( \sY^{\mathrm{ab}}\right)\subset M\left(A \right)$. 
+\end{enumerate}
+\end{lemma}
+\begin{proof}(i) 
+From the Theorem \ref{dauns_hofmann_thm} it turns out that $M\left(A \right)$ is naturally isomorphic to the class of bounded continuous  functions on $\check{A}$. If $f$ is a continuous  function on $\check{A}$ then for all $\check x^{\mathrm{c}}\in \check \sY^{\mathrm{c}}$ one has $f\left(\check x^{\mathrm{c}} \right) = f\left( \phi\check~\left(\check x^{\mathrm{c}} \right)\right)$ because $\check x^{\mathrm{c}}$ lies in the closure of $\phi\hat~\left(\check x^{\mathrm{c}}\right)$. It follows that the function $f$ uniquely depends on its restriction $f|_{\check A^{\mathrm{ab}}}= f|_{\sY^{\mathrm{ab}}}$. On the other hand for any  two sided ideal $J\subset C_b\left( \sY^{\mathrm{ab}}\right)$ the preimage $f^{-1} \left( J\right)$ is a closed ideal if and only if the map $f$ is continuous.\\
+(ii) There is a surjective *-homomorphism $A \to A/I$, and taking into account that  $A/I\cong C_0\left( \sY^{\mathrm{ab}}\right)$ one has a surjective *-homomorphism $\varphi: A \to C_0\left( \sY^{\mathrm{ab}}\right)$. For any $f \in \to C_0\left( \sY^{\mathrm{ab}}\right)$ there is $a \in A$ such that $f = \varphi\left( a\right)$. Otherwise $a = f + a'$ where $a' \in I$, i.e. $f= a -a'$. From $a,a'\in A$ it follows that $f \in A$. 
+\end{proof}
+From the Exercise \ref{blowing_exer} it turns out that $C\left( \sY^{\mathrm{ab}}\right)\hookto A$ is a good Hausdorff blowing-up of $A$ (cf. Definitions \ref{blowing_defn} and \ref{blowing_good_defn}). Taking into account the Lemma \ref{blowing_cov_lem} one has the following lemma.
+\begin{lemma}\label{h_gr_free_lem}
+ If $\left(A,\widetilde A, G, \pi \right)$ is a free noncommutative finite-fold   covering (cf. Definitions \ref{fin_defn} and \ref{fin_free_defn}) then there is a transitive finite-fold covering $p:\widetilde\sY_{\mathrm{fin}}^{\mathrm{ab}}\to \sY^{\mathrm{ab}}$ such that
+ 	\bean
+	\left(A,\widetilde A, G, \pi \right)\cong \left(A,\widetilde A\left(\widetilde\sY_{\mathrm{fin}}^{\mathrm{ab}}\right) , G\left( \left. \widetilde\sY_{\mathrm{fin}}^{\mathrm{ab}} \right|\sY^{\mathrm{ab}}\right) , A_0\left( p\right)  \right).
+	\eean
+\end{lemma}
+From !!! it follows that $\sY^{\mathrm{ab}}\cong \Om\sX$ so $\pi_1\left( \sY^{\mathrm{ab}}\right)\cong \pi_2\left(\sX \right)$ is an Abelian group. If $\widetilde\sY^{\mathrm{ab}}\to \sY^{\mathrm{ab}}$ is the universal covering then $G\left( \left. \widetilde\sY^{\mathrm{ab}} \right|\sY^{\mathrm{ab}}\right)\cong\pi_1\left( \sY^{\mathrm{ab}}\right)$ is residually finite (cf. Definition \ref{residually_finite_defn}). Let us consider a family $\mathfrak{S}_{\left( \sY^{\mathrm{ab}}, y_0  \right) }=\left\{ p_\la: \left( \sY^{\mathrm{ab}}_\la, y^\la_0\right) \to \left( \sY^{\mathrm{ab}}, y_0\right)\right\}_{\la \in \La} $  of all  transitive finite-fold pointed coverings.
+From the Lemma \ref{top_res_fin_lem} it turns out that the pointed space $\left( \widetilde{\sY}^{\mathrm{ab}} , \widetilde{y}_0 \right)$ is the topological inverse noncommutative limit of $\mathfrak{S}_{\left( \sY^{^{\mathrm{ab}}}, y_0 \right) }$  (cf. Definition \ref{top_topological_inv_lim_defn}). From the Lemma \ref{blowing_t_a_lem}
+there is an	algebraical  finite covering category (cf. Definition \ref{comp_defn}) given by		
+\begin{equation}\label{blowing_poinded_cat_eqn}
+	\mathfrak{S}^{\mathrm{pt}}_{A } = \left\{\pi_\la=A_0\left( p_{\la}\right) :A  \hookto A_0\left(\sY^{\mathrm{ab}}_\la\right) \right\}_{\la \in \La}\in \mathfrak{FinAlg}.
+\end{equation}
+From the Lemma \ref{h_gr_free_lem} it turns out that the category \eqref{blowing_poinded_cat_eqn} is equivalent to the category of all free noncommutative coverings of $A$.
+If $\overline \sY^{\mathrm{ab}}$ is the disconnected inverse limit of $\mathfrak{S}_{\left( \sY^{^{\mathrm{ab}}}, y_0 \right) }$ and $\overline A$ is the  disconnected inverse limit of 	$\mathfrak{S}^{\mathrm{pt}}_{A }$ then from the Corollary \ref{blowing_c0_inc_cor} it follows that
+$$
+A_0\left(\overline \sY^{\mathrm{ab}}\right) \subset \overline A.
+$$
+\begin{lemma}
+In the above situation the center of  $\overline A$ is $\overline \sY^{\mathrm{ab}}$ !!! $A_0\left(\overline \sY^{\mathrm{ab}}\right) = \overline A$. 
 \end{lemma}
 \begin{proof}
-From the Theorem \ref{dauns_hofmann_thm} it turns out that $M\left(A \right)$ is naturally isomorphic to the class of bounded continuous  functions on $\check{A}$. If $f$ is a continuous  function on $\check{A}$ then for all $\check x^{\mathrm{c}}\in \check \sX^{\mathrm{c}}$ one has $f\left(\check x^{\mathrm{c}} \right) = f\left( \phi\check~\left(\check x^{\mathrm{c}} \right)\right)$ because $\check x^{\mathrm{c}}$ lies in the closure of $\phi\hat~\left(\check x^{\mathrm{c}}\right)$. It follows that the function $f$ uniquely depends on its restriction $f|_{\check A^{\mathrm{ab}}}= f|_{\sX^{\mathrm{ab}}}$. On the other hand for any  two sided ideal $J\subset C_b\left( \sX^{\mathrm{ab}}\right)$ the preimage $f^{-1} \left( J\right)$ is a closed ideal if and only if the map $f$ is continuous.
-\end{proof}
-BLOWING!!!
-\begin{empt}!!! MAY BE DELETE
-	For any open subset $\sU \subset \sX^{\mathrm{ab}}$ we denote by $A_\sU$ the $C^*$-norm completion of $C_0\left( \sU\right)A$. 
-Suppose $p: \widetilde  \sX^{\mathrm{ab}} \to \sX^{\mathrm{ab}}$ be a transitive covering, denote by $G \bydef G\left(\left.\widetilde \sX^{\mathrm{ab}}~\right|\sX^{\mathrm{ab}}\right)$. Let $\left\{\sU_\a\subset \sX^{\mathrm{ab}}\right\}_{\a \in \mathscr A}$ be  {compliant with} $p$, and the family
-$\left\{g \widetilde \sU_\a\subset\widetilde \sX^{\mathrm{ab}} \right\}_{\left(g, \a\right)\in  G\times \mathscr A}$ 
-by the $p$-{lift} of $\left\{\sU_\a\right\}_{\a \in \mathscr A}$ (cf. Definition \ref{top_lconn_defn}. Consider any linear order on the set $G\times \mathscr A$, and define a *-algebra $\widetilde \B$ by generators and relations. Generators are pairs $\left(a, g \widetilde \sU_\a \right)$ such that $\left(g, \a \right)\in  G\times \mathscr A$ and $a \in A_{\sU_\a}$. Define a product of pairs and *-operation by the following way
-\be
+If $\overline I\bydef \left[\overline A, \overline A\right]\subset \overline A$ be the closed ideal  generated by all commutators $\overline x \overline y Ñ \overline y\overline x$ for $\overline x,\overline y \in \overline A$, then $\overline A^{\mathrm{ab}}\bydef \overline A/ \overline I$ is commutative $C^*$-algebra $C_0\left( \overline \sY\right)$.  There are the natural bijective maps $\varprojlim \sY^{\mathrm{ab}}_\la\cong   \overline \sY$ and $\varprojlim \sY^{\mathrm{ab}}_\la\cong   \overline \sY^{\mathrm{ab}}$, so  $\overline \sY^{\mathrm{ab}}$ coincides with $\overline \sY^{\mathrm{ab}}$ as a set. However from $A_0\left(\overline \sY^{\mathrm{ab}}\right) \subset \overline A$ it turns out that the topology of $\overline \sY$ is finer than the topology of $\overline \sY^{\mathrm{ab}}$. Let $\overline a\in B\left(\H_a \right) $ be special element where $\H_a$ is a Hilbert space of the atomic representation $\pi: C^*$-$\varprojlim A_0\left(\sY^{\mathrm{ab}}_\la\right)\hookto B\left(\H_a\right)$. From the Definition \ref{special_element_defn} it follows that
+ for any $\la_0 \in \La$, $\eps > 0$ and  $z \in A_{\la_0}^{\sim}$
+it satisfies to the following conditions:	
+\begin{enumerate}
+	\item[(a)] 	If   $f_\eps: \R \to \R$ is a continuous function given by \eqref{f_eps_eqn}
+	then for all $\la \ge \la_0$  there are $ a_\la, b_\la, a^\eps_\la \in A_\la$ such that
+	\be\label{h_gr_spec_a_eps_eqn}
+	\begin{split}
+		\sum_{g\in G_\la } \pi \left(z\right)^*\left(  g\overline a\right) \pi\left( z\right)   = \pi\left(a_\la \right),\\
+		\sum_{g\in G_\la } f_\eps\left(\pi \left(z\right)^* \left( g\overline a\right) \pi\left( z\right)\right)    = \pi\left(a^\eps_\la \right),\\
+		\sum_{g\in G_\la  } \left(\pi \left(z\right)^* \left( g\overline a\right) \pi\left( z\right)\right)^2    = \pi\left(b_\la \right) 
+	\end{split}
+	\ee
+	where sums of the above series mean the strong convergence in  $B\left(\H\right)$ and the action  $G_\la\times B\left(\H\right)\to B\left(\H\right)$ is given by \eqref{equivb_eqn}.
+	\item[(b)] There is $\mu \in \La$ such that $\mu \ge \la_0$ and
+	\be\label{h_gr_special_set_eqn}
+	\forall \la  \in \La \quad	 \la \ge \mu  \Rightarrow  \left\|a_\la^2 - b_\la\right\| < \eps
+	\ee
+	where $a_\la, b_\la \in A_\la$ are given by \eqref{spec_a_eps_eqn}.
+\end{enumerate}
+On the other hand there is a surjective *-homomorphism $\varphi: \overline A \to C_0\left(\overline \sY \right)$ if $\overline f \bydef \varphi\left(\overline a \right)$ then from \eqref{h_gr_spec_a_eps_eqn}it follows that $\la \ge \la_0$  there are $ f_\la, f_\la, f^\eps_\la \in A_\la$ such that
+\be\label{h_gr_specf_a_eps_eqn}
 \begin{split}
-\left(a', g' \widetilde \sU_{\a'} \right)\cdot \left(a'', g'' \widetilde \sU_{\a''} \right)
-\bydef \begin{cases}
-	0 & \left(g' \widetilde \sU_{\a'} \right)\cap \left(g'' \widetilde \sU_{\a''} \right)= \emptyset\\
-	&\\
-\left(a'a'', g' \widetilde \sU_{\a'} \right) & \left( g', \widetilde \sU_{\a'}\right) \ge \left( g'', \widetilde \sU_{\a''}\right)\\
-& \\
-\left(a'a'', g'' \widetilde \sU_{\a''} \right) & \left( g', \widetilde \sU_{\a'}\right) < \left( g'', \widetilde \sU_{\a''}\right) 
-\end{cases},\\
-\left(a, g \widetilde \sU_\a \right)^*\bydef \left(a^*, g \widetilde \sU_\a \right).
+	!!! z REPLACE
+	\sum_{g\in G_\la } \pi \left(z\right)^*\left(  g\overline f\right) \pi\left( z\right)   = \pi\left(f_\la \right),\\
+	\sum_{g\in G_\la } f_\eps\left(\pi \left(z\right)^* \left( g\overline f\right) \pi\left( z\right)\right)    = \pi\left(a^\eps_\la \right),\\
+	\sum_{g\in G_\la  } \left(\pi \left(z\right)^* \left( g\overline f\right) \pi\left( z\right)\right)^2    = \pi\left(h_\la \right) 
 \end{split}
 \ee
-There is a $\C$-linear map $q: \widetilde \B\to A$ such that $\left(a, g \widetilde \sU_\a \right)\mapsto a$. One can define $A$-valued product $\left\langle\cdot,\cdot \right\rangle_{\widetilde \B}$  on $\widetilde \B$ such that 
-$$
-\left\langle\widetilde b_1,\widetilde b_2 \right\rangle_{\widetilde \B}\bydef q\left(\widetilde b^*_1,\widetilde b_2 \right) 
-$$
-There is a $C^*$-seminorm $\left\| \cdot \right\|_{\widetilde \B}$ on $\widetilde \B$. If $I_{\widetilde \B}\bydef\left\{\widetilde b \in \widetilde \B\left|~\left\|\widetilde b \right\|_{\widetilde \B}= 0\right.\right\}$ and $\widetilde \A \bydef \widetilde \B/I_{\widetilde \B}$ 
-then the  $A$-valued product $\left\langle\cdot,\cdot \right\rangle_{\widetilde \B}$ induces an  $A$-valued product $\left\langle\cdot,\cdot \right\rangle_{\widetilde \A}$  on $\widetilde \A$. In result $\widetilde \A$ becomes a $C^*$-Hilbert $A$-pre-module. Its completion $\H_{\widetilde \A}$ a $C^*$-Hilbert $A$-module, and there is the natural inclusion
-\be\label{ho_gr_he_eqn}
-	\widetilde \A\subset \End_A\left(\H_{\widetilde \A}\right).
+On the other hand one has 
+	\be\label{h_gr_specialf_set_eqn}
+\forall \la  \in \La \quad	 \la \ge \mu  \Rightarrow \left\|f_\la^2 - h_\la\right\|\le  \left\|a_\la^2 - b_\la\right\| < \eps
 \ee
-The right part of the above equation is a $C^*$-algebra.	
-\end{empt}
-\begin{definition}
-The $C^*$-subalgebra of $\End_A\left(\H_{\widetilde \A}\right)$ which is the completion of $\widetilde \A$ is said to be the $p$-\textit{lift} of $A$.
-\end{definition}
+From the equations \ref{h_gr_specf_a_eps_eqn}, \ref{h_gr_specialf_set_eqn} and the Theorem \ref{comm_main_f_thm} it follows that $\overline f \in A_0\left(\overline \sY^{\mathrm{ab}}\right)$. So there is a homeomorphism $\overline \sY\cong \overline \sY^{\mathrm{ab}}$.
+!!! CONTINUE  CENTER
+\end{proof}
 ====
 \\
 Let us prove that $\pi_1\left( \Omega\sX\right)\cong \pi_1\left(\Om C\left( \sX\right)  \right)$. 
