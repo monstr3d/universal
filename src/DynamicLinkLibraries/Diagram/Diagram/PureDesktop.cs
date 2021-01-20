@@ -64,6 +64,7 @@ namespace Diagram.UI
         /// </summary>
         private static event Action<IDesktop> desktopPostLoad;
 
+
         #endregion
 
         #region Ctor
@@ -78,6 +79,12 @@ namespace Diagram.UI
         #endregion
 
         #region IDesktop Members
+
+        public string Name
+        {
+            get;
+            protected set;
+        } = "";
 
         /// <summary>
         /// Array of all components
@@ -1037,11 +1044,32 @@ namespace Diagram.UI
         }
 
 
-  
 
 
-  
+
+
         #endregion
+
+        #endregion
+
+        #region Overriden
+
+        /// <summary>
+        /// To string overriden
+        /// </summary>
+        /// <returns>Overriden to string</returns>
+        public override string ToString()
+        {
+            string s = base.ToString();
+            if (Name != null)
+            {
+                if (Name.Length > 0)
+                {
+                    return Name + " (" + s + ")";
+                }
+            }
+            return s;
+        }
 
         #endregion
 

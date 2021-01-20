@@ -204,6 +204,52 @@ namespace Unity.Standard
 
         #region Public Members
 
+        /// <summary>
+        /// Blinked coroutine
+        /// </summary>
+        /// <param name="blinked">Blinked object</param>
+        /// <param name="intervals">Intervals</param>
+        /// <returns>Blinks</returns>
+        public static IEnumerator BlinkedCoroutine(this IBlinked blinked, float[] intervals)
+        {
+            blinked.IsStopped = false;
+            while (true)
+            {
+                for (int i = 0; i < intervals.Length; i++)
+                {
+                    yield return new WaitForSeconds(intervals[i]);
+                    if (blinked.IsStopped)
+                    {
+                        goto finish;
+                    }
+                    blinked.Blink(i);
+                }
+            }
+        finish:
+            yield return null;
+        }
+
+        /// <summary>
+        /// Starts Blinked coroutine
+        /// </summary>
+        /// <param name="blinked">Blinked object</param>
+        /// <param name="intervals">Intervals</param>
+        /// <param name="monoBehaviour">Mono behavior</param>
+        public static void Start(this IBlinked blinked, float[] intervals, MonoBehaviour monoBehaviour)
+        {
+            monoBehaviour.StartCoroutine(BlinkedCoroutine(blinked, intervals));
+        }
+
+        /// <summary>
+        /// Starts Blinked coroutine
+        /// </summary>
+        /// <param name="blinked">Blinked object</param>
+        /// <param name="intervals">Intervals</param>
+        public static void Start(this IBlinked blinked, float[] intervals)
+        {
+            Start(blinked, intervals, Enabled);
+        }
+
 
         /// <summary>
         /// Processes codes
@@ -493,7 +539,7 @@ namespace Unity.Standard
         {
             get;
             set;
-        }
+        } = 1;
 
         /// <summary>
         /// Unused key
@@ -643,16 +689,25 @@ namespace Unity.Standard
         /// <param name="enumerator"></param>
         public static void StartCoroutine(this IEnumerator enumerator)
         {
-            MonoBehaviour mb = null; 
-            foreach (MonoBehaviour monoBehaviour in monoBehaviours)
+            Enabled.StartCoroutine(enumerator);
+        }
+
+        /// <summary>
+        /// Enabled script
+        /// </summary>
+        public static MonoBehaviour Enabled
+        {
+            get
             {
-                mb = monoBehaviour;
-                if (mb.enabled)
+                foreach (MonoBehaviour monoBehaviour in monoBehaviours)
                 {
-                    break;
+                    if (monoBehaviour.gameObject.activeSelf)
+                    {
+                        return monoBehaviour;
+                    }
                 }
+                return null;
             }
-            mb.StartCoroutine(enumerator);
         }
 
         /// <summary>

@@ -13,6 +13,14 @@ namespace Diagram.UI.Interfaces
     public interface IDesktop : IComponentCollection
     {
         /// <summary>
+        /// The name of desktop
+        /// </summary>
+        string Name
+        {
+            get;
+        }
+
+        /// <summary>
         /// Components
         /// </summary>
         IEnumerable<object> Components

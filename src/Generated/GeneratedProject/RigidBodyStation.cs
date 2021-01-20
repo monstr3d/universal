@@ -168,7 +168,8 @@ namespace GeneratedProject
 				bool pl = PostLoad();
 				bool pd = PostDeserialize();
 				SuccessLoad = pl & pd;
-				PostLoad(this); 
+				PostLoad(this);
+				Name = "RigidBodyStation"; 
 			}
 		
 			internal class OblectLabel0 : Diagram.UI.Labels.PureObjectLabel

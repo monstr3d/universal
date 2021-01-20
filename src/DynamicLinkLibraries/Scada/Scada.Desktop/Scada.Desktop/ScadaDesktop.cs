@@ -145,6 +145,24 @@ namespace Scada.Desktop
         #region Overriden Members
 
         /// <summary>
+        /// To string overriden
+        /// </summary>
+        /// <returns>Overriden to string</returns>
+        public override string ToString()
+        {
+            string s = base.ToString();
+            string n = desktop.Name;
+            if (n != null)
+            {
+                if (n.Length > 0)
+                {
+                    return n + " (" + s + ")";
+                }
+            }
+            return s;
+        }
+
+        /// <summary>
         /// Gets object
         /// </summary>
         /// <typeparam name="T">Type of object</typeparam>

@@ -23,15 +23,18 @@ namespace Assets
 
         static GameObject station;
 
+        static internal KeyActivation keyActivation;
+
+        static internal IBlinked blinkedLamps;
 
         #region Ctor
 
         public KeyActivation()
         {
             this.AddKeyListener();
+            keyActivation = this;
             StaticExtensionUnity.Collision += (Tuple<GameObject, Component, IScadaInterface, ICollisionAction> obj) =>
             {
-
                 Explosion();
             };
 
@@ -63,6 +66,15 @@ namespace Assets
                 if (m.name == "Station")
                 {
                     station = m.gameObject;
+                    var objs = station.GetGameObjectComponents<Component>();
+                    var l = new List<GameObject>();
+                    var ss = new string[] { "Sphere", "SphereLeft", "SphereRight" };
+                    foreach (var s in ss)
+                    {
+                        l.Add(objs[s][0].gameObject);
+                    }
+                    blinkedLamps = new BlinkedEnabledGameObjects(l);
+                    blinkedLamps.Start(new float[] { 1, 0.2f }, m);
                 }
                 if (m.name == "Main Camera")
                 {
@@ -85,6 +97,7 @@ namespace Assets
 
         #region Internal Members
 
+
         static internal void Explosion()
         {
             explosion.SetActive(true);
@@ -105,5 +118,6 @@ namespace Assets
                 ResultIndicator.Stop();
             }
         }
+
     }
 }
