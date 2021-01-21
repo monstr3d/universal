@@ -44,6 +44,8 @@ public class Activation : MonoBehaviour
 
     IActivation act;
 
+    private IActivation activationObject;
+
 
     volatile Queue<Tuple<Action<object>, object>> queue = new Queue<Tuple<Action<object>, object>>();
 
@@ -53,10 +55,23 @@ public class Activation : MonoBehaviour
 
     private void Awake()
     {
+        if (activation != null)
+        {
+            if (activation.Length > 0)
+            {
+                ConstructorInfo ci = StaticExtensionUnity.activations[this.activation];
+                activationObject = ci.Invoke(new object[0]) as IActivation;
+             }
+        }
+
         isEscaped = false;
-        if (StaticExtensionUnity.StaticLevel > 0)
+        if (StaticExtensionUnity.StaticLevel != 0)
         {
             level = StaticExtensionUnity.StaticLevel;
+        }
+        else
+        {
+            StaticExtensionUnity.StaticLevel = level;
         }
         StaticExtensionUnity.StartTime = Time.realtimeSinceStartup;
         if (exists)
@@ -79,15 +94,13 @@ public class Activation : MonoBehaviour
         MethodInfo mi = type.GetMethod("Set", new Type[] { typeof(MonoBehaviour) });
         if (activation != null)
         {
-            if (activation.Length > 0)
+            if (activationObject != null)
             {
-                ConstructorInfo ci = StaticExtensionUnity.activations[this.activation];
-                IActivation activation = ci.Invoke(new object[0]) as IActivation;
-                act = activation;
-                activation.Level = level;
-                activation.SetConstants(constants);
-                activation.SetConstants(strings);
-                activation.Activate(components);
+                act = activationObject;
+                activationObject.Level = level;
+                activationObject.SetConstants(constants);
+                activationObject.SetConstants(strings);
+                activationObject.Activate(components);
             }
             update = UpdateFist;
         }

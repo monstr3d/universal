@@ -1967,7 +1967,7 @@ A noncommutative finite-fold  quasi-covering  $\left(A, \widetilde{A}, G, \pi \r
 	I do not know whether exists a noncommutative finite-fold  covering which is not reduced.
 \end{remark}
 
-\begin{lemma}\label{simply_connected_red_lem}
+\begin{lemma}\label{quasi_red_lem}
 	Any reduced  noncommutative finite-fold quasi-covering is a  noncommutative finite-fold pre-covering.
 \end{lemma}
 \begin{proof}
@@ -2939,10 +2939,10 @@ This section contains a noncommutative generalization of infinite coverings.
 
 
 \begin{definition}\label{comp_defn}
-	Let $\La$ be a countable directed set (cf. Definition \ref{directed_set_defn}) such that there is the unique minimal element $\la_{\min} \in \La$.
+	Let $\La'$ be a countable directed set (cf. Definition \ref{directed_set_defn}) such that there is the unique minimal element $\la_{\min} \in \La'$.
 	Let $A$ be a $C^*$-algebra.  Let us consider a set noncommutative finite-fold coverings $\mathfrak{S}=\left\{ \pi_{\la}:A \hookto A_{\la}\right\}_{\la \in \La}$ indexed by  $\La$ such that $A_{\la_{\mathrm{min}}}= A$, and $\pi_{\la_{\mathrm{min}}}= \Id_A$. We do not claim that any noncommutative finite-fold covering $A \to \widetilde{A}$ belongs to $\mathfrak{S}$. Suppose that  following conditions hold:
 	\begin{enumerate}
-		\item[(a)] For any $\mu, \nu \in \La$ a pair $\left( \pi_\mu, \pi_\nu\right)$ is compliant (cf. Definition \ref{compliant_covering_defn}).
+		\item[(a)] For any $\mu, \nu \in \La'$ a pair $\left( \pi_\mu, \pi_\nu\right)$ is compliant (cf. Definition \ref{compliant_covering_defn}).
 		\item [(b)]
 		For  $\mu, \nu \in \La$ one has
 		\be\label{fg_ord_eqn}
@@ -2952,18 +2952,12 @@ This section contains a noncommutative generalization of infinite coverings.
 		\ee
 	\end{enumerate}
 	The set 
-	$\mathfrak{S}=\left\{ \pi_{\la}:A \hookto A_{\la}\right\}_{\la \in \La}$, or equivalently $$\mathfrak{S}=\left\{ \left( A , A_{\la}, G\left(\left.A_\la~\right|A \right) , \pi_{\la}\right) \right\}_{\la \in \La}$$
+	$\mathfrak{S}=\left\{ \pi_{\la}:A \hookto A_{\la}\right\}_{\la \in \La}$, or equivalently $$\mathfrak{S}=\left\{ \left( A , A_{\la}, G\left(\left.A_\la~\right|A \right) , \pi_{\la}\right) \right\}_{\la \in \La'}$$
 	is said to be an \textit{algebraical  finite covering category}. 
 	We write $\mathfrak{S} \in \mathfrak{FinAlg}$.
 \end{definition}
-\begin{remark}\label{implicit_inc_rem}
-Below for all $\la\in\La$ we implicitly assume that $A_\la \subset  C^*$-$\varinjlim_{\la \in\La} A_\la$ (cf. Definition \ref{inductive_lim_non_defn}) i.e. for any $\mu, \nu \in \La$ and $a_\mu\in A_\mu, a_\nu\in  A_\nu$ we suppose that both $a_\mu$, $a_\nu$  are elements of the single $C^*$-algebra $C^*$-$\varinjlim_{\la \in\La} A_\la$.
-\end{remark}
-% \begin{definition}\label{comp_defn}
-% 	An algebraical finite precovering category said to be an \textit{algebraical  finite covering category} if all morphism of it are finite-fold coverings.   We write $\mathfrak{S} \in \mathfrak{FinAlg}$
-% \end{definition}
 \begin{definition}\label{comp_pt_defn}
-	A subcategory $\mathfrak{S}^{\text{pt}}$  of an algebraical  finite covering category $\mathfrak{S}$  is said to be a \textit{pointed algebraical  finite covering category}  if it is equivalent to the pre-order category given by $\La$ (cf. Definition \ref{preordercat_defn} and Remark \ref{pre_order_rem}).  We write $\mathfrak{S}^{\text{pt}} \in \mathfrak{FinAlg}^{\text{pt}}$, and use the following notation
+	A skeleton  $\mathfrak{S}^{\text{pt}}$  of an algebraical  finite covering category $\mathfrak{S}$ (cf. Definition \ref{skeleton_defn}) is said to be a \textit{pointed algebraical  finite covering category}  if it is equivalent to the pre-order category given by $\La'$ (cf. Definition \ref{preordercat_defn} and Remark \ref{pre_order_rem}).  We write $\mathfrak{S}^{\text{pt}} \in \mathfrak{FinAlg}^{\text{pt}}$, and use the following notation
 	\be\label{comp_pt_eqn}
 	\begin{split}
 		\mathfrak{S}^{\text{pt}} = \left(\left\{\pi_\la: A \hookto A_\la \right\}_{\la \in \La}, \left\{\pi^\mu_\nu: A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\ \nu > \mu}}\right),\\
@@ -2974,6 +2968,13 @@ Below for all $\la\in\La$ we implicitly assume that $A_\la \subset  C^*$-$\varin
 \begin{remark}\label{comp_pt_rem}
 	The Definition \ref{comp_pt_defn} means that for any $\mu \ge \nu$ the category $\mathfrak{S}^{\text{pt}}$ contains the unique *-homomorphism $\pi^\nu_{ \mu}: A_\nu \hookto A_\mu$. The family of $\left\{\pi^\nu_{ \mu}\right\}$ of *-homomorphisms  is said to be a \textit{base-point}.
 \end{remark}
+
+\begin{remark}\label{implicit_inc_rem}
+Below for all $\la\in\La$ we implicitly assume that $A_\la \subset  C^*$-$\varinjlim_{\la \in\La} A_\la$ (cf. Definition \ref{inductive_lim_non_defn}) i.e. for any $\mu, \nu \in \La$ and $a_\mu\in A_\mu, a_\nu\in  A_\nu$ we suppose that both $a_\mu$, $a_\nu$  are elements of the single $C^*$-algebra $C^*$-$\varinjlim_{\la \in\La} A_\la$.
+\end{remark}
+% \begin{definition}\label{comp_defn}
+% 	An algebraical finite precovering category said to be an \textit{algebraical  finite covering category} if all morphism of it are finite-fold coverings.   We write $\mathfrak{S} \in \mathfrak{FinAlg}$
+% \end{definition}
 
 \begin{empt}\label{inv_g_lim_empt} Let us consider the situation of the Definition \ref{comp_pt_defn}.
 	If $\mu, \nu \in \La$ and $\mu > \nu$. Denote by   $h^\mu_\nu:  G\left(\left.A_\mu~\right|A \right) \to  G\left(\left.A_\nu~\right|A \right)$ the surjective homomorphism which comes from $\pi^\nu_\mu$ (cf. Definition \ref{compliant_comes_defn}).
@@ -4561,7 +4562,7 @@ $$
 is a finite union of compact sets, so it is compact. On the other hand $\sY\subset\sZ$.
 \end{proof}
 \begin{definition}\label{top_path_comp_defn}
-	If both $\mathfrak p'=\left(\sU_{\a'_1},...,\sU_{\a'_k}\right)$ and $\mathfrak p''=\left(\sU_{\a''_1},...,\sU_{\a''_l}\right)$ are paths such that $\sU_{\a'_k} = \sU_{\a''_1}$ then we say that  then that $\left( \mathfrak p', \mathfrak p''\right)$ is \textit{composable} and path $\mathfrak p=\left(\sU_{\a'_1},...,\sU_{\a'_k},\sU_{\a''_2},...,\sU_{\a''_l} \right)$  is said to be the \textit{composition} of $\mathfrak p'$ and $\mathfrak p''$. We write
+	If both $\mathfrak p'=\left(\sU_{\a'_1},...,\sU_{\a'_k}\right)$ and $\mathfrak p''=\left(\sU_{\a''_1},...,\sU_{\a''_l}\right)$ are paths such that $\sU_{\a'_k} \cap \sU_{\a''_1}\neq\emptyset$ then we say that  then that $\left( \mathfrak p', \mathfrak p''\right)$ is \textit{composable} and path $\mathfrak p=\left(\sU_{\a'_1},...,\sU_{\a'_k},\sU_{\a''_1},...,\sU_{\a''_l} \right)$  is said to be the \textit{composition} of $\mathfrak p'$ and $\mathfrak p''$. We write
 	\be\label{top_path_comp_eqn}
 	\mathfrak p'\circ \mathfrak p''\bydef\mathfrak p.
 	\ee
@@ -9187,11 +9188,12 @@ reducibly simply connected (cf. Definitions \ref{simply_connected_defn} \ref{sim
 
 
 \begin{lemma}\label{blowing_simply_conn_lem}
-Let $A$ be a  connected $C^*$- algebra, and let $C_0\left( \sY\right)\hookto M\left(A \right)$ be a {semilocally} 1-{connected} Hausdorff  blowing-up, with locally connected $\sY$. Then for each reduced noncommutative finite-fold covering $\left(A, \widetilde{A}, G, \pi \right)$, every $y\in\sY$,  each open neighborhood  there is an open connected neighborhood $\sU$ of $y$ such that $\sU\subset \sV$ and the given by \eqref{blowing_jsu_eqn} *-homomomorphism $j_{\sU}: A_\sU \hookto \widetilde A_\sU$ is an almost trivial disconnected noncommutative finite-fold covering (cf. Definition \ref{almost_trivial_defn}).
+
+Let $A$ be a  connected $C^*$- algebra, and let $C_0\left( \sY\right)\hookto M\left(A \right)$ be a 
+{semilocally} 1-{connected} Hausdorff  blowing-up, with locally connected $\sY$. Then for each reduced noncommutative finite-fold covering $\left(A, \widetilde{A}, G, \pi \right)$, every $y\in\sY$,  each open neighborhood  there is an open connected neighborhood $\sU$ of $y$ such that $\sU\subset \sV$ and the given by \eqref{blowing_jsu_eqn} *-homomomorphism $j_{\sU}: A_\sU \hookto \widetilde A_\sU$ is an almost trivial disconnected noncommutative finite-fold covering (cf. Definition \ref{almost_trivial_defn}).
 \end{lemma}
 \begin{proof}
-!!!
-If $\left(A, \widetilde{A}, G, \pi \right)$ is a noncommutative finite-fold covering then from the Definition \ref{fin_defn} it turns out that there is an increasing net $\left\{u_\la\right\}_{\la\in\La}\subset M\left( A\right)_+ $  of positive elements such that
+From the Definition \ref{fin_defn} it turns out that there is an increasing net $\left\{u_\la\right\}_{\la\in\La}\subset M\left( A\right)_+ $  of positive elements such that
 \begin{enumerate}
 	\item[(a)] There is the limit 
 	\be\nonumber
@@ -9212,7 +9214,7 @@ Denote by
 $$
 C_\la\bydef \left\{\left. f \in C_0\left(\sY \right)\right| \forall f'\in D_\la \quad ff' = 0\right\}
 $$
-Both $D_\la$ and $C_\la$ are ideals of $\sY$ such that there are open subsets $\sV_\la$ and $\sU_\la$ of $\sY$ which satisfy to conditions $D_\la = C_0\left(\sV_\la\right)$ and $C_\la = C_0\left(\sU_\la\right)$. For all $\la\in \La$ an intersection $\sU_\la\cap \sV_\la$ is empty and a union $\sU_\la\cap \sV_\la$ is dense in $\sY$. From $\bt\text{-}\lim_{\la \in \La} u_\la = 1_{M\left(A \right) }$ it follows that $\bigcap_{\La \in \la}\sV_\la = \emptyset$ and $\bigcup_{\La \in \la}\sU_\la = \sY$. For any $y\in\sY$ denote by  $\la_y\in  \La$ such that $y \in \sU_{\la_y}$. If both $A_y$ and $\widetilde A_y$ are $C^*$-norm completions of both $u_{\la_y}Au_{\la_y}$ and $u_{\la_y}\widetilde Au_{\la_y}$ respectively then 	$\left(A_y, \widetilde{A}_y, G, \left.\pi\right|_{A_y}\right)$ is  a noncommutative finite-fold covering with unitization (cf. Definition \ref{fin_comp_defn}).  It means that following conditions hold:
+Both $D_\la$ and $C_\la$ are ideals of $\sY$ such that there are open subsets $\sV_\la$ and $\sU_\la$ of $\sY$ which satisfy to conditions $D_\la = C_0\left(\sV_\la\right)$ and $C_\la = C_0\left(\sU_\la\right)$. For all $\la\in \La$ an intersection $\sU_\la\cap \sV_\la$ is empty and a union $\sU_\la\cup \sV_\la$ is dense in $\sY$. From $\bt\text{-}\lim_{\la \in \La} u_\la = 1_{M\left(A \right) }$ it follows that $\bigcap_{\La \in \la}\sV_\la = \emptyset$ and $\bigcup_{\La \in \la}\sU_\la = \sY$. For any $y\in\sY$ denote by  $\la_y\in  \La$ such that $y \in \sU_{\la_y}$. If both $A_y$ and $\widetilde A_y$ are $C^*$-norm completions of both $u_{\la_y}Au_{\la_y}$ and $u_{\la_y}\widetilde Au_{\la_y}$ respectively then 	$\left(A_y, \widetilde{A}_y, G, \left.\pi\right|_{A_y}\right)$ is  a noncommutative finite-fold covering with unitization (cf. Definition \ref{fin_comp_defn}).  It means that following conditions hold:
 \begin{enumerate}
 	\item[(a)] 
 	There are unitizations $A_y \hookto B$, $\widetilde{A}_y \hookto \widetilde{B}$.
@@ -9234,23 +9236,22 @@ If $\sU$ be an open neighborhood of $y$ such that $\sU\subset \sU_{\la_y}$ and $
 \left( C_0\left(\sU \right)\widetilde A_y C_0\left(\sU \right)\right) \left( C_0\left(\sU \right) B  C_0\left(\sU \right)\right)\subset C_0\left(\sU \right) \widetilde A_y  C_0\left(\sU \right).
 \eean
 and since $C_0\left(\sU \right) A C_0\left(\sU \right) $ and  $C_0\left(\sU \right) \widetilde A C_0\left(\sU \right) $ are dense in $A_\sU$ and $\widetilde A_\sU$.
-it turns out that $\left( C_0\left(\sU \right)B C_0\left(\sU \right)\right)\subset M\left( A_\sU\right)$ and $\left( C_0\left(\sU \right)B C_0\left(\sU \right)\right)\subset M\left( A_\sU\right)$. If $\left\{v_\a \right\}$ is an approximate unit for of $C_0\left(\sU \right)$ then it is an approximate unit of both $M\left( A\right)$ and $M\left(\widetilde A\right)$ (cf. \eqref{blowing_strict_eqn}).  So all $b\in B$ and  $\widetilde b \in \widetilde B$ the both  nets  $\left\{v_\a bv_\a\right\}$ and   $\left\{v_\a \widetilde bv_\a\right\}$ are with respect to strict topologies of $M\left( A_\sU\right)$ and of $M\left( \widetilde A_\sU\right)$. If both $B_\sU$ and $\widetilde B_\sU$ are $C^*$ algebras of strict limits of nets $\left\{v_\a bv_\a\right\}$ and   $\left\{v_\a \widetilde bv_\a\right\}$ then
+it turns out that $\left( C_0\left(\sU \right)B C_0\left(\sU \right)\right)\subset M\left( A_\sU\right)$ and $\left( C_0\left(\sU \right)B C_0\left(\sU \right)\right)\subset M\left( A_\sU\right)$. If $\left\{v_\a \right\}$ is an approximate unit for of $C_0\left(\sU \right)$ then it is an approximate unit of both $M\left( A\right)$ and $M\left(\widetilde A\right)$ (cf. \eqref{blowing_strict_eqn}).  So all $b\in B$ and  $\widetilde b \in \widetilde B$ the both  nets  $\left\{v_\a bv_\a\right\}$ and   $\left\{v_\a \widetilde bv_\a\right\}$ are convergent with respect to strict topologies of $M\left( A_\sU\right)$ and of $M\left( \widetilde A_\sU\right)$. If both $B_\sU$ and $\widetilde B_\sU$ are $C^*$- algebras of strict limits of nets $\left\{v_\a bv_\a\right\}$ and   $\left\{v_\a \widetilde bv_\a\right\}$ then
 $$
 \widetilde B_\sU = \widetilde b^\sU_1 B_\sU + ... + \widetilde b^\sU_n B_\sU;\quad \widetilde b^\sU_j\bydef \bt\text{-}\lim v_\a \widetilde b_jv_\a; \quad j = 1,...,n.
 $$
-From the (Definition \ref{fin_comp_defn}) it follows that is  a noncommutative finite-fold covering with unitization. 
-!!! From the (Definition \ref{fin_comp_defn}) Lemma \ref{blowing_simply_conn_lem} it follows that the given by \eqref{blowing_jsu_eqn} inclusion $j_{\sU}: A_\sU \hookto \widetilde A_\sU.
-$  is  a noncommutative finite-fold reduced quasi- covering with unitization (cf. Definition \ref{fin_comp_defn}). From the Lemma \ref{simply_connected_red_lem} it turns out that $A_\sU \hookto \widetilde A_\sU$ a noncommutative finite-fold reduced  covering with unitization. On the other hand $A_\sU$ is reducibly  simply connected, so $A_\sU \hookto \widetilde A_\sU$ is   almost trivial disconnected noncommutative finite-fold covering of $A$.
+It follows that the natural inclusions $A_\sU \subset \widetilde B_\sU$ and $A_\sU \subset \widetilde B_\sU$ are unitizations, so
+from the Definition \ref{fin_comp_defn} it follows that $\left(A_\sU,\widetilde A_\sU, G, \pi|_{A_\sU}\right)$ is  a reduced noncommutative finite-fold quasi-covering with unitization. From the Lemma \ref{quasi_red_lem} it turns out that $A_\sU \hookto \widetilde A_\sU$ a disconnected noncommutative finite-fold reduced  covering with unitization. On the other hand $A_\sU$ is reducibly  simply connected, so $A_\sU \hookto \widetilde A_\sU$ is   almost trivial disconnected noncommutative finite-fold covering of $A_\sU$.
 \end{proof}
 
 \begin{empt}\label{blowing_b_empt}
 Let $A$ be a $C^*$- algebra and let $C_0\left( \sY\right)\hookto M\left(A \right)$  be a good  blowing-up of $A$ (cf. Definitions \ref{blowing_defn} and \ref{blowing_good_defn}) such that $\sY$ is connected and locally connected. Let $p: \widetilde \sY\to\sY$ be a transitive covering (cf. Definition \ref{top_transitive_defn}).
 Let  $\left\{\sU_\a\subset\sU\right\}_{\a \in \mathscr A}$ be a {compliant with} $p$ family, and let $\left\{\widetilde\sU_{\widetilde\a}\right\}_{\widetilde\a \in \widetilde{\mathscr A}}$  the $p$-{lift} of $\left\{\sU_\a\right\}_{\a \in \mathscr A}$. (cf. Definition 
 \ref{top_lconn_defn}).
-Let $\mathfrak P$ be a set of $\left\{\widetilde\sU_{\widetilde\a}\right\}$- paths (cf. Definition \ref{top_gen_path_defn}).  Consider a subset  $\mathfrak G \subset \mathfrak P\times A$ such that $\left( \mathfrak p,a \right)\in \mathfrak G$ if $\mathfrak p= \left(\widetilde\sU_{\widetilde\a_1}, ..., \widetilde\sU_{\widetilde\a_n}\right)$ then there are $a_1\in A_{p\left(\widetilde\sU_{\widetilde\a_1 }\right) },...,a_n\in A_{p\left(\widetilde\sU_{\widetilde\a_n }\right) }$ such that $a = a_1\cdot...\cdot a_n$. There is an involution on $\mathfrak G$ given by $\left( \mathfrak p,a \right)^*= \left( \mathfrak p^*,a^* \right)$. The action $G\left(\left.\widetilde \sY\right| \sY \right)\times \widetilde \sY\to \widetilde \sY$ induces an action of $G\left(\left.\widetilde \sY\right| \sY \right)\times \mathfrak G\to \mathfrak G$.
+Let $\mathfrak P$ be a set of $\left\{\widetilde\sU_{\widetilde\a}\right\}$-paths (cf. Definition \ref{top_gen_path_defn}).  Consider a subset  $\mathfrak G \subset \mathfrak P\times A$ such that $\left( \mathfrak p,a \right)\in \mathfrak G$ if $\mathfrak p= \left(\widetilde\sU_{\widetilde\a_1}, ..., \widetilde\sU_{\widetilde\a_n}\right)$ then there are $a_1\in A_{p\left(\widetilde\sU_{\widetilde\a_1 }\right) },...,a_n\in A_{p\left(\widetilde\sU_{\widetilde\a_n }\right) }$ such that $a = a_1\cdot...\cdot a_n$. There is an involution on $\mathfrak G$ given by $\left( \mathfrak p,a \right)^*= \left( \mathfrak p^*,a^* \right)$ (cf. \eqref{top_path_inv_eqn}). The action $G\left(\left.\widetilde \sY\right| \sY \right)\times \widetilde \sY\to \widetilde \sY$ induces an action of $G\left(\left.\widetilde \sY\right| \sY \right)\times \mathfrak G\to \mathfrak G$.
 If $\widetilde\B$ is a generated by $\mathfrak G$ free Abelian group, then both  involution and action of $G\left(\left.\widetilde \sY\right| \sY \right)$ on $\mathfrak G$ induce involution and action of $G\left(\left.\widetilde \sY\right| \sY \right)$ on $\widetilde\B$. There is multiplication on $\widetilde\B$ such that
 \bean
-\left( \mathfrak p_1,a_2 \right)\left( \mathfrak p_2,a_2 \right)
+\left( \mathfrak p_1,a_1 \right)\left( \mathfrak p_2,a_2 \right)
 \bydef \\
 \bydef\begin{cases}
 	0 & \left( \mathfrak p_1,\mathfrak p_2 \right)\text{ is not composable (cf. Definition \ref{top_path_comp_defn})}\\
@@ -9265,12 +9266,12 @@ The set
 \be\label{blowing_ideal_eqn}
 I_{\widetilde{\B}} = \left\{\left.\widetilde b \in \widetilde\B~\right| \left\| \widetilde b \right\|_\B=0\right\}
 \ee
-is an involutive two sided ideal. The seminorm on $\left\|\cdot \right\|_{	I_{\widetilde{\B}}}$ induces a norm $\left\|\cdot \right\|_{\widetilde B/ I_{\widetilde{\B}}}$ on $\widetilde \A\bydef\widetilde \B/	I_{\widetilde{\B}}$, denote by $\widetilde \A$ the $\left\|\cdot \right\|_{\widetilde B/ I_\B}$-norm completion of $\widetilde \A$.  The structure of $\A$-bimodule of $\widetilde{\B}$ induces the structure of the Hilbert $A$-bimodule on $\widetilde \A$. On the other hand the multiplication on	$\widetilde \A$ induces  an injective *-homomorhism
+is an involutive two sided ideal. The seminorm on $\left\|\cdot \right\|_{	I_{\widetilde{\B}}}$ induces a norm $\left\|\cdot \right\|_{\widetilde B/ I_{\widetilde{\B}}}$ on $\widetilde \A\bydef\widetilde \B/	I_{\widetilde{\B}}$, denote by $\widetilde \H_A$ the $\left\|\cdot \right\|_{\widetilde B/ I_\B}$-norm completion of $\widetilde \A$.  The structure of $\A$-bimodule of $\widetilde{\B}$ induces the structure of the Hilbert $A$-bimodule on $\widetilde \H_A$. On the other hand the multiplication on	$\widetilde \A$ induces  an injective *-homomorhism
 $$
-\widetilde \A\hookto \End_A\left( \widetilde \A\right) 
+\widetilde \A\hookto \End_A\left( \widetilde \H_A\right) 
 $$
-where $\End_A\left( \widetilde \A\right)$ means the $C^*$-algebra of adjoint endomorphisms. 
-The $C^*$-norm on $\End_A\left( \widetilde \A\right)$ induces the $C^*$-norm on $\widetilde \A$. Let $\widetilde A$ be the $C^*$-norm completion of $\widetilde \A$.
+where $\End_A\left( \widetilde \H_A\right)$ means the $C^*$-algebra of adjoint endomorphisms. 
+The $C^*$-norm on $\End_A\left(\widetilde \H_A\right)$ induces the $C^*$-norm on $\widetilde \A$. Let $\widetilde A$ be the $C^*$-norm completion of $\widetilde \A$.
 so $\widetilde A$ is a $C^*$-algebra. The algebra $\widetilde\B$ algebraically generated by elements $\left( \mathfrak p, a\right)$ where $\mathfrak p=\left(  \widetilde\sU_\a\right)$ and $a \in A_{p\left( \widetilde\sU_\a\right) }$. If we denote  by $\mathfrak T$ a set of pairs $\left( \sU_\a, a\right)$, such that  $a \in A_{p\left( \widetilde\sU_\a\right) }$ then there is the natural map $\mathfrak T\to \widetilde \B$. This map induces a map
 \be\label{blowing_pt_eqn}
 p_{\mathfrak T}:\mathfrak T\to \widetilde A
@@ -9292,6 +9293,7 @@ The natural inclusion of $A$ into $ M\left( A_0\left(\widetilde\sY  \right)\righ
 \be\label{blowing_ab_p_eqn}
 A_b\left(p\right): A \hookto M\left( A_0\left(\widetilde\sY  \right)\right) 
 \ee
+!!! ACTION
 \end{definition}
 
 \begin{empt}
@@ -21616,6 +21618,7 @@ A \textit{pointed} (pro-)$C^*$-algebra is a pair $\left(A,\a)\right)$, where $A$
 	
 	
 	\chapter{Miscellany}
+	
 	\section{Ordinals}\label{ord_sec}
 	\paragraph*{}
 	Here the book \cite{harzheim:os} is cited.
@@ -21646,29 +21649,56 @@ A \textit{pointed} (pro-)$C^*$-algebra is a pair $\left(A,\a)\right)$, where $A$
 	If $a$ is an ordinal we put $a + 0 = a$ and define $a + 1$ to be the least 
 	ordinal which is $> a$. If for an ordinal $\bt$ we have already defined $\a +  \bt$
 	we put $\a + (\bt + 1) = (a + \bt) + 1$.
-	\section{Pre-order category}
-	\begin{definition}\label{preordercat_defn}\cite{goldblatt:topoi}
-		A category is said to be a \textit{pre-order category} if there is at most one morphism between different objects.
-	\end{definition}
-	\begin{definition}
-		A binary relation $R \subset \La\times \La$ on the set $\La$ (writing $pRq$ in place of $\left(p,q \right)\in R$ ) is said to be \textit{pre-ordering} if it is 
-		\begin{enumerate}
-			\item [(a)] \textit{reflexive}, i.e. for each $p$ we have $pRp$ and
-			\item[(b)] \textit{transitive}, whenever $pRq$ and $qRs$, we have $pRs$.
-		\end{enumerate}
-	\end{definition}
-	\begin{remark}\label{pre_order_rem}
-		For any set $\La$ with pre-ordering $R$ there is a pre-order category such that
-		\begin{enumerate}
-			\item [(a)] Objects of the category are elements of $\La$.
-			\item[(b)] Morphisms are pairs $\left(p, q \right) \in R$.
-			\item[(c)] The composition of morphisms is given by $\left(q,s\right)\circ \left(p, q\right) =\left(p,s\right)$.
-		\end{enumerate}
-		
-	\end{remark}
-	\begin{thm}\label{zorn}\cite{spanier:at}(Zorn's lemma)
+		\begin{thm}\label{zorn_thm}\cite{spanier:at}(Zorn's lemma)
 		A partially ordered set in which every  simply ordered set has an upper bound contains maximal elements.
 	\end{thm}
+	\section{Sceleton and pre-order category}
+\begin{definition}\label{category_equivalence_definition}\cite{goldblatt:topoi}
+A functor $F: \mathscr C\to  \mathscr D$ is called an \textit{equivalence of categories} if there 
+is a functor $G: \mathscr D\to  \mathscr C$ such that there are natural isomorphisms $\tau : 1_{\mathscr C} \cong G \circ F$, and $\tau : 1_{\mathscr D} \cong F \circ $, from the identity functor on ${\mathscr C}$ to $ G \circ F$, and 
+from the identity functor on ${\mathscr D}$ to $ F \circ G$.\\
+Categories $\mathscr C$ and $\mathscr D$ are \textit{equivalent},  $\mathscr C$ and $\mathscr D$ when there exists an equivalence $F: \mathscr C\to  \mathscr D$ .
+\end{definition}
+
+\begin{definition}\label{skeletal_defn}\cite{goldblatt:topoi}
+A \textit{skeletal category} is one in which "isomorphic" does actually mean the 
+same as "is", i.e. in which whenever $a\cong b$, then $a=b$. 
+\end{definition}
+	\begin{definition}\label{skeleton_defn}\cite{goldblatt:topoi}
+	A \textit{skeleton}
+	of a category $\mathscr C$ is a full subcategory $\mathscr C_0$ of $\mathscr C$ that is skeletal, and such that each $\mathscr C$-object is isomorphic to one (and only one) $\mathscr C$-object.
+\end{definition}
+\begin{definition}\label{dual_cat_defn}\cite{goldblatt:topoi}
+	If  $\mathscr C$ is a category then its \textit{dual} or \textit{opposite} category $\mathscr C^{\mathrm{op}}$ is constructed as follows: 
+	\begin{itemize}
+		\item $\mathscr C$ and $\mathscr C^{\mathrm{op}}$ have the same objects.
+		\item For each arrow $f: a\to b$ o we 
+		introduce an arrow  $f^{\mathrm{op}}: b\to a$ in $\mathscr C^{\mathrm{op}}$, these being all and only the arrows.
+		\item  The composite $f^{\mathrm{op}}\circ g^{\mathrm{op}}$ is defined precisely when $g\circ f$ is defined in $\mathscr C$
+	 and has $f\circ g\bydef \left(g\circ f \right)^{\mathrm{op}}$.
+	\end{itemize}
+
+\end{definition}
+	\begin{definition}\label{preordercat_defn}\cite{goldblatt:topoi}
+	A category is said to be a \textit{pre-order category} if there is at most one morphism between different objects.
+\end{definition}
+\begin{definition}\cite{goldblatt:topoi}
+	A binary relation $R \subset \La\times \La$ on the set $\La$ (writing $pRq$ in place of $\left(p,q \right)\in R$ ) is said to be \textit{pre-ordering} if it is 
+	\begin{enumerate}
+		\item [(a)] \textit{reflexive}, i.e. for each $p$ we have $pRp$ and
+		\item[(b)] \textit{transitive}, whenever $pRq$ and $qRs$, we have $pRs$.
+	\end{enumerate}
+\end{definition}
+\begin{remark}\label{pre_order_rem}\cite{goldblatt:topoi}
+	For any set $\La$ with pre-ordering $R$ there is a pre-order category such that
+	\begin{enumerate}
+		\item [(a)] Objects of the category are elements of $\La$.
+		\item[(b)] Morphisms are pairs $\left(p, q \right) \in R$.
+		\item[(c)] The composition of morphisms is given by $\left(q,s\right)\circ \left(p, q\right) =\left(p,s\right)$.
+	\end{enumerate}
+	
+\end{remark}
+
 	
 	\section{Flat connections in the differential geometry}\label{geom_flat_subsec}
 	\paragraph*{}

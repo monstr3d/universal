@@ -205,6 +205,15 @@ namespace Unity.Standard
         #region Public Members
 
         /// <summary>
+        /// Level action
+        /// </summary>
+        public static Action LevelAction
+        {
+            get;
+            set;
+        } = () => { Level.GetConstructor(new Type[0]).Invoke(new object[0]); };
+
+        /// <summary>
         /// Blinked coroutine
         /// </summary>
         /// <param name="blinked">Blinked object</param>
@@ -301,7 +310,7 @@ namespace Unity.Standard
         /// </summary>
         public static void SetLevel()
         {
-           Level.GetConstructor(new Type[0]).Invoke(new object[0]);
+            LevelAction();
         }
 
         public static string ToZero(this string str)
@@ -1316,26 +1325,7 @@ namespace Unity.Standard
 
         static StaticExtensionUnity()
         {
-            /*  Quaternion q1 = new Quaternion(0.77f, 0.7f, 0, 0);
-              Quaternion q2 = new Quaternion(0.75f, 0.7f, 0, 0);
-              Quaternion.EulerRotation(0.77f, 0.7f, 0);
-              Quaternion.Euler(1, 2, 3);
-              Vector3 v1 = q1.eulerAngles;
-              Vector3 v2 = q2.eulerAngles;
-              v1 = v2;
-
-              /*         Quaternion q1 = new Quaternion(0.77f, 0.7f, 0, 0);
-                       Quaternion q2 = new Quaternion(0, 0, 1f, 0);
-                       Quaternion q3 = Quaternion.Slerp(q1, q2, 0.3456f);
-                       Quaternion q4 = new Quaternion(0, 0, 0.131f, -1f);
-                       Quaternion q5 = Quaternion.EulerRotation(1.357f, 2.432f, 3.756f);
-                       Quaternion q6 = Quaternion.EulerRotation(1.3671f, 2.432f, 3.756f);
-                       Vector3 v1 = q5.eulerAngles;
-                       Vector3 v2 = q6.eulerAngles;
-                       q6 = Quaternion.EulerRotation(0.02f, 0.04f, 0.06f);
-                       v2 = q6.eulerAngles;*/
-            StaticLevel = -1;
-
+ 
             TextUpdate = new DefaultTextAction();
 
             Assembly ass = typeof(StaticExtensionUnity).Assembly;

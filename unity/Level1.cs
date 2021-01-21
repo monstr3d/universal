@@ -11,6 +11,11 @@ namespace Assets
 {
     public class Level1 : Levelm
     {
+
+        public Level1(bool b) : this()
+        {
+
+        }
         public Level1()
         {
             var ss = new string[] {  Level0.Rz, Level0.Vz };

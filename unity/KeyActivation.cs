@@ -32,6 +32,18 @@ namespace Assets
         public KeyActivation()
         {
             this.AddKeyListener();
+            // !!! CORRECT
+            Action act = () => { StaticExtensionUnity.Level.GetConstructor(new Type[0]).Invoke(new object[0]); };
+            Action act1 = () => { StaticExtensionUnity.Level.GetConstructor(new Type[] { typeof(bool) }).Invoke(new object[] { true }); };
+            StaticExtensionUnity.LevelAction = () =>
+            {
+                if (StaticExtensionUnity.StaticLevel == 1)
+                {
+                    act1();
+                    return;
+                }
+                act();
+            };
             keyActivation = this;
             StaticExtensionUnity.Collision += (Tuple<GameObject, Component, IScadaInterface, ICollisionAction> obj) =>
             {
