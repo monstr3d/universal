@@ -9284,7 +9284,7 @@ G\left(\left.\widetilde{\sY}~\right| \sY\right)\times \mathfrak T\to \mathfrak T
 \end{empt}
 
 
-\begin{definition}\label{blowing_ab_x_defn}
+\begin{definition}\label{blowing_lift_a_defn}
 In the above situation denote by
 \be\label{blowing_a0_x_eqn}
 \widetilde A_0\left(\widetilde\sY  \right)\bydef \widetilde A.
@@ -9293,9 +9293,16 @@ The natural inclusion of $A$ into $ M\left( A_0\left(\widetilde\sY  \right)\righ
 \be\label{blowing_ab_p_eqn}
 A_b\left(p\right): A \hookto M\left( A_0\left(\widetilde\sY  \right)\right) 
 \ee
-!!! ACTION
-\end{definition}
+The action \eqref{blowing_gpt_eqn} induces an action 
+\be\label{blowing_gact_eqn}
+G\left(\left.\widetilde{\sY}~\right| \sY\right)\times A_0\left(\widetilde\sY  \right)\to A_0\left(\widetilde\sY  \right)
+\ee
+We say that  $A_0\left(\widetilde\sY  \right)$ is the $p$-\textit{lift} of $A$. 
 
+\end{definition}
+\begin{remark}
+The above definition is compliant with the Definition \ref{top_cont_lift_defn}.
+\end{remark}
 \begin{empt}
 In the described above situation suppose that $\widetilde\sU$ is an open subset which is homeomorphically mapped onto $\sU \bydef p\left(\widetilde\sU\right)$. For any $f', f'' \in C_0\left( \sX\right)$ such that $\supp f' \subset \sU$ and  $\supp f'' \subset \sU$ we define $\widetilde  f'\bydef \lift^p_{\widetilde{\sU}}\left(f' \right)$ and   $\widetilde  f''\bydef \lift^p_{\widetilde{\sU}}\left(f'' \right)$ where $\lift^p_{\widetilde{\sU}}$ means the $p$-$\widetilde{\sU}$-{lift} (cf. Definition \ref{top_lift_desc_defn}). Then there is a bijective map  
 \be\label{blowing_faf_eqn}
@@ -9320,6 +9327,9 @@ We use the following notation
 \end{split}
 \ee
 \end{definition}
+\begin{remark}
+	The above definition complies with the Definition \ref{top_lift_desc_defn}.
+\end{remark}
 
 \begin{exercise}
 Consider the above situation and suppose that the covering $p$ is finite-fold. Prove that
@@ -9352,31 +9362,21 @@ Prove that
 
 \subsection{Finite-fold coverings}
 \paragraph{}
-Here we prove that a finite-fold covering of Hausdorff blowing-up yield noncommutative finite-fold covering and vice versa.
+Here we prove that a finite-fold coverings of Hausdorff blowing-up yield noncommutative finite-fold coverings and vice versa.
 \begin{lemma}\label{blowing_covi_lem}
 Let $A$ be a $C^*$-algebra, and let $C = C_0\left( \sY\right)\hookto M\left( A\right) $  be a good  blowing-up of $A$ (cf. equation \eqref{blowing_a0x_eqn} and Definitions \ref{blowing_defn}, \ref{blowing_good_defn}).
-Suppose that $\sY$ is a connected, locally connected space. For any transitive covering $q: \widetilde \sY\to \sY$ there is 	be a  noncommutative finite-fold  reduced covering $\left(A, A_0\left( \widetilde\sY\right) , G\left(\left. \widetilde\sY\right| \sY\right) , A_0\left( p\right)  \right)$ (cf. Definitions \ref{fin_defn}, \ref{fin_red_defn}) such that following.
-If $\varphi : M\left( A\right) \to M\left(A_0\left( \widetilde\sY\right)\right)$ is given by the Lemma \ref{ind_mult_inv_lem} then
-$\left.\varphi\right|_{C_0\left( \sY\right) }= C_0\left(p \right)$. 
+Suppose that $\sY$ is a connected, locally connected space. For any transitive covering $q: \widetilde \sY\to \sY$ there is 	be a  noncommutative finite-fold  reduced covering $\left(A, A_0\left( \widetilde\sY\right) , G\left(\left. \widetilde\sY\right| \sY\right) , A_0\left( p\right)  \right)$ (cf. Definitions \ref{fin_defn}, \ref{fin_red_defn}) such that if $\varphi : M\left( A\right) \to M\left(A_0\left( \widetilde\sY\right)\right)$ is given by the Lemma \ref{ind_mult_inv_lem} then
+$\left.\varphi\right|_{C_0\left( \sY\right) }= A_0\left(p \right)$. 
 
 \end{lemma}
 \begin{proof}
 Let  $\left\{\sU_\a\subset\sU\right\}_{\a \in \mathscr A}$ be a {compliant with} $p$ family, and let $\left\{\widetilde\sU_{\widetilde\a}\right\}_{\widetilde\a \in \widetilde{\mathscr A}}$  the $p$-{lift} of $\left\{\sU_\a\right\}_{\a \in \mathscr A}$. (cf. Definition 
-\ref{top_lconn_defn}).	Let		
-\bean
-p_{\mathfrak T}:\mathfrak T\to  A_0\left( \widetilde\sY\right)
-\eean
-be a given by \eqref{blowing_pt_eqn} map. Since  images of $p_{\mathfrak T}$ generate the  $C^*$-algebra $ A_0\left( \widetilde\sY\right)$   given by \eqref{blowing_a0_x_eqn} an action $
-G\left(\left.\widetilde{\sY}~\right| \sY\right)\times \mathfrak T\to \mathfrak T$ induces an actions $G\left(\left.\widetilde{\sY}~\right| \sY\right) \times  A_0\left( \widetilde\sY\right)$. If $G$ is given by
+\ref{top_lconn_defn}).	If $G$ is given by
 $$
 G \bydef \left\{ \left.g \in \Aut\left( A_0\left( \widetilde\sY\right) \right)~\right|~ ga = a;~~\forall a \in A\right\}
 $$
-then $G\left(\left.\widetilde{\sY}~\right| \sY\right)\subset G$. Otherwise there is an action !!!!
+then from the action \eqref{blowing_gact_eqn} it turns out that $G\left(\left.\widetilde{\sY}~\right| \sY\right)= G$, it follows that the triple $\left(A, A_0\left( \widetilde\sY\right) , G\left(\left. \widetilde\sY\right| \sY\right) , A_0\left( p\right)  \right)$ is  noncommutative finite-fold  pre-covering (cf. Definition \ref{fin_pre_defn}). Let $\left\{u_\la\right\}_{\la\in \La}\subset \sY$ be an approximate unit.
 
-
-
-
-\ref{fin_pre_defn}
 
 
 From the equations \eqref{blowig_sue_eqn} and \ref{blowing_asu_eqn} it turns out then for all $\widetilde\a \in \widetilde{\mathscr A}$ there is an  injective *-homomorphism 
@@ -9570,7 +9570,7 @@ The action of $G\times \widetilde\sY\to \widetilde\sY$ yields a surjective homom
 \varphi_{\widetilde \B}:\widetilde \B \to \widetilde A,\\
 \left(\mathfrak p = \left(g_1\widetilde \sU_{y_1},..., g_n\widetilde \sU_{y_n}\right),a= a_1\cdot ...\cdot a_n \right) \mapsto \lift^p_{g_1\widetilde{\sU}_{y_1}}\left(a_1 \right) \cdot ...\cdot  \lift^p_{g_n\widetilde{\sU}_{y_n}}\left(a_n \right) 
 \eean
-where $\lift^p_{\widetilde{\sU}}$ means the $p$-$\widetilde{\sU}$-{lift} (cf. Definition \ref{blowing_lift_desc_defn}). Direct check shows that $\varphi_{\widetilde \B}$ is *-homomorphism and $\ker \varphi_{\widetilde \B} =I_{\widetilde \B} $ where is the given by \eqref{blowing_ideal_eqn} two sided ideal. So there is an inclusion $\varphi_{\widetilde \B/I_{\widetilde \B}}:{\widetilde \B} /I_{\widetilde \B} \hookto \widetilde A$ which is dense because the image of $\varphi_{\widetilde \B/I_{\widetilde \B}}$ contains the union  $\bigcup_{\left(g,y\right)\in G \times \sY} g \widetilde A_{\widetilde \sU_y}$. Since the $C^*$-norm  induced by the inclusion $\varphi_{\widetilde \B/I_{\widetilde \B}}$ is equivalent to the explained in \ref{blowing_b_empt} norm on $\widetilde \B/I_{\widetilde \B}$ the completion of $\varphi_{\widetilde \B/I_{\widetilde \B}}\left( \varphi_{\widetilde \B/I_{\widetilde \B}}\right)$ in $\widetilde A$ is naturally isomorphic to $A_0\left(\widetilde \sY \right)$  (cf. Definition \ref{blowing_ab_x_defn}). Using the direct check one can prove that $\pi = A_0\left(p\right)$.\\
+where $\lift^p_{\widetilde{\sU}}$ means the $p$-$\widetilde{\sU}$-{lift} (cf. Definition \ref{blowing_lift_desc_defn}). Direct check shows that $\varphi_{\widetilde \B}$ is *-homomorphism and $\ker \varphi_{\widetilde \B} =I_{\widetilde \B} $ where is the given by \eqref{blowing_ideal_eqn} two sided ideal. So there is an inclusion $\varphi_{\widetilde \B/I_{\widetilde \B}}:{\widetilde \B} /I_{\widetilde \B} \hookto \widetilde A$ which is dense because the image of $\varphi_{\widetilde \B/I_{\widetilde \B}}$ contains the union  $\bigcup_{\left(g,y\right)\in G \times \sY} g \widetilde A_{\widetilde \sU_y}$. Since the $C^*$-norm  induced by the inclusion $\varphi_{\widetilde \B/I_{\widetilde \B}}$ is equivalent to the explained in \ref{blowing_b_empt} norm on $\widetilde \B/I_{\widetilde \B}$ the completion of $\varphi_{\widetilde \B/I_{\widetilde \B}}\left( \varphi_{\widetilde \B/I_{\widetilde \B}}\right)$ in $\widetilde A$ is naturally isomorphic to $A_0\left(\widetilde \sY \right)$  (cf. Definition \ref{blowing_lift_a_defn}). Using the direct check one can prove that $\pi = A_0\left(p\right)$.\\
 (iii) PROOF!!!
 \end{proof}
 \begin{corollary}

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 using UnityEngine;
 
@@ -54,10 +55,17 @@ namespace Assets
 
         protected string[] controls;
 
+        protected List<string> l = new List<string>();
+     
         #endregion
 
         protected Levelm()
         {
+            var ss = new string[] { Level0.Rz, Level0.Vz, Level0.Fuel };
+            foreach (var s in ss)
+            {
+                l.Add(Level0.RigidBodyStation + "." + s);
+            }
             levelm = this;
             Level0.Get(out scada, out ev, out frame);
             aVelocity = frame as IAngularVelocity;

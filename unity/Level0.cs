@@ -54,6 +54,7 @@ namespace Assets
         static internal readonly string Ox = "Relative to station.OMx";
 
         static internal readonly string Oy = "Relative to station.OMy";
+        static internal readonly string Fuel = "Fuel rate.x";
 
 
         static internal readonly string RigidBodyStation = "RigidBodyStation";

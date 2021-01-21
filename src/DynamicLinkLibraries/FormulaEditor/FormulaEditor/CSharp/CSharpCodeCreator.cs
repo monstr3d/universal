@@ -54,7 +54,6 @@ namespace FormulaEditor.CSharp
             {"?", new string[] {" = (", ");"}},
             {"-", new string[] {" = -(", ");"}},
             {"A", new string[] {" = Math.Abs(", ");"}},
- 
         };
 
         private static readonly string[] squareRoot = new string[] { " = Math.Sqrt(", ");" };
@@ -420,10 +419,18 @@ namespace FormulaEditor.CSharp
                 }
                 return absPower;
             }
-            if (op is ElementaryFunctionOperation)
+            if ((op is ElementaryFunctionOperation) | (op is ElementaryAbs))
             {
-                ElementaryFunctionOperation o = op as ElementaryFunctionOperation;
-                string key = o.Symbol + "";
+                string key = "";
+                if (op is ElementaryFunctionOperation)
+                {
+                    ElementaryFunctionOperation o = op as ElementaryFunctionOperation;
+                    key = o.Symbol + "";
+                }
+                else
+                {
+                    key = "A";
+                }
                 if (elementary.ContainsKey(key))
                 {
                     return elementary[key];

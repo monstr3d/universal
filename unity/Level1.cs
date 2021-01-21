@@ -18,14 +18,16 @@ namespace Assets
         }
         public Level1()
         {
-            var ss = new string[] {  Level0.Rz, Level0.Vz };
+ /* !!! DELETE AFTER           var ss = new string[] {  Level0.Rz, Level0.Vz };
             var l = new List<string>();
             foreach (var s in ss)
             {
                 l.Add(Level0.RigidBodyStation + "." + s);
             }
+ */
             StaticExtensionUnity.Activation.enabledComponents = l.ToArray();
         }
+
 
 
         protected override void Update()
