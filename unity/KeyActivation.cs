@@ -6,6 +6,7 @@ using UnityEngine;
 
 using Unity.Standard;
 using Scada.Interfaces;
+using Scada.Desktop;
 
 namespace Assets
 {
@@ -22,6 +23,7 @@ namespace Assets
         static GameObject explosion;
 
         static GameObject station;
+        static GameObject earth;
 
         static internal KeyActivation keyActivation;
 
@@ -75,7 +77,7 @@ namespace Assets
         {
             foreach (var m in monoBehaviours)
             {
-                if (m.name == "Station")
+                if (m.name == Level0.Station)
                 {
                     station = m.gameObject;
                     var objs = station.GetGameObjectComponents<Component>();
@@ -88,9 +90,15 @@ namespace Assets
                     blinkedLamps = new BlinkedEnabledGameObjects(l);
                     blinkedLamps.Start(new float[] { 1, 0.2f }, m);
                 }
-                if (m.name == "Main Camera")
+                if (m.name == Level0.Main_Camera)
                 {
                     explosion = m.gameObject.GetGameObjectComponents<Component>()["Explosion"][0].gameObject;
+                }
+                if (m.name == Level0.Earth)
+                {
+                    earth = m.gameObject;
+                    MeshRenderer mr = earth.GetGameObjectComponents<MeshRenderer>()[Level0.Earth][0];
+                    mr.materials[0].mainTexture = StaticExtensionUnity.Activation.textures[0];
                 }
             }
         }
@@ -102,6 +110,8 @@ namespace Assets
 
         int IActivation.SetConstants(string[] constants)
         {
+
+            var scada = Level0.RigidBodyStation.ToExistedScada();
             return 0;
         }
 

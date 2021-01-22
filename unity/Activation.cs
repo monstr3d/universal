@@ -47,6 +47,8 @@ public class Activation : MonoBehaviour
     private IActivation activationObject;
 
 
+    public Texture[] textures;
+
     volatile Queue<Tuple<Action<object>, object>> queue = new Queue<Tuple<Action<object>, object>>();
 
     #endregion

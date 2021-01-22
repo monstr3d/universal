@@ -88,16 +88,9 @@ namespace FormulaEditor.CSharp
             l.Add("{");
             local = null;
             IList<string> lt = PreCreateCode(out local, out variables, out initializers);
-            /*foreach (string s in initializers)
-            {
-                l.Add("\t\t" + s);
-            }*/
-
-            //l.Add((CSharpCodeCreator.GetGuidClass(new Type[] { typeof(ITreeCollectionProxy) })));
             List<string> ltt = PostCreateCode(local, lt, variables, initializers, 
                 constructorModifier + " " + className, 
                 checkValue);
-            //         CSharpCodeCreator.GetGuidClass(new Type[] { typeof(ITreeCollectionProxy) }));
             foreach (string s in ltt)
             {
                 l.Add("\t" + s);

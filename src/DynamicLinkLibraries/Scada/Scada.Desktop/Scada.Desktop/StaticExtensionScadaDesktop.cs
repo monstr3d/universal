@@ -46,7 +46,6 @@ namespace Scada.Desktop
 
         #region Public Members
 
-
         /// <summary>
         /// Gets name of SCADA
         /// </summary>

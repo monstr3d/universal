@@ -38,7 +38,7 @@ namespace DataPerformer.Formula
         /// <summary>
         /// Dictionary of acceptors
         /// </summary>
-        private Dictionary<string, IOperationAcceptor> acc = new Dictionary<string, IOperationAcceptor>();
+        private Dictionary<string, IOperationAcceptor> acceptors = new Dictionary<string, IOperationAcceptor>();
 
         /// <summary>
         /// Operation table
@@ -106,11 +106,11 @@ namespace DataPerformer.Formula
             {
                 return null;
             }
-            if (acc.ContainsKey(key))
+            if (acceptors.ContainsKey(key))
             {
-                return acc[key];
+                return acceptors[key];
             }
-            return VariableDetector.Detect(sym, acc);
+            return VariableDetector.Detect(sym, acceptors);
         }
 
         #endregion
@@ -184,9 +184,9 @@ namespace DataPerformer.Formula
             {
                 return;
             }
-            foreach (string key in acc.Keys)
+            foreach (string key in acceptors.Keys)
             {
-                object op = acc[key];
+                object op = acceptors[key];
                 if (!(op is VariableMeasurement))
                 {
                     continue;
@@ -261,14 +261,13 @@ namespace DataPerformer.Formula
                                 }
                             }
                             if (b)
-                            //!!!TEMP ===
                             {
                                 char c = s[0];
                                 parameter.Add(c, measurement);
                                 string key = c + "";
-                                if (!acc.ContainsKey(key))
+                                if (!acceptors.ContainsKey(key))
                                 {
-                                    acc[c + ""] = c.Create(measurement, this);
+                                    acceptors[c + ""] = c.Create(measurement, this);
                                 }
                             }
                         }
@@ -284,10 +283,10 @@ namespace DataPerformer.Formula
                         //timeChar = s[0];
                         // parameter.Add(s[0], timeMeasure);
                         string key = s[0] + "";
-                        if (!acc.ContainsKey(key))
+                        if (!acceptors.ContainsKey(key))
                         {
                             timeVariable = s[0].Create(timeMeasure, this);
-                            acc[key] = timeVariable;
+                            acceptors[key] = timeVariable;
                         }
                     }
                 }
@@ -295,9 +294,9 @@ namespace DataPerformer.Formula
                 string argStr = AllVariables;
                 foreach (string key in parameters.Keys)
                 {
-                    if (!acc.ContainsKey(key))
+                    if (!acceptors.ContainsKey(key))
                     {
-                        acc[key] = new AliasNameVariable(key, this, key);
+                        acceptors[key] = new AliasNameVariable(key, this, key);
                     }
                 }
                 postSetUnary();
@@ -399,7 +398,7 @@ namespace DataPerformer.Formula
             get
             {
                 int n = 0;
-                foreach (object o in acc.Values)
+                foreach (object o in acceptors.Values)
                 {
                     if (o is VariableMeasurement)
                     {
@@ -421,14 +420,14 @@ namespace DataPerformer.Formula
                 proxy = null;
                 if (!isSerialized)
                 {
-                    acc.Clear();
+                    acceptors.Clear();
                     foreach (char c in par.Variables)
                     {
                         string key = c + "";
-                        if (!acc.ContainsKey(key))
+                        if (!acceptors.ContainsKey(key))
                         {
                             VariableMeasurement v = c.Create(par[c], this);
-                            acc[key] = v;
+                            acceptors[key] = v;
                         }
                     }
                 }
@@ -475,9 +474,9 @@ namespace DataPerformer.Formula
                 {
                     object o = parameters[s];
                     table[s[0]] = AliasTypeDetector.Detector.DetectType(o);
-                    if (!acc.ContainsKey(s))
+                    if (!acceptors.ContainsKey(s))
                     {
-                        acc[s] = new AliasNameVariable(s, this, s);
+                        acceptors[s] = new AliasNameVariable(s, this, s);
                     }
                 }
                 AssociatedAddition aa = new AssociatedAddition(this, null);
@@ -518,11 +517,11 @@ namespace DataPerformer.Formula
                     foreach (string key in replacement.Keys)
                     {
                         string varp = key[0] + "";
-                        if (!acc.ContainsKey(varp))
+                        if (!acceptors.ContainsKey(varp))
                         {
                             continue;
                         }
-                        object o = acc[varp];
+                        object o = acceptors[varp];
                         if (!(o is VariableMeasurement))
                         {
                             continue;

@@ -27,14 +27,7 @@ public class AAALevel : MonoBehaviour
     {
         Application.Quit();
     }
-    static public bool Unload
-    {
-        set
-        {
-
-        }
-    }
-
+ 
 
     private void Awake()
     {

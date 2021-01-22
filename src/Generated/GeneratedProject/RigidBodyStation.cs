@@ -2679,6 +2679,12 @@ namespace GeneratedProject
 						};
 						pars = new Dictionary<object, object>()
 						{
+										{'m' , "Force.Mz"}
+							,			{'l' , "Force.My"}
+							,			{'k' , "Force.Mx"}
+							,			{'j' , "Force.Fz"}
+							,			{'i' , "Force.Fy"}
+							,			{'h' , "Force.Fx"}
 						};
 						aliases = new Dictionary<object, object>()
 						{
@@ -2695,6 +2701,12 @@ namespace GeneratedProject
 						deriOrder = 0;
 						arguments =  new List<string>()
 						{
+							"h = Force.Fx",
+							"i = Force.Fy",
+							"j = Force.Fz",
+							"k = Force.Mx",
+							"l = Force.My",
+							"m = Force.Mz"
 						};
 					}
 					FormulaEditor.Interfaces.ITreeCollectionProxy FormulaEditor.Interfaces.ITreeCollectionProxyFactory.CreateProxy(FormulaEditor.Interfaces.ITreeCollection collection, Action<object> checkValue)
@@ -2709,31 +2721,31 @@ namespace GeneratedProject
 						public void Update()
 						{
 							var_0 = (double)aliasName0.Value;
-							var_1 = (double)trees[1].Calculate();
+							var_1 = (double)measurement1.Parameter();
 							var_2 = Math.Abs(var_1);
 							var_3 = (var_0) * (var_2);
 							var_4 = (double)aliasName4.Value;
-							var_5 = (double)trees[5].Calculate();
+							var_5 = (double)measurement5.Parameter();
 							var_6 = Math.Abs(var_5);
 							var_7 = (var_4) * (var_6);
 							var_8 = (var_3) + (var_7);
 							var_9 = (double)aliasName9.Value;
-							var_10 = (double)trees[10].Calculate();
+							var_10 = (double)measurement10.Parameter();
 							var_11 = Math.Abs(var_10);
 							var_12 = (var_9) * (var_11);
 							var_13 = (var_8) + (var_12);
 							var_14 = (double)aliasName14.Value;
-							var_15 = (double)trees[15].Calculate();
+							var_15 = (double)measurement15.Parameter();
 							var_16 = Math.Abs(var_15);
 							var_17 = (var_14) * (var_16);
 							var_18 = (var_13) + (var_17);
 							var_19 = (double)aliasName19.Value;
-							var_20 = (double)trees[20].Calculate();
+							var_20 = (double)measurement20.Parameter();
 							var_21 = Math.Abs(var_20);
 							var_22 = (var_19) * (var_21);
 							var_23 = (var_18) + (var_22);
 							var_24 = (double)aliasName24.Value;
-							var_25 = (double)trees[25].Calculate();
+							var_25 = (double)measurement25.Parameter();
 							var_26 = Math.Abs(var_25);
 							var_27 = (var_24) * (var_26);
 							var_28 = (var_23) + (var_27);
@@ -2743,11 +2755,17 @@ namespace GeneratedProject
 						{
 							this.trees = trees;
 							aliasName0 = DataPerformer.Formula.StaticExtensionDataPerformerFormula.ToAliasName(trees[0]);
+							measurement1 = DataPerformer.Formula.StaticExtensionDataPerformerFormula.ToMeasurement(trees[1]);
 							aliasName4 = DataPerformer.Formula.StaticExtensionDataPerformerFormula.ToAliasName(trees[4]);
+							measurement5 = DataPerformer.Formula.StaticExtensionDataPerformerFormula.ToMeasurement(trees[5]);
 							aliasName9 = DataPerformer.Formula.StaticExtensionDataPerformerFormula.ToAliasName(trees[9]);
+							measurement10 = DataPerformer.Formula.StaticExtensionDataPerformerFormula.ToMeasurement(trees[10]);
 							aliasName14 = DataPerformer.Formula.StaticExtensionDataPerformerFormula.ToAliasName(trees[14]);
+							measurement15 = DataPerformer.Formula.StaticExtensionDataPerformerFormula.ToMeasurement(trees[15]);
 							aliasName19 = DataPerformer.Formula.StaticExtensionDataPerformerFormula.ToAliasName(trees[19]);
+							measurement20 = DataPerformer.Formula.StaticExtensionDataPerformerFormula.ToMeasurement(trees[20]);
 							aliasName24 = DataPerformer.Formula.StaticExtensionDataPerformerFormula.ToAliasName(trees[24]);
+							measurement25 = DataPerformer.Formula.StaticExtensionDataPerformerFormula.ToMeasurement(trees[25]);
 							dictionary[trees[0]] = Get_0;
 							dictionary[trees[1]] = Get_1;
 							dictionary[trees[2]] = Get_2;
@@ -2785,11 +2803,17 @@ namespace GeneratedProject
 						Dictionary<FormulaEditor.ObjectFormulaTree, FormulaEditor.GetValue> dictionary = new Dictionary<FormulaEditor.ObjectFormulaTree, FormulaEditor.GetValue>();
 						
 						Diagram.UI.Interfaces.IAliasName aliasName0;
+						DataPerformer.Interfaces.IMeasurement measurement1;
 						Diagram.UI.Interfaces.IAliasName aliasName4;
+						DataPerformer.Interfaces.IMeasurement measurement5;
 						Diagram.UI.Interfaces.IAliasName aliasName9;
+						DataPerformer.Interfaces.IMeasurement measurement10;
 						Diagram.UI.Interfaces.IAliasName aliasName14;
+						DataPerformer.Interfaces.IMeasurement measurement15;
 						Diagram.UI.Interfaces.IAliasName aliasName19;
+						DataPerformer.Interfaces.IMeasurement measurement20;
 						Diagram.UI.Interfaces.IAliasName aliasName24;
+						DataPerformer.Interfaces.IMeasurement measurement25;
 						FormulaEditor.ObjectFormulaTree currentTree = null;
 						object[] currentArray = null;
 						double doubleValue = 0;

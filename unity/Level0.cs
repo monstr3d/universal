@@ -69,6 +69,10 @@ namespace Assets
 
         static internal readonly string Station = "Station";
 
+        static internal readonly string Main_Camera = "Main Camera";
+
+        static internal readonly string Earth = "Earth";
+
         static internal readonly string Velocity = "Relative to station.Velocity";
 
         static internal readonly string Rz = "Relative to station.z";

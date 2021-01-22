@@ -129,13 +129,6 @@ namespace DataPerformer.Formula
             {
                 l.Add("\t\treturn new Calculation(tt, checkValue);");
             }
-            /*
-             using System.Linq;
-
-    						var t = 
-							FormulaEditor.ObjectFormulaTree.CreateList(f.Trees, new List<FormulaEditor.ObjectFormulaTree>());
-         */
-
             else
             {
                 l.Add("\t\treturn new Calculation(tt);");
