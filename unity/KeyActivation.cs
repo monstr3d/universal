@@ -89,6 +89,9 @@ namespace Assets
                     }
                     blinkedLamps = new BlinkedEnabledGameObjects(l);
                     blinkedLamps.Start(new float[] { 1, 0.2f }, m);
+                  //  var mr = station.GetGameObjectComponents<MeshRenderer>()[Level0.Station][0];
+                  //  mr.materials = new Material[] { mr.materials[1] };
+                  //  mr.materials[0].mainTexture = StaticExtensionUnity.Activation.textures[1];
                 }
                 if (m.name == Level0.Main_Camera)
                 {
