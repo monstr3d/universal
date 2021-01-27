@@ -2939,7 +2939,7 @@ This section contains a noncommutative generalization of infinite coverings.
 
 
 \begin{definition}\label{comp_defn}
-	Let $\La'$ be a countable directed set (cf. Definition \ref{directed_set_defn}) such that there is the unique minimal element $\la_{\min} \in \La'$.
+	Let $\La$ be a countable directed set (cf. Definition \ref{directed_set_defn}) such that there is the unique minimal element $\la_{\min} \in \La'$.
 	Let $A$ be a $C^*$-algebra.  Let us consider a set noncommutative finite-fold coverings $\mathfrak{S}=\left\{ \pi_{\la}:A \hookto A_{\la}\right\}_{\la \in \La}$ indexed by  $\La$ such that $A_{\la_{\mathrm{min}}}= A$, and $\pi_{\la_{\mathrm{min}}}= \Id_A$. We do not claim that any noncommutative finite-fold covering $A \to \widetilde{A}$ belongs to $\mathfrak{S}$. Suppose that  following conditions hold:
 	\begin{enumerate}
 		\item[(a)] For any $\mu, \nu \in \La'$ a pair $\left( \pi_\mu, \pi_\nu\right)$ is compliant (cf. Definition \ref{compliant_covering_defn}).
@@ -3189,8 +3189,8 @@ In the situation of the Definition \ref{special_element_defn} prove that for all
 Let $\mathfrak{S}^{\mathrm{pt}}=\left(\left\{\pi_\la: A \hookto A_\la \right\}, \left\{\pi^\mu_\nu\right\}\right)\in \mathfrak{FinAlg}^{\mathrm{pt}}$  be a  {pointed algebraical  finite covering category}. $\widehat{A} \bydef C^*\text{-}\varinjlim_{\la \in \La} A_{\la}$ be the $C^*$-inductive limit of $C^*$-algebras, and let $\widehat{G}\bydef \varprojlim_{\la \in \La} G\left(
 \left.  A_\la~ \right|A\right)$ be the projective limit of groups.
 Let $G_\la \bydef \ker\left(  \widehat G\to  G\left(\left.A_\la~\right|~A \right)\right)$, and let $A_{\la}^{\sim}$ be given by \eqref{unital_notation_eqn}. Let $\pi:\widehat{A}\to B\left(\H \right)$ be an equivariant representation. 
-If  $\overline a \in B\left(\H\right)_+$ is a positive element such that said  for any $\la_0 \in \La$, $\eps > 0$ and  $z \in A_{\la_0}^{\sim}$ there is
-$\la'\ge \la_0$ such that $\overline a$ satisfies to \eqref{spec_a_eps_eqn} for all $\la\ge\la'$ then $\overline a$ satisfies to \eqref{spec_a_eps_eqn} for all $\la\ge\la_0$
+If  $\overline a \in B\left(\H\right)_+$ is a positive element such that   for any $\la_0 \in \La$, $\eps > 0$ and  $z \in A_{\la_0}^{\sim}$ there is
+$\la'\ge \la_0$ such that $\overline a$ satisfies to \eqref{spec_a_eps_eqn} for all $\la\ge\la'$ then $\overline a$ satisfies to \eqref{spec_a_eps_eqn} for all $\la\in\La$.
 \end{lemma}
 \begin{proof}
 The set $\La$ is directed, so for any $\la \ge \la_0$ there is $\la''\in\La$ such that $\la'' \ge\la$ and $\la'' \ge \la'$. There is the surjective homomorphism $G_{\la''}\to G_{\la'}$, such that $G_{\la''}/G_{\la'}\cong G\left(\left. A_{\la''}\right| A_{\la'}\right)$. Let us enumerate $G\left(\left. A_{\la''}\right| A_{\la'}\right)$, i.e.  $G\left(\left. A_{\la''}\right| A_{\la'}\right)=\left\{g_1, ..., g_n\right\}$. If $h: G_{\la'}\to G\left(\left. A_{\la''}\right| A_{\la'}\right)$ is the natural sujective homomorphism then for all $j=1,...,n$ we select $\overline g_j \in G_{\la'}$ such that $h\left(\overline g_j\right)=g_j$. One has
@@ -9850,7 +9850,7 @@ it follows that  $\overline \H_a\cong \H_a$. So the atomic representation of $A_
 Let $A$ be a $C^*$-algebra and let $C_0\left(\sY\right)\hookto M\left(A \right) $ be a good Hausdorff blowing-up (cf. Definitions \ref{blowing_defn} and \ref{blowing_good_defn}). Suppose  $\sY$ is  a connected, locally connected space, and let $q: \widetilde\sY\to\sY$ be  a transitive covering. Suppose that  $\mathcal U\subset \mathcal Y$  is a connected open subset evenly {covered} by $\widetilde{\mathcal U}\subset \widetilde{\mathcal Y}$, such that the closure $\widetilde \sV$ of $\widetilde\sU$ is compact. Let $a \in A_0\left( \widetilde{\sY}\right)_{\widetilde{\sU}} $ 
 then the series 	
 \be\nonumber
-\sum_{g \in G\left(\left.\widetilde\sY~\right|\sU\right) } g\widetilde{a}.
+\sum_{g \in G\left(\left.\widetilde\sY~\right|\sY\right) } g\widetilde{a}.
 \ee 
 is convergent in the strict topology of $M\left(A_0\left( \widetilde{\sY}\right)\right)$ (cf. Definition \ref{strict_topology}).
 \end{lemma}
@@ -9905,41 +9905,43 @@ is convergent with respect to the strong topology of $B\left( \H_a\right)$. More
 Follows from the Lemma \ref{direct_sum_strong_lim_lem}.
 \end{proof}
 \begin{empt}\label{blowing_q_empt}
-Let $\mathfrak{S}_{A } = \left\{ \pi_{\la} :A  \hookto A_0\left( \mathcal{Y}_\la\right) \right\}_{\la \in \La}$ be given by \eqref{blowing_base_point_eqn}  algebraical  finite covering category (cf. Definition \ref{comp_defn}). Let $\left\{\sU_\a\subset \sY\right\}_{\a\in \mathscr A}$ be a {compliant with} $\overline q: \overline \sY \to \sY$ family, and let $\left\{\overline\sU_{\overline\a}\subset \overline\sY\right\}_{\overline\a\in \overline{\mathscr A}}$ be the $\overline q$-lift of $\left\{\sU_{\a}\right\}$  (cf. Definition \ref{top_lconn_defn}). For all $\la\in\La$ denote by $q_\la: \sY_\la \to \sY$ the natural covering and let $\left\{\sU_{\a_\la}\subset \sY_\la\right\}_{\a_\la\in \mathscr A_\la}$ be  the $q_\la$-lift of $\left\{\sU_{\a}\right\}$  (cf. Definition \ref{top_lconn_defn}.
+Let $\mathfrak{S}_{A } = \left\{ \pi_{\la} :A  \hookto A_0\left( \mathcal{Y}_\la\right) \right\}_{\la \in \La}$ be given by \eqref{blowing_base_point_eqn}  algebraical  finite covering category (cf. Definition \ref{comp_defn}). Let $\left\{\sU_\a\subset \sY\right\}_{\a\in \mathscr A}$ be a {compliant with} $\overline q: \overline \sY \to \sY$ family, and let $\left\{\overline\sU_{\overline\a}\subset \overline\sY\right\}_{\overline\a\in \overline{\mathscr A}}$ be the $\overline q$-lift of $\left\{\sU_{\a}\right\}$  (cf. Definition \ref{top_lconn_defn}). For all $\la\in\La$ denote by $q_\la: \sY_\la \to \sY$ the natural covering and let $\left\{\sU_{\a_\la}\subset \sY_\la\right\}_{\a_\la\in \mathscr A_\la}$ be  the $q_\la$-lift of $\left\{\sU_{\a}\right\}$  (cf. Definition \ref{top_lconn_defn}).
 Let $r \in A_0\left(\sY_{\la_0} \right)$ be given by
 \be\label{blowing_q_eqn}
 \begin{split}
 	r = \sum_{j = 0}^n r_{\a^{\la_0}_{j,0}}\cdot ... \cdot r_{\a^{\la_0}_{j,k_j}}; \quad r_{\a^{\la_0}_{j,k_j}} \in A_0\left(\sY_{\la_0} \right)_{\sU^{\la_0}_{\a^{\la_0}_{j,k_j}}}\quad \sU^{\la_0}_{\a^{\la_0}_{j,k_j}}\in \left\{\sU_{\a_{\la_0}}\right\},\\
+	\forall j= 1,...,n \quad  {\a^{\la_0}_{0,0}}= {\a^{\la_0}_{j,0}}
 \end{split}
 \ee
-Suppose that there is $\overline{\sU}\in \left\{\overline\sU_{\overline\a}\right\}$ such that for any $j \in \{1,...,n\}$ there is $l \in \left\{1, ..., k_j\right\}$ such that $\overline p_{\la_0}\left( \overline{\sU}\right) = \sU^{\la_0}_{\a^{\la_0}_{j,0}}$. From the Lemma \ref{top_lift_lem} it follows that for any $j \in \{1,...,n\}$ there is the unique tuple $
+Suppose that there is $\overline{\sU}\in \left\{\overline\sU_{\overline\a}\right\}$ such that for any $j \in \{1,...,n\}$ there is $l \in \left\{1, ..., k_j\right\}$ such that $\overline q_{\la_0}\left( \overline{\sU}\right) = \sU^{\la_0}_{\a^{\la_0}_{j,0}}$. From the Lemma \ref{top_path_lift_lem} it follows that for any $j \in \{1,...,n\}$ there is the unique tuple $
 \left\{	\overline \sU_{\overline \a_{j,1} }, ....,\overline \sU_{\overline \a_{j,k} }\right\}$ such that 
 \begin{itemize}
-	\item $\overline p_{\la_0}\left(\overline \sU_{\overline \a_{j,l} }\right)= \sU^{\la_0}_{\a^{\la_0}_{j,l}}$ for any $l =1,..., k_j$.
-	\item $\sU^{\la_0}_{\a^{\la_0}_{j,l}}  \cap \sU^{\la_0}_{\a^{\la_0}_{j,l+1}}\neq \emptyset$.	for every $l = 1,..., k_j -1$.		
+	\item $\overline q_{\la_0}\left(\overline \sU_{\overline \a_{j,l} }\right)= \sU^{\la_0}_{\a^{\la_0}_{j,l}}$ for any $l =0,..., k_j$, where $\overline q_{\la_0}: \overline \sY\to \sY_{\la_0}$ is the natural covering.
+	\item $\sU^{\la_0}_{\a^{\la_0}_{j,l}}  \cap \sU^{\la_0}_{\a^{\la_0}_{j,l+1}}\neq \emptyset$.	for every $l = 0,..., k_j -1$.		
 \end{itemize}
 Denote by
 \be\label{blowing_suq_eqn}
-\overline \sU^q \bydef \bigcup_{j=0 }^n\left(\bigcup_{l = 0}^{k_j} \overline \sU_{\overline \a_{j,l}}\right).
+\overline \sU^r \bydef \bigcup_{j=0 }^n\left(\bigcup_{l = 0}^{k_j} \overline \sU_{\overline \a_{j,l}}\right).
 \ee
-For any $j \in \{1,..., n\}$  and $l\in\left\{1, ..., k_j\right\}$  put $\overline r_{j, l}\bydef \lift^{ \overline{q}}_{\overline \sU_{\overline\a_{j,l}}}\left( r_{\a^{\la_0}_{j,l}} \right) \in A_0\left(\overline\sY\right)$ where $\lift^{ \overline{q}}_{\overline \sU_{\overline\a_{j,l}}}$ is given by  \ref{blowing_lift_desc_eqn}.
+For any $j \in \{1,..., n\}$  and $l\in\left\{1, ..., k_j\right\}$  put $r_{\overline \a_{j,l}}\bydef \lift^{ \overline{q}_{\la_0}}_{\overline \sU_{\overline\a_{j,l}}}\left( r_{\a^{\la_0}_{j,l}} \right) \in A_0\left(\overline\sY\right)$ 
+where $\lift^{ \overline{q}_{\la_0}}_{\overline \sU_{\overline\a_{j,l}}}$ is given by  \eqref{blowing_lift_desc_eqn}.
 %such that $\desc_{\overline p_{\la_0}}\left(\overline r_{j, l}\right)= r_{\a^{\la_0}_{j,l}}$. Let 
 \be\label{blowing_oq_eqn}
-\overline	r \bydef \sum_{j = 1}^n \overline r_{\overline \a_{j,0}}\cdot ... \cdot \overline r_{\overline \a_{j,k_j}}\in  A_0\left(\overline \sY\right)_{\overline \sU^q} .
+\overline	r \bydef \sum_{j = 1}^n \overline r_{\overline \a_{j,0}}\cdot ... \cdot \overline r_{\overline \a_{j,k_j}}\in  A_0\left(\overline \sY\right)_{\overline \sU^r} .
 \ee
 \end{empt}
 \begin{definition}\label{blowing_q_defn}
 In the situation \ref{blowing_q_empt} we say that $\overline	r$ is $\overline q_{\la_0}$-$\overline\sU$-\textit{extended lift of} $q$ and we write  $\mathfrak{ext}$-$\lift_{ \overline{q}_{\la_0}}^{\overline\sU}\left( q\right) \bydef \overline q$.
 \end{definition}
 \begin{remark}\label{blowing_q_rem}
-The given by \eqref{blowing_suq_eqn} set $\overline \sU^q$ is a finite union of the sets with compact closure. So the  closure of $\overline \sU^q$ is compact. From the  Lemma \ref{top_comp_la_lem} there is $\la_{\overline{   \mathcal U }^q} \in \La$ such that for any  $\la \ge \la_{\overline{   \mathcal U }^q} \in \La$ such that for  any  $\la \ge \la_{\overline{   \mathcal U }^q}$ the set $\overline{   \mathcal U }^q$  is mapped homeomorphically onto  $\overline{q}_\la\left(\overline{   \mathcal U }^q \right) \subset  \sY_\la$. 
+The given by \eqref{blowing_suq_eqn} set $\overline \sU^r$ is a finite union of the sets with compact closure. So the  closure of $\overline \sU^r$ is compact. From the  Lemma \ref{top_comp_la_lem} there is $\la_{\overline{   \mathcal U }^r} \in \La$ such that for any  $\la \ge \la_{\overline{   \mathcal U }^r} \in \La$ such that for  any  $\la \ge \la_{\overline{   \mathcal U }^r}$ the set $\overline{   \mathcal U }^r$  is mapped homeomorphically onto  $\overline{q}_\la\left(\overline{   \mathcal U }^r \right) \subset  \sY_\la$. 
 
 \end{remark}
 \begin{lemma}\label{blowing_ycomp_lem}
 Consider the above situation.
-Let $\overline  \sU \in \overline{\mathfrak A}$  and let $\overline a\in A_0\left(\overline \sY\right)_{\overline \sU}$ be a positive element. If   $\la_0 \in \La$ and $z\in A_0\left(\overline \sY\right)^\sim$.  For any $\eps > 0$ there is $y \in A_0\left(\overline \sY\right)^\sim$  and an open subset $\overline\sU^w\subset \overline M$ with compact closure such that  
+Let $\overline  \sU \in \left\{\overline\sU_{\overline\a}\right\}_{\overline\a\in \overline{\mathscr A}}$  and let $\overline a\in A_0\left(\overline \sY\right)_{\overline \sU}$ be a positive element. If   $\la_0 \in \La$ and $z\in A_0\left(\overline \sY\right)^\sim$ then  for any $\eps > 0$ there is $w \in A_0\left(\overline \sY\right)^\sim$  and an open subset $\overline\sU^w\subset \overline \sY$ with compact closure such that  
 \bean
-\left\| y - z\right\|< \eps,\\
+\left\| w - z\right\|< \eps,\\
 w^*\overline a w \in A_0\left(\overline\sY\right)_{\overline \sU^w}.
 \eean 
 \end{lemma}
@@ -9947,9 +9949,9 @@ w^*\overline a w \in A_0\left(\overline\sY\right)_{\overline \sU^w}.
 \begin{proof}
 For any $\la\in \La$ denote by $a_\la \bydef \desc_{\overline{q}_\la}\left(\overline a \right)$. If in the equation \eqref{blowing_q_eqn} $r_{\a^{\la_0}_{j,0}}= \sqrt{a_{\la_0}}$ for all $j\in \{1,..., n\}$ and $\overline r$ is given by the equation \eqref{blowing_oq_eqn} then
 \be\label{blowing_qq_eqn}
-\overline r^*\overline r= \left(  \sum_{j = 1}^n \overline r^*_{\overline \a_{j,k_j}}\cdot ... \cdot \overline r^*_{\overline \a_{j,1}}\right) \overline a \left(  \sum_{j = 1}^n \overline r_{\overline \a_{j,1}}\cdot ... \cdot \overline r_{\overline \a_{j,k_j}}\right)\in  A_0\left(\overline \sY\right)_{\overline \sU^q}
+\overline r^*\overline r= \left(  \sum_{j = 1}^n \overline r^*_{\overline \a_{j,k_j}}\cdot ... \cdot \overline r^*_{\overline \a_{j,1}}\right) \overline a \left(  \sum_{j = 1}^n \overline r_{\overline \a_{j,1}}\cdot ... \cdot \overline r_{\overline \a_{j,k_j}}\right)\in  A_0\left(\overline \sY\right)_{\overline \sU^r}
 \ee
-Any $z\in A_0\left(\overline \sY\right)^\sim$  can be presented by the sum Let $z = z_0 + c$ where $z_0 \in A_0\left(\sY_{\la_0} \right)$ and $c \in \C$. From  \eqref{blowing_ab_p_eqn} it turns out that $z$ can be regarded as an element of $M\left(A_0\left(\overline \sY\right) \right)$ so one has $z^*\overline a z \in A_0\left(\overline \sY\right)$. 
+Any $z\in A_0\left(\overline \sY\right)^\sim$  can be presented by the sum Let $z = z_0 + c$ where $z_0 \in A_0\left(\sY_{\la_0} \right)$ and $c \in \C$. From  \eqref{blowing_ab_p_eqn} it turns out that $z$ can be regarded as an element of $M\left(A_0\left(\overline \sY\right) \right)$, so one has $z^*\overline a z \in A_0\left(\overline \sY\right)$. 
 For all $\eps > 0$ there is $t_0 \in A_0\left(\sY_{\la_0} \right)$ such that
 \be\label{blowing_t_eqn}
 \begin{split}
@@ -9959,7 +9961,7 @@ For all $\eps > 0$ there is $t_0 \in A_0\left(\sY_{\la_0} \right)$ such that
 	\left\| w - z\right\|<\eps.
 \end{split}
 \ee
-If  $I \subset \left\{1,...,n\right\}$ is such that $j \in I \Leftrightarrow \overline p_\la\left( \overline \sU \right) \cap \sU^\la_{\a^\la_{1,k_j}} \neq \emptyset$ and
+If  $I \subset \left\{1,...,n\right\}$ is such that $j \in I \Leftrightarrow \overline q_\la\left( \overline \sU \right) \cap \sU^\la_{\a^\la_{1,k_j}} \neq \emptyset$ and
 $$
 r = c + \sum_{j \in I} t_{\a^{\la_0}_{j,1}}\cdot ... \cdot t_{\a^{\la_0}_{j,k_j}}
 $$
@@ -9967,39 +9969,40 @@ then one has
 \be\label{blowing_rar_eqn}
 \begin{split}
 	r^*\overline a r = w^*\overline a w,\\
-	\forall\la\in\La \quad \la \ge\la_0 \quad \Rightarrow \quad r^*\desc_{\overline p_{\la}}\left( \overline a\right)  r = w^*\desc_{\overline p_{\la}}\left( \overline a\right) 
+	\forall\la\in\La \quad \la \ge\la_0 \quad \Rightarrow \quad r^*\desc_{\overline p_{\la}}\left( \overline a\right)  r = w^*\desc_{\overline p_{\la}}\left( \overline a\right) w
 \end{split}
 \ee
-On the other hand from $j \in I \Leftrightarrow \overline p_\la\left( \overline \sU \right) \cap \sU^\la_{\a^\la_{1,k_j}} \neq \emptyset$ if follows that the sum
+On the other hand from $j \in I \Leftrightarrow \overline q_\la\left( \overline \sU \right) \cap \sU^\la_{\a^\la_{1,k_j}} \neq \emptyset$ if follows that the equation
 $$
-r =  \sum_{j\in I} \sqrt{\desc_{\overline p_{\la_0}}\left( \overline a\right)}\left(c+  t_{\a^{\la_0}_{j,1}}\cdot ... \cdot t_{\a^{\la_0}_{j,k_j}}\right) 
+r =  \sum_{j\in I} \sqrt{\desc_{\overline p_{\la_0}}\left( \overline a\right)}\left(c+  \sum_{j\in I}t_{\a^{\la_0}_{j,1}}\cdot ... \cdot t_{\a^{\la_0}_{j,k_j}}\right) 
 $$
-complies with the construction \ref{blowing_q_empt}, so there is $p_\la$-$\overline\sU$-{extended lift $\mathfrak{ext}$-$\lift_{ \overline{p}_{\la}}^{\overline\sU}\left( r\right)$ of} $r$ (cf. Definition \ref{blowing_q_defn}) given by 
+complies with the construction \ref{blowing_q_empt}, so there is $q_\la$-$\overline\sU$-{extended lift $\mathfrak{ext}$-$\lift_{ \overline{p}_{\la}}^{\overline\sU}\left( r\right)$ of} $r$ (cf. Definition \ref{blowing_q_defn}) given by 
 \be\label{blowing_oqt_eqn}
-\overline	r= \sqrt{\overline a}\left(  1 +  \sum_{j\in I }  ~\overline t_{\overline \a_{j,0}}\cdot ... \cdot \overline t_{\overline \a_{j,k_j}}\right) \in  A_0\left(\overline \sY\right)_{\overline \sU^q} .
+\overline	r= \sqrt{\overline a}\left(  1 +  \sum_{j\in I }  ~\overline t_{\overline \a_{j,0}}\cdot ... \cdot \overline t_{\overline \a_{j,k_j}}\right) \in  A_0\left(\overline \sY\right)_{\overline \sU^r} .
 \ee
-where the closure of $\overline\sU^q$ is compact. From the equations \ref{blowing_qq_eqn} and \eqref{blowing_rar_eqn} it follows that 
+where $\overline t_{\overline \a_{j,l}}\bydef \lift^{ \overline{q}_{\la_0}}_{\overline \sU_{\overline\a_{j,l}}}\left( t_{\a^{\la_0}_{j,l}} \right)$ 
+and  the closure of $\overline\sU^r$ is compact. From the equations \ref{blowing_qq_eqn} and \eqref{blowing_rar_eqn} it follows that 
 \bean
-w^*\overline a w =\overline	r^*\overline	r \in  A_0\left(\overline \sY\right)_{\overline \sU^q}.
+w^*\overline a w =\overline	r^*\overline	r \in  A_0\left(\overline \sY\right)_{\overline \sU^r}.
 \eean
-Define $\overline\sU^w \bydef \overline\sU^q$.
+Define $\overline\sU^w \bydef \overline\sU^r$.
 \end{proof}
 
 
 
 \begin{corollary}\label{blowing_spec2_cor}
 Let us	consider the above situation, and use the notation \eqref{spec_a_eps_imp_eqn}.
-Let $\overline  \sU \in \left\{\sU_{\overline\a}\right\}$  and let $\overline a\in A_0\left(\overline \sY\right)_{\overline \sU}$ a positive element,	
+Let $\overline  \sU \in \left\{\sU_{\overline\a}\right\}$  and let $\overline a \in\pi_A\left(  A_0\left(\overline \sY\right)_{\overline \sU}\right) $ (cf. \eqref{blowing_ha_eqn}) a positive element,	
 If   $\la_0 \in \La$ and $z\in A_0\left(\overline \sY\right)^\sim$ then following conditions hold:
 \begin{enumerate}
 	\item[(i)] The series 
 	$$
 	\sum_{g\in G_\la } g\left( z^*\overline a  z\right)^2
 	$$
-	is strongly convergent in $B\left(\widehat\H_a\right)$.
+	is strongly convergent in  $B\left(\widehat\H_a\right)$ where $\widehat\H_a$ is the space of the atomic representation $C^*$-$\varinjlim_{\la\in\La} A_0\left(\sY_\la\right)\hookto B\left(\widehat\H_a\right)$.
 	\item[(ii)] For any $\eps > 0$ there is $w\in A_0\left(\overline \sY\right)^\sim$ such that for all $\la \ge \la_0$ one has
 	\bea\label{blowing_spec21_eqn}
-	\left\| y - z\right\|<\eps,\\
+	\left\| w - z\right\|<\eps,\\
 	\label{blowing_spec22_eqn}
 	\left\| \sum_{g\in G_\la } g\left( z^*\overline a  z\right)^2 - \sum_{g\in G_\la } g\left( w^*\overline a  w\right)^2\right\|<\eps,\\
 	\label{blowing_spec23_eqn}
@@ -10013,10 +10016,10 @@ If   $\la_0 \in \La$ and $z\in A_0\left(\overline \sY\right)^\sim$ then followin
 $$ 
 \left(  g\overline a \right)   z z^* \left(  g\overline a  \right)\le\left\| z\right\|^2\left(  g\overline a  \right)  \left(  g\overline a  \right).
 $$
-On the other hand $\sum_{g\in G_\la } \left\| z\right\|^2\left(  g\overline a  \right)  \left(  g\overline a \right) = \sum_{g\in G_\la } \left\| z\right\|^2\left(  g\overline a  \right)^2 = \left\| z\right\|^2\pi_a\left( \desc_{\overline p_\la}\left( \overline a\right)^2\right)$,
+On the other hand $\sum_{g\in G_\la } \left\| z\right\|^2\left(  g\overline a  \right)  \left(  g\overline a \right) = \sum_{g\in G_\la } \left\| z\right\|^2\left(  g\overline a  \right)^2 = \left\| z\right\|^2\pi_a\left( \desc_{\overline q_\la}\left( \overline a\right)^2\right)$,
 hence for any finite subset  $G^0_\la\subset G_\la$ one has
 $$
-\sum_{g\in G^0_\la } \left(  g\overline a  \right)   z z^* \left(  g\overline a  \right)\le \left\| z\right\|^2\pi_a\left( \desc_{\overline p_\la}\left( \overline a\right)^2\right),
+\sum_{g\in G^0_\la } \left(  g\overline a  \right)   z z^* \left(  g\overline a  \right)\le \left\| z\right\|^2\pi_a\left( \desc_{\overline q_\la}\left( \overline a\right)^2\right),
 $$
 i.e. an increasing series $\sum_{g\in G_\la } \left(  g\overline a  \right)   z z^* \left(  g\overline a  \right)$ is bounded. 
 From the Lemma \ref{increasing_convergent_w_lem} it turns ot that the series 	$\sum_{g\in G_\la } \left(  g\overline a  \right)   z z^* \left(  g\overline a  \right)$ is strongly convergent in $B\left(\widehat\H_a\right)$. It follows that the series
@@ -10025,26 +10028,26 @@ From the Lemma \ref{increasing_convergent_w_lem} it turns ot that the series 	$\
 = z^* \left( \sum_{g\in G_\la } \left(  g\overline a  \right)   z z^* \left(  g\overline a  \right)\right)z 
 \eean 
 is also strongly convergent in $B\left(\widehat\H_a\right)$.\\
-(ii) For all $\Delta\in A_0\left(\sY_{\la_0} \right)^\sim$ such that $\left\|\Delta\right\|= \delta$ one has
+(ii) For all $\Delta\in A_0\left(\sY_{\la_0} \right)^\sim$ such that $\left\|\Delta\right\|< \delta$ one has
 \be\label{blowing_zz_eqn}
 \begin{split}
 	\sum_{g\in G_\la } \left(  g\overline a  \right)   z z^* \left(  g\overline a  \right)\le \\
-	\le\left\| z\right\|^2 \sum_{g\in G_\la } \left(  g\overline a  \right)  \left(  g\overline a  \right)= \left\| z\right\|^2\desc_{\overline p_\la}\left( \overline a\right)^2.\\
-	\sum_{g\in G_\la } \left(  g\overline a  \right)   \pi_a \left(z + \Delta \right) \left(z + \Delta\right)^* \left(  g\overline a  \right)\le  \left( \left\| z\right\|+\delta\right) ^2\desc_{\overline p_\la}\left( \overline a\right)^2,\\
+	\le\left\| z\right\|^2 \sum_{g\in G_\la } \left(  g\overline a  \right)  \left(  g\overline a  \right)= \left\| z\right\|^2\desc_{\overline q_\la}\left( \overline a\right)^2.\\
+	\sum_{g\in G_\la } \left(  g\overline a  \right)   \pi_a \left(z + \Delta \right) \left(z + \Delta\right)^* \left(  g\overline a  \right)\le  \left( \left\| z\right\|+\delta\right) ^2\desc_{\overline q_\la}\left( \overline a\right)^2,\\
 	\left\|\sum_{g\in G_\la } \left(  g\overline a  \right)   z z^* \left(  g\overline a  \right)\right\|\le  \left\| z\right\|^2 \left\| \overline a\right\|^2,\\ 
-	\left\|\sum_{g\in G_\la } \left(  g\overline a  \right)   \pi_a \left(z + \Delta \right) \left(z + \Delta\right)^* \left(  g\overline a  \right)\right\|\le  \left( \left\| z\right\|+\delta\right)^2 \left\| \overline a\right\|^2
+	\left\|\sum_{g\in G_\la } \left(  g\overline a  \right)   \pi_a \left(z + \Delta \right) \left(z + \Delta\right)^* \left(  g\overline a  \right)\right\|\le  \left( \left\| z\right\|+\delta\right)^2 \left\| \overline a\right\|^2.
 \end{split}
 \ee
 The series in the equations \eqref{blowing_zz_eqn} contain positive summands only and from \eqref{blowing_zz_eqn} it turns out that they are bounded.
-From the \ref{increasing_convergent_w_lem} it follows that the series in the equations \eqref{blowing_zz_eqn} are  strongly convergent in $B\left(\widehat \H_a\right)$.
+From the \ref{increasing_convergent_w_lem} it follows that the series in the equations \eqref{blowing_zz_eqn} are  strongly convergent in $B\left(\widehat \H_a\right)$. From !!!!
 \bean
-\left(z + \Delta\right)^*\left( \sum_{g\in G_\la } \left(  g\overline a  \right)   \left(z + \Delta\right) \left(z + \Delta\right)^* \left(  g\overline a  \right)\right)  \left(z + \Delta\right)^*=\\
+\left(z + \Delta\right)^*\left( \sum_{g\in G_\la } \left(  g\overline a  \right)   \left(z + \Delta\right) \left(z + \Delta\right)^* \left(  g\overline a  \right)\right)  \left(z + \Delta\right)=\\
 =
-z^*\left( \sum_{g\in G_\la } \left(  g\overline a  \right)   \left(z + \Delta\right) \left(z + \Delta\right)^* \left(  g\overline a  \right)\right)  \left(z + \Delta\right)^* +\\
+z^*\left( \sum_{g\in G_\la } \left(  g\overline a  \right)   \left(z + \Delta\right) \left(z + \Delta\right)^* \left(  g\overline a  \right)\right)  z +\\
 +
 \pi_a \left(\Delta\right)^*\left( \sum_{g\in G_\la } \left(  g\overline a  \right)   \left(z + \Delta\right) \left(z + \Delta\right)^* \left(  g\overline a  \right)\right)  \left(z + \Delta\right)^*.
 \eean
-From the equation \eqref{blowing_zz_eqn} it follows that 
+and the equation \eqref{blowing_zz_eqn} it follows that 
 \bean
 \left\| 
 \pi_a \left(\Delta\right)^*\left( \sum_{g\in G_\la } \left(  g\overline a  \right)   \left(z + \Delta\right) \left(z + \Delta\right)^* \left(  g\overline a  \right)\right)  \left(z + \Delta\right)^*\right\|\le\\ \le\delta\left(  \left\| z\right\|+\delta\right)^3 \left\| \overline a\right\|^2
@@ -10052,14 +10055,13 @@ From the equation \eqref{blowing_zz_eqn} it follows that
 Similarly one has
 \bean
 \left\| 
-z^*\left( \sum_{g\in G_\la } \left(  g\overline a  \right)   \left(z + \Delta\right) \left(z + \Delta\right)^* \left(  g\overline a  \right)\right)  \Delta ^*\right\|\le\\ \le\delta\left(  \left\| z\right\|+\delta\right)^2 \left\| z\right\|\left\| \overline a\right\|^2
+z^*\left( \sum_{g\in G_\la } \left(  g\overline a  \right)   \left(z + \Delta\right) \left(z + \Delta\right)^* \left(  g\overline a  \right)\right)  \Delta ^*\right\|\le\\ \le\delta\left(  \left\| z\right\|+\delta\right)^2 \left\| z\right\|\left\| \overline a\right\|^2,
 \eean
-
-One has
+it turns out that
 $$
 \left\|\left(z + \Delta\right) \left(z + \Delta\right)^*- z z^*\right\|< \delta^2+ 2\delta \left\| z\right\|
 $$
-If $P\bydef \left|      \left(z + \Delta\right) \left(z + \Delta\right)^*- z z^*\right|\in B\left( \widehat\H_a\right) $  is given by the Proposition \ref{polar_decomposition_prop} then following conditions hold
+If the map $\left|   \cdot\right|:   B\left( \widehat\H_a\right)\to B\left( \widehat\H_a\right)$ is given by the Proposition \ref{polar_decomposition_prop} and $P\bydef \left|      \left(z + \Delta\right) \left(z + \Delta\right)^*- z z^*\right|\in B\left( \widehat\H_a\right) $   then following conditions hold:
 \begin{itemize}
 	\item 
 	\bean
@@ -10089,7 +10091,7 @@ From the above equations it follows that
 \left\| \sum_{g\in G_\la } g\left( w^*  \overline a  w\right)^2-\sum_{g\in G_\la } g\left( z^*  \overline a  z\right)^2\right\|\le
 \phi\left(\delta \right) 
 \ee
-where $\delta= \left\|w- z\right\|$ and $\phi:\R_+\to \R_+$ is a continuous function given by
+where $\left\|w- z\right\|< \delta$ and $\phi:\R_+\to \R_+$ is a continuous function given by
 \be
 \begin{split}
 	\phi\left(\delta \right) = \delta\left(  \left\| z\right\|+\delta\right)^3 \left\| \overline a\right\|^2+\delta\left(  \left\| z\right\|+\delta\right)^2 \left\| z\right\|\left\| \overline a\right\|^2  +\\
@@ -10103,10 +10105,10 @@ From the Lemma \ref{blowing_ycomp_lem} it follows that there is  $w \in A_0\left
 \left\| w - z\right\|< \min \left( \eps,\delta_\eps \right) ,\\
 w^*\overline aw \in A_0\left(\overline\sY\right)_{\overline \sU^w}.
 \eean 
-From our above construction it turns out that $w$ satisfies to inequalities  \ref{blowing_spec21_eqn}, \ref{blowing_spec22_eqn}. From the Lemma \ref{top_comp_la_lem} it follows that there is $\mu\in\La$ such that for  any  $\la \ge \la_{\overline{   \mathcal U }}$ the set $\overline{   \mathcal U }^w$  is mapped homeomorphically onto  $\overline{p}_\la\left(\overline{   \mathcal U }^w \right)$. From the Lemma \ref{blowing_cov_inc_strong_lem} it turns out that for all $\la\ge\mu$ following conditions hold
+From our above construction it turns out that $w$ satisfies to inequalities  \eqref{blowing_spec21_eqn}, \eqref{blowing_spec22_eqn}. From the Lemma \ref{top_comp_la_lem} it follows that there is $\la_{\overline{   \mathcal U }^w}\in\La$ such that for  any  $\la \ge \la_{\overline{   \mathcal U }^w}$ the set $\overline{   \mathcal U }^w$  is mapped homeomorphically onto  $\overline{p}_\la\left(\overline{   \mathcal U }^w \right)$. From the Lemma \ref{blowing_cov_inc_strong_lem} it turns out that for all $\la\ge\la_{\overline{   \mathcal U }^w}$ following conditions hold
 \bean
-\sum_{g\in G_\la } g\left( w^*\overline a  w\right)=\desc_{\overline p_\la}\left(w^*\overline a  w \right),\\
-\sum_{g\in G_\la } g\left( w^*\overline a  w\right)^2=\desc_{\overline p_\la}\left(w^*\overline a  w \right)^2,
+\sum_{g\in G_\la } g\left( w^*\overline a  w\right)=\desc_{\overline q_\la}\left(w^*\overline a  w \right),\\
+\sum_{g\in G_\la } g\left( w^*\overline a  w\right)^2=\desc_{\overline q_\la}\left(w^*\overline a  w \right)^2,
 \eean
 hence one has
 $$
@@ -10118,11 +10120,12 @@ i.e. $w$ satisfies to the equation \ref{blowing_spec23_eqn}.
 
 \begin{lemma}\label{blowing_spec_lem}
 Consider the above situation.
-If $\overline  \sU \in \left\{\sU_{\overline\a}\right\}$  and $\overline a\in A_0\left(\overline \sY\right)_{\overline \sU} \subset A_0\left(\overline \sY\right)\subset  B \left( \widehat \H_a\right)$ is a positive element    such that for all $\overline x\in \overline\sX$ the series 
+If $\overline  \sU \in \left\{\sU_{\overline\a}\right\}$  and $\overline a\in \pi_A\left( A_0\left(\overline \sY\right)_{\overline \sU}\right)  \subset \pi_A\left( A_0\left(\overline \sY\right)\right) \subset  B \left( \widehat \H_a\right)$ (cf. equation \eqref{blowing_ha_eqn}) is a positive element    such that for all $\overline x\in \overline\sX$ the series 
 \be
-\sum_{g \in G\left(\left.\overline{\sX}~\right|\sX\right) } \rep_{  \overline{x }}\left(g \overline a \right)= \rep_{  \overline{x }}\left( \lift_p \circ \desc_p\left( \overline{a}\right) \right)
+\sum_{g \in G\left(\left.\overline{\sX}~\right|\sX\right) } \rep_{  \overline{x }}\left(g \overline a \right)= \rep_{  \overline{x }}\left( A_b\left( \overline p\right) \circ \desc_p\left( \overline{a}\right) \right)
 \ee
-is strongly convergent in $B\left(\H_{\overline x}\right)$ then $\overline a$ is special (cf. Definition \ref{special_element_defn}).
+is strongly convergent in $B\left(\H_{\overline x}\right)$ then $\overline a$ is special of the given by the equation \eqref{blowing_base_point_eqn} 	pointed algebraical  finite covering category $\mathfrak{S}_A$ 
+ (cf. Definitions \ref{comp_defn} and \ref{special_element_defn}).
 \end{lemma}	
 \begin{proof}
 Let $\la_0 \in \La$, $\eps > 0$ and  $z \in A_0\left(\sY_{\la_0} \right)^{\sim}$. Let us check conditions (a), (b) of the Definition \ref{special_element_defn}.\\
@@ -10137,12 +10140,12 @@ Let $\la_0 \in \La$, $\eps > 0$ and  $z \in A_0\left(\sY_{\la_0} \right)^{\sim}$
 (cf. Remark \ref{implicit_inc_full_rem}).
 \begin{enumerate}
 	\item 	 Proof of \eqref{blowing_spec_a_eps_imp1_eqn}. One has $\sum_{g\in G_\la } z^*\left(  g\overline a\right) z= z^*\left( \sum_{g\in G_\la } g\overline a\right) z$. From the Lemma \ref{blowing_cov_inc_strong_lem} it turns out that there is the strong limit $\sum_{g\in G_\la } g\overline a= \desc_{\overline p_{\la}}\left( \overline a\right)\in  A_0\left(\sY_{\la} \right)$, so one has $\sum_{g\in G_\la } z^*\left(  g\overline a\right) z\in A_0\left(\sY_{\la} \right)$.
-	\item 	 Proof of \eqref{blowing_spec_a_eps_imp2_eqn}. From $f_\eps\left(z^*\left(  g\overline a\right) z   \right)\le z^*\left(  g\overline a\right) z$ it follows that $\sum_{g\in G^0_\la } f_\eps\left(z^*\left(  g\overline a\right) z   \right)\le a_\la$ for any finite subset $G^0_\la\subset G_\la$ so from the Lemma  \ref{increasing_convergent_w_lem} it turns out that the series \\$\sum_{g\in G_\la } f_\eps\left(z^*\left(  g\overline a\right) z   \right)$ is strongly convergent in $B\left(\widehat\H_a\right)$. Moreover one has
+	\item 	 Proof of \eqref{blowing_spec_a_eps_imp2_eqn}. From $f_\eps\left(z^*\left(  g\overline a\right) z   \right)\le z^*\left(  g\overline a\right) z$ it follows that $\sum_{g\in G^0_\la } f_\eps\left(z^*\left(  g\overline a\right) z   \right)\le a_\la$ for any finite subset $G^0_\la\subset G_\la$ so from the Lemma \ref{increasing_convergent_w_lem} it turns out that the series $\sum_{g\in G_\la } f_\eps\left(z^*\left(  g\overline a\right) z   \right)$ is strongly convergent in $B\left(\widehat\H_a\right)$. Moreover one has
 	\be\label{blowing_a0_eqn}
 	\left\| \sum_{g\in G_\la } f_\eps\left(z^*\left(  g\overline a\right) z   \right)\right\| \le \left\| a_{\la_0}\right\|.
 	\ee 
 	From the Lemma \ref{blowing_ycomp_lem} it follows that for all 
-	For all  $\delta> 0$ there is $y \in A_0\left(\sY_{\la_0} \right)^{\sim}$ such that $\left\| w-z\right\|< \delta$   and an open subset $\overline\sU^w\subset \overline\sX$ with compact closure such that  
+ $\delta> 0$ there is $w \in A_0\left(\sY_{\la_0} \right)^{\sim}$ such that $\left\| w-z\right\|< \delta$   and an open subset $\overline\sU^w\subset \overline\sX$ with compact closure such that  
 	\bean
 	w^*\overline a w \in A_0\left(\overline\sY\right)_{\overline \sU^w}.
 	\eean
@@ -10151,96 +10154,96 @@ Let $\la_0 \in \La$, $\eps > 0$ and  $z \in A_0\left(\sY_{\la_0} \right)^{\sim}$
 	\be\label{blowing_dp_eqn}
 	\begin{split}
 		\left\| w-z\right\|< \delta \quad\Rightarrow\quad \left\| w^*\overline a w -  z^*\overline a z\right\|<\delta',\\
-		\left\| w-z\right\|< \delta \quad\Rightarrow\quad\left\| y^*\desc_{\overline p_{\la}}\left( \overline a\right)y -  z^*\desc_{\overline p_{\la}}\left( \overline a\right) z\right\|< \delta'.
+		\left\| w-z\right\|< \delta \quad\Rightarrow\quad\left\| w^*\desc_{\overline p_{\la}}\left( \overline a\right)w -  z^*\desc_{\overline p_{\la}}\left( \overline a\right) z\right\|< \delta'.
 	\end{split}
 	\ee
 	If $\widehat \H_a^\perp$ is given by
 	$$
-	\widehat \H_a^\perp \bydef \left\{\left.\xi\in \widehat \H_a\right| \left( y^*\desc_{\overline p_{\la_0}}\left( \overline a\right)y\right) \xi=0 \right\}\subset \widehat \H_a,
+	\widehat \H_a^\perp \bydef \left\{\left.\xi\in \widehat \H_a\right| \left(w^*\desc_{\overline p_{\la_0}}\left( \overline a\right)w\right) \xi=0 \right\}\subset \widehat \H_a,
 	$$
-	and $p^\perp_y: \widehat \H_a \to \widehat \H_a^\perp$ is the natural projection and $p_y \bydef\left( 1- p^\perp_y\right) $ then there is the following matrix representation
+	and $p^\perp_w: \widehat \H_a \to \widehat \H_a^\perp$ is the natural projection and $p_w \bydef\left( 1- p^\perp_w\right) $ then there is the following matrix representation
 	\bean
 	z^*\desc_{\overline p_{\la}}\left( \overline a\right) z= 
 	\begin{pmatrix}
-		p_yz^*\desc_{\overline p_{\la}}\left( \overline a\right) zp_y & p_yz^*\desc_{\overline p_{\la}}\left( \overline a\right) zp_y^\perp\\
-		p_y^\perp z^*\desc_{\overline p_{\la}}\left( \overline a\right) zp_y & p_y^\perp z^*\desc_{\overline p_{\la}}\left( \overline a\right) z p_y^\perp
+		p_wz^*\desc_{\overline p_{\la}}\left( \overline a\right) zp_w & p_wz^*\desc_{\overline p_{\la}}\left( \overline a\right) zp_w^\perp\\
+		p_w^\perp z^*\desc_{\overline p_{\la}}\left( \overline a\right) zp_w & p_w^\perp z^*\desc_{\overline p_{\la}}\left( \overline a\right) z p_w^\perp
 	\end{pmatrix},\\
-	y^*\desc_{\overline p_{\la}}\left( \overline a\right) y= 
+	w^*\desc_{\overline p_{\la}}\left( \overline a\right) w= 
 	\begin{pmatrix}
-		p_y y^*\desc_{\overline p_{\la}}\left( \overline a\right) yp_y & 0\\
+		p_w w^*\desc_{\overline p_{\la}}\left( \overline a\right) wp_w & 0\\
 		0 & 0
 	\end{pmatrix},\\
-	z^*\overline a  z= \begin{pmatrix}p_y z^*\overline a  z p_y & p_y z^* \overline a zp_y^\perp\\
-		p_y^\perp z^* \overline a zp_y & p_y^\perp z^* \overline a zp_y^\perp
+	z^*\overline a  z= \begin{pmatrix}p_w z^*\overline a  z p_w & p_w z^* \overline a zp_w^\perp\\
+		p_w^\perp z^* \overline a zp_w & p_w^\perp z^* \overline a zp_w^\perp
 	\end{pmatrix},\\
 	w^*\overline a  w= 
 	\begin{pmatrix}
-		p_y w^*\overline a  w p_y & 0\\
+		p_w w^*\overline a  w p_w & 0\\
 		0 & 0
-	\end{pmatrix},
+	\end{pmatrix}.
 	\eean 
-	hence from the inequality \eqref{blowing_dp_eqn} it turns out that 	$\left\| p_y^\perp z^*\overline a zp_y^\perp\right\|<\delta'$ and
-	$\left\| p_y^\perp  z^*\desc_{\overline p_{\la}}\left( \overline a\right) zp_y^\perp\right\|< \delta'$.  Taking into account that
+	hence from the inequality \eqref{blowing_dp_eqn} it turns out that 	$\left\| p_w^\perp z^*\overline a zp_w^\perp\right\|<\delta'$ and
+	$\left\| p_w^\perp  z^*\desc_{\overline p_{\la}}\left( \overline a\right) zp_w^\perp\right\|< \delta'$.  Taking into account that
 	\bean
-	p_y^\perp f_\eps\left( z^*\overline a z\right) p_y^\perp\le p_y^\perp z^*\overline a zp_y^\perp
+	p_w^\perp f_\eps\left( z^*\overline a z\right) p_w^\perp\le p_w^\perp z^*\overline a zp_w^\perp
 	\\
-	p_y^\perp f_\eps\left( 	z^*\desc_{\overline p_{\la}}\left( \overline a\right) z\right) p_y^\perp\le p_y^\perp  z^*\desc_{\overline p_{\la}}\left( \overline a\right) zp_y^\perp
+	p_w^\perp f_\eps\left( 	z^*\desc_{\overline p_{\la}}\left( \overline a\right) z\right) p_w^\perp\le p_w^\perp  z^*\desc_{\overline p_{\la}}\left( \overline a\right) zp_w^\perp
 	\eean 
 	\be\label{blowing_dpp_eqn}
 	\begin{split}
-		\left\| p_y^\perp f_\eps\left( z^*\overline a z\right)p_y^\perp\right\|<\delta',\\
-		\left\| p_y^\perp  f_\eps\left( 	z^*\desc_{\overline p_{\la}}\left( \overline a\right) z\right)p_y^\perp\right\|< \delta'.
+		\left\| p_w^\perp f_\eps\left( z^*\overline a z\right)p_w^\perp\right\|<\delta',\\
+		\left\| p_w^\perp  f_\eps\left( 	z^*\desc_{\overline p_{\la}}\left( \overline a\right) z\right)p_w^\perp\right\|< \delta'.
 	\end{split}
 	\ee
 	From the above inequalities and the Lemma \ref{positive_ineq_lem} it follows that
 	\be\label{blowing_pos_eqn}
 	\begin{split}
-		\left\| f_\eps\left( z^*\overline a z\right)-\begin{pmatrix}p_y f_\eps\left( z^*\overline a z\right) p_y & 0\\
+		\left\| f_\eps\left( z^*\overline a z\right)-\begin{pmatrix}p_w f_\eps\left( z^*\overline a z\right) p_w & 0\\
 			0 & 0
 		\end{pmatrix}\right\|<\\
 		< \delta' + 2\sqrt{\delta'\left\| z\right\|^2\left\|\overline a \right\|},\\
-		\left\| f_\eps\left( z^*\desc_{\overline p_{\la}}\left( \overline a\right) z\right)-\begin{pmatrix}p_y f_\eps\left( z^*\desc_{\overline p_{\la}}\left( \overline a\right) z\right) p_y & 0\\
+		\left\| f_\eps\left( z^*\desc_{\overline p_{\la}}\left( \overline a\right) z\right)-\begin{pmatrix}p_w f_\eps\left( z^*\desc_{\overline p_{\la}}\left( \overline a\right) z\right) p_w & 0\\
 			0 & 0
 		\end{pmatrix}\right\|<\\
 		< \delta' + 2\sqrt{\delta'\left\| z\right\|^2\left\|\overline a \right\|}.
 	\end{split}
 	\ee
-	From the Corollary \ref{top_comp_la_cor} it follows that there is $\mu \bydef \la_{\overline{   \mathcal U }^y}$ and a continuous map $f_\mu: \sY_\mu \to [0,1]$ such that $f_\mu \left(\overline p_\mu\left( \overline{   \mathcal U }^y\right)  \right) = \{1\}$ and $g\supp f_\mu\cap \supp f_\mu=\emptyset$ for all nontrivial $g\in G\left( \left.{{\sY}}_\mu~\right|\sY\right)$. Otherwise $f_\mu$ is a multiplier of $A_0\left(\sY_{\la} \right)$ for any $\la\ge\mu$ such that $f_\la p_y = p_y f_\la = p_y$.
+	From the Corollary \ref{top_comp_la_cor} it follows that there is $\mu \bydef \la_{\overline{   \mathcal U }^w}$ and a continuous map $f_\mu: \sY_\mu \to [0,1]$ such that $f_\mu \left(\overline p_\mu\left( \overline{   \mathcal U }^w\right)  \right) = \{1\}$ and $g\supp f_\mu\cap \supp f_\mu=\emptyset$ for all nontrivial $g\in G\left( \left.{{\sY}}_\mu~\right|\sY\right)$. Otherwise $f_\mu$ is a multiplier of $A_0\left(\sY_{\la} \right)$ for any $\la\ge\mu$ such that $f_\la p_w = p_w f_\la = p_w$.
 	It follows that 
 	\be\label{blowing_fm_eqn}
 	\begin{split}
-		p_yf_\eps\left( z^*\overline a z\right) p_y= p_yf_\mu f_\eps\left(z^*  \overline a z\right) f_\mu p_y,\\
-		p_yf_\eps\left( z^*\desc_{\overline p_{\la}}\left( \overline a\right) z\right) p_y= p_yf_\mu f_\eps\left( z^*\desc_{\overline p_{\la}}\left( \overline a\right) z\right) f_\mu p_y,\\
+		p_wf_\eps\left( z^*\overline a z\right) p_w= p_wf_\mu f_\eps\left(z^*  \overline a z\right) f_\mu p_w,\\
+		p_wf_\eps\left( z^*\desc_{\overline p_{\la}}\left( \overline a\right) z\right) p_w= p_wf_\mu f_\eps\left( z^*\desc_{\overline p_{\la}}\left( \overline a\right) z\right) f_\mu p_w,\\
 	\end{split}
 	\ee
 	so one has
 	\bean
 	f_\mu f_\eps\left( z^*\overline a  z\right)f_\mu
-	=\begin{pmatrix}p_y f_\eps\left( z^*\overline a  z\right) p_y & p_y f_\mu f_\eps\left( z^*\overline a  z\right)f_\mu p_y^\perp\\
-		p_y^\perp f_\mu f_\eps\left( z^*\overline a  z\right)f_\mu p_y & p_y^\perp f_\mu f_\eps\left( z^*\overline a  z\right)f_\mu p_y^\perp
+	=\begin{pmatrix}p_w f_\eps\left( z^*\overline a  z\right) p_w & p_w f_\mu f_\eps\left( z^*\overline a  z\right)f_\mu p_w^\perp\\
+		p_w^\perp f_\mu f_\eps\left( z^*\overline a  z\right)f_\mu p_w & p_w^\perp f_\mu f_\eps\left( z^*\overline a  z\right)f_\mu p_w^\perp
 	\end{pmatrix},\\
 	f_\mu f_\eps\left( z^*\desc_{\overline p_{\la}}\left( \overline a\right) z\right)f_\mu = \\
 	=
 	\begin{pmatrix}
-		p_yf_\eps\left( z^*\desc_{\overline p_{\la}}\left( \overline a\right) z\right)p_y & p_y f_\mu f_\eps\left( z^*\desc_{\overline p_{\la}}\left( \overline a\right) z\right) f_\mu p_y^\perp\\
-		p_y^\perp f_\mu  f_\eps\left( z^*\desc_{\overline p_{\la}}\left( \overline a\right) z\right)f_\mu p_y & p_y^\perp f_\mu  f_\eps\left( z^*\desc_{\overline p_{\la}}\left( \overline a\right) z\right) f_\mu p_y^\perp
+		p_wf_\eps\left( z^*\desc_{\overline p_{\la}}\left( \overline a\right) z\right)p_w & p_w f_\mu f_\eps\left( z^*\desc_{\overline p_{\la}}\left( \overline a\right) z\right) f_\mu p_w^\perp\\
+		p_w^\perp f_\mu  f_\eps\left( z^*\desc_{\overline p_{\la}}\left( \overline a\right) z\right)f_\mu p_w & p_w^\perp f_\mu  f_\eps\left( z^*\desc_{\overline p_{\la}}\left( \overline a\right) z\right) f_\mu p_w^\perp
 	\end{pmatrix},\\
 	\eean
 	From $f_\mu \le 1$ and \eqref{blowing_dpp_eqn} it turns out that 
 	\be\label{blowing_dppf_eqn}
 	\begin{split}
-		\left\| p_y^\perp f_\mu f_\eps\left( z^*\overline a z\right)  f_\mu p_y^\perp\right\|<\delta',\\
-		\left\| p_y^\perp  f_\mu f_\eps\left( z^*\desc_{\overline p_{\la}}\left( \overline a\right) z\right) f_\mu p_y^\perp\right\|< \delta'.
+		\left\| p_w^\perp f_\mu f_\eps\left( z^*\overline a z\right)  f_\mu p_w^\perp\right\|<\delta',\\
+		\left\| p_w^\perp  f_\mu f_\eps\left( z^*\desc_{\overline p_{\la}}\left( \overline a\right) z\right) f_\mu p_w^\perp\right\|< \delta'.
 	\end{split}
 	\ee
 	On the other hand from $\left\| f_\eps\left( z^*\overline a z\right)  z\right\|\le \left\| z^*\overline a  z\right\| \le \left\| z\right\|^2\left\|\overline a \right\|$,\\  $\left\| f_\eps\left( z^*\desc_{\overline p_{\la}}\left( \overline a\right) z\right)  z\right\|\le\left\| z^*\desc_{\overline p_{\la}}\left( \overline a\right)  z\right\| \le \left\| z\right\|^2\left\|\overline a \right\|$, inequalities \eqref{blowing_dpp_eqn} and the Lemma \ref{positive_ineq_lem} it turns out that
 	\be\label{blowing_posm_eqn}
 	\begin{split}
-		\left\|f_\mu  f_\eps\left( z^*\overline a z\right)f_\mu -\begin{pmatrix}p_yf_\mu  f_\eps\left( z^*\overline a z\right)f_\mu  p_y & 0\\
+		\left\|f_\mu  f_\eps\left( z^*\overline a z\right)f_\mu -\begin{pmatrix}p_wf_\mu  f_\eps\left( z^*\overline a z\right)f_\mu  p_w & 0\\
 			0 & 0
 		\end{pmatrix}\right\|
 		< \delta' + 2\sqrt{\delta'\left\| z\right\|^2\left\|\overline a \right\|},\\
-		\left\| f_\mu f_\eps\left( z^*\desc_{\overline p_{\la}}\left( \overline a\right) z\right)f_\mu -\begin{pmatrix}p_yf_\mu  f_\eps\left( z^*\desc_{\overline p_{\la}}\left( \overline a\right) z\right)f_\mu  p_y & 0\\
+		\left\| f_\mu f_\eps\left( z^*\desc_{\overline p_{\la}}\left( \overline a\right) z\right)f_\mu -\begin{pmatrix}p_wf_\mu  f_\eps\left( z^*\desc_{\overline p_{\la}}\left( \overline a\right) z\right)f_\mu  p_w & 0\\
 			0 & 0
 		\end{pmatrix}\right\|<\\
 		< \delta' + 2\sqrt{\delta'\left\| z\right\|^2\left\|\overline a \right\|}.
@@ -10256,8 +10259,8 @@ Let $\la_0 \in \La$, $\eps > 0$ and  $z \in A_0\left(\sY_{\la_0} \right)^{\sim}$
 	$\delta \left( \delta + 2\left\| z\right\|\right) \left\| \overline a\right\|< \delta' $. From  the above description it follows that 
 	\be\label{blowing_a1_eqn}
 	\begin{split}
-		\left\| z - y\right\|<\delta \quad\Rightarrow\quad\left\| f_\eps\left( z^*\overline a z\right)-f_\mu  f_\eps\left( z^*\overline a z\right)f_\mu\right\|< \eps',\\
-		\left\| z - y\right\|<\delta \quad\Rightarrow\quad\left\|  f_\eps\left( z^*\desc_{\overline p_{\la}}\left( \overline a\right)z\right) -f_\mu f_\eps\left( z^*\desc_{\overline p_{\la}}\left( \overline a\right) z\right)f_\mu\right\|
+		\left\| z - w\right\|<\delta \quad\Rightarrow\quad\left\| f_\eps\left( z^*\overline a z\right)-f_\mu  f_\eps\left( z^*\overline a z\right)f_\mu\right\|< \eps',\\
+		\left\| z - w\right\|<\delta \Rightarrow \\\Rightarrow\left\|  f_\eps\left( z^*\desc_{\overline p_{\la}}\left( \overline a\right)z\right) -f_\mu f_\eps\left( z^*\desc_{\overline p_{\la}}\left( \overline a\right) z\right)f_\mu\right\|
 		<\eps'.
 	\end{split}
 	\ee
@@ -10267,7 +10270,7 @@ Let $\la_0 \in \La$, $\eps > 0$ and  $z \in A_0\left(\sY_{\la_0} \right)^{\sim}$
 	\ee
 	On the other hand from the Lemma \ref{blowing_cov_inc_strong_lem} it follows that
 	\bean
-	\forall \la\ge\mu\quad  \sum_{	g \in G_\la}g\left( f_\mu f_\eps\left( z^* \overline az\right)f_\mu\right) 	= \desc_{\widetilde p_\la}\left( f_\mu f_\eps\left( z^* \overline az\right)f_\mu\right) \in A_0\left(\sY_{\la} \right),
+	\forall \la\ge\mu\quad  \sum_{	g \in G_\la}g\left( f_\mu f_\eps\left( z^* \overline az\right)f_\mu\right) 	= \desc_{\widetilde q_\la}\left( f_\mu f_\eps\left( z^* \overline az\right)f_\mu\right) \in A_0\left(\sY_{\la} \right),
 	\eean
 	so from the Lemma \ref{special_element_cut_lem} it turns out that
 	\be\label{blowing_eep_eqn}
@@ -10281,14 +10284,15 @@ Let $\la_0 \in \La$, $\eps > 0$ and  $z \in A_0\left(\sY_{\la_0} \right)^{\sim}$
 	$$
 	\forall \la\ge\la_0\quad \sum_{g \in G_\la}gf_\eps\left( z^* \overline a z\right)\in A_0\left(\sY_{\la} \right).
 	$$
+	From the Lemma \ref{special_element_cut_lem}  one has $\sum_{g \in G_\la}gf_\eps\left( z^* \overline a z\right)\in A_0\left(\sY_{\la} \right)$ for each $\la\in\La$.
 	\item 	 Proof of \eqref{blowing_spec_a_eps_imp3_eqn}.
-	From the Corollary \ref{blowing_spec2_cor} it turns out that for any $\eps > 0$ there is $y \in A_0\left(\sY_{\la} \right)^+$ which satisfies to the equations \eqref{blowing_spec22_eqn} and \eqref{blowing_spec23_eqn}. It is already proven that for any $\la\ge\la_0$
+	From the Corollary \ref{blowing_spec2_cor} it turns out that for any $\eps > 0$ there is $w \in A_0\left(\sY_{\la} \right)^+$ which satisfies to the equations \eqref{blowing_spec22_eqn} and \eqref{blowing_spec23_eqn}. It is already proven that for any $\la\ge\la_0$
 	$$
-	\sum_{g\in G_\la } g\left( w^*\overline a  w\right)= y^*\desc_{\overline p_{\la}}\left(\overline a\right)  w\in  A_0\left(\sY_{\la} \right)
+	\sum_{g\in G_\la } g\left( w^*\overline a  w\right)= w^*\desc_{\overline p_{\la}}\left(\overline a\right)  w\in  A_0\left(\sY_{\la} \right)
 	$$
 	so 
 	$$
-	\left(\sum_{g\in G_\la } g\left( w^*\overline a  w\right)= y^*\desc_{\overline p_{\la}}\left(\overline a\right)  y\right)^2\in  A_0\left(\sY_{\la} \right).
+	\left(\sum_{g\in G_\la } g\left( w^*\overline a  w\right)\right)^2 =\left(  w^*\desc_{\overline p_{\la}}\left(\overline a\right)  w\right)^2\in  A_0\left(\sY_{\la} \right).
 	$$
 	From the equation \eqref{blowing_spec23_eqn} it follows that  
 	$$
@@ -10300,54 +10304,37 @@ Let $\la_0 \in \La$, $\eps > 0$ and  $z \in A_0\left(\sY_{\la_0} \right)^{\sim}$
 	\ee
 	Using the equations \eqref{blowing_spec22_eqn} and \eqref{blowing_2_eqn} one concludes that 
 	$$
-	\forall\eps > 0\quad	\forall\la\ge \la_0\quad  \exists b_\la \in A_0\left(\sY_{\la} \right)\quad 	\left\| \sum_{g\in G_\la } g\left( f_\eps\left( z^*\overline a  z\right)\right)^2 - b_\la\right\|<\eps.
+	\forall\eps > 0\quad	\forall\la\ge \la_0\quad  \exists b_\la \in A_0\left(\sY_{\la} \right)\quad 	\left\| \sum_{g\in G_\la } g\left(  z^*\overline a  z\right)^2 - b_\la\right\|<\eps.
 	$$
-	Hence one has $\sum_{g\in G_\la } g\left( f_\eps\left( z^*\overline a  z\right)\right)^2 \in A_0\left(\sY_{\la} \right)$.
+From the Lemma \ref{special_element_cut_lem}  one has $\sum_{g\in G_\la } g\left(  z^*\overline a  z\right)^2 \in A_0\left(\sY_{\la} \right)$ for each $\la\in\La$.
 \end{enumerate}
-(b) If $\delta > 0$ is such that $\delta \left(\delta + 2  \left\| y - z\right\|\right)\left\|\overline a\right\| < \delta'$ then from $\left\| y - z\right\|<\delta$ it follows that 
+(b) If $\delta > 0$ is such that $\delta \left(\delta + 2  \right)\left\|\overline a\right\| < \delta'$ then from $\left\| w - z\right\|<\delta$ it follows that 
 \be
 \left\| \sum_{g\in G_\la } g\left( z^*\overline a  z\right) - \sum_{g\in G_\la } g\left( w^*\overline a  w\right)\right\| < \delta'
 \ee
-If $\delta'$ is such that $\delta'\left\|\overline a\right\|\left\|\overline z\right\|^2\left(\delta' + 2\left\|\overline a\right\|\left\|\overline z\right\|^2 \right)<\eps/2$ then from  $\left\| y - z\right\|<\delta$ it follows that
+If $\delta'$ is such that $\delta'\left\|\overline a\right\|\left\|\overline z\right\|^2\left(\delta' + 2\left\|\overline a\right\|\left\|\overline z\right\|^2 \right)<\eps/2$ then from  $\left\| w - z\right\|<\delta$ it follows that
 \be\label{blowing_e21_eqn}
 \left\| \left( \sum_{g\in G_\la } g\left( z^*\overline a  z\right)\right)^2  - \left( \sum_{g\in G_\la } g\left( w^*\overline a  w\right)\right)^2 \right\| < \frac{\eps}{2}.
 \ee 
-Otherwise from the Corollary \ref{blowing_spec2_cor} there is $w\in A_0\left(\sY_{\la_0} \right)$ such that $\left\| y - z\right\|< \min\left(\eps/2, \delta \right)$ such that  
+Otherwise from the Corollary \ref{blowing_spec2_cor} there is $w\in A_0\left(\sY_{\la_0} \right)$ such that $\left\| w - z\right\|< \min\left(\eps/2, \delta \right)$ such that  
 \be\label{blowing_e22_eqn}
 \left\| \sum_{g\in G_\la } g\left( z^*\overline a  z\right)^2 - \sum_{g\in G_\la } g\left( w^*\overline a  w\right)^2\right\| < \frac{\eps}{2}
 \ee
-From the equations \eqref{blowing_e21_eqn}, \eqref{blowing_e22_eqn} and taking into account \eqref{blowing_spec22_eqn} it follows that
+From the equations \eqref{blowing_e21_eqn}, \eqref{blowing_e22_eqn} and taking into account \eqref{blowing_spec22_eqn}, \eqref{blowing_spec23_eqn} it follows that
 \be\label{blowing_e23_eqn}
 \exists\mu\ge \la_0\quad		\la \ge \mu\quad \Rightarrow 	\left\| \left( \sum_{g\in G_\la } g\left( z^*\overline a  z\right)\right)^2  - \sum_{g\in G_\la } g\left( z^*\overline a z\right)^2\right\|<\eps
 \ee
 The equation \eqref{blowing_e23_eqn} is version of \eqref{special_set_eqn}.
 \end{proof}
-
 \begin{cor}\label{blowing_c0_inc_cor}
-Consider the situation of the Lemma \ref{blowing_spec_lem}	
-Let
+Consider the situation of the Lemma \ref{blowing_spec_lem}, and let $\overline A \in B\left( \widehat \H_a\right)$ be the disconnected algebraical inverse noncommutative limit 	(cf. Definition \ref{main_defn_full_defn}) of the given by 
+\eqref{blowing_base_point_eqn}
+{pointed algebraical  finite covering category} $\mathfrak{S}_{A}$ (cf. Definition (ref. \ref{comp_pt_defn}). If $\overline \sY$ is the disconnected inverse limit \ref{top_topological_inv_lim_defn} 	of a  given by \eqref{blowing_top_eqn} {pointed topological finite covering category} 
+\ref{main_defn_full_defn}) then there is the natural inclusion
 $$
-\mathfrak{S}_{A}\bydef\left\{ \pi_{\la}= A_0\left(p_\la \right)  :A  \hookto A_0\left( \mathcal{Y}_\la\right) \right\}_{\la \in \La}
+\pi_A\left( A_0\left(\overline \sY\right)\right) \subset \overline A.
 $$
-be given by \eqref{blowing_cat_eqn}
-be  {pointed finite foliation category} (cf. Definition (ref. \ref{comp_pt_defn}), and let $\overline \sY$ be the disconnected inverse limit \ref{top_topological_inv_lim_defn} 	of a  {pointed topological finite covering category} 
-\bean
-\mathfrak{S}_{\left( \sY, x_0\right) }\bydef\\
-\bydef \left\{\left\{p_\la:\left( \sY_\la, y^\la_0\right) \to \left( \sY, x_0\right)\right\}_{\la\in\La}, \left\{p^\mu_{ \nu}:\left( \sY_\mu, y^\mu_0\right) \to \left( \sX_\nu, y^\nu_0\right)\right\}_{\substack{\mu,\nu\in\La\\
-		\mu\ge\nu}} \right\}
-\in \mathfrak{FinTop}^{\text{pt}},
-\eean
-(cf. Definition \ref{top_sec_p_defn}) and $\overline p: \overline \sY \to \sY$ be the natural covering. Let $A_0\left(\overline \sY \right)$ is given by the equation \eqref{blowing_a0_x_eqn}. 
-If 
-\be
-\begin{split}
-	\mathfrak{S}_{\left( A, x_0\right)}	\bydef	\left\{\left\{A_0\left( p_\la\right) : A\hookto A_0\left( \sY_\la\right) \right\}, \left\{A_0\left(p^\mu_\nu\right) :  A_0\left( \sY_\nu\right) \hookto  A_0\left( \sY_\mu\right)\right\}\right\}
-\end{split}
-\ee
-is  a pointed algebraical  finite covering category  (cf. Definition (ref. \ref{comp_pt_defn}) given by the Lemma \ref{blowing_base_point_lem} and $\overline A\in B\left(\H_a\right)$ is its disconnected algebraical infinite noncommutative covering  (cf. Definition \ref{main_defn_full_defn}) then there is the natural inclusion
-$$
-A_0\left(\overline \sY\right)\subset \overline A.
-$$
+where $\pi_A$ is given by \eqref{blowing_ha_eqn}.
 \end{cor}
 
 
@@ -10576,7 +10563,7 @@ The spectrum of $C^*$-algebra  $b\left( \Omega C\left(\sX\right)\right)$ is natu
 If $\sY$ is the spectrum of $b\left( \Omega C\left(\sX\right)\right)$ then any for any $y \in \sY$ there is one dimensional representation
 \bean
 \rep^{\mathrm{ab}}_y : b\left( \Omega^{\mathrm{ab}} C\left(\sX\right)\right)\to \C,\\ 
-a + \left[b\left( \Omega C\left(\sX\right)\right),b\left( \Omega C\left(\sX\right)\right)\right]\mapsto\\\mapsto \rep_y\left(a \right) +  \left[\rep_y\left( b\left( \Omega C\left(\sX\right)\right)\right) ,\rep_y\left( b\left( \Omega C\left(\sX\right)\right)\right)\right]\in\\\in \rep_y\left( b\left( \Omega C\left(\sX\right)\right)\right)/\left[\rep_y\left( b\left( \Omega C\left(\sX\right)\right)\right) ,\rep_y\left( b\left( \Omega C\left(\sX\right)\right)\right)\right].
+a + \left[b\left( \Omega C\left(\sX\right)\right),b\left( \Omega C\left(\sX\right)\right)\right]\mapsto\\\mapsto \rep_x\left(a \right) +  \left[\rep_x\left( b\left( \Omega C\left(\sX\right)\right)\right) ,\rep_x\left( b\left( \Omega C\left(\sX\right)\right)\right)\right]\in\\\in \rep_x\left( b\left( \Omega C\left(\sX\right)\right)\right)/\left[\rep_y\left( b\left( \Omega C\left(\sX\right)\right)\right) ,\rep_y\left( b\left( \Omega C\left(\sX\right)\right)\right)\right].
 \eean
 
 \end{proof}

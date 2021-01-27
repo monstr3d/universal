@@ -328,12 +328,19 @@ namespace Scada.Desktop
             dataConsumer = desktop.GetObject<IDataConsumer>(consumerName);
             collection = dataConsumer.CreateCollection(StaticExtensionEventInterfaces.Realtime);
             collection.ForAll((Event.Interfaces.IEvent ev) =>
-                {
-                    string s = (ev as IAssociatedObject).GetRootName();
-                    events.Add(s);
-                    dEvents[s] = new EventWrapper(ev);
-                }
+            {
+                string s = (ev as IAssociatedObject).GetRootName();
+                events.Add(s);
+                dEvents[s] = new EventWrapper(ev);
+            }
             );
+
+         /*  FOR LATER EVENTS WITH ARGUMENTS collection.ForAll((Event.Interfaces.IEventOutput ev) =>
+            {
+                string s = (ev as IAssociatedObject).GetRootName();
+                events.Add(s);
+               
+              );*/
             collection.ForAll((IEventHandler eventHandler) =>
             {
                 IEnumerable<Event.Interfaces.IEvent> evs = eventHandler.Events;

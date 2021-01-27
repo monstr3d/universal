@@ -53,7 +53,6 @@ namespace Scada.Interfaces
             get;
         }
 
-
         /// <summary>
         /// Events
         /// </summary>
@@ -62,60 +61,77 @@ namespace Scada.Interfaces
             get;
         }
 
-        /// <summary>
-        /// All objects with types
-        /// </summary>
-        Dictionary<string, List<string>> Objects
-        {
-            get;
-        }
+        /*  FOR LATER EVENTS WITH ARGUMENTS 
+         *  /// <summary>
+          /// Events with outputs
+          /// </summary>
+          List<string> EventOutputs
+          {
+              get;
+          }
+        */
 
-        /// <summary>
-        /// Gets input
-        /// </summary>
-        /// <param name="name">Input name</param>
-        /// <returns>Input</returns>
-        Action<object> GetInput(string name);
+          /// <summary>
+          /// All objects with types
+          /// </summary>
+          Dictionary<string, List<string>> Objects
+          {
+              get;
+          }
 
-        /// <summary>
-        /// Gets inputs
-        /// </summary>
-        /// <param name="names">Input names</param>
-        /// <returns>Input names</returns>
-        Action<object[]> GetInput(string[] names);
+          /// <summary>
+          /// Gets input
+          /// </summary>
+          /// <param name="name">Input name</param>
+          /// <returns>Input</returns>
+          Action<object> GetInput(string name);
 
-        /// <summary>
-        /// Gets constant
-        /// </summary>
-        /// <param name="name">Constant</param>
-        /// <returns>Constant</returns>
-        Action<object> GetConstant(string name);
+          /// <summary>
+          /// Gets inputs
+          /// </summary>
+          /// <param name="names">Input names</param>
+          /// <returns>Input names</returns>
+          Action<object[]> GetInput(string[] names);
+
+          /// <summary>
+          /// Gets constant
+          /// </summary>
+          /// <param name="name">Constant</param>
+          /// <returns>Constant</returns>
+          Action<object> GetConstant(string name);
 
 
-        /// <summary>
-        /// Gets output
-        /// </summary>
-        /// <param name="name">Name</param>
-        /// <returns>Output</returns>
-        Func<object> GetOutput(string name);
+          /// <summary>
+          /// Gets output
+          /// </summary>
+          /// <param name="name">Name</param>
+          /// <returns>Output</returns>
+          Func<object> GetOutput(string name);
 
-        /// <summary>
-        /// Gets outputs
-        /// </summary>
-        /// <param name="names">Names</param>
-        /// <returns>Outputs</returns>
-        Func<object[]> GetOutput(string[] names);
+          /// <summary>
+          /// Gets outputs
+          /// </summary>
+          /// <param name="names">Names</param>
+          /// <returns>Outputs</returns>
+          Func<object[]> GetOutput(string[] names);
 
-        /// <summary>
-        /// Gets event
-        /// </summary>
-        /// <param name="name">Event name</param>
-        /// <returns>The event</returns>
-        IEvent this[string name]
-        {
-            get;
-        }
-
+          /// <summary>
+          /// Gets event
+          /// </summary>
+          /// <param name="name">Event name</param>
+          /// <returns>The event</returns>
+          IEvent this[string name]
+          {
+              get;
+          }
+       /*  FOR LATER EVENTS WITH ARGUMENTS 
+          /// <summary>
+          /// Gets event output
+          /// </summary>
+          /// <param name="name"></param>
+          /// <returns></returns>
+          IEventOutput GetEvent(string name);
+       */
         /// <summary>
         /// Gets object of type 
         /// </summary>
