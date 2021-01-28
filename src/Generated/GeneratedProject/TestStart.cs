@@ -22,7 +22,7 @@ namespace GeneratedProject
 
         static TestStart()
         {
-            string fileName = @"F:\0Unity\Motion\Assets\RigidBodyStation.cs";
+            string fileName = @"F:\0Unity\Motion\Assets\Scripts\GeneratedProject\RigidBodyStation.cs";
             StaticExtensionDiagramUI.OnCreateCode += (List<string> l) =>
                 {
                     if (File.Exists(fileName))
