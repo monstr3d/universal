@@ -10043,21 +10043,21 @@ From the \ref{increasing_convergent_w_lem} it follows that the series in the equ
 \bean
 \left(z + \Delta\right)^*\left( \sum_{g\in G_\la } \left(  g\overline a  \right)   \left(z + \Delta\right) \left(z + \Delta\right)^* \left(  g\overline a  \right)\right)  \left(z + \Delta\right)=\\
 =
-z^*\left( \sum_{g\in G_\la } \left(  g\overline a  \right)   \left(z + \Delta\right) \left(z + \Delta\right)^* \left(  g\overline a  \right)\right)  z +\\
+z^*\left( \sum_{g\in G_\la } \left(  g\overline a  \right)   \left(z + \Delta\right) \left(z + \Delta\right)^* \left(  g\overline a  \right)\right)  \left(z + \Delta\right) +\\
 +
-\pi_a \left(\Delta\right)^*\left( \sum_{g\in G_\la } \left(  g\overline a  \right)   \left(z + \Delta\right) \left(z + \Delta\right)^* \left(  g\overline a  \right)\right)  \left(z + \Delta\right)^*.
+\Delta^*\left( \sum_{g\in G_\la } \left(  g\overline a  \right)   \left(z + \Delta\right) \left(z + \Delta\right)^* \left(  g\overline a  \right)\right)  \left(z + \Delta\right).
 \eean
 and the equation \eqref{blowing_zz_eqn} it follows that 
 \bean
 \left\| 
-\pi_a \left(\Delta\right)^*\left( \sum_{g\in G_\la } \left(  g\overline a  \right)   \left(z + \Delta\right) \left(z + \Delta\right)^* \left(  g\overline a  \right)\right)  \left(z + \Delta\right)^*\right\|\le\\ \le\delta\left(  \left\| z\right\|+\delta\right)^3 \left\| \overline a\right\|^2
+\Delta^*\left( \sum_{g\in G_\la } \left(  g\overline a  \right)   \left(z + \Delta\right) \left(z + \Delta\right)^* \left(  g\overline a  \right)\right)  \left(z + \Delta\right)^*\right\|\le\\ \le\delta\left(  \left\| z\right\|+\delta\right)^3 \left\| \overline a\right\|^2.
 \eean
 Similarly one has
 \bean
 \left\| 
-z^*\left( \sum_{g\in G_\la } \left(  g\overline a  \right)   \left(z + \Delta\right) \left(z + \Delta\right)^* \left(  g\overline a  \right)\right)  \Delta ^*\right\|\le\\ \le\delta\left(  \left\| z\right\|+\delta\right)^2 \left\| z\right\|\left\| \overline a\right\|^2,
+z^*\left( \sum_{g\in G_\la } \left(  g\overline a  \right)   \left(z + \Delta\right) \left(z + \Delta\right)^* \left(  g\overline a  \right)\right)  \Delta\right\|\le\\ \le\delta\left(  \left\| z\right\|+\delta\right)^2 \left\| z\right\|\left\| \overline a\right\|^2.
 \eean
-it turns out that
+On the other hand one has
 $$
 \left\|\left(z + \Delta\right) \left(z + \Delta\right)^*- z z^*\right\|< \delta^2+ 2\delta \left\| z\right\|
 $$
@@ -10142,7 +10142,7 @@ Let $\la_0 \in \La$, $\eps > 0$ and  $z \in A_0\left(\sY_{\la_0} \right)^{\sim}$
 	\item 	 Proof of \eqref{blowing_spec_a_eps_imp1_eqn}. One has $\sum_{g\in G_\la } z^*\left(  g\overline a\right) z= z^*\left( \sum_{g\in G_\la } g\overline a\right) z$. From the Lemma \ref{blowing_cov_inc_strong_lem} it turns out that there is the strong limit $\sum_{g\in G_\la } g\overline a= \desc_{\overline p_{\la}}\left( \overline a\right)\in  A_0\left(\sY_{\la} \right)$, so one has $\sum_{g\in G_\la } z^*\left(  g\overline a\right) z\in A_0\left(\sY_{\la} \right)$.
 	\item 	 Proof of \eqref{blowing_spec_a_eps_imp2_eqn}. From $f_\eps\left(z^*\left(  g\overline a\right) z   \right)\le z^*\left(  g\overline a\right) z$ it follows that $\sum_{g\in G^0_\la } f_\eps\left(z^*\left(  g\overline a\right) z   \right)\le a_\la$ for any finite subset $G^0_\la\subset G_\la$ so from the Lemma \ref{increasing_convergent_w_lem} it turns out that the series $\sum_{g\in G_\la } f_\eps\left(z^*\left(  g\overline a\right) z   \right)$ is strongly convergent in $B\left(\widehat\H_a\right)$. Moreover one has
 	\be\label{blowing_a0_eqn}
-	\left\| \sum_{g\in G_\la } f_\eps\left(z^*\left(  g\overline a\right) z   \right)\right\| \le \left\| a_{\la_0}\right\|.
+	\left\| \sum_{g\in G_\la } f_\eps\left(z^*\left(  g\overline a\right) z   \right)\right\| \le \left\| \sum_{g\in G_{\la_0} } z^*\left(  g\overline a\right) z   \right\|.
 	\ee 
 	From the Lemma \ref{blowing_ycomp_lem} it follows that for all 
  $\delta> 0$ there is $w \in A_0\left(\sY_{\la_0} \right)^{\sim}$ such that $\left\| w-z\right\|< \delta$   and an open subset $\overline\sU^w\subset \overline\sX$ with compact closure such that  
@@ -10157,11 +10157,17 @@ Let $\la_0 \in \La$, $\eps > 0$ and  $z \in A_0\left(\sY_{\la_0} \right)^{\sim}$
 		\left\| w-z\right\|< \delta \quad\Rightarrow\quad\left\| w^*\desc_{\overline p_{\la}}\left( \overline a\right)w -  z^*\desc_{\overline p_{\la}}\left( \overline a\right) z\right\|< \delta'.
 	\end{split}
 	\ee
-	If $\widehat \H_a^\perp$ is given by
-	$$
-	\widehat \H_a^\perp \bydef \left\{\left.\xi\in \widehat \H_a\right| \left(w^*\desc_{\overline p_{\la_0}}\left( \overline a\right)w\right) \xi=0 \right\}\subset \widehat \H_a,
-	$$
-	and $p^\perp_w: \widehat \H_a \to \widehat \H_a^\perp$ is the natural projection and $p_w \bydef\left( 1- p^\perp_w\right) $ then there is the following matrix representation
+	From the given by \eqref{blowing_ha_eqn} inclusion $A_0\left(\overline\sY\right)\subset  B\left(\widehat \H_a\right)$ and $C_0\left(\overline \sU^w\right)\subset M\left( A_0\left(\overline\sY\right)\right)$ it turns out that there is an inclusion $C_0\left(\overline \sU^w\right)\subset  B\left(\widehat\H_a\right)$. If $\left\{\overline u_\a \in C_0\left(\overline \sU^w\right)\subset B\left(\widehat\H_a\right) \right\}_{\a \in \mathscr A}$ is a net such that
+	\bean
+\forall \a \in \mathscr A\quad 	\overline u_\a\left(\overline \sU^w \right) \subset [0,1],\\
+	\forall \bt, \ga \in \mathscr A\quad \bt \ge \ga \Leftrightarrow \quad \overline u_\bt \ge \overline u_\ga.
+	\eean
+then from the Lemma  \ref{increasing_convergent_w_lem} it turns out that there is the limit
+$$
+p_w \bydef \lim_{\a \in \mathscr A} u_\a \in B\left(\widehat\H_a\right)
+$$
+with respect to the strong topology of $B\left(\widehat\H_a\right)$.
+If  $p^\perp_w\bydef 1- p_w$ then both $p_w$ and $p^\perp_w$ are mutually projectors such that $1_{B\left(\widehat\H_a\right)}= p_w + p^\perp_w$. This decomposition  yields a following matrix representation of operators 
 	\bean
 	z^*\desc_{\overline p_{\la}}\left( \overline a\right) z= 
 	\begin{pmatrix}
@@ -10189,6 +10195,7 @@ Let $\la_0 \in \La$, $\eps > 0$ and  $z \in A_0\left(\sY_{\la_0} \right)^{\sim}$
 	\\
 	p_w^\perp f_\eps\left( 	z^*\desc_{\overline p_{\la}}\left( \overline a\right) z\right) p_w^\perp\le p_w^\perp  z^*\desc_{\overline p_{\la}}\left( \overline a\right) zp_w^\perp
 	\eean 
+	one has
 	\be\label{blowing_dpp_eqn}
 	\begin{split}
 		\left\| p_w^\perp f_\eps\left( z^*\overline a z\right)p_w^\perp\right\|<\delta',\\
@@ -10208,7 +10215,7 @@ Let $\la_0 \in \La$, $\eps > 0$ and  $z \in A_0\left(\sY_{\la_0} \right)^{\sim}$
 		< \delta' + 2\sqrt{\delta'\left\| z\right\|^2\left\|\overline a \right\|}.
 	\end{split}
 	\ee
-	From the Corollary \ref{top_comp_la_cor} it follows that there is $\mu \bydef \la_{\overline{   \mathcal U }^w}$ and a continuous map $f_\mu: \sY_\mu \to [0,1]$ such that $f_\mu \left(\overline p_\mu\left( \overline{   \mathcal U }^w\right)  \right) = \{1\}$ and $g\supp f_\mu\cap \supp f_\mu=\emptyset$ for all nontrivial $g\in G\left( \left.{{\sY}}_\mu~\right|\sY\right)$. Otherwise $f_\mu$ is a multiplier of $A_0\left(\sY_{\la} \right)$ for any $\la\ge\mu$ such that $f_\la p_w = p_w f_\la = p_w$.
+	From the Corollary \ref{top_comp_la_cor} it follows that there is $\mu \bydef \la_{\overline{   \mathcal U }^w}$ and a continuous map $f_\mu: \sY_\mu \to [0,1]$ such that $f_\mu \left(\overline p_\mu\left( \overline{   \mathcal U }^w\right)  \right) = \{1\}$ and $g\supp f_\mu\cap \supp f_\mu=\emptyset$ for all nontrivial $g\in G\left( \left.{{\sY}}_\mu~\right|\sY\right)$. Otherwise $f_\mu$ is a multiplier of $A_0\left(\sY_{\mu} \right)$  such that $f_\mu p_w = p_w f_\mu = p_w$.
 	It follows that 
 	\be\label{blowing_fm_eqn}
 	\begin{split}
@@ -10345,7 +10352,7 @@ The $C^*$-algebra $A_0\left(\overline \sY\right)$ is generated by special elemen
 \chapter{Towards noncommutative homotopy theory}\label{h_gr_chap}
 \section{Prototype}
 \paragraph{}
-Let us construct noncommutative generalization of homotopy groups $\pi_n$ ($n \ge 0)$). It is well known that If $\sX=\coprod_{\iota \in I} \sX_{\iota}$ is disjoint union of connected components then $\pi_0(\sX)\simeq \bigcup_{\iota \in I} \{\sX_{\iota}\}$ and $C(X)\simeq \oplus_{\iota} C(\sX_{\iota})$.
+Let us construct noncommutative generalization of homotopy groups $\pi_n$ ($n \ge 0)$). It is well known that If $\sX=\coprod_{\iota \in I} \sX_{\iota}$ is disjoint union of connected components then $\pi_0(\sX)\simeq \bigcup_{\iota \in I} \{\sX_{\iota}\}$ and $C(\sX)\simeq \oplus_{\iota} C(\sX_{\iota})$.
 This fact provides evident generalization, i.e if $A = \oplus_{\iota \in I} A_{\iota}$ and $A_{\iota}$ is not a direct sum of algebras $\forall \iota \in I$ then 
 \begin{equation}\label{p_0_defn}
 \pi_0(A)\simeq \bigcup_{\iota \in I} \{A_{\iota}\} = \bigcup \mathrm{Hom}^0_{\mathbb{C}}(\mathbb{C}, A)
