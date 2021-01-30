@@ -1529,81 +1529,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2629c7e206fe62e45b1686b8b90c69c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  desktop: RigidBodyStation
-  aliases:
-  - Aim 1.Z=-0.1
-  - Fuel rate.a=-0.1
-  - Fuel rate.b=-0.1
-  - Fuel rate.c=-0.1
-  - Fuel rate.d=-0.1
-  - Fuel rate.f=-0.1
-  - Fuel rate.g=-0.1
-  parameters:
-  - Rigid Body.OMGx
-  - Rigid Body.OMGy
-  - Rigid Body.OMGz
-  - Relative to station.Distance
-  - Relative to station.Velocity
-  - Station motion.Formula_13
-  - Station frame.OMz
-  - Station frame.OMy
-  - Station frame.OMz
-  texts:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 197983251}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  formats:
-  - 0.00
-  - 0.00
-  - 0.00
-  - 0.00
-  - 0.00
-  - 0.0
-  - 0.00
-  - 0.00
-  - 0.00
-  scales:
-  - -60
-  - -60
-  - 60
-  - 100
-  - -100
-  - 1
-  - -60
-  - -60
-  - 60
-  inputs:
-  - ForcesMomentumsUpdate
-  - UpdateIndicators
-  - UpdateIndicators
-  inputConstants:
-  - 0.001
-  - 0.00015
-  - 0.0001
-  - 0.0002
-  - 0.001
-  - 0.001
-  - 1
-  inputComponents:
-  - {fileID: 534669905}
-  - {fileID: 1847481333}
-  - {fileID: 79009178}
-  generalizedParamerers: []
-  generalizedUpdates: []
-  indicators:
-  - {fileID: 454913478}
-  isEnabled: 1
-  constants:
-  - -1
-  - -15
-  - 0
-  - 0
 --- !u!114 &79009180
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1616,7 +1541,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d602968d26738d74587286804913893c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  desktop: 
+  desktop: RigidBodyStation
   aliases:
   - Aim 1.Z=-0.1
   - Fuel rate.a=-0.1
@@ -1634,16 +1559,27 @@ MonoBehaviour:
   - ForcesMomentumsUpdate
   - 'Updatendicators '
   - 'Updatendicators '
-  inputConstants: []
+  inputConstants:
+  - 0.001
+  - 0.00015
+  - 0.0001
+  - 0.0002
+  - 0.001
+  - 0.001
+  - 1
   inputComponents:
-  - {fileID: 534669905}
-  - {fileID: 454913478}
-  - {fileID: 0}
+  - {fileID: 144955751}
+  - {fileID: 1789947916}
+  - {fileID: 238814569}
   generalizedParamerers: []
   generalizedUpdates: []
   indicators: []
   isEnabled: 1
-  constants: []
+  constants:
+  - -1
+  - -15
+  - 0
+  - 0
 --- !u!222 &79009181
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7492,7 +7428,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7f94ead86729d424fadf99d42daef451, type: 2}
+  - {fileID: 2100000, guid: ad327dcd7ce6f144c9d1a9d485d65d62, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -7553,20 +7489,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47b19ad0287f24d4b8bbe7734e834232, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  desktop: 
+  desktop: RigidBodyStation
   step: 0
   starts: []
   inputs: []
   outputs: []
   updates: []
-  constants: []
+  constants:
+  - Station frame.Z=3.5
+  - Station frame.Y=0.5
+  - Station frame.X=1
+  - Station frame.Vx=0
+  - Station frame.Vy=0
+  - Station frame.Vz=0.0
+  - Station frame.Roll=0.0
+  - Station frame.Pitch=0.0
+  - Station frame.Yaw=0.0
+  - Station frame.OMGx=0.0
+  - Station frame.OMGy=0.0
+  - Station frame.OMGz=0.0
   onTriggerEnter: 
   onCollisionEnter: 
   collisionConstants: []
   collisionIndicator: {fileID: 0}
   isEnabled: 1
   transformations: []
-  transformation: 
+  transformation: Station frame
   frames: []
   jumpX: 1
   jumpY: 1
@@ -9093,12 +9041,14 @@ MonoBehaviour:
   level: -1
   strings:
   - r
-  constants: []
+  constants:
+  - 2
+  - 0.0002
   components:
   - {fileID: 534669906}
   - {fileID: 79009180}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 454913479}
+  - {fileID: 1608813476}
   enabledComponents: []
   disabledComponents: []
   textures: []
@@ -9140,27 +9090,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 534669902}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af7b2df9f5b818744b06c9b00f1300cb, type: 3}
+  m_Script: {fileID: 11500000, guid: d39e675b68cc5664982afe6327b6d39a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activation: KeyActivation
-  delay: 1
-  level: -1
-  strings:
-  - r
-  constants:
-  - 2
-  - 0.0002
-  components:
-  - {fileID: 1608813476}
-  - {fileID: 79009179}
-  - {fileID: 534669906}
-  - {fileID: 454913479}
-  enabledComponents: []
-  disabledComponents: []
-  textures:
-  - {fileID: 2800000, guid: 53225046adedd0e4193658f237896528, type: 3}
-  - {fileID: 2800000, guid: 69612f8f5aa4b85458a00a17f7bb5e30, type: 3}
 --- !u!114 &534669911
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25283,22 +25215,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 1608813471}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 23151d268075c894994cc2bb54361148, type: 3}
+  m_Script: {fileID: 11500000, guid: 47b19ad0287f24d4b8bbe7734e834232, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  desktop: EarthMotion
+  desktop: 
   step: 0
   starts: []
   inputs: []
   outputs: []
   updates:
-  - TestUpdate
-  constants:
   - Motion.a=35
   - Motion.p=0.001
   - Motion.b=1.5
   - Motion.c=1.8
   - Motion.q=0.001
+  constants: []
   onTriggerEnter: 
   onCollisionEnter: 
   collisionConstants: []
