@@ -9109,9 +9109,8 @@ The algebraic construction can be applied if $\sX/G$ is not Hausdorff.  The map 
 
 
 \begin{definition}\label{blowing_defn}
-Any  commutative $C^*$-subalgebra $C\cong C_0\left( \sY\right) \subset M\left(A \right)$ is said to be  a \textit{Hausdorff blowing-up} of $A$  if for any irreducible representation $\rep_x: A \to B\left( \H\right)$ the space $\rep_x\left( C\right) \H$ is dense in $\H$. 
+Any  commutative $C^*$-subalgebra $C\cong C_0\left( \sY\right) \subset M\left(A \right)$ is said to be  a \textit{Hausdorff blowing-up} of $A$.% if for any irreducible representation $\rep_x: A \to B\left( \H\right)$ the space $\rep_x\left( C\right) \H$ is dense in $\H$. 
 \end{definition}
-
 
 \begin{empt}\label{blowing_empt}
 If $\sX$ is the spectrum of $A$ then	for any $y\in \sY$ there is 
@@ -9133,24 +9132,52 @@ where a map $s_\sY$ is surjective.
 
 \begin{empt}
 Let  $C\left( \sY\right)\hookto M\left( A\right) $ be a blowing-up of $A$. If for any open subset $\sU \subset \sY$ we put
-\be\label{blowig_su_eqn}
-A_\sU \bydef C^*\text{-norm completion of } C_0\left(\sU \right) A  C_0\left(\sU \right)
+\be\label{blowig_su|_eqn}
+A|_\sU \bydef C^*\text{-norm completion of } C_0\left(\sU \right) A  C_0\left(\sU \right)
 \ee
 then one has
-\be\label{blowig_sue_eqn}
+\be\label{blowig_sue|_eqn}
 \begin{split}
 \sU'\cap \sU'' =\emptyset\Rightarrow\left(  C_0\left(\sU' \right) A  C_0\left(\sU'' \right)\right)\left(  C_0\left(\sU'' \right)
-A  C_0\left(\sU \right)\right) = \{0\} \Rightarrow \\ A_{\sU'}A_{\sU''}= \{0\}.
+A  C_0\left(\sU \right)\right) = \{0\} \Rightarrow \\ A|_{\sU'}A|_{\sU''}= \{0\}.
 \end{split}
 \ee
 \end{empt}
 
-\begin{definition}\label{blowing_good_defn}
-A Hausdorff blowing-up	$C\cong C_0\left( \sY\right) \subset M\left(A \right)$ is said to be \textit{good} if for any family of open sets $\left\{\sU_\a\subset \sX\right\}$ such that $\sX = \cup \ \sU_\a$ a union $\cup A_{\sU_\a}$ generates $C^*$-algebra $A$.
+\begin{definition}\label{blowing_flat_defn}
+	We say that  {Hausdorff blowing-up} $C_0\left( \sY\right) \subset M\left(A \right)$  of $A$ is \textit{flat} of for any irreducible representation $\pi: A \to B\left(\H\right)$ a commutative $C^*$-algebra $\pi\left(C_0\left( \sY\right)  \right)$ corresponds to a connected topological space (cf. Theorem \ref{gelfand-naimark}).
 \end{definition}
-\begin{remark}\label{blowing_good_rem}
-Let both $\left\{\sU_\a\subset \sX\right\}$  and $\left\{\sU_\bt\subset \sX\right\}$ be families  of open sets such that  $\sX = \cup~\sU_\bt$ and for any $\bt$ there is $\a$ such that $\sU_\bt \subset \sU_\a$. If a union $\cup A_{\sU_\bt}$ generates $C^*$-algebra $A$ then  $\cup A_{\sU_\a}$ also generates  $A$. 
+
+
+\begin{definition}\label{blowing_suflat_defn}
+Suppose that there are $C^*$-subalgebras $A'\subset A|_\sU$ such that
+\begin{enumerate}
+	\item[(a)] A Hausdorff blowing-up	$C_0\left( \sY\right) \subset M\left(A|_{\sU} \right)$ naturally induces A Hausdorff blowing-up	$C_0\left( \sY\right) \subset M\left(A' \right)$ of $A'$ which is flat.
+	\item[(b)] There is the unique maximal $C^*$-algebra among subalgebras which satisfy to the condition (a).
+\end{enumerate}
+The maximal maximal $C^*$-algebra among subalgebras which satisfy to the condition (a) is said to be $\sU$-flat $C^*$-algebra, we denote it by
+\be\label{blowig_su_eqn}
+A_\sU \subset A|_\sU.
+\ee
+\end{definition}
+\begin{remark}
+	From \eqref{blowig_sue|_eqn} and \eqref{blowig_su_eqn} it follows that \be\label{blowig_sue_eqn}
+	\begin{split}
+		\sU'\cap \sU'' =\emptyset\quad \Rightarrow \quad A_{\sU'}A_{\sU''}= \{0\}.
+	\end{split}
+	\ee
+	
 \end{remark}
+\begin{definition}\label{blowing_good_defn}
+A Hausdorff blowing-up	$C\cong C_0\left( \sY\right) \subset M\left(A \right)$ is said to be \textit{good} if for any family of open sets $\left\{\sU_\bt\subset \sX\right\}_{\bt\in \mathscr B}$ such that $\sY = \cup \ \sU_\bt$ there is a family  of connected open sets $\left\{\sU_\a\subset \sX\right\}_{\a\in \mathscr A}$ such that:
+\begin{itemize}
+	\item [(a)] $\sY = \cup \ \sU_\a$,
+	\item [(b)] $\forall\a\in \mathscr A\quad \exists\bt\in \mathscr B \quad \sU_\a \subset \sU_\bt$.
+		\item [(c)] For any $\a\in \mathscr A$ there is $\sU$-flat $C^*$-algebra $A_{\sU_\a}\subset A$.
+\item[(d)]	A union  $\cup_{\a\in \mathscr A} A_{\sU_\a}$  generates  $C^*$-algebra $A$. 
+\end{itemize}
+\end{definition}
+
 \begin{empt}\label{blowing_strict_empt}
 	Suppose that $\left\{u_\la\right\}_{\la\in\La}$ is an approximate unit of $C_0\left( \sU\right)$ and let $a \in A_\sU$. For all $a \in A_\sU$  there is $a' \in A$ and $f \in C_0\left( \sU\right) $ such that $\left\|a - fa' \right\|\le \frac{\eps}{3}$. On the other hand there is $\la_0 \in \La$  such that $\left\|f - u_\la f \right\| < \frac{\eps}{3\left\|a' \right\|}$. It follows that
 	$$
