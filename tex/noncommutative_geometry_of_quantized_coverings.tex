@@ -9048,7 +9048,6 @@ Follows from the construction \ref{top_reg_triple_empt} which is a specializatio
 \begin{remark}
 	The Theorem \ref{comm_inf_sp_tr_thm} is a noncommutative analog of the Proposition \ref{comm_cov_mani_prop}.
 \end{remark}
-
 \chapter{Hausdorff blowing-up and coverings}\label{blowing_chap}
 \paragraph*{}
 If the spectrum of  $C^*$-algebra $A$ is Hausdorff then $A$ possess  a family of good properties. For example noncommutative coverings of $C^*$-algebras with Hausdorff spectra correspond to coverings of their spectra. Sometimes the spectrum of $C^*$-algebra can by replaced by its Hausdorff blowing-up and some results concerning $C^*$-algebras with  Hausdorff spectrum can be applied to $C^*$-algebras with Hausdorff blowing-up. We prove that noncommutative coverings of $C^*$-algebras correspond to coverings of Hausdorff blowing-up. The results of this chapter are used in both $C^*$-algebras with continuous trace (Hausdorff spectrum) and algebras of foliations   (non - Hausdorff spectrum). 
@@ -9109,8 +9108,9 @@ The algebraic construction can be applied if $\sX/G$ is not Hausdorff.  The map 
 
 
 \begin{definition}\label{blowing_defn}
-Any  commutative $C^*$-subalgebra $C\cong C_0\left( \sY\right) \subset M\left(A \right)$ is said to be  a \textit{Hausdorff blowing-up} of $A$.% if for any irreducible representation $\rep_x: A \to B\left( \H\right)$ the space $\rep_x\left( C\right) \H$ is dense in $\H$. 
+Any  commutative $C^*$-subalgebra $C\cong C_0\left( \sY\right) \subset M\left(A \right)$ is said to be  a \textit{Hausdorff blowing-up} of $A$  if for any irreducible representation $\rep_x: A \to B\left( \H\right)$ the space $\rep_x\left( C\right) \H$ is dense in $\H$. 
 \end{definition}
+
 
 \begin{empt}\label{blowing_empt}
 If $\sX$ is the spectrum of $A$ then	for any $y\in \sY$ there is 
@@ -9132,63 +9132,35 @@ where a map $s_\sY$ is surjective.
 
 \begin{empt}
 Let  $C\left( \sY\right)\hookto M\left( A\right) $ be a blowing-up of $A$. If for any open subset $\sU \subset \sY$ we put
-\be\label{blowig_su|_eqn}
-A|_\sU \bydef C^*\text{-norm completion of } C_0\left(\sU \right) A  C_0\left(\sU \right)
+\be\label{blowig_su_eqn}
+A_\sU \bydef C^*\text{-norm completion of } C_0\left(\sU \right) A  C_0\left(\sU \right)
 \ee
 then one has
-\be\label{blowig_sue|_eqn}
+\be\label{blowig_sue_eqn}
 \begin{split}
-\sU'\cap \sU'' =\emptyset\Rightarrow\left(  C_0\left(\sU' \right) A  C_0\left(\sU'' \right)\right)\left(  C_0\left(\sU'' \right)
-A  C_0\left(\sU \right)\right) = \{0\} \Rightarrow \\ A|_{\sU'}A|_{\sU''}= \{0\}.
+	\sU'\cap \sU'' =\emptyset\Rightarrow\left(  C_0\left(\sU' \right) A  C_0\left(\sU'' \right)\right)\left(  C_0\left(\sU'' \right)
+	A  C_0\left(\sU \right)\right) = \{0\} \Rightarrow \\ A_{\sU'}A_{\sU''}= \{0\}.
 \end{split}
 \ee
 \end{empt}
 
-\begin{definition}\label{blowing_flat_defn}
-	We say that  {Hausdorff blowing-up} $C_0\left( \sY\right) \subset M\left(A \right)$  of $A$ is \textit{flat} of for any irreducible representation $\pi: A \to B\left(\H\right)$ a commutative $C^*$-algebra $\pi\left(C_0\left( \sY\right)  \right)$ corresponds to a connected topological space (cf. Theorem \ref{gelfand-naimark}).
-\end{definition}
-
-
-\begin{definition}\label{blowing_suflat_defn}
-Suppose that there are $C^*$-subalgebras $A'\subset A|_\sU$ such that
-\begin{enumerate}
-	\item[(a)] A Hausdorff blowing-up	$C_0\left( \sY\right) \subset M\left(A|_{\sU} \right)$ naturally induces A Hausdorff blowing-up	$C_0\left( \sY\right) \subset M\left(A' \right)$ of $A'$ which is flat.
-	\item[(b)] There is the unique maximal $C^*$-algebra among subalgebras which satisfy to the condition (a).
-\end{enumerate}
-The maximal maximal $C^*$-algebra among subalgebras which satisfy to the condition (a) is said to be $\sU$-flat $C^*$-algebra, we denote it by
-\be\label{blowig_su_eqn}
-A_\sU \subset A|_\sU.
-\ee
-\end{definition}
-\begin{remark}
-	From \eqref{blowig_sue|_eqn} and \eqref{blowig_su_eqn} it follows that \be\label{blowig_sue_eqn}
-	\begin{split}
-		\sU'\cap \sU'' =\emptyset\quad \Rightarrow \quad A_{\sU'}A_{\sU''}= \{0\}.
-	\end{split}
-	\ee
-	
-\end{remark}
 \begin{definition}\label{blowing_good_defn}
-A Hausdorff blowing-up	$C\cong C_0\left( \sY\right) \subset M\left(A \right)$ is said to be \textit{good} if for any family of open sets $\left\{\sU_\bt\subset \sX\right\}_{\bt\in \mathscr B}$ such that $\sY = \cup \ \sU_\bt$ there is a family  of connected open sets $\left\{\sU_\a\subset \sX\right\}_{\a\in \mathscr A}$ such that:
-\begin{itemize}
-	\item [(a)] $\sY = \cup \ \sU_\a$,
-	\item [(b)] $\forall\a\in \mathscr A\quad \exists\bt\in \mathscr B \quad \sU_\a \subset \sU_\bt$.
-		\item [(c)] For any $\a\in \mathscr A$ there is $\sU$-flat $C^*$-algebra $A_{\sU_\a}\subset A$.
-\item[(d)]	A union  $\cup_{\a\in \mathscr A} A_{\sU_\a}$  generates  $C^*$-algebra $A$. 
-\end{itemize}
+A Hausdorff blowing-up	$C\cong C_0\left( \sY\right) \subset M\left(A \right)$ is said to be \textit{good} if for any family of open sets $\left\{\sU_\a\subset \sX\right\}$ such that $\sX = \cup \ \sU_\a$ a union $\cup A_{\sU_\a}$ generates $C^*$-algebra $A$.
 \end{definition}
-
+\begin{remark}\label{blowing_good_rem}
+Let both $\left\{\sU_\a\subset \sX\right\}$  and $\left\{\sU_\bt\subset \sX\right\}$ be families  of open sets such that  $\sX = \cup~\sU_\bt$ and for any $\bt$ there is $\a$ such that $\sU_\bt \subset \sU_\a$. If a union $\cup A_{\sU_\bt}$ generates $C^*$-algebra $A$ then  $\cup A_{\sU_\a}$ also generates  $A$. 
+\end{remark}
 \begin{empt}\label{blowing_strict_empt}
-	Suppose that $\left\{u_\la\right\}_{\la\in\La}$ is an approximate unit of $C_0\left( \sU\right)$ and let $a \in A_\sU$. For all $a \in A_\sU$  there is $a' \in A$ and $f \in C_0\left( \sU\right) $ such that $\left\|a - fa' \right\|\le \frac{\eps}{3}$. On the other hand there is $\la_0 \in \La$  such that $\left\|f - u_\la f \right\| < \frac{\eps}{3\left\|a' \right\|}$. It follows that
-	$$
-	\la\ge\la_0\Rightarrow\left\|a - u_\la a \right\|\le  \left\|a - fa'\right\|+ \left\|u_\la \left( a - fa'\right)  \right\|+\left\|a' - u_\la fa'\right\| < \eps.
-	$$
-	Similarly there is $\la'_0\in \La$ such that $\la\ge\la'_0\Rightarrow\left\|a - au_\la  \right\| < \eps$.
-	In result one has the following limit
-	\be\label{blowing_strict_eqn}
-	\bt\text{-}\lim u_\la = 1_{M(A)}
-	\ee
-	with respect to the strict topology of $M\left( A\right)$ (cf. Definition \ref{strict_topology}).
+Suppose that $\left\{u_\la\right\}_{\la\in\La}$ is an approximate unit of $C_0\left( \sU\right)$ and let $a \in A_\sU$. For all $a \in A_\sU$  there is $a' \in A$ and $f \in C_0\left( \sU\right) $ such that $\left\|a - fa' \right\|\le \frac{\eps}{3}$. On the other hand there is $\la_0 \in \La$  such that $\left\|f - u_\la f \right\| < \frac{\eps}{3\left\|a' \right\|}$. It follows that
+$$
+\la\ge\la_0\Rightarrow\left\|a - u_\la a \right\|\le  \left\|a - fa'\right\|+ \left\|u_\la \left( a - fa'\right)  \right\|+\left\|a' - u_\la fa'\right\| < \eps.
+$$
+Similarly there is $\la'_0\in \La$ such that $\la\ge\la'_0\Rightarrow\left\|a - au_\la  \right\| < \eps$.
+In result one has the following limit
+\be\label{blowing_strict_eqn}
+\bt\text{-}\lim u_\la = 1_{M(A)}
+\ee
+with respect to the strict topology of $M\left( A\right)$ (cf. Definition \ref{strict_topology}).
 \end{empt}
 
 \begin{exercise}\label{blowing_exer}
@@ -9288,7 +9260,7 @@ where  $\mathfrak p_1\circ \mathfrak p_2$ is given by \eqref{top_path_comp_eqn},
 \be\label{blowing_atb_eqn}
 a \widetilde b\bydef\left(\mathfrak p', ab\right).
 \ee
- The union $\cup A_{\sU_\a}$ algebraically generates $\A$ one has an action $\A \times \widetilde \B \to \widetilde \B$. Using *-operation one can obtain the right action of $\A$ on $\widetilde \B$ such that $\widetilde \B$ becomes an $\A$-bimodule.	There is a  *-homomorphism $p_{\widetilde\B}: \widetilde\B \to A$ given by $\left( \mathfrak p,a \right)\mapsto a$ and $G\left(\left.\widetilde \sY\right| \sY \right)$-invariant  *-seminorm $\left\|\cdot \right\|_{\widetilde{\B}}$ on $\widetilde \B$ given by
+The union $\cup A_{\sU_\a}$ algebraically generates $\A$ one has an action $\A \times \widetilde \B \to \widetilde \B$. Using *-operation one can obtain the right action of $\A$ on $\widetilde \B$ such that $\widetilde \B$ becomes an $\A$-bimodule.	There is a  *-homomorphism $p_{\widetilde\B}: \widetilde\B \to A$ given by $\left( \mathfrak p,a \right)\mapsto a$ and $G\left(\left.\widetilde \sY\right| \sY \right)$-invariant  *-seminorm $\left\|\cdot \right\|_{\widetilde{\B}}$ on $\widetilde \B$ given by
 \be\label{blowing_norm_eqn}
 \left\|\widetilde b \right\|_{\widetilde{\B}} = \sqrt{\left\|p_{\widetilde{\B}}\left(\widetilde b\widetilde b^*\right)  \right\|}.
 \ee 
@@ -9359,7 +9331,7 @@ We use the following notation
 \ee
 \end{definition}
 \begin{remark}
-	The above definition complies with the Definition \ref{top_lift_desc_defn}.
+The above definition complies with the Definition \ref{top_lift_desc_defn}.
 \end{remark}
 
 \begin{exercise}
@@ -9382,21 +9354,21 @@ an injective *-homomorphism which follows from \eqref{blowing_sump_lift_eqn}.
 
 
 \begin{exercise}
-	Prove following statements:
-	\begin{enumerate}
-		\item 
-		\begin{equation}\label{blowing_lift_desc_l_eqn}
-			\begin{split}
-				\forall a \in A_\sU\quad 			a = \mathfrak{desc}_{p}\left( \mathfrak{lift}^p_{\widetilde{\mathcal U}}\left(a \right)\right) ,\\
-				\forall \widetilde a \in A_0\left(\widetilde\sY  \right)_{\widetilde{\sU}}\quad			\widetilde{a} = \mathfrak{lift}^p_{\widetilde{\mathcal U}}\left( \mathfrak{desc}_{p}\left(\widetilde{a} \right)\right)
-			\end{split}
-		\end{equation}	
-		(cf. Equation \ref{comm_lift_desc_l_eqn}).
-		\item If $\widetilde q:\widetilde{\widetilde\sY}\to \widetilde\sY$ is a transitive finite-fold covering then one has
-		\be\label{blowing_aq_eqn}
-		A_0\left(\widetilde q\circ  q \right)= A\left( \widetilde\sY\right)_0\left(\widetilde q\right)\circ A_0\left( q \right) : A \hookto A_0\left( \widetilde{\widetilde\sY}\right). 
-		\ee
-	\end{enumerate}
+Prove following statements:
+\begin{enumerate}
+	\item 
+	\begin{equation}\label{blowing_lift_desc_l_eqn}
+		\begin{split}
+			\forall a \in A_\sU\quad 			a = \mathfrak{desc}_{p}\left( \mathfrak{lift}^p_{\widetilde{\mathcal U}}\left(a \right)\right) ,\\
+			\forall \widetilde a \in A_0\left(\widetilde\sY  \right)_{\widetilde{\sU}}\quad			\widetilde{a} = \mathfrak{lift}^p_{\widetilde{\mathcal U}}\left( \mathfrak{desc}_{p}\left(\widetilde{a} \right)\right)
+		\end{split}
+	\end{equation}	
+	(cf. Equation \ref{comm_lift_desc_l_eqn}).
+	\item If $\widetilde q:\widetilde{\widetilde\sY}\to \widetilde\sY$ is a transitive finite-fold covering then one has
+	\be\label{blowing_aq_eqn}
+	A_0\left(\widetilde q\circ  q \right)= A\left( \widetilde\sY\right)_0\left(\widetilde q\right)\circ A_0\left( q \right) : A \hookto A_0\left( \widetilde{\widetilde\sY}\right). 
+	\ee
+\end{enumerate}
 \end{exercise}
 
 \subsection{Finite-fold coverings}
@@ -9421,38 +9393,38 @@ then from the action \eqref{blowing_gact_eqn} it turns out that $G\left(\left.\w
 	\bt\text{-}\lim_{\la \in \La} u_\la = 1_{M\left(A \right) }
 	\eean
 	in the strict topology of $M\left(A \right)$.
-\item[(b)] One needs proof that for every $\la\in\La$ a quadruple
-$$
-\left(A_\la, \widetilde{A}_\la, G, \left.\pi\right|_{A_\la} :A_\la\hookto \widetilde{A}_\la\right)	
-$$
-is a noncommutative finite-fold covering with unitization.
-If for each $\la\in \La$ denote by $\sV_\la\bydef \supp u_\la$ and $\widetilde \sV_\la \bydef p^{-1}\left( \sV_\la\right)$, then there are natural inclusions $C\left( \sV_\la\right) \subset M\left(A_\la\right)$ and $C\left( \widetilde\sV_\la\right) \subset M\left(\widetilde A_\la\right)$. If $B$ and $\widetilde B$ are generated by $A_\la \cup C\left( \sV_\la\right)$ and $\widetilde A_\la \cup C\left(\widetilde \sV_\la\right)$ $C^*$-subalgebras of $M\left(A_\la\right)$ and $M\left(\widetilde A_\la\right)$ then the given by the Lemma \ref{ind_mult_inv_lem} inclusion $\phi_\la: M\left(A_\la\right)\hookto M\left(\widetilde A_\la\right)$ is such that $\phi_\la\left(B \right)\subset \widetilde B$, i.e. there is the natural inclusion $\widetilde \pi: B \hookto\widetilde B$. Let us prove that $B$ and $\widetilde B$ satisfy to conditions (a) and (b) of the Definition \ref{fin_comp_defn}.
-\begin{enumerate}
-	\item [(a)]  From $B \subset M\left(A_\la\right)$ and $\widetilde B \subset M\left( \widetilde A_\la\right)$ it follows that both $A_\la \hookto B$  and $\widetilde{A}_\la \hookto \widetilde{B}$ are unitizations.
-	\item[(b)] Since $p$ is a transitive covering the restriction $p|_{\widetilde \sV_\la}: \widetilde \sV_\la \to \sV_\la$ is also transitive covering. hence from  \ref{ctr_unity_empt} it follows that there is a finite sum
-	\be\label{blowing_unity_sum_eqn}
-	1_{C\left(\widetilde{\mathcal Y} \right) }= \sum_{\widetilde\a \in \widetilde{\mathscr A} }\widetilde{e}^2_{\widetilde{\a}}\quad \widetilde{e}_{\widetilde{\a}}\in C\left(\widetilde \sY\right)
-	\ee
-	such that 		for any nontrivial $g\in G\left(\left.\widetilde \sY \right|\sY \right)$	one has
-	\be\label{blowing_unity_orth_eqn}
-	\begin{split}
-		\widetilde{e}_{\widetilde{\a}}	\left(g \widetilde{e}_{\widetilde{\a}} \right) = 0.
-	\end{split}
-	\ee
-	If $\widetilde a \in \widetilde B$ then from \eqref{blowing_unity_sum_eqn} it follows that
-	\be\label{ctr_unity_orthx_eqn}
-	\widetilde a = \sum_{\widetilde\a \in \widetilde{\mathscr A} }\widetilde{e}_{\widetilde{\a}}\left( \widetilde{e}_{\widetilde{\a}}\widetilde a\right) 
-	\ee
-	From \eqref{blowing_unity_orth_eqn} it follows that if $g\in G\left(\left.\widetilde \sY \right|\sY \right)$ is not trivial then 
-	\be\label{blowing_unity_orthxx_eqn}
-	\widetilde{e}_{\widetilde{\a}}\left(g\left(  \widetilde{e}_{\widetilde{\a}}\widetilde a\right) \right) = 		\widetilde{e}_{\widetilde{\a}}	\left(g \widetilde{e}_{\widetilde{\a}} \right) \left(g \widetilde{\a} \right) = 0\cdot \left(g \widetilde{\a} \right) = 0.
-	\ee
-	From the equations \ref{ctr_unity_orthx_eqn} and \ref{ctr_unity_orthx_eqn} it follows that
+	\item[(b)] One needs proof that for every $\la\in\La$ a quadruple
 	$$
-	\widetilde a = \sum_{\widetilde\a \in \widetilde{\mathscr A} }\widetilde{e}_{\widetilde{\a}} a_\a\quad\text{where}\quad a_\a \bydef \sum_{g\in G\left(\left.\widetilde \sY \right|\sY \right)}g\left( \widetilde{e}_{\widetilde{\a}}\widetilde a\right)\in B, 
+	\left(A_\la, \widetilde{A}_\la, G, \left.\pi\right|_{A_\la} :A_\la\hookto \widetilde{A}_\la\right)	
 	$$
-	i.e. $\widetilde B$ is a finitely generated $B$-module. So $\left(B, \widetilde B,G\left(\left.\widetilde \sY \right|\sY \right),  \widetilde\pi\right)$ is an unital noncommutative finite fold covering (cf. Definition \ref{fin_uni_defn}). From $ B \cap \widetilde A_\la=A_\la$ and $G\left(\left.\widetilde \sY \right|\sY \right) \times \widetilde A_\la= \widetilde A_\la$ it follows that\\ $\left( A_\la,\widetilde A_\la, G\left(\left.\widetilde \sY \right|\sY \right) , \widetilde\pi|_{A_\la}  \right)$ is a noncommutative finite-fold covering with unitization.
-\end{enumerate}
+	is a noncommutative finite-fold covering with unitization.
+	If for each $\la\in \La$ denote by $\sV_\la\bydef \supp u_\la$ and $\widetilde \sV_\la \bydef p^{-1}\left( \sV_\la\right)$, then there are natural inclusions $C\left( \sV_\la\right) \subset M\left(A_\la\right)$ and $C\left( \widetilde\sV_\la\right) \subset M\left(\widetilde A_\la\right)$. If $B$ and $\widetilde B$ are generated by $A_\la \cup C\left( \sV_\la\right)$ and $\widetilde A_\la \cup C\left(\widetilde \sV_\la\right)$ $C^*$-subalgebras of $M\left(A_\la\right)$ and $M\left(\widetilde A_\la\right)$ then the given by the Lemma \ref{ind_mult_inv_lem} inclusion $\phi_\la: M\left(A_\la\right)\hookto M\left(\widetilde A_\la\right)$ is such that $\phi_\la\left(B \right)\subset \widetilde B$, i.e. there is the natural inclusion $\widetilde \pi: B \hookto\widetilde B$. Let us prove that $B$ and $\widetilde B$ satisfy to conditions (a) and (b) of the Definition \ref{fin_comp_defn}.
+	\begin{enumerate}
+		\item [(a)]  From $B \subset M\left(A_\la\right)$ and $\widetilde B \subset M\left( \widetilde A_\la\right)$ it follows that both $A_\la \hookto B$  and $\widetilde{A}_\la \hookto \widetilde{B}$ are unitizations.
+		\item[(b)] Since $p$ is a transitive covering the restriction $p|_{\widetilde \sV_\la}: \widetilde \sV_\la \to \sV_\la$ is also transitive covering. hence from  \ref{ctr_unity_empt} it follows that there is a finite sum
+		\be\label{blowing_unity_sum_eqn}
+		1_{C\left(\widetilde{\mathcal Y} \right) }= \sum_{\widetilde\a \in \widetilde{\mathscr A} }\widetilde{e}^2_{\widetilde{\a}}\quad \widetilde{e}_{\widetilde{\a}}\in C\left(\widetilde \sY\right)
+		\ee
+		such that 		for any nontrivial $g\in G\left(\left.\widetilde \sY \right|\sY \right)$	one has
+		\be\label{blowing_unity_orth_eqn}
+		\begin{split}
+			\widetilde{e}_{\widetilde{\a}}	\left(g \widetilde{e}_{\widetilde{\a}} \right) = 0.
+		\end{split}
+		\ee
+		If $\widetilde a \in \widetilde B$ then from \eqref{blowing_unity_sum_eqn} it follows that
+		\be\label{ctr_unity_orthx_eqn}
+		\widetilde a = \sum_{\widetilde\a \in \widetilde{\mathscr A} }\widetilde{e}_{\widetilde{\a}}\left( \widetilde{e}_{\widetilde{\a}}\widetilde a\right) 
+		\ee
+		From \eqref{blowing_unity_orth_eqn} it follows that if $g\in G\left(\left.\widetilde \sY \right|\sY \right)$ is not trivial then 
+		\be\label{blowing_unity_orthxx_eqn}
+		\widetilde{e}_{\widetilde{\a}}\left(g\left(  \widetilde{e}_{\widetilde{\a}}\widetilde a\right) \right) = 		\widetilde{e}_{\widetilde{\a}}	\left(g \widetilde{e}_{\widetilde{\a}} \right) \left(g \widetilde{\a} \right) = 0\cdot \left(g \widetilde{\a} \right) = 0.
+		\ee
+		From the equations \ref{ctr_unity_orthx_eqn} and \ref{ctr_unity_orthx_eqn} it follows that
+		$$
+		\widetilde a = \sum_{\widetilde\a \in \widetilde{\mathscr A} }\widetilde{e}_{\widetilde{\a}} a_\a\quad\text{where}\quad a_\a \bydef \sum_{g\in G\left(\left.\widetilde \sY \right|\sY \right)}g\left( \widetilde{e}_{\widetilde{\a}}\widetilde a\right)\in B, 
+		$$
+		i.e. $\widetilde B$ is a finitely generated $B$-module. So $\left(B, \widetilde B,G\left(\left.\widetilde \sY \right|\sY \right),  \widetilde\pi\right)$ is an unital noncommutative finite fold covering (cf. Definition \ref{fin_uni_defn}). From $ B \cap \widetilde A_\la=A_\la$ and $G\left(\left.\widetilde \sY \right|\sY \right) \times \widetilde A_\la= \widetilde A_\la$ it follows that\\ $\left( A_\la,\widetilde A_\la, G\left(\left.\widetilde \sY \right|\sY \right) , \widetilde\pi|_{A_\la}  \right)$ is a noncommutative finite-fold covering with unitization.
+	\end{enumerate}
 \end{enumerate}
 Thus  $\left(A, A_0\left( \widetilde\sY\right) , G\left(\left. \widetilde\sY\right| \sY\right) , A_0\left( p\right)  \right)$ is a  noncommutative finite-fold   covering, let us prove that it is reduced.\\
 Let $\left\{\sU_\a\subset \sY\right\}_{\a \in \mathscr A}$ be a {compliant with} $p$ family and let $\left\{\widetilde\sU_{\a}\right\}_{\widetilde\a \in \widetilde{\mathscr A}}$ is the $p$-{lift} of $\left\{\sU_\a\right\}_{\a \in \mathscr A}$ (cf. Definition \ref{top_lconn_defn}). From the equations \eqref{blowig_sue_eqn} and \ref{blowing_asu_eqn} it turns out then for all $\widetilde\a \in \widetilde{\mathscr A}$ there is an  injective *-homomorphism 
@@ -9460,8 +9432,8 @@ Let $\left\{\sU_\a\subset \sY\right\}_{\a \in \mathscr A}$ be a {compliant with}
 \left.A_0\left(p\right)\right|_{A_{p\left( \widetilde\sU_{\widetilde\a}\right) }}:A_{p\left( \widetilde\sU_{\widetilde\a}\right)} \hookto \bigoplus_{g\in G\left(\left.\widetilde \sY\right| \sY\right)}g\left.	\widetilde A_0\left(  \widetilde\sY\right)\right._{ \widetilde\sU_{\widetilde\a}}
 \ee
 If  $\widetilde A' \subset A_0\left(\widetilde \sX \right)$ is a hereditary $C^*$-subalgebra  which contains $A_0\left( p\right)\left( A\right)$ then from the Definition \ref{hered_defn} it follows that $A_0\left(  \widetilde\sY\right)_{ \widetilde\sU_{\widetilde\a}}\subset\widetilde A'$ for every 
- $\widetilde\a \in \widetilde{\mathscr A}$. On the other hand the $C^*$-algebra  $A_0\left(\widetilde \sX \right)$ is generated by the union $\bigcup A_0\left(  \widetilde\sY\right)_{ \widetilde\sU_{\widetilde\a}}$, so $\widetilde A' \subset A_0\left(\widetilde \sX \right)$.
- From the Definitions \ref{red_alg_defn} and \ref{fin_red_defn} it turns out that the  noncommutative finite-fold   covering $\left(A, A_0\left( \widetilde\sY\right) , G\left(\left. \widetilde\sY\right| \sY\right) , A_0\left( p\right)  \right)$ is reduced.
+$\widetilde\a \in \widetilde{\mathscr A}$. On the other hand the $C^*$-algebra  $A_0\left(\widetilde \sX \right)$ is generated by the union $\bigcup A_0\left(  \widetilde\sY\right)_{ \widetilde\sU_{\widetilde\a}}$, so $\widetilde A' \subset A_0\left(\widetilde \sX \right)$.
+From the Definitions \ref{red_alg_defn} and \ref{fin_red_defn} it turns out that the  noncommutative finite-fold   covering $\left(A, A_0\left( \widetilde\sY\right) , G\left(\left. \widetilde\sY\right| \sY\right) , A_0\left( p\right)  \right)$ is reduced.
 \end{proof}
 
 \begin{lemma}\label{blowing_lift_d_lem}
@@ -9515,7 +9487,7 @@ C_0\left(\widetilde\sY\right)\hookto M\left(\widetilde A \right)
 
 
 \begin{lemma}\label{blowing_uni_lem}
-	Consider the above situation. If $\sY$ is compact then
+Consider the above situation. If $\sY$ is compact then
 then the map $p$ is a transitive finite-fold covering.
 \end{lemma}
 \begin{proof}
@@ -9549,7 +9521,7 @@ Let $\left(A,\widetilde A, G, \pi \right)$ be a  noncommutative finite-fold   co
 	\item[(iii)]
 	There is the following equivalence
 	\be\label{blowing_cov_eqn}
-A_0\left(\widetilde\sY \right)\cong \widetilde A \quad \Leftrightarrow\quad G\cong G\left( \left. \widetilde \sY\right|\sY\right).
+	A_0\left(\widetilde\sY \right)\cong \widetilde A \quad \Leftrightarrow\quad G\cong G\left( \left. \widetilde \sY\right|\sY\right).
 	\ee
 	\item[(iv)] If  $\left(A,\widetilde A, G, \pi \right)$ is a reduced  noncommutative finite-fold   covering (cf. Definition  \ref{fin_red_defn}) and the Hausdorff blowing-up $C_0\left( \sY\right)\hookto M\left( A\right) $   is semilocally 1-connected (cf. Definition \ref{blowing_semi1_defn})	then one has 
 	\bean
@@ -9592,10 +9564,7 @@ $$
 G' \bydef \left\{g \in G\left| g \widetilde f = \widetilde f \quad \forall \widetilde f \in C_0\left( \widetilde\sY\right)  \right.\right\}
 $$
 then $G'$ is a normal subgroup of $G$. If $ G'' \bydef G/G'$ then there is a nontrivial action $G'' \times \widetilde \sY \to \widetilde \sY$ such that $\sY = \widetilde\sY/G''$. If follows that the covering $q$ is transitive.\\
-(ii) Let $\left\{\sU_\a\subset\sY\right\}_{\a \in \mathscr A}$ is a {compliant with} $q$ family and let $\left\{g \widetilde \sU_\a\right\}_{\left(g, \a\right)\in  G\left(\left.\widetilde{\sY}~\right|\sY\right)\times \mathscr A}$ be the $q$-lift of $\left\{\sU_\a\right\}$ (cf. Definition \ref{top_lconn_defn}).  For all $\left(g, \a\right)\in G\left(\left.\widetilde{\sY}~\right|\sY\right)\times \mathscr A$ there is an injective *-homomorphism 
-\be\label{blowing_incl_eqn}
-l_{g \widetilde{\sU}_{\a}}: A_{\sU_\a} \hookto g \widetilde A_{ \widetilde\sU_\a}.
-\ee 
+(ii) Let $\left\{\sU_\a\subset\sY\right\}_{\a \in \mathscr A}$ be a {compliant with} $q$ family of connected open sets with compact closure and let $\left\{g \widetilde \sU_\a\right\}_{\left(g, \a\right)\in  G\left(\left.\widetilde{\sY}~\right|\sY\right)\times \mathscr A}$ be the $q$-lift of $\left\{\sU_\a\right\}$ (cf. Definition \ref{top_lconn_defn}).  
 If $\widetilde \B$ is an explained in \ref{blowing_b_empt} *-algebra then there is homomorphism of Abelian groups
 \bean
 \varphi_{\widetilde \B}:\widetilde \B \to \widetilde A,\\
@@ -9617,13 +9586,47 @@ is an involutive two sided ideal. The seminorm on $\left\|\cdot \right\|_{	I_{\w
 \ee
 According to the definition \ref{blowing_lift_a_defn} it turns out that $A_0\left(\widetilde \sY \right)$ is the completion of  $\widetilde \A$ in $\End_A\left( \widetilde \H_A\right)$. On the other hand there is inclusion $\widetilde \A\hookto\widetilde A$.
 Taking into account that  $C^*$-norm $\left\|\cdot \right\|_{\widetilde \B/ I_{\widetilde \B}}$ on $\A=\widetilde \B/ I_{\widetilde \B}$ is the restriction of the $C^*$-norm of $\widetilde A$ we conclude that the inclusion $\widetilde \A\hookto\widetilde A$ induces the natural injective *-homomorphism $A_0\left(\widetilde \sY \right)\hookto\widetilde A$.
- The surjective homomorphism $G \to G/G'\cong G\left( \left. \widetilde \sY\right|\sY\right)$ follows from the proof of (i).
+The surjective homomorphism $G \to G/G'\cong G\left( \left. \widetilde \sY\right|\sY\right)$ follows from the proof of (i).
 \\
 (iii)  From  
 $
 \left\{ \left.g \in \Aut\left(A_0\left( \widetilde\sY\right) \right)~\right|~ ga = a;~~\forall a \in A\right\}\cong G\left( \left. \widetilde \sY\right|\sY\right)
 $
-it follows that $A\left(\widetilde\sY \right)\cong \widetilde A \quad \Rightarrow\quad G\cong G\left( \left. \widetilde \sY\right|\sY\right)$.  If  $\widetilde A'$ be a $C^*$-subalgebra of $\widetilde A$ generated by a union $\bigcup_{\left(g,y\right)\in G \times \sY} g \widetilde A_{\widetilde \sU_\a}$ then $\widetilde A'\cong A\left(\widetilde\sY \right)$. If $\widetilde a \in \widetilde A_+$ is positive then $a = \sum_{	g \in G} g \widetilde a \in A_+$ is a positive element. The union $\bigcup_{y\in\sY} A_{\sU_y}$ generates $A$ so from the Lemma  \eqref{essential_lem} it follows that  is $\a \in \mathscr A$ and $b\in A_{\sU_\a}$ such that $ab \neq 0$.
+it follows that $A\left(\widetilde\sY \right)\cong \widetilde A \quad \Rightarrow\quad G\cong G\left( \left. \widetilde \sY\right|\sY\right)$. If  $\widetilde A'$ be a $C^*$-subalgebra of $\widetilde A$ generated by a union $\bigcup_{\left(g,y\right)\in G \times \sY} g \widetilde A_{\widetilde \sU_\a}$ then $\widetilde A'\cong A\left(\widetilde\sY \right)$. So there is the natural inclusion $A\left(\widetilde\sY \right)\hookto \widetilde A$. Let us prove that the inclusion is *-isomorphism.
+\\
+!!! NORM GE 1.
+\\
+If not then there is $\eps > 0$ and a positive $\widetilde a \in \widetilde A_+$ such that
+\be
+\forall \widetilde b A\left(\widetilde\sY \right)_+\quad \left\| \widetilde a- \widetilde b\right\| > \eps.
+\ee
+If  $\widetilde a \in \widetilde A_+$ is a positive element then $a \bydef \frac{1}{\left| G\right| }\sum_{	g \in G}\widetilde a \in a$
+If $\eps > 0$ is given then there is a positive $a' \in A'_+$ such that
+\bean
+a' = \sum_{j = 1}^n a_{j,1}\cdot ... \cdot a_{j,m_j},\\
+\forall j = 1,..., n \quad k = 1,..., m_j\quad \exists \a_{j,k}\mathscr A\quad a_{j,k}\in \sU_{\a_{j,k}},\\
+\left\|a - a' \right\| < \eps
+\eean
+For all The set
+$$
+\mathscr A_0 \bydef \bigcup_{\substack{j=1\\k=1}}^{\substack{n \\ m_j}}\left\{\a_{j,k}\right\}
+$$
+is finite so the closure $\sV$
+
+\begin{defn}\label{top_cfs_defn}
+	Let $\sY\subset\sX$ is a compact subset of a locally compact Hausdorff space $\sX$. The given by the equation \eqref{top_cfs_eqn} sum 
+	is said to be a \textit{covering sum} for $\sY$. We also say that the covering sum \eqref{top_cfs_eqn} is \textit{dominated} by the family 
+	$\left\{\sV_x\right\}_{x\in\sX}$ (cf. equation \ref{top_vx_eqn}).
+\end{defn}
+
+!!! COVERING SUM
+is finite.
+Since an algebra  $C_0\left(\sU_\a\right)A_\a C_0\left(\sU_\a\right)$ is dense in 
+!!!
+\\
+ DELETE AFTER
+\\ 
+If $\widetilde a \in \widetilde A_+$ is positive then $a = \sum_{	g \in G} g \widetilde a \in A_+$ is a positive element. The union $\bigcup_{y\in\sY} A_{\sU_y}$ generates $A$ so from the Lemma  \eqref{essential_lem} it follows that  is $\a \in \mathscr A$ and $b\in A_{\sU_\a}$ such that $ab \neq 0$.
 If $\widetilde b\bydef  l_{\widetilde{\sU}_\a}\left( b\right) $ where is given by \eqref{blowing_incl_eqn} then
 $$
 b =\frac{\left|G\left( \left. \widetilde \sY\right|\sY\right)\right|  }{\left|G\right|  } \sum_{	g \in G} g \widetilde b
@@ -9656,12 +9659,12 @@ On the other hand
 where $\widetilde \sU_y\subset\widetilde\sY$ is an open connected homeomorphically mapped onto  $\sU_y$ set. Comparison of \eqref{blowing_n_eqn} and \eqref{blowing_q_eqn} yields the following
 \be\label{blowing_ay_eqn}
 \begin{split}
-\forall g \in G\quad \forall y\in \sY \quad g \widetilde A_{\widetilde \sU_y}\cong A_{\sU_y},\\
-n = \left| G\left(\left.\widetilde \sY\right|\sY \right)\right|. 
+	\forall g \in G\quad \forall y\in \sY \quad g \widetilde A_{\widetilde \sU_y}\cong A_{\sU_y},\\
+	n = \left| G\left(\left.\widetilde \sY\right|\sY \right)\right|. 
 \end{split}
 \ee
 If  $G'\bydef \ker \left(G \to  G\left( \left. \widetilde \sY\right|\sY\right)\right)$ then 
-  $A_{\sU_y}\cong \left(  g\widetilde A_{\widetilde \sU_y}\right)^{G'}$. Moreover if $G'$ is not trivial one has $A_{\sU_y}\cong\left(  g\widetilde A_{\widetilde \sU_y}\right)^{G'}\subsetneqq g\widetilde A_{\widetilde \sU_y}$, but it contradicts with \eqref{blowing_ay_eqn}. So $G'$ is trivial, $G \cong  G\left( \left. \widetilde \sY\right|\sY\right)$ and from \eqref{blowing_cov_eqn} it turns out that $A\left(\widetilde\sY \right)\cong \widetilde A$.
+$A_{\sU_y}\cong \left(  g\widetilde A_{\widetilde \sU_y}\right)^{G'}$. Moreover if $G'$ is not trivial one has $A_{\sU_y}\cong\left(  g\widetilde A_{\widetilde \sU_y}\right)^{G'}\subsetneqq g\widetilde A_{\widetilde \sU_y}$, but it contradicts with \eqref{blowing_ay_eqn}. So $G'$ is trivial, $G \cong  G\left( \left. \widetilde \sY\right|\sY\right)$ and from \eqref{blowing_cov_eqn} it turns out that $A\left(\widetilde\sY \right)\cong \widetilde A$.
 \end{proof}
 \begin{lemma}\label{blowing_good_lem}
 Let $A$ be a $C^*$-algebra, and let $C_0\left(\sY \right) \to M\left( A\right)$ be a good,  semilocally 1-connected,  Hausdorff blowing-up (cf. Definitions \ref{blowing_defn},\ref{blowing_spectal_defn} \ref{blowing_good_defn}, \ref{blowing_semi1_defn}). For any reduced noncommutative finite-fold covering $\left(A, \widetilde A, G, \pi\right)$ the explained in \ref{blowing_inc_eqn} Hausdorff blowing-up $C_0\left( \widetilde \sY\right) \to M\left(  \widetilde A\right)$ is good and   semilocally 1-connected.
@@ -9752,13 +9755,13 @@ of  $\left(A,  	\widetilde A_0\left(  \widetilde\sY_1\right),{G\left( \left.\wid
 Prove that the natural  surjective homomorphism $\phi: G\left( \left.\widetilde{\sY}_2~\right|\sY\right)\to G\left( \left.\widetilde{\sY}_1~\right|\sY\right)$ does not depend on $\widetilde \sU_1$ and $\widetilde\sU_2$.
 \end{exercise}
 \begin{lemma}\label{blowing_pcomt_lem}
-	In the situation \ref{blowing_pcomt_empt}
-  there is a transitive covering $p^2_1: \widetilde\sY_1 \to \widetilde \sY_2$ such that $\pi = A_0\left( \widetilde\sY_1\right)_0\left(p^2_1 \right)$.
+In the situation \ref{blowing_pcomt_empt}
+there is a transitive covering $p^2_1: \widetilde\sY_1 \to \widetilde \sY_2$ such that $\pi = A_0\left( \widetilde\sY_1\right)_0\left(p^2_1 \right)$.
 \end{lemma}
 
 \begin{proof} 
-		From the Lemma \ref{blowing_covi_lem} one has two  reduced noncommutative finite-fold coverings 	$\left(A,  	\widetilde A_0\left(  \widetilde\sY_1\right),{G\left( \left.\widetilde{\sY}_1~\right|\sY\right)}, A_0\left( p_1\right)  \right)$ and $\left(A,  	\widetilde A_0\left(  \widetilde\sY_2\right),{G\left( \left.\widetilde{\sY}_2~\right|\sY\right)}, A_0\left( p_2\right)  \right)$. From the Lemma \ref{ind_qusai_lem}  there is an  approximate unit of $A_0\left(  \widetilde\sY_2\right)$ contained in $A$. The $A_0\left(p_1 \right)$ image of this  approximate unit  is the same approximate unit of  $A_0\left(  \widetilde\sY_2\right)$. From  the Proposition \ref{mult_str_pos_prop} it turns out that there is the natural inclusion $\varphi: M\left(A_0\left(  \widetilde\sY_1\right)\right)\to M\left(  A_0\left(  \widetilde\sY_2\right)\right)$. Let both If  both $\widetilde \sU_1\subset\widetilde\sY_1$ and $\widetilde\sU_2\subset\widetilde\sY_2$ are open connected sets homemorphically mapped onto $\sU = p_1\left(\widetilde \sU_1\right)= p_1\left(\widetilde \sU_1\right)$.	
- From the equation \eqref{blowing_hereditary_g1_eqn} one can deduce that for all $\widetilde f_1 \in C_0\left( \widetilde \sY_1\right)$ such that $\supp \widetilde \sU_1$ one has
+From the Lemma \ref{blowing_covi_lem} one has two  reduced noncommutative finite-fold coverings 	$\left(A,  	\widetilde A_0\left(  \widetilde\sY_1\right),{G\left( \left.\widetilde{\sY}_1~\right|\sY\right)}, A_0\left( p_1\right)  \right)$ and $\left(A,  	\widetilde A_0\left(  \widetilde\sY_2\right),{G\left( \left.\widetilde{\sY}_2~\right|\sY\right)}, A_0\left( p_2\right)  \right)$. From the Lemma \ref{ind_qusai_lem}  there is an  approximate unit of $A_0\left(  \widetilde\sY_2\right)$ contained in $A$. The $A_0\left(p_1 \right)$ image of this  approximate unit  is the same approximate unit of  $A_0\left(  \widetilde\sY_2\right)$. From  the Proposition \ref{mult_str_pos_prop} it turns out that there is the natural inclusion $\varphi: M\left(A_0\left(  \widetilde\sY_1\right)\right)\to M\left(  A_0\left(  \widetilde\sY_2\right)\right)$. Let both If  both $\widetilde \sU_1\subset\widetilde\sY_1$ and $\widetilde\sU_2\subset\widetilde\sY_2$ are open connected sets homemorphically mapped onto $\sU = p_1\left(\widetilde \sU_1\right)= p_1\left(\widetilde \sU_1\right)$.	
+From the equation \eqref{blowing_hereditary_g1_eqn} one can deduce that for all $\widetilde f_1 \in C_0\left( \widetilde \sY_1\right)$ such that $\supp \widetilde \sU_1$ one has
 $$
 \varphi\left( \widetilde f_1\right) = \sum_{\stackrel{g_2 \in G_2}{\phi\left(g_2 \right)=g_1 }}\lift_{g_2\widetilde\sU_2}\left( \desc_{p_1}\left( \widetilde f_1\right) \right) \in C_0\left( \widetilde\sY_2\right).
 $$
@@ -9788,7 +9791,7 @@ Denote by $\mathfrak{FinCov}$-$A$ a category of reduced noncommutative  finite-f
 	\begin{tikzpicture}
 		\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
 		{
-		\widetilde A'  & & \widetilde A' \\ 
+			\widetilde A'  & & \widetilde A' \\ 
 			& \widetilde A  & \\};
 		\path[-stealth]
 		(m-1-3) edge node [above] {$\pi$} (m-1-1)
@@ -9800,7 +9803,7 @@ Denote by $\mathfrak{FinCov}$-$A$ a category of reduced noncommutative  finite-f
 Following conditions hold:
 \begin{enumerate}
 	\item [(i)] 	If the category $\mathfrak{FinCov}$-$\sY$ is given by the Definition \ref{top_fin_cov_defn} then contravariant functor $A_0:\mathfrak{FinCov}$-$\sX \to \mathfrak{FinCov}$-$A$ yields equivalence (cf. Equation \ref{category_equivalence_definition}) between the  
-		category $\mathfrak{FinCov}$-$A$ and the category $\mathfrak{FinCov}$-$\sY^{\mathrm{op}}$ which is dual to $\mathfrak{FinCov}$-$\sY$ (cf. Definition \ref{dual_cat_defn}).
+	category $\mathfrak{FinCov}$-$A$ and the category $\mathfrak{FinCov}$-$\sY^{\mathrm{op}}$ which is dual to $\mathfrak{FinCov}$-$\sY$ (cf. Definition \ref{dual_cat_defn}).
 	\item[(ii)] Any unordered pair of *-homomorphisms $\left( \pi',\pi''\right) $ from the above diagram is {compliant} (cf. Definition \ref{compliant_covering_defn}).
 \end{enumerate}
 
@@ -9825,7 +9828,7 @@ Let $A$ be a $C^*$-algebra, and let $C_0\left(\sY \right) \to M\left( A\right)$ 
 \be\label{blowing_top_eqn}
 \mathfrak{S}_{\left( \sY, y_0  \right) }=\left\{ p_\la: \left( \sY_\la, y^\la_0\right) \to \left( \sY, y_0\right)\right\}_{\la \in \La}
 \ee
- be a a pointed a topological finite covering category given by the Lemma \ref{top_res_fin_lem}.
+be a a pointed a topological finite covering category given by the Lemma \ref{top_res_fin_lem}.
 \end{empt}
 
 \begin{lemma}\label{blowing_base_point_lem}
@@ -9838,7 +9841,7 @@ then ollowing conditions hold:
 	\end{equation}
 	\item[(ii)] Conversely any pointed algebraical  finite covering category $\mathfrak{S}_{A } $ 
 	naturally induces the given by \eqref{blowing_top_eqn} pointed topological  finite covering category $\mathfrak{S}_{\left( \sY, y_0  \right) }$.
-	 
+	
 \end{enumerate}
 
 \end{lemma}
@@ -9873,31 +9876,31 @@ If $\widehat{A}\stackrel{\text{def}}{=} C^*$-$\varinjlim_{\la \in \La} A_0\left(
 Otherwise if $\overline \sY$ is the  disconnected inverse limit of 	$\mathfrak{S}_{\left(\sY, x_0\right)}$ then there is the natural bijective continuous map $\phi:\overline \sY \to \widehat \sY$. If $s\left( \overline \sY\right) \bydef \phi^{-1} \left(\widehat{ s\left( \sY \right)} \right) \subset \overline \sY$ then there is the surjective map 	$\widehat{ s\left( \sY \right)}\to \widehat\sX$ induces a surjective map
 \be\label{blowing_inf_spectral_eqn}
 s\left( \overline \sY\right)\to \widehat \sX.
- \ee
+\ee
 If $\rep_{  \overline{x }}:A_0\left(\overline \sY \right) \to B\left( \H_{\overline{ x}}\right)$ is irreducible representation then there is an open connected $\overline \sU \subset \overline\sY$ set homeomorphically mapped onto open subset $\sU\subset\sY$ such that $\rep_{  \overline{x }}\left(A_0\left(\overline \sY \right)_{\overline \sU} \right)\neq\{0\}$.  On the other hand $A_0\left(\overline \sY \right)_{\overline \sU}$ is a hereditary subalbebra of $A_0\left(\overline \sY \right)$ so  $\overline x$ can be regarded as a point of the spectrum $\overline\sX_{\overline\sU}$ of $A_0\left(\overline \sY \right)_{\overline \sU}$ (cf. Proposition \ref{hered_spectrum_prop}). 
 However there is a *-isomorphism $A_\sU \cong A_0\left(\overline \sY \right)_{\overline\sU}$ which induces a homeomorphism
- $\overline p_{\overline\sU}:\overline\sX_{   \overline\sU }\xrightarrow{\approx}\sX_{{   \mathcal U }}$ where $\sX_{   \mathcal U }$ is the spectrum of $A_{   \mathcal U }$. So $\overline x$ uniquely defines a point $x \in \sX_{   \mathcal U }$ and taking into account Proposition \ref{hered_spectrum_prop} one can assume that $x \in \sX$. Similarly for all $\la\in \La$ a point $\overline x$ defines $x_\la\in \sX_\la$ such that $\mu > \nu\Rightarrow x_\nu = p^\mu_\nu\left(x_\mu \right)$. A family  $\left\{x_\la\right\}$ yields a point $\widehat x \in \widehat \sX$, so one has a surjective map $\overline{\widehat p}:\overline\sX\to \widehat \sX$.  If $\widehat G \bydef G\left(\left.\sY_\la~\right|\sY \right)$ is an inverse limit of groups then there are natural free actions $\widehat G\times \widehat \sY \to \widehat \sY$ and $\widehat G\times \overline \sY \to \overline \sY$ such that $\overline{\widehat p}\circ \widehat g = \widehat g \circ \overline{\widehat p}$ for every $\widehat g \in \widehat G$. If $\overline x'$ and $\overline x''$ are such that $\overline{\widehat p}\left( \overline x'\right) = \overline{\widehat p}\left( \overline x''\right)$ then $\overline p \circ \overline{\widehat p}\left( \overline x'\right)=\overline p \circ \overline{\widehat p}\left( \overline x''\right)$. It follows that there is $\widehat g \in \widehat G$ such that $\overline x''= \widehat g\overline x'$. If $\widehat g$ is not trivial then $\overline{\widehat p}\left( \overline x''\right)= \widehat g \overline{\widehat p}\left( \overline x'\right)\neq \overline{\widehat p}\left( \overline x''\right)$. From this contradiction it follows that $\widehat g$ is trivial, $\overline x'=\overline x''$ so the map $\overline{\widehat p}$ is  bijective.  
-  From the Propositions \ref{lift_prop} and \ref{state_prop} it turns out that any pure state $\tau_{\overline x}: A_0\left(\overline \sY \right)\to \C$ which  corresponds to $\overline x \in \overline \sX$ can be uniquely extended up to a pure state 
-  $M\left(A_0\left(\overline \sY \right)\right) \to \C$, so there is an irreducible representation $\tau^M_{\overline x}: M\left(A_0\left(\overline \sY \right)\right) \to B\left(\H_{ \overline x} \right)$. 
-  There is an inclusion $\widehat A \to M\left(A_0\left(\overline \sY \right) \right)$, it follows that for all $\overline x \in \overline \sX$ one has
-  $$
-  \rep_{  \overline{x }}\left(\widehat A \right) \subset  \rep_{  \overline{x }}\left(M\left(A_0\left(\overline \sY \right)\right) \right) 
-  $$ 
- 
+$\overline p_{\overline\sU}:\overline\sX_{   \overline\sU }\xrightarrow{\approx}\sX_{{   \mathcal U }}$ where $\sX_{   \mathcal U }$ is the spectrum of $A_{   \mathcal U }$. So $\overline x$ uniquely defines a point $x \in \sX_{   \mathcal U }$ and taking into account Proposition \ref{hered_spectrum_prop} one can assume that $x \in \sX$. Similarly for all $\la\in \La$ a point $\overline x$ defines $x_\la\in \sX_\la$ such that $\mu > \nu\Rightarrow x_\nu = p^\mu_\nu\left(x_\mu \right)$. A family  $\left\{x_\la\right\}$ yields a point $\widehat x \in \widehat \sX$, so one has a surjective map $\overline{\widehat p}:\overline\sX\to \widehat \sX$.  If $\widehat G \bydef G\left(\left.\sY_\la~\right|\sY \right)$ is an inverse limit of groups then there are natural free actions $\widehat G\times \widehat \sY \to \widehat \sY$ and $\widehat G\times \overline \sY \to \overline \sY$ such that $\overline{\widehat p}\circ \widehat g = \widehat g \circ \overline{\widehat p}$ for every $\widehat g \in \widehat G$. If $\overline x'$ and $\overline x''$ are such that $\overline{\widehat p}\left( \overline x'\right) = \overline{\widehat p}\left( \overline x''\right)$ then $\overline p \circ \overline{\widehat p}\left( \overline x'\right)=\overline p \circ \overline{\widehat p}\left( \overline x''\right)$. It follows that there is $\widehat g \in \widehat G$ such that $\overline x''= \widehat g\overline x'$. If $\widehat g$ is not trivial then $\overline{\widehat p}\left( \overline x''\right)= \widehat g \overline{\widehat p}\left( \overline x'\right)\neq \overline{\widehat p}\left( \overline x''\right)$. From this contradiction it follows that $\widehat g$ is trivial, $\overline x'=\overline x''$ so the map $\overline{\widehat p}$ is  bijective.  
+From the Propositions \ref{lift_prop} and \ref{state_prop} it turns out that any pure state $\tau_{\overline x}: A_0\left(\overline \sY \right)\to \C$ which  corresponds to $\overline x \in \overline \sX$ can be uniquely extended up to a pure state 
+$M\left(A_0\left(\overline \sY \right)\right) \to \C$, so there is an irreducible representation $\tau^M_{\overline x}: M\left(A_0\left(\overline \sY \right)\right) \to B\left(\H_{ \overline x} \right)$. 
+There is an inclusion $\widehat A \to M\left(A_0\left(\overline \sY \right) \right)$, it follows that for all $\overline x \in \overline \sX$ one has
+$$
+\rep_{  \overline{x }}\left(\widehat A \right) \subset  \rep_{  \overline{x }}\left(M\left(A_0\left(\overline \sY \right)\right) \right) 
+$$ 
+
 \end{empt}
 \begin{definition}\label{blowing_ex_defn}
 A given by \eqref{blowing_base_point_eqn} pointed algebraical  finite covering category $\mathfrak{S}_{A }$  is said to be \textit{exact}  if a representation $ \rep_{  \overline{x }}: \widehat A \to B\left(\H_{ \overline x} \right)$ is irreducible  for all $\overline x\in \overline\sX$.
 \end{definition} 
 If $\mathfrak{S}_{A }$ is exact then for any $\overline x \in \overline \sX$ there is the natural isomorphism $\overline \H_{ \overline x}\cong \H_{\overline{\widehat p}\left(\overline x\right)}$ where both $\overline \H_{ \overline x}$ and 
- $\H_{\overline{\widehat p}\left(\overline x\right)}$ are Hilbert spaces of irreducible representations
- 	 $\rep_{  \overline{x }}: A_0\left(\overline \sY \right)\to B\left(\overline \H_{ \overline x}\right)$
- 	 and $\widehat A\to B\left(\H_{\overline{\widehat p}\left(\overline x\right)} \right)$. If both $\overline \H_a$ and $ \H_a$ are spaces of atomic representations (cf. Definition \ref{atomic_repr_defn}) of  $A_0\left(\overline \sY \right)$
- 	 and $\widehat A$ then from 
- 	 \bean
- 	 \overline \H_a = \bigoplus_{\overline x\in \overline \sX}\overline \H_{ \overline x},\\
- 	   \H_a = \bigoplus_{\overline x\in \overline \sX} \H_{\overline{\widehat p}\left(\overline x\right)},\\
- 	   \forall \overline x\in \overline \sX\quad \overline \H_{ \overline x}\cong \H_{\overline{\widehat p}\left(\overline x\right)}
- 	  	\eean
+$\H_{\overline{\widehat p}\left(\overline x\right)}$ are Hilbert spaces of irreducible representations
+$\rep_{  \overline{x }}: A_0\left(\overline \sY \right)\to B\left(\overline \H_{ \overline x}\right)$
+and $\widehat A\to B\left(\H_{\overline{\widehat p}\left(\overline x\right)} \right)$. If both $\overline \H_a$ and $ \H_a$ are spaces of atomic representations (cf. Definition \ref{atomic_repr_defn}) of  $A_0\left(\overline \sY \right)$
+and $\widehat A$ then from 
+\bean
+\overline \H_a = \bigoplus_{\overline x\in \overline \sX}\overline \H_{ \overline x},\\
+\H_a = \bigoplus_{\overline x\in \overline \sX} \H_{\overline{\widehat p}\left(\overline x\right)},\\
+\forall \overline x\in \overline \sX\quad \overline \H_{ \overline x}\cong \H_{\overline{\widehat p}\left(\overline x\right)}
+\eean
 it follows that  $\overline \H_a\cong \H_a$. So the atomic representation of $A_0\left(\overline \sY \right)$ is equivalent to the following inclusion
 \be\label{blowing_ha_eqn}
 \pi_A:A_0\left(\overline \sY \right) \hookto B\left(\H_a\right).
@@ -9937,13 +9940,13 @@ The	above equation means that the series is convergent in the strict topology of
 \end{proof}
 \begin{exercise}\label{blowing_cov_inc_strict_exer}
 In the situation of the Lemma \ref{blowing_cov_inc_strict_lem} prove that one has
-	\be\label{blowing_desc_sum_eqn}
-	\begin{split}
-		\bt\text{-}		\sum_{g \in G\left(\left.\widetilde{\sX}~\right|\sX\right) } g\widetilde{a} = A_b\left(p \right)  \circ \desc_p\left( \widetilde{a}\right) \in 
-		M\left(A_0\left( \widetilde{\sY}\right)\right).
-	\end{split}
-	\ee
-	where $A_b\left(p \right)$ is given by \eqref{blowing_ab_p_eqn}	and the sum of the series implies a convergence with respect to the strict topology of $M\left(A_0\left( \widetilde{\sY}\right)\right)$. (Instruction. Use  the equation \eqref{blowing_atb_eqn} for this purpose).
+\be\label{blowing_desc_sum_eqn}
+\begin{split}
+	\bt\text{-}		\sum_{g \in G\left(\left.\widetilde{\sX}~\right|\sX\right) } g\widetilde{a} = A_b\left(p \right)  \circ \desc_p\left( \widetilde{a}\right) \in 
+	M\left(A_0\left( \widetilde{\sY}\right)\right).
+\end{split}
+\ee
+where $A_b\left(p \right)$ is given by \eqref{blowing_ab_p_eqn}	and the sum of the series implies a convergence with respect to the strict topology of $M\left(A_0\left( \widetilde{\sY}\right)\right)$. (Instruction. Use  the equation \eqref{blowing_atb_eqn} for this purpose).
 \end{exercise}
 
 \begin{lemma}\label{blowing_cov_inc_strong_lem}
@@ -10182,7 +10185,7 @@ If $\overline  \sU \in \left\{\sU_{\overline\a}\right\}$  and $\overline a\in \p
 \sum_{g \in G\left(\left.\overline{\sX}~\right|\sX\right) } \rep_{  \overline{x }}\left(g \overline a \right)= \rep_{  \overline{x }}\left( A_b\left( \overline p\right) \circ \desc_p\left( \overline{a}\right) \right)
 \ee
 is strongly convergent in $B\left(\H_{\overline x}\right)$ then $\overline a$ is special of the given by the equation \eqref{blowing_base_point_eqn} 	pointed algebraical  finite covering category $\mathfrak{S}_A$ 
- (cf. Definitions \ref{comp_defn} and \ref{special_element_defn}).
+(cf. Definitions \ref{comp_defn} and \ref{special_element_defn}).
 \end{lemma}	
 \begin{proof}
 Let $\la_0 \in \La$, $\eps > 0$ and  $z \in A_0\left(\sY_{\la_0} \right)^{\sim}$. Let us check conditions (a), (b) of the Definition \ref{special_element_defn}.\\
@@ -10202,7 +10205,7 @@ Let $\la_0 \in \La$, $\eps > 0$ and  $z \in A_0\left(\sY_{\la_0} \right)^{\sim}$
 	\left\| \sum_{g\in G_\la } f_\eps\left(z^*\left(  g\overline a\right) z   \right)\right\| \le \left\| \sum_{g\in G_{\la_0} } z^*\left(  g\overline a\right) z   \right\|.
 	\ee 
 	From the Lemma \ref{blowing_ycomp_lem} it follows that for all 
- $\delta> 0$ there is $w \in A_0\left(\sY_{\la_0} \right)^{\sim}$ such that $\left\| w-z\right\|< \delta$   and an open subset $\overline\sU^w\subset \overline\sX$ with compact closure such that  
+	$\delta> 0$ there is $w \in A_0\left(\sY_{\la_0} \right)^{\sim}$ such that $\left\| w-z\right\|< \delta$   and an open subset $\overline\sU^w\subset \overline\sX$ with compact closure such that  
 	\bean
 	w^*\overline a w \in A_0\left(\overline\sY\right)_{\overline \sU^w}.
 	\eean
@@ -10216,15 +10219,15 @@ Let $\la_0 \in \La$, $\eps > 0$ and  $z \in A_0\left(\sY_{\la_0} \right)^{\sim}$
 	\ee
 	From the given by \eqref{blowing_ha_eqn} inclusion $A_0\left(\overline\sY\right)\subset  B\left(\widehat \H_a\right)$ and $C_0\left(\overline \sU^w\right)\subset M\left( A_0\left(\overline\sY\right)\right)$ it turns out that there is an inclusion $C_0\left(\overline \sU^w\right)\subset  B\left(\widehat\H_a\right)$. If $\left\{\overline u_\a \in C_0\left(\overline \sU^w\right)\subset B\left(\widehat\H_a\right) \right\}_{\a \in \mathscr A}$ is a net such that
 	\bean
-\forall \a \in \mathscr A\quad 	\overline u_\a\left(\overline \sU^w \right) \subset [0,1],\\
+	\forall \a \in \mathscr A\quad 	\overline u_\a\left(\overline \sU^w \right) \subset [0,1],\\
 	\forall \bt, \ga \in \mathscr A\quad \bt \ge \ga \Leftrightarrow \quad \overline u_\bt \ge \overline u_\ga.
 	\eean
-then from the Lemma  \ref{increasing_convergent_w_lem} it turns out that there is the limit
-$$
-p_w \bydef \lim_{\a \in \mathscr A} u_\a \in B\left(\widehat\H_a\right)
-$$
-with respect to the strong topology of $B\left(\widehat\H_a\right)$.
-If  $p^\perp_w\bydef 1- p_w$ then both $p_w$ and $p^\perp_w$ are mutually projectors such that $1_{B\left(\widehat\H_a\right)}= p_w + p^\perp_w$. This decomposition  yields a following matrix representation of operators 
+	then from the Lemma  \ref{increasing_convergent_w_lem} it turns out that there is the limit
+	$$
+	p_w \bydef \lim_{\a \in \mathscr A} u_\a \in B\left(\widehat\H_a\right)
+	$$
+	with respect to the strong topology of $B\left(\widehat\H_a\right)$.
+	If  $p^\perp_w\bydef 1- p_w$ then both $p_w$ and $p^\perp_w$ are mutually projectors such that $1_{B\left(\widehat\H_a\right)}= p_w + p^\perp_w$. This decomposition  yields a following matrix representation of operators 
 	\bean
 	z^*\desc_{\overline p_{\la}}\left( \overline a\right) z= 
 	\begin{pmatrix}
@@ -10370,7 +10373,7 @@ If  $p^\perp_w\bydef 1- p_w$ then both $p_w$ and $p^\perp_w$ are mutually projec
 	$$
 	\forall\eps > 0\quad	\forall\la\ge \la_0\quad  \exists b_\la \in A_0\left(\sY_{\la} \right)\quad 	\left\| \sum_{g\in G_\la } g\left(  z^*\overline a  z\right)^2 - b_\la\right\|<\eps.
 	$$
-From the Lemma \ref{special_element_cut_lem}  one has $\sum_{g\in G_\la } g\left(  z^*\overline a  z\right)^2 \in A_0\left(\sY_{\la} \right)$ for each $\la\in\La$.
+	From the Lemma \ref{special_element_cut_lem}  one has $\sum_{g\in G_\la } g\left(  z^*\overline a  z\right)^2 \in A_0\left(\sY_{\la} \right)$ for each $\la\in\La$.
 \end{enumerate}
 (b) If $\delta > 0$ is such that $\delta \left(\delta + 2  \right)\left\|\overline a\right\| < \delta'$ then from $\left\| w - z\right\|<\delta$ it follows that 
 \be
@@ -10405,6 +10408,7 @@ where $\pi_A$ is given by \eqref{blowing_ha_eqn}.
 \begin{proof}
 The $C^*$-algebra $A_0\left(\overline \sY\right)$ is generated by special elements given by the Lemma \ref{blowing_spec_lem}.
 \end{proof}
+
 
 \chapter{Towards noncommutative homotopy theory}\label{h_gr_chap}
 \section{Prototype}
