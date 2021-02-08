@@ -189,7 +189,7 @@
 \newcommand{\pa}{\partial}                   %% short for \partial
 \newcommand{\pd}[2]{\frac{\partial#1}{\partial#2}}%% partial derivative
 \newcommand{\piso}[1]{\lfloor#1\rfloor}      %% integer part
-\newcommand{\PsiDO}{\Psi\mathrm{DO}}         %% pseudodiffl operators
+\newcommand{\PsiDO}{\Psi~\mathrm{DO}}         %% pseudodiffl operators
 \newcommand{\Q}{\mathbb{Q}}                  %% rational numbers
 \newcommand{\R}{\mathbb{R}}                  %% real numbers
 \newcommand{\rdl}{R_\Dslash(\lambda)}        %% resolvent
@@ -10508,7 +10508,10 @@ Denote by
 the natural surjective *-homomorphism. Any element of $\check x^{\mathrm{c}} \in \check A^{\mathrm{c}}$ 
 corresponds  to the prime ideal $I_{\check x^{\mathrm{c}}}$ of $A$ such that 
 $I_{\check x^{\mathrm{c}}}\cap I \neq I$, so $\varphi\left(I_{\check x^{\mathrm{c}}} \right)\neq \{0\}$. 
-It follows that $I_{\check x^{\mathrm{c}}}/\left( I_{\check x^{\mathrm{c}}}\cap I\right)$ is a not trivial prime ideal  of $A/I$. From  \eqref{ho_gr_spp_eqn} it follows that $I_{\check x^{\mathrm{c}}}/\left( I_{\check x^{\mathrm{c}}}\cap I\right)$ corresponds to a point $\check x^{\mathrm{ab}}\in \check{A}^{\mathrm{ab}}$. The correspondence $\check x^{\mathrm{c}}\mapsto \check x^{\mathrm{ab}}$ yields a  map $\check\phi: \check A^{\mathrm{c}}\to \check A^{\mathrm{ab}}$.
+It follows that $I_{\check x^{\mathrm{c}}}/\left( I_{\check x^{\mathrm{c}}}\cap I\right)$ is a not trivial prime ideal  of $A/I$. From  \eqref{ho_gr_spp_eqn} it follows that $I_{\check x^{\mathrm{c}}}/\left( I_{\check x^{\mathrm{c}}}\cap I\right)$ corresponds to a point $\check x^{\mathrm{ab}}\in \check{A}^{\mathrm{ab}}$. The correspondence $\check x^{\mathrm{c}}\mapsto \check x^{\mathrm{ab}}$ yields a  map 
+\be\label{ho_cc_ab_eqn}
+\check\phi: \check A^{\mathrm{c}}\to \check A^{\mathrm{ab}}
+\ee
 On the other hand from $I_{\phi\check~\left(\check x^{\mathrm{c}} \right) }\subset I_{\check x^{\mathrm{c}} }$ if follows that  $\check x^{\mathrm{c}}$ lies in the closure of $\check\phi\left(\check x^{\mathrm{c}}\right)$.
 The $C^*$-algebra  $A/I$ is commutative, so $\sY^{\mathrm{ab}}\cong \check{A}^{\mathrm{ab}}$.
 \begin{lemma}\label{ho_gr_fin_m_lem}
@@ -10581,10 +10584,14 @@ $$
 \overline I' \bydef \left\{\left.\overline a \in \mathscr B\left(\widehat A\right)\right| \rep_{\widehat x^{\mathrm{c}}}\left(\overline a\right)=0~ \forall \widehat x^{\mathrm{c}}\in \widehat\sX^{\mathrm{c}}\right\}= \left\{\left.\overline a \in \mathscr B\left(\widehat A\right)\right| p^{\mathrm{c}}\overline a p^{\mathrm{c}}=0\right\}\subset \mathscr B\left(\widehat A\right)
 $$
 such that a factor $C^*$-algebra $B\left(\widehat A\right)/ \overline  I'$ is commutative. If $\overline I \bydef \overline A \cap \overline I'$ then $\overline I$ is a closed ideal such that  factor $C^*$-algebra $\overline A/\overline I$ is commutative. Denote by $\psi : \overline A\to \overline A/\overline I$ the natural surjective *-homomorphism.
-Any element $\overline f = \overline a + \overline I  \in \overline A/\overline I$ corresponds to a family $\left\{\rep_{\widehat x^\mathrm{ab}}\left( \overline a\right) \right\}_{\widehat x^\mathrm{ab}\in \widehat \sX^\mathrm{ab}}$ i.e. it corresponds to a discontinuous map $\widehat \sX^\mathrm{ab}\to \C$, or equivalently it corresponds to a discontinuous map 
+Any element $\overline f = \overline a + \overline I  \in \overline A/\overline I$ corresponds to a family $\left\{\rep_{\widehat x^\mathrm{ab}}\left( \overline a\right) \right\}_{\widehat x^\mathrm{ab}\in \widehat \sX^\mathrm{ab}}$ i.e. it corresponds to a bounded (possibly discontinuous) map $\widehat \sX^\mathrm{ab}\to \C$, or equivalently it corresponds to a bounded (possibly discontinuous) map map 
 \be\label{ho_gr_pf_eqn}
-\overline \psi_{\overline f}:\overline \sX^\mathrm{ab}\to \C.
+\begin{split}
+\overline \psi_{\overline a}=\overline \psi_{\overline f}:\overline \sX^\mathrm{ab}\to \C,\\
+\overline \psi_{\overline a}=\overline \psi_{\overline f}\in D^*\left(  \sX^\mathrm{ab}\right). 
+\end{split}
 \ee
+where $D^*\left(  \sX^\mathrm{ab}\right)$ means the $C^*$-algebra of bounded discontinuous maps.
 There is the following interpretation of the surjective *-homomorphism $\psi$
 \be\label{ho_gr_ps_eqn}
 \begin{split}
@@ -10594,7 +10601,7 @@ There is the following interpretation of the surjective *-homomorphism $\psi$
 \ee 
 \end{empt}
 \begin{lemma}\label{ho_gr_in_lem}
-Let $\overline a \in B\left(\widehat \H_a \right)$ be a special element (cf. Definition \ref{special_element_defn}) of the given by \eqref{ho_gr_poinded_cat_eqn}  pointed	algebraical  finite covering category  $\mathfrak{S}^{\mathrm{pt}}_{A }$  (cf. Definition \ref{comp_defn}). If $\overline f$ is the image of $\overline a$ in $\overline A/\overline I$ and $\psi_f$ is given by \eqref{ho_gr_pf_eqn} then $\overline \psi_{\overline f}\in C_0\left( \overline \sX^\mathrm{ab}\right)$. 
+Let $\overline a \in B\left(\widehat \H_a \right)$ be a special element (cf. Definition \ref{special_element_defn}) of the given by \eqref{ho_gr_poinded_cat_eqn}  pointed	algebraical  finite covering category  $\mathfrak{S}^{\mathrm{pt}}_{A }$  (cf. Definition \ref{comp_defn}). If $\overline f$ is the image of $\overline a$ in $\overline A/\overline I$ and $\psi_f$ is given by \eqref{ho_gr_pf_eqn} then $\overline \psi_{\overline a}=\overline \psi_{\overline f}\in C_0\left( \overline \sX^\mathrm{ab}\right)$. 
 \end{lemma}
 \begin{proof}
 From the Definition \ref{special_element_defn} it follows that
@@ -10643,93 +10650,47 @@ From the construction \ref{ho_gr_c_empt} it follows that the given by \eqref{ho_
 $f_\la, f^\eps_\la, h_\la \in C_0\left( \sY^{\mathrm{ab}}_\la\right)\subset C_b\left( \overline\sY^{\mathrm{ab}}\right)$. Otherwise equations \eqref{h_grff_spec_a_eps_eqn} and \eqref{h_grff_special_set_eqn} comply with \eqref{comm_special_set2_eqn} and \eqref{comm_special_set_eqn} respectively. So from the Theorem \ref{comm_main_f_thm} it follows that
 $\overline f\in C_0\left(\overline \sY^\mathrm{ab}\right)$.
 \end{proof}
-\begin{lemma}
-If $\overline C$ is the center of $M\left(\overline A \right)$ then there is the natural inclusion $C_0\left( \overline \sY^\mathrm{ab}\right) \subset 	M\left(\overline A \right)$. 
-\end{lemma}
-\begin{proof}
-Let $\overline \sU \subset  \overline \sY^\mathrm{ab}$ be a connected open set which homeomorphically mapped onto $\sU \subset \sY^\mathrm{ab}$. Use the Lemma \ref{ho_gr_fin_m_lem}.
-\end{proof}
 \begin{empt}
-From the Lemma \ref{}
-\end{empt}
-\begin{lemma}
-In the above situation the center of  $\overline A$ contains $C_0\left( \overline \sY^{\mathrm{ab}}\right) $. 
-\end{lemma}
-
-\begin{proof}
-If $\overline I\bydef \left[\overline A, \overline A\right]\subset \overline A$ be the closed ideal  generated by all commutators $\overline x \overline y - \overline y\overline x$ for $\overline x,\overline y \in \overline A$, then $\overline A^{\mathrm{ab}}\bydef \overline A/ \overline I$ is commutative $C^*$-algebra $C_0\left( \overline \sY\right)$.  There are the natural bijective maps $\varprojlim \sY^{\mathrm{ab}}_\la\cong   \overline \sY$ and $\varprojlim \sY^{\mathrm{ab}}_\la\cong   \overline \sY^{\mathrm{ab}}$, so  $\overline \sY$ coincides with $\overline \sY^{\mathrm{ab}}$ as a set. However from $A_0\left(\overline \sY^{\mathrm{ab}}\right) \subset \overline A$ it turns out that the topology of $\overline \sY$ is finer than the topology of $\overline \sY^{\mathrm{ab}}$. Let $\overline a\in B\left(\H_a \right) $ be special element where $\H_a$ is a Hilbert space of the atomic representation $\pi: C^*$-$\varprojlim A_0\left(\sY^{\mathrm{ab}}_\la\right)\hookto B\left(\H_a\right)$. From the Definition \ref{special_element_defn} it follows that
- for any $\la_0 \in \La$, $\eps > 0$ and  $z \in A_{\la_0}^{\sim}$
-it satisfies to the following conditions:	
-\begin{enumerate}
-	\item[(a)] 	If   $f_\eps: \R \to \R$ is a continuous function given by \eqref{f_eps_eqn}
-	then for all $\la \ge \la_0$  there are $ a_\la, b_\la, a^\eps_\la \in A_\la$ such that
-	\be\label{h_gr_spec_a_eps_eqn}
-	\begin{split}
-		\sum_{g\in G_\la } \pi \left(z\right)^*\left(  g\overline a\right) \pi\left( z\right)   = \pi\left(a_\la \right),\\
-		\sum_{g\in G_\la } f_\eps\left(\pi \left(z\right)^* \left( g\overline a\right) \pi\left( z\right)\right)    = \pi\left(a^\eps_\la \right),\\
-		\sum_{g\in G_\la  } \left(\pi \left(z\right)^* \left( g\overline a\right) \pi\left( z\right)\right)^2    = \pi\left(b_\la \right) 
-	\end{split}
-	\ee
-	where sums of the above series mean the strong convergence in  $B\left(\H\right)$ and the action  $G_\la\times B\left(\H\right)\to B\left(\H_a\right)$ is given by \eqref{equivb_eqn}.
-	\item[(b)] There is $\mu \in \La$ such that $\mu \ge \la_0$ and
-	\be\label{h_gr_special_set_eqn}
-	\forall \la  \in \La \quad	 \la \ge \mu  \Rightarrow  \left\|a_\la^2 - b_\la\right\| < \eps
-	\ee
-	where $a_\la, b_\la \in A_\la$ are given by \eqref{spec_a_eps_eqn}.
-\end{enumerate}
-On the other hand there is a surjective *-homomorphism $\varphi: \overline A \to C_0\left(\overline \sY \right)$ if $\overline f \bydef \varphi\left(\overline a \right)$ then from \eqref{h_gr_spec_a_eps_eqn}it follows that $\la \ge \la_0$  there are $ f_\la, f_\la, f^\eps_\la \in A_\la$ such that
-\be\label{h_gr_specf_a_eps_eqn}
+Similarly to \eqref{ho_gr_pf_eqn} one can construct a *-homomorphism
+$
+	M\left( \overline A\right) \to D^*\left( \overline \sX^\mathrm{ab}\right)
+$ 
+which induces a *-homomorphism
+\be
+\phi_{\overline C}: \overline C \to D^*\left( \overline \sX^\mathrm{ab}\right)
+\ee
+where $\overline C$ is the center of $M\left( \overline A\right)$. If $\phi_{\overline C}\left(\overline C\right)  \notin C_b\left(\overline \sX^\mathrm{ab} \right)$ then there are $\overline x_0 \in \overline \sX^\mathrm{ab}$ and $\overline c \in \overline C$ such that $\phi_{\overline C} \left( {\overline c}\right)$ is not continuous at  $\overline x_0\in \overline \sX^\mathrm{ab}$. On the other hand there is $\overline a \in A_0\left( \overline \sX^\mathrm{ab}\right)\subset \overline A$ such that $\overline \psi_{\overline a}\left(\overline x_0 \right)\neq 0$  (cf. equation \eqref{ho_gr_pf_eqn}). If $\overline b \bydef \phi_{\overline C}\left( \overline c\right)\overline a\in \overline A$ then $\psi_{\overline b}$ is not continuous at $\overline x_0$, it contradicts with the Lemma \eqref{ho_gr_in_lem}. It follows that $\phi_{\overline C}\left( \overline C\right) \subset C_b\left( \overline \sX^\mathrm{ab}\right)$, i.e. one has a  map
+\be\label{ho_gr_i_eqn}
+\phi_{\overline C}: \overline C \to C_b\left( \overline \sX^\mathrm{ab}\right).
+\ee
+This map induces a topology on $\overline \sX^\mathrm{ab}$, which is coarser  than the topology of $\overline \sX^\mathrm{ab}$, Denote by $\overline \sX'$ a topological which coincides with $\overline \sX^\mathrm{ab}$ but the topology of $\overline \sX'$ is a coarsest topology  such that $\phi_{\overline C}\left( \overline c\right): \overline \sX'\to \overline \C$ is continuous for all $\overline c \in \overline C$. Indeed the f $\overline \sX'$ is a restriction of the Jacobson topology (cf. Definition \ref{jtop_defn}) of the spectrum of $\overline A$. Note that there is the natural inclusion $C_b\left(\overline \sX^\mathrm{ab} \right) \to A_0\left( \overline \sX^\mathrm{ab}\right)$. For any open $ \overline \sU\subset  \overline \sX^\mathrm{ab}$ there is a two sided closed ideal $C_0\left( \overline \sU\right) A_0\left( \overline \sX^\mathrm{ab}\right)$ of $A_0\left( \overline \sX^\mathrm{ab}\right)$. From the inclusion  \eqref{ho_gr_inc_eqn} it turns out that  this ideal induces a closed ideal of $\overline A$. So any open set $\overline \sU\subset  \overline \sX^\mathrm{ab}$ is open with respect to the  Jacobson topology (cf. Definition \ref{jtop_defn}) of $\overline A$, so $\overline \sX'$ is homeomorphic to $\overline \sX^\mathrm{ab}$ and
+\be\label{ho_gr_isu_eqn}
+\phi_{\overline C}\left( \overline C\right) = C_b\left( \overline \sX^\mathrm{ab}\right).
+\ee
+If $\overline I\bydef  \ker\left( 	M\left( \overline A\right) \to D^*\left( \overline \sX^\mathrm{ab}\right)\right) \cap \overline A$ then $\overline A/ \overline I$ is a commutative $C^*$-algebra. Similarly to \eqref{ho_gr_sp_dec}   and \eqref{ho_gr_spp_eqn} one has the equations for the primitive and prime spectra
+\be
 \begin{split}
-	!!! z REPLACE
-	\sum_{g\in G_\la } \pi \left(z\right)^*\left(  g\overline f\right) \pi\left( z\right)   = \pi\left(f_\la \right),\\
-	\sum_{g\in G_\la } f_\eps\left(\pi \left(z\right)^* \left( g\overline f\right) \pi\left( z\right)\right)    = \pi\left(a^\eps_\la \right),\\
-	\sum_{g\in G_\la  } \left(\pi \left(z\right)^* \left( g\overline f\right) \pi\left( z\right)\right)^2    = \pi\left(h_\la \right) 
+\overline	\sY = \overline\sY^{~\mathrm{ab}}\sqcup \overline\sY^{~\mathrm{c}},\\
+	\overline\sY^{~\mathrm{ab}}\bydef \left(\overline A/\overline I\right)\hat{~}; \quad \overline\sY^{~\mathrm{c}}\bydef\hat{\overline I};\\
+	\check{\overline A} = \check{\overline A}^{~\mathrm{ab}}\sqcup  \check{{\overline A}}^{~\mathrm{c}},\\
+\check {\overline A}^{~\mathrm{ab}}\bydef \left({\overline A}/{\overline I}\right)\check{~}; \quad  \check{\overline A}^{~\mathrm{c}}\bydef\check{{\overline I}}.
 \end{split}
 \ee
-On the other hand one has 
-	\be\label{h_gr_specialf_set_eqn}
-\forall \la  \in \La \quad	 \la \ge \mu  \Rightarrow \left\|f_\la^2 - h_\la\right\|\le  \left\|a_\la^2 - b_\la\right\| < \eps
-\ee
-From the equations \ref{h_gr_specf_a_eps_eqn}, \ref{h_gr_specialf_set_eqn} and the Theorem \ref{comm_main_f_thm} it follows that $\overline f \in A_0\left(\overline \sY^{\mathrm{ab}}\right)$. So there is a homeomorphism $\overline \sY\cong \overline \sY^{\mathrm{ab}}$.
-!!! CONTINUE  CENTER
-\end{proof}
-====
-\\
-Let us prove that $\pi_1\left( \Omega\sX\right)\cong \pi_1\left(\Om C\left( \sX\right)  \right)$. 
-
-
-Since the group $\pi_2\left( \sX\right)$ is Abelian both left and right part of the equation \eqref{top_p_1_p2_eqn} do not depend on base point up to the natural isomorphism.
-\begin{lemma}
-The spectrum of $C^*$-algebra  $b\left( \Omega C\left(\sX\right)\right)$ is naturally homeomorphic to the  Hausdorff  spectrum $\Omega\sX$ of the commutative $C^*$-albebra    $b\left( \Omega^{\mathrm{ab}} C\left(\sX\right)\right)$.
-\end{lemma}
-\begin{proof}
-If $\sY$ is the spectrum of $b\left( \Omega C\left(\sX\right)\right)$ then any for any $y \in \sY$ there is one dimensional representation
-\bean
-\rep^{\mathrm{ab}}_y : b\left( \Omega^{\mathrm{ab}} C\left(\sX\right)\right)\to \C,\\ 
-a + \left[b\left( \Omega C\left(\sX\right)\right),b\left( \Omega C\left(\sX\right)\right)\right]\mapsto\\\mapsto \rep_x\left(a \right) +  \left[\rep_x\left( b\left( \Omega C\left(\sX\right)\right)\right) ,\rep_x\left( b\left( \Omega C\left(\sX\right)\right)\right)\right]\in\\\in \rep_x\left( b\left( \Omega C\left(\sX\right)\right)\right)/\left[\rep_y\left( b\left( \Omega C\left(\sX\right)\right)\right) ,\rep_y\left( b\left( \Omega C\left(\sX\right)\right)\right)\right].
-\eean
-
-\end{proof}
-
-\begin{corollary}
-There is the natural isomorphism
-$$
-\pi_2\left(C\left(\sX \right) , \a_0 \right)\cong \pi_2\left(\sX  , x_0 \right)
-$$
-(cf. \eqref{pi_2_eqn}).
-\end{corollary}
-\begin{proof}
-Follows from the Theorem !!! HAUSDORFF SPECTRUM
-\end{proof}
 \begin{exercise}
-Proof that for all $n > 1$ there is the natural is the natural isomorphism
-$$
-\pi_n\left(C\left(\sX \right) , \a_0 \right)\cong \pi_n\left(\sX  , x_0 \right)
-$$
-(cf. \eqref{pi_n_eqn}).
+	\begin{enumerate}
+		\item Similarly to \eqref{ho_c_ab_eqn} and \eqref{ho_cc_ab_eqn}
+		construct maps 
+\bean	
+		\hat{\overline\phi}: \overline\sY^{\mathrm{c}}\to \overline\sY^{\mathrm{ab}},\\
+				\check{\overline\phi}: \check {\overline A}^{\mathrm{c}}\to \check {\overline A}^{\mathrm{ab}}
+\eean
+		such that any $\overline x^\mathrm{c}$ lies in the closure of 	$\check{\overline\phi}\left( \overline x^\mathrm{c}\right)$.
+		\item Prove that the center of $M\left(\overline A \right)$ is naturally isomorphic to $C_b\left(\overline \sX^\mathrm{ab}\right)$. 
+	\end{enumerate}
+
 \end{exercise}
 
-
+\end{empt}
 
 
 
@@ -18228,7 +18189,7 @@ Let $I$ be a closed ideal of $A$.
 	\begin{theorem}\label{inductive_lim_thm}\cite{takeda:inductive}
 		Let $\left\{A_\la)\right\}_{\la \in \La}$ be a family of $C^*$-algebras where $\La$  denotes an increasingly directed set. If, for every $\mu, \nu$ with $\mu < \nu$, there exists a unital injective *-homomorphism $f_{\mu\nu}: A_\mu \to A_\nu$ satisfying
 		$$
-		f_{\mu\nu} = f_{\mu\la}\circ f_{\la\nu}\quad\mathrm{where} \quad \mu < \la < \nu.
+		f_{\mu\nu} = f_{\mu\la}\circ f_{\la\nu}\quad~\mathrm{where} \quad \mu < \la < \nu.
 		$$
 		then there exists the $C^*$-inductive limit of $A_\la$.
 	\end{theorem}
