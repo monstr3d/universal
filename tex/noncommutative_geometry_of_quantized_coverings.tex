@@ -9132,7 +9132,7 @@ The map $y \mapsto \sX_y$ yields a partially defined multi-valued map from $\sY\
 The map is surjective because for any $x \in \sX$ and for any maximal ideal $J_x \subset \rep_x\left(C_0\left( \sY\right)\right) $ there is a maximal ideal $I_y\subset C_0\left( \sY\right)$ such that $J_x= \rep_x\left(I_y\right)$.
 \end{empt}
 \begin{definition}\label{blowing_spectal_defn}
-If the described in  \ref{blowing_empt} map is single-valued then we say that it is \textit{spectral}. It means that one has a subset $s\left( \sY\right)\subset \sY$ with the following equation 
+A {Hausdorff blowing-up}	$C\cong C_0\left( \sY\right) \subset M\left(A \right)$ is said to be   \textit{spectral} if the described in  \ref{blowing_empt} map is single-valued. It means that one has a subset $s\left( \sY\right)\subset \sY$ with the following equation 
 \be\label{blowing_spectal_eqn}
 \sY\supset s\left( \sY\right)\xrightarrow{s_\sY} \sX
 \ee
@@ -9176,6 +9176,27 @@ with respect to the strict topology of $M\left( A\right)$ (cf. Definition \ref{s
 Let $A$ be a  $C^*$-algebra, and let $C$ be the center of $M\left(A \right)$.
 Proof that the inclusion $C\subset M\left( A\right)$  is a good {Hausdorff blowing-up}. 
 \end{exercise}
+\begin{example}\label{blowing_ctr_exm}
+	If $A$ is a $C^*$-algebra with Hausdorff and $\sX$ is its spectrum then from the Theorems \ref{oa_haus_prim_thm} and  \ref{dauns_hofmann_thm} one has the natural inclusion $C_0\left(\sX \right) \hookto M\left( A\right)$. For all $a \in A$ and $\eps> 0$ the subset
+	$$
+	\sY \bydef \left\{\left.x \in \sX\right| \left\| \rep_x\left(a\right)\right\|\ge \eps \right\}\subset\sY
+	$$
+	is compact (cf. Lemma \ref{ctr_rep_eq_lem}). If $u_\la \in C_c\left(\sY \right)_+$ is a covering sum for $\sY$ (cf. Definition \ref{top_cfs_defn}) then for any $\la'\ge\la$ one has
+	\bean
+	\left\|au_{\la' }- a \right\|< \eps, \\
+	\left\|u_{\la' }a- a \right\|< \eps. 
+	\eean
+	From the above equations there is the 	limit $
+	1_{M\left(A \right)  }= \bt~\text{-}\lim_{\la \in \La }u_\la
+	$
+	with respect to the strict topology (cf. Definition \ref{strict_topology}) of $M\left( A\right)$. It turns out that $C_0\left(\sX \right) \hookto M\left( A\right)$ satisfies to the condition (a)  Definition \ref{blowing_defn}). If $\rep_x: A \to B\left( \H\right)$ is an irreducible representation then if $f \in C_0\left(\sX \right)$ is such that $f\left(x \right)  = 1$ then $\rep_x\left( f\right) = 1_{B\left(\H \right) }$ and \\
+	====\\
+	!!!!\\
+=====\\  (a) (b)$\rep_x\left(f \right)\H = \H$, i.e.  $C_0\left(\sX \right) \hookto M\left( A\right)$ satisfies to the condition (b)  Definition \ref{blowing_defn}).
+	So  $C_0\left(\sX \right) \hookto M\left( A\right)$
+	is a {Hausdorff blowing-up} of $A$ (cf. Definition \ref{blowing_defn}).
+\end{example}
+
 
 
 \section{Hausdorff blowing-up and noncommutative  coverings}
@@ -11157,7 +11178,7 @@ is a	pointed algebraical  finite covering category.
 Denote by $\widehat{A} = C^*\text{-}\varinjlim A_\la$, $G_\la = G\left( A_\la ~|~A\right)$, $\widehat{G} = \varprojlim G_\la$. Clearly $C^*\text{-}\varinjlim \left( A_\la \otimes \mathcal K\right)  = \widehat{A}  \otimes \mathcal K$. Let us consider the irreducible representation $\K \to B\left(\H_\K \right)$ (cf. Table \ref{stab_table}). If  $\pi: \widehat{A} \to B\left( \widehat{\H}\right)$ is an atomic representation  then from the Theorem \ref{stable_morita_thm} and the Corollary \ref{morita_irred} it follows that $\pi^{\mathcal K}= \pi \otimes \pi_{ \mathcal K} :\widehat{A}  \otimes \mathcal K\to B\left( \widehat\H_{\mathcal K} \bydef \widehat{\H} \otimes \H_\K \right) $ is the atomic   representation. 
 \begin{lemma}\label{stab_spec_in_lem}
 	Consider the situation of the Corollary \ref{stab_pt_a_cor}.
-	If $\overline{a}\in B\left( \widehat\H\right) $ is a special element of $\mathfrak{S}^{\mathrm{pt}}_A$ (cf. Definition \ref{special_element_defn}), and $p \in \mathcal K$ is a rank-one projector then $\overline{a}\otimes p \in B\left( \widehat\H_\K\right)$ is a special element with respect to $\mathfrak{S}^{\mathrm{pt}}_{A\otimes \mathcal K}$.
+	If $\overline{a}\in B\left( \widehat\H\right) $ is a special element of $\mathfrak{S}^{\mathrm{pt}}_A$ (cf. Definition \ref{special_element_defn}), and $p \in \mathcal K$ is a rank-one projector then $\overline{a}\otimes p \in B\left( \widehat\H_\K\right)$ is a special element of $\mathfrak{S}^{\mathrm{pt}}_{A\otimes \mathcal K}$.
 \end{lemma}
 \begin{proof}
 	Let us use the implicit equations \eqref{spec_a_eps_imp_eqn} for this proof.
@@ -11428,7 +11449,7 @@ Operator space with continuous trace it generalization of $C^*$-algebra with con
 
 \begin{empt}\label{ctr_oa_empt}
 	
-If $A$ be a $C^*$-algebra, such that the spectrum $\sX$  of $A$ is Hausdorff then $A$ is a $CCR$-algebra (cf. Remark \ref{ctr_open_res_rem}). From the Corollary \ref{ctr_ccr_i_cor} it follows that $A$ is  $C^*$-algebra of  type I and its primitive spectrum coincides with its spectrum (cf. Theorem \ref{ctr_hat_check_thm}).
+If $A$ be a $C^*$-algebra, such that the spectrum $\sX$  of $A$ is Hausdorff then $A$ is a $CCR$-algebra (cf. Remark \ref{ctr_open_res_rem}). From the Corollary \ref{ctr_ccr_i_cor} it follows that $A$ is  $C^*$-algebra of  type I and its primitive spectrum coincides with its prime spectrum (cf. Theorem \ref{ctr_hat_check_thm}).
 There is the given by the Dauns Hofmann theorem action
 \be\label{ctr_oa_act_eqn}
 \begin{split}
@@ -11473,27 +11494,34 @@ Let $A$ be a  $C^*$-algebra which has continuous trace. We say that a {sub-unita
   \be\label{ctr_as_field_eqn}
   A \cong C_0\left( \sX, \left\{A_x\right\}_{x \in \sX}, \sF\right)
   \ee
-  where $\sX = \hat A$ is the Hausdorff spectrum of $A$, and $C_0\left( \sX, \left\{A_x\right\}_{x \in \sX}, \sF\right)$ is the converging to zero submodule (cf. Definition \ref{top_cc_c0_defn}). 
+  where $\sX = \hat A$ is the Hausdorff spectrum of $A$, and $C_0\left( \sX, \left\{A_x\right\}_{x \in \sX}, \sF\right)$ is the converging to zero submodule (cf. Definition \ref{top_cc_c0_defn}).
   \begin{definition}\label{ctr_funct_not_defn}
   	Let us consider the specialization of the Definitions \ref{top_cs_funct_defn} and \ref{top_cs_funct_b_defn} where $A = \left( \sX, \left\{A_x\right\}_{x \in \sX}, \sF\right)$ is given by \eqref{ctr_as_field_eqn}.
-   	For any finite-fold covering $p: \widetilde{\sX} \to \sX$ we use the given by \eqref{top_cb_defn_eqn} notation.
-  	If $p$ is a finite-fold covering then we use the following notation
+  	If $p: \widetilde{\sX} \to \sX$ is a finite-fold covering then we from \eqref{top_cb_defn_eqn} it follows that
    	\be\label{ctr_ff_funct_not_eqn}
   \begin{split}
   	A_0\left(p \right) : A \hookto A_0\left(\widetilde{\sX} \right).
   \end{split}
   \ee
   We say that  $A_0\left(\widetilde{\sX} \right)$ is the $p$-\textit{lift} of $A$.	
-  
   \end{definition}
-\begin{empt}
-	  If $p^1_2: \widetilde\sX_1 \to \widetilde\sX_2$ is a morphism of $\mathfrak{FinTop}$-$\sX$ form $p_1:\widetilde\sX_1 \to \sX$ to $p_2:\widetilde\sX_2 \to \sX$, i.e. $p_1 = p^1_2\circ p_2$ then similarly to  to \eqref{top_c0p_ob_eqn}
-	we write
-	\be\label{ctr_c0p_ob_eqn}
-	A_0\left(p^1_2 \right)\bydef	 \left.\left.\lift_{p^1_2} \right.\right|_{A_0\left(\widetilde\sX_2 \right)} :A_0\left(\widetilde\sX_2 \right) \hookto A_0\left(\widetilde\sX_1 \right).
-	\ee
-	
-\end{empt}
+\begin{exercise}
+Prove that the explained in the Definition \ref{ctr_funct_not_defn} notation  is equivalent to the notation of the Definition \ref{blowing_lift_desc_defn}  (cf. equations \eqref{ctr_ff_funct_not_eqn}  and \eqref{blowing_lift_desc_eqn}).
+\end{exercise}
+\begin{exercise}\label{blowing_ctr_exer}
+	Let $A$ be a $C^*$-algebra with Hausdorff spectrum.
+	Prove that the given by the Example \ref{blowing_ctr_exm} Hausdorff blowing-up of $A$ is good and spectral (cf. Definitions \ref{blowing_good_defn}, \ref{blowing_spectal_defn}).
+\end{exercise}
+
+\begin{exercise}
+	Consider the Example \ref{blowing_ctr_exm}. Prove that the explained in \ref{top_cs_funct_empt} notation is equivalent to the notation of the Definition \ref{blowing_a0_x_defn}  (cf. equations \eqref{top_c0_ob_eqn} and \eqref{blowing_a0x_eqn}).
+\end{exercise}
+%\begin{exercise}
+%	!!! 	Consider the Example \ref{blowing_ctr_exm}. Prove that the explained in \ref{top_cs_funct_empt} functor $A_0$ is a specialization of the given by the Exercise \ref{blowing_cs_funct_exer}  functor.
+%\end{exercise}
+
+
+
 Our following constructions require an analog of the Dini's theorem.
  \begin{lemma}\label{ctr_dini_lem}
 	Let $A$ be a {continuous-trace} $C^*$-\textit{algebra} (cf. Definition \ref{continuous_trace_c_a_defn}) having a compact spectrum $\sX$. Let $\La$ be a directed set, and let $\left\{a_\la\right\}_{\la\in\La}\subset A$ be a net (cf. Definition \ref{top_net_defn}) such that
@@ -11536,9 +11564,9 @@ Our following constructions require an analog of the Dini's theorem.
 \section{Finite-fold coverings}
 \subsection{Coverings of $C^*$-algebras}
 \subsubsection{Coverings of $C^*$-algebras with Hausdorff spectra}
-\begin{corollary}
-	Let $A$ be  a  $C^*$-algebra with Hausdorff spectrum $\sX$. If $\sX$ is connected, locally connected, topologically simply connected (cf. Definition \ref{top_simp_conn_defn}) then $A$ is reducibly simply connected.
-\end{corollary}
+\begin{lemma}\label{ctr_simply_connected_lem}
+	Let $A$ be  a  $C^*$-algebra with Hausdorff spectrum $\sX$. If $\sX$ is connected, locally connected, topologically simply connected (cf. Definition \ref{top_simp_conn_defn}) then $A$ is reducibly simply connected (cf. Definition \ref{simply_connected_red_defn}).
+\end{lemma}
 
 \begin{proof}
 	From the Example \ref{blowing_ctr_exm} and the Exercise  \ref{blowing_ctr_exer} it turns out that the natural Hausdorff blowing-up $C_0\left(\sX \right)\to M\left(A \right)$ is good. If $\left(A, \widetilde A, G, \pi\right)$ is a reduced finite-fold nonommutative covering (cf. Definitions \ref{fin_defn}, \ref{fin_red_defn}) and $\widetilde \sX$ is the spectrum of $\widetilde A$ then from the Lemma \ref{blowing_cov_lem} it follows that there is a transitive finite-fold covering $\widetilde\sX \to \sX$.  Since $\widetilde \sX$ is connected and $\sX$ is simply connected the map $\widetilde \sX\to \sX$ is a homeomorphism. The covering $p$ coincides with the given by the Lemma \ref{cov_spectrum_lem} continuous map. Since the covering $\left(A, \widetilde A, G, \pi\right)$ is a reduced one has $G \cong G\left( 
@@ -11546,8 +11574,8 @@ Our following constructions require an analog of the Dini's theorem.
 \end{proof}
 
 
-\begin{lemma}\label{ctr_fin_red_lem} !!! NO
-If  $A$ is a $C^*$- algebra with Hausdorff spectrum $\sX$, such that $\sX$ is connected and locally connected then following condition hold.
+\begin{lemma}\label{ctr_fin_red_lem} 
+If  $A$ is a $C^*$- algebra with Hausdorff spectrum $\sX$, such that $\sX$ is connected, locally connected then following condition hold.
 \begin{enumerate}
 	\item[(i)] There is 1-1 correspondence between finite-fold transitive coverings $p: \widetilde \sX \to \sX$ and  reduced finite-fold noncommutative coverings  $\left(A, \widetilde A, G, \pi \right)$ such $G \cong G\left(\left.\widetilde \sX \right|\sX \right)$.
 	\item[(ii)] The space $\widetilde\sX$ is the  that spectrum of $\widetilde A$, the map   $p$ is given by the Lemma \ref{cov_spectrum_lem}
@@ -11555,7 +11583,7 @@ If  $A$ is a $C^*$- algebra with Hausdorff spectrum $\sX$, such that $\sX$ is co
 \end{enumerate}
 \end{lemma}
 \begin{proof}
-(i) Follows from the  Example \ref{blowing_ctr_exm}, Exercise \ref{blowing_ctr_exer} and the Theorems \ref{blowing_fin_thm}.\\
+(i) Follows from the  Example \ref{blowing_ctr_exm}, Exercise \ref{blowing_ctr_exer} and the Theorems \ref{blowing_functor_thm}.\\
 (ii) PROVE!!!!
 \end{proof}
 
@@ -11970,38 +11998,6 @@ In the described above situation there is the given by
 \section{Infinite coverings}\label{ctr_case_sec}
 \subsection{Coverings of $C^*$-algebras}
 
-\paragraph{title}
-\begin{example}\label{blowing_ctr_exm}
-	If $A$ is a $C^*$-algebra with Hausdorff and $\sX$ is its spectrum then from the Theorems \ref{oa_haus_prim_thm} and  \ref{dauns_hofmann_thm} one has the natural inclusion $C_0\left(\sX \right) \hookto M\left( A\right)$. For all $a \in A$ and $\eps> 0$ the subset
-	$$
-	\sY \bydef \left\{\left.x \in \sX\right| \left\| \rep_x\left(a\right)\right\|\ge \eps \right\}\subset\sY
-	$$
-	is compact (cf. Lemma \ref{ctr_rep_eq_lem}). If $u_\la \in C_c\left(\sY \right)_+$ is a covering sum for $\sY$ (cf. Definition \ref{top_cfs_defn}) then for any $\la'\ge\la$ one has
-	\bean
-	\left\|au_{\la' }- a \right\|< \eps, \\
-	\left\|u_{\la' }a- a \right\|< \eps. 
-	\eean
-	From the above equations there is the 	limit $
-	1_{M\left(A \right)  }= \bt~\text{-}\lim_{\la \in \La }u_\la
-	$
-	with respect to the strict topology (cf. Definition \ref{strict_topology}) of $M\left( A\right)$. It turns out that $C_0\left(\sX \right) \hookto M\left( A\right)$ satisfies to the condition (a)  Definition \ref{blowing_defn}). If $\rep_x: A \to B\left( \H\right)$ is an irreducible representation then if $f \in C_0\left(\sX \right)$ is such that $f\left(x \right)  = 1$ then $\rep_x\left( f\right) = 1_{B\left(\H \right) }$ and !!!  (a) (b)$\rep_x\left(f \right)\H = \H$, i.e.  $C_0\left(\sX \right) \hookto M\left( A\right)$ satisfies to the condition (b)  Definition \ref{blowing_defn}).
-	So  $C_0\left(\sX \right) \hookto M\left( A\right)$
-	is a {Hausdorff blowing-up} of $A$ (cf. Definition \ref{blowing_defn}).
-\end{example}
-\begin{exercise}\label{blowing_ctr_exer}
-	Prove that the given by the Example \ref{blowing_ctr_exm} Hausdorff blowing-up of $A$ is good (cf. Definition \ref{blowing_good_defn})
-\end{exercise}
-\begin{exercise}
-	Consider the Example \ref{blowing_ctr_exm}. Prove that the explained in the Definition \ref{top_lift_desc_defn} notation  is equivalent to the notation of the Definition \ref{blowing_lift_desc_defn}  (cf. equations \eqref{top_lift_desc_eqn}  and \eqref{blowing_lift_desc_eqn}).
-\end{exercise}
-\begin{exercise}
-	Consider the Example \ref{blowing_ctr_exm}. Prove that the explained in \ref{top_cs_funct_empt} notation is equivalent to the notation of the Definition \ref{blowing_a0_x_defn}  (cf. equations \eqref{top_c0_ob_eqn} and \eqref{blowing_a0x_eqn}).
-\end{exercise}
-\begin{exercise}
-	!!! 	Consider the Example \ref{blowing_ctr_exm}. Prove that the explained in \ref{top_cs_funct_empt} functor $A_0$ is a specialization of the given by the Exercise \ref{blowing_cs_funct_exer}  functor.
-\end{exercise}
-
-  \paragraph*{title}
 \begin{lemma}\label{ctr_c0_inc_lem}
 	If the spectrum of $A$ is locally connected then 
 	there is the natural inclusion
