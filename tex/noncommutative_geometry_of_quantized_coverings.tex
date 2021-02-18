@@ -3970,12 +3970,12 @@ Very natural choice of fundamental group is proposed in \cite{milne:etale}, wher
 \subsection{Universal coverings of $C^*$-algebras}\label{uni_sec}
 \begin{definition}\label{fg_bas_defn} 
 	Let $A$ be a connected $C^*$-algebra. Let us consider the family $\left\{ \pi_\la:A \hookto A_\la\right\}_{\la \in \La} $  \textit{all} noncommutative finite-fold coverings (cf. Definition \ref{fin_defn}) (resp. \textit{all} reduced noncommutative finite-fold coverings (cf. Definition \ref{fin_red_defn}))  (resp. \textit{all} free noncommutative finite-fold coverings (cf. Definition \ref{fin_free_defn})) of $A$. Suppose that the family $\left\{ \pi_\la:A \hookto A_\la\right\}_{\la \in \La}$ is an {algebraical  finite covering category} (cf. Definition \ref{comp_defn}).
- Denote by $\mathfrak{S} = \left\{ \pi_\la:A \hookto A_\la\right\}_{\la \in \La}$ and suppose that there is   a  {pointed  algebraical  finite covering} category $\mathfrak{S}^{\mathrm{pt}} = \left( \left\{ \pi_\la:A \hookto A_\la\right\},\left\{\pi^\nu_\mu\right\} \right)$  which is good.
+ Denote by $\mathfrak{S} = \left\{ \pi_\la:A \hookto A_\la\right\}_{\la \in \La}$ and suppose that there is   a  {pointed  algebraical  finite covering} category $$\mathfrak{S}^{\mathrm{pt}} = \left( \left\{ \pi_\la:A \hookto A_\la\right\}_{\la\in\La},\left\{\pi^\nu_\mu\right\}_{\substack{ \mu, \nu \in \La \\ \mu \ge \nu}} \right)$$  which is good.
 	The { connected infinite noncommutative covering }  $\left(A, \widetilde{A}, G\left(\left.\widetilde{A}~\right|{A}  \right) \right)$ of $\mathfrak{S}$ is said to be the \textit{universal  covering} (resp. \textit{reduced universal  covering}) (resp. \textit{free universal  covering}) 
 	of $A$. We also say that $\widetilde{A}$ the \textit{universal  covering} (resp. \textit{reduced universal  covering})  (resp. \textit{free universal  covering}) of $A$. The group $G\left(\left.\widetilde{A}~\right|{A}  \right)$  is said to be the \textit{fundamental group} (resp. \textit{reduced fundamental group}) (resp. \textit{free fundamental group}) 
 	of the pair  $\left( A, \left\{\pi^\nu_\mu\right\}\right) $. We use the following notation
 	\be\label{fg_bas_eqn}
-	\pi_1\left(A, \left\{\pi^\nu_\mu\right\} \right) \stackrel{\mathrm{def}}{=} G\left(\left.\widetilde{A}~\right|{A} \right).
+	\pi_1\left(A, \left\{\pi^\nu_\mu\right\}_{\substack{ \mu, \nu \in \La \\ \mu \ge \nu}} \right) \stackrel{\mathrm{def}}{=} G\left(\left.\widetilde{A}~\right|{A} \right).
 	\ee
 
 \end{definition}
@@ -12196,55 +12196,63 @@ $$
 	
 \end{empt}
 
-
-
-\begin{theorem}\label{ctr_main_thm}!!!
-
-	Let $A$ be a separable $C^*$-algebra with continuous trace and $\sX= \hat A$ is the spectrum of $A$. 	Let	$\mathfrak{S}_{\left(\sX, x_0\right)}= \left\{p_\la:\left( \sX_\la, x^\la_0\right) \to \left( \sX, x_0\right)\right\}_{\la \in \La} \in \mathfrak{FinTop}^{\mathrm{pt}}$ be a pointed topological finite covering category such that for any $\mu > \nu$ there is the unique  pointed  covering $p^\mu_{ \nu}: \left(\sX_{\mu}, x^\mu_0 \right) \to \left(\sX_{\nu}, x^\nu_0 \right)$. 
-	 If
-\be\nonumber
+\begin{theorem}\label{ctr_main_thm}
+	Let $A$ be  $C^*$-algebra with Hausdorff, connected, locally connected spectrum $\sX\bydef \hat A$. 	Let	$\mathfrak{S}_{\left(\sX, x_0\right)}= \left\{p_\la:\left( \sX_\la, x^\la_0\right) \to \left( \sX, x_0\right)\right\}_{\la \in \La} \in \mathfrak{FinTop}^{\mathrm{pt}}$ be given by \eqref{ctr_top_eqn} a pointed topological finite covering category. If
+	\be\nonumber
 \begin{split}
-	\mathfrak{S}_{A } = \\
+	\mathfrak{S}^\mathrm{pt}_{A } = \\
 	=\left(\left\{A_0\left( p_\la\right) : A  \hookto A_0\left(\sX_\la \right)\right\}, \left\{A_0\left( p_\nu^\mu\right) : A_0\left(\sX_\nu \right) \hookto A_0\left(\sX_\mu \right)\right\}\right)
 \end{split}
 \ee
-is a given by the Lemma  \ref{ctr_base_point_lem} {pointed algebraical  finite covering category} (cf. Definition \ref{comp_pt_defn}).
+is a given by the equation \eqref{ctr_base_point_eqn} {pointed algebraical  finite covering category} (cf. Definition \ref{comp_pt_defn}).
 then following conditions hold:
 \begin{enumerate}
-	\item [(i)] $\mathfrak{S}_{A}$ is good  and the triple $\left(A, A_0\left(\varprojlim  \mathfrak{S}_{\mathcal X}\right),G\left(\varprojlim  \mathfrak{S}_{\mathcal{X}}~|~ \mathcal X\right)\right)$ is  the  { infinite noncommutative covering} of $\mathfrak{S}_{A}$ (cf. Definition \ref{main_defn}).
+	\item [(i)] $\mathfrak{S}^\mathrm{pt}_{A}$ is good  and the triple $\left(A, A_0\left(\varprojlim  \mathfrak{S}_{\mathcal X}\right),G\left(\varprojlim  \mathfrak{S}_{\mathcal{X}}~|~ \mathcal X\right)\right)$ is  the  { infinite noncommutative covering} of $\mathfrak{S}^\mathrm{pt}_{A}$ (cf. Definition \ref{main_defn}).
 	\item[(ii)] There are  isomorphisms:
 	\begin{itemize}
-		\item $\varprojlim  \mathfrak{S}_{A} \approx A_0\left(\varprojlim  \mathfrak{S}_{\mathcal X}\right)$.
-		\item $G\left(\varprojlim  \mathfrak{S}_{A}~|~ A\right) \approx G\left(\varprojlim  \mathfrak{S}_{\mathcal{X}}~|~ \mathcal X\right)$.
+		\item $\varprojlim  \mathfrak{S}^\mathrm{pt}_{A} \approx A_0\left(\varprojlim  \mathfrak{S}_{\mathcal X}\right)$.
+		\item $G\left(\varprojlim  \mathfrak{S}^\mathrm{pt}_{A}~|~ A\right) \approx G\left(\varprojlim  \mathfrak{S}_{\mathcal{X}}~|~ \mathcal X\right)$.
 	\end{itemize}
 \end{enumerate}
 \end{theorem}
 
 \begin{proof}
-	From \ref{ctr_transitive_empt} it follows that the disconnected algebraical inverse noncommutative limit of $	\mathfrak{S}_{A }$  is isomorphic to  $A_0\left(\overline \sX\right)$, and the closed ideal $A_0\left(\widetilde{\mathcal X}\right)\subset A_0\left(\overline{\mathcal X}\right)$ is a maximal connected $C^*$-subalgebra of $A_0\left(\overline{\mathcal X}\right)$ (cf. \eqref{ctr_transitive_empt})
+	From the Corollary \ref{ctr_spec_inc_cor} it follows that the disconnected algebraical inverse noncommutative limit of $\mathfrak{S}^\mathrm{pt}_{A }$  is isomorphic to  $A_0\left(\overline \sX\right)$, and the closed ideal $A_0\left(\widetilde{\mathcal X}\right)\subset A_0\left(\overline{\mathcal X}\right)$ is a maximal connected $C^*$-subalgebra of $A_0\left(\overline{\mathcal X}\right)$ (cf. \eqref{ctr_transitive_eqn})
 	One needs check conditions (a)-(c) of the Definition \ref{mains_defn}.
 	\begin{enumerate}
 	\item[(a)] Since $\widetilde\sX \to \sX_\la$ is a covering for all $\la\in\La$ the natural *-homomorphism $A_0\left(\sX_\la \right) \hookto M\left( A_0\left( \widetilde\sX\right)\right)$ is injective. 
-	\item[(b)] We already know that the algebraic direct sum $\bigoplus _{g \in J}  g A_0\left( \widetilde{\mathcal X} \right)$ 	is a dense subalgebra of $A_0\left(\overline{\mathcal X}\right)$ (cf. \ref{ctr_transitive_empt}).
+	\item[(b)] We already know that the algebraic direct sum $\bigoplus _{g \in J}  g A_0\left( \widetilde{\mathcal X} \right)$ 	is a dense subalgebra of $A_0\left(\overline{\mathcal X}\right)$ (cf. \eqref{ctr_transitive_eqn}).
 	\item [(c)] For every $\la\in\La$ the homomorphism $G\left(\left.A_0\left( \widetilde\sX\right) ~\right| A \right)\to G\left(\left.A_0\left( \sX_\la\right) ~\right| A \right)$ is equivalent to $G\left(\left. \widetilde\sX ~\right| \mathcal X \right)\to G\left(\left. \sX_\la ~\right|  \mathcal X \right)$. However both coverings $\widetilde\sX \to \mathcal X$ and $\sX_\la\to \mathcal X$ are transitive, hence from the equation \eqref{top_g_homo_eqn} it follows that the homomorphism $G\left(\left. \widetilde\sX ~\right| \mathcal X \right)\to G\left(\left. \sX_\la ~\right|  \mathcal X \right)$ is surjective. 
-\end{enumerate}	(ii) Follows from (i) of this lemma.
+\end{enumerate}	
+From $\varprojlim  \mathfrak{S}_{\mathcal X}= \widetilde \sX$  (cf. Definition \ref{top_topological_inv_lim_defn}) the triple $\left(A, A_0\left(\varprojlim  \mathfrak{S}_{\mathcal X}\right),G\left(\varprojlim  \mathfrak{S}_{\mathcal{X}}~|~ \mathcal X\right)\right)$ is  the  { infinite noncommutative covering} of $\mathfrak{S}^\mathrm{pt}_{A}$\\
+(ii) Follows from (i) of this lemma.
 	
 \end{proof}
 
 \begin{exercise}
-Hausdorff spectrum and continuous trace fundamental group!!!
+	Let $A$ be  $C^*$-algebra with Hausdorff, connected, locally path-connected, semilocally 1-connected  spectrum $\sX\bydef \hat A$. Suppose that the fundamental group $\pi_1\left(\sX, x_0 \right)$ is residually finite (cf. Definition \ref{residually_finite_defn}).
+	\begin{enumerate}
+		\item Prove that there is the isomorphism
+	$$
+\pi_1\left( \sX, x_0\right)\cong\pi_1\left( A, \left\{A_0\left(p^\mu_\nu \right) \right\}_{\substack{ \mu, \nu \in \La \\ \mu \ge \nu}}\right)
+$$
+where $\pi_1\left( A, \left\{A_0\left(p^\mu_\nu \right) \right\}_{\substack{ \mu, \nu \in \La \\ \mu \ge \nu}}\right)$  means the reduced fundamental group (cf. Definition \ref{fg_bas_defn}).
+\item Moreover if $A$ is a continuous trace   $C^*$-algebra then the reduced fundamental group coincides with the fundamental group (cf. Definition \ref{fg_bas_defn}).
+	\end{enumerate}
 \end{exercise}
 
 
 
 \begin{lemma}\label{ctr_allows_lem}
-	Let $A$ be a $C^*$-algebra with continuous trace, and let $\sX$ be the spectrum of $A$. Suppose that $\sX$ is a connected, locally connected, second-countable, Hausdorff space.
-	If $\mathfrak{S}_{\left( \mathcal X, x_0\right) } = \left\{\left( \mathcal{X}_\la, x_0^\la\right)  \to \left( \mathcal{X}, x_0\right) \right\}_{\la \in \La} \in \mathfrak{FinTop}^{\mathrm{pt}}$ and
-	$$
-		\mathfrak{S}^{\mathrm{pt}}_{A } 
-	=\left\{A_0\left( p_\la\right) : A  \hookto A_0\left(\sX_\la \right)\right\}, \left\{A_0\left( p_\nu^\mu\right) : A_0\left(\sX_\nu \right) \hookto A_0\left(\sX_\mu \right)\right\}
-	$$
-	is the given by the Lemma \ref{ctr_base_point_lem} pointed algebraical  finite covering category then $\mathfrak{S}^{\mathrm{pt}}_{A }$ allows inner product (cf. Definition \ref{inf_hilb_prod_defn}). 
+The given by by the equation \eqref{ctr_base_point_eqn} {pointed algebraical  finite covering category}
+	\be\nonumber
+	\begin{split}
+		\mathfrak{S}^\mathrm{pt}_{A } = \\
+		=\left(\left\{A_0\left( p_\la\right) : A  \hookto A_0\left(\sX_\la \right)\right\}, \left\{A_0\left( p_\nu^\mu\right) : A_0\left(\sX_\nu \right) \hookto A_0\left(\sX_\mu \right)\right\}\right)
+	\end{split}
+	\ee
+ (cf. Definition \ref{comp_pt_defn}).
+$\mathfrak{S}^{\mathrm{pt}}_{A }$ allows inner product (cf. Definition \ref{inf_hilb_prod_defn}). 
 \end{lemma}
 
 \begin{proof}
@@ -12264,7 +12272,7 @@ A_0\left(\widetilde{\sX}\right)\stackrel{\text{def}}{=} C_0\left(\lift_p\left[\s
 	$$
 	If $\widetilde a \in   C_0\left(\lift_p\left[\sX, \left\{A_x\right\}, \sF \right] \right)
 	$  lies in the Pederesen's ideal of $C_0\left(\lift_p\left[\sX, \left\{A_x\right\}, \sF \right] \right)$ then the given by \eqref{top_support_eqn} set $\supp \widetilde a$ is a compact subset of $\widetilde\sX$.
-	From the Lemma \ref{top_comp_la_lem} it follows that there is $\la_0 \in \La$ such that for all $\la \ge \la_0$ the restriction $\left.\widetilde{p}_\la\right|_{\supp \overline{a}}$ is injective. From (ii) of the Lemma  \ref{comm_lift_desc_sum_lem} it follows that
+	From the Lemma \ref{top_comp_la_lem} it follows that there is $\la_0 \in \La$ such that for all $\la \ge \la_0$ the restriction $\left.\widetilde{p}_\la\right|_{\supp \overline{a}}$ is injective. From  the Lemma  \ref{blowing_cov_inc_strict_lem} it follows that
 	\begin{equation}\nonumber
 	\begin{split}
 	c_{\la} = \sum_{g \in \ker\left(G\left(\left.\widetilde{\sX}~\right|\sX \right)  \to  G\left( \sX_{\la}~|~\sX \right)\right)} g \left(\widetilde{a}^* \widetilde{b}  \right) = \desc_{\overline{p}_\la}\left( \widetilde{a}\widetilde{b}\right) 
@@ -12274,7 +12282,7 @@ A_0\left(\widetilde{\sX}\right)\stackrel{\text{def}}{=} C_0\left(\lift_p\left[\s
 \end{proof}
 
 \begin{empt}\label{ctr_mu_empt}
-	Denote by  
+!!!	Denote by  
 	\bean
 	\begin{split}
 		\mathfrak{S}_{\left( \sX, x_0\right) }\bydef\\
