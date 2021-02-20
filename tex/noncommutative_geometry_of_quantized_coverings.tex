@@ -3516,11 +3516,11 @@ Let	$\mathfrak{S}^{\mathrm{pt}} \in \mathfrak{FinAlg}^{\mathrm{pt}}$, let $\pi: 
 	We say  that $\mathfrak{S}^{\mathrm{pt}}$ is $\pi$-\textit{good} if the following conditions hold:
 	\begin{enumerate}
 		\item[(a)] For all $\la \in \La$ the natural *-homomorphism $A_\la \to  M\left(\widetilde{A}_\pi \right)$ is injective.
-		\item[(b)] If $J\subset G\left(\overline{A}_\pi~|~ A\right)$ is a set of representatives of $G\left(\left.\overline{A}_\pi~\right| A\right)/G_\pi$, then the algebraic direct sum
+		\item[(b)] If  $J\subset G\left(\overline{A}_\pi~|~ A\right)$ is a set of representatives of $G\left(\left.\overline{A}_\pi~\right| A\right)/G_\pi$ and $	\prod_{g\in J} g\widetilde{A}_\pi$ is the direct product then the natural *-homomorphism 
 		\begin{equation*}
-		\bigoplus_{g\in J} g\widetilde{A}_\pi
+	\overline{   A}	\prod_{g\in J} g\widetilde{A}_\pi
 		\end{equation*}
-		is a dense subalgebra of $\overline{A}_\pi$.
+		is injective.
 		\item [(c)] For any $\la \in \La$ the restriction $h_\la|_{G_\pi}$ is an epimorphism, i. e. $h_\la\left(G_\pi \right) = G\left(\left. A_\la~\right|~A \right)$.
 	\end{enumerate}
 	If $\pi$ is the atomic representation $\pi_a$ then we say $\widetilde A\bydef\widetilde A_\pi$ is a \textit{connected component} of $\mathfrak{S}^{\mathrm{pt}}$ and    $\mathfrak{S}^{\mathrm{pt}}$ is \textit{good}.
@@ -3535,12 +3535,10 @@ Let	$\mathfrak{S}^{\mathrm{pt}} \in \mathfrak{FinAlg}^{\mathrm{pt}}$, let $\pi: 
 	\end{split}
 	\end{equation*}	
 	If $\pi$ is the atomic representation then the subscript $\pi$ will be dropped and we use the words 
-\textit{ inverse noncommutative limit of $\mathfrak{S}^{\mathrm{pt}}$}, \textit{covering transformation group of $\mathfrak{S}$} and  \textit{infinite noncommutative covering} instead of
-	$\pi$-{inverse noncommutative limit of $\mathfrak{S}^{\mathrm{pt}}$}, $\pi$-{covering transformation group of $\mathfrak{S}$} and  $\pi$-{infinite noncommutative covering} respectively.
-In this case we write $~\varprojlim  \mathfrak{S}\stackrel{\mathrm{def}}{=}\widetilde{A}$ and  $ G\left(\left.\widetilde{A}~\right| A\right)\stackrel{\mathrm{def}}{=}G$ and the triple $\left(A, \widetilde{A}_\pi, G_\pi\right)$ is replaced with $\left(A, \widetilde{A}, G\right)$.
+\textit{ inverse noncommutative limit of $\mathfrak{S}^{\mathrm{pt}}$}, \textit{covering transformation group of $\mathfrak{S}^{\mathrm{pt}}$} and  \textit{infinite noncommutative covering} instead of
+	$\pi$-{inverse noncommutative limit of $\mathfrak{S}^{\mathrm{pt}}$}, $\pi$-{covering transformation group of $\mathfrak{S}^{\mathrm{pt}}$} and  $\pi$-{infinite noncommutative covering} respectively.
+In this case we write $~\varprojlim  \mathfrak{S}^{\mathrm{pt}}\stackrel{\mathrm{def}}{=}\widetilde{A}$ and  $ G\left(\left.\widetilde{A}~\right| A\right)\stackrel{\mathrm{def}}{=}G$ and the triple $\left(A, \widetilde{A}_\pi, G_\pi\right)$ is replaced with $\left(A, \widetilde{A}, G\right)$.
 \end{definition}
-%
-
 \begin{lem}
 	Any change of base point yields equivalent  infinite noncommutative coverings.
 \end{lem}
@@ -3561,7 +3559,7 @@ If $\widehat \sX$ is the spectrum of the $C^*$-inductive limit $C^*$-$\varinjlim
 \rep_{ \widehat{x}}: A_\la\to B\left(\H_{\widehat{x}}\right).
 \ee
 From the Lemma \ref{spec_el_repr_lem} it turns out that there are the following natural representations
-\be\label{rep_owa_rem}
+\be\label{rep_owa_eqn}
 \begin{split}
 \rep_{ \widehat{x}}:\overline A\to B\left(\H_{\widehat{x}}\right),\\
 \rep_{ \widehat{x}}: \widetilde A\to B\left(\H_{\widehat{x}}\right)
@@ -3569,7 +3567,20 @@ From the Lemma \ref{spec_el_repr_lem} it turns out that there are the following 
 \ee
 (cf. Notation \eqref{spec_el_repr_eqn}).
 \end{remark}
-\begin{remark}\label{implicit_inc_full_rem}
+\begin{definition}
+Consider the above situation, and suppose that $\widetilde \sX$ is the spectrum of $\widetilde A$.
+If
+$$
+\widetilde \sX^\perp \bydef\left\{\left.\widetilde x\in \widetilde \sX~\right| \forall \widehat{x }\in \widehat\sX\quad \rep_{  \widetilde{x }} \perp  \rep_{  \widehat{x }}\right\}\subset \widetilde \sX
+$$
+(cf. equations \ref{rep_owa_eqn} and \ref{orth_func_eqn})
+then the ideal
+$$
+\widetilde A' \bydef \left\{\left.\widetilde a\in \widetilde A~\right| \forall \widetilde{x }\in \widetilde\sX^\perp\quad \rep_{  \widetilde{x }}\left(\widetilde a\right)= 0\right\}\subset \widetilde A
+$$
+is said to be \textit{spectral infinite noncommutative covering} of $\mathfrak{S}^{\mathrm{pt}}$.
+\end{definition}
+\begin{empt}\label{implicit_inc_full_empt}
 	Below for all $\la\in\La$ we implicitly assume that $A_\la \subset  B\left(\H \right)$. Similarly the following natural inclusions 
 	\bean
 	\widehat A \subset B\left(\H \right), \quad
@@ -3588,9 +3599,7 @@ From the Lemma \ref{spec_el_repr_lem} it turns out that there are the following 
 	\be\label{spec_a_sum_eqn}
 a \bydef	\sum_{g \in G\left(\left.\overline A\right|A \right) }g\overline a\in A= A_{\la_{\text{min}}}.
 	\ee
-	
-	
-\end{remark}
+\end{empt}
 
 \section{Infinite coverings of unbounded *-algebras}
 
@@ -7934,7 +7943,7 @@ It follows that for all $\la > \mu$ one has
  \end{proof}
 \begin{remark}\label{top_implicit_inc_full_rem}
 Below the given by the equation \eqref{comm_inc_eqn} injecive homomorphism $\varphi:\overline{A}\hookto D^*\left( \overline{\sX}\right)$ will by replaced with inclusion $\overline{A}\subset D^*\left( \overline{\sX}\right)$.
-Similarly to the Remark \ref{implicit_inc_full_rem}
+Similarly to  \ref{implicit_inc_full_empt}
  for all $\la\in\La$ we implicitly assume that $C_0\left( \sX_\la\right) \subset  D^*\left( \overline{\sX}\right)$. Similarly the following natural inclusion 
 \bean
 C^*\text{-}\varinjlim_{\la\in\La} C_0\left( \sX_\la\right) \subset D^*\left( \overline{\sX}\right)
@@ -10234,7 +10243,7 @@ Let $\la_0 \in \La$, $\eps > 0$ and  $z \in A_0\left(\sY_{\la_0} \right)^{\sim}$
 \label{blowing_spec_a_eps_imp3_eqn}
 \sum_{g\in G_\la  } \left(z^*\left(  g\overline a\right) z   \right)^2    \in A_0\left(\sY_{\la} \right). 
 \eea
-(cf. Remark \ref{implicit_inc_full_rem}).
+(cf. \ref{implicit_inc_full_empt}).
 \begin{enumerate}
 	\item 	 Proof of \eqref{blowing_spec_a_eps_imp1_eqn}. One has $\sum_{g\in G_\la } z^*\left(  g\overline a\right) z= z^*\left( \sum_{g\in G_\la } g\overline a\right) z$. From the Lemma \ref{blowing_cov_inc_strong_lem} it turns out that there is the strong limit $\sum_{g\in G_\la } g\overline a= \desc_{\overline p_{\la}}\left( \overline a\right)\in  A_0\left(\sY_{\la} \right)$, so one has $\sum_{g\in G_\la } z^*\left(  g\overline a\right) z\in A_0\left(\sY_{\la} \right)$.
 	\item 	 Proof of \eqref{blowing_spec_a_eps_imp2_eqn}. From $f_\eps\left(z^*\left(  g\overline a\right) z   \right)\le z^*\left(  g\overline a\right) z$ it follows that $\sum_{g\in G^0_\la } f_\eps\left(z^*\left(  g\overline a\right) z   \right)\le a_\la$ for any finite subset $G^0_\la\subset G_\la$ so from the Lemma \ref{increasing_convergent_w_lem} it turns out that the series $\sum_{g\in G_\la } f_\eps\left(z^*\left(  g\overline a\right) z   \right)$ is strongly convergent in $B\left(\widehat\H_a\right)$. Moreover one has
@@ -13653,7 +13662,7 @@ $$
 \end{empt}
 \begin{remark}\label{foli_implicit_inc_full_rem}
 	Below the given by the equation \eqref{foli_phi_eqn} *-homomorphism will be replaced with the inclusion $	C^*_r\left(\overline M, \overline \sF \right)\subset B \left( \widehat \H_a\right)$ of $C^*$-algebras.
-	Similarly to the Remark \ref{implicit_inc_full_rem}
+	Similarly to  \ref{implicit_inc_full_empt}
 	below for all $\la\in\La$ we implicitly assume that $C^*_r\left( M_\la,  \sF_\la \right) \subset  B\left(\widehat \H_a \right)$. Similarly the following natural inclusion 
 	\bean
 	\widehat {C^*_r\left( M,  \sF \right) } \subset B\left(\widehat \H_a\right)
@@ -17994,6 +18003,22 @@ point.
 	%	3.3.8. COROLLARY. 
 	%	Let $\psi$ and $\phi$ be positive functionals on a $C^*$-algebra $A$ and $\psi$ 	is dominated by a multiple of $\phi$. If both representations $\pi_\phi : A \to B\left( \H_\phi\right)$ and  $\pi_\psi : A \to B\left( \H_\psi\right)$  correspond $\phi$ and $\psi$ respectively   then the representation $\pi_\psi : A \to B\left( \H_\psi\right)$  is spatially 	equivalent to a subrepresentation of $\pi_\phi : A \to B\left( \H_\phi\right)$.  
 	%\end{lemma}
+	\begin{definition}\label{orth_func_defn}(cf. \cite{pedersen:ca_aut})
+	%3.2.4
+	Let $A$ be  $C^*$-algebra. Two positive functionals $\phi: A \to \C$ and  $\psi: A \to \C$ are \textit{orthogonal} if
+	$$
+	 \left\|\phi - \psi \right\| = \left\|\phi \right\| +  \left\|\psi \right\|. 
+	$$
+	We write
+	\bean
+	\phi \perp \psi.
+	\eean
+	If $\pi_\phi : A \to B\left( \H_\phi\right)$ and $\pi_\psi : A \to B\left( \H_\psi\right)$ are representations which correspond to $\phi$ and $\psi$ respectively then we write
+		\be\label{orth_func_eqn}
+	\pi_\phi \perp \pi_\psi.
+	\ee
+	 
+	\end{definition}
 	\subsection{Irreducible representations}
 	\begin{theorem}\label{irred_thm}\cite{pedersen:ca_aut}
 		Let $\pi: A \to B\left(\H \right)$ be a nonzero representation of $C^*$-algebra $A$. The following conditions are equivalent:
