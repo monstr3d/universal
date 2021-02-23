@@ -3604,7 +3604,7 @@ Both inclusions $\overline{A}_{\widehat \pi_a}\subset  \overline{A}_{\widehat \p
 	If we consider the situation of the Definition \ref{main_defn_full_defn} and suppose that $\pi:\widehat A\to B\left( \H\right)$ is an equivariant faithful representation (cf. Definition \ref{equiv_repr_defn}) then one has: 
 	\begin{enumerate}
 		\item [(i)]  	There is the natural surjecive *-homomorphism  $\phi:\overline A\to \overline A_\pi$.
-		\item[(ii)] If $\pi$ yields a faithful representation of $\mathscr B\left(\widehat A\right)$ is {enveloping Borel *-algebra} $\mathscr B\left(\widehat A\right)$ of $\widehat A$ then $\phi$ is *-isomorphism.
+		\item[(ii)] If $\pi$ yields a faithful representation of $\mathscr B\left(\widehat A\right)$ is {enveloping Borel *-algebra} $\mathscr B\left(\widehat A\right)$ of $\widehat A$ (cf. Definition \ref{borel_env_defn}) then $\phi$ is *-isomorphism.
 	\end{enumerate}
 \end{cor}
 \begin{proof}
@@ -3662,6 +3662,26 @@ Both inclusions $\overline{A}_{\widehat \pi_a}\subset  \overline{A}_{\widehat \p
 	\eean
 (cf. Lemma \ref{cov_spectrum_lem})	it follows that $t_\mu = t_\nu$, hence there is $t\in \left[0,1\right]$ such that $t_\la=t$ for all $\la\in \La$. So one has $\widehat p= t\widehat\tau$, i.e. $\widehat\tau$ is a pure state.
 	Conversely suppose that $\widehat\tau$ is pure and $\left.\widehat \tau\right|_{A_\la}$ is not pure. There is a positive functional  $p_\la: A_\la \to \C$ such that $p_\la \le \left.\widehat \tau\right|_{A_\la}$ and $p_\la \neq t\left.\tau\right|_{A_\la}$ for all $t \in \left[0,1\right]$. Using HahnÐBanach theorem one can extent $p_\la$ up to a positive functional $\widehat p: \widehat A\to \C$ such that $\widehat p\le \widehat \tau$. But $\widehat p \neq t\widehat \tau$ for all $t \in \left[0,1\right]$, i.e. the state $\widehat \tau$ is not pure.
+\end{proof}
+
+
+\begin{corollary}\label{spectrum_bijective_cor}
+	Let $\overline A$ be the { disconnected algebraical inverse noncommutative limit} of a {pointed algebraical  finite covering category}  
+	\bean
+	\begin{split}
+		\mathfrak{S}^{\text{pt}} = \left(\left\{\pi_\la: A \hookto A_\la \right\}_{\la \in \La}, \left\{\pi^\mu_\nu: A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\ \nu > \mu}}\right)
+	\end{split}
+	\eean
+	Let $\widehat A \bydef C^*$-$\varinjlim_{\la\in\La} A_\la$ be the direct limit, and let $\widehat\sX$ be the spectrum of $\widehat A$. If for all $\la\in \La$ the natural *-homomorphism $A_\la \to M\left(\overline A \right)$ is injective and   	$\overline	\sX$ is the spectrum of  $M\left(\overline A \right)$ then there is the natural  set theoretic  bijective   map $ \widehat\sX\cong \overline
+	\sX$. 
+\end{corollary}
+\begin{proof}
+	For all $\la\in \La$ the natural *-homomorphism $A_\la \to M\left(\overline A \right)$ is injective, so the map $\widehat A\to  M\left(\overline A \right)$ is also injective. If $\bt\overline\sX$ is the spectrum of $M\left(\overline A \right)$ then from the Proposition \ref{sur_prop} it follows that there is a partial surjective map $p: \bt\overline\sX\to \widehat \sX$. On the other hand from the Lemma \ref{atomic_uni_lem} it follows that there is the inclusion $\widehat A\subset  \pi_a\left( A\right)'' = \prod_{\widehat x\in \widehat\sX} B\left( \H_{\widehat x}\right)$.
+	Otherwise  from the Lemma \ref{spec_borel_lem} it follows that there are natural inclusions $\overline A\subset \mathscr B\left(\widehat A\right)\subset  \pi_a\left( A\right)'' = \prod_{\widehat x\in \widehat\sX} B\left( \H_{\widehat x}\right)$. If $\widehat x_0 \in {\widehat \sX}$ and
+	$$
+	I''_{\widehat{x}_0}\bydef \left\{\left.\left\{a_{\widehat x}\right\}_{\widehat x\in {\widehat \sX}} \in \prod_{\widehat x\in \widehat\sX} B\left( \H_{\widehat x}\right)\right|a_{\widehat x_0}=0\right\}
+	$$
+	then any $\widehat x\in \widehat\sX$ corresponds to the ideal $\widehat I_{\widehat x}\bydef I''_{\widehat{x}}\cap \widehat A$. Otherwise for any $\widehat x\in \widehat\sX$ element $\overline x \in \bt\overline \sX$ such that $p\left(\overline x \right) = \widehat x$. The point $\overline x$ corresponds to the unique ideal $\overline I_{\widehat x}\bydef I''_{\widehat{x}}\cap \overline A$. The point $\overline x$ uniquely depends on $\widehat  x$ and $\overline x\in \overline \sX$.
 \end{proof}
 \begin{lemma}\label{sum_hilb_rep_lem}
 	Let $\left\{\H_\la\right\}_{\la\in\La}$ be a family of Hilbert spaces, and let $\H$ be the norm completion of the algebraic direct sum $\oplus_{\la\in\La}\H_\la$. The bounded net $\left\{a_\a\right\}_{\a\in \mathscr A} \in B\left( \H\right)$ is strongly convergent  if and only if for all $\la\in\La$ and  $\zeta \in \H$ given by
@@ -17908,8 +17928,6 @@ point.
 	
 	\chapter{Operator algebras}
 	
-	
-	
 	\section{$C^*$-algebras and von Neumann algebras}
 	\paragraph{}In this section I follow to \cite{murphy,pedersen:ca_aut}.
 	\begin{definition}\cite{murphy}
@@ -18518,6 +18536,12 @@ Let $I$ be a closed ideal of $A$.
 		%4.5.13. Corollary. For each C*-algebra A we have &sa c Â°U(A) and the atomic representation is faithful on 0&.
 		For each $C^*$-algebra $A$  the atomic representation is faithful on the enveloping Borel *-algebra $\mathscr B\left(A\right)$ of $A$ (cf. Definition \ref{borel_env_defn}).
 	\end{corollary}
+\begin{lemma}\label{atomic_uni_lem}
+If  $\pi_a: A \hookto B\left( \H_a\right)$ is the atomic representation then one has
+$$
+\pi_a\left( A\right)'' = \prod_{x\in \hat A} B\left( \H_x\right). 
+$$
+\end{lemma}
 	%\begin{definition}
 	%	3.8.1. 
 	%	With each (non-degenerate) representation $\pi: A \to B\left(\H\right)$ of a $C^*$-algebra $A$ we associate the projection $c\left(\pi\right)$ in the center of $A''$ for which $A''\left(\pi\right)$ is isomorphic 	to $\pi(A)''$( = $\pi''\left(A'' \right)$ ). We say that  $c\left(\pi\right)$ is the \textit{central cover} of $\pi: A \to B\left(\H\right)$
@@ -20003,8 +20027,6 @@ homomorphisms $ev_\xi : A \to \Sigma B$ to commute with each other.
 		%Proposition 6.4.14 
 		$\left\|\cdot \right\|^{\mathrm{or}}_{\mathrm{b}}$ is an unbounded $C^*$-norm on $\mathfrak{A}$ with domain $\mathfrak{A}_b$.
 	\end{proposition}
-
-\chapter{Differential geometry}
 
 
 	\chapter{Spectral triples}
