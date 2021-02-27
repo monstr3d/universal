@@ -3784,7 +3784,7 @@ Let	$\mathfrak{S}^{\mathrm{pt}} \in \mathfrak{FinAlg}^{\mathrm{pt}}$, let $\pi: 
 	If $\pi$ is the atomic representation $\pi_a$ then we say $\widetilde A\bydef\widetilde A_\pi$ is a \textit{connected component} of $\mathfrak{S}^{\mathrm{pt}}$ and    $\mathfrak{S}^{\mathrm{pt}}$ is \textit{good}.
 \end{definition}
  \begin{definition}\label{main_defn}
-	Let $\mathfrak{S}^{\mathrm{pt}} \in \mathfrak{FinAlg}^{\mathrm{pt}}$ be  an algebraical  finite covering category. Let $\pi: \widehat{A} \to B\left(\H \right)$ a representation such that $\mathfrak{S}^{\mathrm{pt}}$ is $\pi$-good.    A connected component $\widetilde{A}_\pi \subset \overline{A}_\pi$  is said to be the $\pi$-\textit{ inverse noncommutative limit of $\mathfrak{S}^{\mathrm{pt}}$}. The $\widetilde{A}_\pi$-invariant group $G_\pi$  is said to be the $\pi$-\textit{covering transformation group of $\mathfrak{S}$}.  The triple $\left(A, \widetilde{A}_\pi, G_\pi\right)$ is said to be the  $\pi$-\textit{infinite noncommutative covering} of $\mathfrak{S}$. %The algebra $A$  is said to be the {\it base algebra} of $\mathfrak{S}$. 
+	Let $\mathfrak{S}^{\mathrm{pt}} \in \mathfrak{FinAlg}^{\mathrm{pt}}$ be  an algebraical  finite covering category. Let $\pi: \widehat{A} \to B\left(\H \right)$ a representation such that $\mathfrak{S}^{\mathrm{pt}}$ is $\pi$-good.    A connected component $\widetilde{A}_\pi \subset \overline{A}_\pi$  is said to be the $\pi$-\textit{ inverse noncommutative limit of $\mathfrak{S}^{\mathrm{pt}}$}. The $\widetilde{A}_\pi$-invariant group $G_\pi$  is said to be the $\pi$-\textit{covering transformation group of $\mathfrak{S}^{\mathrm{pt}}$}.  The triple $\left(A, \widetilde{A}_\pi, G_\pi\right)$ is said to be the  $\pi$-\textit{infinite noncommutative covering} of $\mathfrak{S}^{\mathrm{pt}}$. %The algebra $A$  is said to be the {\it base algebra} of $\mathfrak{S}$. 
 	We will use the following notation 
 	\begin{equation*}
 	\begin{split}
@@ -10089,7 +10089,7 @@ From the Corollary \ref{top_covp_cat_cor} it follows that $p^2_1$ is a transitiv
 Let $A$ be a $C^*$-algebra, and let $C_0\left(\sY \right) \to M\left( A\right)$ be a good  semilocally 1-connected Hausdorff blowing-up (cf. Definitions \ref{blowing_defn}, \ref{blowing_good_defn}, \ref{blowing_semi1_defn}).	Suppose that  $\sY$ is a connected, locally connected  space.
 Denote by $\mathfrak{FinCov}$-$A$ a category of reduced noncommutative  finite-fold  coverings of $A$,  i. e.
 \begin{itemize}
-	\item  Objects of $\mathfrak{FinCov}$-$A$ are noncommutative  finite-fold  coverings of $A$.
+	\item  Objects of $\mathfrak{FinCov}$-$A$ are reduced noncommutative  finite-fold  coverings of $A$ (cf. Definitions \ref{fin_defn}, \ref{fin_red_defn}).
 	\item If $\pi': A\hookto \widetilde A'$ and  $\pi'':A \hookto \widetilde A''$ are objects of $\mathfrak{FinCov}$-$A$ then the morphism from $\pi'$ to $\pi''$ is an injective *-homomorphism $\pi: \widetilde A' \hookto  \widetilde A''$ such that the following diagram commutative.
 	\newline
 	\begin{tikzpicture}
@@ -10130,20 +10130,23 @@ Following conditions hold:
 \begin{empt}\label{blowing_inf_empt}
 Let $A$ be a $C^*$-algebra, and let $C_0\left(\sY \right) \to M\left( A\right)$ be a good,  semilocally 1-connected,  Hausdorff blowing-up (cf. Definitions \ref{blowing_defn},\ref{blowing_spectal_defn} \ref{blowing_good_defn}, \ref{blowing_semi1_defn}) such that the  $\sY$ is a connected, locally connected space. Let  $\widetilde{q}:\left( \widetilde{\sY}, \widetilde{y}_0\right) \to \left( \sY, y_0\right)$ be a transitive covering such that a covering group  $G\left(\left.\widetilde \sY \right| \sY\right)$ is residually finite (cf. Definition \ref{residually_finite_defn}). Let
 \be\label{blowing_top_eqn}
-\mathfrak{S}_{\left( \sY, y_0  \right) }=\left\{ q_\la: \left( \sY_\la, y^\la_0\right) \to \left( \sY, y_0\right)\right\}_{\la \in \La}
+\begin{split}
+\mathfrak{S}_{\left( \sY, y_0  \right) } \bydef\\\bydef\left\{\left\{ q_\la: \left( \sY_\la, y^\la_0\right) \to \left( \sY, y_0\right)\right\}_{\la \in \La}, \left\{q^\mu_\nu: \left( \sY_\mu, y^\mu_0  \right)\to \left( \sY_\nu, y^\nu_0  \right)\right\}_{\substack{ \mu, \nu \in \La \\ \mu \ge \nu}}\right\}
+\end{split}
 \ee
 be a  pointed  topological finite covering category given by the Lemma \ref{top_res_fin_lem}.
 \end{empt}
-
 \begin{lemma}\label{blowing_base_point_lem}
 If we consider the situation \ref{blowing_inf_empt}
 then ollowing conditions hold:
 \begin{enumerate}
 	\item[(i)] 	There is the natural  pointed algebraical  finite covering category (cf. Definition \ref{comp_defn})
 	\begin{equation}\label{blowing_base_point_eqn}
-		\mathfrak{S}_{A } = \left\{\pi_\la=A_0\left( q_{\la}\right) :A  \hookto A_0\left( \mathcal{Y}_\la\right) \right\}_{\la \in \La}\in \mathfrak{FinAlg}.
+		\begin{split}
+		\mathfrak{S}^{\mathrm{pt}}_A \bydef\\\bydef \left\lbrace \left\{\pi_\la\bydef A_0\left( q_{\la}\right) :A  \hookto A_0\left( \mathcal{Y}_\la\right) \right\}_{\la \in \La}, \left\{\pi^\nu_\mu\bydef A_0\left(q^\mu_\nu \right) \right\}_{\substack{ \mu, \nu \in \La \\ \mu \ge \nu}}\right\rbrace 
+		\end{split}
 	\end{equation}
-	\item[(ii)] Conversely a pointed algebraical  finite covering category $\mathfrak{S}_{A } $ 
+	\item[(ii)] Conversely a pointed algebraical  finite covering category $	\mathfrak{S}^{\mathrm{pt}}_A$ 
 	naturally induces the given by \eqref{blowing_top_eqn} pointed topological  finite covering category $\mathfrak{S}_{\left( \sY, y_0  \right) }$.
 	
 \end{enumerate}
@@ -10719,7 +10722,7 @@ In the situation of the Corollary  \ref{blowing_c0_inc_cor} the natural inclusio
 From the equation \eqref{blowing_ab_p_eqn} it follows that for all $\la\in\La$ and $a_\la \in A_0\left( \sY_{\la}\right)\setminus \{0\}$ there is $\overline a \in A_0\left(\overline \sY\right)$ such that $a_\la \overline a\neq 0$. So taking into account the natural inclusion $ A_0\left(\overline \sY\right) \subset \overline A$ we conclude that  both natural *-homomorphisms $A_0\left( \sY_{\la}\right)\hookto M\left( A_0\left(\overline \sY\right)\right) $ and $A_0\left( \sY_{\la}\right)\hookto  M\left(\overline A\right)$ are injective. If $\widehat \sX$ is the spectrum of $\widehat A\bydef C^*$-$\varinjlim_{\la\in\La}A_0\left( \sY_{\la}\right)$ then from the Lemma \ref{spectrum_bijective_cor} that the injective *-homomorphism $\widehat A\hookto M\left(\overline A\right)$ induces a bijective map from $\widehat \sX$ to the spectra of $\overline A$. Similarly to the Lemma \ref{spectrum_bijective_cor} that the injective *-homomorphism $\widehat A\hookto M\left( A_0\left(\overline \sY\right)\right)$ induces a bijective map from $\widehat \sX$ to the spectra of $A_0\left(\overline \sY\right)$. Both these bijective maps yield  a bijective map between spectra of $A_0\left(\overline \sY\right)$ and $\overline A$. Using the Lemma \ref{atomic_uni_lem} one can prove that this bijective map   is induced by the inclusion $A_0\left(\overline \sY\right) \subset \overline A$.
 \end{proof}
 
-\begin{empt}
+\begin{empt}\label{blowing_alg_empt}
 Let $\overline \sX$ be the regarded as a set spectrum of both  $A_0\left(\overline \sY\right) \subset \overline A$. For any open subset $\overline \sU\subset \sY$ denote by
 $$
 \overline \sX_{\overline \sU}\bydef \left\{\left. \overline x\in \overline \sX \right| \exists \overline a \in A_0\left(\overline \sY\right)_{\overline \sU}\quad\rep_{  \overline{x }}\left(a\right)\neq 0\right\}.
@@ -10732,9 +10735,6 @@ is a closed two sided ideal of $\overline A$ because
 $$
 \overline A_{\overline\sU} \bydef \left\{\overline a \in \overline A\left| \forall \overline x \in \overline \sX\setminus \overline \sX_{\overline \sU}\quad \rep_{  \overline{x }}\left(\overline a \right) =0\right. \right\}.
 $$
-\begin{definition}\label{blowing_defn!}
-	Any  commutative $C^*$-subalgebra $C\cong C_0\left( \sY\right) \subset M\left(A \right)$ is said to be  a \textit{Hausdorff blowing-up} of $A$  if for any irreducible representation $\rep_x: A \to B\left( \H\right)$ the space $\rep_x\left( C\right) \H$ is dense in $\H$. 
-\end{definition}
 If $\widetilde \sY$ is  the  {topological inverse limit} (cf. Definition \ref{top_topological_inv_lim_defn})	 of the given by \eqref{ho_gr_top_eqn}  pointed topological finite covering category $\mathfrak{S}_{\left( \sY^{\mathrm{ab}}, y_0  \right) }$
 then from the equation \eqref{top_disconnected_repr_eqn} it follows that
 \be\label{blowing_sq_eqn}
@@ -10782,22 +10782,27 @@ so one has
 \begin{theorem}
 	Following conditions hold:
 \begin{enumerate}
-	\item [(i)] The given by  \eqref{blowing_base_point_eqn} pointed	algebraical  finite covering category $	\mathfrak{S}^{\mathrm{pt}}_{A }$  (cf. Definition \ref{comp_defn}).
-	\item[(ii)]!!!
-	\item[(iii)]
+	\item [(i)] The given by  \eqref{blowing_base_point_eqn} pointed	algebraical  finite covering category $	\mathfrak{S}^{\mathrm{pt}}_A$  (cf. Definition \ref{comp_defn}) is good (cf. Definition \ref{mains_defn}).
+	\item[(ii)] A triple $\left(A, \widetilde A\bydef \overline A_{\widetilde \sY}, 	G\left(\left.\widetilde{\sY}~\right| \sY\right)\right)$ the  {infinite noncommutative covering} of $\mathfrak{S}_A^{\mathrm{pt}}$.
+	\item[(iii)] Suppose that  $\sY$ is connected, locally path-connected and semilocally 1-connected, and the fundamental group $\pi_1\left(\sY, y_0\right)$ is residually finite (cf. Definition \ref{residually_finite_defn}). If $\pi_1\left(A, \left\{\pi^\nu_\mu\right\}_{\substack{ \mu, \nu \in \La \\ \mu \ge \nu}} \right)$  is the  reduced fundamental group (cf. Definition \ref{fg_bas_defn}) then there is the natural isomorphism
+	$$
+	\pi_1\left(A, \left\{\pi^\nu_\mu\right\}_{\substack{ \mu, \nu \in \La \\ \mu \ge \nu}} \right)\cong \pi_1\left(\sY, y_0\right).
+	$$
 \end{enumerate}
 \end{theorem}
 \begin{proof}
 	(i)
-Let us prove that the given by  \eqref{blowing_base_point_eqn} pointed	algebraical  finite covering category $	\mathfrak{S}^{\mathrm{pt}}_{A }$  (cf. Definition \ref{comp_defn}) is good, i.e. it satisfies to conditions (a) - (c) of the Definition \ref{mains_defn}.
+One needs prove that the given by  \eqref{blowing_base_point_eqn} pointed	algebraical  finite covering category $	\mathfrak{S}^{\mathrm{pt}}_A$ satisfies to conditions (a) - (c) of the Definition \ref{mains_defn}.
 \begin{enumerate}
-	\item[(a)] If  $\la\in \La$ and $\widetilde q_\la: \widetilde{\mathcal Y}\to {\mathcal Y}_\la$ is the natural covering then the natural  *-homomorphism $A_b\left(\widetilde q_\la \right): A_\la \hookto M\left( A_0\left( \widetilde{\mathcal Y}\right)\right) $ is injective (cf. the equation \eqref{blowing_ab_p_eqn}). From the inclusion $ A_0\left( \widetilde{\mathcal Y}\right)\subset \widetilde A$ (cf. \eqref{ho_gr_inc_eqn}) it turns out that the *-homomorphism $ A_\la \hookto M\left( \widetilde{A}\right)$ is injecive.
-	\item [(b)] From $g \widetilde  A = g \left( 1_{C_b\left( \widetilde{\mathcal Y}\right) } \overline A\right)$ and \eqref{ho_gr_injective_eqn} it follows that the natural *-homomorphism 
+	\item[(a)] If  $\la\in \La$ and $\widetilde q_\la: \widetilde{\mathcal Y}\to {\mathcal Y}_\la$ is the natural covering then the natural  *-homomorphism $A_b\left(\widetilde q_\la \right): A_\la \hookto M\left( A_0\left( \widetilde{\mathcal Y}\right)\right) $ is injective (cf. the equation \eqref{blowing_ab_p_eqn}). From the inclusion $ A_0\left( \widetilde{\mathcal Y}\right)\subset \widetilde A$ (cf. \eqref{blowing_inc_eqn}) it turns out that the *-homomorphism $ A_\la \hookto M\left( \widetilde{A}\right)$ is injecive.
+	\item [(b)] From $g \widetilde  A = g \left( 1_{C_b\left( \widetilde{\mathcal Y}\right) } \overline A\right)$ and \eqref{blowing_injective_eqn} it follows that the natural *-homomorphism 
 	\begin{equation*}
 		\overline{   A}	\to \prod_{g\in J} g\widetilde{A}
 	\end{equation*}
 	is injective.
 	\item[(c)] For all $\la\in\La$ homomorphism $G\left(\left.\widetilde A~\right|~A \right)\to G\left(\left. A_\la~\right|~A \right)$ is naturally equivalent to the surjective homomorphism $G\left(\left.\widetilde {\mathcal Y}~\right|~{\mathcal Y} \right)\to G\left(\left. {\mathcal Y}_\la~\right|~{\mathcal Y} \right)$.
+	\item[(ii)] It is proven in \ref{blowing_alg_empt} that $\widetilde A\bydef \overline A_{\widetilde \sY}$ is a maximal connected $C^*$-subalgebra of $\overline A$. One has $G\left(\left.\overline A~\right|~A \right)\cong G\left(\left.\overline \sY~\right|~\sY\right)$, and if $G$ is the maximal among subgroups $G'\subset  G\left(\left.\overline \sY~\right|~\sY\right)$ such that $G' \widetilde A = \widetilde A$ then $G = G\left(\left.\widetilde \sY~\right|~\sY\right)$.\\
+	\item[(iii)] Follows from the Theorem \ref{blowing_functor_thm}.
 \end{enumerate}
 \end{proof}
 
