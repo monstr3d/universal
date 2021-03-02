@@ -10097,8 +10097,8 @@ Denote by $\mathfrak{FinCov}$-$A$ a category of reduced noncommutative  finite-f
 	\begin{tikzpicture}
 		\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
 		{
-			\widetilde A'  & & \widetilde A' \\ 
-			& \widetilde A  & \\};
+			\widetilde A'  & & \widetilde A'' \\ 
+			&  A  & \\};
 		\path[-stealth]
 		(m-1-3) edge node [above] {$\pi$} (m-1-1)
 		(m-2-2) edge node [left]  {$\pi'~~$} (m-1-1)
@@ -13057,23 +13057,27 @@ The given by the Corollary \ref{foli_slfin_cor}  {Hausdorff blowing-up} $C_0\lef
 \end{proof}
 \subsection{Coverings of $C^*$-algebras}
 \paragraph{}
-The results of this section follow from the Section \ref{foli_blowing_sec} and the Chapter \ref{blowing_chap}. 
-
+The results of this section follow from the Section \ref{foli_blowing_sec} and the Chapter \ref{blowing_chap}. In particular from the Lemma \ref{foli_semi1_lem}, the Theorem \ref{blowing_functor_thm} and the equation \eqref{foli_lift_eqn} it turns out that  any reduced noncommutative finite-fold covering  $\left(	C^*_r \left(M, \mathcal{F}\right), \widetilde A, G, \pi \right)$ is equivalent to $\left(	C^*_r \left(M, \mathcal{F}\right), C^*_r\left(\widetilde M, \widetilde \sF\right), G\left(\left. \widetilde M\right| M\right), 	C^*_r \left(M, \mathcal{F}\right)_0\left(q \right)  \right)$ where:
+\begin{itemize}
+	\item $q:\widetilde M\to M$ is a finite-fold transitive covering.
+	\item  $ \widetilde \sF$ is  $q$-lift of the foliation $\sF$ (cf. Definition \ref{fol_cov_defn}).
+	\item 	$C^*_r \left(M, \mathcal{F}\right)_0\left(q \right)$ is a specialization of the given by \eqref{blowing_a0x_eqn} inclusion.
+\end{itemize}
 \begin{theorem}\label{foli_functor_thm}
 Let $\left(M, \mathcal{F}\right)$ be a foliated space with connected $M$,
 Let  $\mathfrak{FinCov}$-$C^*_r \left(M, \mathcal{F}\right)$ be a is a specialization of the given by the Theorem \ref{blowing_functor_thm} category, i.e. 
 	\begin{itemize}
 		\item  Objects of $\mathfrak{FinCov}$-$C^*_r \left(M, \mathcal{F}\right)$ are reduced noncommutative  finite-fold  coverings of $C^*_r \left(M, \mathcal{F}\right)$ (cf. Definitions \ref{fin_defn}, \ref{fin_red_defn}).
-		\item If $\pi': C^*_r \left(M, \mathcal{F}\right)\hookto \widetilde A'$ and  $\pi'':C^*_r \left(M, \mathcal{F}\right) \hookto \widetilde A''$ are objects of $\mathfrak{FinCov}$-$C^*_r \left(M, \mathcal{F}\right)$ then the morphism from $\pi'$ to $\pi''$ is an injective *-homomorphism $\pi: \widetilde A' \hookto  \widetilde A''$ such that the following diagram commutative.
+		\item If $\pi'\bydef  C^*_r \left(M, \mathcal{F}\right)\left(q' \right)  : C^*_r \left(M, \mathcal{F}\right)\hookto  C^*_r\left(\widetilde M', \widetilde \sF'\right)$ and  $\pi''\bydef  C^*_r \left(M, \mathcal{F}\right)\left(q'' \right)  : C^*_r \left(M, \mathcal{F}\right)\hookto  C^*_r\left(\widetilde M'', \widetilde \sF''\right)$ are objects of $\mathfrak{FinCov}$-$C^*_r \left(M, \mathcal{F}\right)$ then the morphism from $\pi'$ to $\pi''$ is an injective *-homomorphism $\pi: C^*_r\left(\widetilde M', \widetilde \sF'\right) \hookto  C^*_r\left(\widetilde M'', \widetilde \sF''\right)$ such that the following diagram commutative.
 		\newline
 		\begin{tikzpicture}
 			\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
 			{
-				\widetilde A'  & & \widetilde A' \\ 
-				& \widetilde A  & \\};
+			C^*_r\left(\widetilde M', \widetilde \sF'\right)  & & C^*_r\left(\widetilde M'', \widetilde \sF''\right) \\ 
+				& C^*_r\left(M,\sF\right) & \\};
 			\path[-stealth]
 			(m-1-3) edge node [above] {$\pi$} (m-1-1)
-			(m-2-2) edge node [left]  {$\pi'~~$} (m-1-1)
+			(m-2-2) edge node [left]  {$\pi'~~~$} (m-1-1)
 			(m-2-2) edge node [right] {$~~\pi''$} (m-1-3);
 		\end{tikzpicture}
 		\\ 	
