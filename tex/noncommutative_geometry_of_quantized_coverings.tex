@@ -2777,7 +2777,7 @@ $\widetilde D$ can be regarded as an unbounded operator on $\widetilde \H$ becau
 \section{Finite noncommutative coverings and flat connections}\label{flat_sec}
  \subsection{Basic construction}\label{nc_flat_sec}
  \paragraph*{}
- Let $\left( \A, \H, D\right)$ be a spectral triple, let  $\left( \widetilde{\A}, \widetilde{\H}, \widetilde{D}\right)$ is the $\left(A, \widetilde{A}, G \right)$-lift of $\left( \A, \H, D \right)$. Let $V = \C^n$ and with left action of $G$, i.e. there is a linear representation $\rho: G \to GL\left(\C,n\right)$. Let $\widetilde{\mathcal E} \bydef  \widetilde\A \otimes \C^{n} \approx \widetilde{\A}^n$ be a free module over $\widetilde{\A}$, so $\widetilde{\mathcal E}$ is a projective finitely generated $\A$-module (because $\widetilde{ \A}$ is a finitely generated projective $\A$-module). Let $\widetilde{\nabla} : \widetilde{\mathcal E} \to \widetilde{\mathcal E} \otimes_{\widetilde{\A}} \Om^1_{\widetilde{D}}$ be the trivial flat connection (cf. Remark \ref{triv_conn_rem}). From \eqref{dirac_om_fin_lift_eqn} it turns out that $\Om^1_{\widetilde{D}} = \widetilde{\A}\otimes_{\A}\Om^1_{D}$. therefore  the connection $\widetilde{\nabla} : \widetilde{\mathcal E} \to \widetilde{\mathcal E} \otimes_{\widetilde{\A}} \Om^1_{\widetilde{D}}$ can be regarded as a map $\nabla':\widetilde{\mathcal E} \to \widetilde{\mathcal E} \otimes_{\widetilde{\A}} \widetilde{\A} \otimes_{\A} \Om^1_{\widetilde{D}}= \widetilde{\mathcal E} \otimes_{\A}\Om^1_{{D}}$, i.e. one has a connection
+ Let $\left( \A, \H, D\right)$ be a spectral triple, let  $\left( \widetilde{\A}, \widetilde{\H}, \widetilde{D}\right)$ is the $\left(A, \widetilde{A}, G \right)$-lift of $\left( \A, \H, D \right)$ (cf. Definition \ref{triple_conn_lift_defn}). Let $V = \C^n$ and with left action of $G$, i.e. there is a linear representation $\rho: G \to GL\left(\C,n\right)$. Let $\widetilde{\mathcal E} \bydef  \widetilde\A \otimes \C^{n} \approx \widetilde{\A}^n$ be a free module over $\widetilde{\A}$, so $\widetilde{\mathcal E}$ is a projective finitely generated $\A$-module (because $\widetilde{ \A}$ is a finitely generated projective $\A$-module). Let $\widetilde{\nabla} : \widetilde{\mathcal E} \to \widetilde{\mathcal E} \otimes_{\widetilde{\A}} \Om^1_{\widetilde{D}}$ be the trivial flat connection (cf. Remark \ref{triv_conn_rem}). From \eqref{dirac_om_fin_lift_eqn} it turns out that $\Om^1_{\widetilde{D}} = \widetilde{\A}\otimes_{\A}\Om^1_{D}$. therefore  the connection $\widetilde{\nabla} : \widetilde{\mathcal E} \to \widetilde{\mathcal E} \otimes_{\widetilde{\A}} \Om^1_{\widetilde{D}}$ can be regarded as a map $\nabla':\widetilde{\mathcal E} \to \widetilde{\mathcal E} \otimes_{\widetilde{\A}} \widetilde{\A} \otimes_{\A} \Om^1_{\widetilde{D}}= \widetilde{\mathcal E} \otimes_{\A}\Om^1_{{D}}$, i.e. one has a connection
  \be\nonumber
  \nabla':\widetilde{\mathcal E} \to  \widetilde{\mathcal E} \otimes_{\A}\Om^1_{{D}}.
  \ee
@@ -2873,136 +2873,8 @@ $\widetilde D$ can be regarded as an unbounded operator on $\widetilde \H$ becau
  	\hline
  \end{tabular}
 \end{table}
-
-\subsection{Noncommutative Parallel Transport}\label{sec:fuzzy}
-\subsubsection{Parallel transports}
-\paragraph*{}
- Definitions of the Appendix \ref{comm_prot} cannot be directly used in the noncommutative case because the noncommutative geometry does contain closed paths. However paths can be replaced with module parallel transports.
-\begin{defn}\label{defi:transport}\cite{schenkel:nc_parallel}
-	Let $A$ be an associative and unital algebra and $\mathcal{E}$ a right $A$-module.
-	\begin{itemize}
-		\item[1.)]
-		A {\it one-parameter group of automorphisms} of $A$ is a map
-		$\varphi: \mathbb{R} \times A \to A\,,~(\tau,a) \mapsto \varphi(\tau,a) =\varphi_\tau(a)$, such that
-		\begin{itemize}
-			\item[(i)] $\varphi_\tau(a\,b) = \varphi_\tau(a) \,\varphi_\tau(b)$, for all $\tau\in\mathbb{R}$ and $a,b\in A$
-			\item[(ii)] $\varphi_0 =\mathrm{id}_A$
-			\item[(iii)] $\varphi_{\tau+\sigma} = \varphi_\tau\circ\varphi_\sigma$, for all $\tau,\sigma\in\mathbb{R}$
-		\end{itemize}
-		\item[2.)] Let $\varphi:\mathbb{R} \times A \to A $ be a one-parameter group of automorphisms of $A$. A {\it module parallel transport} on
-		$\mathcal{E}$ along $\varphi$ is a map $\Phi: \mathbb{R} \times \mathcal{E} \to \mathcal{E}\,,~(\tau,s)\mapsto \Phi(\tau,s)=\Phi_\tau(s)$, such that
-		\begin{itemize}
-			\item[(i)] $\Phi_\tau(s\,a) = \Phi_\tau(s)\,\varphi_\tau(a)$, for all $\tau\in\mathbb{R}$, $s\in\mathcal{E}$ and $a\in A$
-			\item[(ii)] $\Phi_0=\mathrm{id}_\mathcal{E}$
-			\item[(iii)] $\Phi_{\tau+\sigma}= \Phi_\tau\circ \Phi_\sigma$, for all $\tau,\sigma\in\mathbb{R}$.
-		\end{itemize}
-	\end{itemize}
-	\paragraph{} If $A$ and $\mathcal{E}$ are equipped with a smooth structure, the maps $\varphi$ and $\Phi$ are required to be smooth. Denote by $\mathrm{Trans}_{\mathcal{E}}$ the set of module parallel transports.
-\end{defn}
-\begin{empt}
-	There are different notions of connections \cite{connes:c_alg_dg,parta:two_approaches_ym,schenkel:nc_parallel}, some of them are compared in \cite{parta:two_approaches_ym}.  The space of all connections on $\mathcal{E}$ is denoted by $\mathrm{Con}_A(\mathcal{E})$.
-\end{empt}
-\begin{defn}
-	Let $A$ be a $\mathbb{C}$-algebra, and let $\mathcal{E}$ be a finite projective $A$ module. Suppose that $\mathrm{Paths}_A$ is a set of one-parameter group of $A$ automorphisms.   A {\it connection transport procedure} is a natural map
-	\begin{equation*}
-		\mathbf{Transport} : \mathrm{Con}_A(\mathcal{E}) \times \mathrm{Paths}_A  \to \mathrm{Trans}_{\mathcal{E}}
-	\end{equation*}
-	such that
-	$\mathbf{Transport}(\nabla, \varphi)$ is a transport along $\varphi$  for any $\nabla \in \mathrm{Con}_A(\mathcal{E})$ and $\varphi \in \mathrm{Paths}_A$.
-\end{defn}
-\begin{rem}
-	A connection transport procedure should have a good math and/or physical sense. Such procedures are known in following cases:
-	\begin{enumerate}
-		\item Commutative differential geometry \cite{kobayashi_nomizu:diff_geom,schenkel:nc_parallel}.
-		\item $A = \mathbb{M}_n(\mathbb{C})$ \cite{schenkel:nc_parallel}.
-		\item Noncommutative torus \cite{alekseev_bytsko:wilson_nc_tori,Ambjorn:2000cs,Driver,Sengupta}.
-		\item Noncommutative differential geometry \cite{connes:c_alg_dg}.
-	\end{enumerate}
-\end{rem}
-\subsubsection{Parallel transform in noncommutative differential geometry}
-\paragraph{} In this section I follow to \cite{connes:c_alg_dg}.
-\begin{empt}\cite{connes:c_alg_dg}
-	Let $(A,G,\alpha)$ be a $C^*$ dynamical system, where $G$ is a Lie group.
-	We shall say that $x \in A$ is of $C^{\infty}$ class iff
-	the map $g \mapsto \alpha_g (x)$ from $G$ to the normed space $A$ is in
-	$C^{\infty}$. The involutive algebra $A^{\infty} = \{ x \in A ,
-	\, x \ \hbox{of class} \ C^{\infty} \}$ is norm dense in $A$.
-	
-	Let $\mathcal{E}^{\infty}$ be a finite projective module on $A^{\infty}$,
-	(we shall write it as a right module); $\mathcal{E} = \mathcal{E}^{\infty}
-	\otimes_{A^{\infty}}$ $A$ is then  a finite projective module on
-	$A$.
-\end{empt}
-
-\begin{lem}\cite{connes:c_alg_dg}
-	For every finite projective module $\mathcal{E}$ on $A$, there exists a
-	finite projective module $\mathcal{E}^{\infty}$ on $A^{\infty}$, unique up to
-	isomorphism, such that $\mathcal{E}$ is isomorphic to $\mathcal{E}^{\infty}
-	\otimes_{A^{\infty}} \, A$.
-\end{lem}
-\begin{empt}
-	Let $\delta$ be the representation of Lie$G$ in the Lie-algebra of derivations of
-	$A^{\infty}$ given by
-	$$
-	\delta_X (x) = \lim_{t \rightarrow 0} \ \frac{1}{t} \, (\alpha_{g_t} (x) - x) \, ,
-	\qquad \hbox{where} \quad \dot{g}_0 = X \, , \ x \in A^{\infty} \, .
-	$$
-\end{empt}
-\medskip
-
-\begin{defn}\label{connes_dg_connection_defn}\cite{connes:c_alg_dg} $\mathcal{E}^{\infty}$ be a finite projective module on $A^{\infty}$,
-	a {\it connection} (on $\mathcal{E}^{\infty}$) is a linear map
-	$\nabla : \mathcal{E}^{\infty} \to \mathcal{E}^{\infty} \otimes(\mathrm{Lie} \ G)^*$ such that,
-	for all $X \in \mathrm{Lie} \ G$ and $\xi \in \mathcal{E}^{\infty}$, $x \in
-	A^{\infty}$ one has
-	$$
-	\nabla_X (\xi \cdot x) = \nabla_X (\xi) \cdot x + \xi \cdot \delta_X (x) \, .
-	$$
-\end{defn}
-
-\begin{empt}\label{connes_transp_procedure}
-	There is a natural correspondence between elements of Lie algebra and one-parameter transformation groups \cite{kobayashi_nomizu:diff_geom}.
-	Let $\nabla$ be a connection (on $\mathcal{E}^{\infty}$). If $X\in \mathrm{Lie}G$  defines a one-parameter group of automorphisms $\varphi$ of $A^{\infty}$  then $\nabla_X$ defines a  module parallel transport $\Phi$ on
-	$\mathcal{E}^{\infty}$ along $\varphi$. So we have a connection transport procedure
-	\begin{equation*}
-		\mathbf{Transport} : \mathrm{Con}_{A^{\infty}}(\mathcal{E}^{\infty}) \times \mathrm{Paths}_A^{\infty}  \to \mathrm{Trans}_{\mathcal{E}^{\infty}}.
-	\end{equation*}
-	
-\end{empt}
-
-\begin{defn}\cite{connes:c_alg_dg}
-	Let $\nabla$ be a connection on the finite projective module
-	$\mathcal{E}^{\infty}$ (on $A^{\infty}$), the curvature of $\nabla$
-	is the element
-	$\mathcal{T}$ of $\mathrm{End}_{A^{\infty}} (\mathcal{E}^{\infty}) \otimes\mathbb{L}^2 (\mathrm{Lie} \
-	G)^*$ given by
-	$$
-	\mathcal{T} (X,Y) = \nabla_X \nabla_Y - \nabla_Y \nabla_X - \nabla_{[X,Y]} \in \mathrm{End}_{A^{\infty}} (\mathcal{E}^{\infty}) \, , \qquad \forall \, X,Y \in \mathrm{Lie} \ G
-	\, .
-	$$
-\end{defn}
-\begin{defn}\cite{connes:c_alg_dg} A connection with zero curvature is said to be {\it flat}.
-	Denote by $\mathrm{Con}_A(\mathcal{E})_0$ a space of flat connections.
-\end{defn}
-
-\begin{empt}\label{connection_construction}\cite{connes:c_alg_dg}
-	If $e \in A^{\infty}$ is an idempotent then every connection on $e \, A^{\infty}$ is of the form $\nabla_X (\xi) =
-	\nabla_X^0 (\xi) + \theta_X \, \xi$, $\forall \, \xi \in e \, A^{\infty}$, $X \in
-	\hbox{Lie} \ G$, where the form $\theta \in e \, \Om^1 \, e$ is uniquely
-	determined by $\nabla$, one has $\theta_X^* = -\theta_X$, $\forall \, X \in
-	\hbox{Lie}
-	\ G$ iff $\nabla$ is compatible with the hermitian structure of $e \,
-	A^{\infty}$. We identify $\mathrm{End} (e \, A^{\infty})$ with $e \, A^{\infty} \, e \subset
-	A^{\infty}$, the curvature $\mathcal{T}_0$ of the grassmannian connection is
-	the 2-form $e(de \wedge de) \in \Om^2$, the curvature of $\nabla = \nabla^0 +
-	\theta \wedge$ equals to
-	\begin{equation}\label{curvature_formula}
-		\mathcal{T}_0 + e (d\theta + \theta \wedge \theta) \, e \in \Om^2.
-	\end{equation}
-	
-\end{empt}
-
-
+\section{Connections and parallel transports}
+!!!
 \section{Unoriented spectral triples}\label{unoti_defn_sec}
  \paragraph*{}
  Let $M$ be an unoriented  Riemannian manifold, and let $\widetilde{M} \to M$ be a two-fold covering by oriented  Riemannian manifold $\widetilde{M}$ which admits a spin$^c$ structure (cf. Definition \ref{spin_str_defn}). There is an action of $\Z_2 \times \widetilde{M} \to \widetilde{M}$ such that $M \cong \widetilde{M}/ \Z_2$. These 
@@ -3107,10 +2979,10 @@ This section contains a noncommutative generalization of infinite coverings.
 
 
 \begin{definition}\label{comp_defn}
-	Let $\La$ be a countable directed set (cf. Definition \ref{directed_set_defn}) such that there is the unique minimal element $\la_{\min} \in \La'$.
+	Let $\La$ be a countable directed set (cf. Definition \ref{directed_set_defn}) such that there is the unique minimal element $\la_{\min} \in \La$.
 	Let $A$ be a $C^*$-algebra.  Let us consider a set noncommutative finite-fold coverings $\mathfrak{S}=\left\{ \pi_{\la}:A \hookto A_{\la}\right\}_{\la \in \La}$ indexed by  $\La$ such that $A_{\la_{\mathrm{min}}}= A$, and $\pi_{\la_{\mathrm{min}}}= \Id_A$. We do not claim that any noncommutative finite-fold covering $A \to \widetilde{A}$ belongs to $\mathfrak{S}$. Suppose that  following conditions hold:
 	\begin{enumerate}
-		\item[(a)] For any $\mu, \nu \in \La'$ a pair $\left( \pi_\mu, \pi_\nu\right)$ is compliant (cf. Definition \ref{compliant_covering_defn}).
+		\item[(a)] For any $\mu, \nu \in \La$ a pair $\left( \pi_\mu, \pi_\nu\right)$ is compliant (cf. Definition \ref{compliant_covering_defn}).
 		\item [(b)]
 		For  $\mu, \nu \in \La$ one has
 		\be\label{fg_ord_eqn}
@@ -3120,12 +2992,12 @@ This section contains a noncommutative generalization of infinite coverings.
 		\ee
 	\end{enumerate}
 	The set 
-	$\mathfrak{S}=\left\{ \pi_{\la}:A \hookto A_{\la}\right\}_{\la \in \La}$, or equivalently $$\mathfrak{S}=\left\{ \left( A , A_{\la}, G\left(\left.A_\la~\right|A \right) , \pi_{\la}\right) \right\}_{\la \in \La'}$$
+	$\mathfrak{S}=\left\{ \pi_{\la}:A \hookto A_{\la}\right\}_{\la \in \La}$, or equivalently $$\mathfrak{S}=\left\{ \left( A , A_{\la}, G\left(\left.A_\la~\right|A \right) , \pi_{\la}\right) \right\}_{\la \in \La}$$
 	is said to be an \textit{algebraical  finite covering category}. 
 	We write $\mathfrak{S} \in \mathfrak{FinAlg}$.
 \end{definition}
 \begin{definition}\label{comp_pt_defn}
-	A skeleton  $\mathfrak{S}^{\text{pt}}$  of an algebraical  finite covering category $\mathfrak{S}$ (cf. Definition \ref{skeleton_defn}) is said to be a \textit{pointed algebraical  finite covering category}  if it is equivalent to the pre-order category given by $\La'$ (cf. Definition \ref{preordercat_defn} and Remark \ref{pre_order_rem}).  We write $\mathfrak{S}^{\text{pt}} \in \mathfrak{FinAlg}^{\text{pt}}$, and use the following notation
+	A skeleton  $\mathfrak{S}^{\text{pt}}$  of an algebraical  finite covering category $\mathfrak{S}$ (cf. Definition \ref{skeleton_defn}) is said to be a \textit{pointed algebraical  finite covering category}. It is equivalent to the pre-order category given by $\La$ (cf. Definition \ref{preordercat_defn} and Remark \ref{pre_order_rem}).  We write $\mathfrak{S}^{\text{pt}} \in \mathfrak{FinAlg}^{\text{pt}}$, and use the following notation
 	\be\label{comp_pt_eqn}
 	\begin{split}
 		\mathfrak{S}^{\text{pt}} = \left(\left\{\pi_\la: A \hookto A_\la \right\}_{\la \in \La}, \left\{\pi^\mu_\nu: A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\ \nu > \mu}}\right),\\
@@ -3182,7 +3054,7 @@ Below for all $\la\in\La$ we implicitly assume that $A_\la \subset  C^*$-$\varin
 \begin{lemma}\label{base_point_change_lem}
 	Let 
 	$\mathfrak{S}=\left\{ \left( A , A_{\la},  G\left(\left.A_\la~\right|A \right), \pi_{\la}\right) \right\}_{\la \in \La}\in \mathfrak{FinAlg}$.
-	be an {algebraical  finite covering category}.	Consider two pointed subcategories $\mathfrak{S}^{\text{pt}}_\pi$, $\mathfrak{S}^{\text{pt}}_\rho$ having morphisms $\left\{\pi^\nu_\mu: A_{\nu}\hookto A_{
+	be an {algebraical  finite covering category}.	Consider two pointed subcategories $\mathfrak{S}^{\mathrm{pt}}_\pi$, $~\mathfrak{S}^{\mathrm{pt}}_\rho$ having morphisms $\left\{\pi^\nu_\mu: A_{\nu}\hookto A_{
 		\mu}\right\}$ and $\left\{\rho^\nu_\mu: A_{\nu}\hookto A_{
 		\mu}\right\}$.
 	Suppose that both $$\left\{ d^\mu_{\nu} : G\left(\left.A_\mu~\right|A\right) \to G\left(\left.A_\nu~\right|A\right)\right\}  \text{ and }\left\{ e^\mu_{\nu} : G\left(\left.A_\mu~\right|A\right) \to G\left(\left.A_\nu~\right|A\right)\right\} $$ are surjecive homomorphisms which come from $\left\{\pi^\nu_\mu\right\}$ and $\left\{\rho^\nu_\mu\right\}$ respectively. 	Suppose that both $\widehat{G} = \varprojlim_{\la \in \La} G\left(\left.A_\la~\right|A\right)$ and $\widehat{H} = \varprojlim_{\la \in \La} G\left(\left.A_\la~\right|A\right)$ are inverse limits which come from $\left\{ d^\mu_{\nu} \right\} $ and $\left\{ e^\mu_{\nu} \right\} $ respectively. If 
@@ -20114,6 +19986,220 @@ homomorphisms $ev_\xi : A \to \Sigma B$ to commute with each other.
 		\item[(ii)]\textit{Even-odd case}. The algebra, the *-representation, and Dirac operator are the same as in the even-even case.
 		\item[(iii)] \textit{Odd-odd case}. This case is not considered it this work, so it not described here.
 	\end{enumerate}
+\chapter{Noncommutative Parallel Transport}\label{sec:fuzzy}
+\section{Parallel transports}
+\paragraph*{}
+Definitions of the Appendix \ref{comm_prot} cannot be directly used in the noncommutative case because the noncommutative geometry does contain closed paths. However paths can be replaced with module parallel transports.
+\begin{defn}\label{defi:transport}\cite{schenkel:nc_parallel}
+	Let $A$ be an associative and unital algebra and $\mathcal{E}$ a right $A$-module.
+	\begin{itemize}
+		\item[1.)]
+		A {\it one-parameter group of automorphisms} of $A$ is a map
+		$\varphi: \mathbb{R} \times A \to A\,,~(\tau,a) \mapsto \varphi(\tau,a) =\varphi_\tau(a)$, such that
+		\begin{itemize}
+			\item[(i)] $\varphi_\tau(a\,b) = \varphi_\tau(a) \,\varphi_\tau(b)$, for all $\tau\in\mathbb{R}$ and $a,b\in A$
+			\item[(ii)] $\varphi_0 =\mathrm{id}_A$
+			\item[(iii)] $\varphi_{\tau+\sigma} = \varphi_\tau\circ\varphi_\sigma$, for all $\tau,\sigma\in\mathbb{R}$
+		\end{itemize}
+		\item[2.)] Let $\varphi:\mathbb{R} \times A \to A $ be a one-parameter group of automorphisms of $A$. A {\it module parallel transport} on
+		$\mathcal{E}$ along $\varphi$ is a map $\Phi: \mathbb{R} \times \mathcal{E} \to \mathcal{E}\,,~(\tau,s)\mapsto \Phi(\tau,s)=\Phi_\tau(s)$, such that
+		\begin{itemize}
+			\item[(i)] $\Phi_\tau(s\,a) = \Phi_\tau(s)\,\varphi_\tau(a)$, for all $\tau\in\mathbb{R}$, $s\in\mathcal{E}$ and $a\in A$
+			\item[(ii)] $\Phi_0=\mathrm{id}_\mathcal{E}$
+			\item[(iii)] $\Phi_{\tau+\sigma}= \Phi_\tau\circ \Phi_\sigma$, for all $\tau,\sigma\in\mathbb{R}$.
+		\end{itemize}
+	\end{itemize}
+	\paragraph{} If $A$ and $\mathcal{E}$ are equipped with a smooth structure, the maps $\varphi$ and $\Phi$ are required to be smooth. Denote by $\mathrm{Trans}_{\mathcal{E}}$ the set of module parallel transports.
+\end{defn}
+
+\section{Parallel transform in noncommutative differential geometry}
+\paragraph{} In this section I follow to \cite{connes:c_alg_dg}.
+\begin{empt}\cite{connes:c_alg_dg}
+	Let $(A,G,\alpha)$ be a $C^*$ dynamical system, where $G$ is a Lie group.
+	We shall say that $x \in A$ is of $C^{\infty}$ class iff
+	the map $g \mapsto \alpha_g (x)$ from $G$ to the normed space $A$ is in
+	$C^{\infty}$. The involutive algebra $A^{\infty} = \{ x \in A ,
+	\, x \ \hbox{of class} \ C^{\infty} \}$ is norm dense in $A$.
+	
+	Let $\mathcal{E}^{\infty}$ be a finite projective module on $A^{\infty}$,
+	(we shall write it as a right module); $\mathcal{E} = \mathcal{E}^{\infty}
+	\otimes_{A^{\infty}}$ $A$ is then  a finite projective module on
+	$A$.
+\end{empt}
+
+\begin{lem}\cite{connes:c_alg_dg}
+	For every finite projective module $\mathcal{E}$ on $A$, there exists a
+	finite projective module $\mathcal{E}^{\infty}$ on $A^{\infty}$, unique up to
+	isomorphism, such that $\mathcal{E}$ is isomorphic to $\mathcal{E}^{\infty}
+	\otimes_{A^{\infty}} \, A$.
+\end{lem}
+\begin{empt}
+	In the sequel we let $\E^{\infty}$ be a finite projective module 
+	on $A^{\infty}$. An hermitian structure on 
+	$\E^{\infty}$ is given by a positive hermitian form  $\langle 
+	\xi , \eta \rangle \in A^{\infty}$, $ \, \xi , \eta \in \E^{\infty}$ 
+	such that
+	$$
+	\langle \xi \cdot x , \eta \cdot y \rangle = y^* \langle \xi , \eta 
+	\rangle \, x \ , \qquad  \, \xi , \eta \in \E^{\infty} \, , \quad \, 
+	x,y \in A^{\infty} \, .
+	$$
+	For $n \in \N$, $\E^{\infty} \otimes \C^n$ is a finite projective module
+	on $\mathbb{M}_n (A^{\infty}) = A^{\infty} \otimes \mathbb{M}_n(\C)$, this allows, 
+	replacing $A$ by $\mathbb{M}_n  (A) = A \otimes \mathbb{M}_n (\C)$ (and the 
+	$G$-action by $\a \otimes {\rm id}$) to assume the existence of a  
+	selfadjoint idempotent $e \in A^{\infty}$ and of an isomorphism $F$ with the module 
+	$e \, A^{\infty}$ on $\E^{\infty}$. We then endow $\E^{\infty}$ with
+	the following hermitian structure~:
+	$$
+	\langle \xi , \eta \rangle = F^{-1} (\eta)^* \, F^{-1} (\xi) \in 
+	A^{\infty} \, .
+	$$
+	Let $\delta$ be the representation of Lie $G$ in the Lie-algebra of derivations of
+	$A^{\infty}$ given by
+	$$
+	\delta_X (x) = \lim_{t \rightarrow 0} \ \frac{1}{t} \, (\alpha_{g_t} (x) - x) \, ,
+	\qquad \hbox{where} \quad \dot{g}_0 = X \, , \ x \in A^{\infty} \, .
+	$$
+\end{empt}
+\medskip
+
+\begin{defn}\label{connes_dg_connection_defn}\cite{connes:c_alg_dg} $\mathcal{E}^{\infty}$ be a finite projective module on $A^{\infty}$,
+	a {\it connection} (on $\mathcal{E}^{\infty}$) is a linear map
+	$\nabla : \mathcal{E}^{\infty} \to \mathcal{E}^{\infty} \otimes(\mathrm{Lie} ~ G)^*$ such that,
+	for all $X \in \mathrm{Lie} ~ G$ and $\xi \in \mathcal{E}^{\infty}$, $x \in
+	A^{\infty}$ one has
+	$$
+	\nabla_X (\xi \cdot x) = \nabla_X (\xi) \cdot x + \xi \cdot \delta_X (x) \, .
+	$$
+\end{defn}
+
+\begin{definition}
+	Let $\Xi^{\infty}$ be a finite projective module on $A^{\infty}$,  
+	a connection (on $\Xi^{\infty}$) is a linear map 
+	$\nb$ of $\Xi^{\infty}$ in $\Xi^{\infty} \otimes ({\rm Lie} \ G)^*$ such that, 
+	for all $X \in {\rm Lie} \ G$ and $\xi \in \Xi^{\infty}$, $x \in 
+	A^{\infty}$ one has
+	$$
+	\nb_X (\xi \cdot x) = \nb_X (\xi) \cdot x + \xi \cdot \d_X (x) \, .
+	$$
+\end{definition}
+
+\medskip
+
+We shall say that $\nb$ is compatible with the hermitian structure 
+iff~:
+$$
+\langle \nb_X \, \xi , \xi' \rangle + \langle \xi , \nb_X \, \xi' 
+\rangle = \d_X \langle \xi , \xi' \rangle \, , \qquad ~ \, \xi , 
+\xi' \in \Xi^{\infty} \, , \quad ~ \, X \in \hbox{Lie} \ G \, .
+$$
+Every finite projective module, $\Xi^{\infty}$, on $A^{\infty}$ 
+admits a connection~; on the module $e \, A^{\infty}$ the following 
+formula defines the  {\it Grassmannian connection }
+$$
+\nb_X^0 (\xi) = e \, \d_X (\xi) \in e \, A^{\infty} \, , \qquad ~ \, \xi 
+\in e \, A^{\infty} \, , \quad ~ \, X \in \hbox{Lie} \ G \, .
+$$
+This connection is compatible with the hermitian structure
+$$
+\langle \xi , \eta \rangle = \eta^* \, \xi \in A^{\infty} \, , \qquad 
+~ \, \xi , \eta \in e \, A^{\infty} \, .
+$$
+
+To the representation $\d$ of Lie $G$ in the Lie-algebra of derivations of
+$A^{\infty}$ corresponds the complex $\Om = A^{\infty} \otimes 
+\Lambda \ (\hbox{Lie} \ G)^*$ of left-invariant differential forms on $G$ 
+with coefficients in $A^{\infty}$. We endow $\Om$ with the algebra 
+structure given by the tensor product of $A^{\infty}$ by the exterior algebra of 
+$(\hbox{Lie} \ G)_{\C}^*$
+(we use the notation $\om_1 \wedge \om_2$ for the product 
+of $\om_1$ with $\om_2$, one no longer has, of course, 
+the equality
+$\om_2 \wedge \om_1 = (-1)^{\partial \om_1 \, \partial \om_2} \, \om_1 
+\wedge \om_2$).
+The exterior differential
+$d$ 
+is such that~:
+\begin{itemize}
+	\item[1$^{\rm o}$] for $a \in A^{\infty}$ and $X \in \hbox{Lie} \ G$ one 
+	has $\langle X , da \rangle = \d_X (a)$~;
+	\item[2$^{\rm o}$] $d (\om_1 \wedge \om_2) = d \om_1 \wedge \om_2 + 
+	(-1)^p \, \om_1 \wedge d \om_2$, $~ \, \om_1 \in \Om^p$, $~ \, \om_2 
+	\in \Om$~;
+	\item[3$^{\rm o}$] $d^2 \, \om = 0$, $~ \, \om \in \Om$.
+\end{itemize}
+As $A^{\infty} \subset \Om$, $\Om$ is a bimodule on $A^{\infty}$.
+
+Every connection on $e \, A^{\infty}$ is of the form $\nb_X (\xi) = 
+\nb_X^0 (\xi) + \th_X \, \xi$, $~ \, \xi \in e \, A^{\infty}$, $X \in 
+\hbox{Lie} \ G$, where the form $\th \in e \, \Om^1 \, e$ is uniquely 
+determined by $\nabla$, one has $\th_X^* = -\th_X$, $~ \, X \in 
+\hbox{Lie} 
+\ G$ iff $\nb$ is compatible with the hermitian structure of $e \, 
+A^{\infty}$.
+
+\medskip
+
+\begin{defn}\cite{connes:c_alg_dg}
+	Let $\nabla$ be a connection on the finite projective module
+	$\mathcal{E}^{\infty}$ (on $A^{\infty}$), the curvature of $\nabla$
+	is the element
+	$\mathcal{T}$ of $\mathrm{End}_{A^{\infty}} (\mathcal{E}^{\infty}) \otimes\mathbb{L}^2 (\mathrm{Lie}~
+	G)^*$ given by
+	$$
+	\mathcal{T} (X,Y) = \nabla_X \nabla_Y - \nabla_Y \nabla_X - \nabla_{[X,Y]} \in \mathrm{End}_{A^{\infty}} (\mathcal{E}^{\infty}) \, , \qquad \forall \, X,Y \in \mathrm{Lie}~G
+	\, .
+	$$
+\end{defn}
+\begin{defn}\cite{connes:c_alg_dg} A connection with zero curvature is said to be {\it flat}.
+	Denote by $\mathrm{Con}_A(\mathcal{E})_0$ a space of flat connections.
+\end{defn}
+
+\begin{empt}\label{connection_construction}\cite{connes:c_alg_dg}
+	If $e \in A^{\infty}$ is an idempotent then every connection on $e \, A^{\infty}$ is of the form $\nabla_X (\xi) =
+	\nabla_X^0 (\xi) + \theta_X \, \xi$, $\forall \, \xi \in e \, A^{\infty}$, $X \in
+	\hbox{Lie} ~ G$, where the form $\theta \in e \, \Om^1 \, e$ is uniquely
+	determined by $\nabla$, one has $\theta_X^* = -\theta_X$, $\forall \, X \in
+	\hbox{Lie}
+	~ G$ iff $\nabla$ is compatible with the hermitian structure of $e \,
+	A^{\infty}$. We identify $\mathrm{End} (e \, A^{\infty})$ with $e \, A^{\infty} \, e \subset
+	A^{\infty}$, the curvature $\mathcal{T}_0$ of the grassmannian connection is
+	the 2-form $e(de \wedge de) \in \Om^2$, the curvature of $\nabla = \nabla^0 +
+	\theta \wedge$ equals to
+	\begin{equation}\label{curvature_formula}
+		\mathcal{T}_0 + e (d\theta + \theta \wedge \theta) \, e \in \Om^2.
+	\end{equation}
+	
+\end{empt}
+\begin{empt}\label{connes_transp_procedure}
+	There is a natural correspondence between elements of Lie algebra and one-parameter transformation groups \cite{kobayashi_nomizu:diff_geom}.
+	Let $\nabla$ be a connection (on $\mathcal{E}^{\infty}$). If $X\in \mathrm{Lie}~G$  defines a one-parameter group of automorphisms $\varphi$ of $A^{\infty}$  then $\nabla_X$ defines a  module parallel transport $\Phi$ on
+	$\mathcal{E}^{\infty}$ along $\varphi$. So we have a connection transport procedure
+	\begin{equation*}
+		\mathbf{Transport} : \mathrm{Con}_{A^{\infty}}(\mathcal{E}^{\infty}) \times \mathrm{Paths}_A^{\infty}  \to \mathrm{Trans}_{\mathcal{E}^{\infty}}.
+	\end{equation*}
+	
+\end{empt}
+\begin{defn}
+	Let $A$ be a $\mathbb{C}$-algebra, and let $\mathcal{E}$ be a finite projective $A$ module. Suppose that $\mathrm{Paths}_A$ is a set of one-parameter group of $A$ automorphisms.   A {\it connection transport procedure} is a natural map
+	\begin{equation*}
+		\mathbf{Transport} : \mathrm{Con}_A(\mathcal{E}) \times \mathrm{Paths}_A  \to \mathrm{Trans}_{\mathcal{E}}
+	\end{equation*}
+	such that
+	$\mathbf{Transport}(\nabla, \varphi)$ is a transport along $\varphi$  for any $\nabla \in \mathrm{Con}_A(\mathcal{E})$ and $\varphi \in \mathrm{Paths}_A$.
+\end{defn}
+\begin{rem}
+	A connection transport procedure should have a good math and/or physical sense. Such procedures are known in following cases:
+	\begin{enumerate}
+		\item Commutative differential geometry \cite{kobayashi_nomizu:diff_geom,schenkel:nc_parallel}.
+		\item $A = \mathbb{M}_n(\mathbb{C})$ \cite{schenkel:nc_parallel}.
+		\item Noncommutative torus \cite{alekseev_bytsko:wilson_nc_tori,Ambjorn:2000cs,Driver,Sengupta}.
+		\item Noncommutative differential geometry \cite{connes:c_alg_dg}.
+	\end{enumerate}
+\end{rem}
+
+
 	
 	\chapter{Foliations, pseudogroups and operator algebras}\label{foliations_sec}
 	\section{Groupoids}
@@ -22352,9 +22438,7 @@ Let $\widetilde{H}_0 = \{h \in \widetilde{H} \ | \ \pi(g)h = \rho(g)h\}$. Algebr
 		
 	\end{exm}
 \end{empt}
-\
 
-\
 \begin{appendices}
 \chapter{String field theory}
 \paragraph{}
@@ -22570,6 +22654,7 @@ The Kaluza–Klein theory assumes that physical space is equivalent (homeomorphic)
 M \times K
 \ee
 of the manifolds, where the manifold $K$ is compact and $M$ is not compact. The compact manifold $K$ may be represented as a quotient $K \bydef \widetilde K / G\left( {\widetilde{K}}~|~K\right)$ where there is a covering  $\widetilde{K}\to K$ and $G\left( {\widetilde{K}}~|~K\right)$ is a covering group. The manifold $\widetilde{K}$ should not be compact.
+
 \chapter{Commutative Wilson Lines}\label{comm_prot}
 \begin{empt}{\it Standard description of Wilson lines} \cite{green_schwarz_witten:superstring}. Here the physical notation is used.
 	Let $M$ be a compact Riemann manifold, and let $A$ be a locally pure gauge field, i.e. $A$ can be locally represented by following way
@@ -22629,7 +22714,7 @@ of the manifolds, where the manifold $K$ is compact and $M$ is not compact. The 
 	\end{equation}
 	where $G(\widetilde{M}|M)$ is a group of covering transformations \cite{spanier:at}.
 \end{empt}
-\
+
 
 \end{appendices}
 
@@ -22781,7 +22866,7 @@ J. C. V\'arilly and J. M. Gracia-Bond\'{\i}a, \textit{Algebras of distributions 
 
 %\bibitem{davis_kirk_at}James F. Davis. Paul Kirk. {\it Lecture Notes in Algebraic Topology}. Department of Mathematics, Indiana University, Blooming- ton, IN 47405, 2001.
 
-\bibitem{dijkhuizen:so_doublecov} Dijkhuizen, Mathijs S. \textit{The double covering of the quantum group} $SO_q(3)$. Rend. Circ. Mat. Palermo (2) Suppl. (1994), 47-57. MR1344000, Zbl 0833.17019. 1994.
+\bibitem{dijkhuizen:so_doublecov} Dijkhuizen, Mathijs S. \textit{The double covering of the quantum group $SO_q(3)$}. Rend. Circ. Mat. Palermo (2) Suppl. (1994), 47-57. MR1344000, Zbl 0833.17019. 1994.
 
 \bibitem{dixmier_a_r} Jacques Dixmier {\it Les C*-alg\`{e}bres et leurs repr\'esentations} 2e \'ed. Gauthier-Villars in Paris 1969.
 
@@ -22858,8 +22943,7 @@ Springer Science+Business Media, Inc. 2005.
 
 \bibitem{horm:I}  Lars H\"ormander. \textit{The Analysis of Linear Partial Differential Operators I. Distribution Theory and Fourier Analysis}. Springer Verlag. 1990.
 
-\bibitem{ivankov:ms}Petr Ivankov. \textit{Moduli space of noncommutative flat connections and finite-fold nomcommutative coverings}.
-{J. Phys.: Conf. Series}  \textbf{1194} 12051, 2018.
+%\bibitem{ivankov:ms}Petr Ivankov. \textit{Moduli space of noncommutative flat connections and finite-fold nomcommutative coverings}.{J. Phys.: Conf. Series}  \textbf{1194} 12051, 2018.
 
 
 \bibitem{jensen_thomsen:kk}Jensen, K. K. and Thomsen, K. \textit{Elements of KK-theory.} (Mathematics: Theory and Applications,
