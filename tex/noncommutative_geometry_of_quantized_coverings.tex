@@ -4096,6 +4096,11 @@ If $\widetilde X$ is the universal covering of $\left(X, Y\right)$ and $\widetil
 \begin{remark}\label{real_op_rem}
 Similarly to the Definition \ref{fg_bas_os_defn} one can define the universal covering and the fundamental group of real operator space.
 \end{remark}
+
+\subsection{Fundamental group and noncommutative paths}
+
+!!!!
+
 \section{Induced representations}\label{inf_ind_repr_subsection}
 
    \begin{definition}\label{inf_hilb_prod_defn}
@@ -16527,8 +16532,82 @@ where $\Coo\left( SO_q\left(3\right)\right)= C\left( SO_q\left(3\right)\right)\b
 \end{theorem}
 %Let $\sX$ is a set.
 %If $\mathcal C$ is a class consisting of pairs $(S,s)$, where $S$ is a net in $\sX$ and $s$ a point, when is there a topology $\mathcal T$ for X such that (6È e C iff S  converges to s relative to the topology 3?
+	\section{Loop space and suspension in topology}
 
-\section{Coverings and homotopy groups}
+%	\begin{defn}\label{cov_proj_cov_grp}\cite{spanier:at}
+%		Let $p: \tilde{X} \to X$ covering projection.  It is clear that there is a {\it group of self-equivalences} of $p$ (a self-equivalence is a homeomorphism $f:\tilde{X}\to\tilde{X}$ such that $p \circ f = p$). We denote this group by $G(\tilde{X}| X)$. This group is also called the {\it group of covering transformations} of $p$.
+%	\end{defn}
+
+
+\begin{empt}\label{top_comp_open_empt} {\it Fuction spaces.}\cite{switzer:at} If $\sX$ and $\sY$ are topological spaces, we let $\sY^\sX$ denote the set of all continuous functions functions $f: \sX \to \sY$. We give this set a topology, called the {\it compact-open topology}, by taking as a subbase for the topology all sets of the form $N_{K,U} =\{f:f(K)\subset \sU\}$, $K\subset \sU$ compact, $\sU \subset \sX$ open. 
+\end{empt}
+\begin{empt}\label{base_points} {\it Base points.} \cite{switzer:at} Algebraic topology often have to consider not just topological space $\sX$ but rather a space $\sX$ together with distinguished point $x_0\in \sX$ called the {\it base point}. The pair $(\sX, x_0)$ is called a {\it pointed space} (one also speaks of pointed sets). When we are concerned with pointed spaces $(\sX, x_0)$, $(\sY, y_0)$, etc. we always require that all functions $f: \sX \to \sY$ shall preserve base point, i.e. $f(x_0)=y_0$, and that all homotopies $F:\sX\times I \to \sY$ be relative to base point, i.e. $F(x_0, t) = y_0$, $\forall t \in I$ unless an explicit disclaimer to be contrary is made. We shall use the notation $[\sX, x_0, \sY, y_0]$ to denote the homotopy classes of base point preserving functions, where homotopies are $\mathrm{rel}x_0$, of course. $[\sX, x_0, \sY, y_0]$ is a pointed space with base point $f_0$ the constant function: $f_0(x)=y_0$, $\forall x\in \sX$. If $(\sX, x_0)$, $(\sY, y_0)$ are pointed spaces then we have the space $(\sY, y_0)^{(\sX, x_0)}$ of base point preserving functions. We use the notation $\sX \vee \sY$ for the subspace $\sZ \times \{x_0\} \cup \{z_0\} \sX$. It can be thought of as the result of taking the disjoint union $\sZ \cup \sX$ and identifying $z_0$ with $x_0$, $\sZ \vee \sX$ is again a pointed space with base point $(z_0, x_0)$.  Given maps $f: (\sX, x_0)\to (\sX', x'_0)$ and $g: (\sY, y_0)\to (\sY', y'_0)$ the map $f \times g : \sX\times \sY \to \sX'\times \sY'$ maps $\sX \vee \sY$ into $\sX' \vee \sY'$ and so induces a map $f \wedge g: \sX\wedge \sY \to \sX'\wedge \sY'$.
+\end{empt}
+\begin{empt}\label{smash_pointed_sp}
+	If both $(\sX, x_0)$, $\left( \sY, y_0\right) $ are pointed spaces then we define the {\it smash product} $(\sX \wedge \sY, *)$ to be the quotinent 
+	\begin{equation}\nonumber
+		\sX \wedge \sY = \sX \times \sY / \sX \vee \sY
+	\end{equation}
+	with the point $* = p(\sX\vee \sY)$ as base point. Here $p: \sX \times \sY \to X \vee Y$ is the projection. For any $(x,y)\in \sX \times \sY$ we denote $p(x,y)\in \sX \wedge \sY$ by $[x,y]$.
+\end{empt}
+\begin{thm}\cite{switzer:at}
+	If $(\sX, x_0), (\sY, y_0), (\sZ, z_0)$ are pointed spaces, $\sX, \sZ$ Hausdorff and $\sZ$ locally compact, then there is a natural equivalence
+	\begin{equation}
+		A: [\sZ \wedge \sX, *; \sY, y_0] \to [\sX, x_0, (\sY, y_0)^{(\sZ, z_0)}, f_0]
+	\end{equation}
+	defined by $A[f]=[\hat f]$, where if $f: \sZ \wedge \sX \to \sY$ is a map then $\hat f: \sZ \wedge \sX \to \sY$ is a map given by $(\hat f(x)(z)=f[z,x]$.
+\end{thm}
+\begin{empt}\label{topological_loop_spaces} If $(\sY, y_0)$ is a pointed space, we define the {\it loop space} $(\Omega \sY, \omega_0)$ of $\sY$ to be function space 
+	\begin{equation}\nonumber
+		(\Omega \sY, \omega_0) = (\sY, y_0)^{(S^1, s_0)}
+	\end{equation}
+	with constant loop $\omega_0$ $(\omega_0(s))= y_0, \ \forall s \in S^1)$ as base point.
+\end{empt}
+\begin{empt}\label{topological_suspension}
+	If $(\sX, x_0)$ we define {\it suspension} $(\Sigma \sX, *)$ to be the smash product $(S^1 \wedge \sX, *)$ of $\sX$ with the 1-sphere.
+\end{empt}
+\begin{cor}\label{loop_susp_adj_cor}\cite{switzer:at}		If both $(\sX, x_0), (\sY, y_0)$ are pointed spaces and $\sX$ is Hausdorff, then there is a natural equivalence
+	\begin{equation}\nonumber
+		A:[\Sigma \sX,*;\sY,y_0]\cong [\sX, x_0, \Omega \sY, y_0].
+	\end{equation}
+\end{cor}
+\begin{prop}\label{loop_susp_adj_prop}\cite{switzer:at}
+	The adjoint correspondence
+	\begin{equation}\nonumber
+		A:[\Sigma \sX,*;\sY, y_0]\cong [\sX,x_0, \Omega \sY, \omega_0]
+	\end{equation}
+	is an isomorphism of groups.
+\end{prop}
+\begin{remark}\cite{switzer:at}
+Both sets $[\Sigma \sX,*;\sY, y_0]$ and $[\sX,x_0, \Omega \sY, \omega_0]$ posses the natural group structure.
+\end{remark}
+
+\begin{definition}\label{top_hn_bas_defn}\cite{switzer:at}
+	% 2.60 page 34
+	For $n\ge1$  we define  $n^{\text{th}}$ \textit{homotopy group} $\pi_n\left(\sX, x_0 \right)$ of $\left(\sX, x_0 \right)$ as 
+	$$
+	\pi_n\left( \sX, x_0\right) \bydef \pi_0\left( \Om^n\sX, \om_0\right) \cong \pi_1\left( \Om^{n -1}\sX, \om'_0\right).
+	$$
+	where $\pi_0\left( \Om^n\sX\right) $ is a set of connected components of $\Om^n\sX$,
+\end{definition}
+\begin{remark}\label{top_h_gr_rem}\cite{switzer:at}
+The group $\pi_1\left(\sX, x_0 \right)$ is a set of homotopy equivalence classes of closed paths $f: \left[0, 1\right] \to\sX$ such that $f\left(0\right)= f\left(1\right)= x_0$. For all $n \in \N$ there is the natural bijective map $\pi_n\left(\sX, x_0 \right)\cong \left[\sX, x_0; S^n, s_0\right]$.
+\end{remark}
+\begin{remark}\cite{switzer:at}
+For all $n > 1$ the group $	\pi_{n} (\sX, x_0)$ is Abelian.
+\end{remark}
+\begin{remark}\label{top_ho_fund_rem}\cite{switzer:at}
+	From the Corollary \ref{loop_susp_adj_cor} and the Proposition \ref{loop_susp_adj_prop} it follows that there is the natural isomorphism of Abelian groups
+	\be\label{top_ho_fund_eqn}
+	\pi_{n+m} (\sX, x_0) = \pi_n(\Omega^m(\sX, \om_m)). 
+	\ee
+\end{remark}
+
+
+
+
+
+\section{Coverings and fundamental groups}
 	\paragraph*{}
 	Results of this section are copied from \cite{spanier:at}. The \textit{covering projection} word is replaced with \textit{covering} outside this section.
 	
@@ -16712,13 +16791,7 @@ where $\Coo\left( SO_q\left(3\right)\right)= C\left( SO_q\left(3\right)\right)\b
 	
 	
 
-\begin{definition}\label{top_hn_bas_defn}\cite{switzer:at}
-	% 2.60 page 34
-	For $n\ge1$  we define  $n^{\text{th}}$ \textit{homotopy group} $\pi_n\left(\sX, x_0 \right)$ of $\left(\sX, x_0 \right)$ as 
-	$$
-	\pi_n\left( \sX, x_0\right) \bydef \pi_0\left( \Om^n\sX, \om_0\right) \cong \pi_1\left( \Om^{n -1}\sX, \om'_0\right).
-	$$
-\end{definition}
+
 \begin{definition}\label{top_sus_defn}\cite{hatcher:at}
 	For a space $\sX$, the (unreduced) suspension $\Sigma\sX$ is the quotient of $\sX\times [0,1]$ obtained by collapsing $\sX\times\{0\}$ to one point and  $\sX\times\{1\}$ to another.
 point.
@@ -16805,61 +16878,7 @@ point.
 		In the situation of \ref{top_herm_bundle_empt} we say that $S$ is \textit{Hermitian vector bundle}.
 	\end{defn}
 	
-	\section{Loop space and suspension in topology}
-	
-%	\begin{defn}\label{cov_proj_cov_grp}\cite{spanier:at}
-%		Let $p: \tilde{X} \to X$ covering projection.  It is clear that there is a {\it group of self-equivalences} of $p$ (a self-equivalence is a homeomorphism $f:\tilde{X}\to\tilde{X}$ such that $p \circ f = p$). We denote this group by $G(\tilde{X}| X)$. This group is also called the {\it group of covering transformations} of $p$.
-%	\end{defn}
-	
-	
-	\begin{empt}\label{top_comp_open_empt} {\it Fuction spaces.}\cite{switzer:at} If $\sX$ and $\sY$ are topological spaces, we let $\sY^\sX$ denote the set of all continuous functions functions $f: \sX \to \sY$. We give this set a topology, called the {\it compact-open topology}, by taking as a subbase for the topology all sets of the form $N_{K,U} =\{f:f(K)\subset \sU\}$, $K\subset \sU$ compact, $\sU \subset \sX$ open. 
-	\end{empt}
-	\begin{empt}\label{base_points} {\it Base points.} \cite{switzer:at} Algebraic topology often have to consider not just topological space $\sX$ but rather a space $\sX$ together with distinguished point $x_0\in \sX$ called the {\it base point}. The pair $(\sX, x_0)$ is called a {\it pointed space} (one also speaks of pointed sets). When we are concerned with pointed spaces $(\sX, x_0)$, $(\sY, y_0)$, etc. we always require that all functions $f: \sX \to \sY$ shall preserve base point, i.e. $f(x_0)=y_0$, and that all homotopies $F:\sX\times I \to \sY$ be relative to base point, i.e. $F(x_0, t) = y_0$, $\forall t \in I$ unless an explicit disclaimer to be contrary is made. We shall use the notation $[\sX, x_0, \sY, y_0]$ to denote the homotopy classes of base point preserving functions, where homotopies are $\mathrm{rel}x_0$, of course. $[\sX, x_0, \sY, y_0]$ is a pointed space with base point $f_0$ the constant function: $f_0(x)=y_0$, $\forall x\in \sX$. If $(\sX, x_0)$, $(\sY, y_0)$ are pointed spaces then we have the space $(\sY, y_0)^{(\sX, x_0)}$ of base point preserving functions. We use the notation $\sX \vee \sY$ for the subspace $\sZ \times \{x_0\} \cup \{z_0\} \sX$. It can be thought of as the result of taking the disjoint union $\sZ \cup \sX$ and identifying $z_0$ with $x_0$, $\sZ \vee \sX$ is again a pointed space with base point $(z_0, x_0)$.  Given maps $f: (\sX, x_0)\to (\sX', x'_0)$ and $g: (\sY, y_0)\to (\sY', y'_0)$ the map $f \times g : \sX\times \sY \to \sX'\times \sY'$ maps $\sX \vee \sY$ into $\sX' \vee \sY'$ and so induces a map $f \wedge g: \sX\wedge \sY \to \sX'\wedge \sY'$.
-	\end{empt}
-	\begin{empt}\label{smash_pointed_sp}
-		If both $(\sX, x_0)$, $\left( \sY, y_0\right) $ are pointed spaces then we define the {\it smash product} $(\sX \wedge \sY, *)$ to be the quotinent 
-		\begin{equation}\nonumber
-			\sX \wedge \sY = \sX \times \sY / \sX \vee \sY
-		\end{equation}
-		with the point $* = p(\sX\vee \sY)$ as base point. Here $p: \sX \times \sY \to X \vee Y$ is the projection. For any $(x,y)\in \sX \times \sY$ we denote $p(x,y)\in \sX \wedge \sY$ by $[x,y]$.
-	\end{empt}
-	\begin{thm}\cite{switzer:at}
-		If $(\sX, x_0), (\sY, y_0), (\sZ, z_0)$ are pointed spaces, $\sX, \sZ$ Hausdorff and $\sZ$ locally compact, then there is a natural equivalence
-		\begin{equation}
-			A: [\sZ \wedge \sX, *; \sY, y_0] \to [\sX, x_0, (\sY, y_0)^{(\sZ, z_0)}, f_0]
-		\end{equation}
-		defined by $A[f]=[\hat f]$, where if $f: \sZ \wedge \sX \to \sY$ is a map then $\hat f: \sZ \wedge \sX \to \sY$ is a map given by $(\hat f(x)(z)=f[z,x]$.
-	\end{thm}
-	\begin{empt}\label{topological_loop_spaces} If $(\sY, y_0)$ is a pointed space, we define the {\it loop space} $(\Omega \sY, \omega_0)$ of $\sY$ to be function space 
-		\begin{equation}\nonumber
-			(\Omega \sY, \omega_0) = (\sY, y_0)^{(S^1, s_0)}
-		\end{equation}
-		with constant loop $\omega_0$ $(\omega_0(s))= y_0, \ \forall s \in S^1)$ as base point.
-	\end{empt}
-	\begin{empt}\label{topological_suspension}
-		If $(\sX, x_0)$ we define {\it suspension} $(\Sigma \sX, *)$ to be the smash product $(S^1 \wedge \sX, *)$ of $\sX$ with the 1-sphere.
-	\end{empt}
-	\begin{cor}\label{loop_susp_adj_cor}\cite{switzer:at}		If both $(\sX, x_0), (\sY, y_0)$ are pointed spaces and $\sX$ is Hausdorff, then there is a natural equivalence
-		\begin{equation}\nonumber
-			A:[\Sigma \sX,*;\sY,y_0]\cong [\sX, x_0, \Omega \sY, y_0].
-		\end{equation}
-	\end{cor}
-\begin{prop}\label{loop_susp_adj_prop}\cite{switzer:at}
-		The adjoint correspondence
-	\begin{equation}\nonumber
-		A:[\Sigma \sX,*;\sY, y_0]\cong [\sX,x_0, \Omega \sY, \omega_0]
-	\end{equation}
-	is an isomorphism of groups.
-	\end{prop}
-	\begin{remark}\label{top_ho_fund_rem}\cite{switzer:at}
-	From the Corollary \ref{loop_susp_adj_cor} and the Proposition \ref{loop_susp_adj_prop} it follows that there is the natural isomorphism of Abelian groups
-	\be\label{top_ho_fund_eqn}
-\pi_{n+m} (\sX, x_0) = \pi_n(\Omega^m(\sX, \om_m)). 
-	\ee
-	\end{remark}
-	
-	
-	\chapter{Algebra}
+\chapter{Algebra}
 	\section{Finitely generated modules}
 	\begin{theorem}\label{fin_gen_thm}\cite{kasch:mr}
 		% 2.3.13 THEOREM. T
