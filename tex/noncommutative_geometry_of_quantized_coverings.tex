@@ -2415,7 +2415,7 @@ Any $\widetilde{\xi}\in _A\widetilde{A}_{\widetilde A \rtimes G}\otimes_{A \rtim
 
 
 
-   \section{Noncommutative unique path lifting}
+   \section{Noncommutative unique path lifting}\label{noncomutative_path_liftting}
  
    \paragraph*{}
    This section is rarely used and may be skipped on first reading.
@@ -2549,7 +2549,7 @@ $f: [0,1] \to  \mathrm{Aut}\left({A}\right)$ be a continuous function such that 
 \end{proof}
 \begin{cor}\label{lift_unique_cor}
 	Let $\pi: A \hookto \widetilde{A}$  be an inclusion of $C^*$-algebras, such that the group 
-				\be\nonumber
+				\be\label{lift_group_eqn}
 	G = \left\{ \left.g \in \Aut\left(\widetilde{A} \right)~\right|~ ga = a;~~\forall a \in A\right\}
 	\ee
 	is finite,  and let   $f: [0,1] \to  \mathrm{Aut}\left({A}\right)$ be such that  $f\left( 0\right)= \Id_A$. If $\widetilde{f}$ is a $\pi$-lift of $f$ then   $\widetilde{f}$ is the unique $\pi$-lift of $f$.
@@ -2557,17 +2557,9 @@ $f: [0,1] \to  \mathrm{Aut}\left({A}\right)$ be a continuous function such that 
 \begin{proof}
 	If there are two different lifts of  $f$  then there is a nontrivial continuous  map: $\widetilde{f}:[0,1] \to  \mathrm{Aut}\left(\widetilde{A}\right)$ such that $\widetilde{f}|_A\left( t\right)  = \id_A$. For any $t \in [0,1]$ one has $\widetilde{f}\left(t \right) \in G$. Since $\widetilde{f}$ is not trivial, the group $G$ is not finite.
 \end{proof}
-
-%\begin{lemma}\label{w_path_lift_cor}
-%	Let $\pi: A \hookto \widetilde{A}$  be an inclusion of $C^*$-algebras. Suppose $\widetilde{a} \in  \widetilde{A}$ is such that there  is a faithful representation $\rho: \widetilde{A} \to B\left(\H \right)$ such that $\rho\left( \widetilde{a}\right)  \in\rho\left(A \right)''$. If $f: [0,1] \to  \mathrm{Aut}\left({A}\right)$ such that  $f\left( 0\right)= \Id_A$ and both $\widetilde{f}_1, \widetilde{f}_2$ are $\pi$-lifts of $f$ are then $\widetilde{f}_1\left(t\right) \left(\widetilde{a}\right)=\widetilde{f}_2\left(t\right) \left(\widetilde{a}\right)$ for every $t \in [0,1]$. 
-%\end{lemma}
-%\begin{proof}
-%	Since $A$ dense in $\rho\left(A \right)''$ the map $f$ can be uniquely extended up to a continuous map $f'': [0,1] \to  \mathrm{Aut}\left(\rho\left(A \right)''\right)$. From $\rho\left( \widetilde{a}\right)  \in\rho\left(A \right)''$ it turns out $\rho\left(\widetilde{f}_1\left(t\right) \widetilde{a}\right) = \rho\left(\widetilde{f}_2\left(t\right) \widetilde{a}\right)= f''\left( t\right) \left(\rho\left(\widetilde{a} \right) \right)$. Since $\rho$ is faithful one has $\widetilde{f}_1\left(t\right)\left(\widetilde{a}\right)=\widetilde{f}_2\left(t\right) \left(\widetilde{a}\right)$ for each $t \in [0,1]$.
-%\end{proof}
-
-%\begin{corollary}\label{borel_path_lift_cor}
-%	Let $\pi: A \hookto \widetilde{A}$  be an inclusion of $C^*$-algebras. Suppose $\widetilde{a} \in  \widetilde{A}$ is such that there  is a normal $a \in A$ and Borel measured function $\phi$ such that  $\widetilde{a}= \phi\left( a\right)$. If $f: [0,1] \to  \mathrm{Aut}\left({A}\right)$ such that  $f\left( 0\right)= \Id_A$ and both $\widetilde{f}_1, \widetilde{f}_2$ are $\pi$-lifts of $f$ then $\widetilde{f}_1\left(t\right) \left(\widetilde{a}\right)=\widetilde{f}_2\left(t\right) \left(\widetilde{a}\right)$ for every $t \in [0,1]$.
-%\end{corollary}
+\begin{empt}\label{lift_unique_empt}
+Consider the given by the Corollary \ref{lift_unique_cor} situation. If $f: [0,1] \to  \mathrm{Aut}\left({A}\right)$ is such that  $f\left( 0\right)= f\left( 1\right)=\Id_A$, and   $\widetilde{f}$ is the unique $\pi$-lift of $f$, such that $\widetilde{f}\left(0 \right)= \Id_{\widetilde{{A}}}$ then $\widetilde{f}\left(0 \right)\in G$, where $G$ is given by the equation \eqref{lift_group_eqn} group.
+\end{empt}
 
    \begin{thm}\label{comm_thm}
    	Let $p: \widetilde{\mathcal{X}} \to \mathcal{X}$ be a topological covering projection. Any path $\omega: I \to \mathrm{Homeo}(\mathcal{X})$ such that $\omega(0)=\mathrm{Id}_{\mathcal{X}}$ can be uniquely lifted to the path $\widetilde{\omega}: I \to \mathrm{Homeo}(\widetilde{\mathcal{X}})$ such that $\widetilde{\omega}(0)=\mathrm{Id}_{\widetilde{\mathcal{X}}}$ , i.e. $p(\widetilde{\omega}(t)(x)) = \omega(t)(p(x))$, $\forall t \in [0,1], \ \forall x \in \widetilde{\mathcal{X}}$. It means that the natural *-homomorphism $C_0\left({\mathcal{X}} \right) \hookto C_0\left( \widetilde{\mathcal{X}}\right) $ has the unique path lifting.
@@ -4097,9 +4089,21 @@ If $\widetilde X$ is the universal covering of $\left(X, Y\right)$ and $\widetil
 Similarly to the Definition \ref{fg_bas_os_defn} one can define the universal covering and the fundamental group of real operator space.
 \end{remark}
 
-\subsection{Fundamental group and noncommutative paths}
+\subsection{Fundamental group and noncommutative closed paths}
+\paragraph*{}
+Topological fundamental group are given by classes of closed paths (cf. Remark \ref{top_h_gr_rem}). Sometimes elements of noncommutative fundamental group correspond to described it the Section \ref{noncomutative_path_liftting} noncommutative closed paths.
+\begin{exercise}
+Suppose that there is   a  {pointed  algebraical  finite covering} category $\mathfrak{S}^{\mathrm{pt}} = \left( \left\{ \pi_\la:A \hookto A_\la\right\}_{\la\in\La},\left\{\pi^\nu_\mu\right\}_{\substack{ \mu, \nu \in \La \\ \mu \ge \nu}} \right)$ which is good. Let  $f: [0,1] \to  \mathrm{Aut}\left({A}\right)$ be such that  $f\left( 0\right)= f\left( 1\right)=\Id_A$. From \ref{lift_unique_empt} it turns out that for all $\la\in\La$ there is $g_\la \in G\left(\left. A_\la\right| A\right)$ which corresponds to $f$.
+\begin{enumerate}
+\item Prove that 
+$
+\forall \mu, \nu\in\La \quad \mu > \nu \quad\Rightarrow\quad  g_\nu = h^\mu_\nu\left(g_\mu \right) 
+$ where the homomorphism  $ h^\mu_\nu: G\left(\left. A_\mu\right| A\right)\to G\left(\left. A_\nu\right| A\right)$ follows from the condition (c) of the Definition \ref{compliant_covering_defn}.
+\item Prove that $f$ corresponds to the unique $x_f \in 	\pi_1\left(A, \left\{\pi^\nu_\mu\right\}_{\substack{ \mu, \nu \in \La \\ \mu \ge \nu}} \right)$ (cf. equation \ref{fg_bas_eqn}).
+\end{enumerate}
+\end{exercise}
 
-!!!!
+
 
 \section{Induced representations}\label{inf_ind_repr_subsection}
 
