@@ -5774,6 +5774,20 @@ The following Lemma is evident.
 	\end{split}
 	\end{equation}	
 \end{remark}
+\begin{remark}\label{comm_lift_desc_sum_strong_rem}
+	Consider the situation of the Definition \ref{top_lift_desc_defn}, and let $\pi_a: C_0\left(\widetilde \sX \right)\hookto B\left(\H_a\right)$ be the atomic representation (cf. Definition \ref{atomic_repr_defn}). From the Lemma \ref{sum_hilb_rep_lem} it turns out that the series
+	$$
+	\sum_{	g \in G\left( \left. \widetilde\sX\right| \sX\right) }\pi_a\left(g\widetilde a \right) = \pi_a\left(\desc_p\left(\widetilde a \right) \right)
+	$$
+	is convergent with respect to the strong topology (cf. Definition \ref{strong_topology_defn}) of $B\left(\H_a\right)$.
+\end{remark}
+\begin{exercise}\label{comm_lift_desc_sum_exer}
+Consider the situation of the Definition \ref{top_lift_desc_defn}. Prove that the series
+	$$
+\sum_{	g \in G\left( \left. \widetilde\sX\right| \sX\right) }g\widetilde a  = \desc_p\left(\widetilde a \right).
+$$
+is convergent with respect to the strict topology (cf. Definition \ref{strict_topology}) of $M\left( C_0\left(\widetilde\sX\right)\right)$.
+\end{exercise}
 
 \begin{empt}
 	If $\sum_{j = 1}^n \widetilde f_j$ is a {subordinated to} $p$ covering sum for $\widetilde \sY$ (cf. Definitions \ref{top_cfs_defn} and \ref{top_cfs_sub_defn}) then one has
@@ -7818,7 +7832,7 @@ $$
 	\begin{enumerate}
 		\item[(a)] 	Let 
 		$f_\eps: \R \to \R$ is a continuous function given by 
-		\eqref{f_eps_eqn}. From \\$\supp f_\eps\left( z^*\overline a' z\right) \subset \supp z^*\overline a' z = \left( \supp z^*\overline a' z\right)^2 \subset \supp \overline a' \subset \overline\sU$ and the Lemma \ref{comm_lift_desc_sum_strong_lem} it turns out that if $a_\la \bydef \desc_{\overline{p}_\la}\left(z^*\overline a' z \right)\in C_0\left(\sX_\la \right)$,   $\quad a^\eps_\la \bydef f_\eps\left( \desc_{\overline{p}_\la}\left(z^*\overline a' z \right)\right) \in C_0\left(\sX_\la \right)$ and $b_\la\bydef  \desc_{\overline{p}_\la}\left(z^*\overline a' z \right)^2\in C_0\left(\sX_\la \right)$ then one has
+		\eqref{f_eps_eqn}. From \\$\supp f_\eps\left( z^*\overline a' z\right) \subset \supp z^*\overline a' z = \left( \supp z^*\overline a' z\right)^2 \subset \supp \overline a' \subset \overline\sU$ and the Remark \ref{comm_lift_desc_sum_strong_rem} it turns out that if $a_\la \bydef \desc_{\overline{p}_\la}\left(z^*\overline a' z \right)\in C_0\left(\sX_\la \right)$,   $\quad a^\eps_\la \bydef f_\eps\left( \desc_{\overline{p}_\la}\left(z^*\overline a' z \right)\right) \in C_0\left(\sX_\la \right)$ and $b_\la\bydef  \desc_{\overline{p}_\la}\left(z^*\overline a' z \right)^2\in C_0\left(\sX_\la \right)$ then one has
 		\be\label{top_specc_a_eps_eqn}
 		\begin{split}
 			\sum_{g\in G_\la } \pi_a \left(z\right)^*\left(  g\overline a'\right) \pi_a\left( z\right)   = \pi_a\left(a_\la\right) ,\\
@@ -8956,13 +8970,14 @@ C_0\left(\widetilde M\right) \to B\left( L^2\left(\widetilde  M, \widetilde S\ri
 	Denote by $\overline{p}:\left( \overline{  \mathcal X}, \overline x_0\right)  \to\left(  \mathcal X, x_0\right) $, $\overline{p}_\la:\left( \overline{  \mathcal X}, \overline x_0\right)  \to\left(  \mathcal X_\la, x^\la_0\right) $, $p^\la: \left(  \mathcal X_\la, x^\la_0\right)  \to \left( \mathcal X, x_0\right) $, $p^\mu_\nu:  \left( \mathcal X_\mu, x^\mu_0 \right) \to \left( \mathcal X_\nu, x^\nu_0\right) $ ($\mu > \nu$) the natural pointed coverings.
 	If $\widetilde{\sX}= \varprojlim \mathfrak{S}_{\left(\sX, x_0 \right)}$ then  	from the Theorem \ref{comm_main_thm} it turns out	
 	$$\left(C_0\left(\mathcal{X}\right), C_0\left(\widetilde{\sX}\right),G\left(\widetilde{\sX}~|~ \mathcal X\right)\right)$$ is  the  { infinite noncommutative covering} of $\mathfrak{S}_{C_0\left(\mathcal{X}\right)}$ (cf. Definition \ref{main_defn}). 	 	It is shown in \cite{pedersen:mea_c} that the Pedersen's ideal $K\left(C_0\left(\widetilde{\sX} \right)\right) $ of $C_0\left(\widetilde{\sX} \right)$ coincides with $C_c\left(\widetilde{\sX} \right)$. If $\widetilde{a}, \widetilde{b} \in C_c\left(\widetilde{\sX} \right)$ then $\supp \overline{a}$ is compact. 	
-	From the Lemma \ref{top_comp_la_lem} it follows that there is $\la_0 \in \La$ such that for all $\la \ge \la_0$ the restriction $\left.\overline{p}_\la\right|_{\supp \overline{a}}$ is injective. From (ii) of the Lemma  \ref{comm_lift_desc_sum_lem} it follows that
+	From the Lemma \ref{top_comp_la_lem} it follows that there is $\la_0 \in \La$ such that for all $\la \ge \la_0$ the restriction $\left.\overline{p}_\la\right|_{\supp \overline{a}}$ is injective. From the Exercise  \ref{comm_lift_desc_sum_exer} it follows that
 	\begin{equation}\nonumber
 		\begin{split}
 			c_{\la} = \sum_{g \in \ker\left(G\left(\left.\widetilde{\sX}~\right|\sX \right)  \to  G\left( \sX_{\la}~|~\sX \right)\right)} g \left(\widetilde{a}^* \widetilde{b}  \right) = \desc_{\overline{p}_\la}\left( \widetilde{a}\widetilde{b}\right) 
 		\end{split}
 	\end{equation}
-	where notation  $\desc_{\overline{p}_\la}$ means  the descent	(cf. Definition \ref{top_lift_desc_defn}). From the properties of the descent it turns out that $\desc_{\overline{p}_\la}\left( \widetilde{a}\widetilde{b}\right) \in C_0\left( \sX_{\la}\right)$, i.e. $c_\la \in C_0\left( \sX_{\la}\right)$.  Taking into account the Remark \ref{inf_hilb_prod_low_rem} we conclude that  $c_\la \in C_0\left( \sX_{\la}\right)$ for all $\la \in \La$.
+	where sum of the series implies the strict topology of $M\left(C_0\left(\widetilde{\sX} \right)  \right)$ (cf. Definition \ref{strict_topology}), and the  notation  $\desc_{\overline{p}_\la}$ means  the descent	(cf. Definition \ref{top_lift_desc_defn}). 
+	From the properties of the descent it turns out that $\desc_{\overline{p}_\la}\left( \widetilde{a}\widetilde{b}\right) \in C_0\left( \sX_{\la}\right)$, i.e. $c_\la \in C_0\left( \sX_{\la}\right)$.  Taking into account the Remark \ref{inf_hilb_prod_low_rem} we conclude that  $c_\la \in C_0\left( \sX_{\la}\right)$ for all $\la \in \La$.
 \end{proof}
 From the Lemma \ref{comm_allows_lem} it follows that the  induced by $\left(\rho, \left(C\left( M\right) , C_0\left( \widetilde M\right) G\left(\left.\widetilde M   ~\right| M\right)\right)\right)$ representation $\widetilde \rho: C_0\left( \widetilde M\right)\hookto B\left( \widetilde \H\right)$ (cf. Definition \ref{induced_repr_inf_defn}), such that $\widetilde \H$ is the Hilbert norm completion of
 $$
