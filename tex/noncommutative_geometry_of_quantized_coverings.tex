@@ -3439,7 +3439,7 @@ Both inclusions $\overline{A}_{\widehat \pi_a}\subset  \overline{A}_{\widehat \p
 \end{proof}
 
 
-\begin{corollary}\label{spectrum_bijective_corb}
+\begin{corollary}\label{spectrum_injective_cor}
 	a
 	\\
 DO NOT DELETE	!!!
@@ -3451,8 +3451,11 @@ DO NOT DELETE	!!!
 	\end{split}
 	\eean
 	(cf. Definition \ref{main_defn_full_defn}).
-	Let $\widehat A \bydef C^*$-$\varinjlim_{\la\in\La} A_\la$ be the direct limit, and let $\widehat\sX$ be the spectrum of $\widehat A$. If   	$\overline	\sX$ is the spectrum of  $\overline A $ then there is the natural  set theoretic injective   map $ \widehat\sX\hookto \overline
-	\sX$. 
+	Let $\widehat A \bydef C^*$-$\varinjlim_{\la\in\La} A_\la$ be the direct limit, and let $\widehat\sX$ be the spectrum of $\widehat A$. If   	$\overline	\sX$ is the spectrum of  $\overline A $ then there is the natural  set theoretic injective   map 
+	\be\label{spectrum_injective_eqn}
+	\varphi: \widehat\sX\hookto \overline
+	\sX
+	\ee
 \end{corollary}
 \begin{proof}
 If $\pi_a :\widehat A \to B\left(\H\right)$ is an atomic representation then from the Lemma \ref{atomic_uni_lem} it follows that there is the inclusion $\widehat A\subset  \pi_a\left( A\right)'' = \prod_{\widehat x\in \widehat\sX} B\left( \H_{\widehat x}\right)$.
@@ -3460,7 +3463,7 @@ If $\pi_a :\widehat A \to B\left(\H\right)$ is an atomic representation then fro
 		$$
 	I''_{\widehat{x}_0}\bydef \left\{\left.\left\{a_{\widehat x}\right\}_{\widehat x\in {\widehat \sX}} \in \prod_{\widehat x\in \widehat\sX} B\left( \H_{\widehat x}\right)\right|a_{\widehat x_0}=0\right\}\subset \prod_{\widehat x\in \widehat\sX} B\left( \H_{\widehat x}\right)
 	$$
-	then $\widehat x_0$ corresponds the a pure state $\widehat \phi_{\widehat{x}_0}:\widehat A \to \C$ and to the ideal $\widehat I_{\widehat{x}_0}\bydef I''_{\widehat{x}_0}\cap \widehat A\subset \widehat A$. From the Proposition \ref{state_prop} it turns out that the state $\widehat \phi_{\widehat{x}_0}$ can be extended to a pure state $\overline  \phi_{\widehat{x}_0}: M\left(\overline A \right)\to\C$. On the other hand any state $\overline  \phi_{\widehat{x}_0}$ such that $\left.\overline  \phi_{\widehat{x}_0} \right|_{\widehat A}=  \widehat \phi_{\widehat{x}_0}$ corresponds to the unique ideal $\overline I_{\widehat{x}_0} \bydef I''_{\widehat{x}_0}\cap M\left(\overline A \right)$, so one has a map $ \widehat  \phi_{\widehat{x}_0} \mapsto \overline  \phi_{\widehat{x}_0}$ which is injective. From $\overline I_{\widehat{x}_0}\subsetneqq \overline A$ it turns that $\left.\overline  \phi_{\widehat{x}_0}\right|_{\overline A}: \overline A\to \C$ is a state. In result one has an injective map $\widehat \phi_{\widehat{x}_0}\mapsto \left.\overline  \phi_{\widehat{x}_0}\right|_{\overline A}$. From (vi) of the Theorem \ref{irred_thm} it follows that this map can be regarded as an injective   map $ \widehat\sX\hookto \overline
+	then $\widehat x_0$ corresponds the a pure state $\widehat \phi_{\widehat{x}_0}:\widehat A \to \C$ and to the ideal $\widehat I_{\widehat{x}_0}\bydef I''_{\widehat{x}_0}\cap \widehat A\subset \widehat A$. From the Proposition \ref{state_prop} it turns out that the state $\widehat \phi_{\widehat{x}_0}$ can be extended to a pure state $\overline  \phi_{\widehat{x}_0}: M\left(\overline A \right)\to\C$. On the other hand any state $\overline  \phi_{\widehat{x}_0}$ such that $\left.\overline  \phi_{\widehat{x}_0} \right|_{\widehat A}=  \widehat \phi_{\widehat{x}_0}$ corresponds to the unique ideal $\overline I_{\widehat{x}_0} \bydef I''_{\widehat{x}_0}\cap M\left(\overline A \right)$, so one has a map $ \widehat  \phi_{\widehat{x}_0} \mapsto \overline  \phi_{\widehat{x}_0}$ which is injective. From $\overline I_{\widehat{x}_0}\subsetneqq \overline A$ it turns that $\left.\overline  \phi_{\widehat{x}_0}\right|_{\overline A}: \overline A\to \C$ is a state. In result one has an injective map $\widehat \phi_{\widehat{x}_0}\mapsto \left.\overline  \phi_{\widehat{x}_0}\right|_{\overline A}$. From (vi) of the Theorem \ref{irred_thm} it follows that this map can be regarded as an injective   map $ \varphi:\widehat\sX\hookto \overline
 	\sX$. 
 \end{proof}
 \begin{lemma}\label{sum_hilb_rep_lem}
@@ -3545,7 +3548,14 @@ Moreover if $a_\la$ is given by \eqref{spec_a_eqn}  then one has
 \begin{proof}
 This lemma is a specialization of the Lemma \ref{direct_sum_strong_lim_lem}.
 \end{proof}
-
+From the Lemma \ref{spec_el_repr_lem} the following corollary can be deduced.
+\begin{corollary}\label{spectrum_faitful_eqn}
+	If  $\overline A$ be the {disconnected algebraical inverse noncommutative limit} (cf. Definition \ref{main_defn_full_defn}) of a {pointed algebraical  finite covering category}  	$\mathfrak{S}^{\text{pt}}$ then any $\overline a\in \overline A$ is given by the family
+	$
+	\left\{\rep_{\varphi\left(\widehat x\right)  }\right\}_{\widehat x \in \widehat \sX}
+	$
+	where $\widehat \sX$ is the spectrum of $C^*$-$\varinjlim_{\la\in\La} A_\la$ and the map $\varphi$ is given by the equation \eqref{spectrum_injective_eqn}.
+\end{corollary}
  \begin{definition}\label{main_sdefn}
 	Any  maximal connected $C^*$-subalgebra $\widetilde{A}_\pi \subset \overline{A}_\pi$  is said to be a $\pi$-\textit{connected component} of $\mathfrak{S}$. The maximal subgroup $G_\pi\subset G\left(\overline{A}_\pi~|~ A\right)$ among subgroups $G\subset G\left(\overline{A}_\pi~|~ A\right)$ such that $G\widetilde{A}_\pi=\widetilde{A}_\pi$   is said to be a $\pi$-\textit{connected component} $\widetilde{A}_\pi$-\textit{invariant group} of $\mathfrak{S}^{\mathrm{pt}}$. If $\pi$ is the atomic representation then  $\widetilde{A}_\pi \subset \overline{A}_\pi$  is said to be a \textit{connected component} $\mathfrak{S}$ and we write $\widetilde{A}\bydef \widetilde{A}_\pi$.
 \end{definition}
