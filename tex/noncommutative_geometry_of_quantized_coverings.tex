@@ -848,56 +848,38 @@ Following table contains  special symbols.
 \section{Inclusions of some $C^*$-algebras}
 \paragraph{}
 Let 
-$D$ be a $C^*$-algebra and let $X_D$ a Hilbert $D$-module with the $D$-valued product $\left\langle \cdot, \cdot\right\rangle_D:  X_D \times X_D \to D$. Suppose that there are a $C^*$-subalgebra $A$ of $D$ and a  $C^*$-Hilbert $A$-module $X_A$ with product $\left\langle \cdot, \cdot\right\rangle_A$ such that
+$D$ be a $C^*$-algebra and let $X_D$ a Hilbert $D$-module with the $D$-valued product $\left\langle \cdot, \cdot\right\rangle_D:  X_D \times X_D \to D$. Suppose that there are a $C^*$-subalgebra $A$ of $D$ and a  $C^*$-Hilbert $A$-module $X_A\subset X_D$ with product $\left\langle \cdot, \cdot\right\rangle_A$ such that
 the following conditions hold
 \bea
 \label{exact_da_1_eqn}
 \left\langle \xi, \eta\right\rangle_A = \left\langle \xi, \eta\right\rangle_D \quad \forall \xi, \eta \in X_A.
 \eea
-Denote by $\L\left(X_D\right)$ and $\L\left(X_A\right)$ the space of $D$-linear and $A$-linear adjointable maps (cf. Definition \ref{adj_aop_defn}).
+Denote by $\End_D^*\left(X_D\right)$ and $\End_A^*\left(X_A\right)$ the space of $D$-linear and $A$-linear adjointable operators (cf. Definition \ref{adj_aop_defn}).
 \begin{lemma}
-If $L\in \L\left(X_D\right)$ is a self-adjoint element such that 
+If $L\in \End_D^*\left(X_D\right)$ is a self-adjoint element such that 
  $$
- \forall \xi \in \L\left(X_A\right) \quad 	\left\langle \xi, L \xi\right\rangle_D \in A 
+ \forall \xi \in X_A \quad 	\left\langle \xi, L \xi\right\rangle_D = 	\left\langle L\xi,  \xi\right\rangle_D\in A 
  $$
- then $L \in \L\left(X_A\right)$.
+ then $L|_{X_A} \in \End_A^*\left(X_A\right)$.
 \end{lemma}
 \begin{proof}
 From the polarization equality \eqref{polarization_equality_eqn} it turns out that
 $$
-\forall \xi, \eta \in \L\left(X_A\right)\quad \left\langle \xi, L \xi\right\rangle_D \in A
+\forall \xi, \eta \in X_A\quad \left\langle \xi, L \eta\right\rangle_D = \left\langle L \xi,  \eta\right\rangle_D\in A.
 $$
-
+If $X'_A$ is dual Banach module of $X_A$ (cf. \ref{hm_dual_empt}) then 
+the restriction $L|_{X_A}$ corresponds to an element of $\Hom_A\left(X_A, X'_A\right)$ given by
+$$
+\xi \mapsto \left\langle L\xi, \cdot\right\rangle_D.
+$$
+Taking into account \eqref{to_dual_eqn} there are following inclusions
+$$
+\End_A^*\left(X_A\right)\subset \End_A\left(X_A\right)\bydef \Hom_A\left(X_A, X_A\right)\subset \Hom_A\left(X_A, X'_A\right).
+$$
+Since $L|_{X_A}$ is self-adjoint from $L|_{X_A}\in \Hom_A\left(X_A, X'_A\right)$ it follows that $L|_{X_A}\in \End^*_A\left(X_A\right)$.
 \end{proof}
 
-\begin{defn}\label{exact_da_defn} Let $D$ be a $C^*$-algebra and let $X_D$ a Hilbert $D$-module with the $D$-valued product $\left\langle \cdot, \cdot\right\rangle_D:  X_D \times X_D \to D$. Suppose that there are a $C^*$-subalgebra $A$ of $D$ and a  $C^*$-Hilbert $A$-module $X_A$ with product $\left\langle \cdot, \cdot\right\rangle_A$. An inclusion  $X_A \subset X_D$ is said to be \textit{exact} if following conditions hold
-	\bea
-	\label{exact_da_1_eqn11}
-	\left\langle \xi, \eta\right\rangle_A = \left\langle \xi, \eta\right\rangle_D \quad \forall \xi, \eta \in X_A,\\
-	\label{exact_da_2_eqn}
-	\forall \eta \in X_D \setminus X_A~ \exists \xi \in X_A\quad \left\langle \xi, \eta\right\rangle_D \notin A.
-	\eea
-\end{defn}
-\begin{definition}\label{exact_cont_defn}
-	Let us consider the situation of the Definition \eqref{exact_da_defn}. Denote by $\L\left(X_D\right)$ the space of $D$-linear adjointable maps (cf. Definition \ref{adj_aop_defn}).
-	$L \in \L_D\left(X_D\right)$  is said to be $A$-\textit{continuous} if $L X_A \subset X_A$. We write $L \in \L_A\left( X_A \right)$. 
-\end{definition}
-Following lemma  is a consequence of the above definition.
-\begin{lemma}\label{exact_cont_lem}
-	In the situation of the definition \eqref{exact_da_defn}  $L \in\L_D\left(X_D\right)$  is $A$-{continuous} if and only if
-	\be\label{exact_cont_eqn}
-	\left\langle \xi, L \eta\right\rangle_D \in A \quad \forall \xi, \eta \in X_A
-	\ee
-\end{lemma}
-\begin{corollary}\label{exact_cont_cor}
-	In the situation of the definition \eqref{exact_da_defn} a self-adjoint $L = L^* \in \L_D\left(X_D\right)$ is $A$-{continuous} if and only if
-	\be
-	\left\langle \xi, L \xi\right\rangle_D \in A \quad \forall \xi \in X_A
-	\ee
-\end{corollary}
-\begin{proof}
-	Follows from the Lemma \ref{exact_cont_lem} and the polarization equality \eqref{polarization_equality_eqn}.
-\end{proof}
+
 % BEGIN COMMENTED ========================
 %\begin{lemma}\label{g_eps_lem}
 %	Let $a \in B\left( \H\right)_+$ be a positive operator, and let for any $\eps> 0$ a bounded continuous map $G_\eps: \R \to \R$ is  given by
@@ -18894,16 +18876,19 @@ $$
 	\end{lemma}
 	
 	
-\begin{empt}\cite{matro:hcm}
+\begin{empt}\label{hm_dual_empt}\cite{matro:hcm}
 	For a Hilbert $C^*$-module $X$ over $C^*$-algebra $A$ let us denote by $X'$ the set of  all bounded $A$-linear maps  from  $X$ to $A$. The elements of $X'$ are called \textit{functionals} on a Hilbert module $X$. Note that there is an obvious isometric inclusion
-	\bean
+	\be\label{to_dual_eqn}
+	\begin{split}
 	X \subset X',\\
-	x \mapsto\left\langle x, \cdot \right\rangle 
-	\eean
+x \mapsto\left\langle x, \cdot \right\rangle.
+	\end{split}
+	\ee
+	The space $X'$ is called the \textit{dual Banach module} of $X$.
 \end{empt}	
-\begin{definition}\label{hm_selfdual_defn}\cite{matro:hcm}
-	A Hilbert module $X$ is called  \textit{self-dual} if $X\cong X'$.
-\end{definition}
+%\begin{definition}\label{hm_selfdual_defn}\cite{matro:hcm}
+%	A Hilbert module $X$ is called  \textit{self-dual} if $X\cong X'$.
+%\end{definition}
 	
 %\begin{empt}\cite{matro:hcm}
 %	For a Hilbert $C^*$-module $X$ over $C^*$-algebra $A$ we define the \textit{bidual} Banach right $A$ module $X''$ as a set of all bounded $A$-homomorphism from the dual module $X'$ into $A$. 
