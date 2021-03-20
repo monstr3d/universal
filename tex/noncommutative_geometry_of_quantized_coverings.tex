@@ -855,7 +855,7 @@ the following conditions hold
 \left\langle \xi, \eta\right\rangle_A = \left\langle \xi, \eta\right\rangle_D \quad \forall \xi, \eta \in X_A.
 \eea
 Denote by $\End_D^*\left(X_D\right)$ and $\End_A^*\left(X_A\right)$ the space of $D$-linear and $A$-linear adjointable operators (cf. Definition \ref{adj_aop_defn}).
-\begin{lemma}
+\begin{lemma}\label{exact_lem}
 If $L\in \End_D^*\left(X_D\right)$ is a self-adjoint element such that 
  $$
  \forall \xi \in X_A \quad 	\left\langle \xi, L \xi\right\rangle_D = 	\left\langle L\xi,  \xi\right\rangle_D\in A 
@@ -876,7 +876,7 @@ Taking into account \eqref{to_dual_eqn} there are following inclusions
 $$
 \End_A^*\left(X_A\right)\subset \End_A\left(X_A\right)\bydef \Hom_A\left(X_A, X_A\right)\subset \Hom_A\left(X_A, X'_A\right).
 $$
-Since $L|_{X_A}$ is self-adjoint from $L|_{X_A}\in \Hom_A\left(X_A, X'_A\right)$ it follows that $L|_{X_A}\in \End^*_A\left(X_A\right)$.
+Since $L$ is self-adjoint it  is adjointable (cf. Definition \ref{adj_aop_defn}) and from $L|_{X_A}\in \Hom_A\left(X_A, X'_A\right)$ it follows that $L|_{X_A}\in \End^*_A\left(X_A\right)$ .
 \end{proof}
 
 
@@ -12109,7 +12109,8 @@ Let	$\overline{p}: \overline{   \mathcal X } \to \sX$ and $\overline{p}_\la: \ov
 (iii) Follows from the the Corollary \ref{ctr_fin_red_cor} and the Theorem \ref{blowing_main_thm},
 \end{proof}
 \subsubsection{Coverings of continuous trace $C^*$-algebras}
-Any continuous trace $C^*$-algebra is a $C^*$-algebra with Hausdorff spectrum, so the Theorem  \ref{ctr_h_main_thm} yields description of infinite noncommutative covering of continuous trace $C^*$-algebras. However the   Theorem  \ref{ctr_h_main_thm} states the existence of infinite noncommutative covering $\left(A, \widetilde A\bydef \overline A_{\widetilde \sX}~, 	G\left(\left.\widetilde{\sX}~\right| \sX\right)\right)$ without explicit description of $ \widetilde A$. In case of continuous trace $C^*$-algebras one has an explicit description of $ \widetilde A$.
+\paragraph*{}
+Any continuous trace $C^*$-algebra is a $C^*$-algebra with Hausdorff spectrum, so the Theorem  \ref{ctr_h_main_thm} yields description of infinite noncommutative covering of continuous trace $C^*$-algebras. However the   Theorem  \ref{ctr_h_main_thm} states the existence of infinite noncommutative covering $\left(A, \widetilde A\bydef \overline A_{\widetilde \sX}~, 	G\left(\left.\widetilde{\sX}~\right| \sX\right)\right)$ without explicit description of $ \widetilde A$. In case of continuous trace $C^*$-algebras one can obtain an explicit description of $ \widetilde A$.
 \paragraph{Families of operator spaces}
 If $\sX$ is a locally compact Hausdorff space, and 
 $X_{C_0\left(\sX\right)}$ is a full $C^*$-Hilbert $C_0\left(\sX\right)$-module, then similarly to \eqref{top_cx_eqn} and \eqref{top_cx_norm_eqn} for any $x \in \sX$ one can define a normed space $C_x$. If $\H_x$ is the norm completion of $C_x$ then there is a family $\left\{\H_x \right\}_{x \in \sX}$ such that  $X_{C_0\left(\sX\right)}$ is a {continuity structure for} $\sX$ {and the} $\left\{\H_x\right\}$ (cf. Definition \ref{op_fields_defn}).  Let us define the product on $\H_x$ given by \eqref{polarization_hilb_equality_eqn}, thus $\H_x$ becomes a Hilbert space for each $x \in \sX$. On the other hand the space  $X_{C_0\left(\sX\right)}$ is norm closed, so from the Corollary \ref{top_cl_cc_iso_cor} one has the $C_0\left(\sX \right)$-isomorphism
@@ -12127,29 +12128,6 @@ scalar product.
 \begin{remark}\label{top_disc_ext_rem}
 	There is the natural inclusion $X_{C_0\left(\sX\right)}\subset X_{D^*\left(\sX\right)}$.
 \end{remark}
-
-\begin{lemma}\label{comm_exact_lem}
-	There is the natural inclusion $X_{C_0\left(\sX\right)}\subset X_{D^*\left(\sX\right)}$
-which is exact (cf. Definition \ref{exact_da_defn}).
-\end{lemma}
-\begin{proof}
-!!!	
-	\begin{defn}\label{exact_da_defn1} Let $D$ be a $C^*$-algebra and let $X_D$ a Hilbert $D$-module with the $D$-valued product $\left\langle \cdot, \cdot\right\rangle_D:  X_D \times X_D \to D$. Suppose that there are a $C^*$-subalgebra $A$ of $D$ and a  $C^*$-Hilbert $A$-module $X_A$ with product $\left\langle \cdot, \cdot\right\rangle_A$. An inclusion  $X_A \subset X_D$ is said to be \textit{exact} if following conditions hold
-		\bea
-		\label{exact_da_1_eqn1}
-		\left\langle \xi, \eta\right\rangle_A = \left\langle \xi, \eta\right\rangle_D \quad \forall \xi, \eta \in X_A,\\
-		\label{exact_da_2_eqn1}
-		\forall \eta \in X_D \setminus X_A~ \exists \xi \in X_A\quad \left\langle \xi, \eta\right\rangle_D \notin A.
-		\eea
-		\end{defn}
-	If $\eta = \sum_{j = 1}^\infty g_j \mathfrak{e}_j \in \ell^2\left( D^*\left( {\sX}\right)\right)\setminus \ell^2\left( C_0\left( {\sX}\right)\right)$ is such that $g_j \in D^*\left( {\sX}\right)$ for all $j = 1,...,\infty$ then there are $x_0 \in \sX$ and $k \in \N$ such that $g_k$ is not continuous at $x_0$. 
-	If $f \in C_0\left(\sX  \right)$ is such that $f\left( x_0\right) \neq 0$ and $\xi = f \mathfrak{e}_k \in X_{C_0\left( \sX \right)}$ then 
-	\be\label{ctr_exact_da_c_l_eqn}
-	\left\langle \xi, \eta\right\rangle_{D^*\left( \sX \right)} \notin C_0\left( \sX \right).
-	\ee
-	The equation \eqref{ctr_exact_da_c_l_eqn} is a specialization of the condition \eqref{exact_da_2_eqn}.
-\end{proof}
-
    
 \begin{lemma}\label{top_cb_hilb_lem}
 	In the above situation one has
@@ -12280,34 +12258,16 @@ So we proved the following lemma.
 	\K\left( X_{C_b\left(\sX\right)}\right) \cong C_b\left(\K\left( X_{C_0\left(\sX\right)}\right)  \right). 
 	\ee 
 \end{lemma}
-\begin{empt}
-	If $\left\{L^2\left(\N\right)_x\right\}_{x \in \sX}$  is a family of isomorphic to $L^2\left(\N\right)$ Hilbert spaces then the standard Hilbert module $ \ell^2\left( C_0\left( {\sX}\right)\right)$ (cf. Definition \ref{standard_h_m_defn}) is  a continuity structure  for $\sX$ {and the} $\left\{L^2\left(\N\right)_x\right\}$ (cf. Definition \ref{op_fields_defn}). From the Corollary \ref{top_cl_cc_iso_cor} it turns out that
-	\be\label{top_l2_c0_eqn}
-	\ell^2\left( C_0\left( {\sX}\right)\right) \cong C_0\left(\sX, \left\{L^2\left(\N\right)_x\right\}, 	\ell^2\left( C_0\left( {\sX}\right)\right) \right) 
-	\ee
-	If $\left\{\mathfrak{e}_j\right\}_{j \in \N}$ is an orthogonal basis then any $\xi \in  \ell^2\left( C_0\left( {\sX}\right)\right)$ is represented by 
-	\be\label{comm_ell2_eqn}
-	\begin{split}
-		\xi = \sum_{j = 1}^\infty f_j \mathfrak{e}_j; \quad     \quad  \forall j \in \N ~~f_j \in C_0\left( \sX\right);\quad
-		\left(x \mapsto  \sum_{j = 1}^\infty \left| f_j\left(x \right) \right|^2\right) \in C_0\left( \sX\right).
-	\end{split}
-	\ee
-	If $D^*\left( \sX\right)$ is the $C^*$-algebra of complex-valued bounded (discontinuous) maps $\sX \to \C$ then there is the natural inclusion
-	\be
-	\ell^2\left( C_0\left( {\sX}\right)\right) \subset \ell^2\left( D^*\left( {\sX}\right)\right). 
-	\ee
-	
-\end{empt}
 
 \begin{lemma}\label{top_l_equ_lem}
 	Let $X_{C_0\left(\sX \right) }$ be a Hilbert $C_0\left(\sX\right)$-module. Consider the natural isomorphism  $X_{C_0\left(\sX \right) } \cong C_0\left(\sX, \left\{\H_{ x}\right\}_{x \in \sX}, X_{C_0\left(\sX \right) }\right)$. If $X_{C_b\left(\sX\right)   }\stackrel{\mathrm{def}}{=}C_b\left(\sX, \left\{\H_{ x}\right\}, X_{C_0\left(\sX \right) }\right)$ then there is the natural *-isomorphism of $C^*$-algebras 
 	\bean
-	\L\left(X_{C_0\left(\sX \right) } \right) \cong \L\left(X_{C_b\left(\sX \right) } \right).
+\End^*_{C_0\left(\sX \right)}\left(X_{C_0\left(\sX \right) } \right) \cong \End^*_{C_b\left(\sX \right)}\left(X_{C_b\left(\sX \right) } \right).
 	\eean
 \end{lemma}
 \begin{proof}
-	Any $a \in \L\left(X_{C_b\left(\sX \right) } \right)$  corresponds to a family $\left\{a_x \in B\left(\H_x \right) \right\}_{x\in\sX}$ such that
-	$a\xi \in  C_b\left(\sX, \left\{\H_{ x}\right\}, X_{C_0\left(\sX \right) }\right)$ 	for any $\xi =\left\{\xi_x\in \H_x \right\}\in C_b\left(\sX, \left\{\H_{ x}\right\}, X_{C_0\left(\sX \right) }\right)$. For any $\eta \in C_0\left(\sX, \left\{\H_{ x}\right\}, X_{C_0\left(\sX \right) }\right)$ one has $\text{norm}_\eta \in C_0\left( \sX\right)$, and taking into account $\text{norm}_a \in C_b\left( \sX\right)$ we conclude  that $\text{norm}_{a\eta} \le \text{norm}_{a}\text{norm}_{\eta}\in C_0\left( \sX\right)$ i.e. $a\eta \in C_0\left(\sX, \left\{\H_{ x}\right\}, X_{C_0\left(\sX \right) }\right)\cong X_{C_0\left(\sX \right)}$. So $a$ can be regarded as an element of $\L\left(X_{C_0\left(\sX \right) } \right)$ and there is the natural inclusion $\L\left(X_{C_b\left(\sX \right) } \right)\subset \L\left(X_{C_0\left(\sX \right) } \right)$. Conversely it is clear that any $a \in \L\left(X_{C_0\left(\sX \right) } \right)$ yields a $C_b\left(\sX\right)$-linear map
+	Any $a \in \End^*_{C_b\left(\sX \right)}\left(X_{C_b\left(\sX \right) } \right)$  corresponds to a family $\left\{a_x \in B\left(\H_x \right) \right\}_{x\in\sX}$ such that
+	$a\xi \in  C_b\left(\sX, \left\{\H_{ x}\right\}, X_{C_0\left(\sX \right) }\right)$ 	for any $\xi =\left\{\xi_x\in \H_x \right\}\in C_b\left(\sX, \left\{\H_{ x}\right\}, X_{C_0\left(\sX \right) }\right)$. For any $\eta \in C_0\left(\sX, \left\{\H_{ x}\right\}, X_{C_0\left(\sX \right) }\right)$ one has $\text{norm}_\eta \in C_0\left( \sX\right)$, and taking into account $\text{norm}_a \in C_b\left( \sX\right)$ we conclude  that $\text{norm}_{a\eta} \le \text{norm}_{a}\text{norm}_{\eta}\in C_0\left( \sX\right)$ i.e. $a\eta \in C_0\left(\sX, \left\{\H_{ x}\right\}, X_{C_0\left(\sX \right) }\right)\cong X_{C_0\left(\sX \right)}$. So $a$ can be regarded as an element of $\End^*_{C_0\left(\sX \right)}\left(X_{C_0\left(\sX \right) } \right)$ and there is the natural inclusion $\End^*_{C_0\left(\sX \right)}\left(X_{C_b\left(\sX \right) } \right)\subset \End^*_{C_0\left(\sX \right)}\left(X_{C_0\left(\sX \right) } \right)$. Conversely it is clear that any $a \in \End^*_{C_0\left(\sX \right)}\left(X_{C_0\left(\sX \right) } \right)$ yields a $C_b\left(\sX\right)$-linear map
 	$$
 	C\left(\sX, \left\{\H_{ x}\right\}, X_{C_0\left(\sX \right) }\right)\to  C\left(\sX, \left\{\H_{ x}\right\}, X_{C_0\left(\sX \right) }\right)
 	$$
@@ -12315,7 +12275,7 @@ So we proved the following lemma.
 	$$
 	C_b\left(\sX, \left\{\H_{ x}\right\}, X_{C_0\left(\sX \right) }\right)\to  C_b\left(\sX, \left\{\H_{ x}\right\}, X_{C_0\left(\sX \right) }\right)\cong X_{C_b\left(\sX \right) }.
 	$$
-	So $a$ can be regarded as an element of $\L\left(X_{C_b\left(\sX \right) } \right)$ and there is the natural inclusion $\L\left(X_{C_0\left(\sX \right) } \right)\subset \L\left(X_{C_b\left(\sX \right) } \right)$.
+	So $a$ can be regarded as an element of $\End^*_{C_b\left(\sX \right)}\left(X_{C_b\left(\sX \right) } \right)$ and there is the natural inclusion $\End^*_{C_0\left(\sX \right)}\left(X_{C_0\left(\sX \right) } \right)\subset \End^*_{C_b\left(\sX \right)}\left(X_{C_b\left(\sX \right) } \right)$.
 \end{proof}
 
 
@@ -12402,62 +12362,6 @@ So we proved the following lemma.
 \begin{proof}
 	Follows from the Lemma \ref{top_compact_c0_lem}.
 \end{proof}
-
-\begin{lemma}\label{top_l2_inc_lem}
-	If $\sX$ is a locally compact space and $p: \widetilde{\sX} \to \sX$ is a covering then there is the natural $C_0\left( \sX\right)$-linear inclusion
-	\be
-	\lift_p :	\ell^2\left( C_0\left(\sX \right) \right) \hookto \ell^2\left(C_b\left( \widetilde{\sX}\right)  \right). 
-	\ee 
-	where both $\ell^2\left( C_0\left(\sX \right) \right)$ and $\ell^2\left(C_b\left( \widetilde{\sX}\right)\right)$ are standard Hilbert modules \ref{standard_h_m_defn} over  $C_0\left( {\sX}\right)$ and $C_b\left( \widetilde{\sX}\right)$ respectively.
-	Moreover if $p$ is a finite-fold covering then there is the natural $C_0\left( \sX\right)$ linear inclusion
-	\be
-	\lift_p: 	\ell^2\left( C_0\left(\sX \right) \right) \hookto \ell^2\left(C_0\left( \widetilde{\sX}\right)  \right). 
-	\ee
-\end{lemma}
-\begin{proof}
-	From \eqref{comm_ell2_eqn} it turns out that
-	\bean
-	\xi \in \ell^2\left( C_0\left( {\sX}\right)\right)\Rightarrow
-	\xi = \sum_{j = 1}^\infty f_j \mathfrak{e}_j; \quad \forall x \in \sX~~ \sum_{j = 1}^\infty \left| f_j\left(x \right) \right|^2< \infty    \quad  \forall j \in \N ~~f_j \in C_0\left( \sX\right). 
-	\eean
-	If $\xi = \sum_{j = 1}^\infty f_j \mathfrak{e}_j$ then we define
-	\be
-	\lift_{p}\left(\xi \right) = \sum_{j = 1}^\infty \lift_{p}\left( f_j\right)  \mathfrak{e}_j.
-	\ee
-	Taking into account  $\lift_{p}\left( f_j\right) \in C_b\left(\widetilde{\sX} \right)$, $\sum_{j = 1}^\infty \left| \lift_{p}\left( f_j\right)\left(\overline{x} \right) \right|^2< \infty$ for all $\overline{x} \in \sX$   one concludes  that
-	$$ 
-	\lift_{p}\left(\xi \right) \in \ell^2\left( C_b\left( \widetilde{\sX}\right)\right).
-	$$
-	Moreover if $p$ is a finite-fold covering then $f_j \in C_0\left( \widetilde{\sX}\right)$ and 
-	$$
-	\left( \widetilde{x} \mapsto \left\| \lift_{p}\left(\xi\right)  \left( \widetilde{x}\right) \right\| \right) \in  C_0\left( \widetilde{\sX}\right).
-	$$ 
-\end{proof}
-\begin{empt}
-	The Hilbert module 	$\ell^2\left( C_0\left( {\sX}\right)\right)$ yields a family of isomorphic Hilbert spaces $\left\{L^2\left(\N\right)_x\right\}_{x \in \sX}$.
-	From the equation \ref{top_l2_c0_eqn} it turns out that
-	\be\label{top_l2_n_eqn}
-	\ell^2\left( C_0\left( {\sX}\right)\right) \cong C_0\left(\sX, \left\{L^2\left(\N\right)_x\right\}, 	\ell^2\left( C_0\left( {\sX}\right)\right) \right).
-	\ee
-	If $p:  \widetilde{\sX} \to \sX$ is a covering then there is a family  of isomorphic Hilbert spaces $\left\{L^2\left(\N\right)'_{\widetilde{x}} \right\}_{\widetilde{x} \in \widetilde{\sX} }$	such that for any $\widetilde{x} \in \widetilde{\sX}$ there is the natural (uniquely defined) isomorphism $L^2\left(\N\right)'_{\widetilde{x}}\cong L^2\left(\N\right)_{p\left( \widetilde{x}\right) }$. Otherwise $\ell^2\left( C_0\left( \widetilde{\sX}\right)\right)$ naturally induces a family $\left\{L^2\left(\N\right)_{\widetilde{x}} \right\}_{\widetilde{x} \in \widetilde{\sX} }$. there is the natural (uniquely defined) isomorphism $L^2\left(\N\right)'_{\widetilde{x}}\cong L^2\left(\N\right)_{ \widetilde{x}}$. The space $\lift_p\left(\ell^2\left(\sX \right)  \right)$ is a continuity structure  for $\sX$ {and the} $\left\{L^2\left(\N\right)'_{\widetilde{x}}\right\}$, and the space $\ell^2\left(\widetilde{\sX} \right)$ is the continuity structure for  for $\sX$ {and the} $\left\{L^2\left(\N\right)_{\widetilde{x}}\right\}$. From the isomorphisms $L^2\left(\N\right)'_{\widetilde{x}}$, Lemma \ref{top_l2_inc_lem} and  the Definition \ref{top_cont_lift_eqn} it turns out that
-	
-	\be
-	\begin{split}
-		\lift_{p}\left[C_0\left(\sX, \left\{L^2\left(\N\right)_{{x}}\right\}, \ell^2\left({\sX} \right)\right) \right] \cong C\left(\widetilde{\sX} , \left\{L^2\left(\N\right)_{\widetilde{x}}\right\}, \ell^2\left(\widetilde{\sX} \right)\right),\\
-		C_c\left( \lift_{p}\left[C_0\left(\sX, \left\{L^2\left(\N\right)_{{x}}\right\}, \ell^2\left({\sX} \right)\right) \right]\right)  \cong C_c\left(\widetilde{\sX} , \left\{L^2\left(\N\right)_{\widetilde{x}}\right\}, \ell^2\left(\widetilde{\sX} \right)\right),\\
-		C_0\left( \lift_{p}\left[C_0\left(\sX, \left\{L^2\left(\N\right)_{{x}}\right\}, \ell^2\left({\sX} \right)\right) \right]\right)  \cong C_0\left(\widetilde{\sX} , \left\{L^2\left(\N\right)_{\widetilde{x}}\right\}, \ell^2\left(\widetilde{\sX} \right)\right),\\
-		C_b\left( \lift_{p}\left[C_0\left(\sX, \left\{L^2\left(\N\right)_{{x}}\right\}, \ell^2\left({\sX} \right)\right) \right]\right)  \cong C_b\left(\widetilde{\sX} , \left\{L^2\left(\N\right)_{\widetilde{x}}\right\}, \ell^2\left(\widetilde{\sX} \right)\right).
-	\end{split}
-	\ee
-	In particular one has
-	\bea
-	\label{top_l2_c0_l_eqn}
-	\ell^2\left(C_0\left( \widetilde{\sX}\right)  \right) \cong C_0\left(\lift_p\left[C_0\left( {\sX}\right) \right] \right),\\
-	\label{top_l2_cb_l_eqn}
-	\ell^2\left(C_b\left( \widetilde{\sX}\right)  \right) \cong C_b\left(\lift_p\left[C_0\left( {\sX}\right) \right] \right).
-	\eea
-\end{empt}
-
 
 
 
@@ -12597,26 +12501,6 @@ From the \ref{top_cov_ca_inc} it turns out
 	\ee
 	
 \end{remark}
-a\\
-!!! TWO SEPARATED THEOREMS
-\\
-\begin{empt}
-	Consider the situation of the Example \ref{ctr_implicit_inc_full_exm}, i.e. $\widehat \K \bydef C^*\text{-}\varinjlim_{\la\in\La} \K\left(X_{C_0\left(\sX_\la\right)} \right)$ and the atomic representation $\widehat \K\hookto B\left(\widehat \H_a \right)$ where
-	\bean
-	\widehat \H_a=	\bigoplus_{ \overline x \in \overline \sX} \H_{\overline x}	
-	\eean
-	(cf. equation \eqref{ctr_atom_eqn}).
-	The space  $X_{C_b\left(\overline \sX \right) }\bydef C_b\left(\lift_{ \overline{p}_{\la}}\left[X_{C_0\left(\sX\right)}\right]\right)$ is a Hilbert $C_b\left(\overline \sX \right)$ - module.
-	Any bounded family
-	\be\label{ctr_fam_eqn}
-	\overline a \bydef \left\{\overline a_{\overline x}\in \K\left(  \H_{\overline x}\right)  \right\}_{ \overline x \in \overline \sX}
-	\ee
-	yields a bounded operator in $B\left(\widehat \H_a \right)$. If $X_{D^*\left(\sX\right)}$ is the  \textit{discontinuous extension} of $X_{C_0\left(\sX\right)}$ (cf. Definition \ref{top_disc_ext_defn}) and $\overline\xi\bydef\left\{\overline \xi_{\overline x}\right\}\in X_{D^*\left(\sX\right)}$ then
-	\be\label{ctr_afam_eqn}
-	\overline a\overline \xi\bydef\left\{\overline a_{\overline x} \overline \xi_{\overline x}\right\}\in  X_{D^*\left(\sX\right)}
-	\ee
-\end{empt}
-
 \begin{definition}\label{top_coh_defn} 
 	Let $\widehat \K\bydef C^*$-$\varinjlim_{\la \in \La} \K\left(X_{C_0\left(\sX_\la\right)}\right)$ be the inductive limit of $C^*$-algebras in sense of the Definition \ref{inductive_lim_non_defn}, and let $\widehat{\pi}_a:\widehat \K \to B\left(\widehat \H_a\right)$ be the atomic representation (cf. Definition \ref{atomic_repr_defn}). Let   $\widehat{G}\bydef \varprojlim_{\la \in \La} G\left(
 	\left.  \sX_\la~ \right|\sX\right)$ be the projective limit of groups and let $G_\la \bydef \ker\left(  \widehat G\to  G\left(\left.\sX_\la~\right|~\sX \right)\right)$. 
@@ -12639,6 +12523,10 @@ a\\
 		\forall \la  \in \La \quad	 \la \ge \mu  \Rightarrow  \left\|f_\la^2 - h_\la\right\| < \eps
 		\ee
 		where $a_\la, b_\la \in C_0\left(\sX_{\la}\right)$ are given by \eqref{top_spec_a_eps_eqn}.
+		\item[(c)] There is $a\in \K\left(X_{C_0\left( \sX\right) } \right)$ such that one has
+		\be\label{ctr_as_eqn}
+	\sum_{	g \in \widehat G}\overline a = \pi\left(a \right). 
+		\ee 
 	\end{enumerate}
 	
 \end{definition}
@@ -12651,6 +12539,37 @@ a\\
 	\ee
 \end{remark}
 
+\begin{lemma}\label{top_z_lem}
+	Consider the situation of the (cf. Definition \ref{top_coh_defn}) with the   a coherent element $\overline a \in B\left(\widehat \H_a \right)$. Let $\la_0\in \La$ and $\xi\in X_{C_0\left( \sX_{\la_0}\right) }$. Let $\overline p_{\la_0}: \overline\sX \to \sX_{\la_0}$ be the natural covering, and $\overline\xi\bydef\lift_{ \overline{p}_{\la_0}}\left(\xi \right)\in X_{C_b\left( \overline\sX\right) }$  corresponds to a family $\left\{\overline\xi_{\overline x}\right\}_{\overline x \in \overline\sX}$. If $\overline f : \overline\sX \to \R$ is given by
+	\bean
+	\overline x \mapsto \left( \overline\xi_{\overline x}, \rep_{\overline x}\left( \overline a\right), \overline\xi_{\overline x} \right) 
+	\eean
+	then $\overline f\in C_0\left( \overline\sX\right)$.  
+\end{lemma}
+\begin{proof}
+	If $f_\la\in C_0\left(\sX_{\la}\right)$ is given by the equation \eqref{top_spec_a_eps_eqn} and $\overline f_\la \bydef \lift_{ \overline{p}_{\la}}\left(f_\la \right)\in C_b\left(\overline \sX\right)$ then $\overline f= \lim_\la \overline f_\la$ is a point-wise limit. From the Definition \ref{top_coh_defn}  it follows that $\overline f$ satisfies to the Theorem \ref{comm_main_f_thm}, hence $\overline f \in C_0\left(\overline \sX\right)$.
+\end{proof}
+
+\begin{empt}
+	Consider the situation of the Definition \ref{top_coh_defn}. From the Lemma \ref{top_c0_hilb_lem} it follows that there is an inclusion
+	\be\label{ctr_hm_inc_eqn}
+	X_{C_b\left(\sX\right)}\subset \H_a
+	\ee
+\end{empt}
+\begin{lemma}
+	Consider the situation of the Definition \ref{top_coh_defn}. If $\overline a \in B\left(\H_a \right)$ is coherent then
+	$$
+	\left.\overline a\right|_{	X_{C_b\left(\sX\right)}}\in 	\K\left(X_{C_b\left(\overline{\sX} \right) }  \right)\bydef C_b\left(\lift_{\overline{p}}\left[\K\left(X_{C_0\left(\sX\right)}\right) \right] \right)
+	$$ 
+	where an inclusion \eqref{ctr_hm_inc_eqn} is implied.
+\end{lemma}
+\begin{proof}
+	From the Lemmas \ref{top_z_lem} and \ref{exact_lem} it follows that
+	$$
+		\left.\overline a\right|_{	X_{C_b\left(\sX\right)}}\in \End^*_{C_b\left(\sX\right)}\left( X_{C_b\left(\sX\right)}\right) 
+	$$
+If	$a\in \K\left(X_{C_0\left( \sX\right) } \right)$ satisfies to the equation \eqref{ctr_as_eqn} then $\overline a < a$ and $a$ can be regarded as element of $\lift_{ \overline{p}}\left( \K\left(X_{C_0\left( \sX\right) }\right)\right)  \subset C_b\left(\lift_{\overline{p}}\left[\K\left(X_{C_0\left(\sX\right)}\right) \right] \right)= 	\K\left(X_{C_b\left(\sX \right)} \right)$. Otherwise $\K\left(X_{C_b\left(\sX \right)} \right)$ is a hereditary subalgebra of $\End^*_{C_b\left(\sX\right)}\left( X_{C_b\left(\sX\right)}\right)$ so  one has 	$\left.\overline a\right|_{	X_{C_b\left(\sX\right)}}\in 	\K\left(X_{C_b\left(\overline{\sX} \right) }  \right)$ (cf. Definition \ref{hered_defn}).
+\end{proof}
 
 \begin{lemma}\label{top_coh_lem} 
 	Let $\widehat \K\bydef C^*$-$\varinjlim_{\la \in \La} \K\left(X_{C_0\left(\sX_\la\right)}\right)$ be the inductive limit of $C^*$-algebras in sense of the Definition \ref{inductive_lim_non_defn}, and let $\widehat{\pi}_a:\widehat \K \to B\left(\widehat \H_a\right)$ be the atomic representation (cf. Definition \ref{atomic_repr_defn}). Let   $\widehat{G}\bydef \varprojlim_{\la \in \La} G\left(
@@ -12717,6 +12636,86 @@ a\\
 
 
 
+a\\
+!!! TWO SEPARATED THEOREMS
+\\
+\\===============
+
+\begin{lemma}\label{top_l2_inc_lem}!!! LOWER
+	If $\sX$ is a locally compact space and $p: \widetilde{\sX} \to \sX$ is a covering then there is the natural $C_0\left( \sX\right)$-linear inclusion
+	\be
+	\lift_p :	\ell^2\left( C_0\left(\sX \right) \right) \hookto \ell^2\left(C_b\left( \widetilde{\sX}\right)  \right). 
+	\ee 
+	where both $\ell^2\left( C_0\left(\sX \right) \right)$ and $\ell^2\left(C_b\left( \widetilde{\sX}\right)\right)$ are standard Hilbert modules \ref{standard_h_m_defn} over  $C_0\left( {\sX}\right)$ and $C_b\left( \widetilde{\sX}\right)$ respectively.
+	Moreover if $p$ is a finite-fold covering then there is the natural $C_0\left( \sX\right)$ linear inclusion
+	\be
+	\lift_p: 	\ell^2\left( C_0\left(\sX \right) \right) \hookto \ell^2\left(C_0\left( \widetilde{\sX}\right)  \right). 
+	\ee
+\end{lemma}
+\begin{proof}
+	From \eqref{comm_ell2_eqn} it turns out that
+	\bean
+	\xi \in \ell^2\left( C_0\left( {\sX}\right)\right)\Rightarrow
+	\xi = \sum_{j = 1}^\infty f_j \mathfrak{e}_j; \quad \forall x \in \sX~~ \sum_{j = 1}^\infty \left| f_j\left(x \right) \right|^2< \infty    \quad  \forall j \in \N ~~f_j \in C_0\left( \sX\right). 
+	\eean
+	If $\xi = \sum_{j = 1}^\infty f_j \mathfrak{e}_j$ then we define
+	\be
+	\lift_{p}\left(\xi \right) = \sum_{j = 1}^\infty \lift_{p}\left( f_j\right)  \mathfrak{e}_j.
+	\ee
+	Taking into account  $\lift_{p}\left( f_j\right) \in C_b\left(\widetilde{\sX} \right)$, $\sum_{j = 1}^\infty \left| \lift_{p}\left( f_j\right)\left(\overline{x} \right) \right|^2< \infty$ for all $\overline{x} \in \sX$   one concludes  that
+	$$ 
+	\lift_{p}\left(\xi \right) \in \ell^2\left( C_b\left( \widetilde{\sX}\right)\right).
+	$$
+	Moreover if $p$ is a finite-fold covering then $f_j \in C_0\left( \widetilde{\sX}\right)$ and 
+	$$
+	\left( \widetilde{x} \mapsto \left\| \lift_{p}\left(\xi\right)  \left( \widetilde{x}\right) \right\| \right) \in  C_0\left( \widetilde{\sX}\right).
+	$$ 
+\end{proof}
+\begin{empt}!!! LOWER
+	The Hilbert module 	$\ell^2\left( C_0\left( {\sX}\right)\right)$ yields a family of isomorphic Hilbert spaces $\left\{L^2\left(\N\right)_x\right\}_{x \in \sX}$.
+	From the equation \ref{top_l2_c0_eqn} it turns out that
+	\be\label{top_l2_n_eqn}
+	\ell^2\left( C_0\left( {\sX}\right)\right) \cong C_0\left(\sX, \left\{L^2\left(\N\right)_x\right\}, 	\ell^2\left( C_0\left( {\sX}\right)\right) \right).
+	\ee
+	If $p:  \widetilde{\sX} \to \sX$ is a covering then there is a family  of isomorphic Hilbert spaces $\left\{L^2\left(\N\right)'_{\widetilde{x}} \right\}_{\widetilde{x} \in \widetilde{\sX} }$	such that for any $\widetilde{x} \in \widetilde{\sX}$ there is the natural (uniquely defined) isomorphism $L^2\left(\N\right)'_{\widetilde{x}}\cong L^2\left(\N\right)_{p\left( \widetilde{x}\right) }$. Otherwise $\ell^2\left( C_0\left( \widetilde{\sX}\right)\right)$ naturally induces a family $\left\{L^2\left(\N\right)_{\widetilde{x}} \right\}_{\widetilde{x} \in \widetilde{\sX} }$. there is the natural (uniquely defined) isomorphism $L^2\left(\N\right)'_{\widetilde{x}}\cong L^2\left(\N\right)_{ \widetilde{x}}$. The space $\lift_p\left(\ell^2\left(\sX \right)  \right)$ is a continuity structure  for $\sX$ {and the} $\left\{L^2\left(\N\right)'_{\widetilde{x}}\right\}$, and the space $\ell^2\left(\widetilde{\sX} \right)$ is the continuity structure for  for $\sX$ {and the} $\left\{L^2\left(\N\right)_{\widetilde{x}}\right\}$. From the isomorphisms $L^2\left(\N\right)'_{\widetilde{x}}$, Lemma \ref{top_l2_inc_lem} and  the Definition \ref{top_cont_lift_eqn} it turns out that
+	
+	\be
+	\begin{split}
+		\lift_{p}\left[C_0\left(\sX, \left\{L^2\left(\N\right)_{{x}}\right\}, \ell^2\left({\sX} \right)\right) \right] \cong C\left(\widetilde{\sX} , \left\{L^2\left(\N\right)_{\widetilde{x}}\right\}, \ell^2\left(\widetilde{\sX} \right)\right),\\
+		C_c\left( \lift_{p}\left[C_0\left(\sX, \left\{L^2\left(\N\right)_{{x}}\right\}, \ell^2\left({\sX} \right)\right) \right]\right)  \cong C_c\left(\widetilde{\sX} , \left\{L^2\left(\N\right)_{\widetilde{x}}\right\}, \ell^2\left(\widetilde{\sX} \right)\right),\\
+		C_0\left( \lift_{p}\left[C_0\left(\sX, \left\{L^2\left(\N\right)_{{x}}\right\}, \ell^2\left({\sX} \right)\right) \right]\right)  \cong C_0\left(\widetilde{\sX} , \left\{L^2\left(\N\right)_{\widetilde{x}}\right\}, \ell^2\left(\widetilde{\sX} \right)\right),\\
+		C_b\left( \lift_{p}\left[C_0\left(\sX, \left\{L^2\left(\N\right)_{{x}}\right\}, \ell^2\left({\sX} \right)\right) \right]\right)  \cong C_b\left(\widetilde{\sX} , \left\{L^2\left(\N\right)_{\widetilde{x}}\right\}, \ell^2\left(\widetilde{\sX} \right)\right).
+	\end{split}
+	\ee
+	In particular one has
+	\bea
+	\label{top_l2_c0_l_eqn}
+	\ell^2\left(C_0\left( \widetilde{\sX}\right)  \right) \cong C_0\left(\lift_p\left[C_0\left( {\sX}\right) \right] \right),\\
+	\label{top_l2_cb_l_eqn}
+	\ell^2\left(C_b\left( \widetilde{\sX}\right)  \right) \cong C_b\left(\lift_p\left[C_0\left( {\sX}\right) \right] \right).
+	\eea
+\end{empt}
+
+
+==\\===============
+\begin{empt}
+	Consider the situation of the Example \ref{ctr_implicit_inc_full_exm}, i.e. $\widehat \K \bydef C^*\text{-}\varinjlim_{\la\in\La} \K\left(X_{C_0\left(\sX_\la\right)} \right)$ and the atomic representation $\widehat \K\hookto B\left(\widehat \H_a \right)$ where
+	\bean
+	\widehat \H_a=	\bigoplus_{ \overline x \in \overline \sX} \H_{\overline x}	
+	\eean
+	(cf. equation \eqref{ctr_atom_eqn}).
+	The space  $X_{C_b\left(\overline \sX \right) }\bydef C_b\left(\lift_{ \overline{p}_{\la}}\left[X_{C_0\left(\sX\right)}\right]\right)$ is a Hilbert $C_b\left(\overline \sX \right)$ - module.
+	Any bounded family
+	\be\label{ctr_fam_eqn}
+	\overline a \bydef \left\{\overline a_{\overline x}\in \K\left(  \H_{\overline x}\right)  \right\}_{ \overline x \in \overline \sX}
+	\ee
+	yields a bounded operator in $B\left(\widehat \H_a \right)$. If $X_{D^*\left(\sX\right)}$ is the  \textit{discontinuous extension} of $X_{C_0\left(\sX\right)}$ (cf. Definition \ref{top_disc_ext_defn}) and $\overline\xi\bydef\left\{\overline \xi_{\overline x}\right\}\in X_{D^*\left(\sX\right)}$ then
+	\be\label{ctr_afam_eqn}
+	\overline a\overline \xi\bydef\left\{\overline a_{\overline x} \overline \xi_{\overline x}\right\}\in  X_{D^*\left(\sX\right)}
+	\ee
+\end{empt}
+
+
 
 \begin{empt}\label{top_pr_empt}
 	
@@ -12760,17 +12759,6 @@ a\\
 	\ee
 	For all $\la\in\La$ the $C^*$-algebra $\K\left( X_{C_0\left(\sX_\la\right)}\right)$ will be regarded as a subalebra of  $\widehat \K$. 
 \end{empt}
-\begin{lemma}\label{top_z_lem}
-	Consider the situation of the (cf. Definition \ref{top_coh_defn}) with the   a coherent element $\overline a \in B\left(\widehat \H_a \right)$. Let $\la_0\in \La$ and $\xi\in X_{C_0\left( \sX_{\la_0}\right) }$. Let $\overline p_{\la_0}: \overline\sX \to \sX_{\la_0}$ be the natural covering, and $\overline\xi\bydef\lift_{ \overline{p}_{\la_0}}\left(\xi \right)\in X_{C_b\left( \overline\sX\right) }$  corresponds to a family $\left\{\overline\xi_{\overline x}\right\}_{\overline x \in \overline\sX}$. If $\overline f : \overline\sX \to \R$ is given by
-	\bean
-	\overline x \mapsto \left( \overline\xi_{\overline x}, \rep_{\overline x}\left( \overline a\right), \overline\xi_{\overline x} \right) 
-	\eean
-	then $\overline f\in C_0\left( \overline\sX\right)$.  
-\end{lemma}
-\begin{proof}
-	If $f_\la\in C_0\left(\sX_{\la}\right)$ is given by the equation \eqref{top_spec_a_eps_eqn} and $\overline f_\la \bydef \lift_{ \overline{p}_{\la}}\left(f_\la \right)\in C_b\left(\overline \sX\right)$ then $\overline f= \lim_\la \overline f_\la$ is a point-wise limit. From the Definition \ref{top_coh_defn}  it follows that $\overline f$ satisfies to the Theorem \ref{comm_main_f_thm}, hence $\overline f \in C_0\left(\overline \sX\right)$.
-\end{proof}
-
 
 \begin{corollary}\label{top_coh_cor}
 	If $\overline a \in B\left(\H_a\right)$ is coherent (cf. Definition \ref{top_coh_defn}), $\overline{\xi } \in \ell^2\left(C_b\left(\overline{   \mathcal X} \right)\right)$  and
