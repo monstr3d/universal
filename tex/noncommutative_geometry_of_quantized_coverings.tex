@@ -848,13 +848,54 @@ Following table contains  special symbols.
 \section{Inclusions of some $C^*$-algebras}
 \paragraph{}
 Let 
-$D$ be a $C^*$-algebra and let $X_D$ a Hilbert $D$-module with the $D$-valued product $\left\langle \cdot, \cdot\right\rangle_D:  X_D \times X_D \to D$. Suppose that there are a $C^*$-subalgebra $A$ of $D$ and a  $C^*$-Hilbert $A$-module $X_A\subset X_D$ with product $\left\langle \cdot, \cdot\right\rangle_A$ such that
+$D$ be a $C^*$-algebra and let $X_D$ a countable generated Hilbert $D$-module with the $D$-valued product $\left\langle \cdot, \cdot\right\rangle_D:  X_D \times X_D \to D$. Suppose that there are a $C^*$-subalgebra $A$ of $D$ and a countable generated Hilbert $A$-module $X_A\subset X_D$ with product $\left\langle \cdot, \cdot\right\rangle_A$ such that
 the following conditions hold
 \bea
 \label{exact_da_1_eqn}
 \left\langle \xi, \eta\right\rangle_A = \left\langle \xi, \eta\right\rangle_D \quad \forall \xi, \eta \in X_A.
 \eea
-Denote by $\End_D^*\left(X_D\right)$ and $\End_A^*\left(X_A\right)$ the space of $D$-linear and $A$-linear adjointable operators (cf. Definition \ref{adj_aop_defn}).
+Denote by $\End_D^*\left(X_D\right)$ and $\End_A^*\left(X_A\right)$ the space of $D$-linear and $A$-linear adjointable operators (cf. Definition \ref{adj_aop_defn}). 
+
+\begin{lemma}\label{compact_inf_lem}
+	Let $a, b \in \K\left( X_D\right)_+$ be positive compact operators such that 
+	\bea
+	a \le b, \\
+	b|_{X_A}\in \K\left(X_A \right),\\
+	\label{compact_inf2_eqn}
+	\forall \xi \in X_A \quad 	\left\langle \xi, a \xi\right\rangle_D\in A
+	\eea
+If $A$ is {module}-{infinite} (cf. Definition \ref{hm_MI_defn}) then  $a|_{X_A}\in \K\left(X_A \right)$.
+\end{lemma}	
+\begin{proof}
+	From \eqref{compact_inf2_eqn} and the polarization equality \eqref{polarization_equality_eqn} it turns out that
+	\be\label{xae_eqn}
+	\forall \xi, \eta \in X_A\quad \left\langle \xi, a \eta\right\rangle_D \in A.
+	\ee
+
+From  the  Theorem \ref{kasparov_stab_thm} one has 
+\be\label{kasp_eqn}
+X_A \oplus \ell^2\left( A\right) \cong \ell^2\left( A\right)
+\ee
+ For any $n \in \N$ there is a Hilbert submodule $A^n \subset \ell^2\left( A\right)$, and the intersection $X_A \cap A^n$ is a finitely generated projective Hilbert $A$ module (cf. Lemma \ref{fin_hpro_lem}). From \eqref{xae_eqn} it turns out that
+ 	\be\label{xaen_eqn}
+ \forall \xi, \eta \in X_A \cap A^n \quad \left\langle \xi, a \eta\right\rangle_D \in A.
+ \ee
+ If $\left( X_A \cap A^n \right)' $ is dual Banach module of $ X_A \cap A^n $ (cf. \ref{hm_dual_empt}) then 
+ the restriction $a|_{X_A \cap A^n}$ corresponds to an element of $\Hom_A\left(X_A\cap A^n, \left( X_A \cap A^n \right)'\right)$ given by
+ $$
+ \eta \mapsto \left\langle \cdot , a\eta\right\rangle_D.
+ $$
+ Since $X_A\cap A^n$ is finitely generated and projective and $A$ is {module}-{infinite} one has $X_A\cap A^n=\left( X_A \cap A^n \right)'$ so  $a|_{X_A \cap A^n}\in \End_A\left(X_A\cap A^n\right)$. Operator  $a$ is positive, so it is self-adjoint, so $a|_{X_A \cap A^n}\in \End^*A\left(X_A\cap A^n\right)= \K\left(X_A\cap A^n \right)$. If one  use the projection $p_n : X_A\to X_A\cap A^n$ then $a|_{X_A \cap A^n}$ can be regarded as an element of  $\K\left(X_A \right)$. From  $b\in \K\left(X_A \right)$ the Lemma \ref{c_misch_lem} and the Remark \ref{c_misch_rem} it follows that for any $\eps > 0$ there is $N\in \N$ such that
+ $$
+ gg
+ $$
+
+\end{proof}
+\begin{definition}\label{}\cite{matro:hcm}
+	A $C^*$-algebra is said to be \textit{module}-\textit{infinite} (MI) if each countably generated Hilbert $A$-module is projective and finitely generated if and only if it is self-dual.
+\end{definition}
+
+
 \begin{lemma}\label{exact_lem}
 If $L\in \End_D^*\left(X_D\right)$ is a self-adjoint element such that 
  $$
@@ -867,11 +908,7 @@ From the polarization equality \eqref{polarization_equality_eqn} it turns out th
 $$
 \forall \xi, \eta \in X_A\quad \left\langle \xi, L \eta\right\rangle_D = \left\langle L \xi,  \eta\right\rangle_D\in A.
 $$
-If $X'_A$ is dual Banach module of $X_A$ (cf. \ref{hm_dual_empt}) then 
-the restriction $L|_{X_A}$ corresponds to an element of $\Hom_A\left(X_A, X'_A\right)$ given by
-$$
-\xi \mapsto \left\langle L\xi, \cdot\right\rangle_D.
-$$
+
 Taking into account \eqref{to_dual_eqn} there are following inclusions
 $$
 \End_A^*\left(X_A\right)\subset \End_A\left(X_A\right)\bydef \Hom_A\left(X_A, X_A\right)\subset \Hom_A\left(X_A, X'_A\right).
@@ -879,6 +916,66 @@ $$
 Since $L$ is self-adjoint it  is adjointable (cf. Definition \ref{adj_aop_defn}) and from $L|_{X_A}\in \Hom_A\left(X_A, X'_A\right)$ it follows that $L|_{X_A}\in \End^*_A\left(X_A\right)$ .
 \end{proof}
 
+\paragraph{}
+
+
+\begin{lemma}\label{}\cite{matro:hcm}
+	Let  $X$ be a finitely generated Hilbert submodule in a Hilbert module $Y$ over an unital $C^*$-algebra. Then $X$ is an orthogonal direct summand in $Y$.
+\end{lemma}
+
+\begin{remark}\label{fin_gen_un_equ_rem}
+	If $A$ is an unital $C^*$-algebra and $X_A$ is a Hilbert $A$-module then the following conditions are equivalent
+	\begin{itemize}
+		\item [(a)] $X_A$ is algebraically finitely generated.
+		\item[(b)]  The $C^*$-algebra $\K\left(X_A \right)$ of compact operators is unital. (cf. \cite{wegge_olsen} Remark 15.4.3).
+	\end{itemize}
+\end{remark}
+\begin{definition}\label{c_misch_defn}\cite{sol_tro:ca_op}
+	Let $A$ be an unital $C^*$-algebra a bounded $A$ operator $K: \ell^2\left( A\right) \to \ell^2\left( A\right)$ is \textit{compact} (in the sense of Mishchenko) if we have 
+	$$
+	\lim_{n \to \infty}\left\|\left.K\right|_{L_n^\perp} \right\| = 0,
+	$$
+	where $L_n = \oplus_{j=1}^n A \subset \ell^2\left( A\right)= \oplus_{j=1}^\infty A$,  $L^\perp_n = \oplus_{j=n+1}^\infty A \subset \ell^2\left( A\right)= \oplus_{j=1}^\infty A$.
+\end{definition}
+\begin{remark}\label{c_misch_rem}\cite{sol_tro:ca_op}
+	Any \textit{compact} (in the sense of Mishchenko) operator is compact in the sense of the Definition \ref{comp_aop_defn}.
+\end{remark}
+
+
+\begin{lemma}\label{c_misch_lem}\cite{sol_tro:ca_op}
+	Let $K: \ell^2\left( A\right) \to \ell^2\left( A\right)$ be \textit{compact} operator (in the sense of Mishchenko)
+	Let $p_n$ be the projection on $L_n$ along $L^\perp_n$. The following properties are equivalent.
+	\begin{enumerate}
+		\item [(i)] $\lim_{n \to \infty}\left\|\left.K\right|_{L_n^\perp} \right\| = 0$.
+		\item[(ii)] $\lim_{n \to \infty}\left\|Kp_n - K \right\| = 0$.
+		\item[(iii)] $\lim_{n \to \infty}\left\|p_n K - K \right\| = 0$.
+	\end{enumerate} 
+	
+\end{lemma}
+
+
+\begin{empt}\label{hm_dual_empt}\cite{matro:hcm}
+	For a Hilbert $C^*$-module $X$ over $C^*$-algebra $A$ let us denote by $X'$ the set of  all bounded $A$-linear maps  from  $X$ to $A$. 
+	The formula
+	\be
+	\left( f \cdot a\right)\left( \xi\right) \bydef a^*f\left( x\right); \quad a \in A, \quad f \in X' , \quad \xi \in X
+	\ee
+	introduced the structure if right $A$-module on $X'$.
+	The elements of $X'$ are called \textit{functionals} on a Hilbert module $X$. Note that there is an obvious isometric inclusion
+	\be\label{to_dual_eqn}
+	\begin{split}
+		X \subset X',\\
+		x \mapsto\left\langle x, \cdot \right\rangle.
+	\end{split}
+	\ee
+	The space $X'$ is called the \textit{dual Banach module} of $X$.
+\end{empt}	
+\begin{definition}\label{hm_selfdual_defn}\cite{matro:hcm}
+	A Hilbert module $X$ is called  \textit{self-dual} if $X\cong X'$.
+\end{definition}
+
+
+\paragraph{}
 
 % BEGIN COMMENTED ========================
 %\begin{lemma}\label{g_eps_lem}
@@ -18872,7 +18969,7 @@ $$
 		If $X_A$ is a countably generated Hilbert $A$-module, then $X_A \oplus \ell^2\left( A\right) \cong \ell^2\left( A\right)$.
 	\end{thm}
 	\begin{lemma}\label{fin_hpro_lem}\cite{matro:hcm}
-		Let  $X$ be a finitely generated Hilbert submodule in a Hilbert module $Y$ over an unital $C^*$-algebra. Then $Y$ is an orthogonal direct summand in $X$.
+		Let  $X$ be a finitely generated Hilbert submodule in a Hilbert module $Y$ over an unital $C^*$-algebra. Then $X$ is an orthogonal direct summand in $Y$.
 	\end{lemma}
 	
 	\begin{remark}\label{fin_gen_un_equ_rem}
@@ -18925,8 +19022,8 @@ x \mapsto\left\langle x, \cdot \right\rangle.
 \begin{definition}\label{hm_selfdual_defn}\cite{matro:hcm}
 	A Hilbert module $X$ is called  \textit{self-dual} if $X\cong X'$.
 \end{definition}
-\begin{definition}\label{hm_MI_defn}
-	A $C^*$-algebra is said to be \textit{module}-\textit{infinite} if each countably generated Hilbert $A$-module is projective and finitely generated if and only if it is self-dual.
+\begin{definition}\label{hm_MI_defn}\cite{matro:hcm}
+	A $C^*$-algebra is said to be \textit{module}-\textit{infinite} (MI) if each countably generated Hilbert $A$-module is projective and finitely generated if and only if it is self-dual.
 \end{definition}
 	
 %\begin{empt}\cite{matro:hcm}
