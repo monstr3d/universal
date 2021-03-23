@@ -859,16 +859,18 @@ Denote by $\End_D^*\left(X_D\right)$ and $\End_A^*\left(X_A\right)$ the space of
 \begin{lemma}\label{compact_inf_lem}
 In the above situation	let $a, b \in \K\left( X_D\right)_+$ be positive compact operators such that 
 	\bea
+	\label{compact_inf1_eqn}
 	a \le b, \\
-	b|_{X_A}\in \K\left(X_A \right),\\
 	\label{compact_inf2_eqn}
+	b|_{X_A}\in \K\left(X_A \right),\\
+	\label{compact_inf3_eqn}
 	\forall \xi \in X_A \quad 	\left\langle \xi, a \xi\right\rangle_D\in A
 	\eea
 %If $A$ is {module}-{infinite} (cf. Definition \ref{hm_MI_defn}) 
 If any finitely generated projective Hilbert $A$-module is self-dual (cf. Definition \ref{hm_selfdual_defn}) then  $a|_{X_A}\in \K\left(X_A \right)$.
 \end{lemma}	
 \begin{proof}
-	From \eqref{compact_inf2_eqn} and the polarization equality \eqref{polarization_equality_eqn} it turns out that
+	From \eqref{compact_inf3_eqn} and the polarization equality \eqref{polarization_equality_eqn} it turns out that
 	\be\label{xae_eqn}
 	\forall \xi, \eta \in X_A\quad \left\langle \xi, a \eta\right\rangle_D \in A.
 	\ee
@@ -896,20 +898,20 @@ So both $\widetilde a$ and $\widetilde b$ can be regarded as elements of $\End^*
  \be\label{xaen_eqn}
  \forall \xi, \eta \in  A^n \quad \left\langle \xi, a \eta\right\rangle_D \in A.
  \ee
-  If $\left( A^n \right)' $ is dual Banach module of $A^n $ (cf. \ref{hm_dual_empt}) then 
- the restriction $a_n|_{A^n}$ corresponds to an element of $\Hom_A\left( A^n, \left(  A^n \right)'\right)$ given by
+  If $\left( A^n \cap X_A\right)' $ is dual Banach module of $A^n \cap X_A$ (cf. \ref{hm_dual_empt}) then 
+ the restriction $a_n|_{A^n\cap X_A}$ corresponds to an element of $\Hom_A\left( A^n\cap X_A, \left(  A^n\cap X_A \right)'\right)$ given by
  $$
  \eta \mapsto \left\langle \cdot , a\eta\right\rangle_D.
  $$
- However $A^n$ is self-dual, so $A^n\cong \left(  A^n \right)'$ and $ a_n|_{A^n}\in \Hom_A\left( A^n, A^n\right)- \End_A\left( A^n\right)$. Otherwise $A^n$ is a finitely generated $A$ module, so $a_n|_{A^n}\in \K\left( A^n\right)$. From  $b\in \K\left(X_A \right)$ the Lemma \ref{c_misch_lem} and the Remark \ref{c_misch_rem} it follows that for any $\eps > 0$ there is $N\in \N$ such that
+ However $A^n\cap X_A$ is a finitely generated  projective $A$-module, so it is self-dual (cf. Definition \ref{hm_selfdual_defn}), i.e. $A^n\cap X_A\cong \left(  A^n \cap X_A\right)'$. It turns out that $ a_n|_{A^n\cap X_A}\in \Hom_A\left( A^n\cap X_A, A^n\cap X_A\right)\bydef \End_A\left( A^n\cap X_A\right)$. Since $a_n$ is self-adjoint $a_n|_{A^n\cap X_A}\in  \End^*_A\left( A^n\cap X_A\right)$. Otherwise  $A^n\cap X_A$ is a finitely generated $A$-module, so one has  $\End^*_A\left( A^n\cap X_A\right) \cong \K\left( A^n\cap X_A\right)$, therefore  $a_n|_{A^n\cap X_A}\in \K\left( A^n\cap X_A\right)\subset \K\left(  X_A\right) $. From  $b\in \K\left(X_A \right)$ the Lemma \ref{c_misch_lem} and the Remark \ref{c_misch_rem} it follows that for any $\eps > 0$ there is $N\in \N$ such that
  $$
- \left\| b_N|_{\ell_2\left( A\right) }- \widetilde b|_{\ell_2\left( A\right) } \right\| < \eps.
+ \left\| b_N|_{\ell_2\left( A\right) }- \widetilde b|_{\ell_2\left( A\right) } \right\| < \eps,
  $$
  so from $a < b$ it follows that
  $$
-  \left\| a_N|_{\ell_2\left( A\right) }- \widetilde a|_{\ell_2\left( A\right) } \right\| < \eps.
+   \left\| a_N|_{X_A }-  a|_{X_A} \right\| =  \left\| a_N|_{\ell_2\left( A\right) }- \widetilde a|_{\ell_2\left( A\right) } \right\|\le\left\| b_N|_{\ell_2\left( A\right) }- \widetilde b|_{\ell_2\left( A\right) } \right\| < \eps.
  $$
- Since the operator $a_N|_{\ell_2\left( A\right) }$ is compact and $\eps$ is arbitrary small $\widetilde a|_{\ell_2\left( A\right) }$ is also compact, so  $a|_{X_A}\in \K\left(X_A \right)$.
+ Since  $ a_N|_{X_A }$ lies in $\K\left(  X_A\right)$ and a number $\eps$ is arbitrary small one has $ a|_{X_A }\in  \K\left(  X_A\right)$.
 \end{proof}
 
 % BEGIN COMMENTED ========================
@@ -12621,23 +12623,31 @@ Consider the described in \ref{top_coh_empt} and the Exercise  \ref{top_coh_exer
 \begin{proof}
 	If $\overline \sX'$ is any connected component then from the construction \ref{top_coh_empt} it follows that there are homeomorphism $\overline \sX'\cong \sX$ and natural isomorphisms $X_{C\left(\sX\right)}\cong X_{C\left(\overline \sX'\right)}$, $~\K\left( X_{C\left(\sX\right)}\right) \cong\K\left(  X_{C\left(\overline \sX'\right)}\right)$
 	From the Lemma \ref{top_z_lem} and that for all $\xi \in X_{C\left(\overline \sX'\right)}$ one has
-$$
-\left\langle \xi, a \xi\right\rangle_{D^*\left(\overline \sX' \right) }\in C\left( \overline \sX'\right) 
-$$
-On the other hand from  the condition  of \ref{top_coh_empt} any finitely generated projective Hilbert $C\left(\sX\right)$-module is self-dual, so from the Lemma \ref{compact_inf_lem} it follows that 
+\be\label{ctr_inf3_eqn}
+\left\langle \xi, \overline a \xi\right\rangle_{D^*\left(\overline \sX' \right) }\in C\left( \overline \sX'\right) 
+\ee
+If $a \bydef \sum_{g \in \widehat G } g \overline a$ then
+\be\label{ctr_inf1_eqn}
+\overline a \le a
+\ee
+\be\label{ctr_inf2_eqn}
+a \in \K\left( X_{C\left(\sX \right) }\right)
+\ee
+The system of equations \eqref{ctr_inf1_eqn},  \eqref{ctr_inf2_eqn},  \eqref{ctr_inf3_eqn} can be regarded as a specialization of  \eqref{compact_inf1_eqn}, \eqref{compact_inf2_eqn}, \eqref{compact_inf3_eqn}. On the other hand from  the condition  of \ref{top_coh_empt} any finitely generated projective Hilbert $C\left(\sX\right)$-module is self-dual, so from the Lemma \ref{compact_inf_lem} it follows that 
 \be\label{ctr_comp'_eqn}
 \left.\overline a\right|_{	X_{C\left(\overline \sX'\right)}}\in 	\K\left(	X_{C\left(\overline \sX'\right)} \right).
 \ee
-The proof of an implication \eqref{ctr_comp'_eqn}$\Rightarrow$\eqref{ctr_comp_eqn} is left to the reader.
+The proof of an implication \eqref{ctr_comp'_eqn} $\Rightarrow$ \eqref{ctr_comp_eqn} is left to the reader.
 \end{proof}
 \begin{lem}\label{top_coh_compact_lem}
 	Suppose that $\sX$ is compact.
-	If  $\overline{a} \in B\left( \bigoplus_{\overline{x}\in \overline{\sX}}  L^2\left( \N\right)_{\overline{x}}\right)$ is coherent then
+	If  $\overline{a} \in B\left(\widehat H_a\right)$ is coherent then
 	\be\label{top_coh_compact_eqn}
 	\overline{a} \in \K_0\left(X_{C_0\left(\overline{\sX}\right)}\right)= C_0\left( \K\left(X_{C_0\left(\overline{\sX}\right)}\right)\right). 
 	\ee
 \end{lem}
 \begin{proof}
+\	From the Theorem \ref{kasparov_stab_thm} there is an inclusion $X_{C\left({\sX}\right)}\subset \ell^2\left( C\left({\sX}\right)\right) $ as a direct summand. 
 	From the Remark \ref{c_misch_rem} it follows that $\overline{a}$ is compact in sense of Mischenko, hence for any $\eps > 0$ from the Lemma 
 	\ref{c_misch_a_lem}  it turns out that there is $n \in \N$ such that
 	\be\label{top_p_l_p_eqn}
@@ -12751,6 +12761,19 @@ The proof of an implication \eqref{ctr_comp'_eqn}$\Rightarrow$\eqref{ctr_comp_eq
 where the sum of the series implies  the strong topology (cf. Definition \ref{strong_topology_defn} of $B\left( \H_a\right)$ (cf. \eqref{ctr_as_eqn}).
 	\end{enumerate}
 	
+\end{proof}
+\begin{corollary}\label{top_coh_cor}
+	If $\overline a \in B\left(\widehat \H_a \right)$ satisfies to the Lemma \ref{top_coh_lem} then
+	\be
+	\left.\overline a\right|_{X_{C_0\left(\overline\sX \right) }}\in C_0\left(\lift_{\overline{p}}\left[\K\left(X_{C_0\left(\sX\right)}\right) \right] \right)\cong \K\left(X_{C_0\left(\overline\sX \right) } \right) 
+	\ee
+\end{corollary}
+\begin{proof}
+From the Lemma \ref{top_coh_lem} it turns out that $\overline a$ is coherent (cf. Definition \ref{top_coh_defn}). From the Lemma \ref{ctr_comp_lem} it follows that 
+	\bean
+\left.\overline a\right|_{	X_{C_b\left(\sX\right)}}\in 	\K\left(X_{C_b\left(\overline{\sX} \right) }  \right)\bydef C_b\left(\lift_{\overline{p}}\left[\K\left(X_{C_0\left(\sX\right)}\right) \right] \right).
+\eean 
+From the Lemma \ref{top_coh_compact_lem} it turns out that $\text{norm}_a \in C_0\left(\overline\sX \right)$.
 \end{proof}
 \begin{empt}\label{ctr_bas_empt}
 	Let  $A$ continuous trace $C^*$-algebra with connected, locally connected spectrum $\sX$, and   $\widetilde{p}:\left( \widetilde{\sX}, \widetilde{x}_0\right) \to \left( \sX, x_0\right)$ is a pointed transitive covering such that a covering group  $G\left(\left.\widetilde \sX \right| \sX\right)$ is residually finite (cf. Definition \ref{residually_finite_defn}). 	Since $\sX$ is locally connected for any $x \in \sX$ there is a evenly covered by $\widetilde p$ (cf. Definition \ref{comm_cov_pr_defn}) connected  neighborhood $\sU_x$ with compact closure $\sV_x$, such that $\left.A\right|^{\sV_x}\left.p\right|^{\sV_x}$ is an $\left.A\right|^{\sV_x}$-$C(\sV_x)$-imprimitivity bimodule (cf.  \ref{ctr_imprim_empt}). Indeed $\left.A\right|^{\sV_x}\left.p\right|^{\sV_x}$ is a Hilbert $C(\sV_x)$-module and if $X_{C\left(\sV_x \right) }\bydef \left.A\right|^{\sV_x}\left.p\right|^{\sV_x}$ then $\left.A\right|^{\sV_x}\cong \K\left( X_{C\left(\sV_x \right) }\right)$. One can construct a family $\left\{\sU_{{\a}\subset \sX\in \mathscr A}\right\}$ of open connected subsets such that
