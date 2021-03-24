@@ -12801,9 +12801,9 @@ $$
 \left\|a - f a \right\|= \left\|\left( 1 - f\right)  a \right\| < \eps.
 $$
 If $\widehat A \bydef C^*$-$\varinjlim_{\la \in \La} A_0\left(\sX_\la\right)$ then $f, a \in M\left( \widehat A\right)\subset B\left( \widehat\H_a\right) $.  From $\overline a < a$ it turns out that
-$$
+\be\label{ctr_fae_eqn}
 \left\|\overline a - f \overline a  \right\|= \left\|\left( 1 - f\right)  \overline a   \right\|\le  \left\|\left( 1 - f\right)  a \right\| < \eps.
-$$
+\ee
 On the other hand from  $f_\a, \sqrt{f_\a}\in M\left( A\right)$ for all $\a\in\mathscr A$ and the Exercise \ref{spec_mult_exer} it turns out that $\overline a_\a \bydef f_\a \overline a= \sqrt{f_\a}\overline a\sqrt{f_\a}$ is special element for each $\a\in\mathscr A$. If 
 $$
 a_\la \bydef \sum_{	g \in G_\la } \overline a  \in A_0\left(\sX_\la \right)  
@@ -12837,229 +12837,27 @@ The system of equations \eqref{ctr_spec_a_eps_eqn}, \eqref{ctr_special_set_eqn} 
 $$
 \overline  \sV_\a= \bigsqcup_{g\in G\left(\left.\overline \sX\right|\sX  \right) }g\widetilde \sV_\a
 $$
-From the Lemma \ref{ctr_comp_lem} it turns out that $\left. f_\a \overline a \right|^{g\widetilde \sV_\a}\in \K\left(X_{C\left(g\widetilde \sV_\a \right) } \right)= \left. A_0\left( \overline\sX\right)\right|^{g\widetilde \sV_\a}$.  If $\widetilde \sU_\a = \widetilde \sV_\a \cap \overline p^{-1}\left(\sU_\a \right)$ other hand from $f_\a \in C_0\left(\sU_\a \right)$ it follows that  $\left. f_\a \overline a \right|^{g\widetilde \sV_\a}\in  \left. A_0\left( \overline\sX\right)\right|_{g\widetilde \sU_\a}\subset A_0\left( \overline\sX\right)$. From the Lemma \ref{top_coh_compact_lem} it turns out that $\text{norm}_{f_\a \overline a}\in C_0\left(\overline\sX \right)$. 
+From the Lemma \ref{ctr_comp_lem} it turns out that $\left. f_\a \overline a \right|^{g\widetilde \sV_\a}\in \K\left(X_{C\left(g\widetilde \sV_\a \right) } \right)= \left. A_0\left( \overline\sX\right)\right|^{g\widetilde \sV_\a}$.  If $\widetilde \sU_\a = \widetilde \sV_\a \cap \overline p^{-1}\left(\sU_\a \right)$ other hand from $f_\a \in C_0\left(\sU_\a \right)$ it follows that  $\left. f_\a \overline a \right|^{g\widetilde \sV_\a}\in  \left. A_0\left( \overline\sX\right)\right|_{g\widetilde \sU_\a}\subset A_0\left( \overline\sX\right)$. From the Lemma \ref{top_coh_compact_lem} it turns out that $\text{norm}_{f_\a \overline a}\in C_0\left(\overline\sX \right)$, so for all $\eps > 0$ there is a compact set $\overline \sY \subset \overline \sV_\a$ such that 
+$$
+\overline x \in \overline \sV_\a\setminus \overline \sY\quad \Rightarrow\quad \left\|\rep_{  \overline{x }}\left(f_\a \overline a \right) \right\| < \eps.
+$$
+Since $\overline \sY$ is compact there is a finite subset $G_0$ of $\widehat G$ such that
+$$
+g \in \widehat G\setminus G_0\quad \Rightarrow\quad g \widetilde \sV_\a\cap \overline{\sY}= \emptyset.
+$$
+From the above construction it follows that
+\be\label{ctr_ae_eqn}
+\left\| \sum_{	g \in G_0}\left. f_\a \overline a \right|^{g\widetilde \sV_\a}-f_\a\overline a_\a\right\| < \eps
+\ee
+Since $\left. f_\a \overline a \right|^{g\widetilde \sV_\a}\in A_0\left(\overline\sX\right)$ for any $g \in G_0$ and the set $G_0$ is finite one has $\sum_{	g \in G_0}\left. f_\a \overline a \right|^{g\widetilde \sV_\a}\in A_0\left(\overline\sX\right)$. On the other hand $\eps$ is arbitrary small, so from \eqref{ctr_ae_eqn} it turns out that $f_\a \overline a\in A_0\left(\overline\sX\right)$. However the set $\mathscr A_0$ is finite so
+$f \overline a= \sum_{\a\in\mathscr A_0} f_\a \overline a\in A_0\left(\overline\sX\right)$. Since the number $\eps$ in the equation \eqref{ctr_fae_eqn} is arbitrary small one has $\overline a \in A_0\left(\overline\sX\right)$. If $\widehat A \bydef C^*$-$\varinjlim A_0\left( \sX_\la\right)$ then from $ \widehat A\subset M\left( A_0\left(\overline\sX\right)\right)$ it turns out that any weakly special element (cf. Definition \ref{weakly_spec_defn}) lies in $A_0\left(\overline\sX\right)$. From the Definition \ref{main_defn_full_defn} it follows that
+$$
+\overline A\subset A_0\left(\overline\sX\right)
+$$
+where $\overline A$ is the disconnected inverse limit of $\mathfrak{S}^{\text{pt}}_A$. The further proof of the inclusion $\widetilde A\subset A_0\left(\widetilde\sX\right)$ is left to the reader.
 \\
 (ii)  From the Corollary \ref{ctr_fin_ctr_cor} it follows that any finite- fold noncommutative covering of $A$ is reduced, so from the Theorem \ref{ctr_h_main_thm} one has the required isomorphism of topological and algebraic fundamental groups.  
-
-
 \end{proof}
-a\\
-!!! TWO SEPARATED THEOREMS
-\\
-\\===============
-
-\begin{lemma}\label{top_l2_inc_lem}!!! LOWER
-	If $\sX$ is a locally compact space and $p: \widetilde{\sX} \to \sX$ is a covering then there is the natural $C_0\left( \sX\right)$-linear inclusion
-	\be
-	\lift_p :	\ell^2\left( C_0\left(\sX \right) \right) \hookto \ell^2\left(C_b\left( \widetilde{\sX}\right)  \right). 
-	\ee 
-	where both $\ell^2\left( C_0\left(\sX \right) \right)$ and $\ell^2\left(C_b\left( \widetilde{\sX}\right)\right)$ are standard Hilbert modules \ref{standard_h_m_defn} over  $C_0\left( {\sX}\right)$ and $C_b\left( \widetilde{\sX}\right)$ respectively.
-	Moreover if $p$ is a finite-fold covering then there is the natural $C_0\left( \sX\right)$ linear inclusion
-	\be
-	\lift_p: 	\ell^2\left( C_0\left(\sX \right) \right) \hookto \ell^2\left(C_0\left( \widetilde{\sX}\right)  \right). 
-	\ee
-\end{lemma}
-\begin{proof}
-	From \eqref{comm_ell2_eqn} it turns out that
-	\bean
-	\xi \in \ell^2\left( C_0\left( {\sX}\right)\right)\Rightarrow
-	\xi = \sum_{j = 1}^\infty f_j \mathfrak{e}_j; \quad \forall x \in \sX~~ \sum_{j = 1}^\infty \left| f_j\left(x \right) \right|^2< \infty    \quad  \forall j \in \N ~~f_j \in C_0\left( \sX\right). 
-	\eean
-	If $\xi = \sum_{j = 1}^\infty f_j \mathfrak{e}_j$ then we define
-	\be
-	\lift_{p}\left(\xi \right) = \sum_{j = 1}^\infty \lift_{p}\left( f_j\right)  \mathfrak{e}_j.
-	\ee
-	Taking into account  $\lift_{p}\left( f_j\right) \in C_b\left(\widetilde{\sX} \right)$, $\sum_{j = 1}^\infty \left| \lift_{p}\left( f_j\right)\left(\overline{x} \right) \right|^2< \infty$ for all $\overline{x} \in \sX$   one concludes  that
-	$$ 
-	\lift_{p}\left(\xi \right) \in \ell^2\left( C_b\left( \widetilde{\sX}\right)\right).
-	$$
-	Moreover if $p$ is a finite-fold covering then $f_j \in C_0\left( \widetilde{\sX}\right)$ and 
-	$$
-	\left( \widetilde{x} \mapsto \left\| \lift_{p}\left(\xi\right)  \left( \widetilde{x}\right) \right\| \right) \in  C_0\left( \widetilde{\sX}\right).
-	$$ 
-\end{proof}
-\begin{empt}!!! LOWER
-	The Hilbert module 	$\ell^2\left( C_0\left( {\sX}\right)\right)$ yields a family of isomorphic Hilbert spaces $\left\{L^2\left(\N\right)_x\right\}_{x \in \sX}$.
-	From the equation \ref{top_l2_c0_eqn} it turns out that
-	\be\label{top_l2_n_eqn}
-	\ell^2\left( C_0\left( {\sX}\right)\right) \cong C_0\left(\sX, \left\{L^2\left(\N\right)_x\right\}, 	\ell^2\left( C_0\left( {\sX}\right)\right) \right).
-	\ee
-	If $p:  \widetilde{\sX} \to \sX$ is a covering then there is a family  of isomorphic Hilbert spaces $\left\{L^2\left(\N\right)'_{\widetilde{x}} \right\}_{\widetilde{x} \in \widetilde{\sX} }$	such that for any $\widetilde{x} \in \widetilde{\sX}$ there is the natural (uniquely defined) isomorphism $L^2\left(\N\right)'_{\widetilde{x}}\cong L^2\left(\N\right)_{p\left( \widetilde{x}\right) }$. Otherwise $\ell^2\left( C_0\left( \widetilde{\sX}\right)\right)$ naturally induces a family $\left\{L^2\left(\N\right)_{\widetilde{x}} \right\}_{\widetilde{x} \in \widetilde{\sX} }$. there is the natural (uniquely defined) isomorphism $L^2\left(\N\right)'_{\widetilde{x}}\cong L^2\left(\N\right)_{ \widetilde{x}}$. The space $\lift_p\left(\ell^2\left(\sX \right)  \right)$ is a continuity structure  for $\sX$ {and the} $\left\{L^2\left(\N\right)'_{\widetilde{x}}\right\}$, and the space $\ell^2\left(\widetilde{\sX} \right)$ is the continuity structure for  for $\sX$ {and the} $\left\{L^2\left(\N\right)_{\widetilde{x}}\right\}$. From the isomorphisms $L^2\left(\N\right)'_{\widetilde{x}}$, Lemma \ref{top_l2_inc_lem} and  the Definition \ref{top_cont_lift_eqn} it turns out that
-	
-	\be
-	\begin{split}
-		\lift_{p}\left[C_0\left(\sX, \left\{L^2\left(\N\right)_{{x}}\right\}, \ell^2\left({\sX} \right)\right) \right] \cong C\left(\widetilde{\sX} , \left\{L^2\left(\N\right)_{\widetilde{x}}\right\}, \ell^2\left(\widetilde{\sX} \right)\right),\\
-		C_c\left( \lift_{p}\left[C_0\left(\sX, \left\{L^2\left(\N\right)_{{x}}\right\}, \ell^2\left({\sX} \right)\right) \right]\right)  \cong C_c\left(\widetilde{\sX} , \left\{L^2\left(\N\right)_{\widetilde{x}}\right\}, \ell^2\left(\widetilde{\sX} \right)\right),\\
-		C_0\left( \lift_{p}\left[C_0\left(\sX, \left\{L^2\left(\N\right)_{{x}}\right\}, \ell^2\left({\sX} \right)\right) \right]\right)  \cong C_0\left(\widetilde{\sX} , \left\{L^2\left(\N\right)_{\widetilde{x}}\right\}, \ell^2\left(\widetilde{\sX} \right)\right),\\
-		C_b\left( \lift_{p}\left[C_0\left(\sX, \left\{L^2\left(\N\right)_{{x}}\right\}, \ell^2\left({\sX} \right)\right) \right]\right)  \cong C_b\left(\widetilde{\sX} , \left\{L^2\left(\N\right)_{\widetilde{x}}\right\}, \ell^2\left(\widetilde{\sX} \right)\right).
-	\end{split}
-	\ee
-	In particular one has
-	\bea
-	\label{top_l2_c0_l_eqn}
-	\ell^2\left(C_0\left( \widetilde{\sX}\right)  \right) \cong C_0\left(\lift_p\left[C_0\left( {\sX}\right) \right] \right),\\
-	\label{top_l2_cb_l_eqn}
-	\ell^2\left(C_b\left( \widetilde{\sX}\right)  \right) \cong C_b\left(\lift_p\left[C_0\left( {\sX}\right) \right] \right).
-	\eea
-\end{empt}
-
-
-==\\===============
-\begin{empt}
-	Consider the situation of the Example \ref{ctr_implicit_inc_full_exm}, i.e. $\widehat \K \bydef C^*\text{-}\varinjlim_{\la\in\La} \K\left(X_{C_0\left(\sX_\la\right)} \right)$ and the atomic representation $\widehat \K\hookto B\left(\widehat \H_a \right)$ where
-	\bean
-	\widehat \H_a=	\bigoplus_{ \overline x \in \overline \sX} \H_{\overline x}	
-	\eean
-	(cf. equation \eqref{ctr_atom_eqn}).
-	The space  $X_{C_b\left(\overline \sX \right) }\bydef C_b\left(\lift_{ \overline{p}_{\la}}\left[X_{C_0\left(\sX\right)}\right]\right)$ is a Hilbert $C_b\left(\overline \sX \right)$ - module.
-	Any bounded family
-	\be\label{ctr_fam_eqn}
-	\overline a \bydef \left\{\overline a_{\overline x}\in \K\left(  \H_{\overline x}\right)  \right\}_{ \overline x \in \overline \sX}
-	\ee
-	yields a bounded operator in $B\left(\widehat \H_a \right)$. If $X_{D^*\left(\sX\right)}$ is the  \textit{discontinuous extension} of $X_{C_0\left(\sX\right)}$ (cf. Definition \ref{top_disc_ext_defn}) and $\overline\xi\bydef\left\{\overline \xi_{\overline x}\right\}\in X_{D^*\left(\sX\right)}$ then
-	\be\label{ctr_afam_eqn}
-	\overline a\overline \xi\bydef\left\{\overline a_{\overline x} \overline \xi_{\overline x}\right\}\in  X_{D^*\left(\sX\right)}
-	\ee
-\end{empt}
-
-
-
-\begin{empt}\label{top_pr_empt}
-	
-	Any element of  $\overline{\xi} \in \ell^2\left(C_b\left(\overline{   \mathcal X} \right)  \right)$ corresponds to a family 
-	\be\label{top_xi_fam_eqn}
-	\left\{\overline{\xi}\left(\overline{x} \right) \in L^2\left( \N\right)_{\overline{x}} \right\}_{\overline{x}\in \overline{\sX}}.
-	\ee
-	Similarly any  $\overline{b} \in \K\left( \ell^2\left(C_b\left(\overline{   \mathcal X} \right)  \right)\right)$ corresponds to a family 
-	\be\label{top_k_fam_eqn}
-	\left\{\overline{b}\left(\overline{x} \right) \in \K\left( L^2\left( \N\right)_{\overline{x}}\right)  \right\}_{\overline{x}\in \overline{\sX}},
-	\ee
-	hence for any $\overline{x}\in \overline{\sX}$ there is a representation
-	\be%\label{top_spec_a_eqn}
-	\rho_{\overline{x}}:  \K\left( \ell^2\left(C_b\left(\overline{   \mathcal X} \right)  \right)\right) \to B\left(   L^2\left( \N\right)_{\overline{x}}\right) 
-	\ee
-	and  there is a faithful representation
-	\be
-	\rho_{\overline{\sX}}:  \K\left( \ell^2\left(C_b\left(\overline{   \mathcal X} \right)  \right)\right) \hookto B\left( \bigoplus_{\overline{x}\in \overline{\sX}}  L^2\left( \N\right)_{\overline{x}}\right). 
-	\ee
-	Similarly for any ${x}_\la\in {\sX}_\la$ there is a representation
-	\be\label{top_rx_eqn}
-	\rho_{{x}_\la}:  \K\left( \ell^2\left(C_b\left({   \mathcal X}_\la \right)  \right)\right) \to B\left(   L^2\left( \N\right)_{{x}_\la}\right) 
-	\ee
-	and  there is a faithful representation
-	\be
-	\rho_{{\sX}_\la}:  \K\left( \ell^2\left(C_b\left({   \mathcal X}_\la \right)  \right)\right) \hookto B\left( \bigoplus_{{x}_\la\in {\sX}_\la}  L^2\left( \N\right)_{x_\la}\right). 
-	\ee 	 
-	From \eqref{top_adj_inc_eqn} it turns out $\K\left(X_{C_0\left(\sX_\la\right)}\right)\subset \K\left(\ell^2\left( {C_0\left(\sX_\la\right)}\right) \right)$ and $\K\left(X_{C_0\left(\sX_\la\right)}\right)$ is a hereditary subalgebra of $\K\left(\ell^2\left( {C_0\left(\sX_\la\right)}\right) \right)$ Taking into account \eqref{top_lift_inc_eqn} and \ref{top_cov_ca_inc}  one has
-	\be\label{top_k_l2_hered_eqn}
-	\begin{split}
-		\K\left(X_{C_0\left(\overline{\sX}\right)}\right)\subset \K\left(\ell^2\left(C_b\left(\overline{   \mathcal X} \right)  \right) \right),\\ \K\left(X_{C_0\left(\overline{\sX}\right)}\right) \text{ is a hereditary subalgebra of } \K\left(\ell^2\left(C_b\left(\overline{   \mathcal X} \right)  \right) \right)
-	\end{split}
-	\ee
-	Denote by $\widehat \K\stackrel{\text{def}}{=} C^*$-$\varinjlim_{\la \in \La} \K\left( X_{C_0\left(\sX_\la\right)}\right)$ the $C^*$-inductive limit in sense of the Definition \ref{inductive_lim_non_defn}. 
-	If  $\widehat \pi_a: \widehat \K \hookto B\left(\widehat \H_a\right)$ be the atomic representation (cf. Definition \ref{atomic_repr_defn}). The space $\widehat \H_a$ is the Hilbert direct sum $$
-	\widehat \H_a = \bigoplus_{\widehat x \in \widehat\sX} \H_{\widehat x}
-	$$
-	where $\widehat\sX$ is the spectrum of $\widehat \K$ and $\H_{\widehat x}$ is the irreducible representation which corresponds to ${\widehat x}$ (cf. Definition \ref{equiv_repr_defn}). Similarly to the Lemma \ref{inverse_lim_sp_lem} one can proof that $\widehat \sX$ is homeomorphic the inverse limit of the spectra, i.e. $\widehat\sX = \varprojlim_{\la \in \La} \sX_\la$. Otherwise from the given by the Lemma \ref{top_universal_covering_lem} of the disconnected inverse limit there is the bijective continuous map $\overline \sX \cong\widehat\sX$ and this map gives the following representation of the space 
-	\be\label{top_atomic_eqn}
-	\widehat \H_a = \bigoplus_{\overline x \in \overline\sX} \H_{\overline x}.
-	\ee
-	For all $\la\in\La$ the $C^*$-algebra $\K\left( X_{C_0\left(\sX_\la\right)}\right)$ will be regarded as a subalebra of  $\widehat \K$. 
-\end{empt}
-\begin{corollary}\label{top_bound_cor}
-	If $\sX$ is a compact set such the any finitely generated Hilbert $C\left(\sV\right)$ module is self-dual.
-	If  $\overline{a} \in B\left( \bigoplus_{\overline{x}\in \overline{\sX}}  L^2\left( \N\right)_{\overline{x}}\right)$ is coherent then
-	\be\label{top_coh_cor_eqn}
-	\overline{a} \in \K_b\left(X_{C_0\left(\overline{\sX}\right)}\right)= C_b\left( \K\left(X_{C_b\left(\overline{\sX}\right)}\right)\right). 
-	\ee
-\end{corollary}
-\begin{proof} !!! CORRECT
-	
-	If $\overline{\xi} \in \ell^2\left( C_b\left(\overline{\sX} \right)\right)$ then 
-	then from the Corollary \ref{top_coh_cor} it turns out that $\left\langle \lift_{\overline{p}_\la} \left(\xi_\la \right) \overline{a}, \lift_{\overline{p}_\la}\left(\xi_\la \right)\right\rangle_{D*\left(\overline{\sX} \right) } \in C_b\left(\overline{\sX} \right)$.
-	From the Lemma \ref{comm_exact_lem} and the Corollary \ref{exact_cont_cor} it turns out that  $\overline{a}$ is $C_b\left(\overline{\sX}\right)$-continuous (cf.  Definition  \ref{exact_cont_defn}), so one has $\overline{a} \in \L\left( \ell^2\left(C_b\left(\overline{\sX} \right)  \right) \right)$. The $C^*$-algebra $\K\left( \ell^2\left(C_b\left(\overline{\sX} \right)  \right) \right)$ is a hereditary subalbebra of $\L\left( \ell^2\left(C_b\left(\overline{\sX} \right)  \right) \right)$. Otherwise from $\lift_{ \overline{p}_{\la}} \left(a_\la \right) > \overline{a}$ and $\lift_{ \overline{p}_{\la}} \left(a_\la \right)\in \K\left( \ell^2\left(C_b\left(\overline{\sX} \right)  \right) \right)$ it turns out $\overline{a}\in \K\left( \ell^2\left(C_b\left(\overline{\sX} \right)  \right) \right)$. Taking into account  \eqref{top_k_l2_hered_eqn} $\K\left(X_{C_b\left(\overline{\sX}\right)}\right)$ { is a hereditary subalgebra of } $\K\left(\ell^2\left(C_b\left(\overline{   \mathcal X} \right)  \right) \right)$ and from $\lift_{ \overline{p}_{\la}} \left(a_\la \right)\in \K\left(X_{C_b\left(\overline{\sX}\right)}\right)$ it turns out that
-	\be\label{oa_in_kcb_eqn}
-	\overline{a} \in \K\left(X_{C_b\left(\overline{\sX}\right)}\right). 
-	\ee
-	
-	
-\end{proof}
-\begin{lemma}\label{top_coh_t_lem} Suppose that $\sX$ is a connected, locally connected, locally compact, locally compact, Hausdorff space.
-	If  $\overline{a} \in B\left( \bigoplus_{\overline{x}\in \overline{\sX}}  L^2\left( \N\right)_{\overline{x}}\right)$ is coherent then
-	\be\label{top_coh_eqn}
-	\overline{a} \in \K_0\left(X_{C_0\left(\overline{\sX}\right)}\right)= C_0\left( \K\left(X_{C_0\left(\overline{\sX}\right)}\right)\right). 
-	\ee
-\end{lemma}
-\begin{proof}
-	From the Corollary \ref{top_bound_cor} it turns out that there is
-	\bean
-	\overline f \in C_b\left(\overline \sX\right),\\
-	\overline x \mapsto \left\|  \rep_{\overline x}\left( \overline a\right)\right\|
-	\eean
-	From the construction \ref{top_inv_empt} it follows  that there is the minimal $\la_{\min}\in \La$ such that $\sX_{\la_{\min}}\bydef\sX$. We set $\la_0\bydef  \la_{\min}$. If $a'_{\la_0}\in \K\left(X_{C_0\left(\sX_{\la_0}\right)}\right)$ is given by \eqref{spec_a_eqn} then from the Lemma \ref{ctr_rep_eq_lem} it turns out that for all $\eps > 0$ the set
-	\be\label{top_sy_eqn}
-	\sY' \bydef \left\{ x\in\sX\left|\left\|  \rep_x\left( a'_{\la_0}\right)\right\| \le\eps \right.\right\}
-	\ee
-	is compact.  From the Lemmas \ref{top_comp_comm_cor}  it follows that there is a connected compact set $\sY \subset \sX$ such that $\sY'\subset\sY$ and $x_0\in \sY$.
-	Denote by $\sY_{\la_0}\bydef\sY$, $\sY_{\la}\bydef p_\la^{-1}\left( \sY\right)\subset \sX_\la$ and $\overline \sY \bydef \overline p^{-1} \left(\sY\right)\subset\sX$. From $x_0\in \sY$ it turns out that that base-points $x^\la_0$ and $\overline x$  of $\sX_\la$ and  $\overline \sX$ respectively satisfy to the following equations.
-	The direct check yields the proof that there is a {pointed topological finite covering category} (cf. Definition \ref{top_sec_p_defn}) $\mathfrak{S}_{\left( \sY, x_0\right) }= \left\{\left( \sY_\la, x^\la_0\right) \to \left( \sY, x_0\right)\right)\}$   with morphisms
-	\be\label{top_py_eqn}
-	\left.p^\mu_\nu\right|_{\sY_\mu}: \left( \sY_\mu, x^\mu_0\right) \to \left( \sY_\nu, x^\nu_0\right)
-	\ee
-	Where $p^\mu_\nu: \left( \sX_\mu, x^\mu_0\right) \to \left( \sX_\nu, x^\nu_0\right)$ are morphisms of the {pointed topological finite covering category} $\mathfrak{S}_{\left( \sX, x_0\right) }$. One can consider the family $F = \left\{\K\left(X_{C\left(\sY_\la\right)} \right) \right\}_{\la\in\La}$
-	If  $\overline{b} \in B\left( \bigoplus_{\overline{x}\in \overline{\sY}}  L^2\left( \N\right)_{\overline{x}}\right)$ is given by
-	\be\label{top_rarb_eqn}
-	\rep_{\overline x}\left(\overline b \right) \bydef  \rep_{\overline x}\left(\overline a \right)\quad \forall x \in \overline \sY.
-	\ee
-	then since $\overline a$ satisfies to the Definition \ref{top_coh_defn}, the element  $\overline b$ also satisfies the to Definition \ref{top_coh_defn}, i.e.  $\overline b$ is coherent with respect to the family $F$. The set $\sY$ is compact so from the Lemmas \ref{top_coh_compact_lem} and  \ref{ctr_rep_eq_lem} it turns out the map   
-	\bean
-	\overline \sY \to \R,\\
-	\overline x \mapsto \left\|  \rep_{\overline x}\left( \overline b\right)\right\| 
-	\eean
-	lies in $C_0\left(\overline\sX\right)$. The set 
-	$$
-	\overline \sZ \bydef \left\{\overline x\in\overline\sY\left|\left\|  \rep_{\overline x}\left( \overline b\right)\right\| \ge\eps \right.\right\}
-	$$
-	is compact. However  $\rep_{\overline x}\left( a'_{\la_0}\right)\ge \rep_{\overline x}\left( \overline a\right)$ for any $\overline x\in \overline\sX$ and taking into account  \eqref{top_sy_eqn} one has
-	$$
-	\forall \overline x \in \overline\sX \setminus \overline p^{-1} \left(\sY\right)\quad\left\|  \rep_{\overline x}\left( \overline a\right)\right\| < \eps.
-	$$
-	From the above equation and \eqref{top_rarb_eqn} it follows that 
-	$$
-	\overline \sZ = \left\{ \overline x\in\overline\sX\left|\left\|  \rep_{\overline x}\left( \overline a\right)\right\| \ge\eps \right.\right\}=  \left\{ x\in\overline\sX\left| \overline f\left( \overline x\right) \ge\eps \right.\right\}.
-	$$
-	The set  $\overline \sZ$ is compact, hence from the Definition \ref{c_c_def_2} it follows that $	\overline f \in C_0\left(\overline \sX\right)$, and taking into account the  Corollary \ref{top_bound_cor} one has 	$\overline{a} \in C_0\left( \K\left(X_{C_0\left(\overline{\sX}\right)}\right)\right)$. 
-	
-\end{proof}
-
-
-\begin{theorem}\label{ctr_main_thm} If $A$ is a continuous trace $C^*$-algebra with connected, locally connected spectrum $\sX$, and  $\widetilde{p}:\left( \widetilde{\sX}, \widetilde{x}_0\right) \to \left( \sX, x_0\right)$ is a transitive covering such that a covering group  $G\left(\left.\widetilde \sX \right| \sX\right)$ is residually finite (cf. Definition \ref{residually_finite_defn}) then 	following conditions hold:
-	\begin{enumerate}
-		\item [(i)] The given by  \eqref{ctr_base_point_eqn} pointed	algebraical  finite covering category $	\mathfrak{S}^{\mathrm{pt}}_A$  (cf. Definition \ref{comp_defn}) is good (cf. Definition \ref{mains_defn}).
-		\item[(ii)] A triple $\left(A, A\left(\widetilde \sX\right), 	G\left(\left.\widetilde{\sX}~\right| \sX\right)\right)$ the  {infinite noncommutative covering} of $\mathfrak{S}_A^{\mathrm{pt}}$.
-		\item[(iii)] Suppose that  $\sX$ is connected, locally path-connected and semilocally 1-connected, and the fundamental group $\pi_1\left(\sX, x_0\right)$ is residually finite (cf. Definition \ref{residually_finite_defn}). If $\pi_1\left(A, \left\{\pi^\nu_\mu\right\}_{\substack{ \mu, \nu \in \La \\ \mu \ge \nu}} \right)$  is the   fundamental group (cf. Definition \ref{fg_bas_defn}) then there is the natural isomorphism
-		$$
-		\pi_1\left(A, \left\{\pi^\nu_\mu\right\}_{\substack{ \mu, \nu \in \La \\ \mu \ge \nu}} \right)\cong \pi_1\left(\sX, x_0\right).
-		$$
-	\end{enumerate}
-\end{theorem}
-\begin{proof}
-	From the  Theorem \ref{blowing_main_thm} it turns out that one needs check that $\left.A_0\left(\widetilde \sX\right)\right.= \left.\overline A_{\widetilde \sX}\right.$.
-From the Lemma \ref{ctr_av_lem} it turns out that the spectrum of $\overline A$ is naturally homeomorphic to the spectrum $\overline \sX$ of $A_0\left(\overline \sX\right)$. If $\overline a \in \overline A$ then from the Lemma \ref{ctr_rep_eq_lem} it follows that for all $\eps > 0$ there is a compact set $\overline\sV \subset \overline\sX$ such that
-\be\label{ctr_eps_eqn}
-\forall  \overline x \in  \overline\sX\setminus  \overline\sV \quad \left\| \rep_{  \overline{x }}\left(\overline a \right)\right\| < \eps. 
-\ee
-For any $x \in \sX$ we select an open neighborhood $\sV_x$ which satisfies to the conditions (a) and (b) of \ref{ctr_cov_empt}. If $\sU_x$ is an interior of $\sV_x$ then $\sX = \cup~\sU_x$. If $\overline p:\overline\sX \to \sX$ is the natural covering and  $\left\{\overline \sU_\a\right\}_{\a\in \mathscr A}$ is the $\overline p$-lift of $\left\{\sU_x\right\}_{x\in \sX}$ (cf. Definition \ref{top_lconn_defn}) then there is a dominated by $\left\{\overline \sU_\a\right\}$ covering sum for $\overline \sY$
-$$
-\overline f = \sum_{\a \in \in \mathscr A_0} \overline f_\a\in C_c\left(\overline\sX\right)
-$$
- (cf. Definition \ref{top_cfs_defn}). From the equation \ref{ctr_eps_eqn} it follows that
-\be\label{ctr_epsm_eqn}
- \left\|\overline a- \sum_{\a \in \in \mathscr A_0} \overline f_\a\overline a\right\|< \eps. 
-\ee
- On the other hand from the Lemma \ref{ctr_av_lem} it turns out that $\overline f_\a\overline a\in A_0\left( \overline \sX\right)$ for all  $\a \in \in \mathscr A_0$. Taking into account that $\sum_{\a \in \in \mathscr A_0} \overline f_\a\overline a$ is a finite sum one has $\sum_{\a \in \in \mathscr A_0} \overline f_\a\overline a\in A_0\left(\widetilde \sX\right)$. However $\eps > 0$ is arbitrary small so from \eqref{ctr_epsm_eqn} one has $\overline a \in A_0\left( \overline \sX\right)$, so $\overline A = A_0\left( \overline \sX\right)$. Otherwise from  $A_0\left( \overline \sX\right)_{\widetilde \sX} A_0\left( \widetilde \sX\right)$ it turns out that $\left.A_0\left(\widetilde \sX\right)\right.= \left.\overline A_{\widetilde \sX}\right.$
-\end{proof}
-
 
 \begin{lemma}\label{ctr_allows_lem}
 The given by by the equation \eqref{ctr_base_point_eqn} {pointed algebraical  finite covering category}
