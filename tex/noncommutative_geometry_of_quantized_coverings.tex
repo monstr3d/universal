@@ -857,7 +857,7 @@ the following conditions hold
 Denote by $\End_D^*\left(X_D\right)$ and $\End_A^*\left(X_A\right)$ the space of $D$-linear and $A$-linear adjointable operators (cf. Definition \ref{adj_aop_defn}). 
 
 \begin{lemma}\label{compact_inf_lem}
-In the above situation	let $a, b \in \K\left( X_D\right)_+$ be positive compact operators such that 
+In the above situation	let $a, b \in \End_A^*\left( X_D\right)_+$ be positive compact operators such that 
 	\bea
 	\label{compact_inf1_eqn}
 	a \le b, \\
@@ -874,7 +874,7 @@ If any finitely generated projective Hilbert $A$-module is self-dual (cf. Defini
 	\be\label{xae_eqn}
 	\forall \xi, \eta \in X_A\quad \left\langle \xi, a \eta\right\rangle_D \in A.
 	\ee
-	Consider $\widetilde a: X_D \oplus \ell^2\left( D\right)\to X_D \oplus \ell^2\left(D\right)$  such that for any $\left(x, y\right) \in X_D \oplus \ell^2\left( D\right)$ one has $\widetilde a \left(x, y\right)= \left(a x, 0\right)$. Similarly one can consider operator $\widetilde a: X_D \oplus \ell^2\left( D\right)\to X_D \oplus \ell^2\left(D\right)$. From  the  Theorem \ref{kasparov_stab_thm} one has 
+	Consider $\widetilde a: X_D \oplus \ell^2\left( D\right)\to X_D \oplus \ell^2\left(D\right)$  such that for any $\left(x, y\right) \in X_D \oplus \ell^2\left( D\right)$ one has $\widetilde a \left(x, y\right)= \left(a x, 0\right)$. Similarly one can consider operator $\widetilde b: X_D \oplus \ell^2\left( D\right)\to X_D \oplus \ell^2\left(D\right)$. From  the  Theorem \ref{kasparov_stab_thm} one has 
 \be\label{kasp_eqn}
 X_D \oplus \ell^2\left( D\right) \cong \ell^2\left( D\right),
 \ee
@@ -896,14 +896,14 @@ So both $\widetilde a$ and $\widetilde b$ can be regarded as elements of $\End^*
  For any $n \in \N$ there is a Hilbert submodule $D^n \subset \ell^2\left( D\right)$ and a projection $p_n: \ell^2\left( D\right)\to D^n$. Denote by $a_n \bydef p_n \widetilde a p_n$, $b_n \bydef p_n \widetilde b p_n$.
  From \eqref{xae_eqn} it turns out that
  \be\label{xaen_eqn}
- \forall \xi, \eta \in  A^n \quad \left\langle \xi, a \eta\right\rangle_D \in A.
+ \forall \xi, \eta \in  A^n\cap X_A \quad \left\langle \xi, a \eta\right\rangle_D \in A.
  \ee
-  If $\left( A^n \cap X_A\right)' $ is dual Banach module of $A^n \cap X_A$ (cf. \ref{hm_dual_empt}) then 
+  If $\left( A^n \cap X_A\right)' $ is dual Banach module of $A^n \cap X_A$ (cf. Definition \ref{hm_dual_empt}) then 
  the restriction $a_n|_{A^n\cap X_A}$ corresponds to an element of $\Hom_A\left( A^n\cap X_A, \left(  A^n\cap X_A \right)'\right)$ given by
  $$
  \eta \mapsto \left\langle \cdot , a\eta\right\rangle_D.
  $$
- However $A^n\cap X_A$ is a finitely generated  projective $A$-module, so it is self-dual (cf. Definition \ref{hm_selfdual_defn}), i.e. $A^n\cap X_A\cong \left(  A^n \cap X_A\right)'$. It turns out that $ a_n|_{A^n\cap X_A}\in \Hom_A\left( A^n\cap X_A, A^n\cap X_A\right)\bydef \End_A\left( A^n\cap X_A\right)$. Since $a_n$ is self-adjoint $a_n|_{A^n\cap X_A}\in  \End^*_A\left( A^n\cap X_A\right)$. Otherwise  $A^n\cap X_A$ is a finitely generated $A$-module, so one has  $\End^*_A\left( A^n\cap X_A\right) \cong \K\left( A^n\cap X_A\right)$, therefore  $a_n|_{A^n\cap X_A}\in \K\left( A^n\cap X_A\right)\subset \K\left(  X_A\right) $. From  $b\in \K\left(X_A \right)$ the Lemma \ref{c_misch_lem} and the Remark \ref{c_misch_rem} it follows that for any $\eps > 0$ there is $N\in \N$ such that
+ However $A^n\cap X_A$ is a finitely generated  projective $A$-module, so it is self-dual (cf. Definition \ref{hm_selfdual_defn}), i.e. $A^n\cap X_A = \left(  A^n \cap X_A\right)'$. It turns out that $ a_n|_{A^n\cap X_A}\in \Hom_A\left( A^n\cap X_A, A^n\cap X_A\right)\bydef \End_A\left( A^n\cap X_A\right)$. Since $a_n$ is self-adjoint $a_n|_{A^n\cap X_A}\in  \End^*_A\left( A^n\cap X_A\right)$. Otherwise  $A^n\cap X_A$ is a finitely generated $A$-module, so one has  $\End^*_A\left( A^n\cap X_A\right) \cong \K\left( A^n\cap X_A\right)$, therefore  $a_n|_{A^n\cap X_A}\in \K\left( A^n\cap X_A\right)\subset \K\left(  X_A\right) $. From  $b\in \K\left(X_A \right)$ the Lemma \ref{c_misch_lem} and the Remark \ref{c_misch_rem} it follows that for any $\eps > 0$ there is $N\in \N$ such that
  $$
  \left\| b_N|_{\ell_2\left( A\right) }- \widetilde b|_{\ell_2\left( A\right) } \right\| < \eps,
  $$
@@ -4495,7 +4495,7 @@ Let $p:\widetilde\sX \to \sX$ be a covering. Let both $\sY\subset\sX$ and $\wide
 
 
 \begin{remark}\label{top_cfs_rem}
-From the above construction it follows that for any compact subset $\sY\subset\sX$ and a family $\left\{\sV_x\right\}_{x\in\sX}$ (cf. \eqref{top_vx_eqn})  there is a covering sum which is dominated by $\left\{\sV_x\right\}_{x\in\sX}$.
+From the above construction it follows that for any compact subset $\sY\subset\sX$ and a family $\left\{\sU_\a\subset \sX\right\}$ of open subsets with compact closures such that $\sX = \cup~\sU_\a$  there is a covering sum for $\sY$ which is dominated by $\left\{\sU_\a\right\}$.
 \end{remark}
 
 \begin{empt}\label{comm_direct_empt}
@@ -4522,8 +4522,8 @@ If $\left\{f_\a\right\}_{\a\in \mathscr A}\subset C_c\left(\sX \right)$ is the d
 \end{enumerate}
 \end{lemma}
 \begin{proof}
-	(i) For all forall $\bt, \ga \in \mathscr A$ the set $f_\bt^{-1}\left( 	1\right)\cup f_\ga^{-1}\left( 	1\right)$ is compact, so from (i) there is $\a\in \mathscr A$ such that $f_\a\left(f_\bt^{-1}\left( 	1\right)\cup f_\ga^{-1}\left( 	1\right) \right)= \{1\}$.\\
-(ii) Follows from the Remark \ref{top_cfs_rem}.\\
+	(i) Follows from the Remark \ref{top_cfs_rem}.\\
+(ii)For all  $\bt, \ga \in \mathscr A$ the set $f_\bt^{-1}\left( 	1\right)\cup f_\ga^{-1}\left( 	1\right)$ is compact, so from (i) there is $\a\in \mathscr A$ such that $f_\a\left(f_\bt^{-1}\left( 	1\right)\cup f_\ga^{-1}\left( 	1\right) \right)= \{1\}$. \\
 (iii) A point-wise limit 	$1_{C_b\left( \sX\right) }= \lim_{\a \in \mathscr A }f_\a$ is clear. If  $g\in C_c\left( \sX\right)$ then there is $\a_0\in   \mathscr A$ such that $\supp g \subset f^{-1}_\a\left( 1\right)$ for all $\a\ge\a_0$. So one has $\a \ge \a_0 \Rightarrow f_a g = g$, it turns out that there is the following $C^*$-norm limit $\lim_{\a \in \mathscr A }f_\a g = g$. The limit is true for all $g \in  C_c\left( \sX\right)$ since $C_c\left( \sX\right)$ is dense in $C_0\left( \sX\right)$ one has $C^*$-norm limit $\lim_{\a \in \mathscr A }f_\a h = \lim_{\a \in \mathscr A }hf_\a= h$  for all $h \in  C_0\left( \sX\right)$. From the Definition \ref{strict_topology} it follows that there is the strict limit $	1_{C_b\left( \sX\right) }= \bt$-$\lim_{\a \in \mathscr A }f_\a$
 \end{proof}
 
@@ -4544,7 +4544,7 @@ The notion of "regular covering" has no any good noncommutative generalization. 
 	\ee
 \end{definition}
 \begin{remark}
-	From the Corollary \ref{top_cov_from_pi1_cor} it turns out that any regular covering is transitive. 
+	From the Theorem \ref{top_cov_fact_thm} it turns out that any regular covering is transitive. 
 \end{remark}
 
 \begin{lemma}\label{top_trans_tp_cov_lem}
@@ -4679,19 +4679,19 @@ $$
 is a finite union of compact sets, so it is compact. On the other hand $\sY\subset\sZ$.
 \end{proof}
 \begin{definition}\label{top_path_comp_defn}
-	If both $\mathfrak p'=\left(\sU_{\a'_1},...,\sU_{\a'_k}\right)$ and $\mathfrak p''=\left(\sU_{\a''_1},...,\sU_{\a''_l}\right)$ are paths such that $\sU_{\a'_k} \cap \sU_{\a''_1}\neq\emptyset$ then we say that  then that $\left( \mathfrak p', \mathfrak p''\right)$ is \textit{composable} and path $\mathfrak p=\left(\sU_{\a'_1},...,\sU_{\a'_k},\sU_{\a''_1},...,\sU_{\a''_l} \right)$  is said to be the \textit{composition} of $\mathfrak p'$ and $\mathfrak p''$. We write
+	If both $\mathfrak p'=\left(\sU_{\a'_1},...,\sU_{\a'_k}\right)$ and $\mathfrak p''=\left(\sU_{\a''_1},...,\sU_{\a''_l}\right)$ are paths such that $\sU_{\a'_k} \cap \sU_{\a''_1}\neq\emptyset$ then we say that  then that $\left( \mathfrak p', \mathfrak p''\right)$ is \textit{composable} and the path $\mathfrak p=\left(\sU_{\a'_1},...,\sU_{\a'_k},\sU_{\a''_1},...,\sU_{\a''_l} \right)$  is said to be the \textit{composition} of $\mathfrak p'$ and $\mathfrak p''$. We write
 	\be\label{top_path_comp_eqn}
 	\mathfrak p'\circ \mathfrak p''\bydef\mathfrak p.
 	\ee
 \end{definition}
 \begin{remark}
-The given by the Definition \ref{top_path_comp_defn} is associative, i.e.
+The given by the Definition \ref{top_path_comp_defn} composition is associative, i.e.
 $$
 \left( \mathfrak p'\circ \mathfrak p''\right)  \circ \mathfrak p''' = \mathfrak p'\circ \left( \mathfrak p'' \circ \mathfrak p'''\right) .
 $$
 \end{remark}
 \begin{empt}\label{top_lconn_part}
-	Let $\sX$ be a connected, locally connected locally compact Hausdorff space. Let $p: \widetilde{   \mathcal X }\to \sX$ is a transitive covering. There is a  set $\left\{\sU_\a\right\}_{\a \in \mathscr A}$  set of open connected subsets of $\sX$ such that following conditions hold:
+	Let $\sX$ be a connected, locally connected, locally compact, Hausdorff space. Let $p: \widetilde{   \mathcal X }\to \sX$ is a transitive covering. There is a  set $\left\{\sU_\a\right\}_{\a \in \mathscr A}$  set of open connected subsets of $\sX$ such that following conditions hold:
 	\begin{itemize}
 		\item $\sX = \cup_{\a \in \mathscr A} \sU_\a$.
 		\item The closure of $\sU_{\a}$ is a compact set for all $\a \in \mathscr A$.
@@ -4762,16 +4762,16 @@ $$
 	Consider the situation \ref{top_path_comp_empt} and suppose that $\widetilde{\mathfrak p}_{g'} = \left( \widetilde\sU_{\widetilde\a'_1},..., \widetilde\sU_{\widetilde\a'_k}\right)$, $\widetilde{\mathfrak p}_{g''} = \left( \widetilde\sU_{\widetilde\a''_1},..., \widetilde\sU_{\widetilde\a''_l}\right)$. If
 	\bean
 	\widetilde{\mathfrak p} = \lift^{\widetilde\sU_0}_p\left( \desc_p \widetilde{\mathfrak p}_{g'}\circ \desc_p \widetilde{\mathfrak p}_{g''}\right),\\ 
-	\widetilde{\mathfrak p}= \left( \widetilde\sU_{\widetilde\a_1},..., \widetilde\sU_{\widetilde\a_{k + l -1}}\right)
+	\widetilde{\mathfrak p}= \left( \widetilde\sU_{\widetilde\a_1},..., \widetilde\sU_{\widetilde\a_{k + l}}\right)
 	\eean
-	then $ \widetilde\sU_{\widetilde\a_{k + l -1}}= g'g''\widetilde \sU_0$.
+	then $ \widetilde\sU_{\widetilde\a_{k + l}}= g'g''\widetilde \sU_0$.
 \end{lemma}
 \begin{proof}
 	From $\widetilde\sU_{\widetilde\a'_k}= g' \widetilde\sU_0$ it follows that
 	$$
-	\widetilde{\mathfrak p} = \left( \widetilde\sU_{\widetilde\a'_1},..., \widetilde\sU_{\widetilde\a'_k}, g'\widetilde\sU_{\widetilde\a''_2},..., g'\widetilde\sU_{\widetilde\a''_l}\right)
+	\widetilde{\mathfrak p} = \left( \widetilde\sU_{\widetilde\a'_1},..., \widetilde\sU_{\widetilde\a'_k}, g'\widetilde\sU_{\widetilde\a''_1},..., g'\widetilde\sU_{\widetilde\a''_l}\right)
 	$$
-	and taking into account $\widetilde\sU_{\widetilde\a''_l}= g' \widetilde\sU_0$ one has $ \widetilde\sU_{\widetilde\a_{k + l -1}}=\widetilde\sU_{\widetilde\a''_k}= g'g''\widetilde \sU_0$.
+	and taking into account $g'\widetilde\sU_{\widetilde\a''_1}= \widetilde\sU_{\widetilde\a'_k}= g' \widetilde\sU_0$, $\quad\widetilde\sU_{\widetilde\a''_l}=g''\widetilde\sU_0$ one has $ \widetilde\sU_{\widetilde\a_{k + l }}= g'g''\widetilde \sU_0$.
 \end{proof}
 \begin{empt}\label{top_g_homo_empt}
 	In the situation  \ref{top_path_comp_empt}	consider a commutative triangle of connected topological spaces and  transitive coverings.
@@ -4812,7 +4812,7 @@ $$
 	\widetilde{\mathfrak p}' \bydef \lift^{\widetilde\sU'_0}_{p'}\left( \desc_{p'} \widetilde{\mathfrak p}_{g_1}\circ \desc_{p'} \widetilde{\mathfrak p}_{g_2}\right),\\
 	\widetilde{\mathfrak p}''\bydef \lift^{\widetilde\sU''_0}_{p''}\left( \desc_{p'} \widetilde{\mathfrak p}_{g_1}\circ \desc_{p'} \widetilde{\mathfrak p}_{g_2}\right)
 	\eean
-	are $\left\{\widetilde \sU'_{\widetilde \a' }\right\}$ and $\left\{\widetilde \sU''_{\widetilde \a'' }\right\}$-paths which correspond to $g_1 g_2$ and $h\left( g_1\right)h\left( g_2\right)$ respectively. It means that that   $\widetilde{\mathfrak p}'= \left( \widetilde\sU'_{\widetilde\a'_{1}},..., \widetilde\sU'_{\widetilde\a'_{k + l -1}}\right)$ then $\widetilde\sU'_{\widetilde\a'_{k + l -1}}= g_1g_2\widetilde \sU'_0$. On the other hand  $\widetilde{\mathfrak p}''= \desc_p \widetilde{\mathfrak p}'= \left( p\left( \widetilde\sU'_{\widetilde\a'_{1}}\right) ,..., p\left( \widetilde\sU'_{\widetilde\a'_{k + l -1}}\right) \right)$, so $p\left( \widetilde\sU'_{\widetilde\a'_{k + l -1}}\right)= h\left(g_1g_2 \right) \widetilde\sU''_0$, i.e. $\widetilde{\mathfrak p}''$ corresponds to $h\left(g_1g_2 \right)$. It follows that $h\left(g_1g_2 \right)=h\left(g_1 \right)h\left(g_2 \right)$, i.e. $h$ is a homomorphism.\\
+	are $\left\{\widetilde \sU'_{\widetilde \a' }\right\}$ and $\left\{\widetilde \sU''_{\widetilde \a'' }\right\}$-paths which correspond to $g_1 g_2$ and $h\left( g_1\right)h\left( g_2\right)$ respectively. It means that that   $\widetilde{\mathfrak p}'= \left( \widetilde\sU'_{\widetilde\a'_{1}},..., \widetilde\sU'_{\widetilde\a'_{k + l }}\right)$ then $\widetilde\sU'_{\widetilde\a'_{k + l }}= g_1g_2\widetilde \sU'_0$. On the other hand  $\widetilde{\mathfrak p}''= \desc_p \widetilde{\mathfrak p}'= \left( p\left( \widetilde\sU'_{\widetilde\a'_{1}}\right) ,..., p\left( \widetilde\sU'_{\widetilde\a'_{k + l }}\right) \right)$, so $p\left( \widetilde\sU'_{\widetilde\a'_{k + l}}\right)= h\left(g_1g_2 \right) \widetilde\sU''_0$, i.e. $\widetilde{\mathfrak p}''$ corresponds to $h\left(g_1g_2 \right)$. It follows that $h\left(g_1g_2 \right)=h\left(g_1 \right)h\left(g_2 \right)$, i.e. $h$ is a homomorphism.\\
 	(ii) Follows from $G\left(\widetilde{   \mathcal X }''~|~{   \mathcal X }' \right)= \ker h$.
 \end{proof}
 
@@ -5057,7 +5057,7 @@ C\left(\sX, \left\{A_x\right\}, \sF \right) \bydef \left\{\left.\left\{a_x\right
 Any vector bundle $\left( E, \pi, \mathcal X\right)$ (cf. Definition \ref{top_vb_defn} and Remark \ref{com_inf_rem}) yields a family of fibers $\left\{E_x\right\}_{x \in \sX}$. 
 The given by \eqref{top_ub_eqn} spaces are a continuity structures  for $\sX$ {and the} $\left\{E_x\right\}_{x \in \sX}$.
 \begin{definition}\label{top_bundle_cs_defn}
-	Let  $\left( E, \pi, \mathcal X\right)$ be  vector bundle with the family of fibers $\left\{E_x\right\}_{x \in \sX}$. Any linear subspace $\sF \subset \Ga\left( E, \pi, \mathcal X\right)$  (cf. \ref{top_bundle_sec_empt}) is said to be $\left( E, \pi, \mathcal X\right)$-\textit{continuous structure} if $\Ga\left( E, \pi, \mathcal X\right)\cong C\left(\sX, \left\{E_x\right\}, \sF \right)$.
+	Let  $\left( E, \pi, \mathcal X\right)$ be  vector bundle with the family of fibers $\left\{E_x\right\}_{x \in \sX}$. Any given by the equation   \eqref{top_bundle_sec_empt} linear subspace $\sF \subset \Ga\left( E, \pi, \mathcal X\right)$  is said to be $\left( E, \pi, \mathcal X\right)$-\textit{continuous structure} if $\Ga\left( E, \pi, \mathcal X\right)\cong C\left(\sX, \left\{E_x\right\}, \sF \right)$.
 \end{definition}
 \begin{lemma}\label{top_bundle_cs_lem}
 	In the situation of the Definition \ref{top_bundle_cs_defn} the space 
@@ -5206,7 +5206,7 @@ Let us define $\left\|\cdot\right\|: C\left(\sX, \left\{A_x\right\},\sF\right)\t
 		A \subset A_c \subset A_0 \subset A_b \subset A_x
 		$$
 		it turns out that $A_0$ and $A_b$ are dense in $A_x$.
-		\item[(c)] The proof is similar to the proof of (c) in the proof of the Lemma \ref{top_c_cont_str_lem}.
+		\item[(c)] The proof is similar to the proof of (c)  of the Lemma \ref{top_c_cont_str_lem}.
 	\end{enumerate}
 	(ii) From the inclusions
 	$$
@@ -5254,7 +5254,18 @@ Let us define $\left\|\cdot\right\|: C\left(\sX, \left\{A_x\right\},\sF\right)\t
 	The equation \eqref{top_multiple_na_eqn} follows from \eqref{top_multiple_a_eqn}.
 \end{proof}
 
-\begin{corollary}\label{top_c0_cont_str_f_cor}
+\begin{definition}\label{top_multiple_a_defn}
+	In the situation of the Lemma \ref{top_multiple_a_lem} we say that $a$ is a \textit{multiple} of  $f$.
+	we write
+	\be\label{top_multiple_ad_eqn}
+	\begin{split}
+		\mathfrak{div}\left( a,f\right)\stackrel{\text{def}}{=} b \in C_0\left( \sX, \left\{A_x\right\}, \sF\right).
+	\end{split}
+	\ee
+\end{definition}
+
+
+\begin{lemma}\label{top_c0_cont_str_f_lem}
 	Following conditions hold:
 	\be\label{top_c0_cont_str_cor_eqn}
 	\begin{split}
@@ -5263,7 +5274,7 @@ Let us define $\left\|\cdot\right\|: C\left(\sX, \left\{A_x\right\},\sF\right)\t
 		C_b\left(\sX, \left\{A_x\right\}_{x \in \sX}, C_c\left(\sX, \left\{A_x\right\}_{x \in \sX}, \sF  \right)  \right)=\\= 	C_b\left(\sX, \left\{A_x\right\}_{x \in \sX}, C_0\left(\sX, \left\{A_x\right\}_{x \in \sX}, \sF  \right)  \right)=\\=C_b\left(\sX, \left\{A_x\right\}_{x \in \sX}, C_b\left(\sX, \left\{A_x\right\}_{x \in \sX}, \sF  \right)  \right)=\\= 	C_b\left(\sX, \left\{A_x\right\}_{x \in \sX}, C\left(\sX, \left\{A_x\right\}_{x \in \sX}, \sF  \right)  \right)=C_b\left(\sX, \left\{A_x\right\}_{x \in \sX}, \sF  \right).
 	\end{split}
 	\ee
-\end{corollary}
+\end{lemma}
 \begin{proof}
 	Firstly we proof that the family  $\left\{b_x\right\}$ is {continuous with respect to $\sF$} at any  $x_0 \in \sX$ (cf. Definition \ref{op_cont_fields_defn}). Consider  two alternative cases:
 	\begin{enumerate}
@@ -5275,17 +5286,6 @@ Let us define $\left\|\cdot\right\|: C\left(\sX, \left\{A_x\right\},\sF\right)\t
 	Otherwise from  $\mathrm{norm}_b= \mathfrak{div}\left( \mathrm{norm}_a,f\right)$ if follows that $\mathrm{norm}_b \in  C_0\left(\sX \right)$ and taking into account \eqref{top_cc0_eqn} one has $b \in C_0\left( \sX, \left\{A_x\right\}, \sF\right)$.
 	The equation \eqref{top_multiple_na_eqn} follows from \eqref{top_multiple_a_eqn}.
 \end{proof}
-
-\begin{definition}\label{top_multiple_a_defn}
-	In the situation of the Lemma \ref{top_multiple_a_lem} we say that $a$ is a \textit{multiple} of  $f$.
-	we write
-	\be\label{top_multiple_ad_eqn}
-	\begin{split}
-		\mathfrak{div}\left( a,f\right)\stackrel{\text{def}}{=} b \in C_0\left( \sX, \left\{A_x\right\}, \sF\right).
-	\end{split}
-	\ee
-\end{definition}
-
 
 \begin{empt}
 	If	$\sF$ is  a continuity structure $\sF$ for $\sX$ {and the} $\left\{A_x\right\}$ then from the Lemma \ref{op_cont_module_lem} it follows that $C_0\left(\sX \right)\sF \subset C_0\left(\sX, \left\{A_x\right\}, \sF \right)$.
@@ -5328,7 +5328,7 @@ The space $C_0\left(\sX \right)\sF$ is dense in 	$C_0\left(\sX, \left\{A_x\right
 \end{remark}
 
 
-\begin{empt}\label{top_bt_empt} 	Let $\sF$ be a continuity structure for $\sX$ {and the} $\left\{A_x\right\}$
+\begin{empt}\label{top_bt_empt} 	Let $\sF$ be a continuity structure for $\sX$ {and the} $\left\{A_x\right\}$.
 	Select $x \in \sX$.
 	From (b) of the Definition \ref{op_fields_defn} it turns out that the $\C$-space
 	$$
@@ -5434,12 +5434,33 @@ such that $\phi_{ \bt x}\left(  C_b\left(\sX, \left\{A_x\right\}, \sF \right)\ri
 	A collection of given by the equation \eqref{top_cs_neigh_eqn} subsets satisfies to (a) and (b) of the Definition \ref{top_base_defn}.
 \end{lemma}
 \begin{proof}
-	Condition (a) is evident, let us proof (b). Let $a^0_{x_0} \in \widehat{\left\{A_x\right\}}$ and consider $\mathfrak{O}\left(\sU', s', \eps' \right), \mathfrak{O}\left(\sU'', s'', \eps'' \right)\subset \widehat{\left\{A_x\right\}}$ such that $a^0_{x_0}\in \mathfrak{O}\left(\sU', s', \eps' \right)\cap\mathfrak{O}\left(\sU'', s'', \eps'' \right)$. Let $s \in C\left(\sX, \left\{A_x\right\}, \sF \right)$ is $C_0\left(\sX\right)$ be such that $a_x = s_x$. One has $\left\|s'_x - s_x \right\|<\eps'$ and $\left\|s''_x - s_x \right\|<\eps''$.  If $\eps < \min\left(\eps'-\left\|s'_x - s_x \right\|, \eps''-\left\|s''_x - s_x \right\|\right)$ then there are open subsets $\sU', \sU'' \subset\sX$ such that 
+	Condition (a) is evident, let us proof (b). If $a^0_{x_0} \in \widehat{\left\{A_x\right\}}$, and  
+	$$\mathfrak{O}\left(\sU', s', \eps' \right), \mathfrak{O}\left(\sU'', s'', \eps'' \right)\subset \widehat{\left\{A_x\right\}}$$ 
+	are given by \eqref{top_cs_neigh_eqn} sets such that $a^0_{x_0}\in \mathfrak{O}\left(\sU', s', \eps' \right)\cap\mathfrak{O}\left(\sU'', s'', \eps'' \right)$ then one has
 	\bean
-	\forall x\in \sU'\quad \left\|s'_x - s_x \right\|< \eps'- \eps,\\
-	\forall x\in \sU''\quad \left\|s''_x - s_x \right\|< \eps''- \eps.
-	\eean
-	From the above equations it follows that $\mathfrak{O}\left(\sU, s, \eps\right)\subset\mathfrak{O}\left(\sU', s', \eps' \right)\cap\mathfrak{O}\left(\sU'', s'', \eps'' \right)$.
+		\delta ' \bydef\eps'-\left\|s'_{x_0}-a^0_{x_0} \right\|>0,\\
+		\delta '' \bydef\eps''-\left\|s''_{x_0}-a^0_{x_0} \right\|> 0.
+	\eean 
+If $\eps< \min\left(\delta',\delta''\right)$ then there is $s \in C\left(\sX, \left\{A_x\right\}, \sF \right)$ such that  $\left\|a^0_{x_0}-s_{x_0} \right\|<\eps/3$, and one has
+	\bean
+	\left\|s'_{x_0}-s_{x_0} \right\|<\eps'- \frac{\eps}{3},\\
+	\left\|s''_{x_0}-s_{x_0} \right\|<\eps''-\frac{\eps}{3}.
+	\eean 
+From the above equations it follows that
+\bean
+\left\|b_{x_0}-s_{x_0} \right\|< \frac{\eps}{3} \quad\Rightarrow\quad \left\|b_{x_0}-s'_{x_0} \right\|<\eps'-\frac{\eps}{3},\quad \left\|b_{x_0}-s''_{x_0} \right\|<\eps''-\frac{\eps}{3},
+\eean 
+it turns out that there are open neighborhoods 	$\sV', \quad \sV''$ of $x_0$ which satisfy to following conditions
+\be\label{top_o_eqn}
+\begin{split}
+x \in \sV' \quad\Rightarrow\quad\left(\left\|b_{x}-s_{x} \right\|< \frac{\eps}{3}\quad\Rightarrow\quad \left\|b_{x}-s'_{x} \right\|<\eps'\right),\\
+x \in \sV'' \quad\Rightarrow\quad\left(\left\|b_{x}-s_{x} \right\|< \frac{\eps}{3}\quad\Rightarrow\quad \left\|b_{x}-s''_{x} \right\|<\eps''\right). 
+\end{split}
+\ee
+From the equation \eqref{top_o_eqn} it turns out that
+$$
+\mathfrak{O}\left(\sU, s, \eps/3 \right)\subset \mathfrak{O}\left(\sU', s', \eps' \right)\cap \mathfrak{O}\left(\sU'', s'', \eps'' \right).
+$$
 \end{proof}
 \begin{definition}\label{top_total_sp_defn}
 	A topological $\mathscr T\left(\sX, \left\{A_x\right\}, \sF \right)$ space such that
@@ -5454,7 +5475,7 @@ is said to be the \textit{total space for} $\left(\sX, \left\{A_x\right\}, \sF \
 \end{remark}
 \begin{lemma}\label{top_js_lem} Following conditions hold.
 	\begin{enumerate}
-		\item [(i)] If $p:\mathscr T\left(\sX, \left\{A_x\right\}, \sF \right) \to\sX$  is the	total projection then any continuous map $j : \sX\to \mathscr T\left(\sX, \left\{A_x\right\}, \sF \right)$ such that $p\circ j = \Id_\sX$ then the family $\left\{j\left(x\right)\in A_x\right\}$ is  continuous.
+		\item [(i)] If $p:\mathscr T\left(\sX, \left\{A_x\right\}, \sF \right) \to\sX$  is the	total projection and $j : \sX\to \mathscr T\left(\sX, \left\{A_x\right\}, \sF \right)$ is  a continuous map  such that $p\circ j = \Id_\sX$ then the family $\left\{j\left(x\right)\in A_x\right\}$ is  continuous.
 		\item[(ii)] 	 Conversely any continuous section $\left\{a_x\right\}$ corresponds to a continuous map 
 		\be\label{top_js_eqn}
 		\begin{split}
@@ -5471,14 +5492,14 @@ is said to be the \textit{total space for} $\left(\sX, \left\{A_x\right\}, \sF \
 \end{proof}
 \begin{definition}\label{ctr_restr_defn}
 	For any subset $\sV\subset \sX$ 
-	denote by  $C\left(\sV, \left\{A_x\right\}, \sF \right)$ the $\C$ space of continuous maps $j:\sV\to \mathscr T\left(\sX, \left\{A_x\right\}, \sF \right)$ such that if $p$ is the total projection then $p\circ j= \Id_\sV$. The space  $C\left(\sV, \left\{A_x\right\}, \sF \right)$ is said to be the $\sV$-\textit{restriction} of $C\left(\sX, \left\{A_x\right\}, \sF \right)$. 
+	denote by  $C\left(\sV, \left\{A_x\right\}, \sF \right)$ the $\C$ space of continuous maps $j:\sV\to \mathscr T\left(\sX, \left\{A_x\right\}, \sF \right)$ such that if $p$ is the total projection then $p\circ j= \Id_\sV$. The space  $C\left(\sV, \left\{A_x\right\}, \sF \right)$ is said to be the $\sV$-\textit{restriction} of $C\left(\sX, \left\{A_x\right\}, \sF \right)$. The natural $\C$-linear map $C\left(\sX, \left\{A_x\right\}, \sF \right)\to C\left(\sV, \left\{A_x\right\}, \sF \right)$ is said to be the \textit{restriction map}.
 \end{definition}
 \begin{empt}
-	Similarly to the equation \ref{top_norm_a_eqn} any $a\in C\left(\sV, \left\{A_x\right\}, \sF \right)$ yields a continuous map 
+	Similarly to the equation \eqref{top_norm_a_eqn} any $a\in C\left(\sV, \left\{A_x\right\}, \sF \right)$ yields a continuous map 
 	\be\label{top_rn_eqn}
 	\text{norm}_a:  \sV \to \R, \quad x \mapsto \left\|a_x \right\|.
 	\ee
-	Similarly to \eqref{top_norm_eqn} define $\left\|\cdot\right\|: C\left(\sX, \left\{A_x\right\},\sF\right)\to \left[0, \infty\right)$ given by
+	Similarly to \eqref{top_norm_eqn} define $\left\|\cdot\right\|: C\left(\sV, \left\{A_x\right\},\sF\right)\to \left[0, \infty\right)$ given by
 	\be\label{top_r_n_eqn}
 	\left\|a\right\|\bydef \left\|\text{norm}_a\right\|.
 	\ee
@@ -5498,8 +5519,9 @@ is said to be the \textit{total space for} $\left(\sX, \left\{A_x\right\}, \sF \
 \end{remark}
 
 
+
 \begin{lemma}\label{top_ax_k_lem}
-	Let $\sX$ be a locally compact, normal space; and for each $x$ in $\sX$, let $A_x$ be a (complex) Banach space. Let us consider a continuity structure $\sF$ for $\sX$ {and the} $\left\{A_x\right\}_{x \in \sX}$ (cf. Definition \ref{op_fields_defn}). If $\sY \subset \sX$ is compact then the restriction map $C_0\left(\sX, \left\{A_x\right\}, \sF \right) \to C\left(\sY, \left\{A_x\right\}, \sF \right)$ is surjective.
+	Let $\sX$ be a locally compact, normal space; and for each $x$ in $\sX$, let $A_x$ be a (complex) Banach space. Let us consider a continuity structure $\sF$ for $\sX$ {and the} $\left\{A_x\right\}_{x \in \sX}$ (cf. Definition \ref{op_fields_defn}). If $\sY \subset \sX$ is compact then the restriction map $C_0\left(\sX, \left\{A_x\right\}, \sF \right) \to C\left(\sY, \left\{A_x\right\}, \sF \right)$ (cf. Definition \ref{ctr_restr_defn}) is surjective.
 \end{lemma}
 \begin{proof}  
 	One needs prove that for any $a\in C\left(\sY, \left\{A_x\right\}, \sF \right)$ there is $b\in C\left(\sX, \left\{A_x\right\}, \sF \right)$ such that
@@ -6927,7 +6949,7 @@ The Theorem \ref{comm_fin_thm} yields a pure algebraic definition of the fundame
 
 
 \begin{empt}\label{top_r_fin_empt}
-	Let $\sX$ be a connected,  locally compact, second-countable, Hausdorff space, and let
+	Let $\sX$ be a connected,  locally compact, Hausdorff space, and let
 \be\label{top_sim_eqn}
 	\sX^\sim \bydef \begin{cases}
 	\sX & \sX \text{ is compact}\\
@@ -8528,7 +8550,7 @@ Following theorem gives universal  coverings of commutative $C^*$-algebras.
 
 
 \begin{cor}\label{comm_uni_lim_cor}
-	If $\left( \mathcal X, x_0\right)$ is	a connected, locally path connected, semilocally 1-connected,  locally compact, second-countable Hausdorff space such that the fundamental group $\pi_1\left(\sX, x_0 \right)$  is residually finite then following conditions hold:
+	If $\left( \mathcal X, x_0\right)$ is	a connected, locally path connected, semilocally 1-connected,  locally compact,  Hausdorff space such that the fundamental group $\pi_1\left(\sX, x_0 \right)$  is residually finite then following conditions hold:
 	\begin{enumerate}
 		\item [(i)] $C_0\left(\sX \right) $ {has the algebraical universal  covering}.
 		\item[(ii)] There is a pointed algebraical finite covering category $\left(\mathfrak{S}_{C_0\left( \sX\right) }, \left\{C_0\left(p^\mu_\nu \right) \right\} \right)$ and the natural  
@@ -12768,12 +12790,14 @@ The set $\sV_{   \a}$ is compact because it is a closed subset of $\sV_x$.
 		\item [(iii)] For all $\a \in \mathscr A$ any finitely generated projective Hilbert $C\left(\sV_{   \a}\right)$-module is self-dual (cf. Definition \ref{hm_selfdual_defn}).
 		\item[(iv)] The $\left.A\right|^{\sV_\a}$-$C(\sV_\a)$-imprimitivity bimodule $\left.A\right|^{\sV_\a}\left.p\right|^{\sV_\a}\cong X_{C\left(\sV_{   \a}\right)}$ is countably generated over $C(\sV_\a)$.
 	\end{enumerate}
-	If the space $\sX$ is second-countable then from the Theorem \ref{comm_sep_thm} it follows that the $C^*$-algebra $C\left(\sV_{   \a}\right)$ is separable. From the Theorems \ref{hm_di_mi_thm} and \ref{hm_sep_di_thm} it follows that for all $\a \in \mathscr A$ any finitely generated projective Hilbert $C\left(\sV_{   \a}\right)$-module is self-dual (cf. Definition \ref{hm_selfdual_defn}), i.e.
-	$$
-\sX \text{ is second-countable } \Rightarrow \text{ condition (iii) holds}.
-	$$
 \end{empt}
-\begin{theorem}\label{ctr_ctr_main_thm} Consider the situation \ref{ctr_bas_empt} 	If  $	\mathfrak{S}^{\mathrm{pt}}_A$ is the given by  \eqref{ctr_base_point_eqn} pointed	algebraical  finite covering category and $\left(A, \widetilde A, 	G\left(\left.\widetilde{\sX}~\right| \sX\right)\right)$ the  {infinite noncommutative covering} of $\mathfrak{S}_A^{\mathrm{pt}}$ (cf. Definition \ref{main_defn} and Theorem \ref{ctr_h_main_thm}), then one has:
+\begin{remark}\label{ctr_bas_rem}
+	If the space $\sX$ is second-countable then from the Theorem \ref{comm_sep_thm} it follows that the $C^*$-algebra $C\left(\sV_{   \a}\right)$ is separable. From the Theorems \ref{hm_di_mi_thm} and \ref{hm_sep_di_thm} it follows that for all $\a \in \mathscr A$ any finitely generated projective Hilbert $C\left(\sV_{   \a}\right)$-module is self-dual (cf. Definition \ref{hm_selfdual_defn}), i.e.
+$$
+\sX \text{ is second-countable } \Rightarrow \text{ condition (iii) holds}.
+$$
+\end{remark}
+\begin{theorem}\label{ctr_ctr_main_thm} Consider the situation \ref{ctr_bas_empt} and suppose that the space $\sX$ is second-countable. 	If  $	\mathfrak{S}^{\mathrm{pt}}_A$ is the given by  \eqref{ctr_base_point_eqn} pointed	algebraical  finite covering category and $\left(A, \widetilde A, 	G\left(\left.\widetilde{\sX}~\right| \sX\right)\right)$ the  {infinite noncommutative covering} of $\mathfrak{S}_A^{\mathrm{pt}}$ (cf. Definition \ref{main_defn} and Theorem \ref{ctr_h_main_thm}), then one has:
 	\begin{enumerate}
 		\item [(i)] 	\be\label{ctr_ctr_main_eqn}
 	\widetilde A \cong	A_0\left(\widetilde \sX \right)
@@ -12809,9 +12833,9 @@ $$
 a_\la \bydef \sum_{	g \in G_\la } \overline a  \in A_0\left(\sX_\la \right)  
 $$
 (cf. \eqref{spec_a_eps_imp_eqn}) then $f_\a a_\la\in \left.A_0\left(\sX_\la \right)\right|_{p^{-1}_\la\left( \sU_\a\right) }$. On the other hand since $\sV_\a$  is a closure of $\sU_\a$ there is an inclusion  $\left.A_0\left(\sX_\la \right)\right|_{p^{-1}_\la\left( \sU_\a\right)} \subset \left.A_0\left(\sX_\la \right)\right|^{p^{-1}_\la\left( \sV_\a\right)}$ where  $\left.A_0\left(\sX_\la \right)\right|^{p^{-1}_\la\left( \sV_\a\right)}$ is given by the equation \eqref{closed_ideal_eqn}. For any  $\la\in\La$ one  has $\left.A_0\left(\sX_\la \right)\right|^{p^{-1}_\la\left( \sV_\a\right)}\cong \K\left(X_{p^{-1}_\la\left( \sV_\a\right)} \right)$ where  $X_{p^{-1}_\la\left( \sV_\a\right)}\bydef \lift_{p_\la|_{\sV_\a}}\left[X_{C\left(\sV_\a\right)}\right] $, and   
-$\K\left(X_{p^{-1}_\la\left( \sV_\a\right)} \right)\cong \lift_{p_\la|_{\sV_\a}}\left[\K\left( X_{C\left(\sV_\a\right)}\right) \right]$. Similarly to \ref{top_coh_empt} for any $\la\in\La$ there is an injective *-homomorphism $\K\left( X_{C\left(\sV_\a\right)}\right)\hookto \K\left(X_{p^{-1}_\la\left( \sV_\a\right)} \right)$. Let   $\widehat{G}\bydef \varprojlim_{\la \in \La} G\left(
+$\K\left(X_{p^{-1}_\la\left( \sV_\a\right)} \right)\cong \lift_{p_\la|_{\sV_\a}}\left[\K\left( X_{C\left(\sV_\a\right)}\right) \right]$. Similarly to \ref{top_coh_empt} for any $\la\in\La$ there is an injective *-homomorphism\\ $\K\left( X_{C\left(\sV_\a\right)}\right)\hookto \K\left(X_{p^{-1}_\la\left( \sV_\a\right)} \right)$. Let   $\widehat{G}\bydef \varprojlim_{\la \in \La} G\left(
 \left.  \sX_\la~ \right|\sX\right)$ be the projective limit of groups and let $G_\la \bydef \ker\left(  \widehat G\to  G\left(\left.\sX_\la~\right|~\sX \right)\right)$. Let $\K\left(X_{p^{-1}_\la\left( \sV_\a\right)}\right)^\sim$ be given by \eqref{unital_notation_eqn}. 
-If  $\overline a \in B\left( \widehat\H_a\right)$ is such that for any $\la_0 \in \La$, $\eps > 0$ and  $z \in \K\left(X_{C\left(\sX_{\la_0}\right)}\right)^{\sim}\cong \left( \left.A\left( \sX_{\la_0}\right)\right|^{p^{-1}_{\la_0}\left( \sV_\a\right)}\right)^\sim$.  On the other hand from the Lemma \ref{top_ax_k_lem} it turns out that there is a surjective map $\left.A\left( \sX_{\la_0}\right)\right.^\sim\to \left( \left.A\left( \sX_{\la_0}\right)\right|^{p^{-1}_{\la_0}\left( \sV_\a\right)}\right)^\sim$. If $z$ is is the image of $y \in \left.A\left( \sX_{\la_0}\right)\right.^\sim$ then from $\supp f_\a a_\la \subset p^{-1}_{\la}\left( \sV_\a\right)$ it follows that
+If  $\overline a \in B\left( \widehat\H_a\right)$ is such that for any $\la_0 \in \La$, $\eps > 0$ and  $z \in \K\left(X_{C\left(\sX_{\la_0}\right)}\right)^{\sim}\cong \left( \left.A\left( \sX_{\la_0}\right)\right|^{p^{-1}_{\la_0}\left( \sV_\a\right)}\right)^\sim$.  On the other hand since $\sX$ is second-countable, therefore it is normal (cf. Theorem \ref{top_sc_regular_normal_thm}), so from the Lemma \ref{top_ax_k_lem} it turns out that there is a surjective map $\left.A\left( \sX_{\la_0}\right)\right.^\sim\to \left( \left.A\left( \sX_{\la_0}\right)\right|^{p^{-1}_{\la_0}\left( \sV_\a\right)}\right)^\sim$. If $z$ is is the image of $y \in \left.A\left( \sX_{\la_0}\right)\right.^\sim$ then from $\supp f_\a a_\la \subset p^{-1}_{\la}\left( \sV_\a\right)$ it follows that
 $$
 z^*  f_\a a_\la z = y^*  f_\a a_\la y
 $$
@@ -17003,7 +17027,7 @@ where $\Coo\left( SO_q\left(3\right)\right)= C\left( SO_q\left(3\right)\right)\b
 	% \begin{definition}\cite{munkres:topology}
 	%If a space $\sX$ has a countable basis for its topology, then $\sX$ is said to satisfy the \textit{second countability axiom}, or to be \textit{second-countable}.
 	% \end{definition}
-	\begin{definition}\cite{munkres:topology}
+	\begin{definition}\label{top_normal_defn}\cite{munkres:topology}
 		Suppose that one-point sets are closed in $\sX$. Then $\sX$ is said to be  
 		\textit{regular} if for each pair consisting of a point $x$ and a closed set $B$ disjoint from $x$, there
 		exist disjoint open sets containing $x$ and $B$ respectively. The space $\sX$ is said to be
@@ -17174,7 +17198,7 @@ where $\Coo\left( SO_q\left(3\right)\right)= C\left( SO_q\left(3\right)\right)\b
 	\begin{definition}\label{f_topology_defn}\cite{rudin:fa}
 		Suppose next that $\sX$ is a set and $\mathscr F$ is a nonempty family of mappings $f: \sX \to \sY_f$, where each $\sY_f$ is a topological space. (In many important cases, $\sY_f$ is the same for all $f \in \mathscr F$.) Let $\tau$ be the collection of all unions of finite intersections of sets $f^{-1}\left(\sV  \right)$ with $f\in \mathscr F$ and $\sV$ open in $\sY_f$. Then $\tau$ is a topology on $\sX$, and it is in fact the weakest topology on $\sX$ that makes every 
 		$f\in \mathscr F$ continuous: If $\tau'$ is any other topology with that property, then $\tau\subset\tau'$. This $\tau$ is called the \textit{weak topology on} $\sX$ \textit{induced by} $\mathscr F$, or, more 
-		succinctly, the $\mathscr F$-\textit{topology of} $\sX$.
+		shortly, the $\mathscr F$-\textit{topology of} $\sX$.
 	\end{definition}
 	\begin{definition}\label{top_locally_contractible_defn}
 		A topological space $\sX$ is said to be 
