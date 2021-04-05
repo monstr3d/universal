@@ -2620,7 +2620,7 @@ Consider the given by the Corollary \ref{lift_unique_cor} situation. If $f: [0,1
    	Any subalbebra $A$ of  $C^*$-algebra naturally yields a {sub-unital} operator space which is $\left(A, A \right)$ is $A$ is unital and $\left(A, A^+ \right)$ otherwise.
    \end{remark}
    \begin{definition}\label{op_sum_space_defn}
-   	If both  $\left(X, Y \right)$ and $\left(\widetilde X, \widetilde Y \right)$ are {sub-unital} operator spaces then \textit{complete isometry} from $\left(X, Y \right)$ to $\left(\widetilde X, \widetilde Y \right)$  is a complete unital isometry $\pi_Y: Y \hookto \widetilde Y$ such that $\pi_Y\left(X \right) \subset \widetilde X$. We write
+   	If both  $\left(X, Y \right)$ and $\left(\widetilde X, \widetilde Y \right)$ are {sub-unital} operator spaces then a \textit{complete isometry} from $\left(X, Y \right)$ to $\left(\widetilde X, \widetilde Y \right)$  is a complete unital isometry $\pi_Y: Y \hookto \widetilde Y$ such that $\pi_Y\left(X \right) \subset \widetilde X$. We write
    	\be\label{op_sum_space_eqn}
    	\begin{split}
    	\left( \pi_X: X  \hookto \widetilde X\right) \stackrel{\text{def}}{=} \left.\pi_Y\right|_X;\\
@@ -2641,6 +2641,9 @@ Consider the given by the Corollary \ref{lift_unique_cor} situation. If $f: [0,1
    \begin{remark}\label{op_su_env_rem}
    If  {sub-unital} operator space $\left(A, A \right)$ or $\left(A, A^+ \right)$ is given by Remark \ref{sub_alg_rem} then we say that $C^*_e\left(A, A \right)$ or $C^*_e\left(A, A^+ \right)$ is the $C^*$-\textit{envelope}  of $A$ and we denote it by $C^*_e\left(A\right)$.
    \end{remark}
+%\begin{definition}\label{op_su_inc_defn}
+%Let    $\left(X, Y \right)$ be {sub-unital} operator space, and let $A$ be $C^*$-algebra. If  $A^+$ is a minimal unitization of $A$ (cf. Definition \ref{multiplier_min_defn}) then the complete isometry $j:Y\hookto A^+$ is said to be an \textit{inclusion} of $\left(X, Y \right)$ into $A$ if $j\left(X\right)\subset A$.
+%\end{definition}
    \begin{definition}\label{fin_op_defn}
    Let both $\left(X, Y \right)$ and $\left(\widetilde X, \widetilde Y \right)$ be {sub-unital} operator spaces and let $\left(\pi_X, \pi_Y \right):  \left(X, Y \right) \hookto \left(\widetilde X, \widetilde Y \right)$ be a {complete isometry} from  $\left(X, Y \right)$ to $\left(\widetilde X, \widetilde Y \right)$.
    If  the following conditions hold:
@@ -11039,11 +11042,11 @@ From the Remark \ref{nc_loop_rem} it follows that $\sY^{\mathrm{ab}}\cong \Om\sX
  \ee  
  (cf. Definition \ref{top_sec_p_defn})
  of all  transitive finite-fold pointed coverings. From the Lemma \ref{top_res_fin_lem} it turns out that the pointed space $\left( \widetilde{\sY}^{\mathrm{ab}} , \widetilde{y}_0 \right)$ is the topological inverse noncommutative limit of $\mathfrak{S}_{\left( \sY^{^{\mathrm{ab}}}, y_0 \right) }$  (cf. Definition \ref{top_topological_inv_lim_defn}). From the Lemma \ref{blowing_base_point_lem}
-there is a pointed	algebraical  finite covering category (cf. Definition \ref{comp_defn}) given by		
+there is a pointed	algebraical  finite covering category (cf. Definition \ref{comp_pt_defn}) given by		
 \begin{equation}\label{ho_gr_poinded_cat_eqn}
 	\mathfrak{S}^{\mathrm{pt}}_{A } = \left\{\left\{\pi_\la=A_0\left( q_{\la}\right) :A  \hookto A_0\left(\sY^{\mathrm{ab}}_\la\right) \right\}_{\la \in \La}\left\{\pi^\mu_\nu\right\}_{\substack{\mu, \nu \in \La\\\mu\le\nu}}\right\}\in \mathfrak{FinAlg}.
 \end{equation}
-From the Lemma \ref{h_gr_free_lem} it turns out that the category \eqref{ho_gr_poinded_cat_eqn} is equivalent to the category of all free noncommutative coverings of $A$.
+From the Lemma \ref{h_gr_free_lem} it turns out that the category \eqref{ho_gr_poinded_cat_eqn} is equivalent to the category of all free noncommutative coverings of $A$ (cf. Definitions \ref{fin_defn}, \ref{fin_free_defn}).
 \end{empt}
 \begin{theorem}\label{ho_gr_thm}
 
@@ -11055,7 +11058,7 @@ From the Lemma \ref{h_gr_free_lem} it turns out that the category \eqref{ho_gr_p
 \end{theorem}
 \begin{proof}
 Follows from the equations \eqref{ho_gr_p1_p2_eqn}
-and (ii) of the Theorem \ref{blowing_main_thm}.
+and (iii) of the Theorem \ref{blowing_main_thm}.
 \end{proof}
 
 
@@ -11311,8 +11314,17 @@ Here we find a relation between  noncommutative finite-fold coverings of $C^*$-a
 		\item [(a)] The strict limit 	$\bt\text{-}\lim_{\la \in \La} u_\la = 1_{M\left(A \right) }$	 directly follows from the strict limit $\bt\text{-}\lim_{\la \in \La} u_\la\otimes 1_{\K^+} = 1_{M\left(A \otimes\K\right) }$ 	.
 		\item[(b)]Follows from (ii) of the Lemma \ref{stable_fin_cov_comp_lem}.
 	\end{enumerate}
-!!! CONNECTED ADD
 \end{proof}
+
+\begin{remark}\label{stable_fin_cov_rem}
+In the situation of the Theorem \ref{stable_fin_cov_thm} the reader can check that   the  quadruple $\left( A, \widetilde{A}, G, \pi\right)$ is a  {connected noncommutative finite-fold  covering} if and only if the noncommutative finite-fold  covering
+$
+\left( A \otimes \K, \widetilde{A}  \otimes \K, G, \pi  \otimes 1_{K^+} \right)
+$
+is also connected (cf. Definition \ref{fin_defn}).
+\end{remark}
+
+
 \section{Infinite coverings}
 
 \paragraph*{} Here we find a relation between infinite noncommutative coverings of $C^*$-algebras and their stabilizations.
@@ -11744,14 +11756,13 @@ Denote by $\widehat{A} = C^*\text{-}\varinjlim A_\la$, $G_\la = G\left( A_\la ~|
 
 \chapter{Coverings of $C^*$-algebras with Hausdorff spectrum}\label{ctr_chap}
 \paragraph*{}
-The notion of the operator space with continuous trace is a generalization of the notion of the $C^*$-algebra with continuous trace (cf. Section \ref{ctr_oa_sec}). Here we consider noncommutative coverings of these spaces.
+ The notion of the operator space with Hausdorff spectrum is a  generalization of $C^*$-algebra with Hausdorff spectrum. (cf. Section \ref{ctr_oa_sec}). Here we consider noncommutative coverings of these spaces.
 
 \section{Operator spaces with Hausdorff spectrum}\label{ctr_oa_sec}
-Operator space with continuous trace it generalization of $C^*$-algebra with continuous trace.
-
+\paragraph*{} Here  operator spaces  with Hausdorff spectrum are defined.
 \begin{empt}\label{ctr_oa_empt}
 	
-If $A$ be a $C^*$-algebra, such that the spectrum $\sX$  of $A$ is Hausdorff then $A$ is a $CCR$-algebra (cf. Remark \ref{ctr_open_res_rem}). From the Corollary \ref{ctr_ccr_i_cor} it follows that $A$ is  $C^*$-algebra of  type I and its primitive spectrum coincides with its prime spectrum (cf. Theorem \ref{ctr_hat_check_thm}).
+If $A$ be a $C^*$-algebra, such that the spectrum $\sX$  of $A$ is Hausdorff then $A$ is a $CCR$-algebra (cf. Remark \ref{ctr_open_res_rem}). From the Corollary \ref{ctr_ccr_i_cor} it follows that $A$ is  $C^*$-algebra of  type I and its primitive spectrum coincides with its prime one (cf. Theorem \ref{ctr_hat_check_thm}).
 There is the given by the Dauns Hofmann theorem action
 \be\label{ctr_oa_act_eqn}
 \begin{split}
@@ -11763,17 +11774,17 @@ There is the given by the Dauns Hofmann theorem action
 \end{empt}
 
 \begin{definition}\label{ctr_oa_defn}
-Let $A$ be a  $C^*$-algebra which has continuous trace. We say that a {sub-unital subspace} $\left(X, Y\right)$ of $A$ (cf. Definition \ref{op_su_space_defn}) \textit{continuous trace operator space} if following conditions hold:
+Let $\left(X, Y\right)$ be a sub-untal operator space (cf. Definition \ref{op_su_space_defn}). Let $A$ be a  $C^*$-algebra Hausdorff spectrum, and let $\left(\pi_X, \pi_Y \right):\left(X, Y\right)\hookto \left(A, A^+\right)$ be a  complete isometry (cf. Definition \ref{op_sum_space_defn}). We say that  $\left(X, Y\right)$ is an \textit{operator space with Hausdorff spectrum} if following conditions hold:
 \begin{enumerate}
-	\item[(a)] If $\sX$ is the spectrum of $A$ then one has $C_0\left(\sX\right)\times X \subset X$ where the action  $C_0\left(\sX\right) \times A \to A$ is given by  the Dauns Hofmann theorem (cf. \eqref{ctr_oa_act_eqn}).
+	\item[(a)] If $\sX$ is the spectrum of $A$ then one has $C_0\left(\sX\right)\times X \subset X$ where the action  $C_0\left(\sX\right) \times A \to A$ is given by  the Dauns Hofmann theorem (cf. equation \eqref{ctr_oa_act_eqn}).
 	\item[(b)] For any  $x \in \sX$ if both $X_x$ and $Y_x$ are $C^*$-norm completions of $\rep_x\left(X\right)$ and $\rep_x\left(Y\right)$ respectively then  the $C^*$-algebra $\rep_x\left(A\right)$ is the $C^*$-envelope of  $\left( X_x, Y_x\right)$, i.e. $\rep_x\left(A\right)= C^*_e\left( X_x, Y_x \right)$ (cf. Definition \ref{op_su_env_defn}).
 \end{enumerate}
 \end{definition}
 \begin{lemma}\label{ctr_oa_lem}
-	In the situation of the Definition \ref{ctr_oa_defn} $A$ is the $C^*$-envelope of $\left(X, Y \right)$ (cf. Definition \ref{op_su_env_defn}), i.e. $A = C^*_e\left(X, Y \right)$. 
+	In the situation of the Definition \ref{ctr_oa_defn} the $C^*$-algebra $A$ is the $C^*$-envelope of $\left(X, Y \right)$ (cf. Definition \ref{op_su_env_defn}), i.e. $A = C^*_e\left(X, Y \right)$. 
 \end{lemma}
 \begin{proof}
-	Firstly we prove that the minimal unitization $A^+$ (cf. Definition \ref{multiplier_min_defn}) of $A$  is the $C^*$-envelope of $Y$.  Denote by $k: Y \hookto A^+$ the natural inclusion. If $\left( C^*_e\left(Y\right) , j\right)$ is the $C^*$-envelope of $Y$ then from the Definition  \ref{c_env_sp_defn} it follows that there is the surjective unital *-homomorphism  $\pi: A^+ \to  C^*_e\left(Y\right)$ such that $j = \pi\circ k$. If we represent $A^+ = \C~ 1_{A^+} \oplus A$ then clearly $\ker \pi \subset 0 \oplus A \cong A$. If $\ker\pi \neq \{0\}$ then $\ker \pi$ is a closed ideal which corresponds to an a nonempty open subset $\sU \subset \sX$ where $\sX$ is the spectrum of $A$ (cf. Theorem  \ref{jtop_thm}). If $x_0 \in \sU$ is any point then from (b) of the Definition \ref{ctr_oa_defn} there is $a \in X$ such that $\rep_{x_0} \left( a\right)\neq 0$. Since $\sX$ is Hausdorff there is $f \in C_0\left(\sX\right)$ such that $f\left(x_0\right)= 1$ and $\supp f \subset \sU$. Clearly $fa \neq 0$. From (a) of the Definition \ref{ctr_oa_defn} it follows that $fa \in Y$, otherwise one has $k\left( fa\right)  \in \ker \pi$. Hence $\pi \circ k$ is not injective, so there is a contradiction. It turns out that $\ker \pi =  \{0\}$, i.e. $\pi$ is injective. Otherwise $\pi$ is surjective  the Definition  \ref{c_env_sp_defn}, hence $\pi: A^+ \cong   C^*_e\left(Y\right)$ is an isomorphism.
+	Firstly we prove that the minimal unitization $A^+$ (cf. Definition \ref{multiplier_min_defn}) of $A$  is the $C^*$-envelope of $Y$.  Denote by $k: Y \hookto A^+$ the natural inclusion. If $\left( C^*_e\left(Y\right) , j\right)$ is the $C^*$-envelope of $Y$ then from the Definition  \ref{c_env_sp_defn} it follows that there is the surjective unital *-homomorphism  $\pi: A^+ \to  C^*_e\left(Y\right)$ such that $j = \pi\circ k$. If we represent $A^+ = \C~ 1_{A^+} \oplus A$ then clearly $\ker \pi \subset 0 \oplus A \cong A$. If $\ker\pi \neq \{0\}$ then $\ker \pi$ is a closed ideal which corresponds to an a nonempty open subset $\sU \subset \sX$ where $\sX$ is the spectrum of $A$ (cf. Theorem  \ref{jtop_thm}). If $x_0 \in \sU$ is any point then from (b) of the Definition \ref{ctr_oa_defn} there is $a \in X$ such that $\rep_{x_0} \left( a\right)\neq 0$. Since the space $\sX$ is Hausdorff there is $f \in C_0\left(\sX\right)$ such that $f\left(x_0\right)= 1$ and $\supp f \subset \sU$. Clearly $fa \neq 0$. From (a) of the Definition \ref{ctr_oa_defn} it follows that $fa \in Y$, otherwise one has $k\left( fa\right)  \in \ker \pi$. Hence $\pi \circ k$ is not injective, so there is a contradiction. It turns out that $\ker \pi =  \{0\}$, i.e. $\pi$ is injective. Otherwise $\pi$ is surjective  the Definition  \ref{c_env_sp_defn}, hence $\pi: A^+ \cong   C^*_e\left(Y\right)$ is an isomorphism.
 	
 	 Secondly we prove that $A = C^*_e\left(X, Y \right)$. Denote by $A' \stackrel{\text{def}}{=} C^*_e\left(X, Y \right) \subset  C^*_e\left(Y \right)$. Let us prove that $A'$ is a $C_0\left(\sX\right)$-module. Select $f \in C_0\left( \sX\right)$. 	 
 	For any $a' \in A'$ and $\eps > 0$ there is a polynomial
@@ -11802,7 +11813,7 @@ Let $A$ be a  $C^*$-algebra which has continuous trace. We say that a {sub-unita
  \be\label{ctr_au_iso_eqn}
  \left.A\right|_\sU \cong A_\sU.
  \ee
- where both  $\left.A\right|_\sU$ and $A_\sU$ are given by the equations \eqref{open_ideal_eqn} and \ref{blowig_su_eqn} respectively.
+ where both  $\left.A\right|_\sU$ and $A_\sU$ are given by the equations \eqref{open_ideal_eqn} and \eqref{blowig_su_eqn} respectively.
   \end{exercise}
   \begin{definition}\label{ctr_funct_not_defn}
   	Let us consider the specialization of the Definitions \ref{top_cs_funct_defn} and \ref{top_cs_funct_b_defn} where $A = \left( \sX, \left\{A_x\right\}_{x \in \sX}, \sF\right)$ is given by \eqref{ctr_as_field_eqn}.
