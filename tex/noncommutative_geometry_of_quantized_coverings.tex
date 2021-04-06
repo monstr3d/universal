@@ -1533,7 +1533,7 @@ g \left(\bt\text{-}\lim a_\a \right) \bydef \bt\text{-}\lim g a_\a.
 
 
 \begin{definition}\label{fin_defn}
-A noncommutative finite-fold  pre-covering  $\left(A, \widetilde{A}, G, \pi \right)$  of $C^*$-algebra $A$  is said to be   a \textit{disconnected noncommutative finite-fold covering} if there is an increasing net $\left\{u_\la\right\}_{\la\in\La}\subset M\left( A\right)_+ $  of positive elements such that
+A noncommutative finite-fold  pre-covering  $\left(A, \widetilde{A}, G, \pi \right)$  of a connected (cf. Definition \ref{conn_c_a_defn}) $C^*$-algebra $A$  is said to be   a \textit{disconnected noncommutative finite-fold covering} if there is an increasing net $\left\{u_\la\right\}_{\la\in\La}\subset M\left( A\right)_+ $  of positive elements such that
 \begin{enumerate}
 	\item[(a)] There is the limit 
 \be\label{fin_u_eqn}
@@ -1546,7 +1546,7 @@ A noncommutative finite-fold  pre-covering  $\left(A, \widetilde{A}, G, \pi \rig
 	$$
 	is a noncommutative finite-fold covering with unitization. The action 	$G \times \widetilde{A}_\la\to \widetilde{A}_\la$, is the restriction on $\widetilde{A}_\la\subset \widetilde{   A}$ of the action $G\times  \widetilde{A}\to \widetilde{A}$.
 \end{enumerate}
-If 	the $C^*$-algebra $\widetilde A$ is connected (cf. Definition \ref{conn_c_a_defn}) then $\left(A, \widetilde{A}, G, \pi \right)$  of $C^*$-algebras $A$ and $\widetilde{A}$  is said to be   a \textit{noncommutative finite-fold covering}.
+If 	the $C^*$-algebra $\widetilde A$ is connected (cf. Definition \ref{conn_c_a_defn}) then $\left(A, \widetilde{A}, G, \pi \right)$  of $C^*$-algebras $A$ and $\widetilde{A}$  is said to be   a \textit{(connected) noncommutative finite-fold covering}.
 
 \end{definition}
 
@@ -1621,6 +1621,29 @@ If 	the $C^*$-algebra $\widetilde A$ is connected (cf. Definition \ref{conn_c_a_
 \begin{remark}
 	There are alternative theories of noncommutative coverings (e.g. \cite{clarisson:phd}), however I do not know the theory which gives a good definition of the fundamental group (cf. Remark \ref{comm_comm_rem}).
 \end{remark}
+\begin{definition}\label{fin_cat_defn}
+For any connected $C^*$-algebra $A$ consider a \textit{category of noncommutative finite-fold coverings} of $A$ $\mathfrak{FinCov}$-$A$ such that following conditions hold.
+\begin{itemize}
+	\item [(i)]  Objects of $\mathfrak{FinCov}$-$A$ are connected finite-fold noncommutative coverings $\pi: A \hookto \widetilde A$ (cf. Definition \ref{fin_defn}).
+	\item[(ii)] A morphism from $\pi': A \hookto \widetilde A'$ to $\pi'': A \hookto \widetilde A''$ is an injective *-homomorphism $\pi: \widetilde A''\hookto \widetilde A'$ such that the following diagram 
+			\newline
+	\begin{tikzpicture}
+		\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
+		{
+		\widetilde A'  & & A'' \\ 
+			& A  & \\};
+		\path[-stealth]
+		(m-1-3) edge node [above] {$\pi$} (m-1-1)
+		(m-2-2) edge node [left]  {$\pi'~~$} (m-1-1)
+		(m-2-2) edge node [right] {$~~\pi''$} (m-1-3);
+	\end{tikzpicture}
+	\\ 	
+is commutative.	
+\end{itemize}
+We say that $\mathfrak{FinCov}$-$A$ is the \textit{category of finite-fold coverings} of $A$. 
+Sometimes we write $\widetilde A$ instead of $\pi: A \hookto \widetilde A$ to designate an object of $\mathfrak{FinCov}$-$A$.
+We denote by $\mathfrak{FinCov}^\text{red}$-$A$, $\mathfrak{FinCov}^\text{free}$-$A$ the subcategories of reduced (cf. Definition \ref{fin_red_defn}) and free (cf. Definition \ref{fin_free_defn}) coverings respectively.
+\end{definition}
 \subsection{Coverings of *-algebras and quasi *-algebras}
 \begin{definition}\label{fin_pre*_defn}
 	Let $\pi: A \hookto \widetilde{A}$ be an injective  *-homomorphism of % connected
@@ -2125,6 +2148,13 @@ There is  an isomorphism  $\widetilde{A} \approx A \bigoplus P$ of $A$-modules t
  	$$
  	is a hereditary algebra of $\widetilde{A}$ which contains $\pi\left( A\right) $ and $\widetilde{A}'\subsetneqq \widetilde{A}_{\text{red}}$.
  \end{rem}
+\begin{remark}
+The equality  	\ref{red_inc_eqn} can be rewritten by the following way
+\be\label{red_incp_eqn}
+\rep_{ \widetilde{x}}\left(\widetilde{A}_{\text{red}} \right) \cong \rep_{ p\left( \widetilde{x}\right) }\left(A\right)
+\ee
+where the continuous map $p: \widetilde\sX \to \sX$ is given by the Lemma \ref{cov_spectrum_lem}.
+\end{remark}
  \begin{rem}\label{red_sp_rem}
  	From the Lemma \ref{cov_spectrum_lem} and the Proposition \ref{hered_spectrum_prop} it follows that the spectrum of $\widetilde{A}_{\text{red}}$ coincides with the spectrum of $\widetilde{A}$ as a topological space. If $\widetilde{\sX}$ is the spectrum of both $\widetilde{A}_{\text{red}}$ and $\widetilde{A}$ then the inclusion $G \hookto  \Aut\left(\widetilde A \right)$ induces a homomorphism
  	$$
@@ -2762,7 +2792,7 @@ Similarly to definition \ref{fin_loc_op_defn} one can define a finite-fold nonco
 %	\begin{enumerate}
 %		\item[(a)] $\left(B, \widetilde{B}, G \right)$ is noncommutative finite-fold covering (cf. Definition \ref{fin_defn}).
 %				\item[(b)]  $\widetilde A$ is a maximal among subalgebras $\widetilde{A}' \subset \widetilde{B}$ such that  $G\widetilde{A}'= \widetilde{A}'$ and $\widetilde{A}'\cap B= A$.
-%			!!!! If 	$\widetilde B \subset C^*_e\left(\widetilde{A}\right)$ is a subalgebra such that $\widetilde B\cap C^*_e\left({A}\right)= A$ then $\widetilde B \subset \widetilde A$.
+%		 If 	$\widetilde B \subset C^*_e\left(\widetilde{A}\right)$ is a subalgebra such that $\widetilde B\cap C^*_e\left({A}\right)= A$ then $\widetilde B \subset \widetilde A$.
 %				\end{enumerate}
 %	Then we say that the triple $\left(A, \widetilde{A}, G \right)$ and/or the quadruple $\left(A, \widetilde{A}, G, \pi \right)$ and/or *-homomorphism $\pi: A \hookto \widetilde{A}$   is a \textit{noncommutative finite-fold covering of operator algebras}. 
 %\end{definition}
@@ -6032,7 +6062,7 @@ Consider the above situation. If   $\sY \subset \sX$ is compact then the followi
 	\end{itemize}
 \end{empt}
 \begin{definition}\label{top_cs_funct_defn}
-	The described in \ref{top_cs_funct_empt} contravariant functor $A_0$   is from the category  the category  $\mathfrak{FinCov}$-$\sX$ to the category of $C^*$-algebras and *-homomorphisms is said to by the \textit{finite covering functor associated with} $A = \left(\sX, \left\{A_x\right\}_{x \in \sX}, \sF \right)$.
+	The described in \ref{top_cs_funct_empt} contravariant functor $A_0$    from the category  the category  $\mathfrak{FinCov}$-$\sX$ to the category of $C^*$-algebras and *-homomorphisms is said to by the \textit{finite covering functor associated with} $A = \left(\sX, \left\{A_x\right\}_{x \in \sX}, \sF \right)$.
 \end{definition}
 
 \begin{definition}\label{top_cs_funct_b_defn}
@@ -6085,9 +6115,10 @@ Consider the above situation. If   $\sY \subset \sX$ is compact then the followi
 \begin{definition}\label{top_c_funct_defn} 
 	Consider the finite covering functor associated with $$A = \left( \sX, \left\{\C_x\right\},C_0\left(\sX\right)\right)$$ (cf. Definition \ref{top_cs_funct_defn}) from the category  $\mathfrak{FinCov}$-$\sX$ to the category of $C^*$- algebras and *-homomorphisms is said to be the \textit{finite covering algebraic functor}. We denote this functor by $C_0$. 
 	The restriction of $C_0$ on $\mathfrak{FinCov}$-$\left( \sX, x_0\right)$ is also said to be the \textit{finite covering algebraic functor} and also denoted by $C_0$.
-	
-	
 \end{definition}
+\begin{remark}
+The Definition \ref{top_c_funct_defn} is a specialization of the Definition \ref{top_cs_funct_defn}.
+\end{remark}
 \begin{remark}
 	If we use described in the Remark  \ref{top_fin_cov_rem} alternative notation then for any object  $p: \widetilde{\sX}  \to \sX$ of  $\mathfrak{FinCov}$-$\sX$ the value of $C_0$ coincides with $C_0\left( \widetilde{\sX} \right)$, i.e. this notation is tautological.  If $p^1_2: \widetilde\sX_1 \to \widetilde\sX_2$ is a morphism form $p_1:\widetilde\sX_1 \to \sX$ to $p_2:\widetilde\sX_2 \to \sX$, i.e. $p^1_2$ is a continuous map $p: \widetilde\sX_1 \to \widetilde\sX_2$ such that $p^1_2 \circ p_2 = p_1$ (cf. Definition \ref{top_fin_cov_defn}) then 
 	\be\label{top_c0_p_eqn}
@@ -7051,29 +7082,23 @@ of the sub-unital real operator space}  $\left(C_0\left(\sX, \R \right), C\left(
 
 \begin{lem}\label{top_functor_lem}
 	Let $\sX$ be a connected,  locally compact, Hausdorff space.
-	Denote by $\mathfrak{FinCov}$-$C_0\left(\sX \right)$ a category of noncommutative  finite-fold  coverings of $C_0\left(\sX \right)$,  i. e.
-	\begin{itemize}
-		\item  Objects of $\mathfrak{FinCov}$-$C_0\left(\sX \right)$ are noncommutative  finite-fold  coverings of $C_0\left(\sX \right)$.
-		\item If $\pi': C_0\left(\sX \right)\to  C_0\left( \widetilde{\sX}'\right)$ and  $\pi'':C_0\left(\sX \right) \to C_0\left( \widetilde{\sX}'' \right)$ are objects of $\mathfrak{FinCov}$-$C_0\left(\sX \right)$ then the morphism from $\pi'$ to $\pi''$ is an injective *-homomorphism $\pi: C_0\left( \widetilde{\sX}' \right) \to  C_0\left( \widetilde{\sX}'' \right)$ such that the following diagram commutative.
-		\newline
-		\begin{tikzpicture}
+	If $\mathfrak{FinCov}$-$C_0\left(\sX \right)$ a {category of noncommutative finite-fold coverings} of $C_0\left(\sX \right)$ (cf. Definition \ref{fin_cat_defn}) then following conditions hold:
+\begin{enumerate}
+	\item [(i)] !!! CHECK 	If the category $\mathfrak{FinCov}$-$\sX$ is given by the Definition \ref{top_fin_cov_defn} then the  functor $C_0:\mathfrak{FinCov}$-$\sX \to \mathfrak{FinCov}$-$C_0\left(\sX \right)$ is  the equivalence (cf. Definition \ref{category_equivalence_definition}) of categories.
+	\item[(ii)] Any unordered pair of *-homomorphisms $\left( \pi',\pi''\right) $ from the diagram
+			\newline
+	\begin{tikzpicture}
 		\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
 		{
-		C_0\left(\sX' \right)  & & C_0\left(\sX'' \right) \\ 
+			C_0\left(\sX' \right)  & & C_0\left(\sX'' \right) \\ 
 			& C_0\left(\sX \right)  & \\};
 		\path[-stealth]
-		(m-1-3) edge node [above] {$\pi$} (m-1-1)
+	%	(m-1-3) edge node [above] {$\pi$} (m-1-1)
 		(m-2-2) edge node [left]  {$\pi'~~$} (m-1-1)
 		(m-2-2) edge node [right] {$~~\pi''$} (m-1-3);
-		\end{tikzpicture}
-		\\ 	
-	\end{itemize}
-Following conditions hold:
-\begin{enumerate}
-	\item [(i)] 	If the category $\mathfrak{FinCov}$-$\sX$ is given by the Definition \ref{top_fin_cov_defn} then the contravariant functor $C_0:\mathfrak{FinCov}$-$\sX \to \mathfrak{FinCov}$-$C_0\left(\sX \right)$
- yields the equivalence (cf. Definition \ref{category_equivalence_definition}) between the  
-	category $\mathfrak{FinCov}$-$C_0\left(\sX \right)$ and the category $\mathfrak{FinCov}$-$\sX^{\mathrm{op}}$ which is dual to $\mathfrak{FinCov}$-$\sX$ (cf. Definition \ref{dual_cat_defn}).
-	\item[(ii)] Any unordered pair of *-homomorphisms $\left( \pi',\pi''\right) $ from the above diagram is {compliant} (cf. Definition \ref{compliant_covering_defn}).
+	\end{tikzpicture}
+	\\ 	
+	 is {compliant} (cf. Definition \ref{compliant_covering_defn}).
 \end{enumerate}
 
 \end{lem}
@@ -11829,7 +11854,7 @@ Let $\left(X, Y\right)$ be a sub-untal operator space (cf. Definition \ref{op_su
 Prove that the explained in the Definition \ref{ctr_funct_not_defn} notation  is equivalent to the notation of the Definition \ref{blowing_lift_desc_defn}  (cf. equations \eqref{ctr_ff_funct_not_eqn}  and \eqref{blowing_lift_desc_eqn}).
 \end{exercise}
 \begin{exercise}\label{blowing_ctr_exer}
-	Let $A$ be a $C^*$-algebra with Hausdorff spectrum.
+!!! UP\\	Let $A$ be a $C^*$-algebra with Hausdorff spectrum.
 	Prove that the given by the Example \ref{blowing_ctr_exm} Hausdorff blowing-up of $A$ is good and spectral (cf. Definitions \ref{blowing_good_defn}, \ref{blowing_spectal_defn}).
 \end{exercise}
 
@@ -11845,7 +11870,7 @@ Prove that the explained in the Definition \ref{ctr_funct_not_defn} notation  is
 
 Our following constructions require an analog of the Dini's theorem.
  \begin{lemma}\label{ctr_dini_lem}
-	Let $A$ be a {continuous-trace} $C^*$-\textit{algebra} (cf. Definition \ref{continuous_trace_c_a_defn}) having a compact spectrum $\sX$. Let $\La$ be a directed set, and let $\left\{a_\la\right\}_{\la\in\La}\subset A$ be a net (cf. Definition \ref{top_net_defn}) such that
+	Let $A$ be a  $C^*$-\textit{algebra}  having a compact Hausdorff spectrum $\sX$. Let $\La$ be a directed set, and let $\left\{a_\la\right\}_{\la\in\La}\subset A$ be a net (cf. Definition \ref{top_net_defn}) such that
 	\begin{itemize}
 		\item 
 		\be\label{ctr_sup_eqn}
@@ -11873,7 +11898,7 @@ Our following constructions require an analog of the Dini's theorem.
 	$$
 	\forall \mu, \nu \in \La \quad \mu \ge\nu\quad \Rightarrow \quad  \sX_\mu \supset  \sX_\nu.	
 	$$
- Fix $x\in \sX$. Since $\rep_x\left(b_\a\right) \to 0$
+ Fix $x\in \sX$. Since $\rep_x\left(b_\la\right) \to 0$
 	we see that $x\notin \sX_\la$ if $\la$ is sufficiently large. Thus $x \notin \bigcap \sX_\la$. In other words, 
 	$\bigcap   \sX_\la$ is empty. Hence $\sX_{\la_0}$ is empty for some $\la_0\in\La$ %(Theorem 2.36). 
 	It follows that  $0\le \left\|  \rep_x\left(b_\la\right)\right\| < \eps$ for all $x \in \sX$  and for all $\la\ge \la_0$. This proves the theorem.
@@ -11885,12 +11910,23 @@ Our following constructions require an analog of the Dini's theorem.
 \section{Finite-fold coverings}
 \subsection{Coverings of $C^*$-algebras}
 \subsubsection{Coverings of $C^*$-algebras with Hausdorff spectra}
+\begin{lemma}\label{ctr_fin_red_lem} 
+	If  $A$ is a $C^*$- algebra with Hausdorff spectrum $\sX$, such that $\sX$ is connected, locally connected then for any transitive covering $p: \widetilde \sX\to  \sX$ there is a  reduced finite-fold noncommutative covering $\left(A, A_0\left(\widetilde\sX\right), G \cong G\left( 
+		\left.\widetilde \sX\right|\sX\right), A_0\left(p \right) \right)$ (cf. Definitions \ref{fin_defn} and \ref{fin_red_defn}).
+\end{lemma}
+\begin{proof}
+	content...
+\end{proof}
+\begin{empt}
+Follows !!!
+\end{empt}
+
 \begin{lemma}\label{ctr_simply_connected_lem}
 	Let $A$ be  a  $C^*$-algebra with Hausdorff spectrum $\sX$. If $\sX$ is connected, locally connected, topologically simply connected (cf. Definition \ref{top_simp_conn_defn}) then $A$ is reducibly simply connected (cf. Definition \ref{simply_connected_red_defn}).
 \end{lemma}
 
 \begin{proof}
-	From the Example \ref{blowing_ctr_exm} and the Exercise  \ref{blowing_ctr_exer} it turns out that the natural Hausdorff blowing-up $C_0\left(\sX \right)\to M\left(A \right)$ is good. If $\left(A, \widetilde A, G, \pi\right)$ is a reduced finite-fold nonommutative covering (cf. Definitions \ref{fin_defn}, \ref{fin_red_defn}) and $\widetilde \sX$ is the spectrum of $\widetilde A$ then from the Lemma \ref{blowing_cov_lem} it follows that there is a transitive finite-fold covering $\widetilde\sX \to \sX$.  Since $\widetilde \sX$ is connected and $\sX$ is simply connected the map $\widetilde \sX\to \sX$ is a homeomorphism. The covering $p$ coincides with the given by the Lemma \ref{cov_spectrum_lem} continuous map. Since the covering $\left(A, \widetilde A, G, \pi\right)$ is a reduced one has $G \cong G\left( 
+	From the Example \ref{blowing_ctr_exm} and the Exercise  \ref{blowing_ctr_exer} it turns out that the natural Hausdorff blowing-up $C_0\left(\sX \right)\to M\left(A \right)$ is good. If $\left(A, \widetilde A, G, \pi\right)$ is a reduced finite-fold nonommutative covering (cf. Definitions \ref{fin_defn}, \ref{fin_red_defn}) and $\widetilde \sX$ is the spectrum of $\widetilde A$ then from the Lemma \ref{blowing_cov_lem} it follows that there is a transitive finite-fold covering $p:\widetilde\sX \to \sX$.  Since $\widetilde \sX$ is connected and $\sX$ is simply connected the map $p$ is a homeomorphism. The covering $p$ coincides with the given by the Lemma \ref{cov_spectrum_lem} continuous map. Since the covering $\left(A, \widetilde A, G, \pi\right)$ is a reduced one has $G \cong G\left( 
 	\left.\widetilde \sX\right|\sX\right)$ (cf. \eqref{g_red_inc_eqn} ). So $G$ is trivial and the covering  $\left(A, \widetilde A, G, \pi\right)$ is trivial.
 \end{proof}
 
@@ -11902,13 +11938,93 @@ If  $A$ is a $C^*$- algebra with Hausdorff spectrum $\sX$, such that $\sX$ is co
 	\left.\widetilde \sX\right|\sX\right), A_0\left(p \right) \right)$ (cf. Definitions \ref{fin_defn} and \ref{fin_red_defn}).
 	
 	\item[(ii)] If the space $\sX$ is semilocally 1-connected (cf. Definition \ref{top_semi1_defn}) then the map \eqref{ctr_ff_funct_not_eqn} yields a contravariant functor $A_0:\mathfrak{FinCov}$-$\sX \to \mathfrak{FinCov}$-$A$ yields equivalence (cf. Equation \ref{category_equivalence_definition}) between the  
-	category $\mathfrak{FinCov}$-$A$ and the category $\mathfrak{FinCov}$-$\sY^{\mathrm{op}}$ which is dual to $\mathfrak{FinCov}$-$\sY$ (cf. Definition \ref{dual_cat_defn}).
+	category $\mathfrak{FinCov}$-$A$ and the category $\mathfrak{FinCov}$-$\sX^{\mathrm{op}}$ which is dual to $\mathfrak{FinCov}$-$\sX$ (cf. Definition \ref{dual_cat_defn}).
 	\end{enumerate}
 \end{corollary}
 \begin{proof}
 (i) Follows from the  Lemma \ref{blowing_covi_lem}.\\
 (ii) Follows from the Theorem \ref{blowing_functor_thm} and the Lemma \ref{ctr_simply_connected_lem}.
 \end{proof}
+\begin{lemma}
+	Let $A$ be a $CCR$ (cf. Definition \ref{ccr_defn}) $C^*$- algebra with, connected, locally connected,  compact, Hausdorff spectrum $\sX$, and let $\left(A,\widetilde A, G, \pi \right)$ is reduced noncommutative finite-fold   covering with unitization (cf. Definitions \ref{fin_comp_defn}, \ref{fin_red_defn}). If $\widetilde{ {\sX}}$ is the spectrum of $\widetilde A$ then the given by the Lemma \ref{cov_spectrum_lem} continuous  map $p: \widetilde{ {\sX}}\to \sX$ is a transitive covering and the quadruple $\left(A,\widetilde A, G, \pi \right)$ is equivalent to\\  $\left(A, A_0\left(\widetilde\sX\right),  G\left( 
+	\left.\widetilde \sX\right|\sX\right), A_0\left(p \right) \right)$ one.
+\end{lemma}
+\begin{proof}
+	The covering $\left(A,\widetilde A, G, \pi \right)$ is reduced, so
+	For any $\widetilde x \in \widetilde \sX$ from 
+	\eqref{red_incp_eqn} it follows that $\rep_{ \widetilde{x}}\left(\widetilde{A} \right)\cong \rep_{ p\left( \widetilde{x}\right) }\left(A\right)\cong\K$. Thus $\widetilde{A}$ is a $CCR$ algebra.
+	Let both $A \hookto B$, $\widetilde{A} \hookto \widetilde{B}$ be unitizations which satisfy to conditions (a) and (b) of the Definition \ref{fin_comp_defn}. The $C^*$-algebras $A$ and $\widetilde A$ are essential ideals of   $B$ and $\widetilde B$ so the spectra of $B$ and $\widetilde B$ is  compactifications of $\sX$ and $\widetilde\sX$. Since $\sX$ is compact the spectrum of $B$ is $\sX$.  If $\widetilde \sY_{\widetilde B}$ 
+is the spectrum of $\widetilde B$ then $\widetilde\sX$ is an open dense subset of  it  $\widetilde \sY_{\widetilde B}$. Otherwise from the Lemma  \ref{cov_spectrum_lem} it follows that there is the continuous surjective map  $p_B:\widetilde \sY_{\widetilde B}\to  \sY_{ B}$ from   $\widetilde \sY_{\widetilde B}$ to the spectrum of $B$. However from $\sY_{ B}= \sX$ and taking into account the map $p: \widetilde\sX\to\sX$ one has
+$$
+\sY_{\widetilde B}= p_B^{-1}\left(\sX \right)= p^{-1}\left(\sX \right)= \widetilde \sX.
+$$
+Since $\widetilde B$ is unital the space $\widetilde \sX$ is compact. From the map $p: \widetilde\sX\to\sX$ it follows that $C\left(\widetilde\sX\right)$ is a $C\left(\sX\right)$-module. On the the other hand  $\widetilde B$ is a type I $C^*$-algebra, hence from and the Theorems \ref{ctr_hat_check_thm} and \ref{dauns_hofmann_thm} it follows that $\widetilde B$ is $C\left(\widetilde\sX\right)$- module.
+If $C\left(\widetilde\sX\right)$ is not  a finitely generated $C\left(\sX\right)$-module then from the Theorem \ref{fin_gen_thm} it follows that there is an infinite set $\left\{M_\la\right\}_{\la\in\La}$ of $C_0\left(\sX \right)$-submodules of $C\left(\widetilde{\sX}\right)$ such that 
+$$
+C\left(\widetilde{\sX}\right)=\sum_{\la \in \La} M_\la,
+$$
+but there is no  a finite subset $\La_0\subset \La$  such that 
+$$
+C\left(\widetilde{\sX}\right) = \sum_{\la \in \La_0} M_\la.
+$$
+For any $\la\in \La$ the space  $M_\la \widetilde{B}$ is a left $B$-submodule of $\widetilde{B}$.
+From $C\left(\sX \right) B = B$ and $C\left(\widetilde\sX \right) \widetilde  B = \widetilde B$ one has 
+$$
+\widetilde{B}=\sum_{\la \in \La}M_\la \widetilde{B} 
+$$
+but there is no  a finite subset $\La_0\subset \La$  such that 
+$$
+\widetilde{B}=\sum_{\la \in \La_0}M_\la \widetilde{B}.
+$$
+From the Theorem \ref{fin_gen_thm} it follows $\widetilde{B}$ is not a finitely generated $B$-module, it contradicts with the definition \ref{fin_uni_defn}. So $C\left(\widetilde\sX\right)$ is   a finitely generated $C\left(\sX\right)$-module, and from the Theorem \ref{pavlov_troisky_thm} it follows that $p$ is a finite fold covering. The given by \eqref{g_red_eqn} and \eqref{g_red_ker_eqn} group $G_{\text{red}}$ is a normal subgroup of $G$.
+There is the group $G_0 \bydef G/G_{\text{red}}= G / \ker\left(G \to \Homeo\left(\widetilde{A} \right) \right)$  such that  the action of $G_0\times \widetilde{\mathcal X}\to \widetilde{\mathcal X}$ is not trivial. From the Lemma \ref{cov_spectrum_lem} it turns out that the action is transitive. 
+\end{proof}
+
+\begin{theorem}\label{ctr_fin_thm}
+		Let $A$ be a $CCR$ (cf. Definition \ref{ccr_defn}) $C^*$- algebra with, connected, locally connected, locally compact, Hausdorff spectrum $\sX$, and let $\left(A,\widetilde A, G, \pi \right)$ is reduced noncommutative finite-fold   covering with  (cf. Definitions \ref{fin_defn}, \ref{fin_red_defn}). If $\widetilde{ {\sX}}$ is the spectrum of $\widetilde A$ then the given by the Lemma \ref{cov_spectrum_lem} continuous  map $p: \widetilde{ {\sX}}\to \sX$ is a transitive covering and the quadruple $\left(A,\widetilde A, G, \pi \right)$ is equivalent to\\  $\left(A, A_0\left(\widetilde\sX\right),  G\left( 
+	\left.\widetilde \sX\right|\sX\right), A_0\left(p \right) \right)$ one.
+\end{theorem}
+
+\begin{proof}
+	Let $\left\{u_\la\right\}_{\la\in \La}\subset C_c\left( \sX\right)_+$ be a family such that
+	\bean
+	u_\la\left(\sX \right)\subset \left[0,1\right],
+	\\\sU_\la\bydef	\left\{\left. x\in\sX\right|u_\la\left( x\right) > 0 \right\} \quad \text{is connected set}.
+	\eean
+	If the order on $\La$ is given by
+	$$
+	\forall\mu,\nu \in \La \quad \mu \ge \nu \quad \Leftrightarrow u_\mu \ge u_\nu	
+	$$ 
+	then $\La$ is a directed set (cf. Definition \ref{directed_set_defn}). Similarly to the proof of the Lemma \ref{comm_slfin_lem} one can prove that there is a following strict limit
+	\be	\label{ctr_fn_bt_lim_eqn}
+	\bt\text{-}\lim_{\la \in \La }u_\la = 1_{C_b\left( \sX\right)} = 1_{M\left(A \right) }
+	\ee
+	(cf. Definition \ref{strict_topology}).
+	For all $\la\in \La$ denote by $\sV_\la \bydef \supp u_\la$ which is the closure of $\sU_\la$.
+	Clearly the quadruple  \\$\left(A, A_0\left(\widetilde \sX \right) , G\left(\left.\widetilde \sX \right|\sX \right) , A_0\left( p\right)  \right)$ is a noncommutative finite-fold precovering (cf. Definition \ref{fin_pre_defn}). 
+	If $\left.A\right|^{\sV_\la}$ is given by \eqref{closed_ideal_eqn} then  is $CCR$ $C^*$-algebra. Moreover from the Lemma \ref{top_ax_sp_lem} it turns out  that the spectrum of $\left.A\right|^{\sV_\la}$ equals to $\sV_\la$. If $\widetilde\sV_\la\bydef p^{-1}\left(\sV_\la\right)$ then $\left.p\right|_{\widetilde\sV_\la}: \widetilde\sV_\la\to \sV_\la$ is a finite-fold transitive covering. The set $\sV_\la$ is compact so from the Lemma  \ref{ccr_defn} it follows that there is a noncommutative finite-fold covering with unitization
+	$$
+	\left(\left.A\right|^{\sV_\la}, \left.A_0\left(\widetilde\sX\right)\right|^{p^{-1}\left(\sV_\la\right)} , G\left(\left.\widetilde\sV_\la\right|\sV_\la \right)\right). 
+	$$
+	From the Corollary \ref{comp_axc_cor} it follows that
+	\bean
+	\left(\left.\left.A\right|^{\sV_\la}\right|_{\sU_\la}, \left.\left.A_0\left(\widetilde\sX\right)\right|^{p^{-1}\left(\sV_\la\right)}\right|_{p^{-1}\left( \sU_\la\right)}, G\left(\left.\widetilde\sU_\la\right|\sU_\la \right)\right) =\\
+	= \left(A|_{\sU_\la}, \left.\left.A_0\left(\widetilde\sX\right)\right.\right|_{p^{-1}\left( \sU_\la\right)}, G\left(\left.\widetilde\sU_\la\right|\sU_\la \right)\right) 
+	\eean
+	is a noncommutative finite-fold covering with unitization. 
+	Similarly to the proof of the Lemma \ref{comm_direct_lem} one can prove that there is the following limit
+	$$
+	\bt\text{-}\lim_{\la\in\La} u_\la = 1_{M\left(A \right) }
+	$$
+	in the strict topology of $M\left( A\right)$ (cf. Definition \ref{strict_topology}). From the Lemma \ref{ctr_fact_lem} it follows that both $C^*$-algebras $\left. A\right|_{\sU_\la}$ and $ \left.\widetilde A\right|_{\widetilde \sU_\la}$ are $C^*$-norm completions of $u_\la Au_\la$ and $u_\la\widetilde Au_\la$ respectively. 
+	So 	right part of \eqref{ctr_spt_to_a_eqn} satisfies to the Definition \ref{fin_defn}, i.e. it is a finite-fold noncommutative covering.
+	\\
+	
+	Let us prove that the right part of the equation \eqref{ctr_a_to_spt_eqn} contains finite fold coverings only. Consider an increasing net $\left\{u_\la\right\}_{\la\in\La}\subset M\left( A\right)_+ $ and coverings with unitizations	$\left(A_\la, \widetilde{A}_\la, G, \left.\pi\right|_{A_\la}\right)$ required by the Definition \ref{fin_defn}.	
+	For all $\la\in\La$ the subalgebra $A_\la\subset A$ is hereditary (cf. Remark \ref{hered_fin_rem}), so from the Proposition \ref{ctr_hered_prop} is a $C^*$-algebra with continuous trace. If both $\sU_\la$ and  $\widetilde\sU_\la$ are spectra of ${A}_\la$ and $\widetilde{A}_\la$ which are open subsets of $\sX$ and  $\widetilde\sX$ (cf. Proposition \ref{hered_spectrum_prop}).  From $\bt\text{-}\lim_{\la\in \La} u_\la = 1_{M\left(A\right)}$ and the Lemma \ref{ind_qusai_lem} it follows that $\left\{u_\la\right\}$ is an approximate unit for $M\left(\widetilde A\right)$, so the union $\cup {A}_\la$ is dense in $A$, and from the Lemma \ref{fin_def_lem} it follows that  the union $\cup \widetilde{A}_\la$ is dense in $\widetilde A$.	
+	It turns out that $\sX = \cup\sU_\la$ and  $\widetilde\sX = \cup\widetilde\sU_\la$. From the Corollary \ref{ctr_uni_cov_cor} it follows that the map  $\widetilde\sU_\la\to \sU_\la$ is a transitive finite-fold covering. So there a directed set of transitive coverings $\widetilde\sU_\la \to \sU_\la$. Equation $\sX = \cup\sU_\la$ and  $\widetilde\sX = \cup\widetilde\sU_\la$ yield a  transitive covering $\widetilde\sX \to \sX$.
+\end{proof}
+
 
 \begin{lemma}\label{ctr_ess_dense_lem}
 	If $A$ is a $C^*$-algebra with the Hausdorff spectrum $\sX$ then the bijective map \eqref{ctr_open_id_eqn} yields the one-to-one correspondence between essential ideals and open dense subsets of $\sX$. 
@@ -18377,6 +18493,43 @@ point.
 	\begin{definition}\label{simple_ca_defn}\cite{pedersen:ca_aut}
 		A $C^*$-algebra $A$ is said to be \textit{simple} if $0$ and $A$ are its only closed ideals. In this book we consider only simple $C^*$-algebras of compact operators $\K\left(\H \right)$ where $\H = \C^n$ ($n \in \N$) or $\H = \ell^2\left( \N\right)$. 
 	\end{definition}
+\begin{lemma}\label{haus_simple_lem}
+%Lemma 5.1. 
+Suppose 
+$A$
+is 
+a 
+$C^*$-algebra 
+with 
+Hausdorff 
+spectrum 
+$\sX$, 
+and 
+$P_x$
+is 
+the 
+primitive 
+ideal 
+corresponding 
+to $x\in\sX$.
+Then 
+the 
+quotient $A\left(x\right)\bydef A/ P_x$
+is 
+a 
+simple 
+$C^*$-algebra 
+with, 
+up 
+to 
+equivalence, 
+a 
+unique 
+irreducible 
+representation. 
+\end{lemma}
+
+
 	\begin{thm}\label{peder_id_thm}  \cite{pedersen:ca_aut} 
 		% THEOREM 5.6.1
 		For each $C^*$-algebra $A$ there is a dense hereditary ideal $K(A)$,
