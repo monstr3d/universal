@@ -7084,7 +7084,7 @@ of the sub-unital real operator space}  $\left(C_0\left(\sX, \R \right), C\left(
 	Let $\sX$ be a connected,  locally compact, Hausdorff space.
 	If $\mathfrak{FinCov}$-$C_0\left(\sX \right)$ a {category of noncommutative finite-fold coverings} of $C_0\left(\sX \right)$ (cf. Definition \ref{fin_cat_defn}) then following conditions hold:
 \begin{enumerate}
-	\item [(i)] !!! CHECK 	If the category $\mathfrak{FinCov}$-$\sX$ is given by the Definition \ref{top_fin_cov_defn} then the  functor $C_0:\mathfrak{FinCov}$-$\sX \to \mathfrak{FinCov}$-$C_0\left(\sX \right)$ is  the equivalence (cf. Definition \ref{category_equivalence_definition}) of categories.
+	\item [(i)] 	If the category $\mathfrak{FinCov}$-$\sX$ is given by the Definition \ref{top_fin_cov_defn} then the  functor $C_0:\mathfrak{FinCov}$-$\sX \to \mathfrak{FinCov}$-$C_0\left(\sX \right)$ is  the equivalence (cf. Definition \ref{category_equivalence_definition}) of categories.
 	\item[(ii)] Any unordered pair of *-homomorphisms $\left( \pi',\pi''\right) $ from the diagram
 			\newline
 	\begin{tikzpicture}
@@ -10200,29 +10200,25 @@ From the Corollary \ref{top_covp_cat_cor} it follows that $q^2_1$ is a transitiv
 \end{proof}
 
 \begin{theorem}\label{blowing_functor_thm}
-Let $A$ be a $C^*$-algebra, and let $C_0\left(\sY \right) \to M\left( A\right)$ be a good  semilocally 1-connected Hausdorff blowing-up (cf. Definitions \ref{blowing_defn}, \ref{blowing_good_defn}, \ref{blowing_semi1_defn}).	Suppose that  $\sY$ is a connected, locally connected  space.
-Denote by $\mathfrak{FinCov}$-$A$ a category of reduced noncommutative  finite-fold  coverings of $A$,  i. e.
-\begin{itemize}
-	\item  Objects of $\mathfrak{FinCov}$-$A$ are reduced noncommutative  finite-fold  coverings of $A$ (cf. Definitions \ref{fin_defn}, \ref{fin_red_defn}).
-	\item If $\pi': A\hookto \widetilde A'$ and  $\pi'':A \hookto \widetilde A''$ are objects of $\mathfrak{FinCov}$-$A$ then the morphism from $\pi'$ to $\pi''$ is an injective *-homomorphism $\pi: \widetilde A' \hookto  \widetilde A''$ such that the following diagram commutative.
-	\newline
+Let $A$ be a $C^*$-algebra, and let $C_0\left(\sY \right) \to M\left( A\right)$ be a good  semilocally 1-connected Hausdorff blowing-up (cf. Definitions \ref{blowing_defn}, \ref{blowing_good_defn}, \ref{blowing_semi1_defn}).	Suppose that  $\sY$ is a connected, locally connected  space. $\mathfrak{FinCov}^{\mathrm{red}}$-$A$ a category of reduced noncommutative  finite-fold  coverings of $A$ (cf. Definition \ref{fin_cat_defn}).
+Following conditions hold:
+\begin{enumerate}
+	\item [(i)] 	If the category $\mathfrak{FinCov}$-$\sY$ is given by the Definition \ref{top_fin_cov_defn} then the functor $A_0:\mathfrak{FinCov}$-$\sX \to \mathfrak{FinCov}^{\mathrm{red}}$-$A$ is an equivalence of categories (cf. Equation \ref{category_equivalence_definition}).
+	\item[(ii)] Any unordered pair of *-homomorphisms $\left( \pi_1,\pi_2\right) $ from the  diagram 
+		\newline
 	\begin{tikzpicture}
 		\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
 		{
-			\widetilde A'  & & \widetilde A'' \\ 
-			&  A  & \\};
+			A_0\left( \widetilde \sX_1\right)   &  & A_0\left( \widetilde \sX_2\right) \\
+			& A & \\};
 		\path[-stealth]
-		(m-1-3) edge node [above] {$\pi$} (m-1-1)
-		(m-2-2) edge node [left]  {$\pi'~~$} (m-1-1)
-		(m-2-2) edge node [right] {$~~\pi''$} (m-1-3);
+%		(m-1-1) edge[dashed] node [above] {$\pi^1_2$} (m-1-3)
+		(m-2-2) edge node [left]  {$\pi_1~~$} (m-1-1)
+		(m-2-2) edge node [right] {$~~\pi_2$} (m-1-3);
+		%\draw[dashed,->]   (m-1-1) -- (m-1-3);
 	\end{tikzpicture}
-	\\ 	
-\end{itemize}
-Following conditions hold:
-\begin{enumerate}
-	\item [(i)] 	If the category $\mathfrak{FinCov}$-$\sY$ is given by the Definition \ref{top_fin_cov_defn} then the contravariant functor $A_0:\mathfrak{FinCov}$-$\sX \to \mathfrak{FinCov}$-$A$ yields an equivalence (cf. Equation \ref{category_equivalence_definition}) between the  
-	category $\mathfrak{FinCov}$-$A$ and the category $\mathfrak{FinCov}$-$\sY^{\mathrm{op}}$ which is dual to $\mathfrak{FinCov}$-$\sY$ (cf. Definition \ref{dual_cat_defn}).
-	\item[(ii)] Any unordered pair of *-homomorphisms $\left( \pi',\pi''\right) $ from the above diagram is {compliant} (cf. Definition \ref{compliant_covering_defn}).
+	\\
+	is {compliant} (cf. Definition \ref{compliant_covering_defn}).
 \end{enumerate}
 
 \end{theorem}
