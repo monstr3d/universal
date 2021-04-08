@@ -11929,7 +11929,7 @@ Our following constructions require an analog of the Dini's theorem.
 
 
 \begin{corollary}\label{ctr_fin_red_cor} 
-	Let  $A$ be a $C^*$- algebra with Hausdorff spectrum $\sX$, such that $\sX$ is a connected and locally connected space, and let the category $\mathfrak{FinCov}$-$\sX$ is given by the Definition \ref{top_fin_cov_defn}. 	If $\mathfrak{FinCov}^{\mathrm{red}}$-$A$ is a {category of reduced noncommutative finite-fold coverings} of $A$ (cf. Definition \ref{fin_cat_defn}) then following conditions hold:
+	Let  $A$ be a $C^*$- algebra with the Hausdorff spectrum $\sX$, such that $\sX$ is a connected and locally connected space, and let the category $\mathfrak{FinCov}$-$\sX$ is given by the Definition \ref{top_fin_cov_defn}. 	If $\mathfrak{FinCov}^{\mathrm{red}}$-$A$ is a {category of reduced noncommutative finite-fold coverings} of $A$ (cf. Definition \ref{fin_cat_defn}) then following conditions hold:
 	\begin{enumerate}
 		\item [(i)] 	The  equivalent equations \eqref{blowing_asu_eqn} and \eqref{blowing_a0x_eqn} yield  a functor $A_0:\mathfrak{FinCov}$-$\sX \to \mathfrak{FinCov}^{\mathrm{red}}$-$A$ such that 
 	any unordered pair of *-homomorphisms $\left( \pi',\pi''\right) $ from the diagram
@@ -12122,13 +12122,37 @@ then from the Definitions \ref{fin_pre_defn}, \ref{fin_defn} and the Lemma \ref{
 	
 
 
-
-
-
+\begin{theorem}\label{ctr_fin_thm} 
+	Let  $A$ be a continuous trace $C^*$- algebra the spectrum $\sX$, such that $\sX$ is a connected and locally connected space, and let the category $\mathfrak{FinCov}$-$\sX$ is given by the Definition \ref{top_fin_cov_defn}. 	If $\mathfrak{FinCov}$-$A$ is a {category of  noncommutative finite-fold coverings} of $A$ (cf. Definition \ref{fin_cat_defn}) then following conditions hold:
+	\begin{enumerate}
+		\item [(i)] 	The  equivalent equations \eqref{blowing_asu_eqn} and \eqref{blowing_a0x_eqn} yield  a functor $A_0:\mathfrak{FinCov}$-$\sX \to \mathfrak{FinCov}$-$A$ such that 
+		any unordered pair of *-homomorphisms $\left( \pi',\pi''\right) $ from the diagram
+		\newline
+		\begin{tikzpicture}
+			\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
+			{
+				A_0\left(\sX' \right)  & & A_0\left(\sX'' \right) \\ 
+				& A  & \\};
+			\path[-stealth]
+			%	(m-1-3) edge node [above] {$\pi$} (m-1-1)
+			(m-2-2) edge node [left]  {$\pi'~~$} (m-1-1)
+			(m-2-2) edge node [right] {$~~\pi''$} (m-1-3);
+		\end{tikzpicture}
+		\\ 	
+		is {compliant} (cf. Definition \ref{compliant_covering_defn}).
+		\item[(ii)] 		If the space $\sX$ is topologically semilocally 1-connected (cf. Definition \ref{top_semi1_t_defn}) then  $A_0:\mathfrak{FinCov}$-$\sX \to \mathfrak{FinCov}$-$A$ is an   equivalence of categories (cf. Definition \ref{category_equivalence_definition}).
+	\end{enumerate}
+	
+	
+	
+\end{theorem}
+\begin{proof}
+	Follows from the Corollaries \ref{ctr_fin_red_cor} and  \ref{ctr_fin_ctr_cor}.
+\end{proof}
 
 \subsection{Coverings of operator spaces}
-!!!\begin{empt}\label{ctr_fin_op_empt}
-Let $\left(X, Y\right)$ be a  {sub-unital subspace} having continuous trace (cf. Definition \ref{ctr_oa_defn}) and let $A\bydef C^*_e\left(X, Y \right)$ be the $C^*$-envelope of $\left(X, Y\right)$. From the Lemma  \ref{ctr_oa_lem} it follows that $A$ has continuous trace, hence the spectrum $\sX$ of $A$ is the locally compact Hausdorff space. Let $p: \widetilde \sX \to \sX$ be a transitive covering, denote by
+\begin{empt}\label{ctr_fin_op_empt}
+Let $\left(X, Y\right)$ be a  {sub-unital operaror space} with Hausdorff spectrum (cf. Definition \ref{ctr_oa_defn}) and let $A\bydef C^*_e\left(X, Y \right)$ be the $C^*$-envelope of $\left(X, Y\right)$ (cf. Definition \ref{op_su_env_defn}). Suppose that $A$ has continuous trace, hence the spectrum $\sX$ of $A$ is the locally compact Hausdorff space. Let $p: \widetilde \sX \to \sX$ be a transitive covering, denote by
 \be\label{ctr_fin_op_eqn}
 \begin{split}
 \widetilde X \stackrel{\text{def}}{=} C_0\left(\lift_p\left[X\right]\right),\\
@@ -12142,7 +12166,7 @@ If the covering $p$ is finite-fold then there are the natural injective *-homomo
  
 
 \begin{theorem}\label{ctr_fin_op_thm}
-Let us consider the given by \ref{ctr_fin_op_empt} situation. If $\sX$ is a connected, locally connected and second-countable space then there is the 1-1 map from the set of finite-fold transitive coverings $p: \widetilde\sX \to\sX$ 
+Let us consider the given by \ref{ctr_fin_op_empt} situation. If $\sX$ is a connected, locally connected and topologically semilocally 1-connected (cf. Definition \ref{top_semi1_t_defn}) then there is the natural 1-1 map from the set of finite-fold transitive coverings $p: \widetilde\sX \to\sX$ 
 \eqref{fin_op_defn} and noncommutative  finite-fold  coverings of the subunital operator space $\left(X, Y\right)$ given by
 \bea\label{ctr_from_oa_eqn}
 \left(p: \widetilde\sX \to\sX \right) \mapsto \left(\left(X, Y \right),\left(\widetilde X, \widetilde Y \right), G\left(\left.\widetilde\sX \right|\sX\right), \left(\pi_X, \pi_Y \right) \right).
@@ -12150,7 +12174,7 @@ Let us consider the given by \ref{ctr_fin_op_empt} situation. If $\sX$ is a conn
 \end{theorem}
 \begin{proof}
 	Firstly we proof that $\left(\left(X, Y \right),\left(\widetilde X, \widetilde Y \right), G\left(\left.\widetilde\sX \right|\sX\right), \left(\pi_X, \pi_Y \right) \right)$ is a finite-fold  covering  for each transitive finite-fold covering $p: \widetilde\sX \to\sX$. One needs check (a) and (b) of the Definition \ref{fin_op_defn}.\\
-(a)	From the Theorem \ref{ctr_fin_cor} it turns out that
+(a)	From the Theorem \ref{ctr_fin_thm} it turns out that
 	$$
 	\left( C^*_e\left( X,  Y \right), \widetilde{A}, G\left(\left.\widetilde\sX \right|\sX\right), C_0\left(p \right)  \right)
 	$$  a finite-fold  noncommutative covering. From $X_x \subset A_x$ for any $x \in \sX$, $\widetilde X_{\widetilde x}\cong X_{p\left( \widetilde x\right) }$ and $\widetilde A_{\widetilde x}\cong A_{p\left( \widetilde x\right) }$ it follows that $C_0\left(\widetilde X_{\widetilde x}, \widetilde Y_{\widetilde x} \right) = \rep_{ \widetilde{x}}\left(\widetilde{A}\right)$ for all $\widetilde{x}\in \widetilde{\sX}$ (cf. notation of the Definition \ref{ctr_oa_defn}).
