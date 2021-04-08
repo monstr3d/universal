@@ -4995,9 +4995,11 @@ $ h :  G\left(\widetilde{   \mathcal X }'~|~{   \mathcal X } \right)\to G\left(\
 	(d) From (a) it turns out that $q$ is a covering, i.e. there are two transitive coverings $p_1: \widetilde{\sX}_1\to \sX$ and $q: \widetilde{\sX}_1\to \sX$. If $\widetilde x_2 \in \widetilde \sX_2$ is any point then $p_1\left(p^2_1\left(\widetilde x_2 \right)  \right) = p_1\left(q\left(\widetilde x_2 \right)  \right)$, so there is the unique $g \in G_1$ such that $q\left(\widetilde x_2 \right) = gp^2_1\left(\widetilde x_2 \right)$. From the Lemma  \ref{top_trans_tp_cov_lem} it follows that 	$q =  g\circ  p^2_1$.
 \end{proof}
 \begin{definition}\label{top_simp_conn_defn}
-	A connected space $\sX$ is said to be \textit{topologically simply connected} if all coverings $\widetilde\sX \to\sX$ with connected $\widetilde \sX$ are homeomorphisms. 
+	A connected space $\sX$ is said to be \textit{topologically simply connected} if all coverings $\widetilde\sX \to\sX$ with connected $\widetilde \sX$ are homeomorphisms (cf. Definition \ref{top_simply_conn_defn}). 
 \end{definition}
-
+	\begin{defn}\label{top_semi1_t_defn}
+	A space $\sX$ is said to by \textit{topologically semilocally} 1-\textit{connected} if every point $x_0$ has a topologically simply connected neighborhood (cf. Definition \ref{top_semi1_defn}). 
+\end{defn} 
 
 
 \section{Vector bundles and spaces of sections}
@@ -11921,7 +11923,7 @@ Our following constructions require an analog of the Dini's theorem.
 	\left.\widetilde \sX\right|\sX\right)$ (cf. \eqref{g_red_inc_eqn} ). So $G$ is trivial and the covering  $\left(A, \widetilde A, G, \pi\right)$ is trivial.
 \end{proof}
 \begin{exercise}\label{ctr_simply_connected_exer}
-	Let $A$ be a $C^*$-algebra with the Hausdorff semilocally 1-connected spectrum $\sX$. Proof that the Hausdorff blowing-up $C_0\left( \sX\right)\to A$ is semilocally 1-connected (cf. Definition \ref{blowing_semi1_defn}) 
+	Let $A$ be a $C^*$-algebra with the Hausdorff topologically semilocally 1-connected spectrum $\sX$ (cf. Definition \ref{top_semi1_t_defn}). Proof that the Hausdorff blowing-up $C_0\left( \sX\right)\to A$ is semilocally 1-connected (cf. Definition \ref{blowing_semi1_defn}) 
 \end{exercise}
 
 
@@ -11944,7 +11946,7 @@ Our following constructions require an analog of the Dini's theorem.
 		\end{tikzpicture}
 		\\ 	
 		is {compliant} (cf. Definition \ref{compliant_covering_defn}).
-	\item[(ii)] 		If the space $\sX$ is semilocally 1-connected (cf. Definition \ref{top_semi1_defn}) then  $A_0:\mathfrak{FinCov}$-$\sX \to \mathfrak{FinCov}^{\mathrm{red}}$-$A$ is an   equivalence of categories (cf. Definition \ref{category_equivalence_definition}).
+	\item[(ii)] 		If the space $\sX$ is topologically semilocally 1-connected (cf. Definition \ref{top_semi1_t_defn}) then  $A_0:\mathfrak{FinCov}$-$\sX \to \mathfrak{FinCov}^{\mathrm{red}}$-$A$ is an   equivalence of categories (cf. Definition \ref{category_equivalence_definition}).
 	\end{enumerate}
 	
 	
@@ -11971,7 +11973,7 @@ Follows from the  Exercise  \ref{ctr_simply_connected_exer} and the Theorem \ref
 
 
 \subsubsection{Coverings of continuous trace  $C^*$-algebras}
-\begin{lemma}\label{ctr_ccr_sp_lem} !!! CHECK
+\begin{lemma}\label{ctr_ccr_sp_lem} 
 	Let $\left(A, \widetilde{A}, G, \pi \right)$ is  a noncommutative finite-fold  covering with unitization.
 	If $A$ is a $CCR$-algebra (cf. Definition \ref{ccr_defn})then $\widetilde{A}$ is a $CCR$-algebra. 
 \end{lemma}
@@ -12040,6 +12042,7 @@ $$
 $$
 is not finite.
 \end{lemma}
+
 \begin{proof}
 	From the Theorem \ref{ctr_big_thm} it follows that  $\widetilde A$ contains an essential ideal $\widetilde I$ which is a continuous trace $C^*$-algebra. From the Lemma \ref{ctr_ess_dense_lem} it follows that the spectrum $\widetilde\sX_{\widetilde I}$ of $\widetilde I$ is a dense open subset of $\widetilde\sX$  and $\rep_{ \widetilde{x}}\left(\widetilde{I}\right)=\rep_{ \widetilde{x}}\left(\widetilde{A}\right)$ for all $\widetilde x \in\widetilde\sX_{\widetilde I}$. It follows that $\widetilde I= \left.\widetilde A\right|_{\widetilde\sX_{\widetilde I}}$.
 	 The set $\widetilde\sX_{\widetilde I}$ is open and dense in $\widetilde\sX$, hence $\widetilde \sU'\bydef \widetilde \sU\cap \widetilde\sX_{\widetilde I}$ is open and it is not empty.
@@ -12076,7 +12079,7 @@ is not finite.
 	\rep_{ \widetilde{x}}\left(\widetilde a\right)  \to \rep_{ \widetilde{x}}\left(g_{\epsilon}\left( \widetilde a\right) \right)\quad\forall  \widetilde a\in  \widetilde A
 	\eean 
 	is *-automorphism, the  map $g_\epsilon$ is $*$-automorphism.
-	For any $\widetilde x \in \widetilde\sX$ consider the irreducible representation $\rep_{ \widetilde{x}}: \widetilde{A}\to B\left( \H_{ \widetilde{x}}\right)$ and   $\xi_{\widetilde{x}}\in B\left(\H_{\widetilde{x}}\right)$. From the Theorem \ref{irred_thm}   it follows that $ \H_{ \widetilde{x}}= \rep_{ \widetilde{x}}: \left( \widetilde{A}\right)\xi_{\widetilde{x}}$.  Denote by $\H^\parallel_{ \widetilde{x}}\bydef \rep_{ \widetilde{x}}: \left( \widetilde{A}_{\text{red}}\right)\xi_{\widetilde{x}}$ and by  $\H^\perp_{ \widetilde{x}}$ the orthogonal complement of $\H^\parallel_{ \widetilde{x}}$, i.e. $\H_{ \widetilde{x}}=\H^\parallel_{ \widetilde{x}}\oplus \H^\perp_{ \widetilde{x}}$. There is a family of Banach spaces $\left\{\rep_{ \widetilde{x}}: \left( \widetilde{A}\subset  B\left(\H^\parallel_{ \widetilde{x}}\oplus \H^\perp_{ \widetilde{x}} \right) \right)\right\}_{\widetilde x \in \widetilde\sX}$. The space $\widetilde\sX$ is Hausdorff so from the Theorem \ref{ctr_rep_eq_lem} it follows that 		$\widetilde{A}$ is a continuity structure for $\widetilde\sX$ and the family $\left\{\rep_{ \widetilde{x}}: \left( \widetilde{A} \right)\right\}_{\widetilde x \in \widetilde\sX}$ (cf. Definition \ref{op_fields_defn}). Any $\widetilde a \in \widetilde{A}$ corresponds to a family
+	For any $\widetilde x \in \widetilde\sX$ consider the irreducible representation $\rep_{ \widetilde{x}}: \widetilde{A}\to B\left( \H_{ \widetilde{x}}\right)$ and   $\xi_{\widetilde{x}}\in B\left(\H_{\widetilde{x}}\right)$. From the Theorem \ref{irred_thm}   it follows that $ \H_{ \widetilde{x}}= \rep_{ \widetilde{x}}: \left( \widetilde{A}\right)\xi_{\widetilde{x}}$.  Denote by $\H^\parallel_{ \widetilde{x}}\bydef \rep_{ \widetilde{x}} \left( \widetilde{A}_{\text{red}}\right)\xi_{\widetilde{x}}$ and by  $\H^\perp_{ \widetilde{x}}$ the orthogonal complement of $\H^\parallel_{ \widetilde{x}}$, i.e. $\H_{ \widetilde{x}}=\H^\parallel_{ \widetilde{x}}\oplus \H^\perp_{ \widetilde{x}}$. There is a family of Banach spaces $\left\{\rep_{ \widetilde{x}}: \left( \widetilde{A}\subset  B\left(\H^\parallel_{ \widetilde{x}}\oplus \H^\perp_{ \widetilde{x}} \right) \right)\right\}_{\widetilde x \in \widetilde\sX}$. The space $\widetilde\sX$ is Hausdorff so from the Theorem \ref{ctr_rep_eq_lem} it follows that 		$\widetilde{A}$ is a continuity structure for $\widetilde\sX$ and the family $\left\{\rep_{ \widetilde{x}}: \left( \widetilde{A} \right)\right\}_{\widetilde x \in \widetilde\sX}$ (cf. Definition \ref{op_fields_defn}). Any $\widetilde a \in \widetilde{A}$ corresponds to a family
 	$$
 	\left\{\widetilde a_{ \widetilde{x}} \in B\left(\H^\parallel_{ \widetilde{x}}\oplus \H^\perp_{ \widetilde{x}} \right)\right\}= \left\{\begin{pmatrix}
 	\a\left(\widetilde a_{ \widetilde{x}} \right) & \bt\left(\widetilde a_{ \widetilde{x}} \right)\\
@@ -17498,6 +17501,14 @@ where $\Coo\left( SO_q\left(3\right)\right)= C\left( SO_q\left(3\right)\right)\b
 		every neighborhood $\sU$ of a point $x$ contains a neighborhood $\sV$ of $x$ deformable to $x$ in $\sV$). 
 		
 	\end{definition} 
+\begin{definition}\label{top_simply_conn_defn}\cite{spanier:at}
+Let $E^{k+1}, S^k\subset\R^{k+1}$ be a disk ans a sphere, i.e.
+\bean
+E^{k+1} \bydef \left\{\left.\left(x_1, ..., x_{k+1}\right) \in \R^{k+1}~\right| x_1^2+...+x^2_{k+1}\le 1\right\},\\
+S^k \bydef \left\{\left.\left(x_1, ..., x_{k+1}\right) \in \R^{k+1}~\right| x_1^2+...+x^2_{k+1}= 1\right\}
+\eean
+with the natural inclusion $S^k\subset E^{k+1}$. A space $\sX$ is said to be $n$-\textit{connected} if every continuous map $f: S^k \to \sX$ for $k\le n$ has a continuous extension over $E^{k+1}$. A 1-connected space is also said to be \textit{simply connected}.
+\end{definition}
 	
 	\begin{defn}\label{top_semi1_defn}
 		A space $\sX$ is said to by \textit{semilocally} 1-\textit{connected} if every point $x_0$ has a neighborhood $N$ such that $\pi_1\left( N, x_0\right) \to \pi_1\left(\sX, x_0 \right)$ is trivial. 
