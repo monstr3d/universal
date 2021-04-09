@@ -10309,11 +10309,11 @@ $\overline p_{\overline\sU}:\overline\sX_{   \overline\sU }\xrightarrow{\approx}
  If $\widehat G \bydef G\left(\left.\sY_\la~\right|\sY \right)$ is an inverse limit of groups then there are natural free actions $\widehat G\times \widehat \sY \to \widehat \sY$ and $\widehat G\times \overline \sY \to \overline \sY$ such that $\overline{\widehat p}\circ \widehat g = \widehat g \circ \overline{\widehat p}$ for every $\widehat g \in \widehat G$. If $\overline x'$ and $\overline x''$ are such that $\overline{\widehat p}\left( \overline x'\right) = \overline{\widehat p}\left( \overline x''\right)$ then $\overline p \circ \overline{\widehat p}\left( \overline x'\right)=\overline p \circ \overline{\widehat p}\left( \overline x''\right)$. It follows that there is $\widehat g \in \widehat G$ such that $\overline x''= \widehat g\overline x'$. If $\widehat g$ is not trivial then $\overline{\widehat p}\left( \overline x''\right)= \widehat g \overline{\widehat p}\left( \overline x'\right)\neq \overline{\widehat p}\left( \overline x''\right)$. From this contradiction it follows that $\widehat g$ is trivial, $\overline x'=\overline x''$ so the map $\overline{\widehat p}$ is  bijective. If $\overline x \in \overline \sX$ and $\widehat{x}\bydef  \overline{\widehat p}:\left( \overline x\right)$ then $x \bydef \overline p\left(\overline x \right) = \widehat p\left(\widehat x \right)$ where $\widehat p: \widehat \sX\to \sX$ is the natural surjective continuous map. Moreover if both $\overline x$ and $\widehat{x}$ correspond to irreducible representations  $\rep_{  \overline{x }}: A_0\left(\overline \sY \right)\to B\left(\overline \H_{ \overline x}\right)$ and $\rep_{  \widehat{x }}: \widehat A\to B\left( \H_{ \widehat x}\right)$ respectively then there are isomorphisms $\H_{ \overline x}\cong \H_x\cong \H_{ \widehat x}$. 
 If both $\overline \H_a$ and $\widehat \H_a$ are spaces of atomic representations (cf. Definition \ref{atomic_repr_defn}) of  $A_0\left(\overline \sY \right)$
 and $\widehat A$ then from 
-\bean
+\be\label{ctr_ht_eqn}
 \overline \H_a = \bigoplus_{\overline x\in \overline \sX} \H_{ \overline x},\\
 \widehat\H_a = \bigoplus_{\overline x\in \overline \sX} \H_{\overline{\widehat p}\left(\overline x\right)},\\
 \forall \overline x\in \overline \sX\quad  \H_{ \overline x}\cong \H_{\overline{ p}\left(\overline x\right)} \cong \H_{\overline{\widehat p}\left(\overline x\right)}
-\eean
+\ee
 it follows that  $\overline \H_a\cong \widehat \H_a$. So the atomic representation of $A_0\left(\overline \sY \right)$ is equivalent to a following inclusion
 \be\label{blowing_ha_eqn}
 \pi_A:A_0\left(\overline \sY \right) \hookto B\left(\widehat \H_a\right).
@@ -12515,6 +12515,16 @@ scalar product.
 \begin{remark}\label{top_disc_ext_rem}
 	There is the natural inclusion $X_{C\left(\sX\right)}\subset X_{D^*\left(\sX\right)}$.
 \end{remark}
+\begin{remark}
+Any bounded family
+\be\label{ctr_fam_eqn}
+\overline a \bydef \left\{\overline a_{\overline x}\in \K\left(  \H_{\overline x}\right)  \right\}_{ \overline x \in \overline \sX}
+\ee
+yields a bounded operator in $B\left(\widehat \H_a \right)$. If $X_{D^*\left(\sX\right)}$ is the  \textit{discontinuous extension} of $X_{C_0\left(\sX\right)}$ (cf. Definition \ref{top_disc_ext_defn}) and $\overline\xi\bydef\left\{\overline \xi_{\overline x}\right\}\in X_{D^*\left(\sX\right)}$ then
+\be\label{ctr_afam_eqn}
+\overline a\overline \xi\bydef\left\{\overline a_{\overline x} \overline \xi_{\overline x}\right\}\in  X_{D^*\left(\sX\right)}
+\ee
+\end{remark}
 \begin{lemma}\label{top_comp_fam_lem}
 	Consider the situation of the Definition \ref{top_disc_ext_defn}.
 	If $\left\{\K\left( \H_{ x} \right) \right\}_{ x \in \sX}$ is a family of compact operators then  $\K\left( X_{C\left(\sX\right)}\right) $  is a   {continuity structure for} $\sX$ and the $\left\{\K\left( \H_{ x} \right) \right\}_{x \in \sX}$, such that $$\K\left( X_{C\left(\sX\right)}\right)  \cong C\left(\sX, \left\{\K\left( \H_{ x} \right) \right\} , \K\left( X_{C\left(\sX\right)}\right)  \right).$$ 
@@ -12624,28 +12634,6 @@ scalar product.
 
 
 
- If $X_{C\left( {\sX}\right)}$	is a full countably generated Hilbert $C\left( {\sX}\right)$  from the Theorem \ref{kasparov_stab_thm} one has the isomorphism of $C^*$-Hilbert modules.
-\bean
-X_{C\left(\sX \right)} \oplus \ell^2\left( C\left(\sX \right) \right)  \cong \ell^2\left( C\left(\sX \right) \right)
-\eean
-Any $b \in \K\left( X_{C\left(\sX \right)} \oplus \ell^2\left( C\left(\sX \right) \right)\right)$ can be represented by a matrix
-\bean
-\begin{pmatrix}
-	b_{11}&b_{12}\\
-		b_{21}&b_{22}
-\end{pmatrix}\\ b_{11}\in \K\left(  X_{C\left(\sX \right)}\right) ,\quad b_{12}\in \K\left( \ell^2\left( C\left(\sX \right) \right),  X_{C\left(\sX \right)}\right)\\
-b_{21}\in \K\left(X_{C\left(\sX \right)}, \ell^2\left( C\left(\sX \right) \right)\right),\quad \quad b_{22}\in \K\left( \ell^2\left( C\left(\sX \right) \right)\right)
-\eean
-The above representation yields an injective *-homomorphism
-\be
-\begin{split}
-\phi_X: \K\left(  X_{C\left(\sX \right)}\right)\hookto \K\left( X_{C\left(\sX \right)} \oplus \ell^2\left( C\left(\sX \right)\ \right)\right) \cong \K\left(  \ell^2\left( C\left(\sX \right)\ \right)\right),\\
-a \mapsto \begin{pmatrix}
-	a&0\\
-	0&0
-\end{pmatrix}
-\end{split}
-\ee
 \paragraph{Some operator systems}
 
 Let us consider a {pointed topological finite covering category} $$\mathfrak{S}_{\left( \sX, x_0\right)}= \left\{\left( \sX_\la, x^\la_0\right) \to \left( \sX, x_0\right)\right\}$$
@@ -12656,31 +12644,34 @@ Suppose that $\left(\overline{   \mathcal X}, \overline{x}_0 \right)$ is its top
 \eean
 Definition \ref{comp_defn}).
 \begin{exercise}
-	Prove that for each $\la\in\La$ there is the natural isomorphism $A_0\left( \mathcal{X}_\la\right)\cong \K\left( X_{C\left(\sX_\la\right) }\right)$ where $X_{C\left(\sX_\la\right)} \bydef\lift_{p_\la}\left[X_{C\left(\sX\right)}\right]$,
+	Prove following statements:
+	\begin{enumerate}
+\item	
+For each $\la\in\La$ there is the natural isomorphism $A_0\left( \mathcal{X}_\la\right)\cong \K\left( X_{C\left(\sX_\la\right) }\right)$ where $X_{C\left(\sX_\la\right)} \bydef\lift_{p_\la}\left[X_{C\left(\sX\right)}\right]$.
+\item $A_0\left(  \overline\sX \right) = C_0\left( \lift_{\overline p}\left[ \K\left( X_{C\left(\sX\right) } \right)\right] \right)= \K\left( X_{C_0\left(\overline \sX\right)}\right)$ \\where $X_{C_0\left(\overline\sX\right)} \bydef C_0\left( \lift_{\overline p}\left[X_{C\left(\sX\right)}\right]\right)$. 
+	\end{enumerate}
 \end{exercise}
-If $\widehat \K \bydef C^*$-$\varinjlim_{\la \in \La} \K\left(X_{C\left(\sX_\la\right)}\right)$ is the inductive limit of $C^*$-algebras in sense of the Definition \ref{inductive_lim_non_defn} and $\widehat{\pi}_a:\widehat \K \to B\left(\widehat \H_a\right)$ be the atomic representation then from If $\pi_a : C^*$-$\varinjlim_{\la \in \La}A_0\left( \mathcal{X}_\la\right) \to B\left(\widehat \H_a \right)$ is the !!! atomic representation (cf. Definition \ref{atomic_repr_defn}) and  $\overline A$ is the  disconnected algebraical infinite noncommutative covering of $ \mathfrak{S}_{A }^{\mathrm{pt}}$ (cf. Definition \ref{main_defn_full_defn}) then there is the natural inclusion $\overline A \subset B\left(\widehat \H_a\right)$.
+\begin{empt}\label{ctr_coh_empt}
+If $\widehat \K \bydef C^*$-$\varinjlim_{\la \in \La} \K\left(X_{C\left(\sX_\la\right)}\right)$ is the inductive limit of $C^*$-algebras in sense of the Definition \ref{inductive_lim_non_defn} and $\widehat{\pi}_a:\widehat \K \to B\left(\widehat \H_a\right)$ be the atomic representation then from \eqref{blowing_ha_eqn} it turns out that there is an inclusion
+$$
+\pi_A:A_0\left(\overline \sX \right) \hookto B\left(\widehat \H_a\right)
+$$
+If  $\overline A$ is the  disconnected algebraical infinite noncommutative covering of $ \mathfrak{S}_{A }^{\mathrm{pt}}$ (cf. Definition \ref{main_defn_full_defn}) then there is the natural inclusion $\overline A \subset B\left(\widehat \H_a\right)$, such that $A_0\left(\overline \sX \right)\subset \overline A$ (cf. Lemma \ref{ctr_c0_inc_lem})
  If    $\widehat{G}\bydef \varprojlim_{\la \in \La} G\left(
 	\left.  \sX_\la~ \right|\sX\right)$ is the inverse limit of groups
 	then similarly to the Lemma \ref{equiv_lem} one construct the equivariant action $\widehat G\times \widehat \H_a \to \widehat \H_a$ which naturally induces the action
 	\be\label{top_equivb_eqn}
 	\widehat G\times B\left( \widehat \H_a \right) \to \widehat B\left( \widehat \H_a \right).
 	\ee
-	
-
-\begin{empt}\label{top_coh_empt}
-	Let $\sX$ be a connected, locally connected,  compact set such that any finitely generated projective Hilbert $C\left(\sX\right)$-module is self-dual (cf. Definition \ref{hm_selfdual_defn}). Let $\widetilde p: \left( \widetilde\sX, \widetilde x_0\right) \to\left(  \sX, x_0\right) $ be a pointed transitive  covering such that the covering transformation group $G\bydef  G\left(	\left. \widetilde \sX~ \right|\sX\right)$ is residually  finite (cf. Definition \ref{residually_finite_defn}). Suppose that $\widetilde\sX$ is isomorphic to $G\times \sX$. Let $\mathfrak{S}_{\left( \sX, x_0  \right) }=\left\{ p_\la: \left( \sX_\la, x^\la_0\right) \to \left( \sX, x_0\right)\right\}_{\la \in \La} $ be a given by the Lemma \ref{top_res_fin_lem} pointed  topological finite covering category  such that the natural map
-	\bean
-\phi = \prod_{\la \in \La}\phi_\la:  G\left( \left.{\widetilde{\sX}}~\right|\sX\right) \hookto \prod_{\la \in \La}G\left( \left.{{\sX}}_\la~\right|\sX\right)
-\eean
-is injective (cf. equation \eqref{comm_g_inj_eqn}). Let $X_{C\left(\sX \right) }$ be a countably generated Hilbert $C\left(\sX \right)$-module. For all $\la\in \La$ denote by $\sX_\la\bydef \lift_{p_\la}\left(\sX_\la \right) $, and there for all $\la\in\La$ there is an injective *-homomorphism $\K\left(\sX \right) \hookto \K\left(\sX_\la \right)$
+	From \eqref{ctr_ht_eqn} it turns out that
+	$$
+	\widehat \H_a \cong \bigoplus_{ \overline x \in \overline \sX}\H_{ \overline x}
+	$$
+where $\H_{ \overline x}$ is a space of an irreducible representation $\rep_{  \overline{x }}	: A_0\left(\overline \sX \right)\to B\left(\H_{ \overline x}\right)$.
 \end{empt}
-\begin{exercise}\label{top_coh_exer}
-		Let $\widehat \K\bydef C^*$-$\varinjlim_{\la \in \La} \K\left(X_{C_0\left(\sX_\la\right)}\right)$ be the inductive limit of $C^*$-algebras in sense of the Definition \ref{inductive_lim_non_defn}. Let $\overline{\mathcal X}$ be the {topological disconnected inverse limit} of $\mathfrak{S}_{\left( \sX, x_0\right)}$ (cf. Definition \ref{top_topological_inv_lim_defn})
-		 Find the natural bijective map from the spectrum  of $\widehat \K$ to  $\overline{\mathcal X}$. 
-\end{exercise}
 \begin{definition}\label{top_coh_defn} 
-Consider the described in \ref{top_coh_empt} and the Exercise  \ref{top_coh_exer}	situation, and let $\widehat{\pi}_a:\widehat \K \to B\left(\widehat \H_a\right)$ be the atomic representation (cf. Definition \ref{atomic_repr_defn}). Let   $\widehat{G}\bydef \varprojlim_{\la \in \La} G\left(
-	\left.  \sX_\la~ \right|\sX\right)$ be the projective limit of groups and let $G_\la \bydef \ker\left(  \widehat G\to  G\left(\left.\sX_\la~\right|~\sX \right)\right)$. 
+Consider the described in \ref{ctr_coh_empt} 	situation, and let \\  $\widehat{G}\bydef \varprojlim_{\la \in \La} G\left(
+	\left.  \sX_\la~ \right|\sX\right)$ be the projective limit of groups and \\ $G_\la \bydef \ker\left(  \widehat G\to  G\left(\left.\sX_\la~\right|~\sX \right)\right)$. 
 	An element $\overline a = \left\{\overline a_{\overline x}\in \K\left(  \H_{\overline x}\right)  \right\}_{ \overline x \in \overline \sX}\in B\left(\H_a\right)$ is \textit{coherent}  if for any $\la_0 \in \La$, $\xi_{\la_0} \in X_{\la_0}$
 	and  $\eps > 0$ 
 	following conditions hold:
@@ -12715,7 +12706,6 @@ Consider the described in \ref{top_coh_empt} and the Exercise  \ref{top_coh_exer
 	\left\{\overline a_{\overline x}\in \H_{\overline x}\right\}_{\overline x\in \overline\sX}.
 	\ee
 \end{remark}
-
 \begin{lemma}\label{top_z_lem}
 	Consider the situation of the (cf. Definition \ref{top_coh_defn}) with the   a coherent element $\overline a \in B\left(\widehat \H_a \right)$. Let $\la_0\in \La$ and $\xi\in X_{C_0\left( \sX_{\la_0}\right) }$. Let $\overline p_{\la_0}: \overline\sX \to \sX_{\la_0}$ be the natural covering, and $\overline\xi\bydef\lift_{ \overline{p}_{\la_0}}\left(\xi \right)\in X_{C_b\left( \overline\sX\right) }$  corresponds to a family $\left\{\overline\xi_{\overline x}\right\}_{\overline x \in \overline\sX}$. If $\overline f : \overline\sX \to \R$ is given by
 	\bean
@@ -12727,22 +12717,34 @@ Consider the described in \ref{top_coh_empt} and the Exercise  \ref{top_coh_exer
 	If $f_\la\in C_0\left(\sX_{\la}\right)$ is given by the equation \eqref{top_spec_a_eps_eqn} and $\overline f_\la \bydef \lift_{ \overline{p}_{\la}}\left(f_\la \right)\in C_b\left(\overline \sX\right)$ then $\overline f= \lim_\la \overline f_\la$ is a point-wise limit. From the Definition \ref{top_coh_defn}  it follows that $\overline f$ satisfies to the Theorem \ref{comm_main_f_thm}, hence $\overline f \in C_0\left(\overline \sX\right)$.
 \end{proof}
 
-\begin{empt}
-	Any operator $a \in \H_a$ can be regarded as an operator of $\prod_{\overline x\subset \overline\sX}\H_{ \overline x}$
-	Consider the situation of the Definition \ref{top_coh_defn}. From the Lemma \ref{top_c0_hilb_lem} it follows that there is an inclusion
-	\be\label{ctr_hm_inc_eqn}
-	X_{C_b\left(\overline \sX\right)}\subset \prod_{\overline x\subset \overline\sX}\H_{ \overline x}
-	\ee
+\begin{empt}\label{ctr_comp_empt}
+	Let $\sX$ is a compact space, such that any finitely generated projective Hilbert $A$-module is self-dual (cf. Definition \ref{hm_selfdual_defn}). For example if $C\left( \sX\right) $ is divisible infinite (cf. Definition \ref{hm_di_empt}) then it satisfies to this condition (cf. Theorem \ref{hm_di_mi_thm}). Let $X_{C\left(\sX \right) }$ be a finitely or countably generated Hilbert $C\left(\sX\right)$-module. Let us consider a {pointed topological finite covering category} $$\mathfrak{S}_{\left( \sX, x_0\right)}= \left\{\left( \sX_\la, x^\la_0\right) \to \left( \sX, x_0\right)\right\}$$ (cf. Definition \ref{top_sec_p_defn}), such that for every $\la\in \La$ one has
+	$$
+	\sX_\la \cong \bigsqcup_{g \in G\left(\left.\sX_\la\right| \sX\right)}\sX.
+	$$
+	If $\overline{   \mathcal X }$ is the disconnected inverse limit of $\mathfrak{S}_{\left( \sX, x_0\right)}$ then
+\be\label{ctr_sq_eqn}
+	\overline\sX \cong \bigsqcup_{g \in G\left(\left.\overline\sX\right| \sX\right)}\sX.
+\ee
+	If $X_{C_b\left( \overline\sX\right) }\bydef C_b\left( \lift_{ \overline{p}}\left[X_{C\left[\sX\right]}\right]\right)$ then one has
+	\bean
+	X_{C_b\left( \overline\sX\right) }\cong \prod_{g \in G\left(\left.\overline\sX\right| \sX\right)} X_{C\left(\sX\right)},\\
+\K\left(	X_{C_b\left( \overline\sX\right) } \right) \cong \prod_{g\in G\left(\left.\overline\sX\right| \sX\right)}\K\left(X_{C\left(\sX\right)}\right).
+	\eean 
+	If $\overline a \in B\left(\H_a \right)$ is coherent (cf. Definition \ref{top_coh_defn}) then $\overline a$ corresponds to a family $\left\{\overline a_{\overline x}\in B\left( \H_{\overline x}\right) \right\}_{\overline x \in \overline \sX}$. If $a \bydef \sum_{	g \in G\left( \left. \overline\sX\right| \sX\right) }\overline a$ then $a$ corresponds to an element of  $\K\left( X_{C\left(\sX\right)}\right)$. It follows that $a$ corresponds to a family $\left\{a_x \in \K\left( \H_x\right) \right\}_{x \in \sX}$. From $\overline a_{\overline{x}}\le a_{\overline{p}\left(\overline{x}\right)}$ if follows that $\overline a_{\overline x}\in \K\left( \H_{\overline x}\right)$.  If turns out that $\overline a\in \K\left(X_{D^*}\left(\overline \sX \right)  \right)$ where $X_{D^*\left(\overline \sX\right)}$ is the \textit{discontinuous extension} of  $X_{C_b\left(\overline \sX\right)}$ (cf. Definition \ref{top_disc_ext_defn}).
 \end{empt}
+
+
+
 \begin{lemma}\label{ctr_comp_lem}
-	Consider the situation of the Definition \ref{top_coh_defn}. If $\overline a \in B\left(\H_a \right)$ is coherent then
+	Consider the situation  \ref{ctr_comp_empt}. If $\overline a \in B\left(\H_a \right)$ is coherent then
 \be\label{ctr_comp_eqn}
 	\left.\overline a\right|_{	X_{C_b\left(\sX\right)}}\in 	\K\left(X_{C_b\left(\overline{\sX} \right) }  \right)\bydef C_b\left(\lift_{\overline{p}}\left[\K\left(X_{C_0\left(\sX\right)}\right) \right] \right)
 \ee 
-	where an inclusion \eqref{ctr_hm_inc_eqn} is implied.
+	where an inclusion $\K\left(X_{C_b\left(\overline{\sX} \right) }  \right)\subset \K\left(X_{D^*\left(\overline{\sX} \right) }  \right)$ is implied.
 \end{lemma}
 \begin{proof}
-	If $\overline \sX'$ is any connected component then from the construction \ref{top_coh_empt} it follows that there are homeomorphism $\overline \sX'\cong \sX$ and natural isomorphisms $X_{C\left(\sX\right)}\cong X_{C\left(\overline \sX'\right)}$, $~\K\left( X_{C\left(\sX\right)}\right) \cong\K\left(  X_{C\left(\overline \sX'\right)}\right)$
+	If $\overline \sX'$ is any connected component then from \eqref{ctr_sq_eqn} it turns out that  there is the natural homeomorphism $\overline \sX'\cong \sX$ and natural isomorphisms $X_{C\left(\sX\right)}\cong X_{C\left(\overline \sX'\right)}$, $~\K\left( X_{C\left(\sX\right)}\right) \cong\K\left(  X_{C\left(\overline \sX'\right)}\right)$
 	From the Lemma \ref{top_z_lem} and that for all $\xi \in X_{C\left(\overline \sX'\right)}$ one has
 \be\label{ctr_inf3_eqn}
 \left\langle \xi, \overline a \xi\right\rangle_{D^*\left(\overline \sX' \right) }\in C\left( \overline \sX'\right) 
@@ -12754,21 +12756,45 @@ If $a \bydef \sum_{g \in \widehat G } g \overline a$ then
 \be\label{ctr_inf2_eqn}
 a \in \K\left( X_{C\left(\sX \right) }\right)
 \ee
-The system of equations \eqref{ctr_inf1_eqn},  \eqref{ctr_inf2_eqn},  \eqref{ctr_inf3_eqn} can be regarded as a specialization of  \eqref{compact_inf1_eqn}, \eqref{compact_inf2_eqn}, \eqref{compact_inf3_eqn}. On the other hand from  the condition  of \ref{top_coh_empt} any finitely generated projective Hilbert $C\left(\sX\right)$-module is self-dual, so from the Lemma \ref{compact_inf_lem} it follows that 
+The system of equations \eqref{ctr_inf1_eqn},  \eqref{ctr_inf2_eqn},  \eqref{ctr_inf3_eqn} can be regarded as a specialization of  \eqref{compact_inf1_eqn}, \eqref{compact_inf2_eqn}, \eqref{compact_inf3_eqn}. On the other hand from  the condition  of \ref{ctr_comp_empt} any finitely generated projective Hilbert $C\left(\sX\right)$-module is self-dual, so from the Lemma \ref{compact_inf_lem} it follows that 
 \be\label{ctr_comp'_eqn}
 \left.\overline a\right|_{	X_{C\left(\overline \sX'\right)}}\in 	\K\left(	X_{C\left(\overline \sX'\right)} \right).
 \ee
 The proof of an implication \eqref{ctr_comp'_eqn} $\Rightarrow$ \eqref{ctr_comp_eqn} is left to the reader.
 \end{proof}
+\begin{empt}
+ If $X_{C\left( {\sX}\right)}$	is a full countably generated Hilbert $C\left( {\sX}\right)$  from the Theorem \ref{kasparov_stab_thm} one has the isomorphism of $C^*$-Hilbert modules.
+\bean
+X_{C\left(\sX \right)} \oplus \ell^2\left( C\left(\sX \right) \right)  \cong \ell^2\left( C\left(\sX \right) \right)
+\eean
+Any $b \in \K\left( X_{C\left(\sX \right)} \oplus \ell^2\left( C\left(\sX \right) \right)\right)$ can be represented by a matrix
+\bean
+\begin{pmatrix}
+	b_{11}&b_{12}\\
+	b_{21}&b_{22}
+\end{pmatrix}\\ b_{11}\in \K\left(  X_{C\left(\sX \right)}\right) ,\quad b_{12}\in \K\left( \ell^2\left( C\left(\sX \right) \right),  X_{C\left(\sX \right)}\right),\\
+b_{21}\in \K\left(X_{C\left(\sX \right)}, \ell^2\left( C\left(\sX \right) \right)\right),\quad \quad b_{22}\in \K\left( \ell^2\left( C\left(\sX \right) \right)\right).
+\eean
+The above representation yields an injective *-homomorphism
+\be\label{ctr_toell_eqn}
+\begin{split}
+	\phi_X: \K\left(  X_{C\left(\sX \right)}\right)\hookto \K\left( X_{C\left(\sX \right)} \oplus \ell^2\left( C\left(\sX \right)\ \right)\right) \cong \K\left(  \ell^2\left( C\left(\sX \right)\ \right)\right),\\
+	a \mapsto \begin{pmatrix}
+		a&0\\
+		0&0
+	\end{pmatrix}
+\end{split}
+\ee
+
+\end{empt}
 \begin{lem}\label{top_coh_compact_lem}
-In the situation of the Lemma \ref{top_coh_lem} one has
+In the situation of the Lemma \ref{ctr_comp_lem} one has
 	\be\label{top_coh_compact_eqn}
 \mathrm{norm}_{\overline a } \in C_0\left(\overline \sX \right). 
 	\ee
 \end{lem}
 \begin{proof}
-	From the Theorem \ref{kasparov_stab_thm} there is an inclusion $X_{C_b\left(\overline \sX\right)}\subset \ell^2\left( C_b\left(\overline \sX\right)\right) $ as a direct summand so there is an inclusion $\K\left( X_{C_b\left(\overline \sX\right)}\right)\subset \K \left(\ell^2\left( C_b\left(\overline \sX\right)\right)\right)$.
-	From the Remark \ref{c_misch_rem} it follows that $\overline{a}$ is compact in sense of Mischenko, hence for any $\eps > 0$ from the Lemma 
+	Using an inclusion \eqref{ctr_toell_eqn}  the $C^*$-algebras  $\K\left(  X_{C\left(\sX \right)}\right), ~\K\left(  X_{C\left(\sX_\la \right)}\right)$ and $\K\left(  X_{C_b\left(\sX \right)}\right)$ can be replaced with $\K\left( \ell^2\left(C\left(\sX \right)\right)\right),~ ~\ell^2\left(C\left(\sX \right)\right)$ and $\K\left( \ell^2\left(C_b\left(\overline \sX \right)\right)\right) $ respectively.	From the Remark \ref{c_misch_rem} it follows that $\overline{a}$ is compact in sense of Mischenko, hence for any $\eps > 0$ from the Lemma 
 	\ref{c_misch_a_lem}  it turns out that there is $N \in \N$ such that
 	\be\label{top_p_l_p_eqn}
 	n\ge N \quad \Rightarrow\quad \left\|\overline{p}_n \overline{a}~ \overline{p}_n - \overline{a}\right\| < \eps
@@ -18981,7 +19007,7 @@ x \mapsto\left\langle x, \cdot \right\rangle.
 	A $C^*$-algebra is said to be \textit{module}-\textit{infinite} (MI) if each countably generated Hilbert $A$-module is projective and finitely generated if and only if it is self-dual.
 \end{definition}
 
-\begin{definition}\cite{matro:hcm}
+\begin{definition}\label{hm_di_empt}\cite{matro:hcm}
 A commutative $C^*$-algebra $A = C\left(\sY \right)$ is said to be DI (\textit{divisible infinite}) if for any infinite sequence $\left\{u_j\right\}_{j\in \N}$ of norm $1\ge\left\|u_j \right|\ge C > 0$ in $A$ there exists a subsequence $j\left(k\right)$ and elements $0 < b_k \in A$ of norm 1 such that
 \begin{enumerate}
 	\item [(i)] The supports $b_k$ in $\sY$ are pairwise disjoint.
@@ -23623,6 +23649,19 @@ of the manifolds, where the manifold $K$ is compact and $M$ is not compact. The 
 \chapter*{Acknowledgment}
 
 \paragraph{title}!!!
+	
+
+\begin{empt}\label{top_coh_empt!}
+	Let $\sX$ be a connected, locally connected,  compact space such that any finitely generated projective Hilbert $C\left(\sX\right)$-module is self-dual (cf. Definition \ref{hm_selfdual_defn}). Let $\widetilde p: \left( \widetilde\sX, \widetilde x_0\right) \to\left(  \sX, x_0\right) $ be a pointed transitive  covering such that the covering transformation group $G\bydef  G\left(	\left. \widetilde \sX~ \right|\sX\right)$ is residually  finite (cf. Definition \ref{residually_finite_defn}). Suppose that $\widetilde\sX$ is isomorphic to $G\times \sX$. Let $\mathfrak{S}_{\left( \sX, x_0  \right) }=\left\{ p_\la: \left( \sX_\la, x^\la_0\right) \to \left( \sX, x_0\right)\right\}_{\la \in \La} $ be a given by the Lemma \ref{top_res_fin_lem} pointed  topological finite covering category  such that the natural map
+	\bean
+	\phi = \prod_{\la \in \La}\phi_\la:  G\left( \left.{\widetilde{\sX}}~\right|\sX\right) \hookto \prod_{\la \in \La}G\left( \left.{{\sX}}_\la~\right|\sX\right)
+	\eean
+	is injective (cf. equation \eqref{comm_g_inj_eqn}). Let $X_{C\left(\sX \right) }$ be a countably generated Hilbert $C\left(\sX \right)$-module. For all $\la\in \La$ denote by $\sX_\la\bydef \lift_{p_\la}\left(\sX_\la \right) $, and there for all $\la\in\La$ there is an injective *-homomorphism $\K\left(\sX \right) \hookto \K\left(\sX_\la \right)$
+\end{empt}
+\begin{exercise}\label{top_coh_exer!}
+	Let $\widehat \K\bydef C^*$-$\varinjlim_{\la \in \La} \K\left(X_{C_0\left(\sX_\la\right)}\right)$ be the inductive limit of $C^*$-algebras in sense of the Definition \ref{inductive_lim_non_defn}. Let $\overline{\mathcal X}$ be the {topological disconnected inverse limit} of $\mathfrak{S}_{\left( \sX, x_0\right)}$ (cf. Definition \ref{top_topological_inv_lim_defn})
+	Find the natural bijective map from the spectrum  of $\widehat \K$ to  $\overline{\mathcal X}$. 
+\end{exercise}
 The Lemma \ref{hered_c_lem} yields inclusions
 \be\label{top_adj_inc_eqn}
 \begin{split}
