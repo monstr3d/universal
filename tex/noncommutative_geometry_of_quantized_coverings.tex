@@ -13840,14 +13840,14 @@ Here we consider foliation spaces such that all leaves of which are simply conne
 \end{remark}
 
 \begin{lemma}\label{foli_lt_lem}
-	If the foliation groupoid  $\G\left(M, \sF \right)$ is Hausdorff and $a \in C_r\left(M, \sF \right)_+$ is a positive element  then for any $\eps> 0$ there is an open set $\sV \subset  \G\left(M, \sF \right)$ such that
+	If $\G\left(M, \sF \right)$ is a foliation groupoid   and $a \in C_r\left(M, \sF \right)_+$ is a positive element  then for any $\eps> 0$ there is an open set $\sV \subset  \G\left(M, \sF \right)$ such that
 	\begin{itemize}
 		\item The closure of $\sV$ is compact.
 		\item $\left\|\left(1-  P_\sV\right)  \pi_a\left(a \right)\left( 1-P_\sV\right) \right\| < \eps$ (cf. equations \eqref{foli_atomic_eqn} and \eqref{foli_ag_v_eqn}) .
 	\end{itemize}
 \end{lemma}
 \begin{proof}
-	There is $\delta > 0$ such that $2 \sqrt{ \left\| a	 \right\|}\delta + \delta^2 < \eps$. From the Definition \ref{foli_red_defn} it follows that there is $b \in \Ga_c\left( \G\left(M, \sF \right),\Om^{1/2}\right)$ such that $\left\| \sqrt{a} - b	 \right\|< \delta$. From the above inequalities it follows that $\left\| a - bb^*	 \right\|< \eps$. Otherwise $bb^* \in \Ga_c\left( \G\left(M, \sF \right),\Om^{1/2}\right)$ so the support of $bb^*$ is compact. If $\sV$ be the maximal open subset of the support of $bb^*$ then $P_\sV = Q_\sV$ because $bb^*$ is positive (cf. equation \ref{foli_ag_v_eqn}). There is the following representation
+	There is $\delta > 0$ such that $2 \sqrt{ \left\| a	 \right\|}\delta + \delta^2 < \eps$. If  $\gamma > 0$  is  such that $2 \sqrt{\left\| a	 \right\|}\gamma + \gamma^2 < \delta$ then from the Definition \ref{foli_red_defn} it follows that there is $b \in \Ga_c\left( \G\left(M, \sF \right),\Om^{1/2}\right)$ such that $\left\| \sqrt{a} - b	 \right\|< \gamma$. It turns out that $\left\| a - bb^*	 \right\|< \delta$. Otherwise $bb^* \in \Ga_c\left( \G\left(M, \sF \right),\Om^{1/2}\right)$ so the support of $bb^*$ is compact. If $\sV$ is the maximal open subset of the support of $bb^*$ then $P_\sV = Q_\sV$ because $bb^*$ is positive (cf. equation \ref{foli_ag_v_eqn}). There is the following representation
 	\bean
 	\pi_a\left(a \right)= \begin{pmatrix}
 		P_\V \pi_a\left(a \right)P_\sV & P_\sV \pi_a\left(a \right)\left( 1-P_\sV\right) \\
@@ -13857,8 +13857,9 @@ Here we consider foliation spaces such that all leaves of which are simply conne
 		0 &0
 	\end{pmatrix},\\
 	\eean
-	hence from $\left\| a - bb^*	 \right\|< \eps$ it follows that $\left\|\left(1-  P_\sV\right)  \pi_a\left(a \right)\left( 1-P_\sV\right) \right\| < \eps$.
+	hence from $\left\| a - bb^*	 \right\|< \delta$ and the Lemma \ref{positive_ineq_lem} it follows that $\left\|\left(1-  P_\sV\right)  \pi_a\left(a \right)\left( 1-P_\sV\right) \right\| < \eps$.
 \end{proof}
+
 \begin{corollary}\label{foli_lt_cor}
 	If $\G\left(M, \sF \right)$ is Hausdorff and $a \in C_r\left(M, \sF \right)_+$ is a positive  then for any $\eps> 0$ there is an open set $\sV \subset  \G\left(M, \sF \right)$ such that
 	\begin{itemize}
@@ -13867,7 +13868,8 @@ Here we consider foliation spaces such that all leaves of which are simply conne
 	\end{itemize}
 \end{corollary}
 \begin{proof}
-	There is $\delta > 0$ such that $\delta+ 2 \sqrt{\delta \left\| a	 \right\|}< \eps$.  From the Lemma \ref{foli_lt_lem} it follows that there is an open set $\sV \subset  \G\left(M, \sF \right)$ such that
+	There is $\delta > 0$ such that $\delta+ 2 \sqrt{\delta \left\| a	 \right\|}< \eps$. 	
+	From the Lemma \ref{foli_lt_lem} it follows that there is an open set $\sV \subset  \G\left(M, \sF \right)$ such that
 	\begin{itemize}
 		\item The closure of $\sV$ is compact.
 		\item $\left\|\left(1-  P_\sV\right)  \pi_a\left(a \right)\left( 1-P_\sV\right) \right\| < \delta$ (cf. equations \eqref{foli_atomic_eqn} and \eqref{foli_ag_v_eqn}) .
@@ -13884,7 +13886,7 @@ Here we consider foliation spaces such that all leaves of which are simply conne
 		P_\sV \pi_a\left(a \right)P_\sV & 0 \\
 		0 &0\end{pmatrix}
 	\eean
-	From   $\delta+ 2 \sqrt{\delta \left\| a	 \right\|}< \eps$,  $\left\| \left(1-  P_\sV\right)  \pi_a\left(a \right)\left( 1-P_\sV\right)\right\| < \delta$ and  the equation \eqref{positive_ineq_eqn} one has $\left\|\pi_a\left(a \right)  - 	a|_\sV \right\| < \eps$.
+	From   $\delta+ 2 \sqrt{\delta \left\| a	 \right\|}< \eps$,  $\left\| \left(1-  P_\sV\right)  \pi_a\left(a \right)\left( 1-P_\sV\right)\right\| < \delta$ and  the Lemma \eqref{positive_ineq_lem} one has $\left\|\pi_a\left(a \right)  - 	a|_\sV \right\| < \eps$.
 	
 \end{proof}
 
@@ -13897,7 +13899,7 @@ Here we research local structure of the reduced sheaf, it enables us to construc
 \begin{empt}\label{foli_cases_empt}
 	%	Let $\G\left(M, \sF \right)$ is be a holonomy graph, and let $\Phi : \Pi\left( M,\sF\right)\to \G\left( M,\sF\right)$ be a given by \eqref{foli_cov_map_eqn} surjective continuous map from the from the space of path on leaves to the foliation graph. 
 	We suppose that the groupoid  $\G\left(M,\sF\right)$ is Hausdorff. 
-	We would like to find stalks of $\mathscr C^*_r\left(M,\sF\right)$  at different $\ga \in \G\left( M,\sF\right)$ (cf. Definition \ref{stalk_defn}). We consider following three types:
+	We would like to find stalks of $\mathscr C^*_r\left(M,\sF\right)$  at different $\ga \in \G\left( M,\sF\right)$ (cf. Definition \ref{stalk_defn}). We consider following two types:
 	\begin{enumerate}
 		\item[(I)] $\ga$ is the image of a constant path. 		
 		\item[(II)] $s\left( \ga\right) \neq r\left( \ga\right)$.
@@ -13910,7 +13912,10 @@ Here we research local structure of the reduced sheaf, it enables us to construc
 
 
 \paragraph{Type I.}\label{foli_type_I_par}
-Let $\ga \in \left(M,\sF\right)$ is a constant path such that $s\left(\ga\right)=r\left(\ga\right)=x_0\in M$.
+Let $\ga \in \left(M,\sF\right)$ is a constant path such that $s\left(\ga\right)=r\left(\ga\right)=x_0\in M$, and let $s_\ga \in \mathscr C^*_r\left(M,\sF\right)_\ga$ be an element of the stalk $\mathscr C^*_r\left(M,\sF\right)_\ga$ According to the Definition \ref{stalk_defn} there is an open neighborhood $\sV \
+
+
+
 Let us consider the foliation chart $\varphi_{\sU}:\sU \xrightarrow{\approx} \left(0,1 \right)^{q} \times   \left(0,1 \right)^{n-q}$ where $\sU  \subset M$ . Suppose that $\sU$ is an open neighborhood of $x_0$, and $\varphi_{\sU}$ can extended up to the homeomorphism  $\varphi_{\overline \sU}:\overline \sU \to \left[0,1 \right]^{q} \times   \left[0,1 \right]^{n-q}$ where $\overline \sU$ is the closure of $\sU$. Select $\om  \in\Om^{1/2}$ such that the restriction of $\om_x \otimes \om_x$  on $\sU$ corresponds to the Lebesgue measure on $\left(0,1 \right)^{n-q}$. Let $\Pi\left( M,\sF\right)$ be the space of paths on leaves (cf. \ref{foli_path_space_defn}), denote by 
 \bean
 {   \mathcal W }\bydef \left\{\left.\ga\in \Pi\left( M,\sF\right)\right|s\left(\ga\right), r\left(\ga\right)\in\sU\right\}.
@@ -21140,6 +21145,138 @@ A^{\infty}$.
 	\end{enumerate}
 \end{rem}
 
+	\chapter{Presheaves and sheaves}
+\section{Basic constructions}
+\begin{definition}\label{presheaf_defn}\cite{hartshorne:ag}
+	Let $\sX$ be a topological space. A \textit{presheaf} $\mathscr F$ of Abelian groups on  $\sX$ consists of the data
+	\begin{itemize}
+		\item[(a)] for every open subset $\sU \subseteq \sX$, an Abelian group $\mathscr F\left(\sU\right)$, and 
+		\item[(b)] for every inclusion $\sV \subseteq \sU$ of open subsets of $\sX$, a morphism of Abelian groups $\rho_{\sU \sV}:\mathscr F\left(\sU\right) \to \mathscr F\left(\sV\right)$,\\
+		subject to conditions
+		\begin{itemize}
+			\item [(0)] $\mathscr F\left(\sV\right)= 0$, where $\emptyset$ is the empty set,
+			\item[(1)] $\rho_{\sU \sU}$ is the identity map, and
+			\item[(2)] if $\mathcal W \subseteq \sV \subseteq \sU$ are three open sets, then $\rho_{\sU \mathcal W} = \rho_{\sV \mathcal W }\circ \rho_{\sU \sV}$.
+		\end{itemize}
+	\end{itemize}
+\end{definition}
+
+\begin{definition}\label{sheaf_defn}\cite{hartshorne:ag}
+	A \textit{presheaf} $\mathscr F$ on a 
+	a topological space $\sX$ is a \textit{sheaf}  if it satisfies the following supplementary conditions:
+	\begin{itemize}
+		\item[(3)] If $\sU$ is an open set, if $\left\{\sV_{\a}\right\}$ is an open covering of $\sU$, and if $s \in \mathscr F\left(\sU\right)$ is an element such that $\left.s\right|_{\sV_{\a}}= 0$ for all $\a$, then $s = 0$;
+		\item[(4)] If $\sU$ is an open set, if $\left\{\sV_{\a}\right\}$ is an open covering of $\sU$, and we have elements $s_\a$ for each $\a$, with property that for each $\al, \bt, \left.s_\a\right|_{\sV_{\a}\cap \sV_{\bt}}= \left.s_\a\right|_{\sV_{\bt}\cap \sV_{\bt}}$, then there is an element $s \in  F\left(\sV\right)$ such that $\left.s\right|_{\sV_\a} = s_\a$ for each $\a$.
+	\end{itemize}
+	(Note condition (3) implies that $s$ is unique.)
+\end{definition}
+%\begin{definition}
+%	A presheaf satisfying (4) of the Definition \ref{sheaf_defn} is called \textit{conjunctive} (for $\sU$). (cf. \cite{bredon:sheaf})
+%\end{definition}
+
+\begin{definition}\label{stalk_defn}\cite{hartshorne:ag}
+	If $\mathscr F$ is a {presheaf} on $\sX$, and if $x$ is a point of $\sX$ we define the \textit{stalk} $\mathscr F_x$ of $\mathscr F$ at $x$ to be the direct limit of groups $\mathscr F\left(\sU\right)$ for all open sets $\sU$ containing $x$, via restriction maps $\rho$.
+\end{definition}
+
+\begin{prdf}\label{sheaf_prdf}\cite{hartshorne:ag}
+	Given a presheaf $\mathscr F$, there is a sheaf $\mathscr F^+$ and a morphism $\th: \mathscr F \to \mathscr F^+$, with the property that for any sheaf $\mathscr G$, and any morphism $\varphi: \mathscr F \to \mathscr G$, there is a unique morphism $\psi:\mathscr F^+\to \mathscr G$ such that $\varphi = \psi \circ \th$. Furthermore the pair $\left(\mathscr F^+, \th\right)$ is unique up to unique isomorphism. $\mathscr F^+$ is called the $\mathrm{sheaf~associated}$ to the preseaf $\mathscr F$. 
+\end{prdf}
+\begin{empt}\label{sheaf_empt}
+	Following text is the citation of the proof of \ref{sheaf_prdf} (cf. \cite{hartshorne:ag}). For any open set $\sU$, let $\mathscr F^+\left(\sU\right)$ be set of functions $s$ from $\sU$ to the union $\bigcup_{x \in \sU}  \mathscr F_x$ of stalks of $\mathscr F$ over points of $\sU$, such that
+	\begin{itemize}
+		\item [(1)] for each $x \in \sU$, $s\left(x\right)\in \mathscr F_x$, and
+		\item[(2)] for each $x \in \sU$, there is a neighborhood $\sV$ of $x$ contained in $\sU$ and an element $t \in \mathscr F\left(\sV\right)$, such that for all $y \in \sV$ the germ $t_y$ of $t$ at $y$ is equal to $s\left(y\right)$.
+	\end{itemize}
+\end{empt}
+
+\begin{remark}\label{sheaf_rem}
+	Similarly to the construction \ref{sheaf_empt} one can define a group $\mathscr F\left(\sV\right)$ for any subset $\sV\subset\sX$.  % !!! USE LATER
+\end{remark}
+\begin{definition}\label{sheaf_inv_im_defn}\cite{hartshorne:ag}
+	Let $f: \sX\to \sY$ be a continuous map of topological spaces. For any sheaf $\mathscr F$ on $\sX$, we define the \textit{direct image} sheaf $f_*\mathscr F$ on $\sY$ by $\left(f_*\mathscr F\right)\left(\sV\right)= \mathscr F\left(f^{-1}\left(\sV\right)\right)$ for any open set $\sV \subseteq \sY$. For any sheaf $\mathscr G$ on $\sY$, we define the \textit{inverse image} sheaf $f^{-1}\mathscr G$ on $\sX$ be the sheaf associated to the presheaf $\sU \mapsto \lim_{\sV \supseteq f\left(\sU\right)} \mathscr G\left(\sV\right)$, where $\sU$ is any open set in $\sX$, and the limit is taken over all open sets $\sV$ of $\sV$ containing $f\left(\sU\right)$.
+\end{definition}
+\begin{definition}\label{sheaf_hom_defn}\cite{hartshorne:ag}
+	Let $\mathscr F$, $\mathscr G$ be sheaves of Abelian  groups  on $\sX$. For any open set $\sU \subseteq \sX$ the set of morphisms $\Hom\left(\left.\mathscr F\right|_{\sU}, \left.\mathscr G\right|_{\sU}\right)$ has the natural structure of Abelian group. It is a sheaf (cf. \cite{hartshorne:ag}). It is called the \textit{sheaf of local morphisms} of $\mathscr F\to \mathscr G$, "sheaf hom" for short, and is denoted by $\mathscr Hom \left(\mathscr F, \mathscr G\right)$.
+\end{definition}
+\begin{definition}\label{sheaf_flasque}\cite{hartshorne:ag}
+	A sheaf $\mathscr F$ on a topological space is \textit{flasque} or \textit{flabby} if for every inclusion $\sV \subseteq \sU$ of open sets, the restriction map $\mathscr F\left(\sU \right)\to\mathscr F\left(\sV \right)$ is surjective. 
+\end{definition}
+Recall that for $s \in \mathscr{F}\left(\sX \right)$, $\supp s= \left\{\left.x \in \sX \right|s\left(x \right)\neq 0  \right\}$ denotes the \textit{support} of the section $s$.
+\begin{definition}\label{phi_supp_defn}\cite{godement:sheaf}.
+	Let $\sX$ be a topological space. A \textit{family of supports} on $\sX$ is a family $\Phi$ of closed
+	subsets of $\sX$  such that:
+	\begin{enumerate}
+		\item a closed subset of a member of $\Phi$ is a member of $\Phi$;
+		\item $\Phi$ is closed under finite unions.
+	\end{enumerate}
+	
+	$\Phi$  is said to be a  \textit{paracompactifying} family of supports if in addition:
+	\begin{enumerate}
+		\item  each element of $\Phi$ is paracompact;
+		\item each element of $\Phi$ has a (closed) neighborhood which is in $\Phi$.
+	\end{enumerate}
+\end{definition}
+
+\begin{definition}
+	A sheaf $\mathscr{F}$ on $\sX$ is called $\Phi$-\textit{soft} if the restriction map
+	$\mathscr{F}\left(\sX \right) \to  \mathscr{F}\left(K \right)$  is surjective for all $K \in \Phi$. If $\Phi$ is a set of all closed sets  then $\Phi$ is simply
+	called \textit{soft}.
+\end{definition}
+The family of all compact subsets of $\sX$ is denoted by $c$.
+Now is $\mathscr P$ is a presheaf on $\sX$ such and $s \in \mathscr P\left(\sX \right)$ we put
+$\left|s\right| = \left|\th\left( s\right) \right|$, where $\th: \mathscr{P}\left(\sX \right)\to \mathscr{P}^+\left(\sX \right) $ is the canonical map, $\mathscr{P}^+$ being the sheaf generated by $\mathscr{P}$.
+Note that for $s \in \mathscr{P}$ one has $x \notin \left|s\right|\Leftrightarrow\left.s \right|_{\sU}$ for some neighborhood $\sU$ of $x$. If $\mathscr{F}$ is a sheaf, we put
+$$
+\Ga_\Phi = \left\{\left.s\in \mathscr{F}\left( \sX\right)\right| \left|s\right| \in \Phi \right\}
+$$
+For a presheaf $\mathscr{P}$  on $\sX$ we put  $\mathscr{P}_\Phi\left(\sX \right) = \left\{\left.s\in \mathscr{P}\left( \sX\right)\right| \left|s\right| \in \Phi \right\}$.
+\begin{lemma}\label{schv_soft_n_lem}\cite{godement:sheaf,torsten:sheaves}
+	Let $\sX$ be a paracompact space, $\mathscr{F}$ a sheaf on $\sX$. Then $\mathscr{F}$ is soft if and only if every point $x \in \sX$ has a closed neighborhood $\overline{   \mathcal U }$ such that $\left.\mathscr{F}\right|_{\overline{   \mathcal U }}$ is soft.
+\end{lemma}
+\begin{proposition}\label{flabby_soft_prop}\cite{bredon:sheaf}
+	%	9.22. Proposition. \\
+	If $\sU$ is a compact relatively Hausdorff subspace of $\sX$,
+	then $\left.\mathscr{F}\right|_{\sU} $ is soft for any flabby sheaf $\mathscr{F}$ on $\sX$.
+\end{proposition}
+
+
+\begin{theorem}\cite{bredon:sheaf}
+	%	6.2.\\
+	Theorem. Let $\mathscr P$ be a presheaf on $\sX$ that is conjunctive for coverings
+	of $\sX$ and $\mathscr P^+$ be the sheaf generated by $\mathscr P$. Then for any paracompactifying
+	family $\Phi$ of supports on $\sX$, the sequence
+	$$
+	0 \to \mathscr P_0\left( \right) \to  \mathscr{P}_\Phi\left(\sX \right) \xrightarrow{\th}\Ga_\Phi\left(\mathscr{P}^+ \right) 
+	$$
+	is exact.
+\end{theorem}
+\begin{theorem}\label{sheaf_neigh_thm}\cite{godement:sheaf}
+	%	3.3.1\\
+	Let $\mathscr{F}$ be a sheaf of set over the space $\sX$, $\mathcal S$ is a subset of $\sX$ and $s$ is a section of the sheaf $\mathscr{F}$ over $\mathcal S$. If $\mathcal S$ allows a fundamental system of paracompact neighborhoods then $s$ can be extended to a neighborhood of $\mathcal S$ in $\sX$. 
+\end{theorem}
+\section{Sheaves over non Hausdorff spaces}\label{sheaves_nh_sec}
+\begin{empt}\label{nh_csoft_empt}\cite{cra_moe:nhaus}
+	Here we assume that the space $\sX$ has an open cover by subsets $\sU \subset \sU$ which are each paracompact, Hausdorff, locally compact and of cohomological dimension bounded a number $d$ (depending  on $\sX$ but not $\sU$).	
+\end{empt}
+
+\begin{definition}\label{nh_csoft_defn}\cite{cra_moe:nhaus}
+	Let $\sX$ be a space satisfying the assumptions of \ref{nh_csoft_empt}. An Abelian sheaf $\mathscr{F}$ is said to be $c$-\textit{soft} if for any open $\sU \subset \sX$ its restriction $\left.\mathscr{F}\right|_{\sU}$ is a $c$-soft on $\sU$ in the usual sense. By the same proprety of for Hausdorff space, it follows that $c$-softness is a local property, i.e. a sheaf  $\mathscr{F}$ is $c$-soft if and only if there is an open cover $\sX= \cup \sU_\a$  such that $\left.\mathscr{F}\right|_{\sU_\a}$ is a $c$-soft sheaf on $\sU$.
+\end{definition}
+\begin{definition}\label{nh_csoft_gc_defn}\cite{cra_moe:nhaus}
+	Let $\mathscr{F}$ be a $c$-soft sheaf and let $\mathscr{F}'$  be its Godement resolution (i.e. $\mathscr{F}'= \Ga\left(\sU_{\text{distr}}, \mathscr{F} \right)$ is the set of all (not necessary continuous) sections for any open $\sU \subset \sX$). For any Hausdorff open set $\mathcal W$, let $\Ga_c\left(\mathcal W, \mathscr{F} \right)$ be the usual set of compactly supported sections. If $\mathcal W \subset \sU$, there is an evident homomorphism "extension by 0" 
+	\be\label{sheaf_inc_eqn}
+	\Ga_c\left(\mathcal W, \mathscr{F} \right) \hookto \Ga_c\left(\mathcal U, \mathscr{F} \right)\subset \Ga_c\left(\mathcal U, \mathscr{F}' \right).
+	\ee
+ For any (not necessary Hausdorff) open set $\sU \subset \sX$ we define $\Ga_c \left(\sU, \mathscr{F} \right)$ to be the image of the map:
+	$$
+	\bigoplus_{\mathcal W} \Ga_c\left(\mathcal W, \mathscr{F}' \right) \hookto \Ga\left(\mathcal U, \mathscr{F}' \right),
+	$$ 
+	where $\mathcal W$ ranges over all open subsets $\mathcal W \subset \mathcal U$. %An alternative definition follows by choosing open cover in Propositions \ref{nh_csoft_gc_prop} below.
+\end{definition}
+\begin{proposition}\label{nh_csoft_gc_lem}
+	Let  $\mathscr{F}$ be a $c$-soft sheaf. For any open cover $\sU = \cup \mathcal W_\a$ where each $\mathcal W_\a$ is Hausdorff the sequence $\oplus_\a \Ga_c\left(\mathcal W_\a,  \mathscr{F}\right) \to \Ga_c\left(\mathcal U,  \mathscr{F}\right)\to 0$ is exact.  
+\end{proposition}
+
 
 	
 	\chapter{Foliations, pseudogroups and operator algebras}\label{foliations_sec}
@@ -21442,12 +21579,17 @@ A^{\infty}$.
 	
 	\section{Operator algebras of foliations}\label{foli_alg_subsec}
 	\paragraph*{}
-	Here I follow to \cite{connes:ncg94}
-	The bundle $\Omega_M^{1/2}$ is trivial on $M$, and we
+	Here I follow to \cite{candel:foliII,connes:ncg94}.  Since the bundle $\Om^{1/2}$ is trivial (because M admits partitions of unity), a choice of an everywhere positive density $\nu$ allows us to identify $\Ga_c\left(M,\Om^{1/2}  \right)$  with $\Coo_c\left( M\right)$. 
+	The definition of foliated space makes sense even when the underlying topological space fails to satisfy the Hausdorff separation axiom. Non-Hausdorff spaces appear naturally in the theory of foliations. In a graph of a foliated space is not necessary Hausdorff. It will be necessary to use functions with compact support on such spaces. However, a non-Hausdorff space may not have sufficiently many such functions, the basic reason being that compact subsets of a Hausdorff space are not necessarily closed. The non-Hausdorff spaces that will appear here have a particularly simple local structure, and even when it is possible to construct appropriate functions using this local structure, the standard operation of “extension by 0” of local objects to the full space does not pro duce continuous functions. M. Crainic and I. Moerdijk \cite{cra_moe:nhaus} proposed a very natural way of dealing with this problem, and this preliminary section de scribes it. (That paper develops an extended sheaf theory for non-Hausdorff manifolds (cf. Appendix \ref{sheaves_nh_sec})).
+	Here $\sX$ will denote a separable topological space having the structure of a foliated space, but it is not required that the topology be Hausdorff. It is only required that $\sX$ can be covered by countably many open sets homeomorphic to a product $\D \times \mathcal Z$, where $D$ is an open ball in Euclidean $n$-space and $\mathcal Z$ is a separable locally compact Hausdorff space. Let $\mathcal C\infty$ denote the structure sheaf of the foliated space $\sX$, that is, the sheaf of smooth functions on $\sX$. Let $\A$ be a sheaf of $\mathcal C\infty$-modules over $\sX$, for instance, the sheaf of differential forms or other sheaves of smooth sections of foliated vector bundles. For such a sheaf $\A$ over $\sX$, let $\A$ denote its Godement resolution: $A'\left(\sU\right)$ is the set of all sections (continuous or not) of $\A$ over $\sU\subset\sX$. For a Hausdorff open subset $\mathcal W$ of $\sX$, let $\Ga_c\left( \mathcal W, \A\right) $ denote the set of continuous compactly supported sections of $\A$ over $\mathcal W$. If $\mathcal W\subset\sU$, then “extension by 0” induces a well defined homomorphism $\Ga_c\left( \mathcal W, \A\right)\to \A'\left(\sU \right)$. For an open subset $\sU$ of $\sX$, let $\Ga_c\left( \mathcal U, \A\right)$ denote the image of the homomorphism $\oplus \Ga_c\left( \mathcal W, \A\right)\to \A'\left(\sU\right)$ (cf. Definition \ref{nh_csoft_gc_defn}). From the equation \eqref{sheaf_inc_eqn} it follows that there is the inclusion
+	\be\label{foli_incc_eqn}
+\Ga_c\left(\mathcal W, \A \right) \hookto \Ga_c\left(\mathcal U, \A \right).
+\ee
+Let $\G\bydef \G\left(M, \sF \right)$ be a foliation chart. 	The bundle $\Omega_M^{1/2}$ is trivial on $M$, and we
 	could choose once and for all  a trivialisation $\nu$ turning
 	elements of $\Ga_c \left(\mathcal G , \Omega_{\mathcal G}^{1/2}\right)$ into functions.
 	Let us
-	however stress that the use of half densities makes all the
+	however stress that the usage of half densities makes all the
 	construction completely canonical.
 	For $f,g \in \Ga_c \left(\mathcal G , \Omega_{\mathcal G}^{1/2}\right)$, the convolution
 	product $f * g$ is defined by the equality
@@ -22717,66 +22859,7 @@ same as "is", i.e. in which whenever $a\cong b$, then $a=b$.
 	
 	
 	
-	\section{Presheaves and Sheaves}
-	
-	\begin{definition}\label{presheaf_defn}\cite{hartshorne:ag}
-		Let $\sX$ be a topological space. A \textit{presheaf} $\mathscr F$ of Abelian groups on  $\sX$ consists of the data
-		\begin{itemize}
-			\item[(a)] for every open subset $\sU \subseteq \sX$, an Abelian group $\mathscr F\left(\sU\right)$, and 
-			\item[(b)] for every inclusion $\sV \subseteq \sU$ of open subsets of $\sX$, a morphism of Abelian groups $\rho_{\sU \sV}:\mathscr F\left(\sU\right) \to \mathscr F\left(\sV\right)$,\\
-			subject to conditions
-			\begin{itemize}
-				\item [(0)] $\mathscr F\left(\sV\right)= 0$, where $\emptyset$ is the empty set,
-				\item[(1)] $\rho_{\sU \sU}$ is the identity map, and
-				\item[(2)] if $\mathcal W \subseteq \sV \subseteq \sU$ are three open sets, then $\rho_{\sU \mathcal W} = \rho_{\sV \mathcal W }\circ \rho_{\sU \sV}$.
-			\end{itemize}
-		\end{itemize}
-	\end{definition}
-	
-	\begin{definition}\label{sheaf_defn}\cite{hartshorne:ag}
-		A \textit{presheaf} $\mathscr F$ on a 
-		a topological space $\sX$ is a \textit{sheaf}  if it satisfies the following supplementary conditions:
-		\begin{itemize}
-			\item[(3)] If $\sU$ is an open set, if $\left\{\sV_{\a}\right\}$ is an open covering of $\sU$, and if $s \in \mathscr F\left(\sU\right)$ is an element such that $\left.s\right|_{\sV_{\a}}= 0$ for all $\a$, then $s = 0$;
-			\item[(4)] If $\sU$ is an open set, if $\left\{\sV_{\a}\right\}$ is an open covering of $\sU$, and we have elements $s_\a$ for each $\a$, with property that for each $\al, \bt, \left.s_\a\right|_{\sV_{\a}\cap \sV_{\bt}}= \left.s_\a\right|_{\sV_{\bt}\cap \sV_{\bt}}$, then there is an element $s \in  F\left(\sV\right)$ such that $\left.s\right|_{\sV_\a} = s_\a$ for each $\a$.
-		\end{itemize}
-		(Note condition (3) implies that $s$ is unique.)
-	\end{definition}
-	%\begin{definition}
-	%	A presheaf satisfying (4) of the Definition \ref{sheaf_defn} is called \textit{conjunctive} (for $\sU$). (cf. \cite{bredon:sheaf})
-	%\end{definition}
-	
-	\begin{definition}\label{stalk_defn}\cite{hartshorne:ag}
-		If $\mathscr F$ is a {presheaf} on $\sX$, and if $x$ is a point of $\sX$ we define the \textit{stalk} $\mathscr F_x$ of $\mathscr F$ at $x$ to be the direct limit of groups $\mathscr F\left(\sU\right)$ for all open sets $\sU$ containing $x$, via restriction maps $\rho$.
-	\end{definition}
-	
-	\begin{prdf}\label{sheaf_prdf}\cite{hartshorne:ag}
-		Given a presheaf $\mathscr F$, there is a sheaf $\mathscr F^+$ and a morphism $\th: \mathscr F \to \mathscr F^+$, with the property that for any sheaf $\mathscr G$, and any morphism $\varphi: \mathscr F \to \mathscr G$, there is a unique morphism $\psi:\mathscr F^+\to \mathscr G$ such that $\varphi = \psi \circ \th$. Furthermore the pair $\left(\mathscr F^+, \th\right)$ is unique up to unique isomorphism. $\mathscr F^+$ is called the $\mathrm{sheaf~associated}$ to the preseaf $\mathscr F$. 
-	\end{prdf}
-	\begin{empt}\label{sheaf_empt}
-		Following text is the citation of the proof of \ref{sheaf_prdf} (cf. \cite{hartshorne:ag}). For any open set $\sU$, let $\mathscr F^+\left(\sU\right)$ be set of functions $s$ from $\sU$ to the union $\bigcup_{x \in \sU}  \mathscr F_x$ of stalks of $\mathscr F$ over points of $\sU$, such that
-		\begin{itemize}
-			\item [(1)] for each $x \in \sU$, $s\left(x\right)\in \mathscr F_x$, and
-			\item[(2)] for each $x \in \sU$, there is a neighborhood $\sV$ of $x$ contained in $\sU$ and an element $t \in \mathscr F\left(\sV\right)$, such that for all $y \in \sV$ the germ $t_y$ of $t$ at $y$ is equal to $s\left(y\right)$.
-		\end{itemize}
-	\end{empt}
-	
-	\begin{remark}\label{sheaf_rem}
-		Similarly to the construction \ref{sheaf_empt} one can define a group $\mathscr F\left(\sV\right)$ for any subset $\sV\subset\sX$.  % !!! USE LATER
-	\end{remark}
-	\begin{definition}\label{sheaf_inv_im_defn}\cite{hartshorne:ag}
-		Let $f: \sX\to \sY$ be a continuous map of topological spaces. For any sheaf $\mathscr F$ on $\sX$, we define the \textit{direct image} sheaf $f_*\mathscr F$ on $\sY$ by $\left(f_*\mathscr F\right)\left(\sV\right)= \mathscr F\left(f^{-1}\left(\sV\right)\right)$ for any open set $\sV \subseteq \sY$. For any sheaf $\mathscr G$ on $\sY$, we define the \textit{inverse image} sheaf $f^{-1}\mathscr G$ on $\sX$ be the sheaf associated to the presheaf $\sU \mapsto \lim_{\sV \supseteq f\left(\sU\right)} \mathscr G\left(\sV\right)$, where $\sU$ is any open set in $\sX$, and the limit is taken over all open sets $\sV$ of $\sV$ containing $f\left(\sU\right)$.
-	\end{definition}
-	\begin{definition}\label{sheaf_hom_defn}\cite{hartshorne:ag}
-		Let $\mathscr F$, $\mathscr G$ be sheaves of Abelian  groups  on $\sX$. For any open set $\sU \subseteq \sX$ the set of morphisms $\Hom\left(\left.\mathscr F\right|_{\sU}, \left.\mathscr G\right|_{\sU}\right)$ has the natural structure of Abelian group. It is a sheaf (cf. \cite{hartshorne:ag}). It is called the \textit{sheaf of local morphisms} of $\mathscr F\to \mathscr G$, "sheaf hom" for short, and is denoted by $\mathscr Hom \left(\mathscr F, \mathscr G\right)$.
-	\end{definition}
-	For all $s \in \mathscr{F}\left(\sX \right)$, 
-	\be\label{sheaf_supp_eqn}
-	\supp s= \left\{\left.x \in \sX \right|s\left(x \right)\neq 0  \right\}
-	\ee
-	denotes the \textit{support} of the section $s$.
-	
-	\section{Isospectral deformations}
+\section{Isospectral deformations}
 	\paragraph*{}A very general construction of isospectral
 	deformations
 	of noncommutative geometries is described in \cite{connes_landi:isospectral}. The construction
@@ -23661,91 +23744,6 @@ of the manifolds, where the manifold $K$ is compact and $M$ is not compact. The 
 
 \chapter*{Acknowledgment}
 
-\paragraph{title}!!!
-	
-
-\begin{empt}\label{top_coh_empt!}
-	Let $\sX$ be a connected, locally connected,  compact space such that any finitely generated projective Hilbert $C\left(\sX\right)$-module is self-dual (cf. Definition \ref{hm_selfdual_defn}). Let $\widetilde p: \left( \widetilde\sX, \widetilde x_0\right) \to\left(  \sX, x_0\right) $ be a pointed transitive  covering such that the covering transformation group $G\bydef  G\left(	\left. \widetilde \sX~ \right|\sX\right)$ is residually  finite (cf. Definition \ref{residually_finite_defn}). Suppose that $\widetilde\sX$ is isomorphic to $G\times \sX$. Let $\mathfrak{S}_{\left( \sX, x_0  \right) }=\left\{ p_\la: \left( \sX_\la, x^\la_0\right) \to \left( \sX, x_0\right)\right\}_{\la \in \La} $ be a given by the Lemma \ref{top_res_fin_lem} pointed  topological finite covering category  such that the natural map
-	\bean
-	\phi = \prod_{\la \in \La}\phi_\la:  G\left( \left.{\widetilde{\sX}}~\right|\sX\right) \hookto \prod_{\la \in \La}G\left( \left.{{\sX}}_\la~\right|\sX\right)
-	\eean
-	is injective (cf. equation \eqref{comm_g_inj_eqn}). Let $X_{C\left(\sX \right) }$ be a countably generated Hilbert $C\left(\sX \right)$-module. For all $\la\in \La$ denote by $\sX_\la\bydef \lift_{p_\la}\left(\sX_\la \right) $, and there for all $\la\in\La$ there is an injective *-homomorphism $\K\left(\sX \right) \hookto \K\left(\sX_\la \right)$
-\end{empt}
-\begin{exercise}\label{top_coh_exer!}
-	Let $\widehat \K\bydef C^*$-$\varinjlim_{\la \in \La} \K\left(X_{C_0\left(\sX_\la\right)}\right)$ be the inductive limit of $C^*$-algebras in sense of the Definition \ref{inductive_lim_non_defn}. Let $\overline{\mathcal X}$ be the {topological disconnected inverse limit} of $\mathfrak{S}_{\left( \sX, x_0\right)}$ (cf. Definition \ref{top_topological_inv_lim_defn})
-	Find the natural bijective map from the spectrum  of $\widehat \K$ to  $\overline{\mathcal X}$. 
-\end{exercise}
-The Lemma \ref{hered_c_lem} yields inclusions
-\be\label{top_adj_inc_eqn}
-\begin{split}
-	\iota_{\L}:	\L\left(X_{C_0\left(\sX \right)} \right) \hookto\L\left( \ell^2\left( C_0\left( {\sX}\right)\right)\right),\\
-	\iota_{\K}:	\K\left(X_{C_0\left(\sX \right)} \right) \hookto\K\left( \ell^2\left( C_0\left( {\sX}\right)\right)\right),\\
-	\iota_{\K}\left( 	\K\left(X_{C_0\left(\sX \right)} \right)\right)  \text{ is a hereditary subalgebra}\\ \text{of both } \K\left( \ell^2\left( C_0\left( {\sX}\right)\right)\right)  \text{ and }  \L\left( \ell^2\left( C_0\left( {\sX}\right)\right)\right).
-\end{split}
-\ee
-Otherwise from the \eqref{top_c0_hilb_iso_eqn} and \eqref{top_l2_c0_l_eqn}, \eqref{top_l2_cb_l_eqn}  there are $C_0\left( \sX\right)$ isomorphisms
-\bean 
-X_{C_0\left(\sX\right)} = C_0\left(\sX, \left\{\H_x \right\},   X_{C_0\left(\sX\right)}  \right),\\
-%	\ell^2\left( C_0\left( {\sX}\right)\right) \cong C_0\left(\sX, \left\{L^2\left(\N\right)_x\right\}, 	\ell^2\left( C_0\left( {\sX}\right)\right) \right), \\
-\ell^2\left( C_0\left( {\sX}_\la\right)\right) \cong C_0\left(\lift_{p_\la}\left[ \ell^2\left( C_0\left( {\sX}\right)\right)\right]  \right),\\
-\ell^2\left( C_0\left(\overline{   \mathcal X}\right)\right) \cong C_0\left(\lift_{\overline{p}}\left[  \ell^2\left( C_0\left( {\sX}\right)\right)\right]  \right),
-\\
-\ell^2\left( C_b\left(\overline{   \mathcal X}\right)\right) \cong C_b\left(\lift_{\overline{p}}\left[ \ell^2\left( C_0\left( {\sX}\right)\right)\right]  \right).
-\eean
-From the above equations and the Lemmas \ref{top_lift_bounded_lem}, \ref{top_compact_c0_lem} it turns out that there are following inclusions
-\bean
-\begin{split}
-	\ell^2\left(p_\la \right) : \ell^2\left( C_0\left( {\sX}\right)\right) \hookto \ell^2\left( C_0\left( {\sX}_\la\right)\right),\\
-	\ell^2\left(p^\nu_{ \mu} \right) : \ell^2\left( C_0\left( {\sX}_\mu\right)\right) \hookto \ell^2\left( C_0\left( {\sX}_\nu\right)\right) \text{ where } \nu \ge \mu,\\
-	\ell^2\left(\overline{p}_\la \right) : \ell^2\left( C_0\left( {\sX}_\la\right)\right) \hookto  \ell^2\left( C_b\left( \overline{\sX}\right)\right),\\
-	\ell^2\left(\overline{p} \right) = \ell^2\left(\overline{p}_\la \right)\circ \ell^2\left(p_\la \right) : \ell^2\left( C_0\left( {\sX}\right)\right) \hookto  \ell^2\left( C_b\left( {\overline \sX}\right)\right),\\
-\end{split}
-\eean
-and taking  into account \eqref{top_lift_composition_a_eqn} one has
-\bean
-\begin{split}
-	\nu > \la > \mu \Rightarrow \ell^2\left(p^\nu_{ \mu} \right)= \ell^2\left(p^\nu_{ \la} \right)\circ \ell^2\left(p^\la_{ \mu} \right),\\
-	\nu > \mu \Rightarrow \ell^2\left(p_{ \nu} \right)= \ell^2\left(p^\mu_{ \nu} \right)\circ \ell^2\left(p^{ \mu} \right),\\
-	\ell^2\left(\overline{p} \right)= \ell^2\left(\overline{p}_\la \right)\circ \ell^2\left(p^{\la} \right),\\
-\end{split}
-\eean
-If 
-\bean
-\begin{split}
-	X_{C_0\left(\sX_{\la} \right) } \stackrel{\text{def}}{=} C_0\left( \lift_{p_\la}\left[ X_{C_0\left(\sX \right) } \right]\right),\\
-	X_{C_0\left( \overline{   \mathcal X} \right) } \stackrel{\text{def}}{=} C_0\left( \lift_{ \overline{p}}\left[  X_{C_0\left(\sX \right) } \right]\right),\\
-	X_{C_b\left( \overline{   \mathcal X} \right) } \stackrel{\text{def}}{=} C_b\left( \lift_{ \overline{p}}\left[  X_{C_0\left(\sX \right) } \right]\right).
-\end{split}
-\eean
-then from  \eqref{top_lift_sub_eqn} then there are natural inclusions
-\bean
-\begin{split}
-	X_{C_0\left(\sX_{\la} \right) } \subset \ell^2\left( C_0\left( {\sX}\right)_\la\right),
-	\\
-	X_{C_0\left( \overline{   \mathcal X} \right) } \subset  \ell^2\left( C_0\left( \overline{   \mathcal X}\right)\right),
-	\\
-	X_{C_b\left( \overline{   \mathcal X} \right) } \subset  \ell^2\left( C_b\left( \overline{   \mathcal X}\right)\right)\\
-\end{split}
-\eean
-The Lemma \ref{top_compact_lift_lem} and the Corollary \ref{top_compact_lift_cor} yield following *-isomorphisms
-\be\label{top_kx_eqn}
-\begin{split}
-	\K\left(X_{C_0\left(\sX_{\la} \right) }  \right)= C_0\left(\lift_{p_\la}\left[\K\left(X_{C_0\left(\sX\right)}\right) \right] \right) ,\\
-	\K\left(X_{C_0\left(\overline{\sX} \right) }  \right)= C_0\left(\lift_{\overline{p}}\left[\K\left(X_{C_0\left(\sX\right)}\right) \right] \right), \\
-	\K\left(X_{C_b\left(\overline{\sX} \right) }  \right)= C_b\left(\lift_{\overline{p}}\left[\K\left(X_{C_0\left(\sX\right)}\right) \right] \right)
-\end{split}
-\ee
-and injective *-homomorphisms 
-\be\label{top_compact_maps_eqn}
-\begin{split}
-	\K\left(p_\la \right) : \K\left(X_{C_0\left(\sX\right)}\right) \hookto \K\left(X_{C_0\left(\sX_\la\right)}\right),\\
-	\K\left(p^\nu_{ \mu} \right) : \K\left(X_{C_0\left(\sX_\mu\right)}\right) \hookto \K\left(X_{C_0\left(\sX_\nu\right)}\right) \text{ where } \nu \ge \mu,\\
-	\K\left(\overline{p}_\la \right) : \K\left(X_{C_0\left(\sX_\la\right)}\right) \hookto \K\left(X_{C_b\left(\overline{   \mathcal X}\right)}\right),\\
-	\K\left(\overline{p} \right)= \K\left(\overline{p}_\la \right) \circ \K\left({p}_\la \right) : \K\left(X_{C_0\left(\sX\right)}\right) \hookto \K\left(X_{C_b\left(\overline{   \mathcal X}\right)}\right),\\
-\end{split}
-\ee
-\paragraph{title}
-
 
 \paragraph*{}
 I am very grateful to Prof. Joseph C Varilly  and Arup Kumar Pal
@@ -23803,8 +23801,7 @@ M. F. Atiyah, R. Bott and A. Shapiro, \textit{Clifford Modules}, Topology{\bf 3}
 
 \bibitem{bogopolsky:group_theory}Oleg Bogopolski. \textit{Introduction to Group Theory}. European Mathematical Society. 2008.
 
-%\bibitem{bredon:sheaf} Bredon, Glen E. (1997), \textit{Sheaf theory}. Graduate Texts in Mathematics, 170 (2nd ed.), Berlin, New York: Springer-Verlag. % ISBN 978-0-387-94905-5, MR 1481706 (oriented towards conventional topological applications), 
-%1997.
+\bibitem{bredon:sheaf} Bredon, Glen E. (1997), \textit{Sheaf theory}. Graduate Texts in Mathematics, 170 (2nd ed.), Berlin, New York: Springer-Verlag.  ISBN 978-0-387-94905-5, MR 1481706 (oriented towards conventional topological applications), 1997.
 
 \bibitem{brown:stable} Lawrence G. Brown, Philip Green, and Marc A. Rieffel.\textit{Stable isomorphism and strong Morita equivalence of $C^*$-algebras}. Pacific J. Math., Volume 71, Number 2 (1977), 349-363. 1977.
 
@@ -23840,7 +23837,7 @@ M. F. Atiyah, R. Bott and A. Shapiro, \textit{Clifford Modules}, Topology{\bf 3}
 
 \bibitem{connes_rieffel:nc_ym}A. Connes, Marc A. Rieffel \textit{Yang-Mills for noncommutative two-tori}. 1987 30 pages Published in: Contemp.Math. 62 (1987) 237-266, In *Li, M. (ed.) et al.: Physics in non-commutative world, vol. 1* 46-62. 1987.
 
-%\bibitem{cra_moe:nhaus} M. Crainic and I. Moerdijk. \textit{A remark on sheaf theory for non-Hausdorff manifolds}. Tech. Report 1119, Utrecht University, 1999.
+\bibitem{cra_moe:nhaus} M. Crainic and I. Moerdijk. \textit{A remark on sheaf theory for non-Hausdorff manifolds}. Tech. Report 1119, Utrecht University, 1999.
 
 %\bibitem{vandaele:dqg} A. Van Daele. \textit{Discrete Quantum Groups.} Academic Press, San Diego, CA,  661 p., ISBN 0-12-185860-X, 1994. Journal of Algebra Volume 180, Issue 2, March 1996, Pages 431-444, 1996.
 
@@ -23920,7 +23917,7 @@ J. C. V\'arilly and J. M. Gracia-Bond\'{\i}a, \textit{Algebras of distributions 
 
 \bibitem{moyal_spectral} V. Gayral, J. M. Gracia-Bond\'{i}a, B. Iochum, T. Sch\"{u}cker, J. C. Varilly. {\it Moyal Planes are Spectral Triples}. arXiv:hep-th/0307241, 2003.
 
-%\bibitem{godement:sheaf} Roger Godement, \textit{Topologie Algébrique et Théorie des Faisceaux}. Actualités Sci. Ind. No. 1252. Publ. Math. Univ. Strasbourg. No. 13 Hermann, Paris. 1958.
+\bibitem{godement:sheaf} Roger Godement, \textit{Topologie Algébrique et Théorie des Faisceaux}. Actualités Sci. Ind. No. 1252. Publ. Math. Univ. Strasbourg. No. 13 Hermann, Paris. 1958.
 
 
 
