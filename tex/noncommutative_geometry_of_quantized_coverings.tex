@@ -13838,14 +13838,23 @@ Here we consider foliation spaces such that all leaves of which are simply conne
 	\ee
 	
 \end{remark}
-\begin{empt}
-!!! If $s \in \mathscr C^*_r\left(M,\sF\right)\G\left(M,\sF\right)$ is a global section of the given by Definition \ref{foli_presheaf_defn} then from \ref{sheaf_empt} it follows that $s$ can be represented by a family $\left\{\sV_\a\right\}_{\a \in \mathscr A}$ open subsets of $\G\left(M,\sF\right)$ and elements $s_\a\subset \mathscr G\left(\sV_\a \right)$ of the reduced presheaf  of $\left(M,\sF\right)$ such that
-\bean
-\cup \sV_\a = \G\left(M,\sF\right),\\
-\forall\a',\a''\in \mathscr A\quad\left.s_{\a''}\right|_{\sV_{\a'}\cap \sV_{\a''}}=\left.s_{\a'}\right|_{\sV_{\a''}\cap \sV_{\a''}}.
-\eean 
-On the other hand any from \eqref{foli_ag_v_eqn} it follows $s_\a$
-\end{empt}
+\begin{definition}\label{foli_affil_defn}
+	An operator $a\in B\left( \bigoplus_{L \in M/\sF_{\mathrm{no~hol}}}  L^2\left(\G_{x_L}\right)\right)$ such that for any $\ga \in \G\left(M,\sF\right)$ there is an open neighborhood $\sV_\ga$ and element $b \in C^*_r\left(M,\sF\right)$ such that
+	$$
+	P_{\sV_\ga} \pi_a\left(b \right) Q_{\sV_\ga}= P_{\sV_\ga} a Q_{\sV_\ga}.
+	$$
+	is said to be \textit{affiliated to}  $C^*_r\left(M,\sF\right)$. The $\C$-space of affiliated operators will be denoted by $C^*_b\left(M,\sF\right)$.
+\end{definition}
+\begin{remark}\label{foli_affil_rem}
+Any {affiliated to}  $C^*_r\left(M,\sF\right)$ operator corresponds to a global section of  the {reduced sheaf} $\mathscr C^*_r\left(M,\sF\right)$ of $\left(M,\sF\right)$ (cf. Definition \ref{foli_presheaf_defn}). Conversely any bounded operator $ a\in B\left( \bigoplus_{L \in M/\sF_{\mathrm{no~hol}}}  L^2\left(\G_{x_L}\right)\right)$ is affiliated to  $C^*_r\left(M,\sF\right)$ if it corresponds to a global section of the sheaf $\mathscr C^*_r\left(M,\sF\right)$.
+\end{remark}
+\begin{remark}
+There is the natural inclusion
+\be\label{foli_cr_cb_eqn}
+C^*_r\left(M,\sF\right)\subset C^*_b\left(M,\sF\right).
+\ee
+of $\C$-spaces.
+\end{remark}
 \begin{lemma}\label{foli_lt_lem}
 	If $\G\left(M, \sF \right)$ is a foliation groupoid   and $a \in C_r\left(M, \sF \right)_+$ is a positive element  then for any $\eps> 0$ there is an open set $\sV \subset  \G\left(M, \sF \right)$ such that
 	\begin{itemize}
@@ -13911,7 +13920,6 @@ Here we research local structure of the reduced sheaf, it enables us to construc
 		\item[(I)] $\ga$ is the image of a constant path. 		
 		\item[(II)] $s\left( \ga\right) \neq r\left( \ga\right)$.
 				\item[(III)] $s\left( \ga\right) =r\left( \ga\right)$ and $\ga$ is not image of a constant path $\widetilde{\ga} \in \Pi\left( M,\sF\right)$.
-				$\widetilde{\ga} \in \Pi\left( M,\sF\right)$
 	\end{enumerate}
 \end{empt}
 
@@ -13955,20 +13963,18 @@ Consider two charts $\phi_s: \left(0, 1\right)^{2\dim\sF}\times\left[0, 1\right]
 \end{exercise}
 \paragraph{Type III.} Type III is very complicated, it corresponds to non-Hausdorff foliations groupoids only (cf. Exercise \ref{foli_haus_exer}). However below we consider only Hausdorff foliations groupoids. So we will not describe type III in details.
 \subsection{Construction of coverings}
-\begin{empt}
-	From the equation \eqref{foli_ag_v_eqn}	it turns out that there is the natural inclusion 
-	\be\label{foli_sheaf_inc_eqn}
-	\mathscr C^*_r\left(M,\sF\right)\left( \G\left(M,\sF\right)\right)\subset
-	B\left( \bigoplus_{L \in M/\sF_{\mathrm{no~hol}}}  L^2\left(\G_{x_L}\right)\right)
-	\ee
-	of the space of the global sections of the sheaf $\mathscr C^*_r\left(M,\sF\right)$ into the operator algebra $B\left( \bigoplus_{L \in M/\sF_{\mathrm{no~hol}}}  L^2\left(\G_{x_L}\right)\right)$. On the other hand the atomic representation of $C^*_r\left(M,\sF\right)$ (cf. \ref{atomic_repr_defn}) yields the natural inclusion
-	\be\label{foli_repr_inc_eqn}
-	C^*_r\left(M,\sF\right)\subset
-	B\left( \bigoplus_{L \in M/\sF_{\mathrm{no~hol}}}  L^2\left(\G_{x_L}\right)\right)
-	\ee
-	
-\end{empt}
+
 \begin{lemma}\label{foli_sec_in_lem}
+!!!
+		Let  $a\in C^*_b\left(M,\sF\right)$ 
+		
+		
+		such that for any $\ga \in \G\left(M,\sF\right)$ there is an open neighborhood $\sV_\ga$ and element $b \in C^*_r\left(M,\sF\right)$ such that
+	$$
+	P_{\sV_\ga} \pi_a\left(b \right) Q_{\sV_\ga}= P_{\sV_\ga} a Q_{\sV_\ga}.
+	$$
+	is said to be \textit{affiliated to}  $C^*_r\left(M,\sF\right)$. The $\C$-space of affiliated operators will be denoted by $C^*_b\left(M,\sF\right)$.
+	
 	Let $s \in \mathscr C^*_r\left(M,\sF\right)\left( \G\left(M,\sF\right)\right)$ is such that its image in $B\left( \bigoplus_{L \in M/\sF_{\mathrm{no~hol}}}  L^2\left(\G_{x_L}\right)\right)$ is positive. If there is a positive $a \in C^*_r\left(M,\sF\right)_+$ such that $0\le s \le a$ then $s \in C^*_r\left(M,\sF\right)_+$.
 \end{lemma}
 \begin{proof}
