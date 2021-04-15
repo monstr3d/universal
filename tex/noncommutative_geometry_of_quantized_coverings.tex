@@ -13729,6 +13729,63 @@ where $q: \widetilde M \to M$ is a transitive finite-fold covering.
 	Follows from the Corollary \ref{foli_slfin_cor} the Lemma \ref{foli_semi1_lem} and the Theorem \ref{blowing_functor_thm}.
 \end{proof}
 
+
+\begin{empt}\label{foli_fin_empt}
+	Let $p:\left(\widetilde{M},~ \widetilde{\mathcal F} \right)\to \left({M},~ {\mathcal F} \right)$ be a regular  covering of foliated spaces (cf. Definition \ref{foli_reg_cov_defn}). Suppose that $N$ is a complete transversal (cf. Remark \ref{foli_comp_trans_rem}). If $\widetilde N \bydef p^{-1}\left(N \right) \subset \widetilde M$ then $\widetilde N$ meets any leaf of $\left(\widetilde{M},~ \widetilde{\mathcal F} \right)$ i.e. $\widetilde N$ is a complete transversal. If both $\G^N_N$ and $\G^{\widetilde N}_{\widetilde N}$ are given by \eqref{foli_gnn_eqn} then the map $p$ yields a surjective homomorphism $p_\G:\G^{\widetilde N}_{\widetilde N}\to \G^{ N}_{ N}$ of groupoids that is; $p_\G$ a functor between small categories. The functor induces an injecive *-homomorphism $\pi_\G: C^*_r\left(\G^{ N}_{ N}\right)\hookto C^*_r\left(\G^{\widetilde N}_{\widetilde N}\right)$. From  the Lemma \ref{foli_stab_lem} it follows that there are *-isomorphisms
+	$\pi_\K:  C^*_r\left({M},~ {\mathcal F} \right)\cong C^*_r\left(\G^{ N}_{ N}\right)\otimes \K$ and $\widetilde\pi_\K : C^*_r\left(\widetilde{M},~ \widetilde{\mathcal F} \right)\cong C^*_r\left(\G^{\widetilde N}_{\widetilde N}\right)\otimes \K$. Otherwise $p$ induced the injecive *-homomorphism $\pi: C^*_r\left({M},~ {\mathcal F} \right)\hookto C^*_r\left(\widetilde{M},~ \widetilde{\mathcal F} \right)$.
+\end{empt}
+\begin{lemma}\label{foli_g_lem}
+	In  the situation \ref{foli_fin_empt} the isomorphisms  $\pi_\K$ and $\widetilde\pi_\K$ can be chosen such that a following diagram 
+	\newline
+	\begin{tikzpicture}
+		\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
+		{
+			C^*_r\left({M},~ {\mathcal F} \right)  & C^*_r\left(\widetilde{M},~ \widetilde{\mathcal F} \right) \\
+			C^*_r\left(\G^{ N}_{ N}\right)\otimes \K	&  C^*_r\left(\G^{\widetilde N}_{\widetilde N}\right)\otimes \K \\};
+		\path[-stealth]
+		(m-1-1) edge node [above] {$\pi$} (m-1-2)
+		(m-2-1) edge node [above]  {$\pi \otimes\Id_\K$} (m-2-2)
+		(m-1-1) edge node [right] {$\pi_\K$} (m-2-1)
+		(m-1-2) edge node [right] {$\widetilde\pi_\K$} (m-2-2);
+		%\draw[dashed,->]   (m-1-1) -- (m-1-3);
+	\end{tikzpicture}
+	\\
+	is commutative.
+\end{lemma}
+\begin{proof}
+	From the equation \ref{foli_k1_eqn} it follows that
+	\be\label{foli_m1_eqn}
+	\begin{split}
+		C^*_r\left( M, \sF\right)\cong \K\left(\E^{ M}_{ N}\right),\\
+		C^*_r\left(\widetilde M, \widetilde\sF\right)\cong \K\left(\E^{\widetilde M}_{\widetilde N}\right).
+	\end{split}
+	\ee	
+	On the other hand one has
+	\be\label{foli_m2_eqn}
+	\E^{\widetilde M}_{\widetilde N}\cong \G^{\widetilde N}_{\widetilde N}\otimes \E^{ M}_{ N}.
+	\ee
+	From the equation \ref{foli_k2_eqn} it follows that
+	\be\label{foli_m3_eqn}
+	\E^M_N\cong C^*_r\left(\G^N_N\right)\otimes \ell^2\left( \N\right)
+	\ee
+	so the map $\pi_\G$ yields an injecive natural map
+	\be\label{foli_m4_eqn}
+	C^*_r\left(\G^N_N\right)\otimes \ell^2\left( \N\right)\xrightarrow{\pi_\G \otimes \Id_{\ell^2\left(\N\right)}}C^*_r\left(\G^{\widetilde N}_{\widetilde N}\right)\otimes\ell^2\left( \N\right).
+	\ee
+	The combination of the natural isomorphisms \eqref{foli_m1_eqn}-\eqref{foli_m2_eqn} and the inclusion \eqref{foli_m4_eqn} yield required *-isomorphisms $\pi_\K$ and $\widetilde\pi_\K$
+	
+\end{proof}
+\begin{corollary}\label{foli_fin_cor}
+	If we consider the situation of the Lemma \ref{foli_g_lem} and assume that the covering $p$ is finite-fold  then there is the following noncommutative finite-fold covering 
+	$$
+	\left( C^*_r\left(\G^{ N}_{ N}\right),C^*_r\left(\G^{\widetilde N}_{\widetilde N}\right),  G\left( \left.\widetilde{M}~\right|M\right), \pi_\G\right)
+	$$
+	where the action $G\left( \left.\widetilde{M}~\right|M\right)\times C^*_r\left(\G^{\widetilde N}_{\widetilde N}\right)\to C^*_r\left(\G^{\widetilde N}_{\widetilde N}\right)$ naturally  comes from the action $G\left( \left.\widetilde{M}~\right|M\right)\times \widetilde{M}\to \widetilde{M}$
+\end{corollary}
+\begin{proof}
+	Follows from the Theorem \ref{foli_functor_thm}, Lemma \ref{foli_g_lem}, and (ii) of the Theorem \ref{stable_fin_cov_thm}.
+\end{proof}
+
 Let  $\widetilde{q}:\left( \widetilde{M}, \widetilde{y}_0\right) \to \left( M, y_0\right)$ be a transitive covering such that a covering group  $G\left(\left.\widetilde M \right| M\right)$ is residually finite (cf. Definition \ref{residually_finite_defn}). Let
 	\be\label{foli_top_eqn}
 	\begin{split}
@@ -14141,9 +14198,9 @@ For each $\la \in \La$ let $a_\la \in C^*_r\left(M_\la, \sF_\la \right)_+$ be su
 	If $ \overline a  \in \overline A\subset B\left(\widehat \H_a \right)$ is a special element (cf. Definition \ref{special_element_defn}) then $\overline a \in   C^*_r\left(\overline M, \overline \sF\right)$ 	where we assume the given by  the Corollary  \eqref{blowing_c0_inc_cor} inclusion $C^*_r\left(\overline M, \overline \sF\right)= C^*_r\left( M,  \sF\right)_0\left( \overline M\right) \subset \overline A$.
 \end{lemma}
 \begin{proof}
-From the Definition \ref{foli_presheaf_defn} it follows that
+From the Definition \ref{foli_affil_defn} it follows that
 $$
-C^*_r\left(\overline M,\overline\sF\right)\subset\mathscr C^*_r\left(\overline{M}, \overline{\sF}\right)\left(\G\left(\overline{M}, \overline{\sF}\right) \right)
+C^*_r\left(\overline M,\overline\sF\right)\subset C^*_b\left(\overline M,\overline\sF\right)
 $$.
 Let $\mathscr A$ be an ordered set and let $\left\{a_\a\right\}_{\a\in \mathscr  A}\subset C^*_r\left(M,\sF\right)_+$ be a  family  such that
 \bean
@@ -14165,7 +14222,7 @@ and $\overline b \bydef a_\bt +\phi\left(a_\ga-a_\bt \right)$ then
 \eean
 From the above equations it follows that the set $\mathscr A$ is directed (cf. Definition \ref{directed_set_defn}) and 
 the family $\left\{a_\a\right\}_{\a\in \mathscr  A}$ is a net (cf. Definition \ref{top_net_defn}).
-Let $a \in C^*_r\left(\overline M,\overline\sF\right)$ is given by the equation \eqref{spec_a_sum_eqn}; that is
+Let $a \in C^*_r\left( M,\sF\right)$ is given by the equation \eqref{spec_a_sum_eqn}; that is
 \be\label{foli_sum_eqn}
 a \bydef \sum_{	g \in G\left( \left. \overline M\right| M\right) }g \overline a.
 \ee
@@ -14218,96 +14275,21 @@ and taking into account $a_{\la_0}\in C^*_r\left(\overline{M}, \overline{\sF}\ri
 \end{proof}
 
 
-
-\begin{corollary}\label{foli_spec_inc_cor}
-	If $\overline{A}$ is the disconnected algebraical inverse noncommutative limit of the given by the Lemma \ref{foli_base_point_lem} pointed algebraical  finite covering category 
+\begin{theorem}\label{foli_main_spec_thm} 
+	Suppose that $\left( M,  \sF\right)$ a foliation space with a Hausdorff foliation groupoid $\G\left( M,  \sF\right)$. Let $\mathfrak{S}_{C^*_r\left(M, \sF, x_0\right)}$ be	a pointed algebraical  finite covering category $\mathfrak{S}_{C^*_r\left(M, \sF, x_0\right)}$ (cf. Definition (ref. \ref{comp_pt_defn}) described in the Theorem \ref{blowing_functor_thm} and given by
 	\be\nonumber
 	\begin{split}
 		\left\{\left\{C^*_r\left( p_\la\right) : C^*_r\left(M, \sF\right)\hookto C^*_r\left(M_\la, \sF_\la\right)\right\}, \left\{C^*_r\left(p^\mu_\nu\right) : C^*_r\left(M_\nu, \sF_\nu\right) \hookto C^*_r\left(M_\mu, \sF_\mu\right)\right\}\right\}.
 	\end{split}
 	\ee
-	then one has $\overline{A} =  \pi_A\left(  C^*_r\left(\overline M, \overline \sF\right) \right)$ where $\pi_A$ is given by the Corollary   \ref{blowing_c0_inc_cor}.
-\end{corollary}
-\begin{proof}
-	If $\pi_a\left( \widehat x\right) \overline a \pi_a\left( \widehat y\right)$ be weakly special element such that $ \overline a$ is special and $\widehat{x},\widehat{y} \in C^*$-$\varinjlim_{\la \in \La} C^*_r\left( M_\la,  \sF_\la\right)$ then $\overline a\in \varphi\left(  C^*_r\left(\overline M, \overline \sF\right) \right)$.  	From the Lemma \ref{foli_cov_inc_lem} it turns out that $C^*_r\left( M_\la,  \sF_\la\right) \subset M\left(C^*_r\left(\overline M, \overline \sF\right) \right)$, hence one has 
-	$
-	C^*$-$\varinjlim_{\la \in \La} C^*_r\left( M_\la,  \sF_\la\right) \subset  M\left( C^*_r\left(\overline M, \overline \sF\right) \right)$. It follows that  
-	\be\label{foli_xym_eqn}
-	\widehat{x},\widehat{y} \in M\left( C^*_r\left(\overline M, \overline \sF\right) \right),
-	\ee
-	hence one has
-	$$
-	\pi_a\left( \widehat x\right) \overline a \pi_a\left( \widehat y\right)\in \varphi\left( C^*_r\left(\overline M, \overline \sF\right)\right) .
-	$$
-	The $C^*$-algebra $\overline{A}$ is generated by weakly special elements, so one has
-	$\overline{A} \subset \overline \varphi\left(  C^*_r\left(\overline M, \overline \sF\right) \right)$.
-\end{proof}
-
-\begin{empt}\label{foli_transitive_empt}
-	From the Corollaries \ref{foli_c0_inc_cor} and  \ref{foli_spec_inc_cor} 	it turns out that $\overline{A}  =  \varphi\left(  C^*_r\left(\overline M, \overline \sF\right) \right)$, or equivalently, there is the natural *-isomorphism 
-	\be\label{foli_disc_iso_eqn}
-	\overline{A}\cong C^*_r\left(\overline M, \overline \sF\right).
-	\ee
-	According to the Definition \ref{main_defn_full_defn} one has
-	\be\nonumber
-	G\left(\left.C^*_r\left(\overline M, \overline \sF\right) \right|C^*_r\left( M,  \sF\right)\right)= \varprojlim_{\la \in \La} G\left(\left.C^*_r\left( M_\la,  \sF_\la\right) \right|C^*_r\left( M,  \sF\right)\right)
-	\ee
-	and taking into account $G\left(\left.C^*_r\left( M_\la,  \sF_\la\right) \right|C^*_r\left( M,  \sF\right)\right) \cong G\left(\left. M_\la \right| M\right)$ and $G\left(\left.\overline M \right| M\right)=  \varprojlim_{\la \in \La}  G\left(\left. M_\la \right| M\right)$ we conclude that
-	\be\label{foli_ag_eqn}
-	G\left(\left.C^*_r\left(\overline M, \overline \sF\right) \right|C^*_r\left( M,  \sF\right)\right)= G\left(\left.\overline M \right| M\right). 
-	\ee
-	If $\widetilde{M} \subset \overline{M}$ be a connected component of $ \overline{M}$ then $C^*_r\left(\widetilde M, \widetilde \sF\right) \stackrel{\text{def}}{=}C^*_r\left(\widetilde M, \left.\overline \sF\right|_{\widetilde{M}}\right)$ is the maximal connected subalgebra of $C^*_r\left(\overline M, \overline \sF\right)$. If 
-	$$
-	G \subset G\left(\left.C^*_r\left(\overline M, \overline \sF\right) \right|C^*_r\left( M,  \sF\right)\right)
-	$$
-	is the maximal among subgroups among subgroups $G'
-	\subset G\left(\left.C^*_r\left(\overline M, \overline \sF\right) \right|C^*_r\left( M,  \sF\right)\right)$ such that $G C^*_r\left(\widetilde M, \widetilde \sF\right) = C^*_r\left(\widetilde M, \widetilde \sF\right)$ then $G$ is the maximal among subgroups among subgroups $G''
-	\subset G\left(\left.\overline M \right|M\right)$ such that $G''\widetilde  M = \widetilde M$ (cf. \eqref{foli_ag_eqn}), or equivalently
-	\be\label{foli_gt_eqn}
-	G =  G\left(\left.\widetilde M \right|M\right)
-	\ee
-	If $J\subset G\left(\left.\overline M \right|M\right)$ is a set of representatives of $G\left(\left.\overline M \right|M\right)/G\left(\left.\widetilde M \right|M\right)$ then  from the \eqref{top_disconnected_repr_eqn} it follows that
-	\begin{equation*}
-	\overline{M}=  \bigsqcup_{g \in J} g \widetilde{M}
-	\end{equation*}
-	and $C^*_r\left(\overline M, \overline \sF\right)$ is a $C^*$-norm completion of the direct sum
-	\begin{equation}\label{foli_transitive_eqn}
-	\bigoplus _{g \in J} g C^*_r\left(\widetilde M, \widetilde \sF\right) .
-	\end{equation}
-\end{empt}
-\begin{theorem}\label{foli_main_spec_thm} !!! REPLACE\\\
-	Suppose that $\left(\overline M, \overline \sF\right)$ is a local fiber bundle.
-	Let $\mathfrak{S}_{C^*_r\left(M, \sF, x_0\right)}$ be	a pointed algebraical  finite covering category $\mathfrak{S}_{C^*_r\left(M, \sF, x_0\right)}$ (cf. Definition (ref. \ref{comp_pt_defn}) described in the Lemma \ref{foli_poi_alg_lem} and given by
-	\be\nonumber
-	\begin{split}
-		\left\{\left\{C^*_r\left( p_\la\right) : C^*_r\left(M, \sF\right)\hookto C^*_r\left(M_\la, \sF_\la\right)\right\}, \left\{C^*_r\left(p^\mu_\nu\right) : C^*_r\left(M_\nu, \sF_\nu\right) \hookto C^*_r\left(M_\mu, \sF_\mu\right)\right\}\right\}.
-	\end{split}
-	\ee
-	Let	$\mathfrak{S}_{\left(M, x_0\right)}= \left\{p_\la:\left( M_\la, x^\la_0\right) \to \left( M, x_0\right)\right\}_{\la \in \La} \in \mathfrak{FinTop}^{\mathrm{pt}}$ be the corresponding pointed topological finite covering category (cf. Definition \ref{top_sec_p_defn}). Let $\widetilde M = \varprojlim  \mathfrak{S}_{\left( M, x_0\right)}$ be the topological inverse limit of $\mathfrak{S}_{\left(M, x_0\right)}$ (cf. Definition \ref{top_topological_inv_lim_defn}), and let $\widetilde p:\widetilde M\to \widetilde M$ is a natural covering and $\left(\widetilde M, \widetilde \sF\right)$ be the $\widetilde p$-lift of $\left(M, \sF\right)$ (cf. Definition \ref{fol_cov_defn}). Then the following conditions hold:
-	\begin{enumerate}
-		\item [(i)]The category 
-		$\mathfrak{S}_{C^*_r\left(M, \sF\right)}$  is good (cf. Definition \ref{main_sdefn}).
-		\item[(ii)] 	The triple $\left(C^*_r\left(M, \sF\right), C^*_r\left(\widetilde M, \widetilde \sF\right), G\left(\left.\widetilde M~\right| M\right) \right)$ is  the  { infinite noncommutative covering} of $\mathfrak{S}_{C^*_r\left(M, \sF, x_0\right)}$, (cf. Definition \ref{main_defn}).
-	\end{enumerate} 
+	Let	$\mathfrak{S}_{\left(M, x_0\right)}= \left\{p_\la:\left( M_\la, x^\la_0\right) \to \left( M, x_0\right)\right\}_{\la \in \La} \in \mathfrak{FinTop}^{\mathrm{pt}}$ be the corresponding pointed topological finite covering category (cf. Definition \ref{top_sec_p_defn}). Let $\widetilde M = \varprojlim  \mathfrak{S}_{\left( M, x_0\right)}$ be the topological inverse limit of $\mathfrak{S}_{\left(M, x_0\right)}$ (cf. Definition \ref{top_topological_inv_lim_defn}), and let $\widetilde p:\widetilde M\to  M$ be a natural covering and $\left(\widetilde M, \widetilde \sF\right)$ be the $\widetilde p$-lift of $\left(M, \sF\right)$ (cf. Definition \ref{fol_cov_defn}). Then the triple $\left(C^*_r\left(M, \sF\right), C^*_r\left(\widetilde M, \widetilde \sF\right), G\left(\left.\widetilde M~\right| M\right) \right)$ is  the  { infinite noncommutative covering} of $\mathfrak{S}_{C^*_r\left(M, \sF, x_0\right)}$, (cf. Definition \ref{main_defn}).
 	
 \end{theorem}
-
 \begin{proof}
-	From \eqref{foli_disc_iso_eqn} it follows that the disconnected algebraical inverse noncommutative limit of $\mathfrak{S}_{C^*_r\left(M, \sF, x_0\right)}$  is isomorphic to  $C^*_r\left(\overline M, \overline \sF\right)$ which is the $C^*$-norm completion of the algebraic direct sum 	$\bigoplus _{g \in J} g C^*_r\left(\widetilde M, \widetilde \sF\right)$ any connected component of the disconnected algebraical inverse noncommutative limit is isomorphic to $C^*_r\left(\widetilde M, \widetilde \sF\right)$.\\
-	(i)		One needs check the conditions (a) - (c) of the Definition \ref{main_sdefn}
-	\begin{enumerate}
-		\item [(a)] For any $\la \in \La$ there is the natural injective *-homomorphism
-		$C^*_r\left( M_\la,  \sF_\la\right)\hookto M\left( C^*_r\left(\widetilde M, \widetilde \sF\right)\right)$.
-		\item[(b)] We already stated that $C^*_r\left(\overline M, \overline \sF\right)$ which is the $C^*$-norm completion of the algebraic direct sum 	$\bigoplus _{g \in J} g C^*_r\left(\widetilde M, \widetilde \sF\right)$
-		\item [(c)] Follows from the surjective homomorphisms $G\left(\left.\widetilde M~\right| M\right)\to G\left(\left.M_\la~\right| M\right)$
-		
-	\end{enumerate}
-	(ii) Follows from the proof of (i).
-	
+	Follows from the Theorem \ref{blowing_main_thm} and the Lemma \ref{foli_sheaf_lem}. Details of the proof are left to the reader.
 \end{proof}
-
 \begin{empt}\label{foli_n_cat_empt}
-	Consider a given by \eqref{foli_poi_eqn} category. Let $N \subset M$ be a complete transversal (cf. Remark \ref{foli_comp_trans_rem}). For any $\la\in \La$ the submanifold $N_\la = p_\la^{-1}\left(N \right) $ is a complete transversal. From the Corollary  \ref{foli_spec_inc_cor} and the Theorem \ref{foli_main_thm}
+ Let $N \subset M$ be a complete transversal (cf. Remark \ref{foli_comp_trans_rem}). For any $\la\in \La$ the submanifold $N_\la = p_\la^{-1}\left(N \right) $ is a complete transversal. From the Theorems \ref{blowing_main_thm} and  \ref{foli_main_thm}
 there is a good  pointed algebraical  finite covering category 
 	\be\nonumber
 	\begin{split}
@@ -14347,44 +14329,6 @@ where $\widetilde C^*_r\left(\G^{N_\la}_{N_\la}\right) \otimes \K \cong C^*_r\le
 C^*_r\left(\G^{\widetilde N}_{\widetilde N}\right) \otimes \K\cong C^*_r\left(\widetilde M, \widetilde \sF\right)
 \ee
 From the Remark \ref{stab_inf_rem} and equations \eqref{foli_n1_eqn}, \eqref{foli_n2_eqn} it turns out that the infinite noncommutative covering equals to $C^*_r\left(\G^{\widetilde N}_{\widetilde N}\right)$.
-\end{proof}
-
-\begin{theorem}
-	Let $\left( M, \sF\right)$ be a connected foliated manifold, and let $C^*_r\left( M, \sF\right)$  be its reduced $C^*$-algebra (cf.  Definition \ref{foli_groupoid_red_defn}). Suppose that leaves of $\left( M, \sF\right)$ are simply connected, and the fundamental group $\pi_1\left( M, x_0\right)$ is residually finite (cf. Definition \ref{residually_finite_defn}).  If $\widetilde p : \widetilde M \to M$ is the universal covering (cf. Definition \ref{top_uni_cov_defn}) and $\left( \widetilde M, \widetilde \sF\right)$ is the $\widetilde p$-lift of $\left( M, \sF\right)$ (cf. Definition \ref{fol_cov_defn})  then  following conditions hold:
-	\begin{enumerate}
-		\item [(i)] The triple
-	$$
-	\left(C^*_r\left(  M,  \sF\right), C^*_r\left( \widetilde M, \widetilde \sF\right), G\left(\left.\widetilde M\right|M\right)\right)
-	$$	
-	is the reduced universal  covering of $C^*_r\left(  M,  \sF\right)$ (cf. Definition \ref{fg_bas_defn}).
-	\item[(ii)] There is the reduced fundamental group
-	$\pi_1\left( C^*_r\left( \widetilde M, \widetilde \sF\right), x_0\right)$ of $C^*_r\left(  M,  \sF\right), C^*_r\left( \widetilde M, \widetilde \sF\right)$  (cf. Definition \ref{fg_bas_defn}) and the natural isomoprphism
-	$$
-	\pi_1\left( C^*_r\left(  M,  \sF\right), x_0\right)\cong \pi_1\left(M, x_0\right) 
-	$$
-	\end{enumerate}
-\end{theorem}
-\begin{proof}
-	If $\left\{\left(C^*_r\left(  M,  \sF\right), A_\la, G_\la, \pi_\la \right) \right\}_{\la\in\La}$ is a family of all {all} reduced noncommutative finite-fold coverings then form the Theorem \ref{foli_red_fin_thm} it turns out that for all $\la\in \La$ there is a transitive finite-fold covering $p_\la: M_\la \to M$ such that
-$$
-\left(C^*_r\left(  M,  \sF\right), A_\la, G_\la, \pi_\la \right) \cong \left(C^*_r\left(  M,  \sF\right), C^*_r\left(  M_\la,  \sF_\la \right), G\left(\left. M_\la\right|M\right), C^*_r\left( p_\la\right)  \right)
-$$
-Let $\widetilde x_0 \in \widetilde M$ be such that $\widetilde p\left(\widetilde x_0 \right) = x_0$. If $\widetilde p_\la : \widetilde M \to M_\la $ is the natural covering then denote by $x^\la_0\bydef \widetilde p_\la\left(\widetilde x_0 \right)$. There is  a {pointed topological finite covering category}
-\be\label{foli_top_sec_p_eqn}
-\begin{split}
-	\mathfrak{S}_{\left( M, x_0\right) }\bydef\\
-	\bydef \left\{\left\{p_\la:\left( M_\la, x^\la_0\right) \to \left( M, x_0\right)\right\}_{\la\in\La}, \left\{p^\mu_{ \nu}:\left( M_\mu, x^\mu_0\right) \to \left(  M_\nu, x^\nu_0\right)\right\}_{\substack{\mu,\nu\in\La\\
-			\mu\ge\nu}} \right\}
-\end{split}
-\ee
-(cf. Definition \ref{top_sec_p_defn}). The Lemma \ref{foli_poi_alg_lem} yields  {pointed finite foliation category} then there is a pointed algebraical  finite covering category $\mathfrak{S}_{C^*_r\left(M, \sF, x_0\right)}$ (cf. Definition  \ref{comp_pt_defn}) given by
-\be\nonumber
-\begin{split}
-	\left\{\left\{C^*_r\left( p_\la\right) : C^*_r\left(M, \sF\right)\hookto C^*_r\left(M_\la, \sF_\la\right)\right\}, \left\{C^*_r\left(p^\mu_\nu\right) : C^*_r\left(M_\nu, \sF_\nu\right) \hookto C^*_r\left(M_\mu, \sF_\mu\right)\right\}\right\}.
-\end{split}
-\ee
-From the Theorem \ref{foli_main_thm} it follows that $\mathfrak{S}_{C^*_r\left(M, \sF, x_0\right)}$  is good.  From the Lemma \ref{top_res_fin_lem}  it turns out that the pointed space $\left( \widetilde{M} , \widetilde{x}_0 \right)$ is the topological inverse noncommutative limit of $\mathfrak{S}_{\left( M, x_0 \right) }.$  (cf. Definition \ref{top_topological_inv_lim_defn}).  From the Theorem \ref{foli_main_thm} it follows that 	the triple $\left(C^*_r\left(M, \sF\right), C^*_r\left(\widetilde M, \widetilde \sF\right), G\left(\left.\widetilde M~\right| M\right) \right)$ is  the  { infinite noncommutative covering} of $\mathfrak{S}_{C^*_r\left(M, \sF, x_0\right)}$, (cf. Definition \ref{main_defn}). Now conditions (i), (ii) of this theorem directly follow from the Definition \ref{fg_bas_defn}.
-
 \end{proof}
 
 
@@ -20882,11 +20826,15 @@ Definitions of the Appendix \ref{comm_prot} cannot be directly used in the nonco
 \section{Parallel transform in noncommutative differential geometry}\label{par_trans_conn_sect}
 \paragraph{} In this section I follow to \cite{connes:c_alg_dg}.
 \begin{empt}\label{c_din_empt}\cite{connes:c_alg_dg}
-	Let $(A,G,\alpha)$ be a $C^*$-dynamical system, where $G$ is a Lie group.
-	We shall say that $x \in A$ is of $C^{\infty}$ class iff
+	Let $(A,G,\alpha)$ be a $C^*$-\textit{dynamical system}, where $G$ is a Lie group.
+	We shall say that $x \in A$ is of $C^{\infty}$ class if and only if
 	the map $g \mapsto \alpha_g (x)$ from $G$ to the normed space $A$ is in
-	$C^{\infty}$. The involutive algebra $A^{\infty} = \{ x \in A ,
-	\, x \ \hbox{of class} \ C^{\infty} \}$ is norm dense in $A$.
+	$C^{\infty}$. The involutive algebra 
+\be\label{par_inf_eqn}	
+	A^{\infty} \bydef \{ x \in A ,
+	\, x \ \hbox{of class} \ C^{\infty} \}
+\ee	
+	 is norm dense in $A$.
 	
 	Let $\mathcal{E}^{\infty}$ be a finite projective module on $A^{\infty}$,
 	(we shall write it as a right module); $\mathcal{E} = \mathcal{E}^{\infty}
@@ -20932,7 +20880,7 @@ Definitions of the Appendix \ref{comm_prot} cannot be directly used in the nonco
 \medskip
 
 \begin{defn}\label{connes_dg_connection_defn}\cite{connes:c_alg_dg} $\mathcal{E}^{\infty}$ be a finite projective module on $A^{\infty}$,
-	a {\it connection} (on $\mathcal{E}^{\infty}$) is a linear map
+	a $G$-{\it connection} (on $\mathcal{E}^{\infty}$) is a linear map
 	$\nabla : \mathcal{E}^{\infty} \to \mathcal{E}^{\infty} \otimes(\mathrm{Lie} ~ G)^*$ such that,
 	for all $X \in \mathrm{Lie} ~ G$ and $\xi \in \mathcal{E}^{\infty}$, $x \in
 	A^{\infty}$ one has
@@ -20940,17 +20888,16 @@ Definitions of the Appendix \ref{comm_prot} cannot be directly used in the nonco
 	\nabla_X (\xi \cdot x) = \nabla_X (\xi) \cdot x + \xi \cdot \delta_X (x) \, .
 	$$
 \end{defn}
+\begin{remark}
+We use the $G$-{\it connection} word instead \textit{connection} (cf. \cite{connes:c_alg_dg}) to distinguish Definitions \ref{conn_defn} and \ref{connes_dg_connection_defn}.
+\end{remark}
 
-\begin{definition}
-	Let $\Xi^{\infty}$ be a finite projective module on $A^{\infty}$,  
-	a connection (on $\Xi^{\infty}$) is a linear map 
-	$\nb$ of $\Xi^{\infty}$ in $\Xi^{\infty} \otimes ({\rm Lie} \ G)^*$ such that, 
-	for all $X \in {\rm Lie} \ G$ and $\xi \in \Xi^{\infty}$, $x \in 
-	A^{\infty}$ one has
-	$$
-	\nb_X (\xi \cdot x) = \nb_X (\xi) \cdot x + \xi \cdot \d_X (x) \, .
-	$$
-\end{definition}
+%\begin{definition}
+%	Let $\Xi^{\infty}$ be a finite projective module on $A^{\infty}$,  	a connection (on $\Xi^{\infty}$) is a linear map 	$\nb$ of $\Xi^{\infty}$ in $\Xi^{\infty} \otimes ({\rm Lie} \ G)^*$ such that, 	for all $X \in {\rm Lie} \ G$ and $\xi \in \Xi^{\infty}$, $x \in 	A^{\infty}$ one has
+%	$$
+%	\nb_X (\xi \cdot x) = \nb_X (\xi) \cdot x + \xi \cdot \d_X (x) \, .
+%	$$
+%\end{definition}
 
 \medskip
 
@@ -23263,7 +23210,7 @@ Let $\widetilde{H}_0 = \{h \in \widetilde{H} \ | \ \pi(g)h = \rho(g)h\}$. Algebr
 
 \section{Wilson Lines on the Noncommutative Torus}
 
-\begin{empt}\label{sample_flat_conn}{\it A flat connection.} Let $\theta \in [0,1] - \mathbb{Q}$ and $C\left(\T^2_\th \right)$ the $C^*$-algebra generated by two unitaries $u$, $v$ such that $u \, v = \la \, v \, u$, $\la = \exp ( 2 \,
+\begin{empt}\label{sample_flat_conn}{\it A flat connection.} Let $\theta \in [0,1] \setminus \mathbb{Q}$ and $C\left(\T^2_\th \right)$ the $C^*$-algebra generated by two unitaries $u$, $v$ such that $u \, v = \la \, v \, u$, $\la = \exp ( 2 \,
 	\pi i \, \theta)$ which is said to be a noncommutative torus (cf. Chapter 1). There is a pre-$C^*$-algebra $\Coo\left(\T^2_\th \right) $ of smooth functions defined in \cite{varilly:noncom}. There are  one-parameter groups $\varphi^{u}$, $\varphi^{v}$ such that
 	\bea\label{vp_u}
 		\varphi^{u}_{\tau}(u)=e^{2\pi i\tau}u, \ \varphi^{u}_{\tau}(v) = v,\\
@@ -23271,10 +23218,12 @@ Let $\widetilde{H}_0 = \{h \in \widetilde{H} \ | \ \pi(g)h = \rho(g)h\}$. Algebr
 		\varphi^{v}_{\tau}(u)=u, \ \varphi^{v}_{\tau}(v) = e^{2 \pi i\tau} v.
 	\eea
 	which yield an action 
+$$
+	\R^2\times C\left(\T^2_\th \right) \to C\left(\T^2_\th \right) 
 	$$
-	\T^2\times \Coo\left(\T^2_\th \right) \to \Coo\left(\T^2_\th \right) 
-	$$
-	of the commutative Lie group $	\T^2$. So there is a $C^*$-dynamical system $\left( \Coo\left(\T^2_\th \right), 	\T^2,\a\right)$ (cf. \ref{c_din_empt})
+	of the commutative Lie group $	\T^2$. So there is a $C^*$-dynamical system $\left( \Coo\left(\T^2_\th \right), 	\T^2,\a\right)$ (cf. \ref{c_din_empt}).
+	A relevant specialization of the given by \eqref{par_inf_eqn} *- algebra is $\Coo\left(\T^2_\th \right)$. The action $	\R^2\times C\left(\T^2_\th \right) \to C\left(\T^2_\th \right) $ induces an action 
+	$	\R^2\times C\left(\T^2_\th \right) \to C\left(\T^2_\th \right) $.
 	Let $\mathcal{E} = \Coo\left(\T^2_\th \right)$.\\
 	!!! EXERCISES\\
 	Let $\omega = i (c_u du + c_v dv) \in \Omega^1\mathcal{A}_{\theta}$ be such that $c_u, c_v \in \mathbb{R}$ then $\omega_X^* = -\omega_X$, $\forall \, X \in
