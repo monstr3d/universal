@@ -14932,11 +14932,40 @@ From $\delta_\mu \in D\left( \mathbb{T}^n_{\widetilde\Theta}\right)^{\Z^n / \Ga}
 \end{proof}
 
 \begin{exercise}\label{nt_d_fin_exer}
-	Prove that the quadruple $\left( \Coo\left( \mathbb{T}^n_{\Theta}\right), \Coo\left( \mathbb{T}^n_{\widetilde\Theta}\right), {\Z^n / \Ga}, \pi|_{\Coo\left( \mathbb{T}^n_{\Theta}\right)}\right)$ is a \textit{noncommutative finite-fold covering of $O^*$-algebras} (cf. Definition \ref{fino*_defn}).
+	Prove that the quadruple $\left( \Coo\left( \mathbb{T}^n_{\Theta}\right), \Coo\left( \mathbb{T}^n_{\widetilde\Theta}\right), {\Z^n / \Ga}, \pi|_{\Coo\left( \mathbb{T}^n_{\Theta}\right)}\right)$ is a {noncommutative finite-fold covering of $O^*$-algebras} (cf. Definition \ref{fino*_defn}).
 \end{exercise}
-\begin{exercise}\label{nt_st_fin_exer}
-	Prove that the quadruple $\left( \Coo\left( \mathbb{T}^n_{\Theta}\right), \Coo\left( \mathbb{T}^n_{\widetilde\Theta}\right), {\Z^n / \Ga}, \pi_{\Coo\left( \mathbb{T}^n_{\Theta}\right)}\right)$ is a \textit{noncommutative finite-fold covering of $O^*$-algebras} (cf. Definition \ref{fino*_defn}).
-\end{exercise}
+
+\subsection{Coverings of specrtal triples}
+\paragraph*{}
+If  $\left( \Coo\left( \mathbb{T}^n_{\Theta}\right), \Coo\left( \mathbb{T}^n_{\widetilde\Theta}\right), {\Z^n / \Ga}, \pi|_{\Coo\left( \mathbb{T}^n_{\Theta}\right)}\right)$ is a given by Exercise \ref{nt_d_fin_exer} {noncommutative finite-fold covering of $O^*$-algebras} (cf. Definition \ref{fino*_defn}), then any $\widetilde a\in \Coo\left( \mathbb{T}^n_{\widetilde\Theta}\right)$ can be represented by $\Ga$-periodic element of $\Coo\left(\R^n \right)$. On the other hand if $u_1, ..., u_\mu$ are generators of  $\left( \mathbb{T}^n_{\Theta}\right)$ (cf. Definition \ref{nt_uni_defn}) then  from the equation \eqref{nt_chain_eqn}  it follows that the operator $\frac{\partial}{\partial u_\mu}$ maps $\Ga$-periodic elements of $\Coo\left(\R^n \right)$ onto $\Ga$-periodic ones. So if $\delta_{\mu}\in \L^\dagger\left(\Coo\left(\mathbb{T}^n_{\Theta}\right)\right)$ is given by the equation \eqref{nt_diff_eqn}  then using the equation \eqref{nt_chaind_eqn} one can define
+\be
+\delta_{\mu}\in \L^\dagger\left(\Coo\left(\mathbb{T}^n_{\widetilde\Theta}\right)\right).
+\ee
+From the equation \eqref{mp_part_prod_eqn} the reader can deduce the following Leibniz rule.
+\be\label{nt_tle_eqn}
+\forall\widetilde a,\widetilde b \in C^{\infty}(\mathbb{T}^n_{\widetilde\Theta})\quad \delta_{\mu}\left(\widetilde a \widetilde b\right)  =\left( \delta_\mu \widetilde a\right)\widetilde b +\widetilde a \left( \delta_\mu\widetilde b\right).
+\ee
+Similarly to the equation \eqref{nt_dirac_u_eqn} we define a Dirac operator 
+	\begin{equation}\label{nt_tdirac_u_eqn}
+\widetilde	D\stackrel{\mathrm{def}}{=}\sum_{\mu =1}^{n}\delta_{\mu} \otimes\gamma^{\mu}= \sum_{\mu =1}^{n}i u_\mu \frac{\partial}{\partial u_\mu} \otimes\gamma^{\mu}\in \L^\dagger\left(\Coo\left(\mathbb{T}^n_{\widetilde\Theta}\right)\otimes\C^m\right).
+\end{equation}
+From the Leibniz rule \eqref{nt_tle_eqn} for $\delta_\mu$ one can obtain the Leibniz rule  for $\widetilde	D$, i.e.
+\be\label{nt_dle_eqn}
+\begin{split}
+\forall\widetilde a,\widetilde b \in C^{\infty}(\mathbb{T}^n_{\widetilde\Theta})\quad \forall\xi \in \C^m\quad \widetilde	D\left(\widetilde a \widetilde b\otimes \xi\right)  =\left( \widetilde	D \left( \widetilde a\otimes \xi\right) \right)\left( \widetilde b\otimes 1_{\mathbb{M}_n\left( \C\right)}\right)   +\widetilde a \left( \delta_\mu\widetilde b\right).!!!
+\end{split}
+\ee
+
+ Let $\Om^1_D$ be the {module of differential forms associated} with the given by \eqref{nt_sp_tr_eqn}  spectral triple  $\left(\Coo\left( \mathbb{T}^n_{\Theta}\right)\right)$ (cf. Definition \ref{ass_cycle_defn}). Denote a map
+ \be
+ \begin{split}
+\nabla: \Coo\left(\mathbb{T}^n_{\widetilde\Theta}\right)\to \Coo\left(\mathbb{T}^n_{\widetilde\Theta}\right)\otimes_{\Coo\left(\mathbb{T}^n_{\Theta}\right)}\Om^1_D,\\
+\widetilde a \mapsto i \sum_{\mu =1}^n \delta_{\mu} \widetilde a \otimes u^*_\mu \left[D, u_\mu\right]
+\end{split}
+ \ee
+!!!
+
+
 \begin{exercise}
 Consider a given by \eqref{nt_ctn_tr_eqn} spectral triple
 \begin{equation}\nonumber
@@ -20905,14 +20934,14 @@ We shall say that $\nb$ is compatible with the hermitian structure
 iff~:
 $$
 \langle \nb_X \, \xi , \xi' \rangle + \langle \xi , \nb_X \, \xi' 
-\rangle = \d_X \langle \xi , \xi' \rangle \, , \qquad ~ \, \xi , 
-\xi' \in \Xi^{\infty} \, , \quad ~ \, X \in \hbox{Lie} \ G \, .
+\rangle = \delta_X \langle \xi , \xi' \rangle \, , \qquad ~ \, \xi , 
+\xi' \in \mathcal{E}^{\infty} \, , \quad ~ \, X \in \hbox{Lie} \ G \, .
 $$
-Every finite projective module, $\Xi^{\infty}$, on $A^{\infty}$ 
+Every finite projective module, $\mathcal{E}^{\infty}$, on $A^{\infty}$ 
 admits a connection~; on the module $e \, A^{\infty}$ the following 
 formula defines the  {\it Grassmannian connection }
 $$
-\nb_X^0 (\xi) = e \, \d_X (\xi) \in e \, A^{\infty} \, , \qquad ~ \, \xi 
+\nb_X^0 (\xi) = e \, \delta_X (\xi) \in e \, A^{\infty} \, , \qquad ~ \, \xi 
 \in e \, A^{\infty} \, , \quad ~ \, X \in \hbox{Lie} \ G \, .
 $$
 This connection is compatible with the hermitian structure
@@ -20957,7 +20986,7 @@ A^{\infty}$.
 
 \begin{defn}\cite{connes:c_alg_dg}
 	Let $\nabla$ be a connection on the finite projective module
-	$\mathcal{E}^{\infty}$ (on $A^{\infty}$), the curvature of $\nabla$
+	$\mathcal{E}^{\infty}$ (on $A^{\infty}$), the \textit{curvature} of $\nabla$
 	is the element
 	$\mathcal{T}$ of $\mathrm{End}_{A^{\infty}} (\mathcal{E}^{\infty}) \otimes\mathbb{L}^2 (\mathrm{Lie}~
 	G)^*$ given by
@@ -20978,7 +21007,7 @@ A^{\infty}$.
 	\hbox{Lie}
 	~ G$ iff $\nabla$ is compatible with the hermitian structure of $e \,
 	A^{\infty}$. We identify $\mathrm{End} (e \, A^{\infty})$ with $e \, A^{\infty} \, e \subset
-	A^{\infty}$, the curvature $\mathcal{T}_0$ of the grassmannian connection is
+	A^{\infty}$, the {curvature} $\mathcal{T}_0$ of the grassmannian connection is
 	the 2-form $e(de \wedge de) \in \Om^2$, the curvature of $\nabla = \nabla^0 +
 	\theta \wedge$ equals to
 	\begin{equation}\label{curvature_formula}
@@ -21922,13 +21951,10 @@ Let $\G\bydef \G\left(M, \sF \right)$ be a foliation chart. 	The bundle $\Omega_
 		where  $\th > 0$ is defined by $\th^{2N} \stackrel{\mathrm{def}}{=} \det\Theta$.
 		Denote by $\Coo\left(\mathbb{T}^{2N}_\th\right)\stackrel{\mathrm{def}}{=}\Coo\left(\mathbb{T}^{2N}_\Th\right)$ and $C\left(\mathbb{T}^{2N}_\th\right)\stackrel{\mathrm{def}}{=}C\left(\mathbb{T}^{2N}_\Th\right)$.
 	\end{defn}
-	
-	
 	\paragraph*{}
-	
-	Denote by $\delta_{\mu}$ ($\mu = 1,\dots, n$) the analogues of the partial derivatives $ \frac{1}{i}\frac{\partial}{\partial x^{\mu}}$ on $C^{\infty}(\mathbb{T}^n)$ which are derivations on the algebra $C^{\infty}(\mathbb{T}^n_{\Theta})$ given by
+	The space $\Coo\left(\T^n_{\Theta}\right)$ is a dense subspace of  the Hilbert space $L^2\left(C\left(\mathbb{T}^n_{\Theta}\right), \tau\right)$. Let  $\L^\dagger\left(\Coo\left(\mathbb{T}^n_{\Theta}\right)\right)$ be a given by  the equation \eqref{l_dag_eqn} $O^*$-algebra. Denote by $\delta_{\mu}\in \L^\dagger\left(\Coo\left(\mathbb{T}^n_{\Theta}\right)\right)$ ($\mu = 1,\dots, n$) the analogues of the partial derivatives  on $C^{\infty}(\mathbb{T}^n)$ which are derivations on the algebra $C^{\infty}(\mathbb{T}^n_{\Theta})$ given by
 	\be\label{nt_diff_eqn}
-	\delta_{\mu}(U_k)=k_{\mu} U_k.
+k = \left(k_1,..., k_n\right)\quad \Rightarrow\quad	\delta_{\mu}(U_k)=ik_{\mu} U_k.
 	\ee
 	These derivations have the following property
 	$$
@@ -21936,107 +21962,60 @@ Let $\G\bydef \G\left(M, \sF \right)$ be a foliation chart. 	The bundle $\Omega_
 	$$
 	and also satisfy  the integration by parts formula
 	$$\tau(a\delta_{\mu}b)=-\tau((\delta_{\mu}a)b),\quad a,b\in C^{\infty}(\mathbb{T}^n_{\Theta}).$$
-	
-	The spectral triple describing the noncommutative geometry of noncommutative $n$-torus consists of the algebra $C^{\infty}(\mathbb{T}^n_{\Theta})$, the Hilbert space $\mathcal{H}=L^2\left(C\left(\mathbb{T}^n_{\Theta}\right), \tau\right)\otimes\mathbb{C}^{m}$, where $m=2^{[n/2]}$ with  the representation  $\pi\otimes 1_{B\left(\C^m \right) }:C^{\infty}(\mathbb{T}^n_{\Theta})\to B\left( \H\right) $  where $\pi: C^{\infty}(\mathbb{T}^n_{\Theta})\to B\left( L^2\left(C\left(\mathbb{T}^n_{\Theta}\right), \tau\right)\right)$ is given by \eqref{nt_repr_eqn}.
+From 	the equation \eqref{nt_unitary_product_eqn}	one has
+	\bean
+		\delta_\mu\left(U_k U_l \right)=  e^{-\pi ik ~\cdot~ \Theta l}	\delta_\mu\left(U_{k+l} \right)= i\left(k_\mu + l_\mu \right) e^{-\pi ik ~\cdot~ \Theta l}U_{k+l} =\\=
+		i\left(k_\mu + l_\mu \right)U_k U_l= \left( ik_\mu U_k\right) U_l + U_k \left( il_\mu U_l\right)= \left( \delta_\mu U_k\right) U_l + U_k \left( \delta_\mu U_l\right),
+	\eean
+	and from the above equation one has a Leibniz rule
+	\be\label{nt_le_eqn}
+\forall a, b \in C^{\infty}(\mathbb{T}^n_{\Theta})\quad \delta_{\mu}\left( a\cdot b\right)  =\left( \delta_\mu a\right)\cdot b + a\cdot \left( \delta_\mu b\right)
+	\ee
+	where $\cdot$ means the product of the involutive algebra $\Coo\left(\mathbb{T}^n_{\Theta}\right)$.
+	The spectral triple describing the noncommutative geometry of noncommutative $n$-torus consists of the algebra $C^{\infty}(\mathbb{T}^n_{\Theta})$, the Hilbert space $\mathcal{H}=L^2\left(C\left(\mathbb{T}^n_{\Theta}\right), \tau\right)\otimes\mathbb{C}^{m}$, where $m=2^{[n/2]}$ with  the representation  $\pi\otimes 1_{\mathbb{M}_n\left(\C\right) }:C^{\infty}(\mathbb{T}^n_{\Theta})\to B\left( \H\right) $  where $\pi: C^{\infty}(\mathbb{T}^n_{\Theta})\to B\left( L^2\left(C\left(\mathbb{T}^n_{\Theta}\right), \tau\right)\right)$ is given by \eqref{nt_repr_eqn}.
 	The Dirac operator is given by
 	\begin{equation}\label{nt_dirac_eqn}
-		D=\slashed{\partial}\stackrel{\mathrm{def}}{=}\sum_{\mu =1}^{n}\partial_{\mu}\otimes\gamma^{\mu}\cong\sum_{\mu =1}^{n}\delta_{\mu} \otimes\gamma^{\mu},
+		D\stackrel{\mathrm{def}}{=}\sum_{\mu =1}^{n}\delta_{\mu} \otimes\gamma^{\mu}\in \L^\dagger\left(\Coo\left(\mathbb{T}^n_{\Theta}\right)\otimes\C^m\right),
 	\end{equation}
-	where $\partial_{\mu}=\delta_{\mu}$, seen as an unbounded self-adjoint operator on $L^2\left(C\left(\mathbb{T}^n_{\Theta}\right), \tau\right) $ and $\gamma^{\mu}$s are Clifford (Gamma) matrices in $\mathbb{M}_m(\mathbb{C})$ satisfying the relation
-	\be\label{nt_gam_eqn}\gamma^i\gamma^j+\gamma^j\gamma^i=2\delta_{ij} 1_{\mathbb{M}_m(\mathbb{C})}.\ee
+	where $\delta_{\mu}$ is given by \eqref{nt_diff_eqn}, seen as an unbounded self-adjoint operator on $L^2\left(C\left(\mathbb{T}^n_{\Theta}\right), \tau\right) $ and $\gamma^{\mu}$s are Clifford (Gamma) matrices in $\mathbb{M}_m(\mathbb{C})$ satisfying the relation
+	\be\label{nt_gam_eqn}\gamma^\mu\gamma^\nu+\gamma^\nu\gamma^\mu=2\delta_{\mu\nu} 1_{\mathbb{M}_m(\mathbb{C})}.\ee
 	There is a spectral triple 
 	\begin{equation}\label{nt_sp_tr_eqn}
 		\left( C^{\infty}(\mathbb{T}^n_{\Theta}),L^2\left(C\left(\mathbb{T}^n_{\Theta}\right), \tau\right)\otimes\mathbb{C}^{m},D\right).
 	\end{equation}
-	
-	
-	
-	%There is useful an alternative description of $D$. Note that there are
-	%\begin{itemize}
-	%	\item A $\C$- linear isomorphism $\Coo\left(\T \right) \xrightarrow{\approx} \Coo\left(\T_\Th \right)$,
-	%	\item An infinite covering $\R^n \to \R^n/2\pi\Z^n = \T^n$.
-	%\end{itemize}
-	%Above objects enables represent elements of $\Coo\left(\T_\Th \right)$ by smooth $2\pi$ periodic functions on $\R^n$. If $x_1, ..., x_n$ are Cartesian coordinates then one has
-	%\begin{equation}
-	%\delta_{\mu} = \frac{\partial}{\partial x_\mu}.
-	%\end{equation}
-	There is an alternative description of $D$. The space  $\Coo\left(\T^n \right)$ (resp. $\Coo\left(\T^n_\Th \right)$ ) is dense in $L^2\left( \T^n\right)$ (resp. $L^2\left( \Coo\left(\T^n_\Th \right), \tau\right)$ ), hence from the $\C$-linear isomorphism $\varphi_\infty:\Coo\left(\mathbb{T}^n_{\Theta} \right) \xrightarrow{\approx}  \Coo\left(\mathbb{T}^n \right)$ given by \eqref{nt_varphi_inf_eqn} it follows isomorphism of Hilbert spaces 
-	\begin{equation*}
-		\varphi: L^2\left(C\left(\mathbb{T}^n_{\Theta}\right), \tau\right) \xrightarrow{\approx} L^2\left(\T^n \right). 
-	\end{equation*}
-	Otherwise $\T^n$ admits a spin bundle $S$ such that $L^2\left(\T^2,S \right) \approx L^2\left(\T^n \right) \otimes \mathbb{C}^{m}$. It turns out an isomorphism of Hilbert spaces
-	\begin{equation*}
-		\varPhi: L^2\left(C\left(\mathbb{T}^n_{\Theta}\right), \tau\right)\otimes \mathbb{C}^{m} \xrightarrow{\approx} L^2\left(\T^n,S \right). 
-	\end{equation*}
-	There is a commutative spectral triple 
-	\begin{equation}\label{nt_ct_tr_eqn}
-		\left( \Coo\left(\mathbb{T}^n \right),  L^2\left(\T^n,S \right), \slashed D\right)
-	\end{equation} 
-	such that $D$ is given by
-	\begin{equation}\label{nt_comm_dirac_eqn}
-		D = \Phi^{-1} \circ \slashed D \circ \Phi.
-	\end{equation}
-	The noncommutative counterpart of the spectral triple \eqref{nt_ct_tr_eqn} is given by
-	\begin{equation}\label{nt_ctn_tr_eqn}
-		\left( \Coo\left(\mathbb{T}_\Th^n \right),  L^2\left(C\left(\mathbb{T}^n_{\Theta}\right), \tau\right), D\right).
-	\end{equation} 
-	
-	Noncommutative geometry replaces differentials with commutators such that the differential $df$ corresponds to $\frac{1}{i}\left[ \slashed D, f\right]$ and the well known equation
-	\begin{equation*}
-		d f = \sum_{\mu = 1}^n \frac{\partial f}{\partial x_\mu} dx_\mu
-	\end{equation*}
-	is replaced with 
-	\begin{equation}\label{nt_comm_diff_eqn}
-		\left[\slashed D, f \right]  = \sum_{\mu = 1}^n \frac{\partial f}{\partial x_\mu} \left[\slashed D, x_\mu \right]
-	\end{equation}
-	In case of commutative torus we on has
-	\begin{equation*}
-		dx_\mu = iu^*_\mu du_\mu
-	\end{equation*}
-	where $u_\mu = e^{-ix_\mu}$, so what equation \eqref{nt_comm_diff_eqn} can be written by the following way
-	\begin{equation}\label{nt_comm_diff_mod_eqn}
-		\left[\slashed D, f \right]  = \sum_{\mu = 1}^n \frac{\partial f}{\partial x_\mu} u^*_\mu \left[\slashed D, u_\mu \right]
-	\end{equation}
-	We  would like to prove a noncommutative analog of \eqref{nt_comm_diff_mod_eqn}, i.e. for any $a \in \Coo\left(\mathbb{T}^n_\Th \right)$ following condition holds
-	\begin{equation}\label{nt_diff_mod_eqn}
-		\left[D, a \right]  = \sum_{\mu = 1}^n \frac{\partial a}{\partial x_\mu} u^*_\mu \left[ D, u_\mu \right]
-	\end{equation}
-	From \eqref{nt_dirac_eqn} it follows that \eqref{nt_diff_mod_eqn} is true if and only if 
-	\begin{equation}\label{nt_mu_mod_eqn}
-		\left[\delta_{\mu}, a \right]  = \sum_{\mu = 1}^n \frac{\partial a}{\partial x_\mu} u^*_\mu \left[ \delta_{\mu}, u_\mu \right]; ~ \mu =1,\dots n.
-	\end{equation}
-	In the above equation $\frac{\partial a}{\partial x_\mu}$ means that one considers $a$ as element of $\Coo\left(\mathbb{T}^n\right)$, takes $\frac{\partial}{\partial x_\mu}$ of it and then the result of derivation considers as element of $\Coo\left(\mathbb{T}^n_\Th \right)$. Since the linear span of elements $U_k$ is dense in both $\Coo\left(\mathbb{T}^n_\Th \right)$ and $L^2\left(C\left(\mathbb{T}^n_{\Theta}\right), \tau\right)$ the equation \eqref{nt_mu_mod_eqn} is true if  for any $k, l \in \Z^n$ following condition holds
-	\begin{equation*}\label{nt_mu_mod_eqn1}
-		\left[\delta_{\mu}, U_k \right]U_l  =  \frac{\partial U_k}{\partial x_\mu} u^*_\mu \left[ \delta_{\mu}, u_\mu \right]U_l.
-	\end{equation*}
-	The above equation is a consequence of the following calculations: 
-	\begin{equation*}
-		\begin{split}
-			\left[\delta_{\mu}, U_k \right]U_l = \delta_{\mu} U_k U_l - U_k \delta_k U_l = (k + l) U_k U_l - l U_k U_l = k U_kU_l, \\
-			\frac{\partial U_k}{\partial x_\mu} u^*_\mu \left[ \delta_{\mu}, u_\mu \right]U_l = kU_k u^*\left(\delta_{\mu} u_\mu U_l - u_\mu \delta U_l \right)= kU_k u^*\left(\left(l + 1 \right)  u_\mu U_l - l u_\mu \delta U_l \right) =\\=
-			k U_ku^*_\mu u_\mu U_l = k U_kU_l.
-		\end{split}
-	\end{equation*}
-	For any $k \in \Z^n$ following condition holds
-	$$
-	u^*_\mu \left[ \delta_{\mu}, u_\mu \right]U_k = u^*_\mu \delta_{\mu} u_\mu U_k - u^*_\mu \ u_\mu \delta_{\mu} U_k = u^*_\mu \left(\left(k + 1 \right)  u_\mu U_k - k  u_\mu U_k\right) = U_k
-	$$
-	it turns out
-	\begin{equation}\label{nt_diff_1_eqn}
-		u^*_\mu \left[ \delta_{\mu}, u_\mu \right]= 1_{C\left(\mathbb{T}^n_{\Theta}\right)}; ~~ u^*_\mu \left[ D, u_\mu \right] = \ga^\mu.
-	\end{equation}
-	
-	
-	From \eqref{nt_dirac_eqn}, \eqref{nt_diff_mod_eqn} and \eqref{nt_diff_1_eqn} it turns out
-	
-	\begin{equation}\label{nt_comm_diff_mod_gamma_eqn}
-		\left[D, f \right]  = \sum_{\mu = 1}^n \frac{\partial f}{\partial x_\mu} \ga^\mu.
-	\end{equation}
-	\begin{equation}\label{nt_comm_diff_gamma_in_eqn}
-		\ga^\mu \in \Om^1_D
-	\end{equation}
-	where $\Om^1_D$ is the {module of differential forms associated} with the spectral triple  \eqref{nt_sp_tr_eqn} (cf. Definition \ref{ass_cycle_defn}).
-	\section{Moyal plane}
+There is an alternative description of $D$. Any $b \in \Coo\left(\T^n\right)$ can be regarded as $f_b \in  \Coo\left(\R^n\right)$ which is $\Z^n$-periodic, i.e. it is invariant with respect to $\Z^n$-shifts. If $x_1,..., x_n$ are coordinates of $\R^n$ then for all $\mu= 1,..., n$ 
+the partial derivation $\frac{\partial f_b}{\partial x_\mu}$ is smooth and  $\Z^n$-periodic. We write $\frac{\partial b}{\partial x_\mu}$ instead of $\frac{\partial f_b}{\partial x_\mu}$ so for all $\mu= 1,..., n$ one can assume $\frac{\partial b}{\partial x_\mu}\in \Coo\left(\T^n\right)$, i.e. there is an operator $\frac{\partial}{\partial x_\mu}\in \L^\dagger\left(  \Coo\left(\T^n\right)\right) $. Using the given by \eqref{nt_varphi_inf_eqn} $\C$-linear isomorphism  $\varphi_\infty:\Coo\left(\mathbb{T}^n_{\Theta} \right) \cong \Coo\left(\mathbb{T}^n \right)$   one can set 
+	\be\label{nt_ddx_eqn}
+	\frac{\partial}{\partial x_\mu}\in \L^\dagger\left( \Coo\left(\mathbb{T}^n_{\Theta} \right) \right)
+	\ee
+Elements of the basis $U_k$ and generators $u_\mu$ (cf. Definition  \ref{nt_uni_defn})  $U_k$ correspond to  $\Z^n$-periodic maps  $\R^n \to \C$ such that 
+\bean
+\\
+U_k: x \mapsto e^{2\pi i k \cdot x},\\
+u_\mu : x \mapsto e^{2\pi i x_\mu}\quad x = \left(x_1, ..., x_n\right)
+\eean
+Using chain rule one has
+\be\label{nt_chain_eqn}
+\frac{\partial}{\partial x_\mu} = \frac{1}{2\pi i}u^*\frac{\partial}{\partial u_\mu}, 
+\ee	
+so $\frac{\partial}{\partial u_\mu}$ can be regarded as a $\C$=linear map 
+\be\label{nt_chainu_eqn}
+\frac{\partial}{\partial u_\mu}: \Coo\left(\R^n \right)\to \Coo\left(\R^n \right). 
+\ee
+Otherwise one has
+\be\label{nt_chaind_eqn}
+\delta_\mu = i u_\mu \frac{\partial}{\partial u_\mu},
+\ee	
+so the equation \eqref{nt_dirac_eqn}  can be rewritten by the following way
+	\begin{equation}\label{nt_dirac_u_eqn}
+	D\stackrel{\mathrm{def}}{=}\sum_{\mu =1}^{n}\delta_{\mu} \otimes\gamma^{\mu}= i \sum_{\mu =1}^{n} u_\mu \frac{\partial}{\partial u_\mu} \otimes\gamma^{\mu}\in \L^\dagger\left(\Coo\left(\mathbb{T}^n_{\Theta}\right)\otimes\C^m\right).
+\end{equation}
+Form the equation  \eqref{nt_diff_eqn} it follows that 
+\bean
+\left[\delta_\mu, u_\mu\right]u^*_\mu = iu_\mu u^*_\mu + 
+\eean
+$\left[\delta_\mu, u_\mu\right]$
+\section{Moyal plane}
 	
 	\begin{defn}
 		Denote the \textit{Moyal plane} product $\star_\th$ on $\SS\left(\R^{2N} \right)$ given by
@@ -23180,22 +23159,23 @@ $ G\left(\widetilde{K}~|~K \right) \to GL\left(n, \C \right)$ & $ \Z^2 \times C^
 \end{tabular}
 \end{table}
 \chapter{Wilson Lines and Noncommutative Covering Spaces}
-\paragraph{} Commutative geometry has a lot of local structures, for example local sections of bundles. There are  bundles such that they have no global sections. Let $p: P \to M$ is a bundle such that $p$ has no global sections. Let $\pi : \widetilde{M} \to M$ be the universal covering projection, and $\widetilde{p}: \widetilde{M} \to M$ be the pullback \cite{spanier:at} of $p$ by $\pi$. Then $\widetilde{p}$ can have global sections. Any locally pure gauge field can be locally represented by \eqref{pure_gauge}, but cannot be represented by \eqref{pure_gauge} globally in general case. However pullback of this field can be globally repesented  by \eqref{pure_gauge}. Noncommutative geometry has no local sections. However there is the noncommutative generalisation of covering projections \cite{ivankov:cov_pr_nc_torus_fin,ivankov:infinite_cov_pr}. Local pure gauge fields can be regarded as global pure gauge fields on universal noncommutative covering projections. Locally gauge fields satisfy \eqref{pure_gauge} which can be rewritten in physical notation \cite{alekseev_bytsko:wilson_nc_tori}
+\section{Preliminaries}
+\paragraph{} Commutative geometry has a lot of local structures, for example local sections of bundles. There are  bundles such that they have no global sections. Let $p: P \to M$ is a bundle such that $p$ has no global sections. Let $\pi : \widetilde{M} \to M$ be the universal covering projection, and $\widetilde{p}: \widetilde{M} \to M$ be the pullback \cite{spanier:at} of $p$ by $\pi$. Then $\widetilde{p}$ can have global sections. Any locally pure gauge field can be locally represented by \eqref{pure_gauge}, but cannot be represented by \eqref{pure_gauge} globally in general case. However pullback of this field can be globally repesented  by \eqref{pure_gauge}. Noncommutative geometry has no local sections. However in this book the noncommutative generalisation of covering projections are described. Local pure gauge fields can be regarded as global pure gauge fields on universal noncommutative covering projections. Locally gauge fields satisfy \eqref{pure_gauge} which can be rewritten in physical notation \cite{alekseev_bytsko:wilson_nc_tori}
 \begin{equation} \label{Ag}
 	\partial_i g = i A_i * g \,.
 \end{equation}
 This equation has a noncommutative analog.  Let $A^{\infty}$ be a smooth algebra and $\mathcal{E}^{\infty}$ be a finitely generated projective smooth $A^{\infty}$ module.
-Let $(A^{\infty}, \widetilde{A^{\infty}}, G, _{A^{\infty}}M_{\widetilde{A^{\infty}}})$ be a noncommutative covering projection (See Appendix \ref{appendix_nc_cov}). Spaces $A^{\infty}$,  $\widetilde{A^{\infty}}$, $\mathcal{E}^{\infty}$ are operator spaces. Let denote $\widetilde{\mathcal{E}^{\infty}}=\mathcal{E}^{\infty} \otimes _{A^{\infty}}\widetilde{A^{\infty}}$ where $\otimes$ means the Haagerup tensor product. The $\widetilde{\mathcal{E}^{\infty}}$ module can be regarded as pullback of $\mathcal{E}^{\infty}$. Any vector $X \in \mathrm{Lie}G$ can be lifted to the vector $\widetilde{X}\in \mathrm{Lie}\widetilde{G}$ where $\mathrm{Lie}\widetilde{G}$ is a Lie algebra of infinitesimal transformations of the $\widetilde{A^{\infty}}$. Any connection $\nabla : \mathcal{E}^{\infty} \to \mathcal{E}^{\infty} \otimes \Omega^1A^{\infty}$ can be lifted to $G$ equivariant connection $\widetilde{\nabla}: \widetilde{\mathcal{E}^{\infty}} \to \widetilde{\mathcal{E}^{\infty}} \otimes \Omega^1\widetilde{A^{\infty}}$. Otherwise any connection $\widetilde{\nabla}: \widetilde{\mathcal{E}^{\infty}} \to \widetilde{\mathcal{E}^{\infty}} \otimes \Omega^1\widetilde{A^{\infty}}$ naturally induces a map $\widetilde{\nabla}':\mathrm{End}_{\widetilde{A^{\infty}}}\left(\widetilde{\mathcal{E}^{\infty}}\right) \to \mathrm{End}_{\widetilde{A^{\infty}}}\left(\widetilde{\mathcal{E}^{\infty}}\right) \otimes \Omega^1\widetilde{A^{\infty}}$.
+Let $(A^{\infty}, \widetilde{A}^{\infty}, G, _{A^{\infty}}M_{\widetilde{A}^{\infty}})$ be a noncommutative covering projection (See Appendix \ref{appendix_nc_cov}). Spaces $A^{\infty}$,  $\widetilde{A}^{\infty}$, $\mathcal{E}^{\infty}$ are operator spaces. Let denote $\widetilde{\mathcal{E}}^{\infty}=\mathcal{E}^{\infty} \otimes _{A^{\infty}}\widetilde{A}^{\infty}$ where $\otimes$ means the Haagerup tensor product. The $\widetilde{\mathcal{E}}^{\infty}$ module can be regarded as pullback of $\mathcal{E}^{\infty}$. Any vector $X \in \mathrm{Lie}G$ can be lifted to the vector $\widetilde{X}\in \mathrm{Lie}\widetilde{G}$ where $\mathrm{Lie}\widetilde{G}$ is a Lie algebra of infinitesimal transformations of the $\widetilde{A}^{\infty}$. Any connection $\nabla : \mathcal{E}^{\infty} \to \mathcal{E}^{\infty} \otimes \Omega^1A^{\infty}$ can be lifted to $G$ equivariant connection $\widetilde{\nabla}: \widetilde{\mathcal{E}}^{\infty} \to \widetilde{\mathcal{E}}^{\infty} \otimes \Omega^1\widetilde{A}^{\infty}$. Otherwise any connection $\widetilde{\nabla}: \widetilde{\mathcal{E}}^{\infty} \to \widetilde{\mathcal{E}}^{\infty} \otimes \Omega^1\widetilde{A}^{\infty}$ naturally induces a map $\widetilde{\nabla}':\mathrm{End}_{\widetilde{A}^{\infty}}\left(\widetilde{\mathcal{E}}^{\infty}\right) \to \mathrm{End}_{\widetilde{A}^{\infty}}\left(\widetilde{\mathcal{E}}^{\infty}\right) \otimes \Omega^1\widetilde{A}^{\infty}$.
 Noncummutative analog of \eqref{Ag} is given by
 \begin{equation}\label{nc_Ag}
-	\widetilde{X}U = \widetilde{\nabla}_{\widetilde{X}}U; \ \forall X \in \mathrm{Lie}G, \ U\in \mathrm{Aut} \left(\widetilde{\mathcal{E}^{\infty}}\right).
+	\widetilde{X}U = \widetilde{\nabla}_{\widetilde{X}}U; \ \forall X \in \mathrm{Lie}G, \ U\in \mathrm{Aut} \left(\widetilde{\mathcal{E}}^{\infty}\right).
 \end{equation}
 $U$ is a noncommutative analog of a global gauge transformation on the universal covering space.
-Wilson line can be regarded as a group homomorphisms $G \to \mathrm{Aut}\left(\widetilde{\mathcal{E}^{\infty}}\right)$ given by
+Wilson line can be regarded as a group homomorphisms $G \to \mathrm{Aut}\left(\widetilde{\mathcal{E}}^{\infty}\right)$ given by
 \begin{equation}\label{wilson_rel}
 	g \mapsto (gU) \cdot U^{-1}
 \end{equation}
-where $g \in G(\widetilde{A^{\infty}}|A^{\infty})$ and $U$ satisfies \eqref{nc_Ag}.
+where $g \in G(\widetilde{A}^{\infty}|A^{\infty})$ and $U$ satisfies \eqref{nc_Ag}.
 
 \section{Alternative Description of  Wilson Lines}
 \paragraph{} As well as in \ref{alter_prot} (See \cite{green_schwarz_witten:superstring}) we can define an alternative approach to Wilson lines. Suppose that there is a spectral triple $(\mathcal{A}, H, D)$ \cite{varilly:noncom}. In \cite{ivankov:cov_pr_nc_torus_fin,ivankov:infinite_cov_pr} I defined noncomutative covering projection $(\widetilde{A}, \widetilde{H}, \widetilde{D})$ with a group of covering transformations $G(\widetilde{\mathcal{A}}|\mathcal{A})$, such that there is the natural *-homomorphism $\mathcal{A} \to M(\widetilde{\mathcal{A}})$ and representation $\pi: \mathcal{A} \to U(\widetilde{H})$.
@@ -23213,7 +23193,7 @@ Let $\widetilde{H}_0 = \{h \in \widetilde{H} \ | \ \pi(g)h = \rho(g)h\}$. Algebr
 \begin{empt}\label{sample_flat_conn}{\it A flat connection.} Let $\theta \in [0,1] \setminus \mathbb{Q}$ and $C\left(\T^2_\th \right)$ the $C^*$-algebra generated by two unitaries $u$, $v$ such that $u \, v = \la \, v \, u$, $\la = \exp ( 2 \,
 	\pi i \, \theta)$ which is said to be a noncommutative torus (cf. Chapter 1). There is a pre-$C^*$-algebra $\Coo\left(\T^2_\th \right) $ of smooth functions defined in \cite{varilly:noncom}. There are  one-parameter groups $\varphi^{u}$, $\varphi^{v}$ such that
 	\bea\label{vp_u}
-		\varphi^{u}_{\tau}(u)=e^{2\pi i\tau}u, \ \varphi^{u}_{\tau}(v) = v,\\
+		\varphi^{u}_{\rho}(u)=e^{2\pi i\rho}u, \ \varphi^{u}_{\rho}(v) = v,\\
 	\label{vp_v}
 		\varphi^{v}_{\tau}(u)=u, \ \varphi^{v}_{\tau}(v) = e^{2 \pi i\tau} v.
 	\eea
@@ -23224,11 +23204,10 @@ $$
 	of the commutative Lie group $	\T^2$. So there is a $C^*$-dynamical system $\left( \Coo\left(\T^2_\th \right), 	\T^2,\a\right)$ (cf. \ref{c_din_empt}).
 	A relevant specialization of the given by \eqref{par_inf_eqn} *- algebra is $\Coo\left(\T^2_\th \right)$. The action $	\R^2\times C\left(\T^2_\th \right) \to C\left(\T^2_\th \right) $ induces an action 
 	$	\R^2\times C\left(\T^2_\th \right) \to C\left(\T^2_\th \right) $.
-	Let $\mathcal{E} = \Coo\left(\T^2_\th \right)$.\\
-	!!! EXERCISES\\
-	Let $\omega = i (c_u du + c_v dv) \in \Omega^1\mathcal{A}_{\theta}$ be such that $c_u, c_v \in \mathbb{R}$ then $\omega_X^* = -\omega_X$, $\forall \, X \in
+	Let $\mathcal{E} = \Coo\left(\T^2_\th \right)$.
+	Let $\omega = i (c_u d\rho + c_v d\tau) \in \Coo\left(\T^2_\th \right)\otimes \left((\hbox{Lie} \ \T^2)^* \right) $ be such that $c_u, c_v \in \mathbb{R}$ then $\omega_X^* = -\omega_X$, $\forall \, X \in
 	\hbox{Lie}
-	\ G$. From \ref{connection_construction} it follows that there is a connection  connection $\nabla$ given by
+	\ G$. From \ref{connection_construction} it follows that there is a $\T^2$-connection $\nabla$ (cf. Definition \ref{connes_dg_connection_defn}) given by
 	\begin{equation*}
 		a \mapsto a \otimes \omega; \ a \in \mathcal{E} = \mathcal{A}.
 	\end{equation*}
@@ -23347,12 +23326,14 @@ $$
 		
 	\end{exm}
 \end{empt}
-
+\chapter{Miscellany}
+\section{Kaluza-Klein theory of the Moyal plane}
+!!!
 \begin{appendices}
 \chapter{String field theory}
 \paragraph{}
 Here  well known physical results are described. The combination of these results yields an example of   Hausdorff non-Hausdorff duality.
-\section{String field theory}\label{s_f_sec}
+\section{Basic construction}\label{s_f_sec}
 \paragraph*{}
 The following text contains the citation of the Book \cite{becker:sting_m}
 \paragraph*{}
@@ -23565,6 +23546,7 @@ M \times K
 of the manifolds, where the manifold $K$ is compact and $M$ is not compact. The compact manifold $K$ may be represented as a quotient $K \bydef \widetilde K / G\left( {\widetilde{K}}~|~K\right)$ where there is a covering  $\widetilde{K}\to K$ and $G\left( {\widetilde{K}}~|~K\right)$ is a covering group. The manifold $\widetilde{K}$ should not be compact.
 
 \chapter{Commutative Wilson Lines}\label{comm_prot}
+\section{Basic construction}
 \begin{empt}{\it Standard description of Wilson lines} \cite{green_schwarz_witten:superstring}. Here the physical notation is used.
 	Let $M$ be a compact Riemann manifold, and let $A$ be a locally pure gauge field, i.e. $A$ can be locally represented by following way
 	\begin{equation}\label{pure_gauge}
@@ -23635,6 +23617,95 @@ I am very grateful to Prof. Joseph C Varilly  and Arup Kumar Pal
  for advising me on the properties of Moyal planes and equivariant spectral triples respectively. Author would like to acknowledge members of the Moscow State University Seminars
  "Noncommutative geometry and topology", "Algebras in analysis" leaded by professors A. S. Mishchenko and  A. Ya. Helemskii for a discussion
  of this work. I am grateful to my grandfather Petr who forested my mind and my grandson Petr who  watched my work during the quarantine.
+ 
+ \paragraph{title}
+ Although a coordinate map $x_\mu : \R^n \to \C$ is not  $\Z^n$-periodic  the commutator $\left[\frac{\partial}{\partial x_\mu}, b\right]$ is $\Z^n$-periodic for all $\Z^n$-periodic $b \in \Coo\left( \R^n\right)$. Moreover if $u_\mu \bydef e^{2\pi i x_\mu}:  \R^n \to \C$ then
+ \be\label{nt_d_mu_eqn}
+ \left[\frac{\partial}{\partial x_\mu}, b\right]= \frac{1}{2\pi i}u^*_\mu \left[\frac{\partial}{\partial u_\mu}, b\right]
+ \ee
+ Noncommutative geometry replaces differentials with commutators such that the differential $df$ corresponds to $\frac{1}{2\pi i}\left[ \slashed D, f\right]$ and the well known equation
+ \begin{equation*}
+ 	d f = \sum_{\mu = 1}^n \frac{\partial f}{\partial x_\mu} dx_\mu
+ \end{equation*}
+ is replaced with 
+ \begin{equation}\label{nt_comm_diff_eqn}
+ 	\left[\slashed D, f \right]  = \sum_{\mu = 1}^n \frac{\partial f}{\partial x_\mu} \left[\slashed D, x_\mu \right]
+ \end{equation}
+ In case of commutative torus we on has
+ \begin{equation*}
+ 	dx_\mu =  \frac{1}{2\pi i}u^*_\mu du_\mu,
+ \end{equation*}
+ so what equation \eqref{nt_comm_diff_eqn} can be written by the following way
+ \begin{equation}\label{nt_comm_diff_mod_eqn}
+ 	\left[\slashed D, f \right]  =  \frac{1}{2\pi i}\sum_{\mu = 1}^n \frac{\partial f}{\partial x_\mu} u^*_\mu \left[\slashed D, u_\mu \right]
+ \end{equation}
+ We  would like to prove a noncommutative analog of \eqref{nt_comm_diff_mod_eqn}, i.e. for any $a \in \Coo\left(\mathbb{T}^n_\Th \right)$ following condition holds
+ \begin{equation}\label{nt_diff_mod_eqn}
+ 	\left[D, a \right]  = \sum_{\mu = 1}^n \frac{\partial a}{\partial x_\mu} u^*_\mu \left[ D, u_\mu \right]
+ \end{equation}
+ From \eqref{nt_dirac_eqn} it follows that \eqref{nt_diff_mod_eqn} is true if and only if 
+ \begin{equation}\label{nt_mu_mod_eqn}
+ 	\left[\delta_{\mu}, a \right]  = \sum_{\mu = 1}^n \frac{\partial a}{\partial x_\mu} u^*_\mu \left[ \delta_{\mu}, u_\mu \right]; ~ \mu =1,\dots n.
+ \end{equation}
+ In the above equation $\frac{\partial a}{\partial x_\mu}$ means that one considers $a$ as element of $\Coo\left(\mathbb{T}^n\right)$, takes $\frac{\partial}{\partial x_\mu}$ of it and then the result of derivation considers as element of $\Coo\left(\mathbb{T}^n_\Th \right)$. Since the linear span of elements $U_k$ is dense in both $\Coo\left(\mathbb{T}^n_\Th \right)$ and $L^2\left(C\left(\mathbb{T}^n_{\Theta}\right), \tau\right)$ the equation \eqref{nt_mu_mod_eqn} is true if  for any $k, l \in \Z^n$ following condition holds
+ \begin{equation*}\label{nt_mu_mod_eqn1}
+ 	\left[\delta_{\mu}, U_k \right]U_l  =  \frac{\partial U_k}{\partial x_\mu} u^*_\mu \left[ \delta_{\mu}, u_\mu \right]U_l.
+ \end{equation*}
+ The above equation is a consequence of the following calculations: 
+ \begin{equation*}
+ 	\begin{split}
+ 		\left[\delta_{\mu}, U_k \right]U_l = \delta_{\mu} U_k U_l - U_k \delta_k U_l = (k + l) U_k U_l - l U_k U_l = k U_kU_l, \\
+ 		\frac{\partial U_k}{\partial x_\mu} u^*_\mu \left[ \delta_{\mu}, u_\mu \right]U_l = kU_k u^*\left(\delta_{\mu} u_\mu U_l - u_\mu \delta U_l \right)= kU_k u^*\left(\left(l + 1 \right)  u_\mu U_l - l u_\mu \delta U_l \right) =\\=
+ 		k U_ku^*_\mu u_\mu U_l = k U_kU_l.
+ 	\end{split}
+ \end{equation*}
+ For any $k \in \Z^n$ following condition holds
+ $$
+ u^*_\mu \left[ \delta_{\mu}, u_\mu \right]U_k = u^*_\mu \delta_{\mu} u_\mu U_k - u^*_\mu \ u_\mu \delta_{\mu} U_k = u^*_\mu \left(\left(k + 1 \right)  u_\mu U_k - k  u_\mu U_k\right) = U_k
+ $$
+ it turns out
+ \begin{equation}\label{nt_diff_1_eqn}
+ 	u^*_\mu \left[ \delta_{\mu}, u_\mu \right]= 1_{C\left(\mathbb{T}^n_{\Theta}\right)}; ~~ u^*_\mu \left[ D, u_\mu \right] = \ga^\mu.
+ \end{equation}
+ 
+ 
+ From \eqref{nt_dirac_eqn}, \eqref{nt_diff_mod_eqn} and \eqref{nt_diff_1_eqn} it turns out
+ 
+ \bea\label{nt_comm_diff_mod_gamma_eqn}
+ \left[D, f \right]  =  \frac{1}{2\pi i}\sum_{\mu = 1}^n \frac{\partial f}{\partial x_\mu} \ga^\mu,\\
+ \label{nt_comm_diff_gamma_in_eqn}
+ \ga^\mu\bydef u^*_\mu \left[ D, u_\mu \right] \in \Om^1_D
+ \eea
+ \\
+ !!! DEFINITION OF D
+ \\
+ where $\Om^1_D$ is the {module of differential forms associated} with the spectral triple  \eqref{nt_sp_tr_eqn} (cf. Definition \ref{ass_cycle_defn}).
+ \paragraph{title}
+ \
+ 
+ \paragraph{title}
+ There is a useful alternative description of $D$. The space  $\Coo\left(\T^n \right)$ (resp. $\Coo\left(\T^n_\Th \right)$ ) is dense in $L^2\left( \T^n\right)$ (resp. $L^2\left( \Coo\left(\T^n_\Th \right), \tau\right)$), hence from the $\C$-linear isomorphism $\varphi_\infty:\Coo\left(\mathbb{T}^n_{\Theta} \right) \xrightarrow{\approx}  \Coo\left(\mathbb{T}^n \right)$ given by \eqref{nt_varphi_inf_eqn} it follows isomorphism of Hilbert spaces 
+ \begin{equation*}
+ 	\varphi: L^2\left(C\left(\mathbb{T}^n_{\Theta}\right), \tau\right) \xrightarrow{\approx} L^2\left(\T^n \right). 
+ \end{equation*}
+ Otherwise $\T^n$ admits a trivial spin bundle $S$ such that $L^2\left(\T^2,S \right) \approx L^2\left(\T^n \right) \otimes \mathbb{C}^{m}$. It turns out an isomorphism of Hilbert spaces
+ \begin{equation*}
+ 	\Phi: L^2\left(C\left(\mathbb{T}^n_{\Theta}\right), \tau\right)\otimes \mathbb{C}^{m} \xrightarrow{\approx} L^2\left(\T^n,S \right). 
+ \end{equation*}
+ There is a commutative spectral triple 
+ \begin{equation}\label{nt_ct_tr_eqn}
+ 	\left( \Coo\left(\mathbb{T}^n \right),  L^2\left(\T^n,S \right), \slashed D\right)
+ \end{equation} 
+ such that $D$ is given by
+ \begin{equation}\label{nt_comm_dirac_eqn}
+ 	D = \Phi^{-1} \circ \slashed D \circ \Phi.
+ \end{equation}
+ The noncommutative counterpart of the spectral triple \eqref{nt_ct_tr_eqn} is given by
+ \begin{equation}\label{nt_ctn_tr_eqn}
+ 	\left( \Coo\left(\mathbb{T}_\Th^n \right),  L^2\left(C\left(\mathbb{T}^n_{\Theta}\right), \tau\right), D\right).
+ \end{equation} 
+ \paragraph{title}
+ 
  
   
  \begin{thebibliography}{10}
