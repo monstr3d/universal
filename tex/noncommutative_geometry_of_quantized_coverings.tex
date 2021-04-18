@@ -2822,7 +2822,7 @@ Let $\left(\A, \widetilde \A, G\left( \left.\widetilde \A~\right| \A\right), \pi
 \be\label{nabla_cov_eqn}
 \nabla : \widetilde \A\to \widetilde \A\otimes_A \Om^1_D
 \ee
-Suppose that $\nabla$ is $G$-invariant i.e.
+Suppose that $\nabla$ is $G$-\textit{invariant} i.e.
 \be\label{nabla_inv_cov_eqn}
 \forall g \in G\quad\forall\widetilde a \in \widetilde \A \quad \nabla \widetilde a = \sum_{j = 1}^n \widetilde a_j \otimes \om_j \quad\Rightarrow \quad  \nabla \left( g \widetilde a\right)  = \sum_{j = 1}^n g\widetilde a_j \otimes \om_j
 \ee
@@ -14945,25 +14945,67 @@ From the equation \eqref{mp_part_prod_eqn} the reader can deduce the following L
 \be\label{nt_tle_eqn}
 \forall\widetilde a,\widetilde b \in C^{\infty}(\mathbb{T}^n_{\widetilde\Theta})\quad \delta_{\mu}\left(\widetilde a \widetilde b\right)  =\left( \delta_\mu \widetilde a\right)\widetilde b +\widetilde a \left( \delta_\mu\widetilde b\right).
 \ee
-Similarly to the equation \eqref{nt_dirac_u_eqn} we define a Dirac operator 
-	\begin{equation}\label{nt_tdirac_u_eqn}
-\widetilde	D\stackrel{\mathrm{def}}{=}\sum_{\mu =1}^{n}\delta_{\mu} \otimes\gamma^{\mu}= \sum_{\mu =1}^{n}i u_\mu \frac{\partial}{\partial u_\mu} \otimes\gamma^{\mu}\in \L^\dagger\left(\Coo\left(\mathbb{T}^n_{\widetilde\Theta}\right)\otimes\C^m\right).
-\end{equation}
-From the Leibniz rule \eqref{nt_tle_eqn} for $\delta_\mu$ one can obtain the Leibniz rule  for $\widetilde	D$, i.e.
-\be\label{nt_dle_eqn}
-\begin{split}
-\forall\widetilde a,\widetilde b \in C^{\infty}(\mathbb{T}^n_{\widetilde\Theta})\quad \forall\xi \in \C^m\quad \widetilde	D\left(\widetilde a \widetilde b\otimes \xi\right)  =\left( \widetilde	D \left( \widetilde a\otimes \xi\right) \right)\left( \widetilde b\otimes 1_{\mathbb{M}_n\left( \C\right)}\right)   +\widetilde a \left( \delta_\mu\widetilde b\right).!!!
-\end{split}
-\ee
 
- Let $\Om^1_D$ be the {module of differential forms associated} with the given by \eqref{nt_sp_tr_eqn}  spectral triple  $\left(\Coo\left( \mathbb{T}^n_{\Theta}\right)\right)$ (cf. Definition \ref{ass_cycle_defn}). Denote a map
- \be
+%From the Leibniz rule \eqref{nt_tle_eqn} for $\delta_\mu$ one can obtain the Leibniz rule  for $\widetilde	D$, i.e.
+%\be\label{nt_dle_eqn}
+%\begin{split}
+%\forall\widetilde a,\widetilde b \in C^{\infty}(\mathbb{T}^n_{\widetilde\Theta})\quad \forall\xi \in \C^m\quad \widetilde	D\left(\widetilde a \widetilde b\otimes \xi\right)  =\left( \widetilde	D \left( \widetilde a\otimes \xi\right) \right)\left( \widetilde b\otimes 1_{\mathbb{M}_n\left( \C\right)}\right)   +\widetilde a \left( \delta_\mu\widetilde b\right).!!!
+%\end{split}
+%\ee
+ Let $\Om^1_D$ be the {module of differential forms associated} with the given by \eqref{nt_sp_tr_eqn}  spectral triple  $\left( C^{\infty}(\mathbb{T}^n_{\Theta}),L^2\left(C\left(\mathbb{T}^n_{\Theta}\right), \tau\right)\otimes\mathbb{C}^{m},D\right)$ (cf. Definition \ref{ass_cycle_defn}). Denote a map
+ \be\label{nt_conn_eqn}
  \begin{split}
 \nabla: \Coo\left(\mathbb{T}^n_{\widetilde\Theta}\right)\to \Coo\left(\mathbb{T}^n_{\widetilde\Theta}\right)\otimes_{\Coo\left(\mathbb{T}^n_{\Theta}\right)}\Om^1_D,\\
-\widetilde a \mapsto i \sum_{\mu =1}^n \delta_{\mu} \widetilde a \otimes u^*_\mu \left[D, u_\mu\right]
+\widetilde a \mapsto     = \sum_{\mu = 1}^n  \delta_\mu \widetilde  a \otimes \left(1_{\Coo\left(\mathbb{T}^n_{\Theta}\right)}\otimes \ga^\mu\right) 
 \end{split}
  \ee
-!!!
+ where the equation \eqref{nt_ga_in_eqn} is used.
+ For any $a\in \Coo\left(\mathbb{T}^n_{\Theta}\right)$ one has
+ \bean
+ \nabla\left( \widetilde a a\right) = \sum_{\mu = 1}^n  \delta_\mu \left( \widetilde  a a\right) \otimes \left(1_{\Coo\left(\mathbb{T}^n_{\Theta}\right)}\otimes \ga^\mu\right) 
+ \eean
+ and taking into account the Leibniz rule \eqref{nt_tle_eqn} we obtain the following
+ \be\label{nt_conn'_eqn}
+ \begin{split}
+ \nabla\left( \widetilde a a\right)= \sum_{\mu = 1}^n \left(   \left(\delta_\mu \widetilde  a \right) \cdot a\right) \otimes \left(1_{\Coo\left(\mathbb{T}^n_{\Theta}\right)}\otimes \ga^\mu\right)+\\+ \sum_{\mu = 1}^n  \widetilde  a \cdot \left(\delta_\mu  a\right) \otimes \left(1_{\Coo\left(\mathbb{T}^n_{\Theta}\right)}\otimes \ga^\mu\right)=\\=
+  \nabla\left( \widetilde a\right)\left(a \otimes  1_{\mathbb{M}_m\left( \C\right)}\right) + \sum_{\mu = 1}^n  \widetilde  a \cdot \left(\delta_\mu  a\right) \otimes \left(1_{\Coo\left(\mathbb{T}^n_{\Theta}\right)}\otimes \ga^\mu\right).
+ \end{split}
+ \ee
+ On the other hand for all $b \otimes \xi \in  \Coo\left(\mathbb{T}^n_{\Theta}\right)\otimes\C^m$ one has
+ \bean
+\left[D, a \otimes 1_{\mathbb{M}_m\left( \C\right)}\right]  \left(b \otimes \xi\right)= \sum_{\mu = 1}^n \delta_\mu \left(ab\right)\otimes \ga^\mu\xi- \sum_{\mu = 1}^n a\delta_\mu b\otimes \ga^\mu\xi=\\
+= \sum_{\mu = 1}^n \left(\left(\delta_\mu a \right) b  + a\left( \delta_\mu b\right)-a\left( \delta_\mu b\right)\right)\otimes\ga^\mu\xi= \sum_{\mu = 1}^n \left( \delta_\mu a \otimes \ga^\mu \right)  \left(b \otimes \xi\right),
+  \eean
+ or, equivalently
+ \be\label{nt_conn''_eqn}
+ \left[D, a \otimes 1_{\mathbb{M}_m\left( \C\right)}\right] =  \sum_{\mu = 1}^n \delta_\mu a \otimes \ga^\mu.
+ \ee 
+A substitution of  \eqref{nt_conn''_eqn} into \eqref{nt_conn'_eqn} yields the following equation
+\bean
+\nabla\left( \widetilde a a\right)=
+\nabla\left( \widetilde a\right)\left(a \otimes  1_{\mathbb{M}_m\left( \C\right)}\right) + \widetilde a \left[ \left(D, a \otimes  1_{\mathbb{M}_m\left( \C\right)}\right)\right] 
+\eean 
+which is a specialization of \eqref{conn_triple_eqn}, i.e. $\nabla$ is a connection.
+%\bean
+%\widetilde D \left( \widetilde{a} \otimes \left(b \otimes\xi\right)\right) = \sum_{\mu = 1}^n  \delta_\mu \widetilde  a \otimes \left(1_{\Coo\left(\mathbb{T}^n_{\Theta}\right)}\otimes \ga^\mu\right) \left(b \otimes\xi\right) + \widetilde{a} \sum_{\mu = 1}^n\left(\delta_\mu b\otimes \ga^\mu\xi \right) =\\
+ %\sum_{\mu = 1}^n \delta_\mu \left( \widetilde  ab \right) \otimes \ga^\mu\xi
+%\eean
+%or equivalently  $\widetilde D=  \sum_{\mu = 1}^n \delta_\mu \otimes \ga^\mu$.
+\begin{exercise} Prove following statements:
+	\begin{enumerate}
+		\item The given by \eqref{nt_conn_eqn} connection is $\Z^n/\Ga$-invariant (cf. equation \ref{nabla_inv_cov_eqn}).
+		\item If $\widetilde D \in \L^\dagger\left( \Coo\left(\mathbb{T}_{\widetilde\Th}^n \right)\otimes \C^m \right)$ is a specialization   of given by \eqref{dirac_fin_lift_eqn} operator then one has
+\begin{equation}\label{nt_tdirac_u_eqn}
+	\widetilde	D\stackrel{\mathrm{def}}{=}\sum_{\mu =1}^{n}\delta_{\mu} \otimes\gamma^{\mu}= \sum_{\mu =1}^{n}i u_\mu \frac{\partial}{\partial u_\mu} \otimes\gamma^{\mu}\in \L^\dagger\left(\Coo\left(\mathbb{T}^n_{\widetilde\Theta}\right)\otimes\C^m\right).
+\end{equation}
+\item Let $\widetilde\H$ be a Hilbert space of the induced by a pair
+$$
+\left(\left( C\left(\mathbb{T}_{\Th}^n \right)  \hookto B \left(L^2\left(C\left(\mathbb{T}^n_{\Theta}\right), \tau\right)\right) \right) , \left( C\left(\T^{n}_{{\Th}} \right), C\left(\T^{n}_{\widetilde{\Th}} \right), \Z^n / \Ga, \pi\right)\right)
+$$
+representation $C\left(\mathbb{T}_{\widetilde\Th}^n \right)\hookto B\left(\widetilde\H\right)$ (cf. Definition \ref{induced_repr_defn}). The spectral triple $\left( \Coo\left(\mathbb{T}_{\widetilde\Th}^n \right),  {\widetilde\H}, \widetilde D\right)$ is the $\left( C\left(\T^{n}_{{\Th}} \right), C\left(\T^{n}_{\widetilde{\Th}} \right), \Z^n / \Ga, \pi\right)$-lift of\\ $\left( \Coo\left(\mathbb{T}_\Th^n \right),  L^2\left(C\left(\mathbb{T}^n_{\Theta}\right), \tau\right), D\right)$ (cf. Definition \ref{triple_conn_lift_defn}).
+	\end{enumerate}
+
+\end{exercise}
 
 
 \begin{exercise}
@@ -22004,17 +22046,38 @@ so $\frac{\partial}{\partial u_\mu}$ can be regarded as a $\C$=linear map
 \ee
 Otherwise one has
 \be\label{nt_chaind_eqn}
-\delta_\mu = i u_\mu \frac{\partial}{\partial u_\mu},
+\delta_\mu =  i u_\mu \frac{\partial}{\partial u_\mu} = 2\pi \frac{\partial}{\partial x_\mu} ,
 \ee	
 so the equation \eqref{nt_dirac_eqn}  can be rewritten by the following way
 	\begin{equation}\label{nt_dirac_u_eqn}
 	D\stackrel{\mathrm{def}}{=}\sum_{\mu =1}^{n}\delta_{\mu} \otimes\gamma^{\mu}= i \sum_{\mu =1}^{n} u_\mu \frac{\partial}{\partial u_\mu} \otimes\gamma^{\mu}\in \L^\dagger\left(\Coo\left(\mathbb{T}^n_{\Theta}\right)\otimes\C^m\right).
 \end{equation}
 Form the equation  \eqref{nt_diff_eqn} it follows that 
+Let $b \in \Coo\left(\mathbb{T}^n_{\Theta} \right)$, $~\xi\in \C^m$
+\be\label{nt_ga_eqn}
+\begin{split}
+\left( \left(u^*_\mu \otimes 1_{\mathbb{M}_m\left(\C\right)} \right)  \left[ D, u_\mu \otimes 1_{\mathbb{M}_m\left(\C\right)} \right]\right)\left( b\otimes \xi\right) =\\
+\left(u^*_\mu \otimes 1_{\mathbb{M}_m\left(\C\right)} \right)\left(  D\left( u_\mu b\otimes \xi\right) - \left(u_\mu \otimes 1_{\mathbb{M}_m\left(\C\right)} \right) D\left( b\otimes \xi\right) \right).
+\end{split}
+ \ee
+From the definition \eqref{nt_dirac_u_eqn} of the Dirac operator and tha chain rule \eqref{nt_le_eqn} it follows that 
 \bean
-\left[\delta_\mu, u_\mu\right]u^*_\mu = iu_\mu u^*_\mu + 
+D\left( u_\mu b\otimes \xi\right)= \left( \sum_{\mu =1}^{n}\delta_{\mu} \otimes\gamma^{\mu}\right)\left( u_\mu b\otimes \xi\right)= i \left( u_\mu \cdot b\right) \otimes\xi +  \sum_{\mu =1}^{n}u_\mu \delta_\mu b \otimes \ga^\mu\xi,\\
+\left(u_\mu \otimes 1_{\mathbb{M}_m\left(\C\right)} \right) D\left( b\otimes \xi\right)= \sum_{\mu =1}^{n}u_\mu \delta_\mu b \otimes \ga^\mu\xi
 \eean
-$\left[\delta_\mu, u_\mu\right]$
+The substitution of the above equation into \eqref{nt_ga_eqn} yields the following
+\bean
+\left( \left(u^*_\mu \otimes 1_{\mathbb{M}_m\left(\C\right)} \right)  \left[ D, u_\mu \otimes 1_{\mathbb{M}_m\left(\C\right)} \right]\right)\left( b\otimes \xi\right) =\\
+\left(iu^*_\mu  \otimes 1_{\mathbb{M}_m\left(\C\right)}\right) \left( u_\mu b\otimes \ga \xi\right) = i\left(b \otimes \ga^\mu \xi \right).
+\eean
+or, equivalently
+\be\label{nt_ga'_eqn}
+\left(u^*_\mu \otimes 1_{\mathbb{M}_m\left(\C\right)} \right)  \left[ D, u_\mu \otimes 1_{\mathbb{M}_m\left(\C\right)} \right]= i 1_{\Coo\left(\mathbb{T}^n_{\Theta} \right)}\otimes \ga^\mu.
+\ee
+If $\Om^1_D$ is a {module of differential forms associated} with the given by \eqref{nt_sp_tr_eqn}  spectral triple (cf. Definition \ref{ass_cycle_defn}) then $\left(u^*_\mu \otimes 1_{\mathbb{M}_m\left(\C\right)} \right)  \left[ D, u_\mu \otimes 1_{\mathbb{M}_m\left(\C\right)} \right]\in \Om^1_D$ and taking into account \eqref{nt_ga'_eqn} one has
+\be\label{nt_ga_in_eqn}
+1_{\Coo\left(\mathbb{T}^n_{\Theta} \right)}\otimes \ga^\mu\in \Om^1_D.
+\ee
 \section{Moyal plane}
 	
 	\begin{defn}
