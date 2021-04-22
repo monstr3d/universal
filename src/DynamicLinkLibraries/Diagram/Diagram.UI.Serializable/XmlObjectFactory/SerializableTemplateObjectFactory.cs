@@ -69,8 +69,6 @@ namespace Diagram.UI.XmlObjectFactory
  
         #endregion
 
-        
-
         private void Load()
         {
             PureDesktopPeer d = new PureDesktopPeer();

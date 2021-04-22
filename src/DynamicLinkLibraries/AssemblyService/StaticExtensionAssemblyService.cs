@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 
-using SerializationInterface;
 using Diagram.UI;
 using Diagram.Interfaces;
+
+using SerializationInterface;
+
 
 namespace AssemblyService
 {

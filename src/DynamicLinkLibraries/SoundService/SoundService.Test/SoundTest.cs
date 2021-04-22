@@ -175,10 +175,12 @@ namespace SoundService.Test
             ITimeMeasurementProvider p = DataPerformer.Portable.StaticExtensionDataPerformerPortable.Factory.TimeProvider;
             Action<string> act = (string s) => { d[p.Time] = s; };
             coll.PlaySound += act;
-            dc.PerformFixed(start, step, stepCount, p,
-               DataPerformer.Portable.DifferentialEquationProcessors.DifferentialEquationProcessor.Processor, "Animation",  0, () => { });
-            coll.PlaySound -= act;
-            return d;
+            /* !!! REPLACE AFTER     dc.PerformFixed(start, step, stepCount, p,
+                    DataPerformer.Portable.DifferentialEquationProcessors.DifferentialEquationProcessor.Processor, "Animation",  0, () => { });
+                 coll.PlaySound -= act;
+                 return d;
+            */
+            return null;
         }
 
         #endregion 
