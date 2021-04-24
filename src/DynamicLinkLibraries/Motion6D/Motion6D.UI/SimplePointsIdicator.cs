@@ -82,7 +82,6 @@ namespace Motion6D.UI
         #endregion
 
 
-
         #region Ctor
 
         /// <summary>
@@ -98,7 +97,6 @@ namespace Motion6D.UI
         }
 
         #endregion
-
 
         #region IPointsIndicator Members
 

@@ -7,11 +7,9 @@ using System.Runtime.Serialization;
 
 using Diagram.UI;
 using CategoryTheory;
-using Regression;
 using Diagram.UI.Labels;
 using Diagram.UI.Interfaces;
 using DataPerformer.Interfaces;
-using Diagram.UI.Interfaces;
 
 
 namespace ImageNavigation.Labels
@@ -47,7 +45,6 @@ namespace ImageNavigation.Labels
         }
 
         #endregion
-
  
         #region ISerializable Members
 

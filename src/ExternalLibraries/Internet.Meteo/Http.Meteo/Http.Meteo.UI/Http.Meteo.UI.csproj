@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{94FA6743-B317-41BA-8623-F2FC7653E247}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Http.Meteo.UI</RootNamespace>
+    <AssemblyName>Http.Meteo.UI</AssemblyName>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Factory\UIFactory.cs" />
+    <Compile Include="Forms\FormMeteo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormMeteo.Designer.cs">
+      <DependentUpon>FormMeteo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PropretiesWrapper.cs" />
+    <Compile Include="ResourceImage.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ResourceImage.resx</DependentUpon>
+    </Compile>
+    <Compile Include="StaticExtensionHttpMeteoUI.cs" />
+    <Compile Include="UserControls\UserControlMeteo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UserControlMeteo.Designer.cs">
+      <DependentUpon>UserControlMeteo.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Forms\FormMeteo.resx">
+      <DependentUpon>FormMeteo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourceImage.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ResourceImage.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserControlMeteo.resx">
+      <DependentUpon>UserControlMeteo.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\CategoryTheory\CategoryTheory\CategoryTheory\CategoryTheory.csproj">
+      <Project>{01323E7D-DA29-4D48-8C46-A44C117A8D12}</Project>
+      <Name>CategoryTheory</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\DataPerformer\DataPerformer.Interfaces\DataPerformer.Interfaces.csproj">
+      <Project>{f9d68183-6801-4214-affc-737acbef498e}</Project>
+      <Name>DataPerformer.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\Diagram\Diagram\Diagram.csproj">
+      <Project>{096f4ea8-6301-4545-96d6-286e67ccba5c}</Project>
+      <Name>Diagram</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\Diagram\Diagram.UI\Diagram.UI.csproj">
+      <Project>{3A2AB37F-17CD-4CB2-96C6-14D4EFBF8279}</Project>
+      <Name>Diagram.UI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\Diagram\Diagram.UI.Components\Diagram.UI.Components\Diagram.UI.Components.csproj">
+      <Project>{d1af843a-8878-41d6-a59f-d2b68cf68a30}</Project>
+      <Name>Diagram.UI.Components</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\Diagram\Diagram.UI.Serializable\Diagram.UI.Serializable.csproj">
+      <Project>{868adfd8-51c2-4cec-8132-11e5a0f907e3}</Project>
+      <Name>Diagram.UI.Serializable</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\Events\Event.Interfaces\Event.Interfaces.csproj">
+      <Project>{3006114c-ed81-4966-a1a4-88149fddb9a5}</Project>
+      <Name>Event.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Http.Meteo.csproj">
+      <Project>{e26f3ffe-ac3c-42bb-9c1d-19433f7e5dbf}</Project>
+      <Name>Http.Meteo</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\atmosphere_russia.gif" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

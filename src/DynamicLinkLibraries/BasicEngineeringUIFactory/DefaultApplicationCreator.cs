@@ -16,12 +16,11 @@ using CommonService;
 using DataPerformer;
 
 using DataWarehouse;
-using DataWarehouse.Interfaces;
 
 using BasicEngineering.UI.Factory.Interfaces;
 using BasicEngineering.UI.Factory.Forms;
-
-
+using TestCategory.Interfaces;
+using DataWarehouse.Interfaces;
 
 namespace BasicEngineering.UI.Factory
 {
@@ -173,12 +172,11 @@ namespace BasicEngineering.UI.Factory
         }
 
 
-        TestCategory.Interfaces.ITestInterface IApplicationCreator.TestInterface
+        ITestInterface IApplicationCreator.TestInterface
         {
             get { return testInterface; }
         }
 
- 
 
         #endregion
 

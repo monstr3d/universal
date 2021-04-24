@@ -5,7 +5,6 @@ using System.Text;
 using System.Resources;
 using System.Drawing;
 using System.IO;
-using System.Diagnostics;
 
 
 using Diagram.UI;
