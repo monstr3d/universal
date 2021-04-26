@@ -1,13 +1,9 @@
 using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Windows.Forms;
 using System.Drawing;
-
+using System.Windows.Forms;
 
 using Diagram.UI.Interfaces;
 
-using Motion6D;
 using Motion6D.Drawing.Interfaces;
 using Motion6D.Interfaces;
 

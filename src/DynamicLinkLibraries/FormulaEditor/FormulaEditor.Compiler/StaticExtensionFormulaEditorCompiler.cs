@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using CategoryTheory;
 
 namespace FormulaEditor.Compiler
 {   
     /// <summary>
     /// Static extension methods
     /// </summary>
+    [InitAssembly]
     public static class StaticExtensionFormulaEditorCompiler
     {
         /// <summary>

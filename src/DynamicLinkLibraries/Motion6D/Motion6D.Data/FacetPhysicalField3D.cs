@@ -1,19 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Runtime.Serialization;
-
-
 
 using Diagram.UI.Aliases;
 
 using SerializationInterface;
 
-using DataPerformer.Portable;
-using DataPerformer.Interfaces;
-
 using Motion6D.Interfaces;
-using Motion6D;
 
 namespace Motion6D
 {

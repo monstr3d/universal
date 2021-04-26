@@ -6,8 +6,6 @@ using DataPerformer.Interfaces;
 
 namespace GeneralLinearMethod
 {
-	
-	
 
 	/// <summary>
 	/// Structured General linear method
