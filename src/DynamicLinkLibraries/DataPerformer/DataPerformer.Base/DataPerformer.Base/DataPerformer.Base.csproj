@@ -1,200 +1,35 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12.0">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.30729</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{CDE580BC-CFE5-45D3-B9A2-76585E54A416}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DataPerformer</RootNamespace>
-    <AssemblyName>DataPerformer.Base</AssemblyName>
-    <SccProjectName>
-    </SccProjectName>
-    <SccLocalPath>
-    </SccLocalPath>
-    <SccAuxPath>
-    </SccAuxPath>
-    <SccProvider>
-    </SccProvider>
-    <FileUpgradeFlags>
-    </FileUpgradeFlags>
-    <OldToolsVersion>3.5</OldToolsVersion>
-    <UpgradeBackupLocation>
-    </UpgradeBackupLocation>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>publish\</PublishUrl>
-    <Install>true</Install>
-    <InstallFrom>Disk</InstallFrom>
-    <UpdateEnabled>false</UpdateEnabled>
-    <UpdateMode>Foreground</UpdateMode>
-    <UpdateInterval>7</UpdateInterval>
-    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
-    <UpdatePeriodically>false</UpdatePeriodically>
-    <UpdateRequired>false</UpdateRequired>
-    <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <UseApplicationTrust>false</UseApplicationTrust>
-    <BootstrapperEnabled>true</BootstrapperEnabled>
-    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
-    <TargetFrameworkProfile />
+    <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Debug\DataPerformer.Base.xml</DocumentationFile>
-    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
-    <Prefer32Bit>false</Prefer32Bit>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
-    <Prefer32Bit>false</Prefer32Bit>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
-    <DebugSymbols>true</DebugSymbols>
-    <OutputPath>bin\x64\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <DocumentationFile>bin\Debug\DataPerformer.Base.xml</DocumentationFile>
-    <DebugType>full</DebugType>
-    <PlatformTarget>x64</PlatformTarget>
-    <ErrorReport>prompt</ErrorReport>
-    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
-    <OutputPath>bin\x64\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <Optimize>true</Optimize>
-    <DebugType>pdbonly</DebugType>
-    <PlatformTarget>x64</PlatformTarget>
-    <ErrorReport>prompt</ErrorReport>
-    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
-  </PropertyGroup>
-  <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Core">
-      <RequiredTargetFramework>3.5</RequiredTargetFramework>
-    </Reference>
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Arrows\DataLink.cs" />
-    <Compile Include="AsynchronousCalculation\PauseAsynchronousCalculation.cs" />
-    <Compile Include="CollectionObjectTransformer.cs" />
-    <Compile Include="Helpers\AbstractDoubleTransformer.cs" />
-    <Compile Include="Helpers\DataPerformerCollectionStateTransformer.cs" />
-    <Compile Include="Helpers\FiniteMatrixDerivationTransformer.cs" />
-    <Compile Include="Helpers\KalmanFilter.cs" />
-    <Compile Include="Helpers\StateTransformer.cs" />
-    <Compile Include="Helpers\StateVariableTransformer.cs" />
-    <Compile Include="Mappinng\MappingMeasure.cs" />
-    <Compile Include="Mappinng\MappingTransformer.cs" />
-    <Compile Include="Runtime\EventBlock.cs" />
-    <Compile Include="SeriesBase.cs" />
-    <Compile Include="DataLink.cs" />
-    <Compile Include="DataPerformerOperations.cs" />
-    <Compile Include="IteratorConsumerLink.cs" />
-    <Compile Include="ObjectTransformerLink.cs" />
-    <Compile Include="Properties\AssemblyInfoDataPerformerBase.cs" />
-    <Compile Include="StaticExtensionDataPerformerBase.cs" />
-    <Compile Include="TestDataLink.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{B4F97281-0DBD-4835-9ED8-7DFB966E87FF}" />
-  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\BaseTypes\BaseTypes\BaseTypes.csproj">
-      <Project>{8A9C8C8B-40B2-418C-AC92-4BDBB6E071C3}</Project>
-      <Name>BaseTypes</Name>
-    </ProjectReference>
+     </ProjectReference>
     <ProjectReference Include="..\..\..\BaseTypes\BaseTypes.Extended\BaseTypes.Extended.csproj">
-      <Project>{55ec179b-c873-40e3-8f4d-12849b923b6e}</Project>
-      <Name>BaseTypes.Extended</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\CategoryTheory\CategoryTheory\CategoryTheory\CategoryTheory.csproj">
-      <Project>{838e09e1-e3cd-49e7-b009-ca9dd244a8be}</Project>
-      <Name>CategoryTheory</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\Diagram\Diagram.UI.Serializable\Diagram.UI.Serializable.csproj">
-      <Project>{868ADFD8-51C2-4CEC-8132-11E5A0F907E3}</Project>
-      <Name>Diagram.UI.Serializable</Name>
-    </ProjectReference>
+     </ProjectReference>
     <ProjectReference Include="..\..\..\Diagram\Diagram\Diagram.csproj">
-      <Project>{096f4ea8-6301-4545-96d6-286e67ccba5c}</Project>
-      <Name>Diagram</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\Events\Event.Interfaces\Event.Interfaces.csproj">
-      <Project>{3006114c-ed81-4966-a1a4-88149fddb9a5}</Project>
-      <Name>Event.Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\Localization.Helper\Localization.Helper.csproj">
-      <Project>{479f0ae1-7932-4d20-ba81-106e225c227c}</Project>
-      <Name>Localization.Helper</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\RealMatrixProcessor\RealMatrixProcessor.csproj">
-      <Project>{4B250264-A0A4-41BA-991E-2A26EB23E8BA}</Project>
-      <Name>RealMatrixProcessor</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\SerializationInterface\SerializationInterface.csproj">
-      <Project>{7D532180-B3EC-4344-BB15-11DE8E8E7967}</Project>
-      <Name>SerializationInterface</Name>
-    </ProjectReference>
+     </ProjectReference>
     <ProjectReference Include="..\..\DataPerformer.Basic\DataPerformer.Basic.csproj">
-      <Project>{5c0c307c-0352-4e34-9a9e-cb4f4eb31d6f}</Project>
-      <Name>DataPerformer.Basic</Name>
-    </ProjectReference>
+       </ProjectReference>
     <ProjectReference Include="..\..\DataPerformer.Formula\DataPerformer.Formula.csproj">
-      <Project>{02a8365d-23eb-48ec-bd18-f36fbd5f850c}</Project>
-      <Name>DataPerformer.Formula</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\DataPerformer.Interfaces\DataPerformer.Interfaces.csproj">
-      <Project>{f9d68183-6801-4214-affc-737acbef498e}</Project>
-      <Name>DataPerformer.Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\DataPerformer.Portable.Basic\DataPerformer.Portable.Basic.csproj">
-      <Project>{ebdfbf12-d169-4173-ab39-98169fb3e859}</Project>
-      <Name>DataPerformer.Portable.Basic</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\DataPerformer.Portable\DataPerformer.Portable.csproj">
-      <Project>{4442e3e5-41b9-4f60-9c1a-07272d9c31d0}</Project>
-      <Name>DataPerformer.Portable</Name>
-    </ProjectReference>
+     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
-      <Visible>False</Visible>
-      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
-      <Install>false</Install>
-    </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
-      <Visible>False</Visible>
-      <ProductName>.NET Framework 3.5 SP1</ProductName>
-      <Install>true</Install>
-    </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.VisualBasic.PowerPacks.10.0">
-      <Visible>False</Visible>
-      <ProductName>Microsoft Visual Basic PowerPacks 10.0</ProductName>
-      <Install>true</Install>
-    </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
-      <Visible>False</Visible>
-      <ProductName>Windows Installer 3.1</ProductName>
-      <Install>true</Install>
-    </BootstrapperPackage>
-  </ItemGroup>
-  <ItemGroup />
-  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

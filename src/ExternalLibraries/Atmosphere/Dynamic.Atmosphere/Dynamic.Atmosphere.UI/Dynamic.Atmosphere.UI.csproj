@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5C677155-D37B-46B4-9F4C-F1B18DA31BF2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Dynamic.Atmosphere.UI</RootNamespace>
+    <AssemblyName>Dynamic.Atmosphere.UI</AssemblyName>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Factory\UIFactory.cs" />
+    <Compile Include="Forms\FormAtmosphere.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormAtmosphere.Designer.cs">
+      <DependentUpon>FormAtmosphere.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Labels\AtmosphereLabel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="StaticExtensionDynamicAtmosphereUI.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserControls\UserControlAtmosphere.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UserControlAtmosphere.Designer.cs">
+      <DependentUpon>UserControlAtmosphere.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\CategoryTheory\CategoryTheory\CategoryTheory\CategoryTheory.csproj">
+      <Project>{01323e7d-da29-4d48-8c46-a44c117a8d12}</Project>
+      <Name>CategoryTheory</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\DataPerformer\DataPerformer.Interfaces\DataPerformer.Interfaces.csproj">
+      <Project>{f9d68183-6801-4214-affc-737acbef498e}</Project>
+      <Name>DataPerformer.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\Diagram\Diagram.UI.Forms\Diagram.UI.Forms.csproj">
+      <Project>{4fb6133d-2948-4e29-a7b2-5dd5fd750606}</Project>
+      <Name>Diagram.UI.Forms</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\Diagram\Diagram.UI\Diagram.UI.csproj">
+      <Project>{3a2ab37f-17cd-4cb2-96c6-14d4efbf8279}</Project>
+      <Name>Diagram.UI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\Diagram\Diagram\Diagram.csproj">
+      <Project>{096f4ea8-6301-4545-96d6-286e67ccba5c}</Project>
+      <Name>Diagram</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Dynamic.Atmosphere.Portable\Dynamic.Atmosphere.Portable.csproj">
+      <Project>{5ff12ec9-17f1-42b7-95db-1cea36413289}</Project>
+      <Name>Dynamic.Atmosphere.Portable</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Dynamic.Atmosphere.Serializable\Dynamic.Atmosphere.Serializable.csproj">
+      <Project>{d7599d1d-7d48-45dc-89e5-79f351909039}</Project>
+      <Name>Dynamic.Atmosphere.Serializable</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Dynamic.Atmosphere\Dynamic.Atmosphere.csproj">
+      <Project>{9ff8f61d-d551-4eab-95a1-bb960eb0cff6}</Project>
+      <Name>Dynamic.Atmosphere</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Forms\FormAtmosphere.resx">
+      <DependentUpon>FormAtmosphere.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserControlAtmosphere.resx">
+      <DependentUpon>UserControlAtmosphere.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

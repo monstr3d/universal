@@ -41,7 +41,6 @@ namespace DataPerformer
 
         #endregion
 
-
         #region Ctor
 
         static StaticExtensionDataPerformerBase()
@@ -52,8 +51,6 @@ namespace DataPerformer
         }
 
         #endregion
-
-
 
         #region Public Members
 
