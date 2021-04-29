@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // Управление общими сведениями о сборке осуществляется с помощью 
 // набора атрибутов. Измените значения этих атрибутов, чтобы изменить сведения,
 // связанные со сборкой.
-[assembly: AssemblyTitle("Event.Basic")]
+[assembly: AssemblyTitle("Aviation.Light")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Event.Basic")]
-[assembly: AssemblyCopyright("Copyright ©  2011")]
+[assembly: AssemblyProduct("Aviation.Light")]
+[assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -20,16 +20,16 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // Следующий GUID служит для идентификации библиотеки типов, если этот проект будет видимым для COM
-[assembly: Guid("6b01e71a-c7c2-4182-8aa2-3ee4bf6fdb25")]
+[assembly: Guid("ebe973e1-3693-4393-b431-00a6acf60f23")]
 
 // Сведения о версии сборки состоят из следующих четырех значений:
 //
 //      Основной номер версии
 //      Дополнительный номер версии 
-//      Номер построения
+//   Номер сборки
 //      Редакция
 //
-// Можно задать все значения или принять номер построения и номер редакции по умолчанию, 
+// Можно задать все значения или принять номера сборки и редакции по умолчанию 
 // используя "*", как показано ниже:
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.0.0")]

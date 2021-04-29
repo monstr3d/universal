@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Runtime.Serialization;
-using System.Text;
-using System.Threading.Tasks;
+
+using CategoryTheory;
 
 using Diagram.UI;
 
@@ -14,7 +12,7 @@ namespace Event.Basic.Data
     /// <summary>
     /// Static extension methods
     /// </summary>
-    [CategoryTheory.InitAssembly]
+    [InitAssembly]
     public static class StaticExtensionEventBasicData
     {
         /// <summary>
@@ -24,7 +22,6 @@ namespace Event.Basic.Data
         {
 
         }
-
         static StaticExtensionEventBasicData()
         {
             new Binder();
@@ -36,7 +33,6 @@ namespace Event.Basic.Data
             {
                 this.Add();
             }
-
 
             public override Type BindToType(string assemblyName, string typeName)
             {
@@ -54,6 +50,5 @@ namespace Event.Basic.Data
                 return t;
             }
         }
-
     }
 }

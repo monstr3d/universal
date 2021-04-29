@@ -1,21 +1,25 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Runtime.Serialization;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace Event.Basic.Data
+namespace DimAtm.Serializable
 {
     /// <summary>
-    /// Iterator of log
+    /// Atmosphere
     /// </summary>
     [Serializable]
-    public class LogIterator : Portable.LogIterator, ISerializable
+    public class Atmosphere : DinAtm.Portable.Atmosphere, ISerializable
     {
 
-        #region Ctor
+        #region Constructors
 
         /// <summary>
         /// Default constructor
         /// </summary>
-        public LogIterator()
+        public Atmosphere()
         {
 
         }
@@ -25,16 +29,9 @@ namespace Event.Basic.Data
         /// </summary>
         /// <param name="info">Serialization info</param>
         /// <param name="context">Streaming context</param>
-        protected LogIterator(SerializationInfo info, StreamingContext context)
+        private Atmosphere(SerializationInfo info, StreamingContext context)
         {
-            try
-            {
-                isDirectoryOriented = info.GetBoolean("IsDirectoryOriented");
-            }
-            catch
-            {
-
-            }
+            ifa = info.GetValue("ifa", typeof(int[])) as int[];
         }
 
         #endregion
@@ -43,10 +40,9 @@ namespace Event.Basic.Data
 
         void ISerializable.GetObjectData(SerializationInfo info, StreamingContext context)
         {
-            info.AddValue("IsDirectoryOriented", isDirectoryOriented);
+            info.AddValue("ifa", ifa, typeof(int[]));
         }
 
         #endregion
-
     }
 }

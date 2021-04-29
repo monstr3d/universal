@@ -1,24 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Runtime.Serialization;
-using System.Text;
-using System.Threading.Tasks;
-
-using CategoryTheory;
-
 using BaseTypes;
 
-using Diagram.UI.Interfaces;
-
 using SerializationInterface;
-
-using DataPerformer.Interfaces;
-using DataPerformer;
-using DataPerformer.Portable.Measurements;
-
-
-using Event.Interfaces;
 
 namespace Event.Basic.Data.Events
 {
@@ -36,6 +21,7 @@ namespace Event.Basic.Data.Events
         /// </summary>
         public ForcedEventData()
         {
+
         }
 
         /// <summary>

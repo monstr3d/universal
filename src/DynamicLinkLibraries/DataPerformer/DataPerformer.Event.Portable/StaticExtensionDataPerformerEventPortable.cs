@@ -85,10 +85,7 @@ namespace DataPerformer.Event.Portable
                     double last = t;
                     Action<double, double, long> act = runtime.Step(null,
                         (double timer) => { }, reason, null);
-                    int i = 0;
                     IEnumerable<object> enu = runtime.AllComponents;
-
-         
                     while (iterator.Next())
                     {
 
