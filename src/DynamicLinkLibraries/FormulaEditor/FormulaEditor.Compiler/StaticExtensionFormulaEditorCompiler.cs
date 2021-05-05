@@ -1,4 +1,8 @@
-﻿using CategoryTheory;
+﻿using System;
+
+using CategoryTheory;
+
+using Diagram.UI;
 
 namespace FormulaEditor.Compiler
 {   
@@ -17,9 +21,16 @@ namespace FormulaEditor.Compiler
         }
         static StaticExtensionFormulaEditorCompiler()
         {
-            CSharpTreeCollectionProxyFactory f = new CSharpTreeCollectionProxyFactory();
-            StaticExtensionFormulaEditor.Factory = f;
-            StaticExtensionFormulaEditor.TreeCollectionCodeCreator = f;
+            try
+            {
+                CSharpTreeCollectionProxyFactory f = new CSharpTreeCollectionProxyFactory();
+                StaticExtensionFormulaEditor.Factory = f;
+                StaticExtensionFormulaEditor.TreeCollectionCodeCreator = f;
+            }
+            catch (Exception exception)
+            {
+                exception.ShowError();
+            }
         }
     }
 }

@@ -34,7 +34,7 @@ namespace Motion6D
         {
             static readonly Dictionary<string, string> ass = new Dictionary<string, string>()
         {
-            {"Motion6D", typeof(Binder).Assembly.FullName}
+            {"Motion6DData", typeof(Binder).Assembly.FullName}
         };
 
             internal Binder()
@@ -43,11 +43,18 @@ namespace Motion6D
             }
             public override Type BindToType(string assemblyName, string typeName)
             {
+                Type t = Type.GetType(String.Format("{0}, {1}",
+                   typeName,
+                   assemblyName));
+                if (t != null)
+                {
+                    return t;
+                }
                 foreach (string key in ass.Keys)
                 {
                     if (assemblyName.Contains(key))
                     {
-                        Type t = Type.GetType(String.Format("{0}, {1}",
+                        t = Type.GetType(String.Format("{0}, {1}",
                             typeName,
                             ass[key]));
                         if (t != null)

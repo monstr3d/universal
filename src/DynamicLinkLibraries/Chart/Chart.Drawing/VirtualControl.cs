@@ -20,7 +20,6 @@ namespace Chart.Drawing
 
         #endregion
 
-
         #region Ctor
 
         public VirtualControl(int width, int height, Color backColor)
@@ -37,7 +36,6 @@ namespace Chart.Drawing
         }
 
         #endregion
-
 
         #region IControl Members
 
@@ -57,5 +55,6 @@ namespace Chart.Drawing
         }
 
         #endregion
+    
     }
 }

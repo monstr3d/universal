@@ -60,8 +60,15 @@ namespace Motion6D.UI.Avanced.Initialization
             string fileFilter,
             TextWriter logWriter, TestCategory.Interfaces.ITestInterface testInterface)
         {
-            Motion6D.PositionFactory.Factory = Motion6D.Drawing.Factory.ColoredPositionFactory.Object;
-            Motion6D.UI.UserControls.SimpleChooser.Chooser = Motion6D.UI.UserControls.ColoredChooser.Object;
+            PositionFactory.Factory = Drawing.Factory.ColoredPositionFactory.Object;
+            try
+            {
+                UserControls.SimpleChooser.Chooser = UserControls.ColoredChooser.Object;
+            }
+            catch (Exception ee)
+            {
+
+            }
             List<IUIFactory> fact = null;
             if (factories == null)
             {

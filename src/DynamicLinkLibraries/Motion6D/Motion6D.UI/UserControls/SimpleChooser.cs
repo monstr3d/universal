@@ -1,15 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Windows.Forms;
-
 
 using Diagram.UI.Utils;
 
 using DataPerformer.Portable;
 using DataPerformer.Interfaces;
 
-using Motion6D;
 using Motion6D.Interfaces;
 
 namespace Motion6D.UI.UserControls
@@ -117,7 +114,6 @@ namespace Motion6D.UI.UserControls
         }
 
         #endregion
-
 
     }
 }
