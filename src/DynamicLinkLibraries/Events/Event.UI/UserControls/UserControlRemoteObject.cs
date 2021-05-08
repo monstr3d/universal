@@ -12,7 +12,7 @@ using Diagram.UI;
 
 using Web.Interfaces;
 
-using Event.Remote;
+// !!!REMOVEDusing Event.Remote;
 
 namespace Event.UI.UserControls
 {
@@ -23,7 +23,7 @@ namespace Event.UI.UserControls
     {
         #region Fields
 
-        Tuple<Action<Remote.RemoteType>, Remote.RemoteType, IUrlConsumer, IUrlProvider> tuple;
+        //    !!!REMOVED   Tuple<Action<Remote.RemoteType>, Remote.RemoteType, IUrlConsumer, IUrlProvider> tuple;
 
         #endregion
 
@@ -40,7 +40,7 @@ namespace Event.UI.UserControls
         #endregion
 
         #region Internal Members
-
+   /*     !!!REMOVED
         internal Tuple<Action<Remote.RemoteType>, RemoteType, IUrlConsumer, IUrlProvider> Tuple
         {
             get
@@ -62,6 +62,7 @@ namespace Event.UI.UserControls
                 textBoxUrl.KeyUp += textBoxUrl_KeyUp;
             }
         }
+   */
 
         internal void ShowError(Exception exception)
         {
@@ -88,7 +89,7 @@ namespace Event.UI.UserControls
             }
             try
             {
-              tuple.Item3.Url = textBoxUrl.Text;
+          //      !!!REMOVED           tuple.Item3.Url = textBoxUrl.Text;
               ShowError(null);
             }
             catch (Exception exception)
@@ -99,6 +100,7 @@ namespace Event.UI.UserControls
 
         void comboBoxType_SelectedIndexChanged(object sender, EventArgs e)
         {
+            /* !!!REMOVED
             try
             {
                 RemoteType type = StaticExtensionEventRemote.Types[comboBoxType.SelectedIndex];
@@ -109,6 +111,7 @@ namespace Event.UI.UserControls
             {
                 ShowError(exception);
             }
+            */
         }
 
         #endregion

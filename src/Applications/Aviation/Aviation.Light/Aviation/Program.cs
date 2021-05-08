@@ -57,7 +57,7 @@ namespace Aviation.Light
         static readonly IUIFactory[] Factories = new IUIFactory[]
                 {
                     ControlSystemLib.Data.UI.Factory.ControlSystemsFactory.Object,
-                    SoundService.UI.Factory.SoundUIFactrory.Singleton,
+               // !!!REMOVED        SoundService.UI.Factory.SoundUIFactrory.Singleton,
                     Event.UI.Factory.UIFactory.Factory,
                 };
 
@@ -74,7 +74,7 @@ namespace Aviation.Light
             List<ButtonWrapper> gen = new List<ButtonWrapper>();
             gen.AddRange(DataPerformer.UI.Factory.StaticFactory.GeneralObjectsButtons);
             gen.AddRange(ControlSystems.Data.UI.Factory.ControlSystemsFactory.ObjectButtons);
-            gen.AddRange(SoundService.UI.Factory.SoundUIFactrory.ObjectButtons);
+            // !!!REMOVED        gen.AddRange(SoundService.UI.Factory.SoundUIFactrory.ObjectButtons);
             but[i] = gen.ToArray();
             ++i;
             but[i] = EngineeringUIFactory.StatisticalObjectsButtons;

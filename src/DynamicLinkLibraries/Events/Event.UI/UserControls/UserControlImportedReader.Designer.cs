@@ -13,6 +13,7 @@
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
+    /*        // !!!REMOVED
             if (client != null)
             {
                 (client as Web.Interfaces.IUrlConsumer).Change -= SetClient;
@@ -22,6 +23,7 @@
                 components.Dispose();
             }
             base.Dispose(disposing);
+    */
         }
 
         #region Component Designer generated code

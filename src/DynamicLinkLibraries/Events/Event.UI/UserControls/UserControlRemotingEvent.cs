@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 using Diagram.UI;
 
-using Event.Remote;
+//!!!REMOVED using Event.Remote;
 
 namespace Event.UI.UserControls
 {
@@ -25,7 +25,7 @@ namespace Event.UI.UserControls
         /// <summary>
         /// Event
         /// </summary>
-        private Event.Remote.RemoteEvent ev;
+   // !!!REMOVED     private Event.Remote.RemoteEvent ev;
 
         #endregion
 
@@ -43,29 +43,30 @@ namespace Event.UI.UserControls
 
         #region Internal Members
 
-
-        internal Event.Remote.RemoteEvent Event
-        {
-            set
-            {
-                if (value == null)
+        /* !!!REMOVED
+                internal Event.Remote.RemoteEvent Event
                 {
-                    return;
-                }
-                ev = value;
-                Web.Interfaces.IUrlProvider p = ev;
-                string url = p.Url;
-                if (url != null)
-                {
-                    textBoxUrl.Text = url;
-                }
-                RemoteType type = ev.Type;
-                comboBoxType.SelectedIndex =
-                    StaticExtensionEventRemote.Types.IndexOf(type);
-                comboBoxType.SelectedIndexChanged += comboBoxType_SelectedIndexChanged;
+                    set
+                    {
+                        if (value == null)
+                        {
+                            return;
+                        }
+                        ev = value;
+                        Web.Interfaces.IUrlProvider p = ev;
+                        string url = p.Url;
+                        if (url != null)
+                        {
+                            textBoxUrl.Text = url;
+                        }
+         /*!!!REMOVED               RemoteType type = ev.Type;
+                        comboBoxType.SelectedIndex =
+                            StaticExtensionEventRemote.Types.IndexOf(type);
+                        comboBoxType.SelectedIndexChanged += comboBoxType_SelectedIndexChanged;
+         //
 
-            }
-        }
+    }
+}*/
 
         #endregion
 
@@ -79,8 +80,8 @@ namespace Event.UI.UserControls
             }
             try
             {
-                Web.Interfaces.IUrlConsumer c = ev;
-                c.Url = textBoxUrl.Text;
+                /*!!!REMOVED          Web.Interfaces.IUrlConsumer c = ev;
+                c.Url = textBoxUrl.Text;*/
             }
             catch (Exception exception)
             {
@@ -89,7 +90,7 @@ namespace Event.UI.UserControls
         }
 
         private void comboBoxType_SelectedIndexChanged(object sender, EventArgs e)
-        {
+        {/* !!!REMOVED
             try
             {
                 RemoteType type = StaticExtensionEventRemote.Types[comboBoxType.SelectedIndex];
@@ -99,6 +100,7 @@ namespace Event.UI.UserControls
             {
                 exception.ShowError();
             }
+            */
         }
 
         #endregion

@@ -27,7 +27,7 @@ namespace Event.UI.Labels
 
         Event.Basic.Events.ImportedEvent be;
 
-        Event.Remote.RemoteEvent re;
+//!!!REMOVED Event.Remote.RemoteEvent re;
 
         Form form = null;
 
@@ -88,8 +88,8 @@ namespace Event.UI.Labels
             set
             {
                 be = value.GetObject<Event.Basic.Events.ImportedEvent>();
-                re = be.Event as Event.Remote.RemoteEvent;
-                uc.Event = re;
+       /*         !!!REMOVED         re = be.Event as Event.Remote.RemoteEvent;
+                uc.Event = re;*/
             }
         }
 

@@ -148,12 +148,13 @@ namespace Event.UI.Factory
             if (type.Equals(typeof(Basic.Events.ImportedEvent)))
             {
                 Type t = Type.GetType(kind);
-                if (t.Equals(typeof(Remote.RemoteEvent)))
+             /* !!!REMOVED   if (t.Equals(typeof(Remote.RemoteEvent)))
                 {
                     return
                          (new Labels.RemotingEventLabel(type, kind, 
                              button.ButtonImage as System.Drawing.Image)).CreateLabelUI(Properties.Resources.Network_Event, false);
                 }
+             */
             }
             if (type.Equals(typeof(Basic.Data.Events.ImportedEventReader)))
             {

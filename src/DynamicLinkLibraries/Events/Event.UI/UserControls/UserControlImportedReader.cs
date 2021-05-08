@@ -19,12 +19,13 @@ using Diagram.UI.Labels;
 using Event.Interfaces;
 using Event.Basic.Data.Events;
 
-using Event.Remote;
+// !!!REMOVED using Event.Remote;
 
 using Web.Interfaces;
 
 namespace Event.UI.UserControls
 {
+    
     /// <summary>
     /// Control for an imported reader
     /// </summary>
@@ -32,9 +33,9 @@ namespace Event.UI.UserControls
     {
         #region Fields
 
-        Event.Data.Remote.Client client = null;
+        // !!!REMOVED    Event.Data.Remote.Client client = null;
 
-       ImportedEventReader reader;
+        ImportedEventReader reader;
 
        
 
@@ -64,7 +65,7 @@ namespace Event.UI.UserControls
                 }
                 reader = value;
                 IEventReader child = value.EventReader;
-                if (child is Data.Remote.Client)
+         /*       // !!!REMOVED       if (child is Data.Remote.Client)
                 {
                     Data.Remote.Client client = child as Event.Data.Remote.Client;
                     Action<RemoteType> act = (RemoteType type) =>
@@ -112,7 +113,7 @@ namespace Event.UI.UserControls
                 {
                     c.Dock = DockStyle.Fill;
                     panelCenter.Controls.Add(c);
-                }
+                }*/
             }
         }
 

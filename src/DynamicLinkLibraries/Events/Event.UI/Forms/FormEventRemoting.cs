@@ -39,8 +39,8 @@ namespace Event.UI.Forms
             (this as IUpdatableForm).UpdateFormUI();
             Event.Basic.Events.ImportedEvent ie = label.Object 
                 as Event.Basic.Events.ImportedEvent;
-            userControlRemotingEvent.Event = ie.Event as Event.Remote.RemoteEvent;
-         }
+            // !!!REMOVED     userControlRemotingEvent.Event = ie.Event as Event.Remote.RemoteEvent;
+        }
 
         #endregion
 

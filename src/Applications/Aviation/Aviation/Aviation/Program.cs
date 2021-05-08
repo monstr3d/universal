@@ -95,13 +95,13 @@ namespace Aviation
         static readonly IUIFactory[] Factories = new IUIFactory[]
                 {
                     ControlSystemLib.Data.UI.Factory.ControlSystemsFactory.Object,
-                    Simulink.Proxy.UI.Factory.SimulinkProxyFactory.Object,
+      // !!!REMOVED             Simulink.Proxy.UI.Factory.SimulinkProxyFactory.Object,
                     Database.UI.Factory.DatabaseFactory.Object,
-                    ImageTransformations.Factory.ImageTransformationFactory.Object,
+          // !!!REMOVED          ImageTransformations.Factory.ImageTransformationFactory.Object,
                     ImageNavigation.Factory.ImageNavigationFactory.Object,
-                    SoundService.UI.Factory.SoundUIFactrory.Singleton,
-                    Event.UI.Factory.UIFactory.Factory,
-                    Web.Interfaces.UI.Factory.Factory.Singleton
+                // !!!REMOVED    SoundService.UI.Factory.SoundUIFactrory.Singleton,
+                    Event.UI.Factory.UIFactory.Factory
+         //!!!REMOVED           Web.Interfaces.UI.Factory.Factory.Singleton
                 };
 
         static LightDictionary<string, ButtonWrapper[]> GetButtons(Motion6D.Portable.Interfaces.IPositionObjectFactory factory)
@@ -118,7 +118,7 @@ namespace Aviation
             gen.AddRange(DataPerformer.UI.Factory.StaticFactory.GeneralObjectsButtons);
             gen.AddRange(ControlSystemLib.Data.UI.Factory.ControlSystemsFactory.ObjectButtons);
             gen.AddRange(Simulink.Proxy.UI.Factory.SimulinkProxyFactory.ObjectButtons);
-            gen.AddRange(SoundService.UI.Factory.SoundUIFactrory.ObjectButtons);
+            // !!!REMOVED      gen.AddRange(SoundService.UI.Factory.SoundUIFactrory.ObjectButtons);
             but[i] = gen.ToArray();
             ++i;
             but[i] = EngineeringUIFactory.StatisticalObjectsButtons;

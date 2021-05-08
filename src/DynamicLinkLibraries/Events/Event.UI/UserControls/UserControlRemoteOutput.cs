@@ -37,7 +37,7 @@ namespace Event.UI.UserControls
             }
             set
             {
-                if (value == null)
+             /*  // !!!REMOVED   if (value == null)
                 {
                     return;
                 }
@@ -62,7 +62,8 @@ namespace Event.UI.UserControls
                         IUrlConsumer, IUrlProvider>
                         (act, server.RemoteType, server, server);
                     uc.Tuple = tuple;
-                }
+           
+                }*/
             }
         }
 
