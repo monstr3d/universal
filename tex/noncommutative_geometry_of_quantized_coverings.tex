@@ -3936,7 +3936,26 @@ where $K\left( \widetilde{B}\right)$ is the Pedersen's ideal of $\widetilde{B}$ 
 In the above situation  we say that	$\left(A, \widetilde{A}, G\left(\left.\widetilde B \right| B\right)\right)$ is the 
 \textit{ inverse noncommutative limit of $\mathfrak{S}_A^{\mathrm{pt}}$ associated with $\mathfrak{S}_B^{\mathrm{pt}}$}.
 \end{definition}
-
+For any $a \in \cup A_\la$ there is a \textit{graph norm}
+\be\label{graph_d_eqn}
+\begin{split}
+\left\| \cdot\right\|_a:\D \to \R,\\
+\eta \mapsto \left\| \left(1 + aa^* \right)\eta \right\|_{\H_a}. 
+\end{split}
+\ee
+\begin{exercise}\label{ch_norm_exer}
+	Prove following statements:
+	\begin{enumerate}
+		\item The space $\D$ is closed with respect to the given by \eqref{graph_d_eqn} family of norms  \textit{graph topology}.
+		\item The algebra $\L^\dagger\left(\D \right)$ is closed with respect \textit{graph topology} given by the family of norms
+\be\label{graph_ld_eqn}
+\begin{split}
+a \in \cup A_\la\quad 	\left\| \cdot\right\|_a:\L^\dagger\left( \D\right)  \to \R,\\
+l \mapsto \sup_{\substack{\eta\in \D\\ 	\left\| \eta\right\|> 0}}\frac{\left\| l\eta\right\|_a}{\left\| \eta\right\|_a}.
+\end{split}
+\ee
+	\end{enumerate}
+\end{exercise}
 
 
 \section{Infinite coverings of quasi *-algebras}
@@ -9397,7 +9416,11 @@ $$
 A \cong \mathscr{ A}\left(\sX \right).
 $$
 Denote by $\widetilde \sX$ and  $\overline{\mathcal X}$ are the topological inverse limit and the topological disconnected inverse limit (cf. Definition \ref{top_topological_inv_lim_defn}) of $\mathfrak{S}_{\left( \sX, x_0\right)}$ respectively. If $\widetilde p: \widetilde\sX \to \sX$ and $\overline p: \overline\sX \to \sX$ are natural transitive coverings then denote by $\widetilde{\mathscr A}\bydef \widetilde p^{-1}\mathscr A$ and $\overline{\mathscr A}\bydef \overline p^{-1}\mathscr A$ inverse images of $\mathscr A$ (cf. Definition \ref{sheaf_inv_im_defn}).
-From the Theorem \ref{comm_main_thm} it turns out that $\mathfrak{S}_B^{\mathrm{pt}}$ is good (cf. Definition \ref{mains_defn}) and if is  $\left(B, \widetilde{B}, G\left(\left.\widetilde B \right| B\right)\right)$ the  { infinite noncommutative covering} of $\mathfrak{S}^{\text{pt}}{B}$ (cf. Definition \ref{main_defn}) then there are following natural isomorphisms
+Any $\overline a \in \overline{\mathscr A}\left( \overline\sX\right)$ can be represented by a continuous map $ \phi_{\overline a} : \overline \sX \times \R \to \C$ such that for all $\overline x \in \overline \sX$ there is a compact neighborhood $\overline \sU$ and the restriction $\left. \phi_{\overline a}\right|_{\overline \sU\times\R}$ is given by
+\be\label{top_pol_repr_rqn}
+\forall \left(\overline x, t\right)\in \overline \sU\times\R\quad  \phi_{\overline a}\left( \left(\overline x, t\right) \right) = \sum_{j=1}^n  \overline \phi^{\overline \sU}_n\left((\overline x \right) t^n\quad \phi^{\overline \sU}_j\in C\left(\overline \sU \right)\quad j = 1,...,n
+\ee
+where $n$ depends on $\overline \sU$. From the Theorem \ref{comm_main_thm} it turns out that $\mathfrak{S}_B^{\mathrm{pt}}$ is good (cf. Definition \ref{mains_defn}) and if is  $\left(B, \widetilde{B}, G\left(\left.\widetilde B \right| B\right)\right)$ the  { infinite noncommutative covering} of $\mathfrak{S}^{\text{pt}}{B}$ (cf. Definition \ref{main_defn}) then there are following natural isomorphisms
 \bean
 \widetilde{B}\cong C_0\left(\widetilde\sX\times \R\right),\\
 G\left(\left.\widetilde B \right|B\right)\cong	G\left(\left.\widetilde \sX \right|\sX\right)
@@ -9413,31 +9436,63 @@ If $D^*\left(\widehat \sX\times \R \right)$ is a $C^*$-algebra of bounded discon
 \ee
 From equations \eqref{top_frak_eqn} and \eqref{top_ha_eqn} it follows that
 \be
-\D\bydef \widehat  {\mathfrak B}\H_a=\left\{\xi\in \H_a\left|\forall n \in \N^0\quad \left(1+ X^{2n} \right)\xi\in \H_a \right.\right\}.
+\D\bydef \widehat  {\mathfrak B}\H_a=\left\{\xi\in \H_a\left|\forall a  \in \cup A_\la \quad \left\| \xi\right\|_a < \infty \right.\right\}.
 \ee
-\begin{exercise}
-\begin{enumerate}
-	Let $\M$ be a $\C$-space of maps  from  $\widehat \sX\times \R\times\C$ to $\H_a$.
-	Prove following statements:
-	\item If $\L^\dagger\left(\D\right)$ is given by \eqref{l_dag_eqn} then there is the natural inclusion of $ \L^\dagger\left(\D\right) \subset \M$,
-	\item Using the set theoretic bijective map $\widehat \sX\cong  \overline \sX $ construct an inclusion of $\overline{\mathscr A} \left(\overline\sX \right) \subset \M$, where $\overline{\mathscr A} \left(\overline\sX \right)$ is an involutive algebra of global sections of the sheaf $\overline{\mathscr A}$.
-	\item If $\overline A\bydef \overline{\mathscr A} \left(\overline\sX \right)\cap \L^\dagger\left(\D\right)$ then restriction on $\overline A$ given  by $\overline{\mathscr A} \left(\overline\sX \right)$ multiplication and involution coincides with induced by  $\L^\dagger\left(\D\right)$ ones. So  $\overline A$ is an involutive algebra.
-\end{enumerate}	
+where  $\left\| \xi\right\|_a$ is the given by the equation \eqref{graph_d_eqn} graph norm.
+From \eqref{top_ha_eqn} it follows that any $\left( \widehat x , y, z\right)\in \widehat \sX\times \R \times \C$ corresponds to an element of $\H_a$. Since there is a set theoretic bijection $\widehat \sX\cong \overline  \sX$ there is an invective map
+$$
+\Phi: \overline \sX\times \R \times \C \hookto \H_a
+$$
+such that $\Phi\left(  \overline \sX\times \R \times \C\right)\in \D$. 	If $\M$ is  a $\C$-space of maps  from  $\overline \sX\times \R\times\C$ to $\H_a$ then there is map
+\bean
+\psi_{\L}: \L^\dagger\left(\D\right)\to \M,\\
+l \mapsto \left(\left( \widehat x , y, z\right)\mapsto l\left( \Phi\left(  \left( \overline x , y, z\right)\right)\right)  \right)
+\eean
+The linear span of images of  $\Phi$ is dense in $\D$ with respect to the topology given by graph norms (cf. \ref{graph_d_eqn}), so the map $\psi_{\L}$ is injective.
+Also there is a map
+\bean
+\psi_{\overline{\mathscr A}}:\overline{\mathscr A}\left( \overline\sX\right)\to \M,\\
+\overline a \mapsto \left( \overline x , y, z\right)\mapsto \Phi\left( \left( \overline x , y, \overline a\left( \overline x, y\right)  z\right) \right)
+\eean
+\begin{exercise}\label{top_a_l_exer}
+Let $\overline A \bydef \psi_{\L}\left( \L^\dagger\left(\D\right)\right) \cap \psi_{\overline{\mathscr A}}\left( \overline{\mathscr A}\left( \overline\sX\right)\right)$. Prove  that the  restrictions on $\overline A$ of multiplication and *-operation given *- algebras  $\L^\dagger\left(\D\right)$ and $\overline{\mathscr A}\left( \overline\sX\right)$ coincide.
 \end{exercise}
+From the exercise \ref{top_a_l_exer} it follows that $\overline A$ is a *-algebra. Since both maps $\psi_{\L}$ and $\psi_{\overline{\mathscr A}}$ are injective one can write $\overline A = \L^\dagger\left(\D\right) \cap \overline{\mathscr A}\left( \overline\sX\right)$. Let $\left\{u_n\in \C_c\left(\R \right)_+ \right\}$  be an approximate unit of $C_0\left( \R\right)$. If $\phi \in C_c\left( \overline\sX \right)$ and
+\bean
+\phi_n : \overline\sX\times \R \to \C,\\
+\left(\overline x, y  \right) \mapsto \phi \left(\overline x  \right)\ u_n\left(y \right) 
+\eean
+then  $\phi_n \in C_c\left(  \overline\sX\times \R\right)$.
+\begin{exercise}
+Suppose that $a \in \L^\dagger\left(\D\right)$ be such that for all $n \in \N$ there is $a_n\in \overline{\mathscr A}\left( \overline\sX\right)$ such that
+$$
+a \phi_n = a_n \phi_n.
+$$
+Proof following statements:
+\begin{enumerate}
+	\item There is $a' \in\overline{\mathscr A}\left( \overline\sX\right)$ such that 
+	$$
+	a' \phi_n = a_n \phi_n.
+	$$
+	\item There is the limit $a'\phi = \lim_{n\to\infty} a \phi_n$ with respect to the graph topology of $\L^\dagger\left(\D\right)$ (cf. \eqref{graph_ld_eqn}).
+\end{enumerate}
 
-\begin{theorem}                                     
-Consider the above situation. If $\widetilde A\bydef \overline A\cap\widetilde{\mathscr A}\left( \widetilde\sX\right)$  then the triple $\left(A, \widetilde{A}, G\left(\left.\widetilde B \right| B\right)\right)$ is the 
+\end{exercise}
+\begin{theorem}
+Consider the above situation. If $\widetilde A\bydef \overline A\cap\psi_{\overline{\mathscr A}}\left( \widetilde{\mathscr A}\left( \widetilde\sX\right)\right)$  then the triple $\left(A, \widetilde{A}, G\left(\left.\widetilde B \right| B\right)\right)$ is the 
 { inverse noncommutative limit of $\mathfrak{S}_A^{\mathrm{pt}}$ associated with $\mathfrak{S}_B^{\mathrm{pt}}$} (cf. Definition \ref{main_ch_defn}).
 \end{theorem}
 \begin{proof}
+	Note that $\widetilde A \subset \overline  A \subset \psi_{\L} \left( \L^\dagger\left(\D\right)\right)$. Since the map  $\psi_{\L}$ is injective one can assume that $\widetilde A \subset \overline  A \subset  \L^\dagger\left(\D\right)$ and these inclusion are *-homomorphisms (cf. Exercise \ref{top_a_l_exer}).
 	The above construction contains a partial proof of this theorem. One needs only check that
 	$$
-	a \in \L^\dagger\left(\D \right)  \quad \text{is admissible (cf. \ref{comp_ch_empt}) }\quad \Leftrightarrow\quad a \in \widetilde{\mathscr A}\left( \widetilde\sX\right).
+	a \in \L^\dagger\left(\D \right)  \quad \text{is admissible (cf. \ref{comp_ch_empt}) }\quad \Leftrightarrow\quad a \in \widetilde A.
 	$$
-	($\Leftarrow$) One has $a \in \widetilde{\mathscr A}\left( \widetilde\sX\right)$ if and only if for any $\widetilde x\in \widetilde\sX$ there is an open neighborhood $\widetilde \sU$ such that
+	($\Rightarrow$) One has $a \in \overline{\mathscr A}\left( \overline\sX\right)$ if and only if for any $\overline x\in \overline\sX$ there is an compact neighborhood $\widetilde \sU$ such that
 	$$
-	\exists s \in \widetilde{\mathscr A}\left( \widetilde\sU\right)\quad s = a|_{\widetilde\sU}.
+	\exists s \in \overline{\mathscr A}\left( \overline\sU\right)\quad s = a|_{\overline\sU}.
 	$$
+	Let $\overline x\in \overline\sX$ and let $\overline\sV$ is a connected open neighborhood of $\overline x$, such that the restriction $\left. \overline p\right|_{\overline\sV}$ is a homeomorphism onto $\sV\bydef \overline p\left( \overline\sV\right)$. There is $f \in C_c\left(\overline\sX \right)$ such that $\supp f \subset   \overline\sV$. Suppose that there is an open neighborhood $ \overline\sU$ of $\overline x$ such that $f\left( \overline\sU\right) = \left\{1\right\}$ (cf. Lemma \ref{com_a_u_lem}).
 \end{proof}
 
 
