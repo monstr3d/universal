@@ -9457,26 +9457,32 @@ Also there is a map
 \begin{exercise}\label{top_a_l_exer}
 Let $\overline A \bydef \psi_{\L}\left( \L^\dagger\left(\D\right)\right) \cap \psi_{\overline{\mathscr A}}\left( \overline{\mathscr A}\left( \overline\sX\right)\right)$. Prove  that the  restrictions on $\overline A$ of multiplication and *-operation given *- algebras  $\L^\dagger\left(\D\right)$ and $\overline{\mathscr A}\left( \overline\sX\right)$ coincide.
 \end{exercise}
-From the exercise \ref{top_a_l_exer} it follows that $\overline A$ is a *-algebra. Since both maps $\psi_{\L}$ and $\psi_{\overline{\mathscr A}}$ are injective one can write $\overline A = \L^\dagger\left(\D\right) \cap \overline{\mathscr A}\left( \overline\sX\right)$. Let $\left\{u_n\in \C_c\left(\R \right)_+ \right\}$  be an approximate unit of $C_0\left( \R\right)$. If $\phi \in C_c\left( \overline\sX \right)$ and
-\bean
+From the exercise \ref{top_a_l_exer} it follows that $\overline A$ is a *-algebra. Since both maps $\psi_{\L}$ and $\psi_{\overline{\mathscr A}}$ are injective one can write $\overline A = \L^\dagger\left(\D\right) \cap \overline{\mathscr A}\left( \overline\sX\right)$. Let $\left\{u_n\in \C_c\left(\R \right)_+ \right\}$  be an approximate unit of $C_0\left( \R\right)$. If $\phi \in C_c\left( \overline\sX \right)_+$ and
+\be\label{top_phi_n_eqn}
+\begin{split}
 \phi_n : \overline\sX\times \R \to \C,\\
 \left(\overline x, y  \right) \mapsto \phi \left(\overline x  \right)\ u_n\left(y \right) 
-\eean
+\end{split}
+\ee
 then  $\phi_n \in C_c\left(  \overline\sX\times \R\right)$.
-\begin{exercise}
+\begin{exercise}\label{top_a_p_a_exer}
 Suppose that $a \in \L^\dagger\left(\D\right)$ be such that for all $n \in \N$ there is $a_n\in \overline{\mathscr A}\left( \overline\sX\right)$ such that
 $$
 a \phi_n = a_n \phi_n.
 $$
 Proof following statements:
 \begin{enumerate}
-	\item There is $a' \in\overline{\mathscr A}\left( \overline\sX\right)$ such that 
+	\item There is $a_{\phi, a} \in\overline{\mathscr A}\left( \overline\sX\right)$ such that 
 	$$
-	a' \phi_n = a_n \phi_n.
+a_{\phi, a} \phi_n = a_n \phi_n= a \phi_n.
 	$$
-	\item There is the limit $a'\phi = \lim_{n\to\infty} a \phi_n$ with respect to the graph topology of $\L^\dagger\left(\D\right)$ (cf. \eqref{graph_ld_eqn}).
+	\item There is the limit $a_{\phi, a} = \lim_{n\to\infty} a \phi_n$ with respect to the graph topology of $\L^\dagger\left(\D\right)$ (cf. \eqref{graph_ld_eqn}).
+	\item If $\phi' \in C_c\left( \overline\sX \right)_+$ is a positive operator such that $\phi' \le \phi$ and $\phi'_n: \overline\sX\times \R \to \C$ is given by 
+	$\left(\overline x, y  \right) \mapsto \phi'\left(\overline x  \right)\ u_n\left(y \right)$ then one has
+	\be
+	a_{\phi, a}\phi'_n = a \phi'_n.
+	\ee
 \end{enumerate}
-
 \end{exercise}
 \begin{theorem}
 Consider the above situation. If $\widetilde A\bydef \overline A\cap\psi_{\overline{\mathscr A}}\left( \widetilde{\mathscr A}\left( \widetilde\sX\right)\right)$  then the triple $\left(A, \widetilde{A}, G\left(\left.\widetilde B \right| B\right)\right)$ is the 
@@ -9488,10 +9494,23 @@ Consider the above situation. If $\widetilde A\bydef \overline A\cap\psi_{\overl
 	$$
 	a \in \L^\dagger\left(\D \right)  \quad \text{is admissible (cf. \ref{comp_ch_empt}) }\quad \Leftrightarrow\quad a \in \widetilde A.
 	$$
-	($\Rightarrow$) One has $a \in \overline{\mathscr A}\left( \overline\sX\right)$ if and only if for any $\overline x\in \overline\sX$ there is an compact neighborhood $\widetilde \sU$ such that
+	($\Rightarrow$) 		One has $a'' \in \overline{\mathscr A}\left( \overline\sX\right)$ if and only if for any $\overline x\in \overline\sX$ there is an open neighborhood $\overline \sU$ of $\overline x$ such that
 	$$
-	\exists s \in \overline{\mathscr A}\left( \overline\sU\right)\quad s = a|_{\overline\sU}.
+	\exists s \in \overline{\mathscr A}\left( \overline\sU\right)\quad s = a'|_{\overline\sU}.
 	$$
+	One can suppose that following conditions hold:
+	\begin{enumerate}
+		\item There is a positive $\phi \in C_c\left(\overline\sX \right)_+$ such that $ \overline\sU\subset \supp \phi$.
+		\item The set $\supp \phi$ is homemorphically mapped onto $\overline p\left( \supp  \phi \right)$.  
+	\end{enumerate}
+From the second condition it follows that
+\be
+\forall a' \in  \cup A_\la\quad \exists a'' \in A = A_{\la_{\text{min}}}\quad \forall n \in \N \quad a' \phi_n = a''\phi_n
+\ee
+where $\phi_n$ is given by \eqref{top_phi_n_eqn}.  If 	$a \in \L^\dagger\left(\D \right)$ is  an is admissible, then  from \eqref{graph_d_eqn}
+
+
+
 	Let $\overline x\in \overline\sX$ and let $\overline\sV$ is a connected open neighborhood of $\overline x$, such that the restriction $\left. \overline p\right|_{\overline\sV}$ is a homeomorphism onto $\sV\bydef \overline p\left( \overline\sV\right)$. There is $f \in C_c\left(\overline\sX \right)$ such that $\supp f \subset   \overline\sV$. Suppose that there is an open neighborhood $ \overline\sU$ of $\overline x$ such that $f\left( \overline\sU\right) = \left\{1\right\}$ (cf. Lemma \ref{com_a_u_lem}).
 \end{proof}
 
