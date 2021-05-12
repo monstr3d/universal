@@ -3917,7 +3917,7 @@ If $\L^\dagger\left(\D\right)$ is given by \eqref{l_dag_eqn} then an unbounded o
 \bea\label{adm_ch1_eqn}
 \forall\eta\in \H_a\quad \forall b \in \overline B \setminus\widetilde{B}\quad  \left(a\eta \right) b = 0,\\
 \label{adm_ch2_eqn}
-\forall\left( \eta, \xi, b\right) \in \D\times \widehat {\mathfrak B}\times K\left( \widetilde{B}\right) ~ \exists \la \in \La~ \exists a' \in \cup A_\la ~ \left( a \left( \xi\eta\right)  \right)  b = \left( a' \left( \xi\eta\right)  \right)  b 
+\forall\left( \eta, \xi, b\right) \in \D\times \widehat {\mathfrak B}\times K\left( \widetilde{B}\right) ~ \exists \la \in \La~ \exists a_\la \in A_\la ~ \left( a \left( \xi\eta\right)  \right)  b = \left( a_\la \left( \xi\eta\right)  \right)  b 
 \eea
 where $K\left( \widetilde{B}\right)$ is the Pedersen's ideal of $\widetilde{B}$ (cf. Definition \ref{peder_id_defn}). Left and right parts of above equations are elements of $\H_a$. % Indeed $a\xi, a'\xi \in \widehat {\mathfrak B}\subset  B\left(\H_a\right)$, so $\left(a\xi \right) b, \left(a'\xi \right) b\in B\left(\H_a\right)$.
 
@@ -9492,81 +9492,59 @@ Consider the above situation. If $\widetilde A\bydef \overline A\cap\psi_{\overl
 	Note that $\widetilde A \subset \overline  A \subset \psi_{\L} \left( \L^\dagger\left(\D\right)\right)$. Since the map  $\psi_{\L}$ is injective one can assume that $\widetilde A \subset \overline  A \subset  \L^\dagger\left(\D\right)$ and these inclusion are *-homomorphisms (cf. Exercise \ref{top_a_l_exer}).
 	The above construction contains a partial proof of this theorem. One needs only check that
 	$$
-	a \in \L^\dagger\left(\D \right)  \quad \text{is admissible (cf. \ref{comp_ch_empt}) }\quad \Leftrightarrow\quad a \in \widetilde A.
+	a \in \L^\dagger\left(\D \right)  \quad a \text{ is admissible (cf. \ref{comp_ch_empt}) }\quad \Leftrightarrow\quad a \in \widetilde A.
 	$$
-	($\Rightarrow$) 		One has $a'' \in \overline{\mathscr A}\left( \overline\sX\right)$ if and only if for any $\overline x\in \overline\sX$ there is an open neighborhood $\overline \sU$ of $\overline x$ such that
-	$$
-	\exists s \in \overline{\mathscr A}\left( \overline\sU\right)\quad s = a'|_{\overline\sU}.
-	$$
+	($\Rightarrow$) 		One has $a \in \overline{\mathscr A}\left( \overline\sX\right)$ if and only if for any $\overline x\in \overline\sX$ there is an open neighborhood $\overline \sU$ of $\overline x$ such that
+\be\label{top_one_0_eqn}
+	\exists s \in \overline{\mathscr A}\left( \overline\sU\right)\quad s = a|_{\overline\sU}.
+\ee
 	One can suppose that following conditions hold:
 	\begin{enumerate}
 		\item There is a positive $\phi \in C_c\left(\overline\sX \right)_+$ such that $ \overline\sU\subset \supp \phi$.
 		\item The set $\supp \phi$ is homemorphically mapped onto $\overline p\left( \supp  \phi \right)$.  
 	\end{enumerate}
 From the second condition it follows that
-\be
-\forall a' \in  \cup A_\la\quad \exists a'' \in A = A_{\la_{\text{min}}}\quad \forall n \in \N \quad a' \phi_n = a''\phi_n
+\be\label{top_one_1_eqn}
+\forall \la\in\La ~\forall a_\la \in   A_\la\quad \exists a_{\la_{\text{min}}} \in A = A_{\la_{\text{min}}}\quad \forall n \in \N \quad a_\la \phi_n = a_{\la_{\text{min}}}\phi_n
 \ee
-where $\phi_n$ is given by \eqref{top_phi_n_eqn}.  If 	$a \in \L^\dagger\left(\D \right)$ is  an is admissible, then  from \eqref{graph_d_eqn}
-
-
-
-	Let $\overline x\in \overline\sX$ and let $\overline\sV$ is a connected open neighborhood of $\overline x$, such that the restriction $\left. \overline p\right|_{\overline\sV}$ is a homeomorphism onto $\sV\bydef \overline p\left( \overline\sV\right)$. There is $f \in C_c\left(\overline\sX \right)$ such that $\supp f \subset   \overline\sV$. Suppose that there is an open neighborhood $ \overline\sU$ of $\overline x$ such that $f\left( \overline\sU\right) = \left\{1\right\}$ (cf. Lemma \ref{com_a_u_lem}).
+where $\phi_n$ is given by \eqref{top_phi_n_eqn}.  If 	$a \in \L^\dagger\left(\D \right)$ is  an is admissible, then  from \eqref{adm_ch2_eqn} it follows that 
+\be\label{top_one_2_eqn}
+\forall\left( \eta, \xi\right) \in \D\times \widehat {\mathfrak B} ~ \exists \la \in \La~ \exists a_\la \in A_\la ~\forall n \in \N~ \left( a \left( \xi\eta\right)  \right) \phi_n = \left( a_\la \left( \xi\eta\right)  \right)  \phi_n
+\ee
+Form the equations \eqref{top_one_1_eqn}, \eqref{top_one_2_eqn} and  1. of the Exercise \ref{top_a_p_a_exer} there is $a_{\phi, a} \in\overline{\mathscr A}\left( \overline\sX\right)$ such that 
+$$
+a_{\phi, a} \phi_n = a \phi_n.
+$$
+From  2. of the Exercise \ref{top_a_p_a_exer} it follows that $\left.a_{\phi, a}\right|_{\overline \sU}$ does not depend on choice of $\phi$, so one has
+$$
+\left.a\right|_{\overline \sU}=\left.a_{\phi, a}\right|_{\overline \sU}
+$$
+and taking into account \eqref{top_one_0_eqn} we conclude that $a \in \overline{\mathscr A}\left( \overline\sX\right)$. Otherwise $a \in \L^\dagger\left( \D\right)$ so $a \in  \overline A = \overline{\mathscr A}\left( \overline\sX\right)\cap \L^\dagger\left( \D\right)$. If $a \notin \widetilde{\mathscr A}\left( \widetilde\sX\right)$ then $a \in \overline{\mathscr A}\left( \overline\sX\right)\setminus \widetilde{\mathscr A}\left( \widetilde\sX\right)$, so $\supp a \cap \left(\overline\sX\setminus \widetilde\sX \right) \neq \emptyset$ where $\supp a$ is given by \eqref{sheaf_supp_eqn}. If $\overline x \in \supp a \cap \left(\overline\sX\setminus \widetilde\sX \right)$ then there is $b \in C_0\left(\overline\sX \right)$ such that $b\left( x\right)\neq 0$. One has $b \in  C_0\left(\overline\sX \right)\setminus C_0\left(\widetilde\sX \right)$ and $ab \neq 0$, it contradicts with \eqref{adm_ch1_eqn}. From this contradiction one has $a \in \widetilde{\mathscr A}\left( \widetilde\sX\right)$.\\
+	($\Leftarrow$) 
+	From $a \in \widetilde{\mathscr A}\left( \widetilde\sX\right)$ it follows that $a$ satisfies to \eqref{adm_ch1_eqn}. If $b \in K\left( \widetilde{B}\right)= C_c\left( \widetilde\sX\times\R\right)$ and $\mathrm{pr}_{\widetilde\sX}:\widetilde\sX\times \R$ is the natural projection   then the set $\widetilde\sU \bydef \mathrm{pr}_{\widetilde\sX}\left( \supp b\right) \subset \widetilde \sX$ is compact. From the Lemma \ref{top_comp_la_lem} it follows that $\la_{\overline{   \mathcal U }} \in \La$ such that for any  $\la \ge \la_{\overline{   \mathcal U }} \in \La$ such that for  any  $\la \ge \la_{\overline{   \mathcal U }}$ the set $\overline{   \mathcal U }$  is mapped homeomorphically onto  $\overline{p}_\la\left(\overline{   \mathcal U } \right) \subset \sX_\la$ where $\overline{p}_\la:   \overline{   \mathcal X}   \to  \sX_\la$ is the natural covering. If follows that there is $a_{\la_{\overline{   \mathcal U }}}\in A_{\la_{\overline{   \mathcal U }}}$ such that
+	$$
+	\left.a\right|_{\overline \sU}=\left.a_{\la_{\overline{   \mathcal U }}}\right|_{\overline \sU}.
+	$$
+From the above equation it follows that
+$$
+a b = a_{\la_{\overline{   \mathcal U }}}b
+$$
+i.e. $a$ satisfies to \eqref{adm_ch2_eqn}.
 \end{proof}
-
-
-
-
-\paragraph{title !!!}
-
-
-\begin{empt}\label{comp_ch_empt!}
-	Consider a described in the Definition \ref{comp_pt_ass_defn} situation. Suppose that $\mathfrak{S}^{\text{pt}}_B$ is good (cf. Definition \ref{mains_defn}). Let  $\widetilde B$ be the inverse noncommutative limit of $\mathfrak{S}^{\mathrm{pt}}_B$,  and let $\overline B$ be the  disconnected inverse noncommutative limit of $\mathfrak{S}^{\mathrm{pt}}_B$ (cf. Definition \ref{main_defn_full_defn}). If $\widehat B \bydef C^*$-$\varinjlim B_\la$ is the direct limit of $C^*$-algebras and $\pi_a : \widehat B \hookto B\left(\H_a\right)$ is the atomic representation (cf. Definition \ref{atomic_repr_defn}) then there are natural inclusions
-	\bean
-	\cup \mathfrak{B}_\la \subset B\left(\H_a\right),\\
-	\widetilde B \subset B\left(\H_a\right),\\
-	\overline B \subset B\left(\H_a\right).
-	\eean
-	
-	
-	Using the following natural inclusions 
-	Denote by
-	\bean
-	B^\cup \bydef \cup B_\la,\\
-	\mathfrak B^\cup\bydef \mathfrak\cup \mathfrak B_\la,\\	
-	%\mathfrak A \bydef \End_{	B^\cup }\left( \mathfrak B^\cup\right) 
-	\eean 
-	There is the natural action   $A^\cup\times \mathfrak B^\cup\to \mathfrak B^\cup$  so for any  $a \in A^\cup$ there is a graph norm $\left\| \cdot\right\|_a : \mathfrak B^\cup\to \R_+$ (cf. Definition \ref{def:rep_Hilbert_module}. Let $\widehat  {\mathfrak B}$ be a completion of  ${\mathfrak B}^\cup$ with respect to the family of all graph norms. For all $b \in \widehat B$ and $\xi \in \widehat  {\mathfrak B}$ there are limits $b = \lim_{\a \in \mathscr A} b_\a$ and  $\xi = \lim_{\bt \in \mathscr B} \xi_\bt$ with respect to $C^*$-norm and graph topology. So there is a limit
-	$
-	\lim_{\a \in \mathscr A}\lim_{\bt \in \mathscr B} \xi_\bt b_\a \in \widehat  {\mathfrak B}
-	$
-	with respect to graph topology. We define $\xi b \bydef \lim_{\a \in \mathscr A}\lim_{\bt \in \mathscr B} \xi_\bt b_\a$, so there is a right action $\widehat  {\mathfrak B}\times \widehat  { B}\to \widehat  {\mathfrak B}$. If $\D \bydef \widehat  {\mathfrak B}\H_a$ then $\D$ is a dense subspace of $\H_a$. Define a  right action $\H_a\times \widehat B \to \H_a$ given by $\eta b \bydef b^*\eta$ for all $\eta \in \H_a$ and $b \in \widehat B$.
-	An operator $a \in \L^\dagger\left(\D\right) $ is said to be \emph{admissible} if following conditions hold:
-	\bea\label{adm_ch1_eqn}
-	\forall\eta\in \H_a\quad \forall b \in \overline B \setminus\widetilde{B}\quad  \left(a\eta \right) b = 0,\\
-	\label{adm_ch2_eqn}
-	\forall\left( \eta, \xi, b\right) \in \D\times \widehat {\mathfrak B}\times K\left( \widetilde{B}\right) ~ \exists \la \in \La~ \exists a' \in \cup A_\la ~ \left( a \left( \xi\eta\right)  \right)  b = \left( a' \left( \xi\eta\right)  \right)  b 
-	\eea
-	where $K\left( \widetilde{B}\right)$ is the Pedersen's ideal of $\widetilde{B}$ (cf. Definition \ref{peder_id_defn}). Left and right parts of above equations are elements of $\H_a$. % Indeed $a\xi, a'\xi \in \widehat {\mathfrak B}\subset  B\left(\H_a\right)$, so $\left(a\xi \right) b, \left(a'\xi \right) b\in B\left(\H_a\right)$.
-	
-\end{empt}
 \begin{exercise}
-	Prove following statements:
-	\begin{enumerate}
-		\item The set $\widetilde A\subset \L^\dagger\left(\D\right)$ of admissible elements is closed with respect to the multiplication and involution, i.e. $\widetilde A$ is an involutive algebra.
-		\item There is the natural action
-		$$
-		G\left(\left.\widetilde B \right| B\right) \times \widetilde A \to \widetilde A.
-		$$
-	\end{enumerate}
+Consider the above situation. Let
+$$
+\widetilde{\mathscr A}\left( \widetilde\sX\right)_c \bydef \left\{\left.a \in \widetilde{\mathscr A}\left( \widetilde\sX\right)\right| \supp a \quad \text{is compact}\right\}.
+$$
+Prove following statements:
+\begin{enumerate}
+	\item There is the natural inclusion $\widetilde{\mathscr A}\left( \widetilde\sX\right)_c\subset \L^\dagger\left(\D \right)$.
+	\item $\widetilde A$ is the completion of $\widetilde{\mathscr A}\left( \widetilde\sX\right)_c$ with respect to the graph topology (cf. Equation \eqref{graph_ld_eqn}).
+\end{enumerate}
 \end{exercise}
-\begin{definition}\label{main_ch_defn!}
-	In the situation \ref{main_ch_defn} we say that	$\left(A, \widetilde{A}, G\left(\left.\widetilde B \right| B\right)\right)$ is the 
-	\textit{ inverse noncommutative limit of $\mathfrak{S}_A^{\mathrm{pt}}$ associated with $\mathfrak{S}_B^{\mathrm{pt}}$}.
-\end{definition}
 
 
-\paragraph{title}
+
 
 
 \subsection{Induced representations}\label{comm_induced_infinite_sec}
@@ -21361,7 +21339,7 @@ A^{\infty}$.
 \end{rem}
 
 	\chapter{Presheaves and sheaves}
-\section{Basic constructions}
+\section{Basic constructions}\label{sheaves_bas_sec}
 \begin{definition}\label{presheaf_defn}\cite{hartshorne:ag}
 	Let $\sX$ be a topological space. A \textit{presheaf} $\mathscr F$ of Abelian groups on  $\sX$ consists of the data
 	\begin{itemize}
@@ -21416,7 +21394,11 @@ A^{\infty}$.
 \begin{definition}\label{sheaf_flasque}\cite{hartshorne:ag}
 	A sheaf $\mathscr F$ on a topological space is \textit{flasque} or \textit{flabby} if for every inclusion $\sV \subseteq \sU$ of open sets, the restriction map $\mathscr F\left(\sU \right)\to\mathscr F\left(\sV \right)$ is surjective. 
 \end{definition}
-Recall that for $s \in \mathscr{F}\left(\sX \right)$, $\supp s= \left\{\left.x \in \sX \right|s\left(x \right)\neq 0  \right\}$ denotes the \textit{support} of the section $s$.
+Recall that for $s \in \mathscr{F}\left(\sX \right)$, 
+\be\label{sheaf_supp_eqn}
+\supp s= \left\{\left.x \in \sX \right|s\left(x \right)\neq 0  \right\}
+\ee
+ denotes the \textit{support} of the section $s$.
 \begin{definition}\label{phi_supp_defn}\cite{godement:sheaf}.
 	Let $\sX$ be a topological space. A \textit{family of supports} on $\sX$ is a family $\Phi$ of closed
 	subsets of $\sX$  such that:
