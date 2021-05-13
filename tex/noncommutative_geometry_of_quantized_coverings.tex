@@ -3925,7 +3925,7 @@ If $\L^\dagger\left(\D\right)$ is given by \eqref{l_dag_eqn} then an unbounded o
 \bea\label{adm_ch1_eqn}
 \forall\xi\in \D\quad \forall b \in \overline B \setminus\widetilde{B}\quad  \left(a\xi \right) b = 0,\\
 \label{adm_ch2_eqn}
-\forall\left( \xi, b\right) \in \D\times K\left( \overline{B}\right)\quad  \exists \la \in \La\quad  \exists a_\la \in A_\la \quad  \left( a  \xi\right)    b = \left( a_\la  \xi  \right)  b. 
+ \forall b \in K\left( \overline{B}\right)\quad  \exists \la \in \La\quad  \exists a_\la \in A_\la \quad \forall \xi\in \D\quad  \left( a  \xi\right)    b = \left( a_\la  \xi  \right)  b. 
 \eea
 where $K\left( \overline{B}\right)$ is the Pedersen's ideal of $\overline{B}$ (cf. Definition \ref{peder_id_defn}). Left and right parts of above equations are elements of $\H_a$. 
 \end{empt}
@@ -9432,11 +9432,12 @@ Any $\overline a \in \overline{\mathscr A}\left( \overline\sX\right)$ can be rep
 where $n$ depends on $\overline \sU$. From the Theorem \ref{comm_main_thm} it turns out that $\mathfrak{S}_B^{\mathrm{pt}}$ is good (cf. Definition \ref{mains_defn}) and if   $\left(B, \widetilde{B}, G\left(\left.\widetilde B \right| B\right)\right)$ is the  { infinite noncommutative covering} of $\mathfrak{S}^{\text{pt}}{B}$ (cf. Definition \ref{main_defn}) then there are following natural isomorphisms
 \be\label{top_bc0_eqn}
 \begin{split}
+	\overline{B}\cong C_0\left(\overline\sX\times \R\right),\\
 \widetilde{B}\cong C_0\left(\widetilde\sX\times \R\right),\\
 G\left(\left.\widetilde B \right|B\right)\cong	G\left(\left.\widetilde \sX \right|\sX\right)
 \end{split}
 \ee
-From \eqref{peder_c0_eqn}
+From \eqref{peder_c0_eqn} it follows that $K\left(C_0\left(\overline\sX\times \R\right) \right)= C_c\left( \overline\sX\times \R\right)$.
 If $\widehat B \bydef C^*$-$\varinjlim B_\la$ is the direct limit of $C^*$-algebras then from $B_\la = C_0\left( \sX_\la\times \R\right)$ and the Lemma  \ref{inverse_lim_sp_lem} it follows that $\widehat B\cong C_0\left(\widehat \sX \times\R\right)$ where $\widehat \sX \bydef \varprojlim \sX_\la$ is the inverse limit of topological spaces.
 The identical function  $T : \R \to \R$ induces a map $\widehat \sX \times\R\to \C$ which also we denote by $T$. A specialization of the explained in \ref{comp_ch_empt} right-$\widehat B$ ideal $\widehat  {\mathfrak B}$ is given by
 \be\label{top_frak_eqn}
@@ -9503,7 +9504,17 @@ Consider the above situation. If $\widetilde A\bydef \overline A\cap\psi_{\overl
 { inverse noncommutative limit of $\mathfrak{S}_A^{\mathrm{pt}}$ associated with $\mathfrak{S}_B^{\mathrm{pt}}$} (cf. Definition \ref{main_ch_defn}).
 \end{theorem}
 \begin{proof}
-	Note that $\widetilde A \subset \overline  A \subset \psi_{\L} \left( \L^\dagger\left(\D\right)\right)$. Since the map  $\psi_{\L}$ is injective one can assume that $\widetilde A \subset \overline  A \subset  \L^\dagger\left(\D\right)$ and these inclusion are *-homomorphisms (cf. Exercise \ref{top_a_l_exer}).
+	Note that in recent situation the equation  \eqref{adm_ch2_eqn}, i.e.
+\bean
+%\forall\xi\in \D\quad \forall b \in \overline B \setminus\widetilde{B}\quad  \left(a\xi \right) b = 0,\\
+\forall b \in K\left( \overline{B}\right)\quad  \exists \la \in \La\quad  \exists a_\la \in A_\la \quad \forall \xi\in \D\quad  \left( a  \xi\right)    b = \left( a_\la  \xi  \right)  b, 
+\eean
+is equivalent to
+\be\label{top_adm_ch2_eqn}
+\forall b \in C_c\left( \overline{\sX}\times \R\right)\quad  \exists \la \in \La\quad  \exists a_\la \in A_\la \quad  a b = a_\la b
+\ee	
+where both left and right part of \eqref{top_adm_ch2_eqn} are products of continuous maps $ \overline{\sX}\times \R\to\C$.
+One has	$\widetilde A \subset \overline  A \subset \psi_{\L} \left( \L^\dagger\left(\D\right)\right)$. Since the map  $\psi_{\L}$ is injective one can assume that $\widetilde A \subset \overline  A \subset  \L^\dagger\left(\D\right)$ and these inclusion are *-homomorphisms (cf. Exercise \ref{top_a_l_exer}).
 	The above construction contains a partial proof of this theorem. One needs only check that
 	$$
 	a \in \L^\dagger\left(\D \right)  \quad a \text{ is admissible (cf. \ref{comp_ch_empt}) }\quad \Leftrightarrow\quad a \in \widetilde A.
