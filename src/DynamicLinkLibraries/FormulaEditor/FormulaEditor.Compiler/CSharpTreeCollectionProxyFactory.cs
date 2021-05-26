@@ -17,7 +17,7 @@ namespace FormulaEditor.Compiler
     {
         #region Fields
 
-        public static readonly CodeDomProvider compiler = CodeDomProvider.CreateProvider("cs");
+ 
 
         #endregion
 
@@ -30,31 +30,9 @@ namespace FormulaEditor.Compiler
         {
             get
             {
-                CompilerParameters compileParams = new CompilerParameters();
-                compileParams.IncludeDebugInformation = true;
-                compileParams.GenerateExecutable = false;
-                compileParams.GenerateInMemory = true;
-                List<string> la = new List<string>() { "BaseTypes.dll", "FormulaEditor.dll" };
-                Assembly[] assemb = AppDomain.CurrentDomain.GetAssemblies();
-                foreach (Assembly ass in assemb)
-                {
-                    try
-                    {
-                        string l = ass.Location;
-                        string fn = System.IO.Path.GetFileName(l);
-                        {
-                            compileParams.ReferencedAssemblies.Add(l);
-                        }
-                    }
-                    catch (Exception)
-                    {
-                    }
-                }
-                CompilerResults results =
-                    compiler.CompileAssemblyFromSource(compileParams, code);
                 try
                 {
-                    Assembly ass = results.CompiledAssembly;
+                    Assembly ass = StaticExtensionFormulaEditorCompiler.Compiler[code];
                     collection.CreateProxy(code);
                     Type[] types = ass.GetTypes();
                     Type[] inp = (checkValue == null) ? new Type[] { typeof(ObjectFormulaTree[]) } :
@@ -74,7 +52,7 @@ namespace FormulaEditor.Compiler
                         }
                     }
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
                     collection.CreateProxy("BAD " + code);
                 }

@@ -192,17 +192,17 @@ namespace ToolBox
             AllowDrop = true;
 
             //Prepare richTextbox's context menu.
-            ContextMenu theMenu;
-            MenuItem menuItem;
+            ContextMenuStrip theMenu;
+            ToolStripMenuItem menuItem;
 
-            theMenu = new ContextMenu();
+            theMenu = new ContextMenuStrip();
 
-            menuItem = new MenuItem("Undo");
+            menuItem = new ToolStripMenuItem("Undo");
             //            menuItem.Click += new EventHandler(OnTexBoxMenu_Undo);
-            theMenu.MenuItems.Add(menuItem);
+            theMenu.Items.Add(menuItem);
 
-            menuItem = new MenuItem("-");
-            theMenu.MenuItems.Add(menuItem);
+            menuItem = new ToolStripMenuItem("-");
+            theMenu.Items.Add(menuItem);
 
             /*menuItem = new MenuItem("Cut");
             menuItem.Click += new EventHandler(OnTexBoxMenu_Cut);

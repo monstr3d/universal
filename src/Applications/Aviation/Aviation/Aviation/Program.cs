@@ -29,8 +29,10 @@ namespace Aviation
         [STAThread]
         static void Main(string[] args)
         {
+            AssemblyService.StaticExtensionAssemblyService.Init();
             try
             {
+
                 object o = null;
                 DateTime dt = DateTime.FromOADate(1770457504 / (24 * 3600));
                 System.Configuration.Configuration config =
@@ -38,8 +40,6 @@ namespace Aviation
                         System.Configuration.ConfigurationUserLevel.PerUserRoamingAndLocal);
                 string path = config.FilePath;
 
-                /*  Type t = typeof(Gravity_36_36.Wrapper.Serializable.Gravity);
-                  string st = t.FullName + "," + t.Assembly.FullName;
                 //*/
                 //  double sec = (double)dt.Ticks / (10000000 * 24 * 3600);
                 string filename = "";
@@ -77,14 +77,22 @@ namespace Aviation
                     IDesktop d = GeneratedProject.StaticExtensionGeneratedProject.Desktop;
                     Environment.Exit(0);
                 };*/
-                Type t = typeof(Dynamic.Atmosphere.Serializable.Atmosphere);
-                string str = t.FullName + "," + t.Assembly.FullName;
+                Application.SetHighDpiMode(HighDpiMode.SystemAware);
+                Application.EnableVisualStyles();
+           //     Application.SetCompatibleTextRenderingDefault(false);
                 Application.Run(f);
             }
             catch (Exception e)
             {
 
             }
+        }
+
+        static void Prepare()
+        {
+            Type t = typeof(Gravity_36_36.Wrapper.Gravity);
+            string st = t.FullName + "," + t.Assembly.FullName;
+
         }
 
         private static void F_Load(object sender, EventArgs e)
@@ -98,7 +106,7 @@ namespace Aviation
       // !!!REMOVED             Simulink.Proxy.UI.Factory.SimulinkProxyFactory.Object,
                     Database.UI.Factory.DatabaseFactory.Object,
           // !!!REMOVED          ImageTransformations.Factory.ImageTransformationFactory.Object,
-                    ImageNavigation.Factory.ImageNavigationFactory.Object,
+           // !!!REMOVED            ImageNavigation.Factory.ImageNavigationFactory.Object,
                 // !!!REMOVED    SoundService.UI.Factory.SoundUIFactrory.Singleton,
                     Event.UI.Factory.UIFactory.Factory
          //!!!REMOVED           Web.Interfaces.UI.Factory.Factory.Singleton
@@ -117,7 +125,7 @@ namespace Aviation
             List<ButtonWrapper> gen = new List<ButtonWrapper>();
             gen.AddRange(DataPerformer.UI.Factory.StaticFactory.GeneralObjectsButtons);
             gen.AddRange(ControlSystemLib.Data.UI.Factory.ControlSystemsFactory.ObjectButtons);
-            gen.AddRange(Simulink.Proxy.UI.Factory.SimulinkProxyFactory.ObjectButtons);
+            // !!!REMOVED      gen.AddRange(Simulink.Proxy.UI.Factory.SimulinkProxyFactory.ObjectButtons);
             // !!!REMOVED      gen.AddRange(SoundService.UI.Factory.SoundUIFactrory.ObjectButtons);
             but[i] = gen.ToArray();
             ++i;
@@ -131,8 +139,8 @@ namespace Aviation
             but[i] = geom.ToArray();
             ++i;
             List<ButtonWrapper> image = new List<ButtonWrapper>();
-            image.AddRange(ImageTransformations.Factory.ImageTransformationFactory.ObjectButtons);
-            image.AddRange(ImageNavigation.Factory.ImageNavigationFactory.ObjectButtons);
+            // !!!REMOVED        image.AddRange(ImageTransformations.Factory.ImageTransformationFactory.ObjectButtons);
+            // !!!REMOVED     image.AddRange(ImageNavigation.Factory.ImageNavigationFactory.ObjectButtons);
             but[i] = image.ToArray();
             ++i;
             List<ButtonWrapper> events = new List<ButtonWrapper>();
@@ -145,8 +153,8 @@ namespace Aviation
             arr.AddRange(Database.UI.Factory.DatabaseFactory.ArrowButtons);
             arr.AddRange(Motion6D.UI.Factory.MotionFactory.ArrowButtons);
             arr.AddRange(Motion6D.UI.Factory.VisibleFactory.VisualArrowButtons);
-            arr.AddRange(ImageTransformations.Factory.ImageTransformationFactory.ArrowButtons);
-            arr.AddRange(ImageNavigation.Factory.ImageNavigationFactory.ArrowButtons);
+            // !!!REMOVED          arr.AddRange(ImageTransformations.Factory.ImageTransformationFactory.ArrowButtons);
+            // !!!REMOVED         arr.AddRange(ImageNavigation.Factory.ImageNavigationFactory.ArrowButtons);
             arr.AddRange(Event.UI.Factory.UIFactory.ArrowButtons);
             but[i] = arr.ToArray();
             LightDictionary<string, ButtonWrapper[]> buttons = new LightDictionary<string, ButtonWrapper[]>();
@@ -172,7 +180,7 @@ namespace Aviation
         {
             List<ButtonWrapper> l = new List<ButtonWrapper>();
             l.AddRange(ControlSystemLib.Data.UI.Factory.ControlSystemsFactory.ObjectButtons);
-            l.AddRange(Simulink.Proxy.UI.Factory.SimulinkProxyFactory.ObjectButtons);
+            // !!!REMOVED    l.AddRange(Simulink.Proxy.UI.Factory.SimulinkProxyFactory.ObjectButtons);
             Form form = StaticExtension.CreateAviationFormFull(GetButtons(factory), Initializers,
                 Aviation.Utils.ControlUtilites.Resources, null, filename, null, Factories,
                null, true,

@@ -1,317 +1,48 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{D94E2A9C-F2CB-432F-A878-3E45A467F1FD}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Event.UI</RootNamespace>
-    <AssemblyName>Event.UI</AssemblyName>
-    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
-    <DebugSymbols>true</DebugSymbols>
-    <OutputPath>bin\x64\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <DebugType>full</DebugType>
-    <PlatformTarget>x64</PlatformTarget>
-    <ErrorReport>prompt</ErrorReport>
-    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
-    <OutputPath>bin\x64\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <Optimize>true</Optimize>
-    <DebugType>pdbonly</DebugType>
-    <PlatformTarget>x64</PlatformTarget>
-    <ErrorReport>prompt</ErrorReport>
-    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
-  </PropertyGroup>
-  <ItemGroup>
-    <Reference Include="PresentationCore" />
-    <Reference Include="PresentationFramework" />
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Windows.Forms" />
-    <Reference Include="System.Xaml" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
-    <Reference Include="UIAutomationProvider" />
-    <Reference Include="WindowsBase" />
-    <Reference Include="WindowsFormsIntegration" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Factory\EventFactory.cs" />
-    <Compile Include="Forms\FormCircular2DControl.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\FormCircular2DControl.Designer.cs">
-      <DependentUpon>FormCircular2DControl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\FormConnectionString.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\FormConnectionString.Designer.cs">
-      <DependentUpon>FormConnectionString.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\FormEventRemoting.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\FormEventRemoting.Designer.cs">
-      <DependentUpon>FormEventRemoting.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\FormLogEdit.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\FormLogEdit.Designer.cs">
-      <DependentUpon>FormLogEdit.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\FormTimer.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\FormTimer.Designer.cs">
-      <DependentUpon>FormTimer.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Labels\Circular2DControlLabel.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Labels\ForcedEventDataLabel.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Labels\ForcedEventLabel.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Labels\ImportedEventReaderLabel.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Labels\ImportedEventWriterLabel.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Labels\LogIteratorLabel.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Labels\LogLabel.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Labels\RemotingEventLabel.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Labels\TimerLabel.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Labels\TransientProcessEventLabel.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
-    <Compile Include="StaticExtensionEventUI.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UserControls\UserControlCircular2DControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserControls\UserControlCircular2DControl.Designer.cs">
-      <DependentUpon>UserControlCircular2DControl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UserControls\UserControlCircular2DControlFull.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserControls\UserControlCircular2DControlFull.Designer.cs">
-      <DependentUpon>UserControlCircular2DControlFull.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UserControls\UserControlEventBlock.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserControls\UserControlEventBlock.Designer.cs">
-      <DependentUpon>UserControlEventBlock.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UserControls\UserControlEventData.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserControls\UserControlEventData.Designer.cs">
-      <DependentUpon>UserControlEventData.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UserControls\UserControlFileDataBaseLog.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserControls\UserControlFileDataBaseLog.Designer.cs">
-      <DependentUpon>UserControlFileDataBaseLog.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UserControls\UserControlFileLog.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserControls\UserControlFileLog.Designer.cs">
-      <DependentUpon>UserControlFileLog.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UserControls\UserControlForcedEvent.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserControls\UserControlForcedEvent.Designer.cs">
-      <DependentUpon>UserControlForcedEvent.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UserControls\UserControlImportedReader.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserControls\UserControlImportedReader.Designer.cs">
-      <DependentUpon>UserControlImportedReader.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UserControls\UserControlLog.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserControls\UserControlLog.Designer.cs">
-      <DependentUpon>UserControlLog.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UserControls\UserControlLogIterator.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserControls\UserControlLogIterator.Designer.cs">
-      <DependentUpon>UserControlLogIterator.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UserControls\UserControlRemoteObject.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserControls\UserControlRemoteObject.Designer.cs">
-      <DependentUpon>UserControlRemoteObject.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UserControls\UserControlRemoteOutput.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserControls\UserControlRemoteOutput.Designer.cs">
-      <DependentUpon>UserControlRemoteOutput.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UserControls\UserControlRemotingEvent.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserControls\UserControlRemotingEvent.Designer.cs">
-      <DependentUpon>UserControlRemotingEvent.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UserControls\UserControlTimer.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserControls\UserControlTimer.Designer.cs">
-      <DependentUpon>UserControlTimer.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UserControls\UserControlTransientProcessEvent.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserControls\UserControlTransientProcessEvent.Designer.cs">
-      <DependentUpon>UserControlTransientProcessEvent.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UserControls\UserControlWriter.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserControls\UserControlWriter.Designer.cs">
-      <DependentUpon>UserControlWriter.cs</DependentUpon>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
+  <TargetFramework>net5.0-windows</TargetFramework>
+  <UseWindowsForms>true</UseWindowsForms>
+  <EnableDefaultEmbeddedResourceItems>false</EnableDefaultEmbeddedResourceItems>
+</PropertyGroup>
+    <ItemGroup>
     <ProjectReference Include="..\..\CategoryTheory\CategoryTheory\CategoryTheory\CategoryTheory.csproj">
-      <Project>{01323e7d-da29-4d48-8c46-a44c117a8d12}</Project>
-      <Name>CategoryTheory</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\DataPerformer\DataPerformer.Base\DataPerformer.Base\DataPerformer.Base.csproj">
-      <Project>{cde580bc-cfe5-45d3-b9a2-76585e54a416}</Project>
-      <Name>DataPerformer.Base</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\DataPerformer\DataPerformer.Interfaces\DataPerformer.Interfaces.csproj">
-      <Project>{f9d68183-6801-4214-affc-737acbef498e}</Project>
-      <Name>DataPerformer.Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\DataPerformer\DataPerformer.Portable\DataPerformer.Portable.csproj">
-      <Project>{4442e3e5-41b9-4f60-9c1a-07272d9c31d0}</Project>
-      <Name>DataPerformer.Portable</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Diagram\Diagram.UI.Components\Diagram.UI.Components\Diagram.UI.Components.csproj">
-      <Project>{d1af843a-8878-41d6-a59f-d2b68cf68a30}</Project>
-      <Name>Diagram.UI.Components</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Diagram\Diagram.UI.Forms\Diagram.UI.Forms.csproj">
-      <Project>{4fb6133d-2948-4e29-a7b2-5dd5fd750606}</Project>
-      <Name>Diagram.UI.Forms</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Diagram\Diagram.UI.Serializable\Diagram.UI.Serializable.csproj">
-      <Project>{868adfd8-51c2-4cec-8132-11e5a0f907e3}</Project>
-      <Name>Diagram.UI.Serializable</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Diagram\Diagram.UI\Diagram.UI.csproj">
-      <Project>{3a2ab37f-17cd-4cb2-96c6-14d4efbf8279}</Project>
-      <Name>Diagram.UI</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Diagram\Diagram\Diagram.csproj">
-      <Project>{096f4ea8-6301-4545-96d6-286e67ccba5c}</Project>
-      <Name>Diagram</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Web.Interfaces\Web.Interfaces\Web.Interfaces.csproj">
-      <Project>{a7e0621b-9ca9-4874-b797-83b391e8aef4}</Project>
-      <Name>Web.Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\WindowsExtensions\WindowsExtensions.csproj">
-      <Project>{712b37a4-4fb4-4cc5-87d4-fade83194057}</Project>
-      <Name>WindowsExtensions</Name>
     </ProjectReference>
     <ProjectReference Include="..\Event.Basic.Data\Event.Basic.Data.csproj">
-      <Project>{d3cf3293-5ebe-42e4-958a-1f58b24238cd}</Project>
-      <Name>Event.Basic.Data</Name>
     </ProjectReference>
     <ProjectReference Include="..\Event.Basic\Event.Basic.csproj">
-      <Project>{b542e7df-96b1-4db9-9335-10b350d61b4e}</Project>
-      <Name>Event.Basic</Name>
     </ProjectReference>
     <ProjectReference Include="..\Event.Data.Interface\Event.Data.Interface.csproj">
-      <Project>{4407509d-87b1-4903-8a73-628f05f55c8d}</Project>
-      <Name>Event.Data.Interface</Name>
     </ProjectReference>
     <ProjectReference Include="..\Event.Interfaces\Event.Interfaces.csproj">
-      <Project>{3006114c-ed81-4966-a1a4-88149fddb9a5}</Project>
-      <Name>Event.Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\Event.Portable\Event.Portable.csproj">
-      <Project>{b72a1bb1-13a5-4f04-91ae-dd777731c4f9}</Project>
-      <Name>Event.Portable</Name>
     </ProjectReference>
     <ProjectReference Include="..\Event.Log.Database.UI\Event.Log.Database.UI.csproj">
-      <Project>{ae92f3a5-fc9c-4bbb-b7c1-327a6c258f70}</Project>
-      <Name>Event.Log.Database.UI</Name>
     </ProjectReference>
     <ProjectReference Include="..\Event.Log.Database\Event.Log.Database.csproj">
-      <Project>{4d75b03c-d5db-44fa-8545-b8d96f480f6f}</Project>
-      <Name>Event.Log.Database</Name>
-    </ProjectReference>
-    <ProjectReference Include="Event.WPF.UI\Event.WPF.UI.csproj">
-      <Project>{72c19fbb-ba25-4c37-84ca-aa45d1eebaf2}</Project>
-      <Name>Event.WPF.UI</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Forms\FormCircular2DControl.resx">
-      <DependentUpon>FormCircular2DControl.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormConnectionString.resx">
       <DependentUpon>FormConnectionString.cs</DependentUpon>
     </EmbeddedResource>
@@ -326,13 +57,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\UserControlCircular2DControl.resx">
-      <DependentUpon>UserControlCircular2DControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\UserControlCircular2DControlFull.resx">
-      <DependentUpon>UserControlCircular2DControlFull.cs</DependentUpon>
+      <DependentUpon>Resources.Designer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\UserControlEventBlock.resx">
       <DependentUpon>UserControlEventBlock.cs</DependentUpon>
@@ -377,19 +102,4 @@
       <DependentUpon>UserControlWriter.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Service References\" />
-  </ItemGroup>
-  <ItemGroup />
-  <ItemGroup>
-    <None Include="Resources\Event.ico" />
-  </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
-</Project>
+ </Project>

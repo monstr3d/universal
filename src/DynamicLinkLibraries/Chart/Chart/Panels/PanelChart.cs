@@ -39,10 +39,11 @@ namespace Chart.Panels
             copySeriesToolStripMenuItem.Click += copySeriesToolStripMenuItem_Click;
             pasteToolStripMenuItem.Click += pasteToolStripMenuItem_Click;
             formatToolStripMenuItem.Click += formatToolStripMenuItem_Click;
-            contextMenuStripChart.Popup += (object sender, EventArgs e) =>
+            contextMenuStripChart.Opening +=
+               (object sender, System.ComponentModel.CancelEventArgs e) =>
             {
                 bool visible = (!performer.IsMoved & (performer.LastPressed == MouseButtons.Right));
-                foreach (MenuItem it in contextMenuStripChart.MenuItems)
+                foreach (ToolStripItem it in contextMenuStripChart.Items)
                 {
                     if (it.Visible != visible)
                     {

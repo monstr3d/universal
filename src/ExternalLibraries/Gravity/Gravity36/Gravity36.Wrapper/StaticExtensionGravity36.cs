@@ -8,6 +8,7 @@ using CategoryTheory;
 
 using Diagram.UI.Interfaces;
 using Diagram.UI;
+using AssemblyService.Attributes;
 
 namespace Gravity36.Wrapper
 {

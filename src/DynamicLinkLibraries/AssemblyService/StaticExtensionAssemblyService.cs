@@ -3,11 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 
-using Diagram.UI;
-using Diagram.Interfaces;
-
-using SerializationInterface;
-
+using AssemblyService.Attributes;
 
 namespace AssemblyService
 {
@@ -16,6 +12,111 @@ namespace AssemblyService
     /// </summary>
     public static class StaticExtensionAssemblyService
     {
+        static Dictionary<string, Assembly> assemblyDictionary = new Dictionary<string, Assembly>();
+
+        static LinkedList<string> locations = new LinkedList<string>();
+
+        static string dir;
+        static StaticExtensionAssemblyService()
+        {
+            Action<Exception> act = (Exception ex) => 
+            {  
+            
+            };
+            dir = AppDomain.CurrentDomain.BaseDirectory;
+            AppDomain.CurrentDomain.AssemblyResolve += CurrentDomain_AssemblyResolve;
+            AppDomain.CurrentDomain.AssemblyLoad += CurrentDomain_AssemblyLoadArgs;
+            Assembly ass = typeof(StaticExtensionAssemblyService).Assembly;
+            assemblyDictionary[ass.FullName] = ass;
+            LoadBaseAssemblies(act);
+        }
+
+        private static void CurrentDomain_AssemblyLoadArgs(object sender, AssemblyLoadEventArgs args)
+        {
+            Assembly ass = args.LoadedAssembly;
+            if (assemblyDictionary.ContainsKey(ass.FullName))
+            {
+                throw new Exception();
+            }
+            assemblyDictionary[ass.FullName] = ass;
+            CurrentDomain_AssemblyLoad(ass);
+            locations.AddLast(ass.Location);
+        }
+
+        static public void Init()
+        {
+            
+
+   /*         string[] resources = executingAssembly.GetManifestResourceNames();
+            foreach (string resource in resources)
+            {
+                if (resource.EndsWith(".dll"))
+                {
+                    using (Stream stream = executingAssembly.GetManifestResourceStream(resource))
+                    {
+                        if (stream == null)
+                            continue;
+
+                        byte[] assemblyRawBytes = new byte[stream.Length];
+                        stream.Read(assemblyRawBytes, 0, assemblyRawBytes.Length);
+                        try
+                        {
+                            assemblyDictionary.Add(resource, Assembly.Load(assemblyRawBytes));
+                        }
+                        catch (Exception ex)
+                        {
+                            System.Diagnostics.Debug.Print("Failed to load: " + resource + " Exception: " + ex.Message);
+                        }
+                    }
+                }
+            }*/
+        }
+
+        static internal  bool HasAttributeAss<T>(this Type type) where T : Attribute
+        {
+            return CustomAttributeExtensions.GetCustomAttribute<T>(IntrospectionExtensions.GetTypeInfo(type)) != null;
+        }
+
+
+        private static Assembly CurrentDomain_AssemblyResolve(object sender, ResolveEventArgs args)
+        {
+            Assembly ass = args.RequestingAssembly;
+            string fn = ass.FullName;
+            if (!assemblyDictionary.ContainsKey(fn))
+            {
+                assemblyDictionary[fn] = ass;
+                locations.AddLast(ass.Location);
+            }
+            else
+            {
+                return assemblyDictionary[fn];
+            }
+            return ass;
+        }
+
+
+        private static void CurrentDomain_AssemblyLoad(Assembly ass)
+        {
+            try
+            {
+                Type[] types = ass.GetTypes();
+                foreach (Type t in types)
+                {
+                    if (t.HasAttributeAss<InitAssemblyAttribute>())
+                    {
+                        MethodInfo mi = t.GetMethod("Init");
+                        mi.Invoke(null, null);
+                    }
+                }
+            }
+            catch (Exception)
+            {
+
+            }
+        }
+
+
+
 
         #region Fields
 
@@ -158,6 +259,10 @@ namespace AssemblyService
             int i = 0;
             foreach (T t in en)
             {
+                if (t == null)
+                {
+                    continue;
+                }
                 Type ty = t.GetType();
                 foreach (int j in dic.Keys)
                 {
@@ -257,10 +362,12 @@ namespace AssemblyService
         {
             string[] fn = Directory.GetFiles(directory, "*.dll");   // Dll files
             Assembly[] ass = AppDomain.CurrentDomain.GetAssemblies(); // Current domain assemblies
-            List<string> l = new List<string>();
             foreach (Assembly a in ass) // Looking for objects in loaded assemblies
             {
-                l.Add(a.Location);
+                if (!locations.Contains(a.Location))
+                {
+                    locations.AddLast(a.Location);
+                }
                 IEnumerable<T> en = a.GetInterfaces<T>();
                 foreach (T t in en)
                 {
@@ -270,8 +377,9 @@ namespace AssemblyService
             }
             foreach (string f in fn) // Looking for objects in directory
             {
-                if (!l.Contains(f))
+                if (!locations.Contains(f))
                 {
+                    locations.AddLast(f);
                     IEnumerable<T> en = null;
                     try
                     {
@@ -279,7 +387,7 @@ namespace AssemblyService
                     }
                     catch (Exception exception)
                     {
-                        exception.ShowError();
+                        exception = exception;
                         continue;
                     }
                     foreach (T t in en)
@@ -323,21 +431,22 @@ namespace AssemblyService
             }
         }
 
-        /// <summary>
-        /// Loads start
-        /// </summary>
-        public static void LoadStart()
+        private static byte[] GetFileBytes(this string fileName)
         {
-            Action<Assembly> act = (Assembly ass) =>
+            if (!File.Exists(fileName))
             {
-                var st = ass.GetInterfaces<IAdditionalStart>();
-                foreach (var s in st)
-                {
-                    s.Start();
-                }
-            };
-            act.AssemblyAction();
+                return null;
+            }
+            using (Stream stream = File.OpenRead(fileName))
+            {
+                byte[] b = new byte[stream.Length];
+                stream.Read(b, 0, b.Length);
+                return b;
+            }
         }
+
+
+
 
         /// <summary>
         /// Action for loaded assemblies
@@ -400,23 +509,17 @@ namespace AssemblyService
         /// Loads assemblies from base directory
         /// </summary>
         /// <param name="exceptionHandler">Exception handler</param>
-        public static void LoadBaseAssemblies(Action<Exception> exceptionHandler)
+        private static void LoadBaseAssemblies(Action<Exception> exceptionHandler)
         {
-            if (!firstBaseLoad)
-            {
-                return;
-            }
-            firstBaseLoad = false;
             Assembly[] ass = AppDomain.CurrentDomain.GetAssemblies(); // Current domain assemblies
-            List<string> l = new List<string>();
             string dir = AppDomain.CurrentDomain.BaseDirectory;
             foreach (Assembly a in ass)
             {
                 string loc = Path.GetFileName(a.Location);
-                l.Add(loc);
+                locations.AddLast(loc);
             }
             string[] fn = Directory.GetFiles(dir, "*.dll");   // Dll files
-            IteratedLoad(l, fn, exceptionHandler);
+            IteratedLoad(locations, fn, exceptionHandler);
         }
 
         /// <summary>
@@ -441,7 +544,7 @@ namespace AssemblyService
             }
             catch (Exception ex)
             {
-                ex.ShowError(10);
+                ex = ex;
             }
             return false;
         }
@@ -450,7 +553,7 @@ namespace AssemblyService
 
         #region Private Members
 
-        static private void IteratedLoad(List<string> l, 
+        static private void IteratedLoad(LinkedList<string> l, 
             string[] files, Action<Exception> action)
         {
             int n = l.Count;
@@ -463,7 +566,7 @@ namespace AssemblyService
                 try
                 {
                     Assembly.Load(f);
-                    l.Add(Path.GetFileName(f));
+                    l.AddLast(Path.GetFileName(f));
                 }
                 catch (Exception ex)
                 {

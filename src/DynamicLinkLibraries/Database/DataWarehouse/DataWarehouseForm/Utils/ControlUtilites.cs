@@ -5,6 +5,8 @@ using System.Resources;
 
 using ResourceService;
 
+using DataWarehouse.Forms.Utils;
+
 namespace DataWarehouse.Utils
 {
     /// <summary>

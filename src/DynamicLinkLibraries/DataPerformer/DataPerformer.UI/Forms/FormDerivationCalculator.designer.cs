@@ -104,14 +104,14 @@ namespace DataPerformer.UI.Forms
             this.panelTreeLeft = new System.Windows.Forms.Panel();
             this.openFileDialogEditor = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialogEditor = new System.Windows.Forms.SaveFileDialog();
-            this.menuItemFile = new System.Windows.Forms.MenuItem();
-            this.menuItemOpen = new System.Windows.Forms.MenuItem();
-            this.menuItemSep = new System.Windows.Forms.MenuItem();
-            this.menuItemSaveAs = new System.Windows.Forms.MenuItem();
-            this.menuItemDatabase = new System.Windows.Forms.MenuItem();
-            this.menuItemOpenDatabase = new System.Windows.Forms.MenuItem();
-            this.menuItemDatabaseLoad = new System.Windows.Forms.MenuItem();
-            this.menuItemDatabaseSave = new System.Windows.Forms.MenuItem();
+            this.menuItemFile = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuItemOpen = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuItemSep = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuItemSaveAs = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuItemDatabase = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuItemOpenDatabase = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuItemDatabaseLoad = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuItemDatabaseSave = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip.SuspendLayout();
             this.toolStrip.SuspendLayout();
             this.menuStrip.SuspendLayout();
@@ -763,8 +763,7 @@ namespace DataPerformer.UI.Forms
             // 
             // menuItemFile
             // 
-            this.menuItemFile.Index = -1;
-            this.menuItemFile.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
+            this.menuItemFile.DropDownItems.AddRange(new System.Windows.Forms.ToolStripMenuItem[] {
             this.menuItemOpen,
             this.menuItemSep,
             this.menuItemSaveAs});
@@ -772,23 +771,19 @@ namespace DataPerformer.UI.Forms
             // 
             // menuItemOpen
             // 
-            this.menuItemOpen.Index = 0;
             this.menuItemOpen.Text = "Open";
             // 
             // menuItemSep
             // 
-            this.menuItemSep.Index = 1;
             this.menuItemSep.Text = "-";
             // 
             // menuItemSaveAs
             // 
-            this.menuItemSaveAs.Index = 2;
             this.menuItemSaveAs.Text = "Save as";
             // 
             // menuItemDatabase
             // 
-            this.menuItemDatabase.Index = -1;
-            this.menuItemDatabase.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
+            this.menuItemDatabase.DropDownItems.AddRange(new System.Windows.Forms.ToolStripMenuItem[] {
             this.menuItemOpenDatabase,
             this.menuItemDatabaseLoad,
             this.menuItemDatabaseSave});
@@ -796,17 +791,14 @@ namespace DataPerformer.UI.Forms
             // 
             // menuItemOpenDatabase
             // 
-            this.menuItemOpenDatabase.Index = 0;
             this.menuItemOpenDatabase.Text = "View Database";
             // 
             // menuItemDatabaseLoad
             // 
-            this.menuItemDatabaseLoad.Index = 1;
             this.menuItemDatabaseLoad.Text = "Load";
             // 
             // menuItemDatabaseSave
             // 
-            this.menuItemDatabaseSave.Index = 2;
             this.menuItemDatabaseSave.Text = "Save";
             // 
             // FormDerivationCalculator
@@ -923,14 +915,14 @@ namespace DataPerformer.UI.Forms
         private System.Windows.Forms.TextBox textBoxDerivType;
         private System.Windows.Forms.OpenFileDialog openFileDialogEditor;
         private System.Windows.Forms.SaveFileDialog saveFileDialogEditor;
-        private System.Windows.Forms.MenuItem menuItemFile;
-        private System.Windows.Forms.MenuItem menuItemOpen;
-        private System.Windows.Forms.MenuItem menuItemSep;
-        private System.Windows.Forms.MenuItem menuItemSaveAs;
-        private System.Windows.Forms.MenuItem menuItemDatabase;
-        private System.Windows.Forms.MenuItem menuItemOpenDatabase;
-        private System.Windows.Forms.MenuItem menuItemDatabaseLoad;
-        private System.Windows.Forms.MenuItem menuItemDatabaseSave;
+        private System.Windows.Forms.ToolStripMenuItem menuItemFile;
+        private System.Windows.Forms.ToolStripMenuItem menuItemOpen;
+        private System.Windows.Forms.ToolStripMenuItem menuItemSep;
+        private System.Windows.Forms.ToolStripMenuItem menuItemSaveAs;
+        private System.Windows.Forms.ToolStripMenuItem menuItemDatabase;
+        private System.Windows.Forms.ToolStripMenuItem menuItemOpenDatabase;
+        private System.Windows.Forms.ToolStripMenuItem menuItemDatabaseLoad;
+        private System.Windows.Forms.ToolStripMenuItem menuItemDatabaseSave;
 
     }
 }

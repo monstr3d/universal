@@ -29,7 +29,7 @@ namespace Diagram.UI.Forms
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.mainMenuDesigner = new System.Windows.Forms.MainMenu(this.components);
+            this.mainMenuDesigner = new System.Windows.Forms.MenuStrip();
             this.panelCenter = new System.Windows.Forms.Panel();
             this.userControlContainerDesigner = new Diagram.UI.UserControls.UserControlContainerDesigner();
             this.panelRight = new System.Windows.Forms.Panel();
@@ -106,7 +106,7 @@ namespace Diagram.UI.Forms
             this.Controls.Add(this.panelTop);
             this.Controls.Add(this.panelBottom);
             this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.Menu = this.mainMenuDesigner;
+            this.MainMenuStrip = this.mainMenuDesigner;
             this.Name = "FormContainerDesigner";
             this.Text = "Container designer";
             this.panelCenter.ResumeLayout(false);
@@ -116,7 +116,7 @@ namespace Diagram.UI.Forms
 
         #endregion
 
-        private System.Windows.Forms.MainMenu mainMenuDesigner;
+        private System.Windows.Forms.MenuStrip mainMenuDesigner;
         private System.Windows.Forms.Panel panelCenter;
         private System.Windows.Forms.Panel panelRight;
         private System.Windows.Forms.Panel panelLeft;

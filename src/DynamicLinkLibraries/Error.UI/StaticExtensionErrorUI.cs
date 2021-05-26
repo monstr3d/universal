@@ -16,6 +16,8 @@ namespace Error.UI
         /// </summary>
         static public void PlayError()
         {
+            // !!! DELETE
+            return;
             System.IO.Stream st = Properties.Resources.Error;
             System.Media.SoundPlayer pl = new System.Media.SoundPlayer();
             pl.Stream = st;

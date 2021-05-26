@@ -15,6 +15,7 @@ using Event.Portable;
 using Event.Log.Database;
 using Event.Log.Database.Interfaces;
 using Event.Basic.Logs;
+using AssemblyService.Attributes;
 
 namespace Event.Basic
 {

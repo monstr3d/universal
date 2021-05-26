@@ -11,7 +11,7 @@ namespace Diagram.UI
     /// <summary>
     /// The button of objects and arrows palette
     /// </summary>
-    public class PaletteButton : ToolBarButton, IPaletteButton
+    public class PaletteButton : ToolStripButton, IPaletteButton
     {
         /// <summary>
         /// The type
@@ -48,7 +48,6 @@ namespace Diagram.UI
         /// </summary>
         private Type objectType;
 
-
         /// <summary>
         /// Constructor
         /// </summary>
@@ -62,9 +61,8 @@ namespace Diagram.UI
         public PaletteButton(PaletteToolBar toolbar, Type type, string kind, string toolTipText, Image buttonImage, int ImageIndex, bool IsArrow) :
             this(toolbar, type.ToString(), type, kind, toolTipText, buttonImage, ImageIndex, IsArrow)
         {
+
         }
-
-
 
         /// <summary>
         /// Constructor
@@ -89,12 +87,10 @@ namespace Diagram.UI
             this.ToolTipText = toolTipText;
             this.ImageIndex = ImageIndex;
             this.buttonImage = buttonImage;
-            toolbar.Buttons.Add(this);
-            Style = ToolBarButtonStyle.ToggleButton;
+            toolbar.Items.Add(this);
             diagram = toolbar.ToolDiagram;
             imageNumber = diagram.Count;
             diagram.AddButton(this);
-            int i = diagram.Count;
         }
 
         /// <summary>

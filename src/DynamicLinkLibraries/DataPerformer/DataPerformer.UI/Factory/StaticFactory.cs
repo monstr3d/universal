@@ -15,13 +15,20 @@ namespace DataPerformer.UI.Factory
     /// </summary>
     public static class StaticFactory
     {
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        static StaticFactory()
+        {
 
-     /// <summary>
-     /// Buttons of general objects
-     /// </summary>
+        }
+
+        /// <summary>
+        /// Buttons of general objects
+        /// </summary>
         public static readonly ButtonWrapper[] GeneralObjectsButtons = new ButtonWrapper[]
         {
-            DefaultFactory.DefaultObjectButtons[0],  DefaultFactory.DefaultObjectButtons[1],
+    DefaultFactory.DefaultObjectButtons[0],  DefaultFactory.DefaultObjectButtons[1],
             new ButtonWrapper(typeof(DataPerformer.ObjectTransformer), "",
                       "Object transformer", ResourceImage.Transform.ToBitmap(), null, true, false),
             new ButtonWrapper(typeof(DataPerformer.VectorFormulaConsumer),

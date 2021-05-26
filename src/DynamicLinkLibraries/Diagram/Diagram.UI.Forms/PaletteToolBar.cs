@@ -9,7 +9,7 @@ namespace Diagram.UI
     /// <summary>
     /// The toolbar of objects' and arrows' buttons
     /// </summary>
-    public class PaletteToolBar : ToolBar
+    public class PaletteToolBar : ToolStrip
     {
         /// <summary>
         /// The tools diagram
@@ -23,9 +23,10 @@ namespace Diagram.UI
         public PaletteToolBar(ToolsDiagram diagram)
         {
             this.diagram = diagram;
-            this.ButtonClick += diagram.ClickEventHandler;
+            ItemClicked += diagram.BtnCkick;
         }
 
+ 
         /// <summary>
         /// The tools diagram
         /// </summary>
@@ -36,6 +37,5 @@ namespace Diagram.UI
                 return diagram;
             }
         }
-
     }
 }

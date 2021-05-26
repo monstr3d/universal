@@ -257,13 +257,13 @@ namespace DataPerformer.UI
                 Controls.Add(cb);
                 Control[] cc = new Control[] { pic, cb };
                 //  Controls.Add(b);
-                ContextMenu cm = new ContextMenu();
-                MenuItem mi = new MenuItem("Copy to clipboard \"" + nm + "\"");
-                cm.MenuItems.Add(mi);
-                cm.Popup += (object sender, EventArgs args) =>
+                ContextMenuStrip cm = new ContextMenuStrip();
+                ToolStripMenuItem mi = new ToolStripMenuItem("Copy to clipboard \"" + nm + "\"");
+                cm.Items.Add(mi);
+                cm.Opening += (object sender, System.ComponentModel.CancelEventArgs args) =>
                 {
                     bool cond =  GetSeries(measurement) != null;
-                    foreach (MenuItem mit in cm.MenuItems)
+                    foreach (ToolStripMenuItem mit in cm.Items)
                     {
                         mit.Visible = cond;
                     }
@@ -275,7 +275,7 @@ namespace DataPerformer.UI
                 };
                 foreach (Control control in cc)
                 {
-                    control.ContextMenu = cm;
+                    control.ContextMenuStrip = cm;
                 }
                 y = b.Bottom + 5;
 			}

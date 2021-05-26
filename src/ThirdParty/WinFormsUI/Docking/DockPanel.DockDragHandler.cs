@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.ComponentModel;
 
+using WinFormsUI.Docking;
 namespace WeifenLuo.WinFormsUI.Docking
 {
     partial class DockPanel

@@ -1,8 +1,7 @@
 ﻿using System;
+using AssemblyService.Attributes;
 
-using CategoryTheory;
-
-using Diagram.UI;
+using CompilerService.Interfaces;
 
 namespace FormulaEditor.Compiler
 {   
@@ -12,6 +11,20 @@ namespace FormulaEditor.Compiler
     [InitAssembly]
     public static class StaticExtensionFormulaEditorCompiler
     {
+        static private ICompiler compiler;
+
+        /// <summary>
+        /// Compiler
+        /// </summary>
+        static public ICompiler Compiler
+        {
+            get => compiler;
+            set 
+            { 
+                compiler = value; 
+            } 
+        }
+
         /// <summary>
         /// Initialization
         /// </summary>
@@ -19,18 +32,12 @@ namespace FormulaEditor.Compiler
         {
 
         }
+
         static StaticExtensionFormulaEditorCompiler()
         {
-            try
-            {
                 CSharpTreeCollectionProxyFactory f = new CSharpTreeCollectionProxyFactory();
                 StaticExtensionFormulaEditor.Factory = f;
                 StaticExtensionFormulaEditor.TreeCollectionCodeCreator = f;
-            }
-            catch (Exception exception)
-            {
-                exception.ShowError();
-            }
-        }
+         }
     }
 }

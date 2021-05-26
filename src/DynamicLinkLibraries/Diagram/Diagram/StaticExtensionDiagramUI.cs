@@ -12,6 +12,8 @@ using MathGraph;
 using Diagram.UI.Labels;
 using Diagram.UI.Interfaces;
 using Diagram.UI.Attributes;
+using Diagram.Interfaces;
+using AssemblyService;
 
 namespace Diagram.UI
 {
@@ -574,21 +576,19 @@ namespace Diagram.UI
         }
 
         /// <summary>
-        /// Loads assembly
+        /// Loads start
         /// </summary>
-        /// <param name="ass">The assembly</param>
-        public static void Load(this Assembly ass)
+        public static void LoadStart()
         {
-            Type[] types = ass.GetTypes();
-            foreach (Type t in types)
+            Action<Assembly> act = (Assembly ass) =>
             {
-                if (t.HasAttribute<InitAssemblyAttribute>())
+                var st = ass.GetInterfaces<IAdditionalStart>();
+                foreach (var s in st)
                 {
-                    MethodInfo mi = t.GetMethod("Init");
-                    mi.Invoke(null, null);
+                    s.Start();
                 }
-            }
-
+            };
+            act.AssemblyAction();
         }
 
 

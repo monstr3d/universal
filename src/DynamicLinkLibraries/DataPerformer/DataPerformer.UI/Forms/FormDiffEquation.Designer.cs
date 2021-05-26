@@ -106,7 +106,7 @@ namespace DataPerformer.UI.Forms
             this.panel23 = new System.Windows.Forms.Panel();
             this.panelMea = new System.Windows.Forms.Panel();
             this.panel24 = new System.Windows.Forms.Panel();
-            this.dataGridP = new System.Windows.Forms.DataGrid();
+            this.dataGridP = new System.Windows.Forms.DataGridView();
             this.panel25 = new System.Windows.Forms.Panel();
             this.panel26 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
@@ -130,7 +130,7 @@ namespace DataPerformer.UI.Forms
             this.panelThirdTab = new System.Windows.Forms.Panel();
             this.panelTabThreeLeft = new System.Windows.Forms.Panel();
             this.panel37 = new System.Windows.Forms.Panel();
-            this.dataGridInitial = new System.Windows.Forms.DataGrid();
+            this.dataGridInitial = new System.Windows.Forms.DataGridView();
             this.dataTableInitial = new System.Data.DataTable();
             this.dataColumnV = new System.Data.DataColumn();
             this.dataColumnValue = new System.Data.DataColumn();
@@ -924,7 +924,6 @@ namespace DataPerformer.UI.Forms
             // 
             this.dataGridP.DataMember = "";
             this.dataGridP.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridP.HeaderForeColor = System.Drawing.SystemColors.ControlText;
             this.dataGridP.Location = new System.Drawing.Point(0, 0);
             this.dataGridP.Name = "dataGridP";
             this.dataGridP.Size = new System.Drawing.Size(174, 117);
@@ -1141,7 +1140,6 @@ namespace DataPerformer.UI.Forms
             this.dataGridInitial.DataMember = "";
             this.dataGridInitial.DataSource = this.dataTableInitial;
             this.dataGridInitial.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridInitial.HeaderForeColor = System.Drawing.SystemColors.ControlText;
             this.dataGridInitial.Location = new System.Drawing.Point(0, 0);
             this.dataGridInitial.Name = "dataGridInitial";
             this.dataGridInitial.Size = new System.Drawing.Size(192, 422);
@@ -1866,7 +1864,7 @@ namespace DataPerformer.UI.Forms
         private System.Windows.Forms.Panel panel23;
         private System.Windows.Forms.Panel panelMea;
         private System.Windows.Forms.Panel panel24;
-        private System.Windows.Forms.DataGrid dataGridP;
+        private System.Windows.Forms.DataGridView dataGridP;
         private System.Windows.Forms.Panel panel25;
         private System.Windows.Forms.Panel panel26;
         private System.Windows.Forms.Label label4;
@@ -1906,7 +1904,7 @@ namespace DataPerformer.UI.Forms
         private System.Windows.Forms.Label labelInitial;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.DataGrid dataGridInitial;
+        private System.Windows.Forms.DataGridView dataGridInitial;
         private System.Windows.Forms.Button buttonAcceptInitial;
         private System.Windows.Forms.PropertyGrid propertyGridAl;
         private System.Windows.Forms.NumericUpDown numericUpDownDerivationOrder;

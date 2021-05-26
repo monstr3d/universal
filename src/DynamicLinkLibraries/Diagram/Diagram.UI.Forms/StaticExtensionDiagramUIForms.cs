@@ -17,6 +17,7 @@ using Diagram.UI.Interfaces.Labels;
 using Diagram.UI.UserControls;
 
 using ResourceService;
+using AssemblyService.Attributes;
 
 namespace Diagram.UI
 {
@@ -841,15 +842,15 @@ namespace Diagram.UI
             {
                 GetButtons(c, dictionary);
             }
-            if (control is ToolBar)
+            if (control is PaletteToolBar)
             {
-                ToolBar tb = control as ToolBar;
-                foreach (object o in tb.Buttons)
+                PaletteToolBar tb = control as PaletteToolBar;
+                foreach (object o in tb.Items)
                 {
                     if (o is IPaletteButton)
                     {
                         IPaletteButton b = o as IPaletteButton;
-                        Dictionary<string, IPaletteButton> d = null;
+                        Dictionary<string, IPaletteButton> d;
                         Type t = b.ReflectionType;
                         if (dictionary.ContainsKey(t))
                         {
@@ -899,20 +900,20 @@ namespace Diagram.UI
 
         class Binder : System.Runtime.Serialization.SerializationBinder
         {
-            static bool first = true;
-
+   
             readonly string ass = typeof(Binder).Assembly.FullName;
 
             internal Binder()
             {
-                if (first)
-                {
-                    first = false;
-                    this.Add();
-                }
+                this.Add();
             }
+
             public override Type BindToType(string assemblyName, string typeName)
             {
+                if (assemblyName.Contains("Diagram.UI.Forms,"))
+                {
+                    return Type.GetType(String.Format("{0}, {1}", typeName, ass));
+                }
                 if (assemblyName.Contains("DiagramUIForm"))
                 {
                     return Type.GetType(String.Format("{0}, {1}", typeName.Replace("DiagramUI.", "Diagram.UI."), ass));

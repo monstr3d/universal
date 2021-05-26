@@ -247,17 +247,24 @@ namespace Diagram.UI.Factory
         /// <returns>The object label</returns>
         public virtual IObjectLabelUI CreateObjectLabel(IPaletteButton button)
         {
-            foreach (IUIFactory f in factories)
+            try
             {
-                IObjectLabelUI o = f.CreateObjectLabel(button);
-                if (o != null)
+                foreach (IUIFactory f in factories)
                 {
-                    return o;
+                    IObjectLabelUI o = f.CreateObjectLabel(button);
+                    if (o != null)
+                    {
+                        return o;
+                    }
+                }
+                if (defaultValue)
+                {
+                    return factory.CreateObjectLabel(button);
                 }
             }
-            if (defaultValue)
+            catch (Exception exception)
             {
-                return factory.CreateObjectLabel(button);
+                exception.ShowError();
             }
             return null;
         }

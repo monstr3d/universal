@@ -182,12 +182,13 @@ namespace Event.UI.Factory
             }
             if (type.Equals(typeof(Basic.Data.Events.ForcedEventData)))
             {
-                if (kind.Equals("CircularControl2D"))
+             
+                /*if (kind.Equals("CircularControl2D"))
                 {
                    return (new Labels.Circular2DControlLabel()).CreateLabelUI(
                         button.ButtonImage,
                           false);
-                }
+                }*/
                return
                     (new Labels.ForcedEventDataLabel(
                         type, kind, button.ButtonImage as 

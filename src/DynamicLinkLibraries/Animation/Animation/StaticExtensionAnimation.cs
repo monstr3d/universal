@@ -7,13 +7,14 @@ using System.Threading.Tasks;
 using Diagram.UI.Interfaces;
 using Animation.Interfaces;
 using Animation.Interfaces.Enums;
+using AssemblyService.Attributes;
 
 namespace Animation
 {
     /// <summary>
     /// Static extension
     /// </summary>
-    [CategoryTheory.InitAssembly]
+    [InitAssembly]
     public static class StaticExtensionAnimationInterfaces
     {
 

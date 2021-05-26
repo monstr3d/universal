@@ -28,16 +28,16 @@ namespace DataPerformer.UI
     public class FormGraphSave : System.Windows.Forms.Form
     {
         private System.Windows.Forms.Panel panelGraph;
-        private System.Windows.Forms.MainMenu mainMenuPlot;
-        private System.Windows.Forms.MenuItem menuItemFile;
-        private System.Windows.Forms.MenuItem menuItemSaveGraph;
-        private System.Windows.Forms.MenuItem menuItemFormat;
-        private System.Windows.Forms.MenuItem menuItemFont;
+        private System.Windows.Forms.MenuStrip mainMenuPlot;
+        private System.Windows.Forms.ToolStripMenuItem menuItemFile;
+        private System.Windows.Forms.ToolStripMenuItem menuItemSaveGraph;
+        private System.Windows.Forms.ToolStripMenuItem menuItemFormat;
+        private System.Windows.Forms.ToolStripMenuItem menuItemFont;
         private System.Windows.Forms.SaveFileDialog saveFileDialogPlot;
         private System.Windows.Forms.SaveFileDialog saveFileDialogGraph;
         private ChartPerformer performer;
         private DataPerformer.Series series = new DataPerformer.Series();
-        private MenuItem menuItemSaveXML;
+        private ToolStripMenuItem menuItemSaveXML;
         private IContainer components;
 
         /// <summary>
@@ -109,12 +109,12 @@ namespace DataPerformer.UI
         {
             this.components = new System.ComponentModel.Container();
             this.panelGraph = new System.Windows.Forms.Panel();
-            this.mainMenuPlot = new System.Windows.Forms.MainMenu(this.components);
-            this.menuItemFile = new System.Windows.Forms.MenuItem();
-            this.menuItemSaveGraph = new System.Windows.Forms.MenuItem();
-            this.menuItemSaveXML = new System.Windows.Forms.MenuItem();
-            this.menuItemFormat = new System.Windows.Forms.MenuItem();
-            this.menuItemFont = new System.Windows.Forms.MenuItem();
+            this.mainMenuPlot = new System.Windows.Forms.MenuStrip();
+            this.menuItemFile = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuItemSaveGraph = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuItemSaveXML = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuItemFormat = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuItemFont = new System.Windows.Forms.ToolStripMenuItem();
             this.saveFileDialogPlot = new System.Windows.Forms.SaveFileDialog();
             this.saveFileDialogGraph = new System.Windows.Forms.SaveFileDialog();
             this.SuspendLayout();
@@ -130,40 +130,35 @@ namespace DataPerformer.UI
             // 
             // mainMenuPlot
             // 
-            this.mainMenuPlot.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
+            this.mainMenuPlot.Items.AddRange(new System.Windows.Forms.ToolStripMenuItem[] {
             this.menuItemFile,
             this.menuItemFormat});
             // 
             // menuItemFile
             // 
-            this.menuItemFile.Index = 0;
-            this.menuItemFile.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
+            this.menuItemFile.DropDownItems.AddRange(new System.Windows.Forms.ToolStripMenuItem[] {
             this.menuItemSaveGraph,
             this.menuItemSaveXML});
             this.menuItemFile.Text = "File";
             // 
             // menuItemSaveGraph
             // 
-            this.menuItemSaveGraph.Index = 0;
             this.menuItemSaveGraph.Text = "Save graph as";
             this.menuItemSaveGraph.Click += new System.EventHandler(this.menuItemSaveGraph_Click);
             // 
             // menuItemSaveXML
             // 
-            this.menuItemSaveXML.Index = 1;
             this.menuItemSaveXML.Text = "Save as XML";
             this.menuItemSaveXML.Click += new System.EventHandler(this.menuItemSaveXML_Click);
             // 
             // menuItemFormat
             // 
-            this.menuItemFormat.Index = 1;
-            this.menuItemFormat.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
+            this.menuItemFormat.DropDownItems.AddRange(new System.Windows.Forms.ToolStripMenuItem[] {
             this.menuItemFont});
             this.menuItemFormat.Text = "Format";
             // 
             // menuItemFont
             // 
-            this.menuItemFont.Index = 0;
             this.menuItemFont.Text = "Font";
             this.menuItemFont.Click += new System.EventHandler(this.menuItemFont_Click);
             // 
@@ -179,7 +174,7 @@ namespace DataPerformer.UI
             // 
             this.ClientSize = new System.Drawing.Size(976, 589);
             this.Controls.Add(this.panelGraph);
-            this.Menu = this.mainMenuPlot;
+            this.MainMenuStrip = this.mainMenuPlot;
             this.Name = "FormGraphSave";
             this.Text = "Save graph";
             this.ResumeLayout(false);

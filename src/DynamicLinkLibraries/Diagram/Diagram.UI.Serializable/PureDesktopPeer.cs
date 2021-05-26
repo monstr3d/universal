@@ -606,8 +606,11 @@ namespace Diagram.UI
                 return null;
             }
             BinaryFormatter bf = new BinaryFormatter();
-            MemoryStream stream = new MemoryStream(buffer);
-            return bf.Deserialize(stream);
+            bf.Binder = StaticExtensionSerializationInterface.Binder;
+            using (MemoryStream stream = new MemoryStream(buffer))
+            {
+                return bf.Deserialize(stream);
+            }
         }
 
         /// <summary>
@@ -775,12 +778,15 @@ namespace Diagram.UI
                     return obj;
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                ex.ShowError();
             }
-            MemoryStream ms = new MemoryStream(bytes);
-            BinaryFormatter bf = new BinaryFormatter();
-            return bf.Deserialize(ms);
+            /*   !!! TEMP   MemoryStream ms = new MemoryStream(bytes);
+                 BinaryFormatter bf = new BinaryFormatter();
+                 return bf.Deserialize(ms);
+            */
+            return null;
         }
 
         /// <summary>

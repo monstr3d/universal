@@ -1,125 +1,10 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12.0">
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.30729</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{328C08A3-8C47-407F-9EDB-4944C3A3DC56}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>FormulaEditor.UI</RootNamespace>
-    <AssemblyName>FormulaEditor.UI</AssemblyName>
-    <SccProjectName>
-    </SccProjectName>
-    <SccLocalPath>
-    </SccLocalPath>
-    <SccAuxPath>
-    </SccAuxPath>
-    <SccProvider>
-    </SccProvider>
-    <FileUpgradeFlags>
-    </FileUpgradeFlags>
-    <OldToolsVersion>3.5</OldToolsVersion>
-    <UpgradeBackupLocation>
-    </UpgradeBackupLocation>
-    <PublishUrl>publish\</PublishUrl>
-    <Install>true</Install>
-    <InstallFrom>Disk</InstallFrom>
-    <UpdateEnabled>false</UpdateEnabled>
-    <UpdateMode>Foreground</UpdateMode>
-    <UpdateInterval>7</UpdateInterval>
-    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
-    <UpdatePeriodically>false</UpdatePeriodically>
-    <UpdateRequired>false</UpdateRequired>
-    <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
-    <UseApplicationTrust>false</UseApplicationTrust>
-    <BootstrapperEnabled>true</BootstrapperEnabled>
-    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
-    <TargetFrameworkProfile />
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Debug\FormulaEditor.UI.xml</DocumentationFile>
-    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
-    <Prefer32Bit>false</Prefer32Bit>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
-    <Prefer32Bit>false</Prefer32Bit>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
-    <DebugSymbols>true</DebugSymbols>
-    <OutputPath>bin\x64\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <DocumentationFile>bin\Debug\FormulaEditor.UI.xml</DocumentationFile>
-    <DebugType>full</DebugType>
-    <PlatformTarget>x64</PlatformTarget>
-    <ErrorReport>prompt</ErrorReport>
-    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
-    <OutputPath>bin\x64\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <Optimize>true</Optimize>
-    <DebugType>pdbonly</DebugType>
-    <PlatformTarget>x64</PlatformTarget>
-    <ErrorReport>prompt</ErrorReport>
-    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
-  </PropertyGroup>
-  <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Core">
-      <RequiredTargetFramework>3.5</RequiredTargetFramework>
-    </Reference>
-    <Reference Include="System.Data" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Windows.Forms" />
-    <Reference Include="System.Xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Forms\FormulaEditorForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\FormulaEditorForm.Designer.cs">
-      <DependentUpon>FormulaEditorForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormulaDrawing.cs" />
-    <Compile Include="FormulaEditorPanel.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="IFormula.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="StaticExtensionFormulaEditorUI.cs" />
-    <Compile Include="UserControls\UserControlFormulaEditor.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserControls\UserControlFormulaEditor.Designer.cs">
-      <DependentUpon>UserControlFormulaEditor.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Utils\ControlUtilites.cs" />
-    <Compile Include="Utils\ResourceControl_Ru.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ResourceControl_Ru.resx</DependentUpon>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
+  <TargetFramework>net5.0-windows</TargetFramework>
+  <UseWindowsForms>true</UseWindowsForms>
+  <EnableDefaultEmbeddedResourceItems>false</EnableDefaultEmbeddedResourceItems>
+</PropertyGroup>
+   <ItemGroup>
     <EmbeddedResource Include="Forms\FormulaEditorForm.resx">
       <SubType>Designer</SubType>
       <DependentUpon>FormulaEditorForm.cs</DependentUpon>
@@ -134,64 +19,24 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Utils\ResourceControl_Ru.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>ResourceControl_Ru.Designer.cs</LastGenOutput>
+      <DependentUpon>ResourceControl_Ru.Designer.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\BaseTypes\BaseTypes\BaseTypes.csproj">
-      <Project>{8A9C8C8B-40B2-418C-AC92-4BDBB6E071C3}</Project>
-      <Name>BaseTypes</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Common.UI.Resources\Common.UI.Resources.csproj">
-      <Project>{931B6526-5D65-40AD-ABA5-AD71EABEEB7E}</Project>
-      <Name>Common.UI.Resources</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\WindowsExtensions\WindowsExtensions.csproj">
-      <Project>{712b37a4-4fb4-4cc5-87d4-fade83194057}</Project>
-      <Name>WindowsExtensions</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\ResourceService\ResourceService.csproj">
-      <Project>{A7719FB8-AECF-4F38-83E4-5A1352C8ACD3}</Project>
-      <Name>ResourceService</Name>
     </ProjectReference>
     <ProjectReference Include="..\FormulaEditor.Drawing\FormulaEditor.Drawing.csproj">
-      <Project>{26583800-7DA6-4129-8D76-FD474991587D}</Project>
-      <Name>FormulaEditor.Drawing</Name>
     </ProjectReference>
     <ProjectReference Include="..\FormulaEditor.Forms\FormulaEditor.Forms.csproj">
-      <Project>{6c4bb44d-da7d-4dee-bf10-87cc369d9c4d}</Project>
-      <Name>FormulaEditor.Forms</Name>
     </ProjectReference>
     <ProjectReference Include="..\FormulaEditor\FormulaEditor.csproj">
-      <Project>{20c36053-beeb-4142-878e-984af0b79740}</Project>
-      <Name>FormulaEditor</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Service Include="{B4F97281-0DBD-4835-9ED8-7DFB966E87FF}" />
-  </ItemGroup>
-  <ItemGroup>
-    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
-      <Visible>False</Visible>
-      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
-      <Install>false</Install>
-    </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
-      <Visible>False</Visible>
-      <ProductName>.NET Framework 3.5 SP1</ProductName>
-      <Install>true</Install>
-    </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.VisualBasic.PowerPacks.10.0">
-      <Visible>False</Visible>
-      <ProductName>Microsoft Visual Basic PowerPacks 10.0</ProductName>
-      <Install>true</Install>
-    </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
-      <Visible>False</Visible>
-      <ProductName>Windows Installer 3.1</ProductName>
-      <Install>true</Install>
-    </BootstrapperPackage>
-  </ItemGroup>
-  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
-</Project>
+ </Project>

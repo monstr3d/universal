@@ -8,6 +8,8 @@ using System.Text;
 using System.Xml;
 using System.Globalization;
 
+using WinFormsUI.Docking;
+
 namespace WeifenLuo.WinFormsUI.Docking
 {
     partial class DockPanel

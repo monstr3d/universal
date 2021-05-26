@@ -33,11 +33,10 @@ namespace Diagram.UI
         Dictionary<Type, Dictionary<string, IPaletteButton>> buttons = new Dictionary<Type, Dictionary<string, IPaletteButton>>();
 
 
-
         /// <summary>
         /// The button on click event handler
         /// </summary>
-        private ToolBarButtonClickEventHandler handler;
+        ToolStripItemClickedEventHandler handler;
 
         /// <summary>
         /// The UI factory
@@ -76,11 +75,15 @@ namespace Diagram.UI
         public ToolsDiagram(IUIFactory factory)
         {
             StaticExtensionDiagramUISerializable.Init();
-            handler = new ToolBarButtonClickEventHandler(this.ToolBar_ButtonClick);
+            handler = ToolBar_ButtonClick;
             this.factory = factory;
             factory.Tools = this;
         }
- 
+        
+        public ToolStripItemClickedEventHandler BtnCkick
+        {
+            get { return handler;  }
+        }
 
 
         /// <summary>
@@ -270,14 +273,14 @@ namespace Diagram.UI
         /// </summary>
         /// <param name="sender">The sender</param>
         /// <param name="e">The event handler arguments</param>
-        protected void ToolBar_ButtonClick(Object sender, ToolBarButtonClickEventArgs e)
+        protected void ToolBar_ButtonClick(Object sender, ToolStripItemClickedEventArgs e)
         {
-            PaletteButton but = (PaletteButton)e.Button;
+            PaletteButton but = (PaletteButton)e.ClickedItem;
             if (active != but)
             {
                 if (active != null)
                 {
-                    active.Pushed = false;
+                    active.Checked = false;
                 }
                 active = but;
             }
@@ -305,17 +308,7 @@ namespace Diagram.UI
             }
         }
 
-        /// <summary>
-        /// The "on click" event handler
-        /// </summary>
-        public ToolBarButtonClickEventHandler ClickEventHandler
-        {
-            get
-            {
-                return handler;
-            }
-        }
-
+  
         /// <summary>
         /// The UI factory
         /// </summary>

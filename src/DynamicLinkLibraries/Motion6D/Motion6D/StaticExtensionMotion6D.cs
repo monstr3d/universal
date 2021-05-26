@@ -11,6 +11,7 @@ using Diagram.UI.Interfaces;
 using Motion6D.Interfaces;
 using Motion6D.Portable.Interfaces;
 using Motion6D.Portable;
+using AssemblyService.Attributes;
 
 namespace Motion6D
 {

@@ -114,7 +114,16 @@ namespace DataPerformer
         {
             get
             {
-                return PureDesktopPeer.Deserialize(comments) as ArrayList;
+                //!!! REPLACE AFTER
+                try
+                {
+                    return PureDesktopPeer.Deserialize(comments) as ArrayList;
+                }
+                catch (Exception exception)
+                {
+                    exception.ShowError();
+                }
+                return new ArrayList();
             }
             set
             {

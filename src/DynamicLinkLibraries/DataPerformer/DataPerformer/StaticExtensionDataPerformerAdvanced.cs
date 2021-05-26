@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.IO;
+using System.Linq;
+using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Xml;
 
 using BaseTypes;
+
+using CategoryTheory;
 
 using Diagram.UI;
 using Diagram.UI.Interfaces;
@@ -15,14 +17,32 @@ using DataPerformer.Interfaces;
 using DataPerformer.SeriesTypes;
 using DataPerformer.Portable;
 using DataPerformer.Formula;
+using AssemblyService.Attributes;
 
 namespace DataPerformer
 {
     /// <summary>
     /// Extension utilites
     /// </summary>
+    [InitAssembly]
     public static class StaticExtensionDataPerformerAdvanced
-    {
+    { 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        static StaticExtensionDataPerformerAdvanced()
+        {
+            new Binder();
+        }
+
+        /// <summary>
+        /// Inits itself
+        /// </summary>
+        static public void Init()
+        {
+
+        }
+
         /// <summary>
         /// Saves series to stream
         /// </summary>
@@ -388,5 +408,29 @@ namespace DataPerformer
             return desktop.CreateXmlDocument(consumer, input, start, step, count);
         }
 
+
+        #region Binder Class
+
+        class Binder : SerializationBinder
+        {
+   
+            internal Binder()
+            {
+                this.Add();
+            }
+            public override Type BindToType(string assemblyName, string typeName)
+            {
+                if (assemblyName.Contains("DataPerformer,"))
+                {
+                    string a = typeof(Binder).Assembly.FullName;
+                    return Type.GetType(String.Format("{0}, {1}",
+                        typeName, a));
+                }
+
+                return null;
+            }
+        }
+
+        #endregion
     }
 }

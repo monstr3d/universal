@@ -1,602 +1,253 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
-    <ProductVersion>8.0.30703</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{061CFC1E-9607-48A3-A4FE-AB79A28301B5}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Aviation.Light</RootNamespace>
-    <AssemblyName>Aviation.Light</AssemblyName>
-    <FileAlignment>512</FileAlignment>
-    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
-    <TargetFrameworkProfile />
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <PlatformTarget>x64</PlatformTarget>
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>TRACE;DEBUG;WPF</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>3</WarningLevel>
-    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
-    <PlatformTarget>x64</PlatformTarget>
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <Prefer32Bit>false</Prefer32Bit>
-  </PropertyGroup>
-  <PropertyGroup>
-    <StartupObject>
-    </StartupObject>
-  </PropertyGroup>
-  <PropertyGroup>
-    <ApplicationIcon>Aviation.ico</ApplicationIcon>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
-    <DebugSymbols>true</DebugSymbols>
-    <OutputPath>bin\x64\Debug\</OutputPath>
-    <DefineConstants>TRACE;DEBUG;WPF</DefineConstants>
-    <WarningLevel>3</WarningLevel>
-    <DebugType>full</DebugType>
-    <PlatformTarget>x64</PlatformTarget>
-    <ErrorReport>prompt</ErrorReport>
-    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
-    <OutputPath>bin\x64\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <Optimize>true</Optimize>
-    <DebugType>pdbonly</DebugType>
-    <PlatformTarget>x64</PlatformTarget>
-    <ErrorReport>prompt</ErrorReport>
-    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
-  </PropertyGroup>
+
   <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.CodeDom, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.CodeDom.5.0.0\lib\net461\System.CodeDom.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System.Core" />
-    <Reference Include="System.Data.Linq" />
-    <Reference Include="System.ServiceModel.Web" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Deployment" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Windows.Forms" />
-    <Reference Include="System.Xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Program.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <None Include="app.config" />
-    <None Include="packages.config" />
-    <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
-    <Compile Include="Properties\Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Settings.settings</DependentUpon>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-    </Compile>
+    <PackageReference Include="System.CodeDom" Version="6.0.0-preview.1.21102.12" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\AliasRegression\AliasRegression.Portable\AliasRegression.Portable.csproj">
-      <Project>{363293df-6b0a-4839-872f-cc356c66b28c}</Project>
-      <Name>AliasRegression.Portable</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\BasicEngineeringUIFactory\BasicEngineeringUIFactory\BasicEngineering.UI.Factory.csproj" />
     <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\CategoryTheory\CategoryTheory\CategoryTheory\CategoryTheory.csproj">
-      <Project>{01323e7d-da29-4d48-8c46-a44c117a8d12}</Project>
-      <Name>CategoryTheory</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\CompilerService\CompilerService.csproj" />
+    <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\Compilers\CodeAnalysis.Compilers\CodeAnalysis.Compilers.csproj" />
+    <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\Compilers\CompilerBridge\CompilerBridge.csproj" />
     <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\Database\DataSet\DataSetSerializable\DataSetSerializable.csproj">
-      <Project>{bd2a7ed7-f624-469a-a48c-b3dd6ab475d8}</Project>
-      <Name>DataSetSerializable</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\Database\DataSet\DataTableSelection\DataTableSelection.csproj">
-      <Project>{ef187b34-b333-4a86-897d-cd0397c8c318}</Project>
-      <Name>DataTableSelection</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\Database\DataWarehouse\DataWarehouse\DataWarehouse.csproj">
-      <Project>{15585fbd-84ba-4e39-ab86-e62a0d42a2d3}</Project>
-      <Name>DataWarehouse</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\DataPerformer\DataPerformer.Event.Portable\DataPerformer.Event.Portable.csproj">
-      <Project>{e8b332b7-78ae-47e0-be3c-3d5dd1d138b8}</Project>
-      <Name>DataPerformer.Event.Portable</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\DataPerformer\DataPerformer.Interfaces\DataPerformer.Interfaces.csproj">
-      <Project>{f9d68183-6801-4214-affc-737acbef498e}</Project>
-      <Name>DataPerformer.Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\DataPerformer\DataPerformer.Portable\DataPerformer.Portable.csproj">
-      <Project>{4442e3e5-41b9-4f60-9c1a-07272d9c31d0}</Project>
-      <Name>DataPerformer.Portable</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\DataPerformer\DataPerformer\DataPerformer.csproj">
-      <Project>{45233e94-ffef-4527-8c38-5e8f86b20881}</Project>
-      <Name>DataPerformer</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\Diagram\Diagram.UI\Diagram.UI.csproj">
-      <Project>{3a2ab37f-17cd-4cb2-96c6-14d4efbf8279}</Project>
-      <Name>Diagram.UI</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\Events\Event.Data.Interface\Event.Data.Interface.csproj">
-      <Project>{4407509d-87b1-4903-8a73-628f05f55c8d}</Project>
-      <Name>Event.Data.Interface</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\Events\Event.Log.Database.UI\Event.Log.Database.UI.csproj">
-      <Project>{ae92f3a5-fc9c-4bbb-b7c1-327a6c258f70}</Project>
-      <Name>Event.Log.Database.UI</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\Events\Event.Log.Database\Event.Log.Database.csproj">
-      <Project>{4d75b03c-d5db-44fa-8545-b8d96f480f6f}</Project>
-      <Name>Event.Log.Database</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\Events\Event.Portable\Event.Portable.csproj">
-      <Project>{b72a1bb1-13a5-4f04-91ae-dd777731c4f9}</Project>
-      <Name>Event.Portable</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\Events\Event.Basic\Event.Basic.csproj">
-      <Project>{b72a1bb1-13a5-4f04-91ae-dd777731c4f9}</Project>
-      <Name>Event.Basic</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\Events\Event.Basic.Data\Event.Basic.Data.csproj">
-      <Project>{b72a1bb1-13a5-4f04-91ae-dd777731c4f9}</Project>
-      <Name>Event.Basic.Data</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\Events\Event.Remote\Event.Remote.csproj">
-      <Project>{1c53b922-0952-4986-8e27-a26a70cd43ab}</Project>
-      <Name>Event.Remote</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\FormulaEditor\ExtendedFormulaEditor\ExtendedFormulaEditor.csproj">
-      <Project>{2e762fec-e32c-46bb-bf30-9599ef399fb4}</Project>
-      <Name>ExtendedFormulaEditor</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\FormulaEditor\FormulaEditor.Compiler\FormulaEditor.Compiler.csproj">
-      <Project>{ced71429-e35e-48cd-8f6c-efcaa8950f71}</Project>
-      <Name>FormulaEditor.Compiler</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\FormulaEditor\FormulaEditor.Serializable\FormulaEditor.Serializable.csproj">
-      <Project>{4a829781-f93e-4d53-81d6-e7678dc94a50}</Project>
-      <Name>FormulaEditor.Serializable</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\FormulaEditor\FormulaEditor\FormulaEditor.csproj">
-      <Project>{20c36053-beeb-4142-878e-984af0b79740}</Project>
-      <Name>FormulaEditor</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\Motion6D\Motion6D.Portable\Motion6D.Portable.csproj">
-      <Project>{b23404b4-ce0f-4e64-a585-8181bae90fcd}</Project>
-      <Name>Motion6D.Portable</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\Motion6D\Motion6D.UI.Avanced\Motion6D.UI.Advanced.csproj" />
     <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\PhysicalField\PhysicalField.Portable\PhysicalField.Portable.csproj">
-      <Project>{bab74fbd-3a79-4679-a63a-351a6a2f743a}</Project>
-      <Name>PhysicalField.Portable</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\PhysicalField\PhysicalFieldLibrary\PhysicalFieldLibrary.csproj">
-      <Project>{65a6f9b6-6db4-4932-a9f3-48b6bd7cf905}</Project>
-      <Name>PhysicalFieldLibrary</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\PhysicalField\PhysicalFieldSupport\PhysicalFieldSupport.csproj">
-      <Project>{b862e422-6c7a-4153-a6e4-b5d5c9450f4a}</Project>
-      <Name>PhysicalFieldSupport</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\PhysicalField\PhysicalField\PhysicalField.csproj">
-      <Project>{d27fca8d-f0d6-4362-8b14-782100a07bd9}</Project>
-      <Name>PhysicalField</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\Scada\Scada.Desktop\Scada.Desktop\Scada.Desktop.csproj">
-      <Project>{96526a3d-5ae5-406d-b764-47b4dae115de}</Project>
-      <Name>Scada.Desktop</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\Scada\Scada.Desktop\Scada.Desktop.Serializable\Scada.Desktop.Serializable.csproj">
-      <Project>{8198fa9f-1f6b-40d6-b4d1-0ff7b613c48d}</Project>
-      <Name>Scada.Desktop.Serializable</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\Scada\Scada.Interfaces\Scada.Interfaces.csproj">
-      <Project>{cd3f1068-0706-4269-aef0-7eb28d6c8abb}</Project>
-      <Name>Scada.Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\AliasRegression\AliasRegression\AliasRegression.csproj">
-      <Project>{C3EBDB3F-A0DE-4126-8E87-B23C09EA08EC}</Project>
-      <Name>AliasRegression</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\AnalyticPolynom\AnalyticPolynom.csproj">
-      <Project>{0cb2cd58-a042-42a6-ab5a-0e18e74a5b3b}</Project>
-      <Name>AnalyticPolynom</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\AssemblyService\AssemblyService.csproj">
-      <Project>{0accba33-1139-43aa-82b8-863557a31b68}</Project>
-      <Name>AssemblyService</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\BaseTypes\BaseTypes\BaseTypes.csproj">
-      <Project>{8A9C8C8B-40B2-418C-AC92-4BDBB6E071C3}</Project>
-      <Name>BaseTypes</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\BaseTypes\BaseTypes.Extended\BaseTypes.Extended.csproj">
-      <Project>{55ec179b-c873-40e3-8f4d-12849b923b6e}</Project>
-      <Name>BaseTypes.Extended</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\BasicEngineeringUIFactory\BasicEngineeringUIFactory.Advanced\BasicEngineering.UI.Factory.Advanced.csproj">
-      <Project>{EC236D4B-D08F-4972-AD01-DFBAE13279D2}</Project>
-      <Name>BasicEngineering.UI.Factory.Advanced</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\BasicEngineeringUIFactory\BasicEngineering.UI.Factory.csproj">
-      <Project>{6086F8AB-E2B0-4C22-A06F-5F5A164E82A7}</Project>
-      <Name>BasicEngineering.UI.Factory</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\Chart\Chart\Chart.csproj">
-      <Project>{2e77aee6-d898-4535-893a-cda4c7f5d54b}</Project>
-      <Name>Chart</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\Chart\Chart.Drawing\Chart.Drawing.csproj">
-      <Project>{6881187e-42eb-4994-a557-8601c60e9ba6}</Project>
-      <Name>Chart.Drawing</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\Chart\Chart.Objects\Chart.Objects.csproj">
-      <Project>{c53467dc-3911-4a77-90b3-e3cff116a83e}</Project>
-      <Name>Chart.Objects</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\ClassicalAlgebra\ClassicalAlgebra.csproj">
-      <Project>{8dc4a231-c1f9-46e8-9298-42623c5b746a}</Project>
-      <Name>ClassicalAlgebra</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\ColorUI\ColorUI.csproj">
-      <Project>{d987f774-99f8-4cd4-bbaa-27a81c2c5faf}</Project>
-      <Name>ColorUI</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\Common.Engineering.Localization\Common.Engineering.Localization.csproj">
-      <Project>{21434de5-6b88-40ad-a099-e86a07f3527b}</Project>
-      <Name>Common.Engineering.Localization</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\Common.UI.Resources\Common.UI.Resources.csproj">
-      <Project>{931b6526-5d65-40ad-aba5-ad71eabeeb7e}</Project>
-      <Name>Common.UI.Resources</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\Common.UI\Common.UI.csproj">
-      <Project>{a0f0e126-5097-498f-a576-6df0dcbf1c17}</Project>
-      <Name>Common.UI</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\CommonControls\CommonControls.Interfaces\CommonControls.Interfaces.csproj">
-      <Project>{80d948d7-ef80-4e25-b39d-0ff4a1789c0e}</Project>
-      <Name>CommonControls.Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\CommonMathOperations\CommonMathOperations\CommonMathOperations.csproj">
-      <Project>{ad197f2d-d594-4ec4-ae6e-74f0cdd3c5a4}</Project>
-      <Name>CommonMathOperations</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\CommonService\CommonService\CommonService.csproj">
-      <Project>{576A21E9-FAC4-4AAF-9C7C-0776AF7ECB9C}</Project>
-      <Name>CommonService</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\ControlSystems.Data.UI\ControlSystems.Data.UI.csproj">
-      <Project>{40935F4E-F458-494A-9BDB-4F9E3820919B}</Project>
-      <Name>ControlSystems.Data.UI</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\ControlSystems.Data\ControlSystems.Data\ControlSystems.Data.csproj">
-      <Project>{BEC2FB51-1758-4CBB-869F-CD56128B00D8}</Project>
-      <Name>ControlSystems.Data</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\ControlSystems.UI\ControlSystems.UI.csproj">
-      <Project>{68084593-0BAA-4A84-AEEA-41E99CCB8D77}</Project>
-      <Name>ControlSystems.UI</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\ControlSystemsWrapper\ControlSystemsWrapper.csproj">
-      <Project>{e954f17c-888b-4a7a-939f-a80f3267bc0e}</Project>
-      <Name>ControlSystemsWrapper</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\ControlSystems\ControlSystems\ControlSystems.csproj">
-      <Project>{136499DC-9CF1-4CC1-BE9B-D83B903D2E6B}</Project>
-      <Name>ControlSystems</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\Database\Database.UI\DataSetForm\DataSetForm\DataSetForm.csproj">
-      <Project>{811c58c7-e758-4dff-a06d-a43a500f1cd9}</Project>
-      <Name>DataSetForm</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\Database\DataSet\DataSetService\DataSetService\DataSetService.csproj">
-      <Project>{0B651755-E88A-4E6A-953C-5B4F3C9FD364}</Project>
-      <Name>DataSetService</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\Database\DataWarehouse\DataWarehouseForm\DataWarehouse.Forms.csproj">
-      <Project>{4c99eabd-d653-43f1-94d0-f254efd75de5}</Project>
-      <Name>DataWarehouse.Forms</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\Database\DataWarehouse\DataWarehouseForm\DataWarehouseForm.Advanced\DataWarehouseForm.Advanced\DataWarehouse.Forms.Advanced.csproj">
-      <Project>{84ceb2f0-f142-4ce7-86f5-92018073ac49}</Project>
-      <Name>DataWarehouse.Forms.Advanced</Name>
+    <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\Database\DataWarehouse\DataWarehouseForm.Advanced\DataWarehouseForm.Advanced\DataWarehouse.Forms.Advanced.csproj">
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\DataPerformer\DataPerformer.Basic\DataPerformer.Basic.csproj">
-      <Project>{5c0c307c-0352-4e34-9a9e-cb4f4eb31d6f}</Project>
-      <Name>DataPerformer.Basic</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\DataPerformer\DataPerformer.Formula\DataPerformer.Formula.csproj">
-      <Project>{02a8365d-23eb-48ec-bd18-f36fbd5f850c}</Project>
-      <Name>DataPerformer.Formula</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\DataPerformer\DataPerformer.Portable.Basic\DataPerformer.Portable.Basic.csproj">
-      <Project>{ebdfbf12-d169-4173-ab39-98169fb3e859}</Project>
-      <Name>DataPerformer.Portable.Basic</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\DataPerformer\DataPerformer.UI\DataPerformer.UI.csproj">
-      <Project>{9cbc2a5e-847f-4cdf-859a-711691c2ec5a}</Project>
-      <Name>DataPerformer.UI</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\DataPerformer\DataPerformer.Base\DataPerformer.Base\DataPerformer.Base.csproj">
-      <Project>{cde580bc-cfe5-45d3-b9a2-76585e54a416}</Project>
-      <Name>DataPerformer.Base</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\Diagram\Diagram.Data.WpfData\Diagram.Data.WpfData.csproj">
-      <Project>{7fafa7a9-5711-4ea5-8615-6f9859f0696d}</Project>
-      <Name>Diagram.Data.WpfData</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\Diagram\Diagram.Extended\Diagram.Extended.csproj">
-      <Project>{d75c9e3d-1b66-461f-9057-86fc924aba8e}</Project>
-      <Name>Diagram.Extended</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\Diagram\Diagram.UI.Components\Diagram.UI.Components\Diagram.UI.Components.csproj">
-      <Project>{d1af843a-8878-41d6-a59f-d2b68cf68a30}</Project>
-      <Name>Diagram.UI.Components</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\Diagram\Diagram.UI.Zip\Diagram.UI.Zip.csproj">
-      <Project>{1e728dde-542e-410e-a4ba-761d98cde9ff}</Project>
-      <Name>Diagram.UI.Zip</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\Diagram\Diagram\Diagram.csproj">
-      <Project>{096F4EA8-6301-4545-96D6-286E67CCBA5C}</Project>
-      <Name>Diagram</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\Diagram\Diagram.UI.Forms\Diagram.UI.Forms.csproj">
-      <Project>{4FB6133D-2948-4E29-A7B2-5DD5FD750606}</Project>
-      <Name>Diagram.UI.Forms</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\Diagram\Diagram.UI.Serializable\Diagram.UI.Serializable.csproj">
-      <Project>{868ADFD8-51C2-4CEC-8132-11E5A0F907E3}</Project>
-      <Name>Diagram.UI.Serializable</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\EngineeringInitializer\EngineeringInitializer.csproj">
-      <Project>{96b0dda9-d250-479b-8bb8-7dadadb88fbe}</Project>
-      <Name>EngineeringInitializer</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\Error.UI\Error.UI.csproj">
-      <Project>{f9cd786c-fcab-4fa1-8713-e6c317dd9099}</Project>
-      <Name>Error.UI</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\Events\Event.UI\Event.UI.csproj">
-      <Project>{d94e2a9c-f2cb-432f-a878-3e45a467f1fd}</Project>
-      <Name>Event.UI</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\Events\Event.Interfaces\Event.Interfaces.csproj">
-      <Project>{3006114c-ed81-4966-a1a4-88149fddb9a5}</Project>
-      <Name>Event.Interfaces</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\Events\Event.UI\Event.WPF.UI\Event.WPF.UI.csproj">
-      <Project>{72c19fbb-ba25-4c37-84ca-aa45d1eebaf2}</Project>
-      <Name>Event.WPF.UI</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\Events\Event.Windows.Forms\Event.Windows.Forms.csproj">
-      <Project>{7409a8bb-d374-4b57-bb4c-4088d06f9b45}</Project>
-      <Name>Event.Windows.Forms</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\FormulaEditor\FormulaEditor.Drawing\FormulaEditor.Drawing.csproj">
-      <Project>{26583800-7da6-4129-8d76-fd474991587d}</Project>
-      <Name>FormulaEditor.Drawing</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\FormulaEditor\FormulaEditor.Forms\FormulaEditor.Forms.csproj">
-      <Project>{6c4bb44d-da7d-4dee-bf10-87cc369d9c4d}</Project>
-      <Name>FormulaEditor.Forms</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\FormulaEditor\FormulaEditor.UI\FormulaEditor.UI.csproj">
-      <Project>{328c08a3-8c47-407f-9edb-4944c3a3dc56}</Project>
-      <Name>FormulaEditor.UI</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\GeneralLinearMethod\GeneralLinearMethod.csproj">
-      <Project>{2a0d2cf4-e584-4db1-931f-a01ad17f240f}</Project>
-      <Name>GeneralLinearMethod</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\GraphicsControls\GraphicsControls.csproj">
-      <Project>{0dc83ab4-43ff-4030-a2d2-3184070b4e85}</Project>
-      <Name>GraphicsControls</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\Localization.Helper\Localization.Helper.csproj">
-      <Project>{479f0ae1-7932-4d20-ba81-106e225c227c}</Project>
-      <Name>Localization.Helper</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\MathStatistics\MathStatistics\MathStatistics.csproj">
-      <Project>{c3fdc31d-6884-432c-9a6d-4575dc393d64}</Project>
-      <Name>MathStatistics</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\Motion6D\Motion6D\Motion6D.csproj">
-      <Project>{D20072FA-274E-4D9C-BEBF-E15B13BEDE69}</Project>
-      <Name>Motion6D</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\Motion6D\Motion6D.Data\Motion6D.Data.csproj">
-      <Project>{b6f26938-3301-46b4-bb01-aaea4d0bd2d4}</Project>
-      <Name>Motion6D.Data</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\Motion6D\Motion6D.Drawing\Motion6D.Drawing.csproj">
-      <Project>{9c3ee2b2-03da-4c46-ac84-b509dd70a217}</Project>
-      <Name>Motion6D.Drawing</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\Motion6D\Motion6D.Interfaces\Motion6D.Interfaces.csproj">
-      <Project>{cb323095-3866-45a7-bf13-7d8bf1abc666}</Project>
-      <Name>Motion6D.Interfaces</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\Motion6D\Motion6D.UI\Motion6D.UI.Avanced\Motion6D.UI.Advanced.csproj">
-      <Project>{c23f1c1c-a5f5-4e6a-8398-e0c2f21abf3e}</Project>
-      <Name>Motion6D.UI.Advanced</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\Motion6D\Motion6D.UI\Motion6D.UI.csproj">
-      <Project>{2F333853-8CD2-41F5-9B95-22553EA91CFB}</Project>
-      <Name>Motion6D.UI</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\Node\TreeNode.csproj">
-      <Project>{86c3e00e-2160-4c6e-b289-5131db0a9e19}</Project>
-      <Name>TreeNode</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\OrdinaryDifferentialEquations\OrdinaryDifferentialEquations\OrdinaryDifferentialEquations.csproj">
-      <Project>{76a28755-e93a-4a8d-b24d-38cb3c2afdbc}</Project>
-      <Name>OrdinaryDifferentialEquations</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\PhysicalField\PhysicalField.Interfaces\PhysicalField.Interfaces.csproj">
-      <Project>{a190af0c-c139-45e5-b05e-92cee8ed18fd}</Project>
-      <Name>PhysicalField.Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\RealMatrixProcessor\RealMatrixProcessor.csproj">
-      <Project>{4b250264-a0a4-41ba-991e-2a26eb23e8ba}</Project>
-      <Name>RealMatrixProcessor</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\ResourceService\ResourceService.csproj">
-      <Project>{A7719FB8-AECF-4F38-83E4-5A1352C8ACD3}</Project>
-      <Name>ResourceService</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\Scada\Scada.Motion6D\Scada.Motion6D.csproj">
-      <Project>{bf1f2e85-14b4-4017-bfd5-5bb15bd5b5dd}</Project>
-      <Name>Scada.Motion6D</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\Scada\Scada.Windows.UI\Scada.Windows.UI.csproj">
-      <Project>{4ab6bc74-136f-411d-80f1-8e0bb823a443}</Project>
-      <Name>Scada.Windows.UI</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\SerializationInterface\SerializationInterface.csproj">
-      <Project>{7d532180-b3ec-4344-bb15-11de8e8e7967}</Project>
-      <Name>SerializationInterface</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\SphericalFields\SphericalFields.csproj">
-      <Project>{f2fa3848-4b15-4873-b43b-8bd168fe2282}</Project>
-      <Name>SphericalFields</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\TestCategory\TestCategory.UI\TestCategory.UI\TestCategory.UI.csproj">
-      <Project>{50f510c1-e1a7-48c2-8839-2c60a98ad225}</Project>
-      <Name>TestCategory.UI</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\TestCategory\TestCategory\TestCategory.csproj">
-      <Project>{087C8A5F-F10A-4AA5-A035-392063812165}</Project>
-      <Name>TestCategory</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\ToolBox\ToolBox.csproj">
-      <Project>{e7db7d78-31b0-4876-8129-80ba152e3e17}</Project>
-      <Name>ToolBox</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\Vector3D\Vector3D.csproj">
-      <Project>{60b5b05a-ef3e-4455-89eb-74ad8630ee05}</Project>
-      <Name>Vector3D</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\Web.Interfaces\Web.Interfaces\Web.Interfaces.csproj">
-      <Project>{a7e0621b-9ca9-4874-b797-83b391e8aef4}</Project>
-      <Name>Web.Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\WindowsExtensions\WindowsExtensions.csproj">
-      <Project>{712b37a4-4fb4-4cc5-87d4-fade83194057}</Project>
-      <Name>WindowsExtensions</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\Xml.DrawingLibrary\Xml.DrawingLibrary\Xml.Drawing.Library.csproj">
-      <Project>{f05a738e-6542-4833-9a69-3f342209bd60}</Project>
-      <Name>Xml.Drawing.Library</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\Xml.Parser.Library\Xml.Parser.Library\Xml.Parser.Library.csproj">
-      <Project>{29769689-579d-4eba-9002-c0dcc38f9321}</Project>
-      <Name>Xml.Parser.Library</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\XmlSelection\XmlSelection.csproj">
-      <Project>{1396da2e-2445-4e4d-9339-9b4861fca06f}</Project>
-      <Name>XmlSelection</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\DynamicLinkLibraries\Zip.Service\Zip.Service.csproj">
-      <Project>{a3ae6e9f-8823-45a0-bfd5-2943eca17adc}</Project>
-      <Name>Zip.Service</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\ExternalLibraries\Atmosphere\DinAtm\DimAtm.Serializable\DimAtm.Serializable.csproj">
-      <Project>{cc0195be-99f8-484b-ab33-8607d57d3d55}</Project>
-      <Name>DimAtm.Serializable</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\ExternalLibraries\Atmosphere\DinAtm\DinAtm.Forms\DinAtm.Forms.csproj">
-      <Project>{b2d57da8-24e1-4185-b5a8-adf312e09653}</Project>
-      <Name>DinAtm.Forms</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\ExternalLibraries\Atmosphere\DinAtm\DinAtm.Portable\DinAtm.Portable.csproj">
-      <Project>{124137b5-6808-4302-a9c7-82f745b332e9}</Project>
-      <Name>DinAtm.Portable</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\ExternalLibraries\Atmosphere\DinAtm\DinAtm.Pure\DinAtm.Pure.csproj">
-      <Project>{54e9279a-1b4e-4aa6-a60c-555437d43add}</Project>
-      <Name>DinAtm.Pure</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\ExternalLibraries\Gravity\Gravity_36_36\Gravity_36_36.Wrapper.Serializable\Gravity_36_36.Wrapper.Serializable.csproj">
-      <Project>{bdd0bb47-7bf3-4941-8d6f-81ef5399634f}</Project>
-      <Name>Gravity_36_36.Wrapper.Serializable</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\ExternalLibraries\Gravity\Gravity_36_36\Gravity_36_36.Wrapper.UI\Gravity_36_36.Wrapper.UI.csproj">
-      <Project>{5a7a4a6c-0fe7-47d0-b35a-7123aaaa950a}</Project>
-      <Name>Gravity_36_36.Wrapper.UI</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\ExternalLibraries\Gravity\Gravity_36_36\Gravity_36_36.Wrapper\Gravity_36_36.Wrapper.csproj">
-      <Project>{43668de3-c406-4217-ae07-ab1fc7321be2}</Project>
-      <Name>Gravity_36_36.Wrapper</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\ExternalLibraries\Gravity\Gravity_36_36\Gravity_36_36\Gravity_36_36.csproj">
-      <Project>{631ead52-d3ce-4c5f-a044-1dfcbba7ed1f}</Project>
-      <Name>Gravity_36_36</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\Generated\GeneratedProject\GeneratedProject.csproj">
-      <Project>{82f25cde-72dc-4bac-9bba-9c565600a7d5}</Project>
-      <Name>GeneratedProject</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\ThirdParty\OfficePickers\OfficePickers.csproj">
-      <Project>{cad56b75-481b-4c76-b090-4bc2ff5e5681}</Project>
-      <Name>OfficePickers</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\..\ThirdParty\WinFormsUI\WinFormsUI.csproj">
-      <Project>{c75532c4-765b-418e-b09b-46d36b2abdb1}</Project>
-      <Name>WinFormsUI</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\ThirdParty\ziplib\src\ICSharpCode.SharpZLib.csproj">
-      <Project>{0e7413ff-eb9e-4714-acf2-be3a6a7b2ffd}</Project>
-      <Name>ICSharpCode.SharpZLib</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\ThirdParty\ziplib\ZipUtils\ZipUtils.csproj">
-      <Project>{aabbd50f-fa89-47bb-8c83-4531aadd9a4c}</Project>
-      <Name>ZipUtils</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Aviation.UI\Aviation.UI.csproj">
-      <Project>{0ECE06CF-11A5-4CAB-AC17-0AD134E64094}</Project>
-      <Name>Aviation.UI</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Aviation.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Aviation.ico" />
-  </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
-</Project>
+ </Project>

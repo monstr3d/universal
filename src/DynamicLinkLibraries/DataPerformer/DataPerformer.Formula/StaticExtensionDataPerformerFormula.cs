@@ -15,6 +15,7 @@ using DataPerformer.Interfaces;
 using Diagram.UI.Interfaces;
 using Diagram.UI;
 using DataPerformer.Portable.Measurements;
+using AssemblyService.Attributes;
 
 namespace DataPerformer.Formula
 {

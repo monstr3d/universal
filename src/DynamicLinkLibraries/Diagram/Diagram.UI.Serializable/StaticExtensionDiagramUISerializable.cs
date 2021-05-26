@@ -27,10 +27,7 @@ namespace Diagram.UI
         /// </summary>
         static StaticExtensionDiagramUISerializable()
         {
-            Action<Exception> act = (Exception ex) => { ex.ShowError(10); };
-            StaticExtensionAssemblyService.LoadBaseAssemblies(act);
-            StaticExtensionAssemblyService.AssemblyAction(CurrentDomain_AssemblyLoad);
-            new Binder();
+             new Binder();
         }
 
         #endregion
@@ -456,27 +453,6 @@ namespace Diagram.UI
         #endregion
 
         #region Private Members
-
-        private static void CurrentDomain_AssemblyLoad(Assembly ass)
-        {
-            try
-            {
-                Type[] types = ass.GetTypes();
-                foreach (Type t in types)
-                {
-                    if (t.HasAttribute<InitAssemblyAttribute>())
-                    {
-                        MethodInfo mi = t.GetMethod("Init");
-                        mi.Invoke(null, null);
-                    }
-                }
-            }
-            catch (Exception)
-            {
-
-            }
-        }
-
         #endregion
 
         #region Binder Class
@@ -500,6 +476,12 @@ namespace Diagram.UI
             readonly string[] types = new string[] { "DiagramUI", "Diagram.UI" };
             public override Type BindToType(string assemblyName, string typeName)
             {
+                if (assemblyName.Contains("Diagram.UI.Serializable"))
+                {
+                    string a = typeof(Binder).Assembly.FullName;
+                    return Type.GetType(String.Format("{0}, {1}",
+                        typeName, a));
+                }
                 if (assemblyName.Contains("DiagramUISerializable"))
                 {
                     string t = typeName.Replace("DiagramUI.", "Diagram.UI.");

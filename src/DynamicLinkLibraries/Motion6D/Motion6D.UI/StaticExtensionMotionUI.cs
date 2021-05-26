@@ -4,7 +4,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Windows.Forms;
-
+using AssemblyService.Attributes;
 using Diagram.UI;
 using Diagram.UI.Utils;
 
@@ -13,7 +13,7 @@ namespace Motion6D.UI
     /// <summary>
     /// Extension of methods
     /// </summary>
-    [CategoryTheory.InitAssembly]
+    [InitAssembly]
     public static class StaticExtensionMotion6DUI
     {
         /// <summary>

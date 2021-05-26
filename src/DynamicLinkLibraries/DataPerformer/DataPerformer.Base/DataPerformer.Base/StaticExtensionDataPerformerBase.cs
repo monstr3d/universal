@@ -18,6 +18,7 @@ using BaseTypes;
 using DataPerformer.Interfaces;
 using DataPerformer.Portable;
 using DataPerformer.Portable.DifferentialEquationProcessors;
+using AssemblyService.Attributes;
 
 namespace DataPerformer
 {

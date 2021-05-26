@@ -111,10 +111,7 @@ namespace DataPerformer.UI.UserControls
             calc.Clear();
             dObject.Clear();
             dArray.Clear();
-            performer.Clear();
-            performer.Reset();
-                 realtime.Item1[0] = double.Parse(textBoxChartInterval.Text);
-            performer.Interval = realtime.Item1[0];
+            realtime.Item1[0] = double.Parse(textBoxChartInterval.Text);
             List<Tuple<Tuple<string, IMeasurement, object[]>, Tuple<Color[], bool, double[]>>> output =
                 userControlRealtimeMeasurements.Output;
             List<Tuple<string, object[]>> measurementsList = new List<Tuple<string, object[]>>();
@@ -141,18 +138,12 @@ namespace DataPerformer.UI.UserControls
                     Tuple<Color[], bool, double[]>>>(f, t);
                 dArray[na] = t.Item1.Item3;
                 Color cw = t.Item2.Item1[0];
-                System.Windows.Media.Color cp = System.Windows.Media.Color.FromRgb(cw.R, cw.G, cw.B);
-                Tuple<System.Windows.Media.Color, bool, double[], Func<object, double>> tp =
-                    new Tuple<System.Windows.Media.Color, bool, double[], Func<object, double>>(
-                      cp, t.Item2.Item2, t.Item2.Item3, f);
-                performer[na] = tp;
+                realtime.Item1[0] = double.Parse(textBoxChartInterval.Text);
+                userControlRealtimeList.Set(measurementsList);
+                Labels.GraphLabel lab = this.FindParent<Labels.GraphLabel>();
+                lab.data.Item6[0] = realtime;
+                UserControlGraph uc = this.FindParent<UserControlGraph>();
             }
-            performer.Reset();
-            realtime.Item1[0] = double.Parse(textBoxChartInterval.Text);
-            userControlRealtimeList.Set(measurementsList);
-            Labels.GraphLabel lab = this.FindParent<Labels.GraphLabel>();
-            lab.data.Item6[0] = realtime;
-            UserControlGraph uc = this.FindParent<UserControlGraph>();
         }
 
 
@@ -210,13 +201,7 @@ namespace DataPerformer.UI.UserControls
                     Tuple<Color[], bool, double[]>>>(f, t);
                 dArray[na] = t.Item1.Item3;
                 Color cw = t.Item2.Item1[0];
-                System.Windows.Media.Color cp = System.Windows.Media.Color.FromRgb(cw.R, cw.G, cw.B);
-                Tuple<System.Windows.Media.Color, bool, double[], Func<object, double>> tp =
-                    new Tuple<System.Windows.Media.Color, bool, double[], Func<object, double>>(
-                      cp, t.Item2.Item2, t.Item2.Item3, f);
-                performer[na] = tp;
-            }
-            performer.Reset();
+              }
             realtime.Item1[0] = double.Parse(textBoxChartInterval.Text);
             userControlRealtimeList.Set(measurementsList);
             Labels.GraphLabel lab = this.FindParent<Labels.GraphLabel>();
@@ -320,7 +305,7 @@ namespace DataPerformer.UI.UserControls
                 dObject[key] = o;
             }
             double time = realTime.Time;
-            performer.Write(dObject, time);
+    //        performer.Write(dObject, time);
             this.InvokeIfNeeded(ShowTime, time);
         }
 
@@ -336,8 +321,6 @@ namespace DataPerformer.UI.UserControls
 
         private void panelChart_Resize(object sender, EventArgs e)
         {
-            performer.Width = elementHost.Width;
-            performer.Height = elementHost.Height;
         }
 
         #endregion

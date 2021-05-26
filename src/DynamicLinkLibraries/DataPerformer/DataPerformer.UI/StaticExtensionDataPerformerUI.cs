@@ -24,6 +24,7 @@ using Chart;
 using Chart.Drawing.Series;
 using Chart.Drawing.Interfaces;
 using Chart.Drawing.Painters;
+using AssemblyService.Attributes;
 
 namespace DataPerformer.UI
 {

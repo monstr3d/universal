@@ -123,6 +123,7 @@ namespace Diagram.UI.Labels
             UserControlBaseLabel lab = cons.Invoke(new object[0]) as UserControlBaseLabel;
             return lab.Create(changeSize);
         }
+
         /// <summary>
         /// Internal control
         /// </summary>
@@ -140,11 +141,18 @@ namespace Diagram.UI.Labels
         {
             try
             {
-                type = info.GetValue("Type", typeof(Type)) as Type;
+              //  type = info.GetValue("Type", typeof(Type)) as Type;
             }
             catch (Exception)
             {
+
             }
+            IObjectLabel l = this;
+            object o = l.Object;
+            if (o != null)
+            {
+                type = o.GetType();
+            }    
             try
             {
                 kind = info.GetString("Kind");
@@ -182,7 +190,15 @@ namespace Diagram.UI.Labels
         /// <param name="context">Streaming context</param>
         public virtual void GetObjectData(SerializationInfo info, StreamingContext context)
         {
-            info.AddValue("Type", type, typeof(Type));
+            var o = typeof(Type).GetAttribute<SerializableAttribute>();
+            if (o != null)
+            {
+                info.AddValue("Type", type, typeof(Type));
+            }
+            else
+            {
+                info.AddValue("Type", type + "");
+            }
             info.AddValue("Kind", kind);
             info.AddValue("Image", icon, typeof(Image));
         }
@@ -216,7 +232,14 @@ namespace Diagram.UI.Labels
 
         string INamedComponent.Type
         {
-            get { return type.FullName; }
+            get 
+            {   if (type == null)
+                {
+                    IObjectLabel l = this;
+                    type = l.Object.GetType();
+                }
+                return type.FullName; 
+            }
         }
 
         void INamedComponent.Remove()

@@ -14,6 +14,7 @@ using DataPerformer.Portable.Interfaces;
 using Event.Interfaces;
 
 using Scada.Interfaces;
+using AssemblyService.Attributes;
 
 namespace Scada.Desktop
 {

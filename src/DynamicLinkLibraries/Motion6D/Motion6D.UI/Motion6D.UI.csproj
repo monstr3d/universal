@@ -1,446 +1,79 @@
-<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12.0">
+    <Project Sdk="Microsoft.NET.Sdk">
+
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.30729</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{2F333853-8CD2-41F5-9B95-22553EA91CFB}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Motion6D.UI</RootNamespace>
-    <AssemblyName>Motion6D.UI</AssemblyName>
-    <SccProjectName>
-    </SccProjectName>
-    <SccLocalPath>
-    </SccLocalPath>
-    <SccAuxPath>
-    </SccAuxPath>
-    <SccProvider>
-    </SccProvider>
-    <FileUpgradeFlags>
-    </FileUpgradeFlags>
-    <OldToolsVersion>3.5</OldToolsVersion>
-    <UpgradeBackupLocation>
-    </UpgradeBackupLocation>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>publish\</PublishUrl>
-    <Install>true</Install>
-    <InstallFrom>Disk</InstallFrom>
-    <UpdateEnabled>false</UpdateEnabled>
-    <UpdateMode>Foreground</UpdateMode>
-    <UpdateInterval>7</UpdateInterval>
-    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
-    <UpdatePeriodically>false</UpdatePeriodically>
-    <UpdateRequired>false</UpdateRequired>
-    <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <UseApplicationTrust>false</UseApplicationTrust>
-    <BootstrapperEnabled>true</BootstrapperEnabled>
-    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
-    <TargetFrameworkProfile />
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+  <EnableDefaultEmbeddedResourceItems>false</EnableDefaultEmbeddedResourceItems>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Debug\Motion6D.UI.xml</DocumentationFile>
-    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
-    <Prefer32Bit>false</Prefer32Bit>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
-    <Prefer32Bit>false</Prefer32Bit>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
-    <DebugSymbols>true</DebugSymbols>
-    <OutputPath>bin\x64\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <DocumentationFile>bin\Debug\Motion6D.UI.xml</DocumentationFile>
-    <DebugType>full</DebugType>
-    <PlatformTarget>x64</PlatformTarget>
-    <ErrorReport>prompt</ErrorReport>
-    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
-    <OutputPath>bin\x64\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <Optimize>true</Optimize>
-    <DebugType>pdbonly</DebugType>
-    <PlatformTarget>x64</PlatformTarget>
-    <ErrorReport>prompt</ErrorReport>
-    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
-  </PropertyGroup>
-  <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Core">
-      <RequiredTargetFramework>3.5</RequiredTargetFramework>
-    </Reference>
-    <Reference Include="System.Data" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Windows.Forms" />
-    <Reference Include="System.Xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Components\MinimalComponent.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="ControlProxy.cs" />
-    <Compile Include="Factory\MotionFactory.cs" />
-    <Compile Include="Factory\VisibleFactory.cs" />
-    <Compile Include="FormAcceleratedPoint.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormAcceleratedPoint.Designer.cs">
-      <DependentUpon>FormAcceleratedPoint.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormAggregateLink.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormAggregateLink.Designer.cs">
-      <DependentUpon>FormAggregateLink.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormInertialSystem.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormInertialSystem.Designer.cs">
-      <DependentUpon>FormInertialSystem.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormSphericalMagnnetic.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormSphericalMagnnetic.Designer.cs">
-      <DependentUpon>FormSphericalMagnnetic.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormInertia.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormInertia.Designer.cs">
-      <DependentUpon>FormInertia.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormLength.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormLength.Designer.cs">
-      <DependentUpon>FormLength.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormPointsCollection.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormPointsCollection.Designer.cs">
-      <DependentUpon>FormPointsCollection.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormPositionsIndicator.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormPositionsIndicator.Designer.cs">
-      <DependentUpon>FormPositionsIndicator.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\FormField3D.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\FormField3D.Designer.cs">
-      <DependentUpon>FormField3D.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\FormFieldShape..cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\FormFieldShape..Designer.cs">
-      <DependentUpon>FormFieldShape..cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\FormFrameData.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\FormFrameData.Designer.cs">
-      <DependentUpon>FormFrameData.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\FormRigidBody.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\FormRigidBody.Designer.cs">
-      <DependentUpon>FormRigidBody.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\FormRigidFrame.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\FormRigidFrame.Designer.cs" />
-    <Compile Include="Initialization\MotionApplicationCreator.cs" />
-    <Compile Include="IPositionCollectionMeasureChooser.cs" />
-    <Compile Include="Labels\PositionsIndicatorLabel.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Labels\PositionsIndicatorLabel.Designer.cs">
-      <DependentUpon>PositionsIndicatorLabel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Labels\ReferenceFrameDataLabel.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Labels\ReferenceFrameDataPitchRollHuntingLabel.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
-    <Compile Include="ResourceImage.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ResourceImage.resx</DependentUpon>
-    </Compile>
-    <Compile Include="SimplePointsIdicator.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="StaticExtensionMotionUI.cs" />
-    <Compile Include="UserControlRelativeField.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserControlRelativeField.Designer.cs">
-      <DependentUpon>UserControlRelativeField.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UserControls\ColoredChooser.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserControls\SimpleChooser.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserControls\UserControl6D.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserControls\UserControl6D.Designer.cs">
-      <DependentUpon>UserControl6D.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UserControls\UserControlAreaNormal.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserControls\UserControlAreaNormal.Designer.cs">
-      <DependentUpon>UserControlAreaNormal.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UserControls\UserControlColors.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserControls\UserControlColors.Designer.cs">
-      <DependentUpon>UserControlColors.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UserControls\UserControlCoordColor.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserControls\UserControlCoordColor.Designer.cs">
-      <DependentUpon>UserControlCoordColor.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UserControls\UserControlCoordColorSize.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserControls\UserControlCoordColorSize.Designer.cs">
-      <DependentUpon>UserControlCoordColorSize.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UserControls\UserControlCoordinatAliases.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserControls\UserControlCoordinatAliases.Designer.cs">
-      <DependentUpon>UserControlCoordinatAliases.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UserControls\UserControlCoordinates.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserControls\UserControlCoordinates.Designer.cs">
-      <DependentUpon>UserControlCoordinates.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UserControls\UserControlFacet.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserControls\UserControlFacet.Designer.cs">
-      <DependentUpon>UserControlFacet.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UserControls\UserControlFieldShape.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserControls\UserControlFieldShape.Designer.cs">
-      <DependentUpon>UserControlFieldShape.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UserControls\UserControlFrameData.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserControls\UserControlFrameDataPitchRollHunting.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserControls\UserControlLinerar6DForecast.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserControls\UserControlLinerar6DForecast.Designer.cs">
-      <DependentUpon>UserControlLinerar6DForecast.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UserControls\UserControlQuaternion.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserControls\UserControlQuaternion.Designer.cs">
-      <DependentUpon>UserControlQuaternion.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UserControls\UserControlRigidBody.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserControls\UserControlRigidBody.Designer.cs">
-      <DependentUpon>UserControlRigidBody.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Utils\ControlUtilites.cs" />
-    <Compile Include="Utils\ResourceControl_Ru.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ResourceControl_Ru.resx</DependentUpon>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
+<ItemGroup>
     <ProjectReference Include="..\..\BaseTypes\BaseTypes\BaseTypes.csproj">
-      <Project>{8A9C8C8B-40B2-418C-AC92-4BDBB6E071C3}</Project>
-      <Name>BaseTypes</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\BasicEngineeringUIFactory\BasicEngineering.UI.Factory.csproj">
-      <Project>{6086F8AB-E2B0-4C22-A06F-5F5A164E82A7}</Project>
-      <Name>BasicEngineering.UI.Factory</Name>
-    </ProjectReference>
+    <ProjectReference Include="..\..\BasicEngineeringUIFactory\BasicEngineeringUIFactory\BasicEngineering.UI.Factory.csproj" />
     <ProjectReference Include="..\..\CategoryTheory\CategoryTheory\CategoryTheory\CategoryTheory.csproj">
-      <Project>{01323e7d-da29-4d48-8c46-a44c117a8d12}</Project>
-      <Name>CategoryTheory</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\ColorUI\ColorUI.csproj">
-      <Project>{D987F774-99F8-4CD4-BBAA-27A81C2C5FAF}</Project>
-      <Name>ColorUI</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\CommonService\CommonService\CommonService.csproj">
-      <Project>{576A21E9-FAC4-4AAF-9C7C-0776AF7ECB9C}</Project>
-      <Name>CommonService</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Database\DataWarehouse\DataWarehouse\DataWarehouse.csproj">
-      <Project>{15585fbd-84ba-4e39-ab86-e62a0d42a2d3}</Project>
-      <Name>DataWarehouse</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\DataPerformer\DataPerformer.Base\DataPerformer.Base\DataPerformer.Base.csproj">
-      <Project>{cde580bc-cfe5-45d3-b9a2-76585e54a416}</Project>
-      <Name>DataPerformer.Base</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\DataPerformer\DataPerformer.Interfaces\DataPerformer.Interfaces.csproj">
-      <Project>{f9d68183-6801-4214-affc-737acbef498e}</Project>
-      <Name>DataPerformer.Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\DataPerformer\DataPerformer.Portable\DataPerformer.Portable.csproj">
-      <Project>{4442e3e5-41b9-4f60-9c1a-07272d9c31d0}</Project>
-      <Name>DataPerformer.Portable</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\DataPerformer\DataPerformer.UI\DataPerformer.UI.csproj">
-      <Project>{9cbc2a5e-847f-4cdf-859a-711691c2ec5a}</Project>
-      <Name>DataPerformer.UI</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\DataPerformer\DataPerformer\DataPerformer.csproj">
-      <Project>{45233e94-ffef-4527-8c38-5e8f86b20881}</Project>
-      <Name>DataPerformer</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Diagram\Diagram.UI\Diagram.UI.csproj">
-      <Project>{3A2AB37F-17CD-4CB2-96C6-14D4EFBF8279}</Project>
-      <Name>Diagram.UI</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Diagram\Diagram.UI.Components\Diagram.UI.Components\Diagram.UI.Components.csproj">
-      <Project>{D1AF843A-8878-41D6-A59F-D2B68CF68A30}</Project>
-      <Name>Diagram.UI.Components</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Diagram\Diagram.UI.Forms\Diagram.UI.Forms.csproj">
-      <Project>{4FB6133D-2948-4E29-A7B2-5DD5FD750606}</Project>
-      <Name>Diagram.UI.Forms</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Diagram\Diagram.UI.Serializable\Diagram.UI.Serializable.csproj">
-      <Project>{868ADFD8-51C2-4CEC-8132-11E5A0F907E3}</Project>
-      <Name>Diagram.UI.Serializable</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Diagram\Diagram\Diagram.csproj">
-      <Project>{096f4ea8-6301-4545-96d6-286e67ccba5c}</Project>
-      <Name>Diagram</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Events\Event.Interfaces\Event.Interfaces.csproj">
-      <Project>{3006114c-ed81-4966-a1a4-88149fddb9a5}</Project>
-      <Name>Event.Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\FormulaEditor\FormulaEditor\FormulaEditor.csproj">
-      <Project>{20c36053-beeb-4142-878e-984af0b79740}</Project>
-      <Name>FormulaEditor</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\PhysicalField\PhysicalField.Interfaces\PhysicalField.Interfaces.csproj">
-      <Project>{A190AF0C-C139-45E5-B05E-92CEE8ED18FD}</Project>
-      <Name>PhysicalField.Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\PhysicalField\PhysicalField.Portable\PhysicalField.Portable.csproj">
-      <Project>{BAB74FBD-3A79-4679-A63A-351A6A2F743A}</Project>
-      <Name>PhysicalField.Portable</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\SphericalFields\SphericalFields.csproj">
-      <Project>{f2fa3848-4b15-4873-b43b-8bd168fe2282}</Project>
-      <Name>SphericalFields</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\TestCategory\TestCategory\TestCategory.csproj">
-      <Project>{087c8a5f-f10a-4aa5-a035-392063812165}</Project>
-      <Name>TestCategory</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\WindowsExtensions\WindowsExtensions.csproj">
-      <Project>{712b37a4-4fb4-4cc5-87d4-fade83194057}</Project>
-      <Name>WindowsExtensions</Name>
     </ProjectReference>
     <ProjectReference Include="..\Motion6D.Drawing\Motion6D.Drawing.csproj">
-      <Project>{9c3ee2b2-03da-4c46-ac84-b509dd70a217}</Project>
-      <Name>Motion6D.Drawing</Name>
     </ProjectReference>
     <ProjectReference Include="..\Motion6D.Interfaces\Motion6D.Interfaces.csproj">
-      <Project>{CB323095-3866-45A7-BF13-7D8BF1ABC666}</Project>
-      <Name>Motion6D.Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\Motion6D.Data\Motion6D.Data.csproj">
-      <Project>{B6F26938-3301-46B4-BB01-AAEA4D0BD2D4}</Project>
-      <Name>Motion6D.Data</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\OrdinaryDifferentialEquations\OrdinaryDifferentialEquations\OrdinaryDifferentialEquations.csproj">
-      <Project>{76A28755-E93A-4A8D-B24D-38CB3C2AFDBC}</Project>
-      <Name>OrdinaryDifferentialEquations</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\PhysicalField\PhysicalFieldLibrary\PhysicalFieldLibrary.csproj">
-      <Project>{65A6F9B6-6DB4-4932-A9F3-48B6BD7CF905}</Project>
-      <Name>PhysicalFieldLibrary</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\PhysicalField\PhysicalFieldSupport\PhysicalFieldSupport.csproj">
-      <Project>{B862E422-6C7A-4153-A6E4-B5D5C9450F4A}</Project>
-      <Name>PhysicalFieldSupport</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\PhysicalField\PhysicalField\PhysicalField.csproj">
-      <Project>{D27FCA8D-F0D6-4362-8B14-782100A07BD9}</Project>
-      <Name>PhysicalField</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\ResourceService\ResourceService.csproj">
-      <Project>{A7719FB8-AECF-4F38-83E4-5A1352C8ACD3}</Project>
-      <Name>ResourceService</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\SerializationInterface\SerializationInterface.csproj">
-      <Project>{7D532180-B3EC-4344-BB15-11DE8E8E7967}</Project>
-      <Name>SerializationInterface</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Vector3D\Vector3D.csproj">
-      <Project>{60B5B05A-EF3E-4455-89EB-74AD8630EE05}</Project>
-      <Name>Vector3D</Name>
     </ProjectReference>
     <ProjectReference Include="..\Motion6D.Portable\Motion6D.Portable.csproj">
-      <Project>{b23404b4-ce0f-4e64-a585-8181bae90fcd}</Project>
-      <Name>Motion6D.Portable</Name>
     </ProjectReference>
     <ProjectReference Include="..\Motion6D\Motion6D.csproj">
-      <Project>{d20072fa-274e-4d9c-bebf-e15b13bede69}</Project>
-      <Name>Motion6D</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
@@ -498,11 +131,11 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <SubType>Designer</SubType>
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <DependentUpon>Resources.Designer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ResourceImage.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>ResourceImage.Designer.cs</LastGenOutput>
+      <DependentUpon>ResourceImage.Designer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SimplePointsIdicator.resx">
       <SubType>Designer</SubType>
@@ -563,56 +196,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Utils\ResourceControl_Ru.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>ResourceControl_Ru.Designer.cs</LastGenOutput>
+      <DependentUpon>ResourceControl_Ru.Designer.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{B4F97281-0DBD-4835-9ED8-7DFB966E87FF}" />
+    <PackageReference Include="System.Resources.Extensions" Version="6.0.0-preview.3.21201.4" />
   </ItemGroup>
-  <ItemGroup>
-    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
-      <Visible>False</Visible>
-      <ProductName>.NET Framework Client Profile</ProductName>
-      <Install>false</Install>
-    </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
-      <Visible>False</Visible>
-      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
-      <Install>false</Install>
-    </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
-      <Visible>False</Visible>
-      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
-      <Install>false</Install>
-    </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
-      <Visible>False</Visible>
-      <ProductName>.NET Framework 3.5</ProductName>
-      <Install>false</Install>
-    </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
-      <Visible>False</Visible>
-      <ProductName>.NET Framework 3.5 SP1</ProductName>
-      <Install>true</Install>
-    </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.VisualBasic.PowerPacks.10.0">
-      <Visible>False</Visible>
-      <ProductName>Microsoft Visual Basic PowerPacks 10.0</ProductName>
-      <Install>true</Install>
-    </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
-      <Visible>False</Visible>
-      <ProductName>Windows Installer 3.1</ProductName>
-      <Install>true</Install>
-    </BootstrapperPackage>
-  </ItemGroup>
-  <ItemGroup />
-  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
 </Project>

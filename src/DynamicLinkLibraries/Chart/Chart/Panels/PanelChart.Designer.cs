@@ -25,16 +25,16 @@ namespace Chart.Panels
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.contextMenuStripChart = new System.Windows.Forms.ContextMenu();
-            this.copyToolStripMenuItem = new System.Windows.Forms.MenuItem();
-            this.copySeriesToolStripMenuItem = new System.Windows.Forms.MenuItem();
-            this.pasteToolStripMenuItem = new System.Windows.Forms.MenuItem();
-            this.formatToolStripMenuItem = new System.Windows.Forms.MenuItem();
+            this.contextMenuStripChart = new System.Windows.Forms.ContextMenuStrip();
+            this.copyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.copySeriesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pasteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.formatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
              this.SuspendLayout();
             // 
             // contextMenuStripChart
             // 
-            this.contextMenuStripChart.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
+            this.contextMenuStripChart.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.copyToolStripMenuItem,
             this.copySeriesToolStripMenuItem,
             this.pasteToolStripMenuItem,
@@ -65,16 +65,16 @@ namespace Chart.Panels
             // 
             // PanelChart
             // 
-            this.ContextMenu = this.contextMenuStripChart;
+            this.ContextMenuStrip = this.contextMenuStripChart;
             this.ResumeLayout(false);
 
         }
 
   
-        private ContextMenu contextMenuStripChart;
-        private MenuItem copyToolStripMenuItem;
-        private MenuItem copySeriesToolStripMenuItem;
-        private MenuItem pasteToolStripMenuItem;
-        private MenuItem formatToolStripMenuItem;
+        private ContextMenuStrip contextMenuStripChart;
+        private ToolStripMenuItem copyToolStripMenuItem;
+        private ToolStripMenuItem copySeriesToolStripMenuItem;
+        private ToolStripMenuItem pasteToolStripMenuItem;
+        private ToolStripMenuItem formatToolStripMenuItem;
     }
 }

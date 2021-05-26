@@ -233,22 +233,23 @@ namespace ToolBox
             MouseUp += new MouseEventHandler(onMouseUpEventHandler);
             MouseMove += new MouseEventHandler(onMouseMoveEventHandler);
             KeyDown += new KeyEventHandler(keyDown);
-            MenuItem itCopy = new MenuItem(Resources.GetControlResource("Copy", new Dictionary<string, object>[]
+            ToolStripMenuItem itCopy = new ToolStripMenuItem(Resources.GetControlResource("Copy", new Dictionary<string, object>[]
                 {
-                ResourceService.Resources.ControlResources}));
-            MenuItem itPaste = new MenuItem(Resources.GetControlResource("Paste", new Dictionary<string, object>[]
+                Resources.ControlResources}));
+            ToolStripMenuItem itPaste = new ToolStripMenuItem(Resources.GetControlResource("Paste", new Dictionary<string, object>[]
                 {
-                ResourceService.Resources.ControlResources}));
+                Resources.ControlResources}));
             itPaste.Click += new EventHandler(pasteClick);
             itCopy.Click += new EventHandler(copyClick);
             DragEnter += new DragEventHandler(dragEnter);
             DragDrop += new DragEventHandler(dragDrop);
-            ContextMenu = new ContextMenu(new MenuItem[] { itCopy, itPaste });
+            ContextMenuStrip = new ContextMenuStrip();
+            ContextMenuStrip.Items.AddRange(new ToolStripItem[] { itCopy, itPaste });
         }
 
         private void pasteClick(object sender, EventArgs e)
         {
-            IDataObject ob = System.Windows.Forms.Clipboard.GetDataObject();
+            IDataObject ob = Clipboard.GetDataObject();
             if (ob.GetDataPresent("System.Drawing.Bitmap"))
             {
                 Image = ob.GetData("System.Drawing.Bitmap") as Image;

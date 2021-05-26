@@ -13,6 +13,7 @@ using DataPerformer.Interfaces;
 
 using Scada.Interfaces;
 using Scada.Desktop;
+using AssemblyService.Attributes;
 
 namespace Scada.Motion6D
 {

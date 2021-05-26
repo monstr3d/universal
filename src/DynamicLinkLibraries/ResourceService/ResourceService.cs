@@ -289,7 +289,7 @@ namespace ResourceService
             {
                 LoadControlResources(c, resources);
             }
-            if (control is DataGrid)
+ /*           if (control is DataGrid)
             {
                 DataGrid grid = control as DataGrid;
                 if (grid.DataSource is DataTable)
@@ -300,7 +300,7 @@ namespace ResourceService
                         col.ColumnName = GetControlResource(col.ColumnName, resources);
                     }
                 }
-            }
+            }*/
             if (control is DataGridView)
             {
                 DataGridView dgv = control as DataGridView;
@@ -317,12 +317,12 @@ namespace ResourceService
             if (control is Form)
             {
                 Form form = control as Form;
-                Menu menu = form.Menu;
+                MenuStrip menu = form.MainMenuStrip;
                 if (menu != null)
                 {
-                    foreach (MenuItem item in menu.MenuItems)
+                    foreach (MenuStrip item in menu.Items)
                     {
-                        LoadMenuResourcesInternal(item, resources);
+                        LoadControlResources(item, resources);
                     }
                 }
             }
@@ -372,6 +372,7 @@ namespace ResourceService
             return key;
         }
 
+        /*
         /// <summary>
         /// Loads resources to menu items
         /// </summary>
@@ -715,20 +716,25 @@ namespace ResourceService
 
 
 
-		
-		/// <summary>
-		/// Loads resources to menu items
-		/// </summary>
+
+        /// <summary>
+        /// Loads resources to menu items
+        /// </summary>
         /// <param name="item">Parent item</param>
-		/// <param name="resources">Resources</param>
-		static internal void LoadMenuResourcesInternal(MenuItem item, Dictionary<string, object>[] resources)
-		{
-			item.Text = ResourceService.Resources.GetControlResource(item.Text, resources);
-			foreach (MenuItem it in item.MenuItems)
-			{
-                LoadMenuResourcesInternal(it, resources);
-			}
-		}
+        /// <param name="resources">Resources</param>
+        static internal void LoadMenuResourcesInternal(ToolStripItem item, Dictionary<string, object>[] resources)
+        {
+            item.Text = GetControlResource(item.Text, resources);
+            if (item is ToolStripDropDownItem)
+            {
+                ToolStripDropDownItem tdd = item as ToolStripDropDownItem;
+                foreach (ToolStripItem it in tdd.DropDownItems)
+                {
+                    LoadMenuResourcesInternal(it, resources);
+                }
+            }
+        }
+ 
 
         static internal void LoadToolMenuItem(ToolStripItem item, Dictionary<string, object>[] resources)
         {
@@ -818,11 +824,6 @@ namespace ResourceService
         internal static void LoadControlResources(TreeNode node, Dictionary<string, object>[] resources)
         {
             node.Text = GetControlResource(node.Text, resources);
-            ContextMenu cm = node.ContextMenu;
-            if (cm != null)
-            {
-                LoadControlResources(cm, resources);
-            }
             ContextMenuStrip cms = node.ContextMenuStrip;
             if (cms != null)
             {
@@ -833,7 +834,7 @@ namespace ResourceService
                 LoadControlResources(n, resources);
             }
         }
-
+/*
         internal static void LoadControlResources(ContextMenu cm, Dictionary<string, object>[] resources)
         {
             foreach (MenuItem it in cm.MenuItems)
@@ -841,5 +842,7 @@ namespace ResourceService
                 it.Text = GetControlResource(it.Text, resources);
             }
         }
+*/
 	}
+
 }

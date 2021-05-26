@@ -12,7 +12,7 @@ using Common.UI;
 
 using CommonControls.Interfaces;
 
-using DataWarehouse;
+using DataWarehouse.Forms;
 using DataWarehouse.Interfaces;
 
 namespace DataWarehouse.UserControls

@@ -47,7 +47,7 @@ namespace ResourceService
             {
                 LoadControlResources(c, resources);
             }
-            if (control is DataGrid)
+      /*      if (control is DataGrid)
             {
                 DataGrid grid = control as DataGrid;
                 if (grid.DataSource is DataTable)
@@ -58,7 +58,7 @@ namespace ResourceService
                         col.ColumnName = ResourceService.Resources.GetControlResource(col.ColumnName, resources);
                     }
                 }
-            }
+            }*/
             if (control is DataGridView)
             {
                 DataGridView dgv = control as DataGridView;
@@ -75,10 +75,10 @@ namespace ResourceService
             if (control is Form)
             {
                 Form form = control as Form;
-                Menu menu = form.Menu;
+                MenuStrip menu = form.MainMenuStrip;
                 if (menu != null)
                 {
-                    foreach (MenuItem item in menu.MenuItems)
+                    foreach (ToolStripItem item in menu.Items)
                     {
                         Resources.LoadMenuResourcesInternal(item, resources);
                     }

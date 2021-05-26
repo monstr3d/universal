@@ -6,6 +6,8 @@ using System.ComponentModel;
 using System.Collections;
 using System.Collections.Generic;
 
+using WinFormsUI.Docking;
+
 namespace WeifenLuo.WinFormsUI.Docking
 {
     internal class VS2005DockPaneStrip : DockPaneStripBase

@@ -269,7 +269,6 @@ namespace Diagram.UI
 					cl.Expand();
 				}
                 StaticExtensionDiagramUIForms.PostLabelLoad(lab);
-                
 			}
 			List<IArrowLabel> arrs = new List<IArrowLabel>();
              foreach (IArrowLabel l in arrows)

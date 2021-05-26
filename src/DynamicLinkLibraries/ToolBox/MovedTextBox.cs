@@ -397,7 +397,7 @@ namespace ToolBox
             movePicture.MouseUp += new MouseEventHandler(onMouseUpEventHandler);
             movePicture.MouseMove += new MouseEventHandler(onMouseMoveEventHandler);
             KeyDown += new KeyEventHandler(keyDown);
-            MenuItem itFont = new MenuItem("Font");
+           ToolStripMenuItem   itFont = new ToolStripMenuItem("Font");
             //	itFont.Text = "Font";
             itFont.Click += new EventHandler(selectFont);
             try

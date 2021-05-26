@@ -6,23 +6,21 @@ using System.Windows.Forms;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 
-using DataPerformer;
-using DataPerformer.Interfaces;
 
 namespace DataPerformer.UI
 {
 	/// <summary>
 	/// Summary description for FormSaveVectorFunction.
 	/// </summary>
-	public class FormSaveVectorFunction : System.Windows.Forms.Form
+	public class FormSaveVectorFunction : Form
 	{
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
 		private System.ComponentModel.Container components = null;
-		private System.Windows.Forms.MainMenu mainMenu1Form;
-		private System.Windows.Forms.MenuItem menuItemFile;
-		private System.Windows.Forms.MenuItem menuItemSave;
+		private System.Windows.Forms.MenuStrip mainMenu1Form;
+		private System.Windows.Forms.ToolStripMenuItem menuItemFile;
+		private System.Windows.Forms.ToolStripMenuItem menuItemSave;
 		private System.Windows.Forms.SaveFileDialog saveFileDialogArray;
 		private DoubleArrayFunction function;
 
@@ -75,33 +73,31 @@ namespace DataPerformer.UI
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.mainMenu1Form = new System.Windows.Forms.MainMenu();
-			this.menuItemFile = new System.Windows.Forms.MenuItem();
-			this.menuItemSave = new System.Windows.Forms.MenuItem();
+			this.mainMenu1Form = new System.Windows.Forms.MenuStrip();
+			this.menuItemFile = new System.Windows.Forms.ToolStripMenuItem();
+			this.menuItemSave = new System.Windows.Forms.ToolStripMenuItem();
 			this.saveFileDialogArray = new System.Windows.Forms.SaveFileDialog();
 			// 
 			// mainMenu1Form
 			// 
-			this.mainMenu1Form.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
+			this.mainMenu1Form.Items.AddRange(new System.Windows.Forms.ToolStripMenuItem[] {
 																						  this.menuItemFile});
 			// 
 			// menuItemFile
 			// 
-			this.menuItemFile.Index = 0;
-			this.menuItemFile.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
+			this.menuItemFile.DropDownItems.AddRange(new System.Windows.Forms.ToolStripMenuItem[] {
 																						 this.menuItemSave});
 			this.menuItemFile.Text = "File";
 			// 
 			// menuItemSave
 			// 
-			this.menuItemSave.Index = 0;
 			this.menuItemSave.Text = "Save as";
 			this.menuItemSave.Click += new System.EventHandler(this.menuItemSave_Click);
 			// 
 			// FormSaveVectorFunction
 			// 
 			this.ClientSize = new System.Drawing.Size(648, 389);
-			this.Menu = this.mainMenu1Form;
+			this.MainMenuStrip = this.mainMenu1Form;
 			this.Name = "FormSaveVectorFunction";
 			this.Text = "FormSaveVectorFunction";
 

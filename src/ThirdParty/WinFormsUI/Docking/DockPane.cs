@@ -7,6 +7,8 @@ using System.Runtime.InteropServices;
 using System.Security.Permissions;
 using System.Diagnostics.CodeAnalysis;
 
+using WinFormsUI.Docking;
+
 namespace WeifenLuo.WinFormsUI.Docking
 {
     [ToolboxItem(false)]
@@ -261,7 +263,7 @@ namespace WeifenLuo.WinFormsUI.Docking
                 return;
             }
 
-            ContextMenu contextMenu = menu as ContextMenu;
+            ContextMenuStrip contextMenu = menu as ContextMenuStrip;
             if (contextMenu != null)
                 contextMenu.Show(this, position);
         }

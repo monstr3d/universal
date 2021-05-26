@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Runtime.Serialization;
-
+using AssemblyService.Attributes;
 using CategoryTheory;
 
 using Diagram.UI;
@@ -22,6 +22,10 @@ namespace Event.Basic.Data
         {
 
         }
+
+        /// <summary>
+        /// Constructor
+        /// </summary>
         static StaticExtensionEventBasicData()
         {
             new Binder();
@@ -38,8 +42,14 @@ namespace Event.Basic.Data
             {
                 string ass = assemblyName;
                 string tn = typeName;
-                if (assemblyName.Contains("Event.Basic.Data"))
+                if (assemblyName.Contains("Event.Basic.Data,"))
                 {
+                    var a = typeof(Binder).Assembly.FullName;
+                    Type type = Type.GetType(string.Format("{0}, {1}", tn, a));
+                    if (type != null)
+                    {
+                        return type;
+                    }
                     if (tn.Contains("LogListHolder"))
                     {
                         ass = typeof(LogHolder).Assembly.FullName;

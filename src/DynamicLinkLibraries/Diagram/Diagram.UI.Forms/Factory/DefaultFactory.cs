@@ -9,7 +9,6 @@ using System.Runtime.Serialization;
 using CategoryTheory;
 
 using Diagram.UI.Labels;
-using Diagram.UI.Factory;
 using Diagram.UI.Interfaces.Labels;
 using Diagram.UI.Interfaces;
 
@@ -30,12 +29,12 @@ namespace Diagram.UI.Factory
         public static readonly ButtonWrapper[] DefaultObjectButtons =
             new ButtonWrapper[]
              {
-             new ButtonWrapper(typeof(Diagram.UI.MultiLibraryObject),
+             new ButtonWrapper(typeof(MultiLibraryObject),
                     "", "Multi library", ResourceImage.MultiInterface, null, true, false),
-             new ButtonWrapper(typeof(Diagram.UI.ObjectsCollection),
+             new ButtonWrapper(typeof(ObjectsCollection),
                     typeof(object).FullName, "Collection of objects", ResourceImage.Collection, null, true, false)
              };
-        
+
         #endregion
 
         #region Ctor

@@ -59,8 +59,8 @@ namespace DataPerformer.Helpers
             try
             {
                 step = info.GetDouble("Step");
-                transformerType = info.GetValue("TransformerType", typeof(Type)) as Type;
                 measurements = info.GetString("Measurements");
+                transformerType = info.GetValue("TransformerType", typeof(Type)) as Type;
             }
             catch (Exception)
             {
@@ -109,10 +109,17 @@ namespace DataPerformer.Helpers
         /// <param name="context">Streaming context</param>
         public override void GetObjectData(SerializationInfo info, StreamingContext context)
         {
-            base.GetObjectData(info, context);
-            info.AddValue("Step", step);
-            info.AddValue("TransformerType", transformerType, typeof(Type));
-            info.AddValue("Measurements", measurements);
+            try
+            {
+                base.GetObjectData(info, context);
+                info.AddValue("Step", step);
+                info.AddValue("Measurements", measurements);
+                info.AddValue("TransformerType", transformerType, typeof(Type));
+            }
+            catch (Exception ex)
+            {
+
+            }
         }
 
         #endregion

@@ -79,8 +79,6 @@
             this.panelBottomMain = new System.Windows.Forms.Panel();
             this.userControlRealtimeMeasurements = new DataPerformer.UI.UserControls.UserControlRealtimeMeasurements();
             this.userControlRealtimeList = new DataPerformer.UI.UserControls.UserControlRealtimeList();
-            this.elementHost = new System.Windows.Forms.Integration.ElementHost();
-            this.performer = new DataPerformer.UI.UserControls.Wpf.UserControlWpfChart();
             this.panelCenterMain.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tabPageDigital.SuspendLayout();
@@ -388,7 +386,6 @@
             // 
             // panelChart
             // 
-            this.panelChart.Controls.Add(this.elementHost);
             this.panelChart.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelChart.Location = new System.Drawing.Point(0, 0);
             this.panelChart.Name = "panelChart";
@@ -539,19 +536,7 @@
             this.userControlRealtimeList.Name = "userControlRealtimeList";
             this.userControlRealtimeList.Size = new System.Drawing.Size(248, 244);
             this.userControlRealtimeList.TabIndex = 0;
-            // 
-            // elementHost
-            // 
-            this.elementHost.BackColor = System.Drawing.Color.Black;
-            this.elementHost.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.elementHost.Location = new System.Drawing.Point(0, 0);
-            this.elementHost.MaximumSize = new System.Drawing.Size(10000, 10000);
-            this.elementHost.Name = "elementHost";
-            this.elementHost.Size = new System.Drawing.Size(426, 248);
-            this.elementHost.TabIndex = 0;
-            this.elementHost.Text = "elementHost";
-            this.elementHost.Child = this.performer;
-            // 
+             // 
             // UserControlRealtime
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -639,7 +624,5 @@
         private System.Windows.Forms.Panel panelBottom;
         private System.Windows.Forms.Panel panelChart;
         private System.Windows.Forms.Label labelTime;
-        private System.Windows.Forms.Integration.ElementHost elementHost;
-        private Wpf.UserControlWpfChart performer;
     }
 }

@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+
+using AssemblyService.Attributes;
 
 using Diagram.Interfaces;
 using Diagram.UI;
@@ -9,8 +12,6 @@ using DataPerformer.Interfaces;
 using DataPerformer.Portable;
 
 using Regression.Portable;
-using CategoryTheory;
-using System.IO;
 
 namespace GeneratedProject
 {

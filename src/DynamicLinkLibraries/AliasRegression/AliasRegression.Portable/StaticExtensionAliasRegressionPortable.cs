@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using AssemblyService.Attributes;
 using CategoryTheory;
 using Diagram.UI;
 using Diagram.UI.Interfaces;

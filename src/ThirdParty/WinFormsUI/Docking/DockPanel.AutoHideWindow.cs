@@ -3,6 +3,8 @@ using System.Windows.Forms;
 using System.Drawing;
 using System.Runtime.InteropServices;
 
+using WinFormsUI.Docking;
+
 namespace WeifenLuo.WinFormsUI.Docking
 {
     partial class DockPanel

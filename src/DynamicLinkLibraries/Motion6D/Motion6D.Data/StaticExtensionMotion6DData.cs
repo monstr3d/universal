@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using AssemblyService.Attributes;
 using Diagram.UI;
 
 
@@ -11,7 +11,7 @@ namespace Motion6D
     /// <summary>
     /// Extension of methods
     /// </summary>
-    [CategoryTheory.InitAssembly]
+    [InitAssembly]
     public static class StaticExtensionMotion6DData
     {
 

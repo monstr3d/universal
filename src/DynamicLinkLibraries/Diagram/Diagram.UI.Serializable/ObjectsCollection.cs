@@ -60,7 +60,14 @@ namespace Diagram.UI
         /// <param name="context">Streaming context</param>
         protected ObjectsCollection(SerializationInfo info, StreamingContext context)
         {
-            type = info.GetValue("Type", typeof(Type)) as Type;
+            try
+            {
+                type = info.GetValue("Type", typeof(Type)) as Type;
+            }
+            catch (Exception exception)
+            {
+
+            }
         }
 
         #endregion
@@ -74,7 +81,14 @@ namespace Diagram.UI
         /// <param name="context">Streaming context</param>
         public virtual void GetObjectData(SerializationInfo info, StreamingContext context)
         {
-            info.AddValue("Type", type, typeof(Type));
+            try
+            {
+                info.AddValue("Type", type, typeof(Type));
+            }
+            catch (Exception exception)
+            {
+
+            }
         }
 
         #endregion

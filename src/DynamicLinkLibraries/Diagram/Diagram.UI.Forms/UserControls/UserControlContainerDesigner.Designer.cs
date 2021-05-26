@@ -81,14 +81,14 @@
             this.panelIntBottom = new System.Windows.Forms.Panel();
             this.buttonAcceptAll = new System.Windows.Forms.Button();
             this.panelIntTop = new System.Windows.Forms.Panel();
-            this.menuItemSaveAs = new System.Windows.Forms.MenuItem();
-            this.menuItem3 = new System.Windows.Forms.MenuItem();
-            this.mainMenuDesigner = new System.Windows.Forms.MainMenu(this.components);
-            this.menuItemFile = new System.Windows.Forms.MenuItem();
-            this.menuItemOpen = new System.Windows.Forms.MenuItem();
-            this.menuItemSeparator = new System.Windows.Forms.MenuItem();
-            this.menuItem1 = new System.Windows.Forms.MenuItem();
-            this.menuItem2 = new System.Windows.Forms.MenuItem();
+            this.menuItemSaveAs = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.mainMenuDesigner = new System.Windows.Forms.MenuStrip();
+            this.menuItemFile = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuItemOpen = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuItemSeparator = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripButtonRefresh = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonClear = new System.Windows.Forms.ToolStripButton();
             this.panelLeft = new System.Windows.Forms.Panel();
@@ -662,23 +662,20 @@
             // 
             // menuItemSaveAs
             // 
-            this.menuItemSaveAs.Index = 2;
             this.menuItemSaveAs.Text = "Save as";
             // 
             // menuItem3
             // 
-            this.menuItem3.Index = 5;
             this.menuItem3.Text = "Exit";
             // 
             // mainMenuDesigner
             // 
-            this.mainMenuDesigner.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
+            this.mainMenuDesigner.Items.AddRange(new System.Windows.Forms.ToolStripMenuItem[] {
             this.menuItemFile});
             // 
             // menuItemFile
             // 
-            this.menuItemFile.Index = 0;
-            this.menuItemFile.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
+            this.menuItemFile.DropDownItems.AddRange(new System.Windows.Forms.ToolStripMenuItem[] {
             this.menuItemOpen,
             this.menuItemSeparator,
             this.menuItemSaveAs,
@@ -689,22 +686,18 @@
             // 
             // menuItemOpen
             // 
-            this.menuItemOpen.Index = 0;
             this.menuItemOpen.Text = "Open";
             // 
             // menuItemSeparator
             // 
-            this.menuItemSeparator.Index = 1;
             this.menuItemSeparator.Text = "-";
             // 
             // menuItem1
             // 
-            this.menuItem1.Index = 3;
             this.menuItem1.Text = "Save";
             // 
             // menuItem2
             // 
-            this.menuItem2.Index = 4;
             this.menuItem2.Text = "-";
             // 
             // toolStripButtonRefresh
@@ -890,14 +883,14 @@
         private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.Panel panelIntBottom;
         private System.Windows.Forms.Panel panelIntTop;
-        private System.Windows.Forms.MenuItem menuItemSaveAs;
-        private System.Windows.Forms.MenuItem menuItem3;
-        private System.Windows.Forms.MainMenu mainMenuDesigner;
-        private System.Windows.Forms.MenuItem menuItemFile;
-        private System.Windows.Forms.MenuItem menuItemOpen;
-        private System.Windows.Forms.MenuItem menuItemSeparator;
-        private System.Windows.Forms.MenuItem menuItem1;
-        private System.Windows.Forms.MenuItem menuItem2;
+        private System.Windows.Forms.ToolStripMenuItem menuItemSaveAs;
+        private System.Windows.Forms.ToolStripMenuItem menuItem3;
+        private System.Windows.Forms.MenuStrip mainMenuDesigner;
+        private System.Windows.Forms.ToolStripMenuItem menuItemFile;
+        private System.Windows.Forms.ToolStripMenuItem menuItemOpen;
+        private System.Windows.Forms.ToolStripMenuItem menuItemSeparator;
+        private System.Windows.Forms.ToolStripMenuItem menuItem1;
+        private System.Windows.Forms.ToolStripMenuItem menuItem2;
         private System.Windows.Forms.ToolStripButton toolStripButtonRefresh;
         private System.Windows.Forms.ToolStripButton toolStripButtonClear;
         private System.Windows.Forms.Panel panelLeft;

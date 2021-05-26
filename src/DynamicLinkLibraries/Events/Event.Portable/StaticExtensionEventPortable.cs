@@ -22,6 +22,7 @@ using Event.Portable.Arrows;
 using Event.Portable.Interfaces;
 using Event.Portable.Internal;
 using DataPerformer.Portable.Interfaces;
+using AssemblyService.Attributes;
 
 namespace Event.Portable
 {

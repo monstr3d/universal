@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using AssemblyService.Attributes;
 using Diagram.UI;
 using Diagram.UI.Interfaces;
 
@@ -11,7 +11,7 @@ namespace DinAtm
     /// <summary>
     /// Static extensions
     /// </summary>
-    [CategoryTheory.InitAssembly()]
+    [InitAssembly]
     public static class StaticExtensionAtmosphere
     {
         /// <summary>

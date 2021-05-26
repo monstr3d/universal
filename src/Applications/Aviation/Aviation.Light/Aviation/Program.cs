@@ -27,7 +27,11 @@ namespace Aviation.Light
         [STAThread]
         static void Main(string[] args)
         {
-            string filename = "";
+            AssemblyService.StaticExtensionAssemblyService.Init();
+
+
+
+        string filename = "";
        /*         Type t = typeof(Motion6D.Aggregates.RigidBody);
                 string st = t.FullName + "," + t.Assembly; //*/
             TextWriter logWriter = null;
@@ -107,7 +111,7 @@ namespace Aviation.Light
             Scada.Desktop.StaticExtensionScadaDesktop.ScadaFactory = Scada.Desktop.Serializable.StaticExtensionScadaDesktopSerializable.BaseFactory;
             List<ButtonWrapper> l = new List<ButtonWrapper>();
             l.AddRange(ControlSystemLib.Data.UI.Factory.ControlSystemsFactory.ObjectButtons);
-            Form form = StaticExtension.CreateAviationFormFull(GetButtons(factory), new IApplicationInitializer[0],
+            Form form =   StaticExtension.CreateAviationFormFull(GetButtons(factory), new IApplicationInitializer[0],
                null, null, filename, null, Factories,
                null, true,
                 "Aviation simulation processor",
