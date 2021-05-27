@@ -15,16 +15,20 @@ namespace ToolBox
     [InitAssembly]
     public static class StaticExtensionToolBox
     {
+        /// <summary>
+        /// Constructor
+        /// </summary>
         static  StaticExtensionToolBox()
         {
-
+            new Binder();
         }
+
         /// <summary>
         /// Inits itself
         /// </summary>
         static public void Init()
         {
-            new Binder();
+
         }
 
         class Binder : System.Runtime.Serialization.SerializationBinder

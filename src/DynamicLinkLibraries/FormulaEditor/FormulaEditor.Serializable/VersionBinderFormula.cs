@@ -209,6 +209,7 @@ namespace FormulaEditor
             {
                 return typeof(List<MathSymbol>);
             }
+            
             Type t = Type.GetType(String.Format("{0}, {1}", typ, an));
             if (t == null)
             {
@@ -217,7 +218,21 @@ namespace FormulaEditor
                     typ = "FormulaEditor.Symbols." + typ.Substring("FormulaEditor.".Length);
                     t = Type.GetType(String.Format("{0}, {1}", typ, an));
                 }
+                if (t == null)
+                {
+                    t = Type.GetType(String.Format("{0}, {1}", typ, an));
+                }
+                if (t == null)
+                {
+                    t = Type.GetType(String.Format("{0}, {1}", typ, assS.FullName));
+                }
+                if (t == null)
+                {
+                    t = Type.GetType(String.Format("{0}, {1}", typ, assF.FullName));
+                }
+
             }
+
             return t;
         }
     }

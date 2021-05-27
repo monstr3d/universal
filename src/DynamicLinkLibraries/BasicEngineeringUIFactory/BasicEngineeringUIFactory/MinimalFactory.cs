@@ -102,12 +102,12 @@ namespace BasicEngineering.UI.Factory
                 // Creation of VectorFormulaConsumer property editor
                 if (obj is VectorFormulaConsumer)
                 {
-                    return new DataPerformer.UI.Forms.FormVectorConsumer(lab);
+                    return new FormVectorConsumer(lab);
                 }
                 if (obj.GetType().Equals(typeof(DataPerformer.Series)))
                 {
                     object[] array = new object[] { (int)0, System.Drawing.Color.Red, new System.Collections.ICollection[0], true };
-                    return new DataPerformer.UI.Forms.FormSeries(lab, array);
+                    return new FormSeries(lab, array);
                 }
                 if (obj is Table3D)
                 {
