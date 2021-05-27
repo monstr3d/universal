@@ -42,6 +42,7 @@ namespace Event.UI
         {
             new Binder();
         }
+
         /// <summary>
         /// Edition of conncetion sttring
         /// </summary>

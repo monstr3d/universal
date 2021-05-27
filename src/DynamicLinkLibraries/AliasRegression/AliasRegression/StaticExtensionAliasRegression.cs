@@ -6,20 +6,15 @@ using System.Text;
 using System.Threading.Tasks;
 
 using AssemblyService.Attributes;
-
-using CategoryTheory;
-
 using Diagram.UI;
 
-using Dynamic.Atmosphere.UI.Factory;
-
-namespace Dynamic.Atmosphere.UI
+namespace AliasRegression
 {
     /// <summary>
-    /// Static extensions
+    /// Static extension methods
     /// </summary>
     [InitAssembly]
-    public static class StaticExtensionDynamicAtmosphereUI
+    class StaticExtensionAliasRegression
     {
         /// <summary>
         /// Inits itself
@@ -29,9 +24,8 @@ namespace Dynamic.Atmosphere.UI
 
         }
 
-        static StaticExtensionDynamicAtmosphereUI()
+        static StaticExtensionAliasRegression()
         {
-            (new UIFactory()).Add();
             new Binder();
         }
 
@@ -46,7 +40,7 @@ namespace Dynamic.Atmosphere.UI
             {
                 string ass = assemblyName;
                 string tn = typeName;
-                if (assemblyName.Contains("Dynamic.Atmosphere.UI,"))
+                if (assemblyName.Contains("AliasRegression,"))
                 {
                     var a = typeof(Binder).Assembly.FullName;
                     Type type = Type.GetType(string.Format("{0}, {1}", tn, a));
@@ -58,6 +52,5 @@ namespace Dynamic.Atmosphere.UI
                 return null;
             }
         }
-
     }
 }
