@@ -280,9 +280,10 @@ namespace Diagram.UI
             {
                 if (active != null)
                 {
-                    active.Checked = false;
+                    active.CheckState = CheckState.Unchecked;
                 }
                 active = but;
+                active.CheckState = CheckState.Checked;
             }
         }
 

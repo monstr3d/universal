@@ -14,7 +14,6 @@ namespace Gravity_36_36.Wrapper.Serializable
     /// Static extension methods
     /// </summary>
     [InitAssembly]
-
     public class StaticExtensionGravity_36_36_WrapperSerializable
     {
 
@@ -47,22 +46,23 @@ namespace Gravity_36_36.Wrapper.Serializable
         //!!!BINDER
         class Binder : System.Runtime.Serialization.SerializationBinder
         {
-            static readonly Type type = typeof(Wrapper.Gravity);
+            static readonly Type type = typeof(Binder);
 
-            static readonly string tn = type.FullName;
 
+            static string ass;
             internal Binder()
             {
-                    this.Add();
+                ass = type.Assembly.FullName;
+                this.Add();
             }
-            readonly string[] types = new string[] { "DataPerformerUI", "DataPerformer.UI" };
-            public override Type BindToType(string assemblyName, string typeName)
+             public override Type BindToType(string assemblyName, string typeName)
             {
-               if (typeName == tn)
+                if(assemblyName.Contains("Gravity_36_36.Wrapper.Serializable"))
                 {
-                    return type;
+                    return Type.GetType(string.Format("{0}, {1}",
+                            typeName, ass));
                 }
-                return null;
+                 return null;
 
             }
         }

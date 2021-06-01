@@ -27,13 +27,18 @@ namespace Aviation.Light
         [STAThread]
         static void Main(string[] args)
         {
+            Application.SetHighDpiMode(HighDpiMode.SystemAware);
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+
             AssemblyService.StaticExtensionAssemblyService.Init();
 
 
 
         string filename = "";
-       /*         Type t = typeof(Motion6D.Aggregates.RigidBody);
-                string st = t.FullName + "," + t.Assembly; //*/
+            /*         Type t = typeof(Motion6D.Aggregates.RigidBody);
+                     string st = t.FullName + "," + t.Assembly; //*/
+ //           new Gravity_36_36.Gravity();
             TextWriter logWriter = null;
             if (args != null)
             {

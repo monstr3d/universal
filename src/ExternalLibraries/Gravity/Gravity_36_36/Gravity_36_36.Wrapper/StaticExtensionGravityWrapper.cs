@@ -1,8 +1,10 @@
-﻿using AssemblyService.Attributes;
-using CategoryTheory;
+﻿
 using System;
 using System.Collections.Generic;
 using System.Text;
+
+using AssemblyService.Attributes;
+
 
 namespace Gravity_36_36.Wrapper
 {
@@ -10,7 +12,7 @@ namespace Gravity_36_36.Wrapper
     /// Static extension methods
     /// </summary>
     [InitAssembly]
-    public static class StaticExtensionGravity_36_36_Portable
+    public static class StaticExtensionGravityWrapper
     {
 
         #region Public Members
@@ -30,7 +32,7 @@ namespace Gravity_36_36.Wrapper
         /// <summary>
         /// Constructor
         /// </summary>
-        static StaticExtensionGravity_36_36_Portable()
+        static StaticExtensionGravityWrapper()
         {
             new CodeCreators.CSCodeCreator();
         }
