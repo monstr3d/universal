@@ -120,7 +120,7 @@ namespace Aviation.Light
                null, null, filename, null, Factories,
                null, true,
                 "Aviation simulation processor",
-                Properties.Resources.Aviation, logWriter, testInterface);
+                Resources.ResourceImage.Aviation, logWriter, testInterface);
             return form;
         }
 
