@@ -143,10 +143,11 @@ namespace Scripts
             SetCamera(rf);
        }
 
-        internal static void Get(out IScadaInterface scada, out IEvent ev, out ReferenceFrame xFrame)
+        internal static void Get(out IScadaInterface scada, out IEvent ev,  out IEvent fuelEvent, ReferenceFrame xFrame)
         {
             scada = RigidBodyStation.ToExistedScada();
             ev = scada["Force"];
+            fuelEvent = scada["Fuel over"];
             xFrame = scada.GetOutput("X-Frame.Frame")() as ReferenceFrame;
         }
 

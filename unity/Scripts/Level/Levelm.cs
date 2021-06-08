@@ -31,6 +31,8 @@ namespace Scripts
 
         protected IEvent ev;
 
+        protected IEvent fuelEv;
+
         protected IScadaInterface scada;
 
         protected Func<double> fx;
@@ -67,7 +69,7 @@ namespace Scripts
                 l.Add(Level0.RigidBodyStation + "." + s);
             }
             levelm = this;
-            Level0.Get(out scada, out ev, out frame);
+            Level0.Get(out scada, out ev, out fuelEv, frame);
             aVelocity = frame as IAngularVelocity;
             velocity = frame as IVelocity;
             orientation = frame as IOrientation;

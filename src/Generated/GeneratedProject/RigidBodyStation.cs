@@ -38,6 +38,7 @@ namespace GeneratedProject
 				objects.Add(new IntrenalDesktop.OblectLabel18("Shifted Frame", this));
 				objects.Add(new IntrenalDesktop.OblectLabel19("Aim 1", this));
 				objects.Add(new IntrenalDesktop.OblectLabel20("Aim 2", this));
+				objects.Add(new IntrenalDesktop.OblectLabel21("Fuel over", this));
 				Diagram.UI.Labels.PureArrowLabel currALabel = null;
 				currALabel  = new IntrenalDesktop.ArrowLabel0("", this);
 				arrows.Add(currALabel);
@@ -179,6 +180,18 @@ namespace GeneratedProject
 				arrows.Add(currALabel);
 				currALabel.SourceNumber = (int)11;
 				currALabel.TargetNumber = (int)8;
+				currALabel  = new IntrenalDesktop.ArrowLabel35("", this);
+				arrows.Add(currALabel);
+				currALabel.SourceNumber = (int)21;
+				currALabel.TargetNumber = (int)11;
+				currALabel  = new IntrenalDesktop.ArrowLabel36("", this);
+				arrows.Add(currALabel);
+				currALabel.SourceNumber = (int)17;
+				currALabel.TargetNumber = (int)21;
+				currALabel  = new IntrenalDesktop.ArrowLabel37("", this);
+				arrows.Add(currALabel);
+				currALabel.SourceNumber = (int)21;
+				currALabel.TargetNumber = (int)1;
 				bool pl = PostLoad();
 				bool pd = PostDeserialize();
 				SuccessLoad = pl & pd;
@@ -215,7 +228,7 @@ namespace GeneratedProject
 					ini.Add((System.Double)0);
 					ini.Add((System.Double)0);
 					ini.Add((System.Double)0);
-					ini.Add((System.Double)0);
+					ini.Add((System.Double)1);
 					initial = new object[ini.Count];
 					for (int i = 0; i < ini.Count; i++)
 					{
@@ -2722,15 +2735,15 @@ namespace GeneratedProject
 						};
 						aliases = new Dictionary<object, object>()
 						{
-										{"c" , (System.Double)(-0.01)}
+										{"y" , (System.Double)(1)}
 							,			{"d" , (System.Double)(-0.01)}
-							,			{"b" , (System.Double)(-0.01)}
 							,			{"o" , (System.Double)(-0.01)}
-							,			{"y" , (System.Double)(1)}
-							,			{"g" , (System.Double)(-0.01)}
 							,			{"a" , (System.Double)(-0.01)}
+							,			{"b" , (System.Double)(-0.01)}
 							,			{"f" , (System.Double)(-0.01)}
 							,			{"x" , (System.Double)(1)}
+							,			{"g" , (System.Double)(-0.01)}
+							,			{"c" , (System.Double)(-0.01)}
 						};
 						isSerialized = true;
 						calculateDerivation = false;
@@ -6246,6 +6259,26 @@ namespace GeneratedProject
 				
 			}
 		
+			internal class OblectLabel21 : Diagram.UI.Labels.PureObjectLabel
+			{
+				internal OblectLabel21(string name, Diagram.UI.Interfaces.IDesktop desktop) : base(name, "", "", 0, 0)
+				{
+					this.desktop = desktop;
+					obj = new OblectLabel21.CategoryObject();
+					obj.Object = this;
+				}
+		
+				internal class CategoryObject : Event.Portable.Events.ThresholdEvent
+				{
+				internal CategoryObject()
+				{
+					Type = (double)0;
+					Measurement = "Fuel rate.x";
+					Decrease = true;
+					}
+				}
+			}
+		
 			internal class ArrowLabel0 : Diagram.UI.Labels.PureArrowLabel
 			{
 				internal ArrowLabel0(string name, Diagram.UI.Interfaces.IDesktop desktop) : base(name, "", "", 0, 0)
@@ -6697,6 +6730,45 @@ namespace GeneratedProject
 				}
 		
 				internal class CategoryArrow : DataPerformer.Portable.DataLink
+				{
+				}
+			}
+		
+			internal class ArrowLabel35 : Diagram.UI.Labels.PureArrowLabel
+			{
+				internal ArrowLabel35(string name, Diagram.UI.Interfaces.IDesktop desktop) : base(name, "", "", 0, 0)
+				{
+					this.desktop = desktop;
+					arrow = new ArrowLabel35.CategoryArrow();
+				}
+		
+				internal class CategoryArrow : DataPerformer.Portable.DataLink
+				{
+				}
+			}
+		
+			internal class ArrowLabel36 : Diagram.UI.Labels.PureArrowLabel
+			{
+				internal ArrowLabel36(string name, Diagram.UI.Interfaces.IDesktop desktop) : base(name, "", "", 0, 0)
+				{
+					this.desktop = desktop;
+					arrow = new ArrowLabel36.CategoryArrow();
+				}
+		
+				internal class CategoryArrow : Diagram.UI.BelongsToCollectionPortable
+				{
+				}
+			}
+		
+			internal class ArrowLabel37 : Diagram.UI.Labels.PureArrowLabel
+			{
+				internal ArrowLabel37(string name, Diagram.UI.Interfaces.IDesktop desktop) : base(name, "", "", 0, 0)
+				{
+					this.desktop = desktop;
+					arrow = new ArrowLabel37.CategoryArrow();
+				}
+		
+				internal class CategoryArrow : Event.Portable.Arrows.EventLink
 				{
 				}
 			}

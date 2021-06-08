@@ -43,6 +43,10 @@ namespace Event.UI.Factory
                     "", 
                     "Forced data event", Properties.Resources.Joystick, 
                     null, true, false),
+                    new ButtonWrapper(typeof(Basic.Events.ThresholdEvent),
+                    "",
+                    "Threshold event", Properties.Resources.Threshold.ToBitmap(),
+                    null, true, false),
                     new ButtonWrapper(typeof(Basic.Data.Events.ForcedEventData),
                     "CircularControl2D", 
                     "Forced data event + circular control", Properties.Resources.JoystickCircular, 
@@ -117,6 +121,11 @@ namespace Event.UI.Factory
             {
                 return new Basic.Data.Events.ImportedEventWriter(kind);
             }
+            if (type.Equals(typeof(Basic.Events.ThresholdEvent)))
+            {
+                return new Basic.Events.ThresholdEvent();
+            }
+
             if (type.Equals(typeof(Basic.Data.Events.ForcedEventData)))
             {
                 if (kind.Equals("CircularControl2D"))
@@ -169,8 +178,14 @@ namespace Event.UI.Factory
             }
             if (type.Equals(typeof(Basic.Events.ForcedEvent)))
             {
-                return 
-                    (new Labels.ForcedEventLabel(type, 
+                return
+                    (new Labels.ForcedEventLabel(type,
+                        kind, button.ButtonImage as System.Drawing.Image)).CreateLabelUI(button.ButtonImage, false);
+            }
+            if (type.Equals(typeof(Basic.Events.ThresholdEvent)))
+            {
+                return
+                    (new Labels.ThresholdEventLabel(type,
                         kind, button.ButtonImage as System.Drawing.Image)).CreateLabelUI(button.ButtonImage, false);
             }
             if (type.Equals(typeof(Basic.Events.Timer)))

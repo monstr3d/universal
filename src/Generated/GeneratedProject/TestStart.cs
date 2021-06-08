@@ -23,14 +23,30 @@ namespace GeneratedProject
 
         static TestStart()
         {
-            string fileName = @"F:\0Unity\Motion\Assets\Scripts\GeneratedProject\RigidBodyStation.cs";
+            string[] fn = new string[] { "RigidBodyStation", "EarthMotion" };
+            string fileName = @"F:\0Unity\Motion\Assets\Scripts\GeneratedProject\";
+
+
             StaticExtensionDiagramUI.OnCreateCode += (List<string> l) =>
                 {
-                    if (File.Exists(fileName))
+                    var ff = fileName;
+                    foreach (var s in l)
                     {
-                        File.Delete(fileName);
+                        foreach (var p in fn)
+                        {
+                            if (s.Contains(p))
+                            {
+                                ff += p + ".cs";
+                                goto m;
+                            }
+                        }
                     }
-                    using (TextWriter w = new StreamWriter(fileName))
+                    m:
+                    if (File.Exists(ff))
+                    {
+                        File.Delete(ff);
+                    }
+                    using (TextWriter w = new StreamWriter(ff))
                     {
                         foreach (string s in l)
                         {

@@ -46,11 +46,17 @@ namespace Event.Portable
                     l.Add("}");
                     return l;
                 }
-                if (obj is Event.Portable.Events.ForcedEventData)
+                if (obj is Events.ForcedEventData)
                 {
                     CreateForcedEventData(obj as Events.ForcedEventData, l);
                     return l;
                 }
+                if (obj is Events.ThresholdEvent)
+                {
+                    CreateThresholdEvent(obj as Events.ThresholdEvent, l);
+                    return l;
+                }
+
             }
             if (str == null)
             {
@@ -65,6 +71,21 @@ namespace Event.Portable
         #endregion
 
         #region Private Members
+
+        void CreateThresholdEvent(Events.ThresholdEvent thresholdEvent, List<string> l)
+        {
+            l.Add("Event.Portable.Events.ThresholdEvent");
+            l.Add("{");
+            l.Add("internal CategoryObject()");
+            l.Add("{");
+            l.Add("\tType = (double)0;");
+            l.Add("\tMeasurement = \"" + thresholdEvent.Measurement + "\";"); 
+            l.Add("\tDecrease = " + (thresholdEvent.Decrease + "").ToLower() + ";");
+            l.Add("\t}");
+            l.Add("}");
+        }
+
+
 
         void CreateForcedEventData(Events.ForcedEventData forced, List<string> l)
         {

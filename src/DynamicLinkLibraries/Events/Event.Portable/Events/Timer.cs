@@ -11,6 +11,9 @@ using Event.Interfaces;
 
 namespace Event.Portable.Events
 {
+    /// <summary>
+    /// Timer
+    /// </summary>
     public class Timer : CategoryObject, ITimerEvent, 
           IRemovableObject, INativeEvent, ICalculationReason
     {

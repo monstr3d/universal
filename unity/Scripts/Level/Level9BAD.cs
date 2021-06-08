@@ -25,8 +25,13 @@ namespace Scripts
                 l.Add(Level0.RigidBodyStation + "." + s);
             }
             StaticExtensionUnity.Activation.enabledComponents = l.ToArray();
+            fuelEv.Event += FuelEv_Event;
          }
 
+        private void FuelEv_Event()
+        {
+        
+        }
 
         static public void Collision(Tuple<GameObject, Component, IScadaInterface, ICollisionAction> stop)
         {
