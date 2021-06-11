@@ -1,7 +1,7 @@
 ﻿using AssemblyService.Attributes;
-using System;
+using DataPerformer.Python.UI.Factory;
 
-namespace DataPefrormer.Python.UI
+namespace DataPerformer.Python.UI
 {
     /// <summary>
     /// Extension utilites
@@ -23,7 +23,7 @@ namespace DataPefrormer.Python.UI
         /// </summary>
         static StaticExtensionDataPerformerPythonUI()
         {
-
+            new UIFactory();
         }
 
     }

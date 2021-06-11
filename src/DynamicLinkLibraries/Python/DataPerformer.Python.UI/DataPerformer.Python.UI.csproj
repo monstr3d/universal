@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="Resource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControls\UserControlDataPefrormer.resx" />
   </ItemGroup>
 
@@ -24,6 +28,14 @@
     <ProjectReference Include="..\..\Diagram\Diagram\Diagram.csproj" />
     <ProjectReference Include="..\DataPerformer.Python.Wrapper\DataPerformer.Python.Wrapper.csproj" />
     <ProjectReference Include="..\DataPerformer.Python\DataPerformer.Python.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Resource.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resource.resx</DependentUpon>
+    </Compile>
   </ItemGroup>
 
 </Project>

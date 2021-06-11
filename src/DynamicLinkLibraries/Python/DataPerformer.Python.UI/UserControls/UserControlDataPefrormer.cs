@@ -7,14 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
-using DataPeformer.Python.Objects;
+using CategoryTheory;
+using DataPerformer.Python.Objects;
 using DataPerformer.Interfaces;
 using DataPerformer.Portable;
 using Diagram.UI.Interfaces;
 using Diagram.UI.Utils;
 
-namespace DataPefrormer.Python.UI.UserControls
+namespace DataPerformer.Python.UI.UserControls
 {
     public partial class UserControlDataPefrormer : UserControl, IPostSet
     {
@@ -33,7 +33,8 @@ namespace DataPefrormer.Python.UI.UserControls
             set
             {
                 transformer = value;
-                d = value;
+                dc = value;
+                textBoxCode.Text = transformer.Code;
             }
         }
 
@@ -82,26 +83,75 @@ namespace DataPefrormer.Python.UI.UserControls
             }
         }
 
-   
+        void SelectInput()
+        {
+            var d = new Dictionary<string, string>();
+            var t = userControlComboboxListInput.Texts;
+            for (int i = 0; i < t.Length; i++)
+            {
+                var o = userControlComboboxListInput.Boxes[i];
+                if (o != null)
+                {
+                    d[t[i]] = o + "";
+                }
+            }
+            transformer.Inputs = d;
+        }
+
+
+        void SelectOutput()
+        {
+            var t = userControlTypeListOutput.Types;
+            var l = new Dictionary<string, object[]>();
+            foreach (var ttt in t)
+            {
+                l[ttt.Item1] = new object[] { ttt.Item2, ttt.Item2 };
+            }
+            var ll = new List<string>(l.Keys);
+            ll.Sort();
+            var tt = transformer.Outputs;
+            tt.Clear();
+            foreach (var k in ll)
+            {
+                tt[k] = l[k];
+            }
+        }
+  
         private void tabControlMain_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (tabControlMain.SelectedTab == tabPageInput)
+            {
+                FillInput();
+                return;
+            }
+            SelectInput();
 
         }
 
         private void tabControlInput_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            if (tabControlInput.SelectedTab == tabPageMap)
+            {
+                FillInput();
+                return;
+            }
+            SelectInput();
         }
 
         private void buttonAccept_Click(object sender, EventArgs e)
         {
-
+            transformer.Code = textBoxCode.Text;
+            SelectInput();
+            SelectOutput();
+            transformer.CreateAll();
+            
         }
 
 
         void IPostSet.Post()
         {
-
+            FillTypes();
+            FillInput();
         }
 
     }

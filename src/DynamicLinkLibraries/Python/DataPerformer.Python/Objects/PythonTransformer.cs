@@ -9,7 +9,7 @@ using CategoryTheory;
 using DataPerformer.Interfaces;
 using DataPerformer.Portable;
 
-namespace DataPeformer.Python.Objects
+namespace DataPerformer.Python.Objects
 {
     /// <summary>
     /// Python transformer
@@ -119,20 +119,32 @@ namespace DataPeformer.Python.Objects
 
         #endregion
 
-        #region IPostSerialize Members
+        #region IPostSetArrow Members
 
         void IPostSetArrow.PostSetArrow()
         {
             CreateInputs();
+            CreateExe();
         }
 
         #endregion
 
 
-
-
         #region Public Members
 
+        /// <summary>
+        /// Creres all
+        /// </summary>
+        public void CreateAll()
+        {
+            CreateInputs();
+            CreateOutputs();
+            CreateExe();
+        }
+
+        /// <summary>
+        /// Code
+        /// </summary>
         public string Code
         {
             get;

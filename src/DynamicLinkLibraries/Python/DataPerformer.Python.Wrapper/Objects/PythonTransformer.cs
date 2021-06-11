@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataPeformer.Python.Wrapper.Objects
+namespace DataPerformer.Python.Wrapper.Objects
 {
     /// <summary>
     /// Python transformer

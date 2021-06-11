@@ -35,6 +35,8 @@ namespace Aviation
             AssemblyService.StaticExtensionAssemblyService.Init();
             try
             {
+         //       Type t = typeof(DataPerformer.Python.Wrapper.Objects.PythonTransformer);
+          //      string ss = t.FullName + "," + t.Assembly.FullName;
 
                 object o = null;
                 DateTime dt = DateTime.FromOADate(1770457504 / (24 * 3600));

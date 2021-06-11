@@ -1,5 +1,5 @@
 ﻿
-namespace DataPefrormer.Python.UI.UserControls
+namespace DataPerformer.Python.UI.UserControls
 {
     partial class UserControlDataPefrormer
     {
@@ -221,7 +221,7 @@ namespace DataPefrormer.Python.UI.UserControls
             this.userControlTypeListInput.Name = "userControlTypeListInput";
             this.userControlTypeListInput.Size = new System.Drawing.Size(423, 275);
             this.userControlTypeListInput.TabIndex = 0;
-            this.userControlTypeListInput.Types = ((System.Collections.Generic.List<System.Tuple<, >>)(resources.GetObject("userControlTypeListInput.Types")));
+            this.userControlTypeListInput.Types = new System.Collections.Generic.List<System.Tuple<string, object>>();
             // 
             // tabPageMap
             // 
@@ -315,8 +315,7 @@ namespace DataPefrormer.Python.UI.UserControls
             this.userControlTypeListOutput.Name = "userControlTypeListOutput";
             this.userControlTypeListOutput.Size = new System.Drawing.Size(443, 320);
             this.userControlTypeListOutput.TabIndex = 0;
-            this.userControlTypeListOutput.Types = ((System.Collections.Generic.List<System.Tuple<, >>)(resources.GetObject("userControlTypeListOutput.Types")));
-            // 
+            this.userControlTypeListOutput.Types = new System.Collections.Generic.List<System.Tuple<string, object>>();
             // panel12
             // 
             this.panel12.Dock = System.Windows.Forms.DockStyle.Right;
