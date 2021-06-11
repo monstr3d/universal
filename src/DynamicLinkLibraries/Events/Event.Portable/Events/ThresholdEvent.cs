@@ -108,18 +108,6 @@ namespace Event.Portable.Events
             }
         }
 
-        event Action IDataConsumer.OnChangeInput
-        {
-            add
-            {
-                onChangeInput += value;
-            }
-
-            remove
-            {
-                onChangeInput -= value;
-            }
-        }
 
         IEnumerable<IEvent> IEventHandler.Events => events;
 
@@ -160,6 +148,20 @@ namespace Event.Portable.Events
         {
             dc.UpdateChildrenData();
         }
+
+        event Action IDataConsumer.OnChangeInput
+        {
+            add
+            {
+                onChangeInput += value;
+            }
+
+            remove
+            {
+                onChangeInput -= value;
+            }
+        }
+
 
         void IDataConsumer.Reset()
         {

@@ -26,8 +26,13 @@ namespace Scripts
             }
  */
             StaticExtensionUnity.Activation.enabledComponents = l.ToArray();
+            fuelEv.Event += FuelEv_Event;
         }
 
+        private void FuelEv_Event()
+        {
+
+        }
 
 
         protected override void Update()

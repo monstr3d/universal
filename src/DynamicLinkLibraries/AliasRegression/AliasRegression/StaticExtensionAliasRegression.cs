@@ -24,6 +24,9 @@ namespace AliasRegression
 
         }
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
         static StaticExtensionAliasRegression()
         {
             new Binder();
