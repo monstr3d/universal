@@ -168,7 +168,6 @@ namespace Scripts
                     }
                 }
             }
-
         }
 
         public void SetCodes()

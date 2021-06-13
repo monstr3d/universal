@@ -16,17 +16,18 @@ namespace Scripts
         {
 
         }
+
         public Level1()
         {
- /* !!! DELETE AFTER           var ss = new string[] {  Level0.Rz, Level0.Vz };
+            var ss = new string[] { Level0.Rz, Level0.Vz, Level0.Fuel };
             var l = new List<string>();
             foreach (var s in ss)
             {
                 l.Add(Level0.RigidBodyStation + "." + s);
             }
- */
-            StaticExtensionUnity.Activation.enabledComponents = l.ToArray();
-            fuelEv.Event += FuelEv_Event;
+
+            StaticExtensionUnity.Activation.enabledComponents = l.ToArray();//*/
+           
         }
 
         private void FuelEv_Event()

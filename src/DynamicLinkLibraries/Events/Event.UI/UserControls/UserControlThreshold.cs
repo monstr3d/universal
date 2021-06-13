@@ -16,14 +16,34 @@ using DataPerformer.Interfaces;
 using DataPerformer.Portable;
 
 using Event.Portable.Events;
+using Event.UI.Labels;
 
 namespace Event.UI.UserControls
 {
     public partial class UserControlThreshold : UserControl, IPostSet
     {
 
+         ThresholdEvent ev;
+
+
         internal ThresholdEvent Event
-        { get; set; }
+        {
+            set
+            {
+                ev = value;
+                dc = value;
+                ThresholdEventLabel l = this.FindParent<ThresholdEventLabel>();
+                if (l !=null)
+                {
+                    if (!l.isSerialized)
+                    {
+                        dc.OnChangeInput += Fill;
+                    }
+                }
+            }
+        }
+
+        IDataConsumer dc;
 
         public UserControlThreshold()
         {
@@ -38,6 +58,7 @@ namespace Event.UI.UserControls
             try
             {
                 Fill();
+                dc.OnChangeInput += Fill;
             }
             catch (Exception ex)
             {
@@ -50,9 +71,9 @@ namespace Event.UI.UserControls
         void Fill()
         {
             ComboBox cb = userControlComboboxList.Boxes[1];
-            var m = Event.GetAllMeasurements(Event.Type);
+            var m = ev.GetAllMeasurements(ev.Type);
             cb.FillCombo(m);
-            var s = Event.Measurement;
+            var s = ev.Measurement;
             cb.SelectCombo(s);
             Init();
         }
@@ -64,11 +85,10 @@ namespace Event.UI.UserControls
             {
                 if (cb.SelectedItem != null)
                 {
-                    Event.Measurement = cb.SelectedItem + "";
-                    Event.Set();
+                    ev.Measurement = cb.SelectedItem + "";
+                    ev.Set();
                 }
             };
         }
-
      }
 }

@@ -137,11 +137,13 @@ namespace Event.Portable.Events
         void IDataConsumer.Add(IMeasurements measurements)
         {
             this.measurements.Add(measurements);
+            onChangeInput();
         }
 
         void IDataConsumer.Remove(IMeasurements measurements)
         {
             this.measurements.Remove(measurements);
+            onChangeInput();
         }
 
         void IDataConsumer.UpdateChildrenData()

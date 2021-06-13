@@ -31,6 +31,8 @@ namespace Event.UI.Labels
 
         Form form = null;
 
+        internal bool isSerialized = false;
+
         #endregion
 
         #region Ctor
@@ -57,6 +59,7 @@ namespace Event.UI.Labels
             : base(info, context)
         {
             BorderStyle = BorderStyle.FixedSingle;
+            isSerialized = true;
         }
 
 

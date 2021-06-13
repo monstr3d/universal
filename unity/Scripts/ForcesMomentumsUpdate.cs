@@ -21,7 +21,7 @@ namespace Scripts
 
         #region Fields
 
-
+   
         Motion6D.Portable.Aggregates.RigidBody rigidBody;
 
         Dictionary<string, List<Component>> components;
@@ -327,6 +327,12 @@ namespace Scripts
         #endregion
 
         #region Private
+
+        static internal void FuelEmpty()
+        {
+
+        }
+
 
         void Prepare()
         {

@@ -70,6 +70,7 @@ namespace Scripts
             }
             levelm = this;
             Level0.Get(out scada, out ev, out fuelEv, frame);
+            fuelEv.Event += ForcesMomentumsUpdate.FuelEmpty;
             aVelocity = frame as IAngularVelocity;
             velocity = frame as IVelocity;
             orientation = frame as IOrientation;
