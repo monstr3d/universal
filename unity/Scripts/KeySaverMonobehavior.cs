@@ -25,6 +25,10 @@ public class KeySaverMonobehavior : MonoBehaviour
         object[] o = new object[] { l };
         foreach (MonoBehaviour mb in mbs)
         {
+            if (mb == null)
+            {
+                continue;
+            }
             MethodInfo mi = mb.GetType().GetMethod("CheckSaver");
             if (mi != null)
             {
