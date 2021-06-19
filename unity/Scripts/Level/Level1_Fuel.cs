@@ -1,44 +1,32 @@
 ﻿using System;
 using System.Collections.Generic;
-
-using UnityEngine;
-
-using Scada.Interfaces;
-
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using Unity.Standard;
+using UnityEngine;
 
 namespace Scripts.Level
 {
-    public class Level1 : Levelm
+    public class Level1_Fuel : Levelm
     {
-
-        public Level1()
+        public Level1_Fuel()
         {
-            var ss = new string[] { Level0.Rz, Level0.Vz };//, Level0.Fuel };
+            var ss = new string[] { Level0.Time, Level0.Rz, Level0.Vz , Level0.Fuel };
             var l = new List<string>();
             foreach (var s in ss)
             {
                 l.Add(Level0.RigidBodyStation + "." + s);
             }
             StaticExtensionUnity.Activation.enabledComponents = l.ToArray();//*/
-
+            // Long distantce  218
         }
-
-        private void FuelEv_Event()
-        {
-
-        }
-
 
         protected override void Update()
         {
-           
+
         }
 
-        new static public void Collision(Tuple<GameObject, Component, IScadaInterface, ICollisionAction> stop)
-        {
-            Level0.Collision(stop);
-        }
 
         public static void Set(MonoBehaviour monoBehaviour)
         {
@@ -50,13 +38,13 @@ namespace Scripts.Level
                 a[0] = "Aim 1.Z=0.1";
                 return;
             }
-             if (monoBehaviour.name != Level0.Station)
+            if (monoBehaviour.name != Level0.Station)
             {
                 return;
             }
             ReferenceFrameBehavior beh = monoBehaviour as ReferenceFrameBehavior;
             var c = beh.constants;
-            c[0] = "Station frame.Z=1.5";
+            c[0] = "Station frame.Z=3.5";
         }
 
     }

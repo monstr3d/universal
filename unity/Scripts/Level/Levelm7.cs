@@ -9,7 +9,7 @@ using Unity.Standard;
 
 using UnityEngine;
 
-namespace Scripts
+namespace Scripts.Level
 {
     public class Levelm7 : Levelm
     {

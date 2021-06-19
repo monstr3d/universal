@@ -30,23 +30,19 @@ namespace Scripts
 
         static internal IBlinked blinkedLamps;
 
+ 
         #region Ctor
 
         public KeyActivation()
         {
             this.AddKeyListener();
-            // !!! CORRECT
-            Action act = () => { StaticExtensionUnity.Level.GetConstructor(new Type[0]).Invoke(new object[0]); };
-            Action act1 = () => { StaticExtensionUnity.Level.GetConstructor(new Type[] { typeof(bool) }).Invoke(new object[] { true }); };
+            IActivation activation = this;
             StaticExtensionUnity.LevelAction = () =>
             {
-                if (StaticExtensionUnity.StaticLevel == 1)
-                {
-                    act1();
-                    return;
-                }
-                act();
+                Type t = activation.GetActivationType(StaticExtensionUnity.Activation.level);
+                t.GetConstructor(new Type[0]).Invoke(new object[0]);
             };
+
             keyActivation = this;
             StaticExtensionUnity.Collision += (Tuple<GameObject, Component, IScadaInterface, ICollisionAction> obj) =>
             {
@@ -120,12 +116,45 @@ namespace Scripts
             return 0;
         }
 
-        #endregion
 
-        #region Internal Members
+        /// <summary>
+        /// Gets activation type from the level
+        /// </summary>
+        /// <param name="level">The level</param>
+        /// <returns>The activation type</returns>
+        Type IActivation.GetActivationType(int level)
+        {
+            int p = Math.Abs(level);
+            int i = 1;
+            while (true)
+            {
+                string s = "Level" + (StaticExtensionUnity.Activation.level < 0 ? "m" : "") + i;
+                Type t = StaticExtensionUnity.StringUpates[s];
+                if (i == p)
+                {
+                    return t;
+                }
+                ++i;
+                s += "_Fuel";
+                if (StaticExtensionUnity.StringUpates.ContainsKey(s))
+                {
+                    if (i == p)
+                    {
+                        return StaticExtensionUnity.StringUpates[s];
+                    }
+                    ++i;
+                }
+            }
+            return null;
+    }
 
 
-        static internal void Explosion()
+    #endregion
+
+    #region Internal Members
+
+
+    static internal void Explosion()
         {
             explosion.SetActive(true);
             station.SetActive(false);

@@ -45,6 +45,12 @@ namespace Unity.Standard
 
         #region Fields
 
+        /// <summary>
+        /// UpdateTypes
+        /// </summary>
+        static public Dictionary<string, Type> StringUpates
+        { get => stringUpates; }
+
         volatile static KeyCode current;
 
         static KeyCode lastCurrent;
@@ -204,6 +210,7 @@ namespace Unity.Standard
 
         #region Public Members
 
+ 
         /// <summary>
         /// Level action
         /// </summary>
@@ -1389,9 +1396,6 @@ namespace Unity.Standard
                 {
                     stringUpates[name] = type; 
                 }
-
-
-
             }
             );
 

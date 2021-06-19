@@ -151,6 +151,7 @@ namespace Scripts
 
         Action IActivation.Update => UpdateInternal;
 
+
         int IActivation.SetConstants(float[] constants)
         {
             int ml = Math.Abs(StaticLevel);
@@ -289,5 +290,9 @@ namespace Scripts
 
         }
 
-     }
+        Type IActivation.GetActivationType(int level)
+        {
+            throw new NotImplementedException();
+        }
+    }
 }

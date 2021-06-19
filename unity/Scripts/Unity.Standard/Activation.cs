@@ -57,6 +57,7 @@ public class Activation : MonoBehaviour
 
     private void Awake()
     {
+        StaticExtensionUnity.Activation = this;
         if (activation != null)
         {
             if (activation.Length > 0)
@@ -65,7 +66,7 @@ public class Activation : MonoBehaviour
                 activationObject = ci.Invoke(new object[0]) as IActivation;
              }
         }
-
+        LevelType = activationObject.GetActivationType(level);
         isEscaped = false;
         if (StaticExtensionUnity.StaticLevel != 0)
         {
@@ -82,7 +83,7 @@ public class Activation : MonoBehaviour
         }
         StaticExtensionUnity.Activation = this;
         exists = true;
-        Type type = StaticExtensionUnity.Level;
+        Type type = activationObject.GetActivationType(level);
         MethodInfo stop = type.GetMethod("Collision", 
             new Type[] { typeof(Tuple<GameObject, Component, IScadaInterface, ICollisionAction>) });
         if (stop != null)
@@ -131,6 +132,11 @@ public class Activation : MonoBehaviour
 
     #region Public members
 
+    /// <summary>
+    /// Type of level
+    /// </summary>
+    public static Type LevelType
+    { get; set; }
   
     void UpdateFist()
     {

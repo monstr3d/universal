@@ -9,7 +9,7 @@ using Scada.Interfaces;
 
 using Unity.Standard;
 
-namespace Scripts
+namespace Scripts.Level
 {
     public class Level4 : Levelm
     {

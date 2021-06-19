@@ -54,7 +54,11 @@ namespace Scripts
         static internal readonly string Ox = "Relative to station.OMx";
 
         static internal readonly string Oy = "Relative to station.OMy";
+
         static internal readonly string Fuel = "Fuel rate.x";
+
+        static internal readonly string Time = "Calculations.Formula_1";
+
 
 
         static internal readonly string RigidBodyStation = "RigidBodyStation";
@@ -89,6 +93,12 @@ namespace Scripts
 
 
         static internal readonly string Distance = "Relative to station.Distance";
+
+
+        static internal readonly string DistShort = "Dist short";
+
+
+        static internal readonly string DistLong = "Dist long";
 
 
         static internal void Set(OutputController behavior, int level)
@@ -143,17 +153,43 @@ namespace Scripts
             SetCamera(rf);
        }
 
-        internal static void Get(out IScadaInterface scada, out IEvent ev,  out IEvent fuelEvent, ReferenceFrame xFrame)
+        internal static void Get(out IScadaInterface scada, out IEvent ev,  out IEvent fuelEvent,
+           out IEvent distShort, out IEvent distLong, out
+            ReferenceFrame xFrame)
         {
             scada = RigidBodyStation.ToExistedScada();
+
+            // Events
             ev = scada["Force"];
             fuelEvent = scada["Fuel over"];
+            distShort = scada[DistShort];
+            distLong = scada[DistLong];
+
+            //Frame
             xFrame = scada.GetOutput("X-Frame.Frame")() as ReferenceFrame;
+        }
+
+        internal static int LevelNumber
+        {
+            get
+            {
+                Type t = Activation.LevelType;
+                int i = 1;
+                string s = t.Name;
+                while (true)
+                {
+                    if (s.Contains(i + ""))
+                    {
+                        return i;
+                    }
+                    ++i;
+                }
+             }
         }
 
         internal static void Set(this MonoBehaviour monoBehaviour)
         {
-            monoBehaviour.Set(Math.Abs(StaticExtensionUnity.Activation.level));
+            monoBehaviour.Set(LevelNumber);
         }
 
         static internal void SetCamera(ReferenceFrameBehavior behavior)

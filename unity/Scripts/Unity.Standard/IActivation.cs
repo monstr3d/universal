@@ -38,8 +38,17 @@ namespace Unity.Standard
         /// <returns>Number of constants</returns>
         int SetConstants(string[] constants);
 
+        /// <summary>
+        /// Update
+        /// </summary>
         Action Update { get; }
 
+        /// <summary>
+        /// Gets activation type from the level
+        /// </summary>
+        /// <param name="level">The level</param>
+        /// <returns>The activation type</returns>
+        Type GetActivationType(int level);
 
     }
 }

@@ -12,7 +12,7 @@ using Vector3D;
 
 using Unity.Standard;
 
-namespace Scripts
+namespace Scripts.Level
 {
     public abstract class Levelm : AbstractLevelStringUpdate
     {
@@ -28,10 +28,17 @@ namespace Scripts
         protected IOrientation orientation;
 
         protected IVelocity velocity;
-
+        /// <summary>
+        /// Events
+        /// </summary>
         protected IEvent ev;
 
         protected IEvent fuelEv;
+
+        protected IEvent distShort;
+
+        protected IEvent distLong;
+
 
         protected IScadaInterface scada;
 
@@ -69,7 +76,7 @@ namespace Scripts
                 l.Add(Level0.RigidBodyStation + "." + s);
             }
             levelm = this;
-            Level0.Get(out scada, out ev, out fuelEv, frame);
+            Level0.Get(out scada, out ev, out fuelEv, out distShort,  out distLong, out frame);
             fuelEv.Event += ForcesMomentumsUpdate.FuelEmpty;
             aVelocity = frame as IAngularVelocity;
             velocity = frame as IVelocity;
