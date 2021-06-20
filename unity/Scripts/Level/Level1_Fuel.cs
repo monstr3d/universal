@@ -30,7 +30,12 @@ namespace Scripts.Level
 
         protected override void TimeOver()
         {
-            EmptyFuel();
+        }
+
+        protected override void FuelEmpty()
+        {
+            ForcesMomentumsUpdate.FuelEmpty();
+            Zero();
         }
 
 
@@ -43,6 +48,16 @@ namespace Scripts.Level
                 OutputController oc = monoBehaviour as OutputController;
                 var a = oc.aliases;
                 a[0] = "Aim 1.Z=0.1";
+
+                // Short distance
+                a[8] = "Calculations.a=0.590";
+
+                // Long distance
+                a[9] = "Calculations.b=0.310";
+
+                // Time limit
+                a[10] = "Calculations.d=70";
+
                 return;
             }
             if (monoBehaviour.name != Level0.Station)

@@ -83,7 +83,7 @@ namespace Scripts.Level
             Level0.Get(out scada, out ev, out fuelEv, out distShort,  out distLong, 
                 out startEv, out timeOver,   
                 out frame);
-            fuelEv.Event += ForcesMomentumsUpdate.FuelEmpty;
+            fuelEv.Event += FuelEmpty;
             aVelocity = frame as IAngularVelocity;
             velocity = frame as IVelocity;
             orientation = frame as IOrientation;
@@ -113,6 +113,11 @@ namespace Scripts.Level
             Zero();
         }
 
+        protected virtual void FuelEmpty()
+        {
+
+        }
+
         protected void Zero()
         {
             mx(0);
@@ -121,7 +126,6 @@ namespace Scripts.Level
             ax(0);
             ay(0);
             az(0);
-
         }
 
         protected void StopAll()
