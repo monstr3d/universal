@@ -10,15 +10,30 @@ using UnityEngine;
 
 namespace Scripts.Level
 {
-    class Levelm1_Fuel : Level1_Fuel
+    class Levelm1_Fuel : Levelm
     {
         public Levelm1_Fuel()
         {
-            
+            var ss = new string[] { Level0.Time, Level0.Rz, Level0.Vz, Level0.Fuel };
+            var l = new List<string>();
+            foreach (var s in ss)
+            {
+                l.Add(Level0.RigidBodyStation + "." + s);
+            }
+            StaticExtensionUnity.Activation.enabledComponents = l.ToArray();
             distShort.Event += () =>
             {
-
+                KeyCode.RightControl.KeyDown();
             };
+            startEv.Event +=  () =>
+                {
+                    KeyCode.RightShift.KeyDown();
+                };
+            distLong.Event += () =>
+            {
+                KeyCode.RightControl.KeyDown();
+            };
+
         }
 
 
@@ -30,9 +45,8 @@ namespace Scripts.Level
 
         public static void Set(MonoBehaviour monoBehaviour)
         {
-            Levelm1_Fuel.Set(monoBehaviour);
+            Level1_Fuel.Set(monoBehaviour);
         }
-
 
     }
 }

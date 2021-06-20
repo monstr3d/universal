@@ -136,6 +136,24 @@ namespace Unity.Standard
         }
 
         /// <summary>
+        /// Key down imitation
+        /// </summary>
+        /// <param name="code">Key code</param>
+        /// <returns>True in succces</returns>
+        static public bool KeyDown(this KeyCode code)
+        {
+            var unused = UnusedKey;
+            current = code;
+            if ((current == unused) | (current == default(KeyCode)))
+            {
+                return false;
+            }
+            lastCurrent = code;
+            UpdateCurrent();
+            return true;
+        }
+
+        /// <summary>
         /// Processes key code
         /// </summary>
         /// <param name="code">The code</param>
@@ -343,9 +361,7 @@ namespace Unity.Standard
         {
             get
             {
-                string s = AbstractLevelStringUpdate.Level +
-                    Activation.level.ToString().Replace("-", "m");
-                return stringUpates[s];
+                return Activation.LevelType;
             }
         }
 

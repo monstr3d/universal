@@ -34,6 +34,8 @@ namespace Scripts
    
         Motion6D.Interfaces.ReferenceFrame frame;
 
+        static bool fuelEmpty = false;
+
         AudioSource alarm;
 
 
@@ -224,7 +226,7 @@ namespace Scripts
 
         #region Update
 
-        void KeyAction(KeyCode keyCode)
+          void KeyAction(KeyCode keyCode)
         {
             if (!scada.IsEnabled)
             {
@@ -237,11 +239,10 @@ namespace Scripts
                 return;
             }
             int pp = inverse[current];
-
-            /*     if (!keyPressed)
-                 {
-                     return;
-                 }*/
+            if (fuelEmpty)
+            {
+                return;
+            }
             var t = actions[code];
             double[] v = t.Item5;
             double newValue = t.Item4;
@@ -330,7 +331,7 @@ namespace Scripts
 
         static internal void FuelEmpty()
         {
-
+            fuelEmpty = true;
         }
 
 
@@ -414,7 +415,8 @@ namespace Scripts
                     double coeff = (m == 0) ? k : -k;
                     var v = new Tuple<Action<double>, Func<double>, Text, double, double[]>
                         (a, f, null, coeff, val);
-                    if (StaticExtensionUnity.Activation.level > 0)
+                    var ts = StaticExtensionUnity.Level + "";
+                    if (StaticExtensionUnity.Activation.level > 0 | ts.Contains("Fuel"))
                     {
                         actions[kc] = v;
                     }
@@ -436,8 +438,6 @@ namespace Scripts
         {
 
         }
-
-
 
         #endregion
 

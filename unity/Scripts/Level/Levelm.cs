@@ -37,7 +37,11 @@ namespace Scripts.Level
 
         protected IEvent distShort;
 
-        protected IEvent distLong;
+        protected IEvent distLong; 
+        
+        protected IEvent startEv;
+
+        protected IEvent timeOver;
 
 
         protected IScadaInterface scada;
@@ -76,7 +80,9 @@ namespace Scripts.Level
                 l.Add(Level0.RigidBodyStation + "." + s);
             }
             levelm = this;
-            Level0.Get(out scada, out ev, out fuelEv, out distShort,  out distLong, out frame);
+            Level0.Get(out scada, out ev, out fuelEv, out distShort,  out distLong, 
+                out startEv, out timeOver,   
+                out frame);
             fuelEv.Event += ForcesMomentumsUpdate.FuelEmpty;
             aVelocity = frame as IAngularVelocity;
             velocity = frame as IVelocity;
@@ -97,21 +103,34 @@ namespace Scripts.Level
             {
                 ForcesIndicator.indicator.Torch();
             };
-
+            timeOver.Event += TimeOver;
         }
- 
-        protected void StopAll()
+
+
+        protected virtual void TimeOver()
         {
-            foreach (var s in controls)
-            {
-                (Level0.RigidBodyStation + "." + s).EnableDisable(false);
-            }
+            ForcesMomentumsUpdate.FuelEmpty();
+            Zero();
+        }
+
+        protected void Zero()
+        {
             mx(0);
             my(0);
             mz(0);
             ax(0);
             ay(0);
             az(0);
+
+        }
+
+        protected void StopAll()
+        {
+            foreach (var s in controls)
+            {
+                (Level0.RigidBodyStation + "." + s).EnableDisable(false);
+            }
+            Zero();
         }
 
         static public void Collision(Tuple<GameObject, Component, IScadaInterface, ICollisionAction> stop)

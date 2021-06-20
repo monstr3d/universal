@@ -89,9 +89,6 @@ namespace Unity.Standard
             out MonoBehaviourTimerFactory factory)
         {
             factory = new MonoBehaviourTimerFactory(desktop);
-            var outputs = factory.scada.Outputs;
-            var inputs = factory.scada.Inputs;
-            var constants = factory.scada.Constants;
             return factory.scada;
         }
 

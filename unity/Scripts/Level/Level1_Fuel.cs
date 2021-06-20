@@ -19,13 +19,20 @@ namespace Scripts.Level
                 l.Add(Level0.RigidBodyStation + "." + s);
             }
             StaticExtensionUnity.Activation.enabledComponents = l.ToArray();//*/
-            // Long distantce  218
+            // Time = 60
         }
 
         protected override void Update()
         {
 
         }
+
+
+        protected override void TimeOver()
+        {
+            EmptyFuel();
+        }
+
 
 
         public static void Set(MonoBehaviour monoBehaviour)
@@ -44,7 +51,7 @@ namespace Scripts.Level
             }
             ReferenceFrameBehavior beh = monoBehaviour as ReferenceFrameBehavior;
             var c = beh.constants;
-            c[0] = "Station frame.Z=3.5";
+            c[0] = "Station frame.Z=1.9";
         }
 
     }

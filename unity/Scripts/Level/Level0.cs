@@ -100,6 +100,9 @@ namespace Scripts
 
         static internal readonly string DistLong = "Dist long";
 
+        static internal readonly string StartEvent = "Start Event";
+
+        static internal readonly string TimeOver = "Time over";
 
         static internal void Set(OutputController behavior, int level)
         {
@@ -154,7 +157,7 @@ namespace Scripts
        }
 
         internal static void Get(out IScadaInterface scada, out IEvent ev,  out IEvent fuelEvent,
-           out IEvent distShort, out IEvent distLong, out
+           out IEvent distShort, out IEvent distLong, out IEvent startEv, out IEvent timeOver, out
             ReferenceFrame xFrame)
         {
             scada = RigidBodyStation.ToExistedScada();
@@ -164,6 +167,8 @@ namespace Scripts
             fuelEvent = scada["Fuel over"];
             distShort = scada[DistShort];
             distLong = scada[DistLong];
+            startEv = scada[StartEvent];
+            timeOver = scada[TimeOver];
 
             //Frame
             xFrame = scada.GetOutput("X-Frame.Frame")() as ReferenceFrame;
