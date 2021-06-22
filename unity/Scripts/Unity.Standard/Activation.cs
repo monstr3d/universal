@@ -40,8 +40,6 @@ public class Activation : MonoBehaviour
 
     public string[] disabledComponents;
 
-    static bool isEscaped = false;
-
     IActivation act;
 
     private IActivation activationObject;
@@ -67,7 +65,6 @@ public class Activation : MonoBehaviour
              }
         }
         LevelType = activationObject.GetActivationType(level);
-        isEscaped = false;
         if (StaticExtensionUnity.StaticLevel != 0)
         {
             level = StaticExtensionUnity.StaticLevel;
@@ -133,6 +130,12 @@ public class Activation : MonoBehaviour
     #region Public members
 
     /// <summary>
+    /// Paused
+    /// </summary>
+    public static bool IsPaused
+    { get; private set; } = false;
+
+    /// <summary>
     /// Type of level
     /// </summary>
     public static Type LevelType
@@ -167,15 +170,16 @@ public class Activation : MonoBehaviour
     /// </summary>
     static public void PauseRestart()
     {
-        if (isEscaped)
+        if (IsPaused)
         {
             StaticExtensionUnity.Restart();
+            
         }
         else
         {
             StaticExtensionUnity.Pause();
         }
-        isEscaped = !isEscaped;
+        IsPaused = !IsPaused;
     }
 
     /// <summary>

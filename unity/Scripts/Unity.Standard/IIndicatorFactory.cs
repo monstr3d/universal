@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Unity.Standard
 {
@@ -13,5 +14,6 @@ namespace Unity.Standard
         /// <param name="gameObject">The game object</param>
         /// <returns>The indicator</returns>
         IIndicator Get(GameObject gameObject);
+
     }
 }

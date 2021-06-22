@@ -14,11 +14,11 @@ public class KeyExecuteMonobehavior : MonoBehaviour
         {
             if (str == "Escape:true")
             {
-                keyExecuteMonobehavior.enabled = true;
+               // keyExecuteMonobehavior.enabled = true;
             }
             if (str == "Escape:false")
             {
-                keyExecuteMonobehavior.enabled = false;
+               // keyExecuteMonobehavior.enabled = false;
             }
         };
         a.AddGlobal();

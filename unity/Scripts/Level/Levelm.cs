@@ -109,6 +109,7 @@ namespace Scripts.Level
 
         protected virtual void TimeOver()
         {
+            ForcesMomentumsUpdate.Telemetry = "Time over";
             ForcesMomentumsUpdate.FuelEmpty();
             Zero();
         }

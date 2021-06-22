@@ -18,19 +18,19 @@ namespace Scripts
 
         static internal KeyCode StopKey = KeyCode.Return;
 
-        static internal KeyCode QuitKey = KeyCode.F1;
+        static internal KeyCode QuitKey = KeyCode.F2;
 
         static GameObject explosion;
 
         static GameObject station;
-        
+
         static GameObject earth;
 
         static internal KeyActivation keyActivation;
 
         static internal IBlinked blinkedLamps;
 
- 
+
         #region Ctor
 
         public KeyActivation()
@@ -46,7 +46,7 @@ namespace Scripts
             keyActivation = this;
             StaticExtensionUnity.Collision += (Tuple<GameObject, Component, IScadaInterface, ICollisionAction> obj) =>
             {
-                Explosion();
+                 Explosion();
             };
 
         }
@@ -86,9 +86,9 @@ namespace Scripts
                     }
                     blinkedLamps = new BlinkedEnabledGameObjects(l);
                     blinkedLamps.Start(new float[] { 1, 0.2f }, m);
-                  //  var mr = station.GetGameObjectComponents<MeshRenderer>()[Level0.Station][0];
-                  //  mr.materials = new Material[] { mr.materials[1] };
-                  //  mr.materials[0].mainTexture = StaticExtensionUnity.Activation.textures[1];
+                    //  var mr = station.GetGameObjectComponents<MeshRenderer>()[Level0.Station][0];
+                    //  mr.materials = new Material[] { mr.materials[1] };
+                    //  mr.materials[0].mainTexture = StaticExtensionUnity.Activation.textures[1];
                 }
                 if (m.name == Level0.Main_Camera)
                 {
@@ -98,8 +98,8 @@ namespace Scripts
                 {
                     earth = m.gameObject;
                     return;
-                   // MeshRenderer mr = earth.GetGameObjectComponents<MeshRenderer>()[Level0.Earth][0];
-                   // mr.materials[0].mainTexture = StaticExtensionUnity.Activation.textures[0];
+                    // MeshRenderer mr = earth.GetGameObjectComponents<MeshRenderer>()[Level0.Earth][0];
+                    // mr.materials[0].mainTexture = StaticExtensionUnity.Activation.textures[0];
                 }
             }
         }
@@ -143,18 +143,27 @@ namespace Scripts
                         return StaticExtensionUnity.StringUpates[s];
                     }
                     ++i;
+                    s += "_Timer";
+                    if (StaticExtensionUnity.StringUpates.ContainsKey(s))
+                    {
+                        if (i == p)
+                        {
+                            return StaticExtensionUnity.StringUpates[s];
+                        }
+                        ++i;
+                    }
                 }
+                return null;
             }
-            return null;
-    }
+        }
 
 
-    #endregion
+        #endregion
 
-    #region Internal Members
+        #region Internal Members
 
 
-    static internal void Explosion()
+        static internal void Explosion()
         {
             explosion.SetActive(true);
             station.SetActive(false);

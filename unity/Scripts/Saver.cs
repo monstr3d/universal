@@ -199,7 +199,7 @@ namespace Scripts
         internal void Reset()
         {
             dict =
-            new Dictionary<int, KeyCode>() { { 12, KeyCode.Escape }, { 13, KeyCode.Return }, { 14, KeyCode.F1 } };
+            new Dictionary<int, KeyCode>() { { 12, KeyActivation.Pause }, { 13, KeyActivation.StopKey }, { 14, KeyActivation.QuitKey } };
 
             dictionary = new
      Dictionary<int, Tuple<int, KeyCode[]>>()

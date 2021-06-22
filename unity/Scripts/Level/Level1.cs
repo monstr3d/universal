@@ -9,6 +9,10 @@ using Unity.Standard;
 
 namespace Scripts.Level
 {
+
+    /// <summary>
+    /// Жать газ до остатка топлива до середины расстояния. Затем назад.
+    /// </summary>
     public class Level1 : Levelm
     {
 
@@ -48,6 +52,10 @@ namespace Scripts.Level
                 OutputController oc = monoBehaviour as OutputController;
                 var a = oc.aliases;
                 a[0] = "Aim 1.Z=0.1";
+                a[0] = "Aim 1.Z=-0.15"; // !!!
+                    // Time limit
+                a[10] = "Calculations.d=50";
+
                 return;
             }
              if (monoBehaviour.name != Level0.Station)

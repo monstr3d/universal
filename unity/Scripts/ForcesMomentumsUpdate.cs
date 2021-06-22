@@ -21,7 +21,7 @@ namespace Scripts
 
         #region Fields
 
-   
+
         Motion6D.Portable.Aggregates.RigidBody rigidBody;
 
         Dictionary<string, List<Component>> components;
@@ -30,8 +30,8 @@ namespace Scripts
 
 
         Text timeTxt;
-   
-   
+
+
         Motion6D.Interfaces.ReferenceFrame frame;
 
         static bool fuelEmpty = false;
@@ -42,9 +42,9 @@ namespace Scripts
         Dictionary<int, int> active = new Dictionary<int, int>();
 
         IDesktop desktop;
- 
+
         private float interval = 0;
- 
+
         public float kx = 1f;
 
         public float ky = 1f;
@@ -75,11 +75,11 @@ namespace Scripts
 
         KeyCode[] codes = { KeyCode.None };
 
-        
 
-        Dictionary<KeyCode, KeyCode[]>  kkdic = new Dictionary<KeyCode, KeyCode[]>();
 
-        Dictionary<KeyCode,  Tuple<Action<double>, Func<double>, Text, double, double[]>>
+        Dictionary<KeyCode, KeyCode[]> kkdic = new Dictionary<KeyCode, KeyCode[]>();
+
+        Dictionary<KeyCode, Tuple<Action<double>, Func<double>, Text, double, double[]>>
             actions = new Dictionary<KeyCode, Tuple<Action<double>, Func<double>, Text, double, double[]>>();
 
         Dictionary<int, Tuple<int, KeyCode[]>> dictionary;/* = new
@@ -99,19 +99,19 @@ namespace Scripts
         Text telemerty;
 
 
-   
-   
+
+
         string[,] txt = new string[,] { { "Ax_Txt", "0.00" }, { "Ay_Txt", "0.00" }, { "Az_Txt", "0.00" },
             { "Omx1_Txt", "+--" }, { "Omy1_Txt", "+--" } , { "Omz1_Txt", "+--" }  };
 
-        Dictionary<KeyCode, Tuple<Text, string[]>> texts = 
+        Dictionary<KeyCode, Tuple<Text, string[]>> texts =
             new Dictionary<KeyCode, Tuple<Text, string[]>>();
 
         Dictionary<KeyCode, int> inverse = new Dictionary<KeyCode, int>();
 
         float bp = 0.2f;
 
- 
+
         #endregion
 
         #region Ctor
@@ -125,8 +125,7 @@ namespace Scripts
 
             ///DELETE AFTER TELEMETRY !!!
             telemerty.gameObject.SetActive(true);
-            telemerty.text = StaticExtensionUnity.Time + "";
-            
+
             scada.IsEnabled = false;
 
         };
@@ -140,7 +139,7 @@ namespace Scripts
             scada.GetDoubleInput("Force.Fz")(a);
         }
 
- 
+
         #endregion
 
         #region Overriden Members  
@@ -150,11 +149,11 @@ namespace Scripts
             base.Set(obj, indicator, scada);
             scada.OnStart += () =>
             {
-                KeyExecuteMonobehavior.keyExecuteMonobehavior.enabled = false;
+                // KeyExecuteMonobehavior.keyExecuteMonobehavior.enabled = false;
             };
             scada.OnStop += () =>
             {
-                KeyExecuteMonobehavior.keyExecuteMonobehavior.enabled = true;
+                // KeyExecuteMonobehavior.keyExecuteMonobehavior.enabled = true;
             };
             var c = scada.Constants;
             frame = scada.GetOutput("Relative to station.Frame")() as Motion6D.Interfaces.ReferenceFrame;
@@ -167,11 +166,10 @@ namespace Scripts
                 camera.GetComponentInChildren<ReferenceFrameBehavior>();
             mb = obj[0] as MonoBehaviour;
             gameObject = mb.gameObject;
-            components =  gameObject.GetGameObjectComponents<Component>();
+            components = gameObject.GetGameObjectComponents<Component>();
             timeTxt = components["Time_Txt"][0].gameObject.GetComponent<Text>();
             telemerty = components["Telemetry"][0].gameObject.GetComponent<Text>();
-            telemerty.gameObject.SetActive(false);
-            Dictionary<string, List<AudioSource>> las = 
+            Dictionary<string, List<AudioSource>> las =
                 camera.GetGameObjectComponents<AudioSource>();
             alarm = las["Alarm"][0];
             var s = "Force.";
@@ -191,6 +189,7 @@ namespace Scripts
             sliders.Add(sw);*/
         }
 
+   
         public override int SetConstants(int offset, float[] constants)
         {
             int i = base.SetConstants(offset, constants);
@@ -228,7 +227,7 @@ namespace Scripts
 
           void KeyAction(KeyCode keyCode)
         {
-            if (!scada.IsEnabled)
+            if (Activation.IsPaused)
             {
                 return;
             }
@@ -326,6 +325,17 @@ namespace Scripts
 
 
         #endregion
+
+
+        #region Internal Members
+
+        internal static string Telemetry
+        {
+            set => forcesMomentumsUpdate.telemerty.text = value;
+        }
+
+        #endregion
+
 
         #region Private
 

@@ -8,6 +8,9 @@ using UnityEngine;
 
 namespace Scripts.Level
 {
+    /// <summary>
+    /// Жать газ до остатка топлива 49 %. Затем стоп. Далее на 31 метре снова включать газ назад.
+    /// </summary>
     public class Level1_Fuel : Levelm
     {
         public Level1_Fuel()
@@ -30,6 +33,7 @@ namespace Scripts.Level
 
         protected override void TimeOver()
         {
+            base.TimeOver();
         }
 
         protected override void FuelEmpty()

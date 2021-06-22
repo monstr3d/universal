@@ -148,7 +148,6 @@ namespace Unity.Standard
             {
                 return false;
             }
-            lastCurrent = code;
             UpdateCurrent();
             return true;
         }
@@ -169,7 +168,6 @@ namespace Unity.Standard
             {
                 return false;
             }
-            lastCurrent = code;
             UpdateCurrent();
             return true;
         }
@@ -547,23 +545,7 @@ namespace Unity.Standard
             }
         }         
 
-        /// <summary>
-        /// Updates indicators
-        /// </summary>
-        public static void UpdateIndicators()
-        {/*
-            foreach (var t in indicators.Values)
-            {
-                var o = t.Item1();
-                var l = t.Item2;
-                foreach (var i in l)
-                {
-                    i.Value = o;
-                }
-            }
-            */
-        }
-
+ 
         /// <summary>
         /// Key interval
         /// </summary>
@@ -885,7 +867,7 @@ namespace Unity.Standard
 
         static void UpdateCurrent()
         {
-            if (current != lastCurrent)
+            if (current == lastCurrent)
             {
                 return;
             }
@@ -893,6 +875,7 @@ namespace Unity.Standard
             {
                 Action<KeyCode> act = keyListenres[current];
                 act(current);
+                lastCurrent = current;
             }
             StartCoroutine(coroutine);
         }
@@ -904,6 +887,7 @@ namespace Unity.Standard
                 current = UnusedKey;
                 yield return new WaitForSeconds(KeyInterval);
                 current = default(KeyCode);
+                lastCurrent = UnusedKey;
                 yield return current;
             }
         }

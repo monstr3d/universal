@@ -27,7 +27,7 @@ namespace Scripts.Level
         private void Levelm1_Event()
         {
             double[] p = frame.Position;
-            if (Math.Abs(p[2]) < 0.01)
+            if (Math.Abs(p[2]) < 0.3)
             {
                 ev.Event -= Levelm1_Event;
                 (Level0.RigidBodyStation + "." +

@@ -14,7 +14,7 @@ namespace Unity.Standard
         /// <summary>
         /// Blink itself
         /// </summary>
-        /// <param name="i"></param>
+        /// <param name="i">Blink number</param>
         void Blink(int i);
 
         /// <summary>

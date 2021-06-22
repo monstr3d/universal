@@ -108,6 +108,18 @@ namespace Event.Portable.Events
             }
         }
 
+        event Action IDataConsumer.OnChangeInput
+        {
+            add
+            {
+                onChangeInput += value;
+            }
+
+            remove
+            {
+                onChangeInput -= value;
+            }
+        }
 
         IEnumerable<IEvent> IEventHandler.Events => events;
 
@@ -137,33 +149,17 @@ namespace Event.Portable.Events
         void IDataConsumer.Add(IMeasurements measurements)
         {
             this.measurements.Add(measurements);
-            onChangeInput();
         }
 
         void IDataConsumer.Remove(IMeasurements measurements)
         {
             this.measurements.Remove(measurements);
-            onChangeInput();
         }
 
         void IDataConsumer.UpdateChildrenData()
         {
             dc.UpdateChildrenData();
         }
-
-        event Action IDataConsumer.OnChangeInput
-        {
-            add
-            {
-                onChangeInput += value;
-            }
-
-            remove
-            {
-                onChangeInput -= value;
-            }
-        }
-
 
         void IDataConsumer.Reset()
         {
@@ -243,7 +239,8 @@ namespace Event.Portable.Events
         /// </summary>
         bool DoubleDecrease()
         {
-            bool b =  (double)measurement.Parameter() < 0;
+            double a = (double)measurement.Parameter();
+            bool b =  a < 0;
             if (last)
             {
                 if (b)
