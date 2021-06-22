@@ -7,6 +7,7 @@ using UnityEngine;
 using Unity.Standard;
 using Scada.Interfaces;
 using Scada.Desktop;
+using Unity.Standard.Interfaces;
 
 namespace Scripts
 {
@@ -46,7 +47,14 @@ namespace Scripts
             keyActivation = this;
             StaticExtensionUnity.Collision += (Tuple<GameObject, Component, IScadaInterface, ICollisionAction> obj) =>
             {
-                 Explosion();
+                foreach (var t in StaticExtensionUnity.FailureMessages)
+                {
+                    if (t.Message != null)
+                    {
+                        Explosion();
+                        break;
+                    }
+                }
             };
 
         }

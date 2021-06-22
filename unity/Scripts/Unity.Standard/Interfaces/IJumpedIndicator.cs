@@ -4,18 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Unity.Standard
-
+namespace Unity.Standard.Interfaces
 {
     /// <summary>
-    /// String update
+    /// Jumped indicator
     /// </summary>
-    public interface IStringUpdate
+    public interface IJumpedIndicator
     {
         /// <summary>
-        /// Updates string
+        /// Jump events
         /// </summary>
-        /// <param name="str">The string parameter</param>
-        void Update(string str);
+        string[] JumpEvents { get;  }
     }
 }

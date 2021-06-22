@@ -3,8 +3,9 @@
 using UnityEngine;
 
 using Scada.Interfaces;
+using Unity.Standard.Interfaces;
 
-namespace Unity.Standard
+namespace Unity.Standard.Abstract
 {
     /// <summary>
     /// Abstract implementation of update rect transformation

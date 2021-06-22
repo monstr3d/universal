@@ -12,6 +12,8 @@ using Vector3D;
 
 using Unity.Standard;
 
+using Unity.Standard.Interfaces;
+
 namespace Scripts
 {
     public class AngularIndicator : IIndicator, ILimits

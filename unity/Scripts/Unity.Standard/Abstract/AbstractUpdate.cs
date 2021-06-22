@@ -4,9 +4,9 @@ using Diagram.UI.Interfaces;
 
 using Scada.Interfaces;
 using Scada.Desktop;
+using Unity.Standard.Interfaces;
 
-
-namespace Unity.Standard
+namespace Unity.Standard.Abstract
 {
     /// <summary>
     /// Abstract update

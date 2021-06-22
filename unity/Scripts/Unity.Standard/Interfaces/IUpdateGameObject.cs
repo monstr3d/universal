@@ -4,7 +4,7 @@ using UnityEngine;
 
 using Scada.Interfaces;
 
-namespace Unity.Standard
+namespace Unity.Standard.Interfaces
 {
 
     /// <summary>

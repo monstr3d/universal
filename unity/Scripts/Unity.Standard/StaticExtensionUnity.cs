@@ -31,7 +31,9 @@ using Motion6D.Interfaces;
 
 using UnityEngine;
 using UnityEngine.UI;
-
+using Unity.Standard.Interfaces;
+using Unity.Standard.Abstract;
+using System.Globalization;
 
 namespace Unity.Standard
 {
@@ -44,6 +46,12 @@ namespace Unity.Standard
     {
 
         #region Fields
+
+        /// <summary>
+        /// Failure messages
+        /// </summary>
+        static public List<IFailureMessage> FailureMessages
+        { get; } = new List<IFailureMessage>();
 
         /// <summary>
         /// UpdateTypes
@@ -226,7 +234,26 @@ namespace Unity.Standard
 
         #region Public Members
 
- 
+        /// <summary>
+        /// String to single
+        /// </summary>
+        /// <param name="value">String value</param>
+        /// <returns>Single value</returns>
+        static public float ToSingle(this string value)
+        {
+            return float.Parse(value, CultureInfo.InvariantCulture.NumberFormat);
+        }
+
+        /// <summary>
+        /// String to double
+        /// </summary>
+        /// <param name="value">String value</param>
+        /// <returns>Double value</returns>
+        static public double ToDouble(this string value)
+        {
+            return double.Parse(value, CultureInfo.InvariantCulture.NumberFormat);
+        }
+
         /// <summary>
         /// Level action
         /// </summary>

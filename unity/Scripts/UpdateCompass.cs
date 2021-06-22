@@ -12,6 +12,7 @@ using Unity.Standard;
 
 using Vector3D;
 using Scada.Interfaces;
+using Unity.Standard.Abstract;
 
 namespace Scripts
 {

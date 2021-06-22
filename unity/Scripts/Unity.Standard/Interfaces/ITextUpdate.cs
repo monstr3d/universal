@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 using UnityEngine.UI;
 
-namespace Unity.Standard
+namespace Unity.Standard.Interfaces
 {
     /// <summary>
     /// Updates text

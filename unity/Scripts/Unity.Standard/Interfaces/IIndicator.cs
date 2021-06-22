@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Unity.Standard
+namespace Unity.Standard.Interfaces
 {
     /// <summary>
     /// Indicator

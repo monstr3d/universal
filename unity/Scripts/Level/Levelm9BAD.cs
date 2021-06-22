@@ -8,6 +8,7 @@ using Vector3D;
 using Unity.Standard;
 
 using UnityEngine;
+using Unity.Standard.Interfaces;
 
 namespace Scripts.Level
 {

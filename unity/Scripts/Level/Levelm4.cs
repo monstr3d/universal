@@ -6,6 +6,7 @@ using UnityEngine;
 using Scada.Interfaces;
 
 using Unity.Standard;
+using Unity.Standard.Interfaces;
 
 namespace Scripts.Level
 {

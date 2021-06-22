@@ -1,6 +1,7 @@
 ﻿using System;
+using Unity.Standard.Interfaces;
 
-namespace Unity.Standard
+namespace Unity.Standard.Abstract
 {
     /// <summary>
     /// Constructor

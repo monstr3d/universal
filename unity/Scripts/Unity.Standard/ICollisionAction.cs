@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 
-namespace Unity.Standard
+namespace Unity.Standard.Interfaces
 {
     /// <summary>
     /// Trigger action

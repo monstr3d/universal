@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Unity.Standard
+namespace Unity.Standard.Interfaces
 {
     /// <summary>
     /// Blinked Object

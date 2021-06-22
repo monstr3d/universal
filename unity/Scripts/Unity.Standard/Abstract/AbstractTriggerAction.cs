@@ -1,10 +1,10 @@
 ﻿using System;
 
 using Scada.Interfaces;
-
+using Unity.Standard.Interfaces;
 using UnityEngine;
 
-namespace Unity.Standard
+namespace Unity.Standard.Abstract
 {
     /// <summary>
     /// Abstract trigger action

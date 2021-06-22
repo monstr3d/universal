@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Unity.Standard
+namespace Unity.Standard.Interfaces
 {
     /// <summary>
     /// Factory of indicators

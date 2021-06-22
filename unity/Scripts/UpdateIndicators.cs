@@ -7,6 +7,10 @@ using Scada.Interfaces;
 
 using Scripts;
 
+using Unity.Standard;
+using Unity.Standard.Abstract;
+using Unity.Standard.Interfaces;
+
 namespace Unity.Standard
 {
     public class UpdateIndicators : AbstractUpdateGameObject

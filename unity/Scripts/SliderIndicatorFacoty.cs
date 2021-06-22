@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Unity.Standard.Interfaces;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -57,16 +58,17 @@ namespace Unity.Standard
             {
                 format = d["Format"];
             }
-            float scale;
-            float limit;
-            if (!float.TryParse(d["Scale"], out scale))
+            float scale = d["Scale"].ToSingle();
+            float limit = d["Limit"].ToSingle();
+          /*  if (!float.TryParse(d["Limit"], CultureInfo.InvariantCulture.NumberFormat, null, out limit))
             {
-                scale = 1f;
-            }
-            if (!float.TryParse(d["Limit"], out limit))
-            {
+                
                 limit = 1f;
-            }
+                if (double.TryParse(d["Limit"], out x))
+                {
+                    limit = (float)x;
+                }
+            }*/
             bool enableDebug = false;
             if (txt.ContainsKey("EnableDebug"))
             {
@@ -76,9 +78,10 @@ namespace Unity.Standard
             if (txt.ContainsKey("Alias"))
             {
                 string ali = txt["Alias"][0].text;
+                new DubleFloatLimitFailure(f, new float[] { -limit, limit }, scale, ali);
                 return new SliderWrapperLimits(par,
-                 gameObject.GetComponent<Component>(), scale, limit, f,
-                 Color.green, Color.red, format, enableDebug, ali, txt["Dimension"][0].text);
+                gameObject.GetComponent<Component>(), scale, limit, f,
+                Color.green, Color.red, format, enableDebug, ali, txt["Dimension"][0].text);
             }
               
             return new SliderWrapper(par,

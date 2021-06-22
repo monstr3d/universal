@@ -3,7 +3,11 @@ using System.Runtime.ExceptionServices;
 using CategoryTheory;
 using Scada.Desktop;
 
-namespace Unity.Standard
+using Unity.Standard;
+
+using Unity.Standard.Interfaces;
+
+namespace Unity.Standard.Abstract
 {
     /// <summary>
     /// Abstract indicator

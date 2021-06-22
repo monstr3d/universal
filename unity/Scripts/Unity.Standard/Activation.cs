@@ -10,6 +10,7 @@ using Unity.Standard;
 using Scada.Interfaces;
 using System.Threading;
 using BaseTypes;
+using Unity.Standard.Interfaces;
 
 /// <summary>
 /// Activation of level

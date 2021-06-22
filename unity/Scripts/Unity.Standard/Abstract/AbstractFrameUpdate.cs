@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using UnityEngine;
 using Vector3D;
 
-namespace Unity.Standard
+namespace Unity.Standard.Abstract
 {
     public abstract class AbstractFrameUpdate : AbstractUpdateGameObject
     {

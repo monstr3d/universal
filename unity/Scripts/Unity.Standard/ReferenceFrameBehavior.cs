@@ -13,6 +13,7 @@ using Scada.Desktop;
 using Unity.Standard;
 
 using System.Reflection;
+using Unity.Standard.Interfaces;
 
 public class ReferenceFrameBehavior : MonoBehaviour
 {

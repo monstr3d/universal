@@ -4,16 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Unity.Standard
+namespace Unity.Standard.Interfaces
 {
     /// <summary>
-    /// Jumped indicator
+    /// Updates scada
     /// </summary>
-    public interface IJumpedIndicator
+    public interface IScadaUpdate
     {
         /// <summary>
-        /// Jump events
+        /// The update
         /// </summary>
-        string[] JumpEvents { get;  }
+        Action Update { get; set; }
     }
 }

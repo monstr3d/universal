@@ -11,6 +11,7 @@ using Unity.Standard;
 using Vector3D;
 using Motion6D.Interfaces;
 using Scada.Interfaces;
+using Unity.Standard.Abstract;
 
 namespace Scripts
 {

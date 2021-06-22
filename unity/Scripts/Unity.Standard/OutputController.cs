@@ -15,6 +15,7 @@ using Diagram.UI;
 
 using Unity.Standard;
 using BaseTypes;
+using Unity.Standard.Interfaces;
 
 public class OutputController : MonoBehaviour
 {

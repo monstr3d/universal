@@ -11,6 +11,8 @@ using Scada.Interfaces;
 
 using Unity.Standard;
 using Scada.Desktop;
+using Unity.Standard.Interfaces;
+using Unity.Standard.Abstract;
 
 namespace Scripts
 {

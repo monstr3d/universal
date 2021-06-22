@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 using UnityEngine;
 
-namespace Unity.Standard
+namespace Unity.Standard.Interfaces
 {
     public interface IKeyListener
     {

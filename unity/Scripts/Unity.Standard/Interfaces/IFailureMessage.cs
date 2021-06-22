@@ -4,16 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Unity.Standard
+namespace Unity.Standard.Interfaces
 {
     /// <summary>
-    /// Updates scada
+    /// Failure Message
     /// </summary>
-    public interface IScadaUpdate
+    public interface IFailureMessage
     {
         /// <summary>
-        /// The update
+        /// Failure Message
         /// </summary>
-        Action Update { get; set; }
+        string Message
+        { get; }
     }
 }

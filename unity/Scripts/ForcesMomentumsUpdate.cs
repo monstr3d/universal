@@ -13,6 +13,7 @@ using Scada.Desktop;
 
 
 using Unity.Standard;
+using Unity.Standard.Interfaces;
 
 namespace Scripts
 {
