@@ -11231,6 +11231,10 @@ and (iii) of the Theorem \ref{blowing_main_thm}.
 \chapter{Hurewicz homomorphism}
 !!!! ADD
 \section{Prototype}
+\paragraph{}
+Let $A$ be a $C^*$-algebra, and let $u \in A$ be an unitary element. Let  $C\subset M\left(A \right)$ be a commutative $C^*$ subalgebra such that $u \in C$. If $A \hookto B\left(\H \right)$ is a faithful representation then there are  representations  $C  \hookto B\left(\H \right)$ and $C\left(u \right) \cong C\left(S^1\right)
+ \hookto B\left(\H \right)$. If $\phi$ is a Borel $n^{\mathrm{th}}$ root of identity map and $v = \phi\left( u\right)\in   B\left(\H \right)$
+
 	\subsection{Free special case}\label{free_spec_case}
 
 \begin{exm}\label{circle_cov_proj}
@@ -17904,8 +17908,60 @@ point.
 \ee	
 \end{empt}
 \subsection{Puppe sequences}
+\begin{definition}\cite{spanier:at}
+	Let both $\sX$ and $\sX'$ are topological spaces.
+The \textit{mapping cone} $C_f$ of the map $f: \sX'\to\sX$ is defined to be the quotient space of $C\sX' \vee \sX$ by the identification $\left[x', 1\right]\cong f\left(x' \right)$ for all $x'\in \sX'$. 
+\end{definition}
+\begin{definition}\cite{spanier:at}
+A three-term sequence of pairs and maps 
+$$
+(\sX',A') \xrightarrow{f} (\sX,A) \xrightarrow{g} (X'',A') 
+$$
+is said to be \textit{exact} if for any pair $(\sY,B)$ (where $B$ is not necessarily closed in $\sY$) the associated sequence of pointed sets 
+$$
+[Y,B; X',A'] \xrightarrow{f_*}  [Y,B; X,A] \xrightarrow{g_*}  [Y,B; X'',A'']
+$$ 
+is exact (that is, $\ker g_* = \im f_*$). Similarly, it is said to be \textit{coexact} if the 
+sequence of pointed sets 
+$$
+[ X',A'; Y,B] \xrightarrow{	g_*}  [Y,B; X,A;Y,B;] \xrightarrow{f_*}  [Y,B; X'',A'';Y,B;]
+$$ 
+is exact (that is, $\ker f_* = \im g_*$). A sequence of pairs and maps (which may 
+terminate at either or both ends) 
+\end{definition}
+\begin{defn}\cite{rotman:ag}\label{puppe_top}
+	For any continuous map $f:\sX \to \sY$
+	There is the following coexact \textit{Puppe sequence}
+	$$
+	\sY \xrightarrow{f}\sX \to C_f\to \Sigma \sX \to\Sigma \sY \to \Sigma C_f \to...
+	$$
+\end{defn}
 
-!!! SPANIER 369.
+\begin{theorem}\cite{karoubi:k}
+%3.29. Theorem. 
+
+The Puppe sequence and the reduced Puppe sequence induce exact 
+sequences of $\widetilde{K}$-groups 
+!!!
+			\newline
+\begin{tikzpicture}
+	\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
+	{
+		\hat I   & \hat A\setminus \mathrm{hull}\left( I\right),  &\mathrm{hull}\left( I\right) &	\left( A/I\right)\hat~ \\ 
+		\check I  &  \check A\setminus \mathrm{hull}\left( I\right), & \mathrm{hull}\left( I\right) & 	\left( A/I\right)\check~\\};
+	\path[-stealth]
+	(m-1-2) edge node [above] {$\approx $} (m-1-1)
+	(m-1-3) edge node [above] {$\approx$} (m-1-4)
+	(m-2-2) edge node [above] {$\approx$} (m-2-1)
+	(m-2-3) edge node [above] {$\approx$} (m-2-4)
+	(m-1-1) edge node [right]  {} (m-2-1)
+	(m-1-2) edge node [right]  {} (m-2-2)
+	(m-1-3) edge node [right] {} (m-2-3)
+	(m-1-4) edge node [right] {} (m-2-4);
+\end{tikzpicture}
+\\ 
+\end{theorem}
+
 
 
 
@@ -31767,6 +31823,9 @@ Marc A. Reiffel, \emph{Strong {M}orita equivalence of certain transformation gro
 %\bibitem{rieffel:fin_act} Marc A. Rieffel. \textit{ Actions of finite groups on $C^*$-algebras.} Mathematica Scandinavica, Vol. 47, No. 1 (December 12, 1980), pp. 157-176, 1980.
 
 \bibitem{rtf:qlie} Reshetikhin, N. YU., Takhtadzhyan, L.A., Faddeev, L.D., \textit{Quantization of Lie groups and Lie algebras}. Leningrad Math. J., 1 (1) (1990), 193-225. 1990.
+
+
+\bibitem{rotman:ag} Rotman, Joseph , \textit{ An Introduction to Algebraic Topology}. Part of the Graduate Texts in Mathematics book series (GTM, volume 119), 1988.
 
 %\bibitem{rieffel_finite_g} Marc A. Reiffel. {\it Actions of Finite Groups on $C^*$ - Algebras}. 	Department of Mathematics University of California Berkeley. Cal. 94720 U.S.A. 1980.
 
