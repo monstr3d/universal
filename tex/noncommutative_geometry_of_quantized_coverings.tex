@@ -11927,7 +11927,7 @@ Let $A$ be a stable  $C^*$-algebra, i.e. $A\cong A\otimes \K$, and let $u \in M\
 \be\label{h_n_root}
 \phi_n\left( \varphi\right)= e^{\frac{i \varphi}{n}} 
 \ee
-where $\varphi\in \left(0, 2\pi\right]$ is the angular parameter on $\left\{\left. z \in \C\right| \left|z \right|=1\right\}$. If  $v \bydef \phi_n\left( u\right)\in   B\left(\H \right)$ then $u = v^n$. Let $\widetilde A \subset B\left(\H \right)$ be a minimal $C^*$- algebra such that $Av^n, v^n A \subset \widetilde A$ for all $n \in \Z$.
+where $\varphi\in \left(0, 2\pi\right]$ is the angular parameter on $\left\{\left. z \in \C\right| \left|z \right|=1\right\}$. If  $v \bydef \phi_n\left( u\right)\in   B\left(\H \right)$ then $u = v^n$. Let $\widetilde A \subset B\left(\H \right)$ be a minimal $C^*$- algebra such that $Av^n \subset \widetilde A$ for all $n \in \Z$.
 Assume that there is the natural action $\Z_n \times \widetilde A\to \widetilde A$ such that 
 $$
 \forall \overline k \in \Z_n \quad \overline k v = e^{\frac{2\pi i k}{n}}
@@ -12002,11 +12002,7 @@ Let $\sX, \sY\cong S^1$ be topological spaces and let $f : \sX\to \sY$ be an $n$
 	and the Theorem \ref{puppe_k} prove that $K^0\left(C_f \right) = K_0\left(C\left(C_f \right)  \right)= \Z_n x  \oplus  \Z$, where $x = \left[ p_1\right] - \left[ p_2\right]\in K^0\left(C_f \right)$ and $p_1, p_2\in C\left(C_f \right)\otimes\K$  are projectors.
 \end{enumerate}
 \end{exercise}\label{h_1_exer}
-Consider a closed tubular neighborhood $\sV$ of $f\left(\sX\right)$ and let $T_1$ be a trivial one-dimensional complex vector bundle over $V$. Let $\a'$ be an isomorphism of $T_1|_{f\left(\sX\right)}$ given by a bijective  map $f\left(\sX\right)\to U\left( 1\right)$ which comes to bijections $f\left(\sX\right)\approx S^1\approx U\left( 1\right)$. If $\varphi$ is the angular parameter of $f\left(\sX\right)\approx S^1$ then $\a$ corresponds to a 
-
-
-The isomorphism can be extended up to $T_1$. Let $T_2$ be a trivial trivial one-dimensional complex vector bundle over $C_f\setminus f\left(\sX\right)$. Let $E_\a$ be the result of gluing of $T_1$, and $T_2$ by $\a|_{\sV \setminus f\left(\sX\right)}$. Let $f_1 \in C\left(C_f \right)_+$ be such that  $f_1: C_f\to \left[0,1\right]$, $~f_1\left( f\left(\sX\right)\right) = \left\{1\right\}$ and $f\left(C_f \setminus \sV\right) = \left\{0\right\}$.
-
+Consider a closed tubular neighborhood $\sV$ of $f\left(\sX\right)$ and let $T_1$ be a trivial one-dimensional complex vector bundle over $V$. Let $\a'$ be an isomorphism of $T_1|_{f\left(\sX\right)}$ given by a bijective  map $f\left(\sX\right)\to U\left( 1\right)$ which comes to bijections $f\left(\sX\right)\approx S^1\approx U\left( 1\right)$. If $\varphi$ is the angular parameter of $f\left(\sX\right)\approx S^1$ then $\a$ corresponds to $\varphi \mapsto e^{i\varphi}$. The isomorphism can be extended up to $V$. Let $T_2$ be a trivial  one-dimensional complex vector bundle over $C_f\setminus f\left(\sX\right)$. Let $E_\a$ be the result of gluing of $T_1$, and $T_2$ by $\a|_{\sV \setminus f\left(\sX\right)}$. 
 \begin{exercise}
 Prove following statements:
 \begin{enumerate}
@@ -12014,7 +12010,7 @@ Prove following statements:
 	\item If $u_1 \in  C\left(C_f \right)\otimes \mathbb{M}_2\left( \C\right)$ is an unitary
 	such that
 \bean
-u_1|_{f\left(\sX \right) \otimes \mathbb{M}_2\left( \C\right)}= \begin{pmatrix}
+u'_1|_{f\left(\sX \right) \otimes \mathbb{M}_2\left( \C\right)}= \begin{pmatrix}
 	
 \a   & 0\\
 	0  & \a^*
@@ -12022,11 +12018,11 @@ u_1|_{f\left(\sX \right) \otimes \mathbb{M}_2\left( \C\right)}= \begin{pmatrix}
 \eean	
 and
 \bean
-p_1 \bydef u_1\begin{pmatrix}
+p_1 \bydef u'_1\begin{pmatrix}
 	
 	1   & 0\\
 	0  & 0
-\end{pmatrix} 	u_1^*
+\end{pmatrix} 	u_1'^*
 \eean
 then 
 $$
@@ -12034,38 +12030,71 @@ $$
 $$
 For example $u_1$ can be given by
 	\bean
-u_1=		\begin{pmatrix}
+u'_1=		\begin{pmatrix}
 		
-		\sqrt{f_1}\a   & i\sqrt{1-f_1  }\\
-		-i	\sqrt{1-f_1}  & \sqrt{f_1}\a^*
+		\sqrt{f}\a   & i\sqrt{1-f  }\\
+		-i	\sqrt{1-f}  & \sqrt{f}\a^*
 	\end{pmatrix} 
 		\eean
-	\item
-	If $\K=\K\left(\H \right)$ and  $\H= \C^2 \oplus \C \oplus \H'$ and 
+		where $f \in C\left(C_f \right)_+$ is such that  $f: C_f\to \left[0,1\right]$, $~f\left( f\left(\sX\right)\right) = \left\{1\right\}$ and $f\left(C_f \setminus \sV\right) = \left\{0\right\}$.
+		
+	\item  One has $C\left( C_f\right)\otimes \K = \K\left( \ell^2\left( C\left( C_f\right)\right) \right)$.  From The Theorem \ref{kasparov_stab_thm} it follows that  $\ell^2\left( C\left( C_f\right)\right)\cong \C^2 \oplus H$ where $H \cong \ell^2\left( C\left( C_f\right)\right)$. If
 	$$
-	w \bydef u \begin{pmatrix}
+	w' \bydef \mathrm{diag}\left( u'_1\begin{pmatrix}
 		
 		1   & 0\\
 		0  & 0
-	\end{pmatrix} \oplus 0 \oplus \Id_{\H'}\in M\left( C\left(C_f \right)\otimes\K \right) 
+	\end{pmatrix}, 1_{B\left(H \right) } \right) \in M\left(\K\left( \ell^2\left( C\left( C_f\right)\right) \right) \right) 
 	$$
-then $w$ is a Fredholm  partial isometry which represents $x \in \K^1\left( C_f \right)$ from the Exercise \ref{h_1_exer}
- \item There is a homotopically trivial map $u'_1: C_f \to SU\left(2\right)$ such that
- $$
- u'_1u^n_1 = \begin{pmatrix}
+then $w'$ is a Fredholm  partial isometry which represents $x \in \K^1\left( C_f \right)$ from the Exercise \ref{h_1_exer}
+ \item There is a homotopically trivial map $U: C_f \to SU\left(2\right)$ such that
+ \bean
+ U\left(\sV\right)= \left\{\begin{pmatrix}
+ 	
+ 	1   & 0\\
+ 	0  & 1
+ \end{pmatrix}\right\},\\
+ Uu^n_1 = \begin{pmatrix}
  	
  	\bt   & 0\\
  	0  & \bt^*
  \end{pmatrix}
- $$
+ \eean
  where $\bt:C_f \to U\left(1\right)$ is such that $\bt|_{C\left( \sX\right) }= \a^n$.
- \item The Fredholm  partial isometry $w^n$ is equivalent to the unitary 
+ \item If $u_1 \bydef Uu'_1$ then the  Fredholm  partial isometry
  $$
- u = \bt\oplus 1_\C\oplus 1_{B\left( \H'\right) } 
+ 	w \bydef \mathrm{diag}\left( u_1\begin{pmatrix}
+ 	
+ 	1   & 0\\
+ 	0  & 0
+ \end{pmatrix}, 1_{B\left(H \right) } \right) \in M\left(\K\left( \ell^2\left( C\left( C_f\right)\right) \right) \right) 
  $$
- 
+ represents $x$
+ \item If 
+ $$
+ u  	\bydef \mathrm{diag}\left(\begin{pmatrix}
+ 	
+ 	\bt   & 0\\
+ 	0  & 1_\C
+ \end{pmatrix}, 1_{B\left(H \right) } \right) \in M\left(\K\left( \ell^2\left( C\left( C_f\right)\right) \right) \right) 
+ $$
+ then $u$ is unitary and
+ $$
+ u \in w^n + \K\left( \ell^2\left( C\left( C_f\right)\right) \right)
+ $$
+ i.e. $u\approx w^n$ modulo $\K\left( \ell^2\left( C\left( C_f\right)\right) \right)$. Indeed this unitary is a specialization of explained in \ref{tors_special_case_general} unitary $u$.
+ \item
+ If $\phi_n$ is given by \eqref{h_n_root} and $\K\left( \ell^2\left( C\left( C_f\right)\right) \right)\hookto B\left( \H\right)$ is faithful representation then 
+ \bean
+ v \bydef \phi_n\left( n\right) = 	 \mathrm{diag}\left(\begin{pmatrix}
+	
+ 	\phi_n\left( \bt\right)    & 0\\
+ 	0  & e^{\frac{2\pi i}{n}}
+ \end{pmatrix},~ e^{\frac{2\pi i}{n}} 1_{B\left(H \right) } \right) \in B\left(\H \right). 
+\eean 
 \end{enumerate}
 \end{exercise}
+Let $\widetilde A \subset B\left(\H \right)$ be a minimal $C^*$- algebra such that $\K\left( \ell^2\left( C\left( C_f\right)\right) \right)v^n \subset \widetilde A$ for all $n \in \Z$.
 Using $\bt$ we construct $n$-listed universal covering of $\mathcal Z \to C_f$ such that
 $$
 \mathcal Z = \left\{\left.\left(x, z \right)  \in C_f\times U\left( 1\right)\right|\exists j \in \{1,...,n\} \quad z = \phi^j_n\left( x\right) \right\}
@@ -12082,12 +12111,11 @@ where $k\in \Z$ is a representative of $\overline{k}$.
 \begin{exercise} Prove following statements
 \begin{enumerate}
 	\item If $v_1 \bydef \phi_n\left( \bt\right)$. Prove that $C_f\left[v_1\right] = C\left(\mathcal Z\right)$.
-	\item If $v \bydef \phi_n\left(u\right)$ and $\widetilde A \subset B\left(\H \right)$ is the minimal
-	 $C^*$- algebra such that $$\forall j = 1, ...,n \quad \left( C\left(C_f \right)\otimes\K\right)  v^j,~ v^j \left( C\left(C_f \right)\otimes\K\right) \subset \widetilde A$$ then $\widetilde A\cong C\left( \mathcal Z\right) \otimes \K$.
-	
+	\item Prove that $\widetilde A\cong C\left( \mathcal Z\right) \otimes \K$.
+	\item From the Theorem \ref{stable_fin_cov_rem} it follows that $\left(C\left( C_f\right) \otimes \K, C\left( \mathcal Z\right) \otimes \K, \Z_n\right)$ is a noncommutative finite-fold covering (cf. Definition \ref{fin_defn}. Prove that it is an $\left(u, n \right)$-covering (cf. Definition \ref{h_u_n_defn}).
 \end{enumerate}
- 
 \end{exercise}
+
 
 	
 
