@@ -19767,8 +19767,46 @@ A commutative separable  unital $C^*$-algebra $A$ is $\mathrm{DI}$ if and only i
 		$\left\{\left\|\cdot \right\| \right\}_{n \in \N} $ on $\C V$ given by \eqref{ros_can_eqn}.
 	\end{theorem}
 	\section{$K$-theory and $K$-homology}
+	\subsection{Long Exact Sequence of K-Theory}
+	\paragraph*{}
+If $A$ is a $C^*$-algebra and $J \subset A$ is a closed two-sided ideal then there there a *-homomorphisms $\iota: J \hookto A$, $~\pi: A \to A / J$ and a long exact sequence
+\be
+K_1\left(J \right) \xrightarrow{\iota_*}K_1\left(A \right) \xrightarrow{\pi} K_1\left(A/J \right) \xrightarrow{\partial}K_0\left(J \right) \xrightarrow{\iota_*}K_0\left(A \right) \xrightarrow{\pi} K_0\left(A/J \right)
+\ee
+(cf. \cite{blackadar:ko})
+\begin{definition}\cite{blackadar:ko}%	Definition 8.3.1.
+	 $~$Let $u \in  GL_n(A/J)$, and let $w \in GL_{2n}(A)$ be a lift of $\mathrm{diag}(u,u^{-1})$. Define $\partial([u]) = \left[wp_nw^{-1}\right]- \left[p_n\right]\in K0(J)$. The map $\partial$ is called the \textit{index map}.
+\end{definition}
+\begin{empt}\cite{blackadar:ko}
+%	8.3.2. The map @ is called the index map. The reason is the following. 
+Suppose A is a unital $C^*$-algebra and $u$ is a unitary in $\mathbb{M}_n(A/J)$. If $u$ lifts to a partial isometry $v \in \mathbb{M}_n(A)$, then $\mathrm{diag}\left(u, u^{-1} \right)$ lifts to the unitary
+\be
+w = \begin{pmatrix}
+	v & 1 - vv^*\\
+	1- v^*v& v^*
+\end{pmatrix},
+\ee
+so 
+\be
+\begin{split}
+\partial([u]) = \left[wp_nw^{-1}\right]- \left[p_n\right]=\left[\mathrm{diag}\left( v*v, 1-vv^*\right) \right]- \left[p_n\right] = \\=\left[ 1-vv^*\right]- \left[1-v^*v\right].
+\end{split}
+\ee
+
+\begin{definition}\cite{matro:hcm}
+Let $A$ be a $C^*$-algebra. A bounded $A$ linear operator $F: \ell^2\left(A \right)\to \ell^2\left(A \right)$ is called $A$-\textit{Fredholm} if
+\begin{enumerate}
+	\item [(a)] It is adjointable.
+	\item[(b)] There exists a decomposition of the domain $\ell^2\left(A \right) = \M_1 \oplus \mathcal N_1$ and the range $\ell^2\left(A \right) = \M_2 \oplus \mathcal N_2$ (where $\M_1,~\M_2,~\mathcal N_11, ~\mathcal N_2$ are closed $A$-modules and $\mathcal N_1, ~\mathcal N_2$ have a finite number of generators), such that $F$ has the matrix form $F = \begin{pmatrix}
+		F_1& 0\\
+		0 & F_2
+	\end{pmatrix}$ with respect to these decompositions and $F_1: \M_1 \cong M_2$ is an isomorphism. 
+\end{enumerate} 
+\end{definition}
+%In the special case A = B(H), J = K(H), and K0(K) is identied with Z in thestandard way, the map @ is exactly the map which sends a unitary in the Calkinalgebra to its Fredholm index.Unitaries in a quotient do not lift to partial isometries in general, so thedenition of @ must be stated in the more complicated way given above.
+\end{empt}
 	\subsection{Universal coefficient theorem}
-	
+	\paragraph*{}
 	Universal coefficient theorem \cite{blackadar:ko} establishes (in particular) a relationship between $K$ - theory and $K$- homology. For any $C^*$-algebra $A$ there is a natural homomorphism
 	\begin{equation}\label{free_spec_eqn}
 		\gamma: KK_1(A, \mathbb{C}) \to \mathrm{Hom}(K_1(A), K_0(\mathbb{C})) \approx \mathrm{Hom}(K_1(A), \mathbb{Z})
