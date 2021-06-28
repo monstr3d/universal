@@ -19767,10 +19767,32 @@ A commutative separable  unital $C^*$-algebra $A$ is $\mathrm{DI}$ if and only i
 		$\left\{\left\|\cdot \right\| \right\}_{n \in \N} $ on $\C V$ given by \eqref{ros_can_eqn}.
 	\end{theorem}
 	\section{$K$-theory and $K$-homology}
+	\subsection{Fredholm index}
+	
+	\begin{definition}\label{fred_a_defn}\cite{matro:hcm}
+		Let $A$ be a $C^*$-algebra. A bounded $A$ linear operator $F: \ell^2\left(A \right)\to \ell^2\left(A \right)$ is called $A$-\textit{Fredholm} if
+		\begin{enumerate}
+			\item [(a)] It is adjointable.
+			\item[(b)] There exists a decomposition of the domain $\ell^2\left(A \right) = \M_1 \oplus \mathcal N_1$ and the range $\ell^2\left(A \right) = \M_2 \oplus \mathcal N_2$ (where $\M_1,~\M_2,~\mathcal N_1, ~\mathcal N_2$ are closed $A$-modules and $\mathcal N_1, ~\mathcal N_2$ have a finite number of generators), such that $F$ has the matrix form $F = \begin{pmatrix}
+				F_1& 0\\
+				0 & F_2
+			\end{pmatrix}$ with respect to these decompositions and $F_1: \M_1 \cong M_2$ is an isomorphism. 
+		\end{enumerate} 
+	\end{definition}
+	\begin{rem}\cite{matro:hcm}
+		If the conditions of the Definition \ref{fred_a_defn}  hold, then both $\mathcal N_1$ and $\mathcal N_2$ are projective $A$-modules and $\left[ \mathcal N_1\right] - \left[\mathcal  N_2\right] \in K\left(A \right) $ is well defined.
+	\end{rem}
+	\begin{definition}\label{fred_index_defn}\cite{matro:hcm}
+		If the conditions of the Definition \ref{fred_a_defn} we define the \textit{index} of $F$ by
+		$$
+		\mathrm{Index}F \bydef \left[ \mathcal N_1\right]-  \left[ \mathcal  N_2\right] \in K\left(A \right).
+		$$
+	\end{definition}
+	
 	\subsection{Long Exact Sequence of K-Theory}
 	\paragraph*{}
 If $A$ is a $C^*$-algebra and $J \subset A$ is a closed two-sided ideal then there there a *-homomorphisms $\iota: J \hookto A$, $~\pi: A \to A / J$ and a long exact sequence
-\be
+\be\label{long_exact_seq_eqn}
 K_1\left(J \right) \xrightarrow{\iota_*}K_1\left(A \right) \xrightarrow{\pi} K_1\left(A/J \right) \xrightarrow{\partial}K_0\left(J \right) \xrightarrow{\iota_*}K_0\left(A \right) \xrightarrow{\pi} K_0\left(A/J \right)
 \ee
 (cf. \cite{blackadar:ko})
@@ -19793,16 +19815,16 @@ so
 \end{split}
 \ee
 
-\begin{definition}\cite{matro:hcm}
-Let $A$ be a $C^*$-algebra. A bounded $A$ linear operator $F: \ell^2\left(A \right)\to \ell^2\left(A \right)$ is called $A$-\textit{Fredholm} if
-\begin{enumerate}
-	\item [(a)] It is adjointable.
-	\item[(b)] There exists a decomposition of the domain $\ell^2\left(A \right) = \M_1 \oplus \mathcal N_1$ and the range $\ell^2\left(A \right) = \M_2 \oplus \mathcal N_2$ (where $\M_1,~\M_2,~\mathcal N_11, ~\mathcal N_2$ are closed $A$-modules and $\mathcal N_1, ~\mathcal N_2$ have a finite number of generators), such that $F$ has the matrix form $F = \begin{pmatrix}
-		F_1& 0\\
-		0 & F_2
-	\end{pmatrix}$ with respect to these decompositions and $F_1: \M_1 \cong M_2$ is an isomorphism. 
-\end{enumerate} 
-\end{definition}
+\begin{empt}
+
+It is proven in \cite{blackadar:ko} that both groups $K_0\left( M\left( A\otimes\K\right)\right)$ and $K_0\left( M\left( A\otimes\K\right)\right)$ are trivial. From \eqref{long_exact_seq_eqn} it follows that 
+$$
+\partial : K_1\left(  M\left( A\otimes\K\right)/\left( A\otimes\K\right)\right)\cong  K_0\left( A\otimes\K\right) 
+$$
+is an isomorphism.
+!!!!  ADD
+\end{empt}
+
 %In the special case A = B(H), J = K(H), and K0(K) is identied with Z in thestandard way, the map @ is exactly the map which sends a unitary in the Calkinalgebra to its Fredholm index.Unitaries in a quotient do not lift to partial isometries in general, so thedenition of @ must be stated in the more complicated way given above.
 \end{empt}
 	\subsection{Universal coefficient theorem}
