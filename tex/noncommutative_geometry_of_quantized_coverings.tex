@@ -11982,15 +11982,18 @@ $$
 \subsection{Torsion special case}\label{torsion_special_case}
 \paragraph{} Here we construct homomorphism for torsion part of $K^1\left( A\right)$. 
 \begin{empt}\label{tors_special_case_general}
-Let $A$ be a stable  $C^*$ - algebra such that $K^1(A)= G \oplus \mathbb{Z}_n$, where $G$ is an abelian group. From (\ref{uct_c}) it follows that $K_0(A) \approx G' \oplus \mathbb{Z}_n$. So there is an element $x  \in K_0(A)$ such that $K_0\left(A \right)= G' \oplus \Z_n x$. According to \cite{blackadar:ko} !!!!
-there is a Fredholm  partial isometry $w \in M(A )$ such that $x = \left[\ker ~w\right]-\left[\coker~ w\right]= \left[1- w^*w\right]-\left[1-ww^*\right]$. From $nx = 0$ it turns out that the index of $w^n$ equals to $0$. It means that $\ker ~w^n \cong \coker ~w^n$. There is unital operator $u \in M\left( A\right)$ such that $\left.u \right|_{\mathrm{coim}~w^n }= \left.w^n \right|_{\mathrm{coim}~w^n }$ and $\left.u \right|_{\ker w^n}$ isomoprhically maps $\ker w^n$ onto  $\coker w^n$. If there is $\left(u, n\right)$ covering of $A$ then one can construct the finite fold nocommutative covering $\left(A, \widetilde A, \Z_n\right)$. Using it one can construct a homomorphism from the torsion part of $K_1\left( A\right)$ to the torsion part of $\pi_1\left( A\right) /\left[\pi_1\left( A\right), \pi_1\left( A\right)\right]$
+Let $A$ be a stable  $C^*$ - algebra such that $K^1(A)= G \oplus \mathbb{Z}_n$, where $G$ is an abelian group. From (\ref{uct_c}) it follows that $K_0(A) \approx G' \oplus \mathbb{Z}_n$. So there is an element $x  \in K_0(A)$ such that $K_0\left(A \right)= G' \oplus \Z_n x$. From \ref{part_index_empt} it follows that there is an unitary $w\in M\left( A\otimes\K\right)/\left( A\otimes\K\right)$ and a Fredholm partial isometry $v \in M\left( A\otimes\K\right)$ such that $w$ lifts to $v$ and
+\bean
+x = \partial \left[w\right]= \mathrm{Index}~v
+\eean
+(cf. equation \eqref{d_u_iv_eqn}).
+ From $nx = 0$ it turns out that the index of $v^n$ equals to $0$. It means that $\ker ~v^n \cong \coker ~v^n$. There is unital operator $u \in M\left( A\right)$ such that $\left.u \right|_{\mathrm{coim}~v^n }= \left.v^n \right|_{\mathrm{coim}~w^n }$ and $\left.u \right|_{\ker w^n}$ isomoprhically maps $\ker w^n$ onto  $\coker w^n$. If there is $\left(u, n\right)$-covering of $A$ then one can construct the finite fold nocommutative covering $\left(A, \widetilde A, \Z_n\right)$. Using it one can construct a homomorphism from the torsion part of $K_1\left( A\right)$ to the torsion part of $\pi_1\left( A\right) /\left[\pi_1\left( A\right), \pi_1\left( A\right)\right]$
 
 
 	
 \end{empt}
 
 \subsubsection{Example}
-\paragraph*{}
 Let $\sX, \sY\cong S^1$ be topological spaces and let $f : \sX\to \sY$ be an $n$-listed covering. Let $C_f$ be a cone of $f$.
 \begin{exercise} 
 \begin{enumerate}
@@ -12026,19 +12029,22 @@ p_1 \bydef u'_1\begin{pmatrix}
 \eean
 then 
 $$
-\left[E_\a\right] = \left[p_1\right]\in K_0\left( C\left( C_f\right) \right). 
+\left[E_\a\right] = \left[p_1\right]\in K_0\left( C\left( C_f\right) \right) 
 $$
-For example $u_1$ can be given by
+(cf. equation \ref{partial_u_eqn}).
+In particular $u'_1$ can be given by
 	\bean
 u'_1=		\begin{pmatrix}
 		
-		\sqrt{f}\a   & i\sqrt{1-f  }\\
-		-i	\sqrt{1-f}  & \sqrt{f}\a^*
+		\sqrt{f'}\a   & i\sqrt{1-f'  }\\
+		-i	\sqrt{1-f'}  & \sqrt{f'}\a^*
 	\end{pmatrix} 
 		\eean
-		where $f \in C\left(C_f \right)_+$ is such that  $f: C_f\to \left[0,1\right]$, $~f\left( f\left(\sX\right)\right) = \left\{1\right\}$ and $f\left(C_f \setminus \sV\right) = \left\{0\right\}$.
+		where $f' \in C\left(C_f \right)_+$ is such that  $f: C_f\to \left[0,1\right]$, $~f'\left( f\left(\sX\right)\right) = \left\{1\right\}$ and $f\left(C_f \setminus \sV\right) = \left\{0\right\}$.
 		
-	\item  One has $C\left( C_f\right)\otimes \K = \K\left( \ell^2\left( C\left( C_f\right)\right) \right)$.  From The Theorem \ref{kasparov_stab_thm} it follows that  $\ell^2\left( C\left( C_f\right)\right)\cong \C^2 \oplus H$ where $H \cong \ell^2\left( C\left( C_f\right)\right)$. If
+	\item  One has $C\left( C_f\right)\otimes \K = \K\left( \ell^2\left( C\left( C_f\right)\right) \right)$.  From The Theorem \ref{kasparov_stab_thm} it follows that  $\ell^2\left( C\left( C_f\right)\right)\cong \C^2 \oplus H$ where $H \cong \ell^2\left( C\left( C_f\right)\right)$. 
+	
+If
 	$$
 	w' \bydef \mathrm{diag}\left( u'_1\begin{pmatrix}
 		
@@ -12046,7 +12052,7 @@ u'_1=		\begin{pmatrix}
 		0  & 0
 	\end{pmatrix}, 1_{B\left(H \right) } \right) \in M\left(\K\left( \ell^2\left( C\left( C_f\right)\right) \right) \right) 
 	$$
-then $w'$ is a Fredholm  partial isometry which represents $x \in \K^1\left( C_f \right)$ from the Exercise \ref{h_1_exer}
+then $w'$ is a Fredholm  partial isometry which represents $x \in  K_1\left(C\left( C_f\right)  \right) \cong  \K^1\left( C_f \right)$ from the Exercise \ref{h_1_exer}
  \item There is a homotopically trivial map $U: C_f \to SU\left(2\right)$ such that
  \bean
  U\left(\sV\right)= \left\{\begin{pmatrix}
@@ -12060,10 +12066,10 @@ then $w'$ is a Fredholm  partial isometry which represents $x \in \K^1\left( C_f
  	0  & \bt^*
  \end{pmatrix}
  \eean
- where $\bt:C_f \to U\left(1\right)$ is such that $\bt|_{C\left( \sX\right) }= \a^n$.
+ where $\bt:C_f \to U\left(1\right)$ is such that $\bt|_{V }= \a^n$.
  \item If $u_1 \bydef Uu'_1$ then the  Fredholm  partial isometry
  $$
- 	w \bydef \mathrm{diag}\left( u_1\begin{pmatrix}
+ w \bydef \mathrm{diag}\left( u_1\begin{pmatrix}
  	
  	1   & 0\\
  	0  & 0
@@ -12086,7 +12092,7 @@ then $w'$ is a Fredholm  partial isometry which represents $x \in \K^1\left( C_f
  \item
  If $\phi_n$ is given by \eqref{h_n_root} and $\K\left( \ell^2\left( C\left( C_f\right)\right) \right)\hookto B\left( \H\right)$ is faithful representation then 
  \bean
- v \bydef \phi_n\left( n\right) = 	 \mathrm{diag}\left(\begin{pmatrix}
+ v \bydef \phi_n\left( u\right) = 	 \mathrm{diag}\left(\begin{pmatrix}
 	
  	\phi_n\left( \bt\right)    & 0\\
  	0  & e^{\frac{2\pi i}{n}}
@@ -19785,7 +19791,7 @@ A commutative separable  unital $C^*$-algebra $A$ is $\mathrm{DI}$ if and only i
 	\begin{definition}\label{fred_index_defn}\cite{matro:hcm}
 		If the conditions of the Definition \ref{fred_a_defn} we define the \textit{index} of $F$ by
 		$$
-		\mathrm{Index}F \bydef \left[ \mathcal N_1\right]-  \left[ \mathcal  N_2\right] \in K\left(A \right).
+		\mathrm{Index}~F \bydef \left[ \mathcal N_1\right]-  \left[ \mathcal  N_2\right] \in K\left(A \right).
 		$$
 	\end{definition}
 	
@@ -19799,7 +19805,7 @@ K_1\left(J \right) \xrightarrow{\iota_*}K_1\left(A \right) \xrightarrow{\pi} K_1
 \begin{definition}\cite{blackadar:ko}%	Definition 8.3.1.
 	 $~$Let $u \in  GL_n(A/J)$, and let $w \in GL_{2n}(A)$ be a lift of $\mathrm{diag}(u,u^{-1})$. Define $\partial([u]) = \left[wp_nw^{-1}\right]- \left[p_n\right]\in K0(J)$. The map $\partial$ is called the \textit{index map}.
 \end{definition}
-\begin{empt}\cite{blackadar:ko}
+\begin{empt}\label{v_lift_empt}\cite{blackadar:ko}
 %	8.3.2. The map @ is called the index map. The reason is the following. 
 Suppose A is a unital $C^*$-algebra and $u$ is a unitary in $\mathbb{M}_n(A/J)$. If $u$ lifts to a partial isometry $v \in \mathbb{M}_n(A)$, then $\mathrm{diag}\left(u, u^{-1} \right)$ lifts to the unitary
 \be
@@ -19809,24 +19815,27 @@ w = \begin{pmatrix}
 \end{pmatrix},
 \ee
 so 
-\be
+\be\label{partial_u_eqn}
 \begin{split}
-\partial([u]) = \left[wp_nw^{-1}\right]- \left[p_n\right]=\left[\mathrm{diag}\left( v*v, 1-vv^*\right) \right]- \left[p_n\right] = \\=\left[ 1-vv^*\right]- \left[1-v^*v\right].
+\partial([u]) = \left[wp_nw^{-1}\right]- \left[p_n\right]=\left[\mathrm{diag}\left( v^*v, 1-vv^*\right) \right]- \left[p_n\right] = \\=\left[ 1-vv^*\right]- \left[1-v^*v\right].
 \end{split}
 \ee
+\end{empt}
 
-\begin{empt}
-
-It is proven in \cite{blackadar:ko} that both groups $K_0\left( M\left( A\otimes\K\right)\right)$ and $K_0\left( M\left( A\otimes\K\right)\right)$ are trivial. From \eqref{long_exact_seq_eqn} it follows that 
+\begin{empt}\label{part_index_empt}
+It is proven in \cite{blackadar:ko} that both groups $K_0\left( M\left( A\otimes\K\right)\right)$ and $K_0\left( M\left( A\otimes\K\right)\right)$ are trivial. From the equation \eqref{long_exact_seq_eqn} it follows that 
 $$
 \partial : K_1\left(  M\left( A\otimes\K\right)/\left( A\otimes\K\right)\right)\cong  K_0\left( A\otimes\K\right) 
 $$
-is an isomorphism.
-!!!!  ADD
+is an isomorphism. If $u \in M\left( A\otimes\K\right)/\left( A\otimes\K\right)$ is an unitary which lifts to a partial isometry $v \in M\left( A\otimes\K\right)$ then similarly  \ref{v_lift_empt} $~v$ is a partial isometry. Moreover one has
+\be\label{d_u_iv_eqn}
+\partial \left[u\right]= \mathrm{Index}~v
+\ee
+(cf. Definition \ref{fred_index_defn}).
 \end{empt}
 
 %In the special case A = B(H), J = K(H), and K0(K) is identied with Z in thestandard way, the map @ is exactly the map which sends a unitary in the Calkinalgebra to its Fredholm index.Unitaries in a quotient do not lift to partial isometries in general, so thedenition of @ must be stated in the more complicated way given above.
-\end{empt}
+
 	\subsection{Universal coefficient theorem}
 	\paragraph*{}
 	Universal coefficient theorem \cite{blackadar:ko} establishes (in particular) a relationship between $K$ - theory and $K$- homology. For any $C^*$-algebra $A$ there is a natural homomorphism
