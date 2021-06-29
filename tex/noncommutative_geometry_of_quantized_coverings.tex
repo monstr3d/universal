@@ -11949,7 +11949,7 @@ Denote by $\pi: A \hookto \widetilde A$  the natural inclusion.
 Below we construct a partial homomorphism from $K^1\left( A\right) $ homology group to $\pi_1\left( A\right) /\left[\pi_1\left( A\right), \pi_1\left( A\right)\right]$ (cf. Definition \ref{fg_bas_defn}). 
 
 
-\subsection{Free special case}\label{free_spec_case}
+\section{Free special case}\label{free_spec_case}
 \paragraph{}
 Let $A$ be a stable  $C^*$ - algebra such that $K^1(A)\approx G \oplus \mathbb{Z}$. From (\ref{uct_c}) it follows that
 \begin{equation}\label{k1_direct_sum} 
@@ -11979,7 +11979,7 @@ $$
 \end{exm}
 
 
-\subsection{Torsion special case}\label{torsion_special_case}
+\section{Torsion special case}\label{torsion_special_case}
 \paragraph{} Here we construct homomorphism for torsion part of $K^1\left( A\right)$. 
 \begin{empt}\label{tors_special_case_general}
 Let $A$ be a stable  $C^*$ - algebra such that $K^1(A)= G \oplus \mathbb{Z}_n$, where $G$ is an abelian group. From (\ref{uct_c}) it follows that $K_0(A) \approx G' \oplus \mathbb{Z}_n$. So there is an element $x  \in K_0(A)$ such that $K_0\left(A \right)= G' \oplus \Z_n x$. From \ref{part_index_empt} it follows that there is an unitary $w\in M\left( A\otimes\K\right)/\left( A\otimes\K\right)$ and a Fredholm partial isometry $v \in M\left( A\otimes\K\right)$ such that $w$ lifts to $v$ and
@@ -11994,7 +11994,11 @@ x = \partial \left[w\right]= \mathrm{Index}~v
 \end{empt}
 
 \subsubsection{Example}
-Let $\sX, \sY\cong S^1$ be topological spaces and let $f : \sX\to \sY$ be an $n$-listed covering. Let $C_f$ be a cone of $f$.
+Let $\sX, \sY\cong S^1$ be topological spaces and let $f : \sX\to \sY$ be an $n$-listed covering. Let $C_f$ be a cone of $f$. For all $x_0\in C_f$ one has
+\be\label{h_p1_cf_eqn}
+\pi_1\left(C_f, x_0  \right) = \Z_n
+\ee
+(cf. \cite{hatcher:at} Chapter I, Example 1.29.)
 \begin{exercise} 
 \begin{enumerate}
 	\item Prove that $\pi_1\left(C_f  \right) = \Z_n$.
@@ -17808,7 +17812,7 @@ For all $n > 1$ the group $	\pi_{n} (\sX, x_0)$ is Abelian.
 	\ee
 \end{remark}
 
-
+\
 
 \subsection{Coverings and fundamental groups}
 	\paragraph*{}
@@ -18042,29 +18046,60 @@ terminate at either or both ends)
 
 The Puppe sequence and the reduced Puppe sequence induce exact 
 sequences of $\widetilde{K}$-groups 
-!!!
+!!! DOUBLE LINE
 			\newline
 \begin{tikzpicture}
-	\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
+	\matrix (m) [matrix of math nodes, row sep=2em, column sep=2em]
 	{
-		\hat I   & \hat A\setminus \mathrm{hull}\left( I\right),  &\mathrm{hull}\left( I\right) &	\left( A/I\right)\hat~ \\ 
-		\check I  &  \check A\setminus \mathrm{hull}\left( I\right), & \mathrm{hull}\left( I\right) & 	\left( A/I\right)\check~\\};
-	\path[-stealth]
-	(m-1-2) edge node [above] {$\approx $} (m-1-1)
-	(m-1-3) edge node [above] {$\approx$} (m-1-4)
-	(m-2-2) edge node [above] {$\approx$} (m-2-1)
-	(m-2-3) edge node [above] {$\approx$} (m-2-4)
-	(m-1-1) edge node [right]  {} (m-2-1)
-	(m-1-2) edge node [right]  {} (m-2-2)
-	(m-1-3) edge node [right] {} (m-2-3)
-	(m-1-4) edge node [right] {} (m-2-4);
+	 \widetilde K\left(S'\left(\sX \right)  \right)    &  \widetilde K\left(S'\left(\sY \right)  \right)&   \widetilde K\left(C'_f  \right) &	 \widetilde K\left(\left(\sX \right)  \right)    &  \widetilde K\left(\left(\sY \right)  \right)\\ 
+		 \widetilde K\left(S\left(\sX \right)  \right)    &  \widetilde K\left(S\left(\sY \right)  \right)&   \widetilde K\left(C_f  \right) &	 \widetilde K\left(\left(\sX \right)  \right)    &  \widetilde K\left(\left(\sY \right)  \right)~\\};
+	\path[->, font=\scriptsize]
+	(m-2-1) edge[dashed] node [left] {$\approx$} (m-1-1)
+	(m-2-2) edge[dashed] node [left] {$\approx$} (m-1-2)
+	(m-2-3) edge[dashed] node [left] {$\approx$} (m-1-3)
+	(m-2-4) edge[-,double]  (m-1-4)
+	(m-2-5) edge[-,double]  (m-1-5)
+	(m-1-1) edge  (m-1-2)
+	(m-1-2) edge (m-1-3)
+	(m-1-3) edge  (m-1-4)
+	(m-1-4) edge  (m-1-5)
+	(m-2-1) edge (m-2-2)
+(m-2-2) edge   (m-2-3)
+(m-2-3) edge  (m-2-4)
+(m-2-4) edge  (m-2-5);
 \end{tikzpicture}
 \\ 
 \end{theorem}
 
 
+\subsection{Homology theory and Hurewicz homomorphism}
 
+\begin{definition}\cite{switzer:at}
+	Let $\mathscr T^2$ denote the category of all topological pairs $\left(\sX, \A\right)$ ($\A\subset\sX$ a subspace) and maps $f: \left(\sX, \A\right)\to \left(\sY, \B\right)$. On $\mathscr T^2$  we have the functor $R:\mathscr T^2$ ("restriction") defined by $R\left(\sX, \A\right)= \left(\A, \emptyset\right)$, $R\left(f \right)= f|_{\A}$. Let $\mathscr T^2~'$ be the homotopy category - i.e. objects are as in $\mathscr T^2$, morphisms are homotopy classes of maps. We stiil have $R:\mathscr T^2~'\to \mathscr T^2~':$ $R\left(\sX, \A\right)= \left(\A, \emptyset\right)$, $R\left(\left[f\right] \right)= \left[f|_{\A}\right]$. 
+	
+	An \textit{unreduced homology theory} $h_*$ on $\mathscr T^2~'$ is a sequence of functors $h_n$ from $\mathscr T^2~'$ to the category of Abelian groups  for each $n\in \Z$ and the natural transformations $\partial_n : h_n \to h_{n-1}\circ R$, satisfying the following two axioms:
+	\begin{enumerate}
+		\item [(a)] Exactness: for every pair $\left(\sX, \A\right)\in\mathscr T^2~'$ the sequence
+		\bean
+		...\to h_{n+1}\left(\sX, \A\right)\xrightarrow{\partial_{n+1}\left(\sX, \A\right)} h_{n}\left(\A, \emptyset\right)\xrightarrow{h_n\left[i\right]}h_{n}\left(\sX, \emptyset\right)\xrightarrow{h_n\left[j\right]}\\
+		h_{n}\left(\sX, \A\right)\xrightarrow{\partial_{n}\left(\sX, \A\right)}
+		\eean
+		is exact where $i: \left(\A, \emptyset\right)\to \left(\sX, \emptyset\right)$ and $j: \left(\sX, \A\right)\to \left(\sX, \emptyset\right)$ are the inclusions.
+		\item[(b)] Excision: for every pair $\left(\sX, \A\right)$ and open subset $\sU\in \A$ with $\overline{   \mathcal U }\subset \mathring{\A}$ the inclusion $j: \left(\sX\setminus \sU, \A\setminus \sU\right)\to \left(\sX, \A\right)$ induces an isomorphism $h_n\left[j\right]: h_n\left(\sX\setminus \sU, \A\setminus \sU\right)\to h_n\left(\sX, \A\right)$.
+	\end{enumerate}
+	
+\end{definition}
 
+\begin{definition}
+	% 7.39
+	Let $k_*$ be a homology theory. We define the \textit{Hurewicz homomorphism} h:	$\pi_n\left(Y, y_0 \right)\to k_n\left(Y \right)$  to be the composite
+	\be
+	\begin{split}
+\pi_n\left(\sY, y_0 \right)\cong \left[S^n, s_0; \sY, y_0\right]\xrightarrow{k_n}\Hom\left(k_n\left(S^n \right),  k_n\left(\sY \right)\right) \xrightarrow{\Hom\left(\sigma^n, 1 \right) }\\
+\Hom\left(k_n\left(S^0 \right),  k_n\left(\sY \right)\right)\cong k_n\left(\sY \right).
+	\end{split}
+	\ee
+\end{definition}
 
 \chapter{Algebra}
 	\section{Finitely generated modules}
