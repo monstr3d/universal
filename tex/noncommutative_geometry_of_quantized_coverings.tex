@@ -12152,7 +12152,7 @@ In the introduction of Soviet edition of the book "Basic Number Theory" \cite{we
 \paragraph*{}
 \textit{With this I would like to emphasize that [the current book] is not simply a textbook for the future number theorists. There was a time when Galois theory was considered as something abstract and complicated, demanded only by specialists. Moreover, I knew quite a few excellent mathematicians of my generation that overtly confessed in their complete ignorance about Galois theory and, perhaps, even took pride in that. Today, everyone perfectly understands that [Galois theory] is one of the 'stem' topics, which every serious student of mathematics has to get familiar with during the first years of their study. In my opinion, the same holds for the elementary theory of algebraic number fields, including the class field theory, and I hope that this book will ultimately promote this. I will be glad if the present translation is useful for the new generation of Soviet mathematicians in that regard}.
 \paragraph*{}
-If $K$ is a local field (resp. $F$ is an $\mathbf{A}$-field) the class field theory \cite{weil:basic_number_theory} yields a homomorphisms
+If $K$ is a local field (resp. $F$ is an $\mathbf{A}$-field) the class field theory \cite{weil:basic_number_theory} yields  homomorphisms
 \be\label{cls_f_eqn}
 \begin{split}
 	K^\times \to \mathrm{Gal}\left(K^\mathrm{ab}/K \right),\\
@@ -12161,10 +12161,9 @@ If $K$ is a local field (resp. $F$ is an $\mathbf{A}$-field) the class field the
 \ee
 Using in the Sections \ref{free_special_case} and \ref{torsion_special_case}  constructions one can define the Hurewits homomorphism similarly to \eqref{cls_f_eqn} one can define a homomorphism
 \be
-K^1\left(A\right)\to \pi_1\left( A\right) /\left[\pi_1\left(A\right), \pi_1\left(A\right)\right]
+K^1\left(A\right)\to \pi_1\left( A\right) /\left[\pi_1\left(A\right), \pi_1\left(A\right)\right].
 \ee
-where $K^1\left(A\right)$ is an analog of $K^\times$ (resp. 	$F^\times_{\mathbf{A}}/F^\times$) and $\pi_1\left( A\right) /\left[\pi_1\left(A\right), \pi_1\left(A\right)\right]$ is an analog of $\mathrm{Gal}\left(K^\mathrm{ab}/K \right)$ (resp. $\mathrm{Gal}\left(F^\mathrm{ab}/F \right)$.
-can be used for definition of the partial homomorphism $K^1\left(A\right)\to \pi_1\left( A\right) /\left[\pi_1\left(A\right), \pi_1\left(A\right)\right]$. If $K$ is a local field then the class field theory yields a homomorphism $K^\times \to \mathrm{Gal}\left(K^\mathrm{ab}/K \right)$ \cite{weil:basic_number_theory}.  The partial homomorphism $K^1\left(A\right)\to \pi_1\left( A\right) /\left[\pi_1\left(A\right), \pi_1\left(A\right)\right]$ can be obtained by similar way.
+Elements of $K^1\left(A\right)$ can be represented by Fredholm operators which are invertible modulo compact operators, otherwise both $K^\times$ and 	$F^\times_{\mathbf{A}}/F^\times$ correspond to invertible elements of fields. Overwise the Galois groups $\mathrm{Gal}\left(K^\mathrm{ab}/K \right)$ are analogs  $\mathrm{Gal}\left(F^\mathrm{ab}/F \right)$ of the  Abelian fundamental group $\left[\pi_1\left(A\right), \pi_1\left(A\right)\right]$
 
 \section{Commmutative case}
 	
@@ -18140,12 +18139,32 @@ sequences of $\widetilde{K}$-groups
 	\end{split}
 	\ee
 \end{definition}
+
+Any homology theory defines a cohomology theory. In particular it satisfies to the following exactness axiom
+\be\label{top_c_exact_eqn}
+...\xrightarrow{\delta} k^n\left(\sX, \A \right) \xrightarrow{k^n\left[j\right]} k^n\left(\sX \right) \xrightarrow{k^n\left[i\right]} k^n\left(\A \right) \xrightarrow{\delta} k^{n+1}\left(\sX, \A \right)\to ...
+\ee
 \subsection{Obstruction theory}
+\begin{definition}\cite{spanier:at}
+Let $\pi$ an Abelian group and $\sY$ is a path-connected pointed space. An element $v \in H^n\left(\sY, y, \pi \right)$ is said to be $n$-\textit{characteristic} for $\sY$ if the composite
+$$
+\pi_n\left(\sY, y_0 \right)\xrightarrow{\varphi} H^n\left(\sY, y, \pi \right)\xrightarrow{h(v)}\pi
+$$ 
+is isomorphism (where $\varphi$ is the Hurewicz homomorphism and $h\left( v\right)$ is the natural homomorhism which follows from the universal coefficient theorem  \cite{spanier:at})
+\end{definition}
 \begin{theorem}\label{top_obstr_thm}\cite{spanier:at}
 %12 theorem 
 Let $\sY$ be a space of type $\left(\pi, n\right)$, with $n\ge 1$ and $\pi$ Abelian, and let $\iota$ be $n$-characteristic for $Y$. If $(X,A)$ is a relative $CW$-complex, a map $f: A\to Y$ 
-can be extended over $X$ if and only if $\delta f^*\left( \iota \right)  = 0 \in  H^{n + 1}\left(\sX, \sA; \pi \right)$ 
+can be extended over $X$ if and only if $\delta H^n\left[f\right]\left( \iota \right)  = 0 \in  H^{n + 1}\left(\sX, \sA; \pi \right)$. 
 \end{theorem}
+\begin{remark}
+The  Theorem \ref{top_obstr_thm} implies the cohomology exact sequence \eqref{top_c_exact_eqn}, i.e.
+\bean
+...\xrightarrow{\delta} H^n\left(\sX, \A ;\pi\right) \xrightarrow{H^n\left[j\right]} H^n\left(\sX ;\pi\right) \xrightarrow{H^n\left[i\right]} H^n\left(\A; \pi \right) \xrightarrow{\delta} H^{n+1}\left(\sX, \A ;\pi\right)\to ...
+\eean
+and a homomorphism $H^n\left[f\right]: H^n\left(\sY; \pi \right) \to H^n\left(\A; \pi \right)$.
+\end{remark}
+
 
 \chapter{Algebra}
 	\section{Finitely generated modules}
