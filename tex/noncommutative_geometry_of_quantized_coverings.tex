@@ -4225,14 +4225,22 @@ it turns out that  $\widetilde X'\cong\C\widetilde X$.
 \paragraph{}
 Very natural choice of fundamental group is proposed in \cite{milne:etale}, where the fundamental group of algebraic manifold is an inverse limit of finite covering groups. However this theory does not yield the fundamental group, it provides its the profinite completion of the fundamental group. Another way is the construction of the noncommutative universal covering using  construction \ref{inf_bas_constr_sec}. This  construction yields fundamental group in the commutative case $A = C_0\left( \mathcal X\right)$ for described below class of spaces.
 \subsection{Universal coverings of $C^*$-algebras}\label{uni_sec}
-\begin{definition}\label{fg_bas_defn} 
+\begin{definition}\label{unicov_defn} 
 	Let $A$ be a connected $C^*$-algebra. Let us consider the family $\left\{ \pi_\la:A \hookto A_\la\right\}_{\la \in \La} $  \textit{all} noncommutative finite-fold coverings (cf. Definition \ref{fin_defn}) (resp. \textit{all} reduced noncommutative finite-fold coverings (cf. Definition \ref{fin_red_defn}))  (resp. \textit{all} free noncommutative finite-fold coverings (cf. Definition \ref{fin_free_defn})) of $A$. Suppose that the family $\left\{ \pi_\la:A \hookto A_\la\right\}_{\la \in \La}$ is an {algebraical  finite covering category} (cf. Definition \ref{comp_defn}).
- Denote by $\mathfrak{S} = \left\{ \pi_\la:A \hookto A_\la\right\}_{\la \in \La}$ and suppose that there is   a  {pointed  algebraical  finite covering} category $$\mathfrak{S}^{\mathrm{pt}} = \left( \left\{ \pi_\la:A \hookto A_\la\right\}_{\la\in\La},\left\{\pi^\nu_\mu\right\}_{\substack{ \mu, \nu \in \La \\ \mu \ge \nu}} \right)$$  which is good.
-	The { connected infinite noncommutative covering }  $\left(A, \widetilde{A}, G\left(\left.\widetilde{A}~\right|{A}  \right) \right)$ of $\mathfrak{S}$ is said to be the \textit{universal  covering} (resp. \textit{reduced universal  covering}) (resp. \textit{free universal  covering}) 
-	of $A$. We also say that $\widetilde{A}$ the \textit{universal  covering} (resp. \textit{reduced universal  covering})  (resp. \textit{free universal  covering}) of $A$. The group $G\left(\left.\widetilde{A}~\right|{A}  \right)$  is said to be the \textit{fundamental group} (resp. \textit{reduced fundamental group}) (resp. \textit{free fundamental group}) 
-	of the pair  $\left( A, \left\{\pi^\nu_\mu\right\}\right) $. We use the following notation
+ Denote by $\mathfrak{S} = \left\{ \pi_\la:A \hookto A_\la\right\}_{\la \in \La}$ and suppose that there is   a  {pointed  algebraical  finite covering} category \be\label{unicov_eqn}
+ \mathfrak{S}^{\mathrm{pt}} = \left( \left\{ \pi_\la:A \hookto A_\la\right\}_{\la\in\La},\left\{\pi^\nu_\mu\right\}_{\substack{ \mu, \nu \in \La \\ \mu \ge \nu}} \right)\ee  which is good.
+	The { connected infinite noncommutative covering }  $\left(A, \widetilde{A}, G\left(\left.\widetilde{A}~\right|{A}  \right) \right)$ of $\mathfrak{S}^{\mathrm{pt}}$ is said to be the \textit{universal  covering} (resp. \textit{reduced universal  covering}) (resp. \textit{free universal  covering}) 
+	of $A$. We also say that $\widetilde{A}$ the \textit{universal  covering} (resp. \textit{reduced universal  covering})  (resp. \textit{free universal  covering}) of $A$. 
+\end{definition}
+\begin{definition}\label{fg_bas_defn} Similarly to \eqref{unicov_eqn} consider 
+\bean
+\mathfrak{S}_\K^{\mathrm{pt}} = \left( \left\{ \rho_\la:A\otimes \K \hookto A^\K_\la\right\}_{\la\in\La},\left\{\rho^\nu_\mu\right\}_{\substack{ \mu, \nu \in \La \\ \mu \ge \nu}} \right)\eean
+If 	$\left(A\otimes\K, \widetilde{A}_\K, G\left(\left.\widetilde{A}_\K~\right|{A}\otimes\K  \right) \right)$ of $\mathfrak{S}^{\mathrm{pt}}$ is \textit{universal  covering} (resp. \textit{reduced universal  covering}) (resp. \textit{free universal  covering}) 
+of $A\otimes\K$.
+	The group $G\left(\left.\widetilde{A}_\K~\right|{A}\otimes \K \right)$  is said to be the \textit{fundamental group} (resp. \textit{reduced fundamental group}) (resp. \textit{free fundamental group}) 
+	of the pair  $\left( A, \left\{\rho^\nu_\mu\right\}\right) $. We use the following notation
 	\be\label{fg_bas_eqn}
-	\pi_1\left(A, \left\{\pi^\nu_\mu\right\}_{\substack{ \mu, \nu \in \La \\ \mu \ge \nu}} \right) \stackrel{\mathrm{def}}{=} G\left(\left.\widetilde{A}~\right|{A} \right).
+	\pi_1\left(A, \left\{\rho^\nu_\mu\right\}_{\substack{ \mu, \nu \in \La \\ \mu \ge \nu}} \right) \stackrel{\mathrm{def}}{=} G\left(\left.\widetilde{A}_\K~\right|{A}\otimes\K \right).
 	\ee
 
 \end{definition}
@@ -11949,7 +11957,7 @@ Denote by $\pi: A \hookto \widetilde A$  the natural inclusion.
 Below we construct a partial homomorphism from $K^1\left( A\right) $ homology group to $\pi_1\left( A\right) /\left[\pi_1\left( A\right), \pi_1\left( A\right)\right]$ (cf. Definition \ref{fg_bas_defn}). 
 
 
-\section{Free special case}\label{free_spec_case}
+\section{Free special case}\label{free_special_case}
 \paragraph{}
 Let $A$ be a stable  $C^*$ - algebra such that $K^1(A)\approx G \oplus \mathbb{Z}$. From (\ref{uct_c}) it follows that
 \begin{equation}\label{k1_direct_sum} 
@@ -12126,8 +12134,11 @@ where $k\in \Z$ is a representative of $\overline{k}$.
 	\item From the Theorem \ref{stable_fin_cov_rem} it follows that $\left(C\left( C_f\right) \otimes \K, C\left( \mathcal Z\right) \otimes \K, \Z_n\right)$ is a noncommutative finite-fold covering (cf. Definition \ref{fin_defn}. Prove that it is an $\left(u, n \right)$-covering (cf. Definition \ref{h_u_n_defn}).
 \end{enumerate}
 \end{exercise}
-
-
+\section{Resume}
+\paragraph*{}
+!!! CITE WEIL
+Explained in the Sections \ref{free_special_case} and \ref{torsion_special_case}  constructions can be used for definition of the partial homomorphism $K^1\left(A\right)\to \pi_1\left( A\right) /\left[\pi_1\left(A\right), \pi_1\left(A\right)\right]$. If $K$ is a local field then the class field theory yields a homomorphism $K^\times \to \mathrm{Gal}\left(K^\mathrm{ab}/K \right)$ \cite{weil:basic_number_theory}.  The partial homomorphism $K^1\left(A\right)\to \pi_1\left( A\right) /\left[\pi_1\left(A\right), \pi_1\left(A\right)\right]$ can be obtained by similar way.
+\section{Commmutative case}
 	
 
 
@@ -26661,7 +26672,7 @@ E.H. Spanier. {\it Algebraic Topology.} McGraw-Hill. New York. 1966.
 Oxford, England, 1993.
 
 
-%\bibitem{weil:basic_number_theory}Andre Weil {\it Basic Number Theory}. Springer 1995
+\bibitem{weil:basic_number_theory}Andre Weil {\it Basic Number Theory}. Springer 1995.
 
 %\bibitem{Partha_quantum_su} Partha Sarathi Chakraborty, Arupkumar Pal. {\it Equivariant spectral triples on the quantum $SU(2)$ group.} arXiv:math.KT/0201004, 2003.
 
