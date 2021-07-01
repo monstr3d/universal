@@ -12159,11 +12159,14 @@ If $K$ is a local field (resp. $F$ is an $\mathbf{A}$-field) the class field the
 	F^\times_{\mathbf{A}}/F^\times \to \mathrm{Gal}\left(F^\mathrm{ab}/F \right)
 	\end{split}
 \ee
-Using in the Sections \ref{free_special_case} and \ref{torsion_special_case}  constructions one can define the Hurewits homomorphism similarly to \eqref{cls_f_eqn} one can define a homomorphism
+Using in the Sections \ref{free_special_case} and \ref{torsion_special_case}  constructions one can define the Hurewics homomorphism similarly to \eqref{cls_f_eqn} one can define a homomorphism
 \be
 K^1\left(A\right)\to \pi_1\left( A\right) /\left[\pi_1\left(A\right), \pi_1\left(A\right)\right].
 \ee
 Elements of $K^1\left(A\right)$ can be represented by Fredholm operators which are invertible modulo compact operators, otherwise both $K^\times$ and 	$F^\times_{\mathbf{A}}/F^\times$ correspond to invertible elements of fields. Overwise the Galois groups $\mathrm{Gal}\left(K^\mathrm{ab}/K \right)$ are analogs  $\mathrm{Gal}\left(F^\mathrm{ab}/F \right)$ of the  Abelian fundamental group $\left[\pi_1\left(A\right), \pi_1\left(A\right)\right]$
+
+To describe further properties of the classes $[D]$ we need to introduce the following boundary operation on Dirac bundles:
+
 
 \section{Commmutative case}
 	
@@ -18050,6 +18053,327 @@ point.
 \end{split}
 \ee	
 \end{empt}
+
+\subsection{Geometric and analytic $K$-homology}
+\subsubsection{Review of analytic $K$-homology}
+\begin{definition}
+	\label{fredmoddef}   
+	Let $A$ be a separable $C^*$-algebra.  An (ungraded) \emph{Fredholm
+		module} over $A$ is given by the following data:
+	\begin{enumerate}
+		
+		\item[(a)] a separable Hilbert space $\H$,
+		
+		\item[(b)]  a  representation $\rho\colon A\to
+	B(\H)$ of $A$ as bounded operators on $\H$,  and
+		
+		\item[(c)]  an operator $F$ on $H$ such that for all $a\in A$,
+		$$
+		(F^2- 1)\rho(a)\sim 0,\quad (F-F^*)\rho(a)\sim 0,
+		\quad F\rho(a)\sim \rho(a)F.
+		$$ 
+	\end{enumerate} 
+	The representation $\rho$ is not required to be non-degenerate in any
+	way.  In fact $\rho$, and even the Hilbert space $\H$, are allowed to be
+	zero.
+\end{definition}
+\begin{definition}
+	Let $p\in \{0,1,2,\dots \}$ and let $A$ be a separable $C^*$-algebra.
+	A \emph{$p$-graded}\footnote{The term `$p$-multigraded' is used in
+		\cite{MR2002c:58036}.}  Fredholm module is a Fredholm module $(\H,\rho, F)$, as
+	above, with the following additional structure:
+	
+	\begin{enumerate}
+		
+		\item[(a)] The Hilbert space $\H$ is equipped with a $\Z/2$-grading
+		$H=H^+\oplus H^-$ in such a way that  for each $a\in A$, the operator
+		$\rho(a)$ is even-graded, while the operator $F$ is odd-graded.
+		
+		\item[(b)]  There are  odd-graded operators
+		$\varepsilon_1,\dots , \varepsilon_p$ on $H$ such that
+		$$ 
+		\varepsilon_j = -\varepsilon_j^*,\quad \varepsilon_j^2 =
+		-1,\quad \varepsilon_i\varepsilon_j+\varepsilon_j\varepsilon_i
+		= 0\quad (i\ne j),
+		$$ 
+		and such that $F$ and each $\rho (a)$ commute with each $\varepsilon_j$.
+	\end{enumerate} 
+\end{definition}
+\begin{definition}
+	Let $(H,\rho,F)$ and $(H',\rho', F') $ be $p$-graded Fredholm modules
+	over $A$. A \emph{unitary equivalence} between them is a
+	grading-degree zero unitary isomorphism $U\colon H\to H'$ which
+	intertwines the representations $\rho$ and $\rho'$, the operators $F$
+	and $F'$, and the grading operators $\varepsilon_j$ and
+	$\varepsilon_j'$.
+\end{definition}
+
+\begin{definition}
+	Suppose that $(H,\rho,F_t)$ is a family of $p$-graded Fredholm modules
+	parameterized by $t\in [0,1]$, in which the representation $\rho$,
+	the Hilbert space $H$ and its grading structures remain constant but
+	the operator $F_t$ varies with $t$.  If the function $t\mapsto F_t$ is
+	norm continuous, then we say that the family defines an \emph{operator
+		homotopy} between the $p$-graded Fredholm modules $(\rho,H,F_0)$ and
+	$(\rho,H,F_1)$, and that the two Fredholm modules  are \emph{operator homotopic}.
+\end{definition}
+
+There is a natural notion of \emph{direct sum} for Fredholm modules: one
+takes the direct sum of the Hilbert spaces, of the representations, and of the
+operators $F$.  The \emph{zero module}  has zero Hilbert space, zero
+representation, and zero operator.
+
+Now we can give Kasparov's definition of $K$-homology.
+
+\begin{definition}
+	Let $p\in \{0,1,2,\dots \}$ and let $A$ be a separable $C^*$-algebra.
+	The \emph{Kasparov $K$-homology group} $K^{-p}(A)$ is the abelian
+	group with one generator $[x]$ for each unitary equivalence class of
+	$p$-graded Fredholm modules over $A$ and with the following relations:
+	
+	\begin{enumerate}
+		
+		\item  if $x_0$ and $x_1$
+		are operator homotopic $p$-graded Fredholm modules then $[x_0]=[x_1]$ in
+		$K^{-p}(A)$, and 
+		
+		\item 
+		if $x_0$ and $x_1$ are any two $p$-graded Fredholm modules then
+		$[x_0\oplus x_1] = [x_0] + [x_1]$ in $K^{-p}(A)$.
+	\end{enumerate}  
+\end{definition}
+
+\begin{definition}
+	A $p$-graded Fredholm module is said to be \emph{degenerate} if the equivalences modulo compact operators listed in item (c) of Definition~\ref{fredmoddef} are actually equalities. 
+\end{definition}
+
+It is easy to see that a degenerate $p$-graded Fredholm module determines the zero element of $K^{-p}(A)$. 
+
+\begin{lemma}
+	\label{triv-mod-lemma}
+	Let $(H,\rho, F)$ be a $p$-graded Fredholm module.  Assume that there exists a self-adjoint, odd-graded involution $E\colon H\to H$ which commutes with the action of $A$ and with the multigrading operators $\varepsilon _j$, and which anticommutes with $F$.  Then the Fredholm module $(H,\rho, F)$ represents the zero element of $K^{-p}(A)$.
+\end{lemma}
+\begin{definition} 
+	\label{periodicity-def}
+	The \emph{formal periodicity map} 
+	$$
+	K^{-p}(A) \xrightarrow{} K^{-(p+2)}(A)
+	$$
+	is the homomorphism of Kasparov  groups induced from this construction.
+\end{definition} 
+
+The periodicity map can be reversed by compressing a $(p+2)$ graded
+Fredholm module to the $+1$ eigenspace of the involution $-i
+\varepsilon _{p+1}\varepsilon _{p+2}$.  We obtain an isomorphism 
+$$
+K^{-p}(A) \cong K^{-(p+2)}(A).
+$$
+As a result there are really only two genuinely distinct $K$-homology
+groups, $K^{\mathrm{ev}}$ and $K^{\mathrm{odd}}$, as follows:
+
+\begin{definition}
+	Let us denote by $K^{\mathrm{ev}}(A)$ and  $K^{\mathrm{odd}}(A)$  the groups
+	$K^0(A)$ and $K^{-1}(A)$ respectively, or more canonically, the direct
+	limits 
+	$$ K^{\mathrm{ev}}(A) = \varinjlim _k K^{-{2k}}(A) \quad \text{and}
+	\quad K^{\mathrm{odd}}(A) =  \varinjlim _k K^{-(1+2k)}(A)$$
+	under the above periodicity maps. \end{definition}
+
+\begin{definition}
+	If $Z$ is a second countable,\footnote{This assumption is required at several points in Kasparov's theory, which is designed for \emph{separable} $C^*$-algebras.}  locally compact space, and if  $A= C_0(Z)$, then we shall write $K_{p}(Z) $ in place of $K^{-p}(A)$.
+	These are the \emph{Kasparov $K$-homology groups} of the space $Z$. 
+	If $(X,Y)$ is
+	a second countable, locally compact pair, and if $Z$ is the difference $X\setminus Y$, then we define relative $K$-homology groups by
+	$$
+	K_{p} (X,Y) = K_{-p} (Z).
+	$$
+	We shall define periodic groups $K_{\mathrm{ev}/\mathrm{odd}}(X,Y)$ similarly. 
+\end{definition}
+
+
+Kasparov's main theorem concerning these objects is then as follows:
+
+\begin{theorem}
+	There are natural transformations
+	$$
+	\partial \colon K_{p} (X,Y) \xrightarrow{} K_{p-1} (Y)
+	$$
+	(connecting homomorphisms) which are compatible with the formal periodicity isomorphisms and which give Kasparov $K$-homology the
+	structure of a $\Z/2$-graded homology theory on the category of
+	compact metrizable pairs $(X,Y)$.  On the subcategory of finite
+	$CW$-complexes Kasparov $K$-homology is isomorphic to topological
+	$K$-homology --- the  homology theory associated to the
+	Bott spectrum. \qed
+\end{theorem}
+\subsubsection{Dirac-Type Operators}
+\begin{definition}
+	\label{diracbundle} 
+	Let $M$ be a smooth, second countable finite dimensional manifold (possibly
+	with non-empty boundary) and let  $V
+	$ be a smooth, Euclidean vector bundle over $M$. A \emph{$p$-graded Dirac
+		structure} on 
+	$V $ is a smooth, $\Z/2$-graded, Hermitian vector bundle $\S$ over $M$ together
+	with the following data:
+	\begin{enumerate}[\rm (a)]
+		\item An $\R$-linear morphism of vector bundles $$ V  \to
+		\End(\S) $$  which associates to each vector $v\in V _x$ a
+		skew-adjoint, odd-graded endomorphism $u\mapsto v \cdot u$ of $\S_x$ in such
+		a way that 
+		$$
+		v\cdot v\cdot u = -\|v \|^2 u.
+		$$
+		\item
+		A family of skew-adjoint, odd-graded endomorphisms 
+		$\varepsilon_1,\dots , \varepsilon_p$ of $\S$ such that 
+		$$ 
+		\varepsilon_j = -\varepsilon_j^*,\quad \varepsilon_j^2 =
+		-1,\quad \varepsilon_i\varepsilon_j+\varepsilon_j\varepsilon_i
+		= 0\quad (i\ne j),
+		$$ 
+		and such that each $\varepsilon _j$ commutes with each operator
+		$u\mapsto v \cdot u$.
+	\end{enumerate}
+	Usually $M$ will be a Riemannian manifold and we will take $V = T M$.  In this case we shall call $\S$  a \emph{$p$-graded Dirac bundle on $M$}.
+\end{definition}
+
+
+\begin{definition}
+	\label{dirac-op-def}
+	Let $M$ be a Riemannian manifold which is equipped with a $p$-graded Dirac structure, with Dirac bundle $\S$. 
+	We shall call an  odd-graded, symmetric, order one linear partial differential operator $D$ acting on the sections of  $\S$ a \emph{Dirac operator} if it  commutes with the operators $\varepsilon _j$, and if  
+	$$
+	[ D, f] u = \operatorname{grad} f\cdot u,
+	$$
+	for every smooth function $f$ on $M$ and every section $u$ of $\S$. \end{definition}
+
+Every Dirac bundle on a Riemannian manifold  admits a Dirac operator, and the difference of two Dirac operators on a single Dirac bundle $\S$ is an endomorphism of $\S$.
+
+
+A $p$-graded Dirac operator $D$ on a Riemannian manifold $M$ without boundary
+defines in a natural way a class $[D]\in K_p(M)$.  The general construction is a little involved, and we refer the reader to \cite{MR2002c:58036} for details, but when $M$ is closed there is a very simple description of $[D]$: 
+
+
+\begin{theorem} 
+	\label{fmod1}
+	Let $M$ be a closed (i.e.~compact without boundary) Riemannian manifold and let $D$ be a  Dirac operator on a $p$-graded Dirac bundle  $\S$. Let $H=L^2(M,S)$ be the Hilbert  space of square-integrable sections of $\S$, and let $\rho$ be the representation of
+	$C(M)$ on $H$ by pointwise multiplication operators. Let 
+	$$
+	F = D ( I + D^2 )^{-\frac 12} .
+	$$ 
+	The triple $(\rho, H , F)$ is a $p$-graded Fredholm module for $A=
+	C(M)$. \qed 
+\end{theorem}
+
+
+\begin{definition}
+	\label{boundary-S-def}
+	Let $\S$ be a $p$-graded Dirac bundle on a  Riemannian
+	manifold $\overline{M}$ with boundary $\partial M$. If $e_1$ denotes the outward 
+	pointing unit normal  vector field on the boundary manifold $\partial
+	M$ then the formula
+	$$
+	X\colon u \mapsto (-1)^{\partial u}e_ 1\cdot \varepsilon_1 u 
+	$$ 
+	defines an automorphism of the restriction of $\S$ to $\partial M$
+	which is even, self-adjoint, and satisfies $X^2=1$. The operator $X$ commutes
+	with  multiplication $u\mapsto Y\cdot u$ by  tangent vectors  $Y$ orthogonal to $e_1$,
+	and also with the multigrading operators $\varepsilon_2, \dots ,
+	\varepsilon_{p}$.  The $+1$ eigenbundle for $X$ is a $(p-1)$-graded Dirac 
+	bundle\footnote{The multigrading operators are obtained from
+		$\varepsilon_2,\dots , \varepsilon_p$ by shifting indices downwards.} on
+	$\partial M$, which we shall call the \emph{boundary} of the Dirac
+	bundle $\S$.
+\end{definition}
+
+The following theorem summarizes facts proved in Chapters 10 and 11 of \cite{MR2002c:58036}.  
+
+\begin{theorem}  
+	\label{bdiracdirac} 
+	To each Dirac operator $D$ on a $p$-graded Dirac bundle over a smooth manifold without boundary there is associated a class $[D]\in K_p (M)$ with the following properties: 
+	\begin{enumerate}
+		\item The class $[D]$ depends only on the Dirac bundle, not on the choice of the operator $D$.
+		\item 
+		If $M_1$ is an open subset of $M_2$, and if $D_1$ is a Dirac operator on $M_1$ obtained by restricting a Dirac operator $D_2$ on $M_2$, then $[D_2]$ maps to $[D_1]$ under the homomorphism $K_p(M_2) \to K_p (M_1)$.
+		\item
+		Let $M$ be the interior of a Riemannian manifold $\overline{M}$ with
+		boundary $\partial M$, and let  $\S$ be a $p$-graded Dirac bundle on
+		$\overline{M}$.  Let $D$ be a Dirac operator on $M$  associated to $\S$
+		and let $D_{\partial M}$ be a Dirac operator on $\partial M$
+		associated to the boundary of $\S$. The connecting homomorphism 
+		$$ \partial\colon K_p(M)\to K_{p-1}(\partial M) $$
+		in Kasparov $K$-homology  takes the
+		class $[D_M] $ to the class $[D_{\partial M}]$: 
+		$$ 
+		\partial [D_M] = [D_{\partial M}] \in K_{p-1}(\partial M) . 
+		$$
+	\end{enumerate}
+	\qed
+\end{theorem}
+
+We shall need one additional fact about Dirac operators which concerns the structure of operators  on fiber bundles.  Suppose that $M$ is a closed Riemannian manifold and that  $P$ is a principal bundle over $M$ whose structure group is a compact Lie group $G$.  Suppose that $N$ is a closed Riemannian manifold on which $G$ acts by isometries.  We can then form the manifold 
+$ Z =P\times _G N$.  Its   tangent bundle $T Z$ 
+fits into an exact sequence of vector bundles over $Z$,
+$$
+\xymatrix{
+	0 \ar[r] &V \ar[r] & T Z  \ar[r] &  \pi^* T M \ar[r] & 0},
+$$
+where $\pi$ denotes the projection mapping from $Z $ to $M$ and where $V$ denotes the ``vertical  tangent bundle'' $V = P\times_G T N$.
+If we choose a splitting of the sequence then we obtain an isomorphism 
+\begin{equation}
+	\label{dir-sum-eqn}
+	T Z \cong V\oplus \pi^* T M  ,
+\end{equation}
+which equips $Z$ with a Riemannian metric. 
+
+Now suppose that $\S_M$ is a $p$-graded Dirac bundle for $M$ and that $\S_N$ is a $0$-graded Dirac bundle for $N$.  Let us also suppose that there is an action of $G$ on $\S_N$ which is compatible with the action of $G$ on  $N$.   We can then form the bundle $\S_{ V}  = P\times _G \S_N$ over $Z$, and from it the graded tensor product 
+$\S_Z =  \S_{ V}  \hat \otimes \pi^*   \S _M $.   Using the direct sum decomposition (\ref{dir-sum-eqn}) this becomes a $p$-graded Dirac bundle for $Z$, with the  tangent vector $v\oplus w\in V\oplus  \pi^* T M  $ acting as the operator $v\hat\otimes 1 + 1 \hat \otimes w
+$ on $ \S_{V}\hat \otimes \pi^*  \S _M  $. 
+
+We can now form the class $[D_{Z}]\in K_{p} (Z)$ associated to a Dirac operator on the Dirac bundle $\S_{V}\hat \otimes \pi^*   \S _M  $, and using the projection mapping $\pi\colon Z\to M$ we obtain a class 
+$$
+\pi_*[D_{Z}] \in K_p (M).
+$$
+The following proposition relates $\pi_* [D_{Z}] $ to the class
+$[D_M]$ of a Dirac operator for the Dirac bundle $\S_M$ on $M$.
+
+\begin{proposition} 
+	\label{fiber-bundle-prop}
+	Assume 
+	that there exists a $G$-equivariant Dirac operator for the Dirac bundle $\S_N$ on $N$ whose kernel is the one-dimensional trivial representation of $G$, spanned by an even-graded section of $\S_N$. 
+	Then 
+	$$
+	\pi_* [D_{Z}] = [D_M] \in K_p(M).
+	$$
+\end{proposition}
+\begin{definition}
+	Let $V$ be a Euclidean vector space. The \emph{complex Clifford algebra} for $V$
+	is the universal complex $*$-algebra $\mathrm{Cliff} (V)$ equipped with an $\R$-linear inclusion of $V$, and subject to the relations 
+	$
+	v^2 = -\| v\|^2 \cdot 1$ for $v\in V$.  If $\{ e_1,\dots, e_n\}$ is an orthonormal basis for $V$, then the algebra $\mathrm{Cliff} (V)$ is linearly spanned by the $2^n$
+	monomials $e_{j_1}\cdots e_{j_k}$, where $j_1<\dots <j_k$ and $0\le k \le n$.
+	We introduce an inner product on $\mathrm{Cliff} (V)$ by deeming these monomials to be
+	orthonormal. 
+\end{definition}
+
+The algebra $\mathrm{Cliff} (V)$ is $\Z/2$-graded: the monomial $e_{j_1}\cdots e_{j_k}$ is even or odd-graded, according as $k$ is even or odd.
+
+\begin{definition}
+	Let $N$ be an even-dimensional, Riemannian manifold and let  $\mathrm{Cliff}(TN)$ be the complex vector bundle on $N$ whose fibers are the complexified Clifford algebras of the fibers of the tangent bundle of $N$.  The 
+	bundle $\mathrm{Cliff} (TN)$ has a natural $0$-graded Dirac bundle structure (tangent vectors act by Clifford multiplication on the left).
+\end{definition} 
+
+If  $N$ is oriented, and if $\{e_1,\dots, e_n\}$ is a local, oriented, orthonormal frame, then the operator of \emph{right}-multiplicaton by the product 
+$$
+\sigma = i^{\frac n2 } e_1\cdots e_n
+$$
+is an even-graded, self-adjoint involution of the bundle $\mathrm{Cliff} (TN)$ which commutes with the Dirac bundle structure.  
+
+\begin{definition}
+	Denote by $\mathrm{Cliff}_{\frac 12} (TN)$ the $+1$-eigenbundle of the involution $\sigma$.  This is a $0$-graded Dirac bundle in its own right. 
+\end{definition}
+
+
+
 \subsection{Puppe sequences}
 \begin{definition}\cite{spanier:at}
 	Let both $\sX$ and $\sX'$ are topological spaces.
