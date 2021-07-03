@@ -11931,7 +11931,7 @@ Denote by $\widehat{A} = C^*\text{-}\varinjlim A_\la$, $G_\la = G\left( A_\la ~|
 If $\sX$ is a compact space and $K_n\left(C \left( \sX\right) \right)$ is a group of $K$-homology (cf. \cite{blackadar:ko}) then the for all $n\in \Z$ the map $\sX \mapsto K_n\left(C \left( \sX\right) \right)$ is a functor which be denote by $\sX \mapsto K_n\left( \sX \right)$. The sequence of functors $K_n$ from the category of topological spaces to category of Abelian groups satisfy to the Definition \ref{top_unred_defn}, i.e. it is an unreduced homology theory. It turns out that  there is the  \textit{Hurewicz homomorphism} (cf. Definition \ref{top_hurewitz_defn}) 	$h_n:\pi_n\left(Y, y_0 \right)\to K_n\left(Y \right)$ such that
 \bean
 \begin{split}
-	\pi_1\left(\sY, y_0 \right)\cong \left[S^1, s_0; \sX, x_0\right]\xrightarrow{k_n}\Hom\left(K_1\left(S^1 \right),  K_1\left(\sX \right)\right) \xrightarrow{\Hom\left(\sigma^1, 1 \right) }\\
+	\pi_1\left(\sY, y_0 \right)\cong \left[S^1, s_0; \sX, x_0\right]\xrightarrow{k_1}\Hom\left(K_1\left(S^1 \right),  K_1\left(\sX \right)\right) \xrightarrow{\Hom\left(\sigma^1, 1 \right) }\\
 	\Hom\left(K_0\left(S^0 \right),  K_1\left(\sX \right)\right)\cong K_1\left(\sX \right).
 \end{split}
 \eean
@@ -18122,10 +18122,31 @@ point.
 \end{split}
 \ee	
 \end{empt}
+\subsection{Obstruction theory}
+\begin{definition}\cite{spanier:at}
+	Let $\pi$ an Abelian group and $\sY$ is a path-connected pointed space. An element $v \in H^n\left(\sY, y, \pi \right)$ is said to be $n$-\textit{characteristic} for $\sY$ if the composite
+	$$
+	\pi_n\left(\sY, y_0 \right)\xrightarrow{\varphi} H^n\left(\sY, y, \pi \right)\xrightarrow{h(v)}\pi
+	$$ 
+	is isomorphism (where $\varphi$ is the Hurewicz homomorphism and $h\left( v\right)$ is the natural homomorhism which follows from the universal coefficient theorem  \cite{spanier:at})
+\end{definition}
+\begin{theorem}\label{top_obstr_thm}\cite{spanier:at}
+	%12 theorem 
+	Let $\sY$ be a space of type $\left(\pi, n\right)$, with $n\ge 1$ and $\pi$ Abelian, and let $\iota$ be $n$-characteristic for $Y$. If $(X,A)$ is a relative $CW$-complex, a map $f: A\to Y$ 
+	can be extended over $X$ if and only if $\delta H^n\left[f\right]\left( \iota \right)  = 0 \in  H^{n + 1}\left(\sX, \sA; \pi \right)$. 
+\end{theorem}
+\begin{remark}
+	The  Theorem \ref{top_obstr_thm} implies the cohomology exact sequence \eqref{top_c_exact_eqn}, i.e.
+	\bean
+	...\xrightarrow{\delta} H^n\left(\sX, \A ;\pi\right) \xrightarrow{H^n\left[j\right]} H^n\left(\sX ;\pi\right) \xrightarrow{H^n\left[i\right]} H^n\left(\A; \pi \right) \xrightarrow{\delta} H^{n+1}\left(\sX, \A ;\pi\right)\to ...
+	\eean
+	and a homomorphism $H^n\left[f\right]: H^n\left(\sY; \pi \right) \to H^n\left(\A; \pi \right)$.
+\end{remark}
 
-\subsection{Geometric and analytic $K$-homology}
+
+\subsection{Geometric  $K$-homology}
 \subsubsection{Review of analytic $K$-homology}
-\begin{definition}
+\begin{definition}\cite{baum_higson_schik:kh}
 	\label{fredmoddef}   
 	Let $A$ be a separable $C^*$-algebra.  An (ungraded) \emph{Fredholm
 		module} over $A$ is given by the following data:
@@ -18134,7 +18155,7 @@ point.
 		\item[(a)] a separable Hilbert space $\H$,
 		
 		\item[(b)]  a  representation $\rho\colon A\to
-	B(\H)$ of $A$ as bounded operators on $\H$,  and
+		B(\H)$ of $A$ as bounded operators on $\H$,  and
 		
 		\item[(c)]  an operator $F$ on $H$ such that for all $a\in A$,
 		$$
@@ -18146,10 +18167,9 @@ point.
 	way.  In fact $\rho$, and even the Hilbert space $\H$, are allowed to be
 	zero.
 \end{definition}
-\begin{definition}
+\begin{definition}\cite{baum_higson_schik:kh}
 	Let $p\in \{0,1,2,\dots \}$ and let $A$ be a separable $C^*$-algebra.
-	A \emph{$p$-graded}\footnote{The term `$p$-multigraded' is used in
-		\cite{MR2002c:58036}.}  Fredholm module is a Fredholm module $(\H,\rho, F)$, as
+	A \emph{$p$-graded} Fredholm module is a Fredholm module $(\H,\rho, F)$, as
 	above, with the following additional structure:
 	
 	\begin{enumerate}
@@ -18168,7 +18188,7 @@ point.
 		and such that $F$ and each $\rho (a)$ commute with each $\varepsilon_j$.
 	\end{enumerate} 
 \end{definition}
-\begin{definition}
+\begin{definition}\cite{baum_higson_schik:kh}
 	Let $(H,\rho,F)$ and $(H',\rho', F') $ be $p$-graded Fredholm modules
 	over $A$. A \emph{unitary equivalence} between them is a
 	grading-degree zero unitary isomorphism $U\colon H\to H'$ which
@@ -18177,7 +18197,7 @@ point.
 	$\varepsilon_j'$.
 \end{definition}
 
-\begin{definition}
+\begin{definition}\cite{baum_higson_schik:kh}
 	Suppose that $(H,\rho,F_t)$ is a family of $p$-graded Fredholm modules
 	parameterized by $t\in [0,1]$, in which the representation $\rho$,
 	the Hilbert space $H$ and its grading structures remain constant but
@@ -18194,7 +18214,7 @@ representation, and zero operator.
 
 Now we can give Kasparov's definition of $K$-homology.
 
-\begin{definition}
+\begin{definition}\cite{baum_higson_schik:kh}
 	Let $p\in \{0,1,2,\dots \}$ and let $A$ be a separable $C^*$-algebra.
 	The \emph{Kasparov $K$-homology group} $K^{-p}(A)$ is the abelian
 	group with one generator $[x]$ for each unitary equivalence class of
@@ -18212,17 +18232,17 @@ Now we can give Kasparov's definition of $K$-homology.
 	\end{enumerate}  
 \end{definition}
 
-\begin{definition}
+\begin{definition}\cite{baum_higson_schik:kh}
 	A $p$-graded Fredholm module is said to be \emph{degenerate} if the equivalences modulo compact operators listed in item (c) of Definition~\ref{fredmoddef} are actually equalities. 
 \end{definition}
 
 It is easy to see that a degenerate $p$-graded Fredholm module determines the zero element of $K^{-p}(A)$. 
 
-\begin{lemma}
+\begin{lemma}\cite{baum_higson_schik:kh}
 	\label{triv-mod-lemma}
 	Let $(H,\rho, F)$ be a $p$-graded Fredholm module.  Assume that there exists a self-adjoint, odd-graded involution $E\colon H\to H$ which commutes with the action of $A$ and with the multigrading operators $\varepsilon _j$, and which anticommutes with $F$.  Then the Fredholm module $(H,\rho, F)$ represents the zero element of $K^{-p}(A)$.
 \end{lemma}
-\begin{definition} 
+\begin{definition} \cite{baum_higson_schik:kh}
 	\label{periodicity-def}
 	The \emph{formal periodicity map} 
 	$$
@@ -18240,7 +18260,7 @@ $$
 As a result there are really only two genuinely distinct $K$-homology
 groups, $K^{\mathrm{ev}}$ and $K^{\mathrm{odd}}$, as follows:
 
-\begin{definition}
+\begin{definition}\cite{baum_higson_schik:kh}
 	Let us denote by $K^{\mathrm{ev}}(A)$ and  $K^{\mathrm{odd}}(A)$  the groups
 	$K^0(A)$ and $K^{-1}(A)$ respectively, or more canonically, the direct
 	limits 
@@ -18248,8 +18268,8 @@ groups, $K^{\mathrm{ev}}$ and $K^{\mathrm{odd}}$, as follows:
 	\quad K^{\mathrm{odd}}(A) =  \varinjlim _k K^{-(1+2k)}(A)$$
 	under the above periodicity maps. \end{definition}
 
-\begin{definition}
-	If $Z$ is a second countable,\footnote{This assumption is required at several points in Kasparov's theory, which is designed for \emph{separable} $C^*$-algebras.}  locally compact space, and if  $A= C_0(Z)$, then we shall write $K_{p}(Z) $ in place of $K^{-p}(A)$.
+\begin{definition}\cite{baum_higson_schik:kh}
+	If $Z$ is a second countable, locally compact space, and if  $A= C_0(Z)$, then we shall write $K_{p}(Z) $ in place of $K^{-p}(A)$.
 	These are the \emph{Kasparov $K$-homology groups} of the space $Z$. 
 	If $(X,Y)$ is
 	a second countable, locally compact pair, and if $Z$ is the difference $X\setminus Y$, then we define relative $K$-homology groups by
@@ -18262,7 +18282,7 @@ groups, $K^{\mathrm{ev}}$ and $K^{\mathrm{odd}}$, as follows:
 
 Kasparov's main theorem concerning these objects is then as follows:
 
-\begin{theorem}
+\begin{theorem}\cite{baum_higson_schik:kh}
 	There are natural transformations
 	$$
 	\partial \colon K_{p} (X,Y) \xrightarrow{} K_{p-1} (Y)
@@ -18274,236 +18294,169 @@ Kasparov's main theorem concerning these objects is then as follows:
 	$K$-homology --- the  homology theory associated to the
 	Bott spectrum. \qed
 \end{theorem}
-\subsubsection{Dirac-Type Operators}
-\begin{definition}
-	\label{diracbundle} 
-	Let $M$ be a smooth, second countable finite dimensional manifold (possibly
-	with non-empty boundary) and let  $V
-	$ be a smooth, Euclidean vector bundle over $M$. A \emph{$p$-graded Dirac
-		structure} on 
-	$V $ is a smooth, $\Z/2$-graded, Hermitian vector bundle $\S$ over $M$ together
-	with the following data:
-	\begin{enumerate}[\rm (a)]
-		\item An $\R$-linear morphism of vector bundles $$ V  \to
-		\End(\S) $$  which associates to each vector $v\in V _x$ a
-		skew-adjoint, odd-graded endomorphism $u\mapsto v \cdot u$ of $\S_x$ in such
-		a way that 
-		$$
-		v\cdot v\cdot u = -\|v \|^2 u.
-		$$
-		\item
-		A family of skew-adjoint, odd-graded endomorphisms 
-		$\varepsilon_1,\dots , \varepsilon_p$ of $\S$ such that 
-		$$ 
-		\varepsilon_j = -\varepsilon_j^*,\quad \varepsilon_j^2 =
-		-1,\quad \varepsilon_i\varepsilon_j+\varepsilon_j\varepsilon_i
-		= 0\quad (i\ne j),
-		$$ 
-		and such that each $\varepsilon _j$ commutes with each operator
-		$u\mapsto v \cdot u$.
-	\end{enumerate}
-	Usually $M$ will be a Riemannian manifold and we will take $V = T M$.  In this case we shall call $\S$  a \emph{$p$-graded Dirac bundle on $M$}.
-\end{definition}
 
+\subsubsection{Spin$^c$-structures}
+\paragraph*{}
+	\label{spinc-sec} 
+	We shall define $\Spin^c$-structures using the notion of Dirac bundle that was introduced in the last section.  
+	
+	\begin{definition}\cite{baum_higson_schik:kh}
+		Denote by $\C_n$ the  complex Clifford algebra for $\R^n$,  
+		generated by the standard basis elements $e_1,\dots , e_n$ of $\R^n$.
+	\end{definition}
+	
+	
+	
+	Let  $M$ be a smooth manifold and let $V$ be a  rank $p$
+	Euclidean vector bundle over $M$. If $e_1,\dots ,
+	e_n$ is a local orthonormal frame for $V$, defined over an open set
+	$U\subseteq M$, then the trivial bundle $U\times \C_n$ over $U$ with
+	fiber $\C_n$ may be given the structure of an $p$-graded Dirac bundle for $V\vert _U$:
+	Clifford multiplication by an element $e_j$ of the frame is
+	\emph{left} multiplication by the $j$th generator of $\C_p$, and the
+	$p$-multigrading operators $\varepsilon_1,\dots , \varepsilon_p$ for the
+	bundle are \emph{right} multiplication by the same
+	generators.
+	
+	
+	
+	\begin{definition}\cite{baum_higson_schik:kh} 
+		\label{spinordef}  
+		Let $M$ be a smooth manifold and let $V$ be a  $p$-dimensional
+		Euclidean vector bundle over $M$. A \emph{complex spinor bundle} for $V$ is a 
+		$p$-multigraded Dirac bundle $\SS_V$ which is locally isomorphic to the trivial
+		bundle with fiber $\C_p$, the Clifford multiplication being determined from
+		some local orthonormal frame, as above.  We shall call a bundle $V$ equipped with a complex spinor bundle a \emph{$\Spin^c$-vector bundle}.   If $M$ is a smooth manifold (possibly with boundary) then by a \emph{$\Spin^c$-structure} on $M$ we shall mean a pair consisting of a Riemannian metric on $M$ and a complex spinor bundle $\SS_M$ for $T M$.
+	\end{definition}
+\begin{remark}
+	There is an explained in \cite{baum_higson_schik:kh} method which sets to any $n$-dimensional manifold $M$ without boundary with $\Spin^c$-structure its \textit{fundamental class} $\left[M\right]\in K_n\left(M \right)$. 
+\end{remark}
 
-\begin{definition}
-	\label{dirac-op-def}
-	Let $M$ be a Riemannian manifold which is equipped with a $p$-graded Dirac structure, with Dirac bundle $\S$. 
-	We shall call an  odd-graded, symmetric, order one linear partial differential operator $D$ acting on the sections of  $\S$ a \emph{Dirac operator} if it  commutes with the operators $\varepsilon _j$, and if  
-	$$
-	[ D, f] u = \operatorname{grad} f\cdot u,
-	$$
-	for every smooth function $f$ on $M$ and every section $u$ of $\S$. \end{definition}
-
-Every Dirac bundle on a Riemannian manifold  admits a Dirac operator, and the difference of two Dirac operators on a single Dirac bundle $\S$ is an endomorphism of $\S$.
-
-
-A $p$-graded Dirac operator $D$ on a Riemannian manifold $M$ without boundary
-defines in a natural way a class $[D]\in K_p(M)$.  The general construction is a little involved, and we refer the reader to \cite{MR2002c:58036} for details, but when $M$ is closed there is a very simple description of $[D]$: 
-
-
-\begin{theorem} 
-	\label{fmod1}
-	Let $M$ be a closed (i.e.~compact without boundary) Riemannian manifold and let $D$ be a  Dirac operator on a $p$-graded Dirac bundle  $\S$. Let $H=L^2(M,S)$ be the Hilbert  space of square-integrable sections of $\S$, and let $\rho$ be the representation of
-	$C(M)$ on $H$ by pointwise multiplication operators. Let 
-	$$
-	F = D ( I + D^2 )^{-\frac 12} .
-	$$ 
-	The triple $(\rho, H , F)$ is a $p$-graded Fredholm module for $A=
-	C(M)$. \qed 
-\end{theorem}
-
-
-\begin{definition}
-	\label{boundary-S-def}
-	Let $\S$ be a $p$-graded Dirac bundle on a  Riemannian
-	manifold $\overline{M}$ with boundary $\partial M$. If $e_1$ denotes the outward 
-	pointing unit normal  vector field on the boundary manifold $\partial
-	M$ then the formula
-	$$
-	X\colon u \mapsto (-1)^{\partial u}e_ 1\cdot \varepsilon_1 u 
-	$$ 
-	defines an automorphism of the restriction of $\S$ to $\partial M$
-	which is even, self-adjoint, and satisfies $X^2=1$. The operator $X$ commutes
-	with  multiplication $u\mapsto Y\cdot u$ by  tangent vectors  $Y$ orthogonal to $e_1$,
-	and also with the multigrading operators $\varepsilon_2, \dots ,
-	\varepsilon_{p}$.  The $+1$ eigenbundle for $X$ is a $(p-1)$-graded Dirac 
-	bundle\footnote{The multigrading operators are obtained from
-		$\varepsilon_2,\dots , \varepsilon_p$ by shifting indices downwards.} on
-	$\partial M$, which we shall call the \emph{boundary} of the Dirac
-	bundle $\S$.
-\end{definition}
-
-The following theorem summarizes facts proved in Chapters 10 and 11 of \cite{MR2002c:58036}.  
 
 \begin{theorem}  
-	\label{bdiracdirac} 
-	To each Dirac operator $D$ on a $p$-graded Dirac bundle over a smooth manifold without boundary there is associated a class $[D]\in K_p (M)$ with the following properties: 
-	\begin{enumerate}
-		\item The class $[D]$ depends only on the Dirac bundle, not on the choice of the operator $D$.
-		\item 
-		If $M_1$ is an open subset of $M_2$, and if $D_1$ is a Dirac operator on $M_1$ obtained by restricting a Dirac operator $D_2$ on $M_2$, then $[D_2]$ maps to $[D_1]$ under the homomorphism $K_p(M_2) \to K_p (M_1)$.
-		\item
-		Let $M$ be the interior of a Riemannian manifold $\overline{M}$ with
-		boundary $\partial M$, and let  $\S$ be a $p$-graded Dirac bundle on
-		$\overline{M}$.  Let $D$ be a Dirac operator on $M$  associated to $\S$
-		and let $D_{\partial M}$ be a Dirac operator on $\partial M$
-		associated to the boundary of $\S$. The connecting homomorphism 
-		$$ \partial\colon K_p(M)\to K_{p-1}(\partial M) $$
-		in Kasparov $K$-homology  takes the
-		class $[D_M] $ to the class $[D_{\partial M}]$: 
-		$$ 
-		\partial [D_M] = [D_{\partial M}] \in K_{p-1}(\partial M) . 
-		$$
-	\end{enumerate}
+	\label{bdiracdirac2}\cite{baum_higson_schik:kh} 
+	If $M$ is the interior of an $n$-dimensional
+	$\Spin^c$-manifold with boundary, and if we equip the boundary manifold
+	$\partial M$ with the induced $\Spin^c$-structure, then the $K$-homology
+	boundary map $$ \partial\colon K_n(M)\to K_{n-1}(\partial M) $$  takes the
+	fundamental class of $M$ to the fundamental class of $\partial M$: $$ \partial
+	[M] = [\partial M] \in K_{n-1}(\partial M) . $$ 
 	\qed
 \end{theorem}
 
-We shall need one additional fact about Dirac operators which concerns the structure of operators  on fiber bundles.  Suppose that $M$ is a closed Riemannian manifold and that  $P$ is a principal bundle over $M$ whose structure group is a compact Lie group $G$.  Suppose that $N$ is a closed Riemannian manifold on which $G$ acts by isometries.  We can then form the manifold 
-$ Z =P\times _G N$.  Its   tangent bundle $T Z$ 
-fits into an exact sequence of vector bundles over $Z$,
-$$
-\xymatrix{
-	0 \ar[r] &V \ar[r] & T Z  \ar[r] &  \pi^* T M \ar[r] & 0},
-$$
-where $\pi$ denotes the projection mapping from $Z $ to $M$ and where $V$ denotes the ``vertical  tangent bundle'' $V = P\times_G T N$.
-If we choose a splitting of the sequence then we obtain an isomorphism 
-\begin{equation}
-	\label{dir-sum-eqn}
-	T Z \cong V\oplus \pi^* T M  ,
-\end{equation}
-which equips $Z$ with a Riemannian metric. 
+\subsection{Review of Geometric K-Homology}
 
-Now suppose that $\S_M$ is a $p$-graded Dirac bundle for $M$ and that $\S_N$ is a $0$-graded Dirac bundle for $N$.  Let us also suppose that there is an action of $G$ on $\S_N$ which is compatible with the action of $G$ on  $N$.   We can then form the bundle $\S_{ V}  = P\times _G \S_N$ over $Z$, and from it the graded tensor product 
-$\S_Z =  \S_{ V}  \hat \otimes \pi^*   \S _M $.   Using the direct sum decomposition (\ref{dir-sum-eqn}) this becomes a $p$-graded Dirac bundle for $Z$, with the  tangent vector $v\oplus w\in V\oplus  \pi^* T M  $ acting as the operator $v\hat\otimes 1 + 1 \hat \otimes w
-$ on $ \S_{V}\hat \otimes \pi^*  \S _M  $. 
-
-We can now form the class $[D_{Z}]\in K_{p} (Z)$ associated to a Dirac operator on the Dirac bundle $\S_{V}\hat \otimes \pi^*   \S _M  $, and using the projection mapping $\pi\colon Z\to M$ we obtain a class 
-$$
-\pi_*[D_{Z}] \in K_p (M).
-$$
-The following proposition relates $\pi_* [D_{Z}] $ to the class
-$[D_M]$ of a Dirac operator for the Dirac bundle $\S_M$ on $M$.
-
-\begin{proposition} 
-	\label{fiber-bundle-prop}
-	Assume 
-	that there exists a $G$-equivariant Dirac operator for the Dirac bundle $\S_N$ on $N$ whose kernel is the one-dimensional trivial representation of $G$, spanned by an even-graded section of $\S_N$. 
-	Then 
-	$$
-	\pi_* [D_{Z}] = [D_M] \in K_p(M).
-	$$
-\end{proposition}
 \begin{definition}
-	Let $V$ be a Euclidean vector space. The \emph{complex Clifford algebra} for $V$
-	is the universal complex $*$-algebra $\mathrm{Cliff} (V)$ equipped with an $\R$-linear inclusion of $V$, and subject to the relations 
-	$
-	v^2 = -\| v\|^2 \cdot 1$ for $v\in V$.  If $\{ e_1,\dots, e_n\}$ is an orthonormal basis for $V$, then the algebra $\mathrm{Cliff} (V)$ is linearly spanned by the $2^n$
-	monomials $e_{j_1}\cdots e_{j_k}$, where $j_1<\dots <j_k$ and $0\le k \le n$.
-	We introduce an inner product on $\mathrm{Cliff} (V)$ by deeming these monomials to be
-	orthonormal. 
+	Let $X$ be a paracompact Hausdorff space and let $Y$ be a closed subspace of $X$.  A \emph{$K$-cycle} for the pair $(X,Y)$ is a triple $(M,E,\phi)$ consisting of:
+	\begin{enumerate}[\rm (i)]
+		\item  A smooth, compact manifold $M$ (possibly with boundary), equipped with a $\Spin^c$-structure.
+		\item A smooth, Hermitian vector bundle $E$ on $M$.
+		\item A continuous map $\phi\colon M \to X$ such that $\phi[ \partial M] \subseteq Y$.
+	\end{enumerate}
 \end{definition}
 
-The algebra $\mathrm{Cliff} (V)$ is $\Z/2$-graded: the monomial $e_{j_1}\cdots e_{j_k}$ is even or odd-graded, according as $k$ is even or odd.
+\begin{remark}
+	The manifold $M$ need not be connected.  Moreover the components of $M$ may have differing dimensions.
+\end{remark}
+
+Two $K$-cycles are \emph{isomorphic} if there are compatible isomorphisms of all of the above three components in the definition of $K$-cycle (this includes an isomorphism of spinor bundles).  Following \cite{baum-douglas82} we are going to construct an abelian group from  sets of isomorphism classes of cycles so as to obtain  ``geometric'' $K$-homology groups for the pair $(X,Y)$.   In order to define the relations in these groups we need to introduce several kinds of operations and  relations involving $K$-cycles.
+
 
 \begin{definition}
-	Let $N$ be an even-dimensional, Riemannian manifold and let  $\mathrm{Cliff}(TN)$ be the complex vector bundle on $N$ whose fibers are the complexified Clifford algebras of the fibers of the tangent bundle of $N$.  The 
-	bundle $\mathrm{Cliff} (TN)$ has a natural $0$-graded Dirac bundle structure (tangent vectors act by Clifford multiplication on the left).
+	If $(M,E,\phi)$ and $(M',E',\phi')$ are two $K$-cycles for $(X,Y)$, then their \emph{disjoint union} is the $K$-cycle   $(M\cup M', E\cup E', \phi\cup \phi')$.
+\end{definition}
+
+\begin{definition} 
+	If $(M,E,\phi)$ is a $K$-cycle for $(X,Y)$, then its \emph{opposite} is the $K$-cycle $(-M, E, \phi)$, where $-M$ denotes the manifold $M$ equipped with the opposite $\Spin^c$-structure. 
 \end{definition} 
 
-If  $N$ is oriented, and if $\{e_1,\dots, e_n\}$ is a local, oriented, orthonormal frame, then the operator of \emph{right}-multiplicaton by the product 
+\begin{definition}
+	\label{bordism-def}
+	A \emph{bordism} of  $K$-cycles for the pair $(X,Y)$ consists of the following data:
+	\begin{enumerate}
+		\item A smooth, compact manifold $L$, equipped with a $\Spin^c$-structure.
+		\item A smooth, Hermitian vector bundle $F$ over $L$.
+		\item A continuous map $\Phi \colon L\to X$.
+		\item A smooth map $f\colon \partial L \to \R$ for which $\pm 1 $ are regular values, and for which $\Phi [ f ^{-1} [ -1,1]]\subseteq Y$.
+	\end{enumerate}
+\end{definition}
+To understand the definition, it is best to consider the case where $Y= \emptyset$.   In this case it follows from condition (iv) that the set $f[-1,1]$ is empty, and therefore the boundary of $L$ is divided by $f$ into two components: $M_{+} = f^{-1} (+1,+\infty)$ and $M_{-} = f^{-1} (-\infty, -1)$. 
+We therefore obtain two $K$-cycles $(M_{+}, F|_{M_{+}}, \Phi|_{M_{+}})$ and 
+$(M_{-}, F|_{M_{-}}, \Phi|_{M_{-}})$, and we shall say that the first is \emph{bordant} to the opposite of the second.  
+
+In the case where $Y$ is non-empty the sets $M_{+} = f^{-1} [+1,+\infty)$ and $M_{-} = f^{-1} (-\infty, -1]$ are manifolds with boundary, and we obtain, as before two $K$-cycles $(M_{+}, F|_{M_{+}}, \Phi|_{M_{+}})$ and 
+$(M_{-}, F|_{M_{-}}, \Phi|_{M_{-}})$, but now for the pair $(X,Y)$.  Once again we shall say that the first is bordant to the opposite of the second.  
+
+The purpose of the function $f$ in Definition~\ref{bordism-def} is to provide a notion of bordism for manifolds with boundary without having to introduce manifolds with corners.  Bordism is an equivalence relation.  
+
+We have one more operation on $K$-cycles to introduce.
+Let $M$ be a $\Spin^c$-manifold and let $W$ be a $\Spin^c$-vector bundle over $M$.  Denote by $\mathbf 1$ the trivial, rank-one real vector bundle.    The direct sum $W\oplus \mathbf 1$ is a $\Spin^c$-vector bundle, and moreover the total space of this bundle may be equipped with a $\Spin^c$ structure in a canonical way, up to concordance.  This is because its tangent bundle fits into an exact sequence 
 $$
-\sigma = i^{\frac n2 } e_1\cdots e_n
+\xymatrix{
+	0 \ar[r] & \pi^*[W\oplus \mathbf 1] \ar[r] & T(W\oplus \mathbf 1)\ar[r] & \pi ^* [ TM] \ar[r] & 0 , 
+}
 $$
-is an even-graded, self-adjoint involution of the bundle $\mathrm{Cliff} (TN)$ which commutes with the Dirac bundle structure.  
+where $\pi$ is the projection from $W\oplus \mathbf 1$ onto $M$, so that, upon choosing a splitting, (or equivalently, choosing a Riemannian metric on the manifold $W\oplus \mathbf 1$ which is compatible with the above sequence) we have a direct sum decomposition 
+$$
+T(W\oplus \mathbf 1) \cong \pi^*[W\oplus \mathbf 1] \oplus  \pi ^* [ TM] .
+$$
+Different splittings result in concordant $\Spin^c$-structures. 
+
+Let us now denote by $Z$ the unit sphere bundle of the bundle $W\oplus \mathbf 1$.
+Since $Z$ is the boundary of the disk bundle, we may equip it with a natural $\Spin^c$-structure by first restricting  the given $\Spin^c$-structure on total space of $W\oplus \mathbf 1$  to the disk bundle, and then taking the boundary of this $\Spin^c$-structure to obtain a $\Spin^c$-structure on the sphere bundle. 
+
+
+
+
+
 
 \begin{definition}
-	Denote by $\mathrm{Cliff}_{\frac 12} (TN)$ the $+1$-eigenbundle of the involution $\sigma$.  This is a $0$-graded Dirac bundle in its own right. 
+	\label{EF-def}
+	Let $(M,E,\phi)$ be a $K$-cycle for $(X,Y)$ and let $W$ be a $\Spin^c$-vector bundle over $M$ with even-dimensional fibers.  Let $Z$ be the sphere bundle of $W\oplus \mathbf 1$, as above. The vertical tangent bundle of  $Z$  has a natural $\Spin^c$-structure (one applies the boundary construction of Definition~\ref{boundary-S-def} to the pullback of $W\oplus \mathbf 1$ to $Z$).  Denote by $S_V$ the corresponding reduced spinor bundle and let 
+	$
+	F = S_{V, +}^* 
+	$.
+	In other words, define $ F$ to be the dual of the even-graded part of the $\Z/2$-graded bundle $S_V$.
+	The \emph{modification} of $(M,E,\phi)$ associated to $W$ is the $K$-cycle
+	$(Z,  F\otimes \pi^*E , \phi\circ \pi)$.
 \end{definition}
 
+We are now ready to define the Baum-Douglas geometric $K$-homology groups.
 
 
-\subsection{Puppe sequences}
-\begin{definition}\cite{spanier:at}
-	Let both $\sX$ and $\sX'$ are topological spaces.
-The \textit{mapping cone} $C_f$ of the map $f: \sX'\to\sX$ is defined to be the quotient space of $C\sX' \vee \sX$ by the identification $\left[x', 1\right]\cong f\left(x' \right)$ for all $x'\in \sX'$. 
+\begin{definition}
+	\label{k-geom-def}
+	Denote by $K^{\mathrm{geom}}(X,Y)$ the set of equivalence classes of $K$-cycles over $(X,Y)$, for the equivalence relation generated by the following relations:
+	\begin{enumerate}
+		\item If $(M,E_1,\phi)$ and $(M,E_2,\phi)$ are two $K$-cycles with the same $\Spin^c$-manifold $M$ and map $\phi\colon M\to X$, then 
+		$$ (M\cup M ,E_1\cup E_2 ,\phi\cup \phi ) \sim  (M, E_1\oplus E_2, \phi).
+		$$
+		\item 
+		If $(M_1,E_1,\phi_1)$ and $(M_2,E_2,\phi_2)$ are bordant $K$-cycles then 
+		$$(M_1,E_1,\phi_1) \sim (M_2,E_2,\phi_2).$$
+		\item If $(M,E,\phi)$ is a $K$-cycle, and if $W$ is an even-dimensional $\Spin^c$-vector bundle over $M$, then 
+		$$
+		(M,E,\phi) \sim (Z, F\otimes \pi^*E, \phi\circ \pi),
+		$$
+		where $(Z, F\otimes \pi^*E, \phi\circ \pi)$ is the modification of $(M,E,\phi)$ given in Defintion~\ref{EF-def}.
+	\end{enumerate}
 \end{definition}
-\begin{definition}\cite{spanier:at}
-A three-term sequence of pairs and maps 
-$$
-(\sX',A') \xrightarrow{f} (\sX,A) \xrightarrow{g} (X'',A') 
-$$
-is said to be \textit{exact} if for any pair $(\sY,B)$ (where $B$ is not necessarily closed in $\sY$) the associated sequence of pointed sets 
-$$
-[Y,B; X',A'] \xrightarrow{f_*}  [Y,B; X,A] \xrightarrow{g_*}  [Y,B; X'',A'']
-$$ 
-is exact (that is, $\ker g_* = \im f_*$). Similarly, it is said to be \textit{coexact} if the 
-sequence of pointed sets 
-$$
-[ X',A'; Y,B] \xrightarrow{	g_*}  [Y,B; X,A;Y,B;] \xrightarrow{f_*}  [Y,B; X'',A'';Y,B;]
-$$ 
-is exact (that is, $\ker f_* = \im g_*$). A sequence of pairs and maps (which may 
-terminate at either or both ends) 
+
+\begin{definition}
+	Denote by $K^{\mathrm{geom}}_{\ev}(X,Y)$ and $K^{\mathrm{geom}}_{\mathrm{odd}}(X,Y)$ the subgroups of the group $K^{\mathrm{geom}}(X,Y)$ composed of equivalence classes of $K$-cycles $(M,E,\phi)$ for which every connected component of $M$ is even dimensional and odd dimensional, respectively.
 \end{definition}
-\begin{defn}\label{puppe_top}\cite{rotman:ag}
-	For any continuous map $f:\sX \to \sY$
-	There is the following coexact \textit{Puppe sequence}
-	$$
-	\sY \xrightarrow{f}\sX \to C_f\to \Sigma \sX \to\Sigma \sY \to \Sigma C_f \to...
-	$$
-\end{defn}
 
-\begin{theorem}\label{puppe_k}\cite{karoubi:k}
-%3.29. Theorem. 
-
-The Puppe sequence and the reduced Puppe sequence induce exact 
-sequences of $\widetilde{K}$-groups 
-!!! DOUBLE LINE
-			\newline
-\begin{tikzpicture}
-	\matrix (m) [matrix of math nodes, row sep=2em, column sep=2em]
-	{
-	 \widetilde K\left(S'\left(\sX \right)  \right)    &  \widetilde K\left(S'\left(\sY \right)  \right)&   \widetilde K\left(C'_f  \right) &	 \widetilde K\left(\left(\sX \right)  \right)    &  \widetilde K\left(\left(\sY \right)  \right)\\ 
-		 \widetilde K\left(S\left(\sX \right)  \right)    &  \widetilde K\left(S\left(\sY \right)  \right)&   \widetilde K\left(C_f  \right) &	 \widetilde K\left(\left(\sX \right)  \right)    &  \widetilde K\left(\left(\sY \right)  \right)~\\};
-	\path[->, font=\scriptsize]
-	(m-2-1) edge[dashed] node [left] {$\approx$} (m-1-1)
-	(m-2-2) edge[dashed] node [left] {$\approx$} (m-1-2)
-	(m-2-3) edge[dashed] node [left] {$\approx$} (m-1-3)
-	(m-2-4) edge[-,double]  (m-1-4)
-	(m-2-5) edge[-,double]  (m-1-5)
-	(m-1-1) edge  (m-1-2)
-	(m-1-2) edge (m-1-3)
-	(m-1-3) edge  (m-1-4)
-	(m-1-4) edge  (m-1-5)
-	(m-2-1) edge (m-2-2)
-(m-2-2) edge   (m-2-3)
-(m-2-3) edge  (m-2-4)
-(m-2-4) edge  (m-2-5);
-\end{tikzpicture}
-\\ 
-\end{theorem}
-
-
+	
+%	\begin{remark}
+%		A spinor bundle determines an orientation of $V$, as follows. 		If $\{ f_1,\dots, f_p\}$ is a local orthonormal frame for $V$, then the endomorphism of the spinor bundle $\S_V$ determined by the formula 
+%		$$ 
+%		u\mapsto (-1)^{p+(p-1)\partial
+%			u} f_1\dotsm f_p\cdot \varepsilon_p\dotsm \varepsilon _1 u 
+%		$$ 
+%		is plus or minus the identity (here $\partial u$ is the $\Z/2$-grading degree of the section $u$). If the endomorphism is $+I$ then we deem  the frame to be oriented; if it is $-I$ then we deem it to be oppositely oriented. 
+%	\end{remark}
+	
+	
 \subsection{Homology theory and Hurewicz homomorphism}
 
 \begin{definition}\label{top_unred_defn}\cite{switzer:at}
@@ -18537,28 +18490,6 @@ Any homology theory defines a cohomology theory. In particular it satisfies to t
 \be\label{top_c_exact_eqn}
 ...\xrightarrow{\delta} k^n\left(\sX, \A \right) \xrightarrow{k^n\left[j\right]} k^n\left(\sX \right) \xrightarrow{k^n\left[i\right]} k^n\left(\A \right) \xrightarrow{\delta} k^{n+1}\left(\sX, \A \right)\to ...
 \ee
-\subsection{Obstruction theory}
-\begin{definition}\cite{spanier:at}
-Let $\pi$ an Abelian group and $\sY$ is a path-connected pointed space. An element $v \in H^n\left(\sY, y, \pi \right)$ is said to be $n$-\textit{characteristic} for $\sY$ if the composite
-$$
-\pi_n\left(\sY, y_0 \right)\xrightarrow{\varphi} H^n\left(\sY, y, \pi \right)\xrightarrow{h(v)}\pi
-$$ 
-is isomorphism (where $\varphi$ is the Hurewicz homomorphism and $h\left( v\right)$ is the natural homomorhism which follows from the universal coefficient theorem  \cite{spanier:at})
-\end{definition}
-\begin{theorem}\label{top_obstr_thm}\cite{spanier:at}
-%12 theorem 
-Let $\sY$ be a space of type $\left(\pi, n\right)$, with $n\ge 1$ and $\pi$ Abelian, and let $\iota$ be $n$-characteristic for $Y$. If $(X,A)$ is a relative $CW$-complex, a map $f: A\to Y$ 
-can be extended over $X$ if and only if $\delta H^n\left[f\right]\left( \iota \right)  = 0 \in  H^{n + 1}\left(\sX, \sA; \pi \right)$. 
-\end{theorem}
-\begin{remark}
-The  Theorem \ref{top_obstr_thm} implies the cohomology exact sequence \eqref{top_c_exact_eqn}, i.e.
-\bean
-...\xrightarrow{\delta} H^n\left(\sX, \A ;\pi\right) \xrightarrow{H^n\left[j\right]} H^n\left(\sX ;\pi\right) \xrightarrow{H^n\left[i\right]} H^n\left(\A; \pi \right) \xrightarrow{\delta} H^{n+1}\left(\sX, \A ;\pi\right)\to ...
-\eean
-and a homomorphism $H^n\left[f\right]: H^n\left(\sY; \pi \right) \to H^n\left(\A; \pi \right)$.
-\end{remark}
-
-
 \chapter{Algebra}
 	\section{Finitely generated modules}
 	\begin{theorem}\label{fin_gen_thm}\cite{kasch:mr}
@@ -20266,6 +20197,83 @@ A commutative separable  unital $C^*$-algebra $A$ is $\mathrm{DI}$ if and only i
 		$\left\{\left\|\cdot \right\| \right\}_{n \in \N} $ on $\C V$ given by \eqref{ros_can_eqn}.
 	\end{theorem}
 	\section{$K$-theory and $K$-homology}
+	\begin{theorem}\cite{blackadar:ko}
+%	Theorem 	23.1.1 	(Universal 	Coefficient 	Theorem 	(UCT)).	[Rosenberg 	and Schochet 1987] 
+Let 
+	$A$ 
+	and 
+	$B$ 
+	be 
+	separable 
+	$C^*$-algebras, with $A\in\N$. Then 
+	there 
+	is 
+	a 
+	short 
+	exact 
+	sequence 
+	\begin{equation}\label{uct_eqn}
+	\mathrm{Ext}^1_\Z(K_*(A), K_*(B)) \xrightarrow{\delta} KK^*(A, B) \xrightarrow{\ga} \mathrm{Hom}(K_*(A), K_*(\mathbb{C}))
+\end{equation}
+	The 
+	map 
+	$\ga$ 
+	has 
+	degree 
+	0 and 
+$\delta$
+	has 
+	degree 
+	1. The 
+	sequence 
+	is 
+	natural 
+	in 
+	each 
+	variable, and 
+	splits 
+	unnaturally. So 
+	if 
+	$K\left( A\right)$  is 
+	free 
+	or 
+	$K\left( A\right)$ is 
+	divisible, then 
+$\ga$
+	is 
+	an 
+	isomorphism. 
+\end{theorem}
+	If $\tau \in KK^1(A, \mathbb{C})$ is represented by extension
+\begin{equation}\nonumber
+	0 \to  B \to D \to A \to  0
+\end{equation}
+then $\gamma$ is given as connecting maps $\partial$ in the associated six-term exact sequence of $K$ theory
+\newline
+\newline
+\begin{tikzpicture}
+	\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
+	{
+		K_0(B) &    K_0(D)&  {K_0(A)}\\
+		K_1(A)	& K_1(D)   & K_1(B) \\};
+	\path[-stealth]
+	(m-1-1) edge node [above] {} (m-1-2)
+	(m-1-2) edge node [above] {} (m-1-3)
+	(m-2-3) edge node [above] {} (m-2-2)
+	(m-2-1) edge node [right] {$\partial$} (m-1-1)
+	(m-1-3) edge node [right] {$\partial$} (m-2-3)
+	(m-2-2) edge node [above] {}  (m-2-1);
+	
+\end{tikzpicture}
+\newline
+
+If $\gamma(\tau)=0$ for an extension $\tau$ then the six-term $K$-theory exact sequence degenerates into two short exact sequences 
+\begin{equation}\nonumber
+	0 \to K_j(A) \to K_j(D) \to K_j(B) \to 0 \quad (j=0,1)
+\end{equation}
+and thus determines an element $\kappa(\tau)\in \mathrm{Ext}^1(K_*(A), K_*(B))$. Homomorphism $\delta$ is inverse to $\kappa$.
+
+	
 	\subsection{Fredholm index}
 	
 	\begin{definition}\label{fred_a_defn}\cite{matro:hcm}
@@ -26974,7 +26982,7 @@ Advances in Mathematics \textbf{13} (1974), 176--257. 1974.
 
 %\bibitem{dixmier_tr}J.Dixmier. {\it Traces sur les $C^*$-algebras}. Ann. Inst. Fourier, 13, 1(1963), 219-262, 1963
 
-%\bibitem{baum_higson_schik:kh}Paul Baum, Nigel Higson, and Thomas Schick. {\it On the Equivalence of Geometric and Analytic $K$-Homology}. Pure and Applied Mathematics Quarterly Volume 3, Number 1 (Special Issue: In honor of Robert MacPherson, Part 3 of 3) 1-24, 2007
+\bibitem{baum_higson_schik:kh}Paul Baum, Nigel Higson, and Thomas Schick. {\it On the Equivalence of Geometric and Analytic $K$-Homology}. Pure and Applied Mathematics Quarterly Volume 3, Number 1 (Special Issue: In honor of Robert MacPherson, Part 3 of 3) 1-24, 2007.
 
 %\bibitem{meyer:morita} Ralf Meyer. {\it Morita Equivalence In Algebra And Geometry.} math.berkeley.edu/~alanw/277papers/meyer.tex, 1997
 
