@@ -11944,7 +11944,7 @@ Denote by $\widehat{A} = C^*\text{-}\varinjlim A_\la$, $G_\la = G\left( A_\la ~|
 
 
 \chapter{Hurewicz homomorphism. A sketch}
-\section{Preliminaries}
+\section{Preliminaries}\label{h_prel}
 \paragraph{}
 If $\sX$ is a compact space and $K_n\left(C \left( \sX\right) \right)$ is a group of $K$-homology (cf. \cite{blackadar:ko}) then the for all $n\in \Z$ the map $\sX \mapsto K_n\left(C \left( \sX\right) \right)$ is a functor which be denote by $\sX \mapsto K_n\left( \sX \right)$. The sequence of functors $K_n$ from the category of topological spaces to category of Abelian groups satisfy to the Definition \ref{top_unred_defn}, i.e. it is an unreduced homology theory. It turns out that  there is the  \textit{Hurewicz homomorphism} (cf. Definition \ref{top_hurewitz_defn}) 	$h_n:\pi_n\left(Y, y_0 \right)\to K_n\left(Y \right)$ such that
 \bean
@@ -11959,15 +11959,17 @@ h_{K_1}	\left(\left[f \right]  \right) = K_1\left( \left[f \right]\right) \left(
 $$
 where the following notation is used
 \begin{itemize}
-	\item $f: \left(S^1, s_0\right)\to \left(\sX, x_0\right)$ is a representative of $\left[f \right]\in \pi_1\left(\sY, y_0 \right)$.
+	\item $f: \left(S^1, s_0\right)\to \left(\sX, x_0\right)$ is a representative of $\left[f \right]\in \pi_1\left(\sY, y_0 \right)/\left[\pi_1\left(\sY, y_0 \right), \pi_1\left(\sY, y_0 \right)\right]$.
 	\item $	K^1_{S^1}:C\left( u\right)\to  Q\left(\K \right)$ is a given by \eqref{s1_k_1_eqn} representative of the generator of $K_1\left(S^1 \right)$.  
 \end{itemize}
 It turns out that
 \be\label{h_k1_f_eqn}
 h_{K_1}	\left(\left[f \right]  \right)= \left[K^1_{S^1}\circ f\right] \in K_1\left(\sX \right).
 \ee
-where right part of \eqref{h_k1_f_eqn} means the represented by $K^1_{S^1}\circ f: \sX \to Q\left( \K\right)$  element of $K_1\left(\sX \right)$ (cf. \eqref{busby_k_eqn}). Suppose that $\left[K^1_{S^1}\circ f\right]\neq 0$ but it has period $n$, i.e. $n \left[K^1_{S^1}\circ f\right]=0$ and $m \left[K^1_{S^1}\circ f\right]\neq 0$ for any $m < n$ ($m, n \in \N$). It follows that $\left[K^1_{S^1}\circ f^n\right]=0$ and $f^n$ corresponds to an unitary element/
+where right part of \eqref{h_k1_f_eqn} means the represented by $K^1_{S^1}\circ f: \sX \to Q\left( \K\right)$  element of $K_1\left(\sX \right)$ (cf. \eqref{busby_k_eqn}). We would like to  generalize $h_{K_1}$
 
+
+ 
 
 
 \section{Basic idea}
@@ -12017,140 +12019,6 @@ Below we construct a partial homomorphism from $K^1\left( A\right) $ homology gr
 	
 	
 \end{empt}
-
-\subsubsection{Example}
-Let $\sX, \sY\cong S^1$ be topological spaces and let $f : \sX\to \sY$ be an $n$-listed covering. Let $C_f$ be a cone of $f$. For all $x_0\in C_f$ one has
-\be\label{h_p1_cf_eqn}
-\pi_1\left(C_f, x_0  \right) = \Z_n
-\ee
-(cf. \cite{hatcher:at} Chapter I, Example 1.29.)
-\begin{exercise} 
-	\begin{enumerate}
-		\item Prove that $\pi_1\left(C_f  \right) = \Z_n$.
-		\item Using the Puppe sequence (cf. Definition \ref{puppe_top})
-		$$
-		\sY \xrightarrow{f}\sX \to C_f\to \Sigma \sX \to\Sigma \sY \to \Sigma C_f \to...
-		$$
-		and the Theorem \ref{puppe_k} prove that $K^0\left(C_f \right) = K_0\left(C\left(C_f \right)  \right)= \Z_n x  \oplus  \Z$, where $x = \left[ p_1\right] - \left[ p_2\right]\in K^0\left(C_f \right)$ and $p_1, p_2\in C\left(C_f \right)\otimes\K$  are projectors.
-	\end{enumerate}
-\end{exercise}\label{h_1_exer}
-Consider a closed tubular neighborhood $\sV$ of $f\left(\sX\right)$ and let $T_1$ be a trivial one-dimensional complex vector bundle over $V$. Let $\a'$ be an isomorphism of $T_1|_{f\left(\sX\right)}$ given by a bijective  map $f\left(\sX\right)\to U\left( 1\right)$ which comes to bijections $f\left(\sX\right)\approx S^1\approx U\left( 1\right)$. If $\varphi$ is the angular parameter of $f\left(\sX\right)\approx S^1$ then $\a$ corresponds to $\varphi \mapsto e^{i\varphi}$. The isomorphism can be extended up to $V$. Let $T_2$ be a trivial  one-dimensional complex vector bundle over $C_f\setminus f\left(\sX\right)$. Let $E_\a$ be the result of gluing of $T_1$, and $T_2$ by $\a|_{\sV \setminus f\left(\sX\right)}$. From the Theorem \ref{top_obstr_thm} one can deduce that the mapm $\a^n: \sV \to U\left( 1\right)$ can be extended up to the map $\bt: C_f \to U\left( 1\right)$.
-
-\begin{exercise}
-	Prove following statements:
-	\begin{enumerate}
-		\item Element $x \in \K^1\left( C_f \right)$ from the Exercise \ref{h_1_exer} corresponds to $\left[ E_\a\right] - \left[ T\right]$ where $T$ is a trivial one-dimensional bundle.
-		\item If $u_1 \in  C\left(C_f \right)\otimes \mathbb{M}_2\left( \C\right)$ is an unitary
-		such that
-		\bean
-		u'_1|_{f\left(\sX \right) \otimes \mathbb{M}_2\left( \C\right)}= \begin{pmatrix}
-			
-			\a   & 0\\
-			0  & \a^*
-		\end{pmatrix} 
-		\eean	
-		and
-		\bean
-		p_1 \bydef u'_1\begin{pmatrix}
-			
-			1   & 0\\
-			0  & 0
-		\end{pmatrix} 	u_1'^*
-		\eean
-		then 
-		$$
-		\left[E_\a\right] = \left[p_1\right]\in K_0\left( C\left( C_f\right) \right) 
-		$$
-		(cf. equation \ref{partial_u_eqn}).
-		In particular $u'_1$ can be given by
-		\bean
-		u'_1=		\begin{pmatrix}
-			
-			\sqrt{f'}\a   & i\sqrt{1-f'  }\\
-			-i	\sqrt{1-f'}  & \sqrt{f'}\a^*
-		\end{pmatrix} 
-		\eean
-		where $f' \in C\left(C_f \right)_+$ is such that  $f: C_f\to \left[0,1\right]$, $~f'\left( f\left(\sX\right)\right) = \left\{1\right\}$ and $f\left(C_f \setminus \sV\right) = \left\{0\right\}$.
-		
-		\item  One has $C\left( C_f\right)\otimes \K = \K\left( \ell^2\left( C\left( C_f\right)\right) \right)$.  From The Theorem \ref{kasparov_stab_thm} it follows that  $\ell^2\left( C\left( C_f\right)\right)\cong \C^2 \oplus H$ where $H \cong \ell^2\left( C\left( C_f\right)\right)$. 
-		
-		If
-		$$
-		w' \bydef \mathrm{diag}\left( u'_1\begin{pmatrix}
-			
-			1   & 0\\
-			0  & 0
-		\end{pmatrix}, 1_{B\left(H \right) } \right) \in M\left(\K\left( \ell^2\left( C\left( C_f\right)\right) \right) \right) 
-		$$
-		then $w'$ is a Fredholm  partial isometry which represents $x \in  K_1\left(C\left( C_f\right)  \right) \cong  \K^1\left( C_f \right)$ from the Exercise \ref{h_1_exer}
-		\item There is a homotopically trivial map $U: C_f \to SU\left(2\right)$ such that
-		\bean
-		U\left(\sV\right)= \left\{\begin{pmatrix}
-			
-			1   & 0\\
-			0  & 1
-		\end{pmatrix}\right\},\\
-		Uu^n_1 = \begin{pmatrix}
-			
-			\bt   & 0\\
-			0  & \bt^*
-		\end{pmatrix}
-		\eean
-		where $\bt:C_f \to U\left(1\right)$ is such that $\bt|_{V }= \a^n$.
-		\item If $u_1 \bydef Uu'_1$ then the  Fredholm  partial isometry
-		$$
-		w \bydef \mathrm{diag}\left( u_1\begin{pmatrix}
-			
-			1   & 0\\
-			0  & 0
-		\end{pmatrix}, 1_{B\left(H \right) } \right) \in M\left(\K\left( \ell^2\left( C\left( C_f\right)\right) \right) \right) 
-		$$
-		represents $x$
-		\item If 
-		$$
-		u  	\bydef \mathrm{diag}\left(\begin{pmatrix}
-			
-			\bt   & 0\\
-			0  & 1_\C
-		\end{pmatrix}, 1_{B\left(H \right) } \right) \in M\left(\K\left( \ell^2\left( C\left( C_f\right)\right) \right) \right) 
-		$$
-		then $u$ is unitary and
-		$$
-		u \in w^n + \K\left( \ell^2\left( C\left( C_f\right)\right) \right)
-		$$
-		i.e. $u\approx w^n$ modulo $\K\left( \ell^2\left( C\left( C_f\right)\right) \right)$. Indeed this unitary is a specialization of explained in \ref{tors_special_case_general} unitary $u$.
-		\item
-		If $\phi_n$ is given by \eqref{h_n_root} and $\K\left( \ell^2\left( C\left( C_f\right)\right) \right)\hookto B\left( \H\right)$ is faithful representation then 
-		\bean
-		v \bydef \phi_n\left( u\right) = 	 \mathrm{diag}\left(\begin{pmatrix}
-			
-			\phi_n\left( \bt\right)    & 0\\
-			0  & e^{\frac{2\pi i}{n}}
-		\end{pmatrix},~ e^{\frac{2\pi i}{n}} 1_{B\left(H \right) } \right) \in B\left(\H \right). 
-		\eean 
-	\end{enumerate}
-\end{exercise}
-Let $\widetilde A \subset B\left(\H \right)$ be a minimal $C^*$- algebra such that $\K\left( \ell^2\left( C\left( C_f\right)\right) \right)v^n \subset \widetilde A$ for all $n \in \Z$.
-Using $\bt$ we construct $n$-listed universal covering of $\mathcal Z \to C_f$ such that
-$$
-\mathcal Z = \left\{\left.\left(x, z \right)  \in C_f\times U\left( 1\right)\right|\exists j \in \{1,...,n\} \quad z = \phi^j_n\left( x\right) \right\}
-$$
-where $\phi_n$ is given by \eqref{h_n_root}. The covering $\mathcal Z \to C_f$ is given by
-$$
-\left(x, z \right)\mapsto \left(x, z \right)
-$$
-The action $\Z_n \times \mathcal Z$ is given by
-$$
-\forall \overline k \in \Z_n \quad \overline k \left(x, z \right)= \left(x, e^{\frac{2\pi i k}{n}}z \right)
-$$
-where $k\in \Z$ is a representative of $\overline{k}$.
-\begin{exercise} Prove following statements
-	\begin{enumerate}
-		\item If $v_1 \bydef \phi_n\left( \bt\right)$. Prove that $C_f\left[v_1\right] = C\left(\mathcal Z\right)$.
-		\item Prove that $\widetilde A\cong C\left( \mathcal Z\right) \otimes \K$.
-		\item From the Theorem \ref{stable_fin_cov_rem} it follows that $\left(C\left( C_f\right) \otimes \K, C\left( \mathcal Z\right) \otimes \K, \Z_n\right)$ is a noncommutative finite-fold covering (cf. Definition \ref{fin_defn}. Prove that it is an $\left(u, n \right)$-covering (cf. Definition \ref{h_u_n_defn}).
-	\end{enumerate}
-\end{exercise}
 
 \subsection{Free special case}\label{free_special_case}
 \paragraph{}
@@ -12205,7 +12073,7 @@ h_{\mathrm{tors}} : \pi_1\left( A\right) \to K^1\left( A\right)_{\mathrm{tors}}
 \subsection{Free special case}
 \paragraph*{}
 Denote by $K^1\left( A\right)_{\mathrm{free}} \bydef K^1\left( A\right)/ K^1\left( A\right)_{\mathrm{tors}}$. According to  UCT !!! there in the natural  isomorphism  $K^1\left( A\right)_{\mathrm{free}}\cong \Hom\left(  K_1\left( A\right), \Z\right)\cong \Hom\left( K_1\left( A\right)/ K_1\left( A\right)_{\mathrm{tors}}, \Z\right) $.  
- Any $\left[u\right] \in K_1\left( A\right)/ K_1\left( A\right)_{\mathrm{tors}}$  can be represented by an unitary element $u \in M\left(A\otimes \K \right)$. We way that $u$ is \textit{free special}  if for all $j\in \N$ there is an $\left(u, n\right)$ covering $\left( A, \widetilde A_u,\Z_n \right)$. Denote by $K_1\left( A\right)_{\mathrm{free~spec}}\subset K_1\left( A\right)_{\mathrm{free}}$  the generated by free special elements subgroup. Suppose  $\left\{u_1, ,..., u_k\right\}\subset M\left(A\otimes \K \right) $ be a set of unitary elements such any $x\in K_1\left( A\right)_{\mathrm{free~spec}}$ can be uniquely represented by the following way
+ Any $\left[u\right] \in K_1\left( A\right)/ K_1\left( A\right)_{\mathrm{tors}}$  can be represented by an unitary element $u \in M\left(A\otimes \K \right)$. We way that $u$ is \textit{free special}  if for all $j\in \N$ there is an $\left(u, n\right)$ covering $\left( A, \widetilde A_u,\Z_n \right)$. Denote by $K_1\left( A\right)_{\mathrm{free~spec}}\subset K_1\left( A\right)_{\mathrm{free}}$  the generated by free special elements subgroup. Suppose  $\left\{u_1, ..., u_k\right\}\subset M\left(A\otimes \K \right) $ be a set of unitary elements such any $x\in K_1\left( A\right)_{\mathrm{free~spec}}$ can be uniquely represented by the following way
 $$
 x = c_1 \left[u_1\right]+...+c_k \left[u_k\right]\quad c_j \in \Z\quad j = 1,..., k
 $$
@@ -12235,7 +12103,102 @@ h_{\mathrm{free}} : \pi_1\left( A\right)/\left[\pi_1\left( A\right), \pi_1\left(
 \end{split}
 \ee
 \end{definition}
-
+\section{Comparison with the classical Hurewicz homomorphism}
+\paragraph*{} Consider the described in the Section \ref{h_prel}  situation.
+If $u_{S^1}: S^1\to U\left( 1\right)$ is a homeomorphism given by $x \mapsto e^{2\pi i x}$ then $\left[u_{S^1}\right]$ is a generator of $K^1\left(S^1 \right)$ and $Index \left(\left[u_{S^1}\right],  K^1_{S^1}\right) = 1$, i.e. index of the Fredholm operator  $  K^1_{S^1}\left(u_{S^1} \right)$ equals to 1. If the map  $f$ is injective then map $u_{S^1}$ can be regarded as a map $\a:f\left( S^1\right) \to U\left(1 \right)$.
+\subsection{Torsion specal case}
+\paragraph*{} Suppose that both  $\left[ f\right]\in  \pi_1\left(\sY, y_0 \right)/\left[\pi_1\left(\sY, y_0 \right), \pi_1\left(\sY, y_0 \right)\right]$ and  $\left[K^1_{S^1}\circ f\right]\in K_1\left(\sX\right)$ has period $n$, i.e.  $n \left[ f\right]=0$ 
+$~n \left[K^1_{S^1}\circ f\right]=0$ and $m \left[ f\right]=0$, $~m \left[K^1_{S^1}\circ f\right]\neq 0$ for any $m < n$ ($m, n \in \N$). If $\bt \bydef \a^n$ then from from $n \left[ f\right]=0$ it follows that  can be extended up to continuous map $\varphi: \sX \to U(1)$ such that $\varphi|_{f\left(S^1 \right)}=\bt$.   The map \bean
+f\left( S^1\right) \to SU\left(2 \right),\\
+x \mapsto \begin{pmatrix}
+	
+	\a \left(x \right)   & 0\\
+	0  & \a^*\left(x \right) 
+\end{pmatrix} 
+\eean
+is contractible, so it can be extended up to a map
+$u'_1: \sX \to \sU\left(2 \right)$ such that
+\bean
+u'_1|_{f\left(S^1 \right)} \begin{pmatrix}
+	
+	\a   & 0\\
+	0  & \a^*
+\end{pmatrix} 
+\eean	
+If 		\bean
+p_1 \bydef \begin{pmatrix}
+	
+	1   & 0\\
+	0  & 0
+\end{pmatrix} 	
+\eean
+then $u'_1p_1u'^*$ is a projector in $\mathbb{M}_2\left(C\left(\sX\right) \right)$ and
+$x=	\left[u'_1p_1u'^*\right] - \left[p_1\right]\in K_0\left( C\left( \sX\right) \right) \cong K^0\left(  \sX \right)$. The maps $u'^n_1$ and $\begin{pmatrix}
+	
+	\varphi   & 0\\
+	0  & \varphi^*
+\end{pmatrix} $ are homotopic, so there is $u_1: \sX\to SU\left(2\right)$ which is homotopic to $u'_1$ and
+$$
+u^n_1= \begin{pmatrix}
+	
+	\varphi   & 0\\
+	0  & \varphi^*
+\end{pmatrix}.
+$$
+Since $u_1$ is homotopic to $u'_1$ one has $x=	\left[u_1p_1u^*\right] - \left[p_1\right]$. There is the *-isomorphism $C\left( \sX\right)\otimes \K = \K\left( \ell^2\left( C\left( \sX\right)\right) \right)$.  From the Theorem \ref{kasparov_stab_thm} it follows that  $\ell^2\left( C\left( \sX\right)\right)\cong \C^2 \oplus H$ where $H \cong \ell^2\left( C\left( \sX\right)\right)$. 
+If
+$$
+w \bydef \mathrm{diag}\left( u_1\begin{pmatrix}
+	
+	1   & 0\\
+	0  & 0
+\end{pmatrix}, 1_{B\left(H \right) } \right) \in M\left(\K\left( \ell^2\left( C\left( \sX\right)\right) \right) \right) 
+$$
+then $w$ is a Fredholm  partial isometry which represents $x \in  K_0\left(C\left( \sX\right)\right)$ (cf. equation \eqref{partial_p_eqn}). From $nx=0$ it follows that $w^n$ represents zero in $K_0\left(C\left( \sX\right)\right) $.  If 
+$$
+u  	\bydef \mathrm{diag}\left(\begin{pmatrix}
+	
+	\bt   & 0\\
+	0  & 1_\C
+\end{pmatrix}, 1_{B\left(H \right) } \right) \in M\left(\K\left( \ell^2\left( C\left( \sX\right)\right) \right) \right) 
+$$
+then $u$ is unitary and
+$$
+u \in w^n + \K\left( \ell^2\left( C\left( \sX\right)\right) \right)
+$$
+i.e. $u\approx w^n$ modulo $\K\left( \ell^2\left( C\left( \sX\right)\right) \right)$. Indeed this unitary is a specialization of explained in \ref{tors_special_case_general} unitary $u$.
+If $\phi_n$ is given by \eqref{h_n_root} and $\K\left( \ell^2\left( C\left( \sX\right)\right) \right)\hookto B\left( \H\right)$ is faithful representation then 
+\bean
+v \bydef \phi_n\left( u\right) = 	 \mathrm{diag}\left(\begin{pmatrix}
+	
+	\phi_n\left( \bt\right)    & 0\\
+	0  & e^{\frac{2\pi i}{n}}
+\end{pmatrix},~ e^{\frac{2\pi i}{n}} 1_{B\left(H \right) } \right) \in B\left(\H \right). 
+\eean 
+Let $\widetilde A \subset B\left(\H \right)$ be a minimal $C^*$- algebra such that $\K\left( \ell^2\left( C\left( C_f\right)\right) \right)v^n \subset \widetilde A$ for all $n \in \Z$.
+Using $\bt$ we construct $n$-listed universal covering of $\mathcal Z \to C_f$ such that
+$$
+\mathcal Z = \left\{\left.\left(x, z \right)  \in C_f\times U\left( 1\right)\right|\exists j \in \{1,...,n\} \quad z = \phi^j_n\left( x\right) \right\}
+$$
+where $\phi_n$ is given by \eqref{h_n_root}. The covering $\mathcal Z \to C_f$ is given by
+$$
+\left(x, z \right)\mapsto \left(x, z \right)
+$$
+The action $\Z_n \times \mathcal Z$ is given by
+$$
+\forall \overline k \in \Z_n \quad \overline k \left(x, z \right)= \left(x, e^{\frac{2\pi i k}{n}}z \right)
+$$
+where $k\in \Z$ is a representative of $\overline{k}$.
+\begin{exercise} Prove following statements
+	\begin{enumerate}
+		\item If $v_1 \bydef \phi_n\left( \bt\right)$. Prove that $C_f\left[v_1\right] = C\left(\mathcal Z\right)$.
+		\item Prove that $\widetilde A\cong C\left( \mathcal Z\right) \otimes \K$.
+		\item From the Theorem \ref{stable_fin_cov_rem} it follows that $\left(C\left( C_f\right) \otimes \K, C\left( \mathcal Z\right) \otimes \K, \Z_n\right)$ is a noncommutative finite-fold covering (cf. Definition \ref{fin_defn}. Prove that it is an $\left(u, n \right)$-covering (cf. Definition \ref{h_u_n_defn}).
+	\end{enumerate}
+\end{exercise}
+\subsection{Free special case}
+\paragraph*{}
+Suppose that both  $\left[ f\right]\in  \pi_1\left(\sY, y_0 \right)/\left[\pi_1\left(\sY, y_0 \right), \pi_1\left(\sY, y_0 \right)\right]$ have infinite period and are not divisible.!!! 
 \section{Resume}
 \paragraph*{}
 In the introduction of Soviet edition of the book "Basic Number Theory" \cite{weil:basic_number_theory} Andre Weil wrote the following:
@@ -19942,7 +19905,7 @@ K_1\left(J \right) \xrightarrow{\iota_*}K_1\left(A \right) \xrightarrow{\pi} K_1
 \begin{empt}\label{v_lift_empt}\cite{blackadar:ko}
 %	8.3.2. The map @ is called the index map. The reason is the following. 
 Suppose A is a unital $C^*$-algebra and $u$ is a unitary in $\mathbb{M}_n(A/J)$. If $u$ lifts to a partial isometry $v \in \mathbb{M}_n(A)$, then $\mathrm{diag}\left(u, u^{-1} \right)$ lifts to the unitary
-\be
+\be\label{partial_p_eqn}
 w = \begin{pmatrix}
 	v & 1 - vv^*\\
 	1- v^*v& v^*
