@@ -12108,7 +12108,14 @@ h_{\mathrm{free}} : \pi_1\left( A\right)/\left[\pi_1\left( A\right), \pi_1\left(
 If $u_{S^1}: S^1\to U\left( 1\right)$ is a homeomorphism given by $x \mapsto e^{2\pi i x}$ then $\left[u_{S^1}\right]$ is a generator of $K^1\left(S^1 \right)$ and $Index \left(\left[u_{S^1}\right],  K^1_{S^1}\right) = 1$, i.e. index of the Fredholm operator  $  K^1_{S^1}\left(u_{S^1} \right)$ equals to 1. If the map  $f$ is injective then map $u_{S^1}$ can be regarded as a map $\a:f\left( S^1\right) \to U\left(1 \right)$.
 \subsection{Torsion specal case}
 \paragraph*{} Suppose that both  $\left[ f\right]\in  \pi_1\left(\sY, y_0 \right)/\left[\pi_1\left(\sY, y_0 \right), \pi_1\left(\sY, y_0 \right)\right]$ and  $\left[K^1_{S^1}\circ f\right]\in K_1\left(\sX\right)$ has period $n$, i.e.  $n \left[ f\right]=0$ 
-$~n \left[K^1_{S^1}\circ f\right]=0$ and $m \left[ f\right]=0$, $~m \left[K^1_{S^1}\circ f\right]\neq 0$ for any $m < n$ ($m, n \in \N$). If $\bt \bydef \a^n$ then from from $n \left[ f\right]=0$ it follows that  can be extended up to continuous map $\varphi: \sX \to U(1)$ such that $\varphi|_{f\left(S^1 \right)}=\bt$.   The map \bean
+$~n \left[K^1_{S^1}\circ f\right]=0$ and $m \left[ f\right]=0$, $~m \left[K^1_{S^1}\circ f\right]\neq 0$ for any $m < n$ ($m, n \in \N$). If $\bt \bydef \a^n$ then  from $n \left[ f\right]=0$
+and from the Theorem \ref{h_iso_thm} it turns out that $n h_{\mathrm{sing}}\left(\left[f\right] \right)= 0 \in H_1\left( \sX\right)$. 
+\begin{exercise}
+Using the Theorem \ref{top_obstr_thm} and $\left(\Z, 1 \right)= S^1$ prove that there is a continuous map
+$\sX \to U(1)$ such that $\varphi|_{f\left(S^1 \right)}=\bt$
+\end{exercise}
+
+ it follows that  can be extended up to continuous map $\varphi: \sX \to U(1)$ such that $\varphi|_{f\left(S^1 \right)}=\bt$.   The map \bean
 f\left( S^1\right) \to SU\left(2 \right),\\
 x \mapsto \begin{pmatrix}
 	
@@ -12133,19 +12140,25 @@ p_1 \bydef \begin{pmatrix}
 \end{pmatrix} 	
 \eean
 then $u'_1p_1u'^*$ is a projector in $\mathbb{M}_2\left(C\left(\sX\right) \right)$ and
-$x=	\left[u'_1p_1u'^*\right] - \left[p_1\right]\in K_0\left( C\left( \sX\right) \right) \cong K^0\left(  \sX \right)$. The maps $u'^n_1$ and $\begin{pmatrix}
-	
-	\varphi   & 0\\
-	0  & \varphi^*
-\end{pmatrix} $ are homotopic, so there is $u_1: \sX\to SU\left(2\right)$ which is homotopic to $u'_1$ and
-$$
-u^n_1= \begin{pmatrix}
-	
-	\varphi   & 0\\
-	0  & \varphi^*
-\end{pmatrix}.
-$$
-Since $u_1$ is homotopic to $u'_1$ one has $x=	\left[u_1p_1u^*\right] - \left[p_1\right]$. There is the *-isomorphism $C\left( \sX\right)\otimes \K = \K\left( \ell^2\left( C\left( \sX\right)\right) \right)$.  From the Theorem \ref{kasparov_stab_thm} it follows that  $\ell^2\left( C\left( \sX\right)\right)\cong \C^2 \oplus H$ where $H \cong \ell^2\left( C\left( \sX\right)\right)$. 
+$x=	\left[u'_1p_1u'^*\right] - \left[p_1\right]\in K_0\left( C\left( \sX\right) \right) \cong K^0\left(  \sX \right)$. 
+\begin{lemma}
+	In the space $\mathrm{Cont}\left( \sX, \SU\left(2 \right)\right)$  of continuous maps $\sX \to \SU\left(2 \right)$ there is a homotopy $H:[0,1]\to\mathrm{Cont}\left( \sX, \SU\left(2 \right)\right) $ such that $H\left(0\right) = u'_1$ and $\left( H\left(1\right)\right)^n =  \begin{pmatrix}
+		\varphi & 0\\
+		0& 1
+	\end{pmatrix}$.
+\end{lemma}
+\begin{proof}
+Note that there is a homotopy  $G:[0,1]\to\mathrm{Cont}\left( \sX, \SU\left(2 \right)\right) $ such that $G\left(0\right) = u'^n_1$ and $ G\left(1\right) = \begin{pmatrix}
+	\varphi & 0\\
+	0& 1
+\end{pmatrix}$. There a topology $\SU\left(2 \right)$ given by \eqref{aut_norm_eqn}. From the theory of Lie groups it follows that there is an open connected neighborhood $\psi:\sU\subset \SU\left(2 \right)$ of $\begin{pmatrix}
+	1 & 0\\
+	0& 1
+\end{pmatrix}$ such that $g \mapsto g^n$ is a homeomorphism from $\sU$ onto its image $\sU^n$. There is $\eps_1$ such that
+$G\left( 0\right)^{-1} G\left(t \right)\left( x\right) \in \sU^n$ for any $0\le t \le \eps_1$ and $x \in \sX$. We define   $H\left(t \right)\left( x\right)\bydef H(0)\psi^{-1} \left( G\left( 0\right)^{-1} G\left(t \right)\right)$. Then there is $\eps_2$ such that
+$G\left( \eps_1\right)^{-1} G\left(t \right)\left( x\right) \in \sU^n$ for any $\eps_1\le t \le \eps_1+\eps_2$ and $x \in \sX$ and so on. Since $[0,1]$ using finite number of steps we find the required homotopy.
+\end{proof}
+If $u_1\bydef H\left( 1\right) $ then $x=	\left[u_1p_1u^*\right] - \left[p_1\right]$ because $u_1$ is homotopic to $u'_1$. There is the *-isomorphism $C\left( \sX\right)\otimes \K = \K\left( \ell^2\left( C\left( \sX\right)\right) \right)$.  From the Theorem \ref{kasparov_stab_thm} it follows that  $\ell^2\left( C\left( \sX\right)\right)\cong \C^2 \oplus H$ where $H \cong \ell^2\left( C\left( \sX\right)\right)$. 
 If
 $$
 w \bydef \mathrm{diag}\left( u_1\begin{pmatrix}
@@ -12168,19 +12181,19 @@ u \in w^n + \K\left( \ell^2\left( C\left( \sX\right)\right) \right)
 $$
 i.e. $u\approx w^n$ modulo $\K\left( \ell^2\left( C\left( \sX\right)\right) \right)$. Indeed this unitary is a specialization of explained in \ref{tors_special_case_general} unitary $u$.
 If $\phi_n$ is given by \eqref{h_n_root} and $\K\left( \ell^2\left( C\left( \sX\right)\right) \right)\hookto B\left( \H\right)$ is faithful representation then 
-\bean
+\be\label{h_z_eqn}
 v \bydef \phi_n\left( u\right) = 	 \mathrm{diag}\left(\begin{pmatrix}
 	
 	\phi_n\left( \bt\right)    & 0\\
 	0  & e^{\frac{2\pi i}{n}}
 \end{pmatrix},~ e^{\frac{2\pi i}{n}} 1_{B\left(H \right) } \right) \in B\left(\H \right). 
-\eean 
-Let $\widetilde A \subset B\left(\H \right)$ be a minimal $C^*$- algebra such that $\K\left( \ell^2\left( C\left( C_f\right)\right) \right)v^n \subset \widetilde A$ for all $n \in \Z$.
-Using $\bt$ we construct $n$-listed universal covering of $\mathcal Z \to C_f$ such that
-$$
-\mathcal Z = \left\{\left.\left(x, z \right)  \in C_f\times U\left( 1\right)\right|\exists j \in \{1,...,n\} \quad z = \phi^j_n\left( x\right) \right\}
-$$
-where $\phi_n$ is given by \eqref{h_n_root}. The covering $\mathcal Z \to C_f$ is given by
+\ee
+Let $\widetilde A \subset B\left(\H \right)$ be a minimal $C^*$- algebra such that $\K\left( \ell^2\left( C\left( \sX\right)\right) \right)v^n \subset \widetilde A$ for all $n \in \Z$.
+Using $\bt$ we construct $n$-listed universal covering of $\mathcal Z \to \sX$ such that
+\be\label{h_zc_eqn}
+\mathcal Z = \left\{\left.\left(x, z \right)  \in \sX\times U\left( 1\right)\right|\exists j \in \{1,...,n\} \quad z = \phi^j_n\left( x\right) \right\}
+\ee
+where $\phi_n$ is given by \eqref{h_n_root}. The covering $\mathcal Z \to \sX$ is given by
 $$
 \left(x, z \right)\mapsto \left(x, z \right)
 $$
@@ -12191,14 +12204,21 @@ $$
 where $k\in \Z$ is a representative of $\overline{k}$.
 \begin{exercise} Prove following statements
 	\begin{enumerate}
-		\item If $v_1 \bydef \phi_n\left( \bt\right)$. Prove that $C_f\left[v_1\right] = C\left(\mathcal Z\right)$.
+		\item If $v_1 \bydef \phi_n\left( \bt\right)$. Prove that $C\left(\sX \right) \left[v_1\right] = C\left(\mathcal Z\right)$.
 		\item Prove that $\widetilde A\cong C\left( \mathcal Z\right) \otimes \K$.
-		\item From the Theorem \ref{stable_fin_cov_rem} it follows that $\left(C\left( C_f\right) \otimes \K, C\left( \mathcal Z\right) \otimes \K, \Z_n\right)$ is a noncommutative finite-fold covering (cf. Definition \ref{fin_defn}. Prove that it is an $\left(u, n \right)$-covering (cf. Definition \ref{h_u_n_defn}).
+		\item From the Theorem \ref{stable_fin_cov_rem} it follows that $\left(C\left(\sX\right) \otimes \K, C\left( \mathcal Z\right) \otimes \K, \Z_n\right)$ is a noncommutative finite-fold covering (cf. Definition \ref{fin_defn}. Prove that it is an $\left(u, n \right)$-covering (cf. Definition \ref{h_u_n_defn}).
 	\end{enumerate}
 \end{exercise}
 \subsection{Free special case}
 \paragraph*{}
-Suppose that both  $\left[ f\right]\in  \pi_1\left(\sY, y_0 \right)/\left[\pi_1\left(\sY, y_0 \right), \pi_1\left(\sY, y_0 \right)\right]$ have infinite period and are not divisible.!!! 
+Suppose that both  $\left[ f\right]\in  \pi_1\left(\sY, y_0 \right)/\left[\pi_1\left(\sY, y_0 \right), \pi_1\left(\sY, y_0 \right)\right]$ have infinite period and are not divisible. 
+\begin{exercise}
+	Using the Theorem \ref{top_obstr_thm} and $\left(\Z, 1 \right)= S^1$ prove that there is a continuous map
+	$\sX \to U(1)$ such that $\varphi|_{f\left(S^1 \right)}=\a$.
+\end{exercise}
+The map 	$u: \sX \to U(1)$ can be regarded as an unitary element $u \in C\left( \sX\right) \subset M\left(C\left(\sX\right)\otimes \K \right)$. One has $Index\left(\left[u \right] ,\left[K^1_{S^1}\circ f\right]  \right)= Index\left(K^1_{S^1}\circ f \right)= 1$. From the universal coefficient theorem it follows that $\left[u \right]\in \K^1\left(\sX \right)$ is not divisible. So if $n > 1$ and $\phi_n$ is given by \eqref{h_n_root} then $v \bydef \phi_n\left( u\right)\notin  M\left(C\left(\sX\right)\otimes \K \right)$. Similarly to \eqref{h_zc_eqn} one can construct a covering $\mathcal Z$ such that $G\left(\left.\mathcal Z\right| \sX\right)= \Z_n$ and $C\left(\mathcal Z\right) \cong C\left( \sX\right)\left[v\right]$  From the Theorem \ref{stable_fin_cov_rem} it follows that $\left(C\left(\sX\right) \otimes \K, C\left( \mathcal Z\right) \otimes \K, \Z_n\right)$ is a noncommutative finite-fold covering (cf. Definition \ref{fin_defn} which is an $\left(u, n \right)$-covering (cf. Definition \ref{h_u_n_defn}).
+
+
 \section{Resume}
 \paragraph*{}
 In the introduction of Soviet edition of the book "Basic Number Theory" \cite{weil:basic_number_theory} Andre Weil wrote the following:
@@ -12216,9 +12236,7 @@ Using in the Sections \ref{free_special_case} and \ref{torsion_special_case}  co
 \be
 K^1\left(A\right)\to \pi_1\left( A\right) /\left[\pi_1\left(A\right), \pi_1\left(A\right)\right].
 \ee
-Elements of $K^1\left(A\right)$ can be represented by Fredholm operators which are invertible modulo compact operators, otherwise both $K^\times$ and 	$F^\times_{\mathbf{A}}/F^\times$ correspond to invertible elements of fields. Overwise the Galois groups $\mathrm{Gal}\left(K^\mathrm{ab}/K \right)$ are analogs  $\mathrm{Gal}\left(F^\mathrm{ab}/F \right)$ of the  Abelian fundamental group $\left[\pi_1\left(A\right), \pi_1\left(A\right)\right]$
-
-To describe further properties of the classes $[D]$ we need to introduce the following boundary operation on Dirac bundles:
+Elements of $K^1\left(A\right)$ can be represented by Fredholm operators which are invertible modulo compact operators, otherwise both $K^\times$ and 	$F^\times_{\mathbf{A}}/F^\times$ correspond to invertible elements of fields. Overwise the Galois groups $\mathrm{Gal}\left(K^\mathrm{ab}/K \right)$ are analogs  $\mathrm{Gal}\left(F^\mathrm{ab}/F \right)$ of the  Abelian fundamental group $\left[\pi_1\left(A\right), \pi_1\left(A\right)\right]$.
 
 
 \section{Commmutative case}
@@ -17907,7 +17925,7 @@ For all $n > 1$ the group $	\pi_{n} (\sX, x_0)$ is Abelian.
 	\ee
 \end{remark}
 
-\
+
 
 \subsection{Coverings and fundamental groups}
 	\paragraph*{}
@@ -18106,27 +18124,6 @@ point.
 \end{split}
 \ee	
 \end{empt}
-\subsection{Obstruction theory}
-\begin{definition}\cite{spanier:at}
-	Let $\pi$ an Abelian group and $\sY$ is a path-connected pointed space. An element $v \in H^n\left(\sY, y, \pi \right)$ is said to be $n$-\textit{characteristic} for $\sY$ if the composite
-	$$
-	\pi_n\left(\sY, y_0 \right)\xrightarrow{\varphi} H^n\left(\sY, y, \pi \right)\xrightarrow{h(v)}\pi
-	$$ 
-	is isomorphism (where $\varphi$ is the Hurewicz homomorphism and $h\left( v\right)$ is the natural homomorhism which follows from the universal coefficient theorem  \cite{spanier:at})
-\end{definition}
-\begin{theorem}\label{top_obstr_thm}\cite{spanier:at}
-	%12 theorem 
-	Let $\sY$ be a space of type $\left(\pi, n\right)$, with $n\ge 1$ and $\pi$ Abelian, and let $\iota$ be $n$-characteristic for $Y$. If $(X,A)$ is a relative $CW$-complex, a map $f: A\to Y$ 
-	can be extended over $X$ if and only if $\delta H^n\left[f\right]\left( \iota \right)  = 0 \in  H^{n + 1}\left(\sX, \sA; \pi \right)$. 
-\end{theorem}
-\begin{remark}
-	The  Theorem \ref{top_obstr_thm} implies the cohomology exact sequence \eqref{top_c_exact_eqn}, i.e.
-	\bean
-	...\xrightarrow{\delta} H^n\left(\sX, \A ;\pi\right) \xrightarrow{H^n\left[j\right]} H^n\left(\sX ;\pi\right) \xrightarrow{H^n\left[i\right]} H^n\left(\A; \pi \right) \xrightarrow{\delta} H^{n+1}\left(\sX, \A ;\pi\right)\to ...
-	\eean
-	and a homomorphism $H^n\left[f\right]: H^n\left(\sY; \pi \right) \to H^n\left(\A; \pi \right)$.
-\end{remark}
-
 
 \subsection{Homology theory and Hurewicz homomorphism}
 
@@ -18151,8 +18148,8 @@ point.
 	Let $k_*$ be a homology theory. We define the \textit{Hurewicz homomorphism} h:	$\pi_n\left(Y, y_0 \right)\to k_n\left(Y \right)$  to be the composite
 	\be
 	\begin{split}
-\pi_n\left(\sY, y_0 \right)\cong \left[S^n, s_0; \sY, y_0\right]\xrightarrow{k_n}\Hom\left(k_n\left(S^n \right),  k_n\left(\sY \right)\right) \xrightarrow{\Hom\left(\sigma^n, 1 \right) }\\
-\Hom\left(k_n\left(S^0 \right),  k_n\left(\sY \right)\right)\cong k_n\left(\sY \right).
+		\pi_n\left(\sY, y_0 \right)\cong \left[S^n, s_0; \sY, y_0\right]\xrightarrow{k_n}\Hom\left(k_n\left(S^n \right),  k_n\left(\sY \right)\right) \xrightarrow{\Hom\left(\sigma^n, 1 \right) }\\
+		\Hom\left(k_n\left(S^0 \right),  k_n\left(\sY \right)\right)\cong k_n\left(\sY \right).
 	\end{split}
 	\ee
 \end{definition}
@@ -18161,6 +18158,35 @@ Any homology theory defines a cohomology theory. In particular it satisfies to t
 \be\label{top_c_exact_eqn}
 ...\xrightarrow{\delta} k^n\left(\sX, \A \right) \xrightarrow{k^n\left[j\right]} k^n\left(\sX \right) \xrightarrow{k^n\left[i\right]} k^n\left(\A \right) \xrightarrow{\delta} k^{n+1}\left(\sX, \A \right)\to ...
 \ee
+\begin{theorem}\label{h_iso_thm}
+	If $H_*$ is the theory of singular homology then the following Hurewicz homomorphism
+	$$
+	h_{\mathrm{sing}}\pi_1\left( \sX\right) / \left[\pi_1\left( \sX\right), \pi_1\left( \sX\right)\right]\to H_1\left(\sX \right) 
+	$$
+	is an isomorphism.
+\end{theorem}
+
+\subsection{Obstruction theory}
+\begin{definition}\cite{spanier:at}
+	Let $\pi$ an Abelian group and $\sY$ is a path-connected pointed space. An element $v \in H^n\left(\sY, y, \pi \right)$ is said to be $n$-\textit{characteristic} for $\sY$ if the composite
+	$$
+	\pi_n\left(\sY, y_0 \right)\xrightarrow{\varphi} H^n\left(\sY, y, \pi \right)\xrightarrow{h(v)}\pi
+	$$ 
+	is isomorphism (where $\varphi$ is the Hurewicz homomorphism and $h\left( v\right)$ is the natural homomorhism which follows from the universal coefficient theorem  \cite{spanier:at}).
+\end{definition}
+\begin{theorem}\label{top_obstr_thm}\cite{spanier:at}
+	%12 theorem 
+	Let $\sY$ be a space of type $\left(\pi, n\right)$, with $n\ge 1$ and $\pi$ Abelian, and let $\iota$ be $n$-characteristic for $Y$. If $(X,A)$ is a relative $CW$-complex, a map $f: A\to Y$ 
+	can be extended over $X$ if and only if $\delta H^n\left[f\right]\left( \iota \right)  = 0 \in  H^{n + 1}\left(\sX, \sA; \pi \right)$. 
+\end{theorem}
+\begin{remark}
+	The  Theorem \ref{top_obstr_thm} implies the cohomology exact sequence \eqref{top_c_exact_eqn}, i.e.
+	\bean
+	...\xrightarrow{\delta} H^n\left(\sX, \A ;\pi\right) \xrightarrow{H^n\left[j\right]} H^n\left(\sX ;\pi\right) \xrightarrow{H^n\left[i\right]} H^n\left(\A; \pi \right) \xrightarrow{\delta} H^{n+1}\left(\sX, \A ;\pi\right)\to ...
+	\eean
+	and a homomorphism $H^n\left[f\right]: H^n\left(\sY; \pi \right) \to H^n\left(\A; \pi \right)$.
+\end{remark}
+
 \chapter{Algebra}
 	\section{Finitely generated modules}
 	\begin{theorem}\label{fin_gen_thm}\cite{kasch:mr}
