@@ -4250,7 +4250,7 @@ Very natural choice of fundamental group is proposed in \cite{milne:etale}, wher
 	The { connected infinite noncommutative covering }  $\left(A, \widetilde{A}, G\left(\left.\widetilde{A}~\right|{A}  \right) \right)$ of $\mathfrak{S}^{\mathrm{pt}}$ is said to be the \textit{universal  covering} (resp. \textit{reduced universal  covering}) (resp. \textit{free universal  covering}) 
 	of $A$. We also say that $\widetilde{A}$ the \textit{universal  covering} (resp. \textit{reduced universal  covering})  (resp. \textit{free universal  covering}) of $A$. 
 \end{definition}
-\begin{definition}\label{fg_bas_defn} CHECK DEFN !!! Similarly to \eqref{unicov_eqn} consider 
+\begin{definition}\label{fg_bas_defn} Similarly to \eqref{unicov_eqn} consider 
 \bean
 \mathfrak{S}_\K^{\mathrm{pt}} = \left( \left\{ \rho_\la:A\otimes \K \hookto A^\K_\la\right\}_{\la\in\La},\left\{\rho^\nu_\mu\right\}_{\substack{ \mu, \nu \in \La \\ \mu \ge \nu}} \right)\eean
 If 	$\left(A\otimes\K, \widetilde{A}_\K, G\left(\left.\widetilde{A}_\K~\right|{A}\otimes\K  \right) \right)$ of $\mathfrak{S}^{\mathrm{pt}}$ is \textit{universal  covering} (resp. \textit{reduced universal  covering}) (resp. \textit{free universal  covering}) 
@@ -4260,12 +4260,17 @@ of $A\otimes\K$.
 	\be\label{fg_bas_eqn}
 	\pi_1\left(A, \left\{\rho^\nu_\mu\right\}_{\substack{ \mu, \nu \in \La \\ \mu \ge \nu}} \right) \stackrel{\mathrm{def}}{=} G\left(\left.\widetilde{A}_\K~\right|{A}\otimes\K \right).
 	\ee
+	In this definition  the algebra $\widetilde{A}_\K$ does not depend on a base-point $\left\{\rho^\nu_\mu\right\}$ up to isomorphism (cf. Remark \ref{base_point_change_rem}). So we use the following notation
+	\be\label{fg_bas_short_eqn}
+	\pi_1\left(A\right)\bydef \pi_1\left(A, \left\{\rho^\nu_\mu\right\}_{\substack{ \mu, \nu \in \La \\ \mu \ge \nu}} \right)
+	\ee
 
 \end{definition}
+\begin{remark}
+The motivation of  usage of $A\otimes\K$ instead of $A$ is explained in the Section \ref{nt_fg_sec}.
 
-\begin{remark}\label{fg_bas_rem}
-In the Definition \ref{fg_bas_defn} CHECK DEFN !!! the algebra $\widetilde{A}$ does not depend on a base-point $\left\{\pi^\nu_\mu\right\}$ up to isomorphism (cf. Remark \ref{base_point_change_rem}). 
 \end{remark}
+
 
 %
 \begin{lemma}\label{change_point_lem}
@@ -16511,7 +16516,7 @@ Otherwise from the Lemma \ref{nt_spec_c0_lem}  it  follows that any special elem
 	\end{enumerate}
 	(ii) and (iii) follow from the proof of (i).
 \end{proof}
-\subsection{Fundamental group and Hurewcs homomorphism}
+\subsection{Fundamental group and Hurewcs homomorphism}\label{nt_fg_sec}
 \paragraph{}
 Let $C\left( \T^{2}_\th\right)$ be a noncommutative torus (cf. \eqref{nt_symplectic_eqn}) and let $u, v\in U\left( C\left( \T^{2}_\th\right)\right)$ be its generators (cf. Definition \ref{nt_uni_defn}). Let $n > 1$ and consider two finite-fold noncommutatve coverings
 \bean
@@ -16528,16 +16533,67 @@ U \bydef \begin{pmatrix}
 	\vdots& \vdots &\ddots&0\\
 0& 0&\ldots & e^{\frac{2\pi i\left( n-1\right) }{n}}
 \end{pmatrix},\\
-V \bydef \bydef \begin{pmatrix}
-0& 1 &\ldots &0 \\
-	0& 0 &\ldots &\vdots \\
-	\vdots& \vdots &\ddots&1\\
-	1& 0&\ldots &0
+V \bydef  \begin{pmatrix}
+0& 1 &0&\ldots &0 \\
+	0&0& 1 &\ldots &0 \\
+	\vdots&\vdots&\vdots &\ddots&\vdots\\
+	0& 0&0&\ldots &1\\
+	1& 0&0&\ldots &0
 \end{pmatrix}
-\eean  
+\eean
+then $UV = e^{\frac{2\pi i}{n}}VU$. There is an isomorphism
+\bean
+C\left( \T^{2}_{\th /n}\right)\otimes \mathbb{M}_n\left(\C \right)\cong  C\left( \T^{2}_{\left(\th+1 \right) /n}\right)\otimes\mathbb{M}_n\left(\C \right),\\
+\widetilde u_1\otimes m \mapsto \widetilde u_2\otimes Um, \quad \widetilde v_1\otimes m \mapsto \widetilde v_2\otimes Vm.
+\eean 
+Although coverings $\phi_1$ and $\phi_2$ are essentially different their  stabilizations
+\bean
+\phi_1\otimes 1_{M\left(\K\right)} : C\left( \T^{2}_\th\right)\otimes \K\hookto C\left( \T^{2}_{\th /n}\right)\otimes \K,\\
+\phi_2\otimes 1_{M\left(\K\right)} : C\left( \T^{2}_\th\right)\otimes \K\hookto C\left( \T^{2}_{\left( \th+1\right) /n}\right)\otimes \K
+\eean 
+are isomorphic. It follows that the set of equivalent coverings of  $C\left( \T^{2}_\th\right)$ is more wide then the set of of equivalent coverings of  $C\left( \T^{2}_\th\right)\otimes\K$ 
+This fact motivates usage of $A\otimes\K$ instead of $A$ in the Definition \ref{fg_bas_defn}.  
+\paragraph*{}
+The torus $\T^2$ can be regarded as a quotient $\T^2 = \R^2/\Z^2$. There is the natural infinite covering $\widetilde p : \R^2\to\T^2$. From the Lemma \ref{top_uni_exist_spa_lem} it follows that $\widetilde p$ is the universal covering such that $G\left(\left.\R^2\right|\T^2\right)\cong \Z^2$. Let us select base points $x_0\in \T^2$ and $\widetilde x_0 \in \R^2$ such that $\widetilde p: \left(\R^2, \widetilde x_0\right)\to \left(\T^2 x_0\right)$ is a pointed map. Consider the family of all pointed finite-fold coverings $\left\{p_\la:\left(\sX_\la, x^\la_0\right)\to \left(\T^2 ,x_0\right)\right\}_{\la\in \La}$ such that for any $\la\in \La$ there is a pointed covering $\widetilde p_\la: \left(\R^2, \widetilde x_0\right)\to \left(\sX_\la, x^\la_0\right)$ which satisfies to the following condition $\widetilde p_\la\circ p_\la=\widetilde p$. The group $\Z^2$ is residually finite  (cf. Definition \ref{residually_finite_defn}), hence from the Lemma \ref{top_res_fin_lem} it fo $\R^2$ is the topological inverse noncommutative limit (cf. Definition \ref{top_topological_inv_lim_defn}) of the category 
+$
+\mathfrak{S}_{\left(\T^2, x_0\right)}\left\{p_\la: \left( \sX_\la, x^\la_0\right) \to \left( \T^2, x_0\right)\right\}_{\la\in\La}.
+$
+Let $\widetilde \sF$ be a foliation on $\R^2$ which  corresponds to  a vector field $\tilde{X}$ on $\R^2$ given by
+\[
+dx = \th dy
+\]
+where $\th  \in \R\setminus\Q$ is an irrational number. Since $\widetilde \sF$ is invariant with respect to the action $\Z^2 \times\R^2 \to \R^2$ there is the foliation $\sF_\th$ on $\T^2$ such that $\widetilde \sF$ is the $\widetilde p$ -lift of $\sF_\th$ (cf. Definition \ref{fol_cov_defn}). The Lemma \ref{foli_base_point_lem} yields  a pointed algebraical  finite covering category $\mathfrak{S}_{C^*_r\left(\T^2, \sF\right)}$ (cf. Definition (ref. \ref{comp_pt_defn}) 
+From the Theorem \ref{foli_main_thm} it follows that the triple $\left(C^*_r\left(\T^2, \sF_\th\right), C^*_r\left(\R^2, \widetilde \sF\right), \Z^2 \right)$ is  the  { infinite noncommutative covering} of $\mathfrak{S}_{C^*_r\left(\T^2, \sF_\th, x_0\right)}$, (cf. Definition \ref{main_defn}). The transversal
+$$
+\widetilde N = \left\{\left.\left(0, y \right)\in \R^2\right| y \in \R \right\}\subset \R^2
+$$
+is complete and $N \bydef \widetilde p\left(\widetilde N \right)$ is also a complete transversal. There are $C^*$-algebras $C^*_r\left( \G^{N}_{N}\right)$ and  $C^*_r\left( \G^{\widetilde N}_{\widetilde N}\right)$ given by \ref{foli_pseudo_empt}.
+From the Lemma \ref{foli_stab_lem} it turns out that
+\be\label{foli_stab_eqn}
+\begin{split}
+	C^*_r\left(\T^2, \sF_\th\right)\cong C^*_r\left( \G^{N}_{N}\right)\otimes\K,\\
+	C^*_r\left(\R^2,  \widetilde\sF\right) \cong C^*_r\left( \G^{\widetilde N}_{\widetilde N}\right)\otimes\K.
+\end{split}
+\ee
+It is proven in \cite{connes:ncg94} that
+\be\label{nt_f_a_eqn}
+C^*_r\left(\G^{N}_{N}\right)\cong C\left( \T^2_\th\right) 
+\ee
+where $C\left( \T^2_\th\right)$ is a noncommutative torus (cf. Definition \ref{nt_defn}).  From the equations \eqref{foli_stab_eqn} and \eqref{foli_stab_eqn} it follows that
+\be
+	C^*_r\left(\T^2, \sF_\th\right)\cong C\left( \T^2_\th\right)\otimes \K
+\ee
+so one has $\pi_1\left( C\left( \T^2_\th\right)\right)\cong \pi_1\left(C^*_r\left(\T^2, \sF_\th\right)\right)$ (cf. Definition \ref{fg_bas_defn}). From the Theorem \ref{blowing_main_thm} it follows that 
+$$
+\pi_1\left( C\left( \T^2_\th\right)\right)\cong \pi_1\left(C^*_r\left(\T^2, \sF_\th\right)\right)\cong \pi_1\left( \T^2, t_0\right)\cong \Z^2. 
+$$
+where the reduced fundamental group is implied.
 
 
 
+	Consider   the  { infinite noncommutative covering}  $$\left(C^*_r\left(\T^2, \sF_\th\right), C^*_r\left(\R^2, \widetilde \sF\right), \Z^2 \right).$$ The foliation $C^*_r\left(\R^2, \widetilde \sF\right)$ is a fibration (cf. Definition \ref{foli_fibration_defn}) so from the Proposition \ref{foli_tens_comp_prop}. 
+	
+	
 \subsection{Coverings of $O^*$-algebras}
 \paragraph*{}
 If $a\in \Coo\left( \T^{2N}_\th\right)$ and $b\in \SS\left( \R^{2N}_\th\right)$ then  there is the product $a\times b\in L^2\left(\R^{2N}_\th \right)$ (cf. equation \eqref{nt_l2r_eqn}.
@@ -26011,83 +26067,53 @@ Here  well known physical results are described. The combination of these result
 
 \paragraph*{}
 Here we apply the theory of quantized coverings for the construction of examples of Hausdorff non-Hausdorff duality.
-\paragraph*{}
-The torus $\T^2$ can be regarded as a quotient $\T^2 = \R^2/\Z^2$. There is the natural infinite covering $\widetilde p : \R^2\to\T^2$. From the Lemma \ref{top_uni_exist_spa_lem} it follows that $\widetilde p$ is the universal covering such that $G\left(\left.\R^2\right|\T^2\right)\cong \Z^2$. Let us select base points $x_0\in \T^2$ and $\widetilde x_0 \in \R^2$ such that $\widetilde p: \left(\R^2, \widetilde x_0\right)\to \left(\T^2 x_0\right)$ is a pointed map. Consider the family of all pointed finite-fold coverings $\left\{p_\la:\left(\sX_\la, x^\la_0\right)\to \left(\T^2 ,x_0\right)\right\}_{\la\in \La}$ such that for any $\la\in \La$ there is a pointed covering $\widetilde p_\la: \left(\R^2, \widetilde x_0\right)\to \left(\sX_\la, x^\la_0\right)$ which satisfies to the following condition $\widetilde p_\la\circ p_\la=\widetilde p$. The group $\Z^2$ is residually finite  (cf. Definition \ref{residually_finite_defn}), hence from the Lemma \ref{top_res_fin_lem} it fo $\R^2$ is the topological inverse noncommutative limit (cf. Definition \ref{top_topological_inv_lim_defn}) of the category 
-$
-\mathfrak{S}_{\left(\T^2, x_0\right)}\left\{p_\la: \left( \sX_\la, x^\la_0\right) \to \left( \T^2, x_0\right)\right\}_{\la\in\La}.
-$
-Let $\widetilde \sF$ be a foliation on $\R^2$ which  corresponds to  a vector field $\tilde{X}$ on $\R^2$ given by
-\[
-dx = \th dy
-\]
-where $\th  \in \R\setminus\Q$ is an irrational number. Since $\widetilde \sF$ is invariant with respect to the action $\Z^2 \times\R^2 \to \R^2$ there is the foliation $\sF_\th$ on $\T^2$ such that $\widetilde \sF$ is the $\widetilde p$ -lift of $\sF_\th$ (cf. Definition \ref{fol_cov_defn}). The Lemma \ref{foli_base_point_lem} yields  a pointed algebraical  finite covering category $\mathfrak{S}_{C^*_r\left(\T^2, \sF\right)}$ (cf. Definition (ref. \ref{comp_pt_defn}) 
-From the Theorem \ref{foli_main_thm} it follows that the triple $\left(C^*_r\left(\T^2, \sF_\th\right), C^*_r\left(\R^2, \widetilde \sF\right), \Z^2 \right)$ is  the  { infinite noncommutative covering} of $\mathfrak{S}_{C^*_r\left(\T^2, \sF_\th, x_0\right)}$, (cf. Definition \ref{main_defn}). The transversal
-$$
-\widetilde N = \left\{\left.\left(0, y \right)\in \R^2\right| y \in \R \right\}\subset \R^2
-$$
-is complete and $N \bydef \widetilde p\left(\widetilde N \right)$ is also a complete transversal. There are $C^*$-algebras $C^*_r\left( \G^{N}_{N}\right)$ and  $C^*_r\left( \G^{\widetilde N}_{\widetilde N}\right)$ given by \ref{foli_pseudo_empt}.
-From the Lemma \ref{foli_stab_lem} it turns out that
-\be\label{foli_stab_eqn}
-\begin{split}
-C^*_r\left(\T^2, \sF_\th\right)\cong C^*_r\left( \G^{N}_{N}\right)\otimes\K,\\
-C^*_r\left(\R^2,  \widetilde\sF\right) \cong C^*_r\left( \G^{\widetilde N}_{\widetilde N}\right)\otimes\K.
-\end{split}
-\ee
-Similarly to \ref{foli_n_cat_empt}  there is a good   pointed algebraical  finite covering category
-\bean
-\begin{split}
-	\mathfrak{S}_{C^*_r\left(\G^{N}_{N}\right)}	\bydef\\
-	\bydef\left\{\left\{\pi_\la : C^*_r\left(\G^{N}_{N}\right)\hookto C^*_r\left(\G^{N_\la}_{N_\la}\right)\right\}, 	\left\{\pi^\mu_\nu :C^*_r\left(\G^{N_\mu}_{N_\mu}\right)\hookto C^*_r\left(\G^{N_\nu}_{N_\nu}\right) \right\}\right\}.
-\end{split}
-\eean
-From the Theorem  \ref{foli_n_cat_thm} it follows that $\left(C^*_r\left(\G^{N}_{N}\right), C^*_r\left(\G^{\widetilde N}_{ \widetilde N}\right), \Z^2 \right)$ is  the  { infinite noncommutative covering} of the good   pointed algebraical  finite covering category $\mathfrak{S}^{\mathrm{pt}}_{C^*_r\left(\G^{N}_{N}\right)}$
-It is proven in \cite{connes:ncg94} that
-\be
-C^*_r\left(\G^{N}_{N}\right)\cong C\left( \T^2_\th\right) 
-\ee
-where $C\left( \T^2_\th\right)$ is a noncommutative torus (cf. Definition \ref{nt_defn}).
+
 Let us provide physical interpretations of the above results.
+!!!!
 \begin{exm}\label{exm_sec_1_exm}
-Consider   the  { infinite noncommutative covering}  $$\left(C^*_r\left(\T^2, \sF_\th\right), C^*_r\left(\R^2, \widetilde \sF\right), \Z^2 \right).$$ The foliation $C^*_r\left(\R^2, \widetilde \sF\right)$ is a fibration (cf. Definition \ref{foli_fibration_defn}) so from the Proposition \ref{foli_tens_comp_prop} it follows that there is the isomorphism
-$C^*_r\left(\R^2, \widetilde \sF\right)\cong C_0\left(\R\right)\otimes \K\left( L^2\left(\R\right)\right)$. Clearly $C_0\left(\R\right)\otimes \K\left( L^2\left(\R\right)\right)$ is a $C^*$-algebra with continuous trace, so its spectrum is the Hausdorff space $\R$. From the Theorem \ref{foli_irred_hol_thm} it follows that the spectrum of $C^*_r\left(\T^2, \sF_\th\right)$ equals to the non-Hausdorff space $\R/\left(\Z+ \Z\th\right)$. The factors $C^*$-algebra $C_0\left(\R\right)\otimes \K\left( L^2\left(\R\right)\right)$ have the following physical interpretation:
-\begin{itemize}
-	\item The factor $C_0\left(\R\right)$ corresponds to the outer physical space $\R$.
-	\item The infinitely dimensional algebra $\K\left( L^2\left(\R\right)\right)$ corresponds   to the inner space, i.e. it matches to the string field.
-\end{itemize}
-Similarly to the expressed on the Table \ref{geo_alg_table} situation the covering transformation group $\Z^2$ simultaneously acts on both $C_0\left(\R\right)$ and $\K\left( L^2\left(\R\right)\right)$, i.e. it is a twisted action. Let us describe this action. Any $a \in \R$ yields a homeomorphism $x \mapsto x + a$ of $\R$ so it gives a *-automorphism $U_a$ of $C_0\left( \R\right)$.  On the other hand there is *-automorphism $V$ of $\K\left( L^2\left(\R\right)\right)$ induced by a homeomorphism $x \mapsto x + 1$ of $\R$. The action of $\Z^2\times C^*_r\left(\R^2, \widetilde \sF\right)\to C^*_r\left(\R^2, \widetilde \sF\right)$ of the covering transformation group $\Z^2$ corresponds to the action $\Z^2\times\left( C_0\left(\R\right)\otimes \K\left( L^2\left(\R\right)\right)\right) \to C_0\left(\R\right)\otimes \K\left( L^2\left(\R\right)\right)$ given by
-\be\label{foli_nontriv_buble_eqn}
-\left(n_1, n_2\right)\cdot \left(a_1\otimes a_2 \right) = U_{n_1 + n_2\th} a_1 \otimes V^{n_2}a_2
-\ee
-for all $\left(n_1, n_2\right)\in \Z^2$ and  $a_1\otimes a_2 \in C_0\left(\R\right)\otimes \K\left( L^2\left(\R\right)\right)$.
-As well as the equation \eqref{nontriv_buble_eqn} the equation \eqref{foli_nontriv_buble_eqn} can be regarded as twisted covering transformation. Both  equations \eqref{nontriv_buble_eqn} and \eqref{foli_nontriv_buble_eqn}  yield nontrivial vector bundles from trivial ones. 
+ it follows that there is the isomorphism
+	$C^*_r\left(\R^2, \widetilde \sF\right)\cong C_0\left(\R\right)\otimes \K\left( L^2\left(\R\right)\right)$. Clearly $C_0\left(\R\right)\otimes \K\left( L^2\left(\R\right)\right)$ is a $C^*$-algebra with continuous trace, so its spectrum is the Hausdorff space $\R$. From the Theorem \ref{foli_irred_hol_thm} it follows that the spectrum of $C^*_r\left(\T^2, \sF_\th\right)$ equals to the non-Hausdorff space $\R/\left(\Z+ \Z\th\right)$. The factors $C^*$-algebra $C_0\left(\R\right)\otimes \K\left( L^2\left(\R\right)\right)$ have the following physical interpretation:
+	\begin{itemize}
+		\item The factor $C_0\left(\R\right)$ corresponds to the outer physical space $\R$.
+		\item The infinitely dimensional algebra $\K\left( L^2\left(\R\right)\right)$ corresponds   to the inner space, i.e. it matches to the string field.
+	\end{itemize}
+	Similarly to the expressed on the Table \ref{geo_alg_table} situation the covering transformation group $\Z^2$ simultaneously acts on both $C_0\left(\R\right)$ and $\K\left( L^2\left(\R\right)\right)$, i.e. it is a twisted action. Let us describe this action. Any $a \in \R$ yields a homeomorphism $x \mapsto x + a$ of $\R$ so it gives a *-automorphism $U_a$ of $C_0\left( \R\right)$.  On the other hand there is *-automorphism $V$ of $\K\left( L^2\left(\R\right)\right)$ induced by a homeomorphism $x \mapsto x + 1$ of $\R$. The action of $\Z^2\times C^*_r\left(\R^2, \widetilde \sF\right)\to C^*_r\left(\R^2, \widetilde \sF\right)$ of the covering transformation group $\Z^2$ corresponds to the action $\Z^2\times\left( C_0\left(\R\right)\otimes \K\left( L^2\left(\R\right)\right)\right) \to C_0\left(\R\right)\otimes \K\left( L^2\left(\R\right)\right)$ given by
+	\be\label{foli_nontriv_buble_eqn}
+	\left(n_1, n_2\right)\cdot \left(a_1\otimes a_2 \right) = U_{n_1 + n_2\th} a_1 \otimes V^{n_2}a_2
+	\ee
+	for all $\left(n_1, n_2\right)\in \Z^2$ and  $a_1\otimes a_2 \in C_0\left(\R\right)\otimes \K\left( L^2\left(\R\right)\right)$.
+	As well as the equation \eqref{nontriv_buble_eqn} the equation \eqref{foli_nontriv_buble_eqn} can be regarded as twisted covering transformation. Both  equations \eqref{nontriv_buble_eqn} and \eqref{foli_nontriv_buble_eqn}  yield nontrivial vector bundles from trivial ones. 
 \end{exm}
-	
-	\begin{exm}\label{exm_sec_2_exm}
-		Consider   the  { infinite noncommutative covering}  $$\left(C^*_r\left(\G^{N}_{N}\right), C^*_r\left(\G^{\widetilde N}_{ \widetilde N}\right), \Z^2 \right).$$ 
-From the equations \eqref{foli_stab_eqn} it follows that the spectrum of $C^*_r\left(\G^{\widetilde N}_{\widetilde N}\right)$ is homeomorphic to the Hausdorff spectrum of 	$C^*_r\left(\R^2,  \widetilde\sF\right)$ and the spectrum of $C^*_r\left(\G^{N}_{N}\right)\cong C\left(\T_\th\right)$ is homeomorphic to the non-Hausdorff spectrum of 	$C^*_r\left(\T^2,  \sF\right)$.	Let us consider a groupoid $\G$ (cf. Definition \ref{groupoid_defn}) which coincides with $\Z\times\Z$ as a set and satisfies to the following relations
-\bean
-s\left(\left( n_1, n_2\right)\right)   = \left(n_1, n_1\right),\\ 
-r\left(\left( n_1, n_2\right)\right)  = \left(n_2, n_2\right),\\
-\left( n_1, n_2\right)\circ \left( n_2, n_3\right)= \left( n_2, n_3\right),\\
-\left( n_1, n_2\right)^{-1}= \left( n_2, n_1\right)
-\eean
-for all $n_1,n_2,n_3 \in \Z$. If $C^*_r\left( \G\right)$ is a reduced $C^*$-algebra of $\G$ (cf. Definition \ref{foli_groupoid_red_defn}) then one can prove that
-$$
- C^*_r\left(\G^{\widetilde N}_{ \widetilde N}\right)\cong C_0\left(\R \right)\otimes C^*_r\left( \G\right).
-$$ 
-Similarly to the Example \ref{exm_sec_1_exm} the factors $C^*$-algebra $  C_0\left(\R \right)\otimes C^*_r\left( \G\right)$ have the following physical interpretation:
-		\begin{itemize}
-			\item The factor $C_0\left(\R\right)$ corresponds to the outer physical space $\R$.
-			\item The infinitely dimensional algebra $C^*_r\left( \G\right)\cong\K\left(\ell^2\left(\Z \right)  \right) $ corresponds   to the inner space, i.e. it matches to the string field.
-		\end{itemize}
+
+\begin{exm}\label{exm_sec_2_exm}
+	Consider   the  { infinite noncommutative covering}  $$\left(C^*_r\left(\G^{N}_{N}\right), C^*_r\left(\G^{\widetilde N}_{ \widetilde N}\right), \Z^2 \right).$$ 
+	From the equations \eqref{foli_stab_eqn} it follows that the spectrum of $C^*_r\left(\G^{\widetilde N}_{\widetilde N}\right)$ is homeomorphic to the Hausdorff spectrum of 	$C^*_r\left(\R^2,  \widetilde\sF\right)$ and the spectrum of $C^*_r\left(\G^{N}_{N}\right)\cong C\left(\T_\th\right)$ is homeomorphic to the non-Hausdorff spectrum of 	$C^*_r\left(\T^2,  \sF\right)$.	Let us consider a groupoid $\G$ (cf. Definition \ref{groupoid_defn}) which coincides with $\Z\times\Z$ as a set and satisfies to the following relations
+	\bean
+	s\left(\left( n_1, n_2\right)\right)   = \left(n_1, n_1\right),\\ 
+	r\left(\left( n_1, n_2\right)\right)  = \left(n_2, n_2\right),\\
+	\left( n_1, n_2\right)\circ \left( n_2, n_3\right)= \left( n_2, n_3\right),\\
+	\left( n_1, n_2\right)^{-1}= \left( n_2, n_1\right)
+	\eean
+	for all $n_1,n_2,n_3 \in \Z$. If $C^*_r\left( \G\right)$ is a reduced $C^*$-algebra of $\G$ (cf. Definition \ref{foli_groupoid_red_defn}) then one can prove that
+	$$
+	C^*_r\left(\G^{\widetilde N}_{ \widetilde N}\right)\cong C_0\left(\R \right)\otimes C^*_r\left( \G\right).
+	$$ 
+	Similarly to the Example \ref{exm_sec_1_exm} the factors $C^*$-algebra $  C_0\left(\R \right)\otimes C^*_r\left( \G\right)$ have the following physical interpretation:
+	\begin{itemize}
+		\item The factor $C_0\left(\R\right)$ corresponds to the outer physical space $\R$.
+		\item The infinitely dimensional algebra $C^*_r\left( \G\right)\cong\K\left(\ell^2\left(\Z \right)  \right) $ corresponds   to the inner space, i.e. it matches to the string field.
+	\end{itemize}
 	A given by $\left(n_1, n_2 \right) \mapsto \left( n_1 + 1, n_2 + 1\right)$ automorphism of $\G$ yields the *-automorphism $V$ of $C^*_r\left( \G\right)$.
- The action of $\Z^2\times C^*_r\left(\G^{\widetilde N}_{ \widetilde N}\right)\to C^*_r\left(\G^{\widetilde N}_{ \widetilde N}\right)$ of the covering transformation group $\Z^2$ corresponds to the action $\Z^2\times\left( C_0\left(\R \right)\otimes C^*_r\left( \G\right)\right) \to C_0\left(\R \right)\otimes C^*_r\left( \G\right)$ given by
-		\be\label{foli_nontriv_buble2_eqn}
-		\left(n_1, n_2\right)\cdot \left(a_1\otimes a_2 \right) = U_{n_1 + n_2\th} a_1 \otimes V^{n_2}a_2
-		\ee
-		for all $\left(n_1, n_2\right)\in \Z^2$ and  $a_1\otimes a_2 \in C_0\left(\R \right)\otimes C^*_r\left( \G\right)$.
-	\end{exm}
-	\section{Resume}
+	The action of $\Z^2\times C^*_r\left(\G^{\widetilde N}_{ \widetilde N}\right)\to C^*_r\left(\G^{\widetilde N}_{ \widetilde N}\right)$ of the covering transformation group $\Z^2$ corresponds to the action $\Z^2\times\left( C_0\left(\R \right)\otimes C^*_r\left( \G\right)\right) \to C_0\left(\R \right)\otimes C^*_r\left( \G\right)$ given by
+	\be\label{foli_nontriv_buble2_eqn}
+	\left(n_1, n_2\right)\cdot \left(a_1\otimes a_2 \right) = U_{n_1 + n_2\th} a_1 \otimes V^{n_2}a_2
+	\ee
+	for all $\left(n_1, n_2\right)\in \Z^2$ and  $a_1\otimes a_2 \in C_0\left(\R \right)\otimes C^*_r\left( \G\right)$.
+\end{exm}
+
+
+
+\section{Resume}
 \paragraph*{}
 Here we explain why both $C^*$-algebras  $C^*_r\left(\R^2, \widetilde \sF \right)\cong C_0\left(\R\right)\otimes \K\left( L^2\left(\R\right)\right)$ (resp. $C^*_r\left(\G^{\widetilde N}_{ \widetilde N}\right)\cong C_0\left(\R\right)\otimes \K\left( \ell^2\left(\Z\right)\right)$) and $C^*_r\left(\T^2, \mathcal{F}_\th \right)\cong C\left(\T^2_\th\right)\otimes\K$ (resp. $C^*_r\left(\G^{ N}_{  N}\right)\cong C\left(\T^2_\th\right)$) can be regarded as manifestation of the single physics. Our arguments have two parts:
 \begin{itemize}
