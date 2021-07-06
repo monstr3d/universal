@@ -16511,6 +16511,32 @@ Otherwise from the Lemma \ref{nt_spec_c0_lem}  it  follows that any special elem
 	\end{enumerate}
 	(ii) and (iii) follow from the proof of (i).
 \end{proof}
+\subsection{Fundamental group and Hurewcs homomorphism}
+\paragraph{}
+Let $C\left( \T^{2}_\th\right)$ be a noncommutative torus (cf. \eqref{nt_symplectic_eqn}) and let $u, v\in U\left( C\left( \T^{2}_\th\right)\right)$ be its generators (cf. Definition \ref{nt_uni_defn}). Let $n > 1$ and consider two finite-fold noncommutatve coverings
+\bean
+\phi_1: C\left( \T^{2}_\th\right)\hookto  C\left( \T^{2}_{\th/n}\right),\\
+u \mapsto \widetilde u_1,\quad v \mapsto \widetilde v_1^n;\\
+\phi_2: C\left( \T^{2}_\th\right)\hookto  C\left( \T^{2}_{\left( \th + 1\right) /n}\right),\\
+u \mapsto \widetilde u_2,\quad v \mapsto \widetilde v_2^n
+\eean
+where $u_1, v_1\in U\left( C\left( \T^{2}_{\left( \th\right) /n}\right)\right)$ and $u_1, v_1\in U\left( C\left( \T^{2}_{\left( \th + 1\right) /n}\right)\right)$. If $U, V \in \mathbb{M}_n\left(\C \right)$ are such that
+\bean
+U \bydef \begin{pmatrix}
+	1& 0 &\ldots &0 \\
+	0& e^{\frac{2\pi i}{n}} &\ldots &\vdots \\
+	\vdots& \vdots &\ddots&0\\
+0& 0&\ldots & e^{\frac{2\pi i\left( n-1\right) }{n}}
+\end{pmatrix},\\
+V \bydef \bydef \begin{pmatrix}
+0& 1 &\ldots &0 \\
+	0& 0 &\ldots &\vdots \\
+	\vdots& \vdots &\ddots&1\\
+	1& 0&\ldots &0
+\end{pmatrix}
+\eean  
+
+
 
 \subsection{Coverings of $O^*$-algebras}
 \paragraph*{}
@@ -16872,11 +16898,6 @@ is coherent set of spectral triples (cf. Definition \ref{cov_sec_triple_defn}).
 \begin{exercise}
 Prove that there is the triple $\left(C^{\infty}(\mathbb{R}^{2N}_{\theta}),L^2\left(\R^{2N}\right)\otimes\mathbb{C}^{2^N}, \widetilde D\right)$ which is the $\left(C\left(\mathbb{T}^{2N}_\th \right), C_0\left(\R^{2N}_\th\right), \Z^{2N} \right)$-lift of $\left(C^{\infty}(\mathbb{T}^{2N}_{\theta}),\mathcal{H}=L^2\left(C\left(\mathbb{T}^{2N}_{\theta}\right), \tau\right)\otimes\mathbb{C}^{2^N},D\right)$.
 \end{exercise}
-
-\section{Fundamental group}
-!!!!
-\section{Hurewcs homomorphism}
-
 
 \chapter{Isospectral deformations and their coverings}\label{isospectral_chap}
 \section{Finite-fold coverings}\label{isosectral_fin_cov}
@@ -22749,7 +22770,7 @@ Let $\G\bydef \G\left(M, \sF \right)$ be a foliation chart. 	The bundle $\Omega_
 		$u_1,..., u_n \in U\left(C\left(\mathbb{T}^n_{\theta}\right)\right)$ which satisfy the relations \eqref{nt_com_eqn}, \eqref{nt_gen_eqn}
 		are said to be \textit{generators} of $C\left(\mathbb{T}^n_{\Theta}\right)$. The set $\left\{U_l\right\}_{l \in \Z^n}$ is said to be the \textit{basis} of $C\left(\mathbb{T}^n_{\Theta}\right)$.
 	\end{defn}
-	
+
 	If $a \in C\left(\mathbb{T}^n_{\Th}\right)$ is presented by a series
 	\be\label{nt_series_eqn}
 	a = \sum_{l \in \mathbb{Z}^{n}}c_l U_l;~~ c_l \in \mathbb{C}
@@ -22812,6 +22833,7 @@ Let $\G\bydef \G\left(M, \sF \right)$ be a foliation chart. 	The bundle $\Omega_
 	
 	
 	\subsection{Geometry of noncommutative tori}\label{nt_geom_sec}
+	\paragraph*{}
 	In the below text we imply that  $\Theta$ is {quite irrational}. 
 	The restriction of given by \eqref{nt_state_eqn}  state on $\Coo\left(\mathbb{T}^n_{\Theta}\right)$ satisfies to the following equation
 	\begin{equation}\label{nt__smotth_state_eqn}
@@ -22831,6 +22853,22 @@ Let $\G\bydef \G\left(M, \sF \right)$ be a foliation chart. 	The bundle $\Omega_
 		\left(a, b \right)= \int_{\T^n} a_{\text{comm}}^*b_{\text{comm}}dx 
 	\end{equation}
 	where $a_{\text{comm}}\in \Coo\left(\T^n \right)$ (resp. $b_{\text{comm}})$ is a commutative function which corresponds to $a$ (resp. $b$).
+		\begin{empt}\label{nt_k_1_empt}
+		If		$u_1,..., u_n \in U\left(C\left(\mathbb{T}^n_{\theta}\right)\right)$ are {generators} of $C\left(\mathbb{T}^n_{\Theta}\right)$ (cf. Definition \ref{nt_uni_defn}) then for all $\left( k_1, ..., k_n\right) \in\Z^n $ one has
+		$$
+		\left( k_1, ..., k_n\right)\neq 0 \quad \Rightarrow\quad	\tau \left( u_1^{k_1}\cdot ...\cdot u_n^{k_n}\right)= 0. 
+		$$
+		where $\tau$ is given by \eqref{nt_state_integ_eqn}. On the other hand from
+		$
+		\tau\left(1_{C\left(\mathbb{T}^n_{\theta}\right)}\right)= 1
+		$
+	 it follows that any nontrivial product $ u_1^{k_1}\cdot ...\cdot u_n^{k_n}$ is not homotopic to $1_{C\left(\mathbb{T}^n_{\theta}\right)}$ in
+			 $U\left(C\left(\mathbb{T}^n_{\theta}\right)\right)$. Similarly to \cite{varilly:noncom} one can deduce the following
+			\be\label{nt_k_1_eqn}
+		K_1\left(C\left(\mathbb{T}^n_{\theta}\right)\right)= \Z\left[u_1\right]\oplus ... \oplus \Z\left[u_n\right]
+			\ee
+			where $K_1$ means the $K_1$-functor (cf. \cite{blackadar:ko}).
+	\end{empt}
 	\begin{defn}\label{nt_symplectic_defn}
 		If  $\Theta$ is non-degenerated, that is to say,
 		$\sigma(s,t) \stackrel{\mathrm{def}}{=} s\.\Theta t$ to be \textit{symplectic}. This implies even
@@ -22840,7 +22878,13 @@ Let $\G\bydef \G\left(M, \sF \right)$ be a foliation chart. 	The bundle $\Omega_
 			\stackrel{\mathrm{def}}{=} \th \begin{pmatrix} 0 & 1_N \\ -1_N & 0 \end{pmatrix}
 		\end{equation}
 		where  $\th > 0$ is defined by $\th^{2N} \stackrel{\mathrm{def}}{=} \det\Theta$.
-		Denote by $\Coo\left(\mathbb{T}^{2N}_\th\right)\stackrel{\mathrm{def}}{=}\Coo\left(\mathbb{T}^{2N}_\Th\right)$ and $C\left(\mathbb{T}^{2N}_\th\right)\stackrel{\mathrm{def}}{=}C\left(\mathbb{T}^{2N}_\Th\right)$.
+		Denote by
+		\be\label{nt_symplectic_eqn}
+		\begin{split}
+	\Coo\left(\mathbb{T}^{2N}_\th\right)\stackrel{\mathrm{def}}{=}\Coo\left(\mathbb{T}^{2N}_\Th\right),\\
+	C\left(\mathbb{T}^{2N}_\th\right)\stackrel{\mathrm{def}}{=}C\left(\mathbb{T}^{2N}_\Th\right).
+		\end{split}
+\ee
 	\end{defn}
 	\paragraph*{}
 	The space $\Coo\left(\T^n_{\Theta}\right)$ is a dense subspace of  the Hilbert space $L^2\left(C\left(\mathbb{T}^n_{\Theta}\right), \tau\right)$. Let  $\L^\dagger\left(\Coo\left(\mathbb{T}^n_{\Theta}\right)\right)$ be a given by  the equation \eqref{l_dag_eqn} $O^*$-algebra. Denote by $\delta_{\mu}\in \L^\dagger\left(\Coo\left(\mathbb{T}^n_{\Theta}\right)\right)$ ($\mu = 1,\dots, n$) the analogues of the partial derivatives  on $C^{\infty}(\mathbb{T}^n)$ which are derivations on the algebra $C^{\infty}(\mathbb{T}^n_{\Theta})$ given by
