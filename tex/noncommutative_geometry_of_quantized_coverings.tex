@@ -18324,7 +18324,7 @@ point.
 	
 \end{definition}
 
-\begin{definition}\label{top_hurewitz_defn}
+\begin{definition}\label{top_hurewitz_defn}\cite{switzer:at}
 	% 7.39
 	Let $k_*$ be a homology theory. We define the \textit{Hurewicz homomorphism} h:	$\pi_n\left(Y, y_0 \right)\to k_n\left(Y \right)$  to be the composite
 	\be
@@ -18342,11 +18342,20 @@ Any homology theory defines a cohomology theory. In particular it satisfies to t
 \begin{theorem}\label{h_iso_thm}
 	If $H_*$ is the theory of singular homology then the following Hurewicz homomorphism
 	$$
-	h_{\mathrm{sing}}\pi_1\left( \sX\right) / \left[\pi_1\left( \sX\right), \pi_1\left( \sX\right)\right]\to H_1\left(\sX \right) 
+	h_{\mathrm{sing}}:\pi_1\left( \sX\right) / \left[\pi_1\left( \sX\right), \pi_1\left( \sX\right)\right]\to H_1\left(\sX \right) 
 	$$
 	is an isomorphism.
 \end{theorem}
-
+\begin{theorem}\cite{switzer:at}
+For every topological pair $\left(\sX, \A\right)$ and Abelian group $G$ there is a natural exact sequence
+\bean
+0 \to \mathrm{Ext}\left(H_{n-1}\left(\sX, \A\right),G \right)\to H^{n}\left(\sX, \A;G \right)\xrightarrow{\mu^*}\\\mathrm{Hom}\left(H_{n}\left(\sX, \A \right), G\right) \to 0
+\eean
+and unnatural splitting
+$$
+H^{n}\left(\sX, \A;G \right)\cong \mathrm{Ext}\left(H_{n-1}\left(\sX, \A \right),G \right)\oplus\mathrm{Hom}\left(H_{n}\left(\sX, \A\right) ,G \right).
+$$
+\end{theorem}
 \subsection{Obstruction theory}
 \begin{definition}\cite{spanier:at}
 	Let $\pi$ an Abelian group and $\sY$ is a path-connected pointed space. An element $v \in H^n\left(\sY, y, \pi \right)$ is said to be $n$-\textit{characteristic} for $\sY$ if the composite
