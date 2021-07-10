@@ -2334,7 +2334,7 @@ Prove that any free  noncommutative finite-fold quasi-covering  is reduced (cf. 
  \section{Strong Morita equivalence of finite-fold coverings}
  
  \paragraph{}
- This section is independent from the other text, so it can be skipped without prejudice to further reading 
+ This section  can be skipped without prejudice to further reading 
  The following result about algebraic Morita equivalence of Galois extensions is in fact rephrasing of described in \cite{auslander:galois,mont:hopf-morita} constructions. 
  Let $\left(A, \widetilde{A}, G\right)$ be an unital finite-fold noncommutative covering. Denote by $\widetilde{A} \rtimes G$ a \textit{crossed product}, i.e. $\widetilde{A} \rtimes G$ is a $C^*$-algebra which coincides with a set of maps from $G$ to $\widetilde{A}$ as a set, and operations on  $\widetilde{A}$ are given by
  \begin{equation}\label{crossed_prod_eqn}
@@ -4481,7 +4481,95 @@ where both $\widetilde a  \in \widetilde{A}_\pi$ and $b \in B\left( \H\right)$ a
 
  
  
+  \section{Strong Morita equivalence of infinite coverings}
  
+ \paragraph{}
+ This section can be skipped without prejudice to further reading.
+ Let $\left(A, \widetilde{A}, G\right)$ be an  infinite noncommutative covering which allows  the inner product (cf. Definition \ref{inf_hilb_prod_defn}), and let  $A_{\widetilde{A}}X_A$ be a given by \eqref{inf_hilb_inc_eqn} $C^*$-Hilbert $A$-module where the atomic representation is implied. Denote by $\widetilde{A} \rtimes G$ a \textit{crossed product}, i.e. $\widetilde{A} \rtimes G$ is a $C^*$-algebra which coincides is a $C^*$-norm completion of the set of maps with finite support from $G$ to $\widetilde{A}$ as a set, and operations on  $\widetilde{A}$ are given by
+ \begin{equation}\label{crossed_inf_prod_eqn}
+ 	\begin{split}
+ 		\left(a + b \right) \left( g \right)   = a \left( g \right)+ b \left( g \right),\\
+ 		\left(a \cdot b \right) \left( g \right)   = \sum_{g'\in G} a\left( g' \right)\left( g'\left(  b\left(g'^{-1}g \right)\right)\right)   \forall a, b \in \widetilde{A} \rtimes G,~~ \forall g \in G,\\
+ 		a^*\left(g \right) =\left(a\left( g^{-1}\right)  \right)^*; ~~ \forall a \in \widetilde{A} \rtimes G,~~ \forall g \in G.
+ 	\end{split}
+ \end{equation}
+ 
+ 
+ Let us construct a Morita context $$\left( \widetilde{A} \rtimes G, A,~ _{\widetilde{A} \rtimes G}X_A, ~ _AX_{\widetilde{A} \rtimes G}, \widetilde{\tau}, \psi\right) $$ where both $_AX_{\widetilde{A} \rtimes G}$ and $ _{\widetilde{A} \rtimes G}X_A$ coincide with $X$ as $\C$-spaces. The left and right action of $\widetilde{A} \rtimes G$ on $X$ is given by
+ 
+ \begin{equation*}
+ 	\begin{split}
+ 		a \xi = \sum_{g \in G} a\left( g\right) \left( g\xi\right)   , \\
+ 		\xi a =\sum_{g \in G} g^{-1}\left(\xi a\left( g\right)\right),\\ 
+ 		\forall a \in \widetilde{A} \rtimes G,~~ \forall \xi\in X.
+ 	\end{split}
+ \end{equation*}
+ The left (resp. right) action of $A$ on $X$ we define as left (resp. right) multiplication by $A$.
+ Denote by $\varphi: X \otimes_{A}  X  \to \widetilde{A} \rtimes G$, $\psi: X \otimes_{\widetilde{A} \rtimes G}  X \to A$ the maps such that
+ \begin{equation*}
+ 	\begin{split}
+ 		\varphi \left(\xi \otimes \eta \right)\left( g\right) =    \xi \left(g\eta \right) , \\
+ 		\psi \left(\xi \otimes \eta \right) = \sum_{g \in G} g\left(\xi \eta \right), \\
+ 		\forall ~\xi ,\eta\in X, ~~ g \in G.
+ 	\end{split}
+ \end{equation*}
+ From above equations it follows that 
+ \begin{equation}\label{morita_inf_g_eqn}
+ 	\begin{split}
+ 		\forall \xi, \eta, \zeta \in X\quad
+ 		\varphi \left(\xi \otimes \eta \right)\zeta = \sum_{g \in G} \left( \varphi\left(\xi \otimes \eta \right)\left( g\right)\right)  g \zeta =\\
+ 		= \sum_{g \in \G} \xi \left( g \eta \right) \left( g \zeta\right) =  \xi\sum_{g \in G}  g\left(  \eta  \zeta\right) = \xi \psi\left(\eta\otimes \zeta \right),\\
+ 		\xi\varphi \left(\eta \otimes \zeta \right) =
+ 		\sum_{g \in G} g^{-1}\left( \xi \eta g \zeta\right) =
+ 		\\
+ 		= \left( \sum_{g \in G} g^{-1}\left( \xi \eta \right) \right)\zeta= \left( \sum_{g \in G} g\left( \xi \eta \right) \right)\zeta=\psi\left(\xi \otimes \eta \right)\zeta.
+ 	\end{split}
+ \end{equation}
+
+ 
+ \begin{thm}\label{motita_inf_thm}
+ 	Let $\left(A, \widetilde{A}, G, \pi \right)$ be an infinite noncommutative  covering which allows the inner product (cf. Definition \ref{inf_hilb_prod_defn}). Let us define a structure of Hilbert $\widetilde{A} \rtimes G-A$ bimodule on  $_{\widetilde{A} \rtimes G}X_A$ given by following products
+ 	\begin{equation}\label{hilb_inf_gal_eqn}
+ 		\begin{split}
+ 			\left\langle \xi, \eta \right\rangle_{\widetilde{A} \rtimes G} = \varphi\left(\xi\otimes \eta^* \right),\\ 
+ 			\left\langle \xi, \eta \right\rangle_A = \psi\left(\xi^* \otimes \eta\right).\\
+ 		\end{split}
+ 	\end{equation}
+ 	Following conditions hold:
+ 	\begin{enumerate}
+ 		\item [(i)]
+ 		A bimodule  $_{\widetilde{A} \rtimes G}X_A$ satisfies the associativity condition (a) of the Definition \ref{strong_morita_defn},
+ 		
+ 		\item[(ii)] 
+ 		\begin{equation*}
+ 			\begin{split}
+ 				\left\langle X , X \right\rangle_{\widetilde{A} \rtimes G} = \widetilde{A} \rtimes G,\\ 
+ 				\left\langle X , X \right\rangle_A = A.\\
+ 			\end{split}
+ 		\end{equation*}
+ 	\end{enumerate}
+ 	It follows that $_{\widetilde{A} \rtimes G}\widetilde{A}_A$  is a ${\widetilde{A} \rtimes G}-A$  equivalence bimodule.
+ \end{thm}
+ \begin{proof}
+  From \eqref{morita_inf_g_eqn} it follows that products $ \left\langle -, - \right\rangle_{\widetilde{A} \rtimes G}$, $~~\left\langle -, - \right\rangle_A$ satisfy condition (a) of the Definition \ref{strong_morita_defn}.\\
+ \end{proof}
+  \begin{definition}\label{allows_morita_defn}
+   	Let $\left(A, \widetilde{A}, G \right)$ be an infinite noncommutative  covering which allows the inner product (cf. Definition \ref{inf_hilb_prod_defn}). 
+   	We say that $\left(A, \widetilde{A}, G\right)$ \textit{allows strong Morita equivalence} if $X$ is an ${\widetilde{A} \rtimes G}-A$  equivalence bimodule.
+  \end{definition}
+\begin{remark}
+From the Theorem \ref{motita_inf_thm} it follows that $\left(A, \widetilde{A}, G \right)$ {allows strong Morita equivalence} if both 
+ 		\begin{equation*}
+	\begin{split}
+		\left\langle X , X \right\rangle_{\widetilde{A} \rtimes G} \subset \widetilde{A} \rtimes G,\\ 
+		\left\langle X , X \right\rangle_A \subset A.\\
+	\end{split}
+\end{equation*}
+are dense subsets.
+\end{remark}
+ 
+ 
+
  
 \section{Coverings of spectral triples}\label{str_cov_glo_sec}
 
@@ -11089,6 +11177,65 @@ One needs prove that the given by  \eqref{blowing_base_point_eqn} pointed	algebr
 	\item[(iii)] Follows from the Theorem \ref{blowing_functor_thm}.
 \end{enumerate}
 \end{proof}
+\subsubsection{Induced representation}
+
+!!!
+   \begin{definition}\label{inf_hilb_prod_defn!}
+	Let $\mathfrak{S}^{\text{pt}} = \left(\left\{\pi_\la: A \hookto A_\la \right\}, \left\{\pi^\mu_\nu\right\}\right)\in \mathfrak{FinAlg}^{\text{pt}} $ be  a pointed algebraical  finite covering  category.  Let $\pi: C^*$-$\varinjlim_{\la \in \La} A_\la \to B\left(\widehat \H\right)$ be an equivariant representation such that $\mathfrak{S}^{\text{pt}}$ is $\pi$-good (cf. Definition \ref{mains_defn}).  Let  $$\left(A, \widetilde{A}_\pi, G\left(\left.\widetilde{A}_\pi~\right|A \right) \right)$$  be a $\pi$- infinite noncommutative covering of $\mathfrak{S}^{\text{pt}}$ (cf. Definition \ref{main_defn}). Let $K\left( \widetilde{A}_\pi\right)$ be the Pedersen's ideal of  $\widetilde{A}_\pi$ (cf. Definition \ref{peder_id_defn}). We say that $\widetilde{A}_\pi$ \textit{allows the inner product} if for any $\la \in \La$, and $\widetilde{a}, \widetilde{b} \in K\left( \widetilde{A}_\pi\right)$ the series
+	\begin{equation*}
+		\begin{split}
+			a_{\la} = \sum_{g \in \ker\left(G\left(\left.\widetilde{A}_\pi~\right|A \right)  \to  G\left( A_{\la}~|~A \right)\right)} g \left(\widetilde{a}^* \widetilde{b}  \right) 
+		\end{split}
+	\end{equation*}
+	is  convergent with respect to the strict topology (cf. Definition \ref{strict_topology}) of $M\left( \widetilde{A}_\pi\right)$ and $a_{\la} \in A_{\la}$.
+	Also we say that $\left( A, \widetilde{A}_\pi, G\left(\left.\widetilde{A}_\pi~\right|A \right) \right)$ \textit{allows the inner product}.
+\end{definition}
+\
+
+\subsubsection{Strong Morita equivalence}
+!!!
+\paragraph{title}
+ \begin{thm}\label{motita_inf_thm}
+	Let $\left(A, \widetilde{A}, G, \pi \right)$ be an infinite noncommutative  covering which allows the inner product (cf. Definition \ref{inf_hilb_prod_defn}). Let us define a structure of Hilbert $\widetilde{A} \rtimes G-A$ bimodule on  $_{\widetilde{A} \rtimes G}X_A$ given by following products
+	\begin{equation}\label{hilb_inf_gal_eqn}
+		\begin{split}
+			\left\langle \xi, \eta \right\rangle_{\widetilde{A} \rtimes G} = \varphi\left(\xi\otimes \eta^* \right),\\ 
+			\left\langle \xi, \eta \right\rangle_A = \psi\left(\xi^* \otimes \eta\right).\\
+		\end{split}
+	\end{equation}
+	Following conditions hold:
+	\begin{enumerate}
+		\item [(i)]
+		A bimodule  $_{\widetilde{A} \rtimes G}X_A$ satisfies the associativity condition (a) of the Definition \ref{strong_morita_defn},
+		
+		\item[(ii)] 
+		\begin{equation*}
+			\begin{split}
+				\left\langle X , X \right\rangle_{\widetilde{A} \rtimes G} = \widetilde{A} \rtimes G,\\ 
+				\left\langle X , X \right\rangle_A = A.\\
+			\end{split}
+		\end{equation*}
+	\end{enumerate}
+	It follows that $_{\widetilde{A} \rtimes G}\widetilde{A}_A$  is a ${\widetilde{A} \rtimes G}-A$  equivalence bimodule.
+\end{thm}
+\begin{proof}
+	From \eqref{morita_inf_g_eqn} it follows that products $ \left\langle -, - \right\rangle_{\widetilde{A} \rtimes G}$, $~~\left\langle -, - \right\rangle_A$ satisfy condition (a) of the Definition \ref{strong_morita_defn}.\\
+\end{proof}
+\begin{definition}\label{allows_morita_defn}
+	Let $\left(A, \widetilde{A}, G \right)$ be an infinite noncommutative  covering which allows the inner product (cf. Definition \ref{inf_hilb_prod_defn}). 
+	We say that $\left(A, \widetilde{A}, G\right)$ \textit{allows strong Morita equivalence} if $X$ is an ${\widetilde{A} \rtimes G}-A$  equivalence bimodule.
+\end{definition}
+\begin{remark}
+	From the Theorem \ref{motita_inf_thm} it follows that $\left(A, \widetilde{A}, G \right)$ {allows strong Morita equivalence} if both 
+	\begin{equation*}
+		\begin{split}
+			\left\langle X , X \right\rangle_{\widetilde{A} \rtimes G} \subset \widetilde{A} \rtimes G,\\ 
+			\left\langle X , X \right\rangle_A \subset A.\\
+		\end{split}
+	\end{equation*}
+	are dense subsets.
+\end{remark}
+\paragraph{title}
 
 
 
@@ -16588,10 +16735,11 @@ u \mapsto \widetilde u_2,\quad v \mapsto \widetilde v_2^n
 where $u_1, v_1\in U\left( C\left( \T^{2}_{\left( \th\right) /n}\right)\right)$ and $u_1, v_1\in U\left( C\left( \T^{2}_{\left( \th + 1\right) /n}\right)\right)$. If $U, V \in \mathbb{M}_n\left(\C \right)$ are such that
 \bean
 U \bydef \begin{pmatrix}
-	1& 0 &\ldots &0 \\
-	0& e^{\frac{2\pi i}{n}} &\ldots &\vdots \\
-	\vdots& \vdots &\ddots&0\\
-0& 0&\ldots & e^{\frac{2\pi i\left( n-1\right) }{n}}
+	1& 0 & 0&\ldots &0 \\
+	0& e^{\frac{2\pi i}{n}} & 0&\ldots &0 \\
+	0& 0&e^{\frac{ 2\pi i\cdot 2}{n}}  &\ldots & 0\\
+	\vdots& \vdots&\vdots &\ddots&\vdots\\
+0& 0& 0&\ldots & e^{\frac{2\pi i\left( n-1\right) }{n}}
 \end{pmatrix},\\
 V \bydef  \begin{pmatrix}
 0& 1 &0&\ldots &0 \\
@@ -25125,7 +25273,10 @@ v^k a \bydef k\cdot a.
 
 \part{Applications to the Theoretical Physics}\label{phys_part}
 
-\chapter{String field theory and Hausdorff non-Hausdorff duality}\label{haus_non_haus_dul_sec}
+
+ 
+
+\chapter{Hausdorff non-Hausdorff duality}\label{haus_non_haus_dul_sec}
 \paragraph*{}
 
 The most impressive directions of present day theoretical physics are superstring theory and noncommutative geometry. Both directions  are aimed to describe fundamental physical laws, i.e. these directions have the single purpose. However these directions seem very different. The superstring theory operates with the classical geometry of Hausdorff spaces. Noncommutative geometry replaces spaces with $C^*$-algebras, which simultaneously describe both "outer space" (stars and galaxies) and "inner space" (fundamental particles and forces). The spectra of $C^*$-algebras should or  should not be Hausdorff. In \cite{connes_lott:particle} the Standard model is described by an operator algebra which generates a $C^*$-algebra with Hausdorff spectrum (cf. Section \ref{oa_sec}). In \cite{connes_rieffel:nc_ym} a physical model is described by a $C^*$-algebra with non-Hausdorff spectrum.
@@ -25133,6 +25284,601 @@ The most impressive directions of present day theoretical physics are superstrin
 Before the so-called "duality revolution" there were believed to be five distinct versions of string theory, plus the (unstable) bosonic and gluonic theories. String duality is a class of symmetries in physics that link different string theories.
 \paragraph*{}
 Here examples   of a duality between Hausdorff and non-Hausdorff geometry are presented. It is proven that the Hausdorff and non-Hausdorff geometry can be  manifestations of the single physical theory.
+\section{Matrix model and noncommutative torus}
+\paragraph{} There is an interaction of matrix model and $C\left(\T^2_\th \right)$  described in \cite{landi:nm_nt}. This interaction can be described by the theory of noncommutative coverings.
+\subsection{Description ot task}
+\paragraph{} Here I follow to \cite{landi:nm_nt}.
+
+\paragraph{title}
+The algebra $\Coo\left(\T^2_\th\right)$ of smooth functions on the `noncommutative
+two-torus'
+${\bf T}_\theta^2$ is the unital $*$-algebra generated by two unitary
+elements $U_1,
+U_2$ with the relation
+\be U_1U_2=e^{2\pi i\theta}\,U_2U_1 \ .
+\label{Tthetarel}
+\ee
+A generic element $a\in \Coo\left(\T^2_\th\right)$ is written as a convergent series
+of the form
+\be
+a = \sum_{(m,n)\in \\Z^2} a_{mn} ~(U_1)^m (U_2)^n
+\ee
+where $a_{mn}$ is a complex-valued Schwarz function on $\Z^2$, i.e. a
+sequence
+of complex numbers $\{a_{mn} \in  \C~| ~ (m,n) \in \Z^2 \}$
+which decreases rapidly at `infinity'. When the deformation parameter
+$\theta=M/N$ is a rational number, with $M$ and $N$
+positive integers which we take to be relatively prime, the algebra
+$\Coo\left(\T^2_{M/N}\right)$ is intimately
+related to the algebra $C^\infty({\bf T}^2)$ of smooth functions on the
+ordinary torus
+${\bf T}^2$. Precisely, $\Coo\left(\T^2_{M/N}\right)$ is Morita equivalent to
+$C^\infty({\bf T}^2)$, i.e. $\Coo\left(\T^2_{M/N}\right)$ is a twisted matrix bundle over
+$C^\infty({\bf T}^2)$ of topological charge $M$ whose fibers are $N\times N$
+complex matrix algebras.
+Physically, this  implies that noncommutative $U(1)$ Yang-Mills theory with
+rational deformation parameter
+$\theta=M/N$ is dual to a conventional $U(N)$ Yang-Mills theory with $M$
+units of 't~Hooft flux.
+
+The algebra $\Coo\left(\T^2_{M/N}\right)$ has a
+`huge' center ${\cal C}(\Coo\left(\T^2_{M/N}\right))$ which is generated by the elements
+$(U_1)^N$ and $(U_2)^N$. One identifies ${\cal C}(\Coo\left(\T^2_{M/N}\right))$ with the algebra
+$C^\infty({\bf
+	T}^2)$, while the appearence of finite dimensional matrix
+algebras can be seen as follows. With $\omega=e^{2\pi iM/N}$, one introduces
+the $N\times N$ clock and shift matrices
+\be
+\widetilde{U}_1=\left({\begin{array}{lllll}
+		1& & & & \\ &\omega& & & \\
+		& &\omega^2& & \\& &
+		&\ddots& \\ & & & &
+		\omega^{N-1}
+\end{array}}\right)~~~~~~,~~~~~~
+\widetilde{U}_2=\left({\begin{array}{lllll}
+		0&1& & &0\\ &0&1& & \\
+		& &\ddots&\ddots& \\
+		& & &\ddots&1\\ 1& & & &0\end{array}}\right) \ .
+\label{Uarational}\ee
+These matrices are traceless (since $\sum_{k=0}^{N-1} \omega^k = 0$), they obey
+the relation \ref{Tthetarel}, and they satisfy
+\be
+\left(\widetilde{U}_1\right)^N =\left(\widetilde{U}_2\right)^N = \id_N~.
+\ee
+Since $M$ and $N$ are relatively prime, the matrices \ref{Uarational} generate
+the finite dimensional algebra $\mathbb{M}_N(\C)$ of $N\times N$ complex
+matrices \cite{we}.\footnote{If $M$ and $N$ are not coprime then the
+	generated algebra would be a
+	proper subalgebra of $\mathbb{M}_N(\C)$.} Furthermore, there is a surjective
+algebra morphism
+\be\label{calsur}
+\pi : \Coo\left(\T^2_{M/N}\right) \rightarrow \mathbb{M}_N(\C)
+\ee
+given by
+\be\label{calsur1}
+\pi\left(\sum_{(m,n)\in\\Z^2} a_{mn}~(U_1)^m (U_2)^n\right) =
+\sum_{(m,n)\in\\Z^2}a_{mn}~
+\left(\widetilde{U}_1\right)^m \left(\widetilde{U}_2\right)^n~,
+\ee
+under which the whole center ${\cal C}(\Coo\left(\T^2_{M/N}\right))$ is mapped to $\C$.
+
+When $\mathbb{M}_N(\C)$ is thought of as the Lie algebra $gl(N,\C)$, a
+basis is provided by the $N\times N$ matrices
+\be
+{\cal T}_p^{(N)}=\frac i{2\pi}\frac NM\, \omega^{p_1p_2/2}
+\left(\widetilde{U}_1\right)^{p_1}
+\left(\widetilde{U}_2\right)^{p_2}
+\label{Tbasis}\ee
+where $p_a\in\{-\frac{N-1}2,-\frac{N-3}2,\dots,\frac{N-1}2\}$.
+These matrices obey the commutation relations
+\be
+\left[{\cal T}_p^{(N)}\,,\,{\cal T}_q^{(N)}\right]=\frac N{\pi M}\,
+\sin\left(\frac{\pi M}N\,(p_1q_2-p_2q_1)\right)\,{\cal T}_{p+q\,({\rm
+		mod}\,N)} ^{(N)}
+\label{Ncommrels}\ee which in the limit $N\to\infty$ with $M/N\to0$ become \be
+\left[{\cal T}_p^{(\infty)}\,,\,{\cal T}_q^{(\infty)}\right]=
+\left(p_1q_2-p_2q_1\right)\,{\cal T}_{p+q}^{(\infty)} \ .
+\label{LargeNcommrels}\ee
+Eq.~\ref{LargeNcommrels} is recognized as the Poisson-Lie algebra of
+functions on
+${\bf T}^2$ with respect to the usual Poisson bracket. In a unitary
+representation of
+the algebra \ref{Ncommrels}, anti-Hermitian combinations of the traceless
+matrices
+${\cal T}_p^{(N)}$ span the Lie algebra $su(N)$. This identifies the
+symplectomorphism algebra \ref{LargeNcommrels} of the torus with $su(\infty)$
+\cite{ffz} which is an example of a universal gauge symmetry algebra
+\cite{lschaos}. This identification has been exploited recently in
+\cite{sheikh} to study the perturbative renormalizability properties of
+noncommutative Yang-Mills theory. For finite $N$, $su(N)$ may be regarded
+as the Lie
+algebra of infinitesimal reparametrizations of the algebra described by
+\ref{Tbasis}
+and \ref{Ncommrels}. Given these connections, it follows that the noncommutative
+two-torus coincides with the parameter space of Matrix theory.
+
+In what follows we shall be interested in taking the limit where both
+$N,M\to\infty$ with the ratio $M/N$ approaching a fixed irrational or
+rational number. This is the type of limit considered in \cite{amns}, and
+it yields the appropriate embeddings of matrix algebras into the infinite
+dimensional $C^*$-algebra which describes the noncommutative spacetime of
+D0-branes in Matrix theory \cite{bfss}. For finite $N$, the matrix model
+consists of maps of a quantum Riemann surface (the noncommutative toroidal
+M2-brane) into a noncommutative transverse space. In the case where
+$\theta$ is an irrational number, the algebra \ref{Tthetarel} cannot be
+mapped to any subalgebra of $su(\infty)$. We would like to investigate how
+and to what extent the geometries for $\Coo\left(\T^2_\th\right)$ can be approximated by
+towers of matrix geometries. Naively, one could think of considering the
+algebra $\Coo\left(\T^2_\th\right)$ as the inductive limit of a sequence of finite
+dimensional $*$-algebras. This would be tantamount to (the closure of)
+$\Coo\left(\T^2_\th\right)$ being an approximately finite dimensional $C^*$-algebra. As we
+mentioned in the previous section, this is not the case, as can be easily seen
+for any value of $\theta$ using cohomological arguments. The K-theory groups of
+${\bf T}_\theta^2$ are ${\rm K}_n({\bf T}_\theta^2)=\Z\oplus\Z$,
+$n=0,1$, just as for the ordinary torus ${\bf T}^2$. On the other hand, the
+group ${\rm K}_1$ of any approximately finite algebra is necessarily
+trivial \cite{W-O}.
+\paragraph{title}
+\subsection{AF-Algebras}
+
+In \cite{pv}, Pimsner and Voiculescu have shown that there is the
+possibility to realize the $C^*$-algebra $A_\theta$, which is the norm
+closure of the algebra of smooth functions $\Coo\left(\T^2_\th\right)$, as a subalgebra
+of a larger, approximately finite dimensional $C^*$-algebra. In a classical
+sense, this would mean that an embedded submanifold of ${\bf T}_\theta^2$ is
+induced by the parameter space geometries. This is analogous to what
+happens in Matrix theory, whereby the noncommutative target space is
+realized as a ``submanifold'' of the matrix parameter space of $N$
+D0-branes. Before describing this embedding, we shall in this subsection
+briefly describe some general properties of the class of approximately finite
+algebras \cite{af}.
+
+A unital $C^*$-algebra $A$ is said to be  approximately finite dimensional (AF
+for short) if there exists an increasing sequence
+\be
+A_0 ~{\buildrel \rho_1 \over \hookrightarrow}~ A_1
+~{\buildrel \rho_2 \over \hookrightarrow}~ A_2
+~{\buildrel \rho_3 \over \hookrightarrow}~ \cdots
+~{\buildrel \rho_{n} \over \hookrightarrow}~ A_n
+~{\buildrel \rho_{n+1} \over \hookrightarrow} \cdots
+\label{af}
+\ee
+of finite dimensional $C^*$-subalgebras of $A$ such that $A$ is the norm
+closure
+of the union $\bigcup_n A_n~, ~ A = \overline{\bigcup_n A_n}$. The maps
+$\rho_n$ are
+injective $*$-morphisms. Without loss of generality one may assume that
+each $A_n$
+contains the unit $\id$ of $A$ and that the maps $\rho_n$ are unital.
+The algebra $A$ is the inductive limit of the inductive system of algebras
+$\{A_n, \rho_n \}_{n\in \\Z^+}$ \cite{W-O}. As a set, $\bigcup_n A_n$ is
+made of coherent sequences,
+\be
+\bigcup_{n=0}^\infty A_n = \left\{ a=(a_n)_{n \in \\Z^+}~,~a_n \in A_n
+{}~\Bigm|~ \exists  N_0
+{}~,~ a_n =  \rho_n(a_{n-1})~~ \forall n>N_0 \right\} \ .
+\ee
+The sequence $(\|a_n\|_{A_n})_{n \in \\Z^+}$ is
+eventually decreasing since $\|a_{n+1}\| \leq\|a_n\|$ (the maps $\rho_n$ are
+norm decreasing) and is therefore convergent. The norm on $A$ is given by
+\be
+\left\|(a_n)_{n \in \\Z^+}\right\| = \lim_{n \rightarrow
+	\infty}\left\|a_n\right\|_{A_n}~.
+\label{norm}
+\ee
+Since the maps $\rho_n$ are injective, the expression (\ref{norm}) gives a true
+norm directly and not merely a semi-norm, and there is no need to quotient
+out the zero norm elements.
+
+Since each subalgebra $A_n$ is finite dimensional, it is a
+direct sum of matrix algebras,
+\be
+A_n = \bigoplus_{k=1}^{k_n} \mathbb{M}_{d_k^{(n)}}(\C)~,
+\ee
+where $\mathbb{M}_d(\C)$ is the algebra of $d\times d $ matrices with complex
+entries and endowed
+with its usual Hermitian conjugation and operator norm. On the other hand,
+given a
+unital embedding  $A_1 \hookrightarrow A_2$ of the algebras
+$A_1 = \bigoplus_{j=1}^{n_1} \mathbb{M}_{d_j^{(1)}}(\C)$ and
+$A_2 = \bigoplus_{k=1}^{n_2} \mathbb{M}_{d_k^{(2)}}(\C)$, one can always choose
+suitable bases in
+$A_1$ and $A_2$ in such a way as to identify $A_1$ with a subalgebra of
+$A_2$ having the form
+\be
+A_1 \cong \bigoplus_{k=1}^{n_2}\bigoplus_{j=1}^{n_1} N_{kj}\,
+\mathbb{M}_{d_j^{(1)}}(\C)  \; .
+\ee
+Here, for any two non-negative integers $p,q$, the symbol
+$p\,\mathbb{M}_{q}(\C)$ denotes the algebra
+\be\label{azzo}
+p\,\mathbb{M}_{q}(\C) \cong \mathbb{M}_{q}(\C) \otimes_C \id_p~,
+\ee
+and one identifies $\bigoplus_{j=1}^{n_1} N_{kj}\,\mathbb{M}_{d_j^{(1)}}(\C)$
+with a
+subalgebra of $\mathbb{M}_{d_k^{(2)}}(\C)$. The non-negative integers $N_{kj}$
+satisfy the
+condition
+\be
+\sum_{j=1}^{n_1} N_{kj}\,d^{(1)}_j = d^{(2)}_k  \; . \label{dim}
+\ee
+One says that the algebra $\mathbb{M}_{d_j^{(1)}}(\C)$ is
+partially embedded in
+$\mathbb{M}_{d_k^{(2)}}(\C)$ with multiplicity $N_{kj}$. A useful way of
+representing the
+algebras $A_1$, $A_2$ and the embedding $A_1 \hookrightarrow A_2$ is by means
+of a diagram, the so-called
+Bratteli diagram \cite{af}, which can be constructed out
+of the dimensions $d_j^{(1)}~, ~j=1,\ldots,n_1$ and $d_k^{(2)}~,
+{}~k=1,\ldots,n_2$ of the
+diagonal blocks of the two algebras, and out of the numbers $N_{kj}$ that
+describe the
+partial embeddings. One draws two horizontal rows of vertices, the top
+(bottom resp.) one
+representing $A_1$ ($A_2$ resp.) and consisting of $n_1$ ($n_2$ resp.)
+vertices, one for
+each block which are labeled by the corresponding dimensions
+$d_1^{(1)}, \ldots, d_{n_1}^{(1)}$ ($d_1^{(2)},\ldots,d_{n_2}^{(2)}$
+resp.). Then, for each
+$j=1,\ldots,n_1$ and $k=1,\ldots,n_2$, one has a relation
+$d^{(1)}_j \searrow^{N_{kj}} d^{(2)}_k$ to denote the fact that
+$\mathbb{M}_{d^{(1)}_j}(\C)$ is partially embedded in
+$\mathbb{M}_{d^{(2)}_k}(\C)$ with multiplicity $N_{kj}$.
+
+For any AF-algebra $A$ one repeats this procedure for each level, and in
+this way one
+obtains a semi-infinite diagram  which completely defines $A$ up to
+isomorphism. This
+diagram depends not only on the collection of $A_n$'s but also on the
+particular sequence $\{A_n, \rho_n\}_{n \in \\Z^+}$ which generates $A$.
+However, one can obtain an algorithm which allows one to construct from
+a given diagram all diagrams which define AF-algebras that are isomorphic
+to the
+original one \cite{af}. The problem of identifying the limit algebra or of
+determining whether or not two such limits are isomorphic can be very
+subtle. In
+\cite{El} an invariant for AF-algebras has been devised in terms of the
+corresponding K-theory which completely distinguishes among them. Note that the
+isomorphism class of an AF-algebra $\overline{\bigcup_n A_n}$ depends
+not only on the collection of algebras $A_n$ but also on the way that they are
+embedded into one another.
+
+\subsection{Embedding the Noncommutative Torus in an AF-Algebra: \\ Irrational
+	Case}
+
+We are now ready to describe the realization \cite{pv} of the algebra
+$A_\theta$ as a subalgebra of a larger, AF algebra $A_\infty$ which is
+determined by the K-theory of $A_\theta$ (to be precise ${\rm
+	K}_0(A_\theta$)). While in \cite{pv} the values of $\theta$ are taken to be
+irrational and to lie in the interval $(0,1)$, we shall repeat the
+construction for an arbitrary real-valued deformation parameter. In this
+subsection we shall
+take $\theta$ to be irrational. The case of rational $\theta$ will be
+described in the next subsection.
+
+It is known \cite{hw} that any $\theta \in \R\setminus \Q$ has a unique
+representation as a simple continued fraction expansion
+\be
+\theta=\lim_{n\to\infty}\theta_n
+\label{thetalim}\ee
+in terms of positive integers $c_k > 0~ (k\geq 1)$ and $c_0\in\Z$.
+The $n$-th convergents $\theta_n$ of the expansion are given by
+\be
+\theta_n\equiv\frac{p_n}{q_n}=c_0 + {1\over\displaystyle c_1+ {\strut 1\over
+		\displaystyle c_2+ {\strut 1\over\displaystyle\ddots
+			{}~ c_{n-1}+{\strut 1\over c_n}}}} \ .
+\label{thetandef}
+\ee
+One also writes this as
+\be
+\theta = [c_0, c_1, c_2, \dots ~]~.
+\ee
+The relatively prime integers $p_n$ and $q_n$ may be computed
+recursively using the formulae
+\bea
+%%p_n&=&c_np_{n-1}+p_{n-2}~~~~~~,~~~~~~p_0=c_0~~,~~p_1=c_0c_1+1\nn\\
+%q_n&=&c_nq_{n-1}+q_{n-2}~~~~~~,~~~~~~q_0=1~~,~~q_1=c_1 \label{pqrec}
+\eea
+for $n\geq2$. Note that all $q_n$'s are strictly positive, $q_n>0$, while
+$p_n\in\Z$, and that both $q_n$ and $|p_n|$ are strictly increasing
+sequences which therefore diverge as $n\to\infty$.
+
+For each positive integer
+$n$, we let $\mathbb{M}_{q_n}(\C)$ denote the
+finite dimensional $C^*$-algebra of $q_n\times q_n$ complex matrices acting
+on the finite
+dimensional Hilbert space $\C^{q_n}$ which is endowed with its usual
+inner product and its canonical orthonormal
+basis $\vec e_j^{\,(n)}$, $1\leq j\leq q_n$.
+Then, for any integer $n$, consider the semi-simple algebra
+\be
+A_n=\mathbb{M}_{q_n}(\C)\oplus\mathbb{M}_{q_{n-1}}(\C)
+\label{Andef}
+\ee
+and introduce the embeddings
+$A_{n-1}\stackrel{\rho_n}{\hookrightarrow}A_n$ defined by\footnote{In
+	\cite{pv}, in order to explicitly construct the
+	embedding of the noncommutative torus algebra in the limit AF-algebra, the
+	embeddings
+	\ref{algemb} are conjugated with suitable (and rather involved) unitary
+	operators
+	\bean
+	W_n :\underbrace{\C^{q_{n-1}}\oplus \cdots \oplus\C^{q_{n-1}}
+	}_{c_n\,{\rm times}}~
+	\longrightarrow~ \C^{q_n} \ .
+	\eean
+	Since the two embeddings are the same up to an inner
+	automorphism, the limit algebra is the same \cite{af}.}
+\be
+\left({\begin{array}{ll} {\cal M} & \\ & {\cal N}
+\end{array}}\right)~~\stackrel{\rho_n}{\longmapsto}~~
+\left({\begin{array}{lll}\left.
+		{\begin{array}{lll} {\cal M} & & \\ & \ddots & \\
+				& & {\cal M}\end{array}}\right\} \scriptstyle{c_n} & & \\ & {\cal N} & \\ &
+		& {\cal
+			M}\end{array}}\right) \label{algemb}
+\ee
+where $\cal M$ and $\cal N$ are
+$q_{n-1}\times q_{n-1}$ and $q_{n-2}\times q_{n-2}$ matrices, respectively,
+and we
+have used \ref{pqrec}. The norm closure of the inductive limit
+\be
+A_\infty=\overline{\bigcup_{n=0}^\infty A_n}\label{algdef}
+\ee
+is the AF-algebra that we are looking for. As mentioned in the previous
+subsection, the elements of $A_\infty$ are coherent sequences
+$\{{\cal G}_n\}_{n\in\\Z^+},\,{\cal G}_n\in A_n$, with ${\cal
+	G}_n=\rho_n({\cal G}_{n-1})$ for $n$ sufficiently large, or limits
+of coherent
+sequences. It is useful to visualize them as infinite matrices and we
+shall also loosely write $A_\infty \cong\mathbb{M}_\infty(\C)$.
+
+{}From the discussion of the previous subsection it follows that the
+embeddings $A_{n-1}\stackrel{\rho_n}{\hookrightarrow}A_n$ are completely
+determined by the
+collection of partial embeddings $\{c_n\}$. The corresponding Bratteli
+diagram is shown in Fig.~\ref{bratteli}.
+\begin{figure}[htb]
+	\bigskip
+	\begin{center}
+		\begin{picture}(100,100)(-100,-100)
+			\put(-50,10){\vdots}
+			\put(-50,-110){\vdots}
+			\put(-80,-20){\circle*{4}}
+			\put(-20,-20){\circle*{4}}
+			\put(-80,-80){\circle*{4}}
+			\put(-20,-80){\circle*{4}}
+			\put(-80,-20){\line(0,-1){60}}
+			\put(-20,-20){\line(-1,-1){60}}
+			\put(-80,-20){\line(1,-1){60}}
+			\put(-95,-50){$c_n$}
+			\put(-110,-20){$q_{n-1}$}
+			\put(-10,-20){$q_{n-2}$}
+			\put(-100,-80){$q_n$}
+			\put(-10,-80){$q_{n-1}$}
+			%
+		\end{picture}
+	\end{center}
+	%
+	\caption{\baselineskip=12pt {\it Bratteli diagram for the algebra $ A_\infty$
+			in the case of irrational $\theta$.
+			The labels of the vertices denote the dimensions of the corresponding matrix
+			algebras. The labels of the links denote the partial embeddings (not written
+			when equal to unity)}.}
+	\bigskip
+	\label{bratteli}
+\end{figure}
+Associated with them we have positive maps
+$\varphi_n : \Z^2 \rightarrow \Z^2 $ defined by
+\be
+\left({\begin{array}{c}q_n\\q_{n-1}\end{array}}\right)=\varphi_n
+\left({\begin{array}{c}q_{n-1}\\q_{n-2}\end{array}}\right)~~~~~~,~~~~~~
+\varphi_n=\left({\begin{array}{cc}c_n&1\\1&0\end{array}}\right) \ .
+\label{qnmaps}
+\ee
+As a consequence, the group ${\rm K}_0(A_\infty)$ can be obtained as the
+inductive
+limit of the inductive system $\{\varphi_n : {\rm K}_0(A_{n-1}) \rightarrow
+{\rm
+	K}_0(A_n)\}_{n\in\\Z^+}$ of ordered groups.
+Since ${\rm K}_0(A_n)=\Z\oplus\Z$ (with the canonical ordering
+$\Z^+\oplus\Z^+$) it follows that \cite{es}
+\be\label{k0infty}
+{\rm K}_0(A_\infty) = \Z + \theta \Z
+\ee
+with ordering defined by taking the cone of non-negative elements to be
+\be\label{k0infty+}
+{\rm K}^+_0(A_\infty) =\left\{(z,w)\in\Z^2 ~\Bigm|~ z+\theta w \geq 0
+\right\}~.
+\ee
+This is a total ordering since for all pairs of integers $(z,w)$, one has
+either $z+\theta w \geq 0$
+or $z+\theta w < 0$. We shall comment more on the K-theory group
+(\ref{k0infty}) later on. Furthermore, these K-theoretic properties will
+enable us in section 4 to map a gauge bundle over a matrix algebra to a
+gauge bundle over the noncommutative torus.
+
+At each finite level labelled by the integer $n$, let $A_{\theta_n}$ be
+the algebra of
+the noncommutative two-torus with rational deformation parameter
+$\theta_n= p_n / q_n$ given in \ref{thetandef}, and generators
+$U_a^{(n)}~, ~a=1,2$ obeying the relation
+\be
+U_1^{(n)}U_2^{(n)}=e^{2\pi ip_n/q_n}\,U_2^{(n)}U_1^{(n)} \ . \label{Unrel}
+\ee
+{}From \ref{calsur} and \ref{calsur1} it follows that there exists a
+surjective algebra homomorphism
+\be\label{calsurbis}
+\pi : A_{\theta_n} \rightarrow \mathbb{M}_{q_n}(\C)~, ~~~\pi\left(U_a^{(n)}
+\right) \equiv\widetilde{U}_a^{(n)}~, ~~~a=1,2
+\ee
+and for $\widetilde{U}_1^{(n)}$ and $\widetilde{U}_2^{(n)}$ we may take the
+$q_n\times q_n$ clock and cyclic shift matrices, respectively,
+\be\label{csbis}
+\left[\widetilde{U}^{(n)}_1\right]_{kj}=e^{2\pi
+	i(j-1)p_n/q_n}\,\delta_{kj}~~~~,~~~~\left[\widetilde{U}_2^{(n)}
+\right]_{kj}=\delta_{k,j-1} \ ,~~~k,j=1, \dots, q_n ~({\rm mod}\,q_n)~,
+\ee
+which also obey a relation like \ref{Unrel},
+\be
+\widetilde{U}_1^{(n)}\widetilde{U}_2^{(n)}=e^{2\pi
+	ip_n/q_n}\,\widetilde{U}_2^{(n)}\widetilde{U}_1^{(n)} \ .
+\label{Unrelpro}
+\ee
+Thus, within each finite dimensional matrix algebra $A_n$ there is the
+subalgebra
+$\pi(A_{\theta_n})\oplus \pi(A_{\theta_{n-1}})$ which is represented by clock
+and shift matrices.
+The main result of Ref.~\cite{pv} is the statement that the algebra
+$\pi(A_{\theta_n})\oplus \pi(A_{\theta_{n-1}})$ can be taken to be a finite
+dimensional
+approximation of the algebra $A_\theta$ of the noncommutative torus in the
+following sense. First of all, notice that
+$\rho_n(\widetilde{U}_a^{(n-1)}\oplus
+\widetilde{U}_a^{(n-2)})\neq \widetilde{U}_a^{(n)}\oplus
+\widetilde{U}_a^{(n-1)}$. Then, we have
+
+\bigskip
+\noindent {\bf Proposition 1.} (Pimsner-Voiculescu)
+\bean
+\lim_{n\to\infty}\left\|\rho_n\left(\widetilde{U}_a^{(n-1)}\oplus
+\widetilde{U}_a^{(n-2)}\right)-\widetilde{U}_a^{(n)}\oplus
+\widetilde{U}_a^{(n-1)}\right\|_{A_n}=0 {}~~~~~~a=1,2 \ .
+\eean
+
+\bigskip
+\noindent
+Proposition 1 can be proven similarly to Proposition 3 below, and will
+therefore be omitted. It implies that there exist unitary operators $U_a\in
+A_\infty~, a = 1,2$, which
+are not themselves coherent sequences, but which can be written as a limit
+of such a
+sequence with respect to the operator norm of $ A_\infty$. Because of
+\ref{thetalim}, \ref{thetandef} and \ref{Unrelpro}, the operators $U_a$ so
+defined satisfy
+\ref{Tthetarel} and therefore generate the subalgebra $ A_\theta\subset
+A_\infty$.
+Thus, there exists a unital injective $*$-morphism
+$\rho: A_\theta\to A_\infty$.\footnote{The canonical representation of
+	$ A_\theta$ is on the Hilbert space $L^2({\bf T}^2)$, which by Fourier
+	expansion
+	coincides with $\ell^2(\\Z^2)$.} This also means that at sufficiently large
+level $n$ in the
+AF-algebra $ A_\infty$, the generators of the algebra
+\ref{Unrelpro}
+may be well approximated by the images under the injection $\rho_n$ of the
+corresponding matrices generating $ A_{\theta_{n-1}}$. It is in this sense
+that the
+elements of the algebra $ A_\theta$ may be approximated by sufficiently large
+finite dimensional matrices. In what follows we shall show how to use this
+approximation to describe aspects of field theories over the noncommutative
+torus ${\bf T}_\theta^2$.
+
+An important consequence of these results is the fact that Morita equivalent
+noncommutative
+tori can be embedded in the same AF-algebra $A_\infty$. From \ref{k0infty} and
+\ref{k0infty+} we know that ${\rm K}_0(A_\infty) = \Z + \theta \Z$ as an
+ordered
+group. On the other hand, it is known \cite{es} that $\Z + \theta \Z$ and
+$\Z +
+\theta'\Z$ are
+order isomorphic if and only if there is an element
+${\scriptstyle        %this makes a small matrix ..
+	\addtolength{\arraycolsep}{-.5\arraycolsep}
+	\renewcommand{\arraystretch}{0.5}
+	\left( \begin{array}{cc}
+		\scriptstyle a  & \scriptstyle b \\
+		\scriptstyle c  & \scriptstyle d  \end{array} \scriptstyle\right)} \in
+GL(2,\Z)$
+such that
+\be\label{lft}
+\theta' = {a\theta+b\over c\theta+d}~.
+\ee
+{}From the point of view of continued fraction expansions,
+if $\theta =[c_0, c_1, c_2, \dots ]$ and $\theta' = [c'_0, c'_1, c'_2, \dots
+]$, the relation
+\ref{lft} is the statement that the two expansions have the same tails, i.e.
+that $c_n =c'_{n+m}$ for some integer $m$ and for $n$ sufficiently large
+\cite{hw}. But \ref{lft} is just the Morita equivalence relation between
+$A_\theta$
+and $A_{\theta'}$
+\cite{Ri}. Thus, on the one hand we rediscover the known fact that Morita
+equivalent tori have
+the same ${\rm K}_0$ group,\footnote{It is a general fact that Morita
+	equivalent algebras
+	have the same K-theory.} but we can also infer that Morita equivalent algebras
+can be embedded in the same (up to isomorphism) AF-algebra $A_\infty$. Morita
+equivalent algebras can be embedded in the same $A_\infty$ because their
+sequences of embeddings are the same up to a finite number of terms. In section
+4 this will be the key property which allows the construction of projective
+modules within the same approximation, and the physical consequences will be
+that dual noncommutative Yang-Mills theories all lie within the same AF-algebra
+$A_\infty$.
+
+Let us now describe the infinite dimensional Hilbert space
+$\H_\infty$ on which
+$A_\infty$ is represented as (bounded) operators. It is similarly defined by an
+inductive
+limit determined by the Bratteli diagram of Fig.~1. For any integer $n$,
+consider the finite dimensional Hilbert space
+\be
+\H_n=\C^{q_n}\oplus\C^{q_{n-1}}
+\label{Hndef}
+\ee
+on which the algebra $A_n$ in \ref{Andef} naturally acts. Next, consider
+the embeddings
+$\H_{n-1}\stackrel{\tilde\rho_n}{\hookrightarrow}\H_n$ defined by
+\be
+\left({\begin{array}{l}\vec v\\\vec
+		w\end{array}}\right)~~\stackrel{\tilde\rho_n}{\longmapsto}~~
+\left({\begin{array}{c}\left.{\begin{array}{c}\frac{\vec
+					v}{\sqrt{1+c_{n}}}\\\vdots\\\frac{\vec
+					v}{\sqrt{1+c_n}}\end{array}}\right\}\scriptstyle{c_n}\\
+		{}~ \\
+		\vec w\\
+		{}~ \\
+		\frac{\vec
+			v}{\sqrt{1+c_n}}\end{array}}\right)
+\label{hilemb}\ee
+
+\noindent
+where $\vec v=\sum_{j=1}^{q_n}v^j\vec e_j^{\,(n)}\in\C^{q_n}$
+and $\vec w=\sum_{j=1}^{q_{n-1}}w^j\vec
+e_j^{\,(n-1)}\in\C^{q_{n-1}}$. Then \be
+\H_\infty=\overline{\bigcup_{n=0}^\infty\H_n}~.
+\label{hildef}\ee
+The normalization factors $(1+c_n)^{-1/2}$ in \ref{hilemb} are inserted so that
+the linear
+transformations $\tilde\rho_n$ are isometries, \be
+\left\langle\tilde\rho_n(\vec v\oplus\vec w)~,~\tilde\rho_n(\vec v\,'\oplus\vec
+w\,')\right\rangle_{\H_n}=\left\langle\vec v\oplus\vec w~,~\vec v\,'\oplus\vec
+w\,'\right\rangle_{\H_{n-1}} \ . \label{isometry}\ee This ensures that the
+vectors
+of $\H_\infty$, which are built from the coherent sequences of
+$\bigcup_n\H_n$,
+are indeed convergent. Note that the elements of a coherent sequence are
+related
+inductively at each level by $\vec v_n\oplus\vec w_n=\tilde\rho_n(\vec
+v_{n-1}\oplus\vec w_{n-1})$ for $n$ sufficiently large, or
+\be
+\vec v_n=\underbrace{\frac{\vec
+		v_{n-1}}{\sqrt{1+c_n}}\oplus\cdots\oplus\frac{\vec
+		v_{n-1}}{\sqrt{1+c_n}}}_{c_n\,{\rm times}}\oplus\vec w_{n-1}~~~~~~,~~~~~~\vec
+w_n=\frac{\vec
+	v_{n-1}}{\sqrt{1+c_n}} \ .
+\label{inductrels}\ee
+The inner product in $\H_\infty$ is given by
+\be
+\left\langle(\psi_n')_{n\in\\Z^+}\,,\,(\psi_m)_{m\in\\Z^+}\right
+\rangle=\lim_{n\to\infty}\left\langle\psi_n'\,,\,\psi_n\right
+\rangle_{\H_n}\ .
+\label{innerprodinfty}\ee
+In the same spirit by which we think of elements of $A_\infty$ as infinite
+matrices, we also visualize elements of $\H_\infty$ as square summable
+complex sequences and write $\H_\infty\cong\ell^2(\Z)$.
+
+
+
 
 \section{Basic ingredients}
 \paragraph{}
@@ -25191,7 +25937,7 @@ Let us provide physical interpretations of the above results.
 
 \section{Resume}
 \paragraph*{}
-Here we explain why both $C^*$-algebras  $C^*_r\left(\R^2, \widetilde \sF \right)\cong C_0\left(\R\right)\otimes \K\left( L^2\left(\R\right)\right)$ (resp. $C^*_r\left(\G^{\widetilde N}_{ \widetilde N}\right)\cong C_0\left(\R\right)\otimes \K\left( \ell^2\left(\Z\right)\right)$) and $C^*_r\left(\T^2, \mathcal{F}_\th \right)\cong C\left(\T^2_\th\right)\otimes\K$ (resp. $C^*_r\left(\G^{ N}_{  N}\right)\cong C\left(\T^2_\th\right)$) can be regarded as manifestation of the single physics. Our arguments have two parts:
+Here we explain why both $C^*$-algebras  $C^*_r\left(\R^2, \widetilde \sF \right)\cong C_0\left(\R\right)\otimes \K\left( L^2\left(\R\right)\right)$ (resp. $C^*_r\left(\G^{\widetilde N}_{ \widetilde N}\right)\cong C_0\left(\R\right)\otimes \K\left( \ell^2\left(\Z\right)\right)$) and $C^*_r\left(\T^2, \mathbb{M}hcal{F}_\th \right)\cong C\left(\T^2_\th\right)\otimes\K$ (resp. $C^*_r\left(\G^{ N}_{  N}\right)\cong C\left(\T^2_\th\right)$) can be regarded as manifestation of the single physics. Our arguments have two parts:
 \begin{itemize}
 \item Analysis of the KaluzaÐKlein theory.
 \item Comparison of the Examples \ref{exm_sec_1_exm} and \ref{exm_sec_2_exm} with the KaluzaÐKlein theory.
@@ -25202,10 +25948,10 @@ Here we explain why both $C^*$-algebras  $C^*_r\left(\R^2, \widetilde \sF \right
 Similarly to the section 
 The KaluzaÐKlein theory assumes that physical space is equivalent (homeomorphic) to the Cartesian product
 \be
-M \times K \cong M \times \widetilde K / G\left( \mathcal{\widetilde{K}}~|~K\right).
+M \times K \cong M \times \widetilde K / G\left( \mathbb{M}hcal{\widetilde{K}}~|~K\right).
 \ee
 One can assume that physical laws on $M \times K$ and $M \times \widetilde K$ are equivalent but the space of physical states on $M \times K$ is the $G\left( {\widetilde{K}}~|~K\right)$ invariant subspace of the space of physical states on $M \times \widetilde K$.
-Similarly the physical laws on  $C^*_r\left(\R^2, \widetilde \sF \right)\cong C_0\left(\R\right)\otimes \K\left( L^2\left(\R\right)\right)$ (resp. $C^*_r\left(\G^{\widetilde N}_{ \widetilde N}\right)\cong C_0\left(\R\right)\otimes \K\left( \ell^2\left(\Z\right)\right)$) and $C^*_r\left(\T^2, \mathcal{F}_\th \right)\cong C\left(\T^2_\th\right)\otimes\K$ (resp. $C^*_r\left(\G^{ N}_{  N}\right)\cong C\left(\T^2_\th\right)$) are equivalent. However the  space of physical states on $C^*_r\left(\T^2, \mathcal{F}_\th \right)\cong C\left(\T^2_\th\right)\otimes\K$ (resp. $C^*_r\left(\G^{ N}_{  N}\right)\cong C\left(\T^2_\th\right)$) is the $\Z^2$- invariant subspace of the space of physical states on $C^*_r\left(\R^2, \widetilde \sF \right)\cong C_0\left(\R\right)\otimes \K\left( L^2\left(\R\right)\right)$ (resp. $C^*_r\left(\G^{\widetilde N}_{ \widetilde N}\right)\cong C_0\left(\R\right)\otimes \K\left( \ell^2\left(\Z\right)\right)$).
+Similarly the physical laws on  $C^*_r\left(\R^2, \widetilde \sF \right)\cong C_0\left(\R\right)\otimes \K\left( L^2\left(\R\right)\right)$ (resp. $C^*_r\left(\G^{\widetilde N}_{ \widetilde N}\right)\cong C_0\left(\R\right)\otimes \K\left( \ell^2\left(\Z\right)\right)$) and $C^*_r\left(\T^2, \mathbb{M}hcal{F}_\th \right)\cong C\left(\T^2_\th\right)\otimes\K$ (resp. $C^*_r\left(\G^{ N}_{  N}\right)\cong C\left(\T^2_\th\right)$) are equivalent. However the  space of physical states on $C^*_r\left(\T^2, \mathbb{M}hcal{F}_\th \right)\cong C\left(\T^2_\th\right)\otimes\K$ (resp. $C^*_r\left(\G^{ N}_{  N}\right)\cong C\left(\T^2_\th\right)$) is the $\Z^2$- invariant subspace of the space of physical states on $C^*_r\left(\R^2, \widetilde \sF \right)\cong C_0\left(\R\right)\otimes \K\left( L^2\left(\R\right)\right)$ (resp. $C^*_r\left(\G^{\widetilde N}_{ \widetilde N}\right)\cong C_0\left(\R\right)\otimes \K\left( \ell^2\left(\Z\right)\right)$).
 \subsection{Comparison of the Examples with the KaluzaÐKlein theory}
 \paragraph*{}
 The following table reflects the comparison between Examples \ref{exm_sec}  and KaluzaÐKlein theory.
@@ -25220,13 +25966,13 @@ The following table reflects the comparison between Examples \ref{exm_sec}  and 
 KaluzaÐKlein  & Example \ref{exm_sec_1_exm}& Example \ref{exm_sec_2_exm}\\
 theory&&\\ &&\\
 \hline	
-& & \\	The manifold  $ K$  & The algebra $C^*_r\left(\T^2, \mathcal{F}_\th \right)$ & $A\bydef C\left( \T_\th\right)$\\ & &\\ 	The manifold  $\widetilde K$
+& & \\	The manifold  $ K$  & The algebra $C^*_r\left(\T^2, \mathbb{M}hcal{F}_\th \right)$ & $A\bydef C\left( \T_\th\right)$\\ & &\\ 	The manifold  $\widetilde K$
 &The algebra $C^*_r\left(\R^2, \widetilde \sF \right)\cong$ & $\widetilde A\bydef $  \\
 &$C_0\left( \R\right)\otimes \K\left(L^2\left( \R\right)  \right)$  & $\bydef C_0\left( \R^2\right) \otimes \K\left(\ell^2\left( \N \right) \right)  $\\
  && \\
-Topological covering  & Noncommutative covering & $\left(A,\widetilde A, \Z^2\right)$ \\ $\widetilde{K} \to K$&$\left(C^*_r\left(\T^2, \mathcal{F}_\th \right),  C^*_r\left(\R^2, \widetilde \sF \right), \Z^2\right)$ & \\
+Topological covering  & Noncommutative covering & $\left(A,\widetilde A, \Z^2\right)$ \\ $\widetilde{K} \to K$&$\left(C^*_r\left(\T^2, \mathbb{M}hcal{F}_\th \right),  C^*_r\left(\R^2, \widetilde \sF \right), \Z^2\right)$ & \\
 &  &\\
-Trivial bundle $\widetilde{K}\times \mathbb{C}^n$ & Free $C_0\left( \R\right)$-module  & $C_0\left( \R\right)\otimes \ell^2\left(\N \right)$ 
+Trivial bundle $\widetilde{K}\times \mathbb{M}hbb{C}^n$ & Free $C_0\left( \R\right)$-module  & $C_0\left( \R\right)\otimes \ell^2\left(\N \right)$ 
 \\
 covering space $\widetilde{K}$	&  $C_0\left( \R\right)\otimes L^2\left(\R \right)  $ as  &\\ & an infinite dimensional  &\\
 &bundle on $\R$  & \\
@@ -25243,40 +25989,40 @@ $ G\left(\widetilde{K}~|~K \right) \to GL\left(n, \C \right)$ & $ \Z^2 \times C^
 \begin{equation} \label{Ag}
 	\partial_i g = i A_i * g \,.
 \end{equation}
-This equation has a noncommutative analog.  Let $A^{\infty}$ be a smooth algebra and $\mathcal{E}^{\infty}$ be a finitely generated projective smooth . Spaces $A^{\infty}$,  $\widetilde{A}^{\infty}$, $\mathcal{E}^{\infty}$ are operator spaces. Let denote $\widetilde{\mathcal{E}}^{\infty}=\mathcal{E}^{\infty} \otimes _{A^{\infty}}\widetilde{A}^{\infty}$ where $\otimes$ means the Haagerup tensor product. The $\widetilde{\mathcal{E}}^{\infty}$ module can be regarded as pullback of $\mathcal{E}^{\infty}$. Any vector $X \in \mathrm{Lie}G$ can be lifted to the vector $\widetilde{X}\in \mathrm{Lie}\widetilde{G}$ where $\mathrm{Lie}\widetilde{G}$ is a Lie algebra of infinitesimal transformations of the $\widetilde{A}^{\infty}$. Any connection $\nabla : \mathcal{E}^{\infty} \to \mathcal{E}^{\infty} \otimes \Omega^1A^{\infty}$ can be lifted to $G$ equivariant connection $\widetilde{\nabla}: \widetilde{\mathcal{E}}^{\infty} \to \widetilde{\mathcal{E}}^{\infty} \otimes \Omega^1\widetilde{A}^{\infty}$. Otherwise any connection $\widetilde{\nabla}: \widetilde{\mathcal{E}}^{\infty} \to \widetilde{\mathcal{E}}^{\infty} \otimes \Omega^1\widetilde{A}^{\infty}$ naturally induces a map $\widetilde{\nabla}':\mathrm{End}_{\widetilde{A}^{\infty}}\left(\widetilde{\mathcal{E}}^{\infty}\right) \to \mathrm{End}_{\widetilde{A}^{\infty}}\left(\widetilde{\mathcal{E}}^{\infty}\right) \otimes \Omega^1\widetilde{A}^{\infty}$.
+This equation has a noncommutative analog.  Let $A^{\infty}$ be a smooth algebra and $\mathbb{M}hcal{E}^{\infty}$ be a finitely generated projective smooth . Spaces $A^{\infty}$,  $\widetilde{A}^{\infty}$, $\mathbb{M}hcal{E}^{\infty}$ are operator spaces. Let denote $\widetilde{\mathbb{M}hcal{E}}^{\infty}=\mathbb{M}hcal{E}^{\infty} \otimes _{A^{\infty}}\widetilde{A}^{\infty}$ where $\otimes$ means the Haagerup tensor product. The $\widetilde{\mathbb{M}hcal{E}}^{\infty}$ module can be regarded as pullback of $\mathbb{M}hcal{E}^{\infty}$. Any vector $X \in \mathbb{M}hrm{Lie}G$ can be lifted to the vector $\widetilde{X}\in \mathbb{M}hrm{Lie}\widetilde{G}$ where $\mathbb{M}hrm{Lie}\widetilde{G}$ is a Lie algebra of infinitesimal transformations of the $\widetilde{A}^{\infty}$. Any connection $\nabla : \mathbb{M}hcal{E}^{\infty} \to \mathbb{M}hcal{E}^{\infty} \otimes \Omega^1A^{\infty}$ can be lifted to $G$ equivariant connection $\widetilde{\nabla}: \widetilde{\mathbb{M}hcal{E}}^{\infty} \to \widetilde{\mathbb{M}hcal{E}}^{\infty} \otimes \Omega^1\widetilde{A}^{\infty}$. Otherwise any connection $\widetilde{\nabla}: \widetilde{\mathbb{M}hcal{E}}^{\infty} \to \widetilde{\mathbb{M}hcal{E}}^{\infty} \otimes \Omega^1\widetilde{A}^{\infty}$ naturally induces a map $\widetilde{\nabla}':\mathbb{M}hrm{End}_{\widetilde{A}^{\infty}}\left(\widetilde{\mathbb{M}hcal{E}}^{\infty}\right) \to \mathbb{M}hrm{End}_{\widetilde{A}^{\infty}}\left(\widetilde{\mathbb{M}hcal{E}}^{\infty}\right) \otimes \Omega^1\widetilde{A}^{\infty}$.
 Noncummutative analog of \eqref{Ag} is given by
 \begin{equation}\label{nc_Ag}
-	\widetilde{X}U = \widetilde{\nabla}_{\widetilde{X}}U; \ \forall X \in \mathrm{Lie}G, \ U\in \mathrm{Aut} \left(\widetilde{\mathcal{E}}^{\infty}\right).
+	\widetilde{X}U = \widetilde{\nabla}_{\widetilde{X}}U; \ \forall X \in \mathbb{M}hrm{Lie}G, \ U\in \mathbb{M}hrm{Aut} \left(\widetilde{\mathbb{M}hcal{E}}^{\infty}\right).
 \end{equation}
 $U$ is a noncommutative analog of a global gauge transformation on the universal covering space.
-Wilson line can be regarded as a group homomorphisms $G \to \mathrm{Aut}\left(\widetilde{\mathcal{E}}^{\infty}\right)$ given by
+Wilson line can be regarded as a group homomorphisms $G \to \mathbb{M}hrm{Aut}\left(\widetilde{\mathbb{M}hcal{E}}^{\infty}\right)$ given by
 \begin{equation}\label{wilson_rel}
 	g \mapsto (gU) \cdot U^{-1}
 \end{equation}
 where $g \in G(\widetilde{A}^{\infty}|A^{\infty})$ and $U$ satisfies \eqref{nc_Ag}.
 
 \section{Alternative Description of  Wilson Lines}
-\paragraph{} As well as in \ref{alter_prot} (See \cite{green_schwarz_witten:superstring}) we can define an alternative approach to Wilson lines. Suppose that there is a spectral triple $(\mathcal{A}, \H, D)$ \cite{varilly:noncom}. Using the Section \ref{flat_sec} one can find a projective $\A$ bimodule $\E$ and a given by \eqref{nc_flat_conn}
+\paragraph{} As well as in \ref{alter_prot} (See \cite{green_schwarz_witten:superstring}) we can define an alternative approach to Wilson lines. Suppose that there is a spectral triple $(\mathbb{M}hcal{A}, \H, D)$ \cite{varilly:noncom}. Using the Section \ref{flat_sec} one can find a projective $\A$ bimodule $\E$ and a given by \eqref{nc_flat_conn}
 \be\nonumber
-\nabla : \mathcal E \to \mathcal E \otimes_{\A} \Om^1_D
+\nabla : \mathbb{M}hcal E \to \mathbb{M}hcal E \otimes_{\A} \Om^1_D
 \ee
 (cf. Lemma \ref{flat_lem}). This construction is a noncommutative version of a geometrical canonical connection explained in the Appendix \ref{geom_flat_subsec}. The mapping between algebra and geometry is presented in the Table \ref{geo_alg_table}.
 
 
 \section{Wilson Lines on the Noncommutative Torus}
 
-\begin{empt}\label{sample_flat_conn}{\it A flat connection.} Let $\theta \in [0,1] \setminus \mathbb{Q}$ and $C\left(\T^2_\th \right)$ the $C^*$-algebra generated by two unitaries $u$, $v$ such that $u \, v = \la \, v \, u$, $\la = \exp ( 2 \,
+\begin{empt}\label{sample_flat_conn}{\it A flat connection.} Let $\theta \in [0,1] \setminus \mathbb{M}hbb{Q}$ and $C\left(\T^2_\th \right)$ the $C^*$-algebra generated by two unitaries $u$, $v$ such that $u \, v = \la \, v \, u$, $\la = \exp ( 2 \,
 	\pi i \, \theta)$ which is said to be a noncommutative torus (cf. Appendix \ref{nt_descr_subsec}). There is a pre-$C^*$-algebra $\Coo\left(\T^2_\th \right) $ of smooth functions defined in \cite{varilly:noncom}.
 Let  	
 	\be\label{nt_cofinal2_eqn}
 \begin{split}
-	\mathfrak{S}_{C\left(\T^{2}_{{\Th}} \right)}^\N
-	=\left( \left\{ \left( C\left(\T^2_{{\th}} \right), C\left(\T^{2}_{\th/m_j^2} \right), \Z^2_{m_j}, \pi_j\right)  \right\}_{\substack{j \in \N\\ ~\\~}}\right., \\ \left. \left\{  \pi^j_k: C\left(\T^{2}_{\th/m_j^2} \right)\hookto C\left(\T^{2}_{\th/m_k^2} \right) \right\}_{\substack{j,k \in \N\\ j < k}}\right) \subset \mathfrak{S}^{\text{pt}}_{C\left(\mathbb{T}^n_{\Theta}\right)}.
+	\mathbb{M}hfrak{S}_{C\left(\T^{2}_{{\Th}} \right)}^\N
+	=\left( \left\{ \left( C\left(\T^2_{{\th}} \right), C\left(\T^{2}_{\th/m_j^2} \right), \Z^2_{m_j}, \pi_j\right)  \right\}_{\substack{j \in \N\\ ~\\~}}\right., \\ \left. \left\{  \pi^j_k: C\left(\T^{2}_{\th/m_j^2} \right)\hookto C\left(\T^{2}_{\th/m_k^2} \right) \right\}_{\substack{j,k \in \N\\ j < k}}\right) \subset \mathbb{M}hfrak{S}^{\text{pt}}_{C\left(\mathbb{M}hbb{T}^n_{\Theta}\right)}.
 \end{split} 
 \ee
-be a specialization of the given by \eqref{nt_cofinal_eqn} pointed algebraic finite covering category  (cf. Definition \ref{comp_pt_defn}). Let $\widehat{C\left(\mathbb{T}^{2}_{\th}\right) }\bydef C^*$-$\varinjlim_{j \in \N}C\left(\mathbb{T}^{2}_{\Theta_\la}\right)$ be the inductive limit of $C^*$-algebras, and let 
+be a specialization of the given by \eqref{nt_cofinal_eqn} pointed algebraic finite covering category  (cf. Definition \ref{comp_pt_defn}). Let $\widehat{C\left(\mathbb{M}hbb{T}^{2}_{\th}\right) }\bydef C^*$-$\varinjlim_{j \in \N}C\left(\mathbb{M}hbb{T}^{2}_{\Theta_\la}\right)$ be the inductive limit of $C^*$-algebras, and let 
 	\be\label{nt_inf_repr2_eqn}
-\widehat{\pi}:\widehat{C\left(\mathbb{T}^{2}_{\Th}\right) } \to  B\left(L^2\left(\R^{2}\right)\right).
+\widehat{\pi}:\widehat{C\left(\mathbb{M}hbb{T}^{2}_{\Th}\right) } \to  B\left(L^2\left(\R^{2}\right)\right).
 \ee 
 be a specialization of the given by \eqref{nt_inf_repr_eqn} representation. For any $j\in \N$ there is $u_j \in C\left(\T^{2}_{\th/m_j^2} \right)$ such that $u= u_j^{m_j}$. From this circumstance one has the following pointed algebraic finite covering category  (cf. Definition \ref{comp_pt_defn})
 $$
@@ -25311,12 +26057,12 @@ $$
 	of the commutative Lie group $	\T^2$. So there is a $C^*$-dynamical system $\left( \Coo\left(\T^2_\th \right), 	\T^2,\a\right)$ (cf. \ref{c_din_empt}).
 	A relevant specialization of the given by \eqref{par_inf_eqn} *- algebra is $\Coo\left(\T^2_\th \right)$. The action $	\R^2\times C\left(\T^2_\th \right) \to C\left(\T^2_\th \right) $ induces an action 
 	$	\R^2\times C\left(\T^2_\th \right) \to C\left(\T^2_\th \right) $.
-	Let $\mathcal{E} = \Coo\left(\T^2_\th \right)$.
-	Let $\omega = i (c_u d\rho + c_v d\tau) \in \Coo\left(\T^2_\th \right)\otimes \left((\hbox{Lie} \ \T^2)^* \right) $ be such that $c_u, c_v \in \mathbb{R}$ then $\omega_X^* = -\omega_X$, $\forall \, X \in
+	Let $\mathbb{M}hcal{E} = \Coo\left(\T^2_\th \right)$.
+	Let $\omega = i (c_u d\rho + c_v d\tau) \in \Coo\left(\T^2_\th \right)\otimes \left((\hbox{Lie} \ \T^2)^* \right) $ be such that $c_u, c_v \in \mathbb{M}hbb{R}$ then $\omega_X^* = -\omega_X$, $\forall \, X \in
 	\hbox{Lie}
 	\ G$. From \ref{connection_construction} it follows that there is a $\T^2$-connection $\nabla$ (cf. Definition \ref{connes_dg_connection_defn}) given by
 	\begin{equation*}
-		a \mapsto a \otimes \omega; \ a \in \mathcal{E} \cong \Coo\left(\T^{2}_{{\Th}}\right) .
+		a \mapsto a \otimes \omega; \ a \in \mathbb{M}hcal{E} \cong \Coo\left(\T^{2}_{{\Th}}\right) .
 	\end{equation*}
 	From \eqref{curvature_formula} it follows that curvature of $\nabla$ is equal to
 	\begin{equation*}
@@ -25335,7 +26081,7 @@ $$
 	\begin{equation}\label{two_listed}
 		\pi(u)=x^2, \ \pi(v)=y^2.
 	\end{equation}
-	The group of transformation coverings $G\left( C\left(\left.\T^{2}_{\th}\right) \right|C\left(\T^{2}_{\th'}\right) \right) $ is isomorphic to $\mathbb{Z}_2 \times \mathbb{Z}_2$ with two generators $g_u, g_v \in \mathbb{Z}_2 \times \mathbb{Z}_2$ such that
+	The group of transformation coverings $G\left( C\left(\left.\T^{2}_{\th}\right) \right|C\left(\T^{2}_{\th'}\right) \right) $ is isomorphic to $\mathbb{M}hbb{Z}_2 \times \mathbb{M}hbb{Z}_2$ with two generators $g_u, g_v \in \mathbb{M}hbb{Z}_2 \times \mathbb{M}hbb{Z}_2$ such that
 	\begin{equation}
 		g_ux = - x, \ g_uy = y, \ g_vx = x, \ g_vy = -y.
 	\end{equation}
@@ -25348,68 +26094,68 @@ $$
 	\end{equation*}
 	From above equations it follows that $\widetilde{\varphi}^u_1 = g_u$,  $\widetilde{\varphi}^v_1 = g_v$. So $\varphi^u$ and $\varphi^{v}$ are closed paths associated with $g_u$ and $g_v$ respectively.  Let $\nabla$ be a flat connection defined in \ref{sample_flat_conn}. Generalized Wilson line is given by
 	\begin{equation*}
-		\mathbf{Wilson}(g_u, \nabla)(a) = e^{2\pi ic_u}a,
+		\mathbb{M}hbf{Wilson}(g_u, \nabla)(a) = e^{2\pi ic_u}a,
 	\end{equation*}
 	\begin{equation*}
-		\mathbf{Wilson}(g_v, \nabla)(a) = e^{2\pi ic_v}a.
+		\mathbb{M}hbf{Wilson}(g_v, \nabla)(a) = e^{2\pi ic_v}a.
 	\end{equation*}
-	where $a \in \mathcal{E}$.
+	where $a \in \mathbb{M}hcal{E}$.
 	
-	\paragraph{} Let $C_0\left(\R^{2}_{\th}\right) $ be an infinite covering projection of noncommutative torus (See Section \ref{nt_inf_sec}). The covering transformation group equals to $\mathbb{Z}^2$ (cf. Theorem \ref{nt_inf_cov_thm}).
+	\paragraph{} Let $C_0\left(\R^{2}_{\th}\right) $ be an infinite covering projection of noncommutative torus (See Section \ref{nt_inf_sec}). The covering transformation group equals to $\mathbb{M}hbb{Z}^2$ (cf. Theorem \ref{nt_inf_cov_thm}).
 	Let us consider an unitary operator $U \in M\left(C_0\left(\R^{2}_{\th}\right)\right)$ given by
 	\begin{equation*}
 		U = \pi_u(\phi^u) \pi_v(\phi^v)
 	\end{equation*}
-	where functions $\phi^u, \phi^v \in C_b(\mathbb{R})$ are given by
+	where functions $\phi^u, \phi^v \in C_b(\mathbb{M}hbb{R})$ are given by
 	\begin{equation*}
-		\phi^u(x)= e^{ic_ux}, \phi^v(x)= e^{ic_vx}, \ \forall x \in \mathbb{R}.
+		\phi^u(x)= e^{ic_ux}, \phi^v(x)= e^{ic_vx}, \ \forall x \in \mathbb{M}hbb{R}.
 	\end{equation*}
 	It is easy to show that $U$ satisfies to \eqref{nc_Ag}. A group homomorphism \eqref{wilson_rel} is given by
 	\begin{equation*}
 		n_1 \mapsto e^{2\pi i c_u}1_{M\left( C_0\left(\R^{2}_{\th}\right)\right) },  \ n_2 \mapsto e^{2\pi i c_v}1_{M\left( C_0\left(\R^{2}_{\th}\right)\right) }.
 	\end{equation*}
-	where $n_1,n_2 \in \mathbb{Z}^2$ are generators of the covering transformation group.
+	where $n_1,n_2 \in \mathbb{M}hbb{Z}^2$ are generators of the covering transformation group.
 \end{exm}
 \begin{empt}
-	Let $\mathcal{E} =\Coo\left(\T^{2}_{\th}\right)^4$ be a free module and let $e_1,..., e_4 \in  \mathcal{E}$ be its generators. Let $\nabla: \mathcal{E} \to \mathcal{E} \otimes \Omega^1\left(\Coo\left(\T^{2}_{\th}\right)\right)$ be a connection given by
+	Let $\mathbb{M}hcal{E} =\Coo\left(\T^{2}_{\th}\right)^4$ be a free module and let $e_1,..., e_4 \in  \mathbb{M}hcal{E}$ be its generators. Let $\nabla: \mathbb{M}hcal{E} \to \mathbb{M}hcal{E} \otimes \Omega^1\left(\Coo\left(\T^{2}_{\th}\right)\right)$ be a connection given by
 	\begin{equation*}
 		\nabla e_1 = c_u e_2 \otimes du, \ \nabla e_2 = -c_u e_1 \otimes du, \ \nabla e_3 = c_v e_4 \otimes dv, \ \nabla e_4 = -c_v e_3 \otimes dv.
 	\end{equation*}
-	where $c_u, c_v \in \mathbb{R}$. Let $X, Y \in \mathrm{Lie}G$ correspond to one-parameters groups given by \ref{vp_u} and \ref{vp_v} respectively. We have $[X,Y]=0$ because given by \ref{vp_u} and \ref{vp_v} groups commute. A direct calculation shows that $\nabla_X\nabla_Y = \nabla_Y \nabla_X$, so we have
+	where $c_u, c_v \in \mathbb{M}hbb{R}$. Let $X, Y \in \mathbb{M}hrm{Lie}G$ correspond to one-parameters groups given by \ref{vp_u} and \ref{vp_v} respectively. We have $[X,Y]=0$ because given by \ref{vp_u} and \ref{vp_v} groups commute. A direct calculation shows that $\nabla_X\nabla_Y = \nabla_Y \nabla_X$, so we have
 	\begin{equation*}
-		\mathcal{T} (X,Y) = \nabla_X \nabla_Y - \nabla_Y \nabla_X - \nabla_{[X,Y]} =0.
+		\mathbb{M}hcal{T} (X,Y) = \nabla_X \nabla_Y - \nabla_Y \nabla_X - \nabla_{[X,Y]} =0.
 	\end{equation*}
 	
-	Since $X$ and $Y$ a generators of $\mathrm{Lie}G$ we have $\mathcal{T}\equiv 0$, i.e a connection $\nabla$ is flat.
+	Since $X$ and $Y$ a generators of $\mathbb{M}hrm{Lie}G$ we have $\mathbb{M}hcal{T}\equiv 0$, i.e a connection $\nabla$ is flat.
 	\begin{exm}
 		Let $\pi: \Coo\left(\T^{2}_{\th}\right)\hookto \Coo\left(\T^{2}_{\th'}\right)$ be a noncommutative covering projection given by \eqref{two_listed}. Then generalised Wilson line is given by
 		\begin{equation*}
-			\mathbf{Wilson}(g_u, \nabla)(e) =    \begin{pmatrix}
-				\mathrm{cos}(2\pi c_u) 1_{M(\widetilde{\mathcal{A}}_{\theta})} & -\mathrm{sin}(2\pi c_u) 1_{M(\widetilde{\mathcal{A}}_{\theta})}  & 0 & 0\\ \mathrm{sin}(2\pi c_u) 1_{M(\widetilde{\mathcal{A}}_{\theta})} & \mathrm{cos}(2\pi c_u) 1_{M(\widetilde{\mathcal{A}}_{\theta})} & 0 & 0 \\
-				0 & 0 & 1_{M(\widetilde{\mathcal{A}}_{\theta})} & 0 \\
-				0 & 0 & 0 & 1_{M(\widetilde{\mathcal{A}}_{\theta})} \\
+			\mathbb{M}hbf{Wilson}(g_u, \nabla)(e) =    \begin{pmatrix}
+				\mathbb{M}hrm{cos}(2\pi c_u) 1_{M(\widetilde{\mathbb{M}hcal{A}}_{\theta})} & -\mathbb{M}hrm{sin}(2\pi c_u) 1_{M(\widetilde{\mathbb{M}hcal{A}}_{\theta})}  & 0 & 0\\ \mathbb{M}hrm{sin}(2\pi c_u) 1_{M(\widetilde{\mathbb{M}hcal{A}}_{\theta})} & \mathbb{M}hrm{cos}(2\pi c_u) 1_{M(\widetilde{\mathbb{M}hcal{A}}_{\theta})} & 0 & 0 \\
+				0 & 0 & 1_{M(\widetilde{\mathbb{M}hcal{A}}_{\theta})} & 0 \\
+				0 & 0 & 0 & 1_{M(\widetilde{\mathbb{M}hcal{A}}_{\theta})} \\
 				
 			\end{pmatrix}e,
 		\end{equation*}
 		\begin{equation*}
-			\mathbf{Wilson}(g_v, \nabla)(e) =   \begin{pmatrix}
-				1_{M(\widetilde{\mathcal{A}}_{\theta})} & 0 & 0 & 0\\
-				0 & 1_{M(\widetilde{\mathcal{A}}_{\theta})} & 0 & 0\\
-				0 & 0 & \mathrm{cos}(2\pi c_v) 1_{M(\widetilde{\mathcal{A}}_{\theta})} & -\mathrm{sin}(2\pi c_v) 1_{M(\widetilde{\mathcal{A}}_{\theta})} \\ 0 & 0 & \mathrm{sin}(2\pi c_v) 1_{M(\widetilde{\mathcal{A}}_{\theta})} & \mathrm{cos}(2\pi c_v) 1_{M(\widetilde{\mathcal{A}}_{\theta})} \\
+			\mathbb{M}hbf{Wilson}(g_v, \nabla)(e) =   \begin{pmatrix}
+				1_{M(\widetilde{\mathbb{M}hcal{A}}_{\theta})} & 0 & 0 & 0\\
+				0 & 1_{M(\widetilde{\mathbb{M}hcal{A}}_{\theta})} & 0 & 0\\
+				0 & 0 & \mathbb{M}hrm{cos}(2\pi c_v) 1_{M(\widetilde{\mathbb{M}hcal{A}}_{\theta})} & -\mathbb{M}hrm{sin}(2\pi c_v) 1_{M(\widetilde{\mathbb{M}hcal{A}}_{\theta})} \\ 0 & 0 & \mathbb{M}hrm{sin}(2\pi c_v) 1_{M(\widetilde{\mathbb{M}hcal{A}}_{\theta})} & \mathbb{M}hrm{cos}(2\pi c_v) 1_{M(\widetilde{\mathbb{M}hcal{A}}_{\theta})} \\
 			\end{pmatrix}e
 		\end{equation*}
-		where $e \in \mathcal{E}$.
-		Let $\mathbf{c}_u, \mathbf{s}_u, \mathbf{c}_v, \mathbf{s}_v \in C_b(\mathbb{R})$ be such that
+		where $e \in \mathbb{M}hcal{E}$.
+		Let $\mathbb{M}hbf{c}_u, \mathbb{M}hbf{s}_u, \mathbb{M}hbf{c}_v, \mathbb{M}hbf{s}_v \in C_b(\mathbb{M}hbb{R})$ be such that
 		\begin{equation*}
-			\mathbf{c}_u(x) = \mathrm{cos}(c_ux), \ \mathbf{s}_u(x) = \mathrm{sin}(c_ux), \ \mathbf{c}_v(x) = \mathrm{cos}(c_vx), \ \mathbf{s}_v(x) = \mathrm{sin}(c_vx); \ \forall x \in \mathbb{R}.
+			\mathbb{M}hbf{c}_u(x) = \mathbb{M}hrm{cos}(c_ux), \ \mathbb{M}hbf{s}_u(x) = \mathbb{M}hrm{sin}(c_ux), \ \mathbb{M}hbf{c}_v(x) = \mathbb{M}hrm{cos}(c_vx), \ \mathbb{M}hbf{s}_v(x) = \mathbb{M}hrm{sin}(c_vx); \ \forall x \in \mathbb{M}hbb{R}.
 		\end{equation*}
-		\paragraph{} Let $U \in \mathrm{Aut}_{\Coo\left(\R^{2}_{\th}\right)}\left(\widetilde{\mathcal{E}}\right)$ be an unitary element  given by
+		\paragraph{} Let $U \in \mathbb{M}hrm{Aut}_{\Coo\left(\R^{2}_{\th}\right)}\left(\widetilde{\mathbb{M}hcal{E}}\right)$ be an unitary element  given by
 		\begin{equation*}
 			U  =   \begin{pmatrix}
-				\pi_u(\mathbf{c}_u) & -\pi_u(\mathbf{s}_u) & 0 & 0\\
-				\pi_u(\mathbf{s}_u) & \pi_u(\mathbf{c}_u) & 0 & 0\\
-				0 & 0 & \pi_v(\mathbf{c}_v) & -\pi_v(\mathbf{s}_v)\\
-				0 & 0 & \pi_v(\mathbf{s}_v) & \pi_v(\mathbf{c}_v)\\
+				\pi_u(\mathbb{M}hbf{c}_u) & -\pi_u(\mathbb{M}hbf{s}_u) & 0 & 0\\
+				\pi_u(\mathbb{M}hbf{s}_u) & \pi_u(\mathbb{M}hbf{c}_u) & 0 & 0\\
+				0 & 0 & \pi_v(\mathbb{M}hbf{c}_v) & -\pi_v(\mathbb{M}hbf{s}_v)\\
+				0 & 0 & \pi_v(\mathbb{M}hbf{s}_v) & \pi_v(\mathbb{M}hbf{c}_v)\\
 			\end{pmatrix}
 		\end{equation*}
 		where $\pi_u$, $\pi_v$ are defined by  equations  \eqref{nt_pi_u_eqn} and \eqref{nt_pi_v_eqn}.
@@ -25417,17 +26163,17 @@ $$
 		Element $U$ satisfies to \eqref{nc_Ag}. A group homomorphism \eqref{wilson_rel} is given by
 		\begin{equation*}
 			n_1 \mapsto \begin{pmatrix}
-				\mathrm{cos}(2\pi c_u) 1_{M(\widetilde{\mathcal{A}}_{\theta})} & -\mathrm{sin}(2\pi c_u) 1_{M(\widetilde{\mathcal{A}}_{\theta})}  & 0 & 0\\ \mathrm{sin}(2\pi c_u) 1_{M(\widetilde{\mathcal{A}}_{\theta})} & \mathrm{cos}(2\pi c_u) 1_{M(\widetilde{\mathcal{A}}_{\theta})} & 0 & 0 \\
-				0 & 0 & 1_{M(\widetilde{\mathcal{A}}_{\theta})} & 0 \\
-				0 & 0 & 0 & 1_{M(\widetilde{\mathcal{A}}_{\theta})} \\
+				\mathbb{M}hrm{cos}(2\pi c_u) 1_{M(\widetilde{\mathbb{M}hcal{A}}_{\theta})} & -\mathbb{M}hrm{sin}(2\pi c_u) 1_{M(\widetilde{\mathbb{M}hcal{A}}_{\theta})}  & 0 & 0\\ \mathbb{M}hrm{sin}(2\pi c_u) 1_{M(\widetilde{\mathbb{M}hcal{A}}_{\theta})} & \mathbb{M}hrm{cos}(2\pi c_u) 1_{M(\widetilde{\mathbb{M}hcal{A}}_{\theta})} & 0 & 0 \\
+				0 & 0 & 1_{M(\widetilde{\mathbb{M}hcal{A}}_{\theta})} & 0 \\
+				0 & 0 & 0 & 1_{M(\widetilde{\mathbb{M}hcal{A}}_{\theta})} \\
 				
 			\end{pmatrix},
 		\end{equation*}
 		\begin{equation*}
 			n_2 \mapsto \begin{pmatrix}
-				1_{M(\widetilde{\mathcal{A}}_{\theta})} & 0 & 0 & 0\\
-				0 & 1_{M(\widetilde{\mathcal{A}}_{\theta})} & 0 & 0\\
-				0 & 0 & \mathrm{cos}(2\pi c_v) 1_{M(\widetilde{\mathcal{A}}_{\theta})} & -\mathrm{sin}(2\pi c_v) 1_{M(\widetilde{\mathcal{A}}_{\theta})} \\ 0 & 0 & \mathrm{sin}(2\pi c_v) 1_{M(\widetilde{\mathcal{A}}_{\theta})} & \mathrm{cos}(2\pi c_v) 1_{M(\widetilde{\mathcal{A}}_{\theta})} \\
+				1_{M(\widetilde{\mathbb{M}hcal{A}}_{\theta})} & 0 & 0 & 0\\
+				0 & 1_{M(\widetilde{\mathbb{M}hcal{A}}_{\theta})} & 0 & 0\\
+				0 & 0 & \mathbb{M}hrm{cos}(2\pi c_v) 1_{M(\widetilde{\mathbb{M}hcal{A}}_{\theta})} & -\mathbb{M}hrm{sin}(2\pi c_v) 1_{M(\widetilde{\mathbb{M}hcal{A}}_{\theta})} \\ 0 & 0 & \mathbb{M}hrm{sin}(2\pi c_v) 1_{M(\widetilde{\mathbb{M}hcal{A}}_{\theta})} & \mathbb{M}hrm{cos}(2\pi c_v) 1_{M(\widetilde{\mathbb{M}hcal{A}}_{\theta})} \\
 			\end{pmatrix}.
 		\end{equation*}
 		
@@ -25661,7 +26407,7 @@ of the manifolds, where the manifold $K$ is compact and $M$ is not compact. The 
 	where $U$ is the gauge transformation. Whether \eqref{pure_gauge} is also true globally is another story. Condition \eqref{pure_gauge} is equivalent to that the field stength equals to zero \cite{green_schwarz_witten:superstring}.
 	If the manifold is not simply connected, $\pi_1(M) \neq \{e\}$ then there is a more general possibility that appears in electrodynamics as the Bohm-Aharonov effect. Let $\gamma$ be a noncontractible loop in $M$, beginning and ending at the same point $x$. Then "Wilson line"
 	\begin{equation}\label{gauge_transformation}
-		U_{\gamma} = P \ \mathrm{exp} \oint\limits_{\gamma} A \cdot dx
+		U_{\gamma} = P \ \mathbb{M}hrm{exp} \oint\limits_{\gamma} A \cdot dx
 	\end{equation}
 	is gauge invariant, and if $U_{\gamma}\neq 1$ it cannot be set to one by gauge transformation, $U_{\gamma}$ depends only on $[\gamma] \in \pi_1(M)$. If $G$ is the gauge transformation group then is a group homomorphism
 	\begin{equation}\label{from_fund_to_gauge}
@@ -25689,7 +26435,7 @@ of the manifolds, where the manifold $K$ is compact and $M$ is not compact. The 
 	\end{equation}
 	This operation enables us replace guage field \eqref{gauge_transformation} by "twist" in boundary conditions \eqref{invariant_twist}. The gauge field $A$ which obeys \eqref{gauge_transformation} (resp. field $\psi$) is replaced with the trivial gauge field (resp. field $\psi'$ which obey \eqref{gauge_transformation}). Field $\psi'$ is given by
 	\begin{equation*}
-		\psi'(y) = \left(P \ \mathrm{exp} \int\limits_{\omega} A' \cdot dx\right) \psi(\pi(y))
+		\psi'(y) = \left(P \ \mathbb{M}hrm{exp} \int\limits_{\omega} A' \cdot dx\right) \psi(\pi(y))
 	\end{equation*}
 	where
 	\begin{itemize}
@@ -25750,7 +26496,7 @@ structure}. Ann. Inst. H. PoincarŽ 46, 299Ð324 (1987), 1987.
 \bibitem{atiyah_b_s}
 M. F. Atiyah, R. Bott and A. Shapiro, \textit{Clifford Modules}, Topology{\bf 3} (1964), 3--38.  1964.
 
-%\bibitem{ant_azz_scan:flat_k}Paolo Antonini, Sara Azzali, Georges Skandalis {\it Flat bundles, von Neumann algebras and $K$-theory with $\mathbb{R}/\mathbb{Z}$-coefficients}, arXiv:1308.0218, 2013.
+%\bibitem{ant_azz_scan:flat_k}Paolo Antonini, Sara Azzali, Georges Skandalis {\it Flat bundles, von Neumann algebras and $K$-theory with $\mathbb{M}hbb{R}/\mathbb{M}hbb{Z}$-coefficients}, arXiv:1308.0218, 2013.
 
 \bibitem{auslander:galois} M. Auslander; I. Reiten; S.O. Smal\o{}. \textit{Galois actions on rings and finite Galois coverings}. Mathematica Scandinavica (1989), Volume: 65, Issue: 1, page 5-32, ISSN: 0025-5521; 1903-1807/e , 1989.
 
@@ -25958,6 +26704,8 @@ Springer Science+Business Media, Inc. 2005.
 Birkhauser, Basel-Boston-Berlin 1991), viii + 202 pp. 3 7643 3496 7, sFr. 98. 1991
 
 %\bibitem{kakariadis:corr}Evgenios T.A. Kakariadis, Elias G. Katsoulis, {\it Operator algebras and $C^*$-correspondences: A survey.} 	arXiv:1210.6067, 2012.
+
+\bibitem{landi:nm_nt} {G. Landi}, {F. Lizzi} and {R.J. Szabo}. \textit{From Large $N$ Matrices to the  Noncommutative Torus}  DSM--QM462 DSF--40/99 NBI--HE--99--48 hep--th/9912130 December 1999.
 
 \bibitem{kahn:glo_an} Donald W. Kahn. \textit{Introduction to Global Analysis}.  ACADEMIC PRESS
 A Subsidiary of Harcourt Brace Jovanovich, Publishers
@@ -26313,11 +27061,11 @@ Oxford, England, 1993.
 %	Let $\pi: A \to \widetilde{A}$  injective *-homomorphism of $C^*$-algebras, and $G \subset \Aut\left(\widetilde{A} \right)$. The quadruple $\left(A_\a ,  \widetilde{A}_\a, G, \pi_\a \right)$  is said to be \textit{disconnected 		noncommutative finite-fold covering with compactification} if there are following decompositions
 %	\be\abel{dis_fin_eqn}
 %	\begin{split}
-%		A = \bigoplus_{\a \in \mathscr A} A_\a;~~\widetilde{A} = \bigoplus_{\a \in \mathscr A} \widetilde{A}_\a;\\
-%		\pi = \bigoplus_{\a \in \mathscr A} \pi_\a: \bigoplus_{\a \in \mathscr A} A_\a \hookto  \bigoplus_{\a \in \mathscr A} \widetilde{A}_\a
+%		A = \bigoplus_{\a \in \mathbb{M}hscr A} A_\a;~~\widetilde{A} = \bigoplus_{\a \in \mathbb{M}hscr A} \widetilde{A}_\a;\\
+%		\pi = \bigoplus_{\a \in \mathbb{M}hscr A} \pi_\a: \bigoplus_{\a \in \mathbb{M}hscr A} A_\a \hookto  \bigoplus_{\a \in \mathbb{M}hscr A} \widetilde{A}_\a
 %	\end{split}
 %	\ee
-%	where $\bigoplus$ means the $C^*$-norm completion of the algebraic direct sum and the quadruple $\left(A_\a ,  \widetilde{A}_\a, G, \pi_\a \right)$ is a finite-fold covering with compactification for any $\a \in \mathscr A$. We imply that $G\widetilde{A}_\a = \widetilde{A}_\a$ and the action $G\times \widetilde{A}_\a \to \widetilde{A}_\a$ is induced by the action $G\times \widetilde{A} \to \widetilde{A}$.
+%	where $\bigoplus$ means the $C^*$-norm completion of the algebraic direct sum and the quadruple $\left(A_\a ,  \widetilde{A}_\a, G, \pi_\a \right)$ is a finite-fold covering with compactification for any $\a \in \mathbb{M}hscr A$. We imply that $G\widetilde{A}_\a = \widetilde{A}_\a$ and the action $G\times \widetilde{A}_\a \to \widetilde{A}_\a$ is induced by the action $G\times \widetilde{A} \to \widetilde{A}$.
 %\end{definition}
 
 
