@@ -9493,7 +9493,7 @@ Prove following statements:
 
 
 
-\subsection{Induced representations}\label{comm_induced_infinite_sec}
+\subsection{Induced representations and strong Motita equivalence}\label{comm_induced_infinite_sec}
 
 \paragraph*{} 
 Similarly to the section \ref{comm_induced_finite_sec} consider a compact  Riemannian manifold $M$ with a  spinor bundle $S$ (cf. \ref{comm_sp_tr_sec}). 
@@ -9541,6 +9541,12 @@ C_0\left(\widetilde M\right) \to B\left( L^2\left(\widetilde  M, \widetilde S\ri
 	where sum of the series implies the strict topology of $M\left(C_0\left(\widetilde{\sX} \right)  \right)$ (cf. Definition \ref{strict_topology}), and the  notation  $\desc_{\overline{p}_\la}$ means  the descent	(cf. Definition \ref{top_lift_desc_defn}). 
 	From the properties of the descent it turns out that $\desc_{\overline{p}_\la}\left( \widetilde{a}\widetilde{b}\right) \in C_0\left( \sX_{\la}\right)$, i.e. $c_\la \in C_0\left( \sX_{\la}\right)$.  Taking into account the Remark \ref{inf_hilb_prod_low_rem} we conclude that  $c_\la \in C_0\left( \sX_{\la}\right)$ for all $\la \in \La$.
 \end{proof}
+\begin{exercise}\label{comm_allows_morita_exer}
+In the Situation of the Lemma \ref{comm_allows_lem} prove that the given by the Theorem \ref{comm_main_thm} { infinite noncommutative covering} $$\left(C_0\left(\mathcal{X}\right), C_0\left(\varprojlim  \mathfrak{S}_{\left(\sX, x_0\right)}\right),G\left(\left.\varprojlim  \mathfrak{S}_{\left(\sX, x_0\right)}~\right| \mathcal X\right)\right)$$ 
+ {allows strong Morita equivalence} (cf. Definition \ref{allows_morita_defn}).
+\end{exercise}
+
+
 From the Lemma \ref{comm_allows_lem} it follows that the  induced by $\left(\rho, \left(C\left( M\right) , C_0\left( \widetilde M\right) G\left(\left.\widetilde M   ~\right| M\right)\right)\right)$ representation $\widetilde \rho: C_0\left( \widetilde M\right)\hookto B\left( \widetilde \H\right)$ (cf. Definition \ref{induced_repr_inf_defn}), such that $\widetilde \H$ is the Hilbert norm completion of
 $$
 K\left( C_0\left( \widetilde M\right)\right)\otimes_{C\left( {M}\right)} L^2\left(  M, S\right)
@@ -9838,8 +9844,33 @@ with respect to the strict topology (cf. Definition \ref{strict_topology}) of $M
 So  $C_0\left(\sX \right) \hookto M\left( A\right)$
 is a {Hausdorff blowing-up} of $A$ (cf. Definition \ref{blowing_defn}).
 \end{example}
-
-
+\begin{definition}
+Let $A$ be $C^*$-algebra, and let $C_0\left( \sY\right) \subset M\left(A \right)$  be a blowing-up (cf. Definition \ref{blowing_defn}). If $a \in A$ then the open set $\sV\subset \sU$ is said to be $a$-\textit{admissible} if
+$$
+\forall f \in C_0\left( \sY\right)\quad \supp f \subset \sV \quad \Rightarrow\quad f a = 0.
+$$
+The \textit{support} of $a$ is given by
+\be
+\supp a \bydef \sY~~\setminus\bigcup_{\sU \text{ is } a-\text{admissible}}~~\sU.
+\ee
+\end{definition}
+\begin{lemma}
+Let $A$ be $C^*$-algebra, and let $C_0\left( \sY\right) \subset M\left(A \right)$  be a good blowing-up (cf. Definitions \ref{blowing_defn}, \ref{blowing_good_defn}). If $a \in A_+$ is positive, $\eps > 0$ and $f_\eps$ is given by the equation \eqref{f_eps_eqn} then the set $\supp f_\eps\left(a \right)\subset \sY$ is compact.  
+\end{lemma}
+\begin{proof}
+If $b \bydef \sqrt{a}$ then  from the Definition \ref{blowing_good_defn} it turns out that for all $\delta > 0$ there is	
+\bean
+b' = \sum_{j = 1}^{n} b_{j,1}\cdot ... \cdot b_{j,m_j},\\
+\forall j = 1,..., n \quad k = 1,..., m_j\quad \exists \a_{j,k}\in \mathscr A\quad b_{j,k}\in A_{\sU_{\b_{j,k}}},\\
+\left\|b - b' \right\| < \delta.\\
+\eean
+where $\sU_{\a_{j,k}}$ is a subset of a compact set for all $j,k$. From $\supp b'\subset \cup \sU_{j,k}$ it follows that $\supp b'^*b'$ is compact. If $a' \bydef b'^*b'$ and $\delta^2 + 2 \delta \left\| b\right\|< \eps$ then $ \left\| a - a'\right\|< \eps$. 
+If $\chi$ is a characteristic map of $\supp a'$ and $A \to B\left(\H\right)$ is a faithful representation then $\chi$ corresponds to a projector $p^\parallel\in  B\left(\H\right)$. If $p^\perp \bydef 1_{B\left(\H\right)}- p^\parallel$ then $p^\perp$ is also a projector. If $p^\perp f_{\eps}\left( a\right)p^\perp \neq 0$ then $\left\| p^\perp ap^\perp\right\|  > \eps$. Otherwise from $p^\perp a
+'p^\perp= 0$ it follows that $ \left\| a - a'\right\|> \eps$. From this contradiction one concludes that $p^\perp f_{\eps}\left( a\right)p^\perp = 0$, and $~~\chi f_{\eps}\left( a\right) = 0$ so $\supp f_\eps\left(a \right)\subset \supp a'$. Since the set $\supp a'$ is compact $\supp f_\eps\left(a \right)$ is also compact.
+\end{proof}
+\begin{exercise}\label{blowing_ped_exer}
+Prove that if $a\in A$ lies in the  Pedersen's ideal of $A$ (cf. Definition \ref{peder_id_defn}) then $\supp a$ is compact.
+\end{exercise}
 
 \section{Hausdorff blowing-up and noncommutative  coverings}
 \paragraph*{}
@@ -11177,22 +11208,14 @@ One needs prove that the given by  \eqref{blowing_base_point_eqn} pointed	algebr
 	\item[(iii)] Follows from the Theorem \ref{blowing_functor_thm}.
 \end{enumerate}
 \end{proof}
-\subsubsection{Induced representation}
+\subsubsection{Induced representation and Morita equivalence}
 
-!!!
-   \begin{definition}\label{inf_hilb_prod_defn!}
-	Let $\mathfrak{S}^{\text{pt}} = \left(\left\{\pi_\la: A \hookto A_\la \right\}, \left\{\pi^\mu_\nu\right\}\right)\in \mathfrak{FinAlg}^{\text{pt}} $ be  a pointed algebraical  finite covering  category.  Let $\pi: C^*$-$\varinjlim_{\la \in \La} A_\la \to B\left(\widehat \H\right)$ be an equivariant representation such that $\mathfrak{S}^{\text{pt}}$ is $\pi$-good (cf. Definition \ref{mains_defn}).  Let  $$\left(A, \widetilde{A}_\pi, G\left(\left.\widetilde{A}_\pi~\right|A \right) \right)$$  be a $\pi$- infinite noncommutative covering of $\mathfrak{S}^{\text{pt}}$ (cf. Definition \ref{main_defn}). Let $K\left( \widetilde{A}_\pi\right)$ be the Pedersen's ideal of  $\widetilde{A}_\pi$ (cf. Definition \ref{peder_id_defn}). We say that $\widetilde{A}_\pi$ \textit{allows the inner product} if for any $\la \in \La$, and $\widetilde{a}, \widetilde{b} \in K\left( \widetilde{A}_\pi\right)$ the series
-	\begin{equation*}
-		\begin{split}
-			a_{\la} = \sum_{g \in \ker\left(G\left(\left.\widetilde{A}_\pi~\right|A \right)  \to  G\left( A_{\la}~|~A \right)\right)} g \left(\widetilde{a}^* \widetilde{b}  \right) 
-		\end{split}
-	\end{equation*}
-	is  convergent with respect to the strict topology (cf. Definition \ref{strict_topology}) of $M\left( \widetilde{A}_\pi\right)$ and $a_{\la} \in A_{\la}$.
-	Also we say that $\left( A, \widetilde{A}_\pi, G\left(\left.\widetilde{A}_\pi~\right|A \right) \right)$ \textit{allows the inner product}.
-\end{definition}
-\
 
-\subsubsection{Strong Morita equivalence}
+\begin{exercise}\label{blowing_ind_exer}
+Using the Exercise \ref{blowing_ped_exer}, prove that allows inner product (cf. Definition \ref{inf_hilb_prod_defn}). 
+(cf. Lemma \ref{comm_allows_lem})
+\end{exercise}
+
 !!!
 \paragraph{title}
  \begin{thm}\label{motita_inf_thm}
@@ -11221,7 +11244,7 @@ One needs prove that the given by  \eqref{blowing_base_point_eqn} pointed	algebr
 \begin{proof}
 	From \eqref{morita_inf_g_eqn} it follows that products $ \left\langle -, - \right\rangle_{\widetilde{A} \rtimes G}$, $~~\left\langle -, - \right\rangle_A$ satisfy condition (a) of the Definition \ref{strong_morita_defn}.\\
 \end{proof}
-\begin{definition}\label{allows_morita_defn}
+\begin{definition}\label{allows_morita_defn!}
 	Let $\left(A, \widetilde{A}, G \right)$ be an infinite noncommutative  covering which allows the inner product (cf. Definition \ref{inf_hilb_prod_defn}). 
 	We say that $\left(A, \widetilde{A}, G\right)$ \textit{allows strong Morita equivalence} if $X$ is an ${\widetilde{A} \rtimes G}-A$  equivalence bimodule.
 \end{definition}
@@ -25892,11 +25915,11 @@ $$
 \forall m \in \Z\quad \overline k\cdot v^m = e^{\frac{2\pi i km}{N}} v^m\quad k \in \Z \text{ is a repesentative of } \overline k.
 $$ If $\a\in \Aut\left(C\left(\sX\right) \right) $ corresponds to represented by $M$ element $\overline M \in \Z_N$ then one has 
 \be\label{phys_Uarational}
-v \a  = e^{\frac{2\pi i N}{M}}\a v
+v \a  = e^{\frac{2\pi i M}{N}}\a v
 \ee
 On the other hand if $\widetilde{U}_1, ~\widetilde{U}_2$ are given by \eqref{Uarational} then one has
 $$
-\widetilde{U}_1\widetilde{U}_2  = e^{\frac{2\pi i N}{M}}\widetilde{U}_2\widetilde{U}_1.
+\widetilde{U}_1\widetilde{U}_2  = e^{\frac{2\pi i M}{N}}\widetilde{U}_2\widetilde{U}_1.
 $$
 The above equation is a counterpart of \eqref{phys_Uarational}. If one replaces $\widetilde{U}_1, ~\widetilde{U}_2$ with $v, ~ \a\in C\left(\sX\right) \rtimes \Z_N$ then one can give a based on the theory of coverings version of explained in \cite{landi:nm_nt} theory.
 \subsection{Infinite coverings}
@@ -25905,7 +25928,7 @@ The application of finite-coverings for obtaining $C\left( \T^2_\th\right)$ requ
 $$
 \theta=\lim_{n\to\infty}\theta_n = \lim_{n\to\infty}p_n/ q_n \quad p_n,q_n \in \N.
 $$
-However an infinite covering can perform this operation at once. The application of infinitely many finite-fold coverings of $C\left(S^1 \right)$ yields the infinite covering $\left(C\left(S^1 \right), C_0\left( \R\right), \Z  \right)$. From !!! it follows that $C\left(S^1\right)$ is Morita equivalent to $C_0\left( \R\right)\rtimes \Z$ where the action $\Z\times C_0\left( \R\right)\to C_0\left( \R\right)$ is induced by the natural action $\Z \times \R \to \R$. If $\a \in C_0\left( \R\right)$ corresponds to the 1 shift of $\R$ end 
+However an infinite covering can perform this operation at once. The application of infinitely many finite-fold coverings of $C\left(S^1 \right)$ yields the infinite covering $\left(C\left(S^1 \right), C_0\left( \R\right), \Z  \right)$. From the Exercise \ref{comm_allows_morita_exer} it follows that $C\left(S^1\right)$ is Morita equivalent to $C_0\left( \R\right)\rtimes \Z$ where the action $\Z\times C_0\left( \R\right)\to C_0\left( \R\right)$ is induced by the natural action $\Z \times \R \to \R$. If $\a \in C_0\left( \R\right)$ corresponds to the 1 shift of $\R$ end 
 \bean
 v \in M\left( C_0\left( \R\right)\right) = C_b\left( \R\right),
 x \mapsto e^{\pi i \th x} 
