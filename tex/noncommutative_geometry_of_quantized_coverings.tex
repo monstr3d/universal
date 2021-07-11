@@ -2514,7 +2514,7 @@ Any $\widetilde{\xi}\in _A\widetilde{A}_{\widetilde A \rtimes G}\otimes_{A \rtim
  	
  \end{proof}
  
- \begin{thm}\label{main_theorem}
+ \begin{thm}\label{finite_morita_main_theorem}
  	If $\left(A, \widetilde{A}, G \right)$ is a noncommutative finite-fold covering  then a Hilbert $\left( \widetilde{A} \rtimes G,A\right) $  bimodule  $_{\widetilde{A} \rtimes G}\widetilde{A}_A$ is a $\widetilde{A} \rtimes G-A$ equivalence bimodule.
  \end{thm}
  \begin{proof}
@@ -25284,7 +25284,7 @@ The most impressive directions of present day theoretical physics are superstrin
 Before the so-called "duality revolution" there were believed to be five distinct versions of string theory, plus the (unstable) bosonic and gluonic theories. String duality is a class of symmetries in physics that link different string theories.
 \paragraph*{}
 Here examples   of a duality between Hausdorff and non-Hausdorff geometry are presented. It is proven that the Hausdorff and non-Hausdorff geometry can be  manifestations of the single physical theory.
-\section{Matrix model and noncommutative torus}
+\section{Matrix model and noncommutative torus}\label{phys_mm_sec}
 \paragraph{} There is an interaction of matrix model and $C\left(\T^2_\th \right)$  described in \cite{landi:nm_nt}. This interaction can be described by the theory of noncommutative coverings.
 \subsection{Description ot task}
 \paragraph{} Here I follow to \cite{landi:nm_nt}.
@@ -25313,7 +25313,7 @@ $\Coo\left(\T^2_{M/N}\right)$ is intimately
 related to the algebra $C^\infty({\bf T}^2)$ of smooth functions on the
 ordinary torus
 ${\bf T}^2$. Precisely, $\Coo\left(\T^2_{M/N}\right)$ is Morita equivalent to
-$C^\infty({\bf T}^2)$, i.e. $\Coo\left(\T^2_{M/N}\right)$ is a twisted matrix bundle over
+$C^\infty({\T}^2)$, i.e. $\Coo\left(\T^2_{M/N}\right)$ is a twisted matrix bundle over
 $C^\infty({\bf T}^2)$ of topological charge $M$ whose fibers are $N\times N$
 complex matrix algebras.
 Physically, this  implies that noncommutative $U(1)$ Yang-Mills theory with
@@ -25328,7 +25328,7 @@ $C^\infty({\bf
 	T}^2)$, while the appearence of finite dimensional matrix
 algebras can be seen as follows. With $\omega=e^{2\pi iM/N}$, one introduces
 the $N\times N$ clock and shift matrices
-\be
+\be\label{Uarational}
 \widetilde{U}_1=\left({\begin{array}{lllll}
 		1& & & & \\ &\omega& & & \\
 		& &\omega^2& & \\& &
@@ -25339,7 +25339,7 @@ the $N\times N$ clock and shift matrices
 		0&1& & &0\\ &0&1& & \\
 		& &\ddots&\ddots& \\
 		& & &\ddots&1\\ 1& & & &0\end{array}}\right) \ .
-\label{Uarational}\ee
+\ee
 These matrices are traceless (since $\sum_{k=0}^{N-1} \omega^k = 0$), they obey
 the relation \ref{Tthetarel}, and they satisfy
 \be
@@ -25877,9 +25877,45 @@ In the same spirit by which we think of elements of $A_\infty$ as infinite
 matrices, we also visualize elements of $\H_\infty$ as square summable
 complex sequences and write $\H_\infty\cong\ell^2(\Z)$.
 
+\section{Application noncommutative coverings}
+\paragraph{}
+Here we prove that described in the Section \ref{phys_mm_sec} results by application of noncommutative coverins.
+\subsection{Finite-fold coverings}\label{phys_fin_sec}
+\paragraph{} The given by  the Section  \ref{phys_mm_sec} construction of based on the Morita equivalence between $C^*$-algebras $\Coo\left(\T^2_{M/N}\right)$ and
+$C^\infty({\T}^2)$. We shall use the Morita equivalence given by the Theorem \ref{finite_morita_main_theorem}. If $\sX \cong S^1$ and $p: \sX\to S^1$ is an $N$-listed covering then there is an unital noncommutative finite-fold covering $\left(C\left(S^1\right), C\left(\sX\right), \Z_N, C_0\left(p\right)\right)$. If $u\in C\left(S^1\right)$ is an untary such that $C\left(S^1\right)\cong C\left(u\right)$ then is an untary $v\in C\left(\sX\right)$ such that $C\left(\sX\right)\cong C\left(v\right)$ and $C_0\left(p\right)$ is given by $u \mapsto v^N$. From the Theorem 
+\ref{finite_morita_main_theorem} it follows that the algebra $C\left(S^1\right) $ is Morita equivalent to the algebra $C\left(\sX\right) \rtimes \Z_N$. The action $\Z_N \times C\left(\sX\right)\to C\left(\sX\right)$ is given by
+$$
+\forall m \in \Z\quad \overline k\cdot v^m = e^{\frac{2\pi i km}{N}} v^m\quad k \in \Z \text{ is a repesentative of } \overline k.
+$$ If $\a\in \Aut\left(C\left(\sX\right) \right) $ corresponds to represented by $M$ element $\overline M \in \Z_N$ then one has 
+\be\label{phys_Uarational}
+v \a  = e^{\frac{2\pi i N}{M}}\a v
+\ee
+On the other hand if $\widetilde{U}_1, ~\widetilde{U}_2$ are given by \eqref{Uarational} then one has
+$$
+\widetilde{U}_1\widetilde{U}_2  = e^{\frac{2\pi i N}{M}}\widetilde{U}_2\widetilde{U}_1.
+$$
+The above equation is a counterpart of \eqref{phys_Uarational}. If one replaces $\widetilde{U}_1, ~\widetilde{U}_2$ with $v, ~ \a\in C\left(\sX\right) \rtimes \Z_N$ then one can give a based on the theory of coverings version of explained in \cite{landi:nm_nt} theory.
+\subsection{Infinite coverings}
+\paragraph{}
+The application of finite-coverings for obtaining $C\left( \T^2_\th\right)$ requires an infinite procedure  for obtaining the Limit \eqref{thetalim}, i.e.
+$$
+\theta=\lim_{n\to\infty}\theta_n = \lim_{n\to\infty}p_n/ q_n \quad p_n,q_n \in \N.
+$$
+However an infinite covering can perform this operation at once. The application of infinitely many finite-fold coverings of $C\left(S^1 \right)$ yields the infinite covering $\left(C\left(S^1 \right), C_0\left( \R\right), \Z  \right)$. From !!! it follows that $C\left(S^1\right)$ is Morita equivalent to $C_0\left( \R\right)\rtimes \Z$ where the action $\Z\times C_0\left( \R\right)\to C_0\left( \R\right)$ is induced by the natural action $\Z \times \R \to \R$. If $\a \in C_0\left( \R\right)$ corresponds to the 1 shift of $\R$ end 
+\bean
+v \in M\left( C_0\left( \R\right)\right) = C_b\left( \R\right),
+x \mapsto e^{\pi i \th x} 
+\eean
+then one has
+$$
+v \a  = e^{2\pi i \th}\a v.
+$$
+The above equation is a counterpart of \eqref{Tthetarel}, so the noncommutative torus is obtained.
 
-
-
+\section{Unbounded  internal space dimension}
+ \paragraph*{}
+ In the Section \ref{phys_mm_sec} it is proven that the algebra of  physical system with internal space of unbounded dimension yields inclusion of the noncommutative torus.  Here we prove that the infinite covering of physics with internal space of unbounded dimension yields the noncommutative torus. 
+ 
 \section{Basic ingredients}
 \paragraph{}
 Here  well known physical results are described. The combination of these results yields an example of   Hausdorff non-Hausdorff duality
