@@ -890,7 +890,7 @@ the following conditions hold
 Denote by $\End_D^*\left(X_D\right)$ and $\End_A^*\left(X_A\right)$ the space of $D$-linear and $A$-linear adjointable operators (cf. Definition \ref{adj_aop_defn}). 
 
 \begin{lemma}\label{compact_inf_lem}
-In the above situation	let $a, b \in \End_A^*\left( X_D\right)_+$ be positive compact operators such that 
+In the above situation	let $a, b \in \End_D^*\left( X_D\right)_+$ be positive compact operators such that 
 	\bea
 	\label{compact_inf1_eqn}
 	a \le b, \\
@@ -911,7 +911,7 @@ If any finitely generated projective Hilbert $A$-module is self-dual (cf. Defini
 \be\label{kasp_eqn}
 X_D \oplus \ell^2\left( D\right) \cong \ell^2\left( D\right),
 \ee
-So both $\widetilde a$ and $\widetilde b$ can be regarded as elements of $\End^*_D\left(X_D \right)$. Consider the following inclusions \\ 
+So both $\widetilde a$ and $\widetilde b$ can be regarded as elements of $\End^*_D\left(\ell^2\left( D\right) \right)$. Consider the following inclusions \\ 
 	\newline
 \begin{tikzpicture}
 	\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
@@ -929,14 +929,14 @@ So both $\widetilde a$ and $\widetilde b$ can be regarded as elements of $\End^*
  For any $n \in \N$ there is a Hilbert submodule $D^n \subset \ell^2\left( D\right)$ and a projection $p_n: \ell^2\left( D\right)\to D^n$. Denote by $a_n \bydef p_n \widetilde a p_n$, $b_n \bydef p_n \widetilde b p_n$.
  From \eqref{xae_eqn} it turns out that
  \be\label{xaen_eqn}
- \forall \xi, \eta \in  A^n\cap X_A \quad \left\langle \xi, a \eta\right\rangle_D \in A.
+ \forall \xi, \eta \in  A^n\cap \ell^2\left( D\right) \quad \left\langle \xi, a \eta\right\rangle_D \in A.
  \ee
-  If $\left( A^n \cap X_A\right)' $ is dual Banach module of $A^n \cap X_A$ (cf. Definition \ref{hm_dual_empt}) then 
- the restriction $a_n|_{A^n\cap X_A}$ corresponds to an element of $\Hom_A\left( A^n\cap X_A, \left(  A^n\cap X_A \right)'\right)$ given by
+  If $\left( A^n \cap\ell^2\left( D\right)\right)' $ is dual Banach module of $A^n \cap \ell^2\left( D\right)$ (cf. Definition \ref{hm_dual_empt}) then 
+ the restriction $a_n|_{A^n\cap \ell^2\left( D\right)}$ corresponds to an element of $\Hom_A\left( A^n\cap X_A, \left(  A^n\cap X_A \right)'\right)$ given by
  $$
  \eta \mapsto \left\langle \cdot , a\eta\right\rangle_D.
  $$
- However $A^n\cap X_A$ is a finitely generated  projective $A$-module, so it is self-dual (cf. Definition \ref{hm_selfdual_defn}), i.e. $A^n\cap X_A = \left(  A^n \cap X_A\right)'$. It turns out that $ a_n|_{A^n\cap X_A}\in \Hom_A\left( A^n\cap X_A, A^n\cap X_A\right)\bydef \End_A\left( A^n\cap X_A\right)$. Since $a_n$ is self-adjoint $a_n|_{A^n\cap X_A}\in  \End^*_A\left( A^n\cap X_A\right)$. Otherwise  $A^n\cap X_A$ is a finitely generated $A$-module, so one has  $\End^*_A\left( A^n\cap X_A\right) \cong \K\left( A^n\cap X_A\right)$, therefore  $a_n|_{A^n\cap X_A}\in \K\left( A^n\cap X_A\right)\subset \K\left(  X_A\right) $. From  $b\in \K\left(X_A \right)$ the Lemma \ref{c_misch_lem} and the Remark \ref{c_misch_rem} it follows that for any $\eps > 0$ there is $N\in \N$ such that
+ However $A^n\cap X_A$ is a finitely generated  projective $A$-module, so it is self-dual (cf. Definition \ref{hm_selfdual_defn}), i.e. $A^n\cap X_A = \left(  A^n \cap X_A\right)'$. It turns out that $ a_n|_{A^n\cap X_A}\in \Hom_A\left( A^n\cap \ell^2\left( D\right), A^n\cap X_A\right)\bydef \End_A\left( A^n\cap\ell^2\left( D\right)\right)$. Since $a_n$ is self-adjoint\\ $a_n|_{A^n\cap \ell^2\left( D\right)}\in  \End^*_A\left( A^n\cap \ell^2\left( D\right)\right)$. Otherwise  $A^n\cap \ell^2\left( D\right)$ is a finitely generated $A$-module, so one has  $\End^*_A\left( A^n\cap \ell^2\left( D\right)\right) \cong \K\left( A^n\cap \ell^2\left( D\right)\right)$, therefore  $a_n|_{A^n\cap  \ell^2\left( D\right)}\in \K\left( A^n\cap \ell^2\left( D\right)\right)\subset \K\left(  X_A\right) $. From  $b\in \K\left(X_A \right)$ the Lemma \ref{c_misch_lem} and the Remark \ref{c_misch_rem} it follows that for any $\eps > 0$ there is $N\in \N$ such that
  $$
  \left\| b_N|_{\ell_2\left( A\right) }- \widetilde b|_{\ell_2\left( A\right) } \right\| < \eps,
  $$
@@ -1247,20 +1247,7 @@ Follows from the Definition \ref{app_unit_defn} and the Lemma \ref{c_misch_lem}.
 %$$
 
 \end{proof}
-\begin{empt}\label{more_p_empt}
-	Consider the situation of the Lemma \ref{c_misch_lem}.
-If both $A$ and $B$ are positive operators such that $A \ge B$ then one has
-	\bean
-\left\| A - A p_n \right\| = \left\| A \left(1-p_n \right)  \right\| = \sqrt{\left\| \left(1-p_n \right)A^2 \left(1-p_n \right)\right\|  } \ge \\
-\\
-\ge \sqrt{\left\| \left(1-p_n \right)B^2\left(1-p_n \right)\right\|  }= 	\left\| B - B p_n \right\|
-\eean
-so we conclude 
-\be\label{more_p_eqn}
-A \ge B \Rightarrow\left\| A - A p_n \right\| \ge 	\left\| B - B p_n \right\|.
-\ee
-\end{empt}
- \begin{lemma}\label{c_misch_a_lem}
+\begin{lemma}\label{c_misch_a_lem}
 	If $K: \ell^2\left( A\right) \to \ell^2\left( A\right)$ is a \textit{compact} operator (in the sense of Mishchenko)	then one has
 	\be
 	\lim_{n \to \infty}\left\|p_n K p_n- K \right\| = 0.
@@ -1302,7 +1289,10 @@ a \bydef		\begin{pmatrix}
 			\left\|a - 	\begin{pmatrix}
 				b & 0\\
 				0&0
-			\end{pmatrix} \right\| \le  \left\| d	 \right\|+ 2 \left\| c	 \right\|\le\left\| d	 \right\|+ 2 \sqrt{\left\| d	 \right\|\left\| b	 \right\|}.
+			\end{pmatrix} \right\| = 	\left\|\begin{pmatrix}
+			0 & c\\
+			c^*&d
+		\end{pmatrix} \right\|\le  \left\| d	 \right\|+ 2 \left\| c	 \right\|\le\left\| d	 \right\|+ 2 \sqrt{\left\| d	 \right\|\left\| b	 \right\|}.
 			\eean 
 		From $\left\| b	 \right\|\le \left\| a	 \right\|$ it follows that $\left\| d	 \right\|+ 2 \sqrt{\left\| d	 \right\|\left\| b	 \right\|}\le  \left\| d	 \right\|+ 2 \sqrt{\left\| d	 \right\|\left\| a	 \right\|} $.
 	\end{proof}
@@ -1324,7 +1314,7 @@ a \bydef		\begin{pmatrix}
 Let $A$, $B_1$, $B_2$ be $C^*$-algebras. If  $\phi: B_1\oplus B_2 \to A$ is a surjective *-homomorphism then $A = \phi\left(B_1 \oplus \{0\}\right) \oplus \phi\left(\{0\} \oplus B_2 \right)$.
 \end{lem}
 \begin{proof}
-If $A \neq \phi\left(B_1\oplus \{0\}  \right) \oplus \phi\left(\{0\} \oplus B_2 \right)$ then there is a nonzero $b \in \phi\left(B_1 \oplus 0\right) \cap \phi\left(\{0\} \oplus B_2 \right)$. If both $b_1 \in B_1$ and $b_2 \in B_2$ are such that $\phi\left(b_1 \oplus 0\right) = \phi\left(0 \oplus b_2\right)= b$ then $\phi\left( b_1 \oplus 0\right)  \phi\left(0 \oplus  b_2^* \right)= b b^*$. Otherwise from $\left( b_1 \oplus 0\right)  \left(0 \oplus  b_2^* \right)= 0$ it follows that $0 = \phi\left( \left( b_1 \oplus 0\right)  \left(0 \oplus  b_2^* \right)\right) = \phi\left( b_1 \oplus 0\right)  \phi\left(0 \oplus  b_2^* \right)= bb^*$, hence  $\left\| b b^*\right\|= \left\| b \right\|^2 = 0$. However we supposed that $b$ is not zero.  The contradiction proves this lemma.
+If $A \neq \phi\left(B_1\oplus \{0\}  \right) \oplus \phi\left(\{0\} \oplus B_2 \right)$ then there is a nonzero $b \in \phi\left(B_1 \oplus \{0\}\right) \cap \phi\left(\{0\} \oplus B_2 \right)$. If both $b_1 \in B_1$ and $b_2 \in B_2$ are such that $\phi\left(b_1 \oplus 0\right) = \phi\left(0 \oplus b_2\right)= b$ then $\phi\left( b_1 \oplus 0\right)  \phi\left(0 \oplus  b_2^* \right)= b b^*$. Otherwise from $\left( b_1 \oplus 0\right)  \left(0 \oplus  b_2^* \right)= 0$ it follows that $0 = \phi\left( \left( b_1 \oplus 0\right)  \left(0 \oplus  b_2^* \right)\right) = \phi\left( b_1 \oplus 0\right)  \phi\left(0 \oplus  b_2^* \right)= bb^*$, hence  $\left\| b b^*\right\|= \left\| b \right\|^2 = 0$. However we supposed that $b$ is not zero.  The contradiction proves this lemma.
 \end{proof}
 \begin{remark}
 	The Lemma \ref{connected_analog_lem} is an algebraical analog of that any connected component of the topological space is mapped into a connected component.
@@ -1337,9 +1327,6 @@ If $A \neq \phi\left(B_1\oplus \{0\}  \right) \oplus \phi\left(\{0\} \oplus B_2 
 If $ \A$ is  category then a related to $ \A$ construction is said to be \textit{natural} or \textit{functorial} if it is invariant with respect to isomorphisms of $ \A$.
 \end{definition}
 
-\begin{definition}\label{spec_mult_defn}
-	Let $A$ be a $C^*$-algebra. The \textit{spectral multiplier} of $A$ is the maximal among $C^*$-subalgebras of $A' \subset M\left(A \right)$ such that the spectrum of $A'$ coincides with the spectrum of $A$ (cf. Proposition \ref{hered_spectrum_prop}). We  denote the spectral multiplier by $M_{\mathrm{sp}}\left(A \right)$.
-\end{definition}
 
 
 
@@ -1488,7 +1475,7 @@ hence one has
 	From the equation \ref{left_right_eqv_equ} it follows that the usage of left $A$-modules in the Definition \ref{fin_uni_defn} is equivalent to the usage of right ones.
 \end{remark}
 \begin{remark}\label{fin_cov_kasp_rem}
-	From the Lemma \ref{fin_hpro_lem} it turns out that $\widetilde{A}$ is a projective $A$-module.
+	From the Corollary \ref{fin_hpro_cor} it turns out that $\widetilde{A}$ is a projective $A$-module.
 \end{remark}
 
 \begin{definition}\label{fin_comp_defn}
@@ -7059,7 +7046,7 @@ is not finite. From the inclusion $G_{\text{red}}\subset G$ it follows that $G$ 
 %	\ee
 %From the Lemma \ref{comm_rep_eq_lem} it turns out that %$\widetilde{a}\widetilde{b} = \widetilde{b}\widetilde{a}$, i.e. %$\widetilde{A}$ is commutative. 
 From the Lemma \ref{comm_emptycomm_lem} it follows that $\widetilde{A}$ is commutative.
-From the Theorem \ref{gelfand-naimark} it turns out that $A \cong C\left( {\mathcal X}\right)  \cong C_0\left( {\mathcal X}\right) $, $\widetilde{A}\cong C\left( \widetilde{\mathcal X}\right)\cong C_0\left( \widetilde{\mathcal X}\right)$ and $\pi$ is equivalent to $C_0\left(p \right)$. According to the Definition \ref{fin_uni_defn} it turns out that  $ C\left( \widetilde{\mathcal X}\right)$ is a finitely generated Hilbert $ C\left({\mathcal X}\right)$-module, so from the Lemma \ref{fin_hpro_lem} it turns out that $ C\left( \widetilde{\mathcal X}\right)$ is a projective $ C\left({\mathcal X}\right)$-module. Hence from the Theorem \ref{pavlov_troisky_thm} it turns out that $p$ is a covering. From the Lemma \ref{cov_spectrum_lem} it turns out that    the covering $p$ is transitive and there is the natural isomorphism $G\cong G\left(\widetilde{   \mathcal X }~|~{   \mathcal X } \right)$.
+From the Theorem \ref{gelfand-naimark} it turns out that $A \cong C\left( {\mathcal X}\right)  \cong C_0\left( {\mathcal X}\right) $, $\widetilde{A}\cong C\left( \widetilde{\mathcal X}\right)\cong C_0\left( \widetilde{\mathcal X}\right)$ and $\pi$ is equivalent to $C_0\left(p \right)$. According to the Definition \ref{fin_uni_defn} it turns out that  $ C\left( \widetilde{\mathcal X}\right)$ is a finitely generated Hilbert $ C\left({\mathcal X}\right)$-module, so from the Corollary \ref{fin_hpro_cor} it turns out that $ C\left( \widetilde{\mathcal X}\right)$ is a projective $ C\left({\mathcal X}\right)$-module. Hence from the Theorem \ref{pavlov_troisky_thm} it turns out that $p$ is a covering. From the Lemma \ref{cov_spectrum_lem} it turns out that    the covering $p$ is transitive and there is the natural isomorphism $G\cong G\left(\widetilde{   \mathcal X }~|~{   \mathcal X } \right)$.
 \end{proof}
 
 The algebraic construction of finite-fold coverings requires the following definition.
@@ -17534,7 +17521,7 @@ From \eqref{isospectral_wa_eqn} - \eqref{isospectral_a_eqn} it turns out
 However $C\left(\widetilde{M}_{\widetilde{\th}} \right)$ is the norm  completion of $\Coo\left(\widetilde{M}_\th \right)$, so from \eqref{isospectral_sum_eqn} it turns out that  $C\left(\widetilde{M}_{\widetilde{\th}} \right)$ is a right Hilbert $C\left({M}_{{\th}} \right)$-module generated by a finite set
 \be\label{isospectral_xi_eqn}
 \Xi=\left\{\widetilde{l}\left(\widetilde{f}_{\left(\widetilde{\iota}, j, k \right)} \right) \in   \Coo\left(\widetilde{M}_{\widetilde{\th}} \right)   \right\}_{\left(\widetilde{\iota}, j, k \right) \in \widetilde{J}}
-\ee  From the Lemma \ref{fin_hpro_lem} it follows that the module is projective.
+\ee  From the Corollary \ref{fin_hpro_cor} it follows that the module is projective.
 So one has the following theorem.
 \begin{thm}\label{isospectral_fin_thm}
 	The triple $\left( C\left( M_\th\right), C\left( \widetilde{M}_{ \widetilde{\th}}\right), G\left(\widetilde{M}~|~ M \right)\right)   $ is an unital noncommutative finite-fold  covering.
@@ -20173,9 +20160,26 @@ We denote by $C_b\left(\mathcal X, M\left( A_x\right)_\bt,  \mathscr F\right)$ t
 		%Theorem 13.6.2. 
 		If $X_A$ is a countably generated Hilbert $A$-module, then $X_A \oplus \ell^2\left( A\right) \cong \ell^2\left( A\right)$.
 	\end{thm}
-	\begin{lemma}\label{fin_hpro_lem}\cite{matro:hcm}
-		Let  $X$ be a finitely generated Hilbert submodule in a Hilbert module $Y$ over an unital $C^*$-algebra. Then $X$ is an orthogonal direct summand in $Y$.
+	\begin{lemma}\label{fin_hpro_lem}\cite{wegge_olsen}%\cite{matro:hcm}
+	%	Let  $X$ be a finitely generated Hilbert submodule in a Hilbert module $Y$ over an unital $C^*$-algebra. Then $X$ is an orthogonal direct summand in $Y$.	Theorem 15.4.2. 
+	Let $A$ be a unital C*-algebra. The following conditions 
+	on a right $A$-module $\E$ are equivalent: 
+	\begin{enumerate}
+		\item [(a)] $\E$  is projective and algebraically finitely generated.
+		\item [(b)] $\E$ s isomorphic as a module to a direct summand in $A^n$ for some $n\in N$. 
+		\item [(c)] $\E$  is isomorphic as a module to a closed, algebraically finitely generated submodule of $\ell^2\left( A\right)$. 
+		\item [(d)] $\E\cong Q\ell^2\left( A\right) $ for some compact projection $Q\in \K\left( \ell^2\left( A\right)  \right)$. 
+		\item [(e)] $\E\cong Q\ell^2\left( A\right) $ for some compact projection $Q\in \K\left( \ell^2\left( A\right)  \right)$ with $Q < P_n$.
+		
+	\end{enumerate}
+In particular, every algebraically finitely generated projective $A$-module can 
+be endowed with a structure as a Hilbert $A$-module.
 	\end{lemma}
+\begin{corollary}\label{fin_hpro_cor}\cite{wegge_olsen}
+	%Corollary 15.4.8. 
+	Any algebraically finitely generated Hilbert module over 
+	a unital $C^*$-algebra is projective. 
+\end{corollary}
 	
 	\begin{remark}\label{fin_gen_un_equ_rem}
 		If $A$ is an unital $C^*$-algebra and $X_A$ is a Hilbert $A$-module then the following conditions are equivalent
