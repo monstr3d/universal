@@ -1744,13 +1744,13 @@ The $C^*$-algebras 	$A^\sim$ and $\widetilde A^\sim$ are given by the equation \
  	\be\label{s_matr_eqn}
  	S = \sum_{j=1}^{n}\widetilde{a}_j\left\rangle \right\langle\widetilde{a}_j
  	\ee
- 	then $S$ is self-adjoint. From the Corollary 1.1.25  of \cite{jensen_thomsen:kk} it turns out that $S$ is strictly positive. Otherwise $P$ is a finitely generated right $A$-module, so from the Exercise  15.O of \cite{wegge_olsen} it follows that $S$ is invertible. Let $\R \subset \R_+$ be a spectrum $S$ of and suppose that $\phi : \R_+ \to \R_+$ is given by $z \mapsto \frac{1}{z}$. If $T = \phi\left(S \right)$ then
+ 	then $S$ is self-adjoint. From the Corollary 1.1.25  of \cite{jensen_thomsen:kk} it turns out that $S$ is strictly positive. Otherwise $P$ is a finitely generated right $A$-module, so from the Exercise  15.O of \cite{wegge_olsen} it follows that $S$ is invertible. The spectrum of $S$ is contained in 
+ 	$\R_+\bydef \left\{x \in \R| x > 0\right\}$, so if $\phi : \R_+ \to \R_+$ is given by $z \mapsto \frac{1}{z}$ then   $T\bydef\phi\left(S \right)\in  \End\left( P\right)_A $. Moreover one has 
  	$$
- 	TS = 1_{\End\left( P\right)_A}
+ 	TS = 1_{\End\left( P\right)_A},
  	$$ 
- 	so if $\widetilde{b}_j = T\widetilde{a}_j$
+ 	it turns out that if $\widetilde{b}_j = T\widetilde{a}_j$
  	then
- 	
  	\be\label{frame_eqn}
  	\sum_{j=1}^{n}T\widetilde{a}_j\left\rangle \right\langle\widetilde{a}_j = \sum_{j=1}^{n}\widetilde{b}_j\left\rangle \right\langle\widetilde{a}_j=	1_{\End\left( P\right)_A}.
  	\ee
@@ -1827,7 +1827,7 @@ So one has
 
 
 \begin{empt}\label{hereditary_dir_sum_empt}
-	Let	$\left(A, \widetilde{A}, G, \pi \right)$ be  a noncommutative finite-fold pre-covering (cf. Definition \ref{fin_pre_defn}). Let $B\subset A$ a connected  $C^*$-subalgebra such that there is  $C^*$-subalgebra
+	Let	$\left(A, \widetilde{A}, G, \pi \right)$ be  a noncommutative finite-fold pre-covering (cf. Definition \ref{fin_pre_defn}). Let $B\subset A$ be a connected  $C^*$-subalgebra such that there is  $C^*$-subalgebra
 	$\widetilde{B}\subset \widetilde{A}$ which satisfies to the following conditions:
 	\begin{itemize}
 		\item $B$ is not a direct sum of more then one $C^*$-algebras.
@@ -1888,7 +1888,7 @@ So one has
    \section{Induced representations}\label{induced_repr_fin_sec}
 
    \begin{defn}\label{induced_repr_defn}
-   	Let $\left(A, \widetilde{A}, G, \pi\right)$ is a finite-fold noncommutative covering such that $\widetilde{A}_A\bydef \widetilde A$ is of the $C^*$-Hilbert $A$-module (cf. \ref{fin_top_lem}, \ref{hilbert_product_defn}). If $\rho: A \to B\left( \H\right)$ is a representation and  $\widetilde{\rho}=\widetilde{A}-\Ind^A_{\widetilde{A}}\rho: \widetilde{A}\to B\left(\widetilde{\H} \right) $ is given by \eqref{ind_repr_eqn}, i.e. $\widetilde{\rho}$ is the induced representation (cf. Definition \ref{ind_repr_defn}) then we say that $\widetilde{\rho}$ \textit{is induced by the pair} $\left(\rho,\left(A, \widetilde{A}, G, \pi\right)  \right)$.  
+   	Let $\left(A, \widetilde{A}, G, \pi\right)$ be a finite-fold noncommutative covering such that $\widetilde{A}_A\bydef \widetilde A$ is of the $C^*$-Hilbert $A$-module (cf. \ref{fin_top_lem}, \ref{hilbert_product_defn}). If $\rho: A \to B\left( \H\right)$ is a representation and  $\widetilde{\rho}=\widetilde{A}-\Ind^A_{\widetilde{A}}\rho: \widetilde{A}\to B\left(\widetilde{\H} \right) $ is given by \eqref{ind_repr_eqn}, i.e. $\widetilde{\rho}$ is the induced representation (cf. Definition \ref{ind_repr_defn}) then we say that $\widetilde{\rho}$ \textit{is induced by the pair} $\left(\rho,\left(A, \widetilde{A}, G, \pi\right)  \right)$.  
    \end{defn}
   \begin{empt}\label{induced_repr_constr_empt}
 	If $X=\widetilde{A}\otimes_A \H$ is the algebraic tensor product then according to \eqref{hilb_prod_eqn} there is a sesquilinear $\C$-valued product $\left(\cdot, \cdot\right)_{X}$ on $X$  given by
@@ -2175,8 +2175,9 @@ where the continuous map $p: \widetilde\sX \to \sX$ is given by the Lemma \ref{c
  \begin{rem}\label{red_sp_rem}
  	From the Lemma \ref{cov_spectrum_lem} and the Proposition \ref{hered_spectrum_prop} it follows that the spectrum of $\widetilde{A}_{\text{red}}$ coincides with the spectrum of $\widetilde{A}$ as a topological space. If $\widetilde{\sX}$ is the spectrum of both $\widetilde{A}_{\text{red}}$ and $\widetilde{A}$ then the inclusion $G \hookto  \Aut\left(\widetilde A \right)$ induces a homomorphism
  	$$
- 	h: G \to \mathrm{Homeo}\left(\widetilde{\sX} \right). 
+ 	h: G \to \mathrm{Homeo}\left(\widetilde{\sX} \right) 
  	$$
+ 	where $\mathrm{Homeo}\left(\widetilde{\sX} \right)$ is a group of homeomorphisms of $\widetilde{\sX}$.
  	If 
  	\be\label{g_red_eqn}
  	G_{\text{red}} \bydef \left\{ g \in \Aut\left(\left.\widetilde{A} \right)~\right|~ g\widetilde a_{\text{red}} = \widetilde a_{\text{red}};~~\forall \widetilde a_{\text{red}} \in \widetilde A_{\text{red}}\right\}\subset G
@@ -2222,7 +2223,7 @@ Let $\left(A, \widetilde{A}, G, \pi \right)$ be	noncommutative finite-fold  quas
 Prove that any free  noncommutative finite-fold quasi-covering  is reduced (cf. Definitions \ref{fin_free_defn} and \ref{fin_red_defn}).
 \end{exercise}
 \begin{definition}\label{simply_connected_red_defn}
-	A $C^*$-algebra $A$ is said to be \textit{reducibly simply connected} if $A$  has no nontrivial reducible noncommutative finite-fold coverings (cf. Definitions \ref{fin_defn} and \ref{fin_red_defn}), or equivalently any disconnected reducible noncommutative finite-fold covering of $A$ (cf. Definition \ref{fin_defn}) is almost trivial (cf. Definition \ref{almost_trivial_defn}).
+	A connected $C^*$-algebra $A$ (cf. Definition \ref{conn_c_a_defn}) is said to be \textit{reducibly simply connected} if $A$  has no nontrivial reducible (connected) noncommutative finite-fold coverings (cf. Definitions \ref{fin_defn} and \ref{fin_red_defn}), or equivalently any disconnected reducible noncommutative finite-fold covering of $A$ (cf. Definition \ref{fin_defn}) is almost trivial (cf. Definition \ref{almost_trivial_defn}).
 \end{definition}
 \begin{definition}\label{fin_cat_defn}
 	For any connected $C^*$-algebra $A$ consider a category $A$ $\mathfrak{FinCov}$-$A$ such that following conditions hold:
@@ -2327,7 +2328,6 @@ Prove that any free  noncommutative finite-fold quasi-covering  is reduced (cf. 
  \section{Strong Morita equivalence of finite-fold coverings}
  
  \paragraph{}
- This section  can be skipped without prejudice to further reading 
  The following result about algebraic Morita equivalence of Galois extensions is in fact rephrasing of described in \cite{auslander:galois,mont:hopf-morita} constructions. 
  Let $\left(A, \widetilde{A}, G\right)$ be an unital finite-fold noncommutative covering. Denote by $\widetilde{A} \rtimes G$ a \textit{crossed product}, i.e. $\widetilde{A} \rtimes G$ is a $C^*$-algebra which coincides with a set of maps from $G$ to $\widetilde{A}$ as a set, and operations on  $\widetilde{A}$ are given by
  \begin{equation}\label{crossed_prod_eqn}
@@ -2682,7 +2682,7 @@ Consider the given by the Corollary \ref{lift_unique_cor} situation. If $f: [0,1
 
    \section{Coverings of operator spaces}
    \paragraph*{}
-   Here we generalize section \ref{cov_fin_bas_sec}.
+   Here we generalize the Section \ref{cov_fin_bas_sec}.
    \begin{definition}\label{op_su_space_defn}
    	Let $Y$ be an unital operator space, and let $C^*_e\left( Y\right)$ be the $C^*$-envelope (cf. Definition \ref{c_env_sp_defn}) of $Y$. 
    	A \textit{sub-unital operator space} is a pair $\left(X, Y \right)$ where  $X$ is a subspace of $Y$ such that $X = Y \oplus \C \cdot 1_{C^*_e\left( Y\right)}$ or $X = Y$.
@@ -3038,7 +3038,7 @@ $\left(\A_{D}, \widetilde \A_{\widetilde D}, G, \psi  \right)$ (cf. Definition \
  		\end{enumerate}
   \end{definition}
 \begin{remark}
-The Definition \ref{unoriented_defn} is motivated by explained in the Section \ref{comm_sp_tr} commutative examples. 
+The Definition \ref{unoriented_defn} is motivated by explained in the Section \ref{comm_sp_tr_sec} commutative examples. 
 \end{remark}
 
  \chapter{Noncommutative infinite coverings}\label{cov_inf_chap}
@@ -3122,7 +3122,7 @@ This section contains a noncommutative generalization of infinite coverings.
 \end{remark}
 
 \begin{remark}\label{implicit_inc_rem}
-Below for all $\la\in\La$ we implicitly assume that $A_\la \subset  C^*$-$lim_{\la \in\La} A_\la$ (cf. Definition \ref{inductive_lim_non_defn}) i.e. for any $\mu, \nu \in \La$ and $a_\mu\in A_\mu, a_\nu\in  A_\nu$ we suppose that both $a_\mu$, $a_\nu$  are elements of the single $C^*$-algebra $C^*$-$lim_{\la \in\La} A_\la$.
+Below for all $\la\in\La$ we implicitly assume that $A_\la \subset  C^*$-$\varprojlim_{\la \in\La} A_\la$ (cf. Definition \ref{inductive_lim_non_defn}) i.e. for any $\mu, \nu \in \La$ and $a_\mu\in A_\mu, a_\nu\in  A_\nu$ we suppose that both $a_\mu$, $a_\nu$  are elements of the single $C^*$-algebra $C^*$-$\varprojlim_{\la \in\La} A_\la$.
 \end{remark}
 % \begin{definition}\label{comp_defn}
 % 	An algebraical finite precovering category said to be an \textit{algebraical  finite covering category} if all morphism of it are finite-fold coverings.   We write $\mathfrak{S} \in \mathfrak{FinAlg}$
@@ -3244,7 +3244,7 @@ Below for all $\la\in\La$ we implicitly assume that $A_\la \subset  C^*$-$lim_{\
 	\ee	
 	
 \end{remark}
-Let  $\mathfrak{S}^{\text{pt}} = \left(\left\{\pi_\la: A \hookto A_\la \right\}, \left\{\pi^\mu_\nu\right\}\right)$  be a {pointed algebraical  finite covering category}  (cf. Definition \ref{comp_pt_defn}). Let $\widehat{A} = C^*\text{-}lim_{\la \in \La} A_{\la}$ be the $C^*$-inductive limit of $C^*$-algebras, and let $\widehat{G}= \varprojlim_{\la \in \La} G\left(
+Let  $\mathfrak{S}^{\text{pt}} = \left(\left\{\pi_\la: A \hookto A_\la \right\}, \left\{\pi^\mu_\nu\right\}\right)$  be a {pointed algebraical  finite covering category}  (cf. Definition \ref{comp_pt_defn}). Let $\widehat{A} \bydef C^*\text{-}\varprojlim_{\la \in \La} A_{\la}$ be the $C^*$-inductive limit of $C^*$-algebras, and let $\widehat{G}= \varprojlim_{\la \in \La} G\left(
 \left.  A_\la~ \right|A\right)$ be the projective limit of groups.
  \begin{definition}\label{equiv_defn}
 	A faithful representation ${\pi}: \widehat{A} \hookto B\left( \H\right)$ is said to be \textit{equivariant} if there is the action  $\widehat{G}\times {\H} \to {\H}$ such that
@@ -3293,7 +3293,7 @@ g \xi^s_{\widehat{a}}\stackrel{\text{def}}{=}	\left(0, ..., \underbrace{f_{gs}\l
 \end{proof}
 
 \begin{definition}\label{special_element_defn}
-	Let $\mathfrak{S}^{\mathrm{pt}}=\left(\left\{\pi_\la: A \hookto A_\la \right\}, \left\{\pi^\mu_\nu\right\}\right)\in \mathfrak{FinAlg}^{\mathrm{pt}}$  be a  {pointed algebraical  finite covering category}. Let $\widehat{A} \bydef C^*\text{-}lim_{\la \in \La} A_{\la}$ be the $C^*$-inductive limit of $C^*$-algebras, and let $\widehat{G}\bydef \varprojlim_{\la \in \La} G\left(
+	Let $\mathfrak{S}^{\mathrm{pt}}=\left(\left\{\pi_\la: A \hookto A_\la \right\}, \left\{\pi^\mu_\nu\right\}\right)\in \mathfrak{FinAlg}^{\mathrm{pt}}$  be a  {pointed algebraical  finite covering category}. Let $\widehat{A} \bydef C^*\text{-}\varprojlim_{\la \in \La} A_{\la}$ be the $C^*$-inductive limit of $C^*$-algebras, and let $\widehat{G}\bydef \varprojlim_{\la \in \La} G\left(
 	\left.  A_\la~ \right|A\right)$ be the projective limit of groups.
 	Let $G_\la \bydef \ker\left(  \widehat G\to  G\left(\left.A_\la~\right|~A \right)\right)$, and let $A_{\la}^{\sim}$ be given by the equation \eqref{unital_notation_eqn}. Let $\pi:\widehat{A}\to B\left(\H \right)$ be an equivariant representation. 
 	A  positive operator $\overline a \in B\left(\H\right)_+$ is said to be $\pi$-\textit{special element of} $\mathfrak{S}^{\mathrm{pt}}$ if for any $\la_0 \in \La$, $\eps > 0$ and  $z \in A_{\la_0}^{\sim}$
@@ -3328,7 +3328,7 @@ g \xi^s_{\widehat{a}}\stackrel{\text{def}}{=}	\left(0, ..., \underbrace{f_{gs}\l
 In the situation of the Definition \ref{special_element_defn} prove that for all $\la\in\La$ and every $z_\la\in M\left( A_\la\right)$ the element $\pi\left(z_\la\right)^*\overline{a} \pi\left(z_\la\right)$ is special. 
 \end{exercise}
 \begin{lemma}\label{special_element_cut_lem}
-Let $\mathfrak{S}^{\mathrm{pt}}=\left(\left\{\pi_\la: A \hookto A_\la \right\}, \left\{\pi^\mu_\nu\right\}\right)\in \mathfrak{FinAlg}^{\mathrm{pt}}$  be a  {pointed algebraical  finite covering category}. Let $\widehat{A} \bydef C^*\text{-}lim_{\la \in \La} A_{\la}$ be the $C^*$-inductive limit of $C^*$-algebras, and let $\widehat{G}\bydef \varprojlim_{\la \in \La} G\left(
+Let $\mathfrak{S}^{\mathrm{pt}}=\left(\left\{\pi_\la: A \hookto A_\la \right\}, \left\{\pi^\mu_\nu\right\}\right)\in \mathfrak{FinAlg}^{\mathrm{pt}}$  be a  {pointed algebraical  finite covering category}. Let $\widehat{A} \bydef C^*\text{-}\varprojlim_{\la \in \La} A_{\la}$ be the $C^*$-inductive limit of $C^*$-algebras, and let $\widehat{G}\bydef \varprojlim_{\la \in \La} G\left(
 \left.  A_\la~ \right|A\right)$ be the projective limit of groups.
 Let $G_\la \bydef \ker\left(  \widehat G\to  G\left(\left.A_\la~\right|~A \right)\right)$, and let $A_{\la}^{\sim}$ be given by \eqref{unital_notation_eqn}. Let $\pi:\widehat{A}\to B\left(\H \right)$ be an equivariant representation. 
 If  $\overline a \in B\left(\H\right)_+$ is a positive element such that   for any $\la_0 \in \La$, $\eps > 0$ and  $z \in A_{\la_0}^{\sim}$ there is
@@ -3454,7 +3454,7 @@ There is the natural $\C$-linear map
 	If $\pi$ is the atomic representation i.e. $\pi = \pi_a:\widehat{A}\to B\left(\widehat\H_a \right)$ then we write $\overline A$ instead  $\overline{A}_\pi$ and we say that $\overline A$ is the \textit{ disconnected algebraical inverse noncommutative limit} of $ \mathfrak{S}^{\mathrm{pt}}$. Similarly $G\left(\left.\overline{A}~\right| A \right)\stackrel{\mathrm{def}}{=} \widehat{G}$. The triple  $\left(A, \overline{A}, G\left(\left.\overline{A}~\right| A \right)\right)$ is said to be the  \textit{disconnected algebraical infinite noncommutative covering} of $ \mathfrak{S}^{\mathrm{pt}} $.  We  say that $G\left(\left.\overline{A}~\right| A\right)$ is the \textit{disconnected covering transformation group} of $ \mathfrak{S}^{\mathrm{pt}}$.
 \end{definition}
 \begin{remark}\label{cup_inf_rem}
-Since $\cup A_\la$ is dense subalgebra of $\varprojlim A_\la$ with respect to $C^*$-norm the disconnected algebraical infinite noncommutative covering is a genrerated by elements  $\pi\left(x^\cup\right)\overline a \pi\left(y^\cup\right)\in B\left(\H\right)$ where $\overline a\in B\left(\H \right)$ is a special element, and  $x^\cup, y^\cup\in \cup A_\la$.
+Since $\cup A_\la$ is dense subalgebra of $C^*$-$\varprojlim A_\la$ with respect to $C^*$-norm the disconnected algebraical infinite noncommutative covering is a genrerated by elements  $\pi\left(x^\cup\right)\overline a \pi\left(y^\cup\right)\in B\left(\H\right)$ where $\overline a\in B\left(\H \right)$ is a special element, and  $x^\cup, y^\cup\in \cup A_\la$.
 \end{remark}
 
 \begin{lemma}\label{spec_borel_lem}
@@ -3469,13 +3469,13 @@ Follows from the Corollary \ref{spec_borel_cor} and Definitions \ref{weakly_spec
 \begin{lemma}\label{atomic_universal_lem}
 If $\widehat \pi : \widehat{ A}\to B\left( \widehat \H\right)$ is the universal representation then there is the natural *-isomorphism
 \be\label{atomic_universal_eqn}
-\overline{A}_{\widehat \pi}\cong\overline{A}\bydef\overline{A}_{\widehat \pi_a}.
+\overline{A}_{\widehat \pi}\cong\overline{A}\bydef\overline{A}_{\widehat \pi_a}
 \ee
-
+where  $\widehat \pi_a : \widehat{ A}\to B\left( \widehat \H_a\right)$ is the atomic representation (cf. Definition \ref{atomic_repr_defn}).
 \end{lemma}
 
 \begin{proof}
-	If $\widehat \pi_a : \widehat{ A}\to B\left( \widehat \H_a\right)$ is the atomic representation then from the Definition \ref{main_defn_full_defn} it follows that $\overline{A} \bydef \overline{A}_{\widehat \pi_a}\subset B\left( \widehat \H_a\right)$.
+From the Definition \ref{main_defn_full_defn} it follows that $\overline{A} \bydef \overline{A}_{\widehat \pi_a}\subset B\left( \widehat \H_a\right)$.
 	From the Theorem \ref{env_alg_thm} it turns out that there is the surjective *-homomorphism $p:\widehat \pi\left( \widehat A\right)''\to \widehat \pi_a\left(\widehat A \right)''$. From the Corollary \ref{atomic_repr_cor} one has the inclusion $\mathscr B\left(\widehat A\right) \subset B\left( \widehat\H_a\right)$ where $\mathscr B\left(\widehat A\right)$ is {enveloping Borel *-algebra}  of $\widehat A$ (cf. Definition \ref{borel_env_defn}). It follows that the restriction 
 	$$
 	\left.p\right|_{\mathscr B\left(\widehat A\right)}: \mathscr B\left(\widehat A\right) \to p\left(\mathscr B\left(\widehat A\right) \right) 
@@ -3566,7 +3566,7 @@ Both inclusions $\overline{A}_{\widehat \pi_a}\subset  \overline{A}_{\widehat \p
 	\end{split}
 	\eean
 	(cf. Definition \ref{main_defn_full_defn}).
-	Let $\widehat A \bydef C^*$-$lim_{\la\in\La} A_\la$ be the direct limit, and let $\widehat\sX$ be the spectrum of $\widehat A$. If   	$\overline	\sX$ is the spectrum of  $\overline A $ then there is the natural  set theoretic injective   map 
+	Let $\widehat A \bydef C^*$-$\varprojlim_{\la\in\La} A_\la$ be the direct limit, and let $\widehat\sX$ be the spectrum of $\widehat A$. If   	$\overline	\sX$ is the spectrum of  $\overline A $ then there is the natural  set theoretic injective   map 
 	\be\label{spectrum_injective_eqn}
 	\varphi: \widehat\sX\hookto \overline
 	\sX
@@ -3669,7 +3669,7 @@ From the Lemma \ref{spec_el_repr_lem} the following corollary can be deduced.
 	$
 	\left\{\rep_{\varphi\left(\widehat x\right)  }\right\}_{\widehat x \in \widehat \sX}
 	$
-	where $\widehat \sX$ is the spectrum of $C^*$-$lim_{\la\in\La} A_\la$ and the map $\varphi$ is given by the equation \eqref{spectrum_injective_eqn}.
+	where $\widehat \sX$ is the spectrum of $C^*$-$\varprojlim_{\la\in\La} A_\la$ and the map $\varphi$ is given by the equation \eqref{spectrum_injective_eqn}.
 \end{corollary}
  \begin{definition}\label{main_sdefn}
 	Any  maximal connected $C^*$-subalgebra $\widetilde{A}_\pi \subset \overline{A}_\pi$  is said to be a $\pi$-\textit{connected component} of $\mathfrak{S}$. The maximal subgroup $G_\pi\subset G\left(\overline{A}_\pi~|~ A\right)$ among subgroups $G\subset G\left(\overline{A}_\pi~|~ A\right)$ such that $G\widetilde{A}_\pi=\widetilde{A}_\pi$   is said to be a $\pi$-\textit{connected component} $\widetilde{A}_\pi$-\textit{invariant group} of $\mathfrak{S}^{\mathrm{pt}}$. If $\pi$ is the atomic representation then  $\widetilde{A}_\pi \subset \overline{A}_\pi$  is said to be a \textit{connected component} $\mathfrak{S}$ and we write $\widetilde{A}\bydef \widetilde{A}_\pi$.
@@ -3717,7 +3717,7 @@ In this case we write $~\varprojlim  \mathfrak{S}^{\mathrm{pt}}\stackrel{\mathrm
 \end{remark}
 
 \begin{remark}\label{rep_x_rem}
-If $\widehat \sX$ is the spectrum of the $C^*$-inductive limit $C^*$-$lim_{\la\in\La}A_\la$ then for all $\widehat x$ and $\la\in \La$ there are the natural representations
+If $\widehat \sX$ is the spectrum of the $C^*$-inductive limit $C^*$-$\varprojlim_{\la\in\La}A_\la$ then for all $\widehat x$ and $\la\in \La$ there are the natural representations
 \be\label{rep_xl_eqn}
 \rep_{ \widehat{x}}: A_\la\to B\left(\H_{\widehat{x}}\right).
 \ee
@@ -12409,7 +12409,7 @@ In the introduction of Soviet edition of the book "Basic Number Theory" \cite{we
 \paragraph*{}
 \textit{With this I would like to emphasize that [the current book] is not simply a textbook for the future number theorists. There was a time when Galois theory was considered as something abstract and complicated, demanded only by specialists. Moreover, I knew quite a few excellent mathematicians of my generation that overtly confessed in their complete ignorance about Galois theory and, perhaps, even took pride in that. Today, everyone perfectly understands that [Galois theory] is one of the 'stem' topics, which every serious student of mathematics has to get familiar with during the first years of their study. In my opinion, the same holds for the elementary theory of algebraic number fields, including the class field theory, and I hope that this book will ultimately promote this. I will be glad if the present translation is useful for the new generation of Soviet mathematicians in that regard}.
 \paragraph*{}
-If $K$ is a local field (resp. $F$ is an $\mathbf{A}$-field) the class field theory \cite{weil:basic_number_theory} yields  homomorphisms
+This book uses this point. If $K$ is a local field (resp. $F$ is an $\mathbf{A}$-field) the class field theory \cite{weil:basic_number_theory} yields  homomorphisms
 \be\label{cls_f_eqn}
 \begin{split}
 	K^\times \to \mathrm{Gal}\left(K^\mathrm{ab}/K \right),\\
@@ -12417,10 +12417,10 @@ If $K$ is a local field (resp. $F$ is an $\mathbf{A}$-field) the class field the
 	\end{split}
 \ee
 Using in the Sections \ref{free_special_case} and \ref{torsion_special_case}  constructions one can define the Hurewics homomorphism similarly to \eqref{cls_f_eqn} one can define a homomorphism
-\be
-K^1\left(A\right)\to \pi_1\left( A\right) /\left[\pi_1\left(A\right), \pi_1\left(A\right)\right].
+\be\label{h_f_eqn}
+ \pi_1\left( A\right) /\left[\pi_1\left(A\right), \pi_1\left(A\right)\right]\to K^1\left(A\right).
 \ee
-Elements of $K^1\left(A\right)$ can be represented by Fredholm operators which are invertible modulo compact operators, otherwise both $K^\times$ and 	$F^\times_{\mathbf{A}}/F^\times$ correspond to invertible elements of fields. Overwise the Galois groups $\mathrm{Gal}\left(K^\mathrm{ab}/K \right)$ are analogs  $\mathrm{Gal}\left(F^\mathrm{ab}/F \right)$ of the  Abelian fundamental group $\left[\pi_1\left(A\right), \pi_1\left(A\right)\right]$.
+Elements of $K^1\left(A\right)$ can be represented by Fredholm operators which are invertible modulo compact operators, otherwise both $K^\times$ and 	$F^\times_{\mathbf{A}}/F^\times$ correspond to invertible elements of fields. Overwise the Galois groups $\mathrm{Gal}\left(K^\mathrm{ab}/K \right)$ are analogs  $\mathrm{Gal}\left(F^\mathrm{ab}/F \right)$ of the  Abelian fundamental group $\left[\pi_1\left(A\right), \pi_1\left(A\right)\right]$. The obtaining of   \eqref{cls_f_eqn} and \eqref{h_f_eqn} uses similar technical methods.
 
 
 
@@ -13027,7 +13027,7 @@ There are the natural inclusions $\Coo\left( M\right)\otimes \mathbb{M}_n\left( 
 
 \subsection{Unoriented spectral triples}\label{ctr_sp_tr} 
 
-Consider the described in the Section \ref{comm_sp_tr} situation, i.e. one has
+Consider the described in the Section \ref{comm_sp_tr_sec} situation, i.e. one has
 
 \begin{itemize}
 	\item The Riemannian manifold $\widetilde M$ with the spinor bundle $\widetilde\SS$ such that there is the spectral triple $\left(\Coo\left(\widetilde{M},  \right) , L^2\left(\widetilde{M},\widetilde{\sS} \right), \widetilde\Dslash \right)$.
