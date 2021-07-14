@@ -4256,22 +4256,45 @@ it turns out that  $\widetilde X'\cong\C\widetilde X$.
 \paragraph{}
 Very natural choice of fundamental group is proposed in \cite{milne:etale}, where the fundamental group of algebraic manifold is an inverse limit of finite covering groups. However this theory does not yield the fundamental group, it provides its the profinite completion of the fundamental group. Another way is the construction of the noncommutative universal covering using  construction \ref{inf_bas_constr_sec}. This  construction yields fundamental group in the commutative case $A = C_0\left( \mathcal X\right)$ for described below class of spaces.
 \subsection{Universal coverings of $C^*$-algebras}\label{uni_sec}
-\begin{definition}\label{unicov_defn} 
+\begin{definition}\label{fg_bas_defn} 
 	Let $A$ be a connected $C^*$-algebra. Let us consider the family $\left\{ \pi_\la:A \hookto A_\la\right\}_{\la \in \La} $  \textit{all} noncommutative finite-fold coverings (cf. Definition \ref{fin_defn}) (resp. \textit{all} reduced noncommutative finite-fold coverings (cf. Definition \ref{fin_red_defn}))  (resp. \textit{all} free noncommutative finite-fold coverings (cf. Definition \ref{fin_free_defn})) of $A$. Suppose that the family $\left\{ \pi_\la:A \hookto A_\la\right\}_{\la \in \La}$ is an {algebraical  finite covering category} (cf. Definition \ref{comp_defn}).
- Denote by $\mathfrak{S} = \left\{ \pi_\la:A \hookto A_\la\right\}_{\la \in \La}$ and suppose that there is   a  {pointed  algebraical  finite covering} category \be\label{unicov_eqn}
- \mathfrak{S}^{\mathrm{pt}} = \left( \left\{ \pi_\la:A \hookto A_\la\right\}_{\la\in\La},\left\{\pi^\nu_\mu\right\}_{\substack{ \mu, \nu \in \La \\ \mu \ge \nu}} \right)\ee  which is good.
-	The { connected infinite noncommutative covering }  $\left(A, \widetilde{A}, G\left(\left.\widetilde{A}~\right|{A}  \right) \right)$ of $\mathfrak{S}^{\mathrm{pt}}$ is said to be the \textit{universal  covering} (resp. \textit{reduced universal  covering}) (resp. \textit{free universal  covering}) 
-	of $A$. We also say that $\widetilde{A}$ the \textit{universal  covering} (resp. \textit{reduced universal  covering})  (resp. \textit{free universal  covering}) of $A$. 
+	Denote by $\mathfrak{S} = \left\{ \pi_\la:A \hookto A_\la\right\}_{\la \in \La}$ and suppose that there is   a  {pointed  algebraical  finite covering} category $$\mathfrak{S}^{\mathrm{pt}} = \left( \left\{ \pi_\la:A \hookto A_\la\right\}_{\la\in\La},\left\{\pi^\nu_\mu\right\}_{\substack{ \mu, \nu \in \La \\ \mu \ge \nu}} \right)$$  which is good.
+	The { connected infinite noncommutative covering }  $\left(A, \widetilde{A}, G\left(\left.\widetilde{A}~\right|{A}  \right) \right)$ of $\mathfrak{S}$ is said to be the \textit{universal  covering} (resp. \textit{reduced universal  covering}) (resp. \textit{free universal  covering}) 
+	of $A$. We also say that $\widetilde{A}$ the \textit{universal  covering} (resp. \textit{reduced universal  covering})  (resp. \textit{free universal  covering}) of $A$. The group $G\left(\left.\widetilde{A}~\right|{A}  \right)$  is said to be the \textit{fundamental group} (resp. \textit{reduced fundamental group}) (resp. \textit{free fundamental group}) 
+	of the pair  $\left( A, \left\{\pi^\nu_\mu\right\}\right) $. We use the following notation
+	\be\label{fg_bas_eqn}
+	\pi_1\left(A, \left\{\pi^\nu_\mu\right\}_{\substack{ \mu, \nu \in \La \\ \mu \ge \nu}} \right) \stackrel{\mathrm{def}}{=} G\left(\left.\widetilde{A}~\right|{A} \right).
+	\ee
+	
 \end{definition}
-\begin{definition}\label{fg_bas_defn} Similarly to \eqref{unicov_eqn} consider 
+
+\begin{remark}\label{fg_bas_rem}
+	In the Definition \ref{fg_bas_defn} the algebra $\widetilde{A}$ does not depend on a base-point $\left\{\pi^\nu_\mu\right\}$ up to isomorphism (cf. Remark \ref{base_point_change_rem}). 
+\end{remark}
+
+\begin{lemma}\label{change_point_lem}
+	Let $\widehat{g} \in \widehat{G}=\varprojlim G\left(\left.A_\la~\right| A,\left\{\pi^\mu_\nu\right\}  \right)$ and let $\rho^\mu_\nu  = \pi^\mu_\nu \circ h_\mu\left( \widehat{g}\right)$ then there is is the natural isomorphism
+	\be
+	\begin{split}
+		\pi_1\left(A, \left\{\pi^\nu_\mu\right\} \right) \xrightarrow{\approx}	\pi_1\left(A, \left\{\rho^\nu_\mu\right\} \right),\\
+		g \mapsto \widehat{g} g \widehat{g}^{-1}.
+	\end{split}
+	\ee 
+\end{lemma}
+\begin{proof}
+	Follows from the Lemma \ref{base_point_change_lem} (cf. Remark \ref{base_point_change_gr_rem}).
+\end{proof}
+
+
+\begin{definition}\label{fg_s_bas_defn} Similarly to \eqref{fg_bas_defn} consider 
 \bean
 \mathfrak{S}_\K^{\mathrm{pt}} = \left( \left\{ \rho_\la:A\otimes \K \hookto A^\K_\la\right\}_{\la\in\La},\left\{\rho^\nu_\mu\right\}_{\substack{ \mu, \nu \in \La \\ \mu \ge \nu}} \right)\eean
 If 	$\left(A\otimes\K, \widetilde{A}_\K, G\left(\left.\widetilde{A}_\K~\right|{A}\otimes\K  \right) \right)$ of $\mathfrak{S}^{\mathrm{pt}}$ is \textit{universal  covering} (resp. \textit{reduced universal  covering}) (resp. \textit{free universal  covering}) 
 of $A\otimes\K$.
-	The group $G\left(\left.\widetilde{A}_\K~\right|{A}\otimes \K \right)$  is said to be the \textit{fundamental group} (resp. \textit{reduced fundamental group}) (resp. \textit{free fundamental group}) 
+	The group $G\left(\left.\widetilde{A}_\K~\right|{A}\otimes \K \right)$  is said to be the \textit{stable fundamental group} (resp. \textit{stable reduced fundamental group}) (resp. \textit{stable free fundamental group}) 
 	of the pair  $\left( A, \left\{\rho^\nu_\mu\right\}\right) $. We use the following notation
-	\be\label{fg_bas_eqn}
-	\pi_1\left(A, \left\{\rho^\nu_\mu\right\}_{\substack{ \mu, \nu \in \La \\ \mu \ge \nu}} \right) \stackrel{\mathrm{def}}{=} G\left(\left.\widetilde{A}_\K~\right|{A}\otimes\K \right).
+	\be\label{fg_stable_bas_eqn}
+	\pi^{\mathrm{stable}}_1\left(A, \left\{\rho^\nu_\mu\right\}_{\substack{ \mu, \nu \in \La \\ \mu \ge \nu}} \right) \stackrel{\mathrm{def}}{=} G\left(\left.\widetilde{A}_\K~\right|{A}\otimes\K \right).
 	\ee
 	In this definition  the algebra $\widetilde{A}_\K$ does not depend on a base-point $\left\{\rho^\nu_\mu\right\}$ up to isomorphism (cf. Remark \ref{base_point_change_rem}). So we use the following notation
 	\be\label{fg_bas_short_eqn}
@@ -4286,19 +4309,6 @@ The motivation of  usage of $A\otimes\K$ instead of $A$ is explained in the Sect
 
 
 %
-\begin{lemma}\label{change_point_lem}
-Let $\widehat{g} \in \widehat{G}=\varprojlim G\left(\left.A_\la~\right| A,\left\{\pi^\mu_\nu\right\}  \right)$ and let $\rho^\mu_\nu  = \pi^\mu_\nu \circ h_\mu\left( \widehat{g}\right)$ then there is is the natural isomorphism
-\be
-\begin{split}
-		\pi_1\left(A, \left\{\pi^\nu_\mu\right\} \right) \xrightarrow{\approx}	\pi_1\left(A, \left\{\rho^\nu_\mu\right\} \right),\\
-		g \mapsto \widehat{g} g \widehat{g}^{-1}.
-\end{split}
-\ee 
-\end{lemma}
-\begin{proof}
-Follows from the Lemma \ref{base_point_change_lem} (cf. Remark \ref{base_point_change_gr_rem}).
-\end{proof}
-
 \subsection{Universal coverings of operator spaces}
 \paragraph{} Here the generalization \ref{uni_sec} is being considered here. 
 \begin{definition}\label{fg_bas_os_defn} 
@@ -16802,7 +16812,7 @@ where $C\left( \T^2_\th\right)$ is a noncommutative torus (cf. Definition \ref{n
 \ee
 From the Theorem \ref{blowing_main_thm} it follows that 
 \be
-\pi_1\left( C\left( \T^2_\th\right)\right)\cong \pi_1\left(C^*_r\left(\T^2, \sF_\th\right)\right)\cong \pi_1\left( \T^2, t_0\right)\cong \Z^2. 
+\pi^{\mathrm{stable}}_1\left( C\left( \T^2_\th\right)\right)\cong \pi_1\left(C^*_r\left(\T^2, \sF_\th\right)\right)\cong \pi_1\left( \T^2, t_0\right)\cong \Z^2. 
 \ee
 (cf. (cf. Definition \ref{fg_bas_defn} and the Corollary \ref{foli_n_cat_fg_cor}) where the reduced fundamental group is implied. Since $p:\R^2\to \T^2$ is the universal covering the  fundamental group $\pi_1\left(C^*_r\left(\T^2, \sF_\th\right)\right)$ comes from the following reduced universal covering
 \be
@@ -20353,8 +20363,6 @@ A commutative separable  unital $C^*$-algebra $A$ is $\mathrm{DI}$ if and only i
 	
 	
 	\section{Strong Morita equivalence for $C^*$-algebras}\label{strong_morita_sec}
-	
-	
 	\paragraph*{}
 	The notion of the strong Morita
 	equivalence was introduced by Rieffel.
@@ -20436,6 +20444,8 @@ A commutative separable  unital $C^*$-algebra $A$ is $\mathrm{DI}$ if and only i
 		if $B$ and $E$ are strongly Morita equivalent and if they both 
 		possess strictly positive elements, then they are stably isomorphic.	
 	\end{theorem}
+
+COMMUTATIVE MORITA !!!
 	% REPLACE WITH rieffel_homeo_cor and CHECK 
 	%\begin{remark}\label{rieffel_homeo_rem}
 	%	From the Theorem \ref{morita_herm_thm} it turns out that any $A$-$B$-equivalence bimodule $h_X$ induces a bijective map $\hat B \xrightarrow{\approx} \hat A$. Indeed $h_X$ is a homeomorphism (cf. Section 5.1 \cite{rae:ctr_morita}).
