@@ -3934,29 +3934,41 @@ Denote by
 	\eean 
 There is the natural action   $A^\cup\times \mathfrak B^\cup\to \mathfrak B^\cup$  so for any  $a \in A^\cup$ there is a graph norm $\left\| \cdot\right\|_a : \mathfrak B^\cup\to \R_+$ (cf. Definition \ref{def:rep_Hilbert_module}. Let $\widehat  {\mathfrak B}$ be a completion of  ${\mathfrak B}^\cup$ with respect to the family of all graph norms. For all $ b \in \widehat B$ and $\mathfrak b \in \widehat  {\mathfrak B}$ there are limits $ b = \lim_{\a \in \mathscr A}  b_\a$ and  $\mathfrak b = \lim_{\bt \in \mathscr B} \mathfrak b_\bt$ with respect to $C^*$-norm and graph topology. So there is a limit
 $
-\lim_{\a \in \mathscr A}\lim_{\bt \in \mathscr B} \xi_\bt b_\a \in \widehat  {\mathfrak B}
+\lim_{\a \in \mathscr A}\lim_{\bt \in \mathscr B}  \mathfrak b_\bt b_\a \in \widehat  {\mathfrak B}
 $
-with respect to graph topology. We define $\mathfrak b b \bydef \lim_{\a \in \mathscr A}\lim_{\bt \in \mathscr B} \mathfrak b_\bt b_\a$, so there is a right action $\widehat  {\mathfrak B}\times \widehat  { B}\to \widehat  {\mathfrak B}$. If $\D \bydef \widehat  {\mathfrak B}\H_a$ then $\D$ is a dense subspace of $\H_a$.  For all $\la \in \La$  the action $A_\la \times  \widehat  {\mathfrak B}\to \widehat  {\mathfrak B}$ induces the action $A_\la \times  \widehat \D\to \widehat  \D$, it follows that there is the natural inclusion $A_\la \hookto\L^\dagger\left(\D\right)$ where $\L^\dagger\left(\D\right)$ is given by \eqref{l_dag_eqn}.
-	Define a  right action given by
-	\be\label{r_acr_eqn}
-	\begin{split}
-	\H_a\times \overline B\to \H_a,\\
-	\forall\xi \in \H_a\quad \forall b \in \overline B\quad		\xi b \bydef b^*\xi.
-	\end{split}
-	\ee
-	where the inclusion 	$\overline B \subset B\left(\H_a\right)$ is implied.
-If $\L^\dagger\left(\D\right)$ is given by \eqref{l_dag_eqn} then an unbounded operator $a \in \L^\dagger\left(\D\right) $ is said to be \emph{admissible} if following conditions hold:
+with respect to graph topology. We define $\mathfrak b b \bydef \lim_{\a \in \mathscr A}\lim_{\bt \in \mathscr B} \mathfrak b_\bt b_\a$, so there is a right action $\widehat  {\mathfrak B}\times \widehat  { B}\to \widehat  {\mathfrak B}$. If $\widehat\D \bydef \widehat  {\mathfrak B}\H_a$ then $\D$ is a dense subspace of $\H_a$.  For all $\la \in \La$  the action $A_\la \times  \widehat  {\mathfrak B}\to \widehat  {\mathfrak B}$ induces the action $A_\la \times  \widehat \D\to \widehat  \D$, it follows that there is the natural inclusion $A_\la \hookto\L^\dagger\left(\widehat\D\right)$ where $\L^\dagger\left(\widehat\D\right)$ is given by \eqref{l_dag_eqn}.
+If $\L^\dagger\left(\widehat \D\right)$ is given by \eqref{l_dag_eqn} then an unbounded operator $a \in \L^\dagger\left(\widehat \D\right) $ is said to be \emph{admissible} if following conditions hold:
 \bea\label{adm_ch1_eqn}
-\forall\xi\in \D\quad \forall b \in \overline B \setminus\widetilde{B}\quad  \left(a\xi \right) b = 0,\\
+ \forall\xi\in \widehat\D\quad \forall b \in \overline B \setminus\widetilde{B}\quad  ba\xi = 0,\\
 \label{adm_ch2_eqn}
- \forall b \in K\left( \overline{B}\right)\quad  \exists \la \in \La\quad  \exists a_\la \in A_\la \quad \forall \xi\in \D\quad  \left( a  \xi\right)    b = \left( a_\la  \xi  \right)  b. 
+ \forall b \in K\left( \overline{B}\right)\quad  \exists \la \in \La\quad  \exists a_\la \in A_\la \quad \forall \xi\in \widehat\D\quad  b \left( a  \xi \right) = b \left( a_\la  \xi\right) . 
 \eea
 where $K\left( \overline{B}\right)$ is the Pedersen's ideal of $\overline{B}$ (cf. Definition \ref{peder_id_defn}). Left and right parts of above equations are elements of $\H_a$. 
+\begin{lemma}
+	The set $\widetilde A\subset \L^\dagger\left(\D\right)$ of admissible elements is closed with respect to the multiplication and the involution of $\L^\dagger\left(\D\right)$, i.e. $\widetilde A$ is an involutive algebra.
+\end{lemma}
+\begin{proof}
+It is clear that $\widetilde a^*\in \widetilde A$ for all $\widetilde a\in\widetilde A$. If $\widetilde a_1,\widetilde a_2\in  \widetilde A$ are admissible  then $\widetilde b_1 \bydef a_1^*, \widetilde b_2\bydef  a_2^*\widetilde A$ are admissible. Let $b \in K\left( \overline{B}\right)$ be any element. 
+One has $\widetilde a_2\xi \in \widehat\D$, it turns out that there is $a_1^{\la_1}\in A_{\la_1}$ such that
+$$
+ b \left( a_1^{\la_1}a_2  \xi \right)=  b \left( a_1a_2  \xi \right)
+$$
+One the other hand $b_2^{\la_2}\in A_{\la_2}$ such that
+$$
+ b \left( b_2^{\la_2}b_1  \xi \right)=  b \left( b_2b_1  \xi \right)
+$$
+So if $a_2^{\la_2}\bydef \left(b_2^{\la_2} \right)$ then  
+$$
+b \left( a_1a_2  \xi \right)= b \left( a_1^{\la_1}a_2^{\la_2}  \xi \right).
+$$
+\end{proof}
+
 \end{empt}
+
 \begin{exercise}
 	Prove following statements:
 \begin{enumerate}
-	\item The set $\widetilde A\subset \L^\dagger\left(\D\right)$ of admissible elements is closed with respect to the multiplication and the involution of $\L^\dagger\left(\D\right)$, i.e. $\widetilde A$ is an involutive algebra.
+	\item !!! DELETE The set $\widetilde A\subset \L^\dagger\left(\D\right)$ of admissible elements is closed with respect to the multiplication and the involution of $\L^\dagger\left(\D\right)$, i.e. $\widetilde A$ is an involutive algebra.
 	\item There is the natural action
 	$$
 	G\left(\left.\widetilde B \right| B\right) \times \widetilde A \to \widetilde A.

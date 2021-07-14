@@ -20,6 +20,10 @@ namespace Scripts
           static internal readonly string LongX = "X - Control 1.Formula_1";
           static internal readonly string LongXK = "X - Control 1.k";
           static internal readonly string XFrameZ = "X-Frame.z";*/
+
+
+        static internal readonly string SelfRotationAxisPivot = "Self Rotation Axis Pivot";
+
         static internal readonly string LongXK = "X-Control 1/Mod.k";
         static internal readonly string ShortXK = "X-Control 2/Mod.k";
         static internal readonly string LongXC = "X-Control 1/Epsilon.Formula_1";

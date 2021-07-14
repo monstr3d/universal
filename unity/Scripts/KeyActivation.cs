@@ -31,6 +31,7 @@ namespace Scripts
 
         static internal IBlinked blinkedLamps;
 
+        static float earthScale = 1;
 
         #region Ctor
 
@@ -102,9 +103,10 @@ namespace Scripts
                 {
                     explosion = m.gameObject.GetGameObjectComponents<Component>()["Explosion"][0].gameObject;
                 }
-                if (m.name == Level0.Earth)
+                if (m.name == Level0.SelfRotationAxisPivot)
                 {
                     earth = m.gameObject;
+                    SetEathScale();
                     return;
                     // MeshRenderer mr = earth.GetGameObjectComponents<MeshRenderer>()[Level0.Earth][0];
                     // mr.materials[0].mainTexture = StaticExtensionUnity.Activation.textures[0];
@@ -112,8 +114,10 @@ namespace Scripts
             }
         }
 
+
         int IActivation.SetConstants(float[] constants)
         {
+            earthScale = constants[2];
             return 0;
         }
 
@@ -179,6 +183,9 @@ namespace Scripts
 
         #endregion
 
+
+        #region Private Members
+
         void SetKey(KeyCode keyCode)
         {
             if (keyCode == Pause)
@@ -191,6 +198,36 @@ namespace Scripts
                 ResultIndicator.Stop();
             }
         }
+
+        private static List<string> scaleNames = new List<string>()
+        {
+            "Earth",
+             "Atmosphere",
+            "Clouds",
+            "Clouds Shadow"
+        };
+
+        List<string> used = new List<string>();
+
+        void SetEathScale()
+        {
+            var tt = earth.GetComponentsInChildren<Transform>();
+            foreach (var t in tt)
+            {
+                string n = t.name;
+                if (scaleNames.Contains(n))
+                {
+                    float sc = earthScale;
+                    if (n != "Earth")
+                    {
+                        sc *= t.localScale[0];
+                    }
+                    t.localScale = new Vector3(sc, sc, sc);
+                }
+            }
+        }
+
+        #endregion
 
     }
 }
