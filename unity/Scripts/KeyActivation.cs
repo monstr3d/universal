@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-using Unity.Standard;
 using Scada.Interfaces;
 using Scada.Desktop;
+
+using Unity.Standard;
 using Unity.Standard.Interfaces;
 
 namespace Scripts
@@ -183,7 +184,6 @@ namespace Scripts
 
         #endregion
 
-
         #region Private Members
 
         void SetKey(KeyCode keyCode)
@@ -204,7 +204,8 @@ namespace Scripts
             "Earth",
              "Atmosphere",
             "Clouds",
-            "Clouds Shadow"
+            "Clouds Shadow",
+            "Earth 64K"
         };
 
         List<string> used = new List<string>();
@@ -215,13 +216,21 @@ namespace Scripts
             foreach (var t in tt)
             {
                 string n = t.name;
+                           if (n != "Earth 64K")
+                             {
+                                 float sc = earthScale;
+                                 if (n != "Earth")
+                                 {
+                                     sc *= t.localScale[0];
+                                 }
+                                 t.localScale = new Vector3(sc, sc, sc);
+                                 return;
+                             }
+                             continue;
                 if (scaleNames.Contains(n))
                 {
                     float sc = earthScale;
-                    if (n != "Earth")
-                    {
-                        sc *= t.localScale[0];
-                    }
+                    sc *= t.localScale[0];
                     t.localScale = new Vector3(sc, sc, sc);
                 }
             }
