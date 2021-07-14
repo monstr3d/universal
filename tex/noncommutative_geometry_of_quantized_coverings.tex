@@ -3927,26 +3927,43 @@ In the situation \ref{comp_chull_empt} we say that $\mathfrak{S}^{\text{pt}}_A$ 
 
 Using the following natural inclusions 
 Denote by
-	\bean
-	B^\cup \bydef \cup B_\la,\\
+	\be\label{c_hull_cup_eqn}
+	\begin{split}
+		A^\cup \bydef \cup A_\la,\\
+B^\cup \bydef \cup B_\la,\\
 \mathfrak B^\cup\bydef \mathfrak\cup \mathfrak B_\la,\\	
 %\mathfrak A \bydef \End_{	B^\cup }\left( \mathfrak B^\cup\right) 
-	\eean 
+	\end{split}
+	\ee
 There is the natural action   $A^\cup\times \mathfrak B^\cup\to \mathfrak B^\cup$  so for any  $a \in A^\cup$ there is a graph norm $\left\| \cdot\right\|_a : \mathfrak B^\cup\to \R_+$ (cf. Definition \ref{def:rep_Hilbert_module}. Let $\widehat  {\mathfrak B}$ be a completion of  ${\mathfrak B}^\cup$ with respect to the family of all graph norms. For all $ b \in \widehat B$ and $\mathfrak b \in \widehat  {\mathfrak B}$ there are limits $ b = \lim_{\a \in \mathscr A}  b_\a$ and  $\mathfrak b = \lim_{\bt \in \mathscr B} \mathfrak b_\bt$ with respect to $C^*$-norm and graph topology. So there is a limit
 $
 \lim_{\a \in \mathscr A}\lim_{\bt \in \mathscr B}  \mathfrak b_\bt b_\a \in \widehat  {\mathfrak B}
 $
-with respect to graph topology. We define $\mathfrak b b \bydef \lim_{\a \in \mathscr A}\lim_{\bt \in \mathscr B} \mathfrak b_\bt b_\a$, so there is a right action $\widehat  {\mathfrak B}\times \widehat  { B}\to \widehat  {\mathfrak B}$. If $\widehat\D \bydef \widehat  {\mathfrak B}\H_a$ then $\D$ is a dense subspace of $\H_a$.  For all $\la \in \La$  the action $A_\la \times  \widehat  {\mathfrak B}\to \widehat  {\mathfrak B}$ induces the action $A_\la \times  \widehat \D\to \widehat  \D$, it follows that there is the natural inclusion $A_\la \hookto\L^\dagger\left(\widehat\D\right)$ where $\L^\dagger\left(\widehat\D\right)$ is given by \eqref{l_dag_eqn}. For all $b \in B\left(\H_a \right)$ and $l \in \L^\dagger\left(\widehat\D\right)$ there is a $\C$-linear map $b\circ l:\L^\dagger\left(\widehat\D\right)\to B\left(\H_a \right)$. 
-A *-subalgebra  $\widetilde A' \in \L^\dagger\left(\widehat \D\right) $ is said to be \emph{admissible} if following conditions hold:
-\bea\label{adm_ch1_eqn}
-\left( \overline B \setminus\widetilde{B}\right) \widetilde A' = 0,\\
-\label{adm_ch2_eqn}
-K\left( \overline{B}\right)\circ \bigcup_{\la \in \La}A_\la =K\left( \overline{B}\right)\circ \widetilde A'.
-\eea
-where $K\left( \overline{B}\right)$ is the Pedersen's ideal of $\overline{B}$ (cf. Definition \ref{peder_id_defn}).
+with respect to graph topology. We define $\mathfrak b b \bydef \lim_{\a \in \mathscr A}\lim_{\bt \in \mathscr B} \mathfrak b_\bt b_\a$, so there is a right action $\widehat  {\mathfrak B}\times \widehat  { B}\to \widehat  {\mathfrak B}$. If $\widehat G \bydef \varprojlim G\left(\left.A_\la\right|A\right)\cong \widehat G \bydef \varprojlim G\left(\left.B_\la\right|B\right)$ then there are natural actions
+\bean
+\widehat G \times \H_a \to \H_a,\\
+\widehat G \times  {\mathfrak B} \to  {\mathfrak B}.
+\eean
+If $\widehat\D \bydef \widehat  {\mathfrak B}\H_a$ then $\widehat\D$ is a dense subspace of $\H_a$ and there is the action
+\bean
+\widehat G \times \widehat\D \to \widehat\D,\\
+ \xi \in \H_a,\quad  \mathfrak b\in  \widehat  {\mathfrak B}, \quad \mathfrak d = \mathfrak b \xi\in \D,\quad \Rightarrow \quad g \mathfrak d \bydef \left( g \mathfrak b\right) \left( g \xi\right). 
+\eean
+For all $\la \in \La$  the action $A_\la \times  \widehat  {\mathfrak B}\to \widehat  {\mathfrak B}$ induces the action $A_\la \times  \widehat \D\to \widehat  \D$, it follows that there is the natural inclusion $A_\la \hookto\L^\dagger\left(\widehat\D\right)$ where $\L^\dagger\left(\widehat\D\right)$ is given by \eqref{l_dag_eqn}. If $\widetilde{\H}$ is the Hilbert norm completion of   $\widetilde{B}\H_a$ and there is the orthogonal sum $\H_a= \widetilde\H \oplus \H^\perp$ then from the condition (b) of the Definition \ref{mains_defn} it follows that $\widetilde{B}\H^\perp= \{0\}$.  
+From the above equations it turns out that
+\be\label{chull_dom_eqn}
+\widetilde \D = \widehat{\D}\cap \widetilde\H\Rightarrow \bigcup_{\la\in \La} A_\la\subset \L^\dagger\left( \widetilde \D \right) .
+\ee
+An element $\widetilde a \in \L^\dagger\left( \widetilde \D \right)$ is said to be \textit{admissible} if following condition holds
+\be\label{c_hull_adm}
+\forall b \in K\left(\widetilde{B} \right)\cap   \L^\dagger\left( \widetilde \D \right),\quad \exists a^\cup \in \cup A_\la, \quad b \widetilde a= b a^\cup; \quad \widetilde ab=  a^\cup b.
+\ee
 \end{empt}
+\begin{remark}
+If $\widetilde a \in \L^\dagger\left( \widetilde \D \right)$ is  \textit{admissible}.
+\end{remark}
 \begin{definition}\label{main_chp_defn}
-	In the above situation  if there is the unique maximal admissible $\widetilde A \in \L^\dagger\left(\widehat \D\right) $ *-subalgebra then we say that $\widetilde{A}$ is the 
+The intersection $\widetilde A \bydef \cap \widetilde A'$   of all subalgebras of $\L^\dagger\left( \widetilde \D \right)$ such that any $\widetilde A'$ contains all admissible elements is said to be 
 	\textit{ inverse noncommutative limit of $\mathfrak{S}_A^{\mathrm{pt}}$ associated with $\mathfrak{S}_B^{\mathrm{pt}}$}. 
 \end{definition}
 
@@ -9270,6 +9287,7 @@ The equation \eqref{top_inv_qo*_llimp_eqn} follows from \eqref{top_cc_l_inc_eqn}
 \end{proof}
 \subsection{Coverings and $C^*$-hulls}
 \paragraph{}
+!!!
 Suppose that
 \be\label{top_hull_top_eqn}
 \begin{split}
