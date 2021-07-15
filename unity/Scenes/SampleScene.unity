@@ -828,7 +828,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 31974732}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 60}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1868745993}
@@ -896,7 +896,7 @@ MonoBehaviour:
   updates:
   - TestUpdate
   constants:
-  - Motion.a=100
+  - Motion.a=60
   - Motion.p=0.001
   - Motion.b=1.5
   - Motion.c=1.9
@@ -9533,7 +9533,7 @@ Camera:
     height: 1
   near clip plane: 0.1
   far clip plane: 100000
-  field of view: 31
+  field of view: 60.4
   orthographic: 0
   orthographic size: 5
   m_Depth: 2.66
@@ -9628,7 +9628,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activation: KeyActivation
   delay: 1
-  level: -1
+  level: 1
   strings:
   - r
   constants:
@@ -12000,6 +12000,18 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 4f8ee307198792049a65e338d6bb8e8a, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3d6648bcbaf339748929f9ece5ea2523, type: 3}
+--- !u!23 &694539491 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 8494359247268315815, guid: 3d6648bcbaf339748929f9ece5ea2523,
+    type: 3}
+  m_PrefabInstance: {fileID: 694539490}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &694539492 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 8494359247292311492, guid: 3d6648bcbaf339748929f9ece5ea2523,
+    type: 3}
+  m_PrefabInstance: {fileID: 694539490}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &701699773
 GameObject:
   m_ObjectHideFlags: 0
@@ -16305,6 +16317,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f83590b50bf93914387f1f484ab5a573, type: 3}
+--- !u!23 &985209420 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 266345226825417838, guid: f83590b50bf93914387f1f484ab5a573,
+    type: 3}
+  m_PrefabInstance: {fileID: 985209419}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &985209421 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 266345228515896151, guid: f83590b50bf93914387f1f484ab5a573,
+    type: 3}
+  m_PrefabInstance: {fileID: 985209419}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &988427488
 GameObject:
   m_ObjectHideFlags: 0
@@ -24634,7 +24658,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1480587800}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 300}
+  m_LocalPosition: {x: 0, y: 0, z: 6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1197498938}
@@ -29579,6 +29603,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1759031890}
+  - component: {fileID: 1759031891}
   m_Layer: 0
   m_Name: Sun
   m_TagString: Untagged
@@ -29594,7 +29619,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1759031889}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8000, y: -5000, z: -5000}
+  m_LocalPosition: {x: 5000, y: 0, z: -2000}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1652615521}
@@ -29602,6 +29627,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1759031891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1759031889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7902dfb6275f36747b1631731b4c6f1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1762175789
 GameObject:
   m_ObjectHideFlags: 0
@@ -33166,13 +33203,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90b19e85a0a1ad5408cebadadd175454, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  earthRenderer: {fileID: 0}
-  mainLight: {fileID: 0}
-  clouds: {fileID: 0}
-  cloudsShadow: {fileID: 0}
+  earthRenderer: {fileID: 694539492}
+  mainLight: {fileID: 513002222}
+  clouds: {fileID: 985209421}
+  cloudsShadow: {fileID: 985209420}
   cloudsShadowColorIntensity: 0
   cloudsShadowAlphaIntensity: 0.2
-  atmosphere: {fileID: 0}
+  atmosphere: {fileID: 694539491}
 --- !u!4 &1928252426
 Transform:
   m_ObjectHideFlags: 0

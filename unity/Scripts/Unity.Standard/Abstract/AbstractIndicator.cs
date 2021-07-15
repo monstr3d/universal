@@ -30,6 +30,9 @@ namespace Unity.Standard.Abstract
         protected object type;
 
         protected Action<object> setValue;
+ 
+        protected bool isVisible = true;
+
 
         #endregion
 

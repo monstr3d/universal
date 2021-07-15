@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Unity.Standard.Abstract;
 using UnityEngine.UI;
 
-namespace Unity.Standard
+namespace Unity.Standard.Indicators
 {
     /// <summary>
     /// Indicator of text control
@@ -34,6 +34,7 @@ namespace Unity.Standard
             this.parameter = parameter;
             this.text = text;
             pref = text.text;
+            SetActive(false);
             if (format != null)
             {
                 this.format = format;
@@ -53,8 +54,34 @@ namespace Unity.Standard
 
         #region Overriden Members
 
+        /// <summary>
+        /// Sets visible sign
+        /// </summary>
+        /// <param name="visible">The sign value</param>
+        protected void SetVisible(bool visible)
+        {
+            if (visible == isVisible)
+            {
+                return;
+            }
+            isVisible = visible;
+            text.gameObject.SetActive(visible);
+            if (!visible)
+            {
+                // text.enabled []
+                return;
+            }
+         //   updateText?.Invoke();
+         //  setFloatValue(currentValue);
+        }
+
+
         protected override void PostSet()
         {
+            if (!isActive)
+            {
+                return;
+            }
             if (obj == null)
             {
                 return;
@@ -64,7 +91,11 @@ namespace Unity.Standard
 
         protected override void PostSetActive()
         {
-
+            text.gameObject.SetActive(isActive);
+            if (!isActive)
+            {
+                setValue = (object o) => { };
+            }
         }
 
         protected override void PostSetGlobal(string str)
@@ -73,7 +104,6 @@ namespace Unity.Standard
         }
 
         #endregion
-
 
         #region Public Members
 

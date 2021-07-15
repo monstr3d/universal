@@ -94,7 +94,7 @@ namespace Scripts
             KeyActivation.QuitKey = kc[14];
 
 
-            var ss = new string[] { "Relative to station.Velocity", "Relative to station.Distance" };
+            var ss = new string[] { };// "Relative to station.Velocity", "Relative to station.Distance" };
             var l = new List<string>();
             int lev = Math.Abs(fullLevel);
             

@@ -4,7 +4,7 @@ using Unity.Standard.Abstract;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Unity.Standard
+namespace Unity.Standard.Indicators
 { 
     /// <summary>
     /// Slider wrapper
@@ -17,12 +17,7 @@ namespace Unity.Standard
 
         Color current;
 
-
-        protected bool isVisible = true;
-
         protected Func<bool> exceeds;
-
-
 
         // public float ratio = 0.5f;
 

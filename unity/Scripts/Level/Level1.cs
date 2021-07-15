@@ -26,7 +26,7 @@ namespace Scripts.Level
                 l.Add(Level0.RigidBodyStation + "." + s);
             }
             StaticExtensionUnity.Activation.enabledComponents = l.ToArray();//*/
-
+ 
         }
 
         private void FuelEv_Event()
@@ -66,6 +66,7 @@ namespace Scripts.Level
             ReferenceFrameBehavior beh = monoBehaviour as ReferenceFrameBehavior;
             var c = beh.constants;
             c[0] = "Station frame.Z=1.5";
+            SunMonobehavior.SetSun();
         }
 
     }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Unity.Standard.Abstract;
 using UnityEngine;
 
-namespace Unity.Standard
+namespace Unity.Standard.Indicators
 {
 
     /// <summary>

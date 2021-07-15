@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Unity.Standard.Interfaces;
 using UnityEngine;
 
-namespace Unity.Standard
+namespace Unity.Standard.Indicators
 {
     /// <summary>
     /// Slider wrapper with limits

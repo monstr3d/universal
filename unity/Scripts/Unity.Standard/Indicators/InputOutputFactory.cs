@@ -9,7 +9,7 @@ using UnityEngine.UI;
 using Scada.Desktop;
 using Unity.Standard.Interfaces;
 
-namespace Unity.Standard
+namespace Unity.Standard.Indicators
 {
     public class InputOutputFactory : IIndicatorFactory
     {

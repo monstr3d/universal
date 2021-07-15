@@ -9,7 +9,7 @@ using Unity.Standard.Interfaces;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Unity.Standard
+namespace Unity.Standard.Indicators
 {
     public class SliderIndicatorFactory : IIndicatorFactory
     {

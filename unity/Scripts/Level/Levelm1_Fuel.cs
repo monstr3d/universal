@@ -46,7 +46,7 @@ namespace Scripts.Level
         public static void Set(MonoBehaviour monoBehaviour)
         {
             Level1_Fuel.Set(monoBehaviour);
-
+         //   SunMonobehavior.SetSemiDark();
         }
 
     }
