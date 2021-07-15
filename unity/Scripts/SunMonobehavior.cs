@@ -18,7 +18,7 @@ public class SunMonobehavior : MonoBehaviour
         sunMonobehavior = this;
         game = gameObject;
         trans = game.transform;
-
+        Unity.Standard.StaticExtensionUnity.Enabled = this;
     }
 
     internal static void SetCoordinates(float x, float y, float z)

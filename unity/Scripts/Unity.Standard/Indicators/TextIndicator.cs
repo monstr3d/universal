@@ -27,14 +27,17 @@ namespace Unity.Standard.Indicators
 
         #region Ctor
 
-        public TextIndicator(string parameter, Text text, object type, string format = null)
+        public TextIndicator(string parameter, Text text, object type, string format = null, bool debug = false)
         {
             f = () => { return obj + ""; };
             this.type = type;
             this.parameter = parameter;
             this.text = text;
             pref = text.text;
-            SetActive(false);
+            if (debug)
+            {
+                SetActive(false);
+            }
             if (format != null)
             {
                 this.format = format;
@@ -95,7 +98,17 @@ namespace Unity.Standard.Indicators
             if (!isActive)
             {
                 setValue = (object o) => { };
+                return;
             }
+            setValue = (object o) => 
+            { 
+                if (o != null)
+                {
+                    double x = (double)o;
+                    text.text = pref + x.ToString(format);  
+                }
+            };
+
         }
 
         protected override void PostSetGlobal(string str)

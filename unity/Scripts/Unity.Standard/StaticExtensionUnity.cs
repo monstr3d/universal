@@ -77,6 +77,9 @@ namespace Unity.Standard
 
         static private Scada.Interfaces.IErrorHandler errorHandler = new ErrorHanller();
 
+        static MonoBehaviour enabled;
+
+
         static private Dictionary<string, Type> stringUpates = 
             new Dictionary<string, Type>();
 
@@ -733,6 +736,7 @@ namespace Unity.Standard
             Enabled.StartCoroutine(enumerator);
         }
 
+
         /// <summary>
         /// Enabled script
         /// </summary>
@@ -747,7 +751,11 @@ namespace Unity.Standard
                         return monoBehaviour;
                     }
                 }
-                return null;
+                return enabled;
+            }
+            set
+            {
+                enabled = value;
             }
         }
 

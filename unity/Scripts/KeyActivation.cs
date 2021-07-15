@@ -163,7 +163,15 @@ namespace Scripts
                         {
                             return StaticExtensionUnity.StringUpates[s];
                         }
-                        ++i;
+                    }
+                    ++i;
+                    s += "_No";
+                    if (StaticExtensionUnity.StringUpates.ContainsKey(s))
+                    {
+                        if (i == p)
+                        {
+                            return StaticExtensionUnity.StringUpates[s];
+                        }
                     }
                 }
                 return null;

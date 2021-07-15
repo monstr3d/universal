@@ -15,7 +15,7 @@ namespace Scripts.Level
         public Levelm1()
         {
             // var ss = new string[] { Level0.Distance, Level0.Velocity,   Level0.VxLimiter,  Level0.Rz };
-            var ss = new string[] { Level0.LongXC, Level0.Rz, Level0.Vz };
+            var ss = new string[] { Level0.LongXC, Level0.Rz, Level0.Vz, Level0.Time };
             var l = new List<string>();
             foreach (var s in ss)
             {

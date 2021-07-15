@@ -33,10 +33,19 @@ namespace Unity.Standard.Indicators
                 }
                 d[key] = txt[key][0].text;
             }
+            
             string desktop = d["Desktop"];
             IScadaInterface scada = desktop.ToExistedScada();
             Func<double> f = null;
             string par = desktop + ".";
+            bool debug = false;
+            if (txt.ContainsKey("Debug"))
+            {
+                if (txt["Debug"][0].text == "1")
+                {
+                    debug = true;
+                }
+            }
             if (scada != null)
             {
                 double a = 0;
@@ -49,12 +58,12 @@ namespace Unity.Standard.Indicators
                 }
                 if (ou.ContainsKey(so))
                 {
-                    return new TextIndicator(par + so, txt["ValueText"][0], ou[so], format);
+                    return new TextIndicator(par + so, txt["ValueText"][0], ou[so], format, debug);
                     if (ou[so].Equals(a))
                     {
                         f = scada.GetDoubleOutput(so);
                         par += so;
-                        return new TextIndicator(par, txt["Text"][0], null);
+                        return new TextIndicator(par, txt["Text"][0], null, null, debug);
                     }
                 }
             }

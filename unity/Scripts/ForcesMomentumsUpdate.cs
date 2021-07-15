@@ -226,7 +226,7 @@ namespace Scripts
 
         #region Update
 
-          void KeyAction(KeyCode keyCode)
+        void KeyAction(KeyCode keyCode)
         {
             if (Activation.IsPaused)
             {
@@ -291,7 +291,6 @@ namespace Scripts
             {
                 tst.Item1.text = a + " " + ss;
             }
-
         }
 
         void UpdateForces()
@@ -327,7 +326,6 @@ namespace Scripts
 
         #endregion
 
-
         #region Internal Members
 
         internal static string Telemetry
@@ -336,7 +334,6 @@ namespace Scripts
         }
 
         #endregion
-
 
         #region Private
 
