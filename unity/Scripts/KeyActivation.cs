@@ -49,13 +49,19 @@ namespace Scripts
             keyActivation = this;
             StaticExtensionUnity.Collision += (Tuple<GameObject, Component, IScadaInterface, ICollisionAction> obj) =>
             {
+                bool bad = false;
                 foreach (var t in StaticExtensionUnity.FailureMessages)
                 {
                     if (t.Message != null)
                     {
+                        bad = true;
                         Explosion();
                         break;
                     }
+                }
+                if (!bad)
+                {
+                    ForcesMomentumsUpdate.forcesMomentumsUpdate.Contact();
                 }
             };
 
@@ -193,6 +199,8 @@ namespace Scripts
         #endregion
 
         #region Private Members
+
+        
 
         void SetKey(KeyCode keyCode)
         {

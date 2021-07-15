@@ -44,6 +44,7 @@ namespace Scripts.Level
 
 
 
+
         public static void Set(MonoBehaviour monoBehaviour)
         {
             Level0.Set(monoBehaviour);
@@ -70,8 +71,14 @@ namespace Scripts.Level
             }
             ReferenceFrameBehavior beh = monoBehaviour as ReferenceFrameBehavior;
             var c = beh.constants;
-            c[0] = "Station frame.Z=1.9";
+            c[0] = "Station frame.Z=1.7";
         }
+
+        public static void Post()
+        {
+            SunMonobehavior.SetGood();
+        }
+
 
     }
 }

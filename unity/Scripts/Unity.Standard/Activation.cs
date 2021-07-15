@@ -50,6 +50,8 @@ public class Activation : MonoBehaviour
 
     volatile Queue<Tuple<Action<object>, object>> queue = new Queue<Tuple<Action<object>, object>>();
 
+    static Type type;
+
     #endregion
 
     #region Standard Members
@@ -81,7 +83,7 @@ public class Activation : MonoBehaviour
         }
         StaticExtensionUnity.Activation = this;
         exists = true;
-        Type type = activationObject.GetActivationType(level);
+        type = activationObject.GetActivationType(level);
         MethodInfo stop = type.GetMethod("Collision", 
             new Type[] { typeof(Tuple<GameObject, Component, IScadaInterface, ICollisionAction>) });
         if (stop != null)
@@ -117,6 +119,11 @@ public class Activation : MonoBehaviour
 
     private void Start()
     {
+        MethodInfo mi = type.GetMethod("Post", new Type[0]);
+        if (mi != null)
+        {
+            mi.Invoke(null, new object[0]);
+        }
         StaticExtensionUnity.SetLevel();
         StartCoroutine(enumerator);
     }

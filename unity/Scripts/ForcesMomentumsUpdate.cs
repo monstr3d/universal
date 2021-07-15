@@ -14,6 +14,7 @@ using Scada.Desktop;
 
 using Unity.Standard;
 using Unity.Standard.Interfaces;
+using Motion6D.Interfaces;
 
 namespace Scripts
 {
@@ -331,6 +332,19 @@ namespace Scripts
         internal static string Telemetry
         {
             set => forcesMomentumsUpdate.telemerty.text = value;
+        }
+
+        internal void Contact()
+        {
+            IDesktop desk = scada.GetDesktop();
+            desk.ForEach((IReferenceFrame fr) =>
+            {
+              /*  if (fr.GetName(desk) == par)  !!! DELETE
+                {
+                    frame = fr;
+                }*/
+            });
+
         }
 
         #endregion

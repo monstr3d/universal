@@ -11,8 +11,7 @@ public class SunMonobehavior : MonoBehaviour
 
     internal static Transform trans;
 
-    public static object Vector3D { get; private set; }
-
+  
     private void Awake()
     {
         sunMonobehavior = this;
@@ -20,6 +19,20 @@ public class SunMonobehavior : MonoBehaviour
         trans = game.transform;
         Unity.Standard.StaticExtensionUnity.Enabled = this;
     }
+
+    private void Start()
+    {
+
+    }
+
+    private void Update()
+    {
+
+    }
+
+
+
+
 
     internal static void SetCoordinates(float x, float y, float z)
     {

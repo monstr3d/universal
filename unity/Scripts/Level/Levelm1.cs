@@ -60,6 +60,11 @@ namespace Scripts.Level
         }
 
 
+        public static void Post()
+        {
+            Level1.Post();
+        }
+
         protected override void Update()
         {
             
