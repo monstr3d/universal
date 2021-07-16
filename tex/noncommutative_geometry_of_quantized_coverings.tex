@@ -3956,7 +3956,7 @@ B^\cup \bydef \cup B_\la,\\
 %\mathfrak A \bydef \End_{	B^\cup }\left( \mathfrak B^\cup\right) 
 	\end{split}
 	\ee
-There is the natural action   $A^\cup\times \mathfrak B^\cup\to \mathfrak B^\cup$  so for any  $a \in A^\cup$ there is a graph norm $\left\| \cdot\right\|_a : \mathfrak B^\cup\to \R_+$ (cf. Definition \ref{def:rep_Hilbert_module}. Let $\widehat  {\mathfrak B}$ be a completion of  ${\mathfrak B}^\cup$ with respect to the family of all graph norms. For all $ b \in \widehat B$ and $\mathfrak b \in \widehat  {\mathfrak B}$ there are limits $ b = \lim_{\a \in \mathscr A}  b_\a$ and  $\mathfrak b = \lim_{\bt \in \mathscr B} \mathfrak b_\bt$ with respect to $C^*$-norm and graph topology. So there is a limit
+There is the natural action   $A^\cup\times \mathfrak B^\cup\to \mathfrak B^\cup$  so for any  $a \in A^\cup$ there is a graph norm $\left\| \cdot\right\|_a : \mathfrak B^\cup\to \R_+$ (cf. Definition \ref{def:rep_Hilbert_module}. Let $\widehat  {\mathfrak B}$ be a completion of  ${\mathfrak B}^\cup$ with respect to the family of  graph norms $\left\{\left\| \cdot\right\|_a\right\}_{a \in A^\cup}$. For all $ b \in \widehat B$ and $\mathfrak b \in \widehat  {\mathfrak B}$ there are limits $ b = \lim_{\a \in \mathscr A}  b_\a$ and  $\mathfrak b = \lim_{\bt \in \mathscr B} \mathfrak b_\bt$ with respect to $C^*$-norm and graph topology. So there is a limit
 $
 \lim_{\a \in \mathscr A}\lim_{\bt \in \mathscr B}  \mathfrak b_\bt b_\a \in \widehat  {\mathfrak B}
 $
@@ -3966,19 +3966,26 @@ with respect to graph topology. We define $\mathfrak b b \bydef \lim_{\a \in \ma
 \widehat G \times \widehat {\mathfrak B} \to  \widehat{\mathfrak B}.
 \eean
 If $\widehat\D \bydef \widehat  {\mathfrak B}\H_a$ then $\widehat\D$ is a dense subspace of $\H_a$ and there is the action
-\bean
+\be\label{c_hull_g_d_eqn}
+\begin{split}
 \widehat G \times \widehat\D \to \widehat\D,\\
- \xi \in \H_a,\quad  \mathfrak b\in  \widehat  {\mathfrak B}, \quad \mathfrak d = \mathfrak b \xi\in \widehat \D,\quad \Rightarrow \quad g \mathfrak d \bydef \left( g \mathfrak b\right) \left( g \xi\right). 
-\eean
+\xi \in \H_a,\quad  \mathfrak b\in  \widehat  {\mathfrak B}, \quad \mathfrak d = \mathfrak b \xi\in \widehat \D,\quad \Rightarrow \quad g \mathfrak d \bydef \left( g \mathfrak b\right) \left( g \xi\right). 
+\end{split}
+\ee
 For all $\la \in \La$  the action $A_\la \times  \widehat  {\mathfrak B}\to \widehat  {\mathfrak B}$ induces the action $A_\la \times  \widehat \D\to \widehat  \D$, it follows that there is the natural inclusion $A_\la \hookto\L^\dagger\left(\widehat\D\right)$ where $\L^\dagger\left(\widehat\D\right)$ is given by \eqref{l_dag_eqn}. If $\widetilde{\H}$ is the Hilbert norm completion of   $\widetilde{B}\H_a$ and there is the orthogonal sum $\H_a= \widetilde\H \oplus \H^\perp$ then from the condition (b) of the Definition \ref{mains_defn} it follows that $\widetilde{B}\H^\perp= \{0\}$.  
 From the above equations it turns out that
 \be\label{chull_dom_eqn}
-\widetilde \D = \widehat{\D}\cap \widetilde\H\Rightarrow \bigcup_{\la\in \La} A_\la\subset \L^\dagger\left( \widetilde \D \right) .
+\widetilde \D\bydef \widehat{\D}\cap \widetilde\H\Rightarrow \bigcup_{\la\in \La} A_\la\subset \L^\dagger\left( \widetilde \D \right) .
 \ee
-An element $\widetilde a \in \L^\dagger\left( \widetilde \D \right)$ is said to be \textit{admissible} if following condition holds
-\be\label{c_hull_adm}
-\forall b \in K\left(\widetilde{B} \right)\cap   \L^\dagger\left( \widetilde \D \right),\quad \exists a^\cup \in \cup A_\la, \quad b \widetilde a= b a^\cup; \quad \widetilde ab=  a^\cup b.
-\ee
+An element $\widetilde a \in \L^\dagger\left( \widetilde \D \right)$ is said to be \textit{admissible} if  following conditions hold:
+\bea
+%\label{c_hull_rzero_eqn}
+% \left(  K\left(\widetilde{B} \right)\cap   \L^\dagger\left( \widetilde \D \right) \right) \widetilde{a}= \{0\}\quad \Rightarrow\quad \widetilde{a}= 0, \\
+%\label{c_hull_lzero_eqn}
+% \widetilde{a}\left(  K\left(\widetilde{B} \right)\cap   \L^\dagger\left( \widetilde \D \right) \right)  = \{0\}\quad \Rightarrow\quad \widetilde{a}= 0, \\
+\label{c_hull_adm_eqn}
+\forall \widetilde b', \widetilde b'' \in K\left(\widetilde{B} \right)\cap   \L^\dagger\left( \widetilde \D \right)\quad \exists a^\cup \in \cup A_\la \quad b' \widetilde ab''= b' a^\cup b''.
+\eea
 \end{empt}
 
 \begin{definition}\label{main_chp_defn}
@@ -4002,7 +4009,7 @@ The intersection $\widetilde A \bydef \cap \widetilde A'$   of all subalgebras o
 
 
 
-\begin{exercise}\label{ch_norm_exer}
+\begin{exercise}\label{top_ch_norm_exer}
 	For any $a \in \cup A_\la$ there is a \textit{graph norm}
 	\be\label{graph_d_eqn}
 	\begin{split}
@@ -9359,79 +9366,12 @@ where $A_\la\bydef C\left( \sX_\la\right) \left[t \right]$.
 	Let both  $\mathfrak{S}^{\text{pt}}_A$ and $\mathfrak{S}^{\text{pt}}_B$  are given by \eqref{top_sa_eqn} and \eqref{top_sb_eqn} respectively.  Prove that $\mathfrak{S}^{\text{pt}}_A$ is an {associated with} $\mathfrak{S}^{\text{pt}}_B$ {pointed algebraic finite covering category of $*$-algebras} (cf. Definition \ref{comp_pt_ass_defn}).
 \end{exercise}
 \begin{empt}
-	For any $a = \sum^n_{j=0} a_j t^j$ and $x \in \sX$ there is a polynomial $a\left(x \right) \bydef \sum^n_{j=0} a_j\left(x\right) t^j\in \C\left[t\right]$. 
-Let $x\in \sX$, and let  $I_x\subset A$ be a given by
-$$
-I_x \bydef \left\{\left.a \in A\right| a\left(x\right)=0\right\}
-$$
-ideal. If $\sU\subset \sX$ is any open subset and
-$$
-\mathscr{ A}'\left( \sU\right)\bydef A / \bigcup_{x \in \sX\setminus \sU } I_x
-$$
-then  the above equation yields a presheaf of rings $\mathscr{ A}'$ on $\sX$ (cf. Definition \ref{presheaf_defn}). If  $\mathscr{ A}$  the sheaf of *-algebras associated to the preseaf $\mathscr A'$ (cf. \ref{sheaf_prdf}) then there is the natural *-isomorphism
-$$
-A \cong \mathscr{ A}\left(\sX \right).
-$$
-Denote by $\widetilde \sX$ and  $\overline{\mathcal X}$  the topological inverse limit and the topological disconnected inverse limit (cf. Definition \ref{top_topological_inv_lim_defn}) of $\mathfrak{S}_{\left( \sX, x_0\right)}$ respectively. If $\widetilde p: \widetilde\sX \to \sX$ and $\overline p: \overline\sX \to \sX$ are natural transitive coverings then denote by $\widetilde{\mathscr A}\bydef \widetilde p^{-1}\mathscr A$ and $\overline{\mathscr A}\bydef \overline p^{-1}\mathscr A$ inverse images of $\mathscr A$ (cf. Definition \ref{sheaf_inv_im_defn}).
-Any $\overline a \in \overline{\mathscr A}\left( \overline\sX\right)$ can be represented by a continuous map $ \phi_{\overline a} : \overline \sX \times \R \to \C$ such that for all $\overline x \in \overline \sX$ there is a compact neighborhood $\overline \sU$ and the restriction $\left. \phi_{\overline a}\right|_{\overline \sU\times\R}$ is given by
-\be\label{top_pol_repr_rqn}
-\forall \left(\overline x, t\right)\in \overline \sU\times\R\quad  \phi_{\overline a}\left( \left(\overline x, t\right) \right) = \sum_{j=1}^n  \overline \phi^{\overline \sU}_n\left(\overline x \right) t^n\quad \phi^{\overline \sU}_j\in C\left(\overline \sU \right)\quad j = 1,...,n
-\ee
-where $n$ depends on $\overline \sU$. 
-\end{empt}
-\begin{empt}
 Let us develop a related to $\mathfrak{S}^{\text{pt}}_A$ specialization of the construction \ref{comp_ch_empt}.
 
-\paragraph{title}
-
-\begin{empt}\label{comp_ch_empt}
-	Consider a described in the Definition \ref{comp_pt_ass_defn} situation. Suppose that $\mathfrak{S}^{\text{pt}}_B$ is good (cf. Definition \ref{mains_defn}). Let  $\left( B, \widetilde B, G\left(\left.\widetilde B\right| B\right)\right)  $ be the inverse noncommutative limit of $\mathfrak{S}^{\mathrm{pt}}_B$,  and let  $\left( B, \overline B, G\left(\left.\overline B\right| B\right)\right)$ be the  disconnected inverse noncommutative 
-	limit of $\mathfrak{S}^{\mathrm{pt}}_B$ (cf. Definition \ref{main_defn_full_defn}). If $\widehat B \bydef C^*$-$\varinjlim B_\la$ is the direct limit of $C^*$-algebras and $\pi_a : \widehat B \hookto B\left(\H_a\right)$ is the atomic representation (cf. Definition \ref{atomic_repr_defn}) then there are natural inclusions
-	\bean
-	\cup \mathfrak{B}_\la \subset B\left(\H_a\right),\\
-	\widetilde B \subset B\left(\H_a\right),\\
-	\overline B \subset B\left(\H_a\right).
-	\eean
-	
-	
-	Using the following natural inclusions 
-	Denote by
-	\be\label{c_hull_cup_eqn}
-	\begin{split}
-		A^\cup \bydef \cup A_\la,\\
-		B^\cup \bydef \cup B_\la,\\
-		\mathfrak B^\cup\bydef \mathfrak\cup \mathfrak B_\la,\\	
-		%\mathfrak A \bydef \End_{	B^\cup }\left( \mathfrak B^\cup\right) 
-	\end{split}
-	\ee
-	There is the natural action   $A^\cup\times \mathfrak B^\cup\to \mathfrak B^\cup$  so for any  $a \in A^\cup$ there is a graph norm $\left\| \cdot\right\|_a : \mathfrak B^\cup\to \R_+$ (cf. Definition \ref{def:rep_Hilbert_module}. Let $\widehat  {\mathfrak B}$ be a completion of  ${\mathfrak B}^\cup$ with respect to the family of all graph norms. For all $ b \in \widehat B$ and $\mathfrak b \in \widehat  {\mathfrak B}$ there are limits $ b = \lim_{\a \in \mathscr A}  b_\a$ and  $\mathfrak b = \lim_{\bt \in \mathscr B} \mathfrak b_\bt$ with respect to $C^*$-norm and graph topology. So there is a limit
-	$
-	\lim_{\a \in \mathscr A}\lim_{\bt \in \mathscr B}  \mathfrak b_\bt b_\a \in \widehat  {\mathfrak B}
-	$
-	with respect to graph topology. We define $\mathfrak b b \bydef \lim_{\a \in \mathscr A}\lim_{\bt \in \mathscr B} \mathfrak b_\bt b_\a$, so there is a right action $\widehat  {\mathfrak B}\times \widehat  { B}\to \widehat  {\mathfrak B}$. If $\widehat G \bydef \varprojlim G\left(\left.A_\la\right|A\right)\cong \widehat G \bydef \varprojlim G\left(\left.B_\la\right|B\right)\cong G\left(\left.\overline B\right| B\right)$ then there are natural actions
-	\bean
-	\widehat G \times \H_a \to \H_a,\\
-	\widehat G \times \widehat {\mathfrak B} \to  \widehat{\mathfrak B}.
-	\eean
-	If $\widehat\D \bydef \widehat  {\mathfrak B}\H_a$ then $\widehat\D$ is a dense subspace of $\H_a$ and there is the action
-	\bean
-	\widehat G \times \widehat\D \to \widehat\D,\\
-	\xi \in \H_a,\quad  \mathfrak b\in  \widehat  {\mathfrak B}, \quad \mathfrak d = \mathfrak b \xi\in \widehat \D,\quad \Rightarrow \quad g \mathfrak d \bydef \left( g \mathfrak b\right) \left( g \xi\right). 
-	\eean
-	For all $\la \in \La$  the action $A_\la \times  \widehat  {\mathfrak B}\to \widehat  {\mathfrak B}$ induces the action $A_\la \times  \widehat \D\to \widehat  \D$, it follows that there is the natural inclusion $A_\la \hookto\L^\dagger\left(\widehat\D\right)$ where $\L^\dagger\left(\widehat\D\right)$ is given by \eqref{l_dag_eqn}. If $\widetilde{\H}$ is the Hilbert norm completion of   $\widetilde{B}\H_a$ and there is the orthogonal sum $\H_a= \widetilde\H \oplus \H^\perp$ then from the condition (b) of the Definition \ref{mains_defn} it follows that $\widetilde{B}\H^\perp= \{0\}$.  
-	From the above equations it turns out that
-	\be\label{chull_dom_eqn}
-	\widetilde \D = \widehat{\D}\cap \widetilde\H\Rightarrow \bigcup_{\la\in \La} A_\la\subset \L^\dagger\left( \widetilde \D \right) .
-	\ee
-	An element $\widetilde a \in \L^\dagger\left( \widetilde \D \right)$ is said to be \textit{admissible} if following condition holds
-	\be\label{c_hull_adm}
-	\forall b \in K\left(\widetilde{B} \right)\cap   \L^\dagger\left( \widetilde \D \right),\quad \exists a^\cup \in \cup A_\la, \quad b \widetilde a= b a^\cup; \quad \widetilde ab=  a^\cup b.
-	\ee
-\end{empt}
 
 
-\paragraph{tttt}
-From the Theorem \ref{comm_main_thm} it turns out that the given by \eqref{top_sb_eqn} category $\mathfrak{S}_B^{\mathrm{pt}}$ is good (cf. Definition \ref{mains_defn}) and if   $\left(B, \widetilde{B}, G\left(\left.\widetilde B \right| B\right)\right)$ is the  { infinite noncommutative covering} of $\mathfrak{S}^{\text{pt}}_{B}$ (cf. Definition \ref{main_defn}) then there are following natural isomorphisms
+
+From the Theorem \ref{comm_main_thm} it turns out that the given by \eqref{top_sb_eqn} category $\mathfrak{S}_B^{\mathrm{pt}}$ is good (cf. Definition \ref{mains_defn}) and if both   $\left(B, \widetilde{B}, G\left(\left.\widetilde B \right| B\right)\right)$ and  $\left(B, \widetilde{B}, G\left(\left.\widetilde B \right| B\right)\right)$ are connected and  disconnected  { infinite noncommutative covering} of $\mathfrak{S}^{\text{pt}}_{B}$ (cf. Definition \ref{main_defn}) then there are following natural isomorphisms
 \be\label{top_bc0_eqn}
 \begin{split}
 	\overline{B}\cong C_0\left(\overline\sX\times \R\right),\\
@@ -9439,132 +9379,147 @@ From the Theorem \ref{comm_main_thm} it turns out that the given by \eqref{top_s
 G\left(\left.\overline B \right|B\right)\cong	G\left(\left.\overline \sX \right|\sX\right).\\G\left(\left.\widetilde B \right|B\right)\cong	G\left(\left.\widetilde \sX \right|\sX\right)
 \end{split}
 \ee
-where both $\overline\sX$ and $\widetilde\sX$ are topological disconnected and connected inverse limits (cf. Definition \ref{top_topological_inv_lim_defn}) of the given by \eqref{top_hull_top_eqn} topological finite covering category $\mathfrak{S}_{\left( \sX, x_0\right)}$  (cf. Definition \ref{top_sec_defn})
-
-From \eqref{peder_c0_eqn} it follows that $K\left(C_0\left(\overline\sX\times \R\right) \right)= C_c\left( \overline\sX\times \R\right)$.
-If $\widehat B \bydef C^*$-$\varinjlim B_\la$ is the direct limit of $C^*$-algebras then from $B_\la = C_0\left( \sX_\la\times \R\right)$ and the Lemma  \ref{inverse_lim_sp_lem} it follows that $\widehat B\cong C_0\left(\widehat \sX \times\R\right)$ where $\widehat \sX \bydef \varprojlim \sX_\la$ is the inverse limit of topological spaces.
-The identical function  $T : \R \to \R$ induces a map $\widehat \sX \times\R\to \C$ which also we denote by $T$. A specialization of the explained in \ref{comp_ch_empt} right-$\widehat B$ ideal $\widehat  {\mathfrak B}$ is given by
-\be\label{top_frak_eqn}
-\widehat  {\mathfrak B}= \left\{\left.\widehat b\in \widehat B \right|\forall a \in   A\quad \left\| b\right\|_a <\infty   \right\}
-\ee 
-where $\left\|\cdot\right\|_a$ is a graph norm (cf. Definition \ref{def:rep_Hilbert_module}).
-
-If $D^*\left(\widehat \sX\times \R \right)$ is a $C^*$-algebra of bounded discontinuous complex-valued functions and 	$\pi_a:\widehat B \to B\left( \H_a\right)$ is the atomic representation (cf. Definition \ref{atomic_repr_defn}) then one has
-\be\label{top_ha_eqn}
-\H_a \cong \left\{\left.\eta \in D^*\left(\widehat \sX\times \R \right)\right| \left\|\eta \right\|_{\H_a}\bydef\sup_{\left\lbrace \widehat x_1,..., \widehat x_n \right\rbrace\in \widehat \sX\times \R } ~~\sum_{j=1}^n \left\|\eta\left( \widehat x_j\right)  \right\|< \infty \right\}
-\ee
-From equations \eqref{top_frak_eqn} and \eqref{top_ha_eqn} it follows that
-\be
-\D\bydef \widehat  {\mathfrak B}\H_a=\left\{\xi\in \H_a\left|\forall a  \in \cup A_\la \quad \left\| \xi\right\|_a < \infty \right.\right\}.
-\ee
-where  $\left\| \xi\right\|_a$ is the given by the equation \eqref{graph_d_eqn} graph norm.
-From \eqref{top_ha_eqn} it follows that any $\left( \widehat x , y, z\right)\in \widehat \sX\times \R \times \C$ corresponds to an element of $\H_a$. Since there is a set theoretic bijection $\widehat \sX\cong \overline  \sX$ there is an invective map
-$$
-\Phi: \overline \sX\times \R \times \C \hookto \H_a
-$$
-such that $\Phi\left(  \overline \sX\times \R \times \C\right)\in \D$. 	If $\M$ is  a $\C$-space of maps  from  $\overline \sX\times \R\times\C$ to $\H_a$ then there is map
+where both $\overline\sX$ and $\widetilde\sX$ are topological disconnected and connected inverse limits (cf. Definition \ref{top_topological_inv_lim_defn}) of the given by \eqref{top_hull_top_eqn} topological finite covering category $\mathfrak{S}_{\left( \sX, x_0\right)}$  (cf. Definition \ref{top_sec_defn}).  If $\widehat B \bydef C^*$-$\varinjlim B_\la$ is the direct limit of $C^*$-algebras and $\pi_a : \widehat B \hookto B\left(\H_a\right)$ is the atomic representation (cf. Definition \ref{atomic_repr_defn}) then there are natural inclusions
 \bean
-\psi_{\L}: \L^\dagger\left(\D\right)\to \M,\\
-l \mapsto \left(\left( \widehat x , y, z\right)\mapsto l\left( \Phi\left(  \left( \overline x , y, z\right)\right)\right)  \right)
+\cup \mathfrak{B}_\la \subset B\left(\H_a\right),\\
+\widetilde B \subset B\left(\H_a\right),\\
+\overline B \subset B\left(\H_a\right).
 \eean
-The linear span of images of  $\Phi$ is dense in $\D$ with respect to the topology given by graph norms (cf. \ref{graph_d_eqn}). So the map $\psi_{\L}$ is injective.
-Also there is a map
+
+
+Using the following natural inclusions 
+Denote by
 \bean
-\psi_{\overline{\mathscr A}}:\overline{\mathscr A}\left( \overline\sX\right)\to \M,\\
-\overline a \mapsto \left( \overline x , y, z\right)\mapsto \Phi\left( \left( \overline x , y, \overline a\left( \overline x, y\right)  z\right) \right)
-\eean
-\end{empt}
-\begin{exercise}\label{top_a_l_exer}
-Let $\overline A \bydef \psi_{\L}\left( \L^\dagger\left(\D\right)\right) \cap \psi_{\overline{\mathscr A}}\left( \overline{\mathscr A}\left( \overline\sX\right)\right)$. Prove  that the  restrictions on $\overline A$ of multiplication and *-operation given *- algebras  $\L^\dagger\left(\D\right)$ and $\overline{\mathscr A}\left( \overline\sX\right)$ coincide.
-\end{exercise}
-From the Exercise \ref{top_a_l_exer} it follows that $\overline A$ is a *-algebra. Since both maps $\psi_{\L}$ and $\psi_{\overline{\mathscr A}}$ are injective one can write $\overline A = \L^\dagger\left(\D\right) \cap \overline{\mathscr A}\left( \overline\sX\right)$. Let $\left\{u_n\in C_c\left(\R \right)_+ \right\}$  be an approximate unit of $C_0\left( \R\right)$ (cf.  Definition \ref{app_unit_defn}). If $\phi \in C_c\left( \overline\sX \right)_+$ and
-\be\label{top_phi_n_eqn}
 \begin{split}
-b_n : \overline\sX\times \R \to \C,\\
-\left(\overline x, y  \right) \mapsto \phi \left(\overline x  \right)\ u_n\left(y \right) 
+	A^\cup \bydef \cup A_\la,\\
+	B^\cup \bydef \cup B_\la,\\
+	\mathfrak B^\cup\bydef \mathfrak\cup \mathfrak B_\la,\\	
+	%\mathfrak A \bydef \End_{	B^\cup }\left( \mathfrak B^\cup\right) 
+\end{split}
+\eean
+There is the natural action   $A^\cup\times \mathfrak B^\cup\to \mathfrak B^\cup$  so for any  $a \in A^\cup$ there is a graph norm $\left\| \cdot\right\|_a : \mathfrak B^\cup\to \R_+$ (cf. Definition \ref{def:rep_Hilbert_module}. Similarly to \ref{comp_ch_empt} we define the following objects:
+\begin{itemize}
+	\item The right ideal $\widehat  {\mathfrak B}\subset \widehat B$ which is a completion of  ${\mathfrak B}^\cup$ with respect to the family of  graph norms $\left\{\left\| \cdot\right\|_a\right\}_{a \in A^\cup}$.
+		\item The dense subspace $\widehat\D \bydef \widehat  {\mathfrak B}\subset \H_a$ and the natural action
+		\bean
+		\widehat G \times \widehat\D \to \widehat\D
+		\eean 
+	(cf. equation \ref{c_hull_g_d_eqn}).
+	\item The atomic representation $\pi_a: \widehat B \to B\left(\H_a\right)$.
+	\item The Hilbert subspace $\widetilde{\H}\subset \H_a$ is the Hilbert norm completion of   $\widetilde{B}\H_a$.
+		\item The subspace $\widetilde \D \bydef \widehat{\D}\cap \widetilde\H$  and the inclusion
+		$$
+		 \bigcup_{\la\in \La} A_\la\subset \L^\dagger\left( \widetilde \D \right)
+		$$
+		 (cf. equation \eqref{chull_dom_eqn}).
+	\end{itemize}
+The identical function  $T : \R \to \R$ induces  maps  $\widehat  \sX \times\R\to \C$ and $\overline  \sX \times\R\to \C$ which also we denote by $T$. If $D^*\left(\overline  \sX\times \R \right)\cong D^*\left(\widehat  \sX\times \R \right)$ is a *-algebra of unbounded discontinuous complex-valued functions  then  there are following inclusions $T^n\in D^*\left(\widehat \sX\times \R \right)$ for all $n \in \N$. Moreover there are following inclusions:
+\be\label{top_ch_inc_eqn}
+\begin{split}
+\widehat B \subset	C_b\left( \widehat  \sX \times\R\right) \subset D^*\left(\widehat \sX\times \R \right)\cong D^*\left(\overline \sX\times \R \right),\\
+\overline B \subset C_b\left( \overline  \sX \times\R\right) \subset D^*\left(\overline \sX\times \R \right),\\
+\H_a \cong \\\cong \left\{\eta \in D^*\left(\overline \sX\times \R \right)\left| \left\|\eta \right\|_{\H_a}\bydef\sup_{\left\lbrace \overline x_1,..., \overline x_n \right\rbrace\in \overline \sX\times \R } ~~\sum_{j=1}^n \left\|\eta\left( \overline x_j\right)  \right\|^2< \infty \right.\right\}\subset \\
+\subset D^*\left(\overline \sX\times \R \right),\\
+\widehat  {\mathfrak B} \cong\\
+\cong \left\{b \in \widehat  { B}\left|\forall a \in A^\cup\quad \left\|b  \right\|_a < \infty \quad  \left\|\cdot  \right\|_a \text{ is given by Definition \ref{def:rep_Hilbert_module}} \right.\right\}
+\cong \\
+\cong \left\{b \in \widehat  { B}\left|\forall n \in \N \quad T^n b \in \widehat B \right.\right\}\subset D^*\left(\overline \sX\times \R \right), \\
+\widehat \D\bydef  \widehat  {\mathfrak B}\H_a\cong\\\cong \left\{\xi \in \H_a\left|\forall a \in A^\cup\quad \left\|\xi  \right\|_a < \infty \quad  \left\|\cdot  \right\|_a \text{ is given by equation \ref{graph_d_eqn}} \right.\right\}\cong \\
+\cong \left\{\xi \in \H_a\left|\forall n \in \N \quad T^n \xi \in \widehat \H_a \right.\right\}\subset D^*\left(\overline \sX\times \R \right),\\
+A^\cup 		 \bigcup_{\la\in \La} A_\la\subset  D^*\left(\overline \sX\times \R \right).
 \end{split}
 \ee
-then  $b_n \in C_c\left(  \overline\sX\times \R\right)$.
-\begin{exercise}\label{top_a_p_a_exer}
-Suppose that $a \in \L^\dagger\left(\D\right)$ be such that for all $n \in \N$ there is $a_n\in \overline{\mathscr A}\left( \overline\sX\right)$ such that
-$$
-a b_n = a_n b_n.
-$$
-Proof following statements:
-\begin{enumerate}
-	\item There is $a_{\phi, a} \in\overline{\mathscr A}\left( \overline\sX\right)$ such that 
-	$$
-a_{\phi, a} b_n = a_n b_n= a b_n.
-	$$
-	\item There is the limit $a_{\phi, a}\phi = \lim_{n\to\infty} a b_n$ with respect to the graph topology of $\L^\dagger\left(\D\right)$ (cf. \eqref{graph_ld_eqn}).
-	\item If $\phi' \in C_c\left( \overline\sX \right)_+$ is a positive operator such that $\phi' \le \phi$ and $b'_n: \overline\sX\times \R \to \C$ is given by 
-	$\left(\overline x, y  \right) \mapsto \phi'\left(\overline x  \right)\ u_n\left(y \right)$ then one has
+The subspace $\iota :\widetilde\sX \hookto \overline\sX$ is a connected component so the inclusion $\widetilde B \subset \overline B$ is an induced by $\iota$ injective *-homomorphism
+$C_0\left(\widetilde\sX\times \R\right)\hookto C_0\left(\overline\sX\times \R\right)$. From $C_0\left(\widetilde\sX\times \R\right)D^*\left(\overline\sX\times \R\right)=D^*\left(\widetilde\sX\times \R\right)$ and the equations \eqref{top_ch_inc_eqn} it follows that there are following inclusions:
+\bean
+	\widetilde B= C_0\left(\widetilde\sX\times \R\right) \subset D^*\left(\widetilde \sX\times \R \right),\\
+\widetilde\H \bydef \text{ completion of }\subset C_0\left(\widetilde\sX\times \R\right)	\H_a \cong \\\cong \left\{\eta \in D^*\left(\widetilde \sX\times \R \right)\left| \left\|\eta \right\|_{\H_a}\bydef\sup_{\left\lbrace \widetilde x_1,..., \widetilde x_n \right\rbrace\in \widetilde \sX\times \R } ~~\sum_{j=1}^n \left\|\eta\left( \widetilde x_j\right)  \right\|^2< \infty \right.\right\}\subset \\
+	\subset D^*\left(\widetilde \sX\times \R \right),
+	\eean
 	\be
-	a_{\phi, a}b'_n = a b'_n.
+	A^\cup \bydef \bigcup_{\la\in\La}A_\la= C_0\left(\widetilde\sX\times \R\right) \subset D^*\left(\widetilde \sX\times \R \right)
 	\ee
+\be\label{top_ch_inc_t_eqn}
+\begin{split}
+	\widetilde \D\bydef  \widehat  \D \cap \widetilde\H\cong \\\cong \left\{\xi \in \H_a\left|\forall a \in A^\cup\quad \left\|\xi  \right\|_a < \infty \quad  \left\|\cdot  \right\|_a \text{ is given by equation \ref{graph_d_eqn}} \right.\right\}\cong \\
+	\cong \left\{\xi \in \widetilde\H\left|\forall n \in \N \quad T^n \xi \in \widetilde \H \right.\right\}\subset D^*\left(\widetilde \sX\times \R \right).
+\end{split}
+\ee
+From \eqref{peder_c0_eqn} it follows that $K\left(C_0\left(\overline\sX\times \R\right) \right)= C_c\left( \overline\sX\times \R\right)$ where $K\left(C_0\left(\overline\sX\times \R\right) \right)$ is the Pedersen's ideal (cf. Definition \ref{peder_id_defn}) it follows that $T^n a \in K\left(C_0\left(\overline\sX\times \R\right) \right)$ for all $n \in \N$ and $a \in K\left(C_0\left(\overline\sX\times \R\right) \right)$. Taking into account one has $a \widetilde\H\subset \widetilde\D$, it follows that
+\bean
+K\left(C_0\left(\widetilde\sX\times \R\right) \right)\subset \L^\dagger\left(\widetilde\D\right),\\
+K\left(C_0\left(\widetilde\sX\times \R\right) \right)\cap \L^\dagger\left(\widetilde\D\right)= K\left(C_0\left(\widetilde\sX\times \R\right) \right).
+\eean
+From the above equation and  the condition \eqref{c_hull_adm_eqn} one can deduce the following lemma.
+\end{empt}
+\begin{lemma}\label{top_c_hull_adm_lem}
+An element $\widetilde a\in \L^\dagger\left(\widetilde\D\right)$ is admissible (cf. \ref{comp_ch_empt}) if it satisfies to the following condition
+\be\label{top_c_hull_adm_eqn}
+\forall \widetilde b', \widetilde b'' \in K\left(C_0\left(\widetilde\sX\times \R\ \right)\right)\quad \exists a^\cup \in \cup A_\la \quad b' \widetilde ab''= b' a^\cup b''.
+\ee
+\end{lemma}
+\begin{exercise}\label{top_chull_comm_exer}
+	Using the inclusion $	\widetilde \D\subset D^*\left(\widetilde \sX\times \R \right)$ one can define a commutative *-algebra
+	\be\label{top_chull_comm_eqn}
+	\L^\dagger\left(\widetilde\D\right)_{\mathrm{comm}}\bydef \left\{\left.\widetilde a \in  D^*\left(\widetilde \sX\times \R \right)\right|\widetilde a\widetilde\D\subset\widetilde \D \right\}.
+	\ee
+Prove following statements:
+\begin{enumerate}
+\item There is the natural inclusion 
+$$
+	\L^\dagger\left(\widetilde\D\right)_{\mathrm{comm}}\subset	\L^\dagger\left(\widetilde\D\right). 
+$$
+\item If $\widetilde b', \widetilde b'' \in K\left(C_0\left(\widetilde\sX\times \R\ \right)\right)= C_c	\left(\widetilde\sX\times \R\ \right)$ are such that $\supp \widetilde b'\cap \supp \widetilde b'' = \emptyset$ then one has
+$$
+\widetilde b' \left(\cup A_\la \right)  \widetilde b'' = \{0\}.
+$$
+\item For any $\widetilde a \in 	\L^\dagger\left(\widetilde\D\right)\setminus 	\L^\dagger\left(\widetilde\D\right)_{\mathrm{comm}}$ there are $\widetilde b', \widetilde b'' \in K\left(C_0\left(\widetilde\sX\times \R\ \right)\right)$ are such that
+\bean
+\supp \widetilde b'\cap \supp \widetilde b'' = \emptyset,\\
+\widetilde b'\widetilde a\widetilde b'\neq 0.
+\eean
+\item If   $\widetilde a \in 	\L^\dagger\left(\widetilde\D\right)$ satisfies to the condition \eqref{top_c_hull_adm_lem}  then one has $\widetilde a\in \L^\dagger\left(\widetilde\D\right)_{\mathrm{comm}}$
 \end{enumerate}
 \end{exercise}
+
+\begin{empt}
+	For any $a = \sum^n_{j=0} a_j t^j$ and $x \in \sX$ there is a polynomial $a\left(x \right) \bydef \sum^n_{j=0} a_j\left(x\right) t^j\in \C\left[t\right]$. 
+	Let $x\in \sX$, and let  $I_x\subset A$ be a given by
+	$$
+	I_x \bydef \left\{\left.a \in A\right| a\left(x\right)=0\right\}
+	$$
+	ideal. If $\sU\subset \sX$ is any !!! closed subset and
+	$$
+	\mathscr{ A}'\left( \sU\right)\bydef A / \bigcup_{x \in \sX\setminus \sU } I_x
+	$$
+	then  the above equation yields a presheaf of rings $\mathscr{ A}'$ on $\sX$ (cf. Definition \ref{presheaf_defn}). If  $\mathscr{ A}$  the sheaf of *-algebras associated to the preseaf $\mathscr A'$ (cf. \ref{sheaf_prdf}) then there is the natural *-isomorphism
+	$$
+	A \cong \mathscr{ A}\left(\sX \right).
+	$$
+ If $\widetilde p: \widetilde\sX \to \sX$ is the natural transitive covering then denote by $\widetilde{\mathscr A}\bydef \widetilde p^{-1}\mathscr A$ the  inverse image of $\mathscr A$ (cf. Definition \ref{sheaf_inv_im_defn}) then the space $\widetilde{\mathscr A}\left( \widetilde\sX\right)$ of  global sections has natural structure of $*$-algebra. 
+ \begin{exercise}\label{top_soft_exer}
+ Prove that both sheaves ${\mathscr A}$ and $\widetilde{\mathscr A}$ are $c$-soft (cf. Definition \ref{soft_sheaf_defn}).
+ \end{exercise}
+ 
+ The inclusion $A \hookto D^*\left(\sX \right)$ naturally induces the inclusion 
+ $$
+\widetilde{\mathscr A}\left( \widetilde\sX\right)\subset D^*\left(\widetilde \sX\times \R \right) 
+ $$
+\end{empt}
+
 \begin{theorem}\label{top_chull_thm}
-Consider the above situation. If $\widetilde A\bydef \overline A\cap\psi_{\overline{\mathscr A}}\left( \widetilde{\mathscr A}\left( \widetilde\sX\right)\right)$  then the triple $\left(A, \widetilde{A}, G\left(\left.\widetilde B \right| B\right)\right)$ is the 
+Consider the above situation. If $\widetilde A\bydef \widetilde{\mathscr A}\left( \widetilde\sX\right)\cap	\L^\dagger\left(\widetilde\D\right)_{\mathrm{comm}}$  then the triple $\left(A, \widetilde{A}, G\left(\left.\widetilde B \right| B\right)\right)$ is the 
 { inverse noncommutative limit of $\mathfrak{S}_A^{\mathrm{pt}}$ associated with $\mathfrak{S}_B^{\mathrm{pt}}$} (cf. Definition  \ref{main_ch_defn}).
 \end{theorem}
-\be\label{c_hull_adm_eqn!}
-\forall b \in K\left(\widetilde{B} \right)\quad \exists a^\cup \in \cup A_\la, \quad b \circ \widetilde a= b\circ a^\cup.
-\ee
-
 \begin{proof}
-	Note that in recent situation the equation  \eqref{c_hull_adm_eqn}, i.e.
-\bean
-%\forall\xi\in \D\quad \forall b \in \overline B \setminus\widetilde{B}\quad  \left(a\xi \right) b = 0,\\
-\forall b \in K\left(\widetilde{B} \right)\quad \exists a^\cup \in \cup A_\la, \quad b \circ \widetilde a= b\circ a^\cup, 
-\eean
-is equivalent to
-\be\label{top_adm_ch2_eqn}
-\forall b \in C_c\left( \overline{\sX}\times \R\right)\quad  \exists \la \in \La\quad  \exists a_\la \in A_\la \quad b\circ \widetilde a= b\circ a_\la
-\ee	
-where both $b\circ \widetilde a$ and $b\circ  a_\la$ can be regarded as products of continuous maps $ \overline{\sX}\times \R\to\C$.
-One has	$\widetilde A \subset \overline  A \subset \psi_{\L} \left( \L^\dagger\left(\D\right)\right)$. Since the map  $\psi_{\L}$ is injective one can assume that $\widetilde A \subset \overline  A \subset  \L^\dagger\left(\D\right)$ and these inclusion are *-homomorphisms (cf. Exercise \ref{top_a_l_exer}).
-	The above construction contains a partial proof of this theorem. One needs only check that
-	$$
-	a \in \L^\dagger\left(\D \right)  \quad a \text{ is admissible (cf. \ref{comp_ch_empt}) }\quad \Leftrightarrow\quad a \in \widetilde A.
-	$$
-	($\Rightarrow$) 		One has $a \in \overline{\mathscr A}\left( \overline\sX\right)$ if and only if for any $\overline x\in \overline\sX$ there is an open neighborhood $\overline \sU$ of $\overline x$ such that
-\be\label{top_one_0_eqn}
-	\exists s \in \overline{\mathscr A}\left( \overline\sU\right)\quad s = a|_{\overline\sU}.
-\ee
-	One can suppose that following conditions hold:
-	\begin{enumerate}
-		\item There is a positive $\phi \in C_c\left(\overline\sX \right)_+$ such that $ \overline\sU\subset \supp \phi$.
-		\item The set $\supp \phi$ is homemorphically mapped onto $\overline p\left( \supp  \phi \right)\subset\sX$.  
-	\end{enumerate}
-From the second condition it follows that
-\be\label{top_one_1_eqn}
-\forall \la\in\La \quad \forall a_\la \in   A_\la\quad \exists a_{\la_{\text{min}}} \in A = A_{\la_{\text{min}}}\quad \forall n \in \N \quad a_\la b_n = a_{\la_{\text{min}}}b_n
-\ee
-where $b_n\in C_c\left(\overline \sX\times \R \right) $ is given by \eqref{top_phi_n_eqn}. If 	$a \in \L^\dagger\left(\D \right)$ is  an is admissible, then  from \eqref{top_adm_ch2_eqn} it follows that 
-\be\label{top_one_2_eqn}
-\exists \la \in \La\quad\exists a_\la \in A_\la ~\forall n \in \N~ a b_n = a_\la   b_n.
-\ee
-Form the equations \eqref{top_one_1_eqn}, \eqref{top_one_2_eqn} and  1. of the Exercise \ref{top_a_p_a_exer} there is $a_{\phi, a} \in\overline{\mathscr A}\left( \overline\sX\right)$ such that 
-$$
-a_{\phi, a} \phi_n = a \phi_n.
-$$
-From  2. of the Exercise \ref{top_a_p_a_exer} it follows that $\left.a_{\phi, a}\right|_{\overline \sU}$ does not depend on choice of $\phi$, so one has
-$$
-\left.a\right|_{\overline \sU}=\left.a_{\phi, a}\right|_{\overline \sU}.
-$$
-Taking into account \eqref{top_one_0_eqn} we conclude that $a \in \overline{\mathscr A}\left( \overline\sX\right)$. Otherwise $a \in \L^\dagger\left( \D\right)$ so $a \in  \overline A = \overline{\mathscr A}\left( \overline\sX\right)\cap \L^\dagger\left( \D\right)$. If $a \notin \widetilde{\mathscr A}\left( \widetilde\sX\right)$ then $a \in \overline{\mathscr A}\left( \overline\sX\right)\setminus \widetilde{\mathscr A}\left( \widetilde\sX\right)$, so $\supp a \cap \left(\overline\sX\setminus \widetilde\sX \right) \neq \emptyset$ where $\supp a$ is given by \eqref{sheaf_supp_eqn}. If $\overline x \in \supp a \cap \left(\overline\sX\setminus \widetilde\sX \right)$ then there is $b \in  C_0\left(\overline\sX \right)$ such that $b\left( x\right)\neq 0$. One has $b \in  C_0\left(\overline\sX \right)\setminus C_0\left(\widetilde\sX \right)=\overline B\setminus\widetilde B$ and $ab \neq 0$, it contradicts with \eqref{adm_ch1_eqn}. From this contradiction one has $a \in \widetilde{\mathscr A}\left( \widetilde\sX\right)$.\\
-	($\Leftarrow$) 
-	From $a \in \widetilde{\mathscr A}\left( \widetilde\sX\right)$ it follows that $a$ satisfies to \eqref{adm_ch1_eqn}. If $b \in K\left( \widetilde{B}\right)= C_c\left( \widetilde\sX\times\R\right)$ and $\mathrm{pr}_{\widetilde\sX}:\widetilde\sX\times \R$ is the natural projection   then the set $\widetilde\sU \bydef \mathrm{pr}_{\widetilde\sX}\left( \supp b\right) \subset \widetilde \sX$ is compact. From the Lemma \ref{top_comp_la_lem} it follows that $\la_{\overline{   \mathcal U }} \in \La$ such that for any  $\la \ge \la_{\overline{   \mathcal U }} \in \La$ such that for  any  $\la \ge \la_{\overline{   \mathcal U }}$ the set $\overline{   \mathcal U }$  is mapped homeomorphically onto  $\overline{p}_\la\left(\overline{   \mathcal U } \right) \subset \sX_\la$ where $\overline{p}_\la:   \overline{   \mathcal X}   \to  \sX_\la$ is the natural covering. If follows that there is $a_{\la_{\overline{   \mathcal U }}}\in A_{\la_{\overline{   \mathcal U }}}$ such that
-	$$
-	\left.a\right|_{\overline \sU}=\left.a_{\la_{\overline{   \mathcal U }}}\right|_{\overline \sU}.
-	$$
-From the above equation it follows that
-$$
-a b = a_{\la_{\overline{   \mathcal U }}}b
-$$
-i.e. $a$ satisfies to to the condition \eqref{top_adm_ch2_eqn} which is a specialization of \eqref{adm_ch2_eqn}.
+If $\left(A, \widetilde{A}, G\left(\left.\widetilde B \right| B\right)\right)$ is the 
+{inverse noncommutative limit of $\mathfrak{S}_A^{\mathrm{pt}}$ associated with $\mathfrak{S}_B^{\mathrm{pt}}$} then from the Lemma \ref{top_c_hull_adm_lem} and the Exercise \ref{top_chull_comm_exer} it turns out that any admissible object lies in $\L^\dagger\left(\widetilde\D\right)_{\mathrm{comm}}$.
+
+
+that any $\widetilde a\in \widetilde A\bydef \widetilde{\mathscr A}\left( \widetilde\sX\right)$ satisfies to the conditio
 \end{proof}
+
+
 \begin{exercise}
 Consider the above situation. Let
 $$
@@ -22520,13 +22475,12 @@ Recall that for $s \in \mathscr{F}\left(\sX \right)$,
 		\item each element of $\Phi$ has a (closed) neighborhood which is in $\Phi$.
 	\end{enumerate}
 \end{definition}
-
-\begin{definition}
-	A sheaf $\mathscr{F}$ on $\sX$ is called $\Phi$-\textit{soft} if the restriction map
-	$\mathscr{F}\left(\sX \right) \to  \mathscr{F}\left(K \right)$  is surjective for all $K \in \Phi$. If $\Phi$ is a set of all closed sets  then $\Phi$ is simply
-	called \textit{soft}.
-\end{definition}
 The family of all compact subsets of $\sX$ is denoted by $c$.
+\begin{definition}\label{soft_sheaf_defn}\cite{bredon:sheaf}
+	A sheaf $\mathscr{F}$ on $\sX$ is called $\Phi$-\textit{soft} if the restriction map	$\mathscr{F}\left(\sX \right) \to  \mathscr{F}\left(K \right)$  is surjective for all $K \in \Phi$. If $\Phi$ is a set of all closed sets  then $\Phi$ is simply
+	called \textit{soft}. If $\Phi= c$ is a set of all compact  sets  then $\mathscr{F}$ is called $c$-\textit{soft}.
+\end{definition}
+
 Now is $\mathscr P$ is a presheaf on $\sX$ such and $s \in \mathscr P\left(\sX \right)$ we put
 $\left|s\right| = \left|\th\left( s\right) \right|$, where $\th: \mathscr{P}\left(\sX \right)\to \mathscr{P}^+\left(\sX \right) $ is the canonical map, $\mathscr{P}^+$ being the sheaf generated by $\mathscr{P}$.
 Note that for $s \in \mathscr{P}$ one has $x \notin \left|s\right|\Leftrightarrow\left.s \right|_{\sU}$ for some neighborhood $\sU$ of $x$. If $\mathscr{F}$ is a sheaf, we put
@@ -23847,8 +23801,7 @@ and $\mathcal{E} $ a Hilbert  $D $-module.
 	$a\in A $.
 	We equip $\mathfrak{E} $ with the \emph{graph topology}, which is
 	generated by the \emph{graph norms}
-	\bean
-	\mathrm{norm}{\xi}_a \bydef \mathrm{norm}{(\xi,\pi(a)\xi)}
+	\bean	\mathrm{norm}{\xi}_a \bydef \mathrm{norm}{(\xi,\pi(a)\xi)}
 	\bydef \mathrm{norm}{\braket{\xi}{\xi} + \braket{\pi(a)\xi}{\pi(a)\xi}}^{\nicefrac12}
 	=\\	= \mathrm{norm}{\braket{\xi}{\pi(1+a^*a)\xi}}^{\nicefrac12}
 	\eean
@@ -24383,7 +24336,7 @@ Proposition~\ref{pro:Phi_simplifies}.
 	of $(\mathfrak{H},\pi) $ on a closed subspace
 	$ \H_0\subseteq \H $, then the projection
 	onto $ \H_0 $ commutes with $\varrho(B) $.
-	%  	\end{enumerate}
+	%  	\end{exercise}
 \end{proposition}
 The equivalent conditions
 \ref{enum:Cstar-gen2}--\ref{enum:Cstar-gen2''} may be easier to
@@ -25876,9 +25829,6 @@ M. F. Atiyah, R. Bott and A. Shapiro, \textit{Clifford Modules}, Topology{\bf 3}
 
 \bibitem{brown:stable} Lawrence G. Brown, Philip Green, and Marc A. Rieffel.\textit{Stable isomorphism and strong Morita equivalence of $C^*$-algebras}. Pacific J. Math., Volume 71, Number 2 (1977), 349-363. 1977.
 
-\bibitem{candel:foliI}Alberto Candel, Lawrence Conlon. \textit{Foliations I}. Graduate Studies in Mathematics, American Mathematical Society (1999), 1999.
-%
-\bibitem{candel:foliII}Alberto Candel, Lawrence Conlon. \textit{Foliations II}. American Mathematical Society; 1 edition (April 1 2003), 2003.
 	%\bibitem{bourbaki_sp:gt} N. Bourbaki, {\it Elements of Mathematics. General Topology}, Part 1. \newline HERMANN, \'{E}DITEURS DES SCIENCES ET DAS ARTS \newline 115 Boulevard Saint-Germain. Paris \newline ADDISON-WESLEY PUBLISHING COMPANY. \newline Reading, Massachusets - Palo Ito - London - Don Mills, Ontario \newline A translation of \newline \'{E}L\'{E}MENTS DE MATH\'{E}MATIQUE, TOPOLOGIE G\'{E}N\'{E}RALE, \newline originally published in French by Hermann, Paris. 1966.
 
 \bibitem{brickell_clark:diff_m} F. Brickell and R. S. Clark.
@@ -25887,6 +25837,9 @@ M. F. Atiyah, R. Bott and A. Shapiro, \textit{Clifford Modules}, Topology{\bf 3}
 \bibitem{BroGreRie}L.~G. Brown, P.~Green, and M.~A. Rieffel.  \textit{Stable isomorphism and strong {Morita} equivalence of	{$C^*$}-algebras}.\newblock { Pacific J. Math.} {\bf 71} (1977), 349--363. 1977.
 
 \bibitem{brzezinsky:flat_co}Tomasz Brzezinski \textit{Flat connections and (co)modules}, arXiv:math/0608170, 2006.
+\bibitem{candel:foliI}Alberto Candel, Lawrence Conlon. \textit{Foliations I}. Graduate Studies in Mathematics, American Mathematical Society (1999), 1999.
+%
+\bibitem{candel:foliII}Alberto Candel, Lawrence Conlon. \textit{Foliations II}. American Mathematical Society; 1 edition (April 1 2003), 2003.
 
 \bibitem{chun-yen:separability} Chun-Yen Chou. {\it Notes on the Separability of $C^*$-Algebras.} TAIWANESE JOURNAL OF MATHEMATICS Vol. 16, No. 2, pp. 555-559, April 2012 This paper is available online at http://journal.taiwanmathsoc.org.tw , 2012.
 
