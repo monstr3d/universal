@@ -3975,10 +3975,9 @@ From the above equations it turns out that
 \be\label{chull_dom_eqn}
 \widetilde \D = \widehat{\D}\cap \widetilde\H\Rightarrow \bigcup_{\la\in \La} A_\la\subset \L^\dagger\left( \widetilde \D \right) .
 \ee
-For any $x \in B\left( \H_a\right)$ and $y \in \L^\dagger\left( \widetilde \D \right)$ there is the composition $x\circ y:\widetilde \D \to \H_a$.
 An element $\widetilde a \in \L^\dagger\left( \widetilde \D \right)$ is said to be \textit{admissible} if following condition holds
-\be\label{c_hull_adm_eqn}
-\forall b \in K\left(\widetilde{B} \right)\quad \exists a^\cup \in \cup A_\la, \quad b \circ \widetilde a= b\circ a^\cup.
+\be\label{c_hull_adm}
+\forall b \in K\left(\widetilde{B} \right)\cap   \L^\dagger\left( \widetilde \D \right),\quad \exists a^\cup \in \cup A_\la, \quad b \widetilde a= b a^\cup; \quad \widetilde ab=  a^\cup b.
 \ee
 \end{empt}
 
@@ -7625,15 +7624,15 @@ i.e.  the triple 	$\left(\left(\Coo_c\left(M \right)', \Coo\left(M \right)    \r
 \subsection{Coverings and $C^*$-hulls}\label{top_fin_hull_sec}
 \paragraph{}
 Let $\sX$ be a locally compact, connected, locally connected, Hausdorff space, and let $A \bydef C\left(\sX\right)\left[t\right]$ be a commutative *-algebra of polynomials of $t$ such that $t= t^*$. Let $B \bydef C_0\left(\sX \times \R\right)$ and let $B_c \subset B$ be a dense ideal of $B$ such that 
-$$
+\be\label{top_bc_eqn}
 B_c \bydef\left(\left.b\in B \right| \mathrm{pr}_\R\left(  \supp b \right) \quad \text{is compact}\right)
-$$ 
+\ee
 where $\mathrm{pr}_\R:\sX \times \R\to\R$ is the natural projection. If $T: \R \to \R$ is an identical map then there is a representation
 \bean
 A = C\left(\sX\right)\left[t\right]\hookto \End_B\left(B_c \right),\\
 \forall a \in C\left(\sX\right)\quad n \in \Z \quad \forall b \in B_c \quad a t^n \mapsto \left(b \mapsto aT^n b \right). 
 \eean
-If $\mathfrak B$ is the completion of $B_c$ with respect to the graph topology (cf. Definition \ref{def:rep_Hilbert_module}) then then there is the universal  representation $\varrho:  A \hookto \End_B\left(\mathfrak B \right)$ (cf. Definition \ref{def:universal_integrable_rep}) such that $B_c$ is a core for $\left(\varrho,  \mathfrak B\right)$. If  $\widetilde \sX \to \sX$ is a finite-fold transitive covering and $G \bydef G\left(\left.\widetilde \sX \right| \sX  \right)$ then from the Theorem \ref{comm_fin_thm} it follows that one can naturally obtain  a {noncommutative finite-fold  covering} $\left(B, \widetilde{B}\bydef C_0\left(\widetilde \sX \right) , G, \pi_B \right)$ (cf. Definition \ref{fin_defn}). If $\widetilde A \bydef C\left( \widetilde\sX\right)\left[t\right]$ then the action $G \times C\left( \widetilde\sX\right)$ naturally induces an action $G\times \widetilde A\to A$. The inclusion $C\left( \sX\right)\hookto C\left( \widetilde\sX\right)$ yields the inclusion $\pi_A: A \hookto \widetilde A$. Similarly to the above construction there is a dense right $B$-submodule $\widetilde {\mathfrak B}\subset \widetilde B$ and representation $\widetilde A\hookto \End_{\widetilde B}\left(\widetilde {\mathfrak B} \right)$. If $tA\subset A$ and $t\widetilde A\subset \widetilde A$ are ideals then both quadruples  $\left(A, \widetilde{A}, G, \pi_A \right)$ and  $\left(tA, t\widetilde{A}, G, \pi_A \right)$ are noncommutative finite-fold  pre-coverings of *-algebra (cf. Definition \ref{fin_pre*_defn}). Let both $B^T$ and $\widetilde B^T$ be $C^*$-norm completion of $TB$ and $T\widetilde B$ respectively.
+If $\mathfrak B$ is the completion of $B_c$ with respect to the graph topology (cf. Definition \ref{def:rep_Hilbert_module}) then there is the universal  representation $\varrho:  A \hookto \End_B\left(\mathfrak B \right)$ (cf. Definition \ref{def:universal_integrable_rep}) such that $B_c$ is a core for $\left(\varrho,  \mathfrak B\right)$. If  $\widetilde \sX \to \sX$ is a finite-fold transitive covering and $G \bydef G\left(\left.\widetilde \sX \right| \sX  \right)$ then from the Theorem \ref{comm_fin_thm} it follows that one can naturally obtain  a {noncommutative finite-fold  covering} $\left(B, \widetilde{B}\bydef C_0\left(\widetilde \sX \right) , G, \pi_B \right)$ (cf. Definition \ref{fin_defn}). If $\widetilde A \bydef C\left( \widetilde\sX\right)\left[t\right]$ then the action $G \times C\left( \widetilde\sX\right)$ naturally induces an action $G\times \widetilde A\to A$. The inclusion $C\left( \sX\right)\hookto C\left( \widetilde\sX\right)$ yields the inclusion $\pi_A: A \hookto \widetilde A$. Similarly to the above construction there is a dense right $B$-submodule $\widetilde {\mathfrak B}\subset \widetilde B$ and representation $\widetilde A\hookto \End_{\widetilde B}\left(\widetilde {\mathfrak B} \right)$. If $tA\subset A$ and $t\widetilde A\subset \widetilde A$ are ideals then both quadruples  $\left(A, \widetilde{A}, G, \pi_A \right)$ and  $\left(tA, t\widetilde{A}, G, \pi_A \right)$ are noncommutative finite-fold  pre-coverings of *-algebra (cf. Definition \ref{fin_pre*_defn}). Let both $B^T$ and $\widetilde B^T$ be $C^*$-norm completion of $TB$ and $T\widetilde B$ respectively.
 
 
 \begin{exercise}\label{top_fin_hull_exer}
@@ -9318,7 +9317,7 @@ The equation \eqref{top_inv_qo*_llimp_eqn} follows from \eqref{top_cc_l_inc_eqn}
 \subsection{Coverings and $C^*$-hulls}
 \paragraph{}
 
-!!! Suppose that
+Suppose that
 \be\label{top_hull_top_eqn}
 \begin{split}
 	\mathfrak{S}_{\left( \sX, x_0\right) }\bydef\\
@@ -9343,17 +9342,24 @@ If $B_\la\bydef C_0\left(\sY_\la \right)$ the Lemma \ref{top_base_point_lem} yie
 	\text{or simply} \quad \mathfrak{S}^{\text{pt}}_B = \left(\left\{\rho_\la: B \hookto B_\la \right\}, \left\{\rho^\mu_\nu\right\}\right).
 \end{split}
 \ee
-Similarly to the Section \ref{top_fin_hull_sec}  we define a *-algebra $A \bydef C\left( \sX\right) \left[t \right]$, a right ideal $\mathfrak{B}\subset B$ and a representation $\varrho:  A \hookto \End_B\left(\mathfrak B \right)$. Using the Exercise \ref{top_fin_hull_exer} one can construct an {associated with} $\mathfrak{S}^{\text{pt}}_B$ {pointed algebraic finite covering category of $*$-algebras} (cf. Definition \ref{comp_pt_rep_a_eqn})  given by
+Let $B_c \subset B$ be a given by \eqref{top_bc_eqn} dense ideal of $B$. If $T: \R \to \R$ is an identical map then there is a representation
+\bean
+A \bydef C\left(\sX\right)\left[t\right]\hookto \End_B\left(B_c \right),\\
+\forall a \in C\left(\sX\right)\quad n \in \Z \quad \forall b \in B_c \quad a t^n \mapsto \left(b \mapsto aT^n b \right). 
+\eean
+If $\mathfrak B$ is the completion of $B_c$ with respect to the graph topology (cf. Definition \ref{def:rep_Hilbert_module}) then there is the universal  representation $\varrho:  A \hookto \End_B\left(\mathfrak B \right)$ (cf. Definition \ref{def:universal_integrable_rep}). From the Section \ref{top_fin_hull_sec} it turns out that all $\la\in \La$ there is a dense right ideal $\mathfrak B_\la \subset B_\la$ and   the universal  representation $\varrho_\la:  A_\la \hookto \End_{B_\la}\left(\mathfrak B_\la \right)$.
+ Using the Exercise \ref{top_fin_hull_exer} one can construct a  {pointed algebraic finite covering category of $*$-algebras}  given by
 \be\label{top_sa_eqn}
 \begin{split}
-	\mathfrak{S}^{\text{pt}}_A \bydef \left(\left\{\pi_\la: A \hookto A_\la \right\}_{\la \in \La}, \left\{\pi^\mu_\nu: A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\ \nu > \mu}}\right),\\
-	\text{or simply} \quad \mathfrak{S}^{\text{pt}} = \left(\left\{\pi_\la: A \hookto A_\la \right\}, \left\{\pi^\mu_\nu\right\}\right).
+	\mathfrak{S}^{\text{pt}}_A \bydef \left(\left\{\pi_\la: A \hookto A_\la \right\}_{\la \in \La}, \left\{\pi^\mu_\nu: A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\ \nu > \mu}}\right).
 \end{split}
 \ee
-where $A_\la\bydef C\left( \sX_\la\right) \left[t \right]$.  For any $a = \sum^n_{j=0} a_j t^j$ and $x \in \sX$ there is a polynomial $a\left(x \right) \bydef \sum^n_{j=0} a_j\left(x\right) t^j\in \C\left[t\right]$. 
+where $A_\la\bydef C\left( \sX_\la\right) \left[t \right]$. 
 \begin{exercise}
 	Let both  $\mathfrak{S}^{\text{pt}}_A$ and $\mathfrak{S}^{\text{pt}}_B$  are given by \eqref{top_sa_eqn} and \eqref{top_sb_eqn} respectively.  Prove that $\mathfrak{S}^{\text{pt}}_A$ is an {associated with} $\mathfrak{S}^{\text{pt}}_B$ {pointed algebraic finite covering category of $*$-algebras} (cf. Definition \ref{comp_pt_ass_defn}).
 \end{exercise}
+\begin{empt}
+	For any $a = \sum^n_{j=0} a_j t^j$ and $x \in \sX$ there is a polynomial $a\left(x \right) \bydef \sum^n_{j=0} a_j\left(x\right) t^j\in \C\left[t\right]$. 
 Let $x\in \sX$, and let  $I_x\subset A$ be a given by
 $$
 I_x \bydef \left\{\left.a \in A\right| a\left(x\right)=0\right\}
@@ -9371,14 +9377,70 @@ Any $\overline a \in \overline{\mathscr A}\left( \overline\sX\right)$ can be rep
 \be\label{top_pol_repr_rqn}
 \forall \left(\overline x, t\right)\in \overline \sU\times\R\quad  \phi_{\overline a}\left( \left(\overline x, t\right) \right) = \sum_{j=1}^n  \overline \phi^{\overline \sU}_n\left(\overline x \right) t^n\quad \phi^{\overline \sU}_j\in C\left(\overline \sU \right)\quad j = 1,...,n
 \ee
-where $n$ depends on $\overline \sU$. From the Theorem \ref{comm_main_thm} it turns out that $\mathfrak{S}_B^{\mathrm{pt}}$ is good (cf. Definition \ref{mains_defn}) and if   $\left(B, \widetilde{B}, G\left(\left.\widetilde B \right| B\right)\right)$ is the  { infinite noncommutative covering} of $\mathfrak{S}^{\text{pt}}_{B}$ (cf. Definition \ref{main_defn}) then there are following natural isomorphisms
+where $n$ depends on $\overline \sU$. 
+\end{empt}
+\begin{empt}
+Let us develop a related to $\mathfrak{S}^{\text{pt}}_A$ specialization of the construction \ref{comp_ch_empt}.
+
+\paragraph{title}
+
+\begin{empt}\label{comp_ch_empt}
+	Consider a described in the Definition \ref{comp_pt_ass_defn} situation. Suppose that $\mathfrak{S}^{\text{pt}}_B$ is good (cf. Definition \ref{mains_defn}). Let  $\left( B, \widetilde B, G\left(\left.\widetilde B\right| B\right)\right)  $ be the inverse noncommutative limit of $\mathfrak{S}^{\mathrm{pt}}_B$,  and let  $\left( B, \overline B, G\left(\left.\overline B\right| B\right)\right)$ be the  disconnected inverse noncommutative 
+	limit of $\mathfrak{S}^{\mathrm{pt}}_B$ (cf. Definition \ref{main_defn_full_defn}). If $\widehat B \bydef C^*$-$\varinjlim B_\la$ is the direct limit of $C^*$-algebras and $\pi_a : \widehat B \hookto B\left(\H_a\right)$ is the atomic representation (cf. Definition \ref{atomic_repr_defn}) then there are natural inclusions
+	\bean
+	\cup \mathfrak{B}_\la \subset B\left(\H_a\right),\\
+	\widetilde B \subset B\left(\H_a\right),\\
+	\overline B \subset B\left(\H_a\right).
+	\eean
+	
+	
+	Using the following natural inclusions 
+	Denote by
+	\be\label{c_hull_cup_eqn}
+	\begin{split}
+		A^\cup \bydef \cup A_\la,\\
+		B^\cup \bydef \cup B_\la,\\
+		\mathfrak B^\cup\bydef \mathfrak\cup \mathfrak B_\la,\\	
+		%\mathfrak A \bydef \End_{	B^\cup }\left( \mathfrak B^\cup\right) 
+	\end{split}
+	\ee
+	There is the natural action   $A^\cup\times \mathfrak B^\cup\to \mathfrak B^\cup$  so for any  $a \in A^\cup$ there is a graph norm $\left\| \cdot\right\|_a : \mathfrak B^\cup\to \R_+$ (cf. Definition \ref{def:rep_Hilbert_module}. Let $\widehat  {\mathfrak B}$ be a completion of  ${\mathfrak B}^\cup$ with respect to the family of all graph norms. For all $ b \in \widehat B$ and $\mathfrak b \in \widehat  {\mathfrak B}$ there are limits $ b = \lim_{\a \in \mathscr A}  b_\a$ and  $\mathfrak b = \lim_{\bt \in \mathscr B} \mathfrak b_\bt$ with respect to $C^*$-norm and graph topology. So there is a limit
+	$
+	\lim_{\a \in \mathscr A}\lim_{\bt \in \mathscr B}  \mathfrak b_\bt b_\a \in \widehat  {\mathfrak B}
+	$
+	with respect to graph topology. We define $\mathfrak b b \bydef \lim_{\a \in \mathscr A}\lim_{\bt \in \mathscr B} \mathfrak b_\bt b_\a$, so there is a right action $\widehat  {\mathfrak B}\times \widehat  { B}\to \widehat  {\mathfrak B}$. If $\widehat G \bydef \varprojlim G\left(\left.A_\la\right|A\right)\cong \widehat G \bydef \varprojlim G\left(\left.B_\la\right|B\right)\cong G\left(\left.\overline B\right| B\right)$ then there are natural actions
+	\bean
+	\widehat G \times \H_a \to \H_a,\\
+	\widehat G \times \widehat {\mathfrak B} \to  \widehat{\mathfrak B}.
+	\eean
+	If $\widehat\D \bydef \widehat  {\mathfrak B}\H_a$ then $\widehat\D$ is a dense subspace of $\H_a$ and there is the action
+	\bean
+	\widehat G \times \widehat\D \to \widehat\D,\\
+	\xi \in \H_a,\quad  \mathfrak b\in  \widehat  {\mathfrak B}, \quad \mathfrak d = \mathfrak b \xi\in \widehat \D,\quad \Rightarrow \quad g \mathfrak d \bydef \left( g \mathfrak b\right) \left( g \xi\right). 
+	\eean
+	For all $\la \in \La$  the action $A_\la \times  \widehat  {\mathfrak B}\to \widehat  {\mathfrak B}$ induces the action $A_\la \times  \widehat \D\to \widehat  \D$, it follows that there is the natural inclusion $A_\la \hookto\L^\dagger\left(\widehat\D\right)$ where $\L^\dagger\left(\widehat\D\right)$ is given by \eqref{l_dag_eqn}. If $\widetilde{\H}$ is the Hilbert norm completion of   $\widetilde{B}\H_a$ and there is the orthogonal sum $\H_a= \widetilde\H \oplus \H^\perp$ then from the condition (b) of the Definition \ref{mains_defn} it follows that $\widetilde{B}\H^\perp= \{0\}$.  
+	From the above equations it turns out that
+	\be\label{chull_dom_eqn}
+	\widetilde \D = \widehat{\D}\cap \widetilde\H\Rightarrow \bigcup_{\la\in \La} A_\la\subset \L^\dagger\left( \widetilde \D \right) .
+	\ee
+	An element $\widetilde a \in \L^\dagger\left( \widetilde \D \right)$ is said to be \textit{admissible} if following condition holds
+	\be\label{c_hull_adm}
+	\forall b \in K\left(\widetilde{B} \right)\cap   \L^\dagger\left( \widetilde \D \right),\quad \exists a^\cup \in \cup A_\la, \quad b \widetilde a= b a^\cup; \quad \widetilde ab=  a^\cup b.
+	\ee
+\end{empt}
+
+
+\paragraph{tttt}
+From the Theorem \ref{comm_main_thm} it turns out that the given by \eqref{top_sb_eqn} category $\mathfrak{S}_B^{\mathrm{pt}}$ is good (cf. Definition \ref{mains_defn}) and if   $\left(B, \widetilde{B}, G\left(\left.\widetilde B \right| B\right)\right)$ is the  { infinite noncommutative covering} of $\mathfrak{S}^{\text{pt}}_{B}$ (cf. Definition \ref{main_defn}) then there are following natural isomorphisms
 \be\label{top_bc0_eqn}
 \begin{split}
 	\overline{B}\cong C_0\left(\overline\sX\times \R\right),\\
 \widetilde{B}\cong C_0\left(\widetilde\sX\times \R\right),\\
-G\left(\left.\widetilde B \right|B\right)\cong	G\left(\left.\widetilde \sX \right|\sX\right)
+G\left(\left.\overline B \right|B\right)\cong	G\left(\left.\overline \sX \right|\sX\right).\\G\left(\left.\widetilde B \right|B\right)\cong	G\left(\left.\widetilde \sX \right|\sX\right)
 \end{split}
 \ee
+where both $\overline\sX$ and $\widetilde\sX$ are topological disconnected and connected inverse limits (cf. Definition \ref{top_topological_inv_lim_defn}) of the given by \eqref{top_hull_top_eqn} topological finite covering category $\mathfrak{S}_{\left( \sX, x_0\right)}$  (cf. Definition \ref{top_sec_defn})
+
 From \eqref{peder_c0_eqn} it follows that $K\left(C_0\left(\overline\sX\times \R\right) \right)= C_c\left( \overline\sX\times \R\right)$.
 If $\widehat B \bydef C^*$-$\varinjlim B_\la$ is the direct limit of $C^*$-algebras then from $B_\la = C_0\left( \sX_\la\times \R\right)$ and the Lemma  \ref{inverse_lim_sp_lem} it follows that $\widehat B\cong C_0\left(\widehat \sX \times\R\right)$ where $\widehat \sX \bydef \varprojlim \sX_\la$ is the inverse limit of topological spaces.
 The identical function  $T : \R \to \R$ induces a map $\widehat \sX \times\R\to \C$ which also we denote by $T$. A specialization of the explained in \ref{comp_ch_empt} right-$\widehat B$ ideal $\widehat  {\mathfrak B}$ is given by
@@ -9411,7 +9473,7 @@ Also there is a map
 \psi_{\overline{\mathscr A}}:\overline{\mathscr A}\left( \overline\sX\right)\to \M,\\
 \overline a \mapsto \left( \overline x , y, z\right)\mapsto \Phi\left( \left( \overline x , y, \overline a\left( \overline x, y\right)  z\right) \right)
 \eean
-
+\end{empt}
 \begin{exercise}\label{top_a_l_exer}
 Let $\overline A \bydef \psi_{\L}\left( \L^\dagger\left(\D\right)\right) \cap \psi_{\overline{\mathscr A}}\left( \overline{\mathscr A}\left( \overline\sX\right)\right)$. Prove  that the  restrictions on $\overline A$ of multiplication and *-operation given *- algebras  $\L^\dagger\left(\D\right)$ and $\overline{\mathscr A}\left( \overline\sX\right)$ coincide.
 \end{exercise}
