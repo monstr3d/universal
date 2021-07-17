@@ -27,7 +27,7 @@ namespace Scripts.Level
         public Levelm2() : this(true)
         {
             ev.Event += Levelm2_Event;
-            var ss = new string[] { Level0.LongXC, Level0.YControl, Level0.Rz, Level0.Vz, Level0.Ry, Level0.Vy };
+            var ss = new string[] { Level0.LongXC, Level0.YControl, Level0.Rz, Level0.Vz, Level0.Ry, Level0.Vy, Level0.Time };
             var l = new List<string>();
             foreach (var s in ss)
             {

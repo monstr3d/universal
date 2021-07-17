@@ -144,10 +144,11 @@ namespace Scripts
         Type IActivation.GetActivationType(int level)
         {
             int p = Math.Abs(level);
+            int k = 1;
             int i = 1;
             while (true)
             {
-                string s = "Level" + (StaticExtensionUnity.Activation.level < 0 ? "m" : "") + i;
+                string s = "Level" + (StaticExtensionUnity.Activation.level < 0 ? "m" : "") + k;
                 Type t = StaticExtensionUnity.StringUpates[s];
                 if (i == p)
                 {
@@ -179,9 +180,11 @@ namespace Scripts
                             return StaticExtensionUnity.StringUpates[s];
                         }
                     }
+                    ++i;
+                    ++k;
                 }
-                return null;
             }
+            return null;
         }
 
 

@@ -66,8 +66,6 @@ namespace Scripts.Level
             ReferenceFrameBehavior beh = monoBehaviour as ReferenceFrameBehavior;
             var c = beh.constants;
             c[0] = "Station frame.Z=1.5";
-            SunMonobehavior.SetSun();
         }
-
     }
 }

@@ -26,7 +26,7 @@ namespace Scripts.Level
 
         public Level2() : this(true)
         {
-            var ss = new string[] { Level0.Rz, Level0.Vz, Level0.Ry, Level0.Vy };
+            var ss = new string[] { Level0.Rz, Level0.Vz, Level0.Ry, Level0.Vy, Level0.Time };
             var l = new List<string>();
             foreach (var s in ss)
             {
