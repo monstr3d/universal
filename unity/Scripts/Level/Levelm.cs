@@ -111,9 +111,13 @@ namespace Scripts.Level
 
         protected virtual void TimeOver()
         {
-            ForcesMomentumsUpdate.Telemetry = "Time over";
+           // ForcesMomentumsUpdate.Telemetry = "Time over";
             ForcesMomentumsUpdate.FuelEmpty();
-            Zero();
+            StopAll();
+            ForcesIndicator.indicator.StopAudio();
+            ForcesIndicator.indicator.TimeOver();
+            ForcesMomentumsUpdate.Scada.IsEnabled = false;
+
         }
 
         protected virtual void FuelEmpty()

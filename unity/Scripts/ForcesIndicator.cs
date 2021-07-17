@@ -77,6 +77,10 @@ namespace Scripts
 
         Dictionary<int, Image[]> blink = new Dictionary<int, Image[]>();
 
+        RectTransform timeOver;
+
+        Text timeOverText;
+
 
         #endregion
 
@@ -113,6 +117,8 @@ namespace Scripts
             }
             Dictionary<string, List<RectTransform>> rtv =
                 parent.GetGameObjectComponents<RectTransform>();
+            timeOver = rtv["TimeOver"][0];
+            timeOverText = timeOver.gameObject.GetGameObjectComponents<Text>()["ValueText"][0];
             pivot = rtv["_pivot"][0];
             path = rtv["Path"][0];
             lpos = path.localPosition;
@@ -141,7 +147,6 @@ namespace Scripts
         }
 
         #endregion
-
 
         #region Overriden
 
@@ -174,6 +179,17 @@ namespace Scripts
 
 
         #region Members
+
+
+        internal void TimeOver()
+        {
+            Level0.TimeOverTime.ToGlobal().EnableDisable(false);
+            timeOver.gameObject.SetActive(true);
+            timeOverText.gameObject.SetActive(true);
+            timeOverText.text = "Time over";
+
+        }
+
 
         internal void StopAudio()
         {

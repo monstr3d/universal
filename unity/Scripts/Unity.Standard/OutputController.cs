@@ -6,6 +6,8 @@ using System.Reflection;
 using UnityEngine;
 using UnityEngine.UI;
 
+using BaseTypes;
+
 using Scada.Desktop;
 using Scada.Interfaces;
 
@@ -14,7 +16,6 @@ using Diagram.UI.Interfaces;
 using Diagram.UI;
 
 using Unity.Standard;
-using BaseTypes;
 using Unity.Standard.Interfaces;
 
 public class OutputController : MonoBehaviour

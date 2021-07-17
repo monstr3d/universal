@@ -59,9 +59,9 @@ namespace Scripts.Level
                 var a = oc.aliases;
                 a[0] = "Aim 1.Z=0.1";
                 a[0] = "Aim 1.Z=-0.15"; // !!!
-                    // Time limit
-                a[10] = "Calculations.d=50";
-
+                                        // Time limit
+                                        //     a[10] = "Calculations.d=50";
+                a[10] = "Calculations.d=10";
                 return;
             }
              if (monoBehaviour.name != Level0.Station)

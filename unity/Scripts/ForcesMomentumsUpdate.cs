@@ -126,13 +126,15 @@ namespace Scripts
         {
 
             ///DELETE AFTER TELEMETRY !!!
-            telemerty.gameObject.SetActive(true);
+           // telemerty.gameObject.SetActive(true);
 
             scada.IsEnabled = false;
 
         };
             constants = new float[] { kx, ky, kz, kMx, kMy, kMz, 0 };
         }
+
+        internal static IScadaInterface Scada { get => forcesMomentumsUpdate.scada; }
 
         static internal void Finish()
         {

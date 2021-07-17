@@ -108,7 +108,7 @@ namespace Scripts
         static internal readonly string StartEvent = "Start Event";
 
         static internal readonly string TimeOver = "Time over";
-
+        static internal readonly string TimeOverTime = "Calculations.Formula_5";
         static internal void Set(OutputController behavior, int level)
         {
             var c = behavior.inputConstants;
@@ -118,7 +118,10 @@ namespace Scripts
             }
         }
 
-        
+        static internal string ToGlobal(this string comm)
+        {
+            return RigidBodyStation + "." + comm;
+        }
 
         static internal void SetStation(ReferenceFrameBehavior behavior, int level)
         {
