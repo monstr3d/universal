@@ -9466,9 +9466,9 @@ An element $\widetilde a\in \L^\dagger\left(\widetilde\D\right)$ is admissible (
 Prove following statements:
 \begin{enumerate}
 \item There is the natural inclusion 
-$$
+\be\label{top_coh_comm_inc_eqn}
 	\L^\dagger\left(\widetilde\D\right)_{\mathrm{comm}}\subset	\L^\dagger\left(\widetilde\D\right). 
-$$
+\ee
 \item If $\widetilde b', \widetilde b'' \in K\left(C_0\left(\widetilde\sX\times \R\ \right)\right)= C_c	\left(\widetilde\sX\times \R\ \right)$ are such that $\supp \widetilde b'\cap \supp \widetilde b'' = \emptyset$ then one has
 $$
 \widetilde b' \left(\cup A_\la \right)  \widetilde b'' = \{0\}.
@@ -9476,7 +9476,7 @@ $$
 \item For any $\widetilde a \in 	\L^\dagger\left(\widetilde\D\right)\setminus 	\L^\dagger\left(\widetilde\D\right)_{\mathrm{comm}}$ there are $\widetilde b', \widetilde b'' \in K\left(C_0\left(\widetilde\sX\times \R\ \right)\right)$ are such that
 \bean
 \supp \widetilde b'\cap \supp \widetilde b'' = \emptyset,\\
-\widetilde b'\widetilde a\widetilde b'\neq 0.
+\widetilde b'\widetilde a\widetilde b''\neq 0.
 \eean
 \item If   $\widetilde a \in 	\L^\dagger\left(\widetilde\D\right)$ satisfies to the condition \eqref{top_c_hull_adm_lem}  then one has $\widetilde a\in \L^\dagger\left(\widetilde\D\right)_{\mathrm{comm}}$
 \end{enumerate}
@@ -9488,7 +9488,7 @@ $$
 	$$
 	I_x \bydef \left\{\left.a \in A\right| a\left(x\right)=0\right\}
 	$$
-	ideal. If $\sU\subset \sX$ is any !!! closed subset and
+	ideal. If $\sU\subset \sX$ is any !!! open subset and
 	$$
 	\mathscr{ A}'\left( \sU\right)\bydef A / \bigcup_{x \in \sX\setminus \sU } I_x
 	$$
@@ -9496,29 +9496,50 @@ $$
 	$$
 	A \cong \mathscr{ A}\left(\sX \right).
 	$$
- If $\widetilde p: \widetilde\sX \to \sX$ is the natural transitive covering then denote by $\widetilde{\mathscr A}\bydef \widetilde p^{-1}\mathscr A$ the  inverse image of $\mathscr A$ (cf. Definition \ref{sheaf_inv_im_defn}) then the space $\widetilde{\mathscr A}\left( \widetilde\sX\right)$ of  global sections has natural structure of $*$-algebra. 
+ If $\widetilde p: \widetilde\sX \to \sX$ is the natural transitive covering then denote by $\widetilde{\mathscr A}\bydef \widetilde p^{-1}\mathscr A$ the  inverse image of $\mathscr A$ (cf. Definition \ref{sheaf_inv_im_defn}) then the space $\widetilde{\mathscr A}\left( \widetilde\sX\right)$ of  global sections has natural structure of $*$-algebra.
+\end{empt} 
  \begin{exercise}\label{top_soft_exer}
  Prove that both sheaves ${\mathscr A}$ and $\widetilde{\mathscr A}$ are $c$-soft (cf. Definition \ref{soft_sheaf_defn}).
  \end{exercise}
  
  The inclusion $A \hookto D^*\left(\sX \right)$ naturally induces the inclusion 
  $$
-\widetilde{\mathscr A}\left( \widetilde\sX\right)\subset D^*\left(\widetilde \sX\times \R \right) 
+\widetilde{\mathscr A}\left( \widetilde\sX\right)\subset D^*\left(\widetilde \sX\times \R \right).
  $$
-\end{empt}
+
 
 \begin{theorem}\label{top_chull_thm}
 Consider the above situation. If $\widetilde A\bydef \widetilde{\mathscr A}\left( \widetilde\sX\right)\cap	\L^\dagger\left(\widetilde\D\right)_{\mathrm{comm}}$  then the triple $\left(A, \widetilde{A}, G\left(\left.\widetilde B \right| B\right)\right)$ is the 
 { inverse noncommutative limit of $\mathfrak{S}_A^{\mathrm{pt}}$ associated with $\mathfrak{S}_B^{\mathrm{pt}}$} (cf. Definition  \ref{main_ch_defn}).
 \end{theorem}
 \begin{proof}
+	The intersection $\widetilde{\mathscr A}\left( \widetilde\sX\right)\cap	\L^\dagger\left(\widetilde\D\right)_{\mathrm{comm}}$ is well defined because there are inclusions of *-algebras
+	\bean
+	\widetilde{\mathscr A}\left( \widetilde\sX\right) \subset D^*\left(\widetilde \sX\times \R \right),\\
+	\L^\dagger\left(\widetilde\D\right)_{\mathrm{comm}} \subset D^*\left(\widetilde \sX\times \R \right),\\
+	\eean
 If $\left(A, \widetilde{A}, G\left(\left.\widetilde B \right| B\right)\right)$ is the 
-{inverse noncommutative limit of $\mathfrak{S}_A^{\mathrm{pt}}$ associated with $\mathfrak{S}_B^{\mathrm{pt}}$} then from the Lemma \ref{top_c_hull_adm_lem} and the Exercise \ref{top_chull_comm_exer} it turns out that any admissible object lies in $\L^\dagger\left(\widetilde\D\right)_{\mathrm{comm}}$.
+{inverse noncommutative limit of $\mathfrak{S}_A^{\mathrm{pt}}$ associated with $\mathfrak{S}_B^{\mathrm{pt}}$} then from the Lemma \ref{top_c_hull_adm_lem} and the Exercise \ref{top_chull_comm_exer} it turns out that any admissible object lies in $\L^\dagger\left(\widetilde\D\right)_{\mathrm{comm}}$. Now we would like to prove that the set admissible elements coincides with the intersection $\widetilde{\mathscr A}\left( \widetilde\sX\right)\cap	\L^\dagger\left(\widetilde\D\right)_{\mathrm{comm}}$
 
+Firstly  we prove that   $\widetilde a\in  \widetilde{\mathscr A}\left( \widetilde\sX\right)\cap	\L^\dagger\left(\widetilde\D\right)_{\mathrm{comm}}$ for all  admissible $\widetilde a\in \L^\dagger\left(\widetilde\D\right)$. From the Exercise \ref{top_chull_comm_exer} it follows that $\widetilde a\in  	\L^\dagger\left(\widetilde\D\right)_{\mathrm{comm}}$ Having $\widetilde a$ we construct the global section $\widetilde s_{\widetilde a}\in \widetilde{\mathscr A}\left( \widetilde\sX\right)$. From \ref{top_fx_empt} it turns out that for any $\widetilde x \in \widetilde\sX$ one can find $\widetilde f \in C_c\left(\widetilde\sX \right)$  such that $\widetilde{x}\in  \widetilde{\sV} \subset {\widetilde{\sU}}\subset \widetilde\sX$, $\widetilde{f}\left(\widetilde{\sV} \right)= 1$,  $\widetilde{f}\left(\widetilde{\sX} \right)= \left[0,1\right]$ and $\supp 	\widetilde{f} \subset \widetilde{\sU}$. Moreover both sets $\widetilde{\sV} \subset {\widetilde{\sU}}$ are open and the restriction $\left.\widetilde p\right|_{\widetilde{\sU}}: \widetilde{\sU}\to \sU \bydef {\widetilde{p}}\left( {\widetilde{\sU}}\right)$ is a homeomorphism. According to \eqref{top_c_hull_adm_eqn} there is $a^\cup \in \cup A_\la$ such that 
+$
+f \widetilde af= f a^\cup f
+$. Moreover since $\sU$ is evenly covered by $p_\la$ there is $a \in A$ such that $f \widetilde af= f a\cup f$. A pair $\left( a , \sV \bydef \widetilde{p }\left(\widetilde\sV \right) \right)$ defines a stalk of $\mathscr A$ at $\widetilde{p }\left(\widetilde{x } \right)$ (cf. Definition \ref{stalk_defn}). The restriction $\left.\widetilde p\right|_{\widetilde{\sV}}: \widetilde{\sV}\to \sV \bydef {\widetilde{p}}\left( {\widetilde{\sV}}\right)$ is a homeomorphism so one can define a  stalk $s_{ \widetilde{\sV}} \in \widetilde{\mathscr A}\left(\widetilde{\sU} \right)$  of $\widetilde{\mathscr A}$ at $\widetilde{x }$. Having a stalk for any $\widetilde x \in \widetilde \sX$ one can construct a global section $\widetilde s_{\widetilde a}\in \widetilde{\mathscr A}\left( \widetilde\sX\right)$.
 
-that any $\widetilde a\in \widetilde A\bydef \widetilde{\mathscr A}\left( \widetilde\sX\right)$ satisfies to the conditio
+Secondly we prove that any $\widetilde a\in  \widetilde{\mathscr A}\left( \widetilde\sX\right)\cap	\L^\dagger\left(\widetilde\D\right)_{\mathrm{comm}}$ is admissible.  From the equation \eqref{top_coh_comm_inc_eqn} it follows that $\widetilde a\in  	\L^\dagger\left(\widetilde\D\right)$. If $\widetilde b', \widetilde b'' \in K\left(C_0\left(\widetilde\sX\times \R\ \right)\right)= C_c\left(\widetilde\sX\times \R\ \right)$ then both $\supp \widetilde b'$ and $\supp \widetilde b''$ are compact.  So the intersection $\supp \widetilde b'\cap \supp \widetilde b''$ is also compact. 
+From the Lemma \ref{top_comp_la_lem} it follows that there is $\la_{\supp \widetilde b'\cap \supp \widetilde b''} \in \La$ such that for any  
+$\la \ge \la_{\supp \widetilde b'\cap \supp \widetilde b''} \in \La$ such that for  any  $\la \ge \la_{\supp \widetilde b'\cap \supp \widetilde b''}$ the set ${\supp \widetilde b'\cap \supp \widetilde b''}$  is mapped homeomorphically onto  
+$\widetilde{p}_\la\left(\supp \widetilde b'\cap \supp \widetilde b'' \right) \subset \sX_\la$ where $\widetilde{p}_\la:   \widetilde{   \mathcal X}   \to  \sX_\la$ is the natural covering. Element $\widetilde b'\widetilde a\widetilde b''$ uniquely depends on the restriction $\left.\widetilde a \right|_{\supp \widetilde b'\cap \supp \widetilde b'}\in \widetilde{\mathscr A}\left( \supp \widetilde b'\cap \supp \widetilde b''\right)$ where the group $\widetilde{\mathscr A}\left( \supp \widetilde b'\cap \supp \widetilde b'\right)$ is defined by the Remark \ref{sheaf_rem}. There is $s_\la \in \mathscr A_\la \left(\widetilde p\left( \supp \widetilde b'\cap \supp \widetilde b''\right)  \right)$ such that   $\left.\widetilde a \right|_{\supp \widetilde b'\cap \supp \widetilde b'}$ is the lift of $s_\la$. 
+On the other hand the sheaf $\mathscr A_\la$ is $c$-soft (cf. Exercise \ref{top_soft_exer}) so there is $a_{\la_0}\in A_{\la_0}$ such that
+$
+\left. a_{\la_0}\right|_{\sU_{\la_0}}=s_\la$. From the above construction it follows that
+$$
+\quad b' \widetilde ab''= b' a_\la b''.
+$$
+From the Lemma \ref{top_c_hull_adm_lem} it follows that $\widetilde a$ is admissible. 
+
+	The intersection $\widetilde A \bydef \cap \widetilde A'$   of all subalgebras of $\L^\dagger\left( \widetilde \D \right)$ such that any $\widetilde A'$ contains all admissible elements coincides with $\widetilde{\mathscr A}\left( \widetilde\sX\right)\cap	\L^\dagger\left(\widetilde\D\right)_{\mathrm{comm}}$ so  from the Definition \ref{main_chp_defn} it turns that this theorem is proven.
 \end{proof}
-
 
 \begin{exercise}
 Consider the above situation. Let
@@ -22444,8 +22465,8 @@ A^{\infty}$.
 \end{empt}
 
 \begin{remark}\label{sheaf_rem}
-	If $\sV \subset \sX$ then there is the natural topology on $\bigcup_{x \in \sV}  \mathscr F_x$,
-	Similarly to the construction \ref{sheaf_empt} one can define a group $\mathscr F\left(\sV\right)$ for any subset $\sV\subset\sX$ which is a group of continuous functions from $\iota \sV: \bigcup_{x \in \sV}  \mathscr F_x$ such that $p\circ\iota = \Id_\sV$. 
+	If $\sV \subset \sX$ be any subset  then there is the natural topology on $\bigcup_{x \in \sV}  \mathscr F_x$,
+	Similarly to the construction \ref{sheaf_empt} one can define a group $\mathscr F\left(\sV\right)$ for any subset $\sV\subset\sX$ which is a group of continuous maps  $\iota :\sV\to \bigcup_{x \in \sV}  \mathscr F_x$ such that $p\circ\iota = \Id_\sV$. Denote by  $\mathscr F\left(\sV \right)$ the Abelian group of such maps.
 \end{remark}
 \begin{definition}\label{sheaf_inv_im_defn}\cite{hartshorne:ag}
 	Let $f: \sX\to \sY$ be a continuous map of topological spaces. For any sheaf $\mathscr F$ on $\sX$, we define the \textit{direct image} sheaf $f_*\mathscr F$ on $\sY$ by $\left(f_*\mathscr F\right)\left(\sV\right)= \mathscr F\left(f^{-1}\left(\sV\right)\right)$ for any open set $\sV \subseteq \sY$. For any sheaf $\mathscr G$ on $\sY$, we define the \textit{inverse image} sheaf $f^{-1}\mathscr G$ on $\sX$ be the sheaf associated to the presheaf $\sU \mapsto \lim_{\sV \supseteq f\left(\sU\right)} \mathscr G\left(\sV\right)$, where $\sU$ is any open set in $\sX$, and the limit is taken over all open sets $\sV$ of $\sV$ containing $f\left(\sU\right)$.
