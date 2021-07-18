@@ -4,8 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using Unity.Standard;
 using UnityEngine;
+
+using Scada.Interfaces;
+
+
+using Unity.Standard.Interfaces;
+using Unity.Standard;
+
+
+
 
 
 namespace Scripts.Level
@@ -14,13 +22,8 @@ namespace Scripts.Level
     {
         public Levelm1_Fuel()
         {
-            var ss = new string[] { Level0.Time, Level0.Rz, Level0.Vz, Level0.Fuel };
-            var l = new List<string>();
-            foreach (var s in ss)
-            {
-                l.Add(Level0.RigidBodyStation + "." + s);
-            }
-            StaticExtensionUnity.Activation.enabledComponents = l.ToArray();
+            var ss = new string[] { Level0.Time, Level0.TimeOverTime, Level0.Rz, Level0.Vz, Level0.Fuel };
+            ss.SetVisible();
             distShort.Event += () =>
             {
                 KeyCode.RightControl.KeyDown();
@@ -35,6 +38,12 @@ namespace Scripts.Level
             };
 
         }
+
+        new static public void Collision(Tuple<GameObject, Component, IScadaInterface, ICollisionAction> stop)
+        {
+            Level1_Fuel.Collision(stop);
+        }
+
 
 
         protected override void Update()

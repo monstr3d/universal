@@ -14,14 +14,8 @@ namespace Scripts.Level
     {
         public Levelm1()
         {
-            // var ss = new string[] { Level0.Distance, Level0.Velocity,   Level0.VxLimiter,  Level0.Rz };
-            var ss = new string[] { Level0.LongXC, Level0.Rz, Level0.Vz, Level0.Time };
-            var l = new List<string>();
-            foreach (var s in ss)
-            {
-                l.Add(Level0.RigidBodyStation + "." + s);
-            }
-            StaticExtensionUnity.Activation.enabledComponents = l.ToArray();
+            var ss = new string[] { Level0.LongXC, Level0.Rz, Level0.Vz, Level0.Time, Level0.TimeOverTime };
+            ss.SetVisible();
             ev.Event += Levelm1_Event;
         }
 

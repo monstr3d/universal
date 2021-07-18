@@ -5,7 +5,6 @@ using UnityEngine;
 
 using Scada.Interfaces;
 
-using Unity.Standard;
 using Unity.Standard.Interfaces;
 
 namespace Scripts.Level
@@ -19,20 +18,10 @@ namespace Scripts.Level
 
         public Level1()
         {
-            var ss = new string[] { Level0.Rz, Level0.Vz };//, Level0.Fuel };
-            var l = new List<string>();
-            foreach (var s in ss)
-            {
-                l.Add(Level0.RigidBodyStation + "." + s);
-            }
-            StaticExtensionUnity.Activation.enabledComponents = l.ToArray();//*/
- 
+            var ss = new string[] { Level0.Rz, Level0.Vz, Level0.Time, Level0.TimeOverTime };//, Level0.Fuel };
+            ss.SetVisible();
         }
 
-        private void FuelEv_Event()
-        {
-
-        }
 
 
         protected override void Update()
@@ -60,8 +49,8 @@ namespace Scripts.Level
                 a[0] = "Aim 1.Z=0.1";
                 a[0] = "Aim 1.Z=-0.15"; // !!!
                                         // Time limit
-                                        //     a[10] = "Calculations.d=50";
-                a[10] = "Calculations.d=10";
+                a[10] = "Calculations.d=50";
+          //      a[10] = "Calculations.d=10";
                 return;
             }
              if (monoBehaviour.name != Level0.Station)

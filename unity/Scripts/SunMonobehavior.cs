@@ -51,7 +51,8 @@ public class SunMonobehavior : MonoBehaviour
 
     internal static void SetGood()
     {
-        SetCoordinates(5000, 0, -3000);
+        //      SetCoordinates(5000, 0, -3000);
+        SetCoordinates(2000, 0, -3000);
     }
 
     internal static void SetSun()

@@ -37,6 +37,7 @@ namespace Scripts.Level
                 var a = oc.aliases;
                 //             a[0] = "Aim 1.Z=-0.3";
                 a[0] = "Aim 1.Z=-0.07";
+                a[10] = "Calculations.d=140";
                 return;
             }
             if (monoBehaviour.name != Level0.Station)
@@ -45,7 +46,7 @@ namespace Scripts.Level
             }
             ReferenceFrameBehavior beh = monoBehaviour as ReferenceFrameBehavior;
             var c = beh.constants;
-            c[0] = "Station frame.Z=1.5";
+            c[0] = "Station frame.Z=1.3";
             c[1] = "Station frame.Y=0.2";
             c[2] = "Station frame.X=0.3";
             return;
@@ -80,6 +81,13 @@ namespace Scripts.Level
             Level0.SetCamera(rf);
             */
         }
+
+
+        public static void Post()
+        {
+            SunMonobehavior.SetGood();
+        }
+
 
         new static public void Collision(Tuple<GameObject, Component, IScadaInterface, ICollisionAction> stop)
         {

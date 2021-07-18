@@ -26,13 +26,8 @@ namespace Scripts.Level
 
         public Level2() : this(true)
         {
-            var ss = new string[] { Level0.Rz, Level0.Vz, Level0.Ry, Level0.Vy, Level0.Time };
-            var l = new List<string>();
-            foreach (var s in ss)
-            {
-                l.Add(Level0.RigidBodyStation + "." + s);
-            }
-            StaticExtensionUnity.Activation.enabledComponents = l.ToArray();
+            var ss = new string[] { Level0.Rz, Level0.Vz, Level0.Ry, Level0.Vy, Level0.Time, Level0.TimeOverTime };
+            ss.SetVisible();
         }
 
 
@@ -45,6 +40,8 @@ namespace Scripts.Level
                 var a = oc.aliases;
    //             a[0] = "Aim 1.Z=-0.3";
                 a[0] = "Aim 1.Z=-0.07";
+                // Time limit
+                a[10] = "Calculations.d=80";
                 return;
             }
             if (monoBehaviour.name != Level0.Station)
@@ -53,7 +50,7 @@ namespace Scripts.Level
             }
             ReferenceFrameBehavior beh = monoBehaviour as ReferenceFrameBehavior;
             var c = beh.constants;
-            c[0] = "Station frame.Z=1.5";
+            c[0] = "Station frame.Z=1.3";
             c[1] = "Station frame.Y=0.2";
             return;
             /*         ReferenceFrameBehavior rf = null;
@@ -94,6 +91,8 @@ namespace Scripts.Level
             {
                 c[i] = 0;
             }
+            // Time limit
+
         }
 
 

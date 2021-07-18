@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 using UnityEngine;
 
@@ -108,6 +109,7 @@ namespace Scripts
         static internal readonly string StartEvent = "Start Event";
 
         static internal readonly string TimeOver = "Time over";
+
         static internal readonly string TimeOverTime = "Calculations.Formula_5";
         static internal void Set(OutputController behavior, int level)
         {
@@ -116,6 +118,17 @@ namespace Scripts
             {
                 c[i] = 0;
             }
+        }
+
+        static internal void SetVisible(this string[] ss)
+        {
+            var l = new List<string>();
+            foreach (var s in ss)
+            {
+                l.Add(Level0.RigidBodyStation + "." + s);
+            }
+            StaticExtensionUnity.Activation.enabledComponents = l.ToArray();//*/
+
         }
 
         static internal string ToGlobal(this string comm)
@@ -213,6 +226,7 @@ namespace Scripts
         static public void Collision(Tuple<GameObject, Component, IScadaInterface, ICollisionAction> stop)
         {
             ForcesIndicator.indicator.StopAudio();
+            KeyActivation.blinkedLamps.IsStopped = true;
         }
 
     }

@@ -17,19 +17,20 @@ namespace Scripts.Level
 
         public Level4()
         {
-            var ss = new string[] {  Level0.Rz, Level0.Vz, Level0.Oz};
-            var l = new List<string>();
-            foreach (var s in ss)
-            {
-                l.Add(Level0.RigidBodyStation + "." + s);
-            }
-            StaticExtensionUnity.Activation.enabledComponents = l.ToArray();
+            var ss = new string[] {  Level0.Rz, Level0.Vz, Level0.Oz, Level0.Time, Level0.TimeOverTime };
+            ss.SetVisible();
         }
 
         protected override void Update()
         {
 
         }
+
+        public static void Post()
+        {
+            SunMonobehavior.SetGood();
+        }
+
 
         new static public void Collision(Tuple<GameObject, Component, IScadaInterface, ICollisionAction> stop)
         {
@@ -81,12 +82,15 @@ namespace Scripts.Level
             {
                 c[i] = 0;
             }
+            var a = behavior.aliases;
+            a[10] = "Calculations.d=120";
+
         }
 
         static void SetStation(ReferenceFrameBehavior behavior)
         {
             var c = behavior.constants;
-            c[0] = "Station frame.Z=3.5";
+            c[0] = "Station frame.Z=3.3";
             for (int i = 1; i < c.Length; i++)
             {
                 c[i] = c[i].ToZero();

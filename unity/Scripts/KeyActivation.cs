@@ -181,8 +181,8 @@ namespace Scripts
                         }
                     }
                     ++i;
-                    ++k;
                 }
+                ++k;
             }
             return null;
         }

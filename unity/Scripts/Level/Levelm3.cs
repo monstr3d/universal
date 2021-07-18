@@ -20,14 +20,8 @@ namespace Scripts.Level
             ev.Event += Levelm3_Event;
 
             var ss = new string[] { Level0.ZControl, Level0.YControl, Level0.Rz, Level0.Vz, Level0.Ry, Level0.Vy,
-             Level0.Rx, Level0.Vx};
-            var l = new List<string>();
-            foreach (var s in ss)
-            {
-                l.Add(Level0.RigidBodyStation + "." + s);
-            }
-            StaticExtensionUnity.Activation.enabledComponents = l.ToArray();
-
+             Level0.Rx, Level0.Vx, Level0.Time, Level0.TimeOverTime};
+            ss.SetVisible();
         }
 
         private void Levelm3_Event()
@@ -42,6 +36,13 @@ namespace Scripts.Level
 
             }
         }
+
+
+        public static void Post()
+        {
+            Level3.Post();
+        }
+
 
         private void Ev_Event()
         {
