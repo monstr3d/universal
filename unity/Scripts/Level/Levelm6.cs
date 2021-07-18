@@ -15,8 +15,7 @@ namespace Scripts.Level
     public class Levelm6 : Levelm
     {
 
-        EulerAngles angles = new EulerAngles();
-
+  
 
         public Levelm6()
         {
@@ -24,14 +23,11 @@ namespace Scripts.Level
             var ss = new string[] {  
                 Level0.LongXC,
                Level0.YControl, 
-                Level0.Rz, Level0.Vz, Level0.Ry, Level0.Vy,
-             Level0.Rx, Level0.Vx, Level0.Oz};
-            var l = new List<string>();
-            foreach (var s in ss)
-            {
-                l.Add(Level0.RigidBodyStation + "." + s);
-            }
-            StaticExtensionUnity.Activation.enabledComponents = l.ToArray();
+                Level0.Rz, Level0.Vz, 
+                Level0.Ry, Level0.Vy,
+             Level0.Rx, Level0.Vx,
+             Level0.Oz, Level0.Time, Level0.TimeOverTime};
+            ss.SetVisible();
             ev.Event += YZEvent;
        }
 
@@ -104,21 +100,7 @@ namespace Scripts.Level
 
         public static void Set(MonoBehaviour monoBehaviour)
         {
-            Level0.Set(monoBehaviour, 6);
-            if (!(monoBehaviour is ReferenceFrameBehavior))
-            {
-                return;
-            }
-            ReferenceFrameBehavior behavior = monoBehaviour as ReferenceFrameBehavior;
-            var c = behavior.constants;
-            if (c.Length > 11)
-            {
-                if (c[11].Contains("OMGz"))
-                {
-                    c[8] = "Station frame.Yaw=2.7";
-                    c[2] = c[2].ToZero();
-                }
-            }
+            Level6.Set(monoBehaviour);
         }
 
 

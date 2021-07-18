@@ -227,6 +227,7 @@ namespace Scripts
         {
             ForcesIndicator.indicator.StopAudio();
             KeyActivation.blinkedLamps.IsStopped = true;
+            (KeyActivation.blinkedLamps as BlinkedEnabledGameObjects).Disable();
         }
 
     }

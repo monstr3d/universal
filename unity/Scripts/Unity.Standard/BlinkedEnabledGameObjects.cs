@@ -46,5 +46,20 @@ namespace Unity.Standard
         }
 
         #endregion
+
+        #region Public Members
+
+        /// <summary>
+        ///  Disables controls
+        /// </summary>
+        public void Disable()
+        {
+            foreach (var o in objects)
+            {
+                o.SetActive(false);
+            }
+        }
+
+        #endregion
     }
 }

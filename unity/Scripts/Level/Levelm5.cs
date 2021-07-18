@@ -19,13 +19,8 @@ namespace Scripts.Level
             // var ss = new string[] { Level0.Distance, Level0.Velocity,   Level0.VxLimiter,  Level0.Rz };
             var ss = new string[] { Level0.LongXC, 
                 Level0.OzControl1, 
-                Level0.Rz, Level0.Vz, Level0.Oz };
-            var l = new List<string>();
-            foreach (var s in ss)
-            {
-                l.Add(Level0.RigidBodyStation + "." + s);
-            }
-            StaticExtensionUnity.Activation.enabledComponents = l.ToArray();
+                Level0.Rz, Level0.Vz, Level0.Oz,  Level0.Time, Level0.TimeOverTime };
+            ss.SetVisible();
             ev.Event += Levelm1_Event;
         }
 
@@ -43,6 +38,10 @@ namespace Scripts.Level
         }
 
 
+        public static void Post()
+        {
+            Level5.Post();
+        }
 
         new static public void Collision(Tuple<GameObject, Component, IScadaInterface, ICollisionAction> stop)
         {

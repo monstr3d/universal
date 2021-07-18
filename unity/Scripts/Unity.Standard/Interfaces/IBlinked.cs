@@ -21,5 +21,7 @@ namespace Unity.Standard.Interfaces
         /// The "is stopped" sing
         /// </summary>
         bool IsStopped { get; set; }
+
+       
     }
 }

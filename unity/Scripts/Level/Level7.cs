@@ -19,20 +19,15 @@ namespace Scripts.Level
             var ss = new string[] {
      //           Level0.LongXC,               Level0.YControl, Level0.ZControl,
                 Level0.Rz, Level0.Vz, Level0.Ry, Level0.Vy,
-             Level0.Rx, Level0.Vx, Level0.Oz};
-            var l = new List<string>();
-            foreach (var s in ss)
-            {
-                l.Add(Level0.RigidBodyStation + "." + s);
-            }
-            StaticExtensionUnity.Activation.enabledComponents = l.ToArray();
+             Level0.Rx, Level0.Vx, Level0.Oz, Level0.Time, Level0.TimeOverTime};
+            ss.SetVisible();
         }
-/*
-        const double al = 1 * Mathf.Deg2Rad;
+        /*
+                const double al = 1 * Mathf.Deg2Rad;
 
-        const double ol = 0.1 * Mathf.Deg2Rad;
-*/
-   
+                const double ol = 0.1 * Mathf.Deg2Rad;
+        */
+
 
 
 
@@ -50,6 +45,7 @@ namespace Scripts.Level
             var c = controller.inputConstants;
             c[3] = 0;
             c[5] = 0;
+            controller.aliases[10] = "Calculations.d=800";
         }
 
         public static void Set(MonoBehaviour monoBehaviour)

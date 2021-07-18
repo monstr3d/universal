@@ -29,6 +29,7 @@ namespace Scripts.Level
         public static void Post()
         {
             SunMonobehavior.SetGood();
+           // SunMonobehavior.SetDark();
         }
 
 
@@ -83,7 +84,7 @@ namespace Scripts.Level
                 c[i] = 0;
             }
             var a = behavior.aliases;
-            a[10] = "Calculations.d=120";
+            a[10] = "Calculations.d=125";
 
         }
 

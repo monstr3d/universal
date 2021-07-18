@@ -155,6 +155,14 @@ namespace Scripts
                     return t;
                 }
                 ++i;
+                if (StaticExtensionUnity.StringUpates.ContainsKey(s + "_Night"))
+                {
+                    if (i == p)
+                    {
+                        return StaticExtensionUnity.StringUpates[s + "_Night"];
+                    }
+                    ++i;
+                }
                 s += "_Fuel";
                 if (StaticExtensionUnity.StringUpates.ContainsKey(s))
                 {
