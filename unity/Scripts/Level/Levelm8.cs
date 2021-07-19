@@ -22,13 +22,9 @@ namespace Scripts.Level
              //   Level0.LongXC,               Level0.YControl, 
                 Level0.ZControl,
                 Level0.Rz, Level0.Vz, Level0.Ry, Level0.Vy,
-             Level0.Rx, Level0.Vx, Level0.Ox, Level0.Oy, Level0.Oz};
+             Level0.Rx, Level0.Vx, Level0.Ox, Level0.Oy, Level0.Oz, Level0.Time, Level0.TimeOverTime};
             var l = new List<string>();
-            foreach (var s in ss)
-            {
-                l.Add(Level0.RigidBodyStation + "." + s);
-            }
-            StaticExtensionUnity.Activation.enabledComponents = l.ToArray();
+            ss.SetVisible();
             ev.Event += ZEvent;
         }
 

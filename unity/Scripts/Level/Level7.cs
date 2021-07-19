@@ -12,7 +12,6 @@ namespace Scripts.Level
     public class Level7 : Levelm
     {
 
-
         public Level7()
         {
             /// Level0.ZControl, Level0.YControl,
@@ -32,7 +31,7 @@ namespace Scripts.Level
 
 
 
-        static public void Collision(Tuple<GameObject, Component, IScadaInterface, ICollisionAction> stop)
+        new static public void Collision(Tuple<GameObject, Component, IScadaInterface, ICollisionAction> stop)
         {
             // Time of flight = UNKNOWN
             (Level0.RigidBodyStation + "." +
@@ -45,7 +44,7 @@ namespace Scripts.Level
             var c = controller.inputConstants;
             c[3] = 0;
             c[5] = 0;
-            controller.aliases[10] = "Calculations.d=800";
+            controller.aliases[10] = "Calculations.d=530";
         }
 
         public static void Set(MonoBehaviour monoBehaviour)
@@ -53,7 +52,7 @@ namespace Scripts.Level
             if (!(monoBehaviour is ReferenceFrameBehavior))
             {
                 OutputController oc = monoBehaviour as OutputController;
-                oc.aliases[0] = "Aim 1.Z=-0.3";
+                oc.aliases[0] = "Aim 1.Z=-0.3"; // !!! -0.3
                 Set(monoBehaviour as OutputController);
                 return;
             }

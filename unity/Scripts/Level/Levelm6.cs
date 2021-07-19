@@ -49,6 +49,7 @@ namespace Scripts.Level
                 (Level0.RigidBodyStation + "." +
                Level0.ZControl).EnableDisable(true);
                 ev.Event += YawEvent;
+                Debug.Log("YZEvent");
             }
         }
 
@@ -71,7 +72,8 @@ namespace Scripts.Level
                 Level0.LongXC).EnableDisable(false); 
                 (Level0.RigidBodyStation + "." +
                 Level0.ShortXC).EnableDisable(true);
-    
+           //     ev.Event += Ev_Event;
+                Debug.Log("YawEvent");
             }
         }
 
@@ -87,6 +89,7 @@ namespace Scripts.Level
                 //             ForcesMomentumsUpdate.Finish();
                 (Level0.RigidBodyStation + "." +
                   Level0.ShortXC).EnableDisable(true);// */
+                Debug.Log("Ev_Event");
             }
 
         }

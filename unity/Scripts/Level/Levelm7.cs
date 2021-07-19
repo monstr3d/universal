@@ -15,12 +15,12 @@ namespace Scripts.Level
     public class Levelm7 : Levelm
     {
 
-        EulerAngles angles = new EulerAngles();
 
-        protected Levelm7(bool b)
+        protected  Levelm7(bool b)
         {
 
         }
+
 
         public Levelm7()
         {
@@ -63,7 +63,7 @@ namespace Scripts.Level
 
                 ev.Event -= YEvent;
                 (Level0.RigidBodyStation + "." +
-Level0.OzControl).EnableDisable(true);
+                Level0.OzControl).EnableDisable(true);
 
 //                (Level0.RigidBodyStation + "." +
 //                Level0.LongXC).EnableDisable(true);
@@ -100,16 +100,6 @@ Level0.OzControl).EnableDisable(true);
             {
                 Debug.Log("YawEvent");
                 ev.Event -= YawEvent;
-                //       (Level0.RigidBodyStation + "." +
-                //        Level0.LimitedXC).EnableDisable(true);
-                //       (Level0.RigidBodyStation + "." +
-                //      Level0.OzControl).EnableDisable(false);
-                //    (Level0.RigidBodyStation + "." +
-                //     Level0.YControl).EnableDisable(true);
-                //  (Level0.RigidBodyStation + "." +
-                //  Level0.ZControl).EnableDisable(true);
-           //     (Level0.RigidBodyStation + "." +
-          //      Level0.LongXC).EnableDisable(false);
                 (Level0.RigidBodyStation + "." +
                 Level0.ShortXC).EnableDisable(true);
 

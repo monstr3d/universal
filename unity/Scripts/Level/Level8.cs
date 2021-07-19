@@ -19,14 +19,9 @@ namespace Scripts.Level
             /// Level0.ZControl, Level0.YControl,
             var ss = new string[] {
                 Level0.Rz, Level0.Vz, Level0.Ry, Level0.Vy,
-             Level0.Rx, Level0.Vx, Level0.Ox,  Level0.Oy,  Level0.Oz};
-            var l = new List<string>();
-            foreach (var s in ss)
-            {
-                l.Add(Level0.RigidBodyStation + "." + s);
-            }
-            StaticExtensionUnity.Activation.enabledComponents = l.ToArray();
-         }
+             Level0.Rx, Level0.Vx, Level0.Ox,  Level0.Oy,  Level0.Oz, Level0.Time, Level0.TimeOverTime};
+            ss.SetVisible();
+        }
 
 
         new static public void Collision(Tuple<GameObject, Component, IScadaInterface, ICollisionAction> stop)
@@ -38,6 +33,8 @@ namespace Scripts.Level
         {
             if (!(monoBehaviour is ReferenceFrameBehavior))
             {
+                var a = (monoBehaviour as OutputController).aliases;
+                a[10] =  "Calculations.d=800";
                 return;
             }
             ReferenceFrameBehavior behavior = 
