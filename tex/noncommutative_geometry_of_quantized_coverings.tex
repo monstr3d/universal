@@ -3763,7 +3763,7 @@ From the Lemma \ref{spec_el_repr_lem} it turns out that there are the following 
 	\widetilde A^{\mathrm{hered}}_\pi\bydef \widetilde M\cap \widetilde A_\pi
 	\ee
 	$\pi$-\textit{hereditary infinite noncommutative covering} of $\mathfrak{S}^{\mathrm{pt}}$.
-	If $\pi$ is the atomic representation then the subscript $\pi$ will be dropped and we use the words 
+	If $\pi$ is the atomic representation (cf. Definition \ref{atomic_repr_defn}) then the subscript $\pi$ will be dropped and we use the words 
 	\textit{hereditary inverse noncommutative limit of $\mathfrak{S}^{\mathrm{pt}}$} and  the following notation
 	\be\label{main_hered_at_eqn}
 	\widetilde A^{\mathrm{hered}}\bydef \widetilde M\cap \widetilde A
@@ -5840,8 +5840,8 @@ is said to be the \textit{total space for} $\left(\sX, \left\{A_x\right\}, \sF \
 \end{remark}
 \begin{lemma}\label{top_js_lem} Following conditions hold.
 	\begin{enumerate}
-		\item [(i)] If $p:\mathscr T\left(\sX, \left\{A_x\right\}, \sF \right) \to\sX$  is the	total projection and $j : \sX\to \mathscr T\left(\sX, \left\{A_x\right\}, \sF \right)$ is  a continuous map  such that $p\circ j = \Id_\sX$ then the family $\left\{j\left(x\right)\in A_x\right\}$ is  continuous.
-		\item[(ii)] 	 Conversely any continuous section $\left\{a_x\right\}$ corresponds to a continuous map 
+		\item [(i)] If $p:\mathscr T\left(\sX, \left\{A_x\right\}, \sF \right) \to\sX$  is the	total projection and $j : \sX\to \mathscr T\left(\sX, \left\{A_x\right\}, \sF \right)$ is  a continuous map  such that $p\circ j = \Id_\sX$ then the family $\left\{j\left(x\right)\in A_x\right\}$ is  continuous (cf. Definition \ref{op_cont_fields_defn}).
+		\item[(ii)] 	 Conversely any continuous section $\left\{a_x\right\}$  corresponds to a continuous map 
 		\be\label{top_js_eqn}
 		\begin{split}
 			j : \sX\to \mathscr T\left(\sX, \left\{A_x\right\}, \sF \right),\\
@@ -5966,6 +5966,9 @@ From the Theorem \ref{tietze_ext_thm} it turns out that there is $\psi\in C_c\le
 	$$
 	hence one has $a = \left.b\right|_\sV$.
 \end{proof}
+\begin{remark}
+The Lemma \ref{top_ax_k_lem} is an analog of the Tietze extension theorem \ref{tietze_ext_thm}. The method of proof of the Lemma \ref{top_ax_k_lem} is similar to the explained in \cite{munkres:topology} one.
+\end{remark}
 Below in this section we assume that all topological spaces are  connected and locally connected.
 \begin{empt}\label{top_lift_empt}
 	If $p: \widetilde{\sX} \to \sX$ is a covering then the family $\left\{A_x\right\}$ naturally induces the family $\left\{\widetilde{A}_{\widetilde{x}}\right\}_{\widetilde{x}\in \widetilde{\sX}}$ such that for any ${\widetilde{x}}\in {\widetilde{\sX}}$ there is the isomorphism 
@@ -6453,7 +6456,7 @@ The Definition \ref{top_c_funct_defn} is a specialization of the Definition \ref
 \begin{remark}
 	If we use described in the Remark  \ref{top_fin_cov_rem} alternative notation then for any object  $p: \widetilde{\sX}  \to \sX$ of  $\mathfrak{FinCov}$-$\sX$ the value of $C_0$ coincides with $C_0\left( \widetilde{\sX} \right)$, i.e. this notation is tautological.  If $p^1_2: \widetilde\sX_1 \to \widetilde\sX_2$ is a morphism form $p_1:\widetilde\sX_1 \to \sX$ to $p_2:\widetilde\sX_2 \to \sX$, i.e. $p^1_2$ is a continuous map $p: \widetilde\sX_1 \to \widetilde\sX_2$ such that $p^1_2 \circ p_2 = p_1$ (cf. Definition \ref{top_fin_cov_defn}) then 
 	\be\label{top_c0_p_eqn}
-	C_0\left(p^1_2 \right)  : C_0\left( \sX_2\right)\hookto  C_0\left( \sX_1\right).
+	C_0\left(p^1_2 \right)  : C_0\left(\widetilde \sX_2\right)\hookto  C_0\left(\widetilde \sX_1\right)
 	\ee
 	is the natural injective *-homomorphism.
 \end{remark}
@@ -6598,7 +6601,7 @@ yields a presheaf.
 \begin{example}\label{top_cont_as_sheaf_exm}
 	Let $\sX$ be a locally compact Hausdorff space. If we consider a family $\left\{\C_x\right\}_{x \in \sX}$ of Banach spaces each of which is isomorphic to $\C$ then $C_0\left(\sX\right)$ is  a continuity structure  for $\sX$ {and the} $\left\{\C_x\right\}$. Moreover one has
 	$$
-	C_0\left(\sX\right) = C_0\left( \sX, \left\{\C_x\right\},C_0\left(\sX\right)\right) 
+	C_0\left(\sX\right) = C_0\left( \sX, \left\{\C_x\right\},C_0\left(\sX\right)\right). 
 	$$
 	If $p: \widetilde{\sX} \to \sX$ is   a covering then  $C_b\left(\widetilde{\sX}\right) \cong C_b\left(\lift_{p}\left[ C_0\left( \sX, \left\{\C_x\right\},C_0\left(\sX\right)\right)\right]\right)$ and $C_0\left(\widetilde{\sX}\right) \cong C_0\left(\lift_{p}\left[ C_0\left( \sX, \left\{\C_x\right\},C_0\left(\sX\right)\right)\right]\right)$. There is the sheaf 
 	\bean
@@ -6612,11 +6615,11 @@ yields a presheaf.
 \begin{example}\label{top_vb_lift_desc_exm}
 	If $\left(\sS, \pi, \sX \right)$ is a Hermitian vector bundle then there is a family $\left\{\sS_x\right\}_{x \in \sX}$. From the Lemma \ref{top_bundle_cs_lem} it turns out that  $\Ga\left(\sX, \sS \right) $ is a continuity structure  for $\sX$ {and the} $\left\{\sS_x\right\}$. Moreover one has
 	\bean
-	\Ga\left(\sX, \sS \right)  = C\left( \sX, \left\{\sS_x\right\}, \Ga\left(\sX, \sS \right) \right) 
+	\Ga\left(\sX, \sS \right)  = C\left( \sX, \left\{\sS_x\right\}, \Ga\left(\sX, \sS \right) \right). 
 	\eean
 	If $p: \widetilde{\sX} \to \sX$ is a covering and $\widetilde{\sS}$ is the {inverse image} of $\sS$ by $p$ then from the Lemma \ref{top_lift_bundle_lem} it follows that
 	\bean
-	\Ga\left(\widetilde{\sX}, \widetilde{\sS} \right)= \lift_p\left[C\left( \sX, \left\{\sS_x\right\}, \Ga\left(\sX, \sS \right) \right)\right]
+	\Ga\left(\widetilde{\sX}, \widetilde{\sS} \right)= \lift_p\left[C\left( \sX, \left\{\sS_x\right\}, \Ga\left(\sX, \sS \right) \right)\right].
 	\eean
 	Hence one can apply to $\Ga\left(\sX, \sS \right)$ and $\Ga\left(\widetilde{\sX}, \widetilde{\sS} \right)$ given by 
 	Definition \ref{top_lift_desc_defn} operations of the lift and the descent.
@@ -6689,7 +6692,7 @@ From the  Lemma \ref{top_inv_sub_lem} there is the natural  $\C$-linear map
 If $\mathscr  S$ and  $\mathscr  G$ are smooth sheaves then the sheaf of local morphisms  $\mathscr Hom \left(\mathscr S,
 \mathscr G \right)$ (cf. Definition \ref{sheaf_hom_defn}) is also smooth.
 From the 
-Lemma \ref{top_inv_sub_lem} then from \eqref{top_cs_sheaf_inc_eqn} it turns out that there is the following inclusion 
+Lemma \ref{top_inv_sub_lem} and from the equation \eqref{top_cs_sheaf_inc_eqn} it turns out that there is the following inclusion 
 \be\label{top_hom_eqn}
 \begin{split}
 	p^{-1}_{\mathscr Hom \left(\mathscr S,
@@ -6698,7 +6701,7 @@ Lemma \ref{top_inv_sub_lem} then from \eqref{top_cs_sheaf_inc_eqn} it turns out 
 	p^{-1} \mathscr G \right)\left(\widetilde M \right).
 \end{split}
 \ee 
-where $\mathscr Hom$ is the sheaf of local morphisms (cf. \ref{sheaf_hom_defn}). Denote by
+where $\mathscr Hom$ is the sheaf of local morphisms (cf. \ref{sheaf_hom_defn}).
 \begin{definition}\label{top_smooth_inv_im_defn}
 	Let us	consider the situation of the 
 	Lemma \ref{top_inv_sub_lem}, and suppose that $D \in \mathscr Hom \left(\mathscr S,
@@ -7310,7 +7313,7 @@ From the above equation it follows that $\bt\text{-}\lim_{\la\in \La}u_\la= 1_{C
 	\mathfrak F_c\left(\sX \right)\bydef \left\{\left.u_\la\in \mathfrak F \left(\sX	
 	\right)\right| u^{-1}_\la\left(\left(0,1\right]\right) \mathrm{~is~connected}    \right\}
 	\ee
-	is a cofinal subset of $\mathfrak F\left(\sX \right)$.
+	is a cofinal subset (cf. Definition \ref{cofinal_defn}) of $\mathfrak F\left(\sX \right)$.
 \end{lemma}
 \begin{proof}
 	For all $\mu\in\La$  $\supp u_\mu$ is compact.
@@ -7334,7 +7337,7 @@ From the Lemma \ref{comm_fin_lem} it follows that the $C^*$-algebra $\widetilde{
 $$
  G\left(\left. C_0\left( \widetilde{   \mathcal X }\right)  ~\right| C_0\left( {   \mathcal X }\right) \right)\cong  G\left(\left. \widetilde{   \mathcal X } ~\right| {   \mathcal X }\right)
 $$
-is clear.  From the condition (c) of the Definition \ref{fin_defn} it follows that a $C^*$-algebra $C_0\left( \widetilde{   \mathcal X }\right)$, so the space $\widetilde{   \mathcal X }$ is connected.
+is clear.  The $C^*$-algebra $C_0\left( \widetilde{   \mathcal X }\right)$, so the space $\widetilde{   \mathcal X }$ is connected.
 \\ 
 (ii) Firstly we prove that the quadruple  $\left(C_0\left(\mathcal  X \right), C_0\left(  \widetilde{   \mathcal X }\right) ,G\left(\left. \widetilde{   \mathcal X } ~\right| {   \mathcal X }\right),   \pi\right)$ is a finite-fold noncommutative pre-covering, i.e. it satisfies to the conditions  (a)  and (b) of the Definition \ref{fin_pre_defn}.
 \begin{enumerate}
@@ -7351,14 +7354,14 @@ From the Lemma \ref{comm_slfin_lem} it follows that there is the indexed by a di
 such that
 \begin{itemize}
 	\item For all $\la\in\La$ the set $u^{-1}_\la\left(\left(0,1\right]\right)$ is connected.
-	\item There is the  limit (cf. Definition \ref{strict_topology})
+	\item There is the  limit 
 \be\label{comm_fn_bt_liml_eqn}
 	\bt\text{-}\lim_{\la\in \La}u_\la= 1_{C_b\left(\sX \right) }
 \ee
-	with respect to the strict topology of $M\left( C_0\left(\sX \right) \right) \cong C_b\left(\sX \right)$ (cf. Definition \ref{strict_topology})
+	with respect to the strict topology (cf. Definition \ref{strict_topology}) of $M\left( C_0\left(\sX \right) \right) \cong C_b\left(\sX \right)$ (cf. Definition \ref{strict_topology})
 \end{itemize} 
 Since $u_\la\in C_c\left( \sX\right)$  the space $\supp u_\la$ compact, and $u_\la^{-1}\left(\left(0,1 \right]  \right)$ is an open subspace of $\supp u_\la$. 
-Let us prove that the family $\left\{u_\la\right\}$ satisfies to conditions (a),(b) of the Definition \ref{fin_defn}, i.e. $\left(C_0\left(\mathcal  X \right), C_0\left(  \widetilde{   \mathcal X }\right) ,G\left(\left. \widetilde{   \mathcal X } ~\right| {   \mathcal X }\right),   \pi\right)$ is a {disconnected noncommutative finite-fold covering}.
+Let us prove that the family $\left\{u_\la\right\}$ satisfies to conditions (a), (b) of the Definition \ref{fin_defn}, i.e. $\left(C_0\left(\mathcal  X \right), C_0\left(  \widetilde{   \mathcal X }\right) ,G\left(\left. \widetilde{   \mathcal X } ~\right| {   \mathcal X }\right),   \pi\right)$ is a {disconnected noncommutative finite-fold covering}.
 \begin{enumerate}
 	\item[(a)] Follows from the equation \eqref{comm_fn_bt_liml_eqn}.
 	\item[(b)] If both  $A_\la$ and $\widetilde A_\la$ are the $C^*$-norm completions of $u_\la C_0\left(\sX \right)u_\la$ and $u_\la C_0\left(\widetilde \sX \right)u_\la$ respectively   then both $A_\la$ and $\widetilde A_\la$ are hereditary subalgebras of $C_0\left(\sX \right)$ and $C_0\left(\widetilde \sX \right)$. If $\sU_\la \bydef u_\la^{-1}\left(\left(0,1 \right]  \right)$ and $\widetilde \sU_\la\bydef p^{-1} \left(\sU_\la\right)$ then one has $A_\la\cong C_0\left(\sU_\la\right)$ and $\widetilde A_\la\cong C_0\left(\widetilde\sU_\la\right)$. If $\sV_\la \bydef \supp u_\la$ and $\widetilde \sV_\la\bydef p^{-1} \left(\sV_\la\right)$ then both sets $\sV_\la$ and $\widetilde \sV_\la$ are compact. 
@@ -7412,7 +7415,7 @@ of the sub-unital real operator space}  $\left(C_0\left(\sX, \R \right), C\left(
 \end{empt}
 
 \begin{lem}\label{top_functor_lem}
-	Let $\sX$ be a connected,  locally compact, Hausdorff space.
+	Let $\sX$ be a connected, locally connected, locally compact, Hausdorff space.
 	If $\mathfrak{FinCov}$-$C_0\left(\sX \right)$ a {category of noncommutative finite-fold coverings} of $C_0\left(\sX \right)$ (cf. Definition \ref{fin_cat_defn}) then following conditions hold:
 \begin{enumerate}
 	\item [(i)] 	If the category $\mathfrak{FinCov}$-$\sX$ is given by the Definition \ref{top_fin_cov_defn} then the  functor $C_0:\mathfrak{FinCov}$-$\sX \to \mathfrak{FinCov}$-$C_0\left(\sX \right)$ is  the equivalence (cf. Definition \ref{category_equivalence_definition}) of categories.
@@ -7457,7 +7460,7 @@ of the sub-unital real operator space}  $\left(C_0\left(\sX, \R \right), C\left(
 		(m-1-3) edge node [right] {$~~p_2$} (m-2-2);
 	\end{tikzpicture}
 	\\
-	Taking into account the Corollary \ref{top_covp_cat_cor} one concludes that $p$ is a transitive covering, so from the Theorem \ref{comm_fin_thm} it follows that $\pi = C_0\left(p \right)$ is  a noncommutative finite-fold covering (cf. Definition \ref{fin_defn}. Thus one has the inverse functor from   $\mathfrak{FinCov}$-$C_0\left( \sX\right)$ to $\mathfrak{FinCov}$-$\sX$.\\
+	Taking into account the Corollary \ref{top_covp_cat_cor} one concludes that $p$ is a transitive covering, so from the Theorem \ref{comm_fin_thm} it follows that $\pi = C_0\left(p \right)$ is  a noncommutative finite-fold covering (cf. Definition \ref{fin_defn}). Thus one has the inverse functor from   $\mathfrak{FinCov}$-$C_0\left( \sX\right)$ to $\mathfrak{FinCov}$-$\sX$.\\
 	(ii)  	The conditions (a)-(d) of the Definition \ref{compliant_covering_defn} directly follow from (a)-(d) of the Lemma \ref{top_comply_lem}.
 	\end{proof}
 
@@ -7706,7 +7709,7 @@ C^*\left( p, F\right): C_F\left(\sX\right)\hookto C_{p^{-1}\left(F\right)}\left(
 \ee
 is a {noncommutative finite-fold  covering  of pro-$C^*$ algebras} (cf. Definition \ref{pro_fin_defn}).
 \end{theorem}
-\begin{proof}
+\begin{proof}!!! CHECK
 	One needs proof (a)-(c) of the Definition \ref{pro_fin_defn}.\\
 (a) Follows from $$\left\{ \left.g \in \Aut\left(C^*_{p^{-1}\left( F\right) }\left(\widetilde\sX\right) \right)~\right|~ ga = a;~~\forall a \in C_F\left(\sX\right)\right\}= G\left(\left.\widetilde\sX\right| \sX \right).$$
  (b)  Follows from $$C^*_{p^{-1}\left( F\right) }\left(\widetilde\sX\right)^{G\left(\left.\widetilde\sX\right| \sX \right)}= C_F\left(\sX\right).$$
@@ -18491,23 +18494,23 @@ The equations \eqref{dm_fin_hull1_eqn}- \eqref{dm_fin_hull4_eqn} are specializat
 	%	Theorem 41.1. 
 	%Every paracompact Hausdorff space $\sX$ is normal
 	%\end{theorem}
-	\begin{defn}
-		A space for which every open covering contains a countable subcovering is called a \textit{Lindel\"{o}f space}.
-	\end{defn}
+	%\begin{defn}
+	%	A space for which every open covering contains a countable subcovering is called a \textit{Lindel\"{o}f space}.
+%	\end{defn}
 	%\begin{defn}\label{lindel_defn}\cite{engelking:general_topology}
 	% We say that a topological space $\sX$ is a \textit{Lindel\"{o}f space}, or has  a \textit{Lindel\"{o}f property}, if $\sX$ is regular and every open cover of $\sX$ contains a countable subcover. 
 	% \end{defn}
 	%\begin{theorem}\label{lindel_thm}\cite{engelking:general_topology}
 	%Every regular second-countable space in Lindel\"{o}f.
 	%\end{theorem}
-	\begin{theorem}\label{lindel_para_thm}\cite{munkres:topology}
+%	\begin{theorem}\label{lindel_para_thm}\cite{munkres:topology}
 		%Theorem 41.5. 
-		Every regular Lindel\"{o}f space is paracompact.
-	\end{theorem}
+%		Every regular Lindel\"{o}f space is paracompact.
+%	\end{theorem}
 	\begin{definition}\label{top_comp_defn}\cite{munkres:topology}
 		If $\sY$ is a compact Hausdorff space and $\sX$ is a proper subspace of $\sY$ whose
 		closure equals $\sY$, then $\sY$ is said to be a \textit{compactification} of $\sX$. If $\sY\setminus\sX$ equals a single
-		point, then Y is called the \textit{one-point compactification} of $\sX$.
+		point, then $\sY$ is called the \textit{one-point compactification} of $\sX$.
 	\end{definition}
 	\begin{remark}
 		It is shown  (cf. \cite{munkres:topology}) that $\sX$ has a one-point compactification $\sY$ if and only if $\sX$ is
