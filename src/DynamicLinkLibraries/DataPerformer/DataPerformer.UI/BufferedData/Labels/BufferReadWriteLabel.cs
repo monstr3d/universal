@@ -175,6 +175,7 @@ namespace DataPerformer.UI.BufferedData.Labels
         #endregion
 
         #region Specific Members
+ 
 
         #endregion
 

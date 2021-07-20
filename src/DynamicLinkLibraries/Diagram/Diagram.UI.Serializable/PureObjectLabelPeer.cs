@@ -134,9 +134,7 @@ namespace Diagram.UI
 
         #region Specific members
 
-        
-
-
+  
         #endregion
 
 

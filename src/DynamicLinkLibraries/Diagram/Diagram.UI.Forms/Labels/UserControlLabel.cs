@@ -718,6 +718,16 @@ namespace Diagram.UI.Labels
         #region Common Members
 
         #region Public
+
+        /// <summary>
+        /// Overriden to string
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            return (this as IObjectLabel).RootName + " (" + base.ToString() + ")";
+        }
+
         /// <summary>
         /// Sets image
         /// </summary>

@@ -287,7 +287,7 @@ namespace BasicEngineering.UI.Factory
         {
             set
             {
-                 Diagram.UI.StaticExtensionDiagramUI.ErrorHandler = value;
+                 StaticExtensionDiagramUI.ErrorHandler = value;
             }
         }
 

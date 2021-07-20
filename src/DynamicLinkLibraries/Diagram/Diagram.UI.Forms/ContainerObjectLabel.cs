@@ -35,9 +35,18 @@ namespace Diagram.UI.Labels
 
 		#region Specific Members
 
-        /// <summary>
-        /// Expands children
-        /// </summary>
+		/// <summary>
+		/// Overriden to string
+		/// </summary>
+		/// <returns></returns>
+		public override string ToString()
+		{
+			return RootName + " (" + base.ToString() + ")";
+		}
+
+		/// <summary>
+		/// Expands children
+		/// </summary>
 		public void Expand()
 		{
  			IObjectContainer cont = Object as IObjectContainer;

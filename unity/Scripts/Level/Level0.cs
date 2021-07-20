@@ -120,6 +120,11 @@ namespace Scripts
             }
         }
 
+        static internal void EnableLevel(this string s, bool enable)
+        {
+            (RigidBodyStation + "." + s).EnableDisable(enable);
+        }
+
         static internal void SetVisible(this string[] ss)
         {
             var l = new List<string>();
