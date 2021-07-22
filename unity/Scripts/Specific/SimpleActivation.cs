@@ -9,7 +9,7 @@ using Unity.Standard.Interfaces;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Scripts
+namespace Scripts.Specific
 {
     
 

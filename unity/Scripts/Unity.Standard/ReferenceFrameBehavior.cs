@@ -272,7 +272,6 @@ public class ReferenceFrameBehavior : MonoBehaviour
     {
         gameObject.transform.rotation = jump;
         gameObject.transform.position = referenceFrame.Position.ToPosition();
-
     }
 
     void SetConstants()

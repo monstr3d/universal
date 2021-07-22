@@ -28,6 +28,11 @@ namespace Scripts.Level
         */
 
 
+        public static void Post()
+        {
+            SunMonobehavior.SetSun();
+        }
+
 
 
 

@@ -64,7 +64,6 @@ namespace Motion6D
 
         #endregion
 
-
         #region Specific Members
 
         #endregion

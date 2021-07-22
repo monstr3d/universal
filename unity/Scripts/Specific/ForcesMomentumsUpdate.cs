@@ -16,7 +16,7 @@ using Unity.Standard;
 using Unity.Standard.Interfaces;
 using Motion6D.Interfaces;
 
-namespace Scripts
+namespace Scripts.Specific
 {
     public class ForcesMomentumsUpdate : UpdateIndicators, IKeyListener
     {

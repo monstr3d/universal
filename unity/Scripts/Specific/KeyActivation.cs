@@ -10,7 +10,7 @@ using Scada.Desktop;
 using Unity.Standard;
 using Unity.Standard.Interfaces;
 
-namespace Scripts
+namespace Scripts.Specific
 {
     public class KeyActivation : IActivation, IKeyListener
     {

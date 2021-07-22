@@ -13,7 +13,7 @@ using Motion6D.Interfaces;
 using Scada.Interfaces;
 using Unity.Standard.Abstract;
 
-namespace Scripts
+namespace Scripts.Specific
 {
     public class UpdateHeadingText : AbstractFrameUpdate
     {

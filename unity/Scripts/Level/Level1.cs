@@ -53,7 +53,7 @@ namespace Scripts.Level
           //      a[10] = "Calculations.d=10";
                 return;
             }
-             if (monoBehaviour.name != Level0.Station)
+            if (monoBehaviour.name != Level0.Station)
             {
                 return;
             }

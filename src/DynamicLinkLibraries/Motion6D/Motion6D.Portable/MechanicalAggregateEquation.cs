@@ -137,6 +137,11 @@ namespace Motion6D.Portable
         /// Helper array
         /// </summary>
         protected double[,] qq = new double[4, 4];
+
+        /// <summary>
+        /// Name
+        /// </summary>
+        protected string name = "";
         
 
         /// <summary>
@@ -202,6 +207,7 @@ namespace Motion6D.Portable
         /// <param name="aggregate">Root aggregate</param>
         protected MechanicalAggregateEquation(AggregableWrapper aggregate)
         {
+            name = aggregate.GetRootName();
             wrapper = aggregate;
             this.aggregate = wrapper.Aggregate;
             PreInit();
@@ -325,19 +331,14 @@ namespace Motion6D.Portable
                     ++n;
                 }
                 Motion6DAcceleratedFrame frame = aw.OwnFrame;
+                Array.Copy(state, 0, frame.Position, 0, 3);
+                IVelocity v = frame;
+                var velocity = v.Velocity;
+                Array.Copy(state, 3, velocity, 0, 3);
                 IOrientation or = frame;
                 Array.Copy(state, 6, or.Quaternion, 0, 4);
                 IAngularVelocity w = frame;
                 Array.Copy(state, 10, w.Omega, 0, 3);
-            }
-        }
-
-        int VariablesCount
-        {
-            get
-            {
-                IMeasurements m = this;
-                return m.Count;
             }
         }
 
@@ -422,6 +423,11 @@ namespace Motion6D.Portable
         #endregion
 
         #region Specific Members
+
+        public override string ToString()
+        {
+            return name + " (" + base.ToString() + ")";
+        }
 
         /// <summary>
         /// Root aggegates of desktop
@@ -631,9 +637,7 @@ namespace Motion6D.Portable
             connectionResidues = new double[conn];
             indx = new int[n];
             aggrWrappres = list.ToArray();
-            
         }
-
 
         /// <summary>
         /// Initialization
@@ -670,7 +674,6 @@ namespace Motion6D.Portable
             s.CalculateDerivations();
         }
 
-
         private static void Set(ref IMeasurement[] measures, double[,] derivations)
         {
             if (measures == null)
@@ -700,7 +703,6 @@ namespace Motion6D.Portable
             }
         }
 
-
         /// <summary>
         /// Gets dimension of aggregate acelerations
         /// </summary>
@@ -710,8 +712,6 @@ namespace Motion6D.Portable
         {
             return (aggeregate.Dimension - 1) / 2;
         }
-
-
  
         /// <summary>
         /// Calculates matrixes
@@ -779,16 +779,9 @@ namespace Motion6D.Portable
         /// </summary>
         protected virtual void CalculateLinkAccelerations()
         {
+        
         }
-
-
-        private void AddLinkAccelerations()
-        {
-
-        }
-
-
-
+ 
 
         /// <summary>
         /// Fills matrix by Submatrix
@@ -825,11 +818,6 @@ namespace Motion6D.Portable
                 }
             }
         }
-
-
-
-
-
 
         /// <summary>
         /// Creates aggregate equation
@@ -928,9 +916,9 @@ namespace Motion6D.Portable
                     intacc[i] = 0;
                 }
             }
-            foreach (IAggregableMechanicalObject ao in aggregate.Children.Keys)
+            foreach (IAggregableMechanicalObject aggregableMechanicalObject in aggregate.Children.Keys)
             {
-                Reset(ao);
+                Reset(aggregableMechanicalObject);
             }
         }
 
@@ -961,14 +949,13 @@ namespace Motion6D.Portable
             {
                 this.x = x;
                 this.i = i;
-                par = getValue;
-                derivation = new Measurement(getDerivation, "");
+                par = GetValue;
+                derivation = new Measurement(GetDerivation, "");
             }
 
 
 
             #endregion
-
 
             #region IMeasurement Members
 
@@ -1000,12 +987,12 @@ namespace Motion6D.Portable
 
             #region Specific Members
 
-            object getValue()
+            object GetValue()
             {
                 return x[i, 0];
             }
 
-            object getDerivation()
+            object GetDerivation()
             {
                 return x[i, 1];
             }

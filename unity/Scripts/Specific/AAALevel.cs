@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 using Unity.Standard;
 
-using Scripts;
+using Scripts.Specific;
 
 public class AAALevel : MonoBehaviour
 {
@@ -16,11 +16,7 @@ public class AAALevel : MonoBehaviour
 
     static Saver saver;
 
-
     static string path;
-
-
-
 
 
     public static void Exit()

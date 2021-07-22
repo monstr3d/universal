@@ -1,19 +1,6 @@
 using System;
 using System.Collections.Generic;
-using System.Collections;
 using System.Runtime.Serialization;
-using System.Text;
-
-using CategoryTheory;
-
-using Diagram.UI;
-using Diagram.UI.Interfaces;
-
-using DataPerformer;
-using DataPerformer.Interfaces;
-using DataPerformer.Portable;
-
-using RealMatrixProcessor;
 
 namespace Regression
 {

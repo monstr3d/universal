@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Scripts.Specific;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
@@ -54,7 +55,7 @@ public class KeySaverMonobehavior : MonoBehaviour
             {
                 bt.onClick.AddListener(() => 
                 { 
-                    Scripts.Saver.saver.Reset(); 
+                    Saver.saver.Reset(); 
                     Execute("ResetButtons"); 
                 });
                 continue;
@@ -82,7 +83,7 @@ public class KeySaverMonobehavior : MonoBehaviour
             }
         }
         Execute("SaveSaver");
-        Scripts.Saver.saver.SetUnused();
+        Saver.saver.SetUnused();
         Cancel();
     }
 

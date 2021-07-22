@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-namespace Scripts
+namespace Scripts.Specific
 {
     class MenuKeyPerformer
     {

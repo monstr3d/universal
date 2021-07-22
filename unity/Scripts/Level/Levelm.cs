@@ -13,6 +13,7 @@ using Vector3D;
 using Unity.Standard;
 using Unity.Standard.Abstract;
 using Unity.Standard.Interfaces;
+using Scripts.Specific;
 
 namespace Scripts.Level
 {
@@ -124,6 +125,20 @@ namespace Scripts.Level
         {
 
         }
+
+        protected bool VelocityLimit(double limit)
+        {
+            var v = velocity.Velocity;
+            return Math.Abs(v[1]) < limit & Math.Abs(v[1]) < limit;
+        }
+
+        protected bool PositionLimit(double limit)
+        {
+            var v = frame.Position;
+            return Math.Abs(v[0]) < limit & Math.Abs(v[1]) < limit;
+        }
+
+
 
         protected void Zero()
         {

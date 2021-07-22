@@ -14,7 +14,7 @@ using Scada.Desktop;
 using Unity.Standard.Interfaces;
 using Unity.Standard.Abstract;
 
-namespace Scripts
+namespace Scripts.Specific
 {
 
     public class ForcesIndicatorFactory : IIndicatorFactory

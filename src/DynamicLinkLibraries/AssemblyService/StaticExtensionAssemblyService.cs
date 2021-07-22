@@ -122,9 +122,6 @@ namespace AssemblyService
 
         private static Dictionary<Action<Assembly>, List<string>> acted =
                 new Dictionary<Action<Assembly>, List<string>>();
-
-        static private bool firstBaseLoad = true;
-
   
         #endregion
 

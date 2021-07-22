@@ -12,26 +12,19 @@ using Unity.Standard.Interfaces;
 
 namespace Scripts.Level
 {
-    public class Levelm9BAD : Levelm
+    public class Levelm9 : Levelm
     {
 
-        EulerAngles angles = new EulerAngles();
+ 
 
-
-        public Levelm9BAD()
+        public Levelm9()
         {
-            /// Level0.ZControl, Level0.YControl,
             var ss = new string[] {
-                Level0.LongXC,
+                 Level0.OzControl,
                 Level0.Rz, Level0.Vz, Level0.Ry, Level0.Vy,
-             Level0.Rx, Level0.Vx, Level0.Ox,  Level0.Oy,  Level0.Oz};
-            var l = new List<string>();
-            foreach (var s in ss)
-            {
-                l.Add(Level0.RigidBodyStation + "." + s);
-            }
-            StaticExtensionUnity.Activation.enabledComponents = l.ToArray();
-            ev.Event += LongEvent;
+             Level0.Rx, Level0.Vx, Level0.Oz, Level0.Time, Level0.TimeOverTime};
+            ss.SetVisible();
+            
         }
 
         const double al = 1 * Mathf.Deg2Rad;
@@ -180,9 +173,44 @@ namespace Scripts.Level
         }
         public static void Set(MonoBehaviour monoBehaviour)
         {
-            Level8.Set(monoBehaviour);
-        }
+            if (!(monoBehaviour is ReferenceFrameBehavior))
+            {
+                var a = (monoBehaviour as OutputController).aliases;
+                a[10] = "Calculations.d=800";
+                return;
+            }
+            ReferenceFrameBehavior behavior =
+                monoBehaviour as ReferenceFrameBehavior;
+            var c = behavior.constants;
+            if (c.Length > 11)
+            {
+                if (c.Length > 11)
+                {
+                    if (c[11].Contains("OMGz"))
+                    {
+                        c[1] = "Station frame.Y=-0.002795";
+                        c[2] = "Station frame.X=0.001534";
+                        c[3] = "Station frame.Vx=0.0001097";
+                        c[4] = "Station frame.Vy=0.0000882";
+                        /*                  c[3] = "Station frame.Vx=0.001097";
+                                          c[4] = "Station frame.Vy=0.000882";
+                                          /*
+                                           * 	[1]	"Station frame.Y=-0.002795"	string
+                          [2]	"Station frame.X=0.001534"	string
+                          [3]	"Station frame.Vx=0.001097"	string
+                          [4]	"Station frame.Vy=0.000882"	string
 
+                                          /*    c[9] = "Station frame.OMGx=0.001";
+                                                                                                                                                                  c[10] = "Station frame.OMGy=-0.0015";//*/
+                        // c[9] = "Station frame.OMGx=0.0005";
+                        //     c[10] = "Station frame.OMGy=-0.0015";//*/
+                        c[8] = "Station frame.Yaw=1.3";
+                        c[11] = "Station frame.OMGz=0.04";
+                    }
+                }
+            }
+        }
+  
 
         protected override void Update()
         {

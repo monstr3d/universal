@@ -6,7 +6,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 using UnityEngine;
 
-namespace Scripts
+namespace Scripts.Specific
 {
 
     [Serializable()]
@@ -110,7 +110,6 @@ namespace Scripts
         }
 
         #endregion
-
         public Dictionary<int, KeyCode> KeyValuePairs
         {
             get

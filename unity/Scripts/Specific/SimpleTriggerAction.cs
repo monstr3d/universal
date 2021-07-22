@@ -8,7 +8,7 @@ using Unity.Standard;
 using Unity.Standard.Abstract;
 using UnityEngine;
 
-namespace Scripts
+namespace Scripts.Specific
 {
     public class SimpleTriggerAction : AbstractTriggerAction
     {

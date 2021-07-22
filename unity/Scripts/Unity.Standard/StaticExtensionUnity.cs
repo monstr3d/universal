@@ -216,18 +216,27 @@ namespace Unity.Standard
             remove { collision -= value; }
         }
 
+        /// <summary>
+        /// Time of start
+        /// </summary>
         static public double StartTime
         {
             get;
             set;
         }
 
+        /// <summary>
+        /// Activation
+        /// </summary>
         static public Activation Activation
         {
             get;
             set;
         }
 
+        /// <summary>
+        /// Time
+        /// </summary>
         static public double Time
         {
             get => UnityEngine.Time.realtimeSinceStartup - StartTime;

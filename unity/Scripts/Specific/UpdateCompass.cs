@@ -8,13 +8,12 @@ using Unity.Standard;
 using UnityEngine;
 using UnityEngine.UI;
 
-using Unity.Standard;
 
-using Vector3D;
 using Scada.Interfaces;
+
 using Unity.Standard.Abstract;
 
-namespace Scripts
+namespace Scripts.Specific
 {
     public class UpdateCompass : AbstractFrameUpdate
     {

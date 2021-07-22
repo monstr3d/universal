@@ -16,7 +16,7 @@ using Scada.Interfaces;
 using Unity.Standard;
 using Unity.Standard.Interfaces;
 
-namespace Scripts
+namespace Scripts.Specific
 {
     public class AngularIndicatorFactory : IIndicatorFactory
     {

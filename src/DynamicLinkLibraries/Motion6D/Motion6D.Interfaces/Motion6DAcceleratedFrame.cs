@@ -38,18 +38,16 @@ namespace Motion6D
         public override void Set(ReferenceFrame baseFrame, ReferenceFrame relative)
         {
             base.Set(baseFrame, relative);
-            IAcceleration ab = baseFrame as IAcceleration;
-            IAcceleration ar = relative as IAcceleration;
             IAngularAcceleration arn = relative as IAngularAcceleration;
-            IVelocity vb = baseFrame as IVelocity;
-            IVelocity vr = relative as IVelocity;
-            IAngularVelocity anb = baseFrame as IAngularVelocity;
-            IAngularVelocity anr = relative as IAngularVelocity;
+            IVelocity relativeVelocity = relative as IVelocity;
+            IAngularVelocity baseAngulatVelocity = baseFrame as IAngularVelocity;
+            IAngularVelocity relativeAngularVelocity = relative as IAngularVelocity;
             double[] rp = Position;
             double[,] m = Matrix;
-            double[] omr = anr.Omega;
-            StaticExtensionVector3D.VectorPoduct(omr, vr.Velocity, tempV);
-            double om2 = StaticExtensionVector3D.Square(omr);
+            double[] relativeOmega = relativeAngularVelocity.Omega;
+            double[] baseOmega = baseAngulatVelocity.Omega;
+            StaticExtensionVector3D.VectorPoduct(baseOmega, relativeVelocity.Velocity, tempV);
+            double om2 = StaticExtensionVector3D.Square(baseOmega);
             double[] eps = arn.AngularAcceleration;
             StaticExtensionVector3D.VectorPoduct(eps, rp, temp);
             for (int i = 0; i < 3; i++)
@@ -58,17 +56,15 @@ namespace Motion6D
                 tempV[i] += om2 * rp[i] + relativeAcceleration[i] + temp[i]; 
             }
             RealMatrix.Multiply(m, tempV, acceleration);
-            double[] omb = anb.Omega;
-            IOrientation orr = relative as IOrientation;
-            double[,] mrr = orr.Matrix;
-            RealMatrix.Multiply(omb, mrr, temp);
-            StaticExtensionVector3D.VectorPoduct(temp, omr, tempV);
+            IOrientation relativeOrientation = relative;
+            double[,] relativeMatrix = relativeOrientation.Matrix;
+            RealMatrix.Multiply(baseOmega, relativeMatrix, temp);
+            StaticExtensionVector3D.VectorPoduct(temp, relativeOmega, tempV);
             for (int i = 0; i < 3; i++)
             {
                 temp[i] = eps[i] + tempV[i];
             }
             RealMatrix.Multiply(temp, m, angularAcceleration);
-
         }
 
         #endregion

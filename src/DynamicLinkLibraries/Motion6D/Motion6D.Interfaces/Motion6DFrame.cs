@@ -62,25 +62,23 @@ namespace Motion6D
         public override void Set(ReferenceFrame baseFrame, ReferenceFrame relative)
         {
             base.Set(baseFrame, relative);
-            IOrientation bo = baseFrame as IOrientation;
-            IOrientation ro = relative as IOrientation;
-            IVelocity bv = baseFrame as IVelocity;
-            IVelocity rv = relative as IVelocity;
-            IAngularVelocity oa = baseFrame as IAngularVelocity;
+            IOrientation baseOrientation = baseFrame as IOrientation;
+            IVelocity baseVelicity = baseFrame as IVelocity;
+            IVelocity relativeVelicity = relative as IVelocity;
+            IAngularVelocity baseAngular = baseFrame as IAngularVelocity;
             IAngularVelocity ra = relative as IAngularVelocity;
-            double[] vb = bv.Velocity;
-            double[] vr = rv.Velocity;
-            double[,] mb = bo.Matrix;
-            double[,] m = ro.Matrix;
-            double[] om = oa.Omega;
+            double[] velocityBase = baseVelicity.Velocity;
+            double[] velocityRelative = relativeVelicity.Velocity;
+            double[,] mb = baseOrientation.Matrix;
+            double[] om = baseAngular.Omega;
             double[] pos = relative.Position;
             Vector3D.StaticExtensionVector3D.VectorPoduct(om, pos, hv);
             for (int i = 0; i < 3; i++)
             {
-                velocity[i] = vb[i];
+                velocity[i] = velocityBase[i];
                 for (int j = 0; j < 3; j++)
                 {
-                    velocity[i] += mb[i, j] * (vr[j] + hv[j]);
+                    velocity[i] += mb[i, j] * (velocityRelative[j] + hv[j]);
                 }
             }
         }
