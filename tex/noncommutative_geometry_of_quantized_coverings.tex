@@ -6522,6 +6522,61 @@ The Definition \ref{top_c_funct_defn} is a specialization of the Definition \ref
 	$$
 	However the *-homomorphism  $M\left( 	A_0\left(\sX \right)\right) \to M\left( A_0\left(\widetilde{\sX}\right)\right)$ is injective and $$M\left( A_0\left(\widetilde{\sX}\right)\right)^{G\left(\left.\widetilde{\sX}~\right|\sX\right)}\subset M\left( A_0\left(\widetilde{\sX}\right)\right)$$ hence the map  $M\left( 	A_0\left(\sX \right)\right) \to M\left( A_0\left(\widetilde{\sX}\right)\right)^{G\left(\left.\widetilde{\sX}~\right|\sX\right)}$ is injective, so one has the *-isomorphism  $M\left( 	A_0\left(\sX \right)\right)  \cong M\left( A_0\left(\widetilde{\sX}\right)\right)^{G\left(\left.\widetilde{\sX}~\right|\sX\right)}$.
 \end{proof}
+\begin{lemma}\label{comm_lift_desc_sum_lem}
+	Let $\sX$ be a connected, locally connected, locally compact, Hausdorff space, and let $\sF$ be	continuity structure for $\sX$ {and the} $\left\{A_x\right\}_{x \in \sX}$ (cf. Definition \ref{op_fields_defn}) where $A_x$ is a $C^*$-algebra for every $x \in \sX$. Let 	$p: \widetilde{\mathcal X}\to\mathcal{X}$ be a transitive covering. Suppose that  $\mathcal U\subset \mathcal X$  is a connected open subset evenly {covered} by $\widetilde{\mathcal U}\subset \widetilde{\mathcal X}$. Let $a \in C_c\left(\mathcal{X}, \left\{A_x\right\}, \sF \right)$ be such that $\supp a \subset \sU$. If 	$\widetilde{a} = \mathfrak{lift}_{\widetilde{\mathcal U}}\left(a \right)$ 
+	then following conditions hold:
+	\begin{enumerate}
+		\item [(i)] The series 	
+		\be\nonumber
+		\sum_{g \in G\left(\left.\widetilde{\sX}~\right|\sX\right) } g\widetilde{a}.
+		\ee 
+		is convergent in the strict topology of $M\left(C_0\left( \lift_p\left[C\left(\mathcal{X}, \left\{A_x\right\}, \sF \right)\right] \widetilde{\mathcal X}\right)  \right)$ (cf. Definition \ref{strict_topology}),
+		\item[(ii)] 
+		\be\label{comm_desc_sum_eqn}
+		\begin{split}
+			\sum_{g \in G\left(\left.\widetilde{\sX}~\right|\sX\right) } g\widetilde{a} = a = \lift_p \circ \desc_p\left( \widetilde{a}\right) \in 
+			\\
+			\in C_b\left( \lift_p\left[C\left(\mathcal{X}, \left\{A_x\right\}, \sF \right)\right] \right)\subset  \\ \subset  M\left(C_0\left( \lift_p\left[C\left(\mathcal{X}, \left\{A_x\right\}, \sF \right)\right] \right)\right).
+		\end{split}
+		\ee
+		%		\item[(iii)] If $a, b \in C_c\left({\sX} \right)$ are such that $\supp  a, \supp  b\subset  {\sU}$ then
+		%		$$
+		%		 \desc_p\left( \widetilde{a} \widetilde{b}\right)=  \desc_p\left( \widetilde{a}\right) \desc_p\left( \widetilde{a}\right)
+		%		$$
+		%		(cf \eqref{top_lift_desc_eqn}).
+		%	\item[(iv)] If $a,b \in C_c\left({\sX} \right)$ are such that $\supp  a, \supp  b \subset  {\sU}$ then
+		%		$$
+		%		\lift^p_{\widetilde{\sU}}\left( ab\right)=  \lift^p_{\widetilde{\sU}}\left(a\right) \lift^p_{\widetilde{\sU}}\left( b\right)
+		%		$$
+		%	(cf \eqref{top_lift_desc_eqn}).	
+	\end{enumerate}
+	
+\end{lemma}
+
+\begin{proof} (i)
+	If $\widetilde{b} \in C_0\left( \lift_p\left[C\left(\mathcal{X}, \left\{A_x\right\}, \sF \right)\right] \right)$ and $\eps > 0$ then from the Definition \ref{c_c_def_2} it turns out there is a compact set $\widetilde{\mathcal V}\subset \widetilde{\mathcal X}$ such that $\left\| \widetilde{b} \left(\widetilde{x}  \right) \right\| < \frac{\eps}{2\left\|\widetilde{a}\right\|}$ for any $\widetilde{x} \in \widetilde{\mathcal X} \setminus \widetilde{\mathcal V}$. Let us prove that the set
+	$$
+	G_0=\left\{\left. g \in G\left(\left.\widetilde{\sX}~\right|\sX\right)\right| \widetilde \sV \cap g \widetilde\sU \neq \emptyset \right\}
+	$$
+	If $G_0$ is not finite then there is an infinite closed set $\widetilde\sX' = \left\{\widetilde x_g \right\}_{g \in G_0}$ such that $\widetilde x_g \in \widetilde \sV \cap \widetilde \sU$. If $g'\neq g''$ then both $g' \widetilde\sU$ and $g'' \widetilde\sU$ are open neighborhoods of both $\widetilde x_{g'}$ and $\widetilde x_{g''}$ such that $g' \widetilde\sU\cap g'' \widetilde\sU = \emptyset$. It means that the set $\widetilde\sX'$ is discrete. From $\widetilde\sX' \subset \widetilde\sV$ it follows that $\widetilde\sX'$ is compact, however any infinite discrete set is not compact. From this contradiction we conclude that the set  $G_0$ is finite. For any $G' \subset  G\left(\left.\widetilde{\sX}~\right|\sX\right)$ such that $G_0\subset G'$ a following condition holds
+	$$
+	\left\|\widetilde{b}\left(\sum_{g \in G' } g\widetilde{a}-\sum_{g \in G_0 } g\widetilde{a} \right)  \right\| +
+	\left\|\left(\sum_{g \in G' } g\widetilde{a}-\sum_{g \in G_0 } g\widetilde{a} \right)\widetilde{b}  \right\| < \eps.
+	$$
+	The	above equation means that the series is convergent in the strict topology of $M\left(C_0\left( \lift_p\left[C\left(\mathcal{X}, \left\{A_x\right\}, \sF \right)\right] \widetilde{\mathcal X}\right) \right)$.\\
+	(ii)  If $\widetilde{b} \in C_0\left( \lift_p\left[C\left(\mathcal{X}, \left\{A_x\right\}, \sF \right)\right] \widetilde{\mathcal X}\right)$ and $\widetilde{x}_0 \in \widetilde{\mathcal X}$ then $\left( \widetilde{a}\widetilde{b}\right)_{\widetilde{x}_0} = {a}_{p\left(  \widetilde{x}_0\right) } \widetilde{b}_{\widetilde{x}_0}$.  If ${a}_{ p\left(  \widetilde{x}_0\right) }  = 0$ then $\left( \widetilde{a}\widetilde{b}\right)_{\widetilde{x}_0} = 0$. Otherwise there is $\widetilde{x}'_0\in \widetilde{\mathcal U}$ such that $p\left(\widetilde{x}'_0 \right)= p\left(\widetilde{x}_0 \right)$. From \eqref{comm_lift_eqn} it turns out $\widetilde{a}_{\widetilde{x}'_0} = a_{ p\left(\widetilde{x}'_0 \right)}$. The covering $p$ is transitive, so there is the unique $g \in  G\left(\left.\widetilde{\sX}~\right|\sX\right)$ such that  $\widetilde{x}_0 = g\widetilde{x}'_0$. So one has  $\left( g \widetilde{a}\right)_{\widetilde{x}_0}= a_{p\left(\widetilde{x}_0 \right)} $. If $g' \neq g$ then $g\widetilde{\mathcal U} \bigcap \widetilde{\mathcal U} = \emptyset$. It turns out that $\left( g' \widetilde{a}\right)_{\widetilde{x}_0}= 0$ for any $g'\neq g$. Hence one has
+	$$
+	\left(\sum_{g' \in G\left(\left.\widetilde{\sX}~\right|\sX\right) } g'\widetilde{a} \right)_{\widetilde{x}_0} = 	\left(g\widetilde{a} \right)_{\widetilde{x}_0}= c^{-1}_{\widetilde x_0} \left( {a}_{ p\left(  \widetilde{x}_0\right)} \right) \text{ where } c_{\widetilde x_0}\text{ is given by }\eqref{top_ct_iso_eqn},
+	$$  
+	it follows that
+	$$
+	\left( \left(\sum_{g' \in G\left(\left.\widetilde{\sX}~\right|\sX\right) } g'\widetilde{a} \right)\widetilde{b}\right)_{\widetilde{x}_0}= 	\left(\widetilde{b} \left(\sum_{g' \in G\left(\left.\widetilde{\sX}~\right|\sX\right) } g'\widetilde{a} \right)\right)_{\widetilde{x}_0} = \widetilde{b}_{\widetilde{x}_0}  {a}_{ p\left(  \widetilde{x}_0\right)}.
+	$$
+	The above equation means that $$
+	\sum_{g \in G\left(\left.\widetilde{\sX}~\right|\sX\right) } g\widetilde{a} = a =\lift_p \circ \desc_p\left( \widetilde{a}\right)\in M\left(C_0\left( \lift_p\left[C\left(\mathcal{X}, \left\{A_x\right\}, \sF \right)\right]\right)  \right)
+	.$$	\\
+	%(iii) and (iv) Follow from Definition \ref{top_lift_desc_defn} the homeomorphism $\widetilde{\sU} \cong \sU$.
+\end{proof}
 
 
 \begin{empt}\label{comm_lift_desc_sum_strong_empt}
@@ -6542,6 +6597,51 @@ The Definition \ref{top_c_funct_defn} is a specialization of the Definition \ref
 	From \eqref{top_cb_defn_eqn} it turns out there is the injective *-homomorphism $\lift_p:A_0\left(\sX \right) \hookto A_b\left(\widetilde\sX \right)$  so  $A_0\left(\sX \right)$ can be regarded as a subalgebra of $A_b\left(\widetilde\sX \right)$.
 \end{empt}
 
+
+\begin{lemma}\label{comm_lift_desc_sum_strong_lem}
+	Consider the situation \ref{comm_lift_desc_sum_strong_empt}. Suppose that  $\mathcal U\subset \mathcal X$  is a connected open subset evenly {covered} by $\widetilde{\mathcal U}\subset \widetilde{\mathcal X}$. Let $\widetilde a \in A_0\left(\widetilde\sX \right)$ be  an  element such that 
+	$\supp \widetilde a \subset \widetilde \sU$. The following conditions hold:
+	\begin{enumerate}
+		\item [(i)] The series 	
+		\be\label{comm_lift_desc_sum_strong_eqn}
+		\sum_{g \in G\left(\left.\widetilde{\sX}~\right|\sX\right) } \pi_a\left( g\widetilde{a}\right).
+		\ee 
+		is convergent in the strong  topology of $B\left(\H_a\right)$  (cf. Definition \ref{strong_topology_defn} ),
+		\item[(ii)] 
+		\be\label{comm_desc_sum_strong_eqn}
+		\begin{split}
+			\sum_{g \in G\left(\left.\widetilde{\sX}~\right|\sX\right) } \pi_a\left( g\widetilde{a}\right)  = \pi_a\left(  \desc_p\left( \widetilde{a}\right)\right)
+		\end{split}
+		\ee
+	\end{enumerate}
+	where $\desc_p\left( \widetilde{a}\right) \in A$ is the $p$-descend $\widetilde{a}$ of (cf. Definition \ref{top_lift_desc_defn})  and $A$ is regarded as a subalgebra of $A_b\left(\widetilde\sX \right)$ (cf. Lemma \ref{comm_lift_desc_sum_lem}).
+\end{lemma}
+
+
+\begin{proof}
+	(i) Since $\H_a$ is the Hilbert completion of the algebraic direct sum $\bigoplus_{\widetilde x\in\widetilde\sX}\H_{\widetilde{x}}$ one can apply the Lemma \ref{sum_hilb_rep_lem}. If  
+	$$
+	\zeta =\left(0,...~, \underbrace{ \zeta_{\widetilde{x}}}_{\widetilde{x}^{\text{th}}-\text{place}} ,~...,0\right)
+	$$
+	For all  $g \in  G\left(\left.\widetilde{\sX}~\right|\sX\right)$ one has 
+	\bean
+	\left(g \widetilde a \right)\zeta = \begin{cases}
+		0 & \widetilde{x}\notin g\widetilde \sU\\
+		\left(g \widetilde a \right)\zeta = \desc_p\left( \widetilde a\right)\zeta & 	\widetilde{x}\in g\widetilde \sU
+	\end{cases} ,
+	\eean
+	hence for each finite subset $G \subset G\left(\left.\widetilde{\sX}~\right|\sX\right)$ the following condition holds
+	\be\label{commp_lift_desc_sum_strong_eqn}
+	\left( \sum_{	g \in G}g\widetilde a\right) \zeta = \begin{cases}
+		0 & \widetilde{x}\notin \cup_{g\in G}g\widetilde \sU\\
+		\left(g \widetilde a \right)\zeta = \desc_p\left( \widetilde a\right)\zeta & 	\widetilde{x}\in \cup_{g\in G} g\widetilde \sU
+	\end{cases} 
+	\ee	
+	From the Equitation \eqref{commp_lift_desc_sum_strong_eqn} it follows that the series $
+	\left( \sum_{	g \in G\left(\left.\widetilde{\sX}~\right|\sX\right)}g\widetilde a\right) \zeta$ is norm convergent. From the Lemma \ref{sum_hilb_rep_lem} it turns out that the series \ref{comm_lift_desc_sum_strong_eqn}	
+	is convergent in the strong  topology of $B\left(\H_a\right)$.\\
+	(ii) Follows from the equation \eqref{commp_lift_desc_sum_strong_eqn}.
+\end{proof}
 
 
 \section{Continuous structures and sheaves}
@@ -8488,7 +8588,7 @@ where $a_{\widehat x} \in B\left(\ {\widehat \H}_{\widehat x} \right)$ is the st
 	$
 	\left\{b_{\widehat{x}}\in \C\right\}_{\widehat{x}\in \widehat{\sX}}
 	$.
-	If $\Xi\left(	\mathfrak{S}_{C_0\left( \mathcal{X}\right) }  \right)$ is $\widehat{ C_0\left( {\sX}\right)}$-bimodule of weakly special elements and $D^*\left( \widehat{\sX}\right)$ the $C^*$- algebra of all (possibly discontinuous) bounded maps $\widehat{\sX} \to \C$ then the above construction gives is the  $\C$-linear map
+	If $\Xi\left(	\mathfrak{S}_{C_0\left( \mathcal{X}\right) }  \right)$ is a $\widehat{ C_0\left( {\sX}\right)}$-bimodule of weakly special elements (cf. Definition \ref{weakly_spec_defn}) and $D^*\left( \widehat{\sX}\right)$ the $C^*$- algebra of all (possibly discontinuous) bounded maps $\widehat{\sX} \to \C$ then the above construction gives is the  $\C$-linear map
 		\be\nonumber
 	\begin{split}
 	\Xi\left(	\mathfrak{S}_{C_0\left( \mathcal{X}\right) }  \right)\to D^*\left( \widehat{\sX}\right).
@@ -8526,14 +8626,14 @@ $$
 	$$
 	\rho\left( C_0\left( \overline \sX\right)\right) \subset \phi\left(  \overline{A}\right).
 	$$  
-	Denote by	$\overline{p}: \overline{   \mathcal X } \to \sX$ and $\overline{p}_\la: \overline{   \mathcal X } \to \sX_\la$ the natural coverings. Let $\widehat G \bydef \varprojlim_{\la\in\La}  G\left(\left.M_\la~\right|~ M\right)$, $\quad G_\la \bydef \ker\left(  \widehat G\to  G\left(\left.M_\la~\right|~ M\right)\right) $, and let $C_0\left(M_\la \right)^{\sim}$ be given by \eqref{unital_notation_eqn}. Let  $ \desc_{\overline p_\la}$ be the $\overline p_\la$-descend  (cf. Definition \ref{top_lift_desc_defn}) 	
+	Denote by	$\overline{p}: \overline{   \mathcal X } \to \sX$ and $\overline{p}_\la: \overline{   \mathcal X } \to \sX_\la$ the natural coverings. Let $\widehat G \bydef \varprojlim_{\la\in\La}  G\left(\left.\sX_\la~\right|~ \sX\right)$, $\quad G_\la \bydef \ker\left(  \widehat G\to  G\left(\left.\sX_\la~\right|~ \sX\right)\right) $, and let $C_0\left(\sX_\la \right)^{\sim}$ be given by \eqref{unital_notation_eqn}. Let  $ \desc_{\overline p_\la}$ be the $\overline p_\la$-descend  (cf. Definition \ref{top_lift_desc_defn}) 	
 	If $\overline a \in C_c\left(\overline\sX\right)_+$ is a positive function then $\overline{   \mathcal U } \bydef \left\{\left.\overline x \in \overline{   \mathcal X }\right| \overline a \left(\overline x\right)> 0\right\}$ is an open set.
 	Suppose that  $\overline{   \mathcal U } \subset \overline{   \mathcal X }$ is homeomorphically mapped onto $\sU = \overline{p}\left(  \overline{   \mathcal U }\right)  \subset {   \mathcal X }$. Let us prove that $\overline a'\bydef \rho\left( \overline a\right)\in  B\left(\widehat \H_a \right)$ is $\pi_a$-special. Suppose  $\la_0 \in \La$, $\eps > 0$ and  $z \in A_{\la_0}^{\sim}$ and check that $\overline a'$
 	satisfies  to the conditions (a), (b) of the Definition \ref{special_element_defn}.
 	\begin{enumerate}
 		\item[(a)] 	Let 
 		$f_\eps: \R \to \R$ is a continuous function given by 
-		\eqref{f_eps_eqn}. From \\$\supp f_\eps\left( z^*\overline a' z\right) \subset \supp z^*\overline a' z = \left( \supp z^*\overline a' z\right)^2 \subset \supp \overline a' \subset \overline\sU$ and the Remark \ref{comm_lift_desc_sum_strong_rem} it turns out that if $a_\la \bydef \desc_{\overline{p}_\la}\left(z^*\overline a' z \right)\in C_0\left(\sX_\la \right)$,   $\quad a^\eps_\la \bydef f_\eps\left( \desc_{\overline{p}_\la}\left(z^*\overline a' z \right)\right) \in C_0\left(\sX_\la \right)$ and $b_\la\bydef  \desc_{\overline{p}_\la}\left(z^*\overline a' z \right)^2\in C_0\left(\sX_\la \right)$ then one has
+		\eqref{f_eps_eqn}. From \\$\supp f_\eps\left( z^*\overline a' z\right) \subset \supp z^*\overline a' z = \left( \supp z^*\overline a' z\right)^2 \subset \supp \overline a' \subset \overline\sU$ and the Remark \ref{comm_lift_desc_sum_strong_rem} it turns out that if $a_\la \bydef \desc_{\overline{p}_\la}\left(z^*\overline a' z \right)\in C_0\left(\sX_\la \right)$,   $\quad a^\eps_\la \bydef f_\eps\left( \desc_{\overline{p}_\la}\left(z^*\overline a' z \right)\right) \in C_0\left(\sX_\la \right)$ and $b_\la\bydef  \desc_{\overline{p}_\la}\left(z^*\overline a' z \right)^2\in C_0\left(\sX_\la \right)$. From the Lemma \ref{comm_lift_desc_sum_strong_lem} it follows that
 		\be\label{top_specc_a_eps_eqn}
 		\begin{split}
 			\sum_{g\in G_\la } \pi_a \left(z\right)^*\left(  g\overline a'\right) \pi_a\left( z\right)   = \pi_a\left(a_\la\right) ,\\
@@ -8542,7 +8642,7 @@ $$
 		\end{split}
 		\ee
 		where sums of the above series mean the strong convergence. The system of equations \eqref{top_specc_a_eps_eqn} is a specialization of \eqref{spec_a_eps_eqn}.
-		\item[(b)] 	From the  equations \eqref{spec_mu_a_eps_eqn} it turns out that
+		\item[(b)] 	From the  Lemma \eqref{comm_lift_desc_sum_strong_lem} it turns out that
 		\be\label{top_desc2_eqn}
 		\begin{split}
 			\forall \mu, \nu \in \La \quad	\nu \ge \mu \ge \la \quad \Rightarrow \\\Rightarrow \quad \sum_{g \in G\left(\left.\sX_\nu\right|\sX_\mu\right)} g\left( z^* a_\nu z\right)= \desc_{{p}^\mu_\nu}	\left( z^* a_\nu z\right)\text{ AND }\\
@@ -13552,7 +13652,7 @@ Let	$\overline{p}: \overline{   \mathcal X } \to \sX$ and $\overline{p}_\la: \ov
 	\end{enumerate}
 	(i) One needs check that.  $\overline{a}$  satisfies to the  conditions (a), (b) of the Definition  \ref{special_element_defn}.
 	\begin{enumerate}
-		\item[(a)] For any $\eps \ge 0$,  $\la \in \La$ and  $z \in A_{\la}^+$  there is $a^\eps_\la \in A_\la$ one has\\ $\supp z^* \overline az, \supp f_\eps\left(z^* \overline az\right),  \supp \left( z^* \overline az\right)^2 \subset \overline{   \mathcal U }$, so from the Lemma \ref{blowing_cov_inc_strong_lem} it turns out that 
+		\item[(a)] For any $\eps \ge 0$,  $\la \in \La$ and  $z \in A_{\la}^+$  there is $a^\eps_\la \in A_\la$ one has\\ $\supp z^* \overline az, \supp f_\eps\left(z^* \overline az\right),  \supp \left( z^* \overline az\right)^2 \subset \overline{   \mathcal U }$, so from the Lemmas \ref{comm_lift_desc_sum_strong_lem} it turns out that 
 		\bean
 		\sum_{g\in \ker\left(  \widehat G\to  G\left(\left.\sX_\la~\right|~\sX \right)\right) } g\left(z^* \overline a z\right) =a_\la\bydef \desc_{\overline{p}_\la}\left(z^* \overline az\right) \in A_0\left(\sX_\la \right) ,\\ 
 		\sum_{g\in \ker\left(  \widehat G\to  G\left(\left.\sX_\la~\right|~\sX \right)\right) } gf_\eps\left(z^* \overline a z\right)    =\desc_{\overline{p}_\la}\left(\ f_\eps\left(z^* \overline az\right) \right) \in A_0\left(\sX_\la \right) ,\\ 
