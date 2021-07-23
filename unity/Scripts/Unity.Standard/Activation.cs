@@ -8,8 +8,7 @@ using UnityEngine;
 using Unity.Standard;
 
 using Scada.Interfaces;
-using System.Threading;
-using BaseTypes;
+
 using Unity.Standard.Interfaces;
 
 /// <summary>
@@ -52,6 +51,7 @@ public class Activation : MonoBehaviour
 
     static Type type;
 
+ 
     #endregion
 
     #region Standard Members

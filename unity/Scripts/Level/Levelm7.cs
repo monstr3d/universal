@@ -39,13 +39,15 @@ namespace Scripts.Level
 
         double disst = 0.005;
 
+        Action update;
+
         protected void PreEvent()
         {
             if (PositionLimit(0.01))
             {
                 Debug.Log("PreEvent");
                 ev.Event -= PreEvent;
-                ev.Event += ZEvent;
+                ev.Event += YawEvent;
             }
         }
 
@@ -81,7 +83,7 @@ namespace Scripts.Level
 
                     Debug.Log("YEvent");
                     ev.Event -= YEvent;
-                    Level0.OzControl.EnableLevel(true);
+                    //Level0.OzControl.EnableLevel(true);
                    // Level0.YControl.EnableLevel(false);
                   //  Level0.ZControl.EnableLevel(false);
                     ax(0);
@@ -97,7 +99,7 @@ namespace Scripts.Level
         {
             double[] p = frame.Position;
             angles.Set(frame.Quaternion);
-            if (Math.Abs(angles.yaw) < al & Math.Abs(aVelocity.Omega[2]) < ol)
+            if (Math.Abs(angles.yaw) < 5 * al)// & Math.Abs(aVelocity.Omega[2]) < ol)
                 //& 
                //Math.Abs(p[1]) < 0.5 *  disst & Math.Abs(p[0]) < 0.5 * disst)
             {
@@ -106,9 +108,9 @@ namespace Scripts.Level
                 ax(0);
                 ay(0);
                 az(0);
-                Level0.YControl.EnableLevel(true);
-                Level0.ZControl.EnableLevel(true);
-             //   Level0.OzControl.EnableLevel(false);
+          //      Level0.YControl.EnableLevel(true);
+          //      Level0.ZControl.EnableLevel(true);
+                Level0.OzControl.EnableLevel(true);
                ev.Event += ZZEvent;
 
             }
@@ -162,7 +164,7 @@ namespace Scripts.Level
 
         protected override void Update()
         {
-
+            update?.Invoke();
         }
     }
 }

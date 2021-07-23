@@ -49,7 +49,7 @@ namespace Scripts.Level
             var c = controller.inputConstants;
             c[3] = 0;
             c[5] = 0;
-            controller.aliases[10] = "Calculations.d=530";
+            controller.aliases[10] = "Calculations.d=830";
         }
 
         public static void Set(MonoBehaviour monoBehaviour)
@@ -67,6 +67,7 @@ namespace Scripts.Level
             {
                 if (c[11].Contains("OMGz"))
                 {
+                    //                 c[11] = "Station frame.OMGz=0.04"; ///!!! OLD
                     c[11] = "Station frame.OMGz=0.04";
                     c[8] = "Station frame.Yaw=1.3";
                 }

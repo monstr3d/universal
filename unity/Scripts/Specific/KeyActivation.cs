@@ -9,6 +9,7 @@ using Scada.Desktop;
 
 using Unity.Standard;
 using Unity.Standard.Interfaces;
+using Unity.Standard.Abstract;
 
 namespace Scripts.Specific
 {
@@ -43,7 +44,8 @@ namespace Scripts.Specific
             StaticExtensionUnity.LevelAction = () =>
             {
                 Type t = activation.GetActivationType(StaticExtensionUnity.Activation.level);
-                t.GetConstructor(new Type[0]).Invoke(new object[0]);
+                IStringUpdate su = t.GetConstructor(new Type[0]).Invoke(new object[0]) as IStringUpdate;
+                update = su.Update;
             };
 
             keyActivation = this;
@@ -69,6 +71,7 @@ namespace Scripts.Specific
 
         #endregion
 
+        Action update;
 
         #endregion
 
@@ -84,8 +87,8 @@ namespace Scripts.Specific
 
         int IActivation.Level { get => StaticExtensionUnity.StaticLevel; set { } }
 
-        Action IActivation.Update => () => { };
-
+        Action IActivation.Update => update;
+     
         void IActivation.Activate(MonoBehaviour[] monoBehaviours)
         {
             foreach (var m in monoBehaviours)

@@ -54,5 +54,10 @@ namespace Unity.Standard.Abstract
         }
 
         protected abstract void Update();
+
+        void IStringUpdate.Update()
+        {
+            Update();
+        }
     }
 }

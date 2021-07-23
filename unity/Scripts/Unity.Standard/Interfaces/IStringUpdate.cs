@@ -16,5 +16,10 @@ namespace Unity.Standard.Interfaces
         /// </summary>
         /// <param name="str">The string parameter</param>
         void Update(string str);
+
+        /// <summary>
+        /// Updates itself
+        /// </summary>
+        void Update();
     }
 }
