@@ -22,11 +22,7 @@ namespace Unity.Standard.Indicators
 
         double coefficient;
 
-        volatile static int stopped = 0;
-
-
-
-        #endregion
+         #endregion
 
         #region Ctor
 

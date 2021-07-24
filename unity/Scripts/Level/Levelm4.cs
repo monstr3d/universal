@@ -59,9 +59,5 @@ namespace Scripts.Level
             Level4.Set(monoBehaviour);
         }
 
-        protected override void Update()
-        {
-
-        }
     }
 }

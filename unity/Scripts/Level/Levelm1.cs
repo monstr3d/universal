@@ -59,10 +59,6 @@ namespace Scripts.Level
             Level1.Post();
         }
 
-        protected override void Update()
-        {
-            
-        }
 
     }
 }

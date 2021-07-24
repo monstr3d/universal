@@ -20,6 +20,6 @@ namespace Unity.Standard.Interfaces
         /// <summary>
         /// Updates itself
         /// </summary>
-        void Update();
+        Action UpdateItself { get; }
     }
 }

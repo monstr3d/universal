@@ -151,7 +151,7 @@ public class Activation : MonoBehaviour
   
     void UpdateFist()
     {
-        act?.Update();
+        
         foreach (string s in disabledComponents)
         {
             s.EnableDisable(false);

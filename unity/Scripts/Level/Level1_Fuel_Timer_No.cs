@@ -25,12 +25,7 @@ namespace Scripts.Level
 
 
 
-        protected override void Update()
-        {
-
-        }
-
-
+    
         public static void Set(MonoBehaviour monoBehaviour)
         {
             Level1_Fuel.Set(monoBehaviour);

@@ -210,11 +210,6 @@ namespace Scripts.Level
                 }
             }
         }
-  
 
-        protected override void Update()
-        {
-
-        }
-    }
+     }
 }

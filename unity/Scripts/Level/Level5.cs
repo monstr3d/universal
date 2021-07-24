@@ -56,10 +56,5 @@ namespace Scripts.Level
                 a[10] = "Calculations.d=120";
             }
         }
-
-        protected override void Update()
-        {
-
-        }
     }
 }

@@ -16,6 +16,8 @@ namespace Unity.Standard.Abstract
 
         protected string post;
 
+        protected Action update;
+
         protected AbstractLevelStringUpdate()
         {
             if (!first)
@@ -26,6 +28,8 @@ namespace Unity.Standard.Abstract
             level = StaticExtensionUnity.Activation.level;
             StaticExtensionUnity.OnGlobal += Update;
         }
+
+        Action IStringUpdate.UpdateItself => update;
 
 
         /// <summary>
@@ -53,11 +57,6 @@ namespace Unity.Standard.Abstract
             post = post.Substring(k + 1);
         }
 
-        protected abstract void Update();
-
-        void IStringUpdate.Update()
-        {
-            Update();
-        }
+   
     }
 }

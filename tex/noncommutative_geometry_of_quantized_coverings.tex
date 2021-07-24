@@ -4004,6 +4004,8 @@ From the above equations it turns out that
 \be\label{chull_dom_eqn}
 \widetilde \D\bydef \widehat{\D}\cap \widetilde\H\Rightarrow \bigcup_{\la\in \La} A_\la\subset \L^\dagger\left( \widetilde \D \right) .
 \ee
+\end{empt}
+\begin{definition}\label{main_chp_adm_defn}
 An element $\widetilde a \in \L^\dagger\left( \widetilde \D \right)$ is said to be \textit{admissible} if  following conditions hold:
 \bea
 %\label{c_hull_rzero_eqn}
@@ -4014,7 +4016,9 @@ An element $\widetilde a \in \L^\dagger\left( \widetilde \D \right)$ is said to 
 \forall \widetilde b', \widetilde b'' \in K\left(\widetilde{B} \right)\cap   \L^\dagger\left( \widetilde \D \right)\quad \exists a^\cup \in \cup A_\la \quad b' \widetilde ab''= b' a^\cup b''
 \eea
 where $K\left(\widetilde{B} \right)$ means the Pedersen's ideal of $\widetilde{B}$ (cf. Definition \ref{peder_id_defn}).
-\end{empt}
+
+\end{definition}
+
 
 \begin{definition}\label{main_chp_defn}
 The intersection $\widetilde A \bydef \cap \widetilde A'$   of all subalgebras of $\L^\dagger\left( \widetilde \D \right)$ such that any $\widetilde A'$ contains all admissible elements is said to be 
@@ -9084,7 +9088,7 @@ If $\overline a \in C_c\left(\overline\sX\right)_+$ is a positive function then 
 		\ee
 		where $p^\mu_\nu: \sX_\mu \to \sX_\nu$ is the natural covering.
 		The equation \eqref{top_desc2_mu_eqn} yields the following
-		\be\label{top_mu_specialp_set_eqn}
+		\be\label{top_mu_specialp_l_set_eqn}
 		\forall \mu, \nu \in \La \quad	\nu \ge \mu \ge \la  \Rightarrow  \left\|\left(z^* a_\mu z\right)^2  - \sum_{g \in G\left(\left.\sX_\nu\right|\sX_\mu\right)} g\left( z^* a_\nu z\right)^2\right\| =0
 		\ee
 		which is a specialization of \eqref{special_set_eqn}.
@@ -9730,11 +9734,10 @@ is  a pointed topological finite covering category (cf. Definition \ref{top_sec_
 			\mu\ge\nu}} \right\}.
 \end{split}
 \ee	
-If $B_\la\bydef C_0\left(\sY_\la \right)$ the Lemma \ref{top_base_point_lem} yields a pointed algebraical  finite covering category (cf. Definition \ref{comp_pt_defn})
+If $B_\la\bydef C_0\left(\sY_\la \right)$ then the Lemma \ref{top_base_point_lem} yields a pointed algebraical  finite covering category (cf. Definition \ref{comp_pt_defn})
 	\be\label{top_sb_eqn}
 \begin{split}
-	\mathfrak{S}^{\text{pt}}_B = \left(\left\{\rho_\la: B \hookto B_\la \right\}_{\la \in \La}, \left\{\rho^\mu_\nu: B_\mu \hookto B_\nu\right\}_{\substack{\mu, \nu \in \La\\ \nu > \mu}}\right),\\
-	\text{or simply} \quad \mathfrak{S}^{\text{pt}}_B = \left(\left\{\rho_\la: B \hookto B_\la \right\}, \left\{\rho^\mu_\nu\right\}\right).
+	\mathfrak{S}^{\text{pt}}_B \bydef \left(\left\{\rho_\la: B \hookto B_\la \right\}_{\la \in \La}, \left\{\rho^\mu_\nu: B_\mu \hookto B_\nu\right\}_{\substack{\mu, \nu \in \La\\ \nu > \mu}}\right).
 \end{split}
 \ee
 Let $B_c \subset B$ be a given by \eqref{top_bc_eqn} dense ideal of $B$. If $T: \R \to \R$ is an identical map then there is a representation
@@ -9746,7 +9749,7 @@ If $\mathfrak B$ is the completion of $B_c$ with respect to the graph topology (
  Using the Exercise \ref{top_fin_hull_exer} one can construct a  {pointed algebraic finite covering category of $*$-algebras}  given by
 \be\label{top_sa_eqn}
 \begin{split}
-	\mathfrak{S}^{\text{pt}}_A \bydef \left(\left\{\pi_\la: A \hookto A_\la \right\}_{\la \in \La}, \left\{\pi^\mu_\nu: A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\ \nu > \mu}}\right).
+	\mathfrak{S}^{\text{pt}}_A \bydef \left(\left\{\pi_\la: A \hookto A_\la \right\}_{\la \in \La}, \left\{\pi^\mu_\nu: A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\ \nu > \mu}}\right)
 \end{split}
 \ee
 where $A_\la\bydef C\left( \sX_\la\right) \left[t \right]$. 
@@ -9755,11 +9758,7 @@ where $A_\la\bydef C\left( \sX_\la\right) \left[t \right]$.
 \end{exercise}
 \begin{empt}
 Let us develop a related to $\mathfrak{S}^{\text{pt}}_A$ specialization of the construction \ref{comp_ch_empt}.
-
-
-
-
-From the Theorem \ref{comm_main_thm} it turns out that the given by \eqref{top_sb_eqn} category $\mathfrak{S}_B^{\mathrm{pt}}$ is good (cf. Definition \ref{mains_defn}) and if both   $\left(B, \widetilde{B}, G\left(\left.\widetilde B \right| B\right)\right)$ and  $\left(B, \overline{B}, G\left(\left.\overline B \right| B\right)\right)$ are connected and  disconnected  { infinite noncommutative covering} of $\mathfrak{S}^{\text{pt}}_{B}$ (cf. Definition \ref{main_defn}) then there are following natural isomorphisms
+From the Theorem \ref{comm_main_thm} it turns out that the given by \eqref{top_sb_eqn} category $\mathfrak{S}_B^{\mathrm{pt}}$ is good (cf. Definition \ref{mains_defn}). If both   $\left(B, \widetilde{B}, G\left(\left.\widetilde B \right| B\right)\right)$ and  $\left(B, \overline{B}, G\left(\left.\overline B \right| B\right)\right)$ are the connected { infinite noncommutative covering} of $\mathfrak{S}^{\text{pt}}_{B}$ (cf. Definition \ref{main_defn}) and the disconnected one (cf. Definition \ref{main_defn_full_defn})  then there are following natural isomorphisms
 \be\label{top_bc0_eqn}
 \begin{split}
 	\overline{B}\cong C_0\left(\overline\sX\times \R\right),\\
@@ -9773,15 +9772,12 @@ where both $\overline\sX$ and $\widetilde\sX$ are topological disconnected and c
 \widetilde B \subset B\left(\H_a\right),\\
 \overline B \subset B\left(\H_a\right).
 \eean
-
-
-Using the following natural inclusions 
-denote by
+Denote by
 \bean
 \begin{split}
 	A^\cup \bydef \cup A_\la,\\
 	B^\cup \bydef \cup B_\la,\\
-	\mathfrak B^\cup\bydef \mathfrak\cup \mathfrak B_\la,\\	
+	\mathfrak B^\cup\bydef \mathfrak\cup \mathfrak B_\la.\\	
 	%\mathfrak A \bydef \End_{	B^\cup }\left( \mathfrak B^\cup\right) 
 \end{split}
 \eean
@@ -9793,7 +9789,6 @@ There is the natural action   $A^\cup\times \mathfrak B^\cup\to \mathfrak B^\cup
 		\widehat G \times \widehat\D \to \widehat\D
 		\eean 
 	(cf. equation \ref{c_hull_g_d_eqn}).
-	\item The atomic representation $\pi_a: \widehat B \to B\left(\H_a\right)$.
 	\item The Hilbert subspace $\widetilde{\H}\subset \H_a$ is the Hilbert norm completion of   $\widetilde{B}\H_a$.
 		\item The subspace $\widetilde \D \bydef \widehat{\D}\cap \widetilde\H$  and the inclusion
 		$$
@@ -9814,7 +9809,7 @@ The identical function  $T : \R \to \R$ induces  maps  $\widehat  \sX \times\R\t
 \cong \left\{b \in \widehat  { B}\left|\forall n \in \N \quad T^n b \in \widehat B \right.\right\}\subset D^*\left(\overline \sX\times \R \right), \\
 \widehat \D\bydef  \widehat  {\mathfrak B}\H_a\cong\\\cong \left\{\xi \in \H_a\left|\forall a \in A^\cup\quad \left\|\xi  \right\|_a < \infty \quad  \left\|\cdot  \right\|_a \text{ is given by equation \ref{graph_d_eqn}} \right.\right\}\cong \\
 \cong \left\{\xi \in \H_a\left|\forall n \in \N \quad T^n \xi \in \widehat \H_a \right.\right\}\subset D^*\left(\overline \sX\times \R \right),\\
-A^\cup 		 \bigcup_{\la\in \La} A_\la\subset  D^*\left(\overline \sX\times \R \right).
+A^\cup 	\bydef	 \bigcup_{\la\in \La} A_\la\subset  D^*\left(\overline \sX\times \R \right).
 \end{split}
 \ee
 The subspace $\iota :\widetilde\sX \hookto \overline\sX$ is a connected component so the inclusion $\widetilde B \subset \overline B$ is an induced by $\iota$ injective *-homomorphism
@@ -9829,11 +9824,12 @@ $C_0\left(\widetilde\sX\times \R\right)\hookto C_0\left(\overline\sX\times \R\ri
 	\ee
 \be\label{top_ch_inc_t_eqn}
 \begin{split}
-	\widetilde \D\bydef  \widehat  \D \cap \widetilde\H\cong \\\cong \left\{\xi \in \H_a\left|\forall a \in A^\cup\quad \left\|\xi  \right\|_a < \infty \quad  \left\|\cdot  \right\|_a \text{ is given by equation \ref{graph_d_eqn}} \right.\right\}\cong \\
+	\widetilde \D\bydef  \widehat  \D \cap \widetilde\H\cong \\\cong \left\{\xi \in \widetilde\H\left|\forall a \in A^\cup\quad \left\|\xi  \right\|_a < \infty \quad  \left\|\cdot  \right\|_a \text{ is given by equation \ref{graph_d_eqn}} \right.\right\}\cong \\
 	\cong \left\{\xi \in \widetilde\H\left|\forall n \in \N \quad T^n \xi \in \widetilde \H \right.\right\}\subset D^*\left(\widetilde \sX\times \R \right).
 \end{split}
 \ee
-From \eqref{peder_c0_eqn} it follows that $K\left(C_0\left(\overline\sX\times \R\right) \right)= C_c\left( \overline\sX\times \R\right)$ where $K\left(C_0\left(\overline\sX\times \R\right) \right)$ is the Pedersen's ideal (cf. Definition \ref{peder_id_defn}) it follows that $T^n a \in K\left(C_0\left(\overline\sX\times \R\right) \right)$ for all $n \in \N$ and $a \in K\left(C_0\left(\overline\sX\times \R\right) \right)$. Taking into account one has $a \widetilde\H\subset \widetilde\D$, it follows that
+From \eqref{peder_c0_eqn} it follows that $K\left(C_0\left(\widetilde\sX\times \R\right) \right)= C_c\left( \widetilde\sX\times \R\right)$ where $K\left(C_0\left(\overline\sX\times \R\right) \right)$ is the Pedersen's ideal (cf. Definition \ref{peder_id_defn}). 
+If $\widetilde b \in C_c\left( \widetilde\sX\times \R\right)$ then $\supp T^n \widetilde b \subset \supp b$, i.e.  $T^n \widetilde b \in K\left(C_0\left(\overline\sX\times \R\right) \right)$ for all $n \in \N$. On the other hand  one has $\widetilde b  \widetilde\H\subset \widetilde\D$, it follows that
 \bean
 K\left(C_0\left(\widetilde\sX\times \R\right) \right)\subset \L^\dagger\left(\widetilde\D\right),\\
 K\left(C_0\left(\widetilde\sX\times \R\right) \right)\cap \L^\dagger\left(\widetilde\D\right)= K\left(C_0\left(\widetilde\sX\times \R\right) \right).
@@ -9841,7 +9837,7 @@ K\left(C_0\left(\widetilde\sX\times \R\right) \right)\cap \L^\dagger\left(\widet
 From the above equation and  the condition \eqref{c_hull_adm_eqn} one can deduce the following lemma.
 \end{empt}
 \begin{lemma}\label{top_c_hull_adm_lem}
-An element $\widetilde a\in \L^\dagger\left(\widetilde\D\right)$ is admissible (cf. \ref{comp_ch_empt}) if it satisfies to the following condition
+An element $\widetilde a\in \L^\dagger\left(\widetilde\D\right)$ is admissible (cf. Definition \ref{main_chp_adm_defn}) if it satisfies to the following condition
 \be\label{top_c_hull_adm_eqn}
 \forall \widetilde b', \widetilde b'' \in K\left(C_0\left(\widetilde\sX\times \R\ \right)\right)\quad \exists a^\cup \in \cup A_\la \quad b' \widetilde ab''= b' a^\cup b''
 \ee
@@ -9895,28 +9891,26 @@ $$
  $$
 \widetilde{\mathscr A}\left( \widetilde\sX\right)\subset D^*\left(\widetilde \sX\times \R \right).
  $$
+	There is a well defined  intersection $\widetilde{\mathscr A}\left( \widetilde\sX\right)\cap	\L^\dagger\left(\widetilde\D\right)_{\mathrm{comm}}$  because there are inclusions of *-algebras
+\bean
+\widetilde{\mathscr A}\left( \widetilde\sX\right) \subset D^*\left(\widetilde \sX\times \R \right),\\
+\L^\dagger\left(\widetilde\D\right)_{\mathrm{comm}} \subset D^*\left(\widetilde \sX\times \R \right).
+\eean
 
 
 \begin{theorem}\label{top_chull_thm}
-Consider the above situation. If $\widetilde A\bydef \widetilde{\mathscr A}\left( \widetilde\sX\right)\cap	\L^\dagger\left(\widetilde\D\right)_{\mathrm{comm}}$  then the triple $\left(A, \widetilde{A}, G\left(\left.\widetilde B \right| B\right)\right)$ is the 
-{ inverse noncommutative limit of $\mathfrak{S}_A^{\mathrm{pt}}$ associated with $\mathfrak{S}_B^{\mathrm{pt}}$} (cf. Definition  \ref{main_ch_defn}).
+Consider the above situation. If $\widetilde A$ is the { inverse noncommutative limit of $\mathfrak{S}_A^{\mathrm{pt}}$ associated with $\mathfrak{S}_B^{\mathrm{pt}}$} (cf. Definition  \ref{main_chp_defn}) then one has $\widetilde A\cong\L^\dagger\left(\widetilde\D\right)_{\mathrm{comm}}\cap \widetilde{\mathscr A}\left( \widetilde\sX\right)$.
 \end{theorem}
 \begin{proof}
-	The intersection $\widetilde{\mathscr A}\left( \widetilde\sX\right)\cap	\L^\dagger\left(\widetilde\D\right)_{\mathrm{comm}}$ is well defined because there are inclusions of *-algebras
-	\bean
-	\widetilde{\mathscr A}\left( \widetilde\sX\right) \subset D^*\left(\widetilde \sX\times \R \right),\\
-	\L^\dagger\left(\widetilde\D\right)_{\mathrm{comm}} \subset D^*\left(\widetilde \sX\times \R \right),\\
-	\eean
-If $\left(A, \widetilde{A}, G\left(\left.\widetilde B \right| B\right)\right)$ is the 
-{inverse noncommutative limit of $\mathfrak{S}_A^{\mathrm{pt}}$ associated with $\mathfrak{S}_B^{\mathrm{pt}}$} then from the Lemma \ref{top_c_hull_adm_lem} and the Exercise \ref{top_chull_comm_exer} it turns out that any admissible object lies in $\L^\dagger\left(\widetilde\D\right)_{\mathrm{comm}}$. Now we would like to prove that the set admissible elements coincides with the intersection $\widetilde{\mathscr A}\left( \widetilde\sX\right)\cap	\L^\dagger\left(\widetilde\D\right)_{\mathrm{comm}}$.
+From the Lemma \ref{top_c_hull_adm_lem} and the Exercise \ref{top_chull_comm_exer} it turns out that any admissible element lies in $\L^\dagger\left(\widetilde\D\right)_{\mathrm{comm}}$. Now we would like to prove that the set admissible elements coincides with the intersection $\L^\dagger\left(\widetilde\D\right)_{\mathrm{comm}}\cap \widetilde{\mathscr A}\left( \widetilde\sX\right) \subset D^*\left(\widetilde \sX\times \R \right)$.
 
-Firstly  we prove that   $\widetilde a\in  \widetilde{\mathscr A}\left( \widetilde\sX\right)\cap	\L^\dagger\left(\widetilde\D\right)_{\mathrm{comm}}$ for all  admissible $\widetilde a\in \L^\dagger\left(\widetilde\D\right)$. From the Exercise \ref{top_chull_comm_exer} it follows that $\widetilde a\in  	\L^\dagger\left(\widetilde\D\right)_{\mathrm{comm}}$ Having $\widetilde a$ we construct the global section $\widetilde s_{\widetilde a}\in \widetilde{\mathscr A}\left( \widetilde\sX\right)$. From \ref{top_fx_empt} it turns out that for any $\widetilde x \in \widetilde\sX$ one can find $\widetilde f \in C_c\left(\widetilde\sX \right)$  such that $\widetilde{x}\in  \widetilde{\sV} \subset {\widetilde{\sU}}\subset \widetilde\sX$, $\widetilde{f}\left(\widetilde{\sV} \right)= 1$,  $\widetilde{f}\left(\widetilde{\sX} \right)= \left[0,1\right]$ and $\supp 	\widetilde{f} \subset \widetilde{\sU}$. Moreover both sets $\widetilde{\sV} \subset {\widetilde{\sU}}$ are open and the restriction $\left.\widetilde p\right|_{\widetilde{\sU}}: \widetilde{\sU}\to \sU \bydef {\widetilde{p}}\left( {\widetilde{\sU}}\right)$ is a homeomorphism. According to \eqref{top_c_hull_adm_eqn} there is $a^\cup \in \cup A_\la$ such that 
+Firstly  we prove that   $\widetilde a\in\L^\dagger\left(\widetilde\D\right)_{\mathrm{comm}}\cap \widetilde{\mathscr A}\left( \widetilde\sX\right)$ for all  admissible $\widetilde a\in \L^\dagger\left(\widetilde\D\right)$. From the Exercise \ref{top_chull_comm_exer} it follows that $\widetilde a\in  	\L^\dagger\left(\widetilde\D\right)_{\mathrm{comm}}$. Having $\widetilde a$ we construct the global section $\widetilde s_{\widetilde a}\in \widetilde{\mathscr A}\left( \widetilde\sX\right)$. From \ref{top_fx_empt} it turns out that for any $\widetilde x \in \widetilde\sX$ one can find $\widetilde f \in C_c\left(\widetilde\sX \right)$  such that $\widetilde{x}\in  \widetilde{\sV} \subset {\widetilde{\sU}}\subset \widetilde\sX$, $\widetilde{f}\left(\widetilde{\sV} \right)= 1$,  $\widetilde{f}\left(\widetilde{\sX} \right)= \left[0,1\right]$ and $\supp 	\widetilde{f} \subset \widetilde{\sU}$. Moreover both sets $\widetilde{\sV} \subset {\widetilde{\sU}}$ are open and the restriction $\left.\widetilde p\right|_{\widetilde{\sU}}: \widetilde{\sU}\to \sU \bydef {\widetilde{p}}\left( {\widetilde{\sU}}\right)$ is a homeomorphism. According to \eqref{top_c_hull_adm_eqn} there is $a^\cup \in \cup A_\la$ such that 
 $
 f \widetilde af= f a^\cup f
-$. Moreover since $\sU$ is evenly covered by $p_\la$ there is $a \in A$ such that $f \widetilde af= f a\cup f$. A pair $\left( a , \sV \bydef \widetilde{p }\left(\widetilde\sV \right) \right)$ defines a stalk of $\mathscr A$ at $\widetilde{p }\left(\widetilde{x } \right)$ (cf. Definition \ref{stalk_defn}). The restriction $\left.\widetilde p\right|_{\widetilde{\sV}}: \widetilde{\sV}\to \sV \bydef {\widetilde{p}}\left( {\widetilde{\sV}}\right)$ is a homeomorphism so one can define a  stalk $s_{ \widetilde{\sV}} \in \widetilde{\mathscr A}\left(\widetilde{\sU} \right)$  of $\widetilde{\mathscr A}$ at $\widetilde{x }$. Having a stalk for any $\widetilde x \in \widetilde \sX$ one can construct a global section $\widetilde s_{\widetilde a}\in \widetilde{\mathscr A}\left( \widetilde\sX\right)$.
+$. Moreover since $\sU$ is evenly covered by $p_\la$ there is $a \in A$ such that $f \widetilde af= f a\cup f$. A pair $\left( a , \sV \bydef \widetilde{p }\left(\widetilde\sV \right) \right)$ defines a stalk of $\mathscr A$ at $\widetilde{p }\left(\widetilde{x } \right)$ (cf. Definition \ref{stalk_defn}). The restriction $\left.\widetilde p\right|_{\widetilde{\sV}}: \widetilde{\sV}\to \sV \bydef {\widetilde{p}}\left( {\widetilde{\sV}}\right)$ is a homeomorphism so one can define a  stalk $s_{ \widetilde{\sV}} \in \widetilde{\mathscr A}\left(\widetilde{\sU} \right)$  of $\widetilde{\mathscr A}$ at $\widetilde{x }$. Having a stalk for any $\widetilde x \in \widetilde \sX$ one can construct a global section $\widetilde s_{\widetilde a}\in \widetilde{\mathscr A}\left( \widetilde\sX\right)$ (cf. \ref{sheaf_empt}).
 
-Secondly we prove that any $\widetilde a\in  \widetilde{\mathscr A}\left( \widetilde\sX\right)\cap	\L^\dagger\left(\widetilde\D\right)_{\mathrm{comm}}$ is admissible.  From the equation \eqref{top_coh_comm_inc_eqn} it follows that $\widetilde a\in  	\L^\dagger\left(\widetilde\D\right)$. If $\widetilde b', \widetilde b'' \in K\left(C_0\left(\widetilde\sX\times \R\ \right)\right)= C_c\left(\widetilde\sX\times \R\ \right)$ then both $\supp \widetilde b'$ and $\supp \widetilde b''$ are compact.  So the intersection $\supp \widetilde b'\cap \supp \widetilde b''$ is also compact. 
-From the Lemma \ref{top_comp_la_lem} it follows that there is $\la_{\supp \widetilde b'\cap \supp \widetilde b''} \in \La$ such that for any  
+Secondly we prove that any $\widetilde a\in\widetilde A\cong\L^\dagger\left(\widetilde\D\right)_{\mathrm{comm}}\cap \widetilde{\mathscr A}\left( \widetilde\sX\right)$ is admissible.  From the equation \eqref{top_coh_comm_inc_eqn} it follows that $\widetilde a\in  	\L^\dagger\left(\widetilde\D\right)$. If $\widetilde b', \widetilde b'' \in K\left(C_0\left(\widetilde\sX\times \R\ \right)\right)= C_c\left(\widetilde\sX\times \R\ \right)$ then both $\supp \widetilde b'$ and $\supp \widetilde b''$ are compact.  So the intersection $\supp \widetilde b'\cap \supp \widetilde b''$ is also compact. 
+From the Lemma \ref{top_comp_la_lem} it follows that there is \\$\la_{\supp \widetilde b'\cap \supp \widetilde b''} \in \La$ such that for any  
 $\la \ge \la_{\supp \widetilde b'\cap \supp \widetilde b''} \in \La$ such that for  any  $\la \ge \la_{\supp \widetilde b'\cap \supp \widetilde b''}$ the set ${\supp \widetilde b'\cap \supp \widetilde b''}$  is mapped homeomorphically onto  
 $\widetilde{p}_\la\left(\supp \widetilde b'\cap \supp \widetilde b'' \right) \subset \sX_\la$ where $\widetilde{p}_\la:   \widetilde{   \mathcal X}   \to  \sX_\la$ is the natural covering. Element $\widetilde b'\widetilde a\widetilde b''$ uniquely depends on the restriction $\left.\widetilde a \right|_{\supp \widetilde b'\cap \supp \widetilde b'}\in \widetilde{\mathscr A}\left( \supp \widetilde b'\cap \supp \widetilde b''\right)$ where the group $\widetilde{\mathscr A}\left( \supp \widetilde b'\cap \supp \widetilde b'\right)$ is defined by the Remark \ref{sheaf_rem}. There is $s_\la \in \mathscr A_\la \left(\widetilde p\left( \supp \widetilde b'\cap \supp \widetilde b''\right)  \right)$ such that   $\left.\widetilde a \right|_{\supp \widetilde b'\cap \supp \widetilde b'}$ is the lift of $s_\la$. 
 On the other hand the sheaf $\mathscr A_\la$ is $c$-soft (cf. Exercise \ref{top_soft_exer}) so there is $a_{\la_0}\in A_{\la_0}$ such that
@@ -9930,17 +9924,6 @@ From the Lemma \ref{top_c_hull_adm_lem} it follows that $\widetilde a$ is admiss
 	The intersection $\widetilde A \bydef \cap \widetilde A'$   of all subalgebras of $\L^\dagger\left( \widetilde \D \right)$ such that any $\widetilde A'$ contains all admissible elements coincides with $\widetilde{\mathscr A}\left( \widetilde\sX\right)\cap	\L^\dagger\left(\widetilde\D\right)_{\mathrm{comm}}$ so  from the Definition \ref{main_chp_defn} it turns that this theorem is proven.
 \end{proof}
 
-\begin{exercise}
-Consider the above situation. Let
-$$
-\widetilde{\mathscr A}\left( \widetilde\sX\right)_c \bydef \left\{\left.a \in \widetilde{\mathscr A}\left( \widetilde\sX\right)\right| \supp a \quad \text{is compact}\right\}.
-$$
-Prove following statements:
-\begin{enumerate}
-	\item There is the natural inclusion $\widetilde{\mathscr A}\left( \widetilde\sX\right)_c\subset \L^\dagger\left(\D \right)$.
-	\item $\widetilde A$ is the completion of $\widetilde{\mathscr A}\left( \widetilde\sX\right)_c$ with respect to the graph topology (cf. Equation \eqref{graph_ld_eqn}).
-\end{enumerate}
-\end{exercise}
 \begin{empt}\label{top_at_empt}
 	Consider the above situation. One can define *-algebra $tA$ and $B^T$ as well as it is explained in the section \ref{top_fin_hull_sec}. Similarly to  \eqref{top_sa_eqn} and \eqref{top_sb_eqn} one can define
 	\bean
@@ -9968,7 +9951,51 @@ Prove following statements:
 
 \subsection{Induced representations and strong Motita equivalence}\label{comm_induced_infinite_sec}
 
-\paragraph*{} 
+
+\begin{lemma}\label{comm_allows_lem}
+	If $\mathfrak{S}_{\left( \mathcal X, x_0\right) } = \left\{\left( \mathcal{X}_\la,x_0^\la\right)  \to \left( \mathcal X, x_0\right) \right\}_{\la \in \La} \in \mathfrak{FinTop}^{\mathrm{pt}}$, \\
+	$\mathfrak{S}_{C_0\left(\mathcal{X}\right) }\left( \mathcal X, x_0\right) =
+	\left( \left\{C_0\left( \mathcal{X}\right) \hookto  C_0\left( \mathcal{X}_\la\right) \right\}, \left\{C_0\left( \mathcal{X}_\mu\right) \hookto  C_0\left( \mathcal{X}_\nu\right) \right\} \right) $ then $\mathfrak{S}^{\mathrm{pt}}_{C_0\left(\mathcal{X}\right) }$ allows inner product (cf. Definition \ref{inf_hilb_prod_defn}). 
+\end{lemma}
+\begin{proof}
+	%	Denote by $G_\la = G\left(\mathcal X_\la~|~\mathcal X \right)$ groups of covering transformations and $\widehat{G} = \varprojlim G_\la$. 
+	Denote by $\overline{p}:\left( \overline{  \mathcal X}, \overline x_0\right)  \to\left(  \mathcal X, x_0\right) $, $\overline{p}_\la:\left( \overline{  \mathcal X}, \overline x_0\right)  \to\left(  \mathcal X_\la, x^\la_0\right) $, $p^\la: \left(  \mathcal X_\la, x^\la_0\right)  \to \left( \mathcal X, x_0\right) $, $p^\mu_\nu:  \left( \mathcal X_\mu, x^\mu_0 \right) \to \left( \mathcal X_\nu, x^\nu_0\right) $ ($\mu > \nu$) the natural pointed coverings.
+	If $\widetilde{\sX}= \varprojlim \mathfrak{S}_{\left(\sX, x_0 \right)}$ then  	from the Theorem \ref{comm_main_thm} it turns out	
+	$$\left(C_0\left(\mathcal{X}\right), C_0\left(\widetilde{\sX}\right),G\left(\widetilde{\sX}~|~ \mathcal X\right)\right)$$ is  the  { infinite noncommutative covering} of $\mathfrak{S}_{C_0\left(\mathcal{X}\right)}$ (cf. Definition \ref{main_defn}). 	 	It is shown in \cite{pedersen:mea_c} that the Pedersen's ideal $K\left(C_0\left(\widetilde{\sX} \right)\right) $ of $C_0\left(\widetilde{\sX} \right)$ coincides with $C_c\left(\widetilde{\sX} \right)$. If $\widetilde{a}, \widetilde{b} \in C_c\left(\widetilde{\sX} \right)$ then $\supp \overline{a}$ is compact. 	
+	From the Lemma \ref{top_comp_la_lem} it follows that there is $\la_0 \in \La$ such that for all $\la \ge \la_0$ the restriction $\left.\overline{p}_\la\right|_{\supp \overline{a}}$ is injective. From the Exercise  \ref{comm_lift_desc_sum_exer} it follows that
+	\begin{equation}\nonumber
+		\begin{split}
+			c_{\la} = \sum_{g \in \ker\left(G\left(\left.\widetilde{\sX}~\right|\sX \right)  \to  G\left( \sX_{\la}~|~\sX \right)\right)} g \left(\widetilde{a}^* \widetilde{b}  \right) = \desc_{\overline{p}_\la}\left( \widetilde{a}\widetilde{b}\right) 
+		\end{split}
+	\end{equation}
+	where sum of the series implies the strict topology of $M\left(C_0\left(\widetilde{\sX} \right)  \right)$ (cf. Definition \ref{strict_topology}), and the  notation  $\desc_{\overline{p}_\la}$ means  the descent	(cf. Definition \ref{top_lift_desc_defn}). 
+	From the properties of the descent it turns out that $\desc_{\overline{p}_\la}\left( \widetilde{a}\widetilde{b}\right) \in C_0\left( \sX_{\la}\right)$, i.e. $c_\la \in C_0\left( \sX_{\la}\right)$.  Taking into account the Remark \ref{inf_hilb_prod_low_rem} we conclude that  $c_\la \in C_0\left( \sX_{\la}\right)$ for all $\la \in \La$.
+\end{proof}
+\begin{exercise}\label{comm_allows_morita_exer}
+	In the Situation of the Lemma \ref{comm_allows_lem} prove that the given by the Theorem \ref{comm_main_thm} { infinite noncommutative covering} $$\left(C_0\left(\mathcal{X}\right), C_0\left(\varprojlim  \mathfrak{S}_{\left(\sX, x_0\right)}\right),G\left(\left.\varprojlim  \mathfrak{S}_{\left(\sX, x_0\right)}~\right| \mathcal X\right)\right)$$ 
+	{allows strong Morita equivalence} (cf. Definition \ref{allows_morita_defn}).
+\end{exercise}
+!!!
+
+From the Lemma \ref{comm_allows_lem} it follows that the  induced by $\left(\rho, \left(C\left( M\right) , C_0\left( \widetilde M\right) G\left(\left.\widetilde M   ~\right| M\right)\right)\right)$ representation $\widetilde \rho: C_0\left( \widetilde M\right)\hookto B\left( \widetilde \H\right)$ (cf. Definition \ref{induced_repr_inf_defn}), such that $\widetilde \H$ is the Hilbert norm completion of
+$$
+K\left( C_0\left( \widetilde M\right)\right)\otimes_{C\left( {M}\right)} L^2\left(  M, S\right)
+$$
+where $K\left( C_0\left( \widetilde M\right)\right)$ is Pedersen's ideal of $C_0\left( \widetilde M\right)$ (cf. Definition \ref{peder_id_defn} and Remark \ref{ap_act_hilb_rem}). On the other hand 	it is proven in \cite{pedersen:mea_c} that the Pedersen's ideal $K\left(C_0\left(\widetilde{\sX} \right)\right) $ of $C_0\left(\widetilde{\sX} \right)$ coincides with $C_c\left(\widetilde{\sX} \right)$.  If
+$$
+\Ga_c\left(\widetilde M, \widetilde S \right)\bydef C_c\left( \lift_p\left[C\left(M, \left\{S_x\right\}, \Ga\left(M, S\right)\right)\right]\right)  
+$$
+then from the Lemma \ref{top_tensor_lcompact_lem} it follows that there is the given by \eqref{top_tensor_lccompact_iso_eqn} isomorphism
+$$
+C_c\left(\widetilde M\right)\otimes_{C\left(M\right)}\Ga\left(M,S \right) \xrightarrow{\approx}\Ga_c\left(\widetilde M, \widetilde S \right)
+$$
+of left $C_0\left(\widetilde M \right)$-modules. On the other hand 
+then from \ref{top_herm_bundle_empt} it follows that there is the dense with respect to the Hilbert norm inclusion $\Ga_c\left(\widetilde M, \widetilde S \right)\subset L^2\left(\widetilde M, \widetilde S \right)$, hence there is  the homomorphism
+\be\label{top_lift_g_inf_eqn}
+\phi: C_c\left(\widetilde M\right)\otimes_{C\left(M\right)}\Ga\left(M,S \right) \to L^2\left(\widetilde M, \widetilde S \right)
+\ee
+of left $C_0\left(\widetilde M \right)$-modules.
+
 Similarly to the section \ref{comm_induced_finite_sec} consider a compact  Riemannian manifold $M$ with a  spinor bundle $S$ (cf. \ref{comm_sp_tr_sec}). 
 Let $\tau:C\left( M\right) \to \C$ be a faithful state such that 
 $$
@@ -9994,50 +10021,6 @@ This product yields the structure of pre-Hilbert space on $\Ga_c\left(\widetilde
 \be\label{comm_bundlei_repr_eqn}
 C_0\left(\widetilde M\right) \to B\left( L^2\left(\widetilde  M, \widetilde S\right)\right). 
 \ee 
-
-\begin{lemma}\label{comm_allows_lem}
-	If $\mathfrak{S}_{\left( \mathcal X, x_0\right) } = \left\{\left( \mathcal{X}_\la,x_0^\la\right)  \to \left( \mathcal X, x_0\right) \right\}_{\la \in \La} \in \mathfrak{FinTop}^{\mathrm{pt}}$, \\
-	$\mathfrak{S}_{C_0\left(\mathcal{X}\right) }\left( \mathcal X, x_0\right) =
-	\left( \left\{C_0\left( \mathcal{X}\right) \hookto  C_0\left( \mathcal{X}_\la\right) \right\}, \left\{C_0\left( \mathcal{X}_\mu\right) \hookto  C_0\left( \mathcal{X}_\nu\right) \right\} \right) $ then $\mathfrak{S}^{\mathrm{pt}}_{C_0\left(\mathcal{X}\right) }$ allows inner product (cf. Definition \ref{inf_hilb_prod_defn}). 
-\end{lemma}
-\begin{proof}
-	%	Denote by $G_\la = G\left(\mathcal X_\la~|~\mathcal X \right)$ groups of covering transformations and $\widehat{G} = \varprojlim G_\la$. 
-	Denote by $\overline{p}:\left( \overline{  \mathcal X}, \overline x_0\right)  \to\left(  \mathcal X, x_0\right) $, $\overline{p}_\la:\left( \overline{  \mathcal X}, \overline x_0\right)  \to\left(  \mathcal X_\la, x^\la_0\right) $, $p^\la: \left(  \mathcal X_\la, x^\la_0\right)  \to \left( \mathcal X, x_0\right) $, $p^\mu_\nu:  \left( \mathcal X_\mu, x^\mu_0 \right) \to \left( \mathcal X_\nu, x^\nu_0\right) $ ($\mu > \nu$) the natural pointed coverings.
-	If $\widetilde{\sX}= \varprojlim \mathfrak{S}_{\left(\sX, x_0 \right)}$ then  	from the Theorem \ref{comm_main_thm} it turns out	
-	$$\left(C_0\left(\mathcal{X}\right), C_0\left(\widetilde{\sX}\right),G\left(\widetilde{\sX}~|~ \mathcal X\right)\right)$$ is  the  { infinite noncommutative covering} of $\mathfrak{S}_{C_0\left(\mathcal{X}\right)}$ (cf. Definition \ref{main_defn}). 	 	It is shown in \cite{pedersen:mea_c} that the Pedersen's ideal $K\left(C_0\left(\widetilde{\sX} \right)\right) $ of $C_0\left(\widetilde{\sX} \right)$ coincides with $C_c\left(\widetilde{\sX} \right)$. If $\widetilde{a}, \widetilde{b} \in C_c\left(\widetilde{\sX} \right)$ then $\supp \overline{a}$ is compact. 	
-	From the Lemma \ref{top_comp_la_lem} it follows that there is $\la_0 \in \La$ such that for all $\la \ge \la_0$ the restriction $\left.\overline{p}_\la\right|_{\supp \overline{a}}$ is injective. From the Exercise  \ref{comm_lift_desc_sum_exer} it follows that
-	\begin{equation}\nonumber
-		\begin{split}
-			c_{\la} = \sum_{g \in \ker\left(G\left(\left.\widetilde{\sX}~\right|\sX \right)  \to  G\left( \sX_{\la}~|~\sX \right)\right)} g \left(\widetilde{a}^* \widetilde{b}  \right) = \desc_{\overline{p}_\la}\left( \widetilde{a}\widetilde{b}\right) 
-		\end{split}
-	\end{equation}
-	where sum of the series implies the strict topology of $M\left(C_0\left(\widetilde{\sX} \right)  \right)$ (cf. Definition \ref{strict_topology}), and the  notation  $\desc_{\overline{p}_\la}$ means  the descent	(cf. Definition \ref{top_lift_desc_defn}). 
-	From the properties of the descent it turns out that $\desc_{\overline{p}_\la}\left( \widetilde{a}\widetilde{b}\right) \in C_0\left( \sX_{\la}\right)$, i.e. $c_\la \in C_0\left( \sX_{\la}\right)$.  Taking into account the Remark \ref{inf_hilb_prod_low_rem} we conclude that  $c_\la \in C_0\left( \sX_{\la}\right)$ for all $\la \in \La$.
-\end{proof}
-\begin{exercise}\label{comm_allows_morita_exer}
-In the Situation of the Lemma \ref{comm_allows_lem} prove that the given by the Theorem \ref{comm_main_thm} { infinite noncommutative covering} $$\left(C_0\left(\mathcal{X}\right), C_0\left(\varprojlim  \mathfrak{S}_{\left(\sX, x_0\right)}\right),G\left(\left.\varprojlim  \mathfrak{S}_{\left(\sX, x_0\right)}~\right| \mathcal X\right)\right)$$ 
- {allows strong Morita equivalence} (cf. Definition \ref{allows_morita_defn}).
-\end{exercise}
-
-
-From the Lemma \ref{comm_allows_lem} it follows that the  induced by $\left(\rho, \left(C\left( M\right) , C_0\left( \widetilde M\right) G\left(\left.\widetilde M   ~\right| M\right)\right)\right)$ representation $\widetilde \rho: C_0\left( \widetilde M\right)\hookto B\left( \widetilde \H\right)$ (cf. Definition \ref{induced_repr_inf_defn}), such that $\widetilde \H$ is the Hilbert norm completion of
-$$
-K\left( C_0\left( \widetilde M\right)\right)\otimes_{C\left( {M}\right)} L^2\left(  M, S\right)
-$$
-where $K\left( C_0\left( \widetilde M\right)\right)$ is Pedersen's ideal of $C_0\left( \widetilde M\right)$ (cf. Definition \ref{peder_id_defn} and Remark \ref{ap_act_hilb_rem}). On the other hand 	it is proven in \cite{pedersen:mea_c} that the Pedersen's ideal $K\left(C_0\left(\widetilde{\sX} \right)\right) $ of $C_0\left(\widetilde{\sX} \right)$ coincides with $C_c\left(\widetilde{\sX} \right)$.  If
-$$
-\Ga_c\left(\widetilde M, \widetilde S \right)\bydef C_c\left( \lift_p\left[C\left(M, \left\{S_x\right\}, \Ga\left(M, S\right)\right)\right]\right)  
-$$
-then from the Lemma \ref{top_tensor_lcompact_lem} it follows that there is the given by \eqref{top_tensor_lccompact_iso_eqn} isomorphism
-$$
-C_c\left(\widetilde M\right)\otimes_{C\left(M\right)}\Ga\left(M,S \right) \xrightarrow{\approx}\Ga_c\left(\widetilde M, \widetilde S \right)
-$$
-of left $C_0\left(\widetilde M \right)$-modules. On the other hand 
-then from \ref{top_herm_bundle_empt} it follows that there is the dense with respect to the Hilbert norm inclusion $\Ga_c\left(\widetilde M, \widetilde S \right)\subset L^2\left(\widetilde M, \widetilde S \right)$, hence there is  the homomorphism
-\be\label{top_lift_g_inf_eqn}
-\phi: C_c\left(\widetilde M\right)\otimes_{C\left(M\right)}\Ga\left(M,S \right) \to L^2\left(\widetilde M, \widetilde S \right)
-\ee
-of left $C_0\left(\widetilde M \right)$-modules.
 \begin{lemma}\label{top_hilb_inf_lem}
 	Following conditions hold:
 	\begin{itemize}
@@ -10141,42 +10124,19 @@ Since both $\Ga^\infty\left( M_\la,  \sS_\la \right)$ and $\Ga^\infty_c\left(  \
 of spectral triples. Let $\overline M$ be the disconnected inverse limit of the given by \eqref{top_topological_inv_lim_defn} a (topological)  finite covering category 
 \eqref{top_m_cat_eqn} and let $\overline S$ be the corresponding spinor bundle.
 
-\begin{defn}\label{cov_sec_triple_defn!}
-	Let  $\left(\sA, \sH, D\right)$ be a spectral triple, and let $A$ be the $C^*$-norm completion of $\A$ with the natural representation $A \to B\left( \H\right)$. Let
-	\begin{equation}\label{cov_sec_triple_eqn!}
-		\mathfrak{S}^{\text{pt}} = \left(\left\{\pi_\la: A \hookto A_\la \right\}, \left\{\pi^\mu_\nu\right\}\right)\in \mathfrak{FinAlg}^{\text{pt}}
-	\end{equation}
-	be a pointed algebraic  finite covering category. Suppose that for any $\la \in \La$ there is a spectral triple $\left(\sA_\la, \sH_\la, D_\la\right)$, such that
-	\begin{enumerate}
-		\item[(a)] $\left(\sA_\la, \sH_\la, D_\la\right)$ is the  $\left(A, A_\la, G\left(\left.A_\la~\right|A \right)  \right)$-lift of $\left(\sA, \sH, D\right)$ (cf. Definition \ref{triple_conn_lift_defn}).
-		\item[(b)] $A_\la$ is the $C^*$-norm completion of $\A_\la$ for all $\la\in\La$.
-		\item[(c)] There is an equivariant representation $\pi: C^*$-$\varinjlim_{\la \in \La} A_\la \to B\left(\widehat \H\right)$ such that $\mathfrak{S}^{\text{pt}}$ is $\pi$-good (cf. Definition \ref{mains_defn}). 
-		%	\item The representation $\pi$ is induced by the triple $\left(\rho, \mathfrak{S}, \pi \right)$, 
-		\item[(d)] For any $\mu > \nu$  the spectral triple $\left(\sA_\mu, \sH_\mu, D_\mu\right)$ is a $\left(A_\nu, A_\mu, G\left(\left.A_\mu~\right|A_\nu \right)  \right)$-lift of $\left(\sA_\nu, \sH_\nu, D_\nu\right)$.
-		\item[(e)] There is a  $\pi$-algebraical infinite noncommutative covering  of  $\left( A, \widetilde{A}_\pi, G\left(\left.\widetilde{A}_\pi~\right|A \right) \right)$ of 	$\mathfrak{S}^{\text{pt}}$.
-	\end{enumerate}
-	We say that
-	\begin{equation}\label{spectral_triple_sec_eqn!}
-		\begin{split}
-			\mathfrak{S}_{\left(\sA, \sH, D\right)}= \left\{\left(\sA_\la, \sH_\la, D_\la \right)\right\}_{\la \in \La}
-		\end{split}
-	\end{equation}
-	is a \textit{ coherent set of spectral triples}. We write $\mathfrak{S}_{\left(\sA, \sH, D\right)} \in \mathfrak{CohTriple}$.
-\end{defn}
-%
 \begin{lemma}
-The given by \eqref{comm_triple_seq_eqn} family $	\mathfrak{S}_{\left(C^{\infty}\left( M\right) , L^2\left( M, S\right) ,\slashed D\right) }$ is the coherent set of spectral triples (cf. Definition \ref{cov_sec_triple_defn}).
+The given by the equation \eqref{comm_triple_seq_eqn} family $	\mathfrak{S}_{\left(C^{\infty}\left( M\right) , L^2\left( M, S\right) ,\slashed D\right) }$ is the coherent set of spectral triples (cf. Definition \ref{cov_sec_triple_defn}).
 \end{lemma}
 \begin{proof}
 	One needs check that $	\mathfrak{S}_{\left(C^{\infty}\left( M\right) , L^2\left( M, S\right) ,\slashed D\right) }$ satisfies to conditions (a)-(e) of the Definition \ref{cov_sec_triple_defn}.\\
 	(a) Follows from the Theorem \ref{comm_fin_sp_tr_thm}.\\
 	(b) $C\left( M_\la\right)$ is the $C^*$-norm completion of $\Coo\left( M_\la\right)$ for all $\la\in\La$.\\
-	(c) From the coverings $\overline M \to M_\la$ ($\la\in\La$) one can obtain a faithful representations $C\left(M_\la \right)\hookto B\left(L^2\left( \overline M, \overline S\right)  \right)$. These representations yield an equivariant representation $\pi: C^*$-$\varinjlim_{\la \in \La} C\left( M_\la\right)  \hookto B\left(L^2\left( \overline M, \overline S\right)\right) $ such that $\mathfrak{S}^{\text{pt}}$. Similarly to the proof of the Theorem \ref{comm_main_thm} one can prove that an {algebraical  finite covering category} $
+	(c) From the coverings $\overline M \to M_\la$ ($\la\in\La$) one can obtain a faithful representations $C\left(M_\la \right)\hookto B\left(L^2\left( \overline M, \overline S\right)  \right)$. These representations yield an equivariant representation $\pi: C^*$-$\varinjlim_{\la \in \La} C\left( M_\la\right)  \hookto B\left(L^2\left( \overline M, \overline S\right)\right) $ such that $\mathfrak{S}^{\text{pt}}$. From the Theorem \ref{comm_main_mu_thm} it turns out  that an {algebraical  finite covering category} $
 	\mathfrak{S}_{C\left(M\right)}=
 	\left\{C(M)\hookto C(M_\la)\right\}_{\la \in \La}
 	$ is $\pi$-good (cf. Definition \ref{mains_defn}.)\\
 	(d)  Follows from the Theorem \ref{comm_fin_sp_tr_thm}.\\
-	(e)  Similarly to the proof of the Theorem \ref{comm_main_thm} one can prove that  $\pi$-algebraical infinite noncommutative covering  of $\mathfrak{S}_{C\left(M \right) }$ equals to $\left( C\left(M \right) , C_0\left( \widetilde M\right) , G\left(\left.\widetilde{M}~\right|M \right) \right)$.
+	(e)   Follows from the Theorem \ref{comm_fin_sp_tr_thm}.
 \end{proof}
 \begin{empt}\label{top_reg_triple_empt}
 Here we consider a specialization of the construction \ref{reg_triple_empt}. For any $\la\in\La$ denote by $\Coo\left(M_\la \right) _{\Dslash_\la}$ {extended algebra of the spectral triple} \\$\left(\Coo\left(M_\la \right), L^2\left( M_\la, S_\la\right), \Dslash_\la\right)$ (cf. Definition \ref{ext_st_alg_defn}). Consider  a Hilbert space $\widetilde \H\bydef L^2\left(\widetilde M, \widetilde S \right) $, its dense subspace $\widetilde \D\bydef\Ga^\infty_c\left(\widetilde M, \widetilde S \right)\subset L^2\left(\widetilde M, \widetilde S \right)$ and the inclusion 
@@ -10207,7 +10167,7 @@ Follows from the construction \ref{top_reg_triple_empt} which is a specializatio
 \end{remark}
 \chapter{Hausdorff blowing-up and coverings}\label{blowing_chap}
 \paragraph*{}
-If the spectrum of  $C^*$-algebra $A$ is Hausdorff then $A$ possess  a family of good properties. For example noncommutative coverings of $C^*$-algebras with Hausdorff spectra correspond to coverings of their spectra. Sometimes the spectrum of $C^*$-algebra can by replaced by its Hausdorff blowing-up and some results concerning $C^*$-algebras with  Hausdorff spectrum can be applied to $C^*$-algebras with Hausdorff blowing-up. We prove that noncommutative coverings of $C^*$-algebras correspond to coverings of Hausdorff blowing-up. The results of this chapter are used in both $C^*$-algebras with continuous trace (Hausdorff spectrum) and algebras of foliations   (non - Hausdorff spectrum). 
+If the spectrum of  $C^*$-algebra $A$ is Hausdorff then $A$ possesses  a family of good properties. For example noncommutative coverings of $C^*$-algebras with Hausdorff spectra correspond to coverings of their spectra. Sometimes the spectrum of $C^*$-algebra can by replaced by its Hausdorff blowing-up and some results concerning $C^*$-algebras with  Hausdorff spectrum can be applied to $C^*$-algebras with Hausdorff blowing-up. We prove that noncommutative coverings of $C^*$-algebras correspond to coverings of Hausdorff blowing-up. The results of this chapter are used in both $C^*$-algebras with continuous trace (Hausdorff spectrum) and algebras of foliations   (non - Hausdorff spectrum). 
 The "blowing-up" word is inspired by following reasons:
 \begin{itemize}
 	\item There is  the natural partially defined multi-valued surjective  map from the Hausdorff blowing-up to the spectrum (cf. \ref{blowing_empt}).
@@ -10245,7 +10205,7 @@ $\sX\bydef S^1$. If $\th$ is rational then the space $\sX/G$ is Hausdorff otherw
 \end{tabular}
 \end{table}
 Thus the $C\left( \sX\right)^G$ invariant $C^*$-algebra does not always yield $\sX/G$ as a spectrum but the crossed product $C\left( \sX\right)\rtimes G$ does. 
-Moreover since $C\left( \sX/G\right)$ can be trivial it does not know the map $\sX \to \sX/G$  but $C\left( \sX\right)\rtimes G$ knows it, because there  is an inclusion.
+Moreover since $C\left( \sX/G\right)$ can be trivial it does not know the map $\sX \to \sX/G$  but $C\left( \sX\right)\rtimes G$ knows it, because there  is an inclusion
 $C\left(\sX \right) \subset C\left( \sX\right)\rtimes G$. If $\sX/G$ is Hausdorff then sometimes a covering of $\sX/G$ can by find by following way:
 \begin{enumerate}
 \item Find a covering $\widetilde\sX \to\sX$ with an action $G\times \widetilde\sX \to \widetilde\sX$,
@@ -10325,7 +10285,7 @@ Let $A$ be a  $C^*$-algebra, and let $C$ be the center of $M\left(A \right)$.
 Proof that the inclusion $C\subset M\left( A\right)$  is a good {Hausdorff blowing-up}. 
 \end{exercise}
 \begin{example}\label{blowing_ctr_exm}
-If $A$ is a $C^*$-algebra with Hausdorff and $\sX$ is its spectrum then from the Theorems \ref{oa_haus_prim_thm} and  \ref{dauns_hofmann_thm} one has the natural inclusion $C_0\left(\sX \right) \hookto M\left( A\right)$. For all $a \in A$ and $\eps> 0$ the subset
+If $A$ is a $C^*$-algebra with Hausdorff $\sX$  then from the Theorems \ref{oa_haus_prim_thm} and  \ref{dauns_hofmann_thm} one has the natural inclusion $C_0\left(\sX \right) \hookto M\left( A\right)$. For all $a \in A$ and $\eps> 0$ the subset
 $$
 \sY \bydef \left\{\left.x \in \sX\right| \left\| \rep_x\left(a\right)\right\|\ge \eps \right\}\subset\sY
 $$
@@ -10339,7 +10299,7 @@ From the above equations there is the 	limit $
 $
 with respect to the strict topology (cf. Definition \ref{strict_topology}) of $M\left( A\right)$. It turns out that $C_0\left(\sX \right) \hookto M\left( A\right)$ satisfies to the condition (a)  Definition \ref{blowing_defn}). If $\rep_x: A \to B\left( \H\right)$ is an irreducible representation then if $f \in C_0\left(\sX \right)$ is such that $f\left(x \right)  = 1$ then $\rep_x\left( f\right) = 1_{B\left(\H \right) }$ and $\rep_x\left(f \right)\H = \H$, i.e.  $C_0\left(\sX \right) \hookto M\left( A\right)$ satisfies to the condition (b)  Definition \ref{blowing_defn}).
 So  $C_0\left(\sX \right) \hookto M\left( A\right)$
-is a {Hausdorff blowing-up} of $A$ (cf. Definition \ref{blowing_defn}).
+is a good {Hausdorff blowing-up} of $A$ (cf. Definitions \ref{blowing_defn} and \ref{blowing_good_defn}).
 \end{example}
 \begin{definition}
 Let $A$ be $C^*$-algebra, and let $C_0\left( \sY\right) \subset M\left(A \right)$  be a blowing-up (cf. Definition \ref{blowing_defn}). If $a \in A$ then the open set $\sV\subset \sU$ is said to be $a$-\textit{admissible} if
@@ -10413,7 +10373,7 @@ Denote by
 $$
 C_\la\bydef \left\{\left. f \in C_0\left(\sY \right)\right| \forall f'\in D_\la \quad ff' = 0\right\}
 $$
-Both $D_\la$ and $C_\la$ are ideals of $\sY$ such that there are open subsets $\sV_\la$ and $\sU_\la$ of $\sY$ which satisfy to conditions $D_\la = C_0\left(\sV_\la\right)$ and $C_\la = C_0\left(\sU_\la\right)$. For all $\la\in \La$ an intersection $\sU_\la\cap \sV_\la$ is empty and a union $\sU_\la\cup \sV_\la$ is dense in $\sY$. From $\bt\text{-}\lim_{\la \in \La} u_\la = 1_{M\left(A \right) }$ it follows that $\bigcap_{\La \in \la}\sV_\la = \emptyset$ and $\bigcup_{\La \in \la}\sU_\la = \sY$. For any $y\in\sY$ denote by  $\la_y\in  \La$ such that $y \in \sU_{\la_y}$. If both $A_y$ and $\widetilde A_y$ are $C^*$-norm completions of both $u_{\la_y}Au_{\la_y}$ and $u_{\la_y}\widetilde Au_{\la_y}$ respectively then 	$\left(A_y, \widetilde{A}_y, G, \left.\pi\right|_{A_y}\right)$ is  a noncommutative finite-fold covering with unitization (cf. Definition \ref{fin_comp_defn}).  It means that following conditions hold:
+Both $D_\la$ and $C_\la$ are ideals of $C_0\left( \sY\right)$ such that there are open subsets $\sV_\la$ and $\sU_\la$ of $\sY$ which satisfy to conditions $D_\la = C_0\left(\sV_\la\right)$ and $C_\la = C_0\left(\sU_\la\right)$. For all $\la\in \La$ an intersection $\sU_\la\cap \sV_\la$ is empty and a union $\sU_\la\cup \sV_\la$ is dense in $\sY$. From $\bt\text{-}\lim_{\la \in \La} u_\la = 1_{M\left(A \right) }$ it follows that $\bigcap_{\La \in \la}\sV_\la = \emptyset$ and $\bigcup_{\La \in \la}\sU_\la = \sY$. For any $y\in\sY$ denote by  $\la_y\in  \La$ such that $y \in \sU_{\la_y}$. If both $A_y$ and $\widetilde A_y$ are $C^*$-norm completions of both $u_{\la_y}Au_{\la_y}$ and $u_{\la_y}\widetilde Au_{\la_y}$ respectively then 	$\left(A_y, \widetilde{A}_y, G, \left.\pi\right|_{A_y}\right)$ is  a noncommutative finite-fold covering with unitization (cf. Definition \ref{fin_comp_defn}).  It means that following conditions hold:
 \begin{enumerate}
 	\item[(a)] 
 	There are unitizations $A_y \hookto B$, $\widetilde{A}_y \hookto \widetilde{B}$.

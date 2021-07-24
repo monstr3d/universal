@@ -15,7 +15,7 @@ namespace Scripts.Level
     public class Level3 : Levelm
     {
 
-        public Level3() 
+        public Level3()
         {
             var ss = new string[] { Level0.Rz, Level0.Vz, Level0.Ry, Level0.Vy,
              Level0.Rz, Level0.Vz};
@@ -94,12 +94,6 @@ namespace Scripts.Level
             Levelm.Collision(stop);
         }
 
-        protected override void Update()
-        {
-
-        }
-
     }
 }
-
 

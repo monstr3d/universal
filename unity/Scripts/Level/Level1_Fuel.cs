@@ -25,12 +25,6 @@ namespace Scripts.Level
             // Time = 60
         }
 
-        protected override void Update()
-        {
-
-        }
-
-
         new static public void Collision(Tuple<GameObject, Component, IScadaInterface, ICollisionAction> stop)
         {
             Level0.Collision(stop);

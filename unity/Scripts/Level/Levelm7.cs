@@ -16,7 +16,7 @@ namespace Scripts.Level
     {
 
 
-        protected  Levelm7(bool b)
+        protected Levelm7(bool b)
         {
 
         }
@@ -31,6 +31,7 @@ namespace Scripts.Level
              Level0.Rx, Level0.Vx, Level0.Oz, Level0.Time, Level0.TimeOverTime};
             ss.SetVisible();
             ev.Event += PreEvent;
+            update = () => { };
         }
 
         const double al = 1 * Mathf.Deg2Rad;
@@ -39,15 +40,14 @@ namespace Scripts.Level
 
         double disst = 0.005;
 
-        Action update;
-
         protected void PreEvent()
         {
             if (PositionLimit(0.01))
             {
                 Debug.Log("PreEvent");
                 ev.Event -= PreEvent;
-                ev.Event += YawEvent;
+                //  ev.Event += YawEvent;
+                update += Update;
             }
         }
 
@@ -60,8 +60,8 @@ namespace Scripts.Level
                 Debug.Log("ZEvent");
                 ev.Event -= ZEvent;
                 Level0.OzControl.EnableLevel(true);
-               Level0.YControl.EnableLevel(false);
-               Level0.ZControl.EnableLevel(false);
+                Level0.YControl.EnableLevel(false);
+                Level0.ZControl.EnableLevel(false);
                 ax(0);
                 ay(0);
                 az(0);
@@ -75,43 +75,44 @@ namespace Scripts.Level
         {
             var p = frame.Position;
             var v = velocity.Velocity;
-    //        if ((Math.Abs(fx()) < double.Epsilon) & (Math.Abs(fy()) < double.Epsilon)
-   //             & (Math.Abs(fz()) < double.Epsilon))
-   //         {
-                if (VelocityLimit(0.0001))
-                {
+            //        if ((Math.Abs(fx()) < double.Epsilon) & (Math.Abs(fy()) < double.Epsilon)
+            //             & (Math.Abs(fz()) < double.Epsilon))
+            //         {
+            if (VelocityLimit(0.0001))
+            {
 
-                    Debug.Log("YEvent");
-                    ev.Event -= YEvent;
-                    //Level0.OzControl.EnableLevel(true);
-                   // Level0.YControl.EnableLevel(false);
-                  //  Level0.ZControl.EnableLevel(false);
-                    ax(0);
-                    ay(0);
-                    az(0);
-                    ev.Event += YawEvent;
-              //  }
+                Debug.Log("YEvent");
+                ev.Event -= YEvent;
+                //Level0.OzControl.EnableLevel(true);
+                // Level0.YControl.EnableLevel(false);
+                //  Level0.ZControl.EnableLevel(false);
+                ax(0);
+                ay(0);
+                az(0);
+                ev.Event += YawEvent;
+                //  }
             }
         }
-   
+
 
         private void YawEvent()
         {
             double[] p = frame.Position;
             angles.Set(frame.Quaternion);
             if (Math.Abs(angles.yaw) < 5 * al)// & Math.Abs(aVelocity.Omega[2]) < ol)
-                //& 
-               //Math.Abs(p[1]) < 0.5 *  disst & Math.Abs(p[0]) < 0.5 * disst)
+                                              //& 
+                                              //Math.Abs(p[1]) < 0.5 *  disst & Math.Abs(p[0]) < 0.5 * disst)
             {
                 Debug.Log("YawEvent");
                 ev.Event -= YawEvent;
                 ax(0);
                 ay(0);
                 az(0);
-          //      Level0.YControl.EnableLevel(true);
-          //      Level0.ZControl.EnableLevel(true);
+
+                //      Level0.YControl.EnableLevel(true);
+                //      Level0.ZControl.EnableLevel(true);
                 Level0.OzControl.EnableLevel(true);
-               ev.Event += ZZEvent;
+                ev.Event += ZZEvent;
 
             }
         }
@@ -162,9 +163,28 @@ namespace Scripts.Level
         }
 
 
-        protected override void Update()
+        protected void Update()
         {
-            update?.Invoke();
+            Debug.Log("Update");
+            double[] p = frame.Position;
+            angles.Set(frame.Quaternion);
+            if (Math.Abs(angles.yaw) < 5 * al)// & Math.Abs(aVelocity.Omega[2]) < ol)
+                                              //& 
+                                              //Math.Abs(p[1]) < 0.5 *  disst & Math.Abs(p[0]) < 0.5 * disst)
+            {
+                update -= Update;
+                Debug.Log("YawEvent");
+                ev.Event -= YawEvent;
+                ax(0);
+                ay(0);
+                az(0);
+
+                //      Level0.YControl.EnableLevel(true);
+                //      Level0.ZControl.EnableLevel(true);
+                Level0.OzControl.EnableLevel(true);
+             //   ev.Event += ZZEvent;
+
+            }
         }
     }
 }

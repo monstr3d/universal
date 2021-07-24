@@ -101,11 +101,7 @@ namespace Scripts.Level
             Levelm.Collision(stop);
         }
 
-        protected override void Update()
-        {
-
-        }
-
+  
     }
 }
 

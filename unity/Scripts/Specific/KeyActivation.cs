@@ -35,6 +35,11 @@ namespace Scripts.Specific
 
         static float earthScale = 1;
 
+    
+        IStringUpdate su;
+
+
+
         #region Ctor
 
         public KeyActivation()
@@ -44,8 +49,7 @@ namespace Scripts.Specific
             StaticExtensionUnity.LevelAction = () =>
             {
                 Type t = activation.GetActivationType(StaticExtensionUnity.Activation.level);
-                IStringUpdate su = t.GetConstructor(new Type[0]).Invoke(new object[0]) as IStringUpdate;
-                update = su.Update;
+                su = t.GetConstructor(new Type[0]).Invoke(new object[0]) as IStringUpdate;
             };
 
             keyActivation = this;
@@ -71,8 +75,6 @@ namespace Scripts.Specific
 
         #endregion
 
-        Action update;
-
         #endregion
 
         #region IKeyListener Members
@@ -87,7 +89,7 @@ namespace Scripts.Specific
 
         int IActivation.Level { get => StaticExtensionUnity.StaticLevel; set { } }
 
-        Action IActivation.Update => update;
+        Action IActivation.Update => su.UpdateItself;
      
         void IActivation.Activate(MonoBehaviour[] monoBehaviours)
         {

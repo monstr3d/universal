@@ -21,11 +21,6 @@ namespace Scripts.Level
             ss.SetVisible();
         }
 
-        protected override void Update()
-        {
-
-        }
-
         public static void Post()
         {
             SunMonobehavior.SetGood();

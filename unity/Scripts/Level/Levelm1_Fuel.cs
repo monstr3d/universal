@@ -46,11 +46,6 @@ namespace Scripts.Level
 
 
 
-        protected override void Update()
-        {
-
-        }
-
 
         public static void Set(MonoBehaviour monoBehaviour)
         {

@@ -102,7 +102,7 @@ namespace Scripts.Level
         }
 
 
-        protected override void Update()
+        protected  void Update()
         {
 
         }
