@@ -72,6 +72,8 @@ namespace Scripts.Level
         protected string[] controls;
 
         protected List<string> l = new List<string>();
+
+        protected Action updateInternal;
      
         #endregion
 

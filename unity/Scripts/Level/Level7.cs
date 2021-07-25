@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 
 using Scada.Interfaces;
 
@@ -49,7 +48,7 @@ namespace Scripts.Level
             var c = controller.inputConstants;
             c[3] = 0;
             c[5] = 0;
-            controller.aliases[10] = "Calculations.d=830";
+            controller.aliases[10] = "Calculations.d=310"; //289
         }
 
         public static void Set(MonoBehaviour monoBehaviour)
@@ -68,12 +67,26 @@ namespace Scripts.Level
                 if (c[11].Contains("OMGz"))
                 {
                     //                 c[11] = "Station frame.OMGz=0.04"; ///!!! OLD
-                    c[11] = "Station frame.OMGz=0.04";
+                    c[11] = "Station frame.OMGz=0.02";
                     c[8] = "Station frame.Yaw=1.3";
                 }
             }
-        }
+            else if (c.Length > 0)
+            {
+                if (c[0].Contains("Motion"))
+                {
+                    /*            [0]	"Motion.a=60"   string
+                [1] "Motion.p=0.00025"  string
+                [2] "Motion.b=1.5"  string
+                [3] "Motion.c=1.9"  string
+                [4] "Motion.q=0.0025"   string*/
+                    c[1] = "Motion.p=0.000025";
 
+                    c[4] = "Motion.q=0.00025";
+
+                }
+            }
+        }
 
     }
 }

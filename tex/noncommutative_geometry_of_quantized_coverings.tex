@@ -4561,7 +4561,7 @@ where both $\widetilde a  \in \widetilde{A}_\pi$ and $b \in B\left( \H\right)$ a
 
  
  
-  \section{Strong Morita equivalence of infinite coverings}
+  \section{Strong Morita equivalence of infinite coverings}\label{inf_mor_sec}
  
  \paragraph{}
   Let $\left(A, \widetilde{A}, G\right)$ be an  infinite noncommutative covering which allows  the inner product (cf. Definition \ref{inf_hilb_prod_defn}), and let  $_{\widetilde{A}}X_A$ be a given by \eqref{inf_hilb_inc_eqn} $C^*$-Hilbert $A$-module where the atomic representation (cf. Definition \ref{atomic_repr_defn}) is implied. Denote by $\widetilde{A} \rtimes G$ a \textit{crossed product}, i.e. $\widetilde{A} \rtimes G$ is a $C^*$-algebra which is the completion with respect to the minimal $C^*$-norm of the set of maps with finite support from $G$ to $\widetilde{A}$. Operations on  $\widetilde{A}\rtimes G$ are given by
@@ -9947,10 +9947,34 @@ Prove following statements:
 \end{remark}
 
 
-
-
 \subsection{Induced representations and strong Motita equivalence}\label{comm_induced_infinite_sec}
 
+\paragraph*{} 
+Similarly to the section \ref{comm_induced_finite_sec} consider a compact  Riemannian manifold $M$ with a  spinor bundle $S$ (cf. \ref{comm_sp_tr_sec}). 
+Let $\tau:C\left( M\right) \to \C$ be a faithful state such that 
+$$
+\tau\left(a \right) = \int_{M} a~ d\mu.
+$$
+Similarly to the Section \ref{comm_induced_finite_sec} there is a Hilbert space $ L^2\left(  M, S\right)\cong  L^2\left(  M, S, \mu\right)$ and   the natural representation
+\be\label{comm_m_bundle_inf_repr_eqn}
+\rho: C\left(M\right) \to B\left( L^2\left(  M, S\right)\right). 
+\ee
+Let $p: \widetilde M \to M$ be an infinite transitive covering, such that the group $G\left(\left.\widetilde M   ~\right| M\right)$ is residually finite. From the Lemma \ref{top_res_fin_lem} and the  Theorem \ref{comm_main_thm} it turns out that the triple  $\left(C\left( M\right) , C_0\left( \widetilde M\right) G\left(\left.\widetilde M   ~\right| M\right)\right)$ is an infinite noncommutative covering (cf. Definition \ref{main_defn}). Similarly to \eqref{top_ot_eqn} one can construct a functional
+\bean
+\widetilde\tau: C_c\left(\widetilde M \right) \to \C. 
+\eean 
+Define the $\C$-valued product
+\be
+\begin{split}
+	\left( \cdot, \cdot \right): \Ga_c\left(\widetilde M, \widetilde S\right)\times \Ga_c\left( \widetilde M, \widetilde S\right) \to \C,\\
+	\left(\widetilde\xi,\widetilde \eta \right) \mapsto \widetilde \tau\left( \left\langle\widetilde\xi, \widetilde\eta \right\rangle_c \right) 
+\end{split}
+\ee
+where the pairing $	\left\langle \cdot, \cdot \right\rangle_c:  \Ga_c\left(\widetilde M,\widetilde S\right)\times \Ga_c\left(\widetilde M, \widetilde S\right)\to C_c\left(\widetilde M \right) $ is given by \eqref{top_ggc_eqn}.
+This product yields the structure of pre-Hilbert space on $\Ga_c\left(\widetilde M,\widetilde S\right)$. Denote by $ L^2\left(\widetilde  M,\widetilde S\right)\cong  L^2\left( \widetilde M, \widetilde S, \widetilde \mu\right)$ the Hilbert norm completion of $\Ga_c\left(\widetilde M,\widetilde S\right)$. The natural action $C_0\left(\widetilde M\right) \times \Ga_c\left(\widetilde M,\widetilde S\right)\to \Ga_c\left(\widetilde M,  \widetilde S\right)$ induces  the natural representation
+\be\label{comm_bundlei_repr_eqn}
+C_0\left(\widetilde M\right) \to B\left( L^2\left(\widetilde  M, \widetilde S\right)\right). 
+\ee 
 
 \begin{lemma}\label{comm_allows_lem}
 	If $\mathfrak{S}_{\left( \mathcal X, x_0\right) } = \left\{\left( \mathcal{X}_\la,x_0^\la\right)  \to \left( \mathcal X, x_0\right) \right\}_{\la \in \La} \in \mathfrak{FinTop}^{\mathrm{pt}}$, \\
@@ -9975,7 +9999,7 @@ Prove following statements:
 	In the Situation of the Lemma \ref{comm_allows_lem} prove that the given by the Theorem \ref{comm_main_thm} { infinite noncommutative covering} $$\left(C_0\left(\mathcal{X}\right), C_0\left(\varprojlim  \mathfrak{S}_{\left(\sX, x_0\right)}\right),G\left(\left.\varprojlim  \mathfrak{S}_{\left(\sX, x_0\right)}~\right| \mathcal X\right)\right)$$ 
 	{allows strong Morita equivalence} (cf. Definition \ref{allows_morita_defn}).
 \end{exercise}
-!!!
+
 
 From the Lemma \ref{comm_allows_lem} it follows that the  induced by $\left(\rho, \left(C\left( M\right) , C_0\left( \widetilde M\right) G\left(\left.\widetilde M   ~\right| M\right)\right)\right)$ representation $\widetilde \rho: C_0\left( \widetilde M\right)\hookto B\left( \widetilde \H\right)$ (cf. Definition \ref{induced_repr_inf_defn}), such that $\widetilde \H$ is the Hilbert norm completion of
 $$
@@ -9995,32 +10019,6 @@ then from \ref{top_herm_bundle_empt} it follows that there is the dense with res
 \phi: C_c\left(\widetilde M\right)\otimes_{C\left(M\right)}\Ga\left(M,S \right) \to L^2\left(\widetilde M, \widetilde S \right)
 \ee
 of left $C_0\left(\widetilde M \right)$-modules.
-
-Similarly to the section \ref{comm_induced_finite_sec} consider a compact  Riemannian manifold $M$ with a  spinor bundle $S$ (cf. \ref{comm_sp_tr_sec}). 
-Let $\tau:C\left( M\right) \to \C$ be a faithful state such that 
-$$
-\tau\left(a \right) = \int_{M} a~ d\mu
-$$
-Similarly to the Section \ref{comm_induced_finite_sec} there is a Hilbert space $ L^2\left(  M, S\right)\cong  L^2\left(  M, S, \mu\right)$ and   the natural representation
-\be\label{comm_m_bundle_inf_repr_eqn}
-\rho: C\left(M\right) \to B\left( L^2\left(  M, S\right)\right). 
-\ee
- Let $p: \widetilde M \to M$ be an infinite transitive covering, such that the group $G\left(\left.\widetilde M   ~\right| M\right)$ is residually finite. From the Lemma \ref{top_res_fin_lem} and the  Theorem \ref{comm_main_thm} it turns out that the triple  $\left(C\left( M\right) , C_0\left( \widetilde M\right) G\left(\left.\widetilde M   ~\right| M\right)\right)$ is an infinite noncommutative covering (cf. Definition \ref{main_defn}). Similarly to \eqref{top_ot_eqn} one can construct a functional
-\bean
-\widetilde\tau: C_c\left(\widetilde M \right) \to \C. 
-\eean 
- Define the $\C$-valued product
-\be
-\begin{split}
-	\left( \cdot, \cdot \right): \Ga_c\left(\widetilde M, \widetilde S\right)\times \Ga_c\left( \widetilde M, \widetilde S\right) \to \C,\\
-	\left(\widetilde\xi,\widetilde \eta \right) \mapsto \widetilde \tau\left( \left\langle\widetilde\xi, \widetilde\eta \right\rangle_c \right) 
-\end{split}
-\ee
-where the pairing $	\left\langle \cdot, \cdot \right\rangle_c:  \Ga_c\left(\widetilde M,\widetilde S\right)\times \Ga_c\left(\widetilde M, \widetilde S\right)\to C_c\left(\widetilde M \right) $ is given by \eqref{top_ggc_eqn}.
-This product yields the structure of pre-Hilbert space on $\Ga_c\left(\widetilde M,\widetilde S\right)$. Denote by $ L^2\left(\widetilde  M,\widetilde S\right)\cong  L^2\left( \widetilde M, \widetilde S, \widetilde \mu\right)$ the Hilbert norm completion of $\Ga_c\left(\widetilde M,\widetilde S\right)$. The natural action $C_0\left(\widetilde M\right) \times \Ga_c\left(\widetilde M,\widetilde S\right)\to \Ga_c\left(\widetilde M,  \widetilde S\right)$ induces  the natural representation
-\be\label{comm_bundlei_repr_eqn}
-C_0\left(\widetilde M\right) \to B\left( L^2\left(\widetilde  M, \widetilde S\right)\right). 
-\ee 
 \begin{lemma}\label{top_hilb_inf_lem}
 	Following conditions hold:
 	\begin{itemize}
@@ -10046,43 +10044,43 @@ C_0\left(\widetilde M\right) \to B\left( L^2\left(\widetilde  M, \widetilde S\ri
 \end{proof}
 
 \begin{empt} 
-If $\widetilde{a} \otimes \xi, \widetilde{b} \otimes \eta \in C_c\left(\widetilde{M} \right) \otimes_{C\left(M \right) } \Ga\left( M, S\right) \subset L^2\left(\widetilde{M},\widetilde{S} \right)$  then $\supp \widetilde{a}$ is compact, so there exists a subordinated to $\widetilde p$ {covering sum} for $\supp \widetilde{a}$ (cf. Definitions \ref{top_cfs_defn} and \ref{top_cfs_sub_defn}) 
-\bean
-\sum_{\widetilde \a\in \widetilde{\mathscr A}} \widetilde a_{\widetilde\a}.
-\eean
-where a given by \eqref{top_cfsa_eqn} notation  is used. If $\widetilde e_\a \bydef \sqrt{\widetilde a_\a}$ and $e_\a = \desc_{\widetilde p}\left( \widetilde e_\a\right) $ means $\widetilde p$-descent (cf. Definition \ref{top_lift_desc_defn}) then from \eqref{top_desc_fin_eqn} it turns out that
-$$
-\forall\a\in \mathscr A \quad \widetilde a_\a = \widetilde e_\a e_\a.
-$$
-
-The given by the equation \eqref{comp_hilb_eqn} scalar product $\left(\cdot, \cdot \right)_{\text{ind}}$ on  $C_c\left(\widetilde{M} \right) \otimes_{C\left(M \right) } \Ga\left( M, S\right)$ satisfies to the following equation
-\begin{equation}\label{comm_ind_l2_lc_eqn}
-	\begin{split}
-		\left( \widetilde{a} \otimes \xi ,    \widetilde{b} \otimes \eta\right)_{\text{ind}}= \left(\xi, \left\langle \widetilde{a}, \widetilde{b}\right\rangle_{C\left(\widetilde{M} \right) } \eta \right)_{L^2\left({M},{S} \right)}=\\=\sum_{\widetilde{\a}\in \widetilde{\mathscr A}_{\supp \widetilde{a}}}\left(\xi, \left\langle \widetilde{a}_{\widetilde{\a}}\widetilde{a}, \widetilde{b}\right\rangle_{C\left(\widetilde{M} \right) } \eta \right)_{L^2\left({M},{S} \right)}=
-		\\
-		= \sum_{\widetilde{\a}\in \widetilde{\mathscr A}_{\supp \widetilde{a}}}\left(\xi, \mathfrak{desc}\left( \widetilde{a}_{\widetilde{\a}} \widetilde{a}^* \widetilde{b}\right)  \eta \right)_{L^2\left({M},{S} \right)}=
-		\\
-		=
-		\sum_{\widetilde{\a}\in \widetilde{\mathscr A}_{\supp \widetilde{a}}}~\int_M \left(\xi_x, \mathfrak{desc}\left( \widetilde{a}_{\widetilde{\a}} \widetilde{a}^* \widetilde{b}\right)  \eta_x \right)_x d\mu=
-		\\
-		=
-		\sum_{\widetilde{\a}\in \widetilde{\mathscr A}_{\supp \widetilde{a}}}~\int_M \left(\mathfrak{desc}\left( \widetilde{e}_{\widetilde{\a}} \widetilde{a}\right)\xi_x, \mathfrak{desc}\left( \widetilde{e}_{\widetilde{\a}}  \widetilde{b}\right)  \eta_x \right)_x d\mu=
-		\\
-		=\sum_{\widetilde{\a}\in \widetilde{\mathscr A}_{\supp \widetilde{a}}}~ \int_{\widetilde{M}}\left(\widetilde{a} \lift_{\widetilde{\sU}_{\widetilde{\a}}}\left({e}_{\widetilde{\a}}\xi \right)_{\widetilde{x}},  \widetilde{b} ~\lift_{\widetilde{\sU}_{\widetilde{\a}}}\left({e}_{\widetilde{\a}}\eta \right)_{\widetilde{x}}\right)_{\widetilde{x}}d \widetilde{   \mu} =
-		\\
-		=\sum_{\widetilde{\a}\in \widetilde{\mathscr A}_{\supp \widetilde{a}}}~ \int_{\widetilde{M}}\widetilde{a}_{\widetilde{\a}}\left(\widetilde{a} \lift_{\widetilde{\sU}_{\widetilde{\a}}}\left(\xi \right)_{\widetilde{x}},  \widetilde{b} ~\lift_{\widetilde{\sU}_{\widetilde{\a}}}\left(\eta \right)_{\widetilde{x}}\right)_{\widetilde{x}}d \widetilde{   \mu} =
-		\\
-		= \int_{\widetilde{M}}\left( \widetilde{a} \lift_p\left(\xi \right)_{\widetilde{x}},  \widetilde{b} ~\lift_p\left(\eta \right)_{\widetilde{x}}\right)_{\widetilde{x}}d \widetilde{   \mu}
-		= \left( \widetilde{a}~ \lift_p\left(\xi \right),  \widetilde{b} ~\lift_p\left(\eta \right)\right)_{L^2\left(\widetilde{M},\widetilde{S} \right)} =\\
-		=  \left(\phi\left(  \widetilde{a}\otimes\xi\right) ,  \phi \left( \widetilde{b}\otimes\eta\right)\right)_{L^2\left(\widetilde{M},\widetilde{S} \right)}
-	\end{split} 
-\end{equation}
-where $\phi$ is given by \eqref{top_tensor_lccompact_iso_eqn}.
-The equation \eqref{comm_ind_l2_lc_eqn} means that $\left(\cdot, \cdot \right)_{\text{ind}}= \left(\cdot, \cdot \right)_{L^2\left(\widetilde{M},\widetilde{S} \right)}$, and taking into account the dense inclusion $C\left(\widetilde{M} \right) \otimes_{C\left(M \right) } \Ga\left( M, S\right) \subset L^2\left(\widetilde{M},\widetilde{S} \right)$ with respect to the Hilbert norm of $L^2\left(\widetilde{M},\widetilde{S}\right) $
-one concludes that the space of induced representation coincides with $L^2\left(\widetilde{M},\widetilde{S}\right)$. It means that induced representation $C\left(\widetilde{M}\right) \times L^2\left(\widetilde{M},\widetilde{S} \right) \to L^2\left(\widetilde{M},\widetilde{S} \right)$ is given by \eqref{comm_bundle_repr_eqn}. So one has the following lemma.
+	If $\widetilde{a} \otimes \xi, \widetilde{b} \otimes \eta \in C_c\left(\widetilde{M} \right) \otimes_{C\left(M \right) } \Ga\left( M, S\right) \subset L^2\left(\widetilde{M},\widetilde{S} \right)$  then $\supp \widetilde{a}$ is compact, so there exists a subordinated to $\widetilde p$ {covering sum} for $\supp \widetilde{a}$ (cf. Definitions \ref{top_cfs_defn} and \ref{top_cfs_sub_defn}) 
+	\bean
+	\sum_{\widetilde \a\in \widetilde{\mathscr A}} \widetilde a_{\widetilde\a}.
+	\eean
+	where a given by \eqref{top_cfsa_eqn} notation  is used. If $\widetilde e_\a \bydef \sqrt{\widetilde a_\a}$ and $e_\a = \desc_{\widetilde p}\left( \widetilde e_\a\right) $ means $\widetilde p$-descent (cf. Definition \ref{top_lift_desc_defn}) then from \eqref{top_desc_fin_eqn} it turns out that
+	$$
+	\forall\a\in \mathscr A \quad \widetilde a_\a = \widetilde e_\a e_\a.
+	$$
+	
+	The given by the equation \eqref{comp_hilb_eqn} scalar product $\left(\cdot, \cdot \right)_{\text{ind}}$ on  $C_c\left(\widetilde{M} \right) \otimes_{C\left(M \right) } \Ga\left( M, S\right)$ satisfies to the following equation
+	\begin{equation}\label{comm_ind_l2_lc_eqn}
+		\begin{split}
+			\left( \widetilde{a} \otimes \xi ,    \widetilde{b} \otimes \eta\right)_{\text{ind}}= \left(\xi, \left\langle \widetilde{a}, \widetilde{b}\right\rangle_{C\left(\widetilde{M} \right) } \eta \right)_{L^2\left({M},{S} \right)}=\\=\sum_{\widetilde{\a}\in \widetilde{\mathscr A}_{\supp \widetilde{a}}}\left(\xi, \left\langle \widetilde{a}_{\widetilde{\a}}\widetilde{a}, \widetilde{b}\right\rangle_{C\left(\widetilde{M} \right) } \eta \right)_{L^2\left({M},{S} \right)}=
+			\\
+			= \sum_{\widetilde{\a}\in \widetilde{\mathscr A}_{\supp \widetilde{a}}}\left(\xi, \mathfrak{desc}\left( \widetilde{a}_{\widetilde{\a}} \widetilde{a}^* \widetilde{b}\right)  \eta \right)_{L^2\left({M},{S} \right)}=
+			\\
+			=
+			\sum_{\widetilde{\a}\in \widetilde{\mathscr A}_{\supp \widetilde{a}}}~\int_M \left(\xi_x, \mathfrak{desc}\left( \widetilde{a}_{\widetilde{\a}} \widetilde{a}^* \widetilde{b}\right)  \eta_x \right)_x d\mu=
+			\\
+			=
+			\sum_{\widetilde{\a}\in \widetilde{\mathscr A}_{\supp \widetilde{a}}}~\int_M \left(\mathfrak{desc}\left( \widetilde{e}_{\widetilde{\a}} \widetilde{a}\right)\xi_x, \mathfrak{desc}\left( \widetilde{e}_{\widetilde{\a}}  \widetilde{b}\right)  \eta_x \right)_x d\mu=
+			\\
+			=\sum_{\widetilde{\a}\in \widetilde{\mathscr A}_{\supp \widetilde{a}}}~ \int_{\widetilde{M}}\left(\widetilde{a} \lift_{\widetilde{\sU}_{\widetilde{\a}}}\left({e}_{\widetilde{\a}}\xi \right)_{\widetilde{x}},  \widetilde{b} ~\lift_{\widetilde{\sU}_{\widetilde{\a}}}\left({e}_{\widetilde{\a}}\eta \right)_{\widetilde{x}}\right)_{\widetilde{x}}d \widetilde{   \mu} =
+			\\
+			=\sum_{\widetilde{\a}\in \widetilde{\mathscr A}_{\supp \widetilde{a}}}~ \int_{\widetilde{M}}\widetilde{a}_{\widetilde{\a}}\left(\widetilde{a} \lift_{\widetilde{\sU}_{\widetilde{\a}}}\left(\xi \right)_{\widetilde{x}},  \widetilde{b} ~\lift_{\widetilde{\sU}_{\widetilde{\a}}}\left(\eta \right)_{\widetilde{x}}\right)_{\widetilde{x}}d \widetilde{   \mu} =
+			\\
+			= \int_{\widetilde{M}}\left( \widetilde{a} \lift_p\left(\xi \right)_{\widetilde{x}},  \widetilde{b} ~\lift_p\left(\eta \right)_{\widetilde{x}}\right)_{\widetilde{x}}d \widetilde{   \mu}
+			= \left( \widetilde{a}~ \lift_p\left(\xi \right),  \widetilde{b} ~\lift_p\left(\eta \right)\right)_{L^2\left(\widetilde{M},\widetilde{S} \right)} =\\
+			=  \left(\phi\left(  \widetilde{a}\otimes\xi\right) ,  \phi \left( \widetilde{b}\otimes\eta\right)\right)_{L^2\left(\widetilde{M},\widetilde{S} \right)}
+		\end{split} 
+	\end{equation}
+	where $\phi$ is given by \eqref{top_tensor_lccompact_iso_eqn}.
+	The equation \eqref{comm_ind_l2_lc_eqn} means that $\left(\cdot, \cdot \right)_{\text{ind}}\cong \left(\cdot, \cdot \right)_{L^2\left(\widetilde{M},\widetilde{S} \right)}$, and taking into account the dense inclusion $C\left(\widetilde{M} \right) \otimes_{C\left(M \right) } \Ga_c\left( M, S\right) \subset L^2\left(\widetilde{M},\widetilde{S} \right)$ with respect to the Hilbert norm of $L^2\left(\widetilde{M},\widetilde{S}\right) $
+	one concludes that the space of induced representation coincides with $L^2\left(\widetilde{M},\widetilde{S}\right)$. It means that induced representation $C\left(\widetilde{M}\right) \times L^2\left(\widetilde{M},\widetilde{S} \right) \to L^2\left(\widetilde{M},\widetilde{S} \right)$ is given by \eqref{comm_bundle_repr_eqn}. So one has the following lemma.
 \end{empt}
 \begin{lemma}\label{comm_ind_lc_lem}
-	If the representation  $\widetilde{\rho}: C\left(\widetilde{M}\right) \to  B\left( \widetilde{   \H}\right)  $ is induced by the pair $$\left(C\left(M \right)\to B\left(  L^2\left(M,S \right)\right) ,\left(C\left(M \right) , C_0\left( \widetilde{M}\right) , G\left( \left.\widetilde{M}~\right|M\right) \right)  \right)$$ (cf. Definition \ref{induced_repr_inf_defn}) then following conditions hold:
+	If the representation  $\widetilde{\rho}: C\left(\widetilde{M}\right) \to  B\left( \widetilde{   \H}\right)  $ is induced by the pair $$\left(\rho:C\left(M \right)\to B\left(  L^2\left(M,S \right)\right) ,\left(C\left(M \right) , C_0\left( \widetilde{M}\right) , G\left( \left.\widetilde{M}~\right|M\right) \right)  \right)$$ (cf. Definition \ref{induced_repr_inf_defn}) then following conditions hold:
 	\begin{enumerate}
 		\item[(a)] There is the homomorphism of Hilbert spaces $\widetilde{   \H}\cong L^2\left(\widetilde{M},\widetilde{S} \right)$,
 		\item[(b)] The representation $\widetilde{\rho}$ is given by the natural action of $C_0\left(\widetilde{M}\right)$ on $ L^2\left(\widetilde{M},\widetilde{S} \right)$ (cf. \ref{comm_bundlei_repr_eqn}).
@@ -10092,6 +10090,8 @@ one concludes that the space of induced representation coincides with $L^2\left(
 	(a) Follows from \eqref{comm_ind_l2_lc_eqn},\\
 	(b) From the Lemma \ref{top_hilb_homo_lem}  it follows that the map 		$	C_c\left(\widetilde M\right)\otimes_{C\left(M\right)} L^2\left(M, \sS\right) \xrightarrow{\approx} L^2\left(\widetilde{M}, \widetilde{\SS} \right)$ is the homomorphism of $C_0\left(\widetilde M\right)$ modules, so the given by \eqref{comm_bundle_repr_eqn} $C_0\left(\widetilde M\right)$-action coincides with the $C_0\left(\widetilde M\right)$-action  the given by \eqref{comp_hilb_actf_eqn}.
 \end{proof}
+
+
 
 
 
