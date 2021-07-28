@@ -2849,6 +2849,21 @@ Similarly to definition \ref{fin_loc_op_defn} one can define a finite-fold nonco
 %	Then we say that the triple $\left(A, \widetilde{A}, G \right)$ and/or the quadruple $\left(A, \widetilde{A}, G, \pi \right)$ and/or *-homomorphism $\pi: A \hookto \widetilde{A}$   is a \textit{noncommutative finite-fold covering of operator algebras}. 
 %\end{definition}
 
+\begin{definition}\label{fin_oa_defn}
+	Let $A \hookto \widetilde{A}$ be an invective homomorphism of operator algebras which induces an injecive *- homomorphism $C^*_e\left(A \right)\hookto  C^*_e\left(\widetilde A \right)$  of their $C^*$-envelopes (cf.  Definition \ref{op_su_env_defn}, Remark \ref{op_su_env_rem}).  Suppose that 
+	following conditions hold:
+	\begin{enumerate}
+		\item[(a)] $\left(C^*_e\left(A\right) , C^*_e\left(\widetilde{A}\right) , G \right)$ is noncommutative finite-fold covering (cf. Definition \ref{fin_defn}).
+		\item[(b)] $G\widetilde{A}= \widetilde{A}$.
+		\item[(c)] 	$\widetilde A\cap C^*_e\left({A}\right)= A$.
+		\item[(d)] If 	$\widetilde B \subset C^*_e\left(\widetilde{A}\right)$ is a subalgebra such that $\widetilde B\cap C^*_e\left({A}\right)= A$ then $\widetilde B \subset \widetilde A$.
+	\end{enumerate}
+	Then we say that the triple $\left(A, \widetilde{A}, G \right)$ and/or the quadruple $\left(A, \widetilde{A}, G, \pi \right)$ and/or *-homomorphism $\pi: A \hookto \widetilde{A}$   is a \textit{noncommutative finite-fold covering of operator algebras}. 
+	
+\end{definition}
+
+
+
 \section{Coverings of spectral triples}\label{triple_fin_cov}
 \paragraph*{}
  If $\left( \A, \H, D\right)$ is a spectral triple then from the Axioms \ref{regularity_axiom}, \ref{finiteness_axiom} it follows that:
@@ -4304,6 +4319,55 @@ it turns out that  $\widetilde X'\cong\C\widetilde X$.
 %\begin{remark}
 %The set of are  maximal  {subordinated to}  $\mathfrak{S}^{\text{pt}}$ algebras should not be a singleton, thus an operator algebra  $\widetilde A$ in the Definition \ref{inf_cov_oa_defn} should not be unique.
 %\end{remark}
+ \begin{empt}\label{inf_cov_oa_empt}
+	Similarly to \ref{comp_op_pt_empt} consider a category 
+	\be\label{inf_cov_oae_eqn}
+	\mathfrak{S}^{\text{pt}} = \left(\left\{\pi_\la: A \hookto A_\la \right\}_{\la \in \La}, \left\{\pi^\mu_\nu: A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\ \nu > \mu}}\right)
+	\ee
+	of noncommutative finite-fold coverings of operator algebras (cf. Definition \ref{fin_oa_defn}). Suppose that 
+	\be\label{inf_cov_oa_eqn}
+	\begin{split}
+		C^*_e\left( \mathfrak{S}^{\text{pt}}\right) \bydef\\\bydef \left(\left\{	C^*_e\left(\pi_\la\right) : 	C^*_e\left(A\right)  \hookto 	C^*_e\left(A_\la\right)  \right\}_{\substack{\la \in \La\\ ~}},\right.\\\left. \left\{	C^*_e\left(\pi^\mu_\nu\right) : 	C^*_e\left(A_\mu\right)  \hookto 	C^*_e\left(A_\nu\right) \right\}_{\substack{\mu, \nu \in \La\\ \nu > \mu}}\right)
+	\end{split}
+	\ee
+	is good pointed algebraical  finite covering category (cf. Definition \ref{comp_pt_defn}). Let
+	$
+	\left(C^*_e\left(A\right), \widetilde B, G \right)
+	$
+	be the inverse noncommutative limit of $	C^*_e\left( \mathfrak{S}^{\text{pt}}\right)$ (cf. Definition \ref{main_defn}).
+	For any $G$-invariant subalgebra $ \widetilde A'\subset  \widetilde B$ denote by
+	\be\label{inf_cov_oam_eqn}
+	M\left(\widetilde A'\right) \bydef \left\{\left.\widetilde a \in M\left( \widetilde B \right)  \right| \widetilde a\widetilde A'\subset \widetilde A' \text{ AND }\widetilde A'\widetilde a\subset \widetilde A'\right\}.
+	\ee
+	%	If $\varinjlim C^*_e\left(A_\la\right)$ is an algebraic direct limit then there is a dense inclusion $\varinjlim C^*_e\left(A_\la\right)\hookto C^*$-$\varinjlim C^*_e\left(A_\la\right)$. So there is an inclusion $\iota: \varinjlim C^*_e\left(A_\la\right)\hookto M\left( \widetilde B \right)$.
+\end{empt}	
+\begin{definition}\label{inf_cov_oa_sub_defn}	
+	We say that  $G$-invariant subalgebra $\widetilde A'$ of $\widetilde B$ is \textit{is subordinated to}  $\mathfrak{S}^{\text{pt}}$ if for all $
+	\la\in\La$ one has
+	\be\label{inf_cov_oa_sub_eqn}
+	\begin{split}
+		A_\la \widetilde A'\subset \widetilde A',\\
+		\widetilde A'A_\la\subset \widetilde A',\\
+		\left(K\left(\widetilde B \right) \cap \widetilde A'\right) a_\la \not\subset \widetilde A';\quad
+		a_\la\left(K\left(\widetilde B \right) \cap \widetilde A'\right) \not\subset \widetilde A' \quad  \forall a_\la \in C^*_e\left( A_\la\right) \setminus A_\la.
+	\end{split}
+	\ee
+	where $K\left(\widetilde B \right)$ is the Pedersen's ideal of $\widetilde B$ (cf. Definition \ref{peder_id_defn}).
+\end{definition}
+\begin{remark}
+	Any union of linearly ordered by inclusion  set of { subordinated to}  $\mathfrak{S}^{\text{pt}}$ algebras is a { subordinated to}  $\mathfrak{S}^{\text{pt}}$ algebra.
+	From the Zorn's lemma (cf. \ref{zorn_thm}) it follows that  there are  maximal  {subordinated to}  $\mathfrak{S}^{\text{pt}}$ algebras. \end{remark}	 
+
+
+\begin{definition}\label{inf_cov_oa_defn}
+	If $\widetilde A$ is a    maximal  {subordinated to}  $\mathfrak{S}^{\text{pt}}$ algebra $\widetilde A$
+	$
+	\left(A,  \widetilde A, G \right)$ is the the \textit{inverse noncommutative limit} or \textit{infinite noncommutative covering}  of $\mathfrak{S}^{\text{pt}}$.
+\end{definition}
+
+\begin{remark}
+	The set of are  maximal  {subordinated to}  $\mathfrak{S}^{\text{pt}}$ algebras should not be a singleton, thus an operator algebra  $\widetilde A$ in the Definition \ref{inf_cov_oa_defn} should not be unique.
+\end{remark}
 
 
 
@@ -7573,6 +7637,48 @@ of the sub-unital real operator space}  $\left(C_0\left(\sX, \R \right), C\left(
 	(ii)  	The conditions (a)-(d) of the Definition \ref{compliant_covering_defn} directly follow from (a)-(d) of the Lemma \ref{top_comply_lem}.
 	\end{proof}
 
+\begin{theorem}\label{top_oa_cov_thm}
+	If $M$ is a smooth manifold then any  noncommutative finite-fold covering of operator algebra $C_0\left(M\right)\cap \Coo\left(M\right)$ (cf. Definition \ref{fin_oa_defn}) corresponds to a transitive finite fold covering $p: \widetilde M \to M$ and it is a quadruple 
+	$$
+	\left(C_0\left(M\right)\cap \Coo\left(M\right), C_0\left(\widetilde M\right)\cap \Coo\left(\widetilde M\right), G\left(\left.\widetilde M~ \right| M\right), \Coo\left(p \right) \right)
+	$$
+	where both the smooth structure of $\widetilde M$  and the homomorphism $\Coo\left(p \right):C_0\left( M\right)\cap \Coo\left( M\right)\hookto C_0\left(\widetilde M\right)\cap \Coo\left(\widetilde M\right)$ are induced by $p$.
+\end{theorem}
+\begin{proof}
+	$C_0\left(M\right)\cap \Coo\left(M\right)$ is a dense subalgebra of the $C^*$-algebra $C_0\left(M\right)$, it follows that $C_0\left(M\right)$ is the $C^*$-envelope of $C_0\left(M\right)\cap \Coo\left(M\right)$ (cf. Definition \ref{op_su_env_defn}, Remark \ref{op_su_env_rem}), i.e.
+	$$
+	C^*_e\left(C_0\left(M\right)\cap \Coo\left(M\right)\right)\cong C_0\left(M\right).
+	$$ 
+	From the Theorem \ref{comm_fin_thm} it turns out that any noncommutative finite-fold covering of $C_0\left(M\right)$  is given by
+	$\left(C_0\left(M\right), C_0\left(\widetilde M\right), G\left(\left.\widetilde M~ \right| M\right), C_0\left(p\right)\right)$. If $$\left(C_0\left(M\right)\cap \Coo\left(M\right), \widetilde A, G\left(\left.\widetilde M~ \right| M\right), \pi \right)$$ is a noncommutative finite-fold covering of operator algebra which corresponds to the noncommutative finite-fold covering $\left(C_0\left(M\right), C_0\left(\widetilde M\right), G\left(\left.\widetilde M~ \right| M\right), C_0\left(p\right)\right)$ then from 
+	$$
+	\left( C_0\left(\widetilde M\right)\cap  \Coo\left(\widetilde M\right)  \right)\bigcap C_0\left(M \right) =  C_0\left(M \right)\cap \Coo\left(M \right)
+	$$ 
+	and the condition (d) of the Definition \ref{fin_oa_defn} it follows that
+	$
+	C_0\left(\widetilde M\right)\cap  \Coo\left(\widetilde M\right) \subseteqq \widetilde A
+	$. If \ref{fin_oa_defn} it follows that
+	$
+	C_0\left(\widetilde M\right)\cap  \Coo\left(\widetilde M\right) \subsetneqq \widetilde A
+	$
+	then there is $\widetilde a \in \widetilde A\setminus C_0\left(\widetilde M\right)\cap  \Coo\left(\widetilde M\right)$. Since $\widetilde a \notin   \Coo\left(\widetilde M\right)$ there is $\widetilde x_0 \in \widetilde M$ such that $\widetilde a$ is not smooth at $\widetilde x_0$. There is a function $\widetilde b \in C_0\left(\widetilde M\right)\cap  \Coo\left(\widetilde M\right)$ which satisfies to following conditions:
+	\begin{itemize}
+		\item There is an open neighborhood $\widetilde \sU$ of $ \widetilde x_0$ such that $\widetilde b\left(\widetilde \sU\right)= \left\{1\right\}$.  
+		\item There is an open set $\widetilde \sV$ which is mapped homeomorphically onto $p\left( \widetilde \sV\right)$ such that $\widetilde b\left(\widetilde \sX\setminus\widetilde \sU\right)= \{0\}$. 
+	\end{itemize}
+	The product $\widetilde b \widetilde a \in \widetilde A$, however $\widetilde b \widetilde a$ is not smooth at $\widetilde x_0$.  From the condition (b) of the Definition \ref{fin_oa_defn} there is an action $G\left(\left.\widetilde M~ \right| M\right)\times \widetilde A\to \widetilde A$  and from (b) of the Definition \ref{fin_pre_defn} it follows that
+	$$
+	a \bydef \sum_{	g \in G\left(\left.\widetilde M~ \right| M\right)}g\left(\widetilde b \widetilde a \right)\in \widetilde A \cap  C_0\left( M\right). 
+	$$
+	However from the construction of $\widetilde b$ it turns out that $a$ is not smooth at $p\left( \widetilde x_0\right)$ therefore $a \notin \Coo\left(M \right)$. It contradicts with the condition (c) of the Definition \ref{fin_oa_defn}. In result one has
+	$$
+	C_0\left(\widetilde M\right)\cap  \Coo\left(\widetilde M\right) = \widetilde A.
+	$$
+\end{proof}
+
+
+
+
 \subsection{Induced representations}\label{comm_induced_finite_sec}
 \paragraph*{} 
 Let us consider a compact  Riemannian manifold $M$ with a  spin bundle $\sS$ (cf. \ref{spin_mani_sec}). 
@@ -10459,7 +10565,7 @@ We say that  $A_0\left(\widetilde\sY  \right)$ is the $q$-\textit{lift} of $A$.
 
 \end{definition}
 \begin{exercise} 
-	If $A$ is a $C^*$-algebra with Hausdorff spectrum $\sX$ and one has a  Hausdorff blowing-up $C_0\left(\sX\right)\hookto M\left(A \right)$ (cf. Exercise \ref{blowing_exer}).
+	If $A$ is a $C^*$-algebra with Hausdorff spectrum $\sX$ and one has a  Hausdorff blowing-up $C_0\left(\sX\right)\hookto M\left(A \right)$ (cf. Example \ref{blowing_ctr_exm}).
 Prove that   the equation \eqref{top_c0i_ob_eqn} $C^*$-algebra  is a specialization of given by the equation \eqref{blowing_a0_x_eqn} one.
 \end{exercise}
 
@@ -10654,20 +10760,23 @@ If $C\left(\widetilde\sY\right)$ is not  a finitely generated $C\left(\sY\right)
 $$
 C\left(\widetilde{\sY}\right)=\sum_{\la \in \La} M_\la,
 $$
-but there is no  a finite subset $\La_0\subset \La$  such that 
+but  
 $$
-C\left(\widetilde{\sY}\right) = \sum_{\la \in \La_0} M_\la.
+C\left(\widetilde{\sY}\right) \neq I_{\La_0}\bydef \sum_{\la \in \La_0} M_\la
 $$
-For any $\la\in \La$ the space  $M_\la \widetilde{A}$ is a right $A$-submodule of $\widetilde{A}$.
+for any finite subset $\La_0\subset \La$. If turns out that for any finite $\La_0$ there is an open subset $\widetilde\sU_{\La_0} \subsetneqq \sY$ such that
+$
+I_{\La_0} \cong C_0\left(\widetilde\sU_{\La_0} \right)
+$. For any $\la\in \La$ the space  $M_\la \widetilde{A}$ is a right $A$-submodule of $\widetilde{A}$.
 From $C\left(\sY \right) A = A$ and $C\left(\widetilde\sY \right) \widetilde  A = \widetilde A$ one has 
 $$
-\widetilde{A}=\sum_{\la \in \La}M_\la \widetilde{A} 
+\widetilde{A}=\sum_{\la \in \La}M_\la \widetilde{A}. 
 $$
-but there is no  a finite subset $\La_0\subset \La$  such that 
+If 
 $$
-\widetilde{A}=\sum_{\la \in \La_0}M_\la \widetilde{A}.
+J_{\La_0}\bydef \sum_{\la \in \La_0}M_\la \widetilde{A}
 $$
-From the Theorem \ref{fin_gen_thm} it follows $\widetilde{A}$ is not a finitely generated $A$-module, it contradicts with the definition \ref{fin_uni_defn}. So $C\left(\widetilde\sY\right)$ is   a finitely generated $C\left(\sY\right)$, and from the Theorem \ref{pavlov_troisky_thm} it follows that $q$ is a finite-fold covering. The action $G \times \widetilde A\to \widetilde A$ induces the action $G \times \widetilde \sY\to \sY$ which yields a surjective homomorphsm $G \to  G\left( \left.\widetilde \sY\right|\sY\right)$. If $G' \bydef \ker \left(G \to  G\left( \left.\widetilde \sY\right|\sY\right)\right)$ then $G/G'$ nontivially acts on $\widetilde\sY$ and $\sY \cong \widetilde\sY/\left(G/G'\right)$. So the covering $q$ is transitive.
+and $\widetilde{A}_{\La_0}\subset \widetilde{A}$ is the generated by $J_{\La_0}$ hereditary subalgebra (cf. Definition \ref{hered_gen_defn}) then $\widetilde{A}_{\La_0}\cong \widetilde{A}_{\widetilde\sU_{\La_0}} \subsetneqq \widetilde{A}$. It turns out that $J_{\La_0}\neq \widetilde{A}$ and from the Theorem \ref{fin_gen_thm} it follows $\widetilde{A}$ is not a finitely generated $A$-module, it contradicts with the definition \ref{fin_uni_defn}. So $C\left(\widetilde\sY\right)$ is   a finitely generated $C\left(\sY\right)$, and from the Theorem \ref{pavlov_troisky_thm} it follows that $q$ is a finite-fold covering. The action $G \times \widetilde A\to \widetilde A$ induces the action $G \times \widetilde \sY\to \sY$ which yields a surjective homomorphsm $G \to  G\left( \left.\widetilde \sY\right|\sY\right)$. If $G' \bydef \ker \left(G \to  G\left( \left.\widetilde \sY\right|\sY\right)\right)$ then $G/G'$ nontivially acts on $\widetilde\sY$ and $\sY \cong \widetilde\sY/\left(G/G'\right)$. So the covering $q$ is transitive.
 \end{proof}
 
 
@@ -10855,7 +10964,7 @@ $$
 $$
 \end{proof}
 \begin{lemma}\label{blowing_spectal_lem}
-Let $A$ be a $C^*$-algebra, and let $C_0\left(\sY \right) \to M\left( A\right)$ be a good, spectral, semilocally 1-connected,  Hausdorff blowing-up (cf. Definitions \ref{blowing_defn}, \ref{blowing_spectal_defn}, \ref{blowing_good_defn}, \ref{blowing_semi1_defn}). For any reduced noncommutative finite-fold covering $\left(A, \widetilde A, G, \pi\right)$ the explained in \ref{blowing_inc_eqn} Hausdorff blowing-up $C_0\left( \widetilde \sY\right) \to M\left(  \widetilde A\right)$ is   spectral.
+Let $A$ be a $C^*$-algebra, and let $C_0\left(\sY \right) \to M\left( A\right)$ be a good, spectral, semilocally 1-connected,  Hausdorff blowing-up (cf. Definitions \ref{blowing_defn}, \ref{blowing_spectal_defn}, \ref{blowing_good_defn}, \ref{blowing_semi1_defn}). For any reduced noncommutative finite-fold covering $\left(A, \widetilde A, G, \pi\right)$ the given by the equation \eqref{blowing_inc_eqn} Hausdorff blowing-up $C_0\left( \widetilde \sY\right) \to M\left(  \widetilde A\right)$ is   spectral.
 
 \end{lemma}
 \begin{proof}
@@ -11112,17 +11221,17 @@ Suppose that  for all $\widetilde x \in \widetilde\sX$ there is the following  c
 $$
 \sum_{g \in G\left(\left.\widetilde{\sY}~\right|\sY\right) } \rep_{  \widetilde{x }}\left(g \widetilde a \right)= \rep_{  \widetilde{x }}\left( A_b\left( p\right)  \circ \desc_p\left( \widetilde{a}\right) \right).
 $$
-If $\pi_a: A_0\left( \widetilde{\sY}\right) \hookto B\left(\widehat \H_a\right)$ is the atomic representation (cf. Definition \ref{atomic_repr_defn}) then the series
+If $\pi_A: A_0\left( \widetilde{\sY}\right) \hookto B\left(\widehat \H_a\right)$ is given by \eqref{blowing_ha_eqn} then the series
 \be\label{blowing_strong_eqn}
 \sum_{g \in G\left(\left.\widetilde{\sY}~\right|\sY\right) }\pi_a\left(g\sum_{g \in G\left(\left.\widetilde{\sY}~\right|\sY\right) }\widetilde a  \right) 
 \ee
-is convergent with respect to the strong topology of $B\left(\widehat \H_a\right)$. Moreover the sum of the series in sense of the strong topology of $B\left( \H_a\right)$ is equal to $\pi_a\left( A_b\left(q \right)\circ \desc_p\left( \widetilde a\right)\right)$ (cf. Definition \ref{blowing_lift_desc_defn}).  
+is convergent with respect to the strong topology of $B\left(\widehat \H_a\right)$. Moreover the sum of the series in sense of the strong topology of $B\left(\widehat \H_a\right)$ is equal to $\pi_A\left( A_b\left(q \right)\circ \desc_p\left( \widetilde a\right)\right)$ (cf. Definition \ref{blowing_lift_desc_defn}).  
 \end{lemma}
 \begin{proof}
 Follows from the Lemma \ref{direct_sum_strong_lim_lem}.
 \end{proof}
 \begin{empt}\label{blowing_q_empt}
-Let $\mathfrak{S}_{A } = \left\{ \pi_{\la} :A  \hookto A_0\left( \mathcal{Y}_\la\right) \right\}_{\la \in \La}$ be given by \eqref{blowing_base_point_eqn}  algebraical  finite covering category (cf. Definition \ref{comp_defn}). Let $\left\{\sU_\a\subset \sY\right\}_{\a\in \mathscr A}$ be a {compliant with} $\overline q: \overline \sY \to \sY$ family, and let $\left\{\overline\sU_{\overline\a}\subset \overline\sY\right\}_{\overline\a\in \overline{\mathscr A}}$ be the $\overline q$-lift of $\left\{\sU_{\a}\right\}$  (cf. Definition \ref{top_lconn_defn}). For all $\la\in\La$ denote by $q_\la: \sY_\la \to \sY$ the natural covering and let $\left\{\sU_{\a_\la}\subset \sY_\la\right\}_{\a_\la\in \mathscr A_\la}$ be  the $q_\la$-lift of $\left\{\sU_{\a}\right\}$  (cf. Definition \ref{top_lconn_defn}).
+Let $\mathfrak{S}_{A } = \left\{ \pi_{\la} :A  \hookto A_0\left( \mathcal{Y}_\la\right) \right\}_{\la \in \La}$ be given by \eqref{blowing_base_point_eqn}  algebraical  finite covering category (cf. Definition \ref{comp_defn}). Let $\left\{\sU_\a\subset \sY\right\}_{\a\in \mathscr A}$ be a {compliant with} $\overline q: \overline \sY \to \sY$ family (cf. Definition \ref{top_lconn_defn}) such that the closure of  $\sU_\a$ is compact  for all $\a\in \mathscr A$. Let $\left\{\overline\sU_{\overline\a}\subset \overline\sY\right\}_{\overline\a\in \overline{\mathscr A}}$ be the $\overline q$-lift of $\left\{\sU_{\a}\right\}$  (cf. Definition \ref{top_lconn_defn}). For all $\la\in\La$ denote by $q_\la: \sY_\la \to \sY$ the natural covering and let $\left\{\sU_{\a_\la}\subset \sY_\la\right\}_{\a_\la\in \mathscr A_\la}$ be  the $q_\la$-lift of $\left\{\sU_{\a}\right\}$  (cf. Definition \ref{top_lconn_defn}).
 Let $r \in A_0\left(\sY_{\la_0} \right)$ be given by
 \be\label{blowing_q_eqn}
 \begin{split}
@@ -11209,7 +11318,7 @@ Define $\overline\sU^w \bydef \overline\sU^r$.
 
 \begin{corollary}\label{blowing_spec2_cor}
 Let us	consider the above situation, and use the notation \eqref{spec_a_eps_imp_eqn}.
-Let $\overline  \sU \in \left\{\sU_{\overline\a}\right\}$  and let $\overline a \in\pi_A\left(  A_0\left(\overline \sY\right)_{\overline \sU}\right) $ (cf. \eqref{blowing_ha_eqn}) a positive element,	
+Let $\overline  \sU \in \left\{\sU_{\overline\a}\right\}$  and let $\overline a \in\pi_a\left(  A_0\left(\overline \sY\right)_{\overline \sU}\right) $ (cf. \eqref{blowing_ha_eqn}) a positive element,	
 If   $\la_0 \in \La$ and $z\in A_0\left(\overline \sY\right)^\sim$ then following conditions hold:
 \begin{enumerate}
 	\item[(i)] The series 
@@ -11574,7 +11683,7 @@ Let $\widetilde q: \widetilde \sY \to  \sY$ be the natural covering and let $\wi
 $$
 \widetilde a < \phi \circ 	\desc_{p}\left( \widetilde a\right) \in\phi \left(A \right)\subset M\left(\widetilde{A}\right).  
 $$
-From the above equation it follows that $\widetilde a \in \widetilde A^{\mathrm{hered}}$ (cf. Definition \ref{main_hered_defn}). However  
+From the above equation it follows that $\widetilde a \in \widetilde A^{\mathrm{hered}}$ (cf. Definitions \ref{main_hered_defn} and \ref{hered_defn}). However  
 $A_0\left(\widetilde\sY  \right)$ is a $C^*$-algebra generated by subalbebras $ A_0\left(\widetilde\sY  \right)_{\widetilde{\sU}}$ , it turns out that $A_0\left(\widetilde\sY  \right)\subset\widetilde A^{\mathrm{hered}}$.
 \end{proof}
 
@@ -11783,7 +11892,7 @@ The center of $M\left(A \right)$ is naturally isomorphic to $C_b\left( \sY^{\mat
 \end{lemma}
 \begin{proof}
 From the Theorem \ref{dauns_hofmann_thm} it turns out that $M\left(A \right)$ is naturally isomorphic to the class of bounded continuous  functions on $\check{A}$. If $f$ is a continuous  function on $\check{A}$ then for all $\check y^{\mathrm{c}}\in \check \sY^{\mathrm{c}}$ one has $f\left(\check y^{\mathrm{c}} \right) = f\left( \phi\check~\left(\check y^{\mathrm{c}} \right)\right)$ because $\check y^{\mathrm{c}}$ lies in the closure of $\phi\hat~\left(\check y^{\mathrm{c}}\right)$. It follows that the function $f$ uniquely depends on its restriction $f|_{\check A^{\mathrm{ab}}}= f|_{\sY^{\mathrm{ab}}}$. 
-It follows that any $f$ lies in $C_b\left(\sY^{\mathrm{ab}} \right)$ on the other hand from the Theorem \ref{ideal_spectrum_thm} the topology of $\sY^{\mathrm{ab}}$ is the restriction of the topology of $\check{A}$. So from the Theorem \ref{dauns_hofmann_thm} it follows that $C_b\left( \sY^{\mathrm{ab}}\right)$ if contained in the center of $M\left(A\right)$.
+It follows that any $f$ lies in $C_b\left(\sY^{\mathrm{ab}} \right)$ on the other hand from the Theorem \ref{ideal_spectrum_thm} the topology of $\sY^{\mathrm{ab}}$ is the restriction of the topology of $\check{A}$. So from the Theorem \ref{dauns_hofmann_thm} it follows that $C_b\left( \sY^{\mathrm{ab}}\right)$ coincides with  the center of $M\left(A\right)$.
 \end{proof}
 From the Example \ref{blowing_ctr_exm} it turns out that $C\left( \sY^{\mathrm{ab}}\right)\hookto A$ is a good Hausdorff blowing-up of $A$ (cf. Definitions \ref{blowing_defn} and \ref{blowing_good_defn}). 
 \begin{lemma}\label{h_gr_free_lem}
@@ -12567,7 +12676,7 @@ where $\pi^{\mathrm{stab}}_1\left(C_0\left(\sX \right) \right)$ means the stable
 \chapter{Hurewicz homomorphism. A sketch}\label{h_chap}
 \section{Preliminaries}\label{h_prel}
 \paragraph{}
-If $\sX$ is a compact space and $K_n\left(C \left( \sX\right) \right)$ is a group of $K$-homology (cf. \cite{blackadar:ko}) then the for all $n\in \Z$ the map $\sX \mapsto K_n\left(C \left( \sX\right) \right)$ is a functor which be denote by $\sX \mapsto K_n\left( \sX \right)$. The sequence of functors $K_n$ from the category of topological spaces to category of Abelian groups satisfy to the Definition \ref{top_unred_defn}, i.e. it is an unreduced homology theory. It turns out that  there is the  \textit{Hurewicz homomorphism} (cf. Definition \ref{top_hurewitz_defn}) 	$h_n:\pi_n\left(\sX, x_0 \right)\to K_n\left(\sX \right)$ such that
+If $\sX$ is a compact space and $K_n\left(C \left( \sX\right) \right)$ is a group of $K$-homology (cf. \cite{blackadar:ko}) then the for all $n\in \Z$ the map $\sX \mapsto K_n\left(C \left( \sX\right) \right)$ is a functor which be denote by $K_n$. The sequence of functors $K_n$ from the category of topological spaces to category of Abelian groups satisfy to the Definition \ref{top_unred_defn}, i.e. it is an unreduced homology theory. It turns out that  there is the  {Hurewicz homomorphism} (cf. Definition \ref{top_hurewitz_defn}) 	$h_n:\pi_n\left(\sX, x_0 \right)\to K_n\left(\sX \right)$ such that
 \be\label{h_hk1_eqn}
 \begin{split}
 h_{K_1}	:\pi_1\left(\sX, x_0 \right)\cong \left[S^1, s_0; \sX, x_0\right]\xrightarrow{K_1}\Hom\left(K_1\left(S^1 \right),  K_1\left(\sX \right)\right) \xrightarrow{\Hom\left(\sigma^1, 1 \right) }\\
@@ -12615,7 +12724,7 @@ Denote by $\pi: A \hookto \widetilde A$  the natural inclusion.
 	If  $A \bydef C\left( S^1\right)\otimes \K$ then there is the natural inclusion $C\left( S^1\right)\subset M\left(A \right)$ it is known that $K_1\left(C\left( S^1\right) \right) = \Z\left[u\right]$ where $u \in C\left( S^1\right)\in M\left( A\right)$ is an unital element. If $\phi_n$ is given by \eqref{h_n_root} and 	$v = \phi\left( u\right)$ then $C\left( S^1\right)\left[v\right]\cong C\left( \widetilde \sY \right)$ where $\widetilde \sY\cong S^1$ and an inclusion  $C\left( S^1\right)\hookto C\left( S^1\right)\left[v\right]$ corresponds to an $n$-listed covering $\widetilde \sY\cong S^1 \to S^1$. In result one has an $\left(u, n\right)$-{covering} $\left(C\left( S^1\right)\otimes \K, C\left( \widetilde \sY\right)\otimes \K, \Z_n\right)$  of $C\left( S^1\right)\otimes \K$ (cf. Theorem \ref{stable_fin_cov_thm} )
 \end{example}
 \begin{exm}\label{s_3_covering_sample}
-	It is known that $S^3$ is homeomorphic to $SU(2)$ and $K^1\left(SU(2) \right)\cong K_1(C(SU(2))\cong \Z$. The group $K_1(C(SU(2)))$ is generated by $\left[u\right]$ where   $u \in C(SU(2)) \otimes \mathbb{M}_2(\mathbb{C})\subset M\left(C(SU(2))\otimes \K \right)$ is an unitary element which commutes with $C(SU(2))$. Let $C\cong C\left( \sY\right)$ be a generated by $C\left( SU\left(2 \right) \right) \cup \{u\}$ commutative $C^*$-algebra. According to the construction \ref{h_pre_empt} there is a finite-fold covering $\widetilde \sY \to \sY$. If $\widetilde \sY$ is connected then there is a nontrivial  connected noncommutative finite-fold covering of $C(SU(2)))\otimes \K$ (cf. Definition \ref{fin_defn}) then From the Theorem \ref{stable_fin_cov_thm} it follows that a nontrivial  connected noncommutative finite-fold covering of $C(SU(2)))$. But  $\pi_1\left( SU(2)\right)$ is trivial, so from the Corollary  \ref{comm_comm_cor} it follows that $C(SU(2)))$ has no nontrivial  connected noncommutative finite-fold coverings. So there is no $\left(u, n\right)$-{coverings}. Since $\pi_1\left( SU(2)\right)$ it trivial there are no nontrivial elements of $K_1\left( SU(2) \right)$ which lie in $h_1\left( \pi_1\left( SU(2)\right)\right)$.
+	It is known that $S^3$ is homeomorphic to $SU(2)$ and $K^1\left(SU(2) \right)\cong K_1(C(SU(2))\cong \Z$. The group $K_1(C(SU(2)))$ is generated by $\left[u\right]$ where   $u \in C(SU(2)) \otimes \mathbb{M}_2(\mathbb{C})\subset M\left(C(SU(2))\otimes \K \right)$ is an unitary element which commutes with $C(SU(2))$. Let $C\cong C\left( \sY\right)$ be a generated by $C\left( SU\left(2 \right) \right) \cup \{u\}$ commutative $C^*$-algebra. According to the construction \ref{h_pre_empt} there is a finite-fold covering $\widetilde \sY \to \sY$. If $\widetilde \sY$ is connected then there is a nontrivial  connected noncommutative finite-fold covering of $C(SU(2)))\otimes \K$ (cf. Definition \ref{fin_defn}) then From the Theorem \ref{stable_fin_cov_thm} it follows that a nontrivial  connected noncommutative finite-fold covering of $C(SU(2)))$. But  $\pi_1\left( SU(2)\right)$ is trivial, so from the Corollary  \ref{comm_comm_cor} it follows that $C(SU(2)))$ has no nontrivial  connected noncommutative finite-fold coverings. So there is no $\left(u, n\right)$-{coverings}. Since $\pi_1\left( SU(2)\right)$ it trivial there are no nontrivial elements of $K_1\left( SU(2) \right)$ which lie in $h_{K_1}\left( \pi_1\left( SU(2)\right)\right)$.
 \end{exm}
 \begin{remark}
 	The Example \ref{s_1_covering_sample} demonstrates an element of $K_1$ group which gives nontrivial  connected noncommutative finite-fold coverings.  	The Example \ref{s_3_covering_sample} proves that there are elements of $K_1$ group which do not give nontrivial  connected noncommutative finite-fold coverings.
@@ -12654,7 +12763,7 @@ Let $A$ be a stable  $C^*$ - algebra such that $K^1(A)\approx G \oplus \mathbb{Z
 	K_1(A)=G' \oplus \mathbb{Z}[u]
 \end{equation}
 where $u \in M\left(A\right)$ is an unitary representative  of $u$. Suppose that for all $n \in \N$ there is an $\left(u, n\right)$ {covering} (cf. Definition \ref{h_u_n_defn}).
-Let $n_1, ..., n_j, ... \in \N$ be an increasing sequence of natural numbers such that $n_j$ divides $n_{j+1}$ for all $j\in \N$. For any $j \in \N$ let $A\hookto A_n$ be an $\left(u, n\right)$ covering. From the Theorem \ref{blowing_main_thm} one has a good pointed	algebraical  finite covering category 
+Let $n_1, ..., n_j, ... \in \N$ be an increasing sequence of natural numbers such that $n_j$ divides $n_{j+1}$ for all $j\in \N$. For any $j \in \N$ let $A\hookto A_j$ be an $\left(u, n_j\right)$ covering. From the Theorem \ref{blowing_main_thm} one has a good pointed	algebraical  finite covering category 
 $$
 \mathfrak{S}^{\mathrm{pt}}_A= \left\{(A \hookto A_1\hookto ... \hookto A_n\hookto... \right\}
 $$
@@ -12696,7 +12805,7 @@ h_{\mathrm{tors}} : \pi_1\left( A\right) \to \mathrm{\Ext}\left( K_0\left(A \rig
 \subsection{Free special case}\label{h_free_ass_sec}
 \paragraph*{}
 Denote by $K_1\left( A\right)_{\mathrm{free}} \bydef K_1\left( A\right)/ K_1\left( A\right)_{\mathrm{tors}}$.   
- Any $\left[u\right] \in K_1\left( A\right)/ K_1\left( A\right)_{\mathrm{tors}}$  can be represented by an unitary element $u \in M\left(A\otimes \K \right)$. We way that $u$ is \textit{free special}  if for all $j\in \N$ there is an $\left(u, n\right)$ covering $\left( A, \widetilde A_u,\Z_n \right)$. Denote by $K_1\left( A\right)_{\mathrm{free~spec}}\subset K_1\left( A\right)_{\mathrm{free}}$  the generated by free special elements subgroup. Suppose  $\left\{u_1, ..., u_k\right\}\subset M\left(A\otimes \K \right) $ be a set of unitary elements such any $x\in K_1\left( A\right)_{\mathrm{free~spec}}$ can be uniquely represented by the following way
+ Any $\left[u\right] \in K_1\left( A\right)/ K_1\left( A\right)_{\mathrm{tors}}$  can be represented by an unitary element $u \in M\left(A\otimes \K \right)$. We say that $u$ is \textit{free special}  if for all $j\in \N$ there is an $\left(u, n\right)$ covering $\left( A, \widetilde A_u,\Z_n \right)$. Denote by $K_1\left( A\right)_{\mathrm{free~spec}}\subset K_1\left( A\right)_{\mathrm{free}}$  the generated by free special elements subgroup. Suppose  $\left\{u_1, ..., u_k\right\}\subset M\left(A\otimes \K \right) $ be a set of unitary elements such any $x\in K_1\left( A\right)_{\mathrm{free~spec}}$ can be uniquely represented by the following way
 $$
 x = c_1 \left[u_1\right]+...+c_k \left[u_k\right]\quad c_j \in \Z\quad j = 1,..., k
 $$
@@ -12755,7 +12864,7 @@ From the Theorem \ref{h_iso_thm} it follows that 	$h_{\mathrm{sing}}\left(\left[
 
 If $u_{S^1}: S^1\to U\left( 1\right)$ is a homeomorphism given by $x \mapsto e^{2\pi i x}$ then $\left[u_{S^1}\right]$ is a generator of $K^1\left(S^1 \right)$ and $Index \left(\left[u_{S^1}\right],  \left[ K^1_{S^1}\right] \right)\bydef Index \left( K^1_{S^1}\left( u_{S^1}\right)\right)  =  1$, i.e. index of the Fredholm operator  $  K^1_{S^1}\left(u_{S^1} \right)$ equals to 1 (cf. Equation \eqref{s1_k_1_eqn}).
 \subsection{Torsion specal case}
-\paragraph*{} Suppose both  $\left[ f_S\right]\in  \pi_1\left(\sX, x_0 \right)/\left[\pi_1\left(\sX, x_0 \right), \pi_1\left(\sX, x_0 \right)\right]$  has period $n$, i.e.  $n \left[ f\right]=0$ and $m \left[ f\right]=0$, for any $m < n$. Let
+\paragraph*{} Suppose that both  $\left[ f_S\right]\in  \pi_1\left(\sX, x_0 \right)/\left[\pi_1\left(\sX, x_0 \right), \pi_1\left(\sX, x_0 \right)\right]$  has period $n$, i.e.  $n \left[ f\right]=0$ and $m \left[ f\right]=0$, for any $m < n$. Let
 \be\label{h_a_eqn}
 \a \bydef \left(S^1 \to U\left( 1\right) \quad  x \mapsto e^{2\pi i x}\right) 
 \ee
@@ -12775,8 +12884,8 @@ If we consider the above situation then the map $\bt \bydef \a^n : S^1\to U\left
 (m-1-1) edge[dashed]  (m-1-3)		(m-2-2) edge node [left]  {$\bt~~~$} (m-1-1)
 		(m-2-2) edge node [right] {$~~\subset$} (m-1-3);
 	\end{tikzpicture}
-	\\ 	
-Since $U\left( 1\right)\cong S^1$ is a $\left(\Z, 1\right)$-space (cf. Definition \ref{top_pi_n_defn}), so the Theorem \ref{top_obstr_thm}	can be applied. From $\bt \bydef \a^n$ it follows that
+	\\ 
+	The Theorem \ref{top_obstr_thm}	can be applied  to the above diagram because  $U\left( 1\right)\cong S^1$ is a $\left(\Z, 1\right)$-space (cf. Definition \ref{top_pi_n_defn}). From $\bt \bydef \a^n$ it follows that
 \bean
 H^1\left(\bt , \Z\right):  H^1\left(S^1 \cong U(1), \Z \right)\to  H^1\left(S^1, \Z \right),\\
 \iota \mapsto n \iota.
@@ -12796,11 +12905,11 @@ x \mapsto \begin{pmatrix}
 is contractible, so it can be extended up to a map
 $u'_1: \sX \to \sU\left(2 \right)$ such that
 \bean
-u'_1|_{f\left(S^1 \right)} \begin{pmatrix}
+u'_1|_{f\left(S^1 \right)}= \begin{pmatrix}
 	
 	\a   & 0\\
 	0  & \a^*
-\end{pmatrix} 
+\end{pmatrix}. 
 \eean	
 If 		\bean
 p_1 \bydef \begin{pmatrix}
@@ -12912,7 +13021,7 @@ This book uses this point. If $K$ is a local field (resp. $F$ is an $\mathbf{A}$
 	F^\times_{\mathbf{A}}/F^\times \to \mathrm{Gal}\left(F^\mathrm{ab}/F \right)
 	\end{split}
 \ee
-Using in the Sections \ref{free_special_case} and \ref{torsion_special_case}  constructions one can define the Hurewics homomorphism similarly to \eqref{cls_f_eqn} one can define a homomorphism
+Using  the the explained in the Sections \ref{torsion_special_case} and \ref{free_special_case} constructions one can define the Hurewics homomorphism, i.e similarly to \eqref{cls_f_eqn} one can define a homomorphism
 \be\label{h_f_eqn}
  \pi_1\left( A\right) /\left[\pi_1\left(A\right), \pi_1\left(A\right)\right]\to K^1\left(A\right).
 \ee
@@ -12994,10 +13103,10 @@ Let $\left(X, Y\right)$ be a sub-untal operator space (cf. Definition \ref{op_su
 \begin{exercise}\label{ctr_blowing_exer}
 Prove that the explained in the Definition \ref{ctr_funct_not_defn} notation  is equivalent to the notation of the Definition \ref{blowing_lift_desc_defn}  (cf. equations \eqref{ctr_ff_funct_not_eqn}  and \eqref{blowing_lift_desc_eqn}).
 \end{exercise}
-\begin{exercise}\label{blowing_ctr_exer}
-	Let $A$ be a $C^*$-algebra with Hausdorff spectrum.
-	Prove that the given by the Example \ref{blowing_ctr_exm} Hausdorff blowing-up of $A$ is good and spectral (cf. Definitions \ref{blowing_good_defn}, \ref{blowing_spectal_defn}).
-\end{exercise}
+%\begin{exercise}\label{blowing_ctr_exer}
+%	Let $A$ be a $C^*$-algebra with Hausdorff spectrum.
+%	Prove that the given by the Example \ref{blowing_ctr_exm} Hausdorff blowing-up of $A$ is good and spectral (cf. Definitions \ref{blowing_good_defn}, \ref{blowing_spectal_defn}).
+%\end{exercise}
 
 \begin{exercise}
 	Consider the Example \ref{blowing_ctr_exm}. Prove that the explained in \ref{top_cs_funct_empt} notation is equivalent to the notation of the Definition \ref{blowing_a0_x_defn}  (cf. equations \eqref{top_c0_ob_eqn} and \eqref{blowing_a0x_eqn}).
@@ -13019,7 +13128,7 @@ Our following constructions require an analog of the Dini's theorem.
 		\ee
 		\item  There is $a\in A$ such that for all $x \in \sX$ there is the following limit
 		$$
-		\lim_{\la\in\La}\rep_x\left( a_\la\right) = \rep_x\left( a\right)
+		\lim_{\la\in\La}\rep_x\left( a_\la\right) = \rep_x\left( a\right).
 		$$
 	\end{itemize}
 	Then there is the $C^*$-norm limit $	\lim_{\la\in\La}a_\la = a$.
@@ -13045,7 +13154,7 @@ Our following constructions require an analog of the Dini's theorem.
 	It follows that  $0\le \left\|  \rep_x\left(b_\la\right)\right\| < \eps$ for all $x \in \sX$  and for all $\la\ge \la_0$. This proves the theorem.
 \end{proof}
 \begin{remark}
-	The prove of the Lemma \ref{ctr_dini_lem} is similar to the proof of the Theorem \ref{dini_thm}
+	The prove of the Lemma \ref{ctr_dini_lem} is similar to the proof of the Theorem \ref{dini_thm}.
 \end{remark}
 
 \section{Finite-fold coverings}
@@ -13058,8 +13167,8 @@ Our following constructions require an analog of the Dini's theorem.
 \end{lemma}
 
 \begin{proof}
-	From the Example \ref{blowing_ctr_exm} and the Exercise  \ref{blowing_ctr_exer} it turns out that the natural Hausdorff blowing-up $C_0\left(\sX \right)\to M\left(A \right)$ is good. If $\left(A, \widetilde A, G, \pi\right)$ is a reduced finite-fold nonommutative covering (cf. Definitions \ref{fin_defn}, \ref{fin_red_defn}) and $\widetilde \sX$ is the spectrum of $\widetilde A$ then from the Lemma \ref{blowing_cov_lem} it follows that there is a transitive finite-fold covering $\widetilde\sX \to \sX$.  Since $\widetilde \sX$ is connected and $\sX$ is simply connected the map $\widetilde \sX\to \sX$ is a homeomorphism. The covering $p$ coincides with the given by the Lemma \ref{cov_spectrum_lem} continuous map. Since the covering $\left(A, \widetilde A, G, \pi\right)$ is a reduced one has $G \cong G\left( 
-	\left.\widetilde \sX\right|\sX\right)$ (cf. \eqref{g_red_inc_eqn} ). So $G$ is trivial and the covering  $\left(A, \widetilde A, G, \pi\right)$ is trivial.
+	From the Example \ref{blowing_ctr_exm}  it turns out that the natural Hausdorff blowing-up $C_0\left(\sX \right)\to M\left(A \right)$ is good. If $\left(A, \widetilde A, G, \pi\right)$ is a reduced finite-fold nonommutative covering (cf. Definitions \ref{fin_defn}, \ref{fin_red_defn}) and $\widetilde \sX$ is the spectrum of $\widetilde A$ then from the Lemma \ref{blowing_cov_lem} it follows that there is a transitive finite-fold covering $\widetilde\sX \to \sX$.  Since $\widetilde \sX$ is connected and $\sX$ is simply connected the map $\widetilde \sX\to \sX$ is a homeomorphism. Indeed the covering $p$ coincides with the given by the Lemma \ref{cov_spectrum_lem} continuous map. Since the covering $\left(A, \widetilde A, G, \pi\right)$ is a reduced one has $G \cong G\left( 
+	\left.\widetilde \sX\right|\sX\right)$ (cf. \eqref{g_red_inc_eqn} ). Since $\sX$ is topologically simply connected the group $G$ is trivial and the covering  $\left(A, \widetilde A, G, \pi\right)$ is trivial.
 \end{proof}
 \begin{exercise}\label{ctr_simply_connected_exer}
 	Let $A$ be a $C^*$-algebra with the Hausdorff topologically semilocally 1-connected spectrum $\sX$ (cf. Definition \ref{top_semi1_t_defn}). Proof that the Hausdorff blowing-up $C_0\left( \sX\right)\to A$ is semilocally 1-connected (cf. Definition \ref{blowing_semi1_defn}) 
@@ -13099,7 +13208,7 @@ Follows from the  Exercise  \ref{ctr_simply_connected_exer} and the Theorem \ref
 	If $A$ is a $C^*$-algebra with the Hausdorff spectrum $\sX$ then the bijective map \eqref{ctr_open_id_eqn} yields the one-to-one correspondence between essential ideals and open dense subsets of $\sX$. 
 \end{lemma}
 \begin{proof}
-	The given by\eqref{ctr_open_id_eqn} map $	\sU \leftrightarrow 	A|_{\mathcal U}$ yields the one-to-one correspondence between  ideals and open  subsets of $\sX$ (cf. Remark \ref{ctr_open_res_rem}). 
+	The given by \eqref{ctr_open_id_eqn} map $	\sU \leftrightarrow 	A|_{\mathcal U}$ yields the one-to-one correspondence between  ideals and open  subsets of $\sX$ (cf. Remark \ref{ctr_open_res_rem}). 
 	
 	Suppose that $\sU \subset \sX$ is a dense subset of $\sX$ and
 	$a \in A$ be such that $a\neq 0$ and $a A|_{\mathcal U}=\left\{0\right\}$. From the Lemma \ref{ctr_rep_eq_lem} it follows that there is an open subset $\sV \subset \sX$ such that $\rep_x\left( a\right) \neq 0$ for all $x \in \sV$. Since $\sU$ is dense, one has $\sV \cap \sU \neq \emptyset$. There is $x_0\in \sU$  such that  $\rep_{x_0}\left( a\right) \neq 0$. From the Exercise \ref{top_completely_regular_exer} it follows that the space $\sX$ is completely regular (cf. Definition \ref{top_completely_regular_defn}). There is a continuous function $f_\sU: \mathcal X \to \left[0,1 \right]$ such that $f_\sU\left(x_0 \right)= 1$ and $f_\sU\left(\mathcal X\setminus\sU \right)= \left\{0\right\} $.  Otherwise from the Lemma \ref{ctr_fact_lem} if follows that $f_\sU a^* \in A|_{\mathcal U}$.  From $\left\|\rep_{x_0}\left( a\left(  f_\sU a^*\right) \right) \right\| = \left\|\rep_{x_0}\left( a \right) \right\|^2\neq 0$ it follows that $a A|_{\mathcal U}\neq\left\{0\right\}$.  From the Lemma \ref{essential_lem} it turns out that $A|_{\mathcal U}$ is an essential ideal. 
@@ -13115,7 +13224,7 @@ Follows from the  Exercise  \ref{ctr_simply_connected_exer} and the Theorem \ref
 
 \begin{lemma}\label{ctr_ccr_sp_lem} 
 	Let $\left(A, \widetilde{A}, G, \pi \right)$ is  a noncommutative finite-fold  covering with unitization.
-	If $A$ is a $CCR$-algebra (cf. Definition \ref{ccr_defn})then $\widetilde{A}$ is a $CCR$-algebra. 
+	If $A$ is a $CCR$-algebra (cf. Definition \ref{ccr_defn}) then $\widetilde{A}$ is a $CCR$-algebra. 
 \end{lemma}
 \begin{proof}
 	From the Definition \ref{fin_comp_defn} it turns out that
@@ -13162,7 +13271,7 @@ Follows from the  Exercise  \ref{ctr_simply_connected_exer} and the Theorem \ref
 \end{lemma}
 
 \begin{proof}
-	Let $\mathcal X$ (resp. $\widetilde{\mathcal X}$) be  the spectrum of $A$ (resp. $\widetilde{A}$). The space $\widetilde{\mathcal X}$ is also the spectrum of $\widetilde{A}_{\mathrm{red}}$ (cf. Remark \ref{red_sp_rem}). Let  $p:\widetilde{\mathcal X} \to {\mathcal X}$ be a continuous map given by the Lemma  \ref{cov_spectrum_lem}. Let $\widetilde{x}_0 \in \widetilde{\mathcal X}$ be any point and let $x_0 = p\left( \widetilde{x}_0\right) \in \mathcal X$ . From the Proposition \ref{continuous_trace_c_a_proposition} it turns  out that there is an Abelian  $a' \in A$ such that $\hat{a}'\in K\left(\mathcal X\right)$ and $\tr\left( \rep_{x_0}\left( a'\right)\right) =1$. If  $\widetilde A_{\text{red}}$  is the reduced algebra of $\left(A, \widetilde{A}, G, \pi \right)$ (cf. Definition \ref{red_alg_defn}) then there is the inclusion $\phi: A\hookto \widetilde A_{\text{red}}$. If $\widetilde a'\bydef\phi\left(a \right)$ then from  the equation \ref{red_inc_eqn} it follows that the rank of $\rep_{\widetilde{x}}\left( \widetilde a'\right)$ does not exceed 1 for all $\widetilde x \in \widetilde\sX$. Let  both $\hat a: \sX \to \R$ and $\hat{\widetilde a'}: \sX \to \R$ are given by $x \mapsto \tr\left(\rep_{x}\left(a' \right)  \right)$ and $\widetilde x \mapsto \tr\left(\rep_{\widetilde x}\left(\widetilde a' \right)  \right)$ respectively. One has $f_0\in C_0\left(\sX \right)$ and taking into account that the map $\widetilde\sX \to \sX$ is surjective and continuous we conclude that  $\hat{\widetilde a'}$ is continuous. 
+	Let $\mathcal X$ (resp. $\widetilde{\mathcal X}$) be  the spectrum of $A$ (resp. $\widetilde{A}$). The space $\widetilde{\mathcal X}$ is also the spectrum of $\widetilde{A}_{\mathrm{red}}$ (cf. Remark \ref{red_sp_rem}). Let  $p:\widetilde{\mathcal X} \to {\mathcal X}$ be a continuous map given by the Lemma  \ref{cov_spectrum_lem}. Let $\widetilde{x}_0 \in \widetilde{\mathcal X}$ be any point and let $x_0 = p\left( \widetilde{x}_0\right) \in \mathcal X$ . From the Proposition \ref{continuous_trace_c_a_proposition} it turns  out that there is an Abelian  $a' \in A$ such that $\hat{a}'\in K\left(\mathcal X\right)$ and $\tr\left( \rep_{x_0}\left( a'\right)\right) =1$. If  $\widetilde A_{\text{red}}$  is the reduced algebra of $\left(A, \widetilde{A}, G, \pi \right)$ (cf. Definition \ref{red_alg_defn}) then there is the inclusion $\phi: A\hookto \widetilde A_{\text{red}}$. If $\widetilde a'\bydef\phi\left(a \right)$ then from  the equation \eqref{red_inc_eqn} it follows that the rank of $\rep_{\widetilde{x}}\left( \widetilde a'\right)$ does not exceed 1 for all $\widetilde x \in \widetilde\sX$. Let  both $\hat a: \sX \to \R$ and $\hat{\widetilde a'}: \sX \to \R$ are given by $x \mapsto \tr\left(\rep_{x}\left(a' \right)  \right)$ and $\widetilde x \mapsto \tr\left(\rep_{\widetilde x}\left(\widetilde a' \right)  \right)$ respectively. One has $f_0\in C_0\left(\sX \right)$ and taking into account that the map $\widetilde\sX \to \sX$ is surjective and continuous we conclude that  $\hat{\widetilde a'}$ is continuous. 
 	It $0 < \eps < 1$ and $f_\eps$ is given by \eqref{f_eps_eqn} then since $\widetilde a'$ is positive there is $\widetilde a = \frac{1}{1 - \eps} f_\eps\left(\widetilde a \right) \in A_+$, which satisfies to following conditions:
 	\begin{enumerate}
 		\item [(a)] $\dim \rep_{ \widetilde{x}}\left( \widetilde a\right) \le   \dim \rep_{ \widetilde{x}}\left(\widetilde a'\right) \le 1$ for any $\widetilde{x}\in\widetilde{\mathcal X}$,
@@ -14678,6 +14787,20 @@ such that following conditions hold:
 	
 
 \end{exercise}
+\begin{exercise}
+	Let $M$ be a finite dimensional manifold and let $\Coo_0\left(M \right) \bydef C_0\left(M \right)\cap \Coo\left(M \right)$. Suppose that 
+	\bean
+	\A\bydef\mathbb{M}_n\left( \mathbb{K}\right),
+	\eean
+	where $\mathbb{M}_{n}\left( \mathbb{K}\right)$ denotes the algebra of square matrices of order $n$ with entries in the field $\mathbb{K}=\R$, $\C$ or $\mathbb{H}$ (cf. \eqref{fin_oa_eqn}). Suppose $p: \widetilde M\to M$ is a transitive covering and $\widetilde M$ possesses a structure of a smooth manifold given by $M$ and $p$.
+	Prove that the following conditions hold:
+	\begin{enumerate}
+		\item If the covering $p$ is finite-fold then 
+		$$\left(\Coo_0\left(M \right)\otimes\A, \Coo_0\left(\widetilde M \right)\otimes\A, G\left(\left.\widetilde M~ \right| M\right), \left.C_0\left( p\right)  \right|_{\Coo_0\left(M \right)}\otimes \Id_\A\right)$$ is a noncommutative finite-fold covering of operator algebras (cf. Definition \ref{fin_oa_defn}).
+		\item If the group $G\left(\left.\widetilde M~ \right| M\right)$ is residually finite then
+		$$\left(\Coo_0\left(M \right)\otimes\A, \Coo_0\left(\widetilde M \right)\otimes\A, G\left(\left.\widetilde M~ \right| M\right)\right)$$ it an infinite noncommutative covering (cf. Definition \ref{inf_cov_oa_defn})
+	\end{enumerate}
+\end{exercise}
 
 \chapter{Foliations, pseudogroups  and their coverings}\label{foliations_chap}
 \paragraph{}
@@ -15700,6 +15823,32 @@ C\left(\mathbb{T}^n_{\Theta}\right)_j \bydef \left\{\left.a \in C\left(\mathbb{T
 	$$
 	is  an unital noncommutative finite-fold  covering.
 \end{remark}
+
+\begin{corollary}
+	Consider the situation of the Theorem \ref{nt_fin_thm}.  If both operator algebras $\Coo 
+	\left(\T^{n}_{{\Th}} \right)$ and  $\Coo\left(\T^{n}_{\widetilde{\Th}} \right)$ are given by \eqref{nt_coo_eqn} then the quadruple $$\left( \Coo\left(\T^{n}_{{\Th}} \right), \Coo\left(\T^{n}_{\widetilde{\Th}} \right), \Z^n / \Ga, \pi|_{\Coo\left(\T^{n}_{\widetilde{\Th}} \right)}\right)$$ is a noncommutative finite-fold covering of operator algebras (cf. Definition \ref{fin_oa_defn}).
+\end{corollary}
+\begin{proof}
+	Both operator algebras $\Coo\left(\T^{n}_{{\Th}} \right)$ and  $\Coo\left(\T^{n}_{\widetilde{\Th}} \right)$  are dense subalgebras of $C^*$-algebras $C\left(\T^{n}_{{\Th}} \right)$ and  $C\left(\T^{n}_{\widetilde{\Th}} \right)$ respectively.  So both $C\left(\T^{n}_{{\Th}} \right)$ and  $C\left(\T^{n}_{\widetilde{\Th}} \right)$ are $C^*$-envelopes (cf.  Definition \ref{op_su_env_defn}, Remark \ref{op_su_env_rem}) of $\Coo\left(\T^{n}_{{\Th}} \right)$ and  $\Coo\left(\T^{n}_{\widetilde{\Th}} \right)$, i.e.
+	\bean
+	C^*_e\left(\Coo\left(\T^{n}_{{\Th}} \right) \right)\cong C\left(\T^{n}_{{\Th}} \right) ,\\
+	C^*_e\left(\Coo\left(\T^{n}_{\widetilde{\Th}} \right) \right)\cong C\left(\T^{n}_{\widetilde{\Th}} \right)
+	\eean
+	From the Theorem \ref{nt_fin_thm} it follows that a noncommutative finite-fold covering of operator algebras looks like
+	$$
+	\left( \Coo\left(\T^{n}_{{\Th}} \right), \widetilde A, \Z^n / \Ga, \pi|_{\Coo\left(\T^{n}_{\widetilde{\Th}} \right)}\right)
+	$$
+	where $\widetilde A\subset C\left(\T^{n}_{\widetilde{\Th}} \right)$ and satisfies to the Definition \ref{fin_oa_defn}. From $\Coo\left(\T^{n}_{\widetilde{\Th}} \right)\cap C\left(\T^{n}_{{\Th}} \right)=\Coo\left(\T^{n}_{{\Th}} \right)$, $\Z^n / \Ga \times \Coo\left(\T^{n}_{\widetilde{\Th}} \right)= \Coo\left(\T^{n}_{\widetilde{\Th}} \right)$ and condition (d) of the Definition \ref{fin_oa_defn} it follows that $\Coo\left(\T^{n}_{\widetilde{\Th}} \right)\subseteqq  \widetilde A$. If $\Coo\left(\T^{n}_{\widetilde{\Th}} \right)\subsetneqq  \widetilde A$ then there is $\widetilde a\in \widetilde A\setminus \Coo\left(\T^{n}_{\widetilde{\Th}} \right)$. If $\left\{ \widetilde x_1,\dots, \widetilde x_N\right\}  \subset  \Z^n$ is a set of representatives of  $\Z^n / \Ga$ from \eqref{nt_bj_eqn} it follows that
+	\bean
+	\widetilde a= \sum_{j = 1}^n b_j \widetilde{U}_{\widetilde x_j} \quad b_1, ..., b_N\in C\left(\T^{n}_{{\Th}} \right).
+	\eean
+	Since $\widetilde a\notin \Coo\left(\T^{n}_{\widetilde{\Th}} \right)$ there is $j \in \left\{1,...,N\right\}$ such that $b_j \notin \Coo\left(\T^{n}_{{\Th}} \right)$. On the other hand from
+	$$
+	b_j = \sum_{g \in \Z^n / \Ga}g \left(\widetilde a \widetilde{U}^*_{\widetilde x_j}\right)\in \widetilde A\cap  \left(\T^{n}_{{\Th}} \right)
+	$$
+	and the condition (c) of the Definition \ref{fin_oa_defn} it follows that $b_j \in \Coo\left(\T^{n}_{{\Th}} \right)$. It is a contradiction, so the inclusion  $\Coo\left(\T^{n}_{\widetilde{\Th}} \right)\subsetneqq  \widetilde A$ is impossible, i.e. one has $\Coo\left(\T^{n}_{\widetilde{\Th}} \right)=  \widetilde A$.
+\end{proof}
+
 \begin{lemma}\label{nt_compliant_covering_lem}
 	If  the diagram with injective *-homomorphisms $\pi_1$, $\pi_2$.
 	\newline
@@ -19078,7 +19227,7 @@ A notion of  a (relative) $CW$-complex is explained in \cite{spanier:at,switzer:
 	\section{Finitely generated modules}
 	\begin{theorem}\label{fin_gen_thm}\cite{kasch:mr}
 		% 2.3.13 THEOREM. T
-		The module $M_R$ over a ring $R$ is finitely generated if and only if there 
+		The module $M_R$ over a (unital) ring $R$ is finitely generated if and only if there 
 		is in every set $\left\{A_\la\right\}_{\la\in\La}$ of submodules $A_\la\hookto  M$ with 
 		$$
 		M=\sum_{\la \in \La} A_\la
@@ -19088,6 +19237,9 @@ A notion of  a (relative) $CW$-complex is explained in \cite{spanier:at,switzer:
 		M = \sum_{\la \in \La_0} A_\la
 		$$
 	\end{theorem}
+
+
+
 	\section{Algebraic Morita equivalence}
 	
 	\begin{defn}\label{morita_ctx_defn}
