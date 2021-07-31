@@ -17430,7 +17430,7 @@ From the Theorem \ref{blowing_main_thm} it follows that
 \end{exercise} 
 
 
- The group $\pi_1\left( \T^2, t_0\right)\cong G\left(\left.\R^2\right|\T^2\right)$ corresponds to an inclusion $\Z^2 \subset \R^2$ and any $\left(j_x, j_y \right) \in \Z^2 \pi_1\left( \T^2, t_0\right)$ corresponds to a shift 2 - dimensional  shift $\left(j_x, j_y \right)$ of $\R^2$. The natural action $\Z^2\times \R^2\to \R^2$ yields  actions $\Z^2\times C_0\left( \R^2\right) \to C_0\left( \R^2\right)$, $~\Z^2\times C^*_r\left(\R^2, \widetilde \sF_\th\right)\to C^*_r\left(\R^2, \widetilde \sF_\th\right)$. If $x,y$ are real coordinates  of $\R^2$ and $u, v\in U\left(C\left(\T^2_\th\right)\right)\subset M\left(C^*_r\left(\T^2, \sF_\th\right) \right) $ are generators  (cf. Definition \ref{nt_uni_defn}) then $u$ corresponds multiplication by $e^{2\pi i x}$, and $v$ corresponds to the  $\left(0, 1\right)$ shift. Suppose that $\phi_n$ is given by \eqref{h_n_root}. If $C^*_r\left(\R^2, \sF_\th\right)\to B\left(\H \right)$ is a faithful representation and $\widetilde u = \phi_{n_1}\left( u\right)\quad \widetilde v = \phi_{n_2}\left( v\right)  \in M\left(C^*_r\left(\R^2, \sF_\th\right) \right)\subset B\left( \H\right)$ then
+ The group $\pi_1\left( \T^2, t_0\right)\cong G\left(\left.\R^2\right|\T^2\right)$ corresponds to an inclusion $\Z^2 \subset \R^2$ and any $\left(j_x, j_y \right) \in \Z^2\cong \pi_1\left( \T^2, t_0\right)$ corresponds to a  2 - dimensional  shift $\left(j_x, j_y \right)$ of $\R^2$. The natural action $\Z^2\times \R^2\to \R^2$ yields  actions $\Z^2\times C_0\left( \R^2\right) \to C_0\left( \R^2\right)$, $~\Z^2\times C^*_r\left(\R^2, \widetilde \sF_\th\right)\to C^*_r\left(\R^2, \widetilde \sF_\th\right)$. If $x,y$ are real coordinates  of $\R^2$ and $u, v\in U\left(C\left(\T^2_\th\right)\right)\subset M\left(C^*_r\left(\T^2, \sF_\th\right) \right) $ are generators  (cf. Definition \ref{nt_uni_defn}) then $u$ corresponds multiplication by $e^{2\pi i x}$, and $v$ corresponds to the  $\left(0, 1\right)$ shift. Suppose that $\phi_n$ is given by \eqref{h_n_root}. If $C^*_r\left(\R^2, \sF_\th\right)\to B\left(\H \right)$ is a faithful representation and $\widetilde u = \phi_{n_1}\left( u\right)\quad \widetilde v = \phi_{n_2}\left( v\right)  \in M\left(C^*_r\left(\R^2, \sF_\th\right) \right)\subset B\left( \H\right)$ then
 \be\label{h_uv_r_eqn}
 \begin{split}
 \widetilde u \quad \text{corresponds to the multiplication by } e^{\frac{2\pi i x}{n_1}}\in  M\left(C^*_r\left(\R^2, \sF_\th\right) \right),\\
@@ -25250,6 +25250,62 @@ $C^*$-hull.
 	class of integrable representations of $A $ is weakly admissible
 	or, in particular, if it has a weak $C^*$-hull.
 \end{proposition}
+\chapter{Groupoids and $C^*$-algebras}
+\begin{section}{Preliminaries}
+	\begin{subsection}{$C_0(X)$-algebras}
+		Groupoids must act on fibred objects, so to construct an appropriate notion of a groupoid dynamical system we need to have fibred $C^*$-algebras.  To that end, given a locally compact Hausdorff space $X$, a \emph{$C_0(X)$-algebra} is a $C^*$-algebra $A$ together with a nondegenerate homomorphism of $C_0(X)$ into $Z(M(A))$. $C_0(X)$-algebras are well studied objects in their own right, but for our needs it is enough to know that they have an associated fibred structure.  Specifically, if $C_{0,x}(X)$ is the set of functions in $C_0(X)$ vanishing at $x\in X$, then $I_x:=\overline{C_{0,x}(X)\cdot A}$ is an ideal in $A$ and $A(x):=A/I_x$ is called the fibre of $A$ over $x$.  The image of $a$ in $A(x)$ is denoted by $a(x)$, and the set $\{A(x):x\in X\}$ gives rise to an \emph{upper semicontinuous $C^*$-bundle} $\A$ over $X$ \cite[Theorem C.26]{TFB2}. 
+		
+		\begin{defn}Let $X$ be a locally compact Hausdorff space, an {\emph{upper semicontinuous $C^*$-bundle}} over $X$ is a topological space $\A$ together with a continuous open surjection $p=p_{\A}:\A\rightarrow X$ such that  each fibre $A(x):=p\inv(\{x\})$ \index{$A(x)$} is a $C^*$-algebra and $\A$ satisfies the following axioms:
+			\begin{enumerate}
+				\item[B1] The map $a\mapsto \|a\|$ is upper semicontinuous from $\A$ to $\R^+$  (That is, for all $\epsilon>0$, $\{a\in \A: \|a\|<\epsilon\}$ is open),
+				\item[B2] The maps $(a,b)\mapsto a+b$ and $(a,b)\mapsto ab$ are continuous from $\A*\A$ to $\A$,
+				\item[B3] For each $k\in\C$, the maps $a\mapsto ka$ and $a\mapsto a^*$ are continuous from $\A$ to $\A$, and 
+				\item[B4] If $\{a_i\}$ is a net in $\A$ such that $p(a_i)\rightarrow x$ and $\|a_i\|\rightarrow 0$, then $a_i\rightarrow 0_x$ (where $0_x$ is the zero element of $A(x)$).
+			\end{enumerate}
+			\label{defn usccb}\end{defn}
+		
+		The point is if we let $A=\Ga_0\left(\sX, \A\right)$ be the $C^*$-algebra of continuous sections of $\A$ vanishing at infinity then $A$ is a $C_0(X)$-algebra.  Throughout this paper we will denote bundles by script letters $\A$ and the corresponding section algebras by the corresponding Roman letter $A$.  For a more detailed discussion of $C_0(X)$-algebras the reader is encouraged to see \cite[Appendix C]{TFB2}.  
+	\end{subsection}
+	\begin{subsection}{The Reduced Crossed Product}\label{sec red cross}
+		\begin{defn}\label{def dyn sys}Suppose that $G$ is a second countable locally compact groupoid with Haar system $\haars$ and $\A$ is an upper semicontinuous $C^*$-bundle over $\units$. Suppose  the associated $C_0(X)$-algebra, $A=\Ga_0\left(G^0, \A\right)$ is separable. An action $\alpha$ of $G$ on $A$ is a family of $*$-isomorphisms $\{\alpha_{\gamma}\}_{\gamma\in G}$ such that 
+			\begin{enumerate}
+				\item\label{dyn sys rs} for each $\gamma\in G$, $\alpha_{\gamma}:A(s(\gamma))\rightarrow A(r(\gamma))$,
+				\item\label{dyn sys alg}for all $(\gamma,\eta)\in G^{(2)}$, $\alpha_{\gamma\eta}=\alpha_{\gamma}\circ\alpha_{\eta}$,
+				\item\label{dyn sys cts}the map $(\gamma, a)\mapsto \alpha_{\gamma}(a)$ is a continuous map from $G*\A$ to $\A$.
+			\end{enumerate}
+			The triple $(\A,G,\alpha)$ is called a (groupoid) dynamical system.\end{defn}
+		
+		The point is that given a dynamical system, we can construct a convolution algebra which we then complete to obtain the reduced crossed product.  The remainder of this section is devoted to a sketch of this construction.  First we need the following definition.
+		\begin{defn}Let $(\A, G,\alpha)$ be a groupoid dynamical system, we define the pullback bundle of $\A$ to be
+			\begin{equation}\label{r*A}r^*\A:=\{(\gamma,a):r(\gamma)=p_{\A}(a)\}.\end{equation}\end{defn}
+		
+		\begin{prop}[{\cite[Proposition 4.4]{MW08}}]Let $G$ be a groupoid with Haar system $\haars$, if we define $\Gamma_c(G,r^*\A)$ to be the set of continuous compactly supported sections of $r^*\A$, then  $\Gamma_c(G,r^*\A)$ is a $*$-algebra with respect to the operations
+			\begin{equation*}f*g(\gamma):=\int_Gf(\eta)\alpha_{\eta}\left(g(\eta\inv\gamma)\right)d\haarv{}{r(\gamma)}(\eta) \text{~and~}f^*(\gamma)=\alpha_{\gamma}\left(f(\gamma\inv)^*\right).\end{equation*}\label{eq conv struc}\end{prop}
+		
+		The goal is to complete this convolution algebra in the norm induced by regular representations. Since we use regular representations extensively in the sequel we will sketch their construction here.  To continue we need the notion of a Borel Hilbert bundle.  For our purposes a Borel Hilbert bundle $X*\mathfrak{H}$ over $X$ is bundle of Hilbert spaces $X*\mathfrak{H}=\{\mathcal{H}(x)\}_{x\in X}$ along with a Borel structure satisfying some technical conditions (see \cite[Definition F.1]{TFB2}). Given a measure $\mu$ on $X$ we can form the Hilbert space $L^2(X*\mathfrak{H}, \mu)$ in the obvious way.  This Hilbert space is just the direct integral $\int_X^{\oplus}\mathcal{H}(x)d\mu(x)$ and gives us the notion of a fibred Hilbert space that we need for groupoid representations. 
+		
+		Suppose $\pi$ is a (separable) $C_0(\units)$-linear representation of $A$ on $\mathcal{H}_{\pi}$.  Then by \cite[Proposition F.26]{TFB2} there exists a Borel Hilbert bundle $\units*\mathfrak{H}$, a measure $\mu_{\pi}=\mu$ on $\units$ (note: $\mu$ need not be quasi invariant) and a Borel family of representations $\{\pi_u\}_{u\in\units}$ of $A$ on $\mathcal{H}(u)$ such that $\pi$ is unitarily equivalent to the representation 
+		\begin{equation}\rho=\int_{\units}^{\oplus}\pi_u d\mu(u) \quad\text{given by}\quad\rho(a)h(u)=\pi_u(a)h(u).  \label{eq dir int}\end{equation}
+		It is not hard to see from the proof of \cite[Proposition F.26]{TFB2} that $I_u\subset\ker(\pi_u)$ $\mu$-almost everywhere so that $\pi_u$ descends to a well defined representation on $A(u)$.
+		Therefore
+		\begin{equation}\pi_u(a)h(u)=\pi_u(a(u))h(u) \quad\mu\text{-almost everywhere}.\label{eq piu well def}\end{equation}
+		We can then form the pull-back Hilbert bundle $s^*(\units*\mathfrak{H})=:G*_s\mathfrak{H}$ and  define the measure $\nu\inv=\int_{\units}\haarv{u}{}d\mu$ to form a new Hilbert space $L^2(G*_s\mathfrak{H},\nu\inv)$.  Note that functions $h\in L^2(G*_s\mathfrak{H},\nu\inv)$ have the property that $h(\gamma)\in \mathcal{H}(s(\gamma))$.  So that, 
+		\begin{equation}\label{eq def indpi}\Ind{}{}\pi(f)h(\gamma)=\int_G \pi_{s(\gamma)}\left(\alpha_{\gamma}\inv(f(\eta))\right)h(\eta\inv\gamma)\haarv{}{r(\gamma)}(\eta)\end{equation}
+		defines a representation of  $\Gamma_c(G, r^*\A)$ induced by $\pi$  on $L^2(G*_s\mathfrak{H},\nu\inv)$.
+		We call these representations \emph{regular} and define the reduced norm on $\Gamma_c(G,r^*\A)$ to be 
+		\begin{equation}\|f\|_r:=\sup\{\|\Ind\pi(f)\|:
+			\pi \text{~is a $C_0(\units)$-linear representation of $A$}\}.\label{eq red norm}\end{equation}
+		
+		\begin{rem}This definition agrees with those given in \cite{Mcoord} and \cite{Ren80}, but is \emph{a priori} different from that given in \cite{AR00}.  We suspect that all of these definitions agree, but have yet to prove it.  But the set of regular representations used in \cite{AR00} is the subset of the regular representations defined above such that $\mu_{\pi}$ is a point mass measure. Thus $\|\cdot\|_r$ is greater than or equal to the norm $\|\cdot\|_{\text{red}}$ considered in \cite{AR00} which is enough for our purposes.\end{rem}
+		
+		As usual we can  define the reduced crossed product of a dynamical system $(\A,G, \alpha)$, denoted $\A\rtimes_{\alpha,r}G$, to be the completion of $\Gamma_c(G,r^*\A)$ in the norm $\|\cdot\|_r$.
+		
+		In this paper we will also use the $I$-norm on $\Gamma_c(G,r^*\A)$ given by 
+		$$\|f\|_I:=\max\left\{\sup\left\{\int\|f\|d\lambda_u\right\},\sup\left\{\int\|f\|d\lambda^u\right\}\right\}.$$
+		We denote the completion of $\Gamma_c(G,r^*\A)$ in this norm by $L^I(G,r^*\A)$.
+	\end{subsection}
+\end{section}
+
 
 
 \chapter{Miscellany}
