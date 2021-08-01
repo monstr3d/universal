@@ -13785,7 +13785,7 @@ where $\sX$ is the spectrum of $A$ and $f_\eps$ is given by the equation \eqref{
 	\begin{itemize}
 		\item [(a)]  If $f_\eps$ is given by \eqref{f_eps_eqn} then for any  $\eps \ge 0$, $\la \in \La$  there is a convergent with respect to the strong topology (cf. Definition \ref{strong_topology_defn}) of $B\left(\H_a\right)$ series 
 		$$
-		\overline a^\eps_\la  =	\sum_{g\in \ker\left( \widehat G\to  G\left(\left.\sX_\la~\right|~\sX \right)\right) }~~ \left( g f_\eps\left(\overline a \right) \right) \left(\overline x \right)
+		\overline a^\eps_\la  =	\sum_{g\in \ker\left( \widehat G\to  G\left(\left.\sX_\la~\right|~\sX \right)\right) }~~ \left( g f_\eps\left(\overline a \right) \right) 
 		$$
 		such that $\overline a^\eps_\la  \in  \lift_{\overline p_\la} \left(A_0\left(\sX_\la \right)  \right)$ where $ \overline p_\la: \overline \sX \to \sX_\la$ is the natural covering and  $\lift_{\overline p_\la}$ is given by the equation \eqref{comm_lift_d_eqn}.
 		\item[(b)] Denote by $a_\la \stackrel{\mathrm{def}}{=} a^{\eps = 0}_\la$.  For all $\delta > 0$ there is $\la_0 \in \La$ such that if $\la > \la_0$ and
@@ -13807,20 +13807,21 @@ where $\sX$ is the spectrum of $A$ and $f_\eps$ is given by the equation \eqref{
 	Suppose that $\mathcal X$ is a  locally compact, locally connected, Hausdorff space.
 Let $\overline a \in D^*\left(\overline\sX \right)_+$ be a positive operator such that  following conditions hold:
 \begin{enumerate}
-	\item[(a)] If $f_\eps$ is given by \eqref{f_eps_eqn} and  $\eps > 0$ and $\la \in \La$  then there are   convergent with respect to the strong topology (cf. Definition \ref{strong_topology_defn}) of $B\left(\H_a\right)$ series 
+	\item[(a)] If $f_\eps$ is given by \eqref{f_eps_eqn} and  $\eps > 0$, $\la_0 \in \La$ and $z \in A_0\left( \sX_{\la_0}\right) $  then there are   convergent with respect to the strong topology (cf. Definition \ref{strong_topology_defn}) of $B\left(\H_a\right)$ series 
 	\be\label{ctr_special_set1_eqn}
 	\begin{split}
-		\overline a_\la =	\sum_{g\in \ker\left( \widehat G\to  G\left(\left.\sX_\la~\right|~\sX \right)\right) }~~  g  \overline a ,\\
-		\overline a^\eps_\la  =	\sum_{g\in \ker\left( \widehat G\to  G\left(\left.\sX_\la~\right|~\sX \right)\right) }~~  g f_\eps\left(\overline a \right),\\
-		\overline b_\la  =	\sum_{g\in \ker\left( \widehat G\to  G\left(\left.\sX_\la~\right|~\sX \right)\right) }~~  g  \overline a^2.
+		\overline a_\la =	\sum_{g\in G_\la }~~  g   \overline a  ,\\
+		\overline a^\eps_\la  =	\sum_{g\in G_\la }~~  g f_\eps\left( \overline a \right),\\
+		\overline b_\la  =	\sum_{g\in G_\la }~~  g   \overline a^2 .
 	\end{split}
 	\ee
+	where $G_\la \bydef \ker\left( \widehat G\to  G\left(\left.\sX_\la~\right|~\sX \right)\right) $.
 	Moreover there are $a_\la,  a^\eps_\la, b_\la\in A_0\left(\sX_\la \right) $ are such that
 	\be\label{ctr_special_set2_eqn}
 	\begin{split}
 		\overline a_\la = \lift_{\overline p_\la}\left( a_\la  \right)  ,\\
 		\overline a^\eps_\la = \lift_{\overline p_\la}\left( a^\eps  \right),\\
-		\overline h_\la = \lift_{\overline p_\la}\left( b_\la  \right).
+		\overline b_\la = \lift_{\overline p_\la}\left( b_\la  \right).
 	\end{split}
 	\ee
 	where $ \overline p_\la: \overline \sX \to \sX_\la$ is the natural covering and  $\lift_{\overline p_\la}$ is given by the equation \eqref{comm_lift_d_eqn}.
@@ -13829,11 +13830,11 @@ Let $\overline a \in D^*\left(\overline\sX \right)_+$ be a positive operator suc
 	\forall \la  \in \La \quad	 \la \ge \mu  \Rightarrow  \left\|a_\la^2 - b_\la\right\| < \eps.
 	\ee
 \end{enumerate}
-Then for all $\delta > 0$ there is $N \in \N$ and $\la_\delta \in \La$ such that for all $x_\la \in \sX_\la$ the set
-$$
-\left\{\overline x \in \overline p_\la \left(x_\la\right) \left|\left\|\rep_{  \overline{x }}\left( \overline a\right)  \right\|> \delta   \right.\right\}
-$$
-contains no more than $N$ elements.
+Then for all $\delta > 0$ there is $N_\delta \in \N$ and $\la_\delta \in \La$ such that for all $x_\la \in \sX_\la$ the set
+\be\label{ctr_xd_eqn}
+\sX_\delta \bydef \left\{\overline x \in \overline p^{-1}_\la \left(x_\la\right) \left|\left\|\rep_{  \overline{x }}\left( \overline a\right)  \right\|> \delta   \right.\right\}
+\ee
+contains no more than $N_\delta$ elements.
 \end{lemma}
 \begin{proof}
 If $a \in A$ is such that
@@ -13859,7 +13860,14 @@ From the equation \eqref{ctr_special_set_eqn} there is $\la_0 \in \La$ such that
 $$
 \forall\la\in \La \quad \la \ge \la_0 \quad \left\|a_\la^2 - b_\la\right\|< \frac{\delta^2}{2N_\delta}
 $$
-Let $x_{\la_0}\in \sX_{\la_0}$ be a point and let $\rep_{x_{\la_0}}: A_0\left( \sX_{\la_0}\right) \to B\left(\H_{\la_0} \right)$ be the corresponding to $x_{\la_0}$ irreducible representation. If $V_{\la_0}\bydef \rep_{x_{\la_0}}\left( a^\delta_{\la_0}\right)\H_{\la_0}$ then $\dim V \le N_\delta$. There is an orthogonal basis $\left\{\xi_1, ...\xi_n \right\}\subset V$ of $V$. and corresponding !!!
+Let $x_{\la_0}\in \sX_{\la_0}$ be a point and let $\rep_{x_{\la_0}}: A_0\left( \sX_{\la_0}\right) \to B\left(\H_{\la_0} \right)$ be the corresponding to $x_{\la_0}$ irreducible representation. If $V_{\la_0}\bydef \rep_{x_{\la_0}}\left( a^\delta_{\la_0}\right)\H_{\la_0}$ then $\dim V \le N_\delta$. There are an orthogonal basis $\left\{\xi_1, ...\xi_n \right\}\subset V$ of $V$ and a set of corresponding rank-one projectors $\left\{p_1, ...p_n \right\}\subset B\left(\H_{\la_0} \right)$. There is a set $\left\{z_1,..., z_n\right\}\in A_0\left(\sX_{\la_0} \right)$ such that $\rep_{x_{\la_0}}\left( z_j\right) = p_j$ and $\left\| z_j\right\|= 1$  for each $j = 1,...,n$. For all $j = 1,...,n$ one has
+\bean
+\overline a z_jz^*_j \overline a=  \le \overline a^2
+\eean
+Moreover 
+\bean
+\rep_{x_{\la_0}}\left( z^*_j\overline a_\la z_j\right)= p_j \rep_{x_{\la_0}}\left(\sum_{g\in G_\la }~~  g   \overline a\right)p_j!!!
+\eean 
 \end{proof}
 
 \begin{thm}\label{ctr_main_f_thm}!!!
