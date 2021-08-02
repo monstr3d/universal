@@ -13805,14 +13805,14 @@ where $\sX$ is the spectrum of $A$ and $f_\eps$ is given by the equation \eqref{
 \end{proof}
 \begin{lemma}\label{ctr_main_a_lem}
 	Suppose that $\mathcal X$ is a  locally compact, locally connected, Hausdorff space.
-Let $\overline a \in D^*\left(\overline\sX \right)_+$ be a positive operator such that  following conditions hold:
+Let $\overline a \in D\left(\overline\sX \right)_+$ be a positive operator such that  following conditions hold:
 \begin{enumerate}
-	\item[(a)] If $f_\eps$ is given by \eqref{f_eps_eqn} and  $\eps > 0$, $\la_0 \in \La$ and $z \in A_0\left( \sX_{\la_0}\right) $  then there are   convergent with respect to the strong topology (cf. Definition \ref{strong_topology_defn}) of $B\left(\H_a\right)$ series 
+	\item[(a)] If $f_\eps$ is given by \eqref{f_eps_eqn} and  $\eps > 0$, $\la_0 \in \La$ and $z \in A $  then there are   convergent with respect to the strong topology (cf. Definition \ref{strong_topology_defn}) of $B\left(\H_a\right)$ series 
 	\be\label{ctr_special_set1_eqn}
 	\begin{split}
-		\overline a_\la =	\sum_{g\in G_\la }~~  g   \overline a  ,\\
-		\overline a^\eps_\la  =	\sum_{g\in G_\la }~~  g f_\eps\left( \overline a \right),\\
-		\overline b_\la  =	\sum_{g\in G_\la }~~  g   \overline a^2 .
+		\overline a_\la =	\sum_{g\in G_\la }~~  g   \left( z^*\overline a z\right)  ,\\
+		\overline a^\eps_\la  =	\sum_{g\in G_\la }~~  g f_\eps\left( z^*\overline a z \right),\\
+		\overline b_\la  =	\sum_{g\in G_\la }~~  g   \left( z^*\overline a z\right)^2 
 	\end{split}
 	\ee
 	where $G_\la \bydef \ker\left( \widehat G\to  G\left(\left.\sX_\la~\right|~\sX \right)\right) $.
@@ -13825,16 +13825,16 @@ Let $\overline a \in D^*\left(\overline\sX \right)_+$ be a positive operator suc
 	\end{split}
 	\ee
 	where $ \overline p_\la: \overline \sX \to \sX_\la$ is the natural covering and  $\lift_{\overline p_\la}$ is given by the equation \eqref{comm_lift_d_eqn}.
-	\item[(b)] For all $\eps > 0$ there is $\mu \in \La$ such that $\mu \ge \la_0$ and
+	\item[(b)] For all $\eps > 0$ there is $\la_0 \in \La$ such that $\mu \ge \la_0$ and
 	\be\label{ctr_special_set_eqn}
-	\forall \la  \in \La \quad	 \la \ge \mu  \Rightarrow  \left\|a_\la^2 - b_\la\right\| < \eps.
+	\forall \la  \in \La \quad	 \la \ge \la_0  \Rightarrow  \left\|a_\la^2 - b_\la\right\| < \eps.
 	\ee
 \end{enumerate}
-Then for all $\delta > 0$ there is $N_\delta \in \N$ and $\la_\delta \in \La$ such that for all $x_\la \in \sX_\la$ the set
+Then for all $\delta > 0$ there is $N_\delta \in \N$ and $\la_\delta \in \La$ such that for all $x_{\la_\delta} \in \sX_{\la_\delta}$ the set
 \be\label{ctr_xd_eqn}
-\sX_\delta \bydef \left\{\overline x \in \overline p^{-1}_\la \left(x_\la\right) \left|\left\|\rep_{  \overline{x }}\left( \overline a\right)  \right\|> \delta   \right.\right\}
+\overline\sX_\delta \bydef \left\{\left.\overline x \in \overline p^{-1}_{\la_\delta} \left(x_{\la_\delta}\right) \right|\left\|\rep_{  \overline{x }}\left( \overline a\right)  \right\|> \delta  \right\}\subset \overline\sX
 \ee
-contains no more than $N_\delta$ elements.
+contains no more than $N_\delta$ elements. In the above equation $\overline p_{\la_\delta}: \overline\sX\to \sX_{\la_\delta}$ means the natural covering. 
 \end{lemma}
 \begin{proof}
 If $a \in A$ is such that
@@ -13856,100 +13856,74 @@ and taking into account \eqref{ctr_special_set2_eqn} one concludes that
 $$
 \forall\la\in\La\quad \forall x_\la \in \sX_\la\quad \rank \rep_{x}\left(a^\delta_\la \right) \le N_\delta.
 $$
-From the equation \eqref{ctr_special_set_eqn} there is $\la_0 \in \La$ such that
-$$
-\forall\la\in \La \quad \la \ge \la_0 \quad \left\|a_\la^2 - b_\la\right\|< \frac{\delta^2}{2N_\delta}
-$$
-Let $x_{\la_0}\in \sX_{\la_0}$ be a point and let $\rep_{x_{\la_0}}: A_0\left( \sX_{\la_0}\right) \to B\left(\H_{\la_0} \right)$ be the corresponding to $x_{\la_0}$ irreducible representation. If $V_{\la_0}\bydef \rep_{x_{\la_0}}\left( a^\delta_{\la_0}\right)\H_{\la_0}$ then $\dim V \le N_\delta$. There are an orthogonal basis $\left\{\xi_1, ...\xi_n \right\}\subset V$ of $V$ and a set of corresponding rank-one projectors $\left\{p_1, ...p_n \right\}\subset B\left(\H_{\la_0} \right)$. There is a set $\left\{z_1,..., z_n\right\}\in A_0\left(\sX_{\la_0} \right)$ such that $\rep_{x_{\la_0}}\left( z_j\right) = p_j$ and $\left\| z_j\right\|= 1$  for each $j = 1,...,n$. For all $j = 1,...,n$ one has
-\bean
-\overline a z_jz^*_j \overline a=  \le \overline a^2
+Let us select $x\in \sX$.
+If $V\bydef \rep_{x}\left( a\right)\H_{\la_{\text{min}}}$ then $\dim V \le N_\delta$. There are an orthogonal basis $\left\{\xi_1, ...\xi_n \right\}\subset V$ of $V$ and a set of corresponding rank-one projectors 
+$\left\{p_1, ...p_n \right\}\subset B\left(\H_{\la_{\text{min}}} \right)$. 
+There is a set $\left\{z_1,..., z_n\right\}\in A $ such that $\rep_{x}\left( z_j\right) = p_j$
+For any $j = 1,..., n$ denote by 
+	\bean
+\begin{split}
+	\overline a_\la\left( j\right)  \bydef \lift_{\overline p_\la}\left( a_\la \left( j\right) \right)   \bydef	\sum_{g\in G_\la }~~  g  \left(  z_j^*\overline a z_j\right) ,\\
+	\overline a^\eps_\la\left( j\right)  \bydef \lift_{\overline p_\la}\left( a^\eps_\la \left( j\right) \right)   \bydef	\sum_{g\in G_\la }~~  g f_\eps\left(   z_j^*\overline a z_j \right),\\
+		\overline b_\la\left( j\right)  \bydef \lift_{\overline p_\la}\left( b_\la \left( j\right) \right)   \bydef  =	\sum_{g\in G_\la }~~  g   \left(   z_j^*\overline a z_j\right)^2 
+\end{split}
 \eean
-Moreover 
+From the equation \eqref{ctr_special_set_eqn} for all $j=1,...n$ there is $\la_0 \in \La$ such that
+\be\label{ctr_d2_n2_eqn}
+\forall\la\in \La \quad \la \ge \la_j \quad \left\|a_\la^2\left( j\right) - b_\la\left( j\right)\right\|< \frac{2\delta^2}{2N}.
+\ee
+Let $\la_0 \in \La$ be such that $\la_0\ge\la_j$ for all $j=1,...n$ and $x_{\la_0}\in \sX_{\la_0}$ be such that $p_{\la_0}\left(x_{\la_0} \right)= x$.  Suppose that the set 
+$$
+\overline\sX_{x_{\la_0}} \bydef \left\{\left.\overline x \in \overline p^{-1}_{\la_0} \left(x_{\la_0}\right) \right|\left\|\rep_{  \overline{x }}\left( \overline a\right)  \right\|> \delta  \right\} 
+$$
+contains more than $N_\delta$ elements.
+Below  for any $\la, \mu, \nu$ we implicitly use the following isomorphisms
 \bean
-\rep_{x_{\la_0}}\left( z^*_j\overline a_\la z_j\right)= p_j \rep_{x_{\la_0}}\left(\sum_{g\in G_\la }~~  g   \overline a\right)p_j!!!
+B\left( \H_{\overline x }\right) \cong B\left( \H_{\overline p_{\la}\left(\overline x \right)} \right),\\
+\mu > \nu\quad x_\mu \in \sX_\mu \quad\Rightarrow\quad B\left( \H_{x_\mu }\right) \cong B\left( \H_{ p^\mu_{\nu}\left(x_\mu \right)}\right) 
 \eean 
+One has 
+\bean
+\rep_{x_{\la_0}}\left( a_\la\left(j \right) \right) = \sum_{\overline x \in \overline\sX'_{x_{\la_0}}} p_j \rep_{\overline x}\left(\overline  a\right)p_j+\sum_{\overline x \in \overline p^{-1}_{\la_0} \left(x_{\la_0}\right)\setminus  \overline\sX'_{x_{\la_0}}} p_j \rep_{\overline x}\left(\overline  a\right)p_j\\
+\rep_{x_{\la_0}}\left( b_\la\left(j \right) \right) = \sum_{\overline x \in \overline\sX'_{x_{\la_0}}} \left( p_j \rep_{\overline x}\left(\overline  a\right)p_j\right)^2 +\sum_{\overline x \in \overline p^{-1}_{\la_0} \left(x_{\la_0}\right)\setminus  \overline\sX'_{x_{\la_0}}} \left( p_j \rep_{\overline x}\left(\overline  a\right)p_j\right)^2,\\ 
+\rep_{x_{\la_0}}\left( a^2_\la\left(j \right) \right) = \rep_{x_{\la_0}}\left(b_\la\left(j \right) \right)+\sum_{\substack{\overline x', \overline x'' \in \overline p^{-1}_{\la_0} \left(x_{\la_0}\right)\\\overline x'\neq \overline x''}} p_j \rep_{\overline x'}\left(\overline  a\right)p_j\rep_{\overline x''}\left(\overline  a\right)p_j.
+\eean 
+Right parts of the above equation are collinear positive rank-one operators it follows that
+\be\label{ctr_a_j_l_eqn}
+\begin{split}
+\left\| a^2_{\la_0}\left(j \right)- b_{\la_0}\left(j \right) \right\| \ge \left\| \rep_{x_{\la_0}}\left( a^2_{\la_0}\left(j \right) \right)-\rep_{x_{\la_0}}\left( b_{\la_0}\left(j \right) \right) \right\|=\\ =\sum_{\substack{\overline x', \overline x'' \in \overline p^{-1}_{\la_0} \left(x_{\la_0}\right)\\\overline x'\neq \overline x''}}
+\tr\left(  p_j \rep_{\overline x'}\left(\overline  a\right)p_j\rep_{\overline x''}\left(\overline  a\right)p_j\right) = \\=\sum_{\substack{\overline x', \overline x'' \in \overline p^{-1}_{\la_0} \left(x_{\la_0}\right)\\\overline x'\neq \overline x''}}
+2\left(  p_j \rep_{\overline x'}\left(\overline  a\right)p_j\right) \tr\left(p_j \rep_{\overline x''}\left(\overline  a\right)p_j\right)\ge \\
+\ge\sum_{\substack{\overline x', \overline x'' \in \overline\sX'_{x_{\la_0}}\\\overline x'\neq \overline x''}}
+2\tr\left(  p_j \rep_{\overline x'}\left(\overline  a\right)p_j\right) \tr\left(p_j \rep_{\overline x''}\left(\overline  a\right)p_j\right).
+\end{split}
+\ee
+On the other hand since the $\dim V \le N_\delta$ and $~\overline  a\in \End_\C\left(V \right)$  one has
+$$
+\forall \overline x \in \overline\sX'_{x_{\la_0}}\quad \exists j \in \left\{1, ..., n\right\}\quad \tr\left(p_j \rep_{\overline x}\left(\overline  a\right)p_j\right)\ge \frac{\left\| \overline a \right\|}{\sqrt{N_\delta}}\ge \frac{\delta}{\sqrt{N_\delta}}.
+$$ 
+On the other hand since the number of elements of $\overline\sX'_{x_{\la_0}}$ exceeds $n$ there are $\overline x', \overline x'' \in \overline\sX'_{x_{\la_0}}$ such that 
+\bean
+\overline x'\neq \overline x'', \\
+\tr\left(p_j \rep_{\overline x'}\left(\overline  a\right)p_j\right)\ge  \frac{\delta}{\sqrt{N_\delta}},\\  \tr\left(p_j \rep_{\overline x''}\left(\overline  a\right)p_j\right)\ge  \frac{\delta}{\sqrt{N_\delta}},\\
+\tr\left(p_j \rep_{\overline x'}\left(\overline  a\right)p_j\right)\tr\left(p_j \rep_{\overline x''}\left(\overline  a\right)p_j\right)\ge  \frac{\delta^2}{{N_\delta}}
+\eean
+Comparison of the above equation with \eqref{ctr_a_j_l_eqn} yields the following 
+$$
+\left\| a^2_{\la_0}\left(j \right)- b_{\la_0}\left(j \right) \right\| \ge \frac{\delta^2}{{N_\delta}}
+$$
+On the other hand the above equation contradicts with
+ \eqref{ctr_d2_n2_eqn}. The contradiction proves this lemma.
+
+
+
 \end{proof}
 
-\begin{thm}\label{ctr_main_f_thm}!!!
-	Suppose that $\mathcal X$ is a  locally compact, locally connected, Hausdorff space.
-	Let $\overline f \in D^*\left(\overline\sX \right)_+$ be a positive bounded discontinuous function such that  following conditions hold:
-	\begin{enumerate}
-		\item[(a)] If $f_\eps$ is given by \eqref{f_eps_eqn} and  $\eps > 0$, $\la \in \La$ and $\overline x \in \overline\sX$ then there are a pont-wise convergent  series 
-		\be\label{comm_special_set1_eqn}
-		\begin{split}
-			\overline f_\la =	\sum_{g\in \ker\left( \widehat G\to  G\left(\left.\sX_\la~\right|~\sX \right)\right) }~~  g  \overline f ,\\
-			\overline f^\eps_\la  =	\sum_{g\in \ker\left( \widehat G\to  G\left(\left.\sX_\la~\right|~\sX \right)\right) }~~  g f_\eps\left(\overline f \right),\\
-			\overline h_\la  =	\sum_{g\in \ker\left( \widehat G\to  G\left(\left.\sX_\la~\right|~\sX \right)\right) }~~  g  \overline f^2.
-		\end{split}
-		\ee
-		Moreover there are $f_\la,  f^\eps_\la, h_\la\in C_0\left(\sX_\la \right) $ are such that for all $\overline x \in \overline\sX$ one has 
-		\be\label{comm_special_set2_eqn}
-		\begin{split}
-			\overline f_\la = \lift_{\overline p_\la}\left( f_\la  \right)  ,\\
-			\overline f^\eps_\la = \lift_{\overline p_\la}\left( f^\eps  \right),\\
-			\overline b_\la = \lift_{\overline p_\la}\left( h_\la  \right)
-		\end{split}
-		\ee
-	where $ \overline p_\la: \overline \sX \to \sX_\la$ is the natural covering and  $\lift_{\overline p_\la}$ is given by the equation \eqref{top_lift_eqn}.	
-		\item[(b)] For all $\eps > 0$ there is $\mu \in \La$ such that $\mu \ge \la_0$ and
-		\be\label{comm_special_set_eqn}
-		\forall \la  \in \La \quad	 \la \ge \mu  \Rightarrow  \left\|f_\la^2 - h_\la\right\| < \eps.
-		\ee
-	\end{enumerate}
-	Then one has $\overline f \in C_0\left(\overline \sX\right)$.
+\begin{thm}\label{ctr_main_f_thm}If the situation of the Lemma \ref{ctr_main_a_lem} one has
+$\overline a \in A_0\left(\overline \sX\right)$.
 \end{thm}
-
 \begin{proof}
-	Let $\eps > 0$ be given, and let $\mu \in \La$ be such that for any $\la\ge \mu \ge \la_0$ a following condition holds
-	\begin{equation}\label{comm_delta_eqn}
-		\begin{split}
-			\la\ge \mu \ge \la_0 \quad\Rightarrow\quad \left\|f_\la^2 - h_\la\right\|  < 2\eps^2.
-		\end{split}
-	\end{equation}	
-	For all  $\la> \mu$ denote by  $p_\la\bydef  p^\la_{\mu}: \mathcal X_\la \to\mathcal X_{\mu}$.
-	Let $\widetilde{x}_1, \widetilde{x}_2 \in \mathcal X_{\la}$  be such that
-	\begin{equation}\label{comm_neq_eqn}
-		\begin{split}
-			\widetilde{x}_1\neq \widetilde{x}_2,\\
-			p_\la\left( \widetilde{x}_1\right) = p_\la\left( \widetilde{x}_2\right)=x,\\
-			f_\la\left( \widetilde{x}_1\right) \ge  \eps; \quad f_\la\left( \widetilde{x}_2\right) \ge \eps.
-		\end{split}
-	\end{equation}
-	From  the equations \eqref{comm_special_set1_eqn}, \eqref{comm_special_set2_eqn} it turns out that
-	\begin{equation}\label{comm_mu_la_eqn}
-		\begin{split}
-			f_{\mu}\left(x \right)  = \sum_{\widetilde{x} \in  p_\la^{-1}\left( x\right)  } f_{\la}\left( \widetilde{x}\right),\\
-			h_{\mu}\left(x \right)  = \sum_{\widetilde{x} \in  p_\la ^{-1}\left( x\right)  } h_{\la}\left( \widetilde{x}\right),\\
-			f_{\la}\left(\widetilde x \right)  = \sum_{\overline{x} \in  \overline p_\la^{-1}\left( \widetilde x\right)  } \overline f_{\la}\left( \overline{x}\right),\\
-			h_{\la}\left(\widetilde x \right)  = \sum_{\overline{x} \in \overline p_\la^{-1}\left(\widetilde x\right)  } \overline f^2\left( \overline{x}\right)
-		\end{split}
-	\end{equation}
-	for all $x \in \sX_\mu$ and $\widetilde x \in \sX_\la$.
-	From the above equation  it turns out that
-	\begin{equation*}
-		\begin{split}
-			f^2_{\la}\left(\widetilde x \right)= \sum_{\overline{x} \in \overline p_\la^{-1}\left( \widetilde x\right)  } \overline f^2\left( \overline{x}\right)
-			+ \sum_{\substack{\left(\overline{x}', \overline{x}'' \right)\in\overline p_\la^{-1}\left(\widetilde x \right)\times\overline p_\la^{-1}\left(\widetilde x \right)\\\overline{x}' \neq \overline{x}'' }}~ \overline f\left(\overline{x}' \right) \overline f\left(\overline{x}'' \right)\ge\\\ge \sum_{\overline{x} \in  \overline p_\la^{-1}\left( \widetilde x\right)  } \overline f^2_{\la}\left( \overline{x}\right)= h_{\la}\left(\widetilde x \right).
-			\\
-			f_{\mu}^2\left(x \right)= \sum_{\widetilde{x} \in p_\la^{-1}\left( x\right)} f_\la^2\left( \widetilde{x}\right) + \sum_{\substack{\left(\widetilde{x}', \widetilde{x}'' \right)\in p_\la^{-1}\left(x \right)\times p_\la^{-1}\left(x \right)\\\widetilde{x}' \neq \widetilde{x}'' }}~ f_\la\left(\widetilde{x}' \right) f_\la\left(\widetilde{x}'' \right)\ge\\
-			\ge
-			\sum_{\widetilde{x} \in p_\la^{-1}\left( x\right)} f_\la^2\left( \widetilde{x}\right) + f_\la\left( \widetilde{x}_1\right) f_\la\left( \widetilde{x}_2\right)+f_\la\left( \widetilde{x}_2\right) f_\la\left( \widetilde{x}_1\right)\ge\\\ge \sum_{\widetilde{x} \in p_\la^{-1}\left( x\right)} h_\la\left( \widetilde{x}\right) + 2  f_\la\left( \widetilde{x}_1\right) f_\la\left( \widetilde{x}_2\right)\ge   h_\mu\left( {x}\right) + 2\eps^2, 
-		\end{split}
-	\end{equation*}
-	hence one has 
-	$$
-	\left\|f_\mu^2 - h_\mu\right\|  \ge 2\eps^2.
-	$$
-	However the above equation 	contradicts with 
-	\eqref{comm_delta_eqn}, so the situation \eqref{comm_neq_eqn} is impossible. 
-	It follows that for all $\la > \mu$ one has
-	\begin{equation}\label{comm_x1_eq_x2_eqn}
-		\begin{split}
-			p_\la\left( \widetilde{x}_1\right) = p_\la\left( \widetilde{x}_2\right)=x \text{ AND }
-			f_\la\left( \widetilde{x}_1\right) \ge \eps\text{ AND }f_\la\left( \widetilde{x}_2\right) \ge \eps\Rightarrow \widetilde{x}_1 = \widetilde{x}_2.
-		\end{split}
-	\end{equation}
-	The equation \eqref{comm_x1_eq_x2_eqn} is equivalent to the condition (b) of the Lemma \ref{comm_main_lem}, so $\overline{f}$ satisfies conditions (a), (b) of the Lemma \ref{comm_main_lem}, hence one has $\overline f \in C_0\left(\overline \sX\right)$. 
+!!!
 \end{proof}
 
 \begin{theorem}\label{ctr_h_main_thm} If $A$ is a $C^*$-algebra with Hausdorff, connected, locally connected spectrum $\sX$, and   $\widetilde{p}:\left( \widetilde{\sX}, \widetilde{x}_0\right) \to \left( \sX, x_0\right)$ is a pointed transitive covering such that a covering group  $G\left(\left.\widetilde \sX \right| \sX\right)$ is residually finite (cf. Definition \ref{residually_finite_defn}) then 	following conditions hold:
