@@ -98,7 +98,7 @@ public class AAALevel : MonoBehaviour
     {
         if (saver.level == 0)
         {
-            UnityEditor.EditorUtility.DisplayDialog("Warning", "Select keys please", "OK");
+          //!!!  UnityEditor.EditorUtility.DisplayDialog("Warning", "Select keys please", "OK");
             return;
         }
         StaticExtensionUnity.StaticLevel = i;

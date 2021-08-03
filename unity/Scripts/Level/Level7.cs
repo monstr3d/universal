@@ -66,8 +66,9 @@ namespace Scripts.Level
             {
                 if (c[11].Contains("OMGz"))
                 {
-                    //                 c[11] = "Station frame.OMGz=0.04"; ///!!! OLD
-                    c[11] = "Station frame.OMGz=0.02";
+                                   c[11] = "Station frame.OMGz=0.04"; ///!!! OLD
+                    //  c[11] = "Station frame.OMGz=0.02";
+                   // c[11] = "Station frame.OMGz=0.01";
                     c[8] = "Station frame.Yaw=1.3";
                 }
             }

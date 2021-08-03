@@ -13791,8 +13791,8 @@ where $\sX$ is the spectrum of $A$ and $f_\eps$ is given by the equation \eqref{
 		\item[(b)] Denote by $a_\la \stackrel{\mathrm{def}}{=} a^{\eps = 0}_\la$.  For all $\delta > 0$ there is $\la_0 \in \La$ such that if $\la > \la_0$ and
 		\be\label{ctr_spec_h_eq_eqn}
 		\begin{split}
-			\sU_{\la_0} = \left\{ x_{\la_0} \in  \sX_{\la_0} \quad \left|\quad \left\|  \rep_{x_{\la_0}}\left( a_{\la_0}\right) \right\| \  \ge \delta\right.\right\},\\
-			\sU_{\la} = \left\{ x_{\la} \in  \sX_{\la} \quad \left|\quad\left\|  \rep_{x_{\la_0}}\left( a_{\la}\right) \right\|   \ge \delta\right.\right\}
+			\sU_{\la_0} \bydef \left\{ x_{\la_0} \in  \sX_{\la_0} \quad \left|\quad \left\|  \rep_{x_{\la_0}}\left( a_{\la_0}\right) \right\| \  \ge \delta\right.\right\},\\
+			\sU_{\la} \bydef \left\{ x_{\la} \in  \sX_{\la} \quad \left|\quad\left\|  \rep_{x_{\la_0}}\left( a_{\la}\right) \right\|   \ge \delta\right.\right\}
 		\end{split}
 		\ee
 		then	the restriction $\left.p^\la_{\la_0}\right|_{	\sU_{\la}}: \sU_{\la}\xrightarrow{\approx} \sU_{\la_0}$ is bijective.	
@@ -13820,7 +13820,7 @@ Let $\overline a \in D\left(\overline\sX \right)_+$ be a positive operator such 
 	\be\label{ctr_special_set2_eqn}
 	\begin{split}
 		\overline a_\la = \lift_{\overline p_\la}\left( a_\la  \right)  ,\\
-		\overline a^\eps_\la = \lift_{\overline p_\la}\left( a^\eps  \right),\\
+		\overline a^\eps_\la = \lift_{\overline p_\la}\left( a^\eps_\la  \right),\\
 		\overline b_\la = \lift_{\overline p_\la}\left( b_\la  \right).
 	\end{split}
 	\ee
@@ -13915,17 +13915,61 @@ $$
 On the other hand the above equation contradicts with
  \eqref{ctr_d2_n2_eqn}. The contradiction proves this lemma.
 \end{proof}
-\paragraph{title}
 
-
-\paragraph{title}
-
-\begin{thm}\label{ctr_main_f_thm}If the situation of the Lemma \ref{ctr_main_a_lem} one has
+\begin{lemma}\label{ctr_main_f_thm}If the situation of the Lemma \ref{ctr_main_a_lem} one has
 $\overline a \in A_0\left(\overline \sX\right)$.
-\end{thm}
+\end{lemma}
 \begin{proof}
-!!!
+From the Lemma \ref{ctr_main_a_lem} it follows that for any $\delta > 0$ and $x \in \sX$ the given by 
+$$
+\overline\sX_{\delta, x} \bydef \left\{\left.\overline x \in \overline p^{-1} \left(x\right) \right|\left\|\rep_{  \overline{x }}\left( \overline a\right)  \right\|> \delta  \right\}\subset \overline\sX
+$$
+set is finite. So there is $\la\in \La$ such that the restriction $\overline p_\la|_{\overline\sX_{\delta, x}}$ is injective. Let us select a cofinal (cf. Definition \ref{cofinal_defn}) subset $\left\{\la_j\right\}_{n \in \N}\subset \La$ such that $\la_{j+1} > \la_j$ for all $j\in \N$ and $\la_1 = \la_{\text{min}}$.  Define a map 
+\bean
+\phi:\sX \to \N,\\
+x \mapsto j_x = \text{minimal } j \in \N \text{ such that } p_{\la_j}|_{\overline\sX_{\delta, x}} \text{ is injective}.
+\eean
+ If  
+$$
+\sX^j_{\delta, x} \bydef p_{\la_j}|_{\overline\sX_{\delta, x}}\in \sX_{\la_j}
+$$
+then
+$$
+\sX^j_{\delta, x} = \left\{x_{\la_j}\in p^{1}_{\la_j}\left( x\right) \left|\rep_{x_{\la_j}}\left(a^\delta_{\la_j} \right)\neq 0  \right.\right\}\subset \sX_{\la_j}
+$$
+where
+$$
+a^\delta_{\la_j}  =	\sum_{g \in \ker\left( \widehat G\to  G\left(\left.\sX_{\la_j}~\right|~\sX \right)\right) }~~  g f_\eps\left( \overline a \right).
+$$
+On the other hand from the conditions of the Lemma \ref{ctr_main_a_lem} it follows that 
+$a^\delta_{\la_j}\in A_0\left( \sX_{\la_j}\right)$ and taking into account the Lemma \ref{ctr_rep_eq_lem} 
+for any $x_{\la_j}\in \sX^j_{\delta, x}$ there is an open neighborhood $\sU_{x_{\la_j}}$ such that 
+ $\rep_{y}\left(a^\delta_{\la_j} \right)\neq 0$ for all $y \in \sU_{x_{\la_j}}$. The set $\sX^j_{\delta, x}$ is finite, so the intersection
+$$
+\sU \bydef \bigcap_{x_{\la_j}\in \sX^j_{\delta, x}} p_{\la_j}\left( \sU_{x_{\la_j}}\right) \subset\sX
+$$
+is an open neighborhood of $x$. From our construction it follows that 
+$$
+\forall y \in \sU \quad \phi\left(y \right) \ge \phi\left(x \right) 
+$$
+i.e. $\phi$ is upper semi-continuous (cf. Definition \ref{top_lower_semi_defn}). On the other hand the set
+$$
+\left\{x \in \sX\left| \phi\left( x\right)> 1 \right. \right\} = \left\{x \in \sX\left| \left\| \rep_x\left( \sum_{g \in  \widehat G }g \overline a\right) \right\| \ge \delta  \right. \right\} 
+$$
+is compact. So from the Theorem \ref{top_lower_semi_thm} and the Remark \ref{top_lower_semi_rem} it follows that there is $n_\delta \in \N$ such that $\phi\left( x\right) < n_\delta$ for all $x \in \sX$. If $\la > \la_{n_\delta}$	and
+
+	\bean
+\begin{split}
+	\sU_{\la_{n_\delta}} \bydef \left\{ x_{\la_0} \in  \sX_{\la_0} \quad \left|\quad \left\|  \rep_{x_{\la_0}}\left( a_{\la_0}\right) \right\| \  \ge \delta\right.\right\},\\
+	\sU_{\la} \bydef \left\{ x_{\la} \in  \sX_{\la} \quad \left|\quad\left\|  \rep_{x_{\la_0}}\left( a_{\la}\right) \right\|   \ge \delta\right.\right\}
+\end{split}
+\eean
+		then	the restriction $\left.p^\la_{\la_{n_\delta}}\right|_{	\sU_{\la}}: \sU_{\la}\xrightarrow{\approx} \sU_{\la_{n_\delta}}$ is bijective.	
+
+From the Lemma \ref{ctr_main_lem} it follows that $\overline a \in A_0\left(\overline \sX\right)$.
 \end{proof}
+
+$A = C\left(\sX \right)$ 
 
 \begin{theorem}\label{ctr_h_main_thm} If $A$ is a $C^*$-algebra with Hausdorff, connected, locally connected spectrum $\sX$, and   $\widetilde{p}:\left( \widetilde{\sX}, \widetilde{x}_0\right) \to \left( \sX, x_0\right)$ is a pointed transitive covering such that a covering group  $G\left(\left.\widetilde \sX \right| \sX\right)$ is residually finite (cf. Definition \ref{residually_finite_defn}) then 	following conditions hold:
 	\begin{enumerate}

@@ -99,7 +99,7 @@ public class KeySaverMonobehavior : MonoBehaviour
 
     void ShowMessage(KeyCode keyCode)
     {
-        EditorUtility.DisplayDialog("Error", "The key " + keyCode + " is already defined", "OK");
+     // !!!   EditorUtility.DisplayDialog("Error", "The key " + keyCode + " is already defined", "OK");
     }
 
     public void Cancel()

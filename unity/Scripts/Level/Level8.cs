@@ -27,7 +27,7 @@ namespace Scripts.Level
 
         public static void Post()
         {
-            SunMonobehavior.SetSun();
+            SunMonobehavior.SetDark();
         }
 
 
@@ -55,6 +55,8 @@ namespace Scripts.Level
             {
                 OutputController oc = monoBehaviour as OutputController;
                 oc.aliases[0] = "Aim 1.Z=-0.3"; // !!! -0.3
+                oc.aliases[0] = "Aim 1.Z=-0.15"; // !!! -0.3
+                oc.aliases[11] = "Aim 2.Z=-0.0"; // !!! -0.3
                 Set(monoBehaviour as OutputController);
                 return;
             }
@@ -66,7 +68,7 @@ namespace Scripts.Level
                 {
                     //                 c[11] = "Station frame.OMGz=0.04"; ///!!! OLD
                     //               c[8] = "Station frame.Yaw=1.3";
-                    c[8] = "Station frame.Yaw=2.5";
+                    c[8] = "Station frame.Yaw=3.5";
                     c[9] = "Station frame.OMGx=0.00005";
                     c[10] = "Station frame.OMGy=-0.00015";//*/
                     c[11] = "Station frame.OMGz=0.015";
@@ -81,9 +83,9 @@ namespace Scripts.Level
                 [2] "Motion.b=1.5"  string
                 [3] "Motion.c=1.9"  string
                 [4] "Motion.q=0.0025"   string*/
-                    c[1] = "Motion.p=0.000025";
+                  //  c[1] = "Motion.p=0.000025";
 
-                    c[4] = "Motion.q=0.00025";
+                 //   c[4] = "Motion.q=0.00025";
 
                 }
             }
