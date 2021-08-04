@@ -55,8 +55,8 @@ namespace Scripts.Level
             {
                 OutputController oc = monoBehaviour as OutputController;
                 oc.aliases[0] = "Aim 1.Z=-0.3"; // !!! -0.3
-                oc.aliases[0] = "Aim 1.Z=-0.15"; // !!! -0.3
-                oc.aliases[11] = "Aim 2.Z=-0.0"; // !!! -0.3
+                oc.aliases[0] = "Aim 1.Z=-0.05"; // !!! -0.3
+                oc.aliases[11] = "Aim 2.Z=-0.00"; // !!! -0.3
                 Set(monoBehaviour as OutputController);
                 return;
             }
