@@ -46,7 +46,7 @@ namespace Scripts.Level
             var c = controller.inputConstants;
             c[3] = 0;
             c[5] = 0;
-            controller.aliases[10] = "Calculations.d=800"; //289
+            controller.aliases[10] = "Calculations.d=250"; //289
         }
 
         public static void Set(MonoBehaviour monoBehaviour)
