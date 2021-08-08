@@ -11095,12 +11095,12 @@ then following conditions hold:
 Prove (ii) of the Theorem \ref{blowing_functor_thm} using the equation \eqref{blowing_pi_eqn}.
 \end{exercise}
 \subsubsection{Coverings and $C^*$-hulls}
-\paragraph{}
+\begin{empt}\label{blowing_sheaf_defn}
 Let $B$ be a $C^*$-algebra, and let $C = C_0\left( \sY\right)\hookto M\left( B\right) $  be a good  blowing-up of $A$ (cf. Definitions \ref{blowing_defn}, \ref{blowing_good_defn}). For any open $\sU \subset \sY$ consider an equivalence relation
 \bean
 \forall b', b'' \in B\quad b'\sim_{\sU} b''  \Leftrightarrow \\ \Leftrightarrow \left( \forall f \in C_0\left(\sY \right) \quad \supp f \cap \sU = \emptyset \quad\Rightarrow\quad  f\left( b' -b''\right)=   \left( b' -b''\right)f= 0\right) 
 \eean
-	A following equation
+A following equation
 \be\label{blowing_pre_eqn}
 \mathscr{ A}'\left( \sU\right)\bydef B / \sim_{\sU}
 \ee
@@ -11108,7 +11108,14 @@ yields a presheaf of *-algebras $\mathscr{ A}'$ on $\sX$ (cf. Definition \ref{pr
 \be\label{blowing_*_eqn}
 A \cong \mathscr{ A}\left(\sY \right).
 \ee
+\end{empt}
+
 \begin{exercise}\label{blowing_soft_exer}
+	Prove following statements
+	\begin{enumerate}
+		\item The sheaf  ${\mathscr A}$ is $c$-soft (cf. Definition \ref{soft_sheaf_defn}).
+		\item For any covering $q: \widetilde \sY\to \sY$ the inverse image $q^{-1}{\mathscr A}$ (cf. Definition \ref{sheaf_inv_im_defn}) is a $c$-soft sheaf.
+	\end{enumerate}
 	Prove that both sheaves ${\mathscr A}$ and $\widetilde{\mathscr A}$ are $c$-soft (cf. Definition \ref{soft_sheaf_defn}).
 \end{exercise}
 There is a dense right ideal $B_c \bydef C_0\left( \sY\right)B$, such that
@@ -11837,10 +11844,7 @@ Similarly to the Lemma \ref{blowing_base_point_lem} let
 	\end{split}
 \ee
 be a pointed algebraical  finite covering category (cf. Definition \ref{comp_defn}) (cf.equation \eqref{blowing_base_point_eqn}).
-The space  $B_c \bydef B C_c\left(\sY \right) $ is a dense ideal of $B$. Similarly to the equation \eqref{blowing_pre_eqn} define a presheaf $\mathscr{ A}'$ on $\sY$ (cf. Definition \ref{presheaf_defn}). If  $\mathscr{ A}$  the sheaf of *-algebras associated to the presheaf $\mathscr A'$ (cf. \ref{sheaf_prdf}) then there is a $*$-algebra.
-\be\label{blowing_i*_eqn}
-A \cong \mathscr{ A}\left(\sY \right).
-\ee 
+The space  $B_c \bydef B C_c\left(\sY \right) $ is a dense ideal of $B$. 
 If $\mathfrak B$ is the completion of $B_c$ with respect to the graph topology (cf. Definition \ref{def:rep_Hilbert_module}) then there is the universal  representation $\varrho:  A \hookto \End_B\left(\mathfrak B \right)$ (cf. Definition \ref{def:universal_integrable_rep}). From the Exercise \ref{blowing_hull_exer} it turns out that all $\la\in \La$ there is a dense right ideal $\mathfrak B_\la \subset B_\la$ and   the universal  representation $\varrho_\la:  A_\la \hookto \End_{B_\la}\left(\mathfrak B_\la \right)$.
 Using the Exercise \ref{blowing_hull_exer} one can construct a  {pointed algebraic finite covering category of $*$-algebras}  given by
 \be\label{blowing_sa_eqn}
@@ -11852,7 +11856,7 @@ where $A_\la\bydef \mathscr A_\la\left(\sY_\a \right) $ and $\mathscr A_\la\byde
 \begin{exercise}
 	Let both  $\mathfrak{S}^{\text{pt}}_A$ and $\mathfrak{S}^{\text{pt}}_B$  are given by \eqref{blowing_sa_eqn} and \eqref{blowing_base_point_b_eqn} respectively.  Prove that $\mathfrak{S}^{\text{pt}}_A$ is an {associated with} $\mathfrak{S}^{\text{pt}}_B$ {pointed algebraic finite covering category of $*$-algebras} (cf. Definition \ref{comp_pt_ass_defn}).
 \end{exercise}
-\begin{empt}
+\begin{empt}!!! SUPPOSE THAT 
 	Let us develop a related to $\mathfrak{S}^{\text{pt}}_A$ specialization of the construction \ref{comp_ch_empt}.
 	From the Theorem \ref{blowing_main_thm} it turns out that the given by \eqref{blowing_base_point_b_eqn} category $\mathfrak{S}_B^{\mathrm{pt}}$ is good (cf. Definition \ref{mains_defn}). If both   $\left(B, \widetilde{B}, G\left(\left.\widetilde B \right| B\right)\right)$ and  $\left(B, \overline{B}, G\left(\left.\overline B \right| B\right)\right)$ are the connected { infinite noncommutative covering} of $\mathfrak{S}^{\text{pt}}_{B}$ (cf. Definition \ref{main_defn}) and the disconnected one (cf. Definition \ref{main_defn_full_defn})  then there are following natural isomorphisms
 	\be\label{blowing_bc0_eqn}
@@ -11942,55 +11946,50 @@ There are following inclusions:
 \end{empt}
 \begin{lemma}\label{blowing_c_hull_adm_lem}
 	An element $\widetilde a\in \L^\dagger\left(\widetilde\D\right)$ is admissible (cf. Definition \ref{main_chp_adm_defn}) if it satisfies to the following condition
-	\be\label{top_c_hull_adm_eqn}
-	\forall \widetilde b', \widetilde b'' \in K\left(C_0\left(\widetilde\sX\ \right)\right)\quad \exists a^\cup \in \cup A_\la \quad b' \widetilde ab''= b' a^\cup b''
+	\be\label{blowing_c_hull_adm_eqn}
+	\forall \widetilde b', \widetilde b'' \in K\left(\widetilde B\right)\quad \exists a^\cup \in \cup A_\la \quad b' \widetilde ab''= b' a^\cup b''
 	\ee
 	(cf. equation \ref{c_hull_adm_eqn}).
 \end{lemma}
-\begin{exercise}\label{top_chull_comm_exer}
-	Using the inclusion $	\widetilde \D\subset D^*\left(\widetilde \sX \right)$ one can define a commutative *-algebra
-	\be\label{top_chull_comm_eqn}
-	\L^\dagger\left(\widetilde\D\right)_{\mathrm{comm}}\bydef \left\{\left.\widetilde a \in  D^*\left(\widetilde \sX \right)\right|\widetilde a\widetilde\D\subset\widetilde \D \right\}.
+\begin{empt}
+Let $\widetilde{\mathscr  A }\bydef \widetilde q^{-1}\mathscr  A$
+$\widetilde q$ inverse image (cf. Definition \ref{sheaf_inv_im_defn}) of the explained in \ref{blowing_sheaf_defn} sheaf $\mathscr  A$, and let $\widetilde y \subset\sY$ be a point. There is an open 
+\end{empt}
+\begin{definition}!!! REPRESENTED
+ A section   $\widetilde s \in \widetilde{\mathscr  A }\left(\widetilde\sY\right)$ is represented by $\widetilde a \in \L^\dagger\left(\widetilde\D\right)$ if there is $\widetilde b \in \widetilde a$
+\bean
+\forall b', b'' \in B\quad b'\sim_{\sU} b''  \Leftrightarrow \\ \Leftrightarrow \left( \forall f \in C_0\left(\sY \right) \quad \supp f \cap \sU = \emptyset \quad\Rightarrow\quad  f\left( b' -b''\right)=   \left( b' -b''\right)f= 0\right) 
+\eean
+\end{definition}
+\begin{exercise}
+Let $L\left(\overline\sX \right)$ be an algebraic direct product
+\be
+L\left(\overline\sX \right) \bydef \prod_{\overline x \in \overline \sX} \D_{\overline x}
+\ee
+and let $\End_\C^*\left( L\left(\overline\sX \right)\right) $ be a *-algebra of adjointable endomorphisms. Prove that there is an inclusion
+$$
+$$
+\end{exercise}
+
+\begin{exercise}\label{blowing_soft_inf_exer}!!! DELETE
+	Denote by
+	\be\label{blowing_inv_sheaf_eqn}
+	\begin{split}
+	\overline {\mathscr{ A}}\bydef \overline p^{-1}\mathscr{ A},\\
+		\widetilde{\mathscr{ A}}\bydef \widetilde p^{-1}\mathscr{ A}
+	\end{split}
 	\ee
-	
+	be $\overline p$ and $\widetilde p$ inverse images (cf. Definition \ref{sheaf_inv_im_defn}) of the explained in \ref{blowing_sheaf_defn} sheaf.
 	Prove following statements:
 	\begin{enumerate}
-		\item There is the natural inclusion 
-		\be\label{top_coh_comm_inc_eqn}
-		\L^\dagger\left(\widetilde\D\right)_{\mathrm{comm}}\subset	\L^\dagger\left(\widetilde\D\right). 
-		\ee
-		\item If $\widetilde b', \widetilde b'' \in K\left(C_0\left(\widetilde\sX\ \right)\right)= C_c	\left(\widetilde\sX\ \right)$ are such that $\supp \widetilde b'\cap \supp \widetilde b'' = \emptyset$ then one has
-		$$
-		\widetilde b' \left(\cup A_\la \right)  \widetilde b'' = \{0\}.
-		$$
-		\item For any $\widetilde a \in 	\L^\dagger\left(\widetilde\D\right)\setminus 	\L^\dagger\left(\widetilde\D\right)_{\mathrm{comm}}$ there are $\widetilde b', \widetilde b'' \in K\left(C_0\left(\widetilde\sX\ \right)\right)$ are such that
-		\bean
-		\supp \widetilde b'\cap \supp \widetilde b'' = \emptyset,\\
-		\widetilde b'\widetilde a\widetilde b''\neq 0.
-		\eean
-		\item If   $\widetilde a \in 	\L^\dagger\left(\widetilde\D\right)$ satisfies to the condition \eqref{top_c_hull_adm_eqn}  then one has $\widetilde a\in \L^\dagger\left(\widetilde\D\right)_{\mathrm{comm}}$.
+		\item Both sheaves 	$\overline {\mathscr{ A}}$ and $
+		\widetilde{\mathscr{ A}}$ are $c$-soft (cf. Definition \ref{soft_sheaf_defn}).
+		\item There are following inclusions
+	\bean
+	\widetilde{\mathscr A}\left( \widetilde\sX\right) \subset D^*\left(\widetilde \sX \right)
+	\eean	
 	\end{enumerate}
 \end{exercise}
-
-\begin{empt}
-	For any $a = \sum^n_{j=0} a_j t^j$ and $x \in \sX$ there is a polynomial $a\left(x \right) \bydef \sum^n_{j=0} a_j\left(x\right) t^j\in \C\left[t\right]$.  If $\sU\subset \sX$ is any  open subset then there is an equivalence relation
-	$$
-	\forall a', a'' \in A\quad a'\sim_{\sU} a'' \quad \Leftrightarrow \forall x \in \sU \quad a'\left(x\right)=  a''\left(x\right).
-	$$
-	The following equation
-	$$
-	\mathscr{ A}'\left( \sU\right)\bydef A / \sim_{\sU}
-	$$
-	yields a presheaf of *-algebras $\mathscr{ A}'$ on $\sX$ (cf. Definition \ref{presheaf_defn}). If  $\mathscr{ A}$  the sheaf of *-algebras associated to the presheaf $\mathscr A'$ (cf. \ref{sheaf_prdf}) then there is the natural *-isomorphism
-	$$
-	A \cong \mathscr{ A}\left(\sX \right).
-	$$
-	If $\widetilde p: \widetilde\sX \to \sX$ is the natural transitive covering then denote by $\widetilde{\mathscr A}\bydef \widetilde p^{-1}\mathscr A$ the  inverse image of $\mathscr A$ (cf. Definition \ref{sheaf_inv_im_defn}) then the space $\widetilde{\mathscr A}\left( \widetilde\sX\right)$ of  global sections has natural structure of $*$-algebra.
-\end{empt} 
-\begin{exercise}\label{top_soft_exer}
-	Prove that both sheaves ${\mathscr A}$ and $\widetilde{\mathscr A}$ are $c$-soft (cf. Definition \ref{soft_sheaf_defn}).
-\end{exercise}
-
 The inclusion $A \hookto D^*\left(\sX \right)$ naturally induces the inclusion 
 $$
 \widetilde{\mathscr A}\left( \widetilde\sX\right)\subset D^*\left(\widetilde \sX \right).
