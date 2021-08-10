@@ -1688,20 +1688,22 @@ We say that the triple $\left(A, \widetilde{A}, G \right)$ and/or the quadruple 
 \subsection{Coverings and $C^*$-hulls}\label{fin_chull_sec}
 \paragraph*{}
 The Definition \ref{fino*_defn} assumes  that both *-algebras $A$ and $\widetilde{A}$ contain  quite enough bounded elements. Here we consider an opposite situation.
-\begin{definition}\label{fin_chull_defn}Let $\left(A, \widetilde{A}, G, \pi_A \right)$ be a {noncommutative finite-fold  pre-covering of *-algebras} (cf. Definition \ref{fin_pre*_defn}), and let $\left(B, \widetilde{B}, G, \pi_B \right)$ be a {noncommutative finite-fold  covering} (cf. Definition \ref{fin_defn}).
-	Suppose that there are {universal} integrable representations  $\left( \mathfrak{B},\mu\right)$ and $\left(\widetilde{\mathfrak{B}},\widetilde\mu\right)$ of $A^\sim$ and $\widetilde A^\sim$ on $B$ and $\widetilde B$ respectively (cf. Definition \ref{def:universal_integrable_rep}).
-We say that $\left(A, \widetilde{A}, G, \pi_A \right)$ is an \textit{associated with $\left(B, \widetilde{B}, G, \pi_B \right)$  noncommutative finite-fold  covering of *-algebras} if following conditions hold:
-	\bea\label{fin_hull1_eqn}
-	G \widetilde{\mathfrak B} = \widetilde{\mathfrak B},\\
-	\label{fin_hull2_eqn}	{\mathfrak B} = \widetilde{\mathfrak B}\cap B,\\
-\label{fin_hull3_eqn}	{\mathfrak B} = \widetilde{\mathfrak B}^G \bydef\left\{\left.\widetilde b \in \widetilde{\mathfrak B}\right|\forall g \in G \quad g  \widetilde b = \widetilde b\right\},\\
-\label{fin_hull4_eqn}\forall g\in G\quad	\forall \widetilde a \in \widetilde A\quad\forall\widetilde b \in \widetilde{\mathfrak B}\quad g\left(\widetilde a  \widetilde b\right)= g\left(\widetilde a\right)g\left(\widetilde b\right).
-	\eea
+\begin{empt}
+Let $\left(A, \widetilde{A}, G, \pi_A \right)$ be a {noncommutative finite-fold  pre-covering of *-algebras} (cf. Definition \ref{fin_pre*_defn}), and let $\left(B, \widetilde{B}, G, \pi_B \right)$ be a {noncommutative finite-fold  covering} (cf. Definition \ref{fin_defn}).
+Suppose that there is an {universal} an integrable representation  $\left( \mathfrak{B},\mu\right)$ of $A^\sim$ (cf. Definition \ref{def:universal_integrable_rep} and equation \eqref{unital_notation_eqn}). 	Suppose  $\widetilde{\mathfrak{B}}\bydef \widetilde B\otimes_B \mathfrak{B}$ and there is  $\left(\widetilde{\mathfrak{B}},\widetilde\mu\right)$ of $\widetilde{A}$. An action $G\times \widetilde B \to \widetilde B$ naturally  induces an action $G\times \widetilde{\mathfrak{B}} \to \widetilde{\mathfrak{B}}$ such that there is an isomorphism of right $B$-modules
+\be\label{inv_hull_eqn}
+\pi_G :\mathfrak B \cong \widetilde {\mathfrak B}^G.
+\ee
+\end{empt}
+\begin{definition}\label{fin_chull_defn}  
+We say that $\left(A, \widetilde{A}, G, \pi_A \right)$ is an \textit{associated with $\left(B, \widetilde{B}, G, \pi_B \right)$ noncommutative finite-fold covering of *-algebras} 
+if following conditions hold:
+\bea\label{fin_chull_1_eqn}
+\forall g \in G\quad  \forall \widetilde a \in\widetilde A\quad \forall \widetilde {\mathfrak b}\in \widetilde {\mathfrak B} \quad g\left( \widetilde a \widetilde {\mathfrak b}\right)=  g\left( \widetilde a \right)g\left( \widetilde {\mathfrak b}\right),\\\label{fin_chull_2_eqn}
+\forall  a \in A\quad \forall  \widetilde {\mathfrak b}\in \widetilde {\mathfrak B}^G\quad \pi_A\left(a \right) \widetilde {\mathfrak b}= \pi_G\left(a \pi_G^{-1}\left( \widetilde {\mathfrak b} \right)  \right). 
+\eea
 \end{definition}
 
-\begin{remark}
-The $C^*$-algebras 	$A^\sim$ and $\widetilde A^\sim$ are given by the equation \eqref{unital_notation_eqn}.
-\end{remark}
 
 
 
@@ -3900,14 +3902,14 @@ In the situation of the Definition \ref{comp_o*_defn} moprphisms of $\mathfrak{S
 	g\left(a\xi \right)= \left(ga\right) \left(g\xi\right)\quad \forall g\in\widehat G, ~\forall a\in\widehat A, ~ \forall \xi\in\widehat \D
 	\end{split}
 		\ee
-(cf. Definition \ref{equiv_defn}!!! NOT CHECK EVERYWHERE !!! CHECK EVERYWHERE !!! CHECK EVERYWHERE !!! CHECK EVERYWHERE).	
+(cf. Definition \ref{equiv_defn}).	
 Let $B$ is an essential ideal of the $C^*$-norm completion of the bounded part of $A$ (cf. Remark \ref{o*b_rem}). Similarly for all $\la\in\La$ let $B_\la$ is is an essential ideal of  the $C^*$-norm completion of the bounded part of $A_\la$.	Suppose that
 	$\mathfrak{S}_b=\left\{ \overline\pi_{\la}:B \hookto  B_{\la} \right\}_{\la \in \La}$, or equivalently 
 	\be\label{bl_cat_eqn}
 	\mathfrak{S}^{\mathrm{pt}}_b=\left\{ \left( B ,  B_{\la} , G\left(\left.A_\la~\right|A \right) , \overline \pi_{\la}\right) \right\}_{\la \in \La}
 	\ee
 	is  a {pointed algebraical  finite covering category}  (cf. Definition \ref{comp_pt_defn}).   
-If $\widehat B\bydef C^*$-$\varprojlim B_\la$ then there is the natural equivariant representation $\widehat{\pi}: \widehat{B}\hookto B\left( \widehat{\H}\right)$ (cf. Definition \ref{equiv_defn}!!! NOT CHECK EVERYWHERE !!! CHECK EVERYWHERE !!! CHECK EVERYWHERE !!! CHECK EVERYWHERE). Suppose that $	\mathfrak{S}^{\text{pt}}_b$ is $\widehat{\pi}$-good (cf. Definition \ref{mains_defn}!!! CHECK EVERYWHERE ). !!! CHECK EVERYWHERE  Let  $\left(B, \widetilde{B}_{\widehat{\pi}}, G_{\widehat{\pi}}\right)$  be the  $\widehat{\pi}$-{infinite noncommutative covering} of  $\mathfrak{S}^{\mathrm{pt}}_b$. (cf. Definition \ref{main_defn}). If $\widetilde{\H}$ is the Hilbert norm completion of   $\widetilde{B}_{\widehat{\pi}}\widehat\H$ and there is the orthogonal sum $\widehat\H= \widetilde\H \oplus \H^\perp$ then from the condition (b) of the Definition \ref{mains_defn}!!! CHECK EVERYWHERE !!! NOT CHECK EVERYWHERE it follows that $\widetilde{B}_{\widehat{\pi}}\H^\perp= \{0\}$.  
+If $\widehat B\bydef C^*$-$\varprojlim B_\la$ then there is the natural equivariant representation $\widehat{\pi}: \widehat{B}\hookto B\left( \widehat{\H}\right)$ (cf. Definition \ref{equiv_defn}). Suppose that $	\mathfrak{S}^{\text{pt}}_b$ is $\widehat{\pi}$-good (cf. Definition \ref{mains_defn}!!! CHECK EVERYWHERE ).   Let  $\left(B, \widetilde{B}_{\widehat{\pi}}, G_{\widehat{\pi}}\right)$  be the  $\widehat{\pi}$-{infinite noncommutative covering} of  $\mathfrak{S}^{\mathrm{pt}}_b$. (cf. Definition \ref{main_defn}). If $\widetilde{\H}$ is the Hilbert norm completion of   $\widetilde{B}_{\widehat{\pi}}\widehat\H$ and there is the orthogonal sum $\widehat\H= \widetilde\H \oplus \H^\perp$ then from the condition (b) of the Definition \ref{mains_defn}!!! CHECK EVERYWHERE  it follows that $\widetilde{B}_{\widehat{\pi}}\H^\perp= \{0\}$.  
 From the above equations it turns out that
 \be\label{o*dom_eqn}
 \widetilde \D = \widehat{\D}\cap \widetilde\H\Rightarrow \widetilde{B}_{\widehat{\pi}}\cap \left( \bigcup_{\la\in \La} A_\la\right)\subset \L^\dagger\left( \widetilde \D \right) .
@@ -3979,7 +3981,7 @@ Similarly to \eqref{bl_cat_eqn} consider  {pointed algebraical  finite covering 
 \be\label{blu_cat_eqn}
 \mathfrak{S}^{\mathrm{pt}}_b=\left\{ \left( B ,  B_{\la} , G\left(\left.\mathfrak A_0^\la~\right|\mathfrak A_0 \right) , \overline \pi_{\la}|_{\mathfrak A_0}\right) \right\}_{\la \in \La}
 \ee
-If $\widehat B\bydef C^*$-$\varinjlim B_\la$ then there is the natural equivariant representation $\widehat{\pi}: \widehat{B}\hookto B\left( \widehat{\H}\right)$ (cf. Definition \ref{equiv_defn}!!! NOT CHECK EVERYWHERE !!! CHECK EVERYWHERE !!! CHECK EVERYWHERE !!! CHECK EVERYWHERE). Suppose that $	\mathfrak{S}^{\text{pt}}_b$ is $\widehat{\pi}$-good (cf. Definition \ref{mains_defn}!!! CHECK EVERYWHERE ).  Let 
+If $\widehat B\bydef C^*$-$\varinjlim B_\la$ then there is the natural equivariant representation $\widehat{\pi}: \widehat{B}\hookto B\left( \widehat{\H}\right)$ (cf. Definition \ref{equiv_defn}). Suppose that $	\mathfrak{S}^{\text{pt}}_b$ is $\widehat{\pi}$-good (cf. Definition \ref{mains_defn}!!! CHECK EVERYWHERE ).  Let 
 \be\label{be_eqn} 
 \left(B, \widetilde{B}_{\widehat{\pi}}, G_{\widehat{\pi}}\cong G_\pi\right)
 \ee  be the  $\widehat{\pi}$-{infinite noncommutative covering} of  $\mathfrak{S}^{\mathrm{pt}}_b$. (cf. Definition \ref{main_defn}).
@@ -4580,82 +4582,40 @@ are dense subsets.
 \paragraph*{}
 This section is an infinite counterpart of the Section \ref{fin_chull_sec}.
 \begin{empt}\label{comp_chull_empt}
-	Let $\La$ be a countable directed set (cf. Definition \ref{directed_set_defn}) such that there is the unique minimal element $\la_{\min} \in \La$.
-	Let $A$ be an $*$-algebra.  Let us consider an indexed by  $\La$ set noncommutative finite-fold coverings of  *-algebras $\mathfrak{S}_A=\left\{ \pi_{\la}:A \hookto A_{\la}\right\}_{\la \in \La}$ in the sense of the Definition  \ref{fin_chull_defn}  such that $A_{\la_{\mathrm{min}}}= A$, and $\pi_{\la_{\mathrm{min}}}= \Id_A$.  According to the Definition \ref{fin_chull_defn} there is an  {universal} integrable representation $\left({\mathfrak{B}},\mu\right)$ of $A^\sim$ on $C^*$-algebra $B$ (cf. Definition \ref{def:universal_integrable_rep}). Moreover for all $\la\in\La$ there is  an  {universal} integrable representation $\left({\mathfrak{B}}_\la,\mu_\la\right)$ of $A^\sim_\la$ on $C^*$-algebra $B_\la$ such that
-	for any $\la\in \La$ the is a finite-fold noncommutative covering $\rho_\la: B \hookto B_\la$ (cf. Definition \ref{fin_defn}).
-	Suppose that 
+	Let $A$ be an $*$-algebra and let $\left({\mathfrak{B}},\mu\right)$ be an {universal} integrable representation  of $A^\sim$ on $C^*$-algebra $B$ (cf. Definition \ref{def:universal_integrable_rep}  and equation \eqref{unital_notation_eqn}).
+		Suppose that 
 	\be\label{comp_pt_rep_b_eqn}
 	\begin{split}
 		\mathfrak{S}^{\text{pt}}_B = \left(\left\{\rho_\la: B \hookto B_\la \right\}_{\la \in \La}, \left\{\rho^\mu_\nu: B_\mu \hookto B_\nu\right\}_{\substack{\mu, \nu \in \La\\ \nu > \mu}}\right)
 	\end{split}
 	\ee
-	is a good {pointed algebraical  finite covering category} (cf. Definitions \ref{comp_pt_defn} and \ref{mains_defn}). 
-	Let  $\mathfrak{S}^{\text{pt}}_A$  be a category which is equivalent to $\mathfrak{S}^{\text{pt}}_B$ such that
-	\be\label{comp_pt_rep_a_eqn}
-	\begin{split}
-		\mathfrak{S}^{\text{pt}}_A \bydef \left(\left\{\pi_\la: A \hookto A_\la \right\}_{\la \in \La}, \left\{\pi^\mu_\nu: A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\ \nu > \mu}}\right),\\
-		\text{or simply} \quad \mathfrak{S}^{\text{pt}} = \left(\left\{\pi_\la: A \hookto A_\la \right\}, \left\{\pi^\mu_\nu\right\}\right).
-	\end{split}
+	is a good {pointed algebraical  finite covering category} (cf. Definitions \ref{comp_pt_defn} and \ref{mains_defn}). Let  $\left( B, \widetilde B, G\left(\left.\widetilde B\right| B\right)\right)  $ be the inverse noncommutative limit of $\mathfrak{S}^{\mathrm{pt}}_B$ (cf. Definition \ref{main_defn}). 	Suppose that $\mathfrak{S}^{\text{pt}}_B$  allows the inner product (cf. Definition \ref{inf_hilb_prod_defn}), and let $_{\widetilde B}X_B$ be an explained in the Remark \ref{inf_hilb_prod_rem} Hilbert $B$-module. Since $_{\widetilde B}X_B$ is the completion of Pedersen's ideal (cf. Definition \ref{peder_id_defn}) $K\left( \widetilde B\right)$  there is a right action 
+	\be\label{c_hull_wtr_eqn}
+	_{\widetilde B}X_B \times {\widetilde B}\to _{\widetilde B}X_B
 	\ee
-	%	Suppose that for all $\la\in \La$ there is the 	{universal} integrable representation  $(\mathfrak{B}_\la,\varrho_\la) $ of $A_\la $  on $B_\la $  (cf. Definition \ref{def:universal_integrable_rep}).
-	%Suppose that all noncommutative finite-fold  coverings are Strongly Local-Global (cf. Definition \ref{fin_hulllc_defn}).
-\end{empt}
-\begin{definition}\label{comp_pt_ass_defn}
-	In the situation \ref{comp_chull_empt} we say that $\mathfrak{S}^{\text{pt}}_A$ is an \textit{associated with} $\mathfrak{S}^{\text{pt}}_B$ \textit{pointed algebraic finite covering category of $*$-algebras}.
-\end{definition}
-
-
-\begin{empt}\label{comp_ch_empt}
-	Consider a described in the Definition \ref{comp_pt_ass_defn} situation. Suppose that $\mathfrak{S}^{\text{pt}}_B$ is good (cf. Definition \ref{mains_defn}). Let  $\left( B, \widetilde B, G\left(\left.\widetilde B\right| B\right)\right)  $ be the inverse noncommutative limit of $\mathfrak{S}^{\mathrm{pt}}_B$ (cf. Definition \ref{main_defn}),  and let  $\left( B, \overline B, G\left(\left.\overline B\right| B\right)\right)$ be the  disconnected inverse noncommutative 
-	limit of $\mathfrak{S}^{\mathrm{pt}}_B$ (cf. Definition \ref{main_defn_full_defn}). 
-	Denote by
-	\be\label{c_hull_cup_eqn}
-	\begin{split}
-		A^\cup \bydef \cup A_\la,\\
-		B^\cup \bydef \cup B_\la,\\
-		\mathfrak B^\cup\bydef \mathfrak\cup \mathfrak B_\la	
-		%\mathfrak A \bydef \End_{	B^\cup }\left( \mathfrak B^\cup\right) 
-	\end{split}
+	Let
+	\be\label{c_hull_wt_eqn}
+	\widetilde {\mathfrak B}'\subset _{\widetilde B}X_B
 	\ee
-	Suppose that $\mathfrak{S}^{\text{pt}}_B$  allows the inner product (cf. Definition \ref{inf_hilb_prod_defn}), and let $_{\widetilde B}X_B$ be an explained in the Remark \ref{inf_hilb_prod_rem} Hilbert $B$-module. Denote by
-\be\label{c_hull_wt_eqn}
-\widetilde {\mathfrak B}' \bydef 	\mathfrak B^\cup~ _{\widetilde B}X_B \cap K\left( \widetilde B\right) _{\widetilde B}X_B
-\ee
-		where $K\left(\widetilde{B} \right)$ means the Pedersen's ideal of $\widetilde{B}$ (cf. Definition \ref{peder_id_defn}).
-Assume that $A^\cup \widetilde {\mathfrak B}'\subset \widetilde {\mathfrak B}'$ and $\widetilde {\mathfrak B}'$ is a dense right submodule of $_{\widetilde B}X_B$.
-	
+	be a $G\left(\left.\widetilde B~\right| B\right)$- invariant dense $B$-$\widetilde B$-subbimodule of $_{\widetilde B}X_B$. 
+	If $\widetilde{A}\bydef\End^*_{\widetilde { B}}\left(\widetilde {\mathfrak B}'\right)$ then there is the natural action $G\left(\left.\widetilde B\right| B\right) \times \widetilde{A}\to \widetilde{A}$. If there is a  nondegenerate left action $A \times \widetilde{A}\to \widetilde{A}$ such that 
+\be\label{c_hull_equiv_eqn}
+\forall g \in G\left(\left.\widetilde B\right| B\right) \quad \forall a \in A\quad \forall\widetilde a \in\widetilde A\quad g\left( a \widetilde a\right) = a\left( g \widetilde a\right)
+\ee 
+	then *-operation yields the nongenerate right action $\widetilde{A}\times 	A \to \widetilde{A}$ having similar $G$-invariant property.
+	  
 \end{empt}
-\begin{definition}\label{main_chp_adm_defn}
-	An element $\widetilde a \in \End^*_B\left(\widetilde {\mathfrak B}'\right)$ is said to be \textit{admissible} if  a following condition holds
-	\bea
-	\label{c_hull_adm_eqn}
-	\forall \widetilde b', \widetilde b'' \in K\left(\widetilde{B} \right)\quad \exists a^\cup \in \cup A_\la \quad \widetilde b' \widetilde a \widetilde b''=\widetilde b' a^\cup \widetilde b''
-	\eea
-	where the natural inclusion $K\left(\widetilde{B} \right)\subset  \End^*_B\left(\widetilde {\mathfrak B}'\right)$ is implied.
-\end{definition}
 
-
-\begin{definition}\label{main_chp_defn}
-	The intersection $\widetilde A \bydef \cap \widetilde A'$   of all *-subalgebras of $\End^*_B\left(\widetilde {\mathfrak B}'\right)$ such that any $\widetilde A'$ contains all admissible elements is said to be 
-	\textit{ inverse noncommutative limit of $\mathfrak{S}_A^{\mathrm{pt}}$ associated with $\mathfrak{S}_B^{\mathrm{pt}}$}. 
-\end{definition}
-
-\begin{exercise}
-	Prove  that in the situation of the Definition \ref{main_chp_defn} there is the natural action
-	$$
-	G\left(\left.\widetilde B \right| B\right) \times \widetilde A \to \widetilde A.
-	$$
-\end{exercise}
 
 
 \begin{definition}\label{main_ch_defn}
-	In the above situation  we say that	$\left(A, \widetilde{A}, G\left(\left.\widetilde A \right| A\right)\bydef G\left(\left.\widetilde B \right| B\right)\right)$ is the 
-	\textit{ inverse noncommutative limit of $\mathfrak{S}_A^{\mathrm{pt}}$ associated with $\mathfrak{S}_B^{\mathrm{pt}}$}.
+	In the described in \ref{comp_chull_empt} situation	we say that \\	$\left(A, \widetilde{A}, G\left(\left.\widetilde A \right| A\right)\bydef G\left(\left.\widetilde B \right| B\right)\right)$ 	is an \textit{ inverse noncommutative limit of $\mathfrak{S}_A^{\mathrm{pt}}$ associated with $\mathfrak{S}_B^{\mathrm{pt}}$ and $\widetilde {\mathfrak B}'$}. 
 \end{definition}
+
 \begin{definition}\label{b_core_defn}
 The completion  $\widetilde {\mathfrak B}$ of  $\widetilde {\mathfrak B}'$ with respect to graph topology (cf. Definition \ref{def:rep_Hilbert_module}) given by the family of seminorms
 \be
-\forall \widetilde a \in \widetilde A\quad \widetilde \xi\in \widetilde {\mathfrak B}'\quad \left\| \widetilde \xi \right\|_{\widetilde a} \bydef{\xi, {\pi(1_{\widetilde A^\sim}+a^*a)\xi}}^{\nicefrac12}_{_{\widetilde B}X_B}. 
+\forall \widetilde a \in \widetilde A\quad \widetilde \xi\in \widetilde {\mathfrak B}'\quad \left\| \widetilde \xi \right\|_{\widetilde a} \bydef\left\langle {\xi, {\pi(1_{\widetilde A^\sim}+a^*a)\xi}}\right\rangle ^{\nicefrac12}_{_{\widetilde B}X_B} 
 \ee
 is said to be the \textit{core of} $\left(A, \widetilde{A}, G\left(\left.\widetilde A \right| A\right)\right) $.
 \end{definition}
@@ -9771,7 +9731,7 @@ The equation \eqref{top_inv_qo*_llimp_eqn} follows from \eqref{top_cc_l_inc_eqn}
 \end{proof}
 \subsection{Coverings and $C^*$-hulls}
 \paragraph{}
-
+!!! CORRECT
 Suppose that
 \be\label{top_hull_top_eqn}
 \begin{split}
@@ -11041,9 +11001,7 @@ then following conditions hold:
 	\item[(d)] Follows from the Exercise \ref{blowing_pcomt_exer}.
 \end{enumerate}
 \end{proof}
-\begin{exercise}
-Prove (ii) of the Theorem \ref{blowing_functor_thm} using the equation \eqref{blowing_pi_eqn}.
-\end{exercise}
+
 \subsubsection{Coverings and $C^*$-hulls}
 \begin{empt}\label{blowing_sheaf_defn}
 Let $B$ be a $C^*$-algebra, and let $C = C_0\left( \sY\right)\hookto M\left( B\right) $  be a good  blowing-up of $A$ (cf. Definitions \ref{blowing_defn}, \ref{blowing_good_defn}). For any open $\sU \subset \sY$ consider an equivalence relation
@@ -11054,27 +11012,31 @@ A following equation
 \be\label{blowing_pre_eqn}
 \mathscr{ A}'\left( \sU\right)\bydef B / \sim_{\sU}
 \ee
-yields a presheaf of *-algebras $\mathscr{ A}'$ on $\sX$ (cf. Definition \ref{presheaf_defn}). If  $\mathscr{ A}$  the sheaf of *-algebras associated to the presheaf $\mathscr A'$ (cf. \ref{sheaf_prdf}) then there is a $*$-algebra.
+yields a presheaf of *-algebras $\mathscr{ A}'$ on $\sX$ (cf. Definition \ref{presheaf_defn}). 
+
+\end{empt}
+\begin{definition}\label{blowing_str_sh_defn}
+	?he sheaf $\mathscr{ A}$ of *-algebras associated to the presheaf $\mathscr A'$ (cf. \ref{sheaf_prdf}) is said to be the \textit{structural sheaf}
+\end{definition}
+
+ There is a $*$-algebra.
 \be\label{blowing_*_eqn}
 A \cong \mathscr{ A}\left(\sY \right).
 \ee
-\end{empt}
-
 \begin{exercise}\label{blowing_soft_exer}
 	Prove following statements
 	\begin{enumerate}
 		\item The sheaf  ${\mathscr A}$ is $c$-soft (cf. Definition \ref{soft_sheaf_defn}).
 		\item For any covering $q: \widetilde \sY\to \sY$ the inverse image $q^{-1}{\mathscr A}$ (cf. Definition \ref{sheaf_inv_im_defn}) is a $c$-soft sheaf.
 	\end{enumerate}
-	Prove that both sheaves ${\mathscr A}$ and $\widetilde{\mathscr A}$ are $c$-soft (cf. Definition \ref{soft_sheaf_defn}).
 \end{exercise}
-There is a dense right ideal $B_c \bydef C_0\left( \sY\right)B$, such that
-$AB_c\subset B_c$.
+
 \begin{exercise}\label{blowing_hull_exer}
+	There is a dense right ideal $B_c \bydef BC_c\left( \sY\right)\subset B$.
 Prove following statements:
 \begin{enumerate}
 	\item There is the natural action $A\otimes B_c\to B_c$.
-	\item If $\mathfrak B$ is the completion of $B_c$ with respect to the graph topology (cf. Definition \ref{def:rep_Hilbert_module}) then there is the universal  representation $\varrho:  A \hookto \End_B\left(\mathfrak B \right)$ (cf. Definition \ref{def:universal_integrable_rep}) such that $B_c$ is a core for $\left(\varrho,  \mathfrak B\right)$ (cf. Definition \ref{def:rep_Hilbert_module}).
+	\item If $\mathfrak B$ is the completion of $B_c$ with respect to the graph topology (cf. Definition \ref{def:rep_Hilbert_module}) then there is the universal  representation $\varrho:  A \hookto \End^*_B\left(\mathfrak B \right)$ (cf. Definition \ref{def:universal_integrable_rep}) such that $B_c$ is a core for $\left(\varrho,  \mathfrak B\right)$ (cf. Definition \ref{def:rep_Hilbert_module}).
 \item Let  $q: \widetilde \sY\to \sY$ is a transitive finite-fold covering and \\ $\left(B, B_0\left( \widetilde\sY\right) , G\left(\left. \widetilde\sY\right| \sY\right) , B_0\left( q\right)  \right)$ is a noncommutative finite-fold   covering (cf. Definition \ref{fin_defn}) given by the Lemma \ref{blowing_covi_lem}. Let $\widetilde{\mathscr A}\bydef p^{-1}\mathscr A$ be the inverse image (cf. Definition \ref{sheaf_inv_im_defn}) 
 and let $\pi_A: \mathscr{ A}\left(\sY \right)\hookto \widetilde{\mathscr A}\left( \widetilde  \sY\right)$ the natural injective *-homomorphism. Then $\left(\mathscr{ A}\left(\sY \right), \widetilde{\mathscr A}\left( \widetilde  \sY\right) , G\left(\left. \widetilde\sY\right| \sY\right), \pi_A \right)$ is an associated with 
 $ \left(B, B_0\left( \widetilde\sY\right) , G\left(\left. \widetilde\sY\right| \sY\right) , B_0\left( q\right)  \right) $ noncommutative finite-fold  covering of *-algebras (cf. Definition \ref{fin_chull_defn}).
@@ -11784,6 +11746,211 @@ One needs prove that the given by  \eqref{blowing_base_point_eqn} pointed	algebr
 	\item Prove that the given by the Theorem \ref{blowing_main_thm} infinite noncommutative covering allows strong Morita equivalence (cf. Definition \ref{allows_morita_defn}).
 \end{enumerate}
 \end{exercise}
+\subsubsection{Coverings and $C^*$-hulls}
+\paragraph{title}
+
+\paragraph{ttt}
+
+\begin{empt}\label{comp_chull_empt!}
+	Let $A$ be an $*$-algebra and let $\left({\mathfrak{B}},\mu\right)$ be an {universal} integrable representation  of $A^\sim$ on $C^*$-algebra $B$ (cf. Definition \ref{def:universal_integrable_rep}  and equation \eqref{unital_notation_eqn}).
+	Suppose that 
+	\be\label{comp_pt_rep_b_eqn}
+	\begin{split}
+		\mathfrak{S}^{\text{pt}}_B = \left(\left\{\rho_\la: B \hookto B_\la \right\}_{\la \in \La}, \left\{\rho^\mu_\nu: B_\mu \hookto B_\nu\right\}_{\substack{\mu, \nu \in \La\\ \nu > \mu}}\right)
+	\end{split}
+	\ee
+	is a good {pointed algebraical  finite covering category} (cf. Definitions \ref{comp_pt_defn} and \ref{mains_defn}). Let  $\left( B, \widetilde B, G\left(\left.\widetilde B\right| B\right)\right)  $ be the inverse noncommutative limit of $\mathfrak{S}^{\mathrm{pt}}_B$ (cf. Definition \ref{main_defn}). 	Suppose that $\mathfrak{S}^{\text{pt}}_B$  allows the inner product (cf. Definition \ref{inf_hilb_prod_defn}), and let $_{\widetilde B}X_B$ be an explained in the Remark \ref{inf_hilb_prod_rem} Hilbert $B$-module. Since $_{\widetilde B}X_B$ is the completion of Pedersen's ideal (cf. Definition \ref{peder_id_defn}) $K\left( \widetilde B\right)$  there is a right action 
+	\be
+	_{\widetilde B}X_B \times {\widetilde B}\to _{\widetilde B}X_B
+	\ee
+	Let
+	\be\label{c_hull_wt_eqn}
+	\widetilde {\mathfrak B}'\subset _{\widetilde B}X_B
+	\ee
+	be a $G\left(\left.\widetilde B~\right| B\right)$- invariant dense $B$-$\widetilde B$-subbimodule of $_{\widetilde B}X_B$. 
+	If $\widetilde{A}\bydef\End^*_{\widetilde { B}}\left(\widetilde {\mathfrak B}'\right)$ then there is the natural action $G\left(\left.\widetilde B\right| B\right) \times \widetilde{A}\to \widetilde{A}$. If there is a  nondegenerate left action $A \times \widetilde{A}\to \widetilde{A}$ such that 
+	$$
+	\forall g \in G\left(\left.\widetilde B\right| B\right) \quad \forall a \in A\quad \forall\widetilde a \in\widetilde A\quad g\left( a \widetilde a\right) = a\left( g \widetilde a\right)
+	$$ 
+	then *-operation yields the nongenerate right action $\widetilde{A}\times 	A \to \widetilde{A}$ having similar $G$-invariant property.
+	
+\end{empt}
+
+\paragraph{title}
+\paragraph{}
+Here we develop a specialization of explained in \ref{comp_chull_empt} construction
+Let $B$ be a $C^*$-algebra, and let $C = C_0\left( \sY\right)\hookto M\left( B\right) $  be a good  blowing-up of $B$ (cf. Definitions \ref{blowing_defn}, \ref{blowing_good_defn}).
+Similarly to the Lemma \ref{blowing_base_point_lem} let
+\be\label{blowing_base_point_b_eqn}
+\begin{split}
+	\mathfrak{S}^{\mathrm{pt}}_B \bydef\\\bydef \left\{ \left\{\pi_\la\bydef B_0\left( q_{\la}\right) :B  \hookto B_0\left( \mathcal{Y}_\la\right) \right\}_{\la \in \La}, \left\{\pi^\nu_\mu\bydef B_0\left(q^\mu_\nu \right) \right\}_{\substack{ \mu, \nu \in \La \\ \mu \ge \nu}}\right\} 
+\end{split}
+\ee
+be a pointed algebraical  finite covering category (cf. Definition \ref{comp_defn}) (cf.equation \eqref{blowing_base_point_eqn}). If $A$ is given by the equation \eqref{blowing_*_eqn} *-algebra then there is a right $B$-module $\mathfrak \bydef BC_c\left( \sY\right) $ and the universal integrable  representation $\varrho:  A \hookto \End^*_B\left(\mathfrak B \right)$ (cf. Definition \ref{def:universal_integrable_rep} and Exercise \ref{blowing_hull_exer}). Let  $\left(B, \widetilde{B}, G\left(\left.\widetilde B \right| B\right)\right)$ be the { infinite noncommutative covering} of $\mathfrak{S}^{\text{pt}}_{B}$ (cf. Definition \ref{main_defn}). From the Corollary \ref{blowing_c0_inc_cor} it turns out that $	B_0\left(\overline\sY\right)\subset\overline{B}$ and $B_0\left(\widetilde\sY\right)\subset\overline{B}$. If we suppose that 	$\overline{B}\cong B_0\left(\overline\sY\right)$ (cf.  Theorems \ref{ctr_h_main_thm} and \ref{foli_main_spec_thm}) then $\left(B, \widetilde{B}, G\left(\left.\widetilde B \right| B\right)\right)$ is isomorphic to $\left(B, B_0\left( \widetilde{\sY}\right) , G\left(\left.\widetilde \sY \right| \sY\right)\right)$.  From the Exercise \ref{blowing_ind_exer} it follows that the  pointed algebraical  finite covering category \eqref{blowing_base_point_b_eqn} allows inner product (cf. Definition \ref{inf_hilb_prod_defn}). If  $_{B_0\left( \widetilde{\sY}\right) }X_B$ is  the explained in the Remark \ref{inf_hilb_prod_rem} Hilbert $B$-module then there is a right action $ _{B_0\left( \widetilde{\sY}\right) }X_B \times B_0\left( \widetilde{\sY}\right)\to _{B_0\left( \widetilde{\sY}\right) }X_B$ (cf. equation \eqref{c_hull_wtr_eqn}). This circumstance yields a dense $G\left(\left.\widetilde \sY~\right| \sY\right)$- invariant dense $B$-$B_0\left( \widetilde{\sY}\right)$-subbimodule of  $_{B_0\left( \widetilde{\sY}\right) }X_B$ given by
+\bean
+\widetilde {\mathfrak B}'\bydef _{\widetilde B}X_BC_c\left( \widetilde\sY\right) \subset _{\widetilde B}X_B
+\eean
+be a $G\left(\left.\widetilde B~\right| B\right)$- invariant dense $B$-$\widetilde B$-subbimodule of $_{\widetilde B}X_B$. 
+
+
+If $\widetilde B_c \bydef B_0\left( \widetilde{\sY}\right)C_c\left( widetilde{\sY}\right)$
+
+
+
+
+\begin{definition}\label{blowing_str_sh_defn!}
+	?he sheaf $\mathscr{ A}$ of *-algebras associated to the presheaf $\mathscr A'$ (cf. \ref{sheaf_prdf}) is said to be the \textit{structural sheaf}
+\end{definition}
+
+
+
+If $\mathfrak B$ is the completion of $B_c$ with respect to the graph topology (cf. Definition \ref{def:rep_Hilbert_module}) then there is the universal  representation $\varrho:  A \hookto \End_B\left(\mathfrak B \right)$ (cf. Definition \ref{def:universal_integrable_rep}). From the Exercise \ref{blowing_hull_exer} it turns out that all $\la\in \La$ there is a dense right ideal $\mathfrak B_\la \subset B_\la$ and   the universal  representation $\varrho_\la:  A_\la \hookto \End_{B_\la}\left(\mathfrak B_\la \right)$.
+Using the Exercise \ref{blowing_hull_exer} one can construct a  {pointed algebraic finite covering category of $*$-algebras}  given by
+\be\label{blowing_sa_eqn}
+\begin{split}
+	\mathfrak{S}^{\text{pt}}_A \bydef \left(\left\{\pi_\la: A \hookto A_\la \right\}_{\la \in \La}, \left\{\pi^\mu_\nu: A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\ \nu > \mu}}\right)
+\end{split}
+\ee
+where $A_\la\bydef \mathscr A_\la\left(\sY_\a \right) $ and $\mathscr A_\la\bydef p^{-1}_\la\mathscr A$ is the inverse image of the sheaf $\mathscr A$ (cf. Definition \ref{sheaf_inv_im_defn}). 
+\begin{exercise}
+	Let both  $\mathfrak{S}^{\text{pt}}_A$ and $\mathfrak{S}^{\text{pt}}_B$  are given by \eqref{blowing_sa_eqn} and \eqref{blowing_base_point_b_eqn} respectively.  Prove that $\mathfrak{S}^{\text{pt}}_A$ is an {associated with} $\mathfrak{S}^{\text{pt}}_B$ {pointed algebraic finite covering category of $*$-algebras} (cf. Definition \ref{comp_pt_ass_defn}).
+\end{exercise}
+\begin{empt} 
+	Let us develop a related to $\mathfrak{S}^{\text{pt}}_A$ specialization of the construction \ref{comp_ch_empt}.
+	From the Theorem \ref{blowing_main_thm} it turns out that the given by \eqref{blowing_base_point_b_eqn} category $\mathfrak{S}_B^{\mathrm{pt}}$ is good (cf. Definition \ref{mains_defn}!!! CHECK EVERYWHERE ). then one has the following equations:
+	\be\label{blowing_bc0_eqn}
+	\begin{split}
+		\overline{B}\cong B_0\left(\overline\sY\right),\\
+		\widetilde{B}\cong B_0\left(\widetilde\sY\right),\\
+		G\left(\left.\overline B \right|B\right)\cong	G\left(\left.\overline \sY \right|\sY\right).\\G\left(\left.\widetilde B \right|B\right)\cong	G\left(\left.\widetilde \sY \right|\sY\right)
+	\end{split}
+	\ee
+	where both $\overline\sY$ and $\widetilde\sY$ are topological disconnected and connected inverse limits (cf. Definition \ref{top_topological_inv_lim_defn}) of the given by \eqref{top_hull_top_eqn} topological finite covering category $\mathfrak{S}_{\left( \sX, x_0\right)}$  (cf. Definition \ref{top_sec_defn}).  
+	
+	If $\widehat B \bydef C^*$-$\varinjlim B_\la$ is the direct limit of $C^*$-algebras and $\pi_a : \widehat B \hookto B\left(\H_a\right)$ is the atomic representation (cf. Definition \ref{atomic_repr_defn}) then there are natural inclusions
+	\bean
+	\cup \mathfrak{B}_\la \subset B\left(\H_a\right),\\
+	\widetilde B \subset B\left(\H_a\right),\\
+	\overline B \subset B\left(\H_a\right).
+	\eean
+	where 	$\mathfrak B_\la$ comes from the Exercise \ref{blowing_hull_exer}.	Denote by
+	\bean
+	\begin{split}
+		A^\cup \bydef \cup A_\la,\\
+		B^\cup \bydef \cup B_\la,\\
+		\mathfrak B^\cup\bydef \mathfrak\cup \mathfrak B_\la.\\	
+		%\mathfrak A \bydef \End_{	B^\cup }\left( \mathfrak B^\cup\right) 
+	\end{split}
+	\eean
+	
+	There is the natural action   $A^\cup\times \mathfrak B^\cup\to \mathfrak B^\cup$  so for any  $a \in A^\cup$ there is a graph norm $\left\| \cdot\right\|_a : \mathfrak B^\cup\to \R_+$ (cf. Definition \ref{def:rep_Hilbert_module}. Similarly to \ref{comp_ch_empt} we define the following objects:
+	\begin{itemize}
+		\item The right ideal $\widehat  {\mathfrak B}\subset \widehat B$ which is a completion of  ${\mathfrak B}^\cup$ with respect to the family of  graph norms $\left\{\left\| \cdot\right\|_a\right\}_{a \in A^\cup}$.
+		\item The dense subspace $\widehat\D \bydef \widehat  {\mathfrak B}\H_a\subset \H_a$ and the natural action
+		\bean
+		\widehat G \times \widehat\D \to \widehat\D
+		\eean 
+		(cf. equation \ref{c_hull_g_d_eqn}).
+		\item The Hilbert subspace $\widetilde{\H}\subset \H_a$ is the Hilbert norm completion of   $\widetilde{B}\H_a$.
+		\item The subspace $\widetilde \D \bydef \widehat{\D}\cap \widetilde\H$  and the inclusion
+		$$
+		\bigcup_{\la\in \La} A_\la\subset \L^\dagger\left( \widetilde \D \right).
+		$$
+		(cf. equation \eqref{chull_dom_eqn}).
+	\end{itemize}
+	There are following inclusions:
+	
+	\bean
+	\widetilde B\subset  \L^\dagger\left( \widetilde \D \right),\\
+	\eean
+	\be
+	A^\cup \bydef \bigcup_{\la\in\La}A_\la=  \subset \L^\dagger\left( \widetilde \D \right)
+	\ee
+	If $\widetilde\H$ is the completion of $C_0\left(\widetilde\sY\right)	\H_a$ then we denote by
+	\be\label{blowing_ch_inc_t_eqn}
+	\begin{split}
+		\widetilde \D\bydef  \widehat  \D \cap \widetilde\H
+	\end{split}
+	\ee
+	
+	\begin{empt}
+		Let $\widetilde{\mathscr  A }\bydef \widetilde q^{-1}\mathscr  A$
+		be	$\widetilde q$ inverse image (cf. Definition \ref{sheaf_inv_im_defn}) of the explained in \ref{blowing_sheaf_defn} sheaf $\mathscr  A$, and let $\widetilde y \subset\sY$ be a point. If $\widetilde s \in \widetilde{\mathscr  A }\left(\widetilde{\sY}\right)$ is a global section. From the Definition of the sheaf $\mathscr  A$ it turns out that  there is an open subset $\widetilde \sU$ such that $\widetilde y \in \widetilde \sU$ and  $\widetilde s|_{\widetilde \sU}\in \widetilde{\mathscr  A }\left(\widetilde{\sU}\right)$ is represented by $\widetilde b \in B_0\left(\widetilde\sY\right)$.
+	\end{empt}
+	\begin{definition}
+		In the above situation suppose $\widetilde s \in \widetilde{\mathscr  A }\left(\widetilde\sY\right)$ is a global section and $\widetilde a \in \L^\dagger\left( \widetilde\D\right)$. We say that $\widetilde s$ \textit{is represented by} $\widetilde a$  \textit{at} $\widetilde s$ is  there is an open neighborhood  $\widetilde \sU$ of  $\widetilde y$ such that following conditions hold:
+		\begin{enumerate}
+			\item[(a)] The restriction $\widetilde s|_{\widetilde \sU}$ is represented by $\widetilde b \in B_0\left(\widetilde\sY\right)$.
+			\item[(b)] 	\bean
+			\forall \widetilde f \in C_0\left(\widetilde \sY \right) \quad \supp \widetilde f \cap \widetilde \sU = \emptyset \quad\Rightarrow\quad  \widetilde f\left( \widetilde a  \widetilde b\right)=   \left(\widetilde a  \widetilde b\right)\widetilde f= 0
+			\eean
+			
+		\end{enumerate}
+		We say that $\widetilde s$ \textit{is represented by} $\widetilde a$ if it represented by  $\widetilde a$ at any $\widetilde y \in \widetilde\sY$.
+	\end{definition}
+	Denote by
+	
+	\be\label{blowing_wta_defn}
+	\widetilde A \bydef \left\{\widetilde a \in \L^\dagger\left( \widetilde\D\right)\left|\exists \widetilde s \in   \widetilde{\mathscr  A }\left(\widetilde\sY\right)\quad \widetilde s \quad \text{is represented by}\quad\widetilde a\right.\right\}\subset \L^\dagger\left( \widetilde\D\right)
+	\ee
+	For any $\widetilde b\in 	K\left(\widetilde B \right) $ the set $\supp \widetilde b$ is compact (cf. Definition \ref{blowing_supp_defn} and Exercise \ref{blowing_ped_exer}) hence   one has $\widetilde b  \widetilde\H\subset \widetilde\D$ !!! PROVE. It follows that
+	\bean
+	K\left(\widetilde B \right)\subset \L^\dagger\left(\widetilde\D\right),\\
+	K\left(\widetilde B \right)\cap \L^\dagger\left(\widetilde\D\right)= K\left(\widetilde B \right).
+	\eean
+	From the above equation and  the condition \eqref{c_hull_adm_eqn} one can deduce the following lemma.
+\end{empt}
+\begin{lemma}\label{blowing_c_hull_adm_lem}
+	An element $\widetilde a\in \L^\dagger\left(\widetilde\D\right)$ is admissible (cf. Definition \ref{main_chp_adm_defn}) if it satisfies to the following condition
+	\be\label{blowing_c_hull_adm_eqn}
+	\forall \widetilde b', \widetilde b'' \in K\left(\widetilde B\right)\quad \exists a^\cup \in \cup A_\la \quad b' \widetilde ab''= b' a^\cup b''
+	\ee
+	(cf. equation \ref{c_hull_adm_eqn}).
+\end{lemma}
+
+\begin{theorem}\label{blowing_chull_thm}
+	Consider the above situation. Suppose that $\left(B , B_0\left(\widetilde\sY\right),  	G\left(\left.\widetilde \sY \right|\sY\right)\right)$   the inverse noncommutative limit of  (cf. Definition \ref{main_defn})  of $\mathfrak{S}_B^{\mathrm{pt}}$
+	If $\widetilde A$ is given by the equation  \eqref{blowing_wta_defn} then
+	$\left(A , \widetilde A,  	G\left(\left.\widetilde \sY \right|\sY\right)\right)$  is the 	{ inverse noncommutative limit of $\mathfrak{S}_A^{\mathrm{pt}}$ associated with $\mathfrak{S}_B^{\mathrm{pt}}$} (cf. Definition  \ref{main_chp_defn}) 
+\end{theorem}
+\begin{proof}
+	We would like to prove that the set admissible elements coincides with the intersection $\widetilde A$.
+	
+	Firstly  we prove that   $\widetilde a\in\widetilde A$ for all  admissible $\widetilde a\in \L^\dagger\left(\widetilde\D\right)$.  Having $\widetilde a$ we construct the global section $\widetilde s_{\widetilde a}\in \widetilde{\mathscr A}\left( \widetilde\sY\right)$. From \ref{top_fx_empt} it turns out that for any $\widetilde x \in \widetilde\sX$ one can find $\widetilde f \in C_c\left(\widetilde\sX \right)$  such that $\widetilde{x}\in  \widetilde{\sV} \subset {\widetilde{\sU}}\subset \widetilde\sX$, $\widetilde{f}\left(\widetilde{\sV} \right)= 1$,  $\widetilde{f}\left(\widetilde{\sX} \right)= \left[0,1\right]$ and $\supp 	\widetilde{f} \subset \widetilde{\sU}$. Moreover both sets $\widetilde{\sV} \subset {\widetilde{\sU}}$ are open and the restriction $\left.\widetilde p\right|_{\widetilde{\sU}}: \widetilde{\sU}\to \sU \bydef {\widetilde{p}}\left( {\widetilde{\sU}}\right)$ is a homeomorphism. According to \eqref{top_c_hull_adm_eqn} there is $a^\cup \in \cup A_\la$ such that 
+	$
+	f \widetilde af= f a^\cup f
+	$. Moreover since $\sU$ is evenly covered by $p_\la$ there is $a \in A$ such that $f \widetilde af= f a\cup f$. A pair $\left( a , \sV \bydef \widetilde{p }\left(\widetilde\sV \right) \right)$ defines a stalk of $\mathscr A$ at $\widetilde{p }\left(\widetilde{x } \right)$ (cf. Definition \ref{stalk_defn}). The restriction $\left.\widetilde p\right|_{\widetilde{\sV}}: \widetilde{\sV}\to \sV \bydef {\widetilde{p}}\left( {\widetilde{\sV}}\right)$ is a homeomorphism so one can define a  stalk $s_{ \widetilde{\sV}} \in \widetilde{\mathscr A}\left(\widetilde{\sU} \right)$  of $\widetilde{\mathscr A}$ at $\widetilde{x }$. Having a stalk for any $\widetilde x \in \widetilde \sX$ one can construct a global section $\widetilde s_{\widetilde a}\in \widetilde{\mathscr A}\left( \widetilde\sX\right)$ (cf. \ref{sheaf_empt}).
+	
+	Secondly we prove that any $\widetilde a\in\widetilde A\cong\L^\dagger\left(\widetilde\D\right)_{\mathrm{comm}}\cap \widetilde{\mathscr A}\left( \widetilde\sX\right)$ is admissible.  From the equation \eqref{top_coh_comm_inc_eqn} it follows that $\widetilde a\in  	\L^\dagger\left(\widetilde\D\right)$. If $\widetilde b', \widetilde b'' \in K\left(C_0\left(\widetilde\sX\ \right)\right)= C_c\left(\widetilde\sX\ \right)$ then both $\supp \widetilde b'$ and $\supp \widetilde b''$ are compact.  So the intersection $\supp \widetilde b'\cap \supp \widetilde b''$ is also compact. 
+	From the Lemma \ref{top_comp_la_lem} it follows that there is \\$\la_{\supp \widetilde b'\cap \supp \widetilde b''} \in \La$ such that for any  
+	$\la \ge \la_{\supp \widetilde b'\cap \supp \widetilde b''} \in \La$ such that for  any  $\la \ge \la_{\supp \widetilde b'\cap \supp \widetilde b''}$ the set ${\supp \widetilde b'\cap \supp \widetilde b''}$  is mapped homeomorphically onto  
+	$\widetilde{p}_\la\left(\supp \widetilde b'\cap \supp \widetilde b'' \right) \subset \sX_\la$ where $\widetilde{p}_\la:   \widetilde{   \mathcal X}   \to  \sX_\la$ is the natural covering. Element $\widetilde b'\widetilde a\widetilde b''$ uniquely depends on the restriction $\left.\widetilde a \right|_{\supp \widetilde b'\cap \supp \widetilde b'}\in \widetilde{\mathscr A}\left( \supp \widetilde b'\cap \supp \widetilde b''\right)$ where the group $\widetilde{\mathscr A}\left( \supp \widetilde b'\cap \supp \widetilde b'\right)$ is defined by the Remark \ref{sheaf_rem}. There is $s_\la \in \mathscr A_\la \left(\widetilde p\left( \supp \widetilde b'\cap \supp \widetilde b''\right)  \right)$ such that   $\left.\widetilde a \right|_{\supp \widetilde b'\cap \supp \widetilde b'}$ is the lift of $s_\la$. 
+	On the other hand the sheaf $\mathscr A_\la$ is $c$-soft (cf. Exercise \ref{top_soft_exer}) so there is $a_{\la_0}\in A_{\la_0}$ such that
+	$
+	\left. a_{\la_0}\right|_{\sU_{\la_0}}=s_\la$. From the above construction it follows that
+	$$
+	\quad b' \widetilde ab''= b' a_\la b''.
+	$$
+	From the Lemma \ref{top_c_hull_adm_lem} it follows that $\widetilde a$ is admissible. 
+	
+	The intersection $\widetilde A \bydef \cap \widetilde A'$   of all subalgebras of $\L^\dagger\left( \widetilde \D \right)$ such that any $\widetilde A'$ contains all admissible elements coincides with $\widetilde{\mathscr A}\left( \widetilde\sX\right)\cap	\L^\dagger\left(\widetilde\D\right)_{\mathrm{comm}}$ so  from the Definition \ref{main_chp_defn} it turns that this theorem is proven.
+\end{proof}
+
+\begin{empt}\label{top_at_empt}
+	Consider the above situation. One can define *-algebra $tA$ and $B^T$ as well as it is explained in the section \ref{top_fin_hull_sec}. Similarly to  \eqref{top_sa_eqn} and \eqref{top_sb_eqn} one can define
+	\bean
+	\begin{split}
+		\mathfrak{S}^{\text{pt}}_{B^T} = \left(\left\{\rho_\la: B^T \hookto B^T_\la \right\}_{\la \in \La}, \left\{\rho^\mu_\nu: B^T_\mu \hookto B^T_\nu\right\}_{\substack{\mu, \nu \in \La\\ \nu > \mu}}\right),\\
+		\mathfrak{S}^{\text{pt}}_{tA} \bydef \left(\left\{\pi_\la: tA \hookto tA_\la \right\}_{\la \in \La}, \left\{\pi^\mu_\nu: tA_\mu \hookto tA_\nu\right\}_{\substack{\mu, \nu \in \La\\ \nu > \mu}}\right)
+	\end{split}
+	\eean
+	
+\end{empt}
+
+
+
+
+
 \chapter{Towards noncommutative homotopy theory}\label{h_gr_chap}
 \section{Prototype}
 \paragraph{}
@@ -14440,7 +14607,7 @@ Suppose that $\left(\overline{   \mathcal X}, \overline{x}_0 \right)$ is its  to
 \end{exercise}
 
 \subsubsection{Coverings and $C^*$-hulls}
-
+!!! CORRECT
 \paragraph*{} 	Here one considers a continuous trace $C^*$-algebra $B$ with second-countable, locally connected, locally compact, Hausdorff spectrum  $\sX$.
 Similarly to the Lemma \ref{blowing_base_point_lem} let
 \be\label{ctr_base_point_b_eqn}
@@ -14533,6 +14700,12 @@ $$
 $$
 so $\widetilde a$ is admissible (cf. Definition \ref{main_chp_adm_defn}).
 \end{proof}
+According to \ref{ctr_bas_empt} there is a connected  neighborhood $\sU_x$ with compact closure $\sV_x$, such that $\left.A\right|^{\sV_x}\left.p\right|^{\sV_x}$ is an $\left.A\right|^{\sV_x}$-$C(\sV_x)$-imprimitivity bimodule (cf.  \ref{ctr_imprim_empt}). Indeed $\left.A\right|^{\sV_x}\left.p\right|^{\sV_x}$ is a Hilbert $C(\sV_x)$-module and if $X_{C\left(\sV_x \right) }\bydef \left.A\right|^{\sV_x}\left.p\right|^{\sV_x}$ then $\left.A\right|^{\sV_x}\cong \K\left( X_{C\left(\sV_x \right) }\right)$. 
+
+Let $\widetilde a\in  \End^*_{B_0\left(\widetilde \sX\right)}\left(\widetilde {\mathfrak B}'\right)$ be an  admissible operator in the sense of the Definition \ref{main_chp_adm_defn}. Let $\widetilde x \in \widetilde\sX$ be a point and $x \bydef \widetilde p \left(\widetilde x\right)$. 
+\begin{lemma}
+	Any  admissible in the sense of the Definition \ref{main_chp_adm_defn} operator $\widetilde a$ lies in $\widetilde A$
+\end{lemma}
 \begin{definition}\label{main_chp_adm_defn!}
 	An element $\widetilde a \in \End^*_B\left(\widetilde {\mathfrak B}'\right)$ is said to be \textit{admissible} if  following conditions hold:
 	\bea
