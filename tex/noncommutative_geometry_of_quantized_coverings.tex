@@ -1688,7 +1688,7 @@ We say that the triple $\left(A, \widetilde{A}, G \right)$ and/or the quadruple 
 \subsection{Coverings and $C^*$-hulls}\label{fin_chull_sec}
 \paragraph*{}
 The Definition \ref{fino*_defn} assumes  that both *-algebras $A$ and $\widetilde{A}$ contain  quite enough bounded elements. Here we consider an opposite situation.
-\begin{empt}
+\begin{empt}\label{fin_chull_empt}
 Let $\left(A, \widetilde{A}, G, \pi_A \right)$ be a {noncommutative finite-fold  pre-covering of *-algebras} (cf. Definition \ref{fin_pre*_defn}), and let $\left(B, \widetilde{B}, G, \pi_B \right)$ be a {noncommutative finite-fold  covering} (cf. Definition \ref{fin_defn}).
 Suppose that there is an {universal} an integrable representation  $\left( \mathfrak{B},\mu\right)$ of $A^\sim$ (cf. Definition \ref{def:universal_integrable_rep} and equation \eqref{unital_notation_eqn}). 	Suppose  $\widetilde{\mathfrak{B}}\bydef \widetilde B\otimes_B \mathfrak{B}$ and there is  $\left(\widetilde{\mathfrak{B}},\widetilde\mu\right)$ of $\widetilde{A}$. An action $G\times \widetilde B \to \widetilde B$ naturally  induces an action $G\times \widetilde{\mathfrak{B}} \to \widetilde{\mathfrak{B}}$ such that there is an isomorphism of right $B$-modules
 \be\label{inv_hull_eqn}
@@ -4598,7 +4598,7 @@ This section is an infinite counterpart of the Section \ref{fin_chull_sec}.
 	\widetilde {\mathfrak B}'\subset _{\widetilde B}X_B
 	\ee
 	be a $G\left(\left.\widetilde B~\right| B\right)$- invariant dense $B$-$\widetilde B$-subbimodule of $_{\widetilde B}X_B$. 
-	If $\widetilde{A}\bydef\End^*_{\widetilde { B}}\left(\widetilde {\mathfrak B}'\right)$ then there is the natural action $G\left(\left.\widetilde B\right| B\right) \times \widetilde{A}\to \widetilde{A}$. If there is a  nondegenerate left action $A \times \widetilde{A}\to \widetilde{A}$ such that 
+Suppose  $\widetilde{A}\subset\End^*_{\widetilde { B}}\left(\widetilde {\mathfrak B}'\right)$ is *-subalgebra  such that  $G\left(\left.\widetilde B\right| B\right) \widetilde{A}= \widetilde{A}$. If there is a  nondegenerate left action $A \times \widetilde{A}\to \widetilde{A}$ such that 
 \be\label{c_hull_equiv_eqn}
 \forall g \in G\left(\left.\widetilde B\right| B\right) \quad \forall a \in A\quad \forall\widetilde a \in\widetilde A\quad g\left( a \widetilde a\right) = a\left( g \widetilde a\right)
 \ee 
@@ -11003,10 +11003,10 @@ then following conditions hold:
 \end{proof}
 
 \subsubsection{Coverings and $C^*$-hulls}
-\begin{empt}\label{blowing_sheaf_defn}
-Let $B$ be a $C^*$-algebra, and let $C = C_0\left( \sY\right)\hookto M\left( B\right) $  be a good  blowing-up of $A$ (cf. Definitions \ref{blowing_defn}, \ref{blowing_good_defn}). For any open $\sU \subset \sY$ consider an equivalence relation
+\begin{empt}\label{blowing_sheaf_defn}  
+Let $B$ be a $C^*$-algebra, and let $C = C_0\left( \sY\right)\hookto M\left( B\right) $  be a good  blowing-up of $A$ (cf. Definitions \ref{blowing_defn}, \ref{blowing_good_defn}).  For any open $\sU \subset \sY$ consider an equivalence relation
 \bean
-\forall b', b'' \in B\quad b'\sim_{\sU} b''  \Leftrightarrow \\ \Leftrightarrow \left( \forall f \in C_0\left(\sY \right) \quad \supp f \cap \sU = \emptyset \quad\Rightarrow\quad  f\left( b' -b''\right)=   \left( b' -b''\right)f= 0\right) 
+\forall b', b'' \in B\quad b'\sim_{\sU} b''   \Leftrightarrow \left( \forall f \in C_0\left(\sU\right) \quad \Rightarrow\quad  \left( b' -b''\right)f= 0\right). 
 \eean
 A following equation
 \be\label{blowing_pre_eqn}
@@ -11016,35 +11016,84 @@ yields a presheaf of *-algebras $\mathscr{ A}'$ on $\sX$ (cf. Definition \ref{pr
 
 \end{empt}
 \begin{definition}\label{blowing_str_sh_defn}
-	?he sheaf $\mathscr{ A}$ of *-algebras associated to the presheaf $\mathscr A'$ (cf. \ref{sheaf_prdf}) is said to be the \textit{structural sheaf}
+	The sheaf $\mathscr{ A}$ of *-algebras associated to the presheaf $\mathscr A'$ (cf. \ref{sheaf_prdf}) is said to be the \textit{structural sheaf} of $B$. 
+\end{definition}
+\begin{lemma}\label{blowing_str_sh_lem}
+	The structural  sheaf  ${\mathscr A}$ is $c$-soft (cf. Definition \ref{soft_sheaf_defn}). Moreover for any compact subset $\sZ \subset \sY$ any section $s \in {\mathscr A}\left( \sZ\right)$ (cf. Remark \ref{sheaf_rem}) can be represented by an operator $b\in B$. 
+	\end{lemma}
+\begin{proof}
+	For any $z\in \sZ$ there is an open neighborhood $ \sU_{z}$ such that the restriction $\left. s\right|_{ \sU_{z}}$ 
+	is represented by $ b_{z} \in B$.
+	Since $\sZ$ is compact there is a dominated by   the family 
+	$\left\{\sU_z\right\}_{z\in\sZ}$ covering sum of $\sY$,\
+	\bean
+	\sum_{j = 1}^n \widetilde f_{z_j}\left( \widetilde x\right) = 1\quad\forall \widetilde x \in \widetilde \sY
+	\eean
+ (cf. Definition \ref{top_cfs_defn}). It turns out that $s$ can be represented by
+ $$
+ b \bydef \sum_{j = 1}^n \widetilde f_{z_j}b_{z_j} \in B
+ $$
+\end{proof}
+There is a $*$-algebra.
+\be\label{blowing_*_eqn}
+A \bydef \mathscr{ A}\left(\sY \right)
+\ee
+of global sections. There is a dense right ideal $B_c \bydef BC_c\left( \sY\right)\subset B$.
+\begin{corollary} In the above situation there is the natural  inclusion
+	$
+	A \subset \End^*_B\left(B_c \right).
+	$.
+
+\end{corollary}
+
+\begin{proof}
+If   $b \in B_c$ then $b = b'f$ where $f \in C_c\left( \sY\right)$. Let $s \in A \bydef\mathscr{ A}\left(\sY \right)$ is the global section.  The support $\supp f$ is compact so there is $b'' \in B$ such which represents $s|_{\supp~f}$. Define $s b \bydef b'' b$. Similarly one can define an action $A \times B_c$ which yields the inclusion 	$
+A \subset \End^*_B\left(B_c \right).
+$.
+
+\end{proof}
+\begin{lemma}\label{blowing_inv_sh_lem}
+If $q: \widetilde \sY\to \sY$ is a covering and $\widetilde{\mathscr A}$ is the structural sheaf of $B_0\left(\widetilde \sY\right)$ (cf. Definition \ref{blowing_str_sh_defn}) then one has
+$$
+\widetilde{\mathscr A} = q^{-1}\mathscr A
+$$
+where $q^{-1}\mathscr A$ means inverse image (cf. Definition \ref{sheaf_inv_im_defn})
+\end{lemma}
+\begin{proof}
+	!!!
+\end{proof}
+In the situation of the Lemma \ref{blowing_inv_sh_lem} denote by $ A \bydef \mathscr{ A}\left(\sY \right)$ and $ \widetilde A \bydef\widetilde{ \mathscr A}\left( \widetilde\sY \right)$.  Let ${\mathfrak{B}}$ and $\widetilde{\mathfrak{B}}$ be  the completions of $BC_c\left( \sY\right)$ and  $B_0\left(\widetilde\sY \right) C_c\left( \widetilde\sY\right)$ with respect to graph topology given by norms
+\bean
+\forall a \in A \quad \forall b  \in BC_c\left( \sY\right)\quad  \left\| b\right\|_a \bydef {\braket{b}{\pi(1+a^*a)b}}^{\nicefrac12},\\
+\forall \widetilde a \in\widetilde A \quad \forall\widetilde b  \in B_0\left(\widetilde \sY \right) C_c\left( \widetilde\sY\right)\quad  \left\| \widetilde b\right\|_{\widetilde a} \bydef {\braket{\widetilde b}{\widetilde\pi(1+\widetilde a^*\widetilde a)\widetilde b}}^{\nicefrac12}
+\eean
+(cf. equation \eqref{graph_norm_eqn})
+
+\begin{lemma}
+In the above situation 
+\end{lemma}
+\begin{empt}\label{fin_chull_empt}
+	Let $\left(A, \widetilde{A}, G, \pi_A \right)$ be a {noncommutative finite-fold  pre-covering of *-algebras} (cf. Definition \ref{fin_pre*_defn}), and let $\left(B, \widetilde{B}, G, \pi_B \right)$ be a {noncommutative finite-fold  covering} (cf. Definition \ref{fin_defn}).
+	Suppose that there is an {universal} an integrable representation  $\left( \mathfrak{B},\mu\right)$ of $A^\sim$ (cf. Definition \ref{def:universal_integrable_rep} and equation \eqref{unital_notation_eqn}). 	Suppose  $\widetilde{\mathfrak{B}}\bydef \widetilde B\otimes_B \mathfrak{B}$ and there is  $\left(\widetilde{\mathfrak{B}},\widetilde\mu\right)$ of $\widetilde{A}$. An action $G\times \widetilde B \to \widetilde B$ naturally  induces an action $G\times \widetilde{\mathfrak{B}} \to \widetilde{\mathfrak{B}}$ such that there is an isomorphism of right $B$-modules
+	\be\label{inv_hull_eqn}
+	\pi_G :\mathfrak B \cong \widetilde {\mathfrak B}^G.
+	\ee
+\end{empt}
+\begin{definition}\label{fin_chull_defn}  
+	We say that $\left(A, \widetilde{A}, G, \pi_A \right)$ is an \textit{associated with $\left(B, \widetilde{B}, G, \pi_B \right)$ noncommutative finite-fold covering of *-algebras} 
+	if following conditions hold:
+	\bea\label{fin_chull_1_eqn}
+	\forall g \in G\quad  \forall \widetilde a \in\widetilde A\quad \forall \widetilde {\mathfrak b}\in \widetilde {\mathfrak B} \quad g\left( \widetilde a \widetilde {\mathfrak b}\right)=  g\left( \widetilde a \right)g\left( \widetilde {\mathfrak b}\right),\\\label{fin_chull_2_eqn}
+	\forall  a \in A\quad \forall  \widetilde {\mathfrak b}\in \widetilde {\mathfrak B}^G\quad \pi_A\left(a \right) \widetilde {\mathfrak b}= \pi_G\left(a \pi_G^{-1}\left( \widetilde {\mathfrak b} \right)  \right). 
+	\eea
 \end{definition}
 
- There is a $*$-algebra.
-\be\label{blowing_*_eqn}
-A \cong \mathscr{ A}\left(\sY \right).
-\ee
-\begin{exercise}\label{blowing_soft_exer}
-	Prove following statements
-	\begin{enumerate}
-		\item The sheaf  ${\mathscr A}$ is $c$-soft (cf. Definition \ref{soft_sheaf_defn}).
-		\item For any covering $q: \widetilde \sY\to \sY$ the inverse image $q^{-1}{\mathscr A}$ (cf. Definition \ref{sheaf_inv_im_defn}) is a $c$-soft sheaf.
-	\end{enumerate}
-\end{exercise}
-
-\begin{exercise}\label{blowing_hull_exer}
-	There is a dense right ideal $B_c \bydef BC_c\left( \sY\right)\subset B$.
-Prove following statements:
-\begin{enumerate}
-	\item There is the natural action $A\otimes B_c\to B_c$.
-	\item If $\mathfrak B$ is the completion of $B_c$ with respect to the graph topology (cf. Definition \ref{def:rep_Hilbert_module}) then there is the universal  representation $\varrho:  A \hookto \End^*_B\left(\mathfrak B \right)$ (cf. Definition \ref{def:universal_integrable_rep}) such that $B_c$ is a core for $\left(\varrho,  \mathfrak B\right)$ (cf. Definition \ref{def:rep_Hilbert_module}).
-\item Let  $q: \widetilde \sY\to \sY$ is a transitive finite-fold covering and \\ $\left(B, B_0\left( \widetilde\sY\right) , G\left(\left. \widetilde\sY\right| \sY\right) , B_0\left( q\right)  \right)$ is a noncommutative finite-fold   covering (cf. Definition \ref{fin_defn}) given by the Lemma \ref{blowing_covi_lem}. Let $\widetilde{\mathscr A}\bydef p^{-1}\mathscr A$ be the inverse image (cf. Definition \ref{sheaf_inv_im_defn}) 
-and let $\pi_A: \mathscr{ A}\left(\sY \right)\hookto \widetilde{\mathscr A}\left( \widetilde  \sY\right)$ the natural injective *-homomorphism. Then $\left(\mathscr{ A}\left(\sY \right), \widetilde{\mathscr A}\left( \widetilde  \sY\right) , G\left(\left. \widetilde\sY\right| \sY\right), \pi_A \right)$ is an associated with 
-$ \left(B, B_0\left( \widetilde\sY\right) , G\left(\left. \widetilde\sY\right| \sY\right) , B_0\left( q\right)  \right) $ noncommutative finite-fold  covering of *-algebras (cf. Definition \ref{fin_chull_defn}).
-\end{enumerate}
-\end{exercise}
 
 
+\begin{theorem}
+	Let $B$ be a $C^*$-algebra, and let $C = C_0\left( \sY\right)\hookto M\left( B\right) $  be a good  blowing-up of $A$ (cf. Definitions \ref{blowing_defn}, \ref{blowing_good_defn}). Let $q: \widetilde \sY\to \sY$ be a transitive covering and let both ${\mathscr A}$  and $\widetilde{\mathscr A}$ are structural sheaves of both $B$ and $B_0\left(\widetilde \sY\right)$ (cf. Definition \ref{blowing_str_sh_defn}), and 
 
+\end{theorem}
 
 \subsection{Infinite noncommutative coverings}
 \subsubsection{Coverings of $C^*$-algebras}
@@ -25015,9 +25064,7 @@ and $\mathcal{E} $ a Hilbert  $D $-module.
 	We equip $\mathfrak{E} $ with the \emph{graph topology}, which is
 	generated by the \emph{graph norms}
 	\be	\label{graph_norm_eqn}
-	\mathrm{norm}{\xi}_a \bydef \mathrm{norm}{(\xi,\pi(a)\xi)}
-	\bydef \mathrm{norm}{\braket{\xi}{\xi} + \braket{\pi(a)\xi}{\pi(a)\xi}}^{\nicefrac12}
-	=\\	= \mathrm{norm}{\braket{\xi}{\pi(1+a^*a)\xi}}^{\nicefrac12}
+\left\| {\xi}\right\| _a \bydef \left\langle \xi, \xi\right\rangle  + \left\langle  \pi(a)\xi,\pi(a)\xi\right\rangle^{\nicefrac12}	= \left\langle  \xi,\pi(1+a^*a)\xi\right\rangle ^{\nicefrac12}
 	\ee
 	for  $a\in A $.  The representation is \emph{closed} if $\mathfrak{E} $
 	is complete in this topology.  A \emph{core} for $(\mathfrak{E},\pi) $ is
