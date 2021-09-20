@@ -4596,9 +4596,9 @@ Consider the described in \ref{comp_chull_empt} situation. Suppose that followin
 	\item [(a)] There is $
 	\widetilde {\mathfrak B}'\subset _{\widetilde B}X_B $
 	be a $G\left(\left.\widetilde B~\right| B\right)$- invariant dense $\widetilde B$-$ B$-subbimodule of $_{\widetilde B}X_B$.
-		\item [(b)] There is a *-algebra $\widetilde{A}$ and an inclusion inclusion $\widetilde{A}\hookto\End^*_{\widetilde { B}}\left(\widetilde {\mathfrak B}'\right)$   such that  $G\left(\left.\widetilde B\right| B\right) \widetilde{A}= \widetilde{A}$  
+		\item [(b)] There is a *-algebra $\widetilde{A}$ and an inclusion inclusion $\widetilde{A}\hookto\End^*_{\widetilde { B}}\left(\widetilde {\mathfrak B}'\right)$   such that  $G\left(\left.\widetilde B\right| B\right) \widetilde{A}= \widetilde{A}$.
 		\item [(c)] For any nontrivial $g \in G\left(\left.\widetilde B\right| B\right)$ yields a nontrivial *-automorphism of $ \widetilde{A}$.
-		\item [(d)]  There is a *-algebra $A$ and an inclusion $A\hookto \End^*_{\widetilde { B}}\left(\widetilde {\mathfrak B}'\right)^{G\left(\left.\widetilde B\right| B\right)}$
+		\item [(d)]  There is a *-algebra $A$ and an inclusion $A\hookto \End^*_{\widetilde { B}}\left(\widetilde {\mathfrak B}'\right)^{G\left(\left.\widetilde B\right| B\right)}$.
 		\item [(e)] $\widetilde{A}$ is an $A$-$A$-bimodule, the bimodule structure comes from\\ $\End^*_{\widetilde { B}}\left(\widetilde {\mathfrak B}'\right)^{G\left(\left.\widetilde B\right| B\right)}$-$~\End^*_{\widetilde { B}}\left(\widetilde {\mathfrak B}'\right)^{G\left(\left.\widetilde B\right| B\right)}$- bimodule $\End^*_{\widetilde { B}}\left(\widetilde {\mathfrak B}'\right)$. 
 		\item [(f)] The natural representations
 		$\widetilde{A}\hookto\End^*_{\widetilde { B}}\left(\widetilde {\mathfrak B}'\right)$ and ${A}\hookto\End^*_{\widetilde { B}}\left(\widetilde {\mathfrak B}'^{G\left(\left.\widetilde B\right| B\right)}\right) $ are nondegenerate.
@@ -7774,6 +7774,7 @@ i.e.  the triple 	$\left(\left(\Coo_c\left(M \right)', \Coo\left(M \right)    \r
  	is a {noncommutative finite-fold covering of quasi $*$-algebras}.
 \end{proof}
 \subsection{Coverings and $C^*$-hulls}\label{top_fin_chull_sec}
+\subsubsection{Algebras of unbounded functions}
 \paragraph*{}
 Let $\sX$ and $\widetilde\sX$ be locally compact Hausdorff spaces, and let $p:\widetilde\sX\to \sX$ be a covering. If both $A$ and $\widetilde A$  are *-algebras of (unbounded) $\C$-valued continuous maps then $p$ induces an injective *-homomorphism
 $$
@@ -7813,29 +7814,41 @@ In the above situation if $p$ is a transitive finite-fold covering then the quad
 
 
 
-\subsection{Coverings and $C^*$-hulls}\label{top_fin_hull_sec}
-\paragraph{}
-!!! CHECK AND LINK
-Let $\sX$ be a locally compact, connected, locally connected, Hausdorff space, and let $A \bydef C\left(\sX\right)\left[t\right]$ be a commutative *-algebra of polynomials of $t$ such that $t= t^*$. Let $B \bydef C_0\left(\sX \times \R\right)$ and let $B_c \subset B$ be a dense ideal of $B$ such that 
-\be\label{top_bc_eqn}
-B_c \bydef\left(\left.b\in B \right| \mathrm{pr}_\R\left(  \supp b \right) \quad \text{is compact}\right)
-\ee
-where $\mathrm{pr}_\R:\sX \times \R\to\R$ is the natural projection. If $T: \R \to \R$ is an identical map then there is a representation
+\subsubsection{Polynomials in one variable}\label{top_fin_hull_sec}
+\begin{empt}
+
+Let $\sX$ be a locally compact, connected, locally connected, Hausdorff space, and let $C_0\left(\sX\right)\left[t\right]$ be a commutative *-algebra of polynomials of $t$ such that $t= t^*$. If $\sU \subset \sX$ is an open subset then there is an equivalence relation $\sim_\sU$ on $C_0\left(\sX\right)\left[t\right]$ such that
 \bean
-A = C\left(\sX\right)\left[t\right]\hookto \End_B\left(B_c \right),\\
-\forall a \in C\left(\sX\right)\quad n \in \Z \quad \forall b \in B_c \quad a t^n \mapsto \left(b \mapsto aT^n b \right). 
+\forall a', a'' \in C_0\left(\sX\right)\left[t\right]\quad a'\sim_\sU a''\quad \Leftrightarrow\\ \Leftrightarrow \left(\forall f \in C_0\left(\sX\right)\quad \supp f \cap \sU = \emptyset \quad \Rightarrow \quad f\left(a'-a'' \right) =0 \right). 
 \eean
-If $\mathfrak B$ is the completion of $B_c$ with respect to the graph topology (cf. Definition \ref{def:rep_Hilbert_module}) then there is the universal  representation $\varrho:  A \hookto \End_B\left(\mathfrak B \right)$ (cf. Definition \ref{def:universal_integrable_rep}) such that $B_c$ is a core (cf. Definition \ref{def:rep_Hilbert_module}) for $\left(\varrho,  \mathfrak B\right)$. If  $\widetilde \sX \to \sX$ is a finite-fold transitive covering and $G \bydef G\left(\left.\widetilde \sX \right| \sX  \right)$ then from the Theorem \ref{comm_fin_thm} it follows that one can naturally obtain  a {noncommutative finite-fold  covering} $\left(B, \widetilde{B}\bydef C_0\left(\widetilde \sX \times \R\right) , G, \pi_B \right)$ (cf. Definition \ref{fin_defn}). If $\widetilde A \bydef C\left( \widetilde\sX\right)\left[t\right]$ then the action $G \times C\left( \widetilde\sX\right)$ naturally induces an action $G\times \widetilde A\to A$. The inclusion $C\left( \sX\right)\hookto C\left( \widetilde\sX\right)$ yields the inclusion $\pi_A: A \hookto \widetilde A$. Similarly to the above construction there is a dense right $\widetilde B$-submodule $\widetilde {\mathfrak B}\bydef \widetilde B\otimes_B\mathfrak B \subset \widetilde B$ and representation $\widetilde A\hookto \End_{\widetilde B}\left(\widetilde {\mathfrak B} \right)$. If $tA\subset A$ and $t\widetilde A\subset \widetilde A$ are ideals then both quadruples  $\left(A, \widetilde{A}, G, \pi_A \right)$ and  $\left(tA, t\widetilde{A}, G, \pi_A \right)$ are noncommutative finite-fold  pre-coverings of *-algebras (cf. Definition \ref{fin_pre*_defn}). Let both $B^T$ and $\widetilde B^T$ be $C^*$-norm completion of $T {\mathfrak B}$ and $T\widetilde {\mathfrak B}$ respectively.
-
-
+The map $\sU \mapsto C_0\left(\sX\right)\left[t\right]$ yields a presheaf of *-algebras (cf. Definition \ref{presheaf_defn}), denote by $\mathscr{ A}$ the associated sheaf (cf. \ref{sheaf_prdf}). Let 
+\be\label{top_poly_a_defn}
+A \bydef \mathscr{ A}\left(\sX\right)
+\ee
+ be a *-algebra of global sections.
+Let $B \bydef C_0\left(\sX \times \R\right)$ and let $B_c \subset B$ be a dense ideal of $B$ such that 
+\be\label{top_bc_eqn}
+B_c  \bydef C_0\left(\sX \times \R\right)B
+\ee
+ If $T: \R \to \R$ is an identical map then there is a representation
+\bean
+C\left(\sX\right)\left[t\right]\hookto \End_B\left(B_c \right),\\
+\forall a \in C_0\left(\sX\right)\quad n \in \Z \quad \forall b \in B_c \quad a t^n \mapsto \left(b \mapsto aT^n b \right). 
+\eean
+This representation naturally yields a representation $A \hookto \End_B\left(B_c \right)$. If $\mathfrak B$ is the completion of $B_c$ with respect to the graph topology (cf. Definition \ref{def:rep_Hilbert_module}) then there is the universal  representation $\varrho:  A \hookto \End_B\left(\mathfrak B \right)$ (cf. Definition \ref{def:universal_integrable_rep}) such that $B_c$ is a core (cf. Definition \ref{def:rep_Hilbert_module}) for $\left(\varrho,  \mathfrak B\right)$. If  $\widetilde \sX \to \sX$ is a finite-fold transitive covering and $G \bydef G\left(\left.\widetilde \sX \right| \sX  \right)$ then from the Theorem \ref{comm_fin_thm} it follows that one can naturally obtain  a {noncommutative finite-fold  covering} $\left(B, \widetilde{B}\bydef C_0\left(\widetilde \sX \times \R\right) , G, \pi_B \right)$ (cf. Definition \ref{fin_defn}). Similarly to the above construction one can obtain a sheaf over $\widetilde \sX$ and *-algebra of its global sections $\widetilde A$ (cf. the equation \eqref{top_poly_a_defn}). The inclusion $C\left( \sX\right)\hookto C\left( \widetilde\sX\right)$ yields the inclusion $\pi_A: A \hookto \widetilde A$. Similarly to the above construction there is a dense right $\widetilde B$-submodule $\widetilde {\mathfrak B}\bydef \widetilde B\otimes_B\mathfrak B \subset \widetilde B$ and representation $\widetilde A\hookto \End_{\widetilde B}\left(\widetilde {\mathfrak B} \right)$. 
+\end{empt}
+!!! CHECK
 \begin{exercise}\label{top_fin_hull_exer}
 Prove following statements:
 	\begin{enumerate}
 		\item The quadruple  $\left(A, \widetilde{A}, G, \pi_A \right)$ is an {associated with $\left(B, \widetilde{B}, G, \pi_B \right)$  noncommutative finite-fold  covering of *-algebras} (cf. Definition \ref{fin_chull_defn}).
-		\item Prove that $\left(A, \widetilde{A}, G, \pi_A \right)$ can be regarded as a noncommutative finite-fold covering of $O^*$-algebras (cf. Definition \ref{fino*_defn}).
-		\item The quadruple  $\left(tA, t\widetilde{A}, G, \left.\pi_A\right|_{tA} \right)$ is an {associated with $\left(B^T, \widetilde{B}^T, G, \left.\pi_B\right|_{B^T} \right)$  noncommutative finite-fold  covering of *-algebras} (cf. Definition \ref{fin_chull_defn}).
-	
+		\item The quadruple $\left(A, \widetilde{A}, G, \pi_A \right)$ can be regarded as a noncommutative finite-fold covering of $O^*$-algebras (cf. Definition \ref{fino*_defn}).
 	\end{enumerate}
+\end{exercise}
+If $tA\subset A$ and $t\widetilde A\subset \widetilde A$ are ideals then both quadruples  $\left(A, \widetilde{A}, G, \pi_A \right)$ and  $\left(tA, t\widetilde{A}, G, \pi_A \right)$ are noncommutative finite-fold  pre-coverings of *-algebras (cf. Definition \ref{fin_pre*_defn}). Let both $B^T$ and $\widetilde B^T$ be $C^*$-norm completion of $T {\mathfrak B}$ and $T\widetilde {\mathfrak B}$ respectively.
+\begin{exercise}
+Prove that the quadruple  $\left(tA, t\widetilde{A}, G, \left.\pi_A\right|_{tA} \right)$ is an {associated with $\left(B^T, \widetilde{B}^T, G, \left.\pi_B\right|_{B^T} \right)$  noncommutative finite-fold  covering of *-algebras} (cf. Definition \ref{fin_chull_defn}).
+
 \end{exercise}
 \begin{remark}
 Both ideals  $tA$ and $t\widetilde A$ do not contain bounded elements, so the quadruple  $\left(tA, t\widetilde{A}, G, \left.\pi_A\right|_{tA} \right)$ is not a noncommutative finite-fold covering of $O^*$-algebras.
@@ -9907,46 +9920,7 @@ of left $C_0\left(\widetilde M \right)$-modules.
 
 
 \subsection{Coverings and $C^*$-hulls}
-
-\paragraph{title}
-
-\begin{empt}\label{comp_chull_empt!}
-	Let
-	\be\label{comp_pt_rep_b_eqn}
-	\begin{split}
-		\mathfrak{S}^{\text{pt}}_B = \left(\left\{\rho_\la: B \hookto B_\la \right\}_{\la \in \La}, \left\{\rho^\mu_\nu: B_\mu \hookto B_\nu\right\}_{\substack{\mu, \nu \in \La\\ \nu > \mu}}\right)
-	\end{split}
-	\ee
-	is a good {pointed algebraical  finite covering category} (cf. Definitions \ref{comp_pt_defn} and \ref{mains_defn}). Let  $\left( B, \widetilde B, G\left(\left.\widetilde B\right| B\right)\right)  $ be the inverse noncommutative limit of $\mathfrak{S}^{\mathrm{pt}}_B$ (cf. Definition \ref{main_defn}). Suppose that $\mathfrak{S}^{\text{pt}}_B$  allows the inner product (cf. Definition \ref{inf_hilb_prod_defn}), and let $_{\widetilde B}X_B$ be an explained in the Remark \ref{inf_hilb_prod_rem} Hilbert $B$-module. Since $_{\widetilde B}X_B$ is the completion of Pedersen's ideal $K\left( \widetilde B\right)$ (cf. Definition \ref{peder_id_defn})   there is a right action 
-	\be\label{c_hull_wtr_eqn}
-	_{\widetilde B}X_B \times {\widetilde B}\to _{\widetilde B}X_B
-	\ee
-\end{empt}
-
-
-
-\begin{definition}\label{main_ch_defn!}
-	Consider the described in \ref{comp_chull_empt} situation. Suppose that following conditions hold:
-	
-	\begin{enumerate}
-		\item [(a)] There is $
-		\widetilde {\mathfrak B}'\subset _{\widetilde B}X_B $
-		be a $G\left(\left.\widetilde B~\right| B\right)$- invariant dense $\widetilde B$-$ B$-subbimodule of $_{\widetilde B}X_B$.
-		\item [(b)] There is a *-algebra $\widetilde{A}$ and an inclusion inclusion $\widetilde{A}\hookto\End^*_{\widetilde { B}}\left(\widetilde {\mathfrak B}'\right)$   such that  $G\left(\left.\widetilde B\right| B\right) \widetilde{A}= \widetilde{A}$  
-		\item [(c)] For any nontrivial $g \in G\left(\left.\widetilde B\right| B\right)$ yields a nontrivial *-automorphism of $ \widetilde{A}$.
-		\item [(d)]  There is a *-algebra $A$ and an inclusion $A\hookto \End^*_{\widetilde { B}}\left(\widetilde {\mathfrak B}'\right)^{G\left(\left.\widetilde B\right| B\right)}$
-		\item [(e)] $\widetilde{A}$ is an $A$-$A$-bimodule, the bimodule structure comes from\\ $\End^*_{\widetilde { B}}\left(\widetilde {\mathfrak B}'\right)^{G\left(\left.\widetilde B\right| B\right)}$-$~\End^*_{\widetilde { B}}\left(\widetilde {\mathfrak B}'\right)^{G\left(\left.\widetilde B\right| B\right)}$- bimodule $\End^*_{\widetilde { B}}\left(\widetilde {\mathfrak B}'\right)$. 
-		\item [(f)] The natural representations
-		$\widetilde{A}\hookto\End^*_{\widetilde { B}}\left(\widetilde {\mathfrak B}'\right)$ and ${A}\hookto\End^*_{\widetilde { B}}\left(\widetilde {\mathfrak B}'^{G\left(\left.\widetilde B\right| B\right)}\right) $ are nondegenerate.
-		\item [(g)]  Both representations $A \hookto \End_A\left(\widetilde{A}\right)$ and $A \hookto \End\left(\widetilde{A}\right)_A$  given by left and right actions of $A$ on $\widetilde A$ are also nondegenerate.
-	\end{enumerate}
-	We say that the triple $\left(A, \widetilde{A}, G\left(\left.\widetilde A \right| A\right)\bydef G\left(\left.\widetilde B \right| B\right)\right)$	is an \textit{infinite noncommutative covering  associated with $\mathfrak{S}_B^{\mathrm{pt}}$}. 
-\end{definition}
-
-
-
-
-\paragraph{title}
+\subsubsection{Algebras of unbounded functions}
 \paragraph{}
 If
 \be\nonumber
@@ -9968,15 +9942,17 @@ From the Lemma \ref{comm_allows_lem} it follows that the  pointed algebraical  f
 $
 \widetilde {\mathfrak B}'\bydef _{\widetilde B }X_B\widetilde B_c
 $
-then $\widetilde {\mathfrak B}'$ is a $G\left(\left.\widetilde \sY~\right| \sY\right)$- 
+then $\widetilde {\mathfrak B}'$ is a $G\left(\left.\widetilde \sX~\right| \sX\right)$- 
 invariant dense $\widetilde B$-$ B$-subbimodule of $_{\widetilde B }X_B$. If $\widetilde b \in \widetilde {\mathfrak B}'$ then
 $\supp \widetilde a\widetilde b \subset \widetilde b$ for all   $\widetilde  a \in \widetilde A$, it turns out that $\widetilde A\widetilde {\mathfrak B}'\subset \widetilde {\mathfrak B}'$, i.e.  $\widetilde {\mathfrak B}'$ is a right $\widetilde {A}$ module.
+
 \begin{exercise}\label{top_inf_hull_exer} Using the module  $\widetilde {\mathfrak B}'$ prove that the triple $\left({ A}, \widetilde{ A}, G\left(\left.\widetilde \sY \right| \sY\right)\right)$ 	is an {infinite noncommutative covering  associated with $\mathfrak{S}_B^{\mathrm{pt}}$} in the sense of the Definition \ref{main_ch_defn}.
 \end{exercise}
 
 \subsection{Coverings and $C^*$-hulls}
+\subsubsection{Polynomials of degree 1}
 \paragraph{}
-!!!!
+
 Suppose that
 \be\label{top_hull_top_eqn}
 \begin{split}
