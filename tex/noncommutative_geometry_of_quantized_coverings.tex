@@ -1371,6 +1371,10 @@ If $ \A$ is  category then a related to $ \A$ construction is said to be \textit
 %\begin{proof}
 %	Denote by $\H' \bydef  f_\eps\left( A\right)\H$ and let $p \in B\left(	\H \right)$ be the projection onto $\H'$. If $A' = pAp, B' = pBp \in B\left(	\H' \right)$ then $\left\| B - A \right\|< \eps\quad \Rightarrow\quad \left\| B' - A' \right\| < \eps$ and $B \ge f_\eps\left( A\right) \quad \Leftrightarrow\quad B' \ge f_\eps\left( A'\right)$. On the other hand $f_\eps\left(A' \right)= A' - \eps \cdot 1_{B\left( \H'\right) }$. If $B' \not\ge f_\eps\left(A' \right)$ then there is $\xi \in \H'$ such that $\left( \xi, B' \xi \right)_{\H'}  <   \left( \xi, f_\eps\left( A'\right)_{\H'} \xi\right)  = \left( \xi, A' \xi\right)_{\H'}  - \eps \left\| \xi \right\|^2$. If $\left\| \xi \right\|= 1$ then $\left( \xi, B' \xi\right)_{\H'}  <   \left( \xi, f_\eps\left( A'\right) \xi\right)_{\H'}  = \left( \xi, A' \xi\right)_{\H'}   - \eps$, or equivalently $\left( \xi,\left(A' - B'\right)  \xi\right)_{\H'} > \eps$. From $\left\| \xi \right\|=1$ it turns out that $\left\| \left(A' - B'\right)\xi \right\|> \eps$, hence $\left\| A' - B' \right\|> \eps$; that is a contradiction with our assumption. The contradiction proves this lemma.
 % \end{proof}
+\begin{definition}\label{def:rep_Hilbert_module_uni}
+Let $A$ be a *-algebra and let $D$ be a $C^*$-algebra. Let $\mathcal{E}$ be a Hilbert $B$-module, and let $A^\sim$ is given by \eqref{unital_notation_eqn}, A \emph{representation} of $A $ on $\mathcal{E} $ is a {representation} of $A^\sim$ on $\mathcal{E}$ in the sense of the definition \ref{def:rep_Hilbert_module} !!! CHECK.
+\end{definition}
+
 
 \chapter{Noncommutative finite-fold coverings}\label{cov_fin_chap}
    \section{Basic definitions}\label{cov_fin_bas_sec}
@@ -4608,7 +4612,7 @@ Consider the described in \ref{comp_chull_empt} situation. Suppose that followin
 \end{definition}
 
 \begin{definition}\label{b_core_defn}
-The completion  $\widetilde {\mathfrak B}$ of  $\widetilde {\mathfrak B}'$ with respect to graph topology (cf. Definition \ref{def:rep_Hilbert_module}) given by the family of seminorms
+The completion  $\widetilde {\mathfrak B}$ of  $\widetilde {\mathfrak B}'$ with respect to graph topology (cf. Definition \ref{def:rep_Hilbert_module} !!! CHECK) given by the family of seminorms
 \be
 \forall \widetilde a \in \widetilde A\quad \widetilde \xi\in \widetilde {\mathfrak B}'\quad \left\| \widetilde \xi \right\|_{\widetilde a} \bydef\left\langle {\xi, {\pi(1_{\widetilde A^\sim}+\widetilde a^*\widetilde a)\xi}}\right\rangle ^{\nicefrac12}_{_{\widetilde B}X_B} 
 \ee
@@ -7813,7 +7817,7 @@ In the above situation if $p$ is a transitive finite-fold covering then the quad
 
 
 \subsubsection{Polynomials in one variable}\label{top_fin_hull_sec}
-\begin{empt}\label{ttop_one_var_empt}
+\begin{empt}\label{top_one_var_empt}
 
 Let $\sX$ be a locally compact, connected, locally connected, Hausdorff space, and let $C_0\left(\sX\right)\left[t\right]$ be a commutative *-algebra of polynomials of $t$ such that $t= t^*$. If $\sU \subset \sX$ is an open subset then there is an equivalence relation $\sim_\sU$ on $C_0\left(\sX\right)\left[t\right]$ such that
 \bean
@@ -7831,7 +7835,7 @@ Let $B \bydef C_0\left(\sX \times \R\right)$ and let $B_c \bydef C_0\left(\sX \t
 C\left(\sX\right)\left[t\right]\hookto \End_B\left(B_c \right),\\
 \forall a \in C_0\left(\sX\right)\quad n \in \Z \quad \forall b \in B_c \quad a t^n \mapsto \left(b \mapsto aT^n b \right). 
 \eean
-This representation naturally yields a representation $A \hookto \End_B\left(B_c \right)$. If $\mathfrak B$ is the completion of $B_c$ with respect to the graph topology (cf. Definition \ref{def:rep_Hilbert_module}) then there is the universal  representation $\varrho:  A \hookto \End_B\left(\mathfrak B \right)$ (cf. Definition \ref{def:universal_integrable_rep}) such that $B_c$ is a core (cf. Definition \ref{def:rep_Hilbert_module}) for $\left(\varrho,  \mathfrak B\right)$. If  $\widetilde \sX \to \sX$ is a finite-fold transitive covering and $G \bydef G\left(\left.\widetilde \sX \right| \sX  \right)$ then from the Theorem \ref{comm_fin_thm} it follows that one can naturally obtain  a {noncommutative finite-fold  covering} $\left(B, \widetilde{B}\bydef C_0\left(\widetilde \sX \times \R\right) , G, \pi_B \right)$ (cf. Definition \ref{fin_defn}). Similarly to the above construction one can obtain a sheaf over $\widetilde \sX$ and *-algebra of its global sections $\widetilde A$ (cf. the equation \eqref{top_poly_a_defn}). The inclusion $C\left( \sX\right)\hookto C\left( \widetilde\sX\right)$ yields the inclusion $\pi_A: A \hookto \widetilde A$. Similarly to the above construction there is a dense right $\widetilde B$-submodule $\widetilde {\mathfrak B}\bydef \widetilde B\otimes_B\mathfrak B \subset \widetilde B$ and representation $\widetilde A\hookto \End_{\widetilde B}\left(\widetilde {\mathfrak B} \right)$. 
+This representation naturally yields a representation $A \hookto \End_B\left(B_c \right)$. If $\mathfrak B$ is the completion of $B_c$ with respect to the graph topology (cf. Definition \ref{def:rep_Hilbert_module} !!! CHECK) then there is the universal  representation $\varrho:  A \hookto \End_B\left(\mathfrak B \right)$ (cf. Definition \ref{def:universal_integrable_rep}) such that $B_c$ is a core (cf. Definition \ref{def:rep_Hilbert_module} !!! CHECK) for $\left(\varrho,  \mathfrak B\right)$. If  $\widetilde \sX \to \sX$ is a finite-fold transitive covering and $G \bydef G\left(\left.\widetilde \sX \right| \sX  \right)$ then from the Theorem \ref{comm_fin_thm} it follows that one can naturally obtain  a {noncommutative finite-fold  covering} $\left(B, \widetilde{B}\bydef C_0\left(\widetilde \sX \times \R\right) , G, \pi_B \right)$ (cf. Definition \ref{fin_defn}). Similarly to the above construction one can obtain a sheaf over $\widetilde \sX$ and *-algebra of its global sections $\widetilde A$ (cf. the equation \eqref{top_poly_a_defn}). The inclusion $C\left( \sX\right)\hookto C\left( \widetilde\sX\right)$ yields the inclusion $\pi_A: A \hookto \widetilde A$. Similarly to the above construction there is a dense right $\widetilde B$-submodule $\widetilde {\mathfrak B}\bydef \widetilde B\otimes_B\mathfrak B \subset \widetilde B$ and representation $\widetilde A\hookto \End_{\widetilde B}\left(\widetilde {\mathfrak B} \right)$. 
 \end{empt}
 \begin{exercise}\label{top_fin_hull_exer}
 Prove following statements:
@@ -9983,7 +9987,7 @@ $\supp \widetilde a\widetilde b \subset \widetilde b$ for all   $\widetilde  a \
 \end{definition}
 
 \begin{definition}\label{b_core_defn!}
-	The completion  $\widetilde {\mathfrak B}$ of  $\widetilde {\mathfrak B}'$ with respect to graph topology (cf. Definition \ref{def:rep_Hilbert_module}) given by the family of seminorms
+	The completion  $\widetilde {\mathfrak B}$ of  $\widetilde {\mathfrak B}'$ with respect to graph topology (cf. Definition \ref{def:rep_Hilbert_module} !!! CHECK) given by the family of seminorms
 	\be
 	\forall \widetilde a \in \widetilde A\quad \widetilde \xi\in \widetilde {\mathfrak B}'\quad \left\| \widetilde \xi \right\|_{\widetilde a} \bydef\left\langle {\xi, {\pi(1_{\widetilde A^\sim}+\widetilde a^*\widetilde a)\xi}}\right\rangle ^{\nicefrac12}_{_{\widetilde B}X_B} 
 	\ee
@@ -10022,7 +10026,7 @@ Let $B_c \subset B$ be a given by \eqref{top_bc_eqn} dense ideal of $B$. If $T: 
 A \bydef C\left(\sX\right)\left[t\right]\hookto \End_B\left(B_c \right),\\
 \forall a \in C\left(\sX\right)\quad n \in \Z \quad \forall b \in B_c \quad a t^n \mapsto \left(b \mapsto aT^n b \right). 
 \eean
-If $\mathfrak B$ is the completion of $B_c$ with respect to the graph topology (cf. Definition \ref{def:rep_Hilbert_module}) then there is the universal  representation $\varrho:  A \hookto \End_B\left(\mathfrak B \right)$ (cf. Definition \ref{def:universal_integrable_rep}). From the Section \ref{top_fin_hull_sec} it turns out that all $\la\in \La$ there is a dense right ideal $\mathfrak B_\la \subset B_\la$ and   the universal  representation $\varrho_\la:  A_\la \hookto \End_{B_\la}\left(\mathfrak B_\la \right)$.
+If $\mathfrak B$ is the completion of $B_c$ with respect to the graph topology (cf. Definition \ref{def:rep_Hilbert_module} !!! CHECK) then there is the universal  representation $\varrho:  A \hookto \End_B\left(\mathfrak B \right)$ (cf. Definition \ref{def:universal_integrable_rep}). From the Section \ref{top_fin_hull_sec} it turns out that all $\la\in \La$ there is a dense right ideal $\mathfrak B_\la \subset B_\la$ and   the universal  representation $\varrho_\la:  A_\la \hookto \End_{B_\la}\left(\mathfrak B_\la \right)$.
 Using the Exercise \ref{top_fin_hull_exer} one can construct a  {pointed algebraic finite covering category of $*$-algebras}  given by
 \be\label{top_sa_eqn}
 \begin{split}
@@ -10059,7 +10063,7 @@ where $A_\la\bydef C\left( \sX_\la\right) \left[t \right]$.
 		%\mathfrak A \bydef \End_{	B^\cup }\left( \mathfrak B^\cup\right) 
 	\end{split}
 	\eean
-	There is the natural action   $A^\cup\times \mathfrak B^\cup\to \mathfrak B^\cup$  so for any  $a \in A^\cup$ there is a graph norm $\left\| \cdot\right\|_a : \mathfrak B^\cup\to \R_+$ (cf. Definition \ref{def:rep_Hilbert_module}. Similarly to \ref{comp_ch_empt} we define the following objects:
+	There is the natural action   $A^\cup\times \mathfrak B^\cup\to \mathfrak B^\cup$  so for any  $a \in A^\cup$ there is a graph norm $\left\| \cdot\right\|_a : \mathfrak B^\cup\to \R_+$ (cf. Definition \ref{def:rep_Hilbert_module} !!! CHECK. Similarly to \ref{comp_ch_empt} we define the following objects:
 	\begin{itemize}
 		\item The right ideal $\widehat  {\mathfrak B}\subset \widehat B$ which is a completion of  ${\mathfrak B}^\cup$ with respect to the family of  graph norms $\left\{\left\| \cdot\right\|_a\right\}_{a \in A^\cup}$.
 		\item The dense subspace $\widehat\D \bydef \widehat  {\mathfrak B}\H_a\subset \H_a$ and the natural action
@@ -10082,7 +10086,7 @@ where $A_\la\bydef C\left( \sX_\la\right) \left[t \right]$.
 		\H_a \cong \\\cong \left\{\eta \in D^*\left(\overline \sX\times \R \right)\left| \left\|\eta \right\|_{\H_a}\bydef\sup_{\left\{ \overline x_1,..., \overline x_n \right\}\in \overline \sX\times \R } ~~\sum_{j=1}^n \left\|\eta\left( \overline x_j\right)  \right\|^2< \infty \right.\right\}\subset \\
 		\subset D^*\left(\overline \sX\times \R \right),\\
 		\widehat  {\mathfrak B} \cong\\
-		\cong \left\{b \in \widehat  { B}\left|\forall a \in A^\cup\quad \left\|b  \right\|_a < \infty \quad  \left\|\cdot  \right\|_a \text{ is given by Definition \ref{def:rep_Hilbert_module}} \right.\right\}
+		\cong \left\{b \in \widehat  { B}\left|\forall a \in A^\cup\quad \left\|b  \right\|_a < \infty \quad  \left\|\cdot  \right\|_a \text{ is given by Definition \ref{def:rep_Hilbert_module} !!! CHECK} \right.\right\}
 		\cong \\
 		\cong \left\{b \in \widehat  { B}\left|\forall n \in \N \quad T^n b \in \widehat B \right.\right\}\subset D^*\left(\overline \sX\times \R \right), \\
 		\widehat \D\bydef  \widehat  {\mathfrak B}\H_a\cong\\\cong \left\{\xi \in \H_a\left|\forall a \in A^\cup\quad \left\|\xi  \right\|_a < \infty \quad  \left\|\cdot  \right\|_a \text{ is given by equation \ref{graph_d_eqn}} \right.\right\}\cong \\
@@ -13455,7 +13459,7 @@ $AB_c\subset B_c$.
 	Prove following statements:
 	\begin{enumerate}
 		\item There is the natural action $A\times B_c\to B_c$.
-		\item If $\mathfrak B$ is the completion of $B_c$ with respect to the graph topology (cf. Definition \ref{def:rep_Hilbert_module}) then there is the universal  representation $\varrho:  A \hookto \End_B\left(\mathfrak B \right)$ (cf. Definition \ref{def:universal_integrable_rep}) such that $B_c$ is a core for $\left(\varrho,  \mathfrak B\right)$ (cf. Definition \ref{def:rep_Hilbert_module}).
+		\item If $\mathfrak B$ is the completion of $B_c$ with respect to the graph topology (cf. Definition \ref{def:rep_Hilbert_module} !!! CHECK) then there is the universal  representation $\varrho:  A \hookto \End_B\left(\mathfrak B \right)$ (cf. Definition \ref{def:universal_integrable_rep}) such that $B_c$ is a core for $\left(\varrho,  \mathfrak B\right)$ (cf. Definition \ref{def:rep_Hilbert_module} !!! CHECK).
 		\item Let  $p: \widetilde \sX\to \sX$ is a transitive finite-fold covering and \\ $\left(B, B_0\left( \widetilde\sX\right) , G\left(\left. \widetilde\sX\right| \sX\right) , B_0\left( q\right)  \right)$ is a noncommutative finite-fold   covering (cf. Definition \ref{fin_defn}) given by the Lemma \ref{blowing_covi_lem}. Let $\widetilde{\mathscr A}\bydef p^{-1}\mathscr A$ be the inverse image (cf. Definition \ref{sheaf_inv_im_defn}) 
 		and let $\pi_A: \mathscr{ A}\left(\sX \right)\hookto \widetilde{\mathscr A}\left( \widetilde  \sX\right)$ the natural injective *-homomorphism. Then $\left(\mathscr{ A}\left(\sX \right), \widetilde{\mathscr A}\left( \widetilde  \sX\right) , G\left(\left. \widetilde\sX\right| \sX\right), \pi_A \right)$ is an associated with 
 		$ \left(B, B_0\left( \widetilde\sX\right) , G\left(\left. \widetilde\sX\right| \sX\right) , B_0\left( q\right)  \right) $ noncommutative finite-fold  covering of *-algebras (cf. Definition \ref{fin_chull_defn}).
@@ -14484,7 +14488,7 @@ Similarly to the Lemma \ref{blowing_base_point_lem} let
 \ee
 be a pointed algebraical  finite covering category (cf. Definition \ref{comp_defn}) (cf.equation \eqref{blowing_base_point_eqn}).
 The space  $B_c \bydef B C_c\left(\sX \right) $ is a dense ideal of $B$. 
-If $\mathfrak B$ is the completion of $B_c$ with respect to the graph topology (cf. Definition \ref{def:rep_Hilbert_module}) then there is the universal  representation $\varrho:  A \hookto \End_B\left(\mathfrak B \right)$ (cf. Definition \ref{def:universal_integrable_rep}). From the Exercise \ref{blowing_hull_exer} it turns out that all $\la\in \La$ there is a dense right ideal $\mathfrak B_\la \subset B_\la$ and   the universal  representation $\varrho_\la:  A_\la \hookto \End_{B_\la}\left(\mathfrak B_\la \right)$.
+If $\mathfrak B$ is the completion of $B_c$ with respect to the graph topology (cf. Definition \ref{def:rep_Hilbert_module} !!! CHECK) then there is the universal  representation $\varrho:  A \hookto \End_B\left(\mathfrak B \right)$ (cf. Definition \ref{def:universal_integrable_rep}). From the Exercise \ref{blowing_hull_exer} it turns out that all $\la\in \La$ there is a dense right ideal $\mathfrak B_\la \subset B_\la$ and   the universal  representation $\varrho_\la:  A_\la \hookto \End_{B_\la}\left(\mathfrak B_\la \right)$.
 Using the Exercise \ref{blowing_hull_exer} one can construct a  {pointed algebraic finite covering category of $*$-algebras}  given by
 \be\label{blowing_sa_eqn}
 \begin{split}
@@ -18731,7 +18735,7 @@ Prove that a quadruple $\left(A_{\mu}, A_{\widetilde\mu}, \Z_k, \pi \right)$ is 
  A_\mu\times\mathfrak{B}^c_\mu \to \mathfrak{B}^c_\mu,\\
  \mathfrak{B}^c_\mu\times B_\mu \to \mathfrak{B}^c_\mu
  \eean
- If $\mathfrak{B}_\mu$ is the completion of $\mathfrak{B}^c_\mu$ with respect to the graph topology (cf. Definition \ref{def:rep_Hilbert_module}) then the map
+ If $\mathfrak{B}_\mu$ is the completion of $\mathfrak{B}^c_\mu$ with respect to the graph topology (cf. Definition \ref{def:rep_Hilbert_module} !!! CHECK) then the map
  \bean
  \varrho: A_\mu \to \End_{B_\mu}\left( \mathfrak{B}_\mu\right) 
  \eean 
@@ -22666,6 +22670,362 @@ homomorphisms $ev_\xi : A \to \Sigma B$ to commute with each other.
 		%Proposition 6.4.14 
 		$\left\|\cdot \right\|^{\mathrm{or}}_{\mathrm{b}}$ is an unbounded $C^*$-norm on $\mathfrak{A}$ with domain $\mathfrak{A}_b$.
 	\end{proposition}
+\section{Representations by unbounded operators on Hilbert modules}
+\label{sec:rep_Hilbert_module}
+\paragraph*{} 
+Let $A $ be a unital $*$-algebra,  $D $ a $C^*$-algebra,
+and $\mathcal{E} $ a Hilbert  $D $-module.  
+
+\begin{definition}
+	\label{def:rep_Hilbert_module} !!! CHECK\cite{meyer:unb_repr}
+	A \emph{representation} of $A $ on $\mathcal{E} $ is a
+	pair $(\mathfrak{E},\pi) $, where  $\mathfrak{E}\subseteq\mathcal{E} $ is a dense
+	$D $-submodule and  $\pi\colon A\to\End_D(\mathfrak{E}) $ is a unital
+	algebra homomorphism to the algebra of  $D $-module endomorphisms
+	of $\mathfrak{E} $, such that
+	\[
+	\braket{\pi(a)\xi}{\eta}_D = \braket{\xi}{\pi(a^*)\eta}_D
+	\qquad
+	\text{for all }a\in A,\ \xi,\eta\in\mathfrak{E}.
+	\]
+	
+	We call $\mathfrak{E} $ the \emph{domain} of the representation.  We
+	may drop $\pi $ from our notation by saying that $\mathfrak{E} $ is an
+	$A,D $-bimodule with the right module structure inherited
+	from $\mathcal{E} $, or we may drop $\mathfrak{E} $ because it is the common
+	domain of the partial linear maps $\pi(a) $ on $\mathcal{E} $ for all
+	$a\in A $.
+	We equip $\mathfrak{E} $ with the \emph{graph topology}, which is
+	generated by the \emph{graph norms}
+	\be	\label{graph_norm_eqn}
+	\left\| {\xi}\right\| _a \bydef \left\langle \xi, \xi\right\rangle  + \left\langle  \pi(a)\xi,\pi(a)\xi\right\rangle^{\nicefrac12}	= \left\langle  \xi,\pi(1+a^*a)\xi\right\rangle ^{\nicefrac12}
+	\ee
+	for  $a\in A $.  The representation is \emph{closed} if $\mathfrak{E} $
+	is complete in this topology.  A \emph{core} for $(\mathfrak{E},\pi) $ is
+	an  $A,D $-subbimodule of $\mathfrak{E} $ that is dense in $\mathfrak{E} $ in
+	the graph topology.
+\end{definition}
+
+Definition~\ref{def:rep_Hilbert_module} !!! CHECK for  $D=\C $ is the usual
+definition of a representation of a $*$-algebra on a Hilbert
+space by unbounded operators.   For  $\mathcal{E}=D $ with the
+canonical Hilbert  $D $-module structure, we get representations
+of $A $ by \emph{densely defined unbounded multipliers}.  The
+domain of such a representation is a dense right ideal
+$\mathfrak{E}\subseteq D $.  
+
+Given two norms  $p,q $, we write  $p \preceq q $ if there is a
+scalar  $c>0 $ with  $p \le c q $.
+
+\begin{lemma}
+	\label{lem:graph_norms_directed}\cite{meyer:unb_repr}
+	The set of graph norms partially ordered by $\preceq $ is
+	directed: for all  $a_1,\dotsc,a_n\in A $ there are  $b\in A $ and
+	$c\in\R_{>0} $ so that  $\mathrm{norm}{\xi}_{a_i} \le c\mathrm{norm}{\xi}_b $ for
+	any representation  $(\mathfrak{E},\pi) $, any  $\xi\in\mathfrak{E} $, and
+	$i=1,\dotsc,n $.
+\end{lemma}
+
+
+
+
+\begin{definition}%[\cite{Pal:Regular},	\cite{Lance:Hilbert_modules}*{Chapter 9}]
+	\label{def:regular}
+	A densely defined operator $t $ on a Hilbert module $\mathcal{E} $ is
+	\emph{semiregular} if its adjoint is also densely defined; it is
+	\emph{regular} if it is closed, semiregular and  $1+t^*t $ has dense
+	range.  An \emph{affiliated multiplier} of a
+	$C^*$-algebra $D $ is a regular operator on $D $ viewed as
+	a Hilbert  $D $-module.
+\end{definition}
+
+
+
+The usual norm on $\mathcal{E} $ is the graph norm for  $0\in A $.  Hence
+the inclusion map  $\mathfrak{E}\hookto\mathcal{E} $ is continuous for the graph
+topology on $\mathfrak{E} $ and extends continuously to the
+completion $\overline{\mathfrak{E}} $ of $\mathfrak{E} $ in the graph topology.
+
+\begin{proposition}
+	\label{pro:closure_rep}
+	The canonical map  $\overline{\mathfrak{E}}\to\mathcal{E} $ is injective, and its
+	image is
+	\begin{equation}
+		\label{eq:domain_closure}
+		\overline{\mathfrak{E}} = \bigcap_{a\in A} \Dom \overline{\pi(a)}.
+	\end{equation}
+	Thus $(\mathfrak{E},\pi) $ is closed if and only if  $\mathfrak{E} =
+	\bigcap_{a\in A} \Dom \overline{\pi(a)} $.  Each  $\pi(a) $ extends
+	uniquely to a continuous operator $\overline{\pi(a)} $
+	on $\overline{\mathfrak{E}} $.  This defines a closed
+	representation $(\overline{\mathfrak{E}},\overline{\pi}) $ of $A $, called the
+	\emph{closure} of $(\mathfrak{E},\pi) $.
+\end{proposition}
+
+
+We shall need a generalisation of~\eqref{eq:domain_closure} that
+replaces $A $ by a sufficiently large subset.
+
+\begin{definition}
+	\label{def:strong_generating_set}
+	A subset  $S\subseteq A $
+	is called a \emph{strong generating} set if it generates $A $
+	as an algebra and the graph norms for  $a\in S $
+	generate the graph topology in any representation.  That is, for any
+	representation on a Hilbert module, any vector $\xi $
+	in its domain and any  $a\in A $,
+	there are  $c\ge1 $
+	in $\R $
+	and  $b_1,\dotsc,b_n\in S $
+	with  $\mathrm{norm}{\xi}_a \le c \sum_{i=1}^n \mathrm{norm}{\xi}_{b_i} $.
+\end{definition}
+
+An estimate  $\mathrm{norm}{\xi}_a \le c \sum_{i=1}^n \mathrm{norm}{\xi}_{b_i} $
+is usually shown by finding  $d_1,\dotsc,d_m\in A $
+with
+$a^* a + \sum_{j=1}^m d_j^* d_j = c\cdot \sum_{i=1}^n b_i^* b_i $,
+compare the proof of Lemma~\ref{lem:graph_norms_directed}.
+
+\begin{proposition}
+	\label{pro:equality_if_closure_equal}
+	Let  $S\subseteq A $ be a strong generating set.  Two closed
+	representations  $(\mathfrak{E}_1,\pi_1) $ and $(\mathfrak{E}_2,\pi_2) $
+	of $A $ on the same Hilbert module $\mathcal{E} $ are equal if and
+	only if  $\overline{\pi_1(a)} = \overline{\pi_2(a)} $ for all  $a\in S $.
+\end{proposition}
+
+Here we consider 
+
+\begin{corollary}
+	\label{cor:bounded_rep}
+	Let $S $ be a strong generating set of $A $ and
+	let $(\mathfrak{E},\pi) $ be a closed
+	representation of $A $ with  $\Dom \overline{\pi(a)} = \mathcal{E} $ for each
+	$a\in S $.  Then  $\mathfrak{E}=\mathcal{E} $ and $\pi $ is a
+	$*$-homomorphism to the $C^*$-algebra  $\mathbb{B}(\mathcal{E}) $ of
+	adjointable operators on $\mathcal{E} $.
+\end{corollary}
+
+
+An \emph{isometry}  $I\colon \mathcal{E}_1\hookto\mathcal{E}_2 $
+between two Hilbert  $D $-modules  $\mathcal{E}_1 $
+and $\mathcal{E}_2 $
+is a right  $D $-module
+map with  $\braket{I\xi_1}{I\xi_2} = \braket{\xi_1}{\xi_2} $
+for all  $\xi_1,\xi_2\in\mathcal{E}_1 $.
+
+\begin{definition}
+	\label{def:isometric_intertwiner}
+	Let  $(\mathfrak{E}_1,\pi_1) $
+	and  $(\mathfrak{E}_2,\pi_2) $
+	be representations on Hilbert  $D $-modules
+	$\mathcal{E}_1 $
+	and $\mathcal{E}_2 $,
+	respectively.  An \emph{isometric intertwiner} between them is an
+	isometry  $I\colon \mathcal{E}_1\hookto\mathcal{E}_2 $
+	with  $I(\mathfrak{E}_1)\subseteq \mathfrak{E}_2 $
+	and  $I\circ\pi_1(a) (\xi) = \pi_2(a) \circ I (\xi) $
+	for all  $a\in A $,
+	$\xi\in\mathfrak{E}_1 $;
+	equivalently,  $I\circ\pi_1(a)\subseteq \pi_2(a)\circ I $
+	for all  $a\in A $,
+	that is, the graph of $\pi_2(a)\circ I $
+	contains the graph of $I\circ \pi_1(a) $.
+	We neither ask $I $
+	to be adjointable nor  $I(\mathfrak{E}_1)=\mathfrak{E}_2 $.
+	Let  $\mathrm{Rep}(A,D) $
+	be the category with closed representations of $A $
+	on Hilbert  $D $-modules
+	as objects, isometric intertwiners as arrows, and the usual
+	composition.  The unit arrow on $(\mathfrak{E},\pi) $
+	is the identity operator on $\mathcal{E} $.
+\end{definition}
+
+\begin{lemma}
+	\label{lem:closure_functorial}
+	Let  $(\mathfrak{E}_1,\pi_1) $ and  $(\mathfrak{E}_2,\pi_2) $ be
+	representations on Hilbert  $D $-modules  $\mathcal{E}_1 $
+	and $\mathcal{E}_2 $, respectively, and let  $I\colon
+	\mathcal{E}_1\hookto\mathcal{E}_2 $ be an isometric intertwiner.  Then $I $ is
+	also an intertwiner between the closures of  $(\mathfrak{E}_1,\pi_1) $
+	and  $(\mathfrak{E}_2,\pi_2) $.
+\end{lemma}
+\begin{proposition}
+	\label{pro:intertwiner_strong_generators}
+	Let  $(\mathfrak{E}_1,\pi_1) $ and  $(\mathfrak{E}_2,\pi_2) $ be closed
+	representations of $A $ on Hilbert  $D $-modules  $\mathcal{E}_1 $
+	and $\mathcal{E}_2 $, respectively.  Let  $S\subseteq A $ be a strong
+	generating set.  An isometry  $I\colon \mathcal{E}_1\hookto \mathcal{E}_2 $ is
+	an intertwiner from  $(\mathfrak{E}_1,\pi_1) $ to  $(\mathfrak{E}_2,\pi_2) $
+	if and only if  $I\circ \overline{\pi_1(a)} \subseteq \overline{\pi_2(a)}\circ
+	I $ for all  $a\in S $.
+\end{proposition}
+
+
+Now we relate the categories  $\mathrm{Rep}(A,D) $ for different
+$C^*$-algebras $D $.
+
+\begin{definition}
+	\label{def:Cstar-correspondence}
+	Let  $D_1 $ and $D_2 $ be two $C^*$-algebras.  A
+	\emph{$C^*$-correspondence} from $D_1 $ to $D_2 $ is a
+	Hilbert  $D_2 $-module with a representation of $D_1 $ by
+	adjointable operators (representations of $C^*$-algebras are
+	tacitly assumed nondegenerate).  An \emph{isometric intertwiner}
+	between two correspondences from $D_1 $ to $D_2 $ is an
+	isometric map on the underlying Hilbert  $D_2 $-modules that
+	intertwines the left  $D_1 $-actions.  Let  $\mathrm{Rep}(D_1,D_2) $
+	denote the category of correspondences from $D_1 $ to $D_2 $
+	with isometric intertwiners as arrows and the usual composition.
+\end{definition}
+
+
+Let $\mathcal{E} $ be a Hilbert  $D_1 $-module and $\F $ a
+correspondence from $D_1 $ to $D_2 $.  The interior tensor product
+$\mathcal{E}\otimes_{D_1} \F $ is the (Hausdorff) completion of the
+algebraic tensor product  $\mathcal{E}\odot \F $ to a Hilbert
+$D_2 $-module, using the inner product
+\begin{equation}
+	\label{eq:interior_tensor}
+	\braket{\xi_1\otimes\eta_1}{\xi_2\otimes\eta_2}
+	= \braket{\eta_1}{\braket{\xi_1}{\xi_2}_{D_1}\cdot\eta_2}_{D_2}.
+\end{equation}
+We may use the balanced tensor product
+$\mathcal{E}\odot_{D_1} \F $ instead of  $\mathcal{E}\odot \F $
+because the inner product~\eqref{eq:interior_tensor} descends to this
+quotient.  If we want to emphasise the left action  $\varphi\colon
+D_1\to\mathbb{B}(\F) $ in the
+$C^*$-correspondence $\F $, we write  $\mathcal{E}\otimes_\varphi
+\F $ for  $\mathcal{E}\otimes_{D_1} \F $.
+
+In addition, let $(\mathfrak{E},\pi) $ be a closed representation of $A $
+on $\mathcal{E} $.  We are going to build a closed representation
+$(\mathfrak{E}\otimes_{D_1}\F, \pi\otimes_{D_1}1) $ of $A $ on
+$\mathcal{E}\otimes_{D_1}\F $.  First let  $X\subseteq
+\mathcal{E}\otimes_{D_1}\F $ be the image of  $\mathfrak{E}\odot \F $
+or  $\mathfrak{E}\odot_{D_1} \F $ under the canonical map to
+$\mathcal{E}\otimes_{D_1}\F $.
+
+\begin{lemma}
+	\label{lem:tensor_rep_with_corr}
+	For  $a\in A $, there is a unique linear operator
+	$\pi(a)\otimes1\colon X\to X $ with  $(\pi(a)\otimes1)
+	(\xi\otimes\eta) = \pi(a)(\xi)\otimes \eta $ for all
+	$\xi\in\mathfrak{E} $,  $\eta\in\F $.  The map  $a\mapsto
+	\pi(a)\otimes 1 $ is a representation of $A $ with domain $X $.
+\end{lemma}
+
+\begin{definition}
+	Let  $(\mathfrak{E}\otimes_{D_1}\F, \pi\otimes_{D_1}1) $ be the
+	closure of the representation on $\mathcal{E}\otimes_{D_1}\F $
+	defined in Lemma~\ref{lem:tensor_rep_with_corr}.
+\end{definition}
+
+\begin{lemma}
+	\label{lem:rep_tensor_corr_functor}
+	Let  $I\colon \mathcal{E}_1\hookto\mathcal{E}_2 $ be an isometric intertwiner
+	between two representations  $(\mathfrak{E}_1,\pi_1) $ and
+	$(\mathfrak{E}_2,\pi_2) $, and let  $J\colon \F_1\hookto \F_2 $
+	be an isometric intertwiner of $C^*$-correspondences.  Then
+	$I\otimes_{D_1} J\colon \mathcal{E}_1\otimes_{D_1}\F_1 \hookto
+	\mathcal{E}_2\otimes_{D_1}\F_2 $ is an isometric intertwiner between
+	$(\mathfrak{E}_1\otimes_{D_1}\F_1, \pi_1\otimes1) $ and
+	$(\mathfrak{E}_2\otimes_{D_1}\F_2, \pi_2\otimes1) $.
+\end{lemma}
+
+The lemma gives a bifunctor
+\begin{equation}
+	\label{eq:interior_tensor_bifunctor}
+	\otimes_{D_1}\colon \mathrm{Rep}(A,D_1)\times \mathrm{Rep}(D_1,D_2) \to
+	\mathrm{Rep}(A,D_2).
+\end{equation}
+The corresponding bifunctor
+\[
+\otimes_{D_1}\colon \mathrm{Rep}(B,D_1)\times \mathrm{Rep}(D_1,D_2) \to \mathrm{Rep}(B,D_2)
+\]
+for a $C^*$-algebra $B $ is the usual composition of
+$C^*$-correspondences.  This composition is associative up to
+canonical unitaries
+\begin{equation}
+	\label{eq:tensor_associative}
+	\mathcal{E} \otimes_{D_1} (\F \otimes_{D_2} \mathcal{E}) \xrightarrow{\cong}
+	(\mathcal{E} \otimes_{D_1} \F) \otimes_{D_2} \mathcal{E},\qquad
+	\xi \otimes (\eta\otimes \zeta) \mapsto
+	(\xi \otimes \eta)\otimes \zeta,
+\end{equation}
+for all triples of composable $C^*$-correspondences.
+
+\begin{lemma}
+	\label{lem:tensor_associative}
+	If $\mathcal{E} $ carries a representation $(\mathfrak{E},\pi) $ of a
+	$*$-algebra $A $, then the unitary
+	in~\eqref{eq:tensor_associative} is an intertwiner  $(\mathfrak{E},\pi)
+	\otimes_{D_1} (\F\otimes_{D_2} \mathcal{E}) \xrightarrow{\cong}
+	\bigl((\mathfrak{E},\pi) \otimes_{D_1} \F\bigr) \otimes_{D_2}
+	\mathcal{E}$.
+\end{lemma}
+
+\begin{definition}
+	\label{def:star-intertwiner}
+	Let  $(\mathfrak{E}_1,\pi_1) $ and $(\mathfrak{E}_2,\pi_2) $ be two
+	representations of $A $ on Hilbert  $D $-modules  $\mathcal{E}_1 $
+	and $\mathcal{E}_2 $.  An adjointable operator  $x\colon
+	\mathcal{E}_1\to\mathcal{E}_2 $ is an \emph{intertwiner} if
+	$x(\mathfrak{E}_1)\subseteq \mathfrak{E}_2 $ and  $x\pi_1(a)\xi =
+	\pi_2(a)x\xi $ for all  $a\in A $,  $\xi\in\mathfrak{E}_1 $.  It is
+	a \emph{$*$-intertwiner} if both  $x $ and $x^* $ are
+	intertwiners.
+	\label{def:adjointable_intertwiner}
+\end{definition}
+
+Any adjointable intertwiner between two representations of a
+$C^*$-algebra $B $ is a $*$-intertwiner.  In contrast, for
+a general $*$-algebra, even the adjoint of a unitary
+intertwiner $u $ fails to be an intertwiner if
+$u(\mathfrak{E}_1)\subsetneq \mathfrak{E}_2 $.
+
+\begin{example}
+	\label{exa:Friedrichs_extension}
+	Let $t $ be a positive symmetric operator on a Hilbert
+	space $ \H $.  Assume that  $\bigcap_{n\in\N} \Dom t^n $ is
+	dense in $ \H $, so that $t $ generates a
+	representation $\pi $ of the polynomial algebra $\C[x] $
+	on $ \H $.  The Friedrichs extension of $t $ is a positive
+	self-adjoint operator $t' $ on $ \H $.  It generates
+	another representation $\pi' $ of $\C[x] $ on $ \H $.  The
+	identity map on $ \H $ is a unitary intertwiner
+	$\pi\hookto\pi' $.  It is not a $*$-intertwiner unless
+	$t=t' $.
+\end{example}
+
+The following proposition characterises when an adjointable isometry
+$I\colon \mathcal{E}_1\hookto \mathcal{E} $ between two representations
+on Hilbert  $D $-modules is a $*$-intertwiner.  Since
+$\mathcal{E}\cong \mathcal{E}_1 \oplus \mathcal{E}_1^\bot $ if $I $ is adjointable, we
+may as well assume that $I $ is the inclusion of a direct summand.
+
+\begin{proposition}
+	\label{pro:isometry_star-intertwiner}
+	Let  $\mathcal{E}_1 $ and $\mathcal{E}_2 $ be Hilbert modules over a
+	$C^*$-algebra $D $ and let  $(\mathfrak{E}_1,\pi_1) $ and
+	$(\mathfrak{E},\pi) $ be representations of $A $ on  $\mathcal{E}_1 $
+	and $\mathcal{E}_1\oplus\mathcal{E}_2 $, respectively.  The following are
+	equivalent:
+	\begin{enumerate}
+		\item \label{enum:isometry_star-intertwiner1} the canonical
+		inclusion  $I\colon \mathcal{E}_1\hookto\mathcal{E}_1\oplus\mathcal{E}_2 $ is a
+		$*$-intertwiner from $\pi_1 $ to $\pi $;
+		\item \label{enum:isometry_star-intertwiner2} the canonical
+		inclusion  $I\colon \mathcal{E}_1\hookto\mathcal{E}_1\oplus\mathcal{E}_2 $ is an
+		intertwiner from $\pi_1 $ to $\pi $ and  $\mathfrak{E} =
+		\mathfrak{E}_1 + (\mathfrak{E}\cap \mathcal{E}_2) $;
+		\item \label{enum:isometry_star-intertwiner3} there is a
+		representation  $(\mathfrak{E}_2,\pi_2) $ on $\mathcal{E}_2 $ such that  $\pi
+		= \pi_1 \oplus \pi_2 $.
+	\end{enumerate}
+\end{proposition}
+
+
 
 \chapter{Spectral triples}
 	
@@ -24855,652 +25215,7 @@ If $\Om^1_D$ is a {module of differential forms associated} with the given by \e
 		\frac{\partial}{\partial q} f = \sqrt{2}\left( -\left( a   -  \overline{a}\right) \times f -f \times \left( a   +  \overline{a}\right)\right).
 	\end{split}
 	\ee
-	 \chapter{Representations of *-algebras by unbounded operators}
 
-\section{Representations by unbounded operators on Hilbert modules}
-\label{sec:rep_Hilbert_module}
-\paragraph*{} 
-Let $A $ be a unital $*$-algebra,  $D $ a $C^*$-algebra,
-and $\mathcal{E} $ a Hilbert  $D $-module.  
-
-\begin{definition}
-	\label{def:rep_Hilbert_module}
-	A \emph{representation} of $A $ on $\mathcal{E} $ is a
-	pair $(\mathfrak{E},\pi) $, where  $\mathfrak{E}\subseteq\mathcal{E} $ is a dense
-	$D $-submodule and  $\pi\colon A\to\End_D(\mathfrak{E}) $ is a unital
-	algebra homomorphism to the algebra of  $D $-module endomorphisms
-	of $\mathfrak{E} $, such that
-	\[
-	\braket{\pi(a)\xi}{\eta}_D = \braket{\xi}{\pi(a^*)\eta}_D
-	\qquad
-	\text{for all }a\in A,\ \xi,\eta\in\mathfrak{E}.
-	\]
-	
-	We call $\mathfrak{E} $ the \emph{domain} of the representation.  We
-	may drop $\pi $ from our notation by saying that $\mathfrak{E} $ is an
-	$A,D $-bimodule with the right module structure inherited
-	from $\mathcal{E} $, or we may drop $\mathfrak{E} $ because it is the common
-	domain of the partial linear maps $\pi(a) $ on $\mathcal{E} $ for all
-	$a\in A $.
-	We equip $\mathfrak{E} $ with the \emph{graph topology}, which is
-	generated by the \emph{graph norms}
-	\be	\label{graph_norm_eqn}
-\left\| {\xi}\right\| _a \bydef \left\langle \xi, \xi\right\rangle  + \left\langle  \pi(a)\xi,\pi(a)\xi\right\rangle^{\nicefrac12}	= \left\langle  \xi,\pi(1+a^*a)\xi\right\rangle ^{\nicefrac12}
-	\ee
-	for  $a\in A $.  The representation is \emph{closed} if $\mathfrak{E} $
-	is complete in this topology.  A \emph{core} for $(\mathfrak{E},\pi) $ is
-	an  $A,D $-subbimodule of $\mathfrak{E} $ that is dense in $\mathfrak{E} $ in
-	the graph topology.
-\end{definition}
-
-Definition~\ref{def:rep_Hilbert_module} for  $D=\C $ is the usual
-definition of a representation of a $*$-algebra on a Hilbert
-space by unbounded operators.   For  $\mathcal{E}=D $ with the
-canonical Hilbert  $D $-module structure, we get representations
-of $A $ by \emph{densely defined unbounded multipliers}.  The
-domain of such a representation is a dense right ideal
-$\mathfrak{E}\subseteq D $.  
-
-Given two norms  $p,q $, we write  $p \preceq q $ if there is a
-scalar  $c>0 $ with  $p \le c q $.
-
-\begin{lemma}
-	\label{lem:graph_norms_directed}
-	The set of graph norms partially ordered by $\preceq $ is
-	directed: for all  $a_1,\dotsc,a_n\in A $ there are  $b\in A $ and
-	$c\in\R_{>0} $ so that  $\mathrm{norm}{\xi}_{a_i} \le c\mathrm{norm}{\xi}_b $ for
-	any representation  $(\mathfrak{E},\pi) $, any  $\xi\in\mathfrak{E} $, and
-	$i=1,\dotsc,n $.
-\end{lemma}
-
-\begin{definition}%[\cite{Pal:Regular},	\cite{Lance:Hilbert_modules}*{Chapter 9}]
-	\label{def:regular}
-	A densely defined operator $t $ on a Hilbert module $\mathcal{E} $ is
-	\emph{semiregular} if its adjoint is also densely defined; it is
-	\emph{regular} if it is closed, semiregular and  $1+t^*t $ has dense
-	range.  An \emph{affiliated multiplier} of a
-	$C^*$-algebra $D $ is a regular operator on $D $ viewed as
-	a Hilbert  $D $-module.
-\end{definition}
-
-
-
-The usual norm on $\mathcal{E} $ is the graph norm for  $0\in A $.  Hence
-the inclusion map  $\mathfrak{E}\hookto\mathcal{E} $ is continuous for the graph
-topology on $\mathfrak{E} $ and extends continuously to the
-completion $\overline{\mathfrak{E}} $ of $\mathfrak{E} $ in the graph topology.
-
-\begin{proposition}
-	\label{pro:closure_rep}
-	The canonical map  $\overline{\mathfrak{E}}\to\mathcal{E} $ is injective, and its
-	image is
-	\begin{equation}
-		\label{eq:domain_closure}
-		\overline{\mathfrak{E}} = \bigcap_{a\in A} \Dom \overline{\pi(a)}.
-	\end{equation}
-	Thus $(\mathfrak{E},\pi) $ is closed if and only if  $\mathfrak{E} =
-	\bigcap_{a\in A} \Dom \overline{\pi(a)} $.  Each  $\pi(a) $ extends
-	uniquely to a continuous operator $\overline{\pi(a)} $
-	on $\overline{\mathfrak{E}} $.  This defines a closed
-	representation $(\overline{\mathfrak{E}},\overline{\pi}) $ of $A $, called the
-	\emph{closure} of $(\mathfrak{E},\pi) $.
-\end{proposition}
-
-
-We shall need a generalisation of~\eqref{eq:domain_closure} that
-replaces $A $ by a sufficiently large subset.
-
-\begin{definition}
-	\label{def:strong_generating_set}
-	A subset  $S\subseteq A $
-	is called a \emph{strong generating} set if it generates $A $
-	as an algebra and the graph norms for  $a\in S $
-	generate the graph topology in any representation.  That is, for any
-	representation on a Hilbert module, any vector $\xi $
-	in its domain and any  $a\in A $,
-	there are  $c\ge1 $
-	in $\R $
-	and  $b_1,\dotsc,b_n\in S $
-	with  $\mathrm{norm}{\xi}_a \le c \sum_{i=1}^n \mathrm{norm}{\xi}_{b_i} $.
-\end{definition}
-
-An estimate  $\mathrm{norm}{\xi}_a \le c \sum_{i=1}^n \mathrm{norm}{\xi}_{b_i} $
-is usually shown by finding  $d_1,\dotsc,d_m\in A $
-with
-$a^* a + \sum_{j=1}^m d_j^* d_j = c\cdot \sum_{i=1}^n b_i^* b_i $,
-compare the proof of Lemma~\ref{lem:graph_norms_directed}.
-
-\begin{proposition}
-	\label{pro:equality_if_closure_equal}
-	Let  $S\subseteq A $ be a strong generating set.  Two closed
-	representations  $(\mathfrak{E}_1,\pi_1) $ and $(\mathfrak{E}_2,\pi_2) $
-	of $A $ on the same Hilbert module $\mathcal{E} $ are equal if and
-	only if  $\overline{\pi_1(a)} = \overline{\pi_2(a)} $ for all  $a\in S $.
-\end{proposition}
-
-\begin{corollary}
-	\label{cor:bounded_rep}
-	Let $S $ be a strong generating set of $A $ and
-	let $(\mathfrak{E},\pi) $ be a closed
-	representation of $A $ with  $\Dom \overline{\pi(a)} = \mathcal{E} $ for each
-	$a\in S $.  Then  $\mathfrak{E}=\mathcal{E} $ and $\pi $ is a
-	$*$-homomorphism to the $C^*$-algebra  $\mathbb{B}(\mathcal{E}) $ of
-	adjointable operators on $\mathcal{E} $.
-\end{corollary}
-
-\begin{lemma}
-	\label{lem:Cstar-rep_bounded}
-	Let $A $ be a unital $C^*$-algebra.  Any closed
-	representation of $A $ on $\mathcal{E} $ has domain  $\mathfrak{E}=\mathcal{E} $
-	and is a unital $*$-homomorphism to $\mathbb{B}(\mathcal{E}) $.
-\end{lemma}
-
-\begin{proof}
-	Let  $a\in A $.  There are a positive scalar  $C>0 $ and  $b\in A $
-	with  $a^*a+b^*b = C $; say, take  $C=\mathrm{norm}~{a}^2 $ and
-	$b=\sqrt{C-a^*a} $.  Then
-	\[
-	\braket{\pi(a)\xi}{\pi(a)\xi}
-	\le \braket{\pi(a)\xi}{\pi(a)\xi} + \braket{\pi(b)\xi}{\pi(b)\xi}
-	= \braket{\xi}{\pi(a^*a+b^*b)\xi}
-	= C\braket{\xi}{\xi}
-	\]
-	for all  $\xi\in\mathfrak{E} $.  Thus the graph topology on $\mathfrak{E} $
-	is equivalent to the norm topology on $\mathcal{E} $.  Hence
-	$\mathcal{E}=\mathfrak{E} $ for any closed representation.
-\end{proof}
-
-An \emph{isometry}  $I\colon \mathcal{E}_1\hookto\mathcal{E}_2 $
-between two Hilbert  $D $-modules  $\mathcal{E}_1 $
-and $\mathcal{E}_2 $
-is a right  $D $-module
-map with  $\braket{I\xi_1}{I\xi_2} = \braket{\xi_1}{\xi_2} $
-for all  $\xi_1,\xi_2\in\mathcal{E}_1 $.
-
-\begin{definition}
-	\label{def:isometric_intertwiner}
-	Let  $(\mathfrak{E}_1,\pi_1) $
-	and  $(\mathfrak{E}_2,\pi_2) $
-	be representations on Hilbert  $D $-modules
-	$\mathcal{E}_1 $
-	and $\mathcal{E}_2 $,
-	respectively.  An \emph{isometric intertwiner} between them is an
-	isometry  $I\colon \mathcal{E}_1\hookto\mathcal{E}_2 $
-	with  $I(\mathfrak{E}_1)\subseteq \mathfrak{E}_2 $
-	and  $I\circ\pi_1(a) (\xi) = \pi_2(a) \circ I (\xi) $
-	for all  $a\in A $,
-	$\xi\in\mathfrak{E}_1 $;
-	equivalently,  $I\circ\pi_1(a)\subseteq \pi_2(a)\circ I $
-	for all  $a\in A $,
-	that is, the graph of $\pi_2(a)\circ I $
-	contains the graph of $I\circ \pi_1(a) $.
-	We neither ask $I $
-	to be adjointable nor  $I(\mathfrak{E}_1)=\mathfrak{E}_2 $.
-	Let  $\mathrm{Rep}(A,D) $
-	be the category with closed representations of $A $
-	on Hilbert  $D $-modules
-	as objects, isometric intertwiners as arrows, and the usual
-	composition.  The unit arrow on $(\mathfrak{E},\pi) $
-	is the identity operator on $\mathcal{E} $.
-\end{definition}
-
-\begin{lemma}
-	\label{lem:closure_functorial}
-	Let  $(\mathfrak{E}_1,\pi_1) $ and  $(\mathfrak{E}_2,\pi_2) $ be
-	representations on Hilbert  $D $-modules  $\mathcal{E}_1 $
-	and $\mathcal{E}_2 $, respectively, and let  $I\colon
-	\mathcal{E}_1\hookto\mathcal{E}_2 $ be an isometric intertwiner.  Then $I $ is
-	also an intertwiner between the closures of  $(\mathfrak{E}_1,\pi_1) $
-	and  $(\mathfrak{E}_2,\pi_2) $.
-\end{lemma}
-\begin{proposition}
-	\label{pro:intertwiner_strong_generators}
-	Let  $(\mathfrak{E}_1,\pi_1) $ and  $(\mathfrak{E}_2,\pi_2) $ be closed
-	representations of $A $ on Hilbert  $D $-modules  $\mathcal{E}_1 $
-	and $\mathcal{E}_2 $, respectively.  Let  $S\subseteq A $ be a strong
-	generating set.  An isometry  $I\colon \mathcal{E}_1\hookto \mathcal{E}_2 $ is
-	an intertwiner from  $(\mathfrak{E}_1,\pi_1) $ to  $(\mathfrak{E}_2,\pi_2) $
-	if and only if  $I\circ \overline{\pi_1(a)} \subseteq \overline{\pi_2(a)}\circ
-	I $ for all  $a\in S $.
-\end{proposition}
-
-
-Now we relate the categories  $\mathrm{Rep}(A,D) $ for different
-$C^*$-algebras $D $.
-
-\begin{definition}
-	\label{def:Cstar-correspondence}
-	Let  $D_1 $ and $D_2 $ be two $C^*$-algebras.  A
-	\emph{$C^*$-correspondence} from $D_1 $ to $D_2 $ is a
-	Hilbert  $D_2 $-module with a representation of $D_1 $ by
-	adjointable operators (representations of $C^*$-algebras are
-	tacitly assumed nondegenerate).  An \emph{isometric intertwiner}
-	between two correspondences from $D_1 $ to $D_2 $ is an
-	isometric map on the underlying Hilbert  $D_2 $-modules that
-	intertwines the left  $D_1 $-actions.  Let  $\mathrm{Rep}(D_1,D_2) $
-	denote the category of correspondences from $D_1 $ to $D_2 $
-	with isometric intertwiners as arrows and the usual composition.
-\end{definition}
-
-
-Let $\mathcal{E} $ be a Hilbert  $D_1 $-module and $\F $ a
-correspondence from $D_1 $ to $D_2 $.  The interior tensor product
-$\mathcal{E}\otimes_{D_1} \F $ is the (Hausdorff) completion of the
-algebraic tensor product  $\mathcal{E}\odot \F $ to a Hilbert
-$D_2 $-module, using the inner product
-\begin{equation}
-	\label{eq:interior_tensor}
-	\braket{\xi_1\otimes\eta_1}{\xi_2\otimes\eta_2}
-	= \braket{\eta_1}{\braket{\xi_1}{\xi_2}_{D_1}\cdot\eta_2}_{D_2}.
-\end{equation}
- We may use the balanced tensor product
-$\mathcal{E}\odot_{D_1} \F $ instead of  $\mathcal{E}\odot \F $
-because the inner product~\eqref{eq:interior_tensor} descends to this
-quotient.  If we want to emphasise the left action  $\varphi\colon
-D_1\to\mathbb{B}(\F) $ in the
-$C^*$-correspondence $\F $, we write  $\mathcal{E}\otimes_\varphi
-\F $ for  $\mathcal{E}\otimes_{D_1} \F $.
-
-In addition, let $(\mathfrak{E},\pi) $ be a closed representation of $A $
-on $\mathcal{E} $.  We are going to build a closed representation
-$(\mathfrak{E}\otimes_{D_1}\F, \pi\otimes_{D_1}1) $ of $A $ on
-$\mathcal{E}\otimes_{D_1}\F $.  First let  $X\subseteq
-\mathcal{E}\otimes_{D_1}\F $ be the image of  $\mathfrak{E}\odot \F $
-or  $\mathfrak{E}\odot_{D_1} \F $ under the canonical map to
-$\mathcal{E}\otimes_{D_1}\F $.
-
-\begin{lemma}
-	\label{lem:tensor_rep_with_corr}
-	For  $a\in A $, there is a unique linear operator
-	$\pi(a)\otimes1\colon X\to X $ with  $(\pi(a)\otimes1)
-	(\xi\otimes\eta) = \pi(a)(\xi)\otimes \eta $ for all
-	$\xi\in\mathfrak{E} $,  $\eta\in\F $.  The map  $a\mapsto
-	\pi(a)\otimes 1 $ is a representation of $A $ with domain $X $.
-\end{lemma}
-
-\begin{definition}
-	Let  $(\mathfrak{E}\otimes_{D_1}\F, \pi\otimes_{D_1}1) $ be the
-	closure of the representation on $\mathcal{E}\otimes_{D_1}\F $
-	defined in Lemma~\ref{lem:tensor_rep_with_corr}.
-\end{definition}
-
-\begin{lemma}
-	\label{lem:rep_tensor_corr_functor}
-	Let  $I\colon \mathcal{E}_1\hookto\mathcal{E}_2 $ be an isometric intertwiner
-	between two representations  $(\mathfrak{E}_1,\pi_1) $ and
-	$(\mathfrak{E}_2,\pi_2) $, and let  $J\colon \F_1\hookto \F_2 $
-	be an isometric intertwiner of $C^*$-correspondences.  Then
-	$I\otimes_{D_1} J\colon \mathcal{E}_1\otimes_{D_1}\F_1 \hookto
-	\mathcal{E}_2\otimes_{D_1}\F_2 $ is an isometric intertwiner between
-	$(\mathfrak{E}_1\otimes_{D_1}\F_1, \pi_1\otimes1) $ and
-	$(\mathfrak{E}_2\otimes_{D_1}\F_2, \pi_2\otimes1) $.
-\end{lemma}
-
-The lemma gives a bifunctor
-\begin{equation}
-	\label{eq:interior_tensor_bifunctor}
-	\otimes_{D_1}\colon \mathrm{Rep}(A,D_1)\times \mathrm{Rep}(D_1,D_2) \to
-	\mathrm{Rep}(A,D_2).
-\end{equation}
-The corresponding bifunctor
-\[
-\otimes_{D_1}\colon \mathrm{Rep}(B,D_1)\times \mathrm{Rep}(D_1,D_2) \to \mathrm{Rep}(B,D_2)
-\]
-for a $C^*$-algebra $B $ is the usual composition of
-$C^*$-correspondences.  This composition is associative up to
-canonical unitaries
-\begin{equation}
-	\label{eq:tensor_associative}
-	\mathcal{E} \otimes_{D_1} (\F \otimes_{D_2} \mathcal{E}) \xrightarrow{\cong}
-	(\mathcal{E} \otimes_{D_1} \F) \otimes_{D_2} \mathcal{E},\qquad
-	\xi \otimes (\eta\otimes \zeta) \mapsto
-	(\xi \otimes \eta)\otimes \zeta,
-\end{equation}
-for all triples of composable $C^*$-correspondences.
-
-\begin{lemma}
-	\label{lem:tensor_associative}
-	If $\mathcal{E} $ carries a representation $(\mathfrak{E},\pi) $ of a
-	$*$-algebra $A $, then the unitary
-	in~\eqref{eq:tensor_associative} is an intertwiner  $(\mathfrak{E},\pi)
-	\otimes_{D_1} (\F\otimes_{D_2} \mathcal{E}) \xrightarrow{\cong}
-	\bigl((\mathfrak{E},\pi) \otimes_{D_1} \F\bigr) \otimes_{D_2}
-	\mathcal{E}$.
-\end{lemma}
-
-\begin{definition}
-	\label{def:star-intertwiner}
-	Let  $(\mathfrak{E}_1,\pi_1) $ and $(\mathfrak{E}_2,\pi_2) $ be two
-	representations of $A $ on Hilbert  $D $-modules  $\mathcal{E}_1 $
-	and $\mathcal{E}_2 $.  An adjointable operator  $x\colon
-	\mathcal{E}_1\to\mathcal{E}_2 $ is an \emph{intertwiner} if
-	$x(\mathfrak{E}_1)\subseteq \mathfrak{E}_2 $ and  $x\pi_1(a)\xi =
-	\pi_2(a)x\xi $ for all  $a\in A $,  $\xi\in\mathfrak{E}_1 $.  It is
-	a \emph{$*$-intertwiner} if both  $x $ and $x^* $ are
-	intertwiners.
-	\label{def:adjointable_intertwiner}
-\end{definition}
-
-Any adjointable intertwiner between two representations of a
-$C^*$-algebra $B $ is a $*$-intertwiner.  In contrast, for
-a general $*$-algebra, even the adjoint of a unitary
-intertwiner $u $ fails to be an intertwiner if
-$u(\mathfrak{E}_1)\subsetneq \mathfrak{E}_2 $.
-
-\begin{example}
-	\label{exa:Friedrichs_extension}
-	Let $t $ be a positive symmetric operator on a Hilbert
-	space $ \H $.  Assume that  $\bigcap_{n\in\N} \Dom t^n $ is
-	dense in $ \H $, so that $t $ generates a
-	representation $\pi $ of the polynomial algebra $\C[x] $
-	on $ \H $.  The Friedrichs extension of $t $ is a positive
-	self-adjoint operator $t' $ on $ \H $.  It generates
-	another representation $\pi' $ of $\C[x] $ on $ \H $.  The
-	identity map on $ \H $ is a unitary intertwiner
-	$\pi\hookto\pi' $.  It is not a $*$-intertwiner unless
-	$t=t' $.
-\end{example}
-
-The following proposition characterises when an adjointable isometry
-$I\colon \mathcal{E}_1\hookto \mathcal{E} $ between two representations
-on Hilbert  $D $-modules is a $*$-intertwiner.  Since
-$\mathcal{E}\cong \mathcal{E}_1 \oplus \mathcal{E}_1^\bot $ if $I $ is adjointable, we
-may as well assume that $I $ is the inclusion of a direct summand.
-
-\begin{proposition}
-	\label{pro:isometry_star-intertwiner}
-	Let  $\mathcal{E}_1 $ and $\mathcal{E}_2 $ be Hilbert modules over a
-	$C^*$-algebra $D $ and let  $(\mathfrak{E}_1,\pi_1) $ and
-	$(\mathfrak{E},\pi) $ be representations of $A $ on  $\mathcal{E}_1 $
-	and $\mathcal{E}_1\oplus\mathcal{E}_2 $, respectively.  The following are
-	equivalent:
-	\begin{enumerate}
-		\item \label{enum:isometry_star-intertwiner1} the canonical
-		inclusion  $I\colon \mathcal{E}_1\hookto\mathcal{E}_1\oplus\mathcal{E}_2 $ is a
-		$*$-intertwiner from $\pi_1 $ to $\pi $;
-		\item \label{enum:isometry_star-intertwiner2} the canonical
-		inclusion  $I\colon \mathcal{E}_1\hookto\mathcal{E}_1\oplus\mathcal{E}_2 $ is an
-		intertwiner from $\pi_1 $ to $\pi $ and  $\mathfrak{E} =
-		\mathfrak{E}_1 + (\mathfrak{E}\cap \mathcal{E}_2) $;
-		\item \label{enum:isometry_star-intertwiner3} there is a
-		representation  $(\mathfrak{E}_2,\pi_2) $ on $\mathcal{E}_2 $ such that  $\pi
-		= \pi_1 \oplus \pi_2 $.
-	\end{enumerate}
-\end{proposition}
-
-\section{Integrable representations and $C^*$-hulls}
-\label{sec:Cst_generated}
-\paragraph*{}
-From now on, \emph{we tacitly assume representations to be closed}.
-Proposition~\ref{pro:closure_rep} shows that this is no serious loss of
-generality.
-
-Let $A $ be a unital $*$-algebra.  We assume that a class of
-``integrable'' (closed) representations of $A $ on Hilbert modules
-is chosen.  Let  $\mathrm{Rep}_{\mathrm{int}}(A,D)\subseteq \mathrm{Rep}(A,D) $ be the full
-subcategory with integrable representations on Hilbert
-$D $-modules as objects.  Being full means that the set of
-arrows between two integrable representations of $A $ is still the
-set of all isometric intertwiners.  We sometimes write  $\mathrm{Rep}_{\mathrm{int}}(A) $
-and  $\mathrm{Rep}(A) $ for the collection of all the categories
-$\mathrm{Rep}_{\mathrm{int}}(A,D) $ and  $\mathrm{Rep}(A,D) $ for all $C^*$-algebras $D $.
-A $C^*$-hull is a $C^*$-algebra $B $ with natural
-isomorphisms  $\mathrm{Rep}(B,D) \cong \mathrm{Rep}_{\mathrm{int}}(A,D) $ for all
-$C^*$-algebras $D $.  More precisely:
-
-\begin{definition}
-	\label{def:Cstar-hull}
-	A \emph{$C^*$-hull} for the integrable representations
-	of $A $ is a $C^*$-algebra $B $ with a family of bijections
-	$\Phi=\Phi^{\mathcal{E}} $ from the set of representations of $B $
-	on $\mathcal{E} $ to the set of integrable representations of $A $
-	on $\mathcal{E} $ for all Hilbert modules $\mathcal{E} $ over all
-	$C^*$-algebras $D $ with the following properties:
-	\begin{itemize}
-		\item \emph{compatibility with isometric intertwiners}: an isometry
-		$\mathcal{E}_1\hookto\mathcal{E}_2 $ (not necessarily adjointable) is an
-		intertwiner between two representations  $\varrho_1 $
-		and $\varrho_2 $ of $B $ \emph{if and only if} it is an
-		intertwiner between  $\Phi(\varrho_1) $ and $\Phi(\varrho_2) $;
-		
-		\item \emph{compatibility with interior tensor products}: if
-		$\F $ is a correspondence from $D_1 $ to $D_2 $,
-		$\mathcal{E} $ is a Hilbert  $D_1 $-module, and $\varrho $ is a
-		representation of $B $ on $\mathcal{E} $, then
-		$\Phi(\varrho\otimes_{D_1} 1_{\F}) =
-		\Phi(\varrho)\otimes_{D_1} 1_{\F} $ as representations
-		of $A $ on  $\mathcal{E}\otimes_{D_1} \F $.
-	\end{itemize}
-\end{definition}
-
-The compatibility with isometric intertwiners means that the
-bijections $\Phi $ for all $\mathcal{E} $ with fixed $D $ form an
-isomorphism of categories  $\mathrm{Rep}(B,D)\cong \mathrm{Rep}_{\mathrm{int}}(A,D) $ which, in
-addition, does not change the underlying Hilbert  $D $-modules.  The
-compatibility with interior tensor products expresses that these
-isomorphisms of categories for different $D $ are natural with
-respect to $C^*$-correspondences.
-
-\begin{definition}
-	\label{def:weak_Cstar-hull}
-	A \emph{weak $C^*$-hull} for the integrable representations
-	of $A $ is a $C^*$-algebra $B $ with a family of
-	bijections $\Phi $ between representations of $B $ and integrable
-	representations of $A $ on Hilbert modules that is compatible with
-	unitary $*$-intertwiners and interior tensor products.
-\end{definition}
-
-
-
-\begin{proposition}
-	\label{pro:adjointable_intertwiner}
-	Let a class of integrable representations of $A $ have a weak
-	$C^*$-hull $B $.  Let  $(\mathfrak{E}_1,\pi_1) $ and
-	$(\mathfrak{E}_2,\pi_2) $ be integrable representations of $A $ on
-	Hilbert  $D $-modules  $\mathcal{E}_1 $ and $\mathcal{E}_2 $, and
-	let $\varrho_i $ be the corresponding representations of $B $
-	on $\mathcal{E}_i $ for  $i=1,2 $.  An adjointable operator  $x\colon
-	\mathcal{E}_1\to\mathcal{E}_2 $ is a $*$-intertwiner from
-	$(\mathfrak{E}_1,\pi_1) $ to $(\mathfrak{E}_2,\pi_2) $ if and only if it is
-	an intertwiner from  $\varrho_1 $ to $\varrho_2 $.
-\end{proposition}
-
-\begin{corollary}
-	\label{cor:integrable_sums}
-	Let  $\mathrm{Rep}_{\mathrm{int}}(A) $ have a weak $C^*$-hull $B $.  Direct sums
-	and summands of integrable representations remain integrable, and
-	the family of bijections  $\mathrm{Rep}_{\mathrm{int}}(A)\cong\mathrm{Rep}(B) $ preserves direct
-	sums.
-\end{corollary}
-
-\begin{definition}
-	\label{def:universal_integrable_rep}
-	Let $B $ be a weak $C^*$-hull for $A $.  The
-	\emph{universal} integrable representation of $A $ is the
-	integrable representation $(\mathfrak{B},\mu) $ of $A $ on $B $
-	that corresponds to the identity representation of $B $ on
-	itself.
-\end{definition}
-
-\begin{proposition}
-	\label{pro:Phi_simplifies}
-	Let $B $ with a family of bijections $\Phi $ between
-	representations of $B $ and integrable representations of $A $ on
-	Hilbert modules be a weak $C^*$-hull for the integrable
-	representations of $A $.  Let $(\mathfrak{B},\mu) $ be the universal
-	integrable representation of $A $.  Then  $\Phi(\mathcal{E}) \cong
-	(\mathfrak{B},\mu) \otimes_B \mathcal{E} $ for any
-	$C^*$-correspondence $\mathcal{E} $ from $B $ to $D $.
-	\textup{(}The proof makes this isomorphism more precise.\textup{)}
-\end{proposition}
-
-Put in a nutshell, the whole isomorphism between integrable
-representations of $A $ and representations of $B $ is encoded in
-the single representation $(\mathfrak{B},\mu) $ of $A $ on $B $.
-  In the following, we disregard
-the canonical unitary $u $ in the proof of
-Proposition~\ref{pro:Phi_simplifies} and write  $\Phi(\varrho) =
-(\mathfrak{B},\mu) \otimes_B \mathcal{E} $.
-
-A (weak) $C^*$-hull $B $ does not solve the problem of describing
-the integrable representations of $A $.  It only reduces it to the
-study of the representations of the $C^*$-algebra $B $.  This
-reduction is useful because it gets rid of unbounded operators.
-If $B $ is of type~I, then any Hilbert space representation of $B $
-is a direct integral of irreducible representations, and irreducible
-representations may, in principle, be classified.  Thus integrable
-Hilbert space representations of $A $ are direct integrals of
-irreducible integrable representations, and the latter may, in
-principle, be classified.  But if $B $ is not of type~I, then the
-integrable Hilbert space representations of $A $ are exactly as
-complicated as the Hilbert space representations of $B $, and giving
-the $C^*$-algebra $B $ may well be the best one can say about
-them.
-
-\begin{proposition}
-	\label{pro:unique_hull}
-	A class of integrable representations has at most one weak
-	$C^*$-hull.
-\end{proposition}
-
-Now take any representation  $(\mathfrak{B},\mu) $ of $A $ on $B $.
-When is this the universal integrable representation of a (weak)
-$C^*$-hull?  Let $D $ be a $C^*$-algebra and $\mathcal{E} $ a
-Hilbert  $D $-module.  For a representation  $\varrho\colon
-B\to\mathbb{B}(\mathcal{E}) $, let
-$\Phi(\varrho)=(\mathfrak{B},\mu)\otimes_\varrho \mathcal{E} $ be the induced
-representation of $A $ on $\mathcal{E} $ as in the proof of
-Proposition~\ref{pro:Phi_simplifies}. 
-\begin{definition}\label{b_int_defn}\cite{meyer:unb_repr}
-	A representation of $A $ is
-	called \emph{ $B $-integrable} if it is in the image of $\Phi $.
-\end{definition} 
-
-\begin{proposition}
-	\label{pro:Cstar-generated_by_unbounded_multipliers}
-	The $C^*$-algebra $B $ is a weak $C^*$-hull for the
-	$B $-integrable representations of $A $ if and only if
-	\begin{enumerate}
-		\item \label{enum:Cstar-gen1} if two representations
-		$\varrho_1,\varrho_2\colon B\rightrightarrows B\left(\H\right) $
-		on the same Hilbert space $ \H $ satisfy  $\mu\otimes_B
-		\varrho_1=\mu\otimes_B \varrho_2 $ as closed representations
-		of $A $, then  $\varrho_1=\varrho_2 $.
-	\end{enumerate}
-	It is a $C^*$-hull if and only if \ref{enum:Cstar-gen1} and
-	the following equivalent conditions hold:
-	%	\begin{enumerate}[resume]
-	\item \label{enum:Cstar-gen2} 
-	Let  $(\mathfrak{H},\pi) $ be a
-	representation of $A $ on a Hilbert space $ \H $ and let
-	$(\mathfrak{H},\pi_0) $ be a subrepresentation on a closed
-	subspace  $ \H_0\subseteq \H $; that is,
-	$\mathfrak{H}\subseteq \mathfrak{H} $ and  $\pi_0(a)=
-	\pi(a)|_{\mathfrak{H}} $ for all  $a\in A $.  If both  $\pi_0 $
-	and $\pi $ are  $B $-integrable, then  $\mathfrak{H} =
-	\mathfrak{H} \oplus (\mathfrak{H}\cap  \H_0^\bot) $ as vector
-	spaces.
-	\item \label{enum:Cstar-gen2'} Isometric intertwiners
-	between  $B $-integrable Hilbert space representations of $A $
-	are $*$-intertwiners.
-	\item \label{enum:Cstar-gen2''}  $B $-integrable
-	subrepresentations of  $B $-integrable Hilbert space
-	representations of $A $ are direct summands.
-	%  	\end{enumerate}
-	The conditions \ref{enum:Cstar-gen1}--\ref{enum:Cstar-gen2''}
-	together are equivalent to
-	% 	\begin{enumerate\mathfrak{H}resume]
-	\item \label{enum:Cstar-gen12} let  $\varrho\colon
-	B\to B\left(\H\right) $ be a Hilbert space representation and
-	let $(\mathfrak{H},\pi) $ be the associated representation of $A $
-	on $ \H $.  If  $(\mathfrak{H},\pi|_{\mathfrak{H}}) $ is a
-	$B $-integrable subrepresentation
-	of $(\mathfrak{H},\pi) $ on a closed subspace
-	$ \H_0\subseteq \H $, then the projection
-	onto $ \H_0 $ commutes with $\varrho(B) $.
-	%  	\end{exercise}
-\end{proposition}
-The equivalent conditions
-\ref{enum:Cstar-gen2}--\ref{enum:Cstar-gen2''} may be easier to
-check than~\ref{enum:Cstar-gen12} because they do not involve the
-$C^*$-hull.
-
-\begin{corollary}
-	\label{pro:envelope_unique}
-	Let $A $ be a $*$-algebra and let $B_i $ be $C^*$-algebras
-	with representations  $(\mathfrak{B}_i,\mu_i) $ of $A $ for  $i=1,2 $.
-	Assume that for each Hilbert space $ \H $, the maps
-	$\Phi_i\colon \mathrm{Rep}(B_i, \H) \to \mathrm{Rep}(A, \H) $,
-	$\varrho_i\mapsto (\mathfrak{B}_i,\mu_i) \otimes_{\varrho_i}
-	\H $, are injective and have the same image.  Then there is a
-	unique isomorphism  $B_1\cong B_2 $ intertwining the representations
-	$(\mathfrak{B}_i,\mu_i) $ of $A $ for  $i=1,2 $.
-\end{corollary}
-
-
-\begin{proof}
-	Both  $B_1 $ and $B_2 $ are weak $C^*$-hulls for the same
-	class of representations of $A $ by
-	Proposition~\ref{pro:Cstar-generated_by_unbounded_multipliers}.
-	Proposition~\ref{pro:unique_hull} gives the isomorphism  $B_1\cong
-	B_2 $.
-\end{proof}
-
-\begin{remark}
-	\label{rem:envelope_unique}
-	The Hilbert space representations of a $C^*$-algebra only
-	determine its bidual  $\textup{W}^* $-algebra, not the
-	$C^*$-algebra itself.  Hence it is remarkable that the
-	conditions in
-	Proposition~\ref{pro:Cstar-generated_by_unbounded_multipliers} and
-	Corollary~\ref{pro:envelope_unique} only need Hilbert space
-	representations.  For Corollary~\ref{pro:envelope_unique}, this
-	works because the bijection between the representations is of a
-	particular form, induced by representations of $A $.
-\end{remark}
-
-
-\begin{definition}
-	\label{def:integrable_admissible}
-	Let $A $ be a $*$-algebra.  A class of ``integrable''
-	representations of $A $ on Hilbert modules over
-	$C^*$-algebras is \emph{admissible} if it satisfies the
-	conditions \ref{enum:admissible0}--\ref{enum:admissible3} below,
-	and \emph{weakly admissible} if it satisfies
-	\ref{enum:admissible0}--\ref{enum:admissible2}.
-	\begin{enumerate}
-		\item \label{enum:admissible0} If there is a unitary
-		$*$-intertwiner from an integrable representation to another
-		representation, then the latter is integrable.
-		\item \label{enum:admissible1} If  $D $ and $D' $ are
-		$C^*$-algebras,  $\F $ is a correspondence from $D $
-		to $D' $, and  $(\mathfrak{E},\pi) $ is an integrable representation
-		of $A $ on a Hilbert  $D $-module $\mathcal{E} $, then the
-		representation  $(\mathfrak{E},\pi)\otimes_D \F $ on
-		$\mathcal{E}\otimes_D \F $ is integrable.
-		\item \label{enum:admissible2} Direct sums and summands of
-		integrable representations are integrable.
-		\item \label{enum:admissible3} Any integrable subrepresentation of
-		an integrable representation of $A $ on a Hilbert space is a
-		direct summand.
-	\end{enumerate}
-\end{definition}
-
-\begin{lemma}
-	\label{lem:integrable_admissible}
-	Any class of integrable representations with a
-	\textup{(}weak\textup{)} $C^*$-hull is
-	\textup{(}weakly\textup{)} admissible.
-\end{lemma}
-\begin{proposition}
-	\label{pro:representation_Hilm_Comp}
-	Let $A $ be a unital $*$-algebra and let $\mathcal{E} $ be a
-	Hilbert module over a $C^*$-algebra $D $.  There is a natural
-	bijection between the sets of representations of $A $ on
-	$\mathcal{E} $ and $\K(\mathcal{E}) $.  It preserves integrability if the
-	class of integrable representations of $A $ is weakly admissible
-	or, in particular, if it has a weak $C^*$-hull.
-\end{proposition}
 \chapter{Groupoids and $C^*$-algebras}
 		\paragraph*{}
 Here I follow to \cite{brown:proper_groupoids}.
