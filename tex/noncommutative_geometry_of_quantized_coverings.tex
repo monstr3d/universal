@@ -804,14 +804,16 @@ Following table contains  special symbols.
 	% (the Gelfand spectrum of the center of $M\left( A\right) $ is connected). Let $A \subset B$ be a connected subalgebra. We say that $A$ is a \textit{connected component} of $B$ if  $1_{M\left( A\right) }$ lies in the center of $1_{M\left( B\right) }$.
 \end{definition}
 \begin{empt}\label{unital_notation_empt}
-	Let $A$ be a $C^*$-algebra. Denote by $A^{\sim}$ the unital $C^*$-algebra given by
+	Let $A$ be a $*$-algebra. Denote by $A^{\sim}$ the unital $*$-algebra given by
 	\be\label{unital_notation_eqn}
 	A^{\sim}\bydef\begin{cases}
 		A & \text{if }A \text{ is unital}\\
 		A^+ & \text{if }A \text{ is not unital}\\
 	\end{cases}
 	\ee
-	where $A^+$ is the minimal unitization of $A$ (cf. Definition \ref{multiplier_min_defn}).
+	where $A^+$ is given by \eqref{a_plus_eqn} (cf. Remark \ref{a_plus_rem}).
+	If $A$ is nonunital $C^*$-algebra then 	$A^{\sim}$
+	is the minimal unitization of $A$ (cf. Definition \ref{multiplier_min_defn}).
 \end{empt}
 %\begin{empt}\label{unital_notation_empt}
 %	Let $A$ be a $C^*$-algebra. Denote by $A^{\sim}$ the unital $C^*$-algebra given by
@@ -1372,7 +1374,7 @@ If $ \A$ is  category then a related to $ \A$ construction is said to be \textit
 %	Denote by $\H' \bydef  f_\eps\left( A\right)\H$ and let $p \in B\left(	\H \right)$ be the projection onto $\H'$. If $A' = pAp, B' = pBp \in B\left(	\H' \right)$ then $\left\| B - A \right\|< \eps\quad \Rightarrow\quad \left\| B' - A' \right\| < \eps$ and $B \ge f_\eps\left( A\right) \quad \Leftrightarrow\quad B' \ge f_\eps\left( A'\right)$. On the other hand $f_\eps\left(A' \right)= A' - \eps \cdot 1_{B\left( \H'\right) }$. If $B' \not\ge f_\eps\left(A' \right)$ then there is $\xi \in \H'$ such that $\left( \xi, B' \xi \right)_{\H'}  <   \left( \xi, f_\eps\left( A'\right)_{\H'} \xi\right)  = \left( \xi, A' \xi\right)_{\H'}  - \eps \left\| \xi \right\|^2$. If $\left\| \xi \right\|= 1$ then $\left( \xi, B' \xi\right)_{\H'}  <   \left( \xi, f_\eps\left( A'\right) \xi\right)_{\H'}  = \left( \xi, A' \xi\right)_{\H'}   - \eps$, or equivalently $\left( \xi,\left(A' - B'\right)  \xi\right)_{\H'} > \eps$. From $\left\| \xi \right\|=1$ it turns out that $\left\| \left(A' - B'\right)\xi \right\|> \eps$, hence $\left\| A' - B' \right\|> \eps$; that is a contradiction with our assumption. The contradiction proves this lemma.
 % \end{proof}
 \begin{definition}\label{def:rep_Hilbert_module_uni}
-Let $A$ be a *-algebra and let $D$ be a $C^*$-algebra. Let $\mathcal{E}$ be a Hilbert $B$-module, and let $A^\sim$ is given by \eqref{unital_notation_eqn}, A \emph{representation} of $A $ on $\mathcal{E} $ is a {representation} of $A^\sim$ on $\mathcal{E}$ in the sense of the definition \ref{def:rep_Hilbert_module} !!! CHECK.
+Let $A$ be a *-algebra and let $D$ be a $C^*$-algebra. Let $\mathcal{E}$ be a Hilbert $D$-module, and let $A^\sim$ is given by \eqref{unital_notation_eqn}, A \emph{representation} of $A $ on $\mathcal{E} $ is a {representation} of $A^\sim$ on $\mathcal{E}$ in the sense of the definition \ref{def:rep_Hilbert_module}.
 \end{definition}
 
 
@@ -1689,12 +1691,12 @@ We say that the triple $\left(A, \widetilde{A}, G \right)$ and/or the quadruple 
 \begin{definition}\label{fino*_defn}
 	In the  situation \ref{o*fin_empt} we say that $\left(A, \widetilde{A}, G, \pi \right)$, or $\left(A, \widetilde{A}, G  \right)$, or $\pi$ is a \textit{noncommutative finite-fold covering of $O^*$-algebras}.
 \end{definition}
-\subsection{Coverings and $C^*$-hulls}\label{fin_chull_sec}
+\subsection{Coverings and unbounded operators on Hilbert modules}\label{fin_chull_sec}
 \paragraph*{}
 The Definition \ref{fino*_defn} assumes  that both *-algebras $A$ and $\widetilde{A}$ contain  quite enough bounded elements. Here we consider an opposite situation.
 \begin{empt}\label{fin_chull_empt}
-Let $\left(A, \widetilde{A}, G, \pi_A \right)$ be a {noncommutative finite-fold  pre-covering of *-algebras} (cf. Definition \ref{fin_pre*_defn}), and let $\left(B, \widetilde{B}, G, \pi_B \right)$ be a {noncommutative finite-fold  covering} (cf. Definition \ref{fin_defn}).
-Suppose that there is an {universal}  integrable representation  $\left( \mathfrak{B},\mu\right)$ of $A^\sim$ on $B$ (cf. Definition \ref{def:universal_integrable_rep} and equation \eqref{unital_notation_eqn}). Let  $\widetilde{\mathfrak{B}}\bydef \widetilde B\otimes_B \mathfrak{B}$ and suppose that there is an {universal}  integrable representation $\left(\widetilde{\mathfrak{B}},\widetilde\mu\right)$ of $\widetilde{A}^\sim$ on $\widetilde B$. There are natural inclusions $A \subset \End^*_{ B}\left( {\mathfrak B}\right)$ and $\widetilde A \subset \End^*_{\widetilde B}\left( \widetilde{\mathfrak B}\right)$ of *-algebras.
+Let $\left(A, \widetilde{A}, G, \pi_A \right)$ be a {noncommutative finite-fold  pre-covering of *-algebras} (cf. Definition \ref{fin_pre*_defn}), and let $\left(B, \widetilde{B}, G, \pi_B \right)$ be a {noncommutative finite-fold  covering} (cf. Definition \ref{fin_defn}). 
+Suppose that there is a representation  $\left( \mathfrak{B},\mu\right)$ of $A$ on $B$ (cf. Definition \ref{def:rep_Hilbert_module_uni})  where $B$ is regarded as Hilbert $B$-module. Let  $\widetilde{\mathfrak{B}}\bydef \widetilde B\otimes_B \mathfrak{B}$ and suppose that there is a representation $\left(\widetilde{\mathfrak{B}},\widetilde\mu\right)$ of $\widetilde{A}$ on $\widetilde B$. There are natural inclusions $A \subset \End^*_{ B}\left( {\mathfrak B}\right)$ and $\widetilde A \subset \End^*_{\widetilde B}\left( \widetilde{\mathfrak B}\right)$ of *-algebras.
 \end{empt}
 \begin{definition}\label{fin_chull_defn} 
 Consider the above situation.  If	$\pi_A: A \hookto \widetilde{A}$ comes from the natural inclusion $\End^*_{ B}\left( {\mathfrak B}\right)\subset \End^*_{\widetilde B}\left( \widetilde{\mathfrak B}\right)$ and the action $G\widetilde A = \widetilde A$ comes from the natural action $G \times \End^*_{\widetilde B}\left( \widetilde{\mathfrak B}\right) \to\End^*_{\widetilde B}\left( \widetilde{\mathfrak B}\right) $
@@ -4574,7 +4576,7 @@ are dense subsets.
 \end{remark}
  
  
-\section{Infinite coverings and $C^*$-hulls}
+\section{Infinite coverings and unbounded operators on Hilbert modules}
 
 \paragraph*{}
 This section is an infinite counterpart of the Section \ref{fin_chull_sec}.
@@ -4612,7 +4614,7 @@ Consider the described in \ref{comp_chull_empt} situation. Suppose that followin
 \end{definition}
 
 \begin{definition}\label{b_core_defn}
-The completion  $\widetilde {\mathfrak B}$ of  $\widetilde {\mathfrak B}'$ with respect to graph topology (cf. Definition \ref{def:rep_Hilbert_module} !!! CHECK) given by the family of seminorms
+The completion  $\widetilde {\mathfrak B}$ of  $\widetilde {\mathfrak B}'$ with respect to graph topology (cf. Definition \ref{def:rep_Hilbert_module}) given by the family of seminorms
 \be
 \forall \widetilde a \in \widetilde A\quad \widetilde \xi\in \widetilde {\mathfrak B}'\quad \left\| \widetilde \xi \right\|_{\widetilde a} \bydef\left\langle {\xi, {\pi(1_{\widetilde A^\sim}+\widetilde a^*\widetilde a)\xi}}\right\rangle ^{\nicefrac12}_{_{\widetilde B}X_B} 
 \ee
@@ -20229,9 +20231,9 @@ gHg^{-1} = H
 	\begin{example}\label{unitization_exm}
 		Suppose $A$ is  $C^*$-algebra which has no identity. Then $A^+ = A \oplus \C$
 		is a *-algebra with 
-		$$
+	\be\label{a_plus_eqn}
 		\left( a \oplus \la\right)\left( b \oplus \mu\right) = \left(ab + \la b + \mu a\right)  \oplus \la \mu, \quad \left(a \oplus \la \right)^* = a^*\oplus \overline{\la}. 
-		$$
+\ee
 		It is proven in \cite{rae:ctr_morita} that there is the natural unique $C^*$-norm $\left\| \cdot\right\|_{A^+}$  on $A^+$ such that 
 		$$
 		\left\|a \oplus 0 \right\|_{A^+}=\left\|a \oplus 0 \right\|_{A}
@@ -20248,6 +20250,9 @@ gHg^{-1} = H
 	\begin{rem}\label{multiplier_rem}
 		It is proven in \cite{rae:ctr_morita} that for any $C^*$-algebra $A$ there unique maximal unitization.
 	\end{rem}
+\begin{remark}\label{a_plus_rem}
+If $A$ is a *-algebra then the equation \eqref{a_plus_eqn} yields a *-algebra $A^+\cong A\oplus \C$ where $\cong$ is a isomorphism of $\C$-spaces. 
+\end{remark}
 	
 	\begin{definition}\label{multiplier_defn}\cite{murphy,pedersen:ca_aut}
 		We say that the maximal unitization of $A$ is the \textit{multiplier algebra} of $A$ and denote it by $M\left( A\right)$. 
@@ -22677,7 +22682,7 @@ Let $A $ be a unital $*$-algebra,  $D $ a $C^*$-algebra,
 and $\mathcal{E} $ a Hilbert  $D $-module.  
 
 \begin{definition}
-	\label{def:rep_Hilbert_module} !!! CHECK\cite{meyer:unb_repr}
+	\label{def:rep_Hilbert_module}\cite{meyer:unb_repr}
 	A \emph{representation} of $A $ on $\mathcal{E} $ is a
 	pair $(\mathfrak{E},\pi) $, where  $\mathfrak{E}\subseteq\mathcal{E} $ is a dense
 	$D $-submodule and  $\pi\colon A\to\End_D(\mathfrak{E}) $ is a unital
@@ -22706,7 +22711,7 @@ and $\mathcal{E} $ a Hilbert  $D $-module.
 	the graph topology.
 \end{definition}
 
-Definition~\ref{def:rep_Hilbert_module} !!! CHECK for  $D=\C $ is the usual
+Definition~\ref{def:rep_Hilbert_module}  for  $D=\C $ is the usual
 definition of a representation of a $*$-algebra on a Hilbert
 space by unbounded operators.   For  $\mathcal{E}=D $ with the
 canonical Hilbert  $D $-module structure, we get representations
