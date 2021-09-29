@@ -7782,8 +7782,9 @@ i.e.  the triple 	$\left(\left(\Coo_c\left(M \right)', \Coo\left(M \right)    \r
 \paragraph*{}
 Let $\sX$ and $\widetilde\sX$ be locally compact Hausdorff spaces, and let $p:\widetilde\sX\to \sX$ be a covering. If both $A$ and $\widetilde A$  are *-algebras of (unbounded) $\C$-valued continuous maps then $p$ induces an injective *-homomorphism
 $$
-\pi_A : A\hookto \widetilde A
+\pi_A : A\hookto \widetilde A.
 $$
+If $G \bydef G\left(\left.\widetilde \sX~\right|\sX \right)$ then the natural action   $G \widetilde \sX \to \widetilde \sX$ induces the action $G \widetilde A \to \widetilde A$. From the direct check it follows that a quadruple $\left(  A ,\widetilde{ A}, G\left(\left.\widetilde \sX~\right|\sX \right), \pi_A\right)$ is a  {noncommutative finite-fold  pre-covering of *-algebras} (cf. Definition \ref{fin_pre*_defn})
 Denote by
 \bean
 B\bydef  C_0\left( \sX\right),\quad
@@ -7799,24 +7800,39 @@ Similarly on has
  \bean
 \widetilde A \hookto \End^*_{\widetilde B}\left(\widetilde B_c \right).
 \eean
- Let ${\mathfrak{B}}$ and $\widetilde{\mathfrak{B}}$ be  the completions of $B_c$ and  $\widetilde B_c$ with respect to graph topology given by norms
+ Denote by ${\mathfrak{B}}$ and $\widetilde{\mathfrak{B}}$ be  the completions of $B_c$ and  $\widetilde B_c$ with respect to graph topology given by norms
 \bean
 \forall a \in A \quad \forall b  \in B_c \quad  \left\| b\right\|_a \bydef {\braket{b}{\pi(1+a^*a)b}}^{\nicefrac12},\\
 \forall \widetilde a \in\widetilde A \quad \forall\widetilde b  \in  \widetilde B_c \quad  \left\| \widetilde b\right\|_{\widetilde a} \bydef {\braket{\widetilde b}{\widetilde\pi(1+\widetilde a^*\widetilde a)\widetilde b}}^{\nicefrac12}
 \eean
 (cf. equation \eqref{graph_norm_eqn}).
-
-
+\begin{exercise}
+Prove that there is a natural isomorphism $\widetilde{\mathfrak{B}}\cong \widetilde{B}\otimes_B \mathfrak{B}$.
+\end{exercise}
+If we consider $B$ as a Hilbert $B$-module and an injective *-homomorphism 
+$
+\mu : A \hookto \End^*_{ B}\left( {\mathfrak B}\right)
+$ then a pair $\left( \mathfrak{B},\mu\right)$  is a representation  of $A$ on $B$ (cf. Definition \ref{def:rep_Hilbert_module_uni}).  Similarly there is a representation $\left(\widetilde{\mathfrak{B}},\widetilde\mu\right)$ of $\widetilde{A}$ on $\widetilde B$.
 \begin{theorem}
-In the above situation if $p$ is a transitive finite-fold covering then the quadruple $\left(  A ,\widetilde{ A}, G\left(\left.\widetilde \sX~\right|\sX \right), \pi_A\right)$ is  
-	an associated with\\ $\left(B, B_0\left( \widetilde{\sY}\right),G\left(\left.\widetilde \sX~\right|\sX \right), C_0\left(p \right) \right) $  noncommutative finite-fold covering of *-algebras in the sense of the  Definition \ref{fin_chull_defn}.
-	
-\end{theorem}
+In the above situation if $p$ is a transitive finite-fold covering then the quadruple $\left(  A ,\widetilde{ A}, G \bydef G\left(\left.\widetilde \sX~\right|\sX \right), \pi_A\right)$ is  
+	an associated with\\ $\left(C_0\left( \sX\right),C_0\left( \widetilde\sX\right) ,G\left(\left.\widetilde \sX~\right|\sX \right), C_0\left(p \right) \right) $  noncommutative finite-fold covering of *-algebras in the sense of the  Definition \ref{fin_chull_defn}.
+	\end{theorem}
 \begin{proof}
-	A specialization of the construction \ref{fin_chull_empt}. Details of the proof  is left to the reader.	
+	Above text is a specialization of the construction \ref{fin_chull_empt}. Details of the proof of this theorem is left to the reader.	
 \end{proof}
+\paragraph{title}
+!!!!
+\begin{empt}\label{fin_chull_empt!}
+	Let $\left(A, \widetilde{A}, G, \pi_A \right)$ be a {noncommutative finite-fold  pre-covering of *-algebras} (cf. Definition \ref{fin_pre*_defn}), and let $\left(B, \widetilde{B}, G, \pi_B \right)$ be a {noncommutative finite-fold  covering} (cf. Definition \ref{fin_defn}). 
+	Suppose that there is a representation  $\left( \mathfrak{B},\mu\right)$ of $A$ on $B$ (cf. Definition \ref{def:rep_Hilbert_module_uni})  where $B$ is regarded as Hilbert $B$-module. Let  $\widetilde{\mathfrak{B}}\bydef \widetilde B\otimes_B \mathfrak{B}$ and suppose that there is a representation $\left(\widetilde{\mathfrak{B}},\widetilde\mu\right)$ of $\widetilde{A}$ on $\widetilde B$. There are natural inclusions $A \subset \End^*_{ B}\left( {\mathfrak B}\right)$ and $\widetilde A \subset \End^*_{\widetilde B}\left( \widetilde{\mathfrak B}\right)$ of *-algebras.
+\end{empt}
+\begin{definition}\label{fin_chull_defn!} 
+	Consider the above situation.  If	$\pi_A: A \hookto \widetilde{A}$ comes from the natural inclusion $\End^*_{ B}\left( {\mathfrak B}\right)\subset \End^*_{\widetilde B}\left( \widetilde{\mathfrak B}\right)$ and the action $G\times \to A = \widetilde A$ comes from the natural action $G \times \End^*_{\widetilde B}\left( \widetilde{\mathfrak B}\right) \to\End^*_{\widetilde B}\left( \widetilde{\mathfrak B}\right) $
+	then  we say that $\left(A, \widetilde{A}, G, \pi_A \right)$ is an \textit{associated with $\left(B, \widetilde{B}, G, \pi_B \right)$ noncommutative finite-fold covering of *-algebras}.
+\end{definition}
 
 
+\paragraph{title}
 
 \subsubsection{Polynomials in one variable}\label{top_fin_hull_sec}
 \begin{empt}\label{top_one_var_empt}
