@@ -838,7 +838,7 @@ Following table contains  special symbols.
 	$
 	f_{\mu\nu} = f_{\mu\la}\circ f_{\la\nu}$ {where} $\quad \mu < \la < \nu.
 	$
-	If $C^*$-algebras $A_\la$ are  not unital 	then there are natural unital  (in sense of the Definition \ref{principal_defn}) unique injective *-homomorphisms  $f^{\sim}_{\mu\nu}: A^{\sim}_\mu \to A^{\sim}_\nu$ of minimal unitiazations (cf. equation \eqref{unital_notation_eqn}). From the Theorem \ref{inductive_lim_thm} it turns out that $C^*$-{inductive limit}  $C^*\text{-}\varinjlim_\La A^{\sim}_{\la}$ of $\left\{A^{\sim}_\la \right\}_{\la\in\La}$. 
+	If $C^*$-algebras $A_\la$ are  not unital 	then there are natural unital  (in sense of the Definition \ref{principal_defn}) unique injective *-homomorphisms  $f^{\sim}_{\mu\nu}: A^{\sim}_\mu \to A^{\sim}_\nu$ of minimal unitizations (cf. equation \eqref{unital_notation_eqn}). From the Theorem \ref{inductive_lim_thm} it turns out that $C^*$-{inductive limit}  $C^*\text{-}\varinjlim_\La A^{\sim}_{\la}$ of $\left\{A^{\sim}_\la \right\}_{\la\in\La}$. 
 \end{empt}
 \begin{definition}\label{inductive_lim_non_defn}
 	In the situation of \ref{inductive_empt} consider injective *-homomorphisms $A_\la \hookto C^*\text{-}\varinjlim_\La A^{\sim}_{\la}$ of $\left\{A^{\sim}_\la \right\}$ as inclusions $A_\la \subset C^*\text{-}\varinjlim_\La A^{\sim}_{\la}$ of $\left\{A^{\sim}_\la \right\}$.	The $C^*$-norm completion of the union  $\cup_{\la \in \La}A_\la\subset C^*\text{-}\varinjlim_\La A^{\sim}_{\la}$  is said to be the $C^*$-\textit{inductive limit} of $\left\{A_\la \right\}$. It is denoted by $C^*\text{-}\varinjlim_{\la\in\La} A_\la$ or  $C^*\text{-}\varinjlim A_\la$.
@@ -4393,6 +4393,8 @@ Moreover since  $K\left( \widetilde{A}_\pi\right)$ is $A$-bimodule and $\widetil
 \be\label{inf_hilb_inc_eqn}
 _{\widetilde{A}_\pi}X_A\subset \widetilde{A}_\pi.
 \ee
+
+
  \end{rem}
 \begin{definition}\label{inf_hilb_mod_defn}
  	Let $\mathfrak{S}^{\text{pt}} = \left(\left\{\pi_\la: A \hookto A_\la \right\}, \left\{\pi^\mu_\nu\right\}\right) \in \mathfrak{FinAlg}^{\text{pt}}$ and  $\mathfrak{S}^{\text{pt}}$ allows inner product (with respect to $\pi$) then $K\left( \widetilde{A}_\pi\right)$ then we say that given by the Remark  \ref{inf_hilb_prod_rem} $A$-Hilbert module $_{\widetilde{A}_\pi}X_A$ \textit{corresponds to } $\widetilde{A}_\pi$.
@@ -4589,8 +4591,14 @@ Let
 	\ee
 	is a good {pointed algebraical  finite covering category} (cf. Definitions \ref{comp_pt_defn} and \ref{mains_defn}). Let  $\left( B, \widetilde B, G\left(\left.\widetilde B\right| B\right)\right)  $ be the inverse noncommutative limit of $\mathfrak{S}^{\mathrm{pt}}_B$ (cf. Definition \ref{main_defn}). Suppose that $\mathfrak{S}^{\text{pt}}_B$  allows the inner product (cf. Definition \ref{inf_hilb_prod_defn}), and let $_{\widetilde B}X_B$ be an explained in the Remark \ref{inf_hilb_prod_rem} Hilbert $B$-module. Since $_{\widetilde B}X_B$ is the completion of Pedersen's ideal $K\left( \widetilde B\right)$ (cf. Definition \ref{peder_id_defn})   there is a right action 
 	\be\label{c_hull_wtr_eqn}
-	_{\widetilde B}X_B \times {\widetilde B}\to _{\widetilde B}X_B
+	_{\widetilde B}X_B \times {\widetilde B}\to _{\widetilde B}X_B.
 	\ee
+	If $\widehat B \bydef C^*$-$\varinjlim B_\la$ is the inductive limit of $C^*$-algebras (cf. Definition \ref{inductive_lim_non_defn}) then from the atomic representation (cf. Definition \ref{atomic_repr_defn}) $\widehat B \hookto  B\left(\widehat \H_a \right)$ can be extended up to a faithful representation 
+	\be\label{hm_a_rep}
+	\pi_{\widetilde B} : \widetilde B \hookto B\left(\widehat \H_a \right) 
+	\ee
+	(cf. Definition \ref{main_defn}).
+	
 \end{empt}
 
 
@@ -4609,6 +4617,11 @@ Consider the described in \ref{comp_chull_empt} situation. Suppose that followin
 		\item [(f)] The natural representations
 		$\widetilde{A}\hookto\End^*_{\widetilde { B}}\left(\widetilde {\mathfrak B}'\right)$ and ${A}\hookto\End^*_{\widetilde { B}}\left(\widetilde {\mathfrak B}'\right)^{G\left(\left.\widetilde B\right| B\right)} $ are nondegenerate.
 		\item [(g)]  Both representations $A \hookto \End_A\left(\widetilde{A}\right)$ and $A \hookto \End\left(\widetilde{A}\right)_A$  given by left and right actions of $A$ on $\widetilde A$ are also nondegenerate.
+			\item [(h)] For any $\widetilde a \in \widetilde A$ there is $a \in A$ such that 
+			$$
+\forall \widetilde b\in \widetilde {\mathfrak B}'\quad		\sum_{G\left(\left.\widetilde B \right| B\right)}\left( g\widetilde a\right) \widetilde b = a \widetilde b \in \widetilde {\mathfrak B}'\subset _{\widetilde B}X_B\subset  {\widetilde B}\subset B\left(\H_a\right)
+			$$
+			where the sum of the  series implies  the  strong topology (cf. Definition \ref{strong_topology_defn}) of $B\left(\H_a\right)$ (cf. equations \eqref{inf_hilb_inc_eqn} and \eqref{hm_a_rep}).
 \end{enumerate}
  We say that the triple $\left(A, \widetilde{A}, G\left(\left.\widetilde A \right| A\right)\bydef G\left(\left.\widetilde B \right| B\right)\right)$	is an \textit{infinite noncommutative covering  associated with $\mathfrak{S}_B^{\mathrm{pt}}$}. 
 \end{definition}
@@ -9963,7 +9976,7 @@ then $\widetilde {\mathfrak B}'$ is a $G\left(\left.\widetilde \sX~\right| \sX\r
 invariant dense $\widetilde B$-$ B$-subbimodule of $_{\widetilde B }X_B$. If $\widetilde b \in \widetilde {\mathfrak B}'$ then
 $\supp \widetilde a\widetilde b \subset \widetilde b$ for all   $\widetilde  a \in \widetilde A$, it turns out that $\widetilde A\widetilde {\mathfrak B}'\subset \widetilde {\mathfrak B}'$, i.e.  $\widetilde {\mathfrak B}'$ is a right $\widetilde {A}$ module.
 
-\begin{exercise}\label{top_inf_hull_exer} Using the module  $\widetilde {\mathfrak B}'$ prove that the triple $\left({ A}, \widetilde{ A}, G\left(\left.\widetilde \sY \right| \sY\right)\right)$ 	is an {infinite noncommutative covering  associated with $\mathfrak{S}_B^{\mathrm{pt}}$} in the sense of the Definition \ref{main_ch_defn}.
+\begin{exercise}\label{top_inf_hull_exer} Using the module  $\widetilde {\mathfrak B}'$ prove that the triple $\left({ A}, \widetilde{ A}, G\left(\left.\widetilde \sY \right| \sY\right)\right)$ 	is an {infinite noncommutative covering  associated with $\mathfrak{S}_B^{\mathrm{pt}}$} in the sense of the Definition \ref{main_ch_defn} !!! CHECK.
 \end{exercise}
 
 
@@ -10239,7 +10252,7 @@ There is a well defined  intersection $\widetilde{\mathscr A}\left( \widetilde\s
 	Prove following statements:
 	\begin{enumerate}
 		\item $\mathfrak{S}^{\text{pt}}_{tA}$ is an {associated with} $\mathfrak{S}^{\text{pt}}_{B^T}$ {pointed algebraic finite covering category of $*$-algebras} (cf. Definition \ref{comp_pt_ass_defn}).
-		\item Find the { inverse noncommutative limit of $\mathfrak{S}_{tA}^{\mathrm{pt}}$ associated with $\mathfrak{S}_{B^T}^{\mathrm{pt}}$} (cf. Definition \ref{main_ch_defn}).
+		\item Find the { inverse noncommutative limit of $\mathfrak{S}_{tA}^{\mathrm{pt}}$ associated with $\mathfrak{S}_{B^T}^{\mathrm{pt}}$} (cf. Definition \ref{main_ch_defn} !!! CHECK).
 	\end{enumerate}
 \end{exercise}
 \begin{remark}
@@ -14654,7 +14667,7 @@ Let $\widetilde a\in  \End^*_{B_0\left(\widetilde \sX\right)}\left(\widetilde {\
 	Prove following statements:
 	\begin{enumerate}
 		\item $\mathfrak{S}^{\text{pt}}_{tA}$ is an {associated with} $\mathfrak{S}^{\text{pt}}_{B^T}$ {pointed algebraic finite covering category of $*$-algebras} (cf. Definition \ref{comp_pt_ass_defn}).
-		\item Find the { inverse noncommutative limit of $\mathfrak{S}_{tA}^{\mathrm{pt}}$ associated with $\mathfrak{S}_{B^T}^{\mathrm{pt}}$} (cf. Definition \ref{main_ch_defn}).
+		\item Find the { inverse noncommutative limit of $\mathfrak{S}_{tA}^{\mathrm{pt}}$ associated with $\mathfrak{S}_{B^T}^{\mathrm{pt}}$} (cf. Definition \ref{main_ch_defn} !!! CHECK).
 	\end{enumerate}
 \end{exercise}
 \begin{remark}
