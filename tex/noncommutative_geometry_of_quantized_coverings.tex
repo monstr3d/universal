@@ -1696,10 +1696,14 @@ We say that the triple $\left(A, \widetilde{A}, G \right)$ and/or the quadruple 
 The Definition \ref{fino*_defn} assumes  that both *-algebras $A$ and $\widetilde{A}$ contain  quite enough bounded elements. Here we consider an opposite situation.
 \begin{empt}\label{fin_chull_empt}
 Let $\left(A, \widetilde{A}, G, \pi_A \right)$ be a {noncommutative finite-fold  pre-covering of *-algebras} (cf. Definition \ref{fin_pre*_defn}), and let $\left(B, \widetilde{B}, G, \pi_B \right)$ be a {noncommutative finite-fold  covering} (cf. Definition \ref{fin_defn}). 
-Suppose that there is a representation  $\left( \mathfrak{B},\mu\right)$ of $A$ on $B$ (cf. Definition \ref{def:rep_Hilbert_module_uni})  where $B$ is regarded as Hilbert $B$-module. Let  $\widetilde{\mathfrak{B}}\bydef \widetilde B\otimes_B \mathfrak{B}$ and suppose that there is a representation $\left(\widetilde{\mathfrak{B}},\widetilde\mu\right)$ of $\widetilde{A}$ on $\widetilde B$. There are natural inclusions $A \subset \End^*_{ B}\left( {\mathfrak B}\right)$ and $\widetilde A \subset \End^*_{\widetilde B}\left( \widetilde{\mathfrak B}\right)$ of *-algebras.
+Suppose that there is a representation  $\left( \mathfrak{B},\mu\right)$ of $A$ on $B$ (cf. Definition \ref{def:rep_Hilbert_module_uni})  where $B$ is regarded as Hilbert $B$-module. Let  $\widetilde{\mathfrak{B}}\subset \widetilde B$ be a dense right ideal, such that $G\widetilde{\mathfrak{B}} = \widetilde{\mathfrak{B}}$ and
+\be\label{fin_chull_e_eqn}
+{\mathfrak{B}}= \widetilde{\mathfrak{B}}^G \bydef \left\{\left. \widetilde{b}\in \widetilde{\mathfrak{B}}\right| \forall g \in G\quad g \widetilde b = \widetilde b\right\}.
+\ee
+Suppose that there is a representation $\left(\widetilde{\mathfrak{B}},\widetilde\mu\right)$ of $\widetilde{A}$ on $\widetilde B$ (cf. Definition \ref{def:rep_Hilbert_module_uni}) where $\widetilde B$ is regarded as Hilbert $\widetilde B$-module. There are natural inclusions $\mu : A \hookto \End^*_{ B}\left( {\mathfrak B}\right)$ and $\widetilde \mu:\widetilde A \hookto \End^*_{\widetilde B}\left( \widetilde{\mathfrak B}\right)$ of *-algebras.
 \end{empt}
 \begin{definition}\label{fin_chull_defn} 
-Consider the above situation.  If	$\pi_A: A \hookto \widetilde{A}$ comes from the natural inclusion $\End^*_{ B}\left( {\mathfrak B}\right)\subset \End^*_{\widetilde B}\left( \widetilde{\mathfrak B}\right)$ and the action $G\times \to A = \widetilde A$ comes from the natural action $G \times \End^*_{\widetilde B}\left( \widetilde{\mathfrak B}\right) \to\End^*_{\widetilde B}\left( \widetilde{\mathfrak B}\right) $
+Consider the above situation.  If	$\pi_A: A \hookto \widetilde{A}$ agrees with the natural inclusion $\End^*_{ B}\left( {\mathfrak B}\right)\subset \End^*_{\widetilde B}\left( \widetilde{\mathfrak B}\right)$ and the action $G\times  \widetilde A \to \widetilde A$ comes from the natural action $G \times \End^*_{\widetilde B}\left( \widetilde{\mathfrak B}\right) \to\End^*_{\widetilde B}\left( \widetilde{\mathfrak B}\right) $
 	then  we say that $\left(A, \widetilde{A}, G, \pi_A \right)$ is an \textit{associated with $\left(B, \widetilde{B}, G, \pi_B \right)$ noncommutative finite-fold covering of *-algebras}.
 \end{definition}
 
@@ -7781,66 +7785,68 @@ i.e.  the triple 	$\left(\left(\Coo_c\left(M \right)', \Coo\left(M \right)    \r
 \subsection{Coverings and unbounded operators on Hilbert modules}\label{top_fin_chull_sec}
 \subsubsection{Algebras of unbounded functions}
 \paragraph*{}
-Let $\sX$ and $\widetilde\sX$ be locally compact Hausdorff spaces, and let $p:\widetilde\sX\to \sX$ be a covering. If both $A$ and $\widetilde A$  are *-algebras of (unbounded) $\C$-valued continuous maps then $p$ induces an injective *-homomorphism
+Let $\sX$ and $\widetilde\sX$ be locally compact Hausdorff spaces, and let $p:\widetilde\sX\to \sX$ be a transitive covering. If both $A$ and $\widetilde A$  are *-algebras of (unbounded) $\C$-valued continuous maps then $p$ induces an injective *-homomorphism
 $$
 \pi_A : A\hookto \widetilde A.
 $$
-If $G \bydef G\left(\left.\widetilde \sX~\right|\sX \right)$ then the natural action   $G \widetilde \sX \to \widetilde \sX$ induces the action $G \widetilde A \to \widetilde A$. From the direct check it follows that a quadruple $\left(  A ,\widetilde{ A}, G\left(\left.\widetilde \sX~\right|\sX \right), \pi_A\right)$ is a  {noncommutative finite-fold  pre-covering of *-algebras} (cf. Definition \ref{fin_pre*_defn})
+If $G \bydef G\left(\left.\widetilde \sX~\right|\sX \right)$ then the natural action   $G \times \widetilde \sX \to \widetilde \sX$ induces an action $G\times \widetilde A \to \widetilde A$. From the direct check it follows that a quadruple $\left(  A ,\widetilde{ A}, G\left(\left.\widetilde \sX~\right|\sX \right), \pi_A\right)$ is a  {noncommutative finite-fold  pre-covering of *-algebras} (cf. Definition \ref{fin_pre*_defn}).
 Denote by
 \bean
 B\bydef  C_0\left( \sX\right),\quad
 \widetilde B\bydef  C_0\left( \widetilde\sX\right),\\
-B_c\bydef  C_c\left( \sX\right),\quad
-\widetilde B_c\bydef  C_c\left( \widetilde\sX\right).
+\mathfrak B'\bydef  C_c\left( \sX\right),\quad
+\widetilde{\mathfrak B}'\bydef  C_c\left( \widetilde\sX\right).
 \eean 
-For all $a \in A$ and $b \in B_c$ one can consider a point-wise product of continuous maps $ab \in A$. Since $\supp ab \subset \supp b$ one has $ab \in B_c$. This circumstance yields a representation
+For all $a \in A$ and $b \in \mathfrak B'$ one can consider a point-wise product of continuous maps $ab \in A$. Since $\supp ab \subset \supp b$ one has $ab \in \mathfrak B'$. This circumstance yields a representation
  \bean
- A \hookto \End^*_B\left(B_c \right).
+ A \hookto \End^*_B\left(\mathfrak B' \right).
  \eean
-Similarly on has 
+Similarly on has an inclusion
  \bean
-\widetilde A \hookto \End^*_{\widetilde B}\left(\widetilde B_c \right).
+\widetilde A \hookto \End^*_{\widetilde B}\left(\widetilde {\mathfrak B}' \right).
 \eean
- Denote by ${\mathfrak{B}}$ and $\widetilde{\mathfrak{B}}$ be  the completions of $B_c$ and  $\widetilde B_c$ with respect to graph topology given by norms
+ Denote by ${\mathfrak{B}}$ and $\widetilde{\mathfrak{B}}$   the completions of  ${\mathfrak{B}}'$ and $\widetilde{\mathfrak{B}}'$ with respect to graph topology given by norms
 \bean
-\forall a \in A \quad \forall b  \in B_c \quad  \left\| b\right\|_a \bydef {\braket{b}{\pi(1+a^*a)b}}^{\nicefrac12},\\
-\forall \widetilde a \in\widetilde A \quad \forall\widetilde b  \in  \widetilde B_c \quad  \left\| \widetilde b\right\|_{\widetilde a} \bydef {\braket{\widetilde b}{\widetilde\pi(1+\widetilde a^*\widetilde a)\widetilde b}}^{\nicefrac12}
+\forall a \in A \quad \forall b  \in {\mathfrak{B}}' \quad  \left\| b\right\|_a \bydef {\braket{b}{\pi(1+a^*a)b}}^{\nicefrac12},\\
+\forall \widetilde a \in\widetilde A \quad \forall\widetilde b  \in  \widetilde{\mathfrak{B}}' \quad  \left\| \widetilde b\right\|_{\widetilde a} \bydef {\braket{\widetilde b}{\widetilde\pi(1+\widetilde a^*\widetilde a)\widetilde b}}^{\nicefrac12}
 \eean
 (cf. equation \eqref{graph_norm_eqn}).
 \begin{exercise}
-Prove that there is a natural isomorphism $\widetilde{\mathfrak{B}}\cong \widetilde{B}\otimes_B \mathfrak{B}$.
+Prove that ${\mathfrak{B}}$ and $\widetilde{\mathfrak{B}}$ satisfy to the explained in \ref{fin_chull_empt} conditions.
 \end{exercise}
-If we consider $B$ as a Hilbert $B$-module and an injective *-homomorphism 
-$
-\mu : A \hookto \End^*_{ B}\left( {\mathfrak B}\right)
-$ then a pair $\left( \mathfrak{B},\mu\right)$  is a representation  of $A$ on $B$ (cf. Definition \ref{def:rep_Hilbert_module_uni}).  Similarly there is a representation $\left(\widetilde{\mathfrak{B}},\widetilde\mu\right)$ of $\widetilde{A}$ on $\widetilde B$.
+
 \begin{theorem}\label{top_fin_hilb_thm}
-In the above situation if $p$ is a transitive finite-fold covering then the quadruple $\left(  A ,\widetilde{ A}, G \bydef G\left(\left.\widetilde \sX~\right|\sX \right), \pi_A\right)$ is  
+In the above situation  the quadruple $\left(  A ,\widetilde{ A}, G \bydef G\left(\left.\widetilde \sX~\right|\sX \right), \pi_A\right)$ is  
 	an associated with\\ $\left(C_0\left( \sX\right),C_0\left( \widetilde\sX\right) ,G\left(\left.\widetilde \sX~\right|\sX \right), C_0\left(p \right) \right) $  noncommutative finite-fold covering of *-algebras in the sense of the  Definition \ref{fin_chull_defn}.
 	\end{theorem}
 \begin{proof}
-	Above text is a specialization of the construction \ref{fin_chull_empt}. Details of the proof of this theorem is left to the reader.	
+	Above text is a specialization of the construction \ref{fin_chull_empt}. Details of the complete proof of this theorem are left to the reader.	
 \end{proof}
-\subsubsection{Polynomials in one variable} !!!\label {top_fin_hull_sec}
+\subsubsection{Polynomials in one variable} \label {top_fin_hull_sec}
 \begin{empt}\label{top_one_var_empt}
 
 Let $\sX$ be a locally compact, connected, locally connected, Hausdorff space, and let $C_0\left(\sX\right)\left[t\right]$ be a commutative *-algebra of polynomials of $t$ such that $t= t^*$. If $\sU \subset \sX$ is an open subset then there is an equivalence relation $\sim_\sU$ on $C_0\left(\sX\right)\left[t\right]$ such that
 \bean
 \forall a', a'' \in C_0\left(\sX\right)\left[t\right]\quad a'\sim_\sU a''\quad \Leftrightarrow\\ \Leftrightarrow \left(\forall f \in C_0\left(\sX\right)\quad \supp f \cap \sU = \emptyset \quad \Rightarrow \quad f\left(a'-a'' \right) =0 \right). 
 \eean
-The map $\sU \mapsto C_0\left(\sX\right)\left[t\right]$ yields a presheaf of *-algebras (cf. Definition \ref{presheaf_defn}), denote by $\mathscr{ A}$ the associated sheaf (cf. \ref{sheaf_prdf}). Let 
+The map $\sU \mapsto C_0\left(\sX\right)\left[t\right] /\sim_\sU$ yields a presheaf of *-algebras (cf. Definition \ref{presheaf_defn}). denote by $\mathscr{ A}$ the associated sheaf (cf. \ref{sheaf_prdf}). Let 
 \be\label{top_poly_a_defn}
 A \bydef \mathscr{ A}\left(\sX\right)
 \ee
  be a *-algebra of global sections.
-Let $B \bydef C_0\left(\sX \times \R\right)$ and let $B_c \bydef C_0\left(\sX \times \R\right)\subset B$ be a dense ideal of $B$ such that 
-
- If $T: \R \to \R$ is an identical map then there is a representation
+Let $B \bydef C_0\left(\sX \times \R\right)$. 
+If $\mathfrak B'\bydef C_c\left(\sX \times \R\right)$
+then $\mathfrak B'$ is a dense right ideal of $B$. Moreover if $T: \R \to \R$ is an identical map then there is a representation
 \bean
-C\left(\sX\right)\left[t\right]\hookto \End_B\left(B_c \right),\\
-\forall a \in C_0\left(\sX\right)\quad n \in \Z \quad \forall b \in B_c \quad a t^n \mapsto \left(b \mapsto aT^n b \right). 
+C\left(\sX\right)\left[t\right]\hookto \End_B\left(\mathfrak B' \right),\\
+\forall a \in C_0\left(\sX\right)\quad n \in \N^0 \quad \forall b \in \mathfrak B' \quad a t^n \mapsto \left(b \mapsto aT^n b \right). 
 \eean
-This representation naturally yields a representation $A \hookto \End_B\left(B_c \right)$. If $\mathfrak B$ is the completion of $B_c$ with respect to the graph topology (cf. Definition \ref{def:rep_Hilbert_module} !!! CHECK) then there is the universal  representation $\varrho:  A \hookto \End_B\left(\mathfrak B \right)$ (cf. Definition !!! \ref{def:universal_integrable_rep}) such that $B_c$ is a core (cf. Definition \ref{def:rep_Hilbert_module} !!! CHECK) for $\left(\varrho,  \mathfrak B\right)$. If  $\widetilde \sX \to \sX$ is a finite-fold transitive covering and $G \bydef G\left(\left.\widetilde \sX \right| \sX  \right)$ then from the Theorem \ref{comm_fin_thm} it follows that one can naturally obtain  a {noncommutative finite-fold  covering} $\left(B, \widetilde{B}\bydef C_0\left(\widetilde \sX \times \R\right) , G, \pi_B \right)$ (cf. Definition \ref{fin_defn}). Similarly to the above construction one can obtain a sheaf over $\widetilde \sX$ and *-algebra of its global sections $\widetilde A$ (cf. the equation \eqref{top_poly_a_defn}). The inclusion $C\left( \sX\right)\hookto C\left( \widetilde\sX\right)$ yields the inclusion $\pi_A: A \hookto \widetilde A$. Similarly to the above construction there is a dense right $\widetilde B$-submodule $\widetilde {\mathfrak B}\bydef \widetilde B\otimes_B\mathfrak B \subset \widetilde B$ and representation $\widetilde A\hookto \End_{\widetilde B}\left(\widetilde {\mathfrak B} \right)$. 
+which can be extended up to a representation $\left( \mathfrak{B},\mu\right)$ of $A$ on $B$ (cf. Definition \ref{def:rep_Hilbert_module_uni}), i.e. one has
+$$
+\mu': A\hookto \End_B\left(\mathfrak B' \right).
+$$
+If $\mathfrak B$ is the completion of $\mathfrak B$ with respect to the graph topology (cf. Definition \ref{def:rep_Hilbert_module} ) then there is the universal  $\mu:  A \hookto \End_B\left(\mathfrak B \right)$ such that $\mathfrak B$ is a core (cf. Definition \ref{def:rep_Hilbert_module}).!!!
+ If  $\widetilde \sX \to \sX$ is a finite-fold transitive covering and $G \bydef G\left(\left.\widetilde \sX \right| \sX  \right)$ then there is the natural finite-fold transitive covering $\widetilde \sX\times\R \to \sX\times\R$ such that $G \cong  G\left(\left.\widetilde \sX\times\R \right| \sX \times\R \right)$. from the Theorem \ref{comm_fin_thm} it follows that one can naturally obtain  a {noncommutative finite-fold  covering} $\left(B, \widetilde{B}\bydef C_0\left(\widetilde \sX \times \R\right) , G, \pi_B \right)$ (cf. Definition \ref{fin_defn}). Similarly to the above construction one can obtain a sheaf over $\widetilde \sX$ and *-algebra of its global sections $\widetilde A$ (cf. the equation \eqref{top_poly_a_defn}). The inclusion $C\left( \sX\right)\hookto C\left( \widetilde\sX\right)$ yields the inclusion $\pi_A: A \hookto \widetilde A$. Similarly to the above construction there is a dense right $\widetilde B$-submodule $\widetilde {\mathfrak B}\bydef \widetilde B\otimes_B\mathfrak B \subset \widetilde B$ and representation $\widetilde A\hookto \End_{\widetilde B}\left(\widetilde {\mathfrak B} \right)$. 
 \end{empt}
 \begin{exercise}\label{top_fin_hull_exer}
 Prove following statements:
@@ -9977,7 +9983,7 @@ is left to the reader. From the above formula it turns out that
  $\widetilde{a}'\in \widetilde{A}$ and $\widetilde{A}'\subset \widetilde{A}$
 \end{proof}
 
-\subsubsection{Polynomials of degree 1}
+\subsubsection{Polynomials in one variable}
 !!! CHECK
 
 \paragraph{}
