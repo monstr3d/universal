@@ -18556,10 +18556,12 @@ where $l \in \Z$ is a representative of $\overline l$.
 Prove that a quadruple $\left(A, \widetilde A, \Z_k, \pi \right)$ is a {noncommutative finite-fold  pre-covering of *-algebras} (cf. Definition \ref{fin_pre*_defn}).
 \end{exercise}
 A reduced crossed product $\widetilde B\bydef C_0\left(\C_{\left( \widetilde\mu\right)}\right) \rtimes_r \Z$ (cf. Section \ref{discr_cr_prod_sec}) is a completion of $C_c\left( \Z, C_c\left(\C_{\left( \widetilde\mu\right)} \right) \right)$ with respect to the reduced crossed norm (cf. Equation \eqref{discr_red_n_eqn}). There is a *-automorphism 
-\bean
+\be\label{qg_a_eqn}
+\begin{split}
 \a \in \Aut\left( C_c\left( \Z, C_c\left(\C_{\left( \widetilde\mu\right)} \right)\right) \right) ,\\
 \sum_{t \in \Z} a_t u_t\mapsto \sum_{t \in \Z}e^{\frac{2\pi  it}{k}} a_t u_t\quad \forall t \in G \quad a_t  \in A.
-\eean 
+\end{split}
+\ee
 Since $\a^k$ is the identical isomorphism it yields an action $\Z_k \times C_c\left( \Z, C_c\left(\C_{\left( \widetilde\mu\right)} \right)\right)\to C_c\left( \Z, C_c\left(\C_{\left( \widetilde\mu\right)} \right)\right)$, which can be uniquely extended to the action
 $$
 \Z_k \times \widetilde B \to \widetilde B.
@@ -18606,13 +18608,22 @@ In the above situation the triple $\left( B, \widetilde B, \Z_k\right)$ is a non
  		\be\nonumber
  G\bydef  \left\{ \left.g \in \Aut\left(\widetilde{C} \right)~\right|~ gc = c;~~\forall c \in C\right\}\cong \Z_k
  \ee
+ where the action $\Z_k \times \widetilde{C}\to \widetilde{C}$ comes from the given by \eqref{qg_c_eqn} periodic *-automorphism $\a$.
  From \eqref{qg_c_eqn} 
  and $\widetilde c_t = \widetilde c_1^t$ it follows that  $g \in G$ depends on $g\widetilde c_1$ only.
- From  $\widetilde c^k_1= \widetilde c_k \in C$ it follows that $\left( g\widetilde c_1\right)^k= \widetilde c_k$. It follows that $g\widetilde c_1 = \phi\left(\widetilde c_k \right)$ where $\phi$ is a Borel measured map such that $\phi^k = 1$ and a faithful representation $\widetilde C\hookto B\left(\H \right)$ is implied.  On the other hand if 
- $$
- \forall j = 1, ..., k - 1 \quad \phi\left(\widetilde c_k \right) \neq e^{\frac{2\pi ij}{k}}\widetilde c_1 \Rightarrow \phi\left(\widetilde c_k \right)\notin \widetilde C 
- $$
- So $G$ uniquely depends on $j$ modulo $k$, so  $G\cong \Z_k$. It follows that  $\left(C, \widetilde{C}, G, \pi_C \right)$ is  %(strong) 
+ From  $\widetilde c^k_1= \widetilde c_k \in C$ it follows that 
+\be\label{qg_k_eqn}
+\left( g\widetilde c_1\right)^k= g \widetilde c_k= \widetilde c_k
+\ee
+From the equations \eqref{discr_cr_prod_cc_eqn} and \eqref{discr_cr_prod_op_eqn} it follows that $\widetilde C \bydef C_0\left(\C_{\left( \widetilde\mu\right)}\right)^+ \rtimes_r \Z$ is $\Z$ graded. Taking into account \eqref{qg_k_eqn} one can deduce that the action of $G$ preserves this grading, it follows that $\left( g\widetilde c_1\right)^k = a u_1$ with $a \in C_0\left(\C_{\left( \widetilde\mu\right)}\right)^+$. Using \eqref{qg_k_eqn}  one has
+$$
+ \left( g\left( a u_1\right) \right)^k=  \left(a \left( g u_1\right) \right)^k = \widetilde c_k = 1_{C_0\left(\C_{\left( \widetilde\mu\right)}\right)^+} u_1^k.
+$$
+From the above equation it follows that 
+$
+\exists j \in \{0, ..., k-1\} \quad a =  e^{\frac{2\pi ij}{k}}1_{C_0\left(\C_{\left( \widetilde\mu\right)}\right)^+},
+$, or equivalently $g = \a^j$
+so $G$ uniquely depends on $j$ modulo $k$, so  $G\cong \Z_k$. It follows that  $\left(C, \widetilde{C}, G, \pi_C \right)$ is  %(strong) 
 noncommutative finite-fold pre-covering (cf. Definition  \ref{fin_pre_defn}). Since both $B$ and $\widetilde B$ are essential ideals of   $C$ and $\widetilde C$ the quadruple $\left(B, \widetilde{B}, G, \left.\pi_C \right|_B\right)$ is also noncommutative finite-fold pre-covering.
   \end{proof}
 \begin{exercise}
@@ -25139,7 +25150,7 @@ a way that the action becomes ”inner”. By this we mean that $t. a = u_tau^*_t$ f
 \be\label{discr_cr_prod_op_eqn}
 \begin{split}
 ab \bydef \sum_{s,t\in G}a_t(t\cdot b_s)u_{ts}, \quad
-a^* =\sum_{t\in G} (t^{-1}.a^*_t )u_{t^{-1}} ,\quad a =\sum _{t \in G} a_t u_t, \quad b =\sum _{s \in G} a_s u_s
+a^* =\sum_{t\in G} (t^{-1}.a^*_t )u_{t^{-1}} ,\\ a =\sum _{t \in G} a_t u_t, \quad b =\sum _{s \in G} a_s u_s
 \end{split}
 \ee
 Fix a $C^*$-dynamical system $(A,G)$ with $G$ discrete. A covariant representation $\left(\pi, u, \H \right)$  of $(A,G)$ consists of an unitary representation $u: G \to B(\H)$ of $G$ and a representation $\pi  : A \to B(\H)$ of $A$ such that $u(t)π(a)u(t)^* = \pi(t. a)$
