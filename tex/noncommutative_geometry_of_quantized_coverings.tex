@@ -3792,7 +3792,7 @@ From the Lemma \ref{spec_el_repr_lem} it turns out that there are the following 
 	\ee
 	will be applied.	
 \end{definition}
-!!! CONTINUE
+
 \begin{remark}
 	The above definition is a related to infinite coverings counterpart of the Definition \ref{red_alg_defn}.
 \end{remark}
@@ -4290,9 +4290,9 @@ This section is an infinite counterpart of the Section \ref{fin_chull_sec}.
 
 % \section{Basic construction}
 \paragraph{}
-Very natural choice of fundamental group is proposed in \cite{milne:etale}, where the fundamental group of algebraic manifold is an inverse limit of finite covering groups. However this theory does not yield the fundamental group, it provides  the profinite completion of the fundamental group. Another way is the construction of the noncommutative universal covering using  construction \ref{inf_bas_constr_sec}. This  construction yields fundamental group in the commutative case $A = C_0\left( \mathcal X\right)$ for described below class of spaces.
+Very natural choice of fundamental group is proposed in \cite{milne:etale}, where the fundamental group of algebraic manifold is an inverse limit of finite covering groups. However this theory does not yield the fundamental group, it provides  the profinite completion of it. Another way is the construction of the noncommutative universal covering using  construction \ref{inf_bas_constr_sec}. This  construction yields fundamental group in the commutative case $A = C_0\left( \mathcal X\right)$ for described below class of spaces.
 \subsection{Universal coverings of $C^*$-algebras}\label{uni_sec}
-\paragraph{} Here the nocommutative generalization of the universal covering space (cf. Definition \ref{top_uni_cov_defn}) is discussed.
+\paragraph{} Here the noncommutative generalization of the universal covering space (cf. Definition \ref{top_uni_cov_defn}) is discussed.
 \begin{definition}\label{fg_bas_defn} 
 	Let $A$ be a connected $C^*$-algebra. Let us consider the family $\left\{ \pi_\la:A \hookto A_\la\right\}_{\la \in \La} $  \textit{all} noncommutative finite-fold coverings (cf. Definition \ref{fin_defn}) (resp. \textit{all} reduced noncommutative finite-fold coverings (cf. Definition \ref{fin_red_defn}))  (resp. \textit{all} free noncommutative finite-fold coverings (cf. Definition \ref{fin_free_defn})) of $A$. Suppose that the family $\left\{ \pi_\la:A \hookto A_\la\right\}_{\la \in \La}$ is an {algebraical  finite covering category} (cf. Definition \ref{comp_defn}).
 	Denote by $\mathfrak{S} = \left\{ \pi_\la:A \hookto A_\la\right\}_{\la \in \La}$ and suppose that there is   a  {pointed  algebraical  finite covering} category $$\mathfrak{S}^{\mathrm{pt}} = \left( \left\{ \pi_\la:A \hookto A_\la\right\}_{\la\in\La},\left\{\pi^\nu_\mu\right\}_{\substack{ \mu, \nu \in \La \\ \mu \ge \nu}} \right)$$  which is good.
@@ -4304,15 +4304,6 @@ Very natural choice of fundamental group is proposed in \cite{milne:etale}, wher
 	\ee
 	
 \end{definition}
-
-\begin{remark}\label{fg_bas_rem}
-	In the Definition \ref{fg_bas_defn} the algebra $\widetilde{A}$ does not depend on a base-point $\left\{\pi^\nu_\mu\right\}$ up to isomorphism (cf. Remark \ref{base_point_change_rem}). So sometimes write
-	\be\label{fg_bas_short_eqn}
-	\pi_1\left(A \right) \stackrel{\mathrm{def}}{=} G\left(\left.\widetilde{A}~\right|{A} \right).
-	\ee 
-	instead of \eqref{fg_bas_eqn}.
-\end{remark}
-
 \begin{lemma}\label{change_point_lem}
 	Let $\widehat{g} \in \widehat{G}=\varprojlim G\left(\left.A_\la~\right| A,\left\{\pi^\mu_\nu\right\}  \right)$ and let $\rho^\mu_\nu  = \pi^\mu_\nu \circ h_\mu\left( \widehat{g}\right)$ then there is is the natural isomorphism
 	\be
@@ -4325,6 +4316,15 @@ Very natural choice of fundamental group is proposed in \cite{milne:etale}, wher
 \begin{proof}
 	Follows from the Lemma \ref{base_point_change_lem} (cf. Remark \ref{base_point_change_gr_rem}).
 \end{proof}
+
+\begin{remark}\label{fg_bas_rem}
+ Using the Lemma \ref{change_point_lem} we sometimes write
+	\be\label{fg_bas_short_eqn}
+	\pi_1\left(A \right) \stackrel{\mathrm{def}}{=} G\left(\left.\widetilde{A}~\right|{A} \right).
+	\ee 
+	instead of \eqref{fg_bas_eqn}.
+\end{remark}
+
 
 
 \begin{definition}\label{fg_s_bas_defn} Similarly to \eqref{fg_bas_defn} consider 
@@ -4347,16 +4347,17 @@ The motivation of  usage of $A\otimes\K$ instead of $A$ is explained in the Sect
 
 
 %
+
 \subsection{Universal coverings of operator spaces}
-\paragraph{} The generalization \ref{uni_sec} is being discussed here. 
+\paragraph{} A generalization of the Section \ref{uni_sec} is being discussed below. 
 \begin{definition}\label{fg_bas_os_defn} 
 	Let $\left(X, Y\right)$ be a {sub-unital} operator space (cf. Definition \ref{op_su_space_defn}). Let us consider the family $\left(\left(X, Y \right) , \left(\left(X_\la, Y_\la \right) \right), G\left(\left.A_\la\right|A \right)\right)$ of \textit{all} noncommutative finite-fold coverings of $\left(X, Y\right)$.
 	Denote by $\mathfrak{S} = \left\{ \pi_\la:A \hookto A_\la\right\}_{\la \in \La}$ and suppose that there is   a  {pointed algebraical  finite covering category of operator spaces}  category $\mathfrak{S}^{\mathrm{pt}}_{\text{op}}$  (cf. Definition \ref{comp_op_pt_defn}) given by
 		\bean
 	\begin{split}
 		\mathfrak{S}^{\text{pt}}_{\text{op}}
-		= \left(\left\{\left( \pi_{X_\la}, \pi_{Y\la}\right) : \left(X, Y \right) \to \left(X_\la, Y_\la \right) \right\}_{\la \in \La},\right. \\
-		\left.\left\{\left( \pi^{\nu}_{X_\mu}, \pi^{\nu}_{Y_\mu}\right) : \left(X_\mu, Y_\mu \right) \to \left(X_\nu, Y_\nu \right) \right\}_{\substack{\mu, \nu \in \La\\ \nu > \mu}}\right)
+		= \left(\left\{\left( \pi_{X_\la}, \pi_{Y\la}\right) : \left(X, Y \right) \to \left(X_\la, Y_\la \right)^{~} \right\}_{\substack{\la\in \La\\ \substack{~\\~}}},\right. \\
+		\left.\left\{\left( \pi^{\nu}_{X_\mu}, \pi^{\nu}_{Y_\mu}\right) : \left(X_\mu, Y_\mu \right) \to \left(X_\nu, Y_\nu \right) \right\}_{\substack{\mu, \nu \in \La\\ \nu > \mu}}\right).
 	\end{split}
 	\eean
 	The  {inverse noncommutative limit} of $\mathfrak{S}^{\text{pt}}_{\text{op}}$ \ref{spec_lim_defn} is said to be  the \textit{universal  covering} of $\left(X, Y \right)$. If 	$C^*_e\left( X, Y\right)$ is the $C^*$-\textit{envelope} of $\left(X, Y \right)$ then the fundamental group  $\pi_1\left( C^*_e\left( X, Y\right), \left\{\pi^\nu_\mu\right\} \right) $ is said to be the \textit{fundamental group} of $\left(X, Y \right)$. We write
@@ -4427,7 +4428,7 @@ $ where the homomorphism  $ h^\mu_\nu: G\left(\left. A_\mu\right| A\right)\to G\
 \
  
  \begin{rem}\label{inf_hilb_prod_rem}
- 	If $\mathfrak{S}^{\text{pt}}$ allows  inner product  then $K\left( \widetilde{A}_\pi\right)$ is a pre-Hilbert $A$ module such that the inner product is given by
+ 	If $\mathfrak{S}^{\text{pt}}$ allows  inner product  then $K\left( \widetilde{A}_\pi\right)$ is a pre-Hilbert $A$- module such that the inner product is given by
  	\begin{equation*}
  	\begin{split}
  	\left\langle \widetilde{a}, \widetilde{b}  \right\rangle_A  = \sum_{g \in  G\left(\left.\widetilde{A}_\pi~\right|A \right)} g \left(\widetilde{a}^* \widetilde{b}  \right) \in A 
@@ -4439,7 +4440,7 @@ $ where the homomorphism  $ h^\mu_\nu: G\left(\left. A_\mu\right| A\right)\to G\
  	\left\| \widetilde{a}\right\| = \sqrt{\left\| \left\langle \widetilde{a}, \widetilde{a}  \right\rangle_A\right\|}
  	\end{split}
  	\end{equation}
- 	is a Hilbert  $A$-premodule. Denote by $X_A$ this completion. The ideal $K\left( \widetilde{A}_\pi\right)$ is a left $\widetilde{A}_\pi$-module, so $X_A$ is also $\widetilde{A}_\pi$-module. Sometimes we will write  $_{\widetilde{A}_\pi}X_A$ instead  $X_A$.
+ 	is a pre-Hilbert  $A$-module. Denote by $X_A$ this completion. The ideal $K\left( \widetilde{A}_\pi\right)$ is a left $\widetilde{A}_\pi$-module, so $X_A$ is also $\widetilde{A}_\pi$-module. Sometimes we will write  $_{\widetilde{A}_\pi}X_A$ instead  $X_A$.
 Moreover since  $K\left( \widetilde{A}_\pi\right)$ is $A$-bimodule and $\widetilde{A}_\pi$-bimodule  $_{\widetilde{A}_\pi}X_A$ is also $A$-bimodule and $\widetilde{A}_\pi$-bimodule. Since the given by \eqref{inf_hilb_norm_eqn} norm exceeds the $C^*$-norm of  $\widetilde{A}_\pi$ there is the natural inclusion 
 \be\label{inf_hilb_inc_eqn}
 _{\widetilde{A}_\pi}X_A\subset \widetilde{A}_\pi.
@@ -4448,10 +4449,10 @@ _{\widetilde{A}_\pi}X_A\subset \widetilde{A}_\pi.
 
  \end{rem}
 \begin{definition}\label{inf_hilb_mod_defn}
- 	Let $\mathfrak{S}^{\text{pt}} = \left(\left\{\pi_\la: A \hookto A_\la \right\}, \left\{\pi^\mu_\nu\right\}\right) \in \mathfrak{FinAlg}^{\text{pt}}$ and  $\mathfrak{S}^{\text{pt}}$ allows inner product (with respect to $\pi$) then $K\left( \widetilde{A}_\pi\right)$ then we say that given by the Remark  \ref{inf_hilb_prod_rem} $A$-Hilbert module $_{\widetilde{A}_\pi}X_A$ \textit{corresponds to } $\widetilde{A}_\pi$.
+ 	Let $\mathfrak{S}^{\text{pt}} = \left(\left\{\pi_\la: A \hookto A_\la \right\}, \left\{\pi^\mu_\nu\right\}\right) \in \mathfrak{FinAlg}^{\text{pt}}$ and  $\mathfrak{S}^{\text{pt}}$ allows inner product (with respect to $\pi$) then we say that given by the Remark  \ref{inf_hilb_prod_rem} $A$-Hilbert module $_{\widetilde{A}_\pi}X_A$ \textit{corresponds to } $\widetilde{A}_\pi$.
  \end{definition}
  
- 
+ !!! CONTINUE
 
  
  \begin{defn}\label{induced_repr_inf_defn}
