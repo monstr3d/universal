@@ -4544,17 +4544,29 @@ where both $\widetilde a  \in \widetilde{A}_\pi$ and $b \in B\left( \H\right)$ a
   \section{Strong Morita equivalence of infinite coverings}\label{inf_mor_sec}
  
  \paragraph{}
-  Let $\left(A, \widetilde{A}, G\right)$ be an  infinite noncommutative covering which allows  the inner product (cf. Definition \ref{inf_hilb_prod_defn}), and let  $_{\widetilde{A}}X_A$ be a given by \eqref{inf_hilb_inc_eqn} $C^*$-Hilbert $A$-module where the atomic representation (cf. Definition \ref{atomic_repr_defn}) is implied. Denote by $\widetilde{A} \rtimes G$ a \textit{crossed product}, i.e. $\widetilde{A} \rtimes G$ is a $C^*$-algebra which is the completion with respect to the minimal $C^*$-norm of the set of maps with finite support from $G$ to $\widetilde{A}$. Operations on  $\widetilde{A}\rtimes G$ are given by
+  Let $\left(A, \widetilde{A}, G\right)$ be an  infinite noncommutative covering which allows  the inner product (cf. Definition \ref{inf_hilb_prod_defn}), and let  $_{\widetilde{A}}X_A$ be a given by \eqref{inf_hilb_inc_eqn} $C^*$-Hilbert $A$-module where the atomic representation (cf. Definition \ref{atomic_repr_defn}) is implied. Denote by $\widetilde{A} \rtimes_r G$ a reduced crossed product (cf. Appendix \ref{discr_cr_prod_sec}). Operations on  $\widetilde{A}\rtimes_r G$ are given by
  \begin{equation}\label{crossed_inf_prod_eqn}
  	\begin{split}
  		\left(a + b \right) \left( g \right)   = a \left( g \right)+ b \left( g \right),\\
  		\left(a \cdot b \right) \left( g \right)   = \sum_{g'\in G} a\left( g' \right)\left( g'\left(  b\left(g'^{-1}g \right)\right)\right)   \forall a, b \in \widetilde{A} \rtimes G,~~ \forall g \in G,\\
- 		a^*\left(g \right) =\left(a\left( g^{-1}\right)  \right)^*; ~~ \forall a \in \widetilde{A} \rtimes G,~~ \forall g \in G.
+ 		a^*\left(g \right) =\left(a\left( g^{-1}\right)  \right)^*; ~~ \forall a \in \widetilde{A} \rtimes G,~~ \forall g \in G
  	\end{split}
  \end{equation}
- 
- 
- Let us construct a Morita context $$\left( \widetilde{A} \rtimes G, A,~ _{\widetilde{A} \rtimes G}X_A, ~ _AX_{\widetilde{A} \rtimes G}, \widetilde{\tau}, \psi\right) $$ where both $_AX_{\widetilde{A} \rtimes G}$ and $ _{\widetilde{A} \rtimes G}X_A$ coincide with $X$ as $\C$-spaces. The left and right action of $\widetilde{A} \rtimes G$ on $X$ is given by
+where the $C^*$-norm convergence of the above series is implied. According to the Definition \ref{inf_hilb_prod_defn} $_{\widetilde{A}}X_A$ is a completion of the Pedersen's ideal $K\left(\widetilde A\right)$ (cf. Definition \ref{peder_id_defn})  with respect to the given by \eqref{inf_hilb_norm_eqn} norm.
+For any $\widetilde a \in K\left(\widetilde A\right)$ and any finite subset $G' \subset G$ there is an element $a_{G'}\in \widetilde{A} \rtimes_r G$ such that
+$$
+a_{G'}\left(g\right)   \bydef \begin{cases}
+\widetilde{a}\left( g \widetilde{a}\right) & g \in G'\\
+0 & g \notin G'
+\end{cases}
+$$
+Suppose that for all $\widetilde a \in \widetilde A$ there is $a \in \widetilde{A} \rtimes_r G$ such that 
+$a = \lim_{G'\subset G}a_{G'}$ where the $C^*$-norm limit is implied. Using the map $ \widetilde a \mapsto a$ and the equality \eqref{polarization_equality_eqn} one can obtain a sesquilinear pairing  $K\left(\widetilde A\right)\times  K\left(\widetilde A\right)\to  \widetilde{A} \rtimes_r G$. The map
+\be\label{cross_norm_eqn}
+\widetilde a \mapsto \sqrt{\left\| \lim_{G'\subset G}a_{G'} \right\| }
+\ee
+is a norm on $K\left(\widetilde A\right)$. The completion of $K\left(\widetilde A\right)$ with respect to given by \eqref{cross_norm_eqn}  norm is a Hilbert  $\widetilde{A}\rtimes_r G$-module. If   the given by \eqref{inf_hilb_norm_eqn} and \eqref{cross_norm_eqn} norms are equivalent then $_{\widetilde{A}}X_A$ is simultaneously both $A$ and $\widetilde{A}\rtimes_r G$ Hilbert module. In this situation 
+let us construct a Morita context $$\left( \widetilde{A} \rtimes G, A,~ _{\widetilde{A} \rtimes G}X_A, ~ _AX_{\widetilde{A} \rtimes G}, \widetilde{\tau}, \psi\right) $$ where both $_AX_{\widetilde{A} \rtimes G}$ and $ _{\widetilde{A} \rtimes G}X_A$ coincide with $X$ as $\C$-spaces. The left and right action of $\widetilde{A} \rtimes G$ on $X$ is given by
  
  \begin{equation*}
  	\begin{split}
@@ -4584,7 +4596,7 @@ where both $\widetilde a  \in \widetilde{A}_\pi$ and $b \in B\left( \H\right)$ a
  		= \left( \sum_{g \in G} g^{-1}\left( \xi \eta \right) \right)\zeta= \left( \sum_{g \in G} g\left( \xi \eta \right) \right)\zeta=\psi\left(\xi \otimes \eta \right)\zeta.
  	\end{split}
  \end{equation}
-
+The convergence of the series \eqref{morita_inf_g_eqn} follows from the above assumptions.
  
  \begin{thm}\label{motita_inf_thm}
  	Let $\left(A, \widetilde{A}, G, \pi \right)$ be an infinite noncommutative  covering which allows the inner product (cf. Definition \ref{inf_hilb_prod_defn}). Let us define a structure of Hilbert $\widetilde{A} \rtimes G-A$ bimodule on  $_{\widetilde{A} \rtimes G}X_A$ given by following products
@@ -4605,6 +4617,7 @@ where both $\widetilde a  \in \widetilde{A}_\pi$ and $b \in B\left( \H\right)$ a
    	Let $\left(A, \widetilde{A}, G \right)$ be an infinite noncommutative  covering which allows the inner product (cf. Definition \ref{inf_hilb_prod_defn}). 
    	We say that $\left(A, \widetilde{A}, G\right)$ \textit{allows strong Morita equivalence} if $X$ is an ${\widetilde{A} \rtimes G}-A$  equivalence bimodule.
   \end{definition}
+
 \begin{remark}
 From the Theorem \ref{motita_inf_thm} it follows that $\left(A, \widetilde{A}, G \right)$ {allows strong Morita equivalence} if both 
  		\begin{equation*}
@@ -4885,7 +4898,9 @@ The notion of "regular covering" has no any good noncommutative generalization. 
 \begin{remark}
 	From the Theorem \ref{top_cov_fact_thm} it turns out that any regular covering is transitive. 
 \end{remark}
-!!! CONTINUE
+!!! CONTINUE\begin{flushleft}
+	
+\end{flushleft}
 \begin{lemma}\label{top_trans_tp_cov_lem}
 	Let $\sX$ be a  connected, locally compact, Hausdorff space, and let $p:	\widetilde{   \mathcal X } \to \mathcal X$ be a  covering of connected spaces. If $g \in \Homeo\left( \widetilde{   \mathcal X }\right)$ is such that $p \circ g = p$ then one has
 	$$
@@ -9947,6 +9962,7 @@ C_0\left(\widetilde M\right) \to B\left( L^2\left(\widetilde  M, \widetilde S\ri
 	where sum of the series implies the strict topology of $M\left(C_0\left(\widetilde{\sX} \right)  \right)$ (cf. Definition \ref{strict_topology}), and the  notation  $\desc_{\overline{p}_\la}$ means  the descent	(cf. Definition \ref{top_lift_desc_defn}). 
 	From the properties of the descent it turns out that $\desc_{\overline{p}_\la}\left( \widetilde{a}\widetilde{b}\right) \in C_0\left( \sX_{\la}\right)$, i.e. $c_\la \in C_0\left( \sX_{\la}\right)$.  Taking into account the Remark \ref{inf_hilb_prod_low_rem} we conclude that  $c_\la \in C_0\left( \sX_{\la}\right)$ for all $\la \in \La$.
 \end{proof}
+!!! PROVE
 \begin{exercise}\label{comm_allows_morita_exer}
 	In the Situation of the Lemma \ref{comm_allows_lem} prove that the given by the Theorem \ref{comm_main_thm} { infinite noncommutative covering} $$\left(C_0\left(\mathcal{X}\right), C_0\left(\varprojlim  \mathfrak{S}_{\left(\sX, x_0\right)}\right),G\left(\left.\varprojlim  \mathfrak{S}_{\left(\sX, x_0\right)}~\right| \mathcal X\right)\right)$$ 
 	{allows strong Morita equivalence} (cf. Definition \ref{allows_morita_defn}).
