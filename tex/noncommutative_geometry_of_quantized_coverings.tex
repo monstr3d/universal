@@ -4541,97 +4541,90 @@ where both $\widetilde a  \in \widetilde{A}_\pi$ and $b \in B\left( \H\right)$ a
 
  
  
-  \section{Strong Morita equivalence of infinite coverings}\label{inf_mor_sec}
- 
- \paragraph{}
-  Let $\left(A, \widetilde{A}, G\right)$ be an  infinite noncommutative covering which allows  the inner product (cf. Definition \ref{inf_hilb_prod_defn}), and let  $_{\widetilde{A}}X_A$ be a given by \eqref{inf_hilb_inc_eqn} $C^*$-Hilbert $A$-module where the atomic representation (cf. Definition \ref{atomic_repr_defn}) is implied. Denote by $\widetilde{A} \rtimes_r G$ a reduced crossed product (cf. Appendix \ref{discr_cr_prod_sec}). Operations on  $\widetilde{A}\rtimes_r G$ are given by
- \begin{equation}\label{crossed_inf_prod_eqn}
- 	\begin{split}
- 		\left(a + b \right) \left( g \right)   = a \left( g \right)+ b \left( g \right),\\
- 		\left(a \cdot b \right) \left( g \right)   = \sum_{g'\in G} a\left( g' \right)\left( g'\left(  b\left(g'^{-1}g \right)\right)\right); \quad  \forall a, b \in \widetilde{A} \rtimes_r G,\quad  \forall g \in G,\\
- 		a^*\left(g \right) =\left(a\left( g^{-1}\right)  \right)^*; \quad  \forall a \in \widetilde{A} \rtimes_r G,\quad  \forall g \in G
- 	\end{split}
- \end{equation}
-where the $C^*$-norm convergence of the above series is implied. According to the Definition \ref{inf_hilb_prod_defn} $_{\widetilde{A}}X_A$ is a completion of the Pedersen's ideal $K\left(\widetilde A\right)$ (cf. Definition \ref{peder_id_defn})  with respect to the given by \eqref{inf_hilb_norm_eqn} norm.
-For any $\widetilde a, \widetilde b \in K\left(\widetilde A\right)$ and any finite subset $H \subset G$ such that $H^{-1}=H$ there is an element $c_{H}\in \widetilde{A} \rtimes_r G$ given by
-\bean
-c_{H}\left(g\right)   \bydef \begin{cases}
-\widetilde{a}^*\left( g \widetilde{b}\right) & g \in H\\
-0 & g \notin H
-\end{cases}.
-\eean
-Suppose that for all $\widetilde a, \widetilde b \in \widetilde A$ there is $\left\langle \widetilde{a}, \widetilde{b}\right\rangle_{\widetilde{A} \rtimes_r G}  \in \widetilde{A} \rtimes_r G$ such that 
-\be\label{cross_pair_eqn}
-\left\langle \widetilde{a}, \widetilde{b}\right\rangle_{\widetilde{A} \rtimes_r G} = \lim_{H\subset G}a_{H}
-\ee where the $C^*$-norm limit is implied. So one has a sesquilinear pairing  $\left\langle \cdot, \cdot\right\rangle_{\widetilde{A} \rtimes_r G}:K\left(\widetilde A\right)\times  K\left(\widetilde A\right)\to  \widetilde{A} \rtimes_r G$ 
-The map 
-\be\label{cross_norm_eqn}
-\widetilde a \mapsto \sqrt{\left\| \left\langle \widetilde{a}, \widetilde{a}\right\rangle_{\widetilde{A} \rtimes_r G}\right\| }
-\ee
-is a norm on $K\left(\widetilde A\right)$. The completion of $K\left(\widetilde A\right)$ with respect to given by \eqref{cross_norm_eqn}  norm is a Hilbert  $\widetilde{A}\rtimes_r G$-module. If   the given by \eqref{inf_hilb_norm_eqn} and \eqref{cross_norm_eqn} norms are equivalent then $_{\widetilde{A}}X_A$ is simultaneously both $A$ and $\widetilde{A}\rtimes_r G$ Hilbert module. In this situation 
-let us construct a Morita context $$\left( \widetilde{A} \rtimes_r G, A,~ _{\widetilde{A} \rtimes_r G}X_A, ~ _AX_{\widetilde{A} \rtimes_r G}, \widetilde{\tau}, \psi\right) $$ where both $_AX_{\widetilde{A} \rtimes_r G}$ and $ _{\widetilde{A} \rtimes_r G}X_A$ coincide with $X\bydef _{\widetilde{A}}X_A$ as $\C$-spaces. The left and right actions of $\widetilde{A} \rtimes_r G$ on $X$ are given by
- 
- \begin{equation*}
- 	\begin{split}
- 		a \xi = \sum_{g \in G} a\left( g\right) \left( g\xi\right)   , \\
- 		\xi a =\sum_{g \in G} g^{-1}\left(\xi a\left( g\right)\right),\\ 
- 		\forall a \in \widetilde{A} \rtimes_r G,~~ \forall \xi\in X.
- 	\end{split}
- \end{equation*}
- The left (resp. right) action of $A$ on $X$ we define as left (resp. right) multiplication by $A$.
- Denote by $\varphi: X \otimes_{A}  X  \to \widetilde{A} \rtimes_r G$, $\psi: X \otimes_{\widetilde{A} \rtimes_r G}  X \to A$ the maps such that
- \begin{equation*}
- 	\begin{split}
- 		\varphi \left(\xi \otimes \eta \right)\left( g\right) =    \xi \left(g\eta \right) , \\
- 		\psi \left(\xi \otimes \eta \right) = \sum_{g \in G} g\left(\xi \eta \right), \\
- 		\forall ~\xi ,\eta\in X, ~~ g \in G.
- 	\end{split}
- \end{equation*}
- From above equations it follows that 
- \begin{equation}\label{morita_inf_g_eqn}
- 	\begin{split}
- 		\forall \xi, \eta, \zeta \in X\quad
- 		\varphi \left(\xi \otimes \eta \right)\zeta = \sum_{g \in G} \left( \varphi\left(\xi \otimes \eta \right)\left( g\right)\right)  g \zeta =\\
- 		= \sum_{g \in \G} \xi \left( g \eta \right) \left( g \zeta\right) =  \xi\sum_{g \in G}  g\left(  \eta  \zeta\right) = \xi \psi\left(\eta\otimes \zeta \right),\\
- 		\xi\varphi \left(\eta \otimes \zeta \right) =
- 		\sum_{g \in G} g^{-1}\left( \xi \eta g \zeta\right) =
- 		\\
- 		= \left( \sum_{g \in G} g^{-1}\left( \xi \eta \right) \right)\zeta= \left( \sum_{g \in G} g\left( \xi \eta \right) \right)\zeta=\psi\left(\xi \otimes \eta \right)\zeta.
- 	\end{split}
- \end{equation}
-The convergence of the series \eqref{morita_inf_g_eqn} follows from the above assumptions.
- 
- \begin{thm}\label{motita_inf_thm}
- 	Let $\left(A, \widetilde{A}, G, \pi \right)$ be an infinite noncommutative  covering which allows the inner product (cf. Definition \ref{inf_hilb_prod_defn}). Let us define a structure of Hilbert $\widetilde{A} \rtimes_r G-A$ bimodule on  $_{\widetilde{A} \rtimes_r G}X_A$ given by following products
- 	\begin{equation}\label{hilb_inf_gal_eqn}
- 		\begin{split}
- 			\left\langle \xi, \eta \right\rangle_{\widetilde{A} \rtimes_r G} = \varphi\left(\xi\otimes \eta^* \right),\\ 
- 			\left\langle \xi, \eta \right\rangle_A = \psi\left(\xi^* \otimes \eta\right).\\
- 		\end{split}
- 	\end{equation}
- In this situation 
- 		a bimodule  $_{\widetilde{A} \rtimes_r G}X_A$ satisfies the associativity condition (a) of the Definition \ref{strong_morita_defn}.
- 		
-  \end{thm}
- \begin{proof}
-  From \eqref{morita_inf_g_eqn} it follows that products $ \left\langle -, - \right\rangle_{\widetilde{A} \rtimes_r G}$, $~~\left\langle -, - \right\rangle_A$ satisfy condition (a) of the Definition \ref{strong_morita_defn}.\\
- \end{proof}
-  \begin{definition}\label{allows_morita_defn}
-   	Let $\left(A, \widetilde{A}, G \right)$ be an infinite noncommutative  covering which allows the inner product (cf. Definition \ref{inf_hilb_prod_defn}). 
-   	We say that $\left(A, \widetilde{A}, G\right)$ \textit{allows strong Morita equivalence} if $X$ is an ${\widetilde{A} \rtimes_r G}-A$  equivalence bimodule (cf.  Definition \ref{strong_morita_defn}).
-  \end{definition}
+% \section{Strong Morita equivalence of infinite coverings}\label{inf_mor_sec}
+ % \paragraph{}  Let $\left(A, \widetilde{A}, G\right)$ be an  infinite noncommutative covering which allows  the inner product (cf. Definition \ref{inf_hilb_prod_defn}), and let  $_{\widetilde{A}}X_A$ be a given by \eqref{inf_hilb_inc_eqn} $C^*$-Hilbert $A$-module where the atomic representation (cf. Definition \ref{atomic_repr_defn}) is implied. Denote by $\widetilde{A} \rtimes_r G$ a reduced crossed product (cf. Appendix \ref{discr_cr_prod_sec}). Operations on  $\widetilde{A}\rtimes_r G$ are given by
+% \begin{equation}\label{crossed_inf_prod_eqn}
+ % 	\begin{split}
+%  		\left(a + b \right) \left( g \right)   = a \left( g \right)+ b \left( g \right),\\
+%  		\left(a \cdot b \right) \left( g \right)   = \sum_{g'\in G} a\left( g' \right)\left( g'\left(  b\left(g'^{-1}g \right)\right)\right); \quad  \forall a, b \in \widetilde{A} \rtimes_r G,\quad  \forall g \in G,\\
+%  		a^*\left(g \right) =\left(a\left( g^{-1}\right)  \right)^*; \quad  \forall a \in \widetilde{A} \rtimes_r G,\quad  \forall g \in G
+%  	\end{split}
+%  \end{equation}
+% where the $C^*$-norm convergence of the above series is implied. According to the Definition \ref{inf_hilb_prod_defn} $_{\widetilde{A}}X_A$ is a completion of the Pedersen's ideal $K\left(\widetilde A\right)$ (cf. Definition \ref{peder_id_defn})  with respect to the given by \eqref{inf_hilb_norm_eqn} norm.
+% For any $\widetilde a, \widetilde b \in K\left(\widetilde A\right)$ and any finite subset $H \subset G$ such that $H^{-1}=H$ there is an element $c_{H}\in \widetilde{A} \rtimes_r G$ given by
+% \bean
+% c_{H}\left(g\right)   \bydef \begin{cases}
+% \widetilde{a}^*\left( g \widetilde{b}\right) & g \in H\\
+% 0 & g \notin H
+% \end{cases}.
+% \eean
+% Suppose that for all $\widetilde a, \widetilde b \in \widetilde A$ there is $\left\langle \widetilde{a}, \widetilde{b}\right\rangle_{\widetilde{A} \rtimes_r G}  \in \widetilde{A} \rtimes_r G$ such that 
+% \be\label{cross_pair_eqn}
+% \left\langle \widetilde{a}, \widetilde{b}\right\rangle_{\widetilde{A} \rtimes_r G} = \lim_{H\subset G}a_{H}
+% \ee where the $C^*$-norm limit is implied. So one has a sesquilinear pairing  $\left\langle \cdot, \cdot\right\rangle_{\widetilde{A} \rtimes_r G}:K\left(\widetilde A\right)\times  K\left(\widetilde A\right)\to  \widetilde{A} \rtimes_r G$ The map 
+% \be\label{cross_norm_eqn}
+% \widetilde a \mapsto \sqrt{\left\| \left\langle \widetilde{a}, \widetilde{a}\right\rangle_{\widetilde{A} \rtimes_r G}\right\| }
+% \ee
+% is a norm on $K\left(\widetilde A\right)$. The completion of $K\left(\widetilde A\right)$ with respect to given by \eqref{cross_norm_eqn}  norm is a Hilbert  $\widetilde{A}\rtimes_r G$-module. If   the given by \eqref{inf_hilb_norm_eqn} and \eqref{cross_norm_eqn} norms are equivalent then $_{\widetilde{A}}X_A$ is simultaneously both $A$ and $\widetilde{A}\rtimes_r G$ Hilbert module. In this situation let us construct a Morita context $$\left( \widetilde{A} \rtimes_r G, A,~ _{\widetilde{A} \rtimes_r G}X_A, ~ _AX_{\widetilde{A} \rtimes_r G}, \widetilde{\tau}, \psi\right) $$ where both $_AX_{\widetilde{A} \rtimes_r G}$ and $ _{\widetilde{A} \rtimes_r G}X_A$ coincide with $X\bydef _{\widetilde{A}}X_A$ as $\C$-spaces. The left and right actions of $\widetilde{A} \rtimes_r G$ on $X$ are given by 
+ % \begin{equation*}
+ % 	\begin{split}
+%  		a \xi = \sum_{g \in G} a\left( g\right) \left( g\xi\right)   , \\
+%  		\xi a =\sum_{g \in G} g^{-1}\left(\xi a\left( g\right)\right),\\ 
+%  		\forall a \in \widetilde{A} \rtimes_r G,~~ \forall \xi\in X.
+%  	\end{split}
+%  \end{equation*}
+%  The left (resp. right) action of $A$ on $X$ we define as left (resp. right) multiplication by $A$.
+%  Denote by $\varphi: X \otimes_{A}  X  \to \widetilde{A} \rtimes_r G$, $\psi: X \otimes_{\widetilde{A} \rtimes_r G}  X \to A$ the maps such that
+%  \begin{equation*}
+ % 	\begin{split}
+ % 		\varphi \left(\xi \otimes \eta \right)\left( g\right) =    \xi \left(g\eta \right) , \\
+ % 		\psi \left(\xi \otimes \eta \right) = \sum_{g \in G} g\left(\xi \eta \right), \\
+ % 		\forall ~\xi ,\eta\in X, ~~ g \in G.
+ % 	\end{split}
+ % \end{equation*}
+ % From above equations it follows that 
+ % \begin{equation}\label{morita_inf_g_eqn}
+ % 	\begin{split}
+%  		\forall \xi, \eta, \zeta \in X\quad
+%  		\varphi \left(\xi \otimes \eta \right)\zeta = \sum_{g \in G} \left( \varphi\left(\xi \otimes \eta \right)\left( g\right)\right)  g \zeta =\\
+%  		= \sum_{g \in \G} \xi \left( g \eta \right) \left( g \zeta\right) =  \xi\sum_{g \in G}  g\left(  \eta  \zeta\right) = \xi \psi\left(\eta\otimes \zeta \right),\\
+%  		\xi\varphi \left(\eta \otimes \zeta \right) =
+%  		\sum_{g \in G} g^{-1}\left( \xi \eta g \zeta\right) =
+ % 		\\
+ % 		= \left( \sum_{g \in G} g^{-1}\left( \xi \eta \right) \right)\zeta= \left( \sum_{g \in G} g\left( % \xi \eta \right) \right)\zeta=\psi\left(\xi \otimes \eta \right)\zeta.
+ % 	\end{split}
+%  \end{equation}
+% The convergence of the series \eqref{morita_inf_g_eqn} follows from the above assumptions.
+%  \begin{thm}\label{motita_inf_thm}
+ % 	Let $\left(A, \widetilde{A}, G, \pi \right)$ be an infinite noncommutative  covering which allows the inner product (cf. Definition \ref{inf_hilb_prod_defn}). Let us define a structure of Hilbert $\widetilde{A} \rtimes_r G-A$ bimodule on  $_{\widetilde{A} \rtimes_r G}X_A$ given by following products
+ % 	\begin{equation}\label{hilb_inf_gal_eqn}
+ % 		\begin{split}
+ % 			\left\langle \xi, \eta \right\rangle_{\widetilde{A} \rtimes_r G} = \varphi\left(\xi\otimes \eta^* \right),\\ 
+ % 			\left\langle \xi, \eta \right\rangle_A = \psi\left(\xi^* \otimes \eta\right).\\
+ % 		\end{split}
+ % 	\end{equation}
+ % In this situation 
+ % 		a bimodule  $_{\widetilde{A} \rtimes_r G}X_A$ satisfies the associativity condition (a) of the Definition \ref{strong_morita_defn}.
+%   \end{thm}
+ % \begin{proof}
+ %  From \eqref{morita_inf_g_eqn} it follows that products $ \left\langle -, - \right\rangle_{\widetilde{A} \rtimes_r G}$, $~~\left\langle -, - \right\rangle_A$ satisfy condition (a) of the Definition \ref{strong_morita_defn}.\\
+%  \end{proof}
+%   \begin{definition}\label{allows_morita_defn}
+%    	Let $\left(A, \widetilde{A}, G \right)$ be an infinite noncommutative  covering which allows the inner product (cf. Definition \ref{inf_hilb_prod_defn}). 
+%    	We say that $\left(A, \widetilde{A}, G\right)$ \textit{allows strong Morita equivalence} if $X$ is an ${\widetilde{A} \rtimes_r G}-A$  equivalence bimodule (cf.  Definition \ref{strong_morita_defn}).
+%   \end{definition}
 
-\begin{remark}
-	If we accept the above assumptions then
-from the Theorem \ref{motita_inf_thm} it follows that $\left(A, \widetilde{A}, G \right)$ {allows strong Morita equivalence} if and only if both 
- 		\begin{equation*}
-	\begin{split}
-		\left\langle X , X \right\rangle_{\widetilde{A} \rtimes_r G} \subset \widetilde{A} \rtimes_r G,\\ 
-		\left\langle X , X \right\rangle_A \subset A.\\
-	\end{split}
-\end{equation*}
-are dense subsets (cf.  Definition \ref{strong_morita_defn}).
-\end{remark}
+% \begin{remark}
+% 	If we accept the above assumptions then
+% from the Theorem \ref{motita_inf_thm} it follows that $\left(A, \widetilde{A}, G \right)$ {allows strong Morita equivalence} if and only if both 
+%  		\begin{equation*}
+% 	\begin{split}
+% 		\left\langle X , X \right\rangle_{\widetilde{A} \rtimes_r G} \subset \widetilde{A} \rtimes_r G,\\ 
+% 		\left\langle X , X \right\rangle_A \subset A.\\
+% 	\end{split}
+% \end{equation*}
+% are dense subsets (cf.  Definition \ref{strong_morita_defn}).
+% \end{remark}
  
  
 \section{Coverings of spectral triples}\label{str_cov_glo_sec}
@@ -9918,7 +9911,7 @@ If  $A$ be a given by \eqref{top_poly_a_defn} *-algebra, and  If $\mathfrak B$ i
 \end{remark}
 
 
-\subsection{Induced representations and strong Motita equivalence}\label{comm_induced_infinite_sec}
+\subsection{Induced representations}\label{comm_induced_infinite_sec}
 
 \paragraph*{} 
 Similarly to the section \ref{comm_induced_finite_sec} consider a compact  Riemannian manifold $M$ with a  spinor bundle $S$ (cf. \ref{comm_sp_tr_sec}). 
@@ -9967,237 +9960,8 @@ C_0\left(\widetilde M\right) \to B\left( L^2\left(\widetilde  M, \widetilde S\ri
 	From the properties of the descent it turns out that $\desc_{\overline{p}_\la}\left( \widetilde{a}\widetilde{b}\right) \in C_0\left( \sX_{\la}\right)$, i.e. $c_\la \in C_0\left( \sX_{\la}\right)$.  Taking into account the Remark \ref{inf_hilb_prod_low_rem} we conclude that  $c_\la \in C_0\left( \sX_{\la}\right)$ for all $\la \in \La$.
 \end{proof}
 
-\begin{empt}
-Let $X = _{C_0\left(\widetilde{\sX}\right)}X_{C_0\left({\sX}\right)}$ be  a given by \eqref{inf_hilb_inc_eqn} $C^*$-Hilbert $C_0\left({\sX}\right)$-module which is relevant to the   
-{ infinite noncommutative covering} 	$$\left(C_0\left(\mathcal{X}\right), C_0\left(\widetilde{\sX}\right),G\left(\widetilde{\sX}~|~ \mathcal X\right)\right)$$ of $\mathfrak{S}_{C_0\left(\mathcal{X}\right)}$  (cf. Definition \ref{main_defn}). 
-We  prove that $X$ satisfies to all explained in the Section \ref{inf_mor_sec}  conditions.
-
-\end{empt}
-\begin{lemma}\label{top_cross_lem}
-If  $\widetilde a, \widetilde b\in K\left( C_0\left(\widetilde{\sX}\right)\right)$ and $c_g \in C_0\left(\widetilde{\sX}\right)\rtimes_r G\left(\widetilde{\sX}~|~ \mathcal X\right)$ is such that
-$c_g\left(g' \right) = \delta_{g, g'}
- \widetilde a^*\left( g \widetilde b\right)$ then the series
-$$
-\sum_{	g \in G\left(\left.\widetilde{\sX}~\right|\sX\right)}c_g
-$$
-is $C^*$-norm convergent.
-\end{lemma}
-\begin{proof}
-	Since $\supp \widetilde b$ one has $\supp \widetilde b = \cup_{j=1}^n \widetilde \sU_j$ such that
-	\begin{itemize}
-		\item For all $j =1,...,n$ the set  $\widetilde U_j \subset  \widetilde \sU_j$ is compact.
-		\item If $ \widetilde p :  \widetilde \sX \to  \sX$ is a natural covering then the restriction $ \widetilde p|_{ \widetilde \sU_j}: \widetilde \sU_j \xrightarrow{\approx }\widetilde p\left(\widetilde \sU_j \right)$ is a homeomorphism. It follows that 
-		\be\label{top_comp_int_eqn}
-	\widetilde \sU_j\cap g\widetilde \sU_j=\emptyset\quad\text{ for all nontrivial } g \in G\left(\left.\widetilde{\sX}~\right|\sX\right).	\ee
-	\end{itemize}
-If there is $j \in \left\{1,...,n\right\}$ such that
-$$
-\mathscr A_j \bydef \left\{\left.g \in  G\left(\left.\widetilde{\sX}~\right|\sX\right) \right|\supp\widetilde a \cap g \widetilde \sU_j\neq\emptyset\right\}
-$$ is not finite then there is an infinite disjoint union 
-$$
-\widetilde\sY \bydef\bigsqcup_{g \in \mathscr A_j }\supp \widetilde a \cap g \widetilde \sU_j
-$$
-of nonempty compact sets such that $\widetilde\sY\subset \supp\widetilde a$ it is impossible because the set $\supp\widetilde a$ is compact. From  the finiteness $\mathscr A_j$ for $j = 1,...,n$ it follows that the  set
-$$
-\mathscr A \bydef  \left\{\left.g \in  G\left(\left.\widetilde{\sX}~\right|\sX\right) \right|\supp\widetilde a \cap g \supp\widetilde b\neq\emptyset\right\}\cong  \left\{\left.g \in  G\left(\left.\widetilde{\sX}~\right|\sX\right) \right|\widetilde a^*\left( g \widetilde b\right)\neq 0\right\}.
-$$
-It turns out that 
-$$
-\sum_{	g \in G\left(\left.\widetilde{\sX}~\right|\sX\right)}c_g= \sum_{	g \in \mathscr A}c_g.
-$$
-The right part of the above equation  is a finite sum so it is $C^*$-norm convergent.
-\end{proof}
-\begin{lemma}
-Consider the situation of the Lemma \ref{top_cross_lem}.	The given by  \eqref{inf_hilb_norm_eqn} by norm $\left\|\cdot \right\|_{C_0\left(\sX \right) } : K\left(C_0\left( \widetilde{\sX}\right)  \right) = C_c\left( \widetilde{\sX}\right) \to \R; \quad  \widetilde{a}\mapsto \sqrt{\left\| \left\langle \widetilde{a}, \widetilde{a}  \right\rangle_{C_0\left( \sX\right) }\right\|}$ is equivalent to the given by \eqref{cross_norm_eqn} norm
-\bean
-\left\|\cdot \right\|_{C_0\left(\widetilde\sX \right)\rtimes_r G\left(\left.\widetilde{\sX}~\right|\sX\right)} : K\left(C_0\left( \widetilde{\sX}\right)  \right) = C_c\left( \widetilde{\sX}\right) \to \R,\\
-\widetilde a \mapsto \sqrt{\left\| \left\langle \widetilde{a}, \widetilde{a}\right\rangle_{C_0\left(\widetilde\sX \right) \rtimes_r G\left(\left.\widetilde{\sX}~\right|\sX\right)}\right\| }.
-\eean
-
-\end{lemma}
-
-\begin{proof}
-If  $\widetilde a \in  K\left(C_0\left( \widetilde{\sX}\right)  \right) = C_c\left( \widetilde{\sX}\right)$ then for all $\widetilde x \in \widetilde\sX$ denote by
-$$
-G^{\widetilde x}\bydef \left\{\left.g\in  G\left(\left.\widetilde{\sX}~\right|\sX\right)\right| g\widetilde x \in \supp \widetilde a \right\}
-$$
-If the set $G^{\widetilde x}$ is not finite then $\supp \widetilde a$ contains an infinite discrete subset $G^{\widetilde x}\widetilde x$. It is impossible because $\supp \widetilde a$ is compact, so $G^{\widetilde x}$ is  finite for each $\widetilde x \in \widetilde\sX$. From \eqref{inf_hilb_prod_eqn} it follows that 
-$$
-\left\|\widetilde a \right\|^2_{C_0\left(\sX \right) }= \max_{\widetilde x}\sum_{g \in G^{\widetilde x}}\left| \widetilde a\left(g\widetilde x\right)\right|^2.%= \sum_{g \in G^{\widetilde x}}\left| \widetilde a\left(g\widetilde x\right)\right|^2. 
-$$
-%where $\widetilde x\bydef \arg \max \sum_{g \in G^{\widetilde y}}\left| \widetilde a\left(g\widetilde y\right)\right|^2$.
- Without loss of generality one can suppose that  $\widetilde x= e \widetilde x$ where $e \in G\left(\left.\widetilde{\sX}~\right|\sX\right)$ is a neutral element. Denote by $G^{\widetilde x} = \left\{g_1\bydef e, ..., g_n\right\}$ and $\left\{a_1, ..., a_n\right\} \bydef \left\{\widetilde a\left(\widetilde x\right), \widetilde a\left(g_2\widetilde x\right),...,\widetilde a\left(g_n\widetilde x\right) \right\}\subset \R$. Without loss of generality we suppose that $\left|a_1 \right| \ge \left|a_1 \right|$ for all $j = 2, ..., n$
-
-For any $\widetilde x\in \widetilde \sX$ there is an irreducible representation 
-$\pi_{\widetilde x}: C_0\left(\widetilde\sX \right)\rtimes_r G\left(\left.\widetilde{\sX}~\right|\sX\right)\to B\left( \H_{\widetilde p\left( \widetilde x\right)}\right)$ where 
- $\H_{\widetilde p\left( \widetilde x\right)}$ is described in the Remark \ref{top_allows_morita_rem}.
-  Since $\H_{\widetilde p\left( \widetilde x\right)}$ corresponds to the orbit space of covering this it is naturally isomorphic to the Hilbert space 
-  	$\H_{G\left(\left.\widetilde{\sX}~\right|\sX\right)}$ having an orthonormal basis 
- 	$\left\{\xi_g\right\}_{g\in G\left(\left.\widetilde{\sX}~\right|\sX\right)}$.
- 	Any $g \in G\left(\left.\widetilde{\sX}~\right|\sX\right)$ yields an unitary operator
-\bean
- u_g \in B\left(\H_{G\left(\left.\widetilde{\sX}~\right|\sX\right)} \right),\\
- \xi_{g'}\mapsto  \xi_{gg'}.
-\eean
-If  $\left\langle \cdot,\cdot \right\rangle_{C_0\left(\widetilde\sX \right) \rtimes_r G\left(\left.\widetilde{\sX}~\right|\sX\right)}$ is given by \eqref{cross_pair_eqn} then 
-\bean
-a_{\widetilde x}\bydef \pi_{\widetilde x}\left(\left\langle \widetilde{a}, \widetilde{a}\right\rangle_{C_0\left(\widetilde\sX \right) \rtimes_r G\left(\left.\widetilde{\sX}~\right|\sX\right)} \right)= 1_{B\left(\H_{G\left(\left.\widetilde{\sX}~\right|\sX\right)}\right)}\left|\widetilde a\left(\widetilde x\right)  \right|^2 + \sum_{j = 2}^n \widetilde a^*\left(\widetilde x\right) \widetilde a\left(\widetilde g_jx\right) u_{g_j}=\\=
-1_{B\left(\H_{G\left(\left.\widetilde{\sX}~\right|\sX\right)}\right)}\left| a_1  \right|^2 + \sum_{j = 2}^n \overline a_1 a_j u_{g_j}
-\eean
-Let $A \bydef \sqrt{\left| a_1  \right|^2 +  \sum_{j = 2}^n \left|  a_1 a_j\right|}$ and
-$$
-\eta \bydef \frac{\left| a_1  \right|^2}{A}\xi_e+\sum_{j = 2}^n \frac{ a_1 \overline a_j}{A}\xi_{g^{-1}_j}
-$$
-then since above equation is a sum of orthogonal elements one has $\left\| \eta \right\|=1$.
-
-From the above equation it follows that
-$$
-\eta \bydef a_{\widetilde x}\xi_e = \left| a_1  \right|^2\xi_e +  \sum_{j = 2}^n \overline a_1 a_j\xi_{g_j}
-$$
-The right part of the above equation is a sum of orthonormal vectors, so one has
-$$
-\left\| \eta \right\|^2 = \left| a_1  \right|^2 +  \sum_{j = 2}^n \left|  a_1 a_j\right| 
-$$
-\end{proof}
-\bean
-x_0\left(x_0 + x_1 +...+ x_n \right) + 
-\la\left(  x_0^2 + ...+ x_n^2 \right) ,\\
-\partial / \partial x_0\quad 2\left(1+\la  \right) x_0 +  x_1 +...+ x_n,\\
-\partial / \partial x_j\quad x_0 + 2\la x_j.
-\eean
-\bean
-x_0\left(2\left(1+\la  \right)+ \frac{n}{2\la} \right) = 0,\\
-\la^2 + \la  + \frac{n}{2}  = 0;
-\eean
 
 
-\bean
-\frac{x_0\left(x_0 + x_1 +...+ x_n \right)}{ x_0^2 + ...+ x_n^2} 
-\\
-\partial / \partial x_0\quad 0,\\
-\partial / \partial x_j\quad x_0 - 2 x_j.
-\eean
-
-\bean
-x^2_0 + n \frac{x^2_0}{2}= 1,\\
-x_0 =  \frac{1}{\sqrt{1 + \nicefrac{n}{2}}},\\
-\frac{2n}{\sqrt{1 + \nicefrac{n}{2}}}
-\eean
-
-
-
-
-\paragraph{!!! PROVE}
-		\begin{proposition}\label{top_allows_morita_prop!}\cite{connes:ncg94}
-	%	Proposition 1. [473]  P 117 
-	Let a group $\Ga$  act freely and properly on a topological space  $\sV$ and let $\sX\bydef \sV/\Ga$. Then
-	the $C^*$-algebra $C_0\left(\sX \right)$  is strongly Morita equivalent to the crossed product $C^*$-algebra
-	$C_0\left(\sV \right)\rtimes \Ga$.
-\end{proposition}
-\begin{remark}\label{top_allows_morita_rem!}
-	The equivalence
-	$C^*$-bimodule E is easy to describe; it is given by the bundle of Hilbert spaces $\left\{\H_x\right\}_{x\in \sX}$
-	over $\sX$  whose fiber at $x\in\sX$ is the $\ell^2$-space of the orbit $x\in\sX$. This yields
-	the required $\left(C_0\left(\sV \right)\rtimes \Ga, C_0\left(\sX \right) \right)$  $C^*$-bimodule.
-\end{remark}
-
-
-  \section{Strong Morita equivalence of infinite coverings}\label{inf_mor_sec!}
-
-\paragraph{}
-Let $\left(A, \widetilde{A}, G\right)$ be an  infinite noncommutative covering which allows  the inner product (cf. Definition \ref{inf_hilb_prod_defn}), and let  $_{\widetilde{A}}X_A$ be a given by \eqref{inf_hilb_inc_eqn} $C^*$-Hilbert $A$-module where the atomic representation (cf. Definition \ref{atomic_repr_defn}) is implied. Denote by $\widetilde{A} \rtimes_r G$ a reduced crossed product (cf. Appendix \ref{discr_cr_prod_sec}). Operations on  $\widetilde{A}\rtimes_r G$ are given by
-\begin{equation}\label{crossed_inf_prod_eqn}
-	\begin{split}
-		\left(a + b \right) \left( g \right)   = a \left( g \right)+ b \left( g \right),\\
-		\left(a \cdot b \right) \left( g \right)   = \sum_{g'\in G} a\left( g' \right)\left( g'\left(  b\left(g'^{-1}g \right)\right)\right); \quad  \forall a, b \in \widetilde{A} \rtimes_r G,\quad  \forall g \in G,\\
-		a^*\left(g \right) =\left(a\left( g^{-1}\right)  \right)^*; \quad  \forall a \in \widetilde{A} \rtimes_r G,\quad  \forall g \in G
-	\end{split}
-\end{equation}
-where the $C^*$-norm convergence of the above series is implied. According to the Definition \ref{inf_hilb_prod_defn} $_{\widetilde{A}}X_A$ is a completion of the Pedersen's ideal $K\left(\widetilde A\right)$ (cf. Definition \ref{peder_id_defn})  with respect to the given by \eqref{inf_hilb_norm_eqn} norm.
-For any $\widetilde a, \widetilde b \in K\left(\widetilde A\right)$ and any finite subset $H \subset G$ such that $H^{-1}=H$ there is an element $c_{H}\in \widetilde{A} \rtimes_r G$ given by
-\bean
-c_{H}\left(g\right)   \bydef \begin{cases}
-	\widetilde{a}^*\left( g \widetilde{b}\right) & g \in H\\
-	0 & g \notin H
-\end{cases}.
-\eean
-Suppose that for all $\widetilde a, \widetilde b \in \widetilde A$ there is $\left\langle \widetilde{a}, \widetilde{b}\right\rangle_{\widetilde{A} \rtimes_r G}  \in \widetilde{A} \rtimes_r G$ such that 
-$\left\langle \widetilde{a}, \widetilde{b}\right\rangle_{\widetilde{A} \rtimes_r G} = \lim_{H\subset G}a_{H}$ where the $C^*$-norm limit is implied. So one has a sesquilinear pairing  $\left\langle \cdot, \cdot\right\rangle_{\widetilde{A} \rtimes_r G}:K\left(\widetilde A\right)\times  K\left(\widetilde A\right)\to  \widetilde{A} \rtimes_r G$ 
-The map 
-\be\label{cross_norm_eqn!}
-\widetilde a \mapsto \sqrt{\left\| \left\langle \widetilde{a}, \widetilde{a}\right\rangle_{\widetilde{A} \rtimes_r G}\right\| }
-\ee
-is a norm on $K\left(\widetilde A\right)$. The completion of $K\left(\widetilde A\right)$ with respect to given by \eqref{cross_norm_eqn}  norm is a Hilbert  $\widetilde{A}\rtimes_r G$-module. If   the given by \eqref{inf_hilb_norm_eqn} and \eqref{cross_norm_eqn} norms are equivalent then $_{\widetilde{A}}X_A$ is simultaneously both $A$ and $\widetilde{A}\rtimes_r G$ Hilbert module. In this situation 
-let us construct a Morita context $$\left( \widetilde{A} \rtimes_r G, A,~ _{\widetilde{A} \rtimes_r G}X_A, ~ _AX_{\widetilde{A} \rtimes_r G}, \widetilde{\tau}, \psi\right) $$ where both $_AX_{\widetilde{A} \rtimes_r G}$ and $ _{\widetilde{A} \rtimes_r G}X_A$ coincide with $X\bydef _{\widetilde{A}}X_A$ as $\C$-spaces. The left and right actions of $\widetilde{A} \rtimes_r G$ on $X$ are given by
-
-\begin{equation*}
-	\begin{split}
-		a \xi = \sum_{g \in G} a\left( g\right) \left( g\xi\right)   , \\
-		\xi a =\sum_{g \in G} g^{-1}\left(\xi a\left( g\right)\right),\\ 
-		\forall a \in \widetilde{A} \rtimes_r G,~~ \forall \xi\in X.
-	\end{split}
-\end{equation*}
-The left (resp. right) action of $A$ on $X$ we define as left (resp. right) multiplication by $A$.
-Denote by $\varphi: X \otimes_{A}  X  \to \widetilde{A} \rtimes_r G$, $\psi: X \otimes_{\widetilde{A} \rtimes_r G}  X \to A$ the maps such that
-\begin{equation*}
-	\begin{split}
-		\varphi \left(\xi \otimes \eta \right)\left( g\right) =    \xi \left(g\eta \right) , \\
-		\psi \left(\xi \otimes \eta \right) = \sum_{g \in G} g\left(\xi \eta \right), \\
-		\forall ~\xi ,\eta\in X, ~~ g \in G.
-	\end{split}
-\end{equation*}
-From above equations it follows that 
-\begin{equation}\label{morita_inf_g_eqn}
-	\begin{split}
-		\forall \xi, \eta, \zeta \in X\quad
-		\varphi \left(\xi \otimes \eta \right)\zeta = \sum_{g \in G} \left( \varphi\left(\xi \otimes \eta \right)\left( g\right)\right)  g \zeta =\\
-		= \sum_{g \in \G} \xi \left( g \eta \right) \left( g \zeta\right) =  \xi\sum_{g \in G}  g\left(  \eta  \zeta\right) = \xi \psi\left(\eta\otimes \zeta \right),\\
-		\xi\varphi \left(\eta \otimes \zeta \right) =
-		\sum_{g \in G} g^{-1}\left( \xi \eta g \zeta\right) =
-		\\
-		= \left( \sum_{g \in G} g^{-1}\left( \xi \eta \right) \right)\zeta= \left( \sum_{g \in G} g\left( \xi \eta \right) \right)\zeta=\psi\left(\xi \otimes \eta \right)\zeta.
-	\end{split}
-\end{equation}
-The convergence of the series \eqref{morita_inf_g_eqn} follows from the above assumptions.
-
-\begin{thm}\label{motita_inf_thm}
-	Let $\left(A, \widetilde{A}, G, \pi \right)$ be an infinite noncommutative  covering which allows the inner product (cf. Definition \ref{inf_hilb_prod_defn}). Let us define a structure of Hilbert $\widetilde{A} \rtimes_r G-A$ bimodule on  $_{\widetilde{A} \rtimes_r G}X_A$ given by following products
-	\begin{equation}\label{hilb_inf_gal_eqn}
-		\begin{split}
-			\left\langle \xi, \eta \right\rangle_{\widetilde{A} \rtimes_r G} = \varphi\left(\xi\otimes \eta^* \right),\\ 
-			\left\langle \xi, \eta \right\rangle_A = \psi\left(\xi^* \otimes \eta\right).\\
-		\end{split}
-	\end{equation}
-	In this situation 
-	a bimodule  $_{\widetilde{A} \rtimes_r G}X_A$ satisfies the associativity condition (a) of the Definition \ref{strong_morita_defn}.
-	
-\end{thm}
-\begin{proof}
-	From \eqref{morita_inf_g_eqn} it follows that products $ \left\langle -, - \right\rangle_{\widetilde{A} \rtimes_r G}$, $~~\left\langle -, - \right\rangle_A$ satisfy condition (a) of the Definition \ref{strong_morita_defn}.\\
-\end{proof}
-\begin{definition}\label{allows_morita_defn}
-	Let $\left(A, \widetilde{A}, G \right)$ be an infinite noncommutative  covering which allows the inner product (cf. Definition \ref{inf_hilb_prod_defn}). 
-	We say that $\left(A, \widetilde{A}, G\right)$ \textit{allows strong Morita equivalence} if $X$ is an ${\widetilde{A} \rtimes_r G}-A$  equivalence bimodule (cf.  Definition \ref{strong_morita_defn}).
-\end{definition}
-
-\begin{remark}
-	If we accept the above assumptions then
-	from the Theorem \ref{motita_inf_thm} it follows that $\left(A, \widetilde{A}, G \right)$ {allows strong Morita equivalence} if and only if both 
-	\begin{equation*}
-		\begin{split}
-			\left\langle X , X \right\rangle_{\widetilde{A} \rtimes_r G} \subset \widetilde{A} \rtimes_r G,\\ 
-			\left\langle X , X \right\rangle_A \subset A.\\
-		\end{split}
-	\end{equation*}
-	are dense subsets (cf.  Definition \ref{strong_morita_defn}).
-\end{remark}
-
-
-\paragraph{title}
-\begin{exercise}\label{comm_allows_morita_exer}
-	In the Situation of the Lemma \ref{comm_allows_lem} prove that the given by the Theorem \ref{comm_main_thm} { infinite noncommutative covering} $$\left(C_0\left(\mathcal{X}\right), C_0\left(\varprojlim  \mathfrak{S}_{\left(\sX, x_0\right)}\right),G\left(\left.\varprojlim  \mathfrak{S}_{\left(\sX, x_0\right)}~\right| \mathcal X\right)\right)$$ 
-	{allows strong Morita equivalence} (cf. Definition \ref{allows_morita_defn}).
-\end{exercise}
 
 
 From the Lemma \ref{comm_allows_lem} it follows that the  induced by $\left(\rho, \left(C\left( M\right) , C_0\left( \widetilde M\right) G\left(\left.\widetilde M   ~\right| M\right)\right)\right)$ representation $\widetilde \rho: C_0\left( \widetilde M\right)\hookto B\left( \widetilde \H\right)$ (cf. Definition \ref{induced_repr_inf_defn}), such that $\widetilde \H$ is the Hilbert norm completion of
