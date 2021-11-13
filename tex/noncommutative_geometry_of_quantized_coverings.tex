@@ -4429,11 +4429,11 @@ $ where the homomorphism  $ h^\mu_\nu: G\left(\left. A_\mu\right| A\right)\to G\
  
  \begin{rem}\label{inf_hilb_prod_rem}
  	If $\mathfrak{S}^{\text{pt}}$ allows  inner product  then $K\left( \widetilde{A}_\pi\right)$ is a pre-Hilbert $A$- module such that the inner product is given by
- 	\begin{equation*}
+ 	\begin{equation}\label{inf_hilb_prod_eqn}
  	\begin{split}
  	\left\langle \widetilde{a}, \widetilde{b}  \right\rangle_A  = \sum_{g \in  G\left(\left.\widetilde{A}_\pi~\right|A \right)} g \left(\widetilde{a}^* \widetilde{b}  \right) \in A 
  	\end{split}
- 	\end{equation*}
+ 	\end{equation}
  	where the above series is convergent with respect to the strict topology of $M\left( \widetilde{A}_\pi\right)$. The completion of  $K\left( \widetilde{A}_\pi\right)$ with respect to a norm
  	\begin{equation}\label{inf_hilb_norm_eqn}
  	\begin{split}
@@ -4561,7 +4561,9 @@ c_{H}\left(g\right)   \bydef \begin{cases}
 \end{cases}.
 \eean
 Suppose that for all $\widetilde a, \widetilde b \in \widetilde A$ there is $\left\langle \widetilde{a}, \widetilde{b}\right\rangle_{\widetilde{A} \rtimes_r G}  \in \widetilde{A} \rtimes_r G$ such that 
-$\left\langle \widetilde{a}, \widetilde{b}\right\rangle_{\widetilde{A} \rtimes_r G} = \lim_{H\subset G}a_{H}$ where the $C^*$-norm limit is implied. So one has a sesquilinear pairing  $\left\langle \cdot, \cdot\right\rangle_{\widetilde{A} \rtimes_r G}:K\left(\widetilde A\right)\times  K\left(\widetilde A\right)\to  \widetilde{A} \rtimes_r G$ 
+\be\label{cross_pair_eqn}
+\left\langle \widetilde{a}, \widetilde{b}\right\rangle_{\widetilde{A} \rtimes_r G} = \lim_{H\subset G}a_{H}
+\ee where the $C^*$-norm limit is implied. So one has a sesquilinear pairing  $\left\langle \cdot, \cdot\right\rangle_{\widetilde{A} \rtimes_r G}:K\left(\widetilde A\right)\times  K\left(\widetilde A\right)\to  \widetilde{A} \rtimes_r G$ 
 The map 
 \be\label{cross_norm_eqn}
 \widetilde a \mapsto \sqrt{\left\| \left\langle \widetilde{a}, \widetilde{a}\right\rangle_{\widetilde{A} \rtimes_r G}\right\| }
@@ -9971,7 +9973,7 @@ Let $X = _{C_0\left(\widetilde{\sX}\right)}X_{C_0\left({\sX}\right)}$ be  a give
 We  prove that $X$ satisfies to all explained in the Section \ref{inf_mor_sec}  conditions.
 
 \end{empt}
-\begin{lemma}
+\begin{lemma}\label{top_cross_lem}
 If  $\widetilde a, \widetilde b\in K\left( C_0\left(\widetilde{\sX}\right)\right)$ and $c_g \in C_0\left(\widetilde{\sX}\right)\rtimes_r G\left(\widetilde{\sX}~|~ \mathcal X\right)$ is such that
 $c_g\left(g' \right) = \delta_{g, g'}
  \widetilde a^*\left( g \widetilde b\right)$ then the series
@@ -10005,6 +10007,58 @@ $$
 $$
 The right part of the above equation  is a finite sum so it is $C^*$-norm convergent.
 \end{proof}
+\begin{lemma}
+Consider the situation of the Lemma \ref{top_cross_lem}.	The given by  \eqref{inf_hilb_norm_eqn} by norm $\left\|\cdot \right\|_{C_0\left(\sX \right) } : K\left(C_0\left( \widetilde{\sX}\right)  \right) = C_c\left( \widetilde{\sX}\right) \to \R; \quad  \widetilde{a}\mapsto \sqrt{\left\| \left\langle \widetilde{a}, \widetilde{a}  \right\rangle_{C_0\left( \sX\right) }\right\|}$ is equivalent to the given by \eqref{cross_norm_eqn} norm
+\bean
+\left\|\cdot \right\|_{C_0\left(\widetilde\sX \right)\rtimes_r G\left(\left.\widetilde{\sX}~\right|\sX\right)} : K\left(C_0\left( \widetilde{\sX}\right)  \right) = C_c\left( \widetilde{\sX}\right) \to \R,\\
+\widetilde a \mapsto \sqrt{\left\| \left\langle \widetilde{a}, \widetilde{a}\right\rangle_{C_0\left(\widetilde\sX \right) \rtimes_r G\left(\left.\widetilde{\sX}~\right|\sX\right)}\right\| }.
+\eean
+
+\end{lemma}
+
+\begin{proof}
+If  $\widetilde a \in  K\left(C_0\left( \widetilde{\sX}\right)  \right) = C_c\left( \widetilde{\sX}\right)$ then for all $\widetilde x \in \widetilde\sX$ denote by
+$$
+G^{\widetilde x}\bydef \left\{\left.g\in  G\left(\left.\widetilde{\sX}~\right|\sX\right)\right| g\widetilde x \in \supp \widetilde a \right\}
+$$
+If the set $G^{\widetilde x}$ is not finite then $\supp \widetilde a$ contains an infinite discrete subset $G^{\widetilde x}\widetilde x$. It is impossible because $\supp \widetilde a$ is compact, so $G^{\widetilde x}$ is  finite for each $\widetilde x \in \widetilde\sX$. From \eqref{inf_hilb_prod_eqn} it follows that 
+$$
+\left\|\widetilde a \right\|^2_{C_0\left(\sX \right) }= \max_{\widetilde x}\sum_{g \in G^{\widetilde x}}\left| \widetilde a\left(g\widetilde x\right)\right|^2.%= \sum_{g \in G^{\widetilde x}}\left| \widetilde a\left(g\widetilde x\right)\right|^2. 
+$$
+%where $\widetilde x\bydef \arg \max \sum_{g \in G^{\widetilde y}}\left| \widetilde a\left(g\widetilde y\right)\right|^2$.
+ Without loss of generality one can suppose that  $\widetilde x= e \widetilde x$ where $e \in G\left(\left.\widetilde{\sX}~\right|\sX\right)$ is a neutral element. Denote by $G^{\widetilde x} = \left\{g_1\bydef e, ..., g_n\right\}$ and $\left\{a_1, ..., a_n\right\} \bydef \left\{\widetilde a\left(\widetilde x\right), \widetilde a\left(g_2\widetilde x\right),...,\widetilde a\left(g_n\widetilde x\right) \right\}\subset \R$. Without loss of generality we suppose that $\left|a_1 \right| \ge \left|a_1 \right|$ for all $j = 2, ..., n$
+
+For any $\widetilde x\in \widetilde \sX$ there is an irreducible representation 
+$\pi_{\widetilde x}: C_0\left(\widetilde\sX \right)\rtimes_r G\left(\left.\widetilde{\sX}~\right|\sX\right)\to B\left( \H_{\widetilde p\left( \widetilde x\right)}\right)$ where 
+ $\H_{\widetilde p\left( \widetilde x\right)}$ is described in the Remark \ref{top_allows_morita_rem}.
+  Since $\H_{\widetilde p\left( \widetilde x\right)}$ corresponds to the orbit space of covering this it is naturally isomorphic to the Hilbert space 
+  	$\H_{G\left(\left.\widetilde{\sX}~\right|\sX\right)}$ having an orthonormal basis 
+ 	$\left\{\xi_g\right\}_{g\in G\left(\left.\widetilde{\sX}~\right|\sX\right)}$.
+ 	Any $g \in G\left(\left.\widetilde{\sX}~\right|\sX\right)$ yields an unitary operator
+\bean
+ u_g \in B\left(\H_{G\left(\left.\widetilde{\sX}~\right|\sX\right)} \right),\\
+ \xi_{g'}\mapsto  \xi_{gg'}.
+\eean
+If  $\left\langle \cdot,\cdot \right\rangle_{C_0\left(\widetilde\sX \right) \rtimes_r G\left(\left.\widetilde{\sX}~\right|\sX\right)}$ is given by \eqref{cross_pair_eqn} then 
+\bean
+a_{\widetilde x}\bydef \pi_{\widetilde x}\left(\left\langle \widetilde{a}, \widetilde{a}\right\rangle_{C_0\left(\widetilde\sX \right) \rtimes_r G\left(\left.\widetilde{\sX}~\right|\sX\right)} \right)= 1_{B\left(\H_{G\left(\left.\widetilde{\sX}~\right|\sX\right)}\right)}\left|\widetilde a\left(\widetilde x\right)  \right|^2 + \sum_{j = 2}^n \widetilde a^*\left(\widetilde x\right) \widetilde a\left(\widetilde g_jx\right) u_{g_j}=\\=
+1_{B\left(\H_{G\left(\left.\widetilde{\sX}~\right|\sX\right)}\right)}\left| a_1  \right|^2 + \sum_{j = 2}^n \overline a_1 a_j u_{g_j}
+\eean
+Let $A \bydef \sqrt{\left| a_1  \right|^2 +  \sum_{j = 2}^n \left|  a_1 a_j\right|}$ and
+$$
+\eta \bydef \frac{\left| a_1  \right|^2}{A}\xi_e+\sum_{j = 2}^n \frac{ a_1 \overline a_j}{A}\xi_{g^{-1}_j}
+$$
+then since above equation is a sum of orthogonal elements one has $\left\| \eta \right\|=1$.
+
+From the above equation it follows that
+$$
+\eta \bydef a_{\widetilde x}\xi_e = \left| a_1  \right|^2\xi_e +  \sum_{j = 2}^n \overline a_1 a_j\xi_{g_j}
+$$
+The right part of the above equation is a sum of orthonormal vectors, so one has
+$$
+\left\| \eta \right\|^2 = \left| a_1  \right|^2 +  \sum_{j = 2}^n \left|  a_1 a_j\right| 
+$$
+\end{proof}
 \bean
 x_0\left(x_0 + x_1 +...+ x_n \right) + 
 \la\left(  x_0^2 + ...+ x_n^2 \right) ,\\
@@ -10034,6 +10088,19 @@ x_0 =  \frac{1}{\sqrt{1 + \nicefrac{n}{2}}},\\
 
 
 \paragraph{!!! PROVE}
+		\begin{proposition}\label{top_allows_morita_prop!}\cite{connes:ncg94}
+	%	Proposition 1. [473]  P 117 
+	Let a group $\Ga$  act freely and properly on a topological space  $\sV$ and let $\sX\bydef \sV/\Ga$. Then
+	the $C^*$-algebra $C_0\left(\sX \right)$  is strongly Morita equivalent to the crossed product $C^*$-algebra
+	$C_0\left(\sV \right)\rtimes \Ga$.
+\end{proposition}
+\begin{remark}\label{top_allows_morita_rem!}
+	The equivalence
+	$C^*$-bimodule E is easy to describe; it is given by the bundle of Hilbert spaces $\left\{\H_x\right\}_{x\in \sX}$
+	over $\sX$  whose fiber at $x\in\sX$ is the $\ell^2$-space of the orbit $x\in\sX$. This yields
+	the required $\left(C_0\left(\sV \right)\rtimes \Ga, C_0\left(\sX \right) \right)$  $C^*$-bimodule.
+\end{remark}
+
 
   \section{Strong Morita equivalence of infinite coverings}\label{inf_mor_sec!}
 
@@ -10057,7 +10124,7 @@ c_{H}\left(g\right)   \bydef \begin{cases}
 Suppose that for all $\widetilde a, \widetilde b \in \widetilde A$ there is $\left\langle \widetilde{a}, \widetilde{b}\right\rangle_{\widetilde{A} \rtimes_r G}  \in \widetilde{A} \rtimes_r G$ such that 
 $\left\langle \widetilde{a}, \widetilde{b}\right\rangle_{\widetilde{A} \rtimes_r G} = \lim_{H\subset G}a_{H}$ where the $C^*$-norm limit is implied. So one has a sesquilinear pairing  $\left\langle \cdot, \cdot\right\rangle_{\widetilde{A} \rtimes_r G}:K\left(\widetilde A\right)\times  K\left(\widetilde A\right)\to  \widetilde{A} \rtimes_r G$ 
 The map 
-\be\label{cross_norm_eqn}
+\be\label{cross_norm_eqn!}
 \widetilde a \mapsto \sqrt{\left\| \left\langle \widetilde{a}, \widetilde{a}\right\rangle_{\widetilde{A} \rtimes_r G}\right\| }
 \ee
 is a norm on $K\left(\widetilde A\right)$. The completion of $K\left(\widetilde A\right)$ with respect to given by \eqref{cross_norm_eqn}  norm is a Hilbert  $\widetilde{A}\rtimes_r G$-module. If   the given by \eqref{inf_hilb_norm_eqn} and \eqref{cross_norm_eqn} norms are equivalent then $_{\widetilde{A}}X_A$ is simultaneously both $A$ and $\widetilde{A}\rtimes_r G$ Hilbert module. In this situation 
@@ -20994,9 +21061,6 @@ $$
 		
 	\end{remark}
 	
-	
-	
-	
 	\section{Strong Morita equivalence for $C^*$-algebras}\label{strong_morita_sec}
 	\paragraph*{}
 	The notion of the strong Morita
@@ -21075,7 +21139,7 @@ $$
 	\begin{theorem}\label{stable_morita_thm}\cite{brown:stable}
 		%	THEOREM 1.2. 
 		Let $B$ and $E$ be $C^*$-algebras. If $B$ and $E$ are 
-		stably isomorphie, then they are strongly Morita equivalent. Conversely, 
+		stably isomorphic, then they are strongly Morita equivalent. Conversely, 
 		if $B$ and $E$ are strongly Morita equivalent and if they both 
 		possess strictly positive elements, then they are stably isomorphic.	
 	\end{theorem}
@@ -21087,6 +21151,18 @@ $$
 		if $B$ and $E$ are strongly Morita equivalent and if they both
 		possess strictly positive elements, then they are stably isomorphic.
 	\end{theorem}
+		\begin{proposition}\label{top_allows_morita_prop}\cite{connes:ncg94}
+		%	Proposition 1. [473]  P 117 
+		Let a group $\Ga$  act freely and properly on a topological space  $\widetilde \sX$ and let $\sX\bydef \widetilde \sX/\Ga$. Then
+		the $C^*$-algebra $C_0\left(\sX \right)$  is strongly Morita equivalent to the crossed product $C^*$-algebra
+		$C_0\left(\widetilde \sX\right)\rtimes \Ga$.
+	\end{proposition}
+	\begin{remark}\label{top_allows_morita_rem}
+The equivalence
+	$C^*$-bimodule E is easy to describe; it is given by the bundle of Hilbert spaces $\left\{\H_x\right\}_{x\in \sX}$
+	over $\sX$  whose fiber at $x\in\sX$ is the $\ell^2$-space of the orbit $x\in\sX$. This yields
+	the required $\left(C_0\left(\widetilde \sX \right)\rtimes \Ga, C_0\left(\sX \right) \right)$  $C^*$-bimodule.
+	\end{remark}
 	
 	
 	% REPLACE WITH rieffel_homeo_cor and CHECK 
