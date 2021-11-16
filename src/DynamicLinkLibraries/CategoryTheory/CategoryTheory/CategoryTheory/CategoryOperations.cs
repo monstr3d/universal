@@ -10,13 +10,15 @@ namespace CategoryTheory
     /// </summary>
     public class CategoryOperations
     {
+
         /// <summary>
         /// Gets arrow to equalizer
         /// </summary>
         /// <param name="equalizer">The qualizer</param>
         /// <param name="arrow">Arrow to object</param>
         /// <returns>Arrow to equalizer</returns>
-        public static IAdvancedCategoryArrow GetArrowToEqualizer(IAdvancedCategoryArrow equalizer, IAdvancedCategoryArrow arrow)
+        public static IAdvancedCategoryArrow GetArrowToEqualizer(IAdvancedCategoryArrow equalizer, 
+            IAdvancedCategoryArrow arrow)
         {
             IAdvancedCategoryObject s = arrow.Source as IAdvancedCategoryObject;
             IAdvancedCategoryObject t = equalizer.Source as IAdvancedCategoryObject;
@@ -29,14 +31,14 @@ namespace CategoryTheory
             return r.RestoreArrow(t, arrows, out res);
         }
 
-
         /// <summary>
         /// Gets arrow to coequalizer
         /// </summary>
         /// <param name="coequalizer">The qualizer</param>
         /// <param name="arrow">Arrow to object</param>
         /// <returns>Arrow from equalizer</returns>
-        public static IAdvancedCategoryArrow GetArrowFromCoequalizer(IAdvancedCategoryArrow coequalizer, IAdvancedCategoryArrow arrow)
+        public static IAdvancedCategoryArrow GetArrowFromCoequalizer(IAdvancedCategoryArrow coequalizer, 
+            IAdvancedCategoryArrow arrow)
         {
             IAdvancedCategoryObject s = arrow.Target as IAdvancedCategoryObject;
             IAdvancedCategoryObject t = coequalizer.Source as IAdvancedCategoryObject;

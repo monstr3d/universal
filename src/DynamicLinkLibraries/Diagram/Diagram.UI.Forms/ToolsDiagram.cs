@@ -1,16 +1,15 @@
 using System;
 using System.Collections.Generic;
-using System.Collections;
-using System.Text;
+using System.Drawing;
 using System.Windows.Forms;
 
 
 using CategoryTheory;
+
 using Diagram.UI.Labels;
 using Diagram.UI.Utils;
 using Diagram.UI.Interfaces;
 using Diagram.UI.Interfaces.Labels;
-using System.Drawing;
 
 
 namespace Diagram.UI
@@ -79,12 +78,14 @@ namespace Diagram.UI
             this.factory = factory;
             factory.Tools = this;
         }
-        
+
+        /// <summary>
+        /// Button click event
+        /// </summary>
         public ToolStripItemClickedEventHandler BtnCkick
         {
             get { return handler;  }
         }
-
 
         /// <summary>
         /// The tree view
@@ -113,87 +114,6 @@ namespace Diagram.UI
             }
         }
 
-        /// <summary>
-        /// Edit tree node event handler
-        /// </summary>
-        /// <param name="sender">The sender</param>
-        /// <param name="e">The event arguments</param>
-        private void editNode(object sender, System.Windows.Forms.NodeLabelEditEventArgs e)
-        {
-            string name = e.Label;
-            if (!(e.Node is NamedNode))
-            {
-                return;
-            }
-            NamedNode node = e.Node as NamedNode;
-            node.SetName(name);
-        }
-
-
-        /// <summary>
-        /// Select event handler
-        /// </summary>
-        /// <param name="sender">The sender</param>
-        /// <param name="e">The event arguments</param>
-        private void selectTree(object sender, System.Windows.Forms.TreeViewEventArgs e)
-        {
-
-            if (!(e.Node is NamedNode))
-            {
-                return;
-            }
-            NamedNode node = e.Node as NamedNode;
-        }
-
-
-
-        /// <summary>
-        /// Tree mouse up event handler
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void treeUp(object sender, System.Windows.Forms.MouseEventArgs e)
-        {
-            if (e.Button != MouseButtons.Right)
-            {
-                return;
-            }
-            TreeNode n = tree.SelectedNode;
-            if (!(n is NamedNode))
-            {
-                return;
-            }
-            NamedNode node = n as NamedNode;
-            node.ShowForm();
-        }
-
-        private void addObjectNode(TreeNode parent, IObjectLabel label)
-        {
-            if (tree == null)
-            {
-                return;
-            }
-            NamedNode node = new NamedNode(label, false);
-            if (label is IObjectLabelUI)
-            {
-                IObjectLabelUI lab = label as IObjectLabelUI;
-                lab.Node = node;
-            }
-            parent.Nodes.Add(node);
-            if (!(label.Object is IObjectContainer))
-            {
-                return;
-            }
-            IObjectContainer cont = label.Object as IObjectContainer;
-            IDesktop desk = cont.Desktop;
-            Dictionary<string,object> t = cont.Interface;
-            foreach (string str in t.Keys)
-            {
-                INamedComponent comp = desk[str];
-                NamedNode n = new NamedNode(comp, false);
-                node.Nodes.Add(n);
-            }
-        }
 
         /// <summary>
         /// Adds node to tree
@@ -265,27 +185,6 @@ namespace Diagram.UI
             }
         }
 
-
-
-
-        /// <summary>
-        /// The "on click" event handler
-        /// </summary>
-        /// <param name="sender">The sender</param>
-        /// <param name="e">The event handler arguments</param>
-        protected void ToolBar_ButtonClick(Object sender, ToolStripItemClickedEventArgs e)
-        {
-            PaletteButton but = (PaletteButton)e.ClickedItem;
-            if (active != but)
-            {
-                if (active != null)
-                {
-                    active.CheckState = CheckState.Unchecked;
-                }
-                active = but;
-                active.CheckState = CheckState.Checked;
-            }
-        }
 
         /// <summary>
         /// Count of images
@@ -480,5 +379,118 @@ namespace Diagram.UI
                 return true;
             }
         }
+
+        #region Protected Members
+
+        /// <summary>
+        /// The "on click" event handler
+        /// </summary>
+        /// <param name="sender">The sender</param>
+        /// <param name="e">The event handler arguments</param>
+        protected void ToolBar_ButtonClick(Object sender, ToolStripItemClickedEventArgs e)
+        {
+            PaletteButton but = (PaletteButton)e.ClickedItem;
+            if (active != but)
+            {
+                if (active != null)
+                {
+                    active.CheckState = CheckState.Unchecked;
+                }
+                active = but;
+                active.CheckState = CheckState.Checked;
+            }
+        }
+
+        #endregion
+
+        #region Private members
+
+        /// <summary>
+        /// Tree mouse up event handler
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void treeUp(object sender, System.Windows.Forms.MouseEventArgs e)
+        {
+            if (e.Button != MouseButtons.Right)
+            {
+                return;
+            }
+            TreeNode n = tree.SelectedNode;
+            if (!(n is NamedNode))
+            {
+                return;
+            }
+            NamedNode node = n as NamedNode;
+            node.ShowForm();
+        }
+
+        /// <summary>
+        /// Adds Object node
+        /// </summary>
+        /// <param name="parent">Parent tree node</param>
+        /// <param name="label">Object label</param>
+        private void addObjectNode(TreeNode parent, IObjectLabel label)
+        {
+            if (tree == null)
+            {
+                return;
+            }
+            NamedNode node = new NamedNode(label, false);
+            if (label is IObjectLabelUI)
+            {
+                IObjectLabelUI lab = label as IObjectLabelUI;
+                lab.Node = node;
+            }
+            parent.Nodes.Add(node);
+            if (!(label.Object is IObjectContainer))
+            {
+                return;
+            }
+            IObjectContainer cont = label.Object as IObjectContainer;
+            IDesktop desk = cont.Desktop;
+            Dictionary<string, object> t = cont.Interface;
+            foreach (string str in t.Keys)
+            {
+                INamedComponent comp = desk[str];
+                NamedNode n = new NamedNode(comp, false);
+                node.Nodes.Add(n);
+            }
+        }
+
+        /// <summary>
+        /// Edit tree node event handler
+        /// </summary>
+        /// <param name="sender">The sender</param>
+        /// <param name="e">The event arguments</param>
+        private void editNode(object sender, System.Windows.Forms.NodeLabelEditEventArgs e)
+        {
+            string name = e.Label;
+            if (!(e.Node is NamedNode))
+            {
+                return;
+            }
+            NamedNode node = e.Node as NamedNode;
+            node.SetName(name);
+        }
+
+        /// <summary>
+        /// Select event handler
+        /// </summary>
+        /// <param name="sender">The sender</param>
+        /// <param name="e">The event arguments</param>
+        private void selectTree(object sender, System.Windows.Forms.TreeViewEventArgs e)
+        {
+
+            if (!(e.Node is NamedNode))
+            {
+                return;
+            }
+            NamedNode node = e.Node as NamedNode;
+        }
+
+
+        #endregion
+
     }
 }

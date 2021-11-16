@@ -16,7 +16,8 @@ namespace CategoryTheory
         /// <param name="arrow1">First arrow</param>
         /// <param name="arrow2">Second arrow</param>
         /// <returns>The equalizer</returns>
-        IAdvancedCategoryArrow GetEqualizer(IAdvancedCategoryArrow arrow1, IAdvancedCategoryArrow arrow2);
+        IAdvancedCategoryArrow GetEqualizer(IAdvancedCategoryArrow arrow1, 
+            IAdvancedCategoryArrow arrow2);
 
         /// <summary>
         /// Gets arrow to equalizer
@@ -27,7 +28,8 @@ namespace CategoryTheory
         /// <param name="arrowFromObject2">Second arrow from object</param>
         /// <returns></returns>
         IAdvancedCategoryArrow GetArrowToEqualizer(IAdvancedCategoryArrow equalizer,
-            IAdvancedCategoryArrow arrow, IAdvancedCategoryArrow arrowFromObject1, IAdvancedCategoryArrow arrowFromObject2);
+            IAdvancedCategoryArrow arrow, IAdvancedCategoryArrow arrowFromObject1, 
+            IAdvancedCategoryArrow arrowFromObject2);
 
     }
 }
