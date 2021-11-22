@@ -2364,13 +2364,13 @@ Prove that any free  noncommutative finite-fold quasi-covering  is reduced (cf. 
  \end{equation*}
 The left (resp. right) action of $A$ on $\widetilde{A}$ we define as left (resp. right) multiplication by $A$.
  Denote by $\varphi: \widetilde{A} \otimes_{A}  \widetilde{A}  \to \widetilde{A} \rtimes G$, $\psi: \widetilde{A} \otimes_{\widetilde{A} \rtimes G}  \widetilde{A} \to A$ the maps such that
- \begin{equation*}
+ \begin{equation}\label{mor_pp_fin_eqn}
  \begin{split}
  \varphi \left(\widetilde{a} \otimes \widetilde{b} \right)\left( g\right) =    \widetilde{a} \left(g\widetilde{b} \right) , \\
  \psi \left(\widetilde{a} \otimes \widetilde{b} \right) = \sum_{g \in G} g\left(\widetilde{a} \widetilde{b} \right), \\
  \forall ~\widetilde{a} ,\widetilde{b}\in \widetilde{A}, ~~ g \in G.
  \end{split}
- \end{equation*}
+ \end{equation}
  From above equations it follows that 
  \begin{equation}\label{morita_g_eqn}
  \begin{split}
@@ -2392,8 +2392,8 @@ The left (resp. right) action of $A$ on $\widetilde{A}$ we define as left (resp.
  	Let $\left(A, \widetilde{A}, G, \pi \right)$ be an unital noncommutative finite-fold  covering. Let us define a structure of Hilbert $\widetilde{A} \rtimes G-A$ bimodule on  $_{\widetilde{A} \rtimes G}\widetilde{A}_A$ given by following products
  	\begin{equation}\label{hilb_gal_eqn}
  	\begin{split}
- 	\left\langle a, b \right\rangle_{\widetilde{A} \rtimes G} = \varphi\left(a \otimes b^* \right),\\ 
- 	\left\langle a, b \right\rangle_A = \psi\left( a^* \otimes b\right).\\
+ 	\left\langle\widetilde a, \widetilde b \right\rangle_{\widetilde{A} \rtimes G} = \varphi\left(\widetilde a \otimes  \widetilde b^* \right),\\ 
+ 	\left\langle \widetilde a,\widetilde b \right\rangle_A = \psi\left(\widetilde a^* \otimes \widetilde b\right).\\
  	\end{split}
  	\end{equation}
  	Following conditions hold:
@@ -4552,14 +4552,35 @@ If $C_c\left(G, \widetilde{A}\right)$ is an explained in the Appendix \ref{discr
 	\item [(a)] $C_c\left(G, \widetilde{A}\right) \subset \K\left(X_A \right)$.
 	\item[(b)] $C_c\left(G, \widetilde{A}\right)$ is dense subalgebra of $\K\left(X_A \right)$.
 \end{enumerate}
-In this case  $\K\left(X_A \right)$ is a completion of $C_c\left(G, \widetilde{A}\right) $ with respect to the given by the inclusion (a) $C^*$-norm. Similarly to the Appendix \ref{discr_cr_prod_sec} we use the following notation $\widetilde A\rtimes_cG\bydef \K\left(X_A \right)$
+In this case  $\K\left(X_A \right)$ is a completion of $C_c\left(G, \widetilde{A}\right) $ with respect to the given by the inclusion (a) $C^*$-norm. Similarly to the Appendix \ref{discr_cr_prod_sec} we use the following notation $\widetilde A\rtimes_cG\bydef \K\left(X_A \right)$.
 \begin{definition}\label{cross_cov_defn}
 	In the above situation we say that $\widetilde A\rtimes_cG$ is an \textit{crossed product associated with the covering} $\left(A, \widetilde{A}, G\right)$.
 \end{definition}
-From the above construction there is an action $\left( \widetilde A\rtimes_cG\right) \times X \to X$. Moreover one can construct a Hilbert $\widetilde A\rtimes_cG$ module $Y =Y_{\widetilde A\rtimes_cG}$-module which coincides with $X$ as a space. There is the natural inclusion $A\subset  \End^*{C_c\left(G, \widetilde{A}\right)}\left(Y\right) $. One has $ \End^*_{C_c\left(G, \widetilde{A}\right)}\left(Y\right)\cong \End^*_{\widetilde A\rtimes_cG}\left(Y \right)$ because $C_c\left(G, \widetilde{A}\right)$ is dense in $\widetilde A\rtimes_cG$. So there is an injective *-homomorphism   $\phi: A\hookto  \End^*_{\widetilde A\rtimes_cG}\left(Y \right)$.
+In the above situation one can define analogs of equations \eqref{mor_pp_fin_eqn}.
+\begin{equation}\label{mor_pp_inf_eqn}
+	\begin{split}
+\varphi: K\left( \widetilde{A} \right) \otimes_{A}  K\left( \widetilde{A} \right)  \to \widetilde{A} \rtimes_c G,\quad		\varphi \left(\widetilde{a} \otimes \widetilde{b} \right)\left( g\right) =    \widetilde{a} \left(g\widetilde{b} \right); \\
+\psi: K\left( \widetilde{A} \right)  \otimes_{\widetilde{A} \rtimes_c G}  K\left( \widetilde{A} \right)  \to A, \quad		\psi \left(\widetilde{a} \otimes \widetilde{b} \right) = \sum_{g \in G} g\left(\widetilde{a} \widetilde{b} \right), \\
+		\forall ~\widetilde{a} ,\widetilde{b}\in \widetilde{A}, ~~ g \in G.
+	\end{split}
+\end{equation}
+Where the sum of the series implies the $C^*$-norm convergence.
+The following pairings
+\bean
+\left\langle \cdot, \cdot \right\rangle_{\widetilde{A} \rtimes_c G}: K\left( \widetilde{A} \right) \otimes_{A}  K\left( \widetilde{A} \right)\to \widetilde{A} \rtimes_c G,\quad \left\langle \widetilde a, \widetilde b \right\rangle_{\widetilde{A} \rtimes_c G} \bydef \varphi\left(\widetilde a \otimes \widetilde b^* \right);\\ 
+\left\langle \cdot, \cdot \right\rangle_{\widetilde{A}}: K\left( \widetilde{A} \right) \otimes_{\widetilde{A} \rtimes_c G} K\left( \widetilde{A} \right)\to A, \quad \left\langle\widetilde a,\widetilde b \right\rangle_A \bydef \psi\left( \widetilde a^* \otimes \widetilde b\right)
+\eean
+can be extended up to pairings
+	\begin{equation}\label{hilb_inf_eqn}
+	\begin{split}
+\left\langle \cdot, \cdot \right\rangle_{\widetilde{A} \rtimes_c G}:X \otimes_{A} X\to \widetilde{A} \rtimes_c G;\\ 
+\left\langle \cdot, \cdot \right\rangle_{\widetilde{A}}: X \otimes_{\widetilde{A} \rtimes_c G}X\to A. 	\end{split}
+\end{equation}
+
+ 
 \begin{definition}\label{allows_morita_defn}
-	Consider the above situation
-	We say that $\left(A, \widetilde{A}, G\right)$ \textit{allows strong Morita equivalence} if $\phi\left( A\right) = \K\left(Y_{\widetilde A\rtimes_cG} \right)$.
+In the above situation
+	we say that $\left(A, \widetilde{A}, G\right)$ \textit{allows strong Morita equivalence} if $\left\langle X, X \right\rangle_{\widetilde{A} \rtimes_c G}$  is dense in $A$.
 \end{definition}
 \begin{exercise}\label{allows_morita_exer}
 	Let  $\left(A, \widetilde{A}, G\right)$ be an infinite noncommutative covering which {allows strong Morita equivalence}.  Prove that $X$ is an  {$A$-$ \widetilde A\rtimes_cG$-equivalence
@@ -9835,7 +9856,7 @@ If  $A$ be a given by \eqref{top_poly_a_defn} *-algebra, and  If $\mathfrak B$ i
 	 $X =X_{C_0\left({\sX}\right)}=$\\$= _{C_0\left(\widetilde{\sX}\right)}X_{C_0\left({\sX}\right)}$ of the given  by \eqref{inf_hilb_inc_eqn} $C^*$-Hilbert $C_0\left({\sX}\right)$-module which is relevant to the   
 	{ infinite noncommutative covering} 	$$\left(C_0\left(\mathcal{X}\right), C_0\left(\widetilde{\sX}\right),G\left(\widetilde{\sX}~|~ \mathcal X\right)\right)$$ of $\mathfrak{S}_{C_0\left(\mathcal{X}\right)}$  (cf. Definition \ref{main_defn}). 
 \end{rem}
-\begin{lemma}
+\begin{lemma}\label{top_all_lem}
 	The Hilbert ${C_0\left({\sX}\right)}$-module $X_{C_0\left({\sX}\right)}$ satisfies to the 
 conditions (a),(b)  of the Section \ref{inf_mor_sec}.
 \end{lemma}
@@ -9891,6 +9912,10 @@ $$
 Taking into account $\widetilde a \left\rangle \right\langle \widetilde b\in  C_c\left(G\left(\widetilde{\sX}~|~ \mathcal X\right), C_0\left( \widetilde{\sX}\right) \right)$ one concludes that the rank-one operator $\xi \left\rangle \right\langle \eta$ lies in the $C^*$-norm completion of $C_c\left(G\left(\widetilde{\sX}~|~ \mathcal X\right), C_0\left( \widetilde{\sX}\right) \right)$.
 On the other hand from the Definition \ref{comp_aop_defn} it follows that $\K\left(X_{C_0\left( \sX\right) } \right)$ is the $C^*$-norm completion of the algebraical linear span of rank-one operators, so\\ $C_c\left(G\left(\widetilde{\sX}~|~ \mathcal X\right), C_0\left( \widetilde{\sX}\right) \right)$ is dense in $\K\left(X_{C_0\left( \sX\right) } \right)$.
 \end{proof}
+\begin{exercise}\label{top_all_exer}
+Prove that $\left\langle X, X \right\rangle_{C_0\left( \sX\right)}$  is dense in $C_0\left( \sX\right)$, i.e.
+$$\left(C_0\left(\mathcal{X}\right), C_0\left(\widetilde{\sX}\right),G\left(\widetilde{\sX}~|~ \mathcal X\right)\right)$$ allows strong Morita equivalence  (cf. Definition \ref{allows_morita_defn}).  
+\end{exercise}
 %\begin{lemma}
 %In the above situation there is the natural *-isomorphism $\widetilde A\rtimes_cG\cong \widetilde A\rtimes_r G $ where is $\widetilde A\rtimes_cG$ is the \textit{crossed product associated with the covering} $\left(A, \widetilde{A}, G\right)$ (cf. Definition \ref{cross_cov_defn}) and $\widetilde A\rtimes_rG$ is the reduced crossed product (cf.Appendix \ref{discr_cr_prod_sec}).
 %\end{lemma}
@@ -9931,23 +9956,6 @@ On the other hand from the Definition \ref{comp_aop_defn} it follows that $\K\le
 %\eean
 %\end{proof}
 !!!CONTINUE
-\paragraph{title}
-
-
-
-
-From the above construction there is an action $\left( \widetilde A\rtimes_cG\right) \times X \to X$. Moreover one can construct a Hilbert $\widetilde A\rtimes_cG$ module $Y =Y_{\widetilde A\rtimes_cG}$-module which coincides with $X$ as a space. There is the natural inclusion $A\subset  \End^*{C_c\left(G, \widetilde{A}\right)}\left(Y\right) $. One has $ \End^*_{C_c\left(G, \widetilde{A}\right)}\left(Y\right)\cong \End^*_{\widetilde A\rtimes_cG}\left(Y \right)$ because $C_c\left(G, \widetilde{A}\right)$ is dense in $\widetilde A\rtimes_cG$. So there is an injective *-homomorphism   $\phi: A\hookto  \End^*_{\widetilde A\rtimes_cG}\left(Y \right)$.
-\begin{definition}\label{allows_morita_defn}
-	Consider the above situation
-	We say that $\left(A, \widetilde{A}, G\right)$ \textit{allows strong Morita equivalence} if $\phi\left( A\right) = \K\left(Y_{\widetilde A\rtimes_cG} \right)$.
-\end{definition}
-\begin{exercise}\label{allows_morita_exer}
-	Let  $\left(A, \widetilde{A}, G\right)$ be an infinite noncommutative covering which {allows strong Morita equivalence}.  Prove that $X$ is an  {$A$-$ \widetilde A\rtimes_cG$-equivalence
-		bimodule} (cf. Definition \ref{strong_morita_defn}). 
-\end{exercise} 
-\
-\paragraph{title}
-
 \subsection{Induced representations}\label{comm_induced_infinite_sec}
 
 \paragraph*{} 
@@ -14072,7 +14080,10 @@ Suppose that $\left(\overline{   \mathcal X}, \overline{x}_0 \right)$ is its  to
 \begin{theorem}\label{ctr_ctr_main_thm} Consider the situation \ref{ctr_bas_empt} and suppose that the space $\sX$ is second-countable. 	If  $	\mathfrak{S}^{\mathrm{pt}}_A$ is the given by  \eqref{ctr_base_point_eqn} pointed	algebraical  finite covering category and $\left(A, \widetilde A, 	G\left(\left.\widetilde{\sX}~\right| \sX\right)\right)$ the  {infinite noncommutative covering} of $\mathfrak{S}_A^{\mathrm{pt}}$ (cf. Definition \ref{main_defn} and Theorem \ref{ctr_h_main_thm}), then one has: !!! GOOD
 	\begin{enumerate}
 		\item [(i)] 	\be\label{ctr_ctr_main_eqn}
-		\widetilde A \cong	A_0\left(\widetilde \sX \right)
+		\begin{split}
+		\widetilde A \cong	A_0\left(\widetilde \sX \right),\\
+		\left(A, A_0\left(\widetilde \sX \right), 	G\left(\left.\widetilde{\sX}~\right| \sX\right)\right)
+		\end{split}
 		\ee
 		where $A_0\left(\widetilde \sX \right)$ is given by 	the equations \eqref{top_cb_defn_eqn} and/or \eqref{blowing_a0_x_eqn}.
 		\item [(ii)] If  the space $\sX$ is connected, locally path-connected, semilocally 1-connected, and the fundamental group $\pi_1\left(\sX, x_0\right)$ is residually finite (cf. Definition \ref{residually_finite_defn}). If $\pi_1\left(A, \left\{\pi^\nu_\mu\right\}_{\substack{ \mu, \nu \in \La \\ \mu \ge \nu}} \right)$  is the   fundamental group (cf. Definition \ref{fg_bas_defn}) then there is the natural isomorphism
@@ -14192,6 +14203,12 @@ Suppose that $\left(\overline{   \mathcal X}, \overline{x}_0 \right)$ is its  to
 	\end{equation}
 	where notation  $\desc_{\overline{p}_\la}$ means  the descent	(cf. Definition \ref{top_lift_desc_defn}). From the properties of the descent it turns out that $\desc_{\overline{p}_\la}\left( \widetilde{a}\widetilde{b}\right) \in A_0\left( \sX_{\la}\right)$, i.e. $c_\la \in A_0\left( \sX_{\la}\right)$.  Taking into account the Remark \ref{inf_hilb_prod_low_rem} we conclude that  $c_\la \in A_0\left( \sX_{\la}\right)$ for all $\la \in \La$.
 \end{proof}
+\begin{exercise}\label{ctr_all_exer}
+	Similarly to the Lemma \ref{top_all_lem} and the Exercise \ref{top_all_exer}
+	prove that given by the Theorem \eqref{ctr_ctr_main_thm} infinite covering
+	$$	\left(A, A_0\left(\widetilde \sX \right), 	G\left(\left.\widetilde{\sX}~\right| \sX\right)\right)
+	$$  allows strong Morita equivalence  (cf. Definition \ref{allows_morita_defn}).  
+\end{exercise}
 
 \begin{empt}\label{ctr_mu_empt}
 	Denote by  
