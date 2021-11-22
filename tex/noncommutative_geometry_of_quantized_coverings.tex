@@ -2364,13 +2364,13 @@ Prove that any free  noncommutative finite-fold quasi-covering  is reduced (cf. 
  \end{equation*}
 The left (resp. right) action of $A$ on $\widetilde{A}$ we define as left (resp. right) multiplication by $A$.
  Denote by $\varphi: \widetilde{A} \otimes_{A}  \widetilde{A}  \to \widetilde{A} \rtimes G$, $\psi: \widetilde{A} \otimes_{\widetilde{A} \rtimes G}  \widetilde{A} \to A$ the maps such that
- \begin{equation}\label{mor_pp_fin_eqn}
+ \begin{equation*}
  \begin{split}
  \varphi \left(\widetilde{a} \otimes \widetilde{b} \right)\left( g\right) =    \widetilde{a} \left(g\widetilde{b} \right) , \\
  \psi \left(\widetilde{a} \otimes \widetilde{b} \right) = \sum_{g \in G} g\left(\widetilde{a} \widetilde{b} \right), \\
  \forall ~\widetilde{a} ,\widetilde{b}\in \widetilde{A}, ~~ g \in G.
  \end{split}
- \end{equation}
+ \end{equation*}
  From above equations it follows that 
  \begin{equation}\label{morita_g_eqn}
  \begin{split}
@@ -2392,8 +2392,8 @@ The left (resp. right) action of $A$ on $\widetilde{A}$ we define as left (resp.
  	Let $\left(A, \widetilde{A}, G, \pi \right)$ be an unital noncommutative finite-fold  covering. Let us define a structure of Hilbert $\widetilde{A} \rtimes G-A$ bimodule on  $_{\widetilde{A} \rtimes G}\widetilde{A}_A$ given by following products
  	\begin{equation}\label{hilb_gal_eqn}
  	\begin{split}
- 	\left\langle\widetilde a, \widetilde b \right\rangle_{\widetilde{A} \rtimes G} = \varphi\left(\widetilde a \otimes  \widetilde b^* \right),\\ 
- 	\left\langle \widetilde a,\widetilde b \right\rangle_A = \psi\left(\widetilde a^* \otimes \widetilde b\right).\\
+ 	\left\langle a, b \right\rangle_{\widetilde{A} \rtimes G} = \varphi\left(a \otimes b^* \right),\\ 
+ 	\left\langle a, b \right\rangle_A = \psi\left( a^* \otimes b\right).\\
  	\end{split}
  	\end{equation}
  	Following conditions hold:
@@ -4538,13 +4538,16 @@ where both $\widetilde a  \in \widetilde{A}_\pi$ and $b \in B\left( \H\right)$ a
 	
  \end{empt}
 
+
+ 
+ 
  \section{Strong Morita equivalence of infinite coverings}\label{inf_mor_sec}
-\paragraph{}  Let $\left(A, \widetilde{A}, G\right)$ be an  infinite noncommutative covering which allows  the inner product (cf. Definition \ref{inf_hilb_prod_defn}), and let  $X =X_A=_{\widetilde{A}}X_A$ be a given by \eqref{inf_hilb_inc_eqn} $C^*$-Hilbert $A$-module where the atomic representation (cf. Definition \ref{atomic_repr_defn}) is implied. 
+  \paragraph{}  Let $\left(A, \widetilde{A}, G\right)$ be an  infinite noncommutative covering which allows  the inner product (cf. Definition \ref{inf_hilb_prod_defn}), and let  $X =X_A=_{\widetilde{A}}X_A$ be a given by \eqref{inf_hilb_inc_eqn} $C^*$-Hilbert $A$-module where the atomic representation (cf. Definition \ref{atomic_repr_defn}) is implied. 
 Any pair $\left(\widetilde{a}, g\right) \in \widetilde{A}\times G$ yields a *-endomorphism 
 \be\label{hm_inc_eqn}
 \begin{split}
-	h_{\widetilde{a}, g}\in \End^*_A\left(X \right) ,\\
-	\xi \mapsto g\left(\xi \widetilde{a} \right) 
+h_{\widetilde{a}, g}\in \End^*_A\left(X \right) ,\\
+\xi \mapsto g\left(\xi \widetilde{a} \right) 
 \end{split}
 \ee
 If $C_c\left(G, \widetilde{A}\right)$ is an explained in the Appendix \ref{discr_cr_prod_sec} algebra then the equation \eqref{hm_inc_eqn}yields an inclusion  $C_c\left(G, \widetilde{A}\right)\subset \End^*_A\left(X \right)$. Henceforth we suppose that
@@ -4552,50 +4555,20 @@ If $C_c\left(G, \widetilde{A}\right)$ is an explained in the Appendix \ref{discr
 	\item [(a)] $C_c\left(G, \widetilde{A}\right) \subset \K\left(X_A \right)$.
 	\item[(b)] $C_c\left(G, \widetilde{A}\right)$ is dense subalgebra of $\K\left(X_A \right)$.
 \end{enumerate}
-In this case  $\K\left(X_A \right)$ is a completion of $C_c\left(G, \widetilde{A}\right) $ with respect to the given by the inclusion (a) $C^*$-norm. Similarly to the Appendix \ref{discr_cr_prod_sec} we use the following notation $\widetilde A\rtimes_cG\bydef \K\left(X_A \right)$.
-\begin{definition}\label{cross_cov_defn}
-	In the above situation we say that $\widetilde A\rtimes_cG$ is an \textit{crossed product associated with the covering} $\left(A, \widetilde{A}, G\right)$.
+In this case  $\K\left(X_A \right)$ is a completion of $C_c\left(G, \widetilde{A}\right) $ with respect to the given by the inclusion (a) $C^*$-norm. Similarly to the Appendix \ref{discr_cr_prod_sec} we use the following notation $\widetilde A\rtimes_cG\bydef \K\left(X_A \right)$
+\begin{definition}
+In the above situation we say that $\widetilde A\rtimes_cG$ is an \textit{crossed product associated with the covering} $\left(A, \widetilde{A}, G\right)$.
 \end{definition}
-In the above situation one can define analogs of equations \eqref{mor_pp_fin_eqn}.
-\begin{equation}\label{mor_pp_inf_eqn}
-	\begin{split}
-\varphi: K\left( \widetilde{A} \right) \otimes_{A}  K\left( \widetilde{A} \right)  \to \widetilde{A} \rtimes_c G,\quad		\varphi \left(\widetilde{a} \otimes \widetilde{b} \right)\left( g\right) =    \widetilde{a} \left(g\widetilde{b} \right); \\
-\psi: K\left( \widetilde{A} \right)  \otimes_{\widetilde{A} \rtimes_c G}  K\left( \widetilde{A} \right)  \to A, \quad		\psi \left(\widetilde{a} \otimes \widetilde{b} \right) = \sum_{g \in G} g\left(\widetilde{a} \widetilde{b} \right), \\
-		\forall ~\widetilde{a} ,\widetilde{b}\in \widetilde{A}, ~~ g \in G.
-	\end{split}
-\end{equation}
-Where the sum of the series implies the $C^*$-norm convergence.
-The following pairings
-\bean
-\left\langle \cdot, \cdot \right\rangle_{\widetilde{A} \rtimes_c G}: K\left( \widetilde{A} \right) \otimes_{A}  K\left( \widetilde{A} \right)\to \widetilde{A} \rtimes_c G,\quad \left\langle \widetilde a, \widetilde b \right\rangle_{\widetilde{A} \rtimes_c G} \bydef \varphi\left(\widetilde a \otimes \widetilde b^* \right);\\ 
-\left\langle \cdot, \cdot \right\rangle_{\widetilde{A}}: K\left( \widetilde{A} \right) \otimes_{\widetilde{A} \rtimes_c G} K\left( \widetilde{A} \right)\to A, \quad \left\langle\widetilde a,\widetilde b \right\rangle_A \bydef \psi\left( \widetilde a^* \otimes \widetilde b\right)
-\eean
-can be extended up to pairings
-	\begin{equation}\label{hilb_inf_eqn}
-	\begin{split}
-\left\langle \cdot, \cdot \right\rangle_{\widetilde{A} \rtimes_c G}:X \otimes_{A} X\to \widetilde{A} \rtimes_c G;\\ 
-\left\langle \cdot, \cdot \right\rangle_{\widetilde{A}}: X \otimes_{\widetilde{A} \rtimes_c G}X\to A. 	
-\end{split}
-\end{equation}
-Using isomorphism $\widetilde{A} \rtimes_c G \cong \K \left(X_A \right)$ the pairing $\left\langle \cdot, \cdot \right\rangle_{\widetilde{A} \rtimes_c G}$ can be defined by the following  way 
- 	\begin{equation}\label{hilb_infz_eqn}
- 	\begin{split}
- 		\left\langle \xi, \eta \right\rangle_{\widetilde{A} \rtimes_c G}\bydef \xi\left\rangle \right\langle \eta \bydef \zeta \mapsto \eta	\left\langle \xi, \zeta \right\rangle_{A}\in \K \left(X_A \right)\cong  \widetilde{A} \rtimes_c G\quad \forall\zeta \in X_A.
- 	\end{split}
- \end{equation}
- 
-\begin{definition}\label{allows_morita_defn}
-In the above situation
-	we say that $\left(A, \widetilde{A}, G\right)$ \textit{allows strong Morita equivalence} if the linear span of $\left\langle X, X \right\rangle_{\widetilde{A} \rtimes_c G}$  is dense in $A$.
+From the above construction there is an action $\left( \widetilde A\rtimes_cG\right) \times X \to X$. Moreover one can construct a Hilbert $\widetilde A\rtimes_cG$ module $Y =Y_{\widetilde A\rtimes_cG}$-module which coincides with $X$ as a space. There is the natural inclusion $A\subset  \End^*{C_c\left(G, \widetilde{A}\right)}\left(Y\right) $. One has $ \End^*_{C_c\left(G, \widetilde{A}\right)}\left(Y\right)\cong \End^*_{\widetilde A\rtimes_cG}\left(Y \right)$ because $C_c\left(G, \widetilde{A}\right)$ is dense in $\widetilde A\rtimes_cG$. So there is an injective *-homomorphism   $\phi: A\hookto  \End^*_{\widetilde A\rtimes_cG}\left(Y \right)$.
+   \begin{definition}\label{allows_morita_defn}
+Consider the above situation
+	We say that $\left(A, \widetilde{A}, G\right)$ \textit{allows strong Morita equivalence} if $\phi\left( A\right) = \K\left(Y_{\widetilde A\rtimes_cG} \right)$.
 \end{definition}
 \begin{exercise}\label{allows_morita_exer}
-	Let  $\left(A, \widetilde{A}, G\right)$ be an infinite noncommutative covering which {allows strong Morita equivalence}.  Prove that $X$ is an  {$A$-$ \widetilde A\rtimes_cG$-equivalence
-		bimodule} (cf. Definition \ref{strong_morita_defn}). 
+Let  $\left(A, \widetilde{A}, G\right)$ be an infinite noncommutative covering which {allows strong Morita equivalence}.  Prove that $X$ is an  {$A$-$ \widetilde A\rtimes_cG$-equivalence
+	bimodule} (cf. Definition \ref{strong_morita_defn}). 
 \end{exercise} 
-
- 
- 
- \section{Coverings of spectral triples}\label{str_cov_glo_sec}
+\section{Coverings of spectral triples}\label{str_cov_glo_sec}
 
 \begin{defn}\label{cov_sec_triple_defn}
 	Let  $\left(\sA, \sH, D\right)$ be a spectral triple, and let $A$ be the $C^*$-norm completion of $\A$ with the natural representation $A \to B\left( \H\right)$. Let
@@ -9836,132 +9809,8 @@ If  $A$ be a given by \eqref{top_poly_a_defn} *-algebra, and  If $\mathfrak B$ i
 \begin{remark}
 	The given by the Exercise \ref{top_ch_exer} inverse noncommutative limit can be regarded as an inverse noncommutative limit of $O^*$-algebras (cf. Definition \ref{inv_o*_lim_defn}). 	The given by the Exercise \ref{top_chull_exer} inverse noncommutative limit can not be regarded as an inverse noncommutative limit of $O^*$-algebras because $tA$ does not have nontrivial bounded elements.
 \end{remark}
-\subsection{Strong Morita equivalence of infinite coverings}
-	\paragraph*{} Here we consider a specialization of the explained in the Section \ref{inf_mor_sec} theory.
-\begin{lemma}\label{comm_allows_lem}
-	If $\mathfrak{S}_{\left( \mathcal X, x_0\right) } = \left\{\left( \mathcal{X}_\la,x_0^\la\right)  \to \left( \mathcal X, x_0\right) \right\}_{\la \in \La} \in \mathfrak{FinTop}^{\mathrm{pt}}$, \\
-	$\mathfrak{S}_{C_0\left(\mathcal{X}\right) }\left( \mathcal X, x_0\right) =
-	\left( \left\{C_0\left( \mathcal{X}\right) \hookto  C_0\left( \mathcal{X}_\la\right) \right\}, \left\{C_0\left( \mathcal{X}_\mu\right) \hookto  C_0\left( \mathcal{X}_\nu\right) \right\} \right) $ then $\mathfrak{S}^{\mathrm{pt}}_{C_0\left(\mathcal{X}\right) }$ allows inner product (cf. Definition \ref{inf_hilb_prod_defn}). 
-\end{lemma}
-\begin{proof}
-	%	Denote by $G_\la = G\left(\mathcal X_\la~|~\mathcal X \right)$ groups of covering transformations and $\widehat{G} = \varprojlim G_\la$. 
-	Denote by $\overline{p}:\left( \overline{  \mathcal X}, \overline x_0\right)  \to\left(  \mathcal X, x_0\right) $, $\overline{p}_\la:\left( \overline{  \mathcal X}, \overline x_0\right)  \to\left(  \mathcal X_\la, x^\la_0\right) $, $p^\la: \left(  \mathcal X_\la, x^\la_0\right)  \to \left( \mathcal X, x_0\right) $, $p^\mu_\nu:  \left( \mathcal X_\mu, x^\mu_0 \right) \to \left( \mathcal X_\nu, x^\nu_0\right) $ ($\mu > \nu$) the natural pointed coverings.
-	If $\widetilde{\sX}= \varprojlim \mathfrak{S}_{\left(\sX, x_0 \right)}$ then  	from the Theorem \ref{comm_main_thm} it turns out	
-	$$\left(C_0\left(\mathcal{X}\right), C_0\left(\widetilde{\sX}\right),G\left(\widetilde{\sX}~|~ \mathcal X\right)\right)$$ is  the { infinite noncommutative covering} of $\mathfrak{S}_{C_0\left(\mathcal{X}\right)}$ (cf. Definition \ref{main_defn}). 	 	It is shown in \cite{pedersen:mea_c} that the Pedersen's ideal $K\left(C_0\left(\widetilde{\sX} \right)\right) $ of $C_0\left(\widetilde{\sX} \right)$ coincides with $C_c\left(\widetilde{\sX} \right)$. If $\widetilde{a}, \widetilde{b} \in C_c\left(\widetilde{\sX} \right)$ then $\supp \overline{a}$ is compact. 	
-	From the Lemma \ref{top_comp_la_lem} it follows that there is $\la_0 \in \La$ such that for all $\la \ge \la_0$ the restriction $\left.\overline{p}_\la\right|_{\supp \overline{a}}$ is injective. From the Exercise  \ref{comm_lift_desc_sum_exer} it follows that
-	\begin{equation}\nonumber
-		\begin{split}
-			c_{\la} = \sum_{g \in \ker\left(G\left(\left.\widetilde{\sX}~\right|\sX \right)  \to  G\left( \sX_{\la}~|~\sX \right)\right)} g \left(\widetilde{a}^* \widetilde{b}  \right) = \desc_{\overline{p}_\la}\left( \widetilde{a}\widetilde{b}\right) 
-		\end{split}
-	\end{equation}
-	where sum of the series implies the strict topology of $M\left(C_0\left(\widetilde{\sX} \right)  \right)$ (cf. Definition \ref{strict_topology}), and the  notation  $\desc_{\overline{p}_\la}$ means  the descent	(cf. Definition \ref{top_lift_desc_defn}). 
-	From the properties of the descent it turns out that $\desc_{\overline{p}_\la}\left( \widetilde{a}\widetilde{b}\right) \in C_0\left( \sX_{\la}\right)$, i.e. $c_\la \in C_0\left( \sX_{\la}\right)$.  Taking into account the Remark \ref{inf_hilb_prod_low_rem} we conclude that  $c_\la \in C_0\left( \sX_{\la}\right)$ for all $\la \in \La$.
-\end{proof}
-\begin{rem}
-	The Lemma \ref{comm_allows_lem} yields a specialization 
-	 $X =X_{C_0\left({\sX}\right)}=$\\$= _{C_0\left(\widetilde{\sX}\right)}X_{C_0\left({\sX}\right)}$ of the given  by \eqref{inf_hilb_inc_eqn} $C^*$-Hilbert $C_0\left({\sX}\right)$-module which is relevant to the   
-	{ infinite noncommutative covering} 	$$\left(C_0\left(\mathcal{X}\right), C_0\left(\widetilde{\sX}\right),G\left(\widetilde{\sX}~|~ \mathcal X\right)\right)$$ of $\mathfrak{S}_{C_0\left(\mathcal{X}\right)}$  (cf. Definition \ref{main_defn}). 
-\end{rem}
-\begin{lemma}\label{top_all_lem}
-	The Hilbert ${C_0\left({\sX}\right)}$-module $X_{C_0\left({\sX}\right)}$ satisfies to the 
-conditions (a),(b)  of the Section \ref{inf_mor_sec}.
-\end{lemma}
-\begin{proof}
-(a) Let $\left(\widetilde{a}, g\right) \in C_0\left(\mathcal{X}\right)\times G\left(\widetilde{\sX}~|~ \mathcal X\right)$ and let $h_{\widetilde{a}, g}\in \End^*_{C_0\left(\sX \right) }\left(X \right)$ is given by \eqref{hm_inc_eqn} i.e. 
-\be\label{topo_hm_inc_eqn}
-\begin{split}
-	h_{\widetilde{a}, g}\left(\xi \right) 
-	 = g\left(\xi \widetilde{a} \right) \quad \forall \xi\in X
-\end{split}
-\ee
-For any $\eps > 0$ the set
-$$
-\widetilde\sY\bydef \left\{ \widetilde x\in \widetilde\sX \left|\left| \widetilde a\left(\widetilde x\right) \right|\ge \frac{\eps}{2} \right.\right\}
-$$
-If  $ \widetilde p: \widetilde\sX \to \sX$ is the natural covering and  $\sum_{j = 1}^n f_j$  is a covering sum for $\widetilde\sY$ {subordinated to} $\widetilde p$ (cf. Definition \ref{top_cfs_sub_defn}). then one has
-$$
-\left\|  \widetilde a -  \widetilde a\sum_{j = 1}^n f_j\right\| < \eps.
-$$
-From the above equation it turns out that
-\be\label{top_hg_e_eqn}
-\left\|  	h_{\widetilde{a}, g}-\sum_{j = 1}^n h_{f_j \widetilde a, g}\right\| < \eps.
-\ee
-On the other hang $h_{f_j \widetilde a, g}=\theta_{\sqrt{f_j}, g\left( \sqrt{f_j}\widetilde{a}\right)  } = \sqrt{f_j}\left\rangle \right\langle g\left( \sqrt{f_j}\widetilde{a}\right)$ is a rank-one operator (cf. equation \eqref{rank_one_eqn}). 
-The number $\eps$ is arbitrary small, so from the equation  \eqref{top_hg_e_eqn} and the Definition \ref{comp_aop_defn} one concludes that 	$h_{\widetilde{a}, g}$ is compact, i.e. 
-$h_{\widetilde{a}, g}\in \K\left(X_{C_0\left( \sX\right) } \right)$. Since $C_c\left(G\left(\widetilde{\sX}~|~ \mathcal X\right), C_0\left( \widetilde{\sX}\right) \right)$ is generated  by operators $h_{\widetilde{a}, g}$ one has $C_c\left(G\left(\widetilde{\sX}~|~ \mathcal X\right), C_0\left( \widetilde{\sX}\right) \right) \subset \K\left(X_{C_0\left( \sX\right) } \right)$.\\
-(b) If $\widetilde a, \widetilde b \in K\left(C_0\left( \widetilde{\sX}\right)  \right) = C_c\left( \widetilde{\sX}\right)$ then both sets $\supp\widetilde a$ and  $\supp\widetilde b$ are compact. Let  $ \widetilde p: \widetilde\sX \to \sX$ be the natural covering and  $\sum_{j = 1}^n f_j$  is a covering sum for $\supp \widetilde a$ {subordinated to} $\widetilde p$ (cf. Definition \ref{top_cfs_sub_defn}).
-If $j \in \left\{1,..., n\right\}$ and the set
-$$
-G_j \bydef \left\{\left. g G\left(\widetilde{\sX}~|~ \mathcal X\right)\in \right| g\supp f_j \cap \supp \widetilde b\neq \emptyset \right\}
-$$
-is not finite then the compact set $\supp \widetilde b$ contains an infinite disjoint union
-$$
-\bigsqcup_{g \in G_j} g\supp f_j \cap \supp \widetilde b
-$$
-of compact subsets. It is impossible, so $G_j$ is  finite for all  $j=1,..., n$.
-If $\ka_j \bydef f_j \widetilde a \left\rangle \right\langle \widetilde b\in  \K\left(X_{C_0\left( \sX\right) } \right)$ is a rank-one operator (cf. equation \eqref{rank_one_eqn}) then $a \left\rangle \right\langle b = \sum_{j=1}^n \ka_j$. For any $\widetilde c \in \K\left(X_{C_0\left( {\sX}\right)}  \right)$ one has
-$$
-\ka_j \widetilde c = \sum_{g \in G\left(\widetilde{\sX}~|~ \mathcal X\right)} g\left(  \widetilde c f_j\widetilde a^*\right) \widetilde b=  \sum_{g \in G_j} g\left(  \widetilde cf_j\widetilde a^*\right) \widetilde b
-$$
-On the other hand from
-$$
-g_j\left(  \widetilde cf_j\widetilde a^*\right) \widetilde b = h_{f_j\widetilde a^*g_j^{-1}\widetilde b, g_j}\left(\widetilde c \right) 
-$$
-it follows that
-$$
-\ka_j = \sum_{g \in G_j}h_{f_j\widetilde a^*g_j^{-1}\widetilde b, g_j}\in C_c\left(G\left(\widetilde{\sX}~|~ \mathcal X\right), C_0\left( \widetilde{\sX}\right) \right)
-$$
-and taking into account $\widetilde a \left\rangle \right\langle \widetilde b = \sum_{j=1}^n \ka_j$ one has $\widetilde a \left\rangle \right\langle \widetilde b\in  C_c\left(G\left(\widetilde{\sX}~|~ \mathcal X\right), C_0\left( \widetilde{\sX}\right) \right)$. The $\C$-space  $K\left(C_0\left( \widetilde{\sX}\right)  \right)$  is dense in $X_{C_0\left( {\sX}\right)}$, so for any $\xi, \eta \in X_{C_0\left( {\sX}\right)}$ and $\eps > 0$ there are $\widetilde a, \widetilde b \in K\left(C_0\left( \widetilde{\sX}\right)  \right)$ such that
-$$
-\left\|  \widetilde a \left\rangle \right\langle \widetilde b-\xi \left\rangle \right\langle \eta\right\|< \eps.
-$$
-Taking into account $\widetilde a \left\rangle \right\langle \widetilde b\in  C_c\left(G\left(\widetilde{\sX}~|~ \mathcal X\right), C_0\left( \widetilde{\sX}\right) \right)$ one concludes that the rank-one operator $\xi \left\rangle \right\langle \eta$ lies in the $C^*$-norm completion of $C_c\left(G\left(\widetilde{\sX}~|~ \mathcal X\right), C_0\left( \widetilde{\sX}\right) \right)$.
-On the other hand from the Definition \ref{comp_aop_defn} it follows that $\K\left(X_{C_0\left( \sX\right) } \right)$ is the $C^*$-norm completion of the algebraical linear span of rank-one operators, so\\ $C_c\left(G\left(\widetilde{\sX}~|~ \mathcal X\right), C_0\left( \widetilde{\sX}\right) \right)$ is dense in $\K\left(X_{C_0\left( \sX\right) } \right)$.
-\end{proof}
-\begin{exercise}\label{top_all_exer}
-Prove that $\left\langle X, X \right\rangle_{C_0\left( \sX\right)}$  is dense in $C_0\left( \sX\right)$, i.e.
-$$\left(C_0\left(\mathcal{X}\right), C_0\left(\widetilde{\sX}\right),G\left(\widetilde{\sX}~|~ \mathcal X\right)\right)$$ allows strong Morita equivalence  (cf. Definition \ref{allows_morita_defn}).  
-\end{exercise}
-%\begin{lemma}
-%In the above situation there is the natural *-isomorphism $\widetilde A\rtimes_cG\cong \widetilde A\rtimes_r G $ where is $\widetilde A\rtimes_cG$ is the \textit{crossed product associated with the covering} $\left(A, \widetilde{A}, G\right)$ (cf. Definition \ref{cross_cov_defn}) and $\widetilde A\rtimes_rG$ is the reduced crossed product (cf.Appendix \ref{discr_cr_prod_sec}).
-%\end{lemma}
-%\begin{proof}
-%Both crossed products $\widetilde A\rtimes_cG$ and $\widetilde A\rtimes_rG$ are completions of \\	$C_c\left(G\left(\widetilde{\sX}~|~ \mathcal X\right), C_0\left( \widetilde{\sX}\right) \right)$ with respect to both norms $\left\|  \cdot \right\|_c$ and $\left\|  \cdot \right\|_r$. The $C^*$-norm $\left\|  \cdot \right\|_c$ comes from the norm of $\K\left(X_{C_0\left( \sX\right) } \right)$, the norm  $\left\|  \cdot \right\|_r$ is the reduced $C^*$-algebra norm (cf. equation \ref{discr_red_n_eqn}). We will prove that $\left\|  \cdot \right\|_c=\left\|  \cdot \right\|_r$.\\
-%Let $\H \bydef \bigoplus_{\widetilde x \in \widetilde\sX}\C$ is a direct sum of Hilbert spaces, and let $\pi_a: C_0\left(\widetilde{\sX}\right)\hookto B\left(\H \right)$ be the atomic representation (cf. Definition \ref{atomic_repr_cor}). Let $\widetilde \H\bydef \ell^2\left(G\left(\widetilde{\sX}~|~ \mathcal X\right), \H\right)$, and let $\widetilde \pi : C_c\left(G\left(\widetilde{\sX}~|~ \mathcal X\right), C_0\left( \widetilde{\sX}\right) \right)\hookto B\left(\widetilde\H \right)$ be given by \eqref{discr_red_repr_eqn} representation, i.e.
-%\be\label{top_discr_red_repr_eqn}
-%\widetilde\pi\left(\delta_{t, \xi} \right) \bydef \delta_{t, \pi_a\left(t^{-1}.a\right) \xi}\quad \la(s)\delta_{st, \xi} \bydef \delta_{t, \xi}, \quad a \in A, \quad t, s \in G, \quad \xi \in \H
-%\ee
-%where $\pi: A \hookto B\left(\H\right)$ is any faithful representation, $\widetilde \H\bydef \ell^2\left(G, \H\right) $ and $\delta_{t, \xi}$ is the map $s \mapsto \delta_{t, s}\xi \in \H$ ($ \delta_{t, s}$ is the Kronecker delta). From $\H \bydef \bigoplus_{\widetilde x \in \widetilde\sX}\C$ it follows that there is the natural orthonormal topological basis $\left\{e_{\widetilde x, g}\right\}_{\left( \widetilde x, g\right) \in \widetilde \sX\times G\left(\widetilde{\sX}~|~ \mathcal X\right)}\subset \widetilde \H$. For all $x\in \sX$ there is a Hilbert subspace $\widetilde \H_x \subset \widetilde \H$ generated by the set
-%$$
-%\left\{\left.e_{\widetilde y, g}\in \left\{e_{\widetilde x, g}\right\}_{\left( \widetilde x, g\right) \in \widetilde \sX\times G\left(\widetilde{\sX}~|~ \mathcal X\right)}\right|\widetilde p\left( \widetilde y\right)=x \right\}
-%$$
-%Since $\left\{e_{\widetilde x, g}\right\}$ is an orthonormal basis one has $\widetilde \H = \bigoplus_{x \in \sX} \widetilde \H_x$. Moreover for any if 	$h_{\widetilde{a}, g}$ is given by \eqref{topo_hm_inc_eqn} then from \eqref{top_discr_red_repr_eqn} it turns out that
-%$$
-%\forall x\in \sX\quad \widetilde \pi\left( h_{\widetilde{a}, g}\right) \widetilde \H_x \subset \widetilde \H_x.
-%$$
-%The algebra $C_c\left(G\left(\widetilde{\sX}~|~ \mathcal X\right), C_0\left( \widetilde{\sX}\right) \right)$  is generated by elements $h_{\widetilde{a}, g}$, so one has
-%$$
-%\forall x\in \sX\quad \widetilde \pi\left(C_c\left(G\left(\widetilde{\sX}~|~ \mathcal X\right), C_0\left( \widetilde{\sX}\right) \right)\right) \widetilde \H_x \subset \widetilde \H_x,
-%$$
-%i.e. the representation $\widetilde\pi$ yields a block-diagonal action of $C_c\left(G\left(\widetilde{\sX}~|~ \mathcal X\right), C_0\left( \widetilde{\sX}\right) \right)$ on the direct sum $\bigoplus_{x \in \sX} \widetilde \H_x$
-% According to the Section \ref{discr_cr_prod_sec} one has
-%$$
-%\forall a \in C_c\left(G\left(\widetilde{\sX}~|~ \mathcal X\right), C_0\left( \widetilde{\sX}\right) \right)\quad \left\|  a \right\|_r =  \left\| \widetilde \pi\left( a\right) \right\|\bydef \sup_{\substack{\xi \in \widetilde \H\\ \left\| \xi \right\|=1}}\left\|  \widetilde \pi\left( a\right)\xi \right\|. 
-%$$
-%Since the representation $\widetilde\pi$ yields a block-diagonal there is $x \in \sX$ such that
-%$$
-%\left\|  a \right\|_r =  \left\| \widetilde \pi\left( a\right) \right\|\bydef \sup_{\substack{\xi \in \widetilde \H_x\\ \left\| \xi \right\|=1}}\left\|  \widetilde \pi\left( a\right)\xi \right\|
-%$$
-%For any $\eps > 0$ there is a finite subset
-%\bean
-%\mathscr A \subset \left\{\left.e_{\widetilde y, g}\in \left\{e_{\widetilde x, g}\right\}_{\left( \widetilde x, g\right) \in \widetilde \sX\times G\left(\widetilde{\sX}~|~ \sX\right)}\right|\widetilde p\left( \widetilde y\right)=x \right\}
-%\eean
-%and 
-%\bean
-%\xi_{\text{fin}} = \sum_{j = 1}^n c_j 
-%\eean
-%\end{proof}
-!!!CONTINUE
+
+
 \subsection{Induced representations}\label{comm_induced_infinite_sec}
 
 \paragraph*{} 
@@ -9990,6 +9839,27 @@ This product yields the structure of pre-Hilbert space on $\Ga_c\left(\widetilde
 \be\label{comm_bundlei_repr_eqn}
 C_0\left(\widetilde M\right) \to B\left( L^2\left(\widetilde  M, \widetilde S\right)\right). 
 \ee 
+
+\begin{lemma}\label{comm_allows_lem}
+	If $\mathfrak{S}_{\left( \mathcal X, x_0\right) } = \left\{\left( \mathcal{X}_\la,x_0^\la\right)  \to \left( \mathcal X, x_0\right) \right\}_{\la \in \La} \in \mathfrak{FinTop}^{\mathrm{pt}}$, \\
+	$\mathfrak{S}_{C_0\left(\mathcal{X}\right) }\left( \mathcal X, x_0\right) =
+	\left( \left\{C_0\left( \mathcal{X}\right) \hookto  C_0\left( \mathcal{X}_\la\right) \right\}, \left\{C_0\left( \mathcal{X}_\mu\right) \hookto  C_0\left( \mathcal{X}_\nu\right) \right\} \right) $ then $\mathfrak{S}^{\mathrm{pt}}_{C_0\left(\mathcal{X}\right) }$ allows inner product (cf. Definition \ref{inf_hilb_prod_defn}). 
+\end{lemma}
+\begin{proof}
+	%	Denote by $G_\la = G\left(\mathcal X_\la~|~\mathcal X \right)$ groups of covering transformations and $\widehat{G} = \varprojlim G_\la$. 
+	Denote by $\overline{p}:\left( \overline{  \mathcal X}, \overline x_0\right)  \to\left(  \mathcal X, x_0\right) $, $\overline{p}_\la:\left( \overline{  \mathcal X}, \overline x_0\right)  \to\left(  \mathcal X_\la, x^\la_0\right) $, $p^\la: \left(  \mathcal X_\la, x^\la_0\right)  \to \left( \mathcal X, x_0\right) $, $p^\mu_\nu:  \left( \mathcal X_\mu, x^\mu_0 \right) \to \left( \mathcal X_\nu, x^\nu_0\right) $ ($\mu > \nu$) the natural pointed coverings.
+	If $\widetilde{\sX}= \varprojlim \mathfrak{S}_{\left(\sX, x_0 \right)}$ then  	from the Theorem \ref{comm_main_thm} it turns out	
+	$$\left(C_0\left(\mathcal{X}\right), C_0\left(\widetilde{\sX}\right),G\left(\widetilde{\sX}~|~ \mathcal X\right)\right)$$ is  the { infinite noncommutative covering} of $\mathfrak{S}_{C_0\left(\mathcal{X}\right)}$ (cf. Definition \ref{main_defn}). 	 	It is shown in \cite{pedersen:mea_c} that the Pedersen's ideal $K\left(C_0\left(\widetilde{\sX} \right)\right) $ of $C_0\left(\widetilde{\sX} \right)$ coincides with $C_c\left(\widetilde{\sX} \right)$. If $\widetilde{a}, \widetilde{b} \in C_c\left(\widetilde{\sX} \right)$ then $\supp \overline{a}$ is compact. 	
+	From the Lemma \ref{top_comp_la_lem} it follows that there is $\la_0 \in \La$ such that for all $\la \ge \la_0$ the restriction $\left.\overline{p}_\la\right|_{\supp \overline{a}}$ is injective. From the Exercise  \ref{comm_lift_desc_sum_exer} it follows that
+	\begin{equation}\nonumber
+		\begin{split}
+			c_{\la} = \sum_{g \in \ker\left(G\left(\left.\widetilde{\sX}~\right|\sX \right)  \to  G\left( \sX_{\la}~|~\sX \right)\right)} g \left(\widetilde{a}^* \widetilde{b}  \right) = \desc_{\overline{p}_\la}\left( \widetilde{a}\widetilde{b}\right) 
+		\end{split}
+	\end{equation}
+	where sum of the series implies the strict topology of $M\left(C_0\left(\widetilde{\sX} \right)  \right)$ (cf. Definition \ref{strict_topology}), and the  notation  $\desc_{\overline{p}_\la}$ means  the descent	(cf. Definition \ref{top_lift_desc_defn}). 
+	From the properties of the descent it turns out that $\desc_{\overline{p}_\la}\left( \widetilde{a}\widetilde{b}\right) \in C_0\left( \sX_{\la}\right)$, i.e. $c_\la \in C_0\left( \sX_{\la}\right)$.  Taking into account the Remark \ref{inf_hilb_prod_low_rem} we conclude that  $c_\la \in C_0\left( \sX_{\la}\right)$ for all $\la \in \La$.
+\end{proof}
+
 
 
 
@@ -14086,10 +13956,7 @@ Suppose that $\left(\overline{   \mathcal X}, \overline{x}_0 \right)$ is its  to
 \begin{theorem}\label{ctr_ctr_main_thm} Consider the situation \ref{ctr_bas_empt} and suppose that the space $\sX$ is second-countable. 	If  $	\mathfrak{S}^{\mathrm{pt}}_A$ is the given by  \eqref{ctr_base_point_eqn} pointed	algebraical  finite covering category and $\left(A, \widetilde A, 	G\left(\left.\widetilde{\sX}~\right| \sX\right)\right)$ the  {infinite noncommutative covering} of $\mathfrak{S}_A^{\mathrm{pt}}$ (cf. Definition \ref{main_defn} and Theorem \ref{ctr_h_main_thm}), then one has: !!! GOOD
 	\begin{enumerate}
 		\item [(i)] 	\be\label{ctr_ctr_main_eqn}
-		\begin{split}
-		\widetilde A \cong	A_0\left(\widetilde \sX \right),\\
-		\left(A, A_0\left(\widetilde \sX \right), 	G\left(\left.\widetilde{\sX}~\right| \sX\right)\right)
-		\end{split}
+		\widetilde A \cong	A_0\left(\widetilde \sX \right)
 		\ee
 		where $A_0\left(\widetilde \sX \right)$ is given by 	the equations \eqref{top_cb_defn_eqn} and/or \eqref{blowing_a0_x_eqn}.
 		\item [(ii)] If  the space $\sX$ is connected, locally path-connected, semilocally 1-connected, and the fundamental group $\pi_1\left(\sX, x_0\right)$ is residually finite (cf. Definition \ref{residually_finite_defn}). If $\pi_1\left(A, \left\{\pi^\nu_\mu\right\}_{\substack{ \mu, \nu \in \La \\ \mu \ge \nu}} \right)$  is the   fundamental group (cf. Definition \ref{fg_bas_defn}) then there is the natural isomorphism
@@ -14209,12 +14076,6 @@ Suppose that $\left(\overline{   \mathcal X}, \overline{x}_0 \right)$ is its  to
 	\end{equation}
 	where notation  $\desc_{\overline{p}_\la}$ means  the descent	(cf. Definition \ref{top_lift_desc_defn}). From the properties of the descent it turns out that $\desc_{\overline{p}_\la}\left( \widetilde{a}\widetilde{b}\right) \in A_0\left( \sX_{\la}\right)$, i.e. $c_\la \in A_0\left( \sX_{\la}\right)$.  Taking into account the Remark \ref{inf_hilb_prod_low_rem} we conclude that  $c_\la \in A_0\left( \sX_{\la}\right)$ for all $\la \in \La$.
 \end{proof}
-\begin{exercise}\label{ctr_all_exer}
-	Similarly to the Lemma \ref{top_all_lem} and the Exercise \ref{top_all_exer}
-	prove that given by the Theorem \eqref{ctr_ctr_main_thm} infinite covering
-	$$	\left(A, A_0\left(\widetilde \sX \right), 	G\left(\left.\widetilde{\sX}~\right| \sX\right)\right)
-	$$  allows strong Morita equivalence  (cf. Definition \ref{allows_morita_defn}).  
-\end{exercise}
 
 \begin{empt}\label{ctr_mu_empt}
 	Denote by  
@@ -25061,9 +24922,9 @@ The \textit{reduced $C^*$-algebra norm} on $C_c(G,A)$ is given by
 \left\|\cdot \right\|_\la  \bydef \sup\left\| \widetilde\pi \times \la(\cdot )\right\|
 \ee
 where the regular representation $\widetilde\pi : C_c(G,A) \to B(\widetilde \H )$ is the representation associated to the covariant representation given by 
-\be\label{discr_red_repr_eqn}
+$$
 \widetilde\pi\left(\delta_{t, \xi} \right) \bydef \delta_{t, \pi\left(t^{-1}.a\right) \xi}\quad \la(s)\delta_{st, \xi} \bydef \delta_{t, \xi}, \quad a \in A, \quad t, s \in G, \quad \xi \in \H
-\ee
+$$
  where $\pi: A \hookto B\left(\H\right)$ is any faithful representation, $\widetilde \H\bydef \ell^2\left(G, \H\right) $ and $\delta_{t, \xi}$ is the map $s \mapsto \delta_{t, s}\xi \in \H$ ($ \delta_{t, s}$ is the Kronecker delta). In this way $\widetilde\pi$ becomes faithful. The reduced $C^*$-algebra norm does not depend on the choice of the faithful representation $\pi$ (cf.  \cite{discrete_crossed}). The \textit{reduced crossed product}, denoted by $A\rtimes_rG$ is the completion of $C_c(G,A)$ with respect to the reduced $C^*$-algebra norm. 
 
 %÷¹(a)?t,? = ?t,¹(t?1.a)?, ?(s)?t,? = ?st,?, a ? A, s, t ? G, ? ? H where ¹ : A ? B(H) is any faithful representation, H = l2(G,H) and?t,? ? H is the map s 7? ?t,s? ? H (?t,s is the Kronecker delta). In thisway ÷¹ ? ? becomes faithful, cf. [61, Lemma 2.26]. The reduced C*-algebranorm does not depend on the choice of the faithful representation ¹, cf. [9,Proposition 4.1.5]The reduced crossed product, denoted A?rG, is the completion of Cc(G,A)with respect to the reduced C*-algebra norm. The inclusion of G into thegroup of unitaries inM(A?rG) allows us to consider ut, t ? G as an unitary element in M(A ?r G), cf. [61, Proposition 2.34].Let (¹, u,H) be a covariant representation of a C*-dynamical system (A,G) with G discrete. Then ¹?u extends to a representation ¹?u of A?Gon H. The map sending (¹, u,H) into ¹ ? u is a one-to-one correspondencebetween covariant representations of (A,G) and representations of A?G, cf.[61, Proposition 2.40].Let us proof a few results to give the reader a better understanding ofsome of the well known results about crossed product C*-algebras.
