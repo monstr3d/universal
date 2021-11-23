@@ -6653,47 +6653,29 @@ yields a presheaf.
 	Let $\sX$ be a locally compact Hausdorff space.
 	Let  $\sF$ be a continuity structure  for  $\sX$ {and the} $\left\{A_x\right\}_{x \in \sX}$, and let $\mathscr C \bydef\mathscr C \left(\sX, \left\{A_x\right\}, \sF \right)$ be the {sheaf of the continuity structure} $\sF$ (cf. Definition \ref{top_cs_sheaf_defn}). From the Lemma \ref{op_cont_con_lem} for any open subset $\sU \subset \sX$ there is the natural action $C_b\left(\sX \right)\times \mathscr C\left(\sU\right) \to \mathscr C \left(\sU\right)$. If $\mathscr  S \subset\mathscr C$ is a subsheaf of $\mathscr C$ then it is possible that $C_b\left(\sX \right) \mathscr S\left(\sU\right)\not\subset   \mathscr S\left(\sU\right)$. However it is possible that there is a subring $R \subset  C_b\left(\sX \right)$ such that $R\mathscr S\left(\sU\right)\subset   \mathscr S\left(\sU\right)$. 
 \end{empt}
+
+
 \begin{definition}\label{top_smooth_sheaf_defn}
 	Let $M$ be a smooth manifold
-	Let  $\sF$ be a continuity structure  for  $M$ {and the} $\left\{A_x\right\}_{x \in M}$, and let $\mathscr C \bydef\mathscr C \left(M, \left\{A_x\right\}, \sF \right)$ be the {sheaf of the continuity structure} $\sF$ (cf. Definition \ref{top_cs_sheaf_defn}). Let $\sU\subset M$ be an open subset, and let $\Coo\left(M \right)\times \mathscr C\left(\sU\right) \to \mathscr C \left(\sU\right)$ be the action induced by the action $C_b\left(M \right)\times \mathscr C\left(\sU\right) \to \mathscr C \left(\sU\right)$.  A subsheaf $\mathscr  S \subset\mathscr C$ is said to be \textit{smooth} if for all open $\sU \subset M$ following conditions hold:
-	\be\label{top_smooth_sheaf_eqn}
-	\begin{split}
-	\Coo\left(M \right)\mathscr S\left(\sU\right)\subset   \mathscr S\left(\sU\right),\\
-\forall f \in C \left(\sU\right)\setminus \Coo \left(\sU\right)\quad f\mathscr S\left(\sU\right)\not\subset   \mathscr S\left(\sU\right).
-	\end{split}
-	\ee
-
+	Let  $\sF$ be a continuity structure  for  $M$ {and the} $\left\{A_x\right\}_{x \in M}$, and let $\mathscr C \bydef\mathscr C \left(M, \left\{A_x\right\}, \sF \right)$ be the {sheaf of the continuity structure} $\sF$ (cf. Definition \ref{top_cs_sheaf_defn}). Let $\sU\subset M$ be an open subset, and let $\Coo\left(M \right)\times \mathscr C\left(\sU\right) \to \mathscr C \left(\sU\right)$ be the action induced by the action $C_b\left(M \right)\times \mathscr C\left(\sU\right) \to \mathscr C \left(\sU\right)$.  A subsheaf $\mathscr  S \subset\mathscr C$ is said to be \textit{smooth} if $\Coo\left(M \right)\mathscr S\left(\sU\right)\subset   \mathscr S\left(\sU\right)$ for all open $\sU \subset M$.
 \end{definition}
-
 \begin{lemma}\label{top_s_smooth_lem}
-A	subsheaf $\mathscr  S \subset\mathscr C$ is  {smooth} if and only if for any $x \in M$ there is a basis of open neighborhoods $\left\{\sU_\a\right\}$ of $x$ such that 
-	\bean
-	\Coo\left(M \right)\mathscr S\left(\sU_\a\right)\subset   \mathscr S\left(\sU_\a\right),\\
-\forall f \in C \left(\sU_\a\right)\setminus \Coo \left(\sU_\a\right)\quad f\mathscr S\left(\sU_\a\right)\not\subset   \mathscr S\left(\sU_\a\right).
-	\eean
+	subsheaf $\mathscr  S \subset\mathscr C$ is  {smooth} if and only if for any $x \in M$ there is a basis of open neighborhoods $\left\{\sU_\a\right\}$ of $x$ such that $\Coo\left(M \right)\mathscr S\left(\sU_\a\right)\subset   \mathscr S\left(\sU_\a\right)$.
 \end{lemma}
 \begin{proof}
-	If the   subsheaf $\mathscr  S \subset\mathscr C$ is  {smooth} then for any $x \in M$ there is a basis of open neighborhoods $\left\{\sU_\a\right\}$ of $x$ which satisfy to the condition \eqref{top_smooth_sheaf_eqn}. Conversely let $\sU \subset M$ be an open subset. For any $x\in \sU$ we select an open neighborhood $\sU_x \in \left\{\sU_\a\right\}$ such that $\sU_x\subset \sU$, so one has $\sU = \cup_{x \in \sU}\sU_x$. From the Definition \ref{sheaf_defn} it follows that any section $s \in \mathscr S\left(\sU\right)$ is uniquely defined by its restrictions $\left.s\right|_{\sU_x}$ such that $$
+	If the   subsheaf $\mathscr  S \subset\mathscr C$ is  {smooth} then for any $x \in M$ there is a basis of open neighborhoods $\left\{\sU_\a\right\}$ of $x$ such that $\Coo\left(M \right)\mathscr S\left(\sU_\a\right)\subset   \mathscr S\left(\sU_\a\right)$. Conversely let $\sU \subset M$ be an open subset. For any $x\in \sU$ we select an open neighborhood $\sU_x \in \left\{\sU_\a\right\}$ such that $\sU_x\subset \sU$, so one has $\sU = \cup_{x \in \sU}\sU_x$. From the Definition \ref{sheaf_defn} it follows that any section $s \in \mathscr S\left(\sU\right)$ is uniquely defined by its restrictions $\left.s\right|_{\sU_x}$ such that $$
 	\left.\left.s\right|_{\sU_{x'}}\right|_{\sU_{x'}\cap ~\sU_{x''}}=\left.\left.s\right|_{\sU_{x''}}\right|_{\sU_{x'}\cap ~\sU_{x''}}.
 	$$
 	If  $f\in \Coo\left(M \right)$ then $ \left.fs\right|_{\sU_x} \in \mathscr S\left(\sU_x\right)$ and 
 	$$
 	\left.\left.fs\right|_{\sU_{x'}}\right|_{\sU_{x'}\cap ~\sU_{x''}}=\left.\left.fs\right|_{\sU_{x''}}\right|_{\sU_{x'}\cap ~\sU_{x''}}.
 	$$
-	so from the Definition \ref{sheaf_defn} it follows that 
-	\be\label{top_fs_eqn}
-fs \in \mathscr S\left(\sU\right)
-	\ee
-	If there is $\sU_\a$ such that 
-	$$
-	f \in C \left(\sU_\a\right)\setminus \Coo \left(\sU_\a\right)\quad f\mathscr S\left(\sU_\a\right)\subset   \mathscr S\left(\sU_\a\right)
-	$$
-	if  $\mathscr  S$ is not smooth then 
-	$$
-\exists f \in C \left(\sU_\a\right)\setminus \Coo \left(\sU_\a\right)\quad f\mathscr S\left(\sU_\a\right)\not\subset   \mathscr S\left(\sU_\a\right)
-$$
-!!!CORRECT
+	so from the Definition \ref{sheaf_defn} it follows that $fs \in \mathscr S\left(\sU\right)$,
+	i.e. $\mathscr S$ is smooth.
 \end{proof}
+
+
+
 \begin{example}\label{top_spinor_smooth_exm}
 	Consider the Example \ref{top_cont_as_sheaf_exm}. Suppose that $\sX =  M$ is a Riemannian manifold, and $\sS$ is a spinor bundle (cf. Section \ref{spin_mani_sec}). There is a $\Coo\left( M\right)$  submodule $	\Ga^\infty\left(M, \sS \right)\subset 	\Ga\left(M, \sS \right)$ of smooth sections (cf. Definition \ref{top_smooth_m_defn}), which induced the smooth subsheaf $\mathscr C^\infty\left(M, \sS \right)  \subset \mathscr C \left(M, \left\{\SS_x\right\}, \Ga\left(\sX, \sS \right)\right)$.
 \end{example}

@@ -79,7 +79,7 @@ namespace Scripts.Level
             //        if ((Math.Abs(fx()) < double.Epsilon) & (Math.Abs(fy()) < double.Epsilon)
             //             & (Math.Abs(fz()) < double.Epsilon))
             //         {
-            if (VelocityLimit(0.0001))
+            if (VelocityLimit(0.0005))
             {
 
                 Debug.Log("YEvent");
