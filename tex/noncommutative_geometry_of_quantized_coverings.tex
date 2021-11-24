@@ -4797,7 +4797,7 @@ Sometimes instead of \eqref{top_cfs_eqn} we use the following notation for a fin
 where $\mathscr A$ is a finite set.
 \end{remark}
 \begin{definition}\label{top_cfs_sub_defn}
-Let $p:\widetilde\sX \to \sX$ be a covering. Let both $\sY\subset\sX$ and $\widetilde\sY\subset\widetilde\sX$ are compact subsets. A covering sum $\sum_{j = 1}^n f_j$ for $\sY$ is said to be \textit{subordinated to} $p$ if for all $j=1,..., n$ the set $\left\{\left.x\in\sX\right|f_j\left( x\right)>  0 \right\}$ is evenly covered by $p$ (cf. Definition \ref{comm_cov_pr_defn}). A covering sum $\sum_{j = 1}^n \widetilde f_j$ for $\widetilde \sY$ is said to be \textit{subordinated to} $p$ if for all $j=1,..., n$ the set $\widetilde\sU_j\bydef \left\{\left.\widetilde x\in\widetilde\sX\right|\widetilde f_j\left(\widetilde x\right)>  0 \right\}$ is homeomorphically mapped onto $p\left(\widetilde\sU_j\right)$. 
+Let $p:\widetilde\sX \to \sX$ be a covering. Let both $\sY\subset\sX$ and $\widetilde\sY\subset\widetilde\sX$ are compact subsets. A covering sum $\sum_{j = 1}^n f_j$ for $\sY$ (cf. Definition \ref{top_cfs_defn}) is said to be \textit{subordinated to} $p$ if for all $j=1,..., n$ the set $\left\{\left.x\in\sX\right|f_j\left( x\right)>  0 \right\}$ is evenly covered by $p$ (cf. Definition \ref{comm_cov_pr_defn}). A covering sum $\sum_{j = 1}^n \widetilde f_j$ for $\widetilde \sY$ is said to be \textit{subordinated to} $p$ if for all $j=1,..., n$ the set $\widetilde\sU_j\bydef \left\{\left.\widetilde x\in\widetilde\sX\right|\widetilde f_j\left(\widetilde x\right)>  0 \right\}$ is homeomorphically mapped onto $p\left(\widetilde\sU_j\right)$. 
 \end{definition}
 
 \begin{remark}\label{top_smooth_part_unity_rem}
@@ -6859,29 +6859,48 @@ $$
 	where $\widetilde a_j \bydef  \widetilde f_{j} \widetilde a 	$ for every $j=1,...,m$. If $\widetilde a$ is positive then $\widetilde a_j$ is positive for each $j=1,...,m$. 
 \end{proof}
 	\begin{empt}
-	Let $\sX$ be a locally compact, Hausdorff space; and for each $x$ in $\sX$, let $A_x$ be a (complex) Banach space. Let us consider a continuity structure $\sF$ for $\sX$. If $p: \widetilde \sX \to \sX$ is a covering then $C_c\left(\widetilde \sX\right)$ is a  $C_0\left( \sX\right)$-module. There is the map
-	\be\label{top_tensor_lccompact_iso_eqn}
-	\begin{split}
-		\phi: C_c\left(\widetilde \sX\right)\otimes_{C_0\left( \sX\right)}C\left(\sX, 
-		\left\{A_x\right\}, \sF \right) \to C_c\left( \lift_p\left[C\left(\sX, 
-		\left\{A_x\right\}, \sF \right)\right]\right) ;\\
-		\sum_{j=1}^n \widetilde a_j \otimes \xi_j\mapsto  \widetilde a_j \lift_p\left(\xi_j\right)
-	\end{split}
-	\ee
-	The map $\phi$ can be described by the following way. If for all $j = 1,...,n$  and $\xi_j$ is represented by the family  $\left\{\xi_{j x}\right\}_{ x\in  \sX}$ respectively then $\phi\left( \sum_{j=1}^n \widetilde a_j \otimes \xi_j\mapsto  \widetilde a_j \lift_p\left(\xi_j\right)\right)$ is represented by the family
+	Let $\sX$ be a locally compact, Hausdorff space; and for each $x$ in $\sX$, let $A_x$ be a (complex) Banach space. Let us consider a continuity structure $\sF$ for $\sX$. If $p: \widetilde \sX \to \sX$ is a covering then $C_c\left(\widetilde \sX\right)$ is a  $C_0\left( \sX\right)$-module.  Let $\widetilde f \in C_c\left( \widetilde \sX\right)$ and let 
+	$\sum_{j=1}^n \widetilde f_j$ be a subordinated to  $p$ covering sum for $\supp\widetilde f$ (cf. Definitions \ref{top_cfs_defn} and \ref{top_cfs_sub_defn}). Without loss of generality  one can suppose that for all $j=1,...,n$ there is an open subset $\widetilde \sU$ such that $ \widetilde f_j\subset  \widetilde \sU_j$ and $ \widetilde \sU_j$ is homeomorphically mapped onto $p\left( \widetilde \sU_j \right)$. If $\xi \in C_c\left( \lift_p\left[C\left(\sX, 
+	\left\{A_x\right\}, \sF \right)\right]\right)$ the we define
+$$
+\widetilde \xi = \sum_{j=1}^n \widetilde f\sqrt{\widetilde f_j} \lift^p_{\widetilde{\sU}}\left(\desc_p\left( \sqrt{\widetilde f_j}\right) \xi \right) 
+$$ 
+where $\lift^p_{\widetilde{\sU}}$ and $\desc_p$ are given by the Definition \ref{top_lift_desc_defn}. Since $\sum_{j=1}^n  \widetilde f_j\left( \widetilde x\right)=1$  for every $\widetilde x\in  \supp \widetilde f$ element $\widetilde \xi$ is represented by a family 
 	\be\label{top_tensor_lcfam_eqn}
-	\left\{\sum_{j=1}^n \widetilde a_{j}\left(\widetilde x \right)  c^{-1}_{\widetilde x}\left( \xi_{j x}\right)  \right\}_{{\widetilde x}\in {\widetilde \sX}}\quad  \text{ where } c_{\widetilde x}\text{ is given by } \eqref{top_ct_iso_eqn}.
-	\ee
+\left\{ \widetilde f\left(\widetilde x \right)  c^{-1}_{\widetilde x}\left( \xi_{p\left( \widetilde x\right) }\right)  \right\}_{{\widetilde x}\in {\widetilde \sX}}\quad  \text{ where } c_{\widetilde x}\text{ is given by } \eqref{top_ct_iso_eqn}.
+\ee
+From \eqref{top_tensor_lcfam_eqn} it follows that uniquely depends on the pair $\left(\widetilde f, \xi \right) \in C_c\left(\widetilde \sX\right)\times C\left(\sX, 
+\left\{A_x\right\}, \sF \right)$, so one has a bilinear map
+\bean
+\varphi: C_c\left(\widetilde \sX\right)\times C\left(\sX, 
+\left\{A_x\right\}, \sF \right)\to C_c\left( \lift_p\left[C\left(\sX, 
+\left\{A_x\right\}, \sF \right)\right]\right) ,\\
+\left(\widetilde f, \xi \right)\mapsto \widetilde\xi.
+\eean
+The reader can easily state that $\varphi\left( \widetilde ff, \xi\right) = \varphi\left( \widetilde f, f\xi\right)$ for all $f\in C_0\left( \sX\right)$ it turns out that $\varphi$ yields the map 
+	\be\label{top_tensor_lccompact_iso_eqn}
+\begin{split}
+	\phi: C_c\left(\widetilde \sX\right)\otimes_{C_0\left( \sX\right)}C\left(\sX, 
+	\left\{A_x\right\}, \sF \right) \to C_c\left( \lift_p\left[C\left(\sX, 
+	\left\{A_x\right\}, \sF \right)\right]\right). \end{split}
+\ee
 \end{empt}
-!!! CORRECT
-\begin{exercise}\label{top_tensor_lccompact_iso_exer}
-	Prove that the given by \eqref{top_tensor_lccompact_iso_eqn} is an isomorphism of $C_c\left(\widetilde \sX\right)$-modules.
-\end{exercise}
 \begin{lemma}\label{top_tensor_lcompact_lem}
 	The given by \eqref{top_tensor_lccompact_iso_eqn} map $\phi$ is the isomorphism of left $C_0\left(\widetilde \sX\right)$-modules.
 \end{lemma}
 \begin{proof}  
-	
+Let $\sum_{k =1}^m \widetilde f_k \otimes \xi_k$ be any element in  $C_c\left(\widetilde \sX\right)\otimes_{C_0\left( \sX\right)}C\left(\sX, 
+\left\{A_x\right\}, \sF \right)$. The finite union $\widetilde \sY \bydef \cup_{k=1}^m \supp \widetilde f_k$ of compact sets is compact. Let 
+$\sum_{j=1}^n \widetilde f_j$ be a subordinated to  $p$ covering sum for $\widetilde \sY$ (cf. Definitions \ref{top_cfs_defn} and \ref{top_cfs_sub_defn}). Using the equation \eqref{top_tensor_lcfam_eqn} one can prove
+\bean
+\phi\left(\sum_{k =1}^m \widetilde f_k \otimes \xi_k \right) 
+\eean 
+!!! CONTINUE
+
+So there is $\widetilde g \in C_c\left(\widetilde \sX\right)$ such that $\widetilde g\left( \widetilde\sY\right)  = \{1\}$
+
+
+
 For all $\widetilde a \in C_0\left(\widetilde\sX\right)$ one has
 \bean
 \phi\left(\widetilde a  \sum_{j=1}^n \widetilde a_j \otimes \xi_j \right)= \phi\left( \sum_{j=1}^n\widetilde a  \widetilde a_j \otimes \xi_j \right)=\\= \sum_{j=1}^n\widetilde a  \widetilde a_j \otimes \lift_p\left(\xi_j\right)= \widetilde a\left( \sum_{j=1}^n  \widetilde a_j \otimes \lift_p\left(\xi_j\right)\right) =\widetilde a\phi\left(  \sum_{j=1}^n \widetilde a_j \otimes \xi_j \right),
