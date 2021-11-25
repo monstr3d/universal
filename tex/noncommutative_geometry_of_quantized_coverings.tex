@@ -6860,16 +6860,17 @@ $$
 \end{proof}
 	\begin{empt}
 	Let $\sX$ be a locally compact, Hausdorff space; and for each $x$ in $\sX$, let $A_x$ be a (complex) Banach space. Let us consider a continuity structure $\sF$ for $\sX$. If $p: \widetilde \sX \to \sX$ is a covering then $C_c\left(\widetilde \sX\right)$ is a  $C_0\left( \sX\right)$-module.  Let $\widetilde f \in C_c\left( \widetilde \sX\right)$ and let 
-	$\sum_{j=1}^n \widetilde a_j$ be a subordinated to  $p$ covering sum for $\supp\widetilde f$ (cf. Definitions \ref{top_cfs_defn} and \ref{top_cfs_sub_defn}). Without loss of generality  one can suppose that for all $j=1,...,n$ there is an open subset $\widetilde \sU$ such that $ \widetilde a_j\subset  \widetilde \sU_j$ and $ \widetilde \sU_j$ is homeomorphically mapped onto $p\left( \widetilde \sU_j \right)$. If $\xi \in C_c\left( \lift_p\left[C\left(\sX, 
+	$\sum_{l=1}^m \widetilde a_j$ be a subordinated to  $p$ covering sum for $\supp\widetilde f$ (cf. Definitions \ref{top_cfs_defn} and \ref{top_cfs_sub_defn}). Without loss of generality  one can suppose that for all $l=1,...,m$ there is an open subset $\widetilde \sU_l$ such that $ \supp \widetilde a_l\subset  \widetilde \sU_l$ and $ \widetilde \sU_l$ is homeomorphically mapped onto $p\left( \widetilde \sU_l \right)$. If $\xi \in C_c\left( \lift_p\left[C\left(\sX, 
 	\left\{A_x\right\}, \sF \right)\right]\right)$ the we define
-$$
-\widetilde \xi = \sum_{j=1}^n \widetilde f\sqrt{\widetilde a_j} \lift^p_{\widetilde{\sU}}\left(\desc_p\left( \sqrt{\widetilde a_j}\right) \xi \right) 
-$$ 
-where $\lift^p_{\widetilde{\sU}}$ and $\desc_p$ are given by the Definition \ref{top_lift_desc_defn}. Since $\sum_{j=1}^n  \widetilde a_j\left( \widetilde x\right)=1$  for every $\widetilde x\in  \supp \widetilde f$ element $\widetilde \xi$ is represented by a family 
+\be\label{top_xi_eqn}
+\widetilde \xi \bydef \sum_{l=1}^m \widetilde f\sqrt{\widetilde a_l} \lift^p_{\widetilde{\sU}_l}\left(\desc_p\left( \sqrt{\widetilde a_l}\right) \xi \right) 
+\ee
+where $\lift^p_{\widetilde{\sU}}$ and $\desc_p$ are given by the Definition \ref{top_lift_desc_defn}. Element $\widetilde \xi$ is represented by a family 
 	\be\label{top_tensor_lcfam_eqn}
 \left\{ \widetilde f\left(\widetilde x \right)  c^{-1}_{\widetilde x}\left( \xi_{p\left( \widetilde x\right) }\right)  \right\}_{{\widetilde x}\in {\widetilde \sX}}\quad  \text{ where } c_{\widetilde x}\text{ is given by } \eqref{top_ct_iso_eqn}.
 \ee
-From \eqref{top_tensor_lcfam_eqn} it follows that uniquely depends on the pair $\left(\widetilde f, \xi \right) \in C_c\left(\widetilde \sX\right)\times C\left(\sX, 
+because $\sum_{j=1}^n  \widetilde a_j\left( \widetilde x\right)=1$  for every $\widetilde x\in  \supp \widetilde f$. 
+From \eqref{top_tensor_lcfam_eqn} it follows that $\widetilde\xi$ uniquely depends on the pair $\left(\widetilde f, \xi \right) \in C_c\left(\widetilde \sX\right)\times C\left(\sX, 
 \left\{A_x\right\}, \sF \right)$, so one has a bilinear map
 \bean
 \varphi: C_c\left(\widetilde \sX\right)\times C\left(\sX, 
@@ -6889,13 +6890,23 @@ The reader can easily state that $\varphi\left( \widetilde ff, \xi\right) = \var
 	The given by \eqref{top_tensor_lccompact_iso_eqn} map $\phi$ is the isomorphism of left $C_0\left(\widetilde \sX\right)$-modules.
 \end{lemma}
 \begin{proof}  
-Let $\sum_{k =1}^m \widetilde f_k \otimes \xi_k$ be any element in  $C_c\left(\widetilde \sX\right)\otimes_{C_0\left( \sX\right)}C\left(\sX, 
-\left\{A_x\right\}, \sF \right)$. The finite union $\widetilde \sY \bydef \cup_{k=1}^m \supp \widetilde f_k$ of compact sets is compact. Let 
-$\sum_{j=1}^n \widetilde a_j$ be a subordinated to  $p$ covering sum for $\widetilde \sY$ (cf. Definitions \ref{top_cfs_defn} and \ref{top_cfs_sub_defn}). Without loss of generality  one can suppose that for all $l=1,...,m$ there is an open subset $\widetilde \sU_l \subset \widetilde\sX$ such that $\supp \widetilde a_l\subset  \widetilde \sU_l$ and $ \widetilde \sU_l$ is homeomorphically mapped onto $p\left( \widetilde \sU_j \right)$. 
-
-
-
-From the above equation it turns out that
+If $\left(\widetilde f, \xi \right) \in C_c\left(\widetilde \sX\right)\times C\left(\sX, 
+\left\{A_x\right\}, \sF \right)$ then from \eqref{top_xi_eqn} it follows that
+$$
+\varphi\left(\widetilde f, \xi \right)  = \phi\left(\widetilde f\otimes \xi \right)= \sum_{l=1}^m \widetilde f\sqrt{\widetilde a_l} \lift^p_{\widetilde{\sU}_l}\left(\desc_p\left( \sqrt{\widetilde a_l}\right) \xi \right)  
+$$
+If $\widetilde a \in C_0\left(\widetilde \sX\right)$ then from the above equation it turns out that
+\bean
+\phi\left(\widetilde a\left( \widetilde f\otimes \xi \right) \right)= \sum_{l=1}^m \widetilde a\widetilde f\sqrt{\widetilde a_l} \lift^p_{\widetilde{\sU}_l}\left(\desc_p\left( \sqrt{\widetilde a_l}\right) \xi \right)=\\
+  =\widetilde a \sum_{l=1}^m \widetilde f\sqrt{\widetilde a_l} \lift^p_{\widetilde{\sU}_l}\left(\desc_p\left( \sqrt{\widetilde a_l}\right) \xi \right)= \widetilde a\phi\left( \widetilde f\otimes \xi \right),
+ \eean
+i.e. $\phi$ is a homomorphism of left $C_0\left(\widetilde \sX\right)$-modules because \\ $C_c\left(\widetilde \sX\right)\otimes_{C_0\left( \sX\right)}C\left(\sX, 
+\left\{A_x\right\}, \sF \right)$ is a generated by elements $\widetilde f\otimes \xi$ Abelian group.\\ 
+Let $\sum_{j =1}^n \widetilde f_j \otimes \xi_j$ be any element in  $C_c\left(\widetilde \sX\right)\otimes_{C_0\left( \sX\right)}C\left(\sX, 
+\left\{A_x\right\}, \sF \right)$. 
+The finite union $\widetilde \sY \bydef \cup_{j=1}^n \supp \widetilde f_j$ of compact sets is compact. Let 
+$\sum_{l=1}^m \widetilde a_m$ be a subordinated to  $p$ covering sum for $\widetilde \sY$ (cf. Definitions \ref{top_cfs_defn} and \ref{top_cfs_sub_defn}). Without loss of generality  one can suppose that for all $l=1,...,m$ there is an open subset $\widetilde \sU_l \subset \widetilde\sX$ such that $\supp \widetilde a_l\subset  \widetilde \sU_l$ and $ \widetilde \sU_l$ is homeomorphically mapped onto $p\left( \widetilde \sU_l \right)$. 
+From the  equation \eqref{top_xi_eqn} it turns out that
 	\be\label{top_tensore_lcfam_eqn}
 	\begin{split}
 		\sum_{j=1}^n \widetilde f_j \otimes \xi_j= \sum_{l=1}^m \sum_{j=1}^n \widetilde{e}_{l}\widetilde{e}_{l}\widetilde f_j \otimes \xi_j= \sum_{l=1}^m\sum_{j=1}^n \widetilde{e}_{l} \desc_p\left(\widetilde e_j \right)\widetilde f_j \otimes \xi_j = \\
@@ -6907,13 +6918,13 @@ From the above equation it turns out that
 	\be\label{top_t_eqn}
 	\sum_{l=1}^m\sum_{j=1}^n \widetilde{e}_{l}\left(\widetilde x \right)\widetilde f_{j}\left(\widetilde x \right)  c^{-1}_{\widetilde x}\left( \xi_{j p\left(\widetilde x \right) }\right)=0 \quad \widetilde x \in \widetilde\sX.
 	\ee  
-	Since $\widetilde{e}_{l}\left(\widetilde x \right)\in \R$ and $\widetilde{e}_{l}\left(\widetilde x \right)\ge 0$ from \eqref{top_t_eqn} it follows that $\sum_{j=1}^n\widetilde{e}_{l}\left(\widetilde x \right)\widetilde f_{j}\left(\widetilde x \right)  c^{-1}_{\widetilde x}\left( \xi_{j p\left(\widetilde x \right) }\right)=0$ for all $l = 1, ..., m$ and $\widetilde x \in \widetilde\sX$. 
-On the other hand family $\left\{\sum_{j=1}^n\widetilde{e}_{l}\left(\widetilde x \right)\widetilde f_{j}\left(\widetilde x \right)  c^{-1}_{\widetilde x}\left( \xi_{j p\left(\widetilde x \right) }\right)\right\}$ corresponds to
+	Since $\widetilde{e}_{l}\left(\widetilde x \right)\in \R$ and $\widetilde{e}_{l}\left(\widetilde x \right)\ge 0$ from \eqref{top_t_eqn} it follows that $\widetilde{e}_{l}\left(\widetilde x \right)\sum_{j=1}^n\widetilde f_{j}\left(\widetilde x \right)  c^{-1}_{\widetilde x}\left( \xi_{j p\left(\widetilde x \right) }\right)=0$ for all $l = 1, ..., m$ and $\widetilde x \in \widetilde\sX$. 
+On the other hand family $\left\{\widetilde{e}_{l}\left(\widetilde x \right)\sum_{j=1}^n\widetilde f_{j}\left(\widetilde x \right)  c^{-1}_{\widetilde x}\left( \xi_{j p\left(\widetilde x \right) }\right)\right\}$ corresponds to
 $
 \lift^p_{\widetilde \sU_j}\left(  \desc_p\left( \widetilde{e}_{l}\sum_{j=1}^n\widetilde f_{j}\right) \xi_j\right), 
 $ so one has $\lift^p_{\widetilde \sU_j}\left(  \desc_p\left( \widetilde{e}_{l}\sum_{j=1}^n\widetilde f_{j}\right) \xi_j\right)=0$. Since $\lift^p_{\widetilde \sU_j}$ is an isomorphism one concludes that $$\desc_p\left( \widetilde{e}_{l}\sum_{j=1}^n\widetilde f_{j}\right)\xi_j=0.
 $$
-Substitution of the above equation into the right part of \eqref{top_t_eqn} yields the following 
+Substitution of the above equation into the right part of \eqref{top_tensore_lcfam_eqn} yields the following 
 $
 	\sum_{j=1}^n \widetilde f_j \otimes \xi_j=0
 $.
