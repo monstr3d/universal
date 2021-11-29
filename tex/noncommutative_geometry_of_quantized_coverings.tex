@@ -2868,11 +2868,16 @@ A subalgebra $\widetilde A'\subset C^*_e\left(\widetilde{B}\right) $ is said to 
 
 \begin{definition}\label{fin_oa_defn}
 	Consider the described in \ref{fin_oa_empt}. We say that  the triple $\left(A, \widetilde{A}, G \right)$ and/or the quadruple $\left(A, \widetilde{A}, G, \pi \right)$ and/or *-homomorphism $\pi: A \hookto \widetilde{A}$   is a \textit{noncommutative finite-fold covering of operator algebras} if an algebra $\widetilde{A}$ is a maximal among admissible algebras.
-	
 \end{definition}
 \begin{remark}
-	In the Definition \ref{fin_oa_defn} a maximal algebra should not be unique.
+			Any union of a simply ordered by inclusion  set of accessible algebras  is accessible.
+	From the Zorn's lemma (cf. \ref{zorn_thm}) it follows that  there are  maximal  accessible algebras. So the set of all maximal algebras from the 
+	 Definition \ref{fin_oa_defn} should not be always a singleton.
 \end{remark}
+\begin{remark}\label{ce_b_not_rem}
+	In the situation \ref{fin_oa_empt} we sometimes  write $C^*_e\left(\widetilde{A}\right)$ instead of $C^*_e\left(\widetilde{B}\right)$.
+\end{remark}
+
 
 
 \section{Coverings of spectral triples}\label{triple_fin_cov}
@@ -4197,11 +4202,11 @@ it turns out that  $\widetilde X'\cong\C\widetilde X$.
 %The set of are  maximal  {subordinated to}  $\mathfrak{S}^{\text{pt}}$ algebras should not be a singleton, thus an operator algebra  $\widetilde A$ in the Definition \ref{inf_cov_oa_defn} should not be unique.
 %\end{remark}
  \begin{empt}\label{inf_cov_oa_empt}
-	Similarly to \ref{comp_op_pt_empt} consider a category 
+Consider a category 
 	\be\label{inf_cov_oae_eqn}
 	\mathfrak{S}^{\text{pt}} = \left(\left\{\pi_\la: A \hookto A_\la \right\}_{\la \in \La}, \left\{\pi^\mu_\nu: A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\ \nu > \mu}}\right)
 	\ee
-	of noncommutative finite-fold coverings of operator algebras (cf. Definition \ref{fin_oa_defn} !!! CHECK). Suppose that 
+	of noncommutative finite-fold coverings of operator algebras (cf. Definition \ref{fin_oa_defn}). Let us use the given by the Remark \ref{ce_b_not_rem} notation. Suppose that 
 	\be\label{inf_cov_oa_eqn}
 	\begin{split}
 		C^*_e\left( \mathfrak{S}^{\text{pt}}\right) \bydef\\\bydef \left(\left\{	C^*_e\left(\pi_\la\right) : 	C^*_e\left(A\right)  \hookto 	C^*_e\left(A_\la\right)  \right\}_{\substack{\la \in \La\\ ~}},\right.\\\left. \left\{	C^*_e\left(\pi^\mu_\nu\right) : 	C^*_e\left(A_\mu\right)  \hookto 	C^*_e\left(A_\nu\right) \right\}_{\substack{\mu, \nu \in \La\\ \nu > \mu}}\right)
@@ -4212,10 +4217,10 @@ it turns out that  $\widetilde X'\cong\C\widetilde X$.
 	\left(C^*_e\left(A\right), \widetilde B, G \right)
 	$
 	be the inverse noncommutative limit of $	C^*_e\left( \mathfrak{S}^{\text{pt}}\right)$ (cf. Definition \ref{main_defn}).
-	For any $G$-invariant subalgebra $ \widetilde A'\subset  \widetilde B$ denote by
-	\be\label{inf_cov_oam_eqn}
-	M\left(\widetilde A'\right) \bydef \left\{\left.\widetilde a \in M\left( \widetilde B \right)  \right| \widetilde a\widetilde A'\subset \widetilde A' \text{ AND }\widetilde A'\widetilde a\subset \widetilde A'\right\}.
-	\ee
+%	For any $G$-invariant subalgebra $ \widetilde A'\subset  \widetilde B$ denote by
+%	\be\label{inf_cov_oam_eqn}
+%	M\left(\widetilde A'\right) \bydef \left\{\left.\widetilde a \in M\left( \widetilde B \right)  \right| \widetilde a\widetilde A'\subset \widetilde A' \text{ AND }\widetilde A'\widetilde a\subset \widetilde A'\right\}.
+%	\ee
 	%	If $\varinjlim C^*_e\left(A_\la\right)$ is an algebraic direct limit then there is a dense inclusion $\varinjlim C^*_e\left(A_\la\right)\hookto C^*$-$\varinjlim C^*_e\left(A_\la\right)$. So there is an inclusion $\iota: \varinjlim C^*_e\left(A_\la\right)\hookto M\left( \widetilde B \right)$.
 \end{empt}	
 \begin{definition}\label{inf_cov_oa_sub_defn}	
@@ -4225,25 +4230,24 @@ it turns out that  $\widetilde X'\cong\C\widetilde X$.
 	\begin{split}
 		A_\la \widetilde A'\subset \widetilde A',\\
 		\widetilde A'A_\la\subset \widetilde A',\\
-		\left(K\left(\widetilde B \right) \cap \widetilde A'\right) a_\la \not\subset \widetilde A';\quad
-		a_\la\left(K\left(\widetilde B \right) \cap \widetilde A'\right) \not\subset \widetilde A' \quad  \forall a_\la \in C^*_e\left( A_\la\right) \setminus A_\la.
-	\end{split}
+		\forall \widetilde b \in K\left(\widetilde B \right)
+		\quad \forall \widetilde a \in \widetilde A'\quad \exists  \widetilde a', \widetilde a'' \in \bigcup_{\la\in\La} A_\la\quad \widetilde b \widetilde a = \widetilde b \widetilde a', \quad \widetilde a \widetilde b = \widetilde a'' \widetilde b.
+		\end{split}
 	\ee
 	where $K\left(\widetilde B \right)$ is the Pedersen's ideal of $\widetilde B$ (cf. Definition \ref{peder_id_defn}).
 \end{definition}
-\begin{remark}
-	Any union of linearly ordered by inclusion  set of { subordinated to}  $\mathfrak{S}^{\text{pt}}$ algebras is a { subordinated to}  $\mathfrak{S}^{\text{pt}}$ algebra.
-	From the Zorn's lemma (cf. \ref{zorn_thm}) it follows that  there are  maximal  {subordinated to}  $\mathfrak{S}^{\text{pt}}$ algebras. \end{remark}	 
 
 
 \begin{definition}\label{inf_cov_oa_defn}
-	If $\widetilde A$ is a    maximal  {subordinated to}  $\mathfrak{S}^{\text{pt}}$ algebra $\widetilde A$
+	If $\widetilde A$ is a    maximal  {subordinated to}  $\mathfrak{S}^{\text{pt}}$ algebra then we say that the triple
 	$
-	\left(A,  \widetilde A, G \right)$ is the the \textit{inverse noncommutative limit} or \textit{infinite noncommutative covering}  of $\mathfrak{S}^{\text{pt}}$.
+	\left(A,  \widetilde A, G \right)$ is the  \textit{inverse noncommutative limit} or \textit{infinite noncommutative covering}  of $\mathfrak{S}^{\text{pt}}$.   !!! ADD COMMUTATIVE
 \end{definition}
 
 \begin{remark}
-	The set of are  maximal  {subordinated to}  $\mathfrak{S}^{\text{pt}}$ algebras should not be a singleton, thus an operator algebra  $\widetilde A$ in the Definition \ref{inf_cov_oa_defn} should not be unique.
+		Any union of linearly ordered by inclusion  set of { subordinated to}  $\mathfrak{S}^{\text{pt}}$ algebras is a { subordinated to}  $\mathfrak{S}^{\text{pt}}$ algebra.
+	From the Zorn's lemma (cf. \ref{zorn_thm}) it follows that  there are  maximal  {subordinated to}  $\mathfrak{S}^{\text{pt}}$ algebras.
+	The set of all  maximal  {subordinated to}  $\mathfrak{S}^{\text{pt}}$ algebras should not be a singleton, thus an operator algebra  $\widetilde A$ in the Definition \ref{inf_cov_oa_defn} should not be unique.
 \end{remark}
 \section{Infinite coverings and unbounded operators on Hilbert modules}\label{unb_hilb_sec}
 
@@ -7487,42 +7491,28 @@ of the sub-unital real operator space}  $\left(C_0\left(\sX, \R \right), C\left(
 	\end{proof}
 
 \begin{theorem}\label{top_oa_cov_thm}
-	If $M$ is a smooth manifold then any  noncommutative finite-fold covering of operator algebra $C_0\left(M\right)\cap \Coo\left(M\right)$ (cf. Definition \ref{fin_oa_defn} !!! CHECK) corresponds to a transitive finite fold covering $p: \widetilde M \to M$ and it is a quadruple 
+	If $M$ is a smooth manifold then any  noncommutative finite-fold covering of operator algebra $C_0\left(M\right)\cap \Coo\left(M\right)$ (cf. Definition \ref{fin_oa_defn}) corresponds to a transitive finite fold covering $p: \widetilde M \to M$ and it is a quadruple 
 	$$
-	\left(C_0\left(M\right)\cap \Coo\left(M\right), C_0\left(\widetilde M\right)\cap \Coo\left(\widetilde M\right), G\left(\left.\widetilde M~ \right| M\right), \Coo\left(p \right) \right)
+	\left(C_0\left(M\right)\cap \Coo\left(M\right), C_0\left(\widetilde M\right)\cap \Coo\left(\widetilde M\right), G\left(\left.\widetilde M~ \right| M\right), \left.C_0\left(p \right)\right|_{C_0\left(M\right)\cap \Coo\left(M\right) }\right)
 	$$
-	where both the smooth structure of $\widetilde M$  and the homomorphism $\Coo\left(p \right):C_0\left( M\right)\cap \Coo\left( M\right)\hookto C_0\left(\widetilde M\right)\cap \Coo\left(\widetilde M\right)$ are induced by $p$.
+	where both the smooth structure of $\widetilde M$ is induced by $p$.
 \end{theorem}
 \begin{proof}
-	$C_0\left(M\right)\cap \Coo\left(M\right)$ is a dense subalgebra of the $C^*$-algebra $C_0\left(M\right)$, it follows that $C_0\left(M\right)$ is the $C^*$-envelope of $C_0\left(M\right)\cap \Coo\left(M\right)$ (cf. Definition \ref{op_su_env_defn}, Remark \ref{op_su_env_rem}), i.e.
+	$\Coo_0\left(M\right)\bydef C_0\left(M\right)\cap \Coo\left(M\right)$ is a dense subalgebra of the $C^*$-algebra $C_0\left(M\right)$, it follows that $C_0\left(M\right)$ is the $C^*$-envelope of $C_0\left(M\right)\cap \Coo\left(M\right)$ (cf. Definition \ref{op_su_env_defn}, Remarks \ref{op_su_env_rem}, \ref{ce_b_not_rem}), i.e.
 	$$
-	C^*_e\left(C_0\left(M\right)\cap \Coo\left(M\right)\right)\cong C_0\left(M\right).
+	C^*_e\left(\Coo_0\left(M\right)\right)\cong C_0\left(M\right).
 	$$ 
-	From the Theorem \ref{comm_fin_thm} it turns out that any noncommutative finite-fold covering of $C_0\left(M\right)$  is given by
-	$\left(C_0\left(M\right), C_0\left(\widetilde M\right), G\left(\left.\widetilde M~ \right| M\right), C_0\left(p\right)\right)$. If $$\left(C_0\left(M\right)\cap \Coo\left(M\right), \widetilde A, G\left(\left.\widetilde M~ \right| M\right), \pi \right)$$ is a noncommutative finite-fold covering of operator algebra which corresponds to the noncommutative finite-fold covering $\left(C_0\left(M\right), C_0\left(\widetilde M\right), G\left(\left.\widetilde M~ \right| M\right), C_0\left(p\right)\right)$ then from 
-	$$
-	\left( C_0\left(\widetilde M\right)\cap  \Coo\left(\widetilde M\right)  \right)\bigcap C_0\left(M \right) =  C_0\left(M \right)\cap \Coo\left(M \right)
-	$$ 
-	and the condition (d) of the Definition \ref{fin_oa_defn} !!! CHECK it follows that
-	$
-	C_0\left(\widetilde M\right)\cap  \Coo\left(\widetilde M\right) \subseteqq \widetilde A
-	$. If \ref{fin_oa_defn} !!! CHECK it follows that
-	$
-	C_0\left(\widetilde M\right)\cap  \Coo\left(\widetilde M\right) \subsetneqq \widetilde A
-	$
-	then there is $\widetilde a \in \widetilde A\setminus C_0\left(\widetilde M\right)\cap  \Coo\left(\widetilde M\right)$. Since $\widetilde a \notin   \Coo\left(\widetilde M\right)$ there is $\widetilde x_0 \in \widetilde M$ such that $\widetilde a$ is not smooth at $\widetilde x_0$. There is a function $\widetilde b \in C_0\left(\widetilde M\right)\cap  \Coo\left(\widetilde M\right)$ which satisfies to following conditions:
-	\begin{itemize}
-		\item There is an open neighborhood $\widetilde \sU$ of $ \widetilde x_0$ such that $\widetilde b\left(\widetilde \sU\right)= \left\{1\right\}$.  
-		\item There is an open set $\widetilde \sV$ which is mapped homeomorphically onto $p\left( \widetilde \sV\right)$ such that $\widetilde b\left(\widetilde \sX\setminus\widetilde \sU\right)= \{0\}$. 
-	\end{itemize}
-	The product $\widetilde b \widetilde a \in \widetilde A$, however $\widetilde b \widetilde a$ is not smooth at $\widetilde x_0$.  From the condition (b) of the Definition \ref{fin_oa_defn} !!! CHECK there is an action $G\left(\left.\widetilde M~ \right| M\right)\times \widetilde A\to \widetilde A$  and from (b) of the Definition \ref{fin_pre_defn} it follows that
-	$$
-	a \bydef \sum_{	g \in G\left(\left.\widetilde M~ \right| M\right)}g\left(\widetilde b \widetilde a \right)\in \widetilde A \cap  C_0\left( M\right). 
-	$$
-	However from the construction of $\widetilde b$ it turns out that $a$ is not smooth at $p\left( \widetilde x_0\right)$ therefore $a \notin \Coo\left(M \right)$. It contradicts with the condition (c) of the Definition \ref{fin_oa_defn} !!! CHECK. In result one has
-	$$
-	C_0\left(\widetilde M\right)\cap  \Coo\left(\widetilde M\right) = \widetilde A.
-	$$
+	Let us prove that $\Coo_0\left(\widetilde M\right)\bydef C_0\left(\widetilde M\right)\cap \Coo\left(\widetilde M\right)\subset  C_0\left(\widetilde M\right)$ is an admissible subalgebra, i.e. it satisfies to conditions (a) and (b) of \ref{fin_oa_empt}
+	\begin{enumerate}
+		\item [(a)] The structure of differential manifold $\widetilde M$ is a lift of  differential structure of $M$ It follows that any $g \in G\left(\left. \widetilde M\right| M \right)$ is a diffeomorphism, so one has $G\left(\left. \widetilde M\right| M \right)\Coo_0\left(\widetilde M\right)$.
+		\item[(b)] The algebra $C_0\left(M \right)$ can be regarded as $C_0\left(\widetilde M\right)^{G\left(\left. \widetilde M\right| M \right)}$. On the other hand any $G\left(\left. \widetilde M\right| M \right)$-invariant smooth function is smooth $\Coo_0\left(\widetilde M\right)\cap C_0\left( M\right)=\Coo_0\left( M\right)$.
+	\end{enumerate}
+	Suppose that $\widetilde A' \subset C_0\left(\widetilde M\right)$ be an admissible subalgebra such that $\Coo_0\left(\widetilde M\right)\subsetneqq \widetilde A'$. If $\widetilde a \in \widetilde A' \Coo_0\left(\widetilde M\right)$ then there is $\widetilde x_0 \in \widetilde M$ such that $\widetilde a$ is not smooth at $\widetilde x_0$. There is $f\in \Coo_0\left(\widetilde M\right)$ such that 
+\begin{itemize}
+	\item $\supp \widetilde f$ is mapped homeomorphically onto $p\left(\supp \widetilde f \right)$.
+	\item There is an open neighborhood $ \widetilde \sU$ of $\widetilde x_0$ such that $ \widetilde f\left(  \widetilde \sU \right) = \{0\}$.
+\end{itemize}
+One has $a \bydef \sum_{	g \in G\left(\left.\widetilde{M}~\right|M\right)} g\left(\widetilde f \widetilde a \right) \in \widetilde A'  \cap C_0\left(\widetilde M\right)$, but $a$ is not smooth at $p\left(\widetilde x_0 \right)$ function. It turns out that $a \notin \Coo_0\left(M \right)$, so we obtain a contradiction with (b) of \ref{fin_oa_empt}. It follows that the algebra $\widetilde A'$ is not admissible, so $ \Coo_0\left(\widetilde M\right)$ is a maximal admissible algebra.
 \end{proof}
 
 
@@ -8959,7 +8949,68 @@ Consider the described in \ref{top_r_inf_empt} situation and suppose that $\wide
 \ee	
 (cf. Definition \ref{top_topological_inv_lim_defn}). Prove that $C_0\left( \widetilde \sX,\R\right)$ is the inverse noncommutative limit (cf. Definition \ref{spec_r_lim_defn}) of the given by \eqref{top_real_fam_eqn}  algebraical  finite covering category of real operator spaces.
 \end{exercise}
+\begin{empt}
+	Let $\left(M, x_0 \right)$ be a pointed smooth manifold, and let 	\bean
+	\begin{split}
+		\mathfrak{S}_{\left( M, x_0\right) }\bydef\\
+		\bydef \left\{\left\{p_\la:\left( M_\la, x^\la_0\right) \to \left( M, x_0\right)\right\}_{\la\in\La}, \left\{p^\mu_{ \nu}:\left( M_\mu, x^\mu_0\right) \to \left( M_\nu, x^\nu_0\right)\right\}_{\substack{\mu,\nu\in\La\\
+				\mu\ge\nu}} \right\}\\
+		%\in \\
+		\mathfrak{S}_{\left( M, x_0\right) }\in \mathfrak{FinTop}^{\text{pt}}.
+	\end{split}
+	\eean
+	a	pointed topological finite covering category (cf. Definition \ref{top_sec_p_defn}). Using the Theorem \ref{top_oa_cov_thm} one can construct a category 	\be\label{top_inf_cov_oae_eqn}
+	\mathfrak{S}^{\text{pt}}_{\Coo_0\left( M\right) } = \left(\left\{\pi_\la: A \hookto A_\la \right\}_{\la \in \La}, \left\{\pi^\mu_\nu: A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\ \nu > \mu}}\right)
+	\ee
+	of noncommutative finite-fold coverings of operator algebras. The category is a specialization of the given by \eqref{inf_cov_oae_eqn} category.
+	
+	 
+\end{empt}
+\paragraph{title}
+ \begin{empt}\label{inf_cov_oa_empt!}
+	Similarly to \ref{comp_op_pt_empt} consider a category 
+	\be\label{inf_cov_oae_eqn!}
+	\mathfrak{S}^{\text{pt}} = \left(\left\{\pi_\la: A \hookto A_\la \right\}_{\la \in \La}, \left\{\pi^\mu_\nu: A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\ \nu > \mu}}\right)
+	\ee
+	of noncommutative finite-fold coverings of operator algebras (cf. Definition \ref{fin_oa_defn}). Let us use the given by the Remark \ref{ce_b_not_rem} notation. Suppose that 
+	\be\label{inf_cov_oa_eqn!}
+	\begin{split}
+		C^*_e\left( \mathfrak{S}^{\text{pt}}\right) \bydef\\\bydef \left(\left\{	C^*_e\left(\pi_\la\right) : 	C^*_e\left(A\right)  \hookto 	C^*_e\left(A_\la\right)  \right\}_{\substack{\la \in \La\\ ~}},\right.\\\left. \left\{	C^*_e\left(\pi^\mu_\nu\right) : 	C^*_e\left(A_\mu\right)  \hookto 	C^*_e\left(A_\nu\right) \right\}_{\substack{\mu, \nu \in \La\\ \nu > \mu}}\right)
+	\end{split}
+	\ee
+	is good pointed algebraical  finite covering category (cf. Definition \ref{comp_pt_defn}). Let
+	$
+	\left(C^*_e\left(A\right), \widetilde B, G \right)
+	$
+	be the inverse noncommutative limit of $	C^*_e\left( \mathfrak{S}^{\text{pt}}\right)$ (cf. Definition \ref{main_defn}).
+	%	For any $G$-invariant subalgebra $ \widetilde A'\subset  \widetilde B$ denote by
+	%	\be\label{inf_cov_oam_eqn}
+	%	M\left(\widetilde A'\right) \bydef \left\{\left.\widetilde a \in M\left( \widetilde B \right)  \right| \widetilde a\widetilde A'\subset \widetilde A' \text{ AND }\widetilde A'\widetilde a\subset \widetilde A'\right\}.
+	%	\ee
+	%	If $\varinjlim C^*_e\left(A_\la\right)$ is an algebraic direct limit then there is a dense inclusion $\varinjlim C^*_e\left(A_\la\right)\hookto C^*$-$\varinjlim C^*_e\left(A_\la\right)$. So there is an inclusion $\iota: \varinjlim C^*_e\left(A_\la\right)\hookto M\left( \widetilde B \right)$.
+\end{empt}	
+\begin{definition}\label{inf_cov_oa_sub_defn!}	
+	We say that  $G$-invariant subalgebra $\widetilde A'$ of $\widetilde B$ is \textit{is subordinated to}  $\mathfrak{S}^{\text{pt}}$ if for all $
+	\la\in\La$ one has
+	\be\label{inf_cov_oa_sub_eqn}
+	\begin{split}
+		A_\la \widetilde A'\subset \widetilde A',\\
+		\widetilde A'A_\la\subset \widetilde A',\\
+		\forall \widetilde b \in K\left(\widetilde B \right)
+		\quad \forall \widetilde a \in \widetilde A'\quad \exists  \widetilde a', \widetilde a'' \in \bigcup_{\la\in\La} A_\la\quad \widetilde b \widetilde a = \widetilde b \widetilde a', \quad \widetilde a \widetilde b = \widetilde a'' \widetilde b.
+	\end{split}
+	\ee
+	where $K\left(\widetilde B \right)$ is the Pedersen's ideal of $\widetilde B$ (cf. Definition \ref{peder_id_defn}).
+\end{definition}
 
+
+\begin{definition}\label{inf_cov_oa_defn}
+	If $\widetilde A$ is a    maximal  {subordinated to}  $\mathfrak{S}^{\text{pt}}$ algebra then we say that the triple
+	$
+	\left(A,  \widetilde A, G \right)$ is the  \textit{inverse noncommutative limit} or \textit{infinite noncommutative covering}  of $\mathfrak{S}^{\text{pt}}$.   !!! ADD COMMUTATIVE
+\end{definition}
+
+\paragraph{title}
 \begin{empt}\label{top_mu_empt}
 	Denote by  
 	\bean
