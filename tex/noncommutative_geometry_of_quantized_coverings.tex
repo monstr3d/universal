@@ -14810,7 +14810,7 @@ such that following conditions hold:
 	Prove that the following conditions hold:
 	\begin{enumerate}
 		\item If the covering $p$ is finite-fold then 
-		$$\left(\Coo_0\left(M \right)\otimes\A, \Coo_0\left(\widetilde M \right)\otimes\A, G\left(\left.\widetilde M~ \right| M\right), \left.C_0\left( p\right)  \right|_{\Coo_0\left(M \right)}\otimes \Id_\A\right)$$ is a noncommutative finite-fold covering of operator algebras (cf. Definition \ref{fin_oa_defn} !!! CHECK).
+		$$\left(\Coo_0\left(M \right)\otimes\A, \Coo_0\left(\widetilde M \right)\otimes\A, G\left(\left.\widetilde M~ \right| M\right), \left.C_0\left( p\right)  \right|_{\Coo_0\left(M \right)}\otimes \Id_\A\right)$$ is a noncommutative finite-fold covering of operator algebras (cf. Definition \ref{fin_oa_defn}).
 		\item If the group $G\left(\left.\widetilde M~ \right| M\right)$ is residually finite then
 		$$\left(\Coo_0\left(M \right)\otimes\A, \Coo_0\left(\widetilde M \right)\otimes\A, G\left(\left.\widetilde M~ \right| M\right)\right)$$ it an infinite noncommutative covering (cf. Definition \ref{inf_cov_oa_defn})
 	\end{enumerate}
@@ -23794,8 +23794,8 @@ For a presheaf $\mathscr{P}$  on $\sX$ we put  $\mathscr{P}_\Phi\left(\sX \right
 
 
 	
-	\chapter{Foliations, pseudogroups and operator algebras}\label{foliations_sec}
-	\section{Groupoids}
+	\chapter{Groupoids foliations, pseudogroups and operator algebras}\label{foliations_sec}
+		\section{Groupoids}
 	\paragraph*{}
 	A groupoid is a small category with inverses, or more explicitly:
 	\begin{definition}\label{groupoid_defn}\cite{connes:ncg94}
@@ -23835,7 +23835,67 @@ For a presheaf $\mathscr{P}$  on $\sX$ we put  $\mathscr{P}_\Phi\left(\sX \right
 	\end{definition}
 	
 	
-	\section{Foliations and pseudogroups}
+
+	\section{Groupoids and $C^*$-algebras}
+	\paragraph*{}
+	Here I follow to \cite{brown:proper_groupoids}.
+	\begin{section}{$C_0\left(\sX\right)$-algebras}
+		\paragraph*{}
+		Groupoids must act on fibred objects, so to construct an appropriate notion of a groupoid dynamical system we need to have fibred $C^*$-algebras.  To that end, given a locally compact Hausdorff space $\sX$, a \emph{$C_0\left(\sX\right)$-algebra} is a $C^*$-algebra $A$ together with a nondegenerate homomorphism of $C_0\left(\sX\right)$ into the center  $Z(M(A))$ of $M\left(A\right)$. $C_0\left(\sX\right)$-algebras are well studied objects in their own right, but for our needs it is enough to know that they have an associated fibred structure.  Specifically, if $C_{0,x}\left(\sX\right)$ is the set of functions in $C_0\left(\sX\right)$ vanishing at $x\in \sX$, then $I_x:=\overline{C_{0,x}\left(\sX\right)\cdot A}$ is an ideal in $A$ and $A(x):=A/I_x$ is called the fibre of $A$ over $x$.  The image of $a$ in $A(x)$ is denoted by $a(x)$, and the set $\{A(x):x\in \sX\}$ gives rise to an \emph{upper semicontinuous $C^*$-bundle} $\A$ over $\sX$ \cite[Theorem C.26]{TFB2}. 
+		
+		\begin{defn}Let $\sX$ be a locally compact Hausdorff space, an {\emph{upper semicontinuous $C^*$-bundle}} over $\sX$ is a topological space $\A$ together with a continuous open surjection $p=p_{\A}:\A\rightarrow \sX$ such that  each fibre $A(x):=p^{-1}(\{x\})$ \index{$A(x)$} is a $C^*$-algebra and $\A$ satisfies the following axioms:
+			\begin{enumerate}
+				\item[B1] The map $a\mapsto \|a\|$ is upper semicontinuous from $\A$ to $\R^+$  (That is, for all $\epsilon>0$, $\{a\in \A: \|a\|<\epsilon\}$ is open),
+				\item[B2] The maps $(a,b)\mapsto a+b$ and $(a,b)\mapsto ab$ are continuous from $\A\times\A$ to $\A$,
+				\item[B3] For each $k\in\C$, the maps $a\mapsto ka$ and $a\mapsto a^*$ are continuous from $\A$ to $\A$, and 
+				\item[B4] If $\{a_i\}$ is a net in $\A$ such that $p(a_i)\rightarrow x$ and $\|a_i\|\rightarrow 0$, then $a_i\rightarrow 0_x$ (where $0_x$ is the zero element of $A(x)$).
+			\end{enumerate}
+			\label{defn usccb}\end{defn}
+		
+		The point is if we let $A=\Ga_0\left(\sX, \A\right)$ be the $C^*$-algebra of continuous sections of $\A$ vanishing at infinity then $A$ is a $C_0\left(\sX\right)$-algebra.  Throughout this paper we will denote bundles by script letters $\A$ and the corresponding section algebras by the corresponding Roman letter $A$.  For a more detailed discussion of $C_0\left(\sX\right)$-algebras the reader is encouraged to see \cite[Appendix C]{TFB2}.  
+	\end{section}
+	\begin{section}{The Reduced Crossed Product}\label{sec red cross}
+		\begin{defn}\label{def dyn sys}Suppose that $G$ is a second countable locally compact groupoid  with Haar system $\haars$ and $\A$ is an upper semicontinuous $C^*$-bundle over $\units$. Suppose  the associated $C_0\left(\sX\right)$-algebra, $A=\Ga_0\left(G^0, \A\right)$ is separable. An action $\alpha$ of $G$ on $A$ is a family of $*$-isomorphisms $\{\alpha_{\gamma}\}_{\gamma\in G}$ such that 
+			\begin{enumerate}
+				\item\label{dyn sys rs} for each $\gamma\in G$, $\alpha_{\gamma}:A(s(\gamma))\rightarrow A(r(\gamma))$,
+				\item\label{dyn sys alg}for all $(\gamma,\eta)\in G^{(2)}$, $\alpha_{\gamma\eta}=\alpha_{\gamma}\circ\alpha_{\eta}$,
+				\item\label{dyn sys cts}the map $(\gamma, a)\mapsto \alpha_{\gamma}(a)$ is a continuous map from $G\times\A$ to $\A$.
+			\end{enumerate}
+			The triple $(\A,G,\alpha)$ is called a (groupoid) dynamical system.\end{defn}
+		
+		The point is that given a dynamical system, we can construct a convolution algebra which we then complete to obtain the reduced crossed product.  The remainder of this section is devoted to a sketch of this construction.  First we need the following definition.
+		\begin{defn}Let $(\A, G,\alpha)$ be a groupoid dynamical system, we define the pullback bundle of $\A$ to be
+			\begin{equation}\label{r*A}r^*\A:=\{(\gamma,a):r(\gamma)=p_{\A}(a)\}.\end{equation}\end{defn}
+		
+		\begin{prop}[{\cite[Proposition 4.4]{MW08}}]Let $G$ be a groupoid with Haar system $\haars$, if we define $\Gamma_c(G,r^*\A)$ to be the set of continuous compactly supported sections of $r^*\A$, then  $\Gamma_c(G,r^*\A)$ is a $*$-algebra with respect to the operations
+			\begin{equation*}f*g(\gamma):=\int_Gf(\eta)\alpha_{\eta}\left(g(\eta^{-1}\gamma)\right)d\haarv{}{r(\gamma)}(\eta) \text{~and~}f^*(\gamma)=\alpha_{\gamma}\left(f(\gamma^{-1})^*\right).\end{equation*}\label{eq conv struc}\end{prop}
+		
+		The goal is to complete this convolution algebra in the norm induced by regular representations. Since we use regular representations extensively in the sequel we will sketch their construction here.  To continue we need the notion of a Borel Hilbert bundle.  For our purposes a Borel Hilbert bundle $X*\mathfrak{H}$ over $\sX$ is bundle of Hilbert spaces $X*\mathfrak{H}=\{\mathcal{H}(x)\}_{x\in X}$ along with a Borel structure satisfying some technical conditions (see \cite[Definition F.1]{TFB2}). Given a measure $\mu$ on $\sX$ we can form the Hilbert space $L^2(X*\mathfrak{H}, \mu)$ in the obvious way.  This Hilbert space is just the direct integral $\int_X^{\oplus}\mathcal{H}(x)d\mu(x)$ and gives us the notion of a fibred Hilbert space that we need for groupoid representations. 
+		
+		Suppose $\pi$ is a (separable) $C_0(\units)$-linear representation of $A$ on $\mathcal{H}_{\pi}$.  Then by \cite[Proposition F.26]{TFB2} there exists a Borel Hilbert bundle $\units*\mathfrak{H}$, a measure $\mu_{\pi}=\mu$ on $\units$ (note: $\mu$ need not be quasi invariant) and a Borel family of representations $\{\pi_u\}_{u\in\units}$ of $A$ on $\mathcal{H}(u)$ such that $\pi$ is unitarily equivalent to the representation 
+		\begin{equation}\rho=\int_{\units}^{\oplus}\pi_u d\mu(u) \quad\text{given by}\quad\rho(a)h(u)=\pi_u(a)h(u).  \label{eq dir int}\end{equation}
+		It is not hard to see from the proof of \cite[Proposition F.26]{TFB2} that $I_u\subset\ker(\pi_u)$ $\mu$-almost everywhere so that $\pi_u$ descends to a well defined representation on $A(u)$.
+		Therefore
+		\begin{equation}\pi_u(a)h(u)=\pi_u(a(u))h(u) \quad\mu\text{-almost everywhere}.\label{eq piu well def}\end{equation}
+		We can then form the pull-back Hilbert bundle $s^*(\units*\mathfrak{H})=:G*_s\mathfrak{H}$ and  define the measure $\nu^{-1}=\int_{\units}\haarv{u}{}d\mu$ to form a new Hilbert space $L^2(G*_s\mathfrak{H},\nu^{-1})$.  Note that functions $h\in L^2(G*_s\mathfrak{H},\nu^{-1})$ have the property that $h(\gamma)\in \mathcal{H}(s(\gamma))$.  So that, 
+		\begin{equation}\label{eq def indpi}\Ind{}{}\pi(f)h(\gamma)=\int_G \pi_{s(\gamma)}\left(\alpha_{\gamma}^{-1}(f(\eta))\right)h(\eta^{-1}\gamma)\haarv{}{r(\gamma)}(\eta)\end{equation}
+		defines a representation of  $\Gamma_c(G, r^*\A)$ induced by $\pi$  on $L^2(G*_s\mathfrak{H},\nu^{-1})$.
+		We call these representations \emph{regular} and define the reduced norm on $\Gamma_c(G,r^*\A)$ to be 
+		\begin{equation}\|f\|_r:=\sup\{\|\Ind\pi(f)\|:
+			\pi \text{~is a $C_0(\units)$-linear representation of $A$}\}.\label{eq red norm}\end{equation}
+		
+		\begin{rem}This definition agrees with those given in \cite{Mcoord} and \cite{Ren80}, but is \emph{a priori} different from that given in \cite{AR00}.  We suspect that all of these definitions agree, but have yet to prove it.  But the set of regular representations used in \cite{AR00} is the subset of the regular representations defined above such that $\mu_{\pi}$ is a point mass measure. Thus $\|\cdot\|_r$ is greater than or equal to the norm $\|\cdot\|_{\text{red}}$ considered in \cite{AR00} which is enough for our purposes.\end{rem}
+		
+		As usual we can  define the reduced crossed product of a dynamical system $(\A,G, \alpha)$, denoted $\A\rtimes_{\alpha,r}G$, to be the completion of $\Gamma_c(G,r^*\A)$ in the norm $\|\cdot\|_r$.
+		
+		In this paper we will also use the $I$-norm on $\Gamma_c(G,r^*\A)$ given by 
+		$$\|f\|_I:=\max\left\{\sup\left\{\int\|f\|d\lambda_u\right\},\sup\left\{\int\|f\|d\lambda^u\right\}\right\}.$$
+		We denote the completion of $\Gamma_c(G,r^*\A)$ in this norm by $L^I(G,r^*\A)$.
+	\end{section}
+	
+	
+	
+\section{Foliations and pseudogroups}
 	%\paragraph{}
 	% Here I follow to \cite{connes:ncg94}
 	\begin{definition}\cite{connes:ncg94}		
@@ -25031,64 +25091,6 @@ If $\Om^1_D$ is a {module of differential forms associated} with the given by \e
 		\frac{\partial}{\partial q} f = \sqrt{2}\left( -\left( a   -  \overline{a}\right) \times f -f \times \left( a   +  \overline{a}\right)\right).
 	\end{split}
 	\ee
-
-\chapter{Groupoids and $C^*$-algebras}
-		\paragraph*{}
-Here I follow to \cite{brown:proper_groupoids}.
-	\begin{section}{$C_0\left(\sX\right)$-algebras}
-		\paragraph*{}
-		Groupoids must act on fibred objects, so to construct an appropriate notion of a groupoid dynamical system we need to have fibred $C^*$-algebras.  To that end, given a locally compact Hausdorff space $\sX$, a \emph{$C_0\left(\sX\right)$-algebra} is a $C^*$-algebra $A$ together with a nondegenerate homomorphism of $C_0\left(\sX\right)$ into the center  $Z(M(A))$ of $M\left(A\right)$. $C_0\left(\sX\right)$-algebras are well studied objects in their own right, but for our needs it is enough to know that they have an associated fibred structure.  Specifically, if $C_{0,x}\left(\sX\right)$ is the set of functions in $C_0\left(\sX\right)$ vanishing at $x\in \sX$, then $I_x:=\overline{C_{0,x}\left(\sX\right)\cdot A}$ is an ideal in $A$ and $A(x):=A/I_x$ is called the fibre of $A$ over $x$.  The image of $a$ in $A(x)$ is denoted by $a(x)$, and the set $\{A(x):x\in \sX\}$ gives rise to an \emph{upper semicontinuous $C^*$-bundle} $\A$ over $\sX$ \cite[Theorem C.26]{TFB2}. 
-		
-		\begin{defn}Let $\sX$ be a locally compact Hausdorff space, an {\emph{upper semicontinuous $C^*$-bundle}} over $\sX$ is a topological space $\A$ together with a continuous open surjection $p=p_{\A}:\A\rightarrow \sX$ such that  each fibre $A(x):=p^{-1}(\{x\})$ \index{$A(x)$} is a $C^*$-algebra and $\A$ satisfies the following axioms:
-			\begin{enumerate}
-				\item[B1] The map $a\mapsto \|a\|$ is upper semicontinuous from $\A$ to $\R^+$  (That is, for all $\epsilon>0$, $\{a\in \A: \|a\|<\epsilon\}$ is open),
-				\item[B2] The maps $(a,b)\mapsto a+b$ and $(a,b)\mapsto ab$ are continuous from $\A\times\A$ to $\A$,
-				\item[B3] For each $k\in\C$, the maps $a\mapsto ka$ and $a\mapsto a^*$ are continuous from $\A$ to $\A$, and 
-				\item[B4] If $\{a_i\}$ is a net in $\A$ such that $p(a_i)\rightarrow x$ and $\|a_i\|\rightarrow 0$, then $a_i\rightarrow 0_x$ (where $0_x$ is the zero element of $A(x)$).
-			\end{enumerate}
-			\label{defn usccb}\end{defn}
-		
-		The point is if we let $A=\Ga_0\left(\sX, \A\right)$ be the $C^*$-algebra of continuous sections of $\A$ vanishing at infinity then $A$ is a $C_0\left(\sX\right)$-algebra.  Throughout this paper we will denote bundles by script letters $\A$ and the corresponding section algebras by the corresponding Roman letter $A$.  For a more detailed discussion of $C_0\left(\sX\right)$-algebras the reader is encouraged to see \cite[Appendix C]{TFB2}.  
-	\end{section}
-	\begin{section}{The Reduced Crossed Product}\label{sec red cross}
-		\begin{defn}\label{def dyn sys}Suppose that $G$ is a second countable locally compact groupoid  with Haar system $\haars$ and $\A$ is an upper semicontinuous $C^*$-bundle over $\units$. Suppose  the associated $C_0\left(\sX\right)$-algebra, $A=\Ga_0\left(G^0, \A\right)$ is separable. An action $\alpha$ of $G$ on $A$ is a family of $*$-isomorphisms $\{\alpha_{\gamma}\}_{\gamma\in G}$ such that 
-			\begin{enumerate}
-				\item\label{dyn sys rs} for each $\gamma\in G$, $\alpha_{\gamma}:A(s(\gamma))\rightarrow A(r(\gamma))$,
-				\item\label{dyn sys alg}for all $(\gamma,\eta)\in G^{(2)}$, $\alpha_{\gamma\eta}=\alpha_{\gamma}\circ\alpha_{\eta}$,
-				\item\label{dyn sys cts}the map $(\gamma, a)\mapsto \alpha_{\gamma}(a)$ is a continuous map from $G\times\A$ to $\A$.
-			\end{enumerate}
-			The triple $(\A,G,\alpha)$ is called a (groupoid) dynamical system.\end{defn}
-		
-		The point is that given a dynamical system, we can construct a convolution algebra which we then complete to obtain the reduced crossed product.  The remainder of this section is devoted to a sketch of this construction.  First we need the following definition.
-		\begin{defn}Let $(\A, G,\alpha)$ be a groupoid dynamical system, we define the pullback bundle of $\A$ to be
-			\begin{equation}\label{r*A}r^*\A:=\{(\gamma,a):r(\gamma)=p_{\A}(a)\}.\end{equation}\end{defn}
-		
-		\begin{prop}[{\cite[Proposition 4.4]{MW08}}]Let $G$ be a groupoid with Haar system $\haars$, if we define $\Gamma_c(G,r^*\A)$ to be the set of continuous compactly supported sections of $r^*\A$, then  $\Gamma_c(G,r^*\A)$ is a $*$-algebra with respect to the operations
-			\begin{equation*}f*g(\gamma):=\int_Gf(\eta)\alpha_{\eta}\left(g(\eta^{-1}\gamma)\right)d\haarv{}{r(\gamma)}(\eta) \text{~and~}f^*(\gamma)=\alpha_{\gamma}\left(f(\gamma^{-1})^*\right).\end{equation*}\label{eq conv struc}\end{prop}
-		
-		The goal is to complete this convolution algebra in the norm induced by regular representations. Since we use regular representations extensively in the sequel we will sketch their construction here.  To continue we need the notion of a Borel Hilbert bundle.  For our purposes a Borel Hilbert bundle $X*\mathfrak{H}$ over $\sX$ is bundle of Hilbert spaces $X*\mathfrak{H}=\{\mathcal{H}(x)\}_{x\in X}$ along with a Borel structure satisfying some technical conditions (see \cite[Definition F.1]{TFB2}). Given a measure $\mu$ on $\sX$ we can form the Hilbert space $L^2(X*\mathfrak{H}, \mu)$ in the obvious way.  This Hilbert space is just the direct integral $\int_X^{\oplus}\mathcal{H}(x)d\mu(x)$ and gives us the notion of a fibred Hilbert space that we need for groupoid representations. 
-		
-		Suppose $\pi$ is a (separable) $C_0(\units)$-linear representation of $A$ on $\mathcal{H}_{\pi}$.  Then by \cite[Proposition F.26]{TFB2} there exists a Borel Hilbert bundle $\units*\mathfrak{H}$, a measure $\mu_{\pi}=\mu$ on $\units$ (note: $\mu$ need not be quasi invariant) and a Borel family of representations $\{\pi_u\}_{u\in\units}$ of $A$ on $\mathcal{H}(u)$ such that $\pi$ is unitarily equivalent to the representation 
-		\begin{equation}\rho=\int_{\units}^{\oplus}\pi_u d\mu(u) \quad\text{given by}\quad\rho(a)h(u)=\pi_u(a)h(u).  \label{eq dir int}\end{equation}
-		It is not hard to see from the proof of \cite[Proposition F.26]{TFB2} that $I_u\subset\ker(\pi_u)$ $\mu$-almost everywhere so that $\pi_u$ descends to a well defined representation on $A(u)$.
-		Therefore
-		\begin{equation}\pi_u(a)h(u)=\pi_u(a(u))h(u) \quad\mu\text{-almost everywhere}.\label{eq piu well def}\end{equation}
-		We can then form the pull-back Hilbert bundle $s^*(\units*\mathfrak{H})=:G*_s\mathfrak{H}$ and  define the measure $\nu^{-1}=\int_{\units}\haarv{u}{}d\mu$ to form a new Hilbert space $L^2(G*_s\mathfrak{H},\nu^{-1})$.  Note that functions $h\in L^2(G*_s\mathfrak{H},\nu^{-1})$ have the property that $h(\gamma)\in \mathcal{H}(s(\gamma))$.  So that, 
-		\begin{equation}\label{eq def indpi}\Ind{}{}\pi(f)h(\gamma)=\int_G \pi_{s(\gamma)}\left(\alpha_{\gamma}^{-1}(f(\eta))\right)h(\eta^{-1}\gamma)\haarv{}{r(\gamma)}(\eta)\end{equation}
-		defines a representation of  $\Gamma_c(G, r^*\A)$ induced by $\pi$  on $L^2(G*_s\mathfrak{H},\nu^{-1})$.
-		We call these representations \emph{regular} and define the reduced norm on $\Gamma_c(G,r^*\A)$ to be 
-		\begin{equation}\|f\|_r:=\sup\{\|\Ind\pi(f)\|:
-			\pi \text{~is a $C_0(\units)$-linear representation of $A$}\}.\label{eq red norm}\end{equation}
-		
-		\begin{rem}This definition agrees with those given in \cite{Mcoord} and \cite{Ren80}, but is \emph{a priori} different from that given in \cite{AR00}.  We suspect that all of these definitions agree, but have yet to prove it.  But the set of regular representations used in \cite{AR00} is the subset of the regular representations defined above such that $\mu_{\pi}$ is a point mass measure. Thus $\|\cdot\|_r$ is greater than or equal to the norm $\|\cdot\|_{\text{red}}$ considered in \cite{AR00} which is enough for our purposes.\end{rem}
-		
-		As usual we can  define the reduced crossed product of a dynamical system $(\A,G, \alpha)$, denoted $\A\rtimes_{\alpha,r}G$, to be the completion of $\Gamma_c(G,r^*\A)$ in the norm $\|\cdot\|_r$.
-		
-		In this paper we will also use the $I$-norm on $\Gamma_c(G,r^*\A)$ given by 
-		$$\|f\|_I:=\max\left\{\sup\left\{\int\|f\|d\lambda_u\right\},\sup\left\{\int\|f\|d\lambda^u\right\}\right\}.$$
-		We denote the completion of $\Gamma_c(G,r^*\A)$ in this norm by $L^I(G,r^*\A)$.
-	\end{section}
-
 
 \chapter{Miscellany}
 	
@@ -26341,19 +26343,21 @@ I. Ien, M. GŸrsoy, A. …zcan \textit{Coverings of Lie groupoids
 \bibitem{bogopolsky:group_theory}Oleg Bogopolski. \textit{Introduction to Group Theory}. European Mathematical Society. 2008.
 
 
-
+\bibitem{bourbaki_sp:gt} N. Bourbaki, {\it Elements of Mathematics. General Topology}, Part 1. \newline HERMANN, \'{E}DITEURS DES SCIENCES ET DAS ARTS \newline 115 Boulevard Saint-Germain. Paris \newline ADDISON-WESLEY PUBLISHING COMPANY. \newline Reading, Massachusets - Palo Ito - London - Don Mills, Ontario \newline A translation of \newline \'{E}L\'{E}MENTS DE MATH\'{E}MATIQUE, TOPOLOGIE G\'{E}N\'{E}RALE, \newline originally published in French by Hermann, Paris. 1966.
 
 \bibitem{bredon:sheaf} Bredon, Glen E. (1997), \textit{Sheaf theory}. Graduate Texts in Mathematics, 170 (2nd ed.), Berlin, New York: Springer-Verlag.  ISBN 978-0-387-94905-5, MR 1481706 (oriented towards conventional topological applications), 1997.
+
+
+\bibitem{brickell_clark:diff_m} F. Brickell and R. S. Clark.
+{\it Differentiable manifolds; An introduction.} London; New York: V. N. Reinhold Co., 1970.
+
+
+
 
 
 \bibitem{brown:proper_groupoids}Jonathan Henry Brown. \textit{Proper actions of groupoids on $C^*$-algebras}. arXiv:0907.5570, 2009.
 
 \bibitem{brown:stable} Lawrence G. Brown, Philip Green, and Marc A. Rieffel.\textit{Stable isomorphism and strong Morita equivalence of $C^*$-algebras}. Pacific J. Math., Volume 71, Number 2 (1977), 349-363. 1977.
-
-	\bibitem{bourbaki_sp:gt} N. Bourbaki, {\it Elements of Mathematics. General Topology}, Part 1. \newline HERMANN, \'{E}DITEURS DES SCIENCES ET DAS ARTS \newline 115 Boulevard Saint-Germain. Paris \newline ADDISON-WESLEY PUBLISHING COMPANY. \newline Reading, Massachusets - Palo Ito - London - Don Mills, Ontario \newline A translation of \newline \'{E}L\'{E}MENTS DE MATH\'{E}MATIQUE, TOPOLOGIE G\'{E}N\'{E}RALE, \newline originally published in French by Hermann, Paris. 1966.
-
-\bibitem{brickell_clark:diff_m} F. Brickell and R. S. Clark.
-{\it Differentiable manifolds; An introduction.} London; New York: V. N. Reinhold Co., 1970.
 
 \bibitem{BroGreRie}L.~G. Brown, P.~Green, and M.~A. Rieffel.  \textit{Stable isomorphism and strong {Morita} equivalence of	{$C^*$}-algebras}.\newblock { Pacific J. Math.} {\bf 71} (1977), 349--363. 1977.
 
