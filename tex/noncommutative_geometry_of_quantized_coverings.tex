@@ -6159,16 +6159,26 @@ The following Lemma is evident.
 	is convergent with respect to the strong topology (cf. Definition \ref{strong_topology_defn}) of $B\left(\H_a\right)$.
 \end{remark}
 \begin{exercise}\label{comm_lift_desc_sum_exer}
-Consider the situation of the Definition \ref{top_lift_desc_defn}. Prove that the series
+Consider the situation of the Definition \ref{top_lift_desc_defn}. Prove following statements:
+\begin{enumerate}
+	\item The series
 	$$
-\sum_{	g \in G\left( \left. \widetilde\sX\right| \sX\right) }g\widetilde a  = \lift_p\circ \desc_p\left(\widetilde a \right).
-$$
-is convergent with respect to the strict topology (cf. Definition \ref{strict_topology}) of $M\left( C_0\left(\widetilde\sX\right)\right)$.
-\end{exercise}
-	If $\sum_{j = 1}^n \widetilde f_j$ is a {subordinated to} $p$ covering sum for $\widetilde \sY$ (cf. Definitions \ref{top_cfs_defn} and \ref{top_cfs_sub_defn}) then one has
+	\sum_{	g \in G\left( \left. \widetilde\sX\right| \sX\right) }g\widetilde a  = \lift_p\circ \desc_p\left(\widetilde a \right).
+	$$
+	is convergent with respect to the strict topology (cf. Definition \ref{strict_topology}) of $M\left( C_0\left(\widetilde\sX\right)\right)$.
+	\item 	If $\widetilde f\in C_0\left(\widetilde\sX\right)_+$ a positive element is such that $\supp  \widetilde f\subset \widetilde \sU$ then one has
 	\be\label{top_desc_fin_eqn}
-	\widetilde f_j= \sqrt{ \widetilde f_j}\sqrt{ \desc_p\left( \widetilde f_j\right) }
+	\widetilde f= \sqrt{ \widetilde f}\sqrt{ \desc_p\left( \widetilde f\right) }
 	\ee
+\item 
+If $f \in C_0\left(\sX \right)$ is such that $\supp f \subset \sU$ then for all $\xi \in C_b\left(\sX, \left\{A_x\right\}, \sF \right)$
+one has
+\be\label{top_lift_pa_eqn}
+ \lift^p_{\widetilde{\sU}}\left(f a \right)=  \lift^p_{\widetilde{\sU}}\left(f \right)\lift_p\left( \xi \right)
+\ee
+	
+\end{enumerate}
+\end{exercise}
 
 
 
@@ -7408,7 +7418,6 @@ The space $\widetilde\sX$ is connected, so the $C^*$-algebra $C_0\left(\widetild
 \begin{remark}\label{comm_comm_rem}
 The Theorem \ref{comm_fin_thm} yields a pure algebraic definition of the fundamental group (cf. the Theorem \ref{comm_uni_lim_thm} and the Corollary \ref{comm_uni_lim_cor}). Alternative theories (e.g. described in \cite{clarisson:phd}) which allow coverings of commutative $C^*$-algebras by noncommutative ones do not have this property.
 \end{remark}
-!!! CONTINUE
 
 \begin{empt}\label{top_r_fin_empt}
 	Let $\sX$ be a connected,  locally compact, Hausdorff space, and let
@@ -7983,7 +7992,6 @@ $\widetilde{D} : \widetilde{\A} \otimes_{\A} \D \to \widetilde{\A} \otimes_{\A} 
 \\
 \\
 \\
-!!! CONTINUE
 If $\slashed\nabla \widetilde{a}= \sum_{j = 1}^m\widetilde{a}_j \otimes \om_j\in \Coo\left(\widetilde M \right)\otimes_{\Coo\left( M \right)}\Om^1_{\Dslash}$ then for all $\xi \in \Ga^\infty\left(M, \sS \right)$ denote by
 $$
 \widetilde{a}_\xi = \phi_\infty\left(\sum_{j = 1}^m\widetilde{a}_j \otimes \om_j\left( \xi\right)  \right)= \sum_{j=1}^m\widetilde a_j \lift_p\left(\om_j\left( \xi\right)\right)\in \Ga^\infty\left(\widetilde M, \widetilde\sS \right)
@@ -8000,7 +8008,7 @@ The partition of unity \eqref{top_ta_eqn} compliant with  the covering $p:\widet
 From \eqref{top_ph_ps_eqn} it follows that $\supp \widetilde{\phi}_{\widetilde \a},\quad \supp \widetilde{\psi}_{\widetilde \a} ,\quad \supp \widetilde{\ga}_{\widetilde \a} \subset \widetilde{\sU}_{\widetilde \a}$. From the Equations \eqref{comm_lift_desc_l_eqn}  and  \eqref{top_descs_eqn} it follows that
 $$
 \widetilde{\phi}_{\widetilde \a}= \lift^p_{\widetilde{\mathcal U}_{\widetilde \a}}\left(\phi_{\widetilde \a} \right), \quad  \widetilde{\psi}_{\widetilde \a}= \lift^p_{\widetilde{\mathcal U}_{\widetilde \a}}\left(\psi_{\widetilde \a} \right), \quad  \widetilde{\ga}_{\widetilde \a}= \lift^p_{\widetilde{\mathcal U}_{\widetilde \a}}\left(\ga_{\widetilde \a} \right),
-$$ hence one has
+$$ hence taking into account \eqref{top_lift_pa_eqn} one has
 \bean
 \widetilde{a}_\xi = \sum_{\widetilde{\a}\in \widetilde{\mathscr A}}\left(  \lift^p_{\widetilde{\mathcal U}_{\widetilde \a}}\left(\phi_{\widetilde \a} \right) \lift_p\left(  \left[\slashed D, {\psi}_{\widetilde{\a}}  \right]\xi \right)  +\lift^p_{\widetilde{\mathcal U}_{\widetilde \a}}\left(\psi_{\widetilde \a} \right) \lift_p\left( \left[\slashed D, {\phi}_{\widetilde{\a}}   \right]\xi\right)  \right)=
 \\
@@ -8052,14 +8060,12 @@ In more detail the above formula has the following meaning
 	\widetilde{\slashed{\nabla}}\left(\widetilde{a} \right)= \sum_{j=1}^m \widetilde{a}_j\otimes  \left[\Dslash, a_j \right]~ \Rightarrow~ \sum_{j=1}^m \widetilde{a}_j\otimes  \left[\Dslash, a_j \right]\xi + \widetilde a \otimes \Dslash\xi =p^{-1}{\slashed D}\left(\widetilde a \otimes \xi \right) 
 \end{split}
 \ee
-where  $p^{-1}\Dslash$ is the   $p$-{inverse image} of $\Dslash$ (cf. Definition \ref{top_smooth_inv_im_defn} and equation \eqref{top_mo_eqn}).
-From the above constructions one has a following theorem.
+where  $p^{-1}\Dslash$ is the   $p$-{inverse image} of $\Dslash$ (cf. Definition \ref{top_smooth_inv_im_defn} and equation \eqref{top_mo_eqn}). From the above construction and the equation \eqref{top_geom_dirac_lift_eqn} one has a following theorem.
+
 \begin{thm}\label{comm_fin_sp_tr_thm} 
-	In the above situation  the spectral triple \\$\left(\Coo\left( \widetilde M\right) , L^2\left(\widetilde M, \widetilde S\right) ,p^{-1} \Dslash \right)$ is 
-	is the  $\left(C\left(M \right) , C\left( \widetilde{M}\right) , G\left(\left.\widetilde M\right| M\right), C\left(p \right)  \right)$-{lift} of $\left(C^{\infty}\left( M\right) , L^2\left( M, S\right) ,\slashed D\right)$ (cf. Definition \ref{triple_conn_lift_defn}).
-	
-	
+	In the above situation the  $\left(C\left(M \right) , C\left( \widetilde{M}\right) , G\left(\left.\widetilde M\right| M\right), C\left(p \right)  \right)$-{lift} of $\left(C^{\infty}\left( M\right) , L^2\left( M, S\right) ,\slashed D\right)$ (cf. Definition \ref{triple_conn_lift_defn}) coincides with the given by the Definition \ref{top_geom_lift_defn} geometrical $p$-lift $\left(\Coo\left( \widetilde M\right) , L^2\left(\widetilde M, \widetilde S\right) ,\widetilde \Dslash \cong p^{-1} \Dslash \right)$.
 \end{thm}
+
 \begin{remark}
 	The Theorem \ref{comm_fin_sp_tr_thm} is a noncommutative analog of the Proposition \ref{comm_cov_mani_prop}.
 \end{remark}
@@ -8225,7 +8231,7 @@ The group $\widehat{G}$ of such homeomorphisms is said to be the \textit{group o
 \end{proof}
 
 \begin{lemma}\label{top_surj_group_lem}
- Consider the  situation  of the Definition \ref{top_sec_p_defn}, and suppose that for all $\la\in\La$ the the covering is transitive (cf. Definition \ref{top_transitive_defn}). Let
+ Consider the  situation  of the Definition \ref{top_sec_p_defn}, and suppose that for all $\la\in\La$ the  covering is transitive (cf. Definition \ref{top_transitive_defn}). Let
 $\left( \widehat{\mathcal{X}}, \widehat{x}_0 \right) = \varprojlim \left( \sX_\la, x^\la_0\right)$ be the inverse limit  in the category of topological spaces and continuous maps. There is the natural group isomorphism $G\left(\left.\widehat{\sX}~\right|\sX \right) \cong \varprojlim G\left({\mathcal{X}}_\la~|~\mathcal X \right)$. For any $\la \in \La$ there is the natural surjective homomorphism $h_\la:G\left(\left.\widehat{\sX}~\right|\sX \right) \to G\left(\left.{\sX}_\la~\right|\sX \right)$ and $\bigcap_{\la \in \La} \ker h_\la$ is a trivial group.
 \end{lemma}
 \begin{proof}
@@ -9921,7 +9927,7 @@ If  $A$ be a given by \eqref{top_poly_a_defn} *-algebra, and  If $\mathfrak B$ i
 	Denote by $\overline{p}:\left( \overline{  \mathcal X}, \overline x_0\right)  \to\left(  \mathcal X, x_0\right) $, $\overline{p}_\la:\left( \overline{  \mathcal X}, \overline x_0\right)  \to\left(  \mathcal X_\la, x^\la_0\right) $, $p^\la: \left(  \mathcal X_\la, x^\la_0\right)  \to \left( \mathcal X, x_0\right) $, $p^\mu_\nu:  \left( \mathcal X_\mu, x^\mu_0 \right) \to \left( \mathcal X_\nu, x^\nu_0\right) $ ($\mu > \nu$) the natural pointed coverings.
 	If $\widetilde{\sX}= \varprojlim \mathfrak{S}_{\left(\sX, x_0 \right)}$ then  	from the Theorem \ref{comm_main_thm} it turns out	
 	$$\left(C_0\left(\mathcal{X}\right), C_0\left(\widetilde{\sX}\right),G\left(\widetilde{\sX}~|~ \mathcal X\right)\right)$$ is  the { infinite noncommutative covering} of $\mathfrak{S}_{C_0\left(\mathcal{X}\right)}$ (cf. Definition \ref{main_defn}). 	 	It is shown in \cite{pedersen:mea_c} that the Pedersen's ideal $K\left(C_0\left(\widetilde{\sX} \right)\right) $ of $C_0\left(\widetilde{\sX} \right)$ coincides with $C_c\left(\widetilde{\sX} \right)$. If $\widetilde{a}, \widetilde{b} \in C_c\left(\widetilde{\sX} \right)$ then $\supp \overline{a}$ is compact. 	
-	From the Lemma \ref{top_comp_la_lem} it follows that there is $\la_0 \in \La$ such that for all $\la \ge \la_0$ the restriction $\left.\overline{p}_\la\right|_{\supp \overline{a}}$ is injective. From the Exercise  \ref{comm_lift_desc_sum_exer} it follows that
+	From the Lemma \ref{top_comp_la_lem} it follows that there is $\la_0 \in \La$ such that for all $\la \ge \la_0$ the restriction $\left.\overline{p}_\la\right|_{\supp \overline{a}}$ is injective. From 1. of the Exercise  \ref{comm_lift_desc_sum_exer} it follows that
 	\begin{equation}\nonumber
 		\begin{split}
 			c_{\la} = \sum_{g \in \ker\left(G\left(\left.\widetilde{\sX}~\right|\sX \right)  \to  G\left( \sX_{\la}~|~\sX \right)\right)} g \left(\widetilde{a}^* \widetilde{b}  \right) = \desc_{\overline{p}_\la}\left( \widetilde{a}\widetilde{b}\right) 
@@ -23860,7 +23866,7 @@ For a presheaf $\mathscr{P}$  on $\sX$ we put  $\mathscr{P}_\Phi\left(\sX \right
 	\section{Groupoids and $C^*$-algebras}
 	\paragraph*{}
 	Here I follow to \cite{brown:proper_groupoids}.
-	\begin{section}{$C_0\left(\sX\right)$-algebras}
+	\begin{subsection}{$C_0\left(\sX\right)$-algebras}
 		\paragraph*{}
 		Groupoids must act on fibred objects, so to construct an appropriate notion of a groupoid dynamical system we need to have fibred $C^*$-algebras.  To that end, given a locally compact Hausdorff space $\sX$, a \emph{$C_0\left(\sX\right)$-algebra} is a $C^*$-algebra $A$ together with a nondegenerate homomorphism of $C_0\left(\sX\right)$ into the center  $Z(M(A))$ of $M\left(A\right)$. $C_0\left(\sX\right)$-algebras are well studied objects in their own right, but for our needs it is enough to know that they have an associated fibred structure.  Specifically, if $C_{0,x}\left(\sX\right)$ is the set of functions in $C_0\left(\sX\right)$ vanishing at $x\in \sX$, then $I_x:=\overline{C_{0,x}\left(\sX\right)\cdot A}$ is an ideal in $A$ and $A(x):=A/I_x$ is called the fibre of $A$ over $x$.  The image of $a$ in $A(x)$ is denoted by $a(x)$, and the set $\{A(x):x\in \sX\}$ gives rise to an \emph{upper semicontinuous $C^*$-bundle} $\A$ over $\sX$ \cite[Theorem C.26]{TFB2}. 
 		
@@ -23874,8 +23880,8 @@ For a presheaf $\mathscr{P}$  on $\sX$ we put  $\mathscr{P}_\Phi\left(\sX \right
 			\label{defn usccb}\end{defn}
 		
 		The point is if we let $A=\Ga_0\left(\sX, \A\right)$ be the $C^*$-algebra of continuous sections of $\A$ vanishing at infinity then $A$ is a $C_0\left(\sX\right)$-algebra.  Throughout this paper we will denote bundles by script letters $\A$ and the corresponding section algebras by the corresponding Roman letter $A$.  For a more detailed discussion of $C_0\left(\sX\right)$-algebras the reader is encouraged to see \cite[Appendix C]{TFB2}.  
-	\end{section}
-	\begin{section}{The Reduced Crossed Product}\label{sec red cross}
+	\end{subsection}
+	\begin{subsection}{The Reduced Crossed Product}\label{sec red cross}
 		\begin{defn}\label{def dyn sys}Suppose that $G$ is a second countable locally compact groupoid  with Haar system $\haars$ and $\A$ is an upper semicontinuous $C^*$-bundle over $\units$. Suppose  the associated $C_0\left(\sX\right)$-algebra, $A=\Ga_0\left(G^0, \A\right)$ is separable. An action $\alpha$ of $G$ on $A$ is a family of $*$-isomorphisms $\{\alpha_{\gamma}\}_{\gamma\in G}$ such that 
 			\begin{enumerate}
 				\item\label{dyn sys rs} for each $\gamma\in G$, $\alpha_{\gamma}:A(s(\gamma))\rightarrow A(r(\gamma))$,
@@ -23912,7 +23918,7 @@ For a presheaf $\mathscr{P}$  on $\sX$ we put  $\mathscr{P}_\Phi\left(\sX \right
 		In this paper we will also use the $I$-norm on $\Gamma_c(G,r^*\A)$ given by 
 		$$\|f\|_I:=\max\left\{\sup\left\{\int\|f\|d\lambda_u\right\},\sup\left\{\int\|f\|d\lambda^u\right\}\right\}.$$
 		We denote the completion of $\Gamma_c(G,r^*\A)$ in this norm by $L^I(G,r^*\A)$.
-	\end{section}
+	\end{subsection}
 	
 	
 	
