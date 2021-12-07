@@ -3680,15 +3680,16 @@ Conversely suppose that $\left\| a_\a\right\| < C$ for all $\a\in \mathscr A$.
 	\item	For all $\la \in \La$ there is a limit $\lim_{\a \in \mathscr A}a_\a|_{\H_\la} = a_\la$ with respect to the strong topology of $B\left( \H_\a\right)$. 
 		
 	\end{itemize} 
-Then the net $\left\{a_\a\right\}$ is convergent  with respect to the strong topology of $B\left( \H\right)$. If
+Then the net $\left\{a_\a\right\}$ is convergent  with respect to the strong topology of $B\left( \H\right)$ (cf. Definition \ref{strong_topology_defn}). If
 $\xi \in \H$ corresponds to the family
 \be\nonumber
 \left\{\xi_{\la}\in \H_{\la}\right\}_{\widehat \la\in \La}.
 \ee
-then $\left(\lim_{\a \in \mathscr A } \right) \xi$ is represented by the family
+then $\left(\lim_{\a \in \mathscr A } a_\a\right) \xi$ is represented by the family
 $$
-\left\{ \left( \lim_{\a \in \mathscr A } a_\a|_{\H_\la}\right) \xi_{\la}\in \H_{\la}\right\}_{\la\in \La}.
-$$
+\left\{ \left( \lim_{\a \in \mathscr A } a_\a|_{\H_\la}\right) \xi_{\la}\in \H_{\la}\right\}_{\la\in \La}
+	$$
+	where the strong limit  $\lim_{\a \in \mathscr A } a_\a$ is implied (cf. Definition \ref{strong_topology_defn}).
 \end{lemma}\label{sum_act_repr_lem}
 \begin{proof}
 From the Lemma \ref{sum_hilb_rep_lem} it follows that $\left\{a_\a\right\}$ is convergent  with respect to the strong topology of $B\left( \H\right)$. If $\xi= \left(\xi_\la\right)_{\la\in \La} \in \H$ 
@@ -8463,7 +8464,7 @@ Then for any compact $\overline{   \mathcal U } \subset \overline{   \mathcal X 
 
 \subsection{Algebraic construction in brief}\label{comm_alg_constr_susub}
 \paragraph*{}
-The inverse limit of coverings $\widetilde{\mathcal X}$ is obtained from inverse limit of topological spaces $\widehat{\mathcal X}$ by a change of a topology. The topology of  $\widetilde{\mathcal X}$ is finer than the topology of $\widehat{\mathcal X}$, it means that $C_0\left(\widehat{\mathcal X}\right)$ is a subalgebra of $C_b\left(\widetilde{\mathcal X}\right)$. The topology of $\widetilde{\mathcal X}$ is obtained from topology of $\widehat{\mathcal X}$ by addition of special subsets. Addition of new sets to a topology is equivalent to addition of new elements to $C_0\left(\widehat{\mathcal X}\right)$. To obtain $C_b\left(\widetilde{\mathcal X}\right)$ we will extend $C_0\left(\widehat{\mathcal X} \right) $ by special  elements (cf. Definition \ref{special_element_defn}). If $\widetilde{\mathcal U}\subset \widetilde{\mathcal X}$ is a special set and $\widetilde{a} \in C_c\left( \widetilde{\mathcal X}\right)$ is positive element such that $\widetilde{a}|_{\widetilde{\mathcal X} \setminus \widetilde{\mathcal U}}= \{0\}$, and $a\in C_c\left(\mathcal X_0\right)$ is given by 
+The inverse limit of coverings $\widetilde{\mathcal X}$ is obtained from inverse limit of topological spaces $\widehat{\mathcal X}$ by a change of a topology. The topology of  $\widetilde{\mathcal X}$ is finer than the topology of $\widehat{\mathcal X}$, it means that $C_0\left(\widehat{\mathcal X}\right)$ is a subalgebra of $C_b\left(\widetilde{\mathcal X}\right)$. The topology of $\widetilde{\mathcal X}$ is obtained from topology of $\widehat{\mathcal X}$ by addition of special subsets. Addition of new sets to a topology is equivalent to addition of new elements to $C_0\left(\widehat{\mathcal X}\right)$. To obtain $C_b\left(\widetilde{\mathcal X}\right)$ we will extend $C_0\left(\widehat{\mathcal X} \right) $ by special  elements (cf. Definition \ref{special_element_defn}). If $\widetilde{\mathcal U}\subset \widetilde{\mathcal X}$ is a special set and $\widetilde{a} \in C_c\left( \widetilde{\mathcal X}\right)_+$ is positive element such that $\widetilde{a}|_{\widetilde{\mathcal X} \setminus \widetilde{\mathcal U}}= \{0\}$, and $a\in C_c\left(\mathcal X_0\right)_+$ is given by 
 $
 a =\sum_{\widehat{g} \in \widehat{G}} \widehat{g} \widetilde{a}
 $,
@@ -8579,8 +8580,9 @@ According to our construction for any $\mu >\nu$ the category $	\mathfrak{S}_{C_
 \end{split}
 	\end{equation}
 \end{empt}
+
 \begin{lemma}\label{top_atomic_lem}
-If  $\mathfrak{S}_{A }$ is a given by \eqref{top_alg_cat}  {pointed algebraical  finite covering category} (cf. Definition \ref{comp_pt_defn}) and $\La$ is countable then
+If  $\mathfrak{S}_{A }$ is a given by \eqref{top_alg_cat}  {pointed algebraical  finite covering category} (cf. Definition \ref{comp_pt_defn})  countable then
 \begin{itemize}
 	\item [(i)] The spectrum of the $C^*$-inductive limit  $\widehat A \stackrel{\mathrm{def}}{=}C^*\text{-}\varinjlim_\La A_0\left(\sX_\la\right)$ is the projective limit $\varprojlim \sX_\la$.
 \item[(ii)] Let $\overline  \sX$ be the disconnected inverse limit of $\mathfrak{S}_{\left( \mathcal{X}, x_0\right)}$ (cf. Definition \ref{top_topological_inv_lim_defn}), let $\overline  p:  \overline  \sX \to \sX$ be the natural covering. Suppose that
@@ -8622,32 +8624,10 @@ where $a_{\widehat x} \in B\left(\ {\widehat \H}_{\widehat x} \right)$ is the st
 	$
 	\overline\H_{a} \cong \widehat\H_{a}
 	$.\\
-		(iii) If  $a_{\widehat x} \in B\left(\ {\widehat \H}_{\widehat x} \right)$ is not the strong limit of $\lim_{\la \in \La }\rep_{ \widehat{x}}\left( a_\la\right)$ then there exists $\eps > 0$ and  $\xi_{ \widehat x} \in \widehat\H_{ \widehat x}$ such that
-		for any $\la_0 \in \La$ there is $\la > \la_0$ such that $\left\|\left( \rep_{\widehat x}\left( a_\la\right)  - \rep_{\widehat x} \left(\overline a\right) \right) \xi_{ \widehat x} \right\|> \eps$. If 
-		$$
-		 \xi_a=\left(...~,   \underbrace{ \xi_{\widehat x}}_{\widehat x^{\mathrm{th}}~\mathrm{place}},... \right) \in {\widehat \H}_{a}
-		 $$
-		 then  one has $\left\|\left( a_\la-\overline a \right) \xi_a \right\|> \eps$, i.e. $\overline a$ is not a strong limit of $\left\{ a_\la\right\}$. 
-		 Conversely select any $C > 0$ such that $ \left\|a_\la \right\|< C$ for all $\la\in\La$. There is a finite subset $\widehat\sX_0 \subset \widehat\sX$ and $ \eta_a \in \widehat \H_a$ such that 
-		 \bean
-		 \eta_a=\left(...~, \underbrace{ \eta_{\widehat x}}_{\widehat x^{\mathrm{th}}~\mathrm{place}},... \right);\\
-		 \eta_{\widehat x}= \begin{cases}
-		 \xi_{\widehat x} & \widehat x \in \widehat\sX_0\\
-		 0 & \widehat x \notin \widehat\sX_0
-		 		 \end{cases};
-	 \\
-		 \left\|\xi_{a} - \eta_{ a} \right\| < \frac{\eps}{2 C}.
-		 \eean
-		 There is $\la_0 \in \La$ such that 
-		 $$
-		  \left\|\left( \rep_{\widehat x}\left( a_\la\right)  - \rep_{\widehat x} \left(\overline a\right) \right)\xi_{ \widehat x} \right\| < \frac{\eps}{2\left|\widehat\sX_0 \right| }\quad \forall \widehat x \in \widehat\sX_0\quad \forall\la > \la_0
-		 $$
-		 From the  above equations one has
-		 $$
-		  \left\|\left(  a_\la-\overline a \right)\xi \right\| < \eps,
-		 $$
-		 i.e. there is the strong limit $\overline a =\lim_{\la \in \La }\rep_{ \widehat{x}}\left( a_\la\right)$.
-		\end{proof}
+		(iii)  Follows from the Lemma \ref{direct_sum_strong_lim_lem}.
+	\end{proof}
+
+
 \begin{empt}\label{top_spec_empt}
 	Consider the specialization of the Lemma  \ref{top_atomic_lem} such that\\ $A = \left(\sX, \left\{\C_x\right\}_{x \in \sX}, \sF\right)= C_0\left(\sX \right) $,   $A_0 = C_0$, and the given by \eqref{top_alg_cat} category equals to
 	\begin{equation}\label{top_talg_cat_eqn}
@@ -8707,7 +8687,7 @@ $$
 	$$
 	\rho\left( C_0\left( \overline \sX\right)\right) \subset \phi\left(  \overline{A}\right).
 	$$  
-	Denote by	$\overline{p}: \overline{   \mathcal X } \to \sX$ and $\overline{p}_\la: \overline{   \mathcal X } \to \sX_\la$ the natural coverings. Let $\widehat G \bydef \varprojlim_{\la\in\La}  G\left(\left.\sX_\la~\right|~ \sX\right)$, $\quad G_\la \bydef \ker\left(  \widehat G\to  G\left(\left.\sX_\la~\right|~ \sX\right)\right) $, and let $C_0\left(\sX_\la \right)^{\sim}$ be given by \eqref{unital_notation_eqn}. Let  $ \desc_{\overline p_\la}$ be the $\overline p_\la$-descend  (cf. Definition \ref{top_lift_desc_defn}) 	
+	Denote by	$\overline{p}: \overline{   \mathcal X } \to \sX$ and $\overline{p}_\la: \overline{   \mathcal X } \to \sX_\la$ the natural coverings. Let $\widehat G \bydef \varprojlim_{\la\in\La}  G\left(\left.\sX_\la~\right|~ \sX\right)$, $\quad G_\la \bydef \ker\left(  \widehat G\to  G\left(\left.\sX_\la~\right|~ \sX\right)\right) $, and let $C_0\left(\sX_\la \right)^{\sim}$ be given by \eqref{unital_notation_eqn}. Let  $ \desc_{\overline p_\la}$ be the $\overline p_\la$-descend  (cf. Definition \ref{top_lift_desc_defn}).
 	If $\overline a \in C_c\left(\overline\sX\right)_+$ is a positive function then $\overline{   \mathcal U } \bydef \left\{\left.\overline x \in \overline{   \mathcal X }\right| \overline a \left(\overline x\right)> 0\right\}$ is an open set.
 	Suppose that  $\overline{   \mathcal U } \subset \overline{   \mathcal X }$ is homeomorphically mapped onto $\sU = \overline{p}\left(  \overline{   \mathcal U }\right)  \subset {   \mathcal X }$. Let us prove that $\overline a'\bydef \rho\left( \overline a\right)\in  B\left(\widehat \H_a \right)$ is $\pi_a$-special. Suppose  $\la_0 \in \La$, $\eps > 0$ and  $z \in A_{\la_0}^{\sim}$ and check that $\overline a'$
 	satisfies  to the conditions (a), (b) of the Definition \ref{special_element_defn}.
@@ -8761,7 +8741,7 @@ $$
 %\end{equation*}
 %\end{proof}
 
-
+!!! CONTINUE
 
 \begin{lemma}\label{comm_main_lem}
 	Suppose that $\mathcal X$ is a  locally compact, locally connected, Hausdorff space.	
