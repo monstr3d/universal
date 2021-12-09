@@ -3521,6 +3521,9 @@ Since $\cup A_\la$ is dense subalgebra of $C^*$-$\varprojlim A_\la$ with respect
 A_\la \to M\left( \overline{A}_\pi \right) 
 \ee
 \end{remark}
+\begin{remark}\label{comes_from_bh_rem}
+The homomorphism \eqref{a_too_eqn} comes from inclusions $A_\la \subset B\left( \H\right)$ and $ \overline{A}_\pi \subset B\left( \H\right)$,  
+\end{remark}
 \begin{remark}\label{comm_inf_a_rem}
 	Any  $g \in G\left(\left.\overline{A}_\pi~\right| A\right)$  yields to a *-isomorphism from one connected component (cf. Definition \ref{conn_comp_defn}) of $\overline{A}_\pi$ to another one or to itself.
 \end{remark}
@@ -3780,9 +3783,6 @@ Let	$\mathfrak{S}^{\mathrm{pt}} \in \mathfrak{FinAlg}^{\mathrm{pt}}$, let $\pi: 
 	If $\pi$ is the atomic representation $\pi_a$ then we say $\widetilde A\bydef\widetilde A_{\pi_a}$ is a \textit{connected component} of $\mathfrak{S}^{\mathrm{pt}}$ and    $\mathfrak{S}^{\mathrm{pt}}$ is \textit{good}.
 \end{definition}
 
-\begin{lemma}
-If we consider situation of the Definition then  for all $\la\in \La$ there is the natural injective *-homomorphism $A_\la \hookto M\left(\widetilde{A}_\pi \right)$. 
-\end{lemma}
 
  \begin{definition}\label{main_defn}
 	Let $\mathfrak{S}^{\mathrm{pt}} \in \mathfrak{FinAlg}^{\mathrm{pt}}$ be  an algebraical  finite covering category. Let $\pi: \widehat{A} \to B\left(\H \right)$ a representation such that $\mathfrak{S}^{\mathrm{pt}}$ is $\pi$-good.    A connected component $\widetilde{A}_\pi \subset \overline{A}_\pi$  is said to be the $\pi$-\textit{ inverse noncommutative limit of $\mathfrak{S}^{\mathrm{pt}}$}. The $\widetilde{A}_\pi$-invariant group $G_\pi$  is said to be the $\pi$-\textit{covering transformation group of $\mathfrak{S}^{\mathrm{pt}}$}.  The triple $\left(A, \widetilde{A}_\pi, G_\pi\right)$ is said to be the  $\pi$-\textit{infinite noncommutative covering} of $\mathfrak{S}^{\mathrm{pt}}$. %The algebra $A$  is said to be the {\it base algebra} of $\mathfrak{S}$. 
@@ -8985,19 +8985,37 @@ is a given by the Lemma  \ref{top_base_point_lem} {pointed algebraical  finite c
 	\ee
 \end{remark}
 
+\begin{definition}\label{mains_defn!}
+	Let	$\mathfrak{S}^{\mathrm{pt}} \in \mathfrak{FinAlg}^{\mathrm{pt}}$, let $\pi: \widehat A \to B\left(\H \right)$ be an equivariant representation.   Suppose that $\left(A, \overline{A}_\pi, G\left(\left.\overline{A}_\pi~\right| A\right)\right)$ is the $\pi$-disconnected infinite noncommutative covering of $\mathfrak{S}^{\mathrm{pt}}$,  $\widetilde{A}_\pi$ is a $\pi$-{connected component} of $\mathfrak{S}^{\mathrm{pt}}$, and $G_\pi$ is the $\widetilde{A}_\pi$-{invariant group} of $\mathfrak{S}^{\mathrm{pt}}$. For any $\la \in \La$ denote by $h_\la: \widehat{G} \to G\left(\left. A_\la~\right|~A \right)$ the natural surjective homomorphism of groups.
+	We say  that $\mathfrak{S}^{\mathrm{pt}}$ is $\pi$-\textit{good} if  following conditions hold:
+	\begin{enumerate}
+		\item[(a)] For all $\la\in\La$ the given by \eqref{a_tot_eqn} *-homomorphism $A_\la \to M\left( \widetilde{A}_\pi \right)$ is injective.
+		\item[(b)] If both $\widetilde{A}'_\pi$ and $\widetilde{A}''_\pi$ are  $\pi$-{connected components} then there is  $g \in G\left(\left.\overline{A}_\pi~\right|~ A\right)$ such that $g \widetilde{A}'_\pi= \widetilde{A}''_\pi$.
+		\item [(c)] For any $\la \in \La$ the restriction $h_\la|_{G_\pi}$ is an epimorphism, i. e. $h_\la\left(G_\pi \right) = G\left(\left. A_\la~\right|~A \right)$.
+	\end{enumerate}
+	If $\pi$ is the atomic representation $\pi_a$ then we say $\widetilde A\bydef\widetilde A_{\pi_a}$ is a \textit{connected component} of $\mathfrak{S}^{\mathrm{pt}}$ and    $\mathfrak{S}^{\mathrm{pt}}$ is \textit{good}.
+\end{definition}
+
+
 
 \begin{proof}
 	From the Lemma \ref{comm_c0_inc_lem} and the Corollary \ref{comm_main_cor}  it follows that disconnected inverse noncommutative limit of $\mathfrak{S}_{C_0\left( \mathcal{X}\right)}$ is isomorphic to $C_0\left( \overline{   \mathcal X }\right)$ where $\overline{   \mathcal X }$ is the disconnected inverse limit of $\mathfrak{S}_{\left(\sX, x_0\right)}$ (cf. Definition \ref{top_topological_inv_lim_defn}). If $\widetilde\sX \subset \overline{   \mathcal X }$ is the connected component containing $\overline x_0$ then $C_0\left(\widetilde\sX \right)$ is the connected component of $C_0\left(\overline\sX \right)$ (cf. the Definition \ref{conn_comp_defn} and the Exercise \ref{conn_comp_exer}).	\\
 	(i) To prove that $ \mathfrak{S}^{\mathrm{pt}}_{C_0\left(\sX \right) }$
 	 is good one needs check conditions (a)- (c) of the Definition \ref{mains_defn}.
 	\begin{itemize}
-		\item [(a)] The map $C_0\left( \sX_\la\right) \to M\left(C_0\left(\widetilde \sX \right)  \right)\cong C_b\left( \widetilde\sX\right)$ is indeed the given by   the Definition \ref{top_lift_defn} $\widetilde  p_\la$-lift, i.e. 
+		\item [(a)] If  $\widehat \sX \bydef \varprojlim \sX_\la$ is inverse limit (cf. Definition \ref{top_inv_lim_defn}) then from the Corollary \ref{inductive_lim_state_cor} it turns out that $C^*$-$\varinjlim C_0\left(\sX_\la\right)\cong C_0\left(\widehat \sX \right)$.
+		The map $C_0\left( \sX_\la\right) \to M\left(C_0\left(\widetilde \sX \right)  \right)\cong C_b\left( \widetilde\sX\right)$ maps from inclusions $C_0\left( \sX_\la\right)\subset B\left( \H_a\right)$ and $C_0\left( \widetilde\sX\right) \subset B\left( \H_a\right)$ (cf. \ref{comes_from_bh_rem}) where $\H_a$ is a space of the atomic representation of $C^*$-$\varinjlim C_0\left(\sX_\la\right)$. On the other hand any element  $\xi \in \H_a$ corresponds to family $\left\{\xi_{\overline x}\in \C\right\}_{\overline x\in \overline \sX}$ (cf. Lemma	\ref{top_atomic_lem}). For any $a\in 	C_0\left(\sX_\la\right)$ and $\widetilde a\in 	C_0\left(\widetilde \sX\right)$ elements $a \xi$ and $\widetilde a\xi$ correspond to the following families
+	$
+	\left\{\widetilde a\left(\widetilde x \right) \right\}$ and 
+	$\left\{ a\left(\widetilde p_\la\left( \widetilde x\right)  \right) \right\}$
+		where $\widetilde p_\la : \widetilde\sX \to\sX_\la$ is a natural covering. It follows that the map $C_0\left( \sX_\la\right) \to M\left(C_0\left(\widetilde \sX \right)  \right)\cong C_b\left( \widetilde\sX\right)$ comes from the action $C_0\left( \sX_\la\right)\times C_0\left(\widetilde \sX\right)\to C_0\left(\widetilde \sX\right)$ such that $\left( a \widetilde a\right) \left( \widetilde x\right) = a\left( \widetilde p_\la\left( \widetilde x\right)\right)\widetilde a\left(   \widetilde x\right)$. Equivalently the map $C_0\left( \sX_\la\right) \to M\left(C_0\left(\widetilde \sX \right)  \right)\cong C_b\left( \widetilde\sX\right)$ is indeed the given by   the Definition \ref{top_lift_defn} $\widetilde  p_\la$-lift, i.e. 
 		$
-		\lift_{\widetilde  p_\la } : C_0\left( \sX_\la\right) \hookto  C_b\left( \overline\sX\right)
-		$
-		where ${\widetilde  p_\la }: \overline\sX\to \sX_\la$ is a natural covering.
-		From the Definition map \ref{top_lift_defn}  it follows that $\lift_{\widetilde  p_\la }$ is an injective *-homomorphism.
-\item[(b)]	Follows from the Equation \eqref{top_disconnected_repr_eqn}, the Exercise \ref{conn_comp_exer} and Remarks \ref{comm_inf_a_rem}, \ref{conn_inft_rem}.
+		\lift_{\widetilde  p_\la } : C_0\left( \sX_\la\right) \hookto  C_b\left( \widetilde\sX\right)
+		$.
+		From the Definition map \ref{top_lift_defn}  it turns out that $\lift_{\widetilde  p_\la }$ is an injective *-homomorphism.
+\item[(b)]	If both  $\widetilde{A}'$ and $\widetilde{A}''$ are connected component of $C_0\left( \overline \sX\right)$ (cf. Definition \ref{conn_comp_defn})  and both $\widetilde{\sX}'$ and $\widetilde{\sX}''$ are spectra of $\widetilde{A}'$ and $\widetilde{A}''$ respectively then from the Exercise  $\ref{conn_comp_exer}$ it turns out that the spaces  $\widetilde{\sX}'$ and $\widetilde{\sX}''$ are connected  components of $\overline \sX$. From the equation \eqref{top_disconnected_repr_eqn} it follows that there are 
+
+Follows from the Equation \eqref{top_disconnected_repr_eqn}, the Exercise \ref{conn_comp_exer} and Remarks \ref{comm_inf_a_rem}, \ref{conn_inft_rem}.
 \item[(c)]  If $\la\in \La$ then there are natural isomorphisms $G\left(\left.C_0\left( \widetilde\sX\right) \right|C_0\left( \sX\right) \right)\cong G\left(\left. \widetilde\sX \right| \sX\right)$ and $G\left(\left.C_0\left( \sX_\la\right) \right|C_0\left( \sX\right) \right)\cong G\left(\left. \sX_\la \right| \sX\right)$ such that the homomorphism $h_\la: G\left(\left.C_0\left( \widetilde\sX\right) \right|C_0\left( \sX\right) \right)\to G\left(\left.C_0\left( \sX_\la\right) \right|C_0\left( \sX\right)\right) $ comes from the given by the Lemma \ref{top_homo_lem} homomorphism $h_\la^{\text{top}}: G\left(\left. \widetilde\sX \right| \sX\right)\to G\left(\left.\sX_\la \right| \sX\right)$. But $h_\la^{\text{top}}$ is surjective (cf. \ref{top_g_homo_empt}), so $h_\la$ is also surjective.
 
 	\end{itemize}
@@ -21588,7 +21606,7 @@ We denote by $C_b\left(\mathcal X, M\left( A_x\right)_\bt,  \mathscr F\right)$ t
 	\end{theorem}
 	\begin{corollary}\label{inductive_lim_state_cor}\cite{takeda:inductive}
 		If a commutative $C^*$-algebra $A$ is a $C^*$-inductive limit of the
-		commutative  $C^*$-algebras $A_\la$ ($\la \in \La$), the spectrum $\mathcal X$ of $A$ is the projective limit of spectrums $\mathcal X_\la$ of $A_\la$ ($\la \in \La$).
+		commutative  $C^*$-algebras $A_\la$ ($\la \in \La$), the spectrum $\mathcal X$ of $A$ is the projective limit of spectra $\mathcal X_\la$ of $A_\la$ ($\la \in \La$).
 	\end{corollary}
 	
 	
