@@ -3913,14 +3913,44 @@ a \bydef	\sum_{g \in G\left(\left.\overline A\right|A \right) }g\overline a\in A
 
 \section{Infinite coverings of *-algebras}
 \paragraph*{} Here we discuss infinite coverings of operator *-algebras which can contain unbounded operators. If $A$ is operator *-algebra then denote by $b\left(A \right)\subset A$ the *-algebra  of bounded operators.
-\begin{definition}\label{comp_pro_defn}
+
+
+\begin{definition}\label{pro_fin_defn!}
+	Let $\pi: A \hookto \widetilde A$ be an injective *-homomorphism of pro-$C^*$ algebras (cf. Definition \ref{pro_c_defn}) which can be regarded as an inclusion. Suppose that the following conditions hold:
+	\begin{itemize}
+		\item[(a)] The quadruple  $\left(A, \widetilde{A}, G, \pi \right)$  is a noncommutative finite-fold  pre-covering of *-algebras (cf. \ref{fin_pre*_defn}).
+		\item[(b)] There is   an essential ideal  $\widetilde B$ of $b\left(\widetilde A \right)$ (where $b\left(\widetilde A \right)$ is a $C^*$-algebra of bounded elements (cf. Definition \ref{pro_bound_defn}) and Proposition \ref{pro_bound_prop}) such that $G\widetilde B= \widetilde B$ and $\left(B ,  \widetilde{B} , G, \pi|_{B} \right)$ is a noncommutative finite-fold  covering (cf. Definition \ref{fin_defn}),  where  $B\bydef \widetilde B \cap A$.
+	\end{itemize}
+	We say that the triple $\left(A, \widetilde{A}, G \right)$ and/or the quadruple $\left(A, \widetilde{A}, G, \pi \right)$ and/or *-homomorphism $\pi: A \hookto \widetilde{A}$   is a \textit{noncommutative finite-fold  covering  of pro-$C^*$-algebras}.
+	
+\end{definition}
+
+
+\begin{empt}\label{comp_pro_empt}
 	Let $\La$ be a countable directed set (cf. Definition \ref{directed_set_defn}) such that there is the unique minimal element $\la_{\min} \in \La$.
-	Let $A$ be a pro-$C^*$-algebra.  Let us consider a set noncommutative finite-fold coverings  pro-$C^*$-algebras $\mathfrak{S}=\left\{ \pi_{\la}:A \hookto A_{\la}\right\}_{\la \in \La}$ (cf. Definition \ref{pro_fin_defn}) indexed by  $\La$ such that $A_{\la_{\mathrm{min}}}= A$, and $\pi_{\la_{\mathrm{min}}}= \Id_A$.  Suppose that
-		$\mathfrak{S}_b=\left\{ \pi_{\la}:b\left( A\right)  \hookto b\left(  A_{\la}\right) \right\}_{\la \in \La}$, or equivalently $$\mathfrak{S}=\left\{ \left( b\left( A\right)  ,  b\left(A_{\la}\right) , G\left(\left.A_\la~\right|A \right) , \pi_{\la}\right) \right\}_{\la \in \La}$$
-	is  an {algebraical  finite covering category}.   
-	The set 
-	$\mathfrak{S}=\left\{ \pi_{\la}:A \hookto A_{\la}\right\}_{\la \in \La}$, or equivalently $$\mathfrak{S}=\left\{ \left( A , A_{\la}, G\left(\left.A_\la~\right|A \right) , \pi_{\la}\right) \right\}_{\la \in \La}$$
-	is said to be an \textit{algebraical  finite covering category of pro-$C^*$-algebras}. \\
+	Let $A$ be a pro-$C^*$-algebra.  Let us consider a set noncommutative finite-fold coverings  pro-$C^*$-algebras $\mathfrak{S}=\left\{ \pi_{\la}:A \hookto A_{\la}\right\}_{\la \in \La}$ (cf. Definition \ref{pro_fin_defn}) indexed by  $\La$ such that $A_{\la_{\mathrm{min}}}= A$, and $\pi_{\la_{\mathrm{min}}}= \Id_A$. Suppose that there is a category 	
+	\be\label{comp_pro_eqn}
+	\begin{split}
+		\mathfrak{S} \bydef \left(\left\{\pi_\la: A \hookto A_\la \right\}_{\la \in \La}, \left\{\pi^\mu_\nu: A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\ \nu > \mu}}\right),\\
+		\text{or simply} \quad \mathfrak{S} \bydef \left(\left\{\pi_\la: A \hookto A_\la \right\}, \left\{\pi^\mu_\nu\right\}\right).
+	\end{split}
+	\ee
+	noncommutative finite-fold coverings  pro-$C^*$-algebras (cf. Definition \ref{pro_fin_defn}). From the Definition \ref{pro_fin_defn} it follows that for each $\la\in \La$ there is an essential ideal $B_\la \subset b\left(A_\la \right)$ of the $C^*$-algebra $b\left(A_\la \right) \subset A_\la$ of bounded elements of $A$, such that 
+	$$
+	\forall \la \in \La \quad \mu \ge \nu \quad \pi_\la\left(B\right) \subset B_\la
+	$$
+	and the restriction  $\pi_\la|_B : B \hookto B_\la$ is a noncommutative finite-fold  covering (cf. Definition \ref{fin_defn}).
+	Suppose that
+	\be\label{bounded_cat_eqn}
+	\begin{split}
+		 	\mathfrak{S}_B \bydef \left(\left\{\pi_\la|_{B }:B  \hookto B_\la  \right\}_{\la \in \La},\right.\\ \left.\left\{\pi^\mu_\nu|_{B_\mu }: B_\mu \hookto B_\mu \right\}_{\substack{\mu, \nu \in \La~~\nu > \mu}}\right)
+	\end{split}
+	\ee
+is 	a { algebraical  finite covering category} (cf. Definition \ref{comp_pt_defn})
+\end{empt}
+\begin{definition}\label{comp_pro_defn}
+	The the given by  \eqref{comp_pro_eqn} set $\mathfrak{S}$
+	is said to be an \textit{algebraical  finite covering category of pro-$C^*$-algebras}. 
 	We write $\mathfrak{S} \in$ pro-$\mathfrak{FinAlg}$.
 \end{definition}
 
@@ -3933,15 +3963,7 @@ a \bydef	\sum_{g \in G\left(\left.\overline A\right|A \right) }g\overline a\in A
 	\end{split}
 	\ee
 \end{definition}
-\begin{remark}
-If 	$\mathfrak{S}^{\text{pt}}$ is pointed algebraical  finite covering category of pro-$C^*$-algebras then
-\be\label{bounded_cat_eqn}
-\begin{split}
-	b\left( 	\mathfrak{S}^{\text{pt}}\right) \bydef \left(\left\{\pi_\la|_{b\left(A \right) }: b\left( A\right)  \hookto b\left( A_\la\right)  \right\}_{\la \in \La},\right.\\ \left.\left\{\pi^\mu_\nu|_{b\left(A_\mu \right) }: b\left(A_\mu\right)  \hookto b\left(A_\nu\right) \right\}_{\substack{\mu, \nu \in \La~~\nu > \mu}}\right)
-\end{split}
-\ee
-is a {pointed algebraical  finite covering category} (cf. Definition \ref{comp_pt_defn}).
-\end{remark}
+
 \begin{empt}\label{inv_pro_lim_empt}
 Let $\mathfrak{S}^{\text{pt}}$ is pointed algebraical  finite covering category of pro-$C^*$-algebras, and let 	$b\left( 	\mathfrak{S}^{\text{pt}}\right)$ is given by \eqref{bounded_cat_eqn}. Suppose that $b\left( 	\mathfrak{S}^{\text{pt}}\right)$ is good (cf. Definition \ref{mains_defn}) and let  $\left(b\left( A\right) , \overline{B}, \overline G\right)$ be the {disconnected infinite noncommutative covering} of $b\left( \mathfrak{S}^{\mathrm{pt}}\right)$ (cf. Definition \ref{main_defn}). If $\widehat{B}\bydef C^*$-$\varinjlim  b\left(A_\la \right)$ is the direct limit then there is the natural inclusion  $\iota :\widehat{B}\hookto M\left( \overline{B}\right)$. From the Proposition \ref{pro_dir_lim_prop} there is the direct limit $\widehat{A}\bydef \varinjlim A_\la$ which is a pro-$C^*$-algebra. Moreover one has $\widehat{B} = b\left( \widehat{A}\right)$. 
 Let us consider  a set  $\left(G, R\right)$ of  generators and relations  such the   $G \bydef   M\left( \widetilde{B}\right)\cup \widehat A$, the set $R$ contains: 
@@ -7923,9 +7945,6 @@ Prove following statements:
 \begin{definition}\label{top_pro_inv_defn}
 In the above situation we say that $p^{-1}\left(F\right)_c$ is the  $p$-\textit{lift} of $F$. The given by \eqref{top_pro_hom_eqn}  *-homomorphism is the $p$-$F$-\textit{homomorphism}.
 \end{definition}
-\begin{definition}\label{top_bt_cov_defn}
-Let $p:\widetilde\sX \to \sX$ be a covering. Let both $\bt\widetilde\sX$ and $\bt\widetilde\sX$ be Stone-\v{C}ech compactifications of $\widetilde\sX$ and $\sX$ respectively (cf. Definition \ref{sc_comp_defn}). We say that $p$ is a $\bt$-covering if there is a covering $p_\bt:\bt\widetilde\sX \to \bt\sX$ such that $p = \left.p_\bt\right|_{\widetilde\sX}$. 
-\end{definition}
 \begin{theorem}\label{top_pro_fin_thm}
 Let $\sX$ be a connected, locally connected, locally compact, completely regular, Hausdorff space with distinguished family of compact subsets $F$. If $p:\widetilde\sX \to \sX$ is a finite-fold, transitive, $\bt$-covering and   $
 C^*\left( p, F\right): C_F\left(\sX\right)\hookto C_{p^{-1}\left(F\right)}\left(\widetilde\sX\right)$ is the $p$-$F$-{homomorphism} (cf. Definition \ref{top_pro_inv_defn}) then the quadruple 
@@ -9522,7 +9541,7 @@ Suppose that
 \mathfrak{S}_{\left( \sX, x_0\right) }\in \mathfrak{FinTop}^{\text{pt}}.
 \end{split}
 \ee	
-is  a pointed topological finite covering category (cf. Definition \ref{top_sec_p_defn}). Assume that  $p_\la$ and $p^\mu_\nu$ are finite-fold transitive $\bt$-coverings for all $\la, \mu, \nu \in \La$ (cf. Definition \ref{top_bt_cov_defn}).  If $F$ 
+is  a pointed topological finite covering category (cf. Definition \ref{top_sec_p_defn}). Assume that  $p_\la$ and $p^\mu_\nu$ are finite-fold transitive coverings for all $\la, \mu, \nu \in \La$ (cf. Definition \ref{top_transitive_defn}).  If $F$ 
 is  distinguished family of compact subsets $F$ (cf. Definition \ref{comm_pro_dist_defn}) on $\sX$ and for any $\la\in \La$ 
 and for any $\la$ there is the $p$-{lift} of $F$ (cf. Definition \ref{top_pro_inv_defn}). Moreover there are injective *-homomorphisms 
 \bean
