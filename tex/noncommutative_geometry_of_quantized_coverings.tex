@@ -3936,17 +3936,19 @@ a \bydef	\sum_{g \in G\left(\left.\overline A\right|A \right) }g\overline a\in A
 	\end{split}
 	\ee
 	noncommutative finite-fold coverings  pro-$C^*$-algebras (cf. Definition \ref{pro_fin_defn}). From the Definition \ref{pro_fin_defn} it follows that for each $\la\in \La$ there is an essential ideal $B_\la \subset b\left(A_\la \right)$ of the $C^*$-algebra $b\left(A_\la \right) \subset A_\la$ of bounded elements of $A$, such that 
-	$$
-	\forall \la \in \La \quad \mu \ge \nu \quad \pi_\la\left(B\right) \subset B_\la
-	$$
-	and the restriction  $\pi_\la|_B : B \hookto B_\la$ is a noncommutative finite-fold  covering (cf. Definition \ref{fin_defn}).
+\bean
+	\forall \la \in \La \quad \pi_\la\left(B\right) \subset B_\la,\\
+		\forall \mu, \nu \in \La\quad \mu\le\nu  \quad \pi^\mu_\nu\left(B_\mu\right) \subset B_\nu
+	\eean
+	and restrictions $\pi_\la|_B : B \hookto B_\la$,  $\quad\pi^\mu_\nu|_{B_\mu} : B_\mu \hookto B_\nu$, 	
+	 are noncommutative finite-fold  coverings (cf. Definition \ref{fin_defn}).
 	Suppose that
 	\be\label{bounded_cat_eqn}
 	\begin{split}
-		 	\mathfrak{S}_B \bydef \left(\left\{\pi_\la|_{B }:B  \hookto B_\la  \right\}_{\la \in \La},\right.\\ \left.\left\{\pi^\mu_\nu|_{B_\mu }: B_\mu \hookto B_\mu \right\}_{\substack{\mu, \nu \in \La~~\nu > \mu}}\right)
+		 	\mathfrak{S}_B \bydef \left(\left\{\pi_\la|_{B }:B  \hookto B_\la  \right\}_{\la \in \La},\left\{\pi^\mu_\nu|_{B_\mu }: B_\nu \hookto B_\mu \right\}_{\substack{\mu, \nu \in \La~~\nu > \mu}}\right)
 	\end{split}
 	\ee
-is 	a { algebraical  finite covering category} (cf. Definition \ref{comp_pt_defn})
+is 	an { algebraical  finite covering category} (cf. Definition \ref{comp_defn})
 \end{empt}
 \begin{definition}\label{comp_pro_defn}
 	The the given by  \eqref{comp_pro_eqn} set $\mathfrak{S}$
@@ -3965,17 +3967,20 @@ is 	a { algebraical  finite covering category} (cf. Definition \ref{comp_pt_defn
 \end{definition}
 
 \begin{empt}\label{inv_pro_lim_empt}
-Let $\mathfrak{S}^{\text{pt}}$ is pointed algebraical  finite covering category of pro-$C^*$-algebras, and let 	$b\left( 	\mathfrak{S}^{\text{pt}}\right)$ is given by \eqref{bounded_cat_eqn}. Suppose that $b\left( 	\mathfrak{S}^{\text{pt}}\right)$ is good (cf. Definition \ref{mains_defn}) and let  $\left(b\left( A\right) , \overline{B}, \overline G\right)$ be the {disconnected infinite noncommutative covering} of $b\left( \mathfrak{S}^{\mathrm{pt}}\right)$ (cf. Definition \ref{main_defn}). If $\widehat{B}\bydef C^*$-$\varinjlim  b\left(A_\la \right)$ is the direct limit then there is the natural inclusion  $\iota :\widehat{B}\hookto M\left( \overline{B}\right)$. From the Proposition \ref{pro_dir_lim_prop} there is the direct limit $\widehat{A}\bydef \varinjlim A_\la$ which is a pro-$C^*$-algebra. Moreover one has $\widehat{B} = b\left( \widehat{A}\right)$. 
-Let us consider  a set  $\left(G, R\right)$ of  generators and relations  such the   $G \bydef   M\left( \widetilde{B}\right)\cup \widehat A$, the set $R$ contains: 
+Let $\mathfrak{S}^{\text{pt}}$ is pointed algebraical  finite covering category of pro-$C^*$-algebras, and let 
+	$\mathfrak{S}^{\text{pt}}_B$ be a  pointed  { algebraical  finite covering category} (cf. Definition \ref{comp_pt_defn}) which comes from \eqref{bounded_cat_eqn}. 	
+	Suppose that $\mathfrak{S}^{\text{pt}}_B$ is good (cf. Definition \ref{mains_defn}) and let  $\left(B , \overline{B}, \overline G\right)$ be the {disconnected infinite noncommutative covering} of $ \mathfrak{S}^{\mathrm{pt}}_B$ (cf. Definition \ref{main_defn}). If $\widehat{B}\bydef C^*$-$\varinjlim  B_\la$ is the direct limit then there is the natural inclusion  $\iota' :\widehat{B}\hookto M\left( \overline{B}\right)$. From the Proposition \ref{pro_dir_lim_prop} there is the direct limit $\widehat{A}\bydef \varinjlim A_\la$ which is a pro-$C^*$-algebra. Moreover one has an inclusion $\iota'':\widehat{B} \hookto \widehat{A}$. 
+Let us consider  a set  $\left(G, R\right)$ of  generators and relations  such the   $G \bydef   M\left(  \overline{B}\right) \cup \widehat A$, the set $R$ contains: 
 \begin{enumerate}
 	\item[(a)] All relations of $M\left( \overline{B}\right)$ described in the Example \ref{wa_exm}.
 		\item[(b)] All relations of $\widehat A$ described in the Example \ref{wa_exm}.
-		\item[(c)] For any $a \in b\left( \widehat A\right)$ we suppose that $a = \iota\left( a\right)\in M\left( \overline{B}\right)$. This relation satisfies to the condition 1 of  the Example \ref{wa_exm}.
+		\item[(c)] For any $a \in \widehat B$ we suppose that $a = \iota'\left( a\right)\in M\left( \overline{B}\right)$. This relation satisfies to the condition 1 of  the Example \ref{wa_exm}.
+		\item[(d)] For any $a \in \widehat B$ we suppose that $a = \iota''\left( a\right)\in \widehat A$. This relation satisfies to the condition 1 of  the Example \ref{wa_exm}.
 
-\item[(d)] Both  natural inclusions  $\widehat{A}\hookto F(G)$, $M\left( \widetilde{B}\right)\hookto F(G)$ are continuous. This relation satisfies to the condition 4 of  the Example \ref{wa_exm}.
+\item[(e)] Both  natural inclusions  $\widehat{A}\hookto F(G)$, $M\left( \overline{B}\right)\hookto F(G)$ are continuous. This relation satisfies to the condition 4 of  the Example \ref{wa_exm}.
 	\end{enumerate}
 All relations in $R$ satisfy to Example \ref{wa_exm}, so $\left(G, R\right)$  is a weakly admissible set (cf. Definition \ref{weak_adm_defn}), from the Proposition \ref{uni_pro_c_rep_prop} it follows that $C^*\left(G, R \right)$ is a pro-$C^*$-algebra. 
-If  $\left(b\left( A\right) , \widetilde{B},  G\right)$ be the {infinite noncommutative covering} of $b\left( \mathfrak{S}^{\mathrm{pt}}\right)$ (cf. Definition \ref{main_defn}), then there are natural inclusions $\widetilde{B}\subset M\left( \widetilde{B}\right)\subset M\left( \overline{B}\right)\subset C^*\left(G,R\right)$. 
+If  $\left(B , \widetilde{B},  G\right)$ be the {infinite noncommutative covering} of $b\left( \mathfrak{S}^{\mathrm{pt}}\right)$ (cf. Definition \ref{main_defn}), then there are natural inclusions $\widetilde{B}\subset M\left( \widetilde{B}\right)\subset M\left( \overline{B}\right)\subset C^*\left(G,R\right)$. 
 Denote by $\widetilde A\subset C^*\left(G,R\right)$ the closure of $\widetilde B\in C^*\left(G,R\right)$ with respect to the topology of the pro-$C^*$-algebra $C^*\left(G,R\right)$.  From  $G\widetilde{B}=\widetilde{B}$ it turns out that $G\widetilde{A}=\widetilde{A}$.
 \end{empt}
 \begin{definition}\label{inv_pro_lim_defn}
@@ -9649,7 +9654,7 @@ C^*\left(G, R\right)=\varprojlim_{K \in F_{\overline p}} C_b\left(\overline \sY 
 	$$
 	\left(C_F\left(\sX \right), C_{\widetilde p^{-1}\left(F \right)_c}  \left(\widetilde \sX\right),G\left(\left.\widetilde \sX\right| \sX \right) \right)  
 	$$
-	is the inverse noncommutative limit of the given by \eqref{top_pro_cat_eqn} {pointed algebraical  finite covering category of pro-$C^*$-algebras} $\mathfrak{S}_{C_F\left(\sX \right) }$. (cf. Definition \ref{inv_pro_lim_defn})
+	is the inverse noncommutative limit of the given by \eqref{top_pro_cat_eqn} {pointed algebraical  finite covering category of pro-$C^*$-algebras} $\mathfrak{S}_{C_F\left(\sX \right) }$. (cf. Definition \ref{inv_pro_lim_defn}   CHECK A D)
 \end{theorem}
 \begin{proof}
 Let $C^*\left(G, R\right)=\varprojlim_{K \in F_{\overline p}} C_b\left(\overline \sY \right)_{p_{\overline p^{-1} \left( K\right) }}$
@@ -22237,7 +22242,7 @@ Inverse limits of $C^*$ are specializations of the explained  in \ref{proj_sys_s
 		be ordered by $p\le q$ if $p_\a\le q_\a$ for all $\a$. If $p$ denote by the set $B_p \bydef \varinjlim \left( A_\a\right)_p$ and $B = \varprojlim B_p$ then $\varinjlim A_\a$ is the closure of the images of $A_\a$ in $B$.  The complete proof is omitted, because direct limits badly behaved that they do not seem to be of much use.
 	\end{proof}
 	\begin{remark}\label{pro_dir_lim_rem}
-		However direct limits of pro-$C^*$-algebras can be effectively used in the theory of noncommutative coverings (cf. \ref{inv_pro_lim_empt} Definition \ref{inv_pro_lim_defn} and Theorem \ref{top_pro_thm}).
+		However direct limits of pro-$C^*$-algebras can be effectively used in the theory of noncommutative coverings (cf. \ref{inv_pro_lim_empt} Definition \ref{inv_pro_lim_defn}   CHECK A D and Theorem \ref{top_pro_thm}).
 	\end{remark}
 	\begin{empt}\label{pro_fin_comp_empt}
 		There are explained in \cite{phillips:inv_lim} Hilbert modules over pro-$C^*$-algebras. It is shown that if $E_A$ is a finitely generated module over pro-$C^*$-algebra  $A$  then the  pro-$C^*$-algebra  $\mathcal{L}_A\left( X_A\right)$ adjointable is naturally isomorphic to the algebra $\K\left( X_A\right)$ of  compact operators.
