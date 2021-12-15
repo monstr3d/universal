@@ -7949,14 +7949,26 @@ Prove following statements:
 \begin{definition}\label{top_pro_inv_defn}
 In the above situation we say that $p^{-1}\left(F\right)_c$ is the  $p$-\textit{lift} of $F$. The given by \eqref{top_pro_hom_eqn}  *-homomorphism of pro-$C^*$-algebras is the $p$-$F$-\textit{homomorphism}.
 \end{definition}
-\begin{theorem}!!!!\label{top_pro_fin_thm}
+\begin{theorem}\label{top_pro_fin_thm} !!! BETA
 Let $\sX$ be a connected, locally connected, locally compact, completely regular, Hausdorff space with distinguished family of compact subsets $F$. If $p:\widetilde\sX \to \sX$ is a finite-fold, transitive covering and   $
-C^*\left( p, F\right): C_F\left(\sX\right)\hookto C_{p^{-1}\left(F\right)}\left(\widetilde\sX\right)$ is the $p$-$F$-{homomorphism} (cf. Definition \ref{top_pro_inv_defn}) then the quadruple 
+	C_F\left( p\right): C_F\left(\sX\right)\hookto C_{p^{-1}\left(F\right)}\left(\widetilde\sX\right)$ is the $p$-$F$-{homomorphism} (cf. Definition \ref{top_pro_inv_defn}) then the quadruple 
 \be\label{top_pro_fin_eqn}
-\left(C^*_F\left(\sX\right), C^*_{p^{-1}\left( F\right) }\left(\widetilde\sX\right), G\left(\left.\widetilde\sX\right| \sX \right) , C^*\left( p, F\right) \right)
+\left(C^*_F\left(\sX\right), C^*_{p^{-1}\left( F\right) }\left(\widetilde\sX\right), G\left(\left.\widetilde\sX\right| \sX \right) , C_F\left( p\right) \right)
 \ee
 is a {noncommutative finite-fold  covering  of pro-$C^*$ algebras} (cf. Definition \ref{pro_fin_defn}).
 \end{theorem}
+
+\begin{definition}\label{pro_fin_defn!}
+!!! DELETE	Let $\pi: A \hookto \widetilde A$ be an injective *-homomorphism of pro-$C^*$ algebras (cf. Definition \ref{pro_c_defn}) which can be regarded as an inclusion. Suppose that the following conditions hold:
+	\begin{itemize}
+		\item[(a)] The quadruple  $\left(A, \widetilde{A}, G, \pi \right)$  is a noncommutative finite-fold  pre-covering of *-algebras (cf. \ref{fin_pre*_defn}).
+		\item[(b)] There is   an essential ideal  $\widetilde B$ of $b\left(\widetilde A \right)$ (where $b\left(\widetilde A \right)$ is a $C^*$-algebra of bounded elements (cf. Definition \ref{pro_bound_defn}) and Proposition \ref{pro_bound_prop}) such that $G\widetilde B= \widetilde B$ and $\left(B ,  \widetilde{B} , G, \pi|_{B} \right)$ is a noncommutative finite-fold  covering (cf. Definition \ref{fin_defn}),  where  $B\bydef \widetilde B \cap A$.
+	\end{itemize}
+	We say that the triple $\left(A, \widetilde{A}, G \right)$ and/or the quadruple $\left(A, \widetilde{A}, G, \pi \right)$ and/or *-homomorphism $\pi: A \hookto \widetilde{A}$   is a \textit{noncommutative finite-fold  covering  of pro-$C^*$-algebras}.
+	
+\end{definition}
+
+
 \begin{proof}
 	One needs proof (a), (b) of the Definition \ref{pro_fin_defn}.\\
 (a) Follows from 
@@ -7966,8 +7978,8 @@ C^*_{p^{-1}\left( F\right) }\left(\widetilde\sX\right)^{G\left(\left.\widetilde\
 \eean
 (b) Clearly one has $b\left(C_F\left( \sX\right)\right) \cong C_b\left( \sX \right) \cong C\left( \bt\sX\right)$, $b\left(C^*_{p^{-1}\left( F\right) }\left(\widetilde\sX\right)\right) \cong C_b\left( \widetilde\sX \right) \cong C\left( \bt\widetilde\sX\right)$. From the Lemma \ref{comm_fin_lem} it follows that 
 \bean
-\left(b\left( C_F\left(\sX\right)\right) , b\left(C^*_{p^{-1}\left( F\right) }\left(\widetilde\sX\right)\right) , G\left(\left.\widetilde\sX\right| \sX \right) , \left.C^*\left( p, F\right)\right|_{b\left( C\left(\sX\right)\right)} \right)\cong\\\cong
-\left(C\left(\bt\sX\right), C\left(\bt\widetilde\sX\right), G\left(\left.\widetilde\sX\right| \sX \right) , \left.C^*\left( p, F\right)\right|_{C\left(\bt\widetilde\sX\right)} \right)
+\left(b\left( C_F\left(\sX\right)\right) , b\left(C^*_{p^{-1}\left( F\right) }\left(\widetilde\sX\right)\right) , G\left(\left.\widetilde\sX\right| \sX \right) , \left.C_F\left( p\right)\right|_{b\left( C\left(\sX\right)\right)} \right)\cong\\\cong
+\left(C\left(\bt\sX\right), C\left(\bt\widetilde\sX\right), G\left(\left.\widetilde\sX\right| \sX \right) , \left.C_F\left( p\right)\right|_{C\left(\bt\widetilde\sX\right)} \right)
 \eean
  is a finite-fold noncommutative covering.
 \end{proof}
@@ -9572,8 +9584,8 @@ If $\overline\sX$ is the topological disconnected inverse limit  of $\mathfrak{S
 is the disconnected inverse noncommutative limit of $\mathfrak{S}^{\text{pt}}_{B}= \mathfrak{S}^{\text{pt}}_{C_0\left(\sX \right) }$ (cf.  Definition \ref{main_defn}).
  If $\widehat{B}\bydef C^*$-$\varinjlim  B_\la$ is the direct limit then there is the natural inclusion  $\iota' :\widehat{B}\hookto M\left( \overline{B}\right)$. Indeed from the Exercise  \ref{inductive_lim_state_exer} it turns out that $\widehat{B} = C_0\left( \widehat \sX\right)$ where $\widehat\sX \bydef\varprojlim \sX_\la$ is an inverse limit of topological spaces (cf. Definition \ref{top_inv_lim_defn}). Let  us consider  a set  $\left(G, R\right)$ of  generators and relations  such the   $G \bydef   M\left(  \overline{B}\right) \cup \widehat A$, the set $R$ satisfies to conditions (a) - (e) of \ref{inv_pro_lim_empt}.  
  From \ref{comm_pro_dist_empt}, the Proposition \ref{uni_pro_c_rep_prop} and the Example \ref{wa_exm} it follows that there is a pro-$C^*$-algebra $C^*\left(G, R\right)$. It is a completion of $b\left(C^*\left(G, R\right) \right)$ with respect to a family $\left\{p_\a\right\}$ of seminorms.
-   From the condition conditions (a) of \ref{inv_pro_lim_empt} it follows that $\widehat B \subset M\left(  \overline{B}\right) \subset b\left(C^*\left(G, R\right) \right)$ there is a  family $\left\{\left. p_\a\right|_{\widehat B}\right\}$ of restrictions such that $\widehat A$ is a completion of $\widehat B$ with respect to a family $\left\{\left. p_\a\right|_{\widehat B}\right\}$.
-According to the proof of the Proposition \ref{pro_dir_lim_prop} any seminorm on $\varinjlim \widehat B$ corresponds to a family $\left\{p_{K_\la}\right\}_{\la\in\La}\in\prod_{\la \in \La}S\left(C_{p_\la^{-1}\left(F\right)_c}\left(\sX_\la\right) \right)$ where $K_\la\in p_\la^{-1}\left(F \right)_c$. The family should satisfy  to the equation \eqref{seminorms_inv_lim}, i.e.
+   From the condition conditions (a) of \ref{inv_pro_lim_empt} it follows that $\widehat B \subset M\left(  \overline{B}\right) \subset b\left(C^*\left(G, R\right) \right)$.
+According to the proof of the Proposition \ref{pro_dir_lim_prop} any seminorm on $\varinjlim \widehat B$ corresponds to a family $\left\{p_{K_\la}\right\}_{\la\in\La}\in\prod_{\la \in \La}S\left(C_{p_\la^{-1}\left(F\right)_c}\left(\sX_\la\right) \right)$ where $K_\la\in p_\la^{-1}\left(F \right)_c$ and $p_{K_\la}$ is given by  \eqref{comm_pro_eqn}. The family should satisfy  to the equation \eqref{seminorms_inv_lim}, i.e.
 \be\label{top_pmnp_eqn}
 \mu > \nu \quad p_{K_\mu}\circ C_0\left(p^\mu_\nu \right) \le p_{K_\nu},
 \ee
@@ -22288,6 +22300,7 @@ Inverse limits of $C^*$ are specializations of the explained  in \ref{proj_sys_s
 		it is understood to be the set of all compact subsets of $F$. Of course, in general 
 		$C_F\left( \sX\right)$  can fail to be a pro-$C^*$-algebra by not being complete. We need one more definition. 
 	\end{empt}
+
 	\begin{definition}\label{comm_pro_ch_defn}\cite{phillips:inv_lim_app}
 		%1.4.2. DEFINITION. 
 		We call a topological space $\sX$ \textit{completely Hausdorff}
@@ -22304,14 +22317,22 @@ Inverse limits of $C^*$ are specializations of the explained  in \ref{proj_sys_s
 		pro-$C^*$-algebras and unital homomorphisms. 
 	\end{theorem}
 	
-	\begin{lemma}\label{comm_pro_lim}\cite{phillips:inv_lim}
+	\begin{lemma}\label{comm_pro_lem}\cite{phillips:inv_lim}
 		%Corollary 2.9 p 13
 		Let $\sX$ be a completely Hausdorff quasitopological space. Then
 		$$
 		C_F\left(\sX \right) \cong \varprojlim_{K \in F} C\left( K\right). 
 		$$
-	\end{lemma}
-	
+	\end{lemma} 
+
+
+
+	\begin{remark}\label{comm_pro_rem}
+ Consider  the situation of the Lemma \ref{comm_pro_lem}. If $\sX$  is a topological Hausdorff space then $	C_F\left(\sX \right)$ is a completion of $	C_0\left(\sX \right)$ with respect to a family $\left\{p_K\right\}_{K \in F}$ of seminorms given by
+ \be\label{comm_pro_eqn}
+p_K\left(a\right)\bydef\max_{ x \in  K}\left| a\left( x \right)  \right|. 
+ \ee
+\end{remark}
 	
 	\subsection{Noncommutative suspension and loop space}\label{noncom_loop_space_section}
 \paragraph*{}	
