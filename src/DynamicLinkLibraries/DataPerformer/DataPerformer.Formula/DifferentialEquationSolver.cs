@@ -283,7 +283,7 @@ namespace DataPerformer.Formula
             }
             try
             {
-                // UpdateChildrenData();
+                //!!! UpdateChildrenData();
                 CalculateDerivations();
                 isUpdated = true;
             }
