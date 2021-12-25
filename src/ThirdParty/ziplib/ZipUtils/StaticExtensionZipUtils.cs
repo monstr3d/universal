@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.IO;
+using System.IO.Compression;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using ICSharpCode.SharpZipLib.Zip;
 
 namespace ZipUtils
 {
@@ -78,32 +78,32 @@ namespace ZipUtils
         /// <returns>Dictionary</returns>
         public static Dictionary<string, byte[]> UnZipDictionary(this string fileName)
         {
-            Dictionary<string, byte[]> d = new Dictionary<string, byte[]>();
-            byte[] buffer = new byte[4096];
-            using (ZipFile zf = new ZipFile(fileName))
-            {
-                foreach (ZipEntry ze in zf)
-                {
-                    using (Stream stream = zf.GetInputStream(ze))
-                    {
-                        using (MemoryStream ms = new MemoryStream())
-                        {
-                            // Using a fixed size buffer here makes no noticeable difference for output
-                            // but keeps a lid on memory usage.
-                            int sourceBytes;
-                            do
-                            {
-                                sourceBytes = stream.Read(buffer, 0, buffer.Length);
-                                ms.Write(buffer, 0, sourceBytes);
-                            }
-                            while (sourceBytes > 0);
-                            d[ze.Name] = ms.GetBuffer();
-                        }
-                    }
-                }
-            }
-            return d;
-        }
+               Dictionary<string, byte[]> d = new Dictionary<string, byte[]>();
+               byte[] buffer = new byte[4096];
+               using (ZipArchive  zf =  ZipFile.OpenRead(fileName))
+               {
+                   foreach (ZipArchiveEntry ze in zf.Entries)
+                   {
+                       using (var stream = ze.Open())
+                       {
+                           using (MemoryStream ms = new MemoryStream())
+                           {
+                               // Using a fixed size buffer here makes no noticeable difference for output
+                               // but keeps a lid on memory usage.
+                               int sourceBytes;
+                               do
+                               {
+                                   sourceBytes = stream.Read(buffer, 0, buffer.Length);
+                                   ms.Write(buffer, 0, sourceBytes);
+                               }
+                               while (sourceBytes > 0);
+                               d[ze.Name] = ms.GetBuffer();
+                           }
+                       }
+                   }
+               }
+               return d;
+          }
 
         /// <summary>
         /// Creates ZIP
@@ -195,7 +195,7 @@ namespace ZipUtils
 
                 }
             }
-            using (ZipOutputStream s = new ZipOutputStream(File.Create(outFile)))
+   /*         using (ZipOutputStream s = new ZipOutputStream(File.Create(outFile)))
             {
                 s.SetLevel(9); // 0 - store only to 9 - means best compression
 
@@ -228,7 +228,7 @@ namespace ZipUtils
                 }
                 s.Finish();
                 s.Close();
-            }
+            }*/
         }
 
 
@@ -252,7 +252,7 @@ namespace ZipUtils
                     
                 }
             }
-            using (ZipOutputStream s = new ZipOutputStream(File.Create(outFile)))
+        /*    using (ZipOutputStream s = new ZipOutputStream(File.Create(outFile)))
             {
                 s.SetLevel(9); // 0 - store only to 9 - means best compression
 
@@ -285,7 +285,7 @@ namespace ZipUtils
                 }
                 s.Finish();
                 s.Close();
-            }
+            }*/
         }
 
         /// <summary>
@@ -295,6 +295,7 @@ namespace ZipUtils
         /// <param name="outFile">Output file</param>
         public static void CreateZip(this Dictionary<string, byte[]> dictionary, string outFile)
         {
+            /*
             using (ZipOutputStream s = new ZipOutputStream(File.Create(outFile)))
             {
                 s.SetLevel(9); // 0 - store only to 9 - means best compression
@@ -331,6 +332,7 @@ namespace ZipUtils
                 s.Finish();
                 s.Close();
             }
+            */
         }
 
         public static void CreateZipFromDirectory(this string dir, string outFile)
@@ -338,7 +340,8 @@ namespace ZipUtils
 
             try
             {
-                // Depending on the directory this could be very large and would require more attention
+                ZipFile.CreateFromDirectory(dir, outFile);
+             /* !!!  // Depending on the directory this could be very large and would require more attention
                 // in a commercial package.
                 // string[] filenames = Directory.GetFiles(dir);
 
@@ -361,11 +364,12 @@ namespace ZipUtils
 
                     // Close is important to wrap things up and unlock the file.
                     s.Close();
-                }
+                }*/
             }
             catch (Exception)
             {
             }
+             
         }
 
         /// <summary>
@@ -395,16 +399,10 @@ namespace ZipUtils
         /// <returns>Unzipped files</returns>
         public static string UnZip(this string filename)
         {
+            filename.UnZip(unZipDirectory);
             string f = null;
-            using (ZipFile zf = new ZipFile(filename))
-            {
-                foreach (ZipEntry ze in zf)
-                {
-                    f = ze.Name;
-                    zf.Write(ze, unZipDirectory);
-                }
-            }
-            return unZipDirectory + f;
+         /// !!!  
+            return unZipDirectory + filename;
         } 
 
 
@@ -415,16 +413,10 @@ namespace ZipUtils
         /// <param name="directory">Directory</param>
         public static void UnZip(this string fileName, string directory)
         {
-            using (ZipFile zf = new ZipFile(fileName))
-            {
-                foreach (ZipEntry ze in zf)
-                {
-                    zf.Write(ze, directory);
-                }
-            }
+            ZipFile.ExtractToDirectory(fileName, directory);
         }
 
-
+/*!!!
         /// <summary>
         /// Writes zip file
         /// </summary>
@@ -457,6 +449,7 @@ namespace ZipUtils
                 }
             }
         }
+*/
 
         /// <summary>
         /// Copy
@@ -494,7 +487,7 @@ namespace ZipUtils
             string path = config.FilePath;
             string p = Path.GetDirectoryName(path);
             char s = Path.DirectorySeparatorChar;
-            if (p[p.Length - 1] != s)
+            if (p[^ - 1] != s)
             {
                 p += s;
             }
@@ -510,8 +503,10 @@ namespace ZipUtils
 
         #region Private Members
 
+        /*
         static void ProcessDir(ZipOutputStream s, string baseDir, string dir, byte[] buffer)
         {
+           
             string pr = dir.Substring(baseDir.Length);
             pr = pr.Replace("\\", "/");
             if (pr.Length > 0)
@@ -561,6 +556,7 @@ namespace ZipUtils
 
 
         }
+        */
 
         #endregion
 

@@ -17,7 +17,7 @@ namespace ZipUtils
 
         string fileName;
 
-     //   Dictionary<string, byte[]> buffer;
+        Dictionary<string, byte[]> buffer;
 
         Dictionary<string, string> d = new Dictionary<string, string>();
 
@@ -55,10 +55,9 @@ namespace ZipUtils
             this.directory = directory;
             directory.ClearDirectory();
             fileName.UnZip(directory);
-            using (ICSharpCode.SharpZipLib.Zip.ZipFile zf =
-                new ICSharpCode.SharpZipLib.Zip.ZipFile(fileName))
+             using (var zf = System.IO.Compression.ZipFile.OpenRead(fileName))
             {
-                foreach (ICSharpCode.SharpZipLib.Zip.ZipEntry ze in zf)
+                foreach (var ze in zf)
                 {
                     string zn = ze.Name;
                     d[zn] = directory + zn.Replace('/', System.IO.Path.DirectorySeparatorChar);
