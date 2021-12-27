@@ -1771,7 +1771,7 @@ Consider the above situation.  If	$\pi_A: A \hookto \widetilde{A}$ agrees with t
  	\be\label{s_matr_eqn}
  	S = \sum_{j=1}^{n}\widetilde{a}_j\left\rangle \right\langle\widetilde{a}_j
  	\ee
- 	then $S$ is self-adjoint. From the Corollary 1.1.25  of \cite{jensen_thomsen:kk} it turns out that $S$ is strictly positive. Otherwise $P$ is a finitely generated right $A$-module, so from the Exercise  15.O of \cite{wegge_olsen} it follows that $S$ is invertible. The spectrum of $S$ is contained in 
+ 	then $S$ is self-adjoint (cf. Notation \ref{rank_one_notation_eqn}). From the Corollary 1.1.25  of \cite{jensen_thomsen:kk} it turns out that $S$ is strictly positive. Otherwise $P$ is a finitely generated right $A$-module, so from the Exercise  15.O of \cite{wegge_olsen} it follows that $S$ is invertible. The spectrum of $S$ is contained in 
  	$\R_+\bydef \left\{x \in \R| x > 0\right\}$, so if $\phi : \R_+ \to \R_+$ is given by $z \mapsto \frac{1}{z}$ then   $T\bydef\phi\left(S \right)\in  \End\left( P\right)_A $. Moreover one has 
  	$$
  	TS = 1_{\End\left( P\right)_A},
@@ -1784,17 +1784,17 @@ Consider the above situation.  If	$\pi_A: A \hookto \widetilde{A}$ agrees with t
  	
  \end{proof}
  \begin{remark}\label{frame_rem}
- 	From the Lemma \ref{frame_lem} it follows that if $ \left(A, \widetilde{A}, G, \pi \right)$ is   an {unital noncommutative finite-fold  covering} (cf. Definition \ref{fin_uni_defn}) then 
+ 	From the Lemma \ref{frame_lem} and the equation \eqref{finite_hilb_mod_prod_eqn}  it follows that if $ \left(A, \widetilde{A}, G, \pi \right)$ is   an {unital noncommutative finite-fold  quasi-covering} (cf. Definition \ref{fin_uni_defn}) then 
  	there is a finite subset $$\left\{ \widetilde{a}_1, ..., \widetilde{a}_n, \widetilde{b}_1, ..., \widetilde{b}_n\right\} \subset \widetilde{B}$$ such that
  	\be\label{frame_rem_eqn}
-\forall \widetilde{a} \in \widetilde{B}\quad \widetilde{a}=	\sum_{j=1}^{n}\widetilde{b}_j\left(  \sum_{g \in G} g\left(\widetilde{a}^*_j\widetilde{a} \right) \right).
+\forall \widetilde{b} \in \widetilde{B}\quad \widetilde{a}=	\sum_{j=1}^{n}\widetilde{b}_j\left(  \sum_{g \in G} g\left(\widetilde{a}^*_j\widetilde{b} \right) \right).
  	\ee
  \end{remark}
  \begin{remark}\label{frame_l_rem}
- 	Let $\left(A, \widetilde{A}, G, \pi \right)$ be a {noncommutative finite-fold covering with unitization}. If $\left(B, \widetilde{B}, G, \phi \right)$ is an unital noncommutative finite-fold covering which satisfies to conditions (a), (b) of the Definition \ref{fin_comp_defn} then 	there is a finite subset $$\left\{ \widetilde{a}_1, ..., \widetilde{a}_n, \widetilde{b}_1, ..., \widetilde{b}_n\right\} \subset \widetilde{A}$$ such that
+ 	Let $\left(A, \widetilde{A}, G, \pi \right)$ be a {noncommutative finite-fold covering with unitization}. If $\left(B, \widetilde{B}, G, \phi \right)$ is an unital noncommutative finite-fold covering which satisfies to conditions (a), (b) of the Definition \ref{fin_comp_defn} then 	there is a finite subset $$\left\{ \widetilde{a}_1, ..., \widetilde{a}_n, \widetilde{b}_1, ..., \widetilde{b}_n\right\} \subset \widetilde{B}$$ such that
  	\be\nonumber
- 	\widetilde{b}=	\sum_{j=1}^{n}\widetilde{b}_j\left(  \sum_{g \in G} g\left(\widetilde{a}^*_j\widetilde{b} \right) \right); ~\forall \widetilde{b} \in \widetilde{B},
- 	\ee
+\forall \widetilde{b} \in \widetilde{B}\quad \widetilde{a}=	\sum_{j=1}^{n}\widetilde{b}_j\left(  \sum_{g \in G} g\left(\widetilde{a}^*_j\widetilde{b} \right) \right)
+	\ee
  	(cf.\eqref{frame_rem_eqn}). In particular if $\widetilde{a} \in \widetilde{A}$ then
  	$$
  		\widetilde{a}=	\sum_{j=1}^{n}\widetilde{b}_j\left(  \sum_{g \in G} g\left(\widetilde{a}^*_j\widetilde{a} \right) \right)
@@ -1817,10 +1817,10 @@ Consider the above situation.  If	$\pi_A: A \hookto \widetilde{A}$ agrees with t
 \begin{lemma}\label{cov_sep_fin_lem}
 	Let $\left(A, \widetilde{A}, G, \pi \right)$ be a {noncommutative finite-fold quasi-covering with unitization}. If $A$ is a separable $C^*$-algebra then $\widetilde{A}$ is a separable $C^*$-algebra.
 \end{lemma}
-!!! CONTINUE
 \begin{proof}
 	Follows from the equation \eqref{fin_comp_eqn}.
 \end{proof}
+!!! CONTINUE
 \begin{lemma}\label{cov_mult_fin_lem}
 	Let $\left(A, \widetilde{A}, G, \pi \right)$ be a {noncommutative finite-fold quasi-covering with unitization}. 	Let $\left(B ,\widetilde{B}, G, \widetilde{\pi} \right)$ be an 
 	unital  noncommutative finite-fold quasi-covering which satisfies to conditions  (a), (b) of the Definition \ref{fin_comp_defn}. Then there is $\left\{  \widetilde{b}_1, ..., \widetilde{b}_n\right\} \subset \widetilde{B}$ such that 
@@ -20926,10 +20926,19 @@ $$
 		If $X$ is a $C^*$ Hilbert $A$-rigged module then
 		denote by $\theta_{\xi, \zeta} \in \End^*_A\left(X \right)$   such that
 		\begin{equation}\label{rank_one_eqn}
-			\theta_{\xi, \zeta} (\eta) = \zeta \langle\xi, \eta \rangle_X , \ (\xi, \eta, \zeta \in X)
+	\forall  \xi, \eta, \zeta \in X\quad		\theta_{\xi, \zeta} (\eta) = \zeta \langle\xi, \eta \rangle_X.
 		\end{equation}
-		The $C^*$-norm closure of  a generated by such endomorphisms ideal is said to be the {\it algebra of compact operators} which we denote by $\mathcal{K}(X)$. The $\mathcal{K}(X)$ is an ideal of  $\End^*_A(X)$. Also we shall use following notation $\xi\rangle \langle \zeta \stackrel{\text{def}}{=} \theta_{\xi, \zeta}$.
+		The $C^*$-norm closure of  a generated by such endomorphisms ideal is said to be the {\it algebra of compact operators} which we denote by $\mathcal{K}(X)$. The $\mathcal{K}(X)$ is an ideal of  $\End^*_A(X)$.
 	\end{defn}
+\begin{remark}
+ Also we shall use a following notation 
+\be\label{rank_one_notation_eqn}
+\begin{split}
+	\xi\rangle \langle \zeta \stackrel{\text{def}}{=} \theta_{\xi, \zeta}: X_A \to X_A,\\
+	\eta \mapsto \zeta \langle\xi, \eta \rangle_X.
+\end{split}
+\ee
+\end{remark}
 	\begin{theorem}\label{comp_mult_thm}\cite{blackadar:ko}
 		Let $X_A$ is a Hilbert $A$-module.
 		The $C^*$-algebra of adjointable maps  $\End^*_A\left( X_A\right)\bydef \Hom^*_A\left( X_A, X_A\right)$ is naturally isomorphic to the algebra $M\left(\K\left( X_A\right) \right)$ of multiplies of compact operators $\K\left( X_A\right)$. 
