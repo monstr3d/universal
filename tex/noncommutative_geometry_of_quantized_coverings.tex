@@ -1820,7 +1820,7 @@ Consider the above situation.  If	$\pi_A: A \hookto \widetilde{A}$ agrees with t
 \begin{proof}
 	Follows from the equation \eqref{fin_comp_eqn}.
 \end{proof}
-!!! CONTINUE
+
 \begin{lemma}\label{cov_mult_fin_lem}
 	Let $\left(A, \widetilde{A}, G, \pi \right)$ be a {noncommutative finite-fold quasi-covering with unitization}. 	Let $\left(B ,\widetilde{B}, G, \widetilde{\pi} \right)$ be an 
 	unital  noncommutative finite-fold quasi-covering which satisfies to conditions  (a), (b) of the Definition \ref{fin_comp_defn}. Then there is $\left\{  \widetilde{b}_1, ..., \widetilde{b}_n\right\} \subset \widetilde{B}$ such that 
@@ -2367,30 +2367,27 @@ Prove that any free  noncommutative finite-fold quasi-covering  is reduced (cf. 
   a^*\left(g \right) =\left(a\left( g^{-1}\right)  \right)^*\quad \forall a \in \widetilde{A} \rtimes G,~~ \forall g \in G.
  \end{split}
  \end{equation}
- (cf. Equations \eqref{discr_cr_prod_op_eqn}). !!! CHECK
- 
+ (cf. Equations \eqref{discr_cr_prod_op_eqn}). 
  Let us construct a Morita context $$\left( \widetilde{A} \rtimes G, A,~ _{\widetilde{A} \rtimes G}\widetilde{A}_A, ~ _A\widetilde{A}_{\widetilde{A} \rtimes G}, \widetilde{\tau}, \psi\right) $$ where both $_A\widetilde{A}_{\widetilde{A} \rtimes G}$ and $ _{\widetilde{A} \rtimes G}\widetilde{A}_A$ coincide with $\widetilde{A}$ as $\C$-spaces. The left and right action of $\widetilde{A} \rtimes G$ on $\widetilde{A}$ is given by
  
- \begin{equation*}
+ \begin{equation}\label{morita_ta_act_eqn}
  \begin{split}
- a \widetilde{a} = \sum_{g \in G} a\left( g\right) \left( g\widetilde{a}\right)   , \\
- \widetilde{a} a =\sum_{g \in G} g^{-1}\left(\widetilde{a} a\left( g\right)\right),\\ 
- \forall a \in \widetilde{A} \rtimes G,~~ \forall \widetilde{a}\in \widetilde{A}.
- \end{split}
- \end{equation*}
+  \forall \widetilde{a}\in \widetilde{A}\quad \forall a \in \widetilde{A} \rtimes G\quad a \widetilde{a} = \sum_{g \in G} a\left( g\right) \left( g\widetilde{a}\right)   , \quad
+ \widetilde{a} a =\sum_{g \in G} g^{-1}\left(\widetilde{a} a\left( g\right)\right). \end{split}
+ \end{equation}
 The left (resp. right) action of $A$ on $\widetilde{A}$ we define as left (resp. right) multiplication by $A$.
- Denote by $\varphi: \widetilde{A} \otimes_{A}  \widetilde{A}  \to \widetilde{A} \rtimes G$, $\psi: \widetilde{A} \otimes_{\widetilde{A} \rtimes G}  \widetilde{A} \to A$ the maps such that
+ Denote by $\varphi: \widetilde{A} \otimes_{A}  \widetilde{A}  \to \widetilde{A} \rtimes G$ and $\psi: \widetilde{A} \otimes_{\widetilde{A} \rtimes G}  \widetilde{A} \to A$ bilinear maps such that
  \begin{equation}\label{mor_pp_fin_eqn}
  \begin{split}
- \varphi \left(\widetilde{a} \otimes \widetilde{b} \right)\left( g\right) =    \widetilde{a} \left(g\widetilde{b} \right) , \\
- \psi \left(\widetilde{a} \otimes \widetilde{b} \right) = \sum_{g \in G} g\left(\widetilde{a} \widetilde{b} \right), \\
- \forall ~\widetilde{a} ,\widetilde{b}\in \widetilde{A}, ~~ g \in G.
+  \forall ~\widetilde{a} ,\widetilde{b}\in \widetilde{A}, ~~ g \in G \quad \varphi \left(\widetilde{a} \otimes \widetilde{b} \right)\left( g\right) =    \widetilde{a} \left(g\widetilde{b} \right) ,\\
+ \psi \left(\widetilde{a} \otimes \widetilde{b} \right) = \sum_{g \in G} g\left(\widetilde{a} \widetilde{b} \right), \quad 
+.
  \end{split}
  \end{equation}
  From above equations it follows that 
  \begin{equation}\label{morita_g_eqn}
  \begin{split}
- \varphi \left(\widetilde{a} \otimes \widetilde{b} \right)\widetilde{c} = \sum_{g \in G} \left( \varphi\left(\widetilde{a} \otimes \widetilde{b} \right)\left( g\right)\right)  g \widetilde{c} =\\
+ \forall \widetilde{a},\widetilde{b},\widetilde{c}\in \widetilde{A}\quad\varphi \left(\widetilde{a} \otimes \widetilde{b} \right)\widetilde{c} = \sum_{g \in G} \left( \varphi\left(\widetilde{a} \otimes \widetilde{b} \right)\left( g\right)\right)  g \widetilde{c} =\\
  = \sum_{g \in \G} \widetilde{a} \left( g \widetilde{b} \right) \left( g \widetilde{c}\right) =  \widetilde{a}\sum_{g \in G}  g\left(  \widetilde{b}  \widetilde{c}\right) = \widetilde{a} \psi\left(\widetilde{b}\otimes \widetilde{c} \right),\\
  \widetilde{a}\varphi \left(\widetilde{b} \otimes \widetilde{c} \right) =
  \sum_{g \in G} g^{-1}\left( \widetilde{a} \widetilde{b} g \widetilde{c}\right) =
@@ -2425,7 +2422,7 @@ The left (resp. right) action of $A$ on $\widetilde{A}$ we define as left (resp.
  		\end{split}
  		\end{equation*}
  	\end{enumerate}
- 	It follows that $_{\widetilde{A} \rtimes G}\widetilde{A}_A$  is a ${\widetilde{A} \rtimes G}-A$  equivalence bimodule.
+ 	It follows that $_{\widetilde{A} \rtimes G}\widetilde{A}_A$  is a ${\widetilde{A} \rtimes G}-A$  equivalence bimodule (cf. Definition \ref{strong_morita_defn}).
  \end{cor}
  \begin{proof}
  	(i) From \eqref{morita_g_eqn} it follows that products $ \left\langle -, - \right\rangle_{\widetilde{A} \rtimes G}$, $~~\left\langle -, - \right\rangle_A$ satisfy condition (a) of the Definition \ref{strong_morita_defn}.\\
@@ -2555,7 +2552,7 @@ Any $\widetilde{\xi}\in _A\widetilde{A}_{\widetilde A \rtimes G}\otimes_{A \rtim
 
 
 
-
+!!! CONTINUE
 
    \section{Noncommutative unique path lifting}\label{noncomutative_path_liftting}
  
@@ -2873,7 +2870,7 @@ Similarly to definition \ref{fin_loc_op_defn} one can define a finite-fold nonco
 
 
 \begin{empt}\label{fin_oa_empt}
-	Let $A \hookto \widetilde{A}$ be an invective homomorphism of dense subalgebras of  operator algebras $B$ and $\widetilde B$  (cf. Definition \ref{c_op_alg_defn})  which induces an injective *- homomorphism $C^*_e\left(B\right)\hookto  C^*_e\left(\widetilde B \right)$  of  $C^*$-envelopes (cf.  Definition \ref{op_su_env_defn}, Remark \ref{sub_alg_rem}).  Suppose that  $\left(C^*_e\left(B\right) , C^*_e\left(\widetilde{B}\right) , G \right)$ is noncommutative finite-fold covering (cf. Definition \ref{fin_defn} CONNECTED !!!).
+	Let $A \hookto \widetilde{A}$ be an invective homomorphism of dense subalgebras of  operator algebras $B$ and $\widetilde B$  (cf. Definition \ref{c_op_alg_defn})  which induces an injective *- homomorphism $C^*_e\left(B\right)\hookto  C^*_e\left(\widetilde B \right)$  of  $C^*$-envelopes (cf.  Definition \ref{op_su_env_defn}, Remark \ref{sub_alg_rem}).  Suppose that  $\left(C^*_e\left(B\right) , C^*_e\left(\widetilde{B}\right) , G \right)$ is noncommutative finite-fold covering (cf. Definition \ref{fin_defn}).
 A subalgebra $\widetilde A'\subset C^*_e\left(\widetilde{B}\right) $ is said to be \textit{admissible} if	following conditions hold:
 	\begin{enumerate}
 		\item[(a)] $G\widetilde{A}'= \widetilde{A}'$,
@@ -22693,7 +22690,7 @@ and $\mathcal{E} $ a Hilbert  $D $-module.
 	A \emph{representation} of $A $ on $\mathcal{E} $ is a
 	pair $(\mathfrak{E},\pi) $, where  $\mathfrak{E}\subseteq\mathcal{E} $ is a dense
 	$D $-submodule and  $\pi\colon A\to\End_D(\mathfrak{E}) $ is a unital
-	algebra homomorphism to the algebra of  $D $-module endomorphisms
+	algebra homomorphism to the algebra of  $D$-module endomorphisms
 	of $\mathfrak{E} $, such that
 	\[
 	\braket{\pi(a)\xi}{\eta}_D = \braket{\xi}{\pi(a^*)\eta}_D
