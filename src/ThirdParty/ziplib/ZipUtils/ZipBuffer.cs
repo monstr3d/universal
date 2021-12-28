@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace ZipUtils
 {
+    /// <summary>
+    /// Zip buffer
+    /// </summary>
     public class ZipBuffer : IDictionary<string, string>, IDisposable
     {
         /// <summary>
@@ -55,9 +58,9 @@ namespace ZipUtils
             this.directory = directory;
             directory.ClearDirectory();
             fileName.UnZip(directory);
-             using (var zf = System.IO.Compression.ZipFile.OpenRead(fileName))
+            using (var zf = System.IO.Compression.ZipFile.OpenRead(fileName))
             {
-                foreach (var ze in zf)
+                foreach (var ze in zf.Entries)
                 {
                     string zn = ze.Name;
                     d[zn] = directory + zn.Replace('/', System.IO.Path.DirectorySeparatorChar);
