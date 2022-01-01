@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="DataWarehouseLinq.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <DependentUpon>DataWarehouseLinq.designer.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <DependentUpon>Settings.Designer.cs</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DataWarehouseLinq.dbml.layout">
+      <DependentUpon>DataWarehouseLinq.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\DataWarehouse\DataWarehouse.csproj">
+    </ProjectReference>
+  </ItemGroup>
+</Project>
