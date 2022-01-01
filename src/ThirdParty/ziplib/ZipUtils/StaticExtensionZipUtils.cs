@@ -487,7 +487,7 @@ namespace ZipUtils
             string path = config.FilePath;
             string p = Path.GetDirectoryName(path);
             char s = Path.DirectorySeparatorChar;
-            if (p[^ - 1] != s)
+            if (p[p.Length - 1] != s)
             {
                 p += s;
             }

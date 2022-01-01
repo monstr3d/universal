@@ -1395,7 +1395,7 @@ Let $A$ be a *-algebra and let $D$ be a $C^*$-algebra. Let $\mathcal{E}$ be a Hi
    \paragraph{}
  Here the noncommutative generalization of the Theorem \ref{pavlov_troisky_thm} is being considered.  
    \begin{definition}\label{fin_quasi_defn}
-	Let $A$ be connected $C^*$-algebra (cf. Definition \ref{conn_c_a_defn}) $\pi: A \hookto \widetilde{A}$ be an injective unital (cf. Definition \ref{principal_non_defn}) *-homomorphism of % connected	  
+	Let $A$ be connected $C^*$-algebra (cf. Definition \ref{conn_c_a_defn}) $\pi: A \hookto \widetilde{A}$ be an injective, unital (in the sense of the Definition \ref{principal_non_defn}) *-homomorphism of % connected	  
 	$C^*$-algebras. Let $G$ be a finite  group of *-automorphisms of $\widetilde{A}$ such that 	$A \cong \widetilde{A}^G\stackrel{\text{def}}{=}\left\{
 	\left.a\in \widetilde{A}~\right|~ a = g a;~ \forall g \in G\right\}$.	We say that the triple $\left(A, \widetilde{A}, G \right)$ and/or the quadruple $\left(A, \widetilde{A}, G, \pi \right)$ and/or *-homomorphism $\pi: A \hookto \widetilde{A}$   is a \textit{noncommutative finite-fold  quasi-covering}. We write
 	\be\label{fin_cov_gr_eqn}
@@ -1412,7 +1412,7 @@ Let $A$ be a *-algebra and let $D$ be a $C^*$-algebra. Let $\mathcal{E}$ be a Hi
 %	$ it turns out $\widetilde{I}^G = I$.
 %\end{proof}
 \begin{lemma}\label{ind_qusai_lem}
-	If $\left(A, \widetilde{A}, G, \pi \right)$ is a noncommutative finite-fold  quasi-covering then there is an  approximate unit of  $\widetilde{A}$ which is contained in $A$.
+	If $\left(A, \widetilde{A}, G, \pi \right)$ is a noncommutative finite-fold  quasi-covering then there is an  approximate unit (cf. Definition \ref{app_unit_defn}) of  $\widetilde{A}$ which is contained in $A$.
 \end{lemma}
 \begin{proof}
 	From the Theorem \ref{app_unit_thm} there is an approximate unit  $\left\{\widetilde{u}_\la \right\}_{\la \in \La}$ of  $\widetilde{A}$. For any $g \in G$ and $\widetilde{x}\in  \widetilde{A}$ one has 
@@ -1424,8 +1424,11 @@ Let $A$ be a *-algebra and let $D$ be a $C^*$-algebra. Let $\mathcal{E}$ be a Hi
 	\bean
 	\lim_\la \left\| \widetilde{x}- \widetilde{x}v_\la   \right\| = 	\lim_\la \left\|\frac{1}{\left|G\right|}\sum_{g\in G} \left( \widetilde{x}- \widetilde{x}   \left( g\widetilde{u}_\la\right)\right)    \right\|\le \lim_\la \frac{1}{\left|G\right|}\sum_{g\in G}\left\| \widetilde{x}- \widetilde{x}  \left( g\widetilde{u}_\la\right)   \right\| = 0.
 	\eean
-	Similarly one can prove that $\lim_\la \left\| \widetilde{x}- v_\la \widetilde{x}  \right\|=0$, i.e.   $\left\{{v}_\la \right\}_{\la \in \La}$ is an approximate unit of $\widetilde A$. Otherwise  the net $\left\{{v}_\la \right\}$ is  contained in $A$.
-\end{proof}
+	Similarly one can prove that $\lim_\la \left\| \widetilde{x}- v_\la \widetilde{x}  \right\|=0$, i.e.   $\left\{{v}_\la \right\}_{\la \in \La}$ is an approximate unit of $\widetilde A$. 
+	Otherwise from $gv_\la = v_\la$ 
+	for all  $g\in G$ and $\la\in \La$ it turns out that 
+	  the net $\left\{{v}_\la \right\}$ is  contained in $\widetilde A^G = A$.
+  \end{proof}
 
 \begin{lemma}\label{fin_top_lem}
 If $\left(A, \widetilde{A}, G, \pi \right)$  is a {noncommutative finite-fold  quasi-covering} then $\widetilde{A}$ is a $C^*$-Hilbert $A$-module with respect to the following $A$-valued product
@@ -1442,9 +1445,10 @@ If $\left(A, \widetilde{A}, G, \pi \right)$  is a {noncommutative finite-fold  q
 	where $\left\| \cdot\right\|_C$ is the $C^*$-norm. From the above equation and taking into account $\left\| \widetilde{a}\right\|_C = \sqrt{\left\| \widetilde{a}^*\widetilde{a}\right\|_C}$ it turns out
 	\bean
 	\left\| \widetilde{a}\right\|_C \le \left\| \widetilde{a}\right\|_H,\\
-	\left\| \widetilde{a}\right\|_H \le \sqrt{\left|G\right|} 	\left\| \widetilde{a}\right\|_C.
+	\left\| \widetilde{a}\right\|_H \le \sqrt{\left|G\right|} 	\left\| \widetilde{a}\right\|_C,
 	\eean
-	The algebra $\widetilde{A}$ is closed with respect to $C^*$-norm, hence a pre-$C^*$-Hilbert $A$-module $\widetilde{A}_A$ is closed with respect to the pre-$C^*$-Hilbert $A$-module norm.
+	i.e. the norms	$\left\| \cdot\right\|_C$ and 	$\left\| \cdot\right\|_H$ yield equal topologies.
+	The algebra $\widetilde{A}$ is closed with respect to $C^*$-norm, hence a pre-$C^*$-Hilbert $A$-module $\widetilde{A}_A$ is closed with respect to the pre-$C^*$-Hilbert $A$-module norm $\left\| \cdot\right\|_H$.
 \end{proof}
 
 
@@ -1453,7 +1457,7 @@ If $\left(A, \widetilde{A}, G, \pi \right)$  is a {noncommutative finite-fold  q
 \end{definition}
 
    \begin{definition}\label{fin_pre_defn}
-   		Let $A$ be connected $C^*$-algebra (cf. Definition \ref{conn_c_a_defn}) $\pi: A \hookto \widetilde{A}$ be an injective unital (cf. Definition \ref{principal_non_defn}) *-homomorphism of % connected
+   		Let $A$ be connected $C^*$-algebra (cf. Definition \ref{conn_c_a_defn}) $\pi: A \hookto \widetilde{A}$ be an injective unital (in the sense of the Definition \ref{principal_non_defn}) *-homomorphism of % connected
    	$C^*$-algebras such that following conditions hold:
 	\begin{enumerate}
 		\item[(a)] If $\Aut\left(\widetilde{A} \right)$ is a group of *-automorphisms of $\widetilde{A}$ then the group  
@@ -1534,18 +1538,18 @@ We say that the triple $\left(A, \widetilde{A}, G \right)$ and/or the quadruple 
 	if $ \widetilde a\in \widetilde{A}\cap B$, or   equivalently  $ \widetilde a \in \widetilde \pi\left( A\right)$ then from $\widetilde a\in B$ it follows that	$	\widetilde a = \frac{1}{\left|G \right| }\sum_{	g \in G}\widetilde a$, so one has $\widetilde a \in \widetilde A^G = A$. It turns out that $\pi = \widetilde{\pi}|_A$ (or, equivalently $A = \widetilde{A}\cap B$).
 \end{remark}
 \begin{remark}
-Any noncommutative finite-fold covering with unitization is a noncommutative finite-fold quasi-covering with unitization.
+Any unital noncommutative finite-fold covering is a noncommutative finite-fold quasi-covering with unitization.
 \end{remark}
 \begin{empt}
-If $A$ is a $C^*$-algebra and $G\subset \Aut\left(A\right)$ then there is the action $G \times M\left(A \right) \to M\left(A\right)$ such that for any strictly convergent net $\left\{a_\a\right\}\in A$ (cf. Definition \ref{strict_topology}) one has
+If $\left(A, \widetilde{A}, G, \pi \right)$ be {noncommutative finite-fold  quasi-covering} (cf. Definition \ref{fin_quasi_defn}) then there is the action $G \times M\left(A \right) \to M\left(A\right)$ such that for any $\widetilde a\in M\left( \widetilde A\right)$ one has  (cf. Definition \ref{strict_topology}) one has
 \be\label{gma_act_eqn}
-g \left(\bt\text{-}\lim a_\a \right) \bydef \bt\text{-}\lim g a_\a.
+g \widetilde a \bydef \bt\text{-}\lim v_\la g \widetilde a
 \ee
-It follows that
-$$
-\forall a\in M\left(A\right)\quad \forall b\in A, \quad \forall g\in G \quad g\left(ab \right)= \left(ga\right)\left(gb\right),\quad
-g\left(ba \right)= \left(gb\right)\left(ga\right).
-$$ 
+where $\{v_\la\}\subset A$ is given by  the Lemma  \ref{ind_qusai_lem} approximate unit of $\widetilde A$ and the strict topology of $M\left( \widetilde A\right)$ is implied. From \eqref{gma_act_eqn} It follows that
+\bean
+\forall \widetilde a\in M\left(\widetilde A\right)\quad \forall\widetilde b\in A, \quad \forall g\in G \quad g\left(\widetilde a \widetilde b \right)= \bt\text{-}\lim v_\la g \left( \widetilde a\widetilde b \right)= \\= \left( \bt\text{-}\lim v_\la\left(  g\widetilde a\right) \right)\left(g \widetilde b\right)= \left(g\widetilde a\right)\left(g\widetilde b\right),\\
+g\left(\widetilde b \widetilde a \right)=\lim v_\la g\left(  \widetilde b\widetilde a \right)= \left(g\widetilde b\right)\left(\lim v_\la g\widetilde a\right)= \left(g\widetilde b\right)\left(g\widetilde a\right).
+\eean 
 
 \end{empt}
  \begin{lemma}\label{ind_mult_inv_lem}
@@ -1567,15 +1571,15 @@ $$
 	\be\label{mult_map}
 \varphi:M\left({A} \right) \hookto M\left(\widetilde{A} \right).
 	\ee\\
-	(ii) If  $a \in M\left(A \right)$ then there is a net $\left\{a_\a\right\}\subset A$ such that $a =\bt$-$\lim a_\a$ with respect to the strict topology (cf Definition \ref{strict_topology}).	From \eqref{gma_act_eqn} it follows that
+	(ii) If  $a \in M\left(A \right)$ then there is a net $\left\{a_\la\right\}\bydef\left\{v_\la a\right\}\subset A$ such that $a =\bt$-$\lim a_\la$ with respect to the strict topology of $M\left(\widetilde{A} \right)$ (cf Definition \ref{strict_topology}).	From \eqref{gma_act_eqn} it follows that
 	$$
-\forall g \in G\left(\left.\widetilde{A}~\right|A  \right)\quad 	g \varphi\left(a \right)= \bt\text{-}\lim g a_\a = \bt\text{-}\lim  a_\a =\varphi\left(a \right) ,
+\forall g \in G\left(\left.\widetilde{A}~\right|A  \right)\quad 	g \varphi\left(a \right)= \bt\text{-}\lim g a_\la = \bt\text{-}\lim  a_\la =\varphi\left(a \right) ,
 	$$ 
 	hence $\varphi\left(M\left(A \right)  \right) \subset  M\left( \widetilde{A}\right)^G$. So there is a natural injective *-homomorphism $\phi : M\left(A \right)\hookto  M\left(\widetilde{A} \right)^G$.	On the other hand 	if $a \in M\left(\widetilde{A} \right)^G$ and $b \in \widetilde{A}^G$ then $ab \in \widetilde{A}$ is such that $g\left( ab\right) =\left( ga\right)\left(gb \right) = ab$ for any $g\in G$, i.e. $ab  \in \widetilde{A}^G$. It follows that $M\left( \widetilde{A}\right)^G \widetilde A^G = \widetilde A^G$ and taking into account $\widetilde A^G= A$ one concludes that $M\left( \widetilde{A}\right)^G A = A$. Similarly we can prove that $AM\left( \widetilde{A}\right)^G  = A$. From both  $M\left( \widetilde{A}\right)^GA  = A$ and  $AM\left( \widetilde{A}\right)^G  = A$ it turns out that any $a \in M\left( \widetilde{A}\right)^G$ yields an element of $M\left(A \right)$, i.e.  a *-homomorphism.
 	\be\label{mag_mai_eqn}
 	\psi:M\left(\widetilde{A} \right)^G \hookto   M\left(A \right).
 	\ee
-	Clearly $\psi \circ \phi = \Id_{M\left(A \right) }$ and since $\phi$ is injective we conclude that both $\phi$ and $\psi$ are isomorphisms. 
+	Clearly $\psi \circ \phi = \Id_{M\left(A \right) }$ and since $\phi$ is injective we conclude that both $\phi$ and $\psi$ are *-isomorphisms. 
 \end{proof}
 
 
@@ -1593,7 +1597,7 @@ with respect to the strict topology of $M\left(A \right)$ (cf. Definition \ref{s
 	$$
 	is a noncommutative finite-fold covering with unitization (cf. Definition \ref{fin_comp_defn}). The action 	$G \times \widetilde{A}_\la\to \widetilde{A}_\la$, is the restriction on $\widetilde{A}_\la\subset \widetilde{   A}$ of the action $G\times  \widetilde{A}\to \widetilde{A}$.
 \end{enumerate}
-If 	the $C^*$-algebra $\widetilde A$ is connected (cf. Definition \ref{conn_c_a_defn}) then $\left(A, \widetilde{A}, G, \pi \right)$  of $C^*$-algebras $A$ and $\widetilde{A}$  is said to be   a \textit{(connected) noncommutative finite-fold covering} or simply a \textit{noncommutative finite-fold covering}.
+If 	the $C^*$-algebra $\widetilde A$ is connected (cf. Definition \ref{conn_c_a_defn}) then $\left(A, \widetilde{A}, G, \pi \right)$  is said to be   a \textit{(connected) noncommutative finite-fold covering} or simply a \textit{noncommutative finite-fold covering}.
 
 \end{definition}
 
@@ -1601,7 +1605,7 @@ If 	the $C^*$-algebra $\widetilde A$ is connected (cf. Definition \ref{conn_c_a_
 	The Definition \ref{fin_defn} implicitly uses the given by the Lemma \ref{ind_mult_inv_lem} inclusion $	M\left(A \right)\subset  M\left(\widetilde{A} \right)$.   
 \end{remark}
 \begin{remark}
-	If  $\left\{u_\la\right\}_{\la\in\La} = \left\{1_{M\left(A \right) }\right\}$ and $\widetilde A$ is connected then the Definition \ref{fin_defn}  yields a noncommutative finite-fold covering with unitization, i.e. 
+	If  $\left\{u_\la\right\}_{\la\in\La} = \left\{1_{M\left(A \right) }\right\}$  then the Definition \ref{fin_defn}  yields a noncommutative finite-fold covering with unitization, i.e. 
 	every noncommutative finite-fold covering with unitization is a  noncommutative finite-fold covering.
 \end{remark}
 
@@ -1681,20 +1685,23 @@ If 	the $C^*$-algebra $\widetilde A$ is connected (cf. Definition \ref{conn_c_a_
 	\end{enumerate}
 	We say that the triple $\left(A, \widetilde{A}, G \right)$ and/or the quadruple $\left(A, \widetilde{A}, G, \pi \right)$ and/or *-homomorphism $\pi: A \hookto \widetilde{A}$   is a \textit{noncommutative finite-fold  pre-covering of *-algebras}. If both $A$ and $\widetilde{A}$ are multinormed $C^*$-algebras then we assume that the homomorphism $\pi$ is continuous.
 \end{definition}
-\subsection{Coverings of pro-$C^*$-algebras}
+\subsubsection{Coverings of pro-$C^*$-algebras}
 \begin{definition}\label{pro_fin_defn}
 	Let $\pi: A \hookto \widetilde A$ be an injective *-homomorphism of pro-$C^*$ algebras (cf. Definition \ref{pro_c_defn}) which can be regarded as an inclusion. Suppose that the following conditions hold:
 	\begin{itemize}
-	\item[(a)] The quadruple  $\left(A, \widetilde{A}, G, \pi \right)$  is a noncommutative finite-fold  pre-covering of *-algebras (cf. \ref{fin_pre*_defn}).
-	\item[(b)] There is   an essential ideal  $\widetilde B$ of $b\left(\widetilde A \right)$ (where $b\left(\widetilde A \right)$ is a $C^*$-algebra of bounded elements (cf. Definition \ref{pro_bound_defn}) and Proposition \ref{pro_bound_prop}) such that $G\widetilde B= \widetilde B$ and $\left(B ,  \widetilde{B} , G, \pi|_{B} \right)$ is a noncommutative finite-fold  covering (cf. Definition \ref{fin_defn}),  where  $B\bydef \widetilde B \cap A$.
+		\item[(a)] The quadruple  $\left(A, \widetilde{A}, G, \pi \right)$  is a noncommutative finite-fold  pre-covering of *-algebras (cf. \ref{fin_pre*_defn}).
+		\item[(b)] There is   an essential ideal  $\widetilde B$ of $b\left(\widetilde A \right)$ (where $b\left(\widetilde A \right)$ is a $C^*$-algebra of bounded elements (cf. Definition \ref{pro_bound_defn}) and Proposition \ref{pro_bound_prop}) such that $G\widetilde B= \widetilde B$ and $\left(B ,  \widetilde{B} , G, \pi|_{B} \right)$ is a noncommutative finite-fold  covering (cf. Definition \ref{fin_defn}),  where  $B\bydef \widetilde B \cap A$.
 	\end{itemize}
-We say that the triple $\left(A, \widetilde{A}, G \right)$ and/or the quadruple $\left(A, \widetilde{A}, G, \pi \right)$ and/or *-homomorphism $\pi: A \hookto \widetilde{A}$   is a \textit{noncommutative finite-fold  covering  of pro-$C^*$-algebras}.
+	We say that the triple $\left(A, \widetilde{A}, G \right)$ and/or the quadruple $\left(A, \widetilde{A}, G, \pi \right)$ and/or *-homomorphism $\pi: A \hookto \widetilde{A}$   is a \textit{noncommutative finite-fold  covering  of pro-$C^*$-algebras}.
 \end{definition}
-\subsection{Coverings of bounded operator $*$-algebras}
+
+
+
+\subsubsection{Coverings of bounded operator $*$-algebras}
 \begin{definition}\label{fin_oa_defn}  
-	Let $\left(A, \widetilde{A}, G, \pi \right)$ be  a noncommutative finite-fold  pre-covering of *-algebras (cf. Definition \ref{fin_pre*_defn}), Suppose that both $A$ and $\widetilde{A}$ are dense subalgebras of $C^*$-algebras. Let both  $B$ and  $\widetilde{B}$ be $C^*$-algebras which are norm completions of $A$ and $\widetilde{A}$ respectively. Assume both a *-homomorphism $\pi_B: B \hookto\widetilde B$ and an action $G \times \widetilde{B}\to  \widetilde{B}$ come from $\pi: A \hookto\widetilde A$ and an action $G \times \widetilde{A}\to  \widetilde{A}$. If  $\left(B, \widetilde{B}, G, \pi_B \right)$ is a noncommutative finite-fold covering (cf. \ref{fin_defn}) 	 then we say that  $\left(A, \widetilde{A}, G, \pi \right)$, or $\left(A, \widetilde{A}, G  \right)$, or $\pi$ is a \textit{noncommutative finite-fold covering of bounded operator *-algebras}.
+	Let $\left(A, \widetilde{A}, G, \pi \right)$ be  a noncommutative finite-fold  pre-covering of *-algebras (cf. Definition \ref{fin_pre*_defn}), Suppose that both $A$ and $\widetilde{A}$ are *-subalgebras of $C^*$-algebras. Let both  $B$ and  $\widetilde{B}$ be $C^*$-algebras which are $C^*$-norm completions of $A$ and $\widetilde{A}$ respectively. Assume both a *-homomorphism $\pi_B: B \hookto\widetilde B$ and an action $G \times \widetilde{B}\to  \widetilde{B}$ come from $\pi: A \hookto\widetilde A$ and an action $G \times \widetilde{A}\to  \widetilde{A}$. If  $\left(B, \widetilde{B}, G, \pi_B \right)$ is a noncommutative finite-fold covering (cf. \ref{fin_defn}) 	 then we say that  $\left(A, \widetilde{A}, G, \pi \right)$, or $\left(A, \widetilde{A}, G  \right)$, or $\pi$ is a \textit{noncommutative finite-fold covering of bounded operator *-algebras}.
 \end{definition}
-\subsection{Coverings of $O^*$-algebras}
+\subsubsection{Coverings of $O^*$-algebras}
 
 
 \begin{empt}\label{o*fin_empt}
@@ -1707,31 +1714,7 @@ $\left(B, \widetilde{B}, G, \pi_B \right)$
 \begin{definition}\label{fino*_defn}
 	In the  situation \ref{o*fin_empt} we say that $\left(A, \widetilde{A}, G, \pi \right)$, or $\left(A, \widetilde{A}, G  \right)$, or $\pi$ is a \textit{noncommutative finite-fold covering of $O^*$-algebras}.
 \end{definition}
-\subsection{Coverings of quasi *-algebras}
-\begin{definition}\label{fin_preq_defn}
-	%	Let $\pi: \left(\mathfrak{A}, \mathfrak{A}_0\right) \hookto \left(\widetilde{\mathfrak{A}}, \widetilde{\mathfrak{A}}_0\right)$ 
-	Suppose that $\pi: \left(\mathfrak{A}, \mathfrak{A}_0\right) \hookto \left(\widetilde{\mathfrak{A}}, \widetilde{\mathfrak{A}}_0\right)$ is an injective unital $*$-homomorphism of   quasi $*$-algebras (cf. Definitions \ref{quasi_defn} and \ref{quasi_hom_defn})  such that following conditions hold:
-	\begin{enumerate}
-		\item[(a)] If $\Aut\left(\widetilde{\mathfrak{A}}, \widetilde{\mathfrak{A}}_0\right)$ is a group of *-automorphisms of $\widetilde{\mathfrak{A}}, \widetilde{\mathfrak{A}}_0$ then the group  
-		\be\nonumber
-		G = \left\{ \left.g \in \Aut\left(\widetilde{\mathfrak{A}}, \widetilde{\mathfrak{A}}_0\right)~\right|~ ga = a;~~\forall a \in \mathfrak A\right\}
-		\ee
-		is finite.
-		\item[(b)] 	$\widetilde{\mathfrak{A}} \cong \widetilde{\mathfrak{A}}^G\stackrel{\text{def}}{=}\left\{\left.a\in \widetilde{\mathfrak{A}}~~\right|~ a = g a;~ \forall g \in G\right\}$.
-	\end{enumerate}
-	We say that the triple $\left(\left( {\mathfrak{A}}, {\mathfrak{A}}_0\right) , \left( \widetilde{\mathfrak{A}}, \widetilde{\mathfrak{A}}_0\right) , G \right)$ and/or the quadruple\\ $\left(\left( {\mathfrak{A}}, {\mathfrak{A}}_0\right) , \left( \widetilde{\mathfrak{A}}, \widetilde{\mathfrak{A}}_0\right) , G , \pi\right)$ and/or *-homomorphism $\pi: \left(\mathfrak{A}, \mathfrak{A}_0\right) \hookto \left(\widetilde{\mathfrak{A}}, \widetilde{\mathfrak{A}}_0\right)$   is a \textit{noncommutative finite-fold pre-covering of quasi $*$-algebras}. 
-\end{definition}
-
-
-
-\begin{definition}\label{oq*fin_defn}
-	Let  a quadruple $\left(\left( {\mathfrak{A}}, {\mathfrak{A}}_0\right) , \left( \widetilde{\mathfrak{A}}, \widetilde{\mathfrak{A}}_0\right) , G , \pi\right)$ be a {noncommutative finite-fold pre-covering of quasi-$O^*$-algebras}. If the quadruple  $\left(\mathfrak{A}_0 ,  \widetilde{\mathfrak{A}}_0 , G , \pi|_{\mathfrak{A}_0}\right)$ is a {noncommutative finite-fold covering of $O^*$-algebras} (cf. Definition \ref{fino*_defn}) then we say that  the quadruple $\left(\left( {\mathfrak{A}}, {\mathfrak{A}}_0\right) , \left( \widetilde{\mathfrak{A}}, \widetilde{\mathfrak{A}}_0\right) , G , \pi\right)$ and/or *-homomorphism $\pi:  \left(\mathfrak{A}, \mathfrak{A}_0\right) \hookto \left(\widetilde{\mathfrak{A}}, \widetilde{\mathfrak{A}}_0\right)$   is a \textit{noncommutative finite-fold covering of quasi-$*$-algebras}.
-\end{definition}
-
-
-
-
-\subsection{Coverings and unbounded operators on Hilbert modules}\label{fin_chull_sec}
+\subsubsection{Coverings and unbounded operators on Hilbert modules}\label{fin_chull_sec}
 \paragraph*{}
 The Definition \ref{fino*_defn} assumes  that both *-algebras $A$ and $\widetilde{A}$ contain  quite enough bounded elements. Here we consider an opposite situation.
 \begin{empt}\label{fin_chull_empt}
@@ -1916,9 +1899,31 @@ If 	$\widetilde a \in M\left(\widetilde{A} \right)$ and $\widetilde a= \bt\text{
 	\eean 
 	i.e. $\phi$ is equivalent to the surjective homomorphism of $G$ onto its factor group $G_2 \to G_2/H_2$ .
 \end{proof}
+\subsection{Coverings of quasi *-algebras}
+\begin{definition}\label{fin_preq_defn}
+	%	Let $\pi: \left(\mathfrak{A}, \mathfrak{A}_0\right) \hookto \left(\widetilde{\mathfrak{A}}, \widetilde{\mathfrak{A}}_0\right)$ 
+	Suppose that $\pi: \left(\mathfrak{A}, \mathfrak{A}_0\right) \hookto \left(\widetilde{\mathfrak{A}}, \widetilde{\mathfrak{A}}_0\right)$ is an injective unital $*$-homomorphism of   quasi $*$-algebras (cf. Definitions \ref{quasi_defn} and \ref{quasi_hom_defn})  such that following conditions hold:
+	\begin{enumerate}
+		\item[(a)] If $\Aut\left(\widetilde{\mathfrak{A}}, \widetilde{\mathfrak{A}}_0\right)$ is a group of *-automorphisms of $\widetilde{\mathfrak{A}}, \widetilde{\mathfrak{A}}_0$ then the group  
+		\be\nonumber
+		G = \left\{ \left.g \in \Aut\left(\widetilde{\mathfrak{A}}, \widetilde{\mathfrak{A}}_0\right)~\right|~ ga = a;~~\forall a \in \mathfrak A\right\}
+		\ee
+		is finite.
+		\item[(b)] 	$\widetilde{\mathfrak{A}} \cong \widetilde{\mathfrak{A}}^G\stackrel{\text{def}}{=}\left\{\left.a\in \widetilde{\mathfrak{A}}~~\right|~ a = g a;~ \forall g \in G\right\}$.
+	\end{enumerate}
+	We say that the triple $\left(\left( {\mathfrak{A}}, {\mathfrak{A}}_0\right) , \left( \widetilde{\mathfrak{A}}, \widetilde{\mathfrak{A}}_0\right) , G \right)$ and/or the quadruple\\ $\left(\left( {\mathfrak{A}}, {\mathfrak{A}}_0\right) , \left( \widetilde{\mathfrak{A}}, \widetilde{\mathfrak{A}}_0\right) , G , \pi\right)$ and/or *-homomorphism $\pi: \left(\mathfrak{A}, \mathfrak{A}_0\right) \hookto \left(\widetilde{\mathfrak{A}}, \widetilde{\mathfrak{A}}_0\right)$   is a \textit{noncommutative finite-fold pre-covering of quasi $*$-algebras}. 
+\end{definition}
 
 
-   \section{Induced representations}\label{induced_repr_fin_sec}
+
+\begin{definition}\label{oq*fin_defn}
+	Let  a quadruple $\left(\left( {\mathfrak{A}}, {\mathfrak{A}}_0\right) , \left( \widetilde{\mathfrak{A}}, \widetilde{\mathfrak{A}}_0\right) , G , \pi\right)$ be a {noncommutative finite-fold pre-covering of quasi-$O^*$-algebras}. If the quadruple  $\left(\mathfrak{A}_0 ,  \widetilde{\mathfrak{A}}_0 , G , \pi|_{\mathfrak{A}_0}\right)$ is a {noncommutative finite-fold covering of $O^*$-algebras} (cf. Definition \ref{fino*_defn}) then we say that  the quadruple $\left(\left( {\mathfrak{A}}, {\mathfrak{A}}_0\right) , \left( \widetilde{\mathfrak{A}}, \widetilde{\mathfrak{A}}_0\right) , G , \pi\right)$ and/or *-homomorphism $\pi:  \left(\mathfrak{A}, \mathfrak{A}_0\right) \hookto \left(\widetilde{\mathfrak{A}}, \widetilde{\mathfrak{A}}_0\right)$   is a \textit{noncommutative finite-fold covering of quasi-$*$-algebras}.
+\end{definition}
+
+
+
+
+  \section{Induced representations}\label{induced_repr_fin_sec}
 
    \begin{defn}\label{induced_repr_defn}
    	Let $\left(A, \widetilde{A}, G, \pi\right)$ be a finite-fold noncommutative covering such that $\widetilde{A}_A\bydef \widetilde A$ is of the $C^*$-Hilbert $A$-module (cf. \ref{fin_top_lem}, \ref{hilbert_product_defn}). If $\rho: A \to B\left( \H\right)$ is a representation and  $\widetilde{\rho}=\widetilde{A}-\Ind^A_{\widetilde{A}}\rho: \widetilde{A}\to B\left(\widetilde{\H} \right) $ is given by \eqref{ind_repr_eqn}, i.e. $\widetilde{\rho}$ is the induced representation (cf. Definition \ref{ind_repr_defn}) then we say that $\widetilde{\rho}$ \textit{is induced by the pair} $\left(\rho,\left(A, \widetilde{A}, G, \pi\right)  \right)$.  
@@ -2712,7 +2717,7 @@ Consider the given by the Corollary \ref{lift_unique_cor} situation. If $f: [0,1
 %   	Follows from theorem \ref{spanier_thm_un}.
 %   \end{proof}
 
-   \section{Coverings of operator spaces}
+   \section{Coverings of (local) operator spaces}
    \paragraph*{}
    Here we generalize the Section \ref{cov_fin_bas_sec}.
    \begin{definition}\label{op_su_space_defn}
@@ -3083,6 +3088,8 @@ The Definition \ref{unoriented_defn} is motivated by explained in the Section \r
 
  \chapter{Noncommutative infinite coverings}\label{cov_inf_chap}
  \section{Basic definitions}\label{inf_bas_constr_sec}
+    \subsection{Coverings of $C^*$-algebras}
+ 
 \paragraph*{}
 This section contains  noncommutative generalizations of infinite coverings.
 \begin{definition}\label{compliant_covering_defn}
@@ -3895,9 +3902,9 @@ a \bydef	\sum_{g \in G\left(\left.\overline A\right|A \right) }g\overline a\in A
 	\ee
 \end{empt}
 
-\section{Infinite coverings of *-algebras}
+\subsection{Coverings of *-algebras}
 
-\subsection{Coverings of pro-$C^*$-algebras}
+\subsubsection{Coverings of pro-$C^*$-algebras}
 \paragraph*{} Here we discuss infinite coverings of operator *-algebras which can contain unbounded operators. If $A$ is operator *-algebra then denote by $b\left(A \right)\subset A$ the *-algebra  of bounded operators.
 \begin{empt}\label{comp_pro_empt}
 	Let $\La$ be a countable directed set (cf. Definition \ref{directed_set_defn}) such that there is the unique minimal element $\la_{\min} \in \La$.
@@ -3974,22 +3981,45 @@ $\left(A, \widetilde{A}, G\right)$ is the
 From the conditions (a) and (c) of \ref{inv_pro_lim_empt} it turns out that $M\left(\widetilde B\right) = b\left( \widetilde A\right)$. 
 \end{remark}
 
-\subsection{Coverings of bounded operator $*$-algebras}
-\begin{defn}\label{inf_cov_oa_cat_defn}
-	Similarly to \ref{comp_op_pt_empt} there is a \textit{category of noncommutative finite-fold coverings of operator algebras} (cf. Definition \ref{fin_oa_defn}  !!! OAFIN) given by
-	\be\label{inf_cov_oae_eqn}
-	\mathfrak{S}^{\text{pt}} = \left(\left\{\pi_\la: A \hookto A_\la \right\}_{\la \in \La}, \left\{\pi^\mu_\nu: A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\ \nu > \mu}}\right).
+\subsubsection{Coverings of bounded operator $*$-algebras}
+\begin{empt}\label{comp_oa_empt}
+	Let $\La$ be a countable directed set (cf. Definition \ref{directed_set_defn}) such that there is the unique minimal element $\la_{\min} \in \La$.
+	Let $A$ be a *-subalgebra of $C^*$-algebra.  Let us consider a family of   noncommutative finite-fold covering of bounded operator *-algebras $\mathfrak{S}=\left\{ \pi_{\la}:A \hookto A_{\la}\right\}_{\la \in \La}$ (cf. Definition \ref{fin_oa_defn}) indexed by  $\La$ such that $A_{\la_{\mathrm{min}}}= A$, and $\pi_{\la_{\mathrm{min}}}= \Id_A$. Suppose that there is a pointed category 	
+	\be\label{comp_oa_eqn}
+	\begin{split}
+		\mathfrak{S} \bydef \left(\left\{\pi_\la: A \hookto A_\la \right\}_{\la \in \La}, \left\{\pi^\mu_\nu: A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\ \nu > \mu}}\right),\\
+		\text{or simply} \quad \mathfrak{S} \bydef \left(\left\{\pi_\la: A \hookto A_\la \right\}, \left\{\pi^\mu_\nu\right\}\right).
+	\end{split}
 	\ee
+	of noncommutative finite-fold covering of bounded operator *-algebras (cf. Definition \ref{fin_oa_defn}). For each $\la\in \La$  denote by  $B_\la$ the $C^*$-norm completion of $A_\la$. Suppose that injective *-homomorphisms  $\widetilde \pi_\la : B \hookto B_\la$,  $\quad\widetilde \pi^\mu_\nu : B_\mu \hookto B_\nu$ come from 	$\pi_\la$ and $\pi^\mu_\nu$ respectively. Moreover assume that for all $\la, \mu, \nu \in\La$ the *-homomorphisms $\widetilde \pi_\la : B \hookto B_\la$,  $\quad\widetilde \pi^\mu_\nu : B_\mu \hookto B_\nu$ are connected noncommutative finite-fold  coverings (cf. Definition \ref{fin_defn}).
+	Suppose that
+	\be\label{oa_cat_eqn}
+	\begin{split}
+		\mathfrak{S}_B \bydef \left(\left\{\widetilde \pi_\la:B  \hookto B_\la  \right\}_{\la \in \La},\left\{ \widetilde \pi^\mu_\nu: B_\nu \hookto B_\mu \right\}_{\substack{\mu, \nu \in \La~~\nu > \mu}}\right)
+	\end{split}
+	\ee
+	is 	a { algebraical  finite covering category} (cf. Definition \ref{comp_defn}).
+\end{empt}
+\begin{definition}\label{comp_oa_defn}
+	The the given by  \eqref{comp_pro_eqn} set $\mathfrak{S}$
+	is said to be an \textit{algebraical  finite covering category of  bounded operator *-algebras}. 
+\end{definition}
+
+
+\begin{defn}\label{inf_cov_oa_cat_defn} 
+A skeleton (cf. Definition \ref{skeleton_defn}) of  a {category of noncommutative finite-fold coverings of noncommutative finite-fold covering of bounded operator *-algebras} is said to be a \textit{pointed category of noncommutative finite-fold coverings of noncommutative finite-fold covering of bounded operator *-algebras}. We denote it by $\mathfrak{S}^{\text{pt}}$.
 \end{defn}
 
 \begin{empt}\label{inf_cov_oa_empt}
-	In the situation of the Definition \ref{inf_cov_oa_cat_defn} suppose that 
-	\be\label{inf_cov_oa_eqn}
+	In the situation of the Definition \ref{inf_cov_oa_cat_defn} suppose that there 
+	is good pointed algebraical  finite covering category (cf. Definition \ref{comp_pt_defn})
+\bean
 	\begin{split}
-		C^*_e\left( \mathfrak{S}^{\text{pt}}\right) \bydef\\\bydef \left(\left\{	C^*_e\left(\pi_\la\right) : 	C^*_e\left(A\right)  \hookto 	C^*_e\left(A_\la\right)  \right\}_{\substack{\la \in \La\\ ~}},\right.\\\left. \left\{	C^*_e\left(\pi^\mu_\nu\right) : 	C^*_e\left(A_\mu\right)  \hookto 	C^*_e\left(A_\nu\right) \right\}_{\substack{\mu, \nu \in \La\\ \nu > \mu}}\right)
+		\mathfrak{S}^{\text{pt}}_B \bydef \left(\left\{\widetilde \pi_\la:B  \hookto B_\la  \right\}_{\la \in \La},\left\{ \widetilde \pi^\mu_\nu: B_\nu \hookto B_\mu \right\}_{\substack{\mu, \nu \in \La~~\nu > \mu}}\right)
 	\end{split}
-	\ee
-	is good pointed algebraical  finite covering category (cf. Definition \ref{comp_pt_defn}). Let	$\left(C^*_e\left(A\right), \widetilde B, G \right)	$	be the inverse noncommutative limit of $	C^*_e\left( \mathfrak{S}^{\text{pt}}\right)$ (cf. Definition \ref{main_defn}).
+	\eean
+which is a skeleton of \eqref{oa_cat_eqn}. 	
+	 Let	$\left(B, \widetilde B, G \right)	$	be the inverse noncommutative limit of $ \mathfrak{S}^{\text{pt}}_B$ (cf. Definition \ref{main_defn}).
 	% For any $G$-invariant subalgebra $ \widetilde A'\subset  \widetilde B$ denote by
 	%\be\label{inf_cov_oam_eqn}
 	%	M\left(\widetilde A'\right) \bydef \left\{\left.\widetilde a \in M\left( \widetilde B \right)  \right| \widetilde a\widetilde A'\subset \widetilde A' \text{ AND }\widetilde A'\widetilde a\subset \widetilde A'\right\}.
@@ -3997,8 +4027,8 @@ From the conditions (a) and (c) of \ref{inv_pro_lim_empt} it turns out that $M\l
 	%	If $\varinjlim C^*_e\left(A_\la\right)$ is an algebraic direct limit then there is a dense inclusion $\varinjlim C^*_e\left(A_\la\right)\hookto C^*$-$\varinjlim C^*_e\left(A_\la\right)$. So there is an inclusion $\iota: \varinjlim C^*_e\left(A_\la\right)\hookto M\left( \widetilde B \right)$.
 \end{empt}	
 
-\begin{definition}\label{inf_cov_local_sub_defn} !!! REPLACE LOCAL
-	We say that  $G$-invariant *-subalgebra $\widetilde A'$ of $\widetilde B$ is \textit{subordinated to}  $\mathfrak{S}^{\text{pt}}$ if for all $
+\begin{definition}\label{inf_cov_oa_sub_defn}
+	Consider the situation  \ref{inf_cov_oa_empt}	We say that  $G$-invariant *-subalgebra $\widetilde A'$ of $\widetilde B$ is \textit{subordinated to}  $\mathfrak{S}^{\text{pt}}$ if for all $
 	\la\in\La$ one has
 	\bea\label{inf_cov_oa_sub1_eqn}
 	A_\la \widetilde A'\subset \widetilde A',\\
@@ -4028,7 +4058,7 @@ From the conditions (a) and (c) of \ref{inv_pro_lim_empt} it turns out that $M\l
 
 
 
-\subsection{Coverings of $O^*$-algebras}
+\subsubsection{Coverings of $O^*$-algebras}
 \begin{definition}\label{comp_o*_defn}
 	Let $\La$ be a countable directed set (cf. Definition \ref{directed_set_defn}) such that there is the unique minimal element $\la_{\min} \in \La$.
 	Let $A$ be an $O^*$-algebra.  Let us consider a set noncommutative finite-fold coverings of  $O^*$-algebras\\ $\mathfrak{S}=\left\{ \pi_{\la}:A \hookto A_{\la}\right\}_{\la \in \La}$ (cf. Definition \ref{pro_fin_defn}) indexed by  $\La$ such that $A_{\la_{\mathrm{min}}}= A$, and $\pi_{\la_{\mathrm{min}}}= \Id_A$.  Suppose that there is a category $\mathfrak{S}^{\text{pt}}$  such that
@@ -4108,7 +4138,9 @@ Using  the equations  \eqref{inv_o*_lim_eqn}-\eqref{inv_o*_rlim_eqn} prove that 
 \ee 
 \end{exercise}
 
-\section{Infinite coverings of quasi *-algebras}
+\subsubsection{Coverings and unbounded operators on Hilbert modules}\label{unb_hilb_sec}
+
+\subsection{Coverings of quasi *-algebras}
 
 \begin{definition}\label{comp_qo*_defn}
 	Let $\La$ be a countable directed set (cf. Definition \ref{directed_set_defn}) such that there is the unique minimal element $\la_{\min} \in \La$.
@@ -4182,7 +4214,7 @@ Consider the situation \ref{comp_qo*_empt}.	Suppose that there exists an admissi
 \end{definition}
 
 
-\section{Infinite coverings of (local) operator spaces}
+\section{Coverings of (local) operator spaces}
 \paragraph*{}
 Here we consider a generalization of the discussed in the Section \ref{inf_bas_constr_sec} construction.
 
@@ -4300,10 +4332,6 @@ it turns out that  $\widetilde X'\cong\C\widetilde X$.
 \begin{remark} 
 	Similarly to the Definition \ref{spec_loc_lim_defn}  one can define inverse noncommutative limits for local real operator spaces.
 \end{remark}
-\begin{remark}\label{inf_oar_rem}
-	If $A$ is an algebra over $\R$ then there a complexification $\C A$. Similarly to the Remark \ref{fin_oar_rem} can develop a related to  $A $ of explained in \ref{inf_cov_oa_empt}- \ref{inf_cov_oa_defn} construction. In result one has a  \textit{real inverse noncommutative limit} or \textit{real infinite noncommutative covering}  of $\mathfrak{S}^{\text{pt}}$.
-\end{remark}
-\section{Infinite coverings and unbounded operators on Hilbert modules}\label{unb_hilb_sec}
 
 \paragraph*{}
 This section is an infinite counterpart of the Section \ref{fin_chull_sec}.
@@ -8503,7 +8531,7 @@ From above equation it follows that
 The equation \eqref{comm_alg_eqn} is purely algebraic and related to special subsets. From the Theorem \ref{top_main_thm} it follows that the algebraic condition \eqref{comm_alg_eqn}  is sufficient for  construction of  $C_0\left( \widetilde{\mathcal X}\right)$. Thus noncommutative inverse limits of coverings can be constructed by purely algebraic methods.
 
 
-\subsection{Coverings of operator spaces}
+\subsection{Coverings $C^*$-algebras and operator spaces}
 
 \paragraph*{}
 %\chapter{Algebraic constructions of topological inverse limits}

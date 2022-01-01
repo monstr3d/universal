@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -62,7 +63,7 @@ namespace ZipUtils
             {
                 foreach (var ze in zf.Entries)
                 {
-                    string zn = ze.Name;
+                    string zn = ze.FullName;//.Substring(StaticExtensionZipUtils.UnZipDirectory.Length);
                     d[zn] = directory + zn.Replace('/', System.IO.Path.DirectorySeparatorChar);
                 }
             }
