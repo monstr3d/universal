@@ -22,6 +22,17 @@ namespace DataWarehouse
 
         static private event Action<INode> removeNode = (INode node) => { };
 
+        /// <summary>
+        /// Exception event
+        /// </summary>
+        static Action<Exception> onError = (Exception exception) => { };
+
+        /// <summary>
+        /// Message event
+        /// </summary>
+        static Action<string> onMessage = (string message) => { };
+
+
         #endregion
 
         #region Ctor
@@ -38,6 +49,50 @@ namespace DataWarehouse
         #endregion
 
         #region Public Members
+
+        /// <summary>
+        /// Message event
+        /// </summary>
+        public static event Action<string> OnMessage
+        {
+            add
+            {
+                if (value != null)
+                {
+                    onMessage += value;
+                }
+            }
+            remove
+            {
+                if (value != null)
+                {
+                    onMessage -= value;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Exception event
+        /// </summary>
+        public static event Action<Exception> OnError
+        {
+            add
+            {
+                if (value != null)
+                {
+                    onError += value;
+                }
+            }
+            remove
+            {
+                if (value != null)
+                {
+                    onError -= value;
+                }
+            }
+        }
+
+
 
         /// <summary>
         /// Remove Node event
@@ -81,6 +136,25 @@ namespace DataWarehouse
         {
             save.Save(node);
         }
+
+        /// <summary>
+        /// Shows error message
+        /// </summary>
+        /// <param name="message">Message</param>
+        public static void ShowError(this string message)
+        {
+            onMessage(message);
+        }
+
+        /// <summary>
+        /// Shows error
+        /// </summary>
+        /// <param name="exception">Exception</param>
+        public static void ShowError(this Exception exception)
+        {
+            onError(exception);
+        }
+
 
         /// <summary>
         /// Sets coordinator from application base directory

@@ -20,7 +20,7 @@ namespace SQLServerWarehouse
             builder["Timeout"] = 10000;
             string cs = builder.ConnectionString;
             SqlConnection conn = new SqlConnection(cs);
-            SqlCommand comm = new SqlCommand();
+            var comm = new SqlCommand();
             comm.Connection = conn;
             comm.CommandType = CommandType.Text;
             execStr(s, comm, conn);
