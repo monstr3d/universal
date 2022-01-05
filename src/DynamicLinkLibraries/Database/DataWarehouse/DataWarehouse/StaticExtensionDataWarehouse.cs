@@ -20,7 +20,20 @@ namespace DataWarehouse
         /// </summary>
         static ISaveNode save;
 
+        /// <summary>
+        /// Remove node action
+        /// </summary>
         static private event Action<INode> removeNode = (INode node) => { };
+        
+        /// <summary>
+        /// Add node action
+        /// </summary>
+        static private event Action<IDirectory, INode> addNode = (IDirectory directory, INode node) => { };
+
+        /// <summary>
+        /// Change node
+        /// </summary>
+        static private Action<INode> changeNode = (INode node) => { };
 
         /// <summary>
         /// Exception event
@@ -92,16 +105,64 @@ namespace DataWarehouse
             }
         }
 
+        /// <summary>
+        /// Adds node to a directory
+        /// </summary>
+        /// <param name="directory">Parent directory</param>
+        /// <param name="node">The node</param>
+        static public void AddNode(this IDirectory directory, INode node)
+        { 
+            addNode(directory, node);
+        }
+
+        /// <summary>
+        /// Removes node
+        /// </summary>
+        /// <param name="node">Node to remove</param>
+        public static void Remove(this INode node)
+        {
+            node.RemoveItself();
+            removeNode(node);
+        }
+
+        /// <summary>
+        /// Change node
+        /// </summary>
+        /// <param name="node">Node to change</param>
+        public static void Change(this INode node)
+        {
+            changeNode(node);
+        }
+
 
 
         /// <summary>
-        /// Remove Node event
+        /// Add node event
         /// </summary>
-        static public event Action<INode> RemoveNode
+        static public event Action<IDirectory, INode> OnAddNode
+        {
+            add { addNode += value; }
+            remove { addNode -= value; }
+        }
+
+        /// <summary>
+        /// Remove node event
+        /// </summary>
+        static public event Action<INode> OnRemoveNode
         {
             add { removeNode += value; }
             remove { removeNode -= value; }
         }
+
+        /// <summary>
+        /// Change node event
+        /// </summary>
+        static public event Action<INode> OnChangeNode
+        {
+            add { changeNode += value; }
+            remove { changeNode -= value; }
+        }
+
 
         /// <summary>
         /// Finder of database
@@ -118,16 +179,7 @@ namespace DataWarehouse
             }
         }
 
-        /// <summary>
-        /// Removes node
-        /// </summary>
-        /// <param name="node">Node to remove</param>
-        public static void Remove(this INode node)
-        {
-            node.RemoveItself();
-            removeNode(node);
-        }
-
+ 
         /// <summary>
         /// Saves node
         /// </summary>

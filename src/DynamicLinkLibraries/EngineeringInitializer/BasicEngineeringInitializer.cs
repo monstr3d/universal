@@ -25,7 +25,7 @@ namespace EngineeringInitializer
         #region Ctor
 
         public BasicEngineeringInitializer(OrdinaryDifferentialEquations.IDifferentialEquationSolver ordSolver,
-            DataPerformer.Interfaces.IDifferentialEquationProcessor diffProcessor,
+            IDifferentialEquationProcessor diffProcessor,
              IApplicationInitializer[] initializers, 
             bool throwsRepeatException) : base(initializers, throwsRepeatException)
         {

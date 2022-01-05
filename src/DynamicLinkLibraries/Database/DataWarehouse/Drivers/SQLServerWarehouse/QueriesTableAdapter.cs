@@ -4,6 +4,7 @@ using System.Text;
 using SQLServerWarehouse.DataSetWarehouseTableAdapters;
 using System.Data.Common;
 using DataWarehouse.Interfaces;
+using System.Data.SqlClient;
 
 namespace SQLServerWarehouse.DataSetWarehouseTableAdapters
 {
@@ -16,7 +17,13 @@ namespace SQLServerWarehouse.DataSetWarehouseTableAdapters
 
         #endregion
 
-        
+        public void SetConnection(SqlConnection connection)
+        {
+            foreach (var command in CommandCollection)
+            {
+                command.Connection = connection;
+            }
+        }
 
         #region Own Members
 
@@ -31,17 +38,18 @@ namespace SQLServerWarehouse.DataSetWarehouseTableAdapters
 
         byte[] IDatabaseInterface.GetData(string login, string password, object key, string id, ref string extension)
         {
-            throw new NotImplementedException();
+       
+            return id.ToLeaf().Data;
         }
 
         IDictionary<object, object> IDatabaseInterface.GetItems(string login, string password, object key, string extension)
         {
-            throw new NotImplementedException();
+            return StaticExtension.Get(extension);        
         }
 
         IDirectory[] IDatabaseInterface.GetRoots(string login, string password, object key, string[] extensions)
         {
-            throw new NotImplementedException();
+            return StaticExtension.Roots.ToArray();
         }
 
         void IDatabaseInterface.Login(string login, string password, object key)
@@ -51,7 +59,7 @@ namespace SQLServerWarehouse.DataSetWarehouseTableAdapters
 
         void IDatabaseInterface.Refresh(string login, string password, object key, string[] extension)
         {
-            throw new NotImplementedException();
+            SQLWarehouse.Refresh();
         }
 
         #endregion

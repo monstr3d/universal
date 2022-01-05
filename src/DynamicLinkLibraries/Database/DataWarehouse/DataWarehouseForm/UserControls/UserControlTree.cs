@@ -42,8 +42,13 @@ namespace DataWarehouse.UserControls
         public UserControlTree()
         {
             InitializeComponent();
+            StaticExtensionDataWarehouse.OnRemoveNode += DeleteNodeTag;
+            StaticExtensionDataWarehouse.OnAddNode += OnAddNode;
+            StaticExtensionDataWarehouse.OnChangeNode += OnChangeNode;
+
         }
 
+  
         #endregion
 
         #region Public
@@ -187,6 +192,44 @@ namespace DataWarehouse.UserControls
         #endregion
 
         #region Private
+
+        private void OnChangeNode(INode node)
+        {
+            Func<INode, TreeNode, bool> f = (INode n, TreeNode tn)
+                    =>
+            {
+                if (n == node)
+                {
+                    if (node.Name != tn.Text)
+                    {
+                        tn.Text = node.Name;
+                    }
+                    return true;
+                }
+                return false;
+            };
+            treeViewMain.Perform<INode>(f);
+        }
+
+
+        private void OnAddNode(IDirectory directory, INode node)
+        {
+
+            Func<INode, TreeNode, bool> f = (INode n, TreeNode tn)
+                =>
+            {
+                if (n == directory)
+                {
+                    var tnl = (node is ILeaf) ? new TreeNode(n.Name, 2, 2) : new TreeNode(n.Name, 0, 1);
+                    tnl.Tag = node;
+                    tn.Nodes.Add(tnl);
+                    return true;
+                }
+                return false;
+            };
+            treeViewMain.Perform<INode>(f);
+        }
+
 
         private INode SelectedNode
         {

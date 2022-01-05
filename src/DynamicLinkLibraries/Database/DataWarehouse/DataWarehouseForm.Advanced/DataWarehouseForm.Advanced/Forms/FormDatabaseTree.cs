@@ -51,8 +51,8 @@ namespace DataWarehouse.Advanced.Forms
             init();
             formSearch = new FormSearch();
             formSearch.Tree = userControlTree.Tree;
-            StaticExtensionDataWarehouse.RemoveNode += userControlTree.DeleteNodeTag;
-            StaticExtensionDataWarehouse.RemoveNode += (INode n) =>
+  //          StaticExtensionDataWarehouse.OnRemoveNode += userControlTree.DeleteNodeTag;
+            StaticExtensionDataWarehouse.OnRemoveNode += (INode n) =>
                 {
                     formSearch.DeleteTag(n);
                 };

@@ -22,20 +22,20 @@ namespace SQLServerWarehouse
         static public readonly SQLWarehouse Singleton = new SQLWarehouse();
 
 
-    // static private IDatabaseInterface data;
-    /*  private XmlDocument doc;
-      private Dictionary<Guid, XmlElement> dic = new Dictionary<Guid, XmlElement>();
-      QueriesTableAdapter ad;
-      SelectBinaryTableAdapter bt;
-      InsertBinaryTableAdapter idt;
-      InsertBinaryNodeTableAdapter addn;
-      */
-    #endregion
+        // static private IDatabaseInterface data;
+        /*  private XmlDocument doc;
+          private Dictionary<Guid, XmlElement> dic = new Dictionary<Guid, XmlElement>();
+          QueriesTableAdapter ad;
+          SelectBinaryTableAdapter bt;
+          InsertBinaryTableAdapter idt;
+          InsertBinaryNodeTableAdapter addn;
+          */
+        #endregion
 
 
-    #region Ctor
+        #region Ctor
 
-    internal SQLWarehouse(string connectionString)
+        internal SQLWarehouse(string connectionString)
         {
             /*  
  Scaffold-DbContext "Server=IVANKOV\SQLExpress;Database=AstronomyExpress;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models -Verbose
@@ -56,20 +56,17 @@ namespace SQLServerWarehouse
 
         #region Specific members
 
-        static private IDatabaseInterface GetInterface(string connectionString)
+        static internal void Refresh()
         {
-            var tableAdapter = new QueriesTableAdapter();
-            StaticExtension.ConnectionString = connectionString;
-            StaticExtension.TableAdapter = tableAdapter;
-            tableAdapter.SetConnecion();
-            var dataAdapter = new Adapter();
-            dataAdapter.SetConnecion();
-            var dataTable = dataAdapter.GetData();
-            StaticExtension.DataTable = dataTable;
+              //tableAdapter.SetConnecion();
+            var dataAdapter = new SelectBinaryTableTableAdapter();
+            Action actData = () => { StaticExtension.DataTable = dataAdapter.GetData(); };
+            dataAdapter.ConnectionAction(actData);
+            var dataTable = StaticExtension.DataTable;
             var treeAdapter = new SelectBinaryTreeTableAdapter();
-            treeAdapter.SetConnecion();
-            var dataTree = treeAdapter.GetData();
-            StaticExtension.TreeTable = dataTree;
+            Action actTree = () => { StaticExtension.TreeTable = treeAdapter.GetData(); };
+            treeAdapter.ConnectionAction(actTree);
+            var dataTree = StaticExtension.TreeTable;
             var dicTree = StaticExtension.TreeDictionary;
             dicTree.Clear();
             List<IDirectory> roots = StaticExtension.Roots;
@@ -87,13 +84,23 @@ namespace SQLServerWarehouse
                 if (!roots.Contains(row))
                 {
                     var parent = dicTree[row.ParentId];
-                    
+                    parent.Add(row);
                 }
             }
+            foreach (SelectBinaryTableRow row in dataTable.Rows)
+            {
+                var parent = dicTree[row.ParentId];
+                parent.Add(row);
+            }
 
+        }
 
-
-
+        static private IDatabaseInterface GetInterface(string connectionString)
+        {
+            var tableAdapter = new QueriesTableAdapter();
+            StaticExtension.ConnectionString = connectionString;
+            StaticExtension.TableAdapter = tableAdapter;
+            Refresh();
             return tableAdapter;
         }
 

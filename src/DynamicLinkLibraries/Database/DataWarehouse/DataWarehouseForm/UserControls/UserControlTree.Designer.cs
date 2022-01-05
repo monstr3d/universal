@@ -18,6 +18,10 @@
                 components.Dispose();
             }
             base.Dispose(disposing);
+            StaticExtensionDataWarehouse.OnRemoveNode -= DeleteNodeTag;
+            StaticExtensionDataWarehouse.OnAddNode -= OnAddNode;
+            StaticExtensionDataWarehouse.OnChangeNode -= OnChangeNode;
+
         }
 
         #region Component Designer generated code

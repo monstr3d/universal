@@ -57,11 +57,11 @@ namespace BasicEngineering.UI.Factory
             this.throwsRepeatException = throwsRepeatException;
             if (coordinator == null)
             {
-                DataWarehouse.StaticExtensionDataWarehouse.SetAppBaseCoordinator();
+                StaticExtensionDataWarehouse.SetAppBaseCoordinator();
             }
             else
             {
-                DataWarehouse.StaticExtensionDataWarehouse.Coordinator = coordinator;
+                StaticExtensionDataWarehouse.Coordinator = coordinator;
             }
             this.resources = resources;
             this.logWriter = logWriter;
