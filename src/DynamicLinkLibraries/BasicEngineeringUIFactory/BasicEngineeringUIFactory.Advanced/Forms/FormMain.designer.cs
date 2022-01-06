@@ -1142,14 +1142,14 @@ namespace BasicEngineering.UI.Factory.Advanced.Forms
             // connectToolStripMenuItem
             // 
             this.connectToolStripMenuItem.Name = "connectToolStripMenuItem";
-            this.connectToolStripMenuItem.Size = new System.Drawing.Size(146, 26);
+            this.connectToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.connectToolStripMenuItem.Text = "Connect";
             this.connectToolStripMenuItem.Click += new System.EventHandler(this.connectToolStripMenuItem_Click);
             // 
             // readWriteToolStripMenuItem
             // 
             this.readWriteToolStripMenuItem.Name = "readWriteToolStripMenuItem";
-            this.readWriteToolStripMenuItem.Size = new System.Drawing.Size(146, 26);
+            this.readWriteToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.readWriteToolStripMenuItem.Text = "Read";
             this.readWriteToolStripMenuItem.Click += new System.EventHandler(this.readWriteToolStripMenuItem_Click);
             // 

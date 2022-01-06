@@ -32,6 +32,8 @@ namespace DataWarehouse.UserControls
 
         private event Action<string> onSearch = (string text) => { };
 
+        Dictionary<INode, TreeNode> nodes = new Dictionary<INode, TreeNode>();
+
         #endregion
 
         #region Ctor
@@ -108,6 +110,9 @@ namespace DataWarehouse.UserControls
         /// <param name="node"></param>
         public void DeleteNodeTag(INode node)
         {
+            var n = nodes[node];
+            n.Remove();
+            /*
             Func<INode, TreeNode, bool> f = (INode n, TreeNode tn)
                 =>
                 {
@@ -118,7 +123,7 @@ namespace DataWarehouse.UserControls
                     }
                     return false;
                 };
-            treeViewMain.Perform<INode>(f);
+            treeViewMain.Perform<INode>(f);*/
         }
 
         #endregion
@@ -195,39 +200,50 @@ namespace DataWarehouse.UserControls
 
         private void OnChangeNode(INode node)
         {
-            Func<INode, TreeNode, bool> f = (INode n, TreeNode tn)
-                    =>
-            {
-                if (n == node)
-                {
-                    if (node.Name != tn.Text)
+            nodes[node].Text = node.Name;
+           
+
+            /*        Func<INode, TreeNode, bool> f = (INode n, TreeNode tn)
+                            =>
                     {
-                        tn.Text = node.Name;
-                    }
-                    return true;
-                }
-                return false;
-            };
-            treeViewMain.Perform<INode>(f);
+                        if (n == node)
+                        {
+                            if (node.Name != tn.Text)
+                            {
+                                tn.Text = node.Name;
+                            }
+                            return true;
+                        }
+                        return false;
+                    };
+
+                    treeViewMain.Perform<INode>(f);
+            */
         }
 
 
         private void OnAddNode(IDirectory directory, INode node)
         {
+            var tn = nodes[directory];
+            var tnl = (node is ILeaf) ? new TreeNode(node.Name, 2, 2) : new TreeNode(node.Name, 0, 1);
+            tnl.Tag = node;
+            tn.Nodes.Add(tnl);
+            nodes[node] = tnl;
 
-            Func<INode, TreeNode, bool> f = (INode n, TreeNode tn)
-                =>
-            {
-                if (n == directory)
+
+            /*    Func<INode, TreeNode, bool> f = (INode n, TreeNode tn)
+                    =>
                 {
-                    var tnl = (node is ILeaf) ? new TreeNode(n.Name, 2, 2) : new TreeNode(n.Name, 0, 1);
-                    tnl.Tag = node;
-                    tn.Nodes.Add(tnl);
-                    return true;
-                }
-                return false;
-            };
-            treeViewMain.Perform<INode>(f);
+                    if (n == directory)
+                    {
+                        var tnl = (node is ILeaf) ? new TreeNode(n.Name, 2, 2) : new TreeNode(n.Name, 0, 1);
+                        tnl.Tag = node;
+                        tn.Nodes.Add(tnl);
+                        return true;
+                    }
+                    return false;
+                };
+                treeViewMain.Perform<INode>(f);*/
         }
 
 
@@ -259,7 +275,7 @@ namespace DataWarehouse.UserControls
             IDirectory[] dir = data.GetRoots(new string[] { ext });
             foreach (IDirectory d in dir)
             {
-                treeViewMain.Nodes.Add(d.GetNode());
+                treeViewMain.Nodes.Add(d.GetNode(nodes));
             }
         }
 

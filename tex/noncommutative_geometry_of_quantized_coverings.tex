@@ -2200,11 +2200,12 @@ Moreover one has
  	\be\label{red_inc_eqn}
  	\rep_{ \widetilde{x}}\left(\widetilde{A}_{\text{red}} \right) = \rep_{ \widetilde{x}}\left(A\right).
  	\ee
- 	Really if $\rep_{ \widetilde{x}}\left(\widetilde{A}_{\text{red}} \right)\subsetneqq \rep_{ \widetilde{x}}\left(A\right)$ then 
+ 	From $\pi\left(A \right) \subset \widetilde{A}_{\text{red}}$ it follows that $\rep_{ \widetilde{x}}\left(A\right)\subset \rep_{ \widetilde{x}}\left(\widetilde{A}_{\text{red}} \right)$.
+ Otherwise if $\rep_{ \widetilde{x}}\left(\widetilde{A}_{\text{red}} \right)\not\subset \rep_{ \widetilde{x}}\left(A\right)$ then 
  	$$
  	\widetilde{A}'\bydef \left\{\left.\widetilde a' \in \widetilde{A}_{\text{red}}\right|\rep_{ \widetilde{x}}\left(\widetilde a' \right)\in \rep_{ \widetilde{x}}\left(A \right) \right\}
  	$$
- 	is a hereditary algebra of $\widetilde{A}$ which contains $\pi\left( A\right) $ and $\widetilde{A}'\subsetneqq \widetilde{A}_{\text{red}}$.
+ 	is   hereditary algebra of $\widetilde{A}$ which contains  $\pi\left( A\right)$ and $\widetilde{A}'\subsetneqq \widetilde{A}_{\text{red}}$.
  \end{rem}
 \begin{remark}
 The equality  	\ref{red_inc_eqn} can be rewritten by the following way
@@ -2390,9 +2391,8 @@ The left (resp. right) action of $A$ on $\widetilde{A}$ we define as left (resp.
  Denote by $\varphi: \widetilde{A} \otimes_{A}  \widetilde{A}  \to \widetilde{A} \rtimes G$ and $\psi: \widetilde{A} \otimes_{\widetilde{A} \rtimes G}  \widetilde{A} \to A$ bilinear maps such that
  \begin{equation}\label{mor_pp_fin_eqn}
  \begin{split}
-  \forall ~\widetilde{a} ,\widetilde{b}\in \widetilde{A}, ~~ g \in G \quad \varphi \left(\widetilde{a} \otimes \widetilde{b} \right)\left( g\right) =    \widetilde{a} \left(g\widetilde{b} \right) ,\\
- \psi \left(\widetilde{a} \otimes \widetilde{b} \right) = \sum_{g \in G} g\left(\widetilde{a} \widetilde{b} \right), \quad 
-.
+  \forall ~\widetilde{a} ,\widetilde{b}\in \widetilde{A}, ~~ g \in G \quad \varphi \left(\widetilde{a} \otimes \widetilde{b} \right)\left( g\right) \bydef    \widetilde{a} \left(g\widetilde{b} \right) ,\\
+ \psi \left(\widetilde{a} \otimes \widetilde{b} \right) \bydef \sum_{g \in G} g\left(\widetilde{a} \widetilde{b} \right).
  \end{split}
  \end{equation}
  From above equations it follows that 
@@ -2437,7 +2437,7 @@ The left (resp. right) action of $A$ on $\widetilde{A}$ we define as left (resp.
  \end{cor}
  \begin{proof}
  	(i) From \eqref{morita_g_eqn} it follows that products $ \left\langle -, - \right\rangle_{\widetilde{A} \rtimes G}$, $~~\left\langle -, - \right\rangle_A$ satisfy condition (a) of the Definition \ref{strong_morita_defn}.\\
- 	(ii) From the Lemma  \ref{morita_galois_lem} and the definition of algebraic Morita equivalence  it turns out
+ 	(ii) From the Lemma  \ref{morita_galois_lem} and the Definition \ref{morita_ctx_defn} of algebraic Morita equivalence  it turns out
  	\begin{equation*}
  	\begin{split}
  	\varphi\left(  \widetilde{A} \otimes_{A}  \widetilde{A}\right)  =\left\langle \widetilde{A} , \widetilde{A} \right\rangle_{\widetilde{A} \rtimes G} = \widetilde{A} \rtimes G,\\
@@ -2446,7 +2446,7 @@ The left (resp. right) action of $A$ on $\widetilde{A}$ we define as left (resp.
  	\end{equation*}
  \end{proof}
  Let us consider the situation of the Corollary \ref{unital_cov_cor}. Denote by $e \in G$ the neutral element. The unity $1_{\widetilde{A} \rtimes G}$ of $\widetilde{A} \rtimes G$ is given by
- \begin{equation}
+ \begin{equation}\nonumber
  \begin{split}
  1_{\widetilde{A} \rtimes G}\left(g \right) = \left\{\begin{array}{c l}
  1_{\widetilde{A}}  & g = e \\
@@ -2485,10 +2485,19 @@ $\left(A, \widetilde{A}, G, \pi \right)$ be an unital noncommutative finite-fold
 \eean  
 \end{corollary}
 \begin{proof}
+If $\xi = \widetilde a \otimes \widetilde\eta \in \widetilde \H \in \widetilde{\xi}\in _A\widetilde{A}_{\widetilde A \rtimes G}\otimes_{A \rtimes G}\widetilde{   \H}$ then $\xi = 1_{\widetilde{A}}\otimes a' \widetilde \eta$ where $a'\in \widetilde A \rtimes G$ is such that 
+	\begin{equation}\nonumber
+		\begin{split}
+			a'\left(g \right) = \left\{\begin{array}{c l}
+				\widetilde{a}  & g = e \text{ unity of } G \\
+				0 & g \neq e
+			\end{array}\right..
+		\end{split}
+	\end{equation}
 %	$$
 %\H \cong _A\widetilde{A}_{A \rtimes G}\otimes_{A \rtimes G}\widetilde{   \H}
 %$$
-Any $\widetilde{\xi}\in _A\widetilde{A}_{\widetilde A \rtimes G}\otimes_{A \rtimes G}\widetilde{   \H}$ equals to $1_{\widetilde{A}}\otimes \widetilde{\xi}'$. From $g1_{\widetilde{A}}\otimes \widetilde{\xi}'= 1_{\widetilde{A}}\otimes g\widetilde{\xi}'$ and $g1_{\widetilde{A}}=1_{\widetilde{A}}$ for any $g \in G$ it turns out that $1_{\widetilde{A}}\otimes g\widetilde{\xi}'= 1_{\widetilde{A}} \otimes\widetilde{\xi}'$ and $g\widetilde{\xi}'= \widetilde{\xi}'$ i.e. $\widetilde{\xi}'$ is $G$-invariant.
+It turns out that  ${\xi}\in _A\widetilde{A}_{\widetilde A \rtimes G}\otimes_{A \rtimes G}\widetilde{   \H}$ equals to $1_{\widetilde{A}}\otimes \widetilde{\xi}'$. From $g1_{\widetilde{A}}\otimes \widetilde{\xi}'= 1_{\widetilde{A}}\otimes g\widetilde{\xi}'$ and $g1_{\widetilde{A}}=1_{\widetilde{A}}$ for any $g \in G$ it turns out that $1_{\widetilde{A}}\otimes g\widetilde{\xi}'= 1_{\widetilde{A}} \otimes\widetilde{\xi}'$ and $g\widetilde{\xi}'= \widetilde{\xi}'$ i.e. $\widetilde{\xi}'$ is $G$-invariant.
 \end{proof}
 
 
@@ -2549,16 +2558,16 @@ Any $\widetilde{\xi}\in _A\widetilde{A}_{\widetilde A \rtimes G}\otimes_{A \rtim
  	If $\left(A, \widetilde{A}, G \right)$ is a noncommutative finite-fold covering  then a Hilbert $ \widetilde{A} \rtimes G$-$,A$  bimodule  $_{\widetilde{A} \rtimes G}\widetilde{A}_A$ is a $\widetilde{A} \rtimes G-A$ equivalence bimodule.
  \end{thm}
  \begin{proof}
- 	From the Definition \ref{fin_defn}  there is a family $\left\{\widetilde{I}_\la \subset \widetilde{A} \right\}_{\la \in \La}$ of closed ideals of $A$ such that $\bigcup_{\la \in \La} \widetilde{I}_\la$ is a dense subspace of $\widetilde A$ and for any $\la \in \La$ there is a natural  noncommutative finite-fold covering with unitization $\left(\widetilde{I}_\la \bigcap A,   \widetilde{I}_\la, G \right)$. From the Lemma \ref{comp_cov_lem} it turns out that   $\widetilde{I}_\la$ is a $\widetilde{I}_\la \rtimes G-\widetilde{I}_\la\bigcap A$ equivalence bimodule and
+ 	From the Definition \ref{fin_defn}  there is a family $\left\{\widetilde{A}_\la \subset \widetilde{A} \right\}_{\la \in \La}$ of  hereditary subalgebras of $\widetilde{A}$ such that a union $\bigcup_{\la \in \La} \widetilde{A}_\la$ is a dense subspace of $\widetilde A$ and for any $\la \in \La$ there is a natural  noncommutative finite-fold covering with unitization $\left(\widetilde{A}_\la \bigcap A,   \widetilde{A}_\la, G \right)$. From the Lemma \ref{comp_cov_lem} it turns out that   $\widetilde{A}_\la$ is a $\widetilde{A}_\la \rtimes G-\widetilde{A}_\la\bigcap A$ equivalence bimodule and
  	\begin{equation}\label{ia_eqn}
  	\begin{split}
- 	\left\langle  \widetilde{I}_\la ,  \widetilde{I}_\la \right\rangle_{ \widetilde{I}_\la \rtimes G} =  \widetilde{I}_\la \rtimes G,\\ 
- 	\left\langle  \widetilde{I}_\la ,  \widetilde{I}_\la\right\rangle_{ \widetilde{I}_\la \bigcap A} =  \widetilde{I}_\la
+ 	\left\langle  \widetilde{A}_\la ,  \widetilde{A}_\la \right\rangle_{ \widetilde{A}_\la \rtimes G} =  \widetilde{A}_\la \rtimes G,\\ 
+ 	\left\langle  \widetilde{A}_\la ,  \widetilde{A}_\la\right\rangle_{ \widetilde{A}_\la \bigcap A} =  \widetilde{A}_\la
  	\bigcap A.\\
  	\end{split}
  	\end{equation}
  	for any $\la\in \La$.
- 	The union $\bigcup_{\la \in \La} \widetilde{I}_\la$ is a dense subset of $\widetilde{A}$ and $\bigcup_{\la \in \La} \widetilde{I}_\la \bigcap A$ is a dense subset of $A$. So domains of products  $\left\langle -, - \right\rangle_{\widetilde{I}_\la \rtimes G}~$, $~~\left\langle -, - \right\rangle_{I_\la}$ can be extended up to $\widetilde{A} \times \widetilde{A}$ and resulting products satisfy to  (a) of the Definition \ref{strong_morita_defn}. From \eqref{ia_eqn} it turns out that $\left\langle \widetilde{A}  ,  \widetilde{A}  \right\rangle_{ \widetilde{A}  \rtimes G}$ (resp. $\left\langle  \widetilde{A}  ,  \widetilde{A}  \right\rangle_{ A}$) is a dense subset of  $\widetilde{A} \rtimes G$ (resp. $A$), i.e. the condition (b) of the Definition \ref{strong_morita_defn} holds.
+ 	The union $\bigcup_{\la \in \La} \widetilde{A}_\la$ is a dense subset of $\widetilde{A}$ and $\bigcup_{\la \in \La} \widetilde{A}_\la \bigcap A$ is a dense subset of $A$. So domains of products  $\left\langle -, - \right\rangle_{\widetilde{A}_\la \rtimes G}~$, $~~\left\langle -, - \right\rangle_{A_\la}$ can be extended up to $\widetilde{A} \times \widetilde{A}$ and resulting products satisfy to  (a) of the Definition \ref{strong_morita_defn}. From \eqref{ia_eqn} it turns out that $\left\langle \widetilde{A}  ,  \widetilde{A}  \right\rangle_{ \widetilde{A}  \rtimes G}$ (resp. $\left\langle  \widetilde{A}  ,  \widetilde{A}  \right\rangle_{ A}$) is a dense subset of  $\widetilde{A} \rtimes G$ (resp. $A$), i.e. the condition (b) of the Definition \ref{strong_morita_defn} holds.
  \end{proof}
 
 
@@ -2583,7 +2592,7 @@ Any $\widetilde{\xi}\in _A\widetilde{A}_{\widetilde A \rtimes G}\otimes_{A \rtim
    \end{tikzpicture}
    \hspace{\fill}
    \newline
-   However above diagram can be replaced with a having noncommutative  generalization diagram
+   However above diagram can be replaced with a having noncommutative  generalization diagram.
    \newline
    \hspace*{\fill}
    \begin{tikzpicture}
@@ -2867,7 +2876,7 @@ The \textit{real local operator space}  is an complete  $\R$-space with seminorm
 Similarly to the Remark \ref{loc_op_sp_rem} any abstract real operator local space $V$ is an inverse limit of real operator spaces.
 \end{remark}
 \begin{remark}
-!!! LOCAL ALGEBRAS \ref{fin_loc_defn} !!! Similarly to definition \ref{fin_loc_op_defn} one can define a finite-fold noncommutative covering for local real operator spaces.
+ Similarly to definition \ref{fin_loc_op_defn} one can define a finite-fold noncommutative covering for local real operator spaces.
 \end{remark}
 %\begin{definition}\label{fino*_defn}
 %	Let $A \hookto \widetilde{A}$ be an invective *-homomorphism of $C^*$-normed operator algebras  which induces an injective *- homomorphism $B\hookto  \widetilde B$  of their $C^*$-norm completions.  Suppose that 	following conditions hold:

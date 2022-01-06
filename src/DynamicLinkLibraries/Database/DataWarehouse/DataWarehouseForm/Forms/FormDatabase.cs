@@ -263,6 +263,10 @@ namespace DataWarehouse.Forms
                 }
                 IDirectory child =
                     node.Add(textBoxDirName.Text, textBoxDirDescr.Text, blob.Extension);
+                if (child == null)
+                {
+                    return;
+                }
                  TreeNode nn = new TreeNode(child.Name);
                 nn.Tag = child;
                 selectedTreeNode.Nodes.Add(nn);

@@ -35,7 +35,7 @@ namespace DataWarehouse
         /// </summary>
         /// <param name="dir"></param>
         /// <returns></returns>
-        public static TreeNode GetNode(this IDirectory dir)
+        public static TreeNode GetNode(this IDirectory dir, Dictionary<INode, TreeNode> nodes)
         {
             List<TreeNode> ln = new List<TreeNode>();
             IEnumerable<IDirectory> ed = dir;
@@ -44,7 +44,8 @@ namespace DataWarehouse
             ld.Sort(NodeComparer.Singleton);
             foreach (IDirectory dird in ld)
             {
-                TreeNode tn = GetNode(dird);
+                
+                TreeNode tn = GetNode(dird, nodes);
                 ln.Add(tn);
             }
             List<ILeaf> ll = new List<ILeaf>();
@@ -55,9 +56,11 @@ namespace DataWarehouse
             {
                 TreeNode tnl = new TreeNode(leaf.Name, 2, 2);
                 tnl.Tag = leaf;
+                nodes[leaf] = tnl;
                 ln.Add(tnl);
             }
             TreeNode node = new TreeNode(dir.Name, 0, 1, ln.ToArray());
+            nodes[dir] = node;
             return node;
         }
 

@@ -9,6 +9,15 @@ namespace SQLServerWarehouse
 {
     namespace DataSetWarehouseTableAdapters
     {
+
+        public partial class InsertBinaryTableAdapter
+        {
+            public void SetConnection(SqlConnection connection)
+            {
+                Connection = connection;
+            }
+        }
+
         public partial class SelectBinaryTreeTableAdapter
         {
             public void SetConnection(SqlConnection connection)

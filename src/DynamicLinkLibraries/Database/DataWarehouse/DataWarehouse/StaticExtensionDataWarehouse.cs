@@ -10,11 +10,7 @@ namespace DataWarehouse
     public static class StaticExtensionDataWarehouse
     {
         #region Fields
-        /// <summary>
-        /// Finder of database
-        /// </summary>
-        static IDatabaseCoordinator coordinator;
-
+      
         /// <summary>
         /// Saves node
         /// </summary>
@@ -44,7 +40,6 @@ namespace DataWarehouse
         /// Message event
         /// </summary>
         static Action<string> onMessage = (string message) => { };
-
 
         #endregion
 
@@ -134,8 +129,6 @@ namespace DataWarehouse
             changeNode(node);
         }
 
-
-
         /// <summary>
         /// Add node event
         /// </summary>
@@ -163,23 +156,12 @@ namespace DataWarehouse
             remove { changeNode -= value; }
         }
 
-
         /// <summary>
         /// Finder of database
         /// </summary>
         static public IDatabaseCoordinator Coordinator
-        {
-            get
-            {
-                return coordinator;
-            }
-            set
-            {
-                coordinator = value;
-            }
-        }
+        { get; set; }
 
- 
         /// <summary>
         /// Saves node
         /// </summary>
@@ -207,17 +189,15 @@ namespace DataWarehouse
             onError(exception);
         }
 
-
         /// <summary>
         /// Sets coordinator from application base directory
         /// </summary>
         public static void SetAppBaseCoordinator()
         {
-            IDatabaseCoordinator c = null;
-            c = AssemblyService.StaticExtensionAssemblyService.GetFirstInterfaceObjectFromBaseDirectory<IDatabaseCoordinator>();
+            var c = AssemblyService.StaticExtensionAssemblyService.GetFirstInterfaceObjectFromBaseDirectory<IDatabaseCoordinator>();
             if (c != null)
             {
-                coordinator = c;
+                Coordinator = c;
             }
         }
 

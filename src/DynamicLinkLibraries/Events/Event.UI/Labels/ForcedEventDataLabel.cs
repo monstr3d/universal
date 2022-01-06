@@ -45,7 +45,7 @@ namespace Event.UI.Labels
         public ForcedEventDataLabel(Type type, string kind, Image icon)
             : base(type, kind, icon)
         {
-            BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            BorderStyle = BorderStyle.FixedSingle;
         }
 
 
@@ -57,7 +57,7 @@ namespace Event.UI.Labels
         protected ForcedEventDataLabel(SerializationInfo info, StreamingContext context)
             : base(info, context)
         {
-            BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            BorderStyle = BorderStyle.FixedSingle;
         }
 
 

@@ -51,7 +51,7 @@ namespace BasicEngineering.UI.Factory
 
         TextWriter log = null;
 
-        TestCategory.Interfaces.ITestInterface testInterface;
+        ITestInterface testInterface;
 
         string fileFilter;
 
@@ -64,7 +64,7 @@ namespace BasicEngineering.UI.Factory
             Icon icon, EngineeringUIFactory factory, ByteHolder holder, string filename, Action<double, double, int, int, int, IDesktop> start, 
             Dictionary<string, object>[] resources, string text,
             string ext, string fileFilter, IApplicationInitializer initializer, TextWriter log,
-            TestCategory.Interfaces.ITestInterface testInterface)
+            ITestInterface testInterface)
         {
             
             this.coordinator = coordinator;
@@ -189,7 +189,7 @@ namespace BasicEngineering.UI.Factory
      bool throwsRepeatException, LightDictionary<string, ButtonWrapper[]> buttons, Dictionary<string, object>[]
             resources,
             Icon icon, string filename, Action<double, double, int, int, int, IDesktop> start, string text,
-            string ext, string fileFilter, TextWriter log, TestCategory.Interfaces.ITestInterface testInterface)
+            string ext, string fileFilter, TextWriter log, ITestInterface testInterface)
         {
             EngineeringUIFactory factory = new EngineeringUIFactory(factories, true, ext);
             EngineeringInitializer initializer = new EngineeringInitializer(coordinator, ordSolver, diffProcessor, 
@@ -208,7 +208,7 @@ namespace BasicEngineering.UI.Factory
          IUIFactory[] factories,
       bool throwsRepeatException, LightDictionary<string, ButtonWrapper[]> buttons,
              Icon icon, string filename, Dictionary<string, object>[] resources, string text,
-             string ext, string fileFilter, TextWriter logWriter, TestCategory.Interfaces.ITestInterface testInterface)
+             string ext, string fileFilter, TextWriter logWriter, ITestInterface testInterface)
         {
             EngineeringUIFactory factory = new EngineeringUIFactory(factories, true, ext);
             EngineeringInitializer initializer = new EngineeringInitializer(coordinator, ordSolver, diffProcessor,

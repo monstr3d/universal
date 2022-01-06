@@ -36,7 +36,7 @@ namespace SQLServerWarehouse
             byte[] ILeaf.Data { get => Data; set => Data = value; }
 
 
-            string INode.Name { get  => this.Name; set => UpdateName(value); }
+            string INode.Name { get => this.Name; set => UpdateName(value); }
 
             string INode.Description { get => this.Description; set => UpdateDescription(value); }
 
@@ -51,6 +51,16 @@ namespace SQLServerWarehouse
             }
 
             #endregion
+
+            #region Overriden
+
+            public override string ToString()
+            {
+                return Name + " + " + GetType();
+            }
+
+            #endregion
+
 
             #region Own Members
 
@@ -161,8 +171,8 @@ namespace SQLServerWarehouse
                 DataSetWarehouse.InsertBinaryDataTable res = null;
                 Action act = () =>
                 {
-                    res = adapter.GetData(Id, name, description, 
-                        data, null, ext);
+                    res = adapter.GetData(Id, name, description,
+                        data,  ext);
                 };
                 adapter.ConnectionAction(act);
                 var r = res[0];
@@ -196,6 +206,20 @@ namespace SQLServerWarehouse
                 {
                     Parent.Remove(this);
                 }
+            }
+
+            #endregion
+
+
+            #region Overriden
+
+            /// <summary>
+            /// To string
+            /// </summary>
+            /// <returns>The string</returns>
+            public override string ToString()
+            {
+                return Name + " + " + this.GetType();
             }
 
             #endregion
