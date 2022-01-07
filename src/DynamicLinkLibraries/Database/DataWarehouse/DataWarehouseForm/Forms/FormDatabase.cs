@@ -434,9 +434,9 @@ namespace DataWarehouse.Forms
                     return;
                 }
                 string name = selected.Name;
-                DialogResult res = WindowsExtensions.ControlExtensions.ShowMessageBoxModal(
-    ResourceService.Resources.ContainsControlResource(DoYowWantDelete, ControlUtilites.Resources) +
-    "\"" + name + "\"" + "?", "",
+                //!!!            DialogResult res = WindowsExtensions.ControlExtensions.ShowMessageBoxModal(
+                // Resources.ContainsControlResource(DoYowWantDelete, ControlUtilites.Resources) +
+                DialogResult res = WindowsExtensions.ControlExtensions.ShowMessageBoxModal(DoYowWantDelete + "\"" + name + "\"" + "?", "",
     MessageBoxButtons.OKCancel, MessageBoxIcon.None, MessageBoxDefaultButton.Button1,
     MessageBoxOptions.DefaultDesktopOnly);
                 if (res != DialogResult.OK)
