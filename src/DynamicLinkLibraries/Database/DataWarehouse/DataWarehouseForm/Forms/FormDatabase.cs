@@ -482,26 +482,31 @@ namespace DataWarehouse.Forms
                 return;
             }
             byte[] b = selected.Data;
-            saveFileDialogData.Filter = "|*." + ext;
-            try
+            saveFileDialogData.Filter = "|*.cfa"; // !!! + ext;
+            /*!!!         try
+                     {
+                         saveFileDialogData.FileName = selected.Name;
+                         if (saveFileDialogData.ShowDialog(this) != DialogResult.OK)
+                         {
+                             return;
+                         }
+                     }
+                     catch (Exception)
+                     {
+                         saveFileDialogData.FileName = "File";
+                         if (saveFileDialogData.ShowDialog(this) != DialogResult.OK)
+                         {
+                             return;
+                         }
+                     }*/
+            if (saveFileDialogData.ShowDialog(this) != DialogResult.OK)
             {
-                saveFileDialogData.FileName = selected.Name;
-                if (saveFileDialogData.ShowDialog(this) != DialogResult.OK)
-                {
-                    return;
-                }
+                return;
             }
-            catch (Exception)
+            using (var stream = File.OpenWrite(saveFileDialogData.FileName))
             {
-                saveFileDialogData.FileName = "File";
-                if (saveFileDialogData.ShowDialog(this) != DialogResult.OK)
-                {
-                    return;
-                }
-            }
-            Stream stream = File.OpenWrite(saveFileDialogData.FileName);
-            stream.Write(b, 0, b.Length);
-            stream.Close();
+                stream.Write(b, 0, b.Length);
+            }        
         }
 
         private void toolStripButtonCreateDir_Click(object sender, EventArgs e)

@@ -82,8 +82,8 @@ namespace DataWarehouse.Forms
             this.panelTreeTop = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.listViewDoc = new System.Windows.Forms.ListView();
-            this.columnHeaderName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeaderExt = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderName = new System.Windows.Forms.ColumnHeader();
+            this.columnHeaderExt = new System.Windows.Forms.ColumnHeader();
             this.panelDescrBottom = new System.Windows.Forms.Panel();
             this.panelDescrBottomBottomCenter = new System.Windows.Forms.Panel();
             this.textBoxDescription = new System.Windows.Forms.TextBox();
@@ -165,32 +165,32 @@ namespace DataWarehouse.Forms
             this.toolStripSeparator1,
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(44, 24);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(46, 24);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(120, 26);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(128, 26);
             this.openToolStripMenuItem.Text = "Open";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(120, 26);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(128, 26);
             this.saveToolStripMenuItem.Text = "Save";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(117, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(125, 6);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(120, 26);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(128, 26);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -215,7 +215,7 @@ namespace DataWarehouse.Forms
             this.toolStripButtonCreateDir.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonCreateDir.Image")));
             this.toolStripButtonCreateDir.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonCreateDir.Name = "toolStripButtonCreateDir";
-            this.toolStripButtonCreateDir.Size = new System.Drawing.Size(24, 24);
+            this.toolStripButtonCreateDir.Size = new System.Drawing.Size(29, 24);
             this.toolStripButtonCreateDir.Text = "Create directory";
             this.toolStripButtonCreateDir.Click += new System.EventHandler(this.toolStripButtonCreateDir_Click);
             // 
@@ -225,7 +225,7 @@ namespace DataWarehouse.Forms
             this.toolStripButtonDeleteFolder.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonDeleteFolder.Image")));
             this.toolStripButtonDeleteFolder.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonDeleteFolder.Name = "toolStripButtonDeleteFolder";
-            this.toolStripButtonDeleteFolder.Size = new System.Drawing.Size(24, 24);
+            this.toolStripButtonDeleteFolder.Size = new System.Drawing.Size(29, 24);
             this.toolStripButtonDeleteFolder.Text = "Delete";
             this.toolStripButtonDeleteFolder.Click += new System.EventHandler(this.toolStripButtonDeleteFolder_Click);
             // 
@@ -235,7 +235,7 @@ namespace DataWarehouse.Forms
             this.openToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("openToolStripButton.Image")));
             this.openToolStripButton.ImageTransparentColor = System.Drawing.Color.Black;
             this.openToolStripButton.Name = "openToolStripButton";
-            this.openToolStripButton.Size = new System.Drawing.Size(24, 24);
+            this.openToolStripButton.Size = new System.Drawing.Size(29, 24);
             this.openToolStripButton.Text = "Open";
             this.openToolStripButton.Click += new System.EventHandler(this.openToolStripButton_Click);
             // 
@@ -245,7 +245,7 @@ namespace DataWarehouse.Forms
             this.saveToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("saveToolStripButton.Image")));
             this.saveToolStripButton.ImageTransparentColor = System.Drawing.Color.Black;
             this.saveToolStripButton.Name = "saveToolStripButton";
-            this.saveToolStripButton.Size = new System.Drawing.Size(24, 24);
+            this.saveToolStripButton.Size = new System.Drawing.Size(29, 24);
             this.saveToolStripButton.Text = "Save";
             this.saveToolStripButton.Click += new System.EventHandler(this.saveToolStripButton_Click);
             // 
@@ -255,7 +255,7 @@ namespace DataWarehouse.Forms
             this.toolStripButtonDelete.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonDelete.Image")));
             this.toolStripButtonDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonDelete.Name = "toolStripButtonDelete";
-            this.toolStripButtonDelete.Size = new System.Drawing.Size(24, 24);
+            this.toolStripButtonDelete.Size = new System.Drawing.Size(29, 24);
             this.toolStripButtonDelete.Text = "Delete";
             this.toolStripButtonDelete.Click += new System.EventHandler(this.toolStripButtonDelete_Click);
             // 
@@ -265,81 +265,81 @@ namespace DataWarehouse.Forms
             this.panelTop.Controls.Add(this.labelFn);
             this.panelTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTop.Location = new System.Drawing.Point(0, 55);
-            this.panelTop.Margin = new System.Windows.Forms.Padding(4);
+            this.panelTop.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panelTop.Name = "panelTop";
-            this.panelTop.Size = new System.Drawing.Size(1371, 44);
+            this.panelTop.Size = new System.Drawing.Size(1371, 55);
             this.panelTop.TabIndex = 2;
             // 
             // labelFileName
             // 
             this.labelFileName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.labelFileName.Location = new System.Drawing.Point(168, 12);
+            this.labelFileName.Location = new System.Drawing.Point(168, 15);
             this.labelFileName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelFileName.Name = "labelFileName";
-            this.labelFileName.Size = new System.Drawing.Size(1207, 28);
+            this.labelFileName.Size = new System.Drawing.Size(1207, 34);
             this.labelFileName.TabIndex = 13;
             // 
             // labelFn
             // 
-            this.labelFn.Location = new System.Drawing.Point(25, 16);
+            this.labelFn.Location = new System.Drawing.Point(25, 20);
             this.labelFn.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelFn.Name = "labelFn";
-            this.labelFn.Size = new System.Drawing.Size(133, 28);
+            this.labelFn.Size = new System.Drawing.Size(133, 35);
             this.labelFn.TabIndex = 12;
             this.labelFn.Text = "File name";
             // 
             // panelBottom
             // 
             this.panelBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelBottom.Location = new System.Drawing.Point(0, 738);
-            this.panelBottom.Margin = new System.Windows.Forms.Padding(4);
+            this.panelBottom.Location = new System.Drawing.Point(0, 923);
+            this.panelBottom.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panelBottom.Name = "panelBottom";
-            this.panelBottom.Size = new System.Drawing.Size(1371, 12);
+            this.panelBottom.Size = new System.Drawing.Size(1371, 15);
             this.panelBottom.TabIndex = 3;
             // 
             // panelLeft
             // 
             this.panelLeft.Controls.Add(this.panelLabelTreeLeft);
             this.panelLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelLeft.Location = new System.Drawing.Point(0, 99);
-            this.panelLeft.Margin = new System.Windows.Forms.Padding(4);
+            this.panelLeft.Location = new System.Drawing.Point(0, 110);
+            this.panelLeft.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panelLeft.Name = "panelLeft";
-            this.panelLeft.Size = new System.Drawing.Size(13, 639);
+            this.panelLeft.Size = new System.Drawing.Size(13, 813);
             this.panelLeft.TabIndex = 4;
             // 
             // panelLabelTreeLeft
             // 
             this.panelLabelTreeLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelLabelTreeLeft.Location = new System.Drawing.Point(0, 0);
-            this.panelLabelTreeLeft.Margin = new System.Windows.Forms.Padding(4);
+            this.panelLabelTreeLeft.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panelLabelTreeLeft.Name = "panelLabelTreeLeft";
-            this.panelLabelTreeLeft.Size = new System.Drawing.Size(13, 639);
+            this.panelLabelTreeLeft.Size = new System.Drawing.Size(13, 813);
             this.panelLabelTreeLeft.TabIndex = 1;
             // 
             // panelRight
             // 
             this.panelRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelRight.Location = new System.Drawing.Point(1358, 99);
-            this.panelRight.Margin = new System.Windows.Forms.Padding(4);
+            this.panelRight.Location = new System.Drawing.Point(1358, 110);
+            this.panelRight.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panelRight.Name = "panelRight";
-            this.panelRight.Size = new System.Drawing.Size(13, 639);
+            this.panelRight.Size = new System.Drawing.Size(13, 813);
             this.panelRight.TabIndex = 5;
             // 
             // panelCenter
             // 
             this.panelCenter.Controls.Add(this.splitContainerMain);
             this.panelCenter.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelCenter.Location = new System.Drawing.Point(13, 99);
-            this.panelCenter.Margin = new System.Windows.Forms.Padding(4);
+            this.panelCenter.Location = new System.Drawing.Point(13, 110);
+            this.panelCenter.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panelCenter.Name = "panelCenter";
-            this.panelCenter.Size = new System.Drawing.Size(1345, 639);
+            this.panelCenter.Size = new System.Drawing.Size(1345, 813);
             this.panelCenter.TabIndex = 6;
             // 
             // splitContainerMain
             // 
             this.splitContainerMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainerMain.Location = new System.Drawing.Point(0, 0);
-            this.splitContainerMain.Margin = new System.Windows.Forms.Padding(4);
+            this.splitContainerMain.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.splitContainerMain.Name = "splitContainerMain";
             // 
             // splitContainerMain.Panel1
@@ -355,7 +355,7 @@ namespace DataWarehouse.Forms
             this.splitContainerMain.Panel2.Controls.Add(this.panelDescrBottom);
             this.splitContainerMain.Panel2.Controls.Add(this.panelItemsRight);
             this.splitContainerMain.Panel2.Controls.Add(this.panelItemsTop);
-            this.splitContainerMain.Size = new System.Drawing.Size(1345, 639);
+            this.splitContainerMain.Size = new System.Drawing.Size(1345, 813);
             this.splitContainerMain.SplitterDistance = 468;
             this.splitContainerMain.SplitterWidth = 5;
             this.splitContainerMain.TabIndex = 0;
@@ -368,17 +368,18 @@ namespace DataWarehouse.Forms
             this.treeViewDir.ImageIndex = 0;
             this.treeViewDir.ImageList = this.imageListTree;
             this.treeViewDir.LabelEdit = true;
-            this.treeViewDir.Location = new System.Drawing.Point(0, 52);
-            this.treeViewDir.Margin = new System.Windows.Forms.Padding(4);
+            this.treeViewDir.Location = new System.Drawing.Point(0, 65);
+            this.treeViewDir.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.treeViewDir.Name = "treeViewDir";
             this.treeViewDir.SelectedImageIndex = 1;
-            this.treeViewDir.Size = new System.Drawing.Size(455, 191);
+            this.treeViewDir.Size = new System.Drawing.Size(455, 253);
             this.treeViewDir.TabIndex = 7;
             this.treeViewDir.AfterLabelEdit += new System.Windows.Forms.NodeLabelEditEventHandler(this.treeViewDir_AfterLabelEdit);
             this.treeViewDir.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeViewDir_AfterSelect);
             // 
             // imageListTree
             // 
+            this.imageListTree.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
             this.imageListTree.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageListTree.ImageStream")));
             this.imageListTree.TransparentColor = System.Drawing.Color.Transparent;
             this.imageListTree.Images.SetKeyName(0, "");
@@ -392,10 +393,10 @@ namespace DataWarehouse.Forms
             this.panelTreeBottom.Controls.Add(this.panelTreeTopBottom);
             this.panelTreeBottom.Controls.Add(this.panelTreeBottomTop);
             this.panelTreeBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelTreeBottom.Location = new System.Drawing.Point(0, 243);
-            this.panelTreeBottom.Margin = new System.Windows.Forms.Padding(4);
+            this.panelTreeBottom.Location = new System.Drawing.Point(0, 318);
+            this.panelTreeBottom.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panelTreeBottom.Name = "panelTreeBottom";
-            this.panelTreeBottom.Size = new System.Drawing.Size(455, 396);
+            this.panelTreeBottom.Size = new System.Drawing.Size(455, 495);
             this.panelTreeBottom.TabIndex = 2;
             // 
             // panelTreeBottomBottomCenter
@@ -404,21 +405,21 @@ namespace DataWarehouse.Forms
             this.panelTreeBottomBottomCenter.Controls.Add(this.panelTreeDescrTop);
             this.panelTreeBottomBottomCenter.Controls.Add(this.panelTreeDescrBottom);
             this.panelTreeBottomBottomCenter.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelTreeBottomBottomCenter.Location = new System.Drawing.Point(4, 64);
-            this.panelTreeBottomBottomCenter.Margin = new System.Windows.Forms.Padding(4);
+            this.panelTreeBottomBottomCenter.Location = new System.Drawing.Point(4, 80);
+            this.panelTreeBottomBottomCenter.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panelTreeBottomBottomCenter.Name = "panelTreeBottomBottomCenter";
-            this.panelTreeBottomBottomCenter.Size = new System.Drawing.Size(447, 269);
+            this.panelTreeBottomBottomCenter.Size = new System.Drawing.Size(447, 336);
             this.panelTreeBottomBottomCenter.TabIndex = 4;
             // 
             // textBoxDirDescr
             // 
             this.textBoxDirDescr.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBoxDirDescr.Location = new System.Drawing.Point(0, 129);
-            this.textBoxDirDescr.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxDirDescr.Location = new System.Drawing.Point(0, 161);
+            this.textBoxDirDescr.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBoxDirDescr.MaxLength = 300;
             this.textBoxDirDescr.Multiline = true;
             this.textBoxDirDescr.Name = "textBoxDirDescr";
-            this.textBoxDirDescr.Size = new System.Drawing.Size(447, 128);
+            this.textBoxDirDescr.Size = new System.Drawing.Size(447, 160);
             this.textBoxDirDescr.TabIndex = 14;
             this.textBoxDirDescr.Text = "Catalog description";
             // 
@@ -431,46 +432,46 @@ namespace DataWarehouse.Forms
             this.panelTreeDescrTop.Controls.Add(this.panelDD);
             this.panelTreeDescrTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTreeDescrTop.Location = new System.Drawing.Point(0, 0);
-            this.panelTreeDescrTop.Margin = new System.Windows.Forms.Padding(4);
+            this.panelTreeDescrTop.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panelTreeDescrTop.Name = "panelTreeDescrTop";
-            this.panelTreeDescrTop.Size = new System.Drawing.Size(447, 129);
+            this.panelTreeDescrTop.Size = new System.Drawing.Size(447, 161);
             this.panelTreeDescrTop.TabIndex = 1;
             // 
             // labelDirectoryDescr
             // 
             this.labelDirectoryDescr.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.labelDirectoryDescr.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelDirectoryDescr.Location = new System.Drawing.Point(1, 31);
+            this.labelDirectoryDescr.Location = new System.Drawing.Point(1, 39);
             this.labelDirectoryDescr.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelDirectoryDescr.Name = "labelDirectoryDescr";
-            this.labelDirectoryDescr.Size = new System.Drawing.Size(445, 86);
+            this.labelDirectoryDescr.Size = new System.Drawing.Size(445, 107);
             this.labelDirectoryDescr.TabIndex = 13;
             // 
             // panelLDirBottom
             // 
             this.panelLDirBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelLDirBottom.Location = new System.Drawing.Point(1, 117);
-            this.panelLDirBottom.Margin = new System.Windows.Forms.Padding(4);
+            this.panelLDirBottom.Location = new System.Drawing.Point(1, 146);
+            this.panelLDirBottom.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panelLDirBottom.Name = "panelLDirBottom";
-            this.panelLDirBottom.Size = new System.Drawing.Size(445, 12);
+            this.panelLDirBottom.Size = new System.Drawing.Size(445, 15);
             this.panelLDirBottom.TabIndex = 3;
             // 
             // panelLDirRight
             // 
             this.panelLDirRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelLDirRight.Location = new System.Drawing.Point(446, 31);
-            this.panelLDirRight.Margin = new System.Windows.Forms.Padding(4);
+            this.panelLDirRight.Location = new System.Drawing.Point(446, 39);
+            this.panelLDirRight.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panelLDirRight.Name = "panelLDirRight";
-            this.panelLDirRight.Size = new System.Drawing.Size(1, 98);
+            this.panelLDirRight.Size = new System.Drawing.Size(1, 122);
             this.panelLDirRight.TabIndex = 2;
             // 
             // panelLDirLeft
             // 
             this.panelLDirLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelLDirLeft.Location = new System.Drawing.Point(0, 31);
-            this.panelLDirLeft.Margin = new System.Windows.Forms.Padding(4);
+            this.panelLDirLeft.Location = new System.Drawing.Point(0, 39);
+            this.panelLDirLeft.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panelLDirLeft.Name = "panelLDirLeft";
-            this.panelLDirLeft.Size = new System.Drawing.Size(1, 98);
+            this.panelLDirLeft.Size = new System.Drawing.Size(1, 122);
             this.panelLDirLeft.TabIndex = 1;
             // 
             // panelDD
@@ -478,45 +479,45 @@ namespace DataWarehouse.Forms
             this.panelDD.Controls.Add(this.labelDD);
             this.panelDD.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelDD.Location = new System.Drawing.Point(0, 0);
-            this.panelDD.Margin = new System.Windows.Forms.Padding(4);
+            this.panelDD.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panelDD.Name = "panelDD";
-            this.panelDD.Size = new System.Drawing.Size(447, 31);
+            this.panelDD.Size = new System.Drawing.Size(447, 39);
             this.panelDD.TabIndex = 0;
             // 
             // labelDD
             // 
-            this.labelDD.Location = new System.Drawing.Point(4, 4);
+            this.labelDD.Location = new System.Drawing.Point(4, 5);
             this.labelDD.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelDD.Name = "labelDD";
-            this.labelDD.Size = new System.Drawing.Size(203, 30);
+            this.labelDD.Size = new System.Drawing.Size(203, 38);
             this.labelDD.TabIndex = 16;
             this.labelDD.Text = "Directory description";
             // 
             // panelTreeDescrBottom
             // 
             this.panelTreeDescrBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelTreeDescrBottom.Location = new System.Drawing.Point(0, 257);
-            this.panelTreeDescrBottom.Margin = new System.Windows.Forms.Padding(4);
+            this.panelTreeDescrBottom.Location = new System.Drawing.Point(0, 321);
+            this.panelTreeDescrBottom.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panelTreeDescrBottom.Name = "panelTreeDescrBottom";
-            this.panelTreeDescrBottom.Size = new System.Drawing.Size(447, 12);
+            this.panelTreeDescrBottom.Size = new System.Drawing.Size(447, 15);
             this.panelTreeDescrBottom.TabIndex = 0;
             // 
             // panelTreeBottomLeft
             // 
             this.panelTreeBottomLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelTreeBottomLeft.Location = new System.Drawing.Point(0, 64);
-            this.panelTreeBottomLeft.Margin = new System.Windows.Forms.Padding(4);
+            this.panelTreeBottomLeft.Location = new System.Drawing.Point(0, 80);
+            this.panelTreeBottomLeft.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panelTreeBottomLeft.Name = "panelTreeBottomLeft";
-            this.panelTreeBottomLeft.Size = new System.Drawing.Size(4, 269);
+            this.panelTreeBottomLeft.Size = new System.Drawing.Size(4, 336);
             this.panelTreeBottomLeft.TabIndex = 3;
             // 
             // panelTreeBottomRight
             // 
             this.panelTreeBottomRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelTreeBottomRight.Location = new System.Drawing.Point(451, 64);
-            this.panelTreeBottomRight.Margin = new System.Windows.Forms.Padding(4);
+            this.panelTreeBottomRight.Location = new System.Drawing.Point(451, 80);
+            this.panelTreeBottomRight.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panelTreeBottomRight.Name = "panelTreeBottomRight";
-            this.panelTreeBottomRight.Size = new System.Drawing.Size(4, 269);
+            this.panelTreeBottomRight.Size = new System.Drawing.Size(4, 336);
             this.panelTreeBottomRight.TabIndex = 2;
             // 
             // panelTreeTopBottom
@@ -526,48 +527,48 @@ namespace DataWarehouse.Forms
             this.panelTreeTopBottom.Controls.Add(this.buttonDirDelete);
             this.panelTreeTopBottom.Controls.Add(this.buttonCreateDir);
             this.panelTreeTopBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelTreeTopBottom.Location = new System.Drawing.Point(0, 333);
-            this.panelTreeTopBottom.Margin = new System.Windows.Forms.Padding(4);
+            this.panelTreeTopBottom.Location = new System.Drawing.Point(0, 416);
+            this.panelTreeTopBottom.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panelTreeTopBottom.Name = "panelTreeTopBottom";
-            this.panelTreeTopBottom.Size = new System.Drawing.Size(455, 63);
+            this.panelTreeTopBottom.Size = new System.Drawing.Size(455, 79);
             this.panelTreeTopBottom.TabIndex = 1;
             // 
             // buttonChangeNodeDescr
             // 
-            this.buttonChangeNodeDescr.Location = new System.Drawing.Point(229, 17);
-            this.buttonChangeNodeDescr.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonChangeNodeDescr.Location = new System.Drawing.Point(229, 21);
+            this.buttonChangeNodeDescr.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.buttonChangeNodeDescr.Name = "buttonChangeNodeDescr";
-            this.buttonChangeNodeDescr.Size = new System.Drawing.Size(100, 28);
+            this.buttonChangeNodeDescr.Size = new System.Drawing.Size(100, 35);
             this.buttonChangeNodeDescr.TabIndex = 28;
             this.buttonChangeNodeDescr.Text = "Change";
             this.buttonChangeNodeDescr.Click += new System.EventHandler(this.buttonChangeNodeDescr_Click);
             // 
             // buttonRefresh
             // 
-            this.buttonRefresh.Location = new System.Drawing.Point(337, 17);
-            this.buttonRefresh.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonRefresh.Location = new System.Drawing.Point(337, 21);
+            this.buttonRefresh.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.buttonRefresh.Name = "buttonRefresh";
-            this.buttonRefresh.Size = new System.Drawing.Size(100, 28);
+            this.buttonRefresh.Size = new System.Drawing.Size(100, 35);
             this.buttonRefresh.TabIndex = 27;
             this.buttonRefresh.Text = "Refresh";
             this.buttonRefresh.Click += new System.EventHandler(this.buttonRefresh_Click);
             // 
             // buttonDirDelete
             // 
-            this.buttonDirDelete.Location = new System.Drawing.Point(121, 17);
-            this.buttonDirDelete.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonDirDelete.Location = new System.Drawing.Point(121, 21);
+            this.buttonDirDelete.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.buttonDirDelete.Name = "buttonDirDelete";
-            this.buttonDirDelete.Size = new System.Drawing.Size(100, 28);
+            this.buttonDirDelete.Size = new System.Drawing.Size(100, 35);
             this.buttonDirDelete.TabIndex = 26;
             this.buttonDirDelete.Text = "Delete";
             this.buttonDirDelete.Click += new System.EventHandler(this.buttonDirDelete_Click);
             // 
             // buttonCreateDir
             // 
-            this.buttonCreateDir.Location = new System.Drawing.Point(13, 17);
-            this.buttonCreateDir.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonCreateDir.Location = new System.Drawing.Point(13, 21);
+            this.buttonCreateDir.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.buttonCreateDir.Name = "buttonCreateDir";
-            this.buttonCreateDir.Size = new System.Drawing.Size(100, 28);
+            this.buttonCreateDir.Size = new System.Drawing.Size(100, 35);
             this.buttonCreateDir.TabIndex = 25;
             this.buttonCreateDir.Text = "Create";
             this.buttonCreateDir.Click += new System.EventHandler(this.buttonCreateDir_Click);
@@ -581,47 +582,47 @@ namespace DataWarehouse.Forms
             this.panelTreeBottomTop.Controls.Add(this.panelTreeBottomTopTop);
             this.panelTreeBottomTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTreeBottomTop.Location = new System.Drawing.Point(0, 0);
-            this.panelTreeBottomTop.Margin = new System.Windows.Forms.Padding(4);
+            this.panelTreeBottomTop.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panelTreeBottomTop.Name = "panelTreeBottomTop";
-            this.panelTreeBottomTop.Size = new System.Drawing.Size(455, 64);
+            this.panelTreeBottomTop.Size = new System.Drawing.Size(455, 80);
             this.panelTreeBottomTop.TabIndex = 0;
             // 
             // panelTreeBottomCenter
             // 
             this.panelTreeBottomCenter.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelTreeBottomCenter.Location = new System.Drawing.Point(3, 37);
-            this.panelTreeBottomCenter.Margin = new System.Windows.Forms.Padding(4);
+            this.panelTreeBottomCenter.Location = new System.Drawing.Point(3, 46);
+            this.panelTreeBottomCenter.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panelTreeBottomCenter.Name = "panelTreeBottomCenter";
-            this.panelTreeBottomCenter.Size = new System.Drawing.Size(449, 5);
+            this.panelTreeBottomCenter.Size = new System.Drawing.Size(449, 7);
             this.panelTreeBottomCenter.TabIndex = 20;
             // 
             // textBoxDirName
             // 
             this.textBoxDirName.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.textBoxDirName.Location = new System.Drawing.Point(3, 42);
-            this.textBoxDirName.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxDirName.Location = new System.Drawing.Point(3, 53);
+            this.textBoxDirName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBoxDirName.MaxLength = 50;
             this.textBoxDirName.Name = "textBoxDirName";
-            this.textBoxDirName.Size = new System.Drawing.Size(449, 22);
+            this.textBoxDirName.Size = new System.Drawing.Size(449, 27);
             this.textBoxDirName.TabIndex = 19;
             this.textBoxDirName.Text = "New catalog";
             // 
             // panelTreeBottomTopLeft
             // 
             this.panelTreeBottomTopLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelTreeBottomTopLeft.Location = new System.Drawing.Point(0, 37);
-            this.panelTreeBottomTopLeft.Margin = new System.Windows.Forms.Padding(4);
+            this.panelTreeBottomTopLeft.Location = new System.Drawing.Point(0, 46);
+            this.panelTreeBottomTopLeft.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panelTreeBottomTopLeft.Name = "panelTreeBottomTopLeft";
-            this.panelTreeBottomTopLeft.Size = new System.Drawing.Size(3, 27);
+            this.panelTreeBottomTopLeft.Size = new System.Drawing.Size(3, 34);
             this.panelTreeBottomTopLeft.TabIndex = 3;
             // 
             // panelTreeBottomTopRight
             // 
             this.panelTreeBottomTopRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelTreeBottomTopRight.Location = new System.Drawing.Point(452, 37);
-            this.panelTreeBottomTopRight.Margin = new System.Windows.Forms.Padding(4);
+            this.panelTreeBottomTopRight.Location = new System.Drawing.Point(452, 46);
+            this.panelTreeBottomTopRight.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panelTreeBottomTopRight.Name = "panelTreeBottomTopRight";
-            this.panelTreeBottomTopRight.Size = new System.Drawing.Size(3, 27);
+            this.panelTreeBottomTopRight.Size = new System.Drawing.Size(3, 34);
             this.panelTreeBottomTopRight.TabIndex = 2;
             // 
             // panelTreeBottomTopTop
@@ -629,27 +630,27 @@ namespace DataWarehouse.Forms
             this.panelTreeBottomTopTop.Controls.Add(this.labelDirN);
             this.panelTreeBottomTopTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTreeBottomTopTop.Location = new System.Drawing.Point(0, 0);
-            this.panelTreeBottomTopTop.Margin = new System.Windows.Forms.Padding(4);
+            this.panelTreeBottomTopTop.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panelTreeBottomTopTop.Name = "panelTreeBottomTopTop";
-            this.panelTreeBottomTopTop.Size = new System.Drawing.Size(455, 37);
+            this.panelTreeBottomTopTop.Size = new System.Drawing.Size(455, 46);
             this.panelTreeBottomTopTop.TabIndex = 1;
             // 
             // labelDirN
             // 
-            this.labelDirN.Location = new System.Drawing.Point(4, 9);
+            this.labelDirN.Location = new System.Drawing.Point(4, 11);
             this.labelDirN.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelDirN.Name = "labelDirN";
-            this.labelDirN.Size = new System.Drawing.Size(133, 25);
+            this.labelDirN.Size = new System.Drawing.Size(133, 31);
             this.labelDirN.TabIndex = 17;
             this.labelDirN.Text = "Directory name";
             // 
             // panelLabelTreeRight
             // 
             this.panelLabelTreeRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelLabelTreeRight.Location = new System.Drawing.Point(455, 52);
-            this.panelLabelTreeRight.Margin = new System.Windows.Forms.Padding(4);
+            this.panelLabelTreeRight.Location = new System.Drawing.Point(455, 65);
+            this.panelLabelTreeRight.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panelLabelTreeRight.Name = "panelLabelTreeRight";
-            this.panelLabelTreeRight.Size = new System.Drawing.Size(13, 587);
+            this.panelLabelTreeRight.Size = new System.Drawing.Size(13, 748);
             this.panelLabelTreeRight.TabIndex = 1;
             // 
             // panelTreeTop
@@ -657,18 +658,18 @@ namespace DataWarehouse.Forms
             this.panelTreeTop.Controls.Add(this.label1);
             this.panelTreeTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTreeTop.Location = new System.Drawing.Point(0, 0);
-            this.panelTreeTop.Margin = new System.Windows.Forms.Padding(4);
+            this.panelTreeTop.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panelTreeTop.Name = "panelTreeTop";
-            this.panelTreeTop.Size = new System.Drawing.Size(468, 52);
+            this.panelTreeTop.Size = new System.Drawing.Size(468, 65);
             this.panelTreeTop.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(4, 16);
+            this.label1.Location = new System.Drawing.Point(4, 20);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(76, 17);
+            this.label1.Size = new System.Drawing.Size(81, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "Directories";
             // 
@@ -680,11 +681,11 @@ namespace DataWarehouse.Forms
             this.listViewDoc.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listViewDoc.HideSelection = false;
             this.listViewDoc.LabelEdit = true;
-            this.listViewDoc.Location = new System.Drawing.Point(0, 52);
-            this.listViewDoc.Margin = new System.Windows.Forms.Padding(4);
+            this.listViewDoc.Location = new System.Drawing.Point(0, 65);
+            this.listViewDoc.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.listViewDoc.MultiSelect = false;
             this.listViewDoc.Name = "listViewDoc";
-            this.listViewDoc.Size = new System.Drawing.Size(859, 191);
+            this.listViewDoc.Size = new System.Drawing.Size(859, 253);
             this.listViewDoc.TabIndex = 24;
             this.listViewDoc.UseCompatibleStateImageBehavior = false;
             this.listViewDoc.View = System.Windows.Forms.View.Details;
@@ -710,10 +711,10 @@ namespace DataWarehouse.Forms
             this.panelDescrBottom.Controls.Add(this.panelDescrTopBottom);
             this.panelDescrBottom.Controls.Add(this.panelDescrBottomTop);
             this.panelDescrBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelDescrBottom.Location = new System.Drawing.Point(0, 243);
-            this.panelDescrBottom.Margin = new System.Windows.Forms.Padding(4);
+            this.panelDescrBottom.Location = new System.Drawing.Point(0, 318);
+            this.panelDescrBottom.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panelDescrBottom.Name = "panelDescrBottom";
-            this.panelDescrBottom.Size = new System.Drawing.Size(859, 396);
+            this.panelDescrBottom.Size = new System.Drawing.Size(859, 495);
             this.panelDescrBottom.TabIndex = 4;
             // 
             // panelDescrBottomBottomCenter
@@ -722,21 +723,21 @@ namespace DataWarehouse.Forms
             this.panelDescrBottomBottomCenter.Controls.Add(this.panelDescrDescrTop);
             this.panelDescrBottomBottomCenter.Controls.Add(this.panelDescrDescrBottom);
             this.panelDescrBottomBottomCenter.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelDescrBottomBottomCenter.Location = new System.Drawing.Point(13, 70);
-            this.panelDescrBottomBottomCenter.Margin = new System.Windows.Forms.Padding(4);
+            this.panelDescrBottomBottomCenter.Location = new System.Drawing.Point(13, 88);
+            this.panelDescrBottomBottomCenter.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panelDescrBottomBottomCenter.Name = "panelDescrBottomBottomCenter";
-            this.panelDescrBottomBottomCenter.Size = new System.Drawing.Size(833, 263);
+            this.panelDescrBottomBottomCenter.Size = new System.Drawing.Size(833, 328);
             this.panelDescrBottomBottomCenter.TabIndex = 4;
             // 
             // textBoxDescription
             // 
             this.textBoxDescription.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBoxDescription.Location = new System.Drawing.Point(0, 123);
-            this.textBoxDescription.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxDescription.Location = new System.Drawing.Point(0, 154);
+            this.textBoxDescription.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBoxDescription.MaxLength = 300;
             this.textBoxDescription.Multiline = true;
             this.textBoxDescription.Name = "textBoxDescription";
-            this.textBoxDescription.Size = new System.Drawing.Size(833, 128);
+            this.textBoxDescription.Size = new System.Drawing.Size(833, 159);
             this.textBoxDescription.TabIndex = 6;
             this.textBoxDescription.Text = "Document description";
             // 
@@ -749,46 +750,46 @@ namespace DataWarehouse.Forms
             this.panelDescrDescrTop.Controls.Add(this.panelLDD);
             this.panelDescrDescrTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelDescrDescrTop.Location = new System.Drawing.Point(0, 0);
-            this.panelDescrDescrTop.Margin = new System.Windows.Forms.Padding(4);
+            this.panelDescrDescrTop.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panelDescrDescrTop.Name = "panelDescrDescrTop";
-            this.panelDescrDescrTop.Size = new System.Drawing.Size(833, 123);
+            this.panelDescrDescrTop.Size = new System.Drawing.Size(833, 154);
             this.panelDescrDescrTop.TabIndex = 1;
             // 
             // labelDescr
             // 
             this.labelDescr.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.labelDescr.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelDescr.Location = new System.Drawing.Point(1, 27);
+            this.labelDescr.Location = new System.Drawing.Point(1, 34);
             this.labelDescr.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelDescr.Name = "labelDescr";
-            this.labelDescr.Size = new System.Drawing.Size(831, 84);
+            this.labelDescr.Size = new System.Drawing.Size(831, 105);
             this.labelDescr.TabIndex = 10;
             // 
             // panelDocBootom
             // 
             this.panelDocBootom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelDocBootom.Location = new System.Drawing.Point(1, 111);
-            this.panelDocBootom.Margin = new System.Windows.Forms.Padding(4);
+            this.panelDocBootom.Location = new System.Drawing.Point(1, 139);
+            this.panelDocBootom.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panelDocBootom.Name = "panelDocBootom";
-            this.panelDocBootom.Size = new System.Drawing.Size(831, 12);
+            this.panelDocBootom.Size = new System.Drawing.Size(831, 15);
             this.panelDocBootom.TabIndex = 9;
             // 
             // panelDocRight
             // 
             this.panelDocRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelDocRight.Location = new System.Drawing.Point(832, 27);
-            this.panelDocRight.Margin = new System.Windows.Forms.Padding(4);
+            this.panelDocRight.Location = new System.Drawing.Point(832, 34);
+            this.panelDocRight.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panelDocRight.Name = "panelDocRight";
-            this.panelDocRight.Size = new System.Drawing.Size(1, 96);
+            this.panelDocRight.Size = new System.Drawing.Size(1, 120);
             this.panelDocRight.TabIndex = 8;
             // 
             // panelDocLeft
             // 
             this.panelDocLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelDocLeft.Location = new System.Drawing.Point(0, 27);
-            this.panelDocLeft.Margin = new System.Windows.Forms.Padding(4);
+            this.panelDocLeft.Location = new System.Drawing.Point(0, 34);
+            this.panelDocLeft.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panelDocLeft.Name = "panelDocLeft";
-            this.panelDocLeft.Size = new System.Drawing.Size(1, 96);
+            this.panelDocLeft.Size = new System.Drawing.Size(1, 120);
             this.panelDocLeft.TabIndex = 7;
             // 
             // panelLDD
@@ -796,9 +797,9 @@ namespace DataWarehouse.Forms
             this.panelLDD.Controls.Add(this.labelDL);
             this.panelLDD.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelLDD.Location = new System.Drawing.Point(0, 0);
-            this.panelLDD.Margin = new System.Windows.Forms.Padding(4);
+            this.panelLDD.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panelLDD.Name = "panelLDD";
-            this.panelLDD.Size = new System.Drawing.Size(833, 27);
+            this.panelLDD.Size = new System.Drawing.Size(833, 34);
             this.panelLDD.TabIndex = 6;
             // 
             // labelDL
@@ -806,35 +807,35 @@ namespace DataWarehouse.Forms
             this.labelDL.Location = new System.Drawing.Point(4, 0);
             this.labelDL.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelDL.Name = "labelDL";
-            this.labelDL.Size = new System.Drawing.Size(181, 28);
+            this.labelDL.Size = new System.Drawing.Size(181, 35);
             this.labelDL.TabIndex = 6;
             this.labelDL.Text = "Document description";
             // 
             // panelDescrDescrBottom
             // 
             this.panelDescrDescrBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelDescrDescrBottom.Location = new System.Drawing.Point(0, 251);
-            this.panelDescrDescrBottom.Margin = new System.Windows.Forms.Padding(4);
+            this.panelDescrDescrBottom.Location = new System.Drawing.Point(0, 313);
+            this.panelDescrDescrBottom.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panelDescrDescrBottom.Name = "panelDescrDescrBottom";
-            this.panelDescrDescrBottom.Size = new System.Drawing.Size(833, 12);
+            this.panelDescrDescrBottom.Size = new System.Drawing.Size(833, 15);
             this.panelDescrDescrBottom.TabIndex = 0;
             // 
             // panelDescrBottomLeft
             // 
             this.panelDescrBottomLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelDescrBottomLeft.Location = new System.Drawing.Point(0, 70);
-            this.panelDescrBottomLeft.Margin = new System.Windows.Forms.Padding(4);
+            this.panelDescrBottomLeft.Location = new System.Drawing.Point(0, 88);
+            this.panelDescrBottomLeft.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panelDescrBottomLeft.Name = "panelDescrBottomLeft";
-            this.panelDescrBottomLeft.Size = new System.Drawing.Size(13, 263);
+            this.panelDescrBottomLeft.Size = new System.Drawing.Size(13, 328);
             this.panelDescrBottomLeft.TabIndex = 3;
             // 
             // paneDescrBottomRight
             // 
             this.paneDescrBottomRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.paneDescrBottomRight.Location = new System.Drawing.Point(846, 70);
-            this.paneDescrBottomRight.Margin = new System.Windows.Forms.Padding(4);
+            this.paneDescrBottomRight.Location = new System.Drawing.Point(846, 88);
+            this.paneDescrBottomRight.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.paneDescrBottomRight.Name = "paneDescrBottomRight";
-            this.paneDescrBottomRight.Size = new System.Drawing.Size(13, 263);
+            this.paneDescrBottomRight.Size = new System.Drawing.Size(13, 328);
             this.paneDescrBottomRight.TabIndex = 2;
             // 
             // panelDescrTopBottom
@@ -847,77 +848,77 @@ namespace DataWarehouse.Forms
             this.panelDescrTopBottom.Controls.Add(this.buttonDelete);
             this.panelDescrTopBottom.Controls.Add(this.buttonLoad);
             this.panelDescrTopBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelDescrTopBottom.Location = new System.Drawing.Point(0, 333);
-            this.panelDescrTopBottom.Margin = new System.Windows.Forms.Padding(4);
+            this.panelDescrTopBottom.Location = new System.Drawing.Point(0, 416);
+            this.panelDescrTopBottom.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panelDescrTopBottom.Name = "panelDescrTopBottom";
-            this.panelDescrTopBottom.Size = new System.Drawing.Size(859, 63);
+            this.panelDescrTopBottom.Size = new System.Drawing.Size(859, 79);
             this.panelDescrTopBottom.TabIndex = 1;
             // 
             // buttonConvertAll
             // 
-            this.buttonConvertAll.Location = new System.Drawing.Point(12, 17);
-            this.buttonConvertAll.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonConvertAll.Location = new System.Drawing.Point(12, 21);
+            this.buttonConvertAll.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.buttonConvertAll.Name = "buttonConvertAll";
-            this.buttonConvertAll.Size = new System.Drawing.Size(100, 28);
+            this.buttonConvertAll.Size = new System.Drawing.Size(100, 35);
             this.buttonConvertAll.TabIndex = 32;
             this.buttonConvertAll.Text = "Convert all";
             this.buttonConvertAll.Visible = false;
             // 
             // buttonReplace
             // 
-            this.buttonReplace.Location = new System.Drawing.Point(120, 17);
-            this.buttonReplace.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonReplace.Location = new System.Drawing.Point(120, 21);
+            this.buttonReplace.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.buttonReplace.Name = "buttonReplace";
-            this.buttonReplace.Size = new System.Drawing.Size(100, 28);
+            this.buttonReplace.Size = new System.Drawing.Size(100, 35);
             this.buttonReplace.TabIndex = 31;
             this.buttonReplace.Text = "Replace";
             this.buttonReplace.Click += new System.EventHandler(this.buttonReplace_Click);
             // 
             // buttonChangeDescription
             // 
-            this.buttonChangeDescription.Location = new System.Drawing.Point(719, 17);
-            this.buttonChangeDescription.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonChangeDescription.Location = new System.Drawing.Point(719, 21);
+            this.buttonChangeDescription.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.buttonChangeDescription.Name = "buttonChangeDescription";
-            this.buttonChangeDescription.Size = new System.Drawing.Size(139, 28);
+            this.buttonChangeDescription.Size = new System.Drawing.Size(139, 35);
             this.buttonChangeDescription.TabIndex = 30;
             this.buttonChangeDescription.Text = "Change";
             this.buttonChangeDescription.Click += new System.EventHandler(this.buttonChangeDescription_Click);
             // 
             // buttonRelated
             // 
-            this.buttonRelated.Location = new System.Drawing.Point(484, 17);
-            this.buttonRelated.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonRelated.Location = new System.Drawing.Point(484, 21);
+            this.buttonRelated.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.buttonRelated.Name = "buttonRelated";
-            this.buttonRelated.Size = new System.Drawing.Size(192, 28);
+            this.buttonRelated.Size = new System.Drawing.Size(192, 35);
             this.buttonRelated.TabIndex = 29;
             this.buttonRelated.Text = "Related documents";
             // 
             // buttonSaveDoc
             // 
-            this.buttonSaveDoc.Location = new System.Drawing.Point(239, 17);
-            this.buttonSaveDoc.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonSaveDoc.Location = new System.Drawing.Point(239, 21);
+            this.buttonSaveDoc.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.buttonSaveDoc.Name = "buttonSaveDoc";
-            this.buttonSaveDoc.Size = new System.Drawing.Size(100, 28);
+            this.buttonSaveDoc.Size = new System.Drawing.Size(100, 35);
             this.buttonSaveDoc.TabIndex = 28;
             this.buttonSaveDoc.Text = "Save";
             this.buttonSaveDoc.Click += new System.EventHandler(this.buttonSaveDoc_Click);
             // 
             // buttonDelete
             // 
-            this.buttonDelete.Location = new System.Drawing.Point(367, 17);
-            this.buttonDelete.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonDelete.Location = new System.Drawing.Point(367, 21);
+            this.buttonDelete.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.buttonDelete.Name = "buttonDelete";
-            this.buttonDelete.Size = new System.Drawing.Size(107, 28);
+            this.buttonDelete.Size = new System.Drawing.Size(107, 35);
             this.buttonDelete.TabIndex = 27;
             this.buttonDelete.Text = "Delete";
             this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
             // 
             // buttonLoad
             // 
-            this.buttonLoad.Location = new System.Drawing.Point(228, 17);
-            this.buttonLoad.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonLoad.Location = new System.Drawing.Point(228, 21);
+            this.buttonLoad.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.buttonLoad.Name = "buttonLoad";
-            this.buttonLoad.Size = new System.Drawing.Size(107, 28);
+            this.buttonLoad.Size = new System.Drawing.Size(107, 35);
             this.buttonLoad.TabIndex = 26;
             this.buttonLoad.Text = "Load";
             this.buttonLoad.Click += new System.EventHandler(this.buttonLoad_Click);
@@ -930,48 +931,48 @@ namespace DataWarehouse.Forms
             this.panelDescrBottomTop.Controls.Add(this.panelDescrBottomTopTop);
             this.panelDescrBottomTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelDescrBottomTop.Location = new System.Drawing.Point(0, 0);
-            this.panelDescrBottomTop.Margin = new System.Windows.Forms.Padding(4);
+            this.panelDescrBottomTop.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panelDescrBottomTop.Name = "panelDescrBottomTop";
-            this.panelDescrBottomTop.Size = new System.Drawing.Size(859, 70);
+            this.panelDescrBottomTop.Size = new System.Drawing.Size(859, 88);
             this.panelDescrBottomTop.TabIndex = 0;
             // 
             // paneDescrBottomCenter
             // 
             this.paneDescrBottomCenter.Controls.Add(this.textBoxName);
             this.paneDescrBottomCenter.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.paneDescrBottomCenter.Location = new System.Drawing.Point(13, 37);
-            this.paneDescrBottomCenter.Margin = new System.Windows.Forms.Padding(4);
+            this.paneDescrBottomCenter.Location = new System.Drawing.Point(13, 46);
+            this.paneDescrBottomCenter.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.paneDescrBottomCenter.Name = "paneDescrBottomCenter";
-            this.paneDescrBottomCenter.Size = new System.Drawing.Size(833, 33);
+            this.paneDescrBottomCenter.Size = new System.Drawing.Size(833, 42);
             this.paneDescrBottomCenter.TabIndex = 20;
             // 
             // textBoxName
             // 
             this.textBoxName.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBoxName.Location = new System.Drawing.Point(0, 0);
-            this.textBoxName.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBoxName.MaxLength = 50;
             this.textBoxName.Name = "textBoxName";
-            this.textBoxName.Size = new System.Drawing.Size(833, 22);
+            this.textBoxName.Size = new System.Drawing.Size(833, 27);
             this.textBoxName.TabIndex = 9;
             this.textBoxName.Text = "New document";
             // 
             // panelDescrBottomTopLeft
             // 
             this.panelDescrBottomTopLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelDescrBottomTopLeft.Location = new System.Drawing.Point(0, 37);
-            this.panelDescrBottomTopLeft.Margin = new System.Windows.Forms.Padding(4);
+            this.panelDescrBottomTopLeft.Location = new System.Drawing.Point(0, 46);
+            this.panelDescrBottomTopLeft.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panelDescrBottomTopLeft.Name = "panelDescrBottomTopLeft";
-            this.panelDescrBottomTopLeft.Size = new System.Drawing.Size(13, 33);
+            this.panelDescrBottomTopLeft.Size = new System.Drawing.Size(13, 42);
             this.panelDescrBottomTopLeft.TabIndex = 3;
             // 
             // panelDescrBottomTopRight
             // 
             this.panelDescrBottomTopRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelDescrBottomTopRight.Location = new System.Drawing.Point(846, 37);
-            this.panelDescrBottomTopRight.Margin = new System.Windows.Forms.Padding(4);
+            this.panelDescrBottomTopRight.Location = new System.Drawing.Point(846, 46);
+            this.panelDescrBottomTopRight.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panelDescrBottomTopRight.Name = "panelDescrBottomTopRight";
-            this.panelDescrBottomTopRight.Size = new System.Drawing.Size(13, 33);
+            this.panelDescrBottomTopRight.Size = new System.Drawing.Size(13, 42);
             this.panelDescrBottomTopRight.TabIndex = 2;
             // 
             // panelDescrBottomTopTop
@@ -979,27 +980,27 @@ namespace DataWarehouse.Forms
             this.panelDescrBottomTopTop.Controls.Add(this.labelDn);
             this.panelDescrBottomTopTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelDescrBottomTopTop.Location = new System.Drawing.Point(0, 0);
-            this.panelDescrBottomTopTop.Margin = new System.Windows.Forms.Padding(4);
+            this.panelDescrBottomTopTop.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panelDescrBottomTopTop.Name = "panelDescrBottomTopTop";
-            this.panelDescrBottomTopTop.Size = new System.Drawing.Size(859, 37);
+            this.panelDescrBottomTopTop.Size = new System.Drawing.Size(859, 46);
             this.panelDescrBottomTopTop.TabIndex = 1;
             // 
             // labelDn
             // 
-            this.labelDn.Location = new System.Drawing.Point(19, 5);
+            this.labelDn.Location = new System.Drawing.Point(19, 6);
             this.labelDn.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelDn.Name = "labelDn";
-            this.labelDn.Size = new System.Drawing.Size(133, 28);
+            this.labelDn.Size = new System.Drawing.Size(133, 35);
             this.labelDn.TabIndex = 8;
             this.labelDn.Text = "Document name";
             // 
             // panelItemsRight
             // 
             this.panelItemsRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelItemsRight.Location = new System.Drawing.Point(859, 52);
-            this.panelItemsRight.Margin = new System.Windows.Forms.Padding(4);
+            this.panelItemsRight.Location = new System.Drawing.Point(859, 65);
+            this.panelItemsRight.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panelItemsRight.Name = "panelItemsRight";
-            this.panelItemsRight.Size = new System.Drawing.Size(13, 587);
+            this.panelItemsRight.Size = new System.Drawing.Size(13, 748);
             this.panelItemsRight.TabIndex = 1;
             // 
             // panelItemsTop
@@ -1007,26 +1008,26 @@ namespace DataWarehouse.Forms
             this.panelItemsTop.Controls.Add(this.label2);
             this.panelItemsTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelItemsTop.Location = new System.Drawing.Point(0, 0);
-            this.panelItemsTop.Margin = new System.Windows.Forms.Padding(4);
+            this.panelItemsTop.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panelItemsTop.Name = "panelItemsTop";
-            this.panelItemsTop.Size = new System.Drawing.Size(872, 52);
+            this.panelItemsTop.Size = new System.Drawing.Size(872, 65);
             this.panelItemsTop.TabIndex = 0;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(27, 9);
+            this.label2.Location = new System.Drawing.Point(27, 11);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(79, 17);
+            this.label2.Size = new System.Drawing.Size(84, 20);
             this.label2.TabIndex = 0;
             this.label2.Text = "Documents";
             // 
             // FormDatabase
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1371, 750);
+            this.ClientSize = new System.Drawing.Size(1371, 938);
             this.Controls.Add(this.panelCenter);
             this.Controls.Add(this.panelRight);
             this.Controls.Add(this.panelLeft);
@@ -1036,7 +1037,7 @@ namespace DataWarehouse.Forms
             this.Controls.Add(this.menuStripMain);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStripMain;
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "FormDatabase";
             this.Text = "Database documents";
             this.menuStripMain.ResumeLayout(false);
