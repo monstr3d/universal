@@ -70,6 +70,7 @@ namespace Aviation.Light
                     Event.UI.Factory.UIFactory.Factory,
                 };
 
+
         static LightDictionary<string, ButtonWrapper[]> GetButtons(Motion6D.Portable.Interfaces.IPositionObjectFactory factory)
         {
             Motion6D.Portable.Interfaces.IPositionObjectFactory f = factory;
@@ -77,16 +78,18 @@ namespace Aviation.Light
             {
                 f = Motion6D.Portable.PositionObjectFactory.BaseFactory;
             }
-            string[] tabs = new string[] { "General", "Statistics",  "6D Motion", "Events", "Arrows" };
+            var tabs = new string[] { "General", "Statistics", "Database", "6D Motion", "Events", "Arrows" };
             ButtonWrapper[][] but = new ButtonWrapper[tabs.Length][];
             int i = 0;
             List<ButtonWrapper> gen = new List<ButtonWrapper>();
             gen.AddRange(DataPerformer.UI.Factory.StaticFactory.GeneralObjectsButtons);
             gen.AddRange(ControlSystems.Data.UI.Factory.ControlSystemsFactory.ObjectButtons);
-            // !!!REMOVED        gen.AddRange(SoundService.UI.Factory.SoundUIFactrory.ObjectButtons);
+     //       gen.AddRange(SoundService.UI.Factory.SoundUIFactrory.ObjectButtons);
             but[i] = gen.ToArray();
             ++i;
             but[i] = EngineeringUIFactory.StatisticalObjectsButtons;
+            ++i;
+            but[i] = Database.UI.Factory.DatabaseFactory.ObjectButtons;
             ++i;
             List<ButtonWrapper> geom = new List<ButtonWrapper>();
             geom.AddRange(Motion6D.UI.Factory.MotionFactory.ObjectButtons);
@@ -103,11 +106,13 @@ namespace Aviation.Light
             arr.AddRange(Motion6D.UI.Factory.MotionFactory.ArrowButtons);
             arr.AddRange(Motion6D.UI.Factory.VisibleFactory.VisualArrowButtons);
             arr.AddRange(Event.UI.Factory.UIFactory.ArrowButtons);
+            arr.AddRange(Database.UI.Factory.DatabaseFactory.ArrowButtons);
             but[i] = arr.ToArray();
             LightDictionary<string, ButtonWrapper[]> buttons = new LightDictionary<string, ButtonWrapper[]>();
             buttons.Add(tabs, but);
             return buttons;
         }
+
 
 
         static Form GetForm(string filename, Motion6D.Portable.PositionObjectFactory factory, System.IO.TextWriter logWriter, TestCategory.Interfaces.ITestInterface testInterface)
@@ -116,7 +121,11 @@ namespace Aviation.Light
             Scada.Desktop.StaticExtensionScadaDesktop.ScadaFactory = Scada.Desktop.Serializable.StaticExtensionScadaDesktopSerializable.BaseFactory;
             List<ButtonWrapper> l = new List<ButtonWrapper>();
             l.AddRange(ControlSystemLib.Data.UI.Factory.ControlSystemsFactory.ObjectButtons);
-            Form form =   StaticExtension.CreateAviationFormFull(GetButtons(factory), new IApplicationInitializer[0],
+            Form form =   StaticExtension.CreateAviationFormFull(GetButtons(factory), new IApplicationInitializer[]
+            {
+                DataSetService.Initialization.DatabaseInitializer.GetInitializer(
+                 DataSetService.DllDataSetFactoryChooser.BaseDirectoryFactory)
+            },
                null, null, filename, null, Factories,
                null, true,
                 "Aviation simulation processor",

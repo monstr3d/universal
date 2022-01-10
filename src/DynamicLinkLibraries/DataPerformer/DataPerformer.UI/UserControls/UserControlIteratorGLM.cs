@@ -26,7 +26,7 @@ namespace DataPerformer.UI.UserControls
         Stack<Tuple<string, Dictionary<IAliasName, double>>> stack =
             new Stack<Tuple<string, Dictionary<IAliasName, double>>>();
 
-        private IteratorGLM iterator;
+        private Regression.Portable.IteratorGLM iterator;
 
       //  private List<ComboBox> alias = new List<ComboBox>();
 
@@ -50,7 +50,7 @@ namespace DataPerformer.UI.UserControls
 
         #region Internal Members
 
-        internal IteratorGLM Iterator
+        internal Regression.Portable.IteratorGLM Iterator
         {
             set
             {

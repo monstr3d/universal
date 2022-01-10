@@ -22,6 +22,9 @@ namespace DataTableSelection
     /// <summary>
     /// Iterator obtained from data set
     /// </summary>
+    /// <summary>
+    /// Iterator obtained from data set
+    /// </summary>
     [Serializable()]
     public class DataSetIterator : CategoryObject, ISerializable, IIterator, IDataSetConsumer, IMeasurements
     {
@@ -99,6 +102,7 @@ namespace DataTableSelection
 
         void ISerializable.GetObjectData(SerializationInfo info, StreamingContext context)
         {
+
         }
 
         #endregion
@@ -107,8 +111,7 @@ namespace DataTableSelection
 
         void IIterator.Reset()
         {
-            current = 0;
-            rowreference[0] = table.Rows[0];
+            Reset();
         }
 
         bool IIterator.Next()
@@ -139,8 +142,8 @@ namespace DataTableSelection
             }
             this.dataSet = dataSet;
             table = dataSet.Tables[0];
+            Reset();
             Init();
-
         }
 
         void IDataSetConsumer.Remove(DataSet dataSet)
@@ -207,6 +210,16 @@ namespace DataTableSelection
         #endregion
 
         #region Specific Members
+
+        /// <summary>
+        /// Resets itself
+        /// </summary>
+        void Reset()
+        {
+            current = 0;
+            rowreference[0] = table.Rows[0];
+
+        }
 
         /// <summary>
         /// Initialization
@@ -305,7 +318,7 @@ namespace DataTableSelection
             }
         }
 
-            #endregion
+        #endregion
 
         #endregion
 

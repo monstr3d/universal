@@ -25,7 +25,7 @@ namespace DataPerformer.UI.Labels
     {
         #region Fields
 
-        IteratorGLM acc;
+        Regression.Portable.IteratorGLM acc;
 
         UserControlIteratorGLM uc;
 
@@ -81,11 +81,11 @@ namespace DataPerformer.UI.Labels
             }
             set
             {
-                if (!(value is IteratorGLM))
+                if (!(value is Regression.Portable.IteratorGLM))
                 {
                     CategoryException.ThrowIllegalSourceException();
                 }
-                acc = value as IteratorGLM;
+                acc = value as Regression.Portable.IteratorGLM;
                 acc.Object = this;
                 uc.Iterator = acc;
             }
