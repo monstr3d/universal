@@ -12,6 +12,7 @@ namespace AssemblyService
     /// </summary>
     public static class StaticExtensionAssemblyService
     {
+
         static Dictionary<string, Assembly> assemblyDictionary = new Dictionary<string, Assembly>();
 
         static LinkedList<string> locations = new LinkedList<string>();

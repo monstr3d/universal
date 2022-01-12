@@ -78,7 +78,7 @@ namespace Aviation.Light
             {
                 f = Motion6D.Portable.PositionObjectFactory.BaseFactory;
             }
-            var tabs = new string[] { "General", "Statistics", "Database", "6D Motion", "Events", "Arrows" };
+            var tabs = new string[] { "General", "Statistics", "Database", "6D Motion", "Image", "Events", "Arrows" };
             ButtonWrapper[][] but = new ButtonWrapper[tabs.Length][];
             int i = 0;
             List<ButtonWrapper> gen = new List<ButtonWrapper>();
@@ -96,6 +96,10 @@ namespace Aviation.Light
             geom.AddRange(Motion6D.UI.Factory.VisibleFactory.GetVisualObjectButtons(f));
             but[i] = geom.ToArray();
             ++i;
+            List<ButtonWrapper> image = new List<ButtonWrapper>();
+           // image.AddRange(ImageTransformations.Factory.ImageTransformationFactory.ObjectButtons);
+            but[i] = image.ToArray();
+            ++i;
             List<ButtonWrapper> events = new List<ButtonWrapper>();
             events.AddRange(Event.UI.Factory.UIFactory.ObjectButtons);
             but[i] = events.ToArray();
@@ -107,6 +111,7 @@ namespace Aviation.Light
             arr.AddRange(Motion6D.UI.Factory.VisibleFactory.VisualArrowButtons);
             arr.AddRange(Event.UI.Factory.UIFactory.ArrowButtons);
             arr.AddRange(Database.UI.Factory.DatabaseFactory.ArrowButtons);
+            arr.AddRange(ImageTransformations.Factory.ImageTransformationFactory.ArrowButtons);
             but[i] = arr.ToArray();
             LightDictionary<string, ButtonWrapper[]> buttons = new LightDictionary<string, ButtonWrapper[]>();
             buttons.Add(tabs, but);
