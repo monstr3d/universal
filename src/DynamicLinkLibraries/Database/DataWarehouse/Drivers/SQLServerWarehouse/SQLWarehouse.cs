@@ -38,7 +38,7 @@ namespace SQLServerWarehouse
         internal SQLWarehouse(string connectionString)
         {
             /*  
- Scaffold-DbContext "Server=IVANKOV\SQLExpress;Database=AstronomyExpress;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models -Verbose
+ Scaffold-DbContext "Server=IVANKOV\SQLExpress;Database=AstronomyExpress;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models1 -Verbose
             
             */
             //load(connectionString);
