@@ -33,7 +33,7 @@ namespace SQLServerWarehouse
 
             string INode.Extension => this.Ext;
 
-            byte[] ILeaf.Data { get => Data; set => Data = value; }
+            byte[] ILeaf.Data { get => Id.GetData(); set => Id.SetData(value); }
 
 
             string INode.Name { get => this.Name; set => UpdateName(value); }
@@ -100,21 +100,6 @@ namespace SQLServerWarehouse
 
             QueriesTableAdapter TableAdapter
             { get => StaticExtension.TableAdapter; }
-
-            internal byte[] Data
-            {
-                get
-                {
-                    DataSetWarehouse.SelectBinaryDataTable selects = null;
-                    var adapter = new SelectBinaryTableAdapter();
-                    adapter.ConnectionAction(() => { selects = adapter.GetData(Id); });
-                    return selects[0].Data;
-                }
-                set
-                {
-                    TableAdapter.ConnectionAction(() => { TableAdapter.UpdateBinaryData(Id, value); });
-                }
-            }
 
             #endregion
         }

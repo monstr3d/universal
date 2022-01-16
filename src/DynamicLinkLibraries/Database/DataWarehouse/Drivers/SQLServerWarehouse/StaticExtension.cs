@@ -19,6 +19,9 @@ namespace SQLServerWarehouse
             return DataDictionary[g];
         }
 
+        static internal DataWarehouseContext Context
+        { get; set; }
+
 
         internal static string ConnectionString
         { get; set; }
@@ -52,7 +55,7 @@ namespace SQLServerWarehouse
                 if (method == null)
                 {
                     type = null;
-                }    
+                }
                 method.Invoke(component, new object[] { connection });
                 connection.Open();
                 action();
@@ -70,6 +73,19 @@ namespace SQLServerWarehouse
                 result[row.Id] = row.Name;
             }
             return result;
+        }
+
+        static internal byte[] GetData(this Guid id)
+        {
+            DataSetWarehouse.SelectBinaryDataTable selects = null;
+            var adapter = new SelectBinaryTableAdapter();
+            adapter.ConnectionAction(() => { selects = adapter.GetData(id); });
+            return selects[0].Data;
+        }
+
+        static internal void SetData(this Guid id, byte[] data)
+        {
+            TableAdapter.ConnectionAction(() => { TableAdapter.UpdateBinaryData(id, data); });
         }
     }
 }

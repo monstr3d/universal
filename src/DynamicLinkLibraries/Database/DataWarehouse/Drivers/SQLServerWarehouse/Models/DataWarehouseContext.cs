@@ -21,6 +21,7 @@ namespace SQLServerWarehouse
         public virtual DbSet<BinaryTable> BinaryTables { get; set; }
         public virtual DbSet<BinaryTree> BinaryTrees { get; set; }
         public virtual DbSet<ViewBinaryTableId> ViewBinaryTableIds { get; set; }
+        public virtual DbSet<ViewBinaryTableInfo> ViewBinaryTableInfos { get; set; }
         public virtual DbSet<ViewBinaryTreeId> ViewBinaryTreeIds { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -28,7 +29,8 @@ namespace SQLServerWarehouse
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("Server=IVANKOV\\SQLExpress;Database=AstronomyExpress;Trusted_Connection=True;");
+                optionsBuilder.UseSqlServer(StaticExtension.ConnectionString);
+                    //"Server=IVANKOV\\SQLExpress;Database=AstronomyExpress;Trusted_Connection=True;");
             }
         }
 
@@ -101,6 +103,21 @@ namespace SQLServerWarehouse
                 entity.HasNoKey();
 
                 entity.ToView("ViewBinaryTableId");
+            });
+
+            modelBuilder.Entity<ViewBinaryTableInfo>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.ToView("ViewBinaryTableInfo");
+
+                entity.Property(e => e.Description)
+                    .IsRequired()
+                    .HasMaxLength(300);
+
+                entity.Property(e => e.Name)
+                    .IsRequired()
+                    .HasMaxLength(50);
             });
 
             modelBuilder.Entity<ViewBinaryTreeId>(entity =>
