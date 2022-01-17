@@ -5072,7 +5072,7 @@ We suppose that $\supp {f}_{{x}_0}$ is connected.
 
 \paragraph*{}
 
-Let $\sX$ be a locally compact, locally connected, Hausdorff space, and let $\sY \subset\sX$ be a compact subset. Suppose that for any $x\in\sX$ an open connected neighborhood $\sV_x \subset \sX$ is selected, so there is a family 
+Let $\sX$ be a locally compact, locally connected, Hausdorff space, and let $\sY \subset\sX$ be a compact subset. Suppose that for any $x\in\sX$ there is an open connected neighborhood $\sV_x \subset \sX$ is selected, so there is a family 
 \be\label{top_vx_eqn}
 \left\{\sV_x\right\}_{x\in\sX}.
 \ee
@@ -5099,13 +5099,13 @@ then
 If $\sY$ is connected the a covering sum for $\sY$ is connected since $\supp f_{x_j}$ is connected for all $j = 1,..., n$.
 \end{remark}
 \begin{remark}
-Sometimes instead of \eqref{top_cfs_eqn} we use the following notation for a finite sum
+Sometimes instead of \eqref{top_cfs_eqn} we use the following notation for a covering  sum
 \be\label{top_cfsa_eqn}
 \sum_{\a\in \mathscr A} a_\a
 \ee
 where $\mathscr A$ is a finite set.
 \end{remark}
-\begin{definition}\label{top_cfs_sub_defn}
+\begin{definition}\label{top_covering_sum_domi_defn}
 Let $p:\widetilde\sX \to \sX$ be a covering. Let both $\sY\subset\sX$ and $\widetilde\sY\subset\widetilde\sX$ are compact subsets. A covering sum $\sum_{j = 1}^n f_j$ for $\sY$ (cf. Definition \ref{top_covering_sum_defn}) is said to be \textit{subordinated to} $p$ if for all $j=1,..., n$ the set $\left\{\left.x\in\sX\right|f_j\left( x\right)>  0 \right\}$ is evenly covered by $p$ (cf. Definition \ref{comm_cov_pr_defn}). A covering sum $\sum_{j = 1}^n \widetilde f_j$ for $\widetilde \sY$ is said to be \textit{subordinated to} $p$ if for all $j=1,..., n$ the set $\widetilde\sU_j\bydef \left\{\left.\widetilde x\in\widetilde\sX\right|\widetilde f_j\left(\widetilde x\right)>  0 \right\}$ is homeomorphically mapped onto $p\left(\widetilde\sU_j\right)$. 
 \end{definition}
 
@@ -5129,7 +5129,7 @@ From the above construction it follows that for any compact subset $\sY\subset\s
 	$$
 	\sU_\a \bydef  f^{-1}_\a\left(1 \right) \quad \a\in \a\in \mathscr A
 	$$
-	then $\sU_\a$ is a closed subset of compact set. There is a partial order on $\mathscr A$
+	then $\sU_\a$ is a closed subset of compact set. There is a partial order (cf. Definition \ref{ord_defn}) on $\mathscr A$
 	such that
 	\be\label{top_ord01_eqn}
 	\forall\bt, \ga \in \mathscr A\quad \bt \le \ga \quad \Leftrightarrow\quad f^{-1}_\bt\left(1 \right)\subset f^{-1}_\ga\left(1 \right)
@@ -5149,9 +5149,11 @@ If $\left\{f_\a\right\}_{\a\in \mathscr A}\subset C_c\left(\sX \right)$ is the d
 \end{lemma}
 \begin{proof}
 	(i) Follows from the Remark \ref{top_cfs_rem}.\\
-(ii)For all  $\bt, \ga \in \mathscr A$ the set $f_\bt^{-1}\left( 	1\right)\cup f_\ga^{-1}\left( 	1\right)$ is compact, so from (i) there is $\a\in \mathscr A$ such that $f_\a\left(f_\bt^{-1}\left( 	1\right)\cup f_\ga^{-1}\left( 	1\right) \right)= \{1\}$. \\
+(ii) For all  $\bt, \ga \in \mathscr A$ the set $f_\bt^{-1}\left( 	1\right)\cup f_\ga^{-1}\left( 	1\right)$ is compact, so from (i) there is $\a\in \mathscr A$ such that $f_\a\left(f_\bt^{-1}\left( 	1\right)\cup f_\ga^{-1}\left( 	1\right) \right)= \{1\}$. \\
 (iii) A point-wise limit 	$1_{C_b\left( \sX\right) }= \lim_{\a \in \mathscr A }f_\a$ is clear. If  $g\in C_c\left( \sX\right)$ then there is $\a_0\in   \mathscr A$ such that $\supp g \subset f^{-1}_\a\left( 1\right)$ for all $\a\ge\a_0$. So one has $\a \ge \a_0 \Rightarrow f_a g = g$, it turns out that there is the following $C^*$-norm limit $\lim_{\a \in \mathscr A }f_\a g = g$. The limit is true for all $g \in  C_c\left( \sX\right)$ since $C_c\left( \sX\right)$ is dense in $C_0\left( \sX\right)$ one has $C^*$-norm limit $\lim_{\a \in \mathscr A }f_\a h = \lim_{\a \in \mathscr A }hf_\a= h$  for all $h \in  C_0\left( \sX\right)$. From the Definition \ref{strict_topology} it follows that there is the strict limit $	1_{C_b\left( \sX\right) }= \bt$-$\lim_{\a \in \mathscr A }f_\a$
 \end{proof}
+
+
 
 \section{Transitive coverings}
 \paragraph*{}
@@ -5260,7 +5262,7 @@ The notion of "regular covering" has no any good noncommutative generalization. 
 \end{proof}
 \begin{definition}\label{top_gen_path_defn}
 	Let $\sX$ be a connected, locally connected, locally compact, Hausdorff space.
-	Let $\left\{\sU_\a\right\}_{\a \in \mathscr A}$ be a family of connected open subsets of $\sX$, such that $\sX = \cup~ \sU_\a$ and for all $\a$ the closure of $\sU_\a$ is compact. An ordered finite subset $\left(\sU_{\a_1},...,\sU_{\a_n}\right)$ of the family $\left\{\sU_\a\right\}$ is said to be an  $\left\{\sU_\a\right\}$-\textit{path} if  $\sU_{\a_j}\cap \sU_{\a_{j+1}}\neq \emptyset$ for all $j = 1,...,n-1$. 
+	Let $\mathfrak{A}\bydef\left\{\sU_\a\right\}_{\a \in \mathscr A}$ be a family of connected open subsets of $\sX$, such that $\sX = \cup~ \sU_\a$ and for all $\a$ the closure of $\sU_\a$ is compact. An ordered finite subset $\left(\sU_{\a_1},...,\sU_{\a_n}\right)$ of the family $\left\{\sU_\a\right\}$ is said to be an  $\left\{\sU_\a\right\}$-\textit{path} if  $\sU_{\a_j}\cap \sU_{\a_{j+1}}\neq \emptyset$ for all $j = 1,...,n-1$. 
 \end{definition}
 \begin{remark}
 	There is an involution * on the set of paths such that
@@ -5512,17 +5514,15 @@ $$
 	We say that $\mathfrak{FinCov}$-$\left( \sX, x_0\right)$ is the \textit{topological pointed finite covering category} of $\left( \sX, x_0\right)$.  
 \end{definition}
 \begin{remark}
-	The category $\mathfrak{FinCov}$-$\left( \sX, x_0\right)$ is a skeleton (cf. Definition \ref{skeleton_defn}) of  $\mathfrak{FinCov}$-$\sX$.
-\end{remark}
-\begin{remark}
-	If both $p_1:\left( \widetilde\sX_1, \widetilde x^1_0\right)\to \left( \sX, x_0\right)$ and  $p_2:\left( \widetilde\sX_2, \widetilde x^2_0\right)\to \left( \sX, x_0\right)$ are objects of $\mathfrak{FinCov}$-$\left( \sX, x_0\right)$ then there is no more than one morphism from $p_1$ to $p_2$.
+		If both $p_1:\left( \widetilde\sX_1, \widetilde x^1_0\right)\to \left( \sX, x_0\right)$ and  $p_2:\left( \widetilde\sX_2, \widetilde x^2_0\right)\to \left( \sX, x_0\right)$ are objects of $\mathfrak{FinCov}$-$\left( \sX, x_0\right)$ then there is no more than one morphism from $p_1$ to $p_2$.
+So the category $\mathfrak{FinCov}$-$\left( \sX, x_0\right)$ is a skeleton (cf. Definition \ref{skeleton_defn}) of  $\mathfrak{FinCov}$-$\sX$.
 \end{remark}
 
 
 
 
 \begin{lemma}\label{top_conn_cov_lem}
-	Let $\sX$ be a  connected, locally connected, locally compact, Hausdorff space, and let $p:\widetilde \sX\to \sX$ be a transitive covering. If $\sU \subset \sX$ is a connected open subspace then the restriction $p|_{\widetilde{\sU}}: \widetilde{\sU}\to {\sU}$ is a transitive covering. Moreover  the map
+	Let $\sX$ be a  connected, locally connected, locally compact, Hausdorff space, and let $p:\widetilde \sX\to \sX$ be a transitive covering. If $ \sU \subset  \sX$ is a connected open subspace and the preimage $\widetilde\sU \bydef p^{-1}\left(\sU \right)$ is connected then the restriction $p|_{\widetilde{\sU}}: \widetilde{\sU}\to {\sU}$ is a transitive covering. Moreover  the map
 	\be\label{top_res_iso_eqn}
 	\begin{split}
 		h:	G\left(\left. \widetilde{   \sX }~\right|\sX\right)\to G\left(\left. \widetilde{   \sU }~\right|\sU\right),\\
@@ -5531,6 +5531,7 @@ $$
 	\ee
 	is the isomorphism of groups.
 \end{lemma}
+!!! CONTINUE
 \begin{proof}
 	The covering $p$ is transitive, hence if  $\widetilde x_0 \in \widetilde{   \mathcal U }$ then there is a bijection
 	$$
@@ -5542,9 +5543,7 @@ $$
 	{\widetilde{   x}} \mapsto g_{\widetilde{   x}'}.
 	\eean
 	Since $\widetilde{   \mathcal U }$ is connected and $G\left( \widetilde{   \mathcal X }~|~\sX\right)$ is a discrete group of homeomorphisms the map is constant, so that there is the unique $g \in G\left(\left. \widetilde{   \sX }~\right|\sX\right)$ such that $g' = g|_{\widetilde{\sU}}$, i.e. the map $h$ is surjective.
-	
 \end{proof}
-
 
 
 
@@ -6476,7 +6475,7 @@ If $\sX$ is a compact Hausdorff space and $p: \widetilde\sX \to \sX$ is a transi
 		\be\nonumber
 1_{C\left(\widetilde{\mathcal X} \right) }= \sum_{\widetilde\a \in \widetilde{\mathscr A} }\widetilde{a}_{\widetilde{\a}}\quad \widetilde{a}_{\widetilde{\a}}\in C\left(\widetilde \sX\right)
 \ee
-be a subordinated to $p$ covering sum for $\widetilde{\mathcal X}$ (cf. Definitions \ref{top_covering_sum_defn}, \ref{top_cfs_sub_defn} and the equation\eqref{top_cfsa_eqn}). If $\widetilde{e}_{\widetilde{\a}}\bydef \sqrt{\widetilde{a}_{\widetilde{\a}}}\in C\left(\widetilde \sX\right)$ then one has
+be a subordinated to $p$ covering sum for $\widetilde{\mathcal X}$ (cf. Definitions \ref{top_covering_sum_defn}, \ref{top_covering_sum_domi_defn} and the equation\eqref{top_cfsa_eqn}). If $\widetilde{e}_{\widetilde{\a}}\bydef \sqrt{\widetilde{a}_{\widetilde{\a}}}\in C\left(\widetilde \sX\right)$ then one has
 		\be\label{top_ea_eqn}
 		\begin{split}
 		1_{C\left(\widetilde{\mathcal X} \right) }= \sum_{\widetilde\a \in \widetilde{\mathscr A} }\widetilde{e}^2_{\widetilde{\a}},\\
@@ -7161,7 +7160,7 @@ Otherwise from the equation \eqref{top_hom_eqn} it turns out that  $\widetilde \
 		where  $ \widetilde a_j\in A_c\left( \widetilde{   \mathcal X }\right)$ and the set $\widetilde \sU_j = \left\{\left.\widetilde x \in \widetilde{   \mathcal X}\right|\widetilde a_j\left(\widetilde x\right)\neq 0 \right\}$ is homeomorphically mapped onto $p\left( \widetilde \sU_j\right)$   for all $j = 1,..., m$. Moreover if	$\widetilde a$ is positive then one can select positive $\widetilde a_1,..., \widetilde a_m$. 
 \end{lemma}
 \begin{proof}
-If $\sum_{j=1}^m\widetilde f_j$ is  a subordinated to $p$ covering  sum for $\supp \widetilde  a$ (cf. Definitions  \ref{top_covering_sum_defn}  and  \ref{top_cfs_sub_defn}) then one has
+If $\sum_{j=1}^m\widetilde f_j$ is  a subordinated to $p$ covering  sum for $\supp \widetilde  a$ (cf. Definitions  \ref{top_covering_sum_defn}  and  \ref{top_covering_sum_domi_defn}) then one has
 $$
 	\widetilde a =  \widetilde f_{1}	\widetilde a 	  + ... +  \widetilde f_{m}	\widetilde a 
 $$
@@ -7173,7 +7172,7 @@ $$
 \end{proof}
 	\begin{empt}
 	Let $\sX$ be a locally compact, Hausdorff space; and for each $x$ in $\sX$, let $A_x$ be a (complex) Banach space. Let us consider a continuity structure $\sF$ for $\sX$. If $p: \widetilde \sX \to \sX$ is a covering then $C_c\left(\widetilde \sX\right)$ is a  $C_0\left( \sX\right)$-module.  Let $\widetilde f \in C_c\left( \widetilde \sX\right)$ and let 
-	$\sum_{l=1}^m \widetilde a_l$ be a subordinated to  $p$ covering sum for $\supp\widetilde f$ (cf. Definitions \ref{top_covering_sum_defn} and \ref{top_cfs_sub_defn}). Without loss of generality  one can suppose that for all $l=1,...,m$ there is an open subset $\widetilde \sU_l$ such that $ \supp \widetilde a_l\subset  \widetilde \sU_l$ and $ \widetilde \sU_l$ is homeomorphically mapped onto $p\left( \widetilde \sU_l \right)$. If $\xi \in C_c\left( \lift_p\left[C\left(\sX, 
+	$\sum_{l=1}^m \widetilde a_l$ be a subordinated to  $p$ covering sum for $\supp\widetilde f$ (cf. Definitions \ref{top_covering_sum_defn} and \ref{top_covering_sum_domi_defn}). Without loss of generality  one can suppose that for all $l=1,...,m$ there is an open subset $\widetilde \sU_l$ such that $ \supp \widetilde a_l\subset  \widetilde \sU_l$ and $ \widetilde \sU_l$ is homeomorphically mapped onto $p\left( \widetilde \sU_l \right)$. If $\xi \in C_c\left( \lift_p\left[C\left(\sX, 
 	\left\{A_x\right\}, \sF \right)\right]\right)$ the we define
 \be\label{top_xi_eqn}
 \widetilde \xi \bydef \sum_{l=1}^m \widetilde f\sqrt{\widetilde a_l} \lift^p_{\widetilde{\sU}_l}\left(\desc_p\left( \sqrt{\widetilde a_l}\right) \xi \right) 
@@ -7218,7 +7217,7 @@ i.e. $\phi$ is a homomorphism of left $C_0\left(\widetilde \sX\right)$-modules b
 Let $\sum_{j =1}^n \widetilde f_j \otimes \xi_j$ be any element in  $C_c\left(\widetilde \sX\right)\otimes_{C_0\left( \sX\right)}C\left(\sX, 
 \left\{A_x\right\}, \sF \right)$. 
 The finite union $\widetilde \sY \bydef \cup_{j=1}^n \supp \widetilde f_j$ of compact sets is compact. Let 
-$\sum_{l=1}^m \widetilde a_m$ be a subordinated to  $p$ covering sum for $\widetilde \sY$ (cf. Definitions \ref{top_covering_sum_defn} and \ref{top_cfs_sub_defn}). Without loss of generality  one can suppose that for all $l=1,...,m$ there is an open subset $\widetilde \sU_l \subset \widetilde\sX$ such that $\supp \widetilde a_l\subset  \widetilde \sU_l$ and $ \widetilde \sU_l$ is homeomorphically mapped onto $p\left( \widetilde \sU_l \right)$. 
+$\sum_{l=1}^m \widetilde a_m$ be a subordinated to  $p$ covering sum for $\widetilde \sY$ (cf. Definitions \ref{top_covering_sum_defn} and \ref{top_covering_sum_domi_defn}). Without loss of generality  one can suppose that for all $l=1,...,m$ there is an open subset $\widetilde \sU_l \subset \widetilde\sX$ such that $\supp \widetilde a_l\subset  \widetilde \sU_l$ and $ \widetilde \sU_l$ is homeomorphically mapped onto $p\left( \widetilde \sU_l \right)$. 
 From the  equation \eqref{top_xi_eqn} it turns out that
 	\be\label{top_tensore_lcfam_eqn}
 	\begin{split}
@@ -7247,7 +7246,7 @@ It turns out that the map $\phi$ is injective. \\
 	\left\{A_x\right\}, \sF \right)\right]\right)$ the set $\supp \widetilde \xi$ is compact. If  $
 	\sum_{l=1 }^k\widetilde{a}'_l
 	$
-	is a subordinated to $p$ covering sum of compact set $\supp\widetilde \xi$ (cf. Definitions \ref{top_covering_sum_defn} and  \ref{top_cfs_sub_defn}) then one has
+	is a subordinated to $p$ covering sum of compact set $\supp\widetilde \xi$ (cf. Definitions \ref{top_covering_sum_defn} and  \ref{top_covering_sum_domi_defn}) then one has
 	$$
 	\widetilde \xi= \sum_{l=1 }^k\widetilde{a}'_l \widetilde \xi= \sum_{l=1 }^k\widetilde{e}'_l\widetilde{e}'_l \widetilde \xi=\sum_{l=1 }^k\widetilde{e}'_l\desc_p\left( \widetilde{e}'_l  \widetilde \xi \right).
 	$$
@@ -8219,7 +8218,7 @@ If both $\Coo\left(M \right)_{\slashed D}\subset \L^\dagger \left(\D \right)$ an
 	Here we construct a relevant to commutative spectral triples connection which is  a specialization of the described in  \ref{triple_conn_lift_empt} !!! CHANGE one. A noncommutative finite-fold covering of $O^*$-algebras $$
 	\left(\Coo\left(M\right), \Coo\left(\widetilde M\right), G\left(\left. \widetilde M \right|M \right), \left.\pi_\Dslash\right|_{\Coo\left(M\right)} \right)$$
 	(cf. Definition \ref{fino*_defn}) is a specialization of a described in \ref{triple_conn_lift_empt} !!! CHANGE quadruple $$\left(\A, \widetilde \A, G\left( \left.\widetilde \A~\right| \A\right), \pi  \right).$$ We already know that the space of the induced by the pair\\ $\left(C\left(M \right)\to B\left(  L^2\left(M,S \right)\right) ,\left(C\left(M \right) , C\left( \widetilde{M}\right) , G\left( \left.\widetilde{M}~\right|M\right) \right)  \right)$ representation is naturally isomorphic to  $L^2\left( \widetilde M,\widetilde S\right)$.
-	The space $M$ is compact so there is is a subordinated to  $p:\widetilde{M}\to{M}$ covering sum for $M$ (cf. Definitions \ref{top_covering_sum_defn}, \ref{top_cfs_sub_defn}).
+	The space $M$ is compact so there is is a subordinated to  $p:\widetilde{M}\to{M}$ covering sum for $M$ (cf. Definitions \ref{top_covering_sum_defn}, \ref{top_covering_sum_domi_defn}).
 	\be\label{top_ta_eqn}
 	\sum_{g \in G\left(\left.\widetilde{M}~\right|M\right),~ \a \in \mathscr A  } g\widetilde{a}_\a = 1_{C\left(\widetilde{M} \right) }.
 	\ee
@@ -10239,7 +10238,7 @@ For any $\eps > 0$ the set
 $$
 \widetilde\sY\bydef \left\{ \widetilde x\in \widetilde\sX \left|\left| \widetilde a\left(\widetilde x\right) \right|\ge \frac{\eps}{2} \right.\right\}
 $$
-If  $ \widetilde p: \widetilde\sX \to \sX$ is the natural covering and  $\sum_{j = 1}^n f_j$  is a covering sum for $\widetilde\sY$ {subordinated to} $\widetilde p$ (cf. Definition \ref{top_cfs_sub_defn}). then one has
+If  $ \widetilde p: \widetilde\sX \to \sX$ is the natural covering and  $\sum_{j = 1}^n f_j$  is a covering sum for $\widetilde\sY$ {subordinated to} $\widetilde p$ (cf. Definition \ref{top_covering_sum_domi_defn}). then one has
 $$
 \left\|  \widetilde a -  \widetilde a\sum_{j = 1}^n f_j\right\| < \eps.
 $$
@@ -10250,7 +10249,7 @@ From the above equation it turns out that
 On the other hang $h_{f_j \widetilde a, g}=\theta_{\sqrt{f_j}, g\left( \sqrt{f_j}\widetilde{a}\right)  } = \sqrt{f_j}\left\rangle \right\langle g\left( \sqrt{f_j}\widetilde{a}\right)$ is a rank-one operator (cf. equation \eqref{rank_one_eqn}). 
 The number $\eps$ is arbitrary small, so from the equation  \eqref{top_hg_e_eqn} and the Definition \ref{comp_aop_defn} one concludes that 	$h_{\widetilde{a}, g}$ is compact, i.e. 
 $h_{\widetilde{a}, g}\in \K\left(X_{C_0\left( \sX\right) } \right)$. Since $C_c\left(G\left(\widetilde{\sX}~|~ \mathcal X\right), C_0\left( \widetilde{\sX}\right) \right)$ is generated  by operators $h_{\widetilde{a}, g}$ one has $C_c\left(G\left(\widetilde{\sX}~|~ \mathcal X\right), C_0\left( \widetilde{\sX}\right) \right) \subset \K\left(X_{C_0\left( \sX\right) } \right)$.\\
-(b) If $\widetilde a, \widetilde b \in K\left(C_0\left( \widetilde{\sX}\right)  \right) = C_c\left( \widetilde{\sX}\right)$ then both sets $\supp\widetilde a$ and  $\supp\widetilde b$ are compact. Let  $ \widetilde p: \widetilde\sX \to \sX$ be the natural covering and  $\sum_{j = 1}^n f_j$  is a covering sum for $\supp \widetilde a$ {subordinated to} $\widetilde p$ (cf. Definition \ref{top_cfs_sub_defn}).
+(b) If $\widetilde a, \widetilde b \in K\left(C_0\left( \widetilde{\sX}\right)  \right) = C_c\left( \widetilde{\sX}\right)$ then both sets $\supp\widetilde a$ and  $\supp\widetilde b$ are compact. Let  $ \widetilde p: \widetilde\sX \to \sX$ be the natural covering and  $\sum_{j = 1}^n f_j$  is a covering sum for $\supp \widetilde a$ {subordinated to} $\widetilde p$ (cf. Definition \ref{top_covering_sum_domi_defn}).
 If $j \in \left\{1,..., n\right\}$ and the set
 $$
 G_j \bydef \left\{\left. g G\left(\widetilde{\sX}~|~ \mathcal X\right)\in \right| g\supp f_j \cap \supp \widetilde b\neq \emptyset \right\}
@@ -10403,7 +10402,7 @@ of left $C_0\left(\widetilde M \right)$-modules.
 \end{proof}
 
 \begin{empt} 
-	If $\widetilde{a} \otimes \xi, \widetilde{b} \otimes \eta \in C_c\left(\widetilde{M} \right) \otimes_{C\left(M \right) } \Ga\left( M, S\right) \subset L^2\left(\widetilde{M},\widetilde{S} \right)$  then $\supp \widetilde{a}$ is compact, so there exists a subordinated to $\widetilde p$ {covering sum} for $\supp \widetilde{a}$ (cf. Definitions \ref{top_covering_sum_defn} and \ref{top_cfs_sub_defn}) 
+	If $\widetilde{a} \otimes \xi, \widetilde{b} \otimes \eta \in C_c\left(\widetilde{M} \right) \otimes_{C\left(M \right) } \Ga\left( M, S\right) \subset L^2\left(\widetilde{M},\widetilde{S} \right)$  then $\supp \widetilde{a}$ is compact, so there exists a subordinated to $\widetilde p$ {covering sum} for $\supp \widetilde{a}$ (cf. Definitions \ref{top_covering_sum_defn} and \ref{top_covering_sum_domi_defn}) 
 	\bean
 	\sum_{\widetilde \a\in \widetilde{\mathscr A}} \widetilde a_{\widetilde\a}.
 	\eean
