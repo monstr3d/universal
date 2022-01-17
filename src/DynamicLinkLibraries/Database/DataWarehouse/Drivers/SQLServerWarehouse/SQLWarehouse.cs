@@ -38,7 +38,7 @@ namespace SQLServerWarehouse
         internal SQLWarehouse(string connectionString)
         {
             /*  
- Scaffold-DbContext "Server=IVANKOV\SQLExpress;Database=AstronomyExpress;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models3 -Verbose
+ Scaffold-DbContext "Server=IVANKOV\SQLExpress;Database=AstronomyExpress;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models -Verbose
             
             */
             //load(connectionString);
@@ -95,24 +95,14 @@ namespace SQLServerWarehouse
 
         }
 
-
         static private IDatabaseInterface GetInterface(string connectionString)
-        { 
-            StaticExtension.ConnectionString = connectionString;
-            var tableAdapter = new QueriesTableAdapter();
-            StaticExtension.TableAdapter = tableAdapter;
-            //  return tableAdapter;
-            return GetContext();
-        }
-
-        static private DataWarehouseContext GetContext()
         {
-            var context = new DataWarehouseContext();
-            StaticExtension.Context = context;
-            context.Init();
-            return context;
+            var tableAdapter = new QueriesTableAdapter();
+            StaticExtension.ConnectionString = connectionString;
+            StaticExtension.TableAdapter = tableAdapter;
+            Refresh();
+            return tableAdapter;
         }
-
 
         #endregion
 

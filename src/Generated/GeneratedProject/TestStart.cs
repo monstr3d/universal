@@ -24,8 +24,8 @@ namespace GeneratedProject
         static TestStart()
         {
             string[] fn = new string[] { "RigidBodyStation", "EarthMotion" };
-            string fileName = @"F:\0Unity\Motion\Assets\Scripts\GeneratedProject\";
-
+            string fileName = @"E:\0Unity\Motion\Assets\Scripts\GeneratedProject\";
+            return;
 
             StaticExtensionDiagramUI.OnCreateCode += (List<string> l) =>
                 {

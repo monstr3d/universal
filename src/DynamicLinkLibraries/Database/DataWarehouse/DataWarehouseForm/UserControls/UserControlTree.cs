@@ -112,7 +112,7 @@ namespace DataWarehouse.UserControls
         {
             var n = nodes[node];
             n.Remove();
-            /*
+            /*  !!! OLD CODE
             Func<INode, TreeNode, bool> f = (INode n, TreeNode tn)
                 =>
                 {
