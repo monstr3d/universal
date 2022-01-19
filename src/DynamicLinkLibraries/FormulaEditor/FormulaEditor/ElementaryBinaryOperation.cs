@@ -142,7 +142,7 @@ namespace FormulaEditor
                 List<ObjectFormulaTree> l = new List<ObjectFormulaTree>();
                 for (int i = 0; i < tree.Count; i++)
                 {
-                    ObjectFormulaTree t = tree[i].Derivation(variableName);
+                    ObjectFormulaTree t = tree[i].Derivation(variableName); // Derivations of children
                     b[i] = ZeroPerformer.IsZero(t);
                     l.Add(t);
                 }
@@ -164,7 +164,7 @@ namespace FormulaEditor
                 {
                     return l[0];
                 }
-                return new ObjectFormulaTree(op, l);
+                return new ObjectFormulaTree(op, l);  // Resulting tree
             }
             ObjectFormulaTree[] der = new ObjectFormulaTree[2];
             for (int i = 0; i < 2; i++)
