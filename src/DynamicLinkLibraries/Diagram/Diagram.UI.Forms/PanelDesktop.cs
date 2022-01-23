@@ -2131,8 +2131,6 @@ namespace Diagram.UI
             }
         }
 
-
-
         /// <summary>
         /// Refreshs itself
         /// </summary>

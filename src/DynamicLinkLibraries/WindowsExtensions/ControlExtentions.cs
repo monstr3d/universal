@@ -31,10 +31,9 @@ namespace WindowsExtensions
         {
             using (Internal.EnabledLock l = new Internal.EnabledLock(controls))
             {
-               action();
+                action();
             }
         }
-
 
         /// <summary>
         /// Enabled lock execution of action
@@ -43,7 +42,7 @@ namespace WindowsExtensions
         /// <param name="action">Action for execution</param>
         public static void EnabledLock(this object control, Action action)
         {
-            (new object[]{control}).EnabledLock(action);
+            (new object[] { control }).EnabledLock(action);
         }
 
         /// <summary>
@@ -59,7 +58,6 @@ namespace WindowsExtensions
             }
         }
 
-
         /// <summary>
         /// Modal message box implementation
         /// </summary>
@@ -74,7 +72,6 @@ namespace WindowsExtensions
                 modalMessageBox = value;
             }
         }
-
 
         /// <summary>
         /// Invokes action if needed
@@ -166,9 +163,6 @@ namespace WindowsExtensions
             doit(arg1, arg2, arg3);
         }
 
-  
-
-
         /// <summary>
         /// Invokes action if needed
         /// </summary>
@@ -207,7 +201,6 @@ namespace WindowsExtensions
             return modalMessageBox.Show(text);
         }
 
-
         /// <summary>
         /// Modal show of dialog
         /// </summary>
@@ -215,7 +208,7 @@ namespace WindowsExtensions
         /// <param name="caption">Caption</param>
         /// <returns>Dialog result</returns>
         public static DialogResult ShowMessageBoxModal(string text,
-    string caption)
+            string caption)
         {
             return modalMessageBox.Show(text, caption);
         }
@@ -227,7 +220,7 @@ namespace WindowsExtensions
         /// <param name="text">Text</param>
         /// <returns>Dialog result</returns>
         public static DialogResult ShowMessageBoxModal(IWin32Window owner,
-    string text)
+            string text)
         {
             return modalMessageBox.Show(owner, text);
         }
@@ -240,8 +233,8 @@ namespace WindowsExtensions
         /// <param name="caption">Caption</param>
         /// <returns>Dialog result</returns>
         public static DialogResult ShowMessageBoxModal(IWin32Window owner,
-    string text,
-    string caption)
+            string text,
+            string caption)
         {
             return modalMessageBox.Show(owner, text, caption);
         }
@@ -254,12 +247,12 @@ namespace WindowsExtensions
         /// <param name="buttons">Message box buttons</param>
         /// <returns>Dialog result</returns>
         public static DialogResult ShowMessageBoxModal(
-    string text,
-    string caption,
-    MessageBoxButtons buttons
+            string text,
+            string caption,
+            MessageBoxButtons buttons
 )
         {
-            return WindowsExtensions.ControlExtensions.ShowMessageBoxModal(text, caption, buttons);
+            return ControlExtensions.ShowMessageBoxModal(text, caption, buttons);
         }
 
         /// <summary>
@@ -271,10 +264,10 @@ namespace WindowsExtensions
         /// <param name="buttons">Message box buttons</param>
         /// <returns>Dialog result</returns>
         public static DialogResult ShowMessageBoxModal(
-    IWin32Window owner,
-    string text,
-    string caption,
-    MessageBoxButtons buttons
+            IWin32Window owner,
+            string text,
+            string caption,
+            MessageBoxButtons buttons
 )
         {
             return modalMessageBox.Show(owner, text, caption, buttons);
@@ -289,8 +282,8 @@ namespace WindowsExtensions
         /// <param name="icon">Message box icon</param>
         /// <returns>Dialog result</returns>
         public static DialogResult ShowMessageBoxModal(
-    string text,
-    string caption,
+            string text,
+            string caption,
     MessageBoxButtons buttons,
     MessageBoxIcon icon
 )
@@ -313,7 +306,7 @@ namespace WindowsExtensions
     string caption,
     MessageBoxButtons buttons,
     MessageBoxIcon icon
-)
+        )
         {
             return modalMessageBox.Show(owner, text, caption, buttons, icon);
         }
@@ -377,9 +370,6 @@ namespace WindowsExtensions
         {
             return modalMessageBox.Show(text, caption, buttons, icon, defaultButton, options);
         }
-
-
-
 
         /// <summary>
         /// Modal show of dialog
@@ -632,7 +622,7 @@ namespace WindowsExtensions
     MessageBoxOptions options,
     string helpFilePath,
     HelpNavigator navigator,
-    Object param
+    object param
 )
         {
             return modalMessageBox.Show(owner, text, caption, buttons, icon, defaultButton, options, helpFilePath, navigator, param);

@@ -6,11 +6,9 @@ using System.Xml;
 using System.Data.SqlClient;
 
 
-using DataWarehouse;
 using DataWarehouse.Interfaces;
 using SQLServerWarehouse.DataSetWarehouseTableAdapters;
-using System.Data.Common;
-using static SQLServerWarehouse.DataSetWarehouse;
+
 
 namespace SQLServerWarehouse
 {
@@ -38,7 +36,7 @@ namespace SQLServerWarehouse
         internal SQLWarehouse(string connectionString)
         {
             /*  
- Scaffold-DbContext "Server=IVANKOV\SQLExpress;Database=AstronomyExpress;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models -Verbose
+ Scaffold-DbContext "Server=IVANKOV\SQLExpress;Database=AstronomyExpress1;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models3 -Verbose
             
             */
             //load(connectionString);
@@ -71,7 +69,7 @@ namespace SQLServerWarehouse
             dicTree.Clear();
             List<IDirectory> roots = StaticExtension.Roots;
             roots.Clear();
-            foreach (SelectBinaryTreeRow row in dataTree.Rows)
+            foreach (DataSetWarehouse.SelectBinaryTreeRow row in dataTree.Rows)
             {
                 if (row.Id == row.ParentId)
                 {
@@ -79,7 +77,7 @@ namespace SQLServerWarehouse
                 }
                 dicTree[row.Id] = row;
             }
-            foreach (SelectBinaryTreeRow row in dicTree.Values)
+            foreach (DataSetWarehouse.SelectBinaryTreeRow row in dicTree.Values)
             {
                 if (!roots.Contains(row))
                 {
@@ -87,7 +85,7 @@ namespace SQLServerWarehouse
                     parent.Add(row);
                 }
             }
-            foreach (SelectBinaryTableRow row in dataTable.Rows)
+            foreach (DataSetWarehouse.SelectBinaryTableRow row in dataTable.Rows)
             {
                 var parent = dicTree[row.ParentId];
                 parent.Add(row);
@@ -100,8 +98,29 @@ namespace SQLServerWarehouse
             var tableAdapter = new QueriesTableAdapter();
             StaticExtension.ConnectionString = connectionString;
             StaticExtension.TableAdapter = tableAdapter;
-            Refresh();
-            return tableAdapter;
+            //return QueriesTableAdapter;
+            return DataWarehouseContext;
+        }
+
+        static private QueriesTableAdapter QueriesTableAdapter
+        {
+            get
+
+            {
+                Refresh();
+                return StaticExtension.TableAdapter;
+            }
+        }
+
+        static private DataWarehouseContext DataWarehouseContext
+        {
+            get
+            {
+                var ctx = new DataWarehouseContext();
+                StaticExtension.Context = ctx;
+                ctx.Init();
+                return ctx;
+            }
         }
 
         #endregion

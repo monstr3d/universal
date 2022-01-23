@@ -288,7 +288,7 @@ namespace DataWarehouse.Forms
                     return;
                 }
                 DialogResult res = WindowsExtensions.ControlExtensions.ShowMessageBoxModal(
-                    ResourceService.Resources.ContainsControlResource(DoYowWantDelete, ControlUtilites.Resources) +
+                    Resources.GetControlResource(DoYowWantDelete, ControlUtilites.Resources) +
                     "\"" + selected.Name + "\"" + "?", "",
                     MessageBoxButtons.OKCancel, MessageBoxIcon.None, MessageBoxDefaultButton.Button1,
                     MessageBoxOptions.DefaultDesktopOnly);
@@ -309,8 +309,6 @@ namespace DataWarehouse.Forms
             {
                 WindowsExtensions.ControlExtensions.ShowMessageBoxModal(ex.Message);
             }
-
-
         }
 
         private void buttonRefresh_Click(object sender, EventArgs e)

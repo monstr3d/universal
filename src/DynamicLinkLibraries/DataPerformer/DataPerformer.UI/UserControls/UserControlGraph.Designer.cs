@@ -183,8 +183,8 @@ namespace DataPerformer.UI.UserControls
             // panelBottom
             // 
             this.panelBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelBottom.Location = new System.Drawing.Point(0, 392);
-            this.panelBottom.Margin = new System.Windows.Forms.Padding(4);
+            this.panelBottom.Location = new System.Drawing.Point(0, 490);
+            this.panelBottom.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panelBottom.Name = "panelBottom";
             this.panelBottom.Size = new System.Drawing.Size(635, 1);
             this.panelBottom.TabIndex = 9;
@@ -196,9 +196,9 @@ namespace DataPerformer.UI.UserControls
             this.panelCenter.Controls.Add(this.panelLeft);
             this.panelCenter.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelCenter.Location = new System.Drawing.Point(0, 0);
-            this.panelCenter.Margin = new System.Windows.Forms.Padding(4);
+            this.panelCenter.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panelCenter.Name = "panelCenter";
-            this.panelCenter.Size = new System.Drawing.Size(635, 393);
+            this.panelCenter.Size = new System.Drawing.Size(635, 491);
             this.panelCenter.TabIndex = 10;
             // 
             // panelDraw
@@ -208,9 +208,9 @@ namespace DataPerformer.UI.UserControls
             this.panelDraw.Controls.Add(this.toolStripMain);
             this.panelDraw.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelDraw.Location = new System.Drawing.Point(1, 0);
-            this.panelDraw.Margin = new System.Windows.Forms.Padding(4);
+            this.panelDraw.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panelDraw.Name = "panelDraw";
-            this.panelDraw.Size = new System.Drawing.Size(633, 393);
+            this.panelDraw.Size = new System.Drawing.Size(633, 491);
             this.panelDraw.TabIndex = 3;
             // 
             // tabControlMain
@@ -223,10 +223,10 @@ namespace DataPerformer.UI.UserControls
             this.tabControlMain.Controls.Add(this.tabPageCadr);
             this.tabControlMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControlMain.Location = new System.Drawing.Point(0, 28);
-            this.tabControlMain.Margin = new System.Windows.Forms.Padding(4);
+            this.tabControlMain.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabControlMain.Name = "tabControlMain";
             this.tabControlMain.SelectedIndex = 0;
-            this.tabControlMain.Size = new System.Drawing.Size(629, 361);
+            this.tabControlMain.Size = new System.Drawing.Size(629, 459);
             this.tabControlMain.TabIndex = 31;
             // 
             // tabPageGraph
@@ -235,11 +235,11 @@ namespace DataPerformer.UI.UserControls
             this.tabPageGraph.Controls.Add(this.panel2);
             this.tabPageGraph.Controls.Add(this.panel3);
             this.tabPageGraph.Controls.Add(this.panel5);
-            this.tabPageGraph.Location = new System.Drawing.Point(4, 25);
-            this.tabPageGraph.Margin = new System.Windows.Forms.Padding(4);
+            this.tabPageGraph.Location = new System.Drawing.Point(4, 29);
+            this.tabPageGraph.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabPageGraph.Name = "tabPageGraph";
-            this.tabPageGraph.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPageGraph.Size = new System.Drawing.Size(621, 332);
+            this.tabPageGraph.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tabPageGraph.Size = new System.Drawing.Size(621, 426);
             this.tabPageGraph.TabIndex = 0;
             this.tabPageGraph.Text = "Chart";
             this.tabPageGraph.UseVisualStyleBackColor = true;
@@ -247,8 +247,8 @@ namespace DataPerformer.UI.UserControls
             // panel1
             // 
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(5, 4);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4);
+            this.panel1.Location = new System.Drawing.Point(5, 5);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(611, 1);
             this.panel1.TabIndex = 32;
@@ -256,10 +256,10 @@ namespace DataPerformer.UI.UserControls
             // panel2
             // 
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel2.Location = new System.Drawing.Point(4, 4);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4);
+            this.panel2.Location = new System.Drawing.Point(4, 5);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1, 324);
+            this.panel2.Size = new System.Drawing.Size(1, 416);
             this.panel2.TabIndex = 28;
             // 
             // panel3
@@ -268,17 +268,17 @@ namespace DataPerformer.UI.UserControls
             this.panel3.Controls.Add(this.panel4);
             this.panel3.Controls.Add(this.panelIntLeft);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(4, 4);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4);
+            this.panel3.Location = new System.Drawing.Point(4, 5);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(612, 324);
+            this.panel3.Size = new System.Drawing.Size(612, 416);
             this.panel3.TabIndex = 31;
             // 
             // splitContainerGraph
             // 
             this.splitContainerGraph.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainerGraph.Location = new System.Drawing.Point(1, 0);
-            this.splitContainerGraph.Margin = new System.Windows.Forms.Padding(4);
+            this.splitContainerGraph.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.splitContainerGraph.Name = "splitContainerGraph";
             // 
             // splitContainerGraph.Panel1
@@ -292,7 +292,7 @@ namespace DataPerformer.UI.UserControls
             this.splitContainerGraph.Panel2.Controls.Add(this.panelMea);
             this.splitContainerGraph.Panel2.Controls.Add(this.panelMeaLeft);
             this.splitContainerGraph.Panel2.Controls.Add(this.panelMeaTop);
-            this.splitContainerGraph.Size = new System.Drawing.Size(611, 224);
+            this.splitContainerGraph.Size = new System.Drawing.Size(611, 291);
             this.splitContainerGraph.SplitterDistance = 359;
             this.splitContainerGraph.SplitterWidth = 5;
             this.splitContainerGraph.TabIndex = 28;
@@ -304,9 +304,9 @@ namespace DataPerformer.UI.UserControls
             this.panelGraph.Controls.Add(this.userControlRealtimeAnalysis);
             this.panelGraph.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelGraph.Location = new System.Drawing.Point(0, 0);
-            this.panelGraph.Margin = new System.Windows.Forms.Padding(4);
+            this.panelGraph.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panelGraph.Name = "panelGraph";
-            this.panelGraph.Size = new System.Drawing.Size(359, 224);
+            this.panelGraph.Size = new System.Drawing.Size(359, 291);
             this.panelGraph.TabIndex = 3;
             // 
             // userControlRealtimeAnalysis
@@ -314,26 +314,26 @@ namespace DataPerformer.UI.UserControls
             this.userControlRealtimeAnalysis.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.userControlRealtimeAnalysis.Dock = System.Windows.Forms.DockStyle.Fill;
             this.userControlRealtimeAnalysis.Location = new System.Drawing.Point(0, 0);
-            this.userControlRealtimeAnalysis.Margin = new System.Windows.Forms.Padding(5);
+            this.userControlRealtimeAnalysis.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.userControlRealtimeAnalysis.Name = "userControlRealtimeAnalysis";
-            this.userControlRealtimeAnalysis.Size = new System.Drawing.Size(357, 222);
+            this.userControlRealtimeAnalysis.Size = new System.Drawing.Size(357, 289);
             this.userControlRealtimeAnalysis.TabIndex = 0;
             this.userControlRealtimeAnalysis.Visible = false;
             // 
             // panelMeaRight
             // 
             this.panelMeaRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelMeaRight.Location = new System.Drawing.Point(246, 59);
-            this.panelMeaRight.Margin = new System.Windows.Forms.Padding(4);
+            this.panelMeaRight.Location = new System.Drawing.Point(246, 74);
+            this.panelMeaRight.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panelMeaRight.Name = "panelMeaRight";
-            this.panelMeaRight.Size = new System.Drawing.Size(1, 164);
+            this.panelMeaRight.Size = new System.Drawing.Size(1, 216);
             this.panelMeaRight.TabIndex = 29;
             // 
             // panelMeaBottom
             // 
             this.panelMeaBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelMeaBottom.Location = new System.Drawing.Point(1, 223);
-            this.panelMeaBottom.Margin = new System.Windows.Forms.Padding(4);
+            this.panelMeaBottom.Location = new System.Drawing.Point(1, 290);
+            this.panelMeaBottom.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panelMeaBottom.Name = "panelMeaBottom";
             this.panelMeaBottom.Size = new System.Drawing.Size(246, 1);
             this.panelMeaBottom.TabIndex = 30;
@@ -343,20 +343,20 @@ namespace DataPerformer.UI.UserControls
             this.panelMea.AutoScroll = true;
             this.panelMea.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panelMea.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelMea.Location = new System.Drawing.Point(1, 59);
-            this.panelMea.Margin = new System.Windows.Forms.Padding(4);
+            this.panelMea.Location = new System.Drawing.Point(1, 74);
+            this.panelMea.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panelMea.Name = "panelMea";
-            this.panelMea.Size = new System.Drawing.Size(246, 165);
+            this.panelMea.Size = new System.Drawing.Size(246, 217);
             this.panelMea.TabIndex = 26;
             this.panelMea.Resize += new System.EventHandler(this.panelMea_Resize);
             // 
             // panelMeaLeft
             // 
             this.panelMeaLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelMeaLeft.Location = new System.Drawing.Point(0, 59);
-            this.panelMeaLeft.Margin = new System.Windows.Forms.Padding(4);
+            this.panelMeaLeft.Location = new System.Drawing.Point(0, 74);
+            this.panelMeaLeft.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panelMeaLeft.Name = "panelMeaLeft";
-            this.panelMeaLeft.Size = new System.Drawing.Size(1, 165);
+            this.panelMeaLeft.Size = new System.Drawing.Size(1, 217);
             this.panelMeaLeft.TabIndex = 28;
             // 
             // panelMeaTop
@@ -364,17 +364,17 @@ namespace DataPerformer.UI.UserControls
             this.panelMeaTop.Controls.Add(this.label5);
             this.panelMeaTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelMeaTop.Location = new System.Drawing.Point(0, 0);
-            this.panelMeaTop.Margin = new System.Windows.Forms.Padding(4);
+            this.panelMeaTop.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panelMeaTop.Name = "panelMeaTop";
-            this.panelMeaTop.Size = new System.Drawing.Size(247, 59);
+            this.panelMeaTop.Size = new System.Drawing.Size(247, 74);
             this.panelMeaTop.TabIndex = 27;
             // 
             // label5
             // 
-            this.label5.Location = new System.Drawing.Point(4, 5);
+            this.label5.Location = new System.Drawing.Point(4, 6);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(225, 39);
+            this.label5.Size = new System.Drawing.Size(225, 49);
             this.label5.TabIndex = 21;
             this.label5.Text = "Data sources";
             // 
@@ -396,18 +396,19 @@ namespace DataPerformer.UI.UserControls
             this.panel4.Controls.Add(this.label2);
             this.panel4.Controls.Add(this.comboBoxArg);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel4.Location = new System.Drawing.Point(1, 224);
-            this.panel4.Margin = new System.Windows.Forms.Padding(4);
+            this.panel4.Location = new System.Drawing.Point(1, 291);
+            this.panel4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(611, 100);
+            this.panel4.Size = new System.Drawing.Size(611, 125);
             this.panel4.TabIndex = 27;
             // 
             // checkBoxDirectoryIteration
             // 
             this.checkBoxDirectoryIteration.AutoSize = true;
-            this.checkBoxDirectoryIteration.Location = new System.Drawing.Point(12, 71);
+            this.checkBoxDirectoryIteration.Location = new System.Drawing.Point(12, 89);
+            this.checkBoxDirectoryIteration.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.checkBoxDirectoryIteration.Name = "checkBoxDirectoryIteration";
-            this.checkBoxDirectoryIteration.Size = new System.Drawing.Size(87, 21);
+            this.checkBoxDirectoryIteration.Size = new System.Drawing.Size(92, 24);
             this.checkBoxDirectoryIteration.TabIndex = 37;
             this.checkBoxDirectoryIteration.Text = "Directory";
             this.checkBoxDirectoryIteration.UseVisualStyleBackColor = true;
@@ -415,65 +416,65 @@ namespace DataPerformer.UI.UserControls
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(472, 21);
+            this.label6.Location = new System.Drawing.Point(472, 26);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(76, 17);
+            this.label6.Size = new System.Drawing.Size(80, 20);
             this.label6.TabIndex = 36;
             this.label6.Text = "Step count";
             // 
             // comboBoxStepCount
             // 
             this.comboBoxStepCount.FormattingEnabled = true;
-            this.comboBoxStepCount.Location = new System.Drawing.Point(476, 69);
-            this.comboBoxStepCount.Margin = new System.Windows.Forms.Padding(4);
+            this.comboBoxStepCount.Location = new System.Drawing.Point(476, 86);
+            this.comboBoxStepCount.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.comboBoxStepCount.Name = "comboBoxStepCount";
-            this.comboBoxStepCount.Size = new System.Drawing.Size(120, 24);
+            this.comboBoxStepCount.Size = new System.Drawing.Size(120, 28);
             this.comboBoxStepCount.TabIndex = 35;
             // 
             // comboBoxStep
             // 
             this.comboBoxStep.FormattingEnabled = true;
-            this.comboBoxStep.Location = new System.Drawing.Point(329, 69);
-            this.comboBoxStep.Margin = new System.Windows.Forms.Padding(4);
+            this.comboBoxStep.Location = new System.Drawing.Point(329, 86);
+            this.comboBoxStep.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.comboBoxStep.Name = "comboBoxStep";
-            this.comboBoxStep.Size = new System.Drawing.Size(137, 24);
+            this.comboBoxStep.Size = new System.Drawing.Size(137, 28);
             this.comboBoxStep.TabIndex = 34;
             // 
             // comboBoxStart
             // 
             this.comboBoxStart.FormattingEnabled = true;
-            this.comboBoxStart.Location = new System.Drawing.Point(181, 70);
-            this.comboBoxStart.Margin = new System.Windows.Forms.Padding(4);
+            this.comboBoxStart.Location = new System.Drawing.Point(181, 88);
+            this.comboBoxStart.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.comboBoxStart.Name = "comboBoxStart";
-            this.comboBoxStart.Size = new System.Drawing.Size(137, 24);
+            this.comboBoxStart.Size = new System.Drawing.Size(137, 28);
             this.comboBoxStart.TabIndex = 33;
             // 
             // calculatorBoxStep
             // 
-            this.calculatorBoxStep.Location = new System.Drawing.Point(329, 43);
-            this.calculatorBoxStep.Margin = new System.Windows.Forms.Padding(4);
+            this.calculatorBoxStep.Location = new System.Drawing.Point(329, 54);
+            this.calculatorBoxStep.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.calculatorBoxStep.Name = "calculatorBoxStep";
-            this.calculatorBoxStep.Size = new System.Drawing.Size(139, 22);
+            this.calculatorBoxStep.Size = new System.Drawing.Size(139, 27);
             this.calculatorBoxStep.TabIndex = 32;
             this.calculatorBoxStep.Text = "0";
             // 
             // calculatorBoxStart
             // 
-            this.calculatorBoxStart.Location = new System.Drawing.Point(181, 43);
-            this.calculatorBoxStart.Margin = new System.Windows.Forms.Padding(4);
+            this.calculatorBoxStart.Location = new System.Drawing.Point(181, 54);
+            this.calculatorBoxStart.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.calculatorBoxStart.Name = "calculatorBoxStart";
-            this.calculatorBoxStart.Size = new System.Drawing.Size(139, 22);
+            this.calculatorBoxStart.Size = new System.Drawing.Size(139, 27);
             this.calculatorBoxStart.TabIndex = 31;
             this.calculatorBoxStart.Text = "0";
             // 
             // labelY
             // 
             this.labelY.AutoSize = true;
-            this.labelY.Location = new System.Drawing.Point(216, 4);
+            this.labelY.Location = new System.Drawing.Point(216, 5);
             this.labelY.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelY.Name = "labelY";
-            this.labelY.Size = new System.Drawing.Size(33, 17);
+            this.labelY.Size = new System.Drawing.Size(35, 20);
             this.labelY.TabIndex = 30;
             this.labelY.Text = "Y = ";
             this.labelY.Visible = false;
@@ -481,66 +482,66 @@ namespace DataPerformer.UI.UserControls
             // labelX
             // 
             this.labelX.AutoSize = true;
-            this.labelX.Location = new System.Drawing.Point(11, 4);
+            this.labelX.Location = new System.Drawing.Point(11, 5);
             this.labelX.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelX.Name = "labelX";
-            this.labelX.Size = new System.Drawing.Size(33, 17);
+            this.labelX.Size = new System.Drawing.Size(36, 20);
             this.labelX.TabIndex = 29;
             this.labelX.Text = "X = ";
             this.labelX.Visible = false;
             // 
             // label4
             // 
-            this.label4.Location = new System.Drawing.Point(201, 21);
+            this.label4.Location = new System.Drawing.Point(201, 26);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(75, 28);
+            this.label4.Size = new System.Drawing.Size(75, 35);
             this.label4.TabIndex = 27;
             this.label4.Text = "Start";
             // 
             // textBoxStepCount
             // 
-            this.textBoxStepCount.Location = new System.Drawing.Point(476, 43);
-            this.textBoxStepCount.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxStepCount.Location = new System.Drawing.Point(476, 54);
+            this.textBoxStepCount.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBoxStepCount.Name = "textBoxStepCount";
-            this.textBoxStepCount.Size = new System.Drawing.Size(120, 22);
+            this.textBoxStepCount.Size = new System.Drawing.Size(120, 27);
             this.textBoxStepCount.TabIndex = 23;
             this.textBoxStepCount.Text = "2";
             // 
             // label3
             // 
-            this.label3.Location = new System.Drawing.Point(465, 21);
+            this.label3.Location = new System.Drawing.Point(465, 26);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(132, 27);
+            this.label3.Size = new System.Drawing.Size(132, 34);
             this.label3.TabIndex = 24;
             // 
             // label1
             // 
-            this.label1.Location = new System.Drawing.Point(29, 21);
+            this.label1.Location = new System.Drawing.Point(29, 26);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(89, 18);
+            this.label1.Size = new System.Drawing.Size(89, 22);
             this.label1.TabIndex = 20;
             this.label1.Text = "Argument";
             // 
             // label2
             // 
-            this.label2.Location = new System.Drawing.Point(321, 22);
+            this.label2.Location = new System.Drawing.Point(321, 28);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 28);
+            this.label2.Size = new System.Drawing.Size(53, 35);
             this.label2.TabIndex = 22;
             this.label2.Text = "Step";
             // 
             // comboBoxArg
             // 
             this.comboBoxArg.FormattingEnabled = true;
-            this.comboBoxArg.ItemHeight = 16;
-            this.comboBoxArg.Location = new System.Drawing.Point(12, 43);
-            this.comboBoxArg.Margin = new System.Windows.Forms.Padding(4);
+            this.comboBoxArg.ItemHeight = 20;
+            this.comboBoxArg.Location = new System.Drawing.Point(12, 54);
+            this.comboBoxArg.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.comboBoxArg.Name = "comboBoxArg";
-            this.comboBoxArg.Size = new System.Drawing.Size(160, 24);
+            this.comboBoxArg.Size = new System.Drawing.Size(160, 28);
             this.comboBoxArg.TabIndex = 19;
             this.comboBoxArg.Text = "Time";
             // 
@@ -548,18 +549,18 @@ namespace DataPerformer.UI.UserControls
             // 
             this.panelIntLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelIntLeft.Location = new System.Drawing.Point(0, 0);
-            this.panelIntLeft.Margin = new System.Windows.Forms.Padding(4);
+            this.panelIntLeft.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panelIntLeft.Name = "panelIntLeft";
-            this.panelIntLeft.Size = new System.Drawing.Size(1, 324);
+            this.panelIntLeft.Size = new System.Drawing.Size(1, 416);
             this.panelIntLeft.TabIndex = 26;
             // 
             // panel5
             // 
             this.panel5.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel5.Location = new System.Drawing.Point(616, 4);
-            this.panel5.Margin = new System.Windows.Forms.Padding(4);
+            this.panel5.Location = new System.Drawing.Point(616, 5);
+            this.panel5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1, 324);
+            this.panel5.Size = new System.Drawing.Size(1, 416);
             this.panel5.TabIndex = 30;
             // 
             // tabPageText
@@ -570,11 +571,11 @@ namespace DataPerformer.UI.UserControls
             this.tabPageText.Controls.Add(this.panel7);
             this.tabPageText.Controls.Add(this.panelTextBottom);
             this.tabPageText.Controls.Add(this.panel8);
-            this.tabPageText.Location = new System.Drawing.Point(4, 25);
-            this.tabPageText.Margin = new System.Windows.Forms.Padding(4);
+            this.tabPageText.Location = new System.Drawing.Point(4, 29);
+            this.tabPageText.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabPageText.Name = "tabPageText";
-            this.tabPageText.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPageText.Size = new System.Drawing.Size(621, 332);
+            this.tabPageText.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tabPageText.Size = new System.Drawing.Size(621, 426);
             this.tabPageText.TabIndex = 1;
             this.tabPageText.Text = "Text";
             this.tabPageText.UseVisualStyleBackColor = true;
@@ -598,35 +599,35 @@ namespace DataPerformer.UI.UserControls
             // 
             this.panelText.AutoScroll = true;
             this.panelText.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelText.Location = new System.Drawing.Point(5, 47);
-            this.panelText.Margin = new System.Windows.Forms.Padding(4);
+            this.panelText.Location = new System.Drawing.Point(5, 59);
+            this.panelText.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panelText.Name = "panelText";
-            this.panelText.Size = new System.Drawing.Size(611, 281);
+            this.panelText.Size = new System.Drawing.Size(611, 362);
             this.panelText.TabIndex = 11;
             // 
             // panel9
             // 
             this.panel9.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel9.Location = new System.Drawing.Point(616, 47);
-            this.panel9.Margin = new System.Windows.Forms.Padding(4);
+            this.panel9.Location = new System.Drawing.Point(616, 59);
+            this.panel9.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(1, 281);
+            this.panel9.Size = new System.Drawing.Size(1, 362);
             this.panel9.TabIndex = 10;
             // 
             // panel7
             // 
             this.panel7.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel7.Location = new System.Drawing.Point(4, 47);
-            this.panel7.Margin = new System.Windows.Forms.Padding(4);
+            this.panel7.Location = new System.Drawing.Point(4, 59);
+            this.panel7.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(1, 281);
+            this.panel7.Size = new System.Drawing.Size(1, 362);
             this.panel7.TabIndex = 9;
             // 
             // panelTextBottom
             // 
             this.panelTextBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelTextBottom.Location = new System.Drawing.Point(4, 328);
-            this.panelTextBottom.Margin = new System.Windows.Forms.Padding(4);
+            this.panelTextBottom.Location = new System.Drawing.Point(4, 421);
+            this.panelTextBottom.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panelTextBottom.Name = "panelTextBottom";
             this.panelTextBottom.Size = new System.Drawing.Size(613, 0);
             this.panelTextBottom.TabIndex = 8;
@@ -638,10 +639,10 @@ namespace DataPerformer.UI.UserControls
             this.panel8.Controls.Add(this.panel12);
             this.panel8.Controls.Add(this.panel14);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel8.Location = new System.Drawing.Point(4, 4);
-            this.panel8.Margin = new System.Windows.Forms.Padding(4);
+            this.panel8.Location = new System.Drawing.Point(4, 5);
+            this.panel8.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(613, 43);
+            this.panel8.Size = new System.Drawing.Size(613, 54);
             this.panel8.TabIndex = 6;
             // 
             // panel10
@@ -649,10 +650,10 @@ namespace DataPerformer.UI.UserControls
             this.panel10.ContextMenuStrip = this.contextMenuStripTextTab;
             this.panel10.Controls.Add(this.comboBoxCond);
             this.panel10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel10.Location = new System.Drawing.Point(191, 6);
-            this.panel10.Margin = new System.Windows.Forms.Padding(4);
+            this.panel10.Location = new System.Drawing.Point(191, 8);
+            this.panel10.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(409, 37);
+            this.panel10.Size = new System.Drawing.Size(409, 46);
             this.panel10.TabIndex = 23;
             // 
             // comboBoxCond
@@ -660,18 +661,18 @@ namespace DataPerformer.UI.UserControls
             this.comboBoxCond.Dock = System.Windows.Forms.DockStyle.Fill;
             this.comboBoxCond.FormattingEnabled = true;
             this.comboBoxCond.Location = new System.Drawing.Point(0, 0);
-            this.comboBoxCond.Margin = new System.Windows.Forms.Padding(4);
+            this.comboBoxCond.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.comboBoxCond.Name = "comboBoxCond";
-            this.comboBoxCond.Size = new System.Drawing.Size(409, 24);
+            this.comboBoxCond.Size = new System.Drawing.Size(409, 28);
             this.comboBoxCond.TabIndex = 0;
             // 
             // panel11
             // 
             this.panel11.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel11.Location = new System.Drawing.Point(600, 6);
-            this.panel11.Margin = new System.Windows.Forms.Padding(4);
+            this.panel11.Location = new System.Drawing.Point(600, 8);
+            this.panel11.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(13, 37);
+            this.panel11.Size = new System.Drawing.Size(13, 46);
             this.panel11.TabIndex = 22;
             // 
             // panel12
@@ -679,20 +680,20 @@ namespace DataPerformer.UI.UserControls
             this.panel12.ContextMenuStrip = this.contextMenuStripTextTab;
             this.panel12.Controls.Add(this.label7);
             this.panel12.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel12.Location = new System.Drawing.Point(0, 6);
-            this.panel12.Margin = new System.Windows.Forms.Padding(4);
+            this.panel12.Location = new System.Drawing.Point(0, 8);
+            this.panel12.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(191, 37);
+            this.panel12.Size = new System.Drawing.Size(191, 46);
             this.panel12.TabIndex = 21;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.ContextMenuStrip = this.contextMenuStripTextTab;
-            this.label7.Location = new System.Drawing.Point(19, 6);
+            this.label7.Location = new System.Drawing.Point(19, 8);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(112, 17);
+            this.label7.Size = new System.Drawing.Size(122, 20);
             this.label7.TabIndex = 0;
             this.label7.Text = "Output condition";
             // 
@@ -700,9 +701,9 @@ namespace DataPerformer.UI.UserControls
             // 
             this.panel14.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel14.Location = new System.Drawing.Point(0, 0);
-            this.panel14.Margin = new System.Windows.Forms.Padding(4);
+            this.panel14.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(613, 6);
+            this.panel14.Size = new System.Drawing.Size(613, 8);
             this.panel14.TabIndex = 20;
             // 
             // tabPageRealTime
@@ -712,10 +713,10 @@ namespace DataPerformer.UI.UserControls
             this.tabPageRealTime.Controls.Add(this.panel15);
             this.tabPageRealTime.Controls.Add(this.panelTop);
             this.tabPageRealTime.Controls.Add(this.panel16);
-            this.tabPageRealTime.Location = new System.Drawing.Point(4, 25);
-            this.tabPageRealTime.Margin = new System.Windows.Forms.Padding(4);
+            this.tabPageRealTime.Location = new System.Drawing.Point(4, 29);
+            this.tabPageRealTime.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabPageRealTime.Name = "tabPageRealTime";
-            this.tabPageRealTime.Size = new System.Drawing.Size(621, 332);
+            this.tabPageRealTime.Size = new System.Drawing.Size(621, 426);
             this.tabPageRealTime.TabIndex = 2;
             this.tabPageRealTime.Text = "Realtime";
             this.tabPageRealTime.UseVisualStyleBackColor = true;
@@ -724,37 +725,37 @@ namespace DataPerformer.UI.UserControls
             // 
             this.panel6.Controls.Add(this.userControlRealtime);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(0, 34);
-            this.panel6.Margin = new System.Windows.Forms.Padding(4);
+            this.panel6.Location = new System.Drawing.Point(0, 42);
+            this.panel6.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(621, 298);
+            this.panel6.Size = new System.Drawing.Size(621, 384);
             this.panel6.TabIndex = 20;
             // 
             // userControlRealtime
             // 
             this.userControlRealtime.Dock = System.Windows.Forms.DockStyle.Fill;
             this.userControlRealtime.Location = new System.Drawing.Point(0, 0);
-            this.userControlRealtime.Margin = new System.Windows.Forms.Padding(5);
+            this.userControlRealtime.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.userControlRealtime.Name = "userControlRealtime";
-            this.userControlRealtime.Size = new System.Drawing.Size(621, 298);
+            this.userControlRealtime.Size = new System.Drawing.Size(621, 384);
             this.userControlRealtime.TabIndex = 0;
             // 
             // panel13
             // 
             this.panel13.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel13.Location = new System.Drawing.Point(621, 34);
-            this.panel13.Margin = new System.Windows.Forms.Padding(4);
+            this.panel13.Location = new System.Drawing.Point(621, 42);
+            this.panel13.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(0, 298);
+            this.panel13.Size = new System.Drawing.Size(0, 384);
             this.panel13.TabIndex = 18;
             // 
             // panel15
             // 
             this.panel15.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel15.Location = new System.Drawing.Point(0, 34);
-            this.panel15.Margin = new System.Windows.Forms.Padding(4);
+            this.panel15.Location = new System.Drawing.Point(0, 42);
+            this.panel15.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel15.Name = "panel15";
-            this.panel15.Size = new System.Drawing.Size(0, 298);
+            this.panel15.Size = new System.Drawing.Size(0, 384);
             this.panel15.TabIndex = 17;
             // 
             // panelTop
@@ -765,9 +766,9 @@ namespace DataPerformer.UI.UserControls
             this.panelTop.Controls.Add(this.panel21);
             this.panelTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTop.Location = new System.Drawing.Point(0, 0);
-            this.panelTop.Margin = new System.Windows.Forms.Padding(4);
+            this.panelTop.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panelTop.Name = "panelTop";
-            this.panelTop.Size = new System.Drawing.Size(621, 34);
+            this.panelTop.Size = new System.Drawing.Size(621, 42);
             this.panelTop.TabIndex = 16;
             // 
             // panel17
@@ -777,18 +778,18 @@ namespace DataPerformer.UI.UserControls
             this.panel17.Controls.Add(this.label9);
             this.panel17.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel17.Location = new System.Drawing.Point(0, 0);
-            this.panel17.Margin = new System.Windows.Forms.Padding(4);
+            this.panel17.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel17.Name = "panel17";
-            this.panel17.Size = new System.Drawing.Size(621, 34);
+            this.panel17.Size = new System.Drawing.Size(621, 42);
             this.panel17.TabIndex = 20;
             // 
             // checkBoxAbsoluteTime
             // 
             this.checkBoxAbsoluteTime.AutoSize = true;
-            this.checkBoxAbsoluteTime.Location = new System.Drawing.Point(417, 6);
-            this.checkBoxAbsoluteTime.Margin = new System.Windows.Forms.Padding(4);
+            this.checkBoxAbsoluteTime.Location = new System.Drawing.Point(417, 8);
+            this.checkBoxAbsoluteTime.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.checkBoxAbsoluteTime.Name = "checkBoxAbsoluteTime";
-            this.checkBoxAbsoluteTime.Size = new System.Drawing.Size(115, 21);
+            this.checkBoxAbsoluteTime.Size = new System.Drawing.Size(124, 24);
             this.checkBoxAbsoluteTime.TabIndex = 2;
             this.checkBoxAbsoluteTime.Text = "Absolute time";
             this.checkBoxAbsoluteTime.UseVisualStyleBackColor = true;
@@ -796,20 +797,20 @@ namespace DataPerformer.UI.UserControls
             // 
             // userControlTimeType
             // 
-            this.userControlTimeType.Location = new System.Drawing.Point(175, 4);
-            this.userControlTimeType.Margin = new System.Windows.Forms.Padding(5);
+            this.userControlTimeType.Location = new System.Drawing.Point(175, 5);
+            this.userControlTimeType.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.userControlTimeType.Name = "userControlTimeType";
-            this.userControlTimeType.Size = new System.Drawing.Size(165, 28);
+            this.userControlTimeType.Size = new System.Drawing.Size(165, 35);
             this.userControlTimeType.TabIndex = 1;
             this.userControlTimeType.TimeUnit = BaseTypes.Attributes.TimeType.Second;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(5, 5);
+            this.label9.Location = new System.Drawing.Point(5, 6);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(66, 17);
+            this.label9.Size = new System.Drawing.Size(71, 20);
             this.label9.TabIndex = 0;
             this.label9.Text = "Time unit";
             // 
@@ -817,16 +818,16 @@ namespace DataPerformer.UI.UserControls
             // 
             this.panel18.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel18.Location = new System.Drawing.Point(621, 0);
-            this.panel18.Margin = new System.Windows.Forms.Padding(4);
+            this.panel18.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel18.Name = "panel18";
-            this.panel18.Size = new System.Drawing.Size(0, 34);
+            this.panel18.Size = new System.Drawing.Size(0, 42);
             this.panel18.TabIndex = 18;
             // 
             // panel20
             // 
             this.panel20.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel20.Location = new System.Drawing.Point(0, 0);
-            this.panel20.Margin = new System.Windows.Forms.Padding(4);
+            this.panel20.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel20.Name = "panel20";
             this.panel20.Size = new System.Drawing.Size(621, 0);
             this.panel20.TabIndex = 16;
@@ -834,8 +835,8 @@ namespace DataPerformer.UI.UserControls
             // panel21
             // 
             this.panel21.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel21.Location = new System.Drawing.Point(0, 34);
-            this.panel21.Margin = new System.Windows.Forms.Padding(4);
+            this.panel21.Location = new System.Drawing.Point(0, 42);
+            this.panel21.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel21.Name = "panel21";
             this.panel21.Size = new System.Drawing.Size(621, 0);
             this.panel21.TabIndex = 19;
@@ -843,8 +844,8 @@ namespace DataPerformer.UI.UserControls
             // panel16
             // 
             this.panel16.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel16.Location = new System.Drawing.Point(0, 332);
-            this.panel16.Margin = new System.Windows.Forms.Padding(4);
+            this.panel16.Location = new System.Drawing.Point(0, 426);
+            this.panel16.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel16.Name = "panel16";
             this.panel16.Size = new System.Drawing.Size(621, 0);
             this.panel16.TabIndex = 19;
@@ -856,11 +857,11 @@ namespace DataPerformer.UI.UserControls
             this.tabPageStartStopRealtime.Controls.Add(this.panel28);
             this.tabPageStartStopRealtime.Controls.Add(this.panel29);
             this.tabPageStartStopRealtime.Controls.Add(this.panel30);
-            this.tabPageStartStopRealtime.Location = new System.Drawing.Point(4, 25);
-            this.tabPageStartStopRealtime.Margin = new System.Windows.Forms.Padding(4);
+            this.tabPageStartStopRealtime.Location = new System.Drawing.Point(4, 29);
+            this.tabPageStartStopRealtime.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabPageStartStopRealtime.Name = "tabPageStartStopRealtime";
-            this.tabPageStartStopRealtime.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPageStartStopRealtime.Size = new System.Drawing.Size(621, 332);
+            this.tabPageStartStopRealtime.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tabPageStartStopRealtime.Size = new System.Drawing.Size(621, 426);
             this.tabPageStartStopRealtime.TabIndex = 4;
             this.tabPageStartStopRealtime.Text = "Control";
             this.tabPageStartStopRealtime.UseVisualStyleBackColor = true;
@@ -869,21 +870,21 @@ namespace DataPerformer.UI.UserControls
             // 
             this.panel26.Controls.Add(this.buttonStartStopRealtime);
             this.panel26.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel26.Location = new System.Drawing.Point(4, 4);
-            this.panel26.Margin = new System.Windows.Forms.Padding(4);
+            this.panel26.Location = new System.Drawing.Point(4, 5);
+            this.panel26.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel26.Name = "panel26";
-            this.panel26.Size = new System.Drawing.Size(613, 324);
+            this.panel26.Size = new System.Drawing.Size(613, 416);
             this.panel26.TabIndex = 20;
             // 
             // buttonStartStopRealtime
             // 
             this.buttonStartStopRealtime.BackColor = System.Drawing.Color.Green;
             this.buttonStartStopRealtime.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonStartStopRealtime.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonStartStopRealtime.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.buttonStartStopRealtime.Location = new System.Drawing.Point(0, 0);
-            this.buttonStartStopRealtime.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonStartStopRealtime.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.buttonStartStopRealtime.Name = "buttonStartStopRealtime";
-            this.buttonStartStopRealtime.Size = new System.Drawing.Size(613, 324);
+            this.buttonStartStopRealtime.Size = new System.Drawing.Size(613, 416);
             this.buttonStartStopRealtime.TabIndex = 0;
             this.buttonStartStopRealtime.Text = "Start";
             this.buttonStartStopRealtime.UseVisualStyleBackColor = false;
@@ -892,26 +893,26 @@ namespace DataPerformer.UI.UserControls
             // panel27
             // 
             this.panel27.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel27.Location = new System.Drawing.Point(617, 4);
-            this.panel27.Margin = new System.Windows.Forms.Padding(4);
+            this.panel27.Location = new System.Drawing.Point(617, 5);
+            this.panel27.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel27.Name = "panel27";
-            this.panel27.Size = new System.Drawing.Size(0, 324);
+            this.panel27.Size = new System.Drawing.Size(0, 416);
             this.panel27.TabIndex = 18;
             // 
             // panel28
             // 
             this.panel28.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel28.Location = new System.Drawing.Point(4, 4);
-            this.panel28.Margin = new System.Windows.Forms.Padding(4);
+            this.panel28.Location = new System.Drawing.Point(4, 5);
+            this.panel28.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel28.Name = "panel28";
-            this.panel28.Size = new System.Drawing.Size(0, 324);
+            this.panel28.Size = new System.Drawing.Size(0, 416);
             this.panel28.TabIndex = 17;
             // 
             // panel29
             // 
             this.panel29.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel29.Location = new System.Drawing.Point(4, 4);
-            this.panel29.Margin = new System.Windows.Forms.Padding(4);
+            this.panel29.Location = new System.Drawing.Point(4, 5);
+            this.panel29.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel29.Name = "panel29";
             this.panel29.Size = new System.Drawing.Size(613, 0);
             this.panel29.TabIndex = 16;
@@ -919,8 +920,8 @@ namespace DataPerformer.UI.UserControls
             // panel30
             // 
             this.panel30.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel30.Location = new System.Drawing.Point(4, 328);
-            this.panel30.Margin = new System.Windows.Forms.Padding(4);
+            this.panel30.Location = new System.Drawing.Point(4, 421);
+            this.panel30.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel30.Name = "panel30";
             this.panel30.Size = new System.Drawing.Size(613, 0);
             this.panel30.TabIndex = 19;
@@ -932,10 +933,10 @@ namespace DataPerformer.UI.UserControls
             this.tabPageAnimation.Controls.Add(this.panel23);
             this.tabPageAnimation.Controls.Add(this.panel24);
             this.tabPageAnimation.Controls.Add(this.panel25);
-            this.tabPageAnimation.Location = new System.Drawing.Point(4, 25);
-            this.tabPageAnimation.Margin = new System.Windows.Forms.Padding(4);
+            this.tabPageAnimation.Location = new System.Drawing.Point(4, 29);
+            this.tabPageAnimation.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabPageAnimation.Name = "tabPageAnimation";
-            this.tabPageAnimation.Size = new System.Drawing.Size(621, 332);
+            this.tabPageAnimation.Size = new System.Drawing.Size(621, 426);
             this.tabPageAnimation.TabIndex = 3;
             this.tabPageAnimation.Text = "Animation";
             this.tabPageAnimation.UseVisualStyleBackColor = true;
@@ -948,79 +949,79 @@ namespace DataPerformer.UI.UserControls
             this.panel19.Controls.Add(this.numericUpDownPause);
             this.panel19.Controls.Add(this.label8);
             this.panel19.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel19.Location = new System.Drawing.Point(0, 33);
-            this.panel19.Margin = new System.Windows.Forms.Padding(4);
+            this.panel19.Location = new System.Drawing.Point(0, 41);
+            this.panel19.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel19.Name = "panel19";
-            this.panel19.Size = new System.Drawing.Size(621, 299);
+            this.panel19.Size = new System.Drawing.Size(621, 385);
             this.panel19.TabIndex = 20;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(23, 48);
+            this.label10.Location = new System.Drawing.Point(23, 60);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(137, 17);
+            this.label10.Size = new System.Drawing.Size(149, 20);
             this.label10.TabIndex = 43;
             this.label10.Text = "Animation time scale";
             // 
             // textBoxAnimationScale
             // 
-            this.textBoxAnimationScale.Location = new System.Drawing.Point(372, 41);
-            this.textBoxAnimationScale.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxAnimationScale.Location = new System.Drawing.Point(372, 51);
+            this.textBoxAnimationScale.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBoxAnimationScale.Name = "textBoxAnimationScale";
-            this.textBoxAnimationScale.Size = new System.Drawing.Size(199, 22);
+            this.textBoxAnimationScale.Size = new System.Drawing.Size(199, 27);
             this.textBoxAnimationScale.TabIndex = 42;
             // 
             // userControlTimeUnitAnimation
             // 
-            this.userControlTimeUnitAnimation.Location = new System.Drawing.Point(372, 4);
-            this.userControlTimeUnitAnimation.Margin = new System.Windows.Forms.Padding(5);
+            this.userControlTimeUnitAnimation.Location = new System.Drawing.Point(372, 5);
+            this.userControlTimeUnitAnimation.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.userControlTimeUnitAnimation.Name = "userControlTimeUnitAnimation";
-            this.userControlTimeUnitAnimation.Size = new System.Drawing.Size(200, 28);
+            this.userControlTimeUnitAnimation.Size = new System.Drawing.Size(200, 35);
             this.userControlTimeUnitAnimation.TabIndex = 41;
             this.userControlTimeUnitAnimation.TimeUnit = BaseTypes.Attributes.TimeType.Second;
             // 
             // numericUpDownPause
             // 
-            this.numericUpDownPause.Location = new System.Drawing.Point(116, 7);
-            this.numericUpDownPause.Margin = new System.Windows.Forms.Padding(4);
+            this.numericUpDownPause.Location = new System.Drawing.Point(116, 9);
+            this.numericUpDownPause.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.numericUpDownPause.Maximum = new decimal(new int[] {
             100000,
             0,
             0,
             0});
             this.numericUpDownPause.Name = "numericUpDownPause";
-            this.numericUpDownPause.Size = new System.Drawing.Size(77, 22);
+            this.numericUpDownPause.Size = new System.Drawing.Size(77, 27);
             this.numericUpDownPause.TabIndex = 40;
             this.numericUpDownPause.ValueChanged += new System.EventHandler(this.numericUpDownPause_ValueChanged);
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(19, 11);
+            this.label8.Location = new System.Drawing.Point(19, 14);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(48, 17);
+            this.label8.Size = new System.Drawing.Size(46, 20);
             this.label8.TabIndex = 39;
             this.label8.Text = "Pause";
             // 
             // panel22
             // 
             this.panel22.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel22.Location = new System.Drawing.Point(621, 33);
-            this.panel22.Margin = new System.Windows.Forms.Padding(4);
+            this.panel22.Location = new System.Drawing.Point(621, 41);
+            this.panel22.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel22.Name = "panel22";
-            this.panel22.Size = new System.Drawing.Size(0, 299);
+            this.panel22.Size = new System.Drawing.Size(0, 385);
             this.panel22.TabIndex = 18;
             // 
             // panel23
             // 
             this.panel23.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel23.Location = new System.Drawing.Point(0, 33);
-            this.panel23.Margin = new System.Windows.Forms.Padding(4);
+            this.panel23.Location = new System.Drawing.Point(0, 41);
+            this.panel23.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel23.Name = "panel23";
-            this.panel23.Size = new System.Drawing.Size(0, 299);
+            this.panel23.Size = new System.Drawing.Size(0, 385);
             this.panel23.TabIndex = 17;
             // 
             // panel24
@@ -1028,18 +1029,18 @@ namespace DataPerformer.UI.UserControls
             this.panel24.Controls.Add(this.checkBoxSynchronous);
             this.panel24.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel24.Location = new System.Drawing.Point(0, 0);
-            this.panel24.Margin = new System.Windows.Forms.Padding(4);
+            this.panel24.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel24.Name = "panel24";
-            this.panel24.Size = new System.Drawing.Size(621, 33);
+            this.panel24.Size = new System.Drawing.Size(621, 41);
             this.panel24.TabIndex = 16;
             // 
             // checkBoxSynchronous
             // 
             this.checkBoxSynchronous.AutoSize = true;
-            this.checkBoxSynchronous.Location = new System.Drawing.Point(21, 5);
-            this.checkBoxSynchronous.Margin = new System.Windows.Forms.Padding(4);
+            this.checkBoxSynchronous.Location = new System.Drawing.Point(21, 6);
+            this.checkBoxSynchronous.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.checkBoxSynchronous.Name = "checkBoxSynchronous";
-            this.checkBoxSynchronous.Size = new System.Drawing.Size(113, 21);
+            this.checkBoxSynchronous.Size = new System.Drawing.Size(114, 24);
             this.checkBoxSynchronous.TabIndex = 0;
             this.checkBoxSynchronous.Text = "Synchronous";
             this.checkBoxSynchronous.UseVisualStyleBackColor = true;
@@ -1048,8 +1049,8 @@ namespace DataPerformer.UI.UserControls
             // panel25
             // 
             this.panel25.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel25.Location = new System.Drawing.Point(0, 332);
-            this.panel25.Margin = new System.Windows.Forms.Padding(4);
+            this.panel25.Location = new System.Drawing.Point(0, 426);
+            this.panel25.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel25.Name = "panel25";
             this.panel25.Size = new System.Drawing.Size(621, 0);
             this.panel25.TabIndex = 19;
@@ -1061,10 +1062,10 @@ namespace DataPerformer.UI.UserControls
             this.tabPageCadr.Controls.Add(this.panel33);
             this.tabPageCadr.Controls.Add(this.panel34);
             this.tabPageCadr.Controls.Add(this.panel35);
-            this.tabPageCadr.Location = new System.Drawing.Point(4, 25);
-            this.tabPageCadr.Margin = new System.Windows.Forms.Padding(4);
+            this.tabPageCadr.Location = new System.Drawing.Point(4, 29);
+            this.tabPageCadr.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabPageCadr.Name = "tabPageCadr";
-            this.tabPageCadr.Size = new System.Drawing.Size(621, 332);
+            this.tabPageCadr.Size = new System.Drawing.Size(621, 426);
             this.tabPageCadr.TabIndex = 5;
             this.tabPageCadr.Text = "Cadr";
             this.tabPageCadr.UseVisualStyleBackColor = true;
@@ -1074,43 +1075,43 @@ namespace DataPerformer.UI.UserControls
             this.panel31.Controls.Add(this.userControlCadr);
             this.panel31.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel31.Location = new System.Drawing.Point(0, 0);
-            this.panel31.Margin = new System.Windows.Forms.Padding(4);
+            this.panel31.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel31.Name = "panel31";
-            this.panel31.Size = new System.Drawing.Size(621, 332);
+            this.panel31.Size = new System.Drawing.Size(621, 426);
             this.panel31.TabIndex = 20;
             // 
             // userControlCadr
             // 
             this.userControlCadr.Dock = System.Windows.Forms.DockStyle.Fill;
             this.userControlCadr.Location = new System.Drawing.Point(0, 0);
-            this.userControlCadr.Margin = new System.Windows.Forms.Padding(5);
+            this.userControlCadr.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.userControlCadr.Name = "userControlCadr";
-            this.userControlCadr.Size = new System.Drawing.Size(621, 332);
+            this.userControlCadr.Size = new System.Drawing.Size(621, 426);
             this.userControlCadr.TabIndex = 0;
             // 
             // panel32
             // 
             this.panel32.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel32.Location = new System.Drawing.Point(621, 0);
-            this.panel32.Margin = new System.Windows.Forms.Padding(4);
+            this.panel32.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel32.Name = "panel32";
-            this.panel32.Size = new System.Drawing.Size(0, 332);
+            this.panel32.Size = new System.Drawing.Size(0, 426);
             this.panel32.TabIndex = 18;
             // 
             // panel33
             // 
             this.panel33.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel33.Location = new System.Drawing.Point(0, 0);
-            this.panel33.Margin = new System.Windows.Forms.Padding(4);
+            this.panel33.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel33.Name = "panel33";
-            this.panel33.Size = new System.Drawing.Size(0, 332);
+            this.panel33.Size = new System.Drawing.Size(0, 426);
             this.panel33.TabIndex = 17;
             // 
             // panel34
             // 
             this.panel34.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel34.Location = new System.Drawing.Point(0, 0);
-            this.panel34.Margin = new System.Windows.Forms.Padding(4);
+            this.panel34.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel34.Name = "panel34";
             this.panel34.Size = new System.Drawing.Size(621, 0);
             this.panel34.TabIndex = 16;
@@ -1118,8 +1119,8 @@ namespace DataPerformer.UI.UserControls
             // panel35
             // 
             this.panel35.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel35.Location = new System.Drawing.Point(0, 332);
-            this.panel35.Margin = new System.Windows.Forms.Padding(4);
+            this.panel35.Location = new System.Drawing.Point(0, 426);
+            this.panel35.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel35.Name = "panel35";
             this.panel35.Size = new System.Drawing.Size(621, 0);
             this.panel35.TabIndex = 19;
@@ -1149,7 +1150,7 @@ namespace DataPerformer.UI.UserControls
             this.toolStripButtonStart.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonStart.Image")));
             this.toolStripButtonStart.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonStart.Name = "toolStripButtonStart";
-            this.toolStripButtonStart.Size = new System.Drawing.Size(24, 25);
+            this.toolStripButtonStart.Size = new System.Drawing.Size(29, 25);
             this.toolStripButtonStart.Text = "Start";
             this.toolStripButtonStart.Click += new System.EventHandler(this.toolStripButtonStart_Click);
             // 
@@ -1159,7 +1160,7 @@ namespace DataPerformer.UI.UserControls
             this.toolStripButtonAnimation.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonAnimation.Image")));
             this.toolStripButtonAnimation.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonAnimation.Name = "toolStripButtonAnimation";
-            this.toolStripButtonAnimation.Size = new System.Drawing.Size(24, 25);
+            this.toolStripButtonAnimation.Size = new System.Drawing.Size(29, 25);
             this.toolStripButtonAnimation.Text = "Animation";
             this.toolStripButtonAnimation.Visible = false;
             this.toolStripButtonAnimation.Click += new System.EventHandler(this.toolStripButtonAnimation_Click);
@@ -1171,7 +1172,7 @@ namespace DataPerformer.UI.UserControls
             this.toolStripButtonPause.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonPause.Image")));
             this.toolStripButtonPause.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonPause.Name = "toolStripButtonPause";
-            this.toolStripButtonPause.Size = new System.Drawing.Size(24, 25);
+            this.toolStripButtonPause.Size = new System.Drawing.Size(29, 25);
             this.toolStripButtonPause.Text = "Pause";
             this.toolStripButtonPause.Click += new System.EventHandler(this.toolStripButtonPause_Click);
             // 
@@ -1182,7 +1183,7 @@ namespace DataPerformer.UI.UserControls
             this.toolStripButtonStop.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonStop.Image")));
             this.toolStripButtonStop.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonStop.Name = "toolStripButtonStop";
-            this.toolStripButtonStop.Size = new System.Drawing.Size(24, 25);
+            this.toolStripButtonStop.Size = new System.Drawing.Size(29, 25);
             this.toolStripButtonStop.Text = "Stop";
             this.toolStripButtonStop.Click += new System.EventHandler(this.toolStripButtonStop_Click);
             // 
@@ -1198,7 +1199,7 @@ namespace DataPerformer.UI.UserControls
             this.toolStripButtonAdd.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonAdd.Image")));
             this.toolStripButtonAdd.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonAdd.Name = "toolStripButtonAdd";
-            this.toolStripButtonAdd.Size = new System.Drawing.Size(24, 25);
+            this.toolStripButtonAdd.Size = new System.Drawing.Size(29, 25);
             this.toolStripButtonAdd.Text = "Add";
             this.toolStripButtonAdd.Click += new System.EventHandler(this.toolStripButtonAdd_Click);
             // 
@@ -1208,7 +1209,7 @@ namespace DataPerformer.UI.UserControls
             this.toolStripButtonClearAll.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonClearAll.Image")));
             this.toolStripButtonClearAll.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonClearAll.Name = "toolStripButtonClearAll";
-            this.toolStripButtonClearAll.Size = new System.Drawing.Size(24, 25);
+            this.toolStripButtonClearAll.Size = new System.Drawing.Size(29, 25);
             this.toolStripButtonClearAll.Text = "Clear all";
             // 
             // toolStripButtonType
@@ -1227,18 +1228,18 @@ namespace DataPerformer.UI.UserControls
             // 
             this.panelRight.Dock = System.Windows.Forms.DockStyle.Right;
             this.panelRight.Location = new System.Drawing.Point(634, 0);
-            this.panelRight.Margin = new System.Windows.Forms.Padding(4);
+            this.panelRight.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panelRight.Name = "panelRight";
-            this.panelRight.Size = new System.Drawing.Size(1, 393);
+            this.panelRight.Size = new System.Drawing.Size(1, 491);
             this.panelRight.TabIndex = 2;
             // 
             // panelLeft
             // 
             this.panelLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelLeft.Location = new System.Drawing.Point(0, 0);
-            this.panelLeft.Margin = new System.Windows.Forms.Padding(4);
+            this.panelLeft.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panelLeft.Name = "panelLeft";
-            this.panelLeft.Size = new System.Drawing.Size(1, 393);
+            this.panelLeft.Size = new System.Drawing.Size(1, 491);
             this.panelLeft.TabIndex = 1;
             // 
             // backgroundWorker
@@ -1282,15 +1283,15 @@ namespace DataPerformer.UI.UserControls
             // 
             // UserControlGraph
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.ContextMenuStrip = this.contextMenuStripMain;
             this.Controls.Add(this.panelBottom);
             this.Controls.Add(this.panelCenter);
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "UserControlGraph";
-            this.Size = new System.Drawing.Size(635, 393);
+            this.Size = new System.Drawing.Size(635, 491);
             this.panelCenter.ResumeLayout(false);
             this.panelDraw.ResumeLayout(false);
             this.panelDraw.PerformLayout();

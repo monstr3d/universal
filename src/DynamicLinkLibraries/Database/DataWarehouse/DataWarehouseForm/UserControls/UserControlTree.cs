@@ -47,9 +47,7 @@ namespace DataWarehouse.UserControls
             StaticExtensionDataWarehouse.OnRemoveNode += DeleteNodeTag;
             StaticExtensionDataWarehouse.OnAddNode += OnAddNode;
             StaticExtensionDataWarehouse.OnChangeNode += OnChangeNode;
-
         }
-
   
         #endregion
 
@@ -72,7 +70,6 @@ namespace DataWarehouse.UserControls
             add { onSearch += value; }
             remove { onSearch -= value; }
         }
-
 
         /// <summary>
         /// Sets parameters
@@ -110,20 +107,7 @@ namespace DataWarehouse.UserControls
         /// <param name="node"></param>
         public void DeleteNodeTag(INode node)
         {
-            var n = nodes[node];
-            n.Remove();
-            /*  !!! OLD CODE
-            Func<INode, TreeNode, bool> f = (INode n, TreeNode tn)
-                =>
-                {
-                    if (n == node)
-                    {
-                        tn.Remove();
-                        return true;
-                    }
-                    return false;
-                };
-            treeViewMain.Perform<INode>(f);*/
+            nodes[node].Remove();
         }
 
         #endregion
@@ -193,7 +177,6 @@ namespace DataWarehouse.UserControls
             SelectedNode.Save();
         }
 
-
         #endregion
 
         #region Private
@@ -201,24 +184,6 @@ namespace DataWarehouse.UserControls
         private void OnChangeNode(INode node)
         {
             nodes[node].Text = node.Name;
-           
-
-            /*        Func<INode, TreeNode, bool> f = (INode n, TreeNode tn)
-                            =>
-                    {
-                        if (n == node)
-                        {
-                            if (node.Name != tn.Text)
-                            {
-                                tn.Text = node.Name;
-                            }
-                            return true;
-                        }
-                        return false;
-                    };
-
-                    treeViewMain.Perform<INode>(f);
-            */
         }
 
 
@@ -229,21 +194,6 @@ namespace DataWarehouse.UserControls
             tnl.Tag = node;
             tn.Nodes.Add(tnl);
             nodes[node] = tnl;
-
-
-            /*    Func<INode, TreeNode, bool> f = (INode n, TreeNode tn)
-                    =>
-                {
-                    if (n == directory)
-                    {
-                        var tnl = (node is ILeaf) ? new TreeNode(n.Name, 2, 2) : new TreeNode(n.Name, 0, 1);
-                        tnl.Tag = node;
-                        tn.Nodes.Add(tnl);
-                        return true;
-                    }
-                    return false;
-                };
-                treeViewMain.Perform<INode>(f);*/
         }
 
 

@@ -31,7 +31,7 @@ namespace CodeAnalysis.Compilers
         Assembly Create(string codeToCompile)
         {
             var refPaths1 = new[] {
-                typeof(System.Object).GetTypeInfo().Assembly.Location,
+                typeof(object).GetTypeInfo().Assembly.Location,
                 typeof(Console).GetTypeInfo().Assembly.Location,
                 Path.Combine(Path.GetDirectoryName(typeof(System.Runtime.GCSettings).GetTypeInfo().Assembly.Location), "System.Runtime.dll")
             };
@@ -39,10 +39,21 @@ namespace CodeAnalysis.Compilers
             Assembly[] assemb = AppDomain.CurrentDomain.GetAssemblies();
             foreach (Assembly ass in assemb)
             {
-                string l = ass.Location;
-                if (!ll.Contains(l) & l.Length > 0)
+                try
                 {
-                    ll.AddLast(l);
+                    string l = ass.Location;
+                    if (!ll.Contains(l) & l.Length > 0)
+                    {
+                        ll.AddLast(l);
+                    }
+                }
+                catch 
+                { 
+                
+                }
+                finally
+                {
+
                 }
             }
             var refPaths = ll.ToArray();

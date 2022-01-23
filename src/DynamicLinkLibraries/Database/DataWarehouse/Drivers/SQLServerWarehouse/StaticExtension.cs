@@ -13,6 +13,21 @@ namespace SQLServerWarehouse
 {
     internal static class StaticExtension
     {
+        static internal byte[] GetData(this Guid id)
+        {
+            DataSetWarehouse.SelectBinaryDataTable selects = null;
+            var adapter = new SelectBinaryTableAdapter();
+            adapter.ConnectionAction(() => { selects = adapter.GetData(id); });
+            return selects[0].Data;
+        }
+        static internal void SetData(this Guid id, byte[] data)
+        {
+            TableAdapter.ConnectionAction(() => { TableAdapter.UpdateBinaryData(id, data); });
+        }
+
+
+static internal DataWarehouseContext Context
+        { get; set; }
         static internal ILeaf ToLeaf(this string id)
         {
             Guid g = new Guid(id);

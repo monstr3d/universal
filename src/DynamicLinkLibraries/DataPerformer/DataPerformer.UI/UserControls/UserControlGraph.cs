@@ -50,6 +50,7 @@ using Event.UI;
 
 
 using WindowsExtensions;
+using System.Threading.Tasks;
 
 namespace DataPerformer.UI.UserControls
 {
@@ -258,27 +259,6 @@ namespace DataPerformer.UI.UserControls
 
         #endregion
 
-
-        #region IPostSet Members
-
-        void IPostSet.Post()
-        {
-            try
-            {
-                postInit();
-                refresh();
-                performer.Add(this);
-            }
-            catch (Exception ex)
-            {
-                ex.ShowError(10);
-            }
-        }
-
-        #endregion
-
-
-
         #region Create form members
 
         /// <summary>
@@ -297,6 +277,25 @@ namespace DataPerformer.UI.UserControls
                 ex.ShowError(10);
             }
             */
+        }
+
+        #endregion
+
+
+        #region IPostSet Members
+
+        void IPostSet.Post()
+        {
+            try
+            {
+                postInit();
+                refresh();
+                performer.Add(this);
+            }
+            catch (Exception ex)
+            {
+                ex.ShowError(10);
+            }
         }
 
         #endregion
@@ -1471,13 +1470,13 @@ namespace DataPerformer.UI.UserControls
                     StaticExtensionDataPerformerUI.StopCurrentCalculation();
                 }
             };
-            this.InvokeIfNeeded<ActionType>(act, actionType);
+            this.InvokeIfNeeded(act, actionType);
         }
 
         private void StartControl(object type, ActionType actionType)
         {
             actionType.EnableDisableButtons(startStopPauseButtons);
-            Diagram.UI.StaticExtensionDiagramUIForms.Action(form, type, actionType);
+            StaticExtensionDiagramUIForms.Action(form, type, actionType);
         }
 
         void StartRealtimeAnalysis(object l, Func<object, bool> stop)
@@ -1959,7 +1958,6 @@ namespace DataPerformer.UI.UserControls
             Refresh();
 
         }
-
         private void backgroundWorker_DoWork(object sender, DoWorkEventArgs e)
         {
             StartChart();
