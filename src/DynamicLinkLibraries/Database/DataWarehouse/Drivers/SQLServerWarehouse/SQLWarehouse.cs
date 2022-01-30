@@ -51,7 +51,6 @@ namespace SQLServerWarehouse
 
         #endregion
 
-
         #region Specific members
 
         static internal void Refresh()
@@ -98,8 +97,8 @@ namespace SQLServerWarehouse
             var tableAdapter = new QueriesTableAdapter();
             StaticExtension.ConnectionString = connectionString;
             StaticExtension.TableAdapter = tableAdapter;
-            //return QueriesTableAdapter;
-            return DataWarehouseContext;
+           // return QueriesTableAdapter;
+           return DataWarehouseContext;
         }
 
         static private QueriesTableAdapter QueriesTableAdapter

@@ -162,7 +162,7 @@ namespace SQLServerWarehouse
                 Action act = () =>
                 {
                     res = adapter.GetData(Id, name, description,
-                        data,  ext);
+                        data, ext);
                 };
                 adapter.ConnectionAction(act);
                 var r = res[0];
