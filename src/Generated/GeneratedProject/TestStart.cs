@@ -11,7 +11,7 @@ using Diagram.UI.Interfaces;
 using DataPerformer.Interfaces;
 using DataPerformer.Portable;
 
-using Regression.Portable;
+
 
 namespace GeneratedProject
 {
@@ -24,7 +24,7 @@ namespace GeneratedProject
         static TestStart()
         {
             string[] fn = new string[] { "RigidBodyStation", "EarthMotion" };
-            string fileName = @"F:\0Unity\Motion\Assets\Scripts\GeneratedProject\";
+            string fileName = @"C:\0Unity\Motion\Assets\Scripts\GeneratedProject\";
                StaticExtensionDiagramUI.OnCreateCode += (List<string> l) =>
                 {
                     var ff = fileName;
@@ -88,10 +88,11 @@ namespace GeneratedProject
 
         void RegressionTest()
         {
-            IDesktop d = SimpleRegression.Desktop;
+   /*         IDesktop d = SimpleRegression.Desktop;
             AliasRegression r = null;
             d.ForEach((AliasRegression ar) => { r = ar; });
             double a = r.Iterate(); 
+   */
         }
 
         void IErrorHandler.ShowError(Exception exception, object obj)

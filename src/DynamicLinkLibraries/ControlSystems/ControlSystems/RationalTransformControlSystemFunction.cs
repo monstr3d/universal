@@ -128,7 +128,7 @@ namespace ControlSystems
                 }
                 derivations[i] = a;
             }
-            derivations[^ - 1] = maxderi;
+            derivations[derivations.Length - 1] = maxderi;
         }
 
 
