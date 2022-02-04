@@ -73,7 +73,7 @@ namespace Scripts.Level
 
                     // +++++ DEBUG GOOD ++++++++++++
                     c[10] = "Station frame.OMGy=-0.00015";//*/
-                    c[10] = "Station frame.OMGy=-0.0001";//*/
+                   c[10] = "Station frame.OMGy=-0.0001";//*/
                     // ++++++ END DEBUG GOOD +++++++
                     c[11] = "Station frame.OMGz=0.015";
                 }
