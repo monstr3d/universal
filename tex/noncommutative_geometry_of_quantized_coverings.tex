@@ -7811,11 +7811,14 @@ Indeed $F$ is a family of all compact sets, we denote it by $\widetilde F \bydef
 		C_F\left( p\right): C_F\left(\sX\right)\hookto C_{p^{-1}\left(F\right)_c}\left(\widetilde\sX\right)\bydef C_{\widetilde F}\left(\widetilde\sX\right)
 		\ee
 		of pro-$C^*$-algebras.
-		\item There is the natural isomorphism of groups
+		\item There is a natural isomorphism of groups
 			\bean
-		\left\{ \left.g \in \Aut\left(C_{\widetilde F }\left(\widetilde\sX\right) \right)~\right|~ ga = a;~~\forall a \in C_F\left(\sX\right)\right\}= G\left(\left.\widetilde\sX\right| \sX \right),\\
-		C_{\widetilde F }\left(\widetilde\sX\right)^{G\left(\left.\widetilde\sX\right| \sX \right)}\cong C_F\left(\sX\right)
+		\left\{ \left.g \in \Aut\left(C_{\widetilde F }\left(\widetilde\sX\right) \right)~\right|~ ga = a;~~\forall a \in C_F\left(\sX\right)\right\}\cong G\left(\left.\widetilde\sX\right| \sX \right)
 		\eean
+		such that
+		$$
+		C_{\widetilde F }\left(\widetilde\sX\right)^{G\left(\left.\widetilde\sX\right| \sX \right)}\cong C_F\left(\sX\right).
+		$$
 			
 	\end{itemize}
 \end{exercise}
@@ -7823,8 +7826,8 @@ Indeed $F$ is a family of all compact sets, we denote it by $\widetilde F \bydef
 	In the above situation we say that $\widetilde F$ is the  $p$-\textit{lift} of $F$. The given by \eqref{top_pro_hom_eqn}  *-homomorphism of pro-$C^*$-algebras is the $p$-$F$-\textit{homomorphism}.
 \end{definition}
 \begin{theorem}\label{top_pro_fin_thm}
-	Let $\sX$ be a connected, locally connected, locally compact, Hausdorff space with distinguished family of compact subsets $F$. If $p:\widetilde\sX \to \sX$ is a finite-fold, transitive covering and   $
-	C_F\left( p\right): C_F\left(\sX\right)\hookto C_{p^{-1}\left(F\right)}\left(\widetilde\sX\right)$ is the $p$-$F$-{homomorphism} (cf. Definition \ref{top_pro_inv_defn}) then the quadruple 
+	Let $\sX$ be a connected, locally connected, locally compact, Hausdorff space with distinguished family of all compact subsets $F$. If $p:\widetilde\sX \to \sX$ is a finite-fold, transitive covering and   $
+	C_F\left( p\right): C_F\left(\sX\right)\hookto C_{\widetilde F}\left(\widetilde\sX\right)$ is the $p$-$F$-{homomorphism} (cf. Definition \ref{top_pro_inv_defn}) then the quadruple 
 	\be\label{top_pro_fin_eqn}
 	\left(C_F\left(\sX\right), C_{\widetilde F }\left(\widetilde\sX\right), G\left(\left.\widetilde\sX\right| \sX \right) , C_F\left( p\right) \right)
 	\ee
@@ -7832,7 +7835,7 @@ Indeed $F$ is a family of all compact sets, we denote it by $\widetilde F \bydef
 \end{theorem}
 \begin{proof}
 	From the Exercise \ref{top_pro_fin_exer} it follows that 	the quadruple \eqref{top_pro_fin_eqn} is a pre-covering of $*$-algebras (cf. Definition \ref{fin_pre*_defn}).	
-Both $C_F\left(\sX\right)$ and  $C_{\widetilde F }\left(\widetilde\sX\right)$ are *-algebras of complex-valued continuous maps on $\sX$ and $\widetilde\sX$ respectively. So we have $b\left(C_F\left(\sX\right)\right)= C_b\left(\sX\right)$ and $b\left(C_{\widetilde F}\left(\widetilde \sX\right)\right)= C_b\left(\widetilde\sX\right)$. On the other hand both $ C_0\left(\sX\right)$ and $ C_0\left(\widetilde\sX\right)$ are essential ideals of $ C_b\left(\sX\right)$ and $ C_b\left(\widetilde\sX\right)$ respectively (cf. Definition \ref{essential_defn}). However one has $G\left(\left.\widetilde\sX\right| \sX \right)C_0\left(\widetilde\sX\right)=C_0\left(\widetilde\sX\right)$ and from the Theorem  \ref{comm_fin_thm} it follows that  the quadruple 
+Both $C_F\left(\sX\right)$ and  $C_{\widetilde F }\left(\widetilde\sX\right)$ are *-algebras of complex-valued continuous maps on $\sX$ and $\widetilde\sX$ respectively. So we have $b\left(C_F\left(\sX\right)\right)= C_b\left(\sX\right)$ and $b\left(C_{\widetilde F}\left(\widetilde \sX\right)\right)= C_b\left(\widetilde\sX\right)$. On the other hand both $ C_0\left(\sX\right)$ and $ C_0\left(\widetilde\sX\right)$ are essential ideals of $ C_b\left(\sX\right)$ and $ C_b\left(\widetilde\sX\right)$ respectively (cf. Definition \ref{essential_defn}). One has $G\left(\left.\widetilde\sX\right| \sX \right)C_0\left(\widetilde\sX\right)=C_0\left(\widetilde\sX\right)$ and from the Theorem  \ref{comm_fin_thm} it follows that  the quadruple 
 \bean
 \left(C_0\left(\sX\right), C_0\left(\widetilde\sX\right), G\left(\left.\widetilde\sX\right| \sX \right) , C_0\left( p\right)= \left.C_F\left( p\right)\right|_{C_0\left(\sX\right)}\right)
 \eean
@@ -7844,26 +7847,28 @@ is a connected noncommutative finite-fold covering (cf. Definition \ref{fin_defn
 \begin{theorem}\label{top_oa_cov_thm}
 	If $M$ is a smooth manifold then	following conditions hold:
 	\begin{enumerate}
-		\item [(i)] If $\Coo_0\left(M \right) \bydef C_0\left(M\right)\cap \Coo\left(M\right)$ and 	$\left(\Coo_c\left(M \right), \widetilde A, G, \pi\right)$ noncommutative finite-fold covering of bounded operator *-algebras  (cf. Definition \ref{fin_oa_defn}) then there is a finite fold transitive topological covering  $p: \widetilde M \to M$ such that $\widetilde A \subset C_0\left( \widetilde M\right)$, 
-		$~~ G \cong G\left(\left.\widetilde M~ \right| M\right)$ and $\pi= \left.C_0\left(p \right)\right|_{\Coo_0\left(M\right) }$ where $C_0\left(p \right)$ is given by the Lemma \ref{top_functor_lem}.
+		\item [(i)] If $\Coo_0\left(M \right) \bydef C_0\left(M\right)\cap \Coo\left(M\right)$ and 	$\left(\Coo_0\left(M \right), \widetilde A, G, \pi\right)$ noncommutative finite-fold covering of bounded operator *-algebras  (cf. Definition \ref{fin_oa_defn}) then there is a finite fold transitive topological covering  $p: \widetilde M \to M$ such that there is a natural dense inclusion  $\widetilde A \subset C_0\left( \widetilde M\right)$ and
+		$G \cong G\left(\left.\widetilde M~ \right| M\right)$ and $\pi= \left.C_0\left(p \right)\right|_{\Coo_0\left(M\right) }$ where $C_0\left(p \right)$ is given by the Lemma \ref{top_functor_lem}.
 		\item[(ii)] If a smooth structure of $\widetilde M$ is induced by $p$ and $M$ (cf. Proposition \ref{comm_cov_mani_prop}) and  then the quadruple	$$
 		\left(\Coo_0\left(M\right), \Coo_0\left(\widetilde M\right)\bydef C_0\left(\widetilde M\right)\cap \Coo\left(\widetilde M\right), G\left(\left.\widetilde M~ \right| M\right), \left.C_0\left(p \right)\right|_{ \Coo_0\left(M\right) }\right)
 		$$
-		finite-fold covering of bounded operator *-algebras  (cf. Definition \ref{fin_oa_defn})
+		finite-fold covering of bounded operator *-algebras  (cf. Definition \ref{fin_oa_defn}).
 	\end{enumerate}
 \end{theorem}
+
+
 \begin{proof}
 	(i)
-	The $C^*$-norm completion of $\Coo_0\left(\widetilde M\right)$ is $C_0\left(M\right)$. If a  quadruple\\ $\left(C_0\left(M \right), \widetilde{B}, G,    \pi\right)$ is a connected noncommutative finite-fold covering (cf. Definition \ref{fin_defn}),  then there is a finite-fold transitive topological covering and $p: \widetilde{    M }\to M$ such that $\left(C_0\left(\mathcal  X \right), \widetilde{B}, G,    \pi\right)$ is equivalent to $\left(C_0\left(M \right), C_0\left(  \widetilde{M}\right) , G\left(\left.\widetilde M~ \right| M\right),    C_0\left( p\right) \right)$ (cf. Theorem \ref{comm_fin_thm}). On the other hand from \ref{fin_oa_empt} it follows that there is a dense inclusion  $\widetilde A\subset C_0\left(  \widetilde{M}\right)$. Conditions $G \cong G\left(\left.\widetilde M~ \right| M\right)$ and $\pi= \left.C_0\left(p \right)\right|_{\Coo_0\left(M\right) }$ follow from the construction \ref{fin_oa_empt}.\\
+	The $C^*$-norm completion of $\Coo_0\left(\widetilde M\right)$ is $C_0\left(M\right)$. If a  quadruple\\ $\left(C_0\left(M \right), \widetilde{B}, G,    \pi\right)$ is a connected noncommutative finite-fold covering (cf. Definition \ref{fin_defn}),  then   there is a finite-fold transitive topological covering and $p: \widetilde{    M }\to M$ such that $\left(C_0\left(\mathcal  X \right), \widetilde{B}, G,    \pi\right)$ is equivalent to $$\left(C_0\left(M \right), C_0\left(  \widetilde{M}\right) , G\left(\left.\widetilde M~ \right| M\right),    C_0\left( p\right) \right)$$ (cf. Theorem \ref{comm_fin_thm}). On the other hand from \ref{fin_oa_empt} it follows that there is a dense inclusion  $\widetilde A\subset C_0\left(  \widetilde{M}\right)$. Conditions $G \cong G\left(\left.\widetilde M~ \right| M\right)$ and $\pi= \left.C_0\left(p \right)\right|_{\Coo_0\left(M\right) }$ follow from the construction \ref{fin_oa_empt}.\\
 	(ii)	
-	We leave to the reader proof of that  $\Coo_0\left(\widetilde M\right)$ is an admissible subalgebra, i.e. it satisfies to conditions of \ref{fin_oa_empt}. If  $C_0\left(\widetilde M\right)$ is not maximal admissible *=algebra then there is an admissible algebra  $\widetilde A' \subset C_0\left(\widetilde M\right)$  such that $\Coo_0\left(\widetilde M\right)\subsetneqq \widetilde A'$. If $\widetilde a \in \widetilde A' \setminus \Coo_0\left(\widetilde M\right)$ then there is $\widetilde x_0 \in \widetilde M$ such that $\widetilde a$ is not smooth at $\widetilde x_0$. There is $f\in \Coo_0\left(\widetilde M\right)$ such that 
+	We leave to the reader a proof of that  $\Coo_0\left(\widetilde M\right)$ is an admissible subalgebra, i.e. it satisfies to conditions of \ref{fin_oa_empt}. If  $\Coo_0\left(\widetilde M\right)$ is not maximal admissible *-algebra then there is an admissible algebra  $\widetilde A' \subset C_0\left(\widetilde M\right)$  such that $\Coo_0\left(\widetilde M\right)\subsetneqq \widetilde A'$. If $\widetilde a \in \widetilde A' \setminus \Coo_0\left(\widetilde M\right)$ then there is $\widetilde x_0 \in \widetilde M$ such that $\widetilde a$ is not smooth at $\widetilde x_0$. There is $f\in \Coo_0\left(\widetilde M\right)$ such that 
 	\begin{itemize}
 		\item $\supp \widetilde f$ is mapped homeomorphically onto $p\left(\supp \widetilde f \right)$.
 		\item There is an open neighborhood $ \widetilde \sU$ of $\widetilde x_0$ such that $ \widetilde f\left(  \widetilde \sU \right) = \{1\}$.
 	\end{itemize}
-	One has $a \bydef \sum_{	g \in G\left(\left.\widetilde{M}~\right|M\right)} g\left(\widetilde f \widetilde a \right) \in \widetilde A'  \cap C_0\left( M\right)$, but $a$ is not smooth at $p\left(\widetilde x_0 \right)$ function. It turns out that $a \notin \Coo_0\left(M \right)$, so we obtain a contradiction with (b) of \ref{fin_oa_empt}. It follows that the algebra $\widetilde A'$ is not admissible, so $ \Coo_0\left(\widetilde M\right)$ is a maximal admissible algebra.
+	One has $a \bydef \sum_{	g \in G\left(\left.\widetilde{M}~\right|M\right)} g\left(\widetilde f \widetilde a \right) \in \widetilde A'  \cap C_0\left( M\right)$, but $a$ is not smooth at $p\left(\widetilde x_0 \right)$ function, i.e. $a \notin \Coo_0\left(M \right)$. On the other hand from \ref{fin_oa_empt} it follows that $$\left(\Coo_0\left(M \right), \widetilde A', G, \pi\right)$$ is a noncommutative finite-fold  pre-covering of *-algebras, and taking into account the condition  (b)  of the Definition \ref{fin_pre*_defn} one has  $a \in \Coo_0\left(M \right)$. From this contradiction it turns out that $ \Coo_0\left(\widetilde M\right)$ is a maximal admissible algebra.
 \end{proof}
-
+!!! CONTINUE
 \subsubsection{Coverings of $O^*$-algebras and quasi $*$-algebras}\label{top_pd_fin_sec}
 \paragraph*{}
 Let $M$ be an $n$-dimensional smooth manifold. If $\tau: C_c\left( M\right) \to \C$ is a functional
