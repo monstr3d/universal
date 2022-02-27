@@ -1728,8 +1728,7 @@ then we say that  $\left(A, \widetilde{A}, G, \pi \right)$, or $\left(A, \wideti
 
 
 \begin{empt}\label{o*fin_empt}
-	
-	Let $\left(A, \widetilde{A}, G, \pi \right)$ be a finite-fold pre-covering of *-algebras (cf. Definition \ref{fin_pre*_defn}) such that $\widetilde{A}$ is an $O^*$-algebra (cf. Definition \ref{o*alg_defn}); that is $\widetilde{A}\subset \L^\dagger\left(\D\right)$ (cf. \eqref{l_dag_eqn}) where $\D$ is a dense subspace of a Hilbert space $\H$. Let $\widetilde{A}_b \bydef \widetilde{A}\cap \L^\dagger\left(\D\right)_b$ (cf. \eqref{o*b_eqn}). From the Remark \ref{o*b_rem} it follows that there are natural $C^*$-norms on $\widetilde{A}_b$ and $A_b\bydef \widetilde{A}_b\cap A$. Suppose  both $B$ and $\widetilde{B}$  of $C^*$-norm completions of $A_b$ and  $\widetilde{A}_b$   respectively such that $G\left( \widetilde{B}\cap \widetilde{A}\right)  =\widetilde{B}\cap \widetilde{A}$ and assume that there is  a connected noncommutative weak finite-fold covering
+	Let $\left(A, \widetilde{A}, G, \pi \right)$ be a finite-fold pre-covering of *-algebras (cf. Definition \ref{fin_pre*_defn}) such that $\widetilde{A}$ is an $O^*$-algebra (cf. Definition \ref{o*alg_defn}); that is $\widetilde{A}\subset \L^\dagger\left(\D\right)$ (cf. \eqref{l_dag_eqn}) where $\D$ is a dense subspace of a Hilbert space $\H$. Let $\widetilde{A}_b \bydef \widetilde{A}\cap \L^\dagger\left(\D\right)_b$ (cf. \eqref{o*b_eqn}). From the Remark \ref{o*b_rem} it follows that there are natural $C^*$-norms completions $B$ and $\widetilde{B}$  of $\widetilde{A}_b$ and $A_b\bydef \widetilde{A}_b\cap A$ respectively. Suppose  that there is  a connected noncommutative weak finite-fold covering
 $\left(B, \widetilde{B}, G, \pi_B \right)$
 	(cf. Definition  \ref{fin_weak_defn})
 	where the action $G\times \widetilde{B} \to \widetilde{B}$ comes from   $G\times \widetilde{A} \to \widetilde{A}$ and ${\pi}_B$ comes from $\pi$.
@@ -7015,7 +7014,37 @@ yields a presheaf.
 	i.e. $\mathscr S$ is smooth.
 \end{proof}
 
+\paragraph{title}
 
+\begin{definition}\label{do_man_defn!}\cite{kahn:glo_an}
+	%Definition 6.1 
+	Given an $n$-dimensional smooth manifold $M$ and two
+	smooth, complex vector bundles over $M$, say
+	$\left(E_1, M, p_1\right)$ and $\left(E_1, M, p_1\right)$,
+	let $\Coo\left(M, E_j \right)$  be the complex vector space of sections of the bundle
+	$\left(E_j, M, p_j\right)$, i.e., smooth maps $s:M \to E_j$ such that $\pi_j\circ s=\Id_{M}$.
+	A \textit{linear differential operator} means a linear map of vector spaces
+	$$
+	P: \Ga^\infty\left(M, E_1 \right)\to \Ga^\infty\left(M, E_2 \right)
+	$$
+	such that $\supp P(s) \subset  \supp s$.
+\end{definition}
+
+\begin{definition}\label{do_man_order_defn!}\cite{kahn:glo_an}
+	%Definition 6.2
+	Let $M$ be a smooth manifold, $x_0\in M$. Let $E_1$, $E_2$ be two
+	smooth vector bundles over $M$, and let
+	$$
+	P: \Coo\left(M, E_1 \right)\to \Coo\left(M, E_2 \right)
+	$$
+	be a linear differential operator, in the sense of Definition \ref{do_man_defn}.
+	Then we say that $P$ \textit{has order} $m$ at the point $x_0$ if $m$ is the largest nonnegative
+	integer such that there is some $s \in  \Coo\left(M, E_1 \right)$ and some smooth function
+	$f$ defined in an open neighborhood of $x_0$ and vanishing at $x_0$ such that $P(f^ms)(x_0)\neq0$.
+	The order of $P$ is the maximum of the orders of $P$ at all the points of $M$. 
+\end{definition}
+
+\paragraph{title}
 
 \begin{example}\label{top_spinor_smooth_exm}
 	Consider the Example \ref{top_cont_as_sheaf_exm}. Suppose that $\sX =  M$ is a Riemannian manifold, and $\sS$ is a spinor bundle (cf. Section \ref{spin_mani_sec}). There is a $\Coo\left( M\right)$  submodule $	\Ga^\infty\left(M, \sS \right)\subset 	\Ga\left(M, \sS \right)$ of smooth sections (cf. Definition \ref{top_smooth_m_defn}), which induced the smooth subsheaf $\mathscr C^\infty\left(M, \sS \right)  \subset \mathscr C \left(M, \left\{\SS_x\right\}, \Ga\left(\sX, \sS \right)\right)$.
@@ -7120,6 +7149,7 @@ So if $p: \widetilde M\to  M$ is a covering then one can define the lift of $P$
 P:\Coo\left(\widetilde M, \widetilde E_1 \right)\to \Coo\left(\widetilde M, \widetilde E_2 \right).
 \end{split}
 \ee
+!!!In particular one has 
 \end{example}
 
 \begin{exm}\label{top_ga_smooth_exm}
@@ -7884,28 +7914,56 @@ is a connected noncommutative  finite-fold weak  covering (cf. Definition \ref{f
 \end{proof}
 
 \subsubsection{Coverings of $O^*$-algebras and quasi $*$-algebras}\label{top_pd_fin_sec}
+\paragraph{title}
+\begin{empt}\label{o*fin_empt!}
+	Let $\left(A, \widetilde{A}, G, \pi \right)$ be a finite-fold pre-covering of *-algebras (cf. Definition \ref{fin_pre*_defn}) such that $\widetilde{A}$ is an $O^*$-algebra (cf. Definition \ref{o*alg_defn}); that is $\widetilde{A}\subset \L^\dagger\left(\D\right)$ (cf. \eqref{l_dag_eqn}) where $\D$ is a dense subspace of a Hilbert space $\H$. Let $\widetilde{A}_b \bydef \widetilde{A}\cap \L^\dagger\left(\D\right)_b$ (cf. \eqref{o*b_eqn}). From the Remark \ref{o*b_rem} it follows that there are natural $C^*$-norms completions $B$ and $\widetilde{B}$  of $\widetilde{A}_b$ and $A_b\bydef \widetilde{A}_b\cap A$ respectively. Suppose  that there is  a connected noncommutative weak finite-fold covering
+	$\left(B, \widetilde{B}, G, \pi_B \right)$
+	(cf. Definition  \ref{fin_weak_defn})
+	where the action $G\times \widetilde{B} \to \widetilde{B}$ comes from   $G\times \widetilde{A} \to \widetilde{A}$ and ${\pi}_B$ comes from $\pi$.
+\end{empt}
+\begin{definition}\label{fino*_defn!}
+	In the  situation \ref{o*fin_empt} we say that $\left(A, \widetilde{A}, G, \pi \right)$, or $\left(A, \widetilde{A}, G  \right)$, or $\pi: A \hookto \widetilde A$ is a \textit{noncommutative finite-fold covering of $O^*$-algebras}.
+\end{definition}
 
+\paragraph{title}
 \paragraph*{}
-Let $M$ be an $n$-dimensional smooth manifold. If $\tau: C_c\left( M\right) \to \C$ is a functional
+If $M$ be an $n$-dimensional smooth manifold.
+If $\tau: C_c\left( M\right) \to \C$ is a functional
 $$
 a \mapsto \int_M a ~d\mu 
 $$
 such that $a > 0\quad\Rightarrow\quad \tau\left(a\right)> 0~~$ (cf. Theorem \ref{meafunc_thm}).
+If  $p: \widetilde M\to M$ is a topological transitive finite-fold covering   then the space  $\widetilde M$ has a natural structure of smooth manifold given by the Proposition \ref{top_cov_mani_prop}. Similarly to the  Lemma \ref{state_cov_11_lem} one can has a $G\left(\left. \widetilde{  M } ~\right| {   M }\right)$ invariant functional 
+ $\widetilde\tau: C_c\left( \widetilde M\right) \to \C$ is a functional
+\bean
+\widetilde a \mapsto \int_{\widetilde M} \widetilde a ~d\widetilde \mu,\\
+\widetilde \tau\left(\widetilde a\right)= \frac{1}{\left|G\left(\left. \widetilde{  M } ~\right| {   M }\right)\right| }\tau\left( \sum_{	g \in G\left( \left. \overline M\right| M\right) }g\widetilde a\right) 
+\eean
+such that $\widetilde a > 0\quad\Rightarrow\quad \widetilde \tau\left(\widetilde a\right)> 0$.
 There is a $\C$-valued sesquilinear product of $\Coo_c\left(M \right)\bydef \Coo\left(M \right) \cap C_c\left(M \right)$ given by
 \be\label{top_coo_p_eqn}
-\left(a, b\right)\bydef \tau\left( a^*b\right) 
+\left(\widetilde a, \widetilde b\right)\bydef \widetilde \tau\left(\widetilde a^*\widetilde b\right) 
 \ee
-so  $\Coo_c\left(M \right)$ becomes a pre-Hilbert space.
-Denote by $L^2\left(M, \mu \right)$ its completion. Also denote by $\D \bydef \Coo_c\left(M \right)$, $\H\bydef  L^2\left(M, \mu \right)$. Let  $D\left( M\right)$ be an algebra of linear differential operators $\Coo\left(M \right)  \to \Coo\left(M \right)$ (cf. Definition \ref{do_man_defn}).
-From $D\left( M\right)\D = \D$ it follows that $D\left( M\right) \subset \L^\dagger\left(\D \right)$ (cf. equation \eqref{l_dag_eqn}). If $D_0\left( M\right)\subset D\left( M\right)$ is a subalgebra of having order 0 operators (cf. Definition \ref{do_man_order_defn}) then $D_0\left( M\right)\cong \Coo\left(M \right)$. If $\L^\dagger\left(\D \right)_b$ is given by \eqref{o*b_eqn} then one has
+so  $\Coo_c\left(\widetilde M \right)$ becomes a pre-Hilbert space, and  $\H \bydef L^2\left(\widetilde M, \widetilde \mu \right)$ is its completion.
+Also denote by $\D \bydef \Coo_c\left(\widetilde M \right)\subset\H$. If  $D\left( \widetilde M\right)$ is an algebra of linear differential operators $\Coo\left(\widetilde M \right)  \to \Coo\left(\widetilde M \right)$ (cf. Definition \ref{do_man_defn}), then 
+from $D\left(\widetilde M\right)\D = \D$ it follows that $D\left( \widetilde M\right) \subset \L^\dagger\left(\D \right)$ (cf. equation \eqref{l_dag_eqn}). 
+
+
+
+If $D_0\left( M\right)\subset D\left( M\right)$ is a subalgebra of having order 0 operators (cf. Definition \ref{do_man_order_defn}) then $D_0\left( M\right)\cong \Coo\left(M \right)$. If $\L^\dagger\left(\D \right)_b$ is given by \eqref{o*b_eqn} then one has
 $$
 \L^\dagger\left(\D \right)_b\cap D\left( M\right)= D_0\left( M\right)\cap C_b\left( M\right)=\Coo_b\left(   M\right)\bydef C_b\left(  M \right) \cap \Coo\left(   M\right)
 $$
-so the $C^*$-norm completion of $\L^\dagger\left(\D \right)_b\cap D\left( M\right)$ coincides with $C_b\left( M\right)$. If  $p: \widetilde M\to M$ is a topological transitive finite-fold covering and and $\widetilde M$ is a connected space then from the Corollary \ref{top_fin_cor} it turns out that the quadruple
+so the $C^*$-norm completion of $\L^\dagger\left(\D \right)_b\cap D\left( M\right)$ coincides with $C_b\left( M\right)$. 
+
+
+
+
+is a connected space then from the Corollary \ref{top_fin_cor} it turns out that the quadruple
 $$
-\left(C_b\left(\mathcal  X \right), C_b\left(  \widetilde{   \mathcal X }\right) ,G\left(\left. \widetilde{   \mathcal X } ~\right| {   \mathcal X }\right),   \lift_p \right)
+\left(C_b\left(M \right), C_b\left(  \widetilde{   M }\right) ,G\left(\left. \widetilde{  M } ~\right| {   M }\right),   \left. \lift_p\right|_{C_b\left(M \right)} \right)
 $$
-is a connected noncommutative  finite-fold weak  covering (cf. Definition \ref{fin_weak_defn}). The space  $\widetilde M$ has the natural structure of smooth manifold given by the Proposition \ref{top_cov_mani_prop}. Similarly to the above construction of $\Coo\left( M\right)$,  $~~D\left( M\right)$, $~~\D \bydef \Coo_c\left(M \right)$, $~~D\left(M \right)$, $B \bydef C_0\left(M \right)$ one can obtain $\Coo\left(\widetilde M\right)$,  $~~D\left(\widetilde M\right)$, $~~\widetilde\D \bydef \Coo_c\left(\widetilde M \right)$,  $~~\widetilde B \bydef C_0\left(\widetilde M \right)$. If $G \bydef G\left(\left. \widetilde M\right| M\right)$ then the action $G\times \widetilde M\to \widetilde M$ induces actions $G\times \widetilde \D\to \widetilde \D$, $~~G\times  \L^\dagger\left( \widetilde\D\right) \to  \L^\dagger\left(\widetilde \D\right) $, $~~G\times D\left( \widetilde M\right) \to D\left( \widetilde M\right) $, $~~G\times C_0\left( \widetilde M\right) \to C_0\left( \widetilde M\right)$. The covering $p: \widetilde M\to M$ naturally induces an invective  *-homomorhism   $\pi: D\left(  M\right) \hookto  D\left(\widetilde M\right)$ (cf. \eqref{top_smooth_inv_im_eqn}). Any *-automorphism $\a: D\left(\widetilde M\right)\cong D\left(\widetilde M\right)$ maps bounded operators into bounded ones, i.e.
+is a connected noncommutative  finite-fold weak  covering (cf. Definition \ref{fin_weak_defn}).  Similarly to the above construction of $\Coo\left( M\right)$,  $~~D\left( M\right)$, $~~\D \bydef \Coo_c\left(M \right)$, $~~D\left(M \right)$, $B \bydef C_0\left(M \right)$ one can obtain $\Coo\left(\widetilde M\right)$,  $~~D\left(\widetilde M\right)$, $~~\widetilde\D \bydef \Coo_c\left(\widetilde M \right)$,  $~~\widetilde B \bydef C_0\left(\widetilde M \right)$. If $G \bydef G\left(\left. \widetilde M\right| M\right)$ then the action $G\times \widetilde M\to \widetilde M$ induces actions $G\times \widetilde \D\to \widetilde \D$, $~~G\times \left( C_b\left(\widetilde M \right)\cap   \L^\dagger\left( \widetilde\D\right) \right) \to   C_b\left(\widetilde M \right)\cap   \L^\dagger\left( \widetilde\D\right) $, $~~G\times D\left( \widetilde M\right) \to D\left( \widetilde M\right) $, $~~G\times C_0\left( \widetilde M\right) \to C_0\left( \widetilde M\right)$. The covering $p: \widetilde M\to M$ naturally induces an invective  *-homomorhism   $\pi\bydef \lift_p : D\left(  M\right) \hookto  D\left(\widetilde M\right)$ given by \eqref{top_diff_lift_eqn}). Any *-automorphism $\a: D\left(\widetilde M\right)\cong D\left(\widetilde M\right)$ maps bounded operators into bounded ones, i.e.
 $$
 \left.\a\right|_{\Coo_b\left(  \widetilde M\right)}: \Coo_b\left(  \widetilde M\right)\cong \Coo_b\left(  \widetilde M\right).
 $$
@@ -7923,19 +7981,7 @@ $$
 $$
 is a {noncommutative finite-fold  pre-covering} of *-algebras (cf. Definition \ref{fin_pre*_defn}).
  Taking into account the Definition \ref{fino*_defn} on can obtain the following theorem.
-\paragraph{title}
-\begin{empt}\label{o*fin_empt!}
-	
-	Let $\left(A, \widetilde{A}, G, \pi \right)$ be a finite-fold pre-covering of *-algebras (cf. Definition \ref{fin_pre*_defn}) such that $\widetilde{A}$ is an $O^*$-algebra (cf. Definition \ref{o*alg_defn}); that is $\widetilde{A}\subset \L^\dagger\left(\D\right)$ (cf. \eqref{l_dag_eqn}) where $\D$ is a dense subspace of a Hilbert space $\H$. Let $\widetilde{A}_b \bydef \widetilde{A}\cap \L^\dagger\left(\D\right)_b$ (cf. \eqref{o*b_eqn}). From the Remark \ref{o*b_rem} it follows that there are natural $C^*$-norms on $\widetilde{A}_b$ and $A_b\bydef \widetilde{A}_b\cap A$. Suppose  both $B$ and $\widetilde{B}$  of $C^*$-norm completions of $A_b$ and  $\widetilde{A}_b$   respectively such that $G\left( \widetilde{B}\cap \widetilde{A}\right)  =\widetilde{B}\cap \widetilde{A}$ and assume that there is  a connected noncommutative weak finite-fold covering
-	$\left(B, \widetilde{B}, G, \pi_B \right)$
-	(cf. Definition  \ref{fin_weak_defn})
-	where the action $G\times \widetilde{B} \to \widetilde{B}$ comes from   $G\times \widetilde{A} \to \widetilde{A}$ and ${\pi}_B$ comes from $\pi$.
-\end{empt}
-\begin{definition}\label{fino*_defn!}
-	In the  situation \ref{o*fin_empt} we say that $\left(A, \widetilde{A}, G, \pi \right)$, or $\left(A, \widetilde{A}, G  \right)$, or $\pi: A \hookto \widetilde A$ is a \textit{noncommutative finite-fold covering of $O^*$-algebras}.
-\end{definition}
-
-\paragraph{title}!!! CONTINUE
+!!!! CHECK
 \begin{theorem}\label{top_d_fin_thm}
 In the described above situation the quadruple
 $$
@@ -19809,7 +19855,7 @@ It is a basic fact that $\Coo\left(M \right)$ is complete, so that it is a Fr\'e
 \end{rem}
 
 \section{Differential operators on manifolds}
-\begin{definition}\label{do_man_defn}
+\begin{definition}\label{do_man_defn}\cite{kahn:glo_an}
 	%Definition 6.1 
 	Given an $n$-dimensional smooth manifold $M$ and two
 	smooth, complex vector bundles over $M$, say
@@ -19823,7 +19869,7 @@ It is a basic fact that $\Coo\left(M \right)$ is complete, so that it is a Fr\'e
 	such that $\supp P(s) \subset  \supp s$.
 \end{definition}
 
-\begin{definition}\label{do_man_order_defn}
+\begin{definition}\label{do_man_order_defn}\cite{kahn:glo_an}
 	%Definition 6.2
 	Let $M$ be a smooth manifold, $x_0\in M$. Let $E_1$, $E_2$ be two
 	smooth vector bundles over $M$, and let
@@ -19836,6 +19882,7 @@ It is a basic fact that $\Coo\left(M \right)$ is complete, so that it is a Fr\'e
 	$f$ defined in an open neighborhood of $x_0$ and vanishing at $x_0$ such that $P(f^ms)(x_0)\neq0$.
 	The order of $P$ is the maximum of the orders of $P$ at all the points of $M$. 
 \end{definition}
+
 \section{Distributions on manifolds}
 \paragraph*{}
 The notion of a distribution on smooth manifold $M$ is explained in 6.3.3 \cite{horm:I} and it is denoted by $\mathscr{D}'\left( M\right)$.
@@ -27292,17 +27339,17 @@ I. Içen, M. Gürsoy, A. Özcan \textit{Coverings of Lie groupoids
  	
  	%\bibitem{akhi:fa}	N. I. Akhiezer, I. M. Glazman. \textit{Theory of Linear Operators in Hilbert Space}. Dover Publications, New York, 1961, 1963.
  	
- 	\bibitem{antoine:part_o}Antoine, Jean-Pierre, Inoue, Atsushi, Trapani, C.  \textit{Partial *- Algebras and Their Operator Realizations}. SPRINGER-SCIENCE+BUSINESS MEDIA, B.V. 2002.
+ 	\bibitem{antoine:part_o}!!!Antoine, Jean-Pierre, Inoue, Atsushi, Trapani, C.  \textit{Partial *- Algebras and Their Operator Realizations}. SPRINGER-SCIENCE+BUSINESS MEDIA, B.V. 2002.
  	
  	
- 	\bibitem{antoine:part_s} J.-P. Antoine, F. Mathot, \textit{Partial *-algebras of closed operators and their commutants. I. General
+ 	\bibitem{antoine:part_s} !!!J.-P. Antoine, F. Mathot, \textit{Partial *-algebras of closed operators and their commutants. I. General
  		structure}. Ann. Inst. H. Poincaré 46, 299–324 (1987), 1987.
  	
  	\bibitem{arveson:c_alg_invt} W. Arveson. {\it An Invitation to $C^*$-Algebras}, Springer-Verlag. ISBN 0-387-90176-0, 1981.
  	
  	
  	\bibitem{atiyah_b_s}
- 	M. F. Atiyah, R. Bott and A. Shapiro, \textit{Clifford Modules}, Topology{\bf 3} (1964), 3--38.  1964.
+ 	M. F. Atiyah, R. Bott and A. Shapiro, \textit{Clifford Modules}, Topology {\bf 3} (1964), 3--38.  1964.
  	
  	%\bibitem{ant_azz_scan:flat_k}Paolo Antonini, Sara Azzali, Georges Skandalis {\it Flat bundles, von Neumann algebras and $K$-theory with $\mathbb{M}hbb{R}/\mathbb{M}hbb{Z}$-coefficients}, arXiv:1308.0218, 2013.
  	
@@ -27357,7 +27404,7 @@ I. Içen, M. Gürsoy, A. Özcan \textit{Coverings of Lie groupoids
 
 \bibitem{brown:proper_groupoids}Jonathan Henry Brown. \textit{Proper actions of groupoids on $C^*$-algebras}. arXiv:0907.5570, 2009.
 
-\bibitem{brown:stable} Lawrence G. Brown, Philip Green, and Marc A. Rieffel.\textit{Stable isomorphism and strong Morita equivalence of $C^*$-algebras}. Pacific J. Math., Volume 71, Number 2 (1977), 349-363. 1977.
+\bibitem{brown:stable} Lawrence G. Brown, Philip Green, and Marc A. Rieffel. \textit{Stable isomorphism and strong Morita equivalence of $C^*$-algebras}. Pacific J. Math., Volume 71, Number 2 (1977), 349-363. 1977.
 
 \bibitem{BroGreRie}L.~G. Brown, P.~Green, and M.~A. Rieffel.  \textit{Stable isomorphism and strong {Morita} equivalence of	{$C^*$}-algebras}.\newblock { Pacific J. Math.} {\bf 71} (1977), 349--363. 1977.
 
@@ -27537,7 +27584,7 @@ Birkhauser, Basel-Boston-Berlin 1991), viii + 202 pp. 3 7643 3496 7, sFr. 98. 19
 
 %\bibitem{kakariadis:corr}Evgenios T.A. Kakariadis, Elias G. Katsoulis, {\it Operator algebras and $C^*$-correspondences: A survey.} 	arXiv:1210.6067, 2012.
 
-\bibitem{landi:nm_nt} {G. Landi}, {F. Lizzi} and {R.J. Szabo}. \textit{From Large $N$ Matrices to the  Noncommutative Torus}  DSM--QM462 DSF--40/99 NBI--HE--99--48 hep--th/9912130 December 1999.
+\bibitem{landi:nm_nt} {G. Landi}, {F. Lizzi} and {R.J. Szabo}. \textit{From Large $N$ Matrices to the  Noncommutative Torus}.  DSM--QM462 DSF--40/99 NBI--HE--99--48 hep--th/9912130 December 1999.
 
 \bibitem{kahn:glo_an} Donald W. Kahn. \textit{Introduction to Global Analysis}.  ACADEMIC PRESS
 A Subsidiary of Harcourt Brace Jovanovich, Publishers
@@ -27764,7 +27811,7 @@ Kay Schwieger, Stefan Wagner. \textit{Noncommutative Coverings of Quantum Tori}.
 \bibitem{spanier:at}
 E.H. Spanier. {\it Algebraic Topology.} McGraw-Hill. New York. 1966.
 
-\bibitem{sudo:k_ctr} Takahiro Sudo \textit{$K$-theory of $C^*$-algebras of locally trivial continuous fields}. Commun. Korean Math. Soc. 2005 Vol. 20, No. 1, 79-92 Printed March 1, 2005.
+\bibitem{sudo:k_ctr} Takahiro Sudo. \textit{$K$-theory of $C^*$-algebras of locally trivial continuous fields}. Commun. Korean Math. Soc. 2005 Vol. 20, No. 1, 79-92 Printed March 1, 2005.
 
 
 \bibitem{switzer:at} Switzer R M, {\it Algebraic Topology - Homotopy and Homology}, Springer. 2002.
