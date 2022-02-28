@@ -1728,7 +1728,12 @@ then we say that  $\left(A, \widetilde{A}, G, \pi \right)$, or $\left(A, \wideti
 
 
 \begin{empt}\label{o*fin_empt}
-	Let $\left(A, \widetilde{A}, G, \pi \right)$ be a finite-fold pre-covering of *-algebras (cf. Definition \ref{fin_pre*_defn}) such that $\widetilde{A}$ is an $O^*$-algebra (cf. Definition \ref{o*alg_defn}); that is $\widetilde{A}\subset \L^\dagger\left(\D\right)$ (cf. \eqref{l_dag_eqn}) where $\D$ is a dense subspace of a Hilbert space $\H$. Let $\widetilde{A}_b \bydef \widetilde{A}\cap \L^\dagger\left(\D\right)_b$ (cf. \eqref{o*b_eqn}). From the Remark \ref{o*b_rem} it follows that there are natural $C^*$-norms completions $B$ and $\widetilde{B}$  of $\widetilde{A}_b$ and $A_b\bydef \widetilde{A}_b\cap A$ respectively. Suppose  that there is  a connected noncommutative weak finite-fold covering
+	Let $\left(A, \widetilde{A}, G, \pi \right)$ be a finite-fold pre-covering of *-algebras (cf. Definition \ref{fin_pre*_defn}) such that $\widetilde{A}$ is an $O^*$-algebra (cf. Definition \ref{o*alg_defn}); that is $\widetilde{A}\subset \L^\dagger\left(\D\right)$ (cf. \eqref{l_dag_eqn}) where $\D$ is a dense subspace of a Hilbert space $\H$. Assume that there is an equivariant action $G\times \D\to \D$, i.e.
+	\be\label{equ_d_eqn}
+\forall \widetilde  a \in \widetilde A\quad	\forall \xi\in \D  \quad g\left( \widetilde  a\xi\right)=   g\left( \widetilde  a\right) g\left( \xi\right).
+	\ee 
+	 Let $\widetilde{A}_b \bydef \widetilde{A}\cap \L^\dagger\left(\D\right)_b$ (cf. \eqref{o*b_eqn}).
+	From the Remark \ref{o*b_rem} it follows that there are natural $C^*$-norms completions $B$ and $\widetilde{B}$  of $\widetilde{A}_b$ and $A_b\bydef \widetilde{A}_b\cap A$ respectively. Suppose  that there is  a connected noncommutative weak finite-fold covering
 $\left(B, \widetilde{B}, G, \pi_B \right)$
 	(cf. Definition  \ref{fin_weak_defn})
 	where the action $G\times \widetilde{B} \to \widetilde{B}$ comes from   $G\times \widetilde{A} \to \widetilde{A}$ and ${\pi}_B$ comes from $\pi$.
@@ -7013,7 +7018,13 @@ yields a presheaf.
 	so from the Definition \ref{sheaf_defn} it follows that $fs \in \mathscr S\left(\sU\right)$,
 	i.e. $\mathscr S$ is smooth.
 \end{proof}
-
+\begin{empt}
+	Let $M$ be a smooth manifold, and let $p: E \to M$ be a smooth vector bundle (cf. Definition \ref{top_sm_bundle_defn}). One can define a presheaf (cf. Definition \ref{presheaf_defn}) $\mathscr S\left( M, E\right)$  of local smooth sections (cf. Definition \ref{top_sm_sec_defn}).   
+\end{empt}
+\begin{definition}
+Consider the above situation. The associated with $\mathscr S\left( M, E\right)$ sheaf $\mathscr G^\infty\left( M, E\right)$ is said to be a \textit{sheaf of local smooth sections} (cf. Proposition and Definition \ref{sheaf_prdf}).
+\end{definition}
+!!!
 \paragraph{title}
 
 \begin{definition}\label{do_man_defn!}\cite{kahn:glo_an}
@@ -19414,13 +19425,9 @@ Let $k$ be the field of real or complex numbers, and let $\sX$ be a topological 
 	\end{enumerate}
 	The quasi-vector bundle with base will be denoted by $\xi = \left( E, \pi, \mathcal X\right)$. The space $E$ is the \textit{total space} of $\xi$ and $E_x$ is the \textit{fiber} of $\xi$ at the point $x$.
 \end{definition}
-\begin{empt}\label{trivial_vb_empt}\cite{karoubi:k}
-	
-	Let $V$ be a finite dimensional vector space over $k$,  $E_x = V$ and the total space may be identified with $\sX \times V$ with the product topology then the quasi-vector bundle  $\left(\sX \times V, \pi, \mathcal X\right)$ is called a \textit{trivial vector bundle}.
+\begin{empt}\label{trivial_vb_empt}\cite{karoubi:k}	Let $V$ be a finite dimensional vector space over $k$,  $E_x = V$ and the total space may be identified with $\sX \times V$ with the product topology then the quasi-vector bundle  $\left(\sX \times V, \pi, \mathcal X\right)$ is called a \textit{trivial vector bundle}.
 \end{empt}
-\begin{empt}\cite{karoubi:k}
-	
-	Let $\xi = \left( E, \pi, \mathcal X\right)$ be a quasi-vector bundle, and let let $\sX' \subset \sX$ be a subspace of $\sX$. The triple $\xi' = \left(\pi^{-1}\left( \sX'\right) , \pi|_{\pi^{-1}\left( \sX'\right)}, \mathcal X'\right)$ is called the \textit{restriction} of $\xi$ to $\sX'$. The fibers of $\xi'$ are just fibers of $\xi$ over the subspace $\xi$. One has
+\begin{empt}\cite{karoubi:k}	Let $\xi = \left( E, \pi, \mathcal X\right)$ be a quasi-vector bundle, and let let $\sX' \subset \sX$ be a subspace of $\sX$. The triple $\xi' = \left(\pi^{-1}\left( \sX'\right) , \pi|_{\pi^{-1}\left( \sX'\right)}, \mathcal X'\right)$ is called the \textit{restriction} of $\xi$ to $\sX'$. The fibers of $\xi'$ are just fibers of $\xi$ over the subspace $\xi$. One has
 	\be
 	\sX'' \subset \sX' \subset \sX \quad \Rightarrow\quad \left.\left(\xi|_{\sX'} \right) \right|_{\sX''}= \xi|_{\sX''}.
 	\ee
@@ -19853,6 +19860,44 @@ It is a basic fact that $\Coo\left(M \right)$ is complete, so that it is a Fr\'e
 \begin{rem}\label{comm_smooth_usual_rem}
 	In the situation of the Definition \ref{comm_smooth_usual_defn} $\Coo\left(M\right)$  is a local operator system (cf. Remark \ref{la_los_rem}).
 \end{rem}
+\section{Smooth vector bundles}
+
+\begin{definition}\label{top_sm_bundle_defn}\cite{lee:smooth_manifolds}
+	Let $M$ be a smooth manifold/
+A \textit{smooth vector bundle of rank $k$ over $M$} is a smooth manifold $E$ together
+with a smooth surjective map $\pi: E\to M$ satisfying:
+\begin{enumerate}
+	\item [(i)] For each $p\in M$ the set $E_p \bydef \pi^{-1}\left( p\right)$  (called the \textit{fiber} of $E$ over
+$p$) is endowed with the structure of a real vector space.
+\item[(ii)] For each $p\in M$ there exists a neighborhood $\sU$ of $p$ in $M$ and a diffeomorphism $\Phi:\pi^{-1}\left( p\right)\to \sU \times R^k$  such that the following diagram
+		\newline
+\begin{tikzpicture}
+	\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
+	{
+		\pi^{-1}\left(\sU \right)  & & \sU \times \R^K \\ 
+		& \sU & \\};
+	\path[-stealth]
+	(m-1-1) edge node [above] {$\Phi$} (m-1-3)
+	(m-1-1) edge node [left]  {$\pi~~$} (m-2-2)
+	(m-1-3) edge node [right] {$~~\pi_1$} (m-2-2);
+\end{tikzpicture}
+\\ 	
+and the restriction of $\Phi$ to $E_p$ is a linear isomorphism from $E_p$ to $\{p\}\times \R^k \xrightarrow{\approx } \R^k$. (Here $\pi_1$ is the projection on the first factor.)
+\end{enumerate}
+The manifold $E$ is called the \textit{total space} of the bundle, $M$ is called its \textit{base}, and $\pi$ is its \textit{projection}. Each map $\Phi$ in the above definition is called
+a \textit{local trivialization} of $E$ over $\sU$. 
+
+\end{definition}
+
+\begin{definition}\label{top_sm_sec_defn}\cite{lee:smooth_manifolds}
+Let $E$ be a smooth vector bundle over a smooth manifold $M$, with projection $\pi: E\to M$. A section of $E$ is a \textit{section} of the map $\pi$, i.e., a continuous map $\sigma: M \hookto E$ such that $\pi\circ\sigma = \Id_M$. If $\sU \subset M$ is an open subset, a
+section of the restricted bundle $E|_{\sU}$ is called a \textit{local section} of $E$. A \textit{smooth
+section} is a (local or global) section that is smooth as a map between manifolds.
+\end{definition}
+\begin{remark}
+The definitions \ref{top_sm_bundle_defn} and \ref{top_sm_sec_defn} are specializations of \ref{top_vb_defn} and \ref{top_vb_cs_defn} ones.
+\end{remark}
+
 
 \section{Differential operators on manifolds}
 \begin{definition}\label{do_man_defn}\cite{kahn:glo_an}
@@ -19860,7 +19905,7 @@ It is a basic fact that $\Coo\left(M \right)$ is complete, so that it is a Fr\'e
 	Given an $n$-dimensional smooth manifold $M$ and two
 	smooth, complex vector bundles over $M$, say
 	$\left(E_1, M, p_1\right)$ and $\left(E_1, M, p_1\right)$,
-	let $\Coo\left(M, E_j \right)$  be the complex vector space of sections of the bundle
+	let $ \Ga^\infty\left(M, E_j \right)$  be the complex vector space of sections of the bundle
 	$\left(E_j, M, p_j\right)$, i.e., smooth maps $s:M \to E_j$ such that $\pi_j\circ s=\Id_{M}$.
 	A \textit{linear differential operator} means a linear map of vector spaces
 	$$
@@ -19874,7 +19919,7 @@ It is a basic fact that $\Coo\left(M \right)$ is complete, so that it is a Fr\'e
 	Let $M$ be a smooth manifold, $x_0\in M$. Let $E_1$, $E_2$ be two
 	smooth vector bundles over $M$, and let
 	$$
-	P: \Coo\left(M, E_1 \right)\to \Coo\left(M, E_2 \right)
+	P:  \Ga^\infty\left(M, E_1 \right)\to  \Ga^\infty\left(M, E_2 \right)
 	$$
 	be a linear differential operator, in the sense of Definition \ref{do_man_defn}.
 	Then we say that $P$ \textit{has order} $m$ at the point $x_0$ if $m$ is the largest nonnegative
@@ -27321,7 +27366,7 @@ I am very grateful to Prof. Joseph C Varilly  and Arup Kumar Pal
  
  
  
- \ 
+
  
  \begin{thebibliography}{10}
  	
@@ -27645,6 +27690,8 @@ Univ. Press, Princeton, NJ, 1989.
 
 \bibitem{matro:hcm} Manuilov V.M., Troitsky E.V. \textit{Hilbert $C^*$-modules}. % Publication Year: 2005. ISBN-10: 0-8218-3810-5 ISBN-13: 978-0-8218-3810-5 
 Translations of Mathematical Monographs, vol. 226, 2005.
+
+\bibitem{lee:smooth_manifolds} John M. Lee: \textit{Introduction to Smooth Manifolds} Published 2003, Springer: Graduate Texts in Mathematics ISBN 0-387-95495-3. 2003.
 
 \bibitem{bram:atricle}Bram Mesland. {\it Unbounded bivariant $K$-theory and correspondences in noncommutative geometry}. arXiv:0904.4383, 2009.
 

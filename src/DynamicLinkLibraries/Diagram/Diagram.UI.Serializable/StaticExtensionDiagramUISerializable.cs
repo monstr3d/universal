@@ -48,10 +48,29 @@ namespace Diagram.UI
         /// <returns>String</returns>
         static public string BytesToString(this byte[] buffer)
         {
+  /*          StringBuilder sb = new StringBuilder();
+            int i = 0;
+            while (true)
+            {
+                if (i >= buffer.Length)
+                {
+                    break;
+                }
+                char c = BitConverter.ToChar(buffer, i);
+                i += 2;
+                sb.Append(c);
+            }
+            return sb.ToString();
+         
+            int k = buffer.Length / 2;
+            for (int i = 0; i < k; i++)
+            {
+                char c = BitConverter.ToChar()
+            }
             if (buffer == null)
             {
                 return null;
-            }
+            }*/
             char[] cb = new char[buffer.Length];
             for (int k = 0; k < buffer.Length; k++)
             {
@@ -67,6 +86,15 @@ namespace Diagram.UI
         /// <returns>Bytes</returns>
         static public byte[] StringToBytes(this string str)
         {
+   /*         List<byte> bytes = new List<byte>();
+            foreach (char c in str)
+            {
+                bytes.AddRange(BitConverter.GetBytes(c));
+            }
+            return bytes.ToArray();
+
+
+            BitConverter.GetBytes(str);*/
             if (str == null)
             {
                 return null;
