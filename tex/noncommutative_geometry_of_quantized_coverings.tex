@@ -1733,7 +1733,7 @@ then we say that  $\left(A, \widetilde{A}, G, \pi \right)$, or $\left(A, \wideti
 \forall \widetilde  a \in \widetilde A\quad	\forall \xi\in \D  \quad g\left( \widetilde  a\xi\right)=   g\left( \widetilde  a\right) g\left( \xi\right).
 	\ee 
 	 Let $\widetilde{A}_b \bydef \widetilde{A}\cap \L^\dagger\left(\D\right)_b$ (cf. \eqref{o*b_eqn}).
-	From the Remark \ref{o*b_rem} it follows that there are natural $C^*$-norms completions $B$ and $\widetilde{B}$  of $\widetilde{A}_b$ and $A_b\bydef \widetilde{A}_b\cap A$ respectively. Suppose  that there is  a connected noncommutative weak finite-fold covering
+	From the Remark \ref{o*b_rem} it follows that there are natural $C^*$-norms completions $\widetilde B$ and ${B}$  of $\widetilde{A}_b$ and $A_b\bydef \widetilde{A}_b\cap A$ respectively. Suppose  that there is  a connected noncommutative weak finite-fold covering
 $\left(B, \widetilde{B}, G, \pi_B \right)$
 	(cf. Definition  \ref{fin_weak_defn})
 	where the action $G\times \widetilde{B} \to \widetilde{B}$ comes from   $G\times \widetilde{A} \to \widetilde{A}$ and ${\pi}_B$ comes from $\pi$.
@@ -5124,7 +5124,7 @@ Sometimes instead of \eqref{top_cfs_eqn} we use the following notation for a cov
 where $\mathscr A$ is a finite set.
 \end{remark}
 \begin{definition}\label{top_covering_sum_domi_defn}
-Let $p:\widetilde\sX \to \sX$ be a covering. Let both $\sY\subset\sX$ and $\widetilde\sY\subset\widetilde\sX$ are compact subsets. A covering sum $\sum_{j = 1}^n f_j$ for $\sY$ (cf. Definition \ref{top_covering_sum_defn}) is said to be \textit{subordinated to} $p$ if for all $j=1,..., n$ the set $\left\{\left.x\in\sX\right|f_j\left( x\right)>  0 \right\}$ is evenly covered by $p$ (cf. Definition \ref{comm_cov_pr_defn}). A covering sum $\sum_{j = 1}^n \widetilde f_j$ for $\widetilde \sY$ is said to be \textit{subordinated to} $p$ if for all $j=1,..., n$ the set $\widetilde\sU_j\bydef \left\{\left.\widetilde x\in\widetilde\sX\right|\widetilde f_j\left(\widetilde x\right)>  0 \right\}$ is homeomorphically mapped onto $p\left(\widetilde\sU_j\right)$. 
+Let $p:\widetilde\sX \to \sX$ be a covering. Let both $\sY\subset\sX$ and $\widetilde\sY\subset\widetilde\sX$ are compact subsets. A covering sum $\sum_{j = 1}^n f_j$ for $\sY$ (cf. Definition \ref{top_covering_sum_defn}) is said to be \textit{subordinated to} $p$ if for all $j=1,..., n$ the set $\left\{\left.x\in\sX\right|f_j\left( x\right)>  0 \right\}$ is evenly covered by $p$ (cf. Definition \ref{top_cov_defn}). A covering sum $\sum_{j = 1}^n \widetilde f_j$ for $\widetilde \sY$ is said to be \textit{subordinated to} $p$ if for all $j=1,..., n$ the set $\widetilde\sU_j\bydef \left\{\left.\widetilde x\in\widetilde\sX\right|\widetilde f_j\left(\widetilde x\right)>  0 \right\}$ is homeomorphically mapped onto $p\left(\widetilde\sU_j\right)$. 
 \end{definition}
 
 \begin{remark}\label{top_smooth_part_unity_rem}
@@ -7018,49 +7018,6 @@ yields a presheaf.
 	so from the Definition \ref{sheaf_defn} it follows that $fs \in \mathscr S\left(\sU\right)$,
 	i.e. $\mathscr S$ is smooth.
 \end{proof}
-\begin{empt}
-	Let $M$ be a smooth manifold, and let $p: E \to M$ be a smooth vector bundle (cf. Definition \ref{top_sm_bundle_defn}). One can define a presheaf (cf. Definition \ref{presheaf_defn}) $\mathscr S\left( M, E\right)$  of local smooth sections (cf. Definition \ref{top_sm_sec_defn}).   
-\end{empt}
-\begin{definition}
-Consider the above situation. The associated with $\mathscr S\left( M, E\right)$ sheaf $\mathscr G^\infty\left( M, E\right)$ is said to be a \textit{sheaf of local smooth sections} (cf. Proposition and Definition \ref{sheaf_prdf}).
-\end{definition}
-!!!
-\paragraph{title}
-
-\begin{definition}\label{do_man_defn!}\cite{kahn:glo_an}
-	%Definition 6.1 
-	Given an $n$-dimensional smooth manifold $M$ and two
-	smooth, complex vector bundles over $M$, say
-	$\left(E_1, M, p_1\right)$ and $\left(E_1, M, p_1\right)$,
-	let $\Coo\left(M, E_j \right)$  be the complex vector space of sections of the bundle
-	$\left(E_j, M, p_j\right)$, i.e., smooth maps $s:M \to E_j$ such that $\pi_j\circ s=\Id_{M}$.
-	A \textit{linear differential operator} means a linear map of vector spaces
-	$$
-	P: \Ga^\infty\left(M, E_1 \right)\to \Ga^\infty\left(M, E_2 \right)
-	$$
-	such that $\supp P(s) \subset  \supp s$.
-\end{definition}
-
-\begin{definition}\label{do_man_order_defn!}\cite{kahn:glo_an}
-	%Definition 6.2
-	Let $M$ be a smooth manifold, $x_0\in M$. Let $E_1$, $E_2$ be two
-	smooth vector bundles over $M$, and let
-	$$
-	P: \Coo\left(M, E_1 \right)\to \Coo\left(M, E_2 \right)
-	$$
-	be a linear differential operator, in the sense of Definition \ref{do_man_defn}.
-	Then we say that $P$ \textit{has order} $m$ at the point $x_0$ if $m$ is the largest nonnegative
-	integer such that there is some $s \in  \Coo\left(M, E_1 \right)$ and some smooth function
-	$f$ defined in an open neighborhood of $x_0$ and vanishing at $x_0$ such that $P(f^ms)(x_0)\neq0$.
-	The order of $P$ is the maximum of the orders of $P$ at all the points of $M$. 
-\end{definition}
-
-\paragraph{title}
-
-\begin{example}\label{top_spinor_smooth_exm}
-	Consider the Example \ref{top_cont_as_sheaf_exm}. Suppose that $\sX =  M$ is a Riemannian manifold, and $\sS$ is a spinor bundle (cf. Section \ref{spin_mani_sec}). There is a $\Coo\left( M\right)$  submodule $	\Ga^\infty\left(M, \sS \right)\subset 	\Ga\left(M, \sS \right)$ of smooth sections (cf. Definition \ref{top_smooth_m_defn}), which induced the smooth subsheaf $\mathscr C^\infty\left(M, \sS \right)  \subset \mathscr C \left(M, \left\{\SS_x\right\}, \Ga\left(\sX, \sS \right)\right)$.
-\end{example}
-
 \begin{lemma}\label{top_inv_sub_lem}
 	Consider the situation of the Definition \ref{top_smooth_sheaf_defn} and suppose that $p: \widetilde M \to M$ be a  covering of  where the structure of the manifold  $\widetilde M$ has given by the Proposition \ref{top_cov_mani_prop}  structure of a  manifold. If subsheaf  $\mathscr  S \subset\mathscr C\bydef\mathscr C \left(M, \left\{A_x\right\}, \sF \right)$ is {smooth} then the inverse image $p^{-1}\mathscr  S \subset p^{-1}\mathscr C$ is smooth.
 \end{lemma}
@@ -7076,11 +7033,80 @@ Consider the above situation. The associated with $\mathscr S\left( M, E\right)$
 	From \eqref{top_inv_sub_eqn} it follows that $\Coo\left( \widetilde\sU_\a\right)p^{-1}\mathscr S\left( {\widetilde\sU_\a}\right)\subset p^{-1}\mathscr S\left( {\widetilde\sU_\a}\right)$ and taking into account the Lemma \ref{top_s_smooth_lem} we conclude that the sheaf $\mathscr S$ is smooth. 
 \end{proof}
 \begin{remark}
-From the  Lemma \ref{top_inv_sub_lem} there is the natural  $\C$-linear map
+	From the  Lemma \ref{top_inv_sub_lem} there is the natural  $\C$-linear map
 	\be\label{top_smooth_lift_eqn}
 	\lift_p: \mathscr S\left( M\right) \hookto p^{-1}\mathscr S\left(\widetilde M\right)
 	\ee 
 \end{remark}
+
+\begin{empt}
+	Let $M$ be a smooth manifold, and let $p: E \to M$ be a smooth vector bundle (cf. Definition \ref{top_sm_bundle_defn}). One can define a presheaf (cf. Definition \ref{presheaf_defn}) $\mathscr S\left( M, E\right)$  of local smooth sections (cf. Definition \ref{top_sm_sec_defn}).   
+\end{empt}
+\begin{definition}
+Consider the above situation. The associated with $\mathscr S\left( M, E\right)$ sheaf $\mathscr G^\infty\left( M, E\right)$ is said to be a \textit{sheaf of local smooth sections} (cf. Proposition and Definition \ref{sheaf_prdf}).
+\end{definition}
+\begin{exercise}\label{top_smooth_sh_exer} Prove following statements:
+	\begin{enumerate}
+		\item [(i)]  The sheaf of local smooth sections $\mathscr G^\infty\left( M, E\right)$ is smooth (cf. Definition \ref{top_smooth_sheaf_defn}).
+		\item[(ii)] There is a smooth sheaf  which comes from the given by \eqref{do_man_eqn} space 	$D\left(M, E_1, E_2 \right)$ differential operators (cf. Definitions \ref{do_man_defn}). We denote it by $\mathscr D\left(M, E_1, E_2\right)$.
+		\item[(iii)] There is the natural inclusion $$\mathscr D\left(M, E_1, E_2\right)\subset \mathscr Hom \left(\mathscr G^\infty\left( M, E_1\right), \mathscr G^\infty\left( M, E_2\right)\right)$$ where $\mathscr Hom$ means sheaf of local morphisms (cf. Definition \ref{sheaf_hom_defn}).
+		\item[(iv)] If $p: \widetilde M \to M$ is a covering (cf. Definition \ref{top_cov_defn}) and the structure of smooth manifold $\widetilde M$ is given by the Proposition \ref{top_cov_mani_prop} then the inverse image sheaf $p^{-1} \mathscr G^\infty\left( M, E\right)$ (cf. Definition \ref{sheaf_inv_im_defn}) then there is a unique  smooth bundle $\widetilde E\to \widetilde M$ such that there is the natural isomorphism
+		$$
+	p^{-1} \mathscr G^\infty\left( M, E\right)\cong  \mathscr G^\infty\left(\widetilde M, \widetilde E\right).	
+		$$ 
+		Moreover if we forgot a smooth structure then $\widetilde E$ is the {inverse image} of $E$ in the sense of the Definition \ref{vb_inv_img_funct_defn}.
+		\item[(v)] If we use the above notation then there is the following isomorphism of sheaves
+		$$
+			p^{-1} \mathscr D\left(M, E_1, E_2\right)\cong  \mathscr \mathscr \mathscr D\left(M, \widetilde E_1, \widetilde E_2\right).
+		$$
+			\item[(vi)] From $D\left(M, E_1, E_2\right)\cong  \mathscr D\left(M, E_1, E_2\right)\left(M \right)$ and 
+			$D\left(\widetilde M, \widetilde E_1,\widetilde E_2\right)\cong  \mathscr D\left(\widetilde M,\widetilde E_1,  \widetilde E_2 \right)\left(\widetilde M \right)$  it follows that there is the natural injective $\C$-linear homomorphism 			
+			$D\left(p,  E_1,  E_2 \right) : D\left(M, E_1, E_2\right)\hookto D\left(\widetilde M,\widetilde E_1, \widetilde E_2\right)$ (cf. equation \eqref{top_smooth_lift_eqn}). Moreover if $E_1 = E_2= E$ then this homomorphism is a homomorphism of algebras
+			\be\label{top_diff_alg_lift_eqn}
+			D\left(p, E \right) : D\left(M, E\right)\hookto D\left(\widetilde M, \widetilde E\right)
+			\ee 
+		(cf. Remark \ref{do_man_rem}).	
+	\end{enumerate} 
+
+\end{exercise}
+\begin{empt}
+If $M$ be a Riemannian manifold, then there is a {Riemannian measure} $\mu$ on $M$ (cf. Section \ref{spin_mani_sec}), and a positive functional 
+\bean
+\tau : C_c\left( M\right) \to \C,\\
+a \mapsto \int_{M} a~ d\mu.
+\eean
+(cf. Theorem \ref{meafunc_thm}) such that $a > 0 \cong \Rightarrow \tau\left(a \right)>0$. If $\sS$ is a smooth Hermitian  bundle (cf. Definition \ref{top_cc_supp_defn}) and let $\Ga^\infty_c\left( M, \sS\right) \bydef  \Ga_c\left( M, \sS\right)\cap \Ga^\infty\left( M, \sS\right)$ is a $\Coo\left( M\right)$-module of smooth sections (cf. Definition \ref{top_sm_sec_defn}) with compact support (cf. Definitions \ref{top_cc_supp_defn} and \ref{phi_supp_defn}) then there is a  sesquilinear product
+\bean
+\left\langle \cdot, \cdot \right\rangle_c: \Ga_c^\infty\left( M, \sS\right)\times \Ga_c^\infty\left( M, \sS\right) \to C_c\left( M\right)
+\eean
+which comes from \eqref{top_ggc_eqn}. There is a $\C$-valued sesquilinear product
+\bean
+\left( \cdot, \cdot \right): \Ga_c^\infty\left( M, \sS\right)\times \Ga_c^\infty\left( M, \sS\right) \to \C,\\
+\left(\xi, \eta \right) \mapsto \tau\left( \left\langle \xi, \eta \right\rangle_c\right),
+\eean
+so $\Ga_c^\infty\left( M, \sS\right)$ is a pre-Hilbert space. Denote by $L^2\left(M, \sS,  \mu\right)$ the Hilbert norm completion of $\Ga_c^\infty\left( M, \sS\right)$. If $P \in D\left(M,\sS\right): \Ga^\infty\left( M, \sS\right)\to \Ga^\infty\left( M, \sS\right)$ is s differential operator (cf. Definition \ref{do_man_defn} and Remark \ref{do_man_rem}) then from $P\left( \Ga_c^\infty\left( M, \sS\right)\right) \subset \Ga_c^\infty\left( M, \sS\right)$ it follows that
+$$
+P \in 	\L\left( \D\right)
+$$
+(cf. Equation \eqref{l_dag_eqn}).If 
+\be\label{top_diff*_eqn}
+D^*\left(M,\sS\right) \bydef \left\{P \in D\left(M,\sS\right)\cap  \L^\dagger\left( \Ga_c^\infty\left( M, \sS\right)\right)\left|P^*\in D\left(M,\sS\right)\right. \right\}
+\ee
+then $D^*\left(M,\sS\right)$ is an $O^*$-algebra (cf. Definition \ref{o*alg_defn})
+\end{empt}
+\begin{definition}\label{top_diff*_defn}
+The given by the equation \eqref{top_diff*_eqn} $O^*$-algebra  $D^*\left(M,\sS\right)$ is said to be an \textit{algebra of adjointable differential operators}.
+\end{definition}
+\begin{exercise}
+Consider the above situation and suppose that $p: \widetilde M \to M$ is a finite-fold topological covering (cf. Definition \ref{top_cov_defn}) Similarly to the \eqref{top_diff_alg_lift_eqn} prove that there is an injective *-homomorphism
+\be\label{top_diff_*alg_lift_eqn}
+D^*\left(p,\sS \right) : D^*\left(M, \sS\right)\hookto D^*\left(\widetilde M, \widetilde \sS\right).
+\ee 
+\end{exercise}
+\begin{example}\label{top_spinor_smooth_exm}
+!!!	Consider the Example \ref{top_cont_as_sheaf_exm}. Suppose that $\sX =  M$ is a Riemannian manifold, and $\sS$ is a spinor bundle (cf. Section \ref{spin_mani_sec}). There is a $\Coo\left( M\right)$  submodule $	\Ga^\infty\left(M, \sS \right)\subset 	\Ga\left(M, \sS \right)$ of smooth sections (cf. Definition \ref{top_smooth_m_defn}), which induced the smooth subsheaf $\mathscr C^\infty\left(M, \sS \right)  \subset \mathscr C \left(M, \left\{\SS_x\right\}, \Ga\left(\sX, \sS \right)\right)$.
+\end{example}
+
 \begin{example}
 	The space $\Coo_c\left(M \right)'$  of distribution densities (cf. Definition \ref{top_distr_dens_def})  can be regarded as a space of global sections of a smooth sheaf  $\mathscr S$, i.e.
 	$$
@@ -7732,7 +7758,7 @@ Consider a given by the Lemma \ref{comm_slfin_lem} situation. If the space $\sX$
 			$$
 	\left(C_0\left(\sU_\la\right), \widetilde{A}_\la, G, \left.\pi\right|_{C_0\left(\sU_\la\right)} :C_0\left(\sU_\la\right)\hookto \widetilde{A}_\la\right).	
 	$$
-From the Lemma \ref{comm_fin_lem} it follows that the $C^*$-algebra $\widetilde{A}_\la$ is commutative, i.e. $\widetilde{A}_\la\cong C_0\left(\widetilde\sU_\la\right)$ and the restriction $\left.p\right|_{\widetilde\sU_\la}: \widetilde\sU_\la\to\sU_\la$ is a transitive finite-fold covering. From the condition (a) of the Definition \ref{fin_defn}  it follows that	$\bt\text{-}\lim_{\la \in \La} u_\la = 1_{C_b\left( \sX\right) }$ so the union $\cup \widetilde{A}_\la \cong \cup  C_0\left(\widetilde\sU_\la\right)$ is dense in $\widetilde A$ i.e. there is a dense commutative *-subalgebra of $\widetilde A$. It turns out that the $C^*$-algebra $\widetilde A$ is commutative, hence $\widetilde A \cong C_0\left(\widetilde\sX\right)$. If $x_0 \in \sX$ is any point then from the Exercise \ref{top_completely_regular_exer} and the Definition \ref{top_completely_regular_defn} it follows that there is $f \in C_0\left(\sX\right)$ such that $f\left(x_0\right)= 1$. Since $\cup_{\la \in \La}C_0\left( \sU_\la\right)$ is dense in $C_0\left(\sX\right)$ there is $\la_0\in \La$ and $f_0 \in C_0\left( \sU_{\la_0}\right)$ such that $\left\| f-f_0\right\| < 1/2$. It follows that $\left| f_0\left(x_0\right)\right|\ge 1/2$, hence $x_0\in \sU_{\la_0}$. So one concludes that $\sX = \cup_{\la\in\La}\sU_\la$. Similarly using the Lemma \ref{fin_def_lem} one can prove that  $\widetilde\sX = \cup_{\la\in\La}\widetilde\sU_\la$. If $x_0\in \sX_0$ is any point then there is $\la_0\in\La$ such that  $x_0\in \sU_{\la_0}$. Since $\left.p\right|_{\widetilde\sU_{\la_0}}: \widetilde\sU_{\la_0}\to\sU_{\la_0}$ is a transitive finite-fold covering there is an open neighborhood $\sV$ of $x_0$ such that $\sV \subset \sU_{\la_0}$ and $\sV$ is evenly covered by $\left.p\right|_{\widetilde\sU_{\la_0}}$ (cf. Definition \ref{comm_cov_pr_defn}). Clearly $\sV$ is evenly covered by $p$, and $G$ transitively acts on $p^{-1}\left(x_0 \right)$. Since $\pi$ is injective, the map $p$ is surjective, so $p$ is a transitive covering. The following equation
+From the Lemma \ref{comm_fin_lem} it follows that the $C^*$-algebra $\widetilde{A}_\la$ is commutative, i.e. $\widetilde{A}_\la\cong C_0\left(\widetilde\sU_\la\right)$ and the restriction $\left.p\right|_{\widetilde\sU_\la}: \widetilde\sU_\la\to\sU_\la$ is a transitive finite-fold covering. From the condition (a) of the Definition \ref{fin_defn}  it follows that	$\bt\text{-}\lim_{\la \in \La} u_\la = 1_{C_b\left( \sX\right) }$ so the union $\cup \widetilde{A}_\la \cong \cup  C_0\left(\widetilde\sU_\la\right)$ is dense in $\widetilde A$ i.e. there is a dense commutative *-subalgebra of $\widetilde A$. It turns out that the $C^*$-algebra $\widetilde A$ is commutative, hence $\widetilde A \cong C_0\left(\widetilde\sX\right)$. If $x_0 \in \sX$ is any point then from the Exercise \ref{top_completely_regular_exer} and the Definition \ref{top_completely_regular_defn} it follows that there is $f \in C_0\left(\sX\right)$ such that $f\left(x_0\right)= 1$. Since $\cup_{\la \in \La}C_0\left( \sU_\la\right)$ is dense in $C_0\left(\sX\right)$ there is $\la_0\in \La$ and $f_0 \in C_0\left( \sU_{\la_0}\right)$ such that $\left\| f-f_0\right\| < 1/2$. It follows that $\left| f_0\left(x_0\right)\right|\ge 1/2$, hence $x_0\in \sU_{\la_0}$. So one concludes that $\sX = \cup_{\la\in\La}\sU_\la$. Similarly using the Lemma \ref{fin_def_lem} one can prove that  $\widetilde\sX = \cup_{\la\in\La}\widetilde\sU_\la$. If $x_0\in \sX_0$ is any point then there is $\la_0\in\La$ such that  $x_0\in \sU_{\la_0}$. Since $\left.p\right|_{\widetilde\sU_{\la_0}}: \widetilde\sU_{\la_0}\to\sU_{\la_0}$ is a transitive finite-fold covering there is an open neighborhood $\sV$ of $x_0$ such that $\sV \subset \sU_{\la_0}$ and $\sV$ is evenly covered by $\left.p\right|_{\widetilde\sU_{\la_0}}$ (cf. Definition \ref{top_cov_defn}). Clearly $\sV$ is evenly covered by $p$, and $G$ transitively acts on $p^{-1}\left(x_0 \right)$. Since $\pi$ is injective, the map $p$ is surjective, so $p$ is a transitive covering. The following equation
 $$
  G\left(\left. C_0\left( \widetilde{   \mathcal X }\right)  ~\right| C_0\left( {   \mathcal X }\right) \right)\cong  G\left(\left. \widetilde{   \mathcal X } ~\right| {   \mathcal X }\right)
 $$
@@ -7926,8 +7952,14 @@ is a connected noncommutative  finite-fold weak  covering (cf. Definition \ref{f
 
 \subsubsection{Coverings of $O^*$-algebras and quasi $*$-algebras}\label{top_pd_fin_sec}
 \paragraph{title}
+
 \begin{empt}\label{o*fin_empt!}
-	Let $\left(A, \widetilde{A}, G, \pi \right)$ be a finite-fold pre-covering of *-algebras (cf. Definition \ref{fin_pre*_defn}) such that $\widetilde{A}$ is an $O^*$-algebra (cf. Definition \ref{o*alg_defn}); that is $\widetilde{A}\subset \L^\dagger\left(\D\right)$ (cf. \eqref{l_dag_eqn}) where $\D$ is a dense subspace of a Hilbert space $\H$. Let $\widetilde{A}_b \bydef \widetilde{A}\cap \L^\dagger\left(\D\right)_b$ (cf. \eqref{o*b_eqn}). From the Remark \ref{o*b_rem} it follows that there are natural $C^*$-norms completions $B$ and $\widetilde{B}$  of $\widetilde{A}_b$ and $A_b\bydef \widetilde{A}_b\cap A$ respectively. Suppose  that there is  a connected noncommutative weak finite-fold covering
+	Let $\left(A, \widetilde{A}, G, \pi \right)$ be a finite-fold pre-covering of *-algebras (cf. Definition \ref{fin_pre*_defn}) such that $\widetilde{A}$ is an $O^*$-algebra (cf. Definition \ref{o*alg_defn}); that is $\widetilde{A}\subset \L^\dagger\left(\D\right)$ (cf. \eqref{l_dag_eqn}) where $\D$ is a dense subspace of a Hilbert space $\H$. Assume that there is an equivariant action $G\times \D\to \D$, i.e.
+	\be\label{equ_d_eqn!}
+	\forall \widetilde  a \in \widetilde A\quad	\forall \xi\in \D  \quad g\left( \widetilde  a\xi\right)=   g\left( \widetilde  a\right) g\left( \xi\right).
+	\ee 
+	Let $\widetilde{A}_b \bydef \widetilde{A}\cap \L^\dagger\left(\D\right)_b$ (cf. \eqref{o*b_eqn}).
+	From the Remark \ref{o*b_rem} it follows that there are natural $C^*$-norms completions $\widetilde B$ and ${B}$  of $\widetilde{A}_b$ and $A_b\bydef \widetilde{A}_b\cap A$ respectively. Suppose  that there is  a connected noncommutative weak finite-fold covering
 	$\left(B, \widetilde{B}, G, \pi_B \right)$
 	(cf. Definition  \ref{fin_weak_defn})
 	where the action $G\times \widetilde{B} \to \widetilde{B}$ comes from   $G\times \widetilde{A} \to \widetilde{A}$ and ${\pi}_B$ comes from $\pi$.
@@ -7935,7 +7967,6 @@ is a connected noncommutative  finite-fold weak  covering (cf. Definition \ref{f
 \begin{definition}\label{fino*_defn!}
 	In the  situation \ref{o*fin_empt} we say that $\left(A, \widetilde{A}, G, \pi \right)$, or $\left(A, \widetilde{A}, G  \right)$, or $\pi: A \hookto \widetilde A$ is a \textit{noncommutative finite-fold covering of $O^*$-algebras}.
 \end{definition}
-
 \paragraph{title}
 \paragraph*{}
 If $M$ be an $n$-dimensional smooth manifold.
@@ -8605,7 +8636,7 @@ We leave to the reader the proof of the following equation
 	$$
 	\widehat p_{\la}^{-1}\left(\sU_\la\right)= \bigsqcup_{\widehat x\in \widehat p_\la^{-1}\left(x^\la_0 \right)}\widehat \sU^{\widehat x};
 	$$
-	that is $\sU_\la$ is evenly covered (cf. Definition \ref{comm_cov_pr_defn}). Taking into account that both  $\widehat p_\la: \widehat \sX\to \sX_\la$ and  $\overline p_\la: \overline \sX\to \sX_\la$ are surjective we conclude that $\overline p_\la$ is a covering.\\
+	that is $\sU_\la$ is evenly covered (cf. Definition \ref{top_cov_defn}). Taking into account that both  $\widehat p_\la: \widehat \sX\to \sX_\la$ and  $\overline p_\la: \overline \sX\to \sX_\la$ are surjective we conclude that $\overline p_\la$ is a covering.\\
 		(iii) All maps $\overline p_\la: \overline \sX\to \sX_\la$ are continuous, hence from the Definition \ref{top_inv_lim_defn} it follows that the natural  map $\overline \sX\to\widehat \sX$ is continuous.\\
 	\end{proof}
 \begin{definition}\label{top_cov_trans_defn}  Consider the  situation  of the Definition \ref{top_sec_p_defn}, and let
@@ -11272,7 +11303,7 @@ Taking into account that induced by \eqref{blowing_endp_eqn} $C^*$-norm  on $\wi
 	\ee
 	If $A_0\left(\widetilde\sY \right)\cong \widetilde A$ then the right part of \eqref{blowing_ker_eqn} is a trivial group, so the surjective homomorhism $G \to G\left( \left. \widetilde \sY\right|\sY\right)$ is isomorphism.
 \end{enumerate}
-(iv) For any $y\in \sY$ select an evenly covered by $q$ (cf. Definition \ref{comm_cov_pr_defn}) connected neighborhood $\sV_y$. For every $y\in\sY$ select a connected neighborhood $\sU_y\subset\sV_y$ such that (cf. Definition \ref{blowing_semi1_defn}) $A_{\sU_y}$ (cf. \eqref{blowig_su_eqn}) is %(reducibly) 
+(iv) For any $y\in \sY$ select an evenly covered by $q$ (cf. Definition \ref{top_cov_defn}) connected neighborhood $\sV_y$. For every $y\in\sY$ select a connected neighborhood $\sU_y\subset\sV_y$ such that (cf. Definition \ref{blowing_semi1_defn}) $A_{\sU_y}$ (cf. \eqref{blowig_su_eqn}) is %(reducibly) 
 reducibly simply connected (cf. Definitions \ref{simply_connected_defn} \ref{simply_connected_red_defn}). One has $\bigcup_{y \in \sY}\sU_y= \sY$.
 For each $y\in \sY$ we select a connected open set $\widetilde \sU_y\subset\widetilde\sY$ which is homeomorphically mapped onto  $\sU_y$. For any $y \in \sY$ the given by \eqref{blowing_jsu_eqn} *-homomomorphism $j_{\sU_y}: A_{\sU_y} \hookto \widetilde A_{\sU_y}$ is an almost trivial disconnected noncommutative finite-fold covering (cf. Lemma \ref{blowing_simply_conn_lem} and Definition \ref{almost_trivial_defn}). It means that $\widetilde A_{\sU_y}$ is direct sum of isomorphic to $A_{\sU_y}$ algebras
 \be\label{blowing_n_eqn}
@@ -14535,7 +14566,7 @@ Suppose that $\left(\overline{   \mathcal X}, \overline{x}_0 \right)$ is its  to
 	From the Lemma \ref{top_coh_compact_lem} it turns out that $\text{norm}_a \in C_0\left(\overline\sX \right)$.
 \end{proof}
 \begin{empt}\label{ctr_bas_empt}
-	Let  $A$ continuous trace $C^*$-algebra with connected, locally connected spectrum $\sX$, and   $\widetilde{p}:\left( \widetilde{\sX}, \widetilde{x}_0\right) \to \left( \sX, x_0\right)$ is a pointed transitive covering such that a covering group  $G\left(\left.\widetilde \sX \right| \sX\right)$ is residually finite (cf. Definition \ref{residually_finite_defn}). 	Since $\sX$ is locally connected for any $x \in \sX$ there is an evenly covered by $\widetilde p$ (cf. Definition \ref{comm_cov_pr_defn}) connected  neighborhood $\sU_x$ with compact closure $\sV_x$, such that $\left.A\right|^{\sV_x}\left.p\right|^{\sV_x}$ is an $\left.A\right|^{\sV_x}$-$C(\sV_x)$-imprimitivity bimodule (cf.  \ref{ctr_imprim_empt}). Indeed $\left.A\right|^{\sV_x}\left.p\right|^{\sV_x}$ is a Hilbert $C(\sV_x)$-module and if $X_{C\left(\sV_x \right) }\bydef \left.A\right|^{\sV_x}\left.p\right|^{\sV_x}$ then $\left.A\right|^{\sV_x}\cong \K\left( X_{C\left(\sV_x \right) }\right)$. One can construct a family $\left\{\sU_{{\a}\subset \sX\in \mathscr A}\right\}$ of open connected subsets such that
+	Let  $A$ continuous trace $C^*$-algebra with connected, locally connected spectrum $\sX$, and   $\widetilde{p}:\left( \widetilde{\sX}, \widetilde{x}_0\right) \to \left( \sX, x_0\right)$ is a pointed transitive covering such that a covering group  $G\left(\left.\widetilde \sX \right| \sX\right)$ is residually finite (cf. Definition \ref{residually_finite_defn}). 	Since $\sX$ is locally connected for any $x \in \sX$ there is an evenly covered by $\widetilde p$ (cf. Definition \ref{top_cov_defn}) connected  neighborhood $\sU_x$ with compact closure $\sV_x$, such that $\left.A\right|^{\sV_x}\left.p\right|^{\sV_x}$ is an $\left.A\right|^{\sV_x}$-$C(\sV_x)$-imprimitivity bimodule (cf.  \ref{ctr_imprim_empt}). Indeed $\left.A\right|^{\sV_x}\left.p\right|^{\sV_x}$ is a Hilbert $C(\sV_x)$-module and if $X_{C\left(\sV_x \right) }\bydef \left.A\right|^{\sV_x}\left.p\right|^{\sV_x}$ then $\left.A\right|^{\sV_x}\cong \K\left( X_{C\left(\sV_x \right) }\right)$. One can construct a family $\left\{\sU_{{\a}\subset \sX\in \mathscr A}\right\}$ of open connected subsets such that
 	\begin{enumerate}
 		\item [(i)] $\cup~\sU_{{\a}}= \sX$.
 		\item [(ii)] If $\sV_{   \a}$ is the closure of $\sU_{{\a}}$ then $\exists x \in \sX \quad \sV_{   \a}\subset \sU_x$.
@@ -19562,7 +19593,7 @@ For all $n > 1$ the group $	\pi_{n} (\sX, x_0)$ is Abelian.
 	\paragraph*{}
 	Results of this section are copied from \cite{spanier:at}. The \textit{covering projection} word is replaced with \textit{covering} outside this section.
 	
-	\begin{defn}\label{comm_cov_pr_defn}\cite{spanier:at}
+	\begin{defn}\label{top_cov_defn}\cite{spanier:at}
 		Let $\widetilde{\pi}: \widetilde{\mathcal{X}} \to \mathcal{X}$ be a continuous map. An open subset $\mathcal{U} \subset \mathcal{X}$ is said to be {\it evenly covered } by $\widetilde{\pi}$ if $\widetilde{\pi}^{-1}(\mathcal U)$ is the disjoint union of open subsets of $\widetilde{\mathcal{X}}$ each of which is mapped homeomorphically onto $\mathcal{U}$ by $\widetilde{\pi}$. A continuous map $\widetilde{\pi}: \widetilde{\mathcal{X}} \to \mathcal{X}$ is called a {\it covering projection} if each point $x \in \mathcal{X}$ has an open neighborhood evenly covered by $\widetilde{\pi}$. $\widetilde{\mathcal{X}}$ is called the {
 			\it covering space} and $\mathcal{X}$ the {\it base space} of the covering.
 	\end{defn}
@@ -19839,7 +19870,7 @@ A notion of  a (relative) $CW$-complex is explained in \cite{spanier:at,switzer:
 \end{remark}
 \chapter{Differential geometry}
 	\section{Smooth manifolds and multinormed algebras}\label{smooth_op_system_sec}
-Here I follow to \cite{cinfty_manifolds}.
+\paragraph*{}Here I follow to \cite{cinfty_manifolds}.
 If $M$ is a $C^\infty$-manifold then denote by  $\Coo\left( M\right)$ *-algebra of smooth functions.
 \begin{definition}\label{comm_smooth_usual_defn}
 	If the  topology of $M$ has a countable basis,
@@ -19863,7 +19894,7 @@ It is a basic fact that $\Coo\left(M \right)$ is complete, so that it is a Fr\'e
 \section{Smooth vector bundles}
 
 \begin{definition}\label{top_sm_bundle_defn}\cite{lee:smooth_manifolds}
-	Let $M$ be a smooth manifold/
+	Let $M$ be a smooth manifold
 A \textit{smooth vector bundle of rank $k$ over $M$} is a smooth manifold $E$ together
 with a smooth surjective map $\pi: E\to M$ satisfying:
 \begin{enumerate}
@@ -19911,9 +19942,19 @@ The definitions \ref{top_sm_bundle_defn} and \ref{top_sm_sec_defn} are specializ
 	$$
 	P: \Ga^\infty\left(M, E_1 \right)\to \Ga^\infty\left(M, E_2 \right)
 	$$
-	such that $\supp P(s) \subset  \supp s$.
+	such that $\supp P(s) \subset  \supp s$. We denote by 
+	\be\label{do_man_eqn}
+	D\left(M, E_1, E_2 \right)
+	\ee
+the space of all differential operators $\Ga^\infty\left(M, E_1 \right)\to \Ga^\infty\left(M, E_2 \right)$.
 \end{definition}
-
+\begin{remark}\label{do_man_rem}
+If $E_1 = E_2= E$ then we denote
+\be\label{do_man_alg_eqn}
+	D\left(M, E \right)\bydef 	D\left(M, E, E \right).
+\ee
+The space $D\left(M, E \right)$ is an algebra over $\C$ with the given by the composition of operators product.
+\end{remark}
 \begin{definition}\label{do_man_order_defn}\cite{kahn:glo_an}
 	%Definition 6.2
 	Let $M$ be a smooth manifold, $x_0\in M$. Let $E_1$, $E_2$ be two
@@ -23934,7 +23975,7 @@ where $\pi: A \hookto B\left(\H\right)$ is any faithful representation, $\wideti
 	\section{Coverings of Riemannian manifolds}
 	\paragraph*{} It is known that the covering manifold is a manifold. 
 	The following proposition rigorously states this fact. 
-	\begin{prop}\label{top_cov_mani_prop}\cite{kobayashi_nomizu:diff_geom})
+	\begin{prop}\label{top_cov_mani_prop}\cite{kobayashi_nomizu:diff_geom,lee:smooth_manifolds})
 		If $M$ is a manifold, and $p:\widetilde M\to M$ is a covering then $\widetilde M$ has a (unique) structure of manifold such that $p$ is differentiable.
 	\end{prop}
 	
