@@ -73,9 +73,10 @@
 \newtheorem{fact}[prop]{Fact}
 \newtheorem{ques}{Question}         %% Question 1
 \newtheorem{answ}{Answer}           %% Answer 1
-\newtheorem*{notn}{Notation}        %% Notations are not numbered
+\newtheorem{notn}{Notation}        %% Notations are not numbered
 
 \theoremstyle{definition}
+\newtheorem{notation}[prop]{Notation}
 \newtheorem{definition}[prop]{Definition}
 \newtheorem{example}[prop]{Example}
 \newtheorem{exercise}[prop]{Exercise}
@@ -1694,7 +1695,7 @@ If 	the $C^*$-algebra $\widetilde A$ is connected (cf. Definition \ref{conn_c_a_
 		is finite.
 		\item[(b)] 	$A \cong \widetilde{A}^G\stackrel{\text{def}}{=}\left\{\left.a\in \widetilde{A}~~\right|~ a = g a;~ \forall g \in G\right\}$.
 	\end{enumerate}
-	We say that the triple $\left(A, \widetilde{A}, G \right)$ and/or the quadruple $\left(A, \widetilde{A}, G, \pi \right)$ and/or *-homomorphism $\pi: A \hookto \widetilde{A}$   is a \textit{noncommutative finite-fold  pre-covering of *-algebras}. If both $A$ and $\widetilde{A}$ are topological $C^*$-algebras then we assume that the homomorphism $\pi$ is continuous.
+	We say that the triple $\left(A, \widetilde{A}, G \right)$ and/or the quadruple $\left(A, \widetilde{A}, G, \pi \right)$ and/or *-homomorphism $\pi: A \hookto \widetilde{A}$   is a \textit{noncommutative finite-fold  pre-covering of *-algebras}. If both $A$ and $\widetilde{A}$ are topological $*$-algebras then we assume that the homomorphism $\pi$ is continuous.
 \end{definition}
 \subsubsection{Coverings of pro-$C^*$-algebras}
 \begin{definition}\label{pro_fin_defn} 
@@ -1730,7 +1731,7 @@ then we say that  $\left(A, \widetilde{A}, G, \pi \right)$, or $\left(A, \wideti
 \begin{empt}\label{o*fin_empt}
 	Let $\left(A, \widetilde{A}, G, \pi \right)$ be a finite-fold pre-covering of *-algebras (cf. Definition \ref{fin_pre*_defn}) such that $\widetilde{A}$ is an $O^*$-algebra (cf. Definition \ref{o*alg_defn}); that is $\widetilde{A}\subset \L^\dagger\left(\D\right)$ (cf. \eqref{l_dag_eqn}) where $\D$ is a dense subspace of a Hilbert space $\H$. Assume that there is an equivariant action $G\times \D\to \D$, i.e.
 	\be\label{equ_d_eqn}
-\forall \widetilde  a \in \widetilde A\quad	\forall \xi\in \D  \quad g\left( \widetilde  a\xi\right)=   g\left( \widetilde  a\right) g\left( \xi\right).
+\forall \widetilde  a \in \widetilde A\quad	\forall \xi\in \D \quad \forall g\in G \quad g\left( \widetilde  a\xi\right)=   g\left( \widetilde  a\right) g\left( \xi\right).
 	\ee 
 	 Let $\widetilde{A}_b \bydef \widetilde{A}\cap \L^\dagger\left(\D\right)_b$ (cf. \eqref{o*b_eqn}).
 	From the Remark \ref{o*b_rem} it follows that there are natural $C^*$-norms completions $\widetilde B$ and ${B}$  of $\widetilde{A}_b$ and $A_b\bydef \widetilde{A}_b\cap A$ respectively. Suppose  that there is  a connected noncommutative weak finite-fold covering
@@ -1976,7 +1977,7 @@ If 	$\widetilde a \in M\left(\widetilde{A} \right)$ and $\widetilde a= \bt\text{
   % \begin{rem}
    %	Below any $\widetilde a \otimes \xi\in\widetilde{A}\otimes_A \H$ will be regarded as element in $\widetilde{\H}$.
   % \end{rem}
-   \begin{lem}
+   \begin{lem}\label{induced_faithful_lem}
    	If $A \hookto B\left(\H \right) $ is faithful then $\widetilde{\rho}: \widetilde{A} \to B\left( \widetilde{\H} \right)$ is faithful. 
    \end{lem}
  \begin{proof}
@@ -1992,7 +1993,7 @@ If 	$\widetilde a \in M\left(\widetilde{A} \right)$ and $\widetilde a= \bt\text{
 	where $\widetilde{\xi}\bydef \widetilde{a}^*\otimes \xi \in \widetilde{A}\otimes_A \H \subset \widetilde{\H}$. Hence $\widetilde{a}\widetilde{\xi} \neq 0$.
 \end{proof}
 
-   \begin{empt}
+   \begin{empt}\label{g_act_induced_empt}
    	Let $\left(A, \widetilde{A}, G, \pi\right)$ be a  noncommutative finite-fold covering, let $\rho: A \to B\left(\H \right)$ be a faithful non-degenerated representation, and let  $\widetilde{\rho}: \widetilde{A} \to B\left( \widetilde{\H} \right)$ be induced by the pair $\left(\rho,\left(A, \widetilde{A}, G, \pi\right)  \right)$ (cf. Definition \ref{induced_repr_defn}). There is the natural action of $G$ on $\widetilde{\H}$ which comes from a map
   \be\label{induced_g_act_eqn}
   \begin{split}
@@ -2008,6 +2009,10 @@ If 	$\widetilde a \in M\left(\widetilde{A} \right)$ and $\widetilde a= \bt\text{
    	$$
    	A \subset\widetilde{A}; ~~ A \otimes_A \H \subset\widetilde{A} \otimes_A \H.
    	$$
+   	The action $G \times \widetilde \H\to \widetilde \H$ is equivariant, i.e.
+   	\be\label{induced_equiv_eqn}
+   	g \left(\widetilde \rho\left(\widetilde a \right) \widetilde \xi \right) =  \widetilde \rho\left(g\widetilde a \right) \left( g\widetilde \xi \right).
+   	\ee
    	If $\widetilde{A}$ is an unital $C^*$-algebra then the inclusion \eqref{hilb_fin_inc_eqn} is given by
    	\be\label{hilb_fin_inc_map_eqn}
    	\begin{split}
@@ -6974,7 +6979,7 @@ yields a presheaf.
 
 
 \begin{example}\label{top_vb_lift_desc_exm}
-	If $\left(\sS, \pi, \sX \right)$ is a Hermitian vector bundle then there is a family $\left\{\sS_x\right\}_{x \in \sX}$. From the Lemma \ref{top_bundle_cs_lem} it turns out that  $\Ga\left(\sX, \sS \right) $ is a continuity structure  for $\sX$ {and the} $\left\{\sS_x\right\}$. Moreover one has
+	If $\left(\sS, \pi, \sX \right)$ is a Hermitian sesquilinear !!! vector bundle then there is a family $\left\{\sS_x\right\}_{x \in \sX}$. From the Lemma \ref{top_bundle_cs_lem} it turns out that  $\Ga\left(\sX, \sS \right) $ is a continuity structure  for $\sX$ {and the} $\left\{\sS_x\right\}$. Moreover one has
 	\bean
 	\Ga\left(\sX, \sS \right)  = C\left( \sX, \left\{\sS_x\right\}, \Ga\left(\sX, \sS \right) \right). 
 	\eean
@@ -7069,38 +7074,39 @@ Consider the above situation. The associated with $\mathscr S\left( M, E\right)$
 	\end{enumerate} 
 
 \end{exercise}
-\begin{empt}
-If $M$ be a Riemannian manifold, then there is a {Riemannian measure} $\mu$ on $M$ (cf. Section \ref{spin_mani_sec}), and a positive functional 
+\begin{empt}\label{top_h_sp_empt}
+Let $M$ be a smooth manifold and there is a positive functional 
 \bean
 \tau : C_c\left( M\right) \to \C,\\
 a \mapsto \int_{M} a~ d\mu.
 \eean
-(cf. Theorem \ref{meafunc_thm}) such that $a > 0 \cong \Rightarrow \tau\left(a \right)>0$. If $\sS$ is a smooth Hermitian  bundle (cf. Definition \ref{top_cc_supp_defn}) and let $\Ga^\infty_c\left( M, \sS\right) \bydef  \Ga_c\left( M, \sS\right)\cap \Ga^\infty\left( M, \sS\right)$ is a $\Coo\left( M\right)$-module of smooth sections (cf. Definition \ref{top_sm_sec_defn}) with compact support (cf. Definitions \ref{top_cc_supp_defn} and \ref{phi_supp_defn}) then there is a  sesquilinear product
+(cf. Theorem \ref{meafunc_thm}) such that $a > 0  \Rightarrow \tau\left(a \right)>0$. Suppose that $E$ is a smooth vector bundle (cf. Definition \ref{top_sm_bundle_defn}) with a sesquilinear form $\varphi: E\times  E\to \C$ (cf. Definition \ref{top_herm_bundle_form_defn}). Let $\Ga^\infty_c\left( M, E\right) \bydef  \Ga_c\left( M, E\right)\cap \Ga^\infty\left( M, E\right)$ is a $\Coo\left( M\right)$-module of smooth sections (cf. Definition \ref{top_sm_sec_defn}) with compact support (cf. Definitions \ref{top_cc_supp_defn} and \ref{phi_supp_defn}) then there is a  sesquilinear product
 \bean
-\left\langle \cdot, \cdot \right\rangle_c: \Ga_c^\infty\left( M, \sS\right)\times \Ga_c^\infty\left( M, \sS\right) \to C_c\left( M\right)
+\left\langle \cdot, \cdot \right\rangle_c: \Ga_c^\infty\left( M, E\right)\times \Ga_c^\infty\left( M, E\right) \to C_c\left( M\right)
 \eean
-which comes from \eqref{top_ggc_eqn}. There is a $\C$-valued sesquilinear product
-\bean
-\left( \cdot, \cdot \right): \Ga_c^\infty\left( M, \sS\right)\times \Ga_c^\infty\left( M, \sS\right) \to \C,\\
-\left(\xi, \eta \right) \mapsto \tau\left( \left\langle \xi, \eta \right\rangle_c\right),
-\eean
-so $\Ga_c^\infty\left( M, \sS\right)$ is a pre-Hilbert space. Denote by $L^2\left(M, \sS,  \mu\right)$ the Hilbert norm completion of $\Ga_c^\infty\left( M, \sS\right)$. If $P \in D\left(M,\sS\right): \Ga^\infty\left( M, \sS\right)\to \Ga^\infty\left( M, \sS\right)$ is s differential operator (cf. Definition \ref{do_man_defn} and Remark \ref{do_man_rem}) then from $P\left( \Ga_c^\infty\left( M, \sS\right)\right) \subset \Ga_c^\infty\left( M, \sS\right)$ it follows that
-$$
-P \in 	\L\left( \D\right)
-$$
-(cf. Equation \eqref{l_dag_eqn}).If 
-\be\label{top_diff*_eqn}
-D^*\left(M,\sS\right) \bydef \left\{P \in D\left(M,\sS\right)\cap  \L^\dagger\left( \Ga_c^\infty\left( M, \sS\right)\right)\left|P^*\in D\left(M,\sS\right)\right. \right\}
+which comes from \eqref{top_ggc_eqn}
+so $\Ga_c^\infty\left( M, E\right)$ is a pre-Hilbert space. If $L^2\left(M, E,  \mu\right)$ is the Hilbert norm completion of $\Ga_c^\infty\left( M, E\right)$ then there is a representation
+\be\label{top_h_sp_eqn}
+C_0\left( M \right) \hookto L^2\left(M, E,  \mu\right)
 \ee
-then $D^*\left(M,\sS\right)$ is an $O^*$-algebra (cf. Definition \ref{o*alg_defn})
+which is faithful because $a > 0 \cong \Rightarrow \tau\left(a \right)>0$.
+ If $P \in D\left(M,E\right): \Ga^\infty\left( M, E\right)\to \Ga^\infty\left( M, E\right)$ is s differential operator (cf. Definition \ref{do_man_defn} and Remark \ref{do_man_rem}) then from $P\left( \Ga_c^\infty\left( M, E\right)\right) \subset \Ga_c^\infty\left( M, E\right)$ it follows that
+$$
+P \in 	\L\left(\Ga_c^\infty\left( M, E\right)\right)
+$$
+(cf. Equation \eqref{l_dag_eqn}). If 
+\be\label{top_diff*_eqn}
+D^*\left(M,E\right) \bydef \left\{P \in D\left(M,E\right)\cap  \L^\dagger\left( \Ga_c^\infty\left( M, E\right)\right)\left|P^*\in D\left(M,E\right)\right. \right\}
+\ee
+then $D^*\left(M,E\right)$ is an $O^*$-algebra (cf. Definition \ref{o*alg_defn}).
 \end{empt}
 \begin{definition}\label{top_diff*_defn}
-The given by the equation \eqref{top_diff*_eqn} $O^*$-algebra  $D^*\left(M,\sS\right)$ is said to be an \textit{algebra of adjointable differential operators}.
+The given by the equation \eqref{top_diff*_eqn} $O^*$-algebra  $D^*\left(M,E\right)$ is said to be an \textit{algebra of adjointable differential operators}.
 \end{definition}
 \begin{exercise}
-Consider the above situation and suppose that $p: \widetilde M \to M$ is a finite-fold topological covering (cf. Definition \ref{top_cov_defn}) Similarly to the \eqref{top_diff_alg_lift_eqn} prove that there is an injective *-homomorphism
+Consider the above situation and suppose that $p: \widetilde M \to M$ is a finite-fold topological covering (cf. Definition \ref{top_cov_defn}) Similarly to the equation \eqref{top_diff_alg_lift_eqn} prove that there is an injective *-homomorphism
 \be\label{top_diff_*alg_lift_eqn}
-D^*\left(p,\sS \right) : D^*\left(M, \sS\right)\hookto D^*\left(\widetilde M, \widetilde \sS\right).
+D^*\left(p,E \right) : D^*\left(M, E\right)\hookto D^*\left(\widetilde M, \widetilde E\right).
 \ee 
 \end{exercise}
 \begin{example}\label{top_spinor_smooth_exm}
@@ -7951,79 +7957,55 @@ is a connected noncommutative  finite-fold weak  covering (cf. Definition \ref{f
 \end{proof}
 
 \subsubsection{Coverings of $O^*$-algebras and quasi $*$-algebras}\label{top_pd_fin_sec}
-\paragraph{title}
 
-\begin{empt}\label{o*fin_empt!}
-	Let $\left(A, \widetilde{A}, G, \pi \right)$ be a finite-fold pre-covering of *-algebras (cf. Definition \ref{fin_pre*_defn}) such that $\widetilde{A}$ is an $O^*$-algebra (cf. Definition \ref{o*alg_defn}); that is $\widetilde{A}\subset \L^\dagger\left(\D\right)$ (cf. \eqref{l_dag_eqn}) where $\D$ is a dense subspace of a Hilbert space $\H$. Assume that there is an equivariant action $G\times \D\to \D$, i.e.
-	\be\label{equ_d_eqn!}
-	\forall \widetilde  a \in \widetilde A\quad	\forall \xi\in \D  \quad g\left( \widetilde  a\xi\right)=   g\left( \widetilde  a\right) g\left( \xi\right).
-	\ee 
-	Let $\widetilde{A}_b \bydef \widetilde{A}\cap \L^\dagger\left(\D\right)_b$ (cf. \eqref{o*b_eqn}).
-	From the Remark \ref{o*b_rem} it follows that there are natural $C^*$-norms completions $\widetilde B$ and ${B}$  of $\widetilde{A}_b$ and $A_b\bydef \widetilde{A}_b\cap A$ respectively. Suppose  that there is  a connected noncommutative weak finite-fold covering
-	$\left(B, \widetilde{B}, G, \pi_B \right)$
-	(cf. Definition  \ref{fin_weak_defn})
-	where the action $G\times \widetilde{B} \to \widetilde{B}$ comes from   $G\times \widetilde{A} \to \widetilde{A}$ and ${\pi}_B$ comes from $\pi$.
-\end{empt}
-\begin{definition}\label{fino*_defn!}
-	In the  situation \ref{o*fin_empt} we say that $\left(A, \widetilde{A}, G, \pi \right)$, or $\left(A, \widetilde{A}, G  \right)$, or $\pi: A \hookto \widetilde A$ is a \textit{noncommutative finite-fold covering of $O^*$-algebras}.
-\end{definition}
-\paragraph{title}
 \paragraph*{}
-If $M$ be an $n$-dimensional smooth manifold.
-If $\tau: C_c\left( M\right) \to \C$ is a functional
-$$
-a \mapsto \int_M a ~d\mu 
-$$
-such that $a > 0\quad\Rightarrow\quad \tau\left(a\right)> 0~~$ (cf. Theorem \ref{meafunc_thm}).
-If  $p: \widetilde M\to M$ is a topological transitive finite-fold covering   then the space  $\widetilde M$ has a natural structure of smooth manifold given by the Proposition \ref{top_cov_mani_prop}. Similarly to the  Lemma \ref{state_cov_11_lem} one can has a $G\left(\left. \widetilde{  M } ~\right| {   M }\right)$ invariant functional 
- $\widetilde\tau: C_c\left( \widetilde M\right) \to \C$ is a functional
-\bean
-\widetilde a \mapsto \int_{\widetilde M} \widetilde a ~d\widetilde \mu,\\
-\widetilde \tau\left(\widetilde a\right)= \frac{1}{\left|G\left(\left. \widetilde{  M } ~\right| {   M }\right)\right| }\tau\left( \sum_{	g \in G\left( \left. \overline M\right| M\right) }g\widetilde a\right) 
-\eean
-such that $\widetilde a > 0\quad\Rightarrow\quad \widetilde \tau\left(\widetilde a\right)> 0$.
-There is a $\C$-valued sesquilinear product of $\Coo_c\left(M \right)\bydef \Coo\left(M \right) \cap C_c\left(M \right)$ given by
-\be\label{top_coo_p_eqn}
-\left(\widetilde a, \widetilde b\right)\bydef \widetilde \tau\left(\widetilde a^*\widetilde b\right) 
+If $M$ be a smooth manifold then  the product $T \bydef M \times \C$ is also a smooth manifold, because $\C$ has the natural smooth structure. So one has a smooth bundle $T \to M$ (cf. Definition \ref{top_sm_bundle_defn}). Every fiber of $T$ is linearly isomorphic to $\C$, so having a sesquilinear product
+\be
+\C\times\C \to \C,\\
+\left(z', z'' \right) \mapsto \overline{z}'z
 \ee
-so  $\Coo_c\left(\widetilde M \right)$ becomes a pre-Hilbert space, and  $\H \bydef L^2\left(\widetilde M, \widetilde \mu \right)$ is its completion.
-Also denote by $\D \bydef \Coo_c\left(\widetilde M \right)\subset\H$. If  $D\left( \widetilde M\right)$ is an algebra of linear differential operators $\Coo\left(\widetilde M \right)  \to \Coo\left(\widetilde M \right)$ (cf. Definition \ref{do_man_defn}), then 
-from $D\left(\widetilde M\right)\D = \D$ it follows that $D\left( \widetilde M\right) \subset \L^\dagger\left(\D \right)$ (cf. equation \eqref{l_dag_eqn}). 
-
-
-
-If $D_0\left( M\right)\subset D\left( M\right)$ is a subalgebra of having order 0 operators (cf. Definition \ref{do_man_order_defn}) then $D_0\left( M\right)\cong \Coo\left(M \right)$. If $\L^\dagger\left(\D \right)_b$ is given by \eqref{o*b_eqn} then one has
+one can define a sesquilinear map $T\times T \to \C$  (cf. Definition \ref{top_herm_bundle_form_defn}). From   \ref{top_h_sp_eqn}  it follows that there is a given by representation 
+	\bean
+\rho :C_0\left( M \right) \hookto L^2\left(M, T,  \mu\right).
+\eean
+From the Lemma 
+If  $p: \widetilde M\to M$ is a topological transitive finite-fold covering with connected  $\widetilde M$  then the space  $\widetilde M$ has a natural structure of smooth manifold given by the Proposition \ref{top_cov_mani_prop}. From the Theorem \ref{top_fin_thm} it follows that $$
+\left(C_0\left(M \right), C_0\left(  \widetilde{   M }\right) ,G\left(\left. \widetilde{  M } ~\right| {   M }\right),   C_0\left(p \right)  \right)
 $$
-\L^\dagger\left(\D \right)_b\cap D\left( M\right)= D_0\left( M\right)\cap C_b\left( M\right)=\Coo_b\left(   M\right)\bydef C_b\left(  M \right) \cap \Coo\left(   M\right)
-$$
-so the $C^*$-norm completion of $\L^\dagger\left(\D \right)_b\cap D\left( M\right)$ coincides with $C_b\left( M\right)$. 
+the connected  noncommutative finite-fold covering (cf. Definition \ref{fin_defn}). If a representation $\widetilde \rho: C_0\left(  \widetilde{   M }\right) \to B\left(\widetilde \H \right)$ is induced be the pair  $$\left(\rho,\left(C_0\left(M \right), C_0\left(  \widetilde{   M }\right) ,G\left(\left. \widetilde{  M } ~\right| {   M }\right),   C_0\left(p \right)  \right)  \right)$$ (cf. Definition \ref{induced_repr_defn}) then it is faithful (cf. Lemma \ref{induced_faithful_lem}) and equivariant (cf. \ref{induced_equiv_eqn}).
+We leave to the reader the proof of a natural isomorphism $\widetilde \H \cong L^2\left(\widetilde M,  \widetilde T,   \widetilde\mu\right)$ where $\widetilde T$ is an inverse image of $T$ by $p$ (cf. Definition \ref{vb_inv_img_funct_defn}) and $\widetilde \mu $ is the preimage of $\mu$ (Definition \ref{measure_image_defn}). 
+Below we prove that the given by the equation \eqref{top_diff_*alg_lift_eqn} *-homomorphism 
+\bean
+D^*\left(p,T \right) : D^*\left(M, T\right)\hookto D^*\left(\widetilde M, \widetilde T\right).
+\eean
+is  a {noncommutative finite-fold covering of $O^*$-algebras}
+(cf. Definition \ref{fino*_defn}).  We leave to the reader the prove of that an action $G\left(\left. \widetilde{  M } ~\right| {   M }\right)\times \widetilde{  M } \to \widetilde{  M } $  naturally induces an action $G\left(\left. \widetilde{  M } ~\right| {   M }\right)$.
+\begin{empt}
+Here we consider a related to the *-homomorphism $D^*\left(p,T \right) : D^*\left(M, T\right)\hookto D^*\left(\widetilde M, \widetilde T\right)$ specialization of the construction \ref{o*fin_empt}.
+ Denote by
+\be\label{top_o*_triple_eqn}
+\left(A, \widetilde{A}, G, \pi \right)\bydef \left(  D^*\left(M,T\right), D^*\left(\widetilde M, \widetilde T\right), G\left(\left. \widetilde{  M } ~\right| {   M }\right), D^*\left(p,T \right) \right),
+\ee
+We leave to the reader the prove of that the quadruple \eqref{top_o*_triple_eqn} noncommutative finite-fold  pre-covering of *-algebras (cf. Definition \ref{fin_pre*_defn}). If
+\bean
+\H \bydef L^2\left(\widetilde M,  \widetilde T,   \widetilde\mu\right), \\
+\D \bydef \Ga^\infty_c\left(\widetilde M,  \widetilde T \right) 
+\eean
+then from the construction \ref{top_h_sp_empt} it turns out the $\D$ is a dense subspace of $\H$. From 
+\eqref{top_diff*_eqn} one has an inclusion $\widetilde{A} \bydef D^*\left(\widetilde M, \widetilde T\right)\subset \L^\dagger\left(\D\bydef \Ga^\infty_c\left(\widetilde M,  \widetilde T \right)\right)$ of $O^*$-algebras.
+The action $G\times \widetilde M\to \widetilde M$ induces an action $G\times \D\to \D$ which is equivariant (cf. equation \ref{equ_d_eqn}). If $\mathcal L^\dagger\left(\D\right)_b$ is given by \eqref{o*b_eqn} then the intersection $\widetilde{A}_b \bydef D^*\left(\widetilde M, \widetilde T\right)\cap \L^\dagger\left(\D\right)_b$ contains bounded operators only. However any bounded differential operator has order 0 (cf. Definition \ref{do_man_order_defn}). It follows that 
 
+\bean
+\widetilde{A}_b \bydef \widetilde{A}\cap \L^\dagger\left(\D\right)_b \cong D^*\left(\widetilde M, \widetilde T\right)\cap \L^\dagger\left(\D\right)_b\cong \Coo\left(\widetilde M \right)\cap C_b\left(\widetilde M \right),\\
+A_b \bydef  \widetilde{A}_b \cap A \cong \Coo\left( M \right)\cap C_b\left( M \right)
+\eean
+If both $B$ and $\widetilde B$ are $C^*$-norm completions of both $\widetilde{A}_b \cong \Coo\left(\widetilde M \right)\cap C_b\left(\widetilde M \right)$ and $A_b  \cong \Coo\left( M \right)\cap C_b\left( M \right)$ then one has $B\cong C_b\left(M \right)$ and $\widetilde B\cong C_b\left(\widetilde M \right)$. However from the Corollary \ref{top_fin_cor} it turns out that
+$$
+\left(B, \widetilde{B}, G, \pi_B \right)\cong \left(C_b\left(M \right), C_b\left(  \widetilde{ M }\right) ,G\left(\left. \widetilde{   M } ~\right| {   M }\right),   \lift_p \right)
+$$
+is  a connected noncommutative weak finite-fold covering. From this construction one has the following theorem. 
+\end{empt}
 
-
-
-is a connected space then from the Corollary \ref{top_fin_cor} it turns out that the quadruple
-$$
-\left(C_b\left(M \right), C_b\left(  \widetilde{   M }\right) ,G\left(\left. \widetilde{  M } ~\right| {   M }\right),   \left. \lift_p\right|_{C_b\left(M \right)} \right)
-$$
-is a connected noncommutative  finite-fold weak  covering (cf. Definition \ref{fin_weak_defn}).  Similarly to the above construction of $\Coo\left( M\right)$,  $~~D\left( M\right)$, $~~\D \bydef \Coo_c\left(M \right)$, $~~D\left(M \right)$, $B \bydef C_0\left(M \right)$ one can obtain $\Coo\left(\widetilde M\right)$,  $~~D\left(\widetilde M\right)$, $~~\widetilde\D \bydef \Coo_c\left(\widetilde M \right)$,  $~~\widetilde B \bydef C_0\left(\widetilde M \right)$. If $G \bydef G\left(\left. \widetilde M\right| M\right)$ then the action $G\times \widetilde M\to \widetilde M$ induces actions $G\times \widetilde \D\to \widetilde \D$, $~~G\times \left( C_b\left(\widetilde M \right)\cap   \L^\dagger\left( \widetilde\D\right) \right) \to   C_b\left(\widetilde M \right)\cap   \L^\dagger\left( \widetilde\D\right) $, $~~G\times D\left( \widetilde M\right) \to D\left( \widetilde M\right) $, $~~G\times C_0\left( \widetilde M\right) \to C_0\left( \widetilde M\right)$. The covering $p: \widetilde M\to M$ naturally induces an invective  *-homomorhism   $\pi\bydef \lift_p : D\left(  M\right) \hookto  D\left(\widetilde M\right)$ given by \eqref{top_diff_lift_eqn}). Any *-automorphism $\a: D\left(\widetilde M\right)\cong D\left(\widetilde M\right)$ maps bounded operators into bounded ones, i.e.
-$$
-\left.\a\right|_{\Coo_b\left(  \widetilde M\right)}: \Coo_b\left(  \widetilde M\right)\cong \Coo_b\left(  \widetilde M\right).
-$$
-On the other hand the group of *-automorphisms of $\Coo_b\left(  \widetilde M\right)$ is isomorphic to the group $\Diff\left(  \widetilde M\right)$ of diffeomorphisms of $\widetilde M$. Otherwise if $F:\Aut\left( \Coo_b\left(  \widetilde M\right)\right) \to \Diff\left( \widetilde M\right)$ then one has
-\be\label{top_fin_d_eqn}
-\begin{split}
-F\left( \left\{\left.\a\in  \Aut\left( \Coo_b\left(  \widetilde M\right)\right)\right| \a\left(a \right)=a \quad \forall a \in \Coo_b\left(   M\right) \right\}\right)\cong\\
-\cong  \left\{\left.\bt\in  \Diff\left(  \widetilde M\right)\right|p\circ  \bt = \bt  \right\}\cong  G\left(\left. \widetilde M\right| M\right).
-\end{split}
-\ee  
-
-It turns out that the quadruple
-$$
-\left( D\left(  M\right),  D\left( \widetilde M\right), G\left(\left. \widetilde M\right| M\right), \pi \right)
-$$
-is a {noncommutative finite-fold  pre-covering} of *-algebras (cf. Definition \ref{fin_pre*_defn}).
- Taking into account the Definition \ref{fino*_defn} on can obtain the following theorem.
-!!!! CHECK
 \begin{theorem}\label{top_d_fin_thm}
 In the described above situation the quadruple
 $$
@@ -8033,6 +8015,7 @@ is a {noncommutative finite-fold covering of $O^*$-algebras}
 (cf. Definition \ref{fino*_defn}).
 \end{theorem}
 Similarly one can prove the following lemma.
+!!! CONTINUE
 \begin{lemma}\label{top_s_fin_lem}
 $$
 \left(\Coo\left(M \right),\Coo\left(  \widetilde{   M }\right) ,G\left(\left. \widetilde{   M } ~\right| {   M }\right)\right)
@@ -8188,7 +8171,7 @@ Both ideals  $tA$ and $t\widetilde A$ do not contain nontrivial bounded elements
 \subsection{Induced representations}\label{comm_induced_finite_sec}
 \paragraph*{} 
 Let us consider a compact  Riemannian manifold $M$ with a  spin bundle $\sS$ (cf. \ref{spin_mani_sec}). 
-The bundle $S$ is Hermitian (cf. Definition \ref{top_herm_bundle_defn}). Let $\tau:C\left( M\right) \to \C$ be a faithful state such that 
+The bundle $S$ is Hermitian sesquilinear !!! (cf. Definition \ref{top_herm_bundle_defn}). Let $\tau:C\left( M\right) \to \C$ be a faithful state such that 
 $$
 \tau\left(a \right) = \int_{M} a~ d\mu
 $$
@@ -8507,7 +8490,7 @@ where  $p^{-1}\Dslash$ is the   $p$-{inverse image} of $\Dslash$ (cf. Definition
 Let $M$ be an unoriented  Riemannian manifold, and let $p:\widetilde{M} \to M$ be a two listed regular covering by oriented  Riemannian manifold $\widetilde{M}$ which admits a Spin$^c$ structure (cf. Definition \ref{spin_str_defn})  given by a spinor bundle $\widetilde\SS$. From the Corollary \ref{comm_comm_cor} it follows that the triple
 $
 \left(C\left(M \right), C\left(\widetilde M\right), \Z_2\right) 
-$ is an unital finite-fold noncommutative covering (cf. Definition \ref{fin_uni_defn}). If there is a bundle $\SS \to M$ is such that $\widetilde\sS$ is the $p$-inverse image of $\SS$  (cf. Definition \ref{vb_inv_img_funct_defn}) then $\SS$ is  a Hermitian vector bundle (cf. Definition \ref{top_herm_bundle_defn}). It follows that there is a Hilbert space $L^2\left(M, \SS \right)$ and the faithful representation $\rho: C\left(M \right) \to B\left( L^2\left(M, \SS \right)\right)$. Similarly to the Lemma \ref{comm_ind_lem} one can proof that  the given by \eqref{comm_bundle_repr_eqn} representation $\widetilde \rho: C\left(\widetilde{M}\right)\hookto B\left(  L^2\left(\widetilde{M},\widetilde{S} \right)\right) $ is induced by the pair $$\left(C\left(M \right)\to B\left(  L^2\left(M,S \right)\right) ,\left(C\left(M \right) , C\left( \widetilde{M}\right) , G\left( \left.\widetilde{M}~\right|M\right) \right)  \right)$$ (cf. Definition \ref{induced_repr_defn}). The manifold $\widetilde{M}$  admits a Spin$^c$ structure, so there is the spectral triple $\left(\Coo\left(\widetilde{M},  \right) , L^2\left(\widetilde{M},\widetilde{\sS} \right), \widetilde\Dslash \right)$. Since $\widetilde{\sS}$ is $\Z_2$-invariant the operator $\widetilde\Dslash$ is also $\Z_2$-invariant there is an unbounded operator
+$ is an unital finite-fold noncommutative covering (cf. Definition \ref{fin_uni_defn}). If there is a bundle $\SS \to M$ is such that $\widetilde\sS$ is the $p$-inverse image of $\SS$  (cf. Definition \ref{vb_inv_img_funct_defn}) then $\SS$ is  a Hermitian sesquilinear !!! vector bundle (cf. Definition \ref{top_herm_bundle_defn}). It follows that there is a Hilbert space $L^2\left(M, \SS \right)$ and the faithful representation $\rho: C\left(M \right) \to B\left( L^2\left(M, \SS \right)\right)$. Similarly to the Lemma \ref{comm_ind_lem} one can proof that  the given by \eqref{comm_bundle_repr_eqn} representation $\widetilde \rho: C\left(\widetilde{M}\right)\hookto B\left(  L^2\left(\widetilde{M},\widetilde{S} \right)\right) $ is induced by the pair $$\left(C\left(M \right)\to B\left(  L^2\left(M,S \right)\right) ,\left(C\left(M \right) , C\left( \widetilde{M}\right) , G\left( \left.\widetilde{M}~\right|M\right) \right)  \right)$$ (cf. Definition \ref{induced_repr_defn}). The manifold $\widetilde{M}$  admits a Spin$^c$ structure, so there is the spectral triple $\left(\Coo\left(\widetilde{M},  \right) , L^2\left(\widetilde{M},\widetilde{\sS} \right), \widetilde\Dslash \right)$. Since $\widetilde{\sS}$ is $\Z_2$-invariant the operator $\widetilde\Dslash$ is also $\Z_2$-invariant there is an unbounded operator
 \be\label{ctr_def_5_eqn}
 \Dslash \bydef \left. \widetilde\Dslash\right|_{L^2\left(\widetilde{M},\widetilde{\sS} \right)^{\Z_2}}
 \ee
@@ -13853,11 +13836,11 @@ which is an analog of the representation \ref{ctr_a_eqn}.
 	Prove that $\rho_{\widetilde\tau}:\widetilde A \hookto B\left(L^2\left(\widetilde A, \tr_{\widetilde\tau}\right) \right)$  {is induced by the pair} $\left(\rho_{\tau},\left(A, \widetilde{A}, G, \pi\right)  \right)$ (cf. Definition \ref{induced_repr_defn}).
 \end{exercise}
 \begin{empt}\label{str_spin_c_empt}
-	Suppose that $A$ is a {homogeneous of order} $n$ $C^*$-algebra (cf. Definition \ref{ctr_homo_defn}), and $S \to \sX$ is a Hermitian vector bundle (cf. Definition \ref{top_herm_bundle_defn}). Assume that for any $x \in \sX$ there is an action
+	Suppose that $A$ is a {homogeneous of order} $n$ $C^*$-algebra (cf. Definition \ref{ctr_homo_defn}), and $S \to \sX$ is a Hermitian sesquilinear !!! vector bundle (cf. Definition \ref{top_herm_bundle_defn}). Assume that for any $x \in \sX$ there is an action
 	\be\label{top_repxs_eqn}
 	\rep_x\left(A\right)\times S_x\to S_x
 	\ee
-	where $\rep_x$ is given by \eqref{rep_x_eqn}, and $S_x$ is the fiber of $S$ at the point $x$ (cf. Definition \ref{top_vb_fiber_defn}). Suppose that $S_x$ is a Hermitian $\rep_x\left(A\right)$-module for all $x\in S_x$ (cf. Definition \ref{herm_mod_defn}). Assume that a family $$\left\{\rep_x\left(A\right)\times S_x\to S_x\right\}_{x\in\sX}$$ induces an action
+	where $\rep_x$ is given by \eqref{rep_x_eqn}, and $S_x$ is the fiber of $S$ at the point $x$ (cf. Definition \ref{top_vb_fiber_defn}). Suppose that $S_x$ is a Hermitian sesquilinear !!! $\rep_x\left(A\right)$-module for all $x\in S_x$ (cf. Definition \ref{herm_mod_defn}). Assume that a family $$\left\{\rep_x\left(A\right)\times S_x\to S_x\right\}_{x\in\sX}$$ induces an action
 	$A \times \Ga_c\left(\sX, S \right)\to \Ga_c\left(\sX, S \right)$. 
 	There is a $\C$ valued scalar product
 	\be\label{ctr_gac_prod}
@@ -13933,12 +13916,12 @@ where both $\L^\dagger\left( \D\right)$ and $\L^\dagger\left( \widetilde\D\right
 
 
 \begin{empt}\label{str_spinc_c_empt}
-	Suppose that  $\left( S, r, M\right)$ is a Hermitian bundle  such that if   $S_x$ is the {fiber} of $\left( S, r, M\right)$ at the point $x$ (cf. Definition \ref{top_vb_fiber_defn}) 
+	Suppose that  $\left( S, r, M\right)$ is a Hermitian sesquilinear !!! bundle  such that if   $S_x$ is the {fiber} of $\left( S, r, M\right)$ at the point $x$ (cf. Definition \ref{top_vb_fiber_defn}) 
 there is an action
 \be\label{foli_rep_eqn}
 \rep_x\left(A \right)\times S_x\to S_x 
 \ee
-such that $S_x$ is a Hermitian 	$	\rep_x\left(A \right)$-module (cf. Definition \ref{herm_mod_defn})
+such that $S_x$ is a Hermitian sesquilinear !!! 	$	\rep_x\left(A \right)$-module (cf. Definition \ref{herm_mod_defn})
 Suppose that a given by \eqref{foli_rep_eqn} family of actions induces the following action
 \be\label{foli_me_eqn}
 \Ga\left( M, E\right) \times \Ga\left( M, S\right) \to \Ga\left( M, S\right) 
@@ -14001,7 +13984,7 @@ Let $M$ be a Riemannian compact manifold, and 	let
 \left(\Coo\left( M\right), L^2\left(M, S \right), \Dslash   \right).
 \ee
 be a commutative spectral triple (cf. Equation \ref{comm_sp_tr_eqn}). 
-Let $\left(\mathbb{M}_n\left( \C\right), \H_{\mathrm{fin}},  D_{\mathrm{fin}}\right)$ be an explained  in  the Section \ref{ctr_fin_sp_tr_sec} finite spectral triple. Note that $\H_{\mathrm{fin}}\cong \C^N$ is a finite-dimensional  Hermitian $\mathbb{M}_n\left( \C\right)$-module and $D_{\mathrm{fin}}\in  B\left( \H_{\mathrm{fin}}\right)$. If $\left(\A, \H, D\right)$ is an explained  in the section \ref{sp_tr_prod_sec} product of spectral triples $\left(\Coo\left( M\right), L^2\left(M, S \right), \Dslash   \right)$ and $\left(\mathbb{M}_N\left( \C\right), \H_{\mathrm{fin}},  D_{\mathrm{fin}}\right)$ then one has
+Let $\left(\mathbb{M}_n\left( \C\right), \H_{\mathrm{fin}},  D_{\mathrm{fin}}\right)$ be an explained  in  the Section \ref{ctr_fin_sp_tr_sec} finite spectral triple. Note that $\H_{\mathrm{fin}}\cong \C^N$ is a finite-dimensional  Hermitian sesquilinear !!! $\mathbb{M}_n\left( \C\right)$-module and $D_{\mathrm{fin}}\in  B\left( \H_{\mathrm{fin}}\right)$. If $\left(\A, \H, D\right)$ is an explained  in the section \ref{sp_tr_prod_sec} product of spectral triples $\left(\Coo\left( M\right), L^2\left(M, S \right), \Dslash   \right)$ and $\left(\mathbb{M}_N\left( \C\right), \H_{\mathrm{fin}},  D_{\mathrm{fin}}\right)$ then one has
 \be\label{ctr_st_eqn}
 \begin{split}
 \A \bydef \Coo\left( M\right)\otimes \mathbb{M}_n\left( \C\right),\\
@@ -15075,7 +15058,7 @@ Discussed below results close to  the Section \ref{top_inf_o_sec} ones. Exercise
 \end{exercise}
 
 \begin{empt}\label{str_spinc_infc_empt}
-	Suppose that  $\left( S, r, M\right)$ is a Hermitian bundle (cf. Definition \ref{top_herm_bundle_defn}) which possesses the described in \ref{str_spinc_c_empt} properties. If both $\widetilde  S$ and $\overline  S$ are {inverse images} of $S$ by $\widetilde p$ and $\overline p$ (cf. Definition \ref{vb_inv_img_funct_defn}) then both $\widetilde  S$ and $\overline  S$ are  smooth manifolds such that both maps $\widetilde S \to S$ and $\overline S \to S$ are smooth (cf. Proposition \ref{top_cov_mani_prop}). Similarly to \eqref{ctr_gac_prod} there are $\C$-valued products 
+	Suppose that  $\left( S, r, M\right)$ is a Hermitian sesquilinear !!! bundle (cf. Definition \ref{top_herm_bundle_defn}) which possesses the described in \ref{str_spinc_c_empt} properties. If both $\widetilde  S$ and $\overline  S$ are {inverse images} of $S$ by $\widetilde p$ and $\overline p$ (cf. Definition \ref{vb_inv_img_funct_defn}) then both $\widetilde  S$ and $\overline  S$ are  smooth manifolds such that both maps $\widetilde S \to S$ and $\overline S \to S$ are smooth (cf. Proposition \ref{top_cov_mani_prop}). Similarly to \eqref{ctr_gac_prod} there are $\C$-valued products 
 	\be\nonumber
 	\begin{split}
 		\left(\cdot, \cdot \right): \Ga_c\left(\overline M, \overline S \right)\times \Ga_c\left(\overline M,\overline S \right)\to \C,\\
@@ -18731,7 +18714,7 @@ Suppose that $M$ is unoreintable manifold which satisfies to \eqref{isos_t_act_e
 \mathbb{T}^2 \subset \mathrm{Isom}(M) \, ,
 \end{equation*}
 Suppose that the natural 2-fold covering $p:\widetilde{M}\to M$ is such that $\widetilde{M}$ is a Riemannian manifold which  admits a Spin$^c$ structure (cf. Definition \ref{spin_str_defn}), so there is an oriented spectral triple
-$\left( \Coo\left(\widetilde{M}\right) , L^2\left(\widetilde{M},\widetilde{\sS} \right), \widetilde{ \slashed D}  \right)$. Assume that there is a Hermitian bundle $\sS \to M$ on $M$ such that $\widetilde{\sS}$ is the $p$-inverse image of $\SS$ (cf. Definition \ref{vb_inv_img_funct_defn}).
+$\left( \Coo\left(\widetilde{M}\right) , L^2\left(\widetilde{M},\widetilde{\sS} \right), \widetilde{ \slashed D}  \right)$. Assume that there is a Hermitian sesquilinear !!! bundle $\sS \to M$ on $M$ such that $\widetilde{\sS}$ is the $p$-inverse image of $\SS$ (cf. Definition \ref{vb_inv_img_funct_defn}).
 From \ref{comm_sp_tr} it turns out that there is an unoriented spectral triple given by \eqref{comm_equ}, i.e.
 
 \be\nonumber
@@ -19463,12 +19446,16 @@ Let $k$ be the field of real or complex numbers, and let $\sX$ be a topological 
 	\sX'' \subset \sX' \subset \sX \quad \Rightarrow\quad \left.\left(\xi|_{\sX'} \right) \right|_{\sX''}= \xi|_{\sX''}.
 	\ee
 \end{empt}
-\begin{definition}\label{top_vb_defn}
+\begin{definition}\label{top_vb_defn}\cite{karoubi:k}
 	Let $\xi = \left( E, \pi, \mathcal X\right)$ be quasi-vector bundle. Then $\xi$ is said to be \textit{locally trivial} or a \textit{vector bundle} if for every point $x$ in $\sX$, there exists a neighborhood of $x$ such that $\xi|_{\sU}$ is isomorphic to a trivial bundle.
 \end{definition}
-\begin{definition}\label{top_vb_cs_defn}
-	Let $\xi = \left( E, \pi, \mathcal X\right)$ be a {vector bundle}. Then a \textit{continuous section} of $\xi$ is a continuous map $s: \sX \to E$ such that $\pi \circ s = \Id_{\sX}$,
+\begin{definition}\label{top_vb_cs_defn}\cite{karoubi:k}	
+%	5.1. Definition.
+	 Let $\xi \bydef \left( E, \pi, \mathcal X\right)$ be a vector bundle. Then a \textit{section} of $\xi$ is a map $s: \sX \to E$ such that $\pi \times s = \Id_{\sX}$. A section $s$ is called \textit{continuous} if $s$ is a continuous.
 \end{definition}
+\begin{notation}\label{top_sec_notn}
+	We denote by $\Ga\left( M, E\right)$ the $\C$-space of continuous sections. Both  $\Ga_0\left( M, E\right)$ and $\Ga_c\left( M, E\right)$ are subspaces of  sections tending to zero at infinity and having compact support.
+\end{notation}
 \begin{remark}
 	In \cite{karoubi:k} the vector bundles over fields $\R$ and $\C$ are considered. Here we consider complex vector bundles only.
 \end{remark}
@@ -19477,8 +19464,7 @@ Let $k$ be the field of real or complex numbers, and let $\sX$ be a topological 
 	Let $f: \mathcal X' \to \mathcal X$ be a continuous map. For every point $x'$ of $\mathcal X'$, let $E'_{x'}= E_{f\left(x' \right) }$. Then the set $E' = \bigsqcup_{x' \in \mathcal X'}$ may be identified with the \textit{fiber product} $\mathcal X' \times_{\mathcal X} E$ formed by the pairs $\left(x',e \right)$ such that $f\left(x' \right) = \pi\left( e\right)$. If  $\pi': E' \to \mathcal X'$ is defined by $\pi'\left(x',e \right) = x'$, it is clear that the triple $\xi = \left( E', \pi', \mathcal X'\right)$ defines a quasi-vector bundle over $ \mathcal X'$, when we provide $E'$ with the topology induced by $ \mathcal X' \times E$. We write $\xi' = f^*\left(\xi \right)$ or $f^*\left(E \right)$: this is the \textit{inverse image} of $\xi$ by $f$.  
 \end{definition}
 
-\begin{definition}\label{vb_cont_sec_defn}\cite{karoubi:k}
-	
+\begin{definition}\label{vb_cont_sec_defn}\cite{karoubi:k}	
 	If $\left( E, \pi, \mathcal X\right)$ is a quasi-vector bundle then a continuous map $s: \mathcal X\to E$ is said to be a \textit{continuous section} if $\pi \circ s = \Id_{ \mathcal X}$.  The space $\Ga\left({\mathcal X}, {E}\right)$, of continuous sections can be regarded as both left and right $C_b\left(\mathcal{X} \right)$-module.
 \end{definition}
 
@@ -19487,10 +19473,15 @@ Let $k$ be the field of real or complex numbers, and let $\sX$ be a topological 
 	functions on a compact space $\sX$ with values in $k$. Then the section functor $\Ga$ induces an 
 	equivalence of categories of vector bundles over $\sX$ and finitely generated projecive $A$-modules.
 \end{theorem}
+\begin{definition}\label{top_herm_bundle_form_defn}
+%8.1. Definition. 
+Let $E$ be a vector bundle over $\C$. A \textit{sesquilinear form} on $E$ is a 
+continuous map $\varphi: E \times E \to \C$ which has the following property. The map 
+$\varphi_x : E_x \times E_x$ induced on each fiber is "sesquilinear" with respect to the $\C$-vector space structure of $E_x$. In other words, ($\varphi_x$ is $\R$-bilinear and $\varphi_x\left(\la e, e' \right)  = \varphi_x\left( e, \overline \la e' \right) = \la \varphi_x\left( e, e' \right)$ f
+for $\la\in \C$, $e \in E_x$, and $e' \in E_x$. 
+\end{definition}
 
-%\begin{definition}\label{vb_inv_img_funct_defn}
-%	If $f: \mathcal X \to \mathcal Y$ is a continuous map then there is an {\it inverse image functor}  $f^*:\mathrm{Vect}(\mathcal{Y})\to\mathrm{Vect}(\mathcal{X})$ (cf. \cite{karoubi:k}). 
-%\end{definition}
+
 
 
 
@@ -19499,21 +19490,18 @@ Let $k$ be the field of real or complex numbers, and let $\sX$ be a topological 
 %	A map $\varphi^*$ is an inverse image of $\varphi$ if and only if the above diagram is commutative for any $\mathcal U$ such that $\pi |_{\mathcal U}: \mathcal U \to \pi ({\mathcal U})$ is a homeomorphism.
 %\end{fact}
 
-\begin{empt}\label{top_herm_bundle_empt}\cite{varilly:noncom}
-	Let $\mathcal X$ be a compact topological space and $\SS$ the complex vector bundle on $\mathcal X$, such for any  $x \in \mathcal{X}$ the fiber $\SS_x$ of $\SS$ is a Hilbert space, i.e. there is a scalar product.
-	\be\label{top_bundle_scalar_eqn}
-	\left( \cdot, \cdot \right)_x: \SS_x \times \SS_x \to \C.
-	\ee
-	If  $\Ga\left( M, S\right) $  and $\Ga_c\left( M, S\right)$ are spaces of vanishing and compactly supported coverings then the equation \eqref{top_bundle_scalar_eqn} yield pairings
+\begin{remark}\label{top_herm_bundle_rem}
+	Let $\mathcal X$ be a locally compact topological space and $E$ the complex vector bundle on $\mathcal X$ with a {sesquilinear form} $\varphi: E \times E \to \C$ then there are the following pairings
 	\bea\label{top_gg_eqn}
-	\left\langle \cdot, \cdot \right\rangle:  \Ga\left( M, S\right)\times \Ga\left( M, S\right) \to C_0\left( M\right) \quad \left(\xi, \eta \right) \mapsto \left(x \mapsto \left(\xi, \eta \right)_x  \right),\\
+	\left\langle \cdot, \cdot \right\rangle:  \Ga\left( M, E\right)\times \Ga\left( M, E\right) \to C_0\left( M\right) \quad \left(\xi, \eta \right) \mapsto \left(x \mapsto \varphi_x\left(\xi_x, \eta_x \right)  \right) ,\\
 	\label{top_ggc_eqn}
-	\left\langle \cdot, \cdot \right\rangle_c:  \Ga_c\left( M, S\right)\times \Ga_c\left( M, S\right) \to C_c\left( M\right) \quad \left(\xi, \eta \right) \mapsto \left(x \mapsto \left(\xi, \eta \right)_x  \right) 
+	\left\langle \cdot, \cdot \right\rangle_c:  \Ga_c\left( M, E\right)\times \Ga_c\left( M, E\right) \to C_c\left( M\right) \quad \left(\xi, \eta \right) \mapsto \left(x \mapsto \varphi_x\left(\xi_x, \eta_x \right)  \right) 
 	\eea
-\end{empt}
-\begin{defn}\label{top_herm_bundle_defn}
-	In the situation of \ref{top_herm_bundle_empt} we say that $S$ is \textit{Hermitian vector bundle}.
-\end{defn}
+	(cf. Notation \ref{top_sec_notn}).
+\end{remark}
+%\begin{defn}\label{top_herm_bundle_defn}
+%	In the situation of \ref{top_herm_bundle_empt} we say that $S$ is \textit{Hermitian sesquilinear !!! vector bundle}.
+%\end{defn}
 
 \section{Algebraic topology}
 	\subsection{Loop space and suspension in topology}
@@ -20018,7 +20006,7 @@ However $\mathscr{D}'\left( M\right)$ is not equal to the space of linear forms 
 % \end{theorem}
 
 
-\
+
 	\section{Flat connections}\label{geom_flat_subsec}
 \paragraph*{}
 Here I follow to \cite{kobayashi_nomizu:diff_geom}. Let $M$ be a manifold and $G$ a Lie group. A (\textit{differentiable}) \textit{principal bundle over M with group} $G$ consists of a manifolfd $P$ and an action of $G$ on $P$ satisfying the following conditions:
@@ -21428,12 +21416,12 @@ $$
 	%A Hilbert $C^*$-module $X$ is called  \textit{reflexive} if $X''\cong X$.
 	%\end{definition}
 	
-	\section{Hermitian modules and functors}
+	\section{Hermitian sesquilinear !!! modules and functors}
 	\paragraph*{}
 	In this section we consider an analogue of the $A \otimes_B - : \ _B\mathcal{M}\to _A\mathcal{M}$ functor or an algebraic generalization of continuous maps. Following text is in fact a citation of \cite{rieffel_morita}.
 	
 	\begin{defn}\label{herm_mod_defn}
-		\cite{rieffel_morita} Let $B$ be a $C^*$-algebra. By a (left) {\it Hermitian $B$-module} we will mean the Hilbert space $\H$ of a non-degenerate *-representation $A \rightarrow B(\H)$. Denote by $\mathbf{Herm}(B)$ the category of Hermitian $B$-modules.
+		\cite{rieffel_morita} Let $B$ be a $C^*$-algebra. By a (left) {\it Hermitian sesquilinear !!! $B$-module} we will mean the Hilbert space $\H$ of a non-degenerate *-representation $A \rightarrow B(\H)$. Denote by $\mathbf{Herm}(B)$ the category of Hermitian sesquilinear !!! $B$-modules.
 	\end{defn}
 	\begin{empt}
 		\cite{rieffel_morita} Let $A$, $B$ be $C^*$-algebras. In this section we will study some general methods for construction of functors from  $\mathbf{Herm}(B)$ to  $\mathbf{Herm}(A)$.
@@ -21441,18 +21429,18 @@ $$
 	
 	
 	\begin{defn}\label{corr_defn}\cite{rieffel_morita}
-		Let $A$ and $B$ be $C^*$-algebras. By a {\it Hermitian $B$-rigged $A$-module} we mean a $C^*$-Hilbert $B$ module, which is a left $A$-module by means of *-homomorphism of $A$ into $\mathcal{L}_B(X)$.
+		Let $A$ and $B$ be $C^*$-algebras. By a {\it Hermitian sesquilinear !!! $B$-rigged $A$-module} we mean a $C^*$-Hilbert $B$ module, which is a left $A$-module by means of *-homomorphism of $A$ into $\mathcal{L}_B(X)$.
 	\end{defn}
 	
 	\begin{empt}\label{herm_functor_empt}
-		Let $X$ be a Hermitian $B$-rigged $A$-module. If $V\in \mathbf{Herm}(B)$ then we can form the algebraic tensor product $X \otimes_{B_{\mathrm{alg}}} V$, and equip it with an ordinary pre-inner-product which is defined on elementary tensors by
+		Let $X$ be a Hermitian sesquilinear !!! $B$-rigged $A$-module. If $V\in \mathbf{Herm}(B)$ then we can form the algebraic tensor product $X \otimes_{B_{\mathrm{alg}}} V$, and equip it with an ordinary pre-inner-product which is defined on elementary tensors by
 		\begin{equation}\label{inital_hilb_prod_eqn}
 			\langle x \otimes v, x' \otimes v' \rangle = \langle \langle x',x \rangle_B v, v' \rangle_V.
 		\end{equation}
 		Completing the quotient $X \otimes_{B_{\mathrm{alg}}} V$ by subspace of vectors of length zero, we obtain an ordinary Hilbert space, on which $A$ acts by 
 		\be\label{comp_hilb_act_eqn}
 		a(x \otimes v)=ax\otimes v
-		\ee to give a  *-representation of $A$. We will denote the corresponding Hermitian module by $X \otimes_{B} V$. The above construction defines a functor $X \otimes_{B} -: \mathbf{Herm}(B)\to \mathbf{Herm}(A)$ if for $V,W \in \mathbf{Herm}(B)$ and $f\in \mathrm{Hom}_B(V,W)$ we define $f\otimes X \in \mathrm{Hom}_A(V\otimes X, W\otimes X)$ on elementary tensors by $(f \otimes X)(x \otimes v)=x \otimes f(v)$.	We can define action of $B$ on $V\otimes X$ which is defined on elementary tensors by
+		\ee to give a  *-representation of $A$. We will denote the corresponding Hermitian sesquilinear !!! module by $X \otimes_{B} V$. The above construction defines a functor $X \otimes_{B} -: \mathbf{Herm}(B)\to \mathbf{Herm}(A)$ if for $V,W \in \mathbf{Herm}(B)$ and $f\in \mathrm{Hom}_B(V,W)$ we define $f\otimes X \in \mathrm{Hom}_A(V\otimes X, W\otimes X)$ on elementary tensors by $(f \otimes X)(x \otimes v)=x \otimes f(v)$.	We can define action of $B$ on $V\otimes X$ which is defined on elementary tensors by
 		\begin{equation}\nonumber\label{comp_hilb_pre_act_eqn}
 			b(x \otimes v)= (x \otimes bv) = x b \otimes v.
 		\end{equation}
@@ -21515,8 +21503,8 @@ $$
 	%\end{remark}
 	\begin{theorem}\label{morita_herm_thm} \cite{rae:ctr_morita,Rieffel:74a}
 		Let~$X$ be an $A$-$B$ equivalence bimodule.  Then given by \ref{ind_repr_defn} functor $X\otimes_B\blank$
-		induces an equivalence between the category of Hermitian $B$ modules and
-		the category of Hermitian $A$-modules, the inverse being given by
+		induces an equivalence between the category of Hermitian sesquilinear !!! $B$ modules and
+		the category of Hermitian sesquilinear !!! $A$-modules, the inverse being given by
 		$\tilde{X} \otimes_A\blank$. % This functor preserves weak containment and 	direct integrals.
 	\end{theorem}
 	\begin{remark}
@@ -24102,8 +24090,8 @@ Definitions of the Appendix \ref{comm_prot} cannot be directly used in the nonco
 \end{lem}
 \begin{empt}
 	In the sequel we let $\E^{\infty}$ be a finite projective module 
-	on $A^{\infty}$. An hermitian structure on 
-	$\E^{\infty}$ is given by a positive hermitian form  $\langle 
+	on $A^{\infty}$. An Hermitian sesquilinear !!! structure on 
+	$\E^{\infty}$ is given by a positive Hermitian sesquilinear !!! form  $\langle 
 	\xi , \eta \rangle \in A^{\infty}$, $ \, \xi , \eta \in \E^{\infty}$ 
 	such that
 	$$
@@ -24117,7 +24105,7 @@ Definitions of the Appendix \ref{comm_prot} cannot be directly used in the nonco
 	$G$-action by $\a \otimes {\rm id}$) to assume the existence of a  
 	selfadjoint idempotent $e \in A^{\infty}$ and of an isomorphism $F$ with the module 
 	$e \, A^{\infty}$ on $\E^{\infty}$. We then endow $\E^{\infty}$ with
-	the following hermitian structure~:
+	the following Hermitian sesquilinear !!! structure~:
 	$$
 	\langle \xi , \eta \rangle = F^{-1} (\eta)^* \, F^{-1} (\xi) \in 
 	A^{\infty} \, .
@@ -24153,7 +24141,7 @@ We use the $G$-{\it connection} word instead \textit{connection} (cf. \cite{conn
 
 \medskip
 
-We shall say that $\nb$ is compatible with the hermitian structure 
+We shall say that $\nb$ is compatible with the Hermitian sesquilinear !!! structure 
 iff~:
 $$
 \langle \nb_X \, \xi , \xi' \rangle + \langle \xi , \nb_X \, \xi' 
@@ -24167,7 +24155,7 @@ $$
 \nb_X^0 (\xi) = e \, \delta_X (\xi) \in e \, A^{\infty} \, , \qquad ~ \, \xi 
 \in e \, A^{\infty} \, , \quad ~ \, X \in \hbox{Lie} \ G \, .
 $$
-This connection is compatible with the hermitian structure
+This connection is compatible with the Hermitian sesquilinear !!! structure
 $$
 \langle \xi , \eta \rangle = \eta^* \, \xi \in A^{\infty} \, , \qquad 
 ~ \, \xi , \eta \in e \, A^{\infty} \, .
@@ -24202,7 +24190,7 @@ Every connection on $e \, A^{\infty}$ is of the form $\nb_X (\xi) =
 \hbox{Lie} \ G$, where the form $\th \in e \, \Om^1 \, e$ is uniquely 
 determined by $\nabla$, one has $\th_X^* = -\th_X$, $~ \, X \in 
 \hbox{Lie} 
-\ G$ iff $\nb$ is compatible with the hermitian structure of $e \, 
+\ G$ iff $\nb$ is compatible with the Hermitian sesquilinear !!! structure of $e \, 
 A^{\infty}$.
 
 \medskip
@@ -24228,7 +24216,7 @@ A^{\infty}$.
 	\hbox{Lie} ~ G$, where the form $\theta \in e \, \Om^1 \, e$ is uniquely
 	determined by $\nabla$, one has $\theta_X^* = -\theta_X$, $\forall \, X \in
 	\hbox{Lie}
-	~ G$ iff $\nabla$ is compatible with the hermitian structure of $e \,
+	~ G$ iff $\nabla$ is compatible with the Hermitian sesquilinear !!! structure of $e \,
 	A^{\infty}$. We identify $\mathrm{End} (e \, A^{\infty})$ with $e \, A^{\infty} \, e \subset
 	A^{\infty}$, the {curvature} $\mathcal{T}_0$ of the grassmannian connection is
 	the 2-form $e(de \wedge de) \in \Om^2$, the curvature of $\nabla = \nabla^0 +
