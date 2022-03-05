@@ -1747,14 +1747,22 @@ $\left(B, \widetilde{B}, G, \pi_B \right)$
 The Definition \ref{fino*_defn} assumes  that both *-algebras $A$ and $\widetilde{A}$ contain  quite enough bounded elements. Here we consider an opposite situation.
 \begin{empt}\label{fin_chull_empt}
 Let $\left(A, \widetilde{A}, G, \pi_A \right)$ be a {noncommutative finite-fold  pre-covering of *-algebras} (cf. Definition \ref{fin_pre*_defn}), and let $\left(B, \widetilde{B}, G, \pi_B \right)$ be a connected {noncommutative finite-fold  covering} (cf. Definition \ref{fin_defn}). 
-Suppose that there is a representation  $\left( \mathfrak{B},\mu\right)$ of $A$ on $B$ (cf. Definition \ref{def:rep_Hilbert_module_uni})  where $B$ is regarded as Hilbert $B$-module. Let  $\widetilde{\mathfrak{B}}\subset \widetilde B$ be a dense right ideal, such that $G\widetilde{\mathfrak{B}} = \widetilde{\mathfrak{B}}$ and
+Suppose that following conditions hold:
+\begin{enumerate}
+\item[(a)] There are a dense right ideal $\mathfrak{B}$ of $B$ and  a representation  $\left( \mathfrak{B},\mu\right)$ of $A$ on $B$ (cf. Definition \ref{def:rep_Hilbert_module_uni}), where $B$ is regarded as a Hilbert module over $B$, i.e. one has an inclusion  $\mu : A \hookto \End^*_{ B}\left( {\mathfrak B}\right)$  of *-algebras.
+\item[(b)] There is  a dense right ideal $\widetilde{\mathfrak{B}}\subset \widetilde B$ , such that $G\widetilde{\mathfrak{B}} = \widetilde{\mathfrak{B}}$ and
 \be\label{fin_chull_e_eqn}
 {\mathfrak{B}}= \widetilde{\mathfrak{B}}^G \bydef \left\{\left. \widetilde{b}\in \widetilde{\mathfrak{B}}\right| \forall g \in G\quad g \widetilde b = \widetilde b\right\}.
 \ee
-Suppose that there is a representation $\left(\widetilde{\mathfrak{B}},\widetilde\mu\right)$ of $\widetilde{A}$ on $\widetilde B$ (cf. Definition \ref{def:rep_Hilbert_module_uni}) where $\widetilde {B}$ is regarded as Hilbert $\widetilde B$-module. There are natural inclusions $\mu : A \hookto \End^*_{ B}\left( {\mathfrak B}\right)$ and $\widetilde \mu:\widetilde A \hookto \End^*_{\widetilde B}\left( \widetilde{\mathfrak B}\right)$ of *-algebras.
+\item[(c)] There is   a representation  $\left( \widetilde{\mathfrak{B}},\widetilde\mu\right)$ of $\widetilde A$ on $\widetilde B$ (cf. Definition \ref{def:rep_Hilbert_module_uni}),  where $\widetilde B$ is regarded as a Hilbert module over $\widetilde B$, i.e. one has an inclusion  $\widetilde\mu : \widetilde A \hookto \End^*_{ \widetilde B}\left( \widetilde{\mathfrak B}\right)$  of *-algebras.
+\end{enumerate}
 \end{empt}
-\begin{definition}\label{fin_chull_defn} 
-Consider the above situation.  If	$\pi_A: A \hookto \widetilde{A}$ agrees with the natural inclusion $\End^*_{ B}\left( {\mathfrak B}\right)\subset \End^*_{\widetilde B}\left( \widetilde{\mathfrak B}\right)$ and the action $G\times  \widetilde A \to \widetilde A$ comes from the natural action $G \times \End^*_{\widetilde B}\left( \widetilde{\mathfrak B}\right) \to\End^*_{\widetilde B}\left( \widetilde{\mathfrak B}\right) $
+\begin{definition}\label{fin_chull_defn}
+Consider the situation  \ref{fin_chull_empt}. If following conditions hold:
+\begin{enumerate}
+	\item [(a)]  $\pi_A: A \hookto \widetilde{A}$ agrees with the natural inclusion $\End^*_{ B}\left( {\mathfrak B}\right)\subset \End^*_{\widetilde B}\left( \widetilde{\mathfrak B}\right)$.
+	\item[(b)] The action $G\times  \widetilde A \to \widetilde A$ comes from the natural action $G \times \End^*_{\widetilde B}\left( \widetilde{\mathfrak B}\right) \to\End^*_{\widetilde B}\left( \widetilde{\mathfrak B}\right) $.
+\end{enumerate}
 	then  we say that $\left(A, \widetilde{A}, G, \pi_A \right)$ is an \textit{associated with $\left(B, \widetilde{B}, G, \pi_B \right)$ noncommutative finite-fold covering of *-algebras}.
 \end{definition}
 
@@ -4219,7 +4227,7 @@ This section is an infinite counterpart of the Section \ref{fin_chull_sec}.
 		\mathfrak{S}^{\text{pt}}_A \bydef \left(\left\{\pi_\la: A \hookto A_\la \right\}_{\la \in \La}, \left\{\pi^\mu_\nu: A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\ \nu > \mu}}\right).
 	\end{split}
 	\ee
-be a pointed category of $*$-algebras such that for any $\la, \mu, \nu\in \La$ the triples $\left(A, A_\la, G\left(\left. A_\la\right| A\right)\bydef G\left(\left. B_\la\right| B\right), \pi_\la \right)$ and $\left(A_\mu, A_\nu, G\left(\left. A_\mu\right| A_\nu\right)\bydef G\left(\left. B_\mu\right| B_\nu\right), \pi^\mu_\nu \right)$ are associated with $\left(B, B_\la, G\left(\left. B_\la\right| B\right), \rho_\la \right)$ and $\left(B_\mu, B_\nu,G\left(\left. B_\mu\right| B_\nu\right), \rho^\mu_\nu \right)$ noncommutative finite-fold covering of *-algebras (cf. Definition \ref{fin_chull_defn}).  Suppose that there is a dense $G\left(\left. \widetilde B\right| B\right)$-equivariant right  ideal $\widetilde{\mathfrak B}'\subset \widetilde B$. If $\la\in\La$ and $\mathfrak B_\la\in B_\la$ is a dense right ideal which corresponds to a covering $\left(A, A_\la, G\left(\left. A_\la\right| A\right), \pi_\la \right)$ (cf. Definition \ref{fin_chull_defn}) then we assume that there is an action   $\mathfrak B_\la \times\widetilde{\mathfrak B}'\to \widetilde{\mathfrak B}'$ which comes from the product $ B_\la \times\widetilde{ B}\to\widetilde{ B}$. Suppose that for all $\la\in \La$ there is an action $A_\la \times \widetilde{\mathfrak B}'\to \widetilde{\mathfrak B}'$ such that
+be a pointed category of $*$-algebras such that for any $\la, \mu, \nu\in \La$ the triples $\left(A, A_\la, G\left(\left. A_\la\right| A\right)\bydef G\left(\left. B_\la\right| B\right), \pi_\la \right)$ and $\left(A_\mu, A_\nu, G\left(\left. A_\mu\right| A_\nu\right)\bydef G\left(\left. B_\mu\right| B_\nu\right), \pi^\mu_\nu \right)$ are associated with $\left(B, B_\la, G\left(\left. B_\la\right| B\right), \rho_\la \right)$ and $\left(B_\mu, B_\nu,G\left(\left. B_\mu\right| B_\nu\right), \rho^\mu_\nu \right)$ noncommutative finite-fold covering of *-algebras (cf. Definition \ref{fin_chull_defn} !!! CHECK (a) (b)).  Suppose that there is a dense $G\left(\left. \widetilde B\right| B\right)$-equivariant right  ideal $\widetilde{\mathfrak B}'\subset \widetilde B$. If $\la\in\La$ and $\mathfrak B_\la\in B_\la$ is a dense right ideal which corresponds to a covering $\left(A, A_\la, G\left(\left. A_\la\right| A\right), \pi_\la \right)$ (cf. Definition \ref{fin_chull_defn} !!! CHECK (a) (b)) then we assume that there is an action   $\mathfrak B_\la \times\widetilde{\mathfrak B}'\to \widetilde{\mathfrak B}'$ which comes from the product $ B_\la \times\widetilde{ B}\to\widetilde{ B}$. Suppose that for all $\la\in \La$ there is an action $A_\la \times \widetilde{\mathfrak B}'\to \widetilde{\mathfrak B}'$ such that
 	\be\label{hilb_act_eqn}
 	\forall a \in A_\la \quad \forall b \in \mathfrak B_\la \quad \forall \widetilde b \in \widetilde {\mathfrak B}' \quad \left(a b \right) \widetilde b = a \left( b \widetilde b\right). 
 	\ee
@@ -7956,7 +7964,7 @@ is a connected noncommutative  finite-fold weak  covering (cf. Definition \ref{f
 	One has $a \bydef \sum_{	g \in G\left(\left.\widetilde{M}~\right|M\right)} g\left(\widetilde f \widetilde a \right) \in \widetilde A'  \cap C_0\left( M\right)$, but $a$ is not smooth at $p\left(\widetilde x_0 \right)$ function, i.e. $a \notin \Coo_0\left(M \right)$. On the other hand from \ref{fin_oa_empt} it follows that $$\left(\Coo_0\left(M \right), \widetilde A', G, \pi\right)$$ is a noncommutative finite-fold  pre-covering of *-algebras, and taking into account the condition  (b)  of the Definition \ref{fin_pre*_defn} one has  $a \in \Coo_0\left(M \right)$. From this contradiction it turns out that $ \Coo_0\left(\widetilde M\right)$ is a maximal admissible algebra.
 \end{proof}
 
-\subsubsection{Coverings of $O^*$-algebras and quasi $*$-algebras}\label{top_pd_fin_sec}
+\subsubsection{Coverings of $O^*$-algebras}\label{top_pd_fin_sec}
 
 \paragraph*{}
 If $M$ be a smooth manifold then  the product $T \bydef M \times \C$ is also a smooth manifold, because $\C$ has the natural smooth structure. So one has a smooth bundle $T \to M$ (cf. Definition \ref{top_sm_bundle_defn}). Every fiber of $T$ is linearly isomorphic to $\C$, so having a sesquilinear product
@@ -8015,10 +8023,11 @@ is a {noncommutative finite-fold covering of $O^*$-algebras}
 (cf. Definition \ref{fino*_defn}).
 \end{theorem}
 Similarly one can prove the following lemma.
-!!! CONTINUE
+
 \begin{lemma}\label{top_s_fin_lem}
+	If $\Coo_c\left(M \right)\bydef \Coo\left(  {   M }\right)\cap  C_c\left(  {   M }\right)$ and $\Coo_c\left(M \right)\bydef \Coo\left(  {   M }\right)\cap  C_c\left(  {   M }\right)$ then the quadruple
 $$
-\left(\Coo\left(M \right),\Coo\left(  \widetilde{   M }\right) ,G\left(\left. \widetilde{   M } ~\right| {   M }\right)\right)
+\left(\Coo_c\left(M \right),\Coo_c\left(  \widetilde{   M }\right)\bydef  ,G\left(\left. \widetilde{   M } ~\right| {   M }\right), \lift_p|_{\Coo_c\left(M \right)}\right)
 $$
 is a {noncommutative finite-fold covering of $O^*$-algebras}
 (cf. Definition \ref{fino*_defn}).
@@ -8026,29 +8035,6 @@ is a {noncommutative finite-fold covering of $O^*$-algebras}
 \begin{remark}
 The Lemma \ref{top_s_fin_lem} is a noncommutative counterpart of the Proposition \ref{top_cov_mani_prop}. 
 \end{remark}
-\begin{corollary}\label{top_q_fin_cor}
-	The triple 
-	$$
-	\left(\left(\Coo_c\left(M \right)', \Coo\left(M \right)    \right), \left(\Coo_c\left(\widetilde M \right)', \Coo\left( \widetilde M \right)    \right), G\left(\left. \widetilde M\right| M\right)\right)
-	$$
-is a	{noncommutative finite-fold covering of quasi $*$-algebras} (cf. Remark \ref{top_distr_dens_q_rem} and Definition \ref{oq*fin_defn}).
-\end{corollary}
-\begin{proof}
-From \eqref{top_distr_lift_eqn} it follows that there is the natural injective *-homomorphism $\left(\Coo_c\left(M \right)', \Coo\left(M \right)    \right) \hookto \left(\Coo_c\left(\widetilde M \right)', \Coo\left( \widetilde M \right)    \right)$ of quasi *-algebras. 
-Similarly to the proof of \eqref{top_fin_d_eqn}  one can show that 
-		\be\nonumber
-\left\{ \left.g \in \Aut\left(\left( \Coo_c\left(\widetilde M \right)', \Coo\left(\widetilde M \right)    \right)\right)~\right|~ ga = a;~~\forall a \in \Coo_c\left(M \right)'\right\}\cong G\left(\left. \widetilde M\right| M\right),
-\ee
-i.e.  the triple 	$\left(\left(\Coo_c\left(M \right)', \Coo\left(M \right)    \right), \left(\Coo_c\left(\widetilde M \right)', \Coo\left( \widetilde M \right)    \right), G\left(\left. \widetilde M\right| M\right)\right)$  is a {noncommutative finite-fold pre-covering of quasi $*$-algebras} (cf. Definition \ref{fin_preq_defn}). From 
- the Lemma \ref{top_s_fin_lem} it follows that  the triple	$$
- 	\left(\Coo\left(M \right),\Coo\left(  \widetilde{   M }\right) ,G\left(\left. \widetilde{   M } ~\right| {   M }\right)\right)
- 	$$
- 	is a {noncommutative finite-fold covering of $O^*$-algebras} and taking into account the Definition \ref{oq*fin_defn} one concludes that 
- 		$$
- 	\left(\left(\Coo_c\left(M \right)', \Coo\left(M \right)    \right), \left(\Coo_c\left(\widetilde M \right)', \Coo\left( \widetilde M \right)    \right), G\left(\left. \widetilde M\right| M\right)\right)
- 	$$
- 	is a {noncommutative finite-fold covering of quasi $*$-algebras}.
-\end{proof}
 \subsubsection{Coverings and unbounded operators on Hilbert modules}\label{top_fin_chull_sec}
 \paragraph{Algebras of unbounded functions}
 \paragraph*{}
@@ -8056,14 +8042,19 @@ Let $\sX$ and $\widetilde\sX$ be locally compact Hausdorff spaces, and let $p:\w
 $$
 \pi_A : A\hookto \widetilde A.
 $$
-If $G \bydef G\left(\left.\widetilde \sX~\right|\sX \right)$ then the natural action   $G \times \widetilde \sX \to \widetilde \sX$ induces an action $G\times \widetilde A \to \widetilde A$. From the direct check it follows that a quadruple $\left(  A ,\widetilde{ A}, G\left(\left.\widetilde \sX~\right|\sX \right), \pi_A\right)$ is a  {noncommutative finite-fold  pre-covering of *-algebras} (cf. Definition \ref{fin_pre*_defn}).
-Denote by
+If $G \bydef G\left(\left.\widetilde \sX~\right|\sX \right)$ then the natural action   $G \times \widetilde \sX \to \widetilde \sX$ induces an action $G\times \widetilde A \to \widetilde A$. We leave to the reader the proof of that a quadruple $\left(  A ,\widetilde{ A}, G\left(\left.\widetilde \sX~\right|\sX \right), \pi_A\right)$ is a  {noncommutative finite-fold  pre-covering of *-algebras} (cf. Definition \ref{fin_pre*_defn}).
+If
 \bean
 B\bydef  C_0\left( \sX\right),\quad
 \widetilde B\bydef  C_0\left( \widetilde\sX\right),\\
 \mathfrak B'\bydef  C_c\left( \sX\right),\quad
 \widetilde{\mathfrak B}'\bydef  C_c\left( \widetilde\sX\right).
 \eean 
+then from the Theorem \ref{top_fin_thm} it turns out that
+$$
+\left( B, \widetilde B, G, \pi_B  \right) \bydef \left( C_0\left( \sX\right),  C_0\left( \widetilde\sX\right), G\left(\left.\widetilde \sX~\right|\sX \right), C_0\left(p \right)  \right) 
+$$
+is a connected {noncommutative finite-fold  covering} (cf. Definition \ref{fin_defn}).
 For all $a \in A$ and $b \in \mathfrak B'$ one can consider a point-wise product of continuous maps $ab \in A$. Since $\supp ab \subset \supp b$ one has $ab \in \mathfrak B'$. This circumstance yields a representation
  \bean
  A \hookto \End^*_B\left(\mathfrak B' \right).
@@ -8072,22 +8063,40 @@ Similarly on has an inclusion
  \bean
 \widetilde A \hookto \End^*_{\widetilde B}\left(\widetilde {\mathfrak B}' \right).
 \eean
- Denote by ${\mathfrak{B}}$ and $\widetilde{\mathfrak{B}}$   the completions of  ${\mathfrak{B}}'$ and $\widetilde{\mathfrak{B}}'$ with respect to graph topology given by norms
+If ${\mathfrak{B}}$ and $\widetilde{\mathfrak{B}}$   are completions of  ${\mathfrak{B}}'$ and $\widetilde{\mathfrak{B}}'$ with respect to graph topology given by norms
 \bean
 \forall a \in A \quad \forall b  \in {\mathfrak{B}}' \quad  \left\| b\right\|_a \bydef {\braket{b}{\pi(1+a^*a)b}}^{\nicefrac12},\\
 \forall \widetilde a \in\widetilde A \quad \forall\widetilde b  \in  \widetilde{\mathfrak{B}}' \quad  \left\| \widetilde b\right\|_{\widetilde a} \bydef {\braket{\widetilde b}{\widetilde\pi(1+\widetilde a^*\widetilde a)\widetilde b}}^{\nicefrac12}
 \eean
-(cf. equation \eqref{graph_norm_eqn}).
+(cf. equation \eqref{graph_norm_eqn}) the one can extend *-homomorphisms $
+A \hookto \End^*_B\left(\mathfrak B' \right).
+$
+and 
+$
+\widetilde A \hookto \End^*_{\widetilde B}\left(\widetilde {\mathfrak B}' \right)$ up to 
+\bean
+A \hookto \End^*_B\left(\mathfrak B \right),\\
+\widetilde A \hookto \End^*_{\widetilde B}\left(\widetilde {\mathfrak B} \right).
+\eean
 \begin{exercise}
-Prove that ${\mathfrak{B}}$ and $\widetilde{\mathfrak{B}}$ satisfy to the explained in \ref{fin_chull_empt} conditions.
+	Prove that ${\mathfrak{B}}$ and $\widetilde{\mathfrak{B}}$ satisfy to the explained in \ref{fin_chull_empt} !!! CHECK (a) (b)(c) conditions, i.e.
+	\begin{enumerate}
+	\item[(i)] Both ${\mathfrak{B}}$ and $\widetilde{\mathfrak{B}}$ are dense right ideals of ${{B}}$ and $\widetilde{{B}}$ respectively.
+	\item[(ii)] $G\widetilde{\mathfrak{B}} = \widetilde{\mathfrak{B}}$ and 
+	\end{enumerate}
+	
 \end{exercise}
+
+
+
+
 
 \begin{theorem}\label{top_fin_hilb_thm}
 In the above situation  the quadruple $\left(  A ,\widetilde{ A}, G \bydef G\left(\left.\widetilde \sX~\right|\sX \right), \pi_A\right)$ is  
-	an associated with\\ $\left(C_0\left( \sX\right),C_0\left( \widetilde\sX\right) ,G\left(\left.\widetilde \sX~\right|\sX \right), C_0\left(p \right) \right) $  noncommutative finite-fold covering of *-algebras in the sense of the  Definition \ref{fin_chull_defn}.
+	an associated with\\ $\left(C_0\left( \sX\right),C_0\left( \widetilde\sX\right) ,G\left(\left.\widetilde \sX~\right|\sX \right), C_0\left(p \right) \right) $  noncommutative finite-fold covering of *-algebras in the sense of the  Definition \ref{fin_chull_defn} !!! CHECK (a) (b).
 	\end{theorem}
 \begin{proof}
-	Above text is a specialization of the construction \ref{fin_chull_empt}. Details of the complete proof of this theorem are left to the reader.	
+	Above text is a specialization of the construction \ref{fin_chull_empt} !!! CHECK (a) (b)(c). We leave to the reader following statame	
 \end{proof}
 \paragraph{Polynomials in one variable} \label {top_fin_hull_sec}
 \begin{empt}\label{top_one_var_empt}
@@ -8120,18 +8129,45 @@ If $\mathfrak B$ is the completion of $\mathfrak B'$ with respect to the graph t
 Prove following statements:
 	\begin{enumerate}
 				\item There exists a natural pre-covering   covering of *-algebras  $\left(A, \widetilde{A}, G, \pi_A \right)$   (cf. Definition \ref{fin_pre*_defn}).
-		\item The quadruple  $\left(A, \widetilde{A}, G, \pi_A \right)$ is an {associated with $\left(B, \widetilde{B}, G, \pi_B \right)$  noncommutative finite-fold  covering of *-algebras} (cf. Definition \ref{fin_chull_defn}).
+		\item The quadruple  $\left(A, \widetilde{A}, G, \pi_A \right)$ is an {associated with $\left(B, \widetilde{B}, G, \pi_B \right)$  noncommutative finite-fold  covering of *-algebras} (cf. Definition \ref{fin_chull_defn} !!! CHECK (a) (b)).
 		\item The quadruple $\left(A, \widetilde{A}, G, \pi_A \right)$ can be regarded as a noncommutative finite-fold covering of $O^*$-algebras (cf. Definition \ref{fino*_defn}).
 	\end{enumerate}
 \end{exercise}
 If $tA\subset A$ and $t\widetilde A\subset \widetilde A$ are ideals then a quadruple  $\left(tA, t\widetilde{A}, G, \pi_A \right)$ is a noncommutative finite-fold  pre-covering of *-algebras (cf. Definition \ref{fin_pre*_defn}). Let both $B^T$ and $\widetilde B^T$ be $C^*$-norm completion of $T {\mathfrak B}$ and $T\widetilde {\mathfrak B}$ respectively.
 \begin{exercise}
-Prove that the quadruple  $\left(tA, t\widetilde{A}, G, \left.\pi_A\right|_{tA} \right)$ is an {associated with $\left(B^T, \widetilde{B}^T, G, \left.\pi_B\right|_{B^T} \right)$  noncommutative finite-fold  covering of *-algebras} (cf. Definition \ref{fin_chull_defn}).
+Prove that the quadruple  $\left(tA, t\widetilde{A}, G, \left.\pi_A\right|_{tA} \right)$ is an {associated with $\left(B^T, \widetilde{B}^T, G, \left.\pi_B\right|_{B^T} \right)$  noncommutative finite-fold  covering of *-algebras} (cf. Definition \ref{fin_chull_defn} !!! CHECK (a) (b)).
 
 \end{exercise}
 \begin{remark}
 Both ideals  $tA$ and $t\widetilde A$ do not contain nontrivial bounded elements, so the quadruple  $\left(tA, t\widetilde{A}, G, \left.\pi_A\right|_{tA} \right)$ is not a noncommutative finite-fold covering of $O^*$-algebras.
 \end{remark}
+
+
+\section{Coverings of *-algebras}
+\begin{corollary}\label{top_q_fin_cor}
+	The triple 
+	$$
+	\left(\left(\Coo_c\left(M \right)', \Coo\left(M \right)    \right), \left(\Coo_c\left(\widetilde M \right)', \Coo\left( \widetilde M \right)    \right), G\left(\left. \widetilde M\right| M\right)\right)
+	$$
+	is a	{noncommutative finite-fold covering of quasi $*$-algebras} (cf. Remark \ref{top_distr_dens_q_rem} and Definition \ref{oq*fin_defn}).
+\end{corollary}
+\begin{proof}
+	From \eqref{top_distr_lift_eqn} it follows that there is the natural injective *-homomorphism $\left(\Coo_c\left(M \right)', \Coo\left(M \right)    \right) \hookto \left(\Coo_c\left(\widetilde M \right)', \Coo\left( \widetilde M \right)    \right)$ of quasi *-algebras. 
+	Similarly to the proof of \eqref{top_fin_d_eqn}  one can show that 
+	\be\nonumber
+	\left\{ \left.g \in \Aut\left(\left( \Coo_c\left(\widetilde M \right)', \Coo\left(\widetilde M \right)    \right)\right)~\right|~ ga = a;~~\forall a \in  \Coo_c\left( M \right)', \Coo\left( M \right)\right\}\cong G\left(\left. \widetilde M\right| M\right),
+	\ee
+	i.e.  the triple 	$\left(\left(\Coo_c\left(M \right)', \Coo\left(M \right)    \right), \left(\Coo_c\left(\widetilde M \right)', \Coo\left( \widetilde M \right)    \right), G\left(\left. \widetilde M\right| M\right)\right)$  is a {noncommutative finite-fold pre-covering of quasi $*$-algebras} (cf. Definition \ref{fin_preq_defn}). From 
+	the Lemma \ref{top_s_fin_lem} it follows that  the triple	$$
+	\left(\Coo\left(M \right),\Coo\left(  \widetilde{   M }\right) ,G\left(\left. \widetilde{   M } ~\right| {   M }\right)\right)
+	$$
+	is a {noncommutative finite-fold covering of $O^*$-algebras} and taking into account the Definition \ref{oq*fin_defn} one concludes that 
+	$$
+	\left(\left(\Coo_c\left(M \right)', \Coo\left(M \right)    \right), \left(\Coo_c\left(\widetilde M \right)', \Coo\left( \widetilde M \right)    \right), G\left(\left. \widetilde M\right| M\right)\right)
+	$$
+	is a {noncommutative finite-fold covering of quasi $*$-algebras}.
+\end{proof}
+
 \subsection{Coverings of operator spaces}
 \begin{empt}\label{top_r_fin_empt}
 	Let $\sX$ be a connected,  locally compact, Hausdorff space, and let
@@ -10205,7 +10241,7 @@ $.  For all $\la\in \La$ denote by $A_\la\bydef Cont\left(\sX_\la \right) $ a *-
 	\mathfrak{S}^{\text{pt}}_A \bydef \left(\left\{\pi_\la: A \hookto A_\la \right\}_{\la \in \La}, \left\{\pi^\mu_\nu: A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\ \nu > \mu}}\right)
 \end{split}
 \eean
-is a pointed category of $*$-algebras such that for any $\la, \mu, \nu\in \La$ the triples\\ $\left(A, A_\la, G\left(\left. A_\la\right| A\right)\bydef G\left(\left. B_\la\right| B\right), \pi_\la \right)$ and $\left(A_\mu, A_\nu, G\left(\left. A_\mu\right| A_\nu\right)\bydef G\left(\left. B_\mu\right| B_\nu\right), \pi^\mu_\nu \right)$ are associated with $\left(B, B_\la, G\left(\left. B_\la\right| B\right), \rho_\la \right)$ and $\left(B_\mu, B_\nu,G\left(\left. B_\mu\right| B_\nu\right), \rho^\mu_\nu \right)$ noncommutative finite-fold covering of *-algebras (cf. Definition \ref{fin_chull_defn}).  The  Pedersen's ideal $\widetilde{\mathfrak B}\bydef K\left( \widetilde B\right)= C_c\left(\widetilde \sX \right) $ (cf. Definition \ref{peder_id_defn} and equation \eqref{peder_c0_eqn}) is dense in ${\widetilde B}$.
+is a pointed category of $*$-algebras such that for any $\la, \mu, \nu\in \La$ the triples\\ $\left(A, A_\la, G\left(\left. A_\la\right| A\right)\bydef G\left(\left. B_\la\right| B\right), \pi_\la \right)$ and $\left(A_\mu, A_\nu, G\left(\left. A_\mu\right| A_\nu\right)\bydef G\left(\left. B_\mu\right| B_\nu\right), \pi^\mu_\nu \right)$ are associated with $\left(B, B_\la, G\left(\left. B_\la\right| B\right), \rho_\la \right)$ and $\left(B_\mu, B_\nu,G\left(\left. B_\mu\right| B_\nu\right), \rho^\mu_\nu \right)$ noncommutative finite-fold covering of *-algebras (cf. Definition \ref{fin_chull_defn} !!! CHECK (a) (b)).  The  Pedersen's ideal $\widetilde{\mathfrak B}\bydef K\left( \widetilde B\right)= C_c\left(\widetilde \sX \right) $ (cf. Definition \ref{peder_id_defn} and equation \eqref{peder_c0_eqn}) is dense in ${\widetilde B}$.
 
  \begin{exercise}\label{top_hilb_adm_exer}
 	Prove following statements:
@@ -10288,7 +10324,7 @@ If  $A$ be a given by \eqref{top_poly_a_defn} *-algebra, and  If $\mathfrak B$ i
 			\mathfrak{S}^{\text{pt}}_A \bydef \left(\left\{\pi_\la: A \hookto A_\la \right\}_{\la \in \La}, \left\{\pi^\mu_\nu: A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\ \nu > \mu}}\right)
 		\end{split}
 		\ee
-		such that for any $\la, \mu, \nu\in \La$ the triples $\left(A, A_\la, G\left(\left. A_\la\right| A\right)\bydef G\left(\left. B_\la\right| B\right), \pi_\la \right)$ and $\left(A_\mu, A_\nu, G\left(\left. A_\mu\right| A_\nu\right)\bydef G\left(\left. B_\mu\right| B_\nu\right), \pi^\mu_\nu \right)$ are associated with $\left(B, B_\la, G\left(\left. B_\la\right| B\right), \rho_\la \right)$ and $\left(B_\mu, B_\nu,G\left(\left. B_\mu\right| B_\nu\right), \rho^\mu_\nu \right)$ noncommutative finite-fold covering of *-algebras (cf. Definition \ref{fin_chull_defn}).
+		such that for any $\la, \mu, \nu\in \La$ the triples $\left(A, A_\la, G\left(\left. A_\la\right| A\right)\bydef G\left(\left. B_\la\right| B\right), \pi_\la \right)$ and $\left(A_\mu, A_\nu, G\left(\left. A_\mu\right| A_\nu\right)\bydef G\left(\left. B_\mu\right| B_\nu\right), \pi^\mu_\nu \right)$ are associated with $\left(B, B_\la, G\left(\left. B_\la\right| B\right), \rho_\la \right)$ and $\left(B_\mu, B_\nu,G\left(\left. B_\mu\right| B_\nu\right), \rho^\mu_\nu \right)$ noncommutative finite-fold covering of *-algebras (cf. Definition \ref{fin_chull_defn} !!! CHECK (a) (b)).
 		\item Prove that 	in the described above situation 
 		the triple $\left(A, \widetilde{A}, G\left(\left.\widetilde A \right| A\right)\cong G\left(\left.\widetilde B \right| B\right)\right)$ is an {infinite noncommutative covering of  $\mathfrak{S}^{\text{pt}}_A$  associated with $\mathfrak{S}_B^{\mathrm{pt}}$} (cf. Definition \ref{main_ch_defn} MAXI !!! !!! UNIQUE).
 		
@@ -13965,7 +14001,7 @@ Prove following statements:
 \begin{itemize}
 	\item If $\widetilde{\mathscr{ A}}\bydef p^{-1}\mathscr{ A}$ is an inverse image of the sheaf $\mathscr{ A}$  (cf. Definition \ref{sheaf_inv_im_defn}) and ${\widetilde{ A}} \bydef  \widetilde{\mathscr{ A}}\left(  \widetilde{\sX}\right) $ is a *-algebra  of global sections
 	then there is a {noncommutative finite-fold  pre-covering of *-algebras}   $\left(A, \widetilde{A}, G \right)$ (cf. Definition \ref{fin_pre*_defn}).
-	\item The quadruple $\left(A, \widetilde{A}, G, \pi_A \right)$ is an {associated with $\left(B, \widetilde{B}, G, \pi_B \right)$ noncommutative finite-fold covering of *-algebras} (cf. Definition \ref{fin_chull_defn}).
+	\item The quadruple $\left(A, \widetilde{A}, G, \pi_A \right)$ is an {associated with $\left(B, \widetilde{B}, G, \pi_B \right)$ noncommutative finite-fold covering of *-algebras} (cf. Definition \ref{fin_chull_defn} !!! CHECK (a) (b)).
 \end{itemize}
 \end{exercise}
 
@@ -15120,7 +15156,7 @@ $. The equation \eqref{ctr_da_eqn} yields a *-algebra $A$. Application of the Ex
 	\mathfrak{S}^{\text{pt}}_A \bydef \left(\left\{\pi_\la: A \hookto A_\la \right\}_{\la \in \La}, \left\{\pi^\mu_\nu: A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\ \nu > \mu}}\right).
 \end{split}
 \eean
- such that for any $\la, \mu, \nu\in \La$ the triples\\ $\left(A, A_\la, G\left(\left. A_\la\right| A\right)\bydef G\left(\left. B_\la\right| B\right), \pi_\la \right)$ and $\left(A_\mu, A_\nu, G\left(\left. A_\mu\right| A_\nu\right)\bydef G\left(\left. B_\mu\right| B_\nu\right), \pi^\mu_\nu \right)$ are associated with $\left(B, B_\la, G\left(\left. B_\la\right| B\right), \rho_\la \right)$ and $\left(B_\mu, B_\nu,G\left(\left. B_\mu\right| B_\nu\right), \rho^\mu_\nu \right)$ noncommutative finite-fold covering of *-algebras (cf. Definition \ref{fin_chull_defn}). 
+ such that for any $\la, \mu, \nu\in \La$ the triples\\ $\left(A, A_\la, G\left(\left. A_\la\right| A\right)\bydef G\left(\left. B_\la\right| B\right), \pi_\la \right)$ and $\left(A_\mu, A_\nu, G\left(\left. A_\mu\right| A_\nu\right)\bydef G\left(\left. B_\mu\right| B_\nu\right), \pi^\mu_\nu \right)$ are associated with $\left(B, B_\la, G\left(\left. B_\la\right| B\right), \rho_\la \right)$ and $\left(B_\mu, B_\nu,G\left(\left. B_\mu\right| B_\nu\right), \rho^\mu_\nu \right)$ noncommutative finite-fold covering of *-algebras (cf. Definition \ref{fin_chull_defn} !!! CHECK (a) (b)). 
 \begin{exercise}\label{ctr_hilb_adm_exer}
 	Let $\widetilde {\mathfrak B}'\bydef K\left( \widetilde B\right)$ be a Pedersen's ideal of $\widetilde B$, and let
 $\widetilde{ A}$ be a multiplier algebra  $K\left( \widetilde B\right)$ (cf. \cite{phillips:ped_id})
@@ -18999,7 +19035,7 @@ so $G$ uniquely depends on $j$ modulo $k$, so  $G\cong \Z_k$. It follows that  $
 noncommutative finite-fold pre-covering (cf. Definition  \ref{fin_pre_defn}). Since both $B$ and $\widetilde B$ are essential ideals of   $C$ and $\widetilde C$ the quadruple $\left(B, \widetilde{B}, G, \left.\pi_C \right|_B\right)$ is also noncommutative finite-fold pre-covering.
   \end{proof}
 \begin{exercise}
-	Prove that in the above situation the quadruple  $\left(A, \widetilde{A}, \Z_k, \left.\pi_A\right|_{tA} \right)$ is an {associated with $\left(B, \widetilde{B}, \Z_k, \left.\pi_B\right|_B \right)$  noncommutative finite-fold  covering of *-algebras} (cf. Definition \ref{fin_chull_defn}).
+	Prove that in the above situation the quadruple  $\left(A, \widetilde{A}, \Z_k, \left.\pi_A\right|_{tA} \right)$ is an {associated with $\left(B, \widetilde{B}, \Z_k, \left.\pi_B\right|_B \right)$  noncommutative finite-fold  covering of *-algebras} (cf. Definition \ref{fin_chull_defn} !!! CHECK (a) (b)).
 	
 \end{exercise}
 
