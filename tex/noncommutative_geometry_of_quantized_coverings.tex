@@ -7151,19 +7151,33 @@ $$
 $$
 of Abelian groups. Denote by $\mathscr D_M$ the associated sheaf (cf. Proposition and Definition \ref{sheaf_prdf}).
 \end{empt}
-\begin{exercise}
-Prove following statements:
-\begin{enumerate}
-	\item There is a natural isomorphism $\mathscr D_M\left(M \right)\cong  \Coo_c\left(M \right)'$.
-	\item If $p: \widetilde M \to M$ is a covering and the given by the Proposition  \ref{top_cov_mani_prop} structure of a smooth manifold $\widetilde M$  is implied then $\mathscr D_{\widetilde M}= p^{-1}\mathscr D_M$ where $p^{-1}\mathscr D_M$  means the inverse image (cf. Definition \ref{sheaf_inv_im_defn}).
-	\item Using above statements prove that there is the natural injective homomorphism
-	\be\label{top_distr_eqn}
-\Coo_c\left(p \right)':\Coo_c\left(M \right)'\hookto \Coo_c\left(\widetilde M \right)'
-	\ee
-	of $\Coo\left(M \right)$-modules.
-\end{enumerate}
-\end{exercise}
 
+
+\begin{exercise}\label{top_distr_exer}
+	Prove following statements:
+	\begin{enumerate}
+		\item[(i)] There is a natural isomorphism $\mathscr D_M\left(M \right)\cong  \Coo_c\left(M \right)'$.
+		\item[(ii)] If $p: \widetilde M \to M$ is a covering and the given by the Proposition  \ref{top_cov_mani_prop} structure of a smooth manifold $\widetilde M$  is implied then $\mathscr D_{\widetilde M}= p^{-1}\mathscr D_M$ where $p^{-1}\mathscr D_M$  means the inverse image (cf. Definition \ref{sheaf_inv_im_defn}).
+		\item[(iii)] Using above statements prove that there is the natural injective homomorphism
+		\be\label{top_distr_eqn}
+		\Coo_c\left(p \right)':\Coo_c\left(M \right)'\hookto \Coo_c\left(\widetilde M \right)'
+		\ee
+		of $\Coo\left(M \right)$-modules.
+		\item[(iv)] Indeed the sheaf  $\mathscr D_M$ is an $\mathscr C^\infty$-module (cf. Example \ref{sheaf_ringed_space_exm} and Definition \ref{sheaf_of_modules_den}). If $\Aut_{\Coo\left(M\right)}\left( \Coo_c\left(\widetilde M \right)'\right)$ is a group of $\Coo\left(M\right)$-module  automorphisms  then from the Exercise \ref{top_pre_sheaf_exer} it follows that:
+		\begin{enumerate}
+			\item [(a)] There is a natural isomorphism of groups
+			$$
+			\left\{ \left.g \in \Aut_{\Coo\left(M\right)}\left( \Coo_c\left(\widetilde M \right)'\right) ~\right|~ ga = a;~~\forall a \in \mathscr F\left( \sX\right) \right\}\cong G\left(\left. \widetilde M \right| \M \right).
+			$$
+			\item[(b)] The above isomorphism of groups yields a natural  action $G\left(\left. \widetilde M \right| M \right) \times \Coo_c\left(\widetilde M \right)' \to \Coo_c\left(\widetilde M \right)'$ such that
+			\bean
+			\Coo_c\left( M \right)' 	= \left( \Coo_c\left(\widetilde M \right)'\right) ^{G\left(\left. \widetilde\sX \right| \sX \right)}\bydef\\\bydef  \left\{\left.a\in \Coo_c\left(\widetilde M \right)'~~\right|~ a = g a;\quad \forall g \in G\left(\left. \widetilde M \right| M \right)\right\}.
+			\eean
+			
+		\end{enumerate}
+		
+	\end{enumerate}
+\end{exercise}
 	
 
 \begin{example}\label{top_hom_sub_exm},
@@ -8062,7 +8076,7 @@ Similarly one can prove the following lemma.
 \begin{lemma}\label{top_s_fin_lem}
 The quadruple
 $$
-\left(\Coo\left(M \right),\Coo\left(  \widetilde{   M }\right)\bydef  ,G\left(\left. \widetilde{   M } ~\right| {   M }\right), \lift_p|_{\Coo_c\left(M \right)}\right)
+\left(\Coo\left(M \right),\Coo\left(  \widetilde{   M }\right)  ,G\left(\left. \widetilde{   M } ~\right| {   M }\right), \Coo\left(p \right)\bydef \lift_p|_{\Coo\left(M \right)}\right)
 $$
 is a {noncommutative finite-fold covering of $O^*$-algebras}
 (cf. Definition \ref{fino*_defn}).
@@ -8079,7 +8093,7 @@ Let both $\sX$ and $\widetilde\sX$ be connected, locally connected, locally comp
 $$
 \pi_A : A\hookto \widetilde A.
 $$
-If $G \bydef G\left(\left.\widetilde \sX~\right|\sX \right)$ then the natural action   $G \times \widetilde \sX \to \widetilde \sX$ induces an action $G\times \widetilde A \to \widetilde A$. We leave to the reader the proof of that a quadruple $\left(  A ,\widetilde{ A}, G\left(\left.\widetilde \sX~\right|\sX \right), \pi_A\right)$ is a  {noncommutative finite-fold  pre-covering of *-algebras} (cf. Definition \ref{fin_pre*_defn}  REPLACE Exercise !!!\ref{top_pre_sheaf_exer}).
+If $G \bydef G\left(\left.\widetilde \sX~\right|\sX \right)$ then the natural action   $G \times \widetilde \sX \to \widetilde \sX$ induces an action $G\times \widetilde A \to \widetilde A$. We leave to the reader the proof of that a quadruple $\left(  A ,\widetilde{ A}, G\left(\left.\widetilde \sX~\right|\sX \right), \pi_A\right)$ is a  {noncommutative finite-fold  pre-covering of *-algebras} (cf. Definition \ref{fin_pre*_defn}).
 If
 \bean
 B\bydef  C_0\left( \sX\right),\quad
@@ -8175,66 +8189,49 @@ Both ideals  $tA$ and $t\widetilde A$ do not contain nontrivial bounded elements
 	$$
 	\Coo_c\left(p \right)':\Coo_c\left(M \right)'\hookto \Coo_c\left(\widetilde M \right)'
 $$
-	of $\Coo\left(M \right)$-modules (cf. equation \eqref{top_distr_eqn}). 
-	\begin{exercise}
+	of $\Coo\left(M \right)$-modules (cf. equation \eqref{top_distr_eqn}). 		From the Remark 
+	\ref{top_distr_dens_q_rem} it follows that there are following quasi *-algebras
+	\bean
+	\left(\mathfrak{A}, \mathfrak{A}_0\right)\bydef \left(\Coo_c\left( M \right)' , \Coo\left( M \right)\right),\\
+	\left(\widetilde{\mathfrak{A}}, \widetilde{\mathfrak{A}}_0\right)\bydef \left(\Coo_c\left(\widetilde M \right)' , \Coo\left( \widetilde M \right)\right)
+	\eean
+	(cf. Definition \ref{qousi_star_defn}).
+	\begin{exercise}\label{top_quasi_exer}
 	Prove following statements:
 	\begin{enumerate}
-		\item There are following quasi *-algebras
-		\bean
-		\left(\mathfrak{A}, \mathfrak{A}_0\right)\bydef \left(\Coo_c\left( M \right)' , \Coo\left( M \right)\right),\\
-		\left(\widetilde{\mathfrak{A}}, \widetilde{\mathfrak{A}}_0\right)\bydef \left(\Coo_c\left( M \right)' , \Coo\left( M \right)\right)
-		\eean
+			\item[(i)] Using the equation \eqref{top_distr_eqn} and the Lemma \ref{top_s_fin_lem} prove that there is an injective *-homomorphism 
+			$$
+	\left( \Coo_c\left(p \right)', \Coo\left( p\right)  \right) :		\left(\mathfrak{A}, \mathfrak{A}_0\right)\hookto \left(\widetilde{\mathfrak{A}}, \widetilde{\mathfrak{A}}_0\right)
+			$$
+			(cf. Definition \ref{quasi_hom_defn}).
+			\item[(ii)] Using the Exercise \ref{top_distr_exer} and  the Lemma \ref{top_s_fin_lem} define an action
+			$$
+	 G\left(\left. \widetilde M \right| M \right)\times \left(\widetilde{\mathfrak{A}}, \widetilde{\mathfrak{A}}_0\right)\to \left(\widetilde{\mathfrak{A}}, \widetilde{\mathfrak{A}}_0\right)	
+			$$
+		and prove that the quadruple
+		$$
+		\left(\left( {\mathfrak{A}}, {\mathfrak{A}}_0\right) , \left( \widetilde{\mathfrak{A}}, \widetilde{\mathfrak{A}}_0\right) ,  G\left(\left. \widetilde M \right| M \right) , \left( \Coo_c\left(p \right)', \Coo\left( p\right)  \right)\right)
+		$$
+	is a {noncommutative finite-fold pre-covering of quasi $*$-algebras}	(cf. Definition \ref{oq*fin_defn}).
 	\end{enumerate}
-!!! CONTINUE
 	\end{exercise}
 
-\paragraph{title}
 
-\begin{definition}\label{fin_preq_defn!}
-	%	Let $\pi: \left(\mathfrak{A}, \mathfrak{A}_0\right) \hookto \left(\widetilde{\mathfrak{A}}, \widetilde{\mathfrak{A}}_0\right)$ 
-	Suppose that $\pi: \left(\mathfrak{A}, \mathfrak{A}_0\right) \hookto \left(\widetilde{\mathfrak{A}}, \widetilde{\mathfrak{A}}_0\right)$ is an injective unital $*$-homomorphism of   quasi $*$-algebras (cf. Definitions \ref{quasi_defn} and \ref{quasi_hom_defn})  such that following conditions hold:
-	\begin{enumerate}
-		\item[(a)] If $\Aut\left(\widetilde{\mathfrak{A}}, \widetilde{\mathfrak{A}}_0\right)$ is a group of *-automorphisms of $\widetilde{\mathfrak{A}}, \widetilde{\mathfrak{A}}_0$ then the group  
-		\be\nonumber
-		G = \left\{ \left.g \in \Aut\left(\widetilde{\mathfrak{A}}, \widetilde{\mathfrak{A}}_0\right)~\right|~ ga = a;~~\forall a \in \mathfrak A\right\}
-		\ee
-		is finite.
-		\item[(b)] 	$\widetilde{\mathfrak{A}} \cong \widetilde{\mathfrak{A}}^G\stackrel{\text{def}}{=}\left\{\left.a\in \widetilde{\mathfrak{A}}~~\right|~ a = g a;~ \forall g \in G\right\}$.
-	\end{enumerate}
-	We say that the triple $\left(\left( {\mathfrak{A}}, {\mathfrak{A}}_0\right) , \left( \widetilde{\mathfrak{A}}, \widetilde{\mathfrak{A}}_0\right) , G \right)$ and/or the quadruple\\ $\left(\left( {\mathfrak{A}}, {\mathfrak{A}}_0\right) , \left( \widetilde{\mathfrak{A}}, \widetilde{\mathfrak{A}}_0\right) , G , \pi\right)$ and/or *-homomorphism $\pi: \left(\mathfrak{A}, \mathfrak{A}_0\right) \hookto \left(\widetilde{\mathfrak{A}}, \widetilde{\mathfrak{A}}_0\right)$   is a \textit{noncommutative finite-fold pre-covering of quasi $*$-algebras}. 
-\end{definition}
-
-\begin{definition}\label{oq*fin_defn}
-	Let   $\left(\left( {\mathfrak{A}}, {\mathfrak{A}}_0\right) , \left( \widetilde{\mathfrak{A}}, \widetilde{\mathfrak{A}}_0\right) , G , \pi\right)$ be a {noncommutative finite-fold pre-covering of quasi-$*$-algebras}. If the quadruple  $\left(\mathfrak{A}_0 ,  \widetilde{\mathfrak{A}}_0 , G , \pi|_{\mathfrak{A}_0}\right)$ is a {noncommutative finite-fold covering of $O^*$-algebras} (cf. Definition \ref{fino*_defn}) then we say that  the quadruple $\left(\left( {\mathfrak{A}}, {\mathfrak{A}}_0\right) , \left( \widetilde{\mathfrak{A}}, \widetilde{\mathfrak{A}}_0\right) , G , \pi\right)$ and/or *-homomorphism $\pi:  \left(\mathfrak{A}, \mathfrak{A}_0\right) \hookto \left(\widetilde{\mathfrak{A}}, \widetilde{\mathfrak{A}}_0\right)$   is a \textit{noncommutative finite-fold covering of quasi-$*$-algebras}.
-\end{definition}
-
-
-
-
-\paragraph{title}
 
 \begin{lemma}\label{top_q_fin_lem}
-	The triple 
+	The quadruple 
 	$$
-	\left(\left(\Coo_c\left(M \right)', \Coo\left(M \right)    \right), \left(\Coo_c\left(\widetilde M \right)', \Coo\left( \widetilde M \right)    \right), G\left(\left. \widetilde M\right| M\right)\right)
+	\left(\left(\Coo_c\left(M \right)', \Coo\left(M \right)    \right), \left(\Coo_c\left(\widetilde M \right)', \Coo\left( \widetilde M \right)    \right), G\left(\left. \widetilde M\right| M\right),\left( \Coo_c\left(p \right)', \Coo\left( p\right)\right)\right) 
 	$$
 	is a	{noncommutative finite-fold covering of quasi $*$-algebras} (cf. Remark \ref{top_distr_dens_q_rem} and Definition \ref{oq*fin_defn}).
 \end{lemma}
 \begin{proof}
-	From \eqref{top_distr_lift_eqn} it follows that there is the natural injective *-homomorphism $\left(\Coo_c\left(M \right)', \Coo\left(M \right)    \right) \hookto \left(\Coo_c\left(\widetilde M \right)', \Coo\left( \widetilde M \right)    \right)$ of quasi *-algebras. 
-	Similarly to the proof of \eqref{top_fin_d_eqn}  one can show that 
-	\be\nonumber
-	\left\{ \left.g \in \Aut\left(\left( \Coo_c\left(\widetilde M \right)', \Coo\left(\widetilde M \right)    \right)\right)~\right|~ ga = a;~~\forall a \in  \Coo_c\left( M \right)', \Coo\left( M \right)\right\}\cong G\left(\left. \widetilde M\right| M\right),
-	\ee
-	i.e.  the triple 	$\left(\left(\Coo_c\left(M \right)', \Coo\left(M \right)    \right), \left(\Coo_c\left(\widetilde M \right)', \Coo\left( \widetilde M \right)    \right), G\left(\left. \widetilde M\right| M\right)\right)$  is a {noncommutative finite-fold pre-covering of quasi $*$-algebras} (cf. Definition \ref{fin_preq_defn}). From 
-	the Lemma \ref{top_s_fin_lem} it follows that  the triple	$$
-	\left(\Coo\left(M \right),\Coo\left(  \widetilde{   M }\right) ,G\left(\left. \widetilde{   M } ~\right| {   M }\right)\right)
-	$$
-	is a {noncommutative finite-fold covering of $O^*$-algebras} and taking into account the Definition \ref{oq*fin_defn} one concludes that 
-	$$
-	\left(\left(\Coo_c\left(M \right)', \Coo\left(M \right)    \right), \left(\Coo_c\left(\widetilde M \right)', \Coo\left( \widetilde M \right)    \right), G\left(\left. \widetilde M\right| M\right)\right)
-	$$
-	is a {noncommutative finite-fold covering of quasi $*$-algebras}.
+	From the Exercise \ref{top_quasi_exer} it follows that the quadruple 
+a {noncommutative finite-fold pre-covering of quasi $*$-algebras}. From the Lemma \ref{top_s_fin_lem} it follows that the quadruple
+$$
+\left(\Coo\left(M \right),\Coo\left(  \widetilde{   M }\right)  ,G\left(\left. \widetilde{   M } ~\right| {   M }\right), \Coo\left(p \right)\right)
+$$
+is a noncommutative finite-fold covering of $O^*$-algebras.
 \end{proof}
 
 \subsection{Coverings of operator spaces}
@@ -22978,7 +22975,7 @@ $C^*$-algebra}).
 	\end{definition}
 	
 	
-	\begin{definition}\label{quasi_defn}
+	\begin{definition}\label{qousi_star_defn}\label{quasi_defn}
 		%	Definition 2.1.1 
 		A \textit{quasi *-algebra} $\left(\mathfrak{A}, \mathfrak{A}_0\right)$ is a pair consisting of a vector space $\mathfrak{A}$
 		and a *-algebra $\mathfrak{A}_0$ contained in $\mathfrak{A}$ as a subspace, such that
@@ -23005,7 +23002,7 @@ $C^*$-algebra}).
 		(the so-called unitization of $\mathfrak{A}$), in the standard fashion \cite{antoine:part_s}.
 	\end{remark}
 	
-	\begin{definition}\cite{quasi_star}
+	\begin{definition}\label{qousi_star_tau_defn}\cite{quasi_star}
 		%Definition 2.2. 
 		Let  $\left(\mathfrak{A}, \mathfrak{A}_0\right)$ be a quasi *-algebra and $\tau$  a locally convex topology on A. We say that $\left(\mathfrak{A}\left[\tau\right], \mathfrak{A}_0\right)$ is a locally
 		convex quasi *-algebra if
@@ -27746,7 +27743,7 @@ J. C. V\'arilly and J. M. Gracia-Bond\'{\i}a, \textit{Algebras of distributions 
 
 \bibitem{quasi_star_many} M. Fragoulopoulou , C. Trapani S. Triolo \textit{Locally convex quasi *-algebras with sufficiently many *-representations}.  J. Math. Anal. Appl. 388 (2012) 1180Ð1193, 2012.
 
-\bibitem{quasi_star}Maria Fragoulopoulo, Camillo Trapani \textit{Locally Convex	Quasi *-Algebras 	and their	Representations}. Springer Nature Switzerland AG, 2020.
+\bibitem{quasi_star} Maria Fragoulopoulo, Camillo Trapani \textit{Locally Convex	Quasi *-Algebras 	and their	Representations}. Springer Nature Switzerland AG, 2020.
 
 
 \bibitem{moyal_spectral} V. Gayral, J. M. Gracia-Bond\'{i}a, B. Iochum, T. Sch\"{u}cker, J. C. Varilly. {\it Moyal Planes are Spectral Triples}. arXiv:hep-th/0307241, 2003.
