@@ -7109,8 +7109,14 @@ a \mapsto \int_{M} a~ d\mu.
 \bean
 \left\langle \cdot, \cdot \right\rangle_c: \Ga_c^\infty\left( M, E\right)\times \Ga_c^\infty\left( M, E\right) \to C_c\left( M\right)
 \eean
-which comes from \eqref{top_ggc_eqn}
-so $\Ga_c^\infty\left( M, E\right)$ is a pre-Hilbert space. If $L^2\left(M, E,  \mu\right)$ is the Hilbert norm completion of $\Ga_c^\infty\left( M, E\right)$ then there is a representation
+which comes from \eqref{top_ggc_eqn}. On the other hand there is a product
+\be\label{top_prod_eqn}
+\begin{split}
+\left(\cdot, \cdot\right): \Ga_c^\infty\left( M, E\right)\times \Ga_c^\infty\left( M, E\right)\to \C,\\
+\left(a, b \right) \mapsto\tau\left( \left\langle a, b \right\rangle_c\right),
+\end{split}
+\ee
+i.e. $\Ga_c^\infty\left( M, E\right)$ is a pre-Hilbert space. If $L^2\left(M, E,  \mu\right)$ is the Hilbert norm completion of $\Ga_c^\infty\left( M, E\right)$ then there is a representation
 \be\label{top_h_sp_eqn}
 C_0\left( M \right) \hookto B\left( L^2\left(M, E,  \mu\right)\right) 
 \ee
@@ -7420,6 +7426,18 @@ It turns out that the map $\phi$ is injective. \\
 	\eean
 	it turns out that the map $\phi$ is surjective.
 \end{proof}
+
+\begin{exercise}\label{top_tensor_lcompact_exer}
+Let $\phi$ be given by the equation \eqref{top_tensor_lccompact_iso_eqn}. Prove that the restriction	\be\label{top_tensor_clccompact_iso_eqn}
+\begin{split}
+	\phi|_{C_c\left(\widetilde \sX\right)\otimes_{C_0\left( \sX\right)}C_c\left(\sX, 
+		\left\{A_x\right\}, \sF \right)}: C_c\left(\widetilde \sX\right)\otimes_{C_0\left( \sX\right)}C\left(\sX, 
+	\left\{A_x\right\}, \sF \right) \to\\\to C_c\left( \lift_p\left[C\left(\sX, 
+	\left\{A_x\right\}, \sF \right)\right]\right).
+ \end{split}
+\ee
+is an isomorphism of $C_0\left(\widetilde \sX \right)$-modules. 
+\end{exercise}
 
 \section{Geometrical lifts of spectral triples}\label{top_cov_sp_tr_sec}
 %\subsection{Finite-fold lifts}\label{top_cov_sp_tr_fs_sec}
@@ -8276,53 +8294,58 @@ is a noncommutative finite-fold covering of $O^*$-algebras.
 \subsection{Induced representations}\label{comm_induced_finite_sec}
 
 \paragraph*{} 
-If  $\sX$ is a connected, locally connected, locally compact, Hausdorff space, and  $E \to \sX$ is a locally trivial bundle with a {sesquilinear form}  $\varphi: E \times E \to \C$ (cf. Definitions \ref{top_vb_defn} \ref{top_herm_bundle_form_defn}) then there is a given by \eqref{top_ggc_eqn} pairing
+If  $\sX$ is a connected, locally connected, locally compact, Hausdorff space, and  $E \to \sX$ is a locally trivial bundle with a {sesquilinear form}  $\varphi: E \times E \to \C$ (cf. Definitions \ref{top_vb_defn} \ref{top_herm_bundle_form_defn}) then there are  given by \eqref{top_ggc_eqn} and \eqref{top_prod_eqn} pairings
 \bean
-	\left\langle \cdot, \cdot \right\rangle_c:  \Ga_c\left(\sX, E\right)\times \Ga_c\left(\sX, E\right) \to C_c\left( \sX\right) 
+	\left\langle \cdot, \cdot \right\rangle_c:  \Ga_c\left(\sX, E\right)\times \Ga_c\left(\sX, E\right) \to C_c\left( \sX\right),\\
+ 	\left(\cdot, \cdot\right): \Ga_c^\infty\left(\sX, E\right)\times \Ga_c^\infty\left( \sX, E\right)\to \C,\\
+\left(a, b \right) \mapsto\tau\left( \left\langle a, b \right\rangle_c\right).
 \eean
- 
- 
-  Similarly to \eqref{top_h_sp_eqn} one can construct a faithful representation
+If $L^2\left(\sX, E,  \mu\right)$ is the Hilbert norm completion of $\Ga_c\left( \sX, E\right)$ then similarly  to \eqref{top_h_sp_eqn} one can construct a faithful representation
  \bean
 \rho: C_0\left(\sX \right) \hookto L^2\left(M, E,  \mu\right).
  \eean
- 
  On the other hand from the Lemma \ref{top_bundle_cs_lem}  it follows that $\Ga\left(\sX, E\right)$ is {continuity structure for} $\sX$ {and the} $\left\{E_x\right\}_{x \in \sX}$ (cf. Definition \ref{op_fields_defn}), such that
-$$
-\Ga\left(\sX, E\right) \cong C\left(\sX, \left\{E_x\right\},  \Ga\left(\sX, E\right)\right). 
-$$
-If $p: \widetilde{\sX} \to \sX$ is a finite-fold  transitive covering then from the Lemma \ref{top_tensor_lccompact_iso_eqn} it follows that there is the natural isomorphism
+\bean
+\Ga\left(\sX, E\right) \cong C\left(\sX, \left\{E_x\right\},  \Ga\left(\sX, E\right)\right),\\
+\Ga_c\left(\sX, E\right) \cong C_c\left(\sX, \left\{E_x\right\},  \Ga\left(\sX, E\right)\right). 
+\eean
+If $p: \widetilde{\sX} \to \sX$ is a   transitive covering then from the Exercise \ref{top_tensor_lcompact_exer} it follows that there is the natural isomorphism
 \be\label{top_lift_g_eqn}
-\phi: C\left(\widetilde \sX\right)\otimes_{C\left(\sX\right)} C\left(\sX,\left\{E_x\right\},  \Ga\left(\sX, E\right)\right) \xrightarrow{\approx}\lift_p\left[C\left(\sX, \left\{E_x\right\},  \Ga\left(\sX, E\right)\right)\right]
+\begin{split}
+\phi: C_c\left(\widetilde \sX\right)\otimes_{C_0\left(\sX\right)} C_c\left(\sX,\left\{E_x\right\},  \Ga\left(\sX, E\right)\right) \xrightarrow{\approx}\\
+\xrightarrow{\approx} C_c\left( \lift_p\left[C\left(\sX, \left\{E_x\right\},  \Ga\left(\sX, E\right)\right)\right]\right) 
+\end{split}
 \ee
 of $C\left(\widetilde{\sX} \right)$-modules. From the Lemma \ref{top_lift_bundle_lem} it follows that $\lift_p\left[C\left(\sX, \left\{E_x\right\},  \Ga\left(\sX, E\right)\right)\right]\cong \Ga\left(\widetilde{\sX}, \widetilde{E} \right)$ where $\widetilde{E}$ is the {inverse image} of $E$ by $p$ (cf. Definition \ref{vb_inv_img_funct_defn}). Hence the equation \eqref{top_lift_g_eqn} can be rewritten by the following way
 \be\label{top_lift_gs_eqn}
-\phi: C\left(\widetilde \sX\right)\otimes_{C\left(\sX\right)} \Ga\left(\sX, E\right) \xrightarrow{\approx} \Ga\left(\widetilde{\sX}, \widetilde{E} \right).
+\phi: C_c\left(\widetilde \sX\right)\otimes_{C_0\left(\sX\right)} \Ga_c\left(\sX, E\right) \xrightarrow{\approx} \Ga_c\left(\widetilde{\sX}, \widetilde{E} \right).
 \ee
-From the Lemma \ref{state_cov_11_lem} it follows that  there is a functional
+If $p$ is a finite-fold covering then from the Lemma \ref{state_cov_11_lem} it follows that  there is a functional
 \be\label{top_wt_eqn}
 \begin{split}
-	\widetilde	\tau : C\left(\widetilde M \right)\to \C,\\
-	\widetilde	a \mapsto \tau\left( \sum_{g \in G\left(\left.\widetilde M~\right|M \right) }g\widetilde a\right)=  \int_{\widetilde M} \widetilde a~ d\widetilde\mu 
+	\widetilde	\tau : C\left(\widetilde \sX \right)\to \C,\\
+	\widetilde	a \mapsto \tau\left( \sum_{g \in G\left(\left.\widetilde \sX~\right|\sX \right) }g\widetilde a\right)=  \int_{\widetilde \sX} \widetilde a~ d\widetilde\mu 
 \end{split}
 \ee
-where a sum $\sum_{g \in G\left(\left.\widetilde M~\right|M \right) }g\widetilde a$ is regarded as an element of $C\left(  M\right)$. Similarly to the above construction we have a Hilbert space $L^2\left(\widetilde{M}, \widetilde{S} \right)= L^2\left(\widetilde{M}, \widetilde{S}, \widetilde\mu \right)$ and a representation 
+where a sum $\sum_{g \in G\left(\left.\widetilde \sX~\right|\sX \right) }g\widetilde a$ is regarded as an element of $C\left(  \sX\right)$ The measure $\widetilde{\mu}$ is the preimage of $\mu$ (cf. Definition \ref{measure_image_defn}). 
+Similarly to the above construction we have a Hilbert space $L^2\left(\widetilde{\sX}, \widetilde{E} \right)= L^2\left(\widetilde{\sX}, \widetilde{E}, \widetilde\mu \right)$ and a representation 
 \be\label{comm_bundle_repr_eqn}
-C\left(\widetilde M\right) \to B\left( L^2\left( \widetilde M, \widetilde S\right)\right).
+C_0\left(\widetilde \sX\right) \to B\left( L^2\left( \widetilde \sX, \widetilde S\right)\right).
 \ee
 \begin{lemma}\label{top_hilb_homo_lem}
 	Following conditions hold:
 	\begin{itemize}
-		\item [(i)] The map \eqref{top_lift_gs_eqn} can be extended up to the following homomorphism 
+		\item [(i)] The map \eqref{top_lift_gs_eqn} can be extended up to the following injective homomorphism 
 		$$
-		C\left(\widetilde M\right)\otimes_{C\left(M\right)} L^2\left(M, S\right) \xrightarrow{\approx} L^2\left(\widetilde{M}, \widetilde{S} \right)
+		C_0\left(\widetilde\sX\right)\otimes_{C_0\left(\sX\right)} L^2\left(M, S\right) \xrightarrow{\approx} L^2\left(\widetilde{M}, \widetilde{S} \right)
 		$$
-		of left $C\left(\widetilde M\right)$-modules.
-		\item[(ii)] The image of $C\left(\widetilde M\right)\otimes_{C\left(M\right)} L^2\left(M, S\right)$ is dense in $L^2\left(\widetilde{M}, \widetilde{S} \right)$.
+		of left $C_0\left(\widetilde\sX\right)$-modules.
+		\item[(ii)] The image of $C_0\left(\widetilde \sX\right)\otimes_{C_0\left(\sX\right)} L^2\left(\sX, E\right)$ is dense in $L^2\left(\widetilde{\sX}, \widetilde{E} \right)$.
 	\end{itemize}
 \end{lemma}
+!!! CONTINUE
 \begin{proof}(i)
-	Let $\sum_{j = 1}^n \widetilde a_j \otimes \xi_j\in 	C\left(\widetilde M\right)\otimes_{C\left(M\right)} L^2\left(M, E\right)$ be any element. From  \ref{top_herm_bundle_empt} $L^2\left( M, S, \mu\right)$ is the Hilbert norm completion of $\Ga\left(M, E\right)$. Hence for any $j =1,..., n$ there is a net $\left\{\xi_{j\a}\right\}\subset \Ga\left(M, E\right)$ such that $\xi_j = \lim_\a \xi_{j\a}$ where we mean the convergence with respect to the Hilbert norm $\left\| \cdot\right\|_{L^2\left(M, E\right)}$. If $C = \max_{j = 1,...,n}\left\|\widetilde a_j\right\|$ then there is $\a_0$ such that
+	Let $\sum_{j = 1}^n \widetilde a_j \otimes \xi_j\in 	C\left(\widetilde \sX\right)\otimes_{C\left(M\right)} L^2\left(M, E\right)$ be any element. From  \ref{top_herm_bundle_empt} $L^2\left( M, S, \mu\right)$ is the Hilbert norm completion of $\Ga\left(M, E\right)$. Hence for any $j =1,..., n$ there is a net $\left\{\xi_{j\a}\right\}\subset \Ga\left(M, E\right)$ such that $\xi_j = \lim_\a \xi_{j\a}$ where we mean the convergence with respect to the Hilbert norm $\left\| \cdot\right\|_{L^2\left(M, E\right)}$. If $C = \max_{j = 1,...,n}\left\|\widetilde a_j\right\|$ then there is $\a_0$ such that
 	$$
 	\a \ge \a_0 \quad \Rightarrow \left\| \xi_j - \xi_{j\a}\right\|_{L^2\left(M, E\right)} < \frac{\eps}{nC},
 	$$
