@@ -8335,25 +8335,37 @@ C_0\left(\widetilde \sX\right) \to B\left( L^2\left( \widetilde \sX, \widetilde 
 \begin{lemma}\label{top_hilb_homo_lem}
 	Following conditions hold:
 	\begin{itemize}
-		\item [(i)] The map \eqref{top_lift_gs_eqn} can be extended up to the following injective homomorphism 
+		\item [(i)] The given by \eqref{top_lift_gs_eqn} map $\phi: C_c\left(\widetilde \sX\right)\otimes_{C_0\left(\sX\right)} \Ga_c\left(\sX, E\right) \xrightarrow{\approx} \Ga_c\left(\widetilde{\sX}, \widetilde{E} \right)$ can be extended up to an injective homomorphism 
 		$$
-		C_0\left(\widetilde\sX\right)\otimes_{C_0\left(\sX\right)} L^2\left(\sX, S\right) \xrightarrow{\approx} L^2\left(\widetilde{\sX}, \widetilde{S} \right)
+	\varphi:	C_0\left(\widetilde\sX\right)\otimes_{C_0\left(\sX\right)} L^2\left(\sX, S\right) \hookto L^2\left(\widetilde{\sX}, \widetilde{S} \right)
 		$$
 		of left $C_0\left(\widetilde\sX\right)$-modules.
 		\item[(ii)] The image of $C_0\left(\widetilde \sX\right)\otimes_{C_0\left(\sX\right)} L^2\left(\sX, E\right)$ is dense in $L^2\left(\widetilde{\sX}, \widetilde{E} \right)$.
 	\end{itemize}
 \end{lemma}
 
-\begin{proof}(i)
-	Let $\sum_{j = 1}^n \widetilde a_j \otimes \xi_j\in 	C_0\left(\widetilde \sX\right)\otimes_{C_0\left(\sX\right)} L^2\left(\sX, E\right)$ be any element. From the above construction it turns out that $L^2\left( \sX, S, \mu\right)$ is the Hilbert norm completion of the pre-Hilbert space $\Ga_c\left(\sX, E\right)$  with the given by $\left(a, b \right) \mapsto\tau\left( \left\langle a, b \right\rangle_c\right)$ scalar product. Hence for any $j =1,..., n$ there is a net $\left\{\xi_{j\a}\right\}\subset \Ga_c\left(\sX, E\right)$ such that $\xi_j = \lim_\a \xi_{j\a}$ where we mean the convergence with respect to the Hilbert norm $\left\| \cdot\right\|_{L^2\left(\sX, E\right)}$. If $C = \max_{j = 1,...,n}\left\|\widetilde a_j\right\|$ then there is $\a_0$ such that
+\begin{proof}(i) If $\sum_{j = 1}^n \widetilde a_j \otimes \eta_j\in 	C_0\left(\widetilde \sX\right)\otimes_{C_0\left(\sX\right)} \Ga_c\left(\sX, E\right)$ then since the covering $p$ is finite-fold, the set $p^{-1}\left( \supp \eta_j\right)$ is compact for any $j =1, ..., n$. If $\widetilde b_j\in C_c\left(\widetilde \sX \right) $ is a covering sum for $p^{-1}\left( \supp \eta_j\right)$  (cf. Definition \ref{top_covering_sum_defn}) the  reader can proof that
 	$$
-	\a \ge \a_0 \quad \Rightarrow \left\| \xi_j - \xi_{j\a}\right\|_{L^2\left(\sX, E\right)} < \frac{\eps}{nC},
+\forall j =1,...,n \quad	\widetilde a_j \otimes \eta_j = 	\widetilde a_j 	\widetilde b_j \otimes \eta_j 
 	$$
-!!! CONTINUE	so one has
+	So the map $\phi$ can be extended up to
+	\bean
+	\overline \phi:  C_0\left(\widetilde \sX\right)\otimes_{C_0\left(\sX\right)} \Ga_c\left(\sX, E\right) \xrightarrow{\approx} \Ga_c\left(\widetilde{\sX}, \widetilde{E} \right),\\
+	\sum_{j = 1}^n \widetilde a_j \otimes \eta_j \mapsto \sum_{j=1}^n \phi \left( \widetilde a_j 	\widetilde b_j \otimes \eta_j \right). 
+	\eean 
+	Let $\sum_{j = 1}^n \widetilde a_j \otimes \xi_j\in 	C_0\left(\widetilde \sX\right)\otimes_{C_0\left(\sX\right)} L^2\left(\sX, E\right)$ be any element. From the above construction it turns out that $L^2\left( \sX, E\right)$ is the Hilbert norm completion of the pre-Hilbert space $\Ga_c\left(\sX, E\right)$  with the given by $\left(a, b \right) \mapsto\tau\left( \left\langle a, b \right\rangle_c\right)$ scalar product. Hence for any $j =1,..., n$ there is a net $\left\{\xi_{j\a}\right\}\subset \Ga_c\left(\sX, E\right)$ such that $\xi_j = \lim_\a \xi_{j\a}$ where we mean the convergence with respect to the Hilbert norm $\left\| \cdot\right\|_{L^2\left(\sX, E\right)}$. If $C = \max_{j = 1,...,n}\left\|\widetilde a_j\right\|$ then there is $\a_0$ such that
 	$$
-	\a \ge \a_0 \quad \Rightarrow \left\| \sum_{j = 1}^n \widetilde a_j \otimes \xi_{j\a_0} - \sum_{j = 1}^n \widetilde a_j \otimes \xi_{j\a}\right\|_{L^2\left(\widetilde \sX, \widetilde E\right)} < \eps.
+	\a \ge \a_0 \quad \Rightarrow \left\| \xi_j - \xi_{j\a}\right\|_{L^2\left(\sX, E\right)} < \frac{\eps}{nC}~~,
 	$$
-	The above equation it follows that the net $\left\{\sum_{j = 1}^n \widetilde a_j \otimes \xi_{j\a}\right\}_\a$ satisfies to the Cauchy condition, so it is convergent with respect to the topology of $L^2\left(\widetilde \sX, \widetilde E\right)$.\\
+	so one has
+$$
+	\a \ge \a_0 \quad \Rightarrow \left\| \overline \phi\left( \sum_{j = 1}^n \widetilde a_j \otimes \xi_{j\a_0} - \sum_{j = 1}^n \widetilde a_j \otimes \xi_{j\a}\right) \right\|_{L^2\left(\widetilde \sX, \widetilde E\right)} < \eps.
+	$$
+From the above equation it follows that the net $\left\{\overline \phi\left(\sum_{j = 1}^n \widetilde a_j \otimes \xi_{j\a}\right) \right\}_\a$ satisfies to the Cauchy condition, so it is convergent with respect to the topology of $L^2\left(\widetilde \sX, \widetilde E\right)$  (cf. \ref{top_cauchy_empt} and the Remark \ref{top_cauchy_rem}). We define
+	$$
+	\varphi\left(\sum_{j = 1}^n \widetilde a_j \otimes \xi_j \right) \bydef \lim_{\a}\overline\phi \left( \sum_{j = 1}^n \widetilde a_j \otimes \xi_{j\a}\right). 
+	$$
+	\\
 	(ii) From the Lemma \ref{top_tensor_lccompact_iso_eqn} it follows that the image of $C_0\left(\widetilde \sX\right)\otimes_{C\left(\sX\right)} L^2\left(\sX, E\right)$ in $L^2\left(\widetilde \sX, \widetilde E\right)$ contains $\Ga_c\left(\widetilde{\sX}, \widetilde{E} \right)$, however $\Ga_c\left(\widetilde{\sX}, \widetilde{E} \right)$ is dense in $L^2\left(\widetilde{\sX}, \widetilde{E} \right)$. It follows that  $\phi\left(  C_0\left(\widetilde \sX\right)\otimes_{C_0\left(\sX\right)} L^2\left(\sX, E\right)\right)$ is dense in $L^2\left(\widetilde{\sX}, \widetilde{E} \right)$. 
 \end{proof}
 \begin{remark}
@@ -19562,6 +19574,15 @@ A real-valued function $f$, is said to be \textit{lower semi-continuous} (resp. 
 \begin{remark}\label{top_lower_semi_rem}
 There is inverted result about upper semi-continuous functions and supremums.
 \end{remark}
+
+
+\begin{empt}\label{top_cauchy_empt}\cite{engelking:general_topology}
+If $\left( \sX, \rho\right) $ is a metric space then wa say that $\left\{x_j\right\}_{j \in \N}\subset \sX$ is a \textit{Cauchy sequence} if for every $\eps > 0$ there exist $k > 0$ such that $\rho\left(x_j, x_k \right) < \eps$ whenever $j> k$. If $\left( \sX, \rho\right)$ is complete then any Cauchy sequence is convergent.
+\end{empt}
+\begin{remark}\label{top_cauchy_rem}
+Above statements can be generalized to nets (cf. Definition \ref{top_net_lim_defn}) the word \textit{Cauchy net} is also used in this book.
+\end{remark}
+
 	\section{Vector bundles}\label{top_vb_sub_sub}
 \paragraph*{}
 Let $k$ be the field of real or complex numbers, and let $\sX$ be a topological space.
