@@ -8327,7 +8327,7 @@ If $p$ is a finite-fold covering then from the Lemma \ref{state_cov_11_lem} it f
 	\widetilde	a \mapsto \tau\left( \sum_{g \in G\left(\left.\widetilde \sX~\right|\sX \right) }g\widetilde a\right)=  \int_{\widetilde \sX} \widetilde a~ d\widetilde\mu 
 \end{split}
 \ee
-where a sum $\sum_{g \in G\left(\left.\widetilde \sX~\right|\sX \right) }g\widetilde a$ is regarded as an element of $C\left(  \sX\right)$ The measure $\widetilde{\mu}$ is the preimage of $\mu$ (cf. Definition \ref{measure_image_defn}). 
+where a sum $\sum_{g \in G\left(\left.\widetilde \sX~\right|\sX \right) }g\widetilde a$ is regarded as an element of $C\left(  \sX\right)$. The measure $\widetilde{\mu}$ is the preimage of $\mu$ (cf. Definition \ref{measure_image_defn}) and from $\widetilde a > 0 \Rightarrow 	\widetilde\tau\left(\widetilde a \right) > 0$ it turns out that $\widetilde \tau$ corresponds to a faithful representation. 
 Similarly to the above construction we have a Hilbert space $L^2\left(\widetilde{\sX}, \widetilde{E} \right)= L^2\left(\widetilde{\sX}, \widetilde{E}, \widetilde\mu \right)$ and a representation 
 \be\label{comm_bundle_repr_eqn}
 C_0\left(\widetilde \sX\right) \to B\left( L^2\left( \widetilde \sX, \widetilde S\right)\right).
@@ -8337,47 +8337,47 @@ C_0\left(\widetilde \sX\right) \to B\left( L^2\left( \widetilde \sX, \widetilde 
 	\begin{itemize}
 		\item [(i)] The map \eqref{top_lift_gs_eqn} can be extended up to the following injective homomorphism 
 		$$
-		C_0\left(\widetilde\sX\right)\otimes_{C_0\left(\sX\right)} L^2\left(M, S\right) \xrightarrow{\approx} L^2\left(\widetilde{M}, \widetilde{S} \right)
+		C_0\left(\widetilde\sX\right)\otimes_{C_0\left(\sX\right)} L^2\left(\sX, S\right) \xrightarrow{\approx} L^2\left(\widetilde{\sX}, \widetilde{S} \right)
 		$$
 		of left $C_0\left(\widetilde\sX\right)$-modules.
 		\item[(ii)] The image of $C_0\left(\widetilde \sX\right)\otimes_{C_0\left(\sX\right)} L^2\left(\sX, E\right)$ is dense in $L^2\left(\widetilde{\sX}, \widetilde{E} \right)$.
 	\end{itemize}
 \end{lemma}
-!!! CONTINUE
+
 \begin{proof}(i)
-	Let $\sum_{j = 1}^n \widetilde a_j \otimes \xi_j\in 	C\left(\widetilde \sX\right)\otimes_{C\left(M\right)} L^2\left(M, E\right)$ be any element. From  \ref{top_herm_bundle_empt} $L^2\left( M, S, \mu\right)$ is the Hilbert norm completion of $\Ga\left(M, E\right)$. Hence for any $j =1,..., n$ there is a net $\left\{\xi_{j\a}\right\}\subset \Ga\left(M, E\right)$ such that $\xi_j = \lim_\a \xi_{j\a}$ where we mean the convergence with respect to the Hilbert norm $\left\| \cdot\right\|_{L^2\left(M, E\right)}$. If $C = \max_{j = 1,...,n}\left\|\widetilde a_j\right\|$ then there is $\a_0$ such that
+	Let $\sum_{j = 1}^n \widetilde a_j \otimes \xi_j\in 	C_0\left(\widetilde \sX\right)\otimes_{C_0\left(\sX\right)} L^2\left(\sX, E\right)$ be any element. From the above construction it turns out that $L^2\left( \sX, S, \mu\right)$ is the Hilbert norm completion of the pre-Hilbert space $\Ga_c\left(\sX, E\right)$  with the given by $\left(a, b \right) \mapsto\tau\left( \left\langle a, b \right\rangle_c\right)$ scalar product. Hence for any $j =1,..., n$ there is a net $\left\{\xi_{j\a}\right\}\subset \Ga_c\left(\sX, E\right)$ such that $\xi_j = \lim_\a \xi_{j\a}$ where we mean the convergence with respect to the Hilbert norm $\left\| \cdot\right\|_{L^2\left(\sX, E\right)}$. If $C = \max_{j = 1,...,n}\left\|\widetilde a_j\right\|$ then there is $\a_0$ such that
 	$$
-	\a \ge \a_0 \quad \Rightarrow \left\| \xi_j - \xi_{j\a}\right\|_{L^2\left(M, E\right)} < \frac{\eps}{nC},
+	\a \ge \a_0 \quad \Rightarrow \left\| \xi_j - \xi_{j\a}\right\|_{L^2\left(\sX, E\right)} < \frac{\eps}{nC},
 	$$
-	so one has
+!!! CONTINUE	so one has
 	$$
-	\a \ge \a_0 \quad \Rightarrow \left\| \sum_{j = 1}^n \widetilde a_j \otimes \xi_{j\a_0} - \sum_{j = 1}^n \widetilde a_j \otimes \xi_{j\a}\right\|_{L^2\left(\widetilde M, \widetilde E\right)} < \eps.
+	\a \ge \a_0 \quad \Rightarrow \left\| \sum_{j = 1}^n \widetilde a_j \otimes \xi_{j\a_0} - \sum_{j = 1}^n \widetilde a_j \otimes \xi_{j\a}\right\|_{L^2\left(\widetilde \sX, \widetilde E\right)} < \eps.
 	$$
-	The above equation it follows that the net $\left\{\sum_{j = 1}^n \widetilde a_j \otimes \xi_{j\a}\right\}_\a$ satisfies to the Cauchy condition, so it is convergent with respect to the topology of $L^2\left(\widetilde M, \widetilde E\right)$.\\
-	(ii) From the Lemma \ref{top_tensor_lccompact_iso_eqn} it follows that the image of $C\left(\widetilde M\right)\otimes_{C\left(M\right)} L^2\left(M, E\right)$ in $L^2\left(\widetilde M, \widetilde E\right)$ contains $\Ga\left(\widetilde{M}, \widetilde{E} \right)$, however $\Ga\left(\widetilde{M}, \widetilde{E} \right)$ is dense in $L^2\left(\widetilde{M}, \widetilde{E} \right)$. It follows that  $\phi\left(  C\left(\widetilde M\right)\otimes_{C\left(M\right)} L^2\left(M, E\right)\right)$ is dense in $L^2\left(\widetilde{M}, \widetilde{E} \right)$. 
+	The above equation it follows that the net $\left\{\sum_{j = 1}^n \widetilde a_j \otimes \xi_{j\a}\right\}_\a$ satisfies to the Cauchy condition, so it is convergent with respect to the topology of $L^2\left(\widetilde \sX, \widetilde E\right)$.\\
+	(ii) From the Lemma \ref{top_tensor_lccompact_iso_eqn} it follows that the image of $C_0\left(\widetilde \sX\right)\otimes_{C\left(\sX\right)} L^2\left(\sX, E\right)$ in $L^2\left(\widetilde \sX, \widetilde E\right)$ contains $\Ga_c\left(\widetilde{\sX}, \widetilde{E} \right)$, however $\Ga_c\left(\widetilde{\sX}, \widetilde{E} \right)$ is dense in $L^2\left(\widetilde{\sX}, \widetilde{E} \right)$. It follows that  $\phi\left(  C_0\left(\widetilde \sX\right)\otimes_{C_0\left(\sX\right)} L^2\left(\sX, E\right)\right)$ is dense in $L^2\left(\widetilde{\sX}, \widetilde{E} \right)$. 
 \end{proof}
 \begin{remark}
-	The $C\left(\widetilde M\right)$-module structure of 
-	$C\left(\widetilde M\right)\otimes_{C\left(M\right)} L^2\left(M, S\right)$ is given by an action
+	The $C\left(\widetilde \sX\right)$-module structure of 
+	$C\left(\widetilde \sX\right)\otimes_{C\left(\sX\right)} L^2\left(\sX, S\right)$ is given by an action
 	\be\label{top_tens_a_eqn}
 	\begin{split}
-		C\left(\widetilde M\right)\times \left( C\left(\widetilde M\right)\otimes_{C\left(M\right)} L^2\left(M, S\right)\right)\to \left( C\left(\widetilde M\right)\otimes_{C\left(M\right)} L^2\left(M, S\right)\right), \\
+		C\left(\widetilde \sX\right)\times \left( C\left(\widetilde \sX\right)\otimes_{C\left(\sX\right)} L^2\left(\sX, S\right)\right)\to \left( C\left(\widetilde \sX\right)\otimes_{C\left(\sX\right)} L^2\left(\sX, S\right)\right), \\
 		\widetilde b \left(\widetilde a \otimes \xi \right)  \mapsto \widetilde b\widetilde a \otimes \xi.
 	\end{split}
 	\ee
 \end{remark}
 \begin{remark}
-	Indeed the image of $C\left(\widetilde M\right)\otimes_{C\left(M\right)} L^2\left(M, E\right)$ coincides with $L^2\left(\widetilde{M}, \widetilde{E} \right)$. However this fact is not used here.
+	Indeed the image of $C\left(\widetilde \sX\right)\otimes_{C\left(\sX\right)} L^2\left(\sX, E\right)$ coincides with $L^2\left(\widetilde{\sX}, \widetilde{E} \right)$. However this fact is not used here.
 \end{remark}
 
-In the above situation   the given by the equation \eqref{induced_prod_equ} scalar product $\left(\cdot, \cdot \right)_{\text{ind}}$ on  $ C\left(\widetilde M\right)) \otimes L^2\left({M},{S}, \mu\right)$ satisfies to the following equation
+In the above situation   the given by the equation \eqref{induced_prod_equ} scalar product $\left(\cdot, \cdot \right)_{\text{ind}}$ on  $ C\left(\widetilde \sX\right)) \otimes L^2\left({\sX},{S}, \mu\right)$ satisfies to the following equation
 \begin{equation}\label{comm_ind_l2_eqn}
 	\begin{split}
-		\left( \widetilde{a} \otimes \xi ,    \widetilde{b} \otimes \eta\right)_{\text{ind}}= \left(\xi, \left\langle \widetilde{a}, \widetilde{b}\right\rangle_{C\left(\widetilde{M} \right) } \eta \right)_{L^2\left({M},{S} \right)}=\\=\sum_{\widetilde{\a}\in \widetilde{\mathscr A}}\left(\xi, \left\langle \widetilde{a}_{\widetilde{\a}}\widetilde{a}, \widetilde{b}\right\rangle_{C\left(\widetilde{M} \right) } \eta \right)_{L^2\left({M},{S} \right)}
+		\left( \widetilde{a} \otimes \xi ,    \widetilde{b} \otimes \eta\right)_{\text{ind}}= \left(\xi, \left\langle \widetilde{a}, \widetilde{b}\right\rangle_{C\left(\widetilde{M} \right) } \eta \right)_{L^2\left({\sX},{S} \right)}=\\=\sum_{\widetilde{\a}\in \widetilde{\mathscr A}}\left(\xi, \left\langle \widetilde{a}_{\widetilde{\a}}\widetilde{a}, \widetilde{b}\right\rangle_{C\left(\widetilde{M} \right) } \eta \right)_{L^2\left({\sX},{S} \right)}
 		= \sum_{\widetilde{\a}\in \widetilde{\mathscr A}}\left(\xi, \mathfrak{desc}\left( \widetilde{a}_{\widetilde{\a}} \widetilde{a}^* \widetilde{b}\right)  \eta \right)_{L^2\left({M},{S} \right)}=
 		\\
 		=
-		\sum_{\widetilde{\a}\in \widetilde{\mathscr A}}~\int_M \left(\xi_x, \mathfrak{desc}\left( \widetilde{a}_{\widetilde{\a}} \widetilde{a}^* \widetilde{b}\right)  \eta_x \right)_x d\mu=
+		\sum_{\widetilde{\a}\in \widetilde{\mathscr A}}~\int_\sX \left(\xi_x, \mathfrak{desc}\left( \widetilde{a}_{\widetilde{\a}} \widetilde{a}^* \widetilde{b}\right)  \eta_x \right)_x d\mu=
 		\\
 		=
 		\sum_{\widetilde{\a}\in \widetilde{\mathscr A}}~\int_M \left(\mathfrak{desc}\left( \widetilde{e}_{\widetilde{\a}} \widetilde{a}\right)\xi_x, \mathfrak{desc}\left( \widetilde{e}_{\widetilde{\a}}  \widetilde{b}\right)  \eta_x \right)_x d\mu=
