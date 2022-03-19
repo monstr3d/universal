@@ -8294,12 +8294,19 @@ is a noncommutative finite-fold covering of $O^*$-algebras.
 \subsection{Induced representations}\label{comm_induced_finite_sec}
 
 \paragraph*{} 
-If  $\sX$ is a connected, locally connected, locally compact, Hausdorff space, and  $E \to \sX$ is a locally trivial bundle with a {sesquilinear form}  $\varphi: E \times E \to \C$ (cf. Definitions \ref{top_vb_defn} \ref{top_herm_bundle_form_defn}) then there are  given by \eqref{top_ggc_eqn} and \eqref{top_prod_eqn} pairings
+If  $\sX$ is a connected, locally connected, locally compact, Hausdorff space 
+ and  $E \to \sX$ is a locally trivial bundle with a {sesquilinear form}  $\varphi: E \times E \to \C$ (cf. Definitions \ref{top_vb_defn} \ref{top_herm_bundle_form_defn}) then there are  given by \eqref{top_ggc_eqn} and \eqref{top_prod_eqn} pairings
 \bean
 	\left\langle \cdot, \cdot \right\rangle_c:  \Ga_c\left(\sX, E\right)\times \Ga_c\left(\sX, E\right) \to C_c\left( \sX\right),\\
  	\left(\cdot, \cdot\right): \Ga_c^\infty\left(\sX, E\right)\times \Ga_c^\infty\left( \sX, E\right)\to \C,\\
-\left(a, b \right) \mapsto\tau\left( \left\langle a, b \right\rangle_c\right).
+\left(a, b \right) \mapsto\tau\left( \left\langle a, b \right\rangle_c\right)
 \eean
+where $\tau$ is a positive functional 
+\bean
+\tau : C_c\left( \sX\right) \to \C,\\
+a \mapsto \int_{\sX} a~ d\mu.
+\eean
+(cf. Theorem \ref{meafunc_thm}) such that $a > 0  \Rightarrow \tau\left(a \right)>0$.
 If $L^2\left(\sX, E,  \mu\right)$ is the Hilbert norm completion of $\Ga_c\left( \sX, E\right)$ then similarly  to \eqref{top_h_sp_eqn} one can construct a faithful representation
  \bean
 \rho: C_0\left(\sX \right) \hookto L^2\left(M, E,  \mu\right).
@@ -8320,7 +8327,7 @@ of $C\left(\widetilde{\sX} \right)$-modules. From the Lemma \ref{top_lift_bundle
 \be\label{top_lift_gs_eqn}
 \phi: C_c\left(\widetilde \sX\right)\otimes_{C_0\left(\sX\right)} \Ga_c\left(\sX, E\right) \xrightarrow{\approx} \Ga_c\left(\widetilde{\sX}, \widetilde{E} \right).
 \ee
-If $p$ is a finite-fold covering then from the Lemma \ref{state_cov_11_lem} it follows that  there is a functional
+If $p$ is a finite-fold transitive covering then from the Lemma \ref{state_cov_11_lem} it follows that  there is a functional
 \be\label{top_wt_eqn}
 \begin{split}
 	\widetilde	\tau : C\left(\widetilde \sX \right)\to \C,\\
@@ -8361,7 +8368,7 @@ C_0\left(\widetilde \sX\right) \to B\left( L^2\left( \widetilde \sX, \widetilde 
 $$
 	\a \ge \a_0 \quad \Rightarrow \left\| \overline \phi\left( \sum_{j = 1}^n \widetilde a_j \otimes \xi_{j\a_0} - \sum_{j = 1}^n \widetilde a_j \otimes \xi_{j\a}\right) \right\|_{L^2\left(\widetilde \sX, \widetilde E\right)} < \eps.
 	$$
-From the above equation it follows that the net $\left\{\overline \phi\left(\sum_{j = 1}^n \widetilde a_j \otimes \xi_{j\a}\right) \right\}_\a$ satisfies to the Cauchy condition, so it is convergent with respect to the topology of $L^2\left(\widetilde \sX, \widetilde E\right)$  (cf. \ref{top_cauchy_empt} and the Remark \ref{top_cauchy_rem}). We define
+From the above equation it follows that the net $\left\{\overline \phi\left(\sum_{j = 1}^n \widetilde a_j \otimes \xi_{j\a}\right) \right\}_\a\subset L^2\left(\widetilde \sX, \widetilde E\right)$ satisfies to the Cauchy condition, so it is convergent with respect to the topology of $L^2\left(\widetilde \sX, \widetilde E\right)$  (cf. \ref{top_cauchy_empt} and the Remark \ref{top_cauchy_rem}). We define
 	$$
 	\varphi\left(\sum_{j = 1}^n \widetilde a_j \otimes \xi_j \right) \bydef \lim_{\a}\overline\phi \left( \sum_{j = 1}^n \widetilde a_j \otimes \xi_{j\a}\right). 
 	$$
@@ -8379,9 +8386,9 @@ From the above equation it follows that the net $\left\{\overline \phi\left(\sum
 	\ee
 \end{remark}
 \begin{remark}
-	Indeed if $\widetilde \sX$ is compact then $C_0\left(\widetilde \sX\right)\cong C_0\left(\widetilde \sX\right)$ and the image of $C_0\left(\widetilde \sX\right)\otimes_{C_0\left(\sX\right)} L^2\left(\sX, E\right)$ coincides with $L^2\left(\widetilde{\sX}, \widetilde{E} \right)$. However this fact is not used here.
+	Indeed if $\widetilde \sX$ is compact then $C_0\left(\widetilde \sX\right)\cong C\left(\widetilde \sX\right)$ and the image of $C\left(\widetilde \sX\right)\otimes_{C_0\left(\sX\right)} L^2\left(\sX, E\right)$ coincides with $L^2\left(\widetilde{\sX}, \widetilde{E} \right)$. However this fact is not used here.
 \end{remark}
-Suppose that $\xi, \eta \in \Ga_c\left(\sX, E \right)$ then since $p$ is a finite-fold covering the set $\widetilde \sV\bydef  p^{-1}\left(\supp \xi \cup \supp\eta  \right)$ is compact.  Let    $\sum_{\a \in \mathscr A} \widetilde a_\a$ is a covering sum for $\widetilde \sV$  {subordinated to} $p$ (cf. Definition \ref{top_covering_sum_domi_defn}), and $\widetilde e_\a \bydef \sqrt {\widetilde a_\a}$. Denote by $\widetilde \sU_\a$ an open set such that $ \supp\widetilde a_\a\subset \widetilde\sU_\a$ and the restriction $p|_{\widetilde \sU_\a}: \widetilde \sU_\a \to p\left(\widetilde \sU_\a\right)$ is a homeomorphism. Let $e_\a \bydef \desc_p\left( \widetilde e_\a\right)$ (cf. Definition \ref{top_lift_desc_defn}). The specialization of the  given by the equation \eqref{induced_prod_equ} scalar product $\left(\cdot, \cdot \right)_{\text{ind}}$ on  $ C_0\left(\widetilde \sX\right)) \otimes L^2\left({\sX},{E}, \mu\right)$ satisfies to the following equation
+Suppose that $\xi, \eta \in \Ga_c\left(\sX, E \right)$ then since $p$ is a finite-fold covering the set $\widetilde \sV\bydef  p^{-1}\left(\supp \xi \cup \supp\eta  \right)$ is compact.  Let    $\sum_{\a \in \mathscr A} \widetilde a_\a$ is a covering sum for $\widetilde \sV$  {subordinated to} $p$ (cf. Definition \ref{top_covering_sum_domi_defn}), and $\widetilde e_\a \bydef \sqrt {\widetilde a_\a}$. Denote by $\widetilde \sU_\a$ an open set such that $ \supp\widetilde a_\a\subset \widetilde\sU_\a$ and the restriction $p|_{\widetilde \sU_\a}: \widetilde \sU_\a \to p\left(\widetilde \sU_\a\right)$ is a homeomorphism. Let $e_\a \bydef \desc_p\left( \widetilde e_\a\right)$ (cf. Definition \ref{top_lift_desc_defn}). The specialization of the  given by the equation \eqref{induced_prod_equ} scalar product $\left(\cdot, \cdot \right)_{\text{ind}}$ on  $ C_0\left(\widetilde \sX\right)) \otimes L^2\left({\sX},{E}, \mu\right)$ satisfies to the following equation  !!! CONTINUE
 \begin{equation}\label{comm_ind_l2l_eqn}
 	\begin{split}
 		\left( \widetilde{a} \otimes \xi ,    \widetilde{b} \otimes \eta\right)_{\text{ind}}= \left(\xi, \left\langle \widetilde{a}, \widetilde{b}\right\rangle_{C\left(\widetilde{\sX} \right) } \eta \right)_{L^2\left({\sX},{E} \right)}=\\=\sum_{\a\in \widetilde{\mathscr A}}\left(\xi, \left\langle \widetilde{a}_{\a}\widetilde{a}, \widetilde{b}\right\rangle_{C\left(\widetilde{\sX} \right) } \eta \right)_{L^2\left({\sX},{E} \right)}
@@ -8408,8 +8415,8 @@ where $\phi$ is given by \eqref{top_lift_gs_eqn}.  $\Ga_c\left(\sX, E \right)$ i
 \forall \xi, \eta \in L^2\left(\widetilde{\sX},\widetilde{E} \right)\quad \forall \widetilde{a}, \widetilde{b} \in C_0\left( \widetilde{\sX}\right) 	\quad	\left( \widetilde{a} \otimes \xi ,    \widetilde{b} \otimes \eta\right)_{\text{ind}}=\\=  \left(\phi\left(  \widetilde{a}\otimes\xi\right) ,  \phi \left( \widetilde{b}\otimes\eta\right)\right)_{L^2\left(\widetilde{\sX},\widetilde{E} \right)}.
 \end{split}
 \ee
-The equation \eqref{comm_ind_l2_eqn} means that $\left(\cdot, \cdot \right)_{\text{ind}}= \left(\cdot, \cdot \right)_{L^2\left(\widetilde{\sX},\widetilde{E} \right)}$, and taking into account the dense inclusion $C\left(\widetilde{\sX} \right) \otimes_{C\left(\sX \right) } \Ga\left( \sX, E\right) \subset L^2\left(\widetilde{\sX},\widetilde{E} \right)$ with respect to the Hilbert norm of $L^2\left(\widetilde{\sX},\widetilde{E}\right) $
-one concludes that the space of induced representation coincides with $L^2\left(\widetilde{\sX},\widetilde{E}\right)$. It means that induced representation $C\left(\widetilde{\sX}\right) \times L^2\left(\widetilde{\sX},\widetilde{E} \right) \to L^2\left(\widetilde{\sX},\widetilde{E} \right)$ is given by \eqref{comm_bundle_repr_eqn}. So one has the following lemma.
+The equation \eqref{comm_ind_l2_eqn} means that $\left(\cdot, \cdot \right)_{\text{ind}}= \left(\cdot, \cdot \right)_{L^2\left(\widetilde{\sX},\widetilde{E} \right)}$, and taking into account the dense inclusion $C_0\left(\widetilde{\sX} \right) \otimes_{C_0\left(\sX \right) } \Ga\left( \sX, E\right) \subset L^2\left(\widetilde{\sX},\widetilde{E} \right)$ with respect to the Hilbert norm of $L^2\left(\widetilde{\sX},\widetilde{E}\right) $
+one concludes that the space of induced representation coincides with $L^2\left(\widetilde{\sX},\widetilde{E}\right)$. It means that induced representation $C_0\left(\widetilde{\sX}\right) \times L^2\left(\widetilde{\sX},\widetilde{E} \right) \to L^2\left(\widetilde{\sX},\widetilde{E} \right)$ is given by \eqref{comm_bundle_repr_eqn}. So one has the following lemma.
 \begin{lemma}\label{comm_ind_lem}
 	If the representation  $\widetilde{\rho}: C_0\left(\widetilde{\sX}\right) \to  B\left( \widetilde{   \H}\right)  $ is induced by the pair $$\left(C_0\left(\sX \right)\to B\left(  L^2\left(\sX,S \right)\right) ,\left(C_0\left(\sX \right) , C_0\left( \widetilde{\sX}\right) , G\left( \left.\widetilde{\sX}~\right|\sX\right) \right)  \right)$$ (cf. Definition \ref{induced_repr_defn}) then following conditions hold:
 	\begin{enumerate}
