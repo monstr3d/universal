@@ -7141,9 +7141,22 @@ D^*\left(p,E \right) : D^*\left(M, E\right)\hookto D^*\left(\widetilde M, \widet
 \ee 
 \end{exercise}
 \begin{example}\label{top_spinor_smooth_exm}
-!!!	Consider the Example \ref{top_cont_as_sheaf_exm}. Suppose that $\sX =  M$ is a Riemannian manifold, and $\sS$ is a spinor bundle (cf. Section \ref{spin_mani_sec}). There is a $\Coo\left( M\right)$  submodule $	\Ga^\infty\left(M, \sS \right)\subset 	\Ga\left(M, \sS \right)$ of smooth sections (cf. Definition \ref{top_smooth_m_defn}), which induced the smooth subsheaf $\mathscr C^\infty\left(M, \sS \right)  \subset \mathscr C \left(M, \left\{\SS_x\right\}, \Ga\left(\sX, \sS \right)\right)$.
+ Suppose that $M$ is a Riemannian manifold, and $S\to M$ is a spinor bundle (cf. Section \ref{spin_mani_sec}). 
+ There is a $\Coo\left( M\right)$  submodule $	\Ga^\infty_c\left(M, \sS \right)\subset 	\Ga_c\left(M, \sS \right)$ of smooth sections (cf. Definition \ref{top_smooth_m_defn}). For any open subset $\sU \subset\sX$ there is an equivalence relation (cf. Definition \ref{equiv_rel_defn}) given by
+ $$
+ \forall s, s' \in  \Ga^\infty_c\left(M, \sS \right)\quad  s \sim_\sU s' \Leftrightarrow \left( \forall f \in \Coo_c\left(M \right) \quad \supp f \subset  \sU  \Rightarrow fs = fs'  \right) 
+ $$
+ For any open subsets such that $\sV\subset \sU$ there are natural projection maps (cf. Definition \ref{equiv_rel_defn})
+ $$
+\Ga^\infty_c /\sim_\sU\to \Ga^\infty_c /\sim_\sV
+ $$
+ which satisfy to the Definition \ref{presheaf_defn}, i.e. one has a presheaf 
+ $$
+ \sU \mapsto \Ga^\infty_c /\sim_\sU
+ $$
+ of Abelian groups. Denote by $\mathscr G^\infty$ the associated sheaf (cf. Proposition and Definition \ref{sheaf_prdf}). Similarly there is a sheaf $\mathcal C$ associated with the presheaf of smooth $\C$-valued maps on $M$.
 \end{example}
-
+!!! CONTINUE
 \begin{empt}
 Let $M$ be a smooth manifold, $\Coo_c\left( M\right)\bydef C_c\left(M\right)\cap \Coo\left(M\right)$ and $\Coo_c\left(M \right)'$ is a space of distribution densities (cf. Definition \ref{top_distr_dens_def}). For any open subset $\sU \subset\sX$ there is an equivalence relation (cf. Definition \ref{equiv_rel_defn}) given by
 $$
@@ -8434,11 +8447,15 @@ The equation \eqref{comm_ind_l2_eqn} means that $\left(\cdot, \cdot \right)_{\te
 
 \subsection{Coverings of spectral triples}\label{comm_d_sec}
 \paragraph*{}
-Consider the situation of the Section \ref{comm_induced_finite_sec}. Besides it assume  that $\sX = M$ where $M$ is a compact Riemannian manifold and $E= S$ is a spinor bundle (cf. Section \ref{spin_mani_sec}). Let  $\left(\Coo\left(M \right), L^2\left( M, S\right), \slashed D  \right)$ be an explained in the Appendix \ref{comm_sp_tr_sec} commutative spectral triple. If $p: \widetilde M \to M$ is a transitive finite-fold covering then $\widetilde M$ has a (unique) structure of Riemannian manifold given by the Proposition \ref{comm_cov_mani_prop}. From the Theorem \ref{top_fin_thm}  it follows that the quadruple
+Consider the situation of the Section \ref{comm_induced_finite_sec}. Moreover assume  that $\sX = M$ where $M$ is a compact Riemannian manifold and $E= S$ is a spinor bundle (cf. Section \ref{spin_mani_sec}). Let  $\left(\Coo\left(M \right), L^2\left( M, S\right), \slashed D  \right)$ be an explained in the Appendix \ref{comm_sp_tr_sec} commutative spectral triple. If $p: \widetilde M \to M$ is a transitive finite-fold covering then $\widetilde M$ has a (unique) structure of Riemannian manifold given by the Proposition \ref{comm_cov_mani_prop}. From the Theorem \ref{top_fin_thm}  it follows that the quadruple
 $$
 \left(C\left(M \right), C\left(\widetilde M \right)   , G\left(\left. \widetilde M \right|M \right) , C\left(p \right) \right)  
 $$
-is an (unital) noncommutative finite-fold covering. If  $\widetilde S$ is  the {inverse image} of $S$ by $p$  (cf. Definition \ref{vb_inv_img_funct_defn}) then from the Lemma \ref{comm_ind_lem} it follows that the representation $\widetilde{\rho}$ is given by the natural action of $C\left(\widetilde{M}\right)$ on $ L^2\left(\widetilde{M},\widetilde{S} \right)$ is induced by the pair $$\left(C\left(M \right)\to B\left(  L^2\left(M,S \right)\right) ,\left(C\left(M \right) , C\left( \widetilde{M}\right) , G\left( \left.\widetilde{M}~\right|M\right) \right)  \right)$$ (cf. Definition \ref{induced_repr_defn}). If   $\mathscr G^\infty\left( M, S\right)$ is a sheaf of smooth sections $\Ga^\infty\left( M, S\right)$ which is a smooth subsheaf  (cf. Definition \ref{top_smooth_sheaf_defn}) of the sheaf of continuous sections $\Ga\left(M, S \right)$ then the  inverse image sheaf $\mathscr G^\infty\left( \widetilde M, \widetilde S\right)\bydef p^{-1}\mathscr G^\infty\left(M, S \right)$ (cf. Definition \ref{sheaf_inv_im_defn}) is a sheaf of smooth sections $\Ga^\infty\left(\widetilde M, \widetilde S\right)$ which is a  smooth subsheaf  of the sheaf of continuous sections  $\Ga\left(\widetilde M, \widetilde S \right)$. There are given by the Definition \ref{sheaf_hom_defn} smooth sheaves
+is an (unital) noncommutative finite-fold covering. If  $\widetilde S$ is  the {inverse image} of $S$ by $p$  (cf. Definition \ref{vb_inv_img_funct_defn}) then from the Lemma \ref{comm_ind_lem} it follows that the representation $\widetilde{\rho}$ is given by the natural action of $C\left(\widetilde{M}\right)$ on $ L^2\left(\widetilde{M},\widetilde{S} \right)$ is induced by the pair $$\left(C\left(M \right)\to B\left(  L^2\left(M,S \right)\right) ,\left(C\left(M \right) , C\left( \widetilde{M}\right) , G\left( \left.\widetilde{M}~\right|M\right) \right)  \right)$$ (cf. Definition \ref{induced_repr_defn}). 
+!!! CONTINUE
+
+
+If   $\mathscr G^\infty\left( M, S\right)$ is a sheaf of smooth sections $\Ga^\infty\left( M, S\right)$ which is a smooth subsheaf  (cf. Definition \ref{top_smooth_sheaf_defn}) of the sheaf of continuous sections $\Ga\left(M, S \right)$ then the  inverse image sheaf $\mathscr G^\infty\left( \widetilde M, \widetilde S\right)\bydef p^{-1}\mathscr G^\infty\left(M, S \right)$ (cf. Definition \ref{sheaf_inv_im_defn}) is a sheaf of smooth sections $\Ga^\infty\left(\widetilde M, \widetilde S\right)$ which is a  smooth subsheaf  of the sheaf of continuous sections  $\Ga\left(\widetilde M, \widetilde S \right)$. There are given by the Definition \ref{sheaf_hom_defn} smooth sheaves
 \bean
 \mathscr End\left(\mathscr G^\infty\left( M,  S \right) \right)  \bydef \mathscr Hom \left( \mathscr G^\infty\left( M,  S \right), \mathscr G^\infty\left( M,  S \right)\right) ,\\
 \mathscr End\left(\mathscr G^\infty\left(\widetilde M, \widetilde S \right) \right)  \bydef \mathscr Hom \left( \mathscr G^\infty\left(\widetilde M, \widetilde S \right), \mathscr G^\infty\left(\widetilde M, \widetilde S \right)\right)
