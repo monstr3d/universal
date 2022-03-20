@@ -7142,21 +7142,49 @@ D^*\left(p,E \right) : D^*\left(M, E\right)\hookto D^*\left(\widetilde M, \widet
 \end{exercise}
 \begin{example}\label{top_spinor_smooth_exm}
  Suppose that $M$ is a Riemannian manifold, and $S\to M$ is a spinor bundle (cf. Section \ref{spin_mani_sec}). 
- There is a $\Coo\left( M\right)$  submodule $	\Ga^\infty_c\left(M, \sS \right)\subset 	\Ga_c\left(M, \sS \right)$ of smooth sections (cf. Definition \ref{top_smooth_m_defn}). For any open subset $\sU \subset\sX$ there is an equivalence relation (cf. Definition \ref{equiv_rel_defn}) given by
+ There is a $\Coo\left( M\right)$  submodule $	\Ga^\infty\left(M, S \right)\subset 	\Ga\left(M, S \right)$ of smooth sections (cf. Definition \ref{top_smooth_m_defn}). For any open subset $\sU \subset\sX$ there is an equivalence relation (cf. Definition \ref{equiv_rel_defn}) given by
  $$
- \forall s, s' \in  \Ga^\infty_c\left(M, \sS \right)\quad  s \sim_\sU s' \Leftrightarrow \left( \forall f \in \Coo_c\left(M \right) \quad \supp f \subset  \sU  \Rightarrow fs = fs'  \right) 
+ \forall s, s' \in  \Ga^\infty\left(M, S \right)\quad  s \sim_\sU s' \Leftrightarrow \left( \forall f \in \Coo\left(M \right) \quad \supp f \subset  \sU  \Rightarrow fs = fs'  \right) 
  $$
  For any open subsets such that $\sV\subset \sU$ there are natural projection maps (cf. Definition \ref{equiv_rel_defn})
  $$
-\Ga^\infty_c /\sim_\sU\to \Ga^\infty_c /\sim_\sV
+\Ga^\infty\left(M, S \right) /\sim_\sU\to \Ga^\infty\left(M, S \right) /\sim_\sV
  $$
  which satisfy to the Definition \ref{presheaf_defn}, i.e. one has a presheaf 
  $$
- \sU \mapsto \Ga^\infty_c /\sim_\sU
+ \sU \mapsto \Ga^\infty\left(M, S \right) /\sim_\sU
  $$
- of Abelian groups. Denote by $\mathscr G^\infty$ the associated sheaf (cf. Proposition and Definition \ref{sheaf_prdf}). Similarly there is a sheaf $\mathcal C$ associated with the presheaf of smooth $\C$-valued maps on $M$.
+ of Abelian groups. Denote by $\mathscr G^\infty$ the associated sheaf (cf. Proposition and Definition \ref{sheaf_prdf}). Similarly to \ref{top_h_sp_empt} we define a Hilbert space $L^2\left(M, S, \mu\right)$ which is a completion of $\Ga^\infty\left(M, S \right)$ and a faithful representation 
+ $$
+ C\left( M \right) \hookto B\left( L^2\left(M, S,  \mu\right)\right) 
+ $$
+ (cf. equation \eqref{top_h_sp_eqn}). If	\bean
+ \left(\Coo\left( M\right), L^2\left(M, S \right), \Dslash   \right).
+ \eean
+is a given by the equation \eqref{comm_sp_tr_eqn} spectral triple then $\Dslash$ can be regraded as an operator
+$$
+\Dslash: \Ga^\infty\left(M, S \right)\to \Ga^\infty\left(M, S \right).
+$$
+ The above equation can be rewritten by the following way
+ \be
+ \Dslash \in \mathscr End \left( \mathscr G^\infty \right) \left(M\right) \bydef \mathscr Hom \left( \mathscr G^\infty,  \mathscr G^\infty \right) \left( M\right) 
+ \ee
+ where $\mathscr Hom$ means the {sheaf of local morphisms} (cf. Definition \ref{sheaf_hom_defn}),
+  suppose that $p: \widetilde M \to M$ is a finite fold covering. If both $\widetilde{\mathscr G}^\infty$ and $\widetilde S$ are $p$-inverse images of ${\mathscr G}^\infty$ and $S$ respectively (cf. Definitions \ref{vb_inv_img_funct_defn} and \ref{sheaf_inv_im_defn}).
+ then there is an operator
+  \be
+  \widetilde \Dslash \bydef p^{-1}\Dslash \in \mathscr End \left( \widetilde{\mathscr G}^\infty \right) \left(\widetilde M\right)
+ \ee
+ such that
+ \be
+ \widetilde \Dslash  : \Ga^\infty\left(\widetilde M,\widetilde S \right)\to \Ga^\infty\left(\widetilde M,\widetilde S \right).
+ \ee
+ 
+!!! TO GEOMETRICAL SPECTRAL 
 \end{example}
-!!! CONTINUE
+\begin{exercise}\label{top_spinor_smooth_exer}
+	Consider the Example \ref{top_spinor_smooth_exm} and suppose that $p: \widetilde M \to M$ is a finite fold covering. Let both $\widetilde{\mathscr G}^\infty$ and $\widetilde S$ be $p$ inverse images of ${\mathscr G}^\infty$ and $S$ respectively (cf. Definitions \ref{vb_inv_img_funct_defn} and \ref{sheaf_inv_im_defn}). 
+\end{exercise}
 \begin{empt}
 Let $M$ be a smooth manifold, $\Coo_c\left( M\right)\bydef C_c\left(M\right)\cap \Coo\left(M\right)$ and $\Coo_c\left(M \right)'$ is a space of distribution densities (cf. Definition \ref{top_distr_dens_def}). For any open subset $\sU \subset\sX$ there is an equivalence relation (cf. Definition \ref{equiv_rel_defn}) given by
 $$
