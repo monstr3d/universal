@@ -6919,21 +6919,16 @@ If we consider the situation of the Definition \ref{sheaf_inv_im_defn} then the 
 \be\label{top_cs_sheaf_inc_eqn}
 f^{-1}_{\mathscr  G}:\mathscr  G\left(\sX\right)\hookto f^{-1}\mathscr  G\left(\sY\right)
 \ee
-of Abelian groups.
-%\begin{example}\label{top_radon_lift_exm}
-%For any topological space $\sX$ there is a sheaf $\mathscr R\left(\sX \right)$  of Radon measures (cf. \cite{bogachev_measure_v2}). If $p: \widetilde \sX \to \sX$ is a covering then there is an injective $\R$-linear homomorphism.
-%$$
-%\mathscr R\left(\sX \right)\hookto \mathscr R\left(\widetilde\sX \right).
-%$$
-%\end{example}
-
-Let  $\sF$ be a continuity structure  for $\sX$ {and the} $\left\{A_x\right\}_{x \in \sX}$, and let  $C\left(\sX, \left\{A_x\right\}, \sF \right)$ the $C_b\left(\sX \right)$-module of continuous sections (with respect to) $\sF$ vector fields. For any $a \in  C\left(\sX, \left\{A_x\right\}, \sF \right)$ there is a family $\left\{a_x \in A_x\right\}_{x \in \sX}$. For any open subset  $\sU \subset \sX$ there is the restriction $\left.a\right|_{\sU}$ which is a family $\left\{a_x \in A_x\right\}_{x \in \sU}$. The image of the map $a \mapsto \left.a\right|_{\sU}$ is an Abelian group we denote it by $\mathscr G \left(\sX, \left\{A_x\right\}, \sF \right)\left( \sU\right)$. Clearly  the map
+of Abelian groups. Let  $\sF$ be a continuity structure  for $\sX$ {and the} $\left\{A_x\right\}_{x \in \sX}$, and let  $C\left(\sX, \left\{A_x\right\}, \sF \right)$ the $C_b\left(\sX \right)$-module of continuous sections (with respect to) $\sF$ vector fields. For any $a \in  C\left(\sX, \left\{A_x\right\}, \sF \right)$ there is a family $\left\{a_x \in A_x\right\}_{x \in \sX}$. For any open subset  $\sU \subset \sX$ there is the restriction $\left.a\right|_{\sU}$ which is a family $\left\{a_x \in A_x\right\}_{x \in \sU}$. The image of the map $a \mapsto \left.a\right|_{\sU}$ is an Abelian group we denote it by $\mathscr G \left(\sX, \left\{A_x\right\}, \sF \right)\left( \sU\right)$. If $\sV \subset \sU$ is an open subset then a natural restriction map 
+$$
+\rho_{\sU\sV}: \mathscr G \left(\sX, \left\{A_x\right\}, \sF \right)\left( \sU\right)\to \mathscr G \left(\sX, \left\{A_x\right\}, \sF \right)\left( \sV\right)
+$$
+satisfies  to the Definition \ref{presheaf_defn}, i.e. one has a presheaf
 \be\label{top_cs_sheaf_eqn}
-\sU \mapsto \mathscr G \left(\sX, \left\{A_x\right\}, \sF \right)\left( \sU\right)
+\sU \mapsto \mathscr G \left(\sX, \left\{A_x\right\}, \sF \right)\left( \sU\right).
 \ee
-yields a presheaf.
 \begin{definition}\label{top_cs_sheaf_defn}
-	The sheaf  associated with the given by \eqref{top_cs_sheaf_eqn} presheaf is the \textit{sheaf of the continuity structure} $\sF$. We denote it by $\mathscr C \left(\sX, \left\{A_x\right\}, \sF \right)$.
+	The sheaf  associated with the given by \eqref{top_cs_sheaf_eqn} presheaf (cf. Proposition and Definition \ref{sheaf_prdf}) is the \textit{sheaf of the continuity structure} $\sF$. We denote it by $\mathscr C \left(\sX, \left\{A_x\right\}, \sF \right)$.
 \end{definition}
 
 \begin{lemma}\label{top_sheaf_lift_lem}
@@ -6953,7 +6948,7 @@ yields a presheaf.
 	The family $\left\{\widetilde a_{\widetilde y}  \right\}_{\widetilde y\in \widetilde\sU}$ is {continuous (with respect to $\widetilde \sF$)} so it corresponds the element of $\mathscr C \left(\widetilde{\sX}, \left\{\widetilde{A}_{\widetilde{x}}\right\}, \widetilde{\sF} \right)\left(\widetilde\sU \right) $.
 \end{proof}
 \begin{empt}
-	If we consider the situation of proof of the Lemma \ref{top_sheaf_lift_lem} then the map 
+	If we consider the situation of proof of the Lemma \ref{top_sheaf_lift_lem} then the given by \eqref{top_glo_lift_h_eqn} map 
 	$$
 	\lift_p :  C\left(\sX, \left\{A_x\right\}, \sF \right) \hookto \lift_p\left[ C\left(\sX, \left\{A_x\right\}, \sF \right) \right]
 	$$
@@ -6980,8 +6975,11 @@ yields a presheaf.
 	\be\label{top_cont_sheaf}
 	\mathscr C \left(\widetilde{\sX}, \left\{\C_{\widetilde{x}}\right\}, C_0\left(\sX\right) \right)
 	\ee
-	of continuous functions.
+	of continuous functions. We denote it by $\mathscr C_\sX$. One has a ringed space $\left(\sX, \mathscr C_\sX\right)$ (cf. Definition \ref{sheaf_ringed_space_defn}).
 \end{example}
+\begin{exercise}
+Prove that the  {sheaf $\mathscr C \left(\sX, \left\{A_x\right\}, \sF \right)$ of the continuity structure} $\sF$  (cf. Definition \ref{top_cs_sheaf_defn}) is a $\mathscr C_\sX$-module (cf. Definition \ref{sheaf_of_modules_den}).
+\end{exercise}
 
 
 
@@ -7007,17 +7005,21 @@ yields a presheaf.
 
 \begin{empt}
 	Let $\sX$ be a locally compact Hausdorff space.
-	Let  $\sF$ be a continuity structure  for  $\sX$ {and the} $\left\{A_x\right\}_{x \in \sX}$, and let $\mathscr C \bydef\mathscr C \left(\sX, \left\{A_x\right\}, \sF \right)$ be the {sheaf of the continuity structure} $\sF$ (cf. Definition \ref{top_cs_sheaf_defn}). From the Lemma \ref{op_cont_con_lem} for any open subset $\sU \subset \sX$ there is the natural action $C_b\left(\sX \right)\times \mathscr C\left(\sU\right) \to \mathscr C \left(\sU\right)$. If $\mathscr  S \subset\mathscr C$ is a subsheaf of $\mathscr C$ then it is possible that $C_b\left(\sX \right) \mathscr S\left(\sU\right)\not\subset   \mathscr S\left(\sU\right)$. However it is possible that there is a subring $R \subset  C_b\left(\sX \right)$ such that $R\mathscr S\left(\sU\right)\subset   \mathscr S\left(\sU\right)$. 
+	Let  $\sF$ be a continuity structure  for  $\sX$ {and the} $\left\{A_x\right\}_{x \in \sX}$, and let $\mathscr C \bydef\mathscr C \left(\sX, \left\{A_x\right\}, \sF \right)$ be the {sheaf of the continuity structure} $\sF$ (cf. Definition \ref{top_cs_sheaf_defn}). If $\mathscr  S \subset\mathscr C$ is a subsheaf of $\mathscr C$ then it is possible that $\mathscr S$ is not a $\mathscr C_\sX$-module (cf. Definition \ref{sheaf_of_modules_den}).
 \end{empt}
+\begin{definition}
+If $M$ be a smooth manifold then a *-algebra of smooth $\C$-valued maps yields a \textit{sheaf of smooth functions} $\mathscr C^\infty_M$.  One has a ringed space $\left(M, \mathscr C^\infty_M\right)$ (cf. Definition \ref{sheaf_ringed_space_defn}).
+\end{definition}
 
 
 \begin{definition}\label{top_smooth_sheaf_defn}
 	Let $M$ be a smooth manifold
-	Let  $\sF$ be a continuity structure  for  $M$ {and the} $\left\{A_x\right\}_{x \in M}$, and let $\mathscr C \bydef\mathscr C \left(M, \left\{A_x\right\}, \sF \right)$ be the {sheaf of the continuity structure} $\sF$ (cf. Definition \ref{top_cs_sheaf_defn}). Let $\sU\subset M$ be an open subset, and let $\Coo\left(M \right)\times \mathscr C\left(\sU\right) \to \mathscr C \left(\sU\right)$ be the action induced by the action $C_b\left(M \right)\times \mathscr C\left(\sU\right) \to \mathscr C \left(\sU\right)$.  A subsheaf $\mathscr  S \subset\mathscr C$ is said to be \textit{smooth} if $\Coo\left(M \right)\mathscr S\left(\sU\right)\subset   \mathscr S\left(\sU\right)$ for all open $\sU \subset M$.
+	Let  $\sF$ be a continuity structure  for  $M$ {and the} $\left\{A_x\right\}_{x \in M}$, and let $\mathscr C \bydef\mathscr C \left(M, \left\{A_x\right\}, \sF \right)$ be the {sheaf of the continuity structure} $\sF$ (cf. Definition \ref{top_cs_sheaf_defn}).   A subsheaf $\mathscr  S \subset\mathscr C$ is said to be \textit{smooth} if $\mathscr  S$ is a $\mathscr C^\infty_M$-module (cf. Definition \ref{sheaf_of_modules_den}).
 \end{definition}
 \begin{lemma}\label{top_s_smooth_lem}
-	subsheaf $\mathscr  S \subset\mathscr C$ is  {smooth} if and only if for any $x \in M$ there is a basis of open neighborhoods $\left\{\sU_\a\right\}_{\a \in \mathscr A}$ of $x$ such that $\Coo\left(M \right)\mathscr S\left(\sU_\a\right)\subset   \mathscr S\left(\sU_\a\right)$ for every ${\a \in \mathscr A}$.
+	subsheaf $\mathscr  S \subset\mathscr C$ is  {smooth} if and only if for any $x \in M$ there is a basis of open neighborhoods $\left\{\sU_\a\right\}_{\a \in \mathscr A}$ of $x$ such that $\Coo\left(\sU_\a \right)\mathscr S\left(\sU_\a\right)\subset   \mathscr S\left(\sU_\a\right)$ for every ${\a \in \mathscr A}$.
 \end{lemma}
+CORRECT !!!
 \begin{proof}
 	If the   subsheaf $\mathscr  S \subset\mathscr C$ is  {smooth} then for any $x \in M$ and for each a basis of open neighborhoods $\left\{\sU_\a\right\}_{\a \in \mathscr A}$ of $x$ such one has $\Coo\left(M \right)\mathscr S\left(\sU_\a\right)\subset   \mathscr S\left(\sU_\a\right)$  for all $\a \in \mathscr A$. Conversely let $\sU \subset M$ be an open subset. For any $x\in \sU$ we select an open neighborhood $\sU_x \in \left\{\sU_\a\right\}$ such that $\sU_x\subset \sU$, so one has $\sU = \cup_{x \in \sU}\sU_x$. From the Definition \ref{sheaf_defn} it follows that any section $s \in \mathscr S\left(\sU\right)$ is uniquely defined by its restrictions $\left.s\right|_{\sU_x}$ such that $$
 	\left.\left.s\right|_{\sU_{x'}}\right|_{\sU_{x'}\cap ~\sU_{x''}}=\left.\left.s\right|_{\sU_{x''}}\right|_{\sU_{x'}\cap ~\sU_{x''}}.
@@ -7046,13 +7048,14 @@ yields a presheaf.
 \begin{remark}
 	From the  Lemma \ref{top_inv_sub_lem} there is the natural  $\C$-linear map
 	\be\label{top_smooth_lift_eqn}
-	\lift_p: \mathscr S\left( M\right) \hookto p^{-1}\mathscr S\left(\widetilde M\right)
+	\lift^\infty_p: \mathscr S\left( M\right) \hookto p^{-1}\mathscr S\left(\widetilde M\right)
 	\ee 
+	which is a restriction of the given by \eqref{top_glo_lift_h_eqn} map $\lift_p$.
 \end{remark}
 \begin{exercise}\label{top_pre_sheaf_exer}
-	Let $\left(\sX, \mathcal O_\sX \right)$ is a ringed space  (cf. Definition \ref{sheaf_ringed_space_defn}) such that $\left(\sX, \mathcal O_\sX \right)\bydef\left(\sX, \mathscr C_\sX \right)$ or $\left(\sX, \mathcal O_\sX \right)\bydef \left(\sX, \mathscr C_\sX \right)$ (cf. Example \ref{sheaf_ringed_space_exm}). Let $\mathscr F$ be an $\mathcal O_\sX$ -{module} (cf. Definition \ref{sheaf_of_modules_den})
+	Let $\left(\sX, \mathcal O_\sX \right)$ is a ringed space  (cf. Definition \ref{sheaf_ringed_space_defn}) such that $\left(\sX, \mathcal O_\sX \right)\bydef\left(\sX, \mathscr C_\sX \right)$ or $\left(\sX, \mathcal O_\sX \right)\bydef \left(M, \mathscr C^\infty_M \right)$ (cf. Example \ref{sheaf_ringed_space_exm}). Let $\mathscr F$ be an $\mathcal O_\sX$ -{module} (cf. Definition \ref{sheaf_of_modules_den})
 Let $p: \widetilde\sX \to \sX$ be a transitive covering.
- Let $\widetilde{\mathscr F}\bydef p^{-1}\mathscr F$ be an inverse image (cf. Definition \ref{sheaf_inv_im_defn}), and let $\mathscr F\left( \sX\right) \subset  \widetilde{\mathscr F}\left( \widetilde\sX\right)$ be a natural inclusion of $\mathcal O_\sX\left( \sX\right)$ modules. Let $\Aut_{\mathcal O_\sX\left( \sX\right)}\left( \widetilde{\mathscr F}\left( \widetilde\sX\right)\right)$ be a group of  $\mathcal O_\sX\left( \sX\right)$ module automorphism.
+ Let $\widetilde{\mathscr F}\bydef p^{-1}\mathscr F$ be an inverse image (cf. Definition \ref{sheaf_inv_im_defn}), and let $\mathscr F\left( \sX\right) \subset  \widetilde{\mathscr F}\left( \widetilde\sX\right)$ be a natural inclusion of $\mathcal O_\sX$-modules. Let $\Aut_{\mathcal O_\sX\left( \sX\right)}\left( \widetilde{\mathscr F}\left( \widetilde\sX\right)\right)$ be a group of  $\mathcal O_\sX\left( \sX\right)$-module automorphisms.
  Prove following statements:
  \begin{enumerate}
  	\item [(a)] There is a natural isomorphism of groups
@@ -7069,11 +7072,81 @@ Let $p: \widetilde\sX \to \sX$ be a transitive covering.
 
 \end{exercise}
 \begin{empt}
-	Let $M$ be a smooth manifold, and let $p: E \to M$ be a smooth vector bundle (cf. Definition \ref{top_sm_bundle_defn}). One can define a presheaf (cf. Definition \ref{presheaf_defn}) $\mathscr S\left( M, E\right)$  of local smooth sections (cf. Definition \ref{top_sm_sec_defn}).   
+	Let $M$ be a smooth manifold, and let $p: E \to M$ be a smooth vector bundle (cf. Definition \ref{top_sm_bundle_defn}). One can define a presheaf (cf. Definition \ref{presheaf_defn}) $\mathscr S$  of local smooth sections (cf. Definition \ref{top_sm_sec_defn}).   
 \end{empt}
 \begin{definition}
-Consider the above situation. The associated with $\mathscr S\left( M, E\right)$ sheaf $\mathscr G^\infty\left( M, E\right)$ is said to be a \textit{sheaf of local smooth sections} (cf. Proposition and Definition \ref{sheaf_prdf}).
+Consider the above situation. The associated with $\mathscr S$ sheaf $\mathscr G^\infty$ is said to be a \textit{sheaf of local smooth sections} (cf. Proposition and Definition \ref{sheaf_prdf}).
 \end{definition}
+
+\begin{example}\label{top_hom_sub_exm},
+	If $\mathscr  S$ and  $\mathscr  G$ are smooth sheaves then the sheaf of local morphisms  $\mathscr Hom \left(\mathscr S,
+	\mathscr G \right)$ (cf. Definition \ref{sheaf_hom_defn}) is also smooth.
+	From the 
+	Lemma \ref{top_inv_sub_lem} and from the equation \eqref{top_cs_sheaf_inc_eqn} it turns out that there is the following inclusion 
+	\be\label{top_hom_eqn}
+	\begin{split}
+		p^{-1}_{\mathscr Hom \left(\mathscr S,
+			\mathscr G \right)} : \mathscr Hom \left(\mathscr S,
+		\mathscr G \right)\left(M \right) \subset \mathscr Hom \left(p^{-1}\mathscr S,
+		p^{-1} \mathscr G \right)\left(\widetilde M \right).
+	\end{split}
+	\ee 
+	where $\mathscr Hom$ is the sheaf of local morphisms (cf. Definition \ref{sheaf_hom_defn}).
+\end{example}
+\begin{definition}\label{top_smooth_inv_im_defn}
+	Let us	consider the situation of the 
+	Example \ref{top_hom_sub_exm}, and suppose that $D \in \mathscr Hom \left(\mathscr S,
+	\mathscr G \right)\left( M\right)$, $\xi \in \mathscr S \left( M\right)$. We say that both  $p^{-1}_{\mathscr Hom \left(\mathscr S,
+		\mathscr G \right)}\left(  D\right) \in \mathscr Hom \left(p^{-1}\mathscr S,
+	p^{-1} \mathscr G \right)\left(\widetilde M\right)$ and $p^{-1}_{\mathscr S}\left(  \xi\right) \in \mathscr S \left(\widetilde M\right)$ (cf. equation \eqref{top_cs_sheaf_inc_eqn})  are the $p$-\textit{inverse images} of $D$ and $\xi$ respectively. We write 
+	\be\label{top_smooth_inv_im_eqn}
+	\begin{split}
+		p^{-1} D \stackrel{\mathrm{def}}{=} p^{-1}_{\mathscr Hom \left(\mathscr S,
+			\mathscr G \right)}\left(  D \right),\\
+		p^{-1} \xi \stackrel{\mathrm{def}}{=} p^{-1}_{\mathscr S }\left(  \xi \right),\\
+	\end{split}
+	\ee
+\end{definition}
+\begin{exercise}\label{top_sheaf_lift_exer}
+	Prove following statements:
+	\begin{enumerate}
+		\item[(i)]
+	If $\xi \in \mathscr S\left( M\right)$ and  $D \in \mathscr Hom \left(\mathscr S,
+	\mathscr G \right)\left( M\right)$ then one has
+	\be\label{top_smooth_inv_comp_eqn}
+	p^{-1}\left(D \xi \right)= 	p^{-1} D~ 	p^{-1}\xi \in \mathscr S \left(\widetilde M\right).
+	\ee
+	
+\item[(ii)]	If following conditions hold:
+	\begin{itemize}
+		\item $\mathscr S \subset\mathscr C \left(\widetilde{\sX}, \left\{\widetilde{A}_{\widetilde{x}}\right\}, \widetilde{\sF} \right)$,
+		\item $\widetilde\xi \in p^{-1} \mathscr S \left(\widetilde M\right)$,
+		\item there is an open subset $\widetilde \sU \subset \widetilde M$ homeomorphically mapped onto $p\left(\widetilde \sU \right)$ such that $\supp \widetilde\xi \subset  \widetilde \sU$,
+	\end{itemize}
+	then one has
+	\be\label{top_lift_desc_d_eqn}
+	p^{-1} D ~\widetilde\xi = \lift^p_{\widetilde\sU}\left( D ~\desc_p\left( \widetilde\xi\right) \right) 
+	\ee
+	where both $\lift^p_{\widetilde\sU}$ and $\desc_p$ are given by the Definition \ref{top_lift_desc_defn}.
+\item[(iii)] If $\xi \in \mathscr S \left(\widetilde M\right)$ and $\widetilde b \in \Coo\left( \widetilde M\right)$ and there is  an open subset $\widetilde \sU \subset \widetilde M$ homeomorphically mapped onto $\sU \bydef p\left(\widetilde \sU \right)$ such that $\supp \widetilde b \subset  \widetilde \sU$ then one has
+\be\label{top_diff_comm_eqn}
+\begin{split}
+p^{-1} D ~\widetilde b  \lift_p\left( \xi\right)  -\widetilde b  p^{-1} D ~\lift_p\left( \xi\right) =\\= \lift^p_{\widetilde\sU}\left( D\left( \desc_p\left(\widetilde b\right) \xi\right)   \right)-\lift^p_{\widetilde\sU}\left( \desc_p\left(\widetilde b  \right)D\xi \right). 
+\end{split}
+\ee	
+		\end{enumerate}
+
+\end{exercise}
+\begin{exercise}
+	If both $p_1: \widetilde M_1 \to M$	and  $p_2: \widetilde M_2 \to \widetilde M_1$	are coverings and $p= p_2 \circ p_1$ then for every $D \in\mathscr Hom \left(\mathscr S,
+	\mathscr G \right)$ one has
+	\be\label{top_dirac_comp_eqn}
+	p^{-1} D = p_2^{-1} \left(  p_1^{-1} D \right).
+	\ee
+	
+\end{exercise}
+
+
 \begin{exercise}\label{top_smooth_sh_exer} Prove following statements:
 	\begin{enumerate}
 		\item [(i)]  The sheaf of local smooth sections $\mathscr G^\infty\left( M, E\right)$ is smooth (cf. Definition \ref{top_smooth_sheaf_defn}).
@@ -7228,126 +7301,6 @@ of Abelian groups. Denote by $\mathscr D_M$ the associated sheaf (cf. Propositio
 	\end{enumerate}
 \end{exercise}
 	
-
-\begin{example}\label{top_hom_sub_exm},
-If $\mathscr  S$ and  $\mathscr  G$ are smooth sheaves then the sheaf of local morphisms  $\mathscr Hom \left(\mathscr S,
-\mathscr G \right)$ (cf. Definition \ref{sheaf_hom_defn}) is also smooth.
-From the 
-Lemma \ref{top_inv_sub_lem} and from the equation \eqref{top_cs_sheaf_inc_eqn} it turns out that there is the following inclusion 
-\be\label{top_hom_eqn}
-\begin{split}
-	p^{-1}_{\mathscr Hom \left(\mathscr S,
-		\mathscr G \right)} : \mathscr Hom \left(\mathscr S,
-	\mathscr G \right)\left(M \right) \subset \mathscr Hom \left(p^{-1}\mathscr S,
-	p^{-1} \mathscr G \right)\left(\widetilde M \right).
-\end{split}
-\ee 
-where $\mathscr Hom$ is the sheaf of local morphisms (cf. Definition \ref{sheaf_hom_defn}).
-\end{example}
-\begin{definition}\label{top_smooth_inv_im_defn}
-	Let us	consider the situation of the 
-	Example \ref{top_hom_sub_exm}, and suppose that $D \in \mathscr Hom \left(\mathscr S,
-	 \mathscr G \right)\left( M\right)$, $\xi \in \mathscr S \left( M\right)$. We say that both  $p^{-1}_{\mathscr Hom \left(\mathscr S,
-	  \mathscr G \right)}\left(  D\right) \in \mathscr Hom \left(p^{-1}\mathscr S,
-  p^{-1} \mathscr G \right)\left(\widetilde M\right)$ and $p^{-1}_{\mathscr S}\left(  \xi\right) \in \mathscr S \left(\widetilde M\right)$  are the $p$-\textit{inverse images} of $D$ and $\xi$ respectively. We write 
-	\be\label{top_smooth_inv_im_eqn}
-	\begin{split}
-		p^{-1} D \stackrel{\mathrm{def}}{=} p^{-1}_{\mathscr Hom \left(\mathscr S,
-			\mathscr G \right)}\left(  D \right),\\
-		p^{-1} \xi \stackrel{\mathrm{def}}{=} p^{-1}_{\mathscr S }\left(  \xi \right),\\
-	\end{split}
-	\ee
-\end{definition}
-\begin{remark}
-	If $\xi \in \mathscr S\left( M\right)$ and  $D \in \mathscr Hom \left(\mathscr S,
-	\mathscr G \right)\left( M\right)$ then one has
-	\be\label{top_smooth_inv_comp_eqn}
-	p^{-1}\left(D \xi \right)= 	p^{-1} D~ 	p^{-1}\xi \in \mathscr S \left(\widetilde M\right).
-	\ee
-	
-	If following conditions hold:
-	\begin{itemize}
-		\item $\mathscr S \subset\mathscr C \left(\widetilde{\sX}, \left\{\widetilde{A}_{\widetilde{x}}\right\}, \widetilde{\sF} \right)$,
-		\item $\widetilde\xi \in \mathscr S \left(\widetilde M\right)$,
-		\item there is an open subset $\widetilde \sU \subset \widetilde M$ homeomorphically mapped onto $p\left(\widetilde \sU \right)$ such that $\supp \widetilde\xi \subset  \widetilde \sU$,
-	\end{itemize}
-	then one has
-	\be\label{top_lift_desc_d_eqn}
-	p^{-1} D ~\widetilde\xi = \lift^p_{\widetilde\sU}\left( D ~\desc_p\left( \widetilde\xi\right) \right). 
-	\ee
-	If both $p_1: \widetilde M_1 \to M$	and  $p_2: \widetilde M_2 \to \widetilde M_1$	are coverings and $p= p_2 \circ p_1$ then for every $D \in\mathscr Hom \left(\mathscr S,
-	\mathscr G \right)$ one has
-	\be\label{top_dirac_comp_eqn}
-	p^{-1} D = p_2^{-1} \left(  p_1^{-1} D \right).
-	\ee
-	
-\end{remark}
-\begin{example}\label{top_diff_smooth_exm}
-Consider the situation of the Definition \ref{do_man_defn}, i.e.  smooth manifold $M$ and two
-smooth, complex vector bundles over $M$, say
-$\left(E_1, M, p_1\right)$ and $\left(E_1, M, p_1\right)$. The bundles yield two smooth shaves $\mathscr E_1$, $\mathscr E_2$. Any differential operator (cf. Definition \ref{do_man_defn})  $	P: \Coo\left(M, E_1 \right)\to \Coo\left(M, E_2 \right)$ can be regarded as a global section of the sheaf, i.e.
-$$
-P \in \mathscr Hom \left(\mathscr E_1,
-\mathscr E_2 \right) \left(M \right) 
-$$
-So if $p: \widetilde M\to  M$ is a covering then one can define the lift of $P$
-\be\label{top_diff_lift_eqn}
-\begin{split}
-\lift_p P \bydef p^{-1}(P)\in \mathscr Hom \left(\mathscr E_1,
-\mathscr E_2 \right)\left(\widetilde M \right),\\
-P:\Coo\left(\widetilde M, \widetilde E_1 \right)\to \Coo\left(\widetilde M, \widetilde E_2 \right).
-\end{split}
-\ee
-!!!In particular one has 
-\end{example}
-
-\begin{exm}\label{top_ga_smooth_exm}
-	Consider the situation of the Example \ref{top_spinor_smooth_exm}, and let $p: \widetilde M \to M$ be a covering. If $\widetilde \sS = p^*\sS$ is  the {inverse image} of $S$ by $p$  (cf. Definition \ref{vb_inv_img_funct_defn})  then from the Lemma \ref{top_lift_bundle_lem} it follows that there is the natural isomorphism
-	$$
-	\Ga\left( \widetilde M, \widetilde S\right)\cong \lift_p\left[C\left(M, \left\{\sS_x\right\}, \Ga\left(M, \sS\right) \right)    \right].
-	$$
-	If  the subsheaf $\mathscr  C^\infty\left(\widetilde M,  \widetilde\sS \right) \subset \mathscr  C\left(\widetilde M,  \widetilde\sS \right)$ is the $p$-inverse image of $\mathscr  C^\infty\left( M,  \sS \right)$ then from the Lemma \ref{top_inv_sub_lem} it follows that the sheaf $\mathscr  C^\infty\left(\widetilde M,  \widetilde\sS \right)$ is smooth (cf. Definition \ref{top_smooth_sheaf_defn}). So if
-	$$
-	\Ga^\infty\left(\widetilde M,  \widetilde\sS \right) \bydef \mathscr  C^\infty\left(\widetilde M,  \widetilde\sS \right)\left( \widetilde M\right) 
-	$$
-	then $\Ga^\infty\left(\widetilde M,  \widetilde\sS \right)$ is a $\Coo\left( \widetilde M\right)$-module. 
-	The given by \eqref{comm_dirac_eqn} Dirac operator can be regarded as an element of $\mathscr End\left( \mathscr  C^\infty\left( M,  \sS \right)\right)\left(M\right)$, i.e. $\Dslash \in \mathscr End\left( \mathscr  C^\infty\left( M,  \sS \right)\right)\left(M\right)$ where $\mathscr End\left( \mathscr  C^\infty\left( M,  \sS \right)\right)\left(M\right)\bydef \mathscr Hom\left( \mathscr  C^\infty\left( M,  \sS \right), C^\infty\left( M,  \sS \right)\right)\left(M\right)$ and $\mathscr Hom$ is the sheaf of local morphisms (cf. Definition \ref{sheaf_hom_defn}). If $\widetilde \Dslash \bydef p^{-1}\Dslash$ is the   $p$-{inverse image} of $\Dslash$ (cf. Definition \ref{top_smooth_inv_im_defn}) then 
-	\be\label{top_mo_eqn}
-	\begin{split}
-			\widetilde \Dslash \bydef p^{-1}\Dslash\in \mathscr End\left( \mathscr  C^\infty\left(\widetilde M,  \widetilde\sS \right)\right)\left( \widetilde M\right).
-		\end{split}
-	\ee
-Otherwise from the equation \eqref{top_hom_eqn} it turns out that  $\widetilde \Dslash$ can be regarded as $\C$-linear operator, i.e.
-\be\label{top_mod_eqn}
-	\widetilde \Dslash :\Ga^\infty\left(\widetilde M,  \widetilde\sS \right)\to\Ga^\infty\left(\widetilde M,  \widetilde\sS \right) .
-\ee
-	If 
-	\be\label{top_omd_eqn}
-	\Om^1_D \bydef \left\{a\left.\left[\Dslash, b \right]\in \mathscr End\left( \mathscr  C^\infty\left( M,  \sS \right)\right) \left(M \right) ~\right|a,b \in \Coo\left(M \right) \right\}
-	\ee
-	then $\Om^1_D$ is a $\Coo\left( M\right)$-bimodule and there is the natural inclusion
-	$$
-	\Om^1_D \subset \End_{\Coo\left(M\right)}\left(\Ga^\infty\left(M, \sS \right)  \right) \subset \End_{C\left(M\right)}\left(\Ga\left(M, \sS \right)  \right).
-	$$
-	Any $\om \in \Om^1_D$,
-	is given by the family $\left\{\om_x\right\}_{x \in X}$ where $\om_x \in \End\left(\sS_x \right)$. There is the family of normed spaces $\left\{\Om'_x\right\}_{x \in \sX}$ such that any $\Om'_x$ is generated by the described above  endomorphisms $\om_x\in \End\left(\sS_x \right)$ and the norm  of $\Om'_x$ comes from the norm of $\End\left(\sS_x \right)$. If $\Om_x$ is the norm completion of $\Om'_x$ then $\Om_x$ is the Banach space. The $\Coo\left(M\right)$-module $ \Om_D$ is a continuous structure for $M$ and $\left\{\Om_x\right\}_{x \in \sX}$ and the space $C_0\left(M, \left\{\Om_x\right\}, \Om_D \right)$ induces a sheaf $\mathscr C \left(M, \left\{\Om_x\right\}, \Om^1_D \right)$. On the other hand form $\Om^1_D\subset \mathscr End\left( \mathscr  C^\infty\left( M,  \sS \right)\right) \left(M \right)$ the  $\Coo\left( M\right)$-module $ \Om^1_D$ induces a smooth subsheaf
-	$$
-	\mathscr C^\infty\left(  \Om^1_D\right) \subset \mathscr End\left( \mathscr  C^\infty\left(\widetilde M,  \widetilde\sS \right)\right).
-	$$
-	If $\widetilde \sU\subset \widetilde M$ is an open subset such that the restriction $p|_{\widetilde\sU}$ is injective and $a \in \Coo\left(M \right)$ is such that $\supp a \subset\sU \bydef p\left(\widetilde\sU\right)$ then one has
-	
-	\be\label{comm_lift_comp_eqn}
-	\begin{split}
-		\mathfrak{lift}^p_{\widetilde{   \mathcal U}} \left(\left[  \Dslash, a\right] \right) = \left[ p^{-1} \Dslash ,~ \mathfrak{lift}^p_{\widetilde{   \mathcal U}} \left(a\right) \right]  \in p^{-1}\mathscr C^\infty\left(  \Om^1_D\right)\left( \widetilde M\right)\subset 
-		\\
-		\subset  \End_{\Coo\left(M\right)}\left(\Ga^\infty\left(\widetilde M, \widetilde\sS \right)  \right)  .
-	\end{split}
-	\ee
-\end{exm}
-
-
-
-
 
 \section{Lifts of continuous functions and bundles}
 
@@ -7513,9 +7466,9 @@ which can be regarded us an unbounded operator on $\widetilde \sH$. So one has t
 \end{definition}
 \begin{exercise}\label{top_geom_dirac_lift_exer}
 Prove that 
-$$
+\be\label{top_geom_dirac_lift_eqn}
   \widetilde \Dslash = p^{-1}\Dslash \in \mathscr End \left( \widetilde{\mathscr G}^\infty \right) \left(\widetilde M\right)
-$$
+\ee
 (cf. Example \ref{top_spinor_smooth_exm}).
 \end{exercise}
 
@@ -8610,7 +8563,7 @@ Otherwise from \eqref{comm_matr_x_eqn} it turns out that ${\psi}_{\widetilde{\a}
 \\
 =\sum_{\widetilde{\a}\in \widetilde{\mathscr A}}\left(  \lift^p_{\widetilde{\mathcal U}_{\widetilde \a}}\left(  \left[\slashed D, \phi_{\widetilde \a} {\psi}_{\widetilde{\a}}  \right]\xi \right)    \right) = \sum_{\widetilde{\a}\in \widetilde{\mathscr A}}\left(  \lift^p_{\widetilde{\mathcal U}_{\widetilde \a}}\left(  \left[\slashed D, \ga_{\widetilde \a}  \right]\xi \right)    \right) .
 \eean
-If $ p^{-1}\left(\Dslash \right)\in  \mathscr End\left( \mathscr  G^\infty\right)$ is the   $p$-{inverse image} of $\Dslash$ (cf. Definition \ref{top_smooth_inv_im_defn}) then taking into account  \eqref{comm_lift_comp_eqn} one has
+If $ p^{-1}\left(\Dslash \right)\in  \mathscr End\left( \mathscr  G^\infty\right)$ is the   $p$-{inverse image} of $\Dslash$ (cf. Definition \ref{top_smooth_inv_im_defn}) then taking into account  \eqref{top_diff_comm_eqn} one has
 \bean
 \widetilde{a}_\xi 
 =\sum_{\widetilde{\a}\in \widetilde{\mathscr A}}
@@ -8618,6 +8571,7 @@ If $ p^{-1}\left(\Dslash \right)\in  \mathscr End\left( \mathscr  G^\infty\right
 \\
 = \left[p^{-1}\left(\Dslash \right) , \widetilde{a}\right] \lift_p\left(\xi \right). 
 \eean
+	
 
 If $\widetilde{D}$ is the specialization of the given by \eqref{dirac_fin_lift_eqn} operator then
 \bean
@@ -8641,12 +8595,12 @@ However $\phi_\infty$ is the isomorphism, it can be regarded as the identical ma
 \widetilde{D} =  p^{-1}{\slashed D}.
 \ee
 In more detail the above formula has the following meaning
-\be\label{top_d_det_eqn}
+\bean
 \begin{split}
 	\widetilde{\slashed{\nabla}}\left(\widetilde{a} \right)= \sum_{j=1}^m \widetilde{a}_j\otimes  \left[\Dslash, a_j \right]~ \Rightarrow~ \sum_{j=1}^m \widetilde{a}_j\otimes  \left[\Dslash, a_j \right]\xi + \widetilde a \otimes \Dslash\xi =p^{-1}{\slashed D}\left(\widetilde a \otimes \xi \right) 
 \end{split}
-\ee
-where  $p^{-1}\Dslash$ is the   $p$-{inverse image} of $\Dslash$ (cf. Definition \ref{top_smooth_inv_im_defn} and equation \eqref{top_mo_eqn}). From the above construction and the equation \eqref{top_geom_dirac_lift_eqn} one has a following theorem.
+\eean
+where  $p^{-1}\Dslash$ is the   $p$-{inverse image} of $\Dslash$ (cf. Definition \ref{top_smooth_inv_im_defn}). From the equations \eqref{top_geom_dirac_lift_eqn} and \eqref{comm_d_eqn} one has a following theorem.
 
 \begin{thm}\label{comm_fin_sp_tr_thm} 
 	In the above situation the  $\left(C\left(M \right) , C\left( \widetilde{M}\right) , G\left(\left.\widetilde M\right| M\right), C\left(p \right)  \right)$-{lift} of $\left(C^{\infty}\left( M\right) , L^2\left( M, S\right) ,\slashed D\right)$ (cf. Definition \ref{triple_conn_lift_defn}) coincides with the given by the Definition \ref{top_geom_lift_defn} geometrical $p$-lift $\left(\Coo\left( \widetilde M\right) , L^2\left(\widetilde M, \widetilde S\right) ,\widetilde \Dslash \cong p^{-1} \Dslash \right)$.
@@ -8715,8 +8669,8 @@ where the the induced by the map \eqref{induced_g_act_eqn} action $\Z_2 \times L
 \section{Infinite coverings}
 
 \subsection{Inverse limits of coverings in topology}\label{top_inf_to_sec}
-%\paragraph*{}
-\begin{empt}\label{top_inv_empt}
+\paragraph*{}
+
 	Let $\sX$ be a connected, locally connected, locally compact, Hausdorff  topological space. Let $\left\{p_\la: \sX_\la\to\sX\right\}_{\la \in \La}$ be a family of transitive finite-fold coverings which is indexed by a countable set $\La$ such that $\sX_\la$ is connected for all $\la\in\La$. Let us define an order on $\La$ such that 
 	\be\label{top_ord_eqn}
 	\begin{split}
@@ -8730,9 +8684,9 @@ where the the induced by the map \eqref{induced_g_act_eqn} action $\Z_2 \times L
 		\mu \ge \nu \quad\Leftrightarrow\quad\exists p: \sX_\mu \to \sX_\nu \quad p_\mu = p_\nu \circ p \text{ AND } p\left(x^\mu_0\right)= x^\nu_0.
 	\eean
 	For any $\mu \ge \nu$ there is the unique pointed map $ p: \left( \sX_\mu, x^\mu_0 \right) \to \left( \sX_\nu, x^\nu_0\right)  $ which satisfies to the above equation we denote it by $p^\mu_\nu \bydef p$. From the Corollary \ref{top_covp_cat_cor} it turns out that $p^\mu_\nu$ is a transitive covering for all $\mu > \nu$. The spaces $\sX_\la$ and coverings $p^\mu_\nu$ yield a category which is  equivalent (cf. Definition \ref{category_equivalence_definition}) to the  pre-order category $\La$ (cf. Definition \ref{preordercat_defn}).  So there is the inverse limit $\widehat \sX = \varprojlim_{\la \in \La}\sX_\la$ in the category of topological spaces and continuous maps  (cf. Definition \ref{top_inv_lim_defn}). For every $\la \in \La$   there is the natural continuous map $\widehat p_\la: \widehat \sX \to \sX_\la$.
-\end{empt}
+
 \begin{definition}\label{top_sec_defn}
-	Consider the situation \ref{top_inv_empt}.
+	Consider the above situation.
 	Let $\mathcal X$ be a connected locally connected topological space. Consider a full subcategory $\mathfrak{S}$ the {finite covering category} of $\sX$ (cf. Definition \ref{top_fin_cov_defn}). The set of objects is marked by $\La$, i.e. the set of objects is a family $\left\{p_\la: \sX_\la\to \sX\right\}_{\la \in \La}$ of transitive finite-fold coverings such that $\sX_{\la_{\mathrm{min}}}= \sX$, and $p_{\la_{\mathrm{min}}}= \Id_\sX$. Morphism from $p_\mu : \sX_\mu \to \sX$ to $p_\nu : \sX_\nu \to \sX$ is a surjective continuous map $p: \sX_\mu \to \sX_\nu$ such that $p_\mu = p_\nu \circ p$. 
 	We say that $\mathfrak{S}$ is a \textit{topological finite covering category} and we write $\mathfrak{S}\in \mathfrak{FinTop}$.
 \end{definition}
