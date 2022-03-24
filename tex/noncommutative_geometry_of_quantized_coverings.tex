@@ -7177,7 +7177,7 @@ Let $M$ be a smooth manifold and there is a positive functional
 \tau : C_c\left( M\right) \to \C,\\
 a \mapsto \int_{M} a~ d\mu.
 \eean
-(cf. Theorem \ref{meafunc_thm}) such that $a > 0  \Rightarrow \tau\left(a \right)>0$. Suppose that $E$ is a smooth vector bundle (cf. Definition \ref{top_sm_bundle_defn}) with a sesquilinear form $\varphi: E\times  E\to \C$ (cf. Definition \ref{top_herm_bundle_form_defn}). Let $\Ga^\infty_c\left( M, E\right) \bydef  \Ga_c\left( M, E\right)\cap \Ga^\infty\left( M, E\right)$ is a $\Coo\left( M\right)$-module of smooth sections (cf. Definition \ref{top_sm_sec_defn}) with compact support (cf. Definitions \ref{top_cc_supp_defn} and \ref{phi_supp_defn}) then there is a  sesquilinear product
+(cf. Theorem \ref{meafunc_thm}) such that $a > 0  \Rightarrow \tau\left(a \right)>0$. Suppose that $E$ is a smooth vector bundle (cf. Definition \ref{top_sm_bundle_defn}) with a sesquilinear form $\varphi: E\times_M  E\to \C$ (cf. Definition \ref{top_herm_bundle_form_defn}). Let $\Ga^\infty_c\left( M, E\right) \bydef  \Ga_c\left( M, E\right)\cap \Ga^\infty\left( M, E\right)$ is a $\Coo\left( M\right)$-module of smooth sections (cf. Definition \ref{top_sm_sec_defn}) with compact support (cf. Definitions \ref{top_cc_supp_defn} and \ref{phi_supp_defn}) then there is a  sesquilinear product
 \bean
 \left\langle \cdot, \cdot \right\rangle_c: \Ga_c^\infty\left( M, E\right)\times \Ga_c^\infty\left( M, E\right) \to C_c\left( M\right)
 \eean
@@ -8014,7 +8014,7 @@ If $M$ be a smooth manifold then  the product $T \bydef M \times \C$ is also a s
 \C\times\C \to \C,\\
 \left(z', z'' \right) \mapsto \overline{z}'z
 \ee
-one can define a sesquilinear map $T\times T \to \C$  (cf. Definition \ref{top_herm_bundle_form_defn}). From   \ref{top_h_sp_eqn}  it follows that there is a given by representation 
+one can define a sesquilinear map   $T\times_M T \to \C$  (cf. Definition \ref{top_herm_bundle_form_defn}). From   \ref{top_h_sp_eqn}  it follows that there is a given by representation 
 	\bean
 \rho :C_0\left( M \right) \hookto L^2\left(M, T,  \mu\right).
 \eean
@@ -8267,7 +8267,7 @@ is a noncommutative finite-fold covering of $O^*$-algebras.
 
 \paragraph*{} 
 If  $\sX$ is a connected, locally connected, locally compact, Hausdorff space 
- and  $E \to \sX$ is a locally trivial bundle with a {sesquilinear form}  $\varphi: E \times E \to \C$ (cf. Definitions \ref{top_vb_defn} \ref{top_herm_bundle_form_defn}) then there are  given by \eqref{top_ggc_eqn} and \eqref{top_prod_eqn} pairings
+ and  $E \to \sX$ is a locally trivial bundle with a {sesquilinear form}  $\varphi: E \times_\sX E \to \C$ (cf. Definitions \ref{top_vb_defn} \ref{top_herm_bundle_form_defn}) then there are  given by \eqref{top_ggc_eqn} and \eqref{top_prod_eqn} pairings
 \bean
 	\left\langle \cdot, \cdot \right\rangle_c:  \Ga_c\left(\sX, E\right)\times \Ga_c\left(\sX, E\right) \to C_c\left( \sX\right),\\
  	\left(\cdot, \cdot\right): \Ga_c^\infty\left(\sX, E\right)\times \Ga_c^\infty\left( \sX, E\right)\to \C,\\
@@ -8615,11 +8615,20 @@ where  $p^{-1}\Dslash$ is the   $p$-{inverse image} of $\Dslash$ (cf. Definition
 \end{remark}
 \subsection{Unoriented spectral triples}\label{comm_sp_tr} 
 \paragraph*{}
-!!! CONTINUE
-Let $M$ be an unoriented  Riemannian manifold (cf. Definitions \ref{ori_man_defn} and \ref{riemann_mani_defn}), and let $p:\widetilde{M} \to M$ be a two listed regular covering by oriented  Riemannian manifold $\widetilde{M}$ which admits a Spin$^c$ structure (cf. Definition \ref{spin_str_defn})  given by a spinor bundle $S$. From the Corollary \ref{comm_comm_cor} it follows that the triple
+Let $M$ be an unoriented  Riemannian manifold (cf. Definitions \ref{ori_man_defn} and \ref{riemann_mani_defn}), and let $p:\widetilde{M} \to M$ be a two listed regular covering by an oriented  Riemannian manifold $\widetilde{M}$ which admits a Spin$^c$ structure (cf. Definition \ref{spin_str_defn}). From the Appendix \ref{comm_sp_tr_sec} one has a spectral triple $\left(\Coo\left(\widetilde{M},  \right) , L^2\left(\widetilde{M},\widetilde{\sS} \right), \widetilde\Dslash \right)$. We assume that the structure of Riemannian manifold $\widetilde{M}$ 
+  given by a spinor bundle $\widetilde S$. The bundle $\widetilde S$  has a natural  sesquilinear form $\widetilde S \times_{\widetilde M}  \widetilde S \to \C$ (cf. Definition \ref{top_herm_bundle_form_defn} and Remark \ref{top_spin_prod_rem}). Suppose that  there is a bundle $S \to M$ is such that $\widetilde S$ is the $p$-inverse image of $S$  (cf. Definition \ref{vb_inv_img_funct_defn}).
+
+\begin{exercise}
+	Prove following statements
+	Prove that the sesquilinear form $\widetilde S \times_{\widetilde M}  \widetilde S \to \C$ naturally yields a  sesquilinear form $ S \times_{ M}   S \to \C$.
+\end{exercise}
+From the Corollary \ref{comm_comm_cor} it follows that the triple
 $
 \left(C\left(M \right), C\left(\widetilde M\right), \Z_2\right) 
-$ is an unital finite-fold noncommutative covering (cf. Definition \ref{fin_uni_defn}). If there is a bundle $\SS \to M$ is such that $\widetilde\sS$ is the $p$-inverse image of $\SS$  (cf. Definition \ref{vb_inv_img_funct_defn}) then $\SS$ is  a Hermitian sesquilinear !!! vector bundle (cf. Definition \ref{top_herm_bundle_defn}). It follows that there is a Hilbert space $L^2\left(M, \SS \right)$ and the faithful representation $\rho: C\left(M \right) \to B\left( L^2\left(M, \SS \right)\right)$. Similarly to the Lemma \ref{comm_ind_lem} one can proof that  the given by \eqref{comm_bundle_repr_eqn} representation $\widetilde \rho: C\left(\widetilde{M}\right)\hookto B\left(  L^2\left(\widetilde{M},\widetilde{S} \right)\right) $ is induced by the pair $$\left(C\left(M \right)\to B\left(  L^2\left(M,S \right)\right) ,\left(C\left(M \right) , C\left( \widetilde{M}\right) , G\left( \left.\widetilde{M}~\right|M\right) \right)  \right)$$ (cf. Definition \ref{induced_repr_defn}). The manifold $\widetilde{M}$  admits a Spin$^c$ structure, so there is the spectral triple $\left(\Coo\left(\widetilde{M},  \right) , L^2\left(\widetilde{M},\widetilde{\sS} \right), \widetilde\Dslash \right)$. Since $\widetilde{\sS}$ is $\Z_2$-invariant the operator $\widetilde\Dslash$ is also $\Z_2$-invariant there is an unbounded operator
+$ is an unital finite-fold noncommutative covering (cf. Definition \ref{fin_uni_defn}). Similarly to \ref{top_h_sp_empt} a  sesquilinear form $ S \times_{ M}   S \to \C$ yields  a Hilbert space $L^2\left(M, \SS \right)$ and the faithful representation $\rho: C\left(M \right) \to B\left( L^2\left(M, \SS \right)\right)$. From the Lemma \ref{comm_ind_lem} it follows that  the given by \eqref{comm_bundle_repr_eqn} representation $\widetilde \rho: C\left(\widetilde{M}\right)\hookto B\left(  L^2\left(\widetilde{M},\widetilde{S} \right)\right) $ is induced by the pair $$\left(C\left(M \right)\to B\left(  L^2\left(M,S \right)\right) ,\left(C\left(M \right) , C\left( \widetilde{M}\right) , G\left( \left.\widetilde{M}~\right|M\right) \right)  \right)$$ (cf. Definition \ref{induced_repr_defn}). The manifold $\widetilde{M}$  admits a Spin$^c$ structure, so .
+!!! CONTINUE
+
+ Since $\widetilde{\sS}$ is $\Z_2$-invariant the operator $\widetilde\Dslash$ is also $\Z_2$-invariant there is an unbounded operator
 \be\label{ctr_def_5_eqn}
 \Dslash \bydef \left. \widetilde\Dslash\right|_{L^2\left(\widetilde{M},\widetilde{\sS} \right)^{\Z_2}}
 \ee
@@ -19622,10 +19631,10 @@ Let $k$ be the field of real or complex numbers, and let $\sX$ be a topological 
 	equivalence of categories of vector bundles over $\sX$ and finitely generated projecive $A$-modules.
 \end{theorem}
 
-\begin{definition}\label{top_herm_bundle_form_defn}
+\begin{definition}\label{top_herm_bundle_form_defn}\cite{karoubi:k}
 %8.1. Definition. 
 Let $E$ be a vector bundle over $\C$. A \textit{sesquilinear form} on $E$ is a 
-continuous map $\varphi: E \times E \to \C$ which has the following property. The map 
+continuous map $\varphi: E \times_\sX E \to \C$ which has the following property. The map 
 $\varphi_x : E_x \times E_x$ induced on each fiber is "sesquilinear" with respect to the $\C$-vector space structure of $E_x$. In other words, ($\varphi_x$ is $\R$-bilinear and $\varphi_x\left(\la e, e' \right)  = \varphi_x\left( e, \overline \la e' \right) = \la \varphi_x\left( e, e' \right)$ f
 for $\la\in \C$, $e \in E_x$, and $e' \in E_x$. 
 \end{definition}
@@ -19640,7 +19649,7 @@ for $\la\in \C$, $e \in E_x$, and $e' \in E_x$.
 %\end{fact}
 
 \begin{remark}\label{top_herm_bundle_rem}
-	Let $\mathcal X$ be a locally compact topological space and $E$ the complex vector bundle on $\mathcal X$ with a {sesquilinear form} $\varphi: E \times E \to \C$ then there are the following pairings
+	Let $\mathcal X$ be a locally compact topological space and $E$ the complex vector bundle on $\mathcal X$ with a {sesquilinear form} $\varphi: E \times_\sX E \to \C$ then there are the following pairings
 	\bea\label{top_gg_eqn}
 	\left\langle \cdot, \cdot \right\rangle:  \Ga_0\left( \sX, E\right)\times \Ga_0\left( \sX, E\right) \to C_0\left( \sX\right) \quad \left(\xi, \eta \right) \mapsto \left(x \mapsto \varphi_x\left(\xi_x, \eta_x \right)  \right) ,\\
 	\label{top_ggc_eqn}
@@ -20074,7 +20083,7 @@ It is a basic fact that $\Coo\left(M \right)$ is complete, so that it is a Fr\'e
 	\begin{prop}\label{top_cov_mani_prop}\cite{kobayashi_nomizu:diff_geom,lee:smooth_manifolds})
 	If $M$ is a manifold, and $p:\widetilde M\to M$ is a covering then $\widetilde M$ has a (unique) structure of manifold such that $p$ is differentiable.
 \end{prop}
-
+\section{Riemannian manifolds}
 \begin{definition}\label{riemann_mani_defn}\cite{do_carmo:rg}
 	%2.1 Definition.
 	A \textit{Riemannian metric} (or \textit{Riemannian structure}) 
@@ -20094,7 +20103,23 @@ It is a basic fact that $\Coo\left(M \right)$ is complete, so that it is a Fr\'e
 	A differentiable manifold with a given Riemannian metric will be called a \textit{Riemannian manifold}. 
 	
 \end{definition}
+\begin{remark}\label{riemann_mani_rem}
+	The Riemannian metric is completely defined by the \textit{metric tensor} $\left[g_{jk}\right]$ (cf. equation \eqref{riemann_mani_eqn})
+\end{remark}
 
+
+\begin{prop}\label{comm_cov_mani_prop}(Proposition 5.9 \cite{kobayashi_nomizu:diff_geom})
+	\begin{enumerate}
+		\item[(i)] Given a connected manifold $M$ there is a unique (unique up to isomorphism) universal covering manifold, which will be denoted by $\widetilde{M}$.
+		\item[(ii)] The universal covering manifold $\widetilde{M}$ is a principal fibre bundle over $M$ with group $\pi_1(M)$ and projection $p: \widetilde{M} \to M$, where $\pi_1(M)$ is the first homotopy group of $M$.
+		\item[(iii)] The isomorphism classes of covering spaces over $M$ are in 1:1 correspondence with the conjugate classes of subgroups of $\pi_1(M)$. The correspondence is given as follows. To each subgroup $H$ of $\pi_1(M)$, we associate $E=\widetilde{M}/H$. Then the covering manifold $E$ corresponding to $H$ is a fibre bundle over $M$ with fibre $\pi_1(M)/H$ associated with the principal bundle  $\widetilde{M}(M, \pi_1(M))$. If $H$ is a normal subgroup of $\pi_1(M)$, $E=\widetilde{M}/H$ is a principal fibre bundle with group $\pi_1(M)/H$ and is called a regular covering manifold of $M$.
+	\end{enumerate}
+\end{prop}
+
+\begin{empt}
+	If $\widetilde{M}$ is a covering space of Riemannian manifold $M$ then it is possible to give $\widetilde{M}$ a Riemannian structure such that $\pi: \widetilde{M} \to M$ is a local isometry (this metric is called the {\it covering metric}) cf. \cite{do_carmo:rg} for details.
+\end{empt}
+\paragraph{} From the Theorem \ref{gelfand-naimark} it turns out any (noncommutative) $C^*$-algebra may be regarded as a generalized (noncommutative)  locally compact Hausdorff topological space. The article \cite{pavlov_troisky:cov} contain noncommutative analogs of coverings. The spectral triple \cite{hajac:toknotes,varilly:noncom} can be regarded as a noncommutative generalization of Riemannian manifold. Having analogs of both coverings and Riemannian manifolds one can proof  a noncommutative generalization of the Proposition \ref{comm_cov_mani_prop}.
 
 
 
@@ -24013,12 +24038,12 @@ where $\pi: A \hookto B\left(\H\right)$ is any faithful representation, $\wideti
 	\bean
 	\Ga^\infty\left(M, TM \right)\otimes_{C^\infty\left( M\right) } ...\otimes_{C^\infty\left( M\right) } \Ga^\infty\left(M, TM \right)\subset \\ \subset\Ga\left(M, TM \right)\otimes_{C\left( M\right) } ...\otimes_{C\left( M\right) } \Ga\left(M, TM \right).
 	\eean
-	The metric  tensor $g$ is a section of the tensor  bundle, or equivalently \\$g\in\Ga\left(M, TM \right)\otimes_{C\left( M\right) }\Ga\left(M, TM \right)$,  we suppose that the section is smooth, i.e $g\in\Ga^\infty\left(M, TM \right)\otimes_{\Coo\left( M\right) }\Ga^\infty\left(M, TM \right)$. On the other hand $g$ yields the isomorphism
+	The metric  tensor $g\bydef \left[g_{jk}\right]$ (cf. Remark \ref{riemann_mani_rem}) is a section of the tensor  bundle, or equivalently $g\in\Ga\left(M, TM \right)\otimes_{C\left( M\right) }\Ga\left(M, TM \right)$,  we suppose that the section is smooth, i.e $g\in\Ga^\infty\left(M, TM \right)\otimes_{\Coo\left( M\right) }\Ga^\infty\left(M, TM \right)$. On the other hand $g$ yields the isomorphism
 	$$
 	\Ga\left(M, TM \right)\cong \Ga\left(M, T^*M \right)
 	$$
 	between sections of the tangent and the cotangent bundle. The section of cotangent bundle is said to be \textit{smooth} if it is an image of the smooth section of the tangent bundle. Below we consider tensor bundles which correspond to tensor products of exemplars of $\Ga\left(M, T^*M \right)$ and/or $\Ga\left(M, T^*M \right)$.
-	The metric tensor yields the given by
+	The metric tensor  yields the given by
 	\be\label{top_vol_eqn}
 	v = \sqrt{\left[ g_{jk}\right] }~dx_1...dx_n
 	\ee
@@ -24080,9 +24105,9 @@ where $\pi: A \hookto B\left(\H\right)$ is any faithful representation, $\wideti
 		Let $M$ be a Riemannian manifold, $A = C(M)$ and\\
 		$B = C(M,\C\ell(M))$. We say that the tangent bundle $TM$
 		\textit{admits a Spin$^c$ structure} if and only if it is orientable
-		and $\delta(\C\ell(M)) = 0$. In that case, a \textbf{Spin$^{\bf c}$
-			structure} on~$TM$ is a pair $(\eps,\SS)$ where $\eps$ is an
-		orientation on~$TM$ and $\SS$ is a $B$-$A$-equivalence bimodule.
+		and $\delta(\C\ell(M)) = 0$. In that case, a \textit{Spin$^{\bf c}$
+			structure} on~$TM$ is a pair $(\eps,S)$ where $\eps$ is an
+		orientation on~$TM$ and $S$ is a $B$-$A$-equivalence bimodule.
 	\end{definition}
 	
 	%	Following an earlier terminology introduced by Atiyah, Bott and
@@ -24096,12 +24121,17 @@ where $\pi: A \hookto B\left(\H\right)$ is any faithful representation, $\wideti
 	carries an irreducible left action of the Clifford algebra bundle
 	$\C\ell(M)$. This is the \textit{spinor bundle} whose existence displays
 	the Spin$^c$ structure in the conventional picture. We call
-	$\Coo(M,S)$ the \textit{spinor module}; it is an irreducible
+	$\Ga^\infty(M,S)$ the \textit{spinor module}; it is an irreducible
 	Clifford module in the terminology of~\cite{atiyah_b_s}, and has
 	rank~$2^m$ over $C(M)$ if $n = 2m$ or $2m + 1$.
 	\begin{remark}
 		If $\B \bydef \Ga^\infty \left(M, \C\ell(M) \right)$ then $\B$ is an be an unital Fr\'echet pre-$C^*$-algebra, such that $\B$ is dense in $B$. Similarly if $\A\bydef \Coo\left(M \right)$ then $\A$ is dense in  $A\bydef C\left(M \right)$. The Morita equivalence between $B$ and $A$ is given by the projective $B$-$A$ bimodule $\Ga\left(M,S \right)$. Similarly  The Morita equivalence between $\B$ and $\A$ is given by the projective $\B$-$\A$ bimodule $\Ga^\infty\left(M,S \right)$.
-	\end{remark}	
+	\end{remark}
+\begin{remark}\label{top_spin_prod_rem}\cite{varilly:noncom}
+	Any spinor bundle $S$ has a sesquilinear form $E \times_\sX E \to \C$ (cf. Definition \ref{top_herm_bundle_form_defn}). In \cite{varilly:noncom} a bundle with  sesquilinear form is said to be a \textit{Hermitian bundle}.
+\end{remark}
+
+	
 	%Another matter is how to fit into this picture \textit{spin
 	%	structures} on~$M$ (liftings of the structure group of~$TM$ from
 	%$SO(n)$ to $\Spin(n)$ rather than $\Spin^c(n)$). These are
@@ -24115,7 +24145,7 @@ where $\pi: A \hookto B\left(\H\right)$ is any faithful representation, $\wideti
 	\subsection{The Dirac operator}
 	\paragraph{}
 	As soon as a spinor module makes its appearance, one can introduce the
-	\textbf{Dirac operator}. Let $\mu$ be the Riemannian measure given by the volume element (cf. equation \eqref{top_vol_eqn}). If  $\H \bydef L^2(M,S, \mu)$ is the space $\H \bydef L^2(M,S, \mu)$
+	\textit{Dirac operator}. Let $\mu$ be the Riemannian measure given by the volume element (cf. equation \eqref{top_vol_eqn}). If  $\H \bydef L^2(M,S, \mu)$ is the space $\H \bydef L^2(M,S, \mu)$
 	of square-integrable spinors then $\Ga^\infty\left(M, \SS \right)\subset \H$.
 	
 	
@@ -24186,24 +24216,8 @@ where $\pi: A \hookto B\left(\H\right)$ is any faithful representation, $\wideti
 		\end{split}
 	\end{equation}
 	
-	\section{Coverings of Riemannian manifolds}
-	\paragraph*{} It is known that the covering manifold is a manifold. 
-	The following proposition rigorously states this fact. 
-	
-	\begin{prop}\label{comm_cov_mani_prop}(Proposition 5.9 \cite{kobayashi_nomizu:diff_geom})
-		\begin{enumerate}
-			\item[(i)] Given a connected manifold $M$ there is a unique (unique up to isomorphism) universal covering manifold, which will be denoted by $\widetilde{M}$.
-			\item[(ii)] The universal covering manifold $\widetilde{M}$ is a principal fibre bundle over $M$ with group $\pi_1(M)$ and projection $p: \widetilde{M} \to M$, where $\pi_1(M)$ is the first homotopy group of $M$.
-			\item[(iii)] The isomorphism classes of covering spaces over $M$ are in 1:1 correspondence with the conjugate classes of subgroups of $\pi_1(M)$. The correspondence is given as follows. To each subgroup $H$ of $\pi_1(M)$, we associate $E=\widetilde{M}/H$. Then the covering manifold $E$ corresponding to $H$ is a fibre bundle over $M$ with fibre $\pi_1(M)/H$ associated with the principal bundle  $\widetilde{M}(M, \pi_1(M))$. If $H$ is a normal subgroup of $\pi_1(M)$, $E=\widetilde{M}/H$ is a principal fibre bundle with group $\pi_1(M)/H$ and is called a regular covering manifold of $M$.
-		\end{enumerate}
-	\end{prop}
-	
-	\begin{empt}
-		If $\widetilde{M}$ is a covering space of Riemannian manifold $M$ then it is possible to give $\widetilde{M}$ a Riemannian structure such that $\pi: \widetilde{M} \to M$ is a local isometry (this metric is called the {\it covering metric}) cf. \cite{do_carmo:rg} for details.
-	\end{empt}
-	\paragraph{}From the Theorem \ref{gelfand-naimark} it turns out any (noncommutative) $C^*$-algebra may be regarded as a generalized (noncommutative)  locally compact Hausdorff topological space. The article \cite{pavlov_troisky:cov} contain noncommutative analogs of coverings. The spectral triple \cite{hajac:toknotes,varilly:noncom} can be regarded as a noncommutative generalization of Riemannian manifold. Having analogs of both coverings and Riemannian manifolds one can proof  a noncommutative generalization of the Proposition \ref{comm_cov_mani_prop}.
-	
-	
+
+		
 	
 	
 	
