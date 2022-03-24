@@ -8565,6 +8565,10 @@ Otherwise from \eqref{comm_matr_x_eqn} it turns out that ${\psi}_{\widetilde{\a}
 \eean
 If $ p^{-1}\left(\Dslash \right)\in  \mathscr End\left( \mathscr  G^\infty\right)$ is the   $p$-{inverse image} of $\Dslash$ (cf. Definition \ref{top_smooth_inv_im_defn}) then taking into account  \eqref{top_diff_comm_eqn} one has
 \bean
+\forall \widetilde{\a}\in \widetilde{\mathscr A}\quad \lift^p_{\widetilde{\mathcal U}_{\widetilde \a}}\left(  \left[\slashed D, \ga_{\widetilde \a}  \right]\xi \right) =\left[p^{-1}\left(\Dslash \right) , \widetilde{\ga}_{\widetilde{\a}}\right]\lift_p\left(\xi \right)
+\eean
+From the above equation it follows that
+\bean
 \widetilde{a}_\xi 
 =\sum_{\widetilde{\a}\in \widetilde{\mathscr A}}
 \left[p^{-1}\left(\Dslash \right) , \widetilde{\ga}_{\widetilde{\a}}\right]\lift_p\left(\xi \right) =\left[p^{-1}\left(\Dslash \right) , \sum_{\widetilde{\a}\in \widetilde{\mathscr A}}\widetilde{\ga}_{\widetilde{\a}}\right]\lift_p\left(\xi \right)=
@@ -8611,7 +8615,8 @@ where  $p^{-1}\Dslash$ is the   $p$-{inverse image} of $\Dslash$ (cf. Definition
 \end{remark}
 \subsection{Unoriented spectral triples}\label{comm_sp_tr} 
 \paragraph*{}
-Let $M$ be an unoriented  Riemannian manifold, and let $p:\widetilde{M} \to M$ be a two listed regular covering by oriented  Riemannian manifold $\widetilde{M}$ which admits a Spin$^c$ structure (cf. Definition \ref{spin_str_defn})  given by a spinor bundle $\widetilde\SS$. From the Corollary \ref{comm_comm_cor} it follows that the triple
+!!! CONTINUE
+Let $M$ be an unoriented  Riemannian manifold (cf. Definitions \ref{ori_man_defn} and \ref{riemann_mani_defn}), and let $p:\widetilde{M} \to M$ be a two listed regular covering by oriented  Riemannian manifold $\widetilde{M}$ which admits a Spin$^c$ structure (cf. Definition \ref{spin_str_defn})  given by a spinor bundle $S$. From the Corollary \ref{comm_comm_cor} it follows that the triple
 $
 \left(C\left(M \right), C\left(\widetilde M\right), \Z_2\right) 
 $ is an unital finite-fold noncommutative covering (cf. Definition \ref{fin_uni_defn}). If there is a bundle $\SS \to M$ is such that $\widetilde\sS$ is the $p$-inverse image of $\SS$  (cf. Definition \ref{vb_inv_img_funct_defn}) then $\SS$ is  a Hermitian sesquilinear !!! vector bundle (cf. Definition \ref{top_herm_bundle_defn}). It follows that there is a Hilbert space $L^2\left(M, \SS \right)$ and the faithful representation $\rho: C\left(M \right) \to B\left( L^2\left(M, \SS \right)\right)$. Similarly to the Lemma \ref{comm_ind_lem} one can proof that  the given by \eqref{comm_bundle_repr_eqn} representation $\widetilde \rho: C\left(\widetilde{M}\right)\hookto B\left(  L^2\left(\widetilde{M},\widetilde{S} \right)\right) $ is induced by the pair $$\left(C\left(M \right)\to B\left(  L^2\left(M,S \right)\right) ,\left(C\left(M \right) , C\left( \widetilde{M}\right) , G\left( \left.\widetilde{M}~\right|M\right) \right)  \right)$$ (cf. Definition \ref{induced_repr_defn}). The manifold $\widetilde{M}$  admits a Spin$^c$ structure, so there is the spectral triple $\left(\Coo\left(\widetilde{M},  \right) , L^2\left(\widetilde{M},\widetilde{\sS} \right), \widetilde\Dslash \right)$. Since $\widetilde{\sS}$ is $\Z_2$-invariant the operator $\widetilde\Dslash$ is also $\Z_2$-invariant there is an unbounded operator
@@ -20002,9 +20007,51 @@ A notion of  a (relative) $CW$-complex is explained in \cite{spanier:at,switzer:
 \end{remark}
 \chapter{Differential geometry}
 	\section{Smooth manifolds and multinormed algebras}\label{smooth_op_system_sec}
-\paragraph*{}Here I follow to \cite{cinfty_manifolds}.
-If $M$ is a $C^\infty$-manifold then denote by  $\Coo\left( M\right)$ *-algebra of smooth functions.
-\begin{definition}\label{comm_smooth_usual_defn}
+	
+\begin{definition}\label{diff_mani_defn}\cite{do_carmo:rg}
+%2.1 Definition.
+ A \textit{differentiable manifold} of dimension $n$ is a set 
+$M$ and a family of injective mappings $\mathbf{x}_\a: \sU_\a \subset \R^n \to M$ of open 
+sets $\sU_\a$ of $\R^n$ into $M$ such that: 
+\begin{enumerate}
+	\item  $\cup \mathbf{x}_\a\left(\sU_{{\a}} \right) = M$.
+		\item for any pair $\a, \bt$ , with $\mathbf{x}_\a\left(\sU_{{\a}} \right) \cap \mathbf{x}_\bt\left(\sU_{{\bt}} \right)= \mathcal{W}\neq \emptyset$, the sets 
+	$\mathbf{x}^{-1}_\a\left( \mathcal{W}\right)$  and $\mathbf{x}^{-1}_\bt\left( \mathcal{W}\right)$ are open sets in $\R^n$ and the mappings 
+		$\mathbf{x}^{-1}_\bt \circ \mathbf{x}_\a$ are differentiable
+				\item  The family $\left\{\left(\mathbf{x}_\a, \sU_\a \right) \right\}$ is maximal relative to the conditions 
+				1) and 2).
+		
+\end{enumerate}
+\end{definition}	
+\begin{definition}\label{diff_mani_tan_defn}\cite{do_carmo:rg}
+%2.6 Definition. 
+Let $M$ be a differentiable manifold. A differentiable function $\a: \left(-\eps, \eps\right)\to M$ is called a (differentiable) \textit{curve} in 
+$M$. Suppose that $\a\left(0\right)= p \in M$, and let $\D$ be the set of functions 
+on $M$ that are differentiable at $p$. The \textit{tangent vector to the curve} 
+$\a$ at $t=0$ is a function $\a'\left(0 \right)$  given by
+$$
+\a'\left(0 \right)f = \left. \frac{d\left(f \circ \a\right)}{dt}\right|_{t=0}.
+$$ 
+
+A \textit{tangent vector at} $p$ is the tangent vector at $t = 0$ of some curve 
+ $\a: \left(-\eps, \eps\right)\to M$ with $\a\left(0\right)=p$. The set of all tangent vectors to $M$ 
+at $p$ will be indicated by $T_pM$. 
+
+\end{definition}
+	\begin{definition}\label{ori_man_defn}\cite{do_carmo:rg}
+%4.4 Definition. 
+Let $M$ be a differentiable manifold. We say that 
+$M$ is orientable if $M$ admits a differentiable structure $\left\{\left(\mathbf{x}_\a, \sU_\a \right) \right\}$ 
+such that  for every pair $\a, \bt$ , with $\mathbf{x}_\a\left(\sU_{{\a}} \right) \cap \mathbf{x}_\bt\left(\sU_{{\bt}} \right)= \mathcal{W}\neq \emptyset$, the 
+	differential of the change of coordinates $\mathbf{x}^{-1}_\bt \circ \mathbf{x}_\a$ has positive 
+	determinant. 
+	In the opposite case, we say that M is unorientable. %If M is ori	entable, a choice of a differentiable structure satisfying (i) is called 	an orientation of M. M is then said to be oriented. Two differen	tiable structures that satisfy (i) determine the same orientation if 	their union again satisfies (i). 	It is not difficult to verify that if M is orientable and con	nected there exist exactly two distinct orientations on M. 	 
+	\end{definition}
+%\paragraph*{}
+
+
+%Here I follow to \cite{cinfty_manifolds}.If $M$ is a $C^\infty$-manifold then denote by  $\Coo\left( M\right)$ *-algebra of smooth $\C$-valued functions.
+\begin{definition}\label{comm_smooth_usual_defn} \cite{cinfty_manifolds}
 	If the  topology of $M$ has a countable basis,
 	and let us consider a countable family $\left\{K_j\right\}_{j\in \N}$ of compact subsets such that
 	$$
@@ -20027,6 +20074,29 @@ It is a basic fact that $\Coo\left(M \right)$ is complete, so that it is a Fr\'e
 	\begin{prop}\label{top_cov_mani_prop}\cite{kobayashi_nomizu:diff_geom,lee:smooth_manifolds})
 	If $M$ is a manifold, and $p:\widetilde M\to M$ is a covering then $\widetilde M$ has a (unique) structure of manifold such that $p$ is differentiable.
 \end{prop}
+
+\begin{definition}\label{riemann_mani_defn}\cite{do_carmo:rg}
+	%2.1 Definition.
+	A \textit{Riemannian metric} (or \textit{Riemannian structure}) 
+	on a differentiable manifold $M$ is a correspondence which associates 
+	to each point $p$ of $M$ an inner product $\left\langle \cdot, \cdot\right\rangle_p$ (that is, a symmetric, 
+	bilinear, positive-definite form) on the tangent space $T_pM$, which 
+	varies differentiably in the following sense: If $\mathbf{x}: \sU \cong \R^n \to M$ 
+	is a system of coordinates around $p$, with $\mathbf{x}\left(x_1,..., x_n\right) = q \in  \mathbf{x}\left(\sU\right)$
+	and $\frac{\partial q}{\partial x_j}= d\mathbf{x}\left( 0,..., 1,...,0\right) $, 
+	then
+	\be\label{riemann_mani_eqn}
+	\left\langle \frac{\partial}{\partial x_j} q, \frac{\partial}{\partial x_k} q\right\rangle_p= g_{jk}\left(x_1,..., x_n \right) 
+	\ee
+	is a differentiable function on $\sU$. 	It is clear this definition does not depend on the choice of 
+	coordinate system. 
+	%	Another way to express the differentiability of the Rieman	nian metric is to say that for any pair of vector fields X and ?, which 	are differentiable in a neighborhood V of M, the function (X, Y) is 	differentiable on V. It is immediate that this definition is equivalent 	to the other. 	It is usual to delete the index p in the function ( , )p when- 	ever there is no possibility of confusion. The function gij (= ??) is 	called the local representation of the Riemannian metric (or "the gij 	of the metric") in the coordinate system x: U ? Rn Å? M. 
+	A differentiable manifold with a given Riemannian metric will be called a \textit{Riemannian manifold}. 
+	
+\end{definition}
+
+
+
 
 \section{Smooth vector bundles}
 
@@ -20227,29 +20297,6 @@ such that
 \nabla_X \xi = \left(\nabla \xi, X \right)
 \ee
 where the pairing $\left(\cdot, \cdot\right) : \Ga\left( E \otimes T^*\left( M\right) \right) \times \Ga\left( T\left( M\right)\right)  \to \Ga\left( E \right) $ is induced by the pairing $\Ga\left( T^*\left(M \right)\right)   \times \Ga\left( T\left( M\right)\right)  \to \Coo\left(M \right) $.
-
-\section{Riemannian manifolds}
-
-\begin{definition}\label{riemann_mani_defn}\cite{do_carmo:rg}
-%2.1 Definition.
- A \textit{Riemannian metric} (or \textit{Riemannian structure}) 
-on a differentiable manifold $M$ is a correspondence which associates 
-to each point $p$ of $M$ an inner product $\left\langle \cdot, \cdot\right\rangle_p$ (that is, a symmetric, 
-bilinear, positive-definite form) on the tangent space $T_pM$, which 
-varies differentiably in the following sense: If $\mathbf{x}: \sU \cong \R^n \to M$ 
-is a system of coordinates around $p$, with $\mathbf{x}\left(x_1,..., x_n\right) = q \in  \mathbf{x}\left(\sU\right)$
-and $\frac{\partial q}{\partial x_j}= d\mathbf{x}\left( 0,..., 1,...,0\right) $, 
-then
-\be\label{riemann_mani_eqn}
-\left\langle \frac{\partial}{\partial x_j} q, \frac{\partial}{\partial x_k} q\right\rangle_p= g_{jk}\left(x_1,..., x_n \right) 
-\ee
-  is a differentiable function on $\sU$. 	It is clear this definition does not depend on the choice of 
-	coordinate system. 
-%	Another way to express the differentiability of the Rieman	nian metric is to say that for any pair of vector fields X and ?, which 	are differentiable in a neighborhood V of M, the function (X, Y) is 	differentiable on V. It is immediate that this definition is equivalent 	to the other. 	It is usual to delete the index p in the function ( , )p when- 	ever there is no possibility of confusion. The function gij (= ??) is 	called the local representation of the Riemannian metric (or "the gij 	of the metric") in the coordinate system x: U ? Rn Å? M. 
-A differentiable manifold with a given Riemannian metric will be called a \textit{Riemannian manifold}. 
-
-\end{definition}
-
 
 \chapter{Algebra}
 \section{Inverse limits of groups}
