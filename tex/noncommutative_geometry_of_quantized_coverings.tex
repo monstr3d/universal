@@ -3092,7 +3092,7 @@ $\left(\A_{D}, \widetilde \A_{\widetilde D}, G, \psi  \right)$ (cf. Definition \
  		\item
  	A pre-$C^*$-algebra $\A$.
  		\item   An unital noncommutative finite-fold covering $\left(A, \widetilde A, \Z_2\right)$ (cf. Definition \ref{unital_cov_cor}) where $A$ is the $C^*$-norm completion of $\A$.
-  		\item A faithful representation $\rho: A \to B\left(\H \right)$. 
+  		\item A faithful representation $\rho: A \hookto B\left(\H \right)$. 
  		\item
  		A {selfadjoint operator} $D$ on $\mathcal{H}$, with dense domain
  		$\Dom D \subset \H$, such that $a(\Dom D) \subseteq \Dom D$ for all 
@@ -3101,7 +3101,7 @@ $\left(\A_{D}, \widetilde \A_{\widetilde D}, G, \psi  \right)$ (cf. Definition \
  		 	\end{enumerate}
  	Above objects should satisfy to the following conditions:
  		\begin{enumerate}
- 			\item[(a)] If $\widetilde{   A}$ is the $C^*$-norm completion of $\widetilde\A$ then the representation $\widetilde A \to \widetilde\H$ is induced by the pair $\left(\rho, \left(A, \widetilde A, \Z_2\right)\right)$ (cf. Definition \ref{induced_repr_defn}).
+ 			\item[(a)] If $\widetilde{   A}$ is the $C^*$-norm completion of $\widetilde\A$ then the representation $\widetilde A \hookto B\left( \widetilde\H\right) $ is induced by the pair $\left(\rho, \left(A, \widetilde A, \Z_2\right)\right)$ (cf. Definition \ref{induced_repr_defn}).
  			\item[(b)]  The action $\Z_2 \times \widetilde{   A} \to \widetilde{   A}$ of $\Z_2 \cong G\left(\left. \widetilde A~\right|A\right)$ induces the  actions $\Z_2 \times \widetilde{\A} \to  \widetilde{\A} $,  $\Z_2 \times \widetilde{\H} \to  \widetilde{\H} $, such that
  			\be\label{main_def_1_eqn}
  			\begin{split}
@@ -8619,133 +8619,114 @@ where  $p^{-1}\Dslash$ is the   $p$-{inverse image} of $\Dslash$ (cf. Definition
 \end{remark}
 \subsection{Unoriented spectral triples}\label{comm_sp_tr} 
 \paragraph*{}
-Let $M$ be an unoriented  Riemannian manifold (cf. Definitions \ref{ori_man_defn} and \ref{riemann_mani_defn}), and let $p:\widetilde{M} \to M$ be a two listed regular covering. Suppose that $\widetilde{M}$ is Riemannian  manifold with the covering metric (cf. \ref{covering_metric_empt}). Suppose that $\widetilde{M}$ is oriented and  admits a Spin$^c$ structure (cf. Definition \ref{spin_str_defn}) given by a spinor bundle $\widetilde S$ (cf. Appendix \ref{spin_mani_sec}). From the Appendix \ref{comm_sp_tr_sec} one has a spectral triple $\left(\Coo\left(\widetilde{M},  \right) , L^2\left(\widetilde{M},\widetilde{\sS} \right), \widetilde\Dslash \right)$. Suppose that  there is a smooth bundle $S \to M$ (cf. Definition \ref{top_sm_bundle_defn}) such that $\widetilde S$ is the $p$-inverse image of $S$  (cf. Definition \ref{vb_inv_img_funct_defn}). Denote by $g =  \overline{1} \in \Z_2$ the unique element of the group $\Z_2$. For any $\widetilde x \in \widetilde M$ there is an open neighborhood $\widetilde \sU$ such that
-\begin{itemize}
-	\item There is a diffeomorphism $\widetilde \sU \cong \R^n$.
-	\item The set  $\widetilde \sU$ is homeomorphically mapped onto $\sU \bydef p\left( \widetilde \sU\right)$. 
-\end{itemize}
-If 
+Let $M$ be an unoriented  Riemannian manifold (cf. Definitions \ref{ori_man_defn} and \ref{riemann_mani_defn}), and let $p:\widetilde{M} \to M$ be a two listed regular covering. Suppose that $\widetilde{M}$ is Riemannian  manifold with the covering metric (cf. \ref{covering_metric_empt}). Suppose that $\widetilde{M}$ is oriented and  admits a Spin$^c$ structure (cf. Definition \ref{spin_str_defn}) given by a spinor bundle $\widetilde S$ (cf. Appendix \ref{spin_mani_sec}). From the Appendix \ref{comm_sp_tr_sec} one has a spectral triple $\left(\Coo\left(\widetilde{M},  \right) , L^2\left(\widetilde{M},\widetilde{\sS} \right), \widetilde\Dslash \right)$. Suppose that  there is a smooth bundle $S \to M$ (cf. Definition \ref{top_sm_bundle_defn}) such that $\widetilde S$ is the $p$-inverse image of $S$  (cf. Definition \ref{vb_inv_img_funct_defn}). Denote by $\overline{1} \in \Z_2$ the unique element of the group $\Z_2\cong G\left( \left.\widetilde M\right| M\right)$. If $\A \bydef \Coo\left( M\right), \quad A \bydef  C\left(M \right), \quad  \widetilde\A \bydef \Coo\left( \widetilde M\right), \quad A \bydef  C\left(\widetilde M \right)$ then one has following ingredients of the Definition \ref{unoriented_defn}: 
+\begin{enumerate}
+	\item $\widetilde \A$ is a pre-$C^*$-algebra.
+	\item From the Corollary \ref{comm_comm_cor} there is a unital noncommutative finite-fold covering 
+$$
+\left(A, \widetilde A, \Z_2\right)\bydef \left(C\left(M\right), C\left( \widetilde M\right) , \Z_2\right)
+$$	
+	$\left(A, \widetilde A, \Z_2\right)$ (cf. Definition \ref{unital_cov_cor}) where $A$ is the $C^*$-norm completion of $\A$.
+			\item A faithful representation 
+			$$
+		\left( 	\rho: A \hookto B\left(\H \right)\right)\bydef \left( C\left(M\right)\hookto B\left(L^2\left(M, S \right)  \right) \right)  
+			$$ 
+	\item
+	A {selfadjoint operator} $\Dslash$ on $\mathcal{H}$, with dense domain
+	$\Dom \Dslash \subset \H$, such that $a(\Dom \Dslash) \subseteq \Dom \Dslash$ for all 
+	$a \in \mathcal{A}$ we define below.
+	\item An unital oriented spectral triple $$
+	\left(\widetilde{\A}, \widetilde{\H}, \widetilde{D} \right)\bydef \left(\Coo\left(\widetilde{M},  \right) , L^2\left(\widetilde{M},\widetilde{\sS} \right), \widetilde \Dslash\right). 
+	$$ 
+\end{enumerate}
+For any $\widetilde x \in \widetilde M$ there is an open neighborhood $\widetilde \sU$ is homeomorphically mapped onto $\sU \bydef p\left( \widetilde \sU\right)$. The set $\widetilde \sU$ has a natural structure of the Riemannian manifold which comes form the Riemannian metrics of $\widetilde M$. There are isomorphisms $\widetilde \sU \cong \sU \cong g\widetilde \sU$ of Riemannian manifolds. If 
 \bean
-www
-\eean 
-
-\begin{lemma}
-In the above situation the operator $\widetilde\Dslash$ is $\Z_2$- equivariant, i.e. if $g = \overline{1} \in \Z_2$ is not trivial then one has
+\left.\Ga^\infty\left(M, S \right) \right|_{\sU}\bydef \left\{\left.s \in \Ga^\infty\left(M, S \right)\right| \supp s \subset \sU\right\},\\
+\left.\Ga^\infty\left(\widetilde  M,\widetilde  S \right) \right|_{\widetilde \sU}\bydef \left\{\left.\widetilde s \in \Ga^\infty\left(\widetilde M, \widetilde S \right)\right| \supp \widetilde  s \subset \widetilde \sU\right\},\\
+g\left.\Ga^\infty\left(\widetilde  M,\widetilde  S \right) \right|_{\widetilde \sU}\bydef \left\{\left.\widetilde s \in \Ga^\infty\left(\widetilde M, \widetilde S \right)\right| \supp \widetilde  s \subset g\widetilde \sU\right\}
+\eean
+then since $\widetilde S$ is an inverse image of  $S$ one has following isomorphisms
 $$
-\forall \widetilde\xi \in \Ga^\infty\left(\widetilde{M}, \widetilde{S} \right)\quad  \widetilde\Dslash\left( g \widetilde\xi\right) = g\left( \widetilde\Dslash\widetilde\xi\right).
+\left.\Ga^\infty\left(M, S \right) \right|_{\sU}\cong \left.\Ga^\infty\left(\widetilde  M,\widetilde  S \right) \right|_{\widetilde \sU}\cong g\left.\Ga^\infty\left(\widetilde  M,\widetilde  S \right) \right|_{\widetilde \sU}
 $$
-\end{lemma}
-\begin{proof}
-	content...
-\end{proof}
-
-\paragraph{title}
-
-\paragraph{}
-As soon as a spinor module makes its appearance, one can introduce the
-\textit{Dirac operator}. Let $\mu$ be the Riemannian measure given by the volume element (cf. equation \eqref{top_vol_eqn}). If  $\H \bydef L^2(M,S, \mu)$ is the space $\H \bydef L^2(M,S, \mu)$
-of square-integrable spinors then $\Ga^\infty\left(M, \SS \right)\subset \H$.
-
-
-This is a selfadjoint first-order
-differential operator $\Dslash$ defined on the space $\H$
-of square-integrable spinors, whose domain includes the space of smooth spinors
-$\SS = \Ga^\infty\left(M, S \right)$.  The Riemannian metric $g = [g_{ij}]$
-defines isomorphisms $T_xM \simeq T^*_xM$ and induces a metric
-$g^{-1} = [g^{ij}]$ on the cotangent bundle $T^*M$. Via this
-isomorphism, we can redefine the Clifford algebra as the bundle with
-fibres $\C\ell_x(M) := \Cl(T^*_xM, g_x^{-1}) \ox_\R \C$ (replacing $\Cl$
-by $\Cl^\mathrm{even}$ when $\dim M$ is odd). Let $\Ga(M, T^*M)$ be
-the $C\left( M\right) $-module of \hbox{$1$-forms} on~$M$. 
-The spinor module $\SS$ is
-then a $B$-$A$-bimodule on which the algebra $B = \Ga(M,\C\ell(M))$
-acts irreducibly. If $\ga: B \cong \End_A\left( \SS\right)$ the natural isomorphism then $\ga$ obeys the anticommutation rule
+of $\Coo\left(\sU \right)$ modules. From this circumstance one can deduce that if $\widetilde\ga  :\Ga(\widetilde M,\C\ell(\widetilde M)) \cong \End_{C\left( \widetilde M \right) }\left( \Ga\left(\widetilde M, \widetilde S \right) \right)$ is given by \eqref{spin_gamma_eqn} then
 $$
-\{\ga(\a), \ga(\b)\} = -2 g^{-1}(\a,\b) = -2 g^{ij} \a_i \b_j\in C\left( M\right) 
-\sepword{for}  \a,\b \in \Ga(M, T^*M).
+\forall \widetilde \eta \in \Ga(\widetilde M,\C\ell(\widetilde M))\quad \supp \widetilde \eta \subset \widetilde \sU \Rightarrow \widetilde \ga\left(\overline{1} \widetilde \eta\right)=  \overline{1}\widetilde \ga\left( \widetilde \eta\right).
 $$
-The action~$\ga$ of $\Ga(M, \C\ell(M))$ on the Hilbert-space completion
-$\H$ of~$\SS$ is called the \textit{spin representation}.
-
-The metric $g^{-1}$ on $T^*M$ gives rise to a canonical
-\textit{Levi-Civita connection}\\
-$\nabla^g \: \Ga^\infty(M, T^*M) \to \Ga^\infty(M, T^*M) \otimes_\A \Ga^\infty(M, T^*M)$ that, as well as
-obeying the Leibniz rule
+Similarly if $\nabla^{\widetilde S} \: \Ga^\infty(\widetilde M,\widetilde S) \to \Ga^\infty(\widetilde M, \widetilde S) \otimes_{\Coo\left(\widetilde M \right) } \Ga^\infty(\widetilde M, T\widetilde M)$ is a given by \eqref{spin_conn_defn_eqn} spin connection then one has
 $$
-\nabla^g(\om a) = \nabla^g(\om)\,a + \om \ox da,
-$$
-preserves the metric and is torsion-free. The \textit{spin connection}
-is then a linear operator $\nabla^S \: \Ga^\infty(M,S) \to \Ga^\infty(M, S) \otimes_\A \Ga^\infty(M, TM)$
-satisfying two Leibniz rules, one for the right action of~$\A$ and the
-other, involving the Levi-Civita connection, for the left action of
-the Clifford algebra:
-\be\label{spin_conn_eqn}
-\begin{split}
-	\nabla^S(\psi a) \bydef \nabla^S(\psi)a + \psi \otimes  da,\\
-	\nabla^S(\ga(\om)\psi)= \ga(\nabla^g\om)\psi + \ga(\om)\nabla^S\psi,
-\end{split}
-\ee
-$$
-%\eqalignno{
-	%	\nabla^S(\psi a) &= \nabla^S(\psi)\,a + \psi \ox da,
-	%	\cr
-	%	\nabla^S(\ga(\om)\psi)
-	%	&= \ga(\nabla^g\om)\,\psi + \ga(\om)\,\nabla^S\psi,
-	%	& (1.3) \cr}
-$$
-for $a \in \A$, $\om \in \Ga^\infty(M, T^*M)$, $\psi \in \Ga^\infty(M, S)$.
-
-Once the spin connection is found, we define the Dirac operator as the
-composition $\ga \circ \nabla^S$; more precisely, the local expression
-\be\label{comm_dirac_eqn}
-\Dslash \bydef \sum_{j=1}^n\ga(dx^j) \, \nabla^S_{\del/\del x^j}
-\ee
-is independent of the local coordinates and defines $\Dslash$ on the domain
-$\SS \subset \H$.
-One can check that this operator is symmetric; it extends to an 	unbounded selfadjoint operator on~$\H$, also called $\Dslash$.
-In result one has the commutative spectral triple
-\be\label{comm_sp_tr_eqn}
-\left(\Coo\left( M\right), L^2\left(M, S \right), \Dslash   \right).
-\ee
-It is shown in \cite{varilly:noncom,krajewski:finite} that the first order condition (cf. Axiom \ref{fist_order_st_ax}) is equivalent to the following equation
-\begin{equation}\label{comm_matr_x_eqn}
-	\begin{split}
-		\left[ {\slashed D}, {a}\right]b= b\left[ {\slashed D}, {a}\right] \quad\forall a, b \in \Coo\left( M\right).
-	\end{split}
-\end{equation}
-
-
-
-
-
-
-%%%Henceforth  $\left\{x_{\iota}\right\}_{\iota \in I}$ means a set indexed by finite or countable set $I$ of indexes.
-
-
-
-
-
-
-
-
-\
-\paragraph{title}
-. The bundle $\widetilde S$  has a natural  sesquilinear form $\widetilde S \times_{\widetilde M}  \widetilde S \to \C$ (cf. Definition \ref{top_herm_bundle_form_defn} and Remark \ref{top_spin_prod_rem}). 
-\begin{exercise}
-	Prove following statements
-	Prove that the sesquilinear form $\widetilde S \times_{\widetilde M}  \widetilde S \to \C$ naturally yields a  sesquilinear form $ S \times_{ M}   S \to \C$.
+\forall \widetilde \xi \in \left.\Ga^\infty\left(\widetilde  M,\widetilde  S \right) \right|_{\widetilde \sU}\quad \nabla^{\widetilde S}\left(\overline{1} s\right)=  \overline{1}\nabla^{\widetilde S}\left(s\right)
+$$ 
+Taking into account the equation \eqref{comm_dirac_eqn} which defines the Dirac operator $\widetilde \Dslash$ we conclude that
+\be\label{dirac_un_loc_eqn}
+\forall \widetilde \xi\in \left.\Ga^\infty\left(\widetilde  M,\widetilde  S \right) \right|_{\widetilde \sU} \quad \widetilde\Dslash\left( \overline{1}  \widetilde \xi\right)  = \overline{1} \left( \widetilde\Dslash \widetilde \xi\right) 
+\ee 
+\begin{exercise} Prove following statements:
+	\begin{enumerate}
+		\item The operator $\widetilde\Dslash$ is $\Z_2$- equivariant, i.e. 
+		\be\label{dirac_un_equ}
+		\forall g \in \Z_2\quad \forall \widetilde\xi \in \Ga^\infty\left(\widetilde  M,\widetilde  S \right) \quad  \widetilde\Dslash\left( g \widetilde\xi\right) = g\left( \widetilde\Dslash\widetilde\xi\right).
+		\ee
+		\item An unbounded operator
+		\be\label{ctr_def_5_eqn}
+		\Dslash \bydef \left. \widetilde\Dslash\right|_{L^2\left(\widetilde{M},\widetilde{\sS} \right)^{\Z_2}}
+		\ee
+		is a specialization of the object  described in 4. of the Definition  \ref{unoriented_defn}
+		\item There is sesquilinear form $ S \times_{ M}   S \to \C$ which is induced by the natural  sesquilinear form $\widetilde S \times_{\widetilde M}  \widetilde S \to \C$ (cf. Definition \ref{top_herm_bundle_form_defn} and Remark \ref{top_spin_prod_rem}). 
+	\end{enumerate}
 \end{exercise}
+The $C^*$-algebra $\widetilde A \bydef C\left(\widetilde M \right)$ is the $C^*$-norm completion of  $\widetilde \A \bydef \Coo\left(\widetilde M \right)$ (cf. condition (a) of the Definition \ref{unoriented_defn})
 From the Corollary \ref{comm_comm_cor} it follows that the triple
 $
 \left(C\left(M \right), C\left(\widetilde M\right), \Z_2\right) 
-$ is an unital finite-fold noncommutative covering (cf. Definition \ref{fin_uni_defn}). Similarly to \ref{top_h_sp_empt} a  sesquilinear form $ S \times_{ M}   S \to \C$ yields  a Hilbert space $L^2\left(M, \SS \right)$ and the faithful representation $\rho: C\left(M \right) \to B\left( L^2\left(M, \SS \right)\right)$. From the Lemma \ref{comm_ind_lem} it follows that  the given by \eqref{comm_bundle_repr_eqn} representation $\widetilde \rho: C\left(\widetilde{M}\right)\hookto B\left(  L^2\left(\widetilde{M},\widetilde{S} \right)\right) $ is induced by the pair $$\left(C\left(M \right)\to B\left(  L^2\left(M,S \right)\right) ,\left(C\left(M \right) , C\left( \widetilde{M}\right) , G\left( \left.\widetilde{M}~\right|M\right) \right)  \right)$$ (cf. Definition \ref{induced_repr_defn}). The manifold $\widetilde{M}$  admits a Spin$^c$ structure, so .
+$ is an unital finite-fold noncommutative covering (cf. Definition \ref{fin_uni_defn}). This representation complies with the condition (a) of the Definition \ref{unoriented_defn}.
+
+
+Similarly to \ref{top_h_sp_empt} a  sesquilinear form $ S \times_{ M}   S \to \C$ yields  a Hilbert space $L^2\left(M, \SS \right)$ and the faithful representation $\rho: C\left(M \right) \to B\left( L^2\left(M, \SS \right)\right)$. From the Lemma \ref{comm_ind_lem} it follows that  the given by \eqref{comm_bundle_repr_eqn} representation $\widetilde \rho: C\left(\widetilde{M}\right)\hookto B\left(  L^2\left(\widetilde{M},\widetilde{S} \right)\right) $ is induced by the pair $$\left(C\left(M \right)\to B\left(  L^2\left(M,S \right)\right) ,\left(C\left(M \right) , C\left( \widetilde{M}\right) , G\left( \left.\widetilde{M}~\right|M\right) \right)  \right)$$ (cf. Definition \ref{induced_repr_defn}). The manifold $\widetilde{M}$  admits a Spin$^c$ structure, so .
 !!! CONTINUE
 
- Since $\widetilde{\sS}$ is $\Z_2$-invariant the operator $\widetilde\Dslash$ is also $\Z_2$-invariant there is an unbounded operator
-\be\label{ctr_def_5_eqn}
-\Dslash \bydef \left. \widetilde\Dslash\right|_{L^2\left(\widetilde{M},\widetilde{\sS} \right)^{\Z_2}}
-\ee
-where the the induced by the map \eqref{induced_g_act_eqn} action $\Z_2 \times L^2\left(\widetilde{M},\widetilde{\sS} \right) \to L^2\left(\widetilde{M},\widetilde{\sS} \right)$ is implied. On the other hand $L^2\left(\widetilde{M},\widetilde{\sS} \right)^{\Z_2}\cong L^2\left({M},{\sS} \right)$. 
+ 
+where the the induced by the map \eqref{induced_g_act_eqn} action $\Z_2 \times L^2\left(\widetilde{M},\widetilde{\sS} \right) \to L^2\left(\widetilde{M},\widetilde{\sS} \right)$ is implied. On the other hand $L^2\left(\widetilde{M},\widetilde{\sS} \right)^{\Z_2}\cong L^2\left({M},{\sS} \right)$.
+
+
+
+\begin{definition}\label{unoriented_defn!}
+	Denote by $g \in \Z_2$ the unique nontrivial element.
+	An {\it unoriented spectral triple} $(\A, \H, D)$ consists of:
+	Above objects should satisfy to the following conditions:
+	\begin{enumerate}
+		\item[(a)] If $\widetilde{   A}$ is the $C^*$-norm completion of $\widetilde\A$ then the representation $\widetilde A \to \widetilde\H$ is induced by the pair $\left(\rho, \left(A, \widetilde A, \Z_2\right)\right)$ (cf. Definition \ref{induced_repr_defn}).
+		\item[(b)]  The action $\Z_2 \times \widetilde{   A} \to \widetilde{   A}$ of $\Z_2 \cong G\left(\left. \widetilde A~\right|A\right)$ induces the  actions $\Z_2 \times \widetilde{\A} \to  \widetilde{\A} $,  $\Z_2 \times \widetilde{\H} \to  \widetilde{\H} $, such that
+		\be\label{main_def_1_eqn}
+		\begin{split}
+			g \left( \widetilde{a}\widetilde{\xi}\right)= \left(g \widetilde{a}\right) \left(g \widetilde{\xi}\right); ~~ \forall \widetilde{a} \in \widetilde{\A}, ~~ \forall \widetilde{\xi} \in\widetilde{\H},\\
+			\left( g \widetilde{\xi}, g\widetilde{\eta}\right) = \left( \widetilde{\xi}, \widetilde{\eta}\right);~~\forall \widetilde{\xi}, \widetilde{\eta} \in \widetilde{\H},,\\ \text{ where } \left(\cdot, \cdot \right) \text{ is the scalar product on }\widetilde{\H},
+		\end{split}
+		\ee
+		
+		\be\label{main_def_2_eqn}
+		\begin{split}
+			g \left(\widetilde{ D}\widetilde{\xi} \right) = \widetilde{ D}\left(g \widetilde{\xi} \right); ~~  \forall \widetilde{\xi} \in \Dom \widetilde{ D}
+		\end{split}
+		\ee
+		\item[(c)] There are natural isomorphisms
+		\be\label{main_def_3_eqn}
+		\begin{split}
+			\A \cong \widetilde{\A}^{\Z_2} \stackrel{\text{def}}{=}\left\{\widetilde{a} \in \widetilde{\A}~|~ g\widetilde{a} = \widetilde{a} \right\},\\
+			\H \cong \widetilde{\H}^{\Z_2}\stackrel{\text{def}}{=} \left\{\widetilde{\xi} \in \widetilde{\H}~|~ g\widetilde{\xi} = \widetilde{\xi} \right\}.
+		\end{split}
+		\ee
+		\item[(d)] If $A$ (resp. $\widetilde{A}$) is a $C^*$-norm completion of $\A$ (resp. $\widetilde{\A}$) then the triple $\left(A, \widetilde{A}, \Z_2 \right)$ is an unital noncommutative finite-fold  covering (cf. Definition \ref{fin_uni_defn})and the following condition hold:
+		\bea\label{main_def_4_eqn}
+		\A= A\bigcap \widetilde{\A},\\
+		\label{main_def_5_eqn}
+		D = \widetilde{ D}|_{\H}=\widetilde{ D}|_{\widetilde{\H}^{\Z_2}}.
+		\eea
+	\end{enumerate}
+\end{definition}
+\
+
+ 
 \begin{theorem}\label{com_unori_thm}
 	The described above triple \be\label{comm_equ}
 	\left(\Coo\left(M \right), L^2\left(\widetilde{M}, \widetilde{\SS}\right)^{\Z_2}=L^2\left({M}, {\SS}\right), \slashed D  \right)
@@ -8787,9 +8768,6 @@ where the the induced by the map \eqref{induced_g_act_eqn} action $\Z_2 \times L
 	$$
 	unoriented spectral triple.
 \end{example}
-
-
-
 
 
 
@@ -24271,10 +24249,10 @@ where $\pi: A \hookto B\left(\H\right)$ is any faithful representation, $\wideti
 	The spinor module $\SS$ is
 	then a $B$-$A$-bimodule on which the algebra $B = \Ga\left( M,\C\ell\left( M\right) \right) $
 	acts irreducibly. If 
-\be
+\be\label{spin_gamma_eqn}
 \begin{split}
 \ga: B \cong \End_A\left( \SS\right) \\
-\text{or, equivalently } \ga: \Ga(M,\C\ell(M)) \cong \End_A\left( \Ga\left(M,S \right) \right)
+\text{or, equivalently } \ga: \Ga(M,\C\ell(M)) \cong \End_{C\left(M \right) }\left( \Ga\left(M,S \right) \right)
 \end{split}
 \ee	
 is	 the natural isomorphism then $\ga$ obeys the anticommutation rule
@@ -24293,7 +24271,12 @@ is	 the natural isomorphism then $\ga$ obeys the anticommutation rule
 	\nabla^g(\om a) = \nabla^g(\om)\,a + \om \ox da,
 	$$
 	preserves the metric and is torsion-free. The \textit{spin connection}
-	is then a linear operator $\nabla^S \: \Ga^\infty(M,S) \to \Ga^\infty(M, S) \otimes_\A \Ga^\infty(M, TM)$
+	is then a linear operator
+	\be\label{spin_conn_defn_eqn}
+\begin{split}
+	\nabla^S \: \Ga^\infty(M,S) \to \Ga^\infty(M, S) \otimes_{\Coo\left(M \right) } \Ga^\infty(M, TM)
+\end{split}
+\ee
 	satisfying two Leibniz rules, one for the right action of~$\A$ and the
 	other, involving the Levi-Civita connection, for the left action of
 	the Clifford algebra:
