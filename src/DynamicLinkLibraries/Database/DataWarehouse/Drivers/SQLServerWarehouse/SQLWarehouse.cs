@@ -1,9 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Text;
-using System.Collections;
-using System.Xml;
-using System.Data.SqlClient;
 
 
 using DataWarehouse.Interfaces;
@@ -97,8 +93,8 @@ namespace SQLServerWarehouse
             var tableAdapter = new QueriesTableAdapter();
             StaticExtension.ConnectionString = connectionString;
             StaticExtension.TableAdapter = tableAdapter;
-           // return QueriesTableAdapter;
-           return DataWarehouseContext;
+           return QueriesTableAdapter;
+        //   return DataWarehouseContext;
         }
 
         static private QueriesTableAdapter QueriesTableAdapter

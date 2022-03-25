@@ -7119,7 +7119,7 @@ Consider the above situation. The associated with $\mathscr S$ sheaf $\mathscr G
 	
 \item[(ii)]	If following conditions hold:
 	\begin{itemize}
-		\item $\mathscr S \subset\mathscr C \left(\widetilde{\sX}, \left\{\widetilde{A}_{\widetilde{x}}\right\}, \widetilde{\sF} \right)$,
+		\item $\mathscr S \subset\mathscr C \left(M, \left\{\widetilde{A}_{\widetilde{x}}\right\}, {\sF} \right)$,
 		\item $\widetilde\xi \in p^{-1} \mathscr S \left(\widetilde M\right)$,
 		\item there is an open subset $\widetilde \sU \subset \widetilde M$ homeomorphically mapped onto $p\left(\widetilde \sU \right)$ such that $\supp \widetilde\xi \subset  \widetilde \sU$,
 	\end{itemize}
@@ -7128,7 +7128,11 @@ Consider the above situation. The associated with $\mathscr S$ sheaf $\mathscr G
 	p^{-1} D ~\widetilde\xi = \lift^p_{\widetilde\sU}\left( D ~\desc_p\left( \widetilde\xi\right) \right) 
 	\ee
 	where both $\lift^p_{\widetilde\sU}$ and $\desc_p$ are given by the Definition \ref{top_lift_desc_defn}.
-\item[(iii)] If $\xi \in \mathscr S \left(\widetilde M\right)$ and $\widetilde b \in \Coo\left( \widetilde M\right)$ and there is  an open subset $\widetilde \sU \subset \widetilde M$ homeomorphically mapped onto $\sU \bydef p\left(\widetilde \sU \right)$ such that $\supp \widetilde b \subset  \widetilde \sU$ then one has
+\item[(iii)] Suppose that   both actions  $G\left(\left. \widetilde M \right| M \right) \times p^{-1}{\mathscr S}\left( \widetilde M\right) \to  p^{-1}{\mathscr S}\left( \widetilde M\right)$ and\\ $G\left(\left. \widetilde M \right| M \right) \times  p^{-1}{\mathscr G}\left( \widetilde M\right) \to  p^{-1}{\mathscr G}\left( \widetilde M\right)$ are given by the Exercise \ref{top_pre_sheaf_exer}. Prove that $p^{-1} D$ is equivariant, i.e.
+\be
+\forall g \in G\left(\left. \widetilde M \right| M \right) \quad \forall \widetilde\xi \in p^{-1}\mathscr S \quad  p^{-1} D\left(g \widetilde\xi \right) = g\left(p^{-1} D \widetilde\xi \right) 
+\ee
+\item[(iv)] If $\xi \in \mathscr S \left(\widetilde M\right)$ and $\widetilde b \in \Coo\left( \widetilde M\right)$ and there is  an open subset $\widetilde \sU \subset \widetilde M$ homeomorphically mapped onto $\sU \bydef p\left(\widetilde \sU \right)$ such that $\supp \widetilde b \subset  \widetilde \sU$ then one has
 \be\label{top_diff_comm_eqn}
 \begin{split}
 p^{-1} D ~\widetilde b  \lift_p\left( \xi\right)  -\widetilde b  p^{-1} D ~\lift_p\left( \xi\right) =\\= \lift^p_{\widetilde\sU}\left( D\left( \desc_p\left(\widetilde b\right) \xi\right)   \right)-\lift^p_{\widetilde\sU}\left( \desc_p\left(\widetilde b  \right)D\xi \right). 
@@ -8615,9 +8619,118 @@ where  $p^{-1}\Dslash$ is the   $p$-{inverse image} of $\Dslash$ (cf. Definition
 \end{remark}
 \subsection{Unoriented spectral triples}\label{comm_sp_tr} 
 \paragraph*{}
-Let $M$ be an unoriented  Riemannian manifold (cf. Definitions \ref{ori_man_defn} and \ref{riemann_mani_defn}), and let $p:\widetilde{M} \to M$ be a two listed regular covering by an oriented  Riemannian manifold $\widetilde{M}$ which admits a Spin$^c$ structure (cf. Definition \ref{spin_str_defn}). From the Appendix \ref{comm_sp_tr_sec} one has a spectral triple $\left(\Coo\left(\widetilde{M},  \right) , L^2\left(\widetilde{M},\widetilde{\sS} \right), \widetilde\Dslash \right)$. We assume that the structure of Riemannian manifold $\widetilde{M}$ 
-  given by a spinor bundle $\widetilde S$. The bundle $\widetilde S$  has a natural  sesquilinear form $\widetilde S \times_{\widetilde M}  \widetilde S \to \C$ (cf. Definition \ref{top_herm_bundle_form_defn} and Remark \ref{top_spin_prod_rem}). Suppose that  there is a bundle $S \to M$ is such that $\widetilde S$ is the $p$-inverse image of $S$  (cf. Definition \ref{vb_inv_img_funct_defn}).
+Let $M$ be an unoriented  Riemannian manifold (cf. Definitions \ref{ori_man_defn} and \ref{riemann_mani_defn}), and let $p:\widetilde{M} \to M$ be a two listed regular covering. Suppose that $\widetilde{M}$ is Riemannian  manifold with the covering metric (cf. \ref{covering_metric_empt}). Suppose that $\widetilde{M}$ is oriented and  admits a Spin$^c$ structure (cf. Definition \ref{spin_str_defn}) given by a spinor bundle $\widetilde S$ (cf. Appendix \ref{spin_mani_sec}). From the Appendix \ref{comm_sp_tr_sec} one has a spectral triple $\left(\Coo\left(\widetilde{M},  \right) , L^2\left(\widetilde{M},\widetilde{\sS} \right), \widetilde\Dslash \right)$. Suppose that  there is a smooth bundle $S \to M$ (cf. Definition \ref{top_sm_bundle_defn}) such that $\widetilde S$ is the $p$-inverse image of $S$  (cf. Definition \ref{vb_inv_img_funct_defn}). Denote by $g =  \overline{1} \in \Z_2$ the unique element of the group $\Z_2$. For any $\widetilde x \in \widetilde M$ there is an open neighborhood $\widetilde \sU$ such that
+\begin{itemize}
+	\item There is a diffeomorphism $\widetilde \sU \cong \R^n$.
+	\item The set  $\widetilde \sU$ is homeomorphically mapped onto $\sU \bydef p\left( \widetilde \sU\right)$. 
+\end{itemize}
+If 
+\bean
+www
+\eean 
 
+\begin{lemma}
+In the above situation the operator $\widetilde\Dslash$ is $\Z_2$- equivariant, i.e. if $g = \overline{1} \in \Z_2$ is not trivial then one has
+$$
+\forall \widetilde\xi \in \Ga^\infty\left(\widetilde{M}, \widetilde{S} \right)\quad  \widetilde\Dslash\left( g \widetilde\xi\right) = g\left( \widetilde\Dslash\widetilde\xi\right).
+$$
+\end{lemma}
+\begin{proof}
+	content...
+\end{proof}
+
+\paragraph{title}
+
+\paragraph{}
+As soon as a spinor module makes its appearance, one can introduce the
+\textit{Dirac operator}. Let $\mu$ be the Riemannian measure given by the volume element (cf. equation \eqref{top_vol_eqn}). If  $\H \bydef L^2(M,S, \mu)$ is the space $\H \bydef L^2(M,S, \mu)$
+of square-integrable spinors then $\Ga^\infty\left(M, \SS \right)\subset \H$.
+
+
+This is a selfadjoint first-order
+differential operator $\Dslash$ defined on the space $\H$
+of square-integrable spinors, whose domain includes the space of smooth spinors
+$\SS = \Ga^\infty\left(M, S \right)$.  The Riemannian metric $g = [g_{ij}]$
+defines isomorphisms $T_xM \simeq T^*_xM$ and induces a metric
+$g^{-1} = [g^{ij}]$ on the cotangent bundle $T^*M$. Via this
+isomorphism, we can redefine the Clifford algebra as the bundle with
+fibres $\C\ell_x(M) := \Cl(T^*_xM, g_x^{-1}) \ox_\R \C$ (replacing $\Cl$
+by $\Cl^\mathrm{even}$ when $\dim M$ is odd). Let $\Ga(M, T^*M)$ be
+the $C\left( M\right) $-module of \hbox{$1$-forms} on~$M$. 
+The spinor module $\SS$ is
+then a $B$-$A$-bimodule on which the algebra $B = \Ga(M,\C\ell(M))$
+acts irreducibly. If $\ga: B \cong \End_A\left( \SS\right)$ the natural isomorphism then $\ga$ obeys the anticommutation rule
+$$
+\{\ga(\a), \ga(\b)\} = -2 g^{-1}(\a,\b) = -2 g^{ij} \a_i \b_j\in C\left( M\right) 
+\sepword{for}  \a,\b \in \Ga(M, T^*M).
+$$
+The action~$\ga$ of $\Ga(M, \C\ell(M))$ on the Hilbert-space completion
+$\H$ of~$\SS$ is called the \textit{spin representation}.
+
+The metric $g^{-1}$ on $T^*M$ gives rise to a canonical
+\textit{Levi-Civita connection}\\
+$\nabla^g \: \Ga^\infty(M, T^*M) \to \Ga^\infty(M, T^*M) \otimes_\A \Ga^\infty(M, T^*M)$ that, as well as
+obeying the Leibniz rule
+$$
+\nabla^g(\om a) = \nabla^g(\om)\,a + \om \ox da,
+$$
+preserves the metric and is torsion-free. The \textit{spin connection}
+is then a linear operator $\nabla^S \: \Ga^\infty(M,S) \to \Ga^\infty(M, S) \otimes_\A \Ga^\infty(M, TM)$
+satisfying two Leibniz rules, one for the right action of~$\A$ and the
+other, involving the Levi-Civita connection, for the left action of
+the Clifford algebra:
+\be\label{spin_conn_eqn}
+\begin{split}
+	\nabla^S(\psi a) \bydef \nabla^S(\psi)a + \psi \otimes  da,\\
+	\nabla^S(\ga(\om)\psi)= \ga(\nabla^g\om)\psi + \ga(\om)\nabla^S\psi,
+\end{split}
+\ee
+$$
+%\eqalignno{
+	%	\nabla^S(\psi a) &= \nabla^S(\psi)\,a + \psi \ox da,
+	%	\cr
+	%	\nabla^S(\ga(\om)\psi)
+	%	&= \ga(\nabla^g\om)\,\psi + \ga(\om)\,\nabla^S\psi,
+	%	& (1.3) \cr}
+$$
+for $a \in \A$, $\om \in \Ga^\infty(M, T^*M)$, $\psi \in \Ga^\infty(M, S)$.
+
+Once the spin connection is found, we define the Dirac operator as the
+composition $\ga \circ \nabla^S$; more precisely, the local expression
+\be\label{comm_dirac_eqn}
+\Dslash \bydef \sum_{j=1}^n\ga(dx^j) \, \nabla^S_{\del/\del x^j}
+\ee
+is independent of the local coordinates and defines $\Dslash$ on the domain
+$\SS \subset \H$.
+One can check that this operator is symmetric; it extends to an 	unbounded selfadjoint operator on~$\H$, also called $\Dslash$.
+In result one has the commutative spectral triple
+\be\label{comm_sp_tr_eqn}
+\left(\Coo\left( M\right), L^2\left(M, S \right), \Dslash   \right).
+\ee
+It is shown in \cite{varilly:noncom,krajewski:finite} that the first order condition (cf. Axiom \ref{fist_order_st_ax}) is equivalent to the following equation
+\begin{equation}\label{comm_matr_x_eqn}
+	\begin{split}
+		\left[ {\slashed D}, {a}\right]b= b\left[ {\slashed D}, {a}\right] \quad\forall a, b \in \Coo\left( M\right).
+	\end{split}
+\end{equation}
+
+
+
+
+
+
+%%%Henceforth  $\left\{x_{\iota}\right\}_{\iota \in I}$ means a set indexed by finite or countable set $I$ of indexes.
+
+
+
+
+
+
+
+
+\
+\paragraph{title}
+. The bundle $\widetilde S$  has a natural  sesquilinear form $\widetilde S \times_{\widetilde M}  \widetilde S \to \C$ (cf. Definition \ref{top_herm_bundle_form_defn} and Remark \ref{top_spin_prod_rem}). 
 \begin{exercise}
 	Prove following statements
 	Prove that the sesquilinear form $\widetilde S \times_{\widetilde M}  \widetilde S \to \C$ naturally yields a  sesquilinear form $ S \times_{ M}   S \to \C$.
@@ -20116,11 +20229,9 @@ It is a basic fact that $\Coo\left(M \right)$ is complete, so that it is a Fr\'e
 	\end{enumerate}
 \end{prop}
 
-\begin{empt}
-	If $\widetilde{M}$ is a covering space of Riemannian manifold $M$ then it is possible to give $\widetilde{M}$ a Riemannian structure such that $\pi: \widetilde{M} \to M$ is a local isometry (this metric is called the {\it covering metric}) cf. \cite{do_carmo:rg} for details.
+\begin{empt}\label{covering_metric_empt}
+	If $\widetilde{M}$ is a covering space of a Riemannian manifold $M$ then it is possible to give $\widetilde{M}$ a Riemannian structure such that $\pi: \widetilde{M} \to M$ is a local isometry (this metric is called the {\it covering metric}) cf. \cite{do_carmo:rg} for details.
 \end{empt}
-\paragraph{} From the Theorem \ref{gelfand-naimark} it turns out any (noncommutative) $C^*$-algebra may be regarded as a generalized (noncommutative)  locally compact Hausdorff topological space. The article \cite{pavlov_troisky:cov} contain noncommutative analogs of coverings. The spectral triple \cite{hajac:toknotes,varilly:noncom} can be regarded as a noncommutative generalization of Riemannian manifold. Having analogs of both coverings and Riemannian manifolds one can proof  a noncommutative generalization of the Proposition \ref{comm_cov_mani_prop}.
-
 
 
 \section{Smooth vector bundles}
@@ -24142,26 +24253,31 @@ where $\pi: A \hookto B\left(\H\right)$ is any faithful representation, $\wideti
 	
 	
 	
-	\subsection{The Dirac operator}
+	\subsection{The Dirac operator}\label{comm_dirac_sec}
 	\paragraph{}
 	As soon as a spinor module makes its appearance, one can introduce the
 	\textit{Dirac operator}. Let $\mu$ be the Riemannian measure given by the volume element (cf. equation \eqref{top_vol_eqn}). If  $\H \bydef L^2(M,S, \mu)$ is the space $\H \bydef L^2(M,S, \mu)$
 	of square-integrable spinors then $\Ga^\infty\left(M, \SS \right)\subset \H$.
-	
-	
 	This is a selfadjoint first-order
 	differential operator $\Dslash$ defined on the space $\H$
 	of square-integrable spinors, whose domain includes the space of smooth spinors
-	$\SS = \Ga^\infty\left(M, \SS \right)$.  The Riemannian metric $g = [g_{ij}]$
+	$\SS = \Ga^\infty\left(M, S \right)$.  The Riemannian metric $g = [g_{ij}]$
 	defines isomorphisms $T_xM \simeq T^*_xM$ and induces a metric
 	$g^{-1} = [g^{ij}]$ on the cotangent bundle $T^*M$. Via this
 	isomorphism, we can redefine the Clifford algebra as the bundle with
-	fibres $\C\ell_x(M) := \Cl(T^*_xM, g_x^{-1}) \ox_\R \C$ (replacing $\Cl$
+	fibres $\C\ell_x(M) \bydef \Cl(T^*_xM, g_x^{-1}) \ox_\R \C$ (replacing $\Cl$
 	by $\Cl^\mathrm{even}$ when $\dim M$ is odd). Let $\Ga(M, T^*M)$ be
 	the $C\left( M\right) $-module of \hbox{$1$-forms} on~$M$. 
 	The spinor module $\SS$ is
-	then a $B$-$A$-bimodule on which the algebra $B = \Ga(B,\C\ell(M))$
-	acts irreducibly. If $\ga: B \cong \End_A\left( \SS\right)$ the natural isomorphism then $\ga$ obeys the anticommutation rule
+	then a $B$-$A$-bimodule on which the algebra $B = \Ga\left( M,\C\ell\left( M\right) \right) $
+	acts irreducibly. If 
+\be
+\begin{split}
+\ga: B \cong \End_A\left( \SS\right) \\
+\text{or, equivalently } \ga: \Ga(M,\C\ell(M)) \cong \End_A\left( \Ga\left(M,S \right) \right)
+\end{split}
+\ee	
+is	 the natural isomorphism then $\ga$ obeys the anticommutation rule
 	$$
 	\{\ga(\a), \ga(\b)\} = -2 g^{-1}(\a,\b) = -2 g^{ij} \a_i \b_j\in C\left( M\right) 
 	\sepword{for}  \a,\b \in \Ga(M, T^*M).

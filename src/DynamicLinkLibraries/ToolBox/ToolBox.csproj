@@ -1,11 +1,9 @@
 <Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
-    <TargetFramework>net5.0-windows</TargetFramework>
+    <TargetFramework>net6.0-windows</TargetFramework>
     <UseWindowsForms>true</UseWindowsForms>
     <EnableDefaultEmbeddedResourceItems>false</EnableDefaultEmbeddedResourceItems>
   </PropertyGroup>
-
   <ItemGroup>
     <ProjectReference Include="..\AssemblyService\AssemblyService.csproj" />
     <ProjectReference Include="..\Common.UI.Resources\Common.UI.Resources.csproj">
@@ -16,7 +14,7 @@
     <ProjectReference Include="..\ResourceService\ResourceService.csproj">
     </ProjectReference>
   </ItemGroup>
- <ItemGroup>
+  <ItemGroup>
     <EmbeddedResource Include="FormTools.resx">
       <DependentUpon>FormTools.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -27,11 +25,11 @@
       <DependentUpon>ResourceImage.Designer.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
- <ItemGroup>
-   <Compile Update="ResourceImage.Designer.cs">
-     <DesignTime>True</DesignTime>
-     <AutoGen>True</AutoGen>
-     <DependentUpon>ResourceImage.resx</DependentUpon>
-   </Compile>
- </ItemGroup>
+  <ItemGroup>
+    <Compile Update="ResourceImage.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ResourceImage.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
 </Project>
