@@ -16,10 +16,16 @@ namespace CodeAnalysis.Compilers
     /// </summary>
     public class CSharpCompiler : ICompiler
     {
+        #region Ctor
 
         public CSharpCompiler()
         {
+
         }
+
+        #endregion
+
+        #region ICompiler implemebtation
 
         /// <summary>
         /// Creates assembly from code
@@ -27,6 +33,10 @@ namespace CodeAnalysis.Compilers
         /// <param name="code">The code</param>
         /// <returns>The assembly</returns>
         Assembly ICompiler.this[string code] => Create(code);
+
+        #endregion
+
+        #region Private members
 
         Assembly Create(string codeToCompile)
         {
@@ -90,6 +100,8 @@ namespace CodeAnalysis.Compilers
             }
             return assembly;
         }
+
+        #endregion
 
     }
 }

@@ -20,7 +20,6 @@ namespace Event.Interfaces
 
         List<object> l = new List<object>();
 
-        int j = 0;
 
         #endregion
 

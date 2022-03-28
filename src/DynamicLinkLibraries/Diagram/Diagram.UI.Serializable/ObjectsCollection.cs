@@ -64,7 +64,7 @@ namespace Diagram.UI
             {
                 type = info.GetValue("Type", typeof(Type)) as Type;
             }
-            catch (Exception exception)
+            catch (Exception)
             {
 
             }
@@ -85,7 +85,7 @@ namespace Diagram.UI
             {
                 info.AddValue("Type", type, typeof(Type));
             }
-            catch (Exception exception)
+            catch (Exception)
             {
 
             }

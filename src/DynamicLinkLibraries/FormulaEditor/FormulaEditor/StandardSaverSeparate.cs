@@ -10,7 +10,7 @@ namespace FormulaEditor
     /// <summary>
     /// Standard saver of formulas
     /// </summary>
-    public class StandardSaver : IFormulaSaver
+    public class StandardSaverSeparate : IFormulaSaver
     {
 
         private IFormulaSaver saver = new XmlFormulaSaver(new StandardXmlSymbolCreator());
@@ -18,9 +18,9 @@ namespace FormulaEditor
         /// <summary>
         /// Saver
         /// </summary>
-        public static StandardSaver Saver = new StandardSaver();
+        public static StandardSaverSeparate Saver = new StandardSaverSeparate();
 
-        private StandardSaver()
+        private StandardSaverSeparate()
         {
 
         }
@@ -35,8 +35,9 @@ namespace FormulaEditor
             {
                 return saver.Load(str);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
+
             }
             try
             {
@@ -60,8 +61,9 @@ namespace FormulaEditor
                     MathFormula fo = new MathFormula(0, MathSymbolFactory.Sizes, list, 0, str.Length);
                     return fo;
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
+
                 }
             }
             return null;

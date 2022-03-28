@@ -385,7 +385,6 @@ namespace AssemblyService
                     }
                     catch (Exception exception)
                     {
-                        exception = exception;
                         continue;
                     }
                     foreach (T t in en)
@@ -542,7 +541,7 @@ namespace AssemblyService
             }
             catch (Exception ex)
             {
-                ex = ex;
+
             }
             return false;
         }

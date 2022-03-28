@@ -430,10 +430,6 @@ namespace Event.Interfaces
                 {
                     Tuple<string, object[], DateTime> t = o as Tuple<string, object[], DateTime>;
                     object[] ob = t.Item2;
-                    if (obj == ob)
-                    {
-                        ob = ob;
-                    }
                     obj = ob;
                     for (int i = 0; i < ob.Length; i++)
                     {

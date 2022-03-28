@@ -72,7 +72,7 @@ namespace FormulaEditor
         /// </summary>
         protected static Dictionary<string, string> errorResources;
 
-        private static IFormulaSaver saver = StandardSaver.Saver;
+        private static IFormulaSaver saver = StandardSaverSeparate.Saver;
 
         #endregion
 

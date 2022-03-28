@@ -16,7 +16,7 @@ namespace FormulaEditor.Symbols
         public BinaryFunctionSymbol(BinaryFunctionSymbol s) 
         {
             this.bold = base.bold;
-            this.italic = italic;
+ //           this.italic = italic;
             this.s = s.s;
             this.sb = s.sb;
             this.sizes = s.sizes;

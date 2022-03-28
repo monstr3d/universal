@@ -27,7 +27,7 @@ namespace Aviation.Light
         [STAThread]
         static void Main(string[] args)
         {
-            WpfInterface.StaticExtensionWpfInterface.Init();
+       //     WpfInterface.StaticExtensionWebInterfaceUI.Init();
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

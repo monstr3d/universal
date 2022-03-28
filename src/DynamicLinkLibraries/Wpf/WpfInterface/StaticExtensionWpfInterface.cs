@@ -6,6 +6,7 @@ using System.Windows.Markup;
 using System.Windows.Media;
 using System.Windows.Media.Media3D;
 
+
 using Motion6D.Interfaces;
 using Motion6D;
 
@@ -29,6 +30,14 @@ namespace WpfInterface
         #endregion
 
         #region Public Members
+
+        /// <summary>
+        /// Inits itself
+        /// </summary>
+        static public void Init()
+        {
+
+        }
 
         /// <summary>
         /// Standard transformation
