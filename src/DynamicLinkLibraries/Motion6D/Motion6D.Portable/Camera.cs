@@ -1,17 +1,17 @@
 using System;
 using System.Collections.Generic;
-using System.Text;
-using System.Runtime.Serialization;
 
 using CategoryTheory;
 
-using Diagram.UI;
+
 using Diagram.UI.Interfaces;
 using Diagram.UI.Labels;
 
-using Motion6D.Interfaces;
+using DataPerformer.Interfaces;
 
 using Event.Interfaces;
+
+using Motion6D.Interfaces;
 using Motion6D.Portable.Interfaces;
 
 namespace Motion6D.Portable
@@ -19,7 +19,8 @@ namespace Motion6D.Portable
     /// <summary>
     /// Basic camera
     /// </summary>
-    public abstract class Camera : Position, ICategoryObject, IVisibleConsumer, IEventHandler
+    public abstract class Camera : Position, ICategoryObject, IVisibleConsumer, IEventHandler, 
+        ICalculationReason
     {
 
         #region Fields
@@ -67,6 +68,8 @@ namespace Motion6D.Portable
         /// Attached oject
         /// </summary>
         private object obj;
+
+        protected string calculationReason = "";
 
         #endregion
 
@@ -185,6 +188,39 @@ namespace Motion6D.Portable
         }
 
         #endregion
+
+        #region ICalculationReason Members
+        string ICalculationReason.CalculationReason
+        {
+            get => calculationReason;
+            set { calculationReason = value; SetCalculationReason(); }
+        }
+
+        #endregion
+
+        #region Overriden Members
+
+        /// <summary>
+        /// Overriden to string
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            return this.ObjectArrowName() + base.ToString() + ")";
+        }
+
+        #endregion
+
+        #region Abstract Members
+
+        /// <summary>
+        /// Sets a calculation reason
+        /// </summary>
+        protected abstract void SetCalculationReason();
+
+
+        #endregion
+
 
         #region Virtual Members
 

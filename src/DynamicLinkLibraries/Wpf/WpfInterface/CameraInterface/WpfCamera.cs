@@ -36,7 +36,7 @@ namespace WpfInterface.CameraInterface
     /// WPF implementation of virtual video camera
     /// </summary>
     [Serializable()]
-    [CalculationReasons(new string[] { "Animation", Event.Interfaces.StaticExtensionEventInterfaces.Realtime })]
+    [CalculationReasons(new string[] { "Animation", StaticExtensionEventInterfaces.Realtime })]
     public class WpfCamera : Motion6D.Camera, ISerializable,
         IUpdatableObject, IObjectTransformer, IMeasurements, IEventHandler, IAnimatedObject
     {
@@ -175,14 +175,23 @@ namespace WpfInterface.CameraInterface
         #endregion
 
         #region Ctor
-
+        
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public WpfCamera()
         {
             cameraPositon = this;
         }
 
 
-        protected WpfCamera(SerializationInfo info, StreamingContext context)
+
+        /// <summary>
+        /// Deserialization constructor
+        /// </summary>
+        /// <param name="info">Serialization info</param>
+        /// <param name="context">Streaming context</param>
+        private WpfCamera(SerializationInfo info, StreamingContext context)
             : this()
         {
             try
@@ -500,6 +509,19 @@ namespace WpfInterface.CameraInterface
         #endregion
 
         #region Overriden
+
+
+        /// <summary>
+        /// Sets a calculation reason
+        /// </summary>
+        protected override void SetCalculationReason()
+        {
+            if (calculationReason == StaticExtensionEventInterfaces.Realtime)
+            {
+                update = UpdateImage;
+            }
+        }
+
 
         /// <summary>
         /// Scale

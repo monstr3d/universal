@@ -20,7 +20,7 @@ namespace Motion6D
     /// Basic camera
     /// </summary>
     [Serializable()]
-    public abstract class Camera : Motion6D.Portable.Camera, ISerializable
+    public abstract class Camera : Portable.Camera, ISerializable
     {
         #region Ctor
 

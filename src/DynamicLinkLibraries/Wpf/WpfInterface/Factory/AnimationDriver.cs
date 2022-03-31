@@ -55,7 +55,7 @@ namespace WpfInterface.Factory
             
             if (realTime)
             {
-                collection.ForEach<IAnimatedObject>((IAnimatedObject animated) =>
+                collection.ForEach((IAnimatedObject animated) =>
                 {
                     animated.InitRealtime(animationType, changeFrameTime);
                     l.Add(animated);

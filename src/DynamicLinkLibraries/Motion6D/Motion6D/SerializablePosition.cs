@@ -73,7 +73,7 @@ namespace Motion6D
 
         #region IAssociatedObject Members
 
-        object CategoryTheory.IAssociatedObject.Object
+        object IAssociatedObject.Object
         {
             get
             {
@@ -88,6 +88,15 @@ namespace Motion6D
         #endregion
 
         #region Overriden Members
+
+        /// <summary>
+        /// Overriden to string
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            return this.ObjectArrowName() + base.ToString() + ")";
+        }
 
         /// <summary>
         /// Position parameters

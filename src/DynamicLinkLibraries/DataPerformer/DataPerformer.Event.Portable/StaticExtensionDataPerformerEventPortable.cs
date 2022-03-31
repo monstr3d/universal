@@ -15,6 +15,15 @@ namespace DataPerformer.Event.Portable
     public static class StaticExtensionDataPerformerEventPortable
     {
 
+        /// <summary>
+        /// Performs an iterator
+        /// </summary>
+        /// <param name="consumer">Data consumer</param>
+        /// <param name="iterator">Iterator</param>
+        /// <param name="timeProvider">Time provider</param>
+        /// <param name="reason">Reason</param>
+        /// <param name="stop">Stop function</param>
+        /// <returns>True is success</returns>
         public static bool PerformIterator(this IDataConsumer consumer, IIterator iterator,
     ITimeMeasurementProvider timeProvider, string reason, Func<bool> stop)
         {
@@ -64,6 +73,15 @@ namespace DataPerformer.Event.Portable
             return true;
         }
 
+        /// <summary>
+        /// Performs iterator enumerable 
+        /// </summary>
+        /// <param name="consumer">Data consumer</param>
+        /// <param name="iterator">Iterator</param>
+        /// <param name="timeProvider">Time provider</param>
+        /// <param name="reason">Reason</param>
+        /// <param name="stop">Stop function</param>
+        /// <returns>The enumerable</returns>
         public static IEnumerable<object> PerformIteratorEnumerable(this IDataConsumer consumer, IIterator  iterator, 
             ITimeMeasurementProvider timeProvider, string reason, Func<bool> stop)
         {
