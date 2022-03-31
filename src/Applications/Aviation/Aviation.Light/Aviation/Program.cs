@@ -50,7 +50,7 @@ namespace Aviation.Light
             }
             if (filename.Equals("-t"))
             {
-                logWriter = new System.IO.StreamWriter(AppDomain.CurrentDomain.BaseDirectory + "log.txt");
+                logWriter = new StreamWriter(AppDomain.CurrentDomain.BaseDirectory + "log.txt");
                 filename = "";
             }
             if (filename.Equals("-tc"))

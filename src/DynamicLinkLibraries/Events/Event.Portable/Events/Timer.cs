@@ -23,7 +23,7 @@ namespace Event.Portable.Events
 
         protected TimeSpan timeSpan;
 
-        protected event Action ev;
+        protected event Action ev = () => { };
 
         protected Action locked;
 

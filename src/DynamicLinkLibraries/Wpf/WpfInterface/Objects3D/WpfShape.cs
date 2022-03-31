@@ -73,7 +73,7 @@ namespace WpfInterface.Objects3D
 
         Bitmap texture;
 
-        protected Motion6D.FieldConsumer3D consumer;
+        protected FieldConsumer3D consumer;
 
         public const string deleteTexture = "delete_texture_file_";
 
@@ -134,7 +134,7 @@ namespace WpfInterface.Objects3D
         /// </summary>
         /// <param name="info">Serialization info</param>
         /// <param name="context">Streaming context</param>
-        protected WpfShape(SerializationInfo info, StreamingContext context)
+        private WpfShape(SerializationInfo info, StreamingContext context)
         {
             try
             {

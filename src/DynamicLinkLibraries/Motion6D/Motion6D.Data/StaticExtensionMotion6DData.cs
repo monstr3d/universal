@@ -54,7 +54,7 @@ namespace Motion6D
                 {
                     if (assemblyName.Contains(key))
                     {
-                        t = Type.GetType(String.Format("{0}, {1}",
+                        t = Type.GetType(string.Format("{0}, {1}",
                             typeName,
                             ass[key]));
                         if (t != null)
@@ -66,9 +66,6 @@ namespace Motion6D
                 return null;
             }
         }
-
-
-
 
     }
 }

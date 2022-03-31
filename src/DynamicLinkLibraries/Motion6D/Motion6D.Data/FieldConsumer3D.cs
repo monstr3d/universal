@@ -1,17 +1,9 @@
 using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Runtime.Serialization;
 
-using CategoryTheory;
-using Diagram.UI;
-using Diagram.UI.Aliases;
-
-using DataPerformer.Portable;
-using DataPerformer.Interfaces;
 
 using Motion6D.Interfaces;
-using PhysicalField.Interfaces;
 
 
 namespace Motion6D

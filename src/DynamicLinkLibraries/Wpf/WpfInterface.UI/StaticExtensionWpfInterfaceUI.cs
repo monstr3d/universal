@@ -6,6 +6,8 @@ using System.Text;
 using System.Windows.Media;
 using System.Windows.Media.Media3D;
 
+using AssemblyService.Attributes;
+
 using WpfInterface;
 
 
@@ -14,7 +16,7 @@ namespace WpfInterface.UI
     /// <summary>
     /// Static extension
     /// </summary>
-    [CategoryTheory.InitAssembly]
+    [InitAssembly]
     public static class StaticExtensionWpfInterfaceUI
     {
 

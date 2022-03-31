@@ -74,8 +74,10 @@ namespace SerializationInterface
             {
                 return null;
             }
-            MemoryStream s = new MemoryStream(b);
-            return s.Deserialize<T>();
+            using (var stream = new MemoryStream(b))
+            {
+                return stream.Deserialize<T>();
+            }
         }
 
         /// <summary>
@@ -111,7 +113,8 @@ namespace SerializationInterface
             {
                 bf.Binder = binder;
             }
-            return bf.Deserialize(stream) as T;
+            var obj = bf.Deserialize(stream);
+            return (T)obj;
         }
 
         /// <summary>
