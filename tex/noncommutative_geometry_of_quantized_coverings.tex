@@ -3611,7 +3611,7 @@ Both inclusions $\overline{A}_{\widehat \pi_a}\subset  \overline{A}_{\widehat \p
 	If we  consider the situation of \ref{disconnected_limit_empt} and the Definition \ref{disconnected_inf_defn} then the  spectrum of $\widehat A$ is the inverse limit  (cf. Definition \ref{top_inv_lim_defn}) of spectra of $A_\la$.
 \end{lemma}
 
-\begin{proof}
+\begin{proof} CHECK !!!
 	Denote by $\sX_\la$ and $\widehat \sX$ the spectra of $A_\la$ and $\widehat A$ respectively. From the Lemma \ref{spectrum_cov_lem}  it turns out that for any $\mu, \nu \in \La$ such that $\mu > \nu$ the inclusion  $\pi^\nu_{ \mu}: A_\nu \to A_\mu$ induces the surjective continuous map $p^\nu_\mu :  \sX_\mu \to \sX_\nu$. Otherwise if $\sY_\la$ and $\widehat \sY$ are the state spaces of $A_\la$ and $\widehat A$ then one has  $\sX_\la\subset \sY_\la$ and $\widehat \sX\subset \widehat  \sY$. Moreover for any $\mu, \nu \in \La$ such that $\mu > \nu$ there is the natural  continuous surjective map $t^\nu_\mu :  \sY_\mu \to \sY_\nu$ such that
 	$$
 	p^\nu_\mu = \left.t^\nu_\mu\right|_{\sX_\mu}
@@ -3655,7 +3655,13 @@ Both inclusions $\overline{A}_{\widehat \pi_a}\subset  \overline{A}_{\widehat \p
 	\left.\widehat \tau\right|_{A_\nu}= \frac{1}{\left|G\left( \left.A_\mu \right|A_\nu\right) \right|}\sum_{g \in G\left( \left.A_\mu \right|A_\nu\right)} g \left.\widehat \tau\right|_{A_\mu}
 	\eean
 (cf. Lemma \ref{spectrum_cov_lem})	it follows that $t_\mu = t_\nu$, hence there is $t\in \left[0,1\right]$ such that $t_\la=t$ for all $\la\in \La$. So one has $\widehat p= t\widehat\tau$, i.e. $\widehat\tau$ is a pure state.
-	Conversely suppose that $\widehat\tau$ is pure and $\left.\widehat \tau\right|_{A_\la}$ is not pure. There is a positive functional  $p_\la: A_\la \to \C$ such that $p_\la \le \left.\widehat \tau\right|_{A_\la}$ and $p_\la \neq t\left.\tau\right|_{A_\la}$ for all $t \in \left[0,1\right]$. Using Hahn–Banach theorem one can extent $p_\la$ up to a positive functional $\widehat p: \widehat A\to \C$ such that $\widehat p\le \widehat \tau$. But $\widehat p \neq t\widehat \tau$ for all $t \in \left[0,1\right]$, i.e. the state $\widehat \tau$ is not pure.
+
+
+	Conversely suppose that $\widehat\tau$ is pure. The space $\bigcup_{\la \in \La} A_\la$ is dense in $\widehat A$, so there is $\la\in \La$ such that $\left.\widehat \tau\right|_{A_\la}$ is not trivial. 
+	Any $\pi^\nu_{ \mu}: A_\nu \to A_\mu$ is unital in the sense of the Definition \ref{principal_non_defn} it follows that $f_\la\left( 1_{A^\sim_\la}\right)= 1_{\widehat A} $ and 
+	$\left.\widehat \tau\right|_{A_\la}\left(1_{A^\sim_\la} \right)$, i.e. $\left.\widehat \tau\right|_{A_\la} A_\la \to \C$ is a state.	
+		If the state $\left.\widehat \tau\right|_{A_\la}$ is not pure then there is a positive functional  $p_\la: A_\la \to \C$ such that $p_\la \le \left.\widehat \tau\right|_{A_\la}$ 
+		and $p_\la \neq t\left.\widehat\tau\right|_{A_\la}$ for all $t \in \left[0,1\right]$.  Using Hahn–Banach theorem one can extent $p_\la$ up to a positive functional $\widehat p: \widehat A\to \C$ such that $\widehat p\le \widehat \tau$. But $\widehat p \neq t\widehat \tau$ for all $t \in \left[0,1\right]$, i.e. the state  $\widehat \tau$ is not pure. From this contradiction it follows that the restriction $\left.\widehat \tau\right|_{A_\la} A_\la \to \C$ is a pure state.
 \end{proof}
 
 
