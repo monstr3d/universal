@@ -7,6 +7,9 @@ using Vector3D.Interfaces;
 
 namespace Vector3D
 {
+    /// <summary>
+    /// Euclidean transformation
+    /// </summary>
     public class EuclideanTransform : IVectorProvider
     {
         #region Fields
