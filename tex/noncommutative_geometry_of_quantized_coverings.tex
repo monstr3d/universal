@@ -3611,7 +3611,7 @@ Both inclusions $\overline{A}_{\widehat \pi_a}\subset  \overline{A}_{\widehat \p
 	If we  consider the situation of \ref{disconnected_limit_empt} and the Definition \ref{disconnected_inf_defn} then the  spectrum of $\widehat A$ is the inverse limit  (cf. Definition \ref{top_inv_lim_defn}) of spectra of $A_\la$.
 \end{lemma}
 
-\begin{proof} CHECK !!!
+\begin{proof}
 	Denote by $\sX_\la$ and $\widehat \sX$ the spectra of $A_\la$ and $\widehat A$ respectively. From the Lemma \ref{spectrum_cov_lem}  it turns out that for any $\mu, \nu \in \La$ such that $\mu > \nu$ the inclusion  $\pi^\nu_{ \mu}: A_\nu \to A_\mu$ induces the surjective continuous map $p^\nu_\mu :  \sX_\mu \to \sX_\nu$. Otherwise if $\sY_\la$ and $\widehat \sY$ are the state spaces of $A_\la$ and $\widehat A$ then one has  $\sX_\la\subset \sY_\la$ and $\widehat \sX\subset \widehat  \sY$. Moreover for any $\mu, \nu \in \La$ such that $\mu > \nu$ there is the natural  continuous surjective map $t^\nu_\mu :  \sY_\mu \to \sY_\nu$ such that
 	$$
 	p^\nu_\mu = \left.t^\nu_\mu\right|_{\sX_\mu}
@@ -3664,6 +3664,32 @@ Both inclusions $\overline{A}_{\widehat \pi_a}\subset  \overline{A}_{\widehat \p
 		and $p_\la \neq t\left.\widehat\tau\right|_{A_\la}$ for all $t \in \left[0,1\right]$.  Using Hahn–Banach theorem one can extent $p_\la$ up to a positive functional $\widehat p: \widehat A\to \C$ such that $\widehat p\le \widehat \tau$. But $\widehat p \neq t\widehat \tau$ for all $t \in \left[0,1\right]$, i.e. the state  $\widehat \tau$ is not pure. From this contradiction it follows that the restriction $\left.\widehat \tau\right|_{A_\la} A_\la \to \C$ is a pure state.
 \end{proof}
 
+\begin{lemma}\label{inverse_lim_h_lem}
+	Consider the situation of the Lemma \ref{inverse_lim_sp_lem}, let $\widehat p :  \widehat\sX \to\sX= \sX_{\la_{\mathrm{min}}}$ be the natural continuous map from inverse limit to the spectrum of $A$ (cf. Definition \ref{top_inv_lim_defn}). Suppose that for all $\la\in \La$ a noncommutative finite-fold covering $A \hookto A_\la$ (cf. Definition \ref{fin_defn}) is reduced (cf. Definition \ref{fin_red_defn}). 
+	If $\widehat{x }\in \widehat{\sX }$ is a point and both $\rep_{  \widehat{x }}: \widehat A \to B\left( \H_{\widehat{x}}\right)$ and  $\rep_{ \widehat{p} \left( \widehat{x }\right) }:  A \to B\left( \H_{\widehat{p} \left( \widehat{x }\right)}\right)$ are corresponding to $\widehat{x }$  and $\widehat{p} \left( \widehat{x }\right)$ irreducible representations then there is the natural isomorphism  
+\be\label{inverse_lim_hs_eqn}
+\H_{\widehat{x}}\cong 	\H_{\widehat{p} \left( \widehat{x }\right)}
+\ee
+of Hilbert spaces.
+\end{lemma}
+\begin{proof}
+If $\widehat x$ correspond to a state $\tau_{\widehat x}$ then $\H_{\widehat x}$ is a completion of $\widehat A/	\mathcal{I}_{\tau_{\widehat x}}$ where 
+$$
+\mathcal{I}_{\tau_{\widehat x}}\bydef \left\{\left.\widehat a \in \widehat A \ \right| \ \tau(\widehat a^*\widehat a)=0\right\}
+$$
+(cf. equation \ref{tau_ideal_eqn}). If $f_{\tau_{\widehat x}}: \widehat A \to \H_{\widehat x}$ is given by the equation \eqref{from_a_to_l2_eqn} then $f_{\tau_{\widehat x}}\left(  \widehat A\right)$ is a dense subset of $\H_{\widehat x}$. On the other hand since $\bigcup A_\la$ is dense in $ \widehat A $ the space $f_{\tau_{\widehat x}}\left(  \bigcup A_\la\right)$  a dense subset of $\H_{\widehat x}$. However from the equation \eqref{red_incp_eqn} it turns out that $f_{\tau_{\widehat x}}\left(  A_\la\right)= f_{\tau_{\widehat x}}\left(   A\right)$ for every $\la\in \La$ it follows that $f_{\tau_{\widehat x}}\left(  A\right)$ is dense in $\H_{\widehat x}$. We leave to the reader the proof of the following isomorphism
+$$
+f_{\tau_{\widehat x}}\left(   A\right)\cong f_{\tau_{\widehat p\left( \widehat x\right) }}\left(  A\right).
+$$
+Left and right parts of the above bijection are dense subsets of both $\H_{\widehat{x}}$ and	$\H_{\widehat{p} \left( \widehat{x }\right)}$, so one can obtain the natural isomorphism \eqref{inverse_lim_hs_eqn}.
+\end{proof}
+
+\begin{corollary}\label{inverse_lim_h_cor}
+In the situation of the Lemma \ref{inverse_lim_h_lem} the Hilbert space of the atomic representation (cf. Definition \ref{atomic_repr_defn}) is the Hilbert norm completion of the given by
+\be\label{inverse_lim_h_eqn}
+\bigoplus_{ \widehat x \in \widehat \sX} 	\H_{\widehat{x }}\cong 	\bigoplus_{ \widehat x \in \widehat \sX} 	\H_{\widehat{p} \left( \widehat{x }\right)}.
+\ee 
+\end{corollary}
 
 \begin{corollary}\label{spectrum_injective_cor}
 	Let $\overline A$ be the {disconnected algebraical inverse noncommutative limit} (cf. Definition \ref{disconnected_inf_defn}) of a {pointed algebraical  finite covering category}  
@@ -9148,7 +9174,7 @@ where $a_{\widehat x} \in B\left(\ {\widehat \H}_{\widehat x} \right)$ is the st
 \end{lemma}
 \begin{proof}
 	(i) The spectrum of $A_0\left( \sX_\la\right)$ is $\sX_\la$, and similarly to the proof of the  Lemma \ref{inverse_lim_sp_lem} the reader can prove that spectrum of the $C^*$-inductive limit  $C^*\text{-}\varinjlim_\La A_0\left(\sX_\la\right)$ is the projective limit $\varprojlim \sX_\la$.\\
-	(ii) If $\widehat x$ correspond to a state $\tau_{\widehat x}$ then $\H_{\widehat x}$ is a completion of $\widehat A/	\mathcal{I}_{\tau_{\widehat x}}$ where 
+	(ii) !!! UP REPLACE If $\widehat x$ correspond to a state $\tau_{\widehat x}$ then $\H_{\widehat x}$ is a completion of $\widehat A/	\mathcal{I}_{\tau_{\widehat x}}$ where 
 	$$
 	\mathcal{I}_{\tau_{\widehat x}}\bydef \left\{\left.\widehat a \in C^*\text{-}\varinjlim_\La A_0\left(\sX_\la\right) \ \right| \ \tau(\widehat a^*\widehat a)=0\right\}
 	$$
@@ -19391,7 +19417,7 @@ smallest or coarsest topology such that each $f_j$ is continuous.
 \begin{definition}\label{top_inv_lim_defn}\cite{spanier:at}
 If $\left\{\sX_\a\right\}_{\a\in\La}$ is an inverse system of topological 
 spaces (that is, $\sX_\a$ is a topological space for $\a\in \La$ and $f^\bt_\a: \sX_\bt\to \sX_\a$ is  
-continuous for $\a\le\bt$) their inverse limit $\varprojlim \sX_\a$ (cf. Definition \ref{inv_lim_defn}) is given the topology induced by the functions $p_\a : \varprojlim \sX_\a\to\sX_\a$  for $\a\in\La$. 
+continuous for $\a\le\bt$) their \textit{inverse limit} $\varprojlim \sX_\a$ (cf. Definition \ref{inv_lim_defn}) is given the topology induced by the functions $p_\a : \varprojlim \sX_\a\to\sX_\a$  for $\a\in\La$. 
 \end{definition}
 	
 	\begin{empt}\cite{engelking:general_topology}
