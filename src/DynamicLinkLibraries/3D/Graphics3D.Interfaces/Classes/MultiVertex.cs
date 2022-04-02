@@ -40,7 +40,7 @@ namespace Graphics3D.Interfaces.Classes
         ///External visibility array
         /// </summary>
         protected bool[] externalVisibility;           // External visibility array
-        
+
         /// <summary>
         /// 
         /// </summary>
@@ -74,26 +74,104 @@ namespace Graphics3D.Interfaces.Classes
 
         #endregion
 
+
+
         #region Ctor
 
 
         MultiVertex(ID3DFaceArray faces)
-{
-	nLayersMaterials = 0;
-	nVertex = faces.Count;
-            vertices = new double[nVertex][] ;
-	for (int i = 0; i<nVertex; i++)
-	{
-		vertices[i] = new double[3];
-        ID3DFace face;
-        faces.GetElement(i, out face);
-        vertices[i].SetFace(face);
-    }
-    CalculateVisibility();
-}
+        {
+            nLayersMaterials = 0;
+            nVertex = faces.Count;
+            vertices = new Vertex[nVertex];
+            for (int i = 0; i < nVertex; i++)
+            {
+                vertices[i] = new Vertex();
+                ID3DFace face;
+                faces.GetElement(i, out face);
+                vertices[i].SetFace(face);
+            }
+            CalculateVisibility();
+        }
+
+        #endregion
 
 
+        #region Public Members
 
+        /// <summary>
+        /// Number of vertices
+        /// </summary>
+        public int Count
+        { get => nVertex; }
+
+        /// <summary>
+        /// Sets color
+        /// </summary>
+        /// <param name="index">Index of vertex</param>
+        /// <param name="alpha">Alpha</param>
+        /// <param name="red">Red</param>
+        /// <param name="green">Green</param>
+        /// <param name="blue">Blue</param>
+        void SetColor(int index, double alpha, double red, double green, double blue)
+        {
+            vertices[index].SetColor(alpha, red, green, blue);
+        }
+
+        #endregion
+
+
+        #region Protected Members
+
+        void CalculateVisibility()
+        {
+            externalVisibility = new bool[nVertex];
+            visibility = new bool[nVertex][];
+            return;
+            /*       for (int i = 0; i < nVertex; i++)
+                   {
+                           visibility[i] = new bool[i + 1];
+                           visibility[i][i] = false;
+                          for (int j = 0; j < i; j++)
+                           {
+                                   Vertex& v1 = *vertices[i];
+                                   Vertex& v2 = *vertices[j];
+                                   VectorD diff(v2.GetSource() - v1.GetSource());
+                                   double a1 = diff | v1.GetNorm();
+                                   double a2 = diff | v2.GetNorm();
+                                   if (a2 != 0)
+                                   {
+                                           a1 = a1;
+                                   }
+                                   visibility[i][j] = a1 > 0 && a2 < 0;
+                           }
+                   }
+                   for (int is = 0; is < nVertex; is++)
+                   {
+                           const Vertex & vi = *vertices[is];
+                           for (int j = 0; j < nVertex; j++)
+                           {
+                                   if (!GetVisibility(is, j))
+                                   {
+                                           continue;
+                                   }
+                                   Vertex& vj = *vertices[j];
+                                   vj.SetVisibilityPoint(vi.GetSource());
+                                   for (int k = 0; k < is; k++)
+                                   {
+                                           const Vertex & vk = *vertices[k];
+                                           if (visibility[is][k])
+                                           {
+                                                   continue;
+                                           }
+                                           if (!vj.isVisible(vk.GetSource()))
+                                           {
+                                                   visibility[is][k] = false;
+                                           }
+                                   }
+                           }
+                   }*/
+        }
 
 
         #endregion

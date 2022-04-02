@@ -9121,7 +9121,7 @@ According to our construction for any $\mu >\nu$ the category $	\mathfrak{S}_{C_
 
 
 
-\begin{empt}\label{top_poi_alg}
+\begin{empt}\label{top_poi_alg_empt}
 	Let 
 	$\mathfrak{S}_{\left(\sX, x_0\right)}= \left\{p_\la:\left( \sX_\la, x^\la_0\right) \to \left( \sX, x_0\right)\right\}_{\la \in \La} \in \mathfrak{FinTop}^{\mathrm{pt}}$ be a pointed topological finite covering category
 (cf. Definition \ref{top_sec_p_defn}). Similarly to \ref{comm_t_a_empt}  consider a continuity structure $\sF$ for $\sX$ {and the} $\left\{A_x\right\}_{x \in \sX}$ where $A_x$ is a simple $C^*$-algebra (cf. Definition \ref{simple_ca_defn}) for any $x \in \sX$. There is the contravariant {finite covering functor $A_0$ associated with} $A = \left(\sX, \left\{A_x\right\}_{x \in \sX}, \sF \right)$ from the category  the category  $\mathfrak{S}_{\left(\sX, x_0\right)}$ to the category of $C^*$- algebras and *-homomorphisms. There is the  category 
@@ -9132,22 +9132,36 @@ According to our construction for any $\mu >\nu$ the category $	\mathfrak{S}_{C_
 \end{split}
 	\end{equation}
 \end{empt}
-
-\begin{lemma}\label{top_atomic_lem} (!!! iii)
-If  $\mathfrak{S}_{A }$ is a given by \eqref{top_alg_cat}  {pointed algebraical  finite covering category} (cf. Definition \ref{pointed_defn})  then
+\begin{exercise}\label{top_disconn_rep_exer} 
+	Consider the situation \ref{top_poi_alg_empt}. Let $\overline  \sX$ be the disconnected inverse limit of $\mathfrak{S}_{\left( \mathcal{X}, x_0\right)}$ (cf. Definition \ref{top_topological_inv_lim_defn}), let $\overline  p:  \overline  \sX \to \sX$ be the natural covering. Prove following statements:
+	\begin{enumerate}
+		\item If one has a $C^*$-algebra given by
+		\be\label{top_oa_eqn}
+		A_0\left(\overline  \sX\right)\bydef C_0\left(\lift_{ \overline{p}}\left[A = A_0\left(  \sX\right)\right] \right)
+		\ee (cf. Definitions \ref{top_cc_c0_defn} and \ref{top_cont_lift_defn}) then $\overline  \sX$ is the spectrum of $A_0\left(\overline  \sX\right)$.
+		\item If $\overline x \in \overline \sX$ and $\rep_{  \overline{x }}: A_0\left(\overline  \sX\right) \to B\left(\H_{ \overline x}\right)$ is the a corresponding to
+		 $\overline{ x}$ irreducible representation then there is an isomorphism $\H_{ \overline x}\cong \H_{ \overline p\left( \overline x\right) }$ where 
+	$\H_{ \overline p\left( \overline x\right)}$ is a space of  a corresponding to 
+	$\overline p\left( \overline x\right)$ irreducible representation $\rep_{ \overline p\left( \overline x\right)}: A \to B\left( \H_{\overline p\left( \overline x\right)}\right) $ irreducible representation.
+	\item If $ A_0\left(\overline  \sX\right) \hookto B\left(\overline\H_{a}\right)$ is an atomic representation then $\overline\H_a$ is the completion of the algebraic direct sum 
+	$$
+	\bigoplus_{\overline  x \in \overline  \sX} \H_{ \overline p\left( \overline x\right) }.
+	$$
+	\end{enumerate}
+\end{exercise}
+\begin{lemma}\label{top_atomic_lem}Suppose that   the equation  \eqref{top_alg_cat} yields a {pointed algebraical  finite covering category} $\mathfrak{S}_{A }$ (cf. Definition \ref{pointed_defn}).  If for all $\la\in \La$ a noncommutative finite-fold covering $A \hookto A_0\left(\sX_\la\right)$ (cf. Definition \ref{fin_defn}) is reduced (cf. Definition \ref{fin_red_defn})
+	  then following conditions hold:
 \begin{itemize}
-	\item [(i)] The spectrum of the $C^*$-inductive limit  $\widehat A \stackrel{\mathrm{def}}{=}C^*\text{-}\varinjlim_\La A_0\left(\sX_\la\right)$ is the projective limit $\varprojlim \sX_\la$.
-	\item[(ii)] Let $\widehat p : \varprojlim \sX_\la \to \sX = \sX_{\la_{\mathrm{min}}}$ be the natural surjective map.	
-	If $\widehat x \in \varprojlim \sX_\la$ and $\rep_{  \widehat{x }}: \widehat A \to B\left(\H_{ \widehat x}\right)$ is a corresponding irreducible representation and $\rep_{\widehat p\left(\widehat x\right)}: A\to B\left(\H_{\widehat p\left(\widehat x\right)}\right)$ is a corresponding to $p\left(\widehat x\right)\in \sX$ representation then there is the natural isomorphism $\H_{ \widehat x}\cong\H_{\widehat p\left(\widehat x\right)}$.
-\item[(iii)] Let $\overline  \sX$ be the disconnected inverse limit of $\mathfrak{S}_{\left( \mathcal{X}, x_0\right)}$ (cf. Definition \ref{top_topological_inv_lim_defn}), let $\overline  p:  \overline  \sX \to \sX$ be the natural covering. Suppose that
-	$$
-	A_0\left(\overline  \sX\right)\bydef C_0\left(\lift_{ \overline{p}}\left[A_0\left(  \sX\right)\right] \right).
-	$$
-If $\overline \H_a$ is the space of the atomic representation $\overline{\pi}_a :A_0\left(\overline  \sX\right) \hookto B\left( \overline \H_a \right)$ (cf. Definition \ref{atomic_repr_defn}), $\widehat{  \mathcal X}$ is the projective limit $\varprojlim \sX_\la$ of topological spaces and $\widehat \H_a$ is the space of the atomic representation $\widehat{\pi}_a : C^*\text{-}\varinjlim_\La A_0\left(\sX_\la\right) \hookto B\left( \widehat \H_a \right)$ then there is the natural isomorphism
+	\item [(i)] The spectrum of the $C^*$-inductive limit  $\widehat A \stackrel{\mathrm{def}}{=}C^*\text{-}\varinjlim_\La A_0\left(\sX_\la\right)$ (cf. Definition \ref{principal_non_defn}) is the projective limit $\varprojlim \sX_\la$ (cf. Definition \ref{top_inv_lim_defn}).
+\item[(ii)] Let $\overline  \sX$ be the disconnected inverse limit of $\mathfrak{S}_{\left( \mathcal{X}, x_0\right)}$ (cf. Definition \ref{top_topological_inv_lim_defn}), let $\overline  p:  \overline  \sX \to \sX$ be the natural covering. Suppose that the $C^*$-algebra
+	$
+	A_0\left(\overline  \sX\right)
+	$ is given by \eqref{top_oa_eqn}.
+If $\overline \H_a$ is the space of the atomic representation $\overline{\pi}_a :A_0\left(\overline  \sX\right) \hookto B\left( \overline \H_a \right)$ (cf. Definition \ref{atomic_repr_defn}) and $\widehat \H_a$ is the space of the atomic representation $\widehat{\pi}_a : \widehat A \hookto B\left( \widehat \H_a \right)$ then there is the natural isomorphism
 $$
 \overline \H_a \cong \widehat \H_a.
 $$.
-\item[(iv)] If $\left\{a_\la \in \widehat A\right\}_{\la \in \La}$ is a bounded strongly convergent in $B\left( \widehat \H_a \right)$ net then the strong limit $\overline a= \lim \widehat\pi_a\left(a_\la \right)$ is given by
+\item[(iii)] If $\left\{a_\la \in \widehat A\right\}_{\la \in \La}$ is a bounded strongly convergent in $B\left( \widehat \H_a \right)$ net then the strong limit $\overline a= \lim \widehat\pi_a\left(a_\la \right)$ is given by
 \be\label{top_strong_eqn}
 \begin{split}
 \overline a\xi=\overline a \left(...~, \underbrace{ \xi_{\widehat x}}_{\widehat x^{\mathrm{th}}~\mathrm{place}},... \right)= \left(...~, \underbrace{ \overline a_{\widehat x}\xi_{\widehat x}}_{\widehat x^{\mathrm{th}}~\mathrm{place}},... \right); \\
@@ -9158,46 +9172,24 @@ where $a_{\widehat x} \in B\left(\ {\widehat \H}_{\widehat x} \right)$ is the st
 \end{itemize}
 \end{lemma}
 \begin{proof}
-	(i) The spectrum of $A_0\left( \sX_\la\right)$ is $\sX_\la$, and similarly to the proof of the  Lemma \ref{inverse_lim_sp_lem} the reader can prove that spectrum of the $C^*$-inductive limit  $C^*\text{-}\varinjlim_\La A_0\left(\sX_\la\right)$ is the projective limit $\varprojlim \sX_\la$.\\
-	(ii) !!! UP REPLACE If $\widehat x$ correspond to a state $\tau_{\widehat x}$ then $\H_{\widehat x}$ is a completion of $\widehat A/	\mathcal{I}_{\tau_{\widehat x}}$ where 
-	$$
-	\mathcal{I}_{\tau_{\widehat x}}\bydef \left\{\left.\widehat a \in C^*\text{-}\varinjlim_\La A_0\left(\sX_\la\right) \ \right| \ \tau(\widehat a^*\widehat a)=0\right\}
-	$$
-	(cf. equation \ref{tau_ideal_eqn}). If $f_{\tau_{\widehat x}}:  C^*\text{-}\varinjlim_\La A_0\left(\sX_\la\right)\to \H_{\widehat x}$ is given by the equation \eqref{from_a_to_l2_eqn} then $f_{\tau_{\widehat x}}\left(  C^*\text{-}\varinjlim_\La A_0\left(\sX_\la\right)\right)$ is a dense subset of $\H_{\widehat x}$. On the other hand since $\bigcup A_0\left(\sX_\la\right)$ is dense in $C^*\text{-}\varinjlim_\La A_0\left(\sX_\la\right)$ the space $f_{\tau_{\widehat x}}\left(  \bigcup A_0\left(\sX_\la\right)\right)$  a dense subset of $\H_{\widehat x}$. However from $f_{\tau_{\widehat x}}\left(  A_0\left(\sX_\la\right)\right)= f_{\tau_{\widehat x}}\left(   A\right)$ for every $\la\in \La$ it follows that $f_{\tau_{\widehat x}}\left(  \bigcup A\right)$ is dense in $\H_{\widehat x}$. We leave to the reader the proof of the following isomorphism
-	$$
-	f_{\tau_{\widehat x}}\left(   A\right)\cong f_{\tau_{\widehat p\left( \widehat x\right) }}\left(  A\right).
-	$$
-	Left and right parts 
+	(i) The spectrum of $A_0\left( \sX_\la\right)$ is $\sX_\la$, so from the  Lemma \ref{inverse_lim_sp_lem} it turns out that  spectrum of the $C^*$-inductive limit  $C^*\text{-}\varinjlim_\La A_0\left(\sX_\la\right)$ is the projective limit $\varprojlim \sX_\la$.\\
+	(ii) From the Corollary \eqref{inverse_lim_h_cor} it follows that  $\widehat \H_a$  is the Hilbert norm completion of the given by
+	$ \bigoplus_{ \widehat x \in \widehat \sX}	\H_{\widehat{p} \left( \widehat{x }\right)}
+$
+pre-Hilbert space. On the other hand from the Exercise \ref{top_disconn_rep_exer}	 it follows that  $\overline  \H_a$  is the Hilbert norm completion of the given by
+$ \bigoplus_{ \overline x \in \overline \sX}	\H_{\overline{p} \left( \overline{x }\right)}
+$
+pre-Hilbert space. 	From (ii) of the Lemma \ref{top_spec_top_constr_lem} it follows that there is the bijective continuous map $\overline{\widehat p}: \overline  \sX \xrightarrow{\approx} \widehat  \sX$. Taking into account this fact  one concludes that there is a natural isomorphism
+$$
+\bigoplus_{ \widehat x \in \widehat \sX}	\H_{\widehat{p} \left( \widehat{x }\right)}\cong\bigoplus_{ \overline x \in \overline \sX}	\H_{\overline{p} \left( \overline{x }\right)}
+$$
+which can be uniquely extended up to isomorphism $\overline \H_a \cong \widehat \H_a$.
 	  \\
-	(iii) Denote by $\widehat\sX\stackrel{\text{def}}{=} \varprojlim \sX_\la$ and $\widehat A\stackrel{\text{def}}{=} C^*\text{-}\varinjlim_\La A_0\left(\sX_\la\right)$. The space $\overline  \sX$ is the spectrum of  	$A_0\left(\overline  \sX\right)$. 
-	From (ii) of the Lemma \ref{top_spec_top_constr_lem} it follows that there is the bijective continuous map $\overline{\widehat p}: \overline  \sX \to \widehat  \sX$. If $x \in \sX$, $\widehat x \in \widehat\sX$, $\overline x \in \overline \sX$ are points and $\rep_{x} : A_0\left(\sX\right)\to B\left(\H_{x}\right)$, $\rep_{\overline x} : A_0\left( \overline\sX\right)\to B\left(\overline\H_{ \overline x}\right)$, $\rep_{\widehat x} :  \widehat A\to B\left(\H_{\widehat x}\right)$ are corresponding irreducible representations then there are natural isomorphisms
-	\bean
-	\overline\H_{ \overline x} \cong \H_{\overline p\left(\overline x\right)},\\
-	\widehat\H_{ \widehat x} \cong \H_{\widehat p\left(\widehat x\right)}\\
-	\eean
-	where $\widehat p: \widehat \sX \to \sX$ is the natural surjective map.
-	It follows that !!! CORRECT
-	$$
-	\overline\H_{ \overline x} \cong \widehat\H_{\overline{\widehat p} \left( \overline x\right) }
-	$$
-	and taking into account
-	\bean
-	\overline\H_{a} =\bigoplus_{\overline x\in \overline \sX} \overline\H_{ \overline x},\\
-	\widehat\H_{a} =\bigoplus_{\widehat x\in \widehat \sX} \widehat\H_{ \widehat x}\cong \bigoplus_{ \overline x \in \overline \sX} \overline\H_{ \overline{\widehat p}\left( \overline x\right)}
-	\eean
-	one has
-	$
-	\overline\H_{a} \cong \widehat\H_{a}
-	$.\\
-		(iv)  Follows from the Lemma \ref{direct_sum_strong_lim_lem}.
+		(iii)  Follows from the Lemma \ref{direct_sum_strong_lim_lem}.
 	\end{proof}
-\begin{remark}
-\ref{inverse_lim_sp_lem}!!!
-\end{remark}
-
 
 \begin{empt}\label{top_spec_empt}
-	Consider the specialization of the Lemma  \ref{top_atomic_lem} (!!! iii) such that\\ $A = \left(\sX, \left\{\C_x\right\}_{x \in \sX}, \sF\right)= C_0\left(\sX \right) $,   $A_0 = C_0$, and the given by \eqref{top_alg_cat} category equals to
+	Consider the specialization of the Lemma  \ref{top_atomic_lem} such that\\ $A = \left(\sX, \left\{\C_x\right\}_{x \in \sX}, \sF\right)= C_0\left(\sX \right) $,   $A_0 = C_0$, and the given by \eqref{top_alg_cat} category equals to
 	\begin{equation}\label{top_talg_cat_eqn}
 	\begin{split}
 	\mathfrak{S}_{ C_0\left(\sX \right) } = \\
@@ -9209,7 +9201,7 @@ where $a_{\widehat x} \in B\left(\ {\widehat \H}_{\widehat x} \right)$ is the st
 	\rep_{\widehat x} : \widehat A\to \C;\\
 	\widehat a \mapsto \widehat a_{\widehat x} =\widehat a\left(\widehat x\right) \
 	\eean
-	and taking into account (iii) of the Lemma \ref{top_atomic_lem} (!!! iii) any special element $\overline a$ (cf. Definition \ref{special_element_defn}) of the category \eqref{top_talg_cat_eqn} corresponds to a family
+	and taking into account (iii) of the Lemma \ref{top_atomic_lem} any special element $\overline a$ (cf. Definition \ref{special_element_defn}) of the category \eqref{top_talg_cat_eqn} corresponds to a family
 	$
 	\left\{a_{\widehat{x}}\in \C\right\}_{\widehat{x}\in \widehat{\sX}}
 	$. 
@@ -9239,9 +9231,9 @@ Taking into account the bijective map $\overline\sX \to \widehat{\sX}$ one has  
 	\ee
 \end{lemma}
 \begin{proof}
-	 Since $\overline{A}$ is the $C^*$-norm completion of $f^\Xi\left(\Xi\left(	\mathfrak{S}_{C_0\left( \mathcal{X}\right) }  \right) \right)$ the map \eqref{comm_sp_x_eqn} uniquely defines the map $\varphi$. From  the Lemma \ref{top_atomic_lem} (!!! iii) it turns out that $\varphi$ is injective.
+	 Since $\overline{A}$ is the $C^*$-norm completion of $f^\Xi\left(\Xi\left(	\mathfrak{S}_{C_0\left( \mathcal{X}\right) }  \right) \right)$, so the map \eqref{comm_sp_x_eqn} uniquely defines the map $\varphi$. From  the Lemma it turns out that $\varphi$ is injective.
 \end{proof}
-
+!!! CONTINUE
 \begin{lemma}\label{comm_c0_inc_lem}
 	If $C_0\left( \overline{\sX}\right) \subset D^*\left( \overline{\sX}\right)$ is the natural inclusion then 
 in the situation ot the Lemma \ref{comm_disc_inc_lem} one has
