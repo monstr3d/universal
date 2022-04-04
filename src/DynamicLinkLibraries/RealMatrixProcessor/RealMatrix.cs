@@ -198,6 +198,23 @@ namespace RealMatrixProcessor
 		}
 
         /// <summary>
+        /// Scalar product
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <returns>The product</returns>
+        static double ScalarProduct(this double[] x, double[] y)
+        {
+            double sum = 0;
+            for (var i = 0; i < x.Length; i++)
+            {
+                sum += x[i] * y[i];
+            }
+            return sum;
+        }
+
+
+        /// <summary>
         /// Multiplication of vector by coefficient
         /// </summary>
         /// <param name="vector">Vector</param>
@@ -295,10 +312,6 @@ namespace RealMatrixProcessor
 				}
 			}
 		}
-
-
- 
-
 
         /// <summary>
         /// Vector - matrix product
@@ -442,6 +455,22 @@ namespace RealMatrixProcessor
             }
         }
 
+
+        /// <summary>
+        /// Sum of vercors
+        /// </summary>
+        /// <param name="x">First term</param>
+        /// <param name="y">Second term</param>
+        /// <param name="z">The sum</param>
+        public static void Add(double[] x, double[] y, double[] z)
+        {
+            for (int i = 0; i < x.Length; i++)
+            {
+                z[i] = x[i] + y[i];
+            }
+        }
+
+
         /// <summary>
         /// Sum of vetros
         /// </summary>
@@ -478,6 +507,19 @@ namespace RealMatrixProcessor
             }
         }
 
+        /// <summary>
+        /// Vector substraction
+        /// </summary>
+        /// <param name="x">First term</param>
+        /// <param name="y">Second term</param>
+        /// <param name="z">Difference</param>
+        public static void Difference(double[] x, double[] y, double[] z)
+        {
+            for (int i = 0; i < x.Length; i++)
+            {
+                     z[i] = x[i] - y[i];
+            }
+        }
 
 
         /// <summary>

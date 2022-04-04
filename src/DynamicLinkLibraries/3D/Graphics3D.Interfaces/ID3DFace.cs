@@ -29,7 +29,7 @@ namespace Graphics3D.Interfaces
 		/// <summary>
 		/// Normal
 		/// </summary>
-		double[] Normal
+		Vector3D.Vector3 Normal
 		{ get; set; }
 
 		/// <summary>
@@ -37,7 +37,7 @@ namespace Graphics3D.Interfaces
 		/// </summary>
 		/// <param name="index">Index</param>
 		/// <returns>The vertex</returns>
-		double[] this[int index]
+		Vector3D.Vector3 this[int index]
 		{ get; }
 
 		/// <summary>

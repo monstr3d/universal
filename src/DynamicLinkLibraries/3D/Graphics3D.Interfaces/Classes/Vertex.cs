@@ -10,7 +10,9 @@ namespace Graphics3D.Interfaces.Classes
     /// </summary>
     public class Vertex
     {
-        double[] Position = new double[3];                // The relative position
+        #region Fields
+
+        Vector3D.Vector3 Position = new Vector3D.Vector3();                // The relative position
         Complex[] norm = new Complex[3];                    // The normale vector
         double normD;					 // The real normale vector
         bool enabled;                    // Auxiliary field
@@ -25,8 +27,49 @@ namespace Graphics3D.Interfaces.Classes
         double[] distanceIn = new double[3];            // Input distances
         double[] distanceOut  = new double[3];           // Output distances
         double sourceDistance;           // Distance to source
-
+        /// <summary>
+        /// Size
+        /// </summary>
+        double size = 0;
         protected double[] color = new double[4];
+
+        #endregion
+
+        #region Public Members
+
+
+        public void Init()
+        {
+            var v1 = (vertices[1] - vertices[0]);
+            var v2 = (vertices[2] - vertices[0]);
+            var v3 = (vertices[1] - vertices[2]);
+            size = Math.Max(v1.Norm, Math.Max(v2.Norm, v3.Norm));
+            size = v1.Norm;
+            Position.CopyFrom(vertices[0] + (1.0 / 3.0) * (v1 + v2));
+            for (int i = 0; i < 3; i++)
+            {
+                relative[i] = vertices[i] - Position;
+            }
+            norm = (VectorC)(v1 ^ v2);
+            area = sqrt((norm | norm).real()) / 2;
+            if (area < 1.0E-12)
+            {
+                norm = ComplexD(0);
+            }
+            else
+            {
+                norm = ComplexD(0.5 / area) * norm;
+            }
+            //    source = Position;
+            normD.newsize(3);
+            for (int i = 0; i < 3; i++)
+            {
+                normD[i] = norm[i].real();
+            }
+            parent = NULL;
+            VisibleMat.newsize(3, 3);
+            face = NULL;
+        }
 
 
         public void SetFace(ID3DFace face)
@@ -53,13 +96,15 @@ namespace Graphics3D.Interfaces.Classes
         /// <param name="red">Red</param>
         /// <param name="green">Green</param>
         /// <param name="blue">Blue</param>
-        void SetColor(double alpha, double red, double green, double blue)
+        public void SetColor(double alpha, double red, double green, double blue)
         {
             color[0] = red;
             color[1] = green;
             color[2] = blue;
             color[3] = alpha;
         }
+
+        #endregion
 
 
 
