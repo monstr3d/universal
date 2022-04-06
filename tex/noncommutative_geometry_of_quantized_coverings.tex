@@ -3837,10 +3837,8 @@ Let	$\mathfrak{S}^{\mathrm{pt}} \in \mathfrak{FinAlg}^{\mathrm{pt}}$ be a pointe
 	\end{enumerate}
 	If $\pi$ is the atomic representation $\pi_a$ then we say that is \textit{good}.
 \end{definition}
-\begin{exercise}\label{good_exer}
-Prove that the condition (a) of the Definition \ref{good_defn}  holds if and only if for any connected components  $\widetilde \sX'$ and $\widetilde \sX''$ of the spectrum of $\overline{A}_\pi$  there is  $g \in G\left(\left.\overline{A}_\pi~\right|~ A\right)$ such that $g \widetilde{A}'_\pi= \widetilde{A}''_\pi$ (cf. Exercise \ref{conn_comp_exer}).
-\end{exercise}
-\begin{lemma}
+
+\begin{lemma}\label{a_rep_b_lem}
 	If $\pi$ is an atomic representation $\pi_a$ (cf. Definition \ref{atomic_repr_defn}) then the condition (a) of the Definition \ref{good_defn} follows from (b) one.
 \end{lemma}
 \begin{proof}
@@ -9484,13 +9482,13 @@ Moreover one has $C_0\left(\overline{\mathcal X}\right)= C_0\left(\widetilde {\m
 	
 \be\label{top_conn_group_eqn}
 \begin{split}
-G\left(\left. C_0\left(\widetilde{\mathcal X}\right)~\right| C_0\left(\sX\right) \right)\bydef \\\bydef\left\{\left.g \in  G\left(\left. C_0\left(\overline{\mathcal X}\right)~\right| C_0\left(\sX\right) \right)\right| g \widetilde a' = \widetilde a'\quad  \forall \widetilde a' \in C_0\left( \widetilde {\mathcal X}^\perp\right)  \right\}\subset\\\subset  G\left(\left. C_0\left(\overline{\mathcal X}\right)~\right| C_0\left(\sX\right) \right)
+G\left(\left. C_0\left(\widetilde{\mathcal X}\right)~\right| C_0\left(\sX\right) \right)\bydef \\\bydef\left\{\left.g \in  G\left(\left. C_0\left(\overline{\mathcal X}\right)~\right| C_0\left(\sX\right) \right)\right| g \widetilde a^\perp = \widetilde a^\perp\quad  \forall \widetilde a^\perp \in C_0\left( \widetilde {\mathcal X}^\perp\right)  \right\}\subset\\\subset  G\left(\left. C_0\left(\overline{\mathcal X}\right)~\right| C_0\left(\sX\right) \right)
 \end{split}
 \ee	
 From \eqref{comm_ag_eqn} it follows that 
 \bean
 G\left(\left. C_0\left(\widetilde{\mathcal X}\right)~\right| C_0\left(\sX\right) \right)\cong \\
-\cong \left\{\left.g\in  G\left(\left.\overline \sX \right| \sX\right)\right| g \widetilde x' = \widetilde x'\quad  \forall \widetilde x' \in \widetilde {\mathcal X}^\perp \right\}
+\cong \left\{\left.g\in  G\left(\left.\overline \sX \right| \sX\right)\right| g \widetilde x^\perp = \widetilde x^\perp\quad  \forall \widetilde x^\perp \in \widetilde {\mathcal X}^\perp \right\}
 \eean
 and taking into account \eqref{top_gt_eqn} one has
 	\be\label{top_tga_eqn}
@@ -9513,7 +9511,7 @@ is the unique  pointed  covering $p^\mu_{ \nu}: \left(\sX_{\mu}, x^\mu_0 \right)
 \ee
 is a given by the Lemma  \ref{top_base_point_lem} {pointed algebraical  finite covering category} (cf. Definition \ref{pointed_defn}) then following conditions hold:
 \begin{enumerate}
-	\item [(i)] $\mathfrak{S}^{\mathrm{pt}}_{C_0\left(\mathcal{X}\right)}$ is good (cf. Definition \ref{good_defn} !!! ABC to AB GOOD EXER ADD !!!) and the triple $$\left(C_0\left(\mathcal{X}\right), C_0\left(\varprojlim  \mathfrak{S}_{\left(\sX, x_0\right)}\right),G\left(\left.\varprojlim  \mathfrak{S}_{\left(\sX, x_0\right)}~\right| \mathcal X\right)\right)$$ is  the  { infinite noncommutative covering} of $\mathfrak{S}^{\mathrm{pt}}_{C_0\left(\mathcal{X}\right)}$ (cf. Definition \ref{main_defn}).
+	\item [(i)] $\mathfrak{S}^{\mathrm{pt}}_{C_0\left(\mathcal{X}\right)}$ is good (cf. Definition \ref{good_defn}) and the triple $$\left(C_0\left(\mathcal{X}\right), C_0\left(\varprojlim  \mathfrak{S}_{\left(\sX, x_0\right)}\right),G\left(\left.\varprojlim  \mathfrak{S}_{\left(\sX, x_0\right)}~\right| \mathcal X\right)\right)$$ is  the  { infinite noncommutative covering} of $\mathfrak{S}^{\mathrm{pt}}_{C_0\left(\mathcal{X}\right)}$ (cf. Definition \ref{main_defn}).
 	\item[(ii)] There are  isomorphisms:
 	\begin{itemize}
 		\item $\varprojlim  \mathfrak{S}^{\mathrm{pt}}_{C_0\left(\mathcal{X}\right)} \approx C_0\left(\varprojlim  \mathfrak{S}_{\left(\sX, x_0\right)}\right)$.
@@ -9526,33 +9524,12 @@ is a given by the Lemma  \ref{top_base_point_lem} {pointed algebraical  finite c
 
 
 \begin{proof}
-(i) If $\pi_a : C_0\left( \widehat \sX\right) \to B\left(\H_a \right)$ is the atomic representation (cf. Definition \ref{atomic_repr_defn}) then from the construction \ref{comm_transitive_empt} it follows that $C_0\left( \widetilde \sX\right)$ is a $\pi_a$-connected component of $\mathfrak{S}^{\mathrm{pt}}_{C_0\left(\sX\right)}$ (cf Definition \ref{main_sdefn}) equals to $C_0\left(\widetilde \sX \right)$, and  $G\left(\left. \widetilde\sX~\right|\sX \right)$ is the $C_0\left(\widetilde \sX \right)$-invariant group.
-To prove that 	$\mathfrak{S}^{\mathrm{pt}}_{C_0\left(\mathcal{X}\right)}$  is good one needs check that described above objects satisfy to conditions (a)- (c) of the Definition \ref{good_defn}.
+(i) If $\pi_a : C_0\left( \widehat \sX\right) \to B\left(\H_a \right)$ is the atomic representation (cf. Definition \ref{atomic_repr_defn}) then from the construction \ref{comm_transitive_empt} it follows that $C_0\left( \widetilde \sX\right)$ is a $\pi_a$-connected component of $\mathfrak{S}^{\mathrm{pt}}_{C_0\left(\sX\right)}$ (cf. Definition \ref{main_sdefn}) equals to $C_0\left(\widetilde \sX \right)$, and  $G\left(\left. \widetilde\sX~\right|\sX \right)$ is the $C_0\left(\widetilde \sX \right)$-invariant group (cf. Definition \ref{main_sdefn}).
+To prove that 	$\mathfrak{S}^{\mathrm{pt}}_{C_0\left(\mathcal{X}\right)}$  is good one needs check that described above objects satisfy to conditions (a)-(c) of the Definition \ref{good_defn}. From the Lemma \ref{a_rep_b_lem} it follows that we should check conditions (b) and (c) only.
 	\begin{itemize}
-		\item [(a)] 
-		The given by \eqref{a_tooa_eqn} map		
-		$\overline \phi: C_0\left( \sX\right) \to M\left(C_0\left(\overline  \sX \right)  \right)\cong C_b\left( \overline\sX\right)$ comes from inclusions $C_0\left( \sX\right)\subset B\left( \H_a\right)$ and $C_b\left( \overline\sX\right) \subset B\left( \H_a\right)$ (cf. Remark \ref{comes_from_bh_rem}). On the other hand any element  $\xi \in \H_a$ corresponds to family $\left\{\xi_{\overline x}\in \C\right\}_{\overline x\in \overline \sX}$ (cf. proof of (iii) the Lemma	\ref{top_atomic_lem}). For any $a\in 	C_0\left(\sX\right)$ and $\overline a\in 	C_0\left(\overline \sX\right)$ elements $a \xi$ and $\overline a\xi$ correspond to the following families
-	$
-	\left\{\overline a\left(\overline x \right)\xi_{\overline x} \right\}_{\overline x\in\overline \sX}$ and 
-	$\left\{ a\left(\overline p\left( \overline x\right)  \right)\xi_{\overline x} \right\}_{\overline x\in\overline \sX}$
-		where $\overline p : \overline\sX \to\sX$ is a natural covering. It follows that
-		$$
-\forall a \in C_0\left(\sX\right)	\quad 	\overline \phi\left(  a\right)\left( \overline x \right)  =  a\left( \overline p\left(\overline x\right) \right). 
-		$$ 
-		Taking into account equations \eqref{aa_prod_eqn} and \eqref{aat_prod_eqn} we conclude that the map 
-	$\widetilde \phi: C_0\left( \sX\right) \to M\left(C_0\left(\widetilde  \sX \right)  \right)\cong C_b\left( \widetilde\sX\right)$	
-		is such that
-		$$
-\forall a \in C_0\left(\sX\right)	\quad 	\widetilde \phi\left(  a\right)\left( \widetilde x \right)  =  a\left( \widetilde p\left(\widetilde x\right) \right). 
-$$ 
-If $a \neq 0$ then there is $x_0\in \sX$ such that $a\left(x_0\right)\neq 0$, so if $\widetilde x_0 \in \widetilde p^{-1}\left(x_0\right)$ then  $\phi\left(  a\right)\left( \widetilde x_0 \right)\phi\left(  a\right)\left( \widetilde x \right)\neq 0$, i.e.
-$$
-a \neq 0 \quad \Rightarrow \quad \widetilde \phi\left(  a\right)\neq 0.
-$$
-It follows that the map $\widetilde \phi: C_0\left( \sX\right) \to M\left(C_0\left(\widetilde  \sX \right)  \right)$ is injective. Indeed  $\widetilde \phi$ is $\widetilde  p$-lift  (cf. the Definition \ref{top_lift_defn}).
-\item[(b)]	If both  $\widetilde{A}'$ and $\widetilde{A}''$ are connected components of $C_0\left( \overline \sX\right)$ (cf. Definition \ref{conn_comp_defn})  and both $\widetilde{\sX}'$ and $\widetilde{\sX}''$ are spectra of $\widetilde{A}'$ and $\widetilde{A}''$ respectively then from the Exercise  $\ref{conn_comp_exer}$ it turns out that the spaces  $\widetilde{\sX}'$ and $\widetilde{\sX}''$ are connected  components of $\overline \sX$. From the Theorem \ref{top_locally_conn_cov_com_thm} it turns out that both restrictions $\left.\overline p :\right|_{\widetilde{\sX}'}\to \sX$ and $\left.\overline p :\right|_{\widetilde{\sX}''}\to \sX$ are coverings. So for any $x_0\in \sX$ there are $\widetilde x'_0 \widetilde{\sX}'$ and 
-$\widetilde x''_0 \widetilde{\sX}''$ such that $\overline p\left( \widetilde x'_0\right)= \overline p\left( \widetilde x''_0\right) = x_0$. Since the covering $\overline\sX \to\sX$ is transitive (cf. Corollary \ref{top_biject_cor}) there is $g \in G\left(\left. \overline\sX~\right|\sX \right)$ such that $g \widetilde x'_0 = \widetilde x''_0$. Both sets $\widetilde{\sX}'$ and $\widetilde{\sX}''$
-are connected so there is a homeomorphism $g|_{\widetilde{\sX}'}\widetilde{\sX}'\xrightarrow{\approx}\widetilde{\sX}''$.   From the Remark \ref{conn_inft_rem} it follows that  $\widetilde{A}'' = g \widetilde{A}'$,
+\item[(b)]	If both  $\widetilde{A}'$ and $\widetilde{A}''$ are connected components of $C_0\left( \overline \sX\right)$ (cf. Definition \ref{conn_comp_defn})  and both $\widetilde{\sX}'$ and $\widetilde{\sX}''$ are spectra of $\widetilde{A}'$ and $\widetilde{A}''$ respectively then from the Exercise  $\ref{conn_comp_exer}$ it turns out that the spaces  $\widetilde{\sX}'$ and $\widetilde{\sX}''$ are connected  components of $\overline \sX$. From the Theorem \ref{top_locally_conn_cov_com_thm} it turns out that both restrictions $\left.\overline p :\right|_{\widetilde{\sX}'}\to \sX$ and $\left.\overline p :\right|_{\widetilde{\sX}''}\to \sX$ are coverings. So for any $x_0\in \sX$ there are $\widetilde x'_0 \in\widetilde{\sX}'$ and 
+$\widetilde x''_0 \in \widetilde{\sX}''$ such that $\overline p\left( \widetilde x'_0\right)= \overline p\left( \widetilde x''_0\right) = x_0$. Since the covering $\overline\sX \to\sX$ is transitive (cf. Corollary \ref{top_biject_cor}) there is $g \in G\left(\left. \overline\sX~\right|\sX \right)$ such that $g \widetilde x'_0 = \widetilde x''_0$. Both sets $\widetilde{\sX}'$ and $\widetilde{\sX}''$
+are connected so there is a homeomorphism $g|_{\widetilde{\sX}'}:\widetilde{\sX}'\xrightarrow{\approx}\widetilde{\sX}''$.   From the Remark \ref{conn_inft_rem} it follows that  $\widetilde{A}'' = g \widetilde{A}'$,
 \item[(c)] From \eqref{top_tga_eqn} it turns out that $
 G\left(\left. C_0\left(\widetilde{\mathcal X}\right)~\right| C_0\left(\sX\right) \right)	\cong  G\left(\left. \widetilde\sX~\right|\sX \right).
 $
@@ -9628,7 +9605,7 @@ be	a	pointed topological finite covering category (cf. Definition \ref{top_sec_p
 \text{where}\quad \Coo_0\left( p_\la\right)\bydef \left.C_0\left( p_\la\right)\right|_{\Coo_0\left(M \right) }\quad \Coo_0\left( p_\la\right)\bydef \left.C_0\left( p_\nu^\mu\right)\right|_{\Coo_0\left(M_\nu \right) }
 	\end{split}
 	\ee
-	of noncommutative finite-fold coverings of operator algebras. The formula \eqref{top_inf_cov_oae_eqn} is a specialization of the given by \eqref{inf_cov_oae_eqn} one. Moreover from the Lemma \ref{top_base_point_lem} and the Theorem \ref{top_main_thm} one has a 
+	of noncommutative finite-fold coverings of operator algebras. The formula \eqref{top_inf_cov_oae_eqn} is a specialization of the given by \eqref{comp_oa_eqn} one. Moreover from the Lemma \ref{top_base_point_lem} and the Theorem \ref{top_main_thm} one has a 
 good	{pointed algebraical  finite covering category} (cf. Definition \ref{pointed_defn}) given by
 	\be\label{top_inf_cov_oa_eqn}
 	\begin{split}
@@ -9637,13 +9614,14 @@ good	{pointed algebraical  finite covering category} (cf. Definition \ref{pointe
 		\left(\left\{ C_0\left( p_\la\right) :  C_0\left(M \right)  \hookto  C_0\left(M_\la \right)\right\}, \left\{ C_0\left( p_\nu^\mu\right) :  C_0\left(M_\nu \right) \hookto \Coo_0\left(M_\mu \right)\right\}\right)
 	\end{split}
 	\ee
-	The formula \eqref{top_inf_cov_oa_eqn} can be regarded as a specialization of \eqref{inf_cov_oa_eqn} one. From the Theorem \ref{top_main_thm} it follows that there is a transitive covering $~~\widetilde p:\widetilde M \to M$ such that 
+	The formula \eqref{top_inf_cov_oa_eqn} can be regarded as a specialization of \eqref{top_base_point_eqn} one. From the Theorem \ref{top_main_thm} it follows that there is a transitive covering $~~\widetilde p:\widetilde M \to M$ such that 
 	$
 	\left(C_0\left(M\right), C_0\left(\widetilde M\right)  G\left(\left.\widetilde M \right|  M\right)\right) 
 	$
 	is  the inverse noncommutative limit of $\mathfrak{S}^{\text{pt}}_{C_0\left( M\right) }$ (cf. Definition \ref{main_defn}).
 So we have all described in \ref{inf_cov_oa_empt} ingredients.	 
 \end{empt}
+!!! CONTINUE
 \begin{lemma}\label{top_inf_cov_oa_defn}
 Consider the above situation. If $\widetilde M$ has a structure of smooth manifold which is induced by $M$ and the covering $\widetilde p:\widetilde M \to M$ then 	$
 \left(\Coo_0\left(M\right),\Coo_0\left(\widetilde M\right)  G\left(\left.\widetilde M \right|  M\right)\right) 
