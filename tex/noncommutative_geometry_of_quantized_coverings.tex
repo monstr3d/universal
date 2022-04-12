@@ -6901,7 +6901,21 @@ $$
 
 \paragraph*{}
 
-If we consider the situation of the Definition \ref{sheaf_inv_im_defn} then the {inverse image} sheaf $f^{-1}\mathscr G$ on $\sX$ is the sheaf associated to the presheaf $\sU \mapsto \lim_{\sV \supseteq f\left(\sU\right)} \mathscr G\left(\sV\right)$, where $\sU$ is any open set in $\sX$, and the limit is taken over all open sets $\sV$ of $\sX$ containing $f\left(\sU\right)$. If the map $f$ is surjective then one has  $\lim_{\sV \supseteq f\left(\sX\right)} \mathscr G\left(\sV\right)\cong \mathscr  G\left(\sX\right)$ it follows that there is the injective homomorphism 
+Let $\sX$ be a topological space, and let $X \subset \prod_{x \in \sX} A_x$ where $A_x$ is a Abelian group. For any open subset $\sU\subset \sX$ denote by 
+$$
+X_\sU\bydef \left\{\left.\left\{b_x \right\}\in \prod_{x \in \sU} A_x\right| \exists \left\{a_x \right\}\in \prod_{x \in \sX} A_x \quad \forall x \in \sU \quad b_x =a_x\right\}
+$$
+If $\sV \subset \sU$ is open subset then there is a natural projection map
+$$
+\rho_{\sU \sV}:X_\sU \to X_\sV.
+$$
+One can proof that the similar to $\rho_{\sU \sV}$ maps satisfy to the Definition \ref{presheaf_defn}, i.e. we have presheaf  on $\sX$.
+\begin{definition}\label{top_x_sheaf_defn}
+The sheaf associated with the described above presheaf  \ref{top_x_sheaf_defn} is said to be the $X$-\textit{sheaf}. Henceforth we denote the $X$-{sheaf} by $\mathscr S_X$.
+\end{definition}
+
+
+If we consider the situation of the Definition \ref{sheaf_inv_im_defn} then the {inverse image} \ref{top_x_sheaf_defn} $f^{-1}\mathscr G$ on $\sX$ is the sheaf  associated to the presheaf  $\sU \mapsto \lim_{\sV \supseteq f\left(\sU\right)} \mathscr G\left(\sV\right)$, where $\sU$ is any open set in $\sX$, and the limit is taken over all open sets $\sV$ of $\sX$ containing $f\left(\sU\right)$. If the map $f$ is surjective then one has  $\lim_{\sV \supseteq f\left(\sX\right)} \mathscr G\left(\sV\right)\cong \mathscr  G\left(\sX\right)$ it follows that there is the injective homomorphism 
 \be\label{top_cs_sheaf_inc_eqn}
 f^{-1}_{\mathscr  G}:\mathscr  G\left(\sX\right)\hookto f^{-1}\mathscr  G\left(\sY\right)
 \ee
@@ -6914,7 +6928,7 @@ satisfies  to the Definition \ref{presheaf_defn}, i.e. one has a presheaf
 \sU \mapsto \mathscr G \left(\sX, \left\{A_x\right\}, \sF \right)\left( \sU\right).
 \ee
 \begin{definition}\label{top_cs_sheaf_defn}
-	The sheaf  associated with the given by \eqref{top_cs_sheaf_eqn} presheaf (cf. Proposition and Definition \ref{sheaf_prdf}) is the \textit{sheaf of the continuity structure} $\sF$. We denote it by $\mathscr C \left(\sX, \left\{A_x\right\}, \sF \right)$.
+	The sheaf !!! DEFN \ref{top_x_sheaf_defn}  associated with the given by \eqref{top_cs_sheaf_eqn} presheaf !!! DEFN \ref{top_x_sheaf_defn} (cf. Proposition and Definition \ref{sheaf_prdf}) is the \textit{sheaf !!! DEFN \ref{top_x_sheaf_defn} of the continuity structure} $\sF$. We denote it by $\mathscr C \left(\sX, \left\{A_x\right\}, \sF \right)$.
 \end{definition}
 
 \begin{lemma}\label{top_sheaf_lift_lem}
@@ -6927,7 +6941,7 @@ satisfies  to the Definition \ref{presheaf_defn}, i.e. one has a presheaf
 	is the $p$-lift of $C\left(\sX, \left\{A_x\right\}, \sF \right)$ (cf. Definition \ref{top_cont_lift_defn}). If both $\mathscr  C\left(\sX, \left\{A_x\right\}, \sF \right)$ and $\mathscr C \left(\widetilde{\sX}, \left\{\widetilde{A}_{\widetilde{x}}\right\}, \widetilde{\sF} \right)$ are sheaves  of the continuity structures ${\sF}$ and $\widetilde{\sF}$ respectively then $\mathscr C \left(\widetilde{\sX}, \left\{\widetilde{A}_{\widetilde{x}}\right\}, \widetilde{\sF} \right)$ is the inverse image of $\mathscr  C\left(\sX, \left\{A_x\right\}, \sF \right)$ (cf. Definition \ref{sheaf_inv_im_defn}), i.e. $\mathscr C \left(\widetilde{\sX}, \left\{\widetilde{A}_{\widetilde{x}}\right\}, \widetilde{\sF} \right) = p^{-1}\left( \mathscr  C\left(\sX, \left\{A_x\right\}, \sF \right)\right) $.
 \end{lemma}
 \begin{proof}
-	From the Definition \ref{sheaf_inv_im_defn} it follows that $p^{-1}\left( \mathscr  C\left(\sX, \left\{A_x\right\}, \sF \right)\right)$ is associated to the presheaf $\mathscr  G$ given by $\widetilde \sU \mapsto \lim_{\sU\supseteq p\left(\widetilde \sU\right)} \mathscr  C\left(\sX, \left\{A_x\right\}, \sF \right)\left( \sU\right) $, where $\widetilde \sU$ is any open set in $\widetilde \sX$, and the limit is taken over all open sets $\sU$ of $\sX$ containing $p\left(\widetilde \sU\right)$. In particular if $\widetilde \sU$ is homeomorphically mapped onto $p\left(\widetilde \sU\right)$ then $\mathscr  G\left( \widetilde \sU\right)\cong \mathscr  C\left(\sX, \left\{A_x\right\}, \sF \right)\left(p\left(\widetilde \sU\right) \right)$. Let $\widetilde s \in p^{-1}\left( \mathscr  C\left(\sX, \left\{A_x\right\}, \sF \right)\right)\left(\widetilde \sU \right) $.
+	From the Definition \ref{sheaf_inv_im_defn} it follows that $p^{-1}\left( \mathscr  C\left(\sX, \left\{A_x\right\}, \sF \right)\right)$ is associated to the presheaf !!! DEFN \ref{top_x_sheaf_defn} $\mathscr  G$ given by $\widetilde \sU \mapsto \lim_{\sU\supseteq p\left(\widetilde \sU\right)} \mathscr  C\left(\sX, \left\{A_x\right\}, \sF \right)\left( \sU\right) $, where $\widetilde \sU$ is any open set in $\widetilde \sX$, and the limit is taken over all open sets $\sU$ of $\sX$ containing $p\left(\widetilde \sU\right)$. In particular if $\widetilde \sU$ is homeomorphically mapped onto $p\left(\widetilde \sU\right)$ then $\mathscr  G\left( \widetilde \sU\right)\cong \mathscr  C\left(\sX, \left\{A_x\right\}, \sF \right)\left(p\left(\widetilde \sU\right) \right)$. Let $\widetilde s \in p^{-1}\left( \mathscr  C\left(\sX, \left\{A_x\right\}, \sF \right)\right)\left(\widetilde \sU \right) $.
 	From (2) of \ref{sheaf_empt} it follows that   for any $\widetilde x \in \widetilde\sU$ there is an open neighborhood  $\widetilde\sV$ of $\widetilde x$ such that $\widetilde\sV \subset \widetilde\sU$ and the element $\widetilde t \in \mathscr G\left(\widetilde\sV \right)$ such that  for all $\widetilde y \in \widetilde\sV$ the germ $\widetilde t_{\widetilde y}$ of $\widetilde t$ at $\widetilde y$ is equal to $\widetilde s\left(\widetilde y\right)$. For any $\widetilde x$ we select an  neighborhood $\widetilde\sV_{\widetilde x}$ of $\widetilde x$ such that   $\widetilde\sV_{\widetilde x}$ satisfies to (2) of \ref{sheaf_empt} and $\widetilde \sV_{\widetilde x}$ is homeomorphically mapped onto $p\left(\widetilde \sV_{\widetilde x}\right)$. From  $\mathscr  G\left( \widetilde \sV_x\right)\cong \mathscr  C\left(\sX, \left\{A_y\right\}, \sF \right)\left(p\left(\widetilde \sV_x\right) \right)$ it follows that the restriction $\left.\widetilde s\right|_{\widetilde \sV_x}$ corresponds to element $s_{\widetilde x} \in \mathscr  C\left(\sX, \left\{A_y\right\}, \sF \right)\left( p\left(\widetilde \sV_x\right)\right)$. From the Definition  \ref{top_cs_sheaf_defn} it follows that $s_{\widetilde x}$ corresponds to a {continuous (with respect to $\sF$)} family $\left\{a_y \in A_y \right\}_{y \in p\left(\widetilde \sV_x\right) }$. So if $c_{\widetilde y}: \widetilde A_{\widetilde y}\to A_{p\left(\widetilde y \right) }$ is given by \eqref{top_ct_iso_eqn} 	for any $\widetilde y \in \widetilde \sV_x$  then there is  {continuous (with respect to $\widetilde \sF$)}
 	family $\left\{\widetilde a_{\widetilde y} = c^{-1}\left(a_{p\left( \widetilde y\right) } \right)  \right\}_{\widetilde y\in \widetilde\sV_{\widetilde x} }$. Let $ \widetilde x',  \widetilde x'' \in  \widetilde\sU$. If both  $\left\{\widetilde a'_{\widetilde y'}  \right\}_{\widetilde y'\in \widetilde\sV_{\widetilde x'} }$  and  $\left\{\widetilde a''_{\widetilde y''}  \right\}_{\widetilde y''\in \widetilde\sV_{\widetilde x''} }$ are families corresponding to both $\left.\widetilde s\right|_{\widetilde \sV_{x'}}$ and $\left.\widetilde s\right|_{\widetilde \sV_{x''}}$ 
 	then from $\left.\left.\widetilde s\right|_{\widetilde \sV_{x'}}\right|_{\widetilde \sV_{x'}\cap \widetilde \sV_{x''} }=\left.\left.\widetilde s\right|_{\widetilde \sV_{x''}}\right|_{\widetilde \sV_{x'}\cap \widetilde \sV_{x''} }$ it follows that $\widetilde a'_{\widetilde y}= \widetilde a''_{\widetilde y}$ for all $\widetilde y \in  \widetilde \sV_{x'}\cap \widetilde \sV_{x''}$. So there is the single family $\left\{\widetilde a_{\widetilde y}  \right\}_{\widetilde y\in \widetilde\sU}$ which is the combination of  {continuous (with respect to $\widetilde \sF$)} families $\left\{\widetilde a_{\widetilde y}  \right\}_{\widetilde y\in \widetilde\sV_{\widetilde x} }$ 
@@ -6957,14 +6971,14 @@ satisfies  to the Definition \ref{presheaf_defn}, i.e. one has a presheaf
 	$$
 	C_0\left(\sX\right) = C_0\left( \sX, \left\{\C_x\right\},C_0\left(\sX\right)\right). 
 	$$
-	If $p: \widetilde{\sX} \to \sX$ is   a covering then  $C_b\left(\widetilde{\sX}\right) \cong C_b\left(\lift_{p}\left[ C_0\left( \sX, \left\{\C_x\right\},C_0\left(\sX\right)\right)\right]\right)$ and $C_0\left(\widetilde{\sX}\right) \cong C_0\left(\lift_{p}\left[ C_0\left( \sX, \left\{\C_x\right\},C_0\left(\sX\right)\right)\right]\right)$. There is the sheaf 
+	If $p: \widetilde{\sX} \to \sX$ is   a covering then  $C_b\left(\widetilde{\sX}\right) \cong C_b\left(\lift_{p}\left[ C_0\left( \sX, \left\{\C_x\right\},C_0\left(\sX\right)\right)\right]\right)$ and $C_0\left(\widetilde{\sX}\right) \cong C_0\left(\lift_{p}\left[ C_0\left( \sX, \left\{\C_x\right\},C_0\left(\sX\right)\right)\right]\right)$. There is the sheaf !!! DEFN \ref{top_x_sheaf_defn} 
 	\be\label{top_cont_sheaf}
 	\mathscr C \left(\widetilde{\sX}, \left\{\C_{\widetilde{x}}\right\}, C_0\left(\sX\right) \right)
 	\ee
 	of continuous functions. We denote it by $\mathscr C_\sX$. One has a ringed space $\left(\sX, \mathscr C_\sX\right)$ (cf. Definition \ref{sheaf_ringed_space_defn}).
 \end{example}
 \begin{exercise}
-Prove that the  {sheaf $\mathscr C \left(\sX, \left\{A_x\right\}, \sF \right)$ of the continuity structure} $\sF$  (cf. Definition \ref{top_cs_sheaf_defn}) is a $\mathscr C_\sX$-module (cf. Definition \ref{sheaf_of_modules_den}).
+Prove that the  {sheaf !!! DEFN \ref{top_x_sheaf_defn} $\mathscr C \left(\sX, \left\{A_x\right\}, \sF \right)$ of the continuity structure} $\sF$  (cf. Definition \ref{top_cs_sheaf_defn}) is a $\mathscr C_\sX$-module (cf. Definition \ref{sheaf_of_modules_den}).
 \end{exercise}
 
 
@@ -6991,23 +7005,23 @@ Prove that the  {sheaf $\mathscr C \left(\sX, \left\{A_x\right\}, \sF \right)$ o
 
 \begin{empt}
 	Let $\sX$ be a locally compact Hausdorff space.
-	Let  $\sF$ be a continuity structure  for  $\sX$ {and the} $\left\{A_x\right\}_{x \in \sX}$, and let $\mathscr C \bydef\mathscr C \left(\sX, \left\{A_x\right\}, \sF \right)$ be the {sheaf of the continuity structure} $\sF$ (cf. Definition \ref{top_cs_sheaf_defn}). If $\mathscr  S \subset\mathscr C$ is a subsheaf of $\mathscr C$ then it is possible that $\mathscr S$ is not a $\mathscr C_\sX$-module (cf. Definition \ref{sheaf_of_modules_den}).
+	Let  $\sF$ be a continuity structure  for  $\sX$ {and the} $\left\{A_x\right\}_{x \in \sX}$, and let $\mathscr C \bydef\mathscr C \left(\sX, \left\{A_x\right\}, \sF \right)$ be the {sheaf !!! DEFN \ref{top_x_sheaf_defn} of the continuity structure} $\sF$ (cf. Definition \ref{top_cs_sheaf_defn}). If $\mathscr  S \subset\mathscr C$ is a subsheaf !!! DEFN \ref{top_x_sheaf_defn} of $\mathscr C$ then it is possible that $\mathscr S$ is not a $\mathscr C_\sX$-module (cf. Definition \ref{sheaf_of_modules_den}).
 \end{empt}
 \begin{definition}
-If $M$ be a smooth manifold then a *-algebra of smooth $\C$-valued maps yields a \textit{sheaf of smooth functions} $\mathscr C^\infty_M$.  One has a ringed space $\left(M, \mathscr C^\infty_M\right)$ (cf. Definition \ref{sheaf_ringed_space_defn}).
+If $M$ be a smooth manifold then a *-algebra of smooth $\C$-valued maps yields a \textit{sheaf !!! DEFN \ref{top_x_sheaf_defn} of smooth functions} $\mathscr C^\infty_M$.  One has a ringed space $\left(M, \mathscr C^\infty_M\right)$ (cf. Definition \ref{sheaf_ringed_space_defn}).
 \end{definition}
 
 
 \begin{definition}\label{top_smooth_sheaf_defn}
 	Let $M$ be a smooth manifold
-	Let  $\sF$ be a continuity structure  for  $M$ {and the} $\left\{A_x\right\}_{x \in M}$, and let $\mathscr C \bydef\mathscr C \left(M, \left\{A_x\right\}, \sF \right)$ be the {sheaf of the continuity structure} $\sF$ (cf. Definition \ref{top_cs_sheaf_defn}).   A subsheaf $\mathscr  S \subset\mathscr C$ is said to be \textit{smooth} if $\mathscr  S$ is a $\mathscr C^\infty_M$-module (cf. Definition \ref{sheaf_of_modules_den}).
+	Let  $\sF$ be a continuity structure  for  $M$ {and the} $\left\{A_x\right\}_{x \in M}$, and let $\mathscr C \bydef\mathscr C \left(M, \left\{A_x\right\}, \sF \right)$ be the {sheaf !!! DEFN \ref{top_x_sheaf_defn} of the continuity structure} $\sF$ (cf. Definition \ref{top_cs_sheaf_defn}).   A subsheaf !!! DEFN \ref{top_x_sheaf_defn} $\mathscr  S \subset\mathscr C$ is said to be \textit{smooth} if $\mathscr  S$ is a $\mathscr C^\infty_M$-module (cf. Definition \ref{sheaf_of_modules_den}).
 \end{definition}
 \begin{lemma}\label{top_s_smooth_lem}
-	subsheaf $\mathscr  S \subset\mathscr C$ is  {smooth} if and only if for any $x \in M$ there is a basis of open neighborhoods $\left\{\sU_\a\right\}_{\a \in \mathscr A}$ of $x$ such that $\Coo\left(\sU_\a \right)\mathscr S\left(\sU_\a\right)\subset   \mathscr S\left(\sU_\a\right)$ for every ${\a \in \mathscr A}$.
+	subsheaf !!! DEFN \ref{top_x_sheaf_defn} $\mathscr  S \subset\mathscr C$ is  {smooth} if and only if for any $x \in M$ there is a basis of open neighborhoods $\left\{\sU_\a\right\}_{\a \in \mathscr A}$ of $x$ such that $\Coo\left(\sU_\a \right)\mathscr S\left(\sU_\a\right)\subset   \mathscr S\left(\sU_\a\right)$ for every ${\a \in \mathscr A}$.
 \end{lemma}
 CORRECT !!!
 \begin{proof}
-	If the   subsheaf $\mathscr  S \subset\mathscr C$ is  {smooth} then for any $x \in M$ and for each a basis of open neighborhoods $\left\{\sU_\a\right\}_{\a \in \mathscr A}$ of $x$ such one has $\Coo\left(M \right)\mathscr S\left(\sU_\a\right)\subset   \mathscr S\left(\sU_\a\right)$  for all $\a \in \mathscr A$. Conversely let $\sU \subset M$ be an open subset. For any $x\in \sU$ we select an open neighborhood $\sU_x \in \left\{\sU_\a\right\}$ such that $\sU_x\subset \sU$, so one has $\sU = \cup_{x \in \sU}\sU_x$. From the Definition \ref{sheaf_defn} it follows that any section $s \in \mathscr S\left(\sU\right)$ is uniquely defined by its restrictions $\left.s\right|_{\sU_x}$ such that $$
+	If the   subsheaf !!! DEFN \ref{top_x_sheaf_defn} $\mathscr  S \subset\mathscr C$ is  {smooth} then for any $x \in M$ and for each a basis of open neighborhoods $\left\{\sU_\a\right\}_{\a \in \mathscr A}$ of $x$ such one has $\Coo\left(M \right)\mathscr S\left(\sU_\a\right)\subset   \mathscr S\left(\sU_\a\right)$  for all $\a \in \mathscr A$. Conversely let $\sU \subset M$ be an open subset. For any $x\in \sU$ we select an open neighborhood $\sU_x \in \left\{\sU_\a\right\}$ such that $\sU_x\subset \sU$, so one has $\sU = \cup_{x \in \sU}\sU_x$. From the Definition \ref{sheaf_defn} it follows that any section $s \in \mathscr S\left(\sU\right)$ is uniquely defined by its restrictions $\left.s\right|_{\sU_x}$ such that $$
 	\left.\left.s\right|_{\sU_{x'}}\right|_{\sU_{x'}\cap ~\sU_{x''}}=\left.\left.s\right|_{\sU_{x''}}\right|_{\sU_{x'}\cap ~\sU_{x''}}.
 	$$
 	If  $f\in \Coo\left(M \right)$ then $ \left.fs\right|_{\sU_x} \in \mathscr S\left(\sU_x\right)$ and 
@@ -7018,7 +7032,7 @@ CORRECT !!!
 	i.e. $\mathscr S$ is smooth.
 \end{proof}
 \begin{lemma}\label{top_inv_sub_lem}
-	Consider the situation of the Definition \ref{top_smooth_sheaf_defn} and suppose that $p: \widetilde M \to M$ be a  covering of  where the structure of the manifold  $\widetilde M$ has given by the Proposition \ref{top_cov_mani_prop}  structure of a  manifold. If subsheaf  $\mathscr  S \subset\mathscr C\bydef\mathscr C \left(M, \left\{A_x\right\}, \sF \right)$ is {smooth} then the inverse image $p^{-1}\mathscr  S \subset p^{-1}\mathscr C$ is smooth.
+	Consider the situation of the Definition \ref{top_smooth_sheaf_defn} and suppose that $p: \widetilde M \to M$ be a  covering of  where the structure of the manifold  $\widetilde M$ has given by the Proposition \ref{top_cov_mani_prop}  structure of a  manifold. If subsheaf !!! DEFN \ref{top_x_sheaf_defn}  $\mathscr  S \subset\mathscr C\bydef\mathscr C \left(M, \left\{A_x\right\}, \sF \right)$ is {smooth} then the inverse image $p^{-1}\mathscr  S \subset p^{-1}\mathscr C$ is smooth.
 \end{lemma}
 \begin{proof}
 	
@@ -7029,7 +7043,7 @@ CORRECT !!!
 		\Coo\left( \widetilde\sU_\a\right) \cong \Coo\left( \sU_\a\right).
 	\end{split}
 	\ee
-	From \eqref{top_inv_sub_eqn} it follows that $\Coo\left( \widetilde\sU_\a\right)p^{-1}\mathscr S\left( {\widetilde\sU_\a}\right)\subset p^{-1}\mathscr S\left( {\widetilde\sU_\a}\right)$ and taking into account the Lemma \ref{top_s_smooth_lem} we conclude that the sheaf $\mathscr S$ is smooth. 
+	From \eqref{top_inv_sub_eqn} it follows that $\Coo\left( \widetilde\sU_\a\right)p^{-1}\mathscr S\left( {\widetilde\sU_\a}\right)\subset p^{-1}\mathscr S\left( {\widetilde\sU_\a}\right)$ and taking into account the Lemma \ref{top_s_smooth_lem} we conclude that the sheaf !!! DEFN \ref{top_x_sheaf_defn} $\mathscr S$ is smooth. 
 \end{proof}
 \begin{remark}
 	From the  Lemma \ref{top_inv_sub_lem} there is the natural  $\C$-linear map
@@ -7053,19 +7067,19 @@ Let $p: \widetilde\sX \to \sX$ be a transitive covering.
 \mathscr F\left( \sX\right) 	= \widetilde{\mathscr F}\left( \widetilde\sX\right)^{G\left(\left. \widetilde\sX \right| \sX \right)}\bydef \left\{\left.a\in \widetilde{\mathscr F}\left( \widetilde\sX\right)~~\right|~ a = g a;~ \forall g \in G\left(\left. \widetilde\sX \right| \sX \right)\right\}
  	$$
  	
- 	 \item[(c)]If $\mathscr F$ is a sheaf of *-algebras then any $g \in G\left(\left. \widetilde\sX \right| \sX \right)$ corresponds to an *-automorphism.
+ 	 \item[(c)]If $\mathscr F$ is a sheaf !!! DEFN \ref{top_x_sheaf_defn} of *-algebras then any $g \in G\left(\left. \widetilde\sX \right| \sX \right)$ corresponds to an *-automorphism.
  \end{enumerate}
 
 \end{exercise}
 \begin{empt}
-	Let $M$ be a smooth manifold, and let $p: E \to M$ be a smooth vector bundle (cf. Definition \ref{top_sm_bundle_defn}). One can define a presheaf (cf. Definition \ref{presheaf_defn}) $\mathscr S$  of local smooth sections (cf. Definition \ref{top_sm_sec_defn}).   
+	Let $M$ be a smooth manifold, and let $p: E \to M$ be a smooth vector bundle (cf. Definition \ref{top_sm_bundle_defn}). One can define a presheaf !!! DEFN \ref{top_x_sheaf_defn} (cf. Definition \ref{presheaf_defn}) $\mathscr S$  of local smooth sections (cf. Definition \ref{top_sm_sec_defn}).   
 \end{empt}
 \begin{definition}
-Consider the above situation. The associated with $\mathscr S$ sheaf $\mathscr G^\infty$ is said to be a \textit{sheaf of local smooth sections} (cf. Proposition and Definition \ref{sheaf_prdf}).
+Consider the above situation. The associated with $\mathscr S$ sheaf !!! DEFN \ref{top_x_sheaf_defn} $\mathscr G^\infty$ is said to be a \textit{sheaf !!! DEFN \ref{top_x_sheaf_defn} of local smooth sections} (cf. Proposition and Definition \ref{sheaf_prdf}).
 \end{definition}
 
 \begin{example}\label{top_hom_sub_exm},
-	If $\mathscr  S$ and  $\mathscr  G$ are smooth sheaves then the sheaf of local morphisms  $\mathscr Hom \left(\mathscr S,
+	If $\mathscr  S$ and  $\mathscr  G$ are smooth sheaves then the sheaf !!! DEFN \ref{top_x_sheaf_defn} of local morphisms  $\mathscr Hom \left(\mathscr S,
 	\mathscr G \right)$ (cf. Definition \ref{sheaf_hom_defn}) is also smooth.
 	From the 
 	Lemma \ref{top_inv_sub_lem} and from the equation \eqref{top_cs_sheaf_inc_eqn} it turns out that there is the following inclusion 
@@ -7077,7 +7091,7 @@ Consider the above situation. The associated with $\mathscr S$ sheaf $\mathscr G
 		p^{-1} \mathscr G \right)\left(\widetilde M \right).
 	\end{split}
 	\ee 
-	where $\mathscr Hom$ is the sheaf of local morphisms (cf. Definition \ref{sheaf_hom_defn}).
+	where $\mathscr Hom$ is the sheaf !!! DEFN \ref{top_x_sheaf_defn} of local morphisms (cf. Definition \ref{sheaf_hom_defn}).
 \end{example}
 \begin{definition}\label{top_smooth_inv_im_defn}
 	Let us	consider the situation of the 
@@ -7139,10 +7153,10 @@ p^{-1} D ~\widetilde b  \lift_p\left( \xi\right)  -\widetilde b  p^{-1} D ~\lift
 
 \begin{exercise}\label{top_smooth_sh_exer} Prove following statements:
 	\begin{enumerate}
-		\item [(i)]  The sheaf of local smooth sections $\mathscr G^\infty\left( M, E\right)$ is smooth (cf. Definition \ref{top_smooth_sheaf_defn}).
-		\item[(ii)] There is a smooth sheaf  which comes from the given by \eqref{do_man_eqn} space 	$D\left(M, E_1, E_2 \right)$ differential operators (cf. Definitions \ref{do_man_defn}). We denote it by $\mathscr D\left(M, E_1, E_2\right)$.
-		\item[(iii)] There is the natural inclusion $$\mathscr D\left(M, E_1, E_2\right)\subset \mathscr Hom \left(\mathscr G^\infty\left( M, E_1\right), \mathscr G^\infty\left( M, E_2\right)\right)$$ where $\mathscr Hom$ means sheaf of local morphisms (cf. Definition \ref{sheaf_hom_defn}).
-		\item[(iv)] If $p: \widetilde M \to M$ is a covering (cf. Definition \ref{top_cov_defn}) and the structure of smooth manifold $\widetilde M$ is given by the Proposition \ref{top_cov_mani_prop} then the inverse image sheaf $p^{-1} \mathscr G^\infty\left( M, E\right)$ (cf. Definition \ref{sheaf_inv_im_defn}) then there is a unique  smooth bundle $\widetilde E\to \widetilde M$ such that there is the natural isomorphism
+		\item [(i)]  The sheaf !!! DEFN \ref{top_x_sheaf_defn} of local smooth sections $\mathscr G^\infty\left( M, E\right)$ is smooth (cf. Definition \ref{top_smooth_sheaf_defn}).
+		\item[(ii)] There is a smooth sheaf !!! DEFN \ref{top_x_sheaf_defn}  which comes from the given by \eqref{do_man_eqn} space 	$D\left(M, E_1, E_2 \right)$ differential operators (cf. Definitions \ref{do_man_defn}). We denote it by $\mathscr D\left(M, E_1, E_2\right)$.
+		\item[(iii)] There is the natural inclusion $$\mathscr D\left(M, E_1, E_2\right)\subset \mathscr Hom \left(\mathscr G^\infty\left( M, E_1\right), \mathscr G^\infty\left( M, E_2\right)\right)$$ where $\mathscr Hom$ means sheaf !!! DEFN \ref{top_x_sheaf_defn} of local morphisms (cf. Definition \ref{sheaf_hom_defn}).
+		\item[(iv)] If $p: \widetilde M \to M$ is a covering (cf. Definition \ref{top_cov_defn}) and the structure of smooth manifold $\widetilde M$ is given by the Proposition \ref{top_cov_mani_prop} then the inverse image sheaf !!! DEFN \ref{top_x_sheaf_defn} $p^{-1} \mathscr G^\infty\left( M, E\right)$ (cf. Definition \ref{sheaf_inv_im_defn}) then there is a unique  smooth bundle $\widetilde E\to \widetilde M$ such that there is the natural isomorphism
 		$$
 	p^{-1} \mathscr G^\infty\left( M, E\right)\cong  \mathscr G^\infty\left(\widetilde M, \widetilde E\right).	
 		$$ 
@@ -7212,11 +7226,11 @@ D^*\left(p,E \right) : D^*\left(M, E\right)\hookto D^*\left(\widetilde M, \widet
  $$
 \Ga^\infty\left(M, S \right) /\sim_\sU\to \Ga^\infty\left(M, S \right) /\sim_\sV
  $$
- which satisfy to the Definition \ref{presheaf_defn}, i.e. one has a presheaf 
+ which satisfy to the Definition \ref{presheaf_defn}, i.e. one has a presheaf !!! DEFN \ref{top_x_sheaf_defn} 
  $$
  \sU \mapsto \Ga^\infty\left(M, S \right) /\sim_\sU
  $$
- of Abelian groups. Denote by $\mathscr G^\infty$ the associated sheaf (cf. Proposition and Definition \ref{sheaf_prdf}). Similarly to \ref{top_h_sp_empt} we define a Hilbert space $L^2\left(M, S, \mu\right)$ which is a completion of $\Ga^\infty\left(M, S \right)$ and a faithful representation 
+ of Abelian groups. Denote by $\mathscr G^\infty$ the associated sheaf !!! DEFN \ref{top_x_sheaf_defn} (cf. Proposition and Definition \ref{sheaf_prdf}). Similarly to \ref{top_h_sp_empt} we define a Hilbert space $L^2\left(M, S, \mu\right)$ which is a completion of $\Ga^\infty\left(M, S \right)$ and a faithful representation 
  $$
  C\left( M \right) \hookto B\left( L^2\left(M, S,  \mu\right)\right) 
  $$
@@ -7231,7 +7245,7 @@ $$
  \be
  \Dslash \in \mathscr End \left( \mathscr G^\infty \right) \left(M\right) \bydef \mathscr Hom \left( \mathscr G^\infty,  \mathscr G^\infty \right) \left( M\right) 
  \ee
- where $\mathscr Hom$ means the {sheaf of local morphisms} (cf. Definition \ref{sheaf_hom_defn}),
+ where $\mathscr Hom$ means the {sheaf !!! DEFN \ref{top_x_sheaf_defn} of local morphisms} (cf. Definition \ref{sheaf_hom_defn}),
   suppose that $p: \widetilde M \to M$ is a finite fold covering. If both $\widetilde{\mathscr G}^\infty$ and $\widetilde S$ are $p$-inverse images of ${\mathscr G}^\infty$ and $S$ respectively (cf. Definitions \ref{vb_inv_img_funct_defn} and \ref{sheaf_inv_im_defn}).
  then there is an operator
   \be\label{top_d_shaef_eqn}
@@ -7257,11 +7271,11 @@ For any open subsets such that $\sV\subset \sU$ there are natural projection map
 $$
 \Coo_c\left(M \right)' /\sim_\sU\to \Coo_c\left(M \right)' /\sim_\sV
 $$
-which satisfy to the Definition \ref{presheaf_defn}, i.e. one has a presheaf 
+which satisfy to the Definition \ref{presheaf_defn}, i.e. one has a presheaf !!! DEFN \ref{top_x_sheaf_defn} 
 $$
 \sU \mapsto \Coo_c\left(M \right)' /\sim_\sU
 $$
-of Abelian groups. Denote by $\mathscr D_M$ the associated sheaf (cf. Proposition and Definition \ref{sheaf_prdf}).
+of Abelian groups. Denote by $\mathscr D_M$ the associated sheaf !!! DEFN \ref{top_x_sheaf_defn} (cf. Proposition and Definition \ref{sheaf_prdf}).
 \end{empt}
 
 
@@ -7275,7 +7289,7 @@ of Abelian groups. Denote by $\mathscr D_M$ the associated sheaf (cf. Propositio
 		\Coo_c\left(p \right)':\Coo_c\left(M \right)'\hookto \Coo_c\left(\widetilde M \right)'
 		\ee
 		of $\Coo\left(M \right)$-modules.
-		\item[(iv)] Indeed the sheaf  $\mathscr D_M$ is an $\mathscr C^\infty$-module (cf. Example \ref{sheaf_ringed_space_exm} and Definition \ref{sheaf_of_modules_den}). If $\Aut_{\Coo\left(M\right)}\left( \Coo_c\left(\widetilde M \right)'\right)$ is a group of $\Coo\left(M\right)$-module  automorphisms  then from the Exercise \ref{top_pre_sheaf_exer} it follows that:
+		\item[(iv)] Indeed the sheaf !!! DEFN \ref{top_x_sheaf_defn}  $\mathscr D_M$ is an $\mathscr C^\infty$-module (cf. Example \ref{sheaf_ringed_space_exm} and Definition \ref{sheaf_of_modules_den}). If $\Aut_{\Coo\left(M\right)}\left( \Coo_c\left(\widetilde M \right)'\right)$ is a group of $\Coo\left(M\right)$-module  automorphisms  then from the Exercise \ref{top_pre_sheaf_exer} it follows that:
 		\begin{enumerate}
 			\item [(a)] There is a natural isomorphism of groups
 			$$
@@ -8136,7 +8150,7 @@ Let $\sX$ be a locally compact, connected, locally connected, Hausdorff space, a
 \bean
 \forall a', a'' \in C_0\left(\sX\right)\left[t\right]\quad a'\sim_\sU a''\quad \Leftrightarrow\\ \Leftrightarrow \left(\forall f \in C_0\left(\sX\right)\quad \supp f \cap \sU = \emptyset \quad \Rightarrow \quad f\left(a'-a'' \right) =0 \right). 
 \eean
-The map $\sU \mapsto C_0\left(\sX\right)\left[t\right] /\sim_\sU$ yields a presheaf of *-algebras (cf. Definition \ref{presheaf_defn}). denote by $\mathscr{ A}$ the associated sheaf (cf. \ref{sheaf_prdf}). Let 
+The map $\sU \mapsto C_0\left(\sX\right)\left[t\right] /\sim_\sU$ yields a presheaf !!! DEFN \ref{top_x_sheaf_defn} of *-algebras (cf. Definition \ref{presheaf_defn}). denote by $\mathscr{ A}$ the associated sheaf !!! DEFN \ref{top_x_sheaf_defn} (cf. \ref{sheaf_prdf}). Let 
 \be\label{top_poly_a_defn}
 A \bydef \mathscr{ A}\left(\sX\right)
 \ee
@@ -8409,7 +8423,7 @@ Consider the situation of the Section \ref{comm_induced_finite_sec}. Moreover as
 \left(A, \widetilde A   , G\left(\left. \widetilde A \right|A \right) , \pi \right)\bydef \left(C\left(M \right), C\left(\widetilde M \right)   , G\left(\left. \widetilde M \right|M \right) , C\left(p \right) \right)  
 \ee
 is an (unital) noncommutative finite-fold covering. If  $\widetilde S$ is  the {inverse image} of $S$ by $p$  (cf. Definition \ref{vb_inv_img_funct_defn}) then from the Lemma \ref{comm_ind_lem} it follows that the representation $\widetilde{\rho}$ is given by the natural action of $C\left(\widetilde{M}\right)$ on $ L^2\left(\widetilde{M},\widetilde{S} \right)$ is induced by the pair $$\left(C\left(M \right)\to B\left(  L^2\left(M,S \right)\right) ,\left(C\left(M \right) , C\left( \widetilde{M}\right) , G\left( \left.\widetilde{M}~\right|M\right) \right)  \right)$$ (cf. Definition \ref{induced_repr_defn}). 
-If   $\mathscr G^\infty$ is a sheaf of smooth sections $\Ga^\infty\left( M, S\right)$  then the  inverse image sheaf $\widetilde{\mathscr G}^\infty\bydef p^{-1}\mathscr G^\infty$ (cf. Definition \ref{sheaf_inv_im_defn}) is a sheaf of smooth sections $\Ga^\infty\left(\widetilde M, \widetilde S\right)$  (cf. Example \ref{top_spinor_smooth_exm}).  
+If   $\mathscr G^\infty$ is a sheaf !!! DEFN \ref{top_x_sheaf_defn} of smooth sections $\Ga^\infty\left( M, S\right)$  then the  inverse image sheaf !!! DEFN \ref{top_x_sheaf_defn} $\widetilde{\mathscr G}^\infty\bydef p^{-1}\mathscr G^\infty$ (cf. Definition \ref{sheaf_inv_im_defn}) is a sheaf !!! DEFN \ref{top_x_sheaf_defn} of smooth sections $\Ga^\infty\left(\widetilde M, \widetilde S\right)$  (cf. Example \ref{top_spinor_smooth_exm}).  
 From \eqref{top_d_shaef_m_eqn} it follows that there is an operator 
 $$
 \widetilde \Dslash  : \Ga^\infty\left(\widetilde M,\widetilde S \right)\to \Ga^\infty\left(\widetilde M,\widetilde S \right).
@@ -10101,7 +10115,7 @@ From the our construction $C^*\left(G, R\right)$ is the completion of $M\left( \
  $$
  \forall \widetilde a', \widetilde a'' \in \widetilde A'\quad \widetilde a' \sim_{\widetilde\sU} \widetilde a'' \quad  \Leftrightarrow\quad  \forall \widetilde x\in  \widetilde M \quad \widetilde a'\left( \widetilde x\right) = \widetilde a''\left( \widetilde x\right).
  $$ 
-  A map $\widetilde\sU \mapsto \widetilde A'/ \sim_{\widetilde\sU}$ yields a presheaf (cf. Definition \ref{presheaf_defn}). Let $\mathscr A$ be an associated sheaf (cf. Proposition and Definition \ref{sheaf_prdf}). Let $\widetilde x_0\in \widetilde M$ be any point and let $\widetilde \sU$ is a compact neighborhood of $\widetilde x_0$. Let $\widetilde b\in C_0\left(\widetilde M \right) $ be a covering sum  for $\widetilde\sU$ (cf. Definition \ref{top_covering_sum_defn}). One can select $\widetilde b$ such that $\widetilde b\in  \Coo_c\left( \widetilde M\right)$ (cf. Proposition \ref{top_smooth_part_unity_prop}). A set $\supp \widetilde g$ is compact, from the Lemma \ref{top_comp_la_lem}  it turns out that there is $\la_0\in \La$ such that $\supp \widetilde f$ is homeomorphically mapped   onto $\widetilde p_{\la_0} \left(\supp \widetilde b \right) \subset M_{\la_0}$ where $\widetilde p_{\la_0}:\widetilde M\to M_{\la_0}$ is the natural covering. If $\widetilde a \in \widetilde A'$ then from $\widetilde b \in K\left( C_0\left(\widetilde  M \right) \right)$ and   \eqref{inf_cov_oa_sub3_eqn} it follows that there is $a\in \bigcup  \Coo_0\left( M_{\la}\right)$
+  A map $\widetilde\sU \mapsto \widetilde A'/ \sim_{\widetilde\sU}$ yields a presheaf !!! DEFN \ref{top_x_sheaf_defn} (cf. Definition \ref{presheaf_defn}). Let $\mathscr A$ be an associated sheaf !!! DEFN \ref{top_x_sheaf_defn} (cf. Proposition and Definition \ref{sheaf_prdf}). Let $\widetilde x_0\in \widetilde M$ be any point and let $\widetilde \sU$ is a compact neighborhood of $\widetilde x_0$. Let $\widetilde b\in C_0\left(\widetilde M \right) $ be a covering sum  for $\widetilde\sU$ (cf. Definition \ref{top_covering_sum_defn}). One can select $\widetilde b$ such that $\widetilde b\in  \Coo_c\left( \widetilde M\right)$ (cf. Proposition \ref{top_smooth_part_unity_prop}). A set $\supp \widetilde g$ is compact, from the Lemma \ref{top_comp_la_lem}  it turns out that there is $\la_0\in \La$ such that $\supp \widetilde f$ is homeomorphically mapped   onto $\widetilde p_{\la_0} \left(\supp \widetilde b \right) \subset M_{\la_0}$ where $\widetilde p_{\la_0}:\widetilde M\to M_{\la_0}$ is the natural covering. If $\widetilde a \in \widetilde A'$ then from $\widetilde b \in K\left( C_0\left(\widetilde  M \right) \right)$ and   \eqref{inf_cov_oa_sub3_eqn} it follows that there is $a\in \bigcup  \Coo_0\left( M_{\la}\right)$
   such that $\widetilde b a = \widetilde a$. Since $a$ can be regarded as a smooth function on $\widetilde M$ 
   !!! CONTINUE
   
@@ -10205,7 +10219,7 @@ Above construction is a version of the described in \ref{comp_pt_o*_empt} genera
 		\forall \widetilde a', \widetilde a'' \in \widetilde A' \quad  \widetilde a'\sim_{\widetilde\sU} \widetilde a'' \quad\Leftrightarrow\left( \quad \forall \widetilde b\in \Coo_c\left(\widetilde M \right) \quad \supp \widetilde b \subset  \widetilde\sU\quad \Rightarrow \quad\widetilde a'\widetilde b = \widetilde a''\widetilde b\right). 
 		$$
 		One can proof than the map
-		$\widetilde \sU \mapsto \widetilde A'/\sim_{\widetilde\sU}$ satisfies to the Definition  \ref{presheaf_defn}, i.e. one has a presheaf.  Let $\widetilde{\mathscr A}'$ be an associated sheaf (cf. \ref{sheaf_prdf}). On the other hand from the Example \ref{top_diff_smooth_exm} it follows that there is a sheaf $\mathscr D$ of differential operators $\Coo\left(\widetilde M\right)\to \Coo\left(\widetilde M\right)$.
+		$\widetilde \sU \mapsto \widetilde A'/\sim_{\widetilde\sU}$ satisfies to the Definition  \ref{presheaf_defn}, i.e. one has a presheaf.  Let $\widetilde{\mathscr A}'$ be an associated sheaf !!! DEFN \ref{top_x_sheaf_defn} (cf. \ref{sheaf_prdf}). On the other hand from the Example \ref{top_diff_smooth_exm} it follows that there is a sheaf !!! DEFN \ref{top_x_sheaf_defn} $\mathscr D$ of differential operators $\Coo\left(\widetilde M\right)\to \Coo\left(\widetilde M\right)$.
 		If $\widetilde x_0\subset \widetilde M$ that any stalk 
 		(cf. Definition \ref{stalk_defn}) of $\widetilde{\mathscr A}'$ at  $\widetilde x_0$ can be represented  by a pair $\left( \widetilde \sU, \widetilde a_{\widetilde \sU}\right) $ 
 		where  $\widetilde \sU$ is an open neighborhood of $\widetilde x_0$ and $a_{\widetilde \sU} \in \widetilde A'/\sim_{\widetilde\sU}$. Moreover from the Definition \ref{stalk_defn} one can assume that the closure $\widetilde \sY$ of $\widetilde \sU$ is compact. Let $\widetilde f\in  C_c\left( \widetilde M\right)$ be a covering sum for $ \widetilde \sY$ (cf. Definition \ref{top_covering_sum_defn}). One can suppose that $\widetilde f$ is smooth (cf. Remark \ref{top_smooth_part_unity_rem}).
@@ -10415,12 +10429,12 @@ If $\widetilde \sU \subset  \widetilde \sX$ is an open subset then there is an e
 	 \forall \widetilde a', \widetilde a'' \in \widetilde A' \quad  \widetilde a'\sim_{\widetilde\sU} \widetilde a'' \quad\Leftrightarrow\left( \quad \forall \widetilde b\in C_c\left(\widetilde \sX \right) \quad \supp \widetilde b \subset  \widetilde\sU\quad \Rightarrow \quad\widetilde a'\widetilde b = \widetilde a''\widetilde b\right). 
 	 $$
 	 One can proof than the map
-$\widetilde \sU \mapsto \widetilde A'/\sim_{\widetilde\sU}$ satisfies to the Definition  \ref{presheaf_defn}, i.e. one has a presheaf.  Let $\widetilde{\mathscr A}'$ be an associated sheaf (cf. \ref{sheaf_prdf}). If $\widetilde x_0\subset \widetilde \sX$ that any stalk 
+$\widetilde \sU \mapsto \widetilde A'/\sim_{\widetilde\sU}$ satisfies to the Definition  \ref{presheaf_defn}, i.e. one has a presheaf.  Let $\widetilde{\mathscr A}'$ be an associated sheaf !!! DEFN \ref{top_x_sheaf_defn} (cf. \ref{sheaf_prdf}). If $\widetilde x_0\subset \widetilde \sX$ that any stalk 
 (cf. Definition \ref{stalk_defn}) of $\widetilde{\mathscr A}'$ at  $\widetilde x_0$ can be represented  by a pair $\left( \widetilde \sU, \widetilde a_{\widetilde \sU}\right) $ 
 where  $\widetilde \sU$ is an open neighborhood of $\widetilde x_0$ and $a_{\widetilde \sU} \in \widetilde A'/\sim_{\widetilde\sU}$. Moreover from the Definition \ref{stalk_defn} one can assume that the closure $\widetilde \sY$ of $\widetilde \sU$ is compact. Let $\widetilde f\in  C_c\left( \widetilde \sX\right)$ be a covering sum for $ \widetilde \sY$ (cf. Definition \ref{top_covering_sum_defn}).
 If $\widetilde a_{\widetilde \sU}$ is represented by $\widetilde a$ then from 
 $\widetilde f \left(\widetilde \sU \right)=\{1\}$ it follows that  $\widetilde a_{\widetilde \sU}$ can be also represented by $\widetilde a\widetilde f$. From the equation \eqref{hilb_adm_eqn} it follows that there is $a^\cup \in \cup~ A_\la = \cup~Cont\left(\sX_\la \right)$ such that $\widetilde a\widetilde f=  a^\cup\widetilde f$. However $ a^\cup\widetilde f\in C_c\left(\widetilde \sX \right)$. It follows that any stalk at $\widetilde x_0$ corresponds to a stalk of the given by \eqref{top_cont_sheaf} 
-sheaf of $\mathscr C \left(\widetilde{\sX}, \left\{\C_{\widetilde{x}}\right\}, C_0\left(\widetilde\sX\right) \right)
+sheaf !!! DEFN \ref{top_x_sheaf_defn} of $\mathscr C \left(\widetilde{\sX}, \left\{\C_{\widetilde{x}}\right\}, C_0\left(\widetilde\sX\right) \right)
 $ continuous functions. On the other hand from \eqref{hilb_adm_cup_eqn} if follows that any stalk of $\mathscr C \left(\widetilde{\sX}, \left\{\C_{\widetilde{x}}\right\}, C_0\left(\widetilde\sX\right) \right)
 $ can be represented by the stalk of $\widetilde{\mathscr A}'$. It follows that
 $$
@@ -14144,7 +14158,7 @@ Let  $B$ be a $C^*$-algebra with locally compact, connected, locally connected, 
 \bean
 \forall b', b'' \in B\quad b'\sim_\sU b''\quad \Leftrightarrow\\ \Leftrightarrow \left(\forall f \in C_0\left(\sX\right)\quad \supp f \cap \sU = \emptyset \quad \Rightarrow \quad f\left(b'-b'' \right) =0 \right). 
 \eean
-The map $\sU \mapsto B /\sim_\sU$ yields a presheaf of *-algebras (cf. Definition \ref{presheaf_defn}), denote by $\mathscr{ A}$ the associated sheaf (cf. \ref{sheaf_prdf}). Let 
+The map $\sU \mapsto B /\sim_\sU$ yields a presheaf !!! DEFN \ref{top_x_sheaf_defn} of *-algebras (cf. Definition \ref{presheaf_defn}), denote by $\mathscr{ A}$ the associated sheaf !!! DEFN \ref{top_x_sheaf_defn} (cf. \ref{sheaf_prdf}). Let 
 \be\label{ctr_da_eqn}
 A \bydef \mathscr{ A}\left(\sX\right)
 \ee
@@ -14152,7 +14166,7 @@ be a *-algebra of global sections.} If $p:\widetilde \sX \to \sX$ is a transitiv
 \begin{exercise}\label{ctr_hf_exer}
 Prove following statements:
 \begin{itemize}
-	\item If $\widetilde{\mathscr{ A}}\bydef p^{-1}\mathscr{ A}$ is an inverse image of the sheaf $\mathscr{ A}$  (cf. Definition \ref{sheaf_inv_im_defn}) and ${\widetilde{ A}} \bydef  \widetilde{\mathscr{ A}}\left(  \widetilde{\sX}\right) $ is a *-algebra  of global sections
+	\item If $\widetilde{\mathscr{ A}}\bydef p^{-1}\mathscr{ A}$ is an inverse image of the sheaf !!! DEFN \ref{top_x_sheaf_defn} $\mathscr{ A}$  (cf. Definition \ref{sheaf_inv_im_defn}) and ${\widetilde{ A}} \bydef  \widetilde{\mathscr{ A}}\left(  \widetilde{\sX}\right) $ is a *-algebra  of global sections
 	then there is a {noncommutative finite-fold  pre-covering of *-algebras}   $\left(A, \widetilde{A}, G \right)$ (cf. Definition \ref{fin_pre*_defn}  REPLACE Exercise !!!\ref{top_pre_sheaf_exer}).
 	\item The quadruple $\left(A, \widetilde{A}, G, \pi_A \right)$ is an {associated with $\left(B, \widetilde{B}, G, \pi_B \right)$ noncommutative finite-fold covering of *-algebras} (cf. Definition \ref{fin_chull_defn} !!! CHECK (a) (b)).
 \end{itemize}
@@ -15753,7 +15767,7 @@ This theorem is a specialization of the Theorem \ref{blowing_main_thm}.
 \section{Infinite coverings of Hausdorff foliation groupoids}
 \paragraph{}
 Here we consider foliation spaces such that all leaves of which are simply connected. From \ref{foli_sc_haus_empt} it turns out that groupoids of such spaces are Hausdorff. The Theorem \ref{foli_main_thm} is rather the existence theorem of the $C^*$-algebra $\overline A_{\widetilde M}$. Below we describe more detail description of this $C^*$-algebra where the foliation groupoid is Hausdorff.
-\subsection{Reduced sheaf of the foliation}
+\subsection{Reduced sheaf !!! DEFN \ref{top_x_sheaf_defn} of the foliation}
 \begin{empt} \label{foli_sheaf_empt}
 	Let $\sV \subset \G\left(M, \sF  \right)$ be an open subset. For any $x \in M$ denote by
 	\be
@@ -15778,11 +15792,11 @@ Here we consider foliation spaces such that all leaves of which are simply conne
 		\bigoplus_{x \in M} p^x_\sV \rho_x\left(a \right) q^x_\sV \mapsto p^x_{\mathcal W} p^x_\sV \rho_x\left(a \right) q^x_\sV q^x_{\mathcal W}.
 	\end{split}
 	\ee
-	Thus there is a presheaf $\mathscr G$ of Abelian groups (cf. Definition \ref{presheaf_defn}).
+	Thus there is a presheaf !!! DEFN \ref{top_x_sheaf_defn} $\mathscr G$ of Abelian groups (cf. Definition \ref{presheaf_defn}).
 \end{empt}
 
 \begin{definition}\label{foli_presheaf_defn}
-	The presheaf $\mathscr G$ is said to be \textit{reduced presheaf} of $\left(M,\sF\right)$. The associated with $\mathscr G$ sheaf $\mathscr C^*_r\left(M,\sF\right)$ is said to be the \textit{reduced sheaf} of $\left(M,\sF\right)$. 
+	The presheaf !!! DEFN \ref{top_x_sheaf_defn} $\mathscr G$ is said to be \textit{reduced presheaf} of $\left(M,\sF\right)$. The associated with $\mathscr G$ sheaf !!! DEFN \ref{top_x_sheaf_defn} $\mathscr C^*_r\left(M,\sF\right)$ is said to be the \textit{reduced sheaf} of $\left(M,\sF\right)$. 
 \end{definition}
 \begin{remark}
 	From \eqref{foli_a_v_eqn} it turns out that for any open $\sV \subset \G\left(M, \sF \right)$ there are projectors $P_\sV, Q_\sV \in B\left( \bigoplus_{L \in M/\sF_{\mathrm{no~hol}}}  L^2\left(\G_{x_L}\right)\right)$
@@ -15806,7 +15820,7 @@ Here we consider foliation spaces such that all leaves of which are simply conne
 	is said to be \textit{affiliated to}  $C^*_r\left(M,\sF\right)$. The $\C$-space of affiliated operators will be denoted by $C^*_b\left(M,\sF\right)$.
 \end{definition}
 \begin{remark}\label{foli_affil_rem}
-Any {affiliated to}  $C^*_r\left(M,\sF\right)$ operator corresponds to a global section of  the {reduced sheaf} $\mathscr C^*_r\left(M,\sF\right)$ of $\left(M,\sF\right)$ (cf. Definition \ref{foli_presheaf_defn}). %Conversely any bounded operator $ a\in B\left( \bigoplus_{L \in M/\sF_{\mathrm{no~hol}}}  L^2\left(\G_{x_L}\right)\right)$ is affiliated to  $C^*_r\left(M,\sF\right)$ if it corresponds to a global section of the sheaf $\mathscr C^*_r\left(M,\sF\right)$.
+Any {affiliated to}  $C^*_r\left(M,\sF\right)$ operator corresponds to a global section of  the {reduced sheaf} $\mathscr C^*_r\left(M,\sF\right)$ of $\left(M,\sF\right)$ (cf. Definition \ref{foli_presheaf_defn}). %Conversely any bounded operator $ a\in B\left( \bigoplus_{L \in M/\sF_{\mathrm{no~hol}}}  L^2\left(\G_{x_L}\right)\right)$ is affiliated to  $C^*_r\left(M,\sF\right)$ if it corresponds to a global section of the sheaf !!! DEFN \ref{top_x_sheaf_defn} $\mathscr C^*_r\left(M,\sF\right)$.
 \end{remark}
 \begin{remark}
 There is the natural inclusion
@@ -24586,7 +24600,7 @@ A^{\infty}$.
 	(Note condition (3) implies that $s$ is unique.)
 \end{definition}
 %\begin{definition}
-%	A presheaf satisfying (4) of the Definition \ref{sheaf_defn} is called \textit{conjunctive} (for $\sU$). (cf. \cite{bredon:sheaf})
+%	A presheaf !!! DEFN \ref{top_x_sheaf_defn} satisfying (4) of the Definition \ref{sheaf_defn} is called \textit{conjunctive} (for $\sU$). (cf. \cite{bredon:sheaf})
 %\end{definition}
 
 \begin{definition}\label{stalk_defn}\cite{hartshorne:ag}
@@ -24594,7 +24608,7 @@ A^{\infty}$.
 \end{definition}
 
 \begin{prdf}\label{sheaf_prdf}\cite{hartshorne:ag}
-	Given a presheaf $\mathscr F$, there is a sheaf $\mathscr F^+$ and a morphism $\th: \mathscr F \to \mathscr F^+$, with the property that for any sheaf $\mathscr G$, and any morphism $\varphi: \mathscr F \to \mathscr G$, there is a unique morphism $\psi:\mathscr F^+\to \mathscr G$ such that $\varphi = \psi \circ \th$. Furthermore the pair $\left(\mathscr F^+, \th\right)$ is unique up to unique isomorphism. $\mathscr F^+$ is called the $\mathrm{sheaf~associated}$ to the presheaf $\mathscr F$. 
+	Given a presheaf !!! DEFN \ref{top_x_sheaf_defn} $\mathscr F$, there is a sheaf !!! DEFN \ref{top_x_sheaf_defn} $\mathscr F^+$ and a morphism $\th: \mathscr F \to \mathscr F^+$, with the property that for any sheaf !!! DEFN \ref{top_x_sheaf_defn} $\mathscr G$, and any morphism $\varphi: \mathscr F \to \mathscr G$, there is a unique morphism $\psi:\mathscr F^+\to \mathscr G$ such that $\varphi = \psi \circ \th$. Furthermore the pair $\left(\mathscr F^+, \th\right)$ is unique up to unique isomorphism. $\mathscr F^+$ is called the $\mathrm{sheaf~associated}$ to the presheaf !!! DEFN \ref{top_x_sheaf_defn} $\mathscr F$. 
 \end{prdf}
 \begin{empt}\label{sheaf_empt}
 	Following text is the citation of the proof of \ref{sheaf_prdf} (cf. \cite{hartshorne:ag}). For any open set $\sU$, let $\mathscr F^+\left(\sU\right)$ be set of functions $s$ from $\sU$ to the union $\bigcup_{x \in \sU}  \mathscr F_x$ of stalks of $\mathscr F$ over points of $\sU$, such that
@@ -24609,13 +24623,13 @@ A^{\infty}$.
 	Similarly to the construction \ref{sheaf_empt} one can define a group $\mathscr F\left(\sV\right)$ for any subset $\sV\subset\sX$ which is a group of continuous maps  $\iota :\sV\to \bigcup_{x \in \sV}  \mathscr F_x$ such that $p\circ\iota = \Id_\sV$. Denote by  $\mathscr F\left(\sV \right)$ the Abelian group of such maps.
 \end{remark}
 \begin{definition}\label{sheaf_inv_im_defn}\cite{hartshorne:ag}
-	Let $f: \sX\to \sY$ be a continuous map of topological spaces. For any sheaf $\mathscr F$ on $\sX$, we define the \textit{direct image} sheaf $f_*\mathscr F$ on $\sY$ by $\left(f_*\mathscr F\right)\left(\sV\right)= \mathscr F\left(f^{-1}\left(\sV\right)\right)$ for any open set $\sV \subseteq \sY$. For any sheaf $\mathscr G$ on $\sY$, we define the \textit{inverse image} sheaf $f^{-1}\mathscr G$ on $\sX$ be the sheaf associated to the presheaf $\sU \mapsto \lim_{\sV \supseteq f\left(\sU\right)} \mathscr G\left(\sV\right)$, where $\sU$ is any open set in $\sX$, and the limit is taken over all open sets $\sV$ of $\sV$ containing $f\left(\sU\right)$.
+	Let $f: \sX\to \sY$ be a continuous map of topological spaces. For any sheaf !!! DEFN \ref{top_x_sheaf_defn} $\mathscr F$ on $\sX$, we define the \textit{direct image} sheaf !!! DEFN \ref{top_x_sheaf_defn} $f_*\mathscr F$ on $\sY$ by $\left(f_*\mathscr F\right)\left(\sV\right)= \mathscr F\left(f^{-1}\left(\sV\right)\right)$ for any open set $\sV \subseteq \sY$. For any sheaf !!! DEFN \ref{top_x_sheaf_defn} $\mathscr G$ on $\sY$, we define the \textit{inverse image} sheaf !!! DEFN \ref{top_x_sheaf_defn} $f^{-1}\mathscr G$ on $\sX$ be the sheaf !!! DEFN \ref{top_x_sheaf_defn} associated to the presheaf !!! DEFN \ref{top_x_sheaf_defn} $\sU \mapsto \lim_{\sV \supseteq f\left(\sU\right)} \mathscr G\left(\sV\right)$, where $\sU$ is any open set in $\sX$, and the limit is taken over all open sets $\sV$ of $\sV$ containing $f\left(\sU\right)$.
 \end{definition}
 \begin{definition}\label{sheaf_hom_defn}\cite{hartshorne:ag}
-	Let $\mathscr F$, $\mathscr G$ be sheaves of Abelian  groups  on $\sX$. For any open set $\sU \subseteq \sX$ the set of morphisms $\Hom\left(\left.\mathscr F\right|_{\sU}, \left.\mathscr G\right|_{\sU}\right)$ has the natural structure of Abelian group. It is a sheaf (cf. \cite{hartshorne:ag}). It is called the \textit{sheaf of local morphisms} of $\mathscr F\to \mathscr G$, "sheaf hom" for short, and is denoted by $\mathscr Hom \left(\mathscr F, \mathscr G\right)$.
+	Let $\mathscr F$, $\mathscr G$ be sheaves of Abelian  groups  on $\sX$. For any open set $\sU \subseteq \sX$ the set of morphisms $\Hom\left(\left.\mathscr F\right|_{\sU}, \left.\mathscr G\right|_{\sU}\right)$ has the natural structure of Abelian group. It is a sheaf !!! DEFN \ref{top_x_sheaf_defn} (cf. \cite{hartshorne:ag}). It is called the \textit{sheaf !!! DEFN \ref{top_x_sheaf_defn} of local morphisms} of $\mathscr F\to \mathscr G$, "sheaf !!! DEFN \ref{top_x_sheaf_defn} hom" for short, and is denoted by $\mathscr Hom \left(\mathscr F, \mathscr G\right)$.
 \end{definition}
 \begin{definition}\label{sheaf_flasque}\cite{hartshorne:ag}
-	A sheaf $\mathscr F$ on a topological space is \textit{flasque} or \textit{flabby} if for every inclusion $\sV \subseteq \sU$ of open sets, the restriction map $\mathscr F\left(\sU \right)\to\mathscr F\left(\sV \right)$ is surjective. 
+	A sheaf !!! DEFN \ref{top_x_sheaf_defn} $\mathscr F$ on a topological space is \textit{flasque} or \textit{flabby} if for every inclusion $\sV \subseteq \sU$ of open sets, the restriction map $\mathscr F\left(\sU \right)\to\mathscr F\left(\sV \right)$ is surjective. 
 \end{definition}
 Recall that for $s \in \mathscr{F}\left(\sX \right)$, 
 \be\label{sheaf_supp_eqn}
@@ -24638,30 +24652,30 @@ Recall that for $s \in \mathscr{F}\left(\sX \right)$,
 \end{definition}
 The family of all compact subsets of $\sX$ is denoted by $c$.
 \begin{definition}\label{soft_sheaf_defn}\cite{bredon:sheaf}
-	A sheaf $\mathscr{F}$ on $\sX$ is called $\Phi$-\textit{soft} if the restriction map	$\mathscr{F}\left(\sX \right) \to  \mathscr{F}\left(K \right)$  is surjective for all $K \in \Phi$. If $\Phi$ is a set of all closed sets  then $\Phi$ is simply
+	A sheaf !!! DEFN \ref{top_x_sheaf_defn} $\mathscr{F}$ on $\sX$ is called $\Phi$-\textit{soft} if the restriction map	$\mathscr{F}\left(\sX \right) \to  \mathscr{F}\left(K \right)$  is surjective for all $K \in \Phi$. If $\Phi$ is a set of all closed sets  then $\Phi$ is simply
 	called \textit{soft}. If $\Phi= c$ is a set of all compact  sets  then $\mathscr{F}$ is called $c$-\textit{soft}.
 \end{definition}
 
-Now is $\mathscr P$ is a presheaf on $\sX$ such and $s \in \mathscr P\left(\sX \right)$ we put
-$\left|s\right| = \left|\th\left( s\right) \right|$, where $\th: \mathscr{P}\left(\sX \right)\to \mathscr{P}^+\left(\sX \right) $ is the canonical map, $\mathscr{P}^+$ being the sheaf generated by $\mathscr{P}$.
+Now is $\mathscr P$ is a presheaf !!! DEFN \ref{top_x_sheaf_defn} on $\sX$ such and $s \in \mathscr P\left(\sX \right)$ we put
+$\left|s\right| = \left|\th\left( s\right) \right|$, where $\th: \mathscr{P}\left(\sX \right)\to \mathscr{P}^+\left(\sX \right) $ is the canonical map, $\mathscr{P}^+$ being the sheaf !!! DEFN \ref{top_x_sheaf_defn} generated by $\mathscr{P}$.
 Note that for $s \in \mathscr{P}$ one has $x \notin \left|s\right|\Leftrightarrow\left.s \right|_{\sU}$ for some neighborhood $\sU$ of $x$. If $\mathscr{F}$ is a sheaf, we put
 $$
 \Ga_\Phi = \left\{\left.s\in \mathscr{F}\left( \sX\right)\right| \left|s\right| \in \Phi \right\}
 $$
-For a presheaf $\mathscr{P}$  on $\sX$ we put  $\mathscr{P}_\Phi\left(\sX \right) = \left\{\left.s\in \mathscr{P}\left( \sX\right)\right| \left|s\right| \in \Phi \right\}$.
+For a presheaf !!! DEFN \ref{top_x_sheaf_defn} $\mathscr{P}$  on $\sX$ we put  $\mathscr{P}_\Phi\left(\sX \right) = \left\{\left.s\in \mathscr{P}\left( \sX\right)\right| \left|s\right| \in \Phi \right\}$.
 \begin{lemma}\label{schv_soft_n_lem}\cite{godement:sheaf,torsten:sheaves}
-	Let $\sX$ be a paracompact space, $\mathscr{F}$ a sheaf on $\sX$. Then $\mathscr{F}$ is soft if and only if every point $x \in \sX$ has a closed neighborhood $\overline{   \mathcal U }$ such that $\left.\mathscr{F}\right|_{\overline{   \mathcal U }}$ is soft.
+	Let $\sX$ be a paracompact space, $\mathscr{F}$ a sheaf !!! DEFN \ref{top_x_sheaf_defn} on $\sX$. Then $\mathscr{F}$ is soft if and only if every point $x \in \sX$ has a closed neighborhood $\overline{   \mathcal U }$ such that $\left.\mathscr{F}\right|_{\overline{   \mathcal U }}$ is soft.
 \end{lemma}
 \begin{proposition}\label{flabby_soft_prop}\cite{bredon:sheaf}
 	%	9.22. Proposition. \\
 	If $\sU$ is a compact relatively Hausdorff subspace of $\sX$,
-	then $\left.\mathscr{F}\right|_{\sU} $ is soft for any flabby sheaf $\mathscr{F}$ on $\sX$.
+	then $\left.\mathscr{F}\right|_{\sU} $ is soft for any flabby sheaf !!! DEFN \ref{top_x_sheaf_defn} $\mathscr{F}$ on $\sX$.
 \end{proposition}
 
 
 %\begin{theorem}\cite{bredon:sheaf}
 	%	6.2.\\
-%	Theorem. Let $\mathscr P$ be a presheaf on $\sX$ that is conjunctive for coverings	of $\sX$ and $\mathscr P^+$ be the sheaf generated by $\mathscr P$. Then for any paracompactifying 	family $\Phi$ of supports on $\sX$, the sequence
+%	Theorem. Let $\mathscr P$ be a presheaf !!! DEFN \ref{top_x_sheaf_defn} on $\sX$ that is conjunctive for coverings	of $\sX$ and $\mathscr P^+$ be the sheaf !!! DEFN \ref{top_x_sheaf_defn} generated by $\mathscr P$. Then for any paracompactifying 	family $\Phi$ of supports on $\sX$, the sequence
 %	$$
 %	0 \to \mathscr P_0\left( \right) \to  \mathscr{P}_\Phi\left(\sX \right) \xrightarrow{\th}\Ga_\Phi\left(\mathscr{P}^+ \right) 
 %	$$
@@ -24669,24 +24683,24 @@ For a presheaf $\mathscr{P}$  on $\sX$ we put  $\mathscr{P}_\Phi\left(\sX \right
 %\end{theorem}
 \begin{theorem}\label{sheaf_neigh_thm}\cite{godement:sheaf}
 	%	3.3.1\\
-	Let $\mathscr{F}$ be a sheaf of set over the space $\sX$, $\mathcal S$ is a subset of $\sX$ and $s$ is a section of the sheaf $\mathscr{F}$ over $\mathcal S$. If $\mathcal S$ allows a fundamental system of paracompact neighborhoods then $s$ can be extended to a neighborhood of $\mathcal S$ in $\sX$. 
+	Let $\mathscr{F}$ be a sheaf !!! DEFN \ref{top_x_sheaf_defn} of set over the space $\sX$, $\mathcal S$ is a subset of $\sX$ and $s$ is a section of the sheaf !!! DEFN \ref{top_x_sheaf_defn} $\mathscr{F}$ over $\mathcal S$. If $\mathcal S$ allows a fundamental system of paracompact neighborhoods then $s$ can be extended to a neighborhood of $\mathcal S$ in $\sX$. 
 \end{theorem}
 
 \begin{definition}\label{sheaf_ringed_space_defn}\cite{hartshorne:ag}
  A \textit{ringed space} is a pair $\left(\sX, \mathcal O_\sX \right)$  consisting of a topological space 
-$\sX$ and a sheaf of rings $\mathcal O_\sX$  on $\sX$.
+$\sX$ and a sheaf !!! DEFN \ref{top_x_sheaf_defn} of rings $\mathcal O_\sX$  on $\sX$.
 % A morphism of ringed spaces from (X,CX) to (Y,GY) is a pair (./,/#) of a continuous map f:X-+ Y and a map f# :(ry -> fJ9x of sheaves of rings on Y. The ringed space (X,?x) is a locally ringed space if for each point P e X, the stalk ([x P is a local ring. A morphism of locally ringed spaces is a morphism (/,/#) of ringed spaces, such that for each point P e X, the induced map (see below) of local rings fp :Cyj(P) -+ ?x,p ls a l?cal homomorphism of local rings. We explain this last condition. First of all, given a point P e X, the morphism of sheaves f*:((Y -+ l\fix induces a homomorphism of rings CY(V) -> ?x(f~ { V), for every open set V in Y. As V ranges over all open neighbor- 	hoods of /(P), f~l(V) ranges over a subset of the neighborhoods of P. 	Taking direct limits, we obtain a map 	&YJ{P) = \jmCY(V)^\jme>'x(f-1V), 		72 
 
 \end{definition}
 \begin{example} \label{sheaf_ringed_space_exm}
 	One has a following ringed spaces (cf.Definition \ref{sheaf_ringed_space_exm})
 	\begin{enumerate}
-		\item [(i)] If $\sX$ is topological space and a sheaf  $\mathscr C_\sX$ associated with a presheaf
+		\item [(i)] If $\sX$ is topological space and a sheaf !!! DEFN \ref{top_x_sheaf_defn}  $\mathscr C_\sX$ associated with a presheaf
 		$$
 		\sU \mapsto C_0\left( \sU\right) 
 		$$
 		then $\left(\sX, \mathscr C_\sX \right)$ is a ringed space.
-		\item [(ii)]If $M$ is smooth manifold and a sheaf  $\mathscr C^\infty_M$ associated with a presheaf
+		\item [(ii)]If $M$ is smooth manifold and a sheaf !!! DEFN \ref{top_x_sheaf_defn}  $\mathscr C^\infty_M$ associated with a presheaf
 		$$
 		\sU \mapsto \Coo\left( \sU\right) 
 		$$
@@ -24695,14 +24709,14 @@ $\sX$ and a sheaf of rings $\mathcal O_\sX$  on $\sX$.
 \end{example}
 
 \begin{definition}\label{sheaf_of_modules_den}\cite{hartshorne:ag}
-Let $\left(\sX, \mathcal O_\sX \right)$  be a ringed space. A \textit{sheaf of $ \mathcal O_\sX $-modules} 
-(or simply an $\mathcal O_\sX$ -\textit{module}) is a sheaf $\mathscr F$ on $\sX$, such that for each open set 
+Let $\left(\sX, \mathcal O_\sX \right)$  be a ringed space. A \textit{sheaf !!! DEFN \ref{top_x_sheaf_defn} of $ \mathcal O_\sX $-modules} 
+(or simply an $\mathcal O_\sX$ -\textit{module}) is a sheaf !!! DEFN \ref{top_x_sheaf_defn} $\mathscr F$ on $\sX$, such that for each open set 
 $\sU\subset\sX$, the group 
 $\mathscr F\left(\sU \right)$ is an $\mathcal O_\sX$-module, and for each inclusion of 
 open sets $\sV \subset\sU$, the restriction homomorphism $\mathscr F\left(\sU \right) \to \mathscr F\left(\sV \right)$  is compatible with the module structures via the ring homomorphism $\mathcal O_\sX\left(\sU \right) \to \mathcal O_\sX \left(\sV \right)$.
 %	(9X(V). A morphism #" ≈> ^ of sheaves of $x-modules is a morphism of 
 %	sheaves, such that for each open set U ^ X, the map <F(U) -> ^(?7) is a 
-%	homomorphism of $x(L/)-modules. 	Note that the kernel, cokernel, and image of a morphism of 6rx-modules 	is again an Gx-modu\e. If ^'ls a subsheaf of (^'x-modules of an (9x-modu\e 	#", then the quotient sheaf gFj^F' is an #x-module. Any direct sum, 	direct product, direct limit, or inverse limit of $x-modules is an $x-module. 	If J^ and ^ are two $x-modules, we denote the group of morphisms from 	^ to ^ by Hom^^,^), or sometimes Homx(J^) or Hom( J^) if no 	confusion can arise. A sequence of $x-modules and morphisms is exact 	if it is exact as a sequence of sheaves of abelian groups. 	If U is an open subset of X, and if J^ is an $x-module, then tF\v is an 	(9x\v-modu\e. If 3F and ^ are two ^x-modules, the presheaf 	is a sheaf, which we call the sheaf Worn (Ex. 1.15), and denote by 	.^bm^l^). It is also an $x-module. 
+%	homomorphism of $x(L/)-modules. 	Note that the kernel, cokernel, and image of a morphism of 6rx-modules 	is again an Gx-modu\e. If ^'ls a subsheaf !!! DEFN \ref{top_x_sheaf_defn} of (^'x-modules of an (9x-modu\e 	#", then the quotient sheaf !!! DEFN \ref{top_x_sheaf_defn} gFj^F' is an #x-module. Any direct sum, 	direct product, direct limit, or inverse limit of $x-modules is an $x-module. 	If J^ and ^ are two $x-modules, we denote the group of morphisms from 	^ to ^ by Hom^^,^), or sometimes Homx(J^) or Hom( J^) if no 	confusion can arise. A sequence of $x-modules and morphisms is exact 	if it is exact as a sequence of sheaves of abelian groups. 	If U is an open subset of X, and if J^ is an $x-module, then tF\v is an 	(9x\v-modu\e. If 3F and ^ are two ^x-modules, the presheaf !!! DEFN \ref{top_x_sheaf_defn} 	is a sheaf, which we call the sheaf !!! DEFN \ref{top_x_sheaf_defn} Worn (Ex. 1.15), and denote by 	.^bm^l^). It is also an $x-module. 
 \end{definition}
 \section{Sheaves over non Hausdorff spaces}\label{sheaves_nh_sec}
 \begin{empt}\label{nh_csoft_empt}\cite{cra_moe:nhaus}
@@ -24710,10 +24724,10 @@ open sets $\sV \subset\sU$, the restriction homomorphism $\mathscr F\left(\sU \r
 \end{empt}
 
 \begin{definition}\label{nh_csoft_defn}\cite{cra_moe:nhaus}
-	Let $\sX$ be a space satisfying the assumptions of \ref{nh_csoft_empt}. An Abelian sheaf $\mathscr{F}$ is said to be $c$-\textit{soft} if for any open $\sU \subset \sX$ its restriction $\left.\mathscr{F}\right|_{\sU}$ is a $c$-soft on $\sU$ in the usual sense. By the same proprety of for Hausdorff space, it follows that $c$-softness is a local property, i.e. a sheaf  $\mathscr{F}$ is $c$-soft if and only if there is an open cover $\sX= \cup \sU_\a$  such that $\left.\mathscr{F}\right|_{\sU_\a}$ is a $c$-soft sheaf on $\sU$.
+	Let $\sX$ be a space satisfying the assumptions of \ref{nh_csoft_empt}. An Abelian sheaf !!! DEFN \ref{top_x_sheaf_defn} $\mathscr{F}$ is said to be $c$-\textit{soft} if for any open $\sU \subset \sX$ its restriction $\left.\mathscr{F}\right|_{\sU}$ is a $c$-soft on $\sU$ in the usual sense. By the same proprety of for Hausdorff space, it follows that $c$-softness is a local property, i.e. a sheaf !!! DEFN \ref{top_x_sheaf_defn}  $\mathscr{F}$ is $c$-soft if and only if there is an open cover $\sX= \cup \sU_\a$  such that $\left.\mathscr{F}\right|_{\sU_\a}$ is a $c$-soft sheaf !!! DEFN \ref{top_x_sheaf_defn} on $\sU$.
 \end{definition}
 \begin{definition}\label{nh_csoft_gc_defn}\cite{cra_moe:nhaus}
-	Let $\mathscr{F}$ be a $c$-soft sheaf and let $\mathscr{F}'$  be its Godement resolution (i.e. $\mathscr{F}'= \Ga\left(\sU_{\text{distr}}, \mathscr{F} \right)$ is the set of all (not necessary continuous) sections for any open $\sU \subset \sX$). For any Hausdorff open set $\mathcal W$, let $\Ga_c\left(\mathcal W, \mathscr{F} \right)$ be the usual set of compactly supported sections. If $\mathcal W \subset \sU$, there is an evident homomorphism "extension by 0" 
+	Let $\mathscr{F}$ be a $c$-soft sheaf !!! DEFN \ref{top_x_sheaf_defn} and let $\mathscr{F}'$  be its Godement resolution (i.e. $\mathscr{F}'= \Ga\left(\sU_{\text{distr}}, \mathscr{F} \right)$ is the set of all (not necessary continuous) sections for any open $\sU \subset \sX$). For any Hausdorff open set $\mathcal W$, let $\Ga_c\left(\mathcal W, \mathscr{F} \right)$ be the usual set of compactly supported sections. If $\mathcal W \subset \sU$, there is an evident homomorphism "extension by 0" 
 	\be\label{sheaf_inc_eqn}
 	\Ga_c\left(\mathcal W, \mathscr{F} \right) \hookto \Ga_c\left(\mathcal U, \mathscr{F} \right)\subset \Ga_c\left(\mathcal U, \mathscr{F}' \right).
 	\ee
@@ -25100,8 +25114,8 @@ In the case of general foliations, the total my group of a foliated bun dle must
 	\section{Operator algebras of foliations}\label{foli_alg_subsec}
 	\paragraph*{}
 	Here I follow to \cite{candel:foliII,connes:ncg94}.  Since the bundle $\Om^{1/2}$ is trivial (because $\G\left(M, \sF\right)$ admits partitions of unity), a choice of an everywhere positive density $\nu$ allows us to identify $\Ga_c\left(\G\left(M, \sF\right),\Om^{1/2}  \right)$  with $\Coo_c\left( \G\left(M, \sF\right)\right)$. 
-	The definition of foliated space makes sense even when the underlying topological space fails to satisfy the Hausdorff separation axiom. Non-Hausdorff spaces appear naturally in the theory of foliations. In a graph of a foliated space is not necessary Hausdorff. It will be necessary to use functions with compact support on such spaces. However, a non-Hausdorff space may not have sufficiently many such functions, the basic reason being that compact subsets of a Hausdorff space are not necessarily closed. The non-Hausdorff spaces that will appear here have a particularly simple local structure, and even when it is possible to construct appropriate functions using this local structure, the standard operation of “extension by 0” of local objects to the full space does not pro duce continuous functions. M. Crainic and I. Moerdijk \cite{cra_moe:nhaus} proposed a very natural way of dealing with this problem, and this preliminary section de scribes it. (That paper develops an extended sheaf theory for non-Hausdorff manifolds (cf. Appendix \ref{sheaves_nh_sec})).
-	Here $\sX$ will denote a separable topological space having the structure of a foliated space, but it is not required that the topology be Hausdorff. It is only required that $\sX$ can be covered by countably many open sets homeomorphic to a product $\D \times \mathcal Z$, where $D$ is an open ball in Euclidean $n$-space and $\mathcal Z$ is a separable locally compact Hausdorff space. Let $\mathcal C\infty$ denote the structure sheaf of the foliated space $\sX$, that is, the sheaf of smooth functions on $\sX$. Let $\A$ be a sheaf of $\mathcal C\infty$-modules over $\sX$, for instance, the sheaf of differential forms or other sheaves of smooth sections of foliated vector bundles. For such a sheaf $\A$ over $\sX$, let $\A$ denote its Godement resolution: $A'\left(\sU\right)$ is the set of all sections (continuous or not) of $\A$ over $\sU\subset\sX$. For a Hausdorff open subset $\mathcal W$ of $\sX$, let $\Ga_c\left( \mathcal W, \A\right) $ denote the set of continuous compactly supported sections of $\A$ over $\mathcal W$. If $\mathcal W\subset\sU$, then “extension by 0” induces a well defined homomorphism $\Ga_c\left( \mathcal W, \A\right)\to \A'\left(\sU \right)$. For an open subset $\sU$ of $\sX$, let $\Ga_c\left( \mathcal U, \A\right)$ denote the image of the homomorphism $\oplus \Ga_c\left( \mathcal W, \A\right)\to \A'\left(\sU\right)$ (cf. Definition \ref{nh_csoft_gc_defn}). From the equation \eqref{sheaf_inc_eqn} it follows that there is the inclusion
+	The definition of foliated space makes sense even when the underlying topological space fails to satisfy the Hausdorff separation axiom. Non-Hausdorff spaces appear naturally in the theory of foliations. In a graph of a foliated space is not necessary Hausdorff. It will be necessary to use functions with compact support on such spaces. However, a non-Hausdorff space may not have sufficiently many such functions, the basic reason being that compact subsets of a Hausdorff space are not necessarily closed. The non-Hausdorff spaces that will appear here have a particularly simple local structure, and even when it is possible to construct appropriate functions using this local structure, the standard operation of “extension by 0” of local objects to the full space does not pro duce continuous functions. M. Crainic and I. Moerdijk \cite{cra_moe:nhaus} proposed a very natural way of dealing with this problem, and this preliminary section de scribes it. (That paper develops an extended sheaf !!! DEFN \ref{top_x_sheaf_defn} theory for non-Hausdorff manifolds (cf. Appendix \ref{sheaves_nh_sec})).
+	Here $\sX$ will denote a separable topological space having the structure of a foliated space, but it is not required that the topology be Hausdorff. It is only required that $\sX$ can be covered by countably many open sets homeomorphic to a product $\D \times \mathcal Z$, where $D$ is an open ball in Euclidean $n$-space and $\mathcal Z$ is a separable locally compact Hausdorff space. Let $\mathcal C\infty$ denote the structure sheaf !!! DEFN \ref{top_x_sheaf_defn} of the foliated space $\sX$, that is, the sheaf !!! DEFN \ref{top_x_sheaf_defn} of smooth functions on $\sX$. Let $\A$ be a sheaf !!! DEFN \ref{top_x_sheaf_defn} of $\mathcal C\infty$-modules over $\sX$, for instance, the sheaf !!! DEFN \ref{top_x_sheaf_defn} of differential forms or other sheaves of smooth sections of foliated vector bundles. For such a sheaf !!! DEFN \ref{top_x_sheaf_defn} $\A$ over $\sX$, let $\A$ denote its Godement resolution: $A'\left(\sU\right)$ is the set of all sections (continuous or not) of $\A$ over $\sU\subset\sX$. For a Hausdorff open subset $\mathcal W$ of $\sX$, let $\Ga_c\left( \mathcal W, \A\right) $ denote the set of continuous compactly supported sections of $\A$ over $\mathcal W$. If $\mathcal W\subset\sU$, then “extension by 0” induces a well defined homomorphism $\Ga_c\left( \mathcal W, \A\right)\to \A'\left(\sU \right)$. For an open subset $\sU$ of $\sX$, let $\Ga_c\left( \mathcal U, \A\right)$ denote the image of the homomorphism $\oplus \Ga_c\left( \mathcal W, \A\right)\to \A'\left(\sU\right)$ (cf. Definition \ref{nh_csoft_gc_defn}). From the equation \eqref{sheaf_inc_eqn} it follows that there is the inclusion
 	\be\label{foli_incc_eqn}
 \Ga_c\left(\mathcal W, \A \right) \hookto \Ga_c\left(\mathcal U, \A \right).
 \ee
@@ -27852,7 +27866,7 @@ I. Içen, M. Gürsoy, A. Özcan \textit{Coverings of Lie groupoids
 
 \bibitem{connes_rieffel:nc_ym}A. Connes, Marc A. Rieffel \textit{Yang-Mills for noncommutative two-tori}. 1987 30 pages Published in: Contemp.Math. 62 (1987) 237-266, In *Li, M. (ed.) et al.: Physics in non-commutative world, vol. 1* 46-62. 1987.
 
-\bibitem{cra_moe:nhaus} M. Crainic and I. Moerdijk. \textit{A remark on sheaf theory for non-Hausdorff manifolds}. Tech. Report 1119, Utrecht University, 1999.
+\bibitem{cra_moe:nhaus} M. Crainic and I. Moerdijk. \textit{A remark on sheaf !!! DEFN \ref{top_x_sheaf_defn} theory for non-Hausdorff manifolds}. Tech. Report 1119, Utrecht University, 1999.
 
 \bibitem{cuntz:k_c_a}  J. Cuntz. \textit{$K$-theory for certain $C^*$-algebras}, Ann. of Math. (2) 113:1, 1981.
 
