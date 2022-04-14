@@ -6317,7 +6317,7 @@ The following Lemma is evident.
 \end{remark}
 \begin{exercise}
 Let $M$ be a differential manifold (cf. Definition \ref{diff_mani_defn}), let $p: \widetilde M \to M$ be a covering (cf. Definition \ref{top_cov_defn}). Suppose that $\widetilde M$ has a given by the Proposition \ref{top_cov_mani_prop} structure of differential manifold. Prove that
-\be\label{top_lift_smooth}
+\be\label{top_lift_smooth_eqn}
 \lift_p\left( \Coo\left( M\right)\cap C_b\left( M\right) \right) \subset  \Coo\left(\widetilde M\right)\cap C_b\left(\widetilde M\right).
 \ee
 
@@ -6931,7 +6931,7 @@ Any $s \in X$ corresponds to a global section of $\mathscr S^X$, it follows that
 X \subset \mathscr S^X\left( \sX\right). 
 \ee
 We leave to the reader a proof of the following lemma.
-\begin{lemma}
+\begin{lemma}\label{top_x_sheaf_lem}
 Let $X', X'' \subset \prod_{x \in \sX} A_x$. are Abelian subgroups. If for every $x \in \sX$  any stalk $s'_x \in \mathscr S^{X'}_x$ (cf. Definition \ref{stalk_defn}) can by represented by $s_\sU = \{a'_x\}_{x \in \sU} \in \mathscr S^{X'}\left(\sU \right)$ such that there is $\{a''_x\}_{x \in \sX} \in X''$ which satisfies to the following condition
 $$
 \forall x \in\sU \quad a'_x = a''_x
@@ -6958,7 +6958,7 @@ i.e. $\mathscr S^{X'}$ is a subsheaf of $\mathscr S^{X''}$ (cf. Definition \ref{
 		\mathscr S^{A}	= \mathscr S^{A\cap C_b\left( \sX\right) }= \mathscr S^{A\cap C_0\left( \sX\right) }= \mathscr S^{A\cap C_c\left( \sX\right) }.
 		\ee 
 		\item If $M$ is a smooth manifold (cf. Definition \ref{top_smooth_m_defn}) then
-		\be
+		\be\label{top_coo_sh_eqn}
 		\mathscr S^{\Coo\left(M\right) }\left( M\right) = \Coo\left(M\right).
 		\ee
 	\end{enumerate}
@@ -9605,7 +9605,7 @@ $\mathfrak{S}^{\mathrm{pt}}_{C_0\left(\mathcal{X}\right)}$. On the other hand fr
 one has $\varprojlim  \mathfrak{S}_{\left(\sX, x_0\right)}\bydef \widetilde\sX$.\\
 		(ii) Follows from the   (i) of this theorem.
 \end{proof}
-\begin{exercise}
+\begin{exercise}\label{top_ml_exer}
 From \eqref{a_toola_eqn} it follows that for all $\la\in\La$ there is a *-homomorphism $\widetilde m_\la: C_0\left(\sX_\la \right)  \to M\left( C_0\left( \widetilde{\sX}\right)  \right)= C_b\left( \widetilde{\sX}\right)$ prove that 
 $\widetilde m_\la = \left. \lift_{ \widetilde{p}_{\la}}\right|_{C_0\left(\sX_\la \right)}$ where 
 $\widetilde p_\la : \widetilde{\sX} \to \sX_\la$ is the natural covering and $\lift_{ \widetilde{p}_{\la}}$ is the $\widetilde{p}_{\la}$-lift (cf. Definition \ref{top_lift_defn}).
@@ -10167,16 +10167,28 @@ From the our construction $C^*\left(G, R\right)$ is the completion of $M\left( \
 	$$
 	\widetilde b \widetilde a=\widetilde b \widetilde a', \quad \widetilde a \widetilde b = \widetilde a''.
 	$$
-	The above equation is a specialization of \eqref{inf_cov_oa_sub3_eqn}, i.e. $\Coo_0\left(\widetilde M\right)$   {is subordinated to}  $	\mathfrak{S}^{\text{pt}}_{\Coo_0\left( M\right) } $ (cf. Definition \ref{inf_cov_oa_sub_defn}).
+	The above equation is a specialization of \eqref{inf_cov_oa_sub3_eqn}, i.e. $\Coo_0\left(\widetilde M\right)$   {is subordinated to}  $	\mathfrak{S}^{\text{pt}}_{\Coo_0\left( M\right) } $ (cf. Definition \ref{inf_cov_oa_sub_defn}). 
 
-Secondly we prove that 	if $\widetilde A'$ is    a  subordinated to   $	\mathfrak{S}^{\text{pt}}_{\Coo_0\left( M\right) }$ *-algebra $\widetilde A'\subset C_0\left(\widetilde M \right) $ then  $\widetilde A'\subset \Coo_0\left(\widetilde M\right)$. Let both $\mathscr S^{\widetilde A'}$ and 	$\mathscr S^{\Coo\left( \widetilde M\right)}$ be  $\widetilde A'$-sheaf and $\Coo\left( \widetilde M\right)$-sheaf respectively (cf. Definition \ref{top_x_sheaf_defn}). Let $\widetilde x \in \widetilde M$ and let $s_{\widetilde x} \in \mathscr S^{\widetilde A'}_{\widetilde x}$ be a stalk (cf. Definition \ref{stalk_defn}) at $\widetilde x$, which is represented by $s \in  {\widetilde A'}$ where  $\widetilde \sU'$ is an open subset of $\widetilde M$. Using  \ref{top_fx_empt} one can construct the given by  \eqref{top_tfx_eqn} element $\widetilde f_{\widetilde x}\in C_c\left( \widetilde \sX\right)$ such that  there is an open neighborhood of $\widetilde \sU''$ of $\widetilde x$ such that $\widetilde f_{\widetilde x}\left(\widetilde \sU''\right) = \{1\}$. If $\widetilde \sU\bydef \widetilde \sU'\cap \widetilde \sU''$ then $s_{\widetilde x}$ can be represented by the restriction $\left. s_{\widetilde x}\right|_{\widetilde \sU}$. Similarly to the Proposition \ref{top_smooth_part_unity_prop} one can assume that $f_{\widetilde x}$ is smooth. From the equation \eqref{inf_cov_oa_sub1_eqn}  
-
-!!! CONTINUE
-	
-
-	
-	If $\widetilde a \in \widetilde A'\setminus \Coo_0\left(\widetilde M\right)$
-	then there is $\widetilde x_0$ such that $\widetilde a$ is not smooth at $\widetilde x_0$. There is $\widetilde b \in  \Coo_c\left(\widetilde M\right)$ such that one has a  neighborhood $\widetilde \sU$ of $\widetilde x_0$ which satisfies to the following condition $\widetilde b\left( \widetilde \sU\right) = \{1\}$. For all $\widetilde a\in\bigcup_{\la\in\La}\Coo_0\left( M_\la\right) $ the function $\widetilde b\widetilde a'$ is smooth. But  the function $\widetilde b\widetilde a$  is not smooth at  $\widetilde x_0$. So the algebra $\widetilde A'$ does not satisfy to \eqref{inf_cov_oa_sub3_eqn} it follows that  $\Coo_0\left(\widetilde M\right)$   {is  a maximal subordinated to}  $	\mathfrak{S}^{\text{pt}}_{\Coo_0\left( M\right) }$ algebra.
+Secondly we prove that 	if $\widetilde A'$ is    a  subordinated to   $	\mathfrak{S}^{\text{pt}}_{\Coo_0\left( M\right) }$ *-algebra $\widetilde A'\subset C_0\left(\widetilde M \right) $ then  $\widetilde A'\subset \Coo_0\left(\widetilde M\right)$. Let both $\mathscr S^{\widetilde A'}$ and 	$\mathscr S^{\Coo\left( \widetilde M\right)}$ be  $\widetilde A'$-sheaf and $\Coo\left( \widetilde M\right)$-sheaf respectively (cf. Definition \ref{top_x_sheaf_defn}). Let $\widetilde x \in \widetilde M$ and let $s_{\widetilde x} \in \mathscr S^{\widetilde A'}_{\widetilde x}$ be a stalk (cf. Definition \ref{stalk_defn}) at $\widetilde x$, which is represented by $\widetilde s \in  {\widetilde A'}$. Using  \ref{top_fx_empt} one can construct the given by  \eqref{top_tfx_eqn} element $\widetilde f_{\widetilde x}\in C_c\left( \widetilde M\right)$ such that  there is an open neighborhood of $\widetilde \sU$ of $\widetilde x$ such that $\widetilde f_{\widetilde x}\left(\widetilde \sU\right) = \{1\}$. From the Proposition \ref{top_smooth_part_unity_prop} one can assume that $\widetilde f_{\widetilde x}\in \Coo\left(\widetilde M \right)$. From the equation \eqref{inf_cov_oa_sub3_eqn} it follows that there is $a' \in \bigcup \Coo_0\left( M_\la\right)$ such that
+\be\label{top_fx_a_eqn}
+\widetilde f_{\widetilde x}  \widetilde  s =  f_{\widetilde x} a'
+\ee
+There is $\la_0 \in \La$ such that $a'= a_{\la_0}\in \Coo_0\left(M_\la\right)$. Using the Exercise \ref{top_ml_exer} and taking into account \eqref{top_fx_a_eqn} one has
+$$
+\widetilde f_{\widetilde x} \widetilde s = \widetilde s a' = \widetilde f_{\widetilde x} ~\lift_{ \widetilde{p}_{\la_0}}\left(a_{\la_0} \right).
+$$
+From $\widetilde f_{\widetilde x}\in \Coo\left(\widetilde M \right)$ and \eqref{top_lift_smooth_eqn} it follows that $\widetilde f_{\widetilde x} ~\lift_{ \widetilde{p}_{\la_0}}\left(a_{\la_0}\right) \in \Coo\left(\widetilde M\right)$ and $\widetilde f_{\widetilde x} \widetilde s\in \Coo\left(\widetilde M\right)$. Otherwise from $\widetilde f_{\widetilde x}\left(\widetilde \sU\right) = \{1\}$ it follows that
+$$
+\widetilde x \in \widetilde \sU \quad \left( f_{\widetilde x} \widetilde s \right) \left(\widetilde x\right)= \widetilde s\left(\widetilde x\right)
+$$
+From the Lemma \ref{top_x_sheaf_lem} it follows that $\mathscr S^{\widetilde A'}\subset\mathscr S^{\Coo\left( \widetilde M\right)}$ and taking into account \eqref{top_x_sheaf_eqn} one has
+$$
+\widetilde A' \subset \mathscr S^{\Coo\left( \widetilde M\right)}\left( \widetilde M\right).
+$$
+Otherwise from the equation \eqref{top_coo_sh_eqn} it follows that $\widetilde A' \subset {\Coo\left( \widetilde M\right)}$. On the other hand from the Definition \ref{inf_cov_oa_defn} it turns out that $\widetilde A'\subset C_0\left( \widetilde M\right)$. In result one has
+$$
+\widetilde A'\subset C_0\left( \widetilde M\right)\cap  \Coo\left( \widetilde M\right) = \Coo_0\left( \widetilde M\right).
+$$ 
 \end{proof}
 
 
