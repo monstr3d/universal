@@ -3822,8 +3822,8 @@ G_\pi\bydef \left\{\left.g \in  G\left(\left. \overline A_\pi~\right| A \right)\
 	In the situation of the Definition \ref{main_sdefn} one has a direct sum $M\left( \overline{A}_\pi \right)= M\left( \widetilde{A}_\pi \right)\oplus M\left( \widetilde{A}^\perp_\pi \right)$ and a projection $p_{M\left( \widetilde{A}_\pi \right)}: M\left( \overline{A}_\pi \right)\to M\left( \widetilde{A}_\pi \right)$. If both $\overline m_\la: A_\la \to M\left( \overline{A}_\pi \right)$ and  $\overline m   :A \to M\left( \overline{A}_\pi \right)$ are given by \eqref{a_too_eqn} and \eqref{a_tooa_eqn}  then there are *-homomorphisms 
 	\be\label{a_toola_eqn}
 \begin{split}
-	\widetilde m_\la\bydef p_{M\left( \widetilde{A}_\pi \right)}\circ	\overline m_\la :A_\la \to M\left( \overline{A}_\pi \right),\\
-	\widetilde m\bydef p_{M\left( \widetilde{A}_\pi \right)}\circ	\overline m :A \to M\left( \overline{A}_\pi \right).
+	\widetilde m_\la\bydef p_{M\left( \widetilde{A}_\pi \right)}\circ	\overline m_\la :A_\la \to M\left( \widetilde{A}_\pi \right),\\
+	\widetilde m\bydef p_{M\left( \widetilde{A}_\pi \right)}\circ	\overline m :A \to M\left( \widetilde{A}_\pi \right).
 \end{split} 
 \ee
 \end{empt}
@@ -4094,7 +4094,13 @@ which is a skeleton of \eqref{oa_cat_eqn}.
 	\eea
 	where $K\left(\widetilde B \right)$ is the Pedersen's ideal of $\widetilde B$ (cf. Definition \ref{peder_id_defn}).
 \end{definition}
-
+\begin{remark}\label{inf_cov_oa_sub_rem}
+The equations \ref{inf_cov_oa_sub1_eqn} imply following inclusions
+\bean
+\widetilde A'\subset \widetilde B,\\
+\forall \la \in \La \quad A_\la \subset B_\la \subset M\left(\widetilde B \right) \quad \text{(cf. (a) of the Definition \ref{good_defn})}.
+\eean
+\end{remark}
 
 \begin{remark}
 	Any union of linearly ordered by inclusion  set of { subordinated to}  $\mathfrak{S}^{\text{pt}}$ algebras is a { subordinated to}  $\mathfrak{S}^{\text{pt}}$ algebra.	 From the Zorn's lemma (cf. \ref{zorn_thm}) it follows that  there are  \ref{spec_loc_lim_defn} maximal  {subordinated to}  $\mathfrak{S}^{\text{pt}}$ algebras. 
@@ -6309,7 +6315,13 @@ The following Lemma is evident.
 	Similarly to the Remark \ref{top_cl_cc_iso_rem} $C_0\left(\lift_p\left[ C\left(\sX, \left\{A_x\right\}, \sF \right) \right] \right)$
 	is the  minimal norm closed subspace of $C_b\left(\lift_p\left[ C\left(\sX, \left\{A_x\right\}, \sF \right) \right] \right)$ which contains all products $f \lift_p\left( a\right) $ where $a \in C_0\left(\sX, \left\{A_x\right\}, \sF \right)$ and $f \in C_0\left(\widetilde\sX\right)$.
 \end{remark}
+\begin{exercise}
+Let $M$ be a differential manifold (cf. Definition \ref{diff_mani_defn}), let $p: \widetilde M \to M$ be a covering (cf. Definition \ref{top_cov_defn}). Suppose that $\widetilde M$ has a given by the Proposition \ref{top_cov_mani_prop} structure of differential manifold. Prove that
+\be\label{top_lift_smooth}
+\lift_p\left( \Coo\left( M\right)\cap C_b\left( M\right) \right) \subset  \Coo\left(\widetilde M\right)\cap C_b\left(\widetilde M\right).
+\ee
 
+\end{exercise}
 \begin{empt}\label{top_norm_sub_empt}
 	If $B \subset 	C_0\left(A \right) = C_0\left(\sX, \left\{A_x\right\}, A \right)$  is a norm closed $\C$-space then for any $x \in \sX$ there is a normed $\C$-subspace
 	\be
@@ -6901,7 +6913,7 @@ $$
 
 \paragraph*{}
 
-Let $\sX$ be a topological space, and let $X \subset \prod_{x \in \sX} A_x$ where $A_x$ is a Abelian group. For any open subset $\sU\subset \sX$ denote by 
+Let $\sX$ be a topological space, and let $X \subset \prod_{x \in \sX} A_x$ where $A_x$ is a Abelian group. We suppose that $X$ is an Abelian subgroup of $\prod_{x \in \sX} A_x$. For any open subset $\sU\subset \sX$ denote by 
 $$
 X_\sU\bydef \left\{\left.\left\{b_x \right\}\in \prod_{x \in \sU} A_x\right| \exists \left\{a_x \right\}\in \prod_{x \in \sX} A_x \quad \forall x \in \sU \quad b_x =a_x\right\}
 $$
@@ -6910,36 +6922,68 @@ $$
 \rho_{\sU \sV}:X_\sU \to X_\sV.
 $$
 One can proof that the similar to $\rho_{\sU \sV}$ maps satisfy to the Definition \ref{presheaf_defn}, i.e. we have presheaf  on $\sX$.
-\begin{definition}\label{top_x_sheaf_defn}
-The sheaf associated with the described above presheaf  \ref{top_x_sheaf_defn} is said to be the $X$-\textit{sheaf}. Henceforth we denote the $X$-{sheaf} by $\mathscr S_X$.
-\end{definition}
 
+\begin{definition}\label{top_x_sheaf_defn}
+A sheaf associated with the described above presheaf (cf. Proposition and Definition \ref{sheaf_prdf}) is said to be the $X$-\textit{sheaf}. Henceforth we denote the $X$-{sheaf} by $\mathscr S^X$.
+\end{definition}
+Any $s \in X$ corresponds to a global section of $\mathscr S^X$, it follows that there is an inclusion of Abelian groups
+\be\label{top_x_sheaf_eqn}
+X \subset \mathscr S^X\left( \sX\right). 
+\ee
+We leave to the reader a proof of the following lemma.
+\begin{lemma}
+Let $X', X'' \subset \prod_{x \in \sX} A_x$. are Abelian subgroups. If for every $x \in \sX$  any stalk $s'_x \in \mathscr S^{X'}_x$ (cf. Definition \ref{stalk_defn}) can by represented by $s_\sU = \{a'_x\}_{x \in \sU} \in \mathscr S^{X'}\left(\sU \right)$ such that there is $\{a''_x\}_{x \in \sX} \in X''$ which satisfies to the following condition
+$$
+\forall x \in\sU \quad a'_x = a''_x
+$$ 
+then there is a natural inclusion of sheaves
+$$
+\mathscr S^{X'} \subset \mathscr S^{X''},
+$$
+i.e. $\mathscr S^{X'}$ is a subsheaf of $\mathscr S^{X''}$ (cf. Definition \ref{sub_sheaf_defn}).
+\end{lemma}
+\begin{exercise}
+	Let $\sX$ be a locally compact,  Hausdorff space. Prove following statements:
+	\begin{enumerate}
+		\item 	
+		If  $\sF$ is a continuity structure  for  $\sX$ {and the} $\left\{A_x\right\}_{x \in \sX}$ then one has
+		\bea\label{top_cont_sh_eqn}
+		\mathscr S^{C\left({\sX}, \left\{{A}_{{x}}\right\}, {\sF}\right)}= 	\mathscr S^{C_b\left({\sX}, \left\{{A}_{{x}}\right\}, {\sF}\right)}=
+		\mathscr S^{C_0\left({\sX}, \left\{{A}_{{x}}\right\}, {\sF}\right)}= 	\mathscr S^{C_c\left({\sX}, \left\{{A}_{{x}}\right\}, {\sF}\right)},\\
+		\label{top_cont_shc_eqn}
+		\mathscr S^{C\left({\sX}, \left\{{A}_{{x}}\right\}, {\sF}\right)}\left(\sX\right)=  	C\left({\sX}, \left\{{A}_{{x}}\right\}, {\sF}\right)		
+		\eea 
+		\item If $Cont\left( \sX\right)$ is a *-algebra of complex-valued continuous maps and $A \subset Cont\left( \sX\right)$ then one has
+		\be\label{top_cont_sha_eqn}
+		\mathscr S^{A}	= \mathscr S^{A\cap C_b\left( \sX\right) }= \mathscr S^{A\cap C_0\left( \sX\right) }= \mathscr S^{A\cap C_c\left( \sX\right) }.
+		\ee 
+		\item If $M$ is a smooth manifold (cf. Definition \ref{top_smooth_m_defn}) then
+		\be
+		\mathscr S^{\Coo\left(M\right) }\left( M\right) = \Coo\left(M\right).
+		\ee
+	\end{enumerate}
+	where notation 	of Definitions \ref{top_s_bounded_defn}, \ref{top_cc_c0_defn} and  \ref{top_x_sheaf_defn} is used.
+\end{exercise}
+I
 
 If we consider the situation of the Definition \ref{sheaf_inv_im_defn} then the {inverse image} \ref{top_x_sheaf_defn} $f^{-1}\mathscr G$ on $\sX$ is the sheaf  associated to the presheaf  $\sU \mapsto \lim_{\sV \supseteq f\left(\sU\right)} \mathscr G\left(\sV\right)$, where $\sU$ is any open set in $\sX$, and the limit is taken over all open sets $\sV$ of $\sX$ containing $f\left(\sU\right)$. If the map $f$ is surjective then one has  $\lim_{\sV \supseteq f\left(\sX\right)} \mathscr G\left(\sV\right)\cong \mathscr  G\left(\sX\right)$ it follows that there is the injective homomorphism 
 \be\label{top_cs_sheaf_inc_eqn}
 f^{-1}_{\mathscr  G}:\mathscr  G\left(\sX\right)\hookto f^{-1}\mathscr  G\left(\sY\right)
 \ee
-of Abelian groups. Let  $\sF$ be a continuity structure  for $\sX$ {and the} $\left\{A_x\right\}_{x \in \sX}$, and let  $C\left(\sX, \left\{A_x\right\}, \sF \right)$ the $C_b\left(\sX \right)$-module of continuous sections (with respect to) $\sF$ vector fields. For any $a \in  C\left(\sX, \left\{A_x\right\}, \sF \right)$ there is a family $\left\{a_x \in A_x\right\}_{x \in \sX}$. For any open subset  $\sU \subset \sX$ there is the restriction $\left.a\right|_{\sU}$ which is a family $\left\{a_x \in A_x\right\}_{x \in \sU}$. The image of the map $a \mapsto \left.a\right|_{\sU}$ is an Abelian group we denote it by $\mathscr G \left(\sX, \left\{A_x\right\}, \sF \right)\left( \sU\right)$. If $\sV \subset \sU$ is an open subset then a natural restriction map 
-$$
-\rho_{\sU\sV}: \mathscr G \left(\sX, \left\{A_x\right\}, \sF \right)\left( \sU\right)\to \mathscr G \left(\sX, \left\{A_x\right\}, \sF \right)\left( \sV\right)
-$$
-satisfies  to the Definition \ref{presheaf_defn}, i.e. one has a presheaf
-\be\label{top_cs_sheaf_eqn}
-\sU \mapsto \mathscr G \left(\sX, \left\{A_x\right\}, \sF \right)\left( \sU\right).
-\ee
-\begin{definition}\label{top_cs_sheaf_defn}
-	The sheaf !!! DEFN \ref{top_x_sheaf_defn}  associated with the given by \eqref{top_cs_sheaf_eqn} presheaf !!! DEFN \ref{top_x_sheaf_defn} (cf. Proposition and Definition \ref{sheaf_prdf}) is the \textit{sheaf !!! DEFN \ref{top_x_sheaf_defn} of the continuity structure} $\sF$. We denote it by $\mathscr C \left(\sX, \left\{A_x\right\}, \sF \right)$.
-\end{definition}
-
+of Abelian groups. 
 \begin{lemma}\label{top_sheaf_lift_lem}
 	
 	Let $\sX$ be a locally compact,  Hausdorff space.
 	Let  $\sF$ be a continuity structure  for  $\sX$ {and the} $\left\{A_x\right\}_{x \in \sX}$. Let $p: \widetilde{\sX} \to \sX$ be  a covering and 
 	$$
-	C\left(\widetilde{\sX}, \left\{\widetilde{A}_{\widetilde{x}}\right\}, \widetilde{\sF} \right) = \lift_p\left[ C\left(\sX, \left\{A_x\right\}, \sF \right) \right]
+	C\left(\widetilde{\sX}, \left\{\widetilde{A}_{\widetilde{x}}\right\},~ \widetilde{\sF} \right) = \lift_p\left[ C\left(\sX, \left\{A_x\right\}, ~\sF \right) \right]
 	$$
-	is the $p$-lift of $C\left(\sX, \left\{A_x\right\}, \sF \right)$ (cf. Definition \ref{top_cont_lift_defn}). If both $\mathscr  C\left(\sX, \left\{A_x\right\}, \sF \right)$ and $\mathscr C \left(\widetilde{\sX}, \left\{\widetilde{A}_{\widetilde{x}}\right\}, \widetilde{\sF} \right)$ are sheaves  of the continuity structures ${\sF}$ and $\widetilde{\sF}$ respectively then $\mathscr C \left(\widetilde{\sX}, \left\{\widetilde{A}_{\widetilde{x}}\right\}, \widetilde{\sF} \right)$ is the inverse image of $\mathscr  C\left(\sX, \left\{A_x\right\}, \sF \right)$ (cf. Definition \ref{sheaf_inv_im_defn}), i.e. $\mathscr C \left(\widetilde{\sX}, \left\{\widetilde{A}_{\widetilde{x}}\right\}, \widetilde{\sF} \right) = p^{-1}\left( \mathscr  C\left(\sX, \left\{A_x\right\}, \sF \right)\right) $.
+	is the $p$-lift of $C\left(\sX, \left\{A_x\right\}, ~\sF \right)$ (cf. Definition \ref{top_cont_lift_defn}) then the ${C\left(\widetilde{\sX}, \left\{\widetilde{A}_{\widetilde{x}}\right\},~ \widetilde{\sF} \right)}$-sheaf $\mathscr S^{C\left(\widetilde{\sX}, \left\{\widetilde{A}_{\widetilde{x}}\right\},~ \widetilde{\sF} \right)}$ (cf. Definition \ref{top_x_sheaf_defn}) is the $p$-inverse image (cf. Definition \ref{sheaf_inv_im_defn}) of the ${C\left({\sX}, \left\{{A}_{{x}}\right\}, ~{\sF} \right)}$-sheaf $\mathscr S^{C\left({\sX}, \left\{{A}_{{x}}\right\}, ~{\sF} \right)}$   i.e.
+	$$
+\mathscr S^{C\left(\widetilde{\sX}, \left\{\widetilde{A}_{\widetilde{x}}\right\}, \widetilde{\sF} \right)}= p^{-1}\mathscr S^{C\left({\sX}, \left\{{A}_{{x}}\right\}, {\sF} \right)}.
+	$$
 \end{lemma}
+!!! CONTINUE
 \begin{proof}
 	From the Definition \ref{sheaf_inv_im_defn} it follows that $p^{-1}\left( \mathscr  C\left(\sX, \left\{A_x\right\}, \sF \right)\right)$ is associated to the presheaf !!! DEFN \ref{top_x_sheaf_defn} $\mathscr  G$ given by $\widetilde \sU \mapsto \lim_{\sU\supseteq p\left(\widetilde \sU\right)} \mathscr  C\left(\sX, \left\{A_x\right\}, \sF \right)\left( \sU\right) $, where $\widetilde \sU$ is any open set in $\widetilde \sX$, and the limit is taken over all open sets $\sU$ of $\sX$ containing $p\left(\widetilde \sU\right)$. In particular if $\widetilde \sU$ is homeomorphically mapped onto $p\left(\widetilde \sU\right)$ then $\mathscr  G\left( \widetilde \sU\right)\cong \mathscr  C\left(\sX, \left\{A_x\right\}, \sF \right)\left(p\left(\widetilde \sU\right) \right)$. Let $\widetilde s \in p^{-1}\left( \mathscr  C\left(\sX, \left\{A_x\right\}, \sF \right)\right)\left(\widetilde \sU \right) $.
 	From (2) of \ref{sheaf_empt} it follows that   for any $\widetilde x \in \widetilde\sU$ there is an open neighborhood  $\widetilde\sV$ of $\widetilde x$ such that $\widetilde\sV \subset \widetilde\sU$ and the element $\widetilde t \in \mathscr G\left(\widetilde\sV \right)$ such that  for all $\widetilde y \in \widetilde\sV$ the germ $\widetilde t_{\widetilde y}$ of $\widetilde t$ at $\widetilde y$ is equal to $\widetilde s\left(\widetilde y\right)$. For any $\widetilde x$ we select an  neighborhood $\widetilde\sV_{\widetilde x}$ of $\widetilde x$ such that   $\widetilde\sV_{\widetilde x}$ satisfies to (2) of \ref{sheaf_empt} and $\widetilde \sV_{\widetilde x}$ is homeomorphically mapped onto $p\left(\widetilde \sV_{\widetilde x}\right)$. From  $\mathscr  G\left( \widetilde \sV_x\right)\cong \mathscr  C\left(\sX, \left\{A_y\right\}, \sF \right)\left(p\left(\widetilde \sV_x\right) \right)$ it follows that the restriction $\left.\widetilde s\right|_{\widetilde \sV_x}$ corresponds to element $s_{\widetilde x} \in \mathscr  C\left(\sX, \left\{A_y\right\}, \sF \right)\left( p\left(\widetilde \sV_x\right)\right)$. From the Definition  \ref{top_cs_sheaf_defn} it follows that $s_{\widetilde x}$ corresponds to a {continuous (with respect to $\sF$)} family $\left\{a_y \in A_y \right\}_{y \in p\left(\widetilde \sV_x\right) }$. So if $c_{\widetilde y}: \widetilde A_{\widetilde y}\to A_{p\left(\widetilde y \right) }$ is given by \eqref{top_ct_iso_eqn} 	for any $\widetilde y \in \widetilde \sV_x$  then there is  {continuous (with respect to $\widetilde \sF$)}
@@ -7005,7 +7049,7 @@ Prove that the  {sheaf !!! DEFN \ref{top_x_sheaf_defn} $\mathscr C \left(\sX, \l
 
 \begin{empt}
 	Let $\sX$ be a locally compact Hausdorff space.
-	Let  $\sF$ be a continuity structure  for  $\sX$ {and the} $\left\{A_x\right\}_{x \in \sX}$, and let $\mathscr C \bydef\mathscr C \left(\sX, \left\{A_x\right\}, \sF \right)$ be the {sheaf !!! DEFN \ref{top_x_sheaf_defn} of the continuity structure} $\sF$ (cf. Definition \ref{top_cs_sheaf_defn}). If $\mathscr  S \subset\mathscr C$ is a subsheaf !!! DEFN \ref{top_x_sheaf_defn} of $\mathscr C$ then it is possible that $\mathscr S$ is not a $\mathscr C_\sX$-module (cf. Definition \ref{sheaf_of_modules_den}).
+	Let  $\sF$ be a continuity structure  for  $\sX$ {and the} $\left\{A_x\right\}_{x \in \sX}$, and let $\mathscr C \bydef\mathscr C \left(\sX, \left\{A_x\right\}, \sF \right)$ be the {sheaf !!! DEFN \ref{top_x_sheaf_defn} of the continuity structure} $\sF$ (cf. Definition \ref{top_cs_sheaf_defn}). If $\mathscr  S \subset\mathscr C$ is a subsheaf of $\mathscr C$ then it is possible that $\mathscr S$ is not a $\mathscr C_\sX$-module (cf. Definition \ref{sheaf_of_modules_den}).
 \end{empt}
 \begin{definition}
 If $M$ be a smooth manifold then a *-algebra of smooth $\C$-valued maps yields a \textit{sheaf !!! DEFN \ref{top_x_sheaf_defn} of smooth functions} $\mathscr C^\infty_M$.  One has a ringed space $\left(M, \mathscr C^\infty_M\right)$ (cf. Definition \ref{sheaf_ringed_space_defn}).
@@ -9561,7 +9605,11 @@ $\mathfrak{S}^{\mathrm{pt}}_{C_0\left(\mathcal{X}\right)}$. On the other hand fr
 one has $\varprojlim  \mathfrak{S}_{\left(\sX, x_0\right)}\bydef \widetilde\sX$.\\
 		(ii) Follows from the   (i) of this theorem.
 \end{proof}
-
+\begin{exercise}
+From \eqref{a_toola_eqn} it follows that for all $\la\in\La$ there is a *-homomorphism $\widetilde m_\la: C_0\left(\sX_\la \right)  \to M\left( C_0\left( \widetilde{\sX}\right)  \right)= C_b\left( \widetilde{\sX}\right)$ prove that 
+$\widetilde m_\la = \left. \lift_{ \widetilde{p}_{\la}}\right|_{C_0\left(\sX_\la \right)}$ where 
+$\widetilde p_\la : \widetilde{\sX} \to \sX_\la$ is the natural covering and $\lift_{ \widetilde{p}_{\la}}$ is the $\widetilde{p}_{\la}$-lift (cf. Definition \ref{top_lift_defn}).
+\end{exercise}
 \begin{empt}\label{top_r_inf_empt}
 Both the given by \eqref{top_base_point_eqn} {pointed algebraical  finite covering category} and the construction \ref{top_r_fin_empt} yield pointed algebraical  finite covering category of operator spaces $\mathfrak{S}^{\text{pt}}_{\text{op}}$ (cf. Definition \ref{comp_op_pt_defn}) which  corresponds to a noncommutative finite-fold coverings of operator spaces \be\label{top_comp_cat_eqn}
 \begin{split}
@@ -10108,6 +10156,30 @@ From the our construction $C^*\left(G, R\right)$ is the completion of $M\left( \
 	\left(\Coo_0\left(M\right),\Coo_0\left(\widetilde M\right)  G\left(\left.\widetilde M \right|  M\right)\right) 
 	$ is an {infinite noncommutative covering}  of $\mathfrak{S}^{\mathrm{pt}}_{\Coo\left( M\right) }$ (cf. Definition \ref{inf_cov_oa_defn}).
 \end{lemma}
+\begin{proof}
+	Firstly we prove that $\Coo_0\left(\widetilde M\right)$   {is subordinated to}  $	\mathfrak{S}^{\text{pt}}_{\Coo_0\left( M\right) } $ (cf. Definition \ref{inf_cov_oa_sub_defn}), i.e. it satisfies to equations \eqref{inf_cov_oa_sub1_eqn}-\eqref{inf_cov_oa_sub3_eqn}. From
+	\bean
+	\Coo_0\left( M_\la\right)\Coo_0\left( \widetilde M\right) \subset \Coo_0\left( \widetilde M\right),\\
+	\Coo_0\left( \widetilde M\right)\Coo_0\left( M_\la\right) \subset \Coo_0\left(\widetilde M\right),\\
+	\eean 
+	it follows that $\Coo_0\left( \widetilde M\right)$ satisfies to the equations \eqref{inf_cov_oa_sub1_eqn}, \eqref{inf_cov_oa_sub2_eqn}. If  $\widetilde b \in K\left( C_0\left( \widetilde M\right)\right)\cong  C_c\left( \widetilde M\right)$ then $\supp \widetilde b$ is compact. Let $\widetilde f \in C_c\left( \widetilde M\right)$ be a covering sum for $\supp \widetilde b$ (cf. Definition \ref{top_covering_sum_defn}). One can select $\widetilde f$ such that $\widetilde f\in \Coo_c\left( \widetilde M\right)$ (cf. Proposition \ref{top_smooth_part_unity_prop}). A set $\supp \widetilde f$ is compact, from the Lemma \ref{top_comp_la_lem}  it turns out that there is $\la_0\in \La$ such that $\supp \widetilde f$ is homeomorphically mapped   onto $\widetilde p_{\la_0} \left(\supp \widetilde f \right) \subset M_{\la_0}$ where $\widetilde p_{\la_0}:\widetilde M\to M_{\la_0}$ is the natural covering. If $\desc_{\widetilde p_{\la_0}}$ is the $\widetilde p_{\la_0}$-descent (cf. Definition \ref{top_lift_desc_defn}) and
+	$\widetilde a' = \widetilde a'' \bydef \desc_{\widetilde p_{\la_0}}\left( \widetilde f \widetilde a\right)\in \Coo_c\left(M_{\la_0} \right)\subset \bigcup_{\la\in \La}\Coo_0\left(M_\la \right)$ then one has 
+	$$
+	\widetilde b \widetilde a=\widetilde b \widetilde a', \quad \widetilde a \widetilde b = \widetilde a''.
+	$$
+	The above equation is a specialization of \eqref{inf_cov_oa_sub3_eqn}, i.e. $\Coo_0\left(\widetilde M\right)$   {is subordinated to}  $	\mathfrak{S}^{\text{pt}}_{\Coo_0\left( M\right) } $ (cf. Definition \ref{inf_cov_oa_sub_defn}).
+
+Secondly we prove that 	if $\widetilde A'$ is    a  subordinated to   $	\mathfrak{S}^{\text{pt}}_{\Coo_0\left( M\right) }$ *-algebra $\widetilde A'\subset C_0\left(\widetilde M \right) $ then  $\widetilde A'\subset \Coo_0\left(\widetilde M\right)$. Let both $\mathscr S^{\widetilde A'}$ and 	$\mathscr S^{\Coo\left( \widetilde M\right)}$ be  $\widetilde A'$-sheaf and $\Coo\left( \widetilde M\right)$-sheaf respectively (cf. Definition \ref{top_x_sheaf_defn}). Let $\widetilde x \in \widetilde M$ and let $s_{\widetilde x} \in \mathscr S^{\widetilde A'}_{\widetilde x}$ be a stalk (cf. Definition \ref{stalk_defn}) at $\widetilde x$, which is represented by $s \in  {\widetilde A'}$ where  $\widetilde \sU'$ is an open subset of $\widetilde M$. Using  \ref{top_fx_empt} one can construct the given by  \eqref{top_tfx_eqn} element $\widetilde f_{\widetilde x}\in C_c\left( \widetilde \sX\right)$ such that  there is an open neighborhood of $\widetilde \sU''$ of $\widetilde x$ such that $\widetilde f_{\widetilde x}\left(\widetilde \sU''\right) = \{1\}$. If $\widetilde \sU\bydef \widetilde \sU'\cap \widetilde \sU''$ then $s_{\widetilde x}$ can be represented by the restriction $\left. s_{\widetilde x}\right|_{\widetilde \sU}$. Similarly to the Proposition \ref{top_smooth_part_unity_prop} one can assume that $f_{\widetilde x}$ is smooth. From the equation \eqref{inf_cov_oa_sub1_eqn}  
+
+!!! CONTINUE
+	
+
+	
+	If $\widetilde a \in \widetilde A'\setminus \Coo_0\left(\widetilde M\right)$
+	then there is $\widetilde x_0$ such that $\widetilde a$ is not smooth at $\widetilde x_0$. There is $\widetilde b \in  \Coo_c\left(\widetilde M\right)$ such that one has a  neighborhood $\widetilde \sU$ of $\widetilde x_0$ which satisfies to the following condition $\widetilde b\left( \widetilde \sU\right) = \{1\}$. For all $\widetilde a\in\bigcup_{\la\in\La}\Coo_0\left( M_\la\right) $ the function $\widetilde b\widetilde a'$ is smooth. But  the function $\widetilde b\widetilde a$  is not smooth at  $\widetilde x_0$. So the algebra $\widetilde A'$ does not satisfy to \eqref{inf_cov_oa_sub3_eqn} it follows that  $\Coo_0\left(\widetilde M\right)$   {is  a maximal subordinated to}  $	\mathfrak{S}^{\text{pt}}_{\Coo_0\left( M\right) }$ algebra.
+\end{proof}
+
+
 \begin{proof}
 	Suppose that $\widetilde A' \subset C_0\left(\widetilde M\right)$ is a 
   {is a subordinated to}  $	\mathfrak{S}^{\text{pt}}_{\Coo_0\left( M\right) } $ *-algebra (cf. Definition \ref{inf_cov_oa_sub_defn}), i.e. it satisfies to equations \eqref{inf_cov_oa_sub1_eqn}-\eqref{inf_cov_oa_sub3_eqn}. 
@@ -24608,7 +24680,7 @@ A^{\infty}$.
 \end{definition}
 
 \begin{prdf}\label{sheaf_prdf}\cite{hartshorne:ag}
-	Given a presheaf !!! DEFN \ref{top_x_sheaf_defn} $\mathscr F$, there is a sheaf !!! DEFN \ref{top_x_sheaf_defn} $\mathscr F^+$ and a morphism $\th: \mathscr F \to \mathscr F^+$, with the property that for any sheaf !!! DEFN \ref{top_x_sheaf_defn} $\mathscr G$, and any morphism $\varphi: \mathscr F \to \mathscr G$, there is a unique morphism $\psi:\mathscr F^+\to \mathscr G$ such that $\varphi = \psi \circ \th$. Furthermore the pair $\left(\mathscr F^+, \th\right)$ is unique up to unique isomorphism. $\mathscr F^+$ is called the $\mathrm{sheaf~associated}$ to the presheaf !!! DEFN \ref{top_x_sheaf_defn} $\mathscr F$. 
+	Given a presheaf $\mathscr F$, there is a sheaf  $\mathscr F^+$ and a morphism $\th: \mathscr F \to \mathscr F^+$, with the property that for any sheaf  $\mathscr G$, and any morphism $\varphi: \mathscr F \to \mathscr G$, there is a unique morphism $\psi:\mathscr F^+\to \mathscr G$ such that $\varphi = \psi \circ \th$. Furthermore the pair $\left(\mathscr F^+, \th\right)$ is unique up to unique isomorphism. $\mathscr F^+$ is called the $\mathrm{sheaf~associated}$ to the presheaf $\mathscr F$. 
 \end{prdf}
 \begin{empt}\label{sheaf_empt}
 	Following text is the citation of the proof of \ref{sheaf_prdf} (cf. \cite{hartshorne:ag}). For any open set $\sU$, let $\mathscr F^+\left(\sU\right)$ be set of functions $s$ from $\sU$ to the union $\bigcup_{x \in \sU}  \mathscr F_x$ of stalks of $\mathscr F$ over points of $\sU$, such that
@@ -24623,13 +24695,26 @@ A^{\infty}$.
 	Similarly to the construction \ref{sheaf_empt} one can define a group $\mathscr F\left(\sV\right)$ for any subset $\sV\subset\sX$ which is a group of continuous maps  $\iota :\sV\to \bigcup_{x \in \sV}  \mathscr F_x$ such that $p\circ\iota = \Id_\sV$. Denote by  $\mathscr F\left(\sV \right)$ the Abelian group of such maps.
 \end{remark}
 \begin{definition}\label{sheaf_inv_im_defn}\cite{hartshorne:ag}
-	Let $f: \sX\to \sY$ be a continuous map of topological spaces. For any sheaf !!! DEFN \ref{top_x_sheaf_defn} $\mathscr F$ on $\sX$, we define the \textit{direct image} sheaf !!! DEFN \ref{top_x_sheaf_defn} $f_*\mathscr F$ on $\sY$ by $\left(f_*\mathscr F\right)\left(\sV\right)= \mathscr F\left(f^{-1}\left(\sV\right)\right)$ for any open set $\sV \subseteq \sY$. For any sheaf !!! DEFN \ref{top_x_sheaf_defn} $\mathscr G$ on $\sY$, we define the \textit{inverse image} sheaf !!! DEFN \ref{top_x_sheaf_defn} $f^{-1}\mathscr G$ on $\sX$ be the sheaf !!! DEFN \ref{top_x_sheaf_defn} associated to the presheaf !!! DEFN \ref{top_x_sheaf_defn} $\sU \mapsto \lim_{\sV \supseteq f\left(\sU\right)} \mathscr G\left(\sV\right)$, where $\sU$ is any open set in $\sX$, and the limit is taken over all open sets $\sV$ of $\sV$ containing $f\left(\sU\right)$.
+	Let $f: \sX\to \sY$ be a continuous map of topological spaces. For any sheaf  $\mathscr F$ on $\sX$, we define the \textit{direct image} sheaf  $f_*\mathscr F$ on $\sY$ by $\left(f_*\mathscr F\right)\left(\sV\right)= \mathscr F\left(f^{-1}\left(\sV\right)\right)$ for any open set $\sV \subseteq \sY$. For any sheaf  $\mathscr G$ on $\sY$, we define the \textit{inverse image} sheaf  $f^{-1}\mathscr G$ on $\sX$ be the sheaf  associated to the presheaf  $\sU \mapsto \lim_{\sV \supseteq f\left(\sU\right)} \mathscr G\left(\sV\right)$, where $\sU$ is any open set in $\sX$, and the limit is taken over all open sets $\sV$ of $\sV$ containing $f\left(\sU\right)$.
 \end{definition}
+
+\begin{definition}\label{sub_sheaf_defn}\cite{hartshorne:ag}
+	A \textit{subsheaf}  of a sheaf $\mathscr F$ is a sheaf $\mathscr F'$ such that for every open set 
+	$\sU \subset \sX$, $\quad \mathscr F'\left(\sU \right)$  is a subgroup of $\mathscr F\left(\sU \right)$, and the restriction maps of the 
+	sheaf $\mathscr F'$ are induced by those of $\mathscr F$. It follows that for any point $P$, the 
+	stalk $\mathscr F'_P$ is a subgroup of $\mathscr F_P$. 
+	%If (p: & -> ^ is a morphism of sheaves, we define the fce/w/ of (p, denoted ker cp, to be the presheaf kernel of cp (which is a sheaf). Thus ker cp is a subsheaf of .^. We say that a morphism of sheaves cp:^ -> (^ is injeetive if ker (p = 0. Thus <p is injeetive if and only if the induced map cp{U)\^(U) -> ^(G) is 	injeetive for every open set of X. 	If cp\ 3F -> ^ is a morphism of sheaves, we define the zm^ of cp, 	denoted im cp, to be the sheaf associated to the presheaf image of cp. By 	the universal property of the sheaf associated to a presheaf, there is a 	natural map im cp -> rS. In fact this map is injeetive (see Ex. 1.4), and thus 	im cp can be identified with a subsheaf of f&. 	We say that a morphism cp\,? -> ^ of sheaves is sitrjective if im cp = f^. 	We say that a sequence . . . Ñ> ^l~"] -Ñ> .Wl ^> ,?l^x -> . . . of sheaves 	and morphisms is ^xacr if at each stage ker <p' = im cpl ~ l. Thus a sequence
+		
+	\end{definition}
+	
+
 \begin{definition}\label{sheaf_hom_defn}\cite{hartshorne:ag}
-	Let $\mathscr F$, $\mathscr G$ be sheaves of Abelian  groups  on $\sX$. For any open set $\sU \subseteq \sX$ the set of morphisms $\Hom\left(\left.\mathscr F\right|_{\sU}, \left.\mathscr G\right|_{\sU}\right)$ has the natural structure of Abelian group. It is a sheaf !!! DEFN \ref{top_x_sheaf_defn} (cf. \cite{hartshorne:ag}). It is called the \textit{sheaf !!! DEFN \ref{top_x_sheaf_defn} of local morphisms} of $\mathscr F\to \mathscr G$, "sheaf !!! DEFN \ref{top_x_sheaf_defn} hom" for short, and is denoted by $\mathscr Hom \left(\mathscr F, \mathscr G\right)$.
+	Let $\mathscr F$, $\mathscr G$ be sheaves of Abelian  groups  on $\sX$. For any open set $\sU \subseteq \sX$ the set of morphisms
+	 $\Hom\left(\left.\mathscr F\right|_{\sU}, \left.\mathscr G\right|_{\sU}\right)$ has the natural structure of Abelian group. 
+	It is a sheaf  (cf. \cite{hartshorne:ag}). It is called the \textit{sheaf of local morphisms} of $\mathscr F\to \mathscr G$, "sheaf hom" for short, and is denoted by $\mathscr Hom \left(\mathscr F, \mathscr G\right)$.
 \end{definition}
 \begin{definition}\label{sheaf_flasque}\cite{hartshorne:ag}
-	A sheaf !!! DEFN \ref{top_x_sheaf_defn} $\mathscr F$ on a topological space is \textit{flasque} or \textit{flabby} if for every inclusion $\sV \subseteq \sU$ of open sets, the restriction map $\mathscr F\left(\sU \right)\to\mathscr F\left(\sV \right)$ is surjective. 
+	A sheaf  $\mathscr F$ on a topological space is \textit{flasque} or \textit{flabby} if for every inclusion $\sV \subseteq \sU$ of open sets, the restriction map $\mathscr F\left(\sU \right)\to\mathscr F\left(\sV \right)$ is surjective. 
 \end{definition}
 Recall that for $s \in \mathscr{F}\left(\sX \right)$, 
 \be\label{sheaf_supp_eqn}
