@@ -4097,7 +4097,7 @@ which is a skeleton of \eqref{oa_cat_eqn}.
 \begin{remark}\label{inf_cov_oa_sub_rem}
 The equations \ref{inf_cov_oa_sub1_eqn} imply following inclusions
 \bean
-\widetilde A'\subset \widetilde B,\\
+\widetilde A'\subset \widetilde B\subset M\left(\widetilde B \right) ,\\
 \forall \la \in \La \quad A_\la \subset B_\la \subset M\left(\widetilde B \right) \quad \text{(cf. (a) of the Definition \ref{good_defn})}.
 \eean
 \end{remark}
@@ -6910,7 +6910,7 @@ $$
 
 
 \section{Continuous structures and sheaves}
-
+CONTINUE !!!
 \paragraph*{}
 
 Let $\sX$ be a topological space, and let $X \subset \prod_{x \in \sX} A_x$ where $A_x$ is a Abelian group. We suppose that $X$ is an Abelian subgroup of $\prod_{x \in \sX} A_x$. For any open subset $\sU\subset \sX$ denote by 
@@ -10118,7 +10118,7 @@ From the our construction $C^*\left(G, R\right)$ is the completion of $M\left( \
 
 \begin{empt}
 	Let $\left(M, x_0 \right)$ be a pointed smooth manifold, and let 	\bean
-	\begin{split}
+	\begin{split}\label{top_inf_cov_oa_empt}
 		\mathfrak{S}_{\left( M, x_0\right) }\bydef\\
 		\bydef \left\{\left\{p_\la:\left( M_\la, x^\la_0\right) \to \left( M, x_0\right)\right\}_{\la\in\La}, \left\{p^\mu_{ \nu}:\left( M_\mu, x^\mu_0\right) \to \left( M_\nu, x^\nu_0\right)\right\}_{\substack{\mu,\nu\in\La\\
 				\mu\ge\nu}} \right\}\\
@@ -10126,16 +10126,16 @@ From the our construction $C^*\left(G, R\right)$ is the completion of $M\left( \
 		\mathfrak{S}_{\left( M, x_0\right) }\in \mathfrak{FinTop}^{\text{pt}}.
 	\end{split}
 	\eean
-	be	a	pointed topological finite covering category (cf. Definition \ref{top_sec_p_defn}). Using the Theorem \ref{top_oa_cov_thm} one can construct a category 	\be\label{top_inf_cov_oae_eqn}
+	be	a	pointed topological finite covering category (cf. Definition \ref{top_sec_p_defn}). Using the Theorem \ref{top_oa_cov_thm} one can construct algebraical  finite covering category of  bounded operator *-algebras (cf. Definition \ref{comp_oa_defn}) given by
+	\be\label{top_inf_cov_oae_eqn}
 	\begin{split}
 		\mathfrak{S}^{\text{pt}}_{\Coo_0\left( M\right) } =\\
 		\\
 		\left(\left\{ \Coo_0\left( p_\la\right) :  \Coo_0\left(M \right)  \hookto  \Coo_0\left(M_\la \right)\right\}, \left\{ \Coo_0\left( p_\nu^\mu\right) :  \Coo_0\left(M_\nu \right) \hookto \Coo_0\left(M_\mu \right)\right\}\right)\\
-		\text{where}\quad \Coo_0\left( p_\la\right)\bydef \left.C_0\left( p_\la\right)\right|_{\Coo_0\left(M \right) }\quad \Coo_0\left( p_\la\right)\bydef \left.C_0\left( p_\nu^\mu\right)\right|_{\Coo_0\left(M_\nu \right) }
+		\text{where}\quad \Coo_0\left( p_\la\right)\bydef \left.C_0\left( p_\la\right)\right|_{\Coo_0\left(M \right) }\quad \Coo_0\left( p_\la\right)\bydef \left.C_0\left( p_\nu^\mu\right)\right|_{\Coo_0\left(M_\nu \right) }/
 	\end{split}
 	\ee
-	of noncommutative finite-fold coverings of operator algebras. The formula \eqref{top_inf_cov_oae_eqn} is a specialization of the given by \eqref{comp_oa_eqn} one. Moreover from the Lemma \ref{top_base_point_lem} and the Theorem \ref{top_main_thm} one has a 
-	good	{pointed algebraical  finite covering category} (cf. Definition \ref{pointed_defn}) given by
+ The formula \eqref{top_inf_cov_oae_eqn} is a specialization of the given by \eqref{comp_oa_eqn} one. Moreover from the Lemma \ref{top_base_point_lem} and the Theorem \ref{top_main_thm} one has a 	good	{pointed algebraical  finite covering category} (cf. Definition \ref{pointed_defn}) given by
 	\be\label{top_inf_cov_oa_eqn}
 	\begin{split}
 		\mathfrak{S}^{\text{pt}}_{C_0\left( M\right) } =\\
@@ -10148,14 +10148,40 @@ From the our construction $C^*\left(G, R\right)$ is the completion of $M\left( \
 	\left(C_0\left(M\right), C_0\left(\widetilde M\right)  G\left(\left.\widetilde M \right|  M\right)\right) 
 	$
 	is  the inverse noncommutative limit of $\mathfrak{S}^{\text{pt}}_{C_0\left( M\right) }$ (cf. Definition \ref{main_defn}).
-	So we have all described in \ref{inf_cov_oa_empt} ingredients.	 
+	So we have all described in the Definition \ref{inf_cov_oa_empt} ingredients. 
 \end{empt}
-
-\begin{lemma}\label{top_inf_cov_oa_defn}
-	Consider the above situation. If $\widetilde M$ has a structure of smooth manifold which is induced by $M$ and the covering $\widetilde p:\widetilde M \to M$ then 	$
+\begin{lemma}\label{top_inf_cov_oa_lem}
+	Consider the above situation. If $\widetilde M$ has a structure of differential  manifold which is induced by $M$ and the covering $\widetilde p:\widetilde M \to M$ (cf. Proposition \ref{top_cov_mani_prop}). If $\widetilde A$ is a *-algebra of maps from $\widetilde M$ to $\C$  such that
+\be\label{top_inf_cov_oap_eqn}
+\forall \widetilde b \in C_c\left( \widetilde M \right) \quad \forall \widetilde a \in  \widetilde A \quad \exists a \in \bigcup_{\la\in \La}~ \lift_{ \widetilde{p}_{\la}}\left(  \Coo_0\left(M_\la\right)\right) \quad
+	 \widetilde b  \widetilde a =  \widetilde b a
+\ee
+where inclusions $\lift_{ \widetilde{p}_{\la}} : C_0\left(M_\la  \right)\hookto C_b\left(\widetilde M\right)$ are  given by the Definition \ref{top_lift_defn} injective *-homomorphisms then 
+$$
+\widetilde A \subset \Coo\left(\widetilde M \right).
+$$
+\end{lemma}
+\begin{proof}
+Let both $\mathscr S^{\widetilde A}$ and 	$\mathscr S^{\Coo\left( \widetilde M\right)}$ be  $\widetilde A$-sheaf and $\Coo\left( \widetilde M\right)$-sheaf respectively (cf. Definition \ref{top_x_sheaf_defn}). Let $\widetilde x \in \widetilde M$ and let $s_{\widetilde x} \in \mathscr S^{\widetilde A}_{\widetilde x}$ be a stalk (cf. Definition \ref{stalk_defn}) at $\widetilde x$, which is represented by $\widetilde s \in  {\widetilde A}$. Using  \ref{top_fx_empt} one can construct the given by  \eqref{top_tfx_eqn} element $\widetilde f_{\widetilde x}\in C_c\left( \widetilde M\right)$ such that  there is an open neighborhood of $\widetilde \sU$ of $\widetilde x$ which satisfies to the condition $\widetilde f_{\widetilde x}\left(\widetilde \sU\right) = \{1\}$. From the Proposition \ref{top_smooth_part_unity_prop} one can assume that $\widetilde f_{\widetilde x}\in \Coo\left(\widetilde M \right)$. From the equation \eqref{top_inf_cov_oap_eqn} it follows that there is $a \in\bigcup_{\la\in \La}~ \lift_{ \widetilde{p}_{\la}}\left(  \Coo_0\left(M_\la\right)\right)$ such that 
+\be\label{top_fx_a_eqn}
+\widetilde f_{\widetilde x}  \widetilde  s =  f_{\widetilde x} a.
+\ee
+There is $\la_0 \in \La$ such that $a=\lift_{ \widetilde{p}_{\la_0}}\left(  a_{\la_0}\right)$ and $a_{\la_0} \in \Coo_0\left(M_\la\right)$. 
+From $\widetilde f_{\widetilde x}\in \Coo\left(\widetilde M \right)$ and \eqref{top_lift_smooth_eqn} it follows that $\widetilde f_{\widetilde x} ~\lift_{ \widetilde{p}_{\la_0}}\left(a_{\la_0}\right) \in \Coo\left(\widetilde M\right)$ and $\widetilde f_{\widetilde x} \widetilde s\in \Coo\left(\widetilde M\right)$. Otherwise from $\widetilde f_{\widetilde x}\left(\widetilde \sU\right) = \{1\}$ it follows that
+$$
+\forall \widetilde x \in \widetilde \sU \quad \left( f_{\widetilde x} \widetilde s \right) \left(\widetilde x\right)= \widetilde s\left(\widetilde x\right).
+$$
+From the Lemma \ref{top_x_sheaf_lem} it follows that $\mathscr S^{\widetilde A'}\subset\mathscr S^{\Coo\left( \widetilde M\right)}$ and taking into account \eqref{top_x_sheaf_eqn} one has
+$$
+\widetilde A' \subset \mathscr S^{\Coo\left( \widetilde M\right)}\left( \widetilde M\right).
+$$
+Otherwise from the equation \eqref{top_coo_sh_eqn} it follows that $\widetilde A' \subset {\Coo\left( \widetilde M\right)}$.
+\end{proof}
+\begin{theorem}\label{top_inf_cov_oa_thm}
+	Consider the situation \ref{top_inf_cov_oa_thm}. If $\widetilde M$ has a structure of smooth manifold which is induced by $M$ and the covering $\widetilde p:\widetilde M \to M$ then 	$
 	\left(\Coo_0\left(M\right),\Coo_0\left(\widetilde M\right)  G\left(\left.\widetilde M \right|  M\right)\right) 
 	$ is an {infinite noncommutative covering}  of $\mathfrak{S}^{\mathrm{pt}}_{\Coo\left( M\right) }$ (cf. Definition \ref{inf_cov_oa_defn}).
-\end{lemma}
+\end{theorem}
 \begin{proof}
 	Firstly we prove that $\Coo_0\left(\widetilde M\right)$   {is subordinated to}  $	\mathfrak{S}^{\text{pt}}_{\Coo_0\left( M\right) } $ (cf. Definition \ref{inf_cov_oa_sub_defn}), i.e. it satisfies to equations \eqref{inf_cov_oa_sub1_eqn}-\eqref{inf_cov_oa_sub3_eqn}. From
 	\bean
@@ -10169,56 +10195,26 @@ From the our construction $C^*\left(G, R\right)$ is the completion of $M\left( \
 	$$
 	The above equation is a specialization of \eqref{inf_cov_oa_sub3_eqn}, i.e. $\Coo_0\left(\widetilde M\right)$   {is subordinated to}  $	\mathfrak{S}^{\text{pt}}_{\Coo_0\left( M\right) } $ (cf. Definition \ref{inf_cov_oa_sub_defn}). 
 
-Secondly we prove that 	if $\widetilde A'$ is    a  subordinated to   $	\mathfrak{S}^{\text{pt}}_{\Coo_0\left( M\right) }$ *-algebra $\widetilde A'\subset C_0\left(\widetilde M \right) $ then  $\widetilde A'\subset \Coo_0\left(\widetilde M\right)$. Let both $\mathscr S^{\widetilde A'}$ and 	$\mathscr S^{\Coo\left( \widetilde M\right)}$ be  $\widetilde A'$-sheaf and $\Coo\left( \widetilde M\right)$-sheaf respectively (cf. Definition \ref{top_x_sheaf_defn}). Let $\widetilde x \in \widetilde M$ and let $s_{\widetilde x} \in \mathscr S^{\widetilde A'}_{\widetilde x}$ be a stalk (cf. Definition \ref{stalk_defn}) at $\widetilde x$, which is represented by $\widetilde s \in  {\widetilde A'}$. Using  \ref{top_fx_empt} one can construct the given by  \eqref{top_tfx_eqn} element $\widetilde f_{\widetilde x}\in C_c\left( \widetilde M\right)$ such that  there is an open neighborhood of $\widetilde \sU$ of $\widetilde x$ such that $\widetilde f_{\widetilde x}\left(\widetilde \sU\right) = \{1\}$. From the Proposition \ref{top_smooth_part_unity_prop} one can assume that $\widetilde f_{\widetilde x}\in \Coo\left(\widetilde M \right)$. From the equation \eqref{inf_cov_oa_sub3_eqn} it follows that there is $a' \in \bigcup \Coo_0\left( M_\la\right)$ such that
-\be\label{top_fx_a_eqn}
-\widetilde f_{\widetilde x}  \widetilde  s =  f_{\widetilde x} a'
-\ee
-There is $\la_0 \in \La$ such that $a'= a_{\la_0}\in \Coo_0\left(M_\la\right)$. Using the Exercise \ref{top_ml_exer} and taking into account \eqref{top_fx_a_eqn} one has
+Secondly we prove that 	if $\widetilde A'$ is    a  subordinated to   $	\mathfrak{S}^{\text{pt}}_{\Coo_0\left( M\right) }$ *-algebra $\widetilde A'$ then  $\widetilde A'\subset \Coo_0\left(\widetilde M\right)$.  
+From the equation \eqref{inf_cov_oa_sub3_eqn} it follows that 
 $$
-\widetilde f_{\widetilde x} \widetilde s = \widetilde s a' = \widetilde f_{\widetilde x} ~\lift_{ \widetilde{p}_{\la_0}}\left(a_{\la_0} \right).
+\forall \widetilde b \in C_c\left(\widetilde M \right)
+\quad \forall \widetilde a \in \widetilde A'\quad \exists  \widetilde a' \in \bigcup_{\la\in\La}\Coo_0\left(M_\la\right)\quad \widetilde b \widetilde a = \widetilde b \widetilde a'.
 $$
-From $\widetilde f_{\widetilde x}\in \Coo\left(\widetilde M \right)$ and \eqref{top_lift_smooth_eqn} it follows that $\widetilde f_{\widetilde x} ~\lift_{ \widetilde{p}_{\la_0}}\left(a_{\la_0}\right) \in \Coo\left(\widetilde M\right)$ and $\widetilde f_{\widetilde x} \widetilde s\in \Coo\left(\widetilde M\right)$. Otherwise from $\widetilde f_{\widetilde x}\left(\widetilde \sU\right) = \{1\}$ it follows that
+Taking into account  \ref{top_ml_exer} one has
 $$
-\widetilde x \in \widetilde \sU \quad \left( f_{\widetilde x} \widetilde s \right) \left(\widetilde x\right)= \widetilde s\left(\widetilde x\right)
+\forall \widetilde b \in C_c\left(\widetilde M \right)
+\quad \forall \widetilde a \in \widetilde A'\quad \exists  \widetilde a' \in \bigcup_{\la\in\La}\lift_{ \widetilde{p}_{\la}}\left( \Coo_0\left(M_\la\right)\right) \quad \widetilde b \widetilde a = \widetilde b \widetilde a'
 $$
-From the Lemma \ref{top_x_sheaf_lem} it follows that $\mathscr S^{\widetilde A'}\subset\mathscr S^{\Coo\left( \widetilde M\right)}$ and taking into account \eqref{top_x_sheaf_eqn} one has
+From the above equation and the Lemma \ref{top_inf_cov_oa_lem} it follows that
 $$
-\widetilde A' \subset \mathscr S^{\Coo\left( \widetilde M\right)}\left( \widetilde M\right).
+ \widetilde A'\subset \Coo\left( \widetilde M\right). 
 $$
-Otherwise from the equation \eqref{top_coo_sh_eqn} it follows that $\widetilde A' \subset {\Coo\left( \widetilde M\right)}$. On the other hand from the Definition \ref{inf_cov_oa_defn} it turns out that $\widetilde A'\subset C_0\left( \widetilde M\right)$. In result one has
+On the other hand from the Definition \ref{inf_cov_oa_defn} it turns out that $\widetilde A'\subset C_0\left( \widetilde M\right)$. In result one has
 $$
 \widetilde A'\subset C_0\left( \widetilde M\right)\cap  \Coo\left( \widetilde M\right) = \Coo_0\left( \widetilde M\right).
 $$ 
 \end{proof}
-
-
-\begin{proof}
-	Suppose that $\widetilde A' \subset C_0\left(\widetilde M\right)$ is a 
-  {is a subordinated to}  $	\mathfrak{S}^{\text{pt}}_{\Coo_0\left( M\right) } $ *-algebra (cf. Definition \ref{inf_cov_oa_sub_defn}), i.e. it satisfies to equations \eqref{inf_cov_oa_sub1_eqn}-\eqref{inf_cov_oa_sub3_eqn}. 
- For any open $\widetilde \sU \subset \widetilde M$ we define an equivalence relation $\sim_{\widetilde\sU}$ on   $\widetilde A'$ such that
- $$
- \forall \widetilde a', \widetilde a'' \in \widetilde A'\quad \widetilde a' \sim_{\widetilde\sU} \widetilde a'' \quad  \Leftrightarrow\quad  \forall \widetilde x\in  \widetilde M \quad \widetilde a'\left( \widetilde x\right) = \widetilde a''\left( \widetilde x\right).
- $$ 
-  A map $\widetilde\sU \mapsto \widetilde A'/ \sim_{\widetilde\sU}$ yields a presheaf !!! DEFN \ref{top_x_sheaf_defn} (cf. Definition \ref{presheaf_defn}). Let $\mathscr A$ be an associated sheaf !!! DEFN \ref{top_x_sheaf_defn} (cf. Proposition and Definition \ref{sheaf_prdf}). Let $\widetilde x_0\in \widetilde M$ be any point and let $\widetilde \sU$ is a compact neighborhood of $\widetilde x_0$. Let $\widetilde b\in C_0\left(\widetilde M \right) $ be a covering sum  for $\widetilde\sU$ (cf. Definition \ref{top_covering_sum_defn}). One can select $\widetilde b$ such that $\widetilde b\in  \Coo_c\left( \widetilde M\right)$ (cf. Proposition \ref{top_smooth_part_unity_prop}). A set $\supp \widetilde g$ is compact, from the Lemma \ref{top_comp_la_lem}  it turns out that there is $\la_0\in \La$ such that $\supp \widetilde f$ is homeomorphically mapped   onto $\widetilde p_{\la_0} \left(\supp \widetilde b \right) \subset M_{\la_0}$ where $\widetilde p_{\la_0}:\widetilde M\to M_{\la_0}$ is the natural covering. If $\widetilde a \in \widetilde A'$ then from $\widetilde b \in K\left( C_0\left(\widetilde  M \right) \right)$ and   \eqref{inf_cov_oa_sub3_eqn} it follows that there is $a\in \bigcup  \Coo_0\left( M_{\la}\right)$
-  such that $\widetilde b a = \widetilde a$. Since $a$ can be regarded as a smooth function on $\widetilde M$ 
-  !!! CONTINUE
-  
-  From
-	\bean
-	\Coo_0\left( M_\la\right)\Coo_0\left( \widetilde M\right) \subset \Coo_0\left( \widetilde M\right),\\
-	\Coo_0\left( \widetilde M\right)\Coo_0\left( M_\la\right) \subset \Coo_0\left(\widetilde M\right),\\
-	\eean 
-	it follows that $\Coo_0\left( \widetilde M\right)$ satisfies to the equations \eqref{inf_cov_oa_sub1_eqn}, \eqref{inf_cov_oa_sub2_eqn}. If  $\widetilde b \in K\left( C_0\left( \widetilde M\right)\right)\cong  C_c\left( \widetilde M\right)$ then $\supp \widetilde b$ is compact. Let $\widetilde f \in C_c\left( \widetilde M\right)$ be a covering sum for $\supp \widetilde b$ (cf. Definition \ref{top_covering_sum_defn}). One can select $\widetilde f$ such that $\widetilde f\in \Coo_c\left( \widetilde M\right)$ (cf. Proposition \ref{top_smooth_part_unity_prop}). A set $\supp \widetilde f$ is compact, from the Lemma \ref{top_comp_la_lem}  it turns out that there is $\la_0\in \La$ such that $\supp \widetilde f$ is homeomorphically mapped   onto $\widetilde p_{\la_0} \left(\supp \widetilde f \right) \subset M_{\la_0}$ where $\widetilde p_{\la_0}:\widetilde M\to M_{\la_0}$ is the natural covering. If $\desc_{\widetilde p_{\la_0}}$ is the $\widetilde p_{\la_0}$-descent (cf. Definition \ref{top_lift_desc_defn}) and
-	$\widetilde a' = \widetilde a'' \bydef \desc_{\widetilde p_{\la_0}}\left( \widetilde f \widetilde a\right)\in \Coo_c\left(M_{\la_0} \right)\subset \bigcup_{\la\in \La}\Coo_0\left(M_\la \right)$ then one has 
-	$$
-	\widetilde b \widetilde a=\widetilde b \widetilde a', \quad \widetilde a \widetilde b = \widetilde a''.
-	$$
-	The above equation is a specialization of \eqref{inf_cov_oa_sub3_eqn}, i.e. $\Coo_0\left(\widetilde M\right)$   {is subordinated to}  $	\mathfrak{S}^{\text{pt}}_{\Coo_0\left( M\right) } $ (cf. Definition \ref{inf_cov_oa_sub_defn}).
-	If $\Coo_0\left(\widetilde M\right)$   {is not a maximal subordinated to}  $	\mathfrak{S}^{\text{pt}}_{\Coo_0\left( M\right) }$ algebra then there is   a  subordinated to   $	\mathfrak{S}^{\text{pt}}_{\Coo_0\left( M\right) }$ algebra $\widetilde A'\subset C_0\left(\widetilde M \right) $ such that $\Coo_0\left(\widetilde M\right)\subsetneqq \widetilde A'$. If $\widetilde a \in \widetilde A'\setminus \Coo_0\left(\widetilde M\right)$
-	then there is $\widetilde x_0$ such that $\widetilde a$ is not smooth at $\widetilde x_0$. There is $\widetilde b \in  \Coo_c\left(\widetilde M\right)$ such that one has a  neighborhood $\widetilde \sU$ of $\widetilde x_0$ which satisfies to the following condition $\widetilde b\left( \widetilde \sU\right) = \{1\}$. For all $\widetilde a\in\bigcup_{\la\in\La}\Coo_0\left( M_\la\right) $ the function $\widetilde b\widetilde a'$ is smooth. But  the function $\widetilde b\widetilde a$  is not smooth at  $\widetilde x_0$. So the algebra $\widetilde A'$ does not satisfy to \eqref{inf_cov_oa_sub3_eqn} it follows that  $\Coo_0\left(\widetilde M\right)$   {is  a maximal subordinated to}  $	\mathfrak{S}^{\text{pt}}_{\Coo_0\left( M\right) }$ algebra.
-\end{proof}
-
-
 
 \subsubsection{Coverings of $O^*$-algebras and quasi $*$-algebras}\label{top_inf_o_sec}
 \paragraph*{}
