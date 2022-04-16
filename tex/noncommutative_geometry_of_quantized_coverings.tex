@@ -3824,7 +3824,11 @@ G_\pi\bydef \left\{\left.g \in  G\left(\left. \overline A_\pi~\right| A \right)\
 \begin{split}
 	\widetilde m_\la\bydef p_{M\left( \widetilde{A}_\pi \right)}\circ	\overline m_\la :A_\la \to M\left( \widetilde{A}_\pi \right),\\
 	\widetilde m\bydef p_{M\left( \widetilde{A}_\pi \right)}\circ	\overline m :A \to M\left( \widetilde{A}_\pi \right).
-\end{split} 
+\end{split}
+\ee\label{a_toolamn_eqn}
+If $\mu, \nu \in \La$ such that $\mu > \nu$ then from $A_\nu \subset A_\mu$ it follows that
+\be
+\forall\mu, \nu \in \La\quad \mu > \nu\quad \widetilde m_\nu\left( A_\nu\right) \subset \widetilde m_\mu\left( A_\mu\right).
 \ee
 \end{empt}
 \begin{definition}\label{good_defn}
@@ -4087,12 +4091,12 @@ which is a skeleton of \eqref{oa_cat_eqn}.
 	Consider the situation  \ref{inf_cov_oa_empt}.	We say that  $G$-invariant *-subalgebra $\widetilde A'$ of $\widetilde B$ is \textit{subordinated to}  $\mathfrak{S}^{\text{pt}}$ if for all $
 	\la\in\La$ one has
 	\bea\label{inf_cov_oa_sub1_eqn}
-	A_\la \widetilde A'\subset \widetilde A',\\
-	\label{inf_cov_oa_sub2_eqn}		\widetilde A'A_\la\subset \widetilde A',\\
+\widetilde m_\la\left( 	A_\la\right)  \widetilde A'\subset \widetilde A',\\
+	\label{inf_cov_oa_sub2_eqn}		\widetilde A'\widetilde m_\la\left( 	A_\la\right)\subset \widetilde A',\\
 	\label{inf_cov_oa_sub3_eqn}		\forall \widetilde b \in K\left(\widetilde B \right)
-	\quad \forall \widetilde a \in \widetilde A'\quad \exists  \widetilde a', \widetilde a'' \in \bigcup_{\la\in\La} A_\la\quad \widetilde b \widetilde a = \widetilde b \widetilde a', \quad \widetilde a \widetilde b = \widetilde a'' \widetilde b.
+	\quad \forall \widetilde a \in \widetilde A'\quad \exists  \widetilde a', \widetilde a'' \in \bigcup_{\la\in\La} \widetilde m_\la\left( 	A_\la\right)\quad \widetilde b \widetilde a = \widetilde b \widetilde a', \quad \widetilde a \widetilde b = \widetilde a'' \widetilde b.
 	\eea
-	where $K\left(\widetilde B \right)$ is the Pedersen's ideal of $\widetilde B$ (cf. Definition \ref{peder_id_defn}).
+	where $K\left(\widetilde B \right)$ is the Pedersen's ideal of $\widetilde B$ (cf. Definition \ref{peder_id_defn}) and $\widetilde m_\la$ is given by \eqref{a_toola_eqn}.
 \end{definition}
 \begin{remark}\label{inf_cov_oa_sub_rem}
 The equations \ref{inf_cov_oa_sub1_eqn} imply following inclusions
@@ -6910,7 +6914,35 @@ $$
 
 
 \section{Continuous structures and sheaves}
-CONTINUE !!!
+
+\paragraph*{}
+	Let $\sX$ be a locally compact,  Hausdorff space, and let $R \subset C_0\left(\sX\right)$ be a dense *-subalgebra. For any $R$-module $A$ and every open subset $\sU$ we define  an equivalence relation $\sim_\sU$ (cf. Definition \ref{equiv_rel_defn}) on $A$ such that
+	$$
+	a' \sim_\sU a'' \quad \Leftrightarrow \left( \forall r \in R \quad \supp r \subset \sU \quad \Rightarrow\quad ra' = r a''\right). 
+	$$
+From the above equation it turns out that
+$$
+\sV \subset \sU \quad \Rightarrow \quad \left( a' \sim_\sU a'' \quad \Rightarrow\quad  a' \sim_\sV a''\right).
+$$
+It follows that one has a natural projection
+$$
+\rho_{\sU \sV}:A/\sim_\sU \to A/\sim_\sV.
+$$
+One can proof maps $\rho_{\sU \sV}$  satisfy to the Definition \ref{presheaf_defn}, i.e. we have presheaf  on $\sX$.
+\begin{definition}\label{top_x_sheaf_defn}
+A sheaf associated with the described above presheaf (cf. Proposition and Definition \ref{sheaf_prdf}) is said to be the $A$-\textit{sheaf}. Henceforth we denote the $A$-{sheaf} by $\mathscr S^A$.
+\end{definition}
+\begin{remark}
+Since $R$ is an $R$-module, there is a sheaf $\mathscr S^R$
+One has a ringed space $\left(\sX, \mathscr S^R\right)$ (cf. Definition \ref{sheaf_ringed_space_defn}), and $\mathscr S^A$ is a $\mathscr S^R$-module (cf. Definition \ref{sheaf_of_modules_den}).
+\end{remark}
+\begin{definition}
+In the described above situation we say that a dense *-subalgebra $R \subset C_0\left(\sX\right)$ is \textit{good} if for any $x \in \sX$ and any open neighborhood $\sU$ of $x$ there is $f \in R$ such that $f\left( \sX\right)\subset \left[0,1\right]$, $\supp f \subset \sU$, moreover there is an open neighborhood $\sV$ of $x$, which satisfy to a condition $f\left(\sV\right)=\{0\}$.
+\end{definition}
+Any $s \in X$ corresponds to a global section of $\mathscr S^X$, it follows that there is an inclusion of Abelian groups
+\be\label{top_x_sheaf_eqn}
+A\subset \mathscr S^A\left( \sX\right). 
+\ee
 \paragraph*{}
 
 Let $\sX$ be a topological space, and let $X \subset \prod_{x \in \sX} A_x$ where $A_x$ is a Abelian group. We suppose that $X$ is an Abelian subgroup of $\prod_{x \in \sX} A_x$. For any open subset $\sU\subset \sX$ denote by 
@@ -6924,13 +6956,24 @@ $$
 One can proof that the similar to $\rho_{\sU \sV}$ maps satisfy to the Definition \ref{presheaf_defn}, i.e. we have presheaf  on $\sX$.
 
 \begin{definition}\label{top_x_sheaf_defn}
-A sheaf associated with the described above presheaf (cf. Proposition and Definition \ref{sheaf_prdf}) is said to be the $X$-\textit{sheaf}. Henceforth we denote the $X$-{sheaf} by $\mathscr S^X$.
+	A sheaf associated with the described above presheaf (cf. Proposition and Definition \ref{sheaf_prdf}) is said to be the $X$-\textit{sheaf}. Henceforth we denote the $X$-{sheaf} by $\mathscr S^X$.
 \end{definition}
 Any $s \in X$ corresponds to a global section of $\mathscr S^X$, it follows that there is an inclusion of Abelian groups
 \be\label{top_x_sheaf_eqn}
 X \subset \mathscr S^X\left( \sX\right). 
 \ee
 We leave to the reader a proof of the following lemma.
+\begin{lemma}
+	Let $X', X'' \subset \prod_{x \in \sX} A_x$. are Abelian subgroups. If for every $x \in \sX$  any stalk $s'_x \in \mathscr S^{X'}_x$ (cf. Definition \ref{stalk_defn}) can by represented by $s_\sU = \{a'_x\}_{x \in \sU} \in \mathscr S^{X'}\left(\sU \right)$ such that there is $\{a''_x\}_{x \in \sX} \in X''$ which satisfies to the following condition
+	$$
+	\forall x \in\sU \quad a'_x = a''_x
+	$$ 
+	then there is a natural inclusion of sheaves
+	$$
+	\mathscr S^{X'} \subset \mathscr S^{X''},
+	$$
+\end{lemma}
+We leave to the reader a proof of the following lemma. !!! DELETE
 \begin{lemma}\label{top_x_sheaf_lem}
 Let $X', X'' \subset \prod_{x \in \sX} A_x$. are Abelian subgroups. If for every $x \in \sX$  any stalk $s'_x \in \mathscr S^{X'}_x$ (cf. Definition \ref{stalk_defn}) can by represented by $s_\sU = \{a'_x\}_{x \in \sU} \in \mathscr S^{X'}\left(\sU \right)$ such that there is $\{a''_x\}_{x \in \sX} \in X''$ which satisfies to the following condition
 $$
@@ -6964,8 +7007,6 @@ i.e. $\mathscr S^{X'}$ is a subsheaf of $\mathscr S^{X''}$ (cf. Definition \ref{
 	\end{enumerate}
 	where notation 	of Definitions \ref{top_s_bounded_defn}, \ref{top_cc_c0_defn} and  \ref{top_x_sheaf_defn} is used.
 \end{exercise}
-I
-
 If we consider the situation of the Definition \ref{sheaf_inv_im_defn} then the {inverse image} \ref{top_x_sheaf_defn} $f^{-1}\mathscr G$ on $\sX$ is the sheaf  associated to the presheaf  $\sU \mapsto \lim_{\sV \supseteq f\left(\sU\right)} \mathscr G\left(\sV\right)$, where $\sU$ is any open set in $\sX$, and the limit is taken over all open sets $\sV$ of $\sX$ containing $f\left(\sU\right)$. If the map $f$ is surjective then one has  $\lim_{\sV \supseteq f\left(\sX\right)} \mathscr G\left(\sV\right)\cong \mathscr  G\left(\sX\right)$ it follows that there is the injective homomorphism 
 \be\label{top_cs_sheaf_inc_eqn}
 f^{-1}_{\mathscr  G}:\mathscr  G\left(\sX\right)\hookto f^{-1}\mathscr  G\left(\sY\right)
@@ -6983,10 +7024,10 @@ of Abelian groups.
 \mathscr S^{C\left(\widetilde{\sX}, \left\{\widetilde{A}_{\widetilde{x}}\right\}, \widetilde{\sF} \right)}= p^{-1}\mathscr S^{C\left({\sX}, \left\{{A}_{{x}}\right\}, {\sF} \right)}.
 	$$
 \end{lemma}
-!!! CONTINUE
+
 \begin{proof}
-	From the Definition \ref{sheaf_inv_im_defn} it follows that $p^{-1}\left( \mathscr  C\left(\sX, \left\{A_x\right\}, \sF \right)\right)$ is associated to the presheaf !!! DEFN \ref{top_x_sheaf_defn} $\mathscr  G$ given by $\widetilde \sU \mapsto \lim_{\sU\supseteq p\left(\widetilde \sU\right)} \mathscr  C\left(\sX, \left\{A_x\right\}, \sF \right)\left( \sU\right) $, where $\widetilde \sU$ is any open set in $\widetilde \sX$, and the limit is taken over all open sets $\sU$ of $\sX$ containing $p\left(\widetilde \sU\right)$. In particular if $\widetilde \sU$ is homeomorphically mapped onto $p\left(\widetilde \sU\right)$ then $\mathscr  G\left( \widetilde \sU\right)\cong \mathscr  C\left(\sX, \left\{A_x\right\}, \sF \right)\left(p\left(\widetilde \sU\right) \right)$. Let $\widetilde s \in p^{-1}\left( \mathscr  C\left(\sX, \left\{A_x\right\}, \sF \right)\right)\left(\widetilde \sU \right) $.
-	From (2) of \ref{sheaf_empt} it follows that   for any $\widetilde x \in \widetilde\sU$ there is an open neighborhood  $\widetilde\sV$ of $\widetilde x$ such that $\widetilde\sV \subset \widetilde\sU$ and the element $\widetilde t \in \mathscr G\left(\widetilde\sV \right)$ such that  for all $\widetilde y \in \widetilde\sV$ the germ $\widetilde t_{\widetilde y}$ of $\widetilde t$ at $\widetilde y$ is equal to $\widetilde s\left(\widetilde y\right)$. For any $\widetilde x$ we select an  neighborhood $\widetilde\sV_{\widetilde x}$ of $\widetilde x$ such that   $\widetilde\sV_{\widetilde x}$ satisfies to (2) of \ref{sheaf_empt} and $\widetilde \sV_{\widetilde x}$ is homeomorphically mapped onto $p\left(\widetilde \sV_{\widetilde x}\right)$. From  $\mathscr  G\left( \widetilde \sV_x\right)\cong \mathscr  C\left(\sX, \left\{A_y\right\}, \sF \right)\left(p\left(\widetilde \sV_x\right) \right)$ it follows that the restriction $\left.\widetilde s\right|_{\widetilde \sV_x}$ corresponds to element $s_{\widetilde x} \in \mathscr  C\left(\sX, \left\{A_y\right\}, \sF \right)\left( p\left(\widetilde \sV_x\right)\right)$. From the Definition  \ref{top_cs_sheaf_defn} it follows that $s_{\widetilde x}$ corresponds to a {continuous (with respect to $\sF$)} family $\left\{a_y \in A_y \right\}_{y \in p\left(\widetilde \sV_x\right) }$. So if $c_{\widetilde y}: \widetilde A_{\widetilde y}\to A_{p\left(\widetilde y \right) }$ is given by \eqref{top_ct_iso_eqn} 	for any $\widetilde y \in \widetilde \sV_x$  then there is  {continuous (with respect to $\widetilde \sF$)}
+	From the Definition \ref{sheaf_inv_im_defn} it follows that $p^{-1}\left( \mathscr  C\left(\sX, \left\{A_x\right\}, \sF \right)\right)$ is associated to the presheaf  $\mathscr  G$ given by $\widetilde \sU \mapsto \lim_{\sU\supseteq p\left(\widetilde \sU\right)} \mathscr  S^{\left(\sX, \left\{A_x\right\}, \sF \right)}\left( \sU\right) $, where $\widetilde \sU$ is any open set in $\widetilde \sX$, and the limit is taken over all open sets $\sU$ of $\sX$ containing $p\left(\widetilde \sU\right)$. In particular if $\widetilde \sU$ is homeomorphically mapped onto $p\left(\widetilde \sU\right)$ then $\mathscr  G\left( \widetilde \sU\right)\cong \mathscr  S^{\left(\sX, \left\{A_x\right\}, \sF \right)}\left(p\left(\widetilde \sU\right) \right)$. Let $\widetilde s \in p^{-1}\mathscr  S^{\left(\sX, \left\{A_x\right\}, \sF \right)}\left(\widetilde \sU \right) $.
+	From (2) of \ref{sheaf_empt} it follows that   for any $\widetilde x \in \widetilde\sU$ there is an open neighborhood  $\widetilde\sV$ of $\widetilde x$ such that $\widetilde\sV \subset \widetilde\sU$ and the element $\widetilde t \in \mathscr  S^{\left(\sX, \left\{A_x\right\}, \sF \right)}$ such that  for all $\widetilde y \in \widetilde\sV$ the germ $\widetilde t_{\widetilde y}$ of $\widetilde t$ at $\widetilde y$ is equal to $\widetilde s\left(\widetilde y\right)$. For any $\widetilde x$ we select an  neighborhood $\widetilde\sV_{\widetilde x}$ of $\widetilde x$ such that   $\widetilde\sV_{\widetilde x}$ satisfies to (2) of \ref{sheaf_empt} and $\widetilde \sV_{\widetilde x}$ is homeomorphically mapped onto $p\left(\widetilde \sV_{\widetilde x}\right)$. From  $\mathscr  G\left( \widetilde \sV_x\right)\cong \mathscr  C\left(\sX, \left\{A_y\right\}, \sF \right)\left(p\left(\widetilde \sV_x\right) \right)$ it follows that the restriction $\left.\widetilde s\right|_{\widetilde \sV_x}$ corresponds to element $s_{\widetilde x} \in \mathscr  C\left(\sX, \left\{A_y\right\}, \sF \right)\left( p\left(\widetilde \sV_x\right)\right)$. From the Definition  \ref{top_cs_sheaf_defn} it follows that $s_{\widetilde x}$ corresponds to a {continuous (with respect to $\sF$)} family $\left\{a_y \in A_y \right\}_{y \in p\left(\widetilde \sV_x\right) }$. So if $c_{\widetilde y}: \widetilde A_{\widetilde y}\to A_{p\left(\widetilde y \right) }$ is given by \eqref{top_ct_iso_eqn} 	for any $\widetilde y \in \widetilde \sV_x$  then there is  {continuous (with respect to $\widetilde \sF$)}
 	family $\left\{\widetilde a_{\widetilde y} = c^{-1}\left(a_{p\left( \widetilde y\right) } \right)  \right\}_{\widetilde y\in \widetilde\sV_{\widetilde x} }$. Let $ \widetilde x',  \widetilde x'' \in  \widetilde\sU$. If both  $\left\{\widetilde a'_{\widetilde y'}  \right\}_{\widetilde y'\in \widetilde\sV_{\widetilde x'} }$  and  $\left\{\widetilde a''_{\widetilde y''}  \right\}_{\widetilde y''\in \widetilde\sV_{\widetilde x''} }$ are families corresponding to both $\left.\widetilde s\right|_{\widetilde \sV_{x'}}$ and $\left.\widetilde s\right|_{\widetilde \sV_{x''}}$ 
 	then from $\left.\left.\widetilde s\right|_{\widetilde \sV_{x'}}\right|_{\widetilde \sV_{x'}\cap \widetilde \sV_{x''} }=\left.\left.\widetilde s\right|_{\widetilde \sV_{x''}}\right|_{\widetilde \sV_{x'}\cap \widetilde \sV_{x''} }$ it follows that $\widetilde a'_{\widetilde y}= \widetilde a''_{\widetilde y}$ for all $\widetilde y \in  \widetilde \sV_{x'}\cap \widetilde \sV_{x''}$. So there is the single family $\left\{\widetilde a_{\widetilde y}  \right\}_{\widetilde y\in \widetilde\sU}$ which is the combination of  {continuous (with respect to $\widetilde \sF$)} families $\left\{\widetilde a_{\widetilde y}  \right\}_{\widetilde y\in \widetilde\sV_{\widetilde x} }$ 
 	The family $\left\{\widetilde a_{\widetilde y}  \right\}_{\widetilde y\in \widetilde\sU}$ is {continuous (with respect to $\widetilde \sF$)} so it corresponds the element of $\mathscr C \left(\widetilde{\sX}, \left\{\widetilde{A}_{\widetilde{x}}\right\}, \widetilde{\sF} \right)\left(\widetilde\sU \right) $.
@@ -24682,9 +24723,30 @@ A^{\infty}$.
 %\begin{definition}
 %	A presheaf !!! DEFN \ref{top_x_sheaf_defn} satisfying (4) of the Definition \ref{sheaf_defn} is called \textit{conjunctive} (for $\sU$). (cf. \cite{bredon:sheaf})
 %\end{definition}
-
 \begin{definition}\label{stalk_defn}\cite{hartshorne:ag}
 	If $\mathscr F$ is a {presheaf} on $\sX$, and if $x$ is a point of $\sX$ we define the \textit{stalk} or the \textit{germ} $\mathscr F_x$ of $\mathscr F$ at $x$ to be the direct limit of groups $\mathscr F\left(\sU\right)$ for all open sets $\sU$ containing $x$, via restriction maps $\rho$.
+\end{definition}
+
+\begin{definition}\cite{hartshorne:ag}
+If $\mathscr F$  and $\mathscr G$ are presheaves on $\sX$, a \textit{morphism} $\varphi:\mathscr F\to\mathscr G$  consists 
+of a morphism of Abelian groups $\varphi_\sU:\mathscr F\left( \sU\right) \to\mathscr F\left( \sU\right)$ for each open set 
+	$\sU$, such that whenever $\sV\subset\sU$ is an inclusion, the diagram 
+	\newline
+\begin{tikzpicture}
+	\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
+	{
+\mathscr F\left( \sU\right)   & \mathscr G\left( \sU\right)\\
+\mathscr F\left( \sV\right)    & \mathscr G\left( \sV\right)\\
+	};
+	\path[-stealth]
+	(m-1-1) edge node [above] {$\rho_{\sU\sV}$} (m-1-2)
+	(m-1-1) edge node [right] {$\varphi_\sU$} (m-2-1)
+	(m-1-2) edge node [right] {$\varphi_\sV$} (m-2-2)
+	(m-2-1) edge node [above] {$\rho'_{\sU\sV}$} (m-2-2);
+\end{tikzpicture}
+\\
+is commutative, where $\rho_{\sU\sV}$ and $\rho'_{\sU\sV}$ are the restriction maps in $\mathscr F$  and $\mathscr G$. If $\mathscr F$  and $\mathscr G$ are sheaves on $\sX$, we use the same definition for a morphism 
+of sheaves. An isomorphism is a morphism  which has a two-sided inverse. 
 \end{definition}
 
 \begin{prdf}\label{sheaf_prdf}\cite{hartshorne:ag}
@@ -24698,10 +24760,35 @@ A^{\infty}$.
 	\end{itemize}
 \end{empt}
 
+\begin{exercise}\cite{hartshorne:ag}
+	%1.13. 
+	\textit{
+		\'Espace Etal\'e of a Presheaf}. %(This exercise is included only to establish the connection between our definition of a sheaf and another definition often found in the literature. See for example Godement [1, Ch. II, ¤1.2].)
+	Given a presheaf $\mathscr F$ on $\sX$, we define a topological space $\mathrm{Sp\acute{e}}\left(\mathscr F \right)$ , called the \textit{
+		\'espace etal\'e} of a Presheaf of $\mathscr F$ as 
+	follows. As a set, $\mathrm{Sp\acute{e}}\left(\mathscr F \right)= \bigcup_{x\in\sX} \mathscr F_x$ We define a projection map $p: \mathscr \mathrm{Sp\acute{e}}\left(\mathscr F \right)$
+	by sending $s_x\in \mathscr F_x$ to $x$. For each open set $\sU\subset\sX$ and each section $s\in \mathscr F\left(\sU \right)$  we 
+	obtain a map: $\overline{s}: \sU \to  \mathrm{Sp\acute{e}}\left(\mathscr F \right)$ by sending $x \mapsto s_x$, its germ at $x$. This map has the property that 
+	$p\circ \overline{s}= \Id_\sX$, in other words, it is a "section" of $p$ over $\sU$. We now 
+	make $\mathrm{Sp\acute{e}}\left(\mathscr F \right)$ into a topological space by giving it the strongest topology such that 
+	all the maps $\overline{s}: \sU \to  \mathrm{Sp\acute{e}}\left(\mathscr F \right)$ for all $\sU$ and all $s\in \mathscr F\left(\sU \right)$ , are continuous. Now 	show that the sheaf $\mathscr F^+$ associated to $\mathscr F$ can be described as follows: for any 
+	open set $\sU\subset \mathscr F$, $\mathscr F\left(\sU \right)$ is the set of continuous sections of $\mathrm{Sp\acute{e}}\left(\mathscr F \right)$ over $\sU$. In 
+	particular, the original presheaf $\mathscr F$ was a sheaf if and only if for each $\sU\subset \sX$,  $\mathscr F\left(\sU \right)$ is 
+	equal to the set of all continuous sections of $\mathrm{Sp\acute{e}}\left(\mathscr F \right)$ over $\sU$. 
+	
+\end{exercise}
+\begin{exercise}
+Let $\mathscr F$  and $\mathscr G$ by presheaves. Prove that any morphism corresponds to a continuous map $\phi:\mathrm{Sp\acute{e}}\left(\mathscr F \right)\to \mathrm{Sp\acute{e}}\left(\mathscr G \right)$ such that
+\begin{itemize}
+	\item $p_{\mathscr G}= p_{\mathscr F} \circ \phi$ where both $p_{\mathscr G}: \mathrm{Sp\acute{e}}\left(\mathscr G\mathscr F \right)\to \sX$ are natural projections.
+\item For all $x \in \sX$ a restriction $\phi|_{\mathscr F_x}: \mathscr F_x \to \mathscr G_x$ is a homomorphism of Abelian groups, rings, modules, etc.
+\end{itemize}
+\end{exercise}
+
 \begin{remark}\label{sheaf_rem}
-	If $\sV \subset \sX$ be any subset  then there is the natural topology on $\bigcup_{x \in \sV}  \mathscr F_x$,
-	Similarly to the construction \ref{sheaf_empt} one can define a group $\mathscr F\left(\sV\right)$ for any subset $\sV\subset\sX$ which is a group of continuous maps  $\iota :\sV\to \bigcup_{x \in \sV}  \mathscr F_x$ such that $p\circ\iota = \Id_\sV$. Denote by  $\mathscr F\left(\sV \right)$ the Abelian group of such maps.
+	If $\sV \subset \sX$ is any subset  then  one can define a group $\mathscr F\left(\sV\right)$  which is a group of continuous maps  $\iota :\sV\to \mathrm{Sp\acute{e}}\left(\mathscr F \right)$ such that $p\circ\iota = \Id_\sV$. Denote by  $\mathscr F\left(\sV \right)$ the Abelian group of such maps.
 \end{remark}
+
 \begin{definition}\label{sheaf_inv_im_defn}\cite{hartshorne:ag}
 	Let $f: \sX\to \sY$ be a continuous map of topological spaces. For any sheaf  $\mathscr F$ on $\sX$, we define the \textit{direct image} sheaf  $f_*\mathscr F$ on $\sY$ by $\left(f_*\mathscr F\right)\left(\sV\right)= \mathscr F\left(f^{-1}\left(\sV\right)\right)$ for any open set $\sV \subseteq \sY$. For any sheaf  $\mathscr G$ on $\sY$, we define the \textit{inverse image} sheaf  $f^{-1}\mathscr G$ on $\sX$ be the sheaf  associated to the presheaf  $\sU \mapsto \lim_{\sV \supseteq f\left(\sU\right)} \mathscr G\left(\sV\right)$, where $\sU$ is any open set in $\sX$, and the limit is taken over all open sets $\sV$ of $\sV$ containing $f\left(\sU\right)$.
 \end{definition}
@@ -24781,7 +24868,7 @@ For a presheaf !!! DEFN \ref{top_x_sheaf_defn} $\mathscr{P}$  on $\sX$ we put  $
 
 \begin{definition}\label{sheaf_ringed_space_defn}\cite{hartshorne:ag}
  A \textit{ringed space} is a pair $\left(\sX, \mathcal O_\sX \right)$  consisting of a topological space 
-$\sX$ and a sheaf !!! DEFN \ref{top_x_sheaf_defn} of rings $\mathcal O_\sX$  on $\sX$.
+$\sX$ and a sheaf of rings $\mathcal O_\sX$  on $\sX$.
 % A morphism of ringed spaces from (X,CX) to (Y,GY) is a pair (./,/#) of a continuous map f:X-+ Y and a map f# :(ry -> fJ9x of sheaves of rings on Y. The ringed space (X,?x) is a locally ringed space if for each point P e X, the stalk ([x P is a local ring. A morphism of locally ringed spaces is a morphism (/,/#) of ringed spaces, such that for each point P e X, the induced map (see below) of local rings fp :Cyj(P) -+ ?x,p ls a l?cal homomorphism of local rings. We explain this last condition. First of all, given a point P e X, the morphism of sheaves f*:((Y -+ l\fix induces a homomorphism of rings CY(V) -> ?x(f~ { V), for every open set V in Y. As V ranges over all open neighbor- 	hoods of /(P), f~l(V) ranges over a subset of the neighborhoods of P. 	Taking direct limits, we obtain a map 	&YJ{P) = \jmCY(V)^\jme>'x(f-1V), 		72 
 
 \end{definition}
