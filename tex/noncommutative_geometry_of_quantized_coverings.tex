@@ -6439,7 +6439,7 @@ Let $M$ be a differential manifold (cf. Definition \ref{diff_mani_defn}), let $p
 \end{remark}
 
 \begin{definition}\label{top_lift_desc_defn}
-	Let $\sF$ 	continuity structure for $\sX$ {and the} $\left\{A_x\right\}_{x \in \sX}$, let $p: \widetilde{\sX}\to\sX$ be a covering. Let $\widetilde{\sU}$ be an open set such that the restriction $\left.p\right|_{\widetilde{\sU}}$ is injective. Let $\sU=p\left( \widetilde{\sU}\right)$. If $a \in C\left(\sX, \left\{A_x\right\}, \sF \right)$ is such that $\supp a \subset \sU$ and $\widetilde{a}= \lift_p\left( a\right)$ then 
+	Let $\sF$ 	continuity structure for $\sX$ {and the} $\left\{A_x\right\}_{x \in \sX}$, let $p: \widetilde{\sX}\to\sX$ be a covering. Let $\widetilde{\sU}\subset \widetilde{\sX}$ be an open subset such that the restriction $\left.p\right|_{\widetilde{\sU}}$ is injective. Let $\sU\bydef p\left( \widetilde{\sU}\right)$. If $a \in C\left(\sX, \left\{A_x\right\}, \sF \right)$ is such that $\supp a \subset \sU$ (cf. Definition \ref{top_supp_defn}) and $\widetilde{a}= \lift_p\left( a\right)$ then 
 	the family 
 	\be\label{comm_lift_desc_eqn}
 	\widetilde{a}_{\widetilde{x}}=\left\{\begin{array}{c l}
@@ -6941,11 +6941,95 @@ Since $R$ is an $R$-module, there is a sheaf $\mathscr S^R$.
 One has a ringed space $\left(\sX, \mathscr S^R\right)$ (cf. Definition \ref{sheaf_ringed_space_defn}), and $\mathscr S^A$ is a $\mathscr S^R$-module (cf. Definition \ref{sheaf_of_modules_den}).
 \end{remark}
 \begin{definition}\label{top_good_r_defn}
-In the described above situation we say that a dense *-subalgebra $R \subset C_0\left(\sX\right)$ is \textit{good} if for any $x \in \sX$ and any open neighborhood $\sU$ of $x$ there is $f \in R$ such that $f\left( \sX\right)\subset \left[0,1\right]$, $\supp f \subset \sU$, moreover there is an open neighborhood $\sV$ of $x$, which satisfy to a condition $f\left(\sV\right)=\{0\}$.
+In the described above situation we say that a dense *-subalgebra $R \subset C_0\left(\sX\right)$ is \textit{good} if for any $x \in \sX$ and any open neighborhood $\sU$ of $x$ there is $f \in R$ such that $f\left( \sX\right)\subset \left[0,1\right]$, $\supp f \subset \sU$. Moreover we require that there is an open neighborhood $\sV$ of $x$, which satisfy to a condition $f\left(\sV\right)=\{1\}$.
 \end{definition}
+\begin{exercise}\label{top_good_r_exer}
+Prove that if $R \subset C_0\left(\sX\right)$ is a good *-subalgebra and $p: \widetilde \sX \to \sX$ is a covering then an intersection $p^{-1}\mathscr S^{R}\cap C_0\left(\widetilde \sX\right)$ is a good *-subalgebra of $C_0\left(\widetilde \sX\right)$.
+\end{exercise}
+\begin{exercise}
+If $R\subset C_0\left(\sX \right) $ is a good *-algebra  and $A \subset Cont\left( \sX\right)$ is an $R$-module then one has
+\be\label{top_cont_sha_eqn}
+\mathscr S^{A}	=  \mathscr S^{\left(C_c\left( \sX\right)\cap R\right)A }.
+\ee 
+\end{exercise}
 \begin{example}
 If $M$ is a smooth manifold then using the Proposition \ref{top_smooth_part_unity_prop} one can proof that $\Coo_0\left(M\right)\bydef \Coo_0\left(M\right)\cap C_0\left(M\right)\subset C_0\left(M\right)$ is a good *-algebra.
 \end{example}
+If we consider the situation of the Definition \ref{sheaf_inv_im_defn} then the {inverse image} \ref{top_x_sheaf_defn} $f^{-1}\mathscr G$ on $\sX$ is the sheaf  associated to the presheaf  $\sU \mapsto \lim_{\sV \supseteq f\left(\sU\right)} \mathscr G\left(\sV\right)$, where $\sU$ is any open set in $\sX$, and the limit is taken over all open sets $\sV$ of $\sX$ containing $f\left(\sU\right)$. If the map $f$ is surjective then one has  $\lim_{\sV \supseteq f\left(\sX\right)} \mathscr G\left(\sV\right)\cong \mathscr  G\left(\sX\right)$ it follows that there is the injective homomorphism 
+\be\label{top_cs_sheaf_inc_eqn}
+f^{-1}_{\mathscr  G}:\mathscr  G\left(\sX\right)\hookto f^{-1}\mathscr  G\left(\sY\right)
+\ee
+of Abelian groups.
+
+\begin{exercise}\label{top_sheaf_lift_exer}
+Let $p:\widetilde \sX\to \sX$ be a covering (cf. Definition \ref{top_cov_defn}), and let $\mathscr F$ be a sheaf on $\sX$. Prove following statements.
+\begin{enumerate}
+	\item For all $\widetilde x\in\widetilde\sX$ there is a natural isomorphism of stalks (cf. Definition \ref{stalk_defn})
+	\be\label{top_st_iso_eqn}
+p_{\widetilde x}:	\mathscr  F_{p\left( \widetilde x\right) }\cong p^{-1}\mathscr  F_{\widetilde x}.
+	\ee
+	\item The given by \eqref{top_cs_sheaf_inc_eqn} homomorphism
+	$$
+p^{-1}_{\mathscr  F}:\mathscr  F\left(\sX\right)\hookto p^{-1}\mathscr  F\left(\widetilde \sX\right)
+$$ can be described by the following way. 
+Elements $\xi \in \mathscr  F\left(\sX\right)$ and $\widetilde \xi \mathscr p^{-1} F\left(\widetilde \sX\right)$ can be represented by global continuous sections $s : \sX \to \mathrm{Sp\acute{e}}\left(\mathscr F \right)$ and $\widetilde s : \widetilde\sX \to \mathrm{Sp\acute{e}}\left(p^{-1}\mathscr F \right)$ of les \'espaces etal\'e (cf. Exercise \ref{sheaf_etale_exer}). We put
+\be\label{top_shaf_cx_eqn}
+\widetilde \xi = p^{-1}_{\mathscr  F}\xi \quad \Leftrightarrow\quad  \forall \widetilde x \in \widetilde \sX \quad c_{\widetilde x}\widetilde s \left(\widetilde x\right)= s\left(c_{p\left( \widetilde x\right) }\right).
+\ee
+\end{enumerate}
+
+\end{exercise}
+\begin{definition}\label{top_sheaf_lift_defn}
+In the situation of the Exercise we say that $\widetilde{\xi}$ is the $p$-lift of $\xi$. We also use the following notation
+\be
+\begin{split}
+	\widetilde{\xi} = \lift_p\left( \xi\right) ,\\
+\lift_p:\mathscr  F\left(\sX\right)\hookto p^{-1}\mathscr  F\left(\widetilde \sX\right)	
+\end{split}
+\ee
+\end{definition}
+\begin{remark}
+Above definition is inspired by  an analogy between equations \eqref{top_shaf_cx_eqn} and
+	\eqref{comm_lift_eqn} (cf. Definition \ref{top_lift_desc_defn}).
+\end{remark}
+Following definition is an analog of the Definition \ref{top_lift_desc_defn}.
+\begin{definition}\label{top_lift_sh_desc_defn}
+	Let $\mathscr F$ 	be a sheaf on  $\sX$ (cf. Definition \ref{sheaf_defn}), and let $p: \widetilde{\sX}\to\sX$ be a covering. Let $\widetilde{\sU}$ be an open subset such that the restriction $\left.p\right|_{\widetilde{\sU}}$ is injective. Let $\sU\bydef p\left( \widetilde{\sU}\right)$. If $a \in\mathscr F\left(\sX\right)$ is such that $\supp a \subset \sU$ and $\widetilde{a}'= \lift_p\left( a\right)$. Suppose that $\widetilde{a}'$ is represented by a continuous section $\widetilde s' : \widetilde\sX \to \mathrm{Sp\acute{e}}\left(p^{-1}\mathscr F \right)$ (cf. Exercise \ref{sheaf_etale_exer}). There is a continuous section $\widetilde s : \widetilde\sX \to \mathrm{Sp\acute{e}}\left(p^{-1}\mathscr F \right)$ such that
+	\be\label{comm_sh_lift_desc_eqn}
+	\widetilde{s}\left( \widetilde{x}\right) =\left\{\begin{array}{c l}
+		\widetilde{s}'\left( \widetilde{x}\right)    &{\widetilde{x}}\in \widetilde{\sU} \\
+		0 &{\widetilde{x}}\notin \widetilde{\sU}\\
+	\end{array}\right.
+	\ee
+	Corresponding element $\widetilde \xi \in  p^{-1}\mathscr F\left(\widetilde\sX\right)$
+	is said to be the $p$-$\widetilde{\sU}$-\textit{lift} or simply the $\widetilde{\sU}$-\textit{lift} of $\xi$. Otherwise we say that $\xi$ is the $p$-\textit{descent} of $ \widetilde{\xi}$. We write
+	\be\label{top_sh_lift_desc_eqn}
+	\begin{split}
+		\widetilde{\xi}\stackrel{\text{def}}{=} \lift^p_{\widetilde{\sU}}\left(\xi \right)  \text{ or simply } \widetilde{\xi}\stackrel{\text{def}}{=} \lift_{\widetilde{\sU}}\left(\xi \right), \\
+		\xi \stackrel{\text{def}}{=} \desc_{p} \left(\widetilde{\xi}  \right)  \text{ or simply } \xi \stackrel{\text{def}}{=} \desc \left(\widetilde{\xi}  \right).
+	\end{split}
+	\ee
+\end{definition}
+\begin{remark}
+	if $\xi = \desc_{p} \left(\widetilde{\xi}  \right)$ then $\xi$ is represented by the section  $s: \sX \to \mathrm{Sp\acute{e}}\left(\mathscr F \right)$ such that
+	\be\label{top_sh_desc_eqn}
+	s_x = \begin{cases}
+		p^{-1}_{\widetilde x}\left( 	\widetilde{s}_{\widetilde{x}}\right)  & x \in \sU ~\text{AND} ~ \widetilde x \in \widetilde\sU~\text{AND} ~p\left( \widetilde{x}\right) = x \\
+		0 &  x \notin \sU
+	\end{cases}	\quad 
+	\ee 
+	where	$p_{\widetilde x}$ \text{ is given by }\eqref{top_st_iso_eqn} and the continuous section 
+	$\widetilde s: \widetilde \sX\to  \mathrm{Sp\acute{e}}\left(p^{-1}\mathscr F\right) \left( \widetilde \sX \right)$ represents $\widetilde \xi$,
+\end{remark}
+\begin{remark}
+	From the equation \eqref{top_shaf_cx_eqn} it turns out 
+	\begin{equation}\label{comm_sh_lift_desc_l_eqn}
+		\begin{split}
+			\xi = \mathfrak{desc}_{p}\left( \mathfrak{lift}^p_{\widetilde{\mathcal U}}\left(\xi \right)\right) ,\\
+			\widetilde{\xi} = \mathfrak{lift}^p_{\widetilde{\mathcal U}}\left( \mathfrak{desc}_{p}\left(\widetilde{\xi} \right)\right). 
+		\end{split}
+	\end{equation}	
+\end{remark}
 \begin{exercise}
 	Let $\sX$ be a locally compact,  Hausdorff space. If $\sF$ is a continuity structure  for  $\sX$ {and the} $\left\{A_x\right\}_{x \in \sX}$(cf. Definition \ref{op_fields_defn}) then from the Lemma \ref{op_cont_module_lem} one has following $C_0\left(\sX \right)$-modules
 	\bean 
@@ -6958,45 +7042,16 @@ If $M$ is a smooth manifold then using the Proposition \ref{top_smooth_part_unit
 	Prove following statements:
 	\begin{enumerate}
 		\item 	
-One has
+		One has
 		\bea\label{top_cont_sh_eqn}
 		\mathscr S^{C\left({\sX}, \left\{{A}_{{x}}\right\}, {\sF}\right)}= 	\mathscr S^{C_b\left({\sX}, \left\{{A}_{{x}}\right\}, {\sF}\right)}=
 		\mathscr S^{C_0\left({\sX}, \left\{{A}_{{x}}\right\}, {\sF}\right)}= 	\mathscr S^{C_c\left({\sX}, \left\{{A}_{{x}}\right\}, {\sF}\right)},\\
 		\label{top_cont_shc_eqn}
 		\mathscr S^{C\left({\sX}, \left\{{A}_{{x}}\right\}, {\sF}\right)}\left(\sX\right)=  	C\left({\sX}, \left\{{A}_{{x}}\right\}, {\sF}\right)		
 		\eea 
-		\item If $R\subset C_0\left(\sX \right) $ is a good *-algebra  and $A \subset Cont\left( \sX\right)$ is an $R$-module then one has
-		\be\label{top_cont_sha_eqn}
-		\mathscr S^{A}	=  \mathscr S^{\left(C_c\left( \sX\right)\cap R\right)A }.
-		\ee 
 	\end{enumerate}
 \end{exercise}
-If we consider the situation of the Definition \ref{sheaf_inv_im_defn} then the {inverse image} \ref{top_x_sheaf_defn} $f^{-1}\mathscr G$ on $\sX$ is the sheaf  associated to the presheaf  $\sU \mapsto \lim_{\sV \supseteq f\left(\sU\right)} \mathscr G\left(\sV\right)$, where $\sU$ is any open set in $\sX$, and the limit is taken over all open sets $\sV$ of $\sX$ containing $f\left(\sU\right)$. If the map $f$ is surjective then one has  $\lim_{\sV \supseteq f\left(\sX\right)} \mathscr G\left(\sV\right)\cong \mathscr  G\left(\sX\right)$ it follows that there is the injective homomorphism 
-\be\label{top_cs_sheaf_inc_eqn}
-f^{-1}_{\mathscr  G}:\mathscr  G\left(\sX\right)\hookto f^{-1}\mathscr  G\left(\sY\right)
-\ee
-of Abelian groups.
 
-\begin{exercise}
-Let $p:\widetilde \sX\to \sX$ be a covering (cf. Definition \ref{top_cov_defn}), and let $\mathscr F$ be a sheaf on $\sX$. Prove following statements.
-\begin{enumerate}
-	\item For all $\widetilde x\in\widetilde\sX$ there is a natural isomorphism of stalks (cf. Definition \ref{stalk_defn})
-	\be\label{top_st_iso_eqn}
-p_{\widetilde x}	\mathscr  F_{f\left( \widetilde x\right) }\cong f^{-1}\mathscr  F_{\widetilde x}.
-	\ee
-	\item The given by \eqref{top_cs_sheaf_inc_eqn} homomorphism is induced by 
-\end{enumerate}
-
-
-then for all $y\in\sY$ there is a natural isomorphism of stalks (cf. Definition \ref{stalk_defn})
-	\be\label{top_st_iso_eqn}
-	\mathscr  G_{f\left( y\right) }\cong f^{-1}\mathscr  G_y.
-	\ee
-\end{exercise}
-If $f$ is a covering (cf. Definition \ref{top_cov_defn}) then for all $y\in\sY$ there is a natural isomorphism of stalks (cf. Definition \ref{stalk_defn})
-\be\label{top_st_iso_eqn}
-\mathscr  G_{f\left( y\right) }\cong f^{-1}\mathscr  G_y.
-\ee
 	 
 \begin{lemma}\label{top_sheaf_lift_lem}
 	
@@ -7018,25 +7073,6 @@ If $f$ is a covering (cf. Definition \ref{top_cov_defn}) then for all $y\in\sY$ 
 	then from $\left.\left.\widetilde s\right|_{\widetilde \sV_{x'}}\right|_{\widetilde \sV_{x'}\cap \widetilde \sV_{x''} }=\left.\left.\widetilde s\right|_{\widetilde \sV_{x''}}\right|_{\widetilde \sV_{x'}\cap \widetilde \sV_{x''} }$ it follows that $\widetilde a'_{\widetilde y}= \widetilde a''_{\widetilde y}$ for all $\widetilde y \in  \widetilde \sV_{x'}\cap \widetilde \sV_{x''}$. So there is the single family $\left\{\widetilde a_{\widetilde y}  \right\}_{\widetilde y\in \widetilde\sU}$ which is the combination of  {continuous (with respect to $\widetilde \sF$)} families $\left\{\widetilde a_{\widetilde y}  \right\}_{\widetilde y\in \widetilde\sV_{\widetilde x} }$ 
 	The family $\left\{\widetilde a_{\widetilde y}  \right\}_{\widetilde y\in \widetilde\sU}$ is {continuous (with respect to $\widetilde \sF$)} so it corresponds the element of $\mathscr S^{C \left(\widetilde{\sX}, \left\{\widetilde{A}_{\widetilde{x}}\right\}, \widetilde{\sF} \right)}\left(\widetilde\sU \right) $.
 \end{proof}
-\begin{empt}
-	If we consider the situation of proof of the Lemma \ref{top_sheaf_lift_lem} then the given by \eqref{top_glo_lift_h_eqn} map 
-	$$
-	\lift_p :  C\left(\sX, \left\{A_x\right\}, \sF \right) \hookto \lift_p\left[ C\left(\sX, \left\{A_x\right\}, \sF \right) \right]
-	$$
-	is in fact  an injective homomorphism
-	$$
-	\lift_p :\mathscr  S^{C\left(\sX, \left\{A_x\right\}, \sF \right)}\left( \sX\right)  \hookto p^{-1}\left( \mathscr  S^{C\left(\sX, \left\{A_x\right\}, \sF \right)}\right)\left(\widetilde\sX \right)
-	$$
-	of Abelian groups. One the other hand  from \eqref{top_cs_sheaf_inc_eqn} it follows that there is an injective homomorphism
-	$$
-	p^{-1}_{\mathscr S^{C\left(\sX, \left\{A_x\right\}, \sF \right)}\left( \sX\right)} :\mathscr  S^{C\left(\sX, \left\{A_x\right\}, \sF \right)}\left( \sX\right)  \hookto p^{-1}\left( \mathscr  S^{C\left(\sX, \left\{A_x\right\}, \sF \right)}\right)\left(\widetilde\sX \right).
-	$$
-	From the given by proof of the Lemma \ref{top_sheaf_lift_lem}  construction one has
-	\be\label{top_lift_p_sheaf_eqn}
-	p^{-1}_{\mathscr S^{C\left(\sX, \left\{A_x\right\}, \sF \right)}\left( \sX\right)} = \lift_p.
-	\ee
-\end{empt}
-
 
 \begin{exercise}\label{top_prod_exer}
 	Let $R \subset C_0\left(\sX\right)$ be a good dense *-subalgebra. Suppose that there is $R$-module $A$ such that $A \subset \prod_{x \in \sX} A_x$ where $A_x$ is a Abelian group, and the action of $R$ complies with this direct product. For any open subset $\sU\subset \sX$ denote by 
@@ -7065,26 +7101,9 @@ If $f$ is a covering (cf. Definition \ref{top_cov_defn}) then for all $y\in\sY$ 
 	 	\be\label{top_sheaf_lift_eqn}
 	 	 p^{-1}_{\mathscr  S^A}\left(\left\{a_x\right\}_{x\in \sX} \right)=  \left\{c_{p\left( \widetilde x\right) }\left( a_x\right) \right\}_{\widetilde x\in \widetilde \sX} 	 	\ee
 	 \end{enumerate}
- \begin{exercise}\cite{hartshorne:ag}
- 	%1.13. 
- 	\textit{
- 		\'Espace Etal\'e of a Presheaf}. %(This exercise is included only to establish the connection between our definition of a sheaf and another definition often found in the literature. See for example Godement [1, Ch. II, ¤1.2].)
- 	Given a presheaf $\mathscr F$ on $\sX$, we define a topological space $\mathrm{Sp\acute{e}}\left(\mathscr F \right)$ , called the \textit{
- 		\'espace etal\'e} of a Presheaf of $\mathscr F$ as 
- 	follows. As a set, $\mathrm{Sp\acute{e}}\left(\mathscr F \right)= \bigcup_{x\in\sX} \mathscr F_x$ We define a projection map $p: \mathscr \mathrm{Sp\acute{e}}\left(\mathscr F \right)$
- 	by sending $s_x\in \mathscr F_x$ to $x$. For each open set $\sU\subset\sX$ and each section $s\in \mathscr F\left(\sU \right)$  we 
- 	obtain a map: $\overline{s}: \sU \to  \mathrm{Sp\acute{e}}\left(\mathscr F \right)$ by sending $x \mapsto s_x$, its germ at $x$. This map has the property that 
- 	$p\circ \overline{s}= \Id_\sX$, in other words, it is a "section" of $p$ over $\sU$. We now 
- 	make $\mathrm{Sp\acute{e}}\left(\mathscr F \right)$ into a topological space by giving it the strongest topology such that 
- 	all the maps $\overline{s}: \sU \to  \mathrm{Sp\acute{e}}\left(\mathscr F \right)$ for all $\sU$ and all $s\in \mathscr F\left(\sU \right)$ , are continuous. Now 	show that the sheaf $\mathscr F^+$ associated to $\mathscr F$ can be described as follows: for any 
- 	open set $\sU\subset \mathscr F$, $\mathscr F\left(\sU \right)$ is the set of continuous sections of $\mathrm{Sp\acute{e}}\left(\mathscr F \right)$ over $\sU$. In 
- 	particular, the original presheaf $\mathscr F$ was a sheaf if and only if for each $\sU\subset \sX$,  $\mathscr F\left(\sU \right)$ is 
- 	equal to the set of all continuous sections of $\mathrm{Sp\acute{e}}\left(\mathscr F \right)$ over $\sU$. 
- 	
- \end{exercise}
  
 \end{exercise}
-!!! SIMILAR LIFT
+!!! CONTINUE
 
 %\begin{example}\label{top_vb_lift_desc_exm}
 %	If $\left(\sS, \pi, \sX \right)$ is a Hermitian sesquilinear !!! vector bundle then there is a family $\left\{\sS_x\right\}_{x \in \sX}$. From the Lemma \ref{top_bundle_cs_lem} it turns out that  $\Ga\left(\sX, \sS \right) $ is a continuity structure  for $\sX$ {and the} $\left\{\sS_x\right\}$. Moreover one has
@@ -7172,7 +7191,7 @@ Prove following statements
 	\end{split}
 	\ee
 \end{definition}
-\begin{exercise}\label{top_sheaf_lift_exer}
+\begin{exercise}\label{top_sheaf_lift_exer!}!!! DELERE
 	Prove following statements:
 	\begin{enumerate}
 		\item[(i)]
@@ -8066,13 +8085,13 @@ is a connected noncommutative  finite-fold weak  covering (cf. Definition \ref{f
 
 \subsubsection{Coverings of bounded operator $*$-algebras}
 
-\begin{theorem}\label{top_oa_cov_thm}
-	If $M$ is a smooth manifold then	following conditions hold:
+\begin{theorem}\label{top_oa_cov_thm} !!! CHECK
+	If $\sX$ is a locally compact, Hausdorff connected space and $R \subset C_0\left(\sX\right)$ is a good *-subalgebra (cf. Definition \ref{top_good_r_defn}) then	following conditions hold:
 	\begin{enumerate}
-		\item [(i)] If $\Coo_0\left(M \right) \bydef C_0\left(M\right)\cap \Coo\left(M\right)$ and 	$\left(\Coo_0\left(M \right), \widetilde A, G, \pi\right)$ noncommutative finite-fold covering of bounded operator *-algebras  (cf. Definition \ref{fin_oa_defn}) then there is a finite fold transitive topological covering  $p: \widetilde M \to M$ such that there is a natural dense inclusion  $\widetilde A \subset C_0\left( \widetilde M\right)$ and
-		$G \cong G\left(\left.\widetilde M~ \right| M\right)$ and $\pi= \left.C_0\left(p \right)\right|_{\Coo_0\left(M\right) }$ where $C_0\left(p \right)$ is given by the Lemma \ref{top_functor_lem}.
-		\item[(ii)] If a smooth structure of $\widetilde M$ is induced by $p$ and $M$ (cf. Proposition \ref{comm_cov_mani_prop}) and  then the quadruple	$$
-		\left(\Coo_0\left(M\right), \Coo_0\left(\widetilde M\right)\bydef C_0\left(\widetilde M\right)\cap \Coo\left(\widetilde M\right), G\left(\left.\widetilde M~ \right| M\right), \left.C_0\left(p \right)\right|_{ \Coo_0\left(M\right) }\right)
+		\item [(i)] If 	$\left(R, \widetilde A, G, \pi\right)$ noncommutative finite-fold covering of bounded operator *-algebras  (cf. Definition \ref{fin_oa_defn}) then there is a finite fold transitive topological covering  $p: \widetilde \sX \to \sX$ such that there is a natural dense inclusion  $\widetilde A \subset C_0\left( \widetilde \sX\right)$ (cf. Definition \ref{top_x_sheaf_defn}) and
+		$G \cong G\left(\left.\widetilde \sX~ \right| \sX\right)$ and $\pi= \left.C_0\left(p \right)\right|_{R }$ where $C_0\left(p \right)$ is given by the Lemma \ref{top_functor_lem}.
+		\item[(ii)] The quadruple	$$
+	\left( 	R, C_0\left(\widetilde\sX \right)\cap p^{-1} \mathscr S^R\left(\widetilde\sX \right), G\left(\left.\widetilde \sX~ \right| \sX\right), \left.C_0\left(p \right)\right|_{R}\right)
 		$$
 		finite-fold covering of bounded operator *-algebras  (cf. Definition \ref{fin_oa_defn}).
 	\end{enumerate}
@@ -8080,14 +8099,16 @@ is a connected noncommutative  finite-fold weak  covering (cf. Definition \ref{f
 
 \begin{proof}
 	(i)
-	The $C^*$-norm completion of $\Coo_0\left( M\right)$ is $C_0\left(M\right)$. If a  quadruple\\ $\left(C_0\left(M \right), \widetilde{B}, G,    \pi\right)$ is a connected noncommutative finite-fold covering (cf. Definition \ref{fin_defn}),  then   there is a finite-fold transitive topological covering and $p: \widetilde{    M }\to M$ such that $\left(C_0\left(\mathcal  X \right), \widetilde{B}, G,    \pi\right)$ is equivalent to $$\left(C_0\left(M \right), C_0\left(  \widetilde{M}\right) , G\left(\left.\widetilde M~ \right| M\right),    C_0\left( p\right) \right)$$ (cf. Theorem \ref{top_fin_thm}). On the other hand from \ref{fin_oa_empt} it follows that there is a dense inclusion  $\widetilde A\subset C_0\left(  \widetilde{M}\right)$. Conditions $G \cong G\left(\left.\widetilde M~ \right| M\right)$ and $\pi= \left.C_0\left(p \right)\right|_{\Coo_0\left(M\right) }$ follow from the construction \ref{fin_oa_empt}.\\
+	The $C^*$-norm completion of $R$ is $C_0\left(\sX\right)$. If a  quadruple\\ $\left(C_0\left(\sX \right), \widetilde{B}, G,    \pi\right)$ is a connected noncommutative finite-fold covering (cf. Definition \ref{fin_defn}),  then   there is a finite-fold transitive topological covering and $p: \widetilde{    \sX }\to \sX$ such that $\left(C_0\left(\mathcal  X \right), \widetilde{B}, G,    \pi\right)$ is equivalent to $$\left(C_0\left(\sX \right), C_0\left(  \widetilde{\sX}\right) , G\left(\left.\widetilde \sX~ \right| \sX\right),    C_0\left( p\right) \right)$$ (cf. Theorem \ref{top_fin_thm}). On the other hand from \ref{fin_oa_empt} it follows that there is a dense inclusion  $\widetilde A\subset C_0\left(  \widetilde{M}\right)$. Conditions $G \cong G\left(\left.\widetilde M~ \right| M\right)$ and $\pi= \left.C_0\left(p \right)\right|_{\Coo_0\left(M\right) }$ follow from the construction \ref{fin_oa_empt}.\\
 	(ii)	
-	We leave to the reader a proof of that  $\Coo_0\left(\widetilde M\right)$ is an admissible subalgebra, i.e. it satisfies to conditions of \ref{fin_oa_empt}. If  $\Coo_0\left(\widetilde M\right)$ is not maximal admissible *-algebra then there is an admissible algebra  $\widetilde A' \subset C_0\left(\widetilde M\right)$  such that $\Coo_0\left(\widetilde M\right)\subsetneqq \widetilde A'$. If $\widetilde a \in \widetilde A' \setminus \Coo_0\left(\widetilde M\right)$ then there is $\widetilde x_0 \in \widetilde M$ such that $\widetilde a$ is not smooth at $\widetilde x_0$. There is $f\in \Coo_0\left(\widetilde M\right)$ (cf. Lemma \ref{top_a_u_lem}) such that 
+	We leave to the reader a proof of that  $ C_0\left(\widetilde\sX \right)\cap p^{-1} \mathscr S^R\left(\widetilde\sX \right)$ is an admissible subalgebra, i.e. it satisfies to conditions of \ref{fin_oa_empt}. If  $ C_0\left(\widetilde\sX \right)\cap p^{-1} \mathscr S^R\left(\widetilde\sX \right)$ is not maximal admissible *-algebra then there is an admissible algebra  $\widetilde A' \subset C_0\left(\widetilde M\right)$  such that $ C_0\left(\widetilde\sX \right)\cap p^{-1} \mathscr S^R\left(\widetilde\sX \right)\subsetneqq \widetilde A'$. If $\widetilde a \in \widetilde A' \setminus  C_0\left(\widetilde\sX \right)\cap p^{-1} \mathscr S^R\left(\widetilde\sX \right)$ then there is $\widetilde x_0 \in \widetilde M$ such that $\widetilde a_{x_0} \notin p^{-1} \mathscr S^R_{\widetilde x_0}$. From the Exercise \ref{top_good_r_exer} it follows that 
+ $p^{-1}\mathscr S^{R}\left( \widetilde \sX\right) \cap C_0\left(\widetilde \sX\right)$ is a good *-subalgebra of $C_0\left(\widetilde \sX\right)$. From the Definition \ref{top_good_r_defn} it turns out that there is $\widetilde f\in p^{-1}\mathscr S^{R}\left( \widetilde \sX\right) \cap C_0\left(\widetilde \sX\right)$  such that
 	\begin{itemize}
 		\item $\supp \widetilde f$ is mapped homeomorphically onto $p\left(\supp \widetilde f \right)$.
 		\item There is an open neighborhood $ \widetilde \sU$ of $\widetilde x_0$ such that $ \widetilde f\left(  \widetilde \sU \right) = \{1\}$.
 	\end{itemize}
-	One has $a \bydef \sum_{	g \in G\left(\left.\widetilde{M}~\right|M\right)} g\left(\widetilde f \widetilde a \right) \in \widetilde A'  \cap C_0\left( M\right)$, but $a$ is not smooth at $p\left(\widetilde x_0 \right)$ function, i.e. $a \notin \Coo_0\left(M \right)$. On the other hand from \ref{fin_oa_empt} it follows that $$\left(\Coo_0\left(M \right), \widetilde A', G, \pi\right)$$ is a noncommutative finite-fold  pre-covering of *-algebras, and taking into account the condition  (b)  of the Definition \ref{fin_pre*_defn}  REPLACE Exercise !!!\ref{top_pre_sheaf_exer} one has  $a \in \Coo_0\left(M \right)$. From this contradiction it turns out that $ \Coo_0\left(\widetilde M\right)$ is a maximal admissible algebra.
+	One has $a \bydef \sum_{	g \in G\left(\left.\widetilde{\sX}~\right|\sX\right)} g\left(\widetilde f \widetilde a \right) \in \widetilde A'  \cap C_0\left(\sX\right)$, but
+	 $a_{p\left( \widetilde x_0\right)}  \notin \mathscr S^R_{p\left( \widetilde x_0\right) }$, i.e. $a \notin R$. On the other hand from \ref{fin_oa_empt} it follows that $$\left(R, \widetilde A', G, \pi\right)$$ is a noncommutative finite-fold  pre-covering of *-algebras, and taking into account the condition  (b)  of the Definition \ref{fin_pre*_defn} one has  $a \in R$. From this contradiction it turns out that $ C_0\left(\widetilde\sX \right)\cap p^{-1} \mathscr S^R\left(\widetilde\sX \right)$ is a maximal admissible algebra.
 \end{proof}
 
 \subsubsection{Coverings of $O^*$-algebras}\label{top_pd_fin_sec}
@@ -10145,51 +10166,73 @@ From the our construction $C^*\left(G, R\right)$ is the completion of $M\left( \
 
 
 \begin{empt}
-	Let $\left(M, x_0 \right)$ be a pointed smooth manifold, and let 	\bean
+	Let $\left(\sX, x_0 \right)$ be a pointed, connected, locally compact, Hausdorff space and let 	\bean
 	\begin{split}\label{top_inf_cov_oa_empt}
-		\mathfrak{S}_{\left( M, x_0\right) }\bydef\\
-		\bydef \left\{\left\{p_\la:\left( M_\la, x^\la_0\right) \to \left( M, x_0\right)\right\}_{\la\in\La}, \left\{p^\mu_{ \nu}:\left( M_\mu, x^\mu_0\right) \to \left( M_\nu, x^\nu_0\right)\right\}_{\substack{\mu,\nu\in\La\\
+		\mathfrak{S}_{\left( \sX, x_0\right) }\bydef\\
+		\bydef \left\{\left\{p_\la:\left( \sX_\la, x^\la_0\right) \to \left( \sX, x_0\right)\right\}_{\la\in\La}, \left\{p^\mu_{ \nu}:\left( \sX_\mu, x^\mu_0\right) \to \left( \sX_\nu, x^\nu_0\right)\right\}_{\substack{\mu,\nu\in\La\\
 				\mu\ge\nu}} \right\}\\
 		%\in \\
-		\mathfrak{S}_{\left( M, x_0\right) }\in \mathfrak{FinTop}^{\text{pt}}.
+		\mathfrak{S}_{\left( \sX, x_0\right) }\in \mathfrak{FinTop}^{\text{pt}}.
 	\end{split}
 	\eean
-	be	a	pointed topological finite covering category (cf. Definition \ref{top_sec_p_defn}). Using the Theorem \ref{top_oa_cov_thm} one can construct algebraical  finite covering category of  bounded operator *-algebras (cf. Definition \ref{comp_oa_defn}) given by
+	be	a	pointed topological finite covering category (cf. Definition \ref{top_sec_p_defn}). Let $R\subset C_0\left(\sX \right)$ be a good *-subalgebra (cf. Definition \ref{top_good_r_defn}), and for any $\la\in \La$ let $R_\la\bydef  C_0\left(\sX_\la \right)\cap p^{-1}_\la \mathscr S^{R}\left( \sX_\la\right)$ and $\widetilde R\bydef  C_0\left(\widetilde \sX \right)\cap \widetilde p^{-1} \mathscr S^{R}\left(\widetilde \sX\right)$ where a notation of the Definition \ref{top_x_sheaf_defn} is used.	
+	The Theorem \ref{top_oa_cov_thm} enables us to construct an algebraical  finite covering category of  bounded operator *-algebras (cf. Definition \ref{comp_oa_defn}) given by
 	\be\label{top_inf_cov_oae_eqn}
 	\begin{split}
-		\mathfrak{S}^{\text{pt}}_{\Coo_0\left( M\right) } =\\
-		\\
-		\left(\left\{ \Coo_0\left( p_\la\right) :  \Coo_0\left(M \right)  \hookto  \Coo_0\left(M_\la \right)\right\}, \left\{ \Coo_0\left( p_\nu^\mu\right) :  \Coo_0\left(M_\nu \right) \hookto \Coo_0\left(M_\mu \right)\right\}\right)\\
-		\text{where}\quad \Coo_0\left( p_\la\right)\bydef \left.C_0\left( p_\la\right)\right|_{\Coo_0\left(M \right) }\quad \Coo_0\left( p_\la\right)\bydef \left.C_0\left( p_\nu^\mu\right)\right|_{\Coo_0\left(M_\nu \right) }/
+		\mathfrak{S}^{\text{pt}}_{R } =\\
+		\left(\left\{ \left.C_0\left( p_\la\right)\right|_R :  R  \hookto  R_\la\right\}, \left\{ \left.C_0\left( p^\mu_{ \nu}\right)\right|_{R_\nu} : R_\nu \hookto R_\mu\right\}\right)\\
 	\end{split}
 	\ee
+
  The formula \eqref{top_inf_cov_oae_eqn} is a specialization of the given by \eqref{comp_oa_eqn} one. Moreover from the Lemma \ref{top_base_point_lem} and the Theorem \ref{top_main_thm} one has a 	good	{pointed algebraical  finite covering category} (cf. Definition \ref{pointed_defn}) given by
 	\be\label{top_inf_cov_oa_eqn}
 	\begin{split}
-		\mathfrak{S}^{\text{pt}}_{C_0\left( M\right) } =\\
+		\mathfrak{S}^{\text{pt}}_{C_0\left( \sX\right) } =\\
 		\\
-		\left(\left\{ C_0\left( p_\la\right) :  C_0\left(M \right)  \hookto  C_0\left(M_\la \right)\right\}, \left\{ C_0\left( p_\nu^\mu\right) :  C_0\left(M_\nu \right) \hookto \Coo_0\left(M_\mu \right)\right\}\right)
+		\left(\left\{ C_0\left( p_\la\right) :  C_0\left(\sX \right)  \hookto  C_0\left(\sX_\la \right)\right\}, \left\{ C_0\left( p_\nu^\mu\right) :  C_0\left(\sX_\nu \right) \hookto C_0\left(\sX_\mu \right)\right\}\right)
 	\end{split}
 	\ee
-	The formula \eqref{top_inf_cov_oa_eqn} can be regarded as a specialization of \eqref{top_base_point_eqn} one. From the Theorem \ref{top_main_thm} it follows that there is a transitive covering $~~\widetilde p:\widetilde M \to M$ such that 
+	The formula \eqref{top_inf_cov_oa_eqn} can be regarded as a specialization of \eqref{top_base_point_eqn} one. From the Theorem \ref{top_main_thm} it follows that there is a transitive covering $~~\widetilde p:\widetilde \sX \to \sX$ such that 
 	$
-	\left(C_0\left(M\right), C_0\left(\widetilde M\right)  G\left(\left.\widetilde M \right|  M\right)\right) 
+	\left(C_0\left(\sX\right), C_0\left(\widetilde \sX\right)  G\left(\left.\widetilde \sX \right|  \sX\right)\right) 
 	$
-	is  the inverse noncommutative limit of $\mathfrak{S}^{\text{pt}}_{C_0\left( M\right) }$ (cf. Definition \ref{main_defn}).
+	is  the inverse noncommutative limit of $\mathfrak{S}^{\text{pt}}_{C_0\left(\sX\right) }$ (cf. Definition \ref{main_defn}).
 	So we have all described in the Definition \ref{inf_cov_oa_empt} ingredients. 
 \end{empt}
 \begin{lemma}\label{top_inf_cov_oa_lem}
-	Consider the above situation. If $\widetilde M$ has a structure of differential  manifold which is induced by $M$ and the covering $\widetilde p:\widetilde M \to M$ (cf. Proposition \ref{top_cov_mani_prop}). If $\widetilde A$ is a *-algebra of maps from $\widetilde M$ to $\C$  such that
+	Consider the above situation.  If $\widetilde A$ is a *-algebra of maps from $\widetilde \sX$ to $\C$  such that
 \be\label{top_inf_cov_oap_eqn}
-\forall \widetilde b \in C_c\left( \widetilde M \right) \quad \forall \widetilde a \in  \widetilde A \quad \exists a \in \bigcup_{\la\in \La}~ \lift_{ \widetilde{p}_{\la}}\left(  \Coo_0\left(M_\la\right)\right) \quad
+\forall \widetilde b \in C_c\left( \widetilde \sX \right) \quad \forall \widetilde a \in  \widetilde A \quad \exists a \in \bigcup_{\la\in \La}~ \lift_{ \widetilde{p}_{\la}}\left(  R_\la\right) \quad
 	 \widetilde b  \widetilde a =  \widetilde b a
 \ee
-where inclusions $\lift_{ \widetilde{p}_{\la}} : C_0\left(M_\la  \right)\hookto C_b\left(\widetilde M\right)$ are  given by the Definition \ref{top_lift_defn} injective *-homomorphisms then 
+where inclusions $\lift_{ \widetilde{p}_{\la}} : C_0\left(\sX_\la  \right)\hookto C_b\left(\widetilde \sX\right)$ are  given by the Definition \ref{top_lift_defn} injective *-homomorphisms then there is an injective *-homomorphism
 $$
-\widetilde A \subset \Coo\left(\widetilde M \right).
+\widetilde A \subset \mathscr S^{\widetilde R}\left( \widetilde \sX\right) 
 $$
+where $\mathscr S^{\widetilde R}$ is the $\widetilde R$-sheaf (cf. Definition \ref{top_x_sheaf_defn}).
 \end{lemma}
+
 \begin{proof}
+	From $\widetilde A \subset  C_0\left( \widetilde \sX\right)$ it turns out that $\mathscr S^{\widetilde A}_{\widetilde x}\subset \mathscr S^{C_0\left( \widetilde \sX\right)}_{\widetilde x}$ for any $\widetilde x \in \widetilde \sX$. On the other hand 
+	from $\widetilde R \subset C_0\left( \widetilde \sX\right)$ it follows  that $\mathscr S^{\widetilde R}_{\widetilde x}\subset \mathscr S^{C_0\left( \widetilde \sX\right)}_{\widetilde x}$ for any $\widetilde x \in \widetilde \sX$. We would like prove that 
+	\be\label{top_ra_sh_eqn}
+\forall \widetilde x \in \widetilde \sX	\quad \mathscr S^{\widetilde A}_{\widetilde x} = \mathscr S^{\widetilde R}_{\widetilde x}
+	\ee
+	If $\widetilde a_{\widetilde x} \in \mathscr S^{\widetilde A}_{\widetilde x}$ then $\widetilde a_{\widetilde x}$ can be represented by an element $\widetilde a\in\widetilde A$.
+	Let  $\widetilde \sU$ be an open neighborhood of $\widetilde x$ with compact closure which is homeomorphically  mapped onto $\sU = \widetilde bp\left(\widetilde \sU\right)$. From the Exercise \ref{top_good_r_exer} it follows that $\widetilde R$ is a good *-subalgebra of $C_0\left(\widetilde\sX\right)$ (cf. Definition \ref{top_good_r_defn}). From the Definition \ref{top_good_r_defn} it turns out that there is  $\widetilde b \in  \widetilde R$ such that $b\left( \widetilde \sX\right)\subset \left[0,1\right]$, $\supp \widetilde b \subset \widetilde \sU$, moreover there is an open neighborhood $\widetilde \sV$ of $\widetilde x$, which satisfy to a condition $\widetilde b\left(\sV\right)=\{1\}$.
+From  $\widetilde b \in C_c\left(\widetilde X \right)$ it follows that there $a \in 	\bigcup_{\la\in \La}~ \lift_{ \widetilde{p}_{\la}}\left(  R_\la\right)$ such that
+$$
+\widetilde b \widetilde a= \widetilde b a
+$$
+(cf. equation \eqref{top_inf_cov_oap_eqn}). On the other hand from
+$$
+\left.\left( \widetilde b \widetilde a\right)\right|_{\widetilde \sV } = \left.\widetilde a\right|_{\widetilde \sV }
+$$
+it follows that $\left( \widetilde b \widetilde a\right)_{\widetilde x}=  \widetilde a_{\widetilde x}\in \mathscr S^{\widetilde A}_{\widetilde x}$. On the other hand there is $\la_0\in \La$  and $a_{\la_0}\in R_{\la_0}$ such that $a = \lift_{p_{\la_0}}$
+	
+
+	From the Definition \ref{top_good_r_defn}
+	!!! CONTINUE
 Let both $\mathscr S^{\widetilde A}$ and 	$\mathscr S^{\Coo\left( \widetilde M\right)}$ be  $\widetilde A$-sheaf and $\Coo\left( \widetilde M\right)$-sheaf respectively (cf. Definition \ref{top_x_sheaf_defn}). Let $\widetilde x \in \widetilde M$ and let $s_{\widetilde x} \in \mathscr S^{\widetilde A}_{\widetilde x}$ be a stalk (cf. Definition \ref{stalk_defn}) at $\widetilde x$, which is represented by $\widetilde s \in  {\widetilde A}$. Using  \ref{top_fx_empt} one can construct the given by  \eqref{top_tfx_eqn} element $\widetilde f_{\widetilde x}\in C_c\left( \widetilde M\right)$ such that  there is an open neighborhood of $\widetilde \sU$ of $\widetilde x$ which satisfies to the condition $\widetilde f_{\widetilde x}\left(\widetilde \sU\right) = \{1\}$. From the Proposition \ref{top_smooth_part_unity_prop} one can assume that $\widetilde f_{\widetilde x}\in \Coo\left(\widetilde M \right)$. From the equation \eqref{top_inf_cov_oap_eqn} it follows that there is $a \in\bigcup_{\la\in \La}~ \lift_{ \widetilde{p}_{\la}}\left(  \Coo_0\left(M_\la\right)\right)$ such that 
 \be\label{top_fx_a_eqn}
 \widetilde f_{\widetilde x}  \widetilde  s =  f_{\widetilde x} a.
@@ -24747,7 +24790,7 @@ of sheaves. An isomorphism is a morphism  which has a two-sided inverse.
 	\end{itemize}
 \end{empt}
 
-\begin{exercise}\cite{hartshorne:ag}
+\begin{exercise}\label{sheaf_etale_exer}\cite{hartshorne:ag}
 	%1.13. 
 	\textit{
 		\'Espace Etal\'e of a Presheaf}. %(This exercise is included only to establish the connection between our definition of a sheaf and another definition often found in the literature. See for example Godement [1, Ch. II, ¤1.2].)
