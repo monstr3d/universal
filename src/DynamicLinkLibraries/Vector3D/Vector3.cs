@@ -7,7 +7,7 @@ namespace Vector3D
     /// <summary>
     /// 3D Vector
     /// </summary>
-    public class Vector3
+     public class Vector3
     {
 
         #region Fields

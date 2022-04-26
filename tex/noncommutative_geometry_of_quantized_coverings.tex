@@ -6940,8 +6940,10 @@ A\subset \mathscr S^A\left( \sX\right).
 Since $R$ is an $R$-module, there is a sheaf $\mathscr S^R$.
 One has a ringed space $\left(\sX, \mathscr S^R\right)$ (cf. Definition \ref{sheaf_ringed_space_defn}), and $\mathscr S^A$ is a $\mathscr S^R$-module (cf. Definition \ref{sheaf_of_modules_den}).
 \end{remark}
-\begin{definition}\label{top_good_r_defn}
-In the described above situation we say that a dense *-subalgebra $R \subset C_0\left(\sX\right)$ is \textit{good} if for any $x \in \sX$ and any open neighborhood $\sU$ of $x$ there is $f \in R$ such that $f\left( \sX\right)\subset \left[0,1\right]$, $\supp f \subset \sU$. Moreover we require that there is an open neighborhood $\sV$ of $x$, which satisfy to a condition $f\left(\sV\right)=\{1\}$.
+\begin{definition}\label{top_good_r_defn}In the described above situation we say that a dense *-subalgebra $R \subset C_0\left(\sX\right)$ is \textit{good} if for any compact subset $\sY\subset \sX$ and any open $\sU \subset \sX$ such that $\sY\subset \sU$ there is $f \in R$ satisfying to the following condition
+\be
+ f\left( \sX \right) = \left[0, 1\right]\quad \text{AND}\quad  f\left( \sY \right) = \{1\}\quad \text{AND} \quad \supp f \subset \sU.
+\ee
 \end{definition}
 \begin{exercise}\label{top_good_r_exer}
 Prove that if $R \subset C_0\left(\sX\right)$ is a good *-subalgebra and $p: \widetilde \sX \to \sX$ is a covering then an intersection $p^{-1}\mathscr S^{R}\cap C_0\left(\widetilde \sX\right)$ is a good *-subalgebra of $C_0\left(\widetilde \sX\right)$.
@@ -6972,10 +6974,17 @@ p_{\widetilde x}:	\mathscr  F_{p\left( \widetilde x\right) }\cong p^{-1}\mathscr
 	$$
 p^{-1}_{\mathscr  F}:\mathscr  F\left(\sX\right)\hookto p^{-1}\mathscr  F\left(\widetilde \sX\right)
 $$ can be described by the following way. 
-Elements $\xi \in \mathscr  F\left(\sX\right)$ and $\widetilde \xi \mathscr p^{-1} F\left(\widetilde \sX\right)$ can be represented by global continuous sections $s : \sX \to \mathrm{Sp\acute{e}}\left(\mathscr F \right)$ and $\widetilde s : \widetilde\sX \to \mathrm{Sp\acute{e}}\left(p^{-1}\mathscr F \right)$ of les \'espaces etal\'e (cf. Exercise \ref{sheaf_etale_exer}). We put
+Elements $\xi \in \mathscr  F\left(\sX\right)$ and $\widetilde \xi p^{-1}\mathscr  F\left(\widetilde \sX\right)$ can be represented by global continuous sections $s : \sX \to \mathrm{Sp\acute{e}}\left(\mathscr F \right)$ and $\widetilde s : \widetilde\sX \to \mathrm{Sp\acute{e}}\left(p^{-1}\mathscr F \right)$ of les \'espaces etal\'e (cf. Exercise \ref{sheaf_etale_exer}). We put
 \be\label{top_shaf_cx_eqn}
-\widetilde \xi = p^{-1}_{\mathscr  F}\xi \quad \Leftrightarrow\quad  \forall \widetilde x \in \widetilde \sX \quad c_{\widetilde x}\widetilde s \left(\widetilde x\right)= s\left(c_{p\left( \widetilde x\right) }\right).
+\widetilde \xi = p^{-1}_{\mathscr  F}\xi \quad \Leftrightarrow\quad  \forall \widetilde x \in \widetilde \sX \quad p_{\widetilde x}\left( \widetilde s \left(\widetilde x\right)\right) = s\left({p\left( \widetilde x\right) }\right).
 \ee
+\item If both $p': \sX'\to \sX$ and $p'' :\sX''\to \sX'$ are coverings
+then one has
+\bea\label{top_sh1_comp_eqn}
+(p'\circ p'')^{-1}\mathscr  F = p''^{-1}\left( p'^{-1}\mathscr  F\right),\quad\\
+\label{top_sh2_comp_eqn}  
+(p''\circ p')_{\widetilde x}= p''_{\widetilde x}\circ p'_{p''\left( \widetilde x\right) }~~:\quad \mathscr  F_{(p''\circ p')\left( \widetilde x\right) }\cong (p''\circ p')^{-1}\mathscr  F_{\widetilde x}\quad \text{(cf. \eqref{top_st_iso_eqn})}\quad
+\eea
 \end{enumerate}
 
 \end{exercise}
@@ -7127,7 +7136,7 @@ Following definition is an analog of the Definition \ref{top_lift_desc_defn}.
 
 
 \begin{exercise}\label{top_pre_sheaf_exer}. 
-Let $\sX$ be a locally compact, Hausdorff space, and let $R \subset C_0\left(\sX \right)$ is a good *-subalgebra (cf. Definition \ref{top_good_r_defn}). 	
+Let $\sX$ be a locally compact, Hausdorff space, and let $R \subset C_0\left(\sX \right)$ is a good *-subalgebra (cf. Definition \ref{top_good_r_defn} !!! CHECK). 	
 Let $\mathscr F$ be an $\mathscr S^R$ -{module} (cf. Definition \ref{sheaf_of_modules_den})
 Let $p: \widetilde\sX \to \sX$ be a transitive covering.
  Let $\widetilde{\mathscr F}\bydef p^{-1}\mathscr F$ be an inverse image (cf. Definition \ref{sheaf_inv_im_defn}), and let $\mathscr F\left( \sX\right) \subset  \widetilde{\mathscr F}\left( \widetilde\sX\right)$ be a natural inclusion of $\mathscr S^R$-modules. Let $\Aut_{ \mathscr S^R\left( \sX\right)}\left( \widetilde{\mathscr F}\left( \widetilde\sX\right)\right)$ be a group of  $ \mathscr S^R\left( \sX\right)$-module automorphisms.
@@ -7151,7 +7160,7 @@ Let $p: \widetilde\sX \to \sX$ be a transitive covering.
 	One can define a presheaf  \ref{top_x_sheaf_defn} (cf. Definition \ref{presheaf_defn}) of local smooth sections (cf. Definition \ref{top_sm_sec_defn}). So there is an associated sheaf $\mathscr  S^E$ of smooth sections.
 \end{example}
 
-\begin{exercise}\label{top_hom_sub_exm} Let $\sX$ be a locally compact, Hausdorff space, and let $R \subset C_0\left(\sX \right)$ is a good *-subalgebra (cf. Definition \ref{top_good_r_defn}). Let both $F$, $G$ be $R$-modules and let $\mathscr S^F$ and $\mathscr S^G$ be $F$-sheaf and $G$-sheaf respectively (cf. Definition \ref{top_x_sheaf_defn}).
+\begin{exercise}\label{top_hom_sub_exm} Let $\sX$ be a locally compact, Hausdorff space, and let $R \subset C_0\left(\sX \right)$ is a good *-subalgebra (cf. Definition \ref{top_good_r_defn} !!! CHECK). Let both $F$, $G$ be $R$-modules and let $\mathscr S^F$ and $\mathscr S^G$ be $F$-sheaf and $G$-sheaf respectively (cf. Definition \ref{top_x_sheaf_defn}).
 	There is a sheaf  of local morphisms  $\mathscr Hom \left(\mathscr S^F,
 	\mathscr S^G \right)$ (cf. Definition \ref{sheaf_hom_defn}).
 Prove following statements
@@ -8086,7 +8095,7 @@ is a connected noncommutative  finite-fold weak  covering (cf. Definition \ref{f
 \subsubsection{Coverings of bounded operator $*$-algebras}
 
 \begin{theorem}\label{top_oa_cov_thm} !!! CHECK
-	If $\sX$ is a locally compact, Hausdorff connected space and $R \subset C_0\left(\sX\right)$ is a good *-subalgebra (cf. Definition \ref{top_good_r_defn}) then	following conditions hold:
+	If $\sX$ is a locally compact, Hausdorff connected space and $R \subset C_0\left(\sX\right)$ is a good *-subalgebra (cf. Definition \ref{top_good_r_defn} !!! CHECK) then	following conditions hold:
 	\begin{enumerate}
 		\item [(i)] If 	$\left(R, \widetilde A, G, \pi\right)$ noncommutative finite-fold covering of bounded operator *-algebras  (cf. Definition \ref{fin_oa_defn}) then there is a finite fold transitive topological covering  $p: \widetilde \sX \to \sX$ such that there is a natural dense inclusion  $\widetilde A \subset C_0\left( \widetilde \sX\right)$ (cf. Definition \ref{top_x_sheaf_defn}) and
 		$G \cong G\left(\left.\widetilde \sX~ \right| \sX\right)$ and $\pi= \left.C_0\left(p \right)\right|_{R }$ where $C_0\left(p \right)$ is given by the Lemma \ref{top_functor_lem}.
@@ -8102,7 +8111,7 @@ is a connected noncommutative  finite-fold weak  covering (cf. Definition \ref{f
 	The $C^*$-norm completion of $R$ is $C_0\left(\sX\right)$. If a  quadruple\\ $\left(C_0\left(\sX \right), \widetilde{B}, G,    \pi\right)$ is a connected noncommutative finite-fold covering (cf. Definition \ref{fin_defn}),  then   there is a finite-fold transitive topological covering and $p: \widetilde{    \sX }\to \sX$ such that $\left(C_0\left(\mathcal  X \right), \widetilde{B}, G,    \pi\right)$ is equivalent to $$\left(C_0\left(\sX \right), C_0\left(  \widetilde{\sX}\right) , G\left(\left.\widetilde \sX~ \right| \sX\right),    C_0\left( p\right) \right)$$ (cf. Theorem \ref{top_fin_thm}). On the other hand from \ref{fin_oa_empt} it follows that there is a dense inclusion  $\widetilde A\subset C_0\left(  \widetilde{M}\right)$. Conditions $G \cong G\left(\left.\widetilde M~ \right| M\right)$ and $\pi= \left.C_0\left(p \right)\right|_{\Coo_0\left(M\right) }$ follow from the construction \ref{fin_oa_empt}.\\
 	(ii)	
 	We leave to the reader a proof of that  $ C_0\left(\widetilde\sX \right)\cap p^{-1} \mathscr S^R\left(\widetilde\sX \right)$ is an admissible subalgebra, i.e. it satisfies to conditions of \ref{fin_oa_empt}. If  $ C_0\left(\widetilde\sX \right)\cap p^{-1} \mathscr S^R\left(\widetilde\sX \right)$ is not maximal admissible *-algebra then there is an admissible algebra  $\widetilde A' \subset C_0\left(\widetilde M\right)$  such that $ C_0\left(\widetilde\sX \right)\cap p^{-1} \mathscr S^R\left(\widetilde\sX \right)\subsetneqq \widetilde A'$. If $\widetilde a \in \widetilde A' \setminus  C_0\left(\widetilde\sX \right)\cap p^{-1} \mathscr S^R\left(\widetilde\sX \right)$ then there is $\widetilde x_0 \in \widetilde M$ such that $\widetilde a_{x_0} \notin p^{-1} \mathscr S^R_{\widetilde x_0}$. From the Exercise \ref{top_good_r_exer} it follows that 
- $p^{-1}\mathscr S^{R}\left( \widetilde \sX\right) \cap C_0\left(\widetilde \sX\right)$ is a good *-subalgebra of $C_0\left(\widetilde \sX\right)$. From the Definition \ref{top_good_r_defn} it turns out that there is $\widetilde f\in p^{-1}\mathscr S^{R}\left( \widetilde \sX\right) \cap C_0\left(\widetilde \sX\right)$  such that
+ $p^{-1}\mathscr S^{R}\left( \widetilde \sX\right) \cap C_0\left(\widetilde \sX\right)$ is a good *-subalgebra of $C_0\left(\widetilde \sX\right)$. From the Definition \ref{top_good_r_defn} !!! CHECK it turns out that there is $\widetilde f\in p^{-1}\mathscr S^{R}\left( \widetilde \sX\right) \cap C_0\left(\widetilde \sX\right)$  such that
 	\begin{itemize}
 		\item $\supp \widetilde f$ is mapped homeomorphically onto $p\left(\supp \widetilde f \right)$.
 		\item There is an open neighborhood $ \widetilde \sU$ of $\widetilde x_0$ such that $ \widetilde f\left(  \widetilde \sU \right) = \{1\}$.
@@ -10175,7 +10184,7 @@ From the our construction $C^*\left(G, R\right)$ is the completion of $M\left( \
 		\mathfrak{S}_{\left( \sX, x_0\right) }\in \mathfrak{FinTop}^{\text{pt}}.
 	\end{split}
 	\eean
-	be	a	pointed topological finite covering category (cf. Definition \ref{top_sec_p_defn}). Let $R\subset C_0\left(\sX \right)$ be a good *-subalgebra (cf. Definition \ref{top_good_r_defn}), and for any $\la\in \La$ let $R_\la\bydef  C_0\left(\sX_\la \right)\cap p^{-1}_\la \mathscr S^{R}\left( \sX_\la\right)$ and $\widetilde R\bydef  C_0\left(\widetilde \sX \right)\cap \widetilde p^{-1} \mathscr S^{R}\left(\widetilde \sX\right)$ where a notation of the Definition \ref{top_x_sheaf_defn} is used.	
+	be	a	pointed topological finite covering category (cf. Definition \ref{top_sec_p_defn}). Let $R\subset C_0\left(\sX \right)$ be a good *-subalgebra (cf. Definition \ref{top_good_r_defn} !!! CHECK), and for any $\la\in \La$ let $R_\la\bydef  C_0\left(\sX_\la \right)\cap p^{-1}_\la \mathscr S^{R}\left( \sX_\la\right)$ and $\widetilde R\bydef  C_0\left(\widetilde \sX \right)\cap \widetilde p^{-1} \mathscr S^{R}\left(\widetilde \sX\right)$ where a notation of the Definition \ref{top_x_sheaf_defn} is used.	
 	The Theorem \ref{top_oa_cov_thm} enables us to construct an algebraical  finite covering category of  bounded operator *-algebras (cf. Definition \ref{comp_oa_defn}) given by
 	\be\label{top_inf_cov_oae_eqn}
 	\begin{split}
@@ -10216,10 +10225,10 @@ where $\mathscr S^{\widetilde R}$ is the $\widetilde R$-sheaf (cf. Definition \r
 	From $\widetilde A \subset  C_0\left( \widetilde \sX\right)$ it turns out that $\mathscr S^{\widetilde A}_{\widetilde x}\subset \mathscr S^{C_0\left( \widetilde \sX\right)}_{\widetilde x}$ for any $\widetilde x \in \widetilde \sX$. On the other hand 
 	from $\widetilde R \subset C_0\left( \widetilde \sX\right)$ it follows  that $\mathscr S^{\widetilde R}_{\widetilde x}\subset \mathscr S^{C_0\left( \widetilde \sX\right)}_{\widetilde x}$ for any $\widetilde x \in \widetilde \sX$. We would like prove that 
 	\be\label{top_ra_sh_eqn}
-\forall \widetilde x \in \widetilde \sX	\quad \mathscr S^{\widetilde A}_{\widetilde x} = \mathscr S^{\widetilde R}_{\widetilde x}
+\forall \widetilde x \in \widetilde \sX	\quad \mathscr S^{\widetilde A}_{\widetilde x} \subset \mathscr S^{\widetilde R}_{\widetilde x}
 	\ee
 	If $\widetilde a_{\widetilde x} \in \mathscr S^{\widetilde A}_{\widetilde x}$ then $\widetilde a_{\widetilde x}$ can be represented by an element $\widetilde a\in\widetilde A$.
-	Let  $\widetilde \sU$ be an open neighborhood of $\widetilde x$ with compact closure which is homeomorphically  mapped onto $\sU = \widetilde bp\left(\widetilde \sU\right)$. From the Exercise \ref{top_good_r_exer} it follows that $\widetilde R$ is a good *-subalgebra of $C_0\left(\widetilde\sX\right)$ (cf. Definition \ref{top_good_r_defn}). From the Definition \ref{top_good_r_defn} it turns out that there is  $\widetilde b \in  \widetilde R$ such that $b\left( \widetilde \sX\right)\subset \left[0,1\right]$, $\supp \widetilde b \subset \widetilde \sU$, moreover there is an open neighborhood $\widetilde \sV$ of $\widetilde x$, which satisfy to a condition $\widetilde b\left(\sV\right)=\{1\}$.
+	Let  $\widetilde \sU$ be an open neighborhood of $\widetilde x$ with compact closure which is homeomorphically  mapped onto $\sU = \widetilde bp\left(\widetilde \sU\right)$. From the Exercise \ref{top_good_r_exer} it follows that $\widetilde R$ is a good *-subalgebra of $C_0\left(\widetilde\sX\right)$ (cf. Definition \ref{top_good_r_defn} !!! CHECK). From the Definition \ref{top_good_r_defn} !!! CHECK it turns out that there is  $\widetilde b \in  \widetilde R$ such that $b\left( \widetilde \sX\right)\subset \left[0,1\right]$, $\supp \widetilde b \subset \widetilde \sU$, moreover there is an open neighborhood $\widetilde \sV$ of $\widetilde x$, which satisfy to a condition $\widetilde b\left(\sV\right)=\{1\}$.
 From  $\widetilde b \in C_c\left(\widetilde X \right)$ it follows that there $a \in 	\bigcup_{\la\in \La}~ \lift_{ \widetilde{p}_{\la}}\left(  R_\la\right)$ such that
 $$
 \widetilde b \widetilde a= \widetilde b a
@@ -10228,38 +10237,44 @@ $$
 $$
 \left.\left( \widetilde b \widetilde a\right)\right|_{\widetilde \sV } = \left.\widetilde a\right|_{\widetilde \sV }
 $$
-it follows that $\left( \widetilde b \widetilde a\right)_{\widetilde x}=  \widetilde a_{\widetilde x}\in \mathscr S^{\widetilde A}_{\widetilde x}$. On the other hand there is $\la_0\in \La$  and $a_{\la_0}\in R_{\la_0}$ such that $a = \lift_{p_{\la_0}}$
-	
-
-	From the Definition \ref{top_good_r_defn}
-	!!! CONTINUE
-Let both $\mathscr S^{\widetilde A}$ and 	$\mathscr S^{\Coo\left( \widetilde M\right)}$ be  $\widetilde A$-sheaf and $\Coo\left( \widetilde M\right)$-sheaf respectively (cf. Definition \ref{top_x_sheaf_defn}). Let $\widetilde x \in \widetilde M$ and let $s_{\widetilde x} \in \mathscr S^{\widetilde A}_{\widetilde x}$ be a stalk (cf. Definition \ref{stalk_defn}) at $\widetilde x$, which is represented by $\widetilde s \in  {\widetilde A}$. Using  \ref{top_fx_empt} one can construct the given by  \eqref{top_tfx_eqn} element $\widetilde f_{\widetilde x}\in C_c\left( \widetilde M\right)$ such that  there is an open neighborhood of $\widetilde \sU$ of $\widetilde x$ which satisfies to the condition $\widetilde f_{\widetilde x}\left(\widetilde \sU\right) = \{1\}$. From the Proposition \ref{top_smooth_part_unity_prop} one can assume that $\widetilde f_{\widetilde x}\in \Coo\left(\widetilde M \right)$. From the equation \eqref{top_inf_cov_oap_eqn} it follows that there is $a \in\bigcup_{\la\in \La}~ \lift_{ \widetilde{p}_{\la}}\left(  \Coo_0\left(M_\la\right)\right)$ such that 
-\be\label{top_fx_a_eqn}
-\widetilde f_{\widetilde x}  \widetilde  s =  f_{\widetilde x} a.
-\ee
-There is $\la_0 \in \La$ such that $a=\lift_{ \widetilde{p}_{\la_0}}\left(  a_{\la_0}\right)$ and $a_{\la_0} \in \Coo_0\left(M_\la\right)$. 
-From $\widetilde f_{\widetilde x}\in \Coo\left(\widetilde M \right)$ and \eqref{top_lift_smooth_eqn} it follows that $\widetilde f_{\widetilde x} ~\lift_{ \widetilde{p}_{\la_0}}\left(a_{\la_0}\right) \in \Coo\left(\widetilde M\right)$ and $\widetilde f_{\widetilde x} \widetilde s\in \Coo\left(\widetilde M\right)$. Otherwise from $\widetilde f_{\widetilde x}\left(\widetilde \sU\right) = \{1\}$ it follows that
+it follows that $\left( \widetilde b \widetilde a\right)_{\widetilde x}=  \widetilde a_{\widetilde x}\in \mathscr S^{\widetilde A}_{\widetilde x}$. On the other hand there is $\la_0\in \La$  and $a^{\la_0}\in R_{\la_0}$ such that $a = \lift_{p_{\la_0}}\left(a^{\la_0}\right)$ and
 $$
-\forall \widetilde x \in \widetilde \sU \quad \left( f_{\widetilde x} \widetilde s \right) \left(\widetilde x\right)= \widetilde s\left(\widetilde x\right).
+\left.\left( \widetilde b \widetilde a\right)\right|_{\widetilde \sV } = \left.\lift_{p_{\la_0}}\left(a^{\la_0}\right)\right|_{\widetilde \sV }.
 $$
-From the Lemma \ref{top_x_sheaf_lem} it follows that $\mathscr S^{\widetilde A'}\subset\mathscr S^{\Coo\left( \widetilde M\right)}$ and taking into account \eqref{top_x_sheaf_eqn} one has
+It turns out that $\widetilde a_{\widetilde x}= \left( \widetilde p_{\widetilde x}^\la\right)^{-1} \left(a^\la_{\widetilde p^\la\left( \widetilde x\right) } \right) $ 
+where $\widetilde p^\la : \widetilde \sX \to \sX_\la$ is the natural covering and the isomorphism $\widetilde p_{\widetilde x}^\la$ corresponds to the equation \eqref{top_st_iso_eqn}. 
+On the other hand from  $a^{\la_0}\in R_{\la_0}$ it follows that $a^\la_{\widetilde p^\la\left( \widetilde x\right) }\in p_\la^{-1}\left( \mathscr S^R \right)_{p^\la\left(\widetilde x \right)}$ where $p^\la: \sX_\la \to \sX$ is the natural covering.
+From the equations \eqref{top_sh1_comp_eqn} and 
+\eqref{top_sh2_comp_eqn} it follows that 
 $$
-\widetilde A' \subset \mathscr S^{\Coo\left( \widetilde M\right)}\left( \widetilde M\right).
+\widetilde a_{\widetilde x}\in \widetilde p^{-1}\mathscr S^R_{\widetilde x}= \mathscr S^{\widetilde R}_{\widetilde x}.
 $$
-Otherwise from the equation \eqref{top_coo_sh_eqn} it follows that $\widetilde A' \subset {\Coo\left( \widetilde M\right)}$.
 \end{proof}
 \begin{theorem}\label{top_inf_cov_oa_thm}
-	Consider the situation \ref{top_inf_cov_oa_thm}. If $\widetilde M$ has a structure of smooth manifold which is induced by $M$ and the covering $\widetilde p:\widetilde M \to M$ then 	$
-	\left(\Coo_0\left(M\right),\Coo_0\left(\widetilde M\right)  G\left(\left.\widetilde M \right|  M\right)\right) 
-	$ is an {infinite noncommutative covering}  of $\mathfrak{S}^{\mathrm{pt}}_{\Coo\left( M\right) }$ (cf. Definition \ref{inf_cov_oa_defn}).
+In the situation of the Lemma \ref{top_inf_cov_oa_lem}. the quadruple 
+$$
+	\left(R,\widetilde R \bydef C_0\left(\widetilde\sX\right) G\left(\left.\widetilde \sX \right|  \sX\right)\right) 
+	$$ is an {infinite noncommutative covering}  of $\mathfrak{S}^{\mathrm{pt}}_{R}$ (cf. Definition \ref{inf_cov_oa_defn}).
 \end{theorem}
 \begin{proof}
 	Firstly we prove that $\Coo_0\left(\widetilde M\right)$   {is subordinated to}  $	\mathfrak{S}^{\text{pt}}_{\Coo_0\left( M\right) } $ (cf. Definition \ref{inf_cov_oa_sub_defn}), i.e. it satisfies to equations \eqref{inf_cov_oa_sub1_eqn}-\eqref{inf_cov_oa_sub3_eqn}. From
 	\bean
-	\Coo_0\left( M_\la\right)\Coo_0\left( \widetilde M\right) \subset \Coo_0\left( \widetilde M\right),\\
-	\Coo_0\left( \widetilde M\right)\Coo_0\left( M_\la\right) \subset \Coo_0\left(\widetilde M\right),\\
+	C_0\left( \sX_\la\right)C_0\left( \widetilde \sX\right) \subset C_0\left( \widetilde \sX\right),\\
+	C_0\left( \widetilde \sX\right)C_0\left( \sX_\la\right) \subset C_0\left(\widetilde \sX\right),\\
+ \left( 	p^{-1}_\la \mathscr S^{R}\right) \left( \widetilde p^{-1} \mathscr S^{R}\right)\left( \widetilde \sX\right)  \subset \widetilde p^{-1} \mathscr S^{R}\left( \widetilde \sX\right) ,\\
+ \left( \widetilde p^{-1} \mathscr S^{R}\right)\left( 	p^{-1}_\la \mathscr S^{R}\right)\left( \widetilde \sX\right)  \subset \widetilde p^{-1} \mathscr S^{R}\left( \widetilde \sX\right) 
 	\eean 
-	it follows that $\Coo_0\left( \widetilde M\right)$ satisfies to the equations \eqref{inf_cov_oa_sub1_eqn}, \eqref{inf_cov_oa_sub2_eqn}. If  $\widetilde b \in K\left( C_0\left( \widetilde M\right)\right)\cong  C_c\left( \widetilde M\right)$ then $\supp \widetilde b$ is compact. Let $\widetilde f \in C_c\left( \widetilde M\right)$ be a covering sum for $\supp \widetilde b$ (cf. Definition \ref{top_covering_sum_defn}). One can select $\widetilde f$ such that $\widetilde f\in \Coo_c\left( \widetilde M\right)$ (cf. Proposition \ref{top_smooth_part_unity_prop}). A set $\supp \widetilde f$ is compact, from the Lemma \ref{top_comp_la_lem}  it turns out that there is $\la_0\in \La$ such that $\supp \widetilde f$ is homeomorphically mapped   onto $\widetilde p_{\la_0} \left(\supp \widetilde f \right) \subset M_{\la_0}$ where $\widetilde p_{\la_0}:\widetilde M\to M_{\la_0}$ is the natural covering. If $\desc_{\widetilde p_{\la_0}}$ is the $\widetilde p_{\la_0}$-descent (cf. Definition \ref{top_lift_desc_defn}) and
+	it follows that 
+\bean
+R_\la \widetilde R \subset  \widetilde R,\\
+\widetilde R \subset R_\la  \widetilde R
+\eean
+
+!!! CHECK 	
+it means that 	$\widetilde R$ satisfies to the equations \eqref{inf_cov_oa_sub1_eqn}, \eqref{inf_cov_oa_sub2_eqn}. If  $\widetilde b \in K\left( C_0\left( \widetilde \sX\right)\right)\cong  C_c\left( \widetilde \sX\right)$ then $\supp \widetilde b$ is compact. !!! Since $\widetilde R$ is good 
+
+
+Let $\widetilde f \in C_c\left( \widetilde M\right)$ be a covering sum for $\supp \widetilde b$ (cf. Definition \ref{top_covering_sum_defn}). One can select $\widetilde f$ such that $\widetilde f\in \Coo_c\left( \widetilde M\right)$ (cf. Proposition \ref{top_smooth_part_unity_prop}). A set $\supp \widetilde f$ is compact, from the Lemma \ref{top_comp_la_lem}  it turns out that there is $\la_0\in \La$ such that $\supp \widetilde f$ is homeomorphically mapped   onto $\widetilde p_{\la_0} \left(\supp \widetilde f \right) \subset M_{\la_0}$ where $\widetilde p_{\la_0}:\widetilde M\to M_{\la_0}$ is the natural covering. If $\desc_{\widetilde p_{\la_0}}$ is the $\widetilde p_{\la_0}$-descent (cf. Definition \ref{top_lift_desc_defn}) and
 	$\widetilde a' = \widetilde a'' \bydef \desc_{\widetilde p_{\la_0}}\left( \widetilde f \widetilde a\right)\in \Coo_c\left(M_{\la_0} \right)\subset \bigcup_{\la\in \La}\Coo_0\left(M_\la \right)$ then one has 
 	$$
 	\widetilde b \widetilde a=\widetilde b \widetilde a', \quad \widetilde a \widetilde b = \widetilde a''.
@@ -19699,6 +19714,13 @@ continuous for $\a\le\bt$) their \textit{inverse limit} $\varprojlim \sX_\a$ (cf
 			\item $\sum_{\alpha \in \mathscr A}\phi_\alpha\left(x\right)=1$ for any $x \in \mathcal X$.
 		\end{enumerate}
 	\end{defn}
+ \begin{definition}\label{top_paracompact_defn}\cite{munkres:topology}
+	A space $\sX$ is \textit{paracompact} if every open covering $\sX = \cup~\sU_{   \a}$ has a locally finite open refinement $\sX = \cup~\sV_{   \bt}$.
+\end{definition}	
+\begin{thm}\label{top_part_u_thm}\cite{munkres:topology}
+	Let $\mathcal X$ be a paracompact Hausdorff space; let $\left\{\mathcal U_\alpha\in \mathcal X\right\}_{\alpha \in \mathscr A}$ be an indexed open covering of $\mathcal{X}$. Then there exists a partition of unity, dominated by $\left\{\mathcal{U}_\alpha \right\}$.  
+\end{thm}
+
 	\begin{prop}\label{top_smooth_part_unity_prop}\cite{brickell_clark:diff_m}
 		A differential manifold $M$ admits a (smooth) partition of unity if and only if it is paracompact. 
 	\end{prop}
@@ -24838,6 +24860,40 @@ Let $\mathscr F$  and $\mathscr G$ by presheaves. Prove that any morphism corres
 	 $\Hom\left(\left.\mathscr F\right|_{\sU}, \left.\mathscr G\right|_{\sU}\right)$ has the natural structure of Abelian group. 
 	It is a sheaf  (cf. \cite{hartshorne:ag}). It is called the \textit{sheaf of local morphisms} of $\mathscr F\to \mathscr G$, "sheaf hom" for short, and is denoted by $\mathscr Hom \left(\mathscr F, \mathscr G\right)$.
 \end{definition}
+
+\begin{definition}\label{sheaf_ringed_space_defn}\cite{hartshorne:ag}
+	A \textit{ringed space} is a pair $\left(\sX, \mathcal O_\sX \right)$  consisting of a topological space 
+	$\sX$ and a sheaf of rings $\mathcal O_\sX$  on $\sX$.
+	% A morphism of ringed spaces from (X,CX) to (Y,GY) is a pair (./,/#) of a continuous map f:X-+ Y and a map f# :(ry -> fJ9x of sheaves of rings on Y. The ringed space (X,?x) is a locally ringed space if for each point P e X, the stalk ([x P is a local ring. A morphism of locally ringed spaces is a morphism (/,/#) of ringed spaces, such that for each point P e X, the induced map (see below) of local rings fp :Cyj(P) -+ ?x,p ls a l?cal homomorphism of local rings. We explain this last condition. First of all, given a point P e X, the morphism of sheaves f*:((Y -+ l\fix induces a homomorphism of rings CY(V) -> ?x(f~ { V), for every open set V in Y. As V ranges over all open neighbor- 	hoods of /(P), f~l(V) ranges over a subset of the neighborhoods of P. 	Taking direct limits, we obtain a map 	&YJ{P) = \jmCY(V)^\jme>'x(f-1V), 		72 
+			
+		\end{definition}
+		\begin{example} \label{sheaf_ringed_space_exm}
+			One has a following ringed spaces (cf.Definition \ref{sheaf_ringed_space_exm})
+			\begin{enumerate}
+				\item [(i)] If $\sX$ is topological space and a sheaf   $\mathscr C_\sX$ associated with a presheaf
+				$$
+				\sU \mapsto C_0\left( \sU\right) 
+				$$
+				then $\left(\sX, \mathscr C_\sX \right)$ is a ringed space.
+				\item [(ii)]If $M$ is smooth manifold and a sheaf   $\mathscr C^\infty_M$ associated with a presheaf
+				$$
+				\sU \mapsto \Coo\left( \sU\right) 
+				$$
+				then $\left(M, \mathscr C^\infty_\sX \right)$ is a ringed space.
+			\end{enumerate}
+		\end{example}
+		
+		\begin{definition}\label{sheaf_of_modules_den}\cite{hartshorne:ag}
+			Let $\left(\sX, \mathcal O_\sX \right)$  be a ringed space. A \textit{sheaf  of $ \mathcal O_\sX $-modules} 
+			(or simply an $\mathcal O_\sX$ -\textit{module}) is a sheaf  $\mathscr F$ on $\sX$, such that for each open set 
+			$\sU\subset\sX$, the group 
+			$\mathscr F\left(\sU \right)$ is an $\mathcal O_\sX$-module, and for each inclusion of 
+			open sets $\sV \subset\sU$, the restriction homomorphism $\mathscr F\left(\sU \right) \to \mathscr F\left(\sV \right)$  is compatible with the module structures via the ring homomorphism $\mathcal O_\sX\left(\sU \right) \to \mathcal O_\sX \left(\sV \right)$.
+			%	(9X(V). A morphism #" Å> ^ of sheaves of $x-modules is a morphism of 
+			%	sheaves, such that for each open set U ^ X, the map <F(U) -> ^(?7) is a 
+			%	homomorphism of $x(L/)-modules. 	Note that the kernel, cokernel, and image of a morphism of 6rx-modules 	is again an Gx-modu\e. If ^'ls a subsheaf !!! DEFN \ref{top_x_sheaf_defn} of (^'x-modules of an (9x-modu\e 	#", then the quotient sheaf !!! DEFN \ref{top_x_sheaf_defn} gFj^F' is an #x-module. Any direct sum, 	direct product, direct limit, or inverse limit of $x-modules is an $x-module. 	If J^ and ^ are two $x-modules, we denote the group of morphisms from 	^ to ^ by Hom^^,^), or sometimes Homx(J^) or Hom( J^) if no 	confusion can arise. A sequence of $x-modules and morphisms is exact 	if it is exact as a sequence of sheaves of abelian groups. 	If U is an open subset of X, and if J^ is an $x-module, then tF\v is an 	(9x\v-modu\e. If 3F and ^ are two ^x-modules, the presheaf !!! DEFN \ref{top_x_sheaf_defn} 	is a sheaf, which we call the sheaf !!! DEFN \ref{top_x_sheaf_defn} Worn (Ex. 1.15), and denote by 	.^bm^l^). It is also an $x-module. 
+		\end{definition}
+\section{Flasque (flabby) and soft sheaves}
 \begin{definition}\label{sheaf_flasque}\cite{hartshorne:ag}
 	A sheaf  $\mathscr F$ on a topological space is \textit{flasque} or \textit{flabby} if for every inclusion $\sV \subseteq \sU$ of open sets, the restriction map $\mathscr F\left(\sU \right)\to\mathscr F\left(\sV \right)$ is surjective. 
 \end{definition}
@@ -24867,20 +24923,15 @@ The family of all compact subsets of $\sX$ is denoted by $c$.
 \end{definition}
 
 Now is $\mathscr P$ is a presheaf  on $\sX$ such and $s \in \mathscr P\left(\sX \right)$ we put
-$\left|s\right| = \left|\th\left( s\right) \right|$, where $\th: \mathscr{P}\left(\sX \right)\to \mathscr{P}^+\left(\sX \right) $ is the canonical map, $\mathscr{P}^+$ being the sheaf !!! DEFN \ref{top_x_sheaf_defn} generated by $\mathscr{P}$.
+$\left|s\right| = \left|\th\left( s\right) \right|$, where $\th: \mathscr{P}\left(\sX \right)\to \mathscr{P}^+\left(\sX \right) $ is the canonical map, $\mathscr{P}^+$ being the sheaf  generated by $\mathscr{P}$.
 Note that for $s \in \mathscr{P}$ one has $x \notin \left|s\right|\Leftrightarrow\left.s \right|_{\sU}$ for some neighborhood $\sU$ of $x$. If $\mathscr{F}$ is a sheaf, we put
 $$
 \Ga_\Phi = \left\{\left.s\in \mathscr{F}\left( \sX\right)\right| \left|s\right| \in \Phi \right\}
 $$
-For a presheaf !!! DEFN \ref{top_x_sheaf_defn} $\mathscr{P}$  on $\sX$ we put  $\mathscr{P}_\Phi\left(\sX \right) = \left\{\left.s\in \mathscr{P}\left( \sX\right)\right| \left|s\right| \in \Phi \right\}$.
+For a presheaf $\mathscr{P}$  on $\sX$ we put  $\mathscr{P}_\Phi\left(\sX \right) = \left\{\left.s\in \mathscr{P}\left( \sX\right)\right| \left|s\right| \in \Phi \right\}$.
 \begin{lemma}\label{schv_soft_n_lem}\cite{godement:sheaf,torsten:sheaves}
-	Let $\sX$ be a paracompact space, $\mathscr{F}$ a sheaf !!! DEFN \ref{top_x_sheaf_defn} on $\sX$. Then $\mathscr{F}$ is soft if and only if every point $x \in \sX$ has a closed neighborhood $\overline{   \mathcal U }$ such that $\left.\mathscr{F}\right|_{\overline{   \mathcal U }}$ is soft.
+	Let $\sX$ be a paracompact space, $\mathscr{F}$ a sheaf on $\sX$. Then $\mathscr{F}$ is soft if and only if every point $x \in \sX$ has a closed neighborhood $\overline{   \mathcal U }$ such that $\left.\mathscr{F}\right|_{\overline{   \mathcal U }}$ is soft.
 \end{lemma}
-\begin{proposition}\label{flabby_soft_prop}\cite{bredon:sheaf}
-	%	9.22. Proposition. \\
-	If $\sU$ is a compact relatively Hausdorff subspace of $\sX$,
-	then $\left.\mathscr{F}\right|_{\sU} $ is soft for any flabby sheaf !!! DEFN \ref{top_x_sheaf_defn} $\mathscr{F}$ on $\sX$.
-\end{proposition}
 
 
 %\begin{theorem}\cite{bredon:sheaf}
@@ -24893,41 +24944,36 @@ For a presheaf !!! DEFN \ref{top_x_sheaf_defn} $\mathscr{P}$  on $\sX$ we put  $
 %\end{theorem}
 \begin{theorem}\label{sheaf_neigh_thm}\cite{godement:sheaf}
 	%	3.3.1\\
-	Let $\mathscr{F}$ be a sheaf !!! DEFN \ref{top_x_sheaf_defn} of set over the space $\sX$, $\mathcal S$ is a subset of $\sX$ and $s$ is a section of the sheaf !!! DEFN \ref{top_x_sheaf_defn} $\mathscr{F}$ over $\mathcal S$. If $\mathcal S$ allows a fundamental system of paracompact neighborhoods then $s$ can be extended to a neighborhood of $\mathcal S$ in $\sX$. 
+	Let $\mathscr{F}$ be a sheaf  of set over the space $\sX$, $\mathcal S$ is a subset of $\sX$ and $s$ is a section of the sheaf  $\mathscr{F}$ over $\mathcal S$. If $\mathcal S$ allows a fundamental system of paracompact neighborhoods then $s$ can be extended to a neighborhood of $\mathcal S$ in $\sX$. 
+\end{theorem}
+\begin{theorem}
+%Th?or?me 3.4.1- Ñ 
+Soit $\mathscr F$ un faisceau surun espace $\sX$ paracompact. Supposons que 
+tout point de $\sX$ possde un  voisinage $\sU$ vŽrifiant la condition suivante : toute section de $\mathscr F$
+au-dessus d'un sous-ensemble fermŽ de $\sX$ contenu dans $\sU$, se prolonge ˆ $\sU$. Alors $\mathscr F$ est mou.
+\end{theorem}
+Following text is an English translation of the above theorem
+\begin{theorem}
+	Let  $\mathscr{ F}$ be a sheaf on  a paracompact space $\sX$. Suppose than for any $x \in\sX$ there is a neighborhood  $\sU$ which satisfies to the following condition; every section of $\mathscr{ F}$ over closed subset  $\sY\subset \sX$ such that $\sY\subset \sU$ can be extended up to $\sU$. Then the sheaf $\mathscr{ F}$ is soft.
+\end{theorem}
+\begin{thm}\cite{godement:sheaf}
+%Th?or?me 3-7-2. Ñ 
+Soit $\mathscr{ A}$ un faisceau d'anneaux avec unitŽ sur un espace paracompact $\sX$. Pour que $\mathscr{ A}$ soit mou, il faut et il suffit que tout point de $\sX$ possde un  voisinage $\sU$ tel que, 	Žtant donnŽs des fermŽ disjoints $S,T \subset \sU$, il existe une section de $\mathscr{ A}$ au-dessus de $\sU$, Žgale ˆ 1 sur $S$ et ˆ 0 sur $T$.
+\end{thm}
+Following text is an English translation of the above theorem.
+\begin{theorem}
+Let $\mathscr{ A}$ be a sheaf of unital algebras on a paracompact apace $\sX$. The sheaf $\mathscr{ A}$ is soft if and only if any $x\in\sX$ have a neighborhood $\sU$ such that for any closed sets $S, T\subset \sU$ one has
+\bean
+S\cap T = \emptyset \quad \Rightarrow \quad \exists s \in \mathscr{ A}\left( \sU\right) \quad s|_S = 1\quad \mathrm{AND} \quad \quad s|_T = 0.
+\eean
 \end{theorem}
 
-\begin{definition}\label{sheaf_ringed_space_defn}\cite{hartshorne:ag}
- A \textit{ringed space} is a pair $\left(\sX, \mathcal O_\sX \right)$  consisting of a topological space 
-$\sX$ and a sheaf of rings $\mathcal O_\sX$  on $\sX$.
-% A morphism of ringed spaces from (X,CX) to (Y,GY) is a pair (./,/#) of a continuous map f:X-+ Y and a map f# :(ry -> fJ9x of sheaves of rings on Y. The ringed space (X,?x) is a locally ringed space if for each point P e X, the stalk ([x P is a local ring. A morphism of locally ringed spaces is a morphism (/,/#) of ringed spaces, such that for each point P e X, the induced map (see below) of local rings fp :Cyj(P) -+ ?x,p ls a l?cal homomorphism of local rings. We explain this last condition. First of all, given a point P e X, the morphism of sheaves f*:((Y -+ l\fix induces a homomorphism of rings CY(V) -> ?x(f~ { V), for every open set V in Y. As V ranges over all open neighbor- 	hoods of /(P), f~l(V) ranges over a subset of the neighborhoods of P. 	Taking direct limits, we obtain a map 	&YJ{P) = \jmCY(V)^\jme>'x(f-1V), 		72 
+\begin{proposition}\label{flabby_soft_prop}\cite{bredon:sheaf}
+	%	9.22. Proposition. \\
+	If $\sU$ is a compact relatively Hausdorff subspace of $\sX$,
+	then $\left.\mathscr{F}\right|_{\sU} $ is soft for any flabby sheaf  $\mathscr{F}$ on $\sX$.
+\end{proposition}
 
-\end{definition}
-\begin{example} \label{sheaf_ringed_space_exm}
-	One has a following ringed spaces (cf.Definition \ref{sheaf_ringed_space_exm})
-	\begin{enumerate}
-		\item [(i)] If $\sX$ is topological space and a sheaf !!! DEFN \ref{top_x_sheaf_defn}  $\mathscr C_\sX$ associated with a presheaf
-		$$
-		\sU \mapsto C_0\left( \sU\right) 
-		$$
-		then $\left(\sX, \mathscr C_\sX \right)$ is a ringed space.
-		\item [(ii)]If $M$ is smooth manifold and a sheaf !!! DEFN \ref{top_x_sheaf_defn}  $\mathscr C^\infty_M$ associated with a presheaf
-		$$
-		\sU \mapsto \Coo\left( \sU\right) 
-		$$
-		then $\left(M, \mathscr C^\infty_\sX \right)$ is a ringed space.
-	\end{enumerate}
-\end{example}
-
-\begin{definition}\label{sheaf_of_modules_den}\cite{hartshorne:ag}
-Let $\left(\sX, \mathcal O_\sX \right)$  be a ringed space. A \textit{sheaf  of $ \mathcal O_\sX $-modules} 
-(or simply an $\mathcal O_\sX$ -\textit{module}) is a sheaf  $\mathscr F$ on $\sX$, such that for each open set 
-$\sU\subset\sX$, the group 
-$\mathscr F\left(\sU \right)$ is an $\mathcal O_\sX$-module, and for each inclusion of 
-open sets $\sV \subset\sU$, the restriction homomorphism $\mathscr F\left(\sU \right) \to \mathscr F\left(\sV \right)$  is compatible with the module structures via the ring homomorphism $\mathcal O_\sX\left(\sU \right) \to \mathcal O_\sX \left(\sV \right)$.
-%	(9X(V). A morphism #" Å> ^ of sheaves of $x-modules is a morphism of 
-%	sheaves, such that for each open set U ^ X, the map <F(U) -> ^(?7) is a 
-%	homomorphism of $x(L/)-modules. 	Note that the kernel, cokernel, and image of a morphism of 6rx-modules 	is again an Gx-modu\e. If ^'ls a subsheaf !!! DEFN \ref{top_x_sheaf_defn} of (^'x-modules of an (9x-modu\e 	#", then the quotient sheaf !!! DEFN \ref{top_x_sheaf_defn} gFj^F' is an #x-module. Any direct sum, 	direct product, direct limit, or inverse limit of $x-modules is an $x-module. 	If J^ and ^ are two $x-modules, we denote the group of morphisms from 	^ to ^ by Hom^^,^), or sometimes Homx(J^) or Hom( J^) if no 	confusion can arise. A sequence of $x-modules and morphisms is exact 	if it is exact as a sequence of sheaves of abelian groups. 	If U is an open subset of X, and if J^ is an $x-module, then tF\v is an 	(9x\v-modu\e. If 3F and ^ are two ^x-modules, the presheaf !!! DEFN \ref{top_x_sheaf_defn} 	is a sheaf, which we call the sheaf !!! DEFN \ref{top_x_sheaf_defn} Worn (Ex. 1.15), and denote by 	.^bm^l^). It is also an $x-module. 
-\end{definition}
 \section{Sheaves over non Hausdorff spaces}\label{sheaves_nh_sec}
 \begin{empt}\label{nh_csoft_empt}\cite{cra_moe:nhaus}
 	Here we assume that the space $\sX$ has an open cover by subsets $\sU \subset \sU$ which are each paracompact, Hausdorff, locally compact and of cohomological dimension bounded a number $d$ (depending  on $\sX$ but not $\sU$).	

@@ -27,10 +27,12 @@ namespace Aviation.Light
         [STAThread]
         static void Main(string[] args)
         {
-       //     WpfInterface.StaticExtensionWebInterfaceUI.Init();
-            Application.SetHighDpiMode(HighDpiMode.SystemAware);
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
+            //     WpfInterface.StaticExtensionWebInterfaceUI.Init();
+            /*   Application.SetHighDpiMode(HighDpiMode.SystemAware);
+               Application.EnableVisualStyles();
+               Application.SetCompatibleTextRenderingDefault(false);*/
+            ApplicationConfiguration.Initialize();
+
 
             AssemblyService.StaticExtensionAssemblyService.Init();
 
