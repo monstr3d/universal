@@ -6918,7 +6918,7 @@ $$
 \subsection{Modules and sheaves}
 	Let $\sX$ be a locally compact,  Hausdorff space, and let $R \subset C_0\left(\sX\right)$ be a dense *-subalgebra. For any $R$-module $A$ and every open subset $\sU$ we define  an equivalence relation $\sim_\sU$ (cf. Definition \ref{equiv_rel_defn}) on $A$ such that
 \be\label{top_sheaf_e_eqn}
-	a' \sim_\sU a'' \quad \Leftrightarrow \left( \forall r \in R \quad \supp r \subset \sU \quad \Rightarrow\quad ra' = r a''\right). 
+	a' \sim_\sU a'' \quad \Leftrightarrow\quad \left( \forall r \in R \quad \supp r \subset \sU \quad \Rightarrow\quad ra' = r a''\right). 
 \ee
 From the above equation it turns out that
 $$
@@ -6940,9 +6940,9 @@ A\subset \mathscr S^A\left( \sX\right).
 Since $R$ is an $R$-module, there is a sheaf $\mathscr S^R$.
 One has a ringed space $\left(\sX, \mathscr S^R\right)$ (cf. Definition \ref{sheaf_ringed_space_defn}), and $\mathscr S^A$ is a $\mathscr S^R$-module (cf. Definition \ref{sheaf_of_modules_den}).
 \end{remark}
-Let $R\subset \C_0\left(\sX\right)$ be a dense *-subalgebra. Similarly to the equation \eqref{unital_notation_eqn} one has an unital *-algebra $R^\sim$ which is an $R$-module. There is a natural inclusion $R^\sim \subset C_b\left(\sX\right)$
+Let $R\subset C_0\left(\sX\right)$ be a dense *-subalgebra. Similarly to the equation \eqref{unital_notation_eqn} one has an unital *-algebra $R^\sim$ which is an $R$-module. There is a natural inclusion $R^\sim \subset C_b\left(\sX\right)$
 \begin{definition}\label{top_soft_r_defn}
-	In the above situation we say that *-algebra is \textit{soft} if following conditions hold:
+	In the above situation we suppose that the space $\sX$ is paracompact (cf. Definition \ref{top_paracompact_defn}) and we say that *-algebra $R$ is \textit{soft} if following conditions hold:
 	\begin{enumerate}
 		\item [(a)] A sheaf $\mathscr S^{R^\sim}$ is soft (cf. Definition \ref{sheaf_soft_defn}).
 		\item [(b)] One has $R= \C_0\left(\sX\right) \cap \mathscr S^{R^\sim}$
@@ -7056,29 +7056,59 @@ Following definition is an analog of the Definition \ref{top_lift_desc_defn}.
 		\end{split}
 	\end{equation}	
 \end{remark}
-\subsection{Further examples}
-\begin{exercise}
-	Let $\sX$ be a locally compact,  Hausdorff space. If $\sF$ is a continuity structure  for  $\sX$ {and the} $\left\{A_x\right\}_{x \in \sX}$(cf. Definition \ref{op_fields_defn}) then from the Lemma \ref{op_cont_module_lem} one has following $C_0\left(\sX \right)$-modules
-	\bean 
+\subsection{Further topics}
+\begin{empt}
+	Let $\sX$ be a locally compact,  Hausdorff space.	
+	If $\sF$ is a continuity structure  for  $\sX$ {and the} $\left\{A_x\right\}_{x \in \sX}$(cf. Definition \ref{op_fields_defn}) then from the Lemma \ref{op_cont_module_lem} one has following $C_0\left(\sX \right)$-modules
+	\be\label{op_cont_module_eqn}
+	\begin{split}
 	C\left({\sX}, \left\{{A}_{{x}}\right\}, {\sF}\right),\\
-	C_b\left({\sX}, \left\{{A}_{{x}}\right\}, {\sF}\right),\\
-	C_0\left({\sX}, \left\{{A}_{{x}}\right\}, {\sF}\right),\\
-	C_c\left({\sX}, \left\{{A}_{{x}}\right\}, {\sF}\right).
-	\eean
-	(cf. equation \eqref{top_c_sec_eqn} and Definitions \ref{top_s_bounded_defn}, \ref{top_cc_c0_defn}).
-	Prove following statements:
-	\begin{enumerate}
-		\item 	
-		One has
+C_b\left({\sX}, \left\{{A}_{{x}}\right\}, {\sF}\right),\\
+C_0\left({\sX}, \left\{{A}_{{x}}\right\}, {\sF}\right),\\
+C_c\left({\sX}, \left\{{A}_{{x}}\right\}, {\sF}\right).
+\end{split}
+	\ee
+	(cf. equation \eqref{top_c_sec_eqn} and Definitions \ref{top_s_bounded_defn}, \ref{top_cc_c0_defn}). If the space $\sX$ is paracompact and  $R\subset C_0\left( \sX\right)$ is a soft *-subalgebra (cf. Definitions \ref{top_soft_r_defn})  then given by the equations \eqref{op_cont_module_eqn} spaces are $R$-modules. We leave to the reader the proof of following equations:
 		\bea\label{top_cont_sh_eqn}
 		\mathscr S^{C\left({\sX}, \left\{{A}_{{x}}\right\}, {\sF}\right)}= 	\mathscr S^{C_b\left({\sX}, \left\{{A}_{{x}}\right\}, {\sF}\right)}=
 		\mathscr S^{C_0\left({\sX}, \left\{{A}_{{x}}\right\}, {\sF}\right)}= 	\mathscr S^{C_c\left({\sX}, \left\{{A}_{{x}}\right\}, {\sF}\right)},\\
 		\label{top_cont_shc_eqn}
 		\mathscr S^{C\left({\sX}, \left\{{A}_{{x}}\right\}, {\sF}\right)}\left(\sX\right)=  	C\left({\sX}, \left\{{A}_{{x}}\right\}, {\sF}\right)		
 		\eea 
-	\end{enumerate}
-\end{exercise}
-
+where the notation of the Definition \ref{top_x_sheaf_defn} is used.
+\end{empt}
+!!! CONTINUE
+	
+	\begin{exercise}\label{top_prod_exer}
+		Let $R \subset C_0\left(\sX\right)$ be a good !!! SOFTdense *-subalgebra. Suppose that there is $R$-module $A$ such that $A \subset \prod_{x \in \sX} A_x$ where $A_x$ is a Abelian group, and the action of $R$ complies with this direct product. For any open subset $\sU\subset \sX$ denote by 
+		$$
+		A_\sU\bydef \left\{\left.\left\{b_x \right\}\in \prod_{x \in \sU} A_x\right| \exists \left\{a_x \right\}\in \prod_{x \in \sX} A_x \quad \forall x \in \sU \quad b_x =a_x\right\}.
+		$$
+		Prove following statements:
+		\begin{enumerate}
+			\item For any open subset $\sU \subset \sX$ there is a natural isomorphism $A_\sU \cong A/\sim_\sU$.
+			\item If $\sV \subset \sU$ is a open subset then there is a natural projection map
+			$$
+			\rho'_{\sU \sV}:A_\sU \to A_\sV
+			$$
+			is equivalent to the given by \eqref{top_puv_eqn} projection.
+		\end{enumerate}
+	\end{exercise}
+	\begin{exercise}
+		Consider the situation of the Exercise \ref{top_prod_exer}. Let $p: \widetilde \sX \to \sX$ be a covering. Let $\left( \left\lbrace \widetilde A_{\widetilde x}\right)\right\rbrace_{\widetilde x\in \widetilde \sX}$ be a family of Abelian groups such that for any
+		$\widetilde x\in \widetilde \sX$ there is an isomorphism $c_{\widetilde x}: A_{p\left(\widetilde x\right)}\cong \widetilde A_{\widetilde x}$. Prove following statements.
+		\begin{enumerate}
+			\item If $\widetilde \sU$ is an open subset of $\widetilde \sX$ then any $\widetilde s \in \left.p^{-1}\mathscr S^A\right._{\widetilde \sU}$ can be represented by a family $\left\{\widetilde a_{\widetilde x}\right\}_{\widetilde x \in \widetilde \sU}$ which satisfies to the following condition. For all $\widetilde x_0\in \widetilde\sU$ there is an open neighborhood $\widetilde \sV$ which is mapped homeomorphically onto $\sV = p\left(\widetilde\sV\right)$ and a section $s \in \mathscr S^A_\sV$ such that 
+			$$
+			\forall \widetilde x \in \widetilde \sV \cap \widetilde \sU \quad  \widetilde a_{\widetilde x} = c_{{\widetilde x}}\left(a_x\right).
+			$$
+			\item If $p^{-1}_{\mathscr  S^A}: \mathscr  S^A\left( \sX\right)\hookto p^{-1}{\mathscr  S^A}\left(\widetilde{\sX}\right)$ is the given by \eqref{top_cs_sheaf_inc_eqn} injective map then
+			\be\label{top_sheaf_lift_eqn}
+			p^{-1}_{\mathscr  S^A}\left(\left\{a_x\right\}_{x\in \sX} \right)=  \left\{c_{p\left( \widetilde x\right) }\left( a_x\right) \right\}_{\widetilde x\in \widetilde \sX} 	 	\ee
+		\end{enumerate}
+		
+	\end{exercise}
+	
 	 
 \begin{lemma}\label{top_sheaf_lift_lem}
 	
@@ -7092,7 +7122,13 @@ Following definition is an analog of the Definition \ref{top_lift_desc_defn}.
 \mathscr S^{C\left(\widetilde{\sX}, \left\{\widetilde{A}_{\widetilde{x}}\right\}, \widetilde{\sF} \right)}= p^{-1}\mathscr S^{C\left({\sX}, \left\{{A}_{{x}}\right\}, {\sF} \right)}.
 	$$
 \end{lemma}
+\begin{empt}
+	Let $\sX$ be a locally compact,  Hausdorff space.	
+If $\sF$ is a continuity structure  for  $\sX$ {and the} $\left\{A_x\right\}_{x \in \sX}$ (cf. Definition \ref{op_fields_defn}) then from the Lemma \ref{op_cont_module_lem} one has the given by \eqref{op_cont_module_eqn} $C_0\left(\sX \right)$-modules. Suppose that the space $\sX$ is 
 
+!!! CONTINUE
+
+\end{empt}
 \begin{proof}
 	From the Definition \ref{sheaf_inv_im_defn} it follows that $p^{-1}\left( \mathscr  C\left(\sX, \left\{A_x\right\}, \sF \right)\right)$ is associated to the presheaf  $\mathscr  G$ given by $\widetilde \sU \mapsto \lim_{\sU\supseteq p\left(\widetilde \sU\right)} \mathscr  S^{\left(\sX, \left\{A_x\right\}, \sF \right)}\left( \sU\right) $, where $\widetilde \sU$ is any open set in $\widetilde \sX$, and the limit is taken over all open sets $\sU$ of $\sX$ containing $p\left(\widetilde \sU\right)$. In particular if $\widetilde \sU$ is homeomorphically mapped onto $p\left(\widetilde \sU\right)$ then $\mathscr  G\left( \widetilde \sU\right)\cong \mathscr  S^{\left(\sX, \left\{A_x\right\}, \sF \right)}\left(p\left(\widetilde \sU\right) \right)$. Let $\widetilde s \in p^{-1}\mathscr  S^{\left(\sX, \left\{A_x\right\}, \sF \right)}\left(\widetilde \sU \right) $.
 	From (2) of \ref{sheaf_empt} it follows that   for any $\widetilde x \in \widetilde\sU$ there is an open neighborhood  $\widetilde\sV$ of $\widetilde x$ such that $\widetilde\sV \subset \widetilde\sU$ and the element $\widetilde t \in \mathscr  S^{\left(\sX, \left\{A_x\right\}, \sF \right)}$ such that  for all $\widetilde y \in \widetilde\sV$ the germ $\widetilde t_{\widetilde y}$ of $\widetilde t$ at $\widetilde y$ is equal to $\widetilde s\left(\widetilde y\right)$. For any $\widetilde x$ we select an  neighborhood $\widetilde\sV_{\widetilde x}$ of $\widetilde x$ such that   $\widetilde\sV_{\widetilde x}$ satisfies to (2) of \ref{sheaf_empt} and $\widetilde \sV_{\widetilde x}$ is homeomorphically mapped onto $p\left(\widetilde \sV_{\widetilde x}\right)$. From  $\mathscr  G\left( \widetilde \sV_x\right)\cong \mathscr  S^{\left(\sX, \left\{A_x\right\}, \sF \right)}\left(p\left(\widetilde \sV_x\right) \right)$ it follows that the restriction $\left.\widetilde s\right|_{\widetilde \sV_x}$ corresponds to element $s_{\widetilde x} \in \mathscr  S^{\left(\sX, \left\{A_x\right\}, \sF \right)}\left( p\left(\widetilde \sV_x\right)\right)$. From the Exercise  !!!!CHECK \ref{top_prod_exer} it follows that $s_{\widetilde x}$ corresponds to a {continuous (with respect to $\sF$)} family $\left\{a_y \in A_y \right\}_{y \in p\left(\widetilde \sV_x\right) }$. So if $c_{\widetilde y}: \widetilde A_{\widetilde y}\to A_{p\left(\widetilde y \right) }$ is given by \eqref{top_ct_iso_eqn} 	for any $\widetilde y \in \widetilde \sV_x$  then there is  {continuous (with respect to $\widetilde \sF$)}
@@ -7100,37 +7136,6 @@ Following definition is an analog of the Definition \ref{top_lift_desc_defn}.
 	then from $\left.\left.\widetilde s\right|_{\widetilde \sV_{x'}}\right|_{\widetilde \sV_{x'}\cap \widetilde \sV_{x''} }=\left.\left.\widetilde s\right|_{\widetilde \sV_{x''}}\right|_{\widetilde \sV_{x'}\cap \widetilde \sV_{x''} }$ it follows that $\widetilde a'_{\widetilde y}= \widetilde a''_{\widetilde y}$ for all $\widetilde y \in  \widetilde \sV_{x'}\cap \widetilde \sV_{x''}$. So there is the single family $\left\{\widetilde a_{\widetilde y}  \right\}_{\widetilde y\in \widetilde\sU}$ which is the combination of  {continuous (with respect to $\widetilde \sF$)} families $\left\{\widetilde a_{\widetilde y}  \right\}_{\widetilde y\in \widetilde\sV_{\widetilde x} }$ 
 	The family $\left\{\widetilde a_{\widetilde y}  \right\}_{\widetilde y\in \widetilde\sU}$ is {continuous (with respect to $\widetilde \sF$)} so it corresponds the element of $\mathscr S^{C \left(\widetilde{\sX}, \left\{\widetilde{A}_{\widetilde{x}}\right\}, \widetilde{\sF} \right)}\left(\widetilde\sU \right) $.
 \end{proof}
-
-\begin{exercise}\label{top_prod_exer}
-	Let $R \subset C_0\left(\sX\right)$ be a good !!! SOFTdense *-subalgebra. Suppose that there is $R$-module $A$ such that $A \subset \prod_{x \in \sX} A_x$ where $A_x$ is a Abelian group, and the action of $R$ complies with this direct product. For any open subset $\sU\subset \sX$ denote by 
-	$$
-	A_\sU\bydef \left\{\left.\left\{b_x \right\}\in \prod_{x \in \sU} A_x\right| \exists \left\{a_x \right\}\in \prod_{x \in \sX} A_x \quad \forall x \in \sU \quad b_x =a_x\right\}.
-	$$
-	Prove following statements:
-	\begin{enumerate}
-		\item For any open subset $\sU \subset \sX$ there is a natural isomorphism $A_\sU \cong A/\sim_\sU$.
-		\item If $\sV \subset \sU$ is a open subset then there is a natural projection map
-		$$
-		\rho'_{\sU \sV}:A_\sU \to A_\sV
-		$$
-		is equivalent to the given by \eqref{top_puv_eqn} projection.
-	\end{enumerate}
-\end{exercise}
-\begin{exercise}
-	Consider the situation of the Exercise \ref{top_prod_exer}. Let $p: \widetilde \sX \to \sX$ be a covering. Let $\left( \left\lbrace \widetilde A_{\widetilde x}\right)\right\rbrace_{\widetilde x\in \widetilde \sX}$ be a family of Abelian groups such that for any
-	 $\widetilde x\in \widetilde \sX$ there is an isomorphism $c_{\widetilde x}: A_{p\left(\widetilde x\right)}\cong \widetilde A_{\widetilde x}$. Prove following statements.
-	 \begin{enumerate}
-	 	\item If $\widetilde \sU$ is an open subset of $\widetilde \sX$ then any $\widetilde s \in \left.p^{-1}\mathscr S^A\right._{\widetilde \sU}$ can be represented by a family $\left\{\widetilde a_{\widetilde x}\right\}_{\widetilde x \in \widetilde \sU}$ which satisfies to the following condition. For all $\widetilde x_0\in \widetilde\sU$ there is an open neighborhood $\widetilde \sV$ which is mapped homeomorphically onto $\sV = p\left(\widetilde\sV\right)$ and a section $s \in \mathscr S^A_\sV$ such that 
-	 	$$
-	 \forall \widetilde x \in \widetilde \sV \cap \widetilde \sU \quad  \widetilde a_{\widetilde x} = c_{{\widetilde x}}\left(a_x\right).
-	 	$$
-	 	\item If $p^{-1}_{\mathscr  S^A}: \mathscr  S^A\left( \sX\right)\hookto p^{-1}{\mathscr  S^A}\left(\widetilde{\sX}\right)$ is the given by \eqref{top_cs_sheaf_inc_eqn} injective map then
-	 	\be\label{top_sheaf_lift_eqn}
-	 	 p^{-1}_{\mathscr  S^A}\left(\left\{a_x\right\}_{x\in \sX} \right)=  \left\{c_{p\left( \widetilde x\right) }\left( a_x\right) \right\}_{\widetilde x\in \widetilde \sX} 	 	\ee
-	 \end{enumerate}
- 
-\end{exercise}
-!!! CONTINUE
 
 %\begin{example}\label{top_vb_lift_desc_exm}
 %	If $\left(\sS, \pi, \sX \right)$ is a Hermitian sesquilinear !!! vector bundle then there is a family $\left\{\sS_x\right\}_{x \in \sX}$. From the Lemma \ref{top_bundle_cs_lem} it turns out that  $\Ga\left(\sX, \sS \right) $ is a continuity structure  for $\sX$ {and the} $\left\{\sS_x\right\}$. Moreover one has
