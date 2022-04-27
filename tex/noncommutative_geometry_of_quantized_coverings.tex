@@ -6949,21 +6949,29 @@ Let $R\subset \C_0\left(\sX\right)$ be a dense *-subalgebra. Similarly to the eq
 	\end{enumerate}
 \end{definition}
 \begin{exercise}\label{top_good_r_exer}
+	Let $R \subset C_0\left(\sX\right)$ is a soft *-subalgebra.
 	Prove following statements:
 	\begin{enumerate}
-		\item 
+		\item If $p: \widetilde \sX \to \sX$ is a covering then an intersection $p^{-1}\mathscr S^{R}\left( \widetilde\sX\right) \cap C_0\left(\widetilde \sX\right)$ is a soft *-subalgebra of $C_0\left(\widetilde \sX\right)$.
+		\item If $\sY \subset \sX$ is a compact subset then there is $a \in R \cap C_c\left( \sX\right)$ such that $a\left(\sX \right) = \left[0, 1\right]$ and $a\left(\sY \right) = \{1\}$ (cf. Theorem \ref{sheaf_a_soft_thm}).
+		\item If $p: p: \widetilde \sX \to \sX$ is a covering then for all $\widetilde x \in \widetilde\sX$ there  is $\widetilde f \in C_c\left( \widetilde \sX\right)\cap p^{-1}\mathscr S^{R}\left( \widetilde\sX\right)$ such that following conditions hold:
+		\begin{enumerate}
+			\item[(a)] $\supp \widetilde f$ is mapped homeomorphically onto $p\left(\supp \widetilde f \right)$.
+			\item[(b)] $\widetilde f\left(\sX \right) = \left[0, 1\right]$.
+			\item[(c)] There is an open neighborhood $\widetilde \sU$ of $\widetilde x$ such that $\widetilde f\left(\widetilde \sU \right) = \{1\}$.
+		\end{enumerate}
 	\end{enumerate}
-Prove that if $R \subset C_0\left(\sX\right)$ is a good !!! SOFT*-subalgebra and $p: \widetilde \sX \to \sX$ is a covering then an intersection $p^{-1}\mathscr S^{R}\cap C_0\left(\widetilde \sX\right)$ is a good !!! SOFT*-subalgebra of $C_0\left(\widetilde \sX\right)$.
+
 \end{exercise}
 \begin{exercise}
-If $R\subset C_0\left(\sX \right) $ is a good !!! SOFT*-algebra  and $A \subset Cont\left( \sX\right)$ is an $R$-module then one has
+If $R\subset C_0\left(\sX \right) $ is a soft *-algebra  and $A \subset Cont\left( \sX\right)$ is an $R$-module then one has
 \be\label{top_cont_sha_eqn}
 \mathscr S^{A}	=  \mathscr S^{\left(C_c\left( \sX\right)\cap R\right)A }.
 \ee 
 \end{exercise}
-\begin{example}
-If $M$ is a smooth manifold then using the Proposition \ref{top_smooth_part_unity_prop} one can proof that $\Coo_0\left(M\right)\bydef \Coo_0\left(M\right)\cap C_0\left(M\right)\subset C_0\left(M\right)$ is a good !!! SOFT*-algebra.
-\end{example}
+\begin{exercise}
+If $M$ is a smooth manifold then using the Proposition \ref{top_smooth_part_unity_prop} one can proof that $\Coo_0\left(M\right)\bydef \Coo_0\left(M\right)\cap C_0\left(M\right)\subset C_0\left(M\right)$ is a soft *-algebra.
+\end{exercise}
 \subsection{Inverse images lift and descent}
 \paragraph*{}
 If we consider the situation of the Definition \ref{sheaf_inv_im_defn} then the {inverse image} \ref{top_x_sheaf_defn} $f^{-1}\mathscr G$ on $\sX$ is the sheaf  associated to the presheaf  $\sU \mapsto \lim_{\sV \supseteq f\left(\sU\right)} \mathscr G\left(\sV\right)$, where $\sU$ is any open set in $\sX$, and the limit is taken over all open sets $\sV$ of $\sX$ containing $f\left(\sU\right)$. If the map $f$ is surjective then one has  $\lim_{\sV \supseteq f\left(\sX\right)} \mathscr G\left(\sV\right)\cong \mathscr  G\left(\sX\right)$ it follows that there is the injective homomorphism 
@@ -24971,7 +24979,7 @@ Following text is an English translation of the above theorem
 Soit $\mathscr{ A}$ un faisceau d'anneaux avec unité sur un espace paracompact $\sX$. Pour que $\mathscr{ A}$ soit mou, il faut et il suffit que tout point de $\sX$ possède un  voisinage $\sU$ tel que, 	étant donnés des fermé disjoints $S,T \subset \sU$, il existe une section de $\mathscr{ A}$ au-dessus de $\sU$, égale à 1 sur $S$ et à 0 sur $T$.
 \end{thm}
 Following text is an English translation of the above theorem.
-\begin{theorem}
+\begin{theorem}\label{sheaf_a_soft_thm}
 Let $\mathscr{ A}$ be a sheaf of unital algebras on a paracompact apace $\sX$. The sheaf $\mathscr{ A}$ is soft if and only if any $x\in\sX$ have a neighborhood $\sU$ such that for any closed sets $S, T\subset \sU$ one has
 \bean
 S\cap T = \emptyset \quad \Rightarrow \quad \exists s \in \mathscr{ A}\left( \sU\right) \quad s|_S = 1\quad \mathrm{AND} \quad \quad s|_T = 0.
