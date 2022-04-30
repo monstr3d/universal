@@ -663,7 +663,7 @@ The Chapter \ref{blowing_chap} is devoted  to the construction of the  Hausdorff
 \paragraph*{}
 In the Chapter \ref{h_gr_chap} we consider the quantization of homotopy groups explained in \cite{spanier:at,switzer:at}. It is proven that homotopy groups can be calculated by purely algebraic methods. 
 \paragraph*{}
-In the Chapter \ref{stab_chap} it is proven that properties of noncommutative coverings are stably invariant. 
+In the Chapter \ref{stab_chap} it is proven that some properties of noncommutative coverings are stably invariant. 
 %\paragraph*{}
 %In the Chapter \ref{stab_chap} we prove that if *-homomorphism $A \hookto \widetilde{A}$ of $C^*$-algebras is a "noncommutative covering" then both natural *-homomorphisms  $A \otimes \mathbb{M}_n\left(\C \right)  \hookto \widetilde{A} \otimes \mathbb{M}_n\left(\C \right)$ and $A \otimes \K\left(\ell^2\left( \N \right)\right)  \hookto \widetilde{A}\otimes \K\left(\ell^2\left( \N \right)\right)$ are "noncommutative coverings".
 
@@ -674,7 +674,7 @@ In the Chapter \ref{stab_chap} it is proven that properties of noncommutative co
 %\paragraph*{} In the  Chapter \ref{vf_chap} the coverings of spaces of vector fields are being discussed. Sections of vector fields of Hilbert spaces have the natural structure of operator spaces. Application of the results of the Chapters \ref{cov_fin_chap}  and \ref{cov_inf_chap} yield finite-fold and infinite noncommutative coverings of these spaces.
 
 \paragraph*{} In the Chapter \ref{foliations_chap} we consider noncommutative finite-fold and infinite coverings of foliations.
-
+!!! 11
 
 \paragraph*{} The Chapter \ref{nt_chap} is devoted to noncommutative coverings of noncommutative tori. 
 
@@ -852,7 +852,7 @@ Using the Theorem \ref{ideal_spectrum_thm} prove that there is a natural one-to-
 \end{definition}
 
 \begin{remark}
-	The Definition \ref{inductive_lim_non_defn} is a generalization of the Definition \ref{inductive_lim_defn}. There are  evident generalizations of the Theorem \ref{inductive_lim_thm} and the Proposition  \ref{inductive_lim_prop}.
+	The Definition \ref{inductive_lim_non_defn} is a generalization of the Definition \ref{inductive_lim_defn}. There are  described below generalizations of the Theorem \ref{inductive_lim_thm} and the Proposition  \ref{inductive_lim_prop}.
 \end{remark}
 \begin{lemma}\label{state_un_lem}
 	If $A^+$ is the minimal unitization of a nonunital $C^*$-algebra $A$ and $\Om_A$, $\Om_{A^+}$ are state spaces of $A$ and  $A^+$ respectively then one has
@@ -877,25 +877,25 @@ Prove a related to nonunital commutative $C^*$-algebras generalization of the Co
 
 
 \section{Ext-functor and characters}\label{ext_char_sec}
+\paragraph*{}
+Let $A \bydef \Z^n /\Gamma$ be a finite Abelian group where $\Gamma\subset \Z^n \subset \Q^n$. It is known that
+$$
+\Ext\left( A, \Z\right) = \Hom \left(\Ga, \Z\right)/ \Hom \left(\Z^n, \Z \right).
+$$
+Any $\phi \in  \Hom \left(\Ga, \Z\right)$ can be uniquely extended up to $\psi \in \Hom \left(\Q^n, \Q\right)$. One has a character 
+\bean
+\varphi : \Q^n \to e^{\frac{i\Q}{2\pi}},\\
+x \mapsto e^{\frac{i\psi\left(x \right) }{2\pi}}.
+\eean
+The restriction $\varphi|_{\Z^n}: \Z^n \to e^{\frac{i\Q}{2\pi}}$ is a character on $\Z^n$. From $\psi\left( \Ga \right) \in \Z$ is turns out that $\varphi|_{\Z^n}\left(\Ga\right)=\{1\}$, this circumstance yields a character $\chi : \Z^n/\Ga \to e^{\frac{i\Q}{2\pi}}$. The reader can prove that $\chi$ does not depend on a representative $\phi$ is a quotient group  $\Hom \left(\Ga, \Z\right)/ \Hom \left(\Z^n, \Z \right)$.
 
-Let $A \bydef \Gamma / \Z^n$ be a finite Abelian group where $\Gamma\subset \Z^n \subset \Q^n$. It is known that
-$$
-\Ext\left( A, \Z\right) = \ker \left( \Hom \left(\Z^n, \Z \right)\to \Hom \left(\Ga, \Z\right)\right).
-$$
-There is a dual lattice $\Gamma^\vee\in \Q^n$ such that $\left(x^\vee, x \right)\in \Z$ for every $x \in \Ga$ and $x^\vee\in \Ga^\vee$. Any $\left[ f\right]  \in \Ext\left( A, \Z\right)$ represented by $f : \Z^n\to \Z$ yields a dual map
-$f^\vee:\Z \to \Ga^\vee$ such that
-$$
-\left(f^\vee\left( x^\vee\right) , x \right)= \left( x^\vee , f\left( x\right)  \right) \quad \forall  x \in \Ga\quad \forall x^\vee\in \Ga^\vee.
-$$
-If $\left[  f^\vee\right]= f^\vee + \Hom\left(\Z, \Z^n\right)$ is a represented by of $f^\vee$ in 
-$$
-  \Hom\left(\Z, \Ga^\vee \right) /  \Hom\left(\Z, \Z^n\right)\cong \Ga^\vee/\Z^n
-$$
-then $\left[  f^\vee\right]$ does not depend on choice of representative of $\left[  f\right] = f + \Hom \left(\Ga, \Z\right)$.
-Taking into account that $\Z^n/\Ga^\vee$ is naturally isomorphic to a group of characters of $A$  one concludes that $\Ext\left(A, \Z \right)$ is naturally isomorphic to a group of characters of $A$.  
-
-
-
+Conversely a character $\chi : \Z^n/\Ga \to e^{\frac{i\Q}{2\pi}}$ naturally yields a character $\th : \Z^n \to e^{\frac{i\Q}{2\pi}}$. Let $\left(e_1, ,,, e_n\right)\subset \Z^n$ be generators of $\Z^n$ and for any $j = 1, ..., n$ we select $\xi_j \in \Q$ such that $\chi\left(e_j\right)=e^{\frac{i\xi_j}{2\pi}}$. Define 
+\bean 
+\varphi: \Z^n \to \Q;\\
+\forall\left(a_1, ..., a_n\right)\in \Z^n\quad \varphi \left( a_1e_1 + ... + a_1e_n\right)  = a_1\xi_1 + ... + a_1\xi_n
+\eean 
+From $\chi\left(\Ga\right)= \{1\}$ it follows that $\varphi\left( \Ga\right) = \Z$ i.e. $\varphi|_\Ga\in \Hom\left(\Ga, \Z \right)$.
+The reader can proof that the class  $\varphi|_\Ga + \Hom \left(\Z^n, \Z \right)\in \Hom \left(\Ga, \Z \right)/\Hom \left(\Z^n, \Z \right)$ does not depend on choice of $\xi_1, ..., \xi_n$. Thus  one concludes that $\Ext\left(A, \Z \right)$ is naturally isomorphic to a group of characters of $A= \Z^n/\Ga$.  
 \section{Inclusions of some $C^*$-algebras}
 \paragraph{}
 Let 
@@ -1338,7 +1338,7 @@ If $A \neq \phi\left(B_1\oplus \{0\}  \right) \oplus \phi\left(\{0\} \oplus B_2 
 	The Lemma \ref{connected_analog_lem} is an algebraical analog of that any connected component of the topological space is mapped into a connected component.
 \end{remark}
 \begin{corollary}\label{connected_analog_cor}
-	Let $A$, $B_1$, $B_2$ be $C^*$-algebras. If  $\phi: B_1\oplus B_2 \to A$ is a surjective *-homomorphism and $A$ is not a direct sum of more than one nontrivial algebras then $\phi\left(B_1 \oplus \{0\}\right)=\{0\}$ or $\phi\left(\{0\} \oplus B_2 \right)=\{0\}$.
+	Let $A$, $B_1$, $B_2$ be $C^*$-algebras. If  $\phi: B_1\oplus B_2 \to A$ is a surjective *-homomorphism and $A$ is connected (cf. Definition \ref{conn_c_a_defn}) then $\phi\left(B_1 \oplus \{0\}\right)=\{0\}$ or $\phi\left(\{0\} \oplus B_2 \right)=\{0\}$.
 \end{corollary}
 
 
@@ -1628,7 +1628,7 @@ If 	the $C^*$-algebra $\widetilde A$ is connected (cf. Definition \ref{conn_c_a_
 	\end{enumerate}
 	If 	the $C^*$-algebra $\widetilde A$ is connected (cf. Definition \ref{conn_c_a_defn}) then $\left(A, \widetilde{A}, G, \pi \right)$  is said to be   a \textit{(connected) noncommutative finite-fold weak covering} or simply a \textit{noncommutative finite-fold weak covering}.
 \end{definition}
-
+!!! CONTINUE
 
 \begin{definition}\label{almost_trivial_defn}
  A  disconnected noncommutative finite-fold covering \\$\left(A, \widetilde{A}, G, \pi \right)$  of $C^*$-algebra $A$ is said to be \textit{almost trivial} if there is a $C^*$-subalgebra $\widetilde A'\subset \widetilde A$ such that
@@ -6281,11 +6281,9 @@ Following lemma is a direct consequence of the Lemma \ref{top_lift_lem} and the 
 	\end{enumerate}
 	
 \end{lemma}
-
-
-
-
-
+\begin{remark}\label{top_top_lift_rem}
+Sometimes we write $\lift_p^{\text{top}}$ instead of $\lift_p$ for distinguishing  this lift with the given by the sheaf theory one (cf. equation  \eqref{comm_sh_lift_desc_l_eqn}
+\end{remark}
 The following Lemma is evident.
 \begin{lemma}\label{top_lift_bounded_lem}
 	For any $a \in C_b\left(\sX, \left\{A_x\right\}, \sF \right)$ one has
@@ -6916,7 +6914,11 @@ $$
 \section{Sheaves lift and descent}
 
 \subsection{Modules and sheaves}
-	Let $\sX$ be a locally compact,  Hausdorff space, and let $R \subset C_0\left(\sX\right)$ be a dense *-subalgebra. For any $R$-module $A$ and every open subset $\sU$ we define  an equivalence relation $\sim_\sU$ (cf. Definition \ref{equiv_rel_defn}) on $A$ such that
+	Let $\sX$ be a locally compact,  Hausdorff space, and let $R \subset C_0\left(\sX\right)$ be a dense *-subalgebra. Let $A$ be a left $R$-module such that
+	$$
+\forall a \in A \quad a = 0 \quad \Leftrightarrow \quad \left\{r \in R | ra = 0\right\}	= \{0\}.
+	$$
+	For  every open subset $\sU$ we define  an equivalence relation $\sim_\sU$ (cf. Definition \ref{equiv_rel_defn}) on $A$ such that
 \be\label{top_sheaf_e_eqn}
 	a' \sim_\sU a'' \quad \Leftrightarrow\quad \left( \forall r \in R \quad \supp r \subset \sU \quad \Rightarrow\quad ra' = r a''\right). 
 \ee
@@ -7006,18 +7008,18 @@ then one has
 
 \end{exercise}
 \begin{definition}\label{top_sheaf_lift_defn}
-In the situation of the Exercise  \ref{top_sheaf_lift_exer} we say that $\widetilde{\xi}$ is the $p$-lift of $\xi$. We also use the following notation
-\be
+In the situation of the Exercise  \ref{top_sheaf_lift_exer} we say that $\widetilde{\xi}$ is the $p$-\textit{lift} of $\xi$. We also use the following notation
+\be\label{top_sheaf_lift_eqn}
 \begin{split}
 	\widetilde{\xi} = \lift_p\left( \xi\right) ,\\
 \lift_p:\mathscr  F\left(\sX\right)\hookto p^{-1}\mathscr  F\left(\widetilde \sX\right)	
 \end{split}
 \ee
 \end{definition}
-\begin{remark}
-Above definition is inspired by  an analogy between equations \eqref{top_shaf_cx_eqn} and
-	\eqref{comm_lift_eqn} (cf. Definition \ref{top_lift_desc_defn}).
-\end{remark}
+\begin{remark}\label{top_sheaf_lift_rem}
+		Sometimes we write $\lift_p^{\text{sheaf}}$ for distinguishing  this lift with the given by  \eqref{top_glo_lift_h_eqn} one.
+	\end{remark}
+
 Following definition is an analog of the Definition \ref{top_lift_desc_defn}.
 \begin{definition}\label{top_lift_sh_desc_defn}
 	Let $\mathscr F$ 	be a sheaf on  $\sX$ (cf. Definition \ref{sheaf_defn}), and let $p: \widetilde{\sX}\to\sX$ be a covering. Let $\widetilde{\sU}$ be an open subset such that the restriction $\left.p\right|_{\widetilde{\sU}}$ is injective. Let $\sU\bydef p\left( \widetilde{\sU}\right)$. If $a \in\mathscr F\left(\sX\right)$ is such that $\supp a \subset \sU$ and $\widetilde{a}'= \lift_p\left( a\right)$. Suppose that $\widetilde{a}'$ is represented by a continuous section $\widetilde s' : \widetilde\sX \to \mathrm{Sp\acute{e}}\left(p^{-1}\mathscr F \right)$ (cf. Exercise \ref{sheaf_etale_exer}). There is a continuous section $\widetilde s : \widetilde\sX \to \mathrm{Sp\acute{e}}\left(p^{-1}\mathscr F \right)$ such that
@@ -7056,7 +7058,7 @@ Following definition is an analog of the Definition \ref{top_lift_desc_defn}.
 		\end{split}
 	\end{equation}	
 \end{remark}
-\subsection{Further topics}
+\subsection{Sheaves and continuity structures}
 \begin{empt}
 	Let $\sX$ be a locally compact,  Hausdorff space.	
 	If $\sF$ is a continuity structure  for  $\sX$ {and the} $\left\{A_x\right\}_{x \in \sX}$(cf. Definition \ref{op_fields_defn}) then from the Lemma \ref{op_cont_module_lem} one has following $C_0\left(\sX \right)$-modules
@@ -7077,6 +7079,97 @@ C_c\left({\sX}, \left\{{A}_{{x}}\right\}, {\sF}\right).
 		\eea 
 where the notation of the Definition \ref{top_x_sheaf_defn} is used.
 \end{empt}
+	 
+\begin{lemma}\label{top_sheaf_lift_lem}
+	
+	Let $\sX$ be a locally compact,  Hausdorff space.
+	Let  $\sF$ be a continuity structure  for  $\sX$ {and the} $\left\{A_x\right\}_{x \in \sX}$. If $p: \widetilde{\sX} \to \sX$ is  a covering and 
+	$$
+	C\left(\widetilde{\sX}, \left\{\widetilde{A}_{\widetilde{x}}\right\},~ \widetilde{\sF} \right) = \lift_p\left[ C\left(\sX, \left\{A_x\right\}, ~\sF \right) \right]
+	$$
+	is the $p$-lift of $C\left(\sX, \left\{A_x\right\}, ~\sF \right)$ (cf. Definition \ref{top_cont_lift_defn}) then the ${C\left(\widetilde{\sX}, \left\{\widetilde{A}_{\widetilde{x}}\right\},~ \widetilde{\sF} \right)}$-sheaf $\mathscr S^{C\left(\widetilde{\sX}, \left\{\widetilde{A}_{\widetilde{x}}\right\},~ \widetilde{\sF} \right)}$ (cf. Definition \ref{top_x_sheaf_defn}) is the $p$-inverse image (cf. Definition \ref{sheaf_inv_im_defn}) of the ${C\left({\sX}, \left\{{A}_{{x}}\right\}, ~{\sF} \right)}$-sheaf $\mathscr S^{C\left({\sX}, \left\{{A}_{{x}}\right\}, ~{\sF} \right)}$   i.e.
+	$$
+	\mathscr S^{C\left(\widetilde{\sX}, \left\{\widetilde{A}_{\widetilde{x}}\right\}, \widetilde{\sF} \right)}= p^{-1}\mathscr S^{C\left({\sX}, \left\{{A}_{{x}}\right\}, {\sF} \right)}.
+	$$
+\end{lemma}
+\begin{proof}
+	From the Definition \ref{sheaf_inv_im_defn} it follows that $p^{-1}\left( \mathscr  C\left(\sX, \left\{A_x\right\}, \sF \right)\right)$ is associated to the presheaf  $\mathscr  G$ given by $\widetilde \sU \mapsto \lim_{\sU\supseteq p\left(\widetilde \sU\right)} \mathscr  S^{\left(\sX, \left\{A_x\right\}, \sF \right)}\left( \sU\right) $, where $\widetilde \sU$ is any open set in $\widetilde \sX$, and the limit is taken over all open sets $\sU$ of $\sX$ containing $p\left(\widetilde \sU\right)$. In particular if $\widetilde \sU$ is homeomorphically mapped onto $p\left(\widetilde \sU\right)$ then $\mathscr  G\left( \widetilde \sU\right)\cong \mathscr  S^{\left(\sX, \left\{A_x\right\}, \sF \right)}\left(p\left(\widetilde \sU\right) \right)$. Let $\widetilde s \in p^{-1}\mathscr  S^{\left(\sX, \left\{A_x\right\}, \sF \right)}\left(\widetilde \sU \right) $.
+	From (2) of \ref{sheaf_empt} it follows that   for any $\widetilde x \in \widetilde\sU$ there is an open neighborhood  $\widetilde\sV$ of $\widetilde x$ such that $\widetilde\sV \subset \widetilde\sU$ and the element $\widetilde t \in \mathscr  S^{\left(\sX, \left\{A_x\right\}, \sF \right)}$ such that  for all $\widetilde y \in \widetilde\sV$ the germ $\widetilde t_{\widetilde y}$ of $\widetilde t$ at $\widetilde y$ is equal to $\widetilde s\left(\widetilde y\right)$. For any $\widetilde x$ we select an  neighborhood $\widetilde\sV_{\widetilde x}$ of $\widetilde x$ such that   $\widetilde\sV_{\widetilde x}$ satisfies to (2) of \ref{sheaf_empt} and $\widetilde \sV_{\widetilde x}$ is homeomorphically mapped onto $p\left(\widetilde \sV_{\widetilde x}\right)$. From  $\mathscr  G\left( \widetilde \sV_x\right)\cong \mathscr  S^{\left(\sX, \left\{A_x\right\}, \sF \right)}\left(p\left(\widetilde \sV_x\right) \right)$ it follows that the restriction $\left.\widetilde s\right|_{\widetilde \sV_x}$ corresponds to element $s_{\widetilde x} \in \mathscr  S^{\left(\sX, \left\{A_x\right\}, \sF \right)}\left( p\left(\widetilde \sV_x\right)\right)$. From the Exercise  !!!!CHECK \ref{top_prod_exer} it follows that $s_{\widetilde x}$ corresponds to a {continuous (with respect to $\sF$)} family $\left\{a_y \in A_y \right\}_{y \in p\left(\widetilde \sV_x\right) }$. So if $c_{\widetilde y}: \widetilde A_{\widetilde y}\to A_{p\left(\widetilde y \right) }$ is given by \eqref{top_ct_iso_eqn} 	for any $\widetilde y \in \widetilde \sV_x$  then there is  {continuous (with respect to $\widetilde \sF$)}
+	family $\left\{\widetilde a_{\widetilde y} = c^{-1}\left(a_{p\left( \widetilde y\right) } \right)  \right\}_{\widetilde y\in \widetilde\sV_{\widetilde x} }$. Let $ \widetilde x',  \widetilde x'' \in  \widetilde\sU$. If both  $\left\{\widetilde a'_{\widetilde y'}  \right\}_{\widetilde y'\in \widetilde\sV_{\widetilde x'} }$  and  $\left\{\widetilde a''_{\widetilde y''}  \right\}_{\widetilde y''\in \widetilde\sV_{\widetilde x''} }$ are families corresponding to both $\left.\widetilde s\right|_{\widetilde \sV_{x'}}$ and $\left.\widetilde s\right|_{\widetilde \sV_{x''}}$ 
+	then from $\left.\left.\widetilde s\right|_{\widetilde \sV_{x'}}\right|_{\widetilde \sV_{x'}\cap \widetilde \sV_{x''} }=\left.\left.\widetilde s\right|_{\widetilde \sV_{x''}}\right|_{\widetilde \sV_{x'}\cap \widetilde \sV_{x''} }$ it follows that $\widetilde a'_{\widetilde y}= \widetilde a''_{\widetilde y}$ for all $\widetilde y \in  \widetilde \sV_{x'}\cap \widetilde \sV_{x''}$. So there is the single family $\left\{\widetilde a_{\widetilde y}  \right\}_{\widetilde y\in \widetilde\sU}$ which is the combination of  {continuous (with respect to $\widetilde \sF$)} families $\left\{\widetilde a_{\widetilde y}  \right\}_{\widetilde y\in \widetilde\sV_{\widetilde x} }$ 
+	The family $\left\{\widetilde a_{\widetilde y}  \right\}_{\widetilde y\in \widetilde\sU}$ is {continuous (with respect to $\widetilde \sF$)} so it corresponds the element of $\mathscr S^{C \left(\widetilde{\sX}, \left\{\widetilde{A}_{\widetilde{x}}\right\}, \widetilde{\sF} \right)}\left(\widetilde\sU \right) $.
+\end{proof}
+\begin{exercise}\label{top_top_shift_iso_exer}
+	In the situation of the Lemma \ref{top_sheaf_lift_lem} one has
+	isomorphisms
+	\be\label{top_sh_cong_eqn}
+	\begin{split}
+			\mathscr S^{C\left({\sX}, \left\{{A}_{{x}}\right\}, {\sF}\right)}\left(\sX\right)\cong  	C\left({\sX}, \left\{{A}_{{x}}\right\}, {\sF}\right),	\\	
+\mathscr S^{C\left({\widetilde \sX}, \left\{{\widetilde A}_{{\widetilde x}}\right\}, {\widetilde \sF}\right)}\left(\widetilde \sX\right)\cong  	C\left({\widetilde\sX}, \left\{{A}_{{\widetilde x}}\right\}, {\widetilde\sF}\right),		
+	\end{split}
+	\ee
+	(cf. \eqref{top_cont_shc_eqn}). On the other hand the   equations \eqref{top_glo_lift_h_eqn} and   \eqref{top_cs_sheaf_inc_eqn} yield injective $\C$-linear maps
+	\bean
+	\lift_p^{\text{sheaf}}: \mathscr S^{C\left({\sX}, \left\{{A}_{{x}}\right\}, {\sF}\right)}\left(\sX\right) \hookto\mathscr S^{C\left({\widetilde \sX}, \left\{{\widetilde A}_{{\widetilde x}}\right\}, {\widetilde \sF}\right)}\left(\widetilde \sX\right),\\
+\lift_p^{\text{top}}:	C\left({\sX}, \left\{{A}_{{x}}\right\}, {\sF}\right)\hookto C\left({\widetilde\sX}, \left\{{A}_{{\widetilde x}}\right\}, {\widetilde\sF}\right)
+	\eean
+	(cf. Remarks \ref{top_top_lift_rem}, \ref{top_sheaf_lift_rem}).
+Prove that the following diagram
+	\newline
+\begin{tikzpicture}
+	\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
+	{
+	\mathscr S^{C\left({\sX}, \left\{{A}_{{x}}\right\}, {\sF}\right)}\left(\sX\right)  & C\left({\sX}, \left\{{A}_{{x}}\right\}, {\sF}\right) \\		
+p^{-1}\mathscr S^{C\left({\sX}, \left\{{A}_{{x}}\right\}, {\sF}\right)}\left(\sX\right)=	\mathscr S^{C\left({\widetilde \sX}, \left\{{\widetilde A}_{{\widetilde x}}\right\}, {\widetilde \sF}\right)}\left(\widetilde \sX\right)	&  C\left({\widetilde\sX}, \left\{{A}_{{\widetilde x}}\right\}, {\widetilde\sF}\right) \\};
+	\path[-stealth]
+	(m-1-1) edge node [above] {$\cong$} (m-1-2)
+	(m-2-1) edge node [above]  {$\cong$} (m-2-2)
+	(m-1-1) edge node [right] {$\lift_p^{\text{shift}}$} (m-2-1)
+	(m-1-2) edge node [right] {$\lift_p^{\text{top}}$} (m-2-2);
+	%\draw[dashed,->]   (m-1-1) -- (m-1-3);
+\end{tikzpicture}
+\\
+\end{exercise}
+\begin{exercise}
+In the situation of the Exercise \ref{top_top_shift_iso_exer} suppose that the space $\sX$ is paracompact (cf. Definition \ref{top_paracompact_defn}). Let $R \subset C_0\left(\sX\right)$ be a soft *-subalgebra, and let $A \subset 	\mathscr S^{C\left({\sX}, \left\{{A}_{{x}}\right\}, {\sF}\right)}\left(\sX\right)$ be an $R$-submodule. If $\mathscr S^{A}$ is $A$-sheaf (cf. Definition \ref{top_x_sheaf_defn}), then from \eqref{top_sh_cong_eqn} one has  natural inclusions
+\bean
+\mathscr S^{A}\left(\sX\right) \subset \mathscr S^{C\left({\sX}, \left\{{A}_{{x}}\right\}, {\sF}\right)}\left(\sX\right),\\
+p^{-1}\mathscr S^{A}\left(\widetilde\sX\right) \subset  C\left({\widetilde\sX}, \left\{{A}_{{\widetilde x}}\right\}, {\widetilde\sF}\right).\\
+\eean 
+Using above inclusions prove following statements:
+\begin{enumerate}
+	\item The given by the equation \eqref{top_sheaf_lift_eqn} map $$
+	\lift_p \bydef \lift_p^{\text{sheaf}}:\mathscr S^{A}\left(\sX\right)\to p^{-1}\mathscr S^{A}\left(\widetilde\sX\right)$$
+	(cf. Remark \ref{top_sheaf_lift_rem}) can be regarded as the restriction of the given by \eqref{top_glo_lift_h_eqn} map
+	$$
+\lift_p^{\text{top}}:	C\left({\sX}, \left\{{A}_{{x}}\right\}, {\sF}\right)\hookto C\left({\widetilde\sX}, \left\{{A}_{{\widetilde x}}\right\}, {\widetilde\sF}\right),
+$$	
+(cf. Remark \ref{top_top_lift_rem})  
+	i.e. $\lift_p^{\text{sheaf}}= \left. \lift_p^{\text{top}}\right|_{\mathscr S^{A}\left(\sX\right)}$.
+	\item The given by the Definition \ref{top_lift_sh_desc_defn} $ \lift^p_{\widetilde{\sU}}$ and $\desc_{p}$ can be regarded as restrictions of the given by the Definition \ref{top_lift_desc_defn} maps $ \lift^p_{\widetilde{\sU}}$ and $\desc_{p}$.
+\end{enumerate}
+\end{exercise}
+
+\begin{remark}
+	Henceforth we will use the unique notation $\lift^p$ for both $\lift_p^{\text{top}}$ and $\lift_p^{\text{sheaf}}$. Similarly the unique notation  
+	$ \lift^p_{\widetilde{\sU}}$ and $\desc_{p}$ will be used for objects given by the Definitions \ref{top_lift_sh_desc_defn} and \ref{top_lift_desc_defn}. 
+\end{remark}
+
+\paragraph{title}
+
+\begin{definition}\label{top_lift_defn!}
+	Let $\sF$  be a	continuity structure for $\sX$ {and the} $\left\{A_x\right\}_{x \in \sX}$, let $p: \widetilde{\sX} \to \sX$ be a covering. For any $a \in C\left(\sX, \left\{A_x\right\}, \sF \right)$ we define 
+	the family 
+	\be\label{comm_lift_eqn}
+	\left\{\widetilde{a}_{\widetilde{x}}=c^{-1}_{\widetilde{x}}\left(a_{p\left( \widetilde{x}\right) } \right)\in\widetilde{A}_{\widetilde{x}} \right\}_{\widetilde{x}\in\widetilde{\sX}}
+	\ee
+	is said to be the  $p$-\textit{lift} of $a$ and we write 
+	\be\label{comm_lift_d_eqn}
+	\left\{\widetilde{a}_{\widetilde{x}}\right\}\bydef \lift_p\left( a\right) .
+	\ee
+\end{definition}
+\
+\paragraph{title}
 !!! CONTINUE
 	
 	\begin{exercise}\label{top_prod_exer}
@@ -7103,39 +7196,12 @@ where the notation of the Definition \ref{top_x_sheaf_defn} is used.
 			\forall \widetilde x \in \widetilde \sV \cap \widetilde \sU \quad  \widetilde a_{\widetilde x} = c_{{\widetilde x}}\left(a_x\right).
 			$$
 			\item If $p^{-1}_{\mathscr  S^A}: \mathscr  S^A\left( \sX\right)\hookto p^{-1}{\mathscr  S^A}\left(\widetilde{\sX}\right)$ is the given by \eqref{top_cs_sheaf_inc_eqn} injective map then
-			\be\label{top_sheaf_lift_eqn}
+			\be\label{top_sheaf_lift_add_eqn}
 			p^{-1}_{\mathscr  S^A}\left(\left\{a_x\right\}_{x\in \sX} \right)=  \left\{c_{p\left( \widetilde x\right) }\left( a_x\right) \right\}_{\widetilde x\in \widetilde \sX} 	 	\ee
 		\end{enumerate}
 		
 	\end{exercise}
 	
-	 
-\begin{lemma}\label{top_sheaf_lift_lem}
-	
-	Let $\sX$ be a locally compact,  Hausdorff space.
-	Let  $\sF$ be a continuity structure  for  $\sX$ {and the} $\left\{A_x\right\}_{x \in \sX}$. Let $p: \widetilde{\sX} \to \sX$ be  a covering and 
-	$$
-	C\left(\widetilde{\sX}, \left\{\widetilde{A}_{\widetilde{x}}\right\},~ \widetilde{\sF} \right) = \lift_p\left[ C\left(\sX, \left\{A_x\right\}, ~\sF \right) \right]
-	$$
-	is the $p$-lift of $C\left(\sX, \left\{A_x\right\}, ~\sF \right)$ (cf. Definition \ref{top_cont_lift_defn}) then the ${C\left(\widetilde{\sX}, \left\{\widetilde{A}_{\widetilde{x}}\right\},~ \widetilde{\sF} \right)}$-sheaf $\mathscr S^{C\left(\widetilde{\sX}, \left\{\widetilde{A}_{\widetilde{x}}\right\},~ \widetilde{\sF} \right)}$ (cf. Definition \ref{top_x_sheaf_defn}) is the $p$-inverse image (cf. Definition \ref{sheaf_inv_im_defn}) of the ${C\left({\sX}, \left\{{A}_{{x}}\right\}, ~{\sF} \right)}$-sheaf $\mathscr S^{C\left({\sX}, \left\{{A}_{{x}}\right\}, ~{\sF} \right)}$   i.e.
-	$$
-\mathscr S^{C\left(\widetilde{\sX}, \left\{\widetilde{A}_{\widetilde{x}}\right\}, \widetilde{\sF} \right)}= p^{-1}\mathscr S^{C\left({\sX}, \left\{{A}_{{x}}\right\}, {\sF} \right)}.
-	$$
-\end{lemma}
-\begin{empt}
-	Let $\sX$ be a locally compact,  Hausdorff space.	
-If $\sF$ is a continuity structure  for  $\sX$ {and the} $\left\{A_x\right\}_{x \in \sX}$ (cf. Definition \ref{op_fields_defn}) then from the Lemma \ref{op_cont_module_lem} one has the given by \eqref{op_cont_module_eqn} $C_0\left(\sX \right)$-modules. Suppose that the space $\sX$ is 
-
-!!! CONTINUE
-
-\end{empt}
-\begin{proof}
-	From the Definition \ref{sheaf_inv_im_defn} it follows that $p^{-1}\left( \mathscr  C\left(\sX, \left\{A_x\right\}, \sF \right)\right)$ is associated to the presheaf  $\mathscr  G$ given by $\widetilde \sU \mapsto \lim_{\sU\supseteq p\left(\widetilde \sU\right)} \mathscr  S^{\left(\sX, \left\{A_x\right\}, \sF \right)}\left( \sU\right) $, where $\widetilde \sU$ is any open set in $\widetilde \sX$, and the limit is taken over all open sets $\sU$ of $\sX$ containing $p\left(\widetilde \sU\right)$. In particular if $\widetilde \sU$ is homeomorphically mapped onto $p\left(\widetilde \sU\right)$ then $\mathscr  G\left( \widetilde \sU\right)\cong \mathscr  S^{\left(\sX, \left\{A_x\right\}, \sF \right)}\left(p\left(\widetilde \sU\right) \right)$. Let $\widetilde s \in p^{-1}\mathscr  S^{\left(\sX, \left\{A_x\right\}, \sF \right)}\left(\widetilde \sU \right) $.
-	From (2) of \ref{sheaf_empt} it follows that   for any $\widetilde x \in \widetilde\sU$ there is an open neighborhood  $\widetilde\sV$ of $\widetilde x$ such that $\widetilde\sV \subset \widetilde\sU$ and the element $\widetilde t \in \mathscr  S^{\left(\sX, \left\{A_x\right\}, \sF \right)}$ such that  for all $\widetilde y \in \widetilde\sV$ the germ $\widetilde t_{\widetilde y}$ of $\widetilde t$ at $\widetilde y$ is equal to $\widetilde s\left(\widetilde y\right)$. For any $\widetilde x$ we select an  neighborhood $\widetilde\sV_{\widetilde x}$ of $\widetilde x$ such that   $\widetilde\sV_{\widetilde x}$ satisfies to (2) of \ref{sheaf_empt} and $\widetilde \sV_{\widetilde x}$ is homeomorphically mapped onto $p\left(\widetilde \sV_{\widetilde x}\right)$. From  $\mathscr  G\left( \widetilde \sV_x\right)\cong \mathscr  S^{\left(\sX, \left\{A_x\right\}, \sF \right)}\left(p\left(\widetilde \sV_x\right) \right)$ it follows that the restriction $\left.\widetilde s\right|_{\widetilde \sV_x}$ corresponds to element $s_{\widetilde x} \in \mathscr  S^{\left(\sX, \left\{A_x\right\}, \sF \right)}\left( p\left(\widetilde \sV_x\right)\right)$. From the Exercise  !!!!CHECK \ref{top_prod_exer} it follows that $s_{\widetilde x}$ corresponds to a {continuous (with respect to $\sF$)} family $\left\{a_y \in A_y \right\}_{y \in p\left(\widetilde \sV_x\right) }$. So if $c_{\widetilde y}: \widetilde A_{\widetilde y}\to A_{p\left(\widetilde y \right) }$ is given by \eqref{top_ct_iso_eqn} 	for any $\widetilde y \in \widetilde \sV_x$  then there is  {continuous (with respect to $\widetilde \sF$)}
-	family $\left\{\widetilde a_{\widetilde y} = c^{-1}\left(a_{p\left( \widetilde y\right) } \right)  \right\}_{\widetilde y\in \widetilde\sV_{\widetilde x} }$. Let $ \widetilde x',  \widetilde x'' \in  \widetilde\sU$. If both  $\left\{\widetilde a'_{\widetilde y'}  \right\}_{\widetilde y'\in \widetilde\sV_{\widetilde x'} }$  and  $\left\{\widetilde a''_{\widetilde y''}  \right\}_{\widetilde y''\in \widetilde\sV_{\widetilde x''} }$ are families corresponding to both $\left.\widetilde s\right|_{\widetilde \sV_{x'}}$ and $\left.\widetilde s\right|_{\widetilde \sV_{x''}}$ 
-	then from $\left.\left.\widetilde s\right|_{\widetilde \sV_{x'}}\right|_{\widetilde \sV_{x'}\cap \widetilde \sV_{x''} }=\left.\left.\widetilde s\right|_{\widetilde \sV_{x''}}\right|_{\widetilde \sV_{x'}\cap \widetilde \sV_{x''} }$ it follows that $\widetilde a'_{\widetilde y}= \widetilde a''_{\widetilde y}$ for all $\widetilde y \in  \widetilde \sV_{x'}\cap \widetilde \sV_{x''}$. So there is the single family $\left\{\widetilde a_{\widetilde y}  \right\}_{\widetilde y\in \widetilde\sU}$ which is the combination of  {continuous (with respect to $\widetilde \sF$)} families $\left\{\widetilde a_{\widetilde y}  \right\}_{\widetilde y\in \widetilde\sV_{\widetilde x} }$ 
-	The family $\left\{\widetilde a_{\widetilde y}  \right\}_{\widetilde y\in \widetilde\sU}$ is {continuous (with respect to $\widetilde \sF$)} so it corresponds the element of $\mathscr S^{C \left(\widetilde{\sX}, \left\{\widetilde{A}_{\widetilde{x}}\right\}, \widetilde{\sF} \right)}\left(\widetilde\sU \right) $.
-\end{proof}
 
 %\begin{example}\label{top_vb_lift_desc_exm}
 %	If $\left(\sS, \pi, \sX \right)$ is a Hermitian sesquilinear !!! vector bundle then there is a family $\left\{\sS_x\right\}_{x \in \sX}$. From the Lemma \ref{top_bundle_cs_lem} it turns out that  $\Ga\left(\sX, \sS \right) $ is a continuity structure  for $\sX$ {and the} $\left\{\sS_x\right\}$. Moreover one has
@@ -15956,7 +16022,7 @@ This theorem is a specialization of the Theorem \ref{blowing_main_thm}.
 \section{Infinite coverings of Hausdorff foliation groupoids}
 \paragraph{}
 Here we consider foliation spaces such that all leaves of which are simply connected. From \ref{foli_sc_haus_empt} it turns out that groupoids of such spaces are Hausdorff. The Theorem \ref{foli_main_thm} is rather the existence theorem of the $C^*$-algebra $\overline A_{\widetilde M}$. Below we describe more detail description of this $C^*$-algebra where the foliation groupoid is Hausdorff.
-\subsection{Reduced sheaf !!! DEFN \ref{top_x_sheaf_defn} of the foliation}
+\subsection{Reduced sheaf  of the foliation}
 \begin{empt} \label{foli_sheaf_empt}
 	Let $\sV \subset \G\left(M, \sF  \right)$ be an open subset. For any $x \in M$ denote by
 	\be
@@ -21839,10 +21905,10 @@ $$
 		%Theorem 13.6.2. 
 		If $X_A$ is a countably generated Hilbert $A$-module, then $X_A \oplus \ell^2\left( A\right) \cong \ell^2\left( A\right)$.
 	\end{thm}
-	\begin{lemma}\label{fin_hpro_lem}\cite{wegge_olsen}
+	\begin{theorem}\label{fin_hpro_thm}\cite{wegge_olsen}
+		%	Theorem 15.4.2
 		Let $A$ be a unital C*-algebra. The following conditions 
 		on a right $A$-module $\E$ are equivalent: 
-		%	Theorem 15.4.2
 		\begin{enumerate}
 			\item [(a)] $\E$  is projective and algebraically finitely generated.
 			\item [(b)] $\E$ s isomorphic as a module to a direct summand in $A^n$ for some $n\in N$. 
@@ -21853,7 +21919,7 @@ $$
 		\end{enumerate}
 		In particular, every algebraically finitely generated projective $A$-module can 
 		be endowed with a structure as a Hilbert $A$-module.
-	\end{lemma}
+	\end{theorem}
 	\begin{corollary}\label{fin_hpro_cor}\cite{wegge_olsen}
 		%Corollary 15.4.8. 
 		Any algebraically finitely generated Hilbert module over 
