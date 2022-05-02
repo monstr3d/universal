@@ -1628,8 +1628,6 @@ If 	the $C^*$-algebra $\widetilde A$ is connected (cf. Definition \ref{conn_c_a_
 	\end{enumerate}
 	If 	the $C^*$-algebra $\widetilde A$ is connected (cf. Definition \ref{conn_c_a_defn}) then $\left(A, \widetilde{A}, G, \pi \right)$  is said to be   a \textit{(connected) noncommutative finite-fold weak covering} or simply a \textit{noncommutative finite-fold weak covering}.
 \end{definition}
-!!! CONTINUE
-
 \begin{definition}\label{almost_trivial_defn}
  A  disconnected noncommutative finite-fold covering \\$\left(A, \widetilde{A}, G, \pi \right)$  of $C^*$-algebra $A$ is said to be \textit{almost trivial} if there is a $C^*$-subalgebra $\widetilde A'\subset \widetilde A$ such that
  \begin{enumerate}
@@ -1665,16 +1663,19 @@ If 	the $C^*$-algebra $\widetilde A$ is connected (cf. Definition \ref{conn_c_a_
    \begin{definition}\label{fin_cov_grp_defn}
   The group $G$ is said to be the \textit{finite covering transformation group} (of $\left(A, \widetilde{A},G, \pi\right)$ ) and we use the following notation
   \begin{equation}\label{group_cov_eqn}
-  G\left(\left.\widetilde{A}~~\right|~A \right) \stackrel{\mathrm{def}}{=} G
+  G\left(\left.\widetilde{A}~~\right|~A \right) \stackrel{\mathrm{def}}{=} G.
   \end{equation}
-  where the notation \eqref{rank_one_notation_eqn} is used.
+  
  \end{definition}
+\begin{remark}
+The Definition \ref{fin_cov_grp_defn} and the notation \eqref{group_cov_eqn} are motivated by the Definition \ref{cov_proj_cov_grp_defn}.
+\end{remark}
 
 \begin{lemma}\label{fin_def_lem}
 	In the situation of the Definition \ref{fin_defn}  the union $\cup_{\la \in \La} \widetilde{A}_\la$ is dense in $\widetilde{A}$.
 \end{lemma}
 \begin{proof}
-	If $\eps > 0$ then from the Lemma \ref{ind_qusai_lem} it turns out that for any $\widetilde{a}\in \widetilde{A}$ there is $\la \in \La$ such that
+	If $\eps > 0$ then from the equation \eqref{fin_u_eqn} it turns out that for any $\widetilde{a}\in \widetilde{A}$ there is $\la \in \La$ such that
 	\be\label{aaa_neq_eqn}
 	\left\|\widetilde{a} - u_\la\widetilde{a}u_\la \right\| < \eps.
 	\ee
@@ -1706,7 +1707,7 @@ If 	the $C^*$-algebra $\widetilde A$ is connected (cf. Definition \ref{conn_c_a_
 
 \subsubsection{Coverings of bounded operator $*$-algebras}
 \begin{empt}\label{fin_oa_empt}
-	Let $\left(A, \widetilde{A}', G, \pi \right)$ be  a noncommutative finite-fold  pre-covering of *-algebras (cf. Definition \ref{fin_pre*_defn}). Suppose that both $A$ and $\widetilde{A}'$ are *-subalgebras of $C^*$-algebras. Let both  $B$ and  $\widetilde{B}$ be $C^*$-algebras which are $C^*$-norm completions of $A$ and $\widetilde{A}'$ respectively. Assume that both a *-homomorphism $\pi_B: B \hookto\widetilde B$ and an action $G \times \widetilde{B}\to  \widetilde{B}$ come from $\pi: A \hookto\widetilde A'$ and an action $G \times \widetilde{A}'\to  \widetilde{A}'$. If  $\left(B, \widetilde{B}, G, \pi_B \right)$ is a connected noncommutative finite-fold covering (cf. Definition \ref{fin_defn}). We say that *-algebra  $\widetilde{A}'$ is \textit{admissible}.
+	Let $\left(A, \widetilde{A}', G, \pi \right)$ be  a noncommutative finite-fold  pre-covering of *-algebras (cf. Definition \ref{fin_pre*_defn}). Suppose that both $A$ and $\widetilde{A}'$ are dense *-subalgebras of $C^*$-algebras. Let both  $B$ and  $\widetilde{B}$ be  $C^*$-algebras which are $C^*$-norm completions of $A$ and $\widetilde{A}'$ respectively. Assume that both a *-homomorphism $\pi_B: B \hookto\widetilde B$ and an action $G \times \widetilde{B}\to  \widetilde{B}$ come from $\pi: A \hookto\widetilde A'$ and an action $G \times \widetilde{A}'\to  \widetilde{A}'$. If  $\left(B, \widetilde{B}, G, \pi_B \right)$ is a connected noncommutative finite-fold covering (cf. Definition \ref{fin_defn}). We say that *-algebra  $\widetilde{A}'$ is \textit{admissible}.
 
 \end{empt}
 	\begin{definition}\label{fin_oa_defn}
@@ -1816,8 +1817,8 @@ Consider the situation  \ref{fin_chull_empt}. If following conditions hold:
  	\be\label{s_matr_eqn}
  	S = \sum_{j=1}^{n}\widetilde{a}_j\left\rangle \right\langle\widetilde{a}_j
  	\ee
- 	then $S$ is self-adjoint . From the Corollary 1.1.25  of \cite{jensen_thomsen:kk} it turns out that $S$ is strictly positive. Otherwise $P$ is a finitely generated right $A$-module, so from the Exercise  15.O of \cite{wegge_olsen} it follows that $S$ is invertible. The spectrum of $S$ is contained in 
- 	$\R_+\bydef \left\{x \in \R| x > 0\right\}$, so if $\phi : \R_+ \to \R_+$ is given by $z \mapsto \frac{1}{z}$ then   $T\bydef\phi\left(S \right)\in  \End\left( P\right)_A $. Moreover one has 
+ 	then $S$ is self-adjoint. From the Corollary 1.1.25  of \cite{jensen_thomsen:kk} it turns out that $S$ is strictly positive. Otherwise $P$ is a finitely generated right $A$-module, so from the Exercise  15.O of \cite{wegge_olsen} it follows that $S$ is invertible. The spectrum of $S$ is contained in 
+ 	$\R_\eps\bydef \left\{x \in \R| x > \eps\right\}$ where $\eps > 0$ depends on $S$. So if $\phi : \R \to \R$ is given by $z \mapsto \frac{1}{z}$ then   $T\bydef\phi\left(S \right)\in  \End\left( P\right)_A $. Moreover one has 
  	$$
  	TS = 1_{\End\left( P\right)_A},
  	$$ 
@@ -1830,15 +1831,15 @@ Consider the situation  \ref{fin_chull_empt}. If following conditions hold:
  \end{proof}
  \begin{remark}\label{frame_rem}
  	From the Lemma \ref{frame_lem} and the equation \eqref{finite_hilb_mod_prod_eqn}  it follows that if $ \left(A, \widetilde{A}, G, \pi \right)$ is   an {unital noncommutative finite-fold  quasi-covering} (cf. Definition \ref{fin_uni_defn}) then 
- 	there is a finite subset $$\left\{ \widetilde{a}_1, ..., \widetilde{a}_n, \widetilde{b}_1, ..., \widetilde{b}_n\right\} \subset \widetilde{B}$$ such that
+ 	there is a finite subset $$\left\{ \widetilde{a}_1, ..., \widetilde{a}_n, \widetilde{b}_1, ..., \widetilde{b}_n\right\} \subset \widetilde{A}$$ such that
  	\be\label{frame_rem_eqn}
-\forall \widetilde{b} \in \widetilde{B}\quad \widetilde{a}=	\sum_{j=1}^{n}\widetilde{b}_j\left(  \sum_{g \in G} g\left(\widetilde{a}^*_j\widetilde{b} \right) \right).
+\forall \widetilde{a} \in \widetilde{A}\quad \widetilde{a}=	\sum_{j=1}^{n}\widetilde{b}_j\left(  \sum_{g \in G} g\left(\widetilde{a}^*_j\widetilde{a} \right) \right).
  	\ee
  \end{remark}
  \begin{remark}\label{frame_l_rem}
  	Let $\left(A, \widetilde{A}, G, \pi \right)$ be a {noncommutative finite-fold covering with unitization}. If $\left(B, \widetilde{B}, G, \phi \right)$ is an unital noncommutative finite-fold covering which satisfies to conditions (a), (b) of the Definition \ref{fin_comp_defn} then 	there is a finite subset $$\left\{ \widetilde{a}_1, ..., \widetilde{a}_n, \widetilde{b}_1, ..., \widetilde{b}_n\right\} \subset \widetilde{B}$$ such that
  	\be\nonumber
-\forall \widetilde{b} \in \widetilde{B}\quad \widetilde{a}=	\sum_{j=1}^{n}\widetilde{b}_j\left(  \sum_{g \in G} g\left(\widetilde{a}^*_j\widetilde{b} \right) \right)
+\forall \widetilde{b} \in \widetilde{B}\quad \widetilde{b}=	\sum_{j=1}^{n}\widetilde{b}_j\left(  \sum_{g \in G} g\left(\widetilde{a}^*_j\widetilde{b} \right) \right)
 	\ee
  	(cf.\eqref{frame_rem_eqn}). In particular if $\widetilde{a} \in \widetilde{A}$ then
  	$$
@@ -1914,6 +1915,7 @@ If 	$\widetilde a \in M\left(\widetilde{A} \right)$ and $\widetilde a= \bt\text{
 \begin{definition}\label{hereditary_dir_sum_defn}
 	In the described in \ref{hereditary_dir_sum_empt} situation we say that the equation \eqref{decomp_dir_eqn}  a \textit{direct sum decomposition} of $\left(A, \widetilde{A}, G, \pi \right)$.
 \end{definition}
+!!! CONTINUE
 \begin{lemma}\label{hereditary_dir_sum_lem}
 	Let	$\left(A, \widetilde{A}_1, G_1, \pi_1 \right)$, 		$\left(A, \widetilde{A}_2, G_2, \pi_2 \right)$ be finite-fold noncommutative pre-coverings. Let $B\subset A$ be a  $C^*$-subalgebra such there are $\widetilde{B}_1\subset \widetilde{A}_1$,  $\widetilde{B}_2\subset \widetilde{A}_2$ and direct summand decompositions (cf. Definition \ref{hereditary_dir_sum_defn})
 	\be\label{hereditary_dir_sum_eqn}
