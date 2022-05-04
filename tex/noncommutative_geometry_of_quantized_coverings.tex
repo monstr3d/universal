@@ -20790,7 +20790,69 @@ gHg^{-1} = H
 	\end{definition}
 	
 	\chapter{Functional analysis}
+	\section{Hahn-Banach theorem}
 	
+	\begin{theorem}\cite{rudin:fa}
+%	3.2 Theorem
+ Suppose 
+\begin{enumerate}
+	\item [(a)] $M$ is a subspace of a real vector space $X$,
+	\item [(b)] $p: X \to \R$ satisfies 
+	\bean
+	\forall x, y \in X, \quad t \in \R \quad t \ge 0 \quad p\left(x \right)+p\left(y \right)\le p\left(x+y \right)\quad p\left( tx\right) = tp\left(x \right).
+	\eean 
+	\item[(c)] $f:M\to\R$ is linear and $ f\left(x\right)\le p\left(-x \right)$ on $M$. 
+\end{enumerate}
+	Then there exists a linear $\La : X \to \R$  such that $$
+	\La x =f(x)\quad (x \in M) 
+	$$
+	and 
+	$$
+	-p(-x) < \La x < p(x) \quad (x\in X). 
+	$$
+\end{theorem}
+\begin{proof}
+If $M\neq X$, choose $x_1 \in X\setminus M$, and define 
+$$
+M_1 \bydef \left\{ x + tx_1 \left| x \in M \quad t\in \R\right.\right\}.
+$$
+			It is clear that $M_1$ is a vector space. Since 
+			$$
+			f(x) +f(y) =f(x + y) \le p(x + y)\le p(x- x_1) + p(x_1 - y)
+			$$
+				we have 
+				\begin{equation}
+					\tag{A}
+			f(x)-p(x-x_1)\le p(y + x_1)-f(y) \quad(x, y \in M). 
+				\end{equation}
+							Let $\a$ be the least upper bound of the left side of (A), as $x$ ranges over 
+							$M$. Then 
+					\begin{equation}
+			\tag{B}
+			f(x) + \a < p\left(x - x_1\right)  \quad(x, y \in M). 
+		\end{equation}
+	and 
+	\begin{equation}
+		\tag{C}
+		f(y) +\a \le <p(y + x_1)  \quad(x \in M). 
+	\end{equation}
+									Define $f_1$ on $M_1$ by 
+														\begin{equation}
+										\tag{D}
+										f(x + tx_1) =f(x) + t\a \quad (x\in M,t \in \R).
+											\end{equation}
+											
+											Then $f_1 = f$ on $M$, and $f_1$ is linear on $M$. 
+											Take $t> 0$, replace $x$ by $t^{-1}x$ in (B), replace $y$ by $t^{-1}y$ in (C), and 
+											multiply the resulting inequalities by $t$. In combination with (D), this 
+											proves that $f_1 \le p$ on $M$,. 
+											The second part of the proof can be done by whatever one's 
+											favorite method of transfinite induction is; one can use well-ordering, 
+											or Zorn's lemma, or Hausdorff's maximality theorem (cf. \cite{rudin:fa} for details).
+	%											Let ^ be the collection of all ordered pairs {M',f'), where M' is 												a subspace of X that contains M and /' is a linear functional on M' 												that extends/and satisfies/' < p on M'. Partially order ^ by  												declaring (M',/') < {M",f") to mean that M' c M" and/" =/' on M'. By 													Hausdorff's maximality theorem there exists a maximal totally 													ordered subcoUection Q of ^. 													Let O be the collection of all M' such that (M',/') e Q. Then O is 													totally ordered by set inclusion, and the union M of all members of O 													is therefore a subspace of X. If x e M then x e M' for some M' e O; 													define Ax =/'(x), where/' is the function which occurs in the pair 													(M',/') e Q. 													It is now easy to check that A is well defined on M, that A is 													linear, and that A < p. If M were a proper subspace of X, the first 													part of the proof would give a further extension of A, and this would 													contradict the maximality of Q. Thus M = X.													Finally, the inequality A < p implies that 													-p(-x) < -A(-x) = Ax 													for all X e X. This completes the proof. //// 
+	\end{proof}
+
+
 	\section{Weak topologies}
 	
 	\begin{definition}\label{w_topology_defn}\cite{rudin:fa}
