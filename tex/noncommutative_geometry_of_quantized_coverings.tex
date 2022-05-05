@@ -2081,6 +2081,7 @@ Let	$\left(A, \widetilde{A}, G, \pi \right)$ be  a noncommutative finite-fold  q
 
 \begin{lemma}\label{state_cov_11_lem}
 If	$\left(A, \widetilde{A}, G, \pi \right)$ is  a noncommutative finite-fold  quasi-covering then there is the one-to-one correspondence between states on $A$ and invariant states on $\widetilde{A}$.
+!!! POSITIVE FUNCTIONALS
 \end{lemma}
 \begin{proof}
 If $\tau: A \to \C$ is a state on $A$ then there is the invariant state
@@ -2098,6 +2099,11 @@ $$
 It follows that the restriction $\tau \bydef \widetilde{\tau}|_A: A\to \C$ is not trivial, i.e. $\tau$ is a state.  So there is the given by $\widetilde{\tau}\to \tau$ map $\varphi$ from the set of invariant states on $\widetilde{A}$ to states on $A$. The maps $\phi$ and $\varphi$ are mutually inverse.
 
 \end{proof}
+\begin{exercise}\label{sub_funct_exer}
+Let $\psi = a_1 \phi_1 + ... + a_n \phi_n$ be a state on $C^*$-algebra $A$ where $\phi_1, ..., \phi_n$ are mutually orthogonal pure states and $a_1 + ... + a_n = 1$. 
+Let $\th : A\to \C$ be a positive functional such that $\th \le \psi$. Prove that $\th =  b_1 \phi_1 + ... + b_n \phi_n$
+ where $b_j \le a_j$ for any $j = 1,...,n$.
+\end{exercise}
 
 \begin{lemma} \label{spectrum_cov_lem}
 	If $\left(A, \widetilde{A}, G, \pi \right)$ is  a noncommutative finite-fold  quasi-covering (cf. Definition \ref{fin_quasi_defn})  then following conditions hold:
@@ -2129,8 +2135,33 @@ It follows that the restriction $\tau \bydef \widetilde{\tau}|_A: A\to \C$ is no
 	\\
 	The map $\widetilde{\rho} \mapsto \widetilde{\rho}_g$ gives a homeomorphism of $\widetilde{\mathcal X}$. Such homeomorphisms give an action $G \times \widetilde{\mathcal X} \to \widetilde{\mathcal X}$, such that $g\widetilde{\rho}= \widetilde{\rho}_g$ for any $g \in G$.\\
 	(ii) Let $\widetilde\tau : \widetilde A \to \C$ be a pure state on $\widetilde A$, and let $\tau \bydef \left.\widetilde\tau\right|_{A}: A \to\C$ be its restriction. 
-		 If $\widetilde{a} \in \widetilde{A}_+$ is a positive element such that $\widetilde{\tau}\left(\widetilde{a} \right) \neq 0$ then $a = \sum_{g \in G} g \widetilde{a} \in A$ is a positive element such that $\widetilde{\tau}\left(a \right) \neq 0$. It turns out that the restriction $\tau\bydef \left. \widetilde{\tau}\right|_{A}: A \to \C$ is not trivial. Since the inclusion $A \hookto \widetilde A$ is unital in sense of the Definition \ref{principal_non_defn} one has $\tau\left(1_{A^\sim } \right) = 1$, i.e. $\tau$ is a state. Let  $q:A \to \C$ be a positive functional such that $q < \tau$. From the HahnÐBanach theorem it follows that there is a positive functional  $\widetilde q: \widetilde{A}\to\C$ such $\widetilde q < \widetilde \tau$. Since the state $\widetilde \tau$ is pure there is $t \in [0,1]$ such that $\widetilde q = t\widetilde \tau$ (cf. Definition \ref{ps_defn}). It follows that $q = t\tau$.		 
-So the state $\tau$ is pure, and the map $\widetilde\tau \mapsto \tau$ yields 	the  given by \eqref{cov_spectrum_eqn} map $p$.  Let us prove that the map $p$ is continuous.
+		 If $\widetilde{a} \in \widetilde{A}_+$ is a positive element such that $\widetilde{\tau}\left(\widetilde{a} \right) \neq 0$ then $a = \sum_{g \in G} g \widetilde{a} \in A$ is a positive element such that $\widetilde{\tau}\left(a \right) \neq 0$. It turns out that the restriction $\tau\bydef \left. \widetilde{\tau}\right|_{A}: A \to \C$ is not trivial. Since the inclusion $A \hookto \widetilde A$ is unital in sense of the Definition \ref{principal_non_defn} one has $\tau\left(1_{A^\sim } \right) = 1$, i.e. $\tau$ is a state. Let  $q:A \to \C$ be a positive functional such that $q < \tau$. From the Lemma \ref{state_cov_11_lem} $q$ corresponds to a $G$-invariant positive functional 
+		 \bean
+		 \widetilde q: \widetilde A \to \C,\\
+		 \widetilde a \mapsto \frac{1}{\left|G \right| }q\left( \sum_{	g \in G}g \widetilde a\right). 
+		 \eean 
+		 Similarly $\tau$ corresponds to $G$-invariant positive state
+	 \bean
+\widetilde \tau^\oplus: \widetilde A \to \C,\\
+\widetilde a \mapsto \frac{1}{\left|G \right| } \tau\left( \sum_{	g \in G}g \widetilde a\right)= \frac{1}{\left|G \right| }\widetilde \sum_{	g \in G}\widetilde \tau\left( g \widetilde a\right). 
+\eean 
+If 
+$
+G'' \bydef \left\{g \in G| g \widetilde \tau = \widetilde \tau \right\}, 
+$
+and $G' = G/G''$ then there is a free transitive  action
+$$
+G' \times (G\widetilde \tau ) \to (G\widetilde \tau ) 
+$$
+From our construction it turns out that
+\bean
+\forall \widetilde a \in \widetilde A \quad \widetilde \tau^\oplus = \left(\widetilde a\right) \frac{1}{\left|G' \right| }\widetilde \sum_{	g \in G'}\widetilde \tau\left( g \widetilde a\right). 
+\eean
+From $\widetilde q \le  \widetilde \tau^\oplus$ and the Exercise \ref{sub_funct_exer} it turns out that
+$$
+\widetilde q = \sum_{g \in G'} t_g \left(g\widetilde \tau\right)\quad \text{where} \quad \forall g \in G' \quad t_g \in \R.
+$$
+On the other hand the state $\widetilde q$ is $G$-invariant, it is possible if and only if there is $t \in \R$ such that $ \forall g \in G' \quad t_g = t$. It follows that $\widetilde q =t \widetilde \tau^\oplus$  and $q = t\tau$. So the state $\tau$ is pure (cf. Definition \ref{ps_defn}) and the map $\widetilde\tau \mapsto \tau$ yields 	the  given by \eqref{cov_spectrum_eqn} map $p$.  Let us prove that the map $p$ is continuous.
  From the Theorem \ref{jtop_thm} and the Definition \ref{jtop_defn}	any closed set $\mathcal U \subset  \mathcal X$ corresponds to a closed two-sided ideal $I  \subset A$ such that
 	\bean
 	\mathcal U  = \left\{ \left.x \in \mathcal X~\right|~  \rep_x\left( I\right)= \{0\}  \right\}.
@@ -3596,6 +3627,7 @@ If $\overline a_{\widehat \pi_a}\in B\left( \widehat\H_a\right)$ is $\widehat \p
 $.
 Both inclusions $\overline{A}_{\widehat \pi_a}\subset  \overline{A}_{\widehat \pi}$ and $	 \overline{A}_{\widehat \pi}\subset  \overline{A}_{\widehat \pi_a}$ yield the isomorphism $\overline{A}_{\widehat \pi}\cong  \overline{A}_{\widehat \pi_a}$.
 \end{proof}
+
 
 
 
@@ -20792,67 +20824,67 @@ gHg^{-1} = H
 	\chapter{Functional analysis}
 	\section{Hahn-Banach theorem}
 	
-	\begin{theorem}\cite{rudin:fa}
-%	3.2 Theorem
- Suppose 
-\begin{enumerate}
-	\item [(a)] $M$ is a subspace of a real vector space $X$,
-	\item [(b)] $p: X \to \R$ satisfies 
-	\bean
-	\forall x, y \in X, \quad t \in \R \quad t \ge 0 \quad p\left(x \right)+p\left(y \right)\le p\left(x+y \right)\quad p\left( tx\right) = tp\left(x \right).
-	\eean 
-	\item[(c)] $f:M\to\R$ is linear and $ f\left(x\right)\le p\left(-x \right)$ on $M$. 
-\end{enumerate}
-	Then there exists a linear $\La : X \to \R$  such that $$
-	\La x =f(x)\quad (x \in M) 
-	$$
-	and 
-	$$
-	-p(-x) < \La x < p(x) \quad (x\in X). 
-	$$
-\end{theorem}
-\begin{proof}
-If $M\neq X$, choose $x_1 \in X\setminus M$, and define 
-$$
-M_1 \bydef \left\{ x + tx_1 \left| x \in M \quad t\in \R\right.\right\}.
-$$
-			It is clear that $M_1$ is a vector space. Since 
-			$$
-			f(x) +f(y) =f(x + y) \le p(x + y)\le p(x- x_1) + p(x_1 - y)
-			$$
-				we have 
-				\begin{equation}
-					\tag{A}
+	
+	\begin{theorem}\label{hb_thm}\cite{rudin:fa}
+		%	3.2 Theorem
+		Suppose 
+		\begin{enumerate}
+			\item [(a)] $M$ is a subspace of a real vector space $X$,
+			\item [(b)] $p: X \to \R$ satisfies 
+			\bean
+			\forall x, y \in X, \quad t \in \R \quad t \ge 0 \quad p\left(x+y \right)\le p\left(x \right)+p\left(y \right) \quad p\left( tx\right) = tp\left(x \right).
+			\eean 
+			\item[(c)] $f:M\to\R$ is linear and $ f\left(x\right)\le p\left(x \right)$ on $M$. 
+		\end{enumerate}
+		Then there exists a linear $\La : X \to \R$  such that $$
+		\La x =f(x)\quad (x \in M) 
+		$$
+		and 
+		$$
+		-p(-x) \le \La x \le p(x) \quad (x\in X). 
+		$$
+	\end{theorem}
+	\begin{proof}
+		If $M\neq X$, choose $x_1 \in X\setminus M$, and define 
+		$$
+		M_1 \bydef \left\{ x + tx_1 \left| x \in M \quad t\in \R\right.\right\}.
+		$$
+		It is clear that $M_1$ is a vector space. Since 
+		$$
+		f(x) +f(y) =f(x + y) \le p(x + y)\le p(x- x_1) + p(x_1 - y)
+		$$
+		we have 
+		\begin{equation}
+			\tag{A}
 			f(x)-p(x-x_1)\le p(y + x_1)-f(y) \quad(x, y \in M). 
-				\end{equation}
-							Let $\a$ be the least upper bound of the left side of (A), as $x$ ranges over 
-							$M$. Then 
-					\begin{equation}
+		\end{equation}
+		Let $\a$ be the least upper bound of the left side of (A), as $x$ ranges over 
+		$M$. Then 
+		\begin{equation}
 			\tag{B}
 			f(x) + \a < p\left(x - x_1\right)  \quad(x, y \in M). 
 		\end{equation}
-	and 
-	\begin{equation}
-		\tag{C}
-		f(y) +\a \le <p(y + x_1)  \quad(x \in M). 
-	\end{equation}
-									Define $f_1$ on $M_1$ by 
-														\begin{equation}
-										\tag{D}
-										f(x + tx_1) =f(x) + t\a \quad (x\in M,t \in \R).
-											\end{equation}
-											
-											Then $f_1 = f$ on $M$, and $f_1$ is linear on $M$. 
-											Take $t> 0$, replace $x$ by $t^{-1}x$ in (B), replace $y$ by $t^{-1}y$ in (C), and 
-											multiply the resulting inequalities by $t$. In combination with (D), this 
-											proves that $f_1 \le p$ on $M$,. 
-											The second part of the proof can be done by whatever one's 
-											favorite method of transfinite induction is; one can use well-ordering, 
-											or Zorn's lemma, or Hausdorff's maximality theorem (cf. \cite{rudin:fa} for details).
-	%											Let ^ be the collection of all ordered pairs {M',f'), where M' is 												a subspace of X that contains M and /' is a linear functional on M' 												that extends/and satisfies/' < p on M'. Partially order ^ by  												declaring (M',/') < {M",f") to mean that M' c M" and/" =/' on M'. By 													Hausdorff's maximality theorem there exists a maximal totally 													ordered subcoUection Q of ^. 													Let O be the collection of all M' such that (M',/') e Q. Then O is 													totally ordered by set inclusion, and the union M of all members of O 													is therefore a subspace of X. If x e M then x e M' for some M' e O; 													define Ax =/'(x), where/' is the function which occurs in the pair 													(M',/') e Q. 													It is now easy to check that A is well defined on M, that A is 													linear, and that A < p. If M were a proper subspace of X, the first 													part of the proof would give a further extension of A, and this would 													contradict the maximality of Q. Thus M = X.													Finally, the inequality A < p implies that 													-p(-x) < -A(-x) = Ax 													for all X e X. This completes the proof. //// 
-	\end{proof}
-
-
+		and 
+		\begin{equation}
+			\tag{C}
+			f(y) +\a \le <p(y + x_1)  \quad(x \in M). 
+		\end{equation}
+		Define $f_1$ on $M_1$ by 
+		\begin{equation}
+			\tag{D}
+			f(x + tx_1) =f(x) + t\a \quad (x\in M,t \in \R).
+		\end{equation}
+		
+		Then $f_1 = f$ on $M$, and $f_1$ is linear on $M$. 
+		Take $t> 0$, replace $x$ by $t^{-1}x$ in (B), replace $y$ by $t^{-1}y$ in (C), and 
+		multiply the resulting inequalities by $t$. In combination with (D), this 
+		proves that $f_1 \le p$ on $M$,. 
+		The second part of the proof can be done by whatever one's 
+		favorite method of transfinite induction is; one can use well-ordering, 
+		or Zorn's lemma, or Hausdorff's maximality theorem (cf. \cite{rudin:fa} for details).
+		%											Let ^ be the collection of all ordered pairs {M',f'), where M' is 												a subspace of X that contains M and /' is a linear functional on M' 												that extends/and satisfies/' < p on M'. Partially order ^ by  												declaring (M',/') < {M",f") to mean that M' c M" and/" =/' on M'. By 													Hausdorff's maximality theorem there exists a maximal totally 													ordered subcoUection Q of ^. 													Let O be the collection of all M' such that (M',/') e Q. Then O is 													totally ordered by set inclusion, and the union M of all members of O 													is therefore a subspace of X. If x e M then x e M' for some M' e O; 													define Ax =/'(x), where/' is the function which occurs in the pair 													(M',/') e Q. 													It is now easy to check that A is well defined on M, that A is 													linear, and that A < p. If M were a proper subspace of X, the first 													part of the proof would give a further extension of A, and this would 													contradict the maximality of Q. Thus M = X.													Finally, the inequality A < p implies that 													-p(-x) < -A(-x) = Ax 													for all X e X. This completes the proof. //// 
+			\end{proof}
+			
 	\section{Weak topologies}
 	
 	\begin{definition}\label{w_topology_defn}\cite{rudin:fa}
