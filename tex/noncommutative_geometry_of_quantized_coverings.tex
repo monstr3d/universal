@@ -6969,13 +6969,24 @@ One has a ringed space $\left(\sX, \mathscr S^R\right)$ (cf. Definition \ref{she
 Let $R\subset C_0\left(\sX\right)$ be a dense *-subalgebra. Similarly to the equation \eqref{unital_notation_eqn} one has an unital *-algebra $R^\sim$ which is an $R$-module. There is a natural inclusion $R^\sim \subset C_b\left(\sX\right)$
 \begin{definition}\label{top_soft_r_defn}
 	In the above situation we suppose that the space $\sX$ is paracompact (cf. Definition \ref{top_paracompact_defn}).
-Let 	$\Phi$   be a  \textit{paracompactifying} family of supports (cf. Definition \ref{phi_supp_defn}) 	
+Let 	$\Phi$   be a  {paracompactifying} family of supports (cf. Definition \ref{phi_supp_defn}) 	
 	 and we say that *-algebra $R$ is $\Phi$-\textit{soft} if following conditions hold:
 	\begin{enumerate}
 		\item [(a)] A sheaf $\mathscr S^{R^\sim}$ is $\Phi$-\textit{soft} (cf. Definition \ref{sheaf_soft_defn}).
-		\item [(b)] One has $R= \C_0\left(\sX\right) \cap \mathscr S^{R^\sim}$
+		\item [(b)] One has $R= \C_0\left(\sX\right) \cap \mathscr S^{R^\sim}\left( \sX\right) $
 	\end{enumerate}
 \end{definition}
+\begin{exercise}\label{top_soft_exer}
+Let $R$ be a $c$-soft *-algebra (cf. Definitions \ref{top_soft_r_defn} and \ref{soft_sheaf_defn}). Prove that for any $x\in \sX$ and any  neighborhood $\sU$ of $x$
+there is a map $f \in C_c\left(\sX\right)$ such that
+\begin{enumerate}
+	\item $\supp f \subset \sU$.
+	\item $f\left(\sX\right)= \left[0,1\right]$.
+	\item There is an open neighborhood $\sV$ such that $f\left(\sV\right)= \left[1\right]$.
+\end{enumerate}
+
+\end{exercise}
+
 \begin{exercise}\label{top_good_r_exer}
 	Let $R \subset C_0\left(\sX\right)$ is a soft *-subalgebra.
 	Prove following statements:
@@ -7199,7 +7210,7 @@ $$
 !!! CONTINUE
 	
 	\begin{exercise}\label{top_prod_exer}
-		Let $R \subset C_0\left(\sX\right)$ be a good !!! SOFTdense *-subalgebra. Suppose that there is $R$-module $A$ such that $A \subset \prod_{x \in \sX} A_x$ where $A_x$ is a Abelian group, and the action of $R$ complies with this direct product. For any open subset $\sU\subset \sX$ denote by 
+		Let $R \subset C_0\left(\sX\right)$ be a good !!! SOFT dense *-subalgebra. Suppose that there is $R$-module $A$ such that $A \subset \prod_{x \in \sX} A_x$ where $A_x$ is a Abelian group, and the action of $R$ complies with this direct product. For any open subset $\sU\subset \sX$ denote by 
 		$$
 		A_\sU\bydef \left\{\left.\left\{b_x \right\}\in \prod_{x \in \sU} A_x\right| \exists \left\{a_x \right\}\in \prod_{x \in \sX} A_x \quad \forall x \in \sU \quad b_x =a_x\right\}.
 		$$
@@ -7251,7 +7262,7 @@ $$
 
 
 \begin{exercise}\label{top_pre_sheaf_exer}. 
-Let $\sX$ be a locally compact, Hausdorff space, and let $R \subset C_0\left(\sX \right)$ is a good !!! SOFT*-subalgebra (cf. Definition \ref{top_good_r_defn} !!! CHECK). 	
+Let $\sX$ be a locally compact, Hausdorff space, and let $R \subset C_0\left(\sX \right)$ is a good !!! SOFT \ref{top_soft_exer} *-subalgebra (cf. Definition \ref{top_good_r_defn} !!! CHECK). 	
 Let $\mathscr F$ be an $\mathscr S^R$ -{module} (cf. Definition \ref{sheaf_of_modules_den})
 Let $p: \widetilde\sX \to \sX$ be a transitive covering.
  Let $\widetilde{\mathscr F}\bydef p^{-1}\mathscr F$ be an inverse image (cf. Definition \ref{sheaf_inv_im_defn}), and let $\mathscr F\left( \sX\right) \subset  \widetilde{\mathscr F}\left( \widetilde\sX\right)$ be a natural inclusion of $\mathscr S^R$-modules. Let $\Aut_{ \mathscr S^R\left( \sX\right)}\left( \widetilde{\mathscr F}\left( \widetilde\sX\right)\right)$ be a group of  $ \mathscr S^R\left( \sX\right)$-module automorphisms.
@@ -7271,11 +7282,11 @@ Let $p: \widetilde\sX \to \sX$ be a transitive covering.
 
 \end{exercise}
 \begin{example} 
-	Let $M$ be a smooth manifold, and let $p: E \to M$ be a smooth vector bundle (cf. Definition \ref{top_sm_bundle_defn}). If $\Coo_0\left(\sX\right)   \bydef C_0\left( M\right)\cap \Coo\left(M\right)$ is a good !!! SOFT*-algebra.
+	Let $M$ be a smooth manifold, and let $p: E \to M$ be a smooth vector bundle (cf. Definition \ref{top_sm_bundle_defn}). If $\Coo_0\left(\sX\right)   \bydef C_0\left( M\right)\cap \Coo\left(M\right)$ is a good !!! SOFT \ref{top_soft_exer} *-algebra.
 	One can define a presheaf  \ref{top_x_sheaf_defn} (cf. Definition \ref{presheaf_defn}) of local smooth sections (cf. Definition \ref{top_sm_sec_defn}). So there is an associated sheaf $\mathscr  S^E$ of smooth sections.
 \end{example}
 
-\begin{exercise}\label{top_hom_sub_exm} Let $\sX$ be a locally compact, Hausdorff space, and let $R \subset C_0\left(\sX \right)$ is a good !!! SOFT*-subalgebra (cf. Definition \ref{top_good_r_defn} !!! CHECK). Let both $F$, $G$ be $R$-modules and let $\mathscr S^F$ and $\mathscr S^G$ be $F$-sheaf and $G$-sheaf respectively (cf. Definition \ref{top_x_sheaf_defn}).
+\begin{exercise}\label{top_hom_sub_exm} Let $\sX$ be a locally compact, Hausdorff space, and let $R \subset C_0\left(\sX \right)$ is a good !!! SOFT \ref{top_soft_exer} *-subalgebra (cf. Definition \ref{top_good_r_defn} !!! CHECK). Let both $F$, $G$ be $R$-modules and let $\mathscr S^F$ and $\mathscr S^G$ be $F$-sheaf and $G$-sheaf respectively (cf. Definition \ref{top_x_sheaf_defn}).
 	There is a sheaf  of local morphisms  $\mathscr Hom \left(\mathscr S^F,
 	\mathscr S^G \right)$ (cf. Definition \ref{sheaf_hom_defn}).
 Prove following statements
@@ -8210,7 +8221,7 @@ is a connected noncommutative  finite-fold weak  covering (cf. Definition \ref{f
 \subsubsection{Coverings of bounded operator $*$-algebras}
 
 \begin{theorem}\label{top_oa_cov_thm} !!! CHECK
-	If $\sX$ is a locally compact, Hausdorff connected space and $R \subset C_0\left(\sX\right)$ is a good !!! SOFT*-subalgebra (cf. Definition \ref{top_good_r_defn} !!! CHECK) then	following conditions hold:
+	If $\sX$ is a locally compact, Hausdorff connected space and $R \subset C_0\left(\sX\right)$ is a good !!! SOFT \ref{top_soft_exer} *-subalgebra (cf. Definition \ref{top_good_r_defn} !!! CHECK) then	following conditions hold:
 	\begin{enumerate}
 		\item [(i)] If 	$\left(R, \widetilde A, G, \pi\right)$ noncommutative finite-fold covering of bounded operator *-algebras  (cf. Definition \ref{fin_oa_defn}) then there is a finite fold transitive topological covering  $p: \widetilde \sX \to \sX$ such that there is a natural dense inclusion  $\widetilde A \subset C_0\left( \widetilde \sX\right)$ (cf. Definition \ref{top_x_sheaf_defn}) and
 		$G \cong G\left(\left.\widetilde \sX~ \right| \sX\right)$ and $\pi= \left.C_0\left(p \right)\right|_{R }$ where $C_0\left(p \right)$ is given by the Lemma \ref{top_functor_lem}.
@@ -8226,7 +8237,7 @@ is a connected noncommutative  finite-fold weak  covering (cf. Definition \ref{f
 	The $C^*$-norm completion of $R$ is $C_0\left(\sX\right)$. If a  quadruple\\ $\left(C_0\left(\sX \right), \widetilde{B}, G,    \pi\right)$ is a connected noncommutative finite-fold covering (cf. Definition \ref{fin_defn}),  then   there is a finite-fold transitive topological covering and $p: \widetilde{    \sX }\to \sX$ such that $\left(C_0\left(\mathcal  X \right), \widetilde{B}, G,    \pi\right)$ is equivalent to $$\left(C_0\left(\sX \right), C_0\left(  \widetilde{\sX}\right) , G\left(\left.\widetilde \sX~ \right| \sX\right),    C_0\left( p\right) \right)$$ (cf. Theorem \ref{top_fin_thm}). On the other hand from \ref{fin_oa_empt} it follows that there is a dense inclusion  $\widetilde A\subset C_0\left(  \widetilde{M}\right)$. Conditions $G \cong G\left(\left.\widetilde M~ \right| M\right)$ and $\pi= \left.C_0\left(p \right)\right|_{\Coo_0\left(M\right) }$ follow from the construction \ref{fin_oa_empt}.\\
 	(ii)	
 	We leave to the reader a proof of that  $ C_0\left(\widetilde\sX \right)\cap p^{-1} \mathscr S^R\left(\widetilde\sX \right)$ is an admissible subalgebra, i.e. it satisfies to conditions of \ref{fin_oa_empt}. If  $ C_0\left(\widetilde\sX \right)\cap p^{-1} \mathscr S^R\left(\widetilde\sX \right)$ is not maximal admissible *-algebra then there is an admissible algebra  $\widetilde A' \subset C_0\left(\widetilde M\right)$  such that $ C_0\left(\widetilde\sX \right)\cap p^{-1} \mathscr S^R\left(\widetilde\sX \right)\subsetneqq \widetilde A'$. If $\widetilde a \in \widetilde A' \setminus  C_0\left(\widetilde\sX \right)\cap p^{-1} \mathscr S^R\left(\widetilde\sX \right)$ then there is $\widetilde x_0 \in \widetilde M$ such that $\widetilde a_{x_0} \notin p^{-1} \mathscr S^R_{\widetilde x_0}$. From the Exercise \ref{top_good_r_exer} it follows that 
- $p^{-1}\mathscr S^{R}\left( \widetilde \sX\right) \cap C_0\left(\widetilde \sX\right)$ is a good !!! SOFT*-subalgebra of $C_0\left(\widetilde \sX\right)$. From the Definition \ref{top_good_r_defn} !!! CHECK it turns out that there is $\widetilde f\in p^{-1}\mathscr S^{R}\left( \widetilde \sX\right) \cap C_0\left(\widetilde \sX\right)$  such that
+ $p^{-1}\mathscr S^{R}\left( \widetilde \sX\right) \cap C_0\left(\widetilde \sX\right)$ is a good !!! SOFT \ref{top_soft_exer} *-subalgebra of $C_0\left(\widetilde \sX\right)$. From the Definition \ref{top_good_r_defn} !!! CHECK it turns out that there is $\widetilde f\in p^{-1}\mathscr S^{R}\left( \widetilde \sX\right) \cap C_0\left(\widetilde \sX\right)$  such that
 	\begin{itemize}
 		\item $\supp \widetilde f$ is mapped homeomorphically onto $p\left(\supp \widetilde f \right)$.
 		\item There is an open neighborhood $ \widetilde \sU$ of $\widetilde x_0$ such that $ \widetilde f\left(  \widetilde \sU \right) = \{1\}$.
@@ -8689,7 +8700,7 @@ where $\L^\dagger \left( \D \right)$ and $\L^\dagger \left(\widetilde \D \right)
 	  \be\label{top_ta_eqn}
 	  \sum_{g \in G\left(\left.\widetilde{M}~\right|M\right),~ \a \in \mathscr A  } g\widetilde{a}_\a = 1_{C\left(\widetilde{M} \right) }.
 	  \ee
-	  Similarly to the Proposition \ref{top_smooth_part_unity_prop} !!! SOFT one can assume that $\widetilde{a}_{\widetilde\a}\in \Coo\left( \widetilde{M}\right)$, so one has
+	  Similarly to the Proposition \ref{top_smooth_part_unity_prop} !!! SOFT \ref{top_soft_exer}  one can assume that $\widetilde{a}_{\widetilde\a}\in \Coo\left( \widetilde{M}\right)$, so one has
 	  \be\label{top_te_eqn}
 	  \begin{split}
 	  	\widetilde{e}_{\widetilde\a}\bydef \sqrt{\widetilde{a}_{\widetilde\a}}\in \Coo\left( \widetilde{M}\right),\\
@@ -9744,7 +9755,7 @@ is the unique  pointed  covering $p^\mu_{ \nu}: \left(\sX_{\mu}, x^\mu_0 \right)
 \ee
 is a given by the Lemma  \ref{top_base_point_lem} {pointed algebraical  finite covering category} (cf. Definition \ref{pointed_defn}) then following conditions hold:
 \begin{enumerate}
-	\item [(i)] $\mathfrak{S}^{\mathrm{pt}}_{C_0\left(\mathcal{X}\right)}$ is good !!! SOFT(cf. Definition \ref{good_defn}) and the triple $$\left(C_0\left(\mathcal{X}\right), C_0\left(\varprojlim  \mathfrak{S}_{\left(\sX, x_0\right)}\right),G\left(\left.\varprojlim  \mathfrak{S}_{\left(\sX, x_0\right)}~\right| \mathcal X\right)\right)$$ is  the  { infinite noncommutative covering} of $\mathfrak{S}^{\mathrm{pt}}_{C_0\left(\mathcal{X}\right)}$ (cf. Definition \ref{main_defn}).
+	\item [(i)] $\mathfrak{S}^{\mathrm{pt}}_{C_0\left(\mathcal{X}\right)}$ is good !!! SOFT \ref{top_soft_exer} (cf. Definition \ref{good_defn}) and the triple $$\left(C_0\left(\mathcal{X}\right), C_0\left(\varprojlim  \mathfrak{S}_{\left(\sX, x_0\right)}\right),G\left(\left.\varprojlim  \mathfrak{S}_{\left(\sX, x_0\right)}~\right| \mathcal X\right)\right)$$ is  the  { infinite noncommutative covering} of $\mathfrak{S}^{\mathrm{pt}}_{C_0\left(\mathcal{X}\right)}$ (cf. Definition \ref{main_defn}).
 	\item[(ii)] There are  isomorphisms:
 	\begin{itemize}
 		\item $\varprojlim  \mathfrak{S}^{\mathrm{pt}}_{C_0\left(\mathcal{X}\right)} \approx C_0\left(\varprojlim  \mathfrak{S}_{\left(\sX, x_0\right)}\right)$.
@@ -9758,7 +9769,7 @@ is a given by the Lemma  \ref{top_base_point_lem} {pointed algebraical  finite c
 
 \begin{proof}
 (i) If $\pi_a : C_0\left( \widehat \sX\right) \to B\left(\H_a \right)$ is the atomic representation (cf. Definition \ref{atomic_repr_defn}) then from the construction \ref{comm_transitive_empt} it follows that $C_0\left( \widetilde \sX\right)$ is a $\pi_a$-connected component of $\mathfrak{S}^{\mathrm{pt}}_{C_0\left(\sX\right)}$ (cf. Definition \ref{main_sdefn}) equals to $C_0\left(\widetilde \sX \right)$, and  $G\left(\left. \widetilde\sX~\right|\sX \right)$ is the $C_0\left(\widetilde \sX \right)$-invariant group (cf. Definition \ref{main_sdefn}).
-To prove that 	$\mathfrak{S}^{\mathrm{pt}}_{C_0\left(\mathcal{X}\right)}$  is good !!! SOFTone needs check that described above objects satisfy to conditions (a)-(c) of the Definition \ref{good_defn}. From the Lemma \ref{a_rep_b_lem} it follows that we should check conditions (b) and (c) only.
+To prove that 	$\mathfrak{S}^{\mathrm{pt}}_{C_0\left(\mathcal{X}\right)}$  is good !!! SOFT \ref{top_soft_exer} one needs check that described above objects satisfy to conditions (a)-(c) of the Definition \ref{good_defn}. From the Lemma \ref{a_rep_b_lem} it follows that we should check conditions (b) and (c) only.
 	\begin{itemize}
 \item[(b)]	If both  $\widetilde{A}'$ and $\widetilde{A}''$ are connected components of $C_0\left( \overline \sX\right)$ (cf. Definition \ref{conn_comp_defn})  and both $\widetilde{\sX}'$ and $\widetilde{\sX}''$ are spectra of $\widetilde{A}'$ and $\widetilde{A}''$ respectively then from the Exercise  $\ref{conn_comp_exer}$ it turns out that the spaces  $\widetilde{\sX}'$ and $\widetilde{\sX}''$ are connected  components of $\overline \sX$. From the Theorem \ref{top_locally_conn_cov_com_thm} it turns out that both restrictions $\left.\overline p :\right|_{\widetilde{\sX}'}\to \sX$ and $\left.\overline p :\right|_{\widetilde{\sX}''}\to \sX$ are coverings. So for any $x_0\in \sX$ there are $\widetilde x'_0 \in\widetilde{\sX}'$ and 
 $\widetilde x''_0 \in \widetilde{\sX}''$ such that $\overline p\left( \widetilde x'_0\right)= \overline p\left( \widetilde x''_0\right) = x_0$. Since the covering $\overline\sX \to\sX$ is transitive (cf. Corollary \ref{top_biject_cor}) there is $g \in G\left(\left. \overline\sX~\right|\sX \right)$ such that $g \widetilde x'_0 = \widetilde x''_0$. Both sets $\widetilde{\sX}'$ and $\widetilde{\sX}''$
@@ -10110,7 +10121,7 @@ Similarly to \ref{comm_transitive_empt}	one can prove following statements:
 	is a given by \eqref{top_pi_mu_eqn} equivariant  representation
 	 then following conditions hold:
 	\begin{enumerate}
-		\item [(i)] $\mathfrak{S}^{\mathrm{pt}}_{C_0\left(\mathcal{X}\right)}$ is $\pi_\tau$-good !!! SOFT(cf. Definition \ref{good_defn}).
+		\item [(i)] $\mathfrak{S}^{\mathrm{pt}}_{C_0\left(\mathcal{X}\right)}$ is $\pi_\tau$-good !!! SOFT \ref{top_soft_exer} (cf. Definition \ref{good_defn}).
 		\item[(ii)] The triple\\ $\left(C_0\left(\mathcal{X}\right), C_0\left(\varprojlim  \mathfrak{S}_{\left(\sX, x_0\right)}\right),G\left(\left.\varprojlim  \mathfrak{S}_{\left(\sX, x_0\right)}~\right| \mathcal X\right)\right)$ is  the  $\pi_\tau$-infinite noncommutative covering of $\mathfrak{S}^{\mathrm{pt}}_{C_0\left(\mathcal{X}\right)}$ (cf. Definition \ref{main_defn}).  So the given by \eqref{a_toola_eqn} *-homomorphism $C_0\left(\sX\right)\hookto C_b\left(\widetilde\sX\right)\cong M\left(C_b\left(\widetilde\sX\right) \right)$ is injective.
 	\end{enumerate}
 	
@@ -10118,7 +10129,7 @@ Similarly to \ref{comm_transitive_empt}	one can prove following statements:
 	
 \end{theorem}
 \begin{proof}
-	(i) 	To prove that 	$\mathfrak{S}^{\mathrm{pt}}_{C_0\left(\mathcal{X}\right)}$  is $\pi_\tau$-good !!! SOFTone needs check that described in \ref{comm_transitive_tau_empt} objects satisfy to conditions (a)-(c) of the Definition \ref{good_defn}.
+	(i) 	To prove that 	$\mathfrak{S}^{\mathrm{pt}}_{C_0\left(\mathcal{X}\right)}$  is $\pi_\tau$-good !!! SOFT \ref{top_soft_exer} one needs check that described in \ref{comm_transitive_tau_empt} objects satisfy to conditions (a)-(c) of the Definition \ref{good_defn}.
 	\begin{enumerate}
 		\item [(a)] 		
 		If $a \in A\setminus\{0\}= C_0\left(\sX\right)\setminus\{0\}$ then there is $x_0\in \sX$ such that $a\left(x_0\right)\neq 0$. Since the natural map $\widetilde p : \widetilde \sX \to \sX$ is a covering there is $\widetilde x_0\in \widetilde\sX$ such that $\widetilde p\left( \widetilde x_0\right) = x_0$. If $\widetilde a \in C_0\left( \widetilde \sX\right)$ is such that $\widetilde a\left(\widetilde x_0\right)\neq 0$ then $\left( a \widetilde a \right) \left( \widetilde x_0\right) = a\left(x_0\right)\widetilde a  \left( \widetilde x_0\right) \neq 0$ i.e. $a \widetilde a \neq 0$. So any nontrivial $a \in C_0\left(\sX\right)$ corresponds to a nontrivial multiplier of $C_0\left( \widetilde \sX\right)$.  It means that the natural *-homomorphism $C_0\left( \sX\right)  \to M\left( C_0\left( \widetilde \sX\right)  \right)$ is injective. However this *-homomorphism is a specialization of the given by \eqref{a_toola_eqn} *-homomorphism $	\widetilde m:A \to M\left( \widetilde{A}_\pi \right)$.
@@ -10225,7 +10236,7 @@ is a {pointed algebraical  finite covering category of pro-$C^*$-algebras} (cf. 
 
 \begin{empt}\label{top_pro_empt}
 Let us obtain the $\mathfrak{S}_{C_F\left(\sX \right) }$-specialization of the given by \ref{inv_pro_lim_empt} construction. For any $\la\in \La$ one has $b\left(C_{p_\la^{-1}\left(F\right)_c}\left(\sX_\la\right) \right) = C_b\left(\sX_\la\right)$ and $B_\la \bydef C_0\left(\sX_\la\right)$ is an essential ideal of $C_b\left(\sX_\la\right)$.  If $B \bydef C_0\left( \sX\right)$ then from the proof of the Theorem \ref{top_main_thm}
- one has a good !!! SOFT { algebraical  finite covering category} (cf. Definition \ref{comp_defn})
+ one has a good !!! SOFT \ref{top_soft_exer}  { algebraical  finite covering category} (cf. Definition \ref{comp_defn})
 	\be\label{top_sb_pro_eqn}
 \begin{split}
 	\mathfrak{S}^{\text{pt}}_{B } \bydef \left(\left\{C_F\left( p_\la\right)|_{B }:B  \hookto B_\la  \right\}_{\la \in \La},\left\{C_{p_\nu^{-1}\left(F \right)_c}\left( p^\mu_\nu\right)|_{B_\mu }: B_\nu \hookto B_\mu \right\}_{\substack{\mu, \nu \in \La~~\nu > \mu}}\right).
@@ -10299,7 +10310,7 @@ From the our construction $C^*\left(G, R\right)$ is the completion of $M\left( \
 		\mathfrak{S}_{\left( \sX, x_0\right) }\in \mathfrak{FinTop}^{\text{pt}}.
 	\end{split}
 	\eean
-	be	a	pointed topological finite covering category (cf. Definition \ref{top_sec_p_defn}). Let $R\subset C_0\left(\sX \right)$ be a good !!! SOFT*-subalgebra (cf. Definition \ref{top_good_r_defn} !!! CHECK), and for any $\la\in \La$ let $R_\la\bydef  C_0\left(\sX_\la \right)\cap p^{-1}_\la \mathscr S^{R}\left( \sX_\la\right)$ and $\widetilde R\bydef  C_0\left(\widetilde \sX \right)\cap \widetilde p^{-1} \mathscr S^{R}\left(\widetilde \sX\right)$ where a notation of the Definition \ref{top_x_sheaf_defn} is used.	
+	be	a	pointed topological finite covering category (cf. Definition \ref{top_sec_p_defn}). Let $R\subset C_0\left(\sX \right)$ be a good !!! SOFT \ref{top_soft_exer} *-subalgebra (cf. Definition \ref{top_good_r_defn} !!! CHECK), and for any $\la\in \La$ let $R_\la\bydef  C_0\left(\sX_\la \right)\cap p^{-1}_\la \mathscr S^{R}\left( \sX_\la\right)$ and $\widetilde R\bydef  C_0\left(\widetilde \sX \right)\cap \widetilde p^{-1} \mathscr S^{R}\left(\widetilde \sX\right)$ where a notation of the Definition \ref{top_x_sheaf_defn} is used.	
 	The Theorem \ref{top_oa_cov_thm} enables us to construct an algebraical  finite covering category of  bounded operator *-algebras (cf. Definition \ref{comp_oa_defn}) given by
 	\be\label{top_inf_cov_oae_eqn}
 	\begin{split}
@@ -10343,7 +10354,7 @@ where $\mathscr S^{\widetilde R}$ is the $\widetilde R$-sheaf (cf. Definition \r
 \forall \widetilde x \in \widetilde \sX	\quad \mathscr S^{\widetilde A}_{\widetilde x} \subset \mathscr S^{\widetilde R}_{\widetilde x}
 	\ee
 	If $\widetilde a_{\widetilde x} \in \mathscr S^{\widetilde A}_{\widetilde x}$ then $\widetilde a_{\widetilde x}$ can be represented by an element $\widetilde a\in\widetilde A$.
-	Let  $\widetilde \sU$ be an open neighborhood of $\widetilde x$ with compact closure which is homeomorphically  mapped onto $\sU = \widetilde bp\left(\widetilde \sU\right)$. From the Exercise \ref{top_good_r_exer} it follows that $\widetilde R$ is a good !!! SOFT*-subalgebra of $C_0\left(\widetilde\sX\right)$ (cf. Definition \ref{top_good_r_defn} !!! CHECK). From the Definition \ref{top_good_r_defn} !!! CHECK it turns out that there is  $\widetilde b \in  \widetilde R$ such that $b\left( \widetilde \sX\right)\subset \left[0,1\right]$, $\supp \widetilde b \subset \widetilde \sU$, moreover there is an open neighborhood $\widetilde \sV$ of $\widetilde x$, which satisfy to a condition $\widetilde b\left(\sV\right)=\{1\}$.
+	Let  $\widetilde \sU$ be an open neighborhood of $\widetilde x$ with compact closure which is homeomorphically  mapped onto $\sU = \widetilde bp\left(\widetilde \sU\right)$. From the Exercise \ref{top_good_r_exer} it follows that $\widetilde R$ is a good !!! SOFT \ref{top_soft_exer} *-subalgebra of $C_0\left(\widetilde\sX\right)$ (cf. Definition \ref{top_good_r_defn} !!! CHECK). From the Definition \ref{top_good_r_defn} !!! CHECK it turns out that there is  $\widetilde b \in  \widetilde R$ such that $b\left( \widetilde \sX\right)\subset \left[0,1\right]$, $\supp \widetilde b \subset \widetilde \sU$, moreover there is an open neighborhood $\widetilde \sV$ of $\widetilde x$, which satisfy to a condition $\widetilde b\left(\sV\right)=\{1\}$.
 From  $\widetilde b \in C_c\left(\widetilde X \right)$ it follows that there $a \in 	\bigcup_{\la\in \La}~ \lift_{ \widetilde{p}_{\la}}\left(  R_\la\right)$ such that
 $$
 \widetilde b \widetilde a= \widetilde b a
@@ -10386,10 +10397,10 @@ R_\la \widetilde R \subset  \widetilde R,\\
 \eean
 
 !!! CHECK 	
-it means that 	$\widetilde R$ satisfies to the equations \eqref{inf_cov_oa_sub1_eqn}, \eqref{inf_cov_oa_sub2_eqn}. If  $\widetilde b \in K\left( C_0\left( \widetilde \sX\right)\right)\cong  C_c\left( \widetilde \sX\right)$ then $\supp \widetilde b$ is compact. !!! Since $\widetilde R$ is good !!! SOFT
+it means that 	$\widetilde R$ satisfies to the equations \eqref{inf_cov_oa_sub1_eqn}, \eqref{inf_cov_oa_sub2_eqn}. If  $\widetilde b \in K\left( C_0\left( \widetilde \sX\right)\right)\cong  C_c\left( \widetilde \sX\right)$ then $\supp \widetilde b$ is compact. !!! Since $\widetilde R$ is good !!! SOFT \ref{top_soft_exer} 
 
 
-Let $\widetilde f \in C_c\left( \widetilde M\right)$ be a covering sum for $\supp \widetilde b$ (cf. Definition \ref{top_covering_sum_defn}). One can select $\widetilde f$ such that $\widetilde f\in \Coo_c\left( \widetilde M\right)$ (cf. Proposition \ref{top_smooth_part_unity_prop} !!! SOFT). A set $\supp \widetilde f$ is compact, from the Lemma \ref{top_comp_la_lem}  it turns out that there is $\la_0\in \La$ such that $\supp \widetilde f$ is homeomorphically mapped   onto $\widetilde p_{\la_0} \left(\supp \widetilde f \right) \subset M_{\la_0}$ where $\widetilde p_{\la_0}:\widetilde M\to M_{\la_0}$ is the natural covering. If $\desc_{\widetilde p_{\la_0}}$ is the $\widetilde p_{\la_0}$-descent (cf. Definition \ref{top_lift_desc_defn}) and
+Let $\widetilde f \in C_c\left( \widetilde M\right)$ be a covering sum for $\supp \widetilde b$ (cf. Definition \ref{top_covering_sum_defn}). One can select $\widetilde f$ such that $\widetilde f\in \Coo_c\left( \widetilde M\right)$ (cf. Proposition \ref{top_smooth_part_unity_prop} !!! SOFT \ref{top_soft_exer} ). A set $\supp \widetilde f$ is compact, from the Lemma \ref{top_comp_la_lem}  it turns out that there is $\la_0\in \La$ such that $\supp \widetilde f$ is homeomorphically mapped   onto $\widetilde p_{\la_0} \left(\supp \widetilde f \right) \subset M_{\la_0}$ where $\widetilde p_{\la_0}:\widetilde M\to M_{\la_0}$ is the natural covering. If $\desc_{\widetilde p_{\la_0}}$ is the $\widetilde p_{\la_0}$-descent (cf. Definition \ref{top_lift_desc_defn}) and
 	$\widetilde a' = \widetilde a'' \bydef \desc_{\widetilde p_{\la_0}}\left( \widetilde f \widetilde a\right)\in \Coo_c\left(M_{\la_0} \right)\subset \bigcup_{\la\in \La}\Coo_0\left(M_\la \right)$ then one has 
 	$$
 	\widetilde b \widetilde a=\widetilde b \widetilde a', \quad \widetilde a \widetilde b = \widetilde a''.
@@ -10459,7 +10470,7 @@ one has  a pointed algebraical  finite covering category
 	\mathfrak{S}_b\bydef\left\{ \left( B ,  B_{\la} , G\left(\left.M_\la~\right|M \right) , \overline\pi_{\la}\right) \right\}_{\la \in \La}= \\ =\left\{ \left(C_0\left(M \right)  ,  C_0\left( M_{\la}\right)  , G\left(\left.M_\la~\right|M \right) , \overline\pi_{\la}\right) \right\}_{\la \in \La}.
 \end{split}
 \ee
-If $\widehat B\bydef C^*$-$\varinjlim B_\la$ then there is the natural given by \eqref{top_pi_mu_eqn} equivariant representation $\pi_\tau: \widehat{B}\hookto B\left( L^2\left(\overline M, \overline \mu\right)\right)$. From the Theorem \ref{comm_main_mu_thm} it turns out  that the given by \eqref{top_bl_cat_eqn} pointed algebraical  finite covering category is $\pi_\tau$-good !!! SOFT(cf. Definition \ref{good_defn} !!! ABC to AB GOOD EXER ADD !!!) and if $\widetilde M$ is a topological inverse limit of $	\mathfrak{S}_{\left( M, x_0\right) }$ (cf. Definition \ref{top_topological_inv_lim_defn} of then the triple\\ $\left(C_0\left(M\right), C_0\left(\widetilde M\right),G\left(\left.\widetilde M~\right| M\right)\right)$ is  the  $\pi_\tau$-infinite noncommutative covering of $\mathfrak{S}^{\mathrm{pt}}_b$ (cf. Definition \ref{main_defn} and Theorem \ref{comm_main_mu_thm}). If $\widetilde \H$ is the norm completion of $C_0\left(\widetilde M\right)L^2\left(\overline M, \overline \mu\right)$ then one has
+If $\widehat B\bydef C^*$-$\varinjlim B_\la$ then there is the natural given by \eqref{top_pi_mu_eqn} equivariant representation $\pi_\tau: \widehat{B}\hookto B\left( L^2\left(\overline M, \overline \mu\right)\right)$. From the Theorem \ref{comm_main_mu_thm} it turns out  that the given by \eqref{top_bl_cat_eqn} pointed algebraical  finite covering category is $\pi_\tau$-good !!! SOFT \ref{top_soft_exer} (cf. Definition \ref{good_defn} !!! ABC to AB GOOD EXER ADD !!!) and if $\widetilde M$ is a topological inverse limit of $	\mathfrak{S}_{\left( M, x_0\right) }$ (cf. Definition \ref{top_topological_inv_lim_defn} of then the triple\\ $\left(C_0\left(M\right), C_0\left(\widetilde M\right),G\left(\left.\widetilde M~\right| M\right)\right)$ is  the  $\pi_\tau$-infinite noncommutative covering of $\mathfrak{S}^{\mathrm{pt}}_b$ (cf. Definition \ref{main_defn} and Theorem \ref{comm_main_mu_thm}). If $\widetilde \H$ is the norm completion of $C_0\left(\widetilde M\right)L^2\left(\overline M, \overline \mu\right)$ then one has
 \be
 \begin{split}
 	\widetilde \H \cong L^2\left( \widetilde M, \widetilde\mu\bydef \overline\mu|_{\widetilde M}\right) ,\\
@@ -10503,7 +10514,7 @@ Above construction is a version of the described in \ref{comp_pt_o*_empt} genera
 		$\widetilde \sU \mapsto \widetilde A'/\sim_{\widetilde\sU}$ satisfies to the Definition  \ref{presheaf_defn}, i.e. one has a presheaf.  Let $\widetilde{\mathscr A}'$ be an associated sheaf !!! DEFN \ref{top_x_sheaf_defn} (cf. \ref{sheaf_prdf}). On the other hand from the Example \ref{top_diff_smooth_exm} it follows that there is a sheaf !!! DEFN \ref{top_x_sheaf_defn} $\mathscr D$ of differential operators $\Coo\left(\widetilde M\right)\to \Coo\left(\widetilde M\right)$.
 		If $\widetilde x_0\subset \widetilde M$ that any stalk 
 		(cf. Definition \ref{stalk_defn}) of $\widetilde{\mathscr A}'$ at  $\widetilde x_0$ can be represented  by a pair $\left( \widetilde \sU, \widetilde a_{\widetilde \sU}\right) $ 
-		where  $\widetilde \sU$ is an open neighborhood of $\widetilde x_0$ and $a_{\widetilde \sU} \in \widetilde A'/\sim_{\widetilde\sU}$. Moreover from the Definition \ref{stalk_defn} one can assume that the closure $\widetilde \sY$ of $\widetilde \sU$ is compact. Let $\widetilde f\in  C_c\left( \widetilde M\right)$ be a covering sum for $ \widetilde \sY$ (cf. Definition \ref{top_covering_sum_defn}). One can suppose that $\widetilde f$ is smooth (cf. Remark \ref{top_smooth_part_unity_rem} !!! SOFT).
+		where  $\widetilde \sU$ is an open neighborhood of $\widetilde x_0$ and $a_{\widetilde \sU} \in \widetilde A'/\sim_{\widetilde\sU}$. Moreover from the Definition \ref{stalk_defn} one can assume that the closure $\widetilde \sY$ of $\widetilde \sU$ is compact. Let $\widetilde f\in  C_c\left( \widetilde M\right)$ be a covering sum for $ \widetilde \sY$ (cf. Definition \ref{top_covering_sum_defn}). One can suppose that $\widetilde f$ is smooth (cf. Remark \ref{top_smooth_part_unity_rem} !!! SOFT \ref{top_soft_exer} ).
 		If $\widetilde a_{\widetilde \sU}$ is represented by $\widetilde a$ then from 
 		$\widetilde f \left(\widetilde \sU \right)=\{1\}$ it follows that  $\widetilde a_{\widetilde \sU}$ can be also represented by $\widetilde a\widetilde f$. From the equation \eqref{hilb_adm_eqn} it follows that there is $a^\cup \in \cup~ A_\la = \cup~D\left(M_\la \right)$ such that $\widetilde a\widetilde f=  a^\cup\widetilde f$. However $ a^\cup\widetilde f\in \Coo_c\left(\widetilde M \right)$, it follows that any stalk at $\widetilde x_0$ corresponds to a stalk of $\mathscr D$. On the other hand from \eqref{adm_inc_eqn} if follows that any stalk of $\mathscr D$
 		 can be represented by the stalk of $\widetilde{\mathscr A}'$. It follows that
@@ -10609,7 +10620,7 @@ $$
 	\label{top_inv_qo*_llim_eqn}	\mathrm{span}\left\{ \Coo_c\left( \widetilde{M}\right)  \widetilde{\mathfrak A}'\right\} =\mathrm{span}\left\{  \Coo_c\left(  \widetilde{M}\right) \left( \bigcup_{\la\in \La} \Coo_c\left( {M}_\la\right)'\right) \right\},~\quad\quad \\	
 	\label{top_inv_qo*_rlim_eqn}\mathrm{span}\left\{ 	 \widetilde{\mathfrak A}'\Coo_c\left( \widetilde{M}\right) \right\} =\mathrm{span}\left\{ \left( \bigcup_{\la\in \La} \Coo_c\left( {M}_\la\right)'\right) \Coo_c\left( \widetilde{M}\right) \right\}.~\quad\quad 
 	\eea
-	If  $\left\{f_\a\right\}_{\a\in \mathscr A}\subset C_c\left(\widetilde{M} \right)$ is  a family of functions is a given by the  \eqref{comm_direct_empt} then for any compact $\widetilde{\sY}\subset \widetilde{M}$ there is $\a_{\widetilde{\sY}}$ such that for all $\a\ge \a_{\widetilde{\sY}}$ one has $\widetilde f_\a\left( \widetilde \sY\right) = \{1\}$ (cf. Lemma \ref{comm_direct_lem}). Similarly to the Proposition \ref{top_smooth_part_unity_prop} !!! SOFT one can assume that $\left\{\widetilde f_\a\right\}_{\a \in \mathscr A}\subset \Coo_c\left( \widetilde{M}\right)_+$. If $\left( \widetilde{\mathfrak A}', \Coo\left( \widetilde{M}\right)\right) $ is an admissible quasi *-algebra (cf. Definition \ref{comp_pt_qo*_defn}) then from the equation \ref{inv_qo*_llim_eqn} which in this specialization is equivalent to \ref{top_inv_qo*_llim_eqn}  it follows that
+	If  $\left\{f_\a\right\}_{\a\in \mathscr A}\subset C_c\left(\widetilde{M} \right)$ is  a family of functions is a given by the  \eqref{comm_direct_empt} then for any compact $\widetilde{\sY}\subset \widetilde{M}$ there is $\a_{\widetilde{\sY}}$ such that for all $\a\ge \a_{\widetilde{\sY}}$ one has $\widetilde f_\a\left( \widetilde \sY\right) = \{1\}$ (cf. Lemma \ref{comm_direct_lem}). Similarly to the Proposition \ref{top_smooth_part_unity_prop} !!! SOFT \ref{top_soft_exer}  one can assume that $\left\{\widetilde f_\a\right\}_{\a \in \mathscr A}\subset \Coo_c\left( \widetilde{M}\right)_+$. If $\left( \widetilde{\mathfrak A}', \Coo\left( \widetilde{M}\right)\right) $ is an admissible quasi *-algebra (cf. Definition \ref{comp_pt_qo*_defn}) then from the equation \ref{inv_qo*_llim_eqn} which in this specialization is equivalent to \ref{top_inv_qo*_llim_eqn}  it follows that
 \bean
 \forall \widetilde a\in \widetilde{\mathfrak A}'\quad \forall \a\in \mathscr A\quad	\widetilde f_\a\widetilde a \in \Coo_c\left( \widetilde{M}\right)\left( \bigcup_{\la\in\La} \Coo_c\left( {M}_\la\right)'\right) \subset\\
 \subset  \text{span} \left\{ \Coo_c\left( \widetilde{M}\right)\left( \bigcup_{\la\in\La} \Coo_c\left( {M}_\la\right)'\right) \right\} .
@@ -10680,7 +10691,7 @@ Let $\left( \sX, x_0\right) $ be a pointed connected, locally connected, locally
 	\mathfrak{S}^{\mathrm{pt}}_{B} \bydef \left(\left\{\rho_\la: B \hookto B_\la \right\}_{\la \in \La}, \left\{\rho^\mu_\nu: B_\mu \hookto B_\nu\right\}_{\substack{\mu, \nu \in \La\\ \nu > \mu}}\right)\bydef \\ \left(\left\{C_0\left( p_\la\right) : C_0\left(\sX \right)  \hookto C_0\left(\sX_\la \right)\right\}, \left\{C_0\left( p_\nu^\mu\right) : C_0\left(\sX_\nu \right) \hookto C_0\left(\sX_\mu \right)\right\}\right).
 \end{split}
 \ee
-From the Theorem \ref{top_main_thm} it follows that $\mathfrak{S}^{\mathrm{pt}}_B$ is good !!! SOFT (cf. Definition \ref{good_defn} !!! ABC to AB GOOD EXER ADD !!!). Moreover and there is a space $\widetilde \sX$  and a transitive covering $\widetilde p: \widetilde \sX\to  \sX$ such that a triple 
+From the Theorem \ref{top_main_thm} it follows that $\mathfrak{S}^{\mathrm{pt}}_B$ is good !!! SOFT \ref{top_soft_exer}  (cf. Definition \ref{good_defn} !!! ABC to AB GOOD EXER ADD !!!). Moreover and there is a space $\widetilde \sX$  and a transitive covering $\widetilde p: \widetilde \sX\to  \sX$ such that a triple 
 $\left(C_0\left(\sX\right), C_0\left(\widetilde \sX\right),G\left(\left.\widetilde \sX~\right| \mathcal X\right)\right)
 $ is  an  { infinite noncommutative covering} of $\mathfrak{S}^{\mathrm{pt}}_{C_0\left(\mathcal{X}\right)}$ (cf. Definition \ref{main_defn}). This triple we also denote by $\left(B, \widetilde B,G\left(\left.\widetilde B~\right| B\right)\right)
 $.  For all $\la\in \La$ denote by $A_\la\bydef Cont\left(\sX_\la \right) $ a *-algebra of continuous (possibly unbounded) maps from $\sX_\la$ to $\C$.  From the Theorem \ref{top_fin_hilb_thm} it turns out that	
@@ -10755,7 +10766,7 @@ If $B_\la\bydef C_0\left(\sY_\la \right)$ then the Lemma \ref{top_base_point_lem
 	\mathfrak{S}^{\text{pt}}_B \bydef \left(\left\{\rho_\la: B \hookto B_\la \right\}_{\la \in \La}, \left\{\rho^\mu_\nu: B_\mu \hookto B_\nu\right\}_{\substack{\mu, \nu \in \La\\ \nu > \mu}}\right).
 \end{split}
 \ee
-From the Theorem \ref{top_main_thm} it follows that $\mathfrak{S}^{\mathrm{pt}}_B$ is good !!! SOFT (cf. Definition \ref{good_defn} !!! ABC to AB GOOD EXER ADD !!!). Moreover and there is a space $\widetilde \sX$  and a transitive covering $\widetilde p: \widetilde \sY\to  \sY$ such that a triple 
+From the Theorem \ref{top_main_thm} it follows that $\mathfrak{S}^{\mathrm{pt}}_B$ is good !!! SOFT \ref{top_soft_exer}  (cf. Definition \ref{good_defn} !!! ABC to AB GOOD EXER ADD !!!). Moreover and there is a space $\widetilde \sX$  and a transitive covering $\widetilde p: \widetilde \sY\to  \sY$ such that a triple 
 $\left(C_0\left(\sY\right), C_0\left(\widetilde \sY\right),G\left(\left.\widetilde \sY~\right| \mathcal Y\right)\right)
 $ is  an  { infinite noncommutative covering} of $\mathfrak{S}^{\mathrm{pt}}_{B}$ (cf. Definition \ref{main_defn}). This triple we also denote by $\left(B, \widetilde B,G\left(\left.\widetilde B~\right| B\right)\right)
 $.
@@ -11095,7 +11106,7 @@ The given by the equation \eqref{comm_triple_seq_eqn} family $	\mathfrak{S}_{\le
 	(c) From the coverings $\overline M \to M_\la$ ($\la\in\La$) one can obtain a faithful representations $C\left(M_\la \right)\hookto B\left(L^2\left( \overline M, \overline S\right)  \right)$. These representations yield an equivariant representation $\pi: C^*$-$\varinjlim_{\la \in \La} C\left( M_\la\right)  \hookto B\left(L^2\left( \overline M, \overline S\right)\right) $ such that $\mathfrak{S}^{\text{pt}}$. From the Theorem \ref{comm_main_mu_thm} it turns out  that an {algebraical  finite covering category} $
 	\mathfrak{S}_{C\left(M\right)}=
 	\left\{C(M)\hookto C(M_\la)\right\}_{\la \in \La}
-	$ is $\pi$-good !!! SOFT(cf. Definition \ref{good_defn} !!! ABC to AB GOOD EXER ADD !!! !!! CHECK!!! CHECK EVERYWHERE .)\\
+	$ is $\pi$-good !!! SOFT \ref{top_soft_exer} (cf. Definition \ref{good_defn} !!! ABC to AB GOOD EXER ADD !!! !!! CHECK!!! CHECK EVERYWHERE .)\\
 	(d)  Follows from the Theorem \ref{comm_fin_sp_tr_thm}.\\
 	(e)   Follows from the Theorem \ref{comm_fin_sp_tr_thm}.
 \end{proof}
@@ -11128,7 +11139,7 @@ Follows from the construction \ref{top_reg_triple_empt} which is a specializatio
 \end{remark}
 \chapter{Hausdorff blowing-up and coverings}\label{blowing_chap}
 \paragraph*{}
-If the spectrum of  $C^*$-algebra $A$ is Hausdorff then $A$ possesses  a family of good !!! SOFTproperties. For example noncommutative coverings of $C^*$-algebras with Hausdorff spectra correspond to coverings of their spectra (cf. Chapters \ref{top_chap} and \ref{ctr_chap}). Sometimes the spectrum of $C^*$-algebra can by replaced by its Hausdorff blowing-up and some results concerning $C^*$-algebras with  Hausdorff spectrum can be applied to $C^*$-algebras with Hausdorff blowing-up. We prove that noncommutative coverings of $C^*$-algebras correspond to coverings of Hausdorff blowing-up. The results of this chapter are used in both $C^*$-algebras with continuous trace (Hausdorff spectrum) and algebras of foliations   (non - Hausdorff spectrum). 
+If the spectrum of  $C^*$-algebra $A$ is Hausdorff then $A$ possesses  a family of good !!! SOFT \ref{top_soft_exer} properties. For example noncommutative coverings of $C^*$-algebras with Hausdorff spectra correspond to coverings of their spectra (cf. Chapters \ref{top_chap} and \ref{ctr_chap}). Sometimes the spectrum of $C^*$-algebra can by replaced by its Hausdorff blowing-up and some results concerning $C^*$-algebras with  Hausdorff spectrum can be applied to $C^*$-algebras with Hausdorff blowing-up. We prove that noncommutative coverings of $C^*$-algebras correspond to coverings of Hausdorff blowing-up. The results of this chapter are used in both $C^*$-algebras with continuous trace (Hausdorff spectrum) and algebras of foliations   (non - Hausdorff spectrum). 
 The "blowing-up" word is inspired by following reasons:
 \begin{itemize}
 	\item There is  the natural partially defined multi-valued surjective  map from the Hausdorff blowing-up to the spectrum (cf. \ref{blowing_empt}).
@@ -11256,7 +11267,7 @@ From the above equations there is the 	limit $
 $
 with respect to the strict topology (cf. Definition \ref{strict_topology}) of $M\left( A\right)$. It turns out that $C_0\left(\sX \right) \hookto M\left( A\right)$ satisfies to the condition (a)  Definition \ref{blowing_defn}). If $\rep_x: A \to B\left( \H\right)$ is an irreducible representation then if $f \in C_0\left(\sX \right)$ is such that $f\left(x \right)  = 1$ then $\rep_x\left( f\right) = 1_{B\left(\H \right) }$ and $\rep_x\left(f \right)\H = \H$, i.e.  $C_0\left(\sX \right) \hookto M\left( A\right)$ satisfies to the condition (b)  Definition \ref{blowing_defn}).
 So  $C_0\left(\sX \right) \hookto M\left( A\right)$
-is a good !!! SOFTspectral {Hausdorff blowing-up} of $A$ (cf. Definitions \ref{blowing_defn}, \ref{blowing_good_defn} and \ref{blowing_spectal_defn}).
+is a good !!! SOFT \ref{top_soft_exer} spectral {Hausdorff blowing-up} of $A$ (cf. Definitions \ref{blowing_defn}, \ref{blowing_good_defn} and \ref{blowing_spectal_defn}).
 \end{example}
 \begin{definition}\label{blowing_supp_defn}
 Let $A$ be $C^*$-algebra, and let $C_0\left( \sY\right) \subset M\left(A \right)$  be a blowing-up (cf. Definition \ref{blowing_defn}). If $a \in A$ then an open set $\sU\subset \sX$ is said to be $a$-\textit{admissible} if
@@ -11269,7 +11280,7 @@ The \textit{support} of $a$ is given by
 \ee
 \end{definition}
 \begin{lemma}\label{blowing_supp_lem}
-Let $A$ be $C^*$-algebra, and let $C_0\left( \sY\right) \subset M\left(A \right)$  be a good !!! SOFTblowing-up (cf. Definitions \ref{blowing_defn}, \ref{blowing_good_defn}). If $a \in A_+$ is positive, $\eps > 0$ and $f_\eps$ is given by the equation \eqref{f_eps_eqn} then the set $\supp f_\eps\left(a \right)\subset \sY$ is compact.  
+Let $A$ be $C^*$-algebra, and let $C_0\left( \sY\right) \subset M\left(A \right)$  be a good !!! SOFT \ref{top_soft_exer} blowing-up (cf. Definitions \ref{blowing_defn}, \ref{blowing_good_defn}). If $a \in A_+$ is positive, $\eps > 0$ and $f_\eps$ is given by the equation \eqref{f_eps_eqn} then the set $\supp f_\eps\left(a \right)\subset \sY$ is compact.  
 \end{lemma}
 \begin{proof}
 If $b \bydef \sqrt{a}$ then  from the Definition \ref{blowing_good_defn} it turns out that for all $\delta > 0$ there is	
@@ -11359,7 +11370,7 @@ from the Definition \ref{fin_comp_defn} it follows that $\left(A_\sU,\widetilde 
 \end{proof}
 
 \begin{empt}\label{blowing_b_empt}
-Let $A$ be a $C^*$- algebra and let $C_0\left( \sY\right)\hookto M\left(A \right)$  be a good !!! SOFT blowing-up of $A$ (cf. Definitions \ref{blowing_defn} and \ref{blowing_good_defn}) such that $\sY$ is connected and locally connected. Let $q: \widetilde \sY\to\sY$ be a transitive covering (cf. Definition \ref{top_transitive_defn}).
+Let $A$ be a $C^*$- algebra and let $C_0\left( \sY\right)\hookto M\left(A \right)$  be a good !!! SOFT \ref{top_soft_exer}  blowing-up of $A$ (cf. Definitions \ref{blowing_defn} and \ref{blowing_good_defn}) such that $\sY$ is connected and locally connected. Let $q: \widetilde \sY\to\sY$ be a transitive covering (cf. Definition \ref{top_transitive_defn}).
 Let  $\left\{\sU_\a\subset\sU\right\}_{\a \in \mathscr A}$ be a {compliant with} $q$ family, and let $\left\{\widetilde\sU_{\widetilde\a}\right\}_{\widetilde\a \in \widetilde{\mathscr A}}$  the $q$-{lift} of $\left\{\sU_\a\right\}_{\a \in \mathscr A}$. (cf. Definition 
 \ref{top_lconn_defn}).
 Let $\mathfrak P$ be a set of $\left\{\widetilde\sU_{\widetilde\a}\right\}$-paths (cf. Definition \ref{top_gen_path_defn}).  Consider a subset  $\mathfrak G \subset \mathfrak P\times A$ such that $\left( \mathfrak p,a \right)\in \mathfrak G$ if $\mathfrak p= \left(\widetilde\sU_{\widetilde\a_1}, ..., \widetilde\sU_{\widetilde\a_n}\right)$ then there are $a_1\in A_{p\left(\widetilde\sU_{\widetilde\a_1 }\right) },...,a_n\in A_{p\left(\widetilde\sU_{\widetilde\a_n }\right) }$ such that $a = a_1\cdot...\cdot a_n$. There is an involution on $\mathfrak G$ given by $\left( \mathfrak p,a \right)^*= \left( \mathfrak p^*,a^* \right)$ (cf. \eqref{top_path_inv_eqn}). The action $G\left(\left.\widetilde \sY\right| \sY \right)\times \widetilde \sY\to \widetilde \sY$ induces an action of $G\left(\left.\widetilde \sY\right| \sY \right)\times \mathfrak G\to \mathfrak G$.
@@ -11493,7 +11504,7 @@ Prove following statements:
 \paragraph{}
 Here we prove that a finite-fold coverings of Hausdorff blowing-up yields a noncommutative reduced finite-fold coverings and vice versa.
 \begin{lemma}\label{blowing_covi_lem}
-Let $A$ be a $C^*$-algebra, and let $C = C_0\left( \sY\right)\hookto M\left( A\right) $  be a good !!! SOFT blowing-up of $A$ (cf. Definitions \ref{blowing_defn}, \ref{blowing_good_defn}).
+Let $A$ be a $C^*$-algebra, and let $C = C_0\left( \sY\right)\hookto M\left( A\right) $  be a good !!! SOFT \ref{top_soft_exer}  blowing-up of $A$ (cf. Definitions \ref{blowing_defn}, \ref{blowing_good_defn}).
 Suppose that $\sY$ is a connected, locally connected space. If $q: \widetilde \sY\to \sY$ is a transitive finite-fold covering and $A_0\left(q \right): A\hookto A_0\left( \widetilde\sY\right)$ is given by \eqref{blowing_a0x_eqn}  then there is 	 a reduced noncommutative finite-fold   covering $\left(A, A_0\left( \widetilde\sY\right) , G\left(\left. \widetilde\sY\right| \sY\right) , A_0\left( q\right)  \right)$ (cf. Definitions \ref{fin_defn} REPLACE !!! \ref{fin_weak_defn}  CONNECTED!!! CONNECTED !!!, \ref{fin_red_defn}) such that if $\varphi : M\left( A\right) \to M\left(A_0\left( \widetilde\sY\right)\right)$ is given by the Lemma \ref{ind_mult_inv_lem} then
 $\left.\varphi\right|_{A_0\left( \sY\right) }= A_0\left(q \right)$. 
 
@@ -11555,7 +11566,7 @@ from the Definitions \ref{red_alg_defn} and \ref{fin_red_defn} it turns out that
 \end{proof}
 
 \begin{lemma}\label{blowing_lift_d_lem}
-Let $A$ be a $C^*$- algebra and let $C_0\left( \sY\right)\hookto M\left(A \right)$  be a good !!! SOFT blowing-up of $A$ (cf. Definitions \ref{blowing_defn} and \ref{blowing_good_defn}) such that $\sY$ is connected and locally connected. Let $q_1: \widetilde \sY_1\to\sY$,  $q_2: \widetilde \sY_2\to\sY$ be a finite-fold transitive coverings (cf. Definition \ref{top_transitive_defn}) such that there is a transitive covering $q^2_1:  \widetilde \sY_2\to  \widetilde \sY_1$ with $q_2 = p_1\circ p^2_1$.
+Let $A$ be a $C^*$- algebra and let $C_0\left( \sY\right)\hookto M\left(A \right)$  be a good !!! SOFT \ref{top_soft_exer}  blowing-up of $A$ (cf. Definitions \ref{blowing_defn} and \ref{blowing_good_defn}) such that $\sY$ is connected and locally connected. Let $q_1: \widetilde \sY_1\to\sY$,  $q_2: \widetilde \sY_2\to\sY$ be a finite-fold transitive coverings (cf. Definition \ref{top_transitive_defn}) such that there is a transitive covering $q^2_1:  \widetilde \sY_2\to  \widetilde \sY_1$ with $q_2 = p_1\circ p^2_1$.
 
 \begin{enumerate}
 	\item [(i)]		There are  natural actions $G\left(\left.\widetilde{\sY}_1~\right| \sY\right) \times A_0\left(\widetilde\sY_1 \right)\to A_0\left(\widetilde\sY_1 \right)$ and $G\left(\left.\widetilde{\sY}_2~\right| \sY\right) \times A_0\left(\widetilde\sY_2\right)\to A_0\left(\widetilde\sY_2 \right)$.
@@ -11635,7 +11646,7 @@ and $\widetilde{A}_{\La_0}\subset \widetilde{A}$ is the generated by $J_{\La_0}$
 
 
 \begin{lemma}\label{blowing_cov_lem}
-Let $\left(A,\widetilde A, G, \pi \right)$ be a  noncommutative finite-fold   covering (cf. Definition \ref{fin_defn}  CONNECTED!!! CONNECTED !!!), and let $C = C_0\left( \sY\right)\hookto M\left( A\right) $  be a good !!! SOFT Hausdorff blowing-up of $A$ (cf. Definitions \ref{blowing_defn}, \ref{blowing_good_defn}). If $\widetilde C = C_0\left( \widetilde \sY\right)\hookto M\left( \widetilde A\right) $ is the given by \eqref{blowing_inc_eqn} then following conditions hold:
+Let $\left(A,\widetilde A, G, \pi \right)$ be a  noncommutative finite-fold   covering (cf. Definition \ref{fin_defn}  CONNECTED!!! CONNECTED !!!), and let $C = C_0\left( \sY\right)\hookto M\left( A\right) $  be a good !!! SOFT \ref{top_soft_exer}  Hausdorff blowing-up of $A$ (cf. Definitions \ref{blowing_defn}, \ref{blowing_good_defn}). If $\widetilde C = C_0\left( \widetilde \sY\right)\hookto M\left( \widetilde A\right) $ is the given by \eqref{blowing_inc_eqn} then following conditions hold:
 \begin{enumerate}
 	\item [(i)] There is the natural transitive finite-fold covering $q: \widetilde \sY\to \sY$.
 	\item[(ii)] There are a natural injective  *-homomorphism $A\left(\widetilde\sY \right)\hookto \widetilde A$ and a surjective homomorphism $G \to G\left( \left. \widetilde \sY\right|\sY\right)$ of groups.
@@ -11791,7 +11802,7 @@ If  $G'\bydef \ker \left(G \to  G\left( \left. \widetilde \sY\right|\sY\right)\r
 $A_{\sU_y}\cong \left(  g\widetilde A_{\widetilde \sU_y}\right)^{G'}$. Moreover if $G'$ is not trivial one has $A_{\sU_y}\cong\left(  g\widetilde A_{\widetilde \sU_y}\right)^{G'}\subsetneqq g\widetilde A_{\widetilde \sU_y}$, but it contradicts with \eqref{blowing_ay_eqn}. So $G'$ is trivial, $G \cong  G\left( \left. \widetilde \sY\right|\sY\right)$ and from \eqref{blowing_cov_eqn} it turns out that $A\left(\widetilde\sY \right)\cong \widetilde A$.
 \end{proof}
 \begin{lemma}\label{blowing_good_lem}
-Let $A$ be a $C^*$-algebra, and let $C_0\left(\sY \right) \to M\left( A\right)$ be a good,  semilocally 1-connected,  Hausdorff blowing-up (cf. Definitions \ref{blowing_defn}, \ref{blowing_spectal_defn}, \ref{blowing_good_defn}, \ref{blowing_semi1_defn}). For any reduced noncommutative finite-fold covering $\left(A, \widetilde A, G, \pi\right)$ the given by the equation \eqref{blowing_inc_eqn} Hausdorff blowing-up $C_0\left( \widetilde \sY\right) \to M\left(  \widetilde A\right)$ is good !!! SOFTand   semilocally 1-connected.
+Let $A$ be a $C^*$-algebra, and let $C_0\left(\sY \right) \to M\left( A\right)$ be a good,  semilocally 1-connected,  Hausdorff blowing-up (cf. Definitions \ref{blowing_defn}, \ref{blowing_spectal_defn}, \ref{blowing_good_defn}, \ref{blowing_semi1_defn}). For any reduced noncommutative finite-fold covering $\left(A, \widetilde A, G, \pi\right)$ the given by the equation \eqref{blowing_inc_eqn} Hausdorff blowing-up $C_0\left( \widetilde \sY\right) \to M\left(  \widetilde A\right)$ is good !!! SOFT \ref{top_soft_exer} and   semilocally 1-connected.
 \end{lemma}
 \begin{proof}
 
@@ -11807,7 +11818,7 @@ Let $\left(A,\widetilde A, G, \pi \right)$ be a  noncommutative finite-fold   co
 \ee
 \end{corollary}
 \begin{proof}
-From the Lemma \ref{blowing_cov_lem} it follows that there is a transitive finite-fold covering $q: \widetilde \sY \to \sY$ such that  $\left(A,\widetilde A, G, \pi \right)$ is equivalent to $ \left(A,\widetilde A\left(\widetilde\sY \right) , G\left( \left. \widetilde \sY\right|\sY\right) , A_0\left(q\right)  \right)$. From the Lemma \ref{blowing_good_lem} it turns out that  the explained in \ref{blowing_inc_eqn} Hausdorff blowing-up $C_0\left( \widetilde \sY\right) \to M\left(  \widetilde A\right)$ is good !!! SOFTand   semilocally 1-connected. From the \ref{blowing_cov_lem} it turns out that there is a transitive finite-fold covering $\widetilde q: \widetilde{\widetilde \sY}  \to \widetilde \sY$ such that $\left(\widetilde A,\widetilde{\widetilde A}, \widetilde G, \widetilde \pi \right)$ is e quivalent to $ \left(\widetilde A,\widetilde A\left(\widetilde{\widetilde \sY} \right) , G\left( \left. \widetilde{\widetilde \sY}\right|\widetilde\sY\right) , A_0\left(\widetilde\sY \right) \left(\widetilde q\right)  \right)$. From
+From the Lemma \ref{blowing_cov_lem} it follows that there is a transitive finite-fold covering $q: \widetilde \sY \to \sY$ such that  $\left(A,\widetilde A, G, \pi \right)$ is equivalent to $ \left(A,\widetilde A\left(\widetilde\sY \right) , G\left( \left. \widetilde \sY\right|\sY\right) , A_0\left(q\right)  \right)$. From the Lemma \ref{blowing_good_lem} it turns out that  the explained in \ref{blowing_inc_eqn} Hausdorff blowing-up $C_0\left( \widetilde \sY\right) \to M\left(  \widetilde A\right)$ is good !!! SOFT \ref{top_soft_exer} and   semilocally 1-connected. From the \ref{blowing_cov_lem} it turns out that there is a transitive finite-fold covering $\widetilde q: \widetilde{\widetilde \sY}  \to \widetilde \sY$ such that $\left(\widetilde A,\widetilde{\widetilde A}, \widetilde G, \widetilde \pi \right)$ is e quivalent to $ \left(\widetilde A,\widetilde A\left(\widetilde{\widetilde \sY} \right) , G\left( \left. \widetilde{\widetilde \sY}\right|\widetilde\sY\right) , A_0\left(\widetilde\sY \right) \left(\widetilde q\right)  \right)$. From
 \bean
 \pi =  A_0\left( q \right),\\
 \widetilde \pi = A\left( \widetilde\sY\right)_0\left(\widetilde q\right)
@@ -11852,7 +11863,7 @@ From the Lemma \ref{blowing_spectal_lem} it turns out that there is the followin
 where both  sets $s\left( \sY \right)$, $~s\left(\widetilde \sY \right)$ and both maps $s_{\sY}$, $~s_{\widetilde\sY}$ are given by \eqref{blowing_spectal_eqn}, a continuous map  $q$ is given by the Lemma \ref{spectrum_cov_lem}, a transitive covering $q$ is given by the Lemma \ref{blowing_cov_lem}. 
 \end{remark}
 \begin{empt}\label{blowing_pcomt_empt}
-Let $A$ be a $C^*$-algebra, and let $C_0\left(\sY \right) \to M\left( A\right)$ be a good !!! SOFTsemilocally 1-connected Hausdorff blowing-up (cf. Definitions \ref{blowing_defn}, \ref{blowing_good_defn}, \ref{blowing_semi1_defn}). If there are transitive coverings $q_1: \widetilde\sY_1 \to \sY$ and  $q_2: \widetilde\sY_2 \to \sY$ such that there is a   commutative diagram  
+Let $A$ be a $C^*$-algebra, and let $C_0\left(\sY \right) \to M\left( A\right)$ be a good !!! SOFT \ref{top_soft_exer} semilocally 1-connected Hausdorff blowing-up (cf. Definitions \ref{blowing_defn}, \ref{blowing_good_defn}, \ref{blowing_semi1_defn}). If there are transitive coverings $q_1: \widetilde\sY_1 \to \sY$ and  $q_2: \widetilde\sY_2 \to \sY$ such that there is a   commutative diagram  
 \newline
 \begin{tikzpicture}
 	\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
@@ -11910,7 +11921,7 @@ From the Corollary \ref{top_covp_cat_cor} it follows that $q^2_1$ is a transitiv
 \end{proof}
 
 \begin{theorem}\label{blowing_functor_thm}
-Let $A$ be a $C^*$-algebra, and let $C_0\left(\sY \right) \to M\left( A\right)$ be a good !!! SOFT Hausdorff blowing-up (cf. Definitions \ref{blowing_defn}, \ref{blowing_good_defn}).	Suppose that  $\sY$ is a connected, locally connected  space. If $\mathfrak{FinCov}^{\mathrm{red}}$-$A$ is a category of reduced noncommutative  finite-fold  coverings of $A$ (cf. Definition \ref{fin_cat_defn}).
+Let $A$ be a $C^*$-algebra, and let $C_0\left(\sY \right) \to M\left( A\right)$ be a good !!! SOFT \ref{top_soft_exer}  Hausdorff blowing-up (cf. Definitions \ref{blowing_defn}, \ref{blowing_good_defn}).	Suppose that  $\sY$ is a connected, locally connected  space. If $\mathfrak{FinCov}^{\mathrm{red}}$-$A$ is a category of reduced noncommutative  finite-fold  coverings of $A$ (cf. Definition \ref{fin_cat_defn}).
 then following conditions hold:
 \begin{enumerate}
 	\item [(i)] 	If the category $\mathfrak{FinCov}$-$\sY$ is given by the Definition \ref{top_fin_cov_defn} then the equation \eqref{blowing_a0x_eqn}  yields a functor $A_0:\mathfrak{FinCov}$-$\sY \to \mathfrak{FinCov}^{\mathrm{red}}$-$A$.
@@ -12027,7 +12038,7 @@ it follows that  $\overline \H_a\cong \widehat \H_a$. So the atomic representati
 \ee
 \end{empt}
 \begin{lemma}\label{blowing_cov_inc_strict_lem}
-Let $A$ be a $C^*$-algebra and let $C_0\left(\sY\right)\hookto M\left(A \right) $ be a good !!! SOFTHausdorff blowing-up (cf. Definitions \ref{blowing_defn} and \ref{blowing_good_defn}). Suppose  $\sY$ is  a connected, locally connected space, and let $q: \widetilde\sY\to\sY$ be  a transitive covering. Suppose that  $\mathcal U\subset \mathcal Y$  is a connected open subset evenly {covered} by $\widetilde{\mathcal U}\subset \widetilde{\mathcal Y}$, such that the closure $\widetilde \sV$ of $\widetilde\sU$ is compact. Let $a \in A_0\left( \widetilde{\sY}\right)_{\widetilde{\sU}} $ 
+Let $A$ be a $C^*$-algebra and let $C_0\left(\sY\right)\hookto M\left(A \right) $ be a good !!! SOFT \ref{top_soft_exer} Hausdorff blowing-up (cf. Definitions \ref{blowing_defn} and \ref{blowing_good_defn}). Suppose  $\sY$ is  a connected, locally connected space, and let $q: \widetilde\sY\to\sY$ be  a transitive covering. Suppose that  $\mathcal U\subset \mathcal Y$  is a connected open subset evenly {covered} by $\widetilde{\mathcal U}\subset \widetilde{\mathcal Y}$, such that the closure $\widetilde \sV$ of $\widetilde\sU$ is compact. Let $a \in A_0\left( \widetilde{\sY}\right)_{\widetilde{\sU}} $ 
 then the series 	
 \be\nonumber
 \sum_{g \in G\left(\left.\widetilde\sY~\right|\sY\right) } g\widetilde{a}.
@@ -12614,7 +12625,7 @@ so one has
 \begin{theorem}\label{blowing_main_thm}
 	Following conditions hold:
 \begin{enumerate}
-	\item [(i)] The given by  \eqref{blowing_base_point_eqn} pointed	algebraical  finite covering category $	\mathfrak{S}^{\mathrm{pt}}_A$  (cf. Definition \ref{comp_defn}) is good !!! SOFT(cf. Definition \ref{good_defn} !!! ABC to AB GOOD EXER ADD !!! !!! CHECK!!! CHECK EVERYWHERE ).
+	\item [(i)] The given by  \eqref{blowing_base_point_eqn} pointed	algebraical  finite covering category $	\mathfrak{S}^{\mathrm{pt}}_A$  (cf. Definition \ref{comp_defn}) is good !!! SOFT \ref{top_soft_exer} (cf. Definition \ref{good_defn} !!! ABC to AB GOOD EXER ADD !!! !!! CHECK!!! CHECK EVERYWHERE ).
 	\item[(ii)] A triple $\left(A, \widetilde A\bydef \overline A_{\widetilde \sY}, 	G\left(\left.\widetilde{\sY}~\right| \sY\right)\right)$ the  {infinite noncommutative covering} of $\mathfrak{S}_A^{\mathrm{pt}}$.
 	\item[(iii)] Suppose that  $\sY$ is connected, locally path-connected and semilocally 1-connected, and the fundamental group $\pi_1\left(\sY, y_0\right)$ is residually finite (cf. Definition \ref{residually_finite_defn}). If $\pi_1\left(A, \left\{\pi^\nu_\mu\right\}_{\substack{ \mu, \nu \in \La \\ \mu \ge \nu}} \right)$  is the  reduced fundamental group (cf. Definition \ref{fg_bas_defn}) then there is the natural isomorphism
 	$$
@@ -12680,7 +12691,7 @@ In result there is   a  {pointed  algebraical  finite covering} category
 \be\label{om_p_cat_eqn}
 \mathfrak{S}_{\left( b\left(\Omega A \right), \om_1\right) } = \left( \left\{ \pi_\la:b\left(\Omega A \right) \hookto A_\la\right\},\left\{\pi^\mu_\nu: A_\mu\hookto A_\nu\right\} \right)
 \ee
-Suppose that $\mathfrak{S}_{\left( b\left(\Omega A \right), \a_0\right) }$ is good !!! SOFT(cf. Definition \ref{good_defn} !!! ABC to AB GOOD EXER ADD !!! !!! CHECK!!! CHECK EVERYWHERE ) 
+Suppose that $\mathfrak{S}_{\left( b\left(\Omega A \right), \a_0\right) }$ is good !!! SOFT \ref{top_soft_exer} (cf. Definition \ref{good_defn} !!! ABC to AB GOOD EXER ADD !!! !!! CHECK!!! CHECK EVERYWHERE ) 
 
 \begin{definition}\label{pi_n_defn}
 In the above situation denote by
@@ -12745,7 +12756,7 @@ The center of $M\left(A \right)$ is naturally isomorphic to $C_b\left( \sY^{\mat
 From the Theorem \ref{dauns_hofmann_thm} it turns out that $M\left(A \right)$ is naturally isomorphic to the class of bounded continuous  functions on $\check{A}$. If $f$ is a continuous  function on $\check{A}$ then for all $\check y^{\mathrm{c}}\in \check \sY^{\mathrm{c}}$ one has $f\left(\check y^{\mathrm{c}} \right) = f\left( \phi\check~\left(\check y^{\mathrm{c}} \right)\right)$ because $\check y^{\mathrm{c}}$ lies in the closure of $\phi\hat~\left(\check y^{\mathrm{c}}\right)$. It follows that the function $f$ uniquely depends on its restriction $f|_{\check A^{\mathrm{ab}}}= f|_{\sY^{\mathrm{ab}}}$. 
 It follows that any $f$ lies in $C_b\left(\sY^{\mathrm{ab}} \right)$ on the other hand from the Theorem \ref{ideal_spectrum_thm} the topology of $\sY^{\mathrm{ab}}$ is the restriction of the topology of $\check{A}$. So from the Theorem \ref{dauns_hofmann_thm} it follows that $C_b\left( \sY^{\mathrm{ab}}\right)$ coincides with  the center of $M\left(A\right)$.
 \end{proof}
-From the Example \ref{blowing_ctr_exm} it turns out that $C\left( \sY^{\mathrm{ab}}\right)\hookto A$ is a good !!! SOFTHausdorff blowing-up of $A$ (cf. Definitions \ref{blowing_defn} and \ref{blowing_good_defn}). 
+From the Example \ref{blowing_ctr_exm} it turns out that $C\left( \sY^{\mathrm{ab}}\right)\hookto A$ is a good !!! SOFT \ref{top_soft_exer} Hausdorff blowing-up of $A$ (cf. Definitions \ref{blowing_defn} and \ref{blowing_good_defn}). 
 \begin{lemma}\label{h_gr_free_lem}
  If $\left(A,\widetilde A, G, \pi \right)$ is a free noncommutative finite-fold   covering (cf. Definitions \ref{fin_defn}   CONNECTED!!! CONNECTED !!! and \ref{fin_free_defn}) then there is a transitive finite-fold covering $p:\widetilde\sY_{\mathrm{fin}}^{\mathrm{ab}}\to \sY^{\mathrm{ab}}$ such that
  	\bean
@@ -13447,7 +13458,7 @@ Denote by $\widehat{A} = C^*\text{-}\varinjlim A_\la$, $G_\la = G\left( A_\la ~|
 	Let $\mathfrak{S}_A$ be an  algebraical  finite covering category given by \eqref{stable_seq_pure_eqn}, and let $\mathfrak{S}_{A\otimes \mathcal{K}}$ be an  algebraical  finite covering category given by \eqref{stable_seq_pure_eqn}.
 	Following conditions are equivalent:
 	\begin{enumerate}
-		\item[ 	(i)] $\mathfrak{S}_A$ is good !!! SOFT(cf. Definition \ref{good_defn} !!! ABC to AB GOOD EXER ADD !!! !!! CHECK!!! CHECK EVERYWHERE ), the inverse noncommutative limit 	$\varprojlim  \mathfrak{S}_A$ of $\mathfrak{S}_A$ equals to a $C^*$-algebra 	$\widetilde A$ and 	$G\left(\left.\widetilde{A}~\right|~ A\right)=G$.
+		\item[ 	(i)] $\mathfrak{S}_A$ is good !!! SOFT \ref{top_soft_exer} (cf. Definition \ref{good_defn} !!! ABC to AB GOOD EXER ADD !!! !!! CHECK!!! CHECK EVERYWHERE ), the inverse noncommutative limit 	$\varprojlim  \mathfrak{S}_A$ of $\mathfrak{S}_A$ equals to a $C^*$-algebra 	$\widetilde A$ and 	$G\left(\left.\widetilde{A}~\right|~ A\right)=G$.
 		\item[ 	(ii)] $\mathfrak{S}_{A\otimes \mathcal{K}}$ is good, the inverse noncommutative limit 	$\varprojlim  \mathfrak{S}_{A\otimes \mathcal{K}}$ of $\mathfrak{S}_{A\otimes \mathcal{K}}$ equals to a $C^*$-algebra 	$\widetilde A\otimes\K$ and 	$G\left(\left.\widetilde{A}\otimes \mathcal{K}~\right|~ A\otimes \mathcal{K}\right)=G$.
 	\end{enumerate}
 \end{theorem}
@@ -13465,7 +13476,7 @@ Denote by $\widehat{A} = C^*\text{-}\varinjlim A_\la$, $G_\la = G\left( A_\la ~|
 	$$
 	G\left(\left.\widetilde A\right|A\right)\cong G\left(\left.\widetilde A\otimes \K\right|A\otimes \K\right)\cong G
 	$$
-	Since $\mathfrak{S}_{A}$ is good !!! SOFTone has. 
+	Since $\mathfrak{S}_{A}$ is good !!! SOFT \ref{top_soft_exer} one has. 
 	\begin{enumerate}
 		\item[(a)] For all $\la \in \La$ the natural *-homomorphism $A_\la \to  M\left(\widetilde{A} \right)$ is injective.
 		\item[(b)] If $J\subset G\left(\overline{A}~|~ A\right)$ is a set of representatives of $G\left(\left.\overline{A}~\right| A\right)/G$, then the algebraic direct sum
@@ -13486,7 +13497,7 @@ Denote by $\widehat{A} = C^*\text{-}\varinjlim A_\la$, $G_\la = G\left( A_\la ~|
 		\item [(c)] For any $\la \in \La$ the restriction $h_\la|_{G}$ is an epimorphism, i. e. $h_\la\left(G \right) = G\left(\left. A_\la\otimes \K~\right|~A\otimes \K \right)$.
 	\end{enumerate}
 	It means that $\mathfrak{S}_{A\otimes\K}$ is good.\\
-	(ii)	$\Rightarrow$(i) Some parts of this implication follows from the proof of (i)	$\Rightarrow$(ii) Since $\mathfrak{S}_{A\otimes\K}$ is good !!! SOFTone has. 
+	(ii)	$\Rightarrow$(i) Some parts of this implication follows from the proof of (i)	$\Rightarrow$(ii) Since $\mathfrak{S}_{A\otimes\K}$ is good !!! SOFT \ref{top_soft_exer} one has. 
 	
 	\begin{enumerate}
 		\item[(a)] For all $\la \in \La$ the natural *-homomorphism $A_\la \otimes \K \to  M\left(\widetilde{A}\otimes \K \right)$ is injective.
@@ -13614,7 +13625,7 @@ Let $A$ be a stable  $C^*$ - algebra such that $K^1(A)\approx G \oplus \mathbb{Z
 	K_1(A)=G' \oplus \mathbb{Z}[u]
 \end{equation}
 where $u \in M\left(A\right)$ is an unitary representative  of $u$. Suppose that for all $n \in \N$ there is an $\left(u, n\right)$ {covering} (cf. Definition \ref{h_u_n_defn}).
-Let $n_1, ..., n_j, ... \in \N$ be an increasing sequence of natural numbers such that $n_j$ divides $n_{j+1}$ for all $j\in \N$. For any $j \in \N$ let $A\hookto A_j$ be an $\left(u, n_j\right)$ covering. From the Theorem \ref{blowing_main_thm} one has a good !!! SOFTpointed	algebraical  finite covering category 
+Let $n_1, ..., n_j, ... \in \N$ be an increasing sequence of natural numbers such that $n_j$ divides $n_{j+1}$ for all $j\in \N$. For any $j \in \N$ let $A\hookto A_j$ be an $\left(u, n_j\right)$ covering. From the Theorem \ref{blowing_main_thm} one has a good !!! SOFT \ref{top_soft_exer} pointed	algebraical  finite covering category 
 $$
 \mathfrak{S}^{\mathrm{pt}}_A= \left\{(A \hookto A_1\hookto ... \hookto A_n\hookto... \right\}
 $$
@@ -13956,7 +13967,7 @@ Prove that the explained in the Definition \ref{ctr_funct_not_defn} notation  is
 \end{exercise}
 %\begin{exercise}\label{blowing_ctr_exer}
 %	Let $A$ be a $C^*$-algebra with Hausdorff spectrum.
-%	Prove that the given by the Example \ref{blowing_ctr_exm} Hausdorff blowing-up of $A$ is good !!! SOFTand spectral (cf. Definitions \ref{blowing_good_defn}, \ref{blowing_spectal_defn}).
+%	Prove that the given by the Example \ref{blowing_ctr_exm} Hausdorff blowing-up of $A$ is good !!! SOFT \ref{top_soft_exer} and spectral (cf. Definitions \ref{blowing_good_defn}, \ref{blowing_spectal_defn}).
 %\end{exercise}
 
 \begin{exercise}
@@ -14606,7 +14617,7 @@ where $\overline \sX$ is the topological disconnected inverse limit of  $\mathfr
 !!! CHECK EVERYWHERE
 \begin{theorem}\label{ctr_h_main_thm} If $A$ is a $C^*$-algebra with Hausdorff, connected, locally connected spectrum $\sX$, and   $\widetilde{p}:\left( \widetilde{\sX}, \widetilde{x}_0\right) \to \left( \sX, x_0\right)$ is a pointed transitive covering such that a covering group  $G\left(\left.\widetilde \sX \right| \sX\right)$ is residually finite (cf. Definition \ref{residually_finite_defn}) then 	following conditions hold:
 	\begin{enumerate}
-		\item [(i)] The given by  \eqref{ctr_base_point_eqn} pointed	algebraical  finite covering category $	\mathfrak{S}^{\mathrm{pt}}_A$  (cf. Definition \ref{comp_defn}) is good !!! SOFT(cf. Definition \ref{good_defn} !!! ABC to AB GOOD EXER ADD !!! !!! CHECK!!! CHECK EVERYWHERE ).
+		\item [(i)] The given by  \eqref{ctr_base_point_eqn} pointed	algebraical  finite covering category $	\mathfrak{S}^{\mathrm{pt}}_A$  (cf. Definition \ref{comp_defn}) is good !!! SOFT \ref{top_soft_exer} (cf. Definition \ref{good_defn} !!! ABC to AB GOOD EXER ADD !!! !!! CHECK!!! CHECK EVERYWHERE ).
 		\item[(ii)] A triple $\left(A, \widetilde A\bydef \overline A_{\widetilde \sX}~, 	G\left(\left.\widetilde{\sX}~\right| \sX\right)\right)$ the  {infinite noncommutative covering} of $\mathfrak{S}_A^{\mathrm{pt}}$.
 		\item[(iii)] Suppose that  the space $\sX$ is connected, locally path-connected, semilocally 1-connected, and the fundamental group $\pi_1\left(\sX, x_0\right)$ is residually finite (cf. Definition \ref{residually_finite_defn}). If $\pi_1\left(A, \left\{\pi^\nu_\mu\right\}_{\substack{ \mu, \nu \in \La \\ \mu \ge \nu}} \right)$  is the  reduced fundamental group (cf. Definition \ref{fg_bas_defn}) then there is the natural isomorphism
 		$$
@@ -15279,7 +15290,7 @@ Suppose that $\left(\overline{   \mathcal X}, \overline{x}_0 \right)$ is its  to
 			\ee
 			where $\desc_{\overline p}$ means the descent (cf. Definition \ref{top_lift_desc_defn}).
 		\end{enumerate}!!! CHECK EVERYWHERE
-		\item A pointed algebraical  finite covering category $\mathfrak{S}^{\mathrm{pt}}_{A }$ is $\pi$-good !!! SOFT(cf. Definition \ref{good_defn} !!! ABC to AB GOOD EXER ADD !!! !!! CHECK!!! CHECK EVERYWHERE .)
+		\item A pointed algebraical  finite covering category $\mathfrak{S}^{\mathrm{pt}}_{A }$ is $\pi$-good !!! SOFT \ref{top_soft_exer} (cf. Definition \ref{good_defn} !!! ABC to AB GOOD EXER ADD !!! !!! CHECK!!! CHECK EVERYWHERE .)
 		\item If $\widetilde\sX$ is  the {topological inverse limit} of $\mathfrak{S}_{\left( \sX, x_0\right)}$ (cf. Definition \ref{top_topological_inv_lim_defn})
 		then the inverse  $\pi$-\textit{infinite noncommutative covering} of $\mathfrak{S}_A$ is equivalent to \\$\left(A, A_0\left( \widetilde\sX\right), G\left(\left.\widetilde \sX \right|\sX\right) \right)$ (cf. Definition \ref{main_defn}).
 		\item There is the natural representation $\rho: A\hookto B\left( L^2\left( A, \tr_\tau  \right)\right)$ such that $\overline\pi$ is induced by
@@ -15588,7 +15599,7 @@ Let $\left( \sX, x_0\right) $ be a pointed connected, locally connected, locally
 	\mathfrak{S}_{\left( \sX, x_0\right) }\in \mathfrak{FinTop}^{\text{pt}}.
 \end{split}
 \eean
-be a {pointed topological finite covering category} (cf. Definition \ref{top_sec_p_defn}). From the Lemma \ref{ctr_ctr_main_thm} one has a good !!! SOFT{pointed algebraical  finite covering category} (cf. Definition \ref{pointed_defn}), given by
+be a {pointed topological finite covering category} (cf. Definition \ref{top_sec_p_defn}). From the Lemma \ref{ctr_ctr_main_thm} one has a good !!! SOFT \ref{top_soft_exer} {pointed algebraical  finite covering category} (cf. Definition \ref{pointed_defn}), given by
 \be\nonumber
 \begin{split}
 	\mathfrak{S}^{\mathrm{pt}}_{B} \bydef \left(\left\{\rho_\la: B \hookto B_\la \right\}_{\la \in \La}, \left\{\rho^\mu_\nu: B_\mu \hookto B_\nu\right\}_{\substack{\mu, \nu \in \La\\ \nu > \mu}}\right)\bydef \\ \left(\left\{B_0\left( p_\la\right) : B  \hookto B_0\left(\sX_\la \right)\right\}, \left\{B_0\left( p_\nu^\mu\right) : B_0\left(\sX_\nu \right) \hookto B_0\left(\sX_\mu \right)\right\}\right).
@@ -15853,10 +15864,10 @@ C_b\left( M\right)\subset M\left(C^*_r \left(M, \mathcal{F}\right) \right).
 	
 \end{proof}
 \begin{corollary}\label{foli_slfin_cor}
-	If an inclusion $C_0\left( M\right)\subset M\left(C^*_r \left(M, \mathcal{F}\right) \right)$ comes from \eqref{foli_center_eqn} then it is  a good !!! SOFTspectral {Hausdorff blowing-up} of $C^*_r \left(M, \mathcal{F}\right)$ (cf. Definitions \ref{blowing_defn}, \ref{blowing_good_defn}, \ref{blowing_spectal_defn}).
+	If an inclusion $C_0\left( M\right)\subset M\left(C^*_r \left(M, \mathcal{F}\right) \right)$ comes from \eqref{foli_center_eqn} then it is  a good !!! SOFT \ref{top_soft_exer} spectral {Hausdorff blowing-up} of $C^*_r \left(M, \mathcal{F}\right)$ (cf. Definitions \ref{blowing_defn}, \ref{blowing_good_defn}, \ref{blowing_spectal_defn}).
 \end{corollary}
 \begin{proof}
-	From the Lemma \ref{foli_slfin_lem} it follows that $C_0\left( M\right)\subset M\left(C^*_r \left(M, \mathcal{F}\right) \right)$  is  a  Hausdorff blowing-up, from  the Corollary \ref{foli_cov_alg_cor} it turns out that the blowing-up is good !!! SOFT(cf. Definition \ref{blowing_good_defn}). Any maximal ideal of $C_0\left( M\right)$ corresponds to a point $x \in M$. The point $x$ belongs to no more than one leaf of $\left(M, \mathcal{F}\right)$. From the Theorem \ref{foli_irred_hol_thm} it follows that the natural partial map from $M$ to the spectrum of 
+	From the Lemma \ref{foli_slfin_lem} it follows that $C_0\left( M\right)\subset M\left(C^*_r \left(M, \mathcal{F}\right) \right)$  is  a  Hausdorff blowing-up, from  the Corollary \ref{foli_cov_alg_cor} it turns out that the blowing-up is good !!! SOFT \ref{top_soft_exer} (cf. Definition \ref{blowing_good_defn}). Any maximal ideal of $C_0\left( M\right)$ corresponds to a point $x \in M$. The point $x$ belongs to no more than one leaf of $\left(M, \mathcal{F}\right)$. From the Theorem \ref{foli_irred_hol_thm} it follows that the natural partial map from $M$ to the spectrum of 
 $C^*_r \left(M, \mathcal{F}\right)$ is surjective, i.e. the Hausdorff blowing-up $C_0\left( M\right)\subset M\left(C^*_r \left(M, \mathcal{F}\right) \right)$ is spectral (cf. Definition \ref{blowing_spectal_defn}).
 \end{proof}
 \begin{exercise}
@@ -16033,7 +16044,7 @@ $\mathfrak{S}_{\left(M, x_0\right)}$ (cf. Definition \ref{top_sec_p_defn}) then 
 \begin{theorem}\label{foli_main_thm}!!! CHECK EVERYWHERE
 	Following conditions hold:
 	\begin{enumerate}
-		\item [(i)] The given by  \eqref{foli_base_point_eqn} pointed	algebraical  finite covering category $\mathfrak{S}_{C^*_r \left(M, \mathcal{F}\right)}^{\mathrm{pt}}$  (cf. Definition \ref{pointed_defn}) is good !!! SOFT(cf. Definition \ref{good_defn} !!! ABC to AB GOOD EXER ADD !!! !!! CHECK!!! CHECK EVERYWHERE ).
+		\item [(i)] The given by  \eqref{foli_base_point_eqn} pointed	algebraical  finite covering category $\mathfrak{S}_{C^*_r \left(M, \mathcal{F}\right)}^{\mathrm{pt}}$  (cf. Definition \ref{pointed_defn}) is good !!! SOFT \ref{top_soft_exer} (cf. Definition \ref{good_defn} !!! ABC to AB GOOD EXER ADD !!! !!! CHECK!!! CHECK EVERYWHERE ).
 		\item[(ii)] If  $\overline A_{\widetilde M}$ is given by the equation \ref{blowing_wta_eqn} then a triple $\left(C^*_r \left(M, \mathcal{F}\right), \widetilde A\bydef \overline A_{\widetilde M}, 	G\left(\left.\widetilde{M}~\right| M\right)\right)$ the  {infinite noncommutative covering} of $\mathfrak{S}_{C^*_r \left(M, \mathcal{F}\right)}^{\mathrm{pt}}$.
 		\item[(iii)] Suppose that   the fundamental group $\pi_1\left(M, y_0\right)$ is residually finite (cf. Definition \ref{residually_finite_defn}). If $\pi_1\left(C^*_r \left(M, \mathcal{F}\right), \left\{\pi^\nu_\mu\right\}_{\substack{ \mu, \nu \in \La \\ \mu \ge \nu}} \right)$  is the  reduced fundamental group (cf. Definition \ref{fg_bas_defn}) then there is the natural isomorphism
 		$$
@@ -16449,20 +16460,20 @@ and taking into account $a_{\la_0}\in C^*_r\left(\overline{M}, \overline{\sF}\ri
 		\left\{\left\{C^*_r\left( p_\la\right) : C^*_r\left(M, \sF\right)\hookto C^*_r\left(M_\la, \sF_\la\right)\right\}, \left\{C^*_r\left(p^\mu_\nu\right) : C^*_r\left(M_\nu, \sF_\nu\right) \hookto C^*_r\left(M_\mu, \sF_\mu\right)\right\}\right\}.
 	\end{split}
 	\ee
-	Let	$\mathfrak{S}_{\left(M, x_0\right)}= \left\{p_\la:\left( M_\la, x^\la_0\right) \to \left( M, x_0\right)\right\}_{\la \in \La} \in \mathfrak{FinTop}^{\mathrm{pt}}$ be the corresponding pointed topological finite covering category (cf. Definition \ref{top_sec_p_defn}). Let $\widetilde M = \varprojlim  \mathfrak{S}_{\left( M, x_0\right)}$ be the topological inverse limit of $\mathfrak{S}_{\left(M, x_0\right)}$ (cf. Definition \ref{top_topological_inv_lim_defn}), and let $\widetilde p:\widetilde M\to  M$ be a natural covering and $\left(\widetilde M, \widetilde \sF\right)$ be the $\widetilde p$-lift of $\left(M, \sF\right)$ (cf. Definition \ref{fol_cov_defn}). Then the category \eqref{foli_poi_eqn} is good !!! SOFT(cf. Definition \ref{good_defn} !!! ABC to AB GOOD EXER ADD !!! !!! CHECK!!! CHECK EVERYWHERE ) and the triple $\left(C^*_r\left(M, \sF\right), C^*_r\left(\widetilde M, \widetilde \sF\right), G\left(\left.\widetilde M~\right| M\right) \right)$ is  the  { infinite noncommutative covering} of $\mathfrak{S}_{C^*_r\left(M, \sF, x_0\right)}$, (cf. Definition \ref{main_defn}).
+	Let	$\mathfrak{S}_{\left(M, x_0\right)}= \left\{p_\la:\left( M_\la, x^\la_0\right) \to \left( M, x_0\right)\right\}_{\la \in \La} \in \mathfrak{FinTop}^{\mathrm{pt}}$ be the corresponding pointed topological finite covering category (cf. Definition \ref{top_sec_p_defn}). Let $\widetilde M = \varprojlim  \mathfrak{S}_{\left( M, x_0\right)}$ be the topological inverse limit of $\mathfrak{S}_{\left(M, x_0\right)}$ (cf. Definition \ref{top_topological_inv_lim_defn}), and let $\widetilde p:\widetilde M\to  M$ be a natural covering and $\left(\widetilde M, \widetilde \sF\right)$ be the $\widetilde p$-lift of $\left(M, \sF\right)$ (cf. Definition \ref{fol_cov_defn}). Then the category \eqref{foli_poi_eqn} is good !!! SOFT \ref{top_soft_exer} (cf. Definition \ref{good_defn} !!! ABC to AB GOOD EXER ADD !!! !!! CHECK!!! CHECK EVERYWHERE ) and the triple $\left(C^*_r\left(M, \sF\right), C^*_r\left(\widetilde M, \widetilde \sF\right), G\left(\left.\widetilde M~\right| M\right) \right)$ is  the  { infinite noncommutative covering} of $\mathfrak{S}_{C^*_r\left(M, \sF, x_0\right)}$, (cf. Definition \ref{main_defn}).
 \end{theorem}
 \begin{proof}
 	Follows from the Theorem \ref{blowing_main_thm} and the Lemma \ref{foli_sheaf_lem}. Details of the proof are left to the reader.
 \end{proof}
 \begin{empt}\label{foli_n_cat_empt}
  Let $N \subset M$ be a complete transversal (cf. Remark \ref{foli_comp_trans_rem}). For any $\la\in \La$ the submanifold $N_\la = p_\la^{-1}\left(N \right) $ is a complete transversal. From the Theorems \ref{blowing_main_thm} and  \ref{foli_main_thm}
-there is a good !!! SOFT pointed algebraical  finite covering category 
+there is a good !!! SOFT \ref{top_soft_exer}  pointed algebraical  finite covering category 
 	\be\nonumber
 	\begin{split}
 		\left\{\left\{C^*_r\left( p_\la\right) : C^*_r\left(M, \sF\right)\hookto C^*_r\left(M_\la, \sF_\la\right)\right\}, \left\{C^*_r\left(p^\mu_\nu\right) : C^*_r\left(M_\nu, \sF_\nu\right) \hookto C^*_r\left(M_\mu, \sF_\mu\right)\right\}\right\}.
 	\end{split}
 	\ee
-From the Lemma \ref{foli_g_lem} and (ii) of the Corollary \ref{stab_pt_a_cor} there is a good !!! SOFT  pointed algebraical  finite covering category
+From the Lemma \ref{foli_g_lem} and (ii) of the Corollary \ref{stab_pt_a_cor} there is a good !!! SOFT \ref{top_soft_exer}   pointed algebraical  finite covering category
 \be\label{foli_n_c_eqn}
 \begin{split}
 \mathfrak{S}_{C^*_r\left(\G^{N}_{N}\right)}	\bydef\\
@@ -16480,7 +16491,7 @@ The given by \eqref{foli_poi_eqn} category yields  a {pointed topological finite
 Let $\widetilde M$ be the topological inverse limit (cf. Definition \ref{top_topological_inv_lim_defn}) of the category \ref{foli_sec_p_eqn} and let $\widetilde p : \widetilde M\to M$ be a transitive covering. The submanifold  $ \widetilde N \bydef \widetilde \pi^{-1}\left(N\right)\subset \widetilde N$ is a complete transversal (cf. Remark \ref{foli_pseudo_alg_rem})
 \end{empt}
 \begin{theorem}\label{foli_n_cat_thm}
-The triple $\left(C^*_r\left(\G^{N}_{N}\right), C^*_r\left(\G^{\widetilde N}_{ \widetilde N}\right), G\left(\left.\widetilde M~\right| M\right) \right)$ is  the  { infinite noncommutative covering} of the good !!! SOFT  pointed algebraical  finite covering category $\mathfrak{S}^{\mathrm{pt}}_{C^*_r\left(\G^{N}_{N}\right)}$ given by \eqref{foli_n_c_eqn}.
+The triple $\left(C^*_r\left(\G^{N}_{N}\right), C^*_r\left(\G^{\widetilde N}_{ \widetilde N}\right), G\left(\left.\widetilde M~\right| M\right) \right)$ is  the  { infinite noncommutative covering} of the good !!! SOFT \ref{top_soft_exer}   pointed algebraical  finite covering category $\mathfrak{S}^{\mathrm{pt}}_{C^*_r\left(\G^{N}_{N}\right)}$ given by \eqref{foli_n_c_eqn}.
 \end{theorem}
 \begin{proof}
 From the Theorem \ref{foli_main_thm} and (ii) of the Corollary \ref{stab_pt_a_cor} it follows that the covering transformation group of $\mathfrak{S}^{\mathrm{pt}}_{C^*_r\left(\G^{N}_{N}\right)}$ equals to $G\left(\left.\widetilde M~\right| M\right)$. Similarly to \ref{foli_stab_empt} we select  a tubular neighborhood $V_N$ of $N$ which is homeomorphic to $N \times [0,1]^q$ and a basis $\left\{\eta_j\right\}_{j\in \N}\subset \ell^2\left(\N \right)$ given by \eqref{foli_basis_eqn}. Then there are isomorphisms
@@ -18222,7 +18233,7 @@ Otherwise from the Lemma \ref{nt_spec_c0_lem}  it  follows that any special elem
 
 \begin{thm}\label{nt_inf_cov_thm} Following conditions hold:
 	\begin{enumerate}
-		\item[(i)] The the pointed algebraical  finite covering category $\mathfrak{S}_\th$ is $\widehat{\pi}^\oplus$ is good !!! SOFT(cf. Definition \ref{good_defn} !!! ABC to AB GOOD EXER ADD !!! !!! CHECK!!! CHECK EVERYWHERE ),
+		\item[(i)] The the pointed algebraical  finite covering category $\mathfrak{S}_\th$ is $\widehat{\pi}^\oplus$ is good !!! SOFT \ref{top_soft_exer} (cf. Definition \ref{good_defn} !!! ABC to AB GOOD EXER ADD !!! !!! CHECK!!! CHECK EVERYWHERE ),
 		\item[(ii)] 
 		\begin{equation*}	\begin{split}
 		\varprojlim_{\widehat{\pi}^\oplus} \downarrow \mathfrak{S}_\th = C_0\left(\R^{2N}_\th\right); \\
@@ -18748,7 +18759,7 @@ From the equation \eqref{inv_qo*_lzero_eqn} it follows that the map $\Psi$ is in
 Let us consider following objects
 \begin{itemize}
 	\item A spectral triple of a noncommutative torus\\ $\left(C^{\infty}(\mathbb{T}^{2N}_{\theta}),\mathcal{H}=L^2\left(C\left(\mathbb{T}^{2N}_{\theta}\right), \tau\right)\otimes\mathbb{C}^{2^N},D\right)$ (cf. equation \ref{nt_sp_tr_eqn}).
-	\item  A good !!! SOFTalgebraical  finite covering sequence given by
+	\item  A good !!! SOFT \ref{top_soft_exer} algebraical  finite covering sequence given by
 	\begin{equation*}
 	\mathfrak{S}_\th= \left\{	C\left(\mathbb{T}^{2N}_\th\right) \to	C\left(\mathbb{T}^{2N}_{\th/m_1^{2}}\right) \to C\left(\mathbb{T}^{2N}_{\th/m_2^{2}}\right) \to... \to C\left(\mathbb{T}^{2N}_{\th/m_j^{2}}\right)\to ...\right\}
 	\end{equation*}
@@ -19834,7 +19845,7 @@ continuous for $\a\le\bt$) their \textit{inverse limit} $\varprojlim \sX_\a$ (cf
 	Let $\mathcal X$ be a paracompact Hausdorff space; let $\left\{\mathcal U_\alpha\in \mathcal X\right\}_{\alpha \in \mathscr A}$ be an indexed open covering of $\mathcal{X}$. Then there exists a partition of unity, dominated by $\left\{\mathcal{U}_\alpha \right\}$.  
 \end{thm}
 
-	\begin{prop}\label{top_smooth_part_unity_prop} !!! SOFT\cite{brickell_clark:diff_m}
+	\begin{prop}\label{top_smooth_part_unity_prop} !!! SOFT \ref{top_soft_exer} \cite{brickell_clark:diff_m}
 		A differential manifold $M$ admits a (smooth) partition of unity if and only if it is paracompact. 
 	\end{prop}
 	%\begin{theorem}\label{top_paracompact_norm_thm}
@@ -19880,7 +19891,7 @@ continuous for $\a\le\bt$) their \textit{inverse limit} $\varprojlim \sX_\a$ (cf
 	\end{definition}	
 	
 	%\begin{theorem}\label{it_limex_thm}
-	%(Moore-Osgood !!! SOFTtheorem) If $\lim _{x\to p}f(x,y)$ $ \lim _{x\to p}f(x,y)$ exists pointwise for each $y$ different from $q$ and if $\lim _{y\to q}f(x,y)$ $\lim _{y\to q}f(x,y)$ converges uniformly for $x \neq p$ then the double limit and the iterated limits exist and are equal.
+	%(Moore-Osgood !!! SOFT \ref{top_soft_exer} theorem) If $\lim _{x\to p}f(x,y)$ $ \lim _{x\to p}f(x,y)$ exists pointwise for each $y$ different from $q$ and if $\lim _{y\to q}f(x,y)$ $\lim _{y\to q}f(x,y)$ converges uniformly for $x \neq p$ then the double limit and the iterated limits exist and are equal.
 	%\end{theorem}
 	
 	%\begin{theorem}\label{s_w_thm}\cite{rudin:pa} (Stone‚We ierstrass theorem)
@@ -24913,7 +24924,7 @@ A^{\infty}$.
 	$\mathbf{Transport}(\nabla, \varphi)$ is a transport along $\varphi$  for any $\nabla \in \mathrm{Con}_A(\mathcal{E})$ and $\varphi \in \mathrm{Paths}_A$.
 \end{defn}
 \begin{rem}
-	A connection transport procedure should have a good !!! SOFTmath and/or physical sense. Such procedures are known in following cases:
+	A connection transport procedure should have a good !!! SOFT \ref{top_soft_exer} math and/or physical sense. Such procedures are known in following cases:
 	\begin{enumerate}
 		\item Commutative differential geometry \cite{kobayashi_nomizu:diff_geom,schenkel:nc_parallel}.
 		\item $A = \mathbb{M}_n(\mathbb{C})$ \cite{schenkel:nc_parallel}.
@@ -27626,7 +27637,7 @@ I am very grateful to Prof. Joseph C Varilly  and Arup Kumar Pal
   \mathfrak{S}_{C\left(M\right)}=
   \left\{C(M)\hookto C(M_\la)\right\}_{\la \in \La}
   $
-  is a good !!! SOFT{(algebraical)  finite covering category}, and  the triple $$\left(C\left( M\right) , C_0\left( \widetilde{M}\right) , G=G\left( \left.\widetilde{M}~\right|M\right)\right)$$ is an  infinite noncommutative covering   of $\mathfrak{S}_{C\left(M\right)}$.
+  is a good !!! SOFT \ref{top_soft_exer} {(algebraical)  finite covering category}, and  the triple $$\left(C\left( M\right) , C_0\left( \widetilde{M}\right) , G=G\left( \left.\widetilde{M}~\right|M\right)\right)$$ is an  infinite noncommutative covering   of $\mathfrak{S}_{C\left(M\right)}$.
   \begin{lemma}
   	The set 
   	\begin{equation}\label{comm_triple_seq_eqn}
@@ -27898,7 +27909,7 @@ I am very grateful to Prof. Joseph C Varilly  and Arup Kumar Pal
   				\right\}_{\la \in \La}\in \mathfrak{CohTriple}
   			\end{split}
   		\end{equation}
-  		of spectral triples is good !!! SOFT(cf. Definition \ref{smooth_alg_defn}). 
+  		of spectral triples is good !!! SOFT \ref{top_soft_exer} (cf. Definition \ref{smooth_alg_defn}). 
   		\item[(ii)] The  $\left(C\left( M\right) , C_0\left( \widetilde{M}\right) , G\left(\left.\widetilde{M}~\right|M \right)\right)$-lift of the spectral triple \\$\left( \Coo\left( M \right), L^2\left( M,  S, \mu\right),  \Dslash \right)$ (cf. Definition \ref{reg_triple_defn}) coincides with the geometrical $p$-{lift} of  $\left( \Coo\left( M \right), L^2\left( M,  S, \mu\right),  \Dslash \right)$ (cf. Definition \ref{top_geom_lift_lc_defn}).
   	\end{enumerate}
   	
@@ -27946,7 +27957,7 @@ I am very grateful to Prof. Joseph C Varilly  and Arup Kumar Pal
  \mathfrak{S}^{\mathrm{pt}}_{C\left(M\right)}=
  \left(C(M)\hookto C(M_\la)\right\}_{\la \in \La}, \left\{C_0\left( p_\nu^\mu\right) : C\left(M_\nu \right) \hookto C\left(M_\mu \right)\right)
  $
- is a good !!! SOFTpointed {algebraical finite covering category}, and  the triple $$\left(C\left( M\right) , C_0\left( \widetilde{M}\right) , G=G\left( \left.\widetilde{M}~\right|M\right)\right)$$ is an  infinite noncommutative covering   of $\mathfrak{S}_{C\left(M\right)}$. 
+ is a good !!! SOFT \ref{top_soft_exer} pointed {algebraical finite covering category}, and  the triple $$\left(C\left( M\right) , C_0\left( \widetilde{M}\right) , G=G\left( \left.\widetilde{M}~\right|M\right)\right)$$ is an  infinite noncommutative covering   of $\mathfrak{S}_{C\left(M\right)}$. 
  Otherwise from the Theorem \ref{top_st_good_thm} it follows that
  \begin{equation}\label{ctr_triple_seq_eqn}
  	\begin{split}
@@ -27957,7 +27968,7 @@ I am very grateful to Prof. Joseph C Varilly  and Arup Kumar Pal
  		\right\}_{\la \in \La}\in \mathfrak{CohTriple}
  	\end{split}
  \end{equation}
- From the Theorem \ref{ctr_main_thm} one has a good !!! SOFT pointed {algebraical finite covering category}
+ From the Theorem \ref{ctr_main_thm} one has a good !!! SOFT \ref{top_soft_exer}  pointed {algebraical finite covering category}
  \be
  \begin{split}
  	\mathfrak{S}^{\mathrm{pt}}_{C\left(M\right)\otimes \mathbb{M}_m\left(\C \right)}=\\
@@ -28054,7 +28065,7 @@ I am very grateful to Prof. Joseph C Varilly  and Arup Kumar Pal
  		\bean
  		\mathfrak{S}_{\mathrm{T}}\bydef\left\{\mathrm{T}_\la \right\}_{\la\in \La}
  		\eean
- 		of spectral triples is good !!! SOFT(cf. Definition \ref{smooth_alg_defn}). 
+ 		of spectral triples is good !!! SOFT \ref{top_soft_exer} (cf. Definition \ref{smooth_alg_defn}). 
  		\item[(ii)] The  $\left(C\left( M\right) \otimes\mathbb{M}_n\left(\C \right), C_0\left( \widetilde{M}\right)\otimes\mathbb{M}_n\left(\C \right)  , G\left(\left.\widetilde{M}~\right|M \right)\right)$-lift of the spectral triple 
  		$$
  		\mathrm{T}\bydef		\left( \Coo\left( M \right)\otimes\mathbb{M}_n\left(\C \right), L^2\left( M,  S, \mu\right)^k,  \Dslash\otimes \Ga_{\mathrm{fin}}+ \Id_{L^2\left(M, \sS \right)^k} \otimes D_{\mathrm{fin}} \right)
@@ -28115,7 +28126,7 @@ I am very grateful to Prof. Joseph C Varilly  and Arup Kumar Pal
  Let us consider following objects
  \begin{itemize}
  	\item A spectral triple of a noncommutative torus $\left(C^{\infty}(\mathbb{T}^{2N}_{\theta}),\mathcal{H}=L^2\left(C\left(\mathbb{T}^{2N}_{\theta}\right), \tau\right)\otimes\mathbb{C}^{2^N},D\right)$,
- 	\item  A good !!! SOFTalgebraical  finite covering sequence given by
+ 	\item  A good !!! SOFT \ref{top_soft_exer} algebraical  finite covering sequence given by
  	\begin{equation*}
  		\mathfrak{S}_\th= \left\{	C\left(\mathbb{T}^{2N}_\th\right) \to	C\left(\mathbb{T}^{2N}_{\th/m_1^{2}}\right) \to C\left(\mathbb{T}^{2N}_{\th/m_2^{2}}\right) \to... \to C\left(\mathbb{T}^{2N}_{\th/m_j^{2}}\right)\to ...\right\}\in \mathfrak{FinAlg}.
  	\end{equation*}
@@ -28175,7 +28186,7 @@ I am very grateful to Prof. Joseph C Varilly  and Arup Kumar Pal
  	so one has $\ker \pi_j= \ker \widetilde\pi_j$ for all $j \in \N$.
  \end{proof}
  \begin{empt}
- 	If $\overline{a}\in C_0\left(\R^{2N}_\th \right)$ is given by \eqref{mp_fjkel_eqn} then  $\overline{a}$ satisfies to (a)-(c) of the Definition \ref{ax_smooth_el_defn}, i.e. $\overline{a}$ is  {axiomatically smooth}. On the other hand the $\C$-linear span of given by \eqref{mp_fjkel_eqn} elements is dense in   $C_0\left(\R^{2N}_\th \right)$ it follows that the coherent set of spectral triples 	$\mathfrak{S}_{\left(C^{\infty}\left( \T_\th\right) , L^2\left(C\left(\T^{2N}_\th \right), \tau\right) \otimes \C^{2^N} , D\right)}$ is good !!! SOFT(cf. Definition \ref{ex_smooth_alg_defn} )
+ 	If $\overline{a}\in C_0\left(\R^{2N}_\th \right)$ is given by \eqref{mp_fjkel_eqn} then  $\overline{a}$ satisfies to (a)-(c) of the Definition \ref{ax_smooth_el_defn}, i.e. $\overline{a}$ is  {axiomatically smooth}. On the other hand the $\C$-linear span of given by \eqref{mp_fjkel_eqn} elements is dense in   $C_0\left(\R^{2N}_\th \right)$ it follows that the coherent set of spectral triples 	$\mathfrak{S}_{\left(C^{\infty}\left( \T_\th\right) , L^2\left(C\left(\T^{2N}_\th \right), \tau\right) \otimes \C^{2^N} , D\right)}$ is good !!! SOFT \ref{top_soft_exer} (cf. Definition \ref{ex_smooth_alg_defn} )
  \end{empt}
  
  
