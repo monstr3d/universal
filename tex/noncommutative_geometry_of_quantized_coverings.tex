@@ -5106,21 +5106,25 @@ f\left(t\right)=	\left\{\begin{array}{c l}
 \begin{proof}
 	If $a$ satisfies to the Lemma \ref{top_a_u_lem} then set $\mathcal V = \left\{x \in \mathcal X~|~ a\left(x \right)>0 \right\}$ is open and the closure of $\mathcal V$ is a subset of $\mathcal U$.
 \end{proof}
-\begin{empt}\label{top_fx_empt} 	Let $\mathcal X$ be a locally compact,   
-	Hausdorff space, $x_0\in \sX$ and $f$ is given by the Lemma \ref{top_a_u_lem} then we denote by
-	\be\label{top_fx_eqn}
+\begin{definition}\label{top_stump_defn}
+Let $\mathcal X$ be a locally compact,   locally connected
+Hausdorff space, $x_0\in \sX$ and $f$ is given by the Lemma \ref{top_a_u_lem} then we denote by
+\be\label{top_fx_eqn}
 {f}_{{x}_0} \stackrel{\mathrm{def}}{=} 	{f}.
 \ee
-We suppose that $\supp {f}_{{x}_0}$ is connected.
+Assume that $\supp {f}_{{x}_0}$ is connected. We say that ${f}_{{x}_0}$ is an $x_0$-\textit{stump}.
+\end{definition}
+\begin{definition}\label{top_stump_cov_defn}
 	Let $p: \widetilde{\sX} \to {\sX}$ be a covering. Let $\widetilde{x}_0\in   \widetilde{\sX}$, and let $\widetilde{\sU}$ be an open neighborhood of $\widetilde{x}_0$ such that the restriction $\left.p\right|_{\widetilde{\sU}}:\widetilde{\sU}\xrightarrow{\approx}\sU \bydef p\left(\widetilde{\sU} \right)$ is a homeomorphism. Since $\widetilde{\sX}$ is locally compact and Hausdorff there is $	\widetilde{f} \in C_c\left(\widetilde{\sX} \right)$ and open subset  $\widetilde{\sV}$ such that $\widetilde{x}_0\in  \widetilde{\sV} \subset {\widetilde{\sU}}$, $~\widetilde{f}\left(\widetilde{\sV} \right)= 1$,  $~\widetilde{f}\left(\widetilde{\sX} \right)= \left[0,1\right]$ and $\supp 	\widetilde{f} \subset \widetilde{\sU}$. We write 
-	\be\label{top_tfx_eqn}
-	\widetilde{f}_{\widetilde{x}_0} \stackrel{\mathrm{def}}{=} 	\widetilde{f}.
-	\ee
-\end{empt}
+\be\label{top_tfx_eqn}
+\widetilde{f}_{\widetilde{x}_0} \stackrel{\mathrm{def}}{=} 	\widetilde{f},
+\ee
+and we say that $\widetilde{f}_{\widetilde{x}_0}$ is a $p$-$\widetilde x_0$-\textit{stump}.
+\end{definition}
+\begin{empt}\label{top_fx_empt} 	
 
 
 
-\paragraph*{}
 
 Let $\sX$ be a locally compact, locally connected, Hausdorff space, and let $\sY \subset\sX$ be a compact subset. Suppose that for any $x\in\sX$ there is an open connected neighborhood $\sV_x \subset \sX$ is selected, so there is a family 
 \be\label{top_vx_eqn}
@@ -5140,6 +5144,8 @@ then
 \be\label{top_cfs_eqn}
 \sum_{j = 1}^n f_j\left( x\right) = 1\quad\forall x \in \sY.
 \ee
+\end{empt}
+
 \begin{defn}\label{top_covering_sum_defn}
 	Let $\sY\subset\sX$ is a compact subset of a locally compact Hausdorff space $\sX$. The given by the equation \eqref{top_cfs_eqn} sum 
 	is said to be a \textit{covering sum} for $\sY$. We also say that the covering sum \eqref{top_cfs_eqn} is \textit{dominated} by the family 
@@ -5726,19 +5732,52 @@ C\left(\sX, \left\{A_x\right\}, \sF \right) \bydef \left\{\left.\left\{a_x\right
 	Let $a \in C\left(\sX, \left\{A_x\right\}, C\left(\sX, \left\{A_x\right\}, \sF \right)\right) $, let $x_0 \in \sX$ and $\eps > 0$. There is an open neighborhood  $\sU'$ of $x_0$ and $a' \in C\left(\sX, \left\{A_x\right\}, \sF \right)$ such that $\left\|a_x  - a'_x\right\| < \frac{\eps}{2}$ for all $x \in \sU'$. Otherwise there is an open neighborhood  $\sU''$ of $x_0$ and $a'' \in \sF$ such that $\left\|a'_x  - a''_x\right\| < \frac{\eps}{2}$ for every $x \in \sU''$. It follows that $\left\|a_x  - a''_x\right\| < \eps$ for every $x \in \sU'\cap\sU''$, hence one has $a \in C\left(\sX, \left\{A_x\right\}, \sF \right)$. In result we conclude that
 	$$ C\left(\sX, \left\{A_x\right\}, C\left(\sX, \left\{A_x\right\}, \sF \right)\right)\subset C\left(\sX, \left\{A_x\right\}, \sF \right).$$
 \end{proof} 
-Any vector bundle $\left( E, \pi, \mathcal X\right)$ (cf. Definition \ref{top_vb_defn} and Remark \ref{com_inf_rem}) yields a family of fibers $\left\{E_x\right\}_{x \in \sX}$. 
-The given by \eqref{top_ub_eqn} spaces are a continuity structures  for $\sX$ {and the} $\left\{E_x\right\}_{x \in \sX}$.
-\begin{definition}\label{top_bundle_cs_defn}
-	Let  $\left( E, \pi, \mathcal X\right)$ be  vector bundle with the family of fibers $\left\{E_x\right\}_{x \in \sX}$. Any given by the equation   \eqref{top_bundle_sec_empt} linear subspace $\sF \subset \Ga\left( E, \pi, \mathcal X\right)$  is said to be $\left( E, \pi, \mathcal X\right)$-\textit{continuous structure} if $\Ga\left( E, \pi, \mathcal X\right)\cong C\left(\sX, \left\{E_x\right\}, \sF \right)$.
-\end{definition}
-\begin{lemma}\label{top_bundle_cs_lem}
-	In the situation of the Definition \ref{top_bundle_cs_defn} the space 
-	$\Ga\left( E, \pi, \mathcal X\right)$ is a $\left( E, \pi, \mathcal X\right)$-{continuous structure}. 
+Any vector bundle $\left( E, \pi, \mathcal X\right)$ (cf. Definition \ref{top_vb_defn} and Remark \ref{com_inf_rem}) yields a family of fibers $\left\{E_x\right\}_{x \in \sX}$.
+
+\begin{lemma}\label{top_bundle_cs_ex_lem}
+If $\left( E, \pi, \mathcal X\right)$ is a vector bundle (cf. Definition \ref{top_vb_defn}) then following conditions hold.
+	\begin{enumerate}
+		\item [(i)] The space 	$\Ga\left( E, \pi, \mathcal X\right)$ of continuous sections (cf. \ref{top_bundle_sec_empt}) 
+	 is a continuity structure  for $\sX$ {and the} $\left\{E_x\right\}_{x \in \sX}$ (cf. Definition \ref{op_fields_defn}).
+		\item[(ii)] There are isomorphisms
+		\bea\label{top_cg_eqn}
+		C\left(\sX , \left\{E_x\right\}, \Ga\left( E, \pi, \mathcal X\right) \right) \cong \Ga\left( E, \pi, \mathcal X\right),\\
+		\label{top_cgc_eqn}
+		C_c\left(\sX , \left\{E_x\right\}, \Ga\left( E, \pi, \mathcal X\right) \right) \cong \Ga_c\left( E, \pi, \mathcal X\right),\\
+		\label{top_cg0_eqn}
+		C_0\left(\sX , \left\{E_x\right\}, \Ga\left( E, \pi, \mathcal X\right) \right) \cong \Ga_0\left( E, \pi, \mathcal X\right),\\
+		\label{top_cgb_eqn}
+		C_b\left(\sX , \left\{E_x\right\}, \Ga\left( E, \pi, \mathcal X\right) \right) \cong \Ga_b\left( E, \pi, \mathcal X\right)
+		\eea
+		of $C_0\left(\sX\right)$ modules (cf. equation \eqref{top_f_eqn}).
+	\end{enumerate}
+
 \end{lemma}
-\begin{proof}
-	Clearly one has  $\Ga\left( E, \pi, \mathcal X\right)\subset C\left(\sX, \left\{E_x\right\}, \Ga\left( E, \pi, \mathcal X\right) \right)$. Let $x_0 \in \sX$ be any point, and select an open neighborhood $\sU$ of $x_0$ such that $\left.\left( E, \pi, \mathcal X\right)\right|_{\sU}$ is trivial (cf.  \ref{trivial_vb_empt}), i.e. $\left.E\right|_{\sU}\cong \sU \times E_{x_0}$. The map $s: \sX \to E$ such that $\pi \circ s = \Id_\sX$ is continuous at $x_0$ if there is an open neighborhood $\sV$ of $x_0$ such that $\sV \subset \sU$ and $\left.s\right|_{\sV}$ corresponds to the continuous map $f_s: \sV \to E_{x_0}$. For any $\eps > 0$ and $t \in C\left(\sX, \left\{E_x\right\}, \Ga\left( E, \pi, \mathcal X\right) \right)$ there is $s \in \Ga\left( E, \pi, \mathcal X\right)$ and an open neighborhood $\sU_1$ of $x_0$ such that $\left\|s_x - t_x \right\|< \eps/2$ for all $x \in \sU_1$. Otherwise there is an an open neighborhood $\sU_2$ of $x_0$ such that $\sU_2 \subset \sU$ and $\left\|f_s\left(x\right)- f_s\left(x_0\right) \right\|< \eps/2$ for any $x \in \sU$. If $t|_\sU$ corresponds to a map $f_t: \sU \to E_{x_0}$ such then for any $x \in \sV = \sU_1 \cap \sU_2$ one has $\left\|f_t\left(x\right)- f_t\left(x_0\right) \right\|< \eps$. It follows that $f_t$ is continuous at $x_0$, so $t$ corresponds to a continuous section of  $\left( E, \pi, \mathcal X\right)$ at $x_0$.
-	However $x_0 \in \sX$ is  an arbitrary, so $t$ is continuous at any point of $\sX$, equivalently $t$ is continuous, i.e. $t$ is a  section of $\left( E, \pi, \mathcal X\right)$. It follows that $t \in \Ga\left( E, \pi, \mathcal X\right)$ and  $C\left(\sX, \left\{E_x\right\}, \Ga\left( E, \pi, \mathcal X\right) \right)\subset \Ga\left( E, \pi, \mathcal X\right)$.
-\end{proof}
+\begin{proof} (i)
+	One needs check conditions (a)-(c) of the Definition \ref{op_fields_defn}.\\
+(a)	
+ Let $x_0 \in \sX$ be any point, and select an open neighborhood $\sU$ of $x_0$ such that $\left.\left( E, \pi, \mathcal X\right)\right|_{\sU}$ is trivial (cf.  \ref{trivial_vb_empt} and Definition \ref{top_vb_defn}), i.e. $\left.E\right|_{\sU}\cong \sU \times E_{x_0}$. The map $s: \sX \to E$ such that $\pi \circ s = \Id_\sX$ is continuous at $x_0$, so the map
+ \bean
+ s|_\sU : \sU \to \sU\times E_{x_0}
+ x \mapsto\left(x, u\left(x \right) \right)
+ \eean 
+ is continuous. It follows that both maps
+ \bean
+ x \mapsto u\left(x \right),\\
+  x \mapsto \left\| u\left(x \right)\right\| 
+ \eean 
+ are continuous. Since a point $x_0$ is arbitrary the map $ x \mapsto \left\| s\left(x \right)\right\|$ is continuous on $\sX$. \\
+ (b) If $x_0 \in \sX$ and $e_{x_0} \in  E_{x_0}$ then from the Definition \ref{top_vb_defn} it follows that $\left.E\right|_{\sU}\cong \sU \times E_{x_0}$. It turns out that there is a section
+  \bean
+ s|_\sU : \sU \to \sU\times E_{x_0},\\
+ x \mapsto\left(x, e_{x_0} \right),
+ \eean 
+ i.e. there is a section $s: \sX\to E$ such that $s\left( x_0\right) = E_{x_0}$.\\
+ (c) A proof of this property we leave to the reader.\\
+ (ii)  A proof of  we leave to the reader.
+ \end{proof}
+ 
+
 For any $a \in C\left(\sX, \left\{A_x\right\}, \sF \right)$ denote by 
 \bea
 \label{top_norm_a_eqn}
@@ -6544,16 +6583,47 @@ be a subordinated to $p$ covering sum for $\widetilde{\mathcal X}$ (cf. Definiti
 \end{empt}
 
 \begin{lemma}\label{top_lift_bundle_lem}
-	Let  $\left( E, \pi, \mathcal X\right)$ be a  vector bundle with the family of fibers $\left\{E_x\right\}_{x \in \sX}$ and let $\Ga\left( E, \pi, \mathcal X\right)$ be a $\left( E, \pi, \mathcal X\right)$-continuous structure (cf. Lemma \ref{top_bundle_cs_lem}). If $p: \widetilde{\sX} \to \sX$ is a covering and $\left( E\times_\sX\widetilde\sX,\rho, \widetilde\sX\right)$ is the {inverse image} of $\left( E, \pi, \mathcal X\right)$ by $p$ (cf. Definition \ref{vb_inv_img_funct_defn}) then there is the natural $\C$-isomorphism
+	Let  $\left( E, \pi, \mathcal X\right)$ be a  vector bundle with the family of fibers $\left\{E_x\right\}_{x \in \sX}$ and let $\Ga\left( E, \pi, \mathcal X\right)$ be a space of sections which is a continuous structure for $\sX$ and $\left\{E_x\right\}_{x \in \sX}$ (cf. Lemma \ref{top_bundle_cs_ex_lem}). If $p: \widetilde{\sX} \to \sX$ is a covering and $\left( E\times_\sX\widetilde\sX,\rho, \widetilde\sX\right)$ is the {inverse image} of $\left( E, \pi, \mathcal X\right)$ by $p$ (cf. Definition \ref{vb_inv_img_funct_defn}) then there is the natural $\C$-isomorphism
 	$$
 	\lift_p\left[C\left(\sX, \left\{E_x\right\}, \Ga\left( E, \pi, \mathcal X\right) \right) \right]\cong \Ga\left( E\times_\sX\widetilde\sX,\rho, \widetilde\sX\right).
 	$$
 \end{lemma}
 \begin{proof}
-	From the  equation \eqref{top_uba_eqn} it follows that there is the natural inclusion
+	From the  equations \eqref{top_uba_eqn} and \eqref{top_cg_eqn} it follows that there is the natural inclusion
 	$$
-	\lift_p\left(C\left(\sX, \left\{E_x\right\}, \Ga\left( E, \pi, \mathcal X\right) \right) \right)\subset \Ga\left( E\times_\sX\widetilde\sX,\rho, \widetilde\sX\right)
+	\lift_p\left(C\left(\sX, \left\{E_x\right\}, \Ga\left( E, \pi, \mathcal X\right) \right) \right)\subset \Ga\left( E\times_\sX\widetilde\sX,\rho, \widetilde\sX\right).
 	$$
+	It follows that
+	$$
+\lift_p\left[C\left(\sX, \left\{E_x\right\}, \Ga\left( E, \pi, \mathcal X\right) \right) \right] \subset C\left(\widetilde\sX, \left\{\left(E\times_\sX\widetilde\sX\right)_{\widetilde x}\right\}_{\widetilde{x}\in \widetilde\sX}, \Ga\left( E\times_\sX\widetilde\sX,\rho, \widetilde\sX\right) \right). 	
+	$$
+	However from \eqref{top_cg_eqn} it follows that 
+	$$
+	C\left(\widetilde\sX, \left\{\left(E\times_\sX\widetilde\sX\right)_{\widetilde x}\right\}_{\widetilde{x}\in \widetilde\sX}, \Ga\left( E\times_\sX\widetilde\sX,\rho, \widetilde\sX\right) \right)\cong \Ga\left( E\times_\sX\widetilde\sX,\rho, \widetilde\sX\right),
+	$$
+	so one has
+	$$
+	\lift_p\left[C\left(\sX, \left\{E_x\right\}, \Ga\left( E, \pi, \mathcal X\right) \right) \right]\cong \Ga\left( E\times_\sX\widetilde\sX,\rho, \widetilde\sX\right).	
+	$$
+	Let $s \in \Ga\left( E\times_\sX\widetilde\sX,\rho, \widetilde\sX\right)$ and let $\widetilde x_0 \in \widetilde \sX$. If $\widetilde \sU\subset\widetilde \sX$ is an open open subset such that $\left.\left( E\times_\sX\widetilde\sX\right)\right|_{\widetilde \sU} \cong \widetilde \sU\times \left( E\times_\sX\widetilde\sX\right)_{\widetilde x_0}$. Let $\widetilde{f}_{\widetilde{x}_0}\in C_c\left( \widetilde \sX\right)$ be such that that the restriction 
+	$\left.p\right|_{\supp \widetilde{f}_{\widetilde{x}_0}}:\widetilde{f}_{\widetilde{x}_0}\xrightarrow{\approx} p\left(\supp \widetilde{f}_{\widetilde{x}_0} \right)$ 
+		is a homeomorphism. Since $\widetilde{\sX}$ is locally compact and Hausdorff there is $	\widetilde{f} \in C_c\left(\widetilde{\sX} \right)$ and open subset  $\widetilde{\sV}$ such that $\widetilde{x}_0\in  \widetilde{\sV} \subset {\widetilde{\sU}}$, $~\widetilde{f}\left(\widetilde{\sV} \right)= 1$,  $~\widetilde{f}\left(\widetilde{\sX} \right)= \left[0,1\right]$ and $\supp 	\widetilde{f} \subset \widetilde{\sU}$.
+	\ref{top_fx_empt} 
+	
+	
+	\begin{empt}\label{top_fx_empt1} 	Let $\mathcal X$ be a locally compact,   
+		Hausdorff space, $x_0\in \sX$ and $f$ is given by the Lemma \ref{top_a_u_lem} then we denote by
+		\be\label{top_fx_eqn!}
+		{f}_{{x}_0} \stackrel{\mathrm{def}}{=} 	{f}.
+		\ee
+		We suppose that $\supp {f}_{{x}_0}$ is connected.
+		Let $p: \widetilde{\sX} \to {\sX}$ be a covering. Let $\widetilde{x}_0\in   \widetilde{\sX}$, and let $\widetilde{\sU}$ be an open neighborhood of $\widetilde{x}_0$ such that the restriction $\left.p\right|_{\widetilde{\sU}}:\widetilde{\sU}\xrightarrow{\approx}\sU \bydef p\left(\widetilde{\sU} \right)$ is a homeomorphism. Since $\widetilde{\sX}$ is locally compact and Hausdorff there is $	\widetilde{f} \in C_c\left(\widetilde{\sX} \right)$ and open subset  $\widetilde{\sV}$ such that $\widetilde{x}_0\in  \widetilde{\sV} \subset {\widetilde{\sU}}$, $~\widetilde{f}\left(\widetilde{\sV} \right)= 1$,  $~\widetilde{f}\left(\widetilde{\sX} \right)= \left[0,1\right]$ and $\supp 	\widetilde{f} \subset \widetilde{\sU}$. We write 
+		\be\label{top_tfx_eqn!}
+		\widetilde{f}_{\widetilde{x}_0} \stackrel{\mathrm{def}}{=} 	\widetilde{f}.
+		\ee
+	\end{empt}
+	
+	From the above equations it follows that 
 	and taking into account the Lemma \ref{top_bundle_cs_lem} one has
 	\bean
 	\lift_p\left[C\left(\sX, \left\{E_x\right\}, \Ga\left( E, \pi, \mathcal X\right) \right) \right]\subset 
@@ -6562,7 +6632,7 @@ be a subordinated to $p$ covering sum for $\widetilde{\mathcal X}$ (cf. Definiti
 	=\Ga\left( E\times_\sX\widetilde\sX,\rho, \widetilde\sX\right). 
 	\eean
 	Let $\widetilde s\in \Ga\left( E\times_\sX\widetilde\sX,\rho, \widetilde\sX\right)$ be represented the a family $\left\{\widetilde s_{\widetilde x}\in \left( E\times_\sX\widetilde\sX\right)_{\widetilde x} \right\}$.
-	Let $\widetilde x_0\in \widetilde\sX$ be any point and $\eps > 0$. Let $\widetilde\sU$ is an open neighborhood of $\widetilde x_0$ such that the restriction $p|_{\widetilde\sU}$ is injective. Let $f_{\widetilde x_0}\in C_c\left( \widetilde\sX\right) $ is such that $\supp f_{\widetilde x_0}\subset \widetilde\sU$ and there is a neighborhood $\widetilde\sV$ of $\widetilde x_0$ which satisfies to the condition $ f_{\widetilde x_0}\left(\widetilde\sV\right) = \{1\}$ (cf. equation \eqref{top_tfx_eqn}). Denote by $\widetilde t \bydef f_{\widetilde x_0}{\widetilde s}\in \Ga\left( E\times_\sX\widetilde\sX,\rho, \widetilde\sX\right)$. The family $\left\{t_x\right\}_{x \in \sX  }$ given by 
+	Let $\widetilde x_0\in \widetilde\sX$ be any point and $\eps > 0$. Let $\widetilde\sU$ is an open neighborhood of $\widetilde x_0$ such that the restriction $p|_{\widetilde\sU}$ is injective. Let $f_{\widetilde x_0}\in C_c\left( \widetilde\sX\right) $ is such that $\supp f_{\widetilde x_0}\subset \widetilde\sU$ and there is a neighborhood $\widetilde\sV$ of $\widetilde x_0$ which satisfies to the condition $ f_{\widetilde x_0}\left(\widetilde\sV\right) = \{1\}$ (cf. equation \eqref{top_tfx_eqn} !!! STUMP \ref{top_stump_cov_defn}). Denote by $\widetilde t \bydef f_{\widetilde x_0}{\widetilde s}\in \Ga\left( E\times_\sX\widetilde\sX,\rho, \widetilde\sX\right)$. The family $\left\{t_x\right\}_{x \in \sX  }$ given by 
 	\bean
 	t_{p\left( \widetilde{x} \right) }=\left\{\begin{array}{c l}
 		c^{-1}_{\widetilde{x}}\left(\widetilde	{t}_{ \widetilde{x}  }\right)    & p\left( \widetilde{x} \right)\in  p\left(\widetilde\sU\right) \text{ AND } \widetilde{x} \in \widetilde\sU\\
@@ -6789,7 +6859,7 @@ $$
 \begin{proof}
 	(i)
 	From the Theorem \ref{cross_mult_thm} it turns out than any $a \in M\left(A\left( p\right)  \right)$ corresponds to the strictly continuous section $\left\{a_x \in M\left(A_x \right)  \right\}_{x \in \sX}$. The section defines the section $\left\{\widetilde a_{\widetilde x} = a_{p\left(\widetilde x\right)}\in  M\left(\widetilde A_{\widetilde x}\right) = M\left(A_{p\left(\widetilde x\right) }\right)\right\}_{\widetilde x \in \widetilde\sX}$ . Let $\widetilde{x}_0 \in \widetilde \sX$ be any point consider an open neighborhood $\widetilde\sU$ of $\widetilde{x}_0$ such that the restriction $\left.p\right|_{\widetilde{\sU}}:\widetilde{\sU}\xrightarrow{\approx}\sU = p\left(\widetilde{\sU} \right)$
-	is a injective. If $\widetilde{f}_{\widetilde{x}_0}$ is  given by \eqref{top_fx_eqn} such that $\supp \widetilde{f}_{\widetilde{x}_0} \subset \widetilde\sU$ and there is an open neighborhood $\widetilde\sV$ of $\widetilde{x}_0$ such that $\widetilde{f}_{\widetilde{x}_0}\left(\widetilde\sV\right)= 1$. If $\widetilde{c}\in A_0\left(\widetilde{\sX}\right) = C_0\left(\lift_p\left[C\left( \sX, \left\{A_x\right\}, \sF\right) \right]\right)$, then $\supp \widetilde{f}_{\widetilde{x}_0}\widetilde{c} \subset \widetilde{\sU}$. Let $c = \desc_p \left(\widetilde{f}_{\widetilde{x}_0} \widetilde{c} \right)$ be the $p$-descent (cf. Definition \ref{top_lift_desc_defn}). From the Theorem  \ref{cross_mult_thm} it follows that for any $\eps$ there is an open $\sV'$ neighborhood  of $x_0 = p\left(\widetilde{x}_0\right)$ and the element $b \in \sF$ such that $\left\|c_x \left( a_x - b_x\right)   \right\|+\left\|\left( a_x - b_x\right)c_x    \right\|< \eps$ for every $x$ in $\mathcal V'$. One can suppose $\mathcal V' \subset \sV$. Let $f_{x_0}= \desc_p\left( \widetilde{f}_{\widetilde{x}_0}\right)$, $\widetilde a = \lift^p_{\widetilde{\sU}}\left(f_{x_0}a\right)$, $\widetilde b = \lift^p_{\widetilde{\sU}}\left(f_{x_0}b\right)$ (cf. equations \eqref{top_lift_desc_eqn}). Direct check shows that
+	is a injective. If $\widetilde{f}_{\widetilde{x}_0}$ is  given by \eqref{top_fx_eqn} !!! STUMP \ref{top_stump_defn} such that $\supp \widetilde{f}_{\widetilde{x}_0} \subset \widetilde\sU$ and there is an open neighborhood $\widetilde\sV$ of $\widetilde{x}_0$ such that $\widetilde{f}_{\widetilde{x}_0}\left(\widetilde\sV\right)= 1$. If $\widetilde{c}\in A_0\left(\widetilde{\sX}\right) = C_0\left(\lift_p\left[C\left( \sX, \left\{A_x\right\}, \sF\right) \right]\right)$, then $\supp \widetilde{f}_{\widetilde{x}_0}\widetilde{c} \subset \widetilde{\sU}$. Let $c = \desc_p \left(\widetilde{f}_{\widetilde{x}_0} \widetilde{c} \right)$ be the $p$-descent (cf. Definition \ref{top_lift_desc_defn}). From the Theorem  \ref{cross_mult_thm} it follows that for any $\eps$ there is an open $\sV'$ neighborhood  of $x_0 = p\left(\widetilde{x}_0\right)$ and the element $b \in \sF$ such that $\left\|c_x \left( a_x - b_x\right)   \right\|+\left\|\left( a_x - b_x\right)c_x    \right\|< \eps$ for every $x$ in $\mathcal V'$. One can suppose $\mathcal V' \subset \sV$. Let $f_{x_0}= \desc_p\left( \widetilde{f}_{\widetilde{x}_0}\right)$, $\widetilde a = \lift^p_{\widetilde{\sU}}\left(f_{x_0}a\right)$, $\widetilde b = \lift^p_{\widetilde{\sU}}\left(f_{x_0}b\right)$ (cf. equations \eqref{top_lift_desc_eqn}). Direct check shows that
 	\bean
 	\left\|\widetilde c_{\widetilde x} \left(\widetilde a_{\widetilde x}- \widetilde b_{\widetilde x}\right)   \right\|+\left\|\left(\widetilde a_{\widetilde x}- \widetilde b_{\widetilde x}\right) \widetilde c_{\widetilde x}    \right\|=\\=\left\| c_{p(\widetilde x)} \left( a_{p(\widetilde x)}-  b_{p(\widetilde x)}\right)   \right\|+\left\|\left( a_{p(\widetilde x)}-  b_{p(\widetilde x)}\right)  c_{p(\widetilde x)}    \right\| < \eps
 \eean
@@ -14747,7 +14817,7 @@ scalar product.
 	\sum_{j=1}^\infty \lift_p\left( \xi_j\right) \left\rangle \right\langle \lift_p\left( \eta_j\right)
 	$$
 	is norm convergent, hence $\lift_p\left(a \right) \in \K\left(X_{C_b\left( \widetilde{\sX}\right)} \right)$. So one has the natural inclusion $\lift_p\left[ \K\left(X_{C\left(\widetilde{ {\sX}}\right)} \right)  \right] \subset \K\left(X_{C_b\left( {\widetilde{\sX}}\right)} \right)$.
-	Let $\widetilde{x}_0\in   \widetilde{\sX}$, and let $\widetilde{\sU}$ be an open neighborhood of $\widetilde{x}_0$ such that the restriction $\left.p\right|_{\widetilde{\sU}}:\widetilde{\sU}\xrightarrow{\approx}\sU = p\left(\widetilde{\sU} \right)$ is a homeomorphism. According to \ref{top_fx_eqn} there is $\widetilde{f}_{\widetilde{x}_0}\in C_c\left(\widetilde{\sX} \right)$ and open subset  $\widetilde{\sV}$ such that $\{\widetilde{x}_0\} \subset \widetilde{\sV} \subset {\widetilde{\sU}}$, $\widetilde{f}_{\widetilde{x}_0}\left(\widetilde{\sV} \right)= 1$,  $\widetilde{f}_{\widetilde{x}_0}\left(\widetilde{\sX} \right)= \left[0,1\right]$ and $\supp 	\widetilde{f}_{\widetilde{x}_0} \subset \widetilde{\sU}$. Let $x_0 = p\left(\widetilde{x}_0 \right)$ and let $f_{x_0} = \desc_p\left(\widetilde{f}_{\widetilde{x}_0} \right)$. If $\widetilde{a} \in \K\left(X_{C_b\left( {\widetilde{\sX}}\right)} \right)$ and $\widetilde{a}_f =\widetilde{f}_{\widetilde{x}_0}\widetilde{a}$ then $\widetilde{a}\left(\widetilde{x} \right)= \widetilde{a}_f\left(\widetilde{x} \right)$ for all $\widetilde{x}\in   \widetilde{\sV}$. Otherwise if $a = \desc_p\left(\widetilde{a}_f \right)$ then $\widetilde{a}_f\left(\widetilde{x} \right)= \lift_p\left(a \right) \left(\widetilde{x} \right)$ for all $\widetilde{x}\in   \widetilde{\sV}$, hence $\widetilde{a}\left(\widetilde{x} \right)= \lift_p\left(a \right) \left(\widetilde{x} \right)$ for each $\widetilde{x}\in   \widetilde{\sV}$. From the Definition \ref{op_cont_fields_defn} it turns out that $\widetilde{a}$ is continuous and taking into account $ \left\|\widetilde{a} \right\|< \infty$ one has $\widetilde{a}\in \lift_p\left[ \K\left(X_{C\left( {\sX}\right)} \right)  \right]$, i.e.
+	Let $\widetilde{x}_0\in   \widetilde{\sX}$, and let $\widetilde{\sU}$ be an open neighborhood of $\widetilde{x}_0$ such that the restriction $\left.p\right|_{\widetilde{\sU}}:\widetilde{\sU}\xrightarrow{\approx}\sU = p\left(\widetilde{\sU} \right)$ is a homeomorphism. According to \ref{top_fx_eqn} !!! STUMP \ref{top_stump_defn} there is $\widetilde{f}_{\widetilde{x}_0}\in C_c\left(\widetilde{\sX} \right)$ and open subset  $\widetilde{\sV}$ such that $\{\widetilde{x}_0\} \subset \widetilde{\sV} \subset {\widetilde{\sU}}$, $\widetilde{f}_{\widetilde{x}_0}\left(\widetilde{\sV} \right)= 1$,  $\widetilde{f}_{\widetilde{x}_0}\left(\widetilde{\sX} \right)= \left[0,1\right]$ and $\supp 	\widetilde{f}_{\widetilde{x}_0} \subset \widetilde{\sU}$. Let $x_0 = p\left(\widetilde{x}_0 \right)$ and let $f_{x_0} = \desc_p\left(\widetilde{f}_{\widetilde{x}_0} \right)$. If $\widetilde{a} \in \K\left(X_{C_b\left( {\widetilde{\sX}}\right)} \right)$ and $\widetilde{a}_f =\widetilde{f}_{\widetilde{x}_0}\widetilde{a}$ then $\widetilde{a}\left(\widetilde{x} \right)= \widetilde{a}_f\left(\widetilde{x} \right)$ for all $\widetilde{x}\in   \widetilde{\sV}$. Otherwise if $a = \desc_p\left(\widetilde{a}_f \right)$ then $\widetilde{a}_f\left(\widetilde{x} \right)= \lift_p\left(a \right) \left(\widetilde{x} \right)$ for all $\widetilde{x}\in   \widetilde{\sV}$, hence $\widetilde{a}\left(\widetilde{x} \right)= \lift_p\left(a \right) \left(\widetilde{x} \right)$ for each $\widetilde{x}\in   \widetilde{\sV}$. From the Definition \ref{op_cont_fields_defn} it turns out that $\widetilde{a}$ is continuous and taking into account $ \left\|\widetilde{a} \right\|< \infty$ one has $\widetilde{a}\in \lift_p\left[ \K\left(X_{C\left( {\sX}\right)} \right)  \right]$, i.e.
 	$$
 	\K\left(X_{C_b\left( {\widetilde{\sX}}\right)} \right)\subset C_b\left( \lift_p\left[ \K\left(X_{C\left( {\sX}\right)} \right)  \right]\right) .
 	$$
