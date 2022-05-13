@@ -5099,13 +5099,6 @@ f\left(t\right)=	\left\{\begin{array}{c l}
 	\ee
 	then $f\left(a \right): \mathcal X \to \left[0,1 \right]$ satisfies to all conditions of this lemma. 
 \end{proof}
-\begin{corollary}\label{com_a_u_cor}
-	Let $\mathcal X$ be a locally compact,   
-	Hausdorff space. For any $x_0 \in  \mathcal X$, and any open neighborhood $\mathcal U$ of $x_0$ there is an open neighborhood  $\mathcal V$ of $x_0$ such that the closure of $\mathcal V$ is a subset of $\mathcal U$.
-\end{corollary}
-\begin{proof}
-	If $a$ satisfies to the Lemma \ref{top_a_u_lem} then set $\mathcal V = \left\{x \in \mathcal X~|~ a\left(x \right)>0 \right\}$ is open and the closure of $\mathcal V$ is a subset of $\mathcal U$.
-\end{proof}
 \begin{definition}\label{top_stump_defn}
 Let $\mathcal X$ be a locally compact,   locally connected
 Hausdorff space, $x_0\in \sX$ and $f$ is given by the Lemma \ref{top_a_u_lem} then we denote by
@@ -5114,6 +5107,14 @@ Hausdorff space, $x_0\in \sX$ and $f$ is given by the Lemma \ref{top_a_u_lem} th
 \ee
 Assume that $\supp {f}_{{x}_0}$ is connected. We say that ${f}_{{x}_0}$ is an $x_0$-\textit{stump}.
 \end{definition}
+\begin{corollary}\label{com_a_u_cor}
+	Let $\mathcal X$ be a locally compact,   
+	Hausdorff space. For any $x_0 \in  \mathcal X$, and any open neighborhood $\mathcal U$ of $x_0$ there is an open neighborhood  $\mathcal V$ of $x_0$ such that the closure of $\mathcal V$ is a subset of $\mathcal U$.
+\end{corollary}
+\begin{proof}
+	If $a$ satisfies to the Lemma \ref{top_a_u_lem} then set $\mathcal V = \left\{x \in \mathcal X~|~ a\left(x \right)>0 \right\}$ is open and the closure of $\mathcal V$ is a subset of $\mathcal U$.
+\end{proof}
+
 \begin{definition}\label{top_stump_cov_defn}
 	Let $p: \widetilde{\sX} \to {\sX}$ be a covering. Let $\widetilde{x}_0\in   \widetilde{\sX}$, and let $\widetilde{\sU}$ be an open neighborhood of $\widetilde{x}_0$ such that the restriction $\left.p\right|_{\widetilde{\sU}}:\widetilde{\sU}\xrightarrow{\approx}\sU \bydef p\left(\widetilde{\sU} \right)$ is a homeomorphism. Since $\widetilde{\sX}$ is locally compact and Hausdorff there is $	\widetilde{f} \in C_c\left(\widetilde{\sX} \right)$ and open subset  $\widetilde{\sV}$ such that $\widetilde{x}_0\in  \widetilde{\sV} \subset {\widetilde{\sU}}$, $~\widetilde{f}\left(\widetilde{\sV} \right)= 1$,  $~\widetilde{f}\left(\widetilde{\sX} \right)= \left[0,1\right]$ and $\supp 	\widetilde{f} \subset \widetilde{\sU}$. We write 
 \be\label{top_tfx_eqn}
@@ -5758,7 +5759,7 @@ If $\left( E, \pi, \mathcal X\right)$ is a vector bundle (cf. Definition \ref{to
 (a)	
  Let $x_0 \in \sX$ be any point, and select an open neighborhood $\sU$ of $x_0$ such that $\left.\left( E, \pi, \mathcal X\right)\right|_{\sU}$ is trivial (cf.  \ref{trivial_vb_empt} and Definition \ref{top_vb_defn}), i.e. $\left.E\right|_{\sU}\cong \sU \times E_{x_0}$. The map $s: \sX \to E$ such that $\pi \circ s = \Id_\sX$ is continuous at $x_0$, so the map
  \bean
- s|_\sU : \sU \to \sU\times E_{x_0}
+ s|_\sU : \sU \to \sU\times E_{x_0},\\
  x \mapsto\left(x, u\left(x \right) \right)
  \eean 
  is continuous. It follows that both maps
@@ -5885,7 +5886,7 @@ Let us define $\left\|\cdot\right\|: C\left(\sX, \left\{A_x\right\},\sF\right)\t
 	\ee	
 \end{corollary}
 \begin{lemma}\label{top_c0_cont_str_lem}
-	!!! CONTINUE
+
 	\begin{enumerate}
 		\item[(i)] If $\sF$ is a continuity structure  for $\sX$ {and the} $\left\{A_x\right\}$ (cf. Definition \ref{op_fields_defn}), then all of $C_c\left(\sX, \left\{A_x\right\}, \sF \right)$, $C_0\left(\sX, \left\{A_x\right\}, \sF \right)$ and $C_b\left(\sX, \left\{A_x\right\}, \sF \right)$ are a continuity structures  for $\sX$ {and the} $\left\{A_x\right\}$.
 		\item[(ii)]
@@ -5902,8 +5903,8 @@ Let us define $\left\|\cdot\right\|: C\left(\sX, \left\{A_x\right\},\sF\right)\t
 	(i) One needs check conditions (a)-(c) of the Definition \ref{op_fields_defn}.
 	\begin{enumerate}
 		\item [(a)] Follows from the Lemma \ref{op_cont_con_lem}.
-		\item[(b)] 	For any $x_0$ denote by $f_{x_0}\in C_c\left( \sX\right) $ such that $f_{x_0}\left(\sX \right) = \left[0,1\right]$ and there is an open neighborhood $\sU$ of $x_0$ which satisfies to $f_{x_0}\left(\sU \right) = \left\{1\right\}$ (cf. \ref{top_fx_empt}).
-		For any $a \in \sF$ one has $f_{x_0} a \in  C_c\left(\sX, \left\{A_x\right\}, \sF \right)$, and from $f_{x_0}\left( x_0\right) =1$ it turns out
+		\item[(b)] 	Let $x\in \sX$, and let $f_{x}\in C_c\left( \sX\right)$ be a $x$-stump (cf. Definition \ref{top_stump_defn}).
+		For any $a \in \sF$ one has $f_{x} a \in  C_c\left(\sX, \left\{A_x\right\}, \sF \right)$, and from $f_{x}\left( x\right) =1$ it turns out
 		\bean
 		A\bydef	\left\{\left. a_x \in A_x\right|\exists a' \in \sF \quad a_x = a'_x  \right\}\subset \\ \subset A_c\bydef	\left\{\left. a_x \in A_x\right|\exists a' \in C_c\left(\sX, \left\{A_x\right\}, \sF \right) \quad a_x = a'_x  \right\}.
 		\eean
@@ -5922,7 +5923,7 @@ Let us define $\left\|\cdot\right\|: C\left(\sX, \left\{A_x\right\},\sF\right)\t
 	\end{enumerate}
 	(ii) From the inclusions
 	$$
-	C_c\left(\sX, \left\{A_x\right\}, \sF \right) \subset C_0\left(\sX, \left\{A_x\right\}, \sF \right) \subset C_b\left(\sX, \left\{A_x\right\}, \sF \right) \subset C\left(\sX, \left\{A_x\right\}, \sF \right)
+	C_c\left(\sX, \left\{A_x\right\}, \sF \right) \subset C_0\left(\sX, \left\{A_x\right\}, \sF \right) \subset C_b\left(\sX, \left\{A_x\right\}, \sF \right) \subset C\left(\sX, \left\{A_x\right\}, \sF \right).
 	$$
 	it follows that 
 	\be\label{top_c0_cont_str_j_lem}
@@ -5931,7 +5932,7 @@ Let us define $\left\|\cdot\right\|: C\left(\sX, \left\{A_x\right\},\sF\right)\t
 		C\left(\sX, \left\{A_x\right\}, C_b\left(\sX, \left\{A_x\right\}, \sF \right) \right)\subset 	C\left(\sX, \left\{A_x\right\}, \sF \right).
 	\end{split}
 	\ee 
-	Let $a \in C\left(\sX, \left\{A_x\right\}, C\left(\sX, \left\{A_x\right\}, \sF \right)\right) $, let $x_0 \in \sX$ and $\eps > 0$. There is an open neighborhood  $\sU'$ of $x_0$ and $a' \in C\left(\sX, \left\{A_x\right\}, \sF \right)$ such that $\left\|a_x  - a'_x\right\| < \eps$ for all $x \in \sU'$. Otherwise if $f_{x_0}$ is given by the Corollary \ref{com_a_u_cor} and $a''\bydef f_{x_0}a' \in  C_c\left(\sX, \left\{A_x\right\}, \sF \right)$. There is an open neighborhood $\sU''$ of $x_0$ such that $f_{x_0} \left( \sU''\right)= \{1\}$ it turns out that  $\left\|a_x - a''_x\right\| < \eps$ for all $x \in \sU' \cap\sU''$. It follows that $a \in 	C\left(\sX, \left\{A_x\right\}, C_c\left(\sX, \left\{A_x\right\}, \sF \right) \right)$, so one has
+	Let $a \in C\left(\sX, \left\{A_x\right\}, C\left(\sX, \left\{A_x\right\}, \sF \right)\right) $, let $x_0 \in \sX$ and $\eps > 0$. There is an open neighborhood  $\sU'$ of $x_0$ and $a' \in C\left(\sX, \left\{A_x\right\}, \sF \right)$ such that $\left\|a_x  - a'_x\right\| < \eps$ for all $x \in \sU'$. Otherwise if $f_{x_0}\in C_c\left(\sX\right)$ is an $x_0$-stump  (cf. Definition \ref{top_stump_defn}) then there is an open neighborhood $\sU''$ of $x_0$ such that $f_{x_0} \left( \sU''\right)= \{1\}$. If  and $a''\bydef f_{x_0}a' \in  C_c\left(\sX, \left\{A_x\right\}, \sF \right)$ then  $\left\|a_x - a''_x\right\| < \eps$ for all $x \in \sU' \cap\sU''$. It follows that $a \in 	C\left(\sX, \left\{A_x\right\}, C_c\left(\sX, \left\{A_x\right\}, \sF \right) \right)$, so one has
 	$$
 	C\left(\sX, \left\{A_x\right\}, \sF \right) \subset C\left(\sX, \left\{A_x\right\}, C_c\left(\sX, \left\{A_x\right\}, \sF \right) \right),
 	$$
@@ -5959,7 +5960,7 @@ Let us define $\left\|\cdot\right\|: C\left(\sX, \left\{A_x\right\},\sF\right)\t
 	Firstly we proof that the family  $\left\{b_x\right\}$ is {continuous with respect to $\sF$} at any  $x_0 \in \sX$ (cf. Definition \ref{op_cont_fields_defn}). Consider  two alternative cases:
 	\begin{enumerate}
 		\item [(i)]  $x_0 \in \sU$.
-		Let $f_{x_0}\in C_c\left( \sX\right) $ be  such that $f_{x_0}\left(\sX \right) = \left[0,1\right]$ and $\supp f_{x_0}\subset \sU$ and there is an open neighborhood $\sV$ of $x_0$ which satisfies to $f_{x_0}\left(\sV \right) = \left\{1\right\}$ (cf. Lemma \ref{top_a_u_lem}).  From the Lemma \ref{top_multiple_lem} it turns out $f_{x_0}$ is a multiple of $f$, i.e. there is $f' \in C_0\left(\sX \right)$ such that $f_{x_0} = f'f$. If $a^{f'} = f'a\in C_c\left( \sX, \left\{A_x\right\}, \sF\right)$ then $a^{f'}_x = b_x$ for any $x \in \sV$.
+		Let $f_{x_0}\in C_c\left( \sX\right) $ be an $x_0$-stump (cf. Definition \ref{top_stump_defn}) and $\sV$ is an open neighborhood of $x_0$ such that $f_{x_0}\left(\sV \right) = \left\{1\right\}$ (cf. Lemma \ref{top_a_u_lem}).  One can suppose that $\supp f_{x_0} \subset \sU$. From the Lemma \ref{top_multiple_lem} it turns out $f_{x_0}$ is a multiple of $f$, i.e. there is $f' \in C_0\left(\sX \right)$ such that $f_{x_0} = f'f$. If $a^{f'} = f'a\in C_c\left( \sX, \left\{A_x\right\}, \sF\right)$ then $a^{f'}_x = b_x$ for any $x \in \sV$.
 		\item [(ii)] $x_0 \notin \sU$. From the Lemma \ref{top_multiple_lem} it turns that out for any $\eps > 0$  there is an open  neighborhood $\mathcal W$ of $x_0$ such that $\left\|b_x \right\|< \eps$ for any $x \in \mathcal{W}$. So if $a \bydef 0 \in C_0\left( \sX, \left\{A_x\right\}, \sF\right)$ then $\left\|b_x - a_x \right\|< \eps$ for all $x \in \mathcal{W}$.
 	\end{enumerate}
 	So the family $\left\{b_x\right\}$ yields the element $b \in C\left( \sX, \left\{A_x\right\}, \sF\right)$. 
@@ -6044,11 +6045,10 @@ The space $C_0\left(\sX \right)\sF$ is dense in 	$C_0\left(\sX, \left\{A_x\right
 	\be\label{top_cx_norm_eqn}
 	\left\|c \right\|_{C_x} = \inf_{\substack{a \in C\left(\sX, \left\{A_x\right\}, \sF \right)  \\ c = a + I_x C\left(\sX, \left\{A_x\right\}, \sF \right)}}\left\|a \right\|.
 	\ee
-	Clearly $\left\|c \right\|_{C_x} \ge \left\|\phi_x\left(c \right)  \right\|$. If $a' \in :C_b\left(\sX, \left\{A_x\right\}, \sF \right)$ is a representative of $c$ and $a'$ is given by the family $\left\{a'_x \in A_x\right\}$ then for all $\eps > 0$ there is an open neighborhood $\sU$ of $x$ such that $\left\|a'_x\right\| -\left\|  a'_{x'} \right\| < \eps$ for all $x' \in \sU$. From the Exercise \ref{top_completely_regular_exer} it turns out that $\sX$ is completely regular (cf. Definition \ref{top_completely_regular_defn}).
-	If $f: \sX \to \left[0,1\right]$ is such that $\supp f \subset \sU$ and $f\left(x\right)= 1$ then $fa'$ is a representative of $c$ and $\left\|fa' \right\|< \left\|\phi_x\left(c\right) \right\|+ \eps$. It follows that $\left\|c \right\|_{C_x} < \left\|\phi_x\left(c \right)  \right\| + \eps$ and taking into account  $\left\|c \right\|_{C_x} \ge \left\|\phi_x\left(c \right)  \right\|$  one has $\left\|c \right\|_{C_x} = \left\|\phi_x\left(c \right)  \right\|$,
+		Clearly $\left\|c \right\|_{C_x} \ge \left\|\phi_x\left(c \right)  \right\|$. If $a' \in :C_b\left(\sX, \left\{A_x\right\}, \sF \right)$ is a representative of $c$ and $a'$ is given by the family $\left\{a'_x \in A_x\right\}$ then for all $\eps > 0$ there is an open neighborhood $\sU$ of $x$ such that $\left\|a'_x\right\| -\left\|  a'_{x'} \right\| < \eps$ for all $x' \in \sU$ (cf. (a) of the Definition \ref{op_fields_defn}). On the other hand there is an $x$-stump $f_x \in C_c\left(\sX\right)$ (cf. Definition \ref{top_stump_defn}) such that $\supp f_x \subset \sU$. From our construction it turns out that  $fa'$ is a representative of $c$ and $\left\|fa' \right\|< \left\|\phi_x\left(c\right) \right\|+ \eps$. It follows that $\left\|c \right\|_{C_x} < \left\|\phi_x\left(c \right)  \right\| + \eps$ and taking into account  $\left\|c \right\|_{C_x} \ge \left\|\phi_x\left(c \right)  \right\|$  one has $\left\|c \right\|_{C_x} = \left\|\phi_x\left(c \right)  \right\|$,
 	i.e. $\phi_x:C_x \to A_x$ is an isometry, hence 
 	$A_x$ can be defined as the norm completion of $C_x$.
-	If $\bt\sX$ is the Stone-\v{C}ech compactification of $\sX$ (cf. Definition \ref{sc_comp_defn}) one can define $A_{\bt x}$ for any $\bt x \in \bt\sX$. For any $\bt x \in \bt\sX$ there is an ideal $I_{\bt x} \subset C\left(\bt\sX \right)= C_b\left( \sX\right)$ and similarly to above construction there is the normed space $C_{\bt x}= C_b\left(\sX, \left\{A_x\right\}, \sF \right)/I_{\bt x } C_b\left(\sX, \left\{A_x\right\}, \sF \right)$. 
+	If $\bt\sX$ is the Stone-\v{C}ech compactification of $\sX$ (cf. Definition \ref{sc_comp_defn}) then for all For any $\bt x \in \bt\sX$  there is an ideal $I_{\bt x} \subset C\left(\bt\sX \right)= C_b\left( \sX\right)$ and one can define the normed space $C_{\bt x}= C_b\left(\sX, \left\{A_x\right\}, \sF \right)/I_{\bt x } C_b\left(\sX, \left\{A_x\right\}, \sF \right)$. Similarly to the above construction there is the Banach space $A_{\bt x}$ which is the norm completion of $C_{\bt x}$. 
 \end{empt}
 \begin{definition}\label{top_beta_ext_defn}
 	Let $\sF$ be a continuity structure  for $\sX$ {and the} $\left\{A_x\right\}_{x\in\sX}$, such that $\sX$ is completely regular (cf. Definition \ref{top_completely_regular_defn}). A family $\left\{\bt A_{\bt x}\right\}_{x\in\bt\sX}$ such that $\bt A_{\bt x}$ is a completion of $C_{ \bt x}$ is said to be the \textit{Stone-\v{C}ech extension} or the $\bt$-\textit{extension} of $\left\{A_x\right\}_{x\in\sX}$.
@@ -6061,7 +6061,7 @@ such that
 \be\label{top_beta_fam_eqn}
 a_{\bt x}= \phi_{\bt x}\left(a + I_{{\bt x}} C_b\left(\sX, \left\{A_x\right\}, \sF \right) \right).
 \ee
-From $\text{norm}_a \in C_b\left(\sX \right)$ one has $\text{norm}_{\bt\left( a\right) } \in C\left( \bt\sX\right)$, so the space $\bt\sF$ of families \ref{top_beta_fam_eqn}  is  a continuity structure  for $\bt\sX$ {and the} $\left\{\bt A_{\bt x}\right\}$. Since $\bt\sF$ is norm closed and $\bt\sF$ is compact one has
+From $\text{norm}_a \in C_b\left(\sX \right)$ one has $\text{norm}_{\bt\left( a\right) } \in C\left( \bt\sX\right)$, so the space $\bt\sF$ of families \ref{top_beta_fam_eqn}  is  a continuity structure  for $\bt\sX$ {and the} $\left\{\bt A_{\bt x}\right\}$. Since $\bt\sF$ is norm closed and $\bt\sX$ is compact one has
 \be\label{top_bt_f_eqn}
 \begin{split}
 	\bt\sF = C_c\left(\bt\sX, \left\{\bt A_{\bt x}\right\}_{x\in\bt\sX}, \bt\sF \right)= C_0\left(\bt\sX, \left\{\bt A_{\bt x}\right\}_{x\in\bt\sX}, \bt\sF \right)= \\=C_b\left(\bt\sX, \left\{\bt A_{\bt x}\right\}_{x\in\bt\sX}, \bt\sF \right)= C\left(\bt\sX, \left\{\bt A_{\bt x}\right\}_{x\in\bt\sX}, \bt\sF \right).
@@ -6178,7 +6178,7 @@ is said to be the \textit{total space for} $\left(\sX, \left\{A_x\right\}, \sF \
 \begin{proof}
 	(i) If $\eps > 0$ and $x_0\in\sX$ then from (b) of the Definition \ref{op_fields_defn} it follows that there is $a \in \sF$ such that $\left\| a_{x_0}- j\left( x_0\right) \right\| < \eps/2$. If $\sU'$ is an open neighborhood of $x_0$ then 
 	from $j\left( x_0\right) \in \mathfrak{O}\left(\sU', a, \eps \right)$, and since $j$ is continuous it follows that $\sU\bydef j^{-1} \left(  \mathfrak{O}\left(\sU', a, \eps \right)\right)$ is open. So for all $x\in \sU$ one has $\left\| a_{x}- j\left( x\right) \right\|< \eps$, i.e. the family $\left\{j\left(x\right)\right\}$ is continuous (cf. Definition \ref{op_cont_fields_defn}).\\
-	(ii) Suppose $\eps > 0$ and $x_0\in\sX$. If  that $j\left( x_0\right) \in \mathfrak{O}\left(\sU', b, \eps \right)$ then  $\left\| a_{x_0}- b_{x_0} \right\| < \eps$. From the Lemma \ref{op_cont_con_lem} it follows that there is an open neighborhood $\sU$ of $x_0$ such that $\left\| a_{x}- b_{x} \right\|<\eps$ for all $x \in \sU$. So one has $\sU\subset j^{-1}\left( \mathfrak{O}\left(\sU, b, \eps \right)\right)$, i.e. $j$ is continuous at $x_0$. Similarly one can prove that $j$ is continuous at any point of $\sX$.
+	(ii) Suppose $\eps > 0$ and $x_0\in\sX$. If   $j\left( x_0\right) \in \mathfrak{O}\left(\sU', b, \eps \right)$ then  $\left\| a_{x_0}- b_{x_0} \right\| < \eps$. From the Lemma \ref{op_cont_con_lem} it follows that there is an open neighborhood $\sU$ of $x_0$ such that $\left\| a_{x}- b_{x} \right\|<\eps$ for all $x \in \sU$. So one has $\sU\subset j^{-1}\left( \mathfrak{O}\left(\sU', b, \eps \right)\right)$, i.e. $j$ is continuous at $x_0$. Similarly one can prove that $j$ is continuous at any point of $\sX$.
 \end{proof}
 
 \begin{definition}\label{ctr_restr_defn}
@@ -6280,6 +6280,7 @@ The Lemma \ref{top_ax_k_lem} is an analog of the Tietze extension theorem \ref{t
 \end{remark}
 
 Below in this section we assume that all topological spaces are  connected and locally connected.
+
 \begin{empt}\label{top_lift_empt}
 	If $p: \widetilde{\sX} \to \sX$ is a covering then the family $\left\{A_x\right\}$ naturally induces the family $\left\{\widetilde{A}_{\widetilde{x}}\right\}_{\widetilde{x}\in \widetilde{\sX}}$ such that for any ${\widetilde{x}}\in {\widetilde{\sX}}$ there is the isomorphism 
 	\be\label{top_ct_iso_eqn}
@@ -6347,7 +6348,7 @@ Following lemma is a direct consequence of the Lemma \ref{top_lift_lem} and the 
 	
 \end{lemma}
 \begin{remark}\label{top_top_lift_rem}
-Sometimes we write $\lift_p^{\text{top}}$ instead of $\lift_p$ for distinguishing  this lift with the given by the sheaf theory one (cf. equation  \eqref{comm_sh_lift_desc_l_eqn}
+Sometimes we write $\lift_p^{\text{top}}$ instead of $\lift_p$ for distinguishing  this lift with the given by the sheaf theory one (cf. equation  \eqref{comm_sh_lift_desc_l_eqn}).
 \end{remark}
 The following Lemma is evident.
 \begin{lemma}\label{top_lift_bounded_lem}
@@ -6502,11 +6503,11 @@ Let $M$ be a differential manifold (cf. Definition \ref{diff_mani_defn}), let $p
 \end{remark}
 
 \begin{definition}\label{top_lift_desc_defn}
-	Let $\sF$ 	continuity structure for $\sX$ {and the} $\left\{A_x\right\}_{x \in \sX}$, let $p: \widetilde{\sX}\to\sX$ be a covering. Let $\widetilde{\sU}\subset \widetilde{\sX}$ be an open subset such that the restriction $\left.p\right|_{\widetilde{\sU}}$ is injective. Let $\sU\bydef p\left( \widetilde{\sU}\right)$. If $a \in C\left(\sX, \left\{A_x\right\}, \sF \right)$ is such that $\supp a \subset \sU$ (cf. Definition \ref{top_supp_defn}) and $\widetilde{a}= \lift_p\left( a\right)$ then 
+	Let $\sF$ 	continuity structure for $\sX$ {and the} $\left\{A_x\right\}_{x \in \sX}$, let $p: \widetilde{\sX}\to\sX$ be a covering. Let $\widetilde{\sU}\subset \widetilde{\sX}$ be an open subset such that the restriction $\left.p\right|_{\widetilde{\sU}}$ is injective. Let $\sU\bydef p\left( \widetilde{\sU}\right)$. If $a \in C\left(\sX, \left\{A_x\right\}, \sF \right)$ is such that $\supp a \subset \sU$ (cf. Definition \ref{top_supp_defn}) and $\widetilde{a}'= \lift_p\left( a\right)$ then 
 	the family 
 	\be\label{comm_lift_desc_eqn}
 	\widetilde{a}_{\widetilde{x}}=\left\{\begin{array}{c l}
-		c^{-1}_{\widetilde x}\left( {a}_{p\left( \widetilde{x} \right) }\right)    &{\widetilde{x}}\in \widetilde{\sU} \\
+	\widetilde{a}'_{\widetilde{x}}=	c^{-1}_{\widetilde x}\left( {a}_{p\left( \widetilde{x} \right) }\right)    &{\widetilde{x}}\in \widetilde{\sU} \\
 		0 &{\widetilde{x}}\notin \widetilde{\sU}\\
 	\end{array}\right. \quad c_{\widetilde x}\text{ is given by }\eqref{top_ct_iso_eqn}
 	\ee 
@@ -6603,9 +6604,9 @@ From the Definition \ref{top_cont_lift_defn} it turns out that
 	$$
 	so one has
 	$$
-	\lift_p\left[C\left(\sX, \left\{E_x\right\}, \Ga\left( E, \pi, \mathcal X\right) \right) \right]\cong \Ga\left( E\times_\sX\widetilde\sX,\rho, \widetilde\sX\right).	
+	\lift_p\left[C\left(\sX, \left\{E_x\right\}, \Ga\left( E, \pi, \mathcal X\right) \right) \right]\subset \Ga\left( E\times_\sX\widetilde\sX,\rho, \widetilde\sX\right).	
 	$$
-	Let $\widetilde s \in \Ga\left( E\times_\sX\widetilde\sX,\rho, \widetilde\sX\right)$ and let $\widetilde x_0 \in \widetilde \sX$. If   $\widetilde{f}_{\widetilde{x}_0}$ is a $p$-$\widetilde x_0$-{stump} (cf. Definition \ref{top_stump_cov_defn}) then there is an open subset $\widetilde \sU$ such that $\supp \widetilde{f}_{\widetilde{x}_0}$ is mapped homeomorphically onto $\sU \subset p\left(\widetilde\sU\right)$. There is a natural isomorphism
+	Let $\widetilde s \in \Ga\left( E\times_\sX\widetilde\sX,\rho, \widetilde\sX\right)$ and let $\widetilde x_0 \in \widetilde \sX$. If   $\widetilde{f}_{\widetilde{x}_0}$ is a $p$-$\widetilde x_0$-{stump} (cf. Definition \ref{top_stump_cov_defn}) then there is an open subset $\widetilde \sU$ such that $\supp \widetilde{f}_{\widetilde{x}_0}\subset \widetilde\sU$ and $\widetilde\sU$ is mapped homeomorphically onto $\sU \subset p\left(\widetilde\sU\right)$. There is a natural isomorphism
 	$$
 \phi :	\Ga\left( E|_\sU, \pi|_{E|_\sU}, \sU \right)\xrightarrow{\approx} 	\Ga\left( \left.\left( E\times_\sX\widetilde\sX\right)\right|_{\widetilde\sU}, \rho|_{E|\left( E\times_\sX\widetilde\sX\right) |_{\widetilde\sU}}, \widetilde\sU\right)
 	$$
@@ -6621,7 +6622,7 @@ If $\widetilde \sV$ is an open neighborhood of $\widetilde{x}_0$ such that $\wid
 $$
 \forall \widetilde x \in \widetilde{\sV}\quad \lift_p\left( s\right) \left(\widetilde x \right) = \widetilde s\left( \widetilde x\right). 
 $$
-It follows that $\widetilde s$ is {continuous (with respect to $\lift_p\left( C\left(\sX, \left\{E_x\right\}, \Ga\left( E, \pi, \mathcal X\right) \right)\right) $)} at $\widetilde x_0$ (cf. Definition \ref{op_cont_fields_defn}). A point $\widetilde x_0$ is arbitrary so  $\widetilde s$ is \textit{continuous} on $\widetilde sX$, and taking into account Definition \ref{top_cont_lift_defn} one has $\widetilde s \in \lift_p\left[C\left(\sX, \left\{E_x\right\}, \Ga\left( E, \pi, \mathcal X\right) \right) \right]$, it turns out that
+It follows that $\widetilde s$ is {continuous (with respect to $\lift_p\left( C\left(\sX, \left\{E_x\right\}, \Ga\left( E, \pi, \mathcal X\right) \right)\right) $)} at $\widetilde x_0$ (cf. Definition \ref{op_cont_fields_defn}). A point $\widetilde x_0$ is arbitrary so  $\widetilde s$ is {continuous} on $\widetilde \sX$, and taking into account Definition \ref{top_cont_lift_defn} one has $\widetilde s \in \lift_p\left[C\left(\sX, \left\{E_x\right\}, \Ga\left( E, \pi, \mathcal X\right) \right) \right]$, it turns out that
 $$
 \Ga\left( E\times_\sX\widetilde\sX,\rho, \widetilde\sX\right)\subset \lift_p\left[C\left(\sX, \left\{E_x\right\}, \Ga\left( E, \pi, \mathcal X\right) \right) \right].
 $$
@@ -6634,7 +6635,7 @@ $$
 	Let $\sX$ be a locally compact, Hausdorff space called the base space; and for each $x$ in $\sX$, let $A_x$ be a $C^*$-algebra. If $\sF$ is  a continuity structure for $\sX$ {and the} $\left\{A_x\right\}_{x \in \sX}$ (cf. Definition \ref{op_fields_defn}), then $C_b\left(\sX, \left\{A_x\right\}, A \right)$ is a $C^*$-algebra.
 \end{lemma}
 \begin{proof}
-	Follows from the condition (c) of the Definition \ref{op_fields_defn} and the Lemmas \ref{op_cont_uni_lem}, \ref{op_cont_module_lem}.
+	Follows from the condition (c) of the Definition \ref{op_fields_defn} and the Lemma  \ref{op_cont_module_lem}.
 \end{proof}
 \begin{empt}\label{top_mult_inc_empt}
 	Since the zero submodule	$C_0\left(\sX, \left\{A_x\right\}, A \right)$ (cf. Definition \ref{top_cc_c0_defn}) is $C^*$-norm closed subalgebra of $C_b\left(\sX, \left\{A_x\right\}, A \right)$ it is a $C^*$-algebra.
@@ -6663,7 +6664,7 @@ Consider the above situation. If   $\sY \subset \sX$ is compact then the followi
 \end{enumerate}
 \end{lemma}
 \begin{proof}
-(i) From \ref{closed_ideal_eqn} it follows that there is the surjective *-homomorphism $p':A \to\left.A\right|^\sY$. From the Lemma \ref{top_ax_k_lem} it turns out that is the surjective *-homomorphism $p':A \to C_0\left(\sY, \left\{ A_{x}\right\}, A  \right)$. From $\ker p'=\ker p'' = \left.A\right|_{\sX\setminus\sU}$ it follows that $\left.A\right|^\sY\cong C_0\left(\sY, \left\{ A_{x}\right\}, A  \right)$.\\
+(i) From \ref{closed_ideal_eqn} it follows that there is the surjective *-homomorphism $p':A \to\left.A\right|^\sY$. From the Lemma \ref{top_ax_k_lem} it turns out that is the surjective *-homomorphism $p':A \to C_0\left(\sY, \left\{ A_{x}\right\}, A  \right)$. From $\ker p'=\ker p'' = \left.A\right|_{\sX\setminus\sY}$ (cf. equation \eqref{open_ideal_eqn}) it follows that $\left.A\right|^\sY\cong C_0\left(\sY, \left\{ A_{x}\right\}, A  \right)$.\\
 (ii)  From the Theorem \ref{ctr_as_field_thm} it follows that the spectrum of $C_0\left(\sY, \left\{ A_{x}\right\}, A  \right)$ equals to $\sY$, so from (i) of this lemma it follows that the spectrum of $\left.A\right|^\sY$ coincides with $\sY$.
 \end{proof}
 
@@ -6843,7 +6844,7 @@ $$
 \begin{proof}
 	(i)
 	From the Theorem \ref{cross_mult_thm} it turns out than any $a \in M\left(A\left( p\right)  \right)$ corresponds to the strictly continuous section $\left\{a_x \in M\left(A_x \right)  \right\}_{x \in \sX}$. The section defines the section $\left\{\widetilde a_{\widetilde x} = a_{p\left(\widetilde x\right)}\in  M\left(\widetilde A_{\widetilde x}\right) = M\left(A_{p\left(\widetilde x\right) }\right)\right\}_{\widetilde x \in \widetilde\sX}$ . Let $\widetilde{x}_0 \in \widetilde \sX$ be any point consider an open neighborhood $\widetilde\sU$ of $\widetilde{x}_0$ such that the restriction $\left.p\right|_{\widetilde{\sU}}:\widetilde{\sU}\xrightarrow{\approx}\sU = p\left(\widetilde{\sU} \right)$
-	is a injective. If $\widetilde{f}_{\widetilde{x}_0}$ is  given by \eqref{top_fx_eqn} !!! STUMP \ref{top_stump_defn} such that $\supp \widetilde{f}_{\widetilde{x}_0} \subset \widetilde\sU$ and there is an open neighborhood $\widetilde\sV$ of $\widetilde{x}_0$ such that $\widetilde{f}_{\widetilde{x}_0}\left(\widetilde\sV\right)= 1$. If $\widetilde{c}\in A_0\left(\widetilde{\sX}\right) = C_0\left(\lift_p\left[C\left( \sX, \left\{A_x\right\}, \sF\right) \right]\right)$, then $\supp \widetilde{f}_{\widetilde{x}_0}\widetilde{c} \subset \widetilde{\sU}$. Let $c = \desc_p \left(\widetilde{f}_{\widetilde{x}_0} \widetilde{c} \right)$ be the $p$-descent (cf. Definition \ref{top_lift_desc_defn}). From the Theorem  \ref{cross_mult_thm} it follows that for any $\eps$ there is an open $\sV'$ neighborhood  of $x_0 = p\left(\widetilde{x}_0\right)$ and the element $b \in \sF$ such that $\left\|c_x \left( a_x - b_x\right)   \right\|+\left\|\left( a_x - b_x\right)c_x    \right\|< \eps$ for every $x$ in $\mathcal V'$. One can suppose $\mathcal V' \subset \sV$. Let $f_{x_0}= \desc_p\left( \widetilde{f}_{\widetilde{x}_0}\right)$, $\widetilde a = \lift^p_{\widetilde{\sU}}\left(f_{x_0}a\right)$, $\widetilde b = \lift^p_{\widetilde{\sU}}\left(f_{x_0}b\right)$ (cf. equations \eqref{top_lift_desc_eqn}). Direct check shows that
+	is a injective. If $\widetilde{f}_{\widetilde{x}_0}$ is a $p$-$\widetilde x_0$-stump (cf. Definition  \ref{top_stump_defn}) such that  there is an open neighborhood $\widetilde\sV$ of $\widetilde{x}_0$ such that $\widetilde{f}_{\widetilde{x}_0}\left(\widetilde\sV\right)= 1$. If $\widetilde{c}\in A_0\left(\widetilde{\sX}\right) = C_0\left(\lift_p\left[C\left( \sX, \left\{A_x\right\}, \sF\right) \right]\right)$, then $\supp \widetilde{f}_{\widetilde{x}_0}\widetilde{c} \subset \widetilde{\sU}$. Let $c = \desc_p \left(\widetilde{f}_{\widetilde{x}_0} \widetilde{c} \right)$ be the $p$-descent (cf. Definition \ref{top_lift_desc_defn}). From the Theorem  \ref{cross_mult_thm} it follows that for any $\eps$ there is an open $\sV'$ neighborhood  of $x_0 = p\left(\widetilde{x}_0\right)$ and the element $b \in \sF$ such that $\left\|c_x \left( a_x - b_x\right)   \right\|+\left\|\left( a_x - b_x\right)c_x    \right\|< \eps$ for every $x$ in $\mathcal V'$. One can suppose $\mathcal V' \subset \sV$. Let $f_{x_0}= \desc_p\left( \widetilde{f}_{\widetilde{x}_0}\right)$, $\widetilde a = \lift^p_{\widetilde{\sU}}\left(f_{x_0}a\right)$, $\widetilde b = \lift^p_{\widetilde{\sU}}\left(f_{x_0}b\right)$ (cf. equations \eqref{top_lift_desc_eqn}). Direct check shows that
 	\bean
 	\left\|\widetilde c_{\widetilde x} \left(\widetilde a_{\widetilde x}- \widetilde b_{\widetilde x}\right)   \right\|+\left\|\left(\widetilde a_{\widetilde x}- \widetilde b_{\widetilde x}\right) \widetilde c_{\widetilde x}    \right\|=\\=\left\| c_{p(\widetilde x)} \left( a_{p(\widetilde x)}-  b_{p(\widetilde x)}\right)   \right\|+\left\|\left( a_{p(\widetilde x)}-  b_{p(\widetilde x)}\right)  c_{p(\widetilde x)}    \right\| < \eps
 \eean
@@ -6928,7 +6929,8 @@ $$
 
 \begin{empt}\label{comm_lift_desc_sum_strong_empt}
 	Suppose that $\K= \K\left(\H \right) $ is a simple  $C^*$-algebra (cf. Definition \ref{simple_ca_defn}) of compact operators where $\H = \C$ or $\H = \C^n$ or $\H =  \ell^2\left(\N \right)$. If $A$ is  $C^*$-algebra such that the spectrum $\sX$ of $A$ is Hausdorff then $A$ is a $CCR$ algebra (cf. Remark \ref{ctr_open_res_rem}). There is a family $\left\{\rep_x\left(A \right) \right\}_{x\in \sX}$ such that $\rep_x\left(A \right)$ is simple $C^*$-algebra for all $x\in\sX$. From the Lemma \ref{ctr_rep_eq_lem} it follows that $A$ is  a {continuity structure for} $\sX$ {and the} $\left\{A_x\right\}$
-	(cf. Definition \ref{op_fields_defn}). Otherwise from the Lemma \ref{top_bundle_cs_lem} it turns out that
+	(cf. Definition \ref{op_fields_defn}). Otherwise from the Lemma
+	 \ref{top_bundle_cs_ex_lem} it turns out that
 	\be\label{top_acs_eqn}
 	A \cong  C_0\left(\sX, \left\{A_x\bydef \rep_x\left(A \right)\right\}_{x \in \sX}, A \right)
 	\ee
@@ -6994,6 +6996,7 @@ $$
 \section{Sheaves lift and descent}
 
 \subsection{Modules and sheaves}
+\paragraph*{}
 	Let $\sX$ be a locally compact,  Hausdorff space, and let $R \subset C_0\left(\sX\right)$ be a dense *-subalgebra. Let $A$ be a left $R$-module such that
 	$$
 \forall a \in A \quad a = 0 \quad \Leftrightarrow \quad \left\{r \in R | ra = 0\right\}	= \{0\}.
@@ -7010,7 +7013,7 @@ It follows that one has a natural projection
 \be\label{top_puv_eqn}
 \rho_{\sU \sV}:A/\sim_\sU \to A/\sim_\sV.
 \ee
-One can proof maps $\rho_{\sU \sV}$  satisfy to the Definition \ref{presheaf_defn}, i.e. we have presheaf  on $\sX$.
+One can proof maps $\rho_{\sU \sV}$  satisfy to the Definition \ref{presheaf_defn}, i.e. we have a presheaf  on $\sX$.
 \begin{definition}\label{top_x_sheaf_defn}
 A sheaf associated with the described above presheaf (cf. Proposition and Definition \ref{sheaf_prdf}) is said to be the $A$-\textit{sheaf}. Henceforth we denote the $A$-{sheaf} by $\mathscr S^A$.
 \end{definition}
@@ -7019,22 +7022,22 @@ Any $s \in A$ corresponds to a global section of $\mathscr S^A$, it follows that
 A\subset \mathscr S^A\left( \sX\right). 
 \ee
 \begin{remark}
-Since $R$ is an $R$-module, there is a sheaf $\mathscr S^R$.
+Since $R$ is an $R$-module, there is an $R$-sheaf $\mathscr S^R$.
 One has a ringed space $\left(\sX, \mathscr S^R\right)$ (cf. Definition \ref{sheaf_ringed_space_defn}), and $\mathscr S^A$ is a $\mathscr S^R$-module (cf. Definition \ref{sheaf_of_modules_den}).
 \end{remark}
 Let $R\subset C_0\left(\sX\right)$ be a dense *-subalgebra. Similarly to the equation \eqref{unital_notation_eqn} one has an unital *-algebra $R^\sim$ which is an $R$-module. There is a natural inclusion $R^\sim \subset C_b\left(\sX\right)$
 \begin{definition}\label{top_soft_r_defn}
 	In the above situation we suppose that the space $\sX$ is paracompact (cf. Definition \ref{top_paracompact_defn}).
-Let 	$\Phi$   be a  {paracompactifying} family of supports (cf. Definition \ref{phi_supp_defn}) 	
-	 and we say that *-algebra $R$ is $\Phi$-\textit{soft} if following conditions hold:
+If 	$\Phi$   is a  {paracompactifying} family of supports (cf. Definition \ref{phi_supp_defn}) 	
+	then we say that *-algebra $R$ is $\Phi$-\textit{soft} if following conditions hold:
 	\begin{enumerate}
-		\item [(a)] A sheaf $\mathscr S^{R^\sim}$ is $\Phi$-\textit{soft} (cf. Definition \ref{sheaf_soft_defn}).
-		\item [(b)] One has $R= \C_0\left(\sX\right) \cap \mathscr S^{R^\sim}\left( \sX\right) $
+		\item [(a)] A sheaf $\mathscr S^{R^\sim}$ is $\Phi$-\textit{soft} (cf. Definition \ref{soft_sheaf_defn}).
+		\item [(b)] One has $R= C_0\left(\sX\right) \cap \mathscr S^{R^\sim}\left( \sX\right) $.
 	\end{enumerate}
 \end{definition}
 \begin{exercise}\label{top_soft_exer}
 Let $R$ be a $c$-soft *-algebra (cf. Definitions \ref{top_soft_r_defn} and \ref{soft_sheaf_defn}). Prove that for any $x\in \sX$ and any  neighborhood $\sU$ of $x$
-there is a map $f \in C_c\left(\sX\right)$ such that
+there is a map $f \in R\cap C_c\left(\sX\right)$ such that
 \begin{enumerate}
 	\item $\supp f \subset \sU$.
 	\item $f\left(\sX\right)= \left[0,1\right]$.
@@ -7042,30 +7045,40 @@ there is a map $f \in C_c\left(\sX\right)$ such that
 \end{enumerate}
 
 \end{exercise}
-
+\begin{definition}\label{top_stump_soft_defn}
+In the situation of the Exercise \ref{top_soft_exer} we say that $f$ is an $\left(R, x\right)$-\textit{stump}.
+\end{definition}
+!!! CHECK
 \begin{exercise}\label{top_good_r_exer}
-	Let $R \subset C_0\left(\sX\right)$ is a soft *-subalgebra.
+	Let $R \subset C_0\left(\sX\right)$ is a $c$-soft *-subalgebra.
 	Prove following statements:
 	\begin{enumerate}
 		\item If $p: \widetilde \sX \to \sX$ is a covering then an intersection $p^{-1}\mathscr S^{R}\left( \widetilde\sX\right) \cap C_0\left(\widetilde \sX\right)$ is a soft *-subalgebra of $C_0\left(\widetilde \sX\right)$.
 		\item If $\sY \subset \sX$ is a compact subset then there is $a \in R \cap C_c\left( \sX\right)$ such that $a\left(\sX \right) = \left[0, 1\right]$ and $a\left(\sY \right) = \{1\}$ (cf. Theorem \ref{sheaf_a_soft_thm}).
-		\item If $p: p: \widetilde \sX \to \sX$ is a covering then for all $\widetilde x \in \widetilde\sX$ there  is $\widetilde f \in C_c\left( \widetilde \sX\right)\cap p^{-1}\mathscr S^{R}\left( \widetilde\sX\right)$ such that following conditions hold:
-		\begin{enumerate}
-			\item[(a)] $\supp \widetilde f$ is mapped homeomorphically onto $p\left(\supp \widetilde f \right)$.
-			\item[(b)] $\widetilde f\left(\sX \right) = \left[0, 1\right]$.
-			\item[(c)] There is an open neighborhood $\widetilde \sU$ of $\widetilde x$ such that $\widetilde f\left(\widetilde \sU \right) = \{1\}$.
-		\end{enumerate}
 	\end{enumerate}
 
 \end{exercise}
+\begin{exercise}\label{top_soft_p_exer}
+	If $R \subset C_0\left(\sX\right)$ is a $c$-soft *-subalgebra and $ p: \widetilde \sX \to \sX$ is a covering then for all $\widetilde x \in \widetilde\sX$ there  is $\widetilde f \in C_c\left( \widetilde \sX\right)\cap p^{-1}\mathscr S^{R}\left( \widetilde\sX\right)$ such that following conditions hold:
+\begin{enumerate}
+	\item[(a)] $\supp \widetilde f$ is mapped homeomorphically onto $p\left(\supp \widetilde f \right)$.
+	\item[(b)] $\widetilde f\left(\sX \right) = \left[0, 1\right]$.
+	\item[(c)] There is an open neighborhood $\widetilde \sU$ of $\widetilde x$ such that $\widetilde f\left(\widetilde \sU \right) = \{1\}$.
+\end{enumerate}
+\end{exercise}
+
+\begin{definition}\label{top_stump_soft_p_defn}
+	In the situation of the Exercise \ref{top_soft_p_exer} we say that $f$ is an $\left(p, R, \widetilde x\right)$-\textit{stump}.
+\end{definition}
+
 \begin{exercise}
-If $R\subset C_0\left(\sX \right) $ is a soft *-algebra  and $A \subset Cont\left( \sX\right)$ is an $R$-module then one has
+If $R\subset C_0\left(\sX \right) $ is a $c$-soft *-algebra  and $A \subset Cont\left( \sX\right)$ is an $R$-module then one has
 \be\label{top_cont_sha_eqn}
 \mathscr S^{A}	=  \mathscr S^{\left(C_c\left( \sX\right)\cap R\right)A }.
 \ee 
 \end{exercise}
 \begin{exercise}
-If $M$ is a smooth manifold then using the Proposition \ref{top_smooth_part_unity_prop} !!! SOFT one can proof that $\Coo_0\left(M\right)\bydef \Coo_0\left(M\right)\cap C_0\left(M\right)\subset C_0\left(M\right)$ is a soft *-algebra.
+If $M$ is a smooth manifold then using the Proposition \ref{top_smooth_part_unity_prop} !!! SOFT one can proof that $\Coo_0\left(M\right)\bydef \Coo_0\left(M\right)\cap C_0\left(M\right)\subset C_0\left(M\right)$ is a $c$-soft *-algebra.
 \end{exercise}
 \subsection{Inverse images lift and descent}
 \paragraph*{}
