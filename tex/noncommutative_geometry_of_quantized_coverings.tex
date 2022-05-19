@@ -4096,17 +4096,24 @@ $\left(A, \widetilde{A}, G\right)$ is the
 
 
 \begin{defn}\label{inf_cov_oa_cat_defn} 
-A skeleton (cf. Definition \ref{skeleton_defn}) of  a {category of noncommutative finite-fold coverings of noncommutative finite-fold covering of bounded operator *-algebras} is said to be a \textit{pointed category of noncommutative finite-fold coverings of noncommutative finite-fold covering of bounded operator *-algebras}. We denote it by $\mathfrak{S}^{\text{pt}}$.
+A skeleton (cf. Definition \ref{skeleton_defn}) of  a {category of noncommutative finite-fold coverings of noncommutative finite-fold covering of bounded operator *-algebras} 
+\be\label{comp_oa_pt_eqn}
+\begin{split}
+	\mathfrak{S}^{\text{pt}} \bydef \left(\left\{\pi_\la: A \hookto A_\la \right\}_{\la \in \La}, \left\{\pi^\mu_\nu: A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\ \nu > \mu}}\right),\\
+	\text{or simply} \quad \mathfrak{S} \bydef \left(\left\{\pi_\la: A \hookto A_\la \right\}, \left\{\pi^\mu_\nu\right\}\right).
+\end{split}
+\ee
+is said to be a \textit{pointed category of noncommutative finite-fold coverings of noncommutative finite-fold covering of bounded operator *-algebras}. We denote it by $\mathfrak{S}^{\text{pt}}$. Any morphism of 	$\mathfrak{S}^{\text{pt}}$ is a restriction of the corresponding morphism of $\mathfrak{S}^{\text{pt}}_B$
 \end{defn}
 
 \begin{empt}\label{inf_cov_oa_empt}
 	In the situation of the Definition \ref{inf_cov_oa_cat_defn} suppose that there 
 	is good pointed algebraical  finite covering category (cf. Definition \ref{pointed_defn})
-\bean
+\be\label{inf_cov_oa_eqn}
 	\begin{split}
 		\mathfrak{S}^{\text{pt}}_B \bydef \left(\left\{\widetilde \pi_\la:B  \hookto B_\la  \right\}_{\la \in \La},\left\{ \widetilde \pi^\mu_\nu: B_\mu \hookto B_\nu \right\}_{\substack{\mu, \nu \in \La\\\nu > \mu}}\right)
 	\end{split}
-	\eean
+	\ee
 which is a skeleton of \eqref{oa_cat_eqn}. 	
 	 Let	$\left(B, \widetilde B, G \right)	$	be the inverse noncommutative limit of $ \mathfrak{S}^{\text{pt}}_B$ (cf. Definition \ref{main_defn}).
 	% For any $G$-invariant subalgebra $ \widetilde A'\subset  \widetilde B$ denote by
@@ -9166,6 +9173,10 @@ Then for any compact $\overline{   \mathcal U } \subset \overline{   \mathcal X 
  then $f_{\la_{\overline{   \mathcal U }}}$ satisfies to this lemma.
 
  \end{proof}
+\begin{exercise}\label{top_comp_la_exer}
+	Consider the situation of the Lemma \ref{top_comp_la_lem}. Prove that there is an open subset $ \overline \sV\subset \overline \sX$ satisfying to a condition $\overline \sU\subset\overline \sV$ and $\la_{\overline{   \mathcal V }} \in \La$ such that for each  $\la \ge \la_{\overline{   \mathcal V }} \in \La$  the set $\overline{   \mathcal V }$  is mapped homeomorphically onto  $\overline{p}_\la\left(\overline{   \mathcal V } \right) \subset \sX_\la$. 
+\end{exercise}
+\
 \begin{lemma}\label{top_res_fin_lem}
 	Let $\left( \sX, x_0\right) $ be a connected, locally connected, locally compact, Hausdorff pointed space, and let $\widetilde{p}:\left( \widetilde{\sX}, \widetilde{x}_0\right) \to \left( \sX, x_0\right)$ be a pointed  transitive covering such that $\widetilde{\sX}$ is connected and  the {covering group} $G\left( \left.{\widetilde{\sX}}~\right|\sX\right)$ (cf. Definition \ref{cov_proj_cov_grp_defn}) is residually finite (cf. Definition \ref{residually_finite_defn}). Let us consider a family $\mathfrak{S}_{\left( \sX, x_0  \right) }=\left\{ p_\la: \left( \sX_\la, x^\la_0\right) \to \left( \sX, x_0\right)\right\}_{\la \in \La} $  of all  transitive finite-fold pointed coverings  such for every $\la \in\La$ there is a covering  $\widetilde{p}_\la : \left( \widetilde{\sX}, \widetilde{x}_0\right) \to \left( \sX_\la, x^\la_0\right)$ such that  $\widetilde{p} = p_\la \circ \widetilde{p}_\la$. 
 	Following conditions hold:
@@ -10256,7 +10267,7 @@ From the our construction $C^*\left(G, R\right)$ is the completion of $M\left( \
 	\end{split}
 	\eean
 	be	a	pointed topological finite covering category (cf. Definition \ref{top_sec_p_defn}). Let $R\subset C_0\left(\sX \right)$ be a $c$-soft *-subalgebra (cf. Definition \ref{top_soft_r_defn}), and for any $\la\in \La$ let $R_\la\bydef  C_0\left(\sX_\la \right)\cap p^{-1}_\la \mathscr S^{R}\left( \sX_\la\right)$ and $\widetilde R\bydef  C_0\left(\widetilde \sX \right)\cap \widetilde p^{-1} \mathscr S^{R}\left(\widetilde \sX\right)$ where a notation of the Definition \ref{top_x_sheaf_defn} is used.	
-	The Theorem \ref{top_oa_cov_thm} enables us to construct an algebraical  finite covering category of  bounded operator *-algebras (cf. Definition \ref{comp_oa_defn}) given by
+	The Theorem \ref{top_oa_cov_thm} enables us to construct a pointed algebraical  finite covering category of  bounded operator *-algebras (cf. Definition \ref{comp_oa_defn}) given by
 	\be\label{top_inf_cov_oae_eqn}
 	\begin{split}
 		\mathfrak{S}^{\text{pt}}_{R } =\\
@@ -10285,22 +10296,21 @@ From the our construction $C^*\left(G, R\right)$ is the completion of $M\left( \
 \forall \widetilde b \in C_c\left( \widetilde \sX \right) \quad \forall \widetilde a \in  \widetilde A \quad \exists a \in \bigcup_{\la\in \La}~ \lift_{ \widetilde{p}_{\la}}\left(  R_\la\right) \quad
 	 \widetilde b  \widetilde a =  \widetilde b a
 \ee
-where inclusions $\lift_{ \widetilde{p}_{\la}} : C_0\left(\sX_\la  \right)\hookto C_b\left(\widetilde \sX\right)$ are  given by the Definition \ref{top_lift_defn} injective *-homomorphisms then there is an injective *-homomorphism
+where inclusions $\lift_{ \widetilde{p}_{\la}} : C_0\left(\sX_\la  \right)\hookto C_b\left(\widetilde \sX\right)$ are  given by the Definition \ref{top_lift_defn} injective *-homomorphisms then there is a *-isomorphism
 $$
-\widetilde A \subset \mathscr S^{\widetilde R}\left( \widetilde \sX\right) 
+\widetilde A \cong \mathscr S^{\widetilde R}\left( \widetilde \sX\right) 
 $$
 where $\mathscr S^{\widetilde R}$ is the $\widetilde R$-sheaf (cf. Definition \ref{top_x_sheaf_defn}).
 \end{lemma}
-!!! CONTINUE
+
 \begin{proof}
-	From $\widetilde A \subset  C_0\left( \widetilde \sX\right)$ it turns out that $\mathscr S^{\widetilde A}_{\widetilde x}\subset \mathscr S^{C_0\left( \widetilde \sX\right)}_{\widetilde x}$ for any $\widetilde x \in \widetilde \sX$. On the other hand 
+	From $\widetilde A \subset  C_0\left( \widetilde \sX\right)$ it turns out that $\mathscr S^{\widetilde A}_{\widetilde x}\subset \mathscr S^{C_0\left( \widetilde \sX\right)}_{\widetilde x}$ for any $\widetilde x \in \widetilde \sX$ where a subscript $\widetilde x$ means the space of stalks at $\widetilde x$ (cf. Definition \ref{stalk_defn}). On the other hand 
 	from $\widetilde R \subset C_0\left( \widetilde \sX\right)$ it follows  that $\mathscr S^{\widetilde R}_{\widetilde x}\subset \mathscr S^{C_0\left( \widetilde \sX\right)}_{\widetilde x}$ for any $\widetilde x \in \widetilde \sX$. We would like prove that 
 	\be\label{top_ra_sh_eqn}
 \forall \widetilde x \in \widetilde \sX	\quad \mathscr S^{\widetilde A}_{\widetilde x} \subset \mathscr S^{\widetilde R}_{\widetilde x}
 	\ee
-	If $\widetilde a_{\widetilde x} \in \mathscr S^{\widetilde A}_{\widetilde x}$ then $\widetilde a_{\widetilde x}$ can be represented by an element $\widetilde a\in\widetilde A$.
-	Let  $\widetilde \sU$ be an open neighborhood of $\widetilde x$ with compact closure which is homeomorphically  mapped onto $\sU = \widetilde bp\left(\widetilde \sU\right)$. From the Exercise \ref{top_soft_c_exer} it follows that $\widetilde R$ is a good !!! SOFT \ref{top_soft_exer}  !!! REP \ref{top_soft_r_defn} *-subalgebra of $C_0\left(\widetilde\sX\right)$ (cf. Definition \ref{top_good_r_defn}  !!! REP \ref{top_soft_r_defn} !!! CHECK). From the Definition \ref{top_good_r_defn}  !!! REP \ref{top_soft_r_defn} !!! CHECK it turns out that there is  $\widetilde b \in  \widetilde R$ such that $b\left( \widetilde \sX\right)\subset \left[0,1\right]$, $\supp \widetilde b \subset \widetilde \sU$, moreover there is an open neighborhood $\widetilde \sV$ of $\widetilde x$, which satisfy to a condition $\widetilde b\left(\sV\right)=\{1\}$.
-From  $\widetilde b \in C_c\left(\widetilde X \right)$ it follows that there $a \in 	\bigcup_{\la\in \La}~ \lift_{ \widetilde{p}_{\la}}\left(  R_\la\right)$ such that
+	If $\widetilde a_{\widetilde x} \in \mathscr S^{\widetilde A}_{\widetilde x}$ then $\widetilde a_{\widetilde x}$ can be represented by an element $\widetilde a\in\widetilde A$. From the Exercise \ref{top_soft_c_exer} it follows that $\widetilde R$ is a $c$-soft *-algebra \ref{top_soft_r_defn}. If $\widetilde b \in  \widetilde R$ is a $\left(p, R, \widetilde x\right)$-{stump} (cf. Definition \ref{top_stump_soft_p_defn})
+then from  $\widetilde b \in C_c\left(\widetilde X \right)$ and \eqref{top_inf_cov_oap_eqn} it follows that there $a \in 	\bigcup_{\la\in \La}~ \lift_{ \widetilde{p}_{\la}}\left(  R_\la\right)$ such that
 $$
 \widetilde b \widetilde a= \widetilde b a
 $$
@@ -10320,32 +10330,37 @@ From the equations \eqref{top_sh1_comp_eqn} and
 $$
 \widetilde a_{\widetilde x}\in \widetilde p^{-1}\mathscr S^R_{\widetilde x}= \mathscr S^{\widetilde R}_{\widetilde x}.
 $$
+From the above equation it follows that $\widetilde a\in \mathscr S^{\widetilde R}\left( \widetilde \sX\right)$. But $\widetilde a$ is an arbitrary element of $\widetilde A$ so one has
+$$
+\widetilde A \subset\mathscr S^{\widetilde R}\left( \widetilde \sX\right) 
+$$
+
 \end{proof}
 \begin{theorem}\label{top_inf_cov_oa_thm}
 In the situation of the Lemma \ref{top_inf_cov_oa_lem}. the quadruple 
 $$
-	\left(R,\widetilde R \bydef C_0\left(\widetilde\sX\right) G\left(\left.\widetilde \sX \right|  \sX\right)\right) 
-	$$ is an {infinite noncommutative covering}  of $\mathfrak{S}^{\mathrm{pt}}_{R}$ (cf. Definition \ref{inf_cov_oa_defn}).
+	\left(R,\widetilde R, G\left(\left.\widetilde \sX \right|  \sX\right)\right) 
+	$$ is an {infinite noncommutative covering}  of $\mathfrak{S}^{\mathrm{pt}}_{R}$ in the sense of the  Definition \ref{inf_cov_oa_defn}.
 \end{theorem}
+\begin{exercise}\label{top_comp_la_exer!}  !!! DELETE
+	Consider the situation of the Lemma \ref{top_comp_la_lem}. Prove that there is an open subset $ \overline \sV\subset \overline \sX$ satisfying to a condition $\overline \sU\subset\overline \sV$ and $\la_{\overline{   \mathcal V }} \in \La$ such that for each  $\la \ge \la_{\overline{   \mathcal V }} \in \La$  the set $\overline{   \mathcal V }$  is mapped homeomorphically onto  $\overline{p}_\la\left(\overline{   \mathcal V } \right) \subset \sX_\la$. 
+\end{exercise}
 \begin{proof}
-	Firstly we prove that $\Coo_0\left(\widetilde M\right)$   {is subordinated to}  $	\mathfrak{S}^{\text{pt}}_{\Coo_0\left( M\right) } $ (cf. Definition \ref{inf_cov_oa_sub_defn}), i.e. it satisfies to equations \eqref{inf_cov_oa_sub1_eqn}-\eqref{inf_cov_oa_sub3_eqn}. From
+	Firstly we prove that $\widetilde R$   {is subordinated to}  $	\mathfrak{S}^{\text{pt}}_{R} $ (cf. Definition \ref{inf_cov_oa_sub_defn}), i.e. it satisfies to equations \eqref{inf_cov_oa_sub1_eqn}-\eqref{inf_cov_oa_sub3_eqn}. From
 	\bean
-	C_0\left( \sX_\la\right)C_0\left( \widetilde \sX\right) \subset C_0\left( \widetilde \sX\right),\\
-	C_0\left( \widetilde \sX\right)C_0\left( \sX_\la\right) \subset C_0\left(\widetilde \sX\right),\\
- \left( 	p^{-1}_\la \mathscr S^{R}\right) \left( \widetilde p^{-1} \mathscr S^{R}\right)\left( \widetilde \sX\right)  \subset \widetilde p^{-1} \mathscr S^{R}\left( \widetilde \sX\right) ,\\
- \left( \widetilde p^{-1} \mathscr S^{R}\right)\left( 	p^{-1}_\la \mathscr S^{R}\right)\left( \widetilde \sX\right)  \subset \widetilde p^{-1} \mathscr S^{R}\left( \widetilde \sX\right) 
+ \left( 	p^{-1}_\la \mathscr S^{R}\right)\left(\sX_\la\right) \left( \widetilde p^{-1} \mathscr S^{R}\right)\left( \widetilde \sX\right)  \subset \widetilde p^{-1} \mathscr S^{R}\left( \widetilde \sX\right) ,\\
+ \left( \widetilde p^{-1} \mathscr S^{R}\right)\left( \widetilde \sX\right)\left( 	p^{-1}_\la \mathscr S^{R}\right)\left( \sX_\la\right)  \subset \widetilde p^{-1} \mathscr S^{R}\left( \widetilde \sX\right) 
 	\eean 
 	it follows that 
 \bean
 R_\la \widetilde R \subset  \widetilde R,\\
 \widetilde R \subset R_\la  \widetilde R
 \eean
-
-!!! CHECK 	
-it means that 	$\widetilde R$ satisfies to the equations \eqref{inf_cov_oa_sub1_eqn}, \eqref{inf_cov_oa_sub2_eqn}. If  $\widetilde b \in K\left( C_0\left( \widetilde \sX\right)\right)\cong  C_c\left( \widetilde \sX\right)$ then $\supp \widetilde b$ is compact. !!! Since $\widetilde R$ is good !!! SOFT \ref{top_soft_exer}  !!! REP \ref{top_soft_r_defn} 
+it means that 	$\widetilde R$ satisfies to the equations \eqref{inf_cov_oa_sub1_eqn}, \eqref{inf_cov_oa_sub2_eqn}. If  $\widetilde b \in K\left( C_0\left( \widetilde \sX\right)\right)\cong  C_c\left( \widetilde \sX\right)$ then $\supp \widetilde b$ is compact.  Let $\widetilde f \in  \widetilde R$ be a $\left(R, \supp \widetilde b\right)$-{stump} (cf. Definition \ref{top_stump_soft_y_defn}). Similarly to the Exercise 
 
 
-Let $\widetilde f \in C_c\left( \widetilde M\right)$ be a covering sum for $\supp \widetilde b$ (cf. Definition \ref{top_covering_sum_defn}). One can select $\widetilde f$ such that $\widetilde f\in \Coo_c\left( \widetilde M\right)$ (cf. Proposition \ref{top_smooth_part_unity_prop} !!! SOFT \ref{top_soft_exer}  !!! REP \ref{top_soft_r_defn} ). A set $\supp \widetilde f$ is compact, from the Lemma \ref{top_comp_la_lem}  it turns out that there is $\la_0\in \La$ such that $\supp \widetilde f$ is homeomorphically mapped   onto $\widetilde p_{\la_0} \left(\supp \widetilde f \right) \subset M_{\la_0}$ where $\widetilde p_{\la_0}:\widetilde M\to M_{\la_0}$ is the natural covering. If $\desc_{\widetilde p_{\la_0}}$ is the $\widetilde p_{\la_0}$-descent (cf. Definition \ref{top_lift_desc_defn}) and
+
+One can select $\widetilde f$ such that $\widetilde f\in \Coo_c\left( \widetilde M\right)$ (cf. Proposition \ref{top_smooth_part_unity_prop} !!! SOFT \ref{top_soft_exer}  !!! REP \ref{top_soft_r_defn} ). A set $\supp \widetilde f$ is compact, from the Lemma \ref{top_comp_la_lem}  it turns out that there is $\la_0\in \La$ such that $\supp \widetilde f$ is homeomorphically mapped   onto $\widetilde p_{\la_0} \left(\supp \widetilde f \right) \subset M_{\la_0}$ where $\widetilde p_{\la_0}:\widetilde M\to M_{\la_0}$ is the natural covering. If $\desc_{\widetilde p_{\la_0}}$ is the $\widetilde p_{\la_0}$-descent (cf. Definition \ref{top_lift_desc_defn}) and
 	$\widetilde a' = \widetilde a'' \bydef \desc_{\widetilde p_{\la_0}}\left( \widetilde f \widetilde a\right)\in \Coo_c\left(M_{\la_0} \right)\subset \bigcup_{\la\in \La}\Coo_0\left(M_\la \right)$ then one has 
 	$$
 	\widetilde b \widetilde a=\widetilde b \widetilde a', \quad \widetilde a \widetilde b = \widetilde a''.
