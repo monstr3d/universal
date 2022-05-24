@@ -2009,7 +2009,7 @@ If 	$\widetilde a \in M\left(\widetilde{A} \right)$ and $\widetilde a= \bt\text{
 \end{proof}
 
    \begin{empt}\label{g_act_induced_empt}
-   	Let $\left(A, \widetilde{A}, G, \pi\right)$ be a  noncommutative finite-fold covering, let $\rho: A \to B\left(\H \right)$ be a faithful non-degenerated representation, and let  $\widetilde{\rho}: \widetilde{A} \to B\left( \widetilde{\H} \right)$ be induced by the pair $\left(\rho,\left(A, \widetilde{A}, G, \pi\right)  \right)$ (cf. Definition \ref{induced_repr_defn}). There is the natural action of $G$ on $\widetilde{\H}$ which comes from a map
+   	Let $\left(A, \widetilde{A}, G, \pi\right)$ be a  noncommutative finite-fold covering, let $\rho: A \to B\left(\H \right)$ be a faithful non-degenerated representation, and let  $\widetilde{\rho}: \widetilde{A} \to B\left( \widetilde{\H} \right)$ be induced by the pair $\left(\rho,\left(A, \widetilde{A}, G, \pi\right)  \right)$ (cf. Definition \ref{induced_repr_defn}). There is the natural action of $G\times\widetilde{\H}\to \widetilde{\H}$ which comes from a map
   \be\label{induced_g_act_eqn}
   \begin{split}
   	G\times \left( \widetilde A\otimes_A\H\right)\to\widetilde A\otimes_A\H ,\\ 
@@ -3115,31 +3115,37 @@ $\left(\A_{D}, \widetilde \A_{\widetilde D}, G, \psi  \right)$ (cf. Definition \
 \section{Unoriented spectral triples}\label{unoti_defn_sec}
  \paragraph*{}
  Let $M$ be an unoriented  Riemannian manifold, and let $\widetilde{M} \to M$ be a two-fold covering by oriented  Riemannian manifold $\widetilde{M}$ which admits a Spin$^c$ structure (cf. Definition \ref{spin_str_defn}). There is an action of $\Z_2 \times \widetilde{M} \to \widetilde{M}$ such that $M \cong \widetilde{M}/ \Z_2$. These 
- considerations inspire the following definition.
+ considerations inspire the following construction.
  
+ \begin{empt}\label{unoriented_empt}
+  Let $\left(\A, \widetilde \A, \Z_2, \pi  \right)$ be a {noncommutative finite-fold covering of  bounded operator *-algebras} (cf. Definition \ref{fin_oa_defn}), and let $\left(\widetilde \A, \widetilde \H, \widetilde D  \right)$ be a spectral triple. Let $\rho: A \to B\left( \H\right)$ be a faithful representation.  Suppose that following conditions hold:
+ \begin{enumerate}
+ 	\item[(a)] If both $A$ and $\widetilde A$ are $C^*$-norm completions of $\A$ and $\widetilde \A$ respectively, $\left(A, \widetilde A, \Z_2, \widetilde\pi  \right)$ is an unital noncommutative finite-fold covering (cf. Definition \ref{fin_uni_defn}) which corresponds to  $\left(\A, \widetilde \A, \Z_2, \pi  \right)$ then  the natural representation  $\widetilde\rho:\widetilde A \hookto B\left(\widetilde\H\right)$ is induced by the pair
+ 	$$
+ 	\left( \rho, \left(A, \widetilde A, \Z_2, \widetilde\pi  \right)\right) 
+ 	$$
+ 	(cf. Definition \ref{induced_repr_defn}).
+ 	\item[(b)] If $\Z_2\times\widetilde \H\to   \widetilde \H$ is an explained in \ref{g_act_induced_empt} action then
+ 	$$
+ \Z_2\times\Dom \widetilde D = \Dom \widetilde D.
+ 	$$
+ \item[(c)]	
+ The operator $\widetilde D$ is $\Z_2$-invariant i.e.
+ $$
+ \forall \widetilde \xi \in \Dom \widetilde D \quad \forall g \in \Z_2 \quad \widetilde D\left(  g \widetilde \xi \right) = g \left( \widetilde D\widetilde \xi\right).
+ $$
+  \end{enumerate}
  
- \begin{definition}\label{unoriented_defn}
- Let $\left(\A, \widetilde \A, \Z_2, \pi  \right)$ be a {noncommutative finite-fold covering of  bounded operator *-algebras} (cf. Definition \ref{fin_oa_defn}), and let $\left(\widetilde \A, \widetilde \H, \widetilde D  \right)$ be a spectral triple. Suppose that following conditions hold:
- 	\begin{enumerate}
- 		\item[(a)] If both $A$ and $\widetilde A$ are $C^*$-norm completions of $\A$ and $\widetilde \A$ respectively, $\left(A, \widetilde A, \Z_2, \widetilde\pi  \right)$ is an unital noncommutative finite-fold covering (cf. Definition \ref{fin_uni_defn}) which corresponds to  $\left(\A, \widetilde \A, \Z_2, \pi  \right)$ then there is a faithful representation $\rho: A \hookto B\left(\H\right)$ such that the natural representation  $\widetilde\rho:\widetilde A \hookto B\left(\widetilde\H\right)$ is induced by the pair
- 		$$
- 		\left( \rho, \left(A, \widetilde A, \Z_2, \widetilde\pi  \right)\right) 
- 		$$
- (cf. Definition \ref{induced_repr_defn}).
- 		\item[(b)]  If $\H \subset \widetilde \H$ is given by the equation \eqref{hilb_fin_inc_eqn} inclusion then one has
- 	\be\label{unori_dirac_eqn}
- 	\widetilde D \left( \Dom \widetilde D \cap  \H\right) \subset  \H.
- 	\ee
- 		 	\end{enumerate}
- If $D \bydef \left.\right|_{\Dom \widetilde D \cap  \H}: \Dom \widetilde D \cap  \H \to   \H$ then the triple $\left( \A,  \H,  D  \right)$ is said to be an \textit{unoriented spectral triple}.
+ \end{empt}
+\begin{exercise}\label{unoriented_exer}
+	In the situation \ref{unoriented_empt} there is a natural inclusion $\H \subset\widetilde \H$ (cf. equation \eqref{hilb_fin_inc_eqn}).
+Prove  that $\widetilde D \left( \H \cap \Dom \widetilde D \right)\subset \H$, i.e. the restriction $D \bydef \left. \widetilde D\right|_{\H}$ can be regarded as an unbounded operator on $\H$. 
+\end{exercise}
+ \begin{definition}\label{unoriented_defn} 
+ 	In the situation \ref{unoriented_empt} we say that
+ $\left( \A,  \H,  D  \right)$ is an \textit{unoriented spectral triple}.
 \end{definition}
-\begin{remark}\label{unoriented_rem}
-Using the isomorphism $\H \cong \widetilde\H^{\Z_2}$ (cf. \eqref{ind_h_g_eqn}) we can prove that from 
-\be\label{unorig_dirac_eqn}
-\forall g \in \Z_2 \quad \forall \widetilde \xi\in \Dom \widetilde D\quad  	\widetilde D\left( g 	\widetilde \xi\right) = g\left( 	\widetilde D 	\widetilde \xi\right) 
-\ee
-it turns out that $\widetilde D$ satisfies to the equation \eqref{unori_dirac_eqn}, i.e. one can use the equation \eqref{unorig_dirac_eqn} instead of \eqref{unori_dirac_eqn}.
-\end{remark}
+
 
  \chapter{Noncommutative infinite coverings}\label{cov_inf_chap}
  \section{Basic definitions}\label{inf_bas_constr_sec}
@@ -3682,15 +3688,11 @@ The  spectrum of $\widehat A=C^r$-$\varinjlim_{\la \in \La}A_\la$ is the inverse
 	\newline
 	is commutative. Let $\widehat x \in \widehat \sX$ and let $\widehat \tau : \widehat A \to \C$ be the corresponding pure state. If $q^\cup : \cup A_\la \to \C$ is a positive functional such that  $q^\cup \le \left.\widehat\tau\right|_{\cup A_\la }$ then since the union $\cup A_\la$ is dense in $\widehat A$ there is a unique  positive functional such that $\widehat q : \widehat A \to \C$ such that $\left.\widehat q\right|_{\cup A_\la} = q^\cup$ and $\widehat q \le \widehat \tau$. Since the state $\widehat \tau$ is pure there is $t \in \left(0, 1\right)$ such that $\widehat p = t\widehat \tau$. So one has $q^\cup =t \left.\widehat\tau\right|_{\cup A_\la }$. If follows that $\tau_\la\bydef \left.\widehat \tau\right|_{A_\la}= A_\la \to \C$ is a pure state for any $\la\in\La$, i.e. any pure state is represented by limit of pure states. 
 
-	Conversely suppose $\left\{x_\la\right\} \in \times \sX_\la$  corresponds to an element of the inverse limit $\varprojlim \sX_\la$. One has a family of pure states $\left\{\tau_\la\right\}$ which yields a functional
-	$$
-	 \tau^\cup:\bigcup A_\la \to \C.
-	$$
-	Since $\bigcup A_\la$ is a dense subspace of $\widehat A$ there is a unique extension of $\tau^\cup$ up to $\widehat \tau: \widehat A \to \C$. If $\widehat p \le \widehat \tau$ then $\left.\widehat p\right|_{\cup A_\la }\le \tau^\cup$ so  there is $t \in \left(0, 1\right)$ such that 
-	$$
-\left.\widehat p\right|_{\cup A_\la }= t \tau^\cup.	
-	$$
-	Since $\cup A_\la$ is dense in $\widehat A$ one has $\widehat p = t\widehat \tau$, i.e. the state $\widehat\tau$ is pure.
+	Conversely suppose $\left\{x_\la\right\} \in \prod \sX_\la$  corresponds to an element of the inverse limit $\varprojlim \sX_\la$, and a state $\widehat\tau: \widehat A \to \C$. Let $\widehat p: \widehat A \to \C$ be a positive functional such that $\widehat p < \widehat\tau$. If $\widehat a \in \widehat A$ then there is $\left(a_\la\right)_{\la\in \La} \in \prod A_\la$ such that $\widehat a = \lim_{\la \in \La}a_\la$. It follows that $\widehat \tau\left(\widehat a \right) = \lim \tau_\la\left( a_\la\right)$ and $\widehat p\left( \widehat a\right) = \lim \widehat p\left( a_\la\right)$. Since $\tau_\la$ is pure there is $t \in \left(0, 1\right]$ such that $\left.\widehat p\right|_{A_\la}= t \tau_{\la}$ for all $\la\in \La$. It follows that 
+	\bean
+	\widehat p\left( \widehat a\right) = \lim \widehat p\left( a_\la\right) = \lim t \tau_{\la} \left(a_\la \right)= t \lim  \tau_{\la} \left(a_\la \right)= t \widehat \tau \left(\widehat a\right),
+	\eean 
+ i.e. the state $\widehat\tau$ is pure.
 \end{proof}
 
 \begin{lemma}\label{inverse_lim_h_lem}
@@ -8819,90 +8821,35 @@ where  $p^{-1}\Dslash$ is the   $p$-{inverse image} of $\Dslash$ (cf. Definition
 
 \subsection{Unoriented spectral triples}\label{comm_sp_tr} 
 
-
 \paragraph*{}
-Let $M$ be an unoriented  Riemannian manifold (cf.  Definitions \ref{ori_man_defn} and \ref{riemann_mani_defn}), and let $p:\widetilde{M} \to M$ be a two listed regular covering. Suppose that $\widetilde{M}$ is Riemannian  manifold with the covering metric (cf. \ref{covering_metric_empt}). Assume  that $\widetilde{M}$ is oriented and  admits a Spin$^c$ structure (cf. Definition \ref{spin_str_defn}) given by a spinor bundle $\widetilde S$ (cf. Appendix \ref{spin_mani_sec}). From the Appendix \ref{comm_sp_tr_sec} one has a spectral triple $\left(\Coo\left(\widetilde{M},  \right) , L^2\left(\widetilde{M},\widetilde{S},  \right), \widetilde\Dslash \right)$. 
+Let $M$ be an unoriented  Riemannian manifold (cf.  Definitions \ref{ori_man_defn} and \ref{riemann_mani_defn}), and let $p:\widetilde{M} \to M$ be a two listed regular covering. Suppose that $\widetilde{M}$ is Riemannian  manifold with the covering metric (cf. \ref{covering_metric_empt}). Assume  that $\widetilde{M}$ is oriented and  admits a Spin$^c$ structure (cf. Definition \ref{spin_str_defn}) given by a spinor bundle $\widetilde S$ (cf. Appendix \ref{spin_mani_sec}). From the Appendix \ref{comm_sp_tr_sec} one has a spectral triple $\left(\Coo\left(\widetilde{M},  \right) , L^2\left(\widetilde{M},\widetilde{S},\widetilde \mu  \right), \widetilde\Dslash \right)$, where the measure $\widetilde \mu$ is given by the volume element (cf. Section \ref{spin_mani_sec}). From  the Exercise \ref{smooth_soft_exer} and (ii) of the Theorem \ref{top_oa_cov_thm} it follows that
+$$
+\left(\A, \widetilde \A, \Z_2, \pi  \right)\bydef \left(\Coo\left( M\right) , \Coo\left(\widetilde M\right) , \Z_2, \left.C_0\left(p\right)  \right|_{\Coo\left( M\right)}  \right)
+$$
+is a		finite-fold covering of bounded operator *-algebras  (cf. Definition \ref{fin_oa_defn}).
+Both $A\bydef C\left(M\right)$ and $\widetilde A\bydef C\left(\widetilde M\right)$ are $C^*$-norm completions of $\A$ and $\widetilde \A$ respectively, $\left(A, \widetilde A, \Z_2, \widetilde\pi  \right)$ is an unital noncommutative finite-fold covering (cf. Theorem \ref{top_fin_thm} and Definition \ref{fin_uni_defn}) which corresponds to  $\left(\A, \widetilde \A, \Z_2, \pi  \right)$.
+If $g \in \Z_2$ is a nontrivial element then from $\Z_2\Coo\left(\widetilde M\right)= \Coo\left(\widetilde M\right)$ it follows that $g$ corresponds to a diffeomorphism of $\widetilde M$. It turns out that $g$ induces  a diffeomorphism of the tangent bundle $T\widetilde M$.
+\begin{exercise}\label{top_unoriented_exer}
+Prove following statements:
+\begin{enumerate}
+\item $g$ induces  isomorphisms of $\Ga\left(\widetilde M, \widetilde S \right)$ and $\widetilde \H \bydef L^2\left(\widetilde M, \widetilde S , \widetilde{\mu}\right)$.
+\item If $\H \bydef L^2\left(\widetilde M, \widetilde S , \widetilde{\mu}\right)^{\Z_2}$ then there is a natural representation $\rho: A \to B\left(\H\right)$.
+\item All constructed objects satisfy to conditions (a)-(c) of \ref{unoriented_empt}.
+\end{enumerate}
 
-
-
-\paragraph{title}
-Suppose that  there is a smooth bundle $S \to M$ (cf. Definition \ref{top_sm_bundle_defn}) such that $\widetilde S$ is the $p$-inverse image of $S$  (cf. Definition \ref{vb_inv_img_funct_defn}). Denote by $g \in \Z_2$ the unique nontrivial element of the group $\Z_2\cong G\left( \left.\widetilde M\right| M\right)$.
-
-For any $\widetilde x \in \widetilde M$ there is an open neighborhood $\widetilde \sU$ which is homeomorphically mapped onto $\sU \bydef p\left( \widetilde \sU\right)$. The set $\widetilde \sU$ has a natural structure of the Riemannian manifold which comes form the Riemannian metrics of $\widetilde M$. There are isomorphisms $\widetilde \sU \cong \sU \cong g\widetilde \sU$ of Riemannian manifolds. If 
-\bean
-\left.\Ga^\infty\left(M, S \right) \right|_{\sU}\bydef \left\{\left.\xi \in \Ga^\infty\left(M, S \right)\right| \supp \xi \subset \sU\right\},\\
-\left.\Ga^\infty\left(\widetilde  M,\widetilde  S \right) \right|_{\widetilde \sU}\bydef \left\{\left.\widetilde \xi \in \Ga^\infty\left(\widetilde M, \widetilde S \right)\right| \supp \widetilde  \xi \subset \widetilde \sU\right\},\\
-g\left.\Ga^\infty\left(\widetilde  M,\widetilde  S \right) \right|_{\widetilde \sU}\bydef \left\{\left.\widetilde \xi \in \Ga^\infty\left(\widetilde M, \widetilde S \right)\right| \supp \widetilde  \xi \subset g\widetilde \sU\right\}
-\eean
-then since $\widetilde S$ is the inverse image of  $S$ one has following isomorphisms
-$$
-\left.\Ga^\infty\left(M, S \right) \right|_{\sU}\cong \left.\Ga^\infty\left(\widetilde  M,\widetilde  S \right) \right|_{\widetilde \sU}\cong g\left.\Ga^\infty\left(\widetilde  M,\widetilde  S \right) \right|_{\widetilde \sU}
-$$
-of $\Coo\left(\sU \right)$-modules. From this circumstance one can deduce that if $\widetilde\ga  :\Ga(\widetilde M,\C\ell(\widetilde M)) \cong \End_{C\left( \widetilde M \right) }\left( \Ga\left(\widetilde M, \widetilde S \right) \right)$ is given by \eqref{spin_gamma_eqn} then
-$$
-\forall \widetilde \eta \in \Ga(\widetilde M,\C\ell(\widetilde M))\quad \supp \widetilde \eta \subset \widetilde \sU \Rightarrow \widetilde \ga\left(g \widetilde \eta\right)=  g\widetilde \ga\left( \widetilde \eta\right).
-$$
-Similarly if $\nabla^{\widetilde S} \: \Ga^\infty(\widetilde M,\widetilde S) \to \Ga^\infty(\widetilde M, \widetilde S) \otimes_{\Coo\left(\widetilde M \right) } \Ga^\infty(\widetilde M, T\widetilde M)$ is a given by \eqref{spin_conn_defn_eqn} spin connection then one has
-$$
-\forall \widetilde \xi \in \left.\Ga^\infty\left(\widetilde  M,\widetilde  S \right) \right|_{\widetilde \sU}\quad \nabla^{\widetilde S}\left(g \widetilde \xi\right)=  g\nabla^{\widetilde S}\left(\widetilde \xi\right)
-$$ 
-Taking into account the equation \eqref{comm_dirac_eqn} which defines the Dirac operator $\widetilde \Dslash$ we conclude that
-\be\label{dirac_un_loc_eqn}
-\forall \widetilde \xi\in \left.\Ga^\infty\left(\widetilde  M,\widetilde  S \right) \right|_{\widetilde \sU} \quad \widetilde\Dslash\left( g \widetilde \xi\right)  = g \left( \widetilde\Dslash \widetilde \xi\right). 
-\ee 
-\begin{exercise}\label{top_uni_exer} Prove following statements:
-	\begin{enumerate} 
-				\item There is a sesquilinear form $ S \times_{ M}   S \to \C$ which is induced by the natural  sesquilinear form $\widetilde S \times_{\widetilde M}  \widetilde S \to \C$ (cf. Definition \ref{top_herm_bundle_form_defn} and Remark \ref{top_spin_prod_rem}).
-		
-				\item The  sesquilinear form $ S \times_{ M}   S \to \C$ yields  a Hilbert space $L^2\left(M, \SS \right)$ and the faithful representation $\rho: C\left(M \right) \to B\left( L^2\left(M, \SS \right)\right)$
-		such that the representation 
-		$
-		\widetilde\rho: C\left(\widetilde M \right) \hookto B\left(L^2\left(\widetilde M,\widetilde S\right)  \right) 
-		$
-		is induced by a pair $\left(\rho,\left(C\left(M\right), C\left( \widetilde M\right) , \Z_2\right) \right)$ (cf. Definition \ref{induced_repr_defn}).
-		
-		\item The operator $\widetilde\Dslash$ is $\Z_2$- equivariant, i.e. 
-		\be\label{dirac_un_equ}
-		\forall g \in \Z_2\quad \forall \widetilde\xi \in \Ga^\infty\left(\widetilde  M,\widetilde  S \right) \quad  \widetilde\Dslash\left( g \widetilde\xi\right) = g\left( \widetilde\Dslash\widetilde\xi\right).
-		\ee
-	\end{enumerate}
 \end{exercise}
-Using the Remark  \ref{unoriented_rem} one can define an operator
-$$
-\Dslash \bydef \left.\right|_{\Dom \widetilde \Dslash \cap  L^2\left(M, S \right) }: \Dom \widetilde \Dslash \cap   L^2\left(M, S \right)\to \Dom \widetilde \Dslash \cap  \H.
-$$
 
  
 \begin{theorem}\label{com_unori_thm}
-	The  following object \be\label{comm_equ}
-	\left(\Coo\left(M \right), L^2\left(\widetilde{M}, \widetilde{\SS}\right)^{\Z_2}=L^2\left({M}, {\SS}\right), \slashed D  \right)
+	If $\slashed D\bydef \left.\widetilde \Dslash\right|_{\Dom \widetilde \Dslash\cap  L^2\left(\widetilde{M}, \widetilde{\SS}\right)^{\Z_2}}$ then 
+	 \be\label{comm_equ}
+	\left(\Coo\left(M \right), L^2\left(\widetilde{M}, \widetilde{\SS}\right)^{\Z_2}, \slashed D  \right)
 	\ee
 is	an  unoriented spectral triple (cf. Definition \ref{unoriented_defn}).
 \end{theorem}
 \begin{proof}
-From the Theorem \ref{top_oa_cov_thm} it follows that
-$$
-\left(\A, \widetilde \A, \Z_2, \pi  \right)\bydef \left(\Coo\left(M\right), \Coo\left( \widetilde M\right) , \Z_2, C_0\left( p\right)|_{\Coo\left(M\right)}   \right)
-$$ 	
-is a noncommutative finite-fold covering of bounded operator *-algebras  (cf. Definition \ref{fin_oa_defn}). On the other hand one has a spectral triple
-$$
-\left(\widetilde \A, \widetilde \H, \widetilde D  \right)\bydef\left(\Coo\left(\widetilde{M},  \right) , L^2\left(\widetilde{M},\widetilde{\sS} \right), \widetilde\Dslash \right).
-$$ 	
-One needs prove that these objects satisfy to conditions (a) and (b) of the Definition \ref{unoriented_defn}.
-\begin{enumerate}
-	\item [(a)] Follows from 2) of the Exercise \ref{top_uni_exer}.
-	\item [(b)] Follows from 3) of the Exercise \ref{top_uni_exer} and the Remark \ref{unoriented_rem}.
-\end{enumerate}
-	\end{proof}
- 	\begin{example} 
-	If $S^3$ is the 3-dimensional sphere then the tangent bundle $TS^3$ is trivial (cf. \cite{karoubi:k}). It follows that the bundle $\C\ell\left( S^3\right)  \to S^3$ (cf. \ref{spin_mani_sec}) is also trivial. So there is the trivial spinor bundle $\widetilde S \to S^3$, and the spectral triple $\left(\Coo\left(S^3 \right), L^2\left(S^3, {\widetilde S}\right),\widetilde\Dslash\right)$ which satisfies to described in  \cite{hajac:toknotes,varilly:noncom} axioms.
-	Otherwise there is two listed regular topological covering $p: S^3\to \R P^3$ where $\R P^3$ is the 3-dimensional real projective space. The spinor bundle $\widetilde S$ is trivial, hence there is the trivial bundle $S \to \R P^3$ such that $\widetilde S$ is the $p$-inverse image of $S$. From the Theorem \ref{com_unori_thm} it follows that there is the given by
-	$$
-	\left(\R P^3, L^2\left(\R P^3, { S}\right),\Dslash\right)
-	$$
-	unoriented spectral triple.
-\end{example}
-
+Follows from the Exercise \ref{top_unoriented_exer}.
+\end{proof}
 
 
 \section{Infinite coverings}
@@ -14486,14 +14433,14 @@ In the described above situation there is the given by
 	\be\label{ctr_equ}
 	\left(\Coo\left(M \right) \otimes\mathbb{M}_m\left(\C \right) , L^2\left({M}, {\SS}\right)^k, \slashed D \otimes \Ga_{\mathrm{fin}}+ \Id_{L^2\left( M, \sS \right)^k} \otimes D_{\mathrm{fin}} \right).
 	\ee
- unoriented spectral triple (cf. Definition \ref{unoriented_defn} !!! CHECK).
+ unoriented spectral triple (cf. Definition \ref{unoriented_defn}  !!! ADD \ref{unoriented_empt} !!! CHECK).
 \end{theorem}
 \begin{proof}
-	The following table shows the specialization of  objects 1-5 required by the Definition \ref{unoriented_defn} !!! CHECK. 
+	The following table shows the specialization of  objects 1-5 required by the Definition \ref{unoriented_defn}  !!! ADD \ref{unoriented_empt} !!! CHECK. 
 	\\ \\
 	\begin{tabular}{|c|c|c|}
 		\hline
-		&Definition \ref{unoriented_defn} !!! CHECK & This theorem specialization\\ 
+		&Definition \ref{unoriented_defn}  !!! ADD \ref{unoriented_empt} !!! CHECK & This theorem specialization\\ 
 		\hline
 		&	&\\
 		1 & $\A$   &  $\Coo\left(M \right)\otimes\mathbb{M}_m\left(\C \right)$ \\ & & \\
@@ -14507,7 +14454,7 @@ In the described above situation there is the given by
 	\\
 	\\
 	\\
-	Similarly to the proof of the Theorem \ref{com_unori_thm} one can proof that above objects satisfy to the conditions (a)-(d) of the Definition \ref{unoriented_defn} !!! CHECK.
+	Similarly to the proof of the Theorem \ref{com_unori_thm} one can proof that above objects satisfy to the conditions (a)-(d) of the Definition \ref{unoriented_defn}  !!! ADD \ref{unoriented_empt} !!! CHECK.
 \end{proof}
 
 \section{Infinite coverings}\label{ctr_case_sec}
@@ -19182,7 +19129,7 @@ $$
 \left(l\Coo\left(M \right), L^2\left(\widetilde{M}, \widetilde{\SS}\right)^{\Z_2}, \slashed D  \right).
 $$
 
-which satisfies to the Definition \eqref{unoriented_defn} !!! CHECK.
+which satisfies to the Definition \eqref{unoriented_defn}  !!! ADD \ref{unoriented_empt} !!! CHECK.
 
 
 \chapter{Coverings of quantum groups}\label{qdr_chap}
@@ -19192,7 +19139,7 @@ which satisfies to the Definition \eqref{unoriented_defn} !!! CHECK.
 \section{The double covering of the quantum group $SO_q(3)$}
 \paragraph*{} 
 
-The covering of the quantum $SO\left(3 \right)$ is described in  \cite{dijkhuizen:so_doublecov,podles:so_su}. Here we would like to prove that the covering complies with the general theory of noncommutative coverings described in \ref{cov_fin_bas_sec}. Moreover we prove that the covering gives an unoriented spectral triple (cf. Definition \ref{unoriented_defn} !!! CHECK).
+The covering of the quantum $SO\left(3 \right)$ is described in  \cite{dijkhuizen:so_doublecov,podles:so_su}. Here we would like to prove that the covering complies with the general theory of noncommutative coverings described in \ref{cov_fin_bas_sec}. Moreover we prove that the covering gives an unoriented spectral triple (cf. Definition \ref{unoriented_defn}  !!! ADD \ref{unoriented_empt} !!! CHECK).
 
 \subsection{Basic constructions}
 \paragraph*{}
@@ -19338,7 +19285,7 @@ Let  $h: C\left( SU_q\left(2\right)\right)$ be a given by the equation \eqref{su
 \be\nonumber
 \left(\Coo\left( SU_q\left(2\right)\right), L^2\left( C\left( SU_q\left(2\right)\right), h\right), \widetilde{D} \right) 
 \ee
-can be regarded as the triple given by condition 4 of the Definition  \ref{unoriented_defn} !!! CHECK. Also one sees that all conditions of the the Definition  \ref{unoriented_defn} !!! CHECK hold, so one has an unoriented spectral triple
+can be regarded as the triple given by condition 4 of the Definition  \ref{unoriented_defn}  !!! ADD \ref{unoriented_empt} !!! CHECK. Also one sees that all conditions of the the Definition  \ref{unoriented_defn}  !!! ADD \ref{unoriented_empt} !!! CHECK hold, so one has an unoriented spectral triple
 $$
 \left(\Coo\left( SO_q\left(3\right)\right), L^2\left( C\left( SU_q\left(2\right)\right), h\right)^{\Z_2},D \right) 
 $$
@@ -20371,11 +20318,11 @@ at $p$ will be indicated by $T_pM$.
 	\begin{definition}\label{ori_man_defn}\cite{do_carmo:rg}
 %4.4 Definition. 
 Let $M$ be a differentiable manifold. We say that 
-$M$ is orientable if $M$ admits a differentiable structure $\left\{\left(\mathbf{x}_\a, \sU_\a \right) \right\}$ 
+$M$ is \textit{orientable} if $M$ admits a differentiable structure $\left\{\left(\mathbf{x}_\a, \sU_\a \right) \right\}$ 
 such that  for every pair $\a, \bt$ , with $\mathbf{x}_\a\left(\sU_{{\a}} \right) \cap \mathbf{x}_\bt\left(\sU_{{\bt}} \right)= \mathcal{W}\neq \emptyset$, the 
 	differential of the change of coordinates $\mathbf{x}^{-1}_\bt \circ \mathbf{x}_\a$ has positive 
 	determinant. 
-	In the opposite case, we say that M is unorientable. %If M is ori	entable, a choice of a differentiable structure satisfying (i) is called 	an orientation of M. M is then said to be oriented. Two differen	tiable structures that satisfy (i) determine the same orientation if 	their union again satisfies (i). 	It is not difficult to verify that if M is orientable and con	nected there exist exactly two distinct orientations on M. 	 
+	In the opposite case, we say that $M$ is \textit{unorientable}. %If M is ori	entable, a choice of a differentiable structure satisfying (i) is called 	an orientation of M. M is then said to be oriented. Two differen	tiable structures that satisfy (i) determine the same orientation if 	their union again satisfies (i). 	It is not difficult to verify that if M is orientable and con	nected there exist exactly two distinct orientations on M. 	 
 	\end{definition}
 %\paragraph*{}
 
@@ -22583,12 +22530,20 @@ We denote by $C_b\left(\mathcal X, M\left( A_x\right)_\bt,  \mathscr F\right)$ t
 		and that the join of $f_\la\left(A_\la\right)$ ($\la \in \La$) is uniformly dense in $A$, $A$ is called the $C^*$-\textit{inductive limit} of $A_\la$, and is denoted by $C^*\text{-}\varinjlim_\La A_\la$ or  $C^*\text{-}\varinjlim A_\la$
 	\end{definition}
 	\begin{theorem}\label{inductive_lim_thm}\cite{takeda:inductive}
-		Let $\left\{A_\la)\right\}_{\la \in \La}$ be a family of $C^*$-algebras where $\La$  denotes an increasingly directed set. If, for every $\mu, \nu$ with $\mu < \nu$, there exists a unital injective *-homomorphism $f_{\mu\nu}: A_\mu \to A_\nu$ satisfying
+		Let $\left\{A_\la\right\}_{\la \in \La}$ be a family of $C^*$-algebras where $\La$  denotes an increasingly directed set. If, for every $\mu, \nu$ with $\mu < \nu$, there exists a unital injective *-homomorphism $f_{\mu\nu}: A_\mu \to A_\nu$ satisfying
 		$$
 		f_{\mu\nu} = f_{\mu\la}\circ f_{\la\nu}\quad~\mathrm{where} \quad \mu < \la < \nu.
 		$$
 		then there exists the $C^*$-inductive limit of $A_\la$.
 	\end{theorem}
+\begin{remark}\label{inductive_lim_rem}
+A proof of the Theorem is presented in \cite{takeda:inductive}. Roughly speaking the union $\bigcup A_\la$ has the natural structure of $*$-algebra with $C^*$-norm. The $C^*$-algebra $A$ is the $C^*$-norm completion of $\bigcup A_\la$. Moreover one has
+\be\label{inductive_lim_eqn}
+\forall a \in A \quad \exists \left(a_\la\right)_{\la\in \La} \in \prod A_\la\quad  a = \lim_{\la \in \La}a_\la
+\ee
+where the $C^*$-norm limit is implied.
+\end{remark}
+
 	\begin{empt}\label{inductive_lim_empt}
 		Let $\Om$ and $\Om_{\la}$ be state spaces of $A$ and $A_\la$ respectively. When $A$ is a $C^*$-
 		inductive limit of $\left\{A_\la\right\}$, every state $\tau$ of $A$ defines a state $\tau_{\la}$ on $A_\la$.
@@ -22603,7 +22558,7 @@ We denote by $C_b\left(\mathcal X, M\left( A_x\right)_\bt,  \mathscr F\right)$ t
 		Conversely, a system of states $\left\{\tau_\la \in \Om_{\la} \right\}_{\la \in \La}$ which satisfies the condition \eqref{ind_7_eqn}  defines a state on $A$ since every positive bounded linear functional on the algebraic inductive limit $A^0$ of  $\left\{A_\la\right\}$, is uniquely extended over $A$.
 	\end{empt}
 	\begin{prop}\label{inductive_lim_prop}\cite{takeda:inductive}
-		Let a $C^*$-algebra $A$ be a $C^*$-inductive limit of $\left\{A_\la)\right\}_{\la \in \La}$, and $\La'$ be a cofinal subset in $\La$, then $A$ is the $C^*$-inductive limit of $\left\{A_{\la'})\right\}_{\la' \in \La'}$.
+		Let a $C^*$-algebra $A$ be a $C^*$-inductive limit of $\left\{A_\la\right\}_{\la \in \La}$, and $\La'$ be a cofinal subset in $\La$, then $A$ is the $C^*$-inductive limit of $\left\{A_{\la'})\right\}_{\la' \in \La'}$.
 	\end{prop}
 	\begin{theorem}\label{inductive_lim_state_thm}\cite{takeda:inductive}
 		If a $C^*$-algebra $A$ is a $C^*$-inductive limit of $A_\la$ ($\la \in \La$), the
