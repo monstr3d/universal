@@ -3698,7 +3698,7 @@ The  spectrum of $\widehat A=C^r$-$\varinjlim_{\la \in \La}A_\la$ is the inverse
 \end{lemma}
 
 \begin{proof}
-	Denote by $\sX_\la$ and $\widehat \sX$ the spectra of $A_\la$ and $\widehat A$ respectively. From the Lemma \ref{spectrum_cov_prop}  !!! PROPOSITRION  it turns out that for any $\mu, \nu \in \La$ such that $\mu > \nu$ the inclusion  $\pi^\nu_{ \mu}: A_\nu \to A_\mu$ induces the surjective continuous map $p^\nu_\mu :  \sX_\mu \to \sX_\nu$. Otherwise if $\sY_\la$ and $\widehat \sY$ are the state spaces of $A_\la$ and $\widehat A$ then one has  $\sX_\la\subset \sY_\la$ and $\widehat \sX\subset \widehat  \sY$. Moreover for any $\mu, \nu \in \La$ such that $\mu > \nu$ there is the natural  continuous surjective map $t^\nu_\mu :  \sY_\mu \to \sY_\nu$ such that
+	Denote by $\sX_\la$ and $\widehat \sX$ the spectra of $A_\la$ and $\widehat A$ respectively. From the Proposition  \ref{spectrum_cov_prop}   it turns out that for any $\mu, \nu \in \La$ such that $\mu > \nu$ the inclusion  $\pi^\nu_{ \mu}: A_\nu \to A_\mu$ induces the surjective continuous map $p^\nu_\mu :  \sX_\mu \to \sX_\nu$. Otherwise if $\sY_\la$ and $\widehat \sY$ are the state spaces of $A_\la$ and $\widehat A$ then one has  $\sX_\la\subset \sY_\la$ and $\widehat \sX\subset \widehat  \sY$. Moreover for any $\mu, \nu \in \La$ such that $\mu > \nu$ there is the natural  continuous surjective map $t^\nu_\mu :  \sY_\mu \to \sY_\nu$ such that
 	$$
 	p^\nu_\mu = \left.t^\nu_\mu\right|_{\sX_\mu}
 	$$
@@ -3731,20 +3731,46 @@ The  spectrum of $\widehat A=C^r$-$\varinjlim_{\la \in \La}A_\la$ is the inverse
 	\end{tikzpicture}
 	\newline
 	is commutative.
-	
-	Let $\widehat\tau : \widehat A \to \C$ be a pure state and suppose that it correspond to an element  $\left\{y_\la\right\} \in \prod \sY_\la$  corresponds to an element of the inverse limit $\varprojlim \sY_\la$. Assume that the state $\tau_\mu$ which corresponds to $\mu \in\La$ is not pure.
-	!!!
-	 
-	If $q^\cup : \cup A_\la \to \C$ is a positive functional such that  $q^\cup \le \left.\widehat\tau\right|_{\cup A_\la }$ then since the union $\cup A_\la$ is dense in $\widehat A$ there is a unique  positive functional such that $\widehat q : \widehat A \to \C$ such that $\left.\widehat q\right|_{\cup A_\la} = q^\cup$ and $\widehat q \le \widehat \tau$. Since the state $\widehat \tau$ is pure there is $t \in \left(0, 1\right)$ such that $\widehat q = t\widehat \tau$. So one has $q^\cup =t \left.\widehat\tau\right|_{\cup A_\la }$. If $\nu \in \La$ and $a \in \cup A_\la$ then there is $\mu\in \La$ such that $\mu \ge \nu$ and $a \in A_\mu$. !!! CHECK 
-	
-	
-	If follows that $\tau_\la\bydef \left.\widehat \tau\right|_{A_\la}= A_\la \to \C$ is a pure state for any $\la\in\La$, i.e. any pure state is represented by limit of pure states. 
+	Suppose $\left\{x_\la\right\} \in \prod \sX_\la$  corresponds to an element of the inverse limit $\varprojlim \sX_\la$, and a state $\widehat\tau: \widehat A \to \C$. Let $\widehat p: \widehat A \to \C$ be a positive functional such that $\widehat p < \widehat\tau$. If $\widehat a \in \widehat A$ then there is $\left(a_\la\right)_{\la\in \La} \in \prod A_\la$ such that $\widehat a = \lim_{\la \in \La}a_\la$. It follows that $\widehat \tau\left(\widehat a \right) = \lim \tau_\la\left( a_\la\right)$ and $\widehat p\left( \widehat a\right) = \lim \widehat p\left( a_\la\right)$. Since $\tau_\la$ is pure there is $t \in \left(0, 1\right]$ such that $\left.\widehat p\right|_{A_\la}= t \tau_{\la}$ for all $\la\in \La$. It follows that 
+\bean
+\widehat p\left( \widehat a\right) = \lim \widehat p\left( a_\la\right) = \lim t \tau_{\la} \left(a_\la \right)= t \lim  \tau_{\la} \left(a_\la \right)= t \widehat \tau \left(\widehat a\right),
+\eean 
+i.e. the state $\widehat\tau$ is pure.
 
-	Conversely suppose $\left\{x_\la\right\} \in \prod \sX_\la$  corresponds to an element of the inverse limit $\varprojlim \sX_\la$, and a state $\widehat\tau: \widehat A \to \C$. Let $\widehat p: \widehat A \to \C$ be a positive functional such that $\widehat p < \widehat\tau$. If $\widehat a \in \widehat A$ then there is $\left(a_\la\right)_{\la\in \La} \in \prod A_\la$ such that $\widehat a = \lim_{\la \in \La}a_\la$. It follows that $\widehat \tau\left(\widehat a \right) = \lim \tau_\la\left( a_\la\right)$ and $\widehat p\left( \widehat a\right) = \lim \widehat p\left( a_\la\right)$. Since $\tau_\la$ is pure there is $t \in \left(0, 1\right]$ such that $\left.\widehat p\right|_{A_\la}= t \tau_{\la}$ for all $\la\in \La$. It follows that 
+	
+Conversely let $\widehat\tau : \widehat A \to \C$ be a pure state and suppose that it correspond to an element  $\left\{y_\la\right\} \in \prod \sY_\la$  corresponds to an element of the inverse limit $\varprojlim \sY_\la$. Assume that the state $\tau_\la: A_\la\to \C$ corresponds to $y_\la$ for all $\la\in\La$. Suppose that $\mu\in \La$ is such that $\tau_\mu$  is not pure. Let $\left\{\la_j\right\}_{j \in \N}\subset \La$ be an increasing cofinal sequence (cf. Definition \ref{cofinal_defn}) such that $\la_0 = \mu$. Since a state $\tau_{\la_1}=\tau_\mu$ is not pure there are pure states $\rho'_{\la_1}, \rho''_{\la_1}: :A_{\la_1}\to\C$ such that
 	\bean
-	\widehat p\left( \widehat a\right) = \lim \widehat p\left( a_\la\right) = \lim t \tau_{\la} \left(a_\la \right)= t \lim  \tau_{\la} \left(a_\la \right)= t \widehat \tau \left(\widehat a\right),
-	\eean 
- i.e. the state $\widehat\tau$ is pure.
+	\rho'_{\la_1}\perp \rho''_{\la_1},\\
+	\rho'_{\la_1}\preceq \tau_{\la_1},\\
+	\rho''_{\la_1}\preceq \tau_{\la_1},\\
+	\eean
+	Now using induction by $j \in \N$  we find pure states $	\rho'_{\la_j},	\rho'_{\la_j}:A_{\la_j}\to\C$ for all $j\in \N$. If $	\rho'_{\la_{j-1}},	\rho'_{\la_{j-1}}:A_{\la_{j}-1}\to\C$ are known then using the Lemma \ref{sub_pure_lem} one can define  $\rho'_{\la_j},	\rho'_{\la_j}$ such that
+	\bean
+		\rho'_{\la_j}\perp \rho''_{\la_j},\\
+	\rho'_{\la_j}\preceq \tau_{\la_j},\\
+\rho''_{\la_j}\preceq \tau_{\la_j},\\
+\left.\rho'_{\la_j}\right|_{A_{\la_{j-1}}}=\rho'_{\la_{j-1}},\\
+\left.\rho''_{\la_j}\right|_{A_{\la_{j-1}}}=\rho''_{\la_{j-1}}.
+	\eean
+There are two sequences $\left\{x'_{\la_j}\in \sX_{\la_j}\right\}$ and $\left\{x''_{\la_j}\in \sX_{\la_j}\right\}$. Since $\left\{\la_j\right\}_{j \in \N}$ 
+is cofinal using maps $p^\nu_\mu$ one can construct sets $\left\{x'_{\la}\in \sX_{\la}\right\}_{\la\in\La}$,
+ $\left\{x''_{\la}\in \sX_{\la}\right\}_{\la\in\La}$ such that
+\bean
+p^\nu_\mu\left(x'_\nu \right) = x'_\mu,\\
+p^\nu_\mu\left(x''_\nu \right) = x''_\mu
+\eean
+It follows than one has two elements $\widehat x', \widehat x''\in \widehat\sX$ such that
+\bean
+\widehat p_\la\left( \widehat x'\right) = x'_\la,\\
+\widehat p_\la\left( \widehat x''\right) = x''_\la.
+\eean
+From the first part of the proof of this theorem it follows that both $\widehat x'$ and $\widehat x''$ correspond to pure states $\widehat \tau', \widehat \tau'': \widehat A\to \C$. Otherwise from our construction one has
+\bean
+\widehat \tau'\perp \widehat \tau'',\\
+\widehat \tau' \preceq \widehat \tau,\\
+\widehat \tau'' \preceq \widehat \tau.
+\eean
+From the above equation it turns out that the state $\widehat \tau$ however it contradicts with our assumption. So $y_\la$ corresponds to a pure state for all $\la\in\La$.
 \end{proof}
 
 \begin{lemma}\label{inverse_lim_h_lem}
