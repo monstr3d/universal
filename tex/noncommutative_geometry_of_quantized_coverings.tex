@@ -2085,7 +2085,7 @@ If 	$\widetilde a \in M\left(\widetilde{A} \right)$ and $\widetilde a= \bt\text{
    %\end{proof}
 
 
-\begin{definition}
+\begin{definition}\label{state_cov_11_defn}
 Let	$\left(A, \widetilde{A}, G, \pi \right)$ be  a noncommutative finite-fold  quasi-covering. A state $\widetilde{\tau}$ on $\widetilde{A}$ is said to be \textit {invariant}  if $\widetilde{\tau}\left( g\widetilde{a}\right)=\widetilde{\tau}\left( \widetilde{a}\right)$ for all $g \in G$ and $\widetilde{a}\in \widetilde{A}$.
 \end{definition}
 
@@ -2113,8 +2113,7 @@ Let $\psi = a_1 \phi_1 + ... + a_n \phi_n$ be a state on $C^*$-algebra $A$ where
 Let $\th : A\to \C$ be a positive functional such that $\th \le \psi$. Prove that $\th =  b_1 \phi_1 + ... + b_n \phi_n$
  where $b_j \le a_j$ for any $j = 1,...,n$.
 \end{exercise}
-
-\begin{lemma} \label{spectrum_cov_lem}
+\begin{proposition} \label{spectrum_cov_prop}
 	If $\left(A, \widetilde{A}, G, \pi \right)$ is  a noncommutative finite-fold  quasi-covering (cf. Definition \ref{fin_quasi_defn})  then following conditions hold:
 	\begin{itemize}
 		\item [(i)] 
@@ -2132,8 +2131,14 @@ Let $\th : A\to \C$ be a positive functional such that $\th \le \psi$. Prove tha
 		p \circ g = p;~~ \forall g \in G,
 		\ee
 		\item[(iii)] The map $p$ naturally induces the homeomorphism  $p_G:\widetilde{\mathcal X}/G \xrightarrow{\approx} {\mathcal X}$.
+%		\item[(iv)]  Suppose that a state  $ \tau : A\to \C$ equals  $c_1\tau_1 + c_2\tau_2$ where both $\tau_1$, $\tau_2$ are states such that $\tau_1\perp\tau_2$ and $c_1, c_2 > 0$. If $\widetilde \tau : \widetilde A\to \C$ is a state such that $\left.\widetilde\tau\right|_A = \tau$ then there are states $\widetilde \tau_1, \widetilde \tau_2 : \widetilde A\to \C$ such that
+%		\bean
+%		\left.\widetilde\tau_1\right|_A = \tau_1,\\
+%		\left.\widetilde\tau_2\right|_A = \tau_2,\\
+%		\widetilde\tau = c_1\widetilde\tau_1 + c_2 \widetilde\tau_2.
+%		\eean 
 	\end{itemize}
-\end{lemma}
+\end{proposition}
 \begin{proof}
 	(i)
 	If $\widetilde{\rho}: \widetilde{A} \to B\left(\widetilde{\H} \right)$ is an irreducible representation then  for any $g \in G$ there is the irreducible representation
@@ -2201,9 +2206,48 @@ On the other hand the state $\widetilde q$ is $G$-invariant, it is possible if a
 	\ee
 \end{remark}
 \begin{definition}\label{fin_free_defn}
-We say that a finite-fold quasi-covering $\left(A, \widetilde{A}, G, \pi \right)$ is \textit{free} if the given by the Lemma \ref{spectrum_cov_lem} action of $G\times \widetilde\sX \to \widetilde\sX$ is free.
+We say that a finite-fold quasi-covering $\left(A, \widetilde{A}, G, \pi \right)$ is \textit{free} if the given by the Proposition \ref{spectrum_cov_prop}   action of $G\times \widetilde\sX \to \widetilde\sX$ is free.
 \end{definition}
 
+\begin{lemma}
+Let $\tau_1, \tau_2: A \to \C$ be states of $C^*$-algebra $A$ and let $\tau \bydef c_1 \tau_1 + c_2\tau_2$ be a state such that $c_1 + c_2 = 1$. If both $\pi_{\tau} : A \to B\left(\H_\tau\right)$ and $\pi_{\tau_1} : A \to B\left(\H_{\tau_1}\right)$ are corresponding to $\tau$ and  $\tau_1$ representations then $\pi_{\tau_1}$ subordinate to $\pi_{\tau}$ (cf. Definition \ref{orth_repr_defn})
+\end{lemma}
+\begin{proof}
+If both $\mathcal{I}_\tau$ and $\mathcal{I}_{\tau_1}$ are given by
+\bean
+\mathcal{I}_\tau\bydef\left\{\left.a \in A \ \right| \ \tau(a^*a)=0\right\},\\
+\mathcal{I}_{\tau_1}\bydef\left\{\left.a \in A \ \right| \ \tau_1(a^*a)=0\right\}
+\eean 
+(cf. equation \ref{tau_ideal_eqn}) then from the direct check it follows that $\mathcal{I}_{\tau}\subset \mathcal{I}_{\tau_1}$. From this fact it follows that there are natural inclusions
+\bean
+A / \mathcal{I}_{\tau_1}\hookto A / \mathcal{I}_{\tau},\\
+T: L^2\left(A, \tau_1\right)\hookto L^2\left(A, \tau\right)
+\eean 
+(cf. Section \ref{gns_constr_sec}). From the GNS-construction it turns out that $\H_{\tau_1}\bydef  L^2\left(A, \tau_1\right)$ and $\H_\tau \bydef L^2\left(A, \tau\right)$. From the definition of $T$ it follows that $T$ is an intertwiner (cf. Definition \ref{orth_repr_defn})
+of $\pi_{\tau_1}$ and $\pi_{\tau}$, i.e.
+$$
+T \pi_{\tau_1}\left(x \right) = \pi_\tau\left( x\right) T 
+$$
+for all $x \in A$. Since operator $T$ is injective one has $\pi_{\tau_1}\preceq\pi_\tau$.
+\end{proof}
+\begin{lemma}\label{sub_pure_lem}
+Let $\left(A, \widetilde{A}, G, \pi \right)$ be a noncommutative finite-fold  quasi-covering. Let $\widetilde \tau: \widetilde{A}\to \C$ and $\tau \bydef \left. \widetilde{\tau}\right|_A$ be states. If $\rho: A \to \C$ is a pure state such that $\rho\preceq\tau$ (cf. Definition \ref{orth_repr_defn}), then there is a pure state $\widetilde \rho : \widetilde{A}\to \C$ such that 
+\bean
+\widetilde\rho\preceq\widetilde\tau,\\
+\rho = \left. \widetilde{\rho}\right|_A.
+\eean 
+\end{lemma}
+\begin{proof}
+From the Proposition \ref{state_prop} it follows that there is a pure state $\widetilde \rho' : \widetilde{A}\to \C$ such that $\rho = \left. \widetilde{\rho}'\right|_A$. On the other hand both $\tau$ and $\rho$ corresponds to  given by
+\bean
+\tau^\oplus \bydef \frac{1}{\left| G\right| }\sum_{	g \in G} g\widetilde{\tau},\\
+\rho^\oplus \bydef \frac{1}{\left| G\right| }\sum_{	g \in G} g\widetilde{\rho}'
+\eean 
+$G$-invariant states respectively (cf. Definition \ref{state_cov_11_defn} and Lemma \ref{state_cov_11_lem}). From $\rho\preceq\tau$ it follows that $\rho^\oplus\preceq\tau^\oplus$. It is possible if and only if there is $g \in G$ such that $\widetilde{\rho}\bydef g\widetilde{\rho}'\preceq\widetilde\tau$. From $\widetilde{\rho}\bydef g\widetilde{\rho}'$ it follows that
+$$
+\left. \widetilde{\rho}\right|_A= \left. \widetilde{\rho}'\right|_A= \rho.
+$$
+\end{proof}
 \begin{empt}
 Suppose that $\left(A, \widetilde{A}, G, \pi \right)$ is  a noncommutative finite-fold  quasi-covering.
 There is  an isomorphism  $\widetilde{A} \approx A \bigoplus P$ of $A$-modules, so any $\widetilde{a} \in \End\left( \widetilde{A}\right)_A$ can be represented by  four $A$-module homomorphisms $\al : A \to A$, $\bt : P \to A$, $\ga : A \to P$, $\delta : P \to P$ such that $\widetilde{a}$ corresponds to a matrix
@@ -2231,7 +2275,7 @@ Moreover one has
 	\bea\label{h_eqn}
 	\H \bydef \widetilde\rho\left(\al\left(A\right)\right) \xi.
 	\eea
-	then from the Lemma \ref{spectrum_cov_lem} one has the irreducible representation 
+	then from the Lemma \ref{spectrum_cov_prop}  !!! PROPOSITRION one has the irreducible representation 
 	\bea\label{ah_eqn}
 \rho: A \to B\left(\H \right); \quad \rho\left(a \right)\left(   \widetilde \rho\left( a'\right)\xi\right)  \bydef \widetilde \rho\left(aa'\right) \xi\quad \forall a, a' \in A.
 \eea
@@ -2288,10 +2332,10 @@ The equality  	\ref{red_inc_eqn} can be rewritten by the following way
 \be\label{red_incp_eqn}
 \rep_{ \widetilde{x}}\left(\widetilde{A}_{\text{red}} \right) \cong \rep_{ p\left( \widetilde{x}\right) }\left(A\right)
 \ee
-where the continuous map $p: \widetilde\sX \to \sX$ is given by the Lemma \ref{spectrum_cov_lem}.
+where the continuous map $p: \widetilde\sX \to \sX$ is given by the Lemma \ref{spectrum_cov_prop}  !!! PROPOSITRION.
 \end{remark}
  \begin{rem}\label{red_sp_rem}
- 	From the Lemma \ref{spectrum_cov_lem} and the Proposition \ref{hered_spectrum_prop} it follows that the spectrum of $\widetilde{A}_{\text{red}}$ coincides with the spectrum of $\widetilde{A}$ as a topological space. If $\widetilde{\sX}$ is the spectrum of both $\widetilde{A}_{\text{red}}$ and $\widetilde{A}$ then the inclusion $G \hookto  \Aut\left(\widetilde A \right)$ induces a homomorphism
+ 	From the Lemma \ref{spectrum_cov_prop}  !!! PROPOSITRION and the Proposition \ref{hered_spectrum_prop} it follows that the spectrum of $\widetilde{A}_{\text{red}}$ coincides with the spectrum of $\widetilde{A}$ as a topological space. If $\widetilde{\sX}$ is the spectrum of both $\widetilde{A}_{\text{red}}$ and $\widetilde{A}$ then the inclusion $G \hookto  \Aut\left(\widetilde A \right)$ induces a homomorphism
  	$$
  	h: G \to \mathrm{Homeo}\left(\widetilde{\sX} \right) 
  	$$
@@ -2308,7 +2352,7 @@ where the continuous map $p: \widetilde\sX \to \sX$ is given by the Lemma \ref{s
  	\be\label{g_red_inc_eqn}
  	G/G_{\text{red}} \subset \mathrm{Homeo}\left(\widetilde{\sX} \right). 
  	\ee
- 	Moreover from the Lemma \ref{spectrum_cov_lem} it follows that there is a homeomorphism
+ 	Moreover from the Lemma \ref{spectrum_cov_prop}  !!! PROPOSITRION it follows that there is a homeomorphism
  	\be\label{red_fact_sp_eqn}
  	\sX \cong \widetilde{\sX}/\left(G/G_{\text{red}} \right). 
  	\ee
@@ -3654,7 +3698,7 @@ The  spectrum of $\widehat A=C^r$-$\varinjlim_{\la \in \La}A_\la$ is the inverse
 \end{lemma}
 
 \begin{proof}
-	Denote by $\sX_\la$ and $\widehat \sX$ the spectra of $A_\la$ and $\widehat A$ respectively. From the Lemma \ref{spectrum_cov_lem}  it turns out that for any $\mu, \nu \in \La$ such that $\mu > \nu$ the inclusion  $\pi^\nu_{ \mu}: A_\nu \to A_\mu$ induces the surjective continuous map $p^\nu_\mu :  \sX_\mu \to \sX_\nu$. Otherwise if $\sY_\la$ and $\widehat \sY$ are the state spaces of $A_\la$ and $\widehat A$ then one has  $\sX_\la\subset \sY_\la$ and $\widehat \sX\subset \widehat  \sY$. Moreover for any $\mu, \nu \in \La$ such that $\mu > \nu$ there is the natural  continuous surjective map $t^\nu_\mu :  \sY_\mu \to \sY_\nu$ such that
+	Denote by $\sX_\la$ and $\widehat \sX$ the spectra of $A_\la$ and $\widehat A$ respectively. From the Lemma \ref{spectrum_cov_prop}  !!! PROPOSITRION  it turns out that for any $\mu, \nu \in \La$ such that $\mu > \nu$ the inclusion  $\pi^\nu_{ \mu}: A_\nu \to A_\mu$ induces the surjective continuous map $p^\nu_\mu :  \sX_\mu \to \sX_\nu$. Otherwise if $\sY_\la$ and $\widehat \sY$ are the state spaces of $A_\la$ and $\widehat A$ then one has  $\sX_\la\subset \sY_\la$ and $\widehat \sX\subset \widehat  \sY$. Moreover for any $\mu, \nu \in \La$ such that $\mu > \nu$ there is the natural  continuous surjective map $t^\nu_\mu :  \sY_\mu \to \sY_\nu$ such that
 	$$
 	p^\nu_\mu = \left.t^\nu_\mu\right|_{\sX_\mu}
 	$$
@@ -3686,7 +3730,15 @@ The  spectrum of $\widehat A=C^r$-$\varinjlim_{\la \in \La}A_\la$ is the inverse
 	(m-2-1) edge node [above] {$p^\nu_\mu$}  (m-2-3);
 	\end{tikzpicture}
 	\newline
-	is commutative. Let $\widehat x \in \widehat \sX$ and let $\widehat \tau : \widehat A \to \C$ be the corresponding pure state. If $q^\cup : \cup A_\la \to \C$ is a positive functional such that  $q^\cup \le \left.\widehat\tau\right|_{\cup A_\la }$ then since the union $\cup A_\la$ is dense in $\widehat A$ there is a unique  positive functional such that $\widehat q : \widehat A \to \C$ such that $\left.\widehat q\right|_{\cup A_\la} = q^\cup$ and $\widehat q \le \widehat \tau$. Since the state $\widehat \tau$ is pure there is $t \in \left(0, 1\right)$ such that $\widehat p = t\widehat \tau$. So one has $q^\cup =t \left.\widehat\tau\right|_{\cup A_\la }$. If follows that $\tau_\la\bydef \left.\widehat \tau\right|_{A_\la}= A_\la \to \C$ is a pure state for any $\la\in\La$, i.e. any pure state is represented by limit of pure states. 
+	is commutative.
+	
+	Let $\widehat\tau : \widehat A \to \C$ be a pure state and suppose that it correspond to an element  $\left\{y_\la\right\} \in \prod \sY_\la$  corresponds to an element of the inverse limit $\varprojlim \sY_\la$. Assume that the state $\tau_\mu$ which corresponds to $\mu \in\La$ is not pure.
+	!!!
+	 
+	If $q^\cup : \cup A_\la \to \C$ is a positive functional such that  $q^\cup \le \left.\widehat\tau\right|_{\cup A_\la }$ then since the union $\cup A_\la$ is dense in $\widehat A$ there is a unique  positive functional such that $\widehat q : \widehat A \to \C$ such that $\left.\widehat q\right|_{\cup A_\la} = q^\cup$ and $\widehat q \le \widehat \tau$. Since the state $\widehat \tau$ is pure there is $t \in \left(0, 1\right)$ such that $\widehat q = t\widehat \tau$. So one has $q^\cup =t \left.\widehat\tau\right|_{\cup A_\la }$. If $\nu \in \La$ and $a \in \cup A_\la$ then there is $\mu\in \La$ such that $\mu \ge \nu$ and $a \in A_\mu$. !!! CHECK 
+	
+	
+	If follows that $\tau_\la\bydef \left.\widehat \tau\right|_{A_\la}= A_\la \to \C$ is a pure state for any $\la\in\La$, i.e. any pure state is represented by limit of pure states. 
 
 	Conversely suppose $\left\{x_\la\right\} \in \prod \sX_\la$  corresponds to an element of the inverse limit $\varprojlim \sX_\la$, and a state $\widehat\tau: \widehat A \to \C$. Let $\widehat p: \widehat A \to \C$ be a positive functional such that $\widehat p < \widehat\tau$. If $\widehat a \in \widehat A$ then there is $\left(a_\la\right)_{\la\in \La} \in \prod A_\la$ such that $\widehat a = \lim_{\la \in \La}a_\la$. It follows that $\widehat \tau\left(\widehat a \right) = \lim \tau_\la\left( a_\la\right)$ and $\widehat p\left( \widehat a\right) = \lim \widehat p\left( a_\la\right)$. Since $\tau_\la$ is pure there is $t \in \left(0, 1\right]$ such that $\left.\widehat p\right|_{A_\la}= t \tau_{\la}$ for all $\la\in \La$. It follows that 
 	\bean
@@ -7670,7 +7722,7 @@ because $\widetilde{A}_{\text{red}}\cong C_0\left(\widetilde{\sX} \right)$. On t
 \widetilde{A}\quad  a\widetilde{a}=\widetilde{a}a
 \ee
 \paragraph{}
- From the Lemma \ref{spectrum_cov_lem} it turns out that any irreducible representation $\widetilde \rho : \widetilde{A}\to B\left(\widetilde \H\right)$ yields an irreducible representation $\rho: A \to B\left(\H\right)$. Using the Proposition \ref{sur_prop} one can assume that $\H\subset \widetilde \H$ and $\rho$ is a restriction of $\widetilde \rho$. If $A$ is a commutative   $C^*$-algebra  then the space $\H$ is one-dimensional and there is a *-homomorphism $\a: A \to \C$ such that for all $a \in A$ and $\xi \in \H$ one has $\rho\left( a\right)\xi   = \a\left(a\right)\xi$. We select $\xi \in \H$ such that $\xi \neq 0$.  If $\eta \in \widetilde \H$  then from (iv) of the Theorem \ref{irred_thm} it follows that there is $\widetilde a \in \widetilde A$ such that $\eta = \widetilde\rho\left(\widetilde a\right)\xi$. If $a\in A$ then from \eqref{top_commt_eqn} it follows that
+ From the Lemma \ref{spectrum_cov_prop}  !!! PROPOSITRION it turns out that any irreducible representation $\widetilde \rho : \widetilde{A}\to B\left(\widetilde \H\right)$ yields an irreducible representation $\rho: A \to B\left(\H\right)$. Using the Proposition \ref{sur_prop} one can assume that $\H\subset \widetilde \H$ and $\rho$ is a restriction of $\widetilde \rho$. If $A$ is a commutative   $C^*$-algebra  then the space $\H$ is one-dimensional and there is a *-homomorphism $\a: A \to \C$ such that for all $a \in A$ and $\xi \in \H$ one has $\rho\left( a\right)\xi   = \a\left(a\right)\xi$. We select $\xi \in \H$ such that $\xi \neq 0$.  If $\eta \in \widetilde \H$  then from (iv) of the Theorem \ref{irred_thm} it follows that there is $\widetilde a \in \widetilde A$ such that $\eta = \widetilde\rho\left(\widetilde a\right)\xi$. If $a\in A$ then from \eqref{top_commt_eqn} it follows that
 \bean
 \widetilde\rho\left(a\right)\eta = \widetilde\rho\left(a\right)\widetilde\rho\left(\widetilde a\right)\xi = \widetilde\rho\left(a\widetilde a\right)\xi= \widetilde\rho\left(\widetilde aa\right)\xi= \widetilde\rho\left(\widetilde a\right)\widetilde\rho\left( a\right)\xi\\ =\widetilde\rho\left(\widetilde a\right)\a\left( a\right)\xi=\a\left( a\right) \widetilde\rho\left(\widetilde a\right)\xi= \a\left( a\right) \eta
 \eean
@@ -7792,7 +7844,7 @@ is not finite. From the inclusion $G_{\text{red}}\subset G$ it follows that $G$ 
 , i.e. one has the contradiction with (a) of the Definition \ref{fin_pre_defn}. From this contradiction it turns out that $\dim\rep_{ \widetilde{x}}\left(\widetilde{A}\right)= 1$ for any $\widetilde{x} \in \widetilde{\sX}$, it means that $\widetilde{A}$ is commutative.
 \end{proof}
 %\begin{lemma}\label{comm_homo_cov_lem}
-%	Let $A$ be an unital {homogeneous of order} $n$ $C^*$-algebra (cf. Definition \ref{ctr_homo_defn}).	Let $\left(A, \widetilde{A}, G, \pi \right)$ be  an unital noncommutative finite-fold     covering (cf. Definition  \ref{fin_uni_defn}). If $p:\widetilde{\mathcal X} \to {\mathcal X}$ is the continuous map from the spectrum of $\widetilde{A}$ to the spectrum of $A$ given by the Lemma \ref{spectrum_cov_lem} then $p$ is a finite-fold transitive topological covering such that $G \cong G\left( \widetilde{\mathcal X}~|~ {\mathcal X}\right)$. 
+%	Let $A$ be an unital {homogeneous of order} $n$ $C^*$-algebra (cf. Definition \ref{ctr_homo_defn}).	Let $\left(A, \widetilde{A}, G, \pi \right)$ be  an unital noncommutative finite-fold     covering (cf. Definition  \ref{fin_uni_defn}). If $p:\widetilde{\mathcal X} \to {\mathcal X}$ is the continuous map from the spectrum of $\widetilde{A}$ to the spectrum of $A$ given by the Lemma \ref{spectrum_cov_prop}  !!! PROPOSITRION then $p$ is a finite-fold transitive topological covering such that $G \cong G\left( \widetilde{\mathcal X}~|~ {\mathcal X}\right)$. 
 %\end{lemma}
 
 %\begin{proof}
@@ -7821,11 +7873,11 @@ is not finite. From the inclusion $G_{\text{red}}\subset G$ it follows that $G$ 
 %\left\langle f, g\right\}_{C\left({\mathcal X} \right)}= \sum_{g \in G} g\left(f^*g \right) 
 %$$
 %so from the Kasparov stabilization theorem it turns out that $C\left(\widetilde{\mathcal X} \right)$ is a projective  $C\left({\mathcal X} \right)$-module.
-%From the Theorem \ref{pavlov_troisky_thm} it turns out $p$ is a finite-fold topological covering. From the Lemmas \ref{spectrum_cov_lem} and \ref{top_trans_cov_lem} it turns out that the covering $p$ is  transitive topological and $G \cong G\left( \widetilde{\mathcal X}~|~ {\mathcal X}\right)$.
+%From the Theorem \ref{pavlov_troisky_thm} it turns out $p$ is a finite-fold topological covering. From the Lemmas \ref{spectrum_cov_prop}  !!! PROPOSITRION and \ref{top_trans_cov_lem} it turns out that the covering $p$ is  transitive topological and $G \cong G\left( \widetilde{\mathcal X}~|~ {\mathcal X}\right)$.
 %\end{proof}
 
 \begin{corollary}\label{comm_comm_cor}
-	Let $A$ be an unital commutative $C^*$-algebra. Let $\left(A, \widetilde{A}, G, \pi \right)$ be  an unital noncommutative finite-fold     covering (cf. Definition  \ref{fin_uni_defn}). If $p:\widetilde{\mathcal X} \to {\mathcal X}$ is the continuous map from the spectrum of $\widetilde{A}$ to the spectrum of $A$ given by the Lemma \ref{spectrum_cov_lem} then $p$ is a finite-fold transitive topological covering such that $G \cong G\left( \widetilde{\mathcal X}~|~ {\mathcal X}\right)$. Moreover the quadruple $\left(A, \widetilde{A}, G, \pi \right)$ is equivalent to $\left(C\left({\mathcal X} \right) , C\left( \widetilde{\mathcal X}\right) , G\left(\left.\widetilde{\sX}~\right|\sX\right) , C_0\left(p \right)  \right)$ where $C_0\left(p \right) : C\left({\mathcal X}\right) \hookto C\left( \widetilde{\mathcal X}\right)$ 	comes from the  finite covering algebraic functor (cf. Definition \ref{top_c_funct_defn}).
+	Let $A$ be an unital commutative $C^*$-algebra. Let $\left(A, \widetilde{A}, G, \pi \right)$ be  an unital noncommutative finite-fold     covering (cf. Definition  \ref{fin_uni_defn}). If $p:\widetilde{\mathcal X} \to {\mathcal X}$ is the continuous map from the spectrum of $\widetilde{A}$ to the spectrum of $A$ given by the Lemma \ref{spectrum_cov_prop}  !!! PROPOSITRION then $p$ is a finite-fold transitive topological covering such that $G \cong G\left( \widetilde{\mathcal X}~|~ {\mathcal X}\right)$. Moreover the quadruple $\left(A, \widetilde{A}, G, \pi \right)$ is equivalent to $\left(C\left({\mathcal X} \right) , C\left( \widetilde{\mathcal X}\right) , G\left(\left.\widetilde{\sX}~\right|\sX\right) , C_0\left(p \right)  \right)$ where $C_0\left(p \right) : C\left({\mathcal X}\right) \hookto C\left( \widetilde{\mathcal X}\right)$ 	comes from the  finite covering algebraic functor (cf. Definition \ref{top_c_funct_defn}).
 \end{corollary}
 
 \begin{proof}
@@ -7836,7 +7888,7 @@ is not finite. From the inclusion $G_{\text{red}}\subset G$ it follows that $G$ 
 %From the Lemma \ref{comm_rep_eq_lem} it turns out that %$\widetilde{a}\widetilde{b} = \widetilde{b}\widetilde{a}$, i.e. %$\widetilde{A}$ is commutative. 
 From the Lemma \ref{comm_emptycomm_lem} it follows that $\widetilde{A}$ is commutative.
 From the Theorem \ref{gelfand-naimark} it turns out that $A \cong C\left( {\mathcal X}\right)  $, $\widetilde{A}\cong C\left( \widetilde{\mathcal X}\right)$.
-According to the Definition \ref{fin_uni_defn} it turns out that  $ C\left( \widetilde{\mathcal X}\right)$ is a finitely generated Hilbert $ C\left({\mathcal X}\right)$-module, so from the Corollary \ref{fin_hpro_cor} it turns out that $ C\left( \widetilde{\mathcal X}\right)$ is a projective $ C\left({\mathcal X}\right)$-module. Hence from the Theorem \ref{pavlov_troisky_thm} it turns out that $p$ is a covering. From the Lemma \ref{spectrum_cov_lem} it turns out that    the covering $p$ is transitive and there is the natural isomorphism $G\cong G\left(\widetilde{   \mathcal X }~|~{   \mathcal X } \right)$. From the Exercise \ref{top_act_exer} it follows that the *-homomorphism $\pi$ is equivalent to $C_0\left(p \right)$. 
+According to the Definition \ref{fin_uni_defn} it turns out that  $ C\left( \widetilde{\mathcal X}\right)$ is a finitely generated Hilbert $ C\left({\mathcal X}\right)$-module, so from the Corollary \ref{fin_hpro_cor} it turns out that $ C\left( \widetilde{\mathcal X}\right)$ is a projective $ C\left({\mathcal X}\right)$-module. Hence from the Theorem \ref{pavlov_troisky_thm} it turns out that $p$ is a covering. From the Lemma \ref{spectrum_cov_prop}  !!! PROPOSITRION it turns out that    the covering $p$ is transitive and there is the natural isomorphism $G\cong G\left(\widetilde{   \mathcal X }~|~{   \mathcal X } \right)$. From the Exercise \ref{top_act_exer} it follows that the *-homomorphism $\pi$ is equivalent to $C_0\left(p \right)$. 
 \end{proof}
 
 The algebraic construction of finite-fold coverings requires the following definition.
@@ -7898,7 +7950,7 @@ The following lemma supplies the quantization of coverings with compactification
 	Let $\mathcal X$ be a locally compact, space and there is an injective *-homomorphism $\pi: C\left( \mathcal X\right) \hookto \widetilde{A}$ of $C^*$-algebras	then following conditions are equivalent:
 	\begin{enumerate}
 		\item [(i)] The quadruple $\left(C_0\left(\mathcal  X \right), \widetilde{A}, G  , \pi  \right)$ is a  noncommutative finite-fold covering with unitization.
-		\item[(ii)] The $C^*$-algebra $\widetilde{A}$ is commutative. Moreover if $\mathcal X$ (resp. $\widetilde{\mathcal X}$) is the spectrum of $A$ (resp. $\widetilde{A}$) then the given by the Lemma \ref{spectrum_cov_lem} map  $p:\widetilde{\mathcal X}\to {\mathcal X}$ is a transitive topological finite-fold covering with compactification such that the quadruple $\left(C_0\left(\mathcal  X \right), \widetilde{A}, G, \pi   \right)$ is naturally equivalent to $$\left(C_0\left(\mathcal  X \right), C_0\left(\widetilde{\mathcal X} \right), G\left( \widetilde{\mathcal X}~|~ {\mathcal X}\right) , C_0\left( p\right)     \right)$$
+		\item[(ii)] The $C^*$-algebra $\widetilde{A}$ is commutative. Moreover if $\mathcal X$ (resp. $\widetilde{\mathcal X}$) is the spectrum of $A$ (resp. $\widetilde{A}$) then the given by the Lemma \ref{spectrum_cov_prop}  !!! PROPOSITRION map  $p:\widetilde{\mathcal X}\to {\mathcal X}$ is a transitive topological finite-fold covering with compactification such that the quadruple $\left(C_0\left(\mathcal  X \right), \widetilde{A}, G, \pi   \right)$ is naturally equivalent to $$\left(C_0\left(\mathcal  X \right), C_0\left(\widetilde{\mathcal X} \right), G\left( \widetilde{\mathcal X}~|~ {\mathcal X}\right) , C_0\left( p\right)     \right)$$
 		where *-homomorphism $C_0\left(p \right): C_0\left(\mathcal  X \right)\to C_0\left(\widetilde{\mathcal X} \right)$ is $C_0$ is a finite covering algebraic functor (cf. Definition \ref{top_c_funct_defn}).  
 	\end{enumerate}
 \end{lemma}
@@ -7995,7 +8047,7 @@ Consider a given by the Lemma \ref{comm_slfin_lem} situation. If the space $\sX$
 	Let $\mathcal X$ be a locally compact, connected, locally connected, Hausdorff space. 
 	Following conditions hold:
 	\begin{enumerate}
-		\item [(i)] If the  quadruple $\left(C_0\left(\mathcal  X \right), \widetilde{A}, G,    \pi\right)$ is a connected noncommutative finite-fold covering (cf. Definition \ref{fin_defn}), $\widetilde{   \mathcal X }$ is the spectrum of $\widetilde{A}$ and $p: \widetilde{   \mathcal X } \to \sX$ is given by the Lemma \ref{spectrum_cov_lem}, continuous map then $p$ is a finite-fold transitive topological covering and $\widetilde{   \mathcal X }$ is a connected space. Moreover one has $\widetilde{A} \cong C_0\left( \widetilde{   \mathcal X }\right)$,  $~~G \cong G\left(\left. \widetilde{   \mathcal X } ~\right| {   \mathcal X }\right)$ and $\pi = C_0\left(p \right)$  where   $C_0$ is a finite covering algebraic functor (cf. Definition \ref{top_c_funct_defn}).  
+		\item [(i)] If the  quadruple $\left(C_0\left(\mathcal  X \right), \widetilde{A}, G,    \pi\right)$ is a connected noncommutative finite-fold covering (cf. Definition \ref{fin_defn}), $\widetilde{   \mathcal X }$ is the spectrum of $\widetilde{A}$ and $p: \widetilde{   \mathcal X } \to \sX$ is given by the Lemma \ref{spectrum_cov_prop}  !!! PROPOSITRION, continuous map then $p$ is a finite-fold transitive topological covering and $\widetilde{   \mathcal X }$ is a connected space. Moreover one has $\widetilde{A} \cong C_0\left( \widetilde{   \mathcal X }\right)$,  $~~G \cong G\left(\left. \widetilde{   \mathcal X } ~\right| {   \mathcal X }\right)$ and $\pi = C_0\left(p \right)$  where   $C_0$ is a finite covering algebraic functor (cf. Definition \ref{top_c_funct_defn}).  
 		\item[(ii)] If $\widetilde{   \mathcal X }$  is a connected space, $p: \widetilde{   \mathcal X } \to \sX$ is a finite-fold transitive topological covering and *-homomorphism $C_0\left(p \right)  : C_0\left( {   \mathcal X }\right) \hookto C_0\left( \widetilde{   \mathcal X }\right)$ comes from the finite covering algebraic functor (cf. Definition \ref{top_c_funct_defn}) and the action $G\left(\left. \widetilde{   \mathcal X } ~\right| {   \mathcal X }\right)\times C_0\left( \widetilde{   \mathcal X  }\right) \to C_0\left( \widetilde{   \mathcal X }\right)$ is induced by $G\left( \widetilde{   \mathcal X } ~|~ {   \mathcal X }\right)\times  \widetilde{   \mathcal X }\to  \widetilde{   \mathcal X }$  then there is the connected  noncommutative finite-fold covering $\left(C_0\left(\mathcal  X \right), C_0\left(  \widetilde{   \mathcal X }\right) ,G\left(\left. \widetilde{   \mathcal X } ~\right| {   \mathcal X }\right),   C_0\left(p \right)\right)$  (cf. Definition \ref{fin_defn}).
 	\end{enumerate}
 \end{theorem}
@@ -11501,7 +11553,7 @@ i.e. $g\widetilde a$ satisfies to \eqref{blowing_ga_eqn}, therefore $g\widetilde
 \end{proof}
 
 \begin{empt} 
-Let $\left(A,\widetilde A, G, \pi \right)$ be a reduced finite-fold noncommutative covering (cf. Definitions \ref{fin_defn} REPLACE !!! \ref{fin_weak_defn}  CONNECTED!!! CONNECTED !!!, \ref{fin_red_defn})  let $C_0\left( \sY\right)\hookto M\left(A \right)$  be a blowing-up of $A$.  Let $\sX$ and $\widetilde\sX$ be spectra of $A$ and $\widetilde A$ respectively, and let $p: \widetilde\sX\to\sX$ be a given by the Lemma \ref{spectrum_cov_lem} continuous map.
+Let $\left(A,\widetilde A, G, \pi \right)$ be a reduced finite-fold noncommutative covering (cf. Definitions \ref{fin_defn} REPLACE !!! \ref{fin_weak_defn}  CONNECTED!!! CONNECTED !!!, \ref{fin_red_defn})  let $C_0\left( \sY\right)\hookto M\left(A \right)$  be a blowing-up of $A$.  Let $\sX$ and $\widetilde\sX$ be spectra of $A$ and $\widetilde A$ respectively, and let $p: \widetilde\sX\to\sX$ be a given by the Lemma \ref{spectrum_cov_prop}  !!! PROPOSITRION continuous map.
 Since $\left(A,\widetilde A, G, \pi \right)$ is reduced one has $\rep_{ \widetilde{x}}\left(\widetilde A \right) \cong \rep_{p\left(  \widetilde{x}\right) }\left(\widetilde A \right) = \rep_{p\left(  \widetilde{x}\right) }\left( A \right)$.
 Put 
 \be\label{blowing_wc_eqn}
@@ -11732,7 +11784,7 @@ Let $A$ be a $C^*$-algebra, and let $C_0\left(\sY \right) \to M\left( A\right)$ 
 
 \end{lemma}
 \begin{proof}
-Let both $\sX$ ans $\widetilde \sX$ be spectra of both $A$ and $\widetilde A$ respectively, and $p: \widetilde \sX \to \sX$ be a given by the Lemma \ref{spectrum_cov_lem}. If $\widetilde x_1, \widetilde x_2\in \widetilde\sX$ are such that $p\left(\widetilde x_1 \right) \neq p\left(\widetilde x_2 \right)$ and $\widetilde I_{\widetilde y_1}$, $~\widetilde I_{\widetilde y_2}$ are maximal proper ideals of $C_0\left( \widetilde \sY\right)$ such that
+Let both $\sX$ ans $\widetilde \sX$ be spectra of both $A$ and $\widetilde A$ respectively, and $p: \widetilde \sX \to \sX$ be a given by the Lemma \ref{spectrum_cov_prop}  !!! PROPOSITRION. If $\widetilde x_1, \widetilde x_2\in \widetilde\sX$ are such that $p\left(\widetilde x_1 \right) \neq p\left(\widetilde x_2 \right)$ and $\widetilde I_{\widetilde y_1}$, $~\widetilde I_{\widetilde y_2}$ are maximal proper ideals of $C_0\left( \widetilde \sY\right)$ such that
 \be\label{blowing_ideals_eqn}
 \begin{split}
 	\rep_{\widetilde x_1}\left(C_0\left( \widetilde \sY\right)  \right) \neq \widetilde I_{\widetilde y_1},\\
@@ -11759,7 +11811,7 @@ From the Lemma \ref{blowing_spectal_lem} it turns out that there is the followin
 	(m-1-3) edge node [right] {$~q$} (m-2-3);
 \end{tikzpicture}
 \\ 	
-where both  sets $s\left( \sY \right)$, $~s\left(\widetilde \sY \right)$ and both maps $s_{\sY}$, $~s_{\widetilde\sY}$ are given by \eqref{blowing_spectal_eqn}, a continuous map  $q$ is given by the Lemma \ref{spectrum_cov_lem}, a transitive covering $q$ is given by the Lemma \ref{blowing_cov_lem}. 
+where both  sets $s\left( \sY \right)$, $~s\left(\widetilde \sY \right)$ and both maps $s_{\sY}$, $~s_{\widetilde\sY}$ are given by \eqref{blowing_spectal_eqn}, a continuous map  $q$ is given by the Lemma \ref{spectrum_cov_prop}  !!! PROPOSITRION, a transitive covering $q$ is given by the Lemma \ref{blowing_cov_lem}. 
 \end{remark}
 \begin{empt}\label{blowing_pcomt_empt}
 Let $A$ be a $C^*$-algebra, and let $C_0\left(\sY \right) \to M\left( A\right)$ be a good !!! SOFT \ref{top_soft_exer}  !!! REP \ref{top_soft_r_defn} semilocally 1-connected Hausdorff blowing-up (cf. Definitions \ref{blowing_defn}, \ref{blowing_good_defn}, \ref{blowing_semi1_defn}). If there are transitive coverings $q_1: \widetilde\sY_1 \to \sY$ and  $q_2: \widetilde\sY_2 \to \sY$ such that there is a   commutative diagram  
@@ -11887,7 +11939,7 @@ then ollowing conditions hold:
 Follows from the Theorem \ref{blowing_functor_thm}.
 \end{proof}
 \begin{empt}\label{blowing_implicit_inc_full_empt}
-Consider the situation \ref{blowing_inf_empt}, suppose that the Hausdorff blowing-up $C_0\left(\sY \right) \to M\left( A\right)$ spectral (cf. Definition \ref{blowing_spectal_defn}). If $\sX_\la$ is the spectrum of $A\left(\sY_\la\right)$ then from the Lemma \ref{spectrum_cov_lem} it follows that for any $\mu, \nu\in \Lambda$ such that $\mu\ge\nu$ there is the natural continuous map $q^\nu_\mu : \sX_\mu \to  \sX_\nu$. Similarly to the Remark \ref{blowing_cov_sp_rem}
+Consider the situation \ref{blowing_inf_empt}, suppose that the Hausdorff blowing-up $C_0\left(\sY \right) \to M\left( A\right)$ spectral (cf. Definition \ref{blowing_spectal_defn}). If $\sX_\la$ is the spectrum of $A\left(\sY_\la\right)$ then from the Lemma \ref{spectrum_cov_prop}  !!! PROPOSITRION it follows that for any $\mu, \nu\in \Lambda$ such that $\mu\ge\nu$ there is the natural continuous map $q^\nu_\mu : \sX_\mu \to  \sX_\nu$. Similarly to the Remark \ref{blowing_cov_sp_rem}
 there is the following commutative diagram
 \newline
 \begin{tikzpicture}
@@ -12581,7 +12633,7 @@ Let $\left(A, \a\right)$ be a pointed $C^*$-algebra (cf. Definition \ref{pointed
 Let $b\left(\Omega A \right)$ be a $C^*$-algebra of all bounded (cf. Definition \ref{pro_bound_defn}) elements of $\Om A$.
 Consider the family of \textit{all} $\left\{ \pi_\la:b\left(\Omega A \right) \hookto A_\la\right\}_{\la \in \La}$ (resp. reduced , or free) (cf. Definitions \ref{fin_red_defn} and \ref{fin_free_defn}
 ) noncommutative finite-fold coverings (cf. Definition \ref{fin_defn} REPLACE !!! \ref{fin_weak_defn}  CONNECTED!!! CONNECTED !!!). 
-Suppose that the family is an {algebraical  finite covering category} (cf. Definition \ref{comp_defn}). If $b\left(\Omega A \right)$ is an unital $C^*$-algebra and $\sX$ is the spectrum of $b\left(\Omega A \right)$ then there is a *-homomorphism $\om_1: b\left(\Omega A \right)\to \C$ correspond to a point $x_0\in\sX$. For all $\la\in \La$ there is the given by the Lemma \ref{spectrum_cov_lem} surjective continuous map $p_\la: \sX_\la \to \sX$ from the spectrum $\sX_\la$ of $A_\la$ to the spectrum of $A$. So for every $\la\in \La$ one can select a point $x^\la_0\in \sX_\la$ such that $p_\la\left( x_0^\la\right) = x_0$. For all $\mu, \nu \in \La$ such that $\mu\le\nu$ we select the unique finite fold noncommutative covering $\pi^\mu_\nu: A_\mu\hookto A_\nu$ such that
+Suppose that the family is an {algebraical  finite covering category} (cf. Definition \ref{comp_defn}). If $b\left(\Omega A \right)$ is an unital $C^*$-algebra and $\sX$ is the spectrum of $b\left(\Omega A \right)$ then there is a *-homomorphism $\om_1: b\left(\Omega A \right)\to \C$ correspond to a point $x_0\in\sX$. For all $\la\in \La$ there is the given by the Lemma \ref{spectrum_cov_prop}  !!! PROPOSITRION surjective continuous map $p_\la: \sX_\la \to \sX$ from the spectrum $\sX_\la$ of $A_\la$ to the spectrum of $A$. So for every $\la\in \La$ one can select a point $x^\la_0\in \sX_\la$ such that $p_\la\left( x_0^\la\right) = x_0$. For all $\mu, \nu \in \La$ such that $\mu\le\nu$ we select the unique finite fold noncommutative covering $\pi^\mu_\nu: A_\mu\hookto A_\nu$ such that
 \begin{itemize}
 \item $\pi^\mu_\nu $ satisfies to the equitation \eqref{fg_ord_eqn},
 \item $\pi^\mu_\nu $ corresponds to a pointed  map $\left( \sX_\nu, x^\nu_0\right) \to \left( \sX_\mu, x^\mu_0\right)$. 
@@ -12674,7 +12726,7 @@ From the Example \ref{blowing_ctr_exm} it turns out that $C\left( \sY^{\mathrm{a
 		\widetilde\sY^{\mathrm{ab}}\bydef \left(\widetilde A/ \widetilde I\right)\hat{~}; \quad \widetilde\sY^{\mathrm{c}}\bydef\hat{\widetilde I}.
 	\end{split}
 	\ee
-If $p : 	\widetilde\sY\to \sY$ is given by the lemma \ref{spectrum_cov_lem} then from \eqref{ho_gr_pii_eqn} it turns out that
+If $p : 	\widetilde\sY\to \sY$ is given by the lemma \ref{spectrum_cov_prop}  !!! PROPOSITRION then from \eqref{ho_gr_pii_eqn} it turns out that
 \be\label{ho_gr_sp_eqn}
 p\left( \widetilde\sY^{\mathrm{ab}}\right) = \sY^{\mathrm{ab}},\quad
 p\left( \widetilde\sY^{\mathrm{c}}\right) = \sY^{\mathrm{c}}
@@ -13928,7 +13980,7 @@ Our following constructions require an analog of the Dini's theorem.
 \end{lemma}
 
 \begin{proof}
-	From the Example \ref{blowing_ctr_exm}  it turns out that the natural Hausdorff blowing-up $C_0\left(\sX \right)\to M\left(A \right)$ is good. If $\left(A, \widetilde A, G, \pi\right)$ is a reduced finite-fold noncommutative covering (cf. Definitions \ref{fin_defn} REPLACE !!! \ref{fin_weak_defn}  CONNECTED!!! CONNECTED !!!, \ref{fin_red_defn}) and $\widetilde \sX$ is the spectrum of $\widetilde A$ then from the Lemma \ref{blowing_cov_lem} it follows that there is a transitive finite-fold covering $\widetilde\sX \to \sX$.  Since $\widetilde \sX$ is connected and $\sX$ is simply connected the map $\widetilde \sX\to \sX$ is a homeomorphism. Indeed the covering $p$ coincides with the given by the Lemma \ref{spectrum_cov_lem} continuous map. Since the covering $\left(A, \widetilde A, G, \pi\right)$ is a reduced one has $G \cong G\left( 
+	From the Example \ref{blowing_ctr_exm}  it turns out that the natural Hausdorff blowing-up $C_0\left(\sX \right)\to M\left(A \right)$ is good. If $\left(A, \widetilde A, G, \pi\right)$ is a reduced finite-fold noncommutative covering (cf. Definitions \ref{fin_defn} REPLACE !!! \ref{fin_weak_defn}  CONNECTED!!! CONNECTED !!!, \ref{fin_red_defn}) and $\widetilde \sX$ is the spectrum of $\widetilde A$ then from the Lemma \ref{blowing_cov_lem} it follows that there is a transitive finite-fold covering $\widetilde\sX \to \sX$.  Since $\widetilde \sX$ is connected and $\sX$ is simply connected the map $\widetilde \sX\to \sX$ is a homeomorphism. Indeed the covering $p$ coincides with the given by the Lemma \ref{spectrum_cov_prop}  !!! PROPOSITRION continuous map. Since the covering $\left(A, \widetilde A, G, \pi\right)$ is a reduced one has $G \cong G\left( 
 	\left.\widetilde \sX\right|\sX\right)$ (cf. \eqref{g_red_inc_eqn} ). Since $\sX$ is topologically simply connected the group $G$ is trivial and the covering  $\left(A, \widetilde A, G, \pi\right)$ is trivial.
 \end{proof}
 \begin{exercise}\label{ctr_simply_connected_exer}
@@ -14009,7 +14061,7 @@ Follows from the  Exercise  \ref{ctr_simply_connected_exer} and the Theorem \ref
 	\\
 	\widetilde \H  =  \widetilde \H_1 + ... +  \widetilde \H_n \quad \text{ where } \quad \widetilde \H_j = A\widetilde{b}_j^*\widetilde\xi \quad j =1,....n.
 	\eean
-	From the Lemma \ref{spectrum_cov_lem}  the natural action $A \times \widetilde \H_j \to \widetilde \H_j $ is an irreducible representation 
+	From the Lemma \ref{spectrum_cov_prop}  !!! PROPOSITRION  the natural action $A \times \widetilde \H_j \to \widetilde \H_j $ is an irreducible representation 
 	$\rho_j: A \to B\left(\widetilde \H_j \right)$. Since  $A$ is a $CCR$-algebra one has $\rho_j \left(a \right) \in \K\left( \widetilde \H_j\right)$ for all $j = 1,...,n$ and $a \in A$, or equivalently
 	\be\label{ctr_a_comp_eqn}
 	\left.\widetilde{\rho}\left(a \right)\right|_{\widetilde \H_j} \in \K\left(\widetilde \H_j\right)
@@ -14032,7 +14084,7 @@ Follows from the  Exercise  \ref{ctr_simply_connected_exer} and the Theorem \ref
 \end{lemma}
 
 \begin{proof}
-	Let $\mathcal X$ (resp. $\widetilde{\mathcal X}$) be  the spectrum of $A$ (resp. $\widetilde{A}$). The space $\widetilde{\mathcal X}$ is also the spectrum of $\widetilde{A}_{\mathrm{red}}$ (cf. Remark \ref{red_sp_rem}). Let  $p:\widetilde{\mathcal X} \to {\mathcal X}$ be a continuous map given by the Lemma  \ref{spectrum_cov_lem}. Let $\widetilde{x}_0 \in \widetilde{\mathcal X}$ be any point and let $x_0 = p\left( \widetilde{x}_0\right) \in \mathcal X$ . From the Proposition \ref{continuous_trace_c_a_proposition} it turns  out that there is an Abelian  $a' \in A$ such that $\hat{a}'\in K\left(\mathcal X\right)$ and $\tr\left( \rep_{x_0}\left( a'\right)\right) =1$. If  $\widetilde A_{\text{red}}$  is the reduced algebra of $\left(A, \widetilde{A}, G, \pi \right)$ (cf. Definition \ref{red_alg_defn}) then there is the inclusion $\phi: A\hookto \widetilde A_{\text{red}}$. If $\widetilde a'\bydef\phi\left(a \right)$ then from  the equation \eqref{red_inc_eqn} it follows that the rank of $\rep_{\widetilde{x}}\left( \widetilde a'\right)$ does not exceed 1 for all $\widetilde x \in \widetilde\sX$. Let  both $\hat a: \sX \to \R$ and $\hat{\widetilde a'}: \sX \to \R$ are given by $x \mapsto \tr\left(\rep_{x}\left(a' \right)  \right)$ and $\widetilde x \mapsto \tr\left(\rep_{\widetilde x}\left(\widetilde a' \right)  \right)$ respectively. One has $f_0\in C_0\left(\sX \right)$ and taking into account that the map $\widetilde\sX \to \sX$ is surjective and continuous we conclude that  $\hat{\widetilde a'}$ is continuous. 
+	Let $\mathcal X$ (resp. $\widetilde{\mathcal X}$) be  the spectrum of $A$ (resp. $\widetilde{A}$). The space $\widetilde{\mathcal X}$ is also the spectrum of $\widetilde{A}_{\mathrm{red}}$ (cf. Remark \ref{red_sp_rem}). Let  $p:\widetilde{\mathcal X} \to {\mathcal X}$ be a continuous map given by the Lemma  \ref{spectrum_cov_prop}  !!! PROPOSITRION. Let $\widetilde{x}_0 \in \widetilde{\mathcal X}$ be any point and let $x_0 = p\left( \widetilde{x}_0\right) \in \mathcal X$ . From the Proposition \ref{continuous_trace_c_a_proposition} it turns  out that there is an Abelian  $a' \in A$ such that $\hat{a}'\in K\left(\mathcal X\right)$ and $\tr\left( \rep_{x_0}\left( a'\right)\right) =1$. If  $\widetilde A_{\text{red}}$  is the reduced algebra of $\left(A, \widetilde{A}, G, \pi \right)$ (cf. Definition \ref{red_alg_defn}) then there is the inclusion $\phi: A\hookto \widetilde A_{\text{red}}$. If $\widetilde a'\bydef\phi\left(a \right)$ then from  the equation \eqref{red_inc_eqn} it follows that the rank of $\rep_{\widetilde{x}}\left( \widetilde a'\right)$ does not exceed 1 for all $\widetilde x \in \widetilde\sX$. Let  both $\hat a: \sX \to \R$ and $\hat{\widetilde a'}: \sX \to \R$ are given by $x \mapsto \tr\left(\rep_{x}\left(a' \right)  \right)$ and $\widetilde x \mapsto \tr\left(\rep_{\widetilde x}\left(\widetilde a' \right)  \right)$ respectively. One has $f_0\in C_0\left(\sX \right)$ and taking into account that the map $\widetilde\sX \to \sX$ is surjective and continuous we conclude that  $\hat{\widetilde a'}$ is continuous. 
 	It $0 < \eps < 1$ and $f_\eps$ is given by \eqref{f_eps_eqn} then since $\widetilde a'$ is positive there is $\widetilde a = \frac{1}{1 - \eps} f_\eps\left(\widetilde a \right) \in A_+$, which satisfies to following conditions:
 	\begin{enumerate}
 		\item [(a)] $\dim \rep_{ \widetilde{x}}\left( \widetilde a\right) \le   \dim \rep_{ \widetilde{x}}\left(\widetilde a'\right) \le 1$ for any $\widetilde{x}\in\widetilde{\mathcal X}$,
@@ -14214,7 +14266,7 @@ so $K\left( A\right)$ becomes a pre-Hilbert space. If  $L^2\left(A, \tr_\tau\rig
 \be\label{ctr_a_eqn}
 \rho_\tau: A \hookto B\left(L^2\left(A, \tr_\tau\right) \right). 
 \ee   
-If  $\left(A, \widetilde{{A}}, G, \pi \right)$ is a finite-fold noncommutative covering  (cf. Definition \ref{fin_defn} REPLACE !!! \ref{fin_weak_defn}  CONNECTED!!! CONNECTED !!!), and $\widetilde \sX$ is the spectrum of $\widetilde A$ then from the Theorem \ref{ctr_fin_thm} it follows that $\widetilde \sX$ is Hausdorff, the given by the Lemma \ref{spectrum_cov_lem} map $p:\widetilde \sX\to  \sX$ such that $\left(A, \widetilde{{A}}, G, \pi \right)$ is equivalent to  $\left(A, A_0\left(\widetilde \sX \right) , G\left(\left.\widetilde \sX \right|\sX \right) , A_0\left( p\right) \right)$.
+If  $\left(A, \widetilde{{A}}, G, \pi \right)$ is a finite-fold noncommutative covering  (cf. Definition \ref{fin_defn} REPLACE !!! \ref{fin_weak_defn}  CONNECTED!!! CONNECTED !!!), and $\widetilde \sX$ is the spectrum of $\widetilde A$ then from the Theorem \ref{ctr_fin_thm} it follows that $\widetilde \sX$ is Hausdorff, the given by the Lemma \ref{spectrum_cov_prop}  !!! PROPOSITRION map $p:\widetilde \sX\to  \sX$ such that $\left(A, \widetilde{{A}}, G, \pi \right)$ is equivalent to  $\left(A, A_0\left(\widetilde \sX \right) , G\left(\left.\widetilde \sX \right|\sX \right) , A_0\left( p\right) \right)$.
 Similarly to the equation \eqref{top_wt_eqn} one has a functional
 \be\label{ctr_wt_eqn}
 \begin{split}
@@ -21546,6 +21598,36 @@ K\left(C_0\left(\sX \right)  \right) = C_c\left(\sX \right).
 	\ee
 	 
 	\end{definition}
+
+\begin{definition}\label{subrepr_defn}\cite{blackadar:oa}
+	A \textit{subrepresentation} of a representation $\pi: A \to B\left(\widetilde \H\right)$ on $\H$ is the restriction of $\pi$ to a
+	closed invariant subspace of $\H \subset \widetilde \H$.
+\end{definition}
+\begin{definition}\label{orth_repr_defn}\cite{blackadar:oa}
+	Let $\pi$ and $\rho$ be two (nondegenerate) representations
+	of a $C^*$-algebra $A$, on Hilbert spaces $\H_\pi$ and $\H_\rho$.\\
+	(i) An \textit{intertwiner} of $\pi$ and $\rho$ is an operator $T\in B\left(\H_\pi, \H_\rho \right)$  with
+	$$
+	T\pi(x) = \rho(x)T
+	$$
+	for all $x \in A$. Denote by $Int\left(\pi,\rho\right)$ the set of intertwiners of $\pi$ and $\rho$.\\
+	(ii) The representations $\pi$ and $\rho$ are \textit{disjoint}, written $\pi\perp\rho$ if no nonzero
+	subrepresentation of $\pi$ is equivalent to a subrepresentation of $\rho$.\\
+	(iii) The representation $\pi$ is \textit{subordinate} to $\rho$, written $\pi\preceq\rho$, if no nonzero
+	subrepresentation of $\pi$ is disjoint from $\rho$ (i.e. every nonzero subrepresentation of $\pi$ contains a nonzero subrepresentation equivalent to a subrepresentation of $\rho$).\\
+	(iv) The representations  $\pi$ and $\rho$ are \textit{quasi}-\textit{equivalent}, written  $\pi\sim\rho$, if $\pi\preceq\rho$
+	and $\rho\preceq\pi$.
+\end{definition}
+\begin{proposition}\label{orth_repr_prop}\cite{blackadar:oa}
+	Let $\pi$ be a representation of $A$ on $\H$, and $p,q$ projections in $\pi\left(A \right)'$ 
+	, with central supports $z_p,z_q$. Let $\rho, \sigma$ be the subrepresentations of $\pi$ on $p\H$ and $q\H$ respectively. Then\\
+	(i) $Int\left(\rho, \sigma\right)= q\pi\left(A\right)'p$,\\
+	(ii) $\rho\perp\sigma$ if and only if $z_p \perp z_q$.\\
+	(iii) $\rho \preceq\sigma$ if and only if $z_p\le z_q$.\\
+	(iv) $\rho\sim\sigma$ if and only if $z_p = z_q$.
+	
+\end{proposition}
+
 	\subsection{Irreducible representations}
 	\begin{theorem}\label{irred_thm}\cite{pedersen:ca_aut}
 		Let $\pi: A \to B\left(\H \right)$ be a nonzero representation of $C^*$-algebra $A$. The following conditions are equivalent:
@@ -28153,7 +28235,8 @@ I. Ien, M. GŸrsoy, A. …zcan \textit{Coverings of Lie groupoids
 
 \bibitem{blackadar:ko} B. Blackadar. {\it K-theory for Operator Algebras}, Second edition. Cambridge University Press. 1998.
 
-%\bibitem{blackadar:oa} B. Blackadar. \textit{Operator Algebras: Theory of C*-Algebras and von Neumann Algebras}, (Encyclopaedia of Mathematical Sciences), Springer,  2006.
+\bibitem{blackadar:oa} B. Blackadar. \textit{Operator Algebras: Theory of C*-Algebras and von Neumann Algebras}, (Encyclopaedia of Mathematical Sciences), Springer,  2006.
+
 \bibitem{blackadar:shape_theory} B. Blackadar, {\it Shape theory for $C^*$-algebras}, Math. Scand. 56 , 249-275, 1985.
 
 \bibitem{blecher_merdy} David P. Blecher, Christian Le Merdy. \textit{Operator algebras and their modules - an operator space approach}, CLARENDON PRESS - OXFORD, 2004.
