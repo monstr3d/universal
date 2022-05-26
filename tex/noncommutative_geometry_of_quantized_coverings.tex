@@ -2208,7 +2208,31 @@ On the other hand the state $\widetilde q$ is $G$-invariant, it is possible if a
 \begin{definition}\label{fin_free_defn}
 We say that a finite-fold quasi-covering $\left(A, \widetilde{A}, G, \pi \right)$ is \textit{free} if the given by the Proposition \ref{spectrum_cov_prop}   action of $G\times \widetilde\sX \to \widetilde\sX$ is free.
 \end{definition}
-
+\begin{exercise}\label{disunct_irr_exer}
+	Let $A$ be a $C^*$-algebra, and let
+	 $\tau_1, ..., \tau_n: A\to\C$ be states. Let $\tau\bydef c_1 \tau_1 +... +c_n\tau_n$ be a state such that $c_1> 0, ..., c_n > 0$ and $c_1+...+c_n=1$. Let $\pi: A \to B\left(L^2\left( A,\tau \right)  \right)$ and $\pi_j: A \to B\left(L^2\left( A,\tau_j \right)  \right)$ be the GNS-representations (cf. Definition \ref{gns_defn}). From the Corollary \ref{domin_rep_cor} for any $j=1,..., n$ a representation $\pi_j$ can be regarded as a subrepresentation of 
+	 $\pi$. Let $\pi\left(A \right)'$ be a commutant of $\pi\left( A\right) $ in $B\left(L^2\left( A,\tau_j \right) \right)$.  Then any representation $\pi_j$ is a representation on $p_j L^2\left( A,\tau \right)$, where $p_j\in \pi\left(A \right)'$ is a projector with central support $z_j \in \mathscr Z\left( \pi\left(A \right)'\right)$ (cf. Definition \ref{central_supp_defn}). Prove following statements:
+	 \begin{enumerate}
+	 	\item For any $j = 1,..., n$ the Hilbert space
+	 	$$
+	 	p_jL^2\left( A,\tau\right) 
+	 	$$
+	 	is the completion of 
+	 	$$
+	 	f_\tau\left(\left\{a \in A| \tau_j\left(a^*a \right) \neq 0\right\} \right) 
+	 	$$
+	 	whee $f_\tau$ is given by the equation \eqref{from_a_to_l2_eqn}.
+	\item  $	L^2\left( A,\tau\right) = \sum_{j=1}^np_jL^2\left( A,\tau\right)$.
+	\item $1_{\pi\left(A \right)'}= p_1\vee ... \vee p_n = z_1\vee ... \vee z_n$ where a notation \ref{von_nemann_op_empt} is used.
+	\item If $\pi_0: A \to B\left(L^2\left( A,\tau \right)  \right)$ is an irreducible representation with a projection $p_0$ and central support $z_0$
+	then one has:
+	\begin{enumerate}
+		\item [(a)] $z_0 \wedge z_j\neq 0 \quad\Rightarrow \quad  z_0 \wedge z_j=z_0$ (cf. the  notation \ref{von_nemann_op_empt}).
+		\item[(b)] $\exists j \in \{1,..., n\}\quad  z_0 \wedge z_j=z_0$.
+		\item[(c)] $\exists j \in \{1,..., n\}\quad  \pi_0 \preceq\pi_j$ (cf Proposition \ref{orth_repr_prop}).
+	\end{enumerate}
+	 \end{enumerate}
+\end{exercise}
 \begin{lemma}\label{sub_pure_lem}
 Let $\left(A, \widetilde{A}, G, \pi \right)$ be a noncommutative finite-fold  quasi-covering. Let $\widetilde \tau: \widetilde{A}\to \C$ and $\tau \bydef \left. \widetilde{\tau}\right|_A: A \to \C$ be states. If $\rho: A \to \C$ is a pure state such that $\rho\preceq\tau$ (cf. Definition \ref{orth_repr_defn}), then there is a pure state $\widetilde \rho : \widetilde{A}\to \C$ such that 
 \bean
@@ -2222,7 +2246,11 @@ From the Proposition \ref{state_prop} it follows that there is a pure state $\wi
 \tau^\oplus \bydef \frac{1}{\left| G\right| }\sum_{	g \in G} g\widetilde{\tau},\\
 \rho^\oplus \bydef \frac{1}{\left| G\right| }\sum_{	g \in G} g\widetilde{\rho}'
 \eean 
-$G$-invariant states respectively (cf. Definition \ref{state_cov_11_defn} and Lemma \ref{state_cov_11_lem}). From $\rho\preceq\tau$ it follows that $\rho^\oplus\preceq\tau^\oplus$. It is possible if and only if there is $g \in G$ such that $\widetilde{\rho}\bydef g\widetilde{\rho}'\preceq\widetilde\tau$. From $\widetilde{\rho}\bydef g\widetilde{\rho}'$ it follows that
+$G$-invariant states respectively (cf. Definition \ref{state_cov_11_defn} and Lemma \ref{state_cov_11_lem}). From $\rho\preceq\tau$ it follows that $\rho^\oplus\preceq\tau^\oplus$. Otherwise from the Corollary \ref{domin_rep_cor} it follows that $\rho'\preceq\tau^\oplus$. From the Exercise \ref{disunct_irr_exer} it turns out that there is $g \in G$ such that $\widetilde \rho' \preceq g \widetilde \tau$. If $\widetilde \rho \bydef g^{-1}\widetilde \rho'$ then
+$$
+\widetilde{\rho}\preceq\widetilde\tau
+$$
+ From $\widetilde{\rho}= g^{-1}\widetilde{\rho}'$ it follows that
 $$
 \left. \widetilde{\rho}\right|_A= \left. \widetilde{\rho}'\right|_A= \rho.
 $$
@@ -10388,7 +10416,7 @@ The above equation is a specialization of \eqref{inf_cov_oa_sub3_eqn}, it follow
 it turns out that any {subordinated to}  $\mathfrak{S}_R^{\text{pt}}$ *-algebra is a *-subalgebra of $\widetilde R$, i.e. $\widetilde R$ is the unique maximal {subordinated to}  $\mathfrak{S}_R^{\text{pt}}$ *-algebra.
 \end{proof}
 !!! CONTINUE
-\subsubsection{Coverings of $O^*$-algebras and quasi $*$-algebras}\label{top_inf_o_sec}
+\subsubsection{Coverings of $O^*$-algebras}\label{top_inf_o_sec}
 \paragraph*{}
 Let $M$ be a finite-dimensional smooth manifold, and let 
 
@@ -10505,7 +10533,141 @@ The proof of the Theorem \ref{top_inf_o*_m_thm} is left to the reader.
 \begin{remark}
 	The Theorem \ref{top_inf_o*_m_thm} is a noncommutative counterpart of the Proposition \ref{top_cov_mani_prop}. 
 \end{remark}
-\begin{empt}
+\subsubsection{Infinite coverings and unbounded operators on Hilbert modules}
+\paragraph{}
+Here we consider two  specializations of described in the Section \ref{unb_hilb_sec} theory.
+
+\paragraph{Algebras of unbounded functions}
+
+\paragraph{}
+Let $\left( \sX, x_0\right) $ be a pointed connected, locally connected, locally compact, Hausdorff space. Let $B \bydef  C_0\left(\sX \right)$, and let $A\bydef Cont\left(\sX \right) $ be a *-algebra of continuous (possibly unbounded)  maps from $\sX$ to $\C$. From the Lemma \ref{top_base_point_lem} one has a {pointed algebraical  finite covering category} (cf. Definition \ref{pointed_defn}), given by
+\be\nonumber
+\begin{split}
+	\mathfrak{S}^{\mathrm{pt}}_{B} \bydef \left(\left\{\rho_\la: B \hookto B_\la \right\}_{\la \in \La}, \left\{\rho^\mu_\nu: B_\mu \hookto B_\nu\right\}_{\substack{\mu, \nu \in \La\\ \nu > \mu}}\right)\bydef \\ \left(\left\{C_0\left( p_\la\right) : C_0\left(\sX \right)  \hookto C_0\left(\sX_\la \right)\right\}, \left\{C_0\left( p_\nu^\mu\right) : C_0\left(\sX_\nu \right) \hookto C_0\left(\sX_\mu \right)\right\}\right).
+\end{split}
+\ee
+From the Theorem \ref{top_main_thm} it follows that $\mathfrak{S}^{\mathrm{pt}}_B$ is good !!! SOFT \ref{top_soft_exer}  !!! REP \ref{top_soft_r_defn}  (cf. Definition \ref{good_defn} !!! ABC to AB GOOD EXER ADD !!!). Moreover and there is a space $\widetilde \sX$  and a transitive covering $\widetilde p: \widetilde \sX\to  \sX$ such that a triple 
+$\left(C_0\left(\sX\right), C_0\left(\widetilde \sX\right),G\left(\left.\widetilde \sX~\right| \mathcal X\right)\right)
+$ is  an  { infinite noncommutative covering} of $\mathfrak{S}^{\mathrm{pt}}_{C_0\left(\mathcal{X}\right)}$ (cf. Definition \ref{main_defn}). This triple we also denote by $\left(B, \widetilde B,G\left(\left.\widetilde B~\right| B\right)\right)
+$.  For all $\la\in \La$ denote by $A_\la\bydef Cont\left(\sX_\la \right) $ a *-algebra of continuous (possibly unbounded) maps from $\sX_\la$ to $\C$.  From the Theorem \ref{top_fin_hilb_thm} it turns out that	
+\bean
+\begin{split}
+	\mathfrak{S}^{\text{pt}}_A \bydef \left(\left\{\pi_\la: A \hookto A_\la \right\}_{\la \in \La}, \left\{\pi^\mu_\nu: A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\ \nu > \mu}}\right)
+\end{split}
+\eean
+is a pointed category of $*$-algebras such that for any $\la, \mu, \nu\in \La$ the triples\\ $\left(A, A_\la, G\left(\left. A_\la\right| A\right)\bydef G\left(\left. B_\la\right| B\right), \pi_\la \right)$ and $\left(A_\mu, A_\nu, G\left(\left. A_\mu\right| A_\nu\right)\bydef G\left(\left. B_\mu\right| B_\nu\right), \pi^\mu_\nu \right)$ are associated with $\left(B, B_\la, G\left(\left. B_\la\right| B\right), \rho_\la \right)$ and $\left(B_\mu, B_\nu,G\left(\left. B_\mu\right| B_\nu\right), \rho^\mu_\nu \right)$ noncommutative finite-fold covering of *-algebras (cf. Definition \ref{fin_chull_defn} !!! CHECK (a) (b)).  The  Pedersen's ideal $\widetilde{\mathfrak B}\bydef K\left( \widetilde B\right)= C_c\left(\widetilde \sX \right) $ (cf. Definition \ref{peder_id_defn} and equation \eqref{peder_c0_eqn}) is dense in ${\widetilde B}$.
+
+\begin{exercise}\label{top_hilb_adm_exer}
+	Prove following statements:
+	\begin{itemize}
+		\item The right  $\widetilde B$-module $ \widetilde{\mathfrak B}'$ satisfies to all conditions described in \ref{comp_chull_empt}.
+		\item If $\widetilde A\bydef Cont\left(\widetilde\sX\right)$ is a commutative *-algebra of (possibly unbounded) $\C$-valued continuous maps from  $\widetilde{ {\sX}}$ to $\C$ then $\widetilde A$ is $G\left(\left.\widetilde B\right| B\right)$-equivariant. Moreover there is the natural inclusion $\widetilde A \subset \End^*_{\widetilde { B}}\left(\widetilde {\mathfrak B}'\right)$
+		which satisfies to the equation \eqref{hilb_adm_cup_eqn} and \eqref{hilb_adm_eqn}, i.e. $\widetilde A$ is admissible.
+	\end{itemize}
+\end{exercise}
+\begin{lemma}
+	In the described above situation 
+	the triple $\left(A, \widetilde{A}, G\left(\left.\widetilde A \right| A\right)\cong G\left(\left.\widetilde B \right| B\right)\right)$ is a {unique infinite noncommutative covering of $\mathfrak{S}^{\text{pt}}_A$ associated with $\mathfrak{S}_B^{\mathrm{pt}}$} (cf. Definition \ref{main_ch_defn} MAXI !!!).
+\end{lemma}
+\begin{proof}
+	From the Exercise \ref{top_hilb_adm_exer} it follows that $\widetilde A$ is admissible. So one should proof that any admissible algebra $\widetilde A'$ is a subalgebra of $\widetilde A$
+	If $\widetilde \sU \subset  \widetilde \sX$ is an open subset then there is an equivalence relation $\sim_{\widetilde\sU}$ on $\widetilde A'$ given by
+	$$
+	\forall \widetilde a', \widetilde a'' \in \widetilde A' \quad  \widetilde a'\sim_{\widetilde\sU} \widetilde a'' \quad\Leftrightarrow\left( \quad \forall \widetilde b\in C_c\left(\widetilde \sX \right) \quad \supp \widetilde b \subset  \widetilde\sU\quad \Rightarrow \quad\widetilde a'\widetilde b = \widetilde a''\widetilde b\right). 
+	$$
+	One can proof than the map
+	$\widetilde \sU \mapsto \widetilde A'/\sim_{\widetilde\sU}$ satisfies to the Definition  \ref{presheaf_defn}, i.e. one has a presheaf.  Let $\widetilde{\mathscr A}'$ be an associated sheaf !!! DEFN \ref{top_x_sheaf_defn} (cf. \ref{sheaf_prdf}). If $\widetilde x_0\subset \widetilde \sX$ that any stalk 
+	(cf. Definition \ref{stalk_defn}) of $\widetilde{\mathscr A}'$ at  $\widetilde x_0$ can be represented  by a pair $\left( \widetilde \sU, \widetilde a_{\widetilde \sU}\right) $ 
+	where  $\widetilde \sU$ is an open neighborhood of $\widetilde x_0$ and $a_{\widetilde \sU} \in \widetilde A'/\sim_{\widetilde\sU}$. Moreover from the Definition \ref{stalk_defn} one can assume that the closure $\widetilde \sY$ of $\widetilde \sU$ is compact. Let $\widetilde f\in  C_c\left( \widetilde \sX\right)$ be a covering sum for $ \widetilde \sY$ (cf. Definition \ref{top_covering_sum_defn}).
+	If $\widetilde a_{\widetilde \sU}$ is represented by $\widetilde a$ then from 
+	$\widetilde f \left(\widetilde \sU \right)=\{1\}$ it follows that  $\widetilde a_{\widetilde \sU}$ can be also represented by $\widetilde a\widetilde f$. From the equation \eqref{hilb_adm_eqn} it follows that there is $a^\cup \in \cup~ A_\la = \cup~Cont\left(\sX_\la \right)$ such that $\widetilde a\widetilde f=  a^\cup\widetilde f$. However $ a^\cup\widetilde f\in C_c\left(\widetilde \sX \right)$. It follows that any stalk at $\widetilde x_0$ corresponds to a stalk of the given by \eqref{top_cont_sheaf} 
+	sheaf !!! DEFN \ref{top_x_sheaf_defn} of $\mathscr C \left(\widetilde{\sX}, \left\{\C_{\widetilde{x}}\right\}, C_0\left(\widetilde\sX\right) \right)
+	$ continuous functions. On the other hand from \eqref{hilb_adm_cup_eqn} if follows that any stalk of $\mathscr C \left(\widetilde{\sX}, \left\{\C_{\widetilde{x}}\right\}, C_0\left(\widetilde\sX\right) \right)
+	$ can be represented by the stalk of $\widetilde{\mathscr A}'$. It follows that
+	$$
+	\widetilde{\mathscr A}' = \mathscr C \left(\widetilde{\sX}, \left\{\C_{\widetilde{x}}\right\}, C_0\left(\widetilde\sX\right) \right).
+	$$
+	On the other hand any $\widetilde a' \in \widetilde A'$ corresponds to a global sections of $\widetilde{\mathscr A}'$, i.e. there is an inclusion
+	$$
+	\widetilde A'\subset\widetilde{\mathscr A}'\left(\widetilde\sX\right) = \mathscr C \left(\widetilde{\sX}, \left\{\C_{\widetilde{x}}\right\}, C_0\left(\widetilde\sX\right) \right) \left(\widetilde\sX\right) = Cont\left(\widetilde\sX\right) \bydef \widetilde A.
+	$$
+	The above equation means that $\widetilde A$ is the unique maximal admissible *-algebra.
+	
+\end{proof}
+
+\paragraph{Polynomials in one variable}
+
+Suppose
+\bean%\label{top_hull_top_eqn}
+\begin{split}
+	\mathfrak{S}_{\left( \sX, x_0\right) }\bydef\\
+	\bydef \left\{\left\{p_\la:\left( \sX_\la, x^\la_0\right) \to \left( \sX, x_0\right)\right\}_{\la\in\La}, \left\{p^\mu_{ \nu}:\left( \sX_\mu, x^\mu_0\right) \to \left( \sX_\nu, x^\nu_0\right)\right\}_{\substack{\mu,\nu\in\La\\
+			\mu\ge\nu}} \right\}
+\end{split}
+\eean
+is  a pointed topological finite covering category (cf. Definition \ref{top_sec_p_defn}). If $\left( \sY, y_0\right) \bydef \left(  \sX \times \R, \left(x_0, \{0\} \right)\right) $, $~ \left( \sY_\la, y^\la_0\right) \bydef \left(  \sX_\la \times \R, \left(x^\la_0, \{0\} \right)\right) $ then there  is  a pointed topological finite covering category 
+\be\nonumber
+\begin{split}
+	\mathfrak{S}_{\left( \sY, x_0\right) }\bydef\\
+	\bydef \left\{\left\{p_\la:\left( \sY_\la, y^\la_0\right) \to \left( \sY, y_0\right)\right\}_{\la\in\La}, \left\{p^\mu_{ \nu}:\left( \sY_\mu, x^\mu_0\right) \to \left( \sY_\nu, y^\nu_0\right)\right\}_{\substack{\mu,\nu\in\La\\
+			\mu\ge\nu}} \right\}.
+\end{split}
+\ee	
+If $B_\la\bydef C_0\left(\sY_\la \right)$ then the Lemma \ref{top_base_point_lem} yields a pointed algebraical  finite covering category (cf. Definition \ref{pointed_defn})
+\be\label{top_sb_eqn}
+\begin{split}
+	\mathfrak{S}^{\text{pt}}_B \bydef \left(\left\{\rho_\la: B \hookto B_\la \right\}_{\la \in \La}, \left\{\rho^\mu_\nu: B_\mu \hookto B_\nu\right\}_{\substack{\mu, \nu \in \La\\ \nu > \mu}}\right).
+\end{split}
+\ee
+From the Theorem \ref{top_main_thm} it follows that $\mathfrak{S}^{\mathrm{pt}}_B$ is good !!! SOFT \ref{top_soft_exer}  !!! REP \ref{top_soft_r_defn}  (cf. Definition \ref{good_defn} !!! ABC to AB GOOD EXER ADD !!!). Moreover and there is a space $\widetilde \sX$  and a transitive covering $\widetilde p: \widetilde \sY\to  \sY$ such that a triple 
+$\left(C_0\left(\sY\right), C_0\left(\widetilde \sY\right),G\left(\left.\widetilde \sY~\right| \mathcal Y\right)\right)
+$ is  an  { infinite noncommutative covering} of $\mathfrak{S}^{\mathrm{pt}}_{B}$ (cf. Definition \ref{main_defn}). This triple we also denote by $\left(B, \widetilde B,G\left(\left.\widetilde B~\right| B\right)\right)
+$.
+If  $A$ be a given by \eqref{top_poly_a_defn} *-algebra, and  If $\mathfrak B$ is the completion of $C_c\left(\sY\right)$ with respect to the graph topology (cf. \ref{top_one_var_empt} and Definition \ref{def:rep_Hilbert_module} ) then there is the representation  $\mu:  A \hookto \End_B\left(\mathfrak B \right)$.
+!!! CONTINUE
+
+
+
+\begin{exercise}\label{top_ch_exer}
+	\begin{enumerate}
+		\item Using \ref{top_one_var_empt} and  Exercise \ref{top_fin_hilb_thm}  construct a  {pointed algebraic finite covering category of $*$-algebras}  given by
+		\be\label{top_sa_eqn}
+		\begin{split}
+			\mathfrak{S}^{\text{pt}}_A \bydef \left(\left\{\pi_\la: A \hookto A_\la \right\}_{\la \in \La}, \left\{\pi^\mu_\nu: A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\ \nu > \mu}}\right)
+		\end{split}
+		\ee
+		such that for any $\la, \mu, \nu\in \La$ the triples $\left(A, A_\la, G\left(\left. A_\la\right| A\right)\bydef G\left(\left. B_\la\right| B\right), \pi_\la \right)$ and $\left(A_\mu, A_\nu, G\left(\left. A_\mu\right| A_\nu\right)\bydef G\left(\left. B_\mu\right| B_\nu\right), \pi^\mu_\nu \right)$ are associated with $\left(B, B_\la, G\left(\left. B_\la\right| B\right), \rho_\la \right)$ and $\left(B_\mu, B_\nu,G\left(\left. B_\mu\right| B_\nu\right), \rho^\mu_\nu \right)$ noncommutative finite-fold covering of *-algebras (cf. Definition \ref{fin_chull_defn} !!! CHECK (a) (b)).
+		\item Prove that 	in the described above situation 
+		the triple $\left(A, \widetilde{A}, G\left(\left.\widetilde A \right| A\right)\cong G\left(\left.\widetilde B \right| B\right)\right)$ is an {infinite noncommutative covering of  $\mathfrak{S}^{\text{pt}}_A$  associated with $\mathfrak{S}_B^{\mathrm{pt}}$} (cf. Definition \ref{main_ch_defn} MAXI !!! !!! UNIQUE).
+		
+	\end{enumerate}
+	
+\end{exercise}
+
+
+
+
+\begin{empt}\label{top_at_empt}
+	Consider the above situation. One can define *-algebra $tA$ and $B^T$ as well as it is explained in the section \ref{top_fin_hull_sec}. Similarly to  \eqref{top_sa_eqn} and \eqref{top_sb_eqn} one can define
+	\bean
+	\begin{split}
+		\mathfrak{S}^{\text{pt}}_{B^T} = \left(\left\{\rho_\la: B^T \hookto B^T_\la \right\}_{\la \in \La}, \left\{\rho^\mu_\nu: B^T_\mu \hookto B^T_\nu\right\}_{\substack{\mu, \nu \in \La\\ \nu > \mu}}\right),\\
+		\mathfrak{S}^{\text{pt}}_{tA} \bydef \left(\left\{\pi_\la: tA \hookto tA_\la \right\}_{\la \in \La}, \left\{\pi^\mu_\nu: tA_\mu \hookto tA_\nu\right\}_{\substack{\mu, \nu \in \La\\ \nu > \mu}}\right).
+	\end{split}
+	\eean
+	
+\end{empt}
+\begin{exercise}\label{top_chull_exer}
+	Prove that in the described above situation 
+	the triple
+	\\$\left(tA, t\widetilde{A}, G\left(\left.t\widetilde A \right| tA\right)\cong G\left(\left.\widetilde B^T \right| B^T\right)\right)$ is an {infinite noncommutative covering of  $\mathfrak{S}^{\text{pt}}_{tA}$  associated with $\mathfrak{S}_{B^T}^{\mathrm{pt}}$} (cf. Definition \ref{main_ch_defn} MAXI !!!) !!! UNIQUE.
+\end{exercise}
+\begin{remark}
+	The given by the Exercise \ref{top_ch_exer} inverse noncommutative limit can be regarded as an inverse noncommutative limit of $O^*$-algebras (cf. Definition \ref{inv_o*_lim_defn} MAXI !!!). 	The given by the Exercise \ref{top_chull_exer} inverse noncommutative limit can not be regarded as an inverse noncommutative limit of $O^*$-algebras because $tA$ does not have nontrivial bounded elements.
+\end{remark}
+
+
+	\subsection{Coverings of   quasi $*$-algebras}
 From the Corollary \ref{top_q_fin_lem} it turns out that there  is a %pointed algebraic finite covering category of %
 a family of {noncommutative finite-fold coverings of quasi $*$-algebras} (cf. Remark \ref{top_distr_dens_q_rem} and Definition \ref{oq*fin_defn}) given by
 \be\label{top_comp_pt_qo*_eqn}
@@ -10513,7 +10675,7 @@ a family of {noncommutative finite-fold coverings of quasi $*$-algebras} (cf. Re
  \mathfrak{S}^{\text{pt}}_{\left(\Coo_c\left(M \right)', \Coo\left(M \right)    \right) } =\\=\left(\left\{\pi_\la: \left(\Coo_c\left(M \right)', \Coo\left(M \right)    \right) \hookto \left(\Coo_c\left(M_\la \right)', \Coo\left(M_\la \right)    \right) \right\}_{\la \in \La}, \left\{\pi^\mu_\nu: \right\}_{\substack{\mu, \nu \in \La\\ \nu > \mu}}\right).
 \end{split}
 \ee
-\end{empt}
+
 \begin{lemma}
 The given by \eqref{top_comp_pt_qo*_eqn} family $ \mathfrak{S}^{\text{pt}}_{\left(\Coo_c\left(M \right)', \Coo\left(M \right)    \right) }$  is a \textit{pointed algebraic finite covering category of quasi-$*$-algebras} (cf. Definition \ref{comp_qo*_defn})
 \end{lemma}
@@ -10638,138 +10800,7 @@ The equation \eqref{top_inv_qo*_llimp_eqn} follows from \eqref{top_cc_l_inc_eqn}
 
 \end{proof}
 
-\subsubsection{Infinite coverings and unbounded operators on Hilbert modules}
-\paragraph{}
-Here we consider two  specializations of described in the Section \ref{unb_hilb_sec} theory.
 
-\paragraph{Algebras of unbounded functions}
-
-\paragraph{}
-Let $\left( \sX, x_0\right) $ be a pointed connected, locally connected, locally compact, Hausdorff space. Let $B \bydef  C_0\left(\sX \right)$, and let $A\bydef Cont\left(\sX \right) $ be a *-algebra of continuous (possibly unbounded)  maps from $\sX$ to $\C$. From the Lemma \ref{top_base_point_lem} one has a {pointed algebraical  finite covering category} (cf. Definition \ref{pointed_defn}), given by
-\be\nonumber
-\begin{split}
-	\mathfrak{S}^{\mathrm{pt}}_{B} \bydef \left(\left\{\rho_\la: B \hookto B_\la \right\}_{\la \in \La}, \left\{\rho^\mu_\nu: B_\mu \hookto B_\nu\right\}_{\substack{\mu, \nu \in \La\\ \nu > \mu}}\right)\bydef \\ \left(\left\{C_0\left( p_\la\right) : C_0\left(\sX \right)  \hookto C_0\left(\sX_\la \right)\right\}, \left\{C_0\left( p_\nu^\mu\right) : C_0\left(\sX_\nu \right) \hookto C_0\left(\sX_\mu \right)\right\}\right).
-\end{split}
-\ee
-From the Theorem \ref{top_main_thm} it follows that $\mathfrak{S}^{\mathrm{pt}}_B$ is good !!! SOFT \ref{top_soft_exer}  !!! REP \ref{top_soft_r_defn}  (cf. Definition \ref{good_defn} !!! ABC to AB GOOD EXER ADD !!!). Moreover and there is a space $\widetilde \sX$  and a transitive covering $\widetilde p: \widetilde \sX\to  \sX$ such that a triple 
-$\left(C_0\left(\sX\right), C_0\left(\widetilde \sX\right),G\left(\left.\widetilde \sX~\right| \mathcal X\right)\right)
-$ is  an  { infinite noncommutative covering} of $\mathfrak{S}^{\mathrm{pt}}_{C_0\left(\mathcal{X}\right)}$ (cf. Definition \ref{main_defn}). This triple we also denote by $\left(B, \widetilde B,G\left(\left.\widetilde B~\right| B\right)\right)
-$.  For all $\la\in \La$ denote by $A_\la\bydef Cont\left(\sX_\la \right) $ a *-algebra of continuous (possibly unbounded) maps from $\sX_\la$ to $\C$.  From the Theorem \ref{top_fin_hilb_thm} it turns out that	
-\bean
-\begin{split}
-	\mathfrak{S}^{\text{pt}}_A \bydef \left(\left\{\pi_\la: A \hookto A_\la \right\}_{\la \in \La}, \left\{\pi^\mu_\nu: A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\ \nu > \mu}}\right)
-\end{split}
-\eean
-is a pointed category of $*$-algebras such that for any $\la, \mu, \nu\in \La$ the triples\\ $\left(A, A_\la, G\left(\left. A_\la\right| A\right)\bydef G\left(\left. B_\la\right| B\right), \pi_\la \right)$ and $\left(A_\mu, A_\nu, G\left(\left. A_\mu\right| A_\nu\right)\bydef G\left(\left. B_\mu\right| B_\nu\right), \pi^\mu_\nu \right)$ are associated with $\left(B, B_\la, G\left(\left. B_\la\right| B\right), \rho_\la \right)$ and $\left(B_\mu, B_\nu,G\left(\left. B_\mu\right| B_\nu\right), \rho^\mu_\nu \right)$ noncommutative finite-fold covering of *-algebras (cf. Definition \ref{fin_chull_defn} !!! CHECK (a) (b)).  The  Pedersen's ideal $\widetilde{\mathfrak B}\bydef K\left( \widetilde B\right)= C_c\left(\widetilde \sX \right) $ (cf. Definition \ref{peder_id_defn} and equation \eqref{peder_c0_eqn}) is dense in ${\widetilde B}$.
-
- \begin{exercise}\label{top_hilb_adm_exer}
-	Prove following statements:
-	\begin{itemize}
-		\item The right  $\widetilde B$-module $ \widetilde{\mathfrak B}'$ satisfies to all conditions described in \ref{comp_chull_empt}.
-		\item If $\widetilde A\bydef Cont\left(\widetilde\sX\right)$ is a commutative *-algebra of (possibly unbounded) $\C$-valued continuous maps from  $\widetilde{ {\sX}}$ to $\C$ then $\widetilde A$ is $G\left(\left.\widetilde B\right| B\right)$-equivariant. Moreover there is the natural inclusion $\widetilde A \subset \End^*_{\widetilde { B}}\left(\widetilde {\mathfrak B}'\right)$
- 		which satisfies to the equation \eqref{hilb_adm_cup_eqn} and \eqref{hilb_adm_eqn}, i.e. $\widetilde A$ is admissible.
-	\end{itemize}
-\end{exercise}
-\begin{lemma}
-	In the described above situation 
-	the triple $\left(A, \widetilde{A}, G\left(\left.\widetilde A \right| A\right)\cong G\left(\left.\widetilde B \right| B\right)\right)$ is a {unique infinite noncommutative covering of $\mathfrak{S}^{\text{pt}}_A$ associated with $\mathfrak{S}_B^{\mathrm{pt}}$} (cf. Definition \ref{main_ch_defn} MAXI !!!).
-\end{lemma}
-\begin{proof}
-	From the Exercise \ref{top_hilb_adm_exer} it follows that $\widetilde A$ is admissible. So one should proof that any admissible algebra $\widetilde A'$ is a subalgebra of $\widetilde A$
-If $\widetilde \sU \subset  \widetilde \sX$ is an open subset then there is an equivalence relation $\sim_{\widetilde\sU}$ on $\widetilde A'$ given by
-	 $$
-	 \forall \widetilde a', \widetilde a'' \in \widetilde A' \quad  \widetilde a'\sim_{\widetilde\sU} \widetilde a'' \quad\Leftrightarrow\left( \quad \forall \widetilde b\in C_c\left(\widetilde \sX \right) \quad \supp \widetilde b \subset  \widetilde\sU\quad \Rightarrow \quad\widetilde a'\widetilde b = \widetilde a''\widetilde b\right). 
-	 $$
-	 One can proof than the map
-$\widetilde \sU \mapsto \widetilde A'/\sim_{\widetilde\sU}$ satisfies to the Definition  \ref{presheaf_defn}, i.e. one has a presheaf.  Let $\widetilde{\mathscr A}'$ be an associated sheaf !!! DEFN \ref{top_x_sheaf_defn} (cf. \ref{sheaf_prdf}). If $\widetilde x_0\subset \widetilde \sX$ that any stalk 
-(cf. Definition \ref{stalk_defn}) of $\widetilde{\mathscr A}'$ at  $\widetilde x_0$ can be represented  by a pair $\left( \widetilde \sU, \widetilde a_{\widetilde \sU}\right) $ 
-where  $\widetilde \sU$ is an open neighborhood of $\widetilde x_0$ and $a_{\widetilde \sU} \in \widetilde A'/\sim_{\widetilde\sU}$. Moreover from the Definition \ref{stalk_defn} one can assume that the closure $\widetilde \sY$ of $\widetilde \sU$ is compact. Let $\widetilde f\in  C_c\left( \widetilde \sX\right)$ be a covering sum for $ \widetilde \sY$ (cf. Definition \ref{top_covering_sum_defn}).
-If $\widetilde a_{\widetilde \sU}$ is represented by $\widetilde a$ then from 
-$\widetilde f \left(\widetilde \sU \right)=\{1\}$ it follows that  $\widetilde a_{\widetilde \sU}$ can be also represented by $\widetilde a\widetilde f$. From the equation \eqref{hilb_adm_eqn} it follows that there is $a^\cup \in \cup~ A_\la = \cup~Cont\left(\sX_\la \right)$ such that $\widetilde a\widetilde f=  a^\cup\widetilde f$. However $ a^\cup\widetilde f\in C_c\left(\widetilde \sX \right)$. It follows that any stalk at $\widetilde x_0$ corresponds to a stalk of the given by \eqref{top_cont_sheaf} 
-sheaf !!! DEFN \ref{top_x_sheaf_defn} of $\mathscr C \left(\widetilde{\sX}, \left\{\C_{\widetilde{x}}\right\}, C_0\left(\widetilde\sX\right) \right)
-$ continuous functions. On the other hand from \eqref{hilb_adm_cup_eqn} if follows that any stalk of $\mathscr C \left(\widetilde{\sX}, \left\{\C_{\widetilde{x}}\right\}, C_0\left(\widetilde\sX\right) \right)
-$ can be represented by the stalk of $\widetilde{\mathscr A}'$. It follows that
-$$
-\widetilde{\mathscr A}' = \mathscr C \left(\widetilde{\sX}, \left\{\C_{\widetilde{x}}\right\}, C_0\left(\widetilde\sX\right) \right).
-$$
-On the other hand any $\widetilde a' \in \widetilde A'$ corresponds to a global sections of $\widetilde{\mathscr A}'$, i.e. there is an inclusion
-$$
-\widetilde A'\subset\widetilde{\mathscr A}'\left(\widetilde\sX\right) = \mathscr C \left(\widetilde{\sX}, \left\{\C_{\widetilde{x}}\right\}, C_0\left(\widetilde\sX\right) \right) \left(\widetilde\sX\right) = Cont\left(\widetilde\sX\right) \bydef \widetilde A.
-$$
-The above equation means that $\widetilde A$ is the unique maximal admissible *-algebra.
-	
-\end{proof}
-
-\paragraph{Polynomials in one variable}
-
-Suppose
-\bean%\label{top_hull_top_eqn}
-\begin{split}
-	\mathfrak{S}_{\left( \sX, x_0\right) }\bydef\\
-	\bydef \left\{\left\{p_\la:\left( \sX_\la, x^\la_0\right) \to \left( \sX, x_0\right)\right\}_{\la\in\La}, \left\{p^\mu_{ \nu}:\left( \sX_\mu, x^\mu_0\right) \to \left( \sX_\nu, x^\nu_0\right)\right\}_{\substack{\mu,\nu\in\La\\
-			\mu\ge\nu}} \right\}
-\end{split}
-\eean
-is  a pointed topological finite covering category (cf. Definition \ref{top_sec_p_defn}). If $\left( \sY, y_0\right) \bydef \left(  \sX \times \R, \left(x_0, \{0\} \right)\right) $, $~ \left( \sY_\la, y^\la_0\right) \bydef \left(  \sX_\la \times \R, \left(x^\la_0, \{0\} \right)\right) $ then there  is  a pointed topological finite covering category 
-\be\nonumber
-\begin{split}
-	\mathfrak{S}_{\left( \sY, x_0\right) }\bydef\\
-	\bydef \left\{\left\{p_\la:\left( \sY_\la, y^\la_0\right) \to \left( \sY, y_0\right)\right\}_{\la\in\La}, \left\{p^\mu_{ \nu}:\left( \sY_\mu, x^\mu_0\right) \to \left( \sY_\nu, y^\nu_0\right)\right\}_{\substack{\mu,\nu\in\La\\
-			\mu\ge\nu}} \right\}.
-\end{split}
-\ee	
-If $B_\la\bydef C_0\left(\sY_\la \right)$ then the Lemma \ref{top_base_point_lem} yields a pointed algebraical  finite covering category (cf. Definition \ref{pointed_defn})
-\be\label{top_sb_eqn}
-\begin{split}
-	\mathfrak{S}^{\text{pt}}_B \bydef \left(\left\{\rho_\la: B \hookto B_\la \right\}_{\la \in \La}, \left\{\rho^\mu_\nu: B_\mu \hookto B_\nu\right\}_{\substack{\mu, \nu \in \La\\ \nu > \mu}}\right).
-\end{split}
-\ee
-From the Theorem \ref{top_main_thm} it follows that $\mathfrak{S}^{\mathrm{pt}}_B$ is good !!! SOFT \ref{top_soft_exer}  !!! REP \ref{top_soft_r_defn}  (cf. Definition \ref{good_defn} !!! ABC to AB GOOD EXER ADD !!!). Moreover and there is a space $\widetilde \sX$  and a transitive covering $\widetilde p: \widetilde \sY\to  \sY$ such that a triple 
-$\left(C_0\left(\sY\right), C_0\left(\widetilde \sY\right),G\left(\left.\widetilde \sY~\right| \mathcal Y\right)\right)
-$ is  an  { infinite noncommutative covering} of $\mathfrak{S}^{\mathrm{pt}}_{B}$ (cf. Definition \ref{main_defn}). This triple we also denote by $\left(B, \widetilde B,G\left(\left.\widetilde B~\right| B\right)\right)
-$.
-If  $A$ be a given by \eqref{top_poly_a_defn} *-algebra, and  If $\mathfrak B$ is the completion of $C_c\left(\sY\right)$ with respect to the graph topology (cf. \ref{top_one_var_empt} and Definition \ref{def:rep_Hilbert_module} ) then there is the representation  $\mu:  A \hookto \End_B\left(\mathfrak B \right)$.
-!!! CONTINUE
-
-
-
-\begin{exercise}\label{top_ch_exer}
-	\begin{enumerate}
-		\item Using \ref{top_one_var_empt} and  Exercise \ref{top_fin_hilb_thm}  construct a  {pointed algebraic finite covering category of $*$-algebras}  given by
-		\be\label{top_sa_eqn}
-		\begin{split}
-			\mathfrak{S}^{\text{pt}}_A \bydef \left(\left\{\pi_\la: A \hookto A_\la \right\}_{\la \in \La}, \left\{\pi^\mu_\nu: A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\ \nu > \mu}}\right)
-		\end{split}
-		\ee
-		such that for any $\la, \mu, \nu\in \La$ the triples $\left(A, A_\la, G\left(\left. A_\la\right| A\right)\bydef G\left(\left. B_\la\right| B\right), \pi_\la \right)$ and $\left(A_\mu, A_\nu, G\left(\left. A_\mu\right| A_\nu\right)\bydef G\left(\left. B_\mu\right| B_\nu\right), \pi^\mu_\nu \right)$ are associated with $\left(B, B_\la, G\left(\left. B_\la\right| B\right), \rho_\la \right)$ and $\left(B_\mu, B_\nu,G\left(\left. B_\mu\right| B_\nu\right), \rho^\mu_\nu \right)$ noncommutative finite-fold covering of *-algebras (cf. Definition \ref{fin_chull_defn} !!! CHECK (a) (b)).
-		\item Prove that 	in the described above situation 
-		the triple $\left(A, \widetilde{A}, G\left(\left.\widetilde A \right| A\right)\cong G\left(\left.\widetilde B \right| B\right)\right)$ is an {infinite noncommutative covering of  $\mathfrak{S}^{\text{pt}}_A$  associated with $\mathfrak{S}_B^{\mathrm{pt}}$} (cf. Definition \ref{main_ch_defn} MAXI !!! !!! UNIQUE).
-		
-	\end{enumerate}
-	
-\end{exercise}
-
-
-
-
-\begin{empt}\label{top_at_empt}
-	Consider the above situation. One can define *-algebra $tA$ and $B^T$ as well as it is explained in the section \ref{top_fin_hull_sec}. Similarly to  \eqref{top_sa_eqn} and \eqref{top_sb_eqn} one can define
-	\bean
-	\begin{split}
-		\mathfrak{S}^{\text{pt}}_{B^T} = \left(\left\{\rho_\la: B^T \hookto B^T_\la \right\}_{\la \in \La}, \left\{\rho^\mu_\nu: B^T_\mu \hookto B^T_\nu\right\}_{\substack{\mu, \nu \in \La\\ \nu > \mu}}\right),\\
-		\mathfrak{S}^{\text{pt}}_{tA} \bydef \left(\left\{\pi_\la: tA \hookto tA_\la \right\}_{\la \in \La}, \left\{\pi^\mu_\nu: tA_\mu \hookto tA_\nu\right\}_{\substack{\mu, \nu \in \La\\ \nu > \mu}}\right).
-	\end{split}
-	\eean
-	
-\end{empt}
-\begin{exercise}\label{top_chull_exer}
-	Prove that in the described above situation 
-	the triple
-	\\$\left(tA, t\widetilde{A}, G\left(\left.t\widetilde A \right| tA\right)\cong G\left(\left.\widetilde B^T \right| B^T\right)\right)$ is an {infinite noncommutative covering of  $\mathfrak{S}^{\text{pt}}_{tA}$  associated with $\mathfrak{S}_{B^T}^{\mathrm{pt}}$} (cf. Definition \ref{main_ch_defn} MAXI !!!) !!! UNIQUE.
-\end{exercise}
-\begin{remark}
-	The given by the Exercise \ref{top_ch_exer} inverse noncommutative limit can be regarded as an inverse noncommutative limit of $O^*$-algebras (cf. Definition \ref{inv_o*_lim_defn} MAXI !!!). 	The given by the Exercise \ref{top_chull_exer} inverse noncommutative limit can not be regarded as an inverse noncommutative limit of $O^*$-algebras because $tA$ does not have nontrivial bounded elements.
-\end{remark}
 \subsection{Strong Morita equivalence of infinite coverings}
 	\paragraph*{} Here we consider a specialization of the explained in the Section \ref{inf_mor_sec} theory.
 \begin{lemma}\label{comm_allows_lem}
@@ -21536,6 +21567,28 @@ K\left(C_0\left(\sX \right)  \right) = C_c\left(\sX \right).
 	%\begin{definition}\label{pedesen_defn}
 	%	The ideal $K\left(A \right)$  given by the Lemma \ref{pedesen_thm} is said to be the \textit{Pedersen's ideal}. 
 	%\end{definition}
+	
+	\begin{empt}\label{von_nemann_op_empt}\cite{pedersen:ca_aut}
+		For each $x\in B(\H)$ we define the {\it range projection} of $x$ (denoted by $[x]$) as projection on closure of $x\H$. If $x\ge 0$ then the sequence $\left(\left((1 /n) +x\right)^{-1}x\right)$ is monotone increasing to $[x]$.  If $p$ and $q$ are projections then $p \vee q = [p + q]$ and thus $p \wedge q = 1 - \left[2 - \left(p+q\right)\right]$. Similarly we have $p \setminus q = p - p\wedge q$. Since $[x]H$ is the orthogonal complement of the null space of $x^*$ we have $[x]=[xx^*]$. If $M$ is a von Neumann algebra in $B(\H)$ then $[x]\in M$ for any $x\in M$. \end{empt}
+	
+	
+	\begin{definition}\label{central_supp_defn}\cite{blackadar:oa}
+	Every projection $p$ in a von Neumann algebra $M$ has a central
+	\textit{carrier} (or \textit{central support projection}) $z_p$, the smallest projection in the center
+	$\mathscr Z(M)$ containing $p$ as a subprojection ($z_p$ exists since $\mathscr Z(M)$ is itself a von
+	Neumann algebra).% By III.1.1.4,
+	$$
+	1- z_p = \bigvee\left\{q\in M | qMp = 0\right\}
+	$$
+	Projections $p$ and $q$ have nonzero equivalent subprojections if and only if
+	$z_pz_q = 0$. In particular, if $q \preceq p$, then $z_q \le z_p$.
+	\end{definition}
+
+
+
+\begin{defn}\cite{pedersen:ca_aut}
+	For any $x\in B(\H)$ element $|x| \stackrel{\text{def}}{=} (xx^*)^{1/2}$ is said to be the {\it absolute value of} $x$.
+\end{defn}
 	\section{States and representations}\label{st_rep_sec}
 	\begin{definition}\label{state_defn}\cite{pedersen:ca_aut}
 		A state of a $C^*$ -algebra $A$ is a positive functional of norm one. The set of 
@@ -21625,6 +21678,7 @@ K\left(C_0\left(\sX \right)  \right) = C_c\left(\sX \right).
 	(iv) The representations  $\pi$ and $\rho$ are \textit{quasi}-\textit{equivalent}, written  $\pi\sim\rho$, if $\pi\preceq\rho$
 	and $\rho\preceq\pi$.
 \end{definition}
+
 \begin{proposition}\label{orth_repr_prop}\cite{blackadar:oa}
 	Let $\pi$ be a representation of $A$ on $\H$, and $p,q$ projections in $\pi\left(A \right)'$ 
 	, with central supports $z_p,z_q$. Let $\rho, \sigma$ be the subrepresentations of $\pi$ on $p\H$ and $q\H$ respectively. Then\\
@@ -21632,11 +21686,10 @@ K\left(C_0\left(\sX \right)  \right) = C_c\left(\sX \right).
 	(ii) $\rho\perp\sigma$ if and only if $z_p \perp z_q$.\\
 	(iii) $\rho \preceq\sigma$ if and only if $z_p\le z_q$.\\
 	(iv) $\rho\sim\sigma$ if and only if $z_p = z_q$.
-	
 \end{proposition}
 \begin{corollary}\label{domin_rep_cor}\cite{pedersen:ca_aut}
 %3.3.8. COROLLARY. 
-If $\varphi$ and $\psi$ are positive functionala on a $C^*$-algebra $A$ and $\psi$  
+If $\varphi$ and $\psi$ are positive functionals on a $C^*$-algebra $A$ and $\psi$  
 is dominated by a multiple of $\varphi$ then the representation $\pi_\psi: A \to B\left( \H_\psi\right)$  is spatially 
 equivalent to a subrepresentation of $\pi_\varphi: A \to B\left( \H_\varphi\right)$. 
 \end{corollary}
