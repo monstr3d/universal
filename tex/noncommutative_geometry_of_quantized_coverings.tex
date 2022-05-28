@@ -109,11 +109,11 @@
 \linespread{1.05}         % Palatino needs more leading (space between lines)
 
 \newbox\ncintdbox \newbox\ncinttbox %% noncommutative integral symbols
-\setbox0=\hbox{$-$} \setbox2=\hbox{$\displaystyle\int$}
+\setbox0=\hbox{$-$} \setbox2=\hbox{$\displaystyle!!! \int$}
 \setbox\ncintdbox=\hbox{\rlap{\hbox
     to \wd2{\hskip-.125em \box2\relax\hfil}}\box0\kern.1em}
 \setbox0=\hbox{$\vcenter{\hrule width 4pt}$}
-\setbox2=\hbox{$\textstyle\int$} \setbox\ncinttbox=\hbox{\rlap{\hbox
+\setbox2=\hbox{$\textstyle!!! \int$} \setbox\ncinttbox=\hbox{\rlap{\hbox
     to \wd2{\hskip-.175em \box2\relax\hfil}}\box0\kern.1em}
 
 \newcommand{\ncint}{\mathop{\mathchoice{\copy\ncintdbox}%
@@ -462,11 +462,11 @@
 
 \newbox\ncintdbox \newbox\ncinttbox %% noncommutative integral symbols
 \setbox0=\hbox{$-$}
-\setbox2=\hbox{$\displaystyle\int$}
+\setbox2=\hbox{$\displaystyle!!! \int$}
 \setbox\ncintdbox=\hbox{\rlap{\hbox
            to \wd2{\box2\relax\hfil}}\box0\kern.1em}
 \setbox0=\hbox{$\vcenter{\hrule width 4pt}$}
-\setbox2=\hbox{$\textstyle\int$}
+\setbox2=\hbox{$\textstyle!!! \int$}
 \setbox\ncinttbox=\hbox{\rlap{\hbox
            to \wd2{\hskip-.05em\box2\relax\hfil}}\box0\kern.1em}
 
@@ -4314,10 +4314,10 @@ A $G_{\widehat{\pi}}$-invariant  *-subalgebra $\widetilde A'\subset \L^\dagger\l
 	\bea\label{inf_cov_o*_sub1_eqn}
 A_\la \widetilde A'\subset \widetilde A',\\
 \label{inf_cov_o*_sub2_eqn}		\widetilde A'A_\la\subset \widetilde A',\\
-\label{inf_cov_o*_sub3_eqn}		\forall \widetilde b \in K\left(\widetilde B\right) \cap \L^\dagger\left( \widetilde \D \right) 
+\label{inf_cov_o*_sub3_eqn}		\forall \widetilde b \in K\left(\widetilde B\right) \cap \L^\dagger\left( \widetilde \D \right)_b 
 ~~ \forall \widetilde a \in \widetilde A'~~ \exists  \widetilde a', \widetilde a'' \in \bigcup_{\la\in\La} A_\la~~ \widetilde b \widetilde a = \widetilde b \widetilde a', ~ \widetilde a \widetilde b = \widetilde a'' \widetilde b.
 \eea
-where $K\left(\widetilde B \right)$ is the Pedersen's ideal of $\widetilde B$ (cf. Definition \ref{peder_id_defn}).
+where $K\left(\widetilde B \right)$ is the Pedersen's ideal of $\widetilde B$ (cf. Definition \ref{peder_id_defn}) and $\L^\dagger\left( \widetilde \D \right)_b$ is given by the equation  \eqref{o*b_eqn}.
 
 \end{empt}
 
@@ -4364,7 +4364,7 @@ be a pointed category of $*$-algebras such that for any $\la, \mu, \nu\in \La$ t
 	%\left( K\left(\widetilde B \right)\cap \widetilde{\mathfrak B}' \right)\widetilde a'\subset K\left(\widetilde B \right)\cap \widetilde{\mathfrak B}',\\
 	\bea		\label{hilb_adm_eqn}
 	\forall \widetilde a'\in\widetilde A\quad  \forall \widetilde b \in K\left(\widetilde B \right)\cap \widetilde{\mathfrak B}'\quad  \exists a^\cup \in \bigcup_{\la\in\La} A_\la \quad \widetilde a' \widetilde b =  a^\cup \widetilde b.
-	\eea 
+	\eea
 \end{empt}
 
 
@@ -6675,7 +6675,58 @@ one has
 	
 \end{enumerate}
 \end{exercise}
+\begin{empt}
+Let $p: \widetilde \sX \to \sX$ be a covering. If $\widetilde a \in C_c\left( \widetilde \sX\right)$ and there is $x \in \sX$ such that 
+the set $\mathcal Z_x \bydef \left\{\left.p^{-1}\left(\{x\} \right)\right|\widetilde a\left( \widetilde x\right) \neq 0\right\}$ is not finite then $\supp \widetilde a$ contains an infinite discrete subset $\mathcal Z_x$. It is impossible because the set $\supp \widetilde a$ is compact.   So $\mathcal Z_x$ is finite and there is a map 
+\be\label{top_desc_c_eqn}
+\begin{split}
+\desc^c_p\left(\widetilde a \right): \sX \to \C,\\
+x \mapsto \sum_{\widetilde{x}\in p^{-1}\left(x \right) } \widetilde a\left(\widetilde x\right)=\sum_{\widetilde{x}\in \mathcal Z_x } \widetilde a\left(\widetilde x\right).
+\end{split}
+\ee   
+\end{empt}
 
+\begin{exercise}
+Prove that the given by \eqref{top_desc_c_eqn}  map $\desc^c_p\left(\widetilde a \right)$ satisfies to following conditions:
+\begin{enumerate}
+	\item [(a)] $\desc^c_p\left(\widetilde a \right)\in C_c\left(\sX\right)$,
+	\item[(b)] If $\widetilde a \in C_c\left(\widetilde \sX\right)$ and 	
+	the covering $p$ is transitive (cf. Definition \ref{top_cov_trans_defn}) then there is a convergent (in the sense of strict topology of $M\left( C_0\left(\widetilde \sX\right)\right) $) series
+	$$
+	\lift_p \left( \desc^c_p\left(\widetilde a \right)\right)  =\bt\text{-} \sum_{	g \in G\left(\left.\widetilde{\sX}~\right|\sX\right)}g \widetilde a
+	$$
+	(cf. Definition \ref{strict_topology} and equation \eqref{strict_topology_eqn}), where $\lift_p$ means the $p$-lift (cf. Definition \ref{top_lift_defn}).
+\end{enumerate}
+\end{exercise}
+\begin{empt}
+ Let $\sX$ be a locally compact Hausdorff space and 	there is a positive functional 
+\be\label{top_tau_eqn}
+\begin{split}
+\tau : C_c\left( \sX\right) \to \C,\\
+a \mapsto  \int_{\sX} a~ d\mu.
+\end{split}
+\ee
+(cf. Theorem \ref{meafunc_thm}) such that $a > 0  \Rightarrow \tau\left(a \right)>0$. If $p: \widetilde \sX\to \sX$ then one can define a functional
+
+\be\label{top_tau_l_eqn}
+\begin{split}
+\lift_p\tau: C_c\left( \sX\right) \to \C,\\
+\widetilde a \mapsto\tau\left(\desc^c_p\left(\widetilde a \right) \right)
+\end{split}
+\ee
+such that $\widetilde a > 0 \quad \Rightarrow \quad \lift_p\tau\left(\widetilde a \right) > 0$.	
+From the Theorem \ref{meafunc_thm} one has a measure $\lift_p\mu$ such that
+\be
+\lift_p\tau \left( \widetilde a\right)=  \int_{\widetilde\sX} \widetilde a~ d~\lift_p\mu
+\ee
+\end{empt}
+\begin{definition}\label{top_mea_lift_defn}
+In the described above situation we say:
+\begin{itemize}
+	\item the functional $\lift_p\tau$ is the $p$-\textit{lift} of $\tau$,
+		\item the measure $\lift_p\mu$ is the $p$-\textit{lift} of $\mu$.
+	\end{itemize}
+\end{definition}
 
 
 \begin{empt}\label{ctr_unity_empt}
@@ -7472,13 +7523,6 @@ where $\mathscr Hom$ means a sheaf of local morphisms (cf. Definition \ref{sheaf
 		$$
 			p^{-1} \mathscr D\left(M, E_1, E_2\right)\cong  \mathscr \mathscr \mathscr D\left(M, \widetilde E_1, \widetilde E_2\right).
 		$$
-			\item[(iv)] From $D\left(M, E_1, E_2\right)\cong  \mathscr D\left(M, E_1, E_2\right)\left(M \right)$ and 
-			$D\left(\widetilde M, \widetilde E_1,\widetilde E_2\right)\cong  \mathscr D\left(\widetilde M,\widetilde E_1,  \widetilde E_2 \right)\left(\widetilde M \right)$  it follows that there is the natural injective $\C$-linear homomorphism 			
-			$D\left(p,  E_1,  E_2 \right) : D\left(M, E_1, E_2\right)\hookto D\left(\widetilde M,\widetilde E_1, \widetilde E_2\right)$ (cf. equations \eqref{top_st_iso_eqn}, \eqref{top_sheaf_lift_eqn}). Moreover if $E_1 = E_2= E$ then this homomorphism is a homomorphism of algebras
-			\be\label{top_diff_alg_lift_eqn}
-			D\left(p, E \right) : D\left(M, E\right)\hookto D\left(\widetilde M, \widetilde E\right)
-			\ee 
-		(cf. Remark \ref{do_man_rem}).	
 	\end{enumerate} 
 
 \end{exercise}
@@ -7517,12 +7561,60 @@ then $D^*\left(M,E\right)$ is an $O^*$-algebra (cf. Definition \ref{o*alg_defn})
 \begin{definition}\label{top_diff*_defn}
 The given by the equation \eqref{top_diff*_eqn} $O^*$-algebra  $D^*\left(M,E\right)$ is said to be an \textit{algebra of adjointable differential operators}.
 \end{definition}
-\begin{exercise}
-Consider the above situation and suppose that $p: \widetilde M \to M$ is a finite-fold topological covering (cf. Definition \ref{top_cov_defn}) Similarly to the equation \eqref{top_diff_alg_lift_eqn} prove that there is an injective *-homomorphism
-\be\label{top_diff_*alg_lift_eqn}
-D^*\left(p,E \right) : D^*\left(M, E\right)\hookto D^*\left(\widetilde M, \widetilde E\right).
-\ee 
+\begin{remark}
+The $O^*$-algebra  $D^*\left(M,E\right)$ is a module over a $c$-soft *-algebra  $\Coo_0\left(M \right)$ (cf. Definition \ref{top_soft_r_defn} and Exercise \ref{smooth_soft_exer}).
+\end{remark}
+\begin{lemma}\label{top_diff*_lem}
+If $\mathscr S^{D^*\left(M,E\right)}$ is the $D^*\left(M,E\right)$-sheaf (cf. Definition \ref{top_x_sheaf_defn}) then the natural inclusion
+$$
+D^*\left(M,E\right)\subset \mathscr S^{D^*\left(M,E\right)}\left( M\right) 
+$$
+is an isomorphism.
+\end{lemma}
+\begin{proof}
+Let $s \in\mathscr S^{D^*\left(M,E\right)}\left( M\right)$ be a global section. Let us define a corresponding to $s$ operator $A(s)\in \L\left(\Ga^\infty_c\left( M, E\right)  \right)$  where $\L\left(\cdot \right) $ is given by the equation \eqref{l_dag_eqn}.   If $\xi \in \Ga^\infty_c\left( M, E\right)$ then $\sY \bydef \supp \xi$ is compact. There is a family of open subsets $\left\{\sU_\a\subset \sX\right\}_{\a\in\mathscr A}$ such that for all $\a \in\mathscr A$ a restriction $s|_\a$ is represented by an operator $A_\a \in D^*\left(M,E\right)$.  There is a family of open subsets $\left\{\sU_\a\subset \sX\right\}_{\a\in\mathscr A}$ such that for all $\a \in\mathscr A$ a restriction $s|_\a$ is represented by an operator $A_\a \in D^*\left(M,E\right)$. Let $\sum_{\a \in \mathscr A_0}f_\a$ be a {covering sum} for $\sY$ {dominated} by the family 
+$\left\{\sU_\a\right\}$ (cf. Definition \ref{top_covering_sum_defn})
+We suppose that $f_\a\in \Coo\left( M\right)$ for all $\a\in  \mathscr A_0$ (cf. Remark \ref{top_smooth_part_unity_rem}). We define 
+$$
+A(s) \xi \bydef \sum_{\a \in \mathscr A_0}f_\a A_\a\xi
+$$
+We leave to the reader the full proof of that the above equation yields an operator  in $\L\left(\Ga^\infty_c\left( M, E\right)  \right)$ and it is a differential operator (cf. Definition \ref{do_man_defn}). Similarly we define an adjoint
+$$
+A(s)^* \xi \bydef \sum_{\a \in \mathscr A_0} A^*_\a f_\a\xi.
+$$
+We leave to the reader proof of following statements:
+\begin{itemize}
+	\item The operator $A(s)^*$ is adjoint to $A(s)$, i.e. $A(s)\in \L^\dagger\left(\Ga^\infty_c\left( M, E\right)  \right)$  where $\L^\dagger\left(\cdot \right) $ is given by the equation \eqref{l_dag_eqn}.
+	\item $A(s)^*$ is a differential operator (cf. Definition \ref{do_man_defn}).
+	\item $A(s)$ is the representative of the global section $s \in\mathscr S^{D^*\left(M,E\right)}\left( M\right)$.
+\end{itemize}
+
+\end{proof}
+\begin{exercise}\label{top_diff*_exer}
+Consider the situation of the Lemma \ref{top_diff*_lem}. Let $p: \widetilde M\to M$ be a covering, and let $\widetilde M$ has a smooth structure given by the Proposition \ref{top_cov_mani_prop}. Let $\widetilde E$ be the inverse image of $E$ by $p$ (cf. Definition \ref{vb_inv_img_funct_defn}). We consider Hilbert spaces $L^2\left( M, E, \mu \right)$, $L^2\left( \widetilde M, \widetilde E, \lift_p~\mu \right)$ where $\lift_p~\mu$ is the $p$-lift of $\mu$ (cf. Definition \ref{top_mea_lift_defn}) and their dense subspaces $\Ga_c^\infty\left( M, E\right)\subset L^2\left( M, E, \mu \right)$, $\Ga_c^\infty\left(\widetilde M,\widetilde E\right)\subset L^2\left(\widetilde M,\widetilde E, \lift_p~\mu \right)$. 
+Prove following statements:
+\begin{enumerate}
+	\item $\widetilde E$ has a natural structure of a smooth bundle (cf. Definition \ref{top_sm_bundle_defn}).
+	\item If both $D^*\left(M,E\right)$ and $D^*\left(\widetilde M, \widetilde E\right)$ are algebras of adjointable differential operators then there is an isomorphism of sheaves
+$$
+\mathscr S^{ D^*\left(\widetilde M, \widetilde E\right)}\cong p^{-1}\mathscr S^{D^*\left( M,  E\right)}
+$$
+where both $\mathscr S^{ D^*\left( M,  E\right)}$ and $\mathscr S^{ D^*\left(\widetilde M, \widetilde E\right)}$  are  ${ D^*\left( M,  E\right)}$ and ${ D^*\left(\widetilde M, \widetilde E\right)}$-sheaves (cf. Definition \ref{top_x_sheaf_defn}).
+	
+\end{enumerate}
 \end{exercise}
+\begin{empt}
+There is an injective $\C$-homomorphism
+$$
+\lift_p: \mathscr S^{ D^*\left( M,  E\right)} \left( M\right) \hookto \mathscr S^{ D^*\left(\widetilde M, \widetilde E\right)}
+$$
+(cf. Definition \ref{top_sheaf_lift_defn}). From the Lemma \ref{top_diff*_lem} it turns out that this homomorhism is equivalent to a $\C$-homomorphism
+\be\label{top_diff_*alg_lift_eqn}
+D^*\left(p, E \right) : D^*\left(M, E\right)\hookto D^*\left(\widetilde M, \widetilde E\right).
+\ee 
+The proof of that $D^*\left(p, E \right)$ is a *-homomorphism is left to the reader.  
+\end{empt}
+
 \begin{example}\label{top_spinor_smooth_exm}
  Suppose that $M$ is a Riemannian manifold, and $S\to M$ is a spinor bundle (cf. Section \ref{spin_mani_sec}). 
  There is a $\Coo_0\left( M\right)$-module $	\Ga^\infty\left(M, S \right)\subset 	\Ga\left(M, S \right)$ of smooth sections (cf. Definition \ref{top_smooth_m_defn}), and there is an $\Ga^\infty\left(M, S \right)$-sheaf $\mathscr S^{\Ga^\infty\left(M, S \right)}$ (cf. Definition \ref{top_x_sheaf_defn}). Similarly to \ref{top_h_sp_empt} we define a Hilbert space $L^2\left(M, S, \mu\right)$ which is a completion of $\Ga^\infty\left(M, S \right)$ and a faithful representation 
@@ -7715,7 +7807,7 @@ For any $x \in M$ there is the natural isomorphism $\C\ell(M)_x \cong \End_\C\le
 $$
 \widetilde \H \bydef L^2\left(\widetilde M, \widetilde S, \widetilde\mu\right).
 $$
-Moreover $\widetilde\mu$ is the preimage of $\mu$ (cf. Definition \ref{measure_image_defn}) Using the Definition \ref{top_smooth_m_defn} one can construct the  $\Coo\left(  M\right)$-module $\Ga^\infty\left(  M,  S\right)$ and  $\Coo\left( \widetilde M\right)$-module $\Ga^\infty\left( \widetilde M, \widetilde S\right)$   of smooth sections. Also there is  the Spin$^c$ connection $\nabla^S$ (cf. \eqref{spin_conn_eqn}). Similarly to the Equation \eqref{comm_dirac_eqn} one can define the Dirac operator
+Moreover $\widetilde\mu\bydef \lift_p\mu$ is the $p$-lift of $\mu$ (cf. Definition \ref{top_mea_lift_defn}). Using the Definition \ref{top_smooth_m_defn} one can construct the  $\Coo\left(  M\right)$-module $\Ga^\infty\left(  M,  S\right)$ and  $\Coo\left( \widetilde M\right)$-module $\Ga^\infty\left( \widetilde M, \widetilde S\right)$   of smooth sections. Also there is  the Spin$^c$ connection $\nabla^S$ (cf. \eqref{spin_conn_eqn}). Similarly to the Equation \eqref{comm_dirac_eqn} one can define the Dirac operator
 \bean
 \widetilde \Dslash:\Ga^\infty\left( \widetilde M, \widetilde S\right) \to \Ga^\infty\left( \widetilde M, \widetilde S\right) 
 \eean
@@ -8308,7 +8400,7 @@ If  $p: \widetilde M\to M$ is a topological transitive finite-fold covering with
 \left(C_0\left(M \right), C_0\left(  \widetilde{   M }\right) ,G\left(\left. \widetilde{  M } ~\right| {   M }\right),   C_0\left(p \right)  \right)
 $$
 the connected  noncommutative finite-fold covering (cf. Definition \ref{fin_defn}). If a representation $\widetilde \rho: C_0\left(  \widetilde{   M }\right) \to B\left(\widetilde \H \right)$ is induced be the pair  $$\left(\rho,\left(C_0\left(M \right), C_0\left(  \widetilde{   M }\right) ,G\left(\left. \widetilde{  M } ~\right| {   M }\right),   C_0\left(p \right)  \right)  \right)$$ (cf. Definition \ref{induced_repr_defn}) then it is faithful (cf. Lemma \ref{induced_faithful_lem}) and equivariant (cf. \ref{induced_equiv_eqn}).
-We leave to the reader the proof of a natural isomorphism $\widetilde \H \cong L^2\left(\widetilde M,  \widetilde T,   \widetilde\mu\right)$ where $\widetilde T$ is an inverse image of $T$ by $p$ (cf. Definition \ref{vb_inv_img_funct_defn}) and $\widetilde \mu $ is the preimage of $\mu$ (Definition \ref{measure_image_defn}). 
+We leave to the reader the proof of a natural isomorphism $\widetilde \H \cong L^2\left(\widetilde M,  \widetilde T,   \widetilde\mu\right)$ where $\widetilde T$ is an inverse image of $T$ by $p$ (cf. Definition \ref{vb_inv_img_funct_defn}) and $\widetilde\mu\bydef \lift_p\mu$ is the $p$-lift of $\mu$ (cf. Definition \ref{top_mea_lift_defn}). 
 Below we prove that the given by the equation \eqref{top_diff_*alg_lift_eqn} *-homomorphism 
 \bean
 D^*\left(p,T \right) : D^*\left(M, T\right)\hookto D^*\left(\widetilde M, \widetilde T\right)
@@ -8568,7 +8660,7 @@ If $L^2\left(\sX, E,  \mu\right)$ is the Hilbert norm completion of $\Ga_c\left(
  \bean
 \rho: C_0\left(\sX \right) \hookto L^2\left(M, E,  \mu\right).
  \eean
- On the other hand from the Lemma \ref{top_bundle_cs_lem}  it follows that $\Ga\left(\sX, E\right)$ is {continuity structure for} $\sX$ {and the} $\left\{E_x\right\}_{x \in \sX}$ (cf. Definition \ref{op_fields_defn}), such that
+ On the other hand from the Lemma \ref{top_bundle_cs_ex_lem}  it follows that $\Ga\left(\sX, E\right)$ is {continuity structure for} $\sX$ {and the} $\left\{E_x\right\}_{x \in \sX}$ (cf. Definition \ref{op_fields_defn}), such that
 \bean
 \Ga\left(\sX, E\right) \cong C\left(\sX, \left\{E_x\right\},  \Ga\left(\sX, E\right)\right),\\
 \Ga_c\left(\sX, E\right) \cong C_c\left(\sX, \left\{E_x\right\},  \Ga\left(\sX, E\right)\right). 
@@ -8588,10 +8680,10 @@ If $p$ is a finite-fold transitive covering then from the Lemma \ref{state_cov_1
 \be\label{top_wt_eqn}
 \begin{split}
 	\widetilde	\tau : C\left(\widetilde \sX \right)\to \C,\\
-	\widetilde	a \mapsto \tau\left( \sum_{g \in G\left(\left.\widetilde \sX~\right|\sX \right) }g\widetilde a\right)=  \int_{\widetilde \sX} \widetilde a~ d\widetilde\mu 
+	\widetilde	a \mapsto \tau\left( \sum_{g \in G\left(\left.\widetilde \sX~\right|\sX \right) }g\widetilde a\right)=   \int_{\widetilde \sX} \widetilde a~ d\widetilde\mu 
 \end{split}
 \ee
-where a sum $\sum_{g \in G\left(\left.\widetilde \sX~\right|\sX \right) }g\widetilde a$ is regarded as an element of $C\left(  \sX\right)$. The measure $\widetilde{\mu}$ is the preimage of $\mu$ (cf. Definition \ref{measure_image_defn}) and from $\widetilde a > 0 \Rightarrow 	\widetilde\tau\left(\widetilde a \right) > 0$ it turns out that $\widetilde \tau$ corresponds to a faithful representation. 
+where a sum $\sum_{g \in G\left(\left.\widetilde \sX~\right|\sX \right) }g\widetilde a$ is regarded as an element of $C\left(  \sX\right)$. The measure $\widetilde{\mu}\bydef\widetilde\mu\bydef \lift_p\mu$ is the $p$-lift of $\mu$ (cf. Definition \ref{top_mea_lift_defn}) 
 Similarly to the above construction we have a Hilbert space $L^2\left(\widetilde{\sX}, \widetilde{E} \right)= L^2\left(\widetilde{\sX}, \widetilde{E}, \widetilde\mu \right)$ and a representation 
 \be\label{comm_bundle_repr_eqn}
 C_0\left(\widetilde \sX\right) \to B\left( L^2\left( \widetilde \sX, \widetilde S\right)\right).
@@ -8652,21 +8744,21 @@ If $\xi, \eta \in \Ga_c\left(\sX, E \right)$ then since $p$ is a finite-fold cov
 		= \sum_{\a\in {\mathscr A}}\left(\xi, \mathfrak{desc}_p\left( \widetilde{a}_{\a} \widetilde{a}^* \widetilde{b}\right)  \eta \right)_{L^2\left({\sX},{E} \right)}=
 		\\
 		=
-		\sum_{\a\in {\mathscr A}}~\int_\sX \left(\xi_x, \mathfrak{desc}_p\left( \widetilde{a}_{\a} \widetilde{a}^* \widetilde{b}\right)  \eta_x \right)_x d\mu=
+		\sum_{\a\in {\mathscr A}}~!!! \int_\sX \left(\xi_x, \mathfrak{desc}_p\left( \widetilde{a}_{\a} \widetilde{a}^* \widetilde{b}\right)  \eta_x \right)_x d\mu=
 		\\
 		=
-		\sum_{\a\in {\mathscr A}}~\int_M \left(\mathfrak{desc}_p\left( \widetilde{e}_{\a} \widetilde{a}\right)\xi_x, \mathfrak{desc}_p\left( \widetilde{e}_{\a}  \widetilde{b}\right)  \eta_x \right)_x d\mu=
+		\sum_{\a\in {\mathscr A}}~!!! \int_M \left(\mathfrak{desc}_p\left( \widetilde{e}_{\a} \widetilde{a}\right)\xi_x, \mathfrak{desc}_p\left( \widetilde{e}_{\a}  \widetilde{b}\right)  \eta_x \right)_x d\mu=
 		\\
-		=\sum_{\a\in {\mathscr A}}~ \int_{\widetilde{\sX}}\left(\widetilde{a} \lift_{\widetilde{\sU}_{\a}}\left({e}_{\a}\xi \right)_{\widetilde{x}},  \widetilde{b} ~\lift_{\widetilde{\sU}_{\a}}\left({e}_{\a}\eta \right)_{\widetilde{x}}\right)_{\widetilde{x}}d \widetilde{   \mu} =
+		=\sum_{\a\in {\mathscr A}}~ !!! \int_{\widetilde{\sX}}\left(\widetilde{a} \lift_{\widetilde{\sU}_{\a}}\left({e}_{\a}\xi \right)_{\widetilde{x}},  \widetilde{b} ~\lift_{\widetilde{\sU}_{\a}}\left({e}_{\a}\eta \right)_{\widetilde{x}}\right)_{\widetilde{x}}d \widetilde{   \mu} =
 		\\
-		=\sum_{\a\in {\mathscr A}}~ \int_{\widetilde{\sX}}\widetilde{a}_{\a}\left(\widetilde{a} \lift_{\widetilde{\sU}_{\a}}\left(\xi \right)_{\widetilde{x}},  \widetilde{b} ~\lift_{\widetilde{\sU}_{\a}}\left(\eta \right)_{\widetilde{x}}\right)_{\widetilde{x}}d \widetilde{   \mu} =
+		=\sum_{\a\in {\mathscr A}}~ !!! \int_{\widetilde{\sX}}\widetilde{a}_{\a}\left(\widetilde{a} \lift_{\widetilde{\sU}_{\a}}\left(\xi \right)_{\widetilde{x}},  \widetilde{b} ~\lift_{\widetilde{\sU}_{\a}}\left(\eta \right)_{\widetilde{x}}\right)_{\widetilde{x}}d \widetilde{   \mu} =
 		\\
-		= \int_{\widetilde{\sX}}\left( \widetilde{a} \lift_p\left(\xi \right)_{\widetilde{x}},  \widetilde{b} ~\lift_p\left(\eta \right)_{\widetilde{x}}\right)_{\widetilde{x}}d \widetilde{   \mu}
+		= !!! \int_{\widetilde{\sX}}\left( \widetilde{a} \lift_p\left(\xi \right)_{\widetilde{x}},  \widetilde{b} ~\lift_p\left(\eta \right)_{\widetilde{x}}\right)_{\widetilde{x}}d \widetilde{   \mu}
 		= \left( \widetilde{a}~ \lift_p\left(\xi \right),  \widetilde{b} ~\lift_p\left(\eta \right)\right)_{L^2\left(\widetilde{\sX},\widetilde{E} \right)} =\\
 		=  \left(\phi\left(  \widetilde{a}\otimes\xi\right) ,  \phi \left( \widetilde{b}\otimes\eta\right)\right)_{L^2\left(\widetilde{\sX},\widetilde{E} \right)}
 	\end{split} 
 \end{equation}
-where $\phi$ is given by \eqref{top_lift_gs_eqn}.  The $C_0\left(\sX \right)$-module $\Ga_c\left(\sX, E \right)$ is a dense subspace of  $L^2\left({\sX},{E} \right)$, so from the equation \eqref{comm_ind_l2l_eqn} it follows that
+where $\phi$ is given by \eqref{top_lift_gs_eqn} and $\widetilde\mu\bydef \lift_p\mu$ is the $p$-lift of $\mu$ (cf. Definition \ref{top_mea_lift_defn}).  The $C_0\left(\sX \right)$-module $\Ga_c\left(\sX, E \right)$ is a dense subspace of  $L^2\left({\sX},{E} \right)$, so from the equation \eqref{comm_ind_l2l_eqn} it follows that
 \be\label{comm_ind_l2_eqn}
 \begin{split}
 \forall \xi, \eta \in L^2\left(\widetilde{\sX},\widetilde{E} \right)\quad \forall \widetilde{a}, \widetilde{b} \in C_0\left( \widetilde{\sX}\right) 	\quad	\left( \widetilde{a} \otimes \xi ,    \widetilde{b} \otimes \eta\right)_{\text{ind}}=\\=  \left(\phi\left(  \widetilde{a}\otimes\xi\right) ,  \phi \left( \widetilde{b}\otimes\eta\right)\right)_{L^2\left(\widetilde{\sX},\widetilde{E} \right)}.
@@ -9878,9 +9970,9 @@ Consider the described in \ref{top_r_inf_empt} situation and suppose that $\wide
 	\bean
 	\tau_\la\left(a_\la \right) = \int_{\sX_\la} a_\la~ d{\mu_\la} \quad \forall a_\la \in C_0\left(\sX_\la \right).
 	\eean
-	where $\mu_\la$ is  a Borel measure $\sX_\la$. Indeed for all $\la\in\La$ the measure $\mu$ is the image of $\mu_\la$ (cf. Definition \ref{measure_image_defn}). For all $\la\in \La$ similarly to equations \eqref{tau_prod_eqn} and \eqref{mu_prod_eqn} one can define the $\C$-valued product $\left(\cdot, \cdot \right):C_0\left( \sX_\la\right) \times C_0\left( \sX_\la\right) \to\C$ given by
+	where $\mu_\la$ is  a Borel measure $\sX_\la$. Indeed for all $\la\in\La$ the measure $\mu_\la\bydef  \lift_{p_\la}\mu$ is the $p_\la$-lift of $\mu$ (cf. Definition \ref{top_mea_lift_defn}). For all $\la\in \La$ similarly to equations \eqref{tau_prod_eqn} and \eqref{mu_prod_eqn} one can define the $\C$-valued product $\left(\cdot, \cdot \right):C_0\left( \sX_\la\right) \times C_0\left( \sX_\la\right) \to\C$ given by
 	\bean
-	\left(a_\la, b_\la \right) \bydef \tau_\la\left( a^*_\la, b_\la\right) \cong \int_{\sX_\la} a^*_\la b_\la~ d{\mu_\la} 
+	\left(a_\la, b_\la \right) \bydef \tau_\la\left( a^*_\la, b_\la\right) \cong !!! \int_{\sX_\la} a^*_\la b_\la~ d{\mu_\la} 
 	\eean
 	so $C_0\left( \sX_\la\right)$ becomes a pre-Hilbert space.
 	Denote by $L^2\left(\sX_\la, \mu_\la \right)$ the Hilbert norm completion of $C_0\left( \sX_\la\right)$.  Let us define the functional $\overline \tau: C_c\left(\overline  \sX\right) \to\C$.  From the Theorem \eqref{top_comp_la_lem} for any  $\overline a \in C_c\left(\overline\sX \right)$ there is $\la_{\supp \overline  a}$ such that the restriction $\left.\overline p_{\la_{\supp \overline  a}}\right|_{{\supp \overline  a}}$ homeomorphically maps $\supp \overline  a$ onto $\overline p_{\la_{\supp \overline  a}}\left( \supp \overline  a\right)$. 
@@ -9894,11 +9986,7 @@ Consider the described in \ref{top_r_inf_empt} situation and suppose that $\wide
 	\bean
 	\left(\overline  a, \overline  b\right)\bydef \overline\tau \left( \overline  a^*\overline  b\right).
 	\eean
-	There is an infinite positive measure $\overline \mu$ on $\overline M$ such that 
-	\be\label{top_meafunco_eqn}
-		\overline\tau\left(\overline a \right) =\int_{\overline\sX} a~ d\overline\mu \quad \forall \overline a\in C_c\left(\overline \sX \right).
-		\ee
-	%	and $\mu$ is the image of $\overline \mu$  (cf. Definition \ref{measure_image_defn}).
+Let  $\overline \mu\bydef  \lift_{\overline p}\mu$ is the $\overline p$-lift of $\mu$ (cf. Definition \ref{top_mea_lift_defn})
  Thus  $C_c\left(\overline  \sX\right)$ becomes a pre-Hilbert space denote by $L^2\left(\overline  \sX , \overline \mu\right)$ its norm completion.  A natural action $C_b\left(\overline  \sX \right)  \times C_c\left(\overline  \sX \right)\to C_c\left(\overline  \sX \right)$ yields an action $C_b\left(\overline  \sX \right)  \times  L^2\left(\overline  \sX , \overline \mu\right)\to L^2\left(\overline  \sX , \overline \mu\right)$ which gives  a faithful representation	\be\label{top_phi_mu_eqn}
 	\pi_\tau :  C_b\left(\overline  \sX \right)\hookto B\left(L^2\left(\overline  \sX , \overline \mu\right) \right).
 	\ee
@@ -10449,7 +10537,7 @@ which satisfy to the condition \eqref{top_diff*_eqn}  for all $\la\in\La$. Note 
 Let $\tau : C_0\left(M \right) \to \C$ be a faithful state  and let $L^2\left(\overline M, \overline \mu\right)$ be explained in  \eqref{top_mu_empt} Hilbert space. 
 Then 
 \be\label{top_tdd_eqn}
-\widehat \D\bydef  \Coo_c\left(\overline M \right)\cong \Ga_c\left(\overline M, \overline T \right) 
+\widehat \D\bydef  \Coo_c\left(\overline M \right)\cong \Ga^\infty_c\left(\overline M, \overline T \right) 
 \ee
  is a dense subspace of $L^2\left(\overline M, \overline \mu\right)$. There is the natural inclusion
 \be D^*\left( \overline M, \overline T\right) \subset \L^\dagger\left(\widehat\D \right)
@@ -10481,52 +10569,33 @@ Above construction is a version of the described in \ref{comp_pt_o*_empt} genera
 	${\pi}$- inverse noncommutative limit (cf. Definition \ref{inv_o*_lim_defn}) of the given by
 	\eqref{top_comp_pt_o*_eqn} {pointed algebraic finite covering category of $O^*$-algebras} $\mathfrak{S}^{\mathrm{pt}}_{D^*\left( M, T\right) }$  (cf. Definition \ref{comp_o*_defn}) 
 \end{theorem}
-	\bea\label{inf_cov_o*_sub1_eqn!}
-A_\la \widetilde A'\subset \widetilde A',\\
-\label{inf_cov_o*_sub2_eqn!}		\widetilde A'A_\la\subset \widetilde A',\\
-\label{inf_cov_o*_sub3_eqn!}		\forall \widetilde b \in K\left(\widetilde B\right) \cap \L^\dagger\left( \widetilde \D \right) 
-~~ \forall \widetilde a \in \widetilde A'~~ \exists  \widetilde a', \widetilde a'' \in \bigcup_{\la\in\La} A_\la~~ \widetilde b \widetilde a = \widetilde b \widetilde a', ~ \widetilde a \widetilde b = \widetilde a'' \widetilde b.
-\eea
 \begin{proof}
-	For any $\la\in\La$ denote by $\widetilde p_\la: \widetilde{M}\to M_\la$ the natural covering. 
-	Let us prove that $D\left( \widetilde{M}\right)$ is $\pi$-admissible, i.e. it satisfies to the equations  \eqref{inf_cov_o*_sub1_eqn}-\eqref{inf_cov_o*_sub3_eqn}; that is
-	\bea\label{top_inv_o*_lim_eqn}
-	G\left(\left.\widetilde{M}\right|M\right) D\left( \widetilde{M}\right)  = D\left( \widetilde{M}\right),\\
-	\label{top_inv_o*_blim_eqn}
-	\widetilde A'_b\bydef C_b\left( \widetilde{M}\right) \cap \Coo\left( \widetilde{M}\right)  \subset M\left(\widetilde{B}_{\pi_\tau}= M\left( C_0\left( \widetilde{M}\right)\right)  \right)\cong C_b\left( \widetilde{M}\right), \\
-	\label{top_inv_o*_llim_eqn}	
-	\mathrm{span}~\Coo_c\left(\widetilde{M} \right)  D\left( \widetilde{M}\right)= \mathrm{span}~\Coo_c\left( \widetilde{M}\right)\left(  \bigcup_{\la \in \La}D\left( M_\la \right)\right) ,\\	
-	\label{top_inv_o*_rlim_eqn}
-	\mathrm{span}~D\left( \widetilde{M}\right)\Coo_c\left(\widetilde{M} \right)  = \mathrm{span}~\left( \bigcup_{\la \in \La}D\left( M_\la \right)\right) \Coo_c\left( \widetilde{M}\right).	
-	\eea
-	\begin{itemize}
-		\item The equation \eqref{top_inv_o*_lim_eqn} holds because any $g \in G\left(\left.\widetilde{M}\right|M\right)$ corresponds to a diffeomorphism of $\widetilde{M}$.
-		\item The equation \eqref{top_inv_o*_blim_eqn} follows from an evident dense inclusion $C_b\left( \widetilde{M}\right) \cap \Coo\left( \widetilde{M}\right)  \subset C_b\left( \widetilde{M}\right)$.
-		\item The equation  \eqref{top_inv_o*_llim_eqn}. From $  \left( \bigcup_{\la \in \La}D\left( M_\la \right)\right)\subset   D\left( \widetilde{M}\right)$ it follows that \\$ \Coo_c\left( \widetilde{M}\right) \left( \bigcup_{\la \in \La}D\left( M_\la \right)\right)\subset \Coo_c\left(\widetilde{M} \right)  D\left( \widetilde{M}\right)$.		
-		Let  $\widetilde f \in \Coo_c\left( \widetilde{M}\right)$ and $\widetilde d \in  D\left( \widetilde{M}\right)$. There is $\widetilde h \in \Coo_c\left( \widetilde{M}\right)$ such that $\widetilde h\left(\supp \widetilde f \right)= \{1\}$. From the Lemma \ref{top_comp_la_lem} it follows that there is $\la\in\La$ such that $\supp \widetilde h$ is homeomorphically mapped onto $\widetilde p_\la\left(\supp\widetilde h \right)$. If $d_\la \bydef \desc_{\widetilde p_\la} \left(\widetilde h \widetilde d \right)$ then  $\widetilde f \widetilde d= \widetilde f d_\la$.
-		\item The equation  \eqref{top_inv_o*_rlim_eqn} can prove similarly to \eqref{top_inv_o*_llim_eqn} one.
-	\end{itemize}
-
-	Now one should prove that any admissible algebra $\widetilde A'$ is a subalgebra of $D\left( \widetilde{M}\right)$. If $\widetilde \sU \subset  \widetilde M$ is an open subset then there is an equivalence relation $\sim_{\widetilde\sU}$ on $\widetilde A'$ given by
-		$$
-		\forall \widetilde a', \widetilde a'' \in \widetilde A' \quad  \widetilde a'\sim_{\widetilde\sU} \widetilde a'' \quad\Leftrightarrow\left( \quad \forall \widetilde b\in \Coo_c\left(\widetilde M \right) \quad \supp \widetilde b \subset  \widetilde\sU\quad \Rightarrow \quad\widetilde a'\widetilde b = \widetilde a''\widetilde b\right). 
-		$$
-		One can proof than the map
-		$\widetilde \sU \mapsto \widetilde A'/\sim_{\widetilde\sU}$ satisfies to the Definition  \ref{presheaf_defn}, i.e. one has a presheaf.  Let $\widetilde{\mathscr A}'$ be an associated sheaf !!! DEFN \ref{top_x_sheaf_defn} (cf. \ref{sheaf_prdf}). On the other hand from the Example \ref{top_diff_smooth_exm} it follows that there is a sheaf !!! DEFN \ref{top_x_sheaf_defn} $\mathscr D$ of differential operators $\Coo\left(\widetilde M\right)\to \Coo\left(\widetilde M\right)$.
-		If $\widetilde x_0\subset \widetilde M$ that any stalk 
-		(cf. Definition \ref{stalk_defn}) of $\widetilde{\mathscr A}'$ at  $\widetilde x_0$ can be represented  by a pair $\left( \widetilde \sU, \widetilde a_{\widetilde \sU}\right) $ 
-		where  $\widetilde \sU$ is an open neighborhood of $\widetilde x_0$ and $a_{\widetilde \sU} \in \widetilde A'/\sim_{\widetilde\sU}$. Moreover from the Definition \ref{stalk_defn} one can assume that the closure $\widetilde \sY$ of $\widetilde \sU$ is compact. Let $\widetilde f\in  C_c\left( \widetilde M\right)$ be a covering sum for $ \widetilde \sY$ (cf. Definition \ref{top_covering_sum_defn}). One can suppose that $\widetilde f$ is smooth (cf. Remark \ref{top_smooth_part_unity_rem} !!! SOFT \ref{top_soft_exer}  !!! REP \ref{top_soft_r_defn} ).
-		If $\widetilde a_{\widetilde \sU}$ is represented by $\widetilde a$ then from 
-		$\widetilde f \left(\widetilde \sU \right)=\{1\}$ it follows that  $\widetilde a_{\widetilde \sU}$ can be also represented by $\widetilde a\widetilde f$. From the equation \eqref{hilb_adm_eqn} it follows that there is $a^\cup \in \cup~ A_\la = \cup~D\left(M_\la \right)$ such that $\widetilde a\widetilde f=  a^\cup\widetilde f$. However $ a^\cup\widetilde f\in \Coo_c\left(\widetilde M \right)$, it follows that any stalk at $\widetilde x_0$ corresponds to a stalk of $\mathscr D$. On the other hand from \eqref{adm_inc_eqn} if follows that any stalk of $\mathscr D$
-		 can be represented by the stalk of $\widetilde{\mathscr A}'$. It follows that
-		$$
-		\widetilde{\mathscr A}' = \mathscr D.
-		$$
-		On the other hand any $\widetilde a' \in \widetilde A'$ corresponds to a global sections of $\widetilde{\mathscr A}'$, i.e. there is an inclusion
-		$$
-		\widetilde A'\subset\widetilde{\mathscr D}\left(\widetilde M\right)= D\left(\widetilde M\right).
-		$$
+Let $\widetilde A' \in \L^\dagger\left(\Coo_c\left(\widetilde M \right)\cong  \Ga^\infty_c\left(\widetilde M, \widetilde T \right) \right)$ be an admissible  algebra (cf. Definition \ref{comp_pt_o*_empt}). Let $\widetilde a'\in \widetilde A'$ be any element. If $\widetilde a'$ is not a differential operator then there is $\widetilde \xi \in \Coo_c\left(\widetilde M \right)$ such that $\supp \widetilde a\widetilde\xi \subsetneqq \supp \widetilde\xi$ (cf. Definition \ref{do_man_defn}). Both  $\supp \widetilde a\widetilde\xi$ and  $\supp \widetilde\xi$ a closures of open sets, so there is an open set $\widetilde \sU\subset \supp \widetilde a\widetilde\xi$ such that $\widetilde\sU \cap \supp \widetilde \xi = \emptyset$. If $\widetilde x_0 \in \widetilde\sU$ and $\widetilde b$ is an $\left(\Coo_0\left(\widetilde M\right) , \widetilde x_0\right)$-{stump} (cf. Definition \ref{top_stump_soft_defn}) such that $\supp \widetilde b\subset \widetilde \sU$ then 
+$$
+\widetilde b \in K\left(C_0\left(\widetilde M \right)  \right) \cap \L^\dagger\left(C_0\left(\widetilde M \right)  \right)_b.
+$$
+(cf. equation \eqref{o*b_eqn}).
+From the condition \ref{inf_cov_o*_sub3_eqn} it turns out that
+\be\label{top_o_1_eqn}
+\exists \la \in \La \quad \exists a_\la \in D^*\left( M_\la, T_\la\right)\quad \widetilde b \widetilde a = \widetilde b \lift_{\widetilde p_\la}  \left( a_\la\right)
+\ee
+where $\lift_{\widetilde p_\la}$ is given by the Definition \ref{top_sheaf_lift_defn}. From the Lemma \ref{top_diff_*alg_lift_eqn} it follows that $\lift_{\widetilde p_\la}$ is a differential operator so $\supp \left( \lift_{\widetilde p_\la}\left( \widetilde a\right) \widetilde\xi\right)  \subset \supp \widetilde \xi$ and
+\be\label{top_o_2_eqn}
+\widetilde b \lift_{\widetilde p_\la}\left(a_\la\right) \widetilde\xi = 0.
+\ee
+On the other hand one has
+\be\label{top_o_3_eqn}
+\widetilde b \widetilde a \widetilde \xi \neq 0.
+\ee
+ There is a contradiction between equations \ref{top_o_1_eqn}-\ref{top_o_1_eqn}. From this contradiction it turns out that any $\widetilde a\in \widetilde A'$ is a differential operator.
+ We leave to the reader a proof of following statements:
+ \begin{itemize}
+ 	\item If $\widetilde a\in \widetilde A'$ then $\widetilde a\in  D^*\left( \widetilde{M}, \widetilde T\right)$.
+ 	\item *-algebra $D^*\left( \widetilde{M}, \widetilde T\right)$ is admissible, i.e. it satisfies to conditions \ref{inf_cov_o*_sub1_eqn}, \ref{inf_cov_o*_sub3_eqn}
+ \end{itemize}
 \end{proof}
+
+
 Similarly to \eqref{top_comp_pt_o*_eqn} one has 
 {pointed algebraic finite covering category of $O^*$-algebras} (cf. Definition \ref{comp_o*_defn}) given by
 \be\label{top_comps_pt_o*_eqn}
@@ -10559,7 +10628,7 @@ Let $\left( \sX, x_0\right) $ be a pointed connected, locally connected, locally
 	\mathfrak{S}^{\mathrm{pt}}_{B} \bydef \left(\left\{\rho_\la: B \hookto B_\la \right\}_{\la \in \La}, \left\{\rho^\mu_\nu: B_\mu \hookto B_\nu\right\}_{\substack{\mu, \nu \in \La\\ \nu > \mu}}\right)\bydef \\ \left(\left\{C_0\left( p_\la\right) : C_0\left(\sX \right)  \hookto C_0\left(\sX_\la \right)\right\}, \left\{C_0\left( p_\nu^\mu\right) : C_0\left(\sX_\nu \right) \hookto C_0\left(\sX_\mu \right)\right\}\right).
 \end{split}
 \ee
-From the Theorem \ref{top_main_thm} it follows that $\mathfrak{S}^{\mathrm{pt}}_B$ is good !!! SOFT \ref{top_soft_exer}  !!! REP \ref{top_soft_r_defn}  (cf. Definition \ref{good_defn} !!! ABC to AB GOOD EXER ADD !!!). Moreover and there is a space $\widetilde \sX$  and a transitive covering $\widetilde p: \widetilde \sX\to  \sX$ such that a triple 
+From the Theorem \ref{top_main_thm} it follows that $\mathfrak{S}^{\mathrm{pt}}_B$ is good  (cf. Definition \ref{good_defn}). Moreover and there is a space $\widetilde \sX$  and a transitive covering $\widetilde p: \widetilde \sX\to  \sX$ such that a triple 
 $\left(C_0\left(\sX\right), C_0\left(\widetilde \sX\right),G\left(\left.\widetilde \sX~\right| \mathcal X\right)\right)
 $ is  an  { infinite noncommutative covering} of $\mathfrak{S}^{\mathrm{pt}}_{C_0\left(\mathcal{X}\right)}$ (cf. Definition \ref{main_defn}). This triple we also denote by $\left(B, \widetilde B,G\left(\left.\widetilde B~\right| B\right)\right)
 $.  For all $\la\in \La$ denote by $A_\la\bydef Cont\left(\sX_\la \right) $ a *-algebra of continuous (possibly unbounded) maps from $\sX_\la$ to $\C$.  From the Theorem \ref{top_fin_hilb_thm} it turns out that	
@@ -10568,20 +10637,34 @@ $.  For all $\la\in \La$ denote by $A_\la\bydef Cont\left(\sX_\la \right) $ a *-
 	\mathfrak{S}^{\text{pt}}_A \bydef \left(\left\{\pi_\la: A \hookto A_\la \right\}_{\la \in \La}, \left\{\pi^\mu_\nu: A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\ \nu > \mu}}\right)
 \end{split}
 \eean
-is a pointed category of $*$-algebras such that for any $\la, \mu, \nu\in \La$ the triples\\ $\left(A, A_\la, G\left(\left. A_\la\right| A\right)\bydef G\left(\left. B_\la\right| B\right), \pi_\la \right)$ and $\left(A_\mu, A_\nu, G\left(\left. A_\mu\right| A_\nu\right)\bydef G\left(\left. B_\mu\right| B_\nu\right), \pi^\mu_\nu \right)$ are associated with $\left(B, B_\la, G\left(\left. B_\la\right| B\right), \rho_\la \right)$ and $\left(B_\mu, B_\nu,G\left(\left. B_\mu\right| B_\nu\right), \rho^\mu_\nu \right)$ noncommutative finite-fold covering of *-algebras (cf. Definition \ref{fin_chull_defn} !!! CHECK (a) (b)).  The  Pedersen's ideal $\widetilde{\mathfrak B}\bydef K\left( \widetilde B\right)= C_c\left(\widetilde \sX \right) $ (cf. Definition \ref{peder_id_defn} and equation \eqref{peder_c0_eqn}) is dense in ${\widetilde B}$.
+is a pointed category of $*$-algebras such that for any $\la, \mu, \nu\in \La$ the triples\\ $\left(A, A_\la, G\left(\left. A_\la\right| A\right)\bydef G\left(\left. B_\la\right| B\right), \pi_\la \right)$ and $\left(A_\mu, A_\nu, G\left(\left. A_\mu\right| A_\nu\right)\bydef G\left(\left. B_\mu\right| B_\nu\right), \pi^\mu_\nu \right)$ are associated with $\left(B, B_\la, G\left(\left. B_\la\right| B\right), \rho_\la \right)$ and $\left(B_\mu, B_\nu,G\left(\left. B_\mu\right| B_\nu\right), \rho^\mu_\nu \right)$ noncommutative finite-fold covering of *-algebras (cf. Definition \ref{fin_chull_defn}).  The  Pedersen's ideal $\widetilde{\mathfrak B}\bydef K\left( \widetilde B\right)= C_c\left(\widetilde \sX \right) $ (cf. Definition \ref{peder_id_defn} and equation \eqref{peder_c0_eqn}) is dense in ${\widetilde B}$.
 
 \begin{exercise}\label{top_hilb_adm_exer}
 	Prove following statements:
 	\begin{itemize}
 		\item The right  $\widetilde B$-module $ \widetilde{\mathfrak B}'$ satisfies to all conditions described in \ref{comp_chull_empt}.
 		\item If $\widetilde A\bydef Cont\left(\widetilde\sX\right)$ is a commutative *-algebra of (possibly unbounded) $\C$-valued continuous maps from  $\widetilde{ {\sX}}$ to $\C$ then $\widetilde A$ is $G\left(\left.\widetilde B\right| B\right)$-equivariant. Moreover there is the natural inclusion $\widetilde A \subset \End^*_{\widetilde { B}}\left(\widetilde {\mathfrak B}'\right)$
-		which satisfies to the equation \eqref{hilb_adm_cup_eqn} and \eqref{hilb_adm_eqn}, i.e. $\widetilde A$ is admissible.
+		which satisfies to the equations \eqref{hilb_act_eqn} and \eqref{hilb_adm_eqn}, i.e. $\widetilde A$ is admissible.
 	\end{itemize}
 \end{exercise}
 \begin{lemma}
 	In the described above situation 
-	the triple $\left(A, \widetilde{A}, G\left(\left.\widetilde A \right| A\right)\cong G\left(\left.\widetilde B \right| B\right)\right)$ is a {unique infinite noncommutative covering of $\mathfrak{S}^{\text{pt}}_A$ associated with $\mathfrak{S}_B^{\mathrm{pt}}$} (cf. Definition \ref{main_ch_defn} MAXI !!!).
+	the triple $\left(A, \widetilde{A}, G\left(\left.\widetilde A \right| A\right)\cong G\left(\left.\widetilde B \right| B\right)\right)$ is a {unique infinite noncommutative covering of $\mathfrak{S}^{\text{pt}}_A$ associated with $\mathfrak{S}_B^{\mathrm{pt}}$} (cf. Definition \ref{main_ch_defn}).
 \end{lemma}
+\begin{proof}
+If $\widetilde A'$ and  $\widetilde a'\in \widetilde A'$. then from \eqref{hilb_adm_eqn} it follows that
+\be\label{top_hilb_adm_eqn}
+\forall \widetilde b \in C_c\left(\widetilde \sX \right)\quad \exists\la\in\La\quad \exists a_\la \in C_0\left(\sX_\la \right) \quad \widetilde a' \widetilde b = \lift_{\widetilde p_\la} \left( a_\la \right)  \widetilde b
+\ee
+where 	$\lift_{\widetilde p_\la}$ is the ${\widetilde p_\la}$-lift (cf. Definition \ref{top_lift_defn}). Let both $\mathscr S^{C_0\left(\sX \right) }$ and $\mathscr S^{C_0\left(\widetilde \sX \right) }$ be ${C_0\left(\sX \right) }$-sheaf and ${C_0\left(\widetilde \sX \right) }$-sheaf respectively
+!!!! CONTINUE 
+
+\end{proof}
+
+\begin{definition}\label{main_ch_defn!}
+	Consider the described in \ref{comp_chull_empt} situation,
+	suppose that there exists a admissible *-algebra $\widetilde A\subset  \End^*_{\widetilde { B}}\left(\widetilde {\mathfrak B}'\right)$ such that any admissible *-algebra is a subalgebra of  $\widetilde A$. We  say that the triple $\left(A, \widetilde{A}, G\left(\left.\widetilde A \right| A\right)\right)$	is an \textit{infinite noncommutative covering of 	$\mathfrak{S}^{\mathrm{pt}}_A$ associated with $\mathfrak{S}_B^{\mathrm{pt}}$}. 
+\end{definition}
 \begin{proof}
 	From the Exercise \ref{top_hilb_adm_exer} it follows that $\widetilde A$ is admissible. So one should proof that any admissible algebra $\widetilde A'$ is a subalgebra of $\widetilde A$
 	If $\widetilde \sU \subset  \widetilde \sX$ is an open subset then there is an equivalence relation $\sim_{\widetilde\sU}$ on $\widetilde A'$ given by
@@ -10816,7 +10899,7 @@ The equation \eqref{top_inv_qo*_llimp_eqn} follows from \eqref{top_cc_l_inc_eqn}
 
 \subsection{Strong Morita equivalence of infinite coverings}
 	\paragraph*{} Here we consider a specialization of the explained in the Section \ref{inf_mor_sec} theory.
-\begin{lemma}\label{comm_allows_lem}
+\begin{lemma}!!!! CORRECT\label{comm_allows_lem}
 	If $\mathfrak{S}_{\left( \mathcal X, x_0\right) } = \left\{\left( \mathcal{X}_\la,x_0^\la\right)  \to \left( \mathcal X, x_0\right) \right\}_{\la \in \La} \in \mathfrak{FinTop}^{\mathrm{pt}}$, \\
 	$\mathfrak{S}_{C_0\left(\mathcal{X}\right) }\left( \mathcal X, x_0\right) =
 	\left( \left\{C_0\left( \mathcal{X}\right) \hookto  C_0\left( \mathcal{X}_\la\right) \right\}, \left\{C_0\left( \mathcal{X}_\mu\right) \hookto  C_0\left( \mathcal{X}_\nu\right) \right\} \right) $ then $\mathfrak{S}^{\mathrm{pt}}_{C_0\left(\mathcal{X}\right) }$ allows inner product (cf. Definition \ref{inf_hilb_prod_defn}). 
@@ -10951,7 +11034,7 @@ The Exercise \ref{top_all_exer} corresponds to the Proposition \ref{top_allows_m
 Similarly to the section \ref{comm_induced_finite_sec} consider a compact  Riemannian manifold $M$ with a  spinor bundle $S$ (cf. \ref{comm_sp_tr_sec}). 
 Let $\tau:C\left( M\right) \to \C$ be a faithful state such that 
 $$
-\tau\left(a \right) = \int_{M} a~ d\mu.
+\tau\left(a \right) = !!! \int_{M} a~ d\mu.
 $$
 Similarly to the Section \ref{comm_induced_finite_sec} there is a Hilbert space $ L^2\left(  M, S\right)\cong  L^2\left(  M, S, \mu\right)$ and   the natural representation
 \be\label{comm_m_bundle_inf_repr_eqn}
@@ -11037,16 +11120,16 @@ of left $C_0\left(\widetilde M \right)$-modules.
 			= \sum_{\widetilde{\a}\in \widetilde{\mathscr A}_{\supp \widetilde{a}}}\left(\xi, \mathfrak{desc}\left( \widetilde{a}_{\widetilde{\a}} \widetilde{a}^* \widetilde{b}\right)  \eta \right)_{L^2\left({M},{S} \right)}=
 			\\
 			=
-			\sum_{\widetilde{\a}\in \widetilde{\mathscr A}_{\supp \widetilde{a}}}~\int_M \left(\xi_x, \mathfrak{desc}\left( \widetilde{a}_{\widetilde{\a}} \widetilde{a}^* \widetilde{b}\right)  \eta_x \right)_x d\mu=
+			\sum_{\widetilde{\a}\in \widetilde{\mathscr A}_{\supp \widetilde{a}}}~!!! \int_M \left(\xi_x, \mathfrak{desc}\left( \widetilde{a}_{\widetilde{\a}} \widetilde{a}^* \widetilde{b}\right)  \eta_x \right)_x d\mu=
 			\\
 			=
-			\sum_{\widetilde{\a}\in \widetilde{\mathscr A}_{\supp \widetilde{a}}}~\int_M \left(\mathfrak{desc}\left( \widetilde{e}_{\widetilde{\a}} \widetilde{a}\right)\xi_x, \mathfrak{desc}\left( \widetilde{e}_{\widetilde{\a}}  \widetilde{b}\right)  \eta_x \right)_x d\mu=
+			\sum_{\widetilde{\a}\in \widetilde{\mathscr A}_{\supp \widetilde{a}}}~!!! \int_M \left(\mathfrak{desc}\left( \widetilde{e}_{\widetilde{\a}} \widetilde{a}\right)\xi_x, \mathfrak{desc}\left( \widetilde{e}_{\widetilde{\a}}  \widetilde{b}\right)  \eta_x \right)_x d\mu=
 			\\
-			=\sum_{\widetilde{\a}\in \widetilde{\mathscr A}_{\supp \widetilde{a}}}~ \int_{\widetilde{M}}\left(\widetilde{a} \lift_{\widetilde{\sU}_{\widetilde{\a}}}\left({e}_{\widetilde{\a}}\xi \right)_{\widetilde{x}},  \widetilde{b} ~\lift_{\widetilde{\sU}_{\widetilde{\a}}}\left({e}_{\widetilde{\a}}\eta \right)_{\widetilde{x}}\right)_{\widetilde{x}}d \widetilde{   \mu} =
+			=\sum_{\widetilde{\a}\in \widetilde{\mathscr A}_{\supp \widetilde{a}}}~ !!! \int_{\widetilde{M}}\left(\widetilde{a} \lift_{\widetilde{\sU}_{\widetilde{\a}}}\left({e}_{\widetilde{\a}}\xi \right)_{\widetilde{x}},  \widetilde{b} ~\lift_{\widetilde{\sU}_{\widetilde{\a}}}\left({e}_{\widetilde{\a}}\eta \right)_{\widetilde{x}}\right)_{\widetilde{x}}d \widetilde{   \mu} =
 			\\
-			=\sum_{\widetilde{\a}\in \widetilde{\mathscr A}_{\supp \widetilde{a}}}~ \int_{\widetilde{M}}\widetilde{a}_{\widetilde{\a}}\left(\widetilde{a} \lift_{\widetilde{\sU}_{\widetilde{\a}}}\left(\xi \right)_{\widetilde{x}},  \widetilde{b} ~\lift_{\widetilde{\sU}_{\widetilde{\a}}}\left(\eta \right)_{\widetilde{x}}\right)_{\widetilde{x}}d \widetilde{   \mu} =
+			=\sum_{\widetilde{\a}\in \widetilde{\mathscr A}_{\supp \widetilde{a}}}~ !!! \int_{\widetilde{M}}\widetilde{a}_{\widetilde{\a}}\left(\widetilde{a} \lift_{\widetilde{\sU}_{\widetilde{\a}}}\left(\xi \right)_{\widetilde{x}},  \widetilde{b} ~\lift_{\widetilde{\sU}_{\widetilde{\a}}}\left(\eta \right)_{\widetilde{x}}\right)_{\widetilde{x}}d \widetilde{   \mu} =
 			\\
-			= \int_{\widetilde{M}}\left( \widetilde{a} \lift_p\left(\xi \right)_{\widetilde{x}},  \widetilde{b} ~\lift_p\left(\eta \right)_{\widetilde{x}}\right)_{\widetilde{x}}d \widetilde{   \mu}
+			= !!! \int_{\widetilde{M}}\left( \widetilde{a} \lift_p\left(\xi \right)_{\widetilde{x}},  \widetilde{b} ~\lift_p\left(\eta \right)_{\widetilde{x}}\right)_{\widetilde{x}}d \widetilde{   \mu}
 			= \left( \widetilde{a}~ \lift_p\left(\xi \right),  \widetilde{b} ~\lift_p\left(\eta \right)\right)_{L^2\left(\widetilde{M},\widetilde{S} \right)} =\\
 			=  \left(\phi\left(  \widetilde{a}\otimes\xi\right) ,  \phi \left( \widetilde{b}\otimes\eta\right)\right)_{L^2\left(\widetilde{M},\widetilde{S} \right)}
 		\end{split} 
@@ -15221,7 +15304,7 @@ Suppose that $\left(\overline{   \mathcal X}, \overline{x}_0 \right)$ is its  to
 	Let $\tau: C_0\left(\sX \right)\to \C$ be a faithful state given by  \eqref{meafunc_eqn}, i.e. there exists a Borel
 	measure $\mu$ on $\sX$ with values in $\left[0, +\infty\right]$ such that
 	\be\label{ctr_meafunc_eqn}
-	\tau\left(a \right) = \int_{\sX} a~ d\mu \quad \forall a\in C_0\left(\sX \right).
+	\tau\left(a \right) = !!! \int_{\sX} a~ d\mu \quad \forall a\in C_0\left(\sX \right).
 	\ee
 	Let  $A$ be a continuous trace $C^*$-algebra (cf. Definition \ref{continuous_trace_c_alt_defn}) such that $\sX$ is the spectrum of $A$.
 	there is a given by \eqref{ctr_ka_t_eqn} functional 
@@ -15506,7 +15589,7 @@ Discussed below results close to  the Section \ref{top_inf_o_sec} ones. Exercise
 	If $\overline M$ is a disconnected inverse limit of $\mathfrak{S}_{\left(M, x_0\right)}$ (cf. Definition \ref{top_topological_inv_lim_defn}) then there the natural covering $\overline p: \overline M \to M$. From the Proposition \ref{top_cov_mani_prop} it follows that $\overline M$ has a (unique) structure of smooth manifold such that $\overline p$ is smooth. If $\left(\overline E, \overline q,  \overline M\right)$  is the {inverse image} of $\left( E, q, M\right)$ by $p$ (cf. Definition \ref{vb_inv_img_funct_defn}) then there is a transitive  covering  $\overline E \to E$  so from the Proposition \ref{top_cov_mani_prop} it turns out that there is the unique smooth structure on $\overline E$ such that map $\overline E\to E$ is smooth. So there is a *-algebra $\Ga^\infty\left(\overline M, \overline E \right)$. 
 	If $\tau: C_c\left( M\right) \to \C$ is a functional
 	$$
-	a \mapsto \int_M a ~d\mu. 
+	a \mapsto !!! \int_M a ~d\mu. 
 	$$
 	such that $a > 0\quad\Rightarrow\quad \tau\left(a\right)> 0$ then similarly to \ref{ctr_mu_empt} one can define Hilbert spaces $L^2\left(  A , \tr_{\tau}  \right)$  and $L^2\left(  A_0\left( \overline M\right) , \tr_{\overline\tau}  \right)$. If
 	\bean
@@ -15771,7 +15854,7 @@ These actions naturally induces left and right actions of $C_b^{\infty} (M)$ on 
 $\Ga_c \left(\mathcal G , \Omega_{\mathcal G}^{1/2}\right)$ in the Section \ref{foli_alg_subsec}. There is the alternative description of the left and right actions of $C_b^{\infty} (M)$ on $\Ga_c \left(\mathcal G , \Omega_{\mathcal G}^{1/2}\right)$.
 For all $x \in M$, there  is the representation, $\rho_x: \Ga_c \left(\mathcal G , \Omega_{\mathcal G}^{1/2}\right) \to B\left( L^2\left(\mathcal \G_x \right)\right) $ given by \eqref{foli_repr_eqn}, i.e.
 \begin{equation*}
-	(\rho_x (a) \, \xi) \, (\gamma) = \int_{\gamma_1 \circ \gamma_2 =
+	(\rho_x (a) \, \xi) \, (\gamma) = !!! \int_{\gamma_1 \circ \gamma_2 =
 		\gamma} a(\gamma_1) \, \xi (\gamma_2) \qquad \forall \, \xi \in L^2
 	(\mathcal \G_x).
 \end{equation*}
@@ -17411,7 +17494,7 @@ Below we use the '$\times$' symbol for the Moyal plane product using  the descri
 	Denote by $\Psi\left(x\right)\stackrel{\mathrm{def}}{=}\left| \sF\left( a_\Delta \times b\right) \left( x\right) \right|$
 	From \eqref{mp_fourier_eqn} it follows that
 	\bean
-	\Psi\left(x, \Delta\right)=	 a_\Delta \diamond b\left(x \right)  =    	\int_{\R^{2N}}a_\Delta\left(x-t \right) b\left(t\right)e^{  i x \cdot J t }~dt =\\= \int_{\R^{2N}}a\left(x+\Delta -t \right) b\left(t\right)e^{  i x \cdot J t }~dt.
+	\Psi\left(x, \Delta\right)=	 a_\Delta \diamond b\left(x \right)  =    	!!! \int_{\R^{2N}}a_\Delta\left(x-t \right) b\left(t\right)e^{  i x \cdot J t }~dt =\\= !!! \int_{\R^{2N}}a\left(x+\Delta -t \right) b\left(t\right)e^{  i x \cdot J t }~dt.
 	\eean
 	Consider two special cases:
 	\begin{enumerate}
@@ -17421,12 +17504,12 @@ Below we use the '$\times$' symbol for the Moyal plane product using  the descri
 	(i)		From \eqref{nt_c_f_m_eqn} it turns out
 	\begin{equation}\label{mp_xi_1_eqn}
 	\begin{split}
-	\left| \Psi\left(x, \Delta \right)\right|  \le ~ \int \left|a\left(x+\Delta -t \right) b\left(t\right)e^{  i x \cdot J t } \right|dt \le\\
+	\left| \Psi\left(x, \Delta \right)\right|  \le ~ !!! \int \left|a\left(x+\Delta -t \right) b\left(t\right)e^{  i x \cdot J t } \right|dt \le\\
 	\le
-	\int_{\mathbb{R}^{2N}}\frac{C^{a}_{M}}{\left(1 + \left\|t - \Delta - x\right\|  \right)^{M}}~\frac{C^{b}_{2M}}{\left(1 + \left\|t\right\|  \right)^{2M}} dt =\\= \int_{\mathbb{R}^{2N}}\frac{C^{a}_{M}}{\left(1 + \left\|t - \Delta - x\right\|  \right)^{M}\left(1 + \left\|t\right\|  \right)^{M} }~\frac{C^{b}_{2M}}{\left(1 + \left\|t\right\|  \right)^{M}} dt  \le
+	!!! \int_{\mathbb{R}^{2N}}\frac{C^{a}_{M}}{\left(1 + \left\|t - \Delta - x\right\|  \right)^{M}}~\frac{C^{b}_{2M}}{\left(1 + \left\|t\right\|  \right)^{2M}} dt =\\= !!! \int_{\mathbb{R}^{2N}}\frac{C^{a}_{M}}{\left(1 + \left\|t - \Delta - x\right\|  \right)^{M}\left(1 + \left\|t\right\|  \right)^{M} }~\frac{C^{b}_{2M}}{\left(1 + \left\|t\right\|  \right)^{M}} dt  \le
 	\\
 	\le \sup_{x \in \mathbb{R}^{2N}, ~\left\| x\right\|\le \frac{\left\| \Delta\right\|}{2 },~s\in \mathbb{R}^{2N}}~ \frac{C^{a}_{M}C^{b}_{2M}}{\left(1 + \left\|s - \Delta - x\right\|  \right)^{M} \left(1 + \left\|s\right\|  \right)^{M}}
-	\times \\ \times \int_{\mathbb{R}^{2N}}\frac{1}{\left(1 + \left\|t\right\|  \right)^{M}} dt.
+	\times \\ \times !!! \int_{\mathbb{R}^{2N}}\frac{1}{\left(1 + \left\|t\right\|  \right)^{M}} dt.
 	\end{split}
 	\end{equation}
 	If $x,y \in \mathbb{R}^{2N}$  then from the triangle inequality it follows that $\left\|x + y\right\|>  \left\|y\right\| - \left\|x\right\|$, hence 
@@ -17444,11 +17527,11 @@ Below we use the '$\times$' symbol for the Moyal plane product using  the descri
 	$$
 	hence from \eqref{mp_xi_1_eqn} it turns out
 	\be\nonumber
-	\left| \Psi\left(x , \Delta\right)\right| \le \frac{4^MC^{a}_{M}C^{b}_{2M}}{\left\|\Delta\right\|^M} \times  \int_{\mathbb{R}^{2N}}\frac{1}{\left(1 + \left\|t\right\| \right)^{M}} dt = \frac{C'}{\left\|\Delta\right\|^M}
+	\left| \Psi\left(x , \Delta\right)\right| \le \frac{4^MC^{a}_{M}C^{b}_{2M}}{\left\|\Delta\right\|^M} \times  !!! \int_{\mathbb{R}^{2N}}\frac{1}{\left(1 + \left\|t\right\| \right)^{M}} dt = \frac{C'}{\left\|\Delta\right\|^M}
 	\ee
 	where
 	\be\label{nt_c'_eqn}
-	C' = 4^MC^{a}_{M}C^{b}_{2M}  \int_{\mathbb{R}^{2N}}\frac{1}{\left(1 + \left\|t\right\| \right)^{M}}.
+	C' = 4^MC^{a}_{M}C^{b}_{2M}  !!! \int_{\mathbb{R}^{2N}}\frac{1}{\left(1 + \left\|t\right\| \right)^{M}}.
 	\ee
 	Otherwise from
 	$$
@@ -17471,16 +17554,16 @@ Below we use the '$\times$' symbol for the Moyal plane product using  the descri
 	If $\left( \cdot, \cdot \right)_{L^2\left(\R^{2N} \right) }$ is the given by \eqref{fourier_scalar_product_eqn} scalar product then from \eqref{mp_inv_eqn} it turns out
 	\begin{equation*}
 	\begin{split}
-	\left| \Psi\left(x , \Delta\right) \right|\le\left|\int a\left( t - \Delta - x \right)  b\left(t \right)e^{i x \cdot J t}  dt\right|=\\
+	\left| \Psi\left(x , \Delta\right) \right|\le\left|!!! \int a\left( t - \Delta - x \right)  b\left(t \right)e^{i x \cdot J t}  dt\right|=\\
 	=\left|\left(    a\left( \bullet- \Delta-x\right) ,~ b\left(\bullet\right)e^{i x\cdot J\bullet}   \right)_{L^2\left(\R^{2N} \right) }  \right|=\\
 	=\left|\left(  \mathcal{F}\left(  a\left( \bullet- \Delta-x\right)\right) ,~ \mathcal{F}\left( b\left(\bullet\right)e^{i x\cdot J\bullet} \right)  \right)_{L^2\left(\R^{2N} \right) }  \right|=\\=
-	\left|\int_{\mathbb{R}^{2N}} 
+	\left|!!! \int_{\mathbb{R}^{2N}} 
 	\mathcal{F}\left( a\right)\left( \bullet - \Delta -x\right)\left(u\right)\mathcal{F}\left(b\left(\bullet\right)e^{i x\cdot J\bullet} \right)\left(u\right)  du \right|\le\\
-	\le \int_{\mathbb{R}^{2N}}\left| e^{-i\left(-\Delta - x\right) \cdot u}\mathcal{F}\left( a\right)\left( u\right) \mathcal{F}\left(b\right)\left(u+J x\right)\right| du \le \\
-	\le \int_{\mathbb{R}^{2N}}\frac{C^{\mathcal{F}\left( a\right)}_{3M}}{\left(1 + \left\|u\right\|  \right)^{3M}}\frac{C^{\mathcal{F}\left(b\right)}_{2M}}{\left(1 + \left\|u-J x\right\|  \right)^{2M}} du \le \\
+	\le !!! \int_{\mathbb{R}^{2N}}\left| e^{-i\left(-\Delta - x\right) \cdot u}\mathcal{F}\left( a\right)\left( u\right) \mathcal{F}\left(b\right)\left(u+J x\right)\right| du \le \\
+	\le !!! \int_{\mathbb{R}^{2N}}\frac{C^{\mathcal{F}\left( a\right)}_{3M}}{\left(1 + \left\|u\right\|  \right)^{3M}}\frac{C^{\mathcal{F}\left(b\right)}_{2M}}{\left(1 + \left\|u-J x\right\|  \right)^{2M}} du \le \\
 	\le \sup_{x \in \mathbb{R}^{2N}, ~\left\| x\right\|> \frac{\left\| \Delta\right\|}{2 },~ s \in \mathbb{R}^{2N}}~ \frac{C^{\mathcal{F}\left( a\right)}_{3M}}{\left(1 + \left\|s\right\|  \right)^{M}}
 	\frac{C^{\mathcal{F}\left(b\right)}_{2M}}{\left(1 + \left\|s-J x\right\|  \right)^{M}} \times \\ \times    
-	\frac{1}{\left(1 + \left\|u-J  x\right\|  \right)^{M}\left(1 + \left\|u\right\|  \right)^{M}}\int_{\mathbb{R}^{2N}}\frac{1}{\left(1 + \left\|u\right\|  \right)^{M}} du.
+	\frac{1}{\left(1 + \left\|u-J  x\right\|  \right)^{M}\left(1 + \left\|u\right\|  \right)^{M}}!!! \int_{\mathbb{R}^{2N}}\frac{1}{\left(1 + \left\|u\right\|  \right)^{M}} du.
 	\end{split}
 	\end{equation*}
 	From \eqref{nt_triangle_eqn} it follows that
@@ -17495,12 +17578,12 @@ Below we use the '$\times$' symbol for the Moyal plane product using  the descri
 	\begin{equation*}
 	\begin{split}
 	\left| \Psi\left(x , \Delta\right)   \right|
-	\le  \frac{C^{\mathcal{F}\left( a\right)}_{3M}C^{\mathcal{F}\left(b\right)}_{2M}}{\left\|\frac{\Delta}{4}\right\|^M \left\|J x\right\|^M} \int_{\R^{2N}}\frac{1}{\left(1+\left\|u\right\| \right)^M }du,\\
+	\le  \frac{C^{\mathcal{F}\left( a\right)}_{3M}C^{\mathcal{F}\left(b\right)}_{2M}}{\left\|\frac{\Delta}{4}\right\|^M \left\|J x\right\|^M} !!! \int_{\R^{2N}}\frac{1}{\left(1+\left\|u\right\| \right)^M }du,\\
 	\left| \Psi\left(x , \Delta\right)   \right|
-	\le  C^{\mathcal{F}\left( a\right)}_{3M}C^{\mathcal{F}\left(b\right)}_{2M}\int_{\R^{2N}}\frac{1}{\left(1+\left\|u\right\| \right)^M }du
+	\le  C^{\mathcal{F}\left( a\right)}_{3M}C^{\mathcal{F}\left(b\right)}_{2M}!!! \int_{\R^{2N}}\frac{1}{\left(1+\left\|u\right\| \right)^M }du
 	\end{split}
 	\end{equation*}
-	If  $M > 2N + m$ then the integral $I=\int_{\R^{2N}}\frac{1}{\left(1+\left\|u\right\| \right)^M }du$ is convergent and from 
+	If  $M > 2N + m$ then the integral $I=!!! \int_{\R^{2N}}\frac{1}{\left(1+\left\|u\right\| \right)^M }du$ is convergent and from 
 	\be\label{mp_psi_big_eqn}
 	\begin{split}
 		\left| \Psi\left(x , \Delta\right)   \right|
@@ -17605,7 +17688,7 @@ Below we use the '$\times$' symbol for the Moyal plane product using  the descri
 		\ee
 		where $\left\{c_k \in \C\right\}_{k \in \Z^{2N}}$ are rapidly decreasing coefficients given by
 		\begin{equation}\label{mp_fourier_torus_eqn}
-		c_k = \frac{1}{m_j^{2N} } \int_{\R^{2N}} \overline{a}\left(x \right)  \exp\left(2\pi i \frac{k}{m_j}\cdot x\right) dx = \frac{1}{m_j^{2N} } \mathcal{F}\overline{a}\left( \frac{k}{m_j}\right).
+		c_k = \frac{1}{m_j^{2N} } !!! \int_{\R^{2N}} \overline{a}\left(x \right)  \exp\left(2\pi i \frac{k}{m_j}\cdot x\right) dx = \frac{1}{m_j^{2N} } \mathcal{F}\overline{a}\left( \frac{k}{m_j}\right).
 		\end{equation}
 	\item[(iii)] For any $j$ the equation \eqref{nt_w*_top_eqn} yields the $\C$-linear surjective map
 	\be\label{nt_ss_nt_map_eqn}
@@ -17648,8 +17731,8 @@ $$
 i.e. the series \ref{nt_w*_top_eqn} is convergent with respect to the weak*-topology. The sum of series is periodic and since the sums $\sum_{g \in \ker\left( \Z^{2N} \to \Z^{2N}_{m_j}\right) }\left.  g \overline a\right|_{I}$ and $\sum_{g \in \ker\left( \Z^{2N} \to \Z^{2N}_{m_j}\right) }\left. \left( g \overline D^\bt a\right)\right|_{I}$ are continuous $a_j$ is represented by infinitely differentiable map $\R^{2N}\to \C$.\\
 (ii) Follows from
 \bean 
-c_k = \frac{1}{m_j^{2N} }\int_I \exp\left(2\pi i \frac{k}{m_j} ~x \right)\sum_{g \in\ker\left( \Z^{2N} \to \Z^{2N}_{m_j}\right)}\left( g \overline a\right)\left( x\right) dx  =\\
-= \frac{1}{m_j^{2N} }\sum_{g \in\ker\left( \Z^{2N} \to \Z^{2N}_{m_j}\right)}\int_{gI}\exp\left(2\pi i \frac{k}{m_j} ~x \right) \overline a\left(x\right)dx=\\= \frac{1}{m_j^{2N} }\int_{\R^{2N}}\exp\left(2\pi i \frac{k}{m_j} ~x \right)\overline a\left(x\right)dx= \frac{1}{m_j^{2N} } \mathcal{F}\overline{a}\left( \frac{k}{m_j}\right).
+c_k = \frac{1}{m_j^{2N} }!!! \int_I \exp\left(2\pi i \frac{k}{m_j} ~x \right)\sum_{g \in\ker\left( \Z^{2N} \to \Z^{2N}_{m_j}\right)}\left( g \overline a\right)\left( x\right) dx  =\\
+= \frac{1}{m_j^{2N} }\sum_{g \in\ker\left( \Z^{2N} \to \Z^{2N}_{m_j}\right)}!!! \int_{gI}\exp\left(2\pi i \frac{k}{m_j} ~x \right) \overline a\left(x\right)dx=\\= \frac{1}{m_j^{2N} }!!! \int_{\R^{2N}}\exp\left(2\pi i \frac{k}{m_j} ~x \right)\overline a\left(x\right)dx= \frac{1}{m_j^{2N} } \mathcal{F}\overline{a}\left( \frac{k}{m_j}\right).
 \eean
 	(iii) Since given by \eqref{mp_fourier_torus_eqn} coefficients a rapidly decreasing one has	$a_j\in \Coo\left(\T^{2N}_{\th/m^2_j} \right)$, i.e. one has a $\C$-linear  map
 $$
@@ -18095,11 +18178,11 @@ taking into account $\left\|P\right\|=\left\|gP\right\|$  one has
 	Note then $\mathrm{Fin}\left( L^2\left( \R^{2N}\right)_\parallel\right)$ is a dense subspace of $B\left( L^2\left( \R^{2N}\right)_\parallel\right)$ with respect to the strong topology.
 	From \eqref{nt_dmn_eqn} it follows that
 	\bean
-	\int_{\R^{2N}}f_{j_1k_1}\otimes \dots \otimes f_{j_Nk_N} = \delta_{j_1k_1}\cdot ...\cdot \delta_{j_Nk_N},
+	!!! \int_{\R^{2N}}f_{j_1k_1}\otimes \dots \otimes f_{j_Nk_N} = \delta_{j_1k_1}\cdot ...\cdot \delta_{j_Nk_N},
 	\eean
 	Hence if $\overline a \in\mathrm{Fin}\left( L^2\left( \R^{2N}\right)_\parallel\right)$ corresponds to $f_{\overline a} \in \SS\left(\R^{2N}_\th\right)$ then one has
 	\be\label{nt_N_int_eqn}
-	\int_{\R^{2N}} f_{\overline a} ~dx = \tr\left(\overline a\right). 
+	!!! \int_{\R^{2N}} f_{\overline a} ~dx = \tr\left(\overline a\right). 
 	\ee
 	Otherwise if $a \in C\left( \T^{2N}_{\th}\right)$ is such that
 	$$
@@ -18107,7 +18190,7 @@ taking into account $\left\|P\right\|=\left\|gP\right\|$  one has
 	$$
 	then from \eqref{fourier_from_r_to_z_eqn} it follows that
 	\be\label{nt_trace_eqn}
-	\tau\left( a\right) = \int_{\R^{2N}} f_{\overline a} ~dx = \tr\left(a \right)
+	\tau\left( a\right) = !!! \int_{\R^{2N}} f_{\overline a} ~dx = \tr\left(a \right)
 	\ee
 	where $\tau$ is the given by \eqref{nt_state_eqn} functional.
 	If  $\overline a \in B\left( \bigoplus_{g \in J}gL^2\left(\R^{2N}\right)\right)$ is a special element and $a_j \in C\left( \T^{2N}_{\th/m_j^2}\right)$ is such that
@@ -18197,14 +18280,14 @@ Otherwise from the Lemma \ref{nt_spec_c0_lem}  it  follows that any special elem
 %\begin{proof}
 %	From \eqref{nt_state_integ_eqn} it follows that
 %	\begin{equation}\tag{*}
-%	\tau\left(b_n \right) = \frac{1}{\left(2\pi m_j \right)^{2N}}  \int_{\mathcal X_n} b_n dx_n   < \infty
+%	\tau\left(b_n \right) = \frac{1}{\left(2\pi m_j \right)^{2N}}  !!! \int_{\mathcal X_n} b_n dx_n   < \infty
 %	\end{equation}
 %	where $dx_n$ is associated with Lebesgue measure on $\R^{2N}$ and a homeomorphism $\mathcal X_n \approx \R^{2N}/2\pi m_j\Z^{2N}$. 
 %	From \eqref{nt_tracial_prop} and (*) it follows that
 %	\begin{equation*}
 %	\begin{split}
-%	\left( \left\| \widetilde{a}\right\|_2\right)^2 =\left\| \widetilde{a}\widetilde{a}^*\right\|_2=\left\| \widetilde{a}\widetilde{a}\right\|_2 = \int_{\R^{2N}}\widetilde{a}\left(x \right) \widetilde{a}\left( x\right) ~ dx=\\= \int_{\R^{2N}}\left( \widetilde{a}\star_\th\widetilde{a} \right)\left(x \right)  dx  
-%	=\frac{1}{\left(2\pi m_j \right)^{2N}}  \int_{\mathcal X_n} b_n~ dx_n =\tau\left(b_n \right) < \infty 
+%	\left( \left\| \widetilde{a}\right\|_2\right)^2 =\left\| \widetilde{a}\widetilde{a}^*\right\|_2=\left\| \widetilde{a}\widetilde{a}\right\|_2 = !!! \int_{\R^{2N}}\widetilde{a}\left(x \right) \widetilde{a}\left( x\right) ~ dx=\\= !!! \int_{\R^{2N}}\left( \widetilde{a}\star_\th\widetilde{a} \right)\left(x \right)  dx  
+%	=\frac{1}{\left(2\pi m_j \right)^{2N}}  !!! \int_{\mathcal X_n} b_n~ dx_n =\tau\left(b_n \right) < \infty 
 %	\end{split}
 %	\end{equation*}
 
@@ -20589,7 +20672,7 @@ However $\mathscr{D}'\left( M\right)$ is not equal to the space of linear forms 
 	\be
 	\begin{split}
 		C\left(M \right) \subset \Coo_c \left(M  \right)',\\
-		f \mapsto \left( \phi \mapsto  \int_M f \phi d \mu \right) .
+		f \mapsto \left( \phi \mapsto  !!! \int_M f \phi d \mu \right) .
 	\end{split}
 	\ee
 \end{remark}
@@ -20621,7 +20704,7 @@ However $\mathscr{D}'\left( M\right)$ is not equal to the space of linear forms 
 %Let $K$ be a compact space. Then, for every continuous linear functional $L$ on the Banach space $C\left(K \right)$ , there exists a unique
 % Radon measure $\mu$ such that
 % $$
-% L\left(f \right) = \int_{K} f ~\d\mu \quad \forall f \in C\left(K \right). 
+% L\left(f \right) = !!! \int_{K} f ~\d\mu \quad \forall f \in C\left(K \right). 
 % $$
 % \end{theorem}
 
@@ -21055,7 +21138,7 @@ gHg^{-1} = H
 	Let $\mathbb{T}^n$ be an ordinary $n$-torus. We will often use real coordinates for $\mathbb{T}^n$, that is, view $\mathbb{T}^n$ as $\mathbb{R}^n / \mathbb{Z}^n$. Let $\Coo\left(\mathbb{T}^n\right)$ be an algebra of infinitely differentiable complex-valued functions on $\mathbb{T}^n$. 
 	There is the bijective Fourier transformations  $\mathcal{F}_\T:\Coo\left(\mathbb{T}^n\right)\xrightarrow{\approx}\sS\left(\mathbb{Z}^n\right)$;  $f \mapsto \widehat{f}$ given by
 	\begin{equation}\label{nt_fourier_eqn}
-		\widehat{f}\left(p\right)= \mathcal F_\T (f) (p)= \int_{\mathbb{T}^n}e^{- 2\pi i x \cdot p}f\left(x\right)dx
+		\widehat{f}\left(p\right)= \mathcal F_\T (f) (p)= !!! \int_{\mathbb{T}^n}e^{- 2\pi i x \cdot p}f\left(x\right)dx
 	\end{equation}
 	where $dx$ is induced by the Lebesgue measure on $\mathbb{R}^n$ and   $\cdot$ is the  scalar
 	product on the Euclidean space $\R^n$.
@@ -21069,7 +21152,7 @@ gHg^{-1} = H
 	$$
 	There  is the $\C$-valued scalar product  on $\Coo\left( \T^n\right)$ given by
 	$$
-	\left(f, g \right) = \int_{\T^n}fg dx =\sum_{p \in \Z^n}\widehat{f}\left( -p\right) \widehat{g}\left(p \right).  
+	\left(f, g \right) = !!! \int_{\T^n}fg dx =\sum_{p \in \Z^n}\widehat{f}\left( -p\right) \widehat{g}\left(p \right).  
 	$$ 
 	Denote by $\SS\left( \R^{n}\right) $ be the space of
 	complex Schwartz (smooth, rapidly decreasing) functions on $\R^{n}$. 
@@ -21102,8 +21185,8 @@ gHg^{-1} = H
 	Let $\mathcal F$ and $\mathcal F^{-1}$ be the ordinary and inverse Fourier transformations given by
 	\begin{equation}\label{intro_fourier}
 		\begin{split}
-			\left(\mathcal{F}f\right)(u) = \int_{\mathbb{R}^{2N}} f(t)e^{-2\pi it\cdot u}dt,~\left(\mathcal F^{-1}f\right)(u)=\int_{\mathbb{R}^{2N}} f(t)e^{2\pi it\cdot u}dt %,
-			% \left(\widetilde{F}f\right)(u) = \int f(t)e^{it\cdot Ju}dt.~
+			\left(\mathcal{F}f\right)(u) = !!! \int_{\mathbb{R}^{2N}} f(t)e^{-2\pi it\cdot u}dt,~\left(\mathcal F^{-1}f\right)(u)=!!! \int_{\mathbb{R}^{2N}} f(t)e^{2\pi it\cdot u}dt %,
+			% \left(\widetilde{F}f\right)(u) = !!! \int f(t)e^{it\cdot Ju}dt.~
 		\end{split}
 	\end{equation}
 	which satisfy  following conditions
@@ -21112,7 +21195,7 @@ gHg^{-1} = H
 	$$
 	There is the $\C$-valued scalar product  on $\SS\left( \R^n\right)$ given by
 	\begin{equation}\label{fourier_scalar_product_eqn}
-		\left(f, g \right) = \int_{\R^n}fg dx =\int_{\R^n}\mathcal{F}f\mathcal{F}g dx. 
+		\left(f, g \right) = !!! \int_{\R^n}fg dx =!!! \int_{\R^n}\mathcal{F}f\mathcal{F}g dx. 
 	\end{equation}
 	
 	which if $\mathcal{F}$-invariant, i.e.
@@ -21144,15 +21227,18 @@ gHg^{-1} = H
 	\begin{theorem}\label{meafunc_thm}\cite{bogachev_measure_v2}
 		% 7.11.3. Theorem. 
 		Let $\sX$ be a locally compact space and let $L$ be a linear
-		function on $C_0\left(\sX \right)$  such that $L\left(f\right)\ge 0$ if $f\ge 0$. Then, there exists a Borel
+		function on $C_c\left(\sX \right)$  such that $L\left(f\right)\ge 0$ if $f\ge 0$. Then, there exists a Borel
 		measure $\mu$ on $\sX$ with values in $\left[0, +\infty\right]$ such that
 		\be\label{meafunc_eqn}
-		L\left(f \right) = \int_{\sX} f~ d\mu \quad \forall f \in C_0\left(\sX \right).
+		L\left(f \right) = !!! \int_{\sX} f~ d\mu \quad \forall f \in C_0\left(\sX \right).
 		\ee
 		%In addition, one can choose $\mu$ in such a way that it will be Radon on all sets of finite measure (and even inner compact regular on B(X), and there is only one measure with this property).
 	\end{theorem}
+\begin{remark}
+In \cite{bogachev_measure_v2} the space of $C_c\left( \sX\right)$ is denoted by  $C_0\left( \sX\right)$.
+\end{remark}
 	
-	\begin{defn}\label{measure_image_defn}\cite{bogachev_measure_v2}
+	\begin{defn}\label{measure_image_defn}  !!! REPLACE Definition \ref{top_mea_lift_defn}\cite{bogachev_measure_v2}
 		Let $\mu$ be a Borel measure on a topological space $\mathcal{X}$ and let $f$ be a $\mu$- measurable mapping from $\mathcal{X}$ to a topological space $\mathcal{Y}$ . Then on $\mathcal{Y}$ we obtain
 		the Borel measure $\nu = \mu \circ f^{-1}: B \mapsto \mu \circ f^{-1}\left( B\right)$. The measure $\nu$ is called
 		the \textit{image} of $\mu$ under the mapping $f$, and $\mu$ is called a \textit{preimage} of $\nu$. The  same terms are used in the case of general measurable mappings of measurable  spaces.
@@ -21452,10 +21538,10 @@ K\left(C_0\left(\sX \right)  \right) = C_c\left(\sX \right).
 	
 	%	If $\mathcal X$ is compact then we can select the a measure such that
 	%\begin{equation*}
-	%	\int_{\mathcal X}1_{\mathcal X} \ d\mu = 1.
+	%	!!! \int_{\mathcal X}1_{\mathcal X} \ d\mu = 1.
 	%	\end{equation*}
 	%		\begin{equation*}
-	%		\int_{\mathcal X}\left|f\right| \ d\mu \le \left\|f\right\|_\infty;~~\forall f \in L^\infty\left(\mathcal X\right). 
+	%		!!! \int_{\mathcal X}\left|f\right| \ d\mu \le \left\|f\right\|_\infty;~~\forall f \in L^\infty\left(\mathcal X\right). 
 	%		\end{equation*}
 	%		If $\widetilde{\pi}: \widetilde{\mathcal X} \to \mathcal X$ is a covering then there is the measure $\widetilde{\mu}$ on $ \widetilde{\mathcal X}$ such that for any open relatively compact $\widetilde{\mathcal U} \subset \widetilde{\mathcal X}$ homeomorphically mapped onto $\widetilde{\pi}\left(\widetilde{\mathcal U}\right)$ following condition holds
 	%	\begin{equation*}
@@ -21642,12 +21728,12 @@ K\left(C_0\left(\sX \right)  \right) = C_c\left(\sX \right).
 	\begin{empt}\label{l2_mu}
 	If $C^*$-algebra $A$ is commutative then	from the Theorem \ref{meafunc_thm} it follows that the state $\tau: A = C_0\left(\sX\right)\to \C$ can be represented by the following integral
 		\begin{equation}\label{hilb_integral}
-			\tau\left(a\right)= \int_{\mathcal X}a \ d\mu
+			\tau\left(a\right)= !!! \int_{\mathcal X}a \ d\mu
 		\end{equation}
 		where $\mu$ is a positive Borel measure.   
 		In analogy with the Riemann integration, one can define the integral of a 	bounded continuous function $a$ on $\mathcal{X}$. There is a $\mathbb{C}$-valued product on $C_0\left(\mathcal X\right)$ given by
 		\begin{equation}\label{mu_prod_eqn}
-			\left(a, b\right)=\tau\left(a^*b\right)= \int_{\mathcal X}a^*b \ d\mu,
+			\left(a, b\right)=\tau\left(a^*b\right)= !!! \int_{\mathcal X}a^*b \ d\mu,
 		\end{equation}
 		hence $C_0\left(\mathcal X\right)$ is a pre-Hilbert space. Denote by $L^2\left(C_0\left(\mathcal X\right), \tau\right)$ or $L^2\left(\mathcal X, \mu\right)$ the Hilbert space completion of $C_0\left(\mathcal X\right)$. %From  \cite{murphy,takesaki:oa_ii} it   follows that the strong closure of  $C_0\left(\mathcal X\right)$ in $B\left(L^2\left(\mathcal X, \mu\right) \right)$ is isomorphic to the algebra $L^{\infty}\left(\mathcal X, \mu\right)$ (of classes of) essentially bounded complex-valued measurable functions.  The  $L^{\infty}\left(\mathcal X, \mu\right)$ is a $C^*$-algebra with the pointwise-defined operations and the essential norm $f \mapsto \|f\|_\infty$.
 	\end{empt}
@@ -23635,8 +23721,8 @@ $C^*$-algebra}).
 		convex quasi *-algebra if
 		\begin{enumerate}
 			\item [(a)]  the map $a\in \mathfrak{A} \mapsto a^*\in\mathfrak{A}$ is continuous;
-			\item[(b)] for every $x\in \mathfrak{A}_0$, the maps $a \mapsto ax$, $a\mapsto xa$ are continuous in $\mathfrak{A}\left[\tau\right]$;
-			(iii) $\mathfrak{A}_0$ is $\tau$-dense in $\mathfrak{A}$.
+			\item[(b)] for every $x\in \mathfrak{A}_0$, the maps $a \mapsto ax$, $a\mapsto xa$ are continuous in $\mathfrak{A}\left[\tau\right]$;\\
+			(c) $\mathfrak{A}_0$ is $\tau$-dense in $\mathfrak{A}$.
 		\end{enumerate}
 		
 	\end{definition}
@@ -23658,7 +23744,7 @@ $C^*$-algebra}).
 	\subsection{Partial $O^*$-algebras}
 	\paragraph*{}
 	Here I follow to \cite{antoine:part_o}. Define partial *-algebras of closable operators in Hilbert spaces. Let $\H$ be a Hilbert space with inner product $\left(\cdot, \cdot\right)_\H$ and $\D$ a dense subspace of $\H$. We denote by $\L\left(\D, \H \right)$ the set of all closable linear 
-	operators $X$ in $\H$ uch that $\D\left(X \right)  =\D$ and put
+	operators $X$ in $\H$ such that $\D\left(X \right)  =\D$ and put
 	\be\label{l_dag_eqn}
 	\begin{split}
 		\L\left( \D\right) \bydef\left\{\left.X\in \L\left(\D, \H \right)\right|X\D\subset \D \right\},\\
@@ -24348,8 +24434,8 @@ where $\pi: A \hookto B\left(\H\right)$ is any faithful representation, $\wideti
 	\paragraph*{} 
 	\begin{defn}\cite{connes:ncg94}\label{cycle_defn}
 		\begin{enumerate}
-			\item [(a)]  A \textit{cycle} of dimension $n$ is a triple $\left(\Om, d, \int \right)$ where $\Om = \bigoplus_{j=0}^n\Om^j$  is a graded algebra over $\C$, $d$ is a graded derivation of degree 1 such that $d^2=0$, and $\int :\Om^n \to \C$ is a closed graded trace on $\Om$,
-			\item[(b)] Let $\A$  be an algebra over $\C$. Then a \textit{cycle over} $\A$ is given by a cycle $\left(\Om, d, \int \right)$	and a homomorphism $\A \to \Om^0$.
+			\item [(a)]  A \textit{cycle} of dimension $n$ is a triple $\left(\Om, d, !!! \int \right)$ where $\Om = \bigoplus_{j=0}^n\Om^j$  is a graded algebra over $\C$, $d$ is a graded derivation of degree 1 such that $d^2=0$, and $!!! \int :\Om^n \to \C$ is a closed graded trace on $\Om$,
+			\item[(b)] Let $\A$  be an algebra over $\C$. Then a \textit{cycle over} $\A$ is given by a cycle $\left(\Om, d, !!! \int \right)$	and a homomorphism $\A \to \Om^0$.
 		\end{enumerate}
 	\end{defn}
 	\begin{empt}\label{connes_cycle_empt}
@@ -25326,17 +25412,17 @@ S\cap T = \emptyset \quad \Rightarrow \quad \exists s \in \mathscr{ A}\left( \sU
 			\begin{equation}\label{r*A}r^*\A:=\{(\gamma,a):r(\gamma)=p_{\A}(a)\}.\end{equation}\end{defn}
 		
 		\begin{prop}[{\cite[Proposition 4.4]{MW08}}]Let $G$ be a groupoid with Haar system $\haars$, if we define $\Gamma_c(G,r^*\A)$ to be the set of continuous compactly supported sections of $r^*\A$, then  $\Gamma_c(G,r^*\A)$ is a $*$-algebra with respect to the operations
-			\begin{equation*}f*g(\gamma):=\int_Gf(\eta)\alpha_{\eta}\left(g(\eta^{-1}\gamma)\right)d\haarv{}{r(\gamma)}(\eta) \text{~and~}f^*(\gamma)=\alpha_{\gamma}\left(f(\gamma^{-1})^*\right).\end{equation*}\label{eq conv struc}\end{prop}
+			\begin{equation*}f*g(\gamma):=!!! \int_Gf(\eta)\alpha_{\eta}\left(g(\eta^{-1}\gamma)\right)d\haarv{}{r(\gamma)}(\eta) \text{~and~}f^*(\gamma)=\alpha_{\gamma}\left(f(\gamma^{-1})^*\right).\end{equation*}\label{eq conv struc}\end{prop}
 		
-		The goal is to complete this convolution algebra in the norm induced by regular representations. Since we use regular representations extensively in the sequel we will sketch their construction here.  To continue we need the notion of a Borel Hilbert bundle.  For our purposes a Borel Hilbert bundle $X*\mathfrak{H}$ over $\sX$ is bundle of Hilbert spaces $X*\mathfrak{H}=\{\mathcal{H}(x)\}_{x\in X}$ along with a Borel structure satisfying some technical conditions (see \cite[Definition F.1]{TFB2}). Given a measure $\mu$ on $\sX$ we can form the Hilbert space $L^2(X*\mathfrak{H}, \mu)$ in the obvious way.  This Hilbert space is just the direct integral $\int_X^{\oplus}\mathcal{H}(x)d\mu(x)$ and gives us the notion of a fibred Hilbert space that we need for groupoid representations. 
+		The goal is to complete this convolution algebra in the norm induced by regular representations. Since we use regular representations extensively in the sequel we will sketch their construction here.  To continue we need the notion of a Borel Hilbert bundle.  For our purposes a Borel Hilbert bundle $X*\mathfrak{H}$ over $\sX$ is bundle of Hilbert spaces $X*\mathfrak{H}=\{\mathcal{H}(x)\}_{x\in X}$ along with a Borel structure satisfying some technical conditions (see \cite[Definition F.1]{TFB2}). Given a measure $\mu$ on $\sX$ we can form the Hilbert space $L^2(X*\mathfrak{H}, \mu)$ in the obvious way.  This Hilbert space is just the direct integral $!!! \int_X^{\oplus}\mathcal{H}(x)d\mu(x)$ and gives us the notion of a fibred Hilbert space that we need for groupoid representations. 
 		
 		Suppose $\pi$ is a (separable) $C_0(\units)$-linear representation of $A$ on $\mathcal{H}_{\pi}$.  Then by \cite[Proposition F.26]{TFB2} there exists a Borel Hilbert bundle $\units*\mathfrak{H}$, a measure $\mu_{\pi}=\mu$ on $\units$ (note: $\mu$ need not be quasi invariant) and a Borel family of representations $\{\pi_u\}_{u\in\units}$ of $A$ on $\mathcal{H}(u)$ such that $\pi$ is unitarily equivalent to the representation 
-		\begin{equation}\rho=\int_{\units}^{\oplus}\pi_u d\mu(u) \quad\text{given by}\quad\rho(a)h(u)=\pi_u(a)h(u).  \label{eq dir int}\end{equation}
+		\begin{equation}\rho=!!! \int_{\units}^{\oplus}\pi_u d\mu(u) \quad\text{given by}\quad\rho(a)h(u)=\pi_u(a)h(u).  \label{eq dir int}\end{equation}
 		It is not hard to see from the proof of \cite[Proposition F.26]{TFB2} that $I_u\subset\ker(\pi_u)$ $\mu$-almost everywhere so that $\pi_u$ descends to a well defined representation on $A(u)$.
 		Therefore
 		\begin{equation}\pi_u(a)h(u)=\pi_u(a(u))h(u) \quad\mu\text{-almost everywhere}.\label{eq piu well def}\end{equation}
-		We can then form the pull-back Hilbert bundle $s^*(\units*\mathfrak{H})=:G*_s\mathfrak{H}$ and  define the measure $\nu^{-1}=\int_{\units}\haarv{u}{}d\mu$ to form a new Hilbert space $L^2(G*_s\mathfrak{H},\nu^{-1})$.  Note that functions $h\in L^2(G*_s\mathfrak{H},\nu^{-1})$ have the property that $h(\gamma)\in \mathcal{H}(s(\gamma))$.  So that, 
-		\begin{equation}\label{eq def indpi}\Ind{}{}\pi(f)h(\gamma)=\int_G \pi_{s(\gamma)}\left(\alpha_{\gamma}^{-1}(f(\eta))\right)h(\eta^{-1}\gamma)\haarv{}{r(\gamma)}(\eta)\end{equation}
+		We can then form the pull-back Hilbert bundle $s^*(\units*\mathfrak{H})=:G*_s\mathfrak{H}$ and  define the measure $\nu^{-1}=!!! \int_{\units}\haarv{u}{}d\mu$ to form a new Hilbert space $L^2(G*_s\mathfrak{H},\nu^{-1})$.  Note that functions $h\in L^2(G*_s\mathfrak{H},\nu^{-1})$ have the property that $h(\gamma)\in \mathcal{H}(s(\gamma))$.  So that, 
+		\begin{equation}\label{eq def indpi}\Ind{}{}\pi(f)h(\gamma)=!!! \int_G \pi_{s(\gamma)}\left(\alpha_{\gamma}^{-1}(f(\eta))\right)h(\eta^{-1}\gamma)\haarv{}{r(\gamma)}(\eta)\end{equation}
 		defines a representation of  $\Gamma_c(G, r^*\A)$ induced by $\pi$  on $L^2(G*_s\mathfrak{H},\nu^{-1})$.
 		We call these representations \emph{regular} and define the reduced norm on $\Gamma_c(G,r^*\A)$ to be 
 		\begin{equation}\|f\|_r:=\sup\{\|\Ind\pi(f)\|:
@@ -25347,7 +25433,7 @@ S\cap T = \emptyset \quad \Rightarrow \quad \exists s \in \mathscr{ A}\left( \sU
 		As usual we can  define the reduced crossed product of a dynamical system $(\A,G, \alpha)$, denoted $\A\rtimes_{\alpha,r}G$, to be the completion of $\Gamma_c(G,r^*\A)$ in the norm $\|\cdot\|_r$.
 		
 		In this paper we will also use the $I$-norm on $\Gamma_c(G,r^*\A)$ given by 
-		$$\|f\|_I:=\max\left\{\sup\left\{\int\|f\|d\lambda_u\right\},\sup\left\{\int\|f\|d\lambda^u\right\}\right\}.$$
+		$$\|f\|_I:=\max\left\{\sup\left\{!!! \int\|f\|d\lambda_u\right\},\sup\left\{!!! \int\|f\|d\lambda^u\right\}\right\}.$$
 		We denote the completion of $\Gamma_c(G,r^*\A)$ in this norm by $L^I(G,r^*\A)$.
 	\end{subsection}
 	
@@ -25637,7 +25723,7 @@ Let $\G\bydef \G\left(M, \sF \right)$ be a foliation chart. 	The bundle $\Omega_
 	For $f,g \in \Ga_c \left(\mathcal G , \Omega_{\mathcal G}^{1/2}\right)$, the convolution
 	product $f * g$ is defined by the equality
 	\be\label{foli_prod_eqn}
-	(f * g) (\gamma) = \int_{\gamma_1 \circ \gamma_2 = \gamma}
+	(f * g) (\gamma) = !!! \int_{\gamma_1 \circ \gamma_2 = \gamma}
 	f(\gamma_1) \, g(\gamma_2) \, .
 	\ee
 	This makes sense because, for fixed $\gamma : x \to y$ and fixing $v_x
@@ -25660,7 +25746,7 @@ Let $\G\bydef \G\left(M, \sF \right)$ be a foliation chart. 	The bundle $\Omega_
 	base point $x \in L$, one identifies $\tilde L$ with $\mathcal G_x = \{
 	\gamma , s(\gamma) = x \}$ and defines
 	\begin{equation}\label{foli_repr_eqn}
-		(\rho_x (f) \, \xi) \, (\gamma) = \int_{\gamma_1 \circ \gamma_2 =
+		(\rho_x (f) \, \xi) \, (\gamma) = !!! \int_{\gamma_1 \circ \gamma_2 =
 			\gamma} f(\gamma_1) \, \xi (\gamma_2) \qquad \forall \, \xi \in L^2
 		(\mathcal G_x),\
 	\end{equation}
@@ -26070,11 +26156,11 @@ Let $\G\bydef \G\left(M, \sF \right)$ be a foliation chart. 	The bundle $\Omega_
 	\end{equation} 
 	such that following condition holds
 	\begin{equation}\label{nt_state_integ_eqn}
-		\tau\left(f \right)=  \frac{1}{\left( 2\pi\right)^n }\int_{\mathbb{T}^n} \varphi_\infty\left( f\right) ~dx.
+		\tau\left(f \right)=  \frac{1}{\left( 2\pi\right)^n }!!! \int_{\mathbb{T}^n} \varphi_\infty\left( f\right) ~dx.
 	\end{equation}
 	From \eqref{nt_state_integ_eqn} it follows that for any $a, b \in \Coo\left(\mathbb{T}^n_{\Theta}\right)$  the scalar product on $L^2\left(C\left(\mathbb{T}^n_{\Theta}\right), \tau\right)$ is given by
 	\begin{equation}\label{nt_int_sc_pr_eqn}
-		\left(a, b \right)= \int_{\T^n} a_{\text{comm}}^*b_{\text{comm}}dx 
+		\left(a, b \right)= !!! \int_{\T^n} a_{\text{comm}}^*b_{\text{comm}}dx 
 	\end{equation}
 	where $a_{\text{comm}}\in \Coo\left(\T^n \right)$ (resp. $b_{\text{comm}})$ is a commutative function which corresponds to $a$ (resp. $b$).
 		\begin{empt}\label{nt_k_1_empt}
@@ -26200,18 +26286,18 @@ If $\Om^1_D$ is a {module of differential forms associated} with the given by \e
 	\begin{defn}
 		Denote the \textit{Moyal plane} product $\star_\th$ on $\SS\left(\R^{2N} \right)$ given by
 		\begin{equation}\label{mp_prod_eqn}
-			\left(f \star_\th h \right)\left(u \right)= \int_{y \in \R^{2N} } f\left(u - \frac{1}{2}\Th y\right) g\left(u + v \right)e^{2\pi i y \cdot v }  dydv
+			\left(f \star_\th h \right)\left(u \right)= !!! \int_{y \in \R^{2N} } f\left(u - \frac{1}{2}\Th y\right) g\left(u + v \right)e^{2\pi i y \cdot v }  dydv
 		\end{equation}
 		
 		where $\Th$ is given by \eqref{nt_simpectic_theta_eqn}.
 	\end{defn}
 	There is the tracial property \cite{moyal_spectral} of the Moyal product
 	\begin{equation}\label{nt_tracial_prop}
-		\int_{\R^{2N}} \left( f\star_\th g\right) \left(x \right)dx =  \int_{\R^{2N}}  f\left(x \right) g\left(x \right)dx.
+		!!! \int_{\R^{2N}} \left( f\star_\th g\right) \left(x \right)dx =  !!! \int_{\R^{2N}}  f\left(x \right) g\left(x \right)dx.
 	\end{equation}
 	The Fourier transformation of the star product satisfies to the following condition.
 	\begin{equation}\label{mp_fourier_eqn}
-		\mathcal{F}\left(f \star_\th g\right) \left(x \right) =    	\int_{\R^{2N}}\mathcal{F}{f}\left(x-y \right) \mathcal{F}{g}\left(y\right)e^{ \pi i  y \cdot \Th x }~dy.
+		\mathcal{F}\left(f \star_\th g\right) \left(x \right) =    	!!! \int_{\R^{2N}}\mathcal{F}{f}\left(x-y \right) \mathcal{F}{g}\left(y\right)e^{ \pi i  y \cdot \Th x }~dy.
 	\end{equation}
 	\begin{prop}\label{mp_factor_prop}\cite{moyal_spectral}
 		The algebra $\SS\left(\R^{2N}, \star_\th \right)$  has the (nonunique) factorization property:
@@ -26261,7 +26347,7 @@ If $\Om^1_D$ is a {module of differential forms associated} with the given by \e
 		If $f,g \in L^2 \left(\R^{2N} \right)$, then $f\star_\th g \in L^2 \left(\R^{2N} \right)$ and $\left\|f\right\|_{\mathrm{op}} < \left(2\pi\th \right)^{-\frac{N}{2}} \left\|f\right\|_2$.
 		where	$\left\|\cdot\right\|_{2}$ be the $L^2$-norm given by
 		\begin{equation}\label{nt_l2_norm_eqn}
-			\left\|f\right\|_{2} \stackrel{\mathrm{def}}{=} \left|\int_{\R^{2N}} \left|f\right|^2 dx \right|^{\frac{1}{2}}.
+			\left\|f\right\|_{2} \stackrel{\mathrm{def}}{=} \left|!!! \int_{\R^{2N}} \left|f\right|^2 dx \right|^{\frac{1}{2}}.
 		\end{equation}
 		and the operator norm
 		\be\label{mp_op_eqn}
@@ -26315,7 +26401,7 @@ If $\Om^1_D$ is a {module of differential forms associated} with the given by \e
 	\begin{remark}
 		One has 
 		\be\label{nt_dmn_eqn}
-		\int_{\R^2} f_{mn} = \delta_{mn}.
+		!!! \int_{\R^2} f_{mn} = \delta_{mn}.
 		\ee
 	\end{remark}
 	
@@ -26416,12 +26502,12 @@ If $\Om^1_D$ is a {module of differential forms associated} with the given by \e
 		
 		Introduce the symplectic Fourier transform $F$ by
 		\begin{equation}
-			Ff(x) \stackrel{\text{def}}{=} (2\pi)^{-N} \int f(t) e^{ix \cdot Jt} \,d^{2N}t; \quad 	\widetilde Ff(x) \stackrel{\text{def}}{=} (2\pi)^{-N} \int f(t) e^{ix \cdot Jt} \,d^{2N}t; 
+			Ff(x) \stackrel{\text{def}}{=} (2\pi)^{-N} !!! \int f(t) e^{ix \cdot Jt} \,d^{2N}t; \quad 	\widetilde Ff(x) \stackrel{\text{def}}{=} (2\pi)^{-N} !!! \int f(t) e^{ix \cdot Jt} \,d^{2N}t; 
 			\label{eq:Fsympl}
 		\end{equation}
 		The \textit{twisted convolution} \cite{varilly_bondia:phobos} $f\diamond g$ is defined by
 		\begin{equation}\label{nt_diamond_eqn}
-			f\diamond g \left(u \right) \stackrel{\text{def}}{=} \int f\left(u - t\right)  g\left(t \right)e^{-iu \cdot J t}  dt.
+			f\diamond g \left(u \right) \stackrel{\text{def}}{=} !!! \int f\left(u - t\right)  g\left(t \right)e^{-iu \cdot J t}  dt.
 		\end{equation}
 		Following conditions hold \cite{varilly_bondia:phobos}:
 		\bea\label{nt_prod_duality_eqn}
@@ -27027,7 +27113,7 @@ From the above equation if follows that $\C_{\left( \mu\right) }\subset C_c\left
 	%2.5.6. Theorem. 
 	%Let $u$ be a normal operator on a Hilbert space $\H$, and let $\sigma\left(u \right)$ be the spectrum of $u$.
 	%Then there is the unique spectral measure $E$ relative to $\left( \sigma\left(u %\right), \H\right)$  such that
-	%$u = \int z dE$, where $z$ is the inclusion map of $\sigma\left(u \right)$ in $\C$.
+	%$u = !!! \int z dE$, where $z$ is the inclusion map of $\sigma\left(u \right)$ in $\C$.
 	%\end{theorem} 
 	
 	\
@@ -27658,7 +27744,7 @@ The above equation is a counterpart of \eqref{Tthetarel}, so the noncommutative 
  		\end{equation}
  		This operation enables us replace guage field \eqref{gauge_transformation} by "twist" in boundary conditions \eqref{invariant_twist}. The gauge field $A$ which obeys \eqref{gauge_transformation} (resp. field $\psi$) is replaced with the trivial gauge field (resp. field $\psi'$ which obey \eqref{gauge_transformation}). Field $\psi'$ is given by
  		\begin{equation*}
- 			\psi'(y) = \left(P \ \mathrm{exp} \int\limits_{\omega} A' \cdot dx\right) \psi(\pi(y))
+ 			\psi'(y) = \left(P \ \mathrm{exp} !!! \int\limits_{\omega} A' \cdot dx\right) \psi(\pi(y))
  		\end{equation*}
  		where
  		\begin{itemize}
