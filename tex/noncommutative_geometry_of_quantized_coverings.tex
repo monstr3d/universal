@@ -4445,7 +4445,7 @@ If $\left( \widetilde{\mathfrak A}', \widetilde{\mathfrak A}_0\right)$ is a quas
 \label{inv_qo*_lzero_eqn}
 \forall\widetilde a\in \widetilde{\mathfrak A}'\quad \widetilde{a}\left( K\left(\widetilde{B} \right)\cap  \widetilde{\mathfrak A}_0 \right) = \{0\}\quad \Rightarrow\quad \widetilde{a}= 0, \\
 \label{inv_qo*_rlim_eqn}
-\forall  \widetilde b \in \widetilde{\mathfrak A}_0\cap K\left(\widetilde{B} \right)~\forall \widetilde a' \in \widetilde{\mathfrak A}' ~\exists a',a'' \in    \bigcup_{\la\in \La} \mathfrak A_\la ~~ \widetilde b\widetilde a=\widetilde b a', ~~  \widetilde a\widetilde b=a''\widetilde b.
+\forall  \widetilde b \in \widetilde{\mathfrak A}_0\cap K\left(\widetilde{B} \right)~\forall \widetilde a \in \widetilde{\mathfrak A}' ~\exists a',a'' \in    \bigcup_{\la\in \La} \mathfrak A_\la ~~ \widetilde b\widetilde a=\widetilde b a', ~~  \widetilde a\widetilde b=a''\widetilde b.
 \eea
 where $K\left(\widetilde B \right)$ is the Pedersen's ideal of $\widetilde B$ (cf. Definition \ref{peder_id_defn}) .
 	
@@ -4455,7 +4455,7 @@ then $\left( \widetilde{\mathfrak A}', \widetilde{\mathfrak A}_0\right)$ is said
 
 
 \begin{definition}\label{inv_qo*_lim_defn}
-Consider the situation \ref{comp_qo*_empt}.	Suppose that there exists an admissible quasi *-algebra $\left( \widetilde{\mathfrak A}, \widetilde{\mathfrak A}_0\right)$ such that any admissible  quasi *-algebra is a subalgebra of  $\left( \widetilde{\mathfrak A}', \widetilde{\mathfrak A}_0\right)$. We say that the triple
+Consider the situation \ref{comp_qo*_empt}.	Suppose that there exists an admissible quasi *-algebra $\left( \widetilde{\mathfrak A}, \widetilde{\mathfrak A}_0\right)$ such that any admissible  quasi *-algebra  $\left( \widetilde{\mathfrak A}', \widetilde{\mathfrak A}_0\right)$ is a subalgebra of  $\left( \widetilde{\mathfrak A}, \widetilde{\mathfrak A}_0\right)$. We say that the triple
 	$\left(\left( {\mathfrak A}, {\mathfrak A}_0 \right), \left( \widetilde{\mathfrak A}, \widetilde{\mathfrak A}_0 \right), G_{\widehat{\pi}}\right)$ is the 
 	$\widehat{\pi}$-\textit{ inverse noncommutative limit of $\mathfrak{S}^{\mathrm{pt}}$}.
 \end{definition}
@@ -4826,11 +4826,16 @@ so there is the inclusion
  	K\left(\widetilde{A}_\pi\right) \otimes_A \H = K\left(\widetilde{A}_\pi\right) \otimes_{A_{\la}} \left( A_{\la} \otimes_A \H\right)\hookto
  K\left(\widetilde{A}_\pi\right)\otimes_{A_{\la}} \H_{\la}.
  	\end{equation}
- 	such that $K\left(\widetilde{A}_\pi\right) \otimes_A \H$ is dense in $K\left(\widetilde{A}_\pi\right)\otimes_{A_{\la}} \H_{\la}$ with respect to pre-Hilbert norm, i.e. the inclusion \ref{tensor_n_eqn} induces the isomorphism of Hilbert completions. For all $\la\in\La$ there is the action 
- 	\bean
+ 	such that $K\left(\widetilde{A}_\pi\right) \otimes_A \H$ is dense in $K\left(\widetilde{A}_\pi\right)\otimes_{A_{\la}} \H_{\la}$ with respect to pre-Hilbert norm, i.e. the inclusion \ref{tensor_n_eqn} induces the isomorphism of Hilbert completions. For all $\la\in\La$ 
+ 	
+ 	
+ 	there is the action 
+ 	\be\label{bl_act_d_eqn}
+ 	\begin{split}
  	B\left( \H_{\la}\right) \times \left(K\left(\widetilde{A}_\pi\right)\otimes_{A_{\la}} \H_{\la} \right) \to K\left(\widetilde{A}_\pi\right)\otimes_{A_{\la}} \H_{\la},\\
  	\left(a_\la, \left( \widetilde{a}\otimes\xi\right)  \right) \mapsto  \widetilde{a}\otimes a_\la \xi,
- 	\eean
+ 	\end{split}
+ 	\ee
  	and taking into account that $K\left(\widetilde{A}_\pi\right)\otimes_{A_{\la}} \H_{\la}$ is dense in $\widetilde\H$ one has the following action
  \be\label{bl_act_eqn}
  B\left( \H_\la\right)\times \widetilde\H \to \widetilde\H
@@ -6698,6 +6703,13 @@ Prove that the given by \eqref{top_desc_c_eqn}  map $\desc^c_p\left(\widetilde a
 	(cf. Definition \ref{strict_topology} and equation \eqref{strict_topology_eqn}), where $\lift_p$ means the $p$-lift (cf. Definition \ref{top_lift_defn}).
 \end{enumerate}
 \end{exercise}
+\begin{definition}\label{top_cdesc_defn}
+The equation \eqref{top_desc_c_eqn} yields a homomorphism
+\be\label{top_cdesc_eqn}
+\desc^c_p : C_c\left( \widetilde\sX\right)\to  C_c\left( \sX\right).
+\ee
+of $C_0\left(\sX\right)$-modules. We say that $\desc^c_p$ is a \textit{compactly supported} $p$-\textit{descent}.
+\end{definition}
 \begin{empt}
  Let $\sX$ be a locally compact Hausdorff space and 	there is a positive functional 
 \be\label{top_tau_eqn}
@@ -7595,6 +7607,10 @@ Consider the situation of the Lemma \ref{top_diff*_lem}. Let $p: \widetilde M\to
 Prove following statements:
 \begin{enumerate}
 	\item $\widetilde E$ has a natural structure of a smooth bundle (cf. Definition \ref{top_sm_bundle_defn}).
+	\item If $\mathscr S^{ D^*\left( M,  E\right)}_x$ is a space of stalks at $x$ (cf. Definition \ref{stalk_defn}) then there is a natural involution
+	$$
+	* : \mathscr S^{ D^*\left( M,  E\right)}_x\xrightarrow{\approx}\mathscr S^{ D^*\left( M,  E\right)}_x.
+	$$
 	\item If both $D^*\left(M,E\right)$ and $D^*\left(\widetilde M, \widetilde E\right)$ are algebras of adjointable differential operators then there is an isomorphism of sheaves
 $$
 \mathscr S^{ D^*\left(\widetilde M, \widetilde E\right)}\cong p^{-1}\mathscr S^{D^*\left( M,  E\right)}
@@ -8744,16 +8760,16 @@ If $\xi, \eta \in \Ga_c\left(\sX, E \right)$ then since $p$ is a finite-fold cov
 		= \sum_{\a\in {\mathscr A}}\left(\xi, \mathfrak{desc}_p\left( \widetilde{a}_{\a} \widetilde{a}^* \widetilde{b}\right)  \eta \right)_{L^2\left({\sX},{E} \right)}=
 		\\
 		=
-		\sum_{\a\in {\mathscr A}}~!!! \int_\sX \left(\xi_x, \mathfrak{desc}_p\left( \widetilde{a}_{\a} \widetilde{a}^* \widetilde{b}\right)  \eta_x \right)_x d\mu=
+		\sum_{\a\in {\mathscr A}}~ \int_\sX \left(\xi_x, \mathfrak{desc}_p\left( \widetilde{a}_{\a} \widetilde{a}^* \widetilde{b}\right)  \eta_x \right)_x d\mu=
 		\\
 		=
-		\sum_{\a\in {\mathscr A}}~!!! \int_M \left(\mathfrak{desc}_p\left( \widetilde{e}_{\a} \widetilde{a}\right)\xi_x, \mathfrak{desc}_p\left( \widetilde{e}_{\a}  \widetilde{b}\right)  \eta_x \right)_x d\mu=
+		\sum_{\a\in {\mathscr A}}~ \int_M \left(\mathfrak{desc}_p\left( \widetilde{e}_{\a} \widetilde{a}\right)\xi_x, \mathfrak{desc}_p\left( \widetilde{e}_{\a}  \widetilde{b}\right)  \eta_x \right)_x d\mu=
 		\\
-		=\sum_{\a\in {\mathscr A}}~ !!! \int_{\widetilde{\sX}}\left(\widetilde{a} \lift_{\widetilde{\sU}_{\a}}\left({e}_{\a}\xi \right)_{\widetilde{x}},  \widetilde{b} ~\lift_{\widetilde{\sU}_{\a}}\left({e}_{\a}\eta \right)_{\widetilde{x}}\right)_{\widetilde{x}}d \widetilde{   \mu} =
+		=\sum_{\a\in {\mathscr A}}~  \int_{\widetilde{\sX}}\left(\widetilde{a} \lift_{\widetilde{\sU}_{\a}}\left({e}_{\a}\xi \right)_{\widetilde{x}},  \widetilde{b} ~\lift_{\widetilde{\sU}_{\a}}\left({e}_{\a}\eta \right)_{\widetilde{x}}\right)_{\widetilde{x}}d \widetilde{   \mu} =
 		\\
-		=\sum_{\a\in {\mathscr A}}~ !!! \int_{\widetilde{\sX}}\widetilde{a}_{\a}\left(\widetilde{a} \lift_{\widetilde{\sU}_{\a}}\left(\xi \right)_{\widetilde{x}},  \widetilde{b} ~\lift_{\widetilde{\sU}_{\a}}\left(\eta \right)_{\widetilde{x}}\right)_{\widetilde{x}}d \widetilde{   \mu} =
+		=\sum_{\a\in {\mathscr A}}~  \int_{\widetilde{\sX}}\widetilde{a}_{\a}\left(\widetilde{a} \lift_{\widetilde{\sU}_{\a}}\left(\xi \right)_{\widetilde{x}},  \widetilde{b} ~\lift_{\widetilde{\sU}_{\a}}\left(\eta \right)_{\widetilde{x}}\right)_{\widetilde{x}}d \widetilde{   \mu} =
 		\\
-		= !!! \int_{\widetilde{\sX}}\left( \widetilde{a} \lift_p\left(\xi \right)_{\widetilde{x}},  \widetilde{b} ~\lift_p\left(\eta \right)_{\widetilde{x}}\right)_{\widetilde{x}}d \widetilde{   \mu}
+		=  \int_{\widetilde{\sX}}\left( \widetilde{a} \lift_p\left(\xi \right)_{\widetilde{x}},  \widetilde{b} ~\lift_p\left(\eta \right)_{\widetilde{x}}\right)_{\widetilde{x}}d \widetilde{   \mu}
 		= \left( \widetilde{a}~ \lift_p\left(\xi \right),  \widetilde{b} ~\lift_p\left(\eta \right)\right)_{L^2\left(\widetilde{\sX},\widetilde{E} \right)} =\\
 		=  \left(\phi\left(  \widetilde{a}\otimes\xi\right) ,  \phi \left( \widetilde{b}\otimes\eta\right)\right)_{L^2\left(\widetilde{\sX},\widetilde{E} \right)}
 	\end{split} 
@@ -9972,7 +9988,7 @@ Consider the described in \ref{top_r_inf_empt} situation and suppose that $\wide
 	\eean
 	where $\mu_\la$ is  a Borel measure $\sX_\la$. Indeed for all $\la\in\La$ the measure $\mu_\la\bydef  \lift_{p_\la}\mu$ is the $p_\la$-lift of $\mu$ (cf. Definition \ref{top_mea_lift_defn}). For all $\la\in \La$ similarly to equations \eqref{tau_prod_eqn} and \eqref{mu_prod_eqn} one can define the $\C$-valued product $\left(\cdot, \cdot \right):C_0\left( \sX_\la\right) \times C_0\left( \sX_\la\right) \to\C$ given by
 	\bean
-	\left(a_\la, b_\la \right) \bydef \tau_\la\left( a^*_\la, b_\la\right) \cong !!! \int_{\sX_\la} a^*_\la b_\la~ d{\mu_\la} 
+	\left(a_\la, b_\la \right) \bydef \tau_\la\left( a^*_\la, b_\la\right) \cong  \int_{\sX_\la} a^*_\la b_\la~ d{\mu_\la} 
 	\eean
 	so $C_0\left( \sX_\la\right)$ becomes a pre-Hilbert space.
 	Denote by $L^2\left(\sX_\la, \mu_\la \right)$ the Hilbert norm completion of $C_0\left( \sX_\la\right)$.  Let us define the functional $\overline \tau: C_c\left(\overline  \sX\right) \to\C$.  From the Theorem \eqref{top_comp_la_lem} for any  $\overline a \in C_c\left(\overline\sX \right)$ there is $\la_{\supp \overline  a}$ such that the restriction $\left.\overline p_{\la_{\supp \overline  a}}\right|_{{\supp \overline  a}}$ homeomorphically maps $\supp \overline  a$ onto $\overline p_{\la_{\supp \overline  a}}\left( \supp \overline  a\right)$. 
@@ -10562,7 +10578,6 @@ If $\widehat B\bydef C^*$-$\varinjlim B_\la$ then there is the natural given by 
 \end{split}
 \ee
 Above construction is a version of the described in \ref{comp_pt_o*_empt} general construction.
-!!!  CONTINUE
 \begin{theorem}\label{top_inf_o*_thm}
 	In the described above situation if $\pi$ is given by \eqref{top_pi_eqn} then the triple
 	$\left(D^*\left(M , T\right) , D^*\left( \widetilde{M}, \widetilde T\right) , G\left(\left.\widetilde{M}\right|M\right)\right) $ is the 
@@ -10620,8 +10635,6 @@ The proof of the Theorem \ref{top_inf_o*_m_thm} is left to the reader.
 Here we consider two  specializations of described in the Section \ref{unb_hilb_sec} theory.
 
 \paragraph{Algebras of unbounded functions}
-
-\paragraph{}
 Let $\left( \sX, x_0\right) $ be a pointed connected, locally connected, locally compact, Hausdorff space. Let $B \bydef  C_0\left(\sX \right)$, and let $A\bydef Cont\left(\sX \right) $ be a *-algebra of continuous (possibly unbounded)  maps from $\sX$ to $\C$. From the Lemma \ref{top_base_point_lem} one has a {pointed algebraical  finite covering category} (cf. Definition \ref{pointed_defn}), given by
 \be\nonumber
 \begin{split}
@@ -10663,7 +10676,7 @@ $$
 and taking into account $\lift_{\widetilde p_\la} \left( a_\la \right)  \widetilde b_\a\in C_0\left(\widetilde\sX\right)$ we conclude that 
 $\widetilde a' \widetilde b_\a\in C_0\left(\widetilde\sX\right)$. 
 The restriction $\left. \widetilde a' \widetilde b_\a\right|_{\widetilde \sU_\a}$ yields  a section 
-$\widetilde s_\a \in \mathscr S^{C_0\left(\widetilde \sX \right) }\left(\widetilde\sU_\a \right)$. Gluing of sections $\widetilde s_\a$ yields a global section $\widetilde s \in \mathscr S^{C_0\left(\widetilde \sX \right) }\left(\widetilde\sX \right)$ which correspond to element of $\widetilde f \in Cont\left( \widetilde \sX\right)$. On the other hand there is a natural inclusion $Cont\left( \widetilde \sX\right)\subset   \End^*_{\widetilde { B}}\left(\widetilde {\mathfrak B}'\right)$. We leave to the user the proof of the equality
+$\widetilde s_\a \in \mathscr S^{C_0\left(\widetilde \sX \right) }\left(\widetilde\sU_\a \right)$. From (4) of the Definition \ref{sheaf_defn} it follows that a family $\left\{\widetilde s_\a\right\}$ of local sections  yields a global section $\widetilde s \in \mathscr S^{C_0\left(\widetilde \sX \right) }\left(\widetilde\sX \right)$ which correspond to element of $\widetilde f \in Cont\left( \widetilde \sX\right)$. On the other hand there is a natural inclusion $Cont\left( \widetilde \sX\right)\subset   \End^*_{\widetilde { B}}\left(\widetilde {\mathfrak B}'\right)$. We leave to the user the proof of the equality
 $$
 \forall \widetilde b' \in \widetilde {\mathfrak B}'\quad \left( \widetilde f - \widetilde a'\right) \widetilde b'= 0,
 $$
@@ -10680,7 +10693,7 @@ Suppose
 \bean%\label{top_hull_top_eqn}
 \begin{split}
 	\mathfrak{S}_{\left( \sX, x_0\right) }\bydef\\
-	\bydef \left\{\left\{p_\la:\left( \sX_\la, x^\la_0\right) \to \left( \sX, x_0\right)\right\}_{\la\in\La}, \left\{p^\mu_{ \nu}:\left( \sX_\mu, x^\mu_0\right) \to \left( \sX_\nu, x^\nu_0\right)\right\}_{\substack{\mu,\nu\in\La\\
+	\bydef \left\{\left\{q_\la:\left( \sX_\la, x^\la_0\right) \to \left( \sX, x_0\right)\right\}_{\la\in\La}, \left\{q^\mu_{ \nu}:\left( \sX_\mu, x^\mu_0\right) \to \left( \sX_\nu, x^\nu_0\right)\right\}_{\substack{\mu,\nu\in\La\\
 			\mu\ge\nu}} \right\}
 \end{split}
 \eean
@@ -10691,33 +10704,31 @@ is  a pointed topological finite covering category (cf. Definition \ref{top_sec_
 	\bydef \left\{\left\{p_\la:\left( \sY_\la, y^\la_0\right) \to \left( \sY, y_0\right)\right\}_{\la\in\La}, \left\{p^\mu_{ \nu}:\left( \sY_\mu, x^\mu_0\right) \to \left( \sY_\nu, y^\nu_0\right)\right\}_{\substack{\mu,\nu\in\La\\
 			\mu\ge\nu}} \right\}.
 \end{split}
-\ee	
+\ee
+where $p_\la \bydef q_\la \times \Id_\R$ and $p^\mu_\nu \bydef q^\mu_\nu \times \Id_\R$.	
 If $B_\la\bydef C_0\left(\sY_\la \right)$ then the Lemma \ref{top_base_point_lem} yields a pointed algebraical  finite covering category (cf. Definition \ref{pointed_defn})
 \be\label{top_sb_eqn}
 \begin{split}
 	\mathfrak{S}^{\text{pt}}_B \bydef \left(\left\{\rho_\la: B \hookto B_\la \right\}_{\la \in \La}, \left\{\rho^\mu_\nu: B_\mu \hookto B_\nu\right\}_{\substack{\mu, \nu \in \La\\ \nu > \mu}}\right).
 \end{split}
 \ee
-From the Theorem \ref{top_main_thm} it follows that $\mathfrak{S}^{\mathrm{pt}}_B$ is good  (cf. Definition \ref{good_defn}). Moreover and there is a space $\widetilde \sX$  and a transitive covering $\widetilde p: \widetilde \sY\to  \sY$ such that a triple 
+From the Theorem \ref{top_main_thm} it follows that $\mathfrak{S}^{\mathrm{pt}}_B$ is good  (cf. Definition \ref{good_defn}). Moreover and there is a space $\widetilde \sY$  and a transitive covering $\widetilde p: \widetilde \sY\to  \sY$ such that a triple 
 $\left(C_0\left(\sY\right), C_0\left(\widetilde \sY\right),G\left(\left.\widetilde \sY~\right| \mathcal Y\right)\right)
 $ is  an  { infinite noncommutative covering} of $\mathfrak{S}^{\mathrm{pt}}_{B}$ (cf. Definition \ref{main_defn}). This triple we also denote by $\left(B, \widetilde B,G\left(\left.\widetilde B~\right| B\right)\right)
 $.
 If  $A$ be a given by \eqref{top_poly_a_defn} *-algebra, and  If $\mathfrak B$ is the completion of $C_c\left(\sY\right)$ with respect to the graph topology (cf. Definition \ref{def:rep_Hilbert_module} ) then there is the representation  $\mu:  A \hookto \End_B\left(\mathfrak B \right)$.
-!!! CONTINUE
-
-
 
 \begin{exercise}\label{top_ch_exer}
 	\begin{enumerate}
-		\item Using the Exercise \ref{top_fin_hilb_thm}  construct a  {pointed algebraic finite covering category of $*$-algebras}  given by
+		\item Using the Theorem \ref{top_fin_hilb_thm}  construct a  {pointed algebraic finite covering category of $*$-algebras}  given by
 		\be\label{top_sa_eqn}
 		\begin{split}
 			\mathfrak{S}^{\text{pt}}_A \bydef \left(\left\{\pi_\la: A \hookto A_\la \right\}_{\la \in \La}, \left\{\pi^\mu_\nu: A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\ \nu > \mu}}\right)
 		\end{split}
 		\ee
-		such that for any $\la, \mu, \nu\in \La$ the triples $\left(A, A_\la, G\left(\left. A_\la\right| A\right)\bydef G\left(\left. B_\la\right| B\right), \pi_\la \right)$ and $\left(A_\mu, A_\nu, G\left(\left. A_\mu\right| A_\nu\right)\bydef G\left(\left. B_\mu\right| B_\nu\right), \pi^\mu_\nu \right)$ are associated with $\left(B, B_\la, G\left(\left. B_\la\right| B\right), \rho_\la \right)$ and $\left(B_\mu, B_\nu,G\left(\left. B_\mu\right| B_\nu\right), \rho^\mu_\nu \right)$ noncommutative finite-fold covering of *-algebras (cf. Definition \ref{fin_chull_defn} !!! CHECK (a) (b)).
+		such that for any $\la, \mu, \nu\in \La$ the triples $\left(A, A_\la, G\left(\left. A_\la\right| A\right)\bydef G\left(\left. B_\la\right| B\right), \pi_\la \right)$ and $\left(A_\mu, A_\nu, G\left(\left. A_\mu\right| A_\nu\right)\bydef G\left(\left. B_\mu\right| B_\nu\right), \pi^\mu_\nu \right)$ are associated with $\left(B, B_\la, G\left(\left. B_\la\right| B\right), \rho_\la \right)$ and $\left(B_\mu, B_\nu,G\left(\left. B_\mu\right| B_\nu\right), \rho^\mu_\nu \right)$ noncommutative finite-fold covering of *-algebras (cf. Definition \ref{fin_chull_defn}.
 		\item Prove that 	in the described above situation 
-		the triple $\left(A, \widetilde{A}, G\left(\left.\widetilde A \right| A\right)\cong G\left(\left.\widetilde B \right| B\right)\right)$ is an {infinite noncommutative covering of  $\mathfrak{S}^{\text{pt}}_A$  associated with $\mathfrak{S}_B^{\mathrm{pt}}$} (cf. Definition \ref{main_ch_defn} MAXI !!! !!! UNIQUE).
+		the triple $\left(A, \widetilde{A}, G\left(\left.\widetilde A \right| A\right)\cong G\left(\left.\widetilde B \right| B\right)\right)$ is an {infinite noncommutative covering of  $\mathfrak{S}^{\text{pt}}_A$  associated with $\mathfrak{S}_B^{\mathrm{pt}}$} (cf. Definition \ref{main_ch_defn}).
 		
 	\end{enumerate}
 	
@@ -10739,10 +10750,10 @@ If  $A$ be a given by \eqref{top_poly_a_defn} *-algebra, and  If $\mathfrak B$ i
 \begin{exercise}\label{top_chull_exer}
 	Prove that in the described above situation 
 	the triple
-	\\$\left(tA, t\widetilde{A}, G\left(\left.t\widetilde A \right| tA\right)\cong G\left(\left.\widetilde B^T \right| B^T\right)\right)$ is an {infinite noncommutative covering of  $\mathfrak{S}^{\text{pt}}_{tA}$  associated with $\mathfrak{S}_{B^T}^{\mathrm{pt}}$} (cf. Definition \ref{main_ch_defn} MAXI !!!) !!! UNIQUE.
+	\\$\left(tA, t\widetilde{A}, G\left(\left.t\widetilde A \right| tA\right)\cong G\left(\left.\widetilde B^T \right| B^T\right)\right)$ is an {infinite noncommutative covering of  $\mathfrak{S}^{\text{pt}}_{tA}$  associated with $\mathfrak{S}_{B^T}^{\mathrm{pt}}$} (cf. Definition \ref{main_ch_defn}).
 \end{exercise}
 \begin{remark}
-	The given by the Exercise \ref{top_ch_exer} inverse noncommutative limit can be regarded as an inverse noncommutative limit of $O^*$-algebras (cf. Definition \ref{inv_o*_lim_defn} MAXI !!!). 	The given by the Exercise \ref{top_chull_exer} inverse noncommutative limit can not be regarded as an inverse noncommutative limit of $O^*$-algebras because $tA$ does not have nontrivial bounded elements.
+	The given by the Exercise \ref{top_ch_exer} inverse noncommutative limit can be regarded as an inverse noncommutative limit of $O^*$-algebras (cf. Definition \ref{inv_o*_lim_defn}). 	The given by the Exercise \ref{top_chull_exer} inverse noncommutative limit can not be regarded as an inverse noncommutative limit of $O^*$-algebras because $tA$ does not have nontrivial bounded elements.
 \end{remark}
 
 
@@ -10808,23 +10819,21 @@ Using the Table \ref{top_m_table} one can proof that described here situation is
 \left(\left(\Coo_c\left(M \right)', \Coo\left(M \right)    \right), \left(\Coo_c\left(\widetilde M \right)', \Coo\left( \widetilde M \right)    \right), G\left(\left. \widetilde M\right| M\right)\right)
 $$
  is the 
-	${\pi}$- inverse noncommutative limit  (cf. Definition \ref{inv_qo*_lim_defn} MAXI !!! MAXI !!! MAXI !!!) of  the given by \eqref{top_comp_pt_qo*_eqn} {pointed algebraic finite covering category of quasi $*$-algebras} $\mathfrak{S}^{\mathrm{pt}}_{\left(\Coo_c\left(M \right)', \Coo\left(M \right)    \right)  }$.
+	${\pi}$- inverse noncommutative limit  (cf. Definition \ref{inv_qo*_lim_defn}) of  the given by \eqref{top_comp_pt_qo*_eqn} {pointed algebraic finite covering category of quasi $*$-algebras} $\mathfrak{S}^{\mathrm{pt}}_{\left(\Coo_c\left(M \right)', \Coo\left(M \right)    \right)  }$.
 \end{theorem}
 \begin{proof}
 
-	Firstly note that the specific version of the equations \eqref{inv_qo*_rzero_eqn} -\eqref{inv_qo*_rlim_eqn} !!! REPLACE is presented below
+	Firstly note that the specific versions of the equations \eqref{inv_qo*_rzero_eqn}-\eqref{inv_qo*_rlim_eqn} are presented below
 	\bea
 	\label{top_inv_qo*_rzero_eqn}
 	\forall\widetilde a\in \widetilde{\mathfrak A}'\quad \Coo_c\left(  \widetilde{M}\right) \widetilde{a}= \{0\}\quad \Rightarrow\quad \widetilde{a}= 0,~\quad\quad \\
 	\label{top_inv_qo*_lzero_eqn}
 	\forall\widetilde a\in  \widetilde{\mathfrak A}'\quad \widetilde{a}\Coo_c\left(  \widetilde{M}\right) = \{0\}\quad \Rightarrow\quad \widetilde{a}= 0,~ \quad\quad\\
-	\label{top_inv_qo*_llim_eqn}	\mathrm{span}\left\{ \Coo_c\left( \widetilde{M}\right)  \widetilde{\mathfrak A}'\right\} =\mathrm{span}\left\{  \Coo_c\left(  \widetilde{M}\right) \left( \bigcup_{\la\in \La} \Coo_c\left( {M}_\la\right)'\right) \right\},~\quad\quad \\	
-	\label{top_inv_qo*_rlim_eqn}\mathrm{span}\left\{ 	 \widetilde{\mathfrak A}'\Coo_c\left( \widetilde{M}\right) \right\} =\mathrm{span}\left\{ \left( \bigcup_{\la\in \La} \Coo_c\left( {M}_\la\right)'\right) \Coo_c\left( \widetilde{M}\right) \right\}.~\quad\quad 
+	\label{top_inv_qo*_rlim_eqn}\forall  \widetilde b \in \Coo_c\left(\widetilde M \right) ~\forall \widetilde a' \in \widetilde{\mathfrak A}' ~\exists a',a'' \in    \bigcup_{\la\in \La} \Coo_c\left( M_\la \right) ~~ \widetilde b\widetilde a=\widetilde b a', ~~  \widetilde a\widetilde b=a''\widetilde b. \quad\quad
 	\eea
-	If  $\left\{f_\a\right\}_{\a\in \mathscr A}\subset C_c\left(\widetilde{M} \right)$ is  a family of functions is a given by the  \eqref{comm_direct_empt} then for any compact $\widetilde{\sY}\subset \widetilde{M}$ there is $\a_{\widetilde{\sY}}$ such that for all $\a\ge \a_{\widetilde{\sY}}$ one has $\widetilde f_\a\left( \widetilde \sY\right) = \{1\}$ (cf. Lemma \ref{comm_direct_lem}). Similarly to the Proposition \ref{top_smooth_part_unity_prop} !!! SOFT \ref{top_soft_exer}  !!! REP \ref{top_soft_r_defn}  one can assume that $\left\{\widetilde f_\a\right\}_{\a \in \mathscr A}\subset \Coo_c\left( \widetilde{M}\right)_+$. If $\left( \widetilde{\mathfrak A}', \Coo\left( \widetilde{M}\right)\right) $ is an admissible quasi *-algebra (cf. Definition \ref{comp_pt_qo*_defn}) then from the equation \ref{inv_qo*_llim_eqn} which in this specialization is equivalent to \ref{top_inv_qo*_llim_eqn}  it follows that
+	If  $\left\{f_\a\right\}_{\a\in \mathscr A}\subset C_c\left(\widetilde{M} \right)$ is  a family of functions is a given by the  \eqref{comm_direct_empt} then for any compact $\widetilde{\sY}\subset \widetilde{M}$ there is $\a_{\widetilde{\sY}}$ such that for all $\a\ge \a_{\widetilde{\sY}}$ one has $\widetilde f_\a\left( \widetilde \sY\right) = \{1\}$ (cf. Lemma \ref{comm_direct_lem}). Similarly to the Proposition \ref{top_smooth_part_unity_prop}  one can assume that $\left\{\widetilde f_\a\right\}_{\a \in \mathscr A}\subset \Coo_c\left( \widetilde{M}\right)_+$. If $\left( \widetilde{\mathfrak A}', \Coo\left( \widetilde{M}\right)\right) $ is an admissible quasi *-algebra (cf. Definition \ref{comp_pt_qo*_defn}) then from the equation \ref{top_inv_qo*_rlim_eqn}  it follows that
 \bean
-\forall \widetilde a\in \widetilde{\mathfrak A}'\quad \forall \a\in \mathscr A\quad	\widetilde f_\a\widetilde a \in \Coo_c\left( \widetilde{M}\right)\left( \bigcup_{\la\in\La} \Coo_c\left( {M}_\la\right)'\right) \subset\\
-\subset  \text{span} \left\{ \Coo_c\left( \widetilde{M}\right)\left( \bigcup_{\la\in\La} \Coo_c\left( {M}_\la\right)'\right) \right\} .
+\forall \widetilde a\in \widetilde{\mathfrak A}'\quad \forall \a\in \mathscr A\quad	\widetilde f_\a\widetilde a \in \Coo_c\left( \widetilde{M}\right)\left( \bigcup_{\la\in\La} \Coo_c\left( {M}_\la\right)'\right).
 \eean
 	On the other hand from $\bigcup_{\la\in\La} \Coo_c\left( {M}_\la\right)'\subset \Coo_c\left( \widetilde{M}\right)'$ it turns out that $\widetilde f_\a \widetilde a\in \Coo_c\left( \widetilde{M}\right)'$.  For any  $\widetilde b \in \Coo_c\left( \widetilde{M}\right)$ there is $\a_{\supp \widetilde b}$ such that $f_{\a_{\supp \widetilde b}}\left( \supp \widetilde b\right)= \{1\}$. One has
 	\be\label{top_sw_lim_eqn}
@@ -10837,7 +10846,7 @@ The equation \eqref{top_sw_lim_eqn} means that the net $ \left\{ \left\langle \w
 \widetilde a\mapsto\lim_{\a\in \mathscr A} \widetilde f_\a \widetilde a
 \eean 
  If $\widetilde a\in \ker \Psi$ then $\Coo_c\left( \widetilde{M}\right)\widetilde a= \{0\}$ so from \eqref{inv_qo*_rzero_eqn} (or equivalently \eqref{top_inv_qo*_rzero_eqn}) it follows that $\widetilde a=0$. So one has $\ker \Psi = \{0\}$, $\Psi$ is an invective map and any admissible *- algebra $\left( \widetilde{\mathfrak A}', \Coo\left( \widetilde{M}\right)\right) $ is a quasi *-subalgebra  of 
-$\left( \Coo\left( \widetilde{M}\right)', \Coo\left( \widetilde{M}\right)\right)$.  Thus if we prove that  $\left( \Coo_c\left( \widetilde{M}\right)', \Coo\left( \widetilde{M}\right)\right)$ is admissible then the proof of this lemma would be completed (cf. Definition \ref{inv_qo*_lim_defn} MAXI !!! MAXI !!! MAXI !!!). It means that $\left( \Coo\left( \widetilde{M}\right)', \Coo\left( \widetilde{M}\right)\right)$ satisfies to the conditions (a)-(c) of the Definition \ref{comp_pt_qo*_defn}.
+$\left( \Coo\left( \widetilde{M}\right)', \Coo\left( \widetilde{M}\right)\right)$.  Thus if we prove that  $\left( \Coo_c\left( \widetilde{M}\right)', \Coo\left( \widetilde{M}\right)\right)$ is admissible then the proof of this lemma would be completed (cf. Definition \ref{inv_qo*_lim_defn}). It means that $\left( \Coo\left( \widetilde{M}\right)', \Coo\left( \widetilde{M}\right)\right)$ satisfies to the conditions (a)-(c) of the Definition \ref{comp_pt_qo*_defn}.
 \begin{enumerate}
 	\item[(a)] The action $G\left(\left. \widetilde M\right| M\right)\times \widetilde M\to \widetilde M$ naturally induces the action $G\left(\left. \widetilde M\right| M\right)\times \left( \Coo_c\left( \widetilde{M}\right)', \Coo\left( \widetilde{M}\right)\right)\to \left( \Coo_c\left( \widetilde{M}\right)', \Coo\left( \widetilde{M}\right)\right)$.
 	\item[(b)] The existence of injective *-homomorphism 
@@ -10845,15 +10854,14 @@ $\left( \Coo\left( \widetilde{M}\right)', \Coo\left( \widetilde{M}\right)\right)
 	\varphi: \bigcup_{\La \in \la} \left( \Coo_c\left( {M}_\la\right)', \Coo\left( {M}_\la\right)\right)\hookto \left( \Coo_c\left( \widetilde{M}\right)', \Coo\left( \widetilde{M}\right)\right) 
 	$$ 
 	follows from the natural inclusions $ \left( \Coo_c\left( {M}_\la\right)', \Coo\left( {M}_\la\right)\right)\hookto \left( \Coo_c\left( \widetilde{M}\right)', \Coo\left( \widetilde{M}\right)\right)$ for all $\la\in\La$.
-	\item[(c)]  The specific version of equations \eqref{inv_qo*_rzero_eqn} -\eqref{inv_qo*_rlim_eqn} !!! REPLACE is presented below
+	\item[(c)] !!! The specific version of equations \eqref{inv_qo*_rzero_eqn} -\eqref{inv_qo*_rlim_eqn} is presented below
 
 		\bea
 	\label{top_inv_qo*_rzerop_eqn}
 	\forall\widetilde a\in \Coo_c\left(  \widetilde{M}\right)'\quad \Coo_c\left(  \widetilde{M}\right) \widetilde{a}= \{0\}\quad \Rightarrow\quad \widetilde{a}= 0,~\quad\quad \\
 	\label{top_inv_qo*_lzerop_eqn}
 	\forall\widetilde a\in \Coo_c\left(  \widetilde{M}\right)'\quad \widetilde{a}\Coo_c\left(  \widetilde{M}\right) = \{0\}\quad \Rightarrow\quad \widetilde{a}= 0,~ \quad\quad\\
-	\label{top_inv_qo*_llimp_eqn}	\mathrm{span}\left\{ \Coo_c\left( \widetilde{M}\right) \Coo_c\left( \widetilde{M}\right)'\right\} =\mathrm{span}\left\{  \Coo_c\left(  \widetilde{M}\right) \left( \bigcup_{\la\in \La} \Coo_c\left( {M}_\la\right)'\right) \right\},~\quad\quad \\	
-	\label{top_inv_qo*_rlimp_eqn}\mathrm{span}\left\{ 	\Coo_c\left( \widetilde{M}\right)'\Coo_c\left( \widetilde{M}\right) \right\} =\mathrm{span}\left\{ \left( \bigcup_{\la\in \La} \Coo_c\left( {M}_\la\right)'\right) \Coo_c\left( \widetilde{M}\right) \right\}~\quad\quad 
+	\label{top_inv_qo*_rlimp_eqn}\forall  \widetilde b \in \Coo_c\left(\widetilde M \right) ~\forall \widetilde a \in \Coo_c\left(  \widetilde{M}\right)' ~\exists a',a'' \in    \bigcup_{\la\in \La} \Coo_c\left( M_\la \right) ~~ \widetilde b\widetilde a=\widetilde b a', ~~  \widetilde a\widetilde b=a''\widetilde b. ~\quad\quad 
 	\eea
 	so one needs check equations
  \eqref{top_inv_qo*_rzerop_eqn} -\eqref{top_inv_qo*_rlimp_eqn}.
@@ -10861,28 +10869,25 @@ Suppose that $\widetilde a\in \Coo_c\left(  \widetilde{M}\right)'$ is such that 
 $$
 \left\langle \widetilde a, \widetilde b \right\rangle = \left\langle \widetilde a, \widetilde{c}\widetilde b \right\rangle = \left\langle \widetilde a \widetilde{c},\widetilde b \right\rangle,
 $$
-so if $\widetilde a \widetilde{c}=0$ then $\left\langle \widetilde a, \widetilde b \right\rangle= 0$. Thus the equation \eqref{top_inv_qo*_rzerop_eqn} is proven. The equation \eqref{top_inv_qo*_lzerop_eqn}  is equivalent to \eqref{top_inv_qo*_rzerop_eqn}.  From $\bigcup_{\la\in \La} \Coo_c\left( {M}_\la\right)'\subset \Coo_c\left( \widetilde{M}\right)'$ it follows that 
-\be\label{top_cc_l_inc_eqn}
-\mathrm{span}\left\{  \Coo_c\left(  \widetilde{M}\right) \left( \bigcup_{\la\in \La} \Coo_c\left( {M}_\la\right)'\right) \right\}\subset \mathrm{span}\left\{ \Coo_c\left( \widetilde{M}\right) \Coo_c\left( \widetilde{M}\right)'\right\} 
-\ee
-If  $\widetilde a \in \Coo_c\left( {M}_\la\right)$ and $\widetilde b \in \Coo_c\left( {M}_\la\right)'$, then there is $ \widetilde{c} \in \Coo_c\left(  \widetilde{M}\right)_+$ such that $\widetilde{c}\left( \supp \widetilde{a}\right) = \{1\}$. It follows that $\widetilde{c}\widetilde{a}\widetilde{b}= \widetilde{a}\widetilde{b}$. From the Lemma \ref{top_comp_la_lem} it follows that there is $\la\in\La$ such that $\supp \widetilde{c}$ is homeomorphically mapped onto  $\widetilde p_\la\left(\supp \widetilde{c} \right) $, where  $\widetilde p_\la: \widetilde M\to M_\la$ is the natural covering. It turns out that there is the descent of 
-$\desc_{\widetilde p_\la}\left(\widetilde{c}\widetilde{a} \right) \in  \Coo_c\left( {M}_\la\right)'$ such that 
+so if $\widetilde a \widetilde{c}=0$ then $\left\langle \widetilde a, \widetilde b \right\rangle= 0$. Thus the equation \eqref{top_inv_qo*_rzerop_eqn} is proven. The equation \eqref{top_inv_qo*_lzerop_eqn}  is equivalent to \eqref{top_inv_qo*_rzerop_eqn}. 
+
+Consider the equation  \eqref{top_inv_qo*_rlimp_eqn}. If  $\widetilde c\in \Coo_c\left(\widetilde M \right)$ is a $\left(\Coo_0\left( \widetilde M\right), \supp \widetilde b  \right)$-stump (cf. Remark \ref{top_stump_soft_y_rem}) then $\widetilde b = \widetilde b\widetilde c= \widetilde c\widetilde b$. From the Lemma \ref{top_comp_la_lem} and the Corollary \ref{top_comp_la_cor} it follows that there is $\la_0\in \La$ and an open set $\widetilde \sU\subset \widetilde \sX$ such that
+\begin{itemize}
+	\item $\supp \widetilde s \subset \widetilde \sU$,
+	\item $\widetilde \sU$ is mapped homeomorphically onto $\sU_{\la_0}\bydef \widetilde p_{\la_0}\left(\widetilde \sU \right)$ where $\widetilde p_{\la_0}: \widetilde M \to M_{\la_0}$ is the natural covering.
+\end{itemize}
+If $a'\bydef  \desc_{p_{\la_0}}\left(\widetilde c \widetilde a \right)\in \Coo_c\left(M_{\la_0}\right)'$ where $\desc_{\la_0}$ is a given by the Definition  \ref{top_lift_sh_desc_defn} $p_{\la_0}$-descent then one has
 $$
-\widetilde{b}\desc_{\widetilde p_\la}\left(\widetilde{c}\widetilde{a} \right) =\widetilde{b}\widetilde{c}\widetilde{a}.
+\widetilde b\widetilde a= \widetilde a\widetilde b= \widetilde ba'= a'\widetilde b.
 $$
-It follows that 
-\be\label{top_cc_r_inc_eqn}
-\mathrm{span}\left\{ \Coo_c\left( \widetilde{M}\right) \Coo_c\left( \widetilde{M}\right)'\right\} \subset\mathrm{span}\left\{  \Coo_c\left(  \widetilde{M}\right) \left( \bigcup_{\la\in \La} \Coo_c\left( {M}_\la\right)'\right) \right\}
-\ee	
-The equation \eqref{top_inv_qo*_llimp_eqn} follows from \eqref{top_cc_l_inc_eqn} and \eqref{top_cc_r_inc_eqn}. The equation \eqref{top_inv_qo*_rlimp_eqn} is equivalent to the equation \eqref{top_inv_qo*_llimp_eqn}.
+The above equation is equivalent to \eqref{top_inv_qo*_rlimp_eqn} one.
 \end{enumerate}
 
 \end{proof}
 
-
 \subsection{Strong Morita equivalence of infinite coverings}
 	\paragraph*{} Here we consider a specialization of the explained in the Section \ref{inf_mor_sec} theory.
-\begin{lemma}!!!! CORRECT\label{comm_allows_lem}
+\begin{lemma}\label{comm_allows_lem}
 	If $\mathfrak{S}_{\left( \mathcal X, x_0\right) } = \left\{\left( \mathcal{X}_\la,x_0^\la\right)  \to \left( \mathcal X, x_0\right) \right\}_{\la \in \La} \in \mathfrak{FinTop}^{\mathrm{pt}}$, \\
 	$\mathfrak{S}_{C_0\left(\mathcal{X}\right) }\left( \mathcal X, x_0\right) =
 	\left( \left\{C_0\left( \mathcal{X}\right) \hookto  C_0\left( \mathcal{X}_\la\right) \right\}, \left\{C_0\left( \mathcal{X}_\mu\right) \hookto  C_0\left( \mathcal{X}_\nu\right) \right\} \right) $ then $\mathfrak{S}^{\mathrm{pt}}_{C_0\left(\mathcal{X}\right) }$ allows inner product (cf. Definition \ref{inf_hilb_prod_defn}). 
@@ -10898,8 +10903,8 @@ The equation \eqref{top_inv_qo*_llimp_eqn} follows from \eqref{top_cc_l_inc_eqn}
 			c_{\la} = \sum_{g \in \ker\left(G\left(\left.\widetilde{\sX}~\right|\sX \right)  \to  G\left( \sX_{\la}~|~\sX \right)\right)} g \left(\widetilde{a}^* \widetilde{b}  \right) = \desc_{\overline{p}_\la}\left( \widetilde{a}\widetilde{b}\right) 
 		\end{split}
 	\end{equation}
-	where sum of the series implies the strict topology of $M\left(C_0\left(\widetilde{\sX} \right)  \right)$ (cf. Definition \ref{strict_topology}), and the  notation  $\desc_{\overline{p}_\la}$ means  the descent	(cf. Definition \ref{top_lift_desc_defn}). 
-	From the properties of the descent it turns out that $\desc_{\overline{p}_\la}\left( \widetilde{a}\widetilde{b}\right) \in C_0\left( \sX_{\la}\right)$, i.e. $c_\la \in C_0\left( \sX_{\la}\right)$.  Taking into account the Remark \ref{inf_hilb_prod_low_rem} we conclude that  $c_\la \in C_0\left( \sX_{\la}\right)$ for all $\la \in \La$.
+	where sum of the series implies the strict topology of $M\left(C_0\left(\widetilde{\sX} \right)  \right)$ (cf. Definition \ref{strict_topology}), and the  notation  $\desc_{\widetilde{p}_\la}$ means  the $\widetilde p_\la$-descent	(cf. Definition \ref{top_lift_desc_defn}). 
+	From the properties of the descent it turns out that $\desc_{\widetilde{p}_\la}\left( \widetilde{a}\widetilde{b}\right) \in C_0\left( \sX_{\la}\right)$, i.e. $c_\la \in C_0\left( \sX_{\la}\right)$.  Taking into account the Remark \ref{inf_hilb_prod_low_rem} we conclude that  $c_\la \in C_0\left( \sX_{\la}\right)$ for all $\la \in \La$.
 \end{proof}
 \begin{rem}
 	The Lemma \ref{comm_allows_lem} yields a specialization 
@@ -10922,6 +10927,7 @@ For any $\eps > 0$ the set
 $$
 \widetilde\sY\bydef \left\{ \widetilde x\in \widetilde\sX \left|\left| \widetilde a\left(\widetilde x\right) \right|\ge \frac{\eps}{2} \right.\right\}
 $$
+is compact.
 If  $ \widetilde p: \widetilde\sX \to \sX$ is the natural covering and  $\sum_{j = 1}^n f_j$  is a covering sum for $\widetilde\sY$ {subordinated to} $\widetilde p$ (cf. Definition \ref{top_covering_sum_domi_defn}). then one has
 $$
 \left\|  \widetilde a -  \widetilde a\sum_{j = 1}^n f_j\right\| < \eps.
@@ -11017,16 +11023,13 @@ The Exercise \ref{top_all_exer} corresponds to the Proposition \ref{top_allows_m
 Similarly to the section \ref{comm_induced_finite_sec} consider a compact  Riemannian manifold $M$ with a  spinor bundle $S$ (cf. \ref{comm_sp_tr_sec}). 
 Let $\tau:C\left( M\right) \to \C$ be a faithful state such that 
 $$
-\tau\left(a \right) = !!! \int_{M} a~ d\mu.
+\tau\left(a \right) =  \int_{M} a~ d\mu.
 $$
 Similarly to the Section \ref{comm_induced_finite_sec} there is a Hilbert space $ L^2\left(  M, S\right)\cong  L^2\left(  M, S, \mu\right)$ and   the natural representation
 \be\label{comm_m_bundle_inf_repr_eqn}
 \rho: C\left(M\right) \to B\left( L^2\left(  M, S\right)\right). 
 \ee
-Let $p: \widetilde M \to M$ be an infinite transitive covering, such that the group $G\left(\left.\widetilde M   ~\right| M\right)$ is residually finite. From the Lemma \ref{top_res_fin_lem} and the  Theorem \ref{top_main_thm} it turns out that the triple  $\left(C\left( M\right) , C_0\left( \widetilde M\right) G\left(\left.\widetilde M   ~\right| M\right)\right)$ is an infinite noncommutative covering (cf. Definition \ref{main_defn}). Similarly to \eqref{top_ot_eqn} one can construct a functional
-\bean
-\widetilde\tau: C_c\left(\widetilde M \right) \to \C. 
-\eean 
+Let $p: \widetilde M \to M$ be an infinite transitive covering, such that the group $G\left(\left.\widetilde M   ~\right| M\right)$ is residually finite. From the Lemma \ref{top_res_fin_lem} and the  Theorem \ref{top_main_thm} it turns out that the triple  $\left(C\left( M\right) , C_0\left( \widetilde M\right) G\left(\left.\widetilde M   ~\right| M\right)\right)$ is an infinite noncommutative covering (cf. Definition \ref{main_defn}). Let both $\widetilde\tau \bydef \lift_p\left(\tau \right)$ and $\widetilde \mu$ be the $p$-lift of $\tau$ and $\mu$ respectively (cf. Definition \ref{top_mea_lift_defn}) 
 Define the $\C$-valued product
 \be
 \begin{split}
@@ -11055,8 +11058,7 @@ then from the Lemma \ref{top_tensor_lcompact_lem} it follows that there is the g
 $$
 C_c\left(\widetilde M\right)\otimes_{C\left(M\right)}\Ga\left(M,S \right) \xrightarrow{\approx}\Ga_c\left(\widetilde M, \widetilde S \right)
 $$
-of left $C_0\left(\widetilde M \right)$-modules. On the other hand 
-then from \ref{top_herm_bundle_empt} it follows that there is the dense with respect to the Hilbert norm inclusion $\Ga_c\left(\widetilde M, \widetilde S \right)\subset L^2\left(\widetilde M, \widetilde S \right)$, hence there is  the homomorphism
+of left $C_0\left(\widetilde M \right)$-modules. On the other hand  there is the dense with respect to the Hilbert norm inclusion $\Ga_c\left(\widetilde M, \widetilde S \right)\subset L^2\left(\widetilde M, \widetilde S \right)$, hence there is  the homomorphism
 \be\label{top_lift_g_inf_eqn}
 \phi: C_c\left(\widetilde M\right)\otimes_{C\left(M\right)}\Ga\left(M,S \right) \to L^2\left(\widetilde M, \widetilde S \right)
 \ee
@@ -11073,7 +11075,7 @@ of left $C_0\left(\widetilde M \right)$-modules.
 	\end{itemize}
 \end{lemma}
 \begin{proof}(i)
-	Let $\sum_{j = 1}^n \widetilde a_j \otimes \xi_j\in 	C_c\left(\widetilde M\right)\otimes_{C\left(M\right)} L^2\left(M, \sS\right)$ be any element. From \ref{top_herm_bundle_empt}  it turns out that $L^2\left( M, S, \mu\right)$ is the Hilbert norm completion of $\Ga\left(M, \sS\right)$. Hence for any $j =1,..., n$ there is a net $\left\{\xi_{j\a}\right\}\subset \Ga\left(M, \sS\right)$ such that $\xi_j = \lim_\a \xi_{j\a}$ where we mean the convergence with respect to the Hilbert norm $\left\| \cdot\right\|_{L^2\left(M, \sS\right)}$. If $C = \max_{j = 1,...,n}\left\|\widetilde a_j\right\|$ then there is $\a_0$ such that
+	Let $\sum_{j = 1}^n \widetilde a_j \otimes \xi_j\in 	C_c\left(\widetilde M\right)\otimes_{C\left(M\right)} L^2\left(M, \sS\right)$ be any element. The space $L^2\left( M, S, \mu\right)$ is the Hilbert norm completion of $\Ga\left(M, \sS\right)$. Hence for any $j =1,..., n$ there is a net $\left\{\xi_{j\a}\right\}\subset \Ga\left(M, \sS\right)$ such that $\xi_j = \lim_\a \xi_{j\a}$ where we mean the convergence with respect to the Hilbert norm $\left\| \cdot\right\|_{L^2\left(M, \sS\right)}$. If $C = \max_{j = 1,...,n}\left\|\widetilde a_j\right\|$ then there is $\a_0$ such that
 	$$
 	\a \ge \a_0 \quad \Rightarrow \left\| \xi_j - \xi_{j\a}\right\|_{L^2\left(M, \sS\right)} < \frac{\eps}{nC},
 	$$
@@ -11103,16 +11105,16 @@ of left $C_0\left(\widetilde M \right)$-modules.
 			= \sum_{\widetilde{\a}\in \widetilde{\mathscr A}_{\supp \widetilde{a}}}\left(\xi, \mathfrak{desc}\left( \widetilde{a}_{\widetilde{\a}} \widetilde{a}^* \widetilde{b}\right)  \eta \right)_{L^2\left({M},{S} \right)}=
 			\\
 			=
-			\sum_{\widetilde{\a}\in \widetilde{\mathscr A}_{\supp \widetilde{a}}}~!!! \int_M \left(\xi_x, \mathfrak{desc}\left( \widetilde{a}_{\widetilde{\a}} \widetilde{a}^* \widetilde{b}\right)  \eta_x \right)_x d\mu=
+			\sum_{\widetilde{\a}\in \widetilde{\mathscr A}_{\supp \widetilde{a}}}~ \int_M \left(\xi_x, \mathfrak{desc}\left( \widetilde{a}_{\widetilde{\a}} \widetilde{a}^* \widetilde{b}\right)  \eta_x \right)_x d\mu=
 			\\
 			=
-			\sum_{\widetilde{\a}\in \widetilde{\mathscr A}_{\supp \widetilde{a}}}~!!! \int_M \left(\mathfrak{desc}\left( \widetilde{e}_{\widetilde{\a}} \widetilde{a}\right)\xi_x, \mathfrak{desc}\left( \widetilde{e}_{\widetilde{\a}}  \widetilde{b}\right)  \eta_x \right)_x d\mu=
+			\sum_{\widetilde{\a}\in \widetilde{\mathscr A}_{\supp \widetilde{a}}}~ \int_M \left(\mathfrak{desc}\left( \widetilde{e}_{\widetilde{\a}} \widetilde{a}\right)\xi_x, \mathfrak{desc}\left( \widetilde{e}_{\widetilde{\a}}  \widetilde{b}\right)  \eta_x \right)_x d\mu=
 			\\
-			=\sum_{\widetilde{\a}\in \widetilde{\mathscr A}_{\supp \widetilde{a}}}~ !!! \int_{\widetilde{M}}\left(\widetilde{a} \lift_{\widetilde{\sU}_{\widetilde{\a}}}\left({e}_{\widetilde{\a}}\xi \right)_{\widetilde{x}},  \widetilde{b} ~\lift_{\widetilde{\sU}_{\widetilde{\a}}}\left({e}_{\widetilde{\a}}\eta \right)_{\widetilde{x}}\right)_{\widetilde{x}}d \widetilde{   \mu} =
+			=\sum_{\widetilde{\a}\in \widetilde{\mathscr A}_{\supp \widetilde{a}}}~  \int_{\widetilde{M}}\left(\widetilde{a} \lift_{\widetilde{\sU}_{\widetilde{\a}}}\left({e}_{\widetilde{\a}}\xi \right)_{\widetilde{x}},  \widetilde{b} ~\lift_{\widetilde{\sU}_{\widetilde{\a}}}\left({e}_{\widetilde{\a}}\eta \right)_{\widetilde{x}}\right)_{\widetilde{x}}d \widetilde{   \mu} =
 			\\
-			=\sum_{\widetilde{\a}\in \widetilde{\mathscr A}_{\supp \widetilde{a}}}~ !!! \int_{\widetilde{M}}\widetilde{a}_{\widetilde{\a}}\left(\widetilde{a} \lift_{\widetilde{\sU}_{\widetilde{\a}}}\left(\xi \right)_{\widetilde{x}},  \widetilde{b} ~\lift_{\widetilde{\sU}_{\widetilde{\a}}}\left(\eta \right)_{\widetilde{x}}\right)_{\widetilde{x}}d \widetilde{   \mu} =
+			=\sum_{\widetilde{\a}\in \widetilde{\mathscr A}_{\supp \widetilde{a}}}~  \int_{\widetilde{M}}\widetilde{a}_{\widetilde{\a}}\left(\widetilde{a} \lift_{\widetilde{\sU}_{\widetilde{\a}}}\left(\xi \right)_{\widetilde{x}},  \widetilde{b} ~\lift_{\widetilde{\sU}_{\widetilde{\a}}}\left(\eta \right)_{\widetilde{x}}\right)_{\widetilde{x}}d \widetilde{   \mu} =
 			\\
-			= !!! \int_{\widetilde{M}}\left( \widetilde{a} \lift_p\left(\xi \right)_{\widetilde{x}},  \widetilde{b} ~\lift_p\left(\eta \right)_{\widetilde{x}}\right)_{\widetilde{x}}d \widetilde{   \mu}
+			=\int_{\widetilde{M}}\left( \widetilde{a} \lift_p\left(\xi \right)_{\widetilde{x}},  \widetilde{b} ~\lift_p\left(\eta \right)_{\widetilde{x}}\right)_{\widetilde{x}}d \widetilde{   \mu}
 			= \left( \widetilde{a}~ \lift_p\left(\xi \right),  \widetilde{b} ~\lift_p\left(\eta \right)\right)_{L^2\left(\widetilde{M},\widetilde{S} \right)} =\\
 			=  \left(\phi\left(  \widetilde{a}\otimes\xi\right) ,  \phi \left( \widetilde{b}\otimes\eta\right)\right)_{L^2\left(\widetilde{M},\widetilde{S} \right)}
 		\end{split} 
@@ -11136,18 +11138,26 @@ of left $C_0\left(\widetilde M \right)$-modules.
 
 
 \subsection{Coverings of spectral triples}
-\paragraph*{} Let $\left(C^{\infty}\left( M\right) , L^2\left( M, S\right) ,\slashed D\right)$ be a commutative spectral triple (cf. equation \eqref{comm_sp_tr_eqn}), and let $p:\widetilde{M} \to M$ be an infinite regular covering such that  the {covering group} $G\left( {\widetilde{M}}~|~M\right)$ (cf. Definition \ref{cov_proj_cov_grp_defn}) is residually finite (cf. Definition \ref{residually_finite_defn}). From the Lemma \ref{top_res_fin_lem} it it turns out that there is a (topological)  finite covering category 
+
+\paragraph*{} Let $\left(C^{\infty}\left( M\right) , L^2\left( M, S, \mu\right) ,\slashed D\right)$ be a commutative spectral triple (cf. equation \eqref{comm_sp_tr_eqn}), and let $p:\widetilde{M} \to M$ be an infinite regular covering such that  the {covering group} $G\left( {\widetilde{M}}~|~M\right)$ (cf. Definition \ref{cov_proj_cov_grp_defn}) is residually finite (cf. Definition \ref{residually_finite_defn}). From the Lemma \ref{top_res_fin_lem} it it turns out that there is a pointed (topological)  finite covering category 
 \be\label{top_m_cat_eqn}
-\mathfrak{S} = \left\{p_\la: M_\la \to M\right\}
+\mathfrak{S}_{\left(M, x_0\right)} = \left\{p_\la:\left(  M_\la, x^\la_0 \right) \to \left( M,{x_0}\right) \right\}
 \ee
- (cf. \ref{top_sec_defn}) such that  the {(topological) inverse limit} of $\mathfrak{S}$ is naturally homeomorphic  to $\widetilde{M}$. From the Proposition \ref{comm_cov_mani_prop} it follows that $\widetilde{M}$ and $M_\la$ ($\forall \la \in \La$)  have natural structure of the Riemannian manifolds. According to the Example \ref{top_vb_lift_desc_exm} denote by $\widetilde{S}\stackrel{\mathrm{def}}{=} C_0\left( \lift_p\left(S \right) \right) $ and $S_\la \stackrel{\mathrm{def}}{=} C_b\left( \lift_{p_\la}\left( S\right) \right) $  (for all $\la \in \La$) the lifts of the spin bundle (cf. \ref{top_vb_sub_sub}). Similarly to \eqref{top_mo_eqn} we define the following operators
+ (cf. \ref{top_sec_p_defn}) such that  the {(topological) inverse limit} of $\mathfrak{S}$ is naturally homeomorphic  to $\widetilde{M}$. From the Proposition \ref{comm_cov_mani_prop} it follows that $\widetilde{M}$ and $M_\la$ ($\forall \la \in \La$)  have natural structure of the Riemannian manifolds. From the Theorem \ref{top_main_thm} it follows that one has a good {pointed algebraical  finite covering category} (cf. Definition \ref{pointed_defn})
+ $$
+ \mathfrak{S}^{\text{pt}}_{C\left(M\right)} = \left\{C_0\left( p_\la\right) :C\left(M\right)\hookto\left(  M_\la\right)  \right\}
+ $$
+ such that the triple 
+ $$ \left(C_0\left(M\right), C_0\left(\widetilde M\right),G\left(\left.\widetilde M~\right| M\right)\right)
+ $$ is  the  { infinite noncommutative covering} of $\mathfrak{S}^{\mathrm{pt}}_{C_0\left(\mathcal{X}\right)}$.  Denote by $\widetilde{S}\stackrel{\mathrm{def}}{=} C_0\left( \lift_p\left(S \right) \right) $ and $S_\la \stackrel{\mathrm{def}}{=} C_b\left( \lift_{p_\la}\left( S\right) \right) $  (for all $\la \in \La$) the lifts of the spin bundle (cf. \ref{top_vb_sub_sub}). Similarly to \eqref{top_diff_*alg_lift_eqn} we define the following operators
 	\be\label{top_dlift_eqn}
 \begin{split}
-	 \Dslash_\la \bydef p^{-1}\Dslash\in \mathscr End\left( \mathscr  C^\infty\left( M_\la,  \sS_\la \right)\right)\left(  M_\la\right),\\
-\widetilde	 \Dslash \bydef p^{-1}\Dslash\in \mathscr End\left( \mathscr  C^\infty\left(\widetilde M,  \widetilde\sS \right)\right)\left( \widetilde M\right).
+	 \Dslash_\la \bydef p^{-1}_\la \Dslash \in D^*\left( M_\la,  S_\la\right),\\
+\widetilde 	 \Dslash \bydef \widetilde p^{-1} \Dslash \in D^*\left(\widetilde M, \widetilde S\right).
 \end{split}
 \ee
-Otherwise from the equation \eqref{top_mod_eqn} it turns out that $\Dslash_\la$ and $\widetilde \Dslash$ can be regarded as $\C$-linear operators, i.e.
+(cf. equations  \eqref{top_d_shaef_eqn} and \eqref{top_d_shaef_m_eqn})
+Otherwise both $\Dslash_\la$ and $\widetilde \Dslash$ can be regarded as $\C$-linear operators, i.e.
 \bean
  \Dslash_\la :\Ga^\infty\left( M_\la,  \sS_\la \right)\to\Ga^\infty\left( M_\la,  \sS_\la \right),\\
 \widetilde \Dslash :\Ga^\infty_c\left(\widetilde M,  \widetilde\sS \right)\to\Ga^\infty_c\left(\widetilde M,  \widetilde\sS \right) .
@@ -11157,7 +11167,7 @@ Since both $\Ga^\infty\left( M_\la,  \sS_\la \right)$ and $\Ga^\infty_c\left(  \
 \begin{equation}\label{comm_triple_seq_eqn}
 	\begin{split}
 		\mathfrak{S}_{\left(C^{\infty}\left( M\right) , L^2\left( M, S\right) ,\slashed D\right) } = \left\{
-		\left(C^{\infty}\left( M_\la\right) , L^2\left( M_\la, S_\la\right) ,p_\la^{-1} \slashed D\right)
+		\left(C^{\infty}\left( M_\la\right) , L^2\left( M_\la, S_\la\right) , \slashed D_\la\right)
 		\right\}_{\la \in \La}
 	\end{split}
 \end{equation}
@@ -11168,18 +11178,89 @@ of spectral triples. Let $\overline M$ be the disconnected inverse limit of the 
 The given by the equation \eqref{comm_triple_seq_eqn} family $	\mathfrak{S}_{\left(C^{\infty}\left( M\right) , L^2\left( M, S\right) ,\slashed D\right) }$ is the coherent set of spectral triples (cf. Definition \ref{cov_sec_triple_defn}).
 \end{lemma}
 \begin{proof}
+	From the Lemma \ref{comm_allows_lem} it follows that  $\mathfrak{S}^{\mathrm{pt}}_{C_0\left(M\right) }$   allows inner product (cf. Definition \ref{inf_hilb_prod_defn}).
 	One needs check that $	\mathfrak{S}_{\left(C^{\infty}\left( M\right) , L^2\left( M, S\right) ,\slashed D\right) }$ satisfies to conditions (a)-(e) of the Definition \ref{cov_sec_triple_defn}.\\
 	(a) Follows from the Theorem \ref{comm_fin_sp_tr_thm}.\\
 	(b) $C\left( M_\la\right)$ is the $C^*$-norm completion of $\Coo\left( M_\la\right)$ for all $\la\in\La$.\\
-	(c) From the coverings $\overline M \to M_\la$ ($\la\in\La$) one can obtain a faithful representations $C\left(M_\la \right)\hookto B\left(L^2\left( \overline M, \overline S\right)  \right)$. These representations yield an equivariant representation $\pi: C^*$-$\varinjlim_{\la \in \La} C\left( M_\la\right)  \hookto B\left(L^2\left( \overline M, \overline S\right)\right) $ such that $\mathfrak{S}^{\text{pt}}$. From the Theorem \ref{comm_main_mu_thm} it turns out  that an {algebraical  finite covering category} $
+	(c) From the coverings $\overline M \to M_\la$ ($\la\in\La$) one can obtain a faithful representations $C\left(M_\la \right)\hookto B\left(L^2\left( \overline M, \overline S\right)  \right)$. These representations yield an equivariant representation $\pi_\tau: C^*$-$\varinjlim_{\la \in \La} C\left( M_\la\right)  \hookto B\left(L^2\left( \overline M, \overline S\right)\right) $ such that $\mathfrak{S}^{\text{pt}}$. From the Theorem \ref{comm_main_mu_thm} it turns out  that an {algebraical  finite covering category} $
 	\mathfrak{S}_{C\left(M\right)}=
 	\left\{C(M)\hookto C(M_\la)\right\}_{\la \in \La}
-	$ is $\pi$-good !!! SOFT \ref{top_soft_exer}  !!! REP \ref{top_soft_r_defn} (cf. Definition \ref{good_defn} !!! ABC to AB GOOD EXER ADD !!! !!! CHECK!!! CHECK EVERYWHERE .)\\
+	$ is $\pi_\tau$-good  (cf. Definition \ref{good_defn}).\\
 	(d)  Follows from the Theorem \ref{comm_fin_sp_tr_thm}.\\
-	(e)   Follows from the Theorem \ref{comm_fin_sp_tr_thm}.
 \end{proof}
-\begin{empt}\label{top_reg_triple_empt}
-Here we consider a specialization of the construction \ref{reg_triple_empt}. For any $\la\in\La$ denote by $\Coo\left(M_\la \right) _{\Dslash_\la}$ {extended algebra of the spectral triple} \\$\left(\Coo\left(M_\la \right), L^2\left( M_\la, S_\la\right), \Dslash_\la\right)$ (cf. Definition \ref{ext_st_alg_defn}). Consider  a Hilbert space $\widetilde \H\bydef L^2\left(\widetilde M, \widetilde S \right) $, its dense subspace $\widetilde \D\bydef\Ga^\infty_c\left(\widetilde M, \widetilde S \right)\subset L^2\left(\widetilde M, \widetilde S \right)$ and the inclusion 
+
+
+\paragraph{title!!!}
+
+Consider the situation of the Definition \ref{cov_sec_triple_defn}. Let $\rho: A \hookto B\left(\H\right)$ be the natural representation, and let $\widetilde\rho: \widetilde A \hookto B\left(\widetilde \H\right)$  be a representation {induced} by $\left( \rho, \left( A, \widetilde{A}_\pi, G\left(\left.\widetilde{A}_\pi~\right|A \right) \right)\right)$ (cf. Definition \ref{induced_repr_inf_defn}). From the inclusions $\left[D_\la, \A_\la\right]\in B\left(\H_\la \right)$ and  \eqref{bl_inc_eqn} one has the natural inclusion
+\be\label{da_la_eqn}
+\left[D_\la, \A_\la\right]\subset B\left( \widetilde\H\right).
+\ee
+For any $s \in \N$ the given by \eqref{bl_act_eqn} action 
+$
+B\left( \H_\la\right)\times \widetilde\H \to \widetilde\H
+$ naturally induces an action
+$$
+B\left( \H^{2^s}_\la\right)\times \widetilde\H^{2^s} \to \widetilde\H^{2^s}
+$$
+hence there is an inclusion
+\be\label{h2s_inc_eqn}
+B\left( \H^{2^s}_\la\right)\subset B\left(\widetilde\H^{2^s} \right). 
+\ee
+If $\pi^s_\la: \A_\la \hookto B\left( \H^{2^s}_\la \right)$ is given by  \eqref{s_diff1_repr_equ} and \eqref{s_diff_repr_equ} then from \eqref{h2s_inc_eqn} it turns out that there is the inclusion
+\be\label{ps_inc_eqn}
+\pi^s_\la\left( \A_\la\right) \subset B\left(\widetilde\H^{2^s} \right) 
+\ee
+If $\Om^1_D$ is the {module of differential forms associated} with the spectral triple  $\left( \A, \H, D\right)$ (cf. Definition \ref{ass_cycle_defn}) then from $\Om^1_D\subset B\left( \H\right)$ and the given by \eqref{apb_inc_eqn} $\widetilde{A}_\pi \otimes_A B\left( \H\right)\subset B\left( \widetilde\H\right)$ inclusion it follows that there is the following inclusion 
+\be\label{ao_inc_eqn}
+\widetilde{A}_\pi \otimes_A \Om^1_D\subset B\left( \widetilde\H\right).
+\ee
+
+\paragraph{title!!!}
+
+!!!\begin{empt}\label{top_reg_triple_empt}
+Here we consider a specialization of the construction \ref{str_cov_sec}. If $\rho: C\left(M \right) \to B\left( L^2\left(  M, S, \mu\right)\right) $ is the natural (induced by the spectral triple $\left(C^{\infty}\left( M\right) , L^2\left( M, S\right) ,\slashed D\right)$ action) then $\rho$ can be regarded as a Hilbert norm completion of the natural action
+$$
+C\left(M \right)\times \Ga\left(M, S \right)\to C\left(M \right).
+$$
+From the Axiom \ref{regularity_axiom} it follows that for all  $a \in \A$ a commutator $\left[\Dslash, a\right]$ is a bounded operator. Otherwise from the equation  \eqref{comm_dirac_eqn} it turns out that both $\Dslash$ and $\left[\Dslash, a\right]$ are differential operators (cf. Definition \ref{do_man_defn}). Any bounded differential operator has order 0 (cf. Definition \ref{do_man_order_defn}). If $S_x$ is fiber (cf. Definition \ref{top_vb_fiber_defn}) of $S$ at the point  $x\in M$ then the space 	$\Ga\left(\mathcal X, S\right)$ of continuous sections (cf. \ref{top_bundle_sec_empt}) 
+is a continuity structure  for $M$ {and the} $\left\{E_x\right\}_{x \in M}$ (cf. Definition \ref{op_fields_defn}). Since $S$ is locally trivial (cf. Definition \ref{top_vb_defn}) there is a natural locally trivial bundle $\End~S\to M$
+ with fiber $\End_\C\left(S_x \right)$. From the Lemma \ref{top_bundle_cs_ex_lem} the space 	$\Ga\left(M,  \End~S\right)$ of continuous sections (cf. \ref{top_bundle_sec_empt}) 
+ is a continuity structure  for $M$ {and the} $\left\{\End_\C\left(S_x \right)\right\}_{x \in M}$ (cf. Definition \ref{op_fields_defn})
+On the other hand any $s \in \Ga\left(M, S\right)$ yields a $C_0\left(M \right)$-linear endomorphism $\Ga\left(s \right) : \Ga\left(M, S \right)\to \Ga\left(M, S \right)$. Since $\Ga\left(M, S \right)$ is dense in $L^2\left(M, S \right)$  the endomorphism yields an operator $L^2\left(s \right) \in B\left( L^2\left(M, S,\mu \right)\right)$. If  $\widetilde\rho: C_0\left(\widetilde M\right) \hookto B\left(\widetilde \H\right)$  be a representation {induced} by $\left( \rho, \left(C_0\left(M\right), C_0\left(\widetilde M\right),G\left(\left.\widetilde M~\right| M\right)\right)\right)$ (cf. Definition \ref{induced_repr_inf_defn}) then $\widetilde\rho$ is equivalent to the natural representation $C_0\left(\widetilde M\right)\hookto B\left( L^2\left(\widetilde{M},\widetilde{S}, \widetilde \mu \right)\right)$ (cf. Lemma \ref{comm_ind_lc_lem}) where $\widetilde \mu \bydef \desc_p\left( \mu\right)$ is the $p$-lift of $\mu$ (cf. Definition \ref{top_mea_lift_defn}). Similarly to the bundle  $\End~S\to M$ there is a bundle $\End~\widetilde S\to \widetilde M$
+with fiber $\End_\C\left(\widetilde S_{\widetilde x} \right)$ which is a $p$-inverse image of $\End~S\to M$ (cf. Definition \ref{vb_inv_img_funct_defn}). From the Lemma \ref{top_bundle_cs_ex_lem}
+one has following isomorphisms
+\be\label{top_g_iso_eqn}
+\begin{split}
+\Ga\left(M,  \End~S\right)\cong C\left(M , \left\{\End_\C\left( S_x\right) \right\}, \Ga\left( M,  \End~S\right) \right),\\
+\Ga\left(\widetilde M,  \End~\widetilde S\right)\cong C\left(\widetilde M , \left\{\End_\C\left(\widetilde S_{\widetilde x}\right) \right\}, \Ga\left( \widetilde M,  \End~\widetilde S\right) \right).
+\end{split}
+\ee
+From the Lemma \ref{top_lift_bundle_lem} it follows that 
+$$
+C\left(\widetilde M , \left\{\End_\C\left(\widetilde S_{\widetilde x}\right) \right\}, \Ga\left( \widetilde M,  \End~\widetilde S\right) \right)= \lift_p\left[C\left(M , \left\{\End_\C\left( S_x\right) \right\}, \Ga\left( M,  \End~S\right) \right)\right]
+$$
+From the above equation, (i) of the Lemma \ref{top_lift_composition_lem}, and taking into account isomorphisms \eqref{top_g_iso_eqn} one has an injective homomorphism
+\be
+\phi_p: \Ga\left(M,  \End~S\right) \hookto  \Ga\left(\widetilde M,  \End~\widetilde S\right)
+\ee
+of $C\left(M\right)$-modules. Any $\widetilde s \in \Ga\left(\widetilde M, \widetilde S\right)$ yields a $C_0\left(\widetilde M \right)$-linear endomorphism $\Ga\left(\widetilde s \right) : \Ga\left(\widetilde M, \widetilde S \right)\to \Ga\left(\widetilde M, \widetilde S \right)$  Since $\Ga\left(\widetilde M, \widetilde S \right)$ is dense in $L^2\left(\widetilde M,  \widetilde S,  \widetilde\mu \right)$  the endomorphism yields a 
+bounded operator $L^2\left(\widetilde s \right) \in B\left(L^2\left(\widetilde M,  \widetilde S,  \widetilde\mu \right)\right)$.
+
+\end{empt}
+
+\begin{exercise}
+Consider above situation. Let $\varphi: B\left(L^2\left( M,   S,  \mu \right)\right)\hookto B\left(L^2\left(\widetilde M,  \widetilde S,  \widetilde\mu \right)\right)$ be a given by the equation \eqref{b_inc_eqn} injective *-homomorphism. Prove that
+$$
+\forall s \in \Ga\left(M,  \End~S\right)\quad  L^2\left(\phi_p\left(s \right)  \right)= \varphi \circ L^2\left(s\right). 
+$$
+
+\end{exercise}
+
+\begin{empt}
+
+
+For any $\la\in\La$ denote by $\Coo\left(M_\la \right) _{\Dslash_\la}$ {extended algebra of the spectral triple} \\$\left(\Coo\left(M_\la \right), L^2\left( M_\la, S_\la\right), \Dslash_\la\right)$ (cf. Definition \ref{ext_st_alg_defn}). Consider  a Hilbert space $\widetilde \H\bydef L^2\left(\widetilde M, \widetilde S \right) $, its dense subspace $\widetilde \D\bydef\Ga^\infty_c\left(\widetilde M, \widetilde S \right)\subset L^2\left(\widetilde M, \widetilde S \right)$ and the inclusion 
 $$
 \rho_\Dslash:\bigcup_{\la\in\La} \Coo\left(M_\la \right) _{\Dslash_\la}\hookto \L^\dagger\left(\widetilde \D \right). 
 $$
@@ -11205,6 +11286,70 @@ Follows from the construction \ref{top_reg_triple_empt} which is a specializatio
 \begin{remark}
 	The Theorem \ref{comm_inf_sp_tr_thm} is a noncommutative analog of the Proposition \ref{comm_cov_mani_prop}.
 \end{remark}
+
+
+
+\paragraph{title}
+\begin{defn}\label{smooth_el_defn}
+	Let us consider the  situation of the Definition \ref{cov_sec_triple_defn}.
+	Let $\Om^1_D$ be the {module of differential forms associated} with the spectral triple  $\left( \A, \H, D\right)$ (cf. Definition \ref{ass_cycle_defn}).
+	An element $\widetilde{a}  \in \widetilde{A}_\pi$ is said to be $\mathfrak{S}_{\left(\sA, \sH, D\right)}$- \textit{smooth} if the following conditions hold:
+	\begin{enumerate}
+		\item[(a)] The element $\widetilde{a}$ lies in the Pedersen's ideal of $\widetilde{A}_\pi$, i.e. $\widetilde{a}  \in K\left( \widetilde{A}_\pi\right) $.
+		\item[(b)] For any $\la \in \La$ the series 
+		$$
+		a_\la=	\sum_{g \in \ker\left(  G\left(\left.\widetilde{A}_\pi\right|A \right)\to G\left(\left.A_\la\right|A \right)\right) } ~ g \widetilde{a} 
+		$$
+		is convergent with respect to strict topology of $M\left(\widetilde{A}_\pi\right)$ and
+		$a_\la \in \A_\la$ where the inclusion $\A_\la\subset A_\la\subset M\left(\widetilde{A}_\pi\right)$ is implied.
+		\item[(c)]  If for any $\la \in \La$ and $s \in \N$ the representation $\pi^s_\la: \A_\la \hookto B\left( \H^{2^s}_\la \right)$ is given by  \eqref{s_diff1_repr_equ}, \eqref{s_diff_repr_equ} 
+		and  
+		inclusion $\pi^s_\la\left( \A_\la\right) \subset B\left(\widetilde\H^{2^s} \right)$ (cf.  \eqref{ps_inc_eqn})  is implied then  the net $\left\{\pi^s_\la\left(a_\la \right)\right\}_{\la \in\La}$  is convergent with respect to the strong topology of  $B\left(\widetilde{\H}^{2^s} \right)$.	
+		\item[(d)] If for any $\la\in \La$ the given by \eqref{da_la_eqn}  inclusion $
+		\left[D_\la, \A_\la\right]\subset B\left( \widetilde\H\right)
+		$ is implied then the net $\left\{\left[D_\la, a_\la\right]\right\}_{\la \in\La}$ is convergent with respect to the strong topology of  $B\left(\widetilde{\H}^{2^s} \right)$.	
+		Moreover one has
+		$$
+		\lim_{\la\in \La} \left[D_\la, a_\la\right] \in K\left(\widetilde{A}_\pi\right) \otimes_{\A} \Om^1_D \subset B\left(\widetilde{\H}  \right)
+		$$
+		where left part of the above equation means the limit with respect  to the strong topology of  $B\left(\widetilde{\H}\right)$, and the right part implies the inclusion  $K\left(\widetilde{A}_\pi\right) \otimes_{\A} \Om^1_D \subset \widetilde{A}_\pi \otimes_A \Om^1_D\subset B\left( \widetilde\H\right)$ (cf. \eqref{ao_inc_eqn}).
+	\end{enumerate}
+	Denote by $\widetilde{a}^s\bydef \lim_{\la\in\La}  \pi^s_\la\left(a_\la \right) \in B\left(\widetilde\H^{2^s} \right)$ in sense the strong convergence of $B\left(\widetilde\H^{2^s} \right)$, and denote by $\widetilde{W}^\infty$ the space of smooth elements. 
+\end{defn}
+\begin{empt}\label{smooth_alg_empt}
+	There is a subalgebra $\widetilde{A}_{\text{smooth}} \subset \widetilde{A}$ generated by smooth elements. For any $s > 0$ there is a seminorm $\left\| \cdot \right\|_s$  on $\widetilde{A}_{\text{smooth}}$ given by
+	\begin{equation}\label{smooth_seminorms_eqn}
+		\left\| \widetilde{a}\right\|_s \bydef \left\|\widetilde{a}^s \right\|=\lim_{\la\in\La}\left\| \pi^s_\la\left(a_\la \right) \right\|.
+	\end{equation}
+\end{empt}
+\begin{defn}\label{smooth_alg_defn}
+	The completion of $\widetilde{A}_{\text{smooth}}$ in the topology induced by the seminorms $\left\| \cdot \right\|_s$ is said to be a \textit{smooth algebra} of the coherent set \eqref{spectral_triple_sec_eqn} of spectral triples. This algebra is denoted by $\widetilde{\A}$. 
+	We say that the set of spectral triples is \textit{weakly good} if $\widetilde{\A}$ is dense in $\widetilde{A}$. 
+\end{defn}
+\begin{empt}\label{dirac_inf_constr_empt}
+	For any $\widetilde{a}  \in \widetilde{W}^\infty$ we denote by
+	\begin{equation}\label{a_d_eqn}
+		\widetilde{a}_D = \lim_{\la \in \La}\left[D_\la, a_\la \right] = \sum_{j = 1}^k \widetilde{a}_D^j\otimes \om_j \in K\left(\widetilde{A}\right)\otimes_{\A} \Om^1_D
+	\end{equation}
+	where $a_\la \bydef \sum_{g \in\ker\left(  G\left(\left.\widetilde{A}_\pi\right|A \right)\to G\left(\left.A_\la\right|A \right)\right)}\widetilde{a}\in \A_\la$.
+	If $\H^\infty = \bigcap_{n = 0}^\infty \Dom D^n$ then for any $\widetilde{a} \otimes \xi \in \widetilde{W}^\infty \otimes_{\A} \H^\infty$ we denote by
+	\begin{equation}\label{inf_lift_D_eqn}
+		\widetilde{D}\left(\widetilde{a} \otimes \xi \right) \stackrel{\mathrm{def}}{=} \sum_{j = 1}^k \widetilde{a}_D^j\otimes \om_j \left(\xi \right)  +\widetilde{a} \otimes D\xi \in K\left(\widetilde{A}\right) \otimes_A \H,
+	\end{equation}
+	i.e. $\widetilde{D}$ is a $\C$-linear map from $W^\infty \otimes_{\A} \H^\infty$ to $K\left(\widetilde{A}\right) \otimes_A \H$.
+	The space $\widetilde{W}^\infty \otimes_{\A} \H^\infty$ is dense in $\widetilde{\H}$, hence the operator $\widetilde{D}$ can be regarded as an unbounded operator on $\widetilde{\H}$.
+\end{empt}
+
+\begin{defn}\label{reg_triple_defn}
+	Let $\mathfrak{S}^{\text{pt}} \in \mathfrak{FinAlg}^{\text{pt}}$ is given by \eqref{cov_sec_triple_eqn}.    Let $\left(A, \widetilde{A}, G\left(\left.\widetilde{A}~\right|A \right)\right) $  be an $\widehat \pi$-infinite noncommutative covering   of $\mathfrak{S}$.
+	Let \eqref{spectral_triple_sec_eqn} be a good coherent set of spectral triples. 
+	Let $\widetilde{ D}$ be given by \eqref{inf_lift_D_eqn}.
+	We say that $\left( \widetilde{\A}, \widetilde{\H}, \widetilde{D}\right)$ is a $\left(A, \widetilde{A}, G\left(\left.\widetilde{A}~\right|A \right)\right)$-\textit{lift} of $\left(\A, \H, D\right)$.  Also we say that  $\left( \widetilde{\A}, \widetilde{\H}, \widetilde{D}\right)$ is the \textit{limit} of the coherent set	$\mathfrak{S}_{\left(\sA, \sH, D\right)}= \left\{\left(\sA_\la, \sH_\la, D_\la \right)\right\}_{\la \in \La}$.
+\end{defn}
+
+
+\paragraph{title}
+
 \chapter{Hausdorff blowing-up and coverings}\label{blowing_chap}
 \paragraph*{}
 If the spectrum of  $C^*$-algebra $A$ is Hausdorff then $A$ possesses  a family of good !!! SOFT \ref{top_soft_exer}  !!! REP \ref{top_soft_r_defn} properties. For example noncommutative coverings of $C^*$-algebras with Hausdorff spectra correspond to coverings of their spectra (cf. Chapters \ref{top_chap} and \ref{ctr_chap}). Sometimes the spectrum of $C^*$-algebra can by replaced by its Hausdorff blowing-up and some results concerning $C^*$-algebras with  Hausdorff spectrum can be applied to $C^*$-algebras with Hausdorff blowing-up. We prove that noncommutative coverings of $C^*$-algebras correspond to coverings of Hausdorff blowing-up. The results of this chapter are used in both $C^*$-algebras with continuous trace (Hausdorff spectrum) and algebras of foliations   (non - Hausdorff spectrum). 
@@ -22372,7 +22517,7 @@ $$
 		the $C^*$-algebra $C_0\left(\sX \right)$  is strongly Morita equivalent to the  product $C^*$-algebra
 		$C_0\left(\widetilde \sX\right)\rtimes \Ga$.
 	\end{proposition}
-	\begin{remark}\label{top_allows_morita_rem}
+	\begin{remark}\label{top_allows_morita_rem}\cite{connes:ncg94}
 The equivalence
 	$C^*$-bimodule $E$ is easy to describe; it is given by the bundle of Hilbert spaces $\left\{\H_x\right\}_{x\in \sX}$
 	over $\sX$  whose fiber at $x\in\sX$ is the $\ell^2$-space of the orbit $x\in\sX$. This yields
@@ -24296,14 +24441,14 @@ where $\pi: A \hookto B\left(\H\right)$ is any faithful representation, $\wideti
 		the spectral triple is {\it odd}.
 	\end{defn}
 	There is a set of axioms for  spectral triples described in \cite{hajac:toknotes,varilly:noncom}. In this article the following axioms are used only.
-	\begin{axiom}\label{regularity_axiom}\cite{varilly:noncom} (Regularity) 
+	\begin{axiom}\label{regularity_axiom}\cite{varilly:noncom} (Regularity). 
 		For any $a \in \A$, $[D,a]$ is a bounded operator on~$\H$, and both
 		$a$ and $[D,a]$ belong to the domain of smoothness
 		$\bigcap_{k=1}^\infty \Dom(\delta^k)$ of the derivation $\delta$
 		on~$B(\H)$ given by $\delta(T) \stackrel{\mathrm{def}}{=} [\left|D\right|,T]$.
 	\end{axiom}
 	\begin{axiom}\label{finiteness_axiom}
-		[Finiteness]
+		(Finiteness)
 		The subspace of smooth vectors
 		$\sH^\infty \bydef \bigcap_{k\in\bN} \Dom D^k$ is a \emph{finitely
 			generated projective} left $\sA$-module.
@@ -24347,7 +24492,7 @@ where $\pi: A \hookto B\left(\H\right)$ is any faithful representation, $\wideti
 	\end{axiom}
 	
 	
-	\begin{axiom}\label{fist_order_st_ax}[First order]
+	\begin{axiom}\label{fist_order_st_ax}(First order).
 		For each $a,b \in \sA$, the following relation holds:
 		\begin{equation}\label{fist_order}
 			[[D, a], J b^* J^{-1}] = 0,  \word{for all} a,b \in \sA.
@@ -27766,564 +27911,8 @@ I am very grateful to Prof. Joseph C Varilly  and Arup Kumar Pal
  
   
   
-  \subsection{Coverings of spectral triples}
-  \paragraph*{} Let $\left(C^{\infty}\left( M\right) , L^2\left( M, S\right) ,\slashed D\right)$ be a commutative spectral triple (cf. Equation \eqref{comm_sp_tr_eqn}), and let $p:\widetilde{M} \to M$ be an infinite regular covering such that  the {covering group} $G\left( {\widetilde{M}}~|~M\right)$ (cf. Definition \ref{cov_proj_cov_grp_defn}) is residually finite (cf. Definition \ref{residually_finite_defn}). From the Lemma \ref{top_res_fin_lem} it it turns out that there is a (topological)  finite covering category $\mathfrak{S} = \left\{p_\la: M_\la \to M\right\}$ (cf. \ref{top_sec_defn}) such that  the {(topological) inverse limit} of $\mathfrak{S}$ is naturally homeomorphic  to $\widetilde{M}$. From the Proposition \ref{comm_cov_mani_prop} it follows that $\widetilde{M}$ and $M_\la$ ($\forall \la \in \La$)  have natural structure of the Riemannian manifolds. According to the Example \ref{top_vb_lift_desc_exm} denote by $\widetilde{S}\stackrel{\mathrm{def}}{=} C_0\left( \lift_p\left(S \right) \right) $ and $S_\la \stackrel{\mathrm{def}}{=} C_b\left( \lift_{p_\la}\left( S\right) \right) $  (for all $\la \in \La$) the lifts of the spin bundle (cf. \ref{top_vb_sub_sub}). Similarly to the Section  \ref{top_cov_sp_tr_sec} one can prove that for any $\la \in \La$ that there is the $p_\la$-{inverse image} $p^{-1}_\la \slashed D$ of $\slashed D$ (cf. Definition \ref{top_smooth_inv_im_defn}) and the operator  $p_\la^{-1} \slashed D$ can be regarded as an unbounded operator on  $L^2\left( M_\la, S_\la\right)$. Moreover there is the $\widetilde p$-{inverse image} $\widetilde p^{-1} \slashed D$ of $\slashed D$ (cf. Definition \ref{top_smooth_inv_im_defn}) and the operator  $\widetilde p^{-1} \slashed D$ is  an unbounded operator on  $L^2\left( \widetilde M, \widetilde S\right)$.
-  From the Lemma \ref{comm_t_a_lem} and the Theorem \ref{comm_main_thm} it turns out that 
-  $
-  \mathfrak{S}_{C\left(M\right)}=
-  \left\{C(M)\hookto C(M_\la)\right\}_{\la \in \La}
-  $
-  is a good !!! SOFT \ref{top_soft_exer}  !!! REP \ref{top_soft_r_defn} {(algebraical)  finite covering category}, and  the triple $$\left(C\left( M\right) , C_0\left( \widetilde{M}\right) , G=G\left( \left.\widetilde{M}~\right|M\right)\right)$$ is an  infinite noncommutative covering   of $\mathfrak{S}_{C\left(M\right)}$.
-  \begin{lemma}
-  	The set 
-  	\begin{equation}\label{comm_triple_seq_eqn}
-  		\begin{split}
-  			\mathfrak{S}_{\left(C^{\infty}\left( M\right) , L^2\left( M, S\right) ,\slashed D\right) } = \left\{
-  			\left(C^{\infty}\left( M_\la\right) , L^2\left( M_\la, S_\la\right) ,p_\la^{-1} \slashed D\right)
-  			\right\}_{\la \in \La}\in \mathfrak{CohTriple}
-  		\end{split}
-  	\end{equation}
-  	is a coherent set of spectral triples.
-  \end{lemma} 
-  \begin{proof}
-  	Consider the atomic representation $\pi_a: C^*$-$\varinjlim_{\la \in \La} C\left( M_\la \right)  \to B\left(\widehat \H\right)$ (cf. Definition \ref{atomic_repr_defn}). Any coherent set of spectral triples is weakly coherent. So one needs check that $\mathfrak{S}_{\left(C^{\infty}\left( M\right) , L^2\left( M, S\right) ,\slashed D\right) }$ satisfies to conditions (a)-(d) of the Definition \ref{wcov_sec_triple_defn}.\\
-  	(a) Follows from the Theorem \ref{comm_fin_sp_tr_thm}.\\
-  	(b) For all $\la \in \La$ the $C^*$-algebra $C\left( M_\la\right)$ is the $C^*$-norm completion of $\Coo\left( M_\la\right)$.\\
-  	(c) Follows from the Corollary \ref{comm_main_thm}.\\
-  	(d) Follows from the Theorem \ref{comm_fin_sp_tr_thm}.\\
-  	
-  	From the Lemma \ref{comm_allows_lem} it follows that the pointed algebraical  finite covering category  $\mathfrak{S}^{\mathrm{pt}}_{C\left(M\right)}$ allows inner product, hence from the Definition \ref{cov_sec_triple_defn} it turns out that $	\mathfrak{S}_{\left(C^{\infty}\left( M\right) , L^2\left( M, S\right) ,\slashed D\right) }$	is a {coherent set of spectral triples}.
-  \end{proof}
-  
-  For any $\la \in \La$ denote by $\widetilde{p}_\la:\widetilde{M} \to M_\la$ the natural covering.
-  
-  \begin{lem}\label{comm_smooth_lem}
-  	If $\widetilde{W}^\infty$ is the space of 	$\mathfrak{S}_{\left(C^{\infty}\left( M\right) , L^2\left( M, S\right) ,\slashed D\right) }$-smooth elements (cf. Definition \ref{smooth_el_defn}) then
-  	$$\widetilde{W}^\infty \subset \Coo_c\left(\widetilde{M} \right)\stackrel{\mathrm{def}}{=} \Coo\left(\widetilde{M} \right) \bigcap C_c\left(\widetilde{M} \right).$$
-  \end{lem}
-  \begin{proof}
-  	It is shown in \cite{pedersen:mea_c} that Pedersen's ideal of $C_0\left(\widetilde{M} \right)$ coincides with $C_c\left(\widetilde{M} \right)$, and taking into account the condition (a) of the Definition \ref{smooth_el_defn} one has
-  	\be\nonumber
-  	\widetilde{W}^\infty \subset C_c\left(\widetilde{M} \right)
-  	\ee  
-  	where the sum of the series implies the strict topology (cf. Definition \ref{strict_topology}).	
-  	If $\widetilde{a} \in \widetilde{W}^\infty$ then from the condition (b) of the Definition \ref{smooth_el_defn} it follows that $$a_\la= \sum_{g \in \ker\left( \widehat{G} \to  G_\la\right)}g\widetilde{a} \in \Coo\left(M_\la \right), \quad \forall \la \in \La.$$
-  	From the Lemma  \ref{top_comp_la_lem} it turns out that there is $\mu \in 
-  	\La$ and an open set $\widetilde\sU \subset \widetilde M$ 
-  	such that $\supp \widetilde a \subset \widetilde\sU$ there for any $\la \ge \mu$ the restriction $\left.\widetilde p_\la\right|_{\widetilde\sU}$ is injective. From the Lemma \ref{comm_lift_desc_sum_lem} it follows that %\ref{comm_lift_desc_sum_strong_lem}
-  	\begin{equation}\label{comm_a_mu_eqn}
-  		\la \ge \mu \quad \Rightarrow \quad \widetilde a = \lift^{\widetilde p_\la}_{\widetilde\sU}\left( a_\la\right) 
-  	\end{equation}	
-  	From  \eqref{comm_a_mu_eqn} and $a_\mu \in \Coo\left(M_\mu \right)$ it turns out $\widetilde{a} \in \Coo\left(\widetilde{M} \right)$. 
-  \end{proof}
-  \begin{lem}\label{comm_smooth_inv_lem}
-  	If $\widetilde{W}^\infty$ is the space of 	$\mathfrak{S}_{\left(C^{\infty}\left( M\right) , L^2\left( M, S\right) ,\slashed D\right) }$-smooth elements (cf. Definition \ref{smooth_el_defn}) then $$\Coo_c\left(\widetilde{M} \right)\subset \widetilde{W}^\infty.$$
-  \end{lem}
-  
-  \begin{proof}
-  	Let $\widetilde{a} \in \Coo_c\left(\widetilde{M} \right)$.
-  	From the Lemma  \ref{top_comp_la_lem} it turns out that there is $\mu \in 
-  	\La$ and an open set $\widetilde\sU \subset \widetilde M$ 
-  	such that $\supp \widetilde a \subset \widetilde\sU$ there for any $\la \ge \mu$ the restriction $\left.\widetilde p_\la\right|_{\widetilde\sU}$ is injective. For any nontrivial $g \in G\left(\left.\widetilde{ M}~\right|M \right)$ one has
-  	\be\label{top_isec_e_eqn}
-  	g \widetilde\sU \cap \widetilde\sU= \emptyset.
-  	\ee
-  	If $\rho: C\left(M \right) \to B\left(L^2\left( M,\sS\right) \right)$ is the given by \ref{comm_bundle_repr_eqn}  representation then from the Lemma \ref{comm_ind_lc_lem} it follows that the {induced} by the pair  $\left( \rho, \left( A, \widetilde{A}_\pi, G\left(\left.\widetilde{A}_\pi~\right|A \right) \right)\right)$ is given by the natural action $\widetilde \rho: C_0\left(\widetilde{M}\right)\times L^2\left(\widetilde{M},\widetilde{S} \right)\to L^2\left(\widetilde{M},\widetilde{S} \right)$ explained in \ref{comm_bundle_repr_eqn}).	The action $\widetilde \rho$ can be extended up to the action $L^\infty\left(\widetilde M \right)\times L^2\left(\widetilde{M},\widetilde{S} \right) \to L^2\left(\widetilde{M},\widetilde{S} \right)$. If $g \in  G\left(\left.\widetilde{ M}~\right|M \right)$ and $\chi_{\widetilde\sU}\in L^\infty\left(\widetilde M \right)$ is the characteristic function of $\widetilde\sU$ then $g\chi_{\widetilde\sU}$ corresponds to a projector in $B\left( L^2\left(\widetilde{M},\widetilde{S} \right)\right)$. From  \eqref{top_isec_e_eqn} it follows that 
-  	$$
-  	g' \neq g'' \quad \Rightarrow g'\chi_{\widetilde\sU}\perp g''\chi_{\widetilde\sU}
-  	$$
-  	If 
-  	$$\chi_\la \bydef \sum_{g \in \ker\left(G\left(\left.\widetilde{M}~\right|M \right) \to G\left(\left.\widetilde{M}~\right|M_\la \right)\right)  } g\chi_{\widetilde\sU}$$ 
-  	and $\widetilde \xi \in L^2\left(\widetilde{M},\widetilde{S} \right)$ then
-  	$$
-  	\left\| \chi_\la\xi\right\|^2 = \sum_{g \in \ker\left(G\left(\left.\widetilde{M}~\right|M \right) \to G\left(\left.\widetilde{M}~\right|M_\la \right) \right) } \left\| \left( g\chi_{\widetilde\sU}\right) \xi\right\|^2.
-  	$$
-  	Since the intersection $\cap_{\la \in \La} \ker\left(G\left(\left.\widetilde{M}~\right|M \right) \to G\left(\left.\widetilde{M}~\right|M_\la \right) \right)$ is trivial one has
-  	\bean
-  	\lim_{\la \in \La}\left\| \chi_\la\xi\right\|^2 = \left\| \left( \chi_{\widetilde\sU}\right) \xi\right\|^2,\\
-  	\lim_{\la \in \La} \sum_{\substack{  g \in \ker\left(G\left(\left.\widetilde{M}~\right|M \right) \to G\left(\left.\widetilde{M}~\right|M_\la \right) \right)\\
-  			g \text{ is not trivalal }}} \left\| \left( g\chi_{\widetilde\sU}\right) \xi\right\|^2 = 0,\\
-  	\lim_{\la \in \La} \sum_{\substack{  g \in \ker\left(G\left(\left.\widetilde{M}~\right|M \right) \to G\left(\left.\widetilde{M}~\right|M_\la \right) \right)\\
-  			g \text{ is not trivalal }}}  \left( g\chi_{\widetilde\sU}\right) \xi = 0,\\
-  	\lim_{\la \in \La} \chi_\la\xi =  \chi_{\widetilde\sU} \xi,
-  	\eean 
-  	hence there is the limit
-  	\be\label{top_la_lim_eqn}	
-  	\lim_{\la \in \La} \chi_\la =  \chi_{\widetilde\sU}
-  	\ee
-  	in the sense of the strong topology of $B\left(L^2\left(\widetilde{M},\widetilde{S} \right) \right)$.
-  	Let us check that $\widetilde{a}$ satisfies to (a)-(d) of the Definition \ref{smooth_el_defn}.\\
-  	(a) 
-  	Follows from $K\left(C_0\left(\widetilde{M} \right) \right) = C_c\left(\widetilde{M} \right)$.\\
-  	(b) If 	$a_\la \in C\left(M_\la \right)$ is the sum of series 
-  	$$
-  	\sum_{g \in \ker\left(G\left(\left.\widetilde{M}~\right|M \right) \to G\left(\left.\widetilde{M}~\right|M_\la \right) \right) } g\widetilde{a} \in \Coo\left(M_\la \right). 
-  	$$
-  	is the sense of strict topology, then from $\supp \widetilde a \subset \widetilde\sU$ if follows that $\widetilde{a}$ satisfies to the Equation \eqref{comm_a_mu_eqn}. From the Lemma \ref{comm_lift_desc_sum_lem} it follows that
-  	$$
-  	\la \ge \mu \quad \Rightarrow \quad a_\la = \desc_{\widetilde p_\la}\left( \widetilde a\right) 
-  	$$ and taking into account $\widetilde a\in \Coo\left(\widetilde M \right)$ we conclude that $a_\la \in \Coo\left( M_\la\right)$. For any $\nu < \mu$ one has
-  	$$
-  	a_\nu = \sum_{g \in G\left({ M}_\la |M \right) }g a_\mu.
-  	$$
-  	The above sum is finite and  $g a_\mu\in \Coo\left( M_\mu\right)$ for all $g \in G\left({ M}_\la~|M \right)$ so $a_\nu \in \Coo\left( M_\nu\right)$.
-  	\\
-  	(c) The action $L^\infty\left(\widetilde M \right)\times L^2\left(\widetilde{M},\widetilde{S} \right) \to L^2\left(\widetilde{M},\widetilde{S} \right)$
-  	naturally yields the diagonal action $L^\infty\left(\widetilde M \right)\times L^2\left(\widetilde{M},\widetilde{S} \right)^{2^s} \to L^2\left(\widetilde{M},\widetilde{S} \right)^{2^s}$ such that the defined above projectors $\chi_{\widetilde\sU}$ and $\chi_\la$ become elements of $B\left(L^2\left(\widetilde{M},\widetilde{S} \right)^{2^s} \right)$. The given by \eqref{top_la_lim_eqn} limit can be regarded as limit in the sense of the strong topology of $B\left(L^2\left(\widetilde{M},\widetilde{S} \right)^{2^s} \right)$. From $\supp \widetilde a \subset \widetilde \sU$ it follows that
-  	\be\label{top_plaal_eqn}
-  	\begin{split}
-  		\widetilde a = \chi_{\widetilde \sU} \widetilde a,\\
-  		\forall\la \ge\mu\quad   a_\la = \sum_{g \in \ker\left(G\left(\left.\widetilde{M}~\right|M \right) \to G\left(\left.\widetilde{M}~\right|M_\la \right) \right) } g\widetilde{a}=\\
-  		= \left( \sum_{g \in \ker\left(G\left(\left.\widetilde{M}~\right|M \right) \to G\left(\left.\widetilde{M}~\right|M_\la \right) \right) } g\chi_{\widetilde \sU}\right) a_\la
-  		= \chi_\la a_\mu,\\
-  		\widetilde a = \chi_{\widetilde \sU} a_\mu
-  	\end{split}
-  	\ee
-  	If   $\pi^s_\la:\Coo\left(M_\la \right)  \to B\left( L^2\left(\widetilde{M},\widetilde{S} \right)^{2^s}\right) $ is  a representation given by \eqref{s_diff1_repr_equ} and \eqref{s_diff_repr_equ} then similarly to \eqref{top_plaal_eqn} one has
-  	\be\nonumber
-  	\begin{split}
-  		\forall\la \ge\mu\quad  \pi^s_\la\left(a_\la\right) 
-  		= \chi_\la  \pi^s_\mu\left(a_\mu\right) ,\\
-  		\pi^s\left(\widetilde a\right)  = \chi_{\widetilde \sU} \pi^s_\mu\left(a_\mu\right).
-  	\end{split}
-  	\ee
-  	and taking into account \eqref{top_la_lim_eqn} there is the limit
-  	\bean
-  	\lim_{\la\in\La} 1_{C_b\left(\widetilde{M} \right)  } \otimes \pi^s_\la\left(a_\la \right)= \left( \lim_{\la\in\La} \chi_\la\right) \left(  1_{C_b\left(\widetilde{M} \right)  } \otimes \pi^s_\la\left(a_\mu \right)\right) = \\=\chi_{\widetilde \sU} \left(  1_{C_b\left(\widetilde{M} \right)  } \otimes \pi^s_\la\left(a_\mu \right)\right)  = \pi_s\left(\widetilde{a} \right)
-  	\eean
-  	in the sense of the strong topology of $B\left(L^2\left(\widetilde{M},\widetilde{S} \right)^{2^s} \right)$.\\
-  	
-  	(d)
-  	From \eqref{d_defn_eqn} it follows that the commutator $\left[\Dslash_\la, a_\la\right]$ corresponds to $\slashed\nabla_\la\left( a_\la\right)\in \Coo\left(M_\la \right)\otimes_{\Coo\left(M\right)}\Om^1_\Dslash$ where $\slashed\nabla_\la:\Coo\left(M_\la \right) \to \Coo\left(M_\la \right)\otimes_{\Coo\left(M\right)}\Om^1_\Dslash$ is the unique $G\left(\left.{M}_\la~\right|M \right)$-equvariant connection (cf. Lemma \ref{conn_exist_lem}). On the other hand from the explicit equation \eqref{top_nabla_eqn} it follows that
-  	$$
-  	\left[\Dslash_\la, a_\la\right]= \slashed\nabla_\la\left( a_\la\right)= \sum_{j = 1}^m a^j_\la \otimes \om_j.
-  	$$
-  	where $\om_j \in  \Om^1_\Dslash$ and $a^j_\la \in \Coo\left( M_\la\right)$ is such that $\supp a^j_\la \subset \supp a_\la$. From $\Dslash_\la = p^{-1}_\la \left(\Dslash \right)$ (cf. \eqref{comm_d_eqn}) and $a_\la = \lift^{p^\la_\mu}_{\widetilde p_\la\left( \widetilde{   \mathcal U}\right) }\left( a_\mu\right) $  for all $\la \ge \mu$ one has
-  	$$
-  	\left[\Dslash_\la, a_\la\right]= \sum_{j = 1}^m \lift^{p^\la_\mu}_{\widetilde p_\la\left( \widetilde{   \mathcal U}\right) }\left( a^j_\mu\right)  \otimes \om_j
-  	$$
-  	If $\widetilde{a}_j \bydef \lift^{\widetilde p_\mu}_{ \widetilde{   \mathcal U}} \left( a^j_\mu\right)$ then $\widetilde{a}_j\in C_c\left( \widetilde M\right)$ On the other hand similarly to \eqref{top_plaal_eqn} for any $j = 1,...,m$ one has
-  	\bean
-  	\begin{split}
-  		\widetilde a_j = \chi_{\widetilde \sU} \widetilde a_j,\\
-  		\forall\la \ge\mu\quad   a^j_\la =  \chi_\la a^j_\mu,\\
-  		\widetilde a^j = \chi_{\widetilde \sU} a^j_\mu
-  	\end{split}
-  	\eean
-  	it follows that
-  	\bean
-  	\lim_{\la\in\La} a^j_\la   = \lim_{\la\in\La}\chi_\la a^j_\mu= \left( \lim_{\la\in\La}\chi_\la\right)  a^j_\mu= \chi_{\widetilde \sU} a^j_\mu= \widetilde a_j.
-  	\eean
-  	It follows that
-  	\be\label{top_ad_eqn}
-  	\begin{split}
-  		\lim_{\la\in\La}\left[\Dslash_\la, a_\la\right]=  \lim_{\la\in\La} \sum_{j = 1}^m a^j_\la \otimes \om_j= \sum_{j = 1}^m\left(\lim_{\la\in\La}a^j_\la \right) \otimes \om_j=\sum_{j = 1}^m a^j_\la \otimes \om_j=
-  		\\
-  		= \sum_{j = 1}^m \widetilde a_j\otimes \om_j= \sum_{j = 1}^m \widetilde \lift^{\widetilde p_\mu}_{ \widetilde{   \mathcal U}} \left( a^j_\mu\right)\otimes \om_j.
-  	\end{split}
-  	\ee
-  	From $\lift^{\widetilde p_\mu}_{ \widetilde{   \mathcal U}} \left( a^j_\mu\right) \in C_c\left(\widetilde M \right)$ it follows that
-  	$$
-  	\lim_{\la\in\La}\left[\Dslash_\la, a_\la\right] \in C_c\left(\widetilde M \right)\otimes \Om^1_\Dslash = K\left( C_0\left(\widetilde M \right)\right) \otimes \Om^1_\Dslash
-  	$$
-  \end{proof}
-  Similarly to \eqref{top_tensor_lccomact_iso_eqn} one can define a $\Coo_c\left(\widetilde M \right)$-module  homomorphism
-  \be\label{top_phinfi_eqn}
-  \begin{split}
-  	\widetilde	\phi_\infty :\Coo_c\left(\widetilde M \right)\otimes_{\Coo\left( M\right) } \Ga^\infty\left(M, \sS \right)  \to \Ga^\infty_c\left(\widetilde M, \widetilde\sS \right),\\
-  	\sum_{j=1}^n \widetilde a_j \otimes \xi_j\mapsto  \sum_{j=1}^n\widetilde a_j \lift_p\left(\xi_j\right)
-  \end{split}
-  \ee
-  where both   $\Ga^\infty\left(M, \sS \right)$ and $\Ga^\infty_c\left(\widetilde M, \widetilde\sS \right)$ are  defined by the Equations  \eqref{top_smooth_m_eqn} and \eqref{top_lift_lc_sheaf_sec_eqn} respectively.
-  \begin{lemma}\label{top_phinfi_lem}
-  	The given by the Equation \eqref{top_phinfi_eqn} homomorphism is an isomorphism.
-  \end{lemma}
-  \begin{proof}
-  	The proof of the Lemma \ref{top_tensor_lcomact_lem} uses the partition of unity. However from the Proposition \ref{smooth_part_unity_prop} it turns out that there is a smooth partition of unity. Using it one can proof this lemma as well as the Lemma \ref{top_tensor_lcomact_lem} has been proved.
-  \end{proof}
-  
-  \begin{empt}\label{top_dirac_construction_empt}
-  	Let us explicitly find the commutative  specialization of the explained in  \ref{dirac_inf_constr_empt} construction. Following table reflects the mapping between general theory and the commutative specialization.\\ \\
-  	\begin{tabular}{|c|c|c|}
-  		\hline
-  		&General theory & Commutative specialization\\ 
-  		\hline
-  		&	&\\
-  		Hilbert spaces & $\H$  and $\widetilde\H$ &  $L^2\left(M, \sS \right)$ and $L^2\left(\widetilde M, \widetilde \sS \right)$\\ & & \\
-  		Pre-$C^*$-algebra	& $\A$  & $\Coo\left(M \right)$   \\  & & \\
-  		Pedersen's ideal	& $K\left(\widetilde A\right) $  & $C_c\left(\widetilde M \right)$   \\  & & \\
-  		The space of smooth 	& $\widetilde{W}^\infty$  & $\Coo_c\left(\widetilde M \right)$   \\ elements & & \\& & \\
-  		Dirac operators & $D$ & $\Dslash$  \\
-  		& $\widetilde{D}$ & ?\\  & & \\
-  		&$\H^\infty\bydef \bigcap_{n =1}^\infty \Dom D^n\subset \H$ & $\Ga^\infty\left(M, \sS \right)= \bigcap_{n =1}^\infty \Dom \Dslash^n$ \\& & \\
-  		\hline
-  	\end{tabular}
-  	\\
-  	\\
-  	\\
-  	Select an element  $\xi \in  \H^\infty=\Ga^\infty\left(M, \sS \right)$ and for all $\la\in \La$ denote by
-  	\bean
-  	\phi^\la_\infty :\Coo\left( M_\la \right)\otimes \Ga^\infty\left(M, \sS \right)  \to \Ga^\infty\left( M_\la, \sS_\la \right),\\
-  	\sum_{j=1}^n \widetilde a_j \otimes \xi_j\mapsto  \sum_{j=1}^n\widetilde a_j \lift_{p_\la}\left(\xi_j\right)
-  	\eean
-  	the given by the Lemma \ref{top_phinf_lem}  isomorphism of $\Coo\left( M_\la \right)$-modules.
-  	If $\widetilde{a}_\Dslash$ is the specialization of the given by \eqref{a_d_eqn} operator then from the equation \eqref{top_ad_eqn} it follows that 
-  	\begin{equation}\label{top_a_d_eqn}
-  		\widetilde{a}_\Dslash = \sum_{j = 1}^m \widetilde \lift^{\widetilde p_\mu}_{ \widetilde{   \mathcal U}} \left( a^j_\mu\right)\otimes \om_j
-  	\end{equation}
-  	where parameters of the Equation \ref{top_a_d_eqn} satisfy to the following condition
-  	$$
-  	\left[\Dslash_\mu, \desc_{\widetilde p_\mu}\left( \widetilde{a}\right) \right]\lift_{p_\mu}\left(\xi \right) = \phi^\mu_\infty\left( \sum_{j = 1}^m   a^j_\mu\otimes \om_j\left(\xi \right) \right) 
-  	$$
-  	If $\widetilde D$ is given by \eqref{inf_lift_D_eqn} then one has
-  	\be\label{top_dinf_eqn}
-  	\begin{split}
-  		\widetilde{D}\left(\widetilde{a} \otimes \xi \right) =\sum_{j = 1}^m \widetilde \lift^{\widetilde p_\mu}_{ \widetilde{   \mathcal U}} \left( a^j_\mu\right)\otimes \om_j\left(\xi\right)    +\widetilde{a} \otimes \Dslash\xi=\\
-  		\sum_{j = 1}^m \widetilde \lift^{\widetilde p_\mu}_{ \widetilde{   \mathcal U}} \left( a^j_\mu\right)\otimes \om_j\left(\xi\right)    +\widetilde \lift^{\widetilde p_\mu}_{ \widetilde{   \mathcal U}} \left( a_\mu\right) \otimes \Dslash\xi 
-  		%=  \widetilde \lift^{\widetilde p_\mu}_{ \widetilde{   \mathcal U}} \left(\sum_{j = 1}^m a^j_\mu\otimes \om_j\left(\xi\right)    +\widetilde  a_\mu\otimes \Dslash\xi\right) \in
-  		\in C_c\left(\widetilde M \right)\otimes_{\Coo\left( M\right)} \Ga^\infty\left(M, \sS \right).
-  	\end{split}
-  	\ee
-  	If we consider the  given by \eqref{top_phinfi_eqn} and  isomorphism $\widetilde\phi_\infty$ then $\widetilde{D}$ can be regarded as the map $\widetilde{D}:\Ga^\infty_c\left(\widetilde M, \widetilde\sS \right)\to \Ga^\infty_c\left(\widetilde M, \widetilde\sS \right)$  and from  the equation \eqref{top_dinf_eqn} it follows that
-  	\be
-  	\begin{split}
-  		\widetilde\phi_\infty\left( \widetilde{a} \otimes \xi\right)=  \widetilde{a}\lift_p\left(\xi \right),\\
-  		\widetilde{D}\left(\widetilde\phi_\infty\left( \widetilde{a} \otimes \xi \right) \right)=  \widetilde\phi_\infty\left(\sum_{j = 1}^m \widetilde \lift^{\widetilde p_\mu}_{ \widetilde{   \mathcal U}} \left( a^j_\mu\right)\otimes \om_j\left(\xi\right)    +\widetilde \lift^{\widetilde p_\mu}_{ \widetilde{   \mathcal U}} \left( a_\mu\right) \otimes \Dslash\xi\right)=
-  		\\
-  		=
-  		\sum_{j = 1}^m \widetilde \lift^{\widetilde p_\mu}_{ \widetilde{   \mathcal U}} \left( a^j_\mu\right)\lift_p\left(  \om_j\left(\xi\right)\right)     +\widetilde \lift^{\widetilde p_\mu}_{ \widetilde{   \mathcal U}} \left( a_\mu\right) \lift_p\left( \Dslash\xi\right)=
-  		\\
-  		=   \sum_{j = 1}^m \widetilde \lift^{\widetilde p_\mu}_{ \widetilde{   \mathcal U}} \left( a^j_\mu\right)\lift_p\left(  \om_j\left(\xi\right)\right)     + \lift^{\widetilde p_\mu}_{ \widetilde{   \mathcal U}}\left(a_\mu \lift_{p_\mu}\left(  \Dslash \xi \right) \right) =
-  		\\
-  		= \lift^{\widetilde p_\mu}_{ \widetilde{   \mathcal U}}
-  		\left(\widetilde\phi_\infty\left(\sum_{j = 1}^m a^j_\mu\otimes \om_j\left(\xi\right)    +\widetilde  a_\mu\otimes \Dslash\xi  \right)  \right).
-  	\end{split}
-  	\ee
-  	On the other hand from \eqref{d_defn_eqn} it turns out that
-  	$$
-  	\sum_{j = 1}^m a^j_\mu\otimes \om_j\left(\xi\right)    +\widetilde  a_\mu\otimes \Dslash\xi = \Dslash_\mu \left( a_\mu\otimes \xi\right), 
-  	$$
-  	hence
-  	$$
-  	\widetilde{D}\left(\widetilde{a} \otimes \xi \right)= \lift^{\widetilde p_\mu}_{ \widetilde{   \mathcal U}}\left(\Dslash_\mu \left( a_\mu\otimes \xi\right) \right) 
-  	$$
-  	or equivalently
-  	\bean
-  	\widetilde{D}\left(\widetilde\phi_\infty\left( \widetilde{a} \otimes \xi \right)  \right)= \lift^{\widetilde p_\mu}_{ \widetilde{   \mathcal U}}\left(\Dslash_\mu \left( \phi^\la_\infty\left( \desc_{\widetilde p_\mu}\left(\widetilde{a} \right) \otimes \xi\right)\right)  \right),\\
-  	\widetilde{D}~ \widetilde{a}~ \lift_p\left(  \xi\right) = \lift^{\widetilde p_\mu}_{ \widetilde{   \mathcal U}}\left( \Dslash_\mu \desc_{\widetilde p_\mu}\left(\widetilde{a} \right)\right).
-  	\eean
-  	On the other hand from  \eqref{top_lift_desc_d_eqn} it follows that 
-  	\bean
-  	\widetilde p^{-1}_\mu \Dslash_\mu \widetilde{a} \lift_p\left(  \xi\right) = \lift^{\widetilde p_\mu}_{ \widetilde{   \mathcal U}}\left( \Dslash_\mu \desc_{\widetilde p_\mu}\left(\widetilde{a} \right)\right),\\
-  	\widetilde{D} ~\widetilde{a} ~\lift_p\left(  \xi\right)=\widetilde p^{-1}_\mu \Dslash_\mu \widetilde{a} \lift_p\left(  \xi\right).
-  	\eean
-  	However from the Theorem \ref{comm_fin_sp_tr_thm} it follows that $\Dslash_\mu = p^{-1}_\mu\Dslash$, so from $p= \widetilde p_\mu p_\mu$ it follows that $\widetilde p^{-1}_\mu \Dslash_\mu= \widetilde p^{-1}_\mu p^{-1}_\mu \Dslash= p^{-1}\Dslash$, hence one has
-  	\be\label{top_bb_eqn}
-  	\widetilde{D} ~\widetilde{a} ~\lift_p\left(  \xi\right)=\widetilde p^{-1} \Dslash \widetilde{a} \lift_p\left(  \xi\right)\quad \forall a \in \Coo\left( \widetilde M\right)\quad \xi \in \Ga^\infty\left(M, \sS \right) 
-  	\ee
-  	But from the Lemma \ref{top_phinfi_lem} it follows that the 
-  	$\Ga^\infty_c\left(\widetilde M, \widetilde\sS \right)$ is the linear span of $\widetilde{a} ~\lift_p\left(  \xi\right)  \quad \forall\widetilde{a} \in \Coo_c\left(\widetilde M\right)\quad \forall  \xi \in \Ga^\infty\left( M, \sS\right)$ so from \eqref{top_bb_eqn} it follows that
-  	$$
-  	\widetilde{D}\widetilde\xi=  p^{-1} \Dslash\widetilde\xi \quad \forall \widetilde\xi \in \Ga^\infty_c\left(\widetilde M, \widetilde\sS \right),
-  	$$
-  	or, equivalently
-  	\be\label{comm_inf_d_eqn}
-  	\widetilde{D} =  p^{-1} \Dslash. 
-  	\ee 
-  	
-  \end{empt}
-  
-  
-  \begin{theorem}\label{top_st_good_thm}
-  	In the described in this section situation following conditions hold:
-  	\begin{enumerate}
-  		\item [(i)] 	The given by \ref{comm_triple_seq_eqn} coherent set
-  		\begin{equation}\nonumber
-  			\begin{split}
-  				\mathfrak{S}_{\left(C^{\infty}\left( M\right) , L^2\left( M, S\right) ,\slashed D\right) } = \left\{
-  				\left(C^{\infty}\left( M_\la\right) , L^2\left( M_\la, S_\la\right) ,\slashed D_\la\right)
-  				\right\}_{\la \in \La}\in \mathfrak{CohTriple}
-  			\end{split}
-  		\end{equation}
-  		of spectral triples is good !!! SOFT \ref{top_soft_exer}  !!! REP \ref{top_soft_r_defn} (cf. Definition \ref{smooth_alg_defn}). 
-  		\item[(ii)] The  $\left(C\left( M\right) , C_0\left( \widetilde{M}\right) , G\left(\left.\widetilde{M}~\right|M \right)\right)$-lift of the spectral triple \\$\left( \Coo\left( M \right), L^2\left( M,  S, \mu\right),  \Dslash \right)$ (cf. Definition \ref{reg_triple_defn}) coincides with the geometrical $p$-{lift} of  $\left( \Coo\left( M \right), L^2\left( M,  S, \mu\right),  \Dslash \right)$ (cf. Definition \ref{top_geom_lift_lc_defn}).
-  	\end{enumerate}
-  	
-  \end{theorem}
-  
-  \begin{proof}
-  	(i) One has an inclusion $\Coo_c\left(\widetilde M \right)\subset C_0\left(\widetilde M \right)$  of involutive algebras. The given by the seminorms \eqref{smooth_seminorms_eqn} topology $\mathcal T$ on $\Coo_c\left(\widetilde M \right)$ is finer than the $C^*$-norm topology, so  if $\widetilde \A$ is the $\mathcal T$-completion of $\Coo_c\left(\widetilde M \right)$ with respect to the $C^*$-norm then $\widetilde \A \subset  C_0\left(\widetilde M \right)$. Otherwise $\Coo_c\left(\widetilde M \right)$ is dense in $C_0\left(\widetilde M \right)$ with respect to the  $C^*$-norm topology, hence $\widetilde \A$ is dense in $C_0\left(\widetilde M \right)$ with respect to the the $C^*$-norm topology.\\
-  	(ii) Consider the given by \eqref{top_ta_eqn} finite partition of unity
-  	\begin{equation}\nonumber
-  		1_{C\left( M\right) } = \sum_{\a \in \mathscr A} a_\a; \text{ where } a_\a \in \Coo\left( M\right).
-  	\end{equation} 
-  	For any $s \in \N$ denote by
-  	\bean
-  	C'_s = \max_{\substack{\a \in \mathscr A}}\left\|  a_\a\right\|_s ,\quad
-  	C_s = \max\left(1, C'_s \right). 
-  	\eean
-  	For any $\a \in  \mathscr A$ there is $\widetilde a_\a \in  \Coo_c\left(\widetilde M \right)$ such that $\desc_{p}\left( \widetilde a_\a\right)= a_\a$. Moreover there is the given by \eqref{top_comply_part_eqn}  partition of unity, i.e.
-  	\be\nonumber
-  	\sum_{g \in G\left(\left.\widetilde{M}~\right|M\right),~ \a \in \mathscr A  } g\widetilde{a}_\a = 1_{C_b\left(\widetilde{M} \right) }
-  	\ee
-  	If $\widetilde a \in  \Coo_0\left(\widetilde M \right)$ then from \eqref{top_coo_eqn} it follows that for all $\eps > 0$ and $s \in \N$ there is a compact set $\widetilde \sU \subset \widetilde M$ such that
-  	$$
-  	\left| \pi^s\left(\widetilde a \right) \left(\widetilde x \right) \right| < \frac{\eps}{2C_s \left|\mathscr A\right| }\quad \forall \widetilde x\in \widetilde M\setminus\widetilde \sU.
-  	$$ 
-  	On the other hand there is a {covering sum} for $\widetilde \sU$ (cf. Definition \ref{top_cfs_defn}), i.e. the finite subset $\widetilde {\mathscr A}_{\widetilde \sU} \subset G\left(\left.\widetilde{M}~\right|M\right)\times \mathscr A $ such that
-  	$$
-  	\sum_{ \left( g, {\a}\right) \in {\mathscr A}_{\widetilde \sU}} \left( g\widetilde a_\a\right) \left(\widetilde x \right) = 1\quad \forall \widetilde x \in \widetilde\sU.
-  	$$
-  	If $\widetilde a' = \widetilde a \sum_{ \left( g, {\a}\right) \in {\mathscr A}_{\widetilde \sU}} \left( g\widetilde a_\a\right)$ then 
-  	$\widetilde a'\in \Coo_c\left(\widetilde M \right)$ because the set is $\widetilde {\mathscr A}_{\widetilde \sU} $ finite. Otherwise from the above inequalities one has
-  	$$
-  	\left\|\widetilde a- \widetilde a'\right\|_s < \eps,
-  	$$
-  	it follows that the completion of $\Coo_c\left(\widetilde M \right)$ with respect to the seminorms \eqref{smooth_seminorms_eqn} is $\Coo_0\left(\widetilde M \right)$. From the Definition \ref{reg_triple_defn} it follows that the 
-  	$\left(C\left( M\right) , C_0\left( \widetilde{M}\right) , G\left(\left.\widetilde{M}~\right|M \right)\right)$-lift of the spectral triple $\left( \Coo\left( M \right), L^2\left( M,  S, \mu\right),  \Dslash \right)$ is given by $\left( \Coo_0\left(\widetilde M\right) , \widetilde \H, \widetilde D \right)$. On the other hand the  geometrical $p$-{lift} of  $\left( \Coo\left( M \right), L^2\left( M,  S, \mu\right),  \Dslash \right)$ equals to $\left( \Coo_0\left(\widetilde M \right), L^2\left(\widetilde M, \widetilde S, \widetilde\mu\right), \widetilde \Dslash \right)$. From the Remark \ref{comm_ind_lc_rem} the representation $ C_0\left(\widetilde M\right)\hookto   B\left(\widetilde \H\right)$ is equivalent  to the representation  $ C_0\left(\widetilde M\right)\hookto   B\left(\widetilde L^2\left(\widetilde M, \widetilde S, \widetilde\mu\right)\right)$. Comparison of the equations \eqref{top_geom_dirac_lift_eqn} and \eqref{comm_inf_d_eqn} yields the following
-  	$$
-  	\widetilde D = \widetilde\Dslash.
-  	$$
-  \end{proof}
+ 
 
- \subsection{Coverings of spectral triples}
- \paragraph*{} Let $\slashed{\mathrm{T}}\bydef\left(C^{\infty}\left( M\right) , L^2\left( M, S\right) ,\slashed D\right)$ be a commutative spectral triple (cf. Equation \eqref{comm_sp_tr_eqn}), and let $\widetilde p:\widetilde{M} \to M$ be an infinite regular covering such that  the {covering group} $G\left( {\widetilde{M}}~|~M\right)$ (cf. Definition \ref{cov_proj_cov_grp_defn}) is residually finite (cf. Definition \ref{residually_finite_defn}). From the Lemma \ref{top_res_fin_lem} it it turns out that there is a (topological)  finite covering category $\mathfrak{S} = \left\{p_\la: M_\la \to M\right\}$ (cf. \ref{top_sec_defn}) such that  the {(topological) inverse limit} of $\mathfrak{S}$ is naturally homeomorphic  to $\widetilde{M}$. From the Proposition \ref{comm_cov_mani_prop} it follows that $\widetilde{M}$ and $M_\la$ ($\forall \la \in \La$)  have natural structure of the Riemannian manifolds. According to the Example \ref{top_vb_lift_desc_exm} denote by $\widetilde{S}\stackrel{\mathrm{def}}{=} C_0\left( \lift_p\left(S \right) \right) $ and $S_\la \stackrel{\mathrm{def}}{=} C_b\left( \lift_{p_\la}\left( S\right) \right) $  (for all $\la \in \La$) the lifts of the spin bundle (cf. \ref{top_vb_sub_sub}). Similarly to the Section  \ref{top_cov_sp_tr_sec} one can prove that for any $\la \in \La$ that there is the $p_\la$-{inverse image} $p^{-1}_\la \slashed D$ of $\slashed D$ (cf. Definition \ref{top_smooth_inv_im_defn}) and the operator  $p_\la^{-1} \slashed D$ can be regarded as an unbounded operator on  $L^2\left( M_\la, S_\la\right)$. Moreover there is the $\widetilde p$-{inverse image} $\widetilde p^{-1} \slashed D$ of $\slashed D$ (cf. Definition \ref{top_smooth_inv_im_defn}) and the operator  $\widetilde p^{-1} \slashed D$ is  an unbounded operator on  $L^2\left( \widetilde M, \widetilde S\right)$.
- From the Lemma \ref{comm_t_a_lem} and the Theorem \ref{comm_main_thm} it turns out that 
- $
- \mathfrak{S}^{\mathrm{pt}}_{C\left(M\right)}=
- \left(C(M)\hookto C(M_\la)\right\}_{\la \in \La}, \left\{C_0\left( p_\nu^\mu\right) : C\left(M_\nu \right) \hookto C\left(M_\mu \right)\right)
- $
- is a good !!! SOFT \ref{top_soft_exer}  !!! REP \ref{top_soft_r_defn} pointed {algebraical finite covering category}, and  the triple $$\left(C\left( M\right) , C_0\left( \widetilde{M}\right) , G=G\left( \left.\widetilde{M}~\right|M\right)\right)$$ is an  infinite noncommutative covering   of $\mathfrak{S}_{C\left(M\right)}$. 
- Otherwise from the Theorem \ref{top_st_good_thm} it follows that
- \begin{equation}\label{ctr_triple_seq_eqn}
- 	\begin{split}
- 		\mathfrak{S}_{ \left(C^{\infty}\left( M\right) , L^2\left( M, S\right) ,\slashed D\right) } = 
- 		\\
- 		=\left\{\slashed{\mathrm{T}}_\la \bydef
- 		\left(C^{\infty}\left( M_\la\right) , L^2\left( M_\la, S_\la\right) ,p_\la^{-1} \slashed D\right) 
- 		\right\}_{\la \in \La}\in \mathfrak{CohTriple}
- 	\end{split}
- \end{equation}
- From the Theorem \ref{ctr_main_thm} one has a good !!! SOFT \ref{top_soft_exer}  !!! REP \ref{top_soft_r_defn}  pointed {algebraical finite covering category}
- \be
- \begin{split}
- 	\mathfrak{S}^{\mathrm{pt}}_{C\left(M\right)\otimes \mathbb{M}_m\left(\C \right)}=\\
- 	=
- 	\left(\left\{C_0\left(p_\la \right)\otimes \Id_{\mathbb{M}_m\left(\C \right)} C(M)\otimes \mathbb{M}_m\left(\C \right)\hookto C(M_\la)\otimes \mathbb{M}_m\left(\C \right)\right\}_{\substack{\la\in \La\\~\\~}}\right., \\ \left.\left\{C_0\left( p_\nu^\mu\right)\otimes \Id_{\mathbb{M}_m\left(\C \right)} : C\left(M_\nu \right) \otimes \mathbb{M}_m\left(\C \right)\hookto C\left(M_\mu \right)\otimes \mathbb{M}_m\left(\C \right)\right\}_{\substack{\mu, \nu\in \La\\ \mu \ge \nu}}\right)
- \end{split}
- \ee
- and
- $$\left(C\left( M\right) \otimes \mathbb{M}_m, C_0\left( \widetilde{M}\right) \otimes \mathbb{M}_m, G=G\left( \left.\widetilde{M}~\right|M\right)\right)$$ is  the  { infinite noncommutative covering} of $\mathfrak{S}^{\mathrm{pt}}_{C\left(M\right)\otimes \mathbb{M}_m\left(\C \right)}$ (cf. Definition \ref{main_defn}).
- If ${\mathrm{T}}_{\mathrm{fin}}\bydef\left(\mathbb{M}_m\left(\C \right), \C^k, D_{\mathrm{fin}}   \right)$ is  a finite spectral triple (cf. Definition \ref{ctr_fin_sp_tr_sec}) then one can define products of spectral triples (cf. Definition \ref{sp_tr_prod_sec})
- \be\label{ctr_fam1_eqn}
- \begin{split}
- 	\mathrm{T} \bydef \slashed{\mathrm{T}} \times {\mathrm{T}}_{\mathrm{fin}} =	\left( \Coo\left( M\right) \otimes \mathbb{M}_m\left(\C \right), L^2\left(M, \sS \right)\otimes\C^k, D \right),\\
- 	\text{where}\quad D\bydef \Dslash\otimes \Ga_{\mathrm{fin}}+ \Id_{L^2\left(M, \sS \right)} \otimes D_{\mathrm{fin}}~;\\
- 	\mathrm{T}_\la \bydef \slashed{\mathrm{T}}_\la \times {\mathrm{T}}_{\mathrm{fin}} =	\left( \Coo\left( M_\la\right) \otimes \mathbb{M}_m\left(\C \right), L^2\left(M_\la, \sS_\la \right)\otimes\C^k, D_\la \right),\\
- 	\text{where}\quad D_\la \bydef p^{-1}_\la\Dslash\otimes \Ga_{\mathrm{fin}}+ \Id_{L^2\left(M_\la, \sS_\la \right)} \otimes D_{\mathrm{fin}}.
- \end{split}
- \ee 
- \begin{lemma}
- 	The indexed by $\La$ family of spectral triples 
- 	\be\label{ctr_fam2_eqn}
- 	\mathfrak{S}_{\mathrm{T}}\bydef\left\{\mathrm{T}_\la \right\}_{\la\in \La}
- 	\ee
- 	is a {coherent set of spectral triples} (cf. Definition \ref{cov_sec_triple_defn}).
- \end{lemma}	
- \begin{proof}
- 	Consider the atomic representation $\pi_a: C^*$-$\varinjlim_{\la \in \La} C\left( M_\la \right)\otimes \mathbb{M}_m\left(\C \right)  \to B\left(\widehat \H\right)$ (cf. Definition \ref{atomic_repr_defn}). Any coherent set of spectral triples is weakly coherent. So one needs check that $\mathfrak{S}_{\mathrm{T}}$ satisfies to conditions (a)-(d) of the Definition \ref{wcov_sec_triple_defn}.\\
- 	(a) Follows from the Theorem \ref{ctr_fin_sp_tr_thm}.\\
- 	(b) For all $\la \in \La$ the $C^*$-algebra $C\left( M_\la\right)$ is the $C^*$-norm completion of $\Coo\left( M_\la\right)$.\\
- 	(c) Follows from the Theorem \ref{ctr_main_thm}.\\
- 	(d) Follows from the Theorem \ref{ctr_fin_sp_tr_thm}.\\
- 	
- 	From the Lemma \ref{ctr_allows_lem} it follows that the pointed algebraical  finite covering category  $\mathfrak{S}^{\mathrm{pt}}_{C\left(M\right)\otimes \mathbb{M}_m\left(\C \right)}$ allows inner product, hence from the Definition \ref{cov_sec_triple_defn} it turns out that $\mathfrak{S}_{\mathrm{T}}$	is a {coherent set of spectral triples}.
- \end{proof}
- 
- 
- 
- \begin{lem}\label{ctr_smooth_lem}
- 	If $\widetilde{W}^\infty$ is the space of 	$\mathfrak{S}_{\mathrm{T} }$-smooth elements (cf. Definition \ref{smooth_el_defn}) then
- 	$$\widetilde{W}^\infty= \Coo_c\left(\widetilde{M} \right)\otimes \mathbb{M}_m\left(\C \right).$$
- \end{lem}
- \begin{proof}
- 	The proof of this lemma is similar to the proofs of the Lemmas \ref{comm_smooth_lem} and \ref{comm_smooth_inv_lem}
- \end{proof}
- Similarly to \eqref{top_atensor_s_lcomact_iso} one can define a $\Coo_c\left(\widetilde M \right)$-module  homomorphism
- \be\label{ctr_phinfi_eqn}
- \begin{split}
- 	\widetilde	\phi_\infty :\left( \Coo_c\left(\widetilde M \otimes\mathbb{M}_n\left(\C \right) \right)\otimes_{\Coo\left( M\right) \otimes\mathbb{M}_n\left(\C \right)} \Ga^\infty\left(M, \sS \right)^k  \right) \to \Ga^\infty_c\left(\widetilde M, \widetilde\sS \right)^k,\\
- 	\sum_{j=1}^n \widetilde a_j \otimes \xi_j\mapsto  \sum_{j=1}^n\widetilde a_j \lift_p\left(\xi_j\right)
- \end{split}
- \ee
- 
- where both   $\Ga^\infty\left(M, \sS \right)$ and $\Ga^\infty_c\left(\widetilde M, \widetilde\sS \right)$ are  defined by the Equations  \eqref{top_smooth_m_eqn} and \eqref{top_lift_lc_sheaf_sec_eqn} respectively.
- \begin{lemma}\label{ctr_phinfi_lem}
- 	The given by the Equation \eqref{ctr_phinfi_eqn} homomorphism is an isomorphism.
- \end{lemma}
- \begin{proof}
- 	The proof of the Lemma \ref{top_tensor_lcomact_lem} uses the partition of unity. However from the Proposition \ref{smooth_part_unity_prop} it turns out that there is a smooth partition of unity. Using it one can proof this lemma as well as the Lemma \ref{top_tensor_lcomact_lem} has been proved.
- \end{proof}
- 
- \begin{empt}\label{ctr_dirac_construction_empt}
- 	Let us explicitly the  specialization of the explained in  \ref{dirac_inf_constr_empt} construction. Following table reflects the mapping between general theory and the specialization.\\ \\
- 	\begin{tabular}{|c|c|c|}
- 		\hline
- 		&General theory & The specialization\\ 
- 		\hline
- 		&	&\\
- 		Hilbert spaces & $\H$  and $\widetilde\H$ &  $L^2\left(M, \sS \right)^k$ and $L^2\left(\widetilde M, \widetilde \sS \right)^k$\\ & & \\
- 		Pre-$C^*$-algebra	& $\A$  & $\Coo\left(M \right)\otimes\mathbb{M}_n\left(\C \right)$   \\  & & \\
- 		Pedersen's ideal	& $K\left(\widetilde A\right) $  & $C_c\left(\widetilde M \right)$   \\  & & \\
- 		The space of  	& $\widetilde{W}^\infty$  & $\Coo_c\left(\widetilde M \right)\otimes\mathbb{M}_n\left(\C \right)$   \\ smooth elements & & \\& & \\
- 		Dirac operators & $D$ & $ \Dslash\otimes \Ga_{\mathrm{fin}}+ \Id_{L^2\left(M, \sS \right)^k} \otimes D_{\mathrm{fin}}$  \\
- 		& $\widetilde{D}$ & ?\\  & & \\
- 		&$\H^\infty\bydef \bigcap_{n =1}^\infty \Dom D^n\subset \H$ & $\Ga^\infty\left(M, \sS \right)^k= \bigcap_{n =1}^\infty \Dom D^n$ \\& & \\
- 		\hline
- 	\end{tabular}
- 	\\
- 	\\
- 	\\
- 	Similarly to the given by \ref{top_dirac_construction_empt} construction we can prove the following explicit equation
- 	\be\label{ctr_inf_d_eqn}
- 	\widetilde{D} =  \widetilde p^{-1} \Dslash \otimes \Ga_{\mathrm{fin}}+ \Id_{L^2\left(M, \sS \right)^k} \otimes D_{\mathrm{fin}} 
- 	\ee 
- 	for the specialization of  the given by \eqref{inf_lift_D_eqn} operator.
- 	
- \end{empt}
- 
- 
- \begin{theorem}\label{ctr_st_good_thm} 
- 	
- 	In the described in this section situation following conditions hold:
- 	\begin{enumerate}
- 		\item [(i)] 	The given by \eqref{ctr_fam1_eqn} \eqref{ctr_fam2_eqn} coherent set
- 		\bean
- 		\mathfrak{S}_{\mathrm{T}}\bydef\left\{\mathrm{T}_\la \right\}_{\la\in \La}
- 		\eean
- 		of spectral triples is good !!! SOFT \ref{top_soft_exer}  !!! REP \ref{top_soft_r_defn} (cf. Definition \ref{smooth_alg_defn}). 
- 		\item[(ii)] The  $\left(C\left( M\right) \otimes\mathbb{M}_n\left(\C \right), C_0\left( \widetilde{M}\right)\otimes\mathbb{M}_n\left(\C \right)  , G\left(\left.\widetilde{M}~\right|M \right)\right)$-lift of the spectral triple 
- 		$$
- 		\mathrm{T}\bydef		\left( \Coo\left( M \right)\otimes\mathbb{M}_n\left(\C \right), L^2\left( M,  S, \mu\right)^k,  \Dslash\otimes \Ga_{\mathrm{fin}}+ \Id_{L^2\left(M, \sS \right)^k} \otimes D_{\mathrm{fin}} \right)
- 		$$ (cf. Definition \ref{reg_triple_defn}) coincides with the geometrical $p$-{lift} of  $\mathrm{T}$ (cf. Definition \ref{ctr_geom_lift_inf_defn}).
- 	\end{enumerate}
- 	
- \end{theorem}
- 
- \begin{proof}
- 	The proof of this theorem is similar to the proof of the Theorem \ref{top_st_good_thm}.
- \end{proof}
- 
- \section{Exercises}
- \begin{exercise}
- 	Let $\sX$ be a connected, locally connected, second-countable, locally compact, Hausdorff topological space and let $\left\{\H_x\right\}_{x \in \sX}$ be a family of infinite dimensional Hilbert spaces. Let  $\sF$ be a {continuity structure for} $\sX$ {and the} $\left\{\H_x\right\}$ (cf. Definition \ref{op_fields_defn}). If 
- 	\be\label{vf_x_eqn}
- 	X_{C_0\left(\sX\right)}  \bydef C_0\left(\sX, \left\{\H_x\right\}, \sF\right)
- 	\ee (
- 	cf. Definition \ref{top_cc_c0_defn}) then form the Lemma \ref{top_cb_hilb_lem} it turns out that $X_{C_0\left(\sX\right)}$ is a $C^*$-Hilbert $C_0\left(\sX\right)$-module. Find a sub-ubital operator space $\left(X_{C_0\left(\sX\right)}, Y\right)$ (cf. Definition \ref{op_su_space_defn})
- 	such that following conditions hold:
- 	\begin{enumerate}
- 		\item There is the natural the 1-1 correspondence  between transitive finite-fold coverings of $\sX$  and noncommutative finite-fold coverings of $\left( X_{C_0\left(\sX\right)}, Y\right) $.
- 		\item There is the natural the 1-1 between transitive infinite coverings of $\sX$ with residually finite covering group and noncommutative infinite  coverings of $\left( X_{C_0\left(\sX\right)}, Y\right) $.
- 		\item If there is   the universal topological covering $\widetilde{p}:\widetilde{\sX}\to \mathcal X$ (cf. Definition \ref{top_uni_cov_defn}) such that $G\left( \left.{\widetilde{\sX}}~\right|\sX\right)$ is residually finite group then $C_0\left( \lift_{\widetilde  p}\left[X_{C_0\left(\sX\right)}\right]\right)$ is the universal covering of  
- 		$\left(X_{C_0\left(\sX\right)}, Y \right) $ (cf. Definition \ref{fg_bas_os_defn}).
- 		\item 	If  $\mathcal X$  is	a locally path connected semilocally 1-connected space, and $\pi_1\left(\sX, x_0\right)$ is residually finite then
- 		$$
- 		\pi_1\left( \left(X_{C_0\left(\sX\right)}, Y \right), \left\{C^*_e\left( X_{C_0\left(\sX\right)},Y\right)_0\left(p^\mu_\nu \right)\right\}\right)\cong\pi_1\left( \sX, x_0\right)
- 		$$
- 		(cf. Definition \ref{fg_bas_os_defn}).
- 	\end{enumerate}
- 	
- \end{exercise}
- \begin{exercise}
- 	Let $M$ be a finite dimensional manifold and let $\Coo_0\left(M \right) \bydef C_0\left(M \right)\cap \Coo\left(M \right)$. Suppose that 
- 	\bean
- 	\A\bydef\mathbb{M}_n\left( \mathbb{K}\right),
- 	\eean
- 	where $\mathbb{M}_{n}\left( \mathbb{K}\right)$ denotes the algebra of square matrices of order $n$ with entries in the field $\mathbb{K}=\R$, $\C$ or $\mathbb{H}$ (cf. \eqref{fin_oa_eqn}). Suppose $p: \widetilde M\to M$ is a transitive covering and $\widetilde M$ possesses a structure of a smooth manifold given by $M$ and $p$.
- 	Prove that the following conditions hold:
- 	\begin{enumerate}
- 		\item If the covering $p$ is finite-fold then 
- 		$$\left(\Coo_0\left(M \right)\otimes\A, \Coo_0\left(\widetilde M \right)\otimes\A, G\left(\left.\widetilde M~ \right| M\right), \left.C_0\left( p\right)  \right|_{\Coo_0\left(M \right)}\otimes \Id_\A\right)$$ is a noncommutative finite-fold covering of operator algebras (cf. Definition \ref{fin_oa_defn}).
- 		\item If the group $G\left(\left.\widetilde M~ \right| M\right)$ is residually finite then
- 		$$\left(\Coo_0\left(M \right)\otimes\A, \Coo_0\left(\widetilde M \right)\otimes\A, G\left(\left.\widetilde M~ \right| M\right)\right)$$ it an infinite noncommutative covering (cf. Definition \ref{inf_cov_oa_defn})
- 	\end{enumerate}
- \end{exercise}
- 
- 
- \subsection{Covering of spectral triple}
- \subsubsection{The sequence of spectral triples}
- 
- 
- 
- \paragraph*{} 
- 
- 
- Let us consider following objects
- \begin{itemize}
- 	\item A spectral triple of a noncommutative torus $\left(C^{\infty}(\mathbb{T}^{2N}_{\theta}),\mathcal{H}=L^2\left(C\left(\mathbb{T}^{2N}_{\theta}\right), \tau\right)\otimes\mathbb{C}^{2^N},D\right)$,
- 	\item  A good !!! SOFT \ref{top_soft_exer}  !!! REP \ref{top_soft_r_defn} algebraical  finite covering sequence given by
- 	\begin{equation*}
- 		\mathfrak{S}_\th= \left\{	C\left(\mathbb{T}^{2N}_\th\right) \to	C\left(\mathbb{T}^{2N}_{\th/m_1^{2}}\right) \to C\left(\mathbb{T}^{2N}_{\th/m_2^{2}}\right) \to... \to C\left(\mathbb{T}^{2N}_{\th/m_j^{2}}\right)\to ...\right\}\in \mathfrak{FinAlg}.
- 	\end{equation*}
- 	given by \eqref{nt_cofinal_eqn}.
- \end{itemize}
- Otherwise from the Theorem \ref{nt_st_fin_cov_thm} it follows that
- \begin{equation}\label{nt_triple_seq_eqn}
- 	\begin{split}
- 		\mathfrak{S}_{\left(C^{\infty}\left( \T_\th\right) , L^2\left(C\left(\T^{2N}_\th \right), \tau\right) \otimes \C^{2^N} , D\right) } = \{ \left(C^{\infty}\left( \T_\th\right) , L^2\left(C\left(\T^{2N}_\th \right), \tau\right) \otimes \C^{2^N} , D\right), \dots,\\
- 		\left(C^{\infty}\left( \T^{2N}_{\th/m_j^2}\right) , L^2\left(C\left( \T^{2N}_{\th/m_j^2} \right), \tau_j\right) \otimes \C^{2^N} , D_j \right), \dots
- 		\}\in \mathfrak{CohTriple}
- 	\end{split}
- \end{equation}
- is a coherent sequence of spectral triples. We would like to proof that $$\mathfrak{S}_{\left(C^{\infty}\left( \T_\th\right) , L^2\left(C\left(\T^{2N}_\th \right), \tau\right) \otimes \C^{2^N} , D\right) }$$ is axiomatically good (cf. Definition \ref{ex_smooth_alg_defn}) and  to find  a $\left(C\left(\T^{2N}_\th \right) , C\left(\R^{2N}_\th \right) , \Z^{2N} \right)$-lift of $\left(C^{\infty}\left( \T_\th\right) , L^2\left(C\left(\T^{2N}_\th \right), \tau\right) \otimes \C^{2^N} \right)$. If $\rho: C\left( \T_\th\right) \to  B\left( L^2\left(C\left(\T^{2N}_\th \right), \tau\right)\right)  \otimes \C^{2^N}$ is the natural representation then from the \ref{nt_inf_ind_repr_constr_sec} it turns out that
- $$
- \widetilde{\rho}:C\left(\R^{2N}_\th \right) \to B\left(L^2\left(\R^{2N}_\th \right)\otimes \C^{2^N} \right) 
- $$  
- is induced by $\left(\rho, \mathfrak{S}_\th, \widehat{ \pi}^\oplus  \right)$. Let us consider a topological covering $\varphi: \R^{2N} \to \T^{2N}$ and a commutative spectral triple $\left( \Coo\left(\mathbb{T}^{2N} \right),  L^2\left(\T^{2N},S \right), \slashed D\right)$ given by \eqref{nt_ct_tr_eqn}.  Denote by $\widetilde{\sS} = \varphi^*S$ and $\widetilde{\slashed D} = p^{-1}\slashed D$ inverse image of the spinor bundle $\sS$ (cf. \ref{top_vb_sub_sub}) and the $p$-inverse image Dirac operator $\slashed D$ (cf. Definition \ref{top_smooth_inv_im_defn}). 
- Otherwise there is a natural isomorphism of Hilbert spaces
- $$
- \widetilde{\Phi}: L^2\left(\R^{2N}_\th\right)\otimes \C^{2^N} \xrightarrow{\approx}L^2\left(\R^{2N}\right)\otimes \C^{2^N}.
- $$
- Denote by 
- \begin{equation}\label{nt_dirac_inf_eqn}
- 	\widetilde{D} = \widetilde{\Phi}^{-1} \circ \widetilde{\slashed D} \circ \widetilde{\Phi}.
- \end{equation}
- 
- 
- 
- 
- \subsubsection{Axiomatic approach}\label{nt_str_ax_cov_sec}
- \paragraph*{}
- Here we apply the developed in \ref{axiomatic_cov_sec} approach. The given by \eqref{nt_equiv_eqn} representation $\widehat{\pi}^\oplus$ naturally induces  the faithful representation
- \bean
- \widetilde \pi: C_0\left( \R^{2N}_\th\right) \hookto B\left(L^2\left(\R^{2N}\right)\right),\\
- \eean
- If $\widetilde{D}$ is an unbounded operator then for any $j \in \N$  the given by Section \ref{axiomatic_cov_sec} construction yields the representation
- \be\label{nt_wpla_eqn}
- \begin{split}
- 	\widetilde \pi_j : \Om^* \Coo\left( \T^{2N}_{\th/m_j^2} \right) \to   B\left(L^2\left(\R^{2N} \right)  \right),\\
- 	\widetilde \pi_j(a_0da_1 ... da_n) = a_0\left[\widetilde D, a_1\right] ... \left[ \widetilde D, a_n\right] \quad \forall a_1, ...,a_n \in \Coo\left( \T^{2N}_{\th/m_j^2} \right).
- \end{split}
- \ee
- \begin{lemma}
- 	If $\widetilde{D}$ is given by the Equation \eqref{nt_dirac_inf_eqn} then $\widetilde{D}$ is the {axiomatic lift} (cf. Definition \ref{axiomatic_d_defn}) of the coherent set of spectral triples 	$\mathfrak{S}_{\left(C^{\infty}\left( \T_\th\right) , L^2\left(C\left(\T^{2N}_\th \right), \tau\right) \otimes \C^{2^N} , D\right)}$ given by \eqref{nt_triple_seq_eqn}.
- \end{lemma}
- \begin{proof}
- 	One needs check (a) and (b) of the Definition \ref{axiomatic_d_defn}.\\
- 	(a) Both representations $\pi_{\T}:\Coo\left( \T^{2N}_{\th/m_j^2} \right)\to B\left( L^2\left( \T^{2N}\right) \right)$, $\pi_{\R}:\Coo\left( \T^{2N}_{\th/m_j^2} \right)\to B\left( L^2\left( \R^{2N}\right) \right)$ are faithful so one has
- 	$$
- 	\left\|\pi_{\T}\left(a \right) \otimes 1_{\mathbb{M}_{2^s}\left(\C\right)} \right\|= \left\|\pi_{\R}\left(a \right) \otimes 1_{\mathbb{M}_{2^s}\left(\C\right)} \right\| = \left\|a\right\|\quad \forall a \in \Coo\left( \T^{2N}_{\th/m_j^2} \right).
- 	$$
- 	(b)  If $\pi_j: \Om^* \Coo\left( \T^{2N}_{\th/m_j^2} \right) \to   B\left(L^2\left(\T^{2N} \right)  \right)$ then 
- 	$$
- 	\left\| \pi_j\left(  a_0\left[\widetilde D, a_1\right] ... \left[ \widetilde D, a_n\right]\right) \right| = \left\|\widetilde \pi_j\left(  a_0\left[\widetilde D, a_1\right] ... \left[ \widetilde D, a_n\right]\right) \right| \quad \forall a_1, ...,a_n,
- 	$$
- 	so one has $\ker \pi_j= \ker \widetilde\pi_j$ for all $j \in \N$.
- \end{proof}
- \begin{empt}
- 	If $\overline{a}\in C_0\left(\R^{2N}_\th \right)$ is given by \eqref{mp_fjkel_eqn} then  $\overline{a}$ satisfies to (a)-(c) of the Definition \ref{ax_smooth_el_defn}, i.e. $\overline{a}$ is  {axiomatically smooth}. On the other hand the $\C$-linear span of given by \eqref{mp_fjkel_eqn} elements is dense in   $C_0\left(\R^{2N}_\th \right)$ it follows that the coherent set of spectral triples 	$\mathfrak{S}_{\left(C^{\infty}\left( \T_\th\right) , L^2\left(C\left(\T^{2N}_\th \right), \tau\right) \otimes \C^{2^N} , D\right)}$ is good !!! SOFT \ref{top_soft_exer}  !!! REP \ref{top_soft_r_defn} (cf. Definition \ref{ex_smooth_alg_defn} )
- \end{empt}
  
  
  
