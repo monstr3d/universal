@@ -828,7 +828,7 @@ Using the Theorem \ref{ideal_spectrum_thm} prove that there is a natural one-to-
 		A^+ & \text{if }A \text{ is not unital}\\
 	\end{cases}
 	\ee
-	where $A^+$ is given by \eqref{a_plus_eqn} (cf. Remark \ref{a_plus_rem}).
+	where $A^+$ is given by \eqref{a_plus_eqn}).
 	If $A$ is nonunital $C^*$-algebra then 	$A^{\sim}$
 	is the minimal unitization of $A$ (cf. Definition \ref{multiplier_min_defn}).
 \end{empt}
@@ -9296,14 +9296,29 @@ and \eqref{top_ttran_eqn} it follows that
 	\item $\widetilde G_\la\cong G\left(\left. \widetilde\sX~\right|\sX_\la \right)$.
 	\item The covering $\widetilde p$ is transitive  (cf. Definition \ref{top_transitive_eqn}).
 \end{itemize}
+\end{proof}
 \begin{remark}
 From the proof of the Lemma \ref{comm_top_constr_defn} it follows that
 \be\label{top_gt_eqn}
  G\left(\left. \widetilde\sX~\right|\sX \right)\cong \left\{\left.g \in  G\left(\left. \overline\sX~\right|\sX \right)\right| g \overline x = \overline x\quad  \forall \overline x \in \overline\sX \setminus \widetilde\sX\right\}.
 \ee
 \end{remark}
-
+\begin{lemma}\label{top_gxx_lem}
+If $\widetilde \sX'\subset \overline\sX$ is a connected component of  $\overline\sX$ (cf. Definition \ref{top_conn_comp_defn}) then there is  $g\in G\left(\left. \overline\sX~\right|\sX \right)$ such that
+$$
+\widetilde \sX'= g \widetilde \sX.
+$$
+\end{lemma}
+\begin{proof}
+If $\widetilde x'_0\in \widetilde \sX'$ then since  $\widetilde \sX\to \sX$ is a covering there is $\widetilde x_0\in \widetilde \sX$ such that $\widetilde p\left( \widetilde x'_0\right) = \widetilde p\left( \widetilde x_0\right)$. Otherwise a covering $\widetilde p$ is transitive, there is $g \in  G\left(\left. \overline\sX~\right|\sX \right)$ such that $\widetilde x'_0 = g\widetilde x_0$. From the following circumstances:
+\begin{itemize}
+	\item $\widetilde x_0 \in \widetilde \sX$ and $\widetilde x'_0\widetilde \sX'$,
+	\item Both sets $\widetilde \sX$ and $\widetilde \sX'$ are connected,
+	\item $g$ is a homeomorphism
+\end{itemize}
+it turns out that $\widetilde \sX'= g \widetilde \sX$,
 \end{proof}
+
 \begin{definition}\label{comm_top_constr_morph_defn}
 	Let us consider the situation of the Definition \ref{comm_top_constr_defn}. A \textit{morphism} from $\left(\left( \mathcal{Y}',y'_0\right) ,p^{\sY'}\right)\downarrow\mathfrak{S}_{\left( \sX, x_0\right) }$ to $\left(\left( \mathcal{Y}'', y''_0\right) ,p^{\sY''}\right)\downarrow\mathfrak{S}_{\left( \sX, x_0\right) }$ is a preserving base-point surjective continuous map
 	$$  
@@ -9324,7 +9339,7 @@ From the proof of the Lemma \ref{comm_top_constr_defn} it follows that
 	
 	The given by the Lemma  \ref{top_tx_lem} transitive covering of $\downarrow \mathfrak{S}_{\left( \sX, x_0\right) }$ is a terminal object (cf. Definition \ref{term_ob_defn}) of the described in \ref{comm_top_constr} category $\downarrow \mathfrak{S}_{\left( \sX, x_0\right) }$.
 \end{lemma}
-\begin{proof}
+
 Let 	$\left(\left( \mathcal{Y}, y_0\right), p^{\mathcal Y} \right)$  be a {transitive covering of} $\mathfrak{S}_{\left( \sX, x_0\right) }$ (cf. Definition \ref{comm_top_constr_defn})
 The continuous pointed map $\overline{\widehat p}:\left( \overline{\mathcal{X}}, \overline x_0\right) \to \left( \widehat{\mathcal{X}}, \widehat x_0\right) $ is bijective, so the map $p^\sY$ yields a map $\overline{p}_\sY:\left( \mathcal{Y}, y_0\right)  \to \left( \overline{\mathcal{X}}, \overline x_0\right) $. 	Denote by $p_\sY: \left( \sY,y_0\right)  \to\left( \sX, x_0\right) $ the natural pointed covering.
 	Suppose that $y \in \sY$ is any point, and let $\overline x=\overline{p}_\sY\left(y\right)\in \overline\sX$, $\quad x=\overline p\left( \overline x\right)= p_\sY\left( y\right)  \in \sX$. Let both $\sU_1$ and $\sU_2$ be open connected neighborhoods of $x$ evenly covered by both $p_\sY$ and $\overline{p}$ respectively. Let $\sU$  be an open connected  neighborhood of $x$ such that $\sU \in \sU_1\cap \sU_2$. One has 
@@ -9345,7 +9360,7 @@ $$
 From our construction it follows that $f$ is the unique pointed  map $\left( \sY, y_0 \right) \to\left( \widetilde{ {\sX}}, \widetilde x_0\right)$ which satisfies to the equation \eqref{top_fs_eqn}. For any $\widetilde{ x}'\in f\left(\sY \right)$ there is an open neighborhood evenly covered by $f$. In particular $f \left( \sY\right)$ is an open subset of $\widetilde \sX$. Let $\widetilde \sZ \subset \widetilde \sX$ be the closure of $f \left( \sY\right)$ and let $\widetilde x' \in \widetilde \sZ\setminus f \left( \sY\right)$. If $x' \bydef \widetilde p\left(\widetilde x' \right)$ then there are 
  open  neighborhoods $\sU'_1$ and $\sU'_2$ of $x'$  evenly covered by both $p_\sY$ and $\widetilde{p}$ respectively. Let $\sU'$  be an open connected  neighborhood of $x'$ such that $\sU' \subset  \sU'_1\cap \sU'_2$. If $\widetilde\sU'$ is a connected component of $\widetilde p^{-1}\left( \sU'\right)$ such that $\widetilde x' \in \widetilde\sU'$ then since $f\left( \sY\right)$ is dense in $\mathcal Z$ there is $\widetilde x'' \in \widetilde\sU' \cap f\left( \sY\right)$, i.e. $\exists y'' \in \sY \quad f\left( y''\right)=\widetilde x''$. From $ \widetilde x'' \in \widetilde\sU'$ it follows that  $ \widetilde p\left( \widetilde x''\right)  \in \sU'$  and  $\widetilde p_\sY\left( \widetilde y''\right)  \in \sU'$.
 If $\sV$ is a connected component of $\widetilde{p}^{-1}_\sY\left(\sU' \right)$ such that  $y'' \in \sV$ then from ${p}_\sY \left(\sV \right) = \sU'$ it follows that $\widetilde p_\sY\left(\sV\right)= \widetilde \sU'$. In particular $\widetilde x' \in \widetilde p_\sY\left(\sV\right)\subset \widetilde p_\sY\left(\sY\right)$, it contradicts with $\widetilde x' \in \widetilde \sZ\setminus f \left( \sY\right)$. From this contradiction it follows that $\widetilde \sZ\setminus  f \left( \sY\right)= \emptyset$, so $\widetilde \sZ =   f \left( \sY\right)$ and the set $f \left( \sY\right)$ is a closed subset of $\widetilde\sX$. Thus $f \left( \sY\right)$ is a nonempty open and closed subset of $\widetilde\sX$. However the set $\widetilde\sX$ is connected, it follows that   $\widetilde\sX = f \left( \sY\right)$, i.e. the map $f$ is surjective. Thus $f$ satisfies to the Definition  \ref{comm_top_constr_morph_defn}, i.e. $f$ is a morphism of the category $\downarrow \mathfrak{S}_{\left( \sX, x_0\right) }$. So for any object of the category $\downarrow \mathfrak{S}_{\left( \sX, x_0\right) }$ there is the unique natural morphism to $\left(\left( \widetilde \sX, \widetilde x_0\right), p^{\widetilde \sX} \right)$ i.e.  $\left(\left( \widetilde \sX, \widetilde x_0\right), p^{\widetilde \sX} \right)$ is the terminal object. (cf. Definition \ref{term_ob_defn}).
-\end{proof}
+
 
 
 \begin{definition}\label{top_topological_inv_lim_defn}
@@ -12879,11 +12894,8 @@ $$
 \overline A_{\overline\sU} \bydef \left\{\overline a \in \overline A\left| \forall \widehat x \in \widehat \sX\setminus \widehat \sX_{\overline \sU}\quad \rep_{ \varphi\left(  \widehat{x }\right) }\left(\overline a \right) =0\right. \right\}.
 $$
 On the other hand one has $A_0\left(\overline \sY\right)_{\overline \sU}\subset \overline A_{\overline \sU}$.
-If $\widetilde \sY$ is  the  {topological inverse limit} (cf. Definition \ref{top_topological_inv_lim_defn})	 of the given by \eqref{ho_gr_top_eqn}  pointed topological finite covering category $\mathfrak{S}_{\left( \sY, y_0  \right) }$
-then from the equation !!! \eqref{top_disconnected_repr_eqn} it follows that
-\be\label{blowing_sq_eqn}
-\overline{\mathcal Y}=  \bigsqcup_{g \in J    } g \widetilde{\mathcal Y}                                	\ee
-where $J$ is the set of representatives of $G\left(\overline{\mathcal Y}\left| \widetilde{\mathcal Y} \right. \right)$. If  the $C^*$-algebra
+If $\widetilde \sY$ is  the  {topological inverse limit} (cf. Definition \ref{top_topological_inv_lim_defn})	 of the given by \eqref{ho_gr_top_eqn}  pointed topological finite covering category $\mathfrak{S}_{\left( \sY, y_0  \right) }$.
+If  the $C^*$-algebra
 \be\label{blowing_wta_eqn}
 \begin{split}
 	\widetilde A \bydef \overline A_{\widetilde \sY} =  1_{C_b\left( \widetilde{\mathcal Y}\right) }\overline A
@@ -13826,7 +13838,7 @@ where $\pi^{\mathrm{stab}}_1\left(C_0\left(\sX \right) \right)$ means the stable
 \chapter{Hurewicz homomorphism. A sketch}\label{h_chap}
 \section{Preliminaries}\label{h_prel}
 \paragraph{}
-If $\sX$ is a compact space and $K_n\left(C \left( \sX\right) \right)$ is a group of $K$-homology (cf. \cite{blackadar:ko}) then the for all $n\in \Z$ the map $\sX \mapsto K_n\left(C \left( \sX\right) \right)$ is a functor which be denote by $K_n$. The sequence of functors $K_n$ from the category of topological spaces to category of Abelian groups satisfy to the Definition \ref{top_unred_defn}, i.e. it is an unreduced homology theory. It turns out that  there is the  {Hurewicz homomorphism} (cf. Definition \ref{top_hurewitz_defn}) 	$h_n:\pi_n\left(\sX, x_0 \right)\to K_n\left(\sX \right)$ such that
+If $\sX$ is a compact space and $K_n\left(C \left( \sX\right) \right)$ is a group of $K$-homology (cf. \cite{blackadar:ko}) then the for all $n\in \Z$ the map $\sX \mapsto K_n\left(C \left( \sX\right) \right)$ is a functor which be denote by $K_n$. The sequence of functors $K_n$ from the category of topological spaces to category of Abelian groups satisfy to the Definition \ref{top_red_homol_defn}, i.e. it is a reduced homology theory. It turns out that  there is the  {Hurewicz homomorphism} (cf. Definition \ref{top_hurewitz_defn}) 	$h_n:\pi_n\left(\sX, x_0 \right)\to K_n\left(\sX \right)$ such that
 \be\label{h_hk1_eqn}
 \begin{split}
 h_{K_1}	:\pi_1\left(\sX, x_0 \right)\cong \left[S^1, s_0; \sX, x_0\right]\xrightarrow{K_1}\Hom\left(K_1\left(S^1 \right),  K_1\left(\sX \right)\right) \xrightarrow{\Hom\left(\sigma^1, 1 \right) }\\
@@ -14653,7 +14665,8 @@ which is an analog of the representation \ref{ctr_a_eqn}.
 \paragraph*{}
 Results of this section a closed to the  Section \ref{top_pd_fin_sec}. Exercises of this Section can be solved similarly to proofs of Lemmas and Theorems of the Section \ref{top_pd_fin_sec}.
 \begin{empt}\label{ctr_fin_o_empt}
-	Let $M$ be a smooth manifold, and let $A$ be  a {homogeneous of order} $n$ $C^*$-algebra (cf. Definition \ref{ctr_homo_defn}). If $M$ is a spectrum of $A$ than from the Theorem  \ref{ctr_as_field_thm} it follows that  $A$ corresponds to a vector bundle $\left( E, q, M\right)$ (cf. Definition \ref{top_vb_defn}), such that any fiber is isomorphic to $\C^{n^2}\cong \mathbb{M}_n\left(\C\right)$, and there is the natural isomorphism $A \cong \Ga_0\left(M, E \right)$ of $C_b\left(M \right)$ modules (cf. Lemma \ref{top_bundle_cs_lem}).   Suppose that $E$ has a structure of smooth manifold such that the map $q: E \to M$ is smooth. Any fiber of $E$ is isomorphic to $\mathbb{M}_n\left(\C \right)$  so similarly to the Lemma \ref{op_cont_module_lem} one can proof that the space of smooth sections $\Ga^\infty\left(M, E \right)$ is *-algebra.	
+	Let $M$ be a smooth manifold, and let $A$ be  a {homogeneous of order} $n$ $C^*$-algebra (cf. Definition \ref{ctr_homo_defn}). If $M$ is a spectrum of $A$ than from the Theorem  \ref{ctr_as_field_thm} it follows that  $A$ corresponds to a vector bundle $\left( E, q, M\right)$ (cf. Definition \ref{top_vb_defn}), such that any fiber is isomorphic to $\C^{n^2}\cong \mathbb{M}_n\left(\C\right)$, and there is the natural isomorphism $A \cong \Ga_0\left(M, E \right)$ of $C_b\left(M \right)$ modules %(cf. Lemma \ref{top_bundle_cs_lem})
+	.   Suppose that $E$ has a structure of smooth manifold such that the map $q: E \to M$ is smooth. Any fiber of $E$ is isomorphic to $\mathbb{M}_n\left(\C \right)$  so similarly to the Lemma \ref{op_cont_module_lem} one can proof that the space of smooth sections $\Ga^\infty\left(M, E \right)$ is *-algebra.	
 	If $\Ga_0^\infty\left(M, E \right)$ is a space of  smooth vanishing at infinity sections of  $\left( E, q,  M\right)$ then 
 	 $\Ga^\infty_0\left(M, E \right)$ is a *-subalgebra of $\Ga^\infty\left(M, E \right)$.
 	 If $p: \widetilde M \to M$ is a transitive finite-fold  covering then  from the Proposition \ref{top_cov_mani_prop} it follows that $\widetilde M$ has a (unique) structure of smooth manifold such that $p$ is smooth. 
@@ -14734,7 +14747,7 @@ There are dense subspaces
 %\bean
 %\forall b', b'' \in B\quad b'\sim_\sU b''\quad \Leftrightarrow\\ \Leftrightarrow \left(\forall f \in C_0\left(\sX\right)\quad \supp f \cap \sU = \emptyset \quad \Rightarrow \quad f\left(b'-b'' \right) =0 \right). 
 %\eean
-%The map $\sU \mapsto B /\sim_\sU$ yields a presheaf  \ref{top_x_sheaf_defn} of *-algebras (cf. Definition \ref{presheaf_defn}), denote by $\mathscr{ A}$ the associated sheaf !!! DEFN \ref{top_x_sheaf_defn} (cf. \ref{sheaf_prdf}). Let 
+%The map $\sU \mapsto B /\sim_\sU$ yields a presheaf  \ref{top_x_sheaf_defn} of *-algebras (cf. Definition \ref{presheaf_defn}), denote by $\mathscr{ A}$ the associated sheaf  (cf. \ref{sheaf_prdf}). Let 
 %\be\label{ctr_da_eqn}
 %A \bydef \mathscr{ A}\left(\sX\right)
 %\ee
@@ -15753,9 +15766,147 @@ $\left(A, A_0\left(\widetilde\sX\right),G\left(\left.\widetilde\sX~\right|~ \mat
 	Prove that the natural representation $A_0\left(\widetilde\sX \right)\hookto B\left(L^2\left(A_0\left(\widetilde\sX \right) , \tr_{\widetilde\tau}\right)\right)$   is {induced} by $\left( \tr_\tau, \left( A, A_0\left(\widetilde M \right) , G\left(\left.\widetilde M~\right|M \right) \right)\right)$ (cf. Definition \ref{induced_repr_inf_defn})
 \end{exercise}
 \begin{exercise}
-	Prove that in the described in \ref{str_spinc_infc_empt} situation 
+	Prove that in the described in this section situation 
 	the  representation $A_0\left(\widetilde\sX \right)\hookto B\left(L^2\left(\widetilde M, \widetilde S\right)\right)$   is {induced} by $\left( \rho, \left( A, A_0\left(\widetilde M \right) , G\left(\left.\widetilde M~\right|M \right) \right)\right)$ (cf. Definition \ref{induced_repr_inf_defn}) where $\rho: A\hookto B\left(L^2\left(M, S\right)\right)$ is the  natural representation.
 \end{exercise}
+\subsection{Coverings of $O^*$-algebras}
+\paragraph*{}
+Discussed below results close to  the Section \ref{top_inf_o_sec} ones. Exercises of this Section can be solved similarly to proofs of Lemmas and Theorems of the Section \ref{top_inf_o_sec}.
+\begin{empt}
+	Similarly to \ref{ctr_fin_o_empt} 	let $M$ be a smooth manifold, and let $A$ be  a {homogeneous of order} $n$ $C^*$-algebra (cf. Definition \ref{ctr_homo_defn}) such that  $M$ is the spectrum of $A$. There is a linear bundle $\left(E, q, M\right)  $ with fibers $\C^{n^2}$ such that there is $C_b\left( M\right)$-linear isomorphism $A \cong 
+	\Ga_0\left(M, E \right)$ (cf. \ref{ctr_fin_o_empt}). If $E$ has structure of smooth manifold such that the map $E\to M$ is smooth.  	From  \eqref{ctr_fin_o_empt} it turns out that  $\Ga^\infty\left(M, E \right)$ is *-algebra.  If	$\mathfrak{S}_{\left(M, x_0\right)}= \left\{p_\la:\left(M_\la, x^\la_0\right) \to \left( M, x_0\right)\right\}_{\la \in \La}$ is a pointed topological finite covering category the the Lemma \ref{blowing_base_point_lem} yields  {pointed algebraical  finite covering category} (cf. Definition \ref{pointed_defn}) given by 		
+	\be\label{ctr_bases_point_eqn}
+	\begin{split}
+		\mathfrak{S}^{\mathrm{pt}}_{A } = \\
+		=\left\{A_0\left( p_\la\right) : A  \hookto A_0\left(M_\la \right)\right\}, \left\{A_0\left( p_\nu^\mu\right) : A_0\left(M_\nu \right) \hookto A_0\left(M_\mu \right)\right\}.
+	\end{split}
+	\ee
+	If $\overline M$ is a disconnected inverse limit of $\mathfrak{S}_{\left(M, x_0\right)}$ (cf. Definition \ref{top_topological_inv_lim_defn}) then there the natural covering $\overline p: \overline M \to M$. From the Proposition \ref{top_cov_mani_prop} it follows that $\overline M$ has a (unique) structure of smooth manifold such that $\overline p$ is smooth. If $\left(\overline E, \overline q,  \overline M\right)$  is the {inverse image} of $\left( E, q, M\right)$ by $p$ (cf. Definition \ref{vb_inv_img_funct_defn}) then there is a transitive  covering  $\overline E \to E$  so from the Proposition \ref{top_cov_mani_prop} it turns out that there is the unique smooth structure on $\overline E$ such that map $\overline E\to E$ is smooth. So there is a *-algebra $\Ga^\infty\left(\overline M, \overline E \right)$. 
+	If $\tau: C_c\left( M\right) \to \C$ is a functional
+	$$
+	a \mapsto \int_M a ~d\mu. 
+	$$
+	such that $a > 0\quad\Rightarrow\quad \tau\left(a\right)> 0$ then similarly to \ref{ctr_mu_empt} one can define Hilbert spaces $L^2\left(  A , \tr_{\tau}  \right)$  and $L^2\left(  A_0\left( \overline M\right) , \tr_{\overline\tau}  \right)$. If
+	\bean
+	\D \bydef \Ga^\infty_c\left( M,  E \right),\\
+	\widehat \D \bydef \Ga^\infty_c\left(\overline M, \overline E \right),
+	\eean 
+	are spaces of smooth sections with compact support then  both $ \D$ and $\widehat \D$ are dense subspaces of $L^2\left( A , \tr_{\tau}  \right)$ and $L^2\left(  A_0\left( \overline M\right) , \tr_{\overline\tau}  \right)$ respectively. If both  $D\left( M,  E \right)$ and $D\left(\overline M, \overline E \right)$ be *-algebras of differential operators 
+	$\Ga^\infty \left(M, E \right)  \to \Ga^\infty \left(M, E \right)$ and $\Ga^\infty \left(\overline M,  \overline E \right)  \to \Ga^\infty \left(\overline M, \overline E \right)$ respectively (cf. Definition \ref{do_man_defn}) then there are inclusions
+	\be
+	\begin{split}
+		\Ga^\infty \left( M,   E \right)\subset D \left( M,   E \right)\subset \L^\dagger\left( D \right),\\ 
+		\Ga^\infty \left(\overline M,  \overline E \right)\subset D\left(\overline M,  \overline E \right)\subset \L^\dagger\left(\widehat \D \right)
+	\end{split}
+	\ee
+	where both $\L^\dagger\left(\D \right)$  and $\L^\dagger\left(\widehat\D \right)$ are given by \eqref{l_dag_eqn}.
+	For all $\la\in \La$ one can construct *-algebras $\Ga^\infty \left( M_\la,   E_\la \right)$ and $D \left( M_\la,   E_\la \right)$, such that there are following inclusions
+	\bean
+	\forall \la\in\La \quad \Ga^\infty \left( M_\la,   E_\la \right)\subset D \left( M_\la,   E_\la \right),\\
+	\forall \mu,\nu\in\La \quad \nu \le\mu \quad\Rightarrow\quad  \Ga^\infty \left( M_\nu,   E_\nu \right)\subset \Ga^\infty \left( M_\mu,   E_\mu \right) \text{ AND }\\
+	\text{ AND } D \left( M_\nu,   E_\nu \right)\subset D \left( M_\mu,   E_\mu \right)
+	\eean
+	There are pointed algebraic finite covering categories of $O^*$-algebras given by
+	\bean
+	\mathfrak{S}^{\text{pt}}_{D\left( M,   E \right)}\bydef \left(\left\{\pi_\la: D\left( M,   E \right) \hookto D\left( M_\la,   E_\la \right) \right\}, \left\{\pi^\mu_\nu\right\}\right),\\
+	\mathfrak{S}^{\text{pt}}_{\Ga^\infty\left( M,   E \right)} = \left(\left\{\left.\pi_\la\right|_{\Ga^\infty\left( M,   E \right)}: \Ga^\infty\left( M,   E \right) \hookto \Ga^\infty\left( M_\la,   E_\la \right) \right\}, \left\{\left.\pi^\mu_\nu\right|_{\Ga^\infty\left( M_\mu,   E_\mu \right)}\right\}\right).
+	\eean
+	(cf. Definition \ref{comp_o*_defn}).
+	There is the natural inclusion
+	$$
+	\pi: \bigcup_{\la \in \La} D \left( M_\la,   E_\la \right)\hookto \L^\dagger\left(\widehat\D \right).
+	$$
+	
+	
+\end{empt}
+%\begin{exercise}
+%Formulate and prove a related to the given by \eqref{ctr_bases_point_eqn} pointed topological finite 	analog of the Exercise \ref{ctr_hilbert_exer}
+%\end{exercise}
+
+\begin{exercise}
+	Let $\widetilde M$ be the topological inverse limit of $\mathfrak{S}_{\left(M, x_0\right)}$ (cf. Definition \ref{top_topological_inv_lim_defn}). 	Using the Exercise \ref{ctr_hilbert_exer}
+	prove following statements:
+	\begin{enumerate}
+		\item The triple $\left(D\left( M,   E \right),D\left(\widetilde M, \widetilde  E \right), G\left(\left.\widetilde M\right|  M\right)\right) $ is the $\pi$-inverse noncommutative limit of $\mathfrak{S}^{\text{pt}}_{D\left( M,   E \right)}$ (cf. Definition \ref{inv_o*_lim_defn} MAXI !!!).
+		\item The triple $\left(\Ga^\infty\left( M,   E \right),\Ga^\infty\left(\widetilde M, \widetilde  E \right), G\left(\left.\widetilde M\right|  M\right)\right) $ is the  $\left.\pi\right|_{\cup_{\la \in \La} \Ga^\infty \left( M_\la,   E_\la \right)}$-inverse noncommutative limit of $\mathfrak{S}^{\text{pt}}_{\Ga^\infty\left( M_\la,   E_\la \right)}$.
+	\end{enumerate}
+\end{exercise}
+
+\begin{empt}\label{str_spinc_infc_empt}
+	Suppose that  $\left( S, r, M\right)$ is a Hermitian sesquilinear !!! bundle (cf. Definition \ref{top_herm_bundle_defn}) which possesses the described in \ref{str_spinc_c_empt} properties. If both $\widetilde  S$ and $\overline  S$ are {inverse images} of $S$ by $\widetilde p$ and $\overline p$ (cf. Definition \ref{vb_inv_img_funct_defn}) then both $\widetilde  S$ and $\overline  S$ are  smooth manifolds such that both maps $\widetilde S \to S$ and $\overline S \to S$ are smooth (cf. Proposition \ref{top_cov_mani_prop}). Similarly to \eqref{ctr_gac_prod} there are $\C$-valued products 
+	\be\nonumber
+	\begin{split}
+		\left(\cdot, \cdot \right): \Ga_c\left(\overline M, \overline S \right)\times \Ga_c\left(\overline M,\overline S \right)\to \C,\\
+		\left(\overline \xi, \overline \eta \right)\bydef \overline \tau\left(\left\langle \overline \xi, \overline \eta \right\rangle_c \right),\\
+		\left(\cdot, \cdot \right): \Ga_c\left(\widetilde M, \widetilde S \right)\times \Ga_c\left(\widetilde M,\widetilde S \right)\to \C,\\
+		\left(\widetilde \xi, \widetilde \eta \right)\bydef \widetilde \tau\left(\left\langle \widetilde \xi, \widetilde \eta \right\rangle_c \right) 
+	\end{split}
+	\ee	
+	where $\overline \tau$ is given by the equation \eqref{top_ot_eqn} and $\widetilde\tau\bydef\overline\tau|_{C_c\left(\widetilde{   M} \right)  }$.  Denote by $L^2\left( M, S \right)$ and $L^2\left(\widetilde M,\widetilde S \right)$ the Hilbert norm completions of $\Ga_c\left( M, S \right)$ and $\Ga_c\left(\widetilde M,\widetilde S \right)$. 
+	
+\end{empt}
+\begin{exercise}
+	Prove that There is a pointed algebraic finite covering category of $O^*$-algebras given by
+	\bean
+	\mathfrak{S}^{\text{pt}}_{D\left( M,   S \right)}\bydef \left(\left\{\phi_\la: D\left( M,   S \right) \hookto D\left( M_\la,   S_\la \right) \right\}, \left\{\phi^\mu_\nu\right\}\right)
+	\eean
+	(cf. Definition \ref{comp_o*_defn}).
+\end{exercise}
+If
+$$
+\widehat\D_S \bydef \Ga^\infty_c\left(\overline M, \overline S\right) \subset L^2\left(\widetilde M,\widetilde S \right)
+$$
+then there is the natural inclusion
+$$
+\pi_S: \bigcup_{\la \in \La} D \left( M_\la,   S_\la \right)\hookto \L^\dagger\left(\widehat\D _S\right).
+$$
+where $\L^\dagger\left(\widehat\D \right)$ is given by \eqref{l_dag_eqn}.
+\begin{exercise}
+	Let both  $D\left( M, S \right)$ and $D\left(\widetilde M, \widetilde S \right)$ be *-algebras of differential operators 
+	$\Ga^\infty \left(M, S \right)  \to \Ga^\infty \left(M, S \right)$ and $\Ga^\infty \left(\widetilde M,  \widetilde S \right)  \to \Ga^\infty \left(\overline M, \overline S \right)$. Prove that the triple $\left(D\left( M,   S \right),D\left(\widetilde M, \widetilde  S \right), G\left(\left.\widetilde M\right|  M\right)\right) $ is the $\pi_S$-inverse noncommutative limit of $\mathfrak{S}^{\text{pt}}_{D\left( M,   S \right)}$ (cf. Definition \ref{inv_o*_lim_defn} MAXI !!!).
+\end{exercise}
+
+\subsection{Infinite coverings and unbounded operators on Hilbert modules}
+\paragraph{}
+
+Let $B$ be a continuous trace $C^*$-algebra with connected, locally connected, second-countable, locally compact, Hausdorff spectrum $\sX$.
+Let $\left( \sX, x_0\right) $ be a pointed connected, locally connected, locally compact, Hausdorff space. Let 	\bean
+\begin{split}
+	\mathfrak{S}_{\left( \sX, x_0\right) }\bydef\\
+	\bydef \left\{\left\{p_\la:\left( \sX_\la, x^\la_0\right) \to \left( \sX, x_0\right)\right\}_{\la\in\La}, \left\{p^\mu_{ \nu}:\left( \sX_\mu, x^\mu_0\right) \to \left( \sX_\nu, x^\nu_0\right)\right\}_{\substack{\mu,\nu\in\La\\
+			\mu\ge\nu}} \right\}\\
+	%\in \\
+	\mathfrak{S}_{\left( \sX, x_0\right) }\in \mathfrak{FinTop}^{\text{pt}}.
+\end{split}
+\eean
+be a {pointed topological finite covering category} (cf. Definition \ref{top_sec_p_defn}). From the Lemma \ref{ctr_ctr_main_thm} one has a good !!! SOFT \ref{top_soft_exer}  !!! REP \ref{top_soft_r_defn} {pointed algebraical  finite covering category} (cf. Definition \ref{pointed_defn}), given by
+\be\nonumber
+\begin{split}
+	\mathfrak{S}^{\mathrm{pt}}_{B} \bydef \left(\left\{\rho_\la: B \hookto B_\la \right\}_{\la \in \La}, \left\{\rho^\mu_\nu: B_\mu \hookto B_\nu\right\}_{\substack{\mu, \nu \in \La\\ \nu > \mu}}\right)\bydef \\ \left(\left\{B_0\left( p_\la\right) : B  \hookto B_0\left(\sX_\la \right)\right\}, \left\{B_0\left( p_\nu^\mu\right) : B_0\left(\sX_\nu \right) \hookto B_0\left(\sX_\mu \right)\right\}\right).
+\end{split}
+\ee
+Moreover and there is a space $\widetilde \sX$  and a transitive covering $\widetilde p: \widetilde \sX\to  \sX$ such that a triple 
+$\left(B, B_0\left(\widetilde \sX\right),G\left(\left.\widetilde \sX~\right| \mathcal X\right)\right)
+$ is  an  { infinite noncommutative covering} of $\mathfrak{S}^{\mathrm{pt}}_{C_0\left(\mathcal{X}\right)}$ (cf. Definition \ref{main_defn}). This triple we also denote by $\left(B, \widetilde B,G\left(\left.\widetilde B~\right| B\right)\right)
+$. The equation \eqref{ctr_da_eqn} yields a *-algebra $A$. Application of the Exercise 
+\ref{ctr_hf_exer} yields  a pointed category of $*$-algebras
+\bean
+\begin{split}
+	\mathfrak{S}^{\text{pt}}_A \bydef \left(\left\{\pi_\la: A \hookto A_\la \right\}_{\la \in \La}, \left\{\pi^\mu_\nu: A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\ \nu > \mu}}\right).
+\end{split}
+\eean
+such that for any $\la, \mu, \nu\in \La$ the triples\\ $\left(A, A_\la, G\left(\left. A_\la\right| A\right)\bydef G\left(\left. B_\la\right| B\right), \pi_\la \right)$ and $\left(A_\mu, A_\nu, G\left(\left. A_\mu\right| A_\nu\right)\bydef G\left(\left. B_\mu\right| B_\nu\right), \pi^\mu_\nu \right)$ are associated with $\left(B, B_\la, G\left(\left. B_\la\right| B\right), \rho_\la \right)$ and $\left(B_\mu, B_\nu,G\left(\left. B_\mu\right| B_\nu\right), \rho^\mu_\nu \right)$ noncommutative finite-fold covering of *-algebras (cf. Definition \ref{fin_chull_defn} !!! CHECK (a) (b)). 
+\begin{exercise}\label{ctr_hilb_adm_exer}
+	Let $\widetilde {\mathfrak B}'\bydef K\left( \widetilde B\right)$ be a Pedersen's ideal of $\widetilde B$, and let
+	$\widetilde{ A}$ be a multiplier algebra  $K\left( \widetilde B\right)$ (cf. \cite{phillips:ped_id})
+	Prove that statements:
+	\begin{itemize}
+		\item The right  $\widetilde B$-module $ \widetilde{\mathfrak B}'$ satisfies to all conditions described in \ref{comp_chull_empt}.
+		\item The triple $\left(A, \widetilde{A}, G\left(\left.\widetilde A \right| A\right)\cong G\left(\left.\widetilde B \right| B\right)\right)$ is an {infinite noncommutative covering of  $\mathfrak{S}^{\text{pt}}_A$  associated with $\mathfrak{S}_B^{\mathrm{pt}}$} (cf. Definition \ref{main_ch_defn} MAXI !!!) !!! UNIQUE.
+	\end{itemize}
+\end{exercise}
+
+
 
 
 
@@ -18507,61 +18658,56 @@ $$
 h_{\mathrm{free}}:\pi_1\left(C^*_r\left(\T^2, \sF_\th\right) \right)\to K^1 \left(C\left( \T^2_\th\right) \right).
 $$
 
-
-
-
-	
-	
 \subsection{Coverings of $O^*$-algebras}
 \paragraph*{}
 If $a\in \Coo\left( \T^{2N}_\th\right)$ and $b\in \SS\left( \R^{2N}_\th\right)$ then  there is the product $a\times b\in L^2\left(\R^{2N}_\th \right)$ (cf. equation \eqref{nt_l2r_eqn}.
 \begin{lemma}\label{nt_cont_lem}
-Consider the above situation. If $\sF\left(a\times b \right)$ is the Fourier transformation of  $a\times b\in L^2\left(\R^{2N}_\th \right)$ then $\sF\left(a\times b \right)$ corresponds to a complex-valued continuous map on $\R^{2N}$.
+	Consider the above situation. If $\sF\left(a\times b \right)$ is the Fourier transformation of  $a\times b\in L^2\left(\R^{2N}_\th \right)$ then $\sF\left(a\times b \right)$ corresponds to a complex-valued continuous map on $\R^{2N}$.
 \end{lemma}
 \begin{proof}
-From \eqref{nt_prod_duality_eqn} if turns out that
-$$
-\mathcal{F}\left(a \times b \right) = \mathcal{F} a \diamond  \sF b.
-$$
-If $a = \sum_{k\in \Z^{2N}} c_k U_k$ (cf. equation \eqref{nt_series_eqn}) then the Fourier transformation of $a$ is given by
-$$
-\sF\left(a \right) = \sum_{k\in \Z^2N}c_k\delta_k
-$$
-where $\delta_k$ is  concentrated at $k\in \R^{2N}$ the Dirac delta function.
-From the equation \eqref{nt_diamond_eqn} it follows that
-\be\label{nt_mp_d_eqn}
-\mathcal{F} a \diamond  \sF b= \sum_{k\in \Z^2N}c_k\delta_k\diamond b = \sum_{k\in \Z^2N}c_k e^{-ik \cdot t} \mathcal{F} b\left(t \right).
-\ee
-From $b \in \SS\left( \R^{2N}_\th\right)$ it turns out  that $\sF b \in \SS\left( \R^{2N}\right)$, in particular $\sF b\in C_b\left( \R^{2N}\right)$,
-If $C \bydef \left\|\sF b  \right\|_{C_b\left( \R^{2N}\right)}$ where $\left\|\cdot  \right\|_{C_b\left( \R^{2N}\right)}$ is the uniform norm on $C_b\left( \R^{2N}\right)$ then
-$$
-\left\|t \mapsto  e^{-ik \cdot t} \mathcal{F} b\left(t \right)  \right\|_{C_b\left( \R^{2N}\right)}=C\quad \forall k \in \Z^{2N}.
-$$
-On the other hand  from \eqref{schwartz_z_eqn} and the Lemma \ref{nt_xm_lem} it follows that the series $\sum_{k \in \mathbb{Z}^{2N}}\left| c_k \right|$ is convergent, so the right part of the equation \eqref{nt_mp_d_eqn} is  convergent with respect to $\left\|\cdot  \right\|_{C_b\left( \R^{2N}\right)}$ norm. Thus one has
-$$
-\mathcal{F} a \diamond  \sF b\in C_b\left(\R^{2N} \right).
-$$.
+	From \eqref{nt_prod_duality_eqn} if turns out that
+	$$
+	\mathcal{F}\left(a \times b \right) = \mathcal{F} a \diamond  \sF b.
+	$$
+	If $a = \sum_{k\in \Z^{2N}} c_k U_k$ (cf. equation \eqref{nt_series_eqn}) then the Fourier transformation of $a$ is given by
+	$$
+	\sF\left(a \right) = \sum_{k\in \Z^2N}c_k\delta_k
+	$$
+	where $\delta_k$ is  concentrated at $k\in \R^{2N}$ the Dirac delta function.
+	From the equation \eqref{nt_diamond_eqn} it follows that
+	\be\label{nt_mp_d_eqn}
+	\mathcal{F} a \diamond  \sF b= \sum_{k\in \Z^2N}c_k\delta_k\diamond b = \sum_{k\in \Z^2N}c_k e^{-ik \cdot t} \mathcal{F} b\left(t \right).
+	\ee
+	From $b \in \SS\left( \R^{2N}_\th\right)$ it turns out  that $\sF b \in \SS\left( \R^{2N}\right)$, in particular $\sF b\in C_b\left( \R^{2N}\right)$,
+	If $C \bydef \left\|\sF b  \right\|_{C_b\left( \R^{2N}\right)}$ where $\left\|\cdot  \right\|_{C_b\left( \R^{2N}\right)}$ is the uniform norm on $C_b\left( \R^{2N}\right)$ then
+	$$
+	\left\|t \mapsto  e^{-ik \cdot t} \mathcal{F} b\left(t \right)  \right\|_{C_b\left( \R^{2N}\right)}=C\quad \forall k \in \Z^{2N}.
+	$$
+	On the other hand  from \eqref{schwartz_z_eqn} and the Lemma \ref{nt_xm_lem} it follows that the series $\sum_{k \in \mathbb{Z}^{2N}}\left| c_k \right|$ is convergent, so the right part of the equation \eqref{nt_mp_d_eqn} is  convergent with respect to $\left\|\cdot  \right\|_{C_b\left( \R^{2N}\right)}$ norm. Thus one has
+	$$
+	\mathcal{F} a \diamond  \sF b\in C_b\left(\R^{2N} \right).
+	$$.
 \end{proof}
 \begin{lemma}\label{nt_smooth_lem}
-In the situation of the Lemma \ref{nt_cont_lem}. The Fourier transformation of any partial derivation of  $a\times b$ of any order  to a complex-valued continuous map on $\R^{2N}$.
+	In the situation of the Lemma \ref{nt_cont_lem}. The Fourier transformation of any partial derivation of  $a\times b$ of any order  to a complex-valued continuous map on $\R^{2N}$.
 \end{lemma}
 \begin{proof}
-Form \eqref{mp_parial_mult_eqn} it follows that
-$$
+	Form \eqref{mp_parial_mult_eqn} it follows that
+	$$
 	\partial_j \left( a \times b \right)=	\partial_j a \times b + a \times \partial_j b
-$$
-From $\partial_j b\in \SS\left( \R^{2N}\right)$ and the above proof it follows that $\sF\left(a\times\partial_j b \right)$ lies in   $C_b\left(\R^{2N} \right)$. On the other hand similarly to the above construction one has
-$$
-\sF\left( \partial_j a \times b\right) = c_k k_j e^{-ik \cdot t} \mathcal{F} b\left(t \right)
-$$ From \eqref{schwartz_z_eqn} and the Lemma \ref{nt_xm_lem} it follows that the series $\sum_{k \in \mathbb{Z}^{2N}}\left| c_kk_j \right|$ is    convergent with respect to $\left\|\cdot  \right\|_{C_b\left( \R^{2N}\right)}$ norm, so on has
-$$
-\sF\left( \partial_j a \times b\right)\in C_b\left( \R^{2N}\right)\Rightarrow 	\partial_j \left( a \times b \right)\in C_b\left( \R^{2N}\right)
-$$
-Similarly one can proof that the Fourier transformation of  partial derivations of any orders are continuous functions. 
-
+	$$
+	From $\partial_j b\in \SS\left( \R^{2N}\right)$ and the above proof it follows that $\sF\left(a\times\partial_j b \right)$ lies in   $C_b\left(\R^{2N} \right)$. On the other hand similarly to the above construction one has
+	$$
+	\sF\left( \partial_j a \times b\right) = c_k k_j e^{-ik \cdot t} \mathcal{F} b\left(t \right)
+	$$ From \eqref{schwartz_z_eqn} and the Lemma \ref{nt_xm_lem} it follows that the series $\sum_{k \in \mathbb{Z}^{2N}}\left| c_kk_j \right|$ is    convergent with respect to $\left\|\cdot  \right\|_{C_b\left( \R^{2N}\right)}$ norm, so on has
+	$$
+	\sF\left( \partial_j a \times b\right)\in C_b\left( \R^{2N}\right)\Rightarrow 	\partial_j \left( a \times b \right)\in C_b\left( \R^{2N}\right)
+	$$
+	Similarly one can proof that the Fourier transformation of  partial derivations of any orders are continuous functions. 
+	
 \end{proof}
 \begin{lemma}\label{nt_ss_lem}
-In the situation of the Lemma \ref{nt_cont_lem}. The Fourier transformation of any partial derivation of  $a\times b\in \SS\left(\R^{2N}_\th \right)$.
+	In the situation of the Lemma \ref{nt_cont_lem}. The Fourier transformation of any partial derivation of  $a\times b\in \SS\left(\R^{2N}_\th \right)$.
 \end{lemma}
 \begin{proof}
 	From the Proposition \ref{mp_factor_prop} it follows that $b = b' \times b''$ where $b', b'' \in \SS\left(\R^{2N}_\th \right)$. From $\SS\left(\R^{2N}_\th \right)\subset L^2\left(\R^{2N}_\th \right)$ and $C\left( \T^{2N}_\th\right)\times L^2\left(\R^{2N}_\th \right)= L^2\left(\R^{2N}_\th \right)$ it follows that
@@ -18572,62 +18718,62 @@ In the situation of the Lemma \ref{nt_cont_lem}. The Fourier transformation of a
 	$$
 	a \times b\in C_0\left( \R^{2N}\right).
 	$$
-Similarly from
-\bean
-\partial_j \left( a \times b \right)=	\partial_j a \times b + a \times \partial_jb,\\
-\partial_j a \in C\left( \T^{2N}_\th\right),\\
-\partial_jb \in \SS\left( \R^{2N}\right)
-\eean
-one can deduce that $\partial_j \left( a \times b \right)\in C_0\left( \R^{2N}\right)$. Similar operation can be performed for all differential operator of any order, so $a \times b$ is a smooth function. Taking into account  the Lemma \ref{nt_smooth_lem} one has $a\times b\in \SS\left(\R^{2N}_\th \right) $.
+	Similarly from
+	\bean
+	\partial_j \left( a \times b \right)=	\partial_j a \times b + a \times \partial_jb,\\
+	\partial_j a \in C\left( \T^{2N}_\th\right),\\
+	\partial_jb \in \SS\left( \R^{2N}\right)
+	\eean
+	one can deduce that $\partial_j \left( a \times b \right)\in C_0\left( \R^{2N}\right)$. Similar operation can be performed for all differential operator of any order, so $a \times b$ is a smooth function. Taking into account  the Lemma \ref{nt_smooth_lem} one has $a\times b\in \SS\left(\R^{2N}_\th \right) $.
 \end{proof}
 \begin{lemma}
-For all $a \in  C\left( \T^{2N}_\th\right)\setminus  \Coo\left( \T^{2N}_\th\right)$ one has $a \times \SS\left(\R^{2N}_\th \right)\not\subset \SS\left(\R^{2N}_\th \right)$
+	For all $a \in  C\left( \T^{2N}_\th\right)\setminus  \Coo\left( \T^{2N}_\th\right)$ one has $a \times \SS\left(\R^{2N}_\th \right)\not\subset \SS\left(\R^{2N}_\th \right)$
 \end{lemma}\label{nt_ss_c_lem}
 \begin{proof} Let $\phi$ is a map $\R^{2N}\to \R$ such that
 	\be
 	\begin{split}
-	\sF \phi \in \SS\left(\R^{2N}\right),\\
-	\sF \phi \left(\R^{2N}\right) = \left[0,1\right],\\
-	\supp \sF \phi  \subset \left\{x \in \R^{2N}\left|\left\|x\right\|< \frac{1}{2}\right.\right\}.	
+		\sF \phi \in \SS\left(\R^{2N}\right),\\
+		\sF \phi \left(\R^{2N}\right) = \left[0,1\right],\\
+		\supp \sF \phi  \subset \left\{x \in \R^{2N}\left|\left\|x\right\|< \frac{1}{2}\right.\right\}.	
 	\end{split}
-\ee
-If $a = \sum_{k\in \Z^{2N}} c_k U_k\in  C\left( \T^{2N}_\th\right)\setminus  \Coo\left( \T^{2N}_\th\right)$ then from the equation \eqref{mp_znorm_eqn} it follows that there is $M\in N$ such that the map
-\bean
-f_\N: \Z^{2N}\to \R,\\
-k \mapsto \left| c_k\right|  \left\|k \right\|^M 
-\eean
-If $f_\R \bydef \left| \sF\left( a \times \phi\right)\left(x \right) \right\| \left\|x \right\|^M $ then from  
-From \eqref{nt_mp_d_eqn} it follows that
-$$
-f_\R\left(k \right) = f_\N\left( k\right) 
-$$
-so the map $f_\R$ is not bounded. It turns out that $\sF a \diamond\sF\phi \not\in \SS\left(\R^{2N} \right)$ or, equivalently $  a \times\phi \not\in \SS\left(\R^{2N} \right)$.
+	\ee
+	If $a = \sum_{k\in \Z^{2N}} c_k U_k\in  C\left( \T^{2N}_\th\right)\setminus  \Coo\left( \T^{2N}_\th\right)$ then from the equation \eqref{mp_znorm_eqn} it follows that there is $M\in N$ such that the map
+	\bean
+	f_\N: \Z^{2N}\to \R,\\
+	k \mapsto \left| c_k\right|  \left\|k \right\|^M 
+	\eean
+	If $f_\R \bydef \left| \sF\left( a \times \phi\right)\left(x \right) \right\| \left\|x \right\|^M $ then from  
+	From \eqref{nt_mp_d_eqn} it follows that
+	$$
+	f_\R\left(k \right) = f_\N\left( k\right) 
+	$$
+	so the map $f_\R$ is not bounded. It turns out that $\sF a \diamond\sF\phi \not\in \SS\left(\R^{2N} \right)$ or, equivalently $  a \times\phi \not\in \SS\left(\R^{2N} \right)$.
 \end{proof}
 \begin{lemma}
-If we consider the inclusion  $\Coo\left( \T^{2N}_\th\right)\subset B\left( L^2\left(\R^{N} \right) \right)$ then one has  $\Coo\left( \T^{2N}_\th\right)=  C\left( \T^{2N}_\th\right)\cap \L^\dagger\left(\SS\left(\R^{2N} \right)  \right)$. 
+	If we consider the inclusion  $\Coo\left( \T^{2N}_\th\right)\subset B\left( L^2\left(\R^{N} \right) \right)$ then one has  $\Coo\left( \T^{2N}_\th\right)=  C\left( \T^{2N}_\th\right)\cap \L^\dagger\left(\SS\left(\R^{2N} \right)  \right)$. 
 \end{lemma}
 \begin{proof}
-From the Lemma \ref{nt_ss_lem} it follows that $\Coo\left( \T^{2N}_\th\right)\subset \L^\dagger\left(\SS\left(\R^{2N} \right)\right) $. Conversely from the Lemma  \ref{nt_ss_c_lem} it follows that
-$$
-a\in C\left( \T^{2N}_\th\right)\setminus  \Coo\left( \T^{2N}_\th\right)\quad \Rightarrow \quad a\notin \L^\dagger\left(\SS\left(\R^{2N} \right)\right).
-$$
+	From the Lemma \ref{nt_ss_lem} it follows that $\Coo\left( \T^{2N}_\th\right)\subset \L^\dagger\left(\SS\left(\R^{2N} \right)\right) $. Conversely from the Lemma  \ref{nt_ss_c_lem} it follows that
+	$$
+	a\in C\left( \T^{2N}_\th\right)\setminus  \Coo\left( \T^{2N}_\th\right)\quad \Rightarrow \quad a\notin \L^\dagger\left(\SS\left(\R^{2N} \right)\right).
+	$$
 \end{proof}
- From the Theorem \ref{nt_d_fin_thm} and the Exercise \ref{nt_d_fin_exer} it turns out that there is  a {pointed algebraic finite covering categories of $O^*$-algebras}  given by
+From the Theorem \ref{nt_d_fin_thm} and the Exercise \ref{nt_d_fin_exer} it turns out that there is  a {pointed algebraic finite covering categories of $O^*$-algebras}  given by
 \bea
 \label{nt_comp_pt_o*_eqn}
-	\mathfrak{S}^{\N}_{D\left(\T^{2N}_\th \right) } = \left(\left\{\pi_j: D\left(\T^{2N}_\th\right)  \hookto D\left( \T^{2N}_{\th/m_j^2}\right) \right\}, \left\{\pi^l_k\right\}\right),\quad\quad\\
-		\label{nt_comp_pt_of*_eqn}
-	\mathfrak{S}^{\N}_{\Coo\left(\T^{2N}_\th \right) } = \left(\left\{\left.\pi_j\right|_{\Coo\left(\T^{2N}_\th\right) }: \Coo\left(\T^{2N}_\th\right)  \hookto \Coo\left( \T^{2N}_{\th/m_j^2}\right) \right\}, \left\{\left.\pi^l_k\right|_{\Coo\left(\T^{2N}_{\th/m^2_k}\right)}\right\}\right)\quad~~
-	\eea
-	(cf. Definition \ref{comp_o*_defn}).
+\mathfrak{S}^{\N}_{D\left(\T^{2N}_\th \right) } = \left(\left\{\pi_j: D\left(\T^{2N}_\th\right)  \hookto D\left( \T^{2N}_{\th/m_j^2}\right) \right\}, \left\{\pi^l_k\right\}\right),\quad\quad\\
+\label{nt_comp_pt_of*_eqn}
+\mathfrak{S}^{\N}_{\Coo\left(\T^{2N}_\th \right) } = \left(\left\{\left.\pi_j\right|_{\Coo\left(\T^{2N}_\th\right) }: \Coo\left(\T^{2N}_\th\right)  \hookto \Coo\left( \T^{2N}_{\th/m_j^2}\right) \right\}, \left\{\left.\pi^l_k\right|_{\Coo\left(\T^{2N}_{\th/m^2_k}\right)}\right\}\right)\quad~~
+\eea
+(cf. Definition \ref{comp_o*_defn}).
 The is a natural inclusion  $\SS\left(\R^{2N}_\th \right)\subset \L\left( \R^{2N}\right)$ such that $\SS\left(\R^{2N}_\th \right)$ is a dense subspace.  If $\widehat \H \bydef \bigoplus_{g \in J}L^2\left(\R^{2N}\right)$ is the described in the Section \ref{nt_inf_ind_repr_constr_sec} Hilbert space then an algebraic direct sum $\widehat \D \bydef \bigoplus_{g \in J}\sS\left(\R^{2N}_\th\right)$ is a dense subspace of $\widehat \D$.
- If given by \eqref{nt_comp_pt_o*_eqn} and \eqref{nt_comp_pt_of*_eqn} injective *-homomorphisms are regarded as inclusions  then there are the following inclusions
+If given by \eqref{nt_comp_pt_o*_eqn} and \eqref{nt_comp_pt_of*_eqn} injective *-homomorphisms are regarded as inclusions  then there are the following inclusions
 \bea\label{nt_dinc_eqn}
 \pi:\bigcup_{j \in \N} D\left( \T^{2N}_{\th/m_j^2}\right) \hookto \L^\dagger\left(\widehat \D \right) ,\\
 \label{nt_dincf_eqn}
 \left.\pi\right|_{\bigcup_{j \in \N} \Coo\left( \T^{2N}_{\th/m_j^2}\right)}:\bigcup_{j \in \N} \Coo\left( \T^{2N}_{\th/m_j^2}\right) \hookto \L^\dagger\left(\widehat \D \right). 
 \eea
- If $\widehat G \bydef \varprojlim  \Z^{2N}/\Z^{2N}_{m_j}$ there is the natural action $\widehat G\times \widehat \H\to \widehat \H$ which satisfies to \eqref{o*_dinv_eqn}. The bounded part of both  $D\left( \T^{2N}_{\th/m_j^2}\right)$ and $\Coo\left( \T^{2N}_{\th/m_j^2}\right)$ equal to $\Coo\left( \T^{2N}_{\th/m_j^2}\right)$. The $C^*$-norm completion of  $\Coo\left( \T^{2N}_{\th/m_j^2}\right)$ equals to $C\left( \T^{2N}_{\th/m_j^2}\right)$. Similarly to  \eqref{bl_cat_eqn}
+If $\widehat G \bydef \varprojlim  \Z^{2N}/\Z^{2N}_{m_j}$ there is the natural action $\widehat G\times \widehat \H\to \widehat \H$ which satisfies to \eqref{o*_dinv_eqn}. The bounded part of both  $D\left( \T^{2N}_{\th/m_j^2}\right)$ and $\Coo\left( \T^{2N}_{\th/m_j^2}\right)$ equal to $\Coo\left( \T^{2N}_{\th/m_j^2}\right)$. The $C^*$-norm completion of  $\Coo\left( \T^{2N}_{\th/m_j^2}\right)$ equals to $C\left( \T^{2N}_{\th/m_j^2}\right)$. Similarly to  \eqref{bl_cat_eqn}
 one has  a pointed algebraical  finite covering category
 \be\label{nt_bl_cat_eqn}
 \begin{split}
@@ -18647,7 +18793,7 @@ Above construction is a version of the described in \ref{comp_pt_o*_empt} genera
 Denote by $C_c\left( \R^{2N}_\th\right) \bydef K\left( C_0\left( \R^{2N}_\th\right)\right)$ the Pedersen's ideal of $C_0\left( \R^{2N}_\th\right)$ and let $\Coo_c\left( \R^{2N}_\th\right)\bydef C_c\left( \R^{2N}_\th\right)\cap \L^\dagger\left(\widetilde \D \right)$. Denote by 
 \be\label{nt_cood_eqn}
 \begin{split}
-\Coo\left( \R^{2N}_\th\right)\bydef\\\bydef \left\{a\in \L^\dagger\left(\widetilde \D \right)\left|a\Coo_c\left( \R^{2N}_\th\right)\subset \Coo_c\left( \R^{2N}_\th\right)~ \Coo_c\left( \R^{2N}_\th\right)a\subset \Coo_c\left( \R^{2N}_\th\right) \right.\right\}.
+	\Coo\left( \R^{2N}_\th\right)\bydef\\\bydef \left\{a\in \L^\dagger\left(\widetilde \D \right)\left|a\Coo_c\left( \R^{2N}_\th\right)\subset \Coo_c\left( \R^{2N}_\th\right)~ \Coo_c\left( \R^{2N}_\th\right)a\subset \Coo_c\left( \R^{2N}_\th\right) \right.\right\}.
 \end{split}
 \ee
 If $D\left( \R^{2N}_\th\right)$ a *-subalgebra of  $\L^\dagger\left(\widetilde \D \right)$ generated by $\Coo\left( \R^{2N}_\th\right)$ and a set of differential operators $\left\{\partial/\partial x_1, ..., \partial/\partial x_n \right\}$ then any $P \in  D\left( \R^{2N}_\th\right)$ can be represented as
@@ -18667,48 +18813,48 @@ D\left( \R^{2N}_\th\right)=\left\{\widetilde d \in\L^\dagger\left(\widetilde\D\r
 	In the described above situation following conditions hold:
 	\begin{enumerate}
 		\item[(i)] The triple $\left(\Coo\left( \T^{2N}_\th \right) , \Coo\left( \R^{2N}_\th\right) , \Z^{2N}\right) $ is the 
-		$\left.\pi\right|_{\bigcup_{j \in \N} \Coo\left( \T^{2N}_{\th/m_j^2}\right)}$- inverse noncommutative limit of the given by \eqref{nt_comp_pt_of*_eqn} {pointed algebraic finite covering category $\mathfrak{S}^{\N}_{\Coo\left(\T^{2N}_\th \right) }$  of $O^*$-algebras} (cf. Definition \ref{inv_o*_lim_defn}).
+		$\left.\pi\right|_{\bigcup_{j \in \N} \Coo\left( \T^{2N}_{\th/m_j^2}\right)}$- inverse noncommutative limit of the given by \eqref{nt_comp_pt_of*_eqn} {pointed algebraic finite covering category $\mathfrak{S}^{\N}_{\Coo\left(\T^{2N}_\th \right) }$  of $O^*$-algebras} (cf. Definition \ref{inv_o*_lim_defn} MAXI !!!).
 		\item [(ii)] The triple $\left(D\left( \T^{2N}_\th \right) , D\left( \R^{2N}_\th\right) , \Z^{2N}\right) $ is the 
-		$\left.\pi\right.$- inverse noncommutative limit of the given by \eqref{nt_comp_pt_o*_eqn} {pointed algebraic finite covering category $\mathfrak{S}^{\N}_{D\left(\T^{2N}_\th \right) }$  of $O^*$-algebras} (cf. Definition \ref{inv_o*_lim_defn}).
+		$\left.\pi\right.$- inverse noncommutative limit of the given by \eqref{nt_comp_pt_o*_eqn} {pointed algebraic finite covering category $\mathfrak{S}^{\N}_{D\left(\T^{2N}_\th \right) }$  of $O^*$-algebras} (cf. Definition \ref{inv_o*_lim_defn} MAXI !!!).
 	\end{enumerate}
-
+	
 \end{theorem}
 
 \begin{proof}(i)
-From $\Coo\left(\T^{2N}_{\th/m_j^2} \right)\subset C\left(\T^{2N}_{\th/m_j^2} \right)\subset M\left(C_0\left( \R^{2N}_\th\right)\right)$ it follows that
-\be
-\begin{split}
-\Coo\left(\T^{2N}_{\th/m_j^2} \right)C_c\left(\R^{2N}_{\th} \right)\subset C_c\left(\R^{2N}_{\th} \right),\\
-C_c\left(\R^{2N}_{\th} \right)\Coo\left(\T^{2N}_{\th/m_j^2} \right)\subset C_c\left(\R^{2N}_{\th} \right)
-\end{split}
-\ee
-
- Taking into account that  $\forall j\in \N\quad \Coo\left(\T^{2N}_{\th/m_j^2} \right)\subset  \L^\dagger\left(\widetilde \D \right)$ and \eqref{nt_cood_eqn} one has
- \bea
- \bigcup_{j=1}^\infty \Coo\left(\T^{2N}_{\th/m_j^2} \right)\subset \Coo\left( \R^{2N}_\th\right),\\
-  \Coo_c\left(\R^{2N}_\th\right)\left(  \bigcup_{j=1}^\infty \Coo\left(\T^{2N}_{\th/m_j^2} \right)\right)	\subset		\Coo_c\left(\R^{2N}_\th \right)  \Coo\left( \R^{2N}_\th\right),\\
-    \left(  \bigcup_{j=1}^\infty \Coo\left(\T^{2N}_{\th/m_j^2} \right)\right)\Coo_c\left(\R^{2N}_\th \right)	\subset		\Coo\left(\R^{2N}_\th \right)  \Coo_c\left(\R^{2N}_\th \right).
- \eea
- If $\widetilde A'$ is a $\left.\pi\right|_{\bigcup_{j \in \N} \Coo\left( \T^{2N}_{\th/m_j^2}\right)}$-admissible algebra (cf.  \ref{comp_pt_o*_empt}) then from the equations \eqref{inv_o*_llim_eqn}, \eqref{inv_o*_rlim_eqn} it follows that
-\bean
-\mathrm{span}\left\{ \Coo_c\left(\R^{2N}_\th\right) \widetilde A'\right\}=\\=\mathrm{span}\left\{ \Coo_c\left(\R^{2N}_\th\right) \bigcup_{j=1}^\infty \Coo\left(\T^{2N}_{\th/m_j^2} \right)\right\} \subset  \Coo_c\left( \R^{2N}_\th\right),\\
-\mathrm{span}\left\{  \widetilde A'\Coo_c\left(\R^{2N}_\th\right)\right\}=\\=\mathrm{span}\left\{  \bigcup_{j=1}^\infty \Coo\left(\T^{2N}_{\th/m_j^2} \right)\Coo_c\left(\R^{2N}_\th\right)\right\} \subset  \Coo_c\left( \R^{2N}_\th\right)
-\eean
-and taking into account \eqref{nt_cood_eqn} one has
-$$
-\widetilde A'\subset \Coo\left( \R^{2N}_\th\right)
-$$
-Now for completion the proof of (i) one should show that the algebra $ \Coo\left( \R^{2N}_\th\right)$ is admissible, i.e. it satisfies to the  conditions \eqref{inv_o*_lim_eqn} CHANGE TO \eqref{inf_cov_o*_sub1_eqn}-\eqref{inv_o*_rlim_eqn}.
-\begin{itemize}
-	\item The condition \eqref{inv_o*_lim_eqn} CHANGE TO \eqref{inf_cov_o*_sub1_eqn} follows from the natural action $\Z^{2N}\times \Coo\left( \R^{2N}_\th\right)\to \Coo\left( \R^{2N}_\th\right)$.
-	\item The condition \eqref{inv_o*_blim_eqn} follows from $\Coo\left( \R^{2N}_\th\right)\cap C_b\left( \R^{2N}_\th\right)\subset C_b\left( \R^{2N}_\th\right)$.
-	\item The conditions \eqref{inv_o*_llim_eqn} and \eqref{inv_o*_rlim_eqn} follow from \eqref{nt_cood_eqn}.
-\end{itemize}
-(ii) 
-Taking into account \eqref{nt_diff2_eqn} one has
-\be\label{nt_uni_inc_eqn}
-\bigcup_{j=1}^\infty D\left(\T^{2N}_{\th/m_j^2} \right)\subset D\left( \R^{2N}_\th\right).
-\ee
+	From $\Coo\left(\T^{2N}_{\th/m_j^2} \right)\subset C\left(\T^{2N}_{\th/m_j^2} \right)\subset M\left(C_0\left( \R^{2N}_\th\right)\right)$ it follows that
+	\be
+	\begin{split}
+		\Coo\left(\T^{2N}_{\th/m_j^2} \right)C_c\left(\R^{2N}_{\th} \right)\subset C_c\left(\R^{2N}_{\th} \right),\\
+		C_c\left(\R^{2N}_{\th} \right)\Coo\left(\T^{2N}_{\th/m_j^2} \right)\subset C_c\left(\R^{2N}_{\th} \right)
+	\end{split}
+	\ee
+	
+	Taking into account that  $\forall j\in \N\quad \Coo\left(\T^{2N}_{\th/m_j^2} \right)\subset  \L^\dagger\left(\widetilde \D \right)$ and \eqref{nt_cood_eqn} one has
+	\bea
+	\bigcup_{j=1}^\infty \Coo\left(\T^{2N}_{\th/m_j^2} \right)\subset \Coo\left( \R^{2N}_\th\right),\\
+	\Coo_c\left(\R^{2N}_\th\right)\left(  \bigcup_{j=1}^\infty \Coo\left(\T^{2N}_{\th/m_j^2} \right)\right)	\subset		\Coo_c\left(\R^{2N}_\th \right)  \Coo\left( \R^{2N}_\th\right),\\
+	\left(  \bigcup_{j=1}^\infty \Coo\left(\T^{2N}_{\th/m_j^2} \right)\right)\Coo_c\left(\R^{2N}_\th \right)	\subset		\Coo\left(\R^{2N}_\th \right)  \Coo_c\left(\R^{2N}_\th \right).
+	\eea
+	If $\widetilde A'$ is a $\left.\pi\right|_{\bigcup_{j \in \N} \Coo\left( \T^{2N}_{\th/m_j^2}\right)}$-admissible algebra (cf.  \ref{comp_pt_o*_empt}) then from the equations \eqref{inv_o*_llim_eqn}, \eqref{inv_o*_rlim_eqn} it follows that
+	\bean
+	\mathrm{span}\left\{ \Coo_c\left(\R^{2N}_\th\right) \widetilde A'\right\}=\\=\mathrm{span}\left\{ \Coo_c\left(\R^{2N}_\th\right) \bigcup_{j=1}^\infty \Coo\left(\T^{2N}_{\th/m_j^2} \right)\right\} \subset  \Coo_c\left( \R^{2N}_\th\right),\\
+	\mathrm{span}\left\{  \widetilde A'\Coo_c\left(\R^{2N}_\th\right)\right\}=\\=\mathrm{span}\left\{  \bigcup_{j=1}^\infty \Coo\left(\T^{2N}_{\th/m_j^2} \right)\Coo_c\left(\R^{2N}_\th\right)\right\} \subset  \Coo_c\left( \R^{2N}_\th\right)
+	\eean
+	and taking into account \eqref{nt_cood_eqn} one has
+	$$
+	\widetilde A'\subset \Coo\left( \R^{2N}_\th\right)
+	$$
+	Now for completion the proof of (i) one should show that the algebra $ \Coo\left( \R^{2N}_\th\right)$ is admissible, i.e. it satisfies to the  conditions \eqref{inv_o*_lim_eqn} CHANGE TO \eqref{inf_cov_o*_sub1_eqn}-\eqref{inv_o*_rlim_eqn}.
+	\begin{itemize}
+		\item The condition \eqref{inv_o*_lim_eqn} CHANGE TO \eqref{inf_cov_o*_sub1_eqn} follows from the natural action $\Z^{2N}\times \Coo\left( \R^{2N}_\th\right)\to \Coo\left( \R^{2N}_\th\right)$.
+		\item The condition \eqref{inv_o*_blim_eqn} follows from $\Coo\left( \R^{2N}_\th\right)\cap C_b\left( \R^{2N}_\th\right)\subset C_b\left( \R^{2N}_\th\right)$.
+		\item The conditions \eqref{inv_o*_llim_eqn} and \eqref{inv_o*_rlim_eqn} follow from \eqref{nt_cood_eqn}.
+	\end{itemize}
+	(ii) 
+	Taking into account \eqref{nt_diff2_eqn} one has
+	\be\label{nt_uni_inc_eqn}
+	\bigcup_{j=1}^\infty D\left(\T^{2N}_{\th/m_j^2} \right)\subset D\left( \R^{2N}_\th\right).
+	\ee
 	Let us prove that $D\left(\R^{2N}_\th\right)$ is $\pi$ admissible, i.e. it satisfies to the equations \eqref{inv_o*_lim_eqn} CHANGE TO \eqref{inf_cov_o*_sub1_eqn}-\eqref{inv_o*_rlim_eqn}; that is
 	\bea\label{nt_inv_o*_lim_eqn}
 	\Z^N D\left( \R^{2N}_\th\right)  = D\left(\R^{2N}_\th\right),\\
@@ -18717,30 +18863,30 @@ Taking into account \eqref{nt_diff2_eqn} one has
 	\label{nt_inv_o*_llim_eqn}	
 	\Coo_c\left(\R^{2N}_\th \right)  D\left( \R^{2N}_\th\right)= \Coo_c\left(\R^{2N}_\th\right) \left(  \bigcup_{j=1}^\infty D\left(\T^{2N}_{\th/m_j^2} \right)\right)  ,\\	
 	\label{nt_inv_o*_rlim_eqn}
-D\left( \R^{2N}_\th\right)\Coo_c\left(\R^{2N}_\th \right)  =\left(  \bigcup_{j=1}^\infty D\left(\T^{2N}_{\th/m_j^2} \right)	\right)\Coo_c\left(\R^{2N}_\th\right). 
-\eea
-
+	D\left( \R^{2N}_\th\right)\Coo_c\left(\R^{2N}_\th \right)  =\left(  \bigcup_{j=1}^\infty D\left(\T^{2N}_{\th/m_j^2} \right)	\right)\Coo_c\left(\R^{2N}_\th\right). 
+	\eea
+	
 	\begin{itemize}
 		\item The equation \eqref{nt_inv_o*_lim_eqn} follows from $	\Z^N \Coo\left( \R^{2N}_\th\right)=\Coo\left( \R^{2N}_\th\right)$ and \\	$\Z^N\left\{\partial/\partial x_1, ..., \partial/\partial x_n \right\}= \left\{\partial/\partial x_1, ..., \partial/\partial x_n \right\}$.
 		\item The equation \eqref{nt_inv_o*_blim_eqn} is a tautology.
 		\item From \eqref{nt_uni_inc_eqn} ir follows that
 		$$
- \Coo_c\left(\R^{2N}_\th\right)\left(  \bigcup_{j=1}^\infty D\left(\T^{2N}_{\th/m_j^2} \right)\right)	\subset		\Coo_c\left(\R^{2N}_\th \right)  D\left( \R^{2N}_\th\right).
- 			$$
- 		Conversely if $a \in \Coo_c\left(\R^{2N}_\th \right)$ and $P= \sum_{j=1}^m a_j P_j,\quad a_1,..., a_n\in \Coo\left( \R^{2N}_\th\right)\in  D\left( \R^{2N}_\th\right)$ (cf. \eqref{nt_diff1_eqn}) then 
- 	\bean
- 		aP = aa_1P_1 + ... + aa_mP_m = b_mP_1 + b_mP_1 =\\= b_1 1_{{\Coo\left(\T^{2N}_{\th/m_j^2} \right)} }P_1 + ... + b_m 1_{{\Coo\left(\T^{2N}_{\th/m_j^2} \right)} }P_m \in \Coo_c\left(\R^{2N}_\th\right) \left(  \bigcup_{j=1}^\infty D\left(\T^{2N}_{\th/m_j^2} \right)\right)
- 	\eean
- 	where $b_j \bydef aa_j \in  \Coo_c\left(\R^{2N}_\th\right)$ for any $j =1,...,m$.
+		\Coo_c\left(\R^{2N}_\th\right)\left(  \bigcup_{j=1}^\infty D\left(\T^{2N}_{\th/m_j^2} \right)\right)	\subset		\Coo_c\left(\R^{2N}_\th \right)  D\left( \R^{2N}_\th\right).
+		$$
+		Conversely if $a \in \Coo_c\left(\R^{2N}_\th \right)$ and $P= \sum_{j=1}^m a_j P_j,\quad a_1,..., a_n\in \Coo\left( \R^{2N}_\th\right)\in  D\left( \R^{2N}_\th\right)$ (cf. \eqref{nt_diff1_eqn}) then 
+		\bean
+		aP = aa_1P_1 + ... + aa_mP_m = b_mP_1 + b_mP_1 =\\= b_1 1_{{\Coo\left(\T^{2N}_{\th/m_j^2} \right)} }P_1 + ... + b_m 1_{{\Coo\left(\T^{2N}_{\th/m_j^2} \right)} }P_m \in \Coo_c\left(\R^{2N}_\th\right) \left(  \bigcup_{j=1}^\infty D\left(\T^{2N}_{\th/m_j^2} \right)\right)
+		\eean
+		where $b_j \bydef aa_j \in  \Coo_c\left(\R^{2N}_\th\right)$ for any $j =1,...,m$.
 		\item The proof of the equation  \eqref{nt_inv_o*_rlim_eqn} is similar to the proof of \eqref{nt_inv_o*_rlim_eqn} 
 	\end{itemize}
 	Now one should prove that $D\left( \widetilde \R^{2N}_\th\right)$ is the maximal *-algebra which satisfies to  the equations \eqref{inv_o*_lim_eqn} CHANGE TO \eqref{inf_cov_o*_sub1_eqn}-\eqref{inv_o*_rlim_eqn}. 
 	If it is not maximal then there is $\widetilde d \in \L^\dagger\left( \widetilde \D\right)\setminus D\left(\widetilde \R^{2N}_\th \right)$ such that
-\be
-		\Coo_c\left(\R^{2N}_\th \right) \widetilde d\subset  \Coo_c\left(\R^{2N}_\th\right) \left(  \bigcup_{j=1}^\infty D\left(\T^{2N}_{\th/m_j^2} \right)\right)
-\ee
+	\be
+	\Coo_c\left(\R^{2N}_\th \right) \widetilde d\subset  \Coo_c\left(\R^{2N}_\th\right) \left(  \bigcup_{j=1}^\infty D\left(\T^{2N}_{\th/m_j^2} \right)\right)
+	\ee
 	(cf. equations \eqref{inv_o*_llim_eqn} and \eqref{nt_inv_o*_llim_eqn}). However from $\Coo_c\left(\R^{2N}_\th\right) \left(  \bigcup_{j=1}^\infty D\left(\T^{2N}_{\th/m_j^2} \right)\right)\subset D\left(\R^{2N}_\th \right)$ and \eqref{nt_diff2_eqn} it follows that $\widetilde d \in  D\left(\widetilde \R^{2N}_\th \right)$. From this contradiction one concludes that $D\left( \widetilde \R^{2N}_\th\right)$ is a maximal *-algebra which satisfies to  the equations \eqref{inv_o*_lim_eqn} CHANGE TO \eqref{inf_cov_o*_sub1_eqn}-\eqref{inv_o*_rlim_eqn}. 
-
+	
 \end{proof}
 
 \subsection{Coverings of quasi $*$-algebras}
@@ -18777,65 +18923,65 @@ An application of both the Exercise \ref{nt_quasi_fin_exer} and the given by \eq
 (cf. Definition \ref{comp_qo*_defn})  given by
 \be\label{nt_distr_inf_eqn}
 \begin{split}
-	\mathfrak{S}^{\text{pt}}_{\left(\Coo\left(\mathbb{T}^{2N}_{\theta}\right)', \Coo\left(\mathbb{T}^{2N}_{\theta}\right)  \right) } =\\  =\left(\left\{\pi_j: \left( \mathfrak A, \mathfrak A_0 \right) \hookto \left( \mathfrak A^j, \mathfrak A_0^j \right) \right\}_{j \in \N}, \left\{\pi^k_l \right\}_{\substack{k,l \in \N\\ l > k}}\right),\\
+	\mathfrak{S}^{\text{pt}}_{\left(\Coo\left(\mathbb{T}^{2N}_{\theta}\right)', \Coo\left(\mathbb{T}^{2N}_{\theta}\right)  \right) } =\\  =\left(\left\{\pi_j: \left( \mathfrak A, \mathfrak A_0 \right) \hookto \left( \mathfrak A^j, \mathfrak A_0^j \right) \right\}_{j \in \N}, \left\{\pi^k_l: \right\}_{\substack{k,l \in \N\\ l > k}}\right),\\
 	\text{where } \left( \mathfrak A, \mathfrak A_0 \right)\bydef\left(\Coo\left(\mathbb{T}^{2N}_{\theta}\right)', \Coo\left(\mathbb{T}^{2N}_{\theta}\right)  \right),\\ \left( \mathfrak A^j, \mathfrak A_0^j \right)\bydef\left(\Coo\left(\mathbb{T}^{2N}_{\theta/m_j^2}\right)', \Coo\left(\mathbb{T}^{2N}_{\theta/m_j^2}\right)  \right).
-	\end{split}
+\end{split}
 \ee
 
 
 \begin{lemma}
-In  the described above situation the triple
-$$
-\left(\left(\Coo\left(\mathbb{T}^{2N}_{\theta}\right)', \Coo\left(\mathbb{T}^{2N}_{\theta}\right)  \right), \left(\Coo_c\left(\mathbb{R}^{2N}_{\theta}\right)', \Coo\left(\R^{2N}_{\theta}\right)  \right) , \Z^{2N}\right) 
-$$
-is  the inverse noncommutative limit of the given by \eqref{nt_distr_inf_eqn} pointed algebraic finite covering category	$\mathfrak{S}^{\text{pt}}_{\left(\Coo\left(\mathbb{T}^{2N}_{\theta}\right)', \Coo\left(\mathbb{T}^{2N}_{\theta}\right)  \right) }$ of quasi *-algebras (cf Definition \ref{inv_qo*_lim_defn}). 
+	In  the described above situation the triple
+	$$
+	\left(\left(\Coo\left(\mathbb{T}^{2N}_{\theta}\right)', \Coo\left(\mathbb{T}^{2N}_{\theta}\right)  \right), \left(\Coo_c\left(\mathbb{R}^{2N}_{\theta}\right)', \Coo\left(\R^{2N}_{\theta}\right)  \right) , \Z^{2N}\right) 
+	$$
+	is  the inverse noncommutative limit of the given by \eqref{nt_distr_inf_eqn} pointed algebraic finite covering category	$\mathfrak{S}^{\text{pt}}_{\left(\Coo\left(\mathbb{T}^{2N}_{\theta}\right)', \Coo\left(\mathbb{T}^{2N}_{\theta}\right)  \right) }$ of quasi *-algebras (cf Definition \ref{inv_qo*_lim_defn} MAXI !!! MAXI !!!). 
 \end{lemma}
 \begin{proof}
-Let $\left\{p_\a\right\}_{\a \in \mathscr A}\subset \Coo_c\left( \R^{2N}_\th\right)$ be the subset all finite-rank projectors. If we define partial order on $\La$ such that
-$$
-\forall\bt , \ga\in \mathscr A \quad \bt  \le\ga  \quad \Leftrightarrow \quad \im p_\bt \subseteqq \im p_\ga
-$$  
-then $\mathscr A$ becomes a directed set. For all $\widetilde a a \in \Coo_c\left( \R^{2N}_\th\right)$ there is $\a_{\widetilde a} \in \mathscr A$ such that
-\be\label{nt_comp_st_eqn}
-\forall\a\in\mathscr A \quad \a \ge \a_{\widetilde a} \quad \Rightarrow \quad \widetilde a = \widetilde a p_{\a}
-\ee
-If $\left(\widetilde A', \Coo\left(\R^{2N}_{\theta}\right)\right)$ is an admissible quasi *-algebra (cf. Definition \ref{comp_pt_qo*_defn}) and $\widetilde a \in \widetilde{\mathfrak A}'$  such  then from the condition \eqref{inv_qo*_rlim_eqn} !!! REPLACE it follows that
-$$
-\widetilde a p_\a \in \Coo_c\left( \R^{2N}_\th\right)'
-$$
-If $\left\langle\cdot , \cdot \right\rangle : \Coo_c\left( \R^{2N}_\th\right)'\times \Coo_c\left( \R^{2N}_\th\right)$ is a natural covering then for all $\widetilde b \in \Coo_c\left( \R^{2N}_\th\right)$ from \eqref{nt_comp_st_eqn}  it turns out that
-$
-\left\langle \widetilde a p_\a , \widetilde b\right\rangle = \left\langle \widetilde a p_{\a_{\widetilde a}} , \widetilde b\right\rangle\quad\forall \a \ge \a_{\widetilde a}
-$
-i.e. the net\\ $\left\{ \left\langle \widetilde a p_\a , \widetilde b\right\rangle\right\}_{\la\in\La}\in\C$ is convergent. So the net $\left\{  \widetilde a p_\a , \right\}_{\a\in\mathscr A}$ is convergent with respect to  the weak topology of $\Coo_c\left( \R^{2N}_\th\right)'$. Now we define a $\C$-linear map
-\bean
-\Psi: \widetilde A'\to \Coo\left(\R^{2N}_{\theta}\right),\\
- \widetilde a \mapsto \lim_{\a\in\mathscr A}\widetilde a  p_\la
-\eean 
-From the equation \eqref{inv_qo*_lzero_eqn} it follows that the map $\Psi$ is injective, i.e. any admissible quasi *-algebra is a subalgebra of $\left(\Coo_c\left(\mathbb{R}^{2N}_{\theta}\right)', \Coo\left(\R^{2N}_{\theta}\right)  \right)$. To finish the proof one should show that $\left(\Coo_c\left(\mathbb{R}^{2N}_{\theta}\right)', \Coo\left(\R^{2N}_{\theta}\right)  \right)$ is admissible, i.e. it satisfies to the conditions (a)-(c) of the Definition \ref{comp_pt_qo*_defn}.
-
-\begin{enumerate}
-	\item[(a)]  The natural   action $\Z^{2N}\times \R^{2N} \to \R^{2N}$ induces the action \\ $\Z^{2N}\times \left(\Coo_c\left(\mathbb{R}^{2N}_{\theta}\right)', \Coo\left(\R^{2N}_{\theta}\right)  \right) \to \left(\Coo_c\left(\mathbb{R}^{2N}_{\theta}\right)', \Coo\left(\R^{2N}_{\theta}\right)  \right)$ which complies with the natural action $ \Z^{2N}\times \Coo_c\left(\mathbb{R}^{2N}_{\theta}\right)\to \Coo\left(\R^{2N}_{\theta}\right)$.
-	\item[(b)] The inclusion $\bigcap_{j\in\N} \Coo\left(\mathbb{T}^{2N}_{\theta/m_j^2}\right)'\subset\Coo_c\left(\mathbb{R}^{2N}_{\theta}\right)'$ follows from an inclusions  $\Coo\left(\mathbb{T}^{2N}_{\theta/m_j^2}\right)'\subset\Coo_c\left(\mathbb{R}^{2N}_{\theta}\right)'$ for all $j\in \N$.
+	Let $\left\{p_\a\right\}_{\a \in \mathscr A}\subset \Coo_c\left( \R^{2N}_\th\right)$ be the subset all finite-rank projectors. If we define partial order on $\La$ such that
+	$$
+	\forall\bt , \ga\in \mathscr A \quad \bt  \le\ga  \quad \Leftrightarrow \quad \im p_\bt \subseteqq \im p_\ga
+	$$  
+	then $\mathscr A$ becomes a directed set. For all $\widetilde a a \in \Coo_c\left( \R^{2N}_\th\right)$ there is $\a_{\widetilde a} \in \mathscr A$ such that
+	\be\label{nt_comp_st_eqn}
+	\forall\a\in\mathscr A \quad \a \ge \a_{\widetilde a} \quad \Rightarrow \quad \widetilde a = \widetilde a p_{\a}
+	\ee
+	If $\left(\widetilde A', \Coo\left(\R^{2N}_{\theta}\right)\right)$ is an admissible quasi *-algebra (cf. Definition \ref{comp_pt_qo*_defn}) and $\widetilde a \in \widetilde{\mathfrak A}'$  such  then from the condition \eqref{inv_qo*_rlim_eqn} !!! REPLACE it follows that
+	$$
+	\widetilde a p_\a \in \Coo_c\left( \R^{2N}_\th\right)'
+	$$
+	If $\left\langle\cdot , \cdot \right\rangle : \Coo_c\left( \R^{2N}_\th\right)'\times \Coo_c\left( \R^{2N}_\th\right)$ is a natural covering then for all $\widetilde b \in \Coo_c\left( \R^{2N}_\th\right)$ from \eqref{nt_comp_st_eqn}  it turns out that
+	$
+	\left\langle \widetilde a p_\a , \widetilde b\right\rangle = \left\langle \widetilde a p_{\a_{\widetilde a}} , \widetilde b\right\rangle\quad\forall \a \ge \a_{\widetilde a}
+	$
+	i.e. the net\\ $\left\{ \left\langle \widetilde a p_\a , \widetilde b\right\rangle\right\}_{\la\in\La}\in\C$ is convergent. So the net $\left\{  \widetilde a p_\a , \right\}_{\a\in\mathscr A}$ is convergent with respect to  the weak topology of $\Coo_c\left( \R^{2N}_\th\right)'$. Now we define a $\C$-linear map
+	\bean
+	\Psi: \widetilde A'\to \Coo\left(\R^{2N}_{\theta}\right),\\
+	\widetilde a \mapsto \lim_{\a\in\mathscr A}\widetilde a  p_\la
+	\eean 
+	From the equation \eqref{inv_qo*_lzero_eqn} it follows that the map $\Psi$ is injective, i.e. any admissible quasi *-algebra is a subalgebra of $\left(\Coo_c\left(\mathbb{R}^{2N}_{\theta}\right)', \Coo\left(\R^{2N}_{\theta}\right)  \right)$. To finish the proof one should show that $\left(\Coo_c\left(\mathbb{R}^{2N}_{\theta}\right)', \Coo\left(\R^{2N}_{\theta}\right)  \right)$ is admissible, i.e. it satisfies to the conditions (a)-(c) of the Definition \ref{comp_pt_qo*_defn}.
 	
-	\item[(c)] The specific versions of the equations
-	 \eqref{inv_qo*_rzero_eqn}-\eqref{inv_qo*_rlim_eqn} !!! REPLACE  are presented below:
-	\bea
-	\label{nt_inv_qo*_rzero_eqn}
-	\forall\widetilde a\in \Coo_c\left(\mathbb{R}^{2N}_{\theta}\right)'\quad \Coo_c\left(\mathbb{R}^{2N}_{\theta}\right) \widetilde{a}= \{0\}\quad \Rightarrow\quad \widetilde{a}= 0,\quad\quad \\
-	\label{nt_inv_qo*_lzero_eqn}
-	\forall\widetilde a\in \Coo_c\left(\mathbb{R}^{2N}_{\theta}\right)'\quad \widetilde{a}\Coo_c\left(\mathbb{R}^{2N}_{\theta}\right) = \{0\}\quad \Rightarrow\quad \widetilde{a}= 0,\quad\quad \\
-	\label{nt_inv_qo*_llim_eqn}	\mathrm{span}\left\{ \Coo_c\left(\mathbb{R}^{2N}_{\theta}\right) \Coo_c\left(\mathbb{R}^{2N}_{\theta}\right)'\right\} =\mathrm{span}\left\{  \Coo_c\left(\mathbb{R}^{2N}_{\theta}\right) \left( \bigcap_{j\in\N} \Coo\left(\mathbb{T}^{2N}_{\theta/m_j^2}\right)\right) \right\} ,\quad\quad\\	
-	\label{nt_inv_qo*_rlim_eqn}\mathrm{span}\left\{  \Coo_c\left(\mathbb{R}^{2N}_{\theta}\right)'\Coo_c\left(\mathbb{R}^{2N}_{\theta}\right)\right\} =\mathrm{span}\left\{   \left( \bigcap_{j\in\N} \Coo\left(\mathbb{T}^{2N}_{\theta/m_j^2}\right)\right)\Coo_c\left(\mathbb{R}^{2N}_{\theta}\right) \right\} .\quad\quad
-	\eea
-	\begin{itemize}
-		\item From $\Coo_c\left(\mathbb{R}^{2N}_{\theta}\right) \widetilde{a}= \{0\}$ it follows that $p_\a \widetilde a = 0$ for all $\a\in \mathscr A$. It turns out that $\widetilde a = 0$, so \eqref{nt_inv_qo*_rzero_eqn} is proven.
-		\item The equation  \eqref{nt_inv_qo*_lzero_eqn} can be proven similarly to \eqref{nt_inv_qo*_rzero_eqn}.
-		\item Left and right parts of both \eqref{nt_inv_qo*_llim_eqn} and \eqref{nt_inv_qo*_rlim_eqn} equal to $\Coo_c\left(\mathbb{R}^{2N}_{\theta}\right)'$.
-	\end{itemize}
+	\begin{enumerate}
+		\item[(a)]  The natural   action $\Z^{2N}\times \R^{2N} \to \R^{2N}$ induces the action \\ $\Z^{2N}\times \left(\Coo_c\left(\mathbb{R}^{2N}_{\theta}\right)', \Coo\left(\R^{2N}_{\theta}\right)  \right) \to \left(\Coo_c\left(\mathbb{R}^{2N}_{\theta}\right)', \Coo\left(\R^{2N}_{\theta}\right)  \right)$ which complies with the natural action $ \Z^{2N}\times \Coo_c\left(\mathbb{R}^{2N}_{\theta}\right)\to \Coo\left(\R^{2N}_{\theta}\right)$.
+		\item[(b)] The inclusion $\bigcap_{j\in\N} \Coo\left(\mathbb{T}^{2N}_{\theta/m_j^2}\right)'\subset\Coo_c\left(\mathbb{R}^{2N}_{\theta}\right)'$ follows from an inclusions  $\Coo\left(\mathbb{T}^{2N}_{\theta/m_j^2}\right)'\subset\Coo_c\left(\mathbb{R}^{2N}_{\theta}\right)'$ for all $j\in \N$.
+		
+		\item[(c)] The specific versions of the equations
+		\eqref{inv_qo*_rzero_eqn}-\eqref{inv_qo*_rlim_eqn} !!! REPLACE  are presented below:
+		\bea
+		\label{nt_inv_qo*_rzero_eqn}
+		\forall\widetilde a\in \Coo_c\left(\mathbb{R}^{2N}_{\theta}\right)'\quad \Coo_c\left(\mathbb{R}^{2N}_{\theta}\right) \widetilde{a}= \{0\}\quad \Rightarrow\quad \widetilde{a}= 0,\quad\quad \\
+		\label{nt_inv_qo*_lzero_eqn}
+		\forall\widetilde a\in \Coo_c\left(\mathbb{R}^{2N}_{\theta}\right)'\quad \widetilde{a}\Coo_c\left(\mathbb{R}^{2N}_{\theta}\right) = \{0\}\quad \Rightarrow\quad \widetilde{a}= 0,\quad\quad \\
+		\label{nt_inv_qo*_llim_eqn}	\mathrm{span}\left\{ \Coo_c\left(\mathbb{R}^{2N}_{\theta}\right) \Coo_c\left(\mathbb{R}^{2N}_{\theta}\right)'\right\} =\mathrm{span}\left\{  \Coo_c\left(\mathbb{R}^{2N}_{\theta}\right) \left( \bigcap_{j\in\N} \Coo\left(\mathbb{T}^{2N}_{\theta/m_j^2}\right)\right) \right\} ,\quad\quad\\	
+		\label{nt_inv_qo*_rlim_eqn}\mathrm{span}\left\{  \Coo_c\left(\mathbb{R}^{2N}_{\theta}\right)'\Coo_c\left(\mathbb{R}^{2N}_{\theta}\right)\right\} =\mathrm{span}\left\{   \left( \bigcap_{j\in\N} \Coo\left(\mathbb{T}^{2N}_{\theta/m_j^2}\right)\right)\Coo_c\left(\mathbb{R}^{2N}_{\theta}\right) \right\} .\quad\quad
+		\eea
+		\begin{itemize}
+			\item From $\Coo_c\left(\mathbb{R}^{2N}_{\theta}\right) \widetilde{a}= \{0\}$ it follows that $p_\a \widetilde a = 0$ for all $\a\in \mathscr A$. It turns out that $\widetilde a = 0$, so \eqref{nt_inv_qo*_rzero_eqn} is proven.
+			\item The equation  \eqref{nt_inv_qo*_lzero_eqn} can be proven similarly to \eqref{nt_inv_qo*_rzero_eqn}.
+			\item Left and right parts of both \eqref{nt_inv_qo*_llim_eqn} and \eqref{nt_inv_qo*_rlim_eqn} equal to $\Coo_c\left(\mathbb{R}^{2N}_{\theta}\right)'$.
+		\end{itemize}
+		
+	\end{enumerate}
 	
-\end{enumerate}
-
 \end{proof}
 
 
@@ -18850,29 +18996,34 @@ From the equation \eqref{inv_qo*_lzero_eqn} it follows that the map $\Psi$ is in
 Let us consider following objects
 \begin{itemize}
 	\item A spectral triple of a noncommutative torus\\ $\left(C^{\infty}(\mathbb{T}^{2N}_{\theta}),\mathcal{H}=L^2\left(C\left(\mathbb{T}^{2N}_{\theta}\right), \tau\right)\otimes\mathbb{C}^{2^N},D\right)$ (cf. equation \ref{nt_sp_tr_eqn}).
-	\item  A good  algebraical  finite covering sequence given by
+	\item  A good !!! SOFT \ref{top_soft_exer}  !!! REP \ref{top_soft_r_defn} algebraical  finite covering sequence given by
 	\begin{equation*}
-	\mathfrak{S}_\th= \left\{	C\left(\mathbb{T}^{2N}_\th\right) \to	C\left(\mathbb{T}^{2N}_{\th/m_1^{2}}\right) \to C\left(\mathbb{T}^{2N}_{\th/m_2^{2}}\right) \to... \to C\left(\mathbb{T}^{2N}_{\th/m_j^{2}}\right)\to ...\right\}
+		\mathfrak{S}_\th= \left\{	C\left(\mathbb{T}^{2N}_\th\right) \to	C\left(\mathbb{T}^{2N}_{\th/m_1^{2}}\right) \to C\left(\mathbb{T}^{2N}_{\th/m_2^{2}}\right) \to... \to C\left(\mathbb{T}^{2N}_{\th/m_j^{2}}\right)\to ...\right\}
 	\end{equation*}
 	given by \eqref{nt_cofinal_eqn}.
 \end{itemize}
 From the Theorem \ref{nt_inf_cov_thm} it follows that $\left(C\left(\mathbb{T}^{2N}_\th \right), C_0\left(\R^{2N}_\th\right), \Z^{2N} \right)$ is a  $\widehat{\pi}^\oplus$-infinite noncommutative covering of $\mathfrak{S}_\th$ (cf. Definition \ref{main_defn}).
 Otherwise from the Exercise \ref{nt_st_fin_exer} it follows that
 \begin{equation}\label{nt_triple_seq_eqn}
-\begin{split}
-\mathfrak{S}_{\left(C^{\infty}\left( \T_\th\right) , L^2\left(C\left(\T^{2N}_\th \right), \tau\right) \otimes \C^{2^N} , D\right) } = \{ \left(C^{\infty}\left( \T_\th\right) , L^2\left(C\left(\T^{2N}_\th \right), \tau\right) \otimes \C^{2^N} , D\right), \dots,\\
-\left(C^{\infty}\left( \T^{2N}_{\th/m_j^2}\right) , L^2\left(C\left( \T^{2N}_{\th/m_j^2} \right), \tau_j\right) \otimes \C^{2^N} , D_j \right), \dots
-\}.
-\end{split}
+	\begin{split}
+		\mathfrak{S}_{\left(C^{\infty}\left( \T_\th\right) , L^2\left(C\left(\T^{2N}_\th \right), \tau\right) \otimes \C^{2^N} , D\right) } = \{ \left(C^{\infty}\left( \T_\th\right) , L^2\left(C\left(\T^{2N}_\th \right), \tau\right) \otimes \C^{2^N} , D\right), \dots,\\
+		\left(C^{\infty}\left( \T^{2N}_{\th/m_j^2}\right) , L^2\left(C\left( \T^{2N}_{\th/m_j^2} \right), \tau_j\right) \otimes \C^{2^N} , D_j \right), \dots
+		\}.
+	\end{split}
 \end{equation}
 is coherent set of spectral triples (cf. Definition \ref{cov_sec_triple_defn}).
 
 
 
 \begin{exercise}
-Prove that there is the triple $\left(C^{\infty}(\mathbb{R}^{2N}_{\theta}),L^2\left(\R^{2N}\right)\otimes\mathbb{C}^{2^N}, \widetilde D\right)$ which is the $\left(C\left(\mathbb{T}^{2N}_\th \right), C_0\left(\R^{2N}_\th\right), \Z^{2N} \right)$-lift of $\left(C^{\infty}(\mathbb{T}^{2N}_{\theta}),\mathcal{H}=L^2\left(C\left(\mathbb{T}^{2N}_{\theta}\right), \tau\right)\otimes\mathbb{C}^{2^N},D\right)$.
+	Prove that there is the triple $\left(C^{\infty}(\mathbb{R}^{2N}_{\theta}),L^2\left(\R^{2N}\right)\otimes\mathbb{C}^{2^N}, \widetilde D\right)$ which is the $\left(C\left(\mathbb{T}^{2N}_\th \right), C_0\left(\R^{2N}_\th\right), \Z^{2N} \right)$-lift of $\left(C^{\infty}(\mathbb{T}^{2N}_{\theta}),\mathcal{H}=L^2\left(C\left(\mathbb{T}^{2N}_{\theta}\right), \tau\right)\otimes\mathbb{C}^{2^N},D\right)$.
 \end{exercise}
 
+
+
+
+	
+	
 \chapter{Isospectral deformations and their coverings}\label{isospectral_chap}
 \section{Finite-fold coverings}\label{isosectral_fin_cov}
 \subsection{Basic construction}
@@ -20167,7 +20318,7 @@ Both sets $[\Sigma \sX,*;\sY, y_0]$ and $[\sX,x_0, \Omega \sY, \omega_0]$ posses
 \begin{remark}\label{top_h_gr_rem}\cite{switzer:at}
 The group $\pi_1\left(\sX, x_0 \right)$ is a set of homotopy equivalence classes of closed paths $f: \left[0, 1\right] \to\sX$ such that $f\left(0\right)= f\left(1\right)= x_0$. For all $n \in \N$ there is the natural bijective map $\pi_n\left(\sX, x_0 \right)\cong \left[\sX, x_0; S^n, s_0\right]$. We say that $\pi_1\left(\sX, x_0 \right)$ is the \textit{fundamental group} of the pointed space $\left(\sX, x_0 \right)$. 
 \end{remark}
-!!! CONTINUE
+
 \begin{remark}\cite{switzer:at}
 For all $n > 1$ the group $	\pi_{n} (\sX, x_0)$ is Abelian.
 \end{remark}
@@ -20194,10 +20345,6 @@ For all $n > 1$ the group $	\pi_{n} (\sX, x_0)$ is Abelian.
 	\begin{defn}\cite{spanier:at}
 		A topological space $\mathcal X$ is said to be \textit{locally path-connected} if the path components of open sets are open.
 	\end{defn}
-	\paragraph{} Denote by $\pi_1$ the functor of fundamental group \cite{spanier:at}.
-	%\begin{lem}\label{lem_3_spanier_lem}\cite{spanier:at}
-	%Let $p: \widetilde{\mathcal X} \to \mathcal X$ be a fibration with unique path lifting. If $\om$ and $\om'$ are paths such that $\om\left(0\right)=\om'\left(0\right)$ and $p \circ \om$ is homotopic to $p \circ \om'$ then $\om$ is homotopic to $\om'$.  
-	%\end{lem}
 	%\paragraph{} It follows from Lemma \ref{lem_3_spanier_lem} that if $p: \widetilde{\mathcal X} \to \mathcal X$ be a fibration with unique path lifting then for any two objects $\widetilde{x}_1$ and $\widetilde{x}_2$ in the fundamental groupoid of $\widetilde{X}$
 	\begin{defn}\label{cov_proj_cov_grp_defn}\cite{spanier:at}
 		Let $p: \mathcal{\widetilde{X}} \to \mathcal{X}$ be a covering.  A self-equivalence is a homeomorphism $f:\mathcal{\widetilde{X}}\to\mathcal{\widetilde{X}}$ such that $p \circ f = p$. This group of such homeomorphisms is said to be the {\it group of covering transformations} of $p$ or the {\it covering group}. Denote by $G\left( \mathcal{\widetilde{X}}~|~\mathcal{X}\right)$ this group.
@@ -20373,25 +20520,43 @@ point.
 
 \subsection{Homology theory and Hurewicz homomorphism}
 
-\begin{definition}\label{top_unred_defn}\cite{switzer:at}
-	Let $\mathscr T^2$ denote the category of all topological pairs $\left(\sX, \A\right)$ ($\A\subset\sX$ a subspace) and maps $f: \left(\sX, \A\right)\to \left(\sY, \B\right)$. On $\mathscr T^2$  we have the functor $R:\mathscr T^2$ ("restriction") defined by $R\left(\sX, \A\right)= \left(\A, \emptyset\right)$, $R\left(f \right)= f|_{\A}$. Let $\mathscr T^2~'$ be the homotopy category - i.e. objects are as in $\mathscr T^2$, morphisms are homotopy classes of maps. We still  have $R:\mathscr T^2~'\to \mathscr T^2~':$ $R\left(\sX, \A\right)= \left(\A, \emptyset\right)$, $R\left(\left[f\right] \right)= \left[f|_{\A}\right]$. 
+%\begin{definition}\label{top_unred_defn}\cite{switzer:at}
+%	Let $\mathscr T^2$ denote the category of all topological pairs $\left(\sX, \A\right)$ ($\A\subset\sX$ a subspace) and maps $f: \left(\sX, \A\right)\to \left(\sY, \B\right)$. On $\mathscr T^2$  we have the functor $R:\mathscr T^2$ ("restriction") defined by $R\left(\sX, \A\right)= \left(\A, \emptyset\right)$, $R\left(f \right)= f|_{\A}$. Let $\mathscr T^2~'$ be the homotopy category - i.e. objects are as in $\mathscr T^2$, morphisms are homotopy classes of maps. We still  have $R:\mathscr T^2~'\to \mathscr T^2~':$ $R\left(\sX, \A\right)= \left(\A, \emptyset\right)$, $R\left(\left[f\right] \right)= \left[f|_{\A}\right]$. 
 	
-	An \textit{unreduced homology theory} $h_*$ on $\mathscr T^2~'$ is a sequence of functors $h_n$ from $\mathscr T^2~'$ to the category of Abelian groups  for each $n\in \Z$ and the natural transformations $\partial_n : h_n \to h_{n-1}\circ R$, satisfying the following two axioms:
+%	An \textit{unreduced homology theory} $h_*$ on $\mathscr T^2~'$ is a sequence of functors $h_n$ from $\mathscr T^2~'$ to the category of Abelian groups  for each $n\in \Z$ and the natural transformations $\partial_n : h_n \to h_{n-1}\circ R$, satisfying the following two axioms:
+%	\begin{enumerate}
+%		\item [(a)] Exactness: for every pair $\left(\sX, \A\right)\in\mathscr T^2~'$ the sequence
+%		\bean
+%		...\to h_{n+1}\left(\sX, \A\right)\xrightarrow{\partial_{n+1}\left(\sX, \A\right)} h_{n}\left(\A, \emptyset\right)\xrightarrow{h_n\left[i\right]}h_{n}\left(\sX, \emptyset\right)\xrightarrow{h_n\left[j\right]}\\
+%		h_{n}\left(\sX, \A\right)\xrightarrow{\partial_{n}\left(\sX, \A\right)}
+%		\eean
+%		is exact where $i: \left(\A, \emptyset\right)\to \left(\sX, \emptyset\right)$ and $j: \left(\sX, \A\right)\to \left(\sX, \emptyset\right)$ are the inclusions.
+%		\item[(b)] Excision: for every pair $\left(\sX, \A\right)$ and open subset $\sU\in \A$ with $\overline{   \mathcal U }\subset \mathring{\A}$ the inclusion $j: \left(\sX\setminus \sU, \A\setminus \sU\right)\to \left(\sX, \A\right)$ induces an isomorphism $h_n\left[j\right]: h_n\left(\sX\setminus \sU, \A\setminus \sU\right)\to h_n\left(\sX, \A\right)$.
+%	\end{enumerate}
+	%\end{definition}
+Let $\mathscr {PT}$ be a category of pointed spaces and let $\mathscr {PT}'$ be a homotopy category-i.e. objects are as in $\mathscr {PT}$, morphisms are homotopy classes of maps. On $\mathscr {PT}'$ we have a suspension functor $S\left(\sX, x_0 \right)\bydef\left( S\sX, *\right)$ and $S\left[f \right]\bydef\left[Sf \right]   \bydef \left[1_{S^1} \wedge f\right]$ 
+\begin{definition}\label{top_red_homol_defn}
+A \textit{reduced homology theory} $k_*$ on $\mathscr {PT}'$ is a collection of functors $k_n: \mathscr {PT}'\to \mathscr A$ to the category of Abelian groups and natural equivalences $\sigma_n: k_n \to k_{n+1}\circ S$, satisfying
 	\begin{enumerate}
-		\item [(a)] Exactness: for every pair $\left(\sX, \A\right)\in\mathscr T^2~'$ the sequence
+			\item [(a)] \textit{Exactness}: for every pointed pair $\left(\sX, \A, x_0\right)$ with inclusions $\iota:\left( \sX, x_0\right) \to \left( \sX_0\right)$ and $j : \left( \sX\cup C\A, *\right)$ the sequence 
 		\bean
-		...\to h_{n+1}\left(\sX, \A\right)\xrightarrow{\partial_{n+1}\left(\sX, \A\right)} h_{n}\left(\A, \emptyset\right)\xrightarrow{h_n\left[i\right]}h_{n}\left(\sX, \emptyset\right)\xrightarrow{h_n\left[j\right]}\\
-		h_{n}\left(\sX, \A\right)\xrightarrow{\partial_{n}\left(\sX, \A\right)}
-		\eean
-		is exact where $i: \left(\A, \emptyset\right)\to \left(\sX, \emptyset\right)$ and $j: \left(\sX, \A\right)\to \left(\sX, \emptyset\right)$ are the inclusions.
-		\item[(b)] Excision: for every pair $\left(\sX, \A\right)$ and open subset $\sU\in \A$ with $\overline{   \mathcal U }\subset \mathring{\A}$ the inclusion $j: \left(\sX\setminus \sU, \A\setminus \sU\right)\to \left(\sX, \A\right)$ induces an isomorphism $h_n\left[j\right]: h_n\left(\sX\setminus \sU, \A\setminus \sU\right)\to h_n\left(\sX, \A\right)$.
+	k_n\left(\A, x_0\right)\xrightarrow{k_n\left[\iota\right]} k_n\left( \sX, x_0\right)\xrightarrow{k_n\left[j\right]} \left( \sX\cup C\A, *\right)	
+	\eean
+		is exact.
 	\end{enumerate}
-	
+
 \end{definition}
 
+\begin{proposition}
+There are natural transformations $\hat \partial_n $ and for each pointed pair $\left(\sX, \A, x_0\right)$ a long exact sequence
+		\bean
+	k_n\left(\A, x_0\right)\xrightarrow{k_n\left[\iota\right]} k_n\left( \sX, x_0\right)\xrightarrow{k_n\left[j\right]} \left( \sX\cup C\A, *\right)	
+\xrightarrow{\hat \partial_n\left(\sX, \A, x_0\right)}\\	\xrightarrow{\hat \partial_n\left(\sX, \A, x_0\right)}	k_{n-1}\left(\A, x_0\right)\xrightarrow{k_{n-1}\left[\iota\right]}...
+\eean
+\end{proposition}  
 \begin{definition}\label{top_hurewitz_defn}\cite{switzer:at}
 	% 7.39
-	Let $k_*$ be a homology theory. We define the \textit{Hurewicz homomorphism} 	$h:\pi_n\left(Y, y_0 \right)\to k_n\left(Y \right)$  to be the composite
+	Let $k_*$ be a reduced homology theory. We define the \textit{Hurewicz homomorphism} 	$h:\pi_n\left(Y, y_0 \right)\to k_n\left(Y \right)$  to be the composite
 	\be
 	\begin{split}
 		\pi_n\left(\sY, y_0 \right)\cong \left[S^n, s_0; \sY, y_0\right]\xrightarrow{k_n}\Hom\left(k_n\left(S^n \right),  k_n\left(\sY \right)\right) \xrightarrow{\Hom\left(\sigma^n, 1 \right) }\\
@@ -20650,7 +20815,7 @@ The space $D\left(M, E \right)$ is an algebra over $\C$ with the given by the co
 The notion of a distribution on smooth manifold $M$ is explained in 6.3.3 \cite{horm:I} and it is denoted by $\mathscr{D}'\left( M\right)$.
 However $\mathscr{D}'\left( M\right)$ is not equal to the space of linear forms  $C_c\left( M\right) \cap \Coo\left(M \right)\to \C$.
 \begin{definition}\label{top_distr_dens_def}
-	If $M$ is a smooth manifold then a $\C$-valued linear form  $\Coo_c \left(M  \right)\bydef C_c\left( M\right) \cap \Coo\left(M \right)$ is said to be a \textit{distribution density}. The space of distribution densities will be denoted by $\Coo_c \left(M  \right)'$. Denote by 
+	If $M$ is a smooth manifold then a $\C$-valued linear form  $\Coo_c \left(M  \right)\bydef C_c\left( M\right) \cap \Coo\left(M \right)\to\C$ is said to be a \textit{distribution density}. The space of distribution densities will be denoted by $\Coo_c \left(M  \right)'$. Denote by 
 	\be\label{top_distr_dens_eqn}
 	\begin{split}
 	\left\langle \cdot, \cdot \right\rangle : \Coo_c \left(M  \right)'\times \Coo_c \left(M  \right) \to \C,\\
@@ -20718,6 +20883,7 @@ A principal fibre bundle will be denoted by $P\left( M, G, \pi\right), ~ P\left(
 \end{enumerate}
 \paragraph*{}
 Let $P = M \times G$ be a trivial principal bundle. For each $a \in G$, the set $M \times \{a\}$ is a submanifold of $P$. The \text{canonical flat connection} in $P$ is defined by taking the tangent space to $M \times \{a\}$ at $u = \left(x, a \right)$ as the horizontal tangent subspace at $u$. A connection in any principal bundle is called \textit{flat} if every point has a neighborhood such that the induced connection in $P|_U = \pi^{-1}\left(U \right)$ is isomorphic with the canonical flat connection.
+
 \begin{cor}\label{dg_flat_cor}(Corollary II 9.2 \cite{kobayashi_nomizu:diff_geom})
 	Let $\Ga$ be a connection in $P\left(M, G \right)$ such that the curvature vanishes identically. If $M$ is paracompact and simply connected, then $P$ is isomorphic to the trivial bundle and $\Ga$ is isomorphic to the canonical flat connection in $M \times G$.
 \end{cor}
@@ -20748,7 +20914,7 @@ If $\Ga$ is flat then from the Proposition (II 9.3 \cite{kobayashi_nomizu:diff_g
 	If $\pi_1\left(M, x_0 \right)$ is the fundamental group \cite{spanier:at} then there is the canonical surjective homomorphism $\pi_1\left(M, x_0 \right) \to G\left( \left.\widetilde{M}~\right|M\right)$. So there exist the composition $\pi_1\left(M, x_0 \right) \to G\left( \left.\widetilde{M}~\right|M\right) \to G$. It follows that any flat connection comes from the homomorphisms $\pi_1\left(M, x_0 \right) \to G$. 
 \end{remark} 
 \paragraph*{}
-Suppose that there is the right action of $G$ on $P$ and suppose that $F$ is a manifold with the left action of $G$. There is an action of $G$ on $P \times F$ given by $a\left( u, \xi\right) = \left(u a, a^{-1}\xi \right)$ for any $a \in G$ and $\left( u, \xi\right) \in P\times F$. The quotient space $P \times_G F = \left(P \times F \right)/G$ has the natural structure of a manifold and if $E =  P \times_G F$ then $E\left(M, F, G, P \right)$ is said to be the \textit{fibre bundle over the base $M$, with (standard) fibre $F$, and (structure) group G which is associated with the principal bundle P} (cf. \cite{kobayashi_nomizu:diff_geom}). If $P = M \times G$ is the trivial bundle then $E$ is also trivial, that is, $E = M \times F$. If $F = \C^n$ is a vector space and the action of $G$ on $\C^n$ is a linear representation of the group then $E$ is the linear bundle. Denote by $T\left(M \right)$ (resp. $T^*\left(M \right)$) the tangent  (resp. contangent) bundle, and denote by $\Ga\left( E\right)$, $\Ga\left(T\left(M \right)\right)$, $\Ga\left(T^*\left(M \right)\right)$ the spaces of sections of $E$, $T\left(M \right)$, $T^*\left(M \right)$ respectively. Any connection $\Ga$ on $P$ gives a covariant derivative  on $E$, that is,
+Suppose that there is the right action of $G$ on $P$ and suppose that $F$ is a manifold with the left action of $G$. There is an action of $G$ on $P \times F$ given by $a\left( u, \xi\right) = \left(u a, a^{-1}\xi \right)$ for any $a \in G$ and $\left( u, \xi\right) \in P\times F$. The quotient space $P \times_G F = \left(P \times F \right)/G$ has the natural structure of a manifold and if $E =  P \times_G F$ then\\ $E\left(M, F, G, P \right)$ is said to be the \textit{fibre bundle over the base $M$, with (standard) fibre $F$, and (structure) group G which is associated with the principal bundle P} (cf. \cite{kobayashi_nomizu:diff_geom}). If $P = M \times G$ is the trivial bundle then $E$ is also trivial, that is, $E = M \times F$. If $F = \C^n$ is a vector space and the action of $G$ on $\C^n$ is a linear representation of the group then $E$ is the linear bundle. Denote by $T\left(M \right)$ (resp. $T^*\left(M \right)$) the tangent  (resp. contangent) bundle, and denote by $\Ga\left( E\right)$, $\Ga\left(T\left(M \right)\right)$, $\Ga\left(T^*\left(M \right)\right)$ the spaces of sections of $E$, $T\left(M \right)$, $T^*\left(M \right)$ respectively. Any connection $\Ga$ on $P$ gives a covariant derivative  on $E$, that is,
 for any section  $X \in \Ga\left( T\left(M \right)\right) $ and any section $\xi \in \Ga\left( E\right)$ there is the derivative given by
 \be\nonumber
 \nabla_X\left( \xi\right) \in \Ga\left( E\right).
@@ -20906,70 +21072,7 @@ gHg^{-1} = H
 	\end{definition}
 	
 	\chapter{Functional analysis}
-	\section{Hahn-Banach theorem}
-	
-	
-	\begin{theorem}\label{hb_thm}\cite{rudin:fa}
-		%	3.2 Theorem
-		Suppose 
-		\begin{enumerate}
-			\item [(a)] $M$ is a subspace of a real vector space $X$,
-			\item [(b)] $p: X \to \R$ satisfies 
-			\bean
-			\forall x, y \in X, \quad t \in \R \quad t \ge 0 \quad p\left(x+y \right)\le p\left(x \right)+p\left(y \right) \quad p\left( tx\right) = tp\left(x \right).
-			\eean 
-			\item[(c)] $f:M\to\R$ is linear and $ f\left(x\right)\le p\left(x \right)$ on $M$. 
-		\end{enumerate}
-		Then there exists a linear $\La : X \to \R$  such that $$
-		\La x =f(x)\quad (x \in M) 
-		$$
-		and 
-		$$
-		-p(-x) \le \La x \le p(x) \quad (x\in X). 
-		$$
-	\end{theorem}
-	\begin{proof}
-		If $M\neq X$, choose $x_1 \in X\setminus M$, and define 
-		$$
-		M_1 \bydef \left\{ x + tx_1 \left| x \in M \quad t\in \R\right.\right\}.
-		$$
-		It is clear that $M_1$ is a vector space. Since 
-		$$
-		f(x) +f(y) =f(x + y) \le p(x + y)\le p(x- x_1) + p(x_1 - y)
-		$$
-		we have 
-		\begin{equation}
-			\tag{A}
-			f(x)-p(x-x_1)\le p(y + x_1)-f(y) \quad(x, y \in M). 
-		\end{equation}
-		Let $\a$ be the least upper bound of the left side of (A), as $x$ ranges over 
-		$M$. Then 
-		\begin{equation}
-			\tag{B}
-			f(x) + \a < p\left(x - x_1\right)  \quad(x, y \in M). 
-		\end{equation}
-		and 
-		\begin{equation}
-			\tag{C}
-			f(y) +\a \le <p(y + x_1)  \quad(x \in M). 
-		\end{equation}
-		Define $f_1$ on $M_1$ by 
-		\begin{equation}
-			\tag{D}
-			f(x + tx_1) =f(x) + t\a \quad (x\in M,t \in \R).
-		\end{equation}
-		
-		Then $f_1 = f$ on $M$, and $f_1$ is linear on $M$. 
-		Take $t> 0$, replace $x$ by $t^{-1}x$ in (B), replace $y$ by $t^{-1}y$ in (C), and 
-		multiply the resulting inequalities by $t$. In combination with (D), this 
-		proves that $f_1 \le p$ on $M$,. 
-		The second part of the proof can be done by whatever one's 
-		favorite method of transfinite induction is; one can use well-ordering, 
-		or Zorn's lemma, or Hausdorff's maximality theorem (cf. \cite{rudin:fa} for details).
-		%											Let ^ be the collection of all ordered pairs {M',f'), where M' is 												a subspace of X that contains M and /' is a linear functional on M' 												that extends/and satisfies/' < p on M'. Partially order ^ by  												declaring (M',/') < {M",f") to mean that M' c M" and/" =/' on M'. By 													Hausdorff's maximality theorem there exists a maximal totally 													ordered subcoUection Q of ^. 													Let O be the collection of all M' such that (M',/') e Q. Then O is 													totally ordered by set inclusion, and the union M of all members of O 													is therefore a subspace of X. If x e M then x e M' for some M' e O; 													define Ax =/'(x), where/' is the function which occurs in the pair 													(M',/') e Q. 													It is now easy to check that A is well defined on M, that A is 													linear, and that A < p. If M were a proper subspace of X, the first 													part of the proof would give a further extension of A, and this would 													contradict the maximality of Q. Thus M = X.													Finally, the inequality A < p implies that 													-p(-x) < -A(-x) = Ax 													for all X e X. This completes the proof. //// 
-			\end{proof}
-			
-	\section{Weak topologies}
+\section{Weak topologies}
 	
 	\begin{definition}\label{w_topology_defn}\cite{rudin:fa}
 		Suppose $X$ is a topological vector space (with topology $\tau$) whose dual $X^*$ separates points on $X$.   The $X^*$-topology (cf. Definition \ref{f_topology_defn}) of $X$ is called the 
@@ -21047,7 +21150,7 @@ gHg^{-1} = H
 		(Tx, y)_\H=(x, Ty)_\H.
 		\ee
 	\end{definition}
-	\begin{lemma}
+	\begin{lemma}\cite{kreyszig:fa}
 		%10.2-4 Lemma (Symmetric operator). 
 		A densely defined linear operator
 		$T$ in a complex Hilbert space H is symmetric if and only if
@@ -21069,7 +21172,7 @@ gHg^{-1} = H
 		%10.3á1 Definition (Closed linear operator). 
 		Let $T: \D\left( T\right)\to\H$ be a
 		linear operator, where $\D\left( T\right)\subset\H$) and $\H$ is a complex Hilbert space.
-		Then $T$ is called a closed linear operator if its graph
+		Then $T$ is called a \textit{closed linear operator} if its graph
 		$$
 		\G\left(T\right)\bydef\left\{\left(x, y \right) \in \H\times \H\left|\right.x \in \D\left( T\right), \quad y = Tx\right\}
 		$$
@@ -21138,7 +21241,7 @@ gHg^{-1} = H
 	\begin{equation*}
 		\widehat{fg}\left(p\right) = \sum_{r +s = p}\widehat{f}\left(r\right)\widehat{g}\left(s\right).
 	\end{equation*}
-	The inverse Fourier transformation $\mathcal{F}^{-1}_\T:\sS\left(\mathbb{Z}^n\right)\xrightarrow{\approx} \Coo\left(\mathbb{T}^n\right)$;  $ \widehat{f}\mapsto f$ is given by
+	The inverse Fourier transformation $\mathcal{F}^{-1}_\T:\sS\left(\mathbb{Z}^n\right)\xrightarrow{\approx} \Coo\left(\mathbb{T}^n\right)$;  $\quad \widehat{f}\mapsto f$ is given by
 	$$
 	f\left(x \right) =\mathcal{F}^{-1}_\T \widehat f\left( x\right)  = \sum_{p \in \Z^n} \widehat f\left( p\right)   e^{ 2\pi i x \cdot p}.
 	$$
@@ -21334,15 +21437,12 @@ In \cite{bogachev_measure_v2} the space of $C_c\left( \sX\right)$ is denoted by 
 		Let $A$ be a $C^*$-algebra. The described in the Example \ref{unitization_exm} unitization   $\iota: A \hookto B$  is called \textit{minimal}.
 	\end{definition}
 	\begin{definition}\label{multiplier_max_defn}\cite{rae:ctr_morita}
-		A unitization   $\iota: A \hookto B$  is called \textit{maximal} if for every embedding $j: A\hookto C$ of $A$ as an essential ideal of a $C^*$-algebra $\phi: C\to B$ such that $\phi \circ j = \iota$. 
+		A unitization   $\iota: A \hookto B$  is called \textit{maximal} if for every embedding $j: A\hookto C$ of $A$ as an essential ideal of a $C^*$-algebra there is a *-homomorphism $\phi: C\to B$ such that $\phi \circ j = \iota$. 
 	\end{definition}
 	
 	\begin{rem}\label{multiplier_rem}
 		It is proven in \cite{rae:ctr_morita} that for any $C^*$-algebra $A$ there unique maximal unitization.
 	\end{rem}
-\begin{remark}\label{a_plus_rem}
-If $A$ is a *-algebra then the equation \eqref{a_plus_eqn} yields a *-algebra $A^+\cong A\oplus \C$ where $\cong$ is a isomorphism of $\C$-spaces. 
-\end{remark}
 	
 	\begin{definition}\label{multiplier_defn}\cite{murphy,pedersen:ca_aut}
 		We say that the maximal unitization of $A$ is the \textit{multiplier algebra} of $A$ and denote it by $M\left( A\right)$. 
@@ -22607,7 +22707,7 @@ There are alternative equivalent definitions {continuous-trace} $C^*$-{algebras}
 	\be\label{ctr_open_id_eqn}
 	\sU \leftrightarrow 	A|_{\mathcal U}.
 	\ee
-	On the other it is proven in \cite{rae:ctr_morita} that any separable $C^*$-algebra $A$ with Hausdorff spectrum is $CCR$-algebra. From the Theorem \ref{ctr_hat_check_thm} it turns out that the spectrum of $A$ coincides with its primitive spectrum.  So  the equation \ref{ctr_open_id_eqn} establishes the one-to-one correspondence with the ideals of $A$ and opens sets of the spectrum of $A$.
+	On the other it is proven in \cite{rae:ctr_morita} that any separable $C^*$-algebra $A$ with Hausdorff spectrum is $CCR$-algebra. From the Theorem \ref{ctr_hat_check_thm} it turns out that the spectrum of $A$ coincides with its primitive spectrum.  So  the equation \ref{ctr_open_id_eqn} establishes the one-to-one correspondence with the ideals of $A$ and open sets of the spectrum of $A$.
 \end{remark}
 
 \begin{lemma}\label{ctr_fact_lem}\cite{rae:ctr_morita}
@@ -23064,7 +23164,7 @@ K_1\left(J \right) \xrightarrow{\iota_*}K_1\left(A \right) \xrightarrow{\pi} K_1
 \ee
 (cf. \cite{blackadar:ko})
 \begin{definition}\cite{blackadar:ko}%	Definition 8.3.1.
-	 $~$Let $u \in  GL_n(A/J)$, and let $w \in GL_{2n}(A)$ be a lift of $\mathrm{diag}(u,u^{-1})$. Define $\partial([u]) = \left[wp_nw^{-1}\right]- \left[p_n\right]\in K0(J)$. The map $\partial$ is called the \textit{index map}.
+	 $~$Let $u \in  GL_n(A/J)$, and let $w \in GL_{2n}(A)$ be a lift of $\mathrm{diag}(u,u^{-1})$. Define $\partial([u]) = \left[wp_nw^{-1}\right]- \left[p_n\right]\in K_0(J)$. The map $\partial$ is called the \textit{index map}.
 \end{definition}
 \begin{empt}\label{v_lift_empt}\cite{blackadar:ko}
 %	8.3.2. The map @ is called the index map. The reason is the following. 
@@ -23276,7 +23376,7 @@ On the other hand  the equation \eqref{free_spec_eqn} comes from \eqref{uct_eqn}
 	\begin{equation}\nonumber
 		\mathrm{Hom}(G, \mathbb{Z}) =  \mathrm{Hom}(G / G_{tors}, \mathbb{Z})).
 	\end{equation}
-	From (\ref{uct_c}) it follows that $K^1(A)$ depends on $K_0(A)_{tors}$ and $K_1(A)/K_1(A)_{tors}$. We say that dependence(\ref{uct_c}) on $K_0(A)_{tors}$ is a {\it torsion special case} and dependence (\ref{free_spec_eqn}) of $K^1(A)$ on $K_1(A)/K_1(A)_{tors}$ is a {\it free special case}.
+	From (\ref{uct_c}) it follows that $K^1(A)$ depends on $K_0(A)_{tors}$ and $K_1(A)/K_1(A)_{tors}$. We say that dependence \eqref{uct_c} on $K_0(A)_{tors}$ is a {\it torsion special case} and dependence (\ref{free_spec_eqn}) of $K^1(A)$ on $K_1(A)/K_1(A)_{tors}$ is a {\it free special case}.
 	
 %	\subsection{Mappng cones and Puppe sequences}
 %\begin{defn}\cite{blackadar:ko}
@@ -23383,7 +23483,7 @@ Inverse limits of $C^*$ are specializations of the explained  in \ref{proj_sys_s
 	changes to make it more suitable for our purposes. If $G$ is any set, we denote by
 	$F(G)$ the free associative complex *-algebra (without identity) on the set $G$. Thus,
 	$F(G)$ consists of all polynomials in the noncommuting variables $C \coprod G^*$ (disjoint union), with complex coefficients and no constant term. By definition, any function
-	$p$ from $G$ to a $C^*$-algebra A extends to a unique *-homomorphism, which we also
+	$p$ from $G$ to a $C^*$-algebra $A$ extends to a unique *-homomorphism, which we also
 	call $p$, from $F(G)$ to $A$.
 	\newline
 	A set $R$ of relations on $G$ is a collection of statements about the
@@ -23391,14 +23491,14 @@ Inverse limits of $C^*$ are specializations of the explained  in \ref{proj_sys_s
 	include statements of the form "$\|x\| \in S$"', where $x \in F(G)$ and $S \in \mathbb{R}$, "$x$ is
 	positive," or the statement that some equation in the variables $G \coprod G^*$ and some unknowns has a solution, or that some function from a topological space into $G$ is
 	continuous. Note that Blackadar considers only relations of the form $\|x\| \le \eta$ for $\eta > 0$ and $x$ in the unitization $F(G)^+$ of $F(G)$. (We do not allow relations involving
-	elements of $F(G)^+-F(G)$ because they do not make sense in a nonunital $C^*$-
+	elements of $F(G)^+=F(G)$ because they do not make sense in a nonunital $C^*$-
 	algebra. However, it is perfectly possible for $R$ to include the relations $eg = ge „ g$
 	for some fixed $e \in G$ and all $g \in G \coprod G^*$.)
 	\begin{defn}
 		Let $(G,R)$ be a set of generators and relations.
-		(That is, $G$ is a set and $R$ is a set of relations on $G$.) Then a representation of
+		(That is, $G$ is a set and $R$ is a set of relations on $G$). Then a representation of
 		$(G,R)$ in a $C^*$-algebra $A$ is a function $\rho : G \to A$ such that the elements $\rho(g)$ for $g \in G$ satisfy the relations $R$ in $A$. A representation on a Hilbert space $\H$ is a
-		representation in $L(\H)$.
+		representation in $B(\H)$.
 	\end{defn} 
 	\begin{defn}\label{adm_gr_defn}
 		(Compare \cite{blackadar:shape_theory}). A set $(G,R)$ of generators and
@@ -23410,7 +23510,7 @@ Inverse limits of $C^*$ are specializations of the explained  in \ref{proj_sys_s
 			\item If $\rho$ is a representation of $(G,R)$ in a $C^*$-algebra $A$, and if $B$ is a $C^*$-subalgebra of $A$ which contains $\rho(G)$, then $\rho$ is a representation of $(G,R)$ in $B$.
 			\item If $\rho$ is a representation of $(G, R)$ in a $C^*$-algebra $A$, and if $\psi: A\to B$ is a surjective homomorphism, then $\psi \circ \rho$ is a representation of $(G, R)$ in $B$.
 			\item For every $g \in G$ there is a constant $M(g)$ such that $\|\rho (g) \| < M(g)$ for all representations $p$ of $(G, R)$.
-			\item If $\{\rho_{\alpha}\}$ is a family of representations of $(G, R)$ on Hilbert spaces $\H_{\alpha}$ then $g \mapsto \rho(g)=\oplus_{\alpha}\rho_{\alpha}(g)$   is a representation of $(G, R)$ on $H= \oplus \H_{\alpha}$. (That is, the elements $\rho(g)$, which are in $B(\H)$ by (4), in fact satisfy the relations $R$.)
+			\item If $\{\rho_{\alpha}\}$ is a family of representations of $(G, R)$ on Hilbert spaces $\H_{\alpha}$ then $g \mapsto \rho(g)=\oplus_{\alpha}\rho_{\alpha}(g)$   is a representation of $(G, R)$ on $\H= \oplus \H_{\alpha}$. (That is, the elements $\rho(g)$, which are in $B(\H)$ by (4), in fact satisfy the relations $R$.)
 		\end{enumerate}
 	\end{defn}
 	Note that, in the presence of (3), condition (1) is equivalent to "there
@@ -23553,7 +23653,7 @@ p_K\left(a\right)\bydef\max_{ x \in  K}\left| a\left( x \right)  \right|.
 %1.5.7 DEFINITION. 
 Let $A$ be a pro-$C^*$-algebra. Then the \textit{abelianization} of $A$ is the Hausdorff completion of $A$ in the topology determined by all 
 continuous $C^*$-seminorms which vanish on the closed ideal $[A, A]$ generated by all 
-commutators $xy Ñ yx$ for $x,y \in  A$. 
+commutators $xy - yx$ for $x,y \in  A$. 
 The abelianization can also be described as the completion of $A/[A, A]$ 
 with respect to the quotient topology, or as the inverse limit $\varprojlim A_p/[A_p, A_p]$. It is 
 the largest abelian quotient of $A$. 	
@@ -23609,11 +23709,10 @@ however, that $\Om C\left(\sX\right)$ is essentially never commutative, because 
 homomorphisms $ev_\xi : A \to \Sigma B$ to commute with each other.
 \end{remark}
 	\section{Local operator spaces}
-	\begin{definition}\label{local_ca_defn}\cite{blackadar:ko}
+%	\begin{definition}\label{local_ca_defn}\cite{blackadar:ko}
 %3.1.1. 
-A local Banach algebra is a normed algebra $A$ which is closed under holomorphic functional calculus (i.e. if $x\in A$ and $f$ is an analytic function on a neighborhood of the spectrum of $x$ \textit{in the completion of $A$}, with $f(0) = 0$ if $A$ is nonunital, then $f(x) \in A$.) For technical reasons we will also require that all matrix algebras over $A$ have the same property. If $A$is a $*$-algebra, it will be called a \textit{local Banach $*$-algebra}; if the norm is a pre-$C^*$-norm, $A$ will be called a \textit{local 
-$C^*$-algebra}. 
-	\end{definition}
+%A local Banach algebra is a normed algebra $A$ which is closed under holomorphic functional calculus (i.e. if $x\in A$ and $f$ is an analytic function on a neighborhood of the spectrum of $x$ \textit{in the completion of $A$}, with $f(0) = 0$ if $A$ is nonunital, then $f(x) \in A$.) For technical reasons we will also require that all matrix algebras over $A$ have the same property. If $A$is a $*$-algebra, it will be called a \textit{local Banach $*$-algebra}; if the norm is a pre-$C^*$-norm, $A$ will be called a \textit{local $C^*$-algebra}. 
+%	\end{definition}
 	\begin{definition}\label{loc_op_sp_defn}\cite{dosi:multi,effros:loc_conv}
 		Let $X$ be a linear space and let
 		$p^{n} :\mathbb{M}_n(X)\to\left[0, \infty\right]$, $n \in \N$, be gauges (respectively, seminorms) over all matrix spaces. The
@@ -23807,7 +23906,7 @@ $C^*$-algebra}).
 	$$
 	p_\xi(X)\bydef \left\| X\xi\right\|  + \left\| X^\dagger\xi\right\| \quad \xi\in \D, \quad  X\in \L^\dagger\left( \D, \H\right),
 	$$
-	then $\left(\L^\dagger\left( \D, \H\right)\left[\mathrm{t}_{s^*}\right],\L\dagger(D)_b)\right)$ is a locally convex quasi ?-algebra or, more precisely, a \textit{locally convex quasi $C^*$-normed algebra}.
+	then $\left(\L^\dagger\left( \D, \H\right)\left[\mathrm{t}_{s^*}\right],\L\dagger(D)_b)\right)$ is a locally convex quasi *-algebra or, more precisely, a \textit{locally convex quasi $C^*$-normed algebra}.
 	If $\L^\dagger\left( \D, \H\right)$ is endowed with the weak topology $\mathrm{t}_w$ defined by the set of seminorms
 	$$
 	p_{\xi,\eta}(X)\bydef \left| \left(X\xi, \eta \right) \right|   \quad \xi, \eta\in \D, \quad  X\in \L^\dagger\left( \D, \H\right),
@@ -24380,7 +24479,7 @@ where $\pi: A \hookto B\left(\H\right)$ is any faithful representation, $\wideti
 		$q = q^2 = q^* \in \sA$ such that $\|q - \tilde{q}\| < \eps$.
 	\end{lem}
 	\begin{theorem}\label{smooth_k_iso_thm}\cite{varilly_bondia}
-		If $\sA$ is  a Fr\'echet pre-$C^*$-algebra with $C^*$-completion $A$, then the inclusion $j: \A \to A$ induces an isomorphism $K_0j: K_0\left(\A\right)\to K_0\left(A\right)$.
+		If $\sA$ is  a Fr\'echet pre-$C^*$-algebra with $C^*$-completion $A$, then the inclusion $j: \A \to A$ induces an isomorphism $K_0\left( j\right) : K_0\left(\A\right)\to K_0\left(A\right)$.
 	\end{theorem}
 	\begin{remark}\label{smooth_k_iso_rem}
 		The $K_0$-symbol in the above Theorem is the $K_0$-functor of $K$-theory (cf. \cite{bass,blackadar:ko}). The $K_0$-functor is related to projective finitely generated modules. Otherwise any projective finitely generated module corresponds to the idempotent of the matrix algebra. The idea of the proof of the Theorem \ref{smooth_k_iso_thm} contains following ingredients:
@@ -25098,12 +25197,12 @@ A^{\infty}$.
 	a topological space $\sX$ is a \textit{sheaf}  if it satisfies the following supplementary conditions:
 	\begin{itemize}
 		\item[(3)] If $\sU$ is an open set, if $\left\{\sV_{\a}\right\}$ is an open covering of $\sU$, and if $s \in \mathscr F\left(\sU\right)$ is an element such that $\left.s\right|_{\sV_{\a}}= 0$ for all $\a$, then $s = 0$;
-		\item[(4)] If $\sU$ is an open set, if $\left\{\sV_{\a}\right\}$ is an open covering of $\sU$, and we have elements $s_\a$ for each $\a$, with property that for each $\al, \bt, \left.s_\a\right|_{\sV_{\a}\cap \sV_{\bt}}= \left.s_\a\right|_{\sV_{\bt}\cap \sV_{\bt}}$, then there is an element $s \in \mathscr F\left(\sV\right)$ such that $\left.s\right|_{\sV_\a} = s_\a$ for each $\a$.
+		\item[(4)] If $\sU$ is an open set, if $\left\{\sV_{\a}\right\}$ is an open covering of $\sU$ (i.e. $\sU = \cup\sV_\a$), and we have elements $s_\a$ for each $\a$, with property that for each $\al, \bt, \left.s_\a\right|_{\sV_{\a}\cap \sV_{\bt}}= \left.s_\bt\right|_{\sV_{\a}\cap \sV_{\bt}}$, then there is an element $s \in \mathscr F\left(\sU\right)$ such that $\left.s\right|_{\sV_\a} = s_\a$ for each $\a$.
 	\end{itemize}
 	(Note condition (3) implies that $s$ is unique.)
 \end{definition}
 %\begin{definition}
-%	A presheaf !!! DEFN \ref{top_x_sheaf_defn} satisfying (4) of the Definition \ref{sheaf_defn} is called \textit{conjunctive} (for $\sU$). (cf. \cite{bredon:sheaf})
+%	A presheaf \ref{top_x_sheaf_defn} satisfying (4) of the Definition \ref{sheaf_defn} is called \textit{conjunctive} (for $\sU$). (cf. \cite{bredon:sheaf})
 %\end{definition}
 \begin{definition}\label{stalk_defn}\cite{hartshorne:ag}
 	If $\mathscr F$ is a {presheaf} on $\sX$, and if $x$ is a point of $\sX$ we define the \textit{stalk} or the \textit{germ} $\mathscr F_x$ of $\mathscr F$ at $x$ to be the direct limit of groups $\mathscr F\left(\sU\right)$ for all open sets $\sU$ containing $x$, via restriction maps $\rho$.
@@ -25147,8 +25246,8 @@ of sheaves. An isomorphism is a morphism  which has a two-sided inverse.
 	\textit{
 		\'Espace Etal\'e of a Presheaf}. %(This exercise is included only to establish the connection between our definition of a sheaf and another definition often found in the literature. See for example Godement [1, Ch. II, ¤1.2].)
 	Given a presheaf $\mathscr F$ on $\sX$, we define a topological space $\mathrm{Sp\acute{e}}\left(\mathscr F \right)$ , called the \textit{
-		\'espace etal\'e} of a Presheaf of $\mathscr F$ as 
-	follows. As a set, $\mathrm{Sp\acute{e}}\left(\mathscr F \right)= \bigcup_{x\in\sX} \mathscr F_x$ We define a projection map $p: \mathscr \mathrm{Sp\acute{e}}\left(\mathscr F \right)$
+		\'espace etal\'e} of a presheaf of $\mathscr F$ as 
+	follows. As a set, $\mathrm{Sp\acute{e}}\left(\mathscr F \right)= \bigcup_{x\in\sX} \mathscr F_x$. We define a projection map $p: \mathscr \mathrm{Sp\acute{e}}\left(\mathscr F \right)$
 	by sending $s_x\in \mathscr F_x$ to $x$. For each open set $\sU\subset\sX$ and each section $s\in \mathscr F\left(\sU \right)$  we 
 	obtain a map: $\overline{s}: \sU \to  \mathrm{Sp\acute{e}}\left(\mathscr F \right)$ by sending $x \mapsto s_x$, its germ at $x$. This map has the property that 
 	$p\circ \overline{s}= \Id_\sX$, in other words, it is a "section" of $p$ over $\sU$. We now 
@@ -25306,7 +25405,7 @@ S\cap T = \emptyset \quad \Rightarrow \quad \exists s \in \mathscr{ A}\left( \sU
 
 \section{Sheaves over non Hausdorff spaces}\label{sheaves_nh_sec}
 \begin{empt}\label{nh_csoft_empt}\cite{cra_moe:nhaus}
-	Here we assume that the space $\sX$ has an open cover by subsets $\sU \subset \sU$ which are each paracompact, Hausdorff, locally compact and of cohomological dimension bounded a number $d$ (depending  on $\sX$ but not $\sU$).	
+	Here we assume that the space $\sX$ has an open cover by subsets $\sU \subset \sX$ which are each paracompact, Hausdorff, locally compact and of cohomological dimension bounded a number $d$ (depending  on $\sX$ but not $\sU$).	
 \end{empt}
 
 \begin{definition}\label{nh_csoft_defn}\cite{cra_moe:nhaus}
@@ -25327,9 +25426,7 @@ S\cap T = \emptyset \quad \Rightarrow \quad \exists s \in \mathscr{ A}\left( \sU
 	Let  $\mathscr{F}$ be a $c$-soft sheaf. For any open cover $\sU = \cup \mathcal W_\a$ where each $\mathcal W_\a$ is Hausdorff the sequence $\oplus_\a \Ga_c\left(\mathcal W_\a,  \mathscr{F}\right) \to \Ga_c\left(\mathcal U,  \mathscr{F}\right)\to 0$ is exact.  
 \end{proposition}
 
-
-	
-	\chapter{Groupoids foliations, pseudogroups and operator algebras}\label{foliations_sec}
+\chapter{Groupoids foliations, pseudogroups and operator algebras}\label{foliations_sec}
 		\section{Groupoids}
 	\paragraph*{}
 	A groupoid is a small category with inverses, or more explicitly:
@@ -25369,68 +25466,70 @@ S\cap T = \emptyset \quad \Rightarrow \quad \exists s \in \mathscr{ A}\left( \sU
 		is said to be the \textit{reduced algebra} of $\G$. It will be denoted by $C^*_r\left(\G\right)$.
 	\end{definition}
 	
+	\section{Groupoids and $C^*$-algebras}
+\paragraph*{}
+Here I follow to \cite{brown:proper_groupoids}.
+\begin{subsection}{$C_0\left(\sX\right)$-algebras}
+	\paragraph*{}
+	Groupoids must act on fibred objects, so to construct an appropriate notion of a groupoid dynamical system we need to have fibred $C^*$-algebras.  To that end, given a locally compact Hausdorff space $\sX$, a \emph{$C_0\left(\sX\right)$-algebra} is a $C^*$-algebra $A$ together with a nondegenerate homomorphism of $C_0\left(\sX\right)$ into the center  $Z(M(A))$ of $M\left(A\right)$. $C_0\left(\sX\right)$-algebras are well studied objects in their own right, but for our needs it is enough to know that they have an associated fibred structure.  Specifically, if $C_{0,x}\left(\sX\right)$ is the set of functions in $C_0\left(\sX\right)$ vanishing at $x\in \sX$, then $I_x:=\overline{C_{0,x}\left(\sX\right)\cdot A}$ is an ideal in $A$ and $A(x):=A/I_x$ is called the fibre of $A$ over $x$.  The image of $a$ in $A(x)$ is denoted by $a(x)$, and the set $\{A(x):x\in \sX\}$ gives rise to an \emph{upper semicontinuous $C^*$-bundle} $\A$ over $\sX$ \cite[Theorem C.26]{TFB2}. 
+	
+	\begin{defn}Let $\sX$ be a locally compact Hausdorff space, an {\emph{upper semicontinuous $C^*$-bundle}} over $\sX$ is a topological space $\A$ together with a continuous open surjection $p=p_{\A}:\A\rightarrow \sX$ such that  each fibre $A(x):=p^{-1}(\{x\})$ \index{$A(x)$} is a $C^*$-algebra and $\A$ satisfies the following axioms:
+		\begin{enumerate}
+			\item[B1] The map $a\mapsto \|a\|$ is upper semicontinuous from $\A$ to $\R^+$  (That is, for all $\epsilon>0$, $\{a\in \A: \|a\|<\epsilon\}$ is open),
+			\item[B2] The maps $(a,b)\mapsto a+b$ and $(a,b)\mapsto ab$ are continuous from $\A\times\A$ to $\A$,
+			\item[B3] For each $k\in\C$, the maps $a\mapsto ka$ and $a\mapsto a^*$ are continuous from $\A$ to $\A$, and 
+			\item[B4] If $\{a_i\}$ is a net in $\A$ such that $p(a_i)\rightarrow x$ and $\|a_i\|\rightarrow 0$, then $a_i\rightarrow 0_x$ (where $0_x$ is the zero element of $A(x)$).
+		\end{enumerate}
+		\label{defn usccb}\end{defn}
+	
+	The point is if we let $A=\Ga_0\left(\sX, \A\right)$ be the $C^*$-algebra of continuous sections of $\A$ vanishing at infinity then $A$ is a $C_0\left(\sX\right)$-algebra.  Throughout this paper we will denote bundles by script letters $\A$ and the corresponding section algebras by the corresponding Roman letter $A$.  For a more detailed discussion of $C_0\left(\sX\right)$-algebras the reader is encouraged to see \cite[Appendix C]{TFB2}.  
+\end{subsection}
+\begin{subsection}{The Reduced Crossed Product}\label{sec red cross}
+	\begin{defn}\label{def dyn sys}Suppose that $G$ is a second countable locally compact groupoid  with Haar system $\haars$ and $\A$ is an upper semicontinuous $C^*$-bundle over $\units$. Suppose  the associated $C_0\left(\sX\right)$-algebra, $A=\Ga_0\left(G^0, \A\right)$ is separable. An action $\alpha$ of $G$ on $A$ is a family of $*$-isomorphisms $\{\alpha_{\gamma}\}_{\gamma\in G}$ such that 
+		\begin{enumerate}
+			\item\label{dyn sys rs} for each $\gamma\in G$, $\alpha_{\gamma}:A(s(\gamma))\rightarrow A(r(\gamma))$,
+			\item\label{dyn sys alg}for all $(\gamma,\eta)\in G^{(2)}$, $\alpha_{\gamma\eta}=\alpha_{\gamma}\circ\alpha_{\eta}$,
+			\item\label{dyn sys cts}the map $(\gamma, a)\mapsto \alpha_{\gamma}(a)$ is a continuous map from $G\times\A$ to $\A$.
+		\end{enumerate}
+		The triple $(\A,G,\alpha)$ is called a (groupoid) dynamical system.\end{defn}
+	
+	The point is that given a dynamical system, we can construct a convolution algebra which we then complete to obtain the reduced crossed product.  The remainder of this section is devoted to a sketch of this construction.  First we need the following definition.
+	\begin{defn}Let $(\A, G,\alpha)$ be a groupoid dynamical system, we define the pullback bundle of $\A$ to be
+		\begin{equation}\label{r*A}r^*\A:=\{(\gamma,a):r(\gamma)=p_{\A}(a)\}.\end{equation}\end{defn}
+	
+	\begin{prop}[{\cite[Proposition 4.4]{MW08}}]Let $G$ be a groupoid with Haar system $\haars$, if we define $\Gamma_c(G,r^*\A)$ to be the set of continuous compactly supported sections of $r^*\A$, then  $\Gamma_c(G,r^*\A)$ is a $*$-algebra with respect to the operations
+		\begin{equation*}f*g(\gamma):=\int_Gf(\eta)\alpha_{\eta}\left(g(\eta^{-1}\gamma)\right)d\haarv{}{r(\gamma)}(\eta) \text{~and~}f^*(\gamma)=\alpha_{\gamma}\left(f(\gamma^{-1})^*\right).\end{equation*}\label{eq conv struc}\end{prop}
+	
+	The goal is to complete this convolution algebra in the norm induced by regular representations. Since we use regular representations extensively in the sequel we will sketch their construction here.  To continue we need the notion of a Borel Hilbert bundle.  For our purposes a Borel Hilbert bundle $X*\mathfrak{H}$ over $\sX$ is bundle of Hilbert spaces $X*\mathfrak{H}=\{\mathcal{H}(x)\}_{x\in X}$ along with a Borel structure satisfying some technical conditions (see \cite[Definition F.1]{TFB2}). Given a measure $\mu$ on $\sX$ we can form the Hilbert space $L^2(X*\mathfrak{H}, \mu)$ in the obvious way.  This Hilbert space is just the direct integral $\int_X^{\oplus}\mathcal{H}(x)d\mu(x)$ and gives us the notion of a fibred Hilbert space that we need for groupoid representations. 
+	
+	Suppose $\pi$ is a (separable) $C_0(\units)$-linear representation of $A$ on $\mathcal{H}_{\pi}$.  Then by \cite[Proposition F.26]{TFB2} there exists a Borel Hilbert bundle $\units*\mathfrak{H}$, a measure $\mu_{\pi}=\mu$ on $\units$ (note: $\mu$ need not be quasi invariant) and a Borel family of representations $\{\pi_u\}_{u\in\units}$ of $A$ on $\mathcal{H}(u)$ such that $\pi$ is unitarily equivalent to the representation 
+	\begin{equation}\rho=\int_{\units}^{\oplus}\pi_u d\mu(u) \quad\text{given by}\quad\rho(a)h(u)=\pi_u(a)h(u).  \label{eq dir int}\end{equation}
+	It is not hard to see from the proof of \cite[Proposition F.26]{TFB2} that $I_u\subset\ker(\pi_u)$ $\mu$-almost everywhere so that $\pi_u$ descends to a well defined representation on $A(u)$.
+	Therefore
+	\begin{equation}\pi_u(a)h(u)=\pi_u(a(u))h(u) \quad\mu\text{-almost everywhere}.\label{eq piu well def}\end{equation}
+	We can then form the pull-back Hilbert bundle $s^*(\units*\mathfrak{H})=:G*_s\mathfrak{H}$ and  define the measure $\nu^{-1}=\int_{\units}\haarv{u}{}d\mu$ to form a new Hilbert space $L^2(G*_s\mathfrak{H},\nu^{-1})$.  Note that functions $h\in L^2(G*_s\mathfrak{H},\nu^{-1})$ have the property that $h(\gamma)\in \mathcal{H}(s(\gamma))$.  So that, 
+	\begin{equation}\label{eq def indpi}\Ind{}{}\pi(f)h(\gamma)=\int_G \pi_{s(\gamma)}\left(\alpha_{\gamma}^{-1}(f(\eta))\right)h(\eta^{-1}\gamma)\haarv{}{r(\gamma)}(\eta)\end{equation}
+	defines a representation of  $\Gamma_c(G, r^*\A)$ induced by $\pi$  on $L^2(G*_s\mathfrak{H},\nu^{-1})$.
+	We call these representations \emph{regular} and define the reduced norm on $\Gamma_c(G,r^*\A)$ to be 
+	\begin{equation}\|f\|_r:=\sup\{\|\Ind\pi(f)\|:
+		\pi \text{~is a $C_0(\units)$-linear representation of $A$}\}.\label{eq red norm}\end{equation}
+	
+	\begin{rem}This definition agrees with those given in \cite{Mcoord} and \cite{Ren80}, but is \emph{a priori} different from that given in \cite{AR00}.  We suspect that all of these definitions agree, but have yet to prove it.  But the set of regular representations used in \cite{AR00} is the subset of the regular representations defined above such that $\mu_{\pi}$ is a point mass measure. Thus $\|\cdot\|_r$ is greater than or equal to the norm $\|\cdot\|_{\text{red}}$ considered in \cite{AR00} which is enough for our purposes.\end{rem}
+	
+	As usual we can  define the reduced crossed product of a dynamical system $(\A,G, \alpha)$, denoted $\A\rtimes_{\alpha,r}G$, to be the completion of $\Gamma_c(G,r^*\A)$ in the norm $\|\cdot\|_r$.
+	
+	In this paper we will also use the $I$-norm on $\Gamma_c(G,r^*\A)$ given by 
+	$$\|f\|_I:=\max\left\{\sup\left\{\int\|f\|d\lambda_u\right\},\sup\left\{\int\|f\|d\lambda^u\right\}\right\}.$$
+	We denote the completion of $\Gamma_c(G,r^*\A)$ in this norm by $L^I(G,r^*\A)$.
+\end{subsection}
+
+
+
+
+
 	
 
-	\section{Groupoids and $C^*$-algebras}
-	\paragraph*{}
-	Here I follow to \cite{brown:proper_groupoids}.
-	\begin{subsection}{$C_0\left(\sX\right)$-algebras}
-		\paragraph*{}
-		Groupoids must act on fibred objects, so to construct an appropriate notion of a groupoid dynamical system we need to have fibred $C^*$-algebras.  To that end, given a locally compact Hausdorff space $\sX$, a \emph{$C_0\left(\sX\right)$-algebra} is a $C^*$-algebra $A$ together with a nondegenerate homomorphism of $C_0\left(\sX\right)$ into the center  $Z(M(A))$ of $M\left(A\right)$. $C_0\left(\sX\right)$-algebras are well studied objects in their own right, but for our needs it is enough to know that they have an associated fibred structure.  Specifically, if $C_{0,x}\left(\sX\right)$ is the set of functions in $C_0\left(\sX\right)$ vanishing at $x\in \sX$, then $I_x:=\overline{C_{0,x}\left(\sX\right)\cdot A}$ is an ideal in $A$ and $A(x):=A/I_x$ is called the fibre of $A$ over $x$.  The image of $a$ in $A(x)$ is denoted by $a(x)$, and the set $\{A(x):x\in \sX\}$ gives rise to an \emph{upper semicontinuous $C^*$-bundle} $\A$ over $\sX$ \cite[Theorem C.26]{TFB2}. 
-		
-		\begin{defn}Let $\sX$ be a locally compact Hausdorff space, an {\emph{upper semicontinuous $C^*$-bundle}} over $\sX$ is a topological space $\A$ together with a continuous open surjection $p=p_{\A}:\A\rightarrow \sX$ such that  each fibre $A(x):=p^{-1}(\{x\})$ \index{$A(x)$} is a $C^*$-algebra and $\A$ satisfies the following axioms:
-			\begin{enumerate}
-				\item[B1] The map $a\mapsto \|a\|$ is upper semicontinuous from $\A$ to $\R^+$  (That is, for all $\epsilon>0$, $\{a\in \A: \|a\|<\epsilon\}$ is open),
-				\item[B2] The maps $(a,b)\mapsto a+b$ and $(a,b)\mapsto ab$ are continuous from $\A\times\A$ to $\A$,
-				\item[B3] For each $k\in\C$, the maps $a\mapsto ka$ and $a\mapsto a^*$ are continuous from $\A$ to $\A$, and 
-				\item[B4] If $\{a_i\}$ is a net in $\A$ such that $p(a_i)\rightarrow x$ and $\|a_i\|\rightarrow 0$, then $a_i\rightarrow 0_x$ (where $0_x$ is the zero element of $A(x)$).
-			\end{enumerate}
-			\label{defn usccb}\end{defn}
-		
-		The point is if we let $A=\Ga_0\left(\sX, \A\right)$ be the $C^*$-algebra of continuous sections of $\A$ vanishing at infinity then $A$ is a $C_0\left(\sX\right)$-algebra.  Throughout this paper we will denote bundles by script letters $\A$ and the corresponding section algebras by the corresponding Roman letter $A$.  For a more detailed discussion of $C_0\left(\sX\right)$-algebras the reader is encouraged to see \cite[Appendix C]{TFB2}.  
-	\end{subsection}
-	\begin{subsection}{The Reduced Crossed Product}\label{sec red cross}
-		\begin{defn}\label{def dyn sys}Suppose that $G$ is a second countable locally compact groupoid  with Haar system $\haars$ and $\A$ is an upper semicontinuous $C^*$-bundle over $\units$. Suppose  the associated $C_0\left(\sX\right)$-algebra, $A=\Ga_0\left(G^0, \A\right)$ is separable. An action $\alpha$ of $G$ on $A$ is a family of $*$-isomorphisms $\{\alpha_{\gamma}\}_{\gamma\in G}$ such that 
-			\begin{enumerate}
-				\item\label{dyn sys rs} for each $\gamma\in G$, $\alpha_{\gamma}:A(s(\gamma))\rightarrow A(r(\gamma))$,
-				\item\label{dyn sys alg}for all $(\gamma,\eta)\in G^{(2)}$, $\alpha_{\gamma\eta}=\alpha_{\gamma}\circ\alpha_{\eta}$,
-				\item\label{dyn sys cts}the map $(\gamma, a)\mapsto \alpha_{\gamma}(a)$ is a continuous map from $G\times\A$ to $\A$.
-			\end{enumerate}
-			The triple $(\A,G,\alpha)$ is called a (groupoid) dynamical system.\end{defn}
-		
-		The point is that given a dynamical system, we can construct a convolution algebra which we then complete to obtain the reduced crossed product.  The remainder of this section is devoted to a sketch of this construction.  First we need the following definition.
-		\begin{defn}Let $(\A, G,\alpha)$ be a groupoid dynamical system, we define the pullback bundle of $\A$ to be
-			\begin{equation}\label{r*A}r^*\A:=\{(\gamma,a):r(\gamma)=p_{\A}(a)\}.\end{equation}\end{defn}
-		
-		\begin{prop}[{\cite[Proposition 4.4]{MW08}}]Let $G$ be a groupoid with Haar system $\haars$, if we define $\Gamma_c(G,r^*\A)$ to be the set of continuous compactly supported sections of $r^*\A$, then  $\Gamma_c(G,r^*\A)$ is a $*$-algebra with respect to the operations
-			\begin{equation*}f*g(\gamma):=\int_Gf(\eta)\alpha_{\eta}\left(g(\eta^{-1}\gamma)\right)d\haarv{}{r(\gamma)}(\eta) \text{~and~}f^*(\gamma)=\alpha_{\gamma}\left(f(\gamma^{-1})^*\right).\end{equation*}\label{eq conv struc}\end{prop}
-		
-		The goal is to complete this convolution algebra in the norm induced by regular representations. Since we use regular representations extensively in the sequel we will sketch their construction here.  To continue we need the notion of a Borel Hilbert bundle.  For our purposes a Borel Hilbert bundle $X*\mathfrak{H}$ over $\sX$ is bundle of Hilbert spaces $X*\mathfrak{H}=\{\mathcal{H}(x)\}_{x\in X}$ along with a Borel structure satisfying some technical conditions (see \cite[Definition F.1]{TFB2}). Given a measure $\mu$ on $\sX$ we can form the Hilbert space $L^2(X*\mathfrak{H}, \mu)$ in the obvious way.  This Hilbert space is just the direct integral $\int_X^{\oplus}\mathcal{H}(x)d\mu(x)$ and gives us the notion of a fibred Hilbert space that we need for groupoid representations. 
-		
-		Suppose $\pi$ is a (separable) $C_0(\units)$-linear representation of $A$ on $\mathcal{H}_{\pi}$.  Then by \cite[Proposition F.26]{TFB2} there exists a Borel Hilbert bundle $\units*\mathfrak{H}$, a measure $\mu_{\pi}=\mu$ on $\units$ (note: $\mu$ need not be quasi invariant) and a Borel family of representations $\{\pi_u\}_{u\in\units}$ of $A$ on $\mathcal{H}(u)$ such that $\pi$ is unitarily equivalent to the representation 
-		\begin{equation}\rho=\int_{\units}^{\oplus}\pi_u d\mu(u) \quad\text{given by}\quad\rho(a)h(u)=\pi_u(a)h(u).  \label{eq dir int}\end{equation}
-		It is not hard to see from the proof of \cite[Proposition F.26]{TFB2} that $I_u\subset\ker(\pi_u)$ $\mu$-almost everywhere so that $\pi_u$ descends to a well defined representation on $A(u)$.
-		Therefore
-		\begin{equation}\pi_u(a)h(u)=\pi_u(a(u))h(u) \quad\mu\text{-almost everywhere}.\label{eq piu well def}\end{equation}
-		We can then form the pull-back Hilbert bundle $s^*(\units*\mathfrak{H})=:G*_s\mathfrak{H}$ and  define the measure $\nu^{-1}=\int_{\units}\haarv{u}{}d\mu$ to form a new Hilbert space $L^2(G*_s\mathfrak{H},\nu^{-1})$.  Note that functions $h\in L^2(G*_s\mathfrak{H},\nu^{-1})$ have the property that $h(\gamma)\in \mathcal{H}(s(\gamma))$.  So that, 
-		\begin{equation}\label{eq def indpi}\Ind{}{}\pi(f)h(\gamma)=\int_G \pi_{s(\gamma)}\left(\alpha_{\gamma}^{-1}(f(\eta))\right)h(\eta^{-1}\gamma)\haarv{}{r(\gamma)}(\eta)\end{equation}
-		defines a representation of  $\Gamma_c(G, r^*\A)$ induced by $\pi$  on $L^2(G*_s\mathfrak{H},\nu^{-1})$.
-		We call these representations \emph{regular} and define the reduced norm on $\Gamma_c(G,r^*\A)$ to be 
-		\begin{equation}\|f\|_r:=\sup\{\|\Ind\pi(f)\|:
-			\pi \text{~is a $C_0(\units)$-linear representation of $A$}\}.\label{eq red norm}\end{equation}
-		
-		\begin{rem}This definition agrees with those given in \cite{Mcoord} and \cite{Ren80}, but is \emph{a priori} different from that given in \cite{AR00}.  We suspect that all of these definitions agree, but have yet to prove it.  But the set of regular representations used in \cite{AR00} is the subset of the regular representations defined above such that $\mu_{\pi}$ is a point mass measure. Thus $\|\cdot\|_r$ is greater than or equal to the norm $\|\cdot\|_{\text{red}}$ considered in \cite{AR00} which is enough for our purposes.\end{rem}
-		
-		As usual we can  define the reduced crossed product of a dynamical system $(\A,G, \alpha)$, denoted $\A\rtimes_{\alpha,r}G$, to be the completion of $\Gamma_c(G,r^*\A)$ in the norm $\|\cdot\|_r$.
-		
-		In this paper we will also use the $I$-norm on $\Gamma_c(G,r^*\A)$ given by 
-		$$\|f\|_I:=\max\left\{\sup\left\{\int\|f\|d\lambda_u\right\},\sup\left\{\int\|f\|d\lambda^u\right\}\right\}.$$
-		We denote the completion of $\Gamma_c(G,r^*\A)$ in this norm by $L^I(G,r^*\A)$.
-	\end{subsection}
-	
-	
-	
-\section{Foliations and pseudogroups}
+	\section{Foliations and pseudogroups}
 	%\paragraph{}
 	% Here I follow to \cite{connes:ncg94}
 	\begin{definition}\cite{connes:ncg94}		
@@ -27165,16 +27264,17 @@ Suppose that
 $$
 \theta=\lim_{n\to\infty}\theta_n=\lim_{n\to\infty}p_n/q_n;\quad \th \in \R\setminus \Q,\quad p_n \in \Z, \quad q_n \in \N.
 $$
-These matrices act on the algebraic union $\cup \C^n$ which is a dense subset of $\ell^2\left( \C\right)$ moreover there are unitary $\widetilde U_1, \widetilde U_2 \in B\left(\ell^2\left( \C\right) \right) $ such that there are following limits
-\bean
-ggg
-\eean 
+%These matrices act on the algebraic union $\cup \C^n$ which is a dense subset of $\ell^2\left( \C\right)$ moreover there are unitary $\widetilde U_1, \widetilde U_2 \in B\left(\ell^2\left( \C\right) \right) $ such that there are following limits
+%\bean
+%ggg
+%\eean 
 
 The application of finite-coverings for obtaining $C\left( \T^2_\th\right)$ requires an infinite procedure  for obtaining the limit \eqref{thetalim}, i.e.
 $$
 \theta=\lim_{n\to\infty}\theta_n = \lim_{n\to\infty}p_n/ q_n \quad p_n,q_n \in \N.
 $$
-However an infinite covering can perform this operation at once. The application of infinitely many finite-fold coverings of $C\left(S^1 \right)$ yields the infinite covering $\left(C\left(S^1 \right), C_0\left( \R\right), \Z  \right)$. From the Exercise \ref{comm_allows_morita_exer} it follows that $C\left(S^1\right)$ is Morita equivalent to $C_0\left( \R\right)\rtimes \Z$ where the action $\Z\times C_0\left( \R\right)\to C_0\left( \R\right)$ is induced by the natural action $\Z \times \R \to \R$. If $\a \in C_0\left( \R\right)$ corresponds to the 1 shift of $\R$ end 
+However an infinite covering can perform this operation at once. The application of infinitely many finite-fold coverings of $C\left(S^1 \right)$ yields the infinite covering $\left(C\left(S^1 \right), C_0\left( \R\right), \Z  \right)$.% From the Exercise \ref{comm_allows_morita_exer} it follows that $C\left(S^1\right)$ is Morita equivalent to $C_0\left( \R\right)\rtimes \Z$ where the action $\Z\times C_0\left( \R\right)\to C_0\left( \R\right)$ is induced by the natural action $\Z \times \R \to \R$. 
+If $\a \in C_0\left( \R\right)$ corresponds to the 1 shift of $\R$ and 
 \bean
 v \in M\left( C_0\left( \R\right)\right) = C_b\left( \R\right),
 x \mapsto e^{\pi i \th x} 
