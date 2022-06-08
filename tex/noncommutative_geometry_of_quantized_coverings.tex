@@ -11532,6 +11532,7 @@ I_y \bydef\left\{\left. a \in C_0\left( \sY\right)\right| \rep_x\left(a\right)\i
 $$
 Since $\rep_x\left( I_y\right) = I \neq \rep_x\left(C_0\left( \sY\right)\right)\neq \rep_x\left( I_y\right)$ one has $x \in \sX_y$ i.e. the map $y \mapsto \sX_y$ is a surjective partially defined multi-valued map from $\sY$ to $\sX$.
 \end{empt}
+
 \begin{definition}\label{blowing_spectal_defn}
 A {Hausdorff blowing-up}	$C\cong C_0\left( \sY\right) \subset M\left(A \right)$ is said to be   \textit{spectral} if the described in  \ref{blowing_empt} map is single-valued. It means that one has a subset $s\left( \sY\right)\subset \sY$ with the following equation 
 \be\label{blowing_spectal_eqn}
@@ -11541,22 +11542,36 @@ where a map $s_\sY$ is single-valued.
 \end{definition}
 
 \begin{empt}
-Let  $C\left( \sY\right)\hookto M\left( A\right) $ be a blowing-up of $A$. If for any open subset $\sU \subset \sY$ we put
+Let  $C_0\left( \sY\right)\hookto M\left( A\right) $ be a blowing-up of $A$. If for any open subset $\sU \subset \sY$ we put
 \be\label{blowig_su_eqn}
-A_\sU \bydef C^*\text{-norm completion of } C_0\left(\sU \right) A  C_0\left(\sU \right)
+A^{\text{disc}}_\sU \bydef C^*\text{-norm completion of } C_0\left(\sU \right) A  C_0\left(\sU \right)
 \ee
 then one has
 \be\label{blowig_sue_eqn}
 \begin{split}
 	\sU'\cap \sU'' =\emptyset\Rightarrow\left(  C_0\left(\sU' \right) A  C_0\left(\sU' \right)\right)\left(  C_0\left(\sU'' \right)
-	A  C_0\left(\sU'' \right)\right) = \{0\} \Rightarrow \\ A_{\sU'}A_{\sU''}= \{0\}.
+	A  C_0\left(\sU'' \right)\right) = \{0\} \Rightarrow \\ A^{\text{disc}}_{\sU'}A^{\text{disc}}_{\sU''}= \{0\}.
 \end{split}
 \ee
 \end{empt}
+\begin{definition}\label{blowing_proprer_defn}
+	If $\sU\subset \sX$ is a connected open subset then $A^{\text{disc}}_\sU$ is a topological space. Suppose that there  is a disconnected union of connected components   $A^{\text{disc}}_\sU = A_\sU\bigsqcup \left( \sqcup A^\a_\sU\right)$ such that
+	\begin{itemize}
+		\item $A_\sU$ is a $C^*$-subalgebra of $A^{\text{disc}}_\sU$.
+		\item For any $\a$ the component $A^\a_\sU$ is not a $C^*$-subalgebra of $A^{\text{disc}}_\sU$.
+	\end{itemize}
+We say that the set $\sU$ is \textit{proper} and.
+\end{definition}
 
 \begin{definition}\label{blowing_disintegrable_defn} 
-A Hausdorff blowing-up	$C\cong C_0\left( \sY\right) \subset M\left(A \right)$ is said to be \textit{disintegrable} if for any family of open sets $\left\{\sU_\a\subset \sX\right\}$ such that $\sX = \cup \ \sU_\a$ a union $\cup A_{\sU_\a}$ generates $C^*$-algebra $A$.
+A Hausdorff blowing-up	$C\cong C_0\left( \sY\right) \subset M\left(A \right)$ is said to be \textit{disintegrable} if for any family of open sets $\left\{\sU_\a\subset \sX\right\}$ such that $\sX = \cup \ \sU_\a$ there  is a family of proper sets $\left\{\sU_\bt\subset \sX\right\}$ such that
+	\begin{itemize}
+	\item For any $\bt$ there is $\a$ such that $\sU_\bt \subset \sU_\a$.
+	\item $\sX = \cup \ \sU_\bt$.
+	\item If  $A_{\sU_\bt}$ is the {proper} $\sU_\bt$-{$C^*$-algebra} then a union $\cup A_{\sU_\bt}$ generates $C^*$-algebra $A$.
+\end{itemize}
 \end{definition}
+!!! CONTINUE
 \begin{remark}\label{blowing_good_rem}
 Let both $\left\{\sU_\a\subset \sX\right\}$  and $\left\{\sU_\bt\subset \sX\right\}$ be families  of open sets such that  $\sX = \cup~\sU_\bt$ and for any $\bt$ there is $\a$ such that $\sU_\bt \subset \sU_\a$. If a union $\cup A_{\sU_\bt}$ generates $C^*$-algebra $A$ then  $\cup A_{\sU_\a}$ also generates  $A$. 
 \end{remark}
