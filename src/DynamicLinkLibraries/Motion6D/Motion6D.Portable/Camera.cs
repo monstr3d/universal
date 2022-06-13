@@ -20,7 +20,7 @@ namespace Motion6D.Portable
     /// Basic camera
     /// </summary>
     public abstract class Camera : Position, ICategoryObject, IVisibleConsumer, IEventHandler, 
-        ICalculationReason
+        ICalculationReason, IAllowCodeCreation
     {
 
         #region Fields
@@ -70,6 +70,8 @@ namespace Motion6D.Portable
         private object obj;
 
         protected string calculationReason = "";
+
+        protected bool allowCodeCreation = false;
 
         #endregion
 
@@ -195,6 +197,12 @@ namespace Motion6D.Portable
             get => calculationReason;
             set { calculationReason = value; SetCalculationReason(); }
         }
+
+        #endregion
+
+        #region IAllowCodeCreation Members
+
+        bool IAllowCodeCreation.AllowCodeCreation => allowCodeCreation;
 
         #endregion
 

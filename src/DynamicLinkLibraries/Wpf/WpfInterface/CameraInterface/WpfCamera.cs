@@ -38,7 +38,8 @@ namespace WpfInterface.CameraInterface
     [Serializable()]
     [CalculationReasons(new string[] { "Animation", StaticExtensionEventInterfaces.Realtime })]
     public class WpfCamera : Motion6D.Camera, ISerializable,
-        IUpdatableObject, IObjectTransformer, IMeasurements, IEventHandler, IAnimatedObject
+        IUpdatableObject, IObjectTransformer, IMeasurements, 
+        IEventHandler, IAnimatedObject
     {
 
         #region Fields

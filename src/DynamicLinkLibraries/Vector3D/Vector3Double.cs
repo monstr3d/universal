@@ -7,7 +7,7 @@ namespace Vector3D
     /// <summary>
     /// 3D Vector
     /// </summary>
-     public class Vector3
+    public class Vector3Double
     {
 
         #region Fields
@@ -21,7 +21,7 @@ namespace Vector3D
         /// <summary>
         /// Default constructor
         /// </summary>
-        public Vector3()
+        public Vector3Double()
         {
 
         }
@@ -30,7 +30,7 @@ namespace Vector3D
         /// Copy constructor
         /// </summary>
         /// <param name="vector">Copy vector</param>
-        public Vector3(Vector3 vector)
+        public Vector3Double(Vector3Double vector)
         {
             CopyFrom(vector.x, 0);
         }
@@ -39,7 +39,7 @@ namespace Vector3D
         /// Constructor from array
         /// </summary>
         /// <param name="x">The array</param>
-        public Vector3(double[] x)
+        public Vector3Double(double[] x)
         {
             CopyFrom(x, 0);
         }
@@ -62,7 +62,7 @@ namespace Vector3D
         /// Copy to from vetor
         /// </summary>
         /// <param name="vector">The array</param>
-        public void CopyFrom(Vector3 vector)
+        public void CopyFrom(Vector3Double vector)
         {
             Array.Copy(vector.x, x, 3);
         }
@@ -91,7 +91,7 @@ namespace Vector3D
         /// <summary>
         /// Norm
         /// </summary>
-        public  double Norm
+        public double Norm
         { get => x.Norm(); }
 
         #region Overloaded operators
@@ -102,13 +102,13 @@ namespace Vector3D
         /// <param name="a">Left part</param>
         /// <param name="b">Right part</param>
         /// <returns>The substractin result</returns>
-        public static Vector3 operator * (double a, Vector3 b)
+        public static Vector3Double operator *(double a, Vector3Double b)
         {
             double[] x = new double[3];
             b.CopyTo(x, 0);
             double[] y = new double[3];
             RealMatrix.Multiply(y, a);
-            return new Vector3(y);
+            return new Vector3Double(y);
         }
 
 
@@ -118,11 +118,11 @@ namespace Vector3D
         /// <param name="a">Left part</param>
         /// <param name="b">Right part</param>
         /// <returns>The substractin result</returns>
-        public static Vector3 operator - (Vector3 a, Vector3 b)
+        public static Vector3Double operator -(Vector3Double a, Vector3Double b)
         {
             double[] x = new double[3];
             RealMatrix.Difference(a.x, b.x, x);
-            return new Vector3(x);
+            return new Vector3Double(x);
         }
 
         /// <summary>
@@ -131,11 +131,11 @@ namespace Vector3D
         /// <param name="a">Left part</param>
         /// <param name="b">Right part</param>
         /// <returns>The addition result</returns>
-        public static Vector3 operator + (Vector3 a, Vector3 b)
+        public static Vector3Double operator +(Vector3Double a, Vector3Double b)
         {
             double[] x = new double[3];
             RealMatrix.Add(a.x, b.x, x);
-            return new Vector3(x);
+            return new Vector3Double(x);
         }
 
 
@@ -145,7 +145,7 @@ namespace Vector3D
         /// <param name="a">Left part</param>
         /// <param name="b">Right part</param>
         /// <returns>The substractin result</returns>
-        public static double operator | (Vector3 a, Vector3 b)
+        public static double operator |(Vector3Double a, Vector3Double b)
         {
             return a.x.ScalarProduct(b.x);
         }

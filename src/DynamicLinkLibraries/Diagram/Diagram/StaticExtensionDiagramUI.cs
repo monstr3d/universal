@@ -66,6 +66,34 @@ namespace Diagram.UI
         #region Public Memberes
 
         /// <summary>
+        /// Checks whether a code should be created
+        /// </summary>
+        /// <param name="component">Component</param>
+        /// <returns>True is code should be created</returns>
+        public static bool ShouldCreateCode(this INamedComponent component)
+        {
+            IAllowCodeCreation cc = null;
+            if (component is IObjectLabel)
+            {
+                IObjectLabel l = component as IObjectLabel;
+                var co = l.Object;
+                if (co is IAllowCodeCreation)
+                {
+                    cc = co as IAllowCodeCreation;
+                }
+            }
+            if (component is IArrowLabel)
+            {
+                IArrowLabel arrow = component as IArrowLabel;
+                if (arrow is IAllowCodeCreation)
+                {
+                    cc = arrow as IAllowCodeCreation;
+                }
+            }
+            return (cc == null) ? true : cc.AllowCodeCreation;
+        }
+
+        /// <summary>
         /// Post load desktop
         /// </summary>
         public static event Action<IDesktop> PostLoadDesktop
@@ -434,15 +462,33 @@ namespace Diagram.UI
             l.Add("\t" + constructorType + className + "()");
             l.Add("\t{");
             int ko = 0;
+            var ignoredObjs = new List<IObjectLabel>();
             foreach (IObjectLabel lab in desktop.Objects)
             {
+                if (!lab.ShouldCreateCode())
+                {
+                    ignoredObjs.Add(lab);
+                    continue;
+                }
                 l.Add("\t\tobjects.Add(new " + preffixFull +".OblectLabel" + ko + "(\"" + lab.Name + "\", this));");
                 ++ko;
             }
             int ka = 0;
             l.Add("\t\tDiagram.UI.Labels.PureArrowLabel currALabel = null;");
+            var ignoredArrs = new List<IArrowLabel>();
             foreach (IArrowLabel lab in desktop.Arrows)
             {
+                if (!lab.ShouldCreateCode())
+                {
+                    ignoredArrs.Add(lab);
+                    continue;
+                }
+                if (ignoredObjs.Contains(lab.Source) | ignoredObjs.Contains(lab.Target))
+                {
+                    ignoredArrs.Add(lab);
+                    continue;
+
+                }
                 l.Add("\t\tcurrALabel  = new " + preffixFull + ".ArrowLabel" + ka + "(\"" + lab.Name + "\", this);");
                 l.Add("\t\tarrows.Add(currALabel);");
                 l.Add("\t\tcurrALabel.SourceNumber = " + lab.SourceNumber.ArrowNumToString() + ";");
@@ -467,6 +513,10 @@ namespace Diagram.UI
             int i = 0;
             foreach (IObjectLabel lab in desktop.Objects)
             {
+                if (ignoredObjs.Contains(lab))
+                {
+                    continue;
+                }
                 string cln = "OblectLabel" + i;
                 l.Add("\tinternal class " + cln + " : Diagram.UI.Labels.PureObjectLabel");
                 l.Add("\t{");
@@ -490,6 +540,10 @@ namespace Diagram.UI
             i = 0;
             foreach (IArrowLabel lab in desktop.Arrows)
             {
+                if (ignoredArrs.Contains(lab))
+                {
+                    continue;
+                }
                 string cln = "ArrowLabel" + i;
                 l.Add("\tinternal class " + cln + " : Diagram.UI.Labels.PureArrowLabel");
                 l.Add("\t{");

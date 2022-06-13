@@ -6,6 +6,8 @@ using System.Runtime.Serialization;
 
 using CategoryTheory;
 using Diagram.UI;
+using Diagram.UI.Interfaces;
+
 using Motion6D.Interfaces;
 using Motion6D.Portable;
 
@@ -15,7 +17,8 @@ namespace Motion6D
     /// Serializable position
     /// </summary>
     [Serializable()]
-    public class SerializablePosition : Position, ISerializable, ICategoryObject, IPostSetArrow, IProperties
+    public class SerializablePosition : Position, ISerializable, ICategoryObject, 
+        IPostSetArrow, IProperties, IAllowCodeCreation
     {
 
         #region Fields
@@ -28,6 +31,12 @@ namespace Motion6D
         private object properties;
 
         private byte[] bytes;
+
+        /// <summary>
+        /// Allows code creation
+        /// </summary>
+        protected bool allowCodeCreation = false;
+
 
         #endregion
 
@@ -86,6 +95,15 @@ namespace Motion6D
         }
 
         #endregion
+
+
+        #region IAllowCodeCreation Members
+
+        bool IAllowCodeCreation.AllowCodeCreation => allowCodeCreation;
+
+        #endregion
+
+
 
         #region Overriden Members
 

@@ -27,6 +27,7 @@ namespace GeneratedProject
             string fileName = @"C:\0Unity\Motion\Assets\Scripts\GeneratedProject\";
                StaticExtensionDiagramUI.OnCreateCode += (List<string> l) =>
                 {
+                    return;
                     var ff = fileName;
                     foreach (var s in l)
                     {

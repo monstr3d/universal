@@ -33,7 +33,8 @@ namespace WpfInterface.Objects3D
 {
     [Serializable()]
     public class WpfShape : CategoryObject, ISerializable, IChildrenObject, IWpfVisible, IFacet,
-        ICameraConsumer, IPositionObject, IEventHandler, IAnimatedObject
+        ICameraConsumer, IPositionObject, IEventHandler, 
+        IAnimatedObject, IAllowCodeCreation
     {
 
         #region Fields
@@ -86,6 +87,8 @@ namespace WpfInterface.Objects3D
         Action onStop = () => { };
 
         int aniCount;
+
+        protected bool allowCodeCreation = false;
 
         /// <summary>
         /// Textures
@@ -173,6 +176,12 @@ namespace WpfInterface.Objects3D
                 CreateFieldConsumer();
             }
         }
+
+        #endregion
+
+        #region IAllowCodeCreation Members
+
+        bool IAllowCodeCreation.AllowCodeCreation => allowCodeCreation;
 
         #endregion
 
