@@ -12105,9 +12105,24 @@ C_0\left(\widetilde\sY\right)\hookto M\left(\widetilde A \right)
 Consider the above situation. If $\sY$ is compact and $\left(A,\widetilde A, G, \pi \right)$ is an unital noncommutative finite-fold   covering (cf. Definition \ref{fin_uni_defn}) then
 then the map $q$ is a transitive finite-fold covering.
 \end{lemma}
+\paragraph{!!!}
+	\begin{theorem}\label{fin_gen_thm!!!}\cite{kasch:mr}
+	% 2.3.13 THEOREM. T
+	The module $M_R$ over a (unital) ring $R$ is finitely generated if and only if there 
+	is in every set $\left\{A_\la\right\}_{\la\in\La}$ of submodules $A_\la\hookto  M$ with 
+	$$
+	M=\sum_{\la \in \La} A_\la
+	$$
+	there is a finite subset $\La_0\subset \La$  such that 
+	$$
+	M = \sum_{\la \in \La_0} A_\la
+	$$
+\end{theorem}
+\paragraph{!!!}
+
 \begin{proof}
-From the Definition \ref{fin_uni_defn} it follows that $\widetilde A$ is a finitely generated left and right $A$-module.
-If $C\left(\widetilde\sY\right)$ is not  a finitely generated $C\left(\sY\right)$-module then from the Theorem \ref{fin_gen_thm} it follows that there is an infinite set $\left\{M_\la\right\}_{\la\in\La}$ of $C\left(\sY \right)$-submodules of $C\left(\widetilde{\sY}\right)$ such that 
+From the Definition \ref{fin_uni_defn} it follows that $\widetilde A$ is a finitely generated left and right $A$-module. 
+If $C\left(\widetilde\sY\right)$ is not  a left finitely generated $C\left(\sY\right)$-module then from the Theorem \ref{fin_gen_thm} it follows that there is an infinite set $\left\{M_\la\right\}_{\la\in\La}$ of left $C\left(\sY \right)$-submodules of $C\left(\widetilde{\sY}\right)$ such that 
 $$
 C\left(\widetilde{\sY}\right)=\sum_{\la \in \La} M_\la,
 $$
@@ -12116,7 +12131,7 @@ $$
 C\left(\widetilde{\sY}\right) \neq I_{\La_0}\bydef \sum_{\la \in \La_0} M_\la
 $$
 for any finite subset $\La_0\subset \La$.
-!!! MODULE IS CLOSED IDEAL
+
 
  If turns out that for any finite $\La_0$ there is an open subset $\widetilde\sU_{\La_0} \subsetneqq \widetilde\sY$ such that
 $
@@ -14029,11 +14044,15 @@ It turns out that
 \be\label{h_k1_f_eqn}
 h_{K_1}	\left(\left[f \right]  \right)= \left[K^1_{S^1}\circ f\right] \in K_1\left(\sX \right)
 \ee
-where right part of \eqref{h_k1_f_eqn} means the represented by $K^1_{S^1}\circ f: \sX \to Q\left( \K\right)$  element of $K_1\left(\sX \right)$ (cf. \eqref{busby_k_eqn}). We would like to  generalize $h_{K_1}$
-
-
- 
-
+where right part of \eqref{h_k1_f_eqn} means the represented by $K^1_{S^1}\circ f: \sX \to Q\left( \K\right)$  element of $K_1\left(\sX \right)$ (cf. \eqref{busby_k_eqn}). We would like to  generalize $h_{K_1}$. For any $C^*$-algebra $A$ and any (infinite) noncommutative covering $\left(A, \widetilde A, G\left( \left. \widetilde A\right| A\right) \right)$, we replace a homomorphism
+\eqref{h_k1_f_eqn} by a pair $\left( h^{\widetilde A}_{\text{tors}}, h^{\widetilde A}_{\text{tors}}\right)_{\text{free}}  $ of homomorphisms
+\be\label{h_main_eqn}
+\begin{split}
+h^{\widetilde A}_{\text{tors}}: G\left( \left. \widetilde A\right| A\right)\to K_1\left(A \right)_{\text{tors}} ,\\
+h^{\widetilde A}_{\text{free}}: G\left( \left. \widetilde A\right| A\right)\to K_1\left( A\right)_{\text{free}} \bydef  K_1\left( A\right)/ K_1\left( A\right)_{\text{tors}}
+\end{split}
+\ee
+where $K_1\left( A\right)$ is a group of $K$-homology (cf. Definition \ref{k_hom_defn}) and $K_1\left(A \right)_{\text{tors}}$ is its torsion part.
 
 \section{Basic idea}
 \paragraph*{}
@@ -14132,7 +14151,7 @@ The map $g \mapsto  \chi_g$ is a homomorphism. On the other hand
 $\mathrm{\Ext}\left(K_0\left( A\right)_{\mathrm{tors}}, \Z \right)$ is naturally isomorphic to the group of characters on $K_0\left( A\right)_{\mathrm{tors}}$ (cf. Section \ref{ext_char_sec}).
 In result one has the \textit{torsion Hurewics homomorphism}
 \be\label{h_tors_eqn}
-h_{\mathrm{tors}} : \pi_1\left( A\right) \to \mathrm{\Ext}\left( K_0\left(A \right) , \Z\right).
+h^{\widetilde A_{\mathrm{tors}}}_{\mathrm{tors}} : G_{\text{tors}}=G\left( \left. \widetilde A_{\text{tors}}\right| A\right)  \to \mathrm{\Ext}\left( K_0\left(A \right) , \Z\right).
 \ee
 
 \subsection{Free special case}\label{h_free_ass_sec}
@@ -14155,19 +14174,29 @@ l_2\left[ \phi_{l_1}\left(u_j\right)\right]= \left[ l_1\phi_{l_2}\left(u_j\right
 \chi_g\left(\left[ \phi_{l}\left(u_j\right)\right]\right)= \frac{g\phi_{l}\left(u_j\right)}{\phi_{l}\left(u_j\right)} 
 \ee
 such that $K_1\left( A\right)_{\mathrm{free~spec}}\subset \ker \chi_g$. It is explained in \cite{weil:basic_number_theory} that there is a unique $x_g \in \Hom\left( \Q^k, \Q\right)$ such that $\chi_g\left(y \right) = \chi\left(x_g\left(y \right)  \right)$. Moreover  from  $\Z^k\subset \ker \chi_g$ it turns out that $x_g\in \Hom\left( \Z^k, \Z\right)   \cong \Hom\left(K_1\left( A\right)_{\mathrm{free~spec}} , \Z\right)\subset \Hom\left(K_1\left( A\right), \Z\right)$. 
-In result one has the \textit{free Hurewics homomorphism}
+In result one has the \textit{free Hurewicz homomorphism}
 \be\label{h_free_eqn}
-h_{\mathrm{free}} : \pi_1\left( A\right) \to \Hom\left(K_1\left( A\right), \Z  \right) 
+h^{\widetilde A_{\mathrm{free}}}_{\mathrm{free}} : G_{\text{free}}=G\left( \left. \widetilde A_{\text{free}}\right| A_{\text{tors}}\right) \to \Hom\left(K_1\left( A\right), \Z  \right) 
+\ee
+\begin{exercise}
+Prove that for any (infinite) noncommutative covering $\left(A, \widetilde A, G\left( \left. \widetilde A\right| A\right) \right)$ there is a pair  of homomorphisms
+\be\label{h_hom_ext_eqn}
+\begin{split}
+h^{\widetilde A}_{\mathrm{tors}} :G\left( \left. \widetilde A\right| A\right) \to \mathrm{\Ext}\left( K_0\left(A \right) , \Z\right) ,\\
+h^{\widetilde A}_{\mathrm{free}} : G\left( \left. \widetilde A\right| A\right) \to \Hom\left(K_1\left( A\right), \Z  \right). 
+\end{split}
 \ee
 
 
+\end{exercise}
 
 \begin{definition}\label{h_defn}
-A given by \eqref{h_tors_eqn} and \eqref{h_free_eqn} pair $\left(h_{\mathrm{tors}}, h_{\mathrm{free}} \right)$ of homomorphisms is said to be the \textit{Hurewics homomorphism}. Since both groups   $\mathrm{\Ext}\left( K_0\left(A \right) , \Z\right)$ and $\Hom\left(K_1\left( A\right) , \Z \right)$ are Abelian the following notation will be used
+For any (infinite) noncommutative covering $\left(A, \widetilde A, G\left( \left. \widetilde A\right| A\right)\right)$ a given by \eqref{h_hom_ext_eqn} pair $\left(h^{\widetilde A}_{\mathrm{tors}}, h^{\widetilde A}_{\mathrm{free}} \right)$ 
+of homomorphisms is said to be the \textit{Hurewicz homomorphism}. Since both groups   $\mathrm{\Ext}\left( K_0\left(A \right) , \Z\right)$ and $\Hom\left(K_1\left( A\right) , \Z \right)$ are Abelian the following notation will be used
 \be\label{h_gen_eqn}
 \begin{split}
-h_{\mathrm{tors}} : \pi_1\left( A\right)/\left[\pi_1\left( A\right), \pi_1\left( A\right)\right] \to   \mathrm{\Ext}\left( K_0\left(A \right) , \Z\right),\\
-h_{\mathrm{free}} : \pi_1\left( A\right)/\left[\pi_1\left( A\right), \pi_1\left( A\right)\right] \to \Hom\left(K_1\left( A\right) , \Z \right).
+h^{\widetilde A}_{\mathrm{tors}} :  G\left( \left. \widetilde A\right| A\right)/\left[ G\left( \left. \widetilde A\right| A\right),  G\left( \left. \widetilde A\right| A\right)\right] \to   \mathrm{\Ext}\left( K_0\left(A \right) , \Z\right),\\
+h^{\widetilde A}_{\mathrm{free}} :  G\left( \left. \widetilde A\right| A\right)/ \left[ G\left( \left. \widetilde A\right| A\right),  G\left( \left. \widetilde A\right| A\right)\right] \to \Hom\left(K_1\left( A\right) , \Z \right).
 \end{split}
 \ee
 \end{definition}
@@ -14175,16 +14204,12 @@ h_{\mathrm{free}} : \pi_1\left( A\right)/\left[\pi_1\left( A\right), \pi_1\left(
 	If $A$ is a $C^*$-algebra and $A\in N$ (cf. Remark \ref{n_alg_rem}) then  equations \eqref{h_gen_eqn} are equivalent to
 \be\label{h_gen_n_eqn}
 \begin{split}
-	h_{\mathrm{tors}} : \pi_1\left( A\right)/\left[\pi_1\left( A\right), \pi_1\left( A\right)\right] \to   K_1\left( A\right)_{\mathrm{tors}} ,\\
-	h_{\mathrm{free}} : \pi_1\left( A\right)/\left[\pi_1\left( A\right), \pi_1\left( A\right)\right] \to K_1\left( A\right)/K_1\left( A\right)_{\mathrm{tors}}
+	h^{\widetilde A}_{\text{tors}}: G\left( \left. \widetilde A\right| A\right)\to K_1\left(A \right)_{\text{tors}} ,\\
+		h^{\widetilde A}_{\text{free}}: G\left( \left. \widetilde A\right| A\right)\to K_1\left( A\right)_{\text{free}} \bydef  K_1\left( A\right)/ K_1\left( A\right)_{\text{tors}}
 \end{split}
 \ee
 (cf. equation \eqref{uct_c_eqn}).
 \end{remark}
-
-
-
-
 
 \section{Comparison with the classical Hurewicz homomorphism}
 \paragraph*{} Consider the described in the Section \ref{h_prel}  situation. Let $\left( \sX, x_0\right) $ be a pointed $CW$-complex (cf. Remark \ref{top_obstr_rem}) and let 
@@ -21124,8 +21149,6 @@ for $\a\le \bt$), their \textit{inverse limit} $\varprojlim G_\a$ (which is a se
 		M = \sum_{\la \in \La_0} A_\la
 		$$
 	\end{theorem}
-
-
 
 	\section{Algebraic Morita equivalence}
 	
