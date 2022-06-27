@@ -1444,14 +1444,14 @@ Let $A$ be a *-algebra and let $D$ be a $C^*$-algebra. Let $\mathcal{E}$ be a Hi
 \begin{lemma}\label{fin_top_lem}
 If $\left(A, \widetilde{A}, G, \pi \right)$  is a {noncommutative finite-fold  quasi-covering} then $\widetilde{A}$ is a $C^*$-Hilbert $A$-module with respect to the following $A$-valued product
 	\begin{equation}\label{finite_hilb_mod_prod_eqn}
-	\left\langle a, b \right\rangle_{{A}} =\sum_{g \in G} g\left( a^* b\right). 
+	\left\langle \widetilde a, \widetilde b \right\rangle_{{A}} =\sum_{g \in G} g\left( \widetilde a^* \widetilde b\right). 
 	\end{equation}
 \end{lemma}
 \begin{proof}
 	Direct calculation shows that the product \eqref{finite_hilb_mod_prod_eqn} satisfies to conditions (a)-(d) of the Definition \ref{hilbert_module_defn}. Let us prove that $\widetilde{A}$ is closed with respect to the norm \eqref{hilb_norm_eqn}.
 	The norm $\left\| \cdot\right\|_H$  of $A$-Hilbert pre-module $\widetilde{A}_A$  is given by
 	$$
-	\left\| \widetilde{a}\right\|_H=\bydef  \sqrt{	\left\langle a, a \right\rangle_{{A}}} = \sqrt{\left\| \sum_{g \in G} g\left( \widetilde{a}^*\widetilde{a}\right) \right\|_C }
+	\left\| \widetilde{a}\right\|_H=\bydef  \sqrt{	\left\langle \widetilde a,\widetilde a \right\rangle_{{A}}} = \sqrt{\left\| \sum_{g \in G} g\left( \widetilde{a}^*\widetilde{a}\right) \right\|_C }
 	$$
 	where $\left\| \cdot\right\|_C$ is the $C^*$-norm. From the above equation and taking into account $\left\| \widetilde{a}\right\|_C = \sqrt{\left\| \widetilde{a}^*\widetilde{a}\right\|_C}$ it turns out
 	\bean
@@ -1848,9 +1848,9 @@ Consider the situation  \ref{fin_chull_empt}. If following conditions hold:
  \begin{lemma}\label{frame_lem}
  	If $A$ is an unital $C^*$-algebra, and $P$ is a finitely generated  Hilbert $A$-module then 
  	there is a finite subset $\left\{ \widetilde{a}_1, ..., \widetilde{a}_n, \widetilde{b}_1, ..., \widetilde{b}_n\right\} \subset P$ such that
- 	\bean
- 	\sum_{j=1}^{n}\widetilde{b}_j\left\rangle \right\langle\widetilde{a}_j =	1_{\End\left( P\right)_A},
- 	\eean
+ 	\be\label{frame_eqn}
+ 	\sum_{j=1}^{n}\widetilde{b}_j\left\rangle \right\langle\widetilde{a}_j =	1_{\End\left( P\right)_A}= 1_{\K\left( P\right)_A},
+ 	\ee
  where the  Notation \ref{rank_one_notation_eqn} is used.
  \end{lemma}
  
@@ -1866,9 +1866,9 @@ Consider the situation  \ref{fin_chull_empt}. If following conditions hold:
  	$$ 
  	it turns out that if $\widetilde{b}_j = T\widetilde{a}_j$
  	then
- 	\be\label{frame_eqn}
- 	\sum_{j=1}^{n}T\widetilde{a}_j\left\rangle \right\langle\widetilde{a}_j = \sum_{j=1}^{n}\widetilde{b}_j\left\rangle \right\langle\widetilde{a}_j=	1_{\End\left( P\right)_A}.
- 	\ee
+ 	\bean
+ 	\sum_{j=1}^{n}T\widetilde{a}_j\left\rangle \right\langle\widetilde{a}_j = \sum_{j=1}^{n}\widetilde{b}_j\left\rangle \right\langle\widetilde{a}_j=	1_{\End\left( P\right)_A}= 1_{\K\left( P\right)_A}.
+ 	\eean
  	
  \end{proof}
  \begin{remark}\label{frame_rem}
@@ -2117,7 +2117,24 @@ unital  noncommutative finite-fold covering  $\left(M\left(A \right)  ,M\left( \
    %\begin{proof}
    %If $\sum_{g \in G} gp_{\max} \neq 1_{B\left( \widetilde{\H}\right)}$ then $q =  1_{B\left( \widetilde{\H}\right)} - \sum_{g \in G} gp_{\max} \neq 1_{B\left( \widetilde{\H}\right)}$ is a nonzero projector. Let  $\mathcal P' = \left\{p' \in \mathcal P~|~ p' < q \right\}$.
    %\end{proof}
-
+\begin{lemma}\label{comact_repr_lem}
+   	Let $\left(A, \widetilde{A}, G, \pi\right)$ be a  noncommutative finite-fold covering, let $\rho: A \to B\left(\H \right)$ be a faithful non-degenerated representation, and let  $\widetilde{\rho}: \widetilde{A} \to B\left( \widetilde{\H} \right)$ be induced by the pair $\left(\rho,\left(A, \widetilde{A}, G, \pi\right)  \right)$ (cf. Definition \ref{induced_repr_defn}). If $\widetilde{A}_A$ is regarded as a $C^*$-Hilbert $A$-module (cf. Lemma \ref{fin_top_lem}) then there is a natural representation
+   	$$
+ \phi_\K  :	\K\left(\widetilde{A}_A \right) \to  B\left( \widetilde{\H} \right).
+   	$$
+\end{lemma}
+\begin{proof}
+If $\widetilde a, \widetilde b \in \widetilde A$ then form \eqref{finite_hilb_mod_prod_eqn} it follows that
+$$
+	\left\langle \widetilde a, \widetilde b \right\rangle_{{A}} =\sum_{g \in G} g\left(\widetilde a^* \widetilde b\right). 
+$$
+So for any $\widetilde c \in \widetilde A_A$ one has
+$\widetilde b\left\rangle \right\langle\widetilde    a ~\left(\widetilde c \right) = \widetilde b\sum_{g \in G} g\left(\widetilde a^* \widetilde c\right)$
+   	We define
+$$
+\forall \widetilde \xi \in \widetilde \H \quad  \phi_\K\left( \widetilde b\left\rangle \right\langle \widetilde   a\right)\left( \widetilde\xi \right)\bydef   \widetilde b\sum_{g \in G} g\left(\widetilde a^* \widetilde \xi\right) \in \widetilde\H. 	
+$$
+\end{proof}
 
 \begin{definition}\label{state_cov_11_defn}
 Let	$\left(A, \widetilde{A}, G, \pi \right)$ be  a noncommutative finite-fold  quasi-covering. A state $\widetilde{\tau}$ on $\widetilde{A}$ is said to be \textit {invariant}  if $\widetilde{\tau}\left( g\widetilde{a}\right)=\widetilde{\tau}\left( \widetilde{a}\right)$ for all $g \in G$ and $\widetilde{a}\in \widetilde{A}$.
@@ -12121,7 +12138,7 @@ If $y_0 \in \sY$ is a point and the $n$ is a cardinal number of $q^{-1} \left( y
 \ee
 \end{empt}
 \begin{lemma}
-Let $A$ be a $C^*$-algebra, and let $C_0\left(\sY \right) \to M\left(A \right)$ be a  disintegrable, spectral,  Hausdorff blowing-up  (cf. Definitions \ref{blowing_defn}, \ref{blowing_spectal_defn}, \ref{blowing_disintegrable_defn}). If $\left(A,\widetilde A, G, \pi \right)$ is a reduced finite-fold noncommutative covering with  (cf. Definitions \ref{fin_defn}, \ref{fin_red_defn}) and  $A$ is semilocally 1-connected (cf. Definition \ref{blowing_semi1_defn}) then the given by \eqref{blowing_y_cow_eqn} map is a transitive covering such that $G\left(\left.\widetilde\sY\right|\sY\right)\cong G$.
+Let $A$ be a $C^*$-algebra, and let $C_0\left(\sY \right) \to M\left(A \right)$ be a  disintegrable, spectral,  Hausdorff blowing-up  (cf. Definitions \ref{blowing_defn}, \ref{blowing_spectal_defn}, \ref{blowing_disintegrable_defn}). If $\left(A,\widetilde A, G, \pi \right)$ is a reduced finite-fold noncommutative covering (cf. Definitions \ref{fin_defn}, \ref{fin_red_defn}) and  $A$ is semilocally 1-connected (cf. Definition \ref{blowing_semi1_defn}) then the given by \eqref{blowing_y_cow_eqn} map is a transitive covering such that $G\left(\left.\widetilde\sY\right|\sY\right)\cong G$.
 \end{lemma}
 \begin{proof}
  Let $\left\{u_\la \right\}_{\la \in \La}\subset M\left( \widetilde A\right)_+$ be a required by the Definition \ref{fin_defn} increasing net, and let $A_\la$ is the $C^*$-norm completion of $u_\la A u_\la$.  
@@ -12154,21 +12171,55 @@ $
 $
 If 
 $$
-\widetilde A_\sU \bydef \left\{\left. \widetilde a \in \widetilde A \right|\forall \widetilde{x} \in \widetilde{\sX}\quad \phi_{\widetilde x}\circ\rep_{\widetilde x}\left(\widetilde a\right) \in \rep_{p\left( \widetilde x\right) }\left(A^{\text{prop}}_\sU \right) \right\}
+\widetilde A'_\sU \bydef \left\{\left. \widetilde a \in \widetilde A \right|\forall \widetilde{x} \in \widetilde{\sX}\quad \phi_{\widetilde x}\circ\rep_{\widetilde x}\left(\widetilde a\right) \in \rep_{p\left( \widetilde x\right) }\left(A^{\text{prop}}_\sU \right) \right\}
 $$
 then form \eqref{blowing_disc_union_eqn} it follows that
 $$
-\widetilde A_\sU= \bigoplus_{g\in J}g \widetilde A_{\widetilde\sU}
+\widetilde A'_\sU= \bigoplus_{g\in J}g \widetilde A'_{\widetilde\sU}
 $$
-where $\widetilde A_{\widetilde\sU}$ is the $C^*$-norm completion of $C_0\left( \widetilde\sU\right) \widetilde A_\sU C_0\left( \widetilde\sU\right)$.
-The action $G \times \widetilde A$ induces an action $G_y \times \widetilde A_\sU \to \widetilde A_\sU$. Suppose that this action is not trivial. 
-
- Let $\left\{u_\la \right\}_{\la \in \La}\subset M\left( \widetilde A\right)_+$ be a required by the Definition \ref{fin_defn} increasing net, and let $A_\la$ is the $C^*$-norm completion of $u_\la A u_\la$.  For any $\la\in\La$ we define
+where $\widetilde A'_{\widetilde\sU}$ is the $C^*$-norm completion of $C_0\left( \widetilde\sU\right) \widetilde A'_\sU C_0\left( \widetilde\sU\right)$.
+The action $G \times \widetilde A$ induces an action $G \times \widetilde A'_\sU \to \widetilde A'_\sU$. Suppose that this action is not trivial. 
+If $\left\{u_\la \right\}_{\la \in \La}\subset M\left( \widetilde A\right)_+$ is a required by the Definition \ref{fin_defn} increasing net, and  both  $A_\la$ and $\widetilde A_\la$ are  $C^*$-norm completions of $u_\la A u_\la$ and $u_\la \widetilde A u_\la$ then from the Proposition \ref{hered_spectrum_prop} it follows that there are following inclusions
+\bean
+\sX_\la \subset \sX,\\
+\widetilde\sX_\la\subset \widetilde \sX
+\eean
+where both $\sX_\la$ and $\widetilde\sX_\la$ are spectra of $A_\la$ and $\widetilde A_\la$ respectively. Moreover both $\sX_\la$ and $\widetilde\sX_\la$ are open subsets of $\sX$ and $\widetilde\sX$, the action $G \times \$ \widetilde\sX\to \widetilde\sX$ induces the action  $G \times  \widetilde\sX_\la\to \widetilde\sX_\a$ and $p\left(\widetilde\sX_\la \right)= \sX_\la$. 
+ For any $\la\in\La$ we define
  $$
- C_\la \bydef \left\{a \in C_0\left(\sY\right)\left| \exists \left\{a_\a\right\} \subset A_\la \quad c = \bt\text{-}\lim a_\a\right.\right\}
+ C_\la \bydef \left\{c \in C_0\left(\sY\right)\left| \exists \left\{a_\a\right\} \subset A_\la \quad c = \bt\text{-}\lim a_\a\right.\right\}
  $$
 where  $\bt\text{-}\lim a_\a$ means a limit with respect to the strict topology of $M\left(A \right)$ (cf. Definition \ref{strict_topology_defn}). If $\sY_\la$ is the spectrum of $C_\la$ then from the Proposition it follows \ref{hered_spectrum_prop} that there is an open subset $\sU_\la \subset \sY$ such that $C_\la \cong C_0\left( \sY_\la\right)$. The union $\cup A_\la$ is dense in $A$ so the union $\cup C_0\left( \sY_\la\right)$ is dense in $C_0\left( \sY\right)$. It follows that $\sY = \cup_{\la\in \La} \sY_\la$. The closure of $\sU$ is compact, 
-so there is a finite $\La_0 \subset \La$ such that $\sU \subset \cup_{\la\in \La_0} \sY_\la$. If $\la_0$ is such that $\forall \la\in \La_0\quad\la_0\ge \la$ the $\sU \subset \sY_{\la_0}$. Let $B_\sU\subset A_\sU$ be a hereditary subalgebra 
+so there is a finite $\La_0 \subset \La$ such that $\sU \subset \cup_{\la\in \La_0} \sY_\la$. If $\la_0$ is such that $\forall \la\in \La_0\quad\la_0\ge \la$ then $\sU \subset \sY_{\la_0}$. 
+If both $A_\sU$ and $\widetilde A_\sU$ are hereditary $C^*$-subalgebras of $A^{\text{prop}}_\sU$ and $\widetilde A'_\sU$ generated by an intersections  $A^{\text{prop}}_\sU \cap A_{\la_0}$ and $\widetilde A'_\sU \cap A_{\la_0}$then 
+$$
+\widetilde A_\sU= \bigoplus_{g\in J}g \widetilde A_{\widetilde\sU}
+$$
+where $\widetilde A_{\widetilde\sU}$ is a generated by $\widetilde A_{\widetilde\sU} \cap \widetilde A_{\la_0}$ hereditary $C^*$-subalgebra. According to the Definition \ref{fin_defn} the quadruple 
+$$
+\left(A_\la,\widetilde A_\la, G, \pi|_{A_\la} \right)
+$$
+ is a reduced finite-fold noncommutative covering with unitization (cf. Definitions \ref{fin_uni_defn}, \ref{fin_red_defn}). From the Lemma \ref{frame_lem}  it follows that 
+ there is a finite subset $\left\{ \widetilde{a}_1, ..., \widetilde{a}_n, \widetilde{b}_1, ..., \widetilde{b}_n\right\} \subset M\left(\widetilde A\right)$ such that
+ 	\bean
+ \sum_{j=1}^{n}\widetilde{b}_j\left\rangle \right\langle\widetilde{a}_j = 1_{\K\left( M\left(\widetilde A_{\la_0}\right)\right)_{M\left( A_{\la_0}\right)}}.
+ \eean
+If $\rho_{\la_0}:A_{\la_0} \to B\left( \H_{\la_0}\right)$ is an atomic representation (cf. Definition \ref{atomic_repr_defn}), 
+$\widetilde{\rho}_{\la_0}: \widetilde{A}_{\la_0} \to B\left( \widetilde{\H} _{\la_0}\right)$ be induced by 
+the pair $\left(\rho_{\la_0},\left(A_{\la_0}, \widetilde{A}_{\la_0}, G, \pi|_{A_{\la_0}}\right)\right) $ (cf. Definition \ref{induced_repr_defn}) and the representation
+$$
+	\phi_\K  :	\K\left( M\left(\widetilde A_{\la_0}\right)_{M\left( A_{\la_0}\right)} \right) \hookto  B\left( \widetilde{\H}_\la \right).
+$$
+is given by the Lemma \ref{comact_repr_lem}
+then one has
+$$
+	\phi_\K\left( \sum_{j=1}^{n}\widetilde{b}_j\left\rangle \right\langle\widetilde{a}_j  \right) = 1_{B\left(\widetilde \H_\la \right) }
+$$
+
+!!! CONTINUE
+
+
+Let $B_\sU\subset A_\sU$ be a hereditary subalgebra 
 generated by the intersection $A_\sU \cap A_{\la_0}$ and 
 $\widetilde B_{\widetilde \sU}$ is a hereditary subalgebra of  $\widetilde A_{\widetilde \sU}$ generated by $B_\sU$ where the natural inclusion $B_\sU \subset \widetilde B_{\widetilde \sU}$ then there is the natural action $G_y \times \widetilde B_{\widetilde \sU}\to \widetilde B_{\widetilde \sU}$ 2.3.23 !!!
 From the Lemma \ref{cov_mult_fin_lem} it follows that there is $\left\{  \widetilde{a}_1, ..., \widetilde{a}_n\right\} \subset M\left( \widetilde{A}\right) $ such that
