@@ -264,18 +264,6 @@ then $p$ is a finite-fold  covering.
 	\alert{P. Ivankov}
 	If $\mathcal  X$ is a connected, compact, Hausdorff space then there is a 1-1 correspondence between finite-fold transitive coverings of $\mathcal  X$ and unital noncommutative finite-fold  coverings of $C\left(\mathcal  X\right)$.
 \end{lemma}
-
-\begin{proof}
-We already know that any  unital noncommutative finite-fold  covering corresponds to the finite-fold covering of $\widetilde{\mathcal  X}\to \mathcal  X$. One should prove that the covering is transitive. From the condition \eqref{cond_b_eqn} it follows that
-$$
-C\left(\mathcal  X\right)\cong C\left(\widetilde{\mathcal  X}\right)^{G\left(\left.\widetilde{\mathcal  X} \right|\mathcal  X\right)}.
-$$
-The above equation is equivalent to
-$$
-{\mathcal  X}\cong\widetilde{\mathcal  X}/ G\left(\left.\widetilde{\mathcal  X} \right|\mathcal  X\right).
-$$
-so the covering is transitive. The converse statement can be proved similarly.
-\end{proof}
 \end{frame}
 \begin{frame}
 
@@ -301,21 +289,7 @@ so the covering is transitive. The converse statement can be proved similarly.
 \end{definition}
 
 \end{frame}
-\begin{frame}
-\begin{example}
-	
-	Let $\mathcal X  = \C \setminus \{0\}$ be a complex plane with punctured 0, which is parametrized by the complex variable $z$. 
-	If $\widetilde{   \mathcal X } \cong \mathcal X$ then for any natural $n>1$ there is a finite-fold covering 
-	\begin{equation*}
-	p: \widetilde{   \mathcal X } \to \mathcal X,
-	\qquad	z \mapsto z^n.
-	\end{equation*}
-	which is not a covering with compactification. Really let  $\mathcal X \to\mathcal Y$ be any compactification. If both $\left\{z'_\al \in \mathcal X\right\}$, 	$\left\{z''_\al \in \mathcal X\right\}$ are  nets such that $\lim_{\al}\left|z'_\al\right|=\lim_\al\left|z''_\al\right| = 0$ then form $\lim_{\al}\left|z'_\al-z''_\al\right|= 0$ it turns out that
-	$
-	x_0 = \lim_{\al} z'_\al = \lim_{\al} z''_\al \in \mathcal Y
-	$. 	It turns out $\left|\widetilde{p}^{-1}\left(x_0 \right) \right|=1$. However $\widetilde{p}$ is an $n$-fold covering and if $n >1$ then  $\left|\widetilde{p}^{-1}\left(x_0 \right) \right|=n>1$.
-\end{example}
-\end{frame}
+
 \begin{frame}
 \begin{lemma}
 	\alert{P. Ivankov}. If $\mathcal X$ is a locally compact, connected, Hausdorff space then there is a one-to-one correspondence between transitive finite-fold coverings with compactifications and of $\mathcal X$ and noncommutative finite-fold coverings with unitization of $C_0\left(\mathcal X\right)$.
@@ -358,9 +332,290 @@ If $\sX$ is a connected, locally connected, locally compact, Hausdorff space the
 \end{frame}
 
 
+\section{Coverings of foliations}
 \begin{frame}
-	There is a very complicated construction of infinite noncommutative coverings.
-	\end{frame}
+\begin{definition}
+	
+	Let $M$ be a smooth manifold and $TM$ its tangent bundle, so that
+	for each $x \in M$, $T_x M$ is the tangent space of $M$ at $x$. A
+	smooth subbundle $\mathcal{F}$ of $TM$ is called {\it integrable} if and only if one of
+	the following equivalent conditions is satisfied:
+	
+	\smallskip
+	
+	\begin{enumerate}
+		
+		\item[(a)] Every $x \in M$ is contained in a submanifold $W$ of $M$ such that
+		$$
+		T_y (W) = \mathcal{F}_y \qquad \forall \, y \in W \, ,
+		$$
+		
+		\smallskip
+		
+		\item[(b)] $C^{\infty} \left( \mathcal{F}\right)  = \{ X \in C^{\infty} \left(TM\right) \, , \ X_x \in
+		\mathcal{F}_x \quad \forall \, x \in M \}$ is a Lie algebra.
+		
+		\smallskip
+		
+	\end{enumerate}
+	
+\end{definition}
+
+
+\end{frame}
+\begin{frame}
+A \textit{foliation} of $M$ is given by an integrable subbundle $\mathcal{F}$ of $TM$.  	A pair $\left(M, \sF\right)$ is said to be a \textit{foliated manifold}.
+The \textit{leaves} of the foliation $\left(M , \mathcal F\right)$ are the maximal connected
+submanifolds $L$ of $M$ with $T_x (L) = \mathcal{F}_x $, $\forall \, x \in L$,
+and the partition of $M$ in leaves $$M = \cup
+L_{\alpha}\,,\quad\alpha \in X$$ is characterized geometrically by
+its ``local triviality'': every point $x \in M$ has a neighborhood
+$\mathcal U$ and a system of local coordinates
+$(x^j)_{j = 1 , \ldots , \dim V}$ called
+{\it foliation charts}, so
+that the partition of $\mathcal U$ in connected components of
+leaves corresponds to the partition of 
+\begin{equation*}
+	{\mathbb
+		R}^{\dim M} = {\mathbb R}^{\dim \mathcal F} \times {\mathbb R}^{\text{codim}
+		\, \mathcal F}
+\end{equation*}
+in the parallel affine subspaces 
+$
+{\mathbb R}^{\dim \mathcal F}
+\times {\rm pt}$.
+For simplicity of this speech we suppose that $M$ is compact, and all leaves are simply connected. These conditions are not necessary in general.
+\end{frame}
+
+\begin{frame}
+A \textit{holonomy groupoid} $\G\left(M, \sF\right)$ of a foliated manifold $\left(M, \sF\right)$ is given by
+$$
+\mathcal G\left(M, \sF\right)\bydef \left\{\left.\gamma = (x, y)\in M\times M~ \right|\text{ $y$ and $x$ are on the same leaf } \right\}.
+$$
+For any  $\gamma = (x, y)\in \mathcal G\left(M, \sF\right)$ denote by
+$$
+s\left(\gamma\right)\bydef x, \quad  r\left(\gamma\right)\bydef y, \quad \gamma: x \to y.
+$$
+$\mathcal G\left(M, \sF\right)$ is a smooth manifold such that
+$$
+\dim \mathcal G\left(M, \sF\right) = \dim \,M + \dim \,\mathcal F.
+$$
+There are the following groupoid operations
+$$
+\left(x, y \right) \circ \left(y, z \right) \bydef \left(x, z \right), \quad \left(x, y \right)^{-1} \bydef \left(y, z\right). 
+$$
+
+\end{frame}
+\begin{frame}
+For
+$x\in M$ one the space of \textit{half-densities} $\Omega_x^{1/2}$ is a one dimensional complex
+vector space of maps from the exterior power $\wedge^k \,  \mathcal{F}_x$, $k =
+\dim F$, to ${\mathbb C}$ such that
+$$
+\rho \, (\lambda \, v) =\sqrt{\la}\, \rho \, (v)
+\qquad \forall \, v \in \wedge^k \,  \mathcal{F}_x \, , \quad \forall \,
+\lambda \in {\mathbb R}_+ \, .
+$$
+Then, for $\gamma \in\mathcal G\left(M, \sF\right)$, denote by $\Omega_{\gamma}^{1/2}\bydef\Omega_{r\left(\gamma\right)}^{1/2} \otimes_\C
+\Omega_{r\left(\gamma\right)}^{1/2}$. One has a one dimensional bundle $
+\Omega_{\mathcal G\left(M, \sF\right)}^{1/2}\bydef\, r^*(\Omega_M^{1/2})\otimes s^*(\Omega_M^{1/2})\,
+$ over $\mathcal G\left(M, \sF\right)$, The bundle has the natural smooth structure. The  space  $C^{\infty}\left(\mathcal G\left(M, \sF\right) , \Omega^{1/2}_{\mathcal G\left(M, \sF\right)}\right)$ of smooth sections of $
+\Omega_{\mathcal G\left(M, \sF\right)}^{1/2}$ is isomorphic to  $C^\infty(\mathcal G)$, however an isomorphism is not natural.
+For any $f, g \in C^{\infty}\left(\mathcal G\left(M, \sF\right) , \Omega^{1/2}_{\mathcal G\left(M, \sF\right)}\right)$  the
+product $f* g$ and involution $*$ are defined by the following way
+\be\nonumber
+\begin{split}
+	(f * g) (\gamma) \bydef \int_{\gamma_1 \circ \gamma_2 = \gamma}
+	f(\gamma_1) \, g(\gamma_2)\in C^{\infty}\left(\mathcal G\left(M, \sF\right) , \Omega^{1/2}_{\mathcal G\left(M, \sF\right)}\right)  \,,\\
+	f^*\left(\gamma \right) \bydef \overline f \left( \gamma^{-1}\right) \in C^{\infty}\left(\mathcal G\left(M, \sF\right) , \Omega^{1/2}_{\mathcal G\left(M, \sF\right)}\right).
+\end{split}
+\ee
+\end{frame}
+\begin{frame}
+For all $x \in M$ denote by
+$
+\mathcal G_x \bydef \left\{\left.\gamma\in\mathcal G\left(M, \sF\right)~\right| ~s(\gamma) = x \right\}.
+$
+If $\xi, \eta$ are square integrable half-densities on $\mathcal G_x$ then one can define a scalar $\C$-valued product
+$
+\left(\xi, \eta \right) = \int_{\gamma\in \mathcal G_x} \overline\xi\left(\gamma^{-1}\right)\eta\left(\gamma\right)
+$.
+So the space of square integrable half-densities on $\mathcal G_x$ is a Hilbert space, we denote it by $L^2\left( \mathcal G_x\right)$. For any $x \in M$ there is a representation $\rho_x: C^{\infty} (\mathcal G , \Omega^{1/2})\to B\left(L^2\left( \mathcal G_x\right)\right)$ given by
+\begin{equation}\nonumber
+	(\rho_x (f) \, \xi) \, (\gamma) = \int_{\gamma_1 \circ \gamma_2 =
+		\gamma} f(\gamma_1) \, \xi (\gamma_2) \qquad \forall \, \xi \in L^2
+	(\mathcal G_x).\
+\end{equation}
+If $\sH \bydef \bigoplus_{x \in M}L^2\left( \mathcal G_x\right)$ is the direct sum of Hilbert spaces then there is a faithful representation 
+$$
+\rho \bydef \bigoplus_{x \in M} \rho_ x :C^{\infty} (\mathcal G , \Omega^{1/2})\hookto B\left(\sH \right). 
+$$
+The $C^*$-norm completion of $C^{\infty} (\mathcal G , \Omega^{1/2})$ in $B\left(\sH \right)$ is said to be the \textit{reduced algebra of the foliation} and denoted by $C^*_r(M, \sF)$.
+\end{frame}
+\subsection{Coverings of foliations}
+
+\begin{frame}
+Let $\left(M, \sF\right)$ be a foliated manifold and let $p: \widetilde M\to M$ be a transitive finite-fold covering. The tangent bundle $T\widetilde M$ of $\widetilde M$ is the inverse image of $TM$. If $\widetilde\sF$ is the inverse image of $\sF$ then $\widetilde\sF$ is integrable so $\left(\widetilde M, \widetilde \sF\right)$ is a foliated manifold. Moreover there is a finite-fold covering $\G\left(\widetilde M, \widetilde \sF\right)\to\G \left( M,  \sF\right)$ of groupoids. Similarly $\Omega_{\mathcal G\left(\widetilde M, \widetilde\sF\right)}^{1/2}$ is the inverse image of $\Omega_{\mathcal G\left( M, \sF\right)}^{1/2}$. Any section of $C^{\infty} \left(\mathcal G\left( M, \sF\right) , \Omega_{\mathcal G\left( M, \sF\right)}^{1/2}\right)$ uniquely  defines its lift in $C^{\infty} \left(\mathcal G\left(\widetilde M, \widetilde\sF\right) , \Omega_{\mathcal G\left(\widetilde M, \widetilde\sF\right)}^{1/2}\right)$, i.e. there is a $\C$-linear map
+\be\label{cinf_eqn}
+C^{\infty} \left(\mathcal G\left( M, \sF\right) , \Omega_{\mathcal G\left( M, \sF\right)}^{1/2}\right)\hookto C^{\infty} \left(\mathcal G\left(\widetilde M, \widetilde\sF\right) , \Omega_{\mathcal G\left(\widetilde M, \widetilde\sF\right)}^{1/2}\right)
+\ee
+which is indeed *-homomorphism. The map \eqref{cinf_eqn} yield the \textit{induced by the covering  p $*$-homomorphism of $C^*$-algebras of foliations}
+$
+C^*_r\left(p \right) :C^*_r \left( M, {\sF}\right)\hookto C^*_r \left(\widetilde M, \widetilde{\sF}\right).
+$
+\end{frame}
+\subsection{Multiplies}
+\begin{frame}
+The space $C^{\infty} (\mathcal G , \Omega^{1/2})$ is $C^{\infty} \left(M\right)$-bimodule such that
+\be\nonumber
+\begin{split}
+	f\cdot \left(\omega_x \otimes \omega_y \right) \bydef f\left(x \right)\omega_x \otimes \omega_y \quad f \in C^{\infty} \left(M\right),~\omega_x \in \Om^{1/2}_x, ~ \omega_y \in \Om^{1/2}_y, \\
+	\left(\omega_x \otimes \omega_y \right) \cdot f \bydef \omega_x \otimes f\left(y \right)\omega_y.
+\end{split}
+\ee
+On the other hand for all $x \in M$ there is a representation $C^{\infty} \left(M\right)\to L^2\left( \mathcal G_x\right)$ given by
+$$
+f \mapsto \left( \xi \mapsto f\left( x\right)\xi \right) \quad  \quad f \in C^{\infty} \left(M\right),~\xi \in L^2\left( \mathcal G_x\right).
+$$
+One has the natural faithful representation
+$
+\phi:  C^{\infty} \left(M\right)\hookto B\left(\sH \right)
+$
+such that
+\be\nonumber
+\begin{split}
+	\phi\left( f\right) \rho\left( a\right) = \rho\left(f\cdot a \right),  f \in  C^{\infty} \left(M\right), ~a \in C^{\infty} (\mathcal G , \Omega^{1/2})\\
+	\rho\left( a\right) \phi\left( f\right)= \rho\left(a\cdot f \right).
+\end{split}
+\ee
+From the above construction it follows that $C^{\infty} \left(M\right)\subset M\left( C^*_r(M, \sF)\right)$. 
+\end{frame}
+
+\subsection{Application of general theory}
+\begin{frame}
+	Denote by $A^*_r\left(M, \sF \right)  \subset M\left( C^*_r(M, \sF)\right)$ the $C^*$-subalgebra of $M\left( C^*_r(M, \sF)\right)$ generated by a union $C^*_r\left(M, \sF \right)\cup C^{\infty} \left(M\right)$. $C^*_r\left(M, \sF \right)$ is an essential ideal of $A^*_r\left(M, \sF \right)$. If $p: \widetilde M \to M$ is a transitive covering and $\widetilde\sF$ is the $p$-lift of $\sF$ then using a combination of inclusions $C^*_r\left(p \right): C^*_r \left( M, {\sF}\right)\hookto C^*_r \left(\widetilde M, \widetilde{\sF}\right)$ and $C^{\infty} \left(M\right) \hookto C^{\infty} \left(\widetilde M\right)$ one can construct the invective *-homomorphsim $\widetilde \pi: A^*_r \left( M, {\sF}\right)\hookto A^*_r \left(\widetilde M, \widetilde{\sF}\right)$ such that $\left.\widetilde \pi\right|_{  C^*_r \left( M, {\sF}\right)}= C^*_r \left(p\right)$. The action $G\left(\left.\widetilde M\right| M\right) \times \widetilde M\to \widetilde M$ naturally induces the action $G\left(\left.\widetilde M\right| M\right) \times  A^*_r \left(\widetilde M, \widetilde{\sF}\right)\to  A^*_r \left(\widetilde M, \widetilde{\sF}\right)$ such that $G\left(\left.\widetilde M\right| M\right)   C^*_r \left(\widetilde M, \widetilde{\sF}\right)= C^*_r \left(\widetilde M, \widetilde{\sF}\right)$. Since $\widetilde M$ is compact there is a finite set $\left\{\widetilde a_1, ..., \widetilde a_m\right\}\subset C^{\infty} \left(\widetilde M\right)_+$ such that
+	\be\nonumber
+	\begin{split}
+		\widetilde a_1 + ... + \widetilde a_n = 1_{C^{\infty} \left(\widetilde M\right)}= 1_{A^*_r \left(\widetilde M, \widetilde{\sF}\right)},\\
+		\widetilde a_j \left(g \widetilde a_j \right) = 0; \text{ for any nontrivial }g\in G\left(\left.\widetilde M\right| M\right).
+	\end{split}
+	\ee
+	
+\end{frame}
+
+\begin{frame}
+	If $\widetilde e_j \bydef \sqrt{\widetilde a_j}\in C^{\infty} \left(\mathcal G\left( M, \sF\right) , \Omega_{\mathcal G\left( M, \sF\right)}^{1/2}\right)$ then from the above construction it follows that
+	\be\label{foli_eqn}
+	\sum_{j = 1}^m \widetilde e_j (g \widetilde e_j)= \begin{cases}
+		1_{A^*_r \left(\widetilde M, \widetilde{\sF}\right)} &  g\in G\left(\left.\widetilde M\right| M\right)\text{ is trivial}\\
+		0 &  g\in G\left(\left.\widetilde M\right| M\right)\text{ is not  trivial}.
+	\end{cases}
+	\ee
+	From the equation \eqref{foli_eqn} it follows that
+	$$
+	\widetilde a \in A^*_r \left(\widetilde M, \widetilde{\sF}\right)\Rightarrow \widetilde a = \sum_{j=1}^m \widetilde e_j a_j; \quad a_j= \sum_{g \in G\left(\left.\widetilde M\right| M\right)} g\left(  \widetilde e_j  \widetilde a\right)\in A^*_r \left( M, {\sF}\right), 
+	$$
+	i.e. $A^*_r \left(\widetilde M, \widetilde{\sF}\right)$ is an $A^*_r \left( M, {\sF}\right)$-module generated by the finite set $\left\{\widetilde e_1, ..., \widetilde e_m\right\}\subset A^*_r \left(\widetilde M, \widetilde{\sF}\right)$
+\end{frame}
+\begin{frame}
+	\begin{theorem}
+		If we consider the above situation then the quadruple
+		$$
+		\left(C^*_r \left(\widetilde M, \widetilde{\sF}\right), C^*_r \left(\widetilde M, \widetilde{\sF}\right), G\left(\left.\widetilde M\right| M\right), C^*_r\left(p \right) \right)
+		$$
+		is a noncommutative finite-fold covering with unitization.
+	\end{theorem}
+	Firstly we prove that
+	$$
+	\left(A^*_r \left(\widetilde M, \widetilde{\sF}\right), A^*_r \left(\widetilde M, \widetilde{\sF}\right), G\left(\left.\widetilde M\right| M\right), \widetilde\pi \right)
+	$$
+	is an unital noncommutative finite-fold covering, i.e.
+	\begin{enumerate}
+		\item[(a)] The group  
+		$$
+		G \bydef \left\{ \left.g \in \Aut\left(A^*_r \left(\widetilde M, \widetilde{\sF}\right) \right)~\right|~ ga = a;~~\forall a \in A^*_r \left( M, {\sF}\right)\right\}
+		$$
+		is finite.
+		\item[(b)] 	$
+		A^*_r\left( M, {\sF}\right) \cong A^*_r \left(\widetilde M, \widetilde{\sF}\right)^G$
+		\item[(c)] $A^*_r \left(\widetilde M, \widetilde{\sF}\right)$ is a finitely generated $A^*_r \left( M, {\sF}\right)$-module.
+	\end{enumerate}
+\end{frame}
+\begin{frame}
+	However from our construction it follows that $G \cong G\left(\left.\widetilde M\right| M\right)$.
+	Condition (b) can be deduced from $C\left(M\right)\cong C\left(\widetilde M\right)^{G\left(\left.\widetilde M\right| M\right)}$and $C^*_r\left( M, {\sF}\right) \cong C^*_r \left(\widetilde M, \widetilde{\sF}\right)^G$. Condition (c) is already proven. Since both $C^*_r\left( M, {\sF}\right)$  and $C^*_r \left(\widetilde M, \widetilde{\sF}\right)$ are essential ideals of $A^*_r\left( M, {\sF}\right)$  and $A^*_r \left(\widetilde M, \widetilde{\sF}\right)$ respectively, thus $$
+	\left(C^*_r \left(\widetilde M, \widetilde{\sF}\right), C^*_r \left(\widetilde M, \widetilde{\sF}\right), G\left(\left.\widetilde M\right| M\right), C^*_r\left(p \right) \right)
+	$$
+	is a noncommutative finite-fold covering with unitization.
+	
+\end{frame}
+\section{Hausdorff non Hausdorff duality}
+\begin{frame}
+	Consider a foliation $\left(\widetilde M \bydef \mathbb R^2, \widetilde{\mathcal F}\right)$ where a $ \mathbb R^2$ has Euclidean coordinates $\left(x, y\right)$ and $\widetilde{\mathcal F}$ is given by an equation $dy = \theta dx$, where $\theta \in \mathbb R \setminus \mathbb Q$. One has $C^*_r\left(\widetilde M, \widetilde{\mathcal F}\right)\cong C_0\left(\mathbb R \right)\otimes \mathcal K $. The spectrum of $C^*_r\left(\widetilde M, \widetilde{\mathcal F}\right)$ is a Hausdorff space $\mathbb R$.
+	If we define an action $\mathbb Z^2 \times \mathbb R^2 \to \mathbb R^2$ such that $\left(i,k\right)\cdot \left(x,y\right)=\left(i + x,k + y\right)$ we obtain a foliation $\left(M \bydef \mathbb T^2, {\mathcal F}\right)$. The spectrum of the algebra $C^*_r\left( M, {\mathcal F}\right)\cong C\left( \mathbb T^2_\theta \right) \otimes \mathcal K $ is not Hausdorff.
+	\includegraphics[width=10cm, height=4cm]{A-torus.png}
+\end{frame}
+\section{Noncommutative geometry and UV-cutoff in physics}
+\begin{frame}
+	Quantum physics has a problem of $UV$-divergences which occur by existence of points in physical space time. These divergences arise at small distances. Noncommutative geometry is a point that there are no points. Points of classical geometry correspond to two sides ideals of commutative $C^*$-algebra. But a noncommutative $C^*$-algebra should not have proper two sides ideals.
+Fathers of quantum mechanics, most
+notably Heisenberg, in the pioneering days of quantum field theory that one could use
+a noncommutative structure for spacetime coordinates at very small length scales to
+introduce an effective ultraviolet cutoff. It was Snyder  who first formalized this idea. This was motivated by the need to control the
+divergences which had plagued theories such as quantum electrodynamics from the very
+beginning.
+\end{frame}
+
+\begin{frame}
+Quantum theory usually is obtained from classical one by the following modification
+\break
+\begin {table}[H]
+\caption {Mapping between classical and quantum physics} \label{main_mapping_table} 
+\begin{center}
+	\begin{tabular}{|c|c|}
+		\hline
+		Classical  & Quantum\\
+		\hline
+		&\\
+		$\left[ x, p_x\right] = 0$ & $\left[ x, p_x\right] = i \hslash$ \\
+		&\\
+		$\left[ y, p_y\right] = 0$ & $\left[ y, p_y\right] = i \hslash$\\
+		&\\
+$\left[ z, p_z\right] = 0$ & $\left[ z, p_z\right] = i \hslash$\\
+		\hline
+	\end{tabular}
+\end{center}
+\end {table}
+
+
+\end{frame}
+\begin{frame}
+	Snyder's deformation
+	\break
+	\begin {table}[H]
+	\caption {Mapping classical  and noncommutative geometry} \label{s_mapping_table} 
+	\begin{center}
+		\begin{tabular}{|c|c|}
+			\hline
+			Classical  & Noncommutative\\
+			\hline
+			&\\
+			$\left[ x, y\right] = 0$ & $\left[ x, y\right] = \frac{i a^2}{\hslash c}L_z$ \\
+			&\\
+$\left[ y, z\right] = 0$ & $\left[ y, z\right] = \frac{i a^2}{\hslash c}L_x$ \\
+			&\\
+$\left[ z, x\right] = 0$ & $\left[ z, x\right] = \frac{i a^2}{\hslash c}L_y$ \\
+			\hline
+		\end{tabular}
+	\end{center}
+	\end {table}
+Above formula is an example of Hausdorff - non Hausdorff duality. Tending $a \to 0$ transforms a $C^*$-algebra with non Hausdorff spectrum to a $C^*$-algebra with non Hausdorff one. Classical physics is limit of the quantum one.	
+\end{frame}
+\begin{frame}
+	The theory of noncommutative coverings yields an alternative way of obtaining Hausdorff - non Hausdorff duality. A $C^*$-algebra 	$C_0\left( \mathbb R \right) \otimes \mathcal K$  with Hausdorff spectrum is a noncommutative covering of a $C^*$-algebra 	$C\left( \mathbb T^2_\theta \right) \otimes \mathcal K$ with non Hausdorff one. So there is a duality between between physics on
+	$C_0\left( \mathbb R \right) \otimes \mathcal K$  and	$C\left( \mathbb T^2_\theta \right) \otimes \mathcal K$.
+\end{frame}
+
 \begin{frame}
 	\begin{center}
 		\Huge
@@ -371,9 +626,6 @@ If $\sX$ is a connected, locally connected, locally compact, Hausdorff space the
 		\alert{Thank You!}
 	\end{center}
 \end{frame}
-
-
-
 
 
 
