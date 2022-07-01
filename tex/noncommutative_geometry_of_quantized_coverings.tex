@@ -1519,9 +1519,12 @@ is a {noncommutative finite-fold  pre-covering}.
 We do not require that a homomorphism $\pi^1_2: \widetilde A_1 \to \widetilde A_2$ exists. If not then we also say that the pair $\left( \pi_1,\pi_2\right) $ is \textit{compliant}.
 \end{remark}
 \begin{notation}\label{compliant_not}
-Consider the situation of the Definition  \ref{compliant_defn}. Instead of isomorphisms $\pi_1, \pi_2, \pi^1_2$ we use the following notation 
+Consider the situation of the Definition  \ref{compliant_defn}. Instead of isomorphisms $\pi_1, \pi_2, \pi^1_2$ we use the following notations 
 \be\label{compliant_not_eqn}
-A \subset \widetilde A_1 \subset \widetilde A_2
+\begin{split}
+A \subset \widetilde A_1 \subset \widetilde A_2,\\
+A \subset \widetilde A^H_2 \subset \widetilde A_2
+\end{split}
 \ee
 \end{notation}
 \begin{exercise}
@@ -11876,7 +11879,7 @@ j_{\sU}: A_\sU \hookto \widetilde A_\sU.
  	j^{\mathrm{prop}}_{\sU}: A^{\mathrm{prop}}_\sU \hookto \widetilde A^{\mathrm{prop}}_\sU.
  	\ee
  \end{exercise}
-\begin{empt}
+\begin{empt}\label{blowing_ty_empt}
 Let $A$ be a connected  $C^*$-algebra (cf. Definition \ref{connected_c_a_defn}), and let $C_0\left( \sY\right)\hookto M\left( A\right) $ be a Hausdorff blowing up (cf. Definition \ref{blowing_defn}). If   $\left(A, \widetilde{A}, G, \pi \right)$ is  a noncommutative finite-fold  quasi-covering (cf. Definition \ref{fin_quasi_defn}) then from the Lemma \ref{ind_mult_inv_lem} it follows that there is an injective *-homomorphism $M\left(A\right)\hookto M\left(\widetilde A\right)$. If both $\sX$ and $\widetilde\sX$ are spectra of $M\left(\widetilde A\right)$ and $M\left(\widetilde A\right)$ then from \eqref{rep_x_mor_inj_eqn} it follows that there is the natural inclusion
 \be\label{blowing_rep_inc_eqn}
 \psi_{\widetilde x}:	\rep^{ M\left( A\right)}_{p\left( \widetilde{x}\right) }\left( M\left( A\right) \right)\hookto \rep^{ M\left(\widetilde A\right)}_{ \widetilde{x} }\left( M\left(\widetilde A\right) \right)
@@ -11921,7 +11924,7 @@ for any finite subset $\La_0\subset \La$.
 From the  Theorem \ref{fin_gen_thm} it follows that	$\widetilde B$ is not a finitely generated $B$-module. However from the Definition \ref{fin_unital_defn} it turns out that  $\widetilde B$ is  a finitely generated $B$-module. From this contradiction one concludes that $C\left(\widetilde\sY\right)$ is not  a left finitely generated $C\left(\sY\right)$-module.
 \end{proof}
 
-\begin{lemma}
+\begin{lemma}\label{blowing_cov_y_lem}
 	Let $A$ be a connected  $C^*$-algebra (cf. Definition \ref{connected_c_a_defn}), and let $C\left( \sY\right)\hookto M\left(A \right) $ be a Hausdorff blowing up (cf. Definition \ref{blowing_defn}) with compact $\sY$.  Suppose that   $\left(A, \widetilde{A}, G, \pi \right)$ is  a noncommutative finite-fold  pre-covering (cf. Definition \ref{fin_pre_defn}).  If $C\left(\widetilde\sY\right)$ is given by \eqref{blowing_cy_eqn} and $\widetilde{B}= C\left(\widetilde\sY\right){B}$ then one has
 	\bean
 	C\left(\widetilde\sY\right)	\quad \mathrm{is~a~finitely~generated }\quad  C\left(\sY\right)\mathrm{-module}\quad \Rightarrow\\
@@ -11940,6 +11943,21 @@ From the  Theorem \ref{fin_gen_thm} it follows that	$\widetilde B$ is not a fini
 $$
 i.e. $\widetilde B$ is a finitely generated $B$-module. Other details of proof are left to the reader.
 \end{proof}
+\begin{empt}\label{blowing_sum_lem}
+!!!! ADD	Let $A$ be a connected  $C^*$-algebra (cf. Definition \ref{connected_c_a_defn}), and let $C\left( \sY\right)\hookto M\left(A \right) $ be a Hausdorff blowing up (cf. Definition \ref{blowing_defn}) with compact $\sY$.  Suppose that   $\left(A, \widetilde{A}, G, \pi \right)$ is  a noncommutative finite-fold  covering with unitization (cf. Definition \ref{fin_unitization_defn}).
+	Suppose that $H\subset G$ be a normal group such that inclusions
+	$$
+	A\subset  \widetilde{A}^H\subset  \widetilde{A}
+	$$
+satisfy to the Definition \ref{compliant_defn}	(cf. Notation \eqref{compliant_not_eqn}). If $\left(B, \widetilde{B}, G, \rho \right)$ is a required by the Definition \ref{fin_unitization_defn} unital noncommutative finite-fold  covering (cf. Definition \ref{fin_unital_defn})  then  $\left(\widetilde{B}^H, \widetilde{B}, G/H, \Id_{\widetilde B^H} \right)$ is also an unital  noncommutative finite-fold  covering (cf. Lemma \ref{fin_composition_lem}). If $C\left(\widetilde \sY\right)\subset \widetilde B^H$. Applying construction \ref{blowing_ty_empt} one can obtain $C\left( \widetilde \sY^H\right) \subset \widetilde B^H$. If $\widetilde B^H = C\left( \widetilde \sY^H\right)$ then from the Lemma \ref{blowing_cov_y_lem} it turns out that $C\left( \widetilde \sY^H\right)$ is a finitely generated $C\left(\sY\right)$ module and there is a natural covering $\widetilde \sY^H\to \widetilde \sY$.
+
+
+ such that $C\left(\sY \right) \subset B$. If $C\left(\widetilde\sY\right)$ is given by \eqref{blowing_cy_eqn} then one has
+	$$
+	\widetilde{B}= C\left(\widetilde\sY\right){B}\quad \Rightarrow \quad C\left(\widetilde\sY\right)	\quad \mathrm{is~a~finitely~generated }\quad  C\left(\sY\right)\mathrm{-module}.
+	$$
+\end{empt}
+
 \begin{definition}\label{blowing_semi1_defn}
 Let $A$ be a  connected $C^*$- algebra. A Hausdorff  blowing-up $C_0\left( \sY\right)\hookto M\left(A \right)$ of $A$ is said to be \textit{%(reducibly) 
 	semilocally 1-connected} if for any $y\in \sY$ and every open neighborhood $\sV$ of $y$   there is an open neighborhood $\sU$ of $y$ such that $\sU\subset \sV$ and $\sU$-proper $C^*$-algebra  $A^{\mathrm{prop}}_\sU$ (cf. Definition  \ref{blowig_su_eqn}) is %(reducibly) 
