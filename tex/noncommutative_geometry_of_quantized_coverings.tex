@@ -1467,7 +1467,7 @@ If $\left(A, \widetilde{A}, G, \pi \right)$  is a {noncommutative finite-fold  q
 
 
 \begin{definition}\label{hilbert_product_defn}
-	If $\left(A, \widetilde{A}, G, \pi \right)$ is a noncommutative finite-fold  quasi-covering then  product given by \eqref{finite_hilb_mod_prod_eqn} is said to be the \textit{Hilbert product associated} with the noncommutative finite-fold  quasi-covering $\left(A, \widetilde{A}, G, \pi \right)$.
+	If $\left(A, \widetilde{A}, G, \pi \right)$ is a noncommutative finite-fold  quasi-covering then  product given by \eqref{finite_hilb_mod_prod_eqn} is said to be the \textit{Hilbert product associated} with the noncommutative finite-fold  quasi-covering $\left(A, \widetilde{A}, G, \pi \right)$. We write $G\left(\left.\widetilde A~\right|A \right)\bydef G$.
 \end{definition}
 
    \begin{definition}\label{fin_pre_defn}
@@ -1481,15 +1481,22 @@ If $\left(A, \widetilde{A}, G, \pi \right)$  is a {noncommutative finite-fold  q
 		is finite.
 		\item[(b)] 	$A \cong \widetilde{A}^G\stackrel{\text{def}}{=}\left\{\left.a\in \widetilde{A}~~\right|~ a = g a;~ \forall g \in G\right\}$.
 	\end{enumerate}
-	We say that the triple $\left(A, \widetilde{A}, G \right)$ and/or the quadruple $\left(A, \widetilde{A}, G, \pi \right)$ and/or *-homomorphism $\pi: A \hookto \widetilde{A}$   is a \textit{noncommutative finite-fold  pre-covering}. 
+	We say that the triple $\left(A, \widetilde{A}, G \right)$ and/or the quadruple $\left(A, \widetilde{A}, G, \pi \right)$ and/or *-homomorphism $\pi: A \hookto \widetilde{A}$   is a \textit{noncommutative finite-fold  pre-covering}. We write $G\left(\left.\widetilde A~\right|A \right)\bydef G$.
 \end{definition}
 \begin{exercise}\label{fin_pre_exer}
-Let $\left(A, \widetilde{A}, G, \pi \right)$    is a {noncommutative finite-fold  pre-covering}. Let $H \subset G$ is a normal subgroup (cf. Definition \ref{normal_subgroup_defn}). Prove that  the quadruple 
+Let $\left(A, \widetilde{A}, G, \pi \right)$    be a {noncommutative finite-fold  pre-covering}. Let $H \subset G$ be a normal subgroup (cf. Definition \ref{normal_subgroup_defn}). Prove that  the quadruple 
 $$
 \left(\widetilde A^H, \widetilde{A}, G/H, \Id_{\widetilde A}|_{\widetilde A^H} \right)
 $$
-is a {noncommutative finite-fold  pre-covering}.
+
 \end{exercise}
+\begin{definition}\label{proper_subgroup_fin_defn}
+Let $\left(A, \widetilde{A}, G\left(\left.\widetilde A~\right|A \right), \pi \right)$ be  a {noncommutative finite-fold  pre-covering} (cf. Definition \ref{fin_pre_defn}). A normal subgroup $H\subset G\left(\left.\widetilde A~\right|A \right)$ is said to be $\left(A, \widetilde{A}, G, \pi \right)$-\textit{proper} if a quadruple
+\be
+\left(A, \widetilde{A}^H, G\left(\left.\widetilde A~\right|A \right)/H, \pi^H \right)
+\ee
+is a  {noncommutative finite-fold  pre-covering}. The *-homomorphism $\pi^H:A\hookto \widetilde{A}^H: $ comes from $\pi: A \hookto \widetilde{A}$ and an inclusion  $\pi\left( A\right) \subset \widetilde{A}^H$.
+\end{definition}
 \begin{definition}\label{compliant_defn}
 	Let us consider the following diagram\\
 	\newline
@@ -1505,15 +1512,7 @@ is a {noncommutative finite-fold  pre-covering}.
 		%\draw[dashed,->]   (m-1-1) -- (m-1-3);
 	\end{tikzpicture}
 	\\
-	where $A$, $\widetilde A_1$, $\widetilde A_2$ are $C^*$-algebras and $\pi_1$, $\pi_2$, are connected  noncommutative finite-fold pre-coverings (cf. Definition \ref{fin_defn}). We say that the unordered pair $\left( \pi_1,\pi_2\right) $ is \textit{compliant} if  for any injective  *-homomorphism $\pi^1_2: \widetilde A_1 \to \widetilde A_2$ such that $\pi^1_2 = \pi^1_2 \circ \pi_1$  there is a normal subgroup  $H \subset G\left(\left.\widetilde A_2~\right|A \right)$ such that
-	\be\label{compliant_covering_eqn}
-	\begin{split}
-		\pi^1_2 \left(\widetilde A_1 \right) = \widetilde A^H_2,\\
-		H \cong G\left(\left.\widetilde A_2~\right|\widetilde A_1 \right),\\
-		G\left(\left.\widetilde A_2~\right|A_1 \right)\cong G\left(\left.\widetilde A_2~\right|A \right)/G\left(\left.\widetilde A_2~\right|\widetilde A_1 \right).
-	\end{split}
-	\ee
-	
+	where $A$, $\widetilde A_1$, $\widetilde A_2$ are $C^*$-algebras and $\pi_1$, $\pi_2$, are connected  noncommutative finite-fold pre-coverings (cf. Definition \ref{fin_defn}). We say that the unordered pair $\left( \pi_1,\pi_2\right) $ is \textit{compliant} if  for any injective  *-homomorphism $\pi^1_2: \widetilde A_1 \to \widetilde A_2$ such that $\pi^1_2 = \pi^1_2 \circ \pi_1$  there is an $\left(A, \widetilde{A}_2, G\left(\left.\widetilde A_2~\right|A \right), \pi \right)$-{proper} normal subgroup $H \subset G\left(\left.\widetilde A_2~\right|A \right)$ such that $\pi^1_2\left(\widetilde A_1 \right) = \widetilde A^H_2$, i.e. $\pi^1_2$ is a   noncommutative finite-fold pre-covering.
 \end{definition}
 \begin{remark}
 We do not require that a homomorphism $\pi^1_2: \widetilde A_1 \to \widetilde A_2$ exists. If not then we also say that the pair $\left( \pi_1,\pi_2\right) $ is \textit{compliant}.
@@ -1523,14 +1522,14 @@ Consider the situation of the Definition  \ref{compliant_defn}. Instead of isomo
 \be\label{compliant_not_eqn}
 \begin{split}
 A \subset \widetilde A_1 \subset \widetilde A_2,\\
-A \subset \widetilde A^H_2 \subset \widetilde A_2
+A \subset \widetilde A^H_2 \subset \widetilde A_2.
 \end{split}
 \ee
 \end{notation}
 \begin{exercise}
 Consider the situation of the Definition  \ref{compliant_defn}. Prove that $\rho^1_2 \widetilde A_1 \to \widetilde A_2$ is an injective *-homomorphism  such that $\pi_2 = \rho^1_2 \circ \pi_1$ then there is $g \in G\left(\left.\widetilde A_2~\right|A \right)$ such that 
 \be
-\pi_2 = \rho^1_2\circ g
+\pi_2 = \rho^1_2\circ g.
 \ee
 \end{exercise}
 \begin{definition}\label{compliant_comes_defn}
@@ -1579,7 +1578,7 @@ hence one has
 	Let $\left(A, \widetilde{A}, G, \pi \right)$ be a  noncommutative finite-fold  pre-covering (resp. quasi-covering). Suppose both $A$ and  $\widetilde{A}$ are unital $C^*$-algebras. We say that $\left(A, \widetilde{A}, G, \pi \right)$ is an \textit{unital noncommutative finite-fold  covering} (resp. \textit{unital noncommutative finite-fold  quasi-covering}) if $\widetilde{A}$ is a finitely generated $C^*$-Hilbert left and/or right $A$-module with respect to product given by \eqref{finite_hilb_mod_prod_eqn}.
 \end{definition}
 \begin{lem}\label{fin_composition_lem}
-	Let $\left(A, \widetilde{A}, G, \pi \right)$ be an unital noncommutative finite-fold  covering. If  $H \subset G$ is  a normal group and the natural inclusions $A \hookto \widetilde{A}^H$ and $A \to \widetilde{A}$ are compliant (cf. Definition \ref{compliant_defn}) then there are following unital finite-fold noncommutative coverings
+	Let $\left(A, \widetilde{A}, G, \pi \right)$ be an unital noncommutative finite-fold  covering. If  $H \subset G$ is  a $\left(A, \widetilde{A}, G, \pi \right)$-proper group (cf. Definition \ref{proper_subgroup_fin_defn}) then there are following unital finite-fold noncommutative coverings
 	\bea\label{fin_composition1_eqn}
 	\left(A, \widetilde{A}^H, G/H, \rho \right),\\
 	\label{fin_composition2_eqn}
@@ -1680,7 +1679,7 @@ g\left(\widetilde b \widetilde a \right)=\lim v_\la g\left(  \widetilde b\wideti
 \end{proof}
 
 %\begin{definition}\label{evenly_cov_defn}
-%Let $\left(A, \widetilde{A}, G, \pi \right)$ noncommutative finite-fold  pre-covering, and let $A' \subset A$ and $\widetilde A' \subset \widetilde A$ are $C^*$-subalgebras. We say that $A'$ is \textit{evenly covered} (cf. Definition \ref{top_cov_defn}) by $\widetilde A'$ if  $\left(A', \widetilde{A}', G, \pi|_{A'} \right)$ is a covering with unitization (cf. Definition \ref{fin_unitization_defn}).
+%Let $\left(A, \widetilde{A}, G, \pi \right)$ noncommutative finite-fold  pre-covering, and let $A' \subset A$ and $\widetilde A' \subset \widetilde A$ are $C^*$-subalgebras. We say that $A'$ is \textit{evenly covered} (cf. Definition \ref{top_covering_defn}) by $\widetilde A'$ if  $\left(A', \widetilde{A}', G, \pi|_{A'} \right)$ is a covering with unitization (cf. Definition \ref{fin_unitization_defn}).
 %\end{definition}
 
 %\begin{definition}\label{fin_defn}
@@ -5450,7 +5449,7 @@ Sometimes instead of \eqref{top_cfs_eqn} we use the following notation for a cov
 where $\mathscr A$ is a finite set.
 \end{remark}
 \begin{definition}\label{top_covering_sum_domi_defn}
-Let $p:\widetilde\sX \to \sX$ be a covering. Let both $\sY\subset\sX$ and $\widetilde\sY\subset\widetilde\sX$ are compact subsets. A covering sum $\sum_{j = 1}^n f_j$ for $\sY$ (cf. Definition \ref{top_covering_sum_defn}) is said to be \textit{subordinated to} $p$ if for all $j=1,..., n$ the set $\left\{\left.x\in\sX\right|f_j\left( x\right)>  0 \right\}$ is evenly covered by $p$ (cf. Definition \ref{top_cov_defn}). A covering sum $\sum_{j = 1}^n \widetilde f_j$ for $\widetilde \sY$ is said to be \textit{subordinated to} $p$ if for all $j=1,..., n$ the set $\widetilde\sU_j\bydef \left\{\left.\widetilde x\in\widetilde\sX\right|\widetilde f_j\left(\widetilde x\right)>  0 \right\}$ is homeomorphically mapped onto $p\left(\widetilde\sU_j\right)$. 
+Let $p:\widetilde\sX \to \sX$ be a covering. Let both $\sY\subset\sX$ and $\widetilde\sY\subset\widetilde\sX$ are compact subsets. A covering sum $\sum_{j = 1}^n f_j$ for $\sY$ (cf. Definition \ref{top_covering_sum_defn}) is said to be \textit{subordinated to} $p$ if for all $j=1,..., n$ the set $\left\{\left.x\in\sX\right|f_j\left( x\right)>  0 \right\}$ is evenly covered by $p$ (cf. Definition \ref{top_covering_defn}). A covering sum $\sum_{j = 1}^n \widetilde f_j$ for $\widetilde \sY$ is said to be \textit{subordinated to} $p$ if for all $j=1,..., n$ the set $\widetilde\sU_j\bydef \left\{\left.\widetilde x\in\widetilde\sX\right|\widetilde f_j\left(\widetilde x\right)>  0 \right\}$ is homeomorphically mapped onto $p\left(\widetilde\sU_j\right)$. 
 \end{definition}
 
 \begin{remark}\label{top_smooth_part_unity_rem} 
@@ -5499,7 +5498,7 @@ If $\left\{f_\a\right\}_{\a\in \mathscr A}\subset C_c\left(\sX \right)$ is the d
 
 
 
-\section{Transitive coverings}
+\section{Transitive coverings}\label{top_transitive_section}
 
 \paragraph*{}
 The notion of "regular covering" has no any good noncommutative generalization. So instead the "regular covering"  we will use "transitive covering"  which is explained below.
@@ -6647,7 +6646,7 @@ The following Lemma is evident.
 	is the  minimal norm closed subspace of $C_b\left(\lift_p\left[ C\left(\sX, \left\{A_x\right\}, \sF \right) \right] \right)$ which contains all products $f \lift_p\left( a\right) $ where $a \in C_0\left(\sX, \left\{A_x\right\}, \sF \right)$ and $f \in C_0\left(\widetilde\sX\right)$.
 \end{remark}
 \begin{exercise}
-Let $M$ be a differential manifold (cf. Definition \ref{diff_mani_defn}), let $p: \widetilde M \to M$ be a covering (cf. Definition \ref{top_cov_defn}). Suppose that $\widetilde M$ has a given by the Proposition \ref{top_cov_mani_prop} structure of differential manifold. Prove that
+Let $M$ be a differential manifold (cf. Definition \ref{diff_mani_defn}), let $p: \widetilde M \to M$ be a covering (cf. Definition \ref{top_covering_defn}). Suppose that $\widetilde M$ has a given by the Proposition \ref{top_cov_mani_prop} structure of differential manifold. Prove that
 \be\label{top_lift_smooth_eqn}
 \lift_p\left( \Coo\left( M\right)\cap C_b\left( M\right) \right) \subset  \Coo\left(\widetilde M\right)\cap C_b\left(\widetilde M\right).
 \ee
@@ -7434,7 +7433,7 @@ f^{-1}_{\mathscr  G}:\mathscr  G\left(\sX\right)\hookto f^{-1}\mathscr  G\left(\
 of Abelian groups.
 
 \begin{exercise}\label{top_sheaf_lift_exer}
-Let $p:\widetilde \sX\to \sX$ be a covering (cf. Definition \ref{top_cov_defn}), and let $\mathscr F$ be a sheaf on $\sX$. Prove following statements:
+Let $p:\widetilde \sX\to \sX$ be a covering (cf. Definition \ref{top_covering_defn}), and let $\mathscr F$ be a sheaf on $\sX$. Prove following statements:
 \begin{enumerate}
 	\item For all $\widetilde x\in\widetilde\sX$ there is a natural isomorphism of stalks (cf. Definition \ref{stalk_defn})
 	\be\label{top_st_iso_eqn}
@@ -7717,7 +7716,7 @@ where $\mathscr Hom$ means a sheaf of local morphisms (cf. Definition \ref{sheaf
 	\begin{enumerate}
 		\item[(i)] There is the natural inclusion $$\mathscr D\left(M, E_1, E_2\right)\subset \mathscr Hom \left(\mathscr S^{\Ga^\infty\left( M, F\right)},
 		\mathscr S^{\Ga^\infty\left( M, G\right)} \right).$$
-		\item[(ii)]  If $p: \widetilde M \to M$ is a covering (cf. Definition \ref{top_cov_defn}) and the structure of smooth manifold $\widetilde M$ is given by the Proposition then there is a unique  smooth bundle $\widetilde E\to \widetilde M$ such that there is the natural isomorphism
+		\item[(ii)]  If $p: \widetilde M \to M$ is a covering (cf. Definition \ref{top_covering_defn}) and the structure of smooth manifold $\widetilde M$ is given by the Proposition then there is a unique  smooth bundle $\widetilde E\to \widetilde M$ such that there is the natural isomorphism
 		$$
 			p^{-1} \mathscr S^{\Ga^\infty\left( M, E\right)}\cong  \mathscr \mathscr S^{\Ga^\infty\left(\widetilde M, \widetilde E\right)}.
 		$$
@@ -8381,7 +8380,7 @@ where $\bt\text{-}\lim_{\la\in \La}$ is the limit with respect to the strict top
 			$$
 	\left(C_0\left(\sU_\la\right), \widetilde{A}_\la, G, \left.\pi\right|_{C_0\left(\sU_\la\right)} :C_0\left(\sU_\la\right)\hookto \widetilde{A}_\la\right).	
 	$$
-From the Lemma \ref{comm_fin_lem} it follows that the $C^*$-algebra $\widetilde{A}_\la$ is commutative, i.e. $\widetilde{A}_\la\cong C_0\left(\widetilde\sU_\la\right)$ and the restriction $\left.p\right|_{\widetilde\sU_\la}: \widetilde\sU_\la\to\sU_\la$ is a transitive finite-fold covering. From the condition (a) of the Definition \ref{fin_defn} it follows that	$\bt\text{-}\lim_{\la \in \La} u_\la = 1_{C_b\left( \sX\right) }$ so the union $\cup \widetilde{A}_\la \cong \cup  C_0\left(\widetilde\sU_\la\right)$ is dense in $\widetilde A$ i.e. there is a dense commutative *-subalgebra of $\widetilde A$. It turns out that the $C^*$-algebra $\widetilde A$ is commutative, hence $\widetilde A \cong C_0\left(\widetilde\sX\right)$. If $x_0 \in \sX$ is any point then from the Exercise \ref{top_completely_regular_exer} and the Definition \ref{top_completely_regular_defn} it follows that there is $f \in C_0\left(\sX\right)$ such that $f\left(x_0\right)= 1$. Since $\cup_{\la \in \La}C_0\left( \sU_\la\right)$ is dense in $C_0\left(\sX\right)$ there is $\la_0\in \La$ and $f_0 \in C_0\left( \sU_{\la_0}\right)$ such that $\left\| f-f_0\right\| < 1/2$. It follows that $\left| f_0\left(x_0\right)\right|\ge 1/2$, hence $x_0\in \sU_{\la_0}$. So one concludes that $\sX = \cup_{\la\in\La}\sU_\la$. Similarly using the Lemma \ref{fin_def_lem} one can prove that  $\widetilde\sX = \cup_{\la\in\La}\widetilde\sU_\la$. If $x_0\in \sX_0$ is any point then there is $\la_0\in\La$ such that  $x_0\in \sU_{\la_0}$. Since $\left.p\right|_{\widetilde\sU_{\la_0}}: \widetilde\sU_{\la_0}\to\sU_{\la_0}$ is a transitive finite-fold covering there is an open neighborhood $\sV$ of $x_0$ such that $\sV \subset \sU_{\la_0}$ and $\sV$ is evenly covered by $\left.p\right|_{\widetilde\sU_{\la_0}}$ (cf. Definition \ref{top_cov_defn}). Clearly $\sV$ is evenly covered by $p$, and $G$ transitively acts on $p^{-1}\left(x_0 \right)$. Since $\pi$ is injective, the map $p$ is surjective, so $p$ is a transitive covering. The following equation
+From the Lemma \ref{comm_fin_lem} it follows that the $C^*$-algebra $\widetilde{A}_\la$ is commutative, i.e. $\widetilde{A}_\la\cong C_0\left(\widetilde\sU_\la\right)$ and the restriction $\left.p\right|_{\widetilde\sU_\la}: \widetilde\sU_\la\to\sU_\la$ is a transitive finite-fold covering. From the condition (a) of the Definition \ref{fin_defn} it follows that	$\bt\text{-}\lim_{\la \in \La} u_\la = 1_{C_b\left( \sX\right) }$ so the union $\cup \widetilde{A}_\la \cong \cup  C_0\left(\widetilde\sU_\la\right)$ is dense in $\widetilde A$ i.e. there is a dense commutative *-subalgebra of $\widetilde A$. It turns out that the $C^*$-algebra $\widetilde A$ is commutative, hence $\widetilde A \cong C_0\left(\widetilde\sX\right)$. If $x_0 \in \sX$ is any point then from the Exercise \ref{top_completely_regular_exer} and the Definition \ref{top_completely_regular_defn} it follows that there is $f \in C_0\left(\sX\right)$ such that $f\left(x_0\right)= 1$. Since $\cup_{\la \in \La}C_0\left( \sU_\la\right)$ is dense in $C_0\left(\sX\right)$ there is $\la_0\in \La$ and $f_0 \in C_0\left( \sU_{\la_0}\right)$ such that $\left\| f-f_0\right\| < 1/2$. It follows that $\left| f_0\left(x_0\right)\right|\ge 1/2$, hence $x_0\in \sU_{\la_0}$. So one concludes that $\sX = \cup_{\la\in\La}\sU_\la$. Similarly using the Lemma \ref{fin_def_lem} one can prove that  $\widetilde\sX = \cup_{\la\in\La}\widetilde\sU_\la$. If $x_0\in \sX_0$ is any point then there is $\la_0\in\La$ such that  $x_0\in \sU_{\la_0}$. Since $\left.p\right|_{\widetilde\sU_{\la_0}}: \widetilde\sU_{\la_0}\to\sU_{\la_0}$ is a transitive finite-fold covering there is an open neighborhood $\sV$ of $x_0$ such that $\sV \subset \sU_{\la_0}$ and $\sV$ is evenly covered by $\left.p\right|_{\widetilde\sU_{\la_0}}$ (cf. Definition \ref{top_covering_defn}). Clearly $\sV$ is evenly covered by $p$, and $G$ transitively acts on $p^{-1}\left(x_0 \right)$. Since $\pi$ is injective, the map $p$ is surjective, so $p$ is a transitive covering. The following equation
 $$
  G\left(\left. C_0\left( \widetilde{   \mathcal X }\right)  ~\right| C_0\left( {   \mathcal X }\right) \right)\cong  G\left(\left. \widetilde{   \mathcal X } ~\right| {   \mathcal X }\right)
 $$
@@ -9305,7 +9304,7 @@ We leave to the reader the proof of the following equation
 	$$
 	\widehat p_{\la}^{-1}\left(\sU_\la\right)= \bigsqcup_{\widehat x\in \widehat p_\la^{-1}\left(x^\la_0 \right)}\widehat \sU^{\widehat x};
 	$$
-	that is $\sU_\la$ is evenly covered (cf. Definition \ref{top_cov_defn}). Taking into account that both  $\widehat p_\la: \widehat \sX\to \sX_\la$ and  $\overline p_\la: \overline \sX\to \sX_\la$ are surjective we conclude that $\overline p_\la$ is a covering.\\
+	that is $\sU_\la$ is evenly covered (cf. Definition \ref{top_covering_defn}). Taking into account that both  $\widehat p_\la: \widehat \sX\to \sX_\la$ and  $\overline p_\la: \overline \sX\to \sX_\la$ are surjective we conclude that $\overline p_\la$ is a covering.\\
 		(iii) All maps $\overline p_\la: \overline \sX\to \sX_\la$ are continuous, hence from the Definition \ref{top_inv_lim_defn} it follows that the natural  map $\overline \sX\to\widehat \sX$ is continuous.\\
 	\end{proof}
 \begin{definition}\label{top_cov_trans_defn}  Consider the  situation  of the Definition \ref{top_sec_p_defn}, and let
@@ -11895,6 +11894,13 @@ is also commutative so we write $C_0\left( \widetilde \sY \right) \cong \widetil
 \be\label{blowing_inj_eqn}
 C_0\left(\sY\right)\hookto C_0\left( \widetilde \sY \right). 
 \ee
+If $\widetilde c \in C_0\left( \widetilde \sY \right)$ then $\forall \widetilde x \in \widetilde \sX\quad \rep^{ M\left(\widetilde A\right)}_{ \widetilde{x} }\left(\widetilde c \right)\in \widetilde C_{\widetilde x}$ for all $g \in G$. It turns out that there are following actions
+\be\label{blowing_g_y_act_eqn}
+\begin{split}
+G \times C_0\left( \widetilde \sY \right) \to C_0\left( \widetilde \sY \right),\\
+G \times \widetilde \sY  \to \widetilde \sY.
+\end{split}
+\ee
 \end{empt}
 \begin{lemma}
 	Let $A$ be a connected  $C^*$-algebra (cf. Definition \ref{connected_c_a_defn}), and let $C\left( \sY\right)\hookto M\left(A \right) $ be a Hausdorff blowing up (cf. Definition \ref{blowing_defn}) with compact $\sY$.  Suppose that   $\left(A, \widetilde{A}, G, \pi \right)$ is  a noncommutative finite-fold  covering with unitization (cf. Definition \ref{fin_unitization_defn}). Let $\left(B, \widetilde{B}, G, \rho \right)$ be a required by the Definition \ref{fin_unitization_defn} unital noncommutative finite-fold  covering (cf. Definition \ref{fin_unital_defn}), such that $C\left(\sY \right) \subset B$. If $C\left(\widetilde\sY\right)$ is given by \eqref{blowing_cy_eqn} then one has
@@ -11925,7 +11931,7 @@ From the  Theorem \ref{fin_gen_thm} it follows that	$\widetilde B$ is not a fini
 \end{proof}
 
 \begin{lemma}\label{blowing_cov_y_lem}
-	Let $A$ be a connected  $C^*$-algebra (cf. Definition \ref{connected_c_a_defn}), and let $C\left( \sY\right)\hookto M\left(A \right) $ be a Hausdorff blowing up (cf. Definition \ref{blowing_defn}) with compact $\sY$.  Suppose that   $\left(A, \widetilde{A}, G, \pi \right)$ is  a noncommutative finite-fold  pre-covering (cf. Definition \ref{fin_pre_defn}).  If $C\left(\widetilde\sY\right)$ is given by \eqref{blowing_cy_eqn} and $\widetilde{B}= C\left(\widetilde\sY\right){B}$ then one has
+	Let $A$ be a connected  $C^*$-algebra (cf. Definition \ref{connected_c_a_defn}), and let $C\left( \sY\right)\hookto M\left(A \right) $ be a Hausdorff blowing up (cf. Definition \ref{blowing_defn}) with compact $\sY$.  Suppose that   $\left(A, \widetilde{A}, G, \pi \right)$ is  a noncommutative finite-fold  pre-covering (cf. Definition \ref{fin_pre_defn}).  If $C\left(\widetilde\sY\right)$ is given by \eqref{blowing_cy_eqn} and $\widetilde{A}= C\left(\widetilde\sY\right){A	}$ then one has
 	\bean
 	C\left(\widetilde\sY\right)	\quad \mathrm{is~a~finitely~generated }\quad  C\left(\sY\right)\mathrm{-module}\quad \Rightarrow\\
 	\Rightarrow\quad \left(A, \widetilde{A}, G, \pi \right)\quad \mathrm{is~a~noncommutative~ finite}\text{-}\mathrm{fold~covering~with~unitization}.
@@ -11943,13 +11949,74 @@ From the  Theorem \ref{fin_gen_thm} it follows that	$\widetilde B$ is not a fini
 $$
 i.e. $\widetilde B$ is a finitely generated $B$-module. Other details of proof are left to the reader.
 \end{proof}
+\begin{lemma}\label{blowing_covp_y_lem}
+
+Let $A$ be a connected  $C^*$-algebra (cf. Definition \ref{connected_c_a_defn}), and let $C\left( \sY\right)\hookto M\left(A \right) $ be a disintegrable,  Hausdorff blowing-up (cf. Definitions \ref{blowing_defn} and \ref{blowing_disc_union_eqn})) with compact $\sY$.  Suppose that   $\left(A, \widetilde{A}, G, \pi \right)$ is  a noncommutative finite-fold  pre-covering (cf. Definition \ref{fin_pre_defn}).  Let $C\left(\widetilde\sY\right)$ be given by \eqref{blowing_cy_eqn}.  If $H\subset G$ be a normal subgroup such that the action $G/H \times \widetilde\sY/H \to \widetilde\sY/H$ is free 	FREE!!! then  $C\left(\widetilde\sY\right)^HA= C\left(\widetilde\sY/H\right)A$ is a $C^*$-subalgebra of $M\left(\widetilde A\right)$ and $A \hookto C\left(\widetilde\sY/H\right)A$ is a a noncommutative finite-fold covering with unitization (cf. Definition \ref{fin_pre_defn}).
+\end{lemma}
+\begin{proof}
+	
+	FREE!!! FINITELY GEN.
+From the Theorem \ref{pavlov_troisky_thm} it follows that the *-homomorphism $C\left(\sY\right)\hookto C\left(\widetilde\sY/H\right)$ corresponds to a finite-fold covering $q : \widetilde\sY/H \to \sY$. Since Hausdorff blowing-up $C\left( \sY\right)\hookto M\left(A \right) $ is disintegrable one can select two families $\left\{\sU_\a\subset \sX\right\}_{\a \in \mathscr A}$ and  $\left\{\sV_\a\subset \sX\right\}_{\a \in \mathscr A}$ of connected open sets such that for any $\a\in\mathscr A$ following conditions hold: 
+\begin{itemize}
+	\item The closure of $\sU_\a$ is a subset of $\sV_\a$.
+	\item $\sV_\a$ is evenly covered by $p$ (cf. Definition \ref{top_covering_defn}).
+	\item The closure of $\sU_\a$ is compact.	
+	\item $\sX = \cup_{\a \in \mathscr A} \sU_\a$ and $A$ and the union $\cup A^{\mathrm{prop}}_{\sU_\a}$ of $\sU_\a$-proper $C^*$-algebras generates the $C^*$-algebra $A$.
+\end{itemize} !!!CHECK
+The given by \eqref{blowing_g_y_act_eqn} action induces an action $G \widetilde \sY \to \widetilde \sY$. Let  $\widetilde y_0 \in \widetilde \sY$ and $H \bydef \left\{g \in G \left| g \widetilde y_0 \right.\right\}$ 
+then similarly to the explained in the Section \ref{top_transitive_section} the reader can proof that $\widetilde \sY\to \sY$ is a transitive covering such that $G\left(\left.\widetilde \sY\right|  \sY \right)\cong G/H$. 
+For any $\a \in \mathscr A$ we select a continuous map $f_\a : \sY \to \left[0, 1\right]$ such that $\supp f_\a \subset \sV_\a$ and $f_\a\left(\sU_\a\right)= \{1\}$. For any $\a \in \mathscr A$ we select a connected set  $\widetilde \sU_\a\subset \widetilde \sX$ which is homeomorphically mapped onto $\sU_\a$. Denote by $\widetilde{f}_\a \bydef \lift^q_{\widetilde \sV_a}\left(f_\a \right)$ where  $\lift^q_{\widetilde \sV_a}$ is the  $q$-$\widetilde{\sV}_\a$-{lift} (cf. Definition \ref{top_lift_desc_defn}). If  $A'\subset A$  is an algebraically the union $\cup A^{\mathrm{prop}}_{\sU_\a}$ subalgebra then $A'$ is the linear span of products
+\be\label{blowing_a1n_eqn}
+a_1 \cdot ... \cdot a_n 
+\ee
+where for any $j =1,..., n$ there is $\a_j\in \mathscr A$ such that $a_j \in A^{\mathrm{prop}}_{\sU_{\a_j}}$. 
+From $a^*_j \in A^{\mathrm{prop}}_{\sU_{\a_j}}$ it follows that $\left( a_1 \cdot ... \cdot a_n\right)^*= a^*_n \cdot ... \cdot a^*_1$, i. e. $A'$ is a *-algebra. One has
+\be\label{blowing_a1nf_eqn}
+a_1 \cdot ... \cdot a_n  = \left(f_{\a_1} a_1 f_{\a_1} \right)\cdot ...\cdot \left(f_{\a_n} a_n f_{\a_n} \right)  
+\ee
+The right $A'$ module $C\left(\widetilde \sY\right)A'$ is a $C^*$-linear span of
+\be\label{blowing_ca1n_eqn}
+\widetilde c \left( a_1 \cdot ... \cdot a_n \right) 
+\ee
+where $\widetilde c\in C \left(\widetilde \sY\right)$. Using \eqref{blowing_a1nf_eqn} one can prove that $C\left(\widetilde \sY\right)A'$ is the linear span of following products
+$$
+\left(g_1 \widetilde f_{\a_1} a_1  g_1 \widetilde f_{\a_1} \right)\cdot ...\cdot \left(g_n \widetilde f_{\a_n} a_n g_n \widetilde f_{\a_n} \right) 
+$$
+where $g_1, ..., g_n \in G\left(\left.\widetilde \sY\right|  \sY \right)$. From
+\bean
+\left( \left(g'_1 \widetilde f_{\a'_1} a'_1  g'_1 \widetilde f_{\a'_1} \right)\cdot ...\cdot \left(g'_n \widetilde f_{\a'_n} a'_n g'_n \widetilde f_{\a'_n} \right)\right)\left( \left(g''_1 \widetilde f_{\a''_1} a''_1  g''_1 \widetilde f_{\a''_1} \right)\cdot ...\cdot \left(g''_n \widetilde f_{\a''_n} a''_n g''_n \widetilde f_{\a''_n} \right)\right)=\\
+ \left(g'_1 \widetilde f_{\a'_1} a'_1  g'_1 \widetilde f_{\a'_1} \right)\cdot ...\cdot \left(g'_n \widetilde f_{\a'_n} a'_n g'_n \widetilde f_{\a'_n} \right)\cdot  \left(g''_1 \widetilde f_{\a''_1} a''_1  g''_1 \widetilde f_{\a''_1} \right)\cdot ...\cdot \left(g''_n \widetilde f_{\a''_n} a''_n g''_n \widetilde f_{\a''_n} \right)\in C\left(\widetilde \sY\right)A' 
+\eean 
+it follows that $C\left(\widetilde \sY/H\right)A'$ is a subalgebra of $M\left( \widetilde A\right)$. Similarly one can prove that $C\left(\widetilde \sY\right)A'$ is a *-subalgebra of $M\left( \widetilde A\right)$. If $\widetilde c_1, ..., \widetilde c_m \in \widetilde C\left( \widetilde \sY/H\right)$ are such that
+$$
+C\left( \widetilde \sY/H\right) = \widetilde c_1 C\left(\sY\right)+...+ \widetilde c_m C\left(\sY\right)
+$$
+Then for any $\widetilde a \in C\left(\widetilde \sY/H\right)A$ there are $a_1, ..., a_m \in A$ such that $\widetilde c_1 a_1+...+ \widetilde c_m a_n$. If $\eps > 0$, 
+$\quad C \bydef \max_{j = 1,..., m} \left\|\widetilde c_j \right\|$ and $\delta \bydef \frac{\eps }{C m}$  then there are $a'_1, ..., a'_m \in A'$ such that  $\left\| a_j- a'_j \right\|< \delta$. It follows that
+$\left\| \widetilde c_1 a_1+...+ \widetilde c_m a_m- \widetilde c_1 a'_1+...+ \widetilde c_m a'_m\right\| < \eps$ where the $C^*$-norm of $M\left( \widetilde A\right)$ is implied. If follows that $C\left(\widetilde \sY/H\right)A$ is the $C^*$-norm completion of *-algebra  $C\left(\widetilde \sY/H\right)A'$, so $C\left(\widetilde \sY/H\right)A$ is a $C^*$-subalgebra of $M\left( \widetilde A\right)$
+Let both $B$ and $\widetilde B$ are generated by the unions $C\left( \sY\right)\cup A$ and $C\left(\widetilde \sY/H\right)A\cup C\left(\widetilde \sY/H\right)$ subalgebras of $M\left(A\right)$ and $M\left(\widetilde A\right)^H = M\left(A^H\right)$. We leave to the reader that $\left(B, \widetilde{B}, G/H \right)$ is  an unital noncommutative finite-fold  covering (cf. Definition \ref{fin_unital_defn}). Using this fact one can prove that an inclusion $A \hookto C\left(\widetilde\sY/H\right)A$ is a  noncommutative finite-fold covering with unitization (cf. Definition \ref{fin_pre_defn}).
+
+\end{proof}
+\begin{lemma}\label{blowing_covptwo_y_lem}!!! UP
+	Let $A$ be a connected  $C^*$-algebra (cf. Definition \ref{connected_c_a_defn}), and let $C\left( \sY\right)\hookto M\left(A \right) $ be a disintegrable,  Hausdorff blowing-up (cf. Definitions \ref{blowing_defn} and \ref{blowing_disc_union_eqn})) with compact $\sY$.  Suppose that   $\left(A, \widetilde{A}, G, \pi \right)$ is  a noncommutative finite-fold  pre-covering (cf. Definition \ref{fin_pre_defn}).  Let $C\left(\widetilde\sY\right)$ be given by \eqref{blowing_cy_eqn}.  If both $H', H''\subset G$ are a normal subgroups such that the actions $G/H \times \widetilde\sY/H \to \widetilde\sY/H$ and  $G/H'' \times \widetilde\sY/H'' \to \widetilde\sY/H$ are  free 	then an action $G/\left(H'\cap H''\right) \times \widetilde\sY/\left(H'\cap H''\right) \to \widetilde\sY/\left(H'\cap H''\right)$ is free.
+\end{lemma}
+\begin{proof}
+	There following continuous maps 
+	\bean
+\widetilde\sY\xrightarrow{\widetilde p} \widetilde\sY/\left(H'\cap H''\right)\xrightarrow{p'} \widetilde\sY/H'\to \sY,\\
+\widetilde\sY\xrightarrow{\widetilde p}\widetilde\sY/\left(H'\cap H''\right)	\xrightarrow{p''} \widetilde\sY/H'' \to \sY.\\
+	\eean
+	Let $p : \widetilde\sY/\left(H'\cap H''\right) \to \sY$ the natural map.
+	If  $\widetilde y_1, \widetilde y_2\in  \widetilde\sY/\left(H'\cap H''\right)$ are such that $p\left( \widetilde y'\right) = p\left( \widetilde y''\right)$ then thee are $g' \in G/H'$ and $g'' \in G/H''$ such that $p'\left(\widetilde y_1\right) = g' p'\left(\widetilde y_2\right)$
+\end{proof}
+
+\begin{empt}
+	!!! CONSTRUCTION OF COVERING ALGEBRA
+\end{empt}
 \begin{empt}\label{blowing_sum_lem}
-!!!! ADD	Let $A$ be a connected  $C^*$-algebra (cf. Definition \ref{connected_c_a_defn}), and let $C\left( \sY\right)\hookto M\left(A \right) $ be a Hausdorff blowing up (cf. Definition \ref{blowing_defn}) with compact $\sY$.  Suppose that   $\left(A, \widetilde{A}, G, \pi \right)$ is  a noncommutative finite-fold  covering with unitization (cf. Definition \ref{fin_unitization_defn}).
-	Suppose that $H\subset G$ be a normal group such that inclusions
-	$$
-	A\subset  \widetilde{A}^H\subset  \widetilde{A}
-	$$
-satisfy to the Definition \ref{compliant_defn}	(cf. Notation \eqref{compliant_not_eqn}). If $\left(B, \widetilde{B}, G, \rho \right)$ is a required by the Definition \ref{fin_unitization_defn} unital noncommutative finite-fold  covering (cf. Definition \ref{fin_unital_defn})  then  $\left(\widetilde{B}^H, \widetilde{B}, G/H, \Id_{\widetilde B^H} \right)$ is also an unital  noncommutative finite-fold  covering (cf. Lemma \ref{fin_composition_lem}). If $C\left(\widetilde \sY\right)\subset \widetilde B^H$. Applying construction \ref{blowing_ty_empt} one can obtain $C\left( \widetilde \sY^H\right) \subset \widetilde B^H$. If $\widetilde B^H = C\left( \widetilde \sY^H\right)$ then from the Lemma \ref{blowing_cov_y_lem} it turns out that $C\left( \widetilde \sY^H\right)$ is a finitely generated $C\left(\sY\right)$ module and there is a natural covering $\widetilde \sY^H\to \widetilde \sY$.
+	Let $A$ be a connected  $C^*$-algebra (cf. Definition \ref{connected_c_a_defn}), and let $C\left( \sY\right)\hookto M\left(A \right) $ be a Hausdorff blowing up (cf. Definition \ref{blowing_defn}) with compact $\sY$.  Suppose that   $\left(A, \widetilde{A}, G, \pi \right)$ is  a noncommutative finite-fold  covering with unitization (cf. Definition \ref{fin_unitization_defn}).
+	Suppose that $H\subset G$ be a $\left(A, \widetilde{A}, G, \pi \right)$-proper subgroup (cf. Definition \ref{proper_subgroup_fin_defn}). If $\left(B, \widetilde{B}, G, \rho \right)$ is a required by the Definition \ref{fin_unitization_defn} unital noncommutative finite-fold  covering (cf. Definition \ref{fin_unital_defn})  then  $\left(B, \widetilde{B}^H, G/H, \rho' \right)$ is also an unital  noncommutative finite-fold  covering (cf. Lemma \ref{fin_composition_lem}).  Applying the construction \ref{blowing_ty_empt} one can obtain a commutative $C^*$-algebra $C\left( \widetilde \sY\right) \subset \widetilde B^H$. If $C\left( \widetilde \sY^H\right)\bydef C\left( \widetilde \sY\right)\cap \widetilde{B}^H$ and 
+ $\widetilde B^H = C\left( \widetilde \sY^H\right)B$ then from the Lemma \ref{blowing_cov_y_lem} it turns out that $C\left( \widetilde \sY^H\right)$ is a finitely generated $C\left(\sY\right)$ module and there is a natural covering $\widetilde \sY^H\to \sY$.
 
 
  such that $C\left(\sY \right) \subset B$. If $C\left(\widetilde\sY\right)$ is given by \eqref{blowing_cy_eqn} then one has
@@ -12167,7 +12234,7 @@ Prove following statements:
 \end{exercise}
 
 \subsection{Finite-fold coverings}
-
+BEFORE BIG CUT!!!
 \paragraph{}
 Here we prove that a finite-fold coverings of Hausdorff blowing-up yields a noncommutative reduced finite-fold coverings and vice versa.
 \begin{lemma}\label{blowing_covi_lem}
@@ -12577,7 +12644,7 @@ Taking into account that induced by \eqref{blowing_endp_eqn} $C^*$-norm  on $\wi
 	\ee
 	If $A_0\left(\widetilde\sY \right)\cong \widetilde A$ then the right part of \eqref{blowing_ker_eqn} is a trivial group, so the surjective homomorhism $G \to G\left( \left. \widetilde \sY\right|\sY\right)$ is isomorphism.
 \end{enumerate}
-(iv) For any $y\in \sY$ select an evenly covered by $q$ (cf. Definition \ref{top_cov_defn}) connected neighborhood $\sV_y$. For every $y\in\sY$ select a connected neighborhood $\sU_y\subset\sV_y$ such that (cf. Definition \ref{blowing_semi1_defn}) $A_{\sU_y}$ (cf. \eqref{blowig_su_eqn}) is %(reducibly) 
+(iv) For any $y\in \sY$ select an evenly covered by $q$ (cf. Definition \ref{top_covering_defn}) connected neighborhood $\sV_y$. For every $y\in\sY$ select a connected neighborhood $\sU_y\subset\sV_y$ such that (cf. Definition \ref{blowing_semi1_defn}) $A_{\sU_y}$ (cf. \eqref{blowig_su_eqn}) is %(reducibly) 
 reducibly simply connected (cf. Definitions \ref{simply_connected_defn} \ref{simply_connected_red_defn}). One has $\bigcup_{y \in \sY}\sU_y= \sY$.
 For each $y\in \sY$ we select a connected open set $\widetilde \sU_y\subset\widetilde\sY$ which is homeomorphically mapped onto  $\sU_y$. For any $y \in \sY$ the given by \eqref{blowing_jsu_eqn} *-homomomorphism $j_{\sU_y}: A_{\sU_y} \hookto \widetilde A_{\sU_y}$ is an almost trivial disconnected noncommutative finite-fold covering (cf. Lemma \ref{blowing_simply_conn_lem} and Definition \ref{almost_trivial_defn}). It means that $\widetilde A_{\sU_y}$ is direct sum of isomorphic to $A_{\sU_y}$ algebras
 \be\label{blowing_n_eqn}
@@ -15840,7 +15907,7 @@ Suppose that $\left(\overline{   \mathcal X}, \overline{x}_0 \right)$ is its  to
 	From the Lemma \ref{top_coh_compact_lem} it turns out that $\text{norm}_a \in C_0\left(\overline\sX \right)$.
 \end{proof}
 \begin{empt}\label{ctr_bas_empt}
-	Let  $A$ continuous trace $C^*$-algebra with connected, locally connected spectrum $\sX$, and   $\widetilde{p}:\left( \widetilde{\sX}, \widetilde{x}_0\right) \to \left( \sX, x_0\right)$ is a pointed transitive covering such that a covering group  $G\left(\left.\widetilde \sX \right| \sX\right)$ is residually finite (cf. Definition \ref{residually_finite_defn}). 	Since $\sX$ is locally connected for any $x \in \sX$ there is an evenly covered by $\widetilde p$ (cf. Definition \ref{top_cov_defn}) connected  neighborhood $\sU_x$ with compact closure $\sV_x$, such that $\left.A\right|^{\sV_x}\left.p\right|^{\sV_x}$ is an $\left.A\right|^{\sV_x}$-$C(\sV_x)$-imprimitivity bimodule (cf.  \ref{ctr_imprim_empt}). Indeed $\left.A\right|^{\sV_x}\left.p\right|^{\sV_x}$ is a Hilbert $C(\sV_x)$-module and if $X_{C\left(\sV_x \right) }\bydef \left.A\right|^{\sV_x}\left.p\right|^{\sV_x}$ then $\left.A\right|^{\sV_x}\cong \K\left( X_{C\left(\sV_x \right) }\right)$. One can construct a family $\left\{\sU_{{\a}\subset \sX\in \mathscr A}\right\}$ of open connected subsets such that
+	Let  $A$ continuous trace $C^*$-algebra with connected, locally connected spectrum $\sX$, and   $\widetilde{p}:\left( \widetilde{\sX}, \widetilde{x}_0\right) \to \left( \sX, x_0\right)$ is a pointed transitive covering such that a covering group  $G\left(\left.\widetilde \sX \right| \sX\right)$ is residually finite (cf. Definition \ref{residually_finite_defn}). 	Since $\sX$ is locally connected for any $x \in \sX$ there is an evenly covered by $\widetilde p$ (cf. Definition \ref{top_covering_defn}) connected  neighborhood $\sU_x$ with compact closure $\sV_x$, such that $\left.A\right|^{\sV_x}\left.p\right|^{\sV_x}$ is an $\left.A\right|^{\sV_x}$-$C(\sV_x)$-imprimitivity bimodule (cf.  \ref{ctr_imprim_empt}). Indeed $\left.A\right|^{\sV_x}\left.p\right|^{\sV_x}$ is a Hilbert $C(\sV_x)$-module and if $X_{C\left(\sV_x \right) }\bydef \left.A\right|^{\sV_x}\left.p\right|^{\sV_x}$ then $\left.A\right|^{\sV_x}\cong \K\left( X_{C\left(\sV_x \right) }\right)$. One can construct a family $\left\{\sU_{{\a}\subset \sX\in \mathscr A}\right\}$ of open connected subsets such that
 	\begin{enumerate}
 		\item [(i)] $\cup~\sU_{{\a}}= \sX$.
 		\item [(ii)] If $\sV_{   \a}$ is the closure of $\sU_{{\a}}$ then $\exists x \in \sX \quad \sV_{   \a}\subset \sU_x$.
@@ -20870,7 +20937,7 @@ For all $n > 1$ the group $	\pi_{n} (\sX, x_0)$ is Abelian.
 	\paragraph*{}
 	Results of this section are copied from \cite{spanier:at}. The \textit{covering projection} word is replaced with \textit{covering} outside this section.
 	
-	\begin{defn}\label{top_cov_defn}\cite{spanier:at}
+	\begin{defn}\label{top_covering_defn}\cite{spanier:at}
 		Let $\widetilde{\pi}: \widetilde{\mathcal{X}} \to \mathcal{X}$ be a continuous map. An open subset $\mathcal{U} \subset \mathcal{X}$ is said to be {\it evenly covered } by $\widetilde{\pi}$ if $\widetilde{\pi}^{-1}(\mathcal U)$ is the disjoint union of open subsets of $\widetilde{\mathcal{X}}$ each of which is mapped homeomorphically onto $\mathcal{U}$ by $\widetilde{\pi}$. A continuous map $\widetilde{\pi}: \widetilde{\mathcal{X}} \to \mathcal{X}$ is called a {\it covering projection} if each point $x \in \mathcal{X}$ has an open neighborhood evenly covered by $\widetilde{\pi}$. $\widetilde{\mathcal{X}}$ is called the {
 			\it covering space} and $\mathcal{X}$ the {\it base space} of the covering.
 	\end{defn}
