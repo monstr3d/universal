@@ -2349,10 +2349,11 @@ On the other hand the state $\widetilde q$ is $G$-invariant, it is possible if a
 	 \rep^{\widetilde{A}}_{ \widetilde{x}}\left(a \right) \mapsto \rep^{A}_{p\left( \widetilde{x}\right)}\left(a \right); \quad \forall a \in A.
 	\end{split}
 	\ee
-	The *-homomorphism $A \hookto \widetilde A$ is injective so one has an injective *-homomorphism
+	The *-homomorphism $A \hookto \widetilde A$ is injective so one has  injective *-homomorphisms
 	\be\label{rep_x_mor_inj_eqn}
 \begin{split}
-	\rep^{A}_{p\left( \widetilde{x}\right) }\left(A \right)\hookto \rep^{\widetilde A}_{ \widetilde{x} }\left(\widetilde A \right).
+	\rep^{A}_{p\left( \widetilde{x}\right) }\left(A \right)\hookto \rep^{\widetilde A}_{ \widetilde{x} }\left(\widetilde A \right),\\
+		\rep^{M\left(A\right)}_{p\left( \widetilde{x}\right) }\left(M\left(A\right) \right)\hookto \rep^{M\left( \widetilde A\right) }_{ \widetilde{x} }\left(M\left( \widetilde A \right) \right).
 \end{split}
 \ee
 	
@@ -11640,9 +11641,9 @@ The algebraic construction can be applied if $\sX/G$ is not Hausdorff.  The map 
 %\paragraph*{}
 
 
-\begin{definition}\label{blowing_defn}
-Any  commutative $C^*$-subalgebra $C\cong C_0\left( \sY\right) \subset M\left(A \right)$ is said to be  a \textit{Hausdorff blowing-up} of $A$  if for any irreducible representation $\rep_x: A \to B\left( \H\right)$ the commutative $C^*$-algebra $\rep_x\left( C\right)$ is connected (cf. Definition \ref{connected_c_a_defn})
-and the space $\rep_x\left( C\right) \H$ is dense in $\H$. 
+\begin{definition}\label{blowing_defn} 
+Any  commutative $C^*$-subalgebra $C\cong C_0\left( \sY\right) \subset M\left(A \right)$ is said to be  a \textit{Hausdorff blowing-up} of $A$  if for any irreducible representation $\rep_x: A \to B\left( \H_x\right)$ 
+and the space $\rep_x\left( C\right) \H_x$ is dense in $\H_x$.  Equivalently if $A \hookto B\left( \H_a\right)$ is an atomic representation (cf. Definition \ref{atomic_repr_defn}) then $C \H_a$ is dense in $\H_a$.
 \end{definition}
 
 
@@ -11685,7 +11686,7 @@ then one has
 	Let  $C_0\left( \sY\right)\hookto M\left( A\right) $ be a Hausdorff blowing-up of $A$  (cf. Definition \ref{blowing_defn}), and let $\sU \subset \sX$ be a connected open set. Let $\sX$ be a spectrum of $A$ for any $x\in\sX$ there is an irreducible representation $\rep_x: A \to B\left(\H_x \right)$.	
 	The $C^*$-algebra 
 	$A_x \bydef\rep_x\left(C_0\left( \sU\right)  \right)$ is commutative and $A_x= \oplus_{\a\in \mathscr A_x} A^{\a}_x$ where  a $C^*$-algebra $A^{\a}_x$ is connected (cf. Definition \ref{connected_c_a_defn}). If $\H^\a_x$ is the Hilbert norm completion of $A^\a_x \H_x$ then from $\a' \neq \a''$ it turns out that $\H^{\a'}_x\perp \H^{\a''}_x$. Suppose that $\H^\perp_x \subset \H_x$ is such that $\H_x = \H^\perp_x\bigoplus\left(\oplus_{\a\in \mathscr A_x} \H^\a_x\right)$.
-	The following set 
+We leave to the reader the prove of that a following set 
 	\be\label{blowing_prop_eqn}
 	\begin{split}
 		\left\{a \in A\left| ~\forall x \in \sX \quad \forall \xi \in \H^\perp_x\quad \rep_x\left( a\right)\xi = 0\quad \forall\a\in \mathscr A_x \quad a \H^\a_x\subset \H^\a_x \right.  \right\}
@@ -11697,7 +11698,11 @@ then one has
 \begin{definition}\label{blowing_proprer_defn}
 The given by  \ref{blowing_prop_eqn}  $C^*$-subalgebra of $A_\sU$ is said to be $\sU$-\textit{proper}. We denote it by $A^{\mathrm{prop}}_\sU$.
 \end{definition}
-
+A proof of a following elementary equation
+\be\label{blowing_proprer_inc_eqn}
+\sU'\subset\sU'' \quad \Rightarrow\quad A^{\mathrm{prop}}_{\sU'}\subset A^{\mathrm{prop}}_{\sU''}
+\ee
+is left to the reader.
 
 \begin{exercise}\label{blowing_uni_exer}
 Suppose that $A_\sU \hookto B_\sU$ is a unitization (cf. Definition \ref{unitization_defn}). Prove that there is a unitization $ A^{\mathrm{prop}}_\sU\hookto B^{\mathrm{prop}}_\sU$ such that there is a following commutative diagram.
@@ -11721,18 +11726,29 @@ Suppose that $A_\sU \hookto B_\sU$ is a unitization (cf. Definition \ref{unitiza
 A Hausdorff blowing-up	$C\cong C_0\left( \sY\right) \subset M\left(A \right)$ is said to be \textit{disintegrable} if for any family $\left\{\sV_\bt\right\}_{\bt \in \mathscr B}$ of open subsets such that $\cup \sV_\bt = \sY$ there is a family of connected  open sets $\left\{\sU_\a\subset \sX\right\}_{\a\in \mathscr{A}}$ which satisfies to following conditions:
 \begin{enumerate}
 	\item $\cup \sU_\a = \sY$,
-	\item the union $\cup A^{\mathrm{prop}}_{\sU_\a}$ of $\sU_\a$-proper $C^*$-algebras (cf. Definition \ref{blowing_disintegrable_defn}) generates the $C^*$-algebra $A$
+	\item the union $\cup A^{\mathrm{prop}}_{\sU_\a}$ of $\sU_\a$-proper $C^*$-algebras (cf. Definition \ref{blowing_disintegrable_defn}) generates the $C^*$-algebra $A$,
 	\item  for each $\a \in \mathscr A$ there is $\bt \in \mathscr B$ such that $\sU_\a \subset \sV_\bt$.
 \end{enumerate}
 
 \end{definition}
-!!!
+\begin{exercise}\label{blowing_ctr_exer} 
+	If $A$ is a $C^*$-algebra with Hausdorff spectrum $\sX$  then from the Theorems \ref{oa_haus_prim_thm} and  \ref{dauns_hofmann_thm} one has the natural inclusion $C_0\left(\sX \right) \subset M\left( A\right)$.  Prove following statements:
+	\begin{enumerate}
+		\item The inclusion  is a Hausdorff blowing-up (cf. Definition \ref{blowing_defn}).
+		\item If $\sU \subset \sX$ is an open connected subset then one has
+		$$
+ A^{\mathrm{prop}}_{\sU}	= A_\sU
+		$$
+		where $A_\sU$ is given by \eqref{blowig_su_eqn} and $A^{\mathrm{prop}}_{\sU}$ is a  $\sU$-\textit{proper} $C^*$-subalgebra (cf. Definition \ref{blowing_proprer_defn}).
+		\item Using (b) of the Lemma \ref{ctr_rep_eq_lem} prove that the inclusion is disintegrable (cf. Definition \ref{blowing_disintegrable_defn})
+	\end{enumerate}
+\end{exercise}
 
 \begin{empt}\label{blowing_strict_empt}
-	Suppose that $\left\{u_\la\right\}_{\la\in\La}$ is an approximate unit of $C_0\left( \sU\right)$ and let $a \in A_\sU$. For all $a \in A_\sU$  there is $a' \in A$ and $f",f'' \in C_0\left( \sU\right) $ such that $\left\|a - f'a'f'' \right\|\le \frac{\eps}{3}$. On the other hand there is $\la_0 \in \La$  such that $\left\|f' - u_\la f' \right\| < \frac{\eps}{3\left\|a'f'' \right\|}$ for all $\la\ge\la_0$. It follows that
-	$$
-	\la\ge\la_0\Rightarrow\left\|a - u_\la a \right\|\le  \left\|a - f'a'f''\right\|+ \left\|u_\la \left( a - f'a'f''\right)  \right\|+\left\|f'a'f'' - u_\la f'a'f''\right\| < \eps.
-	$$
+	Suppose that $\left\{u_\la\right\}_{\la\in\La}$ is an approximate unit of $C_0\left( \sU\right)$ and let $a \in A_\sU$. For all $a \in A_\sU$  there is $a' \in A$ and $f',f'' \in C_0\left( \sU\right) $ such that $\left\|a - f'a'f'' \right\|\le \frac{\eps}{3}$. On the other hand there is $\la_0 \in \La$  such that $\left\|f' - u_\la f' \right\| < \frac{\eps}{3\left\|a'f'' \right\|}$ for all $\la\ge\la_0$. It follows that
+\bean
+	\la\ge\la_0\Rightarrow\left\|a - u_\la a \right\|\le \\\le \left\|a - f'a'f''\right\|+ \left\|u_\la \left( a - f'a'f''\right)  \right\|+\left\|f'a'f'' - u_\la f'a'f''\right\| < \eps.
+\eean
 	Similarly there is $\la'_0\in \La$ such that $\la\ge\la'_0\Rightarrow\left\|a - au_\la  \right\| < \eps$.
 	In result one has the following limit
 	\be\label{blowing_strict_eqn}
@@ -11742,47 +11758,34 @@ A Hausdorff blowing-up	$C\cong C_0\left( \sY\right) \subset M\left(A \right)$ is
 \end{empt}
 
 
-
-\begin{example}\label{blowing_ctr_exm} 
-If $A$ is a $C^*$-algebra with Hausdorff spectrum $\sX$  then from the Theorems \ref{oa_haus_prim_thm} and  \ref{dauns_hofmann_thm} one has the natural inclusion $C_0\left(\sX \right) \hookto M\left( A\right)$. For all $a \in A$ and $\eps> 0$ the subset
-$$
-\sY \bydef \left\{\left.x \in \sX\right| \left\| \rep_x\left(a\right)\right\|\ge \eps \right\}\subset\sY
-$$
-is compact (cf. Lemma \ref{ctr_rep_eq_lem}). If $u_\la \in C_c\left(\sY \right)_+$ is a covering sum for $\sY$ (cf. Definition \ref{top_covering_sum_defn}) then for any $\la'\ge\la$ one has
-\bean
-\left\|au_{\la' }- a \right\|< \eps, \\
-\left\|u_{\la' }a- a \right\|< \eps. 
-\eean
-From the above equations there is the 	limit $
-1_{M\left(A \right)  }= \bt~\text{-}\lim_{\la \in \La }u_\la
-$
-with respect to the strict topology (cf. Definition \ref{strict_topology_defn}) of $M\left( A\right)$. It turns out that $C_0\left(\sX \right) \hookto M\left( A\right)$ satisfies to the condition (a)  Definition \ref{blowing_defn}). If $\rep_x: A \to B\left( \H\right)$ is an irreducible representation then if $f \in C_0\left(\sX \right)$ is such that $f\left(x \right)  = 1$ then $\rep_x\left( f\right) = 1_{B\left(\H \right) }$ and $\rep_x\left(f \right)\H = \H$, i.e.  $C_0\left(\sY \right) \hookto M\left( A\right)$ satisfies to the condition (b)  Definition \ref{blowing_defn}).
-So  $C_0\left(\sX \right) \hookto M\left( A\right)$
-is a disintegrable spectral {Hausdorff blowing-up} of $A$ (cf. Definitions \ref{blowing_defn}, \ref{blowing_disintegrable_defn} !!! disintegrable  !!!and \ref{blowing_spectal_defn}).
-\end{example}
-\begin{definition}
-Let $\sU\subset \sY$ be an open set which is a disjoint union  $\sU = \bigsqcup \sU_\a$. A \textit{proper} $\sU$ $C^*$-subalgebra is generated by the algebraic direct sum $\bigoplus A_{\sU_\a}$.
+\begin{definition}\label{blowing_dir_supp_defn}
+Let $\sU\subset \sY$ be an open set which is a disjoint union  $\sU = \bigsqcup \sU_\a$. A $\sU$-\textit{proper}  $C^*$-subalgebra is generated by the algebraic direct sum $\bigoplus A^{\mathrm{prop}}_{\sU_\a}$.
 \end{definition}
 \begin{definition}\label{blowing_supp_defn}
-In the above situation suppose that $a\in A$. Let
+In the above situation suppose that $a\in A$. If
 \bean
-A^{\mathrm{prop}}_\sU \bydef\bigcap 
-\left\{\left. A^{\mathrm{prop}}_{\sU_\a} \right| a\in A^{\mathrm{prop}}_{\sU_\a} \text{ AND } A^{\mathrm{prop}}_{\sU_\a}\text{ is the proper } \sU_\a \text{-algebra}\right\}
+\sV \bydef\bigcap 
+\left\{\left.{\sU} \subset \sX\right| a\in A^{\mathrm{prop}}_{\sU} \text{ AND } A^{\mathrm{prop}}_{\sU_\a}\text{ is the proper } \sU_\a \text{-algebra}\right\}
 \eean
-We say that the closure of $\sU$ is the \textit{support} of $a$.
+then the closure  of $\sU$ is said to be the \textit{support} of $a$.
 \end{definition}
 
 \begin{lemma}\label{blowing_supp_lem}
 Let $A$ be $C^*$-algebra, and let $C_0\left( \sY\right) \subset M\left(A \right)$  be a disintegrable Hausdorff blowing-up (cf. Definitions \ref{blowing_defn}, \ref{blowing_disintegrable_defn}). If $a \in A_+$ is positive, $\eps > 0$ and $f_\eps$ is given by the equation \eqref{f_eps_eqn} then the set $\supp f_\eps\left(a \right)\subset \sY$ is compact.  
 \end{lemma}
 \begin{proof}
-If $b \bydef \sqrt{a}$ then  from the Definition \ref{blowing_disintegrable_defn} !!! disintegrable  !!! it turns out that for all $\delta > 0$ there is	
+	From the  Definition \ref{blowing_disintegrable_defn} it follows that there is a family of open sets $\left\{\sU_\a\right\}_{\a \in \mathscr A}$ such that a union $\cup A^{\mathrm{prop}}_{\sU_\a}$ of $\sU_\a$-proper $C^*$-algebras (cf. Definition \ref{blowing_disintegrable_defn}) generates the $C^*$-algebra $A$. Moreover one can suppose that the closure of $\sU_\a$ is compact for all $\a \in \mathscr A$.
+If $b \bydef \sqrt{a}$ then  from the Definition \ref{blowing_disintegrable_defn} it turns out that for all $\delta > 0$ there is	
 \bean
-b' = \sum_{j = 1}^{n} b_{j,1}\cdot ... \cdot b_{j,m_j},\\
-\forall j = 1,..., n \quad k = 1,..., m_j\quad \exists \a_{j,k}\in \mathscr A\quad b_{j,k}\in A^{\mathrm{prop}}_{\sU_{\b_{j,k}}},\\
+b' = \sum_{j = 1}^{n} b_{j,1}\cdot ... \cdot b_{j,m_j}\in A,\\
+\forall j = 1,..., n \quad k = 1,..., m_j\quad \exists \a_{j,k}\in \mathscr A\quad b_{j,k}\in A^{\mathrm{prop}}_{\sU_{\a_{j,k}}},\\
 \left\|b - b' \right\| < \delta.\\
 \eean
-where $\sU_{\a_{j,k}}$ is a subset of a compact set for all $j,k$. From $\supp b'\subset \cup \sU_{j,k}$ it follows that $a' \bydef\supp b'^*b'$ is a compact. If  $\delta^2 + 2 \delta \left\| b\right\|< \eps$ then $ \left\| a - a'\right\|< \eps$. 
+From the equation \eqref{blowing_proprer_inc_eqn} it follows that 
+$
+b' \in A^{\text{prop}}_{\cup \sU_{\a_{j,k}}}.
+$
+If $\sV\subset\sU$ is the closure of a finite union $\cup \sU_{\a_{j,k}}$ then $\sV$ is compact.  From $\supp b'\subset \cup \sV$ it follows that if  $a' \bydef\supp b'^*b'$ then $\supp a\subset \sV$. If  $\delta^2 + 2 \delta \left\| b\right\|< \eps$ then $ \left\| a - a'\right\|< \eps$. 
 If $\chi$ is a characteristic map of $\supp a'$ and $A \to B\left(\H\right)$ is a faithful representation then $\chi$ corresponds to a projector $p^\parallel\in  B\left(\H\right)$. If $\H^>$ is a completion of $f_\eps\left(a\right)\H$ then $\H^> = p^a_{\left(\eps, \infty\right) }\H$ where $p^a_{\left(\eps, \infty\right) }$ is a spectral projection of $a$ which corresponds to $\left(\eps, \infty\right)\subset \R$. It follows that
 \bea
 %\forall \eta \in \H^>\setminus \{0\} \quad \Leftrightarrow\quad  f_\eps\left(a\right)\eta \neq 0 \quad \Leftrightarrow\quad \frac{\left\|a \eta \right\|}{\left\| \eta \right\|}\ge \eps \\
@@ -11798,17 +11801,21 @@ Prove that if $a\in A$ lies in the  Pedersen's ideal of $A$ (cf. Definition \ref
 
 \section{Hausdorff blowing-up and noncommutative  coverings}
 
-\paragraph*{}  
+\paragraph*{} 
 Let $A$ be a  connected $C^*$-algebra (cf. Definition \ref{connected_c_a_defn}), and let $C_0\left( \sY\right)\hookto M\left(A \right)$  be a Hausdorff  blowing-up of $A$ (cf. Definition \ref{blowing_defn}). If $\left(A, \widetilde{A}, G, \pi \right)$ is a noncommutative finite-fold covering (cf. Definition \ref{fin_defn}) then from the Lemma \ref{ind_mult_inv_lem} it follows that there is the natural inclusion $\varphi:M\left({A} \right) \hookto M\left(\widetilde{A} \right)$ of $C^*$-algebras. So there is the natural inclusion $C_0\left( \sY\right)\hookto M\left(\widetilde{A} \right)$. If $\sU\subset \sY$ is an open subset then there is an inclusion $C_0\left(\sU \right)A C_0\left(\sU \right)\subset C_0\left(\sU \right)\widetilde A C_0\left(\sU \right)$. If  $\widetilde A_\sU$ is the $C^*$-norm completion of $C_0\left(\sU \right)\widetilde A C_0\left(\sU \right)$ then there is the natural injective *-homomorphism.
 \be\label{blowing_jsu_eqn}
 j_{\sU}: A_\sU \hookto \widetilde A_\sU.
 \ee
  If both $\sX$ and $\widetilde\sX$ are spectra of $A$ and $\widetilde A$ then from the Proposition \ref{spectrum_cov_prop} it turns out that there is a continuous map $p: \widetilde\sX\to\sX$. For any $x\in\sX$ and $\widetilde x \in \widetilde\sX$  there are  irreducible representations $\rep_x: A \to B\left(\H_x \right)$ and $\rep_{\widetilde x}: \widetilde A \to B\left(\H_{\widetilde x} \right)$.
- Suppose that $\left(A, \widetilde{A}, G, \pi \right)$ is reduced (cf. Definition \ref{fin_red_defn}). Then from \eqref{red_incp_eqn} it follows that 
- \bean
-\forall \widetilde x \in \widetilde\sX \quad \rep_{ \widetilde{x}}\left(\widetilde{A} \right) \cong \rep_{ p\left( \widetilde{x}\right) }\left(A\right),\\
-\H_{p\left( \widetilde x\right) }\cong \H_{ \widetilde x }.
- \eean
+ %Suppose that $\left(A, \widetilde{A}, G, \pi \right)$ is reduced (cf. Definition \ref{fin_red_defn}).
+  From \eqref{rep_x_mor_inj_eqn} it follows that for all $\widetilde x \in \widetilde \sX$ one has following inclusions
+ \be\label{blowing_rep_inc_eqn}
+ \begin{split}
+ 	\rep^{M\left(A\right)}_{p\left( \widetilde{x}\right) }\left(M\left(A\right) \right)\hookto \rep^{M\left( \widetilde A\right) }_{ \widetilde{x} }\left(M\left( \widetilde A \right) \right),
+\\
+\H_{p\left( \widetilde x\right) }\hookto\H_{ \widetilde x }.
+\end{split}
+ \ee
  	Consider an analog of the construction \ref{blowing_prop_empt}.
  	The $C^*$-algebra 
  	$\widetilde A_{\widetilde x} \bydef\rep_{\widetilde x}\left(C_0\left( \sU\right)  \right)\cong \rep_{p\left( \widetilde x\right) }\left(C_0\left( \sU\right)  \right)$ is commutative and 
@@ -11855,6 +11862,7 @@ G \times \widetilde \sY  \to \widetilde \sY.
 \end{split}
 \ee
 \end{empt}
+We leave to the reader that if !!! REDUCIBLE COVERING disinteggrable hausdoff blowing up.
 \begin{lemma}
 	Let $A$ be a connected  $C^*$-algebra (cf. Definition \ref{connected_c_a_defn}), and let $C\left( \sY\right)\hookto M\left(A \right) $ be a Hausdorff blowing up (cf. Definition \ref{blowing_defn}) with compact $\sY$.  Suppose that   $\left(A, \widetilde{A}, G, \pi \right)$ is  a noncommutative finite-fold  covering with unitization (cf. Definition \ref{fin_unitization_defn}). Let $\left(B, \widetilde{B}, G, \rho \right)$ be a required by the Definition \ref{fin_unitization_defn} unital noncommutative finite-fold  covering (cf. Definition \ref{fin_unital_defn}), such that $C\left(\sY \right) \subset B$. If $C\left(\widetilde\sY\right)$ is given by \eqref{blowing_cy_eqn} then one has
 	$$
@@ -11883,8 +11891,78 @@ for any finite subset $\La_0\subset \La$.
 From the  Theorem \ref{fin_gen_thm} it follows that	$\widetilde B$ is not a finitely generated $B$-module. However from the Definition \ref{fin_unital_defn} it turns out that  $\widetilde B$ is  a finitely generated $B$-module. From this contradiction one concludes that $C\left(\widetilde\sY\right)$ is not  a left finitely generated $C\left(\sY\right)$-module.
 \end{proof}
 
+\begin{lemma}\label{blowing_y_cov_lem}
+	Let $A$ be a connected  $C^*$-algebra (cf. Definition \ref{connected_c_a_defn}), and let $C\left( \sY\right)\hookto M\left(A \right) $ be a disintegrable  Hausdorff blowing up (cf. Definitions \ref{blowing_disintegrable_defn} and\ref{blowing_defn}) with compact $\sY$.  Let $q: \widetilde\sY \to \sY$ be a finite-transitive covering. There is a noncommutative finite-fold covering with unitization   $\left(A, \widetilde{A}, G, \pi \right)$ (cf. Definition \ref{fin_unitization_defn}) such that there is a natural isomorphism 
+	\be\label{blowing_a_y_eqn}
+	\varphi: \widetilde{A} \cong C\left(\widetilde \sY \right)\otimes_{C\left(\sY\right)} A
+	\ee
+of $C\left(\widetilde \sY \right)$-$A$-bimodules such that $\varphi$ naturally yields a disintegrable  Hausdorff blowing up $C\left(\widetilde \sY\right)\hookto M\left( \widetilde A\right)$.
+\end{lemma}
+\begin{proof}
+From the Theorem \ref{pavlov_troisky_thm} it follows that $C\left(\widetilde \sY \right)$ is finitely generated $C\left( \sY\right)$-module so  $C\left(\widetilde \sY \right)\otimes_{C\left(\sY\right)} A$ means an algebraic tensor product.  One can define a right action 
+\bean
+\left( C\left(\widetilde \sY \right)\otimes_{C\left(\sY\right)} A\right) \times  C\left(\widetilde \sY \right)\to C\left(\widetilde \sY \right)\otimes_{C\left(\sY\right)} A,\\
+\forall a \in A\quad \forall \widetilde f \in \widetilde C\left(\widetilde \sY \right)\quad a \otimes \widetilde f \bydef \widetilde f^* \otimes a^*  !!!  LIFT
+\eean 
+The reader can prove that now $C\left(\widetilde \sY \right)\otimes_{C\left(\sY\right)} A$ becomes a $C\left(\widetilde \sY \right)$-$C\left(\widetilde \sY \right)$-bimodule. Henceforth we write $a  \widetilde f$ and $\widetilde f  a$ instead of $a \otimes \widetilde f$ and $\widetilde f \otimes a$ respectively.
+Since Hausdorff blowing-up $C\left( \sY\right)\hookto M\left(A \right) $ is disintegrable one can select two families $\left\{\sU_\a\subset \sX\right\}_{\a \in \mathscr A}$ and  $\left\{\sV_\a\subset \sX\right\}_{\a \in \mathscr A}$ of connected open sets such that for any $\a\in\mathscr A$ following conditions hold: 
+\begin{itemize}
+	\item The closure of $\sU_\a$ is a subset of $\sV_\a$.
+	\item $\sV_\a$ is evenly covered by $q$ (cf. Definition \ref{top_covering_defn}).
+	\item The closure of $\sU_\a$ is compact.	
+	\item $\sY = \cup_{\a \in \mathscr A} \sU_\a$ and $A$ and the union $\cup A^{\mathrm{prop}}_{\sU_\a}$ of $\sU_\a$-proper $C^*$-algebras generates the $C^*$-algebra $A$.
+\end{itemize}
+The set $\sY$ is compact, taking into account equation \eqref{blowing_proprer_inc_eqn} one can suppose that the set $\mathscr A$ is finite.  For any $\a \in \mathscr A$ we select a connected set  $\widetilde \sU_\a\subset \widetilde \sX$ which is homeomorphically mapped onto $\sU_\a$. Denote by $\widetilde{f}_\a \bydef \lift^q_{\widetilde \sV_a}\left(f_\a \right)$ where  $\lift^q_{\widetilde \sV_a}$ is the  $q$-$\widetilde{\sV}_\a$-{lift} (cf. Definition \ref{top_lift_desc_defn}). If  $A'\subset A$  is an algebraically generated by the union $\cup A^{\mathrm{prop}}_{\sU_\a}$ *-subalgebra then $A'$ is the linear span of products
+\be\label{blowing_a1n_eqn}
+a_1 \cdot ... \cdot a_n 
+\ee
+where for any $j =1,..., n$ there is $\a_j\in \mathscr A$ such that $a_j \in A^{\mathrm{prop}}_{\sU_{\a_j}}$. 
+From $a^*_j \in A^{\mathrm{prop}}_{\sU_{\a_j}}$ it follows that $\left( a_1 \cdot ... \cdot a_n\right)^*= a^*_n \cdot ... \cdot a^*_1$, i. e. $A'$ is a *-algebra. One has
+\be\label{blowing_a1nf_eqn}
+a_1 \cdot ... \cdot a_n  = \left(f_{\a_1} a_1 f_{\a_1} \right)\cdot ...\cdot \left(f_{\a_n} a_n f_{\a_n} \right)  
+\ee
+The right $A'$ module $C\left(\widetilde \sY\right)A'$ is a $C^*$-linear span of
+\be\label{blowing_ca1n_eqn}
+\widetilde c \left( a_1 \cdot ... \cdot a_n \right) 
+\ee
+where $\widetilde c\in C \left(\widetilde \sY\right)$. Using \eqref{blowing_a1nf_eqn} one can prove that $C\left(\widetilde \sY\right)A'$ is the linear span of following products
+$$
+\left(g_1 \widetilde f_{\a_1} a_1  g_1 \widetilde f_{\a_1} \right)\cdot ...\cdot \left(g_n \widetilde f_{\a_n} a_n g_n \widetilde f_{\a_n} \right) 
+$$
+where $g_1, ..., g_n \in G\left(\left.\widetilde \sY\right|  \sY \right)$. On the set $C\left(\widetilde \sY\right)A'$ one can define an associative product $\bullet : C\left(\widetilde \sY\right)A'\times C\left(\widetilde \sY\right)A' \to C\left(\widetilde \sY\right)A'$ such that
+\bean
+\left( \left(g'_1 \widetilde f_{\a'_1} a'_1  g'_1 \widetilde f_{\a'_1} \right)\cdot ...\cdot \left(g'_n \widetilde f_{\a'_n} a'_n g'_n \widetilde f_{\a'_n} \right)\right)\bullet \left( \left(g''_1 \widetilde f_{\a''_1} a''_1  g''_1 \widetilde f_{\a''_1} \right)\cdot ...\cdot \left(g''_n \widetilde f_{\a''_n} a''_n g''_n \widetilde f_{\a''_n} \right)\right)=\\
+\left(g'_1 \widetilde f_{\a'_1} a'_1  g'_1 \widetilde f_{\a'_1} \right)\cdot ...\cdot \left(g'_n \widetilde f_{\a'_n} a'_n g'_n \widetilde f_{\a'_n} \right)\cdot  \left(g''_1 \widetilde f_{\a''_1} a''_1  g''_1 \widetilde f_{\a''_1} \right)\cdot ...\cdot \left(g''_n \widetilde f_{\a''_n} a''_n g''_n \widetilde f_{\a''_n} \right)\in C\left(\widetilde \sY\right)A', 
+\eean
+i.e.  $C\left(\widetilde \sY\right)A'$ is an associative algebra. Henceforth we write $ab$ instead of $a\bullet b$. There is an involution on $C\left(\widetilde \sY\right)A'$ given by
+$$
+\left( \left(g_1 \widetilde f_{\a_1} a_1  g_1 \widetilde f_{\a_1} \right)\cdot ...\cdot \left(g_n \widetilde f_{\a_n} a_n g_n \widetilde f_{\a_n} \right)\right)^* \bydef   \left(g_n \widetilde f_{\a_n} a^*_n  g_n \widetilde f_{\a_n} \right)\cdot ...\cdot \left(g_1 \widetilde f_{\a_1} a^*_1 g_1 \widetilde f_{\a_1} \right) 
+$$
+It is clear that  $C\left(\widetilde \sY\right)A'$ became an involutive *-algebra. There is a $A$-bilinear map
+$h: C\left(\widetilde \sY\right)A'\to A$ such that 
+$$
+\left(g_1 \widetilde f_{\a_1} a_1  g_1 \widetilde f_{\a_1} \right)\cdot ...\cdot \left(g_n \widetilde f_{\a_n} a_n g_n \widetilde f_{\a_n} \right)\mapsto a_1\cdot ...\cdot a_n
+$$
+Now $C\left(\widetilde \sY\right)A'$ becomes a pre-Hilbert $A$-module (cf. Definition \ref{hilbert_module_defn}) such that
+$$
+\forall a, b  \in C\left(\widetilde \sY\right)A'\quad \left\langle a, b\right\rangle_A \bydef h\left(a^*b \right) 
+$$
+Let  $X_A$ be a norm completion of  $C\left(\widetilde \sY\right)A'$. If $A \to B\left( \H\right)$ is a faithful representation then similarly to \eqref{hilb_prod_eqn} one can define a $\C$-valued product on $X_A\otimes_A \H$. If $\widetilde \H$ is a Hilbert norm completion of then the action $C\left(\widetilde \sY\right)A'\times X_A\to X_A$ yields an action $C\left(\widetilde \sY\right)A'\times \widetilde \H\to \widetilde \H$. The user one can prove that this action yields an injective *-homomorphism $C\left(\widetilde \sY\right)A'\hookto B\left(\widetilde \H\right)$. Let $\widetilde A$ be  the $C^*$-norm completion of $C\left(\widetilde \sY\right)A'$ in $B\left(\widetilde \H\right)$. Let us prove that $\widetilde{A} \cong C\left(\widetilde \sY \right)\otimes_{C\left(\sY\right)} A$.!!!
+
+it follows that 
+it follows that $C\left(\widetilde \sY/H\right)A'$ is a subalgebra of $M\left( \widetilde A\right)$. Similarly one can prove that $C\left(\widetilde \sY\right)A'$ is a *-subalgebra of $M\left( \widetilde A\right)$. If $\widetilde c_1, ..., \widetilde c_m \in \widetilde C\left( \widetilde \sY/H\right)$ are such that
+$$
+C\left( \widetilde \sY/H\right) = \widetilde c_1 C\left(\sY\right)+...+ \widetilde c_m C\left(\sY\right)
+$$
+Then for any $\widetilde a \in C\left(\widetilde \sY/H\right)A$ there are $a_1, ..., a_m \in A$ such that $\widetilde c_1 a_1+...+ \widetilde c_m a_n$. If $\eps > 0$, 
+$\quad C \bydef \max_{j = 1,..., m} \left\|\widetilde c_j \right\|$ and $\delta \bydef \frac{\eps }{C m}$  then there are $a'_1, ..., a'_m \in A'$ such that  $\left\| a_j- a'_j \right\|< \delta$. It follows that
+$\left\| \widetilde c_1 a_1+...+ \widetilde c_m a_m- \widetilde c_1 a'_1+...+ \widetilde c_m a'_m\right\| < \eps$ where the $C^*$-norm of $M\left( \widetilde A\right)$ is implied. If follows that $C\left(\widetilde \sY/H\right)A$ is the $C^*$-norm completion of *-algebra  $C\left(\widetilde \sY/H\right)A'$, so $C\left(\widetilde \sY/H\right)A$ is a $C^*$-subalgebra of $M\left( \widetilde A\right)$
+Let both $B$ and $\widetilde B$ are generated by the unions $C\left( \sY\right)\cup A$ and $C\left(\widetilde \sY/H\right)A\cup C\left(\widetilde \sY/H\right)$ subalgebras of $M\left(A\right)$ and $M\left(\widetilde A\right)^H = M\left(A^H\right)$. We leave to the reader that $\left(B, \widetilde{B}, G/H \right)$ is  an unital noncommutative finite-fold  covering (cf. Definition \ref{fin_unital_defn}). Using this fact one can prove that an inclusion $A \hookto C\left(\widetilde\sY/H\right)A$ is a  noncommutative finite-fold covering with unitization (cf. Definition \ref{fin_pre_defn}).
+
+\end{proof}
+
 \begin{lemma}\label{blowing_cov_y_lem}
-	Let $A$ be a connected  $C^*$-algebra (cf. Definition \ref{connected_c_a_defn}), and let $C\left( \sY\right)\hookto M\left(A \right) $ be a Hausdorff blowing up (cf. Definition \ref{blowing_defn}) with compact $\sY$.  Suppose that   $\left(A, \widetilde{A}, G, \pi \right)$ is  a noncommutative finite-fold  pre-covering (cf. Definition \ref{fin_pre_defn}).  If $C\left(\widetilde\sY\right)$ is given by \eqref{blowing_cy_eqn} and $\widetilde{A}= C\left(\widetilde\sY\right){A	}$ then one has
+	Let $A$ be a connected  $C^*$-algebra (cf. Definition \ref{connected_c_a_defn}), and let $C\left( \sY\right)\hookto M\left(A \right) $ be a Hausdorff blowing up (cf. Definition \ref{blowing_defn}  CHECK !!!) with compact $\sY$.  Suppose that   $\left(A, \widetilde{A}, G, \pi \right)$ is  a noncommutative finite-fold  pre-covering (cf. Definition \ref{fin_pre_defn}).  If $C\left(\widetilde\sY\right)$ is given by \eqref{blowing_cy_eqn} and $\widetilde{A}= C\left(\widetilde\sY\right){A	}$ then one has
 	\bean
 	C\left(\widetilde\sY\right)	\quad \mathrm{is~a~finitely~generated }\quad  C\left(\sY\right)\mathrm{-module}\quad \Rightarrow\\
 	\Rightarrow\quad \left(A, \widetilde{A}, G, \pi \right)\quad \mathrm{is~a~noncommutative~ finite}\text{-}\mathrm{fold~covering~with~unitization}.
@@ -11904,7 +11982,7 @@ i.e. $\widetilde B$ is a finitely generated $B$-module. Other details of proof a
 \end{proof}
 \begin{lemma}\label{blowing_covp_y_lem}
 
-Let $A$ be a connected  $C^*$-algebra (cf. Definition \ref{connected_c_a_defn}), and let $C\left( \sY\right)\hookto M\left(A \right) $ be a disintegrable,  Hausdorff blowing-up (cf. Definitions \ref{blowing_defn} and \ref{blowing_disc_union_eqn})) with compact $\sY$.  Suppose that   $\left(A, \widetilde{A}, G, \pi \right)$ is  a noncommutative finite-fold  pre-covering (cf. Definition \ref{fin_pre_defn}).  Let $C\left(\widetilde\sY\right)$ be given by \eqref{blowing_cy_eqn}.  If $H\subset G$ be a normal subgroup such that the action $G/H \times \widetilde\sY/H \to \widetilde\sY/H$ is free 	FREE!!! then  $C\left(\widetilde\sY\right)^HA= C\left(\widetilde\sY/H\right)A$ is a $C^*$-subalgebra of $M\left(\widetilde A\right)$ and $A \hookto C\left(\widetilde\sY/H\right)A$ is a a noncommutative finite-fold covering with unitization (cf. Definition \ref{fin_pre_defn}).
+Let $A$ be a connected  $C^*$-algebra (cf. Definition \ref{connected_c_a_defn}), and let $C\left( \sY\right)\hookto M\left(A \right) $ be a disintegrable,  Hausdorff blowing-up (cf. Definitions \ref{blowing_defn}  CHECK !!! and \ref{blowing_disc_union_eqn})) with compact $\sY$.  Suppose that   $\left(A, \widetilde{A}, G, \pi \right)$ is  a noncommutative finite-fold  pre-covering (cf. Definition \ref{fin_pre_defn}).  Let $C\left(\widetilde\sY\right)$ be given by \eqref{blowing_cy_eqn}.  If $H\subset G$ be a normal subgroup such that the action $G/H \times \widetilde\sY/H \to \widetilde\sY/H$ is free 	FREE!!! then  $C\left(\widetilde\sY\right)^HA= C\left(\widetilde\sY/H\right)A$ is a $C^*$-subalgebra of $M\left(\widetilde A\right)$ and $A \hookto C\left(\widetilde\sY/H\right)A$ is a a noncommutative finite-fold covering with unitization (cf. Definition \ref{fin_pre_defn}).
 \end{lemma}
 \begin{proof}
 	
@@ -11951,7 +12029,7 @@ Let both $B$ and $\widetilde B$ are generated by the unions $C\left( \sY\right)\
 
 \end{proof}
 \begin{lemma}\label{blowing_covptwo_y_lem}!!! UP
-	Let $A$ be a connected  $C^*$-algebra (cf. Definition \ref{connected_c_a_defn}), and let $C\left( \sY\right)\hookto M\left(A \right) $ be a disintegrable,  Hausdorff blowing-up (cf. Definitions \ref{blowing_defn} and \ref{blowing_disc_union_eqn})) with compact $\sY$.  Suppose that   $\left(A, \widetilde{A}, G, \pi \right)$ is  a noncommutative finite-fold  pre-covering (cf. Definition \ref{fin_pre_defn}).  Let $C\left(\widetilde\sY\right)$ be given by \eqref{blowing_cy_eqn}.  If both $H', H''\subset G$ are a normal subgroups such that the actions $G/H \times \widetilde\sY/H \to \widetilde\sY/H$ and  $G/H'' \times \widetilde\sY/H'' \to \widetilde\sY/H$ are  free 	then an action $G/\left(H'\cap H''\right) \times \widetilde\sY/\left(H'\cap H''\right) \to \widetilde\sY/\left(H'\cap H''\right)$ is free.
+	Let $A$ be a connected  $C^*$-algebra (cf. Definition \ref{connected_c_a_defn}), and let $C\left( \sY\right)\hookto M\left(A \right) $ be a disintegrable,  Hausdorff blowing-up (cf. Definitions \ref{blowing_defn}  CHECK !!! and \ref{blowing_disc_union_eqn})) with compact $\sY$.  Suppose that   $\left(A, \widetilde{A}, G, \pi \right)$ is  a noncommutative finite-fold  pre-covering (cf. Definition \ref{fin_pre_defn}).  Let $C\left(\widetilde\sY\right)$ be given by \eqref{blowing_cy_eqn}.  If both $H', H''\subset G$ are a normal subgroups such that the actions $G/H \times \widetilde\sY/H \to \widetilde\sY/H$ and  $G/H'' \times \widetilde\sY/H'' \to \widetilde\sY/H$ are  free 	then an action $G/\left(H'\cap H''\right) \times \widetilde\sY/\left(H'\cap H''\right) \to \widetilde\sY/\left(H'\cap H''\right)$ is free.
 \end{lemma}
 \begin{proof}
 	There following continuous maps 
@@ -11967,7 +12045,7 @@ Let both $B$ and $\widetilde B$ are generated by the unions $C\left( \sY\right)\
 	!!! CONSTRUCTION OF COVERING ALGEBRA
 \end{empt}
 \begin{empt}\label{blowing_sum_lem}
-	Let $A$ be a connected  $C^*$-algebra (cf. Definition \ref{connected_c_a_defn}), and let $C\left( \sY\right)\hookto M\left(A \right) $ be a Hausdorff blowing up (cf. Definition \ref{blowing_defn}) with compact $\sY$.  Suppose that   $\left(A, \widetilde{A}, G, \pi \right)$ is  a noncommutative finite-fold  covering with unitization (cf. Definition \ref{fin_unitization_defn}).
+	Let $A$ be a connected  $C^*$-algebra (cf. Definition \ref{connected_c_a_defn}), and let $C\left( \sY\right)\hookto M\left(A \right) $ be a Hausdorff blowing up (cf. Definition \ref{blowing_defn}  CHECK !!!) with compact $\sY$.  Suppose that   $\left(A, \widetilde{A}, G, \pi \right)$ is  a noncommutative finite-fold  covering with unitization (cf. Definition \ref{fin_unitization_defn}).
 	Suppose that $H\subset G$ be a $\left(A, \widetilde{A}, G, \pi \right)$-proper subgroup (cf. Definition \ref{proper_subgroup_fin_defn}). If $\left(B, \widetilde{B}, G, \rho \right)$ is a required by the Definition \ref{fin_unitization_defn} unital noncommutative finite-fold  covering (cf. Definition \ref{fin_unital_defn})  then  $\left(B, \widetilde{B}^H, G/H, \rho' \right)$ is also an unital  noncommutative finite-fold  covering (cf. Lemma \ref{fin_composition_lem}).  Applying the construction \ref{blowing_ty_empt} one can obtain a commutative $C^*$-algebra $C\left( \widetilde \sY\right) \subset \widetilde B^H$. If $C\left( \widetilde \sY^H\right)\bydef C\left( \widetilde \sY\right)\cap \widetilde{B}^H$ and 
  $\widetilde B^H = C\left( \widetilde \sY^H\right)B$ then from the Lemma \ref{blowing_cov_y_lem} it turns out that $C\left( \widetilde \sY^H\right)$ is a finitely generated $C\left(\sY\right)$ module and there is a natural covering $\widetilde \sY^H\to \sY$.
 
@@ -12049,7 +12127,7 @@ On the other hand $A^{\mathrm{prop}}_\sU$ is reducibly  simply connected, so $A^
 \end{proof}
 
 \begin{empt}\label{blowing_b_empt}
-Let $A$ be a $C^*$- algebra and let $C_0\left( \sY\right)\hookto M\left(A \right)$  be a disintegrable 	semilocally 1-connected (cf. Definition \ref{blowing_semi1_defn})  Hausdorff blowing-up of $A$ (cf. Definitions \ref{blowing_defn} and \ref{blowing_disintegrable_defn}) such that $\sY$ is connected and locally connected. Let $q: \widetilde \sY\to\sY$ be a transitive covering (cf. Definition \ref{top_transitive_defn}).
+Let $A$ be a $C^*$- algebra and let $C_0\left( \sY\right)\hookto M\left(A \right)$  be a disintegrable 	semilocally 1-connected (cf. Definition \ref{blowing_semi1_defn})  Hausdorff blowing-up of $A$ (cf. Definitions \ref{blowing_defn}  CHECK !!! and \ref{blowing_disintegrable_defn}) such that $\sY$ is connected and locally connected. Let $q: \widetilde \sY\to\sY$ be a transitive covering (cf. Definition \ref{top_transitive_defn}).
 Let  $\left\{\sU_\a\subset\sX\right\}_{\a \in \mathscr A}$ be a {compliant with} $q$ family of connected sets, and let $\left\{\widetilde\sU_{\widetilde\a}\right\}_{\widetilde\a \in \widetilde{\mathscr A}}$  the $q$-{lift} of $\left\{\sU_\a\right\}_{\a \in \mathscr A}$. (cf. Definition 
 \ref{top_lconn_defn}). We suppose that for any $\a\in \mathscr A$ the $\sU_a$-proper *-algebra $A^{\mathrm{prop}}_{\sU_\a}$ (cf. Definition \ref{blowing_proprer_defn}) is reducibly simply connected (cf. Definition \ref{simply_connected_red_defn}),
 Let $\mathfrak P$ be a set of $\left\{\widetilde\sU_{\widetilde\a}\right\}$-paths (cf. Definition \ref{top_gen_path_defn}).  Consider a subset  $\mathfrak G \subset \mathfrak P\times A$ such that $\left( \mathfrak p,a \right)\in \mathfrak G$ if $\mathfrak p= \left(\widetilde\sU_{\widetilde\a_1}, ..., \widetilde\sU_{\widetilde\a_n}\right)$ then there are $a_1\in A^{\mathrm{prop}}_{p\left(\widetilde\sU_{\widetilde\a_1 }\right) },...,a_n\in A^{\mathrm{prop}}_{p\left(\widetilde\sU_{\widetilde\a_n }\right) }$ such that $a = a_1\cdot...\cdot a_n$. There is an involution on $\mathfrak G$ given by $\left( \mathfrak p,a \right)^*= \left( \mathfrak p^*,a^* \right)$ (cf. \eqref{top_path_inv_eqn}). The action $G\left(\left.\widetilde \sY\right| \sY \right)\times \widetilde \sY\to \widetilde \sY$ induces an action of $G\left(\left.\widetilde \sY\right| \sY \right)\times \mathfrak G\to \mathfrak G$.
@@ -12191,7 +12269,7 @@ Prove following statements:
 \paragraph{}
 Here we prove that a finite-fold coverings of Hausdorff blowing-up yields a noncommutative reduced finite-fold coverings and vice versa.
 \begin{lemma}\label{blowing_covi_lem}
-Let $A$ be a $C^*$-algebra, and let $C = C_0\left( \sY\right)\hookto M\left( A\right) $  be a disintegrable Hausdorff   blowing-up of $A$ (cf. Definitions \ref{blowing_defn}, \ref{blowing_disintegrable_defn}).
+Let $A$ be a $C^*$-algebra, and let $C = C_0\left( \sY\right)\hookto M\left( A\right) $  be a disintegrable Hausdorff   blowing-up of $A$ (cf. Definitions \ref{blowing_defn}  CHECK !!!, \ref{blowing_disintegrable_defn}).
 Suppose that $\sY$ is a connected, locally connected space. If $q: \widetilde \sY\to \sY$ is a transitive finite-fold covering and $A_0\left(q \right): A\hookto A_0\left( \widetilde\sY\right)$ is given by \eqref{blowing_a0x_eqn}  then there is 	 a reduced noncommutative finite-fold   covering $\left(A, A_0\left( \widetilde\sY\right) , G\left(\left. \widetilde\sY\right| \sY\right) , A_0\left( q\right)  \right)$ (cf. Definitions \ref{fin_defn}, \ref{fin_red_defn}) such that if $\varphi : M\left( A\right) \to M\left(A_0\left( \widetilde\sY\right)\right)$ is given by the Lemma \ref{ind_mult_inv_lem} then
 $\left.\varphi\right|_{A_0\left( \sY\right) }= A_0\left(q \right)$. 
 
@@ -12258,7 +12336,7 @@ from the Definitions \ref{red_alg_defn} and \ref{fin_red_defn} it turns out that
 \end{proof}
 
 \begin{lemma}\label{blowing_lift_d_lem}
-Let $A$ be a $C^*$- algebra and let $C_0\left( \sY\right)\hookto M\left(A \right)$  be a disintegrable Hausdorff blowing-up of $A$ (cf. Definitions \ref{blowing_defn} and \ref{blowing_disintegrable_defn}) such that $\sY$ is connected and locally connected. Let $q_1: \widetilde \sY_1\to\sY$,  $q_2: \widetilde \sY_2\to\sY$ be a finite-fold transitive coverings (cf. Definition \ref{top_transitive_defn}) such that there is a transitive covering $q^2_1:  \widetilde \sY_2\to  \widetilde \sY_1$ with $q_2 = p_1\circ p^2_1$.
+Let $A$ be a $C^*$- algebra and let $C_0\left( \sY\right)\hookto M\left(A \right)$  be a disintegrable Hausdorff blowing-up of $A$ (cf. Definitions \ref{blowing_defn}  CHECK !!! and \ref{blowing_disintegrable_defn}) such that $\sY$ is connected and locally connected. Let $q_1: \widetilde \sY_1\to\sY$,  $q_2: \widetilde \sY_2\to\sY$ be a finite-fold transitive coverings (cf. Definition \ref{top_transitive_defn}) such that there is a transitive covering $q^2_1:  \widetilde \sY_2\to  \widetilde \sY_1$ with $q_2 = p_1\circ p^2_1$.
 
 \begin{enumerate}
 	\item [(i)]		There are  natural actions $G\left(\left.\widetilde{\sY}_1~\right| \sY\right) \times A_0\left(\widetilde\sY_1 \right)\to A_0\left(\widetilde\sY_1 \right)$ and $G\left(\left.\widetilde{\sY}_2~\right| \sY\right) \times A_0\left(\widetilde\sY_2\right)\to A_0\left(\widetilde\sY_2 \right)$.
@@ -12314,7 +12392,7 @@ If $y_0 \in \sY$ is a point and the $n$ is a cardinal number of $q^{-1} \left( y
 \ee
 \end{empt}
 \begin{lemma}
-Let $A$ be a $C^*$-algebra, and let $C_0\left(\sY \right) \to M\left(A \right)$ be a  disintegrable, spectral,  Hausdorff blowing-up  (cf. Definitions \ref{blowing_defn}, \ref{blowing_spectal_defn}, \ref{blowing_disintegrable_defn}). If $\left(A,\widetilde A, G, \pi \right)$ is a reduced finite-fold noncommutative covering (cf. Definitions \ref{fin_defn}, \ref{fin_red_defn}) and  $A$ is semilocally 1-connected (cf. Definition \ref{blowing_semi1_defn}) then the given by \eqref{blowing_y_cow_eqn} map is a transitive covering such that $G\left(\left.\widetilde\sY\right|\sY\right)\cong G$.
+Let $A$ be a $C^*$-algebra, and let $C_0\left(\sY \right) \to M\left(A \right)$ be a  disintegrable, spectral,  Hausdorff blowing-up  (cf. Definitions \ref{blowing_defn}  CHECK !!!, \ref{blowing_spectal_defn}, \ref{blowing_disintegrable_defn}). If $\left(A,\widetilde A, G, \pi \right)$ is a reduced finite-fold noncommutative covering (cf. Definitions \ref{fin_defn}, \ref{fin_red_defn}) and  $A$ is semilocally 1-connected (cf. Definition \ref{blowing_semi1_defn}) then the given by \eqref{blowing_y_cow_eqn} map is a transitive covering such that $G\left(\left.\widetilde\sY\right|\sY\right)\cong G$.
 \end{lemma}
 \begin{proof}
  Let $\left\{u_\la \right\}_{\la \in \La}\subset M\left( \widetilde A\right)_+$ be a required by the Definition \ref{fin_defn} increasing net, and let $A_\la$ is the $C^*$-norm completion of $u_\la A u_\la$.  
@@ -12462,7 +12540,7 @@ then the map $q$ is a transitive finite-fold covering.
 \end{lemma}
 
 \begin{lemma}\label{blowing_cov_lem}
-Let $\left(A,\widetilde A, G, \pi \right)$ be a  noncommutative finite-fold   covering (cf. Definition \ref{fin_defn}), and let $C = C_0\left( \sY\right)\hookto M\left( A\right) $  be a disintegrable   Hausdorff blowing-up of $A$ (cf. Definitions \ref{blowing_defn}, \ref{blowing_disintegrable_defn}). If $\widetilde C = C_0\left( \widetilde \sY\right)\hookto M\left( \widetilde A\right) $ is the given by \eqref{blowing_inc_eqn} then following conditions hold:
+Let $\left(A,\widetilde A, G, \pi \right)$ be a  noncommutative finite-fold   covering (cf. Definition \ref{fin_defn}), and let $C = C_0\left( \sY\right)\hookto M\left( A\right) $  be a disintegrable   Hausdorff blowing-up of $A$ (cf. Definitions \ref{blowing_defn}  CHECK !!!, \ref{blowing_disintegrable_defn}). If $\widetilde C = C_0\left( \widetilde \sY\right)\hookto M\left( \widetilde A\right) $ is the given by \eqref{blowing_inc_eqn} then following conditions hold:
 \begin{enumerate}
 	\item [(i)] There is the natural transitive finite-fold covering $q: \widetilde \sY\to \sY$.
 	\item[(ii)] There are a natural injective  *-homomorphism $A_0\left(\widetilde\sY \right)\hookto \widetilde A$ and a surjective homomorphism $G \to G\left( \left. \widetilde \sY\right|\sY\right)$ of groups.
@@ -12618,7 +12696,7 @@ If  $G'\bydef \ker \left(G \to  G\left( \left. \widetilde \sY\right|\sY\right)\r
 $A_{\sU_y}\cong \left(  g\widetilde A_{\widetilde \sU_y}\right)^{G'}$. Moreover if $G'$ is not trivial one has $A_{\sU_y}\cong\left(  g\widetilde A_{\widetilde \sU_y}\right)^{G'}\subsetneqq g\widetilde A_{\widetilde \sU_y}$, but it contradicts with \eqref{blowing_ay_eqn}. So $G'$ is trivial, $G \cong  G\left( \left. \widetilde \sY\right|\sY\right)$ and from \eqref{blowing_cov_eqn} it turns out that $A\left(\widetilde\sY \right)\cong \widetilde A$.
 \end{proof}
 \begin{lemma}\label{blowing_good_lem}
-Let $A$ be a $C^*$-algebra, and let $C_0\left(\sY \right) \to M\left( A\right)$ be a disintegrable,  semilocally 1-connected,  Hausdorff blowing-up (cf. Definitions \ref{blowing_defn}, \ref{blowing_spectal_defn}, \ref{blowing_disintegrable_defn}, \ref{blowing_semi1_defn}). For any reduced noncommutative finite-fold covering $\left(A, \widetilde A, G, \pi\right)$ the given by the equation \eqref{blowing_inc_eqn} Hausdorff blowing-up $C_0\left( \widetilde \sY\right) \to M\left(  \widetilde A\right)$ is disintegrable cf. (Definition \ref{blowing_disintegrable_defn})   and   semilocally 1-connected.
+Let $A$ be a $C^*$-algebra, and let $C_0\left(\sY \right) \to M\left( A\right)$ be a disintegrable,  semilocally 1-connected,  Hausdorff blowing-up (cf. Definitions \ref{blowing_defn}  CHECK !!!, \ref{blowing_spectal_defn}, \ref{blowing_disintegrable_defn}, \ref{blowing_semi1_defn}). For any reduced noncommutative finite-fold covering $\left(A, \widetilde A, G, \pi\right)$ the given by the equation \eqref{blowing_inc_eqn} Hausdorff blowing-up $C_0\left( \widetilde \sY\right) \to M\left(  \widetilde A\right)$ is disintegrable cf. (Definition \ref{blowing_disintegrable_defn})   and   semilocally 1-connected.
 \end{lemma}
 \begin{proof}
 
@@ -12628,7 +12706,7 @@ From \eqref{blowing_ay_eqn} it follows that $C_0\left( \widetilde \sY\right) \to
 \end{proof}
 
 \begin{corollary}\label{blowing_comp_cor}
-Let $\left(A,\widetilde A, G, \pi \right)$ be a  noncommutative finite-fold   covering (cf. Definition \ref{fin_defn}), and let $C = C_0\left( \sY\right)\hookto M\left( A\right) $  be a disintegrable, semilocally 1-connected,  Hausdorff blowing-up of $A$.  (cf. Definitions \ref{blowing_defn}, \ref{blowing_disintegrable_defn}, \ref{blowing_semi1_defn}). If both $\left(A,\widetilde A, G, \pi \right)$ and  $\left(\widetilde A,\widetilde{\widetilde A}, \widetilde G, \widetilde \pi \right)$ are reduced  noncommutative finite-fold   coverings (cf. Definitions \ref{fin_defn}, \ref{fin_red_defn}) then there is a reduced  noncommutative finite-fold   covering  $\left( A,\widetilde{\widetilde A}, \widetilde{\widetilde G}, \widetilde{\widetilde \pi} \right)$ such that $\widetilde{\widetilde \pi} = \widetilde{\pi}\circ \pi$ and there is the following exact sequence
+Let $\left(A,\widetilde A, G, \pi \right)$ be a  noncommutative finite-fold   covering (cf. Definition \ref{fin_defn}), and let $C = C_0\left( \sY\right)\hookto M\left( A\right) $  be a disintegrable, semilocally 1-connected,  Hausdorff blowing-up of $A$.  (cf. Definitions \ref{blowing_defn}  CHECK !!!, \ref{blowing_disintegrable_defn}, \ref{blowing_semi1_defn}). If both $\left(A,\widetilde A, G, \pi \right)$ and  $\left(\widetilde A,\widetilde{\widetilde A}, \widetilde G, \widetilde \pi \right)$ are reduced  noncommutative finite-fold   coverings (cf. Definitions \ref{fin_defn}, \ref{fin_red_defn}) then there is a reduced  noncommutative finite-fold   covering  $\left( A,\widetilde{\widetilde A}, \widetilde{\widetilde G}, \widetilde{\widetilde \pi} \right)$ such that $\widetilde{\widetilde \pi} = \widetilde{\pi}\circ \pi$ and there is the following exact sequence
 \be\label{blowing_ex_eqn}
 \{e\}\hookto \widetilde G \hookto \widetilde{\widetilde G} \to G \to\{e\}.
 \ee
@@ -12645,7 +12723,7 @@ $$
 $$
 \end{proof}
 \begin{lemma}\label{blowing_spectal_lem}
-Let $A$ be a $C^*$-algebra, and let $C_0\left(\sY \right) \to M\left( A\right)$ be a disintegrable, spectral, semilocally 1-connected,  Hausdorff blowing-up (cf. Definitions \ref{blowing_defn}, \ref{blowing_spectal_defn}, \ref{blowing_disintegrable_defn}, \ref{blowing_semi1_defn}). For any reduced noncommutative finite-fold covering $\left(A, \widetilde A, G, \pi\right)$ the given by the equation \eqref{blowing_inc_eqn} Hausdorff blowing-up $C_0\left( \widetilde \sY\right) \to M\left(  \widetilde A\right)$ is   spectral.
+Let $A$ be a $C^*$-algebra, and let $C_0\left(\sY \right) \to M\left( A\right)$ be a disintegrable, spectral, semilocally 1-connected,  Hausdorff blowing-up (cf. Definitions \ref{blowing_defn}  CHECK !!!, \ref{blowing_spectal_defn}, \ref{blowing_disintegrable_defn}, \ref{blowing_semi1_defn}). For any reduced noncommutative finite-fold covering $\left(A, \widetilde A, G, \pi\right)$ the given by the equation \eqref{blowing_inc_eqn} Hausdorff blowing-up $C_0\left( \widetilde \sY\right) \to M\left(  \widetilde A\right)$ is   spectral.
 
 \end{lemma}
 \begin{proof}
@@ -12679,7 +12757,7 @@ From the Lemma \ref{blowing_spectal_lem} it turns out that there is the followin
 where both  sets $s\left( \sY \right)$, $~s\left(\widetilde \sY \right)$ and both maps $s_{\sY}$, $~s_{\widetilde\sY}$ are given by \eqref{blowing_spectal_eqn}, a continuous map  $q$ is given by the Proposition \ref{spectrum_cov_prop}, a transitive covering $q$ is given by the Lemma \ref{blowing_cov_lem}. 
 \end{remark}
 \begin{empt}\label{blowing_pcomt_empt}
-Let $A$ be a $C^*$-algebra, and let $C_0\left(\sY \right) \to M\left( A\right)$ be a disintegrable  semilocally 1-connected Hausdorff blowing-up (cf. Definitions \ref{blowing_defn}, \ref{blowing_disintegrable_defn}, \ref{blowing_semi1_defn}). If there are transitive coverings $q_1: \widetilde\sY_1 \to \sY$ and  $q_2: \widetilde\sY_2 \to \sY$ such that there is a   commutative diagram  
+Let $A$ be a $C^*$-algebra, and let $C_0\left(\sY \right) \to M\left( A\right)$ be a disintegrable  semilocally 1-connected Hausdorff blowing-up (cf. Definitions \ref{blowing_defn}  CHECK !!!, \ref{blowing_disintegrable_defn}, \ref{blowing_semi1_defn}). If there are transitive coverings $q_1: \widetilde\sY_1 \to \sY$ and  $q_2: \widetilde\sY_2 \to \sY$ such that there is a   commutative diagram  
 \newline
 \begin{tikzpicture}
 	\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
@@ -12737,7 +12815,7 @@ From the Corollary \ref{top_covp_cat_cor} it follows that $q^2_1$ is a transitiv
 \end{proof}
 
 \begin{theorem}\label{blowing_functor_thm}
-Let $A$ be a $C^*$-algebra, and let $C_0\left(\sY \right) \to M\left( A\right)$ be a disintegrable  Hausdorff blowing-up (cf. Definitions \ref{blowing_defn}, \ref{blowing_disintegrable_defn}).	Suppose that  $\sY$ is a connected, locally connected  space. If $\mathfrak{FinCov}^{\mathrm{red}}$-$A$ is a category of reduced noncommutative  finite-fold  coverings of $A$ (cf. Definition \ref{fin_cat_defn}).
+Let $A$ be a $C^*$-algebra, and let $C_0\left(\sY \right) \to M\left( A\right)$ be a disintegrable  Hausdorff blowing-up (cf. Definitions \ref{blowing_defn}  CHECK !!!, \ref{blowing_disintegrable_defn}).	Suppose that  $\sY$ is a connected, locally connected  space. If $\mathfrak{FinCov}^{\mathrm{red}}$-$A$ is a category of reduced noncommutative  finite-fold  coverings of $A$ (cf. Definition \ref{fin_cat_defn}).
 then following conditions hold:
 \begin{enumerate}
 	\item [(i)] 	If the category $\mathfrak{FinCov}$-$\sY$ is given by the Definition \ref{top_fin_cov_defn} then the equation \eqref{blowing_a0x_eqn}  yields a functor $A_0:\mathfrak{FinCov}$-$\sY \to \mathfrak{FinCov}^{\mathrm{red}}$-$A$.
@@ -12776,7 +12854,7 @@ then following conditions hold:
 
 
 \begin{empt}\label{blowing_inf_empt}
-Let $A$ be a $C^*$-algebra, and let $C_0\left(\sY \right) \to M\left( A\right)$ be a disintegrable,  semilocally 1-connected,  Hausdorff blowing-up (cf. Definitions \ref{blowing_defn}, \ref{blowing_spectal_defn}, \ref{blowing_disintegrable_defn}, \ref{blowing_semi1_defn}) such that the  $\sY$ is a connected, locally connected space. Let  $\widetilde{q}:\left( \widetilde{\sY}, \widetilde{y}_0\right) \to \left( \sY, y_0\right)$ be a pointed transitive covering such that a covering group  $G\left(\left.\widetilde \sY \right| \sY\right)$ is residually finite (cf. Definition \ref{residually_finite_defn}). Let
+Let $A$ be a $C^*$-algebra, and let $C_0\left(\sY \right) \to M\left( A\right)$ be a disintegrable,  semilocally 1-connected,  Hausdorff blowing-up (cf. Definitions \ref{blowing_defn}  CHECK !!!, \ref{blowing_spectal_defn}, \ref{blowing_disintegrable_defn}, \ref{blowing_semi1_defn}) such that the  $\sY$ is a connected, locally connected space. Let  $\widetilde{q}:\left( \widetilde{\sY}, \widetilde{y}_0\right) \to \left( \sY, y_0\right)$ be a pointed transitive covering such that a covering group  $G\left(\left.\widetilde \sY \right| \sY\right)$ is residually finite (cf. Definition \ref{residually_finite_defn}). Let
 \be\label{blowing_top_eqn}
 \begin{split}
 \mathfrak{S}_{\left( \sY, y_0  \right) } \bydef\\\bydef\left\{\left\{ q_\la: \left( \sY_\la, y^\la_0\right) \to \left( \sY, y_0\right)\right\}_{\la \in \La}, \left\{q^\mu_\nu: \left( \sY_\mu, y^\mu_0  \right)\to \left( \sY_\nu, y^\nu_0  \right)\right\}_{\substack{ \mu, \nu \in \La \\ \mu \ge \nu}}\right\}
@@ -12854,7 +12932,7 @@ it follows that  $\overline \H_a\cong \widehat \H_a$. So the atomic representati
 \ee
 \end{empt}
 \begin{lemma}\label{blowing_cov_inc_strict_lem}
-Let $A$ be a $C^*$-algebra and let $C_0\left(\sY\right)\hookto M\left(A \right) $ be a disintegrable  Hausdorff blowing-up (cf. Definitions \ref{blowing_defn} and \ref{blowing_disintegrable_defn}). Suppose  $\sY$ is  a connected, locally connected space, and let $q: \widetilde\sY\to\sY$ be  a transitive covering. Suppose that  $\mathcal U\subset \mathcal Y$  is a connected open subset evenly {covered} by $\widetilde{\mathcal U}\subset \widetilde{\mathcal Y}$, such that the closure $\widetilde \sV$ of $\widetilde\sU$ is compact. Let $a \in A_0\left( \widetilde{\sY}\right)_{\widetilde{\sU}} $ 
+Let $A$ be a $C^*$-algebra and let $C_0\left(\sY\right)\hookto M\left(A \right) $ be a disintegrable  Hausdorff blowing-up (cf. Definitions \ref{blowing_defn}  CHECK !!! and \ref{blowing_disintegrable_defn}). Suppose  $\sY$ is  a connected, locally connected space, and let $q: \widetilde\sY\to\sY$ be  a transitive covering. Suppose that  $\mathcal U\subset \mathcal Y$  is a connected open subset evenly {covered} by $\widetilde{\mathcal U}\subset \widetilde{\mathcal Y}$, such that the closure $\widetilde \sV$ of $\widetilde\sU$ is compact. Let $a \in A_0\left( \widetilde{\sY}\right)_{\widetilde{\sU}} $ 
 then the series 	
 \be\nonumber
 \sum_{g \in G\left(\left.\widetilde\sY~\right|\sY\right) } g\widetilde{a}.
@@ -13418,7 +13496,7 @@ $$
 From the above equation and \eqref{blowing_wta_eqn} it turns out that there is a nontrivial direct sum $\widetilde A'= \widetilde A\bigoplus \widetilde A^\perp$ of $C^*$-algebras such that  $\exists\widehat x\in    
 \widehat\sX\setminus  \widehat\sX_{\widetilde\sY}\quad\rep_{\varphi\left( \widehat{x}\right)}\left( \widetilde A^\perp\right)\neq \{0\}$. This circumstance is a contradiction so $\widetilde A$ is a maximal connected subalgebra of $\widetilde A$.
 The space  $\varphi\left( \widehat{x}\right) \left( \overline A \right) \H_{\widehat x}$ is
- dense in $\H_{\widehat x}$ for all  $\widehat x \in \widehat \sX$ (cf. Definition \ref{blowing_defn}), so one has
+ dense in $\H_{\widehat x}$ for all  $\widehat x \in \widehat \sX$ (cf. Definition \ref{blowing_defn}  CHECK !!!), so one has
 $$
 \rep_{\varphi\left( \widehat{x}\right)}\left(1_{C_b\left( \widetilde{\mathcal Y}\right) } \right) = \begin{cases}
 	1 & \widehat x\in \widehat\sX_{\widetilde \sY}\\
@@ -13569,7 +13647,7 @@ The center of $M\left(A \right)$ is naturally isomorphic to $C_b\left( \sY^{\mat
 From the Theorem \ref{dauns_hofmann_thm} it turns out that $M\left(A \right)$ is naturally isomorphic to the class of bounded continuous  functions on $\check{A}$. If $f$ is a continuous  function on $\check{A}$ then for all $\check y^{\mathrm{c}}\in \check \sY^{\mathrm{c}}$ one has $f\left(\check y^{\mathrm{c}} \right) = f\left( \phi\check~\left(\check y^{\mathrm{c}} \right)\right)$ because $\check y^{\mathrm{c}}$ lies in the closure of $\phi\hat~\left(\check y^{\mathrm{c}}\right)$. It follows that the function $f$ uniquely depends on its restriction $f|_{\check A^{\mathrm{ab}}}= f|_{\sY^{\mathrm{ab}}}$. 
 It follows that any $f$ lies in $C_b\left(\sY^{\mathrm{ab}} \right)$ on the other hand from the Theorem \ref{ideal_spectrum_thm} the topology of $\sY^{\mathrm{ab}}$ is the restriction of the topology of $\check{A}$. So from the Theorem \ref{dauns_hofmann_thm} it follows that $C_b\left( \sY^{\mathrm{ab}}\right)$ coincides with  the center of $M\left(A\right)$.
 \end{proof}
-From the Example \ref{blowing_ctr_exm} it turns out that $C\left( \sY^{\mathrm{ab}}\right)\hookto A$ is a disintegrable  Hausdorff blowing-up of $A$ (cf. Definitions \ref{blowing_defn} and \ref{blowing_disintegrable_defn}). 
+From the Example \ref{blowing_ctr_exer} !!! EXERCISE it turns out that $C\left( \sY^{\mathrm{ab}}\right)\hookto A$ is a disintegrable  Hausdorff blowing-up of $A$ (cf. Definitions \ref{blowing_defn}  CHECK !!! and \ref{blowing_disintegrable_defn}). 
 \begin{lemma}\label{h_gr_free_lem}
  If $\left(A,\widetilde A, G, \pi \right)$ is a free  connected noncommutative finite-fold   covering (cf. Definitions \ref{fin_defn}and \ref{fin_free_defn}) then there is a transitive finite-fold covering $p:\widetilde\sY_{\mathrm{fin}}^{\mathrm{ab}}\to \sY^{\mathrm{ab}}$ such that
  	\bean
@@ -14782,7 +14860,7 @@ Let $\left(X, Y\right)$ be a sub-untal operator space (cf. Definition \ref{op_su
   \be\label{ctr_as_field_eqn}
   A \cong C_0\left( \sX, \left\{A_x\right\}_{x \in \sX}, \sF\right)
   \ee
-  where $\sX = \hat A$ is the Hausdorff spectrum of $A$, and $C_0\left( \sX, \left\{A_x\right\}_{x \in \sX}, \sF\right)$ is the converging to zero submodule (cf. Definition \ref{top_cc_c0_defn}).  From the Theorems \ref{dauns_hofmann_thm} and \ref{oa_haus_prim_thm}  there is the natural inclusion $C_0\left( \sX\right) \to M\left( \A\right)$ which can be regarded as a Hausdorff blowing-up (cf. Definition \ref{blowing_defn}).
+  where $\sX = \hat A$ is the Hausdorff spectrum of $A$, and $C_0\left( \sX, \left\{A_x\right\}_{x \in \sX}, \sF\right)$ is the converging to zero submodule (cf. Definition \ref{top_cc_c0_defn}).  From the Theorems \ref{dauns_hofmann_thm} and \ref{oa_haus_prim_thm}  there is the natural inclusion $C_0\left( \sX\right) \to M\left( \A\right)$ which can be regarded as a Hausdorff blowing-up (cf. Definition \ref{blowing_defn}  CHECK !!!).
   \begin{exercise}
  Let $C_0\left( \sX\right) \to M\left(A\right)$ be described above Hausdorff blowing-up. Prove that for any open subset $\sU\subset\sX$ there is the natural *-isomorphism
  \be\label{ctr_au_iso_eqn}
@@ -14863,7 +14941,7 @@ Our following constructions require an analog of the Dini's theorem.
 \end{lemma}
 
 \begin{proof}
-	From the Example \ref{blowing_ctr_exm}  it turns out that the natural Hausdorff blowing-up $C_0\left(\sX \right)\to M\left(A \right)$ is good. If $\left(A, \widetilde A, G, \pi\right)$ is a reduced finite-fold noncommutative covering (cf. Definitions \ref{fin_defn}, \ref{fin_red_defn}) and $\widetilde \sX$ is the spectrum of $\widetilde A$ then from the Lemma \ref{blowing_cov_lem} it follows that there is a transitive finite-fold covering $\widetilde\sX \to \sX$.  Since $\widetilde \sX$ is connected and $\sX$ is simply connected the map $\widetilde \sX\to \sX$ is a homeomorphism. Indeed the covering $p$ coincides with the given by the Proposition \ref{spectrum_cov_prop}   continuous map. Since the covering $\left(A, \widetilde A, G, \pi\right)$ is a reduced one has $G \cong G\left( 
+	From the Example \ref{blowing_ctr_exer} !!! EXERCISE  it turns out that the natural Hausdorff blowing-up $C_0\left(\sX \right)\to M\left(A \right)$ is good. If $\left(A, \widetilde A, G, \pi\right)$ is a reduced finite-fold noncommutative covering (cf. Definitions \ref{fin_defn}, \ref{fin_red_defn}) and $\widetilde \sX$ is the spectrum of $\widetilde A$ then from the Lemma \ref{blowing_cov_lem} it follows that there is a transitive finite-fold covering $\widetilde\sX \to \sX$.  Since $\widetilde \sX$ is connected and $\sX$ is simply connected the map $\widetilde \sX\to \sX$ is a homeomorphism. Indeed the covering $p$ coincides with the given by the Proposition \ref{spectrum_cov_prop}   continuous map. Since the covering $\left(A, \widetilde A, G, \pi\right)$ is a reduced one has $G \cong G\left( 
 	\left.\widetilde \sX\right|\sX\right)$ (cf. \eqref{g_red_inc_eqn} ). Since $\sX$ is topologically simply connected the group $G$ is trivial and the covering  $\left(A, \widetilde A, G, \pi\right)$ is trivial.
 \end{proof}
 \begin{exercise}\label{ctr_simply_connected_exer}
@@ -16643,7 +16721,7 @@ C_b\left( M\right)\subset M\left(C^*_r \left(M, \mathcal{F}\right) \right).
 	
 \end{proof}
 \begin{corollary}\label{foli_slfin_cor}
-	If an inclusion $C_0\left( M\right)\subset M\left(C^*_r \left(M, \mathcal{F}\right) \right)$ comes from \eqref{foli_center_eqn} then it is  a disintegrable  spectral {Hausdorff blowing-up} of $C^*_r \left(M, \mathcal{F}\right)$ (cf. Definitions \ref{blowing_defn}, \ref{blowing_disintegrable_defn}, \ref{blowing_spectal_defn}).
+	If an inclusion $C_0\left( M\right)\subset M\left(C^*_r \left(M, \mathcal{F}\right) \right)$ comes from \eqref{foli_center_eqn} then it is  a disintegrable  spectral {Hausdorff blowing-up} of $C^*_r \left(M, \mathcal{F}\right)$ (cf. Definitions \ref{blowing_defn}  CHECK !!!, \ref{blowing_disintegrable_defn}, \ref{blowing_spectal_defn}).
 \end{corollary}
 \begin{proof}
 	From the Lemma \ref{foli_slfin_lem} it follows that $C_0\left( M\right)\subset M\left(C^*_r \left(M, \mathcal{F}\right) \right)$  is  a  Hausdorff blowing-up, from  the Corollary \ref{foli_cov_alg_cor} it turns out that the blowing-up is disintegrable \ref{top_soft_r_defn} (cf. Definition \ref{blowing_disintegrable_defn}). Any maximal ideal of $C_0\left( M\right)$ corresponds to a point $x \in M$. The point $x$ belongs to no more than one leaf of $\left(M, \mathcal{F}\right)$. From the Theorem \ref{foli_irred_hol_thm} it follows that the natural partial map from $M$ to the spectrum of 
