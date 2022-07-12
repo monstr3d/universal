@@ -11839,6 +11839,167 @@ j_{\sU}: A_\sU \hookto \widetilde A_\sU.
  	j^{\mathrm{prop}}_{\sU}: A^{\mathrm{prop}}_\sU \hookto \widetilde A^{\mathrm{prop}}_\sU.
  	\ee
  \end{exercise}
+
+\begin{lemma}\label{blowing_hilbert_module_lem}
+	Let $A$ be a connected  $C^*$-algebra (cf. Definition \ref{connected_c_a_defn}), and let $C\left( \sY\right)\hookto M\left(A \right) $ be a Hausdorff blowing up (cf. Definition \ref{blowing_defn}) with compact $\sY$.  If $q: \widetilde\sY \to \sY$ is a finite-fold transitive covering then 
+	$ C\left(\widetilde \sY \right)\otimes_{C\left(\sY\right)} A
+	$
+	has a natural structure of a $C^*$-Hilbert $A$-module.
+\end{lemma}
+\begin{proof}
+	From the Theorem \ref{pavlov_troisky_thm} it follows that $C\left(\widetilde \sY \right)$ is a finitely generated $C^*$-Hilbert  $C\left( \sY\right)$-module. so  $C\left(\widetilde \sY \right)\otimes_{C\left(\sY\right)} A$ means an algebraic tensor product. 
+	There is a sesquilinear $A$-valued product on $C\left(\widetilde \sY \right)\otimes_{C\left(\sY\right)} A$ given by 
+	$$
+	\forall \widetilde f \otimes a,~\widetilde h \otimes b\in C\left(\widetilde \sY \right)\otimes_{C\left(\sY\right)} A \quad \left\langle \widetilde f \otimes a,~ \widetilde h \otimes b\right\rangle_A\bydef a^* \left\langle \widetilde f, \widetilde h \right\rangle_{C\left(\sY\right)} b.
+	$$
+	Alternatively above product can be defined by the following way
+	\be\label{blowing_h_eqn}
+	\left\langle \widetilde f \otimes a,~ \widetilde h \otimes b\right\rangle_A\bydef a^*\left(  \sum_{	g \in \left(\left.\widetilde \sY \right|\sY \right) }g\left( \widetilde f^* \widetilde h\right) \right) b
+	\ee
+	The action  $G\left(\left.\widetilde \sY \right|\sY \right)\times\widetilde \sY\to \widetilde \sY$ naturally induces an action $G\left(\left.\widetilde \sY \right|\sY \right)\times C\left(\widetilde \sY \right)\otimes_{C\left(\sY\right)} A\to C\left(\widetilde \sY \right)\otimes_{C\left(\sY\right)} A$ such that $A = \left( C\left(\widetilde \sY \right)\otimes_{C\left(\sY\right)} A\right)^{G\left(\left.\widetilde \sY \right|\sY \right)}$.
+	Let $\left\{\widetilde e_{ \widetilde\a}\right\}_{\widetilde \a \in \widetilde{\mathscr A}}\subset C\left(\widetilde \sY\right)$ be a finite subset which satisfies to \eqref{top_ea_eqn}, i.e.
+	\bean
+	\begin{split}
+		1_{C\left(\widetilde{\mathcal Y} \right) }= \sum_{\widetilde\a \in \widetilde{\mathscr A} }\widetilde{e}^2_{\widetilde{\a}},\\
+		\widetilde{e}_{\widetilde{\a}}	\left(g \widetilde{e}_{\widetilde{\a}} \right) = 0 \quad \text{for any nontrivial}\quad g\in G\left(\left.\widetilde \sY \right|\sY \right).
+	\end{split}
+	\eean
+	Any element of $\widetilde a\in C\left(\widetilde \sY \right)\otimes_{C\left(\sY\right)} A$ can be uniquely represented by a following way
+	\be\label{blowing_ea_eqn}
+	\begin{split}
+		\widetilde a = \sum_{\widetilde\a \in \widetilde{\mathscr A}} 	\widetilde{e}_{\widetilde{\a}}\otimes a_{\widetilde\a},\\
+		a_{\widetilde\a} = \sum_{g \in G\left(\left.\widetilde \sY \right|\sY \right)}	g\left( \widetilde{e}_{\widetilde{\a}}\otimes \widetilde a\right) \in A.
+	\end{split}
+	\ee
+	There is a $C^*$-Hilbert module norm on $C\left(\widetilde \sY \right)\otimes_{C\left(\sY\right)} A$ such that $\left\|\widetilde a \right\|_{C\left(\widetilde \sY \right)\otimes_{C\left(\sY\right)} A}\bydef \sqrt{\left\|\left\langle \widetilde a, \widetilde a \right\rangle_{A}\right\| }$. Let $\left\{\widetilde a_\la\right\}_{\la\in \La}\subset C\left(\widetilde \sY \right)\otimes_{C\left(\sY\right)} A$ be a net and suppose that
+	$$
+	\widetilde a_\la = \sum_{\widetilde\a \in \widetilde{\mathscr A}}\widetilde{e}_{\widetilde{\a}}a^\la_{\widetilde\a}
+	$$
+	where $a^\la_{\widetilde\a}$ is given by \eqref{blowing_ea_eqn}.
+	If a net $\left\{a^\la_{\widetilde\a}\right\}\subset A$ is not convergent and the net $\left\{\sum_{g \in G\left(\left.\widetilde \sY \right|\sY \right)}	g\left( \widetilde{e}_{\widetilde{\a}} \widetilde a= \left\langle \widetilde{e}_{\widetilde{\a}},   \widetilde a_\la \right\rangle_A \right)\right\}_{\la\in\La} \in A$ is not convergent. It follows that the net $\left\{\widetilde a_\la\right\}$ is not convergent with respect to a norm $\left\|\cdot \right\|_{C\left(\widetilde \sY \right)\otimes_{C\left(\sY\right)} A}$. So if $\left\{\widetilde a_\la\right\}$ is convergent then for all $\widetilde\a \in \widetilde{\mathscr A}$ the net $\left\{a^\la_{\widetilde\a}\right\}$ is convergent. It follows that
+	$$
+	\lim_{\la\in\La }\widetilde a_\la= \sum_{\widetilde\a \in \widetilde{\mathscr A}}\widetilde{e}_{\widetilde{\a}}\lim_\la a^\la_{\widetilde\a}\in C\left(\widetilde \sY \right)\otimes_{C\left(\sY\right)} A,
+	$$
+	i.e. $C\left(\widetilde \sY \right)\otimes_{C\left(\sY\right)} A$ is complete with respect to the $C^*$-Hilbert module norm
+	$\left\|\cdot \right\|_{C\left(\widetilde \sY \right)\otimes_{C\left(\sY\right)} A}$. It follows that $C\left(\widetilde \sY \right)\otimes_{C\left(\sY\right)}A$ 
+	is  a $C^*$-Hilbert $A$-module
+\end{proof}
+\begin{empt}
+	Denote by 
+	\be
+	\widetilde	X_A \bydef C\left(\widetilde \sY \right)\otimes_{C\left(\sY\right)} A
+	\ee
+	the given by the Lemma \ref{blowing_hilbert_module_lem} $C^*$-Hilbert $A$-module. Let $\rho: A \hookto B\left(\H\right)$ be an atomic representation (cf. Definition \ref{atomic_repr_defn}) then similarly to \eqref{hilb_prod_eqn} one can define a $\C$-valued product on $\widetilde \H \bydef \widetilde	X_A \otimes_A \H$ such that
+	\be
+	\left(\widetilde a \otimes \xi, \widetilde b \otimes \eta  \right)_{\widetilde \H}\bydef \left( \xi, \left\langle \widetilde  a,~ \widetilde  b\right\rangle_A \eta  \right)_\H.
+	\ee
+	Since $ C\left(\widetilde \sY \right)$ is a finitely generated module $\widetilde \H$ is a  Hilbert space. The action
+	\bean
+	C\left( \widetilde \sY\right) \times C\left(\widetilde \sY \right)\otimes_{C\left(\sY\right)} \H \to C\left(\widetilde \sY \right)\otimes_{C\left(\sY\right)} \H,\\
+	\left(\widetilde  a, \widetilde  b\otimes \xi \right) \mapsto \widetilde  a, \widetilde  b\otimes \xi
+	\eean 
+	yields a faithful representation $\rho_{\widetilde\sY} : 	C\left( \widetilde \sY\right)\hookto B\left(\widetilde\H\right)$. 
+	The action
+	\bean
+	A \times C\left(\widetilde \sY \right)\otimes_{C\left(\sY\right)} \H\to C\left(\widetilde \sY \right)\otimes_{C\left(\sY\right)} \H,\\
+	\left(  a, \widetilde  b \otimes \xi\right) \mapsto  \widetilde  b\otimes a \xi
+	\eean
+	yields a representation $\rho_A: A \hookto B\left(\widetilde \H \right)$
+	One can define $\C$-linear injective map
+	\be
+	\begin{split}
+		\varphi : C\left(\widetilde \sY \right)\otimes_{C\left(\sY\right)} A \hookto B\left(\widetilde \H \right),\\
+		\widetilde a = \sum_{\widetilde\a \in \widetilde{\mathscr A}} 	\widetilde{e}_{\widetilde{\a}}\otimes a_{\widetilde\a}\quad \Rightarrow\quad \varphi \left(\widetilde a \right)\bydef 
+		\sum_{\widetilde\a \in \widetilde{\mathscr A}}\rho_\sY\left(\widetilde{e}_{\widetilde{\a}} \right) \rho_A\left(a_{\widetilde\a} \right) 
+	\end{split}
+	\ee
+	(cf. equation \ref{blowing_ea_eqn}) 
+	
+	
+\end{empt}
+
+\begin{theorem}\label{blowing_ca_thm}
+	Consider the above situation. If the Hausdorff blowing-up $C\left( \sY\right)\hookto M\left(A \right) $ is   disintegrable (cf. Definition \ref{blowing_disintegrable_defn}) and $\widetilde A$ is $C^*$-subalgebra of  $B\left(\widetilde \H \right)$    generated by $\varphi \left( C\left(\widetilde \sY \right)\otimes_{C\left(\sY\right)} A \right)$ then following conditions hold:
+\begin{enumerate}
+	\item [(i)] 	$\widetilde A = \varphi \left( C\left(\widetilde \sY \right)\otimes_{C\left(\sY\right)} A \right)$.
+	\item[(ii)] The map 
+	\bean
+	\pi : A \hookto \widetilde A,\\
+	a \mapsto \varphi\left( 1_{C\left(\sY\right)}\otimes a\right).
+	\eean
+	is an injective *-homomorphism.
+	\item [(iii)] The action $G\left(\left.\widetilde \sY \right|\sY \right)\times\left(C\left(\widetilde \sY \right)\otimes_{C\left(\sY\right)} A \right) \to C\left(\widetilde \sY \right)\otimes_{C\left(\sY\right)} A$ yields an inclusion $G\left(\left.\widetilde \sY \right|\sY \right)\subset\Aut\left( \widetilde A\right)$ such that a quadruple $\left(A, \widetilde A, G\left(\left.\widetilde \sY \right|\sY \right), \pi  \right)$ is a finite-fold noncommutative covering with unitization (cf. Definition \ref{fin_unitization_defn}).
+	\item[(iv)] There is a natural disintegrable Hausdorff blowing-up $C\left(\widetilde \sY\right)\hookto M\left(\widetilde A\right)$ (cf. Definitions \ref{blowing_defn} and \ref{blowing_disintegrable_defn})
+\end{enumerate}	
+\end{theorem}
+\begin{proof}
+	Since Hausdorff blowing-up $C\left( \sY\right)\hookto M\left(A \right) $ is disintegrable one can select two families $\left\{\sU_\a\subset \sX\right\}_{\a \in \mathscr A}$ and  $\left\{\sV_\a\subset \sX\right\}_{\a \in \mathscr A}$ of connected open sets such that for any $\a\in\mathscr A$ following conditions hold: 
+	\begin{itemize}
+		\item The closure of $\sU_\a$ is a subset of $\sV_\a$.
+		\item $\sV_\a$ is evenly covered by $q$ (cf. Definition \ref{top_covering_defn}).
+		\item The closure of $\sU_\a$ is compact.	
+		\item $\sY = \cup_{\a \in \mathscr A} \sU_\a$ and $A$ and the union $\cup A^{\mathrm{prop}}_{\sU_\a}$ of $\sU_\a$-proper $C^*$-algebras generates the $C^*$-algebra $A$.
+	\end{itemize}
+	The set $\sY$ is compact, taking into account equation \eqref{blowing_proprer_inc_eqn} one can suppose that the set $\mathscr A$ is finite.  For any $\a \in \mathscr A$ we select a connected set  $\widetilde \sU_\a\subset \widetilde \sX$ which is homeomorphically mapped onto $\sU_\a$. Denote by $\widetilde{f}_\a \bydef \lift^q_{\widetilde \sV_a}\left(f_\a \right)$ where  $\lift^q_{\widetilde \sV_a}$ is the  $q$-$\widetilde{\sV}_\a$-{lift} (cf. Definition \ref{top_lift_desc_defn}). If  $A'\subset A$  is an algebraically generated by the union $\cup A^{\mathrm{prop}}_{\sU_\a}$ *-subalgebra then $A'$ is the linear span of products
+	\be\label{blowing_a1n_eqn}
+	a_1 \cdot ... \cdot a_n 
+	\ee
+	where for any $j =1,..., n$ there is $\a_j\in \mathscr A$ such that $a_j \in A^{\mathrm{prop}}_{\sU_{\a_j}}$. 
+	From $a^*_j \in A^{\mathrm{prop}}_{\sU_{\a_j}}$ it follows that $\left( a_1 \cdot ... \cdot a_n\right)^*= a^*_n \cdot ... \cdot a^*_1$, i. e. $A'$ is a *-algebra. One has
+	\be\label{blowing_a1nf_eqn}
+	a_1 \cdot ... \cdot a_n  = \left(f_{\a_1} a_1 f_{\a_1} \right)\cdot ...\cdot \left(f_{\a_n} a_n f_{\a_n} \right)  
+	\ee
+	The right $A'$ module $C\left(\widetilde \sY\right)A'$ is a $C^*$-linear span of
+	\be\label{blowing_ca1n_eqn}
+	\widetilde c \left( a_1 \cdot ... \cdot a_n \right) 
+	\ee
+	where $\widetilde c\in C \left(\widetilde \sY\right)$. If $a_1 \in  A^{\mathrm{prop}}_{\sU_{\a_1}}$ and $\widetilde c = g_1  \widetilde f_{\a_1}$ where  $g_1\in G\left(\left.\widetilde \sY\right|  \sY \right)$ then
+	$$
+	g_1 \widetilde f_{\a_1} a_1 \in C\left(\widetilde \sY\right)A'
+	$$
+	Moreover from $a_1= f_{\a_1} a_1 = f_{\a_1} a_1 f_{\a_1}$ and $f_{\a_1} = \sum_{	g \in G\left(\left.\widetilde \sY\right|  \sY \right)} g \widetilde f_{\a_1}$ it follows that
+	$$
+	g_1 \widetilde f_{\a_1} a_1= g_1 \widetilde f_{\a_1} a_1 \sum_{	g \in G\left(\left.\widetilde \sY\right|  \sY \right)} g \widetilde f_{\a_1}.
+	$$
+	On the other hand there is an isomorphism $ g_1 \widetilde f_{\a_1} \widetilde \H\cong f_{\a_1}\H$. From the Definition \ref{blowing_dir_supp_defn} it follows that $a_1\left( f_{\a_1}\H\right) \subset f_{\a_1}\H$ and $a_1\left( \H\ominus \left( f_{\a_1}\H\right) \right) = \{0\}$. Using the isomorphism $ g_1 \widetilde f_{\a_1} \widetilde \H\cong f_{\a_1}\H$ one has
+	\bean
+	g_1 \widetilde f_{\a_1} a_1 \left( g_1 \widetilde f_{\a_1}\widetilde \H\right) \subset g_1 \widetilde f_{\a_1}\widetilde \H,\\
+	g_1 \widetilde f_{\a_1} a_1 \left(\widetilde \H\ominus g_1 \widetilde f_{\a_1}\widetilde \H\right) =\{0\}
+	\eean
+	From the above equation it follows that
+	$$
+	g_1 \widetilde f_{\a_1} a_1=g_1 \widetilde f_{\a_1} a_1 g_1 \widetilde f_{\a_1} 
+	$$
+	If $a_1a_2\neq 0$ then there is $\a_2\in \mathscr A$ such that $a_2 \in  A^{\mathrm{prop}}_{\sU_{\a_2}}$ and $\sU_{\a_1}\cap \sU_{\a_2}\neq \emptyset$. There is a unique $g_2 \in G\left(\left.\widetilde \sY\right|  \sY \right)$ such that $g_1 \widetilde\sU_{\a_1} \cap g_2 \widetilde\sU_{\a_2}\neq \emptyset$. It follows that 
+	\bean
+	g_1 \widetilde f_{\a_1} a_1 g_1 \widetilde f_{\a_1}  a_2 = g_1 \widetilde f_{\a_1} a_1 g_1 \widetilde f_{\a_1} g_2 \widetilde f_{\a_2} a_2,\\
+	g_1 \widetilde f_{\a_1} a_1 g_1 \widetilde f_{\a_1}  a_2 = g_1 \widetilde f_{\a_1} a_1 g_1 \widetilde f_{\a_1} g_2 \widetilde f_{\a_2} a_2 g_2 \widetilde f_{\a_2}
+	\eean 
+	Using induction  one can prove that $C\left(\widetilde \sY\right)A'$ is the linear span of following products
+	$$
+	\left(g_1 \widetilde f_{\a_1} a_1  g_1 \widetilde f_{\a_1} \right)\cdot ...\cdot \left(g_n \widetilde f_{\a_n} a_n g_n \widetilde f_{\a_n} \right) 
+	$$
+	where $g_1, ..., g_n \in G\left(\left.\widetilde \sY\right|  \sY \right)$. On the set $C\left(\widetilde \sY\right)A'$ one can define an associative product $\bullet : C\left(\widetilde \sY\right)A'\times C\left(\widetilde \sY\right)A' \to C\left(\widetilde \sY\right)A'$ such that
+	\bean
+	\left( \left(g'_1 \widetilde f_{\a'_1} a'_1  g'_1 \widetilde f_{\a'_1} \right)\cdot ...\cdot \left(g'_n \widetilde f_{\a'_n} a'_n g'_n \widetilde f_{\a'_n} \right)\right)\bullet \left( \left(g''_1 \widetilde f_{\a''_1} a''_1  g''_1 \widetilde f_{\a''_1} \right)\cdot ...\cdot \left(g''_n \widetilde f_{\a''_n} a''_n g''_n \widetilde f_{\a''_n} \right)\right)=\\
+	\left(g'_1 \widetilde f_{\a'_1} a'_1  g'_1 \widetilde f_{\a'_1} \right)\cdot ...\cdot \left(g'_n \widetilde f_{\a'_n} a'_n g'_n \widetilde f_{\a'_n} \right)\cdot  \left(g''_1 \widetilde f_{\a''_1} a''_1  g''_1 \widetilde f_{\a''_1} \right)\cdot ...\cdot \left(g''_n \widetilde f_{\a''_n} a''_n g''_n \widetilde f_{\a''_n} \right)\in C\left(\widetilde \sY\right)A', 
+	\eean
+	i.e.  $C\left(\widetilde \sY\right)A'$ is an associative algebra. Henceforth we write $ab$ instead of $a\bullet b$. There is an involution on $C\left(\widetilde \sY\right)A'$ given by
+	$$
+	\left( \left(g_1 \widetilde f_{\a_1} a_1  g_1 \widetilde f_{\a_1} \right)\cdot ...\cdot \left(g_n \widetilde f_{\a_n} a_n g_n \widetilde f_{\a_n} \right)\right)^* \bydef   \left(g_n \widetilde f_{\a_n} a^*_n  g_n \widetilde f_{\a_n} \right)\cdot ...\cdot \left(g_1  f_{\a_1} a^*_1 g_1 \widetilde f_{\a_1} \right) 
+	$$
+	It is clear that  $C\left(\widetilde \sY\right)A'$ became a *-algebra $X_A$ is a completion of $C\left(\widetilde \sY\right)A'$ with respect to the norm $\left\|\cdot\right\|_H$ of Hilbert $C^*$-module. If $\left\|\cdot\right|_C$ is the norm which comes from the $C^*$-norm of $B\left( \widetilde\H\right)$ then similarly   to \eqref{hilb_c_norm_eqn} one has
+	\bean
+	\begin{split}
+		\left\| \widetilde{a}\right\|_C \le \left\| \widetilde{a}\right\|_H,\\
+		\left\| \widetilde{a}\right\|_H \le \sqrt{\left|G\left(\left.\widetilde \sY\right|  \sY \right)\right|} 	\left\| \widetilde{a}\right\|_C,
+	\end{split}
+	\eean
+	It follows that $X_A$ is a completion of $C\left(\widetilde \sY\right)A'$ with respect to $C^*$-norm. Since $X_A$ is a $C^*$-completion of *-algebra,  $X_A$ is a $C^*$-algebra and $X_A= \widetilde A$.
+	!!! DISINTEGRABLE PROOF
+\end{proof}
+
+
 \begin{empt}\label{blowing_ty_empt}
 Let $A$ be a connected  $C^*$-algebra (cf. Definition \ref{connected_c_a_defn}), and let $C_0\left( \sY\right)\hookto M\left( A\right) $ be a Hausdorff blowing up (cf. Definition \ref{blowing_defn}). If   $\left(A, \widetilde{A}, G, \pi \right)$ is  a noncommutative finite-fold  quasi-covering (cf. Definition \ref{fin_quasi_defn}) then from the Lemma \ref{ind_mult_inv_lem} it follows that there is an injective *-homomorphism $M\left(A\right)\hookto M\left(\widetilde A\right)$. If both $\sX$ and $\widetilde\sX$ are spectra of $M\left(\widetilde A\right)$ and $M\left(\widetilde A\right)$ then from \eqref{rep_x_mor_inj_eqn} it follows that there is the natural inclusion
 \be\label{blowing_rep_inc_eqn}
@@ -11891,162 +12052,18 @@ $$
 for any finite subset $\La_0\subset \La$. 
 From the  Theorem \ref{fin_gen_thm} it follows that	$\widetilde B$ is not a finitely generated $B$-module. However from the Definition \ref{fin_unital_defn} it turns out that  $\widetilde B$ is  a finitely generated $B$-module. From this contradiction one concludes that $C\left(\widetilde\sY\right)$ is not  a left finitely generated $C\left(\sY\right)$-module.
 \end{proof}
-\begin{lemma}\label{blowing_hilbert_module_lem}
-	Let $A$ be a connected  $C^*$-algebra (cf. Definition \ref{connected_c_a_defn}), and let $C\left( \sY\right)\hookto M\left(A \right) $ be a Hausdorff blowing up (cf. Definition \ref{blowing_defn}) with compact $\sY$.  If $q: \widetilde\sY \to \sY$ is a finite-fold transitive covering then 
-$ C\left(\widetilde \sY \right)\otimes_{C\left(\sY\right)} A
-$
-has a natural structure of a $C^*$-Hilbert $A$-module.
-\end{lemma}
-\begin{proof}
-From the Theorem \ref{pavlov_troisky_thm} it follows that $C\left(\widetilde \sY \right)$ is a finitely generated $C^*$-Hilbert  $C\left( \sY\right)$-module. so  $C\left(\widetilde \sY \right)\otimes_{C\left(\sY\right)} A$ means an algebraic tensor product. 
-There is a sesquilinear $A$-valued product on $C\left(\widetilde \sY \right)\otimes_{C\left(\sY\right)} A$ given by 
-$$
-\forall \widetilde f \otimes a,~\widetilde h \otimes b\in C\left(\widetilde \sY \right)\otimes_{C\left(\sY\right)} A \quad \left\langle \widetilde f \otimes a,~ \widetilde h \otimes b\right\rangle_A\bydef a^* \left\langle \widetilde f, \widetilde h \right\rangle_{C\left(\sY\right)} b.
-$$
-Alternatively above product can be defined by the following way
-\be\label{blowing_h_eqn}
-\left\langle \widetilde f \otimes a,~ \widetilde h \otimes b\right\rangle_A\bydef a^*\left(  \sum_{	g \in \left(\left.\widetilde \sY \right|\sY \right) }g\left( \widetilde f^* \widetilde h\right) \right) b
-\ee
-The action  $G\left(\left.\widetilde \sY \right|\sY \right)\times\widetilde \sY\to \widetilde \sY$ naturally induces an action $G\left(\left.\widetilde \sY \right|\sY \right)\times C\left(\widetilde \sY \right)\otimes_{C\left(\sY\right)} A\to C\left(\widetilde \sY \right)\otimes_{C\left(\sY\right)} A$ such that $A = \left( C\left(\widetilde \sY \right)\otimes_{C\left(\sY\right)} A\right)^{G\left(\left.\widetilde \sY \right|\sY \right)}$.
-Let $\left\{\widetilde e_{ \widetilde\a}\right\}_{\widetilde \a \in \widetilde{\mathscr A}}\subset C\left(\widetilde \sY\right)$ be a finite subset which satisfies to \eqref{top_ea_eqn}, i.e.
-		\bean
-\begin{split}
-	1_{C\left(\widetilde{\mathcal Y} \right) }= \sum_{\widetilde\a \in \widetilde{\mathscr A} }\widetilde{e}^2_{\widetilde{\a}},\\
-	\widetilde{e}_{\widetilde{\a}}	\left(g \widetilde{e}_{\widetilde{\a}} \right) = 0 \quad \text{for any nontrivial}\quad g\in G\left(\left.\widetilde \sY \right|\sY \right).
-\end{split}
-\eean
-Any element of $\widetilde a\in C\left(\widetilde \sY \right)\otimes_{C\left(\sY\right)} A$ can be uniquely represented by a following way
-\be\label{blowing_ea_eqn}
-\begin{split}
-\widetilde a = \sum_{\widetilde\a \in \widetilde{\mathscr A}} 	\widetilde{e}_{\widetilde{\a}}\otimes a_{\widetilde\a},\\
-a_{\widetilde\a} = \sum_{g \in G\left(\left.\widetilde \sY \right|\sY \right)}	g\left( \widetilde{e}_{\widetilde{\a}}\otimes \widetilde a\right) \in A.
-\end{split}
-\ee
-There is a $C^*$-Hilbert module norm on $C\left(\widetilde \sY \right)\otimes_{C\left(\sY\right)} A$ such that $\left\|\widetilde a \right\|_{C\left(\widetilde \sY \right)\otimes_{C\left(\sY\right)} A}\bydef \sqrt{\left\|\left\langle \widetilde a, \widetilde a \right\rangle_{A}\right\| }$. Let $\left\{\widetilde a_\la\right\}_{\la\in \La}\subset C\left(\widetilde \sY \right)\otimes_{C\left(\sY\right)} A$ be a net and suppose that
-$$
-\widetilde a_\la = \sum_{\widetilde\a \in \widetilde{\mathscr A}}\widetilde{e}_{\widetilde{\a}}a^\la_{\widetilde\a}
-$$
-where $a^\la_{\widetilde\a}$ is given by \eqref{blowing_ea_eqn}.
-If a net $\left\{a^\la_{\widetilde\a}\right\}\subset A$ is not convergent and the net $\left\{\sum_{g \in G\left(\left.\widetilde \sY \right|\sY \right)}	g\left( \widetilde{e}_{\widetilde{\a}} \widetilde a= \left\langle \widetilde{e}_{\widetilde{\a}},   \widetilde a_\la \right\rangle_A \right)\right\}_{\la\in\La} \in A$ is not convergent. It follows that the net $\left\{\widetilde a_\la\right\}$ is not convergent with respect to a norm $\left\|\cdot \right\|_{C\left(\widetilde \sY \right)\otimes_{C\left(\sY\right)} A}$. So if $\left\{\widetilde a_\la\right\}$ is convergent then for all $\widetilde\a \in \widetilde{\mathscr A}$ the net $\left\{a^\la_{\widetilde\a}\right\}$ is convergent. It follows that
-$$
-\lim_{\la\in\La }\widetilde a_\la= \sum_{\widetilde\a \in \widetilde{\mathscr A}}\widetilde{e}_{\widetilde{\a}}\lim_\la a^\la_{\widetilde\a}\in C\left(\widetilde \sY \right)\otimes_{C\left(\sY\right)} A,
-$$
-i.e. $C\left(\widetilde \sY \right)\otimes_{C\left(\sY\right)} A$ is complete with respect to the $C^*$-Hilbert module norm
- $\left\|\cdot \right\|_{C\left(\widetilde \sY \right)\otimes_{C\left(\sY\right)} A}$. It follows that $C\left(\widetilde \sY \right)\otimes_{C\left(\sY\right)}A$ 
-is  a $C^*$-Hilbert $A$-module
-\end{proof}
-\begin{empt}
-	Denote by 
-	\be
-\widetilde	X_A \bydef C\left(\widetilde \sY \right)\otimes_{C\left(\sY\right)} A
-	\ee
-	the given by the Lemma \ref{blowing_hilbert_module_lem} $C^*$-Hilbert $A$-module. Let $\rho: A \hookto B\left(\H\right)$ be an atomic representation (cf. Definition \ref{atomic_repr_defn}) then similarly to \eqref{hilb_prod_eqn} one can define a $\C$-valued product on $\widetilde \H \bydef \widetilde	X_A \otimes_A \H$ such that
-	\be
-	\left(\widetilde a \otimes \xi, \widetilde b \otimes \eta  \right)_{\widetilde \H}\bydef \left( \xi, \left\langle \widetilde  a,~ \widetilde  b\right\rangle_A \eta  \right)_\H.
-	\ee
-	Since $ C\left(\widetilde \sY \right)$ is a finitely generated module $\widetilde \H$ is a  Hilbert space. The action
-	\bean
-	C\left( \widetilde \sY\right) \times C\left(\widetilde \sY \right)\otimes_{C\left(\sY\right)} \H \to C\left(\widetilde \sY \right)\otimes_{C\left(\sY\right)} \H,\\
-	\left(\widetilde  a, \widetilde  b\otimes \xi \right) \mapsto \widetilde  a, \widetilde  b\otimes \xi
-	\eean 
-	yields a faithful representation $\rho_{\widetilde\sY} : 	C\left( \widetilde \sY\right)\hookto B\left(\widetilde\H\right)$. 
-The action
-\bean
-A \times C\left(\widetilde \sY \right)\otimes_{C\left(\sY\right)} \H\to C\left(\widetilde \sY \right)\otimes_{C\left(\sY\right)} \H,\\
-\left(  a, \widetilde  b \otimes \xi\right) \mapsto  \widetilde  b\otimes a \xi
-\eean
-yields a representation $\rho_A: A \hookto B\left(\widetilde \H \right)$
-One can define $\C$-linear injective map
-\be
-\begin{split}
-	\varphi : C\left(\widetilde \sY \right)\otimes_{C\left(\sY\right)} A \hookto B\left(\widetilde \H \right),\\
-\widetilde a = \sum_{\widetilde\a \in \widetilde{\mathscr A}} 	\widetilde{e}_{\widetilde{\a}}\otimes a_{\widetilde\a}\quad \Rightarrow\quad \varphi \left(\widetilde a \right)\bydef 
-\sum_{\widetilde\a \in \widetilde{\mathscr A}}\rho_\sY\left(\widetilde{e}_{\widetilde{\a}} \right) \rho_A\left(a_{\widetilde\a} \right) 
-\end{split}
-\ee
-(cf. equation \ref{blowing_ea_eqn}) 
- 	
 
-\end{empt}
-
-\begin{lemma}
-Consider the above situation. If the Hausdorff blowing-up $C\left( \sY\right)\hookto M\left(A \right) $ is  a disintegrable  Hausdorff blowing up (cf. Definition \ref{blowing_disintegrable_defn}) then if $\widetilde A$ is a generated by $\varphi \left( C\left(\widetilde \sY \right)\otimes_{C\left(\sY\right)} A \right)$ subalgebra of  $B\left(\widetilde \H \right)$ then $\widetilde A = \varphi \left( C\left(\widetilde \sY \right)\otimes_{C\left(\sY\right)} A \right)$.
-\end{lemma}
-\begin{proof}
-Since Hausdorff blowing-up $C\left( \sY\right)\hookto M\left(A \right) $ is disintegrable one can select two families $\left\{\sU_\a\subset \sX\right\}_{\a \in \mathscr A}$ and  $\left\{\sV_\a\subset \sX\right\}_{\a \in \mathscr A}$ of connected open sets such that for any $\a\in\mathscr A$ following conditions hold: 
-\begin{itemize}
-	\item The closure of $\sU_\a$ is a subset of $\sV_\a$.
-	\item $\sV_\a$ is evenly covered by $q$ (cf. Definition \ref{top_covering_defn}).
-	\item The closure of $\sU_\a$ is compact.	
-	\item $\sY = \cup_{\a \in \mathscr A} \sU_\a$ and $A$ and the union $\cup A^{\mathrm{prop}}_{\sU_\a}$ of $\sU_\a$-proper $C^*$-algebras generates the $C^*$-algebra $A$.
-\end{itemize}
-The set $\sY$ is compact, taking into account equation \eqref{blowing_proprer_inc_eqn} one can suppose that the set $\mathscr A$ is finite.  For any $\a \in \mathscr A$ we select a connected set  $\widetilde \sU_\a\subset \widetilde \sX$ which is homeomorphically mapped onto $\sU_\a$. Denote by $\widetilde{f}_\a \bydef \lift^q_{\widetilde \sV_a}\left(f_\a \right)$ where  $\lift^q_{\widetilde \sV_a}$ is the  $q$-$\widetilde{\sV}_\a$-{lift} (cf. Definition \ref{top_lift_desc_defn}). If  $A'\subset A$  is an algebraically generated by the union $\cup A^{\mathrm{prop}}_{\sU_\a}$ *-subalgebra then $A'$ is the linear span of products
-\be\label{blowing_a1n_eqn}
-a_1 \cdot ... \cdot a_n 
-\ee
-where for any $j =1,..., n$ there is $\a_j\in \mathscr A$ such that $a_j \in A^{\mathrm{prop}}_{\sU_{\a_j}}$. 
-From $a^*_j \in A^{\mathrm{prop}}_{\sU_{\a_j}}$ it follows that $\left( a_1 \cdot ... \cdot a_n\right)^*= a^*_n \cdot ... \cdot a^*_1$, i. e. $A'$ is a *-algebra. One has
-\be\label{blowing_a1nf_eqn}
-a_1 \cdot ... \cdot a_n  = \left(f_{\a_1} a_1 f_{\a_1} \right)\cdot ...\cdot \left(f_{\a_n} a_n f_{\a_n} \right)  
-\ee
-The right $A'$ module $C\left(\widetilde \sY\right)A'$ is a $C^*$-linear span of
-\be\label{blowing_ca1n_eqn}
-\widetilde c \left( a_1 \cdot ... \cdot a_n \right) 
-\ee
-where $\widetilde c\in C \left(\widetilde \sY\right)$. If $a_1 \in  A^{\mathrm{prop}}_{\sU_{\a_1}}$ and $\widetilde c = g_1  \widetilde f_{\a_1}$ where  $g_1\in G\left(\left.\widetilde \sY\right|  \sY \right)$ then
-$$
-g_1 \widetilde f_{\a_1} a_1 \in C\left(\widetilde \sY\right)A'
-$$
-Moreover from $a_1= f_{\a_1} a_1 = f_{\a_1} a_1 f_{\a_1}$ and $f_{\a_1} = \sum_{	g \in G\left(\left.\widetilde \sY\right|  \sY \right)} g \widetilde f_{\a_1}$ it follows that
-$$
-g_1 \widetilde f_{\a_1} a_1= g_1 \widetilde f_{\a_1} a_1 \sum_{	g \in G\left(\left.\widetilde \sY\right|  \sY \right)} g \widetilde f_{\a_1}.
-$$
-On the other hand there is an isomorphism $ g_1 \widetilde f_{\a_1} \widetilde \H\cong f_{\a_1}\H$. From the Definition \ref{blowing_dir_supp_defn} it follows that $a_1\left( f_{\a_1}\H\right) \subset f_{\a_1}\H$ and $a_1\left( \H\ominus \left( f_{\a_1}\H\right) \right) = \{0\}$. Using the isomorphism $ g_1 \widetilde f_{\a_1} \widetilde \H\cong f_{\a_1}\H$ one has
-\bean
-g_1 \widetilde f_{\a_1} a_1 \left( g_1 \widetilde f_{\a_1}\widetilde \H\right) \subset g_1 \widetilde f_{\a_1}\widetilde \H,\\
-g_1 \widetilde f_{\a_1} a_1 \left(\widetilde \H\ominus g_1 \widetilde f_{\a_1}\widetilde \H\right) =\{0\}
-\eean
-From the above equation it follows that
- $$
-g_1 \widetilde f_{\a_1} a_1=g_1 \widetilde f_{\a_1} a_1 g_1 \widetilde f_{\a_1} 
- $$
- If $a_1a_2\neq 0$ then there is $\a_2\in \mathscr A$ such that $a_2 \in  A^{\mathrm{prop}}_{\sU_{\a_2}}$ and $\sU_{\a_1}\cap \sU_{\a_2}\neq \emptyset$. There is a unique $g_2 \in G\left(\left.\widetilde \sY\right|  \sY \right)$ such that $g_1 \widetilde\sU_{\a_1} \cap g_2 \widetilde\sU_{\a_2}\neq \emptyset$. It follows that 
-\bean
-g_1 \widetilde f_{\a_1} a_1 g_1 \widetilde f_{\a_1}  a_2 = g_1 \widetilde f_{\a_1} a_1 g_1 \widetilde f_{\a_1} g_2 \widetilde f_{\a_2} a_2,\\
-g_1 \widetilde f_{\a_1} a_1 g_1 \widetilde f_{\a_1}  a_2 = g_1 \widetilde f_{\a_1} a_1 g_1 \widetilde f_{\a_1} g_2 \widetilde f_{\a_2} a_2 g_2 \widetilde f_{\a_2}
-\eean 
-Using induction  one can prove that $C\left(\widetilde \sY\right)A'$ is the linear span of following products
-$$
-\left(g_1 \widetilde f_{\a_1} a_1  g_1 \widetilde f_{\a_1} \right)\cdot ...\cdot \left(g_n \widetilde f_{\a_n} a_n g_n \widetilde f_{\a_n} \right) 
-$$
-where $g_1, ..., g_n \in G\left(\left.\widetilde \sY\right|  \sY \right)$. On the set $C\left(\widetilde \sY\right)A'$ one can define an associative product $\bullet : C\left(\widetilde \sY\right)A'\times C\left(\widetilde \sY\right)A' \to C\left(\widetilde \sY\right)A'$ such that
-\bean
-\left( \left(g'_1 \widetilde f_{\a'_1} a'_1  g'_1 \widetilde f_{\a'_1} \right)\cdot ...\cdot \left(g'_n \widetilde f_{\a'_n} a'_n g'_n \widetilde f_{\a'_n} \right)\right)\bullet \left( \left(g''_1 \widetilde f_{\a''_1} a''_1  g''_1 \widetilde f_{\a''_1} \right)\cdot ...\cdot \left(g''_n \widetilde f_{\a''_n} a''_n g''_n \widetilde f_{\a''_n} \right)\right)=\\
-\left(g'_1 \widetilde f_{\a'_1} a'_1  g'_1 \widetilde f_{\a'_1} \right)\cdot ...\cdot \left(g'_n \widetilde f_{\a'_n} a'_n g'_n \widetilde f_{\a'_n} \right)\cdot  \left(g''_1 \widetilde f_{\a''_1} a''_1  g''_1 \widetilde f_{\a''_1} \right)\cdot ...\cdot \left(g''_n \widetilde f_{\a''_n} a''_n g''_n \widetilde f_{\a''_n} \right)\in C\left(\widetilde \sY\right)A', 
-\eean
-i.e.  $C\left(\widetilde \sY\right)A'$ is an associative algebra. Henceforth we write $ab$ instead of $a\bullet b$. There is an involution on $C\left(\widetilde \sY\right)A'$ given by
-$$
-\left( \left(g_1 \widetilde f_{\a_1} a_1  g_1 \widetilde f_{\a_1} \right)\cdot ...\cdot \left(g_n \widetilde f_{\a_n} a_n g_n \widetilde f_{\a_n} \right)\right)^* \bydef   \left(g_n \widetilde f_{\a_n} a^*_n  g_n \widetilde f_{\a_n} \right)\cdot ...\cdot \left(g_1  f_{\a_1} a^*_1 g_1 \widetilde f_{\a_1} \right) 
-$$
-It is clear that  $C\left(\widetilde \sY\right)A'$ became a *-algebra $X_A$ is a completion of $C\left(\widetilde \sY\right)A'$ with respect to the norm $\left\|\cdot\right|_\H$ of Hilbert $C^*$-module. If $\left\|\cdot\right|_C$ is the norm which comes from the $C^*$-norm of $B\left( \widetilde\H\right)$ then similarly   to \eqref{hilb_c_norm_eqn} one has
-	\bean
-\begin{split}
-	\left\| \widetilde{a}\right\|_C \le \left\| \widetilde{a}\right\|_H,\\
-	\left\| \widetilde{a}\right\|_H \le \sqrt{\left|G\left(\left.\widetilde \sY\right|  \sY \right)\right|} 	\left\| \widetilde{a}\right\|_C,
-\end{split}
-\eean
-It follows that $X_A$ is a completion of $C\left(\widetilde \sY\right)A'$ with respect to $C^*$-norm. Since $X_A$ is a $C^*$-completion of *-algebra,  $X_A$ is a $C^*$-algebra and $X_A= \widetilde A$.
-\end{proof}
-
-
-\begin{theorem}\label{blowing_y_cov_lem}
-	Let $A$ be a connected  $C^*$-algebra (cf. Definition \ref{connected_c_a_defn}), and let $C\left( \sY\right)\hookto M\left(A \right) $ be a disintegrable  Hausdorff blowing up (cf. Definitions \ref{blowing_disintegrable_defn} and\ref{blowing_defn}) with compact $\sY$.  Let $q: \widetilde\sY \to \sY$ be a finite-transitive covering. There is a noncommutative finite-fold covering with unitization   $\left(A, \widetilde{A}, G, \pi \right)$ (cf. Definition \ref{fin_unitization_defn}) such that there is a natural isomorphism 
+\begin{corollary}\label{blowing_y_cov_cor}  !!! DELETE
+	Let $A$ be a connected  $C^*$-algebra (cf. Definition \ref{connected_c_a_defn}), and let $C\left( \sY\right)\hookto M\left(A \right) $ be a disintegrable  Hausdorff blowing up (cf. Definitions \ref{blowing_disintegrable_defn} and \ref{blowing_defn}) with compact $\sY$.  Let $q: \widetilde\sY \to \sY$ be a finite-fold transitive covering. There is a noncommutative finite-fold covering with unitization   $\left(A, \widetilde{A}, G, \pi \right)$ (cf. Definition \ref{fin_unitization_defn}) such that there is a natural isomorphism 
 	\be\label{blowing_a_y_eqn}
 	\varphi: \widetilde{A} \cong C\left(\widetilde \sY \right)\otimes_{C\left(\sY\right)} A
 	\ee
 of $C\left(\widetilde \sY \right)$-$A$-bimodules such that $\varphi$ naturally yields a disintegrable  Hausdorff blowing up $C\left(\widetilde \sY\right)\hookto M\left( \widetilde A\right)$.
-\end{theorem}
+\end{corollary}
 \begin{proof}
+	From the Lemma \ref{blowing_ca_lem} it follows that there is a $C^*$-algebra $\widetilde A$ and the given by \eqref{blowing_a_y_eqn} natural isomorphism $	\varphi: \widetilde{A} \cong C\left(\widetilde \sY \right)\otimes_{C\left(\sY\right)} A$ of $C\left(\widetilde \sY \right)$-$A$-bimodules. If both $B$ and $\widetilde B$ are generated by unions $A \cup C\left( \sY\right)$ and   
+\end{proof}	
+	
 From the Theorem \ref{pavlov_troisky_thm} it follows that $C\left(\widetilde \sY \right)$ is finitely generated $C\left( \sY\right)$-module so  $C\left(\widetilde \sY \right)\otimes_{C\left(\sY\right)} A$ means an algebraic tensor product.  One can define a right action 
 \bean
 \left( C\left(\widetilde \sY \right)\otimes_{C\left(\sY\right)} A\right) \times  C\left(\widetilde \sY \right)\to C\left(\widetilde \sY \right)\otimes_{C\left(\sY\right)} A,\\
@@ -12064,7 +12081,7 @@ $\quad C \bydef \max_{j = 1,..., m} \left\|\widetilde c_j \right\|$ and $\delta 
 $\left\| \widetilde c_1 a_1+...+ \widetilde c_m a_m- \widetilde c_1 a'_1+...+ \widetilde c_m a'_m\right\| < \eps$ where the $C^*$-norm of $M\left( \widetilde A\right)$ is implied. If follows that $C\left(\widetilde \sY/H\right)A$ is the $C^*$-norm completion of *-algebra  $C\left(\widetilde \sY/H\right)A'$, so $C\left(\widetilde \sY/H\right)A$ is a $C^*$-subalgebra of $M\left( \widetilde A\right)$
 Let both $B$ and $\widetilde B$ are generated by the unions $C\left( \sY\right)\cup A$ and $C\left(\widetilde \sY/H\right)A\cup C\left(\widetilde \sY/H\right)$ subalgebras of $M\left(A\right)$ and $M\left(\widetilde A\right)^H = M\left(A^H\right)$. We leave to the reader that $\left(B, \widetilde{B}, G/H \right)$ is  an unital noncommutative finite-fold  covering (cf. Definition \ref{fin_unital_defn}). Using this fact one can prove that an inclusion $A \hookto C\left(\widetilde\sY/H\right)A$ is a  noncommutative finite-fold covering with unitization (cf. Definition \ref{fin_pre_defn}).
 
-\end{proof}
+
 
 \begin{lemma}\label{blowing_cov_y_lem}
 	Let $A$ be a connected  $C^*$-algebra (cf. Definition \ref{connected_c_a_defn}), and let $C\left( \sY\right)\hookto M\left(A \right) $ be a Hausdorff blowing up (cf. Definition \ref{blowing_defn}  CHECK !!!) with compact $\sY$.  Suppose that   $\left(A, \widetilde{A}, G, \pi \right)$ is  a noncommutative finite-fold  pre-covering (cf. Definition \ref{fin_pre_defn}).  If $C\left(\widetilde\sY\right)$ is given by \eqref{blowing_cy_eqn} and $\widetilde{A}= C\left(\widetilde\sY\right){A	}$ then one has
