@@ -5290,7 +5290,24 @@ B^s_\la: B\left( \H^{2^s}_\la\right)\hookto B\left(\widetilde\H^{2^s} \right),\\
 	\ee
 	(cf. Definition \ref{c_c_def_1}).
 \end{empt}
-
+\begin{lemma}\label{top_div_lem}
+	If $f', f'' \in C_0\left(\sX \right)_+$ are such that \\$\left\{\left.x \in \sX\right| f'\left( x\right)> 0  \right\} \subset \left\{\left.x \in \sX\right| f''\left( x\right)> 0  \right\}$ then there is a net $\left\{f_n\right\}_{n\in\N}\subset C_0\left(\sX \right)$ such that
+\bean
+\forall n\in\N \quad \supp f_n \subset \supp f',\\
+\lim_{n\to\infty} \frac{f_n}{f''}= f',
+\eean
+where the uniform limit is implied.
+\end{lemma}
+\begin{proof}
+Let $\left\{\eps_n \in \R_+\right\}_{n\in \N}$ be a net of positive real numbers such that $\lim_{n\to\infty}\eps_n = 0$. If $f_{\eps_n}$ is given by \eqref{f_eps_eqn} then
+from $\left\{\left.x \in \sX\right| f'\left( x\right)> 0  \right\} \subset \left\{\left.x \in \sX\right| f''\left( x\right)> 0  \right\}$ it follows that $\supp f_{\eps_n}\left(f' \right) \subset \left\{\left.x \in \sX\right| f''\left( x\right)> 0  \right\}$. From the Lemma \ref{top_multiple_lem} it follows that for all $n \in \N$ there is $f_n \in C_0\left(\sX \right)$ such that  $f_nf_{\eps_n}\left(f' \right) = f''$.  On the other hand
+$$
+\left\|\frac{f_n}{f''}- f' \right\|= \left\|f_{\eps_n}\left(f' \right)- f' \right\|\le \eps_n. 
+$$
+\end{proof}
+\begin{remark}\label{top_div_rem}
+Any $f'\in  C_0\left(\sX \right)$ can be represented as  $f' = f'_1 - f'_2 + i f'_3 + i f'_4$ where $f'_1,...,f_4 \in C_0\left(\sX \right)_+$. If follows that the Lemma \ref{top_div_lem} is true for all $f'\in C_0\left(\sX \right)$.
+\end{remark}
 
 
 \section{Partitions of unity and compact subsets}
@@ -5417,6 +5434,9 @@ From the above construction it follows that for any compact subset $\sY\subset\s
 	\forall\bt, \ga \in \mathscr A\quad \bt \le \ga \quad \Leftrightarrow\quad f^{-1}_\bt\left(1 \right)\subset f^{-1}_\ga\left(1 \right)
 	\ee 
 \end{empt}
+\begin{lemma}
+	!!! COFINAL
+\end{lemma}
 \begin{lemma}\label{comm_direct_lem}
 If $\left\{f_\a\right\}_{\a\in \mathscr A}\subset C_c\left(\sX \right)$ is the described in \ref{comm_direct_empt} ordered by \eqref{top_ord01_eqn} set then the following condition hold:
 \begin{enumerate}
@@ -7228,7 +7248,13 @@ the series
 	Otherwise the representation $\pi_a$ can be uniquely extended up to $\pi_a: A_b\left( \widetilde\sX\right) \to B\left(\H_{a}\right)$. 
 	From \eqref{top_cb_defn_eqn} it turns out there is the injective *-homomorphism $\lift_p:A_0\left(\sX \right) \hookto A_b\left(\widetilde\sX \right)$  so  $A_0\left(\sX \right)$ can be regarded as a subalgebra of $A_b\left(\widetilde\sX \right)$.
 \end{empt}
-
+\begin{definition}\label{top_lift_a_f_defn}
+	In the above situation denote by
+	\be\label{top_a0_F_x_eqn}
+	\widetilde A_0\left(\widetilde\sX  \right)\bydef \widetilde A.
+	\ee
+	We say that  $A_0\left(\widetilde\sY  \right)$ is the $q$-\textit{lift} of $A$. 
+\end{definition}
 
 \begin{lemma}\label{comm_lift_desc_sum_strong_lem}
 	Consider the situation \ref{comm_lift_desc_sum_strong_empt}. Suppose that  $\mathcal U\subset \mathcal X$  is a connected open subset evenly {covered} by $\widetilde{\mathcal U}\subset \widetilde{\mathcal X}$. Let $\widetilde a \in A_0\left(\widetilde\sX \right)$ be  an  element such that 
@@ -11626,10 +11652,18 @@ then one has
 \begin{split}
 	\sU'\cap \sU'' =\emptyset\quad \Rightarrow\quad A_{\sU'}~_{\sU''}A= \{0\},\\
 	_\sU A = A^*_\sU,\\
-	_\sU A_\sU \bydef		_\sU A\cap  A_\sU\text{ is a hereditary subalgebra of } A\\ (\text{cf. Definition \ref{hered_defn} and the Lemma \ref{hered_lem}})
+	_\sU A_\sU \bydef		_\sU A\cap  A_\sU\text{ is a hereditary subalgebra of } A\\ (\text{cf. Definition \ref{hered_defn} and the Lemma \ref{hered_lem}}).
 \end{split}
 \ee
 \end{empt}
+\begin{exercise}\label{blowing_completion_exer}
+Let $f \in C_0\left( \sX\right)_+$ and let $\sU \bydef \left\{\left.x \in \sX\right| f\left(x\right)> 0\right\}$. Using the Lemma \ref{top_div_lem} and the Remark \ref{top_div_rem} prove that
+\begin{itemize}
+	\item $C^*$-norm completion of $fA$ {equals to} $_\sU A$,
+	\item $C^*$-norm completion of $Af$ {equals to} $A_\sU$,
+	\item $C^*$-norm completion of $fAf$ {equals to} $_\sU A_\sU$.
+\end{itemize}
+\end{exercise}
 \begin{empt}\label{blowing_prop_empt}
 	Let  $C_0\left( \sY\right)\hookto M\left( A\right) $ be a Hausdorff blowing-up of $A$  (cf. Definition \ref{blowing_defn}), and let $\sU \subset \sX$ be a connected open set. Let $\sX$ be a spectrum of $A$ for any $x\in\sX$ there is an irreducible representation $\rep_x: A \to B\left(\H_x \right)$.	
 	The $C^*$-algebra 
@@ -12023,14 +12057,75 @@ is dense in $_\sU A_\sU$
 Prove that 	$_\sU A^{\text{fin}}_\sU$ is a *-subalgebra of $_\sU A_\sU$.
 \end{exercise}
 
-\begin{exercise}
+\begin{exercise}\label{blowing_cahm_exer}
 	Consider the situation of the Exercise \ref{blowing_v_cov_exer}, and suppose that the closure $\sV$ of $\sU$ is compact. Let $q: \widetilde \sY \to \sY$ is a transitive finite-fold covering. Prove following statements:
 	\begin{enumerate}
 		\item There is a natural inclusion $C\left(\sV\right)\hookto M\left(_\sU A_\sU \right)$.
 		\item If $\widetilde\sV \bydef q^{-1}\left( \sV\right) $ then an algebraic tensor product $C\left( \widetilde\sV\right)\otimes_{C\left(\sV\right)}~_\sU A_\sU$ is a $C^*$-Hilbert $_\sU A_\sU$-module. 
 		\item There is a natural isometric inclusion  $C\left( \widetilde\sV\right)\otimes_{C\left(\sV\right)}~_\sU A_\sU \hookto C\left( \widetilde\sY\right)\otimes_{C\left(\sY\right)}A$ where the tensor product  $C_0\left( \widetilde\sY\right)\otimes_{C_0\left(\sY\right)}A$ is explained in  \ref{blowing_hilb_mod_empt}.
-		\item Similarly to the Lemma \ref{blowing_ca_lem} the algebraic tensor product  $C\left( \widetilde\sV\right)\otimes_{C\left(\sV\right)}~_\sU A_\sU$ has a natural structure of $C^*$-algebra.
+		\item Similarly to the Lemma \ref{blowing_ca_lem} the algebraic tensor product  $C\left( \widetilde\sV\right)\otimes_{C\left(\sV\right)}~_\sU A_\sU$ has a natural structure of $C^*$-algebra, such that its $C^*$-norm is equivalent to the norm of  $C^*$-Hilbert $_\sU A_\sU$-module $C\left( \widetilde\sV\right)\otimes_{C\left(\sV\right)}~_\sU A_\sU$.
 	\end{enumerate} 
+
+
+\end{exercise}
+ \begin{empt}
+		If  $\left\{u_\la\right\}_{\la\in\La}\subset C_0\left(\sY \right)$ is a described in the Exercise \ref{top_conn_fam_exer} net then 
+		at 
+		$$
+		\bt\text{-}\lim_{\la\in \La}u_\la = 1_{C_b\left(\sX\right)}
+		$$
+		where $\bt\text{-}\lim_{\la\in \La}$ is the limit with respect to the strict topology (cf. Definition \ref{strict_topology_defn}) of $C_b\left(\sY \right)$. From \ref{blowing_strict_empt} it turns out that 
+	\be\label{blowing_un_eqn}
+		\bt\text{-}\lim_{\la\in \La}u_\la = 1_{M\left(A \right) }
+\ee
+		where $\bt\text{-}\lim_{\la\in \La}$ is the limit with respect to the strict topology (cf. Definition \ref{strict_topology_defn}) of $M\left(A\right)$. If $\sU_\la \bydef \left\{y \in \sY | u_\la\left(y\right)> 0\right\}$ then the $C^*$-norm completion of $u_\la A u_\la$ equals to $_{\sU_\la}  A_{\sU_\la}$	(cf. Exercise \ref{blowing_completion_exer}). If $\sV_\la$ is a closure of $\sU_\la$ and $\widetilde \sV_\la\bydef q^{-1}\left( \sV_\la\right)$ then from the Exercise \ref{blowing_cahm_exer} it follows that $C\left( \widetilde\sV_\la\right)\otimes_{C\left(\sV_\la\right)}~_{\sU_\la}A ~_{\sU_\la}$ is a $C^*$-algebra such that for all $\mu, \nu\in\La$ one has
+	\bean
+		\mu \ge \nu \quad \Rightarrow \\ \Rightarrow\quad \text{there are injective *-homomorphisms} \quad _{\sU_\nu} A_{\sU_\nu}\hookto ~_{\sU_\mu}A_{\sU_\mu},\\ 
+	C\left( 	\widetilde\sV_\nu\right)\otimes_{C\left(\sV_\nu\right)}~_{\sU_\nu}A ~_{\sU_\nu}\hookto C\left( \widetilde\sV_\mu\right)\otimes_{C\left(\sV_\mu\right)}~_{\sU_\mu}A ~_{\sU_\mu}.
+	\eean
+	Using injective *-homomorphisms $_{\sU_\la}A ~_{\sU_\la}\hookto C\left( \widetilde\sV_\la\right)\otimes_{C\left(\sV_\la\right)}~_{\sU_\la}A ~_{\sU_\la}$ one can construct an injective *-homomorphism
+\be\label{blowing_cup_eqn}
+\bigcup_{\la\in\La}~_{\sU_\la}A ~_{\sU_\la}\hookto	\bigcup_{\la\in\La}~_{\sU_\la}C\left( \widetilde\sV_\la\right)\otimes_{C\left(\sV_\la\right)}~_{\sU_\la}A ~_{\sU_\la}.
+\ee	
+	From $\cup_{\la\in\La}{\sU_\la}=\sY$ it follows that the $C^*$-norm closure of the union $\cup_{\la\in\La}~_{\sU_\la}A ~_{\sU_\la}$ equals to $A$. If $\widetilde A$ is $C^*$-norm closure of the union then the *-homomorphism yields an injective *-homomorphism
+\be\label{blowing_pi_a_eqn}
+	\pi : A \hookto \widetilde A
+\ee
+of $C^*$-algebras. If $C_0\left( \widetilde \sY\right) \odot A$ is  an algebraic tensor product then there is the natural inclusion
+$$
+\bigcup_{\la\in\La}C\left( \widetilde\sV_\la\right)\otimes_{C\left(\sV_\la\right)}~_{\sU_\la}A ~_{\sU_\la} \subset C_0\left( \widetilde \sY\right) \odot A.
+$$
+If $\eps > 0$ and $\widetilde f \otimes a \in C_0\left( \widetilde \sY\right) \odot A$ then there is a compact set $\widetilde \sV \in \widetilde \sY$ such that 
+$$
+\forall \widetilde y \in  \widetilde \sY\setminus  \widetilde \sV \quad \left|  \widetilde f\left( \widetilde y\right)\right| < \frac{\eps}{\left\| a\right\| }
+$$
+If  $\widetilde f' \in C_c\left(\widetilde\sY\right)$ is  a covering sum for $\widetilde \sV$ (cf. Definition \ref{top_covering_sum_defn}) then $\supp \widetilde f'$ is compact. Since  $\supp \widetilde f'\subset \cup_\la \widetilde \sU_\la \bydef q^{-1}\left(\sU_\la\right)$ there is $\la_0\in \La$ such that $\supp  \widetilde f'\subset  \widetilde \sU_{\la_0}$. It follows that $\widetilde f'\widetilde f \in C\left( \widetilde\sV_{\la_0}\right)\otimes_{C\left(\sV_{\la_0}\right)}~_{\sU_{\la_0}}A ~_{\sU_{\la_0}}$. On the other hand 
+$$
+\left\|\widetilde f'\widetilde f \otimes  a-\widetilde f \otimes  a \right\| < \eps,
+$$
+so the union $\bigcup_{\la\in\La}C\left( \widetilde\sV_\la\right)\otimes_{C\left(\sV_\la\right)}~_{\sU_\la}A ~_{\sU_\la}$ is dense in $C_0\left( \widetilde \sY\right) \odot A$. Otherwise $C_0\left( \widetilde \sY\right) \odot A$ is dense subset of the explained in \ref{blowing_hilb_mod_empt} tensor product $C_0\left( \widetilde \sY\right) \otimes A$. It follows that
+$$
+\widetilde{A}= C_0\left( \widetilde \sY\right) \otimes A
+$$
+as $C_0\left( \widetilde \sY\right)$-$A$ bimodule.
+	\end{empt}
+\begin{definition}\label{blowing_lift_a_f_defn}
+	In the above situation denote by
+	\be\label{blowing_a0_F_x_eqn}
+	\widetilde A_0\left(\widetilde\sY  \right)\bydef \widetilde A.
+	\ee
+	The natural inclusion of $A$ into $ M\left( A_0\left(\widetilde\sY  \right)\right) $ will be denoted by
+	\be\label{blowing_ab_p_F_eqn}
+	A_0\left(q\right): A \hookto A_0\left(\widetilde\sY  \right).
+	\ee
+	The action \eqref{blowing_gpt_eqn} induces an action 
+	\be\label{blowing_gact__F_eqn}
+	G\left(\left.\widetilde{\sY}~\right| \sY\right)\times A_0\left(\widetilde\sY  \right)\to A_0\left(\widetilde\sY  \right).
+	\ee
+	We say that  $A_0\left(\widetilde\sY  \right)$ is the $q$-\textit{lift} of $A$. 
+\end{definition}
+\begin{exercise}
+	Prove that the Definition \ref{blowing_lift_a_f_defn} complies with the Definition \ref{top_lift_a_f_defn} (cf. Exercise \ref{blowing_ctr_exer}).
 \end{exercise}
 !!! CONTINUE
 \begin{exercise}
