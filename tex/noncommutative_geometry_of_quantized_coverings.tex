@@ -11786,8 +11786,8 @@ Let $\sU\subset \sY$ be an open set which is a disjoint union  $\sU = \bigsqcup 
 \begin{definition}\label{blowing_supp_defn}
 In the above situation suppose that $a\in A$. If
 \bean
-\sV \bydef\bigcap 
-\left\{\left.{\sU} \subset \sX\right| a\in A^{\mathrm{prop}}_{\sU} \text{ AND } A^{\mathrm{prop}}_{\sU_\a}\text{ is the proper } \sU_\a \text{-algebra}\right\}
+\sU \bydef\bigcap 
+\left\{\left.{\sU} \subset \sX\right| a\in A^{\mathrm{prop}}_{\sU} \text{ AND } A^{\mathrm{prop}}_{\sU}\text{ is the proper } \sU \text{-algebra}\right\}
 \eean
 then the closure  of $\sU$ is said to be the \textit{support} of $a$.
 \end{definition}
@@ -11816,6 +11816,27 @@ If $\chi$ is a characteristic map of $\supp a'$ and $A \to B\left(\H\right)$ is 
 \eea
 If $p^\perp \bydef 1_{B\left(\H\right)}- p^\parallel$ then $p^\perp$ is also a projector. If $\supp f_{\eps}\left( a\right)\not\subset\supp a'$ then there is $\xi \in p^\perp\H$ such that $f_\eps\left(a\right)\xi \neq 0$. From the equation \eqref{blowing_ge_eqn} it follows that
 if $\left\|\xi \right\|= 1$ then $\left\|a\xi \right\|\ge \eps$. From $a'\xi = 0$ it follows that $\left\|a- a' \right\|\ge \eps$, it contradicts with our construction. So the assumption $\supp f_{\eps}\left( a\right)\not\subset\supp a'$ is not true, it turns out that $\supp f_{\eps}\left( a\right)\subset\supp a'$. It turns out that the set $\supp f_{\eps}\left( a\right)$ is compact, because it is  a closed subset of compact set $\supp a'$. 
+\end{proof}
+\begin{corollary}\label{blowing_supp_cor}
+	Let $A$ be $C^*$-algebra, and let $C_0\left( \sY\right) \subset M\left(A \right)$  be a disintegrable Hausdorff blowing-up (cf. Definitions \ref{blowing_defn}, \ref{blowing_disintegrable_defn}). If $\left\{\sU_\a\right\}_{\a\in \mathscr A}$  is a family of compact sets such that $\sY = \cup \sU_\a$ then a union $\cup A^{\mathrm{prop}}_{\sU_\a}$ is dense in $A$.
+\end{corollary}
+\begin{proof}
+This lemma will be proved is for any $\eps > 0$ and $a \in A$ there is $\a\in \mathscr A$ and $a' \in A^{\mathrm{prop}}_{\sU_\a}$ such that
+\be\label{blowing_aap_eqn}
+\left\| a' - a\right\|< \eps. 
+\ee
+Following proof contains two parts:
+\begin{enumerate}
+	\item [(i)] $a$ is positive, i.e. $a \in A_+$.
+	\item [(ii)] $a$ is any element of $A$, i.e. $a \in A$.
+\end{enumerate}
+(i) If $f_\eps$ is given by \eqref{f_eps_eqn} then one has
+\begin{itemize}
+	\item $\left\| f_\eps\left(a\right) - a\right\|< \eps$.
+	\item $\supp f_\eps\left(a\right)$ is compact.
+\end{itemize}
+Form $\sY = \cup \sU_\a$ it follows that there is $\a\in \mathscr A$ such that $\supp f_\eps\left(a\right)\subset \sU_\a$. So $\supp f_\eps\left(a\right) \in A^{\mathrm{prop}}_{\sU_\a}$, i.e. $a$ satisfies to \eqref{blowing_aap_eqn}.\\
+(ii) Any $a \in A$ can be represented by following way $ a = b + i c - i d -  e$ where $b,c, d,e\in A_+$. From this representation and (i) it follows that any $a\in A$ satisfies to  \eqref{blowing_aap_eqn}.
 \end{proof}
 \begin{exercise}\label{blowing_ped_exer}
 Prove that if $a\in A$ lies in the  Pedersen's ideal of $A$ (cf. Definition \ref{peder_id_defn}) then $\supp a$ is compact.
@@ -12070,7 +12091,7 @@ It turns out that the given by 	\eqref{blowing_scalar_prod} map $
 	It follows that $X_A$ is a completion of $C\left(\widetilde \sY\right)A_{\mathrm{fin}}$ with respect to $C^*$-norm. Since $X_A$ is a $C^*$-completion of *-algebra,  $X_A$ is a $C^*$-algebra and $X_A= \widetilde A$.
 \end{proof}
 
-\begin{lemma}
+\begin{lemma}\label{blowing_fd_lem}
 	If we consider the situation of the Lemma \ref{blowing_ca_lem} then the representation $\widetilde \pi_A : \widetilde A \hookto B\left(\widetilde\H\right)$ is faithful and nondegenerate (cf. Definition \ref{faithful_repr_defn} and \ref{nondegenerate_repr_defn})
 \end{lemma}
 \begin{proof}
@@ -12161,7 +12182,7 @@ However $\rep_{ p\left(  \widetilde{x }\right) }\left( A_{\text{fin}}\right)$ is
 \end{proof}
 
 
-\begin{lemma}
+\begin{lemma}\label{blowing_pre_lem}
 In the above situation one has
 $$
 G\bydef \left\{\left.g \in \Aut\left(\widetilde A\right)\right. \forall a \in A\quad g a = a\right\}= G\left(\left.\widetilde \sY \right|\sY \right).
@@ -12190,7 +12211,7 @@ $$
 	Let $A$ be a connected  $C^*$-algebra (cf. Definition \ref{connected_c_a_defn}), and let $C_0\left( \sY\right)\hookto M\left(A \right) $ be a   Hausdorff blowing up (cf. Definition \ref{blowing_defn}. If $\widetilde \sY \to \sY$ is a finite-fold covering then from the Theorem \ref{top_fin_thm} and the Lemma \ref{fin_top_lem} it follows that $C_0\left( \widetilde \sY \right)$ is a $C^*$-Hilbert $C\left(\sY\right)$ module. If  
 	$C_0\left( \widetilde \sY\right) \odot A$ is an algebraic tensor product then one can define an $A$-valued  sesquilinear pairing on $C_0\left( \widetilde \sY\right) \odot A$ such that $\left\langle \widetilde f_1 \otimes a_1,  \widetilde f_2 \otimes a_2\right\rangle_A \bydef a^*_1 \left\langle \widetilde f_1 ,  \widetilde f_2 \right\rangle_{C_0\left(\sY\right)} a_2\in A$. Henceforth we denote by $C_0\left( \widetilde \sY\right) \otimes A$ the $C^*$-Hilbert $A$-module which is the completion of $C_0\left( \widetilde \sY\right) \odot A$ with respect to the norm
 	\be\label{blowing_hilb_mod_eqn}
-	\left\| \widetilde a \right\| \bydef \sqrt{\left\langle \widetilde a ,  \widetilde a \right\rangle_A}
+	\left\| \widetilde a \right\| \bydef \sqrt{\left\| \left\langle \widetilde a ,  \widetilde a \right\rangle_A\right\|} 
 	\ee
 	If both $\sY$ and $\widetilde \sY$ are compact then $C_0\left( \widetilde \sY\right) \otimes_{C_0\left(\sY \right) } A= C_0\left( \widetilde \sY\right) \odot A$.
 	\end{empt}
@@ -12230,14 +12251,45 @@ There is a natural inclusion
 \end{itemize}
 \end{exercise}
 \begin{exercise}
-Consider the above situation and suppose that  the Hausdorff blowing-up $C\left( \sY\right)\hookto M\left(A \right) $ is   disintegrable (cf. Definition \ref{blowing_disintegrable_defn}). Suppose that$\widetilde A$ is $C^*$-subalgebra of  $B\left(\widetilde \H \right)$    generated by $\pi_{\widetilde A} \left( C\left(\widetilde \sY \right)\otimes_{C\left(\sY\right)} A \right)$   Prove following statements:
+Consider the above situation and suppose that  the Hausdorff blowing-up $C\left( \sY\right)\hookto M\left(A \right) $ is   disintegrable (cf. Definition \ref{blowing_disintegrable_defn}). Suppose that $ \widetilde A$ is $C^*$-subalgebra of  $B\left(\widetilde \H \right)$    generated by $\pi_{\widetilde A} \left( C\left(\widetilde \sY \right)\otimes_{C\left(\sY\right)} A \right)$.   Prove following statements:
 \begin{itemize}
 \item $\widetilde A = \pi_{\widetilde A} \left( C\left(\widetilde \sY \right)\otimes_{C\left(\sY\right)} A \right)$ (cf. Lemma \ref{blowing_ca_lem}).
-\item There is the natural inclusion $C\left(\widetilde \sY\right)\hookto M\left( \widetilde A\right)$ (cf. Corollary \ref{blowing_cym_inc_cor})
+\item The the inclusion $\widetilde \pi_A:\widetilde A\hookto B\left(\widetilde \H \right)$ is a faithful nondegenerate representation   (cf. Definitions \ref{faithful_repr_defn}, and \ref{nondegenerate_repr_defn}) such that the $C^*$-norm on $A$   induced by  an inclusion $\widetilde A\hookto B\left(\widetilde \H \right)$ is equivalent the $C^*$-Hilbert module norm \eqref{blowing_hilb_mod_eqn} (cf. Lemma \ref{blowing_fd_lem}).
+\item There is the natural inclusion $C\left(\widetilde \sY\right)\hookto M\left( \widetilde A\right)$ (cf. Corollary \ref{blowing_cym_inc_cor}).
+\item If we consider the natural action  $G\left(\left.\widetilde \sY \right|\sY \right)\times \left(C\left(\widetilde \sY \right)\otimes_{C\left(\sY\right)} A \right) \to C\left(\widetilde \sY \right)\otimes_{C\left(\sY\right)} A$ is such that then any $g \in G\left(\left.\widetilde \sY \right|\sY \right)$ yields a *-automorphism of $\widetilde A$. Moreover one has
+\be
+\widetilde A^{G\left(\left.\widetilde \sY \right|\sY \right)}= A.
+\ee
+(cf. Remark \ref{blowing_g_act_rem}), i.e. an injective *-homomorphism  $A \hookto \widetilde A$ is a finite-fold noncommutative quasi-covering (cf. Definition \ref{fin_quasi_defn}).
+\item  	If $\widetilde{    \sX }$ the spectrum of $\widetilde A$ then the given by the Proposition \ref{spectrum_cov_prop} action $G\left(\left.\widetilde \sY \right|\sY \right)\times\widetilde \sX\to \widetilde \sX$ is free (cf. Lemma \ref{blowing_free_lem}).
+\item  If $\sX$ is a spectrum of $A$ and $p:\widetilde\sX \to \sX$ is given by the Proposition \ref{spectrum_cov_prop} then for all $\widetilde x \in \widetilde{    \sX }$ the given by 
+\eqref{rep_x_mor_inj_eqn} injective *-homomorphism $\pi_{\widetilde{x}}	:\rep^{A}_{p\left( \widetilde{x}\right) }\left(A \right)\hookto \rep^{\widetilde A}_{ \widetilde{x} }\left(\widetilde A \right)$ is a *-isomorphism (cf. Lemma \ref{blowing_rep_lem}).
+\item One has
+
+\be\label{blowing_pre_eqn}
+G\bydef \left\{\left.g \in \Aut\left(\widetilde A\right)\right. \forall a \in A\quad g a = a\right\}= G\left(\left.\widetilde \sY \right|\sY \right)
+\ee(cf. Lemma \ref{blowing_pre_lem}).
 \end{itemize}
-
-
 \end{exercise}
+
+
+	\begin{definition}\label{blowing_lift_a_f0_comp_defn}
+		In the above situation denote by
+		\be\label{blowing_a0_F_x0_comp_eqn}
+		\widetilde A\left(\widetilde\sY  \right)\bydef \widetilde A.
+		\ee
+		The induced by representations 	\ref{blowing_pi_n_a} and \ref{blowing_scalar_n_prod}
+		natural inclusion of $A\hookto A_0\left(\widetilde\sY  \right)$ will be denoted by
+		\be\label{blowing_ab_p_F_comp0_eqn}
+		A\left(q\right): A \hookto A_0\left(\widetilde\sY  \right).
+		\ee
+		We say that  $A_0\left(\widetilde\sY  \right)$ is the $q$-\textit{lift} of $A$. 
+	\end{definition}
+	\begin{exercise}
+		Prove that the Definition \ref{blowing_lift_a_f0_comp_defn} complies with the Definition \ref{top_lift_a_f_defn} (cf. Exercise \ref{blowing_ctr_exer}).
+	\end{exercise}
+	
+!!! CONTINUE	
 
 
 \begin{exercise}
@@ -12250,11 +12302,11 @@ is dense in $_\sU A_\sU$.
 \end{exercise}
 
 
-
+!!! CONTINUE 
 
 \begin{exercise}\label{blowing_sv_eqn}
 	Consider the situation \ref{blowing_cv_empt}.  	Let $\sU \subset \sY$ be an open subset with compact closure $\sV$. 
-If $A \hookto B\left(\H \right)$ is a faithful nondegenerate representation (cf. Definitions \ref{faithful_repr_defn} and \ref{nondegenerate_repr_defn}), and a Hilbert space $_\sU\H$ is given by 		The Exercise \ref{blowing_cv_exer} yields a faithful nondegenerate representation 		The Exercise \ref{blowing_cv_exer} yields a faithful nondegenerate representation  $_\sU A_\sU \hookto B\left(~_\sU \sH\right)$
+If $A \hookto B\left(\H \right)$ is a faithful nondegenerate representation (cf. Definitions \ref{faithful_repr_defn} and \ref{nondegenerate_repr_defn}), and a Hilbert space $_\sU\H$ is given by 		The Exercise \ref{blowing_cv_exer} yields a faithful nondegenerate representation 		The Exercise \ref{blowing_cv_exer} yields a faithful nondegenerate representation  $_\sU A_\sU \hookto B\left(~_\sU \sH\right)$.
 	Let $q : \widetilde \sV \to \sV$ be a finite-fold transitive covering. Prove following statements: 
 	\begin{enumerate}
 		\item An algebraic tensor product $C_0\left( \widetilde \sV\right)\otimes_{C\left(\sV \right) }~_{\sU} A_\sU$  	has a natural structure of a $C^*$-Hilbert $~_{\sU} A_\sU$-module (cf. Lemma \ref{blowing_hilbert_module_lem})
