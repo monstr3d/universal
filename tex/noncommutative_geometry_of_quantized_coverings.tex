@@ -9659,7 +9659,7 @@ The equation \eqref{top_fg_ord_eqn} is a specialization of \eqref{fg_ord_eqn}.
 \be\label{top_inf_pp_eqn}
 C_0\left( p_\mu\right)= \pi \circ C_0\left( p_\mu\right).
 \ee
- From the condition  (a) of the Definition \ref{comp_defn} and the condition (a) of the Definition \ref{compliant_covering_defn} !!! CHECK it turns out that the homomorphism $\pi$ is a noncommutative  finite fold covering, so taking into account Theorem \ref{top_fin_thm}  one has the topological finite-fold covering $p: \mathcal{X}_\mu\to \mathcal{X}_\nu$ such that $\pi = C_0\left(p\right)$. From \eqref{top_inf_pp_eqn} it follows that $p_\mu = p \circ p_\nu$.
+ From the condition  (a) of the Definition \ref{comp_defn} and the condition (a) of the Definition \ref{compliant_defn} !!! CHECK it turns out that the homomorphism $\pi$ is a noncommutative  finite fold covering, so taking into account Theorem \ref{top_fin_thm}  one has the topological finite-fold covering $p: \mathcal{X}_\mu\to \mathcal{X}_\nu$ such that $\pi = C_0\left(p\right)$. From \eqref{top_inf_pp_eqn} it follows that $p_\mu = p \circ p_\nu$.
 \end{proof}
 \begin{empt}
 	Denote by $G_\la = G\left(\mathcal X_\la~|~\mathcal X \right)$ groups of covering transformations and $\widehat{G} = \varprojlim G_\la$. Denote by $\overline{p}:\overline{  \mathcal X} \to \mathcal X$, $\overline{p}_\la:\overline{  \mathcal X} \to \mathcal X_\la$, $p_\la:  \mathcal X_\la \to \mathcal X$, $p^\mu_\la:  \mathcal X_\mu \to \mathcal X_\la$ ($\mu > \la$) the natural covering projections.
@@ -11818,7 +11818,7 @@ If $p^\perp \bydef 1_{B\left(\H\right)}- p^\parallel$ then $p^\perp$ is also a p
 if $\left\|\xi \right\|= 1$ then $\left\|a\xi \right\|\ge \eps$. From $a'\xi = 0$ it follows that $\left\|a- a' \right\|\ge \eps$, it contradicts with our construction. So the assumption $\supp f_{\eps}\left( a\right)\not\subset\supp a'$ is not true, it turns out that $\supp f_{\eps}\left( a\right)\subset\supp a'$. It turns out that the set $\supp f_{\eps}\left( a\right)$ is compact, because it is  a closed subset of compact set $\supp a'$. 
 \end{proof}
 \begin{corollary}\label{blowing_supp_cor}
-	Let $A$ be $C^*$-algebra, and let $C_0\left( \sY\right) \subset M\left(A \right)$  be a disintegrable Hausdorff blowing-up (cf. Definitions \ref{blowing_defn}, \ref{blowing_disintegrable_defn}). If $\left\{\sU_\a\right\}_{\a\in \mathscr A}$  is a family of compact sets such that $\sY = \cup \sU_\a$ then a union $\cup A^{\mathrm{prop}}_{\sU_\a}$ is dense in $A$.
+	Let $A$ be $C^*$-algebra, and let $C_0\left( \sY\right) \subset M\left(A \right)$  be a disintegrable Hausdorff blowing-up (cf. Definitions \ref{blowing_defn}, \ref{blowing_disintegrable_defn}). If $\left\{\sU_\a\right\}_{\a\in \mathscr A}$  is a family of open sets such that $\sY = \cup \sU_\a$ then a union $\cup A^{\mathrm{prop}}_{\sU_\a}$ is dense in $A$.
 \end{corollary}
 \begin{proof}
 This lemma will be proved is for any $\eps > 0$ and $a \in A$ there is $\a\in \mathscr A$ and $a' \in A^{\mathrm{prop}}_{\sU_\a}$ such that
@@ -12110,7 +12110,10 @@ $$
 \end{proof}
 
 \begin{corollary}\label{blowing_cym_inc_cor} 
-	In the situation of the Lemma \ref{blowing_ca_lem} there is the natural inclusion $C\left(\widetilde \sY\right)\hookto M\left( \widetilde A\right)$
+	In the situation of the Lemma \ref{blowing_ca_lem} there is the natural inclusion 
+	\be\label{blowing_cym_inc_eqn} 
+	C\left(\widetilde \sY\right)\hookto M\left( \widetilde A\right).
+	\ee
 \end{corollary}
 \begin{proof}
 	From the construction \ref{blowing_h_empt} it follows that the representation $\rho_{\widetilde \sY} : C\left(\widetilde\sY\right)\hookto B\left(\widetilde\H\right)$ is faithful. 
@@ -12196,7 +12199,7 @@ $$
 	\be\label{blowing_a0_F_x_comp_eqn}
 	\widetilde A\left(\widetilde\sY  \right)\bydef \widetilde A.
 	\ee
-	The natural inclusion of $A$ into $ M\left( A_0\left(\widetilde\sY  \right)\right) $ will be denoted by
+	The natural inclusion of $A\hookto A\left(\widetilde\sY  \right) $ will be denoted by
 	\be\label{blowing_ab_p_F_comp_eqn}
 	A\left(q\right): A \hookto A\left(\widetilde\sY  \right).
 	\ee
@@ -12215,7 +12218,7 @@ $$
 	\ee
 	If both $\sY$ and $\widetilde \sY$ are compact then $C_0\left( \widetilde \sY\right) \otimes_{C_0\left(\sY \right) } A= C_0\left( \widetilde \sY\right) \odot A$.
 	\end{empt}
-\begin{exercise}
+\begin{exercise}\label{blowing_th_exer}
 Let $A \hookto B\left( \H\right)$ be a faithful nondegenerate representation (cf. Definitions \ref{faithful_repr_defn}, and \ref{nondegenerate_repr_defn}). Let $\widetilde \H$ be a Hilbert norm   completion of an algebraic tensor product $C_0\left(\widetilde \sY\right)\otimes_{C_0\left(\sY \right) }\H$ having a pre-Hilbert product
 \bean
 \left(\cdot, \cdot \right)_{\widetilde\H}:\left(  C_0\left(\widetilde \sY\right)\otimes_{C_0\left(\sY \right) } A\right) \times \left( C_0\left(\widetilde \sY\right)\otimes_{C_0\left(\sY \right) } A\right) \to \C,\\
@@ -12250,7 +12253,7 @@ There is a natural inclusion
 	
 \end{itemize}
 \end{exercise}
-\begin{exercise}
+\begin{exercise}\label{blowing_gr_iso_exer}
 Consider the above situation and suppose that  the Hausdorff blowing-up $C\left( \sY\right)\hookto M\left(A \right) $ is   disintegrable (cf. Definition \ref{blowing_disintegrable_defn}). Suppose that $ \widetilde A$ is $C^*$-subalgebra of  $B\left(\widetilde \H \right)$    generated by $\pi_{\widetilde A} \left( C\left(\widetilde \sY \right)\otimes_{C\left(\sY\right)} A \right)$.   Prove following statements:
 \begin{itemize}
 \item $\widetilde A = \pi_{\widetilde A} \left( C\left(\widetilde \sY \right)\otimes_{C\left(\sY\right)} A \right)$ (cf. Lemma \ref{blowing_ca_lem}).
@@ -12276,7 +12279,7 @@ G\bydef \left\{\left.g \in \Aut\left(\widetilde A\right)\right. \forall a \in A\
 	\begin{definition}\label{blowing_lift_a_f0_comp_defn}
 		In the above situation denote by
 		\be\label{blowing_a0_F_x0_comp_eqn}
-		\widetilde A\left(\widetilde\sY  \right)\bydef \widetilde A.
+		\widetilde A_0\left(\widetilde\sY  \right)\bydef \widetilde A.
 		\ee
 		The induced by representations 	\ref{blowing_pi_n_a} and \ref{blowing_scalar_n_prod}
 		natural inclusion of $A\hookto A_0\left(\widetilde\sY  \right)$ will be denoted by
@@ -12288,54 +12291,101 @@ G\bydef \left\{\left.g \in \Aut\left(\widetilde A\right)\right. \forall a \in A\
 	\begin{exercise}
 		Prove that the Definition \ref{blowing_lift_a_f0_comp_defn} complies with the Definition \ref{top_lift_a_f_defn} (cf. Exercise \ref{blowing_ctr_exer}).
 	\end{exercise}
-	
-!!! CONTINUE	
+\begin{exercise}\label{blowing_v_mult_exer}
+Let $A$ be a $C^*$-algebra, and let $C_0\left(\sY\right)\hookto M\left(A\right)$ be a Hausdorff blowing-up (cf. Definition \ref{blowing_defn}).  Let $A \hookto B\left(\H \right)$ is a faithful nondegenerate representation (cf. Definitions \ref{faithful_repr_defn} and \ref{nondegenerate_repr_defn}).	 	Let $\sU \subset \sY$ be an open subset with compact closure $\sV$.
+If $_\sU A_\sU$ and $_\sU\H$ are given by \eqref{blowig_sue_eqn} and \eqref{blowing_uh_eqn} then the Exercise \ref{blowing_cv_exer} yields a faithful nondegenerate representation  \ref{blowing_cv_exer} yields a faithful nondegenerate representation  $_\sU A_\sU \hookto B\left(~_\sU \sH\right)$. Prove that there are inclusions:
+\be\label{blowing_cym_eqn}
+\begin{split}
+C_0\left(\sU \right) \hookto M\left(_\sU A_\sU\right),\\
+C\left(\sV \right) \hookto M\left(_\sU A_\sU\right).
+\end{split}
+\ee
+\end{exercise}	
 
 
-\begin{exercise}
-Let  $A$ be a connected  $C^*$-algebra (cf. Definition \ref{connected_c_a_defn}), and let $C_0\left( \sY\right)\hookto M\left(A \right) $ be a  disintegrable  Hausdorff blowing-up (cf. Definitions \ref{blowing_defn} and \ref{blowing_disintegrable_defn}). Suppose that there is a family $\left\{\sU_\a\subset \sX\right\}_{\a\in \mathscr A}$ of connected open sets such that $A$ generated by a union $\cup A^{\text{prop}}_{\sU_\a}$. Prove that if $\sU \subset \sX$ is an open subset
-then a linear span of products
+\begin{exercise}\label{blowing_u_disint_exer}
+Let  $A$ be a connected  $C^*$-algebra (cf. Definition \ref{connected_c_a_defn}), and let $C_0\left( \sY\right)\hookto M\left(A \right) $ be a  disintegrable  Hausdorff blowing-up (cf. Definitions \ref{blowing_defn} and \ref{blowing_disintegrable_defn}). Suppose that there is a family $\sU\subset\sX$ be connected open sets such that $A$ generated by a union $\cup A^{\text{prop}}_{\sU_\a}$. If $\sU \subset \sX$ is an open subset
+then denote by  $_\sU A^{\mathrm{fin}}_\sU$
+a linear span of products
 \be\label{blowing_u_prod_eqn}
 a_1\cdot ...\cdot a_n; \quad \forall j =1, ...,n\quad \exists \a_j \in \mathscr A\quad a_j \in A^{\text{prop}}_{\sU_{\a_j}};\quad a_1 \in ~_\sU A;\quad a_n \in A_\sU.
 \ee
-is dense in $_\sU A_\sU$.
+Prove that $_\sU A^{\mathrm{fin}}_\sU \subset~ _\sU A_\sU$ is dense in $_\sU A_\sU$.
 \end{exercise}
 
 
-!!! CONTINUE 
+
 
 \begin{exercise}\label{blowing_sv_eqn}
-	Consider the situation \ref{blowing_cv_empt}.  	Let $\sU \subset \sY$ be an open subset with compact closure $\sV$. 
-If $A \hookto B\left(\H \right)$ is a faithful nondegenerate representation (cf. Definitions \ref{faithful_repr_defn} and \ref{nondegenerate_repr_defn}), and a Hilbert space $_\sU\H$ is given by 		The Exercise \ref{blowing_cv_exer} yields a faithful nondegenerate representation 		The Exercise \ref{blowing_cv_exer} yields a faithful nondegenerate representation  $_\sU A_\sU \hookto B\left(~_\sU \sH\right)$.
+	Let  $A$ be a connected  $C^*$-algebra (cf. Definition \ref{connected_c_a_defn}), and let $C_0\left( \sY\right)\hookto M\left(A \right) $ be a  disintegrable  Hausdorff blowing-up (cf. Definitions \ref{blowing_defn} and \ref{blowing_disintegrable_defn}).
+	Let $\sU \subset \sY$ be an open subset with compact closure $\sV$. 
+If $A \hookto B\left(\H \right)$ is a faithful nondegenerate representation (cf. Definitions \ref{faithful_repr_defn} and \ref{nondegenerate_repr_defn}), and a Hilbert space $_\sU\H$ is given by \eqref{blowing_uh_eqn}	then 	the Exercise \ref{blowing_cv_exer} yields a faithful nondegenerate representation 	  $_\sU A_\sU \hookto B\left(~_\sU \sH\right)$. From  \ref{blowing_cv_empt} it follows that there is an inclusion $C\left(\sV\right)\hookto M\left(_\sU A_\sU\right)$.
 	Let $q : \widetilde \sV \to \sV$ be a finite-fold transitive covering. Prove following statements: 
 	\begin{enumerate}
-		\item An algebraic tensor product $C_0\left( \widetilde \sV\right)\otimes_{C\left(\sV \right) }~_{\sU} A_\sU$  	has a natural structure of a $C^*$-Hilbert $~_{\sU} A_\sU$-module (cf. Lemma \ref{blowing_hilbert_module_lem})
-		\item If $\widetilde \H_\sU\cong C_0\left( \widetilde \sV\right)\otimes_{C\left(\sV \right) } ~_\sU\H$ is a Hilbert space with product $\left(\widetilde f_1 \otimes \xi_1, \widetilde f_2 \otimes \xi_2 \right)_{\widetilde \H^\sV}  \bydef \left(\xi_1,\left\langle f_1, f_2\right\rangle_{C\left(\sV\right)} \xi_2  \right)$
-		then there is a natural inclusion $\varphi^\sV: C_0\left( \widetilde \sV\right)\otimes_{C\left(\sV \right) } ~_{\sU} A_\sU\hookto B\left( \widetilde \H_\sU\right)$ (cf. \ref{blowing_h_empt}). 
-		\item  If the Hausdorff blowing-up $C\left( \sY\right)\hookto M\left(A \right) $ is   disintegrable (cf. Definition \ref{blowing_disintegrable_defn}) and $\widetilde A^\sV$ is $C^*$-subalgebra of  $B\left(\widetilde \H^\sV \right)$    generated by $\varphi^\sV \left( C\left(\widetilde \sV \right)\otimes_{C\left(\sY\right)} A^\sV \right)$ then 	$\widetilde A^\sV = \varphi^\sV \left( C\left(\widetilde \sV \right)\otimes_{C\left(\sV\right)} A^\sV \right)$ (cf. Lemma \ref{blowing_ca_lem}).
-		\item The natural action  $G\left(\left.\widetilde \sV \right|\sV \right)\times \left(C_0\left( \widetilde \sV\right)\otimes_{C\left(\sV \right) }~_{\sU} A_\sU \right) \to C_0\left( \widetilde \sV\right)\otimes_{C\left(\sV \right) }~_{\sU} A_\sU$ yields an inclusion $G\left(\left.\widetilde \sV \right|\sV \right)\hookto\Aut\left(\widetilde A^\sV \right)$ into the group of *-automorphisms of $C^*$-algebra $ ~_{\sU}\widetilde A_\sU$ (cf. Remark \ref{blowing_g_act_rem}).
+		\item An algebraic tensor product $C_0\left( \widetilde \sV\right)\otimes_{C\left(\sV \right) }~_{\sU} A_\sU$  	has a natural structure of a $C^*$-Hilbert $~_{\sU} A_\sU$-module (cf. Lemma \ref{blowing_hilbert_module_lem}).
+		\item If $C_0\left(\widetilde \sY\right)\otimes A$ is given by \ref{blowing_hilb_mod_empt} then there is an isometric inclusion $C_0\left( \widetilde \sV\right)\otimes_{C\left(\sV \right) }~_{\sU} A_\sU\subset C_0\left( \widetilde \sY\right)\otimes_{C\left(\sY \right) }~A$ of $_{\sU} A_\sU$ modules.
+		\item If $_\sU\widetilde \H\cong C_0\left( \widetilde \sV\right)\otimes_{C\left(\sV \right) } ~_\sU\H$ is a Hilbert space with product $\left(\widetilde f_1 \otimes \xi_1, \widetilde f_2 \otimes \xi_2 \right)_{_\sU\widetilde \H}  \bydef \left(\xi_1,\left\langle f_1, f_2\right\rangle_{C\left(\sV\right)} \xi_2  \right)$
+		then there is a natural inclusion $\varphi_\sV: C_0\left( \widetilde \sV\right)\otimes_{C\left(\sV \right) } ~_{\sU} A_\sU\hookto B\left( _\sU\widetilde \H\right)$ (cf. \ref{blowing_h_empt}). 
+		\item If $\widetilde \H$ is a Hilbert spacer explained in the Exercise  \ref{blowing_th_exer}  then $ _\sU\widetilde \H = C\left(\widetilde \sV \right)\widetilde \H\subset \widetilde \H$.
+		\item  If  $_\sU\widetilde A_\sU$ is $C^*$-subalgebra of  $B\left(\widetilde \H_\sV \right)$    
+		generated by $\varphi_\sU \left( C\left(\widetilde \sV \right)\otimes_{C\left(\sY\right)}~ _\sU A_\sU \right)$ then
+		$_\sU\widetilde A_\sU = \varphi_\sU \left( C\left(\widetilde \sV \right)\otimes_{C\left(\sV\right)} ~_\sU A_\sU \right)$ (cf. Lemma \ref{blowing_ca_lem}).
+		\item If $\widetilde A$ is defined in the Lemma \ref{blowing_ca_lem} then there is the natural inclusion $_\sU\widetilde A_\sU\hookto \widetilde A$ of $C^*$-algebras.
+		\item The natural action  $G\left(\left.\widetilde \sV \right|\sV \right)\times \left(C_0\left( \widetilde \sV\right)\otimes_{C\left(\sV \right) }~_{\sU} A_\sU \right) \to C_0\left( \widetilde \sV\right)\otimes_{C\left(\sV \right) }~_{\sU} A_\sU$ yields an inclusion $G\left(\left.\widetilde \sV \right|\sV \right)\hookto\Aut\left(_\sU\widetilde A_\sU \right)$ into the group of *-automorphisms of $C^*$-algebra $ ~_{\sU}\widetilde A_\sU$ (cf. Remark \ref{blowing_g_act_rem}).
 		there is the natural inclusion $C\left(\widetilde \sV\right)\hookto M\left( \widetilde A^\sV\right)$ (cf. Corollary \ref{blowing_cym_inc_cor}).
+		\item If the set $\widetilde \sV \bydef q^{-1}\left( \sV\right)$ is connected then there is the natural isomorphism of groups
+		$$
+G \bydef \left\{\left. g \in \Aut\left(_\sU\widetilde A_\sU \right)\right| \forall a\in ~_\sU A_\sU\quad  ga = a \right\}	\cong G\left(\left.\widetilde \sV \right|\sV \right)\cong G\left(\left.\widetilde \sY \right|\sY \right).	
+		$$
 	\end{enumerate}
 	
 \end{exercise}
+\begin{lemma}
+	Let  $A$ be a connected  $C^*$-algebra (cf. Definition \ref{connected_c_a_defn}), and let $C_0\left( \sY\right)\hookto M\left(A \right) $ be a  disintegrable  Hausdorff blowing-up (cf. Definitions \ref{blowing_defn} and \ref{blowing_disintegrable_defn}). Let $\La$ be a directed set and $\left\{\sU_\la\right\}_{\la\in\La}$ be a family of open sets of $\sY$ such that
+\bean
+\cup\sU_\la = \sX,\\
+\forall \mu, \nu \in \La \quad \mu \le \nu \quad \Leftrightarrow \quad \sU_\mu \subseteq \sU_\mu.
+\eean
+Suppose that for all $\la\in\La$ following condition hold:
+\begin{itemize}
+	\item the set $\sU_\la$ is connected,
+	\item the preimage $\widetilde \sU_\la \bydef q^{-1}\left( \sU_\la\right)\in \widetilde{ {\sY}}$ is connected,
+	\item the closure $\sV_\la$ of $\sU_\la$ is compact;
+\end{itemize} 
+If $\widetilde A$ is defined in the Lemma \ref{blowing_ca_lem} $C^*$-algebra then the union $\cup _{\sU_\la} \widetilde A _{\sU_\la}$ is dense in $\widetilde A$.
+\end{lemma}
+\begin{proof}
+	From the lemma \ref{blowing_ca_lem} it follows that $\widetilde A \cong  \pi_{\widetilde A} \left( C_0\left(\widetilde \sY \right)\otimes_{C_0\left(\sY\right)} A \right)$  where $\pi_{\widetilde A}$ is isometric map. 	It follows that the algebraic  linear span of elements
+	$$
+	\pi_{\widetilde A}\left(\widetilde f \otimes a \right) 	
+	$$
+		is dense in $\widetilde A$. From the Corollary  \ref{blowing_supp_cor} it follows that a union $\cup A^{\mathrm{prop}}_{\sU_\la}$ is dense in $A$. From $A^{\mathrm{prop}}_{\sU_\la}\subset~_{\sU_\la} A_{\sU_\la}$ it follows that a union $\cup~ _{\sU_\la} A_{\sU_\la}$ is dense in $A$. So for all $\eps > 0$ there is $\mu \in \La$ and $b \in _{\sU_\mu} A_{\sU_\mu}$ such that 
+\bean
+	\left\| a - b\right\| < \frac{\eps }{2\left\| \widetilde f\right\| }. 
+\eean
+ If  $\widetilde f \in C_0\left(\widetilde \sY \right)_+$ is positive and $f_\eps$ is given by \eqref{f_eps_eqn} then
+ \bean
+ \left\| \widetilde f - f_{\eps/ 2  \left\| b\right\| }\left( \widetilde f\right)\right\|  < \frac{\eps }{2\left\| b\right\| }.
+ \eean
+ Since $\supp   f_{\eps/ 2  \left\| b\right\| }\left( \widetilde f\right)$ is compact there is $\nu \in  \La$ such that $ f_{\eps/ 2  \left\| b\right\| }\left( \widetilde f\right)\subset \sU_\nu$. The set $\La$ is directed so there is $\la_0\in \La$ such that $ \mu\le \la_0$ and $\nu\le\la_0$. It follows that
+ $$
+	\pi_{\widetilde A}\left(f_{\eps/ 2  \left\| b\right\| }\left( \widetilde f\right) \otimes b  \right)\in~_{\sU_{\la_0}} \widetilde A~_{\sU_{\la_0}}.
+ $$ 
+ On the other hang
+ \bean
+ \left\|\pi_{\widetilde A} \left( \widetilde f\otimes  a  \right) -	\pi_{\widetilde A}\left(f_{\eps/ 2  \left\| b\right\| }\left( \widetilde f\right) \otimes b  \right)\right\|< \left\|\pi_{\widetilde A} \left( \widetilde f\otimes  a  \right) -	\pi_{\widetilde A}\left( \widetilde f \otimes b  \right)\right\|+\\
+ + \left\|\pi_{\widetilde A} \left( \widetilde f\otimes  b  \right) -	\pi_{\widetilde A}\left( \widetilde f \otimes b  \right)-\pi_{\widetilde A}\left(f_{\eps/ 2  \left\| b\right\| }\left( \widetilde f\right) \otimes b  \right)\right\|< \frac{\eps}{2}+ \frac{\eps}{2}= \eps.
+ \eean
+ It turns out that $\pi_{\widetilde A} \left( \widetilde f\otimes  a  \right)$ is in the closure of the union $\cup~ _{\sU_\la} \widetilde A _{\sU_\la}$ Since the algebraic  linear span of elements
+ $$
+ \pi_{\widetilde A}\left(\widetilde f \otimes a \right) 	
+ $$
+ is dense in $\widetilde A$ the union $\cup~ _{\sU_\la} \widetilde A _{\sU_\la}$
+ is also dense in $\widetilde A$.
+\end{proof}
 
-\begin{exercise}\label{blowing_v_cov_exer}
-	Consider the situation of the Exercise \ref{blowing_sv_eqn}. Denote by $_\sU A^{\text{fin}}_\sU$ a linear span of given by \eqref{blowing_u_prod_eqn} products.
-Prove that 	$_\sU A^{\text{fin}}_\sU$ is a *-subalgebra of $_\sU A_\sU$.
-\end{exercise}
 
-\begin{exercise}\label{blowing_cahm_exer}
-	Consider the situation of the Exercise \ref{blowing_v_cov_exer}, and suppose that the closure $\sV$ of $\sU$ is compact. Let $q: \widetilde \sY \to \sY$ is a transitive finite-fold covering. Prove following statements:
-	\begin{enumerate}
-		\item There is a natural inclusion $C\left(\sV\right)\hookto M\left(_\sU A_\sU \right)$.
-		\item If $\widetilde\sV \bydef q^{-1}\left( \sV\right) $ then an algebraic tensor product $C\left( \widetilde\sV\right)\otimes_{C\left(\sV\right)}~_\sU A_\sU$ is a $C^*$-Hilbert $_\sU A_\sU$-module. 
-		\item There is a natural isometric inclusion  $C\left( \widetilde\sV\right)\otimes_{C\left(\sV\right)}~_\sU A_\sU \hookto C\left( \widetilde\sY\right)\otimes_{C\left(\sY\right)}A$ where the tensor product  $C_0\left( \widetilde\sY\right)\otimes_{C_0\left(\sY\right)}A$ is explained in  \ref{blowing_hilb_mod_empt}.
-		\item Similarly to the Lemma \ref{blowing_ca_lem} the algebraic tensor product  $C\left( \widetilde\sV\right)\otimes_{C\left(\sV\right)}~_\sU A_\sU$ has a natural structure of $C^*$-algebra, such that its $C^*$-norm is equivalent to the norm of  $C^*$-Hilbert $_\sU A_\sU$-module $C\left( \widetilde\sV\right)\otimes_{C\left(\sV\right)}~_\sU A_\sU$.
-	\end{enumerate} 
-
-
-\end{exercise}
- \begin{empt}
+\begin{empt} 
 		If  $\left\{u_\la\right\}_{\la\in\La}\subset C_0\left(\sY \right)$ is a described in the Exercise \ref{top_conn_fam_exer} net then 
 		at 
 		$$
@@ -12895,15 +12945,24 @@ Both $A\subset B$ and $A_0\left(\widetilde \sY \right) \widetilde B$ are essenti
 Clearly $A_0\left(\widetilde\sY \right)^G = A$, so the quadruple $\left(A, A_0\left(\widetilde\sY \right), G\left(\left.\widetilde \sY \right|\sY \right), \pi \right)$ is a finite-fold noncommutative pre-covering (cf. Definition \ref{fin_pre_defn}). If $\widetilde f_1 , ..., \widetilde f_n$ are generators of $C\left(\sY\right)$-module $C\left(\widetilde \sY\right)$ then $\widetilde f_1\otimes 1_B , ..., \widetilde f_n \otimes 1_B$ are generators of $B$-module $\widetilde B$, i.e.  $\widetilde B$ is a finitely generated $B$-module. So the quadruple $\left(B, \widetilde B, G\left(\left.\widetilde \sY \right|\sY \right), \widetilde \pi\right)$ (cf. Definition \ref{fin_unital_defn}). This quadruple satisfies to conditions (a) and (b) of the Definition \ref{fin_unitization_defn}, so $\left(A, A_0\left(\widetilde\sY \right), G\left(\left.\widetilde \sY \right|\sY \right), \pi \right)$ is a noncommutative finite-fold covering with unitization.
 \end{proof}
 \begin{theorem}\label{blowing_fin_thm}
-	Let $A$ be a connected  $C^*$-algebra (cf. Definition \ref{connected_c_a_defn}), and let $C_0\left( \sY\right)\hookto M\left(A \right) $ be a disintegrable  Hausdorff blowing up (cf. Definitions \ref{blowing_defn} and \ref{blowing_disintegrable_defn}).  If $q: \widetilde\sY \to \sY$ is a finite-fold transitive covering then there is a noncommutative covering  $\left(A, A_0\left(\widetilde\sY \right), G\left(\left.\widetilde \sY \right|\sY \right), \pi \right)$ (cf. Definition \ref{fin_defn}) where $A_0\left(\widetilde\sY \right)\cong C_0\left(\widetilde \sY\right)\otimes_{C_0\left( \sY\right) }A$ as $C_0\left(\widetilde \sY\right)-A$-bimodule.
+	Let $A$ be a connected  $C^*$-algebra (cf. Definition \ref{connected_c_a_defn}), and let $C_0\left( \sY\right)\hookto M\left(A \right) $ be a disintegrable  Hausdorff blowing up (cf. Definitions \ref{blowing_defn} and \ref{blowing_disintegrable_defn}).  If $q: \widetilde\sY \to \sY$ is a free finite-fold transitive covering then there is a noncommutative covering  $\left(A, A_0\left(\widetilde\sY \right), G\left(\left.\widetilde \sY \right|\sY \right), A_0\left( q\right)   \right)$ (cf. Definitions \ref{fin_defn}, \ref{fin_free_defn}) where $A_0\left(\widetilde\sY \right)$ and $A_0\left( q\right)$ are given by the Definition \ref{blowing_lift_a_f0_comp_defn}.
 \end{theorem}
 \begin{proof}
-	If $\left\{u_\la\right\}_{\la\in\La}\subset C_c\left( \sY\right)$ be an explained in the Exercise \ref{top_conn_fam_exer} net, then 
+From the equation \eqref{blowing_pre_eqn} it turns out that  $\left(A, A_0\left(\widetilde\sY \right), G\left(\left.\widetilde \sY \right|\sY \right), A_0\left( q\right)   \right)$ is a finite-fold noncommutative pre-covering (cf. Definition \ref{fin_pre_defn}) such that
+\bean
+G\bydef \left\{\left.g \in \Aut\left(\widetilde A\right)\right. \forall a \in A\quad g a = a\right\}= G\left(\left.\widetilde \sY \right|\sY \right)
+\eean	
+If $\left\{u_\la\right\}_{\la\in\La}\subset C_c\left( \sY\right)$ be an explained in the Exercise \ref{top_conn_fam_exer} net, then 
 	there is limit
-	$$
+\be\label{blowing_ul_eqn}
 	1_{C_b\left( \sY\right) }= \bt\text{-}\lim_{\la \in \La} u_\la
-	$$
-	with respect to the strict topology of $C_b\left( \sY\right)$ (cf. Definition \ref{strict_topology_defn}). From  \ref{blowing_strict_empt} it f followsd tha
+\ee
+	with respect to the strict topology of $C_b\left( \sY\right)$ (cf. Definition \ref{strict_topology_defn}). 
+If $\sU_\la \bydef \left\{\left.y \in \sY\right| u_\la \left( y\right)\neq 0 \right\}$ then $\sU_\la$ is open, and closure $\sV_\la$ of $\sU_\la$	is compact. From the \ref{blowing_ul_eqn} it follows that $\sY = \cup \sU_\la$. From  $u_\la\in C_c\left( \sY\right)$ it follows than the closure $\sV_\la$ of $\sU_\la$ is compact for all $\la\in \La$. From the Exercise \ref{blowing_completion_exer} it follows that the $C^*$-norm completions of both $u_\la A u_\la$ and $u_\la \widetilde A u_\la$ equal to $_{\sU_{\la}} A_{\sU_{\la}}$ and $_{\sU_{\la}} \widetilde A_{\sU_{\la}}$ respectively. From the equations \eqref{blowing_cym_eqn} and \eqref{blowing_cym_inc_eqn} it follows that there are natural inclusions 
+	
+	
+	
+	From  \ref{blowing_strict_empt} it f followsd tha
 	\\  !!! CONTINUE
 	
 \end{proof}
