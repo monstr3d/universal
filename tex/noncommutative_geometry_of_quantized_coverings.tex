@@ -3472,6 +3472,8 @@ This section contains  noncommutative generalizations of infinite coverings.
 	\end{split}
 	\ee
 \end{definition}
+\begin{remark}	!!! TOPOLOGY POINTED REMARK
+\end{remark}
 \begin{remark}\label{comp_pt_rem}
 	The Definition \ref{pointed_defn} means that for any $\mu \ge \nu$ the category $\mathfrak{S}^{\text{pt}}$ contains the unique *-homomorphism $\pi^\nu_{ \mu}: A_\nu \hookto A_\mu$. The family of $\left\{\pi^\nu_{ \mu}\right\}$ of *-homomorphisms  is said to be a \textit{base-point}.
 \end{remark}
@@ -3484,7 +3486,30 @@ Henceforth for all $\la\in\La$ we implicitly assume that $A_\la \subset  C^*$-$\
 % \begin{definition}\label{comp_defn}
 % 	An algebraical finite precovering category said to be an \textit{algebraical  finite covering category} if all morphism of it are finite-fold coverings.   We write $\mathfrak{S} \in \mathfrak{FinAlg}$
 % \end{definition}
-
+\begin{lemma}\label{skeleton_lem}
+		Let $\La$ be a countable directed set (cf. Definition \ref{directed_set_defn}) such that there is the unique minimal element $\la_{\min} \in \La$.
+	Let $A$ be a $C^*$-algebra.  Let us consider a set noncommutative finite-fold coverings $\mathfrak{S}=\left\{ \pi_{\la}:A \hookto A_{\la}\right\}_{\la \in \La}$ indexed by  $\La$ such that $A_{\la_{\mathrm{min}}}= A$, and $\pi_{\la_{\mathrm{min}}}= \Id_A$. We do not claim that any noncommutative finite-fold covering $A \to \widetilde{A}$ belongs to $\mathfrak{S}$. Suppose that  for  $\mu, \nu \in \La$ one has
+	\bean
+	\begin{split}
+		\mu \ge \nu  \text{ if and only if there is an injective}\\ \text{*-homomorphism } \pi: A_\nu \hookto A_\mu 		\text{  such that } \pi_\mu = \pi \circ \pi_\nu.
+	\end{split}
+	\eean
+	The category $\mathfrak{S}$ is  an {algebraical  finite covering category} for any $\mu, \nu \in \La$ such that $\mu \le\nu$ the skeleton    $\mathfrak{S}^{\text{pt}}$ of    $\mathfrak{S}$ has a unique morphism from $\left( A , A_{\nu}, G\left(\left.A_\nu~\right|A \right) , \pi_{\nu}\right)$ to $\left( A , A_{\mu}, G\left(\left.A_\mu~\right|A \right) , \pi_{\mu}\right)$ which satisfy to following conditions:
+	\begin{enumerate}
+		\item[(i)] there is a $\left(A, A_\nu, G_\nu, \pi_nu \right)$-proper group (cf. Definition \ref{proper_subgroup_fin_defn}) subgroup $H \subset  G\left(\left.A_\nu~\right|A \right)$ such that
+		\bean
+		A_\mu \cong A_\nu^H,\\
+		G\left(\left.A_\mu~\right|A \right)\cong G\left(\left.A_\nu~\right|A \right)/ H
+		\eean
+		\item[(ii)] the injective homomorphism $\pi^\mu_\nu : A_\mu \hookto A_\nu$ which yields the morphism from $\left( A , A_{\nu}, G\left(\left.A_\nu~\right|A \right) , \pi_{\nu}\right)$ to $\left( A , A_{\mu}, G\left(\left.A_\mu~\right|A \right) , \pi_{\mu}\right)$ is equivalent to the natural inclusion $A_\nu^H\subset A_\nu$. 
+	\end{enumerate}
+	\end{lemma}
+\begin{proof}
+	!!!!
+\end{proof}
+\begin{remark}\label{skeleton_rem}
+From the Exercise \ref{fin_composition_exer} if follows that $\pi^\mu_\nu : A_\mu \hookto A_\nu$ is a finite-fold noncommutative covering (cf. Definition \ref{fin_defn})
+\end{remark}
 \begin{empt}\label{inv_g_lim_empt} Let us consider the situation of the Definition \ref{pointed_defn}.
 	If $\mu, \nu \in \La$ and $\mu > \nu$. Denote by   $h^\mu_\nu:  G\left(\left.A_\mu~\right|A \right) \to  G\left(\left.A_\nu~\right|A \right)$ the surjective homomorphism which comes from $\pi^\nu_\mu$ (cf. Definition \ref{compliant_comes_defn}).
 \end{empt}
@@ -3762,18 +3787,27 @@ There is the natural $\C$-linear map
 	\left.  A_\la~ \right|A\right)$$ then there is the action of $G\left(\left.\overline{A}_\pi~\right| A\right)\times \overline{A}_\pi\to \overline{A}_\pi$ which comes from the action \eqref{g_a_eqn}. The triple  $\left(A, \overline{A}_\pi, G\left(\left.\overline{A}_\pi~\right| A \right)\right)$ is said to be the  $\pi$-\textit{disconnected algebraical infinite noncommutative covering} of $ \mathfrak{S}^{\mathrm{pt}} $.  We  say that $G\left(\left.\overline{A}_\pi~\right| A\right)$ is the $\pi$-\textit{disconnected covering transformation group} of $ \mathfrak{S}^{\mathrm{pt}}$.	If $\pi$ is the atomic representation i.e. $\pi = \pi_a:\widehat{A}\to B\left(\widehat\H_a \right)$ then we write $\overline A$ instead  $\overline{A}_\pi$ and we say that $\overline A$ is the \textit{ disconnected algebraical inverse noncommutative limit} of $ \mathfrak{S}^{\mathrm{pt}}$. Similarly $G\left(\left.\overline{A}~\right| A \right)\stackrel{\mathrm{def}}{=} \widehat{G}$. The triple  $\left(A, \overline{A}, G\left(\left.\overline{A}~\right| A \right)\right)$ is said to be the  \textit{disconnected algebraical infinite noncommutative covering} of $ \mathfrak{S}^{\mathrm{pt}} $.  We  say that $G\left(\left.\overline{A}~\right| A\right)$ is the \textit{disconnected covering transformation group} of $ \mathfrak{S}^{\mathrm{pt}}$.
 \end{definition}
 \begin{remark}\label{cup_inf_rem}
-Since $\cup A_\la$ is dense subalgebra of $C^*$-$\varprojlim A_\la$ with respect to $C^*$-norm the disconnected algebraical infinite noncommutative covering is a generated by elements  $\pi\left(x^\cup\right)\overline a \pi\left(y^\cup\right)\in B\left(\H\right)$ where $\overline a\in B\left(\H \right)$ is a special element, and  $x^\cup, y^\cup\in \cup A_\la$. From this fact it follows that for all $\la\in\La$ there is a *-homomorphism
+Since $\cup A_\la$ is dense subalgebra of $C^*$-$\varprojlim A_\la$ with respect to $C^*$-norm the disconnected algebraical infinite noncommutative covering is a generated by elements  $\pi\left(x^\cup\right)\overline a \pi\left(y^\cup\right)\in B\left(\H\right)$ where $\overline a\in B\left(\H \right)$ is a special element, and  $x^\cup, y^\cup\in \cup A_\la$. Any $c_\la \in  A_\la$ yields a double centralizer $\left(L_{c_\la}, R_{c_\la}\right)\in \mathbf{DC}\left(\overline{A}_\pi \right)$
+(cf. Definition \ref{dc_defn})
+\bean
+\forall \overline a \in \overline{A}_\pi \quad L_{c_\la}\left( \overline a\right) = \pi\left(c_\la \right)\overline a\quad R_{c_\la}\left( \overline a\right) = \overline a\pi\left(c_\la \right).
+\eean
+Using the Proposition \ref{dc_prop} the reader can prove that the map 
+\bean
+A_\la \to \mathbf{DC}\left(\overline{A}_\pi \right),\\
+c_\la \mapsto \left(L_{c_\la}, R_{c_\la}\right)
+\eean 
+is a *-homomorphism.
+From the Remark \ref{dc_rem} it follows that for all $\la\in\La$ there is a *-homomorphism
 \be\label{a_too_eqn}
 \begin{split}
-\overline m_\la :A_\la \to M\left( \overline{A}_\pi \right),\\
-a_\la \mapsto \pi(a_\la).
+\overline m_\la :A_\la \to M\left( \overline{A}_\pi \right).\\
 \end{split} 
 \ee
 In particular from $A_{\la_{\text{min}}}\bydef A$ it turns out that there is is a *-homomorphism
 \be\label{a_tooa_eqn}
 \begin{split}
-\overline m:	A \to M\left( \overline{A}_\pi \right),\\
-	a \mapsto \pi(a).
+\overline m:	A \to M\left( \overline{A}_\pi \right).
 \end{split} 
 \ee
 \end{remark}
@@ -3974,7 +4008,7 @@ In the situation of the Lemma \ref{inverse_lim_h_lem} the Hilbert space of the a
 	\end{enumerate}
 	\end{corollary}
 \begin{proof}
-	From the inclusion $\widehat A \hookto	M\left(\overline A \right)$  the Proposition \ref{state_prop} it turns out that there is an injective multi-valued map 	$\varphi: \widehat\sX\hookto \bt\overline\sX$. If $\pi_a :\widehat A \to B\left(\H\right)$ is an atomic representation then from the Lemma \ref{atomic_uni_lem} it follows that there is the inclusion $\widehat A\subset  \pi_a\left( A\right)'' = \prod_{\widehat x\in \widehat\sX} B\left( \H_{\widehat x}\right)$.
+	From the  Proposition \ref{state_prop} it turns out that there is an injective multi-valued map 	$\varphi: \widehat\sX\hookto \bt\overline\sX$. If $\pi_a :\widehat A \to B\left(\H\right)$ is an atomic representation then from the Lemma \ref{atomic_uni_lem} it follows that there is the inclusion $\widehat A\subset  \pi_a\left( A\right)'' = \prod_{\widehat x\in \widehat\sX} B\left( \H_{\widehat x}\right)$.
 	Otherwise  from the Lemma \ref{spec_borel_lem} it follows that there are natural inclusions $\overline A\subset \mathscr B\left(\widehat A\right)\subset  \pi_a\left( A\right)'' = \prod_{\widehat x\in \widehat\sX} B\left( \H_{\widehat x}\right)$. Moreover  the natural inclusion $\widehat A \hookto M\left(\overline A \right)$ which complies with both inclusions $\widehat A\subset    \prod_{\widehat x\in \widehat\sX} B\left( \H_{\widehat x}\right)$ and $M\left(\overline A \right)\subset   \prod_{\widehat x\in \widehat\sX} B\left( \H_{\widehat x}\right)$. If $\widehat{x}_0 \in \widehat\sX$ and 
 \be\label{spectrum_injective_ideal_eqn}
 	I''_{\widehat{x}_0}\bydef \left\{\left.\left\{a_{\widehat x}\right\}_{\widehat x\in {\widehat \sX}} \in \prod_{\widehat x\in \widehat\sX} B\left( \H_{\widehat x}\right)\right|a_{\widehat x_0}=0\right\}\subset \prod_{\widehat x\in \widehat\sX} B\left( \H_{\widehat x}\right)
@@ -4108,7 +4142,7 @@ Let	$\mathfrak{S}^{\mathrm{pt}} \in \mathfrak{FinAlg}^{\mathrm{pt}}$ be a pointe
 	If $\pi$ is the atomic representation $\pi_a$ then we say that is \textit{good}.
 \end{definition}
 
-\begin{lemma}\label{a_rep_b_lem}
+\begin{lemma}\label{a_rep_b_lem} !!! DELETED !!!
 	If $\pi$ is an atomic representation $\pi_a$ (cf. Definition \ref{atomic_repr_defn}) then the condition (a) of the Definition \ref{good_defn} follows from (b) one.
 \end{lemma}
 \begin{proof}
@@ -10099,7 +10133,7 @@ is a given by the Lemma  \ref{top_base_point_lem} {pointed algebraical  finite c
 
 \begin{proof}
 (i) If $\pi_a : C_0\left( \widehat \sX\right) \to B\left(\H_a \right)$ is the atomic representation (cf. Definition \ref{atomic_repr_defn}) then from the construction \ref{comm_transitive_empt} it follows that $C_0\left( \widetilde \sX\right)$ is a $\pi_a$-connected component of $\mathfrak{S}^{\mathrm{pt}}_{C_0\left(\sX\right)}$ (cf. Definition \ref{main_sdefn}) equals to $C_0\left(\widetilde \sX \right)$, and  $G\left(\left. \widetilde\sX~\right|\sX \right)$ is the $C_0\left(\widetilde \sX \right)$-invariant group (cf. Definition \ref{main_sdefn}).
-To prove that 	$\mathfrak{S}^{\mathrm{pt}}_{C_0\left(\mathcal{X}\right)}$  is good  one needs check that described above objects satisfy to conditions (a)-(c) of the Definition \ref{good_defn}. From the Lemma \ref{a_rep_b_lem} it follows that we should check conditions (b) and (c) only.
+To prove that 	$\mathfrak{S}^{\mathrm{pt}}_{C_0\left(\mathcal{X}\right)}$  is good  one needs check that described above objects satisfy to conditions (a)-(c) of the Definition \ref{good_defn}. From the Lemma \ref{a_rep_b_lem} !!! DELETED !!! it follows that we should check conditions (b) and (c) only.
 	\begin{itemize}
 \item[(b)]	If both  $\widetilde{A}'$ and $\widetilde{A}''$ are connected components of $C_0\left( \overline \sX\right)$ (cf. Definition \ref{conn_comp_defn})  and both $\widetilde{\sX}'$ and $\widetilde{\sX}''$ are spectra of $\widetilde{A}'$ and $\widetilde{A}''$ respectively then from the Exercise  $\ref{conn_comp_exer}$ it turns out that the spaces  $\widetilde{\sX}'$ and $\widetilde{\sX}''$ are connected  components of $\overline \sX$. From the Theorem \ref{top_locally_conn_cov_com_thm} it turns out that both restrictions $\left.\overline p :\right|_{\widetilde{\sX}'}\to \sX$ and $\left.\overline p :\right|_{\widetilde{\sX}''}\to \sX$ are coverings. So for any $x_0\in \sX$ there are $\widetilde x'_0 \in\widetilde{\sX}'$ and 
 $\widetilde x''_0 \in \widetilde{\sX}''$ such that $\overline p\left( \widetilde x'_0\right)= \overline p\left( \widetilde x''_0\right) = x_0$. Since the covering $\overline\sX \to\sX$ is transitive (cf. Corollary \ref{top_biject_cor}) there is $g \in G\left(\left. \overline\sX~\right|\sX \right)$ such that $g \widetilde x'_0 = \widetilde x''_0$. Both sets $\widetilde{\sX}'$ and $\widetilde{\sX}''$
@@ -22855,20 +22889,50 @@ A representation $\rho : A\to B\left( \H\right)$ is called \textit{faithful} if 
 		\end{equation}
 	\end{defn}
 We also use an alternative equivalent definition of the multiplier algebra.
-\begin{definition}\label{multiplier_el_defn}
+\begin{definition}\label{multiplier_el_defn}\cite{matro:hcm}
 	Let $\rho: A\hookto B\left( \H\right)$ be a faithful {nondegenerate} (cf. Definitions \ref{faithful_repr_defn}, \ref{nondegenerate_repr_defn}) representation, so we assume $A \subset B\left( \H\right)$. An operator $x \in B\left(\H\right)$ is called (two-sided) \text{multiplier} if 
 	$$
 	xa \in A, \quad ax\in A
 	$$
 	for each $a\in A$. Denote by $M\left(A\right)$ the set of all multipliers. It is easy to see that $M\left(A\right)$ is an involutive unital algebra.
 \end{definition}
-\begin{lemma}\label{multiplier_al_lem}
+\begin{lemma}\label{multiplier_al_lem}\cite{matro:hcm}
 	The set $M\left(A\right)$ is an unital $C^*$-algebra 
 	$$
 	A \subset M\left( A\right) \subset A^{**}
 	$$	
-	and $A$ is an essential ideal of $M\left( A\right)$. If $A$ has no unit then $A^+\subset M\left(A \right)$ 
+	and $A$ is an essential ideal of $M\left( A\right)$. If $A$ has no unit then $A^+\subset M\left(A \right)$. 
 \end{lemma}
+\begin{definition}\label{dc_defn}\cite{matro:hcm}
+A pair $\left(L, R\right)$ of maps
+$$
+L: A \to A, \quad R: A \to A\quad R\left(a \right) b = a L\left( b\right) \quad \forall a, b \in A
+$$
+is called a \textit{double centralizer}. Let us denote $\mathbf{DC}\left(A \right) $ the space of all double  centralizers of $A$.
+\end{definition}
+
+\begin{proposition}\label{dc_prop}\cite{matro:hcm}
+	If $\left(L, R\right)\in \mathbf{DC}\left(A \right)$ then
+	\begin{enumerate}
+		\item [(i)] $L\left( ab\right) = L\left( a\right)b$ and $R\left( ab\right) = aR\left( b\right)$;
+		\item [(ii)] $L$ and $R$ are linear;
+		\item [(iii)] $L$ and $R$ are bounded and $\left\|L \right\|= \left\|R \right\|$;
+	\end{enumerate}
+The set $\mathbf{DC}\left(A \right) $ with operations
+\bean
+\left(L_1, R_1\right) + \left(L_2, R_2\right)\bydef \left(L_1 + L_2, R_1+R_2\right),\quad z\left(L,R\right)\bydef \left(zL, zR\right) \quad \forall z \in \C,\\
+\left(L_1, R_1\right)  \left(L_2, R_2\right)\bydef \left(L_1  L_2, R_2R_2\right),\\
+\left(L, R\right)^*\bydef \left(R^*, L^*\right),\\
+L^*\left( a\right)\bydef \left( L\left( a^*\right)\right)^*, \quad R^*\left( a\right)\bydef \left( L\left( a^*\right)\right)^*\quad \forall a \in A.
+\eean 
+is a normed involutive algebra with respect to the norm
+$$
+\left\|\left(L, R\right) \right\|\bydef \left\|L \right\|= \left\|R \right\|.
+$$
+\end{proposition}
+\begin{remark}\label{dc_rem}
+	In \cite{matro:hcm} it is proven  there is a natural *-isomorphism $\mathbf{DC}\left(A \right)\cong M\left(A\right)$. 
+\end{remark}
 
 	
 	\begin{defn}\label{approximate_unit_defn} \cite{pedersen:ca_aut}
