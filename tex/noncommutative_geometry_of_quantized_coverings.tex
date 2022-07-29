@@ -1482,7 +1482,14 @@ If $\left(A, \widetilde{A}, G, \pi \right)$  is a {noncommutative finite-fold  q
 		\item[(b)] 	$A \cong \widetilde{A}^G\stackrel{\text{def}}{=}\left\{\left.a\in \widetilde{A}~~\right|~ a = g a;~ \forall g \in G\right\}$.
 	\end{enumerate}
 	We say that the triple $\left(A, \widetilde{A}, G \right)$ and/or the quadruple $\left(A, \widetilde{A}, G, \pi \right)$ and/or *-homomorphism $\pi: A \hookto \widetilde{A}$   is a \textit{noncommutative finite-fold  pre-covering}. We write $G\left(\left.\widetilde A~\right|A \right)\bydef G$.
-\end{definition}
+\end{definition}\begin{remark}
+Any noncommutative finite-fold  pre-covering is a noncommutative finite-fold quasi-covering.
+\end{remark}
+\begin{remark}
+Indeed conditions (a), (b) of the Definition \ref{fin_pre_defn} state an isomorphism between ordered sets  of groups  and $C^*$-algebras  and it is an analog the fundamental
+theorem of Galois theory. (cf. \cite{kurosh:lga} Chapter Six, \S~6 for details).
+\end{remark}
+
 \begin{exercise}\label{fin_pre_exer}
 Let $\left(A, \widetilde{A}, G, \pi \right)$    be a {noncommutative finite-fold  pre-covering}. Let $H \subset G$ be a normal subgroup (cf. Definition \ref{normal_subgroup_defn}). Prove that  the quadruple 
 $$
@@ -1491,59 +1498,13 @@ $$
 is   a {noncommutative finite-fold  pre-covering}.
 \end{exercise}
 \begin{definition}\label{proper_subgroup_fin_defn}
-Let $\left(A, \widetilde{A}, G\left(\left.\widetilde A~\right|A \right), \pi \right)$ be  a {noncommutative finite-fold  pre-covering} (cf. Definition \ref{fin_pre_defn}). A normal subgroup $H\subset G\left(\left.\widetilde A~\right|A \right)$ is said to be $\left(A, \widetilde{A}, G, \pi \right)$-\textit{proper} if a quadruple
+Let $\left(A, \widetilde{A}, G\left(\left.\widetilde A~\right|A \right), \pi \right)$ be  a {noncommutative finite-fold  pre-covering} (cf. Definition \ref{fin_pre_defn}). A normal subgroup $H\subset G\left(\left.\widetilde A~\right|A \right)$ is said to be $\left(A, \widetilde{A}, G\left(\left.\widetilde A~\right|A \right), \pi \right)$-\textit{proper} if a quadruple
 \be
 \left(A, \widetilde{A}^H, G\left(\left.\widetilde A~\right|A \right)/H, \pi^H \right)
 \ee
 is a  {noncommutative finite-fold  pre-covering}. The *-homomorphism $\pi^H:A\hookto \widetilde{A}^H: $ comes from $\pi: A \hookto \widetilde{A}$ and an inclusion  $\pi\left( A\right) \subset \widetilde{A}^H$.
 \end{definition}
-\begin{definition}\label{compliant_defn}
-	Let us consider the following diagram\\
-	\newline
-	\begin{tikzpicture}
-		\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
-		{
-			\widetilde A_1  &  & \widetilde A_2\\
-			& A & \\};
-		\path[-stealth]
-		(m-1-1) edge[dashed] node [above] {$\pi^1_2$} (m-1-3)
-		(m-2-2) edge node [left]  {$\pi_1~~$} (m-1-1)
-		(m-2-2) edge node [right] {$~~\pi_2$} (m-1-3);
-		%\draw[dashed,->]   (m-1-1) -- (m-1-3);
-	\end{tikzpicture}
-	\\
-	where $A$, $\widetilde A_1$, $\widetilde A_2$ are $C^*$-algebras and $\pi_1$, $\pi_2$, are connected  noncommutative finite-fold pre-coverings (cf. Definition \ref{fin_defn}). We say that the unordered pair $\left( \pi_1,\pi_2\right) $ is \textit{compliant} if  for any injective  *-homomorphism $\pi^1_2: \widetilde A_1 \to \widetilde A_2$ such that $\pi^1_2 = \pi^1_2 \circ \pi_1$  there is an $\left(A, \widetilde{A}_2, G\left(\left.\widetilde A_2~\right|A \right), \pi_2 \right)$-{proper} normal subgroup $H \subset G\left(\left.\widetilde A_2~\right|A \right)$ such that $\pi^1_2\left(\widetilde A_1 \right) = \widetilde A^H_2$, i.e. $\pi^1_2$ is a   noncommutative finite-fold pre-covering.
-\end{definition}
-\begin{remark}
-We do not require that a homomorphism $\pi^1_2: \widetilde A_1 \to \widetilde A_2$ exists. If not then we also say that the pair $\left( \pi_1,\pi_2\right) $ is \textit{compliant}.
-\end{remark}
-\begin{notation}\label{compliant_not}
-Consider the situation of the Definition  \ref{compliant_defn}. Instead of isomorphisms $\pi_1, \pi_2, \pi^1_2$ we use the following notations 
-\be\label{compliant_not_eqn}
-\begin{split}
-A \subset \widetilde A_1 \subset \widetilde A_2,\\
-A \subset \widetilde A^H_2 \subset \widetilde A_2.
-\end{split}
-\ee
-\end{notation}
-\begin{exercise}
-Consider the situation of the Definition  \ref{compliant_defn}. Prove that $\rho^1_2 :\widetilde A_1 \to \widetilde A_2$ is an injective *-homomorphism  such that $\pi_2 = \rho^1_2 \circ \pi_1$ then there is $g \in G\left(\left.\widetilde A_2~\right|A \right)$ such that 
-\be
-\pi_2 = \rho^1_2\circ g.
-\ee
-\end{exercise}
-\begin{definition}\label{compliant_comes_defn}
-	In the situation of the Definition \ref{compliant_defn} we say that the natural  homomorphism $h: G\left(\left.\widetilde A_2~\right|A \right)\to 	G\left(\left.\widetilde A_1~\right|A \right)$ \textit{comes} from $\pi^1_2$.
-\end{definition}
 
-
-\begin{remark}
-Any noncommutative finite-fold  pre-covering is a noncommutative finite-fold quasi-covering.
-\end{remark}
-\begin{remark}
-	Indeed conditions (a), (b) of the Definition \ref{fin_pre_defn} state an isomorphism between ordered sets  of groups  and $C^*$-algebras  and it is an analog the fundamental
-	theorem of Galois theory. (cf. \cite{kurosh:lga} Chapter Six, \S~6 for details).
-\end{remark}
 \begin{empt}
 Let $A \subset \widetilde A$ be an inclusion of $C^*$-algebras such that $\widetilde A$ is a finitely generated left $A$-module, i.e.
 $$
@@ -1586,7 +1547,7 @@ hence one has
 	\eea
 \end{lem}
 \begin{proof}
-From the Definition \ref{compliant_defn} it follows that both quadruples \ref{fin_composition1_eqn} and \eqref{fin_composition1_eqn} are noncommutative finite-fold pre-coverings (cf. Definition \ref{fin_pre_defn}). If $\widetilde{A}$ is an $A$-module generated by  $\left\{\widetilde a_1 ,..., \widetilde a_n\right\}\subset \widetilde{A}$ then
+From the Definition \ref{proper_subgroup_fin_defn} it follows that both quadruples \ref{fin_composition1_eqn} and \eqref{fin_composition2_eqn} are noncommutative finite-fold pre-coverings (cf. Definition \ref{fin_pre_defn}). If $\widetilde{A}$ is an $A$-module generated by  $\left\{\widetilde a_1 ,..., \widetilde a_n\right\}\subset \widetilde{A}$ then
 $\widetilde{A} = \widetilde a_1 A + ... + \widetilde a_n A$. From $A\subset \widetilde{A}^H$ it  turns out that $\widetilde{A} = \widetilde a_1 \widetilde{A}^H + ... + \widetilde a_n \widetilde{A}^H$, i.e. $\widetilde{A}$ is a finitely generated $\widetilde{A}^H$-module.
 If $\widetilde a^H \in \widetilde{A}^H$ then $\widetilde a^H = \frac{1}{\left|H \right| }\sum_{g \in H} \widetilde a^H$. Otherwise 
 $$
@@ -2055,19 +2016,32 @@ If 	$\widetilde a \in M\left(\widetilde{A} \right)$ and $\widetilde a= \bt\text{
 	\ee
 	
 \end{proof}
-\begin{remark}
-If we consider the equation \eqref{projective_decomposition_eqn} then one has
-\be\label{projective_decompositioneq_eqn}
-	\widetilde{a}=0 \quad \Leftrightarrow \quad \forall j =1,...,n \quad a_j = 0.
-\ee
-\end{remark}
 \begin{corollary}\label{cov_mult_fin_cor}
 If $\left(A, \widetilde{A}, G, \pi \right)$ is a {noncommutative finite-fold covering with unitization} (cf. Definition \ref{fin_unitization_defn}) then there is  an 
 unital  noncommutative finite-fold covering  $\left(M\left(A \right)  ,M\left( \widetilde{A}\right) , G, \widetilde{\pi} \right)$.
 \end{corollary}
-\begin{remark}
-	content...
+\begin{remark}\label{proj_decomp_rem}
+	If we consider the equation \eqref{projective_decomposition_eqn} then one has
+	\be\label{projective_decompositioneq_eqn}
+	\widetilde{a}=0 \quad \Leftrightarrow \quad \forall j =1,...,n \quad a_j = 0.
+	\ee
+	There are homomorphisms of $B$-modules
+	\be\label{tb_bn_eqn}
+	\begin{split}
+		\iota_B : \widetilde{B}\to B^n,\\
+		\widetilde b \mapsto \frac{1}{\left| G\right| } \left( \sum_{g \in G} g\left(\widetilde{a}^*_1\widetilde{b} \right),...,  \sum_{g \in G} g\left(\widetilde{a}^*_n\widetilde{b} \right) \right),\\
+		p_{B^n} : B^n \to \widetilde B,\\
+		\left(b_1, ..., b_n\right)\mapsto \widetilde{b}_1b_1 + ... + \widetilde{b}_1b_1.
+	\end{split}
+	\ee\label{tb_bn_p_eqn}
+	such that
+	\be
+	p_{B^n}\circ \iota_{\widetilde B} = \Id_{\widetilde B}.
+	\ee
+	
 \end{remark}
+
+
 \begin{empt}\label{hereditary_dir_sum_empt}
 	Let	$\left(A, \widetilde{A}, G, \pi \right)$ be  a noncommutative finite-fold pre-covering (cf. Definition \ref{fin_pre_defn}). Let $B\subset A$ be a connected  $C^*$-subalgebra (cf. Definition \ref{connected_c_a_defn}) such that there is a connected $C^*$-subalgebra
 	$\widetilde{B}\subset \widetilde{A}$ which satisfies to the following conditions:
@@ -3448,23 +3422,29 @@ This section contains  noncommutative generalizations of infinite coverings.
 
 \begin{definition}\label{comp_defn}
 	Let $\La$ be a countable directed set (cf. Definition \ref{directed_set_defn}) such that there is the unique minimal element $\la_{\min} \in \La$.
-	Let $A$ be a $C^*$-algebra.  Let us consider a set noncommutative finite-fold coverings $\mathfrak{S}=\left\{ \pi_{\la}:A \hookto A_{\la}\right\}_{\la \in \La}$ indexed by  $\La$ such that $A_{\la_{\mathrm{min}}}= A$, and $\pi_{\la_{\mathrm{min}}}= \Id_A$. We do not claim that any noncommutative finite-fold covering $A \to \widetilde{A}$ belongs to $\mathfrak{S}$. Suppose that  following conditions hold:
-	\begin{enumerate}
-		\item[(a)] For any $\mu, \nu \in \La$ a pair $\left( \pi_\mu, \pi_\nu\right)$ is compliant (cf. Definition \ref{compliant_defn} ).		\item [(b)]
+	Let $A$ be a $C^*$-algebra.  Let us consider a set noncommutative finite-fold coverings $\mathfrak{S}=\left\{ \pi_{\la}:A \hookto A_{\la}\right\}_{\la \in \La}$ indexed by  $\La$ such that $A_{\la_{\mathrm{min}}}= A$, and $\pi_{\la_{\mathrm{min}}}= \Id_A$. We do not claim that any noncommutative finite-fold covering $A \to \widetilde{A}$ belongs to $\mathfrak{S}$. Suppose that  
 		For  $\mu, \nu \in \La$ one has
 		\be\label{fg_ord_eqn}
 		\begin{split}
 			\mu \ge \nu  \text{ if and only if there is an injective}\\ \text{*-homomorphism } \pi: A_\nu \hookto A_\mu 		\text{  such that } \pi_\mu = \pi \circ \pi_\nu.
 		\end{split}
 		\ee
-	\end{enumerate}
-	The set 
-	$\mathfrak{S}=\left\{ \pi_{\la}:A \hookto A_{\la}\right\}_{\la \in \La}$, or equivalently $$\mathfrak{S}=\left\{ \left( A , A_{\la}, G\left(\left.A_\la~\right|A \right) , \pi_{\la}\right) \right\}_{\la \in \La}$$
+		Consider a category $\mathfrak{S}$ such that a set of objects of  is  $$\mathfrak{S}=\left\{ \left( A , A_{\la}, G\left(\left.A_\la~\right|A \right) , \pi_{\la}\right) \right\}_{\la \in \La}$$. A set of morphisms contains all given by \eqref{fg_ord_eqn} injective *-homomorphisms $ \pi: A_\nu \hookto A_\mu$.
+		The category $\mathfrak{S}$ 
 	is said to be an \textit{algebraical  finite covering category}. 
 	We write $\mathfrak{S} \in \mathfrak{FinAlg}$.
 \end{definition}
 \begin{definition}\label{pointed_defn}
-	A skeleton  $\mathfrak{S}^{\text{pt}}$  of an algebraical  finite covering category $\mathfrak{S}$ (cf. Definition \ref{skeleton_defn}) is said to be a \textit{pointed algebraical  finite covering category}. It is equivalent to the pre-order category given by $\La$ (cf. Definition \ref{preordercat_defn} and Remark \ref{pre_order_rem}).  We write $\mathfrak{S}^{\text{pt}} \in \mathfrak{FinAlg}^{\text{pt}}$, and use the following notation
+	A skeleton  $\mathfrak{S}^{\text{pt}}$  of an algebraical  finite covering category $\mathfrak{S}$ (cf. Definition \ref{skeleton_defn}) is said to be a \textit{pointed algebraical  finite covering category} if  for any $\mu, \nu \in \La$ such that $\mu \le\nu$ the skeleton    $\mathfrak{S}^{\text{pt}}$  has a unique morphism $\pi^\mu_\nu : A_\mu \hookto A_\nu$ from $\left( A , A_{\nu}, G\left(\left.A_\nu~\right|A \right) , \pi_{\nu}\right)$ to $\left( A , A_{\mu}, G\left(\left.A_\mu~\right|A \right) , \pi_{\mu}\right)$ which satisfy to following conditions:
+	\begin{enumerate}
+		\item[(a)] there is a $\left(A, A_\nu, G_\nu, \pi_\nu \right)$-proper  subgroup $H \subset  G\left(\left.A_\nu~\right|A \right)$ (cf. Definition \ref{proper_subgroup_fin_defn}) such that
+		\bean
+		A_\mu \cong A_\nu^H,\\
+		G\left(\left.A_\mu~\right|A \right)\cong G\left(\left.A_\nu~\right|A \right)/ H
+		\eean
+		\item[(b)] the injective homomorphism $\pi^\mu_\nu : A_\mu \hookto A_\nu$  is equivalent to the natural inclusion $A_\nu^H\subset A_\nu$. 
+	\end{enumerate}
+ It is equivalent to the pre-order category given by $\La$ (cf. Definition \ref{preordercat_defn} and Remark \ref{pre_order_rem}).  We write $\mathfrak{S}^{\text{pt}} \in \mathfrak{FinAlg}^{\text{pt}}$, and use the following notation
 	\be\label{comp_pt_eqn}
 	\begin{split}
 		\mathfrak{S}^{\text{pt}} = \left(\left\{\pi_\la: A \hookto A_\la \right\}_{\la \in \La}, \left\{\pi^\mu_\nu: A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\ \nu > \mu}}\right),\\
@@ -3472,7 +3452,22 @@ This section contains  noncommutative generalizations of infinite coverings.
 	\end{split}
 	\ee
 \end{definition}
-\begin{remark}	!!! TOPOLOGY POINTED REMARK
+\begin{remark}	Let $\widetilde p: \widetilde\sX \to \sX$ is a transitive covering. Let  $p_\la: \sX_\la \to \sX$ ($\la\in\La$) be a family of transitive coverings such that for any $\la \in \La$ there is a covering $\widetilde p_\la : \widetilde \sX \to \sX_\la$ such that $\widetilde p = p_\la \circ \widetilde p_\la$. Let us consider a category with objects $p_\la: \sX_\la \to \sX$. Morphisms of the category are coverings $p^\mu_\nu: \sX_\mu\to \sX_\nu$ such that the following diagram\\
+	\newline
+	\begin{tikzpicture}
+		\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
+		{
+			\sX_\mu  &  & \sX_\nu\\
+			& A & \\};
+		\path[-stealth]
+		(m-1-1) edge node [above] {$p^\mu_\nu$} (m-1-3)
+		(m-1-1) edge node [left]  {$p_\mu~~$} (m-2-2)
+		(m-1-3) edge node [right] {$~~p_\nu$} (m-2-2);
+		%\draw[dashed,->]   (m-1-1) -- (m-1-3);
+	\end{tikzpicture}
+	\\
+is commutative. This category is not skeletal (cf. Definition \ref{skeletal_defn}). If we select $\widetilde x_0 \in \widetilde \sX$, define base-points and $x^\la_0 \bydef \widetilde p_\la\left( \widetilde x_0\right)$ and require that  maps $p^\mu_\nu$ are pointed, i.e. $p^\mu_\nu\left(x^\mu_0 \right)=x^\nu_0$ then one obtains a skeletal category. Roughly speaking selection of a base-point is equivalent to selection of  a skeleton. 
+	
 \end{remark}
 \begin{remark}\label{comp_pt_rem}
 	The Definition \ref{pointed_defn} means that for any $\mu \ge \nu$ the category $\mathfrak{S}^{\text{pt}}$ contains the unique *-homomorphism $\pi^\nu_{ \mu}: A_\nu \hookto A_\mu$. The family of $\left\{\pi^\nu_{ \mu}\right\}$ of *-homomorphisms  is said to be a \textit{base-point}.
@@ -9278,7 +9273,7 @@ Follows from the Exercise \ref{top_unoriented_exer}.
 \subsection{Inverse limits of coverings in topology}\label{top_inf_to_sec}
 \paragraph*{}
 
-	Let $\sX$ be a connected, locally connected, locally compact, Hausdorff  topological space. Let $\left\{p_\la: \sX_\la\to\sX\right\}_{\la \in \La}$ be a family of transitive finite-fold coverings which is indexed by a countable set $\La$ such that $\sX_\la$ is connected for all $\la\in\La$. Let us define an order on $\La$ such that 
+	Let $\sX$ be a connected, locally connected, locally compact, Hausdorff  topological space. Let $\left\{p_\la: \sX_\la\to\sX\right\}_{\la \in \La}$ be a family of transitive finite-fold coverings which is indexed by a countable directed set $\La$ such that $\sX_\la$ is connected for all $\la\in\La$. An order on $\La$ is such that 
 	\be\label{top_ord_eqn}
 	\begin{split}
 		\mu \ge \nu  \text{ if and only if there is a surjective continuous map } p: \sX_\mu \to \sX_\nu \\
@@ -9286,11 +9281,13 @@ Follows from the Exercise \ref{top_unoriented_exer}.
 	\end{split}
 	\ee
 	From the Corollary \ref{top_covp_cat_cor} it follows that the map $p$ is a transitive covering. Suppose that there is the minimal $\la_{\min}\in \La$ such that $\sX_{\la_{\min}}\bydef\sX$ and suppose that the ordered set $\La$ is directed (cf. Definition \ref{directed_set_defn}). Suppose that for any $\la \in \La$ there is a base point $x^\la_0 \in \sX_\la$ such that
-	\bean
+	\be\label{top_ord_s_eqn}
+	\begin{split}
 	\forall \mu, \nu \in \La \quad p_\mu\left( x^\mu_0\right) =p_\nu\left( x^\nu_0\right),\\
-		\mu \ge \nu \quad\Leftrightarrow\quad\exists p: \sX_\mu \to \sX_\nu \quad p_\mu = p_\nu \circ p \text{ AND } p\left(x^\mu_0\right)= x^\nu_0.
-	\eean
-	For any $\mu \ge \nu$ there is the unique pointed map $ p: \left( \sX_\mu, x^\mu_0 \right) \to \left( \sX_\nu, x^\nu_0\right)  $ which satisfies to the above equation we denote it by $p^\mu_\nu \bydef p$. From the Corollary \ref{top_covp_cat_cor} it turns out that $p^\mu_\nu$ is a transitive covering for all $\mu > \nu$. The spaces $\sX_\la$ and coverings $p^\mu_\nu$ yield a category which is  equivalent (cf. Definition \ref{category_equivalence_definition}) to the  pre-order category $\La$ (cf. Definition \ref{preordercat_defn}).  So there is the inverse limit $\widehat \sX = \varprojlim_{\la \in \La}\sX_\la$ in the category of topological spaces and continuous maps  (cf. Definition \ref{top_inv_lim_defn}). For every $\la \in \La$   there is the natural continuous map $\widehat p_\la: \widehat \sX \to \sX_\la$.
+\mu \ge \nu \quad\Leftrightarrow\quad\exists p: \sX_\mu \to \sX_\nu \quad p_\mu = p_\nu \circ p \text{ AND } p\left(x^\mu_0\right)= x^\nu_0.
+	\end{split}
+	\ee
+	For any $\mu \ge \nu$ there is the unique pointed map $ p: \left( \sX_\mu, x^\mu_0 \right) \to \left( \sX_\nu, x^\nu_0\right)  $ which satisfies to the above equation we denote it by $p^\mu_\nu \bydef p$. From the Corollary \ref{top_covp_cat_cor} it turns out that $p^\mu_\nu$ is a transitive covering for all $\mu > \nu$. The spaces $\sX_\la$ and coverings $p^\mu_\nu$ yield a category which is  equivalent (cf. Definition \ref{category_equivalence_definition}) to the  pre-order category $\La$ (cf. Definition \ref{preordercat_defn}). Moreover the category \eqref{top_ord_s_eqn} is a skeleton of the category \ref{top_ord_eqn} (cf. Definition \ref{skeleton_defn}). So there is the inverse limit $\widehat \sX = \varprojlim_{\la \in \La}\sX_\la$ in the category of topological spaces and continuous maps  (cf. Definition \ref{top_inv_lim_defn}). For every $\la \in \La$   there is the natural continuous map $\widehat p_\la: \widehat \sX \to \sX_\la$.
 
 \begin{definition}\label{top_sec_defn}
 	Consider the above situation.
@@ -12144,7 +12141,7 @@ It turns out that the given by 	\eqref{blowing_scalar_prod} map $
 $\widetilde f = \widetilde b + i\widetilde c - i\widetilde d - \widetilde e$ where all $\widetilde b,\widetilde c,\widetilde d,\widetilde e\in C\left( \widetilde \sY\right)_+$ are positive elements of $C\left( \widetilde \sY\right)$.
 For every $\widetilde f \otimes \xi\in C\left( \widetilde \sY\right)\otimes_{C\left( \sY\right)}\H$ one has
 	$$
-\widetilde f\otimes \xi = \sqrt{\widetilde b}\left( \sqrt{\widetilde b} \otimes \xi \right) + i\sqrt{\widetilde c}\left( \sqrt{\widetilde c} \otimes \xi \right) - i\sqrt{\widetilde d}\left( \sqrt{\widetilde d} \otimes \xi \right) -\sqrt{\widetilde e}\left( \sqrt{\widetilde e} \otimes \xi \right) 
+\widetilde f\otimes \xi = \sqrt{\widetilde b}\left( \sqrt{\widetilde b} \otimes \xi \right) + i\sqrt{\widetilde c}\left( \sqrt{\widetilde c} \otimes \xi \right) - i\sqrt{\widetilde d}\left( \sqrt{\widetilde d} \otimes \xi \right) -\sqrt{\widetilde e}\left( \sqrt{\widetilde e} \otimes \xi \right). 
 $$
 Let $\eps > 0$ and let $C \bydef \left\| \widetilde{b}\right\|+ \left\| \widetilde{c}\right\|+ \left\| \widetilde{d}\right\| + \left\| \widetilde{e}\right\|$. Since a representation is nondegenerate there is $\eta \in A\H$ such that $\left\| \xi - \eta \right\| < \eps/C$. It follows that there is 
 $$
@@ -12232,7 +12229,7 @@ However $\rep_{ p\left(  \widetilde{x }\right) }\left( A_{\text{fin}}\right)$ is
 \begin{lemma}\label{blowing_pre_lem}
 In the above situation one has
 $$
-G\bydef \left\{\left.g \in \Aut\left(\widetilde A\right)\right. \forall a \in A\quad g a = a\right\}= G\left(\left.\widetilde \sY \right|\sY \right).
+G\bydef \left\{\left.g \in \Aut\left(\widetilde A\right)\right| \forall a \in A\quad g a = a\right\}= G\left(\left.\widetilde \sY \right|\sY \right).
 $$
 \end{lemma}
 \begin{proof}
@@ -12820,11 +12817,16 @@ a finite-fold noncommutative covering with unitization (cf. Definition \ref{fin_
 \end{enumerate}
 On the other hand $A^{\mathrm{prop}}_\sU$ is reducibly  simply connected, so $A^{\mathrm{prop}}_\sU \hookto \widetilde A^{\mathrm{prop}}_\sU$ is an  almost trivial disconnected noncommutative finite-fold covering of $A^{\mathrm{prop}}_\sU$.
 \end{proof}
-
 \begin{empt}\label{blowing_b_empt}
-Let $A$ be a $C^*$- algebra and let $C_0\left( \sY\right)\hookto M\left(A \right)$  be a disintegrable 	semilocally 1-connected (cf. Definition \ref{blowing_semi1_defn})  Hausdorff blowing-up of $A$ (cf. Definitions \ref{blowing_defn}  CHECK !!! and \ref{blowing_disintegrable_defn}) such that $\sY$ is connected and locally connected. Let $q: \widetilde \sY\to\sY$ be a transitive covering (cf. Definition \ref{top_transitive_defn}).
+	
+	!!!!  ATOMIC !!!
+Let $A$ be a $C^*$- algebra and let $C_0\left( \sY\right)\hookto M\left(A \right)$  be a disintegrable 	  Hausdorff blowing-up of $A$ (cf. Definitions \ref{blowing_defn}  and \ref{blowing_disintegrable_defn}) such that $\sY$ is connected and locally connected. Let $q: \widetilde \sY\to\sY$ be a transitive (possibly infinite) covering (cf. Definition \ref{top_transitive_defn}).
 Let  $\left\{\sU_\a\subset\sX\right\}_{\a \in \mathscr A}$ be a {compliant with} $q$ family of connected sets, and let $\left\{\widetilde\sU_{\widetilde\a}\right\}_{\widetilde\a \in \widetilde{\mathscr A}}$  the $q$-{lift} of $\left\{\sU_\a\right\}_{\a \in \mathscr A}$. (cf. Definition 
-\ref{top_lconn_defn}). We suppose that for any $\a\in \mathscr A$ the $\sU_a$-proper *-algebra $A^{\mathrm{prop}}_{\sU_\a}$ (cf. Definition \ref{blowing_proprer_defn}) is reducibly simply connected (cf. Definition \ref{simply_connected_red_defn}),
+\ref{top_lconn_defn}). Let $\pi_a: A \hookto B\left(\H_a \right)$ is the atomic representation. 
+
+
+
+ We suppose that for any $\a\in \mathscr A$ the $\sU_a$-proper *-algebra $A^{\mathrm{prop}}_{\sU_\a}$ (cf. Definition \ref{blowing_proprer_defn}) is reducibly simply connected (cf. Definition \ref{simply_connected_red_defn}),
 Let $\mathfrak P$ be a set of $\left\{\widetilde\sU_{\widetilde\a}\right\}$-paths (cf. Definition \ref{top_gen_path_defn}).  Consider a subset  $\mathfrak G \subset \mathfrak P\times A$ such that $\left( \mathfrak p,a \right)\in \mathfrak G$ if $\mathfrak p= \left(\widetilde\sU_{\widetilde\a_1}, ..., \widetilde\sU_{\widetilde\a_n}\right)$ then there are $a_1\in A^{\mathrm{prop}}_{p\left(\widetilde\sU_{\widetilde\a_1 }\right) },...,a_n\in A^{\mathrm{prop}}_{p\left(\widetilde\sU_{\widetilde\a_n }\right) }$ such that $a = a_1\cdot...\cdot a_n$. There is an involution on $\mathfrak G$ given by $\left( \mathfrak p,a \right)^*= \left( \mathfrak p^*,a^* \right)$ (cf. \eqref{top_path_inv_eqn}). The action $G\left(\left.\widetilde \sY\right| \sY \right)\times \widetilde \sY\to \widetilde \sY$ induces an action of $G\left(\left.\widetilde \sY\right| \sY \right)\times \mathfrak G\to \mathfrak G$.
 If $\widetilde\B$ is a generated by $\mathfrak G$ free Abelian group, then both  involution and action of $G\left(\left.\widetilde \sY\right| \sY \right)$ on $\mathfrak G$ induce involution and action of $G\left(\left.\widetilde \sY\right| \sY \right)$ on $\widetilde\B$. There is multiplication on $\widetilde\B$ such that
 \bean
@@ -12835,7 +12837,11 @@ If $\widetilde\B$ is a generated by $\mathfrak G$ free Abelian group, then both 
 	\left( \mathfrak p_1\circ \mathfrak p_2,a_1a_2 \right) & \left( \mathfrak p_1,\mathfrak p_2 \right)\text{ is  composable}
 \end{cases}
 \eean
-where  $\mathfrak p_1\circ \mathfrak p_2$ is given by \eqref{top_path_comp_eqn}. So  $\widetilde\B$ is a *-algebra. If $\A\subset A$ be the algebraically generated by $\cup A^{\mathrm{prop}}_{\sU_\a}$ subalgebra then there is the left and right action of $\A$ on $\widetilde\B$. Let  $a \in A_{\sU_\a}$ and let $\widetilde b \in \widetilde \B$ be represented by the pair $\left(\mathfrak p, b\right)$ such that $\mathfrak p= \left(\widetilde\sU_{\widetilde\a_1}, ..., \widetilde\sU_{\widetilde\a_n}\right)$. If $q\left( \widetilde\sU_{\widetilde\a_1}\right) \cap \sU_{\a} = \emptyset$, then we put $a\widetilde b = 0$. Otherwise there is the unique path $\mathfrak p' = \mathfrak p'' \circ \mathfrak p$ such that $\mathfrak p'' = \left(\widetilde \sU_{\widetilde\a}\right)$ and $q\left( \widetilde \sU_{\widetilde\a}\right) = \sU_\a$ (cf. Lemma \ref{top_path_lift_lem}). We put 
+where  $\mathfrak p_1\circ \mathfrak p_2$ is given by \eqref{top_path_comp_eqn}. So  $\widetilde\B$ is a *-algebra. If $\A\subset A$ be the algebraically generated by $\cup A^{\mathrm{prop}}_{\sU_\a}$ subalgebra then there is the left and right action of $\A$ on $\widetilde\B$. Let  $a \in A_{\sU_\a}$ and let $\widetilde b \in \widetilde \B$ be represented by the pair $\left(\mathfrak p, b\right)$ such that $\mathfrak p= \left(\widetilde\sU_{\widetilde\a_1}, ..., \widetilde\sU_{\widetilde\a_n}\right)$. If $q\left( \widetilde\sU_{\widetilde\a_1}\right) \cap \sU_{\a} = \emptyset$, then we put $a\widetilde b = 0$. Otherwise there is the unique path $\mathfrak p' = \mathfrak p'' \circ \mathfrak p$ such that $\mathfrak p'' = \left(\widetilde \sU_{\widetilde\a}\right)$ and $q\left( \widetilde \sU_{\widetilde\a}\right) = \sU_\a$ (cf. Lemma \ref{top_path_lift_lem}).
+\end{empt}
+
+\begin{empt}\label{blowing_b_empt!}!!!  MAY BE DELETE
+ We put 
 \be\label{blowing_atb_eqn}
 a \widetilde b\bydef\left(\mathfrak p', ab\right).
 \ee
@@ -13648,7 +13654,7 @@ be a  pointed  topological finite covering category given by the Lemma \ref{top_
 \end{empt}
 \begin{lemma}\label{blowing_base_point_lem}
 If we consider the situation \ref{blowing_inf_empt}
-then ollowing conditions hold:
+then following conditions hold:
 \begin{enumerate}
 	\item[(i)] 	There is the natural  pointed algebraical  finite covering category (cf. Definition \ref{comp_defn})
 	\begin{equation}\label{blowing_base_point_eqn}
@@ -13662,6 +13668,25 @@ then ollowing conditions hold:
 \end{enumerate}
 
 \end{lemma}
+\begin{empt}\label{blowing_prop_inf_empt}
+Let $\overline \sY$ be a topological inverse limit (cf. Definition \ref{top_topological_inv_lim_defn}) of the category \ref{blowing_top_eqn}, and let $\overline p: \overline \sY\to \sY$ a natural covering. Let $\widehat A \bydef \varinjlim_{\la\in \La}$, and let $\pi: \widehat A \to B\left(\H_a\right)$ be a faithful representation. If $\overline \sU \subset \overline \sY$ is a on open set connected set with compact closure. According to the Corollary \ref{top_comp_la_cor} $\la_{\overline{   \mathcal U }} \in \La$ and a continuous function  $f_{\la_{\overline{   \mathcal U }}}: \sY_{\la_{\overline{   \mathcal U }}}\to[0,1]$ such that $f_{\la_{\overline{   \mathcal U }}}\left(\overline p_{\la_{\overline{   \mathcal U }}}\left( \overline{   \mathcal U }\right)  \right)= \{1\}$ and  $\supp f_{\la_{\overline{   \mathcal U }}}\cap g \supp f_{\la_{\overline{   \mathcal U }}}=\emptyset$ for all nontrivial $g\in G\left( \left.{{\sY}}_{\la_{\overline{   \mathcal U }}}~\right|\sY\right)$. There is an connected set $\sV_ {\la_{\overline{   \mathcal U }}}$ such that $\supp f_{\la_{\overline{   \mathcal U }}}\subset \sV _{\la_{\overline{   \mathcal U }}}$ and 
+$\supp \sV_{\la_{\overline{   \mathcal U }}}\cap g  \sV_{\la_{\overline{   \mathcal U }}}=\emptyset$ for all nontrivial $g\in G\left( \left.{{\sY}}_{\la_{\overline{   \mathcal U }}}~\right|\sY\right)$.  For any $\la > \la_{\overline{   \mathcal U }}$ we define a connected component $\sV_\la \subset \left(p^\la_{\la_{\overline{   \mathcal U }}}\right)^{-1}\left( \sV _{\la_{\overline{   \mathcal U }}}\right)$ such that $\overline p_\la\left(\overline\sU \right) \cap \left(p^\la_{\la_{\overline{   \mathcal U }}}\right)^{-1}\left( \sV _{\la_{\overline{   \mathcal U }}}\right)= \overline p_\la\left(\overline\sU \right)$.
+Denote by $f_\la \bydef \lift^{\sV_\la}_{p^\la_{\la_{\overline   \sU}}}\left(f_{\la_{\overline{   \mathcal U }}} \right) $
+!!!! WHERE IS A LIFT
+\end{empt}
+
+\begin{definition}
+	
+	Consider the situation \ref{blowing_prop_inf_empt} and suppose that $a_{\la_{\overline{   \mathcal U }}} \in A_0\left(\sY_{\la_{\overline{   \mathcal U }}} \right) $ i
+	Let $\overline{   \mathcal U }$,  $~\la_{\overline{   \mathcal U }} \in \La$ and    !!!CONTINUE
+A positive element $\overline a$ is said to be $\sY$-special if following conditions hold:
+\begin{itemize}
+	\item [(a)] There is 
+\end{itemize}
+
+\end{definition}
+
+
 \begin{proof}
 Follows from the Theorem \ref{blowing_functor_thm}.
 \end{proof}
