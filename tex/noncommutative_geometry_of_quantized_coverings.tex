@@ -12882,6 +12882,24 @@ G\left(\left.\widetilde{\sY}~\right| \sY\right)\times A_0\left(\widetilde\sY  \r
 We say that  $A_0\left(\widetilde\sY  \right)$ is the $q$-\textit{lift} of $A$. 
 
 \end{definition}
+\begin{example}\label{blowing_ctr_exm}
+	If $A$ is a $C^*$-algebra with Hausdorff spectrum $\sX$  then from the Theorems \ref{oa_haus_prim_thm} and  \ref{dauns_hofmann_thm} one has the natural inclusion $C_0\left(\sX \right) \hookto M\left( A\right)$. For all $a \in A$ and $\eps> 0$ the subset
+	$$
+	\sY \bydef \left\{\left.x \in \sX\right| \left\| \rep_x\left(a\right)\right\|\ge \eps \right\}\subset\sY
+	$$
+	is compact (cf. Lemma \ref{ctr_rep_eq_lem}). If $u_\la \in C_c\left(\sY \right)_+$ is a covering sum for $\sY$ (cf. Definition \ref{top_covering_sum_defn}) then for any $\la'\ge\la$ one has
+	\bean
+	\left\|au_{\la' }- a \right\|< \eps, \\
+	\left\|u_{\la' }a- a \right\|< \eps. 
+	\eean
+	From the above equations there is the 	limit $
+	1_{M\left(A \right)  }= \bt~\text{-}\lim_{\la \in \La }u_\la
+	$
+	with respect to the strict topology (cf. Definition \ref{strict_topology_defn}) of $M\left( A\right)$. It turns out that $C_0\left(\sX \right) \hookto M\left( A\right)$ satisfies to the condition (a)  Definition \ref{blowing_defn}). If $\rep_x: A \to B\left( \H\right)$ is an irreducible representation then if $f \in C_0\left(\sX \right)$ is such that $f\left(x \right)  = 1$ then $\rep_x\left( f\right) = 1_{B\left(\H \right) }$ and $\rep_x\left(f \right)\H = \H$, i.e.  $C_0\left(\sY \right) \hookto M\left( A\right)$ satisfies to the condition (b)  Definition \ref{blowing_defn}).
+	So  $C_0\left(\sX \right) \hookto M\left( A\right)$
+	is a disintegrable spectral {Hausdorff blowing-up} of $A$ (cf. Definitions \ref{blowing_defn}, \ref{blowing_disintegrable_defn} and \ref{blowing_spectal_defn}).
+\end{example}
+
 \begin{exercise} 
 	If $A$ is a $C^*$-algebra with Hausdorff spectrum $\sX$ and one has a  Hausdorff blowing-up $C_0\left(\sX\right)\hookto M\left(A \right)$ (cf. Example \ref{blowing_ctr_exm}).
 Prove that   the equation \eqref{top_c0i_ob_eqn} $C^*$-algebra  is a specialization of given by the equation \eqref{blowing_a0_x_eqn} one.
@@ -12895,25 +12913,31 @@ In the described above situation suppose that $\widetilde\sU$ is a connected ope
 \ee 
 The given by \eqref{blowing_faf_eqn} family of bijective maps yields a *-isomorphism
 \be\label{blowing_asu_eqn}
-A_0\left(q  \right)^{\widetilde{\sU}}: A_\sU \xrightarrow{\approx} A_0\left(\widetilde\sY  \right)_{\widetilde{\sU}}.
+A_0\left(q  \right)_{\widetilde{\sU}}: ~_\sU A_\sU \xrightarrow{\approx} ~_{\widetilde{\sU}}A_0\left(\widetilde\sY  \right)_{\widetilde{\sU}}.
 \ee
 \end{empt}
 
-
+!!!! CORRECT !!! CONTINUE PRORER RPOOF
 \begin{definition}\label{blowing_lift_desc_defn}
 A composition of $A_0\left(q  \right)^{\widetilde{\sU}}$ and the inclusion $A_0\left(\widetilde\sY  \right)_{\widetilde{\sU}}\subset A_0\left(\widetilde\sY  \right)$ is said to be $q$-$\widetilde{\sU}$-\textit{lift} or simply the $\widetilde{\sU}$-\textit{lift}.  A composition of $\left( A_0\left(q  \right)^{\widetilde{\sU}}\right)^{-1}$ and the inclusion $A_\sU\subset A$ is said to be the  $q$-\textit{descent}.
 We use the following notation
 \be\label{blowing_lift_desc_eqn}
 \begin{split}
-	\lift^q_{\widetilde{\sU}}: A_\sU \hookto A_0\left(\widetilde\sY  \right)  \text{ or simply } \lift_{\widetilde{\sU}}: A_\sU \hookto A_0\left(\widetilde\sY  \right), \\
-	\desc_{p}: A_0\left(\widetilde\sY  \right)_{\widetilde{\sU}} \hookto A \text{ or simply } \desc: A_0\left(\widetilde\sY  \right)_{\widetilde{\sU}} \hookto A .
+\lift_{\widetilde \sU}^p:~_\sU A_\sU \xrightarrow{\approx} ~_{\widetilde{\sU}}A_0\left(\widetilde\sY  \right)_{\widetilde{\sU}} \text{ or simply }\lift_{\widetilde \sU}: ~_\sU A_\sU \xrightarrow{\approx} ~_{\widetilde{\sU}}A_0\left(\widetilde\sY  \right)_{\widetilde{\sU}}, \\
+	\desc_{p}: ~_{\widetilde{\sU}}A_0\left(\widetilde\sY  \right)_{\widetilde{\sU}} \xrightarrow{\approx} _\sU A_\sU\hookto A \\\text{ or simply } \desc:~ _{\widetilde{\sU}}A_0\left(\widetilde\sY  \right)_{\widetilde{\sU}} \xrightarrow{\approx}_\sU A_\sU \hookto A.
 \end{split}
 \ee
 \end{definition}
 \begin{remark}
 The above definition complies with the Definition \ref{top_lift_desc_defn}.
 \end{remark}
-
+\begin{exercise}
+Prove that
+\be
+\lift_{\widetilde \sU}^p\left( A^\text{prop}_\sU\right) = A_0\left(\widetilde\sY  \right)^{\text{prop}}_{\widetilde{\sU}} 
+\ee
+where both $A^\text{prop}_\sU$ and $A_0\left(\widetilde\sY  \right)^{\text{prop}}_{\widetilde{\sU}}$ are proper  $\sU$ and ${\widetilde{\sU}}$ $C^*$-subalgebras of both $_\sU A_\sU$ and $_{\widetilde{\sU}}A_0\left(\widetilde\sY  \right)_{\widetilde{\sU}}$ respectively (cf. Definition \ref{blowing_proprer_defn})
+\end{exercise}
 \begin{exercise}
 Consider the above situation and suppose that the covering $q$ is finite-fold. 
 Prove that
@@ -13663,34 +13687,59 @@ then following conditions hold:
 \end{enumerate}
 
 \end{lemma}
+
 \begin{proof}
-!!!! PROOF
+	Follows from the Theorem \ref{blowing_functor_thm}. !!! CHECK
 \end{proof}
 \begin{empt}\label{blowing_prop_inf_empt}
 Let $\overline \sY$ be a disconnected topological inverse limit (cf. Definition \ref{top_topological_inv_lim_defn}) of the category \ref{blowing_top_eqn}, and let $\overline p: \overline \sY\to \sY$ a natural covering. Let $\widehat A \bydef \varinjlim_{\la\in \La}$, and let $\pi: \widehat A \to B\left(\H_a\right)$ be a faithful representation. If $\overline \sU \subset \overline \sY$ is a on open set connected set with compact closure. According to the Corollary \ref{top_comp_la_cor} $\la_{\overline{   \mathcal U }} \in \La$ and a continuous function  $f_{\la_{\overline{   \mathcal U }}}: \sY_{\la_{\overline{   \mathcal U }}}\to[0,1]$ such that $f_{\la_{\overline{   \mathcal U }}}\left(\overline p_{\la_{\overline{   \mathcal U }}}\left( \overline{   \mathcal U }\right)  \right)= \{1\}$ and  $\supp f_{\la_{\overline{   \mathcal U }}}\cap g \supp f_{\la_{\overline{   \mathcal U }}}=\emptyset$ for all nontrivial $g\in G\left( \left.{{\sY}}_{\la_{\overline{   \mathcal U }}}~\right|\sY\right)$. There is an connected set $\sV_ {\la_{\overline{   \mathcal U }}}$ such that $\supp f_{\la_{\overline{   \mathcal U }}}\subset \sV _{\la_{\overline{   \mathcal U }}}$ and 
-$\supp \sV_{\la_{\overline{   \mathcal U }}}\cap g  \sV_{\la_{\overline{   \mathcal U }}}=\emptyset$ for all nontrivial $g\in G\left( \left.{{\sY}}_{\la_{\overline{   \mathcal U }}}~\right|\sY\right)$.  For any $\la > \la_{\overline{   \mathcal U }}$ we define a connected component $\sV_\la \subset \left(p^\la_{\la_{\overline{   \mathcal U }}}\right)^{-1}\left( \sV _{\la_{\overline{   \mathcal U }}}\right)$ such that $\overline p_\la\left(\overline\sU \right) \cap \left(p^\la_{\la_{\overline{   \mathcal U }}}\right)^{-1}\left( \sV _{\la_{\overline{   \mathcal U }}}\right)= \overline p_\la\left(\overline\sU \right)$.
-Denote by $f_\la \bydef \lift^{\sV_\la}_{p^\la_{\la_{\overline   \sU}}}\left(f_{\la_{\overline{   \mathcal U }}} \right) $ 
-where $\lift^{\sV_\la}_{p^\la_{\la_{\overline   \sU}}}$ is a
- $p^\la_{\la_{\overline   \sU}}$-$\sV_\la$-lift (cf. Definition \ref{top_lift_desc_defn}). If  $\overline a_{\la_{\overline{   \mathcal U }}} \in \left( A^{\text{prop}}_{\la_{\overline   \sU}}\right)_{\overline p\left( \overline   \sU\right) }$ then one has $f_{\la_{\overline{   \mathcal U }}} \overline a_{\la_{\overline{   \mathcal U }}} f_{\la_{\overline{   \mathcal U }}}= \overline a_{\la_{\overline{   \mathcal U }}}$. If $\mu , \nu \in\La$ are such that $\mu \ge \nu$ then from $f_\mu \le  f_\nu$ it follows that $f_\mu \overline a_{\la_{\overline{   \mathcal U }}} f_\mu \le f_\nu \overline a_{\la_{\overline{   \mathcal U }}} f_\nu$
- !!! CONTINUE
+$\supp \sV_{\la_{\overline{   \mathcal U }}}\cap g  \sV_{\la_{\overline{   \mathcal U }}}=\emptyset$ for all nontrivial $g\in G\left( \left.{{\sY}}_{\la_{\overline{   \mathcal U }}}~\right|\sY\right)$.  For any $\la > \la_{\overline{   \mathcal U }}$ we define a connected component $\sV_\la \subset \left(q^\la_{\la_{\overline{   \mathcal U }}}\right)^{-1}\left( \sV _{\la_{\overline{   \mathcal U }}}\right)$ such that $\overline q_\la\left(\overline\sU \right) \cap \left(q^\la_{\la_{\overline{   \mathcal U }}}\right)^{-1}\left( \sV _{\la_{\overline{   \mathcal U }}}\right)= \overline p_\la\left(\overline\sU \right)$.
+Denote by $f_\la \bydef \lift^{\sV_\la}_{q^\la_{\la_{\overline   \sU}}}\left(f_{\la_{\overline{   \mathcal U }}} \right) $ 
+where $\lift^{\sV_\la}_{q^\la_{\la_{\overline   \sU}}}$ is a
+ $q^\la_{\la_{\overline   \sU}}$-$\sV_\la$-lift (cf. Definition \ref{top_lift_desc_defn}). If  $a_{\la_{\overline{   \mathcal U }}} \in \left( A^{\text{prop}}_{\la_{\overline   \sU}}\right)_{\overline p\left( \overline   \sU\right) }$ then one has $f_{\la_{\overline{   \mathcal U }}}  a_{\la_{\overline{   \mathcal U }}} f_{\la_{\overline{   \mathcal U }}}=  a_{\la_{\overline{   \mathcal U }}}$. If $\mu , \nu \in\La$ are such that $\mu \ge \nu$ then from $f_\mu \le  f_\nu$ it follows that $f_\mu  a_{\la_{\overline{   \mathcal U }}} f_\mu \le f_\nu a_{\la_{\overline{   \mathcal U }}} f_\nu$. From the Lemma \ref{increasing_convergent_w_lem} it turns out that a net $\left\{f_\la  a_{\la_{\overline{   \mathcal U }}} f_\la\right\}_{\substack{\la \in \La\\ \la \ge \overline{   \mathcal U }}}\subset B\left(\H_a \right)$ is convergent with respect to the strong topology \ref{strong_topology_defn} of   $B\left(\H_a \right)$
+
 
 \end{empt}
 
-\begin{definition}
-	
-	Consider the situation \ref{blowing_prop_inf_empt} and suppose that $a_{\la_{\overline{   \mathcal U }}} \in A_0\left(\sY_{\la_{\overline{   \mathcal U }}} \right) $ i
-	Let $\overline{   \mathcal U }$,  $~\la_{\overline{   \mathcal U }} \in \La$ and    !!!CONTINUE
-A positive element $\overline a$ is said to be $\sY$-special if following conditions hold:
-\begin{itemize}
-	\item [(a)] There is 
-\end{itemize}
 
+\begin{definition}\label{blowing_lift_defn}
+Consider  the situation \ref{blowing_prop_inf_empt}. The strong limit
+\bean
+\overline a \bydef \lim_{\substack{\la \in \La\\ \la \ge \overline{   \mathcal U }}}f_\la  a_{\la_{\overline{   \mathcal U }}} f_\la\in B\left(\H_a \right)
+\eean
+is said to be a $\overline p_{\la_{\overline{   \mathcal U }}}$- $\overline{   \mathcal U }$-lift of $\overline a_{\la_{\overline{   \mathcal U }}}$
+we write 
+\be
+\overline a = \lift_{\overline \sU}^{\overline q_{\la_{\overline{   \mathcal U }}}} \left(\overline a_{\la_{\overline{   \mathcal U }}} \right). 
+\ee
+DESC !!! !!! CONTINUE
 \end{definition}
+\begin{exercise}
+Prove that the Definition \ref{blowing_lift_defn} complies with the Definition \ref{top_lift_desc_defn} (cf. Example \ref{blowing_ctr_exm}).
+\end{exercise}
 
+\begin{definition}\label{blowing_lift_a_inf_comp_defn}
+Let $\overline p: \overline{   \mathcal Y }\to\sY$ be the natural transitive covering. Denote by $\overline A$ be a $C^*$-subalgebra of $B\left(\H_a \right)$  generated by 
+\bean
+\pi\left(x \right) \lift_{\overline{   \mathcal U }}^{\overline q_{\la_{\overline{   \mathcal U }}}} \left(\overline a_{\la_{\overline{   \mathcal U }}} \right)\pi\left(y \right) 
+\eean
+where $x,y \in \cup_{\la\in\La} A_0\left( \sY_\la\right)$. We say that $\overline A$ is a $\overline p$-\textit{lift} of $A$. We write 
+\be\label{blowing_lift_a_inf_comp_eqn}
+A_0\left(\overline\sY \right) \bydef \overline A.
+\ee
+\end{definition}
+\begin{remark}\label{blowing_inf_rem}
+Similarly to the Remark \ref{cup_inf_rem}	one can proof that there are injective *-homomorphisms
+	\be\label{blowing_a_too_eqn}
+\begin{split}
+	\overline m_\la :A_0\left( \sY_\la\right)  \to M\left( A_0\left(\overline\sY \right) \right),\\
+	\overline m:	A \to M\left(A_0\left(\overline\sY \right) \right).
+\end{split} 
+\ee
 
-\begin{proof}
-Follows from the Theorem \ref{blowing_functor_thm}.
-\end{proof}
+\end{remark}
+
+!!! CONTINUE
 \begin{empt}\label{blowing_implicit_inc_full_empt}
 Consider the situation \ref{blowing_inf_empt}, suppose that the Hausdorff blowing-up $C_0\left(\sY \right) \to M\left( A\right)$ spectral (cf. Definition \ref{blowing_spectal_defn}). If $\sX_\la$ is the spectrum of $A\left(\sY_\la\right)$ then from the Proposition \ref{spectrum_cov_prop}  it follows that for any $\mu, \nu\in \Lambda$ such that $\mu\ge\nu$ there is the natural continuous map $q^\nu_\mu : \sX_\mu \to  \sX_\nu$. Similarly to the Remark \ref{blowing_cov_sp_rem}
 there is the following commutative diagram
@@ -23034,8 +23083,8 @@ subset $S$ of A is the smallest hereditary $C^*$-subalgebra of $A$ containing $S
 	%\begin{defn}\cite{pedersen:ca_aut}
 	%For any $x\in B(H)$ element $|x| \stackrel{\text{def}}{=} (xx^*)^{1/2}$ is said to be the {\it absolute value of} $x$.
 	%\end{defn}
-	\begin{lem}\label{increasing_convergent_w_lem}\cite{pedersen:ca_aut} Let $\Lambda$ be an increasing in the partial ordering.  Let $\left\{x_\lambda \right\}_{\la \in \La}$ be an increasing of self-adjoint operators in $B\left(\H\right)$, i.e. $\la \le \mu$ implies $x_\la \le x_\mu$. If $\left\|x_\la\right\| \le \ga$ for some $\ga \in \mathbb{R}$ and all $\la$ then $\left\{x_\lambda \right\}$ is strongly convergent to a self-adjoint element $x \in B\left(\H\right)$ with $\left\|x_\la\right\| \le \ga$.
-	\end{lem}
+	\begin{lemma}\label{increasing_convergent_w_lem}\cite{pedersen:ca_aut} Let $\Lambda$ be an increasing in the partial ordering.  Let $\left\{x_\lambda \right\}_{\la \in \La}$ be an increasing of self-adjoint operators in $B\left(\H\right)$, i.e. $\la \le \mu$ implies $x_\la \le x_\mu$. If $\left\|x_\la\right\| \le \ga$ for some $\ga \in \mathbb{R}$ and all $\la$ then $\left\{x_\lambda \right\}$ is strongly convergent to a self-adjoint element $x \in B\left(\H\right)$ with $\left\|x_\la\right\| \le \ga$.
+	\end{lemma}
 	%\begin{defn}\label{range_proj_defn}\cite{pedersen:ca_aut}
 	%For each $x\in B(\H)$ we define the {\it range projection} of $x$ (denoted by $[x]$) as projection on closure of $x\H$. If $x\ge 0$ then the sequence $\left(\left((1 /n) +x\right)^{-1}x\right)$ is monotone increasing to $[x]$.  If $p$ and $q$ are projections then $p \vee q = [p + q]$ and thus $p \wedge q = 1 - \left[2 - \left(p+q\right)\right]$. Similarly we have $p \setminus q = p - p\wedge q$. Since $[x]\H$ is the orthogonal complement of the null space of $x^*$ we have $[x]=[xx^*]$. 
 	%\end{defn}
