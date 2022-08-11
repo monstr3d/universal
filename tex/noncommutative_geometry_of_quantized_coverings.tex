@@ -11728,8 +11728,8 @@ then one has
 \end{split}
 \ee
 From \eqref{blowig_su_eqn} it follows that
-\be
-\sU'\subset \sU'' \quad \Rightarrow\quad _{\sU'}A \subset~  _{\sU'}A \text{ AND } A_{\sU'}\subset A_{\sU''}\text{ AND }  _{\sU'}A _{\sU'}\subset _{\sU''}A _{\sU''}.
+\be\label{blowing_su_inc_eqn}
+\sU'\subset \sU'' \quad \Rightarrow\quad _{\sU'}A \subset~  _{\sU'}A ~\text{ AND } ~A_{\sU'}\subset A_{\sU''}~\text{ AND }~  _{\sU'}A _{\sU'}\subset _{\sU''}A _{\sU''}.
 \ee
 \end{empt}
 \begin{exercise}\label{blowing_completion_exer}
@@ -11756,28 +11756,35 @@ Consider the situation \ref{blowing_cv_empt}. Prove that the  faithful nondegene
 We leave to the reader the prove of that a following set 
 	\be\label{blowing_prop_eqn}
 	\begin{split}
-		\left\{a \in A\left| ~\forall x \in \sX \quad \forall \xi \in \H^\perp_x\quad \rep_x\left( a\right)\xi = 0\quad \forall\a\in \mathscr A_x \quad a \H^\a_x\subset \H^\a_x \right.  \right\}
+		\left\{a \in A\left| ~\forall x \in \sX \quad \forall \xi \in \H^\perp_x~~\rep_x\left( a\right)\xi = 0\quad \forall\a\in \mathscr A_x ~~ \rep_x\left( a\right) \H^\a_x\subset \H^\a_x \right.  \right\}
 	\end{split}
 	\ee 
 	is a $C^*$-subalgebra of $_\sU A_\sU$.
 \end{empt}
 
 \begin{definition}\label{blowing_proper_defn}
-The given by  \ref{blowing_prop_eqn}  $C^*$-subalgebra of $_\sU A_\sU$ is said to be $\sU$-\textit{proper}. We denote it by $A^{\mathrm{prop}}_\sU$.
+The given by  \eqref{blowing_prop_eqn}  $C^*$-subalgebra of $_\sU A_\sU$ is said to be $\sU$-\textit{proper}. We denote it by $A^{\mathrm{prop}}_\sU$.
 \end{definition}
 \begin{remark}
 From (iv) of the Theorem \ref{irred_thm} for any $x\in\sX$ and $\a\in \mathscr A_x$ there is an irreducible representation $A \to B\left(\H^\a_x \right)$ 
 \end{remark}
 \begin{empt}
-	!!! MAKE PROOF
-Let $\sU'\subset \sU''$ and let both $A^{\mathrm{prop}}_{\sU'}$ and $A^{\mathrm{prop}}_{\sU''}$ are $\sU'$-{proper} and $\sU''$-{proper} $C^*$-subalgebras $_{\sU'} A_{\sU}'$ is said to be $\sU$-\textit{proper}
-\end{empt}
-!!! MAKE PROOF
-A proof of a following elementary equation
+Let $\sU'\subset \sU''$ and let both $A^{\mathrm{prop}}_{\sU'}$ and $A^{\mathrm{prop}}_{\sU''}$ are $\sU'$-{proper} and $\sU''$-{proper} $C^*$-subalgebras of $_{\sU'} A_{\sU'}$ and  $_{\sU''} A_{\sU''}$. From \eqref{blowing_su_inc_eqn} it turns out that there is an inclusion
+\bean 
+~_{\sU'}A _{\sU'}\subset~ _{\sU''}A _{\sU''}.
+\eean
+Let $\rep_x: A \to B\left(\H_x \right)$ be an irreducible representation. Both $C^*$-algebras  
+$A'_x \bydef\rep_x\left(C_0\left( \sU'\right)  \right)$ and $A''_x \bydef\rep_x\left(C_0\left( \sU''\right)  \right)$  are  commutative and $A'_x \subset A''_x$. If $B'_x\subset A'_x$ is a connected component then there is a unique connected component  $B''_x\subset A''_x$ such that $B'_x \subset B''_x$. If $\H'_x \bydef B'_x\H$ and $\H''_x \bydef B''_x\H$ then $\H'_x\subset \H''_x$ 
+From the equation  \eqref{blowing_prop_eqn} and the Definition it follows that
+$$
+\forall a \in A^{\mathrm{prop}}_{\sU'}\quad \rep_x\left( a\right)\H''_x=\H''_x
+$$
+Comparison of the above equation and \eqref{blowing_prop_eqn} yields an inclusion $ A^{\mathrm{prop}}_{\sU'} A^{\mathrm{prop}}_{\sU''}$ so one has
 \be\label{blowing_proprer_inc_eqn}
 \sU'\subset\sU'' \quad \Rightarrow\quad A^{\mathrm{prop}}_{\sU'}\subset A^{\mathrm{prop}}_{\sU''}
 \ee
-is left to the reader.
+\end{empt}
+!!! CONTINUE
 
 \begin{exercise}\label{blowing_uni_exer}!!!
 Suppose that $_\sU A_\sU \hookto~ _\sU B_\sU$ is a unitization (cf. Definition \ref{unitization_defn}). Prove that there is a unitization $ A^{\mathrm{prop}}_\sU\hookto B^{\mathrm{prop}}_\sU$ such that there is a following commutative diagram.
