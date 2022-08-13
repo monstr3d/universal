@@ -11752,7 +11752,7 @@ Consider the situation \ref{blowing_cv_empt}. Prove that the  faithful nondegene
 \begin{empt}\label{blowing_prop_empt}
 	Let  $C_0\left( \sY\right)\hookto M\left( A\right) $ be a Hausdorff blowing-up of $A$  (cf. Definition \ref{blowing_defn}), and let $\sU \subset \sX$ be a connected open set. Let $\sX$ be a spectrum of $A$ for any $x\in\sX$ there is an irreducible representation $\rep_x: A \to B\left(\H_x \right)$.	
 	The $C^*$-algebra 
-	$A_x \bydef\rep_x\left(C_0\left( \sU\right)  \right)$ is commutative, let  $\left\{A^{\a}_x\right\}_{\a\in \mathscr A_x}$ be a family of connected components (cf. Definition \ref{connected_comp_defn}) of $A_x$. If $\H^\a_x$ is the Hilbert norm completion of $A^\a_x \H_x$ then from $\a' \neq \a''$ it turns out that $\H^{\a'}_x\perp \H^{\a''}_x$. Suppose that $\H^\perp_x \subset \H_x$ is such that $\H_x = \H^\perp_x\bigoplus\left(\oplus_{\a\in \mathscr A_x} \H^\a_x\right)$.
+	$A_x \bydef\rep_x\left(C_0\left( \sU\right)  \right)$ is commutative, let  $\left\{A^{\a}_x\right\}_{\a\in \mathscr A_x}$ be a family of connected components (cf. Definition \ref{connected_comp_defn}) of $A_x$. If $\H^\a_x$ is the Hilbert norm completion of $A^\a_x \H_x$ then from $\a' \neq \a''$ it turns out that $\H^{\a'}_x\perp \H^{\a''}_x$. Suppose that $\H^\perp_x \subset \H_x$ is such that $\H_x = \H^\perp_x \oplus  \H^\parallel_x$ where $\H^\parallel_x$ is the Hilbert norm completion of $A_x \H_x$.
 We leave to the reader the prove of that a following set 
 	\be\label{blowing_prop_eqn}
 	\begin{split}
@@ -11773,15 +11773,47 @@ Let $\sU'\subset \sU''$ and let both $A^{\mathrm{prop}}_{\sU'}$ and $A^{\mathrm{
 \bean 
 ~_{\sU'}A _{\sU'}\subset~ _{\sU''}A _{\sU''}.
 \eean
-Let $\rep_x: A \to B\left(\H_x \right)$ be an irreducible representation. Both $C^*$-algebras  
-$A'_x \bydef\rep_x\left(C_0\left( \sU'\right)  \right)$ and $A''_x \bydef\rep_x\left(C_0\left( \sU''\right)  \right)$  are  commutative and $A'_x \subset A''_x$. If $B'_x\subset A'_x$ is a connected component then there is a unique connected component  $B''_x\subset A''_x$ such that $B'_x \subset B''_x$. If $\H'_x \bydef B'_x\H$ and $\H''_x \bydef B''_x\H$ then $\H'_x\subset \H''_x$ 
-From the equation  \eqref{blowing_prop_eqn} and the Definition it follows that
+Let $\rep_x: A \to B\left(\H_x \right)$ be an irreducible representation.
+Both $C^*$-algebras  
+$A'_x \bydef\rep_x\left(C_0\left( \sU'\right)  \right)$ and $A''_x \bydef\rep_x\left(C_0\left( \sU''\right)  \right)$  are  commutative and $A'_x \subset A''_x$. Let  $\left\{A^{\a'}_x\right\}_{\a'\in \mathscr A'_x}$ and $\left\{A^{\a''}_x\right\}_{\a''\in \mathscr A''_x}$ be a families of connected components (cf. Definition \ref{connected_comp_defn}) of $A'_x$ and  $A''_x$. From $A'_x \subset A''_x$ it turns out that
 $$
-\forall a \in A^{\mathrm{prop}}_{\sU'}\quad \rep_x\left( a\right)\H''_x=\H''_x
+A^{\a'}_x\cap A^{\a''}_x\neq\emptyset \quad \Rightarrow\quad A^{\a'}_x\subset  A^{\a''}_x.
 $$
-Comparison of the above equation and \eqref{blowing_prop_eqn} yields an inclusion $ A^{\mathrm{prop}}_{\sU'} A^{\mathrm{prop}}_{\sU''}$ so one has
+From the above equation it follows that
+\bean
+\bigoplus_{\substack{\a'\in \mathscr A'_x\\A^{\a'}_x\cap A^{\a''}_x\neq\emptyset}} A^{\a'}_x\H_x \subset A^{\a''}_x\H_x
+\eean
+Suppose that $\H'^\perp_x, \H''^\perp_x\subset \H_x$ is such that $\H_x = \H'^\perp_x\oplus \H'^\parallel_x= \H''^\perp_x\bigoplus\H''^\parallel_x$ where both $\H'^\parallel_x$ and $\H''^\parallel_x$ are Hilbert norm completions of $A'_x\H_x$ and $A''_x\H_x$ respectively. From $A'_x \subset A''_x$ it turns out that $\H''^\perp_x\subset \H'^\perp_x$, so one has
+$$
+\forall a \in C_0\left(\sU \right) \quad \rep_x\left(a \right) \H'^\perp_x = \{0\} \quad\Rightarrow\quad\rep_x\left(a \right) \H''^\perp_x = \{0\}
+$$
+
+On the other hand from the Definition \ref{blowing_proper_defn} and the equation \eqref{blowing_prop_eqn} it follows that
+\bean
+a \in A^{\mathrm{prop}}_{\sU'}\quad \Rightarrow\quad \rep_x\left( a\right)\left(  \bigoplus_{\substack{\a'\in \mathscr A'_x\\A^{\a'}_x\cap A^{\a''}_x\neq\emptyset}} A^{\a'}_x\H_x\right)  \subset \bigoplus_{\substack{\a'\in \mathscr A'_x\\A^{\a'}_x\cap A^{\a''}_x\neq\emptyset}} A^{\a'}_x\H_x,\\
+\rep_x\left(a \right) \H'^\perp_x = \{0\} \quad\Rightarrow\quad\rep_x\left(a \right) \H''^\perp_x = \{0\}.
+\eean
+From the above equations it follows that
+\bean
+a \in A^{\mathrm{prop}}_{\sU'}\quad \Rightarrow\quad \rep_x\left( a\right)A^{\a''}_x\H_x\subset A^{\a''}_x\H_x~~\text{ AND }~~\rep_x\left(a \right) \H''^\perp_x = \{0\}.
+\eean
+Taking into account  the Definition \ref{blowing_proper_defn} and the equation \eqref{blowing_prop_eqn} one has $a \in A^{\mathrm{prop}}_{\sU''}$ or more precisely
+\bean
+a \in A^{\mathrm{prop}}_{\sU'}\quad \Rightarrow\quad a \in A^{\mathrm{prop}}_{\sU''},\\
+A^{\mathrm{prop}}_{\sU'}\subset A^{\mathrm{prop}}_{\sU''}.
+\eean
+It turns out that
 \be\label{blowing_proprer_inc_eqn}
-\sU'\subset\sU'' \quad \Rightarrow\quad A^{\mathrm{prop}}_{\sU'}\subset A^{\mathrm{prop}}_{\sU''}
+\sU'\subset\sU'' \quad \Rightarrow\quad A^{\mathrm{prop}}_{\sU'}\subset A^{\mathrm{prop}}_{\sU''}.
+\ee
+From \eqref{blowing_proprer_inc_eqn} it turns out that
+\be\label{blowing_proprer_inc_op_eqn}
+\begin{split}
+\forall \sU', \sU''\subset \sY\quad	a' \in A^{\mathrm{prop}}_{\sU'}\quad \Rightarrow\quad a' \in A^{\mathrm{prop}}_{\sU'\cup\sU''},\\
+\forall \sU', \sU''\subset \sY\quad	a'' \in A^{\mathrm{prop}}_{\sU''}\quad \Rightarrow\quad a' \in A^{\mathrm{prop}}_{\sU'\cup\sU''},\\
+\forall \sU', \sU''\subset \sY\quad	\forall a' \in A^{\mathrm{prop}}_{\sU'}\quad\forall a'' \in A^{\mathrm{prop}}_{\sU''}\quad \Rightarrow\quad a'a'' \in A^{\mathrm{prop}}_{\sU'\cup\sU''},\\
+\forall \sU', \sU''\subset \sY\quad	\forall a' \in A^{\mathrm{prop}}_{\sU'}\quad\forall a'' \in A^{\mathrm{prop}}_{\sU''}\quad \Rightarrow\quad a'+a'' \in A^{\mathrm{prop}}_{\sU'\cup\sU''}\\
+\end{split}
 \ee
 \end{empt}
 !!! CONTINUE
@@ -11867,11 +11899,11 @@ b' = \sum_{j = 1}^{n} b_{j,1}\cdot ... \cdot b_{j,m_j}\in A,\\
 \forall j = 1,..., n \quad k = 1,..., m_j\quad \exists \a_{j,k}\in \mathscr A\quad b_{j,k}\in A^{\mathrm{prop}}_{\sU_{\a_{j,k}}},\\
 \left\|b - b' \right\| < \delta.\\
 \eean
-From the equation \eqref{blowing_proprer_inc_eqn} it follows that 
+From the equation \eqref{blowing_proprer_inc_op_eqn} it follows that 
 $
 b' \in A^{\text{prop}}_{\cup \sU_{\a_{j,k}}}.
 $
-If $\sV\subset\sU$ is the closure of a finite union $\cup \sU_{\a_{j,k}}$ then $\sV$ is compact.  From $\supp b'\subset \cup \sV$ it follows that if  $a' \bydef\supp b'^*b'$ then $\supp a\subset \sV$. If  $\delta^2 + 2 \delta \left\| b\right\|< \eps$ then $ \left\| a - a'\right\|< \eps$. 
+If $\sV\subset\sU$ is the closure of a finite union $\cup \sU_{\a_{j,k}}$ then $\sV$ is compact.  From $\supp b'\subset \sV$ it follows that if  $a' \bydef\supp b'^*b'$ then $\supp a'\subset \sV$. If  $\delta^2 + 2 \delta \left\| b\right\|< \eps$ then $ \left\| a - a'\right\|< \eps$. 
 If $\chi$ is a characteristic map of $\supp a'$ and $A \to B\left(\H\right)$ is a faithful representation then $\chi$ corresponds to a projector $p^\parallel\in  B\left(\H\right)$. If $\H^>$ is a completion of $f_\eps\left(a\right)\H$ then $\H^> = p^a_{\left(\eps, \infty\right) }\H$ where $p^a_{\left(\eps, \infty\right) }$ is a spectral projection of $a$ which corresponds to $\left(\eps, \infty\right)\subset \R$. It follows that
 \bea
 %\forall \eta \in \H^>\setminus \{0\} \quad \Leftrightarrow\quad  f_\eps\left(a\right)\eta \neq 0 \quad \Leftrightarrow\quad \frac{\left\|a \eta \right\|}{\left\| \eta \right\|}\ge \eps \\
@@ -11882,7 +11914,7 @@ If $p^\perp \bydef 1_{B\left(\H\right)}- p^\parallel$ then $p^\perp$ is also a p
 if $\left\|\xi \right\|= 1$ then $\left\|a\xi \right\|\ge \eps$. From $a'\xi = 0$ it follows that $\left\|a- a' \right\|\ge \eps$, it contradicts with our construction. So the assumption $\supp f_{\eps}\left( a\right)\not\subset\supp a'$ is not true, it turns out that $\supp f_{\eps}\left( a\right)\subset\supp a'$. It turns out that the set $\supp f_{\eps}\left( a\right)$ is compact, because it is  a closed subset of compact set $\supp a'$. 
 \end{proof}
 \begin{corollary}\label{blowing_supp_cor}
-	Let $A$ be $C^*$-algebra, and let $C_0\left( \sY\right) \subset M\left(A \right)$  be a disintegrable Hausdorff blowing-up (cf. Definitions \ref{blowing_defn}, \ref{blowing_disintegrable_defn}). If $\left\{\sU_\a\right\}_{\a\in \mathscr A}$  is a family of open sets such that $\sY = \cup \sU_\a$ then a union $\cup A^{\mathrm{prop}}_{\sU_\a}$ is dense in $A$.
+	Let $A$ be $C^*$-algebra, and let $C_0\left( \sY\right) \subset M\left(A \right)$  be a disintegrable Hausdorff blowing-up (cf. Definitions \ref{blowing_defn}, \ref{blowing_disintegrable_defn}). If $\left\{\sU_\a\right\}_{\a\in \mathscr A}$  is a family of all open subsets with compact closure such that $\sY = \cup \sU_\a$ then a union $\cup A^{\mathrm{prop}}_{\sU_\a}$ is dense in $A$.
 \end{corollary}
 \begin{proof}
 This lemma will be proved is for any $\eps > 0$ and $a \in A$ there is $\a\in \mathscr A$ and $a' \in A^{\mathrm{prop}}_{\sU_\a}$ such that
