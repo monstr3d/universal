@@ -1406,7 +1406,7 @@ Let $A$ be a *-algebra and let $D$ be a $C^*$-algebra. Let $\mathcal{E}$ be a Hi
    \paragraph{}
  Here the noncommutative generalization of the Theorem \ref{pavlov_troisky_thm} is being considered.  
    \begin{definition}\label{fin_quasi_defn}
-	Let $A$, $\widetilde A$ be connected $C^*$-algebras (cf. Definition \ref{connected_c_a_defn}) $\pi: A \hookto \widetilde{A}$ be an injective, unital (in the sense of the Definition \ref{principal_non_defn}) *-homomorphism of % connected	  
+	Let  $A$  be  a connected $C^*$-algebra (cf. Definition \ref{connected_c_a_defn}), and let $\pi: A \hookto \widetilde{A}$ be an injective, unital (in the sense of the Definition \ref{principal_non_defn}) *-homomorphism of % connected	  
 	$C^*$-algebras. Let $G$ be a finite  group of *-automorphisms of $\widetilde{A}$ such that 	$A \cong \widetilde{A}^G\stackrel{\text{def}}{=}\left\{
 	\left.a\in \widetilde{A}~\right|~ a = g a;~ \forall g \in G\right\}$.	We say that the triple $\left(A, \widetilde{A}, G \right)$ and/or the quadruple $\left(A, \widetilde{A}, G, \pi \right)$ and/or *-homomorphism $\pi: A \hookto \widetilde{A}$   is a \textit{noncommutative finite-fold  quasi-covering}. We write
 	\be\label{fin_cov_gr_eqn}
@@ -11740,17 +11740,40 @@ Let $f \in C_0\left( \sY\right)_+$ and let $\sU \bydef \left\{\left.x \in \sX\ri
 	\item $C^*$-norm completion of $fAf$ {equals to} $_\sU A_\sU$.
 \end{itemize}
 \end{exercise}
+
+\begin{empt}\label{blowing_strict_empt}
+	Suppose that $\left\{u_\la\right\}_{\la\in\La}$ is an approximate unit of $C_0\left( \sU\right)$ and let $a \in ~_\sU A_\sU$. For all $a  \in~_\sU A_\sU$  there is $a' \in A$ and $f',f'' \in C_0\left( \sU\right) $ such that $\left\|a - f'a'f'' \right\|\le \frac{\eps}{3}$. On the other hand there is $\la_0 \in \La$  such that $\left\|f' - u_\la f' \right\| < \frac{\eps}{3\left\|a'f'' \right\|}$ for all $\la\ge\la_0$. It follows that
+	\bean
+	\la\ge\la_0\Rightarrow\left\|a - u_\la a \right\|\le \\\le \left\|a - f'a'f''\right\|+ \left\|u_\la \left( a - f'a'f''\right)  \right\|+\left\|f'a'f'' - u_\la f'a'f''\right\| < \eps.
+	\eean
+	Similarly there is $\la'_0\in \La$ such that $\la\ge\la'_0\Rightarrow\left\|a - au_\la  \right\| < \eps$.
+	In result one has the following limit
+	\be\label{blowing_strict_eqn}
+	\bt\text{-}\lim u_\la = 1_{M\left( A_\sU\right) }
+	\ee
+	with respect to the strict topology of $M\left( A_\sU\right)$ (cf. Definition \ref{strict_topology_defn}).
+\end{empt}
+
 \begin{empt}\label{blowing_cv_empt}
 If $A \hookto B\left( \H\right)$ is a faithful representation, If $\sU$ is an open subset with compact closure $\sV$ then from the equations \eqref{blowig_su_eqn} and \eqref{blowig_sue_eqn} and the action $C\left(\sV\right)\otimes C_0\left( \sU\right)\to C_0\left( \sU\right)$ induces a left and right action $C\left(\sV\right)\times~ _\sU A_\sU\to~ _\sU A_\sU$, $\quad  _\sU A_\sU\times C\left(\sV\right)\to~ _\sU A_\sU$. If  $A \hookto B\left(\H\right)$ is a faithful nondegenerate representation (cf. Definitions \ref{faithful_repr_defn} and \ref{nondegenerate_repr_defn}) then from the Definition \ref{multiplier_el_defn} it follows that there is an inclusion $C_0\left(\sY\right)\hookto B\left( \H\right)$. So there is a Hilbert space given by
 \be\label{blowing_uh_eqn}
 _\sU \H\bydef \text{A Hilbert norm completion of } C_0\left( \sU\right)\H 
 \ee
 \end{empt}
-\begin{exercise}\label{blowing_cv_exer}!!! PROVE
-Consider the situation \ref{blowing_cv_empt}. Prove that the  faithful nondegenerate representation  $A \hookto B\left(\sH\right)$ (cf. Definitions \ref{faithful_repr_defn} and \ref{nondegenerate_repr_defn}) naturally induces a faithful nondegenerate representation  $_\sU A_\sU \hookto B\left(~_\sU \sH\right)$.
-\end{exercise}
-\begin{empt}\label{blowing_prop_empt}
-	Let  $C_0\left( \sY\right)\hookto M\left( A\right) $ be a Hausdorff blowing-up of $A$  (cf. Definition \ref{blowing_defn}), and let $\sU \subset \sX$ be a connected open set. Let $\sX$ be a spectrum of $A$ for any $x\in\sX$ there is an irreducible representation $\rep_x: A \to B\left(\H_x \right)$.	
+\begin{lemma}\label{blowing_cv_lem}
+Consider the situation \ref{blowing_cv_empt}. A faithful nondegenerate representation   $A \hookto B\left(\sH\right)$  (cf. Definitions \ref{faithful_repr_defn}  \ref{nondegenerate_repr_defn}) naturally induces a faithful nondegenerate representation  $_\sU A_\sU \hookto B\left(~_\sU \sH\right)$.
+\end{lemma}
+\begin{proof}
+If $a \in~ _\sU A_\sU$ and then from \ref{blowing_strict_empt} it follows that there is $f \in  C_0\left( \sU\right)$ such that 
+ $\left\|af- a \right\|< \frac{\left\| a \right\|}{2}$. Since a representation  $A \hookto B\left(\sH\right)$ is faithful there is $\xi \in \H$ such that $\left\| \xi \right\|= 1$ and $\left\| a\xi \right\|> \frac{\left\| a \right\|}{2}$. From the triangle inequality and both $\left\| a\xi \right\|> \frac{\left\| a \right\|}{2}$,  $~~\left\|\left( af- a \right) \xi \right\|< \frac{\left\| a \right\|}{2}$ it follows that $\left\|\left(  af\right) \xi \right\|= \left\|a\left(  f\xi\right) \right\|> 0$, so one has  $a ~_\sU \H\neq\{0\}$. It means that the representation $_\sU A_\sU \hookto B\left(~_\sU \sH\right)$ is faithful.
+
+If $\xi \in ~_\sU\H$  and $\eps > 0$ then there is $b \in A$ then there are $f \in  C_0\left( \sU\right)_+$ and $\eta \in \H$ such that $\left\| f\eta -\xi  \right\|< \eps$. The representation $A \hookto B\left(\sH\right)$ is nondegenerate so there is $b \in A$ and $\zeta\in \H$ such that $\left\| \eta -b\zeta  \right\|< \frac{\eps}{\left\|f \right\|}$. Using the triangle identity one concludes that $\left\| f b\zeta - \xi  \right\| < \eps$. Clearly $f b \in ~_\sU A$. If $x \bydef f b$ then from the Proposition \ref{polar_decomposition_prop} it turns out that there a unique partial isometry $u\in B\left(\H \right) $ and positive $\left|x\right| \in B\left(\H \right)_+$ with $uu^*=[|x|]$ and  $x=|x|u$. 
+On the other hand $xx^*= \left|x\right|^2 \in~ _\sU A_{\sU+}$ (cf. Lemma \ref{hered_ideal_lem}), and $\left|x\right|\in ~ _\sU A_{\sU+}$. From our construction it follows that
+	 $fb\zeta=|x|u\zeta = |x|\psi$ whee $\psi \bydef u\zeta$. If $\H = ~_\sU \H \oplus _\sU \H^\perp$, and $\psi = \psi^\parallel + \psi^\perp$, where $\left( \psi^\parallel, \psi^\perp\right) \in~ _\sU \H \times _\sU \H^\perp$ then from $\left|x\right|\in ~ _\sU A_{\sU+}$ it follows that $\left|x\right|\psi^\perp = 0$,  $~~\left|x\right|^\parallel \psi= \left|x\right|\psi= f b\zeta$, and taking info account $\left\| f b\zeta - \xi  \right\| < \eps$ we conclude that $_\sU A_\sU~_\sU\H$ is dense in $_\sU\H$, i.e. the representation $_\sU A_\sU \hookto B\left(~_\sU \sH\right)$ is nondegenerate.
+\end{proof}
+
+	\begin{empt}\label{blowing_prop_empt}
+	Let  $C_0\left( \sY\right)\hookto M\left( A\right) $ be Hausdorff blowing-up of $A$  (cf. Definition \ref{blowing_defn}), and let $\sU \subset \sX$ be an  open set. Let $\sX$ be a spectrum of $A$ for any $x\in\sX$ there is an irreducible representation $\rep_x: A \to B\left(\H_x \right)$.	
 	The $C^*$-algebra 
 	$A_x \bydef\rep_x\left(C_0\left( \sU\right)  \right)$ is commutative, let  $\left\{A^{\a}_x\right\}_{\a\in \mathscr A_x}$ be a family of all connected components (cf. Definition \ref{connected_comp_defn}) of $A_x$. If $\H^\a_x$ is the Hilbert norm completion of $A^\a_x \H_x$ then from $\a' \neq \a''$ it turns out that $\H^{\a'}_x\perp \H^{\a''}_x$. Suppose that $\H^\perp_x \subset \H_x$ is such that $\H_x = \H^\perp_x \oplus  \H^\parallel_x$ where $\H^\parallel_x$ is the Hilbert norm completion of $A_x \H_x$.
 We leave to the reader the prove of that a following set 
@@ -11785,12 +11808,11 @@ From the above equation it follows that
 \eean
 Suppose that $\H'^\perp_x, \H''^\perp_x\subset \H_x$ is such that $\H_x = \H'^\perp_x\oplus \H'^\parallel_x= \H''^\perp_x\bigoplus\H''^\parallel_x$ where both $\H'^\parallel_x$ and $\H''^\parallel_x$ are Hilbert norm completions of $A'_x\H_x$ and $A''_x\H_x$ respectively. From $A'_x \subset A''_x$ it turns out that $\H''^\perp_x\subset \H'^\perp_x$, so one has
 $$
-\forall a \in C_0\left(\sU \right) \quad \rep_x\left(a \right) \H'^\perp_x = \{0\} \quad\Rightarrow\quad\rep_x\left(a \right) \H''^\perp_x = \{0\}
+\forall a \in C_0\left(\sU \right) \quad \rep_x\left(a \right) \H'^\perp_x = \{0\} \quad\Rightarrow\quad\rep_x\left(a \right) \H''^\perp_x = \{0\}.
 $$
-
-On the other hand from the Definition \ref{blowing_proper_defn} and the equation \eqref{blowing_prop_eqn} it follows that
+!!!On the other hand from the Definition \ref{blowing_proper_defn} and the equation \eqref{blowing_prop_eqn} it follows that
 \bean
-a \in A^{\mathrm{prop}}_{\sU'}\quad \Rightarrow\quad \rep_x\left( a\right)\left(  \bigoplus_{\substack{\a'\in \mathscr A'_x\\A^{\a'}_x\cap A^{\a''}_x\neq\emptyset}} A^{\a'}_x\H_x\right)  \subset \bigoplus_{\substack{\a'\in \mathscr A'_x\\A^{\a'}_x\cap A^{\a''}_x\neq\emptyset}} A^{\a'}_x\H_x,\\
+a \in A^{\mathrm{prop}}_{\sU'}\quad \Rightarrow\quad \rep_x\left( a\right)\left(  \bigoplus_{\substack{\a'\in \mathscr A'_x\\A^{\a'}_x\cap A^{\a''}_x\neq\emptyset}} A^{\a'}_x\H_x\right)  \subset \bigoplus_{\substack{\a''\in \mathscr A''_x\\A^{\a'}_x\cap A^{\a''}_x\neq\emptyset}} A^{\a''}_x\H_x,\\
 \rep_x\left(a \right) \H'^\perp_x = \{0\} \quad\Rightarrow\quad\rep_x\left(a \right) \H''^\perp_x = \{0\}.
 \eean
 From the above equations it follows that
@@ -11818,23 +11840,23 @@ From \eqref{blowing_proprer_inc_eqn} it turns out that
 \end{empt}
 
 
-\begin{exercise}\label{blowing_uni_exer}!!! MAY BE DELETE
-Suppose that $_\sU A_\sU \hookto~ _\sU B_\sU$ is a unitization (cf. Definition \ref{unitization_defn}). Prove that there is a unitization $ A^{\mathrm{prop}}_\sU\hookto B^{\mathrm{prop}}_\sU$ such that there is a following commutative diagram.
-	\newline
-	\begin{tikzpicture}
-		\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
-		{
-			A^{\mathrm{prop}}_\sU   & _\sU A_\sU   \\ 
-			B^{\mathrm{prop}}_\sU   & _\sU B_\sU \\};
-		\path[-stealth]
-		(m-1-1) edge node [above] {$\iota^{\mathrm{prop}}_\sU$} (m-1-2)
-			(m-2-1) edge node [above] {$\overline \iota^{\mathrm{prop}}_\sU$} (m-2-2)
-		(m-1-1) edge node [right]  {$\cap$} (m-2-1)
-		(m-1-2) edge node [right]  {$\cap$} (m-2-2);
-	\end{tikzpicture}
-	\\ 	
+%\begin{exercise}\label{blowing_uni_exer}!!! MAY BE DELETE
+%Suppose that $_\sU A_\sU \hookto~ _\sU B_\sU$ is a unitization (cf. Definition \ref{unitization_defn}). Prove that there is a unitization $ A^{\mathrm{prop}}_\sU\hookto B^{\mathrm{prop}}_\sU$ such that there is a following commutative diagram.
+%	\newline
+%	\begin{tikzpicture}
+%		\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
+%		{
+%			A^{\mathrm{prop}}_\sU   & _\sU A_\sU   \\ 
+%			B^{\mathrm{prop}}_\sU   & _\sU B_\sU \\};
+%		\path[-stealth]
+%		(m-1-1) edge node [above] {$\iota^{\mathrm{prop}}_\sU$} (m-1-2)
+%			(m-2-1) edge node [above] {$\overline \iota^{\mathrm{prop}}_\sU$} (m-2-2)
+%		(m-1-1) edge node [right]  {$\cap$} (m-2-1)
+%		(m-1-2) edge node [right]  {$\cap$} (m-2-2);
+%	\end{tikzpicture}
+%	\\ 	
 	
-\end{exercise}
+%\end{exercise}
 
 \begin{definition} \label{blowing_disintegrable_defn}
 Hausdorff blowing-up	$C\cong C_0\left( \sY\right) \subset M\left(A \right)$ is said to be \textit{disintegrable} if for any family $\left\{\sU_\a\subset\sY\right\}_{\a \in \mathscr A}$ of connected open subsets such that  $\cup \sU_\a = \sY$,
@@ -11855,26 +11877,12 @@ A^{\left\{\sU_\a\right\}}_{\text{fin}}\hookto A
 		\item The inclusion  is a Hausdorff blowing-up (cf. Definition \ref{blowing_defn}).
 		\item If $\sU \subset \sX$ is an open connected subset then one has
 		$$
- A^{\mathrm{prop}}_{\sU}	=~ _\sU A_\sU
+ A^{\mathrm{prop}}_{\sU}	=~ _\sU A_\sU= A_\sU = ~_\sU A= A|_{\mathcal U}
 		$$
-		where $_\sU A_\sU$ is given by \eqref{blowig_sue_eqn} and $A^{\mathrm{prop}}_{\sU}$ is a  $\sU$-\textit{proper} $C^*$-subalgebra (cf. Definition \ref{blowing_proper_defn}).
-		\item Using (b) of the Lemma \ref{ctr_rep_eq_lem} prove that the inclusion is disintegrable (cf. Definition \ref{blowing_disintegrable_defn})
+		where $_\sU A_\sU$ is given by \eqref{blowig_sue_eqn} and $A^{\mathrm{prop}}_{\sU}$ is a  $\sU$-\textit{proper} $C^*$-subalgebra (cf. Definition \ref{blowing_proper_defn}) and $A|_{\mathcal U}$ is given by the equation \ref{ctr_open_id_eqn}.
+		\item Using (b) of the Lemma \ref{ctr_rep_eq_lem} prove that the inclusion is disintegrable (cf. Definition \ref{blowing_disintegrable_defn}).
 	\end{enumerate}
 \end{exercise}
-
-\begin{empt}\label{blowing_strict_empt}
-	Suppose that $\left\{u_\la\right\}_{\la\in\La}$ is an approximate unit of $C_0\left( \sU\right)$ and let $a \in ~_\sU A_\sU$. For all $a  \in~_\sU A_\sU$  there is $a' \in A$ and $f',f'' \in C_0\left( \sU\right) $ such that $\left\|a - f'a'f'' \right\|\le \frac{\eps}{3}$. On the other hand there is $\la_0 \in \La$  such that $\left\|f' - u_\la f' \right\| < \frac{\eps}{3\left\|a'f'' \right\|}$ for all $\la\ge\la_0$. It follows that
-\bean
-	\la\ge\la_0\Rightarrow\left\|a - u_\la a \right\|\le \\\le \left\|a - f'a'f''\right\|+ \left\|u_\la \left( a - f'a'f''\right)  \right\|+\left\|f'a'f'' - u_\la f'a'f''\right\| < \eps.
-\eean
-	Similarly there is $\la'_0\in \La$ such that $\la\ge\la'_0\Rightarrow\left\|a - au_\la  \right\| < \eps$.
-	In result one has the following limit
-	\be\label{blowing_strict_eqn}
-	\bt\text{-}\lim u_\la = 1_{M\left( A_\sU\right) }
-	\ee
-	with respect to the strict topology of $M\left( A_\sU\right)$ (cf. Definition \ref{strict_topology_defn}).
-\end{empt}
-
 
 %\begin{definition}\label{blowing_dir_supp_defn}
 %Let $\sU\subset \sY$ be an open set which is a disjoint union  $\sU = \bigsqcup \sU_\a$. A $\sU$-\textit{proper}  $C^*$-subalgebra is generated by the algebraic direct sum $\bigoplus A^{\mathrm{prop}}_{\sU_\a}$.
@@ -11939,16 +11947,51 @@ Form $\sY = \cup \sU_\a$ it follows that there is $\a\in \mathscr A$ such that $
 %\end{exercise}
 
 \section{Hausdorff blowing-up and noncommutative  coverings}
+\paragraph{}
+	Let $A$ be a connected  $C^*$-algebra (cf. Definition \ref{connected_c_a_defn}), and let $C_0\left( \sY\right)\hookto M\left( A\right) $ be  Hausdorff blowing up (cf. Definition \ref{blowing_defn}). If   $\left(A, \widetilde{A}, G, \pi \right)$ is  a noncommutative finite-fold  quasi-covering (cf. Definition \ref{fin_quasi_defn}) then from the Lemma \ref{ind_mult_inv_lem} it follows that there is an injective *-homomorphism $M\left(A\right)\hookto M\left(\widetilde A\right)$. If both $\sX$ and $\widetilde\sX$ are spectra of $M\left(\widetilde A\right)$ and $M\left(\widetilde A\right)$ then from \eqref{rep_x_mor_inj_eqn} it follows that there is the natural inclusion
+	\be\label{blowing_rep_inc_eqn}
+	\psi_{\widetilde x}:	\rep^{ M\left( A\right)}_{p\left( \widetilde{x}\right) }\left( M\left( A\right) \right)\hookto \rep^{ M\left(\widetilde A\right)}_{ \widetilde{x} }\left( M\left(\widetilde A\right) \right)
+	\ee
+	where the map $p: \widetilde \sX \to \sX$ is given by the Proposition \ref{spectrum_cov_prop}.
+	For any $\widetilde x\in \widetilde \sX$ a $C^*$-algebra $
+	\widetilde C_{\widetilde{x}}\bydef  \psi_{\widetilde x}\circ \rep^{ M\left( A\right)}_{p\left( \widetilde{x}\right) }\left( C_0\left(\sY \right)  \right)\subset \rep^{ M\left(\widetilde A\right)}_{ \widetilde{x} }\left( M\left(\widetilde A\right) \right)
+	$ is commutative since it is an image of a commutative $C^*$-algebra $C_0\left(\sY\right)$. It turns out that a $C^*$-algebra
+	\be\label{blowing_cy_eqn}
+	C_0\left( \widetilde \sY \right) \cong \widetilde C\bydef  \left\{\widetilde c \in M\left(\widetilde A\right) \left| \forall \widetilde x \in \widetilde \sX\quad \rep^{ M\left(\widetilde A\right)}_{ \widetilde{x} }\left(\widetilde c \right)\in \widetilde C_{\widetilde x}\right.\right\}\subset M\left(\widetilde A\right)
+	\ee
+	is also commutative so we write $C_0\left( \widetilde \sY \right) \cong \widetilde C$ (cf. Theorem \ref{gelfand-naimark_thm}). Using \eqref{blowing_rep_inc_eqn} one can find an injective *-homomorphism
+	\be\label{blowing_inj_eqn}
+	C_0\left(\sY\right)\hookto C_0\left( \widetilde \sY \right). 
+	\ee
+	If $\widetilde c \in C_0\left( \widetilde \sY \right)$ then $\forall \widetilde x \in \widetilde \sX\quad \rep^{ M\left(\widetilde A\right)}_{ \widetilde{x} }\left(\widetilde c \right)\in \widetilde C_{\widetilde x}$ for all $g \in G$. It turns out that there are following actions
+	\be\label{blowing_g_y_act_eqn}
+	\begin{split}
+		G \times C_0\left( \widetilde \sY \right) \to C_0\left( \widetilde \sY \right),\\
+		G \times \widetilde \sY  \to \widetilde \sY.
+	\end{split}
+	\ee
+	\begin{exercise}\label{blowing_g_y_act_exer}
+		Similarly to the Proposition \ref{spectrum_cov_prop} prove that the *-homomorphism 	 \ref{blowing_inj_eqn} induces a continuous map
+		\be\label{blowing_inj_b_eqn}
+	q:\widetilde \sY \to \sY.
+		\ee
+	\end{exercise}
 
+!!! CONTINUE $\widetilde \sY \to \sY$.
+!!!We leave to the reader that if !!! REDUCIBLE COVERING disintegrable Hausdoff blowing up.
 \paragraph*{} 
 Let $A$ be a  connected $C^*$-algebra (cf. Definition \ref{connected_c_a_defn}), and let $C_0\left( \sY\right)\hookto M\left(A \right)$  be  Hausdorff  blowing-up of $A$ (cf. Definition \ref{blowing_defn}). If $\left(A, \widetilde{A}, G, \pi \right)$ is a noncommutative finite-fold quasi-covering (cf. Definition \ref{fin_quasi_defn}) then from the Lemma \ref{ind_mult_inv_lem} it follows that there is the natural inclusion $\varphi:M\left({A} \right) \hookto M\left(\widetilde{A} \right)$ of $C^*$-algebras. So there is the natural inclusion $C_0\left( \sY\right)\hookto M\left(\widetilde{A} \right)$. If $\sU\subset \sY$ is an open subset then there is an inclusion $C_0\left(\sU \right)A C_0\left(\sU \right)\subset C_0\left(\sU \right)\widetilde A C_0\left(\sU \right)$. If  $\widetilde A_\sU$ is the $C^*$-norm completion of $C_0\left(\sU \right)\widetilde A C_0\left(\sU \right)$ then there is the natural injective *-homomorphism.
 \be\label{blowing_jsu_eqn}
-j_{\sU}:~ _\sU A_\sU \hookto~ _\sU\widetilde A_\sU.
+j_{\sU}:~ _\sU A_\sU \hookto~ _\sU\widetilde A_\sU
 \ee
+such that
+$$
+\forall a \in A \quad f', f'' \quad j_\sU\left( f'af''\right) = f'\pi\left(a \right)f''. 
+$$
  If both $\sX$ and $\widetilde\sX$ are spectra of $A$ and $\widetilde A$ then from the Proposition \ref{spectrum_cov_prop} it turns out that there is a continuous map $p: \widetilde\sX\to\sX$. For any $x\in\sX$ and $\widetilde x \in \widetilde\sX$  there are  irreducible representations $\rep_x: A \to B\left(\H_x \right)$ and $\rep_{\widetilde x}: \widetilde A \to B\left(\H_{\widetilde x} \right)$.
  %Suppose that $\left(A, \widetilde{A}, G, \pi \right)$ is reduced (cf. Definition \ref{fin_red_defn}).
   From \eqref{rep_x_mor_inj_eqn} it follows that for all $\widetilde x \in \widetilde \sX$ one has following inclusions
- \be\label{blowing_rep_inc_eqn}
+ \be\label{blowing_rep_hinc_eqn}
  \begin{split}
  	\rep^{M\left(A\right)}_{p\left( \widetilde{x}\right) }\left(M\left(A\right) \right)\hookto \rep^{M\left( \widetilde A\right) }_{ \widetilde{x} }\left(M\left( \widetilde A \right) \right),
 \\
@@ -11967,7 +12010,6 @@ j_{\sU}:~ _\sU A_\sU \hookto~ _\sU\widetilde A_\sU.
  		\left\{\widetilde a \in~_\sU \widetilde A_\sU\left| ~\forall \widetilde x \in \widetilde \sX \quad \forall \widetilde \xi \in \H^\perp_{\widetilde x}\quad \rep_{\widetilde x}\left( \widetilde a\right)\widetilde \xi = 0\quad \forall\a\in \mathscr A_{p\left(\widetilde x\right)} \quad a \H^\a_{\widetilde x}\subset \H^\a_{\widetilde x} \right.  \right\}
  	\end{split}
  	\ee 
- 
  	is a $C^*$-subalgebra of $_\sU\widetilde A_\sU$.   The equation \ref{blowing_tprop_eqn} is a specialization of  \ref{blowing_prop_eqn}, i.e. the given by \eqref{blowing_tprop_eqn} $C^*$-algebra !!! CONTINUE
  	\begin{definition}\label{blowing_cov_u_prop_defn}
  		The given by \eqref{blowing_tprop_eqn} $C^*$-algebra will be denoted by $\widetilde A_\sU^{\mathrm{prop}}$. We say that $\widetilde A_\sU^{\mathrm{prop}}$ is a $\left( \left(A, \widetilde{A}, G, \pi \right),\sU\right)$-proper $C*$-subalgebra of $_\sU \widetilde{A}_\sU$.
@@ -12402,7 +12444,7 @@ G\bydef \left\{\left.g \in \Aut\left(\widetilde A\right)\right. \forall a \in A\
 
 \begin{exercise}\label{blowing_v_mult_exer}
 Let $A$ be a $C^*$-algebra, and let $C_0\left(\sY\right)\hookto M\left(A\right)$ be a Hausdorff blowing-up (cf. Definition \ref{blowing_defn}).  Let $A \hookto B\left(\H \right)$ is a faithful nondegenerate representation (cf. Definitions \ref{faithful_repr_defn} and \ref{nondegenerate_repr_defn}).	 	Let $\sU \subset \sY$ be an open subset with compact closure $\sV$.
-If $_\sU A_\sU$ and $_\sU\H$ are given by \eqref{blowig_sue_eqn} and \eqref{blowing_uh_eqn} then the Exercise \ref{blowing_cv_exer} yields a faithful nondegenerate representation  $_\sU A_\sU \hookto B\left(~_\sU \sH\right)$. Prove that there are inclusions:
+If $_\sU A_\sU$ and $_\sU\H$ are given by \eqref{blowig_sue_eqn} and \eqref{blowing_uh_eqn} then the Lemma \ref{blowing_cv_lem}  yields a faithful nondegenerate representation  $_\sU A_\sU \hookto B\left(~_\sU \sH\right)$. Prove that there are inclusions:
 \be\label{blowing_cym_eqn}
 \begin{split}
 C_0\left(\sU \right) \hookto M\left(_\sU A_\sU\right),\\
@@ -12417,7 +12459,7 @@ C\left(\sV \right) \hookto M\left(_\sU A_\sU\right).
 \begin{exercise}\label{blowing_sv_eqn}
 	Let  $A$ be a connected  $C^*$-algebra (cf. Definition \ref{connected_c_a_defn}), and let $C_0\left( \sY\right)\hookto M\left(A \right) $ be a  disintegrable  Hausdorff blowing-up (cf. Definitions \ref{blowing_defn} and \ref{blowing_disintegrable_defn}).
 	Let $\sU \subset \sY$ be an open subset with compact closure $\sV$. 
-If $A \hookto B\left(\H \right)$ is a faithful nondegenerate representation (cf. Definitions \ref{faithful_repr_defn} and \ref{nondegenerate_repr_defn}), and a Hilbert space $_\sU\H$ is given by \eqref{blowing_uh_eqn}	then 	the Exercise \ref{blowing_cv_exer} yields a faithful nondegenerate representation 	  $_\sU A_\sU \hookto B\left(~_\sU \sH\right)$. From  \ref{blowing_cv_empt} it follows that there is an inclusion $C\left(\sV\right)\hookto M\left(_\sU A_\sU\right)$.
+If $A \hookto B\left(\H \right)$ is a faithful nondegenerate representation (cf. Definitions \ref{faithful_repr_defn} and \ref{nondegenerate_repr_defn}), and a Hilbert space $_\sU\H$ is given by \eqref{blowing_uh_eqn}	then 	the Exercise \ref{blowing_cv_lem} !!! LEMMA !!! yields a faithful nondegenerate representation 	  $_\sU A_\sU \hookto B\left(~_\sU \sH\right)$. From  \ref{blowing_cv_empt} it follows that there is an inclusion $C\left(\sV\right)\hookto M\left(_\sU A_\sU\right)$.
 	Let $q : \widetilde \sV \to \sV$ be a finite-fold transitive covering. Prove following statements: 
 	\begin{enumerate}
 		\item An algebraic tensor product $C_0\left( \widetilde \sV\right)\otimes_{C\left(\sV \right) }~_{\sU} A_\sU$  	has a natural structure of a $C^*$-Hilbert $~_{\sU} A_\sU$-module (cf. Lemma \ref{blowing_hilbert_module_lem}).
@@ -12624,33 +12666,9 @@ Otherwise both 	$C_0\left(\widetilde\sY\right)\otimes_{C_0\left(\sY\right)}A$ an
 		\item[(iv)] There is a natural disintegrable Hausdorff blowing-up $C\left(\widetilde \sY\right)\hookto M\left(\widetilde A\right)$ (cf. Definitions \ref{blowing_defn} and \ref{blowing_disintegrable_defn})
 	\end{enumerate}	
 \end{theorem}
-\
 
-\begin{empt}\label{blowing_ty_empt}
-Let $A$ be a connected  $C^*$-algebra (cf. Definition \ref{connected_c_a_defn}), and let $C_0\left( \sY\right)\hookto M\left( A\right) $ be a Hausdorff blowing up (cf. Definition \ref{blowing_defn}). If   $\left(A, \widetilde{A}, G, \pi \right)$ is  a noncommutative finite-fold  quasi-covering (cf. Definition \ref{fin_quasi_defn}) then from the Lemma \ref{ind_mult_inv_lem} it follows that there is an injective *-homomorphism $M\left(A\right)\hookto M\left(\widetilde A\right)$. If both $\sX$ and $\widetilde\sX$ are spectra of $M\left(\widetilde A\right)$ and $M\left(\widetilde A\right)$ then from \eqref{rep_x_mor_inj_eqn} it follows that there is the natural inclusion
-\be\label{blowing_rep_inc_eqn}
-\psi_{\widetilde x}:	\rep^{ M\left( A\right)}_{p\left( \widetilde{x}\right) }\left( M\left( A\right) \right)\hookto \rep^{ M\left(\widetilde A\right)}_{ \widetilde{x} }\left( M\left(\widetilde A\right) \right)
-\ee
-where the map $p: \widetilde \sX \to \sX$ is given by the Proposition \ref{spectrum_cov_prop}.
-For any $\widetilde x\in \widetilde \sX$ a $C^*$-algebra $
-\widetilde C_{\widetilde{x}}\bydef  \psi_{\widetilde x}\circ \rep^{ M\left( A\right)}_{p\left( \widetilde{x}\right) }\left( C_0\left(\sY \right)  \right)\subset \rep^{ M\left(\widetilde A\right)}_{ \widetilde{x} }\left( M\left(\widetilde A\right) \right)
-$ is commutative since it is an image of a commutative $C^*$-algebra $C_0\left(\sY\right)$. It turns out that a $C^*$-algebra
-\be\label{blowing_cy_eqn}
-C_0\left( \widetilde \sY \right) \cong \widetilde C\bydef  \left\{\widetilde c \in M\left(\widetilde A\right) \left| \forall \widetilde x \in \widetilde \sX\quad \rep^{ M\left(\widetilde A\right)}_{ \widetilde{x} }\left(\widetilde c \right)\in \widetilde C_{\widetilde x}\right.\right\}\subset M\left(\widetilde A\right)
-\ee
-is also commutative so we write $C_0\left( \widetilde \sY \right) \cong \widetilde C$ (cf. Theorem \ref{gelfand-naimark_thm}). Using \eqref{blowing_rep_inc_eqn} one can find an injective *-homomorphism
-\be\label{blowing_inj_eqn}
-C_0\left(\sY\right)\hookto C_0\left( \widetilde \sY \right). 
-\ee
-If $\widetilde c \in C_0\left( \widetilde \sY \right)$ then $\forall \widetilde x \in \widetilde \sX\quad \rep^{ M\left(\widetilde A\right)}_{ \widetilde{x} }\left(\widetilde c \right)\in \widetilde C_{\widetilde x}$ for all $g \in G$. It turns out that there are following actions
-\be\label{blowing_g_y_act_eqn}
-\begin{split}
-G \times C_0\left( \widetilde \sY \right) \to C_0\left( \widetilde \sY \right),\\
-G \times \widetilde \sY  \to \widetilde \sY.
-\end{split}
-\ee
-\end{empt}
-We leave to the reader that if !!! REDUCIBLE COVERING disinteggrable hausdoff blowing up.
+
+
 \begin{lemma}
 	Let $A$ be a connected  $C^*$-algebra (cf. Definition \ref{connected_c_a_defn}), and let $C\left( \sY\right)\hookto M\left(A \right) $ be a Hausdorff blowing up (cf. Definition \ref{blowing_defn}) with compact $\sY$.  Suppose that   $\left(A, \widetilde{A}, G, \pi \right)$ is  a noncommutative finite-fold  covering with unitization (cf. Definition \ref{fin_unitization_defn}). Let $\left(B, \widetilde{B}, G, \rho \right)$ be a required by the Definition \ref{fin_unitization_defn} unital noncommutative finite-fold  covering (cf. Definition \ref{fin_unital_defn}), such that $C\left(\sY \right) \subset B$. If $C\left(\widetilde\sY\right)$ is given by \eqref{blowing_cy_eqn} then one has
 	$$
