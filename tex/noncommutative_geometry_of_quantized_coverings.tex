@@ -11680,7 +11680,7 @@ The algebraic construction can be applied if $\sX/G$ is not Hausdorff.  The map 
 
 
 \begin{definition}\label{blowing_defn} 
-Any  commutative $C^*$-subalgebra $C\cong C_0\left( \sY\right) \subset M\left(A \right)$ is said to be   \textit{Hausdorff blowing-up} of $A$ if for any irreducible representation $\rho: A \to B\left( \H\right)$ a commutative  $C^*$-algebra $\rho\left( A\right)$ is not trivial. 
+Any  commutative $C^*$-subalgebra $C\cong C_0\left( \sY\right) \subset M\left(A \right)$ is said to be   \textit{Hausdorff blowing-up} of $A$ if both $CA\subset A$ and $AC\subset A$ are dense subspaces of $A$. 
 \end{definition}
 
 
@@ -11810,6 +11810,24 @@ On the other hand $x^*=u^*|x|\in A_\sU$ (cf. \eqref{blowig_sue2_eqn}) $xx^*=|x|u
 \end{lemma}
 \begin{proof}
 From the Lemma \ref{blowing_cv_lem} it follows that the natural representation  $_\sU A_\sU \hookto B\left(~_\sU \sH\right)$ is  faithful and nondegenerate. The equation \eqref{blowing_fafaii_eqn} is a specialization of \eqref{multiplier_el_eqn} one, so from the Definition \ref{multiplier_el_defn} one has $C\left(\sV \right)\subset M\left( _\sU A_\sU\right)$.
+\end{proof}
+\begin{corollary}\label{blowing_comp_mult_cor}
+In the situation \ref{blowing_comp_mult_empt} one has
+$$
+1_{C\left(\sV\right)}= 1_{M\left( _\sU A_\sU\right) }
+$$
+\end{corollary}
+\begin{proof}
+	For any $f', f'' \in C_0\left( \sU\right)$ and $a \in A$  one has 
+\bean
+	1_{C\left(\sV\right)} \left(f'af''\right)= \left( 1_{C\left(\sV\right)} f'\right) a f'' = f'af''= f'a\left( f''1_{C\left(\sV\right)} \right)=  \left(f'af''\right)1_{C\left(\sV\right)}.
+\eean
+On the other hand from the equation \eqref{blowig_sue3_eqn} it follows that the space of elements
+$f'af''$ where $a \in A;\quad f', f'' \in C_0\left( \sU\right)$
+is dense in $_\sU A_\sU$ it turns out that
+$$
+\forall b \in ~_\sU A_\sU \quad b = 1_{C\left(\sV\right)} b = b1_{C\left(\sV\right)}
+$$
 \end{proof}
 
 	\begin{empt}\label{blowing_prop_empt}
@@ -11995,9 +12013,10 @@ Form $\sY = \cup \sU_\a$ it follows that there is $\a\in \mathscr A$ such that $
 \subsection{Finite-fold coverings}
 
 \paragraph{}
-	Let $A$ be a connected  $C^*$-algebra (cf. Definition \ref{connected_c_a_defn}), and let $C_0\left( \sY\right)\hookto M\left( A\right) $ be  Hausdorff blowing up (cf. Definition \ref{blowing_defn}). If   $\left(A, \widetilde{A}, G, \pi \right)$ is  a noncommutative finite-fold  quasi-covering (cf. Definition \ref{fin_quasi_defn}) then from the Lemma \ref{ind_mult_inv_lem} it follows that there is an injective *-homomorphism $M\left(A\right)\hookto M\left(\widetilde A\right)$. If both $\sX$ and $\widetilde\sX$ are spectra of $M\left(\widetilde A\right)$ and $M\left(\widetilde A\right)$ then from \eqref{rep_x_mor_inj_eqn} it follows that there is the natural inclusion
+	Let $A$ be a connected  $C^*$-algebra (cf. Definition \ref{connected_c_a_defn}), and let $C_0\left( \sY\right)\hookto M\left( A\right) $ be  Hausdorff blowing up (cf. Definition \ref{blowing_defn}). If   $\left(A, \widetilde{A}, G, \pi \right)$ is  a noncommutative finite-fold  quasi-covering (cf. Definition \ref{fin_quasi_defn}) then from the Lemma \ref{ind_mult_inv_lem} it follows that there is an injective *-homomorphism $M\left(A\right)\hookto M\left(\widetilde A\right)$. 
+	If both $\sX$ and $\widetilde\sX$ are spectra of $A$ and $\widetilde A$ then from the Theorem \ref{ideal_spectrum_thm} it turns out that these sets are dense subsets of spectra of  $M\left(\widetilde A\right)$ and $M\left(\widetilde A\right)$ respectively.  From \eqref{rep_x_mor_inj_eqn} it follows that there is the natural inclusion
 	\be\label{blowing_rep_inc_eqn}
-	\psi_{\widetilde x}:	\rep^{ M\left( A\right)}_{p\left( \widetilde{x}\right) }\left( M\left( A\right) \right)\hookto \rep^{ M\left(\widetilde A\right)}_{ \widetilde{x} }\left( M\left(\widetilde A\right) \right)
+	\psi_{\widetilde x}:	\rep^{ M\left( A\right)}_{p\left( \widetilde{x}\right) }\left( M\left( A\right) \right)\hookto \rep^{ M\left( A\right)}_{ \widetilde{x} }\left( M\left(\widetilde A\right) \right)
 	\ee
 	where the map $p: \widetilde \sX \to \sX$ is given by the Proposition \ref{spectrum_cov_prop}.
 	For any $\widetilde x\in \widetilde \sX$ a $C^*$-algebra $
@@ -12040,6 +12059,7 @@ $$
 $$
 
 
+
  If both $\sX$ and $\widetilde\sX$ are spectra of $A$ and $\widetilde A$ then from the Proposition \ref{spectrum_cov_prop} it turns out that there is a continuous map $p: \widetilde\sX\to\sX$. For any $x\in\sX$ and $\widetilde x \in \widetilde\sX$  there are  irreducible representations $\rep_x: A \to B\left(\H_x \right)$ and $\rep_{\widetilde x}: \widetilde A \to B\left(\H_{\widetilde x} \right)$.
  %Suppose that $\left(A, \widetilde{A}, G, \pi \right)$ is reduced (cf. Definition \ref{fin_red_defn}).
   From \eqref{rep_x_mor_inj_eqn} it follows that for all $\widetilde x \in \widetilde \sX$ one has following inclusions
@@ -12064,7 +12084,7 @@ $$
  	\ee 
  	is a $C^*$-subalgebra of $_{\widetilde\sU}\widetilde A_{\widetilde\sU}$.   The equation \ref{blowing_tprop_eqn} is a specialization of  \ref{blowing_prop_eqn}, i.e. the given by \eqref{blowing_tprop_eqn} $C^*$-algebra.
  	\begin{definition}\label{blowing_cov_u_prop_defn}
- 		The given by \eqref{blowing_tprop_eqn} $C^*$-algebra will be denoted by $\widetilde A_\sU^{\mathrm{prop}}$. We say that $\widetilde A_\sU^{\mathrm{prop}}$ is a $\left( \left(A, \widetilde{A}, G, \pi \right),\sU\right)$-proper $C*$-subalgebra of $_{\widetilde\sU}\widetilde A_{\widetilde\sU}$.
+ 		The given by \eqref{blowing_tprop_eqn} $C^*$-algebra will be denoted by $\widetilde A_\sU^{\mathrm{prop}}$. We say that $\widetilde A_\sU^{\mathrm{prop}}$ is a $\left( \left(A, \widetilde{A}, G, \pi \right),\sU\right)$-proper $C^*$-subalgebra of $_{\widetilde\sU}\widetilde A_{\widetilde\sU}$.
  \end{definition}
  \begin{exercise} PROVE !!!
  	Prove that the restriction $\left. j_{\sU}\right|_{\widetilde A_\sU^{\mathrm{prop}}}$ of the given by \eqref{blowing_jsu_eqn} injective *-homomorphism, yields an injective *-homomorphism
@@ -12072,6 +12092,47 @@ $$
  	j^{\mathrm{prop}}_{\sU}: A^{\mathrm{prop}}_\sU \hookto \widetilde A^{\mathrm{prop}}_{\widetilde\sU}.
  	\ee
  \end{exercise}
+\begin{lemma}
+		Let $A$ be a connected  $C^*$-algebra (cf. Definition \ref{connected_c_a_defn}), and let $C_0\left( \sY\right)\hookto M\left( A\right) $ be  Hausdorff blowing up (cf. Definition \ref{blowing_defn}). Let    $\left(A, \widetilde{A}, G, \pi \right)$ is  a noncommutative finite-fold  reduced quasi-covering (cf. Definitions \ref{fin_quasi_defn} and \ref{fin_red_defn}). Let $q: \widetilde \sY \to \sY$  !!!!
+\end{lemma}
+\begin{proof}
+	!!!
+\end{proof}
+\paragraph{title}
+\begin{definition}\label{fin_red_defn!}
+	A noncommutative finite-fold  quasi-covering  $\left(A, \widetilde{A}, G, \pi \right)$ (cf. Definition \ref{fin_quasi_defn}) is said to be \textit{reduced} if $\widetilde{A}= \widetilde{A}_{\text{red}}$.
+\end{definition}
+\begin{lemma}\label{quasi_red_lem!}
+	\ref{quasi_red_lem}
+	Any reduced  noncommutative finite-fold quasi-covering is a  noncommutative finite-fold pre-covering.
+\end{lemma}
+\begin{lemma}\label{blowing_comp_mult_lem!}
+	In the situation \ref{blowing_comp_mult_empt}
+	one has a natural inclusion $C\left(\sV \right)\subset M\left( _\sU A_\sU\right)$.  
+\end{lemma}
+\begin{proof}
+	From the Lemma \ref{blowing_cv_lem} it follows that the natural representation  $_\sU A_\sU \hookto B\left(~_\sU \sH\right)$ is  faithful and nondegenerate. The equation \eqref{blowing_fafaii_eqn} is a specialization of \eqref{multiplier_el_eqn} one, so from the Definition \ref{multiplier_el_defn} one has $C\left(\sV \right)\subset M\left( _\sU A_\sU\right)$.
+\end{proof}
+\begin{corollary}\label{blowing_comp_mult_cor!}
+	In the situation \ref{blowing_comp_mult_empt} one has
+	$$
+	1_{C\left(\sV\right)}= 1_{M\left( _\sU A_\sU\right) }
+	$$
+\end{corollary}
+\begin{proof}
+	For any $f', f'' \in C_0\left( \sU\right)$ and $a \in A$  one has 
+	\bean
+	1_{C\left(\sV\right)} \left(f'af''\right)= \left( 1_{C\left(\sV\right)} f'\right) a f'' = f'af''= f'a\left( f''1_{C\left(\sV\right)} \right)=  \left(f'af''\right)1_{C\left(\sV\right)}.
+	\eean
+	On the other hand from the equation \eqref{blowig_sue3_eqn} it follows that the space of elements
+	$f'af''$ where $a \in A;\quad f', f'' \in C_0\left( \sU\right)$
+	is dense in $_\sU A_\sU$ it turns out that
+	$$
+	\forall b \in ~_\sU A_\sU \quad b = 1_{C\left(\sV\right)} b = b1_{C\left(\sV\right)}
+	$$
+\end{proof}
+
+\paragraph{title}
 
 \begin{lemma}\label{blowing_hilbert_module_lem}
 	Let $A$ be a connected  $C^*$-algebra (cf. Definition \ref{connected_c_a_defn}), and let $C\left( \sY\right)\hookto M\left(A \right) $ be  Hausdorff blowing up (cf. Definition \ref{blowing_defn}) with compact $\sY$.  If $q: \widetilde\sY \to \sY$ is a finite-fold transitive covering then an algebraic tensor product
