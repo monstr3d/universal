@@ -11853,16 +11853,16 @@ Since $\rep_x\left( I_y\right) = I \neq \rep_x\left(C_0\left( \sY\right)\right)\
 
 
 \end{definition}
-
 \begin{empt}
-Let  $C_0\left( \sY\right)\hookto M\left( A\right) $ be  blowing-up of $A$. If for any open subset $\sU \subset \sY$ we put
+Let  $C_0\left( \sY\right)\hookto M\left( A\right) $ be  Hausdorff blowing-up of $A$. If $\sU \subset \sY$ is an open subset then there are following right and left ideals
 \be\label{blowig_su_eqn}
 \begin{split}
-_\sU A \bydef C^*\text{-norm completion of } C_0\left(\sU \right) A  ,\\
-A_\sU \bydef C^*\text{-norm completion of }  A  C_0\left(\sU \right)
+	_\sU A \bydef \left\{ a \in A~ |~ \forall f \in C_0\left( \sY\right)\quad f\left(\sU \right)= \{0\}  \quad \Rightarrow \quad fa = 0\right\} ,\\
+	A_\sU \bydef \left\{ a \in A~ |~ \forall f \in C_0\left( \sY\right)\quad  f\left(\sU \right)= \{0\} \quad \Rightarrow \quad af = 0\right\}
 \end{split}
 \ee
-then one has
+We leave to the reader a proof of following equations
+
 \bea\label{blowig_sue1_eqn}
 	\sU'\cap \sU'' =\emptyset\quad \Rightarrow\quad A_{\sU'}~_{\sU''}A= \{0\},\\
 \label{blowig_sue2_eqn}	_\sU A = A^*_\sU
@@ -11878,7 +11878,7 @@ From \eqref{blowig_su_eqn} it follows that
 \ee
 \end{empt}
 \begin{exercise}\label{blowing_completion_exer}
-Let $f \in C_0\left( \sY\right)_+$ and let $\sU \bydef \left\{\left.x \in \sX\right| f\left(x\right)> 0\right\}$. Using the Lemma \ref{top_div_lem} and the Remark \ref{top_div_rem} prove that
+ !!! MAY BE NOT NECESSARY Let $f \in C_0\left( \sY\right)_+$ and let $\sU \bydef \left\{\left.x \in \sX\right| f\left(x\right)> 0\right\}$. Using the Lemma \ref{top_div_lem} and the Remark \ref{top_div_rem} prove that
 \begin{itemize}
 	\item $C^*$-norm completion of $fA$ {equals to} $_\sU A$,
 	\item $C^*$-norm completion of $Af$ {equals to} $A_\sU$,
@@ -11886,7 +11886,7 @@ Let $f \in C_0\left( \sY\right)_+$ and let $\sU \bydef \left\{\left.x \in \sX\ri
 \end{itemize}
 \end{exercise}
 
-\begin{empt}\label{blowing_strict_empt}
+\begin{empt}\label{blowing_strict_empt} !!! MAY BE NOT NECESSARY
 	Suppose that $\left\{u_\la\right\}_{\la\in\La}$ is an approximate unit of $C_0\left( \sU\right)$ and let $a \in ~_\sU A_\sU$. For all $a  \in~_\sU A_\sU$  there is $a' \in A$ and $f',f'' \in C_0\left( \sU\right) $ such that $\left\|a - f'a'f'' \right\|\le \frac{\eps}{3}$. On the other hand there is $\la_0 \in \La$  such that $\left\|f' - u_\la f' \right\| < \frac{\eps}{3\left\|a'f'' \right\|}$ for all $\la\ge\la_0$. From the triangle inequality it follows that
 	\bean
 	\la\ge\la_0\Rightarrow\left\|a - u_\la a \right\|\le \\\le \left\|a - f'a'f''\right\|+ \left\|u_\la \left( a - f'a'f''\right)  \right\|+\left\|f'a'f'' - u_\la f'a'f''\right\| < \eps.
@@ -11900,33 +11900,108 @@ Let $f \in C_0\left( \sY\right)_+$ and let $\sU \bydef \left\{\left.x \in \sX\ri
 \end{empt}
 
 \begin{empt}\label{blowing_cv_empt}
-	
 Let $A$ be a $C^*$-algebra, and let $C_0\left( \sY\right)\hookto M\left( A\right) $ be Hausdorff blowing-up of $A$. Let $\sU\subset\sY$ be an open subset.
- If  $A \hookto B\left(\H\right)$ is a faithful nondegenerate representation (cf. Definitions \ref{faithful_repr_defn} and \ref{nondegenerate_repr_defn}) then from the Definition \ref{multiplier_el_defn} it follows that there is an inclusion $C_0\left(\sY\right)\hookto B\left( \H\right)$. So there is a Hilbert space given by
-\be\label{blowing_uh_eqn}
-_\sU \H\bydef \text{A Hilbert norm completion of } C_0\left( \sU\right)\H 
+ If  $A \hookto B\left(\H\right)$ is a faithful nondegenerate representation (cf. Definitions \ref{faithful_repr_defn} and \ref{nondegenerate_repr_defn}) then from the Definition \ref{multiplier_el_defn} it follows that there is an inclusion $\rho: C_0\left(\sY\right)\hookto B\left( \H\right)$. If $_\sU \H$ is a Hilbert norm completion of 
+ \be\label{blowing_uh_eqn}
+\begin{split}
+\left\{f \in C_0\left(\sY \right) ~|~  f\left( \sY\setminus\sU\right)=\{0\}\right\}\H
+\end{split}
 \ee
+and $\rho\left( C_0\left(\sY \right)\right) '' \subset B\left( \H\right)$ is a closure of   $C_0\left(\sY \right)$ with respect to a strong topology of $B\left( \H\right)$ (cf. Definition \ref{strong_topology_defn}) then there are mutually orthogonal  projectors $p^\parallel, p^\perp\in \rho\left( C_0\left(\sY \right)\right) ''$ such that $p_\sU+ p^\perp= 1_{B\left( \H\right) }$ and $_\sU \H= p_\sU \sH$.
+It follows that for any $\xi \in _\sU \H$ and $\eps > 0$ there are $f \in  C_0\left(\sY\right)$ and $\eta \in \H$ such that $f\left( \sY\setminus\sU\right)=\{0\}$,  $~~\left\|f \right\|< 1$ and $\left\|\xi - f\eta \right\| < \eps$.
 \end{empt}
 \begin{lemma}\label{blowing_cv_lem}
 Consider the situation \ref{blowing_cv_empt}. A faithful nondegenerate representation   $A \hookto B\left(\sH\right)$  (cf. Definitions \ref{faithful_repr_defn}  \ref{nondegenerate_repr_defn}) naturally induces a faithful nondegenerate representation  $_\sU A_\sU \hookto B\left(~_\sU \sH\right)$.
 \end{lemma}
 \begin{proof}
-If $a \in~ _\sU A_\sU$ and then from \ref{blowing_strict_empt} it follows that there is $f \in  C_0\left( \sU\right)$ such that 
- $\left\|af- a \right\|< \frac{\left\| a \right\|}{2}$. Since a representation  $A \hookto B\left(\sH\right)$ is faithful there is $\xi \in \H$ such that $\left\| \xi \right\|= 1$ and $\left\| a\xi \right\|> \frac{\left\| a \right\|}{2}$. From the triangle inequality and both $\left\| a\xi \right\|> \frac{\left\| a \right\|}{2}$,  $~~\left\|\left( af- a \right) \xi \right\|< \frac{\left\| a \right\|}{2}$ it follows that $\left\|\left(  af\right) \xi \right\|= \left\|a\left(  f\xi\right) \right\|> 0$, and taking into account $f\xi \in \sU_\sH$ one has  $a ~_\sU \H\neq\{0\}$. It means that the representation $_\sU A_\sU \hookto B\left(~_\sU \sH\right)$ is faithful.
 
-If $\xi \in ~_\sU\H$  and $\eps > 0$ then  there are $f \in  C_0\left( \sU\right)_+$ and $\eta \in \H$ such that $\left\| f \right\|< 1$ and $\left\| f\eta -\xi  \right\|<\frac{\eps}{2}$. The representation $A \hookto B\left(\sH\right)$ is nondegenerate so there is $a \in A$ and $\zeta\in \H$ such that  $\left\| \eta -a\zeta  \right\|< \frac{\eps}{2}$. Using the triangle identity one concludes that 
+\end{proof}
+\begin{proof}
+If $_\sV\H^\perp$ is such that $\H=~_\sV\H^\perp\oplus ~_\sV\H$ then one has
+\be\label{blowing_uh1_eqn}
+\begin{split}
+	_\sV \H^\perp\bydef \left\{\xi \in \H~|~ \forall f \in C_0\left( \sY\right)\quad \supp f 
+	\subset \sV = \emptyset \quad \Rightarrow \quad f\xi = 0\right\}.
+\end{split}
+\ee
+If $a \in~ _\sU A_\sU$ then since the representation $A \hookto B\left(\H\right)$ is faithful  there is $\xi \in \H$ such that $a\xi \neq 0$. On the other hand from  $\H=~_\sU\H^\perp\oplus ~_\sU\H$ there are $\xi^\parallel \in _\sU\H$ and  $\xi^\perp \in _\sU\H^\perp$ such that $\xi =\xi^\parallel+\xi^\perp$ from $a\xi^\perp = 0$ it follows that $a\xi^\parallel= a\xi\neq 0$. It means that the representation $_\sU A_\sU \hookto B\left(~_\sU \sH\right)$ is faithful.
+
+If $\xi \in ~_\sU\H$  and $\eps > 0$ then  there are $f \in  C_0\left( \sY\right)_+$ and $\eta \in \H$ such that $f\left( \sY\setminus\sU\right)=\{0\}$,  $~~\left\| f \right\|< 1$ and $\left\| f\eta -\xi  \right\|<\frac{\eps}{2}$. The representation $A \hookto B\left(\sH\right)$ is nondegenerate so there is $a \in A$ and $\zeta\in \H$ such that  $\left\| \eta -a\zeta  \right\|< \frac{\eps}{2}$. Using the triangle identity one concludes that 
 \bean
 \left\| f a\zeta  - f\eta \right\|<\left\| f \right\|\left\| a\zeta - \eta \right\|<\frac{\eps}{2},\\
 \left\| f a\zeta - \xi  \right\|<
 \left\| f a\zeta  - f\eta \right\|+\left\| f\eta -\xi  \right\| < 
 \eps.
 \eean
- Clearly $f a \in ~_\sU A$. If $x \bydef f a$ then from the Proposition \ref{polar_decomposition_prop} it turns out that there a unique partial isometry $u\in B\left(\H \right) $ and positive $\left|x\right| \in B\left(\H \right)_+$ with $uu^*=[|x|]$ and  $x=|x|u$. 
-On the other hand $x^*=u^*|x|\in A_\sU$ (cf. \eqref{blowig_sue2_eqn}) $xx^*=|x|uu^*|x|= \left|x\right|^2*  _\sU A_{\sU+}$ (cf. Lemma \ref{hered_ideal_lem}), and $\left|x\right|\in ~ _\sU A_{\sU+}$. From our construction it follows that
-	 $fb\zeta=|x|u\zeta = |x|\psi$ whee $\psi \bydef u\zeta$. If $\H = ~_\sU \H \oplus _\sU \H^\perp$, and $\psi = \psi^\parallel + \psi^\perp$, where $\left( \psi^\parallel, \psi^\perp\right) \in~ _\sU \H \times _\sU \H^\perp$ then from $\left|x\right|\in ~ _\sU A_{\sU+}$ it follows that $\left|x\right|\psi^\perp = 0$,  $~~\left|x\right|^\parallel \psi= \left|x\right|\psi= f b\zeta$, and taking info account $\left\| f b\zeta - \xi  \right\| < \eps$ we conclude that $_\sU A_\sU~_\sU\H$ is dense in $_\sU\H$, i.e. the representation $_\sU A_\sU \hookto B\left(~_\sU \sH\right)$ is nondegenerate.
+From $f\left( \sY\setminus\sU\right)=\{0\}$ it follows that $f a \in ~_\sU A$. If $x \bydef f a$ then from the Proposition \ref{polar_decomposition_prop} it turns out that there a unique partial isometry $u\in B\left(\H \right) $ and positive $\left|x\right| \in B\left(\H \right)_+$ with $uu^*=[|x|]$ and  $x=|x|u$. 
+On the other hand $x^*=u^*|x|\in A_\sU$ (cf. \eqref{blowig_sue2_eqn}) $xx^*=|x|uu^*|x|= \left|x\right|^2\in  _\sU A_{\sU+}$ (cf. Lemma \ref{hered_ideal_lem}), and $\left|x\right|= \sqrt{\left|x\right|^2}\in ~ _\sU A_{\sU+}$. From our construction it follows that
+$fb\zeta=|x|u\zeta = |x|\psi$ whee $\psi \bydef u\zeta$. If $\H = ~_\sU \H \oplus _\sU \H^\perp$, and $\psi = \psi^\parallel + \psi^\perp$, where $\left( \psi^\parallel, \psi^\perp\right) \in~ _\sU \H \times _\sU \H^\perp$ then from $\left|x\right|\in ~ _\sU A_{\sU+}$ it follows that $\left|x\right|\psi^\perp = 0$,  $~~\left|x\right|^\parallel \psi= \left|x\right|\psi= f b\zeta$, and taking info account $\left\| f b\zeta - \xi  \right\| < \eps$ we conclude that $_\sU A_\sU~_\sU\H$ is dense in $_\sU\H$, i.e. the representation $_\sU A_\sU \hookto B\left(~_\sU \sH\right)$ is nondegenerate.
 \end{proof}
-\begin{empt}\label{blowing_comp_mult_empt}
-	Consider the situation \ref{blowing_cv_empt}. Suppose that the closure $\sV\subset \sY$ of $\sU$ is compact. A natural action $C\left(\sV\right) \times C_0\left(\sU\right)\to C_0\left(\sU\right)$ induces a natural action $C\left(\sV\right) \times C_0\left(\sU\right)\H\to C_0\left(\sU\right)\H$. The subspace $C_0\left(\sU\right)\H$ is dense in $_\sU\H$, so from
+\begin{remark}\label{blowing_mult_rem}
+	From the Definition \ref{multiplier_el_defn} it follows that there is an inclusion $C_0\left(\sU\right)\subset M\left(_\sU A_\sU \right)$. 
+\end{remark}
+\begin{empt}
+Let $A$ be a $C^*$-algebra, and let $C_0\left( \sY\right)\hookto M\left( A\right) $ be Hausdorff blowing-up of $A$. If $B\in A$ is a hereditary $C^*$-subalgebra then from the Proposition \ref{hered_lem} it follows that there is a closed d left ideal $L_B \subset A$ such that $B = L_B\cap L_B^*$.
+If 
+\bean
+I' \bydef \left\{f' \in \C_0\left(\sY\right)~|~\forall a \in L_B \quad a f' = 0\right\},\\
+I \bydef \left\{f \in \C_0\left(\sY\right)~|~\forall f' \in I' \quad ff' = 0\right\},
+\eean
+then from the Proposition \ref{ideal_spectrum_thm} it follows that the ideal $I$ corresponds to an open subset $\sU \subset \sY$ such that $I= C_0\left(\sU\right)$. From  \ref{blowig_su_eqn} it follows that 
+$$
+A_\sU \bydef \left\{a \in A~|~\forall f' \in I' \quad af' =0\right\},
+$$
+i.e. $a \in L_B \Rightarrow a \in A_\sU$, so $L \subset A_\sU$. Taking into account \eqref{blowig_sue3_eqn} one has $B\subset~_\sU A_\sU$. From the Remarks \ref{blowing_mult_rem} and \ref{dc_rem} it follows that there is an injective *-homomorphism $\phi: C_0\left(\sU \right)\to  \mathbf{DC}\left((_\sU A_\sU \right)$ a $C^*$-algebra of double centralizers (cf. Definition \ref{dc_defn}). If $a \in L_B$ then $af \in A$. On the other hand if $b \in ~_\sU A_\sU$ then $fb \in ~_\sU A_\sU$ and
+$$
+\left( af\right) b = a \left(fb \right)\in L_B.
+$$
+Similarly one can proof that $fa \in L^*_B$. Using the Lemma \ref{hered_lem} one concludes that $af, fa \in B$.
+If follows that there is a *-homomorphism
+$C_0\left(\sU\right)\to  \mathbf{DC}\left(B \right)$.
+\end{empt}
+
+
+\paragraph{title}
+\begin{definition}\label{dc_defn!}\cite{matro:hcm}
+	A pair $\left(L, R\right)$ of maps
+	$$
+	L: A \to A, \quad R: A \to A\quad R\left(a \right) b = a L\left( b\right) \quad \forall a, b \in A
+	$$
+	is called a \textit{double centralizer}. Let us denote $\mathbf{DC}\left(A \right) $ the space of all double  centralizers of $A$.
+\end{definition}
+
+\begin{proposition}\label{dc_prop!}\cite{matro:hcm}
+	If $\left(L, R\right)\in \mathbf{DC}\left(A \right)$ then
+	\begin{enumerate}
+		\item [(i)] $L\left( ab\right) = L\left( a\right)b$ and $R\left( ab\right) = aR\left( b\right)$;
+		\item [(ii)] $L$ and $R$ are linear;
+		\item [(iii)] $L$ and $R$ are bounded and $\left\|L \right\|= \left\|R \right\|$;
+	\end{enumerate}
+	The set $\mathbf{DC}\left(A \right) $ with operations
+	\bean
+	\left(L_1, R_1\right) + \left(L_2, R_2\right)\bydef \left(L_1 + L_2, R_1+R_2\right),\quad z\left(L,R\right)\bydef \left(zL, zR\right) \quad \forall z \in \C,\\
+	\left(L_1, R_1\right)  \left(L_2, R_2\right)\bydef \left(L_1  L_2, R_2R_2\right),\\
+	\left(L, R\right)^*\bydef \left(R^*, L^*\right),\\
+	L^*\left( a\right)\bydef \left( L\left( a^*\right)\right)^*, \quad R^*\left( a\right)\bydef \left( L\left( a^*\right)\right)^*\quad \forall a \in A.
+	\eean 
+	is a normed involutive algebra with respect to the norm
+	$$
+	\left\|\left(L, R\right) \right\|\bydef \left\|L \right\|= \left\|R \right\|.
+	$$
+\end{proposition}
+\begin{remark}\label{dc_rem!}
+	In \cite{matro:hcm} it is proven  there is a natural *-isomorphism $\mathbf{DC}\left(A \right)\cong M\left(A\right)$. 
+\end{remark}
+
+
+\paragraph{title}
+
+\begin{empt}MAY BE DELETE !!!\label{blowing_comp_mult_empt}
+	Consider the situation \ref{blowing_cv_empt}. If 
+	$$
+	A \bydef \left\{f \in C_0\left(\sY\right) | \supp f \subset \sV \right\}
+	$$
+	then there is a natural nondegenerate  representation $A \to B\left(_\sU \sH \right)$.  A natural action $C\left(\sV\right) \times C_0\left(\sU\right)\to C_0\left(\sU\right)$ induces a natural action $C\left(\sV\right) \times C_0\left(\sU\right)\H\to C_0\left(\sU\right)\H$. The subspace $C_0\left(\sU\right)\H$ is dense in $_\sU\H$, so from
 	$$
 \forall \xi \in  C_0\left(\sU\right)\H\quad \forall f \in C\left(\sV \right) \quad f\xi \le \left\| f\right\| 	\left\| \xi\right\|
 	$$
