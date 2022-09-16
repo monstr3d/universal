@@ -1625,7 +1625,7 @@ where $\widetilde a^H_j \bydef \frac{1}{\left|H \right| }\sum_{g \in H}g \wideti
   		There are unitizations $A \hookto B$  and $\widetilde{A} \hookto \widetilde{B}$ (cf. Definition \ref{unitization_defn}).
    	%	\item[(b)]$A = B\bigcap \widetilde{A}$,
    		\item[(b)] There is a %(strong) 
-   	  unital  noncommutative finite-fold quasi-covering	$\left(B ,\widetilde{B}, G, \widetilde{\pi} \right)$ such that
+   	  unital  noncommutative finite-fold quasi-covering	$\left(B ,\widetilde{B}, G, \widetilde{\pi} \right)$ (cf. Definition \ref{fin_unital_defn}) such that
    	  $\pi = \widetilde{\pi}|_A$ (or, equivalently $A \cong \widetilde{A}\cap B$) and
    	   the action $G \times\widetilde{A} \to \widetilde{A}$ comes from  the $G \times\widetilde{B} \to \widetilde{B}$ one.
    	\end{enumerate}
@@ -1723,6 +1723,7 @@ g\left(\widetilde b \widetilde a \right)=\lim v_\la g\left(  \widetilde b\wideti
 	$$
 	Other details of the proof are left to the reader.
 \end{proof}
+
 \begin{definition}\label{hered_lift_defn}
 	Let $\left(A, \widetilde{A}, G, \pi \right)$ be a noncommutative finite-fold  quasi-covering (cf. Definition \ref{fin_quasi_defn}). Let $B\subset A$ be a hereditary $C^*$-subalgebra. We say that a  $G$-invariant $C^*$-subalgebra $\widetilde B'\subset \widetilde A$ is said to be $B$-\textit{special} if
 	$$
@@ -2523,11 +2524,11 @@ $$
 $$
 where $p: \widetilde \sX \to \sX$ is given by the Proposition \ref{spectrum_cov_prop} and $\H_{\widetilde x}$ a space of an irreducible  representation $\rep_{\widetilde x}: \widetilde A \to B\left(\widetilde \H_{\widetilde x}\right)$. $\widetilde \rho_a :\widetilde A \to B\left(\widetilde \H_a\right)$ is the atomic representation then
 $$
-\widetilde \H_a = \bigoplus_{ \widetilde  x \in \widetilde\sX }.
+\widetilde \H_a = \bigoplus_{ \widetilde  x \in \widetilde\sX }\widetilde \H_{\widetilde x}.
 $$
 From
 $$
-\widetilde \H = \bigoplus_{ \widetilde  x \in \widetilde\sX }= \widetilde \H_a.
+\widetilde \H = \bigoplus_{ \widetilde  x \in \widetilde\sX }\widetilde \H_{\widetilde x}= \widetilde \H_a.
 $$
 it follows that $\widetilde \rho = \widetilde \rho_a$.
 \end{proof}
@@ -2648,6 +2649,8 @@ Moreover one has
  	\ee
  \end{rem}
  \begin{lemma}\label{red_inc_lem} 
+ 	
+ 	
  	If  $\widetilde{A}_{\mathrm{red}}$ is the reduced algebra of  noncommutative finite-fold  quasi-covering (cf. Definition \ref{red_alg_defn})   and
 % 	From \ref{red_inc_eqn} It follows that
  	\be\label{red_incl_eqn}
@@ -2657,11 +2660,15 @@ Moreover one has
  	then $\widetilde{A}_{\mathrm{red}}=\widetilde{A}'$.  
  \end{lemma}
 \begin{proof}
-	$\widetilde{A}'$ is a $G$-invariant hereditary subalgebras which contains $\pi\left( A\right)$ as a $C^*$-subalgebra.
-	From the Definition \ref{red_alg_defn} and the Remark \ref{red_g_act_rem} it follows that $\widetilde{A}_{\mathrm{red}}$ is the minimal among of all $G$-invariant hereditary subalgebras which contains $\pi\left( A\right)$ as a $C^*$-subalgebra. If $\widetilde{A}_{\mathrm{red}}\subsetneqq \widetilde{A}'$, then there is $\widetilde x \in \widetilde \sX$ such that 
-$$	
-	\rep_{ \widetilde{x}}\left(\widetilde{A}_{\mathrm{red}}\right)\subsetneqq \rep_{ \widetilde{x}}\left(\widetilde{A}'\right)=\rep_{ \widetilde{x}}\left(A\right).$$
-From the above equation it follows that $\pi\left( A\right) \not\subset \widetilde{A}_{\mathrm{red}}$, i.e. there is a contradiction with the Definition \ref{red_alg_defn}. It turns out that $\widetilde{A}_{\mathrm{red}}\subsetneqq \widetilde{A}'$	is not true, so one has $\widetilde{A}_{\mathrm{red}}=\widetilde{A}'$.
+		$\widetilde{A}'$ is hereditary $C^*$-subalgebra which contains $A$, so $\widetilde{A}_{\mathrm{red}}\subset\widetilde{A}'$. 		
+		From the Lemma \ref{ind_qusai_lem} there is an approximate unit of $\left\{u_\la\right\}_{\la\in\La}\subset\widetilde{A}_{\mathrm{red}}$ contained in $A$, i.e. $u_\la= \pi\left(v_\la \right)$ for each $\la\in\La$. For any $\widetilde{a}\in \widetilde A_{\mathrm{red}}$ then there is a following $C^*$-norm limit
+		$$
+	\widetilde  a = \lim_{\la\in\La} 	u_\la \widetilde{a}u_\la.
+		$$
+		From the above equation it turns out that
+		$$
+	\forall \widetilde x \in \widetilde \sX\quad	\rep_{ \widetilde{x}}\left(\widetilde{a} \right)= \lim_{\la\in \La}\rep_{ \widetilde{x}}\left(u_\la \widetilde{a}u_\la\right)=\lim_{\la\in \La}\rep_{ \widetilde{x}}\left(u_\la \right)\rep_{ \widetilde{x}}\left( \widetilde{a}\right)\rep_{ \widetilde{x}}\left(u_\la\right)\in \rep_{ \widetilde{x}}\left(A\right).
+	$$
  \end{proof}
 \begin{remark}
 One has
@@ -2720,7 +2727,7 @@ Prove that any free  noncommutative finite-fold quasi-covering  is reduced (cf. 
 \end{exercise}
 \begin{lem}\label{hered_covering_lem}
 	!!! CHECK
-Let $\left(A, \widetilde{A}, G, \pi \right)$ be a reduced	noncommutative finite-fold with unitization (cf. Definitions \ref{fin_unitization_defn}, \ref{fin_def_lem}). If $B\subset A$ is a hereditary subalgebra  (cf. Definition \ref{hered_defn}) and $\widetilde B\subset \widetilde A$ is the generated by $\pi\left(B \right)$ subalgebra. Suppose that the spectrum of $A$ coincides with the spectrum of $B$ (cf. \ref{hered_spectrum_prop})
+Let $\left(A, \widetilde{A}, G, \pi \right)$ be a reduced	noncommutative finite-fold covering with unitization (cf. Definitions \ref{fin_unitization_defn}, \ref{fin_def_lem}). If $B\subset A$ is a hereditary subalgebra  (cf. Definition \ref{hered_defn}) and $\widetilde B\subset \widetilde A$ is the generated by $\pi\left(B \right)$ subalgebra. Suppose that the spectrum of $A$ coincides with the spectrum of $B$ (cf. \ref{hered_spectrum_prop})
  If both $\widetilde{A}$ and $\widetilde{B}$ are connected (cf. Definition \ref{connected_c_a_defn}) then there is a reduced	noncommutative finite-fold covering  with unitization $\left(B, \widetilde B, G\right)$.
 \end{lem}
 \begin{proof}
@@ -11940,61 +11947,30 @@ $fb\zeta=|x|u\zeta = |x|\psi$ whee $\psi \bydef u\zeta$. If $\H = ~_\sU \H \oplu
 \begin{remark}\label{blowing_mult_rem}
 	From the Definition \ref{multiplier_el_defn} it follows that there is an inclusion $C_0\left(\sU\right)\subset M\left(_\sU A_\sU \right)$. 
 \end{remark}
-\begin{empt}
+\begin{exercise}
+	Prove that there is a natural inclusion 
+\be\label{blowing_cb_inc_eqn}
+	C_b\left(\sU\right)\subset M\left(_\sU A_\sU \right).
+	\ee
+\end{exercise}
+\begin{empt}\label{blowing_wrapper_empt}
 Let $A$ be a $C^*$-algebra, and let $C_0\left( \sY\right)\hookto M\left( A\right) $ be Hausdorff blowing-up of $A$. If $B\in A$ is a hereditary $C^*$-subalgebra then from the Proposition \ref{hered_lem} it follows that there is a closed d left ideal $L_B \subset A$ such that $B = L_B\cap L_B^*$.
 If 
-\bean
-I' \bydef \left\{f' \in \C_0\left(\sY\right)~|~\forall a \in L_B \quad a f' = 0\right\},\\
-I \bydef \left\{f \in \C_0\left(\sY\right)~|~\forall f' \in I' \quad ff' = 0\right\},
-\eean
+\be\label{blowing_wrapper_ideal_eqn}
+\begin{split}
+I' \bydef \left\{f' \in C_0\left(\sY\right)~|~\forall a \in L_B \quad a f' = 0\right\},\\
+I \bydef \left\{f \in C_0\left(\sY\right)~|~\forall f' \in I' \quad ff' = 0\right\},
+\end{split}
+\ee
 then from the Proposition \ref{ideal_spectrum_thm} it follows that the ideal $I$ corresponds to an open subset $\sU \subset \sY$ such that $I= C_0\left(\sU\right)$. From  \ref{blowig_su_eqn} it follows that 
 $$
 A_\sU \bydef \left\{a \in A~|~\forall f' \in I' \quad af' =0\right\},
 $$
-i.e. $a \in L_B \Rightarrow a \in A_\sU$, so $L \subset A_\sU$. Taking into account \eqref{blowig_sue3_eqn} one has $B\subset~_\sU A_\sU$. From the Remarks \ref{blowing_mult_rem} and \ref{dc_rem} it follows that there is an injective *-homomorphism $\phi: C_0\left(\sU \right)\to  \mathbf{DC}\left(_\sU A_\sU \right)$ a $C^*$-algebra of double centralizers (cf. Definition \ref{dc_defn}). If $a \in L_B$ then $af \in ~_\sU A_\sU $. On the other hand if $b \in ~_\sU A_\sU$ then $fb \in ~_\sU A_\sU$ and
-$$
-\left( af\right) b = a \left(fb \right)\in L_B.
-$$
-Similarly one can proof that $fa \in L^*_B$. Using the Lemma \ref{hered_lem} one concludes that $af, fa \in B$.
-If follows that there is a *-homomorphism
-$C_0\left(\sU\right)\to  \mathbf{DC}\left(B \right)$.
+i.e. $a \in L_B \Rightarrow a \in A_\sU$, so $L_B \subset A_\sU$. It turns out  that
+\be\label{blowing_wrapper_eqn}
+B =  L_B \cap L^*_B\subset A_\sU \cap~ _\sU A = ~ _\sU A_\sU
+\ee
 \end{empt}
-
-
-\paragraph{title}
-\begin{definition}\label{dc_defn!}\cite{matro:hcm}
-	A pair $\left(L, R\right)$ of maps
-	$$
-	L: A \to A, \quad R: A \to A\quad R\left(a \right) b = a L\left( b\right) \quad \forall a, b \in A
-	$$
-	is called a \textit{double centralizer}. Let us denote $\mathbf{DC}\left(A \right) $ the space of all double  centralizers of $A$.
-\end{definition}
-
-\begin{proposition}\label{dc_prop!}\cite{matro:hcm}
-	If $\left(L, R\right)\in \mathbf{DC}\left(A \right)$ then
-	\begin{enumerate}
-		\item [(i)] $L\left( ab\right) = L\left( a\right)b$ and $R\left( ab\right) = aR\left( b\right)$;
-		\item [(ii)] $L$ and $R$ are linear;
-		\item [(iii)] $L$ and $R$ are bounded and $\left\|L \right\|= \left\|R \right\|$;
-	\end{enumerate}
-	The set $\mathbf{DC}\left(A \right) $ with operations
-	\bean
-	\left(L_1, R_1\right) + \left(L_2, R_2\right)\bydef \left(L_1 + L_2, R_1+R_2\right),\quad z\left(L,R\right)\bydef \left(zL, zR\right) \quad \forall z \in \C,\\
-	\left(L_1, R_1\right)  \left(L_2, R_2\right)\bydef \left(L_1  L_2, R_2R_2\right),\\
-	\left(L, R\right)^*\bydef \left(R^*, L^*\right),\\
-	L^*\left( a\right)\bydef \left( L\left( a^*\right)\right)^*, \quad R^*\left( a\right)\bydef \left( L\left( a^*\right)\right)^*\quad \forall a \in A.
-	\eean 
-	is a normed involutive algebra with respect to the norm
-	$$
-	\left\|\left(L, R\right) \right\|\bydef \left\|L \right\|= \left\|R \right\|.
-	$$
-\end{proposition}
-\begin{remark}\label{dc_rem!}
-	In \cite{matro:hcm} it is proven  there is a natural *-isomorphism $\mathbf{DC}\left(A \right)\cong M\left(A\right)$. 
-\end{remark}
-
-
-\paragraph{title}
 
 \begin{empt}MAY BE DELETE !!!\label{blowing_comp_mult_empt}
 	Consider the situation \ref{blowing_cv_empt}. If 
@@ -12222,17 +12198,6 @@ Form $\sY = \cup \sU_\a$ it follows that there is $\a\in \mathscr A$ such that $
 %\begin{exercise}\label{blowing_ped_exer}
 %Prove that if $a\in A$ lies in the  Pedersen's ideal of $A$ (cf. Definition \ref{peder_id_defn}) then $\supp a$ is compact.
 %\end{exercise}
-\begin{definition}\label{blowing_hered_support_defn}
-	Let $A$ be a   $C^*$-algebra (cf. Definition \ref{connected_c_a_defn}), and let $C_0\left( \sY\right)\hookto M\left( A\right) $ be  Hausdorff blowing up (cf. Definition \ref{blowing_defn}). If $B \subset A$ is a hereditary $C^*$-subalgebra  a closure  $\sV$ of a following intersection
-	$$
-\bigcap \left\{\left.\sU \text{ is an open subset of }\sY\right| B \subset ~_\sU A_\sU\right\}	
-	$$
-	is said to be an $\sY$-\textit{support} of $B$. We write
-	\be\label{blowing_hered_support_eqn}
-\supp_\sY B \bydef \sV	
-	\ee
-\end{definition}
-
 \section{Hausdorff blowing-up and noncommutative  coverings}
 
 \subsection{Finite-fold coverings}
@@ -12274,6 +12239,7 @@ q:\widetilde \sY \to \sY,\\
 G\times \widetilde \sY\to \widetilde \sY.
 		\end{split}
 \ee
+\paragraph{title !!! CHANGE}!!! CHANGE
  If $\sU\subset \sY$ is an open subset then there is an inclusion $C_0\left(\sU \right)A C_0\left(\sU \right)\subset C_0\left(\sU \right)\widetilde A C_0\left(\sU \right)= C_0\left(\widetilde\sU \right)\widetilde A C_0\left(\widetilde\sU \right)$ where $\widetilde\sU \bydef q^{-1}\left( \sU\right)$. If  $_{\widetilde\sU}\widetilde A_{\widetilde\sU}$ is the $C^*$-norm completion of $C_0\left(\widetilde\sU \right)\widetilde A C_0\left(\widetilde\sU \right)$ then there is the natural injective *-homomorphism.
 \be\label{blowing_jsu_eqn}
 j_{\sU}:~ _\sU A_\sU \hookto~ _{\widetilde\sU}\widetilde A_{\widetilde\sU}
@@ -12311,6 +12277,7 @@ $$
  	\begin{definition}\label{blowing_cov_u_prop_defn}
  		The given by \eqref{blowing_tprop_eqn} $C^*$-algebra will be denoted by $\widetilde A_\sU^{\mathrm{prop}}$. We say that $\widetilde A_\sU^{\mathrm{prop}}$ is a $\left( \left(A, \widetilde{A}, G, \pi \right),\sU\right)$-proper $C^*$-subalgebra of $_{\widetilde\sU}\widetilde A_{\widetilde\sU}$.
  \end{definition}
+\paragraph{title !!! END CHANGE}!!! END CHANGE
  \begin{exercise} PROVE !!!
  	Prove that the restriction $\left. j_{\sU}\right|_{\widetilde A_\sU^{\mathrm{prop}}}$ of the given by \eqref{blowing_jsu_eqn} injective *-homomorphism, yields an injective *-homomorphism
  	\be\label{blowing_jsut_eqn}
@@ -12326,42 +12293,138 @@ $$
 \begin{proof}
 	!!!
 \end{proof}
-\paragraph{title}
-\begin{definition}\label{fin_red_defn!}
-	A noncommutative finite-fold  quasi-covering  $\left(A, \widetilde{A}, G, \pi \right)$ (cf. Definition \ref{fin_quasi_defn}) is said to be \textit{reduced} if $\widetilde{A}= \widetilde{A}_{\text{red}}$.
-\end{definition}
-\begin{lemma}\label{quasi_red_lem!}
-	\ref{quasi_red_lem}
-	Any reduced  noncommutative finite-fold quasi-covering is a  noncommutative finite-fold pre-covering.
-\end{lemma}
-\begin{lemma}\label{blowing_comp_mult_lem!}
-	In the situation \ref{blowing_comp_mult_empt}
-	one has a natural inclusion $C\left(\sV \right)\subset M\left( _\sU A_\sU\right)$.  
-\end{lemma}
-\begin{proof}
-	From the Lemma \ref{blowing_cv_lem} it follows that the natural representation  $_\sU A_\sU \hookto B\left(~_\sU \sH\right)$ is  faithful and nondegenerate. The equation \eqref{blowing_fafaii_eqn} is a specialization of \eqref{multiplier_el_eqn} one, so from the Definition \ref{multiplier_el_defn} one has $C\left(\sV \right)\subset M\left( _\sU A_\sU\right)$.
-\end{proof}
-\begin{corollary}\label{blowing_comp_mult_cor!}
-	In the situation \ref{blowing_comp_mult_empt} one has
-	$$
-	1_{C\left(\sV\right)}= 1_{M\left( _\sU A_\sU\right) }
-	$$
-\end{corollary}
-\begin{proof}
-	For any $f', f'' \in C_0\left( \sU\right)$ and $a \in A$  one has 
-	\bean
-	1_{C\left(\sV\right)} \left(f'af''\right)= \left( 1_{C\left(\sV\right)} f'\right) a f'' = f'af''= f'a\left( f''1_{C\left(\sV\right)} \right)=  \left(f'af''\right)1_{C\left(\sV\right)}.
+\begin{empt}
+	Let $A$ be a $C^*$-algebra, and let $C_0\left( \sY\right)\to M\left( A\right)$ be Hausdorff blowing-up.
+	Let $\left(A, \widetilde{A}, G, \pi \right)$ be a reduced noncommutative finite-fold  covering (cf. Definitions \ref{fin_defn}, \ref{fin_red_defn}. Let $C_0\left( \widetilde{}\sY\right) \hookto \widetilde A$ be a given by \eqref{blowing_cy_eqn} Hausdorff blowing up.  Denote by 	
+		\bean
+	\begin{split}
+		q:\widetilde \sY \to \sY,\\
+		G\times \widetilde \sY\to \widetilde \sY.
+	\end{split}
 	\eean
-	On the other hand from the equation \eqref{blowig_sue3_eqn} it follows that the space of elements
-	$f'af''$ where $a \in A;\quad f', f'' \in C_0\left( \sU\right)$
-	is dense in $_\sU A_\sU$ it turns out that
+the given by \eqref{blowing_inj_b_eqn} a continuous map and an action. Denote by $\widetilde A^{\mathrm{reg}}\subset \widetilde A$ a generated by elements
 	$$
-	\forall b \in ~_\sU A_\sU \quad b = 1_{C\left(\sV\right)} b = b1_{C\left(\sV\right)}
+\pi\left( a'\right) \widetilde f \pi\left( a''\right)\quad a', a'' \in A \quad  \widetilde f	\in  C_0\left( \widetilde \sY\right) 
 	$$
+If 
+\bean
+H \bydef \left\{g \in G~\left|~ \forall \widetilde f \in C_0\left( \widetilde \sY\right) \quad g \widetilde f = \widetilde f \right.\right\}\subset G
+\eean
+then
+$$
+\widetilde A^{\mathrm{reg}} \subset \widetilde A^H \bydef \left\{\left. \widetilde a\in \widetilde A\right| \forall g \in H \quad g \widetilde a = \widetilde a\right\}.
+$$
+
+
+\begin{definition}\label{proper_subgroup_fin_defn!}
+	Let $\left(A, \widetilde{A}, G\left(\left.\widetilde A~\right|A \right), \pi \right)$ be  a {noncommutative finite-fold  pre-covering} (cf. Definition \ref{fin_pre_defn}). A normal subgroup $H\subset G\left(\left.\widetilde A~\right|A \right)$ is said to be $\left(A, \widetilde{A}, G\left(\left.\widetilde A~\right|A \right), \pi \right)$-\textit{proper} if a quadruple
+	\be
+	\left(A, \widetilde{A}^H, G\left(\left.\widetilde A~\right|A \right)/H, \pi^H \right)
+	\ee
+	is a  {noncommutative finite-fold  pre-covering}. The *-homomorphism $\pi^H:A\hookto \widetilde{A}^H: $ comes from $\pi: A \hookto \widetilde{A}$ and an inclusion  $\pi\left( A\right) \subset \widetilde{A}^H$.
+\end{definition}
+
+
+
+
+
+
+
+ Let $B\subset A$ be a $\left(A, \widetilde{A}, G, \pi \right)$-strictly proper  subalgebra (cf. Definition \ref{hered_proper_lift_defn}). Let $\widetilde B\subset \widetilde A$ be a {hereditary} $\left(A, \widetilde{A}, G, \pi \right)$-{lift} of $B$ (cf. Definition \ref{hered_lift_defn}). From the Definition \ref{hered_proper_lift_defn} and the Corollary  \ref{cov_mult_fin_cor} it follows that there is an  noncommutative finite-fold  covering with unitization $\left(B, \widetilde{B}, G, \pi_B \right)$ (cf. Definition \ref{fin_unitization_defn}). From the Corollary \ref{cov_mult_fin_cor} it follows that there is an 
+unital  noncommutative finite-fold covering  $\left(M\left(B \right)  ,M\left( \widetilde{B}\right) , G, \widetilde{\pi}_B \right)$ covering (cf. Definition \ref{fin_unital_defn}). Let $I\subset C_0\left(\sY \right)$ be a given by  the equation \eqref{blowing_wrapper_ideal_eqn} ideal, and let $\sU \subset \sY$ be such that $I = C_0\left( \sY\right)$. !!! PROVE !!!If $\widetilde{\sU}\bydef q^{-1}\left( \sU\right) $ then one has $\widetilde B \subset ~_{\widetilde \sU} \widetilde A_{\widetilde\sU}$  !!! END PROVE!!!. From \eqref{blowing_cb_inc_eqn} one has following inclusions
+	\be\label{blowing_cb_inc_p_eqn}
+	\begin{split}
+	C_b\left(\sU\right)= C\left( \bt\sU\right) \subset M\left(_\sU A_\sU \right),\\
+C_b\left(\widetilde \sU\right)\subset  C\left( \bt\widetilde \sU\right)\subset  M\left(_{\widetilde \sU} \widetilde A_{\widetilde\sU} \right)
+	\end{split}
+	\ee
+	where both $\bt\sU$ and $\bt\widetilde\sU$ are {Stone-\v{C}ech compactifications}  of $\sU$ and $\widetilde\sU$ (cf. Definition \ref{sc_comp_defn}). From the Theorem \ref{top_sc_to_compact_thm} it follows that the restriction $q|_{\sU} : \widetilde\sU \to \sU$ can be uniquely extended up to a continuous map
+	$\bt q|_{\sU} : \bt\widetilde\sU \to \bt\sU$.
+Let both $L_B \in A$ and $L_{\widetilde B} \subset \widetilde B$ are left  ideals such that $B= L_B \cap L^*_{B}$ and $\widetilde B= L_{\widetilde B} \cap L^*_{\widetilde B}$. 
+For any $\widetilde b \in \widetilde B \subset _{\widetilde \sU} \widetilde A_{\widetilde\sU}$ and $\widetilde f \in C_b \left( \widetilde \sU\right)$ from \eqref{blowing_cb_inc_p_eqn} one can define 
+$$
+\widetilde f\widetilde b  \in  ~_{\widetilde \sU} \widetilde A_{\widetilde\sU}
+$$
+On the other hand $$\forall \widetilde a \in _{\widetilde \sU} \widetilde A_{\widetilde\sU}\quad
+\widetilde a\widetilde f \in _{\widetilde \sU} \widetilde A_{\widetilde\sU}
+$$
+From
+$$
+\left( \widetilde a\widetilde f\right) \widetilde b = \widetilde a\left( \widetilde f\widetilde b\right)
+$$
+It follows that $\widetilde f\widetilde b\in L_{\widetilde B}$. If $b \in  B$ then from $B\subset \widetilde B$ it follows that $b \in L^*_{\widetilde B}$.
+So one has
+$$
+b \widetilde f \widetilde b  \in L_{\widetilde B}\cap L^*_{\widetilde B}=\widetilde B.
+$$
+
+
+from $\widetilde b \in L_{\widetilde B}$ it follows that 
+$$
+\forall \widetilde a \in _{\widetilde \sU} \widetilde A_{\widetilde\sU}
+$$ 
+\end{empt}
+
+\be\label{blowing_cb_inc_eqn!}
+C_b\left(\sU\right)\subset M\left(_\sU A_\sU \right).
+\ee
+$C_b\left( \widetilde \sU\right)$ is a left $C_b\left( \sU\right)$
+For any left  submodule $C_b\left( \sU\right)$-module $\widetilde M$ such that we denote by
+$$
+B \widetilde M\widetilde B
+$$
+\paragraph{title}
+
+\begin{lemma}!!! DELETE
+	Let $A$ be a connected  $C^*$-algebra (cf. Definition \ref{connected_c_a_defn}), and let $C\left( \sY\right)\hookto M\left(A \right) $ be a Hausdorff blowing up (cf. Definition \ref{blowing_defn}) with compact $\sY$.  Suppose that   $\left(A, \widetilde{A}, G, \pi \right)$ is  a noncommutative finite-fold  covering with unitization (cf. Definition \ref{fin_unitization_defn}). Let $\left(B, \widetilde{B}, G, \rho \right)$ be a required by the Definition \ref{fin_unitization_defn} unital noncommutative finite-fold  covering (cf. Definition \ref{fin_unital_defn}), such that $C\left(\sY \right) \subset B$. If $C\left(\widetilde\sY\right)$ is given by \eqref{blowing_cy_eqn} then one has
+	$$
+	\widetilde{B}= C\left(\widetilde\sY\right){B}\quad \Rightarrow \quad C\left(\widetilde\sY\right)	\quad \mathrm{is~a~finitely~generated }\quad  C\left(\sY\right)\mathrm{-module}.
+	$$
+\end{lemma}
+\begin{proof}
+	From the Definition \ref{fin_unital_defn} it follows that $\widetilde B$ is a finitely generated left and right $B$-module. 
+	If $C\left(\widetilde\sY\right)$ is not  a left finitely generated $C\left(\sY\right)$-module then from the Theorem \ref{fin_gen_thm} it follows that there is an infinite set $\left\{M_\la\right\}_{\la\in\La}$ of left $C\left(\sY \right)$-submodules of $C\left(\widetilde{\sY}\right)$ such that 
+	$$
+	C\left(\widetilde{\sY}\right)=\sum_{\la \in \La} M_\la,
+	$$
+	but  
+	$$
+	C\left(\widetilde{\sY}\right) \neq \sum_{\la \in \La_0} M_\la
+	$$
+	for any finite subset $\La_0\subset \La$. It follows that
+	$$
+	\widetilde B=\sum_{\la \in \La} M_\la B,
+	$$
+	but  
+	$$
+	\widetilde B=\sum_{\la \in \La_0} M_\la B,
+	$$
+	for any finite subset $\La_0\subset \La$. 
+	From the  Theorem \ref{fin_gen_thm} it follows that	$\widetilde B$ is not a finitely generated $B$-module. However from the Definition \ref{fin_unital_defn} it turns out that  $\widetilde B$ is  a finitely generated $B$-module. From this contradiction one concludes that $C\left(\widetilde\sY\right)$ is not  a left finitely generated $C\left(\sY\right)$-module.
 \end{proof}
 
 \paragraph{title}
+\begin{empt}\label{blowing_wrapper_empt!}
+Let $A$ be a $C^*$-algebra, and let $C_0\left( \sY\right)\hookto M\left( A\right) $ be Hausdorff blowing-up of $A$. If $B\in A$ is a hereditary $C^*$-subalgebra then from the Proposition \ref{hered_lem} it follows that there is a closed d left ideal $L_B \subset A$ such that $B = L_B\cap L_B^*$.
+If 
+\be\label{blowing_wrapper_ideal_eqn!}
+\begin{split}
+	I' \bydef \left\{f' \in C_0\left(\sY\right)~|~\forall a \in L_B \quad a f' = 0\right\},\\
+	I \bydef \left\{f \in C_0\left(\sY\right)~|~\forall f' \in I' \quad ff' = 0\right\},
+\end{split}
+\ee
+then from the Proposition \ref{ideal_spectrum_thm} it follows that the ideal $I$ corresponds to an open subset $\sU \subset \sY$ such that $I= C_0\left(\sU\right)$. From  \ref{blowig_su_eqn} it follows that 
+$$
+A_\sU \bydef \left\{a \in A~|~\forall f' \in I' \quad af' =0\right\},
+$$
+i.e. $a \in L_B \Rightarrow a \in A_\sU$, so $L_B \subset A_\sU$. It turns out  that
+\be\label{blowing_wrapper_eqn}
+B =  L_B \cap L^*_B\subset A_\sU \cap~ _\sU A = ~ _\sU A_\sU
+\ee
+\end{empt}
 
+
+\paragraph{title}
 \begin{lemma}\label{blowing_hilbert_module_lem}
 	Let $A$ be a connected  $C^*$-algebra (cf. Definition \ref{connected_c_a_defn}), and let $C\left( \sY\right)\hookto M\left(A \right) $ be  Hausdorff blowing up (cf. Definition \ref{blowing_defn}) with compact $\sY$.  If $q: \widetilde\sY \to \sY$ is a finite-fold transitive covering then an algebraic tensor product
 	$ C\left(\widetilde \sY \right)\otimes_{C\left(\sY\right)} A
@@ -22076,7 +22139,12 @@ continuous for $\a\le\bt$) their \textit{inverse limit} $\varprojlim \sX_\a$ (cf
 		denote this compactification of  by $\bt\sX$ and call it the \textit{Stone-\v{C}ech compactification}  
 		of $\sX$. It is characterized by the fact that any continuous map $\sX\to\sY$ of $\sX$ into a
 		compact Hausdorff space $\sY$ extends uniquely to a continuous map $\bt\sX\to\sY$.
-	\end{definition}	
+	\end{definition}
+\begin{theorem}\label{top_sc_to_compact_thm}\cite{munkres:topology}
+%Theorem 38.4. 
+Let $\sX$ be a completely regular space; let $\bt\sX$ be the  {Stone-\v{C}ech compactification} of $\sX$. Given any continuous map $f: \sX \to \sY$ into a compact Hausdorff space $\sY$, the map $f$ extends uniquely to a
+continuous map $\bt f: \bt \sX\to\sY$.
+\end{theorem}	
 	
 	\begin{definition}\label{f_topology_defn}\cite{rudin:fa}
 		Suppose next that $\sX$ is a set and $\mathscr F$ is a nonempty family of mappings $f: \sX \to \sY_f$, where each $\sY_f$ is a topological space. (In many important cases, $\sY_f$ is the same for all $f \in \mathscr F$.) Let $\tau$ be the collection of all unions of finite intersections of sets $f^{-1}\left(\sV  \right)$ with $f\in \mathscr F$ and $\sV$ open in $\sY_f$. Then $\tau$ is a topology on $\sX$, and it is in fact the weakest topology on $\sX$ that makes every 
