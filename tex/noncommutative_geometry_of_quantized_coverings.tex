@@ -1521,9 +1521,9 @@ G_{A }\left( H_A\left(B \right)\right) = B.
 %\end{proof}
 \begin{lemma}\label{quasi_mult_lem}
 If a quadruple $\left(A, \widetilde{A}, G, \pi \right)$ is a {noncommutative finite-fold  quasi-covering} then 
-$$
+\be\label{quasi_mult_eqn}
 \pi\left( A\right)\widetilde{A} \pi\left( A\right) = \widetilde{A}
-$$
+\ee
 \end{lemma}
 \begin{proof}
 If $\widetilde a \in \widetilde A$ then from \eqref{four_decompositon_eqn} it turns out that there are positive elements $\widetilde a_1, \widetilde a_2, \widetilde a_3, \widetilde a_4 \in \widetilde A_+$ such that  $\widetilde a=\widetilde a_1 - \widetilde a_2 + i\widetilde a_3 - i \widetilde a_4$.
@@ -2282,13 +2282,14 @@ unital  noncommutative finite-fold covering  $\left(M\left(A \right)  ,M\left( \
 	If a representation  $\rho: A \hookto B\left(\H \right) $ is nondegenerate then a representation  $\widetilde{\rho}: \widetilde{A} \to B\left( \widetilde{\H} \right)$ is also nondegenerate. 
 \end{lemma}
 \begin{proof}
-	If $\widetilde a \in \widetilde A$ then
-	$\widetilde a = \widetilde b + i\widetilde c - i\widetilde d - \widetilde e$ where all $\widetilde b,\widetilde c,\widetilde d,\widetilde e\in \widetilde{{A}}_+$ are positive elements of $\widetilde A$.
-	For every $\xi\in\H$ one has
-	$$
-\widetilde a\otimes \xi = \sqrt{\widetilde b}\left( \sqrt{\widetilde b} \otimes \xi \right) + i\sqrt{\widetilde c}\left( \sqrt{\widetilde c} \otimes \xi \right) - i\sqrt{\widetilde d}\left( \sqrt{\widetilde d} \otimes \xi \right) -\sqrt{\widetilde e}\left( \sqrt{\widetilde e} \otimes \xi \right) 
-	$$
-	it follows that $\widetilde a\otimes \xi\in \widetilde A\widetilde\H$. On the other hand the algebraic tensor product $\widetilde A\otimes_A \H$ is a dense subspace of $\widetilde\H$. It follows that $\widetilde A\widetilde\H$ is a dense subspace of $\widetilde\H$.
+%	If $\widetilde a \in \widetilde A$ then	$\widetilde a = \widetilde b + i\widetilde c - i\widetilde d - \widetilde e$ where all $\widetilde b,\widetilde c,\widetilde d,\widetilde e\in \widetilde{{A}}_+$ are positive elements of $\widetilde A$.	For every $\xi\in\H$ one has	$$
+%\widetilde a\otimes \xi = \sqrt{\widetilde b}\left( \sqrt{\widetilde b} \otimes \xi \right) + i\sqrt{\widetilde c}\left( \sqrt{\widetilde c} \otimes \xi \right) - i\sqrt{\widetilde d}\left( \sqrt{\widetilde d} \otimes \xi \right) -\sqrt{\widetilde e}\left( \sqrt{\widetilde e} \otimes \xi \right) 
+%	$$
+%	it follows that $\widetilde a\otimes \xi\in \widetilde A\widetilde\H$. On the other hand the algebraic tensor product $\widetilde A\otimes_A \H$ is a dense subspace of $\widetilde\H$. It follows that $\widetilde A\widetilde\H$ is a dense subspace of $\widetilde\H$.
+If  $\widetilde a \otimes  \xi \in \widetilde A \otimes_A \H\subset \widetilde \H$ then from  $\widetilde A\widetilde A=\widetilde A$ it follows that there are $\widetilde b, \widetilde c \in \widetilde A$ and $a \in A$ such that $\widetilde a= \widetilde b \widetilde c$. So one has
+$$
+\widetilde a \otimes  \xi= \left( \widetilde b \widetilde c\right)  \otimes  \xi= \widetilde b\left(  \widetilde c  \otimes  \xi\right)\in \widetilde A \widetilde \H.$$
+On the other hand the space $\widetilde A \otimes_A \H$ is dense in $\widetilde \H$.
 \end{proof}
    \begin{empt}\label{g_act_induced_empt}
    	Let $\left(A, \widetilde{A}, G, \pi\right)$ be a  noncommutative finite-fold covering, let $\rho: A \to B\left(\H \right)$ be a faithful non-degenerated representation, and let  $\widetilde{\rho}: \widetilde{A} \to B\left( \widetilde{\H} \right)$ be induced by the pair $\left(\rho,\left(A, \widetilde{A}, G, \pi\right)  \right)$ (cf. Definition \ref{induced_repr_defn}). There is the natural action of $G\times\widetilde{\H}\to \widetilde{\H}$ which comes from a map
@@ -5079,8 +5080,12 @@ Above equation contradicts with \eqref{inf_ind_c_eqn} so for any positive $\wide
 	If a representation  $\rho: A \hookto B\left(\H \right) $ is nondegenerate then a representation  $\widetilde{\rho}: \widetilde{A} \to B\left( \widetilde{\H} \right)$ is also nondegenerate. 
 \end{lemma}
 \begin{proof}
-Lemmas \ref{induced_nondegenerate_lem} and \ref{faithful_nondegenerate_inf_lem} are prototypes of a proof of this lemma. Details of the proof we leave to the reader.
+	If  $\widetilde a \otimes  \xi \in K\left( \widetilde A_\pi\right)  \otimes_A \H\subset \widetilde \H$ then from  $\widetilde A K\left( \widetilde A_\pi\right)= K\left( \widetilde A_\pi\right)$ it follows that there are $\widetilde b\in  \widetilde A_\pi,~ \widetilde c \in  K\left( \widetilde A_\pi\right)$  such that $\widetilde a= \widetilde b \widetilde c$. So one has
+	$$
+	\widetilde a \otimes  \xi= \left( \widetilde b \widetilde c\right)  \otimes  \xi= \widetilde b\left(  \widetilde c  \otimes  \xi\right)\in \widetilde A_\pi \widetilde \H.$$
+	On the other hand the set $ K\left( \widetilde A_\pi\right)\otimes_A \H$ is dense in $\widetilde\H$.
 \end{proof}
+
 
 
 \begin{rem}\label{a_act_hilb_rem} 
