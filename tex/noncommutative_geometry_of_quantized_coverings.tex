@@ -2625,7 +2625,7 @@ Moreover one has
  \begin{definition}\label{red_alg_defn}
  	Let $\left(A, \widetilde{A}, G, \pi \right)$ be  a noncommutative finite-fold  quasi-covering. A $C^*$-subalgebra
  \be\label{red_incl_eqn}
- \widetilde{A}_{\text{red}}\bydef	\left\{\left. \widetilde a \in \widetilde A\right| 	\rep_{ \widetilde{x}}\left(\widetilde{a} \right) \in \rep_{ \widetilde{x}}\left(A\right)\quad \forall \widetilde x \in \widetilde{\sX}\right\} \subset \widetilde A
+ \widetilde{A}_{\text{red}}\bydef	\left\{\left. \widetilde a \in \widetilde A\right| 	\rep_{ \widetilde{x}}\left(\widetilde{A} \right) = \rep_{ \widetilde{x}}\left(A\right)\quad \forall \widetilde x \in \widetilde{\sX}\right\} \subset \widetilde A
  \ee
  	is said to be a \textit{reduced algebra of} $\left(A, \widetilde{A}, G, \pi \right)$.
  \end{definition}
@@ -3940,6 +3940,7 @@ In particular from $A_{\la_{\text{min}}}\bydef A$ it turns out that there is is 
 \overline m:	A \to M\left( \overline{A}_\pi \right).
 \end{split} 
 \ee
+
 \end{remark}
 \begin{remark}\label{comes_from_bh_rem}
 The homomorphism \eqref{a_too_eqn} comes from inclusions $A_\la \subset B\left( \H\right)$ and $ \overline{A}_\pi \subset B\left( \H\right)$. 
@@ -4094,7 +4095,7 @@ If $\widehat x$ correspond to a state $\tau_{\widehat x}$ then $\H_{\widehat x}$
 $$
 \mathcal{I}_{\tau_{\widehat x}}\bydef \left\{\left.\widehat a \in \widehat A \ \right| \ \tau(\widehat a^*\widehat a)=0\right\}
 $$
-(cf. equation \ref{tau_ideal_eqn}). If $f_{\tau_{\widehat x}}: \widehat A \to \H_{\widehat x}$ is given by the equation \eqref{from_a_to_l2_eqn} then $f_{\tau_{\widehat x}}\left(  \widehat A\right)$ is a dense subset of $\H_{\widehat x}$. On the other hand since $\bigcup A_\la$ is dense in $ \widehat A $ the space $f_{\tau_{\widehat x}}\left(  \bigcup A_\la\right)$  a dense subset of $\H_{\widehat x}$. However from the equation \eqref{red_incp_eqn} it turns out that $f_{\tau_{\widehat x}}\left(  A_\la\right)= f_{\tau_{\widehat x}}\left(   A\right)$ for every $\la\in \La$ it follows that $f_{\tau_{\widehat x}}\left(  A\right)$ is dense in $\H_{\widehat x}$. We leave to the reader the proof of the following isomorphism
+(cf. equation \ref{tau_ideal_eqn}). If $f_{\tau_{\widehat x}}: \widehat A \to \H_{\widehat x}$ is given by the equation \eqref{from_a_to_l2_eqn} then $f_{\tau_{\widehat x}}\left(  \widehat A\right)$ is a dense subset of $\H_{\widehat x}$. On the other hand since $\bigcup A_\la$ is dense in $ \widehat A $ the space $f_{\tau_{\widehat x}}\left(  \bigcup A_\la\right)$  a dense subset of $\H_{\widehat x}$. However from the equation \eqref{red_incl_eqn} it turns out that $f_{\tau_{\widehat x}}\left(  A_\la\right)= f_{\tau_{\widehat x}}\left(   A\right)$ for every $\la\in \La$ it follows that $f_{\tau_{\widehat x}}\left(  A\right)$ is dense in $\H_{\widehat x}$. We leave to the reader the proof of the following isomorphism
 $$
 f_{\tau_{\widehat x}}\left(   A\right)\cong f_{\tau_{\widehat p\left( \widehat x\right) }}\left(  A\right).
 $$
@@ -4256,6 +4257,13 @@ G_\pi\bydef \left\{\left.g \in  G\left(\left. \overline A_\pi~\right| A \right)\
 If $\mu, \nu \in \La$ such that $\mu > \nu$ then from $A_\nu \subset A_\mu$ it follows that
 \be
 \forall\mu, \nu \in \La\quad \mu > \nu\quad \widetilde m_\nu\left( A_\nu\right) \subset \widetilde m_\mu\left( A_\mu\right).
+\ee
+From \eqref{ata_eqn} it follows that
+\be\label{ata_m_eqn}
+\begin{split}
+		\widetilde m_\la\left(A_\la\right)  \widetilde{A}_\pi 	\widetilde m_\la\left(A_\la\right) = \widetilde{A}_\pi,\\
+		\widetilde m\left(A\right)  \widetilde{A}_\pi 	\widetilde m\left(A\right) = \widetilde{A}_\pi
+	\end{split}
 \ee
 \end{empt}
 \begin{definition}\label{good_defn}
@@ -5121,81 +5129,50 @@ so there is the inclusion
   
 \end{rem}
  \begin{empt}\label{h_n_to_h_constr_empt}
-!!! 	Let $\H_\la$ be a Hilbert completion of $A_{\la} \otimes_A \H$ which is constructed in the section \ref{induced_repr_fin_sec}. There is the natural inclusion of pre-Hilbert spaces
+ 	Let us fix $\la\in \La$, and 
+let $\H_\la$ be a Hilbert completion of $A_{\la} \otimes_A \H$ which is constructed in the section \ref{induced_repr_fin_sec}. From  \eqref{ata_m_eqn} it follows that $	\widetilde{A}_\pi = 	\widetilde{A}_\pi \widetilde m_\la\left(A_\la \right)\cong  \widetilde{A}_\pi \otimes_{A_\la} A_\la$. Taking into account $	K\left(\widetilde{A}_\pi\right)\widetilde{A}_\pi =	K\left(\widetilde{A}_\pi\right)$ one has
+a natural inclusion of pre-Hilbert spaces
  	\begin{equation}\label{tensor_n_eqn}
  	K\left(\widetilde{A}_\pi\right) \otimes_A \H = K\left(\widetilde{A}_\pi\right) \otimes_{A_{\la}} \left( A_{\la} \otimes_A \H\right)\hookto
  K\left(\widetilde{A}_\pi\right)\otimes_{A_{\la}} \H_{\la}.
  	\end{equation}
- 	such that $K\left(\widetilde{A}_\pi\right) \otimes_A \H$ is dense in $K\left(\widetilde{A}_\pi\right)\otimes_{A_{\la}} \H_{\la}$ with respect to pre-Hilbert norm, i.e. the inclusion \ref{tensor_n_eqn} induces the isomorphism of Hilbert completions.  For all $\la\in\La$ 
- 	there is the right action 
- 	\be\label{bl_act_d_eqn}
+ 	such that $K\left(\widetilde{A}_\pi\right) \otimes_A \H$ is dense in $K\left(\widetilde{A}_\pi\right)\otimes_{A_{\la}} \H_{\la}$ with respect to pre-Hilbert norm, i.e. the inclusion \ref{tensor_n_eqn} induces the isomorphism of Hilbert completions. So there is a dense inclusion $K\left(\widetilde{A}_\pi\right)\otimes_{A_{\la}} \H_{\la}\hookto \widetilde \H$.  
+ 	If we  define a multiplicative structure and an involution on $\widetilde{A}_\pi \otimes_{A_\la} B\left(\H_\la \right)$ such that
+ \bean
+\forall \widetilde a', \widetilde a'' \in\widetilde A \quad\forall a',a'' \in B\left(\H_\la \right) \quad  	\left(\widetilde a'\otimes a' \right) 	\left(\widetilde a''\otimes  a'' \right)\bydef \left( \widetilde a'\widetilde a''\right) \otimes\left(  a'  a''\right),\\
+ \forall \widetilde a \in\widetilde A \quad\forall a \in B\left(\H_\la \right)\quad \left(\widetilde a\otimes a \right)\bydef \left(\widetilde a^*\otimes a^* \right)
+ \eean
+ 	then there is an action
+ 	\bean
  	\begin{split}
-  \left(K\left(\widetilde{A}_\pi\right)\otimes_{A_{\la}} \H_{\la} \right)\times 	B\left( \H_{\la}\right) \to K\left(\widetilde{A}_\pi\right)\otimes_{A_{\la}} \H_{\la},\\
- 	\left(a_\la, \left( \widetilde{a}\otimes\xi\right)  \right) \mapsto  \widetilde{a}\otimes a_\la \xi,
+ 		\left(\widetilde{A}_\pi \otimes_{A_\la} B\left(\H_\la \right) \right) \times  \left( K\left(\widetilde{A}_\pi\right)\otimes_{A_{\la}} \H_{\la}\right)\to K\left(\widetilde{A}_\pi\right)\otimes_{A_{\la}} \H_{\la}, \\
+ 	\forall a\in B\left(\H_\la \right) \quad  \forall \widetilde a' \in \widetilde{A}_\pi	\quad  \forall \widetilde a'' \in K\left( \widetilde{A}_\pi\right) \quad \forall\xi \in \H_\la\\
+ 	\left(\widetilde a'\otimes  a \right)	\left(\widetilde a''\otimes  \xi \right)\bydef 	\left(\widetilde a'a''\otimes  a\xi \right)
  	\end{split}
- 	\ee
- 	and taking into account that $K\left(\widetilde{A}_\pi\right)\otimes_{A_{\la}} \H_{\la}$ is dense in $\widetilde\H$ one has the following right action
- \be\label{bl_act_eqn}
- \widetilde\H \times 	B\left( \H_{\la}\right) \to \widetilde\H
+	\eean
+ Since $K\left(\widetilde{A}_\pi\right)\otimes_{A_{\la}} \H_{\la}$ is dense in $\widetilde \H$ the above action can be uniquely extended up to an action
+ \bean
+ 	\left(\widetilde{A}_\pi \otimes_{A_\la} B\left(\H_\la \right) \right) \times  \widetilde{\H}\to \widetilde{\H},
+ \eean
+ or there is an inclusion
+ \be\label{abla_eqn}
+\widetilde{A}_\pi \otimes_{A_\la} B\left(\H_\la \right)\hookto B\left(\widetilde \H \right) 
  \ee
-Let us define a map
+ Taking into account $A \bydef A_{\la_{\text{min}}}$ one has an inclusion
+ \be\label{ab_eqn}
+\widetilde{A}_\pi \otimes_{A} B\left(\H \right)\hookto B\left(\widetilde \H \right).
+ \ee	
+ If $\left\{\widetilde u_\la\right\}\subset \widetilde{A}_\pi$ is an approximate unit of $\widetilde{A}_\pi$ then we define an action
 \bean
-\varphi:  B\left( \widetilde\H\right) \times B\left( \H_\la\right)\to  B\left( \widetilde\H\right),\\
-\forall \widetilde \xi\in \widetilde\H\quad  \varphi\left(\widetilde b , b \right) \xi =\widetilde b \left( \widetilde \xi b\right)   
+ B\left(\H_\la \right)\times  \widetilde \H \to \widetilde \H,\\
+\forall \left(a, \xi  \right)\in  B\left(\H_\la \right)\times  \widetilde \H \quad \left(a, \xi  \right)\mapsto \lim_\la \left( \widetilde u_\la \otimes a\right) \xi.
 \eean
-Define an action
-\bean
-B\left( \H_\la\right)\times B\left( \widetilde\H\right)
-b \widetilde b \bydef 
-\eean 
-
- $B\left( \widetilde\H\right) \times B\left( \H_\la\right)$
- 	
- and the corresponding	 inclusion
- 	\be\label{bl_inc_eqn!}
- B_\la:	B\left( \H_\la\right)\hookto B\left( \widetilde\H\right).  
- 	\ee
- 	In particular one has the natural inclusion
-  	\be\label{b_inc_eqn!}
- B\left( \H\right)\subset B\left( \widetilde\H\right).  
+The above action yields an inclusion 
+ \be\label{bl_inc_eqn}
+ B\left(\H_\la \right)\subset B\left(\widetilde \H \right).
  \ee
-Both inclusions  $A_\la \subset B\left( \H_\la\right)$ and \eqref{bl_inc_eqn} yield the inclusion
-	\be\label{al_inc_eqn!}
-A_\la\subset B\left( \widetilde\H\right).  
-\ee
-There is the natural action $\left( A_{\la} \otimes_A B\left( \H\right)\right) \times \widetilde\H \to \widetilde\H$ given by
-\be\label{ab_act_eqn!}
-\left( \left(a \otimes b \right), \xi \right)  \mapsto ab\xi.
-\ee
-where both $a \in A_{\la}$ and $b \in B\left( \H\right)$ are regarded as elements of $B\left( \widetilde\H\right)$.  The given by \eqref{ab_act_eqn} action yields the following inclusion 
-\be\label{ab_inc_eqn}
-A_{\la} \otimes_A B\left( \H\right)\subset B\left( \widetilde\H\right).
-\ee
-There is the natural action $\left( \widetilde{A}_\pi \otimes_A B\left( \H\right)\right) \times \widetilde\H \to \widetilde\H$ given by
-\be\label{apb_act_eqn}
-\left( \left(\widetilde a \otimes b \right), \xi \right)  \mapsto \widetilde ab\xi
-\ee
-where both $\widetilde a  \in \widetilde{A}_\pi$ and $b \in B\left( \H\right)$ are regarded as elements of $B\left( \widetilde\H\right)$.  The given by \eqref{ab_act_eqn} action yields the following inclusion 
-\be\label{apb_inc_eqn}
-\widetilde{A}_\pi \otimes_A B\left( \H\right)\subset B\left( \widetilde\H\right).
-\ee
-	
  \end{empt}
-\begin{lemma}\label{covering_atomic_inf_lem}!!! INFINITE
-	If $\left(A, \widetilde{A}, G, \pi \right)$ is  a noncommutative finite-fold  quasi-covering (cf. Definition \ref{fin_quasi_defn}), $\rho: A \to B\left(\H\right)$ is an atomic representation (cf. Definition \ref{atomic_repr_defn}) and $ \widetilde \rho :\widetilde A \to B\left(\widetilde \H\right)$ is induced by the pair $\left(\rho, \left(A, \widetilde{A}, G, \pi \right)\right)$ (cf. Definition \ref{induced_repr_defn}), then the representation $\widetilde \rho$ is atomic.
-	\end{lemma}
-	\begin{proof}
-	Let both $\sX$ and $\widetilde \sX$ be spectra of both $A$ and $\widetilde A$. If $x \in \sX$ and $\H_x$ is a space of an irreducible  representation $\rep_x: A \to B\left(\H_x\right)$ then $\H= \oplus_{x\in \sX} \H_x$ where $\oplus$ is a norm completion of an algebraic direct sum (cf. Definition \ref{atomic_repr_defn}). It turns out that $\widetilde \H =\oplus_{x\in \sX} \widetilde \H_x$ where $\widetilde \H_x \bydef \widetilde A\otimes \H_x$. From the equation \eqref{tau_oplus_eqn} it follows that
-	$
-	\widetilde \H_x = \bigoplus_{\widetilde x \in p^{-1}\left( x\right)} \widetilde \H_{\widetilde x}
-		$
-		where $p: \widetilde \sX \to \sX$ is given by the Proposition \ref{spectrum_cov_prop} and $\H_{\widetilde x}$ a space of an irreducible  representation $\rep_{\widetilde x}: \widetilde A \to B\left(\widetilde \H_{\widetilde x}\right)$. Using the above construction one has
-	$$
-	\widetilde \H = \bigoplus_{x\in \sX} \widetilde A\otimes \H_x = \bigoplus_{x\in \sX}\left(\bigoplus_{\widetilde x \in p^{-1}\left( x\right)} \widetilde \H_{\widetilde x} \right) =  \bigoplus_{\widetilde x \in \widetilde \sX} \widetilde \H_{\widetilde x}
-	$$
-	Above equation means that $\widetilde \H$ is a Hilbert  space of the atomic representation.
-		\end{proof}
-		\
+
  \section{Strong Morita equivalence of infinite coverings}\label{inf_mor_sec}
 
 \paragraph{}  Let $\left(A, \widetilde{A}, G\right)$ be an  infinite noncommutative covering which allows  the inner product (cf. Definition \ref{inf_hilb_prod_defn}), and let  $X =X_A=_{\widetilde{A}}X_A$ be a given by \eqref{inf_hilb_inc_eqn} $C^*$-Hilbert $A$-module. % where the atomic representation (cf. Definition \ref{atomic_repr_defn}) is implied. 
@@ -5216,7 +5193,10 @@ $$
 \forall a \in C_c\left(G, \widetilde{A}\right)\quad \left\| a\right\|\bydef   \left\| \ka\left(a \right)\right\|
 $$
 where $\ka: C_c\left(G, \widetilde{A}\right)\hookto \K\left(X_A \right)$ is the natural inclusion.
-There is the natural left action $\left( \widetilde A\rtimes_cG\right) \times X_A\to X_A$.
+There is the natural left action $\left( \widetilde A\rtimes_cG\right) \times X_A\to X_A$. From (b) it follows that 
+\be\label{ack_eqn}
+\widetilde A\rtimes_cG= \K\left(X_A \right)
+\ee 
 \begin{definition}\label{cross_cov_defn}
 	In the above situation we say that $\widetilde A\rtimes_cG$ is an \textit{crossed product associated with the covering} $\left(A, \widetilde{A}, G\right)$.
 \end{definition}
