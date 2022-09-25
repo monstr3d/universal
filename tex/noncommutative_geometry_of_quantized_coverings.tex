@@ -5133,14 +5133,17 @@ so there is the inclusion
 let $\H_\la$ be a Hilbert completion of $A_{\la} \otimes_A \H$ which is constructed in the section \ref{induced_repr_fin_sec}. From  \eqref{ata_m_eqn} it follows that $	\widetilde{A}_\pi = 	\widetilde{A}_\pi \widetilde m_\la\left(A_\la \right)\cong  \widetilde{A}_\pi \otimes_{A_\la} A_\la$. Taking into account $	K\left(\widetilde{A}_\pi\right)\widetilde{A}_\pi =	K\left(\widetilde{A}_\pi\right)$ one has
 a natural inclusion of pre-Hilbert spaces
  	\begin{equation}\label{tensor_n_eqn}
- 	K\left(\widetilde{A}_\pi\right) \otimes_A \H = K\left(\widetilde{A}_\pi\right) \otimes_{A_{\la}} \left( A_{\la} \otimes_A \H\right)\hookto
+ 		\begin{split}
+ 	K\left(\widetilde{A}_\pi\right) \otimes_A \H = \left( K\left(\widetilde{A}_\pi\right) \otimes_{A_{\la}}   A_{\la}\right)  \otimes_A \H=\\
+ 	=K\left(\widetilde{A}_\pi\right) \otimes_{A_{\la}} \left( A_{\la} \otimes_A \H\right)\hookto
  K\left(\widetilde{A}_\pi\right)\otimes_{A_{\la}} \H_{\la}.
+		\end{split}
  	\end{equation}
  	such that $K\left(\widetilde{A}_\pi\right) \otimes_A \H$ is dense in $K\left(\widetilde{A}_\pi\right)\otimes_{A_{\la}} \H_{\la}$ with respect to pre-Hilbert norm, i.e. the inclusion \ref{tensor_n_eqn} induces the isomorphism of Hilbert completions. So there is a dense inclusion $K\left(\widetilde{A}_\pi\right)\otimes_{A_{\la}} \H_{\la}\hookto \widetilde \H$.  
  	If we  define a multiplicative structure and an involution on $\widetilde{A}_\pi \otimes_{A_\la} B\left(\H_\la \right)$ such that
  \bean
 \forall \widetilde a', \widetilde a'' \in\widetilde A \quad\forall a',a'' \in B\left(\H_\la \right) \quad  	\left(\widetilde a'\otimes a' \right) 	\left(\widetilde a''\otimes  a'' \right)\bydef \left( \widetilde a'\widetilde a''\right) \otimes\left(  a'  a''\right),\\
- \forall \widetilde a \in\widetilde A \quad\forall a \in B\left(\H_\la \right)\quad \left(\widetilde a\otimes a \right)\bydef \left(\widetilde a^*\otimes a^* \right)
+ \forall \widetilde a \in\widetilde A \quad\forall a \in B\left(\H_\la \right)\quad \left(\widetilde a\otimes a \right)^*\bydef \left(\widetilde a^*\otimes a^* \right)
  \eean
  	then there is an action
  	\bean
@@ -5151,23 +5154,25 @@ a natural inclusion of pre-Hilbert spaces
  	\end{split}
 	\eean
  Since $K\left(\widetilde{A}_\pi\right)\otimes_{A_{\la}} \H_{\la}$ is dense in $\widetilde \H$ the above action can be uniquely extended up to an action
- \bean
+ \be\label{aact_eqn}
  	\left(\widetilde{A}_\pi \otimes_{A_\la} B\left(\H_\la \right) \right) \times  \widetilde{\H}\to \widetilde{\H},
- \eean
+ \ee
  or there is an inclusion
  \be\label{abla_eqn}
-\widetilde{A}_\pi \otimes_{A_\la} B\left(\H_\la \right)\hookto B\left(\widetilde \H \right) 
+\widetilde{A}_\pi \otimes_{A_\la} B\left(\H_\la \right)\hookto B\left(\widetilde \H \right) .
  \ee
- Taking into account $A \bydef A_{\la_{\text{min}}}$ one has an inclusion
- \be\label{ab_eqn}
-\widetilde{A}_\pi \otimes_{A} B\left(\H \right)\hookto B\left(\widetilde \H \right).
- \ee	
- If $\left\{\widetilde u_\la\right\}\subset \widetilde{A}_\pi$ is an approximate unit of $\widetilde{A}_\pi$ then we define an action
-\bean
- B\left(\H_\la \right)\times  \widetilde \H \to \widetilde \H,\\
-\forall \left(a, \xi  \right)\in  B\left(\H_\la \right)\times  \widetilde \H \quad \left(a, \xi  \right)\mapsto \lim_\la \left( \widetilde u_\la \otimes a\right) \xi.
-\eean
-The above action yields an inclusion 
+The action \eqref{aaa_act_eqn} yields an action
+\be\label{aaa_act_eqn}
+\begin{split}
+B\left( \H_\la \right)\times  \left( K\left(\widetilde{A}_\pi\right)\otimes_{A_{\la}} \H_{\la}\right) \to K\left(\widetilde{A}_\pi\right)\otimes_{A_{\la}} \H_{\la}\\
+ 	\forall a\in B\left(\H_\la \right) \quad    \forall\xi \in \H_\la\quad \forall   \widetilde a \in K\left( \widetilde{A}_\pi\right)\quad a \left(\widetilde a\otimes \xi \right)\bydef\\
+\bydef \lim_{\la} \left( \widetilde u_\la \otimes a\right)  \left(\widetilde a\otimes \xi \right)= \widetilde a\otimes \left(a  \xi \right) 
+ \end{split}
+\ee
+where $\left\{\widetilde u_\la\right\}\subset \widetilde{A}_\pi$ is an approximate unit of $\widetilde{A}_\pi$ (cf. Definition \ref{approximate_unit_defn}).  The space  $K\left(\widetilde{A}_\pi\right)\otimes_{A_{\la}} \H_{\la}$ is dense in $\widetilde \H$ so the  action \eqref{aaa_act_eqn} uniquely defines an action
+$
+ B\left(\H_\la \right)\times  \widetilde \H \to \widetilde \H$
+which naturally  yields an inclusion 
  \be\label{bl_inc_eqn}
  B\left(\H_\la \right)\subset B\left(\widetilde \H \right).
  \ee
@@ -5193,10 +5198,7 @@ $$
 \forall a \in C_c\left(G, \widetilde{A}\right)\quad \left\| a\right\|\bydef   \left\| \ka\left(a \right)\right\|
 $$
 where $\ka: C_c\left(G, \widetilde{A}\right)\hookto \K\left(X_A \right)$ is the natural inclusion.
-There is the natural left action $\left( \widetilde A\rtimes_cG\right) \times X_A\to X_A$. From (b) it follows that 
-\be\label{ack_eqn}
-\widetilde A\rtimes_cG= \K\left(X_A \right)
-\ee 
+There is the natural left action $\left( \widetilde A\rtimes_cG\right) \times X_A\to X_A$. 
 \begin{definition}\label{cross_cov_defn}
 	In the above situation we say that $\widetilde A\rtimes_cG$ is an \textit{crossed product associated with the covering} $\left(A, \widetilde{A}, G\right)$.
 \end{definition}
@@ -11371,7 +11373,7 @@ Taking into account $\widetilde a \left\rangle \right\langle \widetilde b\in  C_
 On the other hand from the Definition \ref{comp_aop_defn} it follows that $\K\left(X_{C_0\left( \sX\right) } \right)$ is the $C^*$-norm completion of the algebraical linear span of rank-one operators, so\\ $C_c\left(G\left(\widetilde{\sX}~|~ \mathcal X\right), C_0\left( \widetilde{\sX}\right) \right)$ is dense in $\K\left(X_{C_0\left( \sX\right) } \right)$.
 \end{proof}
 \begin{exercise}\label{top_all_exer}
-Prove that the linear span of  $\left\langle X, X \right\rangle_{C_0\left( \sX\right)}$  is dense in $C_0\left( \sX\right)$, i.e.
+Prove that a linear span of \\ $\left\langle X_{C_0\left( \sX\right)}, X_{C_0\left( \sX\right) }\right\rangle_{C_0\left( \widetilde\sX\right)\rtimes_c G\left(\widetilde{\sX}~|~ \mathcal X\right)}$  is dense in $C_0\left( \sX\right)$, i.e.
 $$\left(C_0\left(\mathcal{X}\right), C_0\left(\widetilde{\sX}\right),G\left(\widetilde{\sX}~|~ \mathcal X\right)\right)$$ allows strong Morita equivalence  (cf. Definition \ref{allows_morita_defn}).  
 \end{exercise}
 \begin{remark}
@@ -12254,10 +12256,10 @@ If both $\sY$ and $\widetilde \sY$ are compact then $X_{A} \cong C\left( \wideti
 \begin{empt}\label{blowing_h_empt}
 	
 	If  $\pi: A \hookto B\left(\H\right)$ is a faithful nondegenerate   representation (cf. Definitions \ref{faithful_repr_defn} and  \ref{nondegenerate_repr_defn}) then there is a faithful representation $\pi_{C_0\left( \sY\right)}:C_0\left( \sY\right) \hookto B\left(  \H\right)$. Application of the  {Rieffel correspondence} (cf. Definition \ref{ind_repr_defn}) yields a representation
-	\be
+	\be\label{blowing_indc0_eqn}
 	\pi_{\sY} \bydef X_{C_0\left(\sY \right) }-\Ind^{C_0\left(\widetilde \sY \right)}_{C_0\left(\sY \right)}: C_0\left(\widetilde \sY \right)\hookto B\left( \widetilde \H\right) 
 	\ee
-	where $\widetilde \H$ is a Hilbert norm completion of an algebraic tensor product $X_{C_0\left(\sY \right)}\otimes_A \H$. Suppose that Hausdorff blowing-up is disintegrable (cf. Definition \ref{blowing_disintegrable_defn}) one can select two families $\left\{\sU_\a\subset \sX\right\}_{\a \in \mathscr A}$ and  $\left\{\sV_\a\subset \sX\right\}_{\a \in \mathscr A}$ of connected open sets with compact closures such that for any $\a\in\mathscr A$ following conditions hold: 
+	where $\widetilde \H$ is a Hilbert norm completion of an algebraic tensor product $X_{C_0\left(\sY \right)}\otimes_A \H$.	Suppose that Hausdorff blowing-up is disintegrable (cf. Definition \ref{blowing_disintegrable_defn}) one can select two families $\left\{\sU_\a\subset \sX\right\}_{\a \in \mathscr A}$ and  $\left\{\sV_\a\subset \sX\right\}_{\a \in \mathscr A}$ of connected open sets with compact closures such that for any $\a\in\mathscr A$ following conditions hold: 
 	\begin{itemize}
 		\item The closure of $\sV_\a$ is a subset of $\sU_\a$.
 		\item $\sU_\a$ is evenly covered by $q$ (cf. Definition \ref{top_covering_defn}).
@@ -12358,7 +12360,7 @@ $$ so it naturally defines a homomorphism
 of $ C_c\left( \widetilde \sY\right)$-$A$ bimodules.
 \end{empt}
 \begin{lemma}\label{blowing_ca_lem}
-If we 	consider the above situation then	Following conditions hold:
+If we 	consider the above situation then	following conditions hold:
 \item(i) If $X_A$ is an explained in \ref{blowing_hilb_mod_empt} Hilbert $A$-module then the given by \eqref{blowing_tens_eqn}   homomorphism $\varphi$ can be extended up to an injective homomorphism
 \be\label{blowing_xa_eqn}
 \varphi_{X_A} : X_A \hookto A_0\left(\widetilde \sY \right)
@@ -12643,8 +12645,13 @@ Let $A$ be a $C^*$-algebra with Hausdorff blowing-up $C_0\left( \sY\right) \hook
 	The proof is based on the Lemma \ref{blowing_covy_lem} and similar to the proof of (i) of the Theorem \ref{top_fin_thm}. Details of the proof are left to the reader.
 \end{proof}
 
-\begin{empt}
-Let $A$ be a $C^*$-algebra, and let $C_0\left(\sY \right)\hookto M\left( A\right)$ be disintegrable Hausdorff blowing-up (cf. Definitions \ref{blowing_defn} and \ref{blowing_disintegrable_defn}). Let $q : \widetilde\sY\to\sY$ be  a transitive covering (cf. Definition \ref{top_transitive_defn}). Let $A_0\left( \widetilde\sY\right)$ be a $q$-lift of $A$ (cf. Definition \ref{blowing_lift_a_f_defn}). An action  $G\left(\left.\widetilde{\sY}~\right|\sY\right)\times \widetilde \sY \to \widetilde \sY$ induces natural actions $G\left(\left.\widetilde{\sY}~\right|\sY\right)\times X_A\to X_A$ and $G\left(\left.\widetilde{\sY}~\right|\sY\right)\times \widetilde \H\to \widetilde \H$ where both $X_A$ and $\widetilde \H$ are defined in \ref{blowing_hilb_mod_empt} and \ref{blowing_h_empt} respectively. On the other hand from Corollary \ref{blowing_ca_cor} one has a bijective map $X_A\cong A_0\left( \widetilde\sY\right)$, so one has a natural action $G\left(\left.\widetilde{\sY}~\right|\sY\right)\times  A_0\left( \widetilde\sY\right) \to  A_0\left( \widetilde\sY\right)$. Let $\pi_{A_0\left( \widetilde\sY\right)}: A_0\left( \widetilde\sY\right)\hookto B\left( \widetilde \H\right)$ is the natural inclusion. We leave to the a proof on the following equation
+\begin{lemma}\label{blowing_fin_pre_lem}
+	If Let $A$ be a $C^*$-algebra, and let $C_0\left(\sY \right)\hookto M\left( A\right)$ be disintegrable Hausdorff blowing-up (cf. Definitions \ref{blowing_defn} and \ref{blowing_disintegrable_defn}), and   $q : \widetilde\sY\to\sY$ be  a transitive finite-fold covering (cf. Definition \ref{top_transitive_defn}) then a quadruple  $\left(A,A_0\left( \widetilde \sY\right),G\left(\left.\widetilde{\sY}~\right|\sY\right),  A_0\left( q\right) \right)$ is a finite-fold noncommutative pre-covering (cf. Definition \ref{fin_pre_defn}),  where $A_0\left( \widetilde \sY\right)$ is a $q$-lift of $A$ (cf. Definition \ref{blowing_lift_a_f_defn}) and $A_0\left( q\right)$  is a natural injective *-homomorphism  $A \cong A_0\left( \widetilde \sY\right)^{G\left(\left.\widetilde{\sY}~\right|\sY\right)}\hookto A_0\left( \widetilde \sY\right)$.
+\end{lemma}
+\begin{proof}
+ Let $\pi : A \to B\left(\H \right)$ be a faithful nondegenerate  representation (cf. Definitions \ref{faithful_repr_defn} and \ref{nondegenerate_repr_defn}). Let $q : \widetilde\sY\to\sY$ be  a transitive finite-fold covering (cf. Definition \ref{top_transitive_defn}), and let $\widetilde \H$ is the Hilbert norm completion of pre-Hilbert space  $X_{C_0\left(\sY \right)}\otimes_{C_0\left(\sY\right)} \H$.
+	(cf. \eqref{blowing_indc0_eqn}). 
+ Let $A_0\left( \widetilde\sY\right)$ be a $q$-lift of $A$ (cf. Definition \ref{blowing_lift_a_f_defn}). An action  $G\left(\left.\widetilde{\sY}~\right|\sY\right)\times \widetilde \sY \to \widetilde \sY$ induces natural actions $G\left(\left.\widetilde{\sY}~\right|\sY\right)\times X_A\to X_A$ and $G\left(\left.\widetilde{\sY}~\right|\sY\right)\times \widetilde \H\to \widetilde \H$ where  $X_A$ is defined in \ref{blowing_hilb_mod_empt}. On the other hand from Corollary \ref{blowing_ca_cor} one has a bijective map $X_A\cong A_0\left( \widetilde\sY\right)$, so one has a natural action $G\left(\left.\widetilde{\sY}~\right|\sY\right)\times  A_0\left( \widetilde\sY\right) \to  A_0\left( \widetilde\sY\right)$. Let $\pi_{A_0\left( \widetilde\sY\right)}: A_0\left( \widetilde\sY\right)\hookto B\left( \widetilde \H\right)$ is the natural inclusion. We leave to the a proof on the following equation
 $$
 \forall g \in G\left(\left.\widetilde{\sY}~\right|\sY\right)\quad \forall \widetilde a \in A_0\left( \widetilde\sY\right)\quad \forall \widetilde\xi \in \widetilde\H \quad \rho \left(g \widetilde a \right) \widetilde\xi = g\left( \rho \left( \widetilde a \right)\left( g^{-1} \widetilde \xi\right) \right).
 $$
@@ -12652,7 +12659,7 @@ From the above equation it follows that if $\Aut\left(  A_0\left( \widetilde\sY\
 $$
 \left(C_c\left( \widetilde \sY \right) \otimes_{C_0\left( \sY\right) } A \right)^{G\left(\left.\widetilde{\sY}~\right|\sY\right)}=  C_c\left( \widetilde \sY \right)^{G\left(\left.\widetilde{\sY}~\right|\sY\right)} A=  C_c\left(  \sY \right) A
 $$
-From the Definition \ref{blowing_defn} and the proof of the Lemma \ref{blowing_ca_lem} both $C_c\left(  \sY \right) A$ and $\left(C_c\left( \widetilde \sY \right)\right)  \otimes_{C_0\left( \sY\right) } A$ are dense in $A$ and $A_0\left(\widetilde \sY \right)$ respectively. So one has $A_0\left(\widetilde \sY \right)^{G\left(\left.\widetilde{\sY}~\right|\sY\right)}\cong A$ and there is the natural inclusion
+From the Definition \ref{blowing_defn} and the proof of the Lemma \ref{blowing_ca_lem} both $C_c\left(  \sY \right) A$ and $\left(C_c\left( \widetilde \sY \right)\right)  \otimes_{C_0\left( \sY\right) } A$ are dense in $A$ and $A_0\left(\widetilde \sY \right)$ respectively. So one has\\ $A_0\left(\widetilde \sY \right)^{G\left(\left.\widetilde{\sY}~\right|\sY\right)}\cong A$ and there is the natural inclusion
 \be\label{blowing_a0_q_eqn}
 A_0\left( q\right): A \hookto  A_0\left(\widetilde \sY \right)
 \ee
@@ -12664,7 +12671,20 @@ it turns out  that
 $$
 \left\{\left. g \in \Aut\left(A_0\left( \widetilde \sY\right)  \right)  \right| \forall a \in A \quad g A_0\left( q\right)\left( a\right) =  A_0\left( q\right)\left( a\right)\right\}\cong G\left(\left.\widetilde{\sY}~\right|\sY\right).
 $$
-From this construction the quadruple $\left(A,A_0\left( \widetilde \sY\right),G\left(\left.\widetilde{\sY}~\right|\sY\right),  A_0\left( q\right) \right)$ is a finite-fold noncommutative pre-covering (cf. Definition \ref{fin_pre_defn}). $\pi: A \hookto B\left(\H\right)$ is a faithful nondegenerate   representation (cf. Definitions \ref{faithful_repr_defn} and  \ref{nondegenerate_repr_defn}) then there is a faithful representation $\pi_{ \sY}:C_0\left( \sY\right) \hookto B\left(  \H\right)$ (cf. \ref{blowing_h_empt}). If $\chi_\sU$ is a characteristic map of $\sU$ then there is a projector $p_\sY \left( \chi_\sU\right) \in \pi_\sY\left(C_0\left( \sY\right) \right)'' \subset B\left(\H \right)$, where $\pi_\sY\left(C_0\left( \sY\right) \right)''$ is a strong closure of $\pi_\sY\left(C_0\left( \sY\right) \right)$ in $B\left( \H\right)$ (cf. Definition \ref{strong_topology_defn}). The set
+From this construction it turns out that the quadruple  quadruple  $$\left(A,A_0\left( \widetilde \sY\right),G\left(\left.\widetilde{\sY}~\right|\sY\right),  A_0\left( q\right) \right)$$ is a finite-fold noncommutative pre-covering (cf. Definition \ref{fin_pre_defn}).
+\end{proof}
+\begin{lemma}
+Consider the situation of the Lemma  \ref{blowing_fin_pre_lem}
+\end{lemma}
+\begin{proof}
+One the other hand since $C_c\left( \widetilde \sY\right)$ is a dense subspace of  $X_{C_0\left(\sY \right)}$ so $\widetilde \H$ is c Hilbert norm completion of pre-Hilbert space  $C_c\left( \widetilde \sY\right)\otimes_{C_0\left(\sY\right)} \H$. If the covering $q$ finite-fold then an algebraic tensor product $C_0\left( \widetilde \sY\right)\otimes_{C_0\left(\sY\right)} \H$ is a pre-Hilbert space such that
+$$
+\left(\left(\widetilde a \otimes \xi \right), \left(\widetilde b \otimes \eta \right) \right)_{C_0\left( \widetilde \sY\right)\otimes_{C_0\left(\sY\right)} \H} 	\bydef \left( \left(\xi, \sum_{	g \in G\left( \left. \widetilde \sY\right| \sY\right) }g \left(\widetilde a^* \widetilde b \right)\right)  \eta\right)_\H 
+$$
+(cf. equation \eqref{hilb_prod_eqn}). An inclusion $C_c\left( \widetilde \sY\right) \subset C_0\left( \widetilde \sY\right)$ yields an inclusion $C_c\left( \widetilde \sY\right)\otimes_{C_0\left(\sY\right)} \H \subset C_0\left( \widetilde \sY\right)\otimes_{C_0\left(\sY\right)} \H$. Since $C_c\left( \widetilde \sY\right)$ is dense in $C_0\left( \widetilde \sY\right)$ with respect to the $C^*$-norm (cf. Definition \ref{c_c_def_1}) the pre-Hilbert space $C_c\left( \widetilde \sY\right)\otimes_{C_0\left(\sY\right)} \H$ is dense  in $ C_0\left( \widetilde \sY\right)\otimes_{C_0\left(\sY\right)} \H$ with respect to the Hilbert norm of $\widetilde \H$. So $\widetilde \H$ is a Hilbert norm completion of $C_0\left( \widetilde \sY\right)\otimes_{C_0\left(\sY\right)} \H$.
+\end{proof}
+\begin{empt}
+$\pi: A \hookto B\left(\H\right)$ is a faithful nondegenerate   representation (cf. Definitions \ref{faithful_repr_defn} and  \ref{nondegenerate_repr_defn}) then there is a faithful representation $\pi_{ \sY}:C_0\left( \sY\right) \hookto B\left(  \H\right)$ (cf. \ref{blowing_h_empt}). If $\chi_\sU$ is a characteristic map of $\sU$ then there is a projector $p_\sY \left( \chi_\sU\right) \in \pi_\sY\left(C_0\left( \sY\right) \right)'' \subset B\left(\H \right)$, where $\pi_\sY\left(C_0\left( \sY\right) \right)''$ is a strong closure of $\pi_\sY\left(C_0\left( \sY\right) \right)$ in $B\left( \H\right)$ (cf. Definition \ref{strong_topology_defn}). The set
 $$
 A_\sU\bydef \left\{a \in A | a \pi_\sY\left(\chi_\sU \right)=a \right\}
 $$
