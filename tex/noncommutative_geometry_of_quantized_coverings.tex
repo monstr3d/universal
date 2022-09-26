@@ -1466,6 +1466,35 @@ If $A$ is a $C^*$-algebra then one has
 \ee
 \end{empt}
 \begin{empt}
+	Let $\sX$ be a locally compact, Hausdorff space. Denote by $\Xi\left( \sX\right)\bydef \left\{u_\la\right\}_{\la \in \Xi\left( \sX\right)}\subset C_0\left( \sX\right)_+$ a net of all positive continuous maps such that 
+	\bean
+\forall	\la \in \Xi\left( \sX\right)\quad u_\la\left(\sX\right)\subset \left[0,1\right],\\
+\forall	\mu, \nu \in \Xi\left( \sX\right)\quad	\mu \le \nu \quad \Leftrightarrow\quad u_\mu \le u_\nu.
+\eean
+	\end{empt}
+\begin{empt}\label{hered_repr_p_empt}
+Let $\pi A\to B\left(\H \right)$ be faithful representation, and let $B$ be a hereditary subalgebra  $\left\{u_\la \right\} \subset  B\left(\H \right)_+$ be an increasing  net of positive elements, such that
+\begin{itemize}
+	\item $\left\{u_\la \right\}\subset M\left(A \right) \cap M\left( B\right)$.
+	\item There is a limit $\bt$-$\lim_\la u_\la = 1_{ M\left( B\right) }$ with respect to the strict topology of $M\left( B\right)$ (cf. Definition \ref{strict_topology_defn}) of $M\left( B\right)$.
+\end{itemize}
+  From the Lemma \ref{increasing_convergent_w_lem} the net $\left\{u_\la \right\}$  is convergent $\left\{u_\la \right\}$ with respect to the strong topology of $B\left(\H \right)$ (cf. Definition \ref{strong_topology_defn}). If $p \bydef s-\lim u_\la \in B\left( \H\right)$ is a strong limit then $p$ lies in the strong closure   $\pi\left(A \right)''$ of $\pi\left( A\right)$ in $B\left(\H\right)$. From  $1_{ M\left( B\right) }= 1^*_{ M\left( B\right) }$ and $1^2_{ M\left( B\right) }=1_{ M\left( B\right) }$ it follows that $p$ is a projector, i.e. $p^*=p$ and $p^2 = p$. From our construction it follows that 
+  \be\label{hered_pap_eqn}
+  B = \left\{ a \in A | p\pi\left( a\right) p = \pi\left( a\right)\right\}
+  \ee
+  It turns out that there is a natural representation
+  \be\label{hered_rep_eqn}
+  B \hookto B\left(p \H \right) 
+  \ee
+\end{empt}
+\begin{lemma}\label{hered_repr_p_lem}
+In the situation \ref{hered_repr_p_empt} if $\pi: A\to B\left(\H \right)$ is an atomic  representation (cf. Definition \ref{atomic_repr_defn}) then the given by \eqref{hered_rep_eqn} representation $ B \hookto B\left(p \H \right)$ is atomic.
+\end{lemma}
+\begin{proof}
+One can prove this lemma by usage of the proof of the Lemma 
+\ref{hered_repr_lem}.
+\end{proof}
+\begin{empt}
 	Let $A$ be a $C^*$-algebra and let $L\subset A$ be a closed left ideal. The space
 	$$
 	M\left(L \right) \bydef \left\{a \in M\left(A \right)|Aa \subset L \right\}
@@ -5143,7 +5172,9 @@ so there is the inclusion
 \ee
   
 \end{rem}
- \begin{empt}\label{h_n_to_h_constr_empt}
+ \begin{empt}\label{h_n_to_h_constr_empt} !!! OPPOSITE ALGEBRA
+ 	
+ 	
  	Let us fix $\la\in \La$, and 
 let $\H_\la$ be a Hilbert completion of $A_{\la} \otimes_A \H$ which is constructed in the section \ref{induced_repr_fin_sec}. From  \eqref{ata_m_eqn} it follows that $	\widetilde{A}_\pi = 	\widetilde{A}_\pi \widetilde m_\la\left(A_\la \right)\cong  \widetilde{A}_\pi \otimes_{A_\la} A_\la$. Taking into account $	K\left(\widetilde{A}_\pi\right)\widetilde{A}_\pi =	K\left(\widetilde{A}_\pi\right)$ one has
 a natural inclusion of pre-Hilbert spaces
@@ -11946,7 +11977,7 @@ Let $A$ be a $C^*$-algebra, and let $C_0\left( \sY\right)\hookto M\left( A\right
 and $\rho\left( C_0\left(\sY \right)\right) '' \subset B\left( \H\right)$ is a closure of   $C_0\left(\sY \right)$ with respect to a strong topology of $B\left( \H\right)$ (cf. Definition \ref{strong_topology_defn}) then there are mutually orthogonal  projectors $p^\parallel, p^\perp\in \rho\left( C_0\left(\sY \right)\right) ''$ such that $p_\sU+ p^\perp= 1_{B\left( \H\right) }$ and $_\sU \H= p_\sU \sH$.
 It follows that for any $\xi \in _\sU \H$ and $\eps > 0$ there are $f \in  C_0\left(\sY\right)$ and $\eta \in \H$ such that $f\left( \sY\setminus\sU\right)=\{0\}$,  $~~\left\|f \right\|< 1$ and $\left\|\xi - f\eta \right\| < \eps$.
 \end{empt}
-\begin{lemma}\label{blowing_cv_lem}
+\begin{lemma}\label{blowing_cv_lem}  !!! DELETE !!!
 Consider the situation \ref{blowing_cv_empt}. A faithful nondegenerate representation   $A \hookto B\left(\sH\right)$  (cf. Definitions \ref{faithful_repr_defn}  \ref{nondegenerate_repr_defn}) naturally induces a faithful nondegenerate representation  $_\sU A_\sU \hookto B\left(~_\sU \sH\right)$.
 \end{lemma}
 \begin{proof}
