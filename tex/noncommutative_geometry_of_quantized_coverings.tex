@@ -1473,20 +1473,37 @@ If $A$ is a $C^*$-algebra then one has
 \eean
 	\end{empt}
 \begin{empt}\label{hered_repr_p_empt}
-Let $\pi_a: A\to B\left(\H \right)$ be faithful representation, and let $B$ be a hereditary subalgebra  $\left\{u_\la \right\} \subset  B\left(\H \right)_+$ be an increasing  net of positive elements, such that
+Let $\rho: A\to B\left(\H \right)$ be a faithful nondegenerate representation, and let $B$ be a hereditary subalgebra  $\left\{u_\la \right\} \subset  B\left(\H \right)_+$ be an increasing  net of positive elements, such that
 \begin{itemize}
 	\item $\left\{u_\la \right\}\subset M\left(A \right) \cap M\left( B\right)$.
 	\item There is a limit $\bt$-$\lim_\la u_\la = 1_{ M\left( B\right) }$ with respect to the strict topology of $M\left( B\right)$ (cf. Definition \ref{strict_topology_defn}) of $M\left( B\right)$.
 \end{itemize}
-  From the Lemma \ref{increasing_convergent_w_lem} the net $\left\{u_\la \right\}$  is convergent $\left\{u_\la \right\}$ with respect to the strong topology of $B\left(\H \right)$ (cf. Definition \ref{strong_topology_defn}). If $p \bydef s-\lim\pi_a\left(  u_\la \right) \in B\left( \H\right)$ is a strong limit then $p$ lies in the strong closure   $\pi_a\left(A \right)''$ of $\pi_a\left( A\right)$ in $B\left(\H\right)$. From  $1_{ M\left( B\right) }= 1^*_{ M\left( B\right) }$ and $1^2_{ M\left( B\right) }=1_{ M\left( B\right) }$ it follows that $p$ is a projector, i.e. $p^*=p$ and $p^2 = p$. From our construction it follows that 
+  From the Lemma \ref{increasing_convergent_w_lem} the net $\left\{u_\la \right\}$  is convergent $\left\{u_\la \right\}$ with respect to the strong topology of $B\left(\H \right)$ (cf. Definition \ref{strong_topology_defn}). If $p \bydef s-\lim\rho\left(  u_\la \right) \in B\left( \H\right)$ is a strong limit then $p$ lies in the strong closure   $\rho\left(A \right)''$ of $\rho\left( A\right)$ in $B\left(\H\right)$. From  $1_{ M\left( B\right) }= 1^*_{ M\left( B\right) }$ and $1^2_{ M\left( B\right) }=1_{ M\left( B\right) }$ it follows that $p$ is a projector, i.e. $p^*=p$ and $p^2 = p$. From our construction it follows that 
   \be\label{hered_pap_eqn}
-  B = \left\{ a \in A | p\pi_a\left( a\right) p = \pi_a\left( a\right)\right\}
+  B = \left\{ a \in A | p\rho\left( a\right) p = \rho \left( a\right)\right\}
   \ee
   It turns out that there is a natural representation
   \be\label{hered_rep_eqn}
   B \hookto B\left(p \H \right) 
   \ee
 \end{empt}
+\begin{lemma}
+In the situation \ref{hered_repr_p_empt} the representation \eqref{hered_rep_eqn} is  faithful.
+\end{lemma}
+\begin{proof}
+	For any $a \in B$ there is $\xi \in \H$ such that $\rho\left(a\right)\xi \neq 0$. From  \eqref{hered_rep_eqn} it follows that $\rho\left( a\right) \xi = p \rho\left( a\right) p\xi \neq 0$. On the other hand $p\xi \in p\H$.
+\end{proof}
+
+\begin{lemma}
+In the situation \ref{hered_repr_p_empt} the representation \eqref{hered_rep_eqn} is  nondegenerate.
+\end{lemma}
+\begin{proof}
+	For any $\xi \in p\H$ there is $a \in A$ such that $a \xi \neq 0$. From \eqref{four_decompositon_eqn} we can suppose that $a$ is positive. One has $\lim_{\la \in \La}u_\la \xi = \xi$ it follows that  $\lim_{\la \in \La}a u_\la \xi = a\xi$. There is $\la_0\in \La$ such that $a u_{\la_0} \xi \neq 0$, so one has
+	\bean
+\left(a u_{\la_0} \xi, a u_{\la_0} \xi \right) = \left(\xi , \left( u_{\la_0} a^*a u_{\la_0}\right) \xi  \right)\neq 0\quad \Rightarrow \quad \left(  u_{\la_0} a^*a u_{\la_0}\right) \xi	\neq 0.
+\eean
+However $ u_{\la_0} a^*a u_{\la_0}\in B$.
+\end{proof}
 \begin{lemma}\label{hered_repr_p_lem}
 In the situation \ref{hered_repr_p_empt} if $\pi: A\to B\left(\H \right)$ is an atomic  representation (cf. Definition \ref{atomic_repr_defn}) then the given by \eqref{hered_rep_eqn} representation $ B \hookto B\left(p \H \right)$ is atomic.
 \end{lemma}
@@ -1494,37 +1511,6 @@ In the situation \ref{hered_repr_p_empt} if $\pi: A\to B\left(\H \right)$ is an 
 One can prove this lemma by usage of the proof of the Lemma 
 \ref{hered_repr_lem}.
 \end{proof}
-\begin{empt}
-	Let $A$ be a $C^*$-algebra and let $L\subset A$ be a closed left ideal. The space
-	$$
-	M\left(L \right) \bydef \left\{a \in M\left(A \right)|Aa \subset L \right\}
-	$$ 
-	is a closed left ideal of $M\left(A\right)$.   On the $A M\left( L\right)\subset L$, and from the Theorem \ref{left_ideal_thm} it follows that $A M\left( L\right)$ is dense subset of  $L$. So there is a map 
-$$
-L_A: 	L \mapsto M\left(L \right) 
-$$
-	from a set of closed left ideals of $A$ to a set of closed left ideals of $M\left(A \right) $. Conversely there is a map
-$$
-L_{M\left( A\right) } : M\left(L \right) \mapsto \text{ a closure of }A M\left( L\right)
-$$	
-such that for any closed ideal $L$ one has
-\be
-L_{M\left( L\right)} \left(  L_A \left( L\right)\right)   = L.
-\ee
-If $B \subset A$ is a hereditary subalgebra then there is a closed left ideal $L$ such that $B = L \cap L^*$. Let us define a hereditary subalgebra 
-\be\label{hered_mult_eqn}
-H_A\left(B \right) \bydef M\left( L\right)\cap  M\left( L\right)^*.
-\ee
-If 
-\be\label{hered_inv_mult_eqn}
-G_{A }\left( H_A\left(B \right)\right) \subset A
-\ee
-is  a norm closure of a set $H_A\left(B \right) A H_A\left(B \right)$. then $G_{A }\left( H_A\left(B \right)\right)$ is a hereditary subalgebra of $A$. For any hereditary subalgebra $B \subset A$ one has
-\be\label{hered_linv_mult_eqn}
-G_{A }\left( H_A\left(B \right)\right) = B.
-\ee
-\end{empt}
-
 \chapter{Noncommutative finite-fold coverings}\label{cov_fin_chap}
    \section{Basic definitions}\label{cov_fin_bas_sec}
    \subsection{Coverings of $C^*$-algebras}
@@ -1549,10 +1535,7 @@ G_{A }\left( H_A\left(B \right)\right) = B.
 %	$ it turns out $\widetilde{I}^G = I$.
 %\end{proof}
 \begin{lemma}\label{quasi_mult_lem}
-If a quadruple $\left(A, \widetilde{A}, G, \pi \right)$ is a {noncommutative finite-fold  quasi-covering} then 
-\be\label{quasi_mult_eqn}
-\pi\left( A\right)\widetilde{A} \pi\left( A\right) = \widetilde{A}
-\ee
+If a quadruple $\left(A, \widetilde{A}, G, \pi \right)$ is a noncommutative finite-fold  quasi-covering then $\pi\left( A\right)\widetilde{A} \pi\left( A\right)$ is a dense subset of $ \widetilde{A}$.
 \end{lemma}
 \begin{proof}
 If $\widetilde a \in \widetilde A$ then from \eqref{four_decompositon_eqn} it turns out that there are positive elements $\widetilde a_1, \widetilde a_2, \widetilde a_3, \widetilde a_4 \in \widetilde A_+$ such that  $\widetilde a=\widetilde a_1 - \widetilde a_2 + i\widetilde a_3 - i \widetilde a_4$.
@@ -1567,7 +1550,7 @@ $$
 \sum_{j = 1}^4 	\left\|\pi\left( p\right)\widetilde a_j \pi\left( p\right)- \widetilde a_j\right\|< \eps,
 	\end{split}
 \ee
-it follows that $\pi\left( A\right)\widetilde{A} \pi\left( A\right)$ is a dense subset of $\widetilde{A}$. Since the set $\pi\left( A\right)\widetilde{A} \pi\left( A\right)$ is $C^*$-norm closed one has $\pi\left( A\right)\widetilde{A} \pi\left( A\right) = \widetilde{A}$.
+it follows that $\pi\left( A\right)\widetilde{A} \pi\left( A\right)$ is a dense subset of $\widetilde{A}$. 
 \end{proof}
 
 \begin{corollary}\label{quasi_mult_cor}
@@ -1577,7 +1560,7 @@ $\lim \left\|\widetilde a- \widetilde a\pi\left( u_\la\right)  \right\|= \lim \l
 
 \end{corollary}
 \begin{proof}
-If $\widetilde a \in \widetilde A$, then from the Lemma \ref{quasi_mult_lem} it follows that there are $a \in A$ and $\widetilde b \in \widetilde A$ such that $\widetilde a= \pi\left( a\right)  \widetilde b$. If $\eps > 0$ then there is $\la_0 \in \La$ such that for all $\la \ge \la_0$ one has $$\left\| a- u_\la a  \right\|< \frac{\eps }{\left\| \widetilde b \right\|}.$$ It turns out that
+If $\widetilde a \in \widetilde A$, then from the Lemma \ref{quasi_mult_lem} !!! DENSE REPLACE !!! it follows that there are $a \in A$ and $\widetilde b \in \widetilde A$ such that $\widetilde a= \pi\left( a\right)  \widetilde b$. If $\eps > 0$ then there is $\la_0 \in \La$ such that for all $\la \ge \la_0$ one has $$\left\| a- u_\la a  \right\|< \frac{\eps }{\left\| \widetilde b \right\|}.$$ It turns out that
 \bean
 \forall \la \ge\la_0\quad  \left\| \pi\left(u_\la  \right) \widetilde a-  \widetilde a \right\|= \left\| \pi\left(u_\la a \right) \widetilde b-  \pi\left( a \right)\widetilde b\right\|\le \left\| u_\la a -a\right\| \left\|\widetilde b\right\|< \eps,
 \eean 
@@ -2311,18 +2294,24 @@ unital  noncommutative finite-fold covering  $\left(M\left(A \right)  ,M\left( \
 	where $\widetilde{\xi}\bydef \widetilde{a}^*\otimes \xi \in \widetilde{A}\otimes_A \H \subset \widetilde{\H}$. Hence $\widetilde{a}\widetilde{\xi} \neq 0$.
 \end{proof}
 \begin{lemma}\label{induced_nondegenerate_lem}
-	If a representation  $\rho: A \hookto B\left(\H \right) $ is nondegenerate then a representation  $\widetilde{\rho}: \widetilde{A} \to B\left( \widetilde{\H} \right)$ is also nondegenerate. 
+	If a representation  $\rho: A \hookto B\left(\H \right) $ is nondegenerate then a representation  $\widetilde{\rho}: \widetilde{A} \to B\left( \widetilde{\H} \right)$ is also nondegenerate (cf. Definition \ref{nondegenerate_repr_defn}). 
 \end{lemma}
+
 \begin{proof}
-%	If $\widetilde a \in \widetilde A$ then	$\widetilde a = \widetilde b + i\widetilde c - i\widetilde d - \widetilde e$ where all $\widetilde b,\widetilde c,\widetilde d,\widetilde e\in \widetilde{{A}}_+$ are positive elements of $\widetilde A$.	For every $\xi\in\H$ one has	$$
-%\widetilde a\otimes \xi = \sqrt{\widetilde b}\left( \sqrt{\widetilde b} \otimes \xi \right) + i\sqrt{\widetilde c}\left( \sqrt{\widetilde c} \otimes \xi \right) - i\sqrt{\widetilde d}\left( \sqrt{\widetilde d} \otimes \xi \right) -\sqrt{\widetilde e}\left( \sqrt{\widetilde e} \otimes \xi \right) 
-%	$$
-%	it follows that $\widetilde a\otimes \xi\in \widetilde A\widetilde\H$. On the other hand the algebraic tensor product $\widetilde A\otimes_A \H$ is a dense subspace of $\widetilde\H$. It follows that $\widetilde A\widetilde\H$ is a dense subspace of $\widetilde\H$.
-If  $\widetilde a \otimes  \xi \in \widetilde A \otimes_A \H\subset \widetilde \H$ then from  $\widetilde A\widetilde A=\widetilde A$ it follows that there are $\widetilde b, \widetilde c \in \widetilde A$ and $a \in A$ such that $\widetilde a= \widetilde b \widetilde c$. So one has
-$$
-\widetilde a \otimes  \xi= \left( \widetilde b \widetilde c\right)  \otimes  \xi= \widetilde b\left(  \widetilde c  \otimes  \xi\right)\in \widetilde A \widetilde \H.$$
-On the other hand the space $\widetilde A \otimes_A \H$ is dense in $\widetilde \H$.
-\end{proof}
+ If $\left\{u_\la\right\}_{\la \in \La}$ is  an approximate unit of $A$ then from the Lemma \ref{increasing_convergent_w_lem} the net $\left\{u_\la \right\}$  is convergent  with respect to the strong topology of $B\left(\H \right)$ (cf. Definition \ref{strong_topology_defn}). If $p \bydef s-\lim_{\la\in \La}\pi_a\left(  u_\la \right) \in B\left( \H\right)$ is a strong limit then similarly to \ref{hered_repr_p_empt} $p$ is a projector. If $p\H \neq \H$ then $a \left(1- p \right) \H = 0$ for all $a \in A$, it contradicts with the Definition \ref{nondegenerate_repr_defn}. So $p = 1_{B\left( \H\right) }$ and for all $\xi \in \H$ the there is the following limit
+ $\xi = \lim_{\la\in \La} u_\la \xi$.  If $\widetilde a \in \widetilde{A}$ and $\xi\in \H$ then from the Corollary \ref{quasi_mult_cor} it follows that
+\bean
+ \lim_{\mu \in \La}\left( \pi\left(u_\mu \right) \left( \lim_{\nu \in \La}\widetilde{a}\pi\left( u_\nu\right) \right)\right) = \widetilde a,\\
+  \lim_{\mu \in \La}\left( \pi\left(u_\mu \right) \left( \lim_{\nu \in \La}\widetilde{a}\pi\left( u_\nu\right) \right)\right)\otimes \xi =\\ =\widetilde a\otimes  \xi.
+\eean
+On the other hand from  $\xi = \lim_{\la\in \La} u_\la \xi$  it follows that 
+\bean
+\lim_{\mu \in \La}\left( \pi\left(u_\mu \right) \left( \lim_{\nu \in \La}\widetilde{a}\pi\left( u_\nu\right) \right)\right)\otimes \xi  =\left(  \lim_{\mu \in \La}\pi\left( u_\mu\right)\right) \left( \left(\widetilde a  \lim_{\nu \in \La}\pi\left( u_\nu\right) \right) \otimes \xi\right) =\\=
+\left(  \lim_{\mu \in \La}\pi\left( u_\mu\right)\right) \left(\widetilde a \otimes \left( \lim_{\nu \in \La} u_\nu \xi \right) \right) = \left(  \lim_{\mu \in \La}\pi\left( u_\mu\right)\right)\left(\widetilde a\otimes  \xi \right)=  \widetilde a\otimes  \xi. 
+\eean
+If $\widetilde a\otimes  \xi \neq 0$ then there is $\mu_0\in \La$ such that $\pi\left( u_{\mu_0}\right)\left(\widetilde a\otimes  \xi \right)\neq 0$.
+Since $\widetilde A \otimes \H$ is dense in $\widetilde \H$  for any $\widetilde \xi \in \widetilde \H\setminus\{0\}$ there is $\la_0\in \La$ such that $\pi\left(u_{\la_0} \right) \widetilde \xi\neq 0$.
+ \end{proof}
    \begin{empt}\label{g_act_induced_empt}
    	Let $\left(A, \widetilde{A}, G, \pi\right)$ be a  noncommutative finite-fold covering, let $\rho: A \to B\left(\H \right)$ be a faithful non-degenerated representation, and let  $\widetilde{\rho}: \widetilde{A} \to B\left( \widetilde{\H} \right)$ be induced by the pair $\left(\rho,\left(A, \widetilde{A}, G, \pi\right)  \right)$ (cf. Definition \ref{induced_repr_defn}). There is the natural action of $G\times\widetilde{\H}\to \widetilde{\H}$ which comes from a map
   \be\label{induced_g_act_eqn}
@@ -2669,6 +2658,7 @@ Moreover one has
  	$$
  	h: G \to \mathrm{Homeo}\left(\widetilde{\sX} \right) 
  	$$
+ 	!!! DELETE !!!
  	where $\mathrm{Homeo}\left(\widetilde{\sX} \right)$ is a group of homeomorphisms of $\widetilde{\sX}$.
  	If 
  	\be\label{g_red_eqn}
@@ -3940,7 +3930,7 @@ However there are $a_{	\la}, b_{\la}, a^\eps_{\la}\in A_{\la}$ such that
 is $\pi$-\textit{weakly special}. If $\pi$ is atomic then we say that $\overline b$ is \textit{weakly special}.  Denote by $\Xi_\pi\left( \mathfrak{S}^{\mathrm{pt}}\right)$ the $\widehat{A}$-bimodule of $\pi$-{weakly special} families.  
 \end{definition}
 \begin{lemma}
-	From the Lemma \ref{quasi_mult_lem} it follows that 
+	From the Lemma \ref{quasi_mult_lem} !!! DENSE REPLACE !!! it follows that 
 	$$
 	A \left(   \bigcup_{\la \in La} A_\la \right) A
 	$$ 
