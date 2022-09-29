@@ -1487,7 +1487,7 @@ x \mapsto	\begin{cases}
 \end{definition}
 
 \begin{empt}\label{hered_repr_p_empt}
-Let $\rho: A\to B\left(\H \right)$ be a faithful nondegenerate representation, and let $B$ be a hereditary subalgebra  $\left\{u_\la \right\} \subset  B\left(\H \right)_+$ be an increasing  net of positive elements, such that
+Let $\rho: A\to B\left(\H \right)$ be a faithful nondegenerate representation, and let $B$ be a hereditary subalgebra  $\left\{u_\la \right\}_{\la \in \La} \subset  B\left(\H \right)_+$ be an increasing  net of positive elements, such that
 \begin{itemize}
 	\item $\left\{u_\la \right\}\subset M\left(A \right) \cap M\left( B\right)$.
 	\item There is a limit $\bt$-$\lim_\la u_\la = 1_{ M\left( B\right) }$ with respect to the strict topology of $M\left( B\right)$ (cf. Definition \ref{strict_topology_defn}) of $M\left( B\right)$.
@@ -1501,6 +1501,9 @@ Let $\rho: A\to B\left(\H \right)$ be a faithful nondegenerate representation, a
   B \hookto B\left(p \H \right) 
   \ee
 \end{empt}
+\begin{remark}\label{hered_dense_rem}
+If $\left\{u_\la \right\}_{\la \in \La} \subset \rho\left(B \right)$ then from $p \bydef s$-$\lim_{\la\in\La} \rho\left( u_\la\right)$ it follows that $p\H$ is a norm completion of $\rho\left(B\right)\H$.
+\end{remark}
 \begin{lemma}\label{hered_full_lem} 
 In the situation \ref{hered_repr_p_empt} the representation \eqref{hered_rep_eqn} is  faithful.
 \end{lemma}
@@ -1512,7 +1515,7 @@ In the situation \ref{hered_repr_p_empt} the representation \eqref{hered_rep_eqn
 In the situation \ref{hered_repr_p_empt} the representation \eqref{hered_rep_eqn} is  nondegenerate.
 \end{lemma}
 \begin{proof}
-	For any $\xi \in p\H$ there is $a \in A$ such that $a \xi \neq 0$. From \eqref{four_decompositon_eqn} we can suppose that $a$ is positive. One has $\lim_{\la \in \La}u_\la \xi = \xi$ it follows that  $\lim_{\la \in \La}a u_\la \xi = a\xi$. There is $\la_0\in \La$ such that $a u_{\la_0} \xi \neq 0$, so one has
+	For any $\xi \in p\H\setminus\{0\}$ there is $a \in A$ such that $a \xi \neq 0$. From \eqref{four_decompositon_eqn} we can suppose that $a$ is positive. One has $\lim_{\la \in \La}u_\la \xi = \xi$ it follows that  $\lim_{\la \in \La}a u_\la \xi = a\xi$. There is $\la_0\in \La$ such that $a u_{\la_0} \xi \neq 0$, so one has
 	\bean
 \left(a u_{\la_0} \xi, a u_{\la_0} \xi \right) = \left(\xi , \left( u_{\la_0} a^*a u_{\la_0}\right) \xi  \right)\neq 0\quad \Rightarrow \quad \left(  u_{\la_0} a^*a u_{\la_0}\right) \xi	\neq 0.
 \eean
@@ -5640,7 +5643,7 @@ Hausdorff space, $x_0\in \sX$ and $f$ is given by the Lemma \ref{top_a_u_lem} th
 \be\label{top_fx_eqn}
 {f}_{{x}_0} \stackrel{\mathrm{def}}{=} 	{f}.
 \ee
-Assume that $\supp {f}_{{x}_0}$ is connected. We say that ${f}_{{x}_0}$ is an $x_0$-\textit{stump}.
+Assume that $\supp {f}_{{x}_0}$ is connected. We say that ${f}_{{x}_0}$ is an $x_0$-\textit{stump}. Denote by $\mathfrak{Stumps}_{x_0}$ the set of $x_0$-stumps.
 \end{definition}
 \begin{corollary}\label{com_a_u_cor}
 	Let $\mathcal X$ be a locally compact,   
@@ -12046,6 +12049,64 @@ Let $A$ be a $C^*$-algebra, and let $C_0\left( \sY\right)\hookto M\left( A\right
 and $\rho\left( C_0\left(\sY \right)\right) '' \subset B\left( \H\right)$ is a closure of   $C_0\left(\sY \right)$ with respect to a strong topology of $B\left( \H\right)$ (cf. Definition \ref{strong_topology_defn}) then there are mutually orthogonal  projectors $p^\parallel, p^\perp\in \rho\left( C_0\left(\sY \right)\right) ''$ such that $p_\sU+ p^\perp= 1_{B\left( \H\right) }$ and $_\sU \H= p_\sU \sH$.
 It follows that for any $\xi \in _\sU \H$ and $\eps > 0$ there are $f \in  C_0\left(\sY\right)$ and $\eta \in \H$ such that $f\left( \sY\setminus\sU\right)=\{0\}$,  $~~\left\|f \right\|< 1$ and $\left\|\xi - f\eta \right\| < \eps$.
 \end{empt}
+\begin{definition}
+	Let $A$ be a $C^*$-algebra, and let $C_0\left( \sY\right)\to M\left( A\right)$. For all $a\in A$ we define a map 
+	\be\label{blowing_norm_eqn}
+	\begin{split}
+\mathrm{norm}_a: \sY \to \R;\\
+y \mapsto \inf_{f \in \mathfrak{Stumps}_{y}}\inf \left\| f a\right\| 
+	\end{split}
+	\ee
+	where $\mathfrak{Stumps}_{y}$ is a set of $y$-stumps (cf. Definition \ref{top_stump_defn}).
+\end{definition}
+\begin{lemma}
+The given by \eqref{blowing_norm_eqn} map is upper semi-continuous (cf. Definition \ref{top_lower_semi_defn})
+\end{lemma}
+\begin{proof}
+If $a \in A$ and $y\in \sY$ then for all $\eps> 0$ there is $f \in \mathfrak{Stumps}_{y_0}$ such that
+$$
+\mathrm{norm}_a\left( y_0 \right) + \eps \ge \left\| f a\right\|
+$$
+On the other hand there is an open neighborhood $\sU \in \sY$ such that for all $y\in \sU$ one has $f \in \mathfrak{Stumps}_{y}$.
+For any $y \in f^{-1}\left(1 \right)$ one has
+$\mathrm{norm}_a\left( y \right) \le \left\| f a\right\|\le \mathrm{norm}_a\left( y_0 \right) + \eps$.
+\end{proof}
+\begin{exercise}
+	Prove that for all $y \in \sY$ one has
+	\be
+\mathrm{norm}_a\left( y \right) =\inf_{\substack{f \in C_0\left(\sY \right)\\ \left|f\left(y\right)\right|=1 }}\left\| f a\right\| 	
+	\ee
+\end{exercise}
+\begin{definition}\label{blowing_faithful_defn}
+If  $A$ be a $C^*$-algebra then Hausdorff blowing up $C_0\left( \sY\right)\to M\left( A\right)$ is said to be \textit{faithful} if 
+\be\label{blowing_faithful_eqn}
+\forall a \in A \setminus \{0\}\quad \mathrm{norm}_a \neq 0,
+\ee
+and \textit{nondegenerate} if 
+\be\label{blowing_nondegenerate_eqn}
+\forall y \in \sY \quad \exists a\in A \quad \mathrm{norm}_a\left( y\right)  \neq 0.
+\ee
+\end{definition}
+\begin{definition}\label{blowing_support_defn}
+	If  $A$ is a $C^*$-algebra and $C_0\left( \sY\right)\to M\left( A\right)$ Hausdorff blowing up (cf. Definition \ref{blowing_defn})  the for any $a \in A$ the set
+\be\label{blowing_support_eqn}
+\mathfrak{pre}\text{-}\supp	 a \bydef \left\{y \in \sY~ | ~\mathrm{norm}_a \neq 0\right\}
+\ee
+is said to be a \textit{pre}-\textit{support} of $a$. A closure of $\mathfrak{pre}\text{-}\supp	 a$ is said to be a \textit{support} of $a$, we denote it by 
+$\supp	 a$.	
+\end{definition}
+\begin{lemma}
+Let $A$ be  a $C^*$-algebra with a nondegenerate Hausdorff blowing up $C_0\left( \sY\right)\to M\left( A\right)$ (cf. Definitions \ref{blowing_defn} and \ref{blowing_faithful_defn}.
+If $S \subset A$ is dense subset then one has
+$$
+\bigcup_{a \in S} \mathfrak{pre}\text{-}\supp	 a = \sY \quad \text{(cf. \eqref{blowing_support_eqn})}.
+$$
+\end{lemma}
+\begin{proof}
+If $\sY \neq \bigcup_{a \in S} \mathfrak{pre}\text{-}\supp	 a$ then there is $y \in \sY \setminus \bigcup_{a \in S} \mathfrak{pre}\text{-}\supp	 a$ then from the Definition \ref{blowing_faithful_defn} there is $a' \in A$ such that $\mathrm{norm}_{a'}\left( y\right) = \eps > 0$. Since $S$ is dense in $A$ there is $a'' \in S$ such that $\left\| a' - a''\right\| < \eps/2$.
+ From $\mathrm{norm}_{a''}\left( y\right) = 0$ it follows that there is an $y$-stamp $f\in \mathfrak{Stumps}_{y}$  (cf. Definition \ref{top_stump_defn}) such that $\left\| fa''\right\|< \eps/2$. Otherwise from  $\left\| fa'\right\|> \eps$ and the triangle identity it follows that $\left\| fa'- fa''\right\|> \eps / 2$.
+ On the other hand $\left\| fa'- fa''\right\|\le \left\| f\right\|\left\|a'- a''\right\|< \eps/2$. So an assumption $\sY \neq\bigcup_{a \in S} \mathfrak{pre}\text{-}\supp	 a $ yields a contradiction.
+\end{proof}
 \begin{empt}
 	Let $A$ be a $C^*$-algebra, and let $C_0\left( \sY\right)\to M\left( A\right)$ be Hausdorff blowing-up (cf. Definition \ref{blowing_defn}).  Let $\rho: A \hookto B\left( \H\right)$ be a faithful, nondegenerate representation (cf. Definitions \ref{faithful_repr_defn} and \ref{nondegenerate_repr_defn}). Let $B \subset A$ be a hereditary $C^*$-subalgebra (cf. Definition \ref{hered_defn}). Let $\pi_\sY: C_0\left(\sY\right)\to B\left( \sH\right)$ be the natural representation. If $\left\{u_\la \right\}_{\la\in \La}\subset B$ is an approximate unit of $B$ (cf. Definition \ref{approximate_unit_defn}) and $p \bydef s$-$\lim_{\la\in\La} \rho\left( u_\la\right)$ is a strong limit in $B\left(\H \right)$  (cf. Definition \ref{strong_topology_defn})
 	then from the Corollary \ref{hered_representation_cor} it 	$$
@@ -12061,10 +12122,38 @@ It follows that for any $\xi \in _\sU \H$ and $\eps > 0$ there are $f \in  C_0\l
 	f \mapsto \bt\text{-}\lim_{\la\in \La} u_\la f u_la
 	\eean 
 where $\bt\text{-}\lim$ is a limit with respect to the strict topology of $M\left(B \right)$ (cf. Definition \ref{strict_topology_defn}). The $\ker \phi \subset C_0\left( \sY\right)$ is an closed ideal, so there is an open subset $\sU \subset \sY$ such that $\ker\phi \cong C_0\left( \sU\right)$ (cf. Remark \ref{ideal_open_inc_rem}). It follows that there is a natural inclusion
-\be
+$$
 C_0\left(\sY \right)/ C_0\left(\sU \right)  \hookto M\left( B\right) 
+$$
+From the Theorem \ref{ideal_spectrum_thm} it follows that $C_0\left(\sY \right)/ C_0\left(\sU \right) \cong C_0\left( \sX \setminus\sU \right)$. If 
+\bean
+\varphi: C_0\left(\sY  \right) \to B\left(\H \right),\\
+f \mapsto p \pi_\sY\left( f\right)  p
+\eean
+then $\ker \varphi = \ker \phi$. If
+\be\label{blowing_supp_eqn}
+\supp B \bydef \sX \setminus \sU
 \ee
- PPP !!! 	
+then from $C_b\left( \supp B\right)C_0\left( \supp B\right) = C_0\left( \supp B\right)C_b\left( \supp B\right)$, and $p = 1_{B\left(p\H \right) }$ it follows that 
+\be\label{blowing_mult_eqn}
+\begin{split}
+C_b\left( \supp B\right)\subset M\left(B \right),\\
+1_{C_b\left( \supp B\right)}= 1_{M\left(B \right)}.
+\end{split}
+\ee
+\end{empt}
+\begin{lemma}
+Let $A$ be a $C^*$-algebra, and let $C_0\left( \sY\right)\to M\left( A\right)$ be Hausdorff blowing-up (cf. Definition \ref{blowing_defn}).
+Let $\La$ be  a directed set, and $\left\{B_\la\right\}_{\la \in \La}$ be a family of hereditary subalgebras such that
+$$
+\forall \mu, \nu \in \La \quad \mu \le \nu \quad \Rightarrow B_\mu \subset B_\nu.
+$$
+If a union $\cup_{\la\in\La} B_\la$ is dense in $A$ then a union  $ \cup_{\la\in\La} \supp B_\la$ is dense in $\sY$.
+\end{lemma}
+\begin{proof}
+	!!! PROOF
+\end{proof}
+
  \paragraph{title}
  \begin{lemma}\label{top_trans_tp_cov_lem!}
  	Let $\sX$ be a  connected, locally compact, Hausdorff space, and let $p:	\widetilde{   \mathcal X } \to \mathcal X$ be a  covering of connected spaces. If $g \in \Homeo\left( \widetilde{   \mathcal X }\right)$ is such that $p \circ g = p$ then one has
@@ -12074,7 +12163,7 @@ C_0\left(\sY \right)/ C_0\left(\sU \right)  \hookto M\left( B\right)
  \end{lemma}
  \
  \paragraph{title}
-\end{empt}
+
 
 \begin{remark}\label{blowing_mult_rem}   !!! DELETE !!!
 	From the Definition \ref{multiplier_el_defn} it follows that there is an inclusion $C_0\left(\sU\right)\subset M\left(_\sU A_\sU \right)$. 
@@ -20865,7 +20954,24 @@ If $\left( \sX, \rho\right) $ is a metric space then wa say that $\left\{x_j\rig
 \begin{remark}\label{top_cauchy_rem}
 Above statements can be generalized to nets (cf. Definition \ref{top_net_lim_defn}) the word \textit{Cauchy net} is also used in this book.
 \end{remark}
+\begin{defn}\label{top_dfn:regular_neighborhood_defn}\cite{pavlov_troisky:cov}
+	%2.1
+	Let $\sX, \sY$ be Hausdorff spaces, and let $p: \sY \to \sX$ be a continuous map.
+If 		$x\in \sX$, which has a finite number of pre-images $y_1,
+		\dots,y_m$. Then a neighborhood $\sU$ of $x$ is said to be
+		\emph{regular} if
+		\begin{gather}\label{eq:neiborhoods}
+			p^{-1}(\sU)= \sV_1\sqcup\dots\sqcup \sV_m,
+		\end{gather}
+		where $\sV_i$ are some neighborhoods of $y_j$, $j=1,\dots, m$.
+\end{defn}
 
+\begin{lem}\label{top_lem:neiborhoods_lem}\cite{pavlov_troisky:cov}
+%	2.2.
+	Let $p : \sY\rightarrow \sX$ be a continuous closed map of Hausdorff
+	spaces. Then any point $x$ of $\sX$ with a finite number of
+	pre-images has a regular neighborhood.
+\end{lem}
 	\section{Vector bundles}\label{top_vb_sub_sub}
 \paragraph*{}
 Let $k$ be the field of real or complex numbers, and let $\sX$ be a topological space.
@@ -26687,7 +26793,7 @@ Let $\G\bydef \G\left(M, \sF \right)$ be a foliation chart. 	The bundle $\Omega_
 		Each element $\ga \in \G$ induces a unitary operator $\rho_\ga : L^2\left(s\left( \ga\right)\right)   \xrightarrow{\approx}  L^2\left(r\left( \ga\right)\right) $   that conjugates the operators $\rho_{s\left(\ga \right)} \left(f \right) $ and $\rho_{r\left(\ga \right)} \left(f \right)$. In particular, the norm of $\rho_x\left(f \right)$  is independent of the point in the leaf through $x$.
 	\end{lemma}
 	
-	\begin{lem}\label{foli_point_lem}
+	\begin{lem}\label{foli_point_lem}!!!
 		%Lemma 1.4.10. 
 		If $f \in \Ga_c\left(\G, \Om^{1/2}\right)$ does not evaluate to zero at each $\ga \in \G$, then there exists a point $x$ in $M$ such that $\rho_x\left( f\right)  \neq  0$.
 	\end{lem}
