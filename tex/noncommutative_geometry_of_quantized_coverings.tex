@@ -11987,7 +11987,7 @@ $C_0\left( \sU\right) A$ and $AC_0\left( \sU\right)$ respectively where the natu
 	 \ee
 	(cf. equation \eqref{hered_pap_eqn}) and there is a faithful nondegenerate representation 
 	\be\label{blowing_hered_rep_eqn}
-	B \hookto B\left(pi_\sY\left(\chi_\sU \right) \sH \right) 
+	B \hookto B\left(\pi_\sY\left(\chi_\sU \right) \sH \right) 
 	\ee
 	(cf. \eqref{hered_rep_eqn} and the Lemmas \ref{hered_full_lem}, \ref{hered_nondegenerate_lem})
 \end{enumerate}
@@ -12086,31 +12086,51 @@ and \textit{nondegenerate} if
 \be\label{blowing_nondegenerate_eqn}
 \forall y \in \sY \quad \exists a\in A \quad \mathrm{norm}_a\left( y\right)  \neq 0.
 \ee
+ Hausdorff blowing up $C_0\left( \sY\right)\to M\left( A\right)$ is said to be \textit{continuous} if
+ \be\label{blowing_continuous_eqn}
+ \forall a \in A \quad \mathrm{norm}_a \in C_0\left(\sY \right) 
+ \ee
 \end{definition}
+\begin{exercise}
+Prove that for all $a \in A$ one has:
+\bea\label{blowing_n1_eqn}
+\mathrm{norm}_a = \mathrm{norm}_{a^*},\\
+\label{blowing_n2_eqn}
+\forall f \in C_0\left( \sY\right)\quad \forall y \in \sY \quad \mathrm{norm}_{fa}\left( y\right)= \left|f\left(y\right)\right|  \mathrm{norm}_a\left( y\right).
+\eea
+\end{exercise}
 \begin{definition}\label{blowing_support_defn}
-	If  $A$ is a $C^*$-algebra and $C_0\left( \sY\right)\to M\left( A\right)$ Hausdorff blowing up (cf. Definition \ref{blowing_defn})  the for any $a \in A$ the set
+	If  $A$ is a $C^*$-algebra and $C_0\left( \sY\right)\to M\left( A\right)$ is Hausdorff blowing up (cf. Definition \ref{blowing_defn})  the for any $a \in A$ the set
 \be\label{blowing_support_eqn}
 \mathfrak{pre}\text{-}\supp	 a \bydef \left\{y \in \sY~ | ~\mathrm{norm}_a \neq 0\right\}
 \ee
 is said to be a \textit{pre}-\textit{support} of $a$. A closure of $\mathfrak{pre}\text{-}\supp	 a$ is said to be a \textit{support} of $a$, we denote it by 
-$\supp	 a$.	
+$\supp	 a$. If $S \subset A$ is a subset of $A$ then  a union 
+\be\label{blowing_support_s_eqn}
+\mathfrak{pre}\text{-}\supp S \bydef \bigcup_{a\in S} \mathfrak{pre}\text{-}\supp a
+\ee	
+is said to be a \textit{pre}-\textit{support} of $S$. A closure of $\mathfrak{pre}\text{-}\supp	 S$ is said to be a \textit{support} of $S$, we denote it by 
+$\supp	 S$
 \end{definition}
+\begin{remark}
+	If Hausdorff blowing up is continuous then from \eqref{blowing_continuous_eqn} it follows that  $\mathfrak{pre}\text{-}\supp a$ is an open set.
+\end{remark}
 \begin{lemma}
 Let $A$ be  a $C^*$-algebra with a nondegenerate Hausdorff blowing up $C_0\left( \sY\right)\to M\left( A\right)$ (cf. Definitions \ref{blowing_defn} and \ref{blowing_faithful_defn}.
 If $S \subset A$ is dense subset then one has
 $$
-\bigcup_{a \in S} \mathfrak{pre}\text{-}\supp	 a = \sY \quad \text{(cf. \eqref{blowing_support_eqn})}.
+\mathfrak{pre}\text{-}\supp	 S = \sY \quad \text{(cf. \eqref{blowing_support_eqn})}.
 $$
 \end{lemma}
 \begin{proof}
-If $\sY \neq \bigcup_{a \in S} \mathfrak{pre}\text{-}\supp	 a$ then there is $y \in \sY \setminus \bigcup_{a \in S} \mathfrak{pre}\text{-}\supp	 a$ then from the Definition \ref{blowing_faithful_defn} there is $a' \in A$ such that $\mathrm{norm}_{a'}\left( y\right) = \eps > 0$. Since $S$ is dense in $A$ there is $a'' \in S$ such that $\left\| a' - a''\right\| < \eps/2$.
+If $\sY \neq  \mathfrak{pre}\text{-}\supp	S$ then there is $y \in \sY \setminus \mathfrak{pre}\text{-}\supp	 S$ then from the Definition \ref{blowing_faithful_defn} there is $a' \in A$ such that $\mathrm{norm}_{a'}\left( y\right) = \eps > 0$. Since $S$ is dense in $A$ there is $a'' \in S$ such that $\left\| a' - a''\right\| < \eps/2$.
  From $\mathrm{norm}_{a''}\left( y\right) = 0$ it follows that there is an $y$-stamp $f\in \mathfrak{Stumps}_{y}$  (cf. Definition \ref{top_stump_defn}) such that $\left\| fa''\right\|< \eps/2$. Otherwise from  $\left\| fa'\right\|> \eps$ and the triangle identity it follows that $\left\| fa'- fa''\right\|> \eps / 2$.
- On the other hand $\left\| fa'- fa''\right\|\le \left\| f\right\|\left\|a'- a''\right\|< \eps/2$. So an assumption $\sY \neq\bigcup_{a \in S} \mathfrak{pre}\text{-}\supp	 a $ yields a contradiction.
+ On the other hand $\left\| fa'- fa''\right\|\le \left\| f\right\|\left\|a'- a''\right\|< \eps/2$. So an assumption $\sY \neq \mathfrak{pre}\text{-}\supp	 S $ yields a contradiction.
 \end{proof}
 \begin{empt}
-	Let $A$ be a $C^*$-algebra, and let $C_0\left( \sY\right)\to M\left( A\right)$ be Hausdorff blowing-up (cf. Definition \ref{blowing_defn}).  Let $\rho: A \hookto B\left( \H\right)$ be a faithful, nondegenerate representation (cf. Definitions \ref{faithful_repr_defn} and \ref{nondegenerate_repr_defn}). Let $B \subset A$ be a hereditary $C^*$-subalgebra (cf. Definition \ref{hered_defn}). Let $\pi_\sY: C_0\left(\sY\right)\to B\left( \sH\right)$ be the natural representation. If $\left\{u_\la \right\}_{\la\in \La}\subset B$ is an approximate unit of $B$ (cf. Definition \ref{approximate_unit_defn}) and $p \bydef s$-$\lim_{\la\in\La} \rho\left( u_\la\right)$ is a strong limit in $B\left(\H \right)$  (cf. Definition \ref{strong_topology_defn})
-	then from the Corollary \ref{hered_representation_cor} it 	$$
-	B = \left\{a \in A| p \rho\left( a\right)p = \rho\left(a \right) \right\}
+	Let $A$ be a $C^*$-algebra, and let $C_0\left( \sY\right)\to M\left( A\right)$ be Hausdorff blowing-up (cf. Definition \ref{blowing_defn}).  Let $\rho: A \hookto B\left( \H\right)$ be a faithful, nondegenerate representation (cf. Definitions \ref{faithful_repr_defn} and \ref{nondegenerate_repr_defn}). Let $B \subset A$ be a hereditary $C^*$-subalgebra (cf. Definition \ref{hered_defn}). Let $\pi_\sY: C_0\left(\sY\right)\to B\left( \sH\right)$ be the natural representation (cf. Definition \ref{multiplier_el_defn}). If $\left\{u_\la \right\}_{\la\in \La}\subset B$ is an approximate unit of $B$ (cf. Definition \ref{approximate_unit_defn}) and $p \bydef s$-$\lim_{\la\in\La} \rho\left( u_\la\right)$ is a strong limit in $B\left(\H \right)$  (cf. Definition \ref{strong_topology_defn})
+	then from the Corollary \ref{hered_representation_cor} it turns out that	$$
+	B = \left\{a \in A~|~ p \rho\left( a\right)p = \rho\left(a \right) \right\}
 	$$ 
 	and there is a faithful, nondegenerate representation
 	$$
@@ -12119,18 +12139,46 @@ If $\sY \neq \bigcup_{a \in S} \mathfrak{pre}\text{-}\supp	 a$ then there is $y 
 	For any $f \in C_0\left(\sY \right)$. There is a *-homomorphism
 	\bean
 	\phi : 	C_0\left( \sY\right) \to M\left(B \right),\\
-	f \mapsto \bt\text{-}\lim_{\la\in \La} u_\la f u_la
+	f \mapsto \bt\text{-}\lim_{\la\in \La} u_\la f u_\la
 	\eean 
-where $\bt\text{-}\lim$ is a limit with respect to the strict topology of $M\left(B \right)$ (cf. Definition \ref{strict_topology_defn}). The $\ker \phi \subset C_0\left( \sY\right)$ is an closed ideal, so there is an open subset $\sU \subset \sY$ such that $\ker\phi \cong C_0\left( \sU\right)$ (cf. Remark \ref{ideal_open_inc_rem}). It follows that there is a natural inclusion
+where $\bt\text{-}\lim$ is a limit with respect to the strict topology of $M\left(B \right)$ (cf. Definition \ref{strict_topology_defn}). The $\ker \phi \subset C_0\left( \sY\right)$ is an closed ideal, so there is an open subset $\mathcal W\subset \sY$ such that $\ker\phi \cong C_0\left( \mathcal W\right)$ (cf. Remark \ref{ideal_open_inc_rem}). It follows that there is a natural inclusion
 $$
-C_0\left(\sY \right)/ C_0\left(\sU \right)  \hookto M\left( B\right) 
+C_0\left(\sY \right)/ C_0\left(\mathcal W\right) \hookto M\left( B\right) 
 $$
-From the Theorem \ref{ideal_spectrum_thm} it follows that $C_0\left(\sY \right)/ C_0\left(\sU \right) \cong C_0\left( \sX \setminus\sU \right)$. If 
+From the Theorem \ref{ideal_spectrum_thm} it follows that $C_0\left(\sY \right)/ C_0\left(\mathcal W \right) \cong C_0\left( \sX \setminus\mathcal W \right)$. If 
 \bean
 \varphi: C_0\left(\sY  \right) \to B\left(\H \right),\\
 f \mapsto p \pi_\sY\left( f\right)  p
 \eean
-then $\ker \varphi = \ker \phi$. If
+then $\ker \varphi = \ker \phi$. 
+\end{empt}
+\begin{lemma}
+Consider the above situation. If Hausdorff blowing-up $ C_0\left( \sY\right)\to M\left( A\right)$ is faithful, nondegenerate and continuous (cf. Definition \ref{blowing_faithful_defn}) then 
+$$
+\sY \setminus \mathcal W = \supp B\quad \mathrm{~or ~equivalently~} \quad \sY \setminus\supp B =\mathcal W
+$$
+where $\supp B$ is a given by the Definition \ref{blowing_support_defn} support of $B$.
+\end{lemma}
+\begin{proof}
+
+If $y \in \sY \setminus \supp B$ then since the set $ \supp B$ is closed there is $f \in C_0\left( \sY \right)$ such that $f\left(y \right)= 1$ and $\supp f \cap \supp B = \emptyset$. It follows that
+$$
+\forall b \in B \quad \quad \mathrm{norm}_b \cap \supp f = \emptyset \quad \Rightarrow  \mathrm{norm}_{fb}= f \mathrm{norm}_{b}= 0.
+$$
+Since  $ C_0\left( \sY\right)\to M\left( A\right)$ is faithful one has
+$$
+\forall b \in B \quad \quad fb= 0\quad  \Rightarrow \quad f \in C_0\left(\mathcal W \right) \quad  \Rightarrow \quad  y \in \mathcal W 
+$$
+
+
+%since $ C_0\left( \sY\right)\hookto M\left( A\right)$ is nondegenerate then there is $a \in A$ such that $\mathrm{norm}_a\left(y \right)\neq 0$. Since the set $\supp B$ is closed there is $f \in C_0\left( \sY \right)$ such that $f\left(y \right)= 1$ and $f\left(\supp B \right)=\{0\}$. It follows that $\mathrm{norm}_{fa}\left(y \right)\neq 0$ and $fa \neq 0$.  From $\supp fa \cap \supp B = 0$ 
+
+
+\end{proof}
+
+\begin{empt}
+
+If
 \be\label{blowing_supp_eqn}
 \supp B \bydef \sX \setminus \sU
 \ee
@@ -12142,17 +12190,7 @@ C_b\left( \supp B\right)\subset M\left(B \right),\\
 \end{split}
 \ee
 \end{empt}
-\begin{lemma}
-Let $A$ be a $C^*$-algebra, and let $C_0\left( \sY\right)\to M\left( A\right)$ be Hausdorff blowing-up (cf. Definition \ref{blowing_defn}).
-Let $\La$ be  a directed set, and $\left\{B_\la\right\}_{\la \in \La}$ be a family of hereditary subalgebras such that
-$$
-\forall \mu, \nu \in \La \quad \mu \le \nu \quad \Rightarrow B_\mu \subset B_\nu.
-$$
-If a union $\cup_{\la\in\La} B_\la$ is dense in $A$ then a union  $ \cup_{\la\in\La} \supp B_\la$ is dense in $\sY$.
-\end{lemma}
-\begin{proof}
-	!!! PROOF
-\end{proof}
+
 
  \paragraph{title}
  \begin{lemma}\label{top_trans_tp_cov_lem!}
@@ -12380,7 +12418,7 @@ A^{\left\{\sU_\a\right\}}_{\text{fin}}\hookto A
 %\begin{definition}\label{blowing_dir_supp_defn}
 %Let $\sU\subset \sY$ be an open set which is a disjoint union  $\sU = \bigsqcup \sU_\a$. A $\sU$-\textit{proper}  $C^*$-subalgebra is generated by the algebraic direct sum $\bigoplus A^{\mathrm{prop}}_{\sU_\a}$.
 %\end{definition}
-\begin{definition}\label{blowing_supp_defn}
+\begin{definition}\label{blowing_supp_defn!} !!! DELETE !!!
 In the  situation of the  Definition \ref{blowing_disintegrable_defn} suppose that $a\in A$. If
 \bean
 \sU \bydef\bigcap 
