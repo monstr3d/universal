@@ -12171,7 +12171,7 @@ $$
 \forall b \in B \quad \quad fb= 0\quad  \Rightarrow \quad f \in C_0\left(\mathcal W \right) \quad  \Rightarrow \quad  y \in \mathcal W. 
 $$
 \begin{lemma}
-Consider    the situation of the Lemma \ref{blowing_y_gen_defn} and suppose that $\rho: A \hookto B\left(\H \right)$ is a faithful, nondegenerate  representation. If $\mathfrak{pre}\text{-}\supp B$ is a pre-support of $B$ (cf. Definition \ref{blowing_support_defn} and $\left\{u_\la\right\}_{\la \in \Xi\left( \mathfrak{pre}\text{-}\supp B\right)}\subset C_0\left( \sY\right)_+$ is an explained in \ref{top_u_net_empt} net, then $\left\{\rho\left( u_\la\right) \right\}\subset  B \left(\H \right)$ is an approximate unit of $B$. 
+Consider    the situation of the Lemma \ref{blowing_y_gen_defn} and suppose that $\rho: A \hookto B\left(\H \right)$ is a faithful, nondegenerate  representation. If $\supp B$ is a support of $B$ (cf. Definition \ref{blowing_support_defn} and $\left\{u_\la\right\}_{\la \in \Xi\left( \mathfrak{pre}\text{-}\supp B\right)}\subset C_0\left( \sY\right)_+$ is an explained in \ref{top_u_net_empt} net, then $\left\{\rho\left( u_\la\right) \right\}\subset  B \left(\H \right)$ is an approximate unit of $B$. 
 \end{lemma}
 \begin{proof}
 If $\eps > 0$, $f_\eps$ is given by \eqref{f_eps_eqn} and  $a \in A_+$ then one has
@@ -12190,6 +12190,21 @@ If $\eps > 0$, $f_\eps$ is given by \eqref{f_eps_eqn} and  $a \in A_+$ then one 
 	\forall \la \in \La \quad \la \ge \la_0\quad \Rightarrow \left\|a - u_\la a u_\la \right\|\le \left\|a - f_{\eps/2}\left(a \right)  \right\|+\\ + \left\|u_\la a u_\la - u_\la f_{\eps/2}\left(a \right)  u_\la\right\|+ \left\|f_{\eps/2}\left(a \right) -u_\la f_{\eps/2}\left(a \right)  u_\la\right\|\le \\
 	\le \left\|  u_\la\right\|^2 \left\|a - f_{\eps/2}\left(a \right)  \right\|+ \left\|a - f_{\eps/2}\left(a \right)  \right\|\le \eps
 	\eean
+\end{proof}
+\begin{corollary}\label{blowing_cb_inc}
+There is a natural inclusion $C_b\left(\supp B \right)\subset M\left(A\right)$. 
+\end{corollary}
+\begin{proof}
+	!!!
+If $f \in C_b\left(\supp B \right)$ and  $\left\{u_\la\right\}_{\la \in \Xi\left( \mathfrak{pre}\text{-}\supp B\right)}\subset C_0\left( \sY\right)_+$ is an explained in \ref{top_u_net_empt} net then $u_\la f, fu_\la \in C_0\left(  \mathfrak{pre}\text{-}\supp B\right)\subset M\left( B\right)$, so $u_\la f a , \quad f u_\la a \in A$. For any $a \in A$ and any $\eps > 0$ there is $\la_0\in \La$ such that  
+\bean
+\forall \la \in \La \quad \la \ge \la_0 \quad \Rightarrow \quad \left\|u_\la a - a   \right\| < \frac{\eps }{\left\|f  \right\|}, \quad \left\|au_\la  - a   \right\| < \frac{\eps }{\left\|f  \right\|}.
+\eean 
+It follows that
+\bean
+\forall \la \in \La \quad \la \ge \la_0 \quad \Rightarrow \quad \left\|fu_\la a - fa   \right\| < \eps, \quad \left\|au_\la f - a f  \right\| < \eps,
+\eean
+so $fa, af \in A$.
 \end{proof}
 \begin{empt}\label{blowing_repr_p_empt}
 If  $\rho: A\hookto B\left(\H \right)$ is a faithful nondegenerate representation
@@ -12473,7 +12488,7 @@ where $\left\| \cdot\right\|_H$ is an explained in  \ref{blowing_hilb_mod_empt} 
 	is also commutative so we write $C_0\left( \widetilde \sY \right) \cong \widetilde C$ (cf. Theorem \ref{gelfand-naimark_thm}).
 	 Using \eqref{blowing_rep_inc_eqn} one can find an injective *-homomorphism
 	\be\label{blowing_inj_eqn}
-\pi_\sY:	C_0\left(\sY\right)\hookto C_0\left( \widetilde \sY \right). 
+C_0\left(q \right) :	C_0\left(\sY\right)\hookto C_0\left( \widetilde \sY \right). 
 	\ee
 	From the Lemma \ref{fin_multilier_lem} it follows that there is an action 
 	$$
@@ -12487,7 +12502,7 @@ where $\left\| \cdot\right\|_H$ is an explained in  \ref{blowing_hilb_mod_empt} 
 GC_0\left( \widetilde \sY \right)=C_0\left( \widetilde \sY \right),\\
 C_0\left( \sY\right) = C_0\left( \widetilde \sY \right)^G,
 \eean
-i.e. the quadruple $\left(C_0\left(  \sY \right), C_0\left( \widetilde \sY \right), G, \pi_\sY\right)$ is a finite-fold noncommutative quasi-covering (cf. Definition \ref{fin_quasi_defn}). The Proposition \ref{spectrum_cov_prop} yields both  a continuous map and an action
+i.e. the quadruple $\left(C_0\left(  \sY \right), C_0\left( \widetilde \sY \right), G, C_0\left(q \right)\right)$ is a finite-fold noncommutative quasi-covering (cf. Definition \ref{fin_quasi_defn}). The Proposition \ref{spectrum_cov_prop} yields both  a continuous map and an action
 		\be\label{blowing_inj_b_eqn}
 		\begin{split}
 q:\widetilde \sY \to \sY,\\
@@ -12506,7 +12521,8 @@ If $\widetilde{	B}$ is a {hereditary} $\left(A, \widetilde{A}, G, \pi \right)$-{
 unital  noncommutative finite-fold covering  $\left(M\left(A \right)  ,M\left( \widetilde{A}\right) , G, \widetilde{\pi} \right)$ (cf. Definition \ref{fin_unital_defn}). If  $\rho: A\hookto B\left(\H \right)$ is a faithful nondegenerate representation (cf. Definition \ref{faithful_repr_defn} and \ref{nondegenerate_repr_defn}) then from \eqref{blowing_hered_papp_eqn} it follows that 	\bean
 B = \left\{ a \in A | \rho_\sY\left(\chi_{\supp B} \right)\rho\left( a\right) \rho_\sY\left(\chi_{\supp B} \right) = \rho \left( a\right)\right\}
 \eean
-If a representation  $\widetilde  \rho : \widetilde A \to B\left( \widetilde\H \right)$ is induced by the pair $\left(\rho, \left(A, \widetilde A, G, \pi\right)\right)$ (cf. Definition \ref{induced_repr_defn}) then the application of the construction \ref{hered_lift_repr_empt} yields the following formula
+where $\chi_{\supp B}: \sY \to \R$ is a characteristic function of $\supp B$ (cf. Definition \ref{top_char_f_defn}).
+If a representation  $\widetilde  \rho : \widetilde A \to B\left( \widetilde\H \right)$ is induced by the pair $\left(\rho, \left(A, \widetilde A, G, \pi\right)\right)$ (cf. Definition \ref{induced_repr_defn}) then from the Lemmas \ref{induced_faithful_lem}, \ref{induced_nondegenerate_lem} it follows that $\widetilde  \rho$  faithful and nondegenerate. From the equation \eqref{blowing_cy_eqn} it follows that  there is an inclusion $C_0\left(\widetilde \sY \right) \hookto M\left( \widetilde A\right)$ and taking into account the Definition \ref{multiplier_el_defn} one has a faithful  representation $\rho_{\widetilde \sY}: C_0\left( \widetilde \sY\right) \hookto B\left(\widetilde \H\right)$. The  application of the construction \ref{hered_lift_repr_empt} yields the following formula
 	\bean\label{hered_papt_eqn!}
 \widetilde B = \left\{ \widetilde a \in \widetilde A | \widetilde p\widetilde \pi_a\left( \widetilde a\right)\widetilde p = \widetilde\pi_a\left(\widetilde a\right)\right\}
 \eean
@@ -12514,38 +12530,86 @@ and  a faithful, nondegenerate natural representation
 \bean\label{hered_rept_eqn!}
 \widetilde B \hookto B\left(\widetilde p \widetilde \H \right) 
 \eean
-The inclusion \eqref{blowing_cy_eqn}
-!!! CONTINUE 
+We leave to the reader a proof of the following equation
+$$
+\widetilde p = \rho_{\widetilde \sY} \left(\chi_{q^{-1}\left( \supp B\right) } \right) 
+$$
+
 
 \end{proof}
 \paragraph{title}
-
-\begin{empt}\label{hered_lift_repr_empt!}
-	Let a quadruple $\left(A, \widetilde{A}, G, \pi \right)$ be  {noncommutative finite-fold  quasi-covering} (cf. Definition \ref{fin_quasi_defn}), and let $\rho : A \hookto B\left(\H \right)$ be a faithful nondegenerate  representation (cf. Definitions \ref{faithful_repr_defn} and \ref{nondegenerate_repr_defn}). If $\widetilde \rho  : \widetilde{A}\to B\left( \widetilde{\H}\right)$ is induced by a pair $\left(\rho, \left(A, \widetilde{A}, G, \pi \right)\right)$ then $\widetilde \rho$ is faithful nondegenerate representation (cf. Lemmas \ref{induced_faithful_lem} and \ref{induced_nondegenerate_lem}). If $\left\{u_\la \right\} \subset  B\left(\H \right)_+$ be an increasing  net of positive elements explained in \ref{hered_repr_p_empt} then one can define a net $\left\{\rho\left(u_\la \right) \right\}\in B\left(  \H\right) $ such that then there is a projector $p \in B\left( \H\right)$ such that   	\bean
-	B = \left\{ a \in A | p\rho\left( a\right) p = \rho\left( a\right)\right\}
-	\eean
-	and  a natural representation
+\begin{corollary}\label{blowing_cb_inc!}
+	There is a natural inclusion $C_b\left(\supp B \right)\subset M\left(A\right)$. 
+\end{corollary}
+\begin{empt}\label{blowing_y_gen_b_empt}
+	Consider the situation \ref{blowing_y_gen_empt} and suppose that the noncommutative finite-fold  covering  $\left(A, \widetilde{A}, G, \pi \right)$ is $C_0\left( \widetilde\sY\right)$-{generated} (cf. Definition \ref{blowing_y_gen_defn}). Let $B\subset A$ be a $\left(A, \widetilde{A}, G, \pi \right)$-strictly proper  subalgebra (cf. Definition \ref{hered_proper_lift_defn}). Let $\widetilde B\subset \widetilde A$ be a {hereditary} $\left(A, \widetilde{A}, G, \pi \right)$-{lift} of $B$ (cf. Definition \ref{hered_lift_defn}). Let $I\subset C_0\left(\sY \right)$ be a given by  the equation \eqref{blowing_wrapper_ideal_eqn} ideal, and let $\sU \subset \sY$ be such that $I = C_0\left( \sY\right)$. !!! PROVE !!!If $\widetilde{\sU}\bydef q^{-1}\left( \sU\right) $ then one has $\widetilde B \subset ~_{\widetilde \sU} \widetilde A_{\widetilde\sU}$  !!! END PROVE!!!. From \eqref{blowing_cb_inc_eqn} one has following inclusions
+	\be\label{blowing_cb_inc_p_eqn}
+	\begin{split}
+		C_b\left(\sU\right)= C\left( \bt\sU\right) \subset M\left(_\sU A_\sU \right),\\
+		C_b\left(\widetilde \sU\right)\subset  C\left( \bt\widetilde \sU\right)\subset  M\left(_{\widetilde \sU} \widetilde A_{\widetilde\sU} \right)
+	\end{split}
+	\ee
+	where both $\bt\sU$ and $\bt\widetilde\sU$ are {Stone-\v{C}ech compactifications}  of $\sU$ and $\widetilde\sU$ (cf. Definition \ref{sc_comp_defn}). From the Theorem \ref{top_sc_to_compact_thm} it follows that the restriction $q|_{\sU} : \widetilde\sU \to \sU$ can be uniquely extended up to a continuous map
+	$\bt q|_{\sU} : \bt\widetilde\sU \to \bt\sU$.
+	If $\left\{u_\a\right\}_{\a \in \mathscr A}\subset B$ is an approximate unity of $B$ then a union 	$	\bigcup_{\a \in \mathscr A}\pi\left( u_\a\right) \widetilde A \pi\left( u_\a\right)$ is dense in $\widetilde B$ (cf. Remark \ref{hered_lift_rem}). On the other hand since $\pi\left(A \right)C_0\left( \widetilde\sY\right)$ is dense in $\widetilde A$ the union
+	$$
+	\bigcup_{\a \in \mathscr A} \pi\left( u_\a\right)\pi\left(A \right)C_0\left( \widetilde\sY\right) \pi\left( u_\a\right)
+	$$
+	Is dense in $\widetilde B$. From the above equation it follows that the union $$\bigcup_{\a \in \mathscr A}\pi\left(A \right)C_0\left( \widetilde\sY\right) \pi\left( u_\a\right)$$ is dense in  $\widetilde B$. 
+	For any $\widetilde f \in C_0\left(\widetilde \sU \right) \subset M\left( \widetilde A\right)$ one has $\lim_{\a \in \mathscr A} u_\a  \widetilde f u_\a \in  M\left(\widetilde B \right)$. It follows that there is a *-homomorphism
 	\bean
-	B \hookto B\left(p \H \right) 
+	\phi : C_0\left(\widetilde \sU \right)\to M\left(\widetilde B \right),\\
+	\widetilde f\mapsto \lim_{\a \in \mathscr A} u_\a  \widetilde f u_\a
 	\eean
-	is faithful and nondegenerate (cf. Corollary \ref{hered_representation_cor}). 
-	From the Lemma \ref{fin_multilier_lem} it follows that there is a natural inclusion $M\left(\pi \right) : M\left(A \right) \hookto M\left(\widetilde A \right)$. 
-	If  $\widetilde B\subset \widetilde A$ is a hereditary lift  $\left(A, \widetilde{A}, G, \pi \right)$-lift of $B$
-	(cf. Definition \ref{hered_lift_defn}) then there is a net  $\left\{M\left(\pi \right)\left(u_\la \right)  \right\}\subset B\left(\widetilde \H\right)$ 	such that $\left\{M\left(\pi \right)\left(u_\la \right)  \right\}\subset M\left(\widetilde A \right) \cap M\left( \widetilde B\right)$. Similarly to \ref{hered_repr_p_empt} 
-	there is  a strong limit $\widetilde p \bydef s-\lim\widetilde \pi_a\left( M\left(  u_\la\right)  \right) \in B\left( \widetilde \H\right)$ such that   $\widetilde p$ lies in the strong closure  
-	$\widetilde\rho\left(\widetilde A \right)''$ of $\widetilde\rho\left(\widetilde A\right)$ in $B\left(\widetilde \H\right)$.	
-	Moreover one has
-	\be\label{hered_papt_eqn}
-	\widetilde B = \left\{ \widetilde a \in \widetilde A | \widetilde p\widetilde \pi_a\left( \widetilde a\right)\widetilde p = \widetilde\pi_a\left(\widetilde a\right)\right\}
+	If $\ker \phi \neq \{0\}$ then there is a nonempty  $\widetilde \sV \subset \widetilde \sU$ such that $\ker \phi = C_0\left(\widetilde \sV\right)$. This fact contradicts with an explained in \ref{blowing_wrapper_empt} construction. It follows that the map $\phi$ is injective. It can be extended up to an injective *-homomorphism
+	\be\label{blowing_mulu_eqn}
+	\varphi : C\left(\bt\widetilde \sU \right)\hookto M\left(\widetilde B \right)
 	\ee
-	and  a natural representation
-	\be\label{hered_rept_eqn}
-	\widetilde B \hookto B\left(\widetilde p \widetilde \H \right) 
-	\ee
-	is faithful and nondegenerate (cf. Corollary \ref{hered_representation_cor}).
 \end{empt}
-
-
+\begin{lemma}\label{blowing_covy_lem}
+	It the situation 	\ref{blowing_y_gen_b_empt} the continuous map $\bt q|_{\sU} : \bt\widetilde\sU \to \bt\sU$ is a finite-
+\end{lemma}
+\begin{proof}
+	Since $B\subset A$ is a $\left(A, \widetilde{A}, G, \pi \right)$-strictly proper  subalgebra (cf. Definition \ref{hered_proper_lift_defn}).  From the Definition \ref{hered_proper_lift_defn} and the Corollary  \ref{cov_mult_fin_cor} it follows that there is an  noncommutative finite-fold  covering with unitization $\left(B, \widetilde{B}, G, \pi_B \right)$ (cf. Definition \ref{fin_unitization_defn}). From the Corollary \ref{cov_mult_fin_cor} it follows that there is an 
+	unital  noncommutative finite-fold covering  $\left(M\left(B \right)  ,M\left( \widetilde{B}\right) , G, \widetilde{\pi}_B \right)$ covering (cf. Definition \ref{fin_unital_defn}). If $\bt q|_{\sU} : \bt\widetilde\sU \to \bt\sU$ is not a finite-fold covering then from the Theorem \ref{pavlov_troisky_thm} it follows that  $C\left(\bt\widetilde \sU\right)$ is not a finitely generated $C\left(\bt \sU\right)$-module. From the Theorem \ref{fin_gen_thm} it turns out that there 
+	is a set $\left\{M_\la\right\}_{\la\in\La}$ of submodules $M_\la\hookto  C\left(\bt\widetilde \sU\right)$ with 
+	$$
+	C\left(\bt\widetilde \sU\right)=\sum_{\la \in \La} M_\la
+	$$
+	there is no  finite subset $\La_0\subset \La$  such that 
+	$$
+	C\left(\bt\widetilde \sU\right) = \sum_{\la \in \La_0} M_\la
+	$$
+	For any $\la \in \La$ denote by $\widetilde B_{\la}$ the $C^*$-norm completion of 
+	$$
+	\bigcup_{\a \in \mathscr A} \pi\left(B \right) \left( \sum_{\la \in \La'} M_\la\right) \pi\left( u_\a\right). 
+	$$
+	Let $M\left( \widetilde B_{\la}\right) \subset M\left( \widetilde B\right) $ is a completion of $\widetilde B_{\la}$ with respect to the strict topology of $M\left( \widetilde B\right)$ then one has:
+	\begin{enumerate}
+		\item The space $M\left( \widetilde B_{\la}\right)$ is a left $M\left(B \right)$ module for any $\la\in \La$.
+		\item  $M\left( \widetilde B_{\la}\right)\cap \varphi\left( C\left(\bt\widetilde \sU \right) \right) = \widetilde M_\la$.
+		\item $M\left( \widetilde B\right) = \sum_{\la \in \La} M\left( \widetilde B_{\la}\right)$.
+	\end{enumerate}
+	From 2. it follows that for any  $\la', \la'' \in \La$ one has
+	$$
+	M_{\la'}\neq M_{\la''}\quad \Rightarrow \quad M\left( \widetilde B_{\la'}\right) \neq M\left( \widetilde B_{\la''}\right).
+	$$
+	In result one has a family $\left\{M\left( \widetilde B_{\la}\right)\right\}$ of left $M\left( B\right)$ submodules 
+	of $M\left(\widetilde B\right)$ with 
+	$$
+	M\left(\widetilde B\right)=\sum_{\la \in \La} M\left( \widetilde B_{\la}\right)
+	$$
+	there is no  finite subset $\La_0\subset \La$  such that 
+	$$
+	M\left(\widetilde B\right)=\sum_{\la \in \La_0} M\left( \widetilde B_{\la}\right)
+	$$ From the Theorem \ref{fin_gen_thm} it follows that $M\left(\widetilde B\right)$ is not a finitely generated module. This fact contradicts with the Definition \ref{fin_defn}. From this contradiction it follows that $\bt q|_{\sU} : \bt\widetilde\sU \to \bt\sU$ is  a finite-fold covering.
+\end{proof}
+\begin{thm}\label{blowing_covy_thm}
+	Let $A$ be a $C^*$-algebra with Hausdorff blowing-up $C_0\left( \sY\right) \hookto M\left( A\right)$  (cf. Definition \ref{blowing_defn}), and Let $\left(A, \widetilde{A}, G, \pi \right)$ a noncommutative finite-fold covering. Denote by $\widetilde \sY$ and $q: \widetilde \sY \to \sY$ a space and a continuous map given by equations \eqref{blowing_cy_eqn} and	\ref{blowing_inj_b_eqn}. If $\left(A, \widetilde{A}, G, \pi \right)$ is  $C_0\left( \widetilde\sY\right)$-{generated} (cf. Definition \ref{blowing_y_gen_defn}) then the map $q$ is transitive finite-fold covering (cf. Definition \ref{top_transitive_defn}) such that $G\left(\left. \widetilde\sY\right| \sY\right)\cong G$.
+\end{thm}
+\begin{proof}
+	The proof is based on the Lemma \ref{blowing_covy_lem} and similar to the proof of (i) of the Theorem \ref{top_fin_thm}. Details of the proof are left to the reader.
+\end{proof}
 \paragraph{title}
 
 
@@ -12615,6 +12679,7 @@ $$
 the given by \eqref{blowing_inj_b_eqn} a continuous map and an action.
 
 \end{empt}
+\paragraph{title}
 \begin{empt}\label{blowing_y_gen_b_empt}
 Consider the situation \ref{blowing_y_gen_empt} and suppose that the noncommutative finite-fold  covering  $\left(A, \widetilde{A}, G, \pi \right)$ is $C_0\left( \widetilde\sY\right)$-{generated} (cf. Definition \ref{blowing_y_gen_defn}). Let $B\subset A$ be a $\left(A, \widetilde{A}, G, \pi \right)$-strictly proper  subalgebra (cf. Definition \ref{hered_proper_lift_defn}). Let $\widetilde B\subset \widetilde A$ be a {hereditary} $\left(A, \widetilde{A}, G, \pi \right)$-{lift} of $B$ (cf. Definition \ref{hered_lift_defn}). Let $I\subset C_0\left(\sY \right)$ be a given by  the equation \eqref{blowing_wrapper_ideal_eqn} ideal, and let $\sU \subset \sY$ be such that $I = C_0\left( \sY\right)$. !!! PROVE !!!If $\widetilde{\sU}\bydef q^{-1}\left( \sU\right) $ then one has $\widetilde B \subset ~_{\widetilde \sU} \widetilde A_{\widetilde\sU}$  !!! END PROVE!!!. From \eqref{blowing_cb_inc_eqn} one has following inclusions
 	\be\label{blowing_cb_inc_p_eqn}
@@ -12684,7 +12749,7 @@ Let $A$ be a $C^*$-algebra with Hausdorff blowing-up $C_0\left( \sY\right) \hook
 \begin{proof}
 	The proof is based on the Lemma \ref{blowing_covy_lem} and similar to the proof of (i) of the Theorem \ref{top_fin_thm}. Details of the proof are left to the reader.
 \end{proof}
-
+\paragraph{title}
 \begin{lemma}\label{blowing_fin_pre_lem}
 	If $A$ is a $C^*$-algebra,  $C_0\left(\sY \right)\hookto M\left( A\right)$ is disintegrable Hausdorff blowing-up (cf. Definitions \ref{blowing_defn} and \ref{blowing_disintegrable_defn}), and   $q : \widetilde\sY\to\sY$ is  a transitive finite-fold covering (cf. Definition \ref{top_transitive_defn}) then a quadruple  $\left(A,A_0\left( \widetilde \sY\right),G\left(\left.\widetilde{\sY}~\right|\sY\right),  A_0\left( q\right) \right)$ is a finite-fold noncommutative pre-covering (cf. Definition \ref{fin_pre_defn}),  where $A_0\left( \widetilde \sY\right)$ is a $q$-lift of $A$ (cf. Definition \ref{blowing_lift_a_f_defn}) and $A_0\left( q\right)$  is a natural injective *-homomorphism  $A \cong A_0\left( \widetilde \sY\right)^{G\left(\left.\widetilde{\sY}~\right|\sY\right)}\hookto A_0\left( \widetilde \sY\right)$ (cf. equation \eqref{blowing_a0_q_eqn}).
 \end{lemma}
