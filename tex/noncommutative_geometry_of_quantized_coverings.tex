@@ -2279,9 +2279,6 @@ unital  noncommutative finite-fold covering  $\left(M\left(A \right)  ,M\left( \
 	\ee
 	
 \end{remark}
-\begin{exercise}\label{hered_lift_exer}
-	If $\left(A, \widetilde{A}, G, \pi \right)$ be a noncommutative finite-fold  quasi-covering (cf. Definition \ref{fin_quasi_defn}) then from the Lemma \ref{cov_mult_fin_lem} it follows that there is an unital noncommutative finite-fold  quasi-covering $\left(M\left( A\right) , M\left( \widetilde{A}\right) , G, \widetilde \pi \right)$ (cf. Definition \ref{fin_unital_defn}). Prove that if $B\subset A$ is a hereditary $C^*$-subalgebra, and $\widetilde B \subset \widetilde A$ is a {hereditary} $\left(A, \widetilde{A}, G, \pi \right)$-{lift} of $B$ (cf. Definition \ref{hered_lift_defn}) then $H_{\widetilde A}\left(\widetilde B \right) \subset M\left(\widetilde A \right)$ is is a {hereditary} $\left(M\left( A\right) , M\left( \widetilde{A}\right) , G, \widetilde \pi \right)$-{lift} of $H_A\left( B\right)\subset M\left( A\right) $ where both $H_{\widetilde A}\left(\widetilde B \right)\subset M\left( \widetilde A\right) $ and $H_A\left( B\right)\subset M\left( A\right) $ are given by the equation \eqref{hered_mult_eqn}.
-\end{exercise}
 
 
 \section{Induced representations}\label{induced_repr_fin_sec}
@@ -12191,7 +12188,7 @@ If $\eps > 0$, $f_\eps$ is given by \eqref{f_eps_eqn} and  $a \in A_+$ then one 
 	\le \left\|  u_\la\right\|^2 \left\|a - f_{\eps/2}\left(a \right)  \right\|+ \left\|a - f_{\eps/2}\left(a \right)  \right\|\le \eps
 	\eean
 \end{proof}
-\begin{corollary}\label{blowing_cb_inc}
+\begin{corollary}\label{blowing_cb_inc_cor}
 There is a natural inclusion $C_b\left(\supp B \right)\subset M\left(A\right)$. 
 \end{corollary}
 \begin{proof}
@@ -12534,8 +12531,56 @@ We leave to the reader a proof of the following equation
 $$
 \widetilde p = \rho_{\widetilde \sY} \left(\chi_{q^{-1}\left( \supp B\right) } \right) 
 $$
-
-
+From the Corollary \ref{blowing_cb_inc_cor} it follows that there is an inclusion 
+$$
+C_b \left( \supp B\right) \cong  C\left(\bt \supp B \right)\subset M\left( B\right)  
+$$
+	where both $\bt\supp B$ is a  {Stone-\v{C}ech compactifications}  of $\supp B$ (cf. Definition \ref{sc_comp_defn}). We leave to the reader poof of following equations
+	\bean
+	q^{-1}\left(\supp B \right)= \supp \widetilde B\eean
+\be\label{blowing_cb_eqn}	
+\text{ There is an inclusion } \quad \varphi:	C_b \left( \supp \widetilde B\right) \cong  C\left(\bt \supp \widetilde B \right)\hookto M\left( \widetilde B\right) 
+\ee 
+From the Theorem \ref{top_sc_to_compact_thm} it follows that the restriction $q|_{\supp \widetilde B} : \supp \widetilde B \to \supp B$ can be uniquely extended up to a continuous map
+$\bt q|_{\supp \widetilde B} : \bt \supp \widetilde B \to \bt \supp  B$.
+If $\left\{u_\a\right\}_{\a \in \mathscr A}\subset B$ is an approximate unity of $B$ then $\left\{\pi\left( u_\a\right) \right\}_{\a \in \mathscr A}\subset \widetilde B$ is an approximate unity of $\widetilde B$ (cf. Corollary \ref{quasi_mult_cor}). So a union	$	\bigcup_{\a \in \mathscr A}\pi\left( u_\a\right) \widetilde A \pi\left( u_\a\right)$ is dense in $\widetilde B$ 
+ On the other hand since $\pi\left(A \right)C_0\left( \widetilde\sY\right)$ is dense in $\widetilde A$ the union
+$$
+\bigcup_{\a \in \mathscr A} \pi\left( u_\a\right)\pi\left(A \right)C_0\left( \widetilde\sY\right) \pi\left( u_\a\right)
+$$
+is dense in $\widetilde B$. From the above equation it follows that the union $$\bigcup_{\a \in \mathscr A}\pi\left(A \right)C_0\left( \widetilde\sY\right) \pi\left( u_\a\right)$$ is dense in  $\widetilde B$. If $\bt q|_{\supp \widetilde B} : \bt \supp \widetilde B \to \bt \supp  B$ is not a finite-fold covering then from the Theorem \ref{pavlov_troisky_thm} it follows that  $C\left(\bt \supp \widetilde B\right)$ is not a finitely generated $C\left(\bt \supp  B\right)$-module. From the Theorem \ref{fin_gen_thm} it turns out that there 
+is an infinite set $\left\{M_\la\right\}_{\la\in\La}$ of $C\left(\bt \supp  B\right)$-submodules $M_\la\hookto  C\left(\bt \supp \widetilde B\right)$ with 
+$$
+C\left(\bt\supp \widetilde B\right)=\sum_{\la \in \La} M_\la
+$$
+there is no  finite subset $\La_0\subset \La$  such that 
+$$
+C\left(\bt\supp\widetilde B\right) = \sum_{\la \in \La_0} M_\la
+$$
+If  $\la \in \La$ and  $\widetilde B_{\la}\subset \widetilde B$ the $C^*$-norm completion of 
+$$
+\bigcup_{\a \in \mathscr A} \pi\left(B \right) \ M_\la \pi\left( u_\a\right). 
+$$
+then $\widetilde B_{\la}$ is a $B$-module.
+Let $M\left( \widetilde B_{\la}\right) \subset M\left( \widetilde B\right) $ is a completion of $\widetilde B_{\la}$ with respect to the strict topology of $M\left( \widetilde B\right)$ then one has:
+\begin{enumerate}
+	\item The space $M\left( \widetilde B_{\la}\right)$ is a left $M\left(B \right)$ module for any $\la\in \La$.
+	\item  $M\left( \widetilde B_{\la}\right)\cap \varphi\left( C\left(\bt\supp \widetilde B \right) \right) =  M_\la$ where $\varphi$ is given by \eqref{blowing_cb_eqn}.
+	\item $M\left( \widetilde B\right) = \sum_{\la \in \La} M\left( \widetilde B_{\la}\right)$.
+\end{enumerate}
+From 2. it follows that for any  $\la', \la'' \in \La$ one has
+$$
+M_{\la'}\neq M_{\la''}\quad \Rightarrow \quad M\left( \widetilde B_{\la'}\right) \neq M\left( \widetilde B_{\la''}\right).
+$$
+In result one has a family $\left\{M\left( \widetilde B_{\la}\right)\right\}$ of left $M\left( B\right)$ submodules 
+of $M\left(\widetilde B\right)$ with 
+$$
+M\left(\widetilde B\right)=\sum_{\la \in \La} M\left( \widetilde B_{\la}\right)
+$$
+there is no  finite subset $\La_0\subset \La$  such that 
+$$
+M\left(\widetilde B\right)=\sum_{\la \in \La_0} M\left( \widetilde B_{\la}\right)
+$$ From the Theorem \ref{fin_gen_thm} it follows that $M\left(\widetilde B\right)$ is not a finitely generated module. This fact contradicts with the Definition \ref{fin_defn}. From this contradiction it follows that $\bt q|_{\supp \widetilde B} : \bt\supp \widetilde B \to \bt\supp  B$ is  a finite-fold covering. From $\supp \widetilde B = \bt q^{-1}\left(\supp B\right)$ it follows that $q$ is a finite-fold covering.
 \end{proof}
 \paragraph{title}
 \begin{corollary}\label{blowing_cb_inc!}
@@ -12549,13 +12594,7 @@ $$
 		C_b\left(\widetilde \sU\right)\subset  C\left( \bt\widetilde \sU\right)\subset  M\left(_{\widetilde \sU} \widetilde A_{\widetilde\sU} \right)
 	\end{split}
 	\ee
-	where both $\bt\sU$ and $\bt\widetilde\sU$ are {Stone-\v{C}ech compactifications}  of $\sU$ and $\widetilde\sU$ (cf. Definition \ref{sc_comp_defn}). From the Theorem \ref{top_sc_to_compact_thm} it follows that the restriction $q|_{\sU} : \widetilde\sU \to \sU$ can be uniquely extended up to a continuous map
-	$\bt q|_{\sU} : \bt\widetilde\sU \to \bt\sU$.
-	If $\left\{u_\a\right\}_{\a \in \mathscr A}\subset B$ is an approximate unity of $B$ then a union 	$	\bigcup_{\a \in \mathscr A}\pi\left( u_\a\right) \widetilde A \pi\left( u_\a\right)$ is dense in $\widetilde B$ (cf. Remark \ref{hered_lift_rem}). On the other hand since $\pi\left(A \right)C_0\left( \widetilde\sY\right)$ is dense in $\widetilde A$ the union
-	$$
-	\bigcup_{\a \in \mathscr A} \pi\left( u_\a\right)\pi\left(A \right)C_0\left( \widetilde\sY\right) \pi\left( u_\a\right)
-	$$
-	Is dense in $\widetilde B$. From the above equation it follows that the union $$\bigcup_{\a \in \mathscr A}\pi\left(A \right)C_0\left( \widetilde\sY\right) \pi\left( u_\a\right)$$ is dense in  $\widetilde B$. 
+	where both $\bt\sU$ and $\bt\widetilde\sU$ are {Stone-\v{C}ech compactifications}  of $\sU$ and $\widetilde\sU$ (cf. Definition \ref{sc_comp_defn}). 
 	For any $\widetilde f \in C_0\left(\widetilde \sU \right) \subset M\left( \widetilde A\right)$ one has $\lim_{\a \in \mathscr A} u_\a  \widetilde f u_\a \in  M\left(\widetilde B \right)$. It follows that there is a *-homomorphism
 	\bean
 	\phi : C_0\left(\widetilde \sU \right)\to M\left(\widetilde B \right),\\
@@ -12571,38 +12610,7 @@ $$
 \end{lemma}
 \begin{proof}
 	Since $B\subset A$ is a $\left(A, \widetilde{A}, G, \pi \right)$-strictly proper  subalgebra (cf. Definition \ref{hered_proper_lift_defn}).  From the Definition \ref{hered_proper_lift_defn} and the Corollary  \ref{cov_mult_fin_cor} it follows that there is an  noncommutative finite-fold  covering with unitization $\left(B, \widetilde{B}, G, \pi_B \right)$ (cf. Definition \ref{fin_unitization_defn}). From the Corollary \ref{cov_mult_fin_cor} it follows that there is an 
-	unital  noncommutative finite-fold covering  $\left(M\left(B \right)  ,M\left( \widetilde{B}\right) , G, \widetilde{\pi}_B \right)$ covering (cf. Definition \ref{fin_unital_defn}). If $\bt q|_{\sU} : \bt\widetilde\sU \to \bt\sU$ is not a finite-fold covering then from the Theorem \ref{pavlov_troisky_thm} it follows that  $C\left(\bt\widetilde \sU\right)$ is not a finitely generated $C\left(\bt \sU\right)$-module. From the Theorem \ref{fin_gen_thm} it turns out that there 
-	is a set $\left\{M_\la\right\}_{\la\in\La}$ of submodules $M_\la\hookto  C\left(\bt\widetilde \sU\right)$ with 
-	$$
-	C\left(\bt\widetilde \sU\right)=\sum_{\la \in \La} M_\la
-	$$
-	there is no  finite subset $\La_0\subset \La$  such that 
-	$$
-	C\left(\bt\widetilde \sU\right) = \sum_{\la \in \La_0} M_\la
-	$$
-	For any $\la \in \La$ denote by $\widetilde B_{\la}$ the $C^*$-norm completion of 
-	$$
-	\bigcup_{\a \in \mathscr A} \pi\left(B \right) \left( \sum_{\la \in \La'} M_\la\right) \pi\left( u_\a\right). 
-	$$
-	Let $M\left( \widetilde B_{\la}\right) \subset M\left( \widetilde B\right) $ is a completion of $\widetilde B_{\la}$ with respect to the strict topology of $M\left( \widetilde B\right)$ then one has:
-	\begin{enumerate}
-		\item The space $M\left( \widetilde B_{\la}\right)$ is a left $M\left(B \right)$ module for any $\la\in \La$.
-		\item  $M\left( \widetilde B_{\la}\right)\cap \varphi\left( C\left(\bt\widetilde \sU \right) \right) = \widetilde M_\la$.
-		\item $M\left( \widetilde B\right) = \sum_{\la \in \La} M\left( \widetilde B_{\la}\right)$.
-	\end{enumerate}
-	From 2. it follows that for any  $\la', \la'' \in \La$ one has
-	$$
-	M_{\la'}\neq M_{\la''}\quad \Rightarrow \quad M\left( \widetilde B_{\la'}\right) \neq M\left( \widetilde B_{\la''}\right).
-	$$
-	In result one has a family $\left\{M\left( \widetilde B_{\la}\right)\right\}$ of left $M\left( B\right)$ submodules 
-	of $M\left(\widetilde B\right)$ with 
-	$$
-	M\left(\widetilde B\right)=\sum_{\la \in \La} M\left( \widetilde B_{\la}\right)
-	$$
-	there is no  finite subset $\La_0\subset \La$  such that 
-	$$
-	M\left(\widetilde B\right)=\sum_{\la \in \La_0} M\left( \widetilde B_{\la}\right)
-	$$ From the Theorem \ref{fin_gen_thm} it follows that $M\left(\widetilde B\right)$ is not a finitely generated module. This fact contradicts with the Definition \ref{fin_defn}. From this contradiction it follows that $\bt q|_{\sU} : \bt\widetilde\sU \to \bt\sU$ is  a finite-fold covering.
+	unital  noncommutative finite-fold covering  $\left(M\left(B \right)  ,M\left( \widetilde{B}\right) , G, \widetilde{\pi}_B \right)$ covering (cf. Definition \ref{fin_unital_defn}). 
 \end{proof}
 \begin{thm}\label{blowing_covy_thm}
 	Let $A$ be a $C^*$-algebra with Hausdorff blowing-up $C_0\left( \sY\right) \hookto M\left( A\right)$  (cf. Definition \ref{blowing_defn}), and Let $\left(A, \widetilde{A}, G, \pi \right)$ a noncommutative finite-fold covering. Denote by $\widetilde \sY$ and $q: \widetilde \sY \to \sY$ a space and a continuous map given by equations \eqref{blowing_cy_eqn} and	\ref{blowing_inj_b_eqn}. If $\left(A, \widetilde{A}, G, \pi \right)$ is  $C_0\left( \widetilde\sY\right)$-{generated} (cf. Definition \ref{blowing_y_gen_defn}) then the map $q$ is transitive finite-fold covering (cf. Definition \ref{top_transitive_defn}) such that $G\left(\left. \widetilde\sY\right| \sY\right)\cong G$.
