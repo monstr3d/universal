@@ -12167,7 +12167,7 @@ Since  $ C_0\left( \sY\right)\to M\left( A\right)$ is faithful one has
 $$
 \forall b \in B \quad \quad fb= 0\quad  \Rightarrow \quad f \in C_0\left(\mathcal W \right) \quad  \Rightarrow \quad  y \in \mathcal W. 
 $$
-\begin{lemma}
+\begin{lemma}\label{blowing_aap_un_lem}
 Consider    the situation of the Lemma \ref{blowing_y_gen_defn} and suppose that $\rho: A \hookto B\left(\H \right)$ is a faithful, nondegenerate  representation. If $\supp B$ is a support of $B$ (cf. Definition \ref{blowing_support_defn} and $\left\{u_\la\right\}_{\la \in \Xi\left( \mathfrak{pre}\text{-}\supp B\right)}\subset C_0\left( \sY\right)_+$ is an explained in \ref{top_u_net_empt} net, then $\left\{\rho\left( u_\la\right) \right\}\subset  B \left(\H \right)$ is an approximate unit of $B$. 
 \end{lemma}
 \begin{proof}
@@ -12542,13 +12542,29 @@ $$
 \text{ There is an inclusion } \quad \varphi:	C_b \left( \supp \widetilde B\right) \cong  C\left(\bt \supp \widetilde B \right)\hookto M\left( \widetilde B\right) 
 \ee 
 From the Theorem \ref{top_sc_to_compact_thm} it follows that the restriction $q|_{\supp \widetilde B} : \supp \widetilde B \to \supp B$ can be uniquely extended up to a continuous map
-$\bt q|_{\supp \widetilde B} : \bt \supp \widetilde B \to \bt \supp  B$.
-If $\left\{u_\a\right\}_{\a \in \mathscr A}\subset B$ is an approximate unity of $B$ then $\left\{\pi\left( u_\a\right) \right\}_{\a \in \mathscr A}\subset \widetilde B$ is an approximate unity of $\widetilde B$ (cf. Corollary \ref{quasi_mult_cor}). So a union	$	\bigcup_{\a \in \mathscr A}\pi\left( u_\a\right) \widetilde A \pi\left( u_\a\right)$ is dense in $\widetilde B$ 
- On the other hand since $\pi\left(A \right)C_0\left( \widetilde\sY\right)$ is dense in $\widetilde A$ the union
+$\bt q|_{\supp \widetilde B} : \bt \supp \widetilde B \to \bt \supp  B$. 
+Let us prove that a $\widetilde BC_0\left(\mathfrak{pre}-\supp \widetilde B \right)$ is dense in $B$. If $b \in B$ then there is $a \in A$ and $\widetilde f \in C_0\left(\widetilde \sY\right)$ such that  
 $$
-\bigcup_{\a \in \mathscr A} \pi\left( u_\a\right)\pi\left(A \right)C_0\left( \widetilde\sY\right) \pi\left( u_\a\right)
+\left\|a\widetilde f - \widetilde b  \right\| < \eps / 2.
 $$
-is dense in $\widetilde B$. From the above equation it follows that the union $$\bigcup_{\a \in \mathscr A}\pi\left(A \right)C_0\left( \widetilde\sY\right) \pi\left( u_\a\right)$$ is dense in  $\widetilde B$. If $\bt q|_{\supp \widetilde B} : \bt \supp \widetilde B \to \bt \supp  B$ is not a finite-fold covering then from the Theorem \ref{pavlov_troisky_thm} it follows that  $C\left(\bt \supp \widetilde B\right)$ is not a finitely generated $C\left(\bt \supp  B\right)$-module. From the Theorem \ref{fin_gen_thm} it turns out that there 
+From the Lemma \ref{blowing_aap_un_lem} it follows that there is $u \in \left\{u_\la\right\}_{\la \in \Xi\left( \mathfrak{pre}\text{-}\supp B\right)}$
+such that
+$$
+\left\| \rho_{\widetilde \sY}\left( u\right) \widetilde \rho\left( \widetilde b\right)  \rho_{\widetilde \sY}\left( u\right) - \widetilde \rho\left( \widetilde b\right)   \right\| < \eps/2
+$$
+On the other hand 
+$$
+ \rho_{\widetilde \sY}\left( u\right) \widetilde \rho\left( a\right)  \rho_{\widetilde \sY}\left( f\right) \rho_{\widetilde \sY}\left( u\right)= \rho\left(u a  \right)  \rho_{\widetilde \sY}\left( \widetilde f\right) \rho_{\widetilde \sY}\left( u\right)\in \widetilde \rho\left(A C_0\left(\widetilde \sY \right)  \right) 
+$$
+
+$$
+\left\| \widetilde\rho\left(u a  \right)  \rho_{\widetilde \sY}\left( \widetilde f\right) \rho_{\widetilde \sY}\left( u\right)- \widetilde \rho\left( \widetilde b\right)   \right\|< \eps.
+$$
+!!!!
+
+!!!\\
+
+From the above equation it follows that the union $$\bigcup_{\a \in \mathscr A}\pi\left(A \right)C_0\left( \widetilde\sY\right) \pi\left( u_\a\right)$$ is dense in  $\widetilde B$. If $\bt q|_{\supp \widetilde B} : \bt \supp \widetilde B \to \bt \supp  B$ is not a finite-fold covering then from the Theorem \ref{pavlov_troisky_thm} it follows that  $C\left(\bt \supp \widetilde B\right)$ is not a finitely generated $C\left(\bt \supp  B\right)$-module. From the Theorem \ref{fin_gen_thm} it turns out that there 
 is an infinite set $\left\{M_\la\right\}_{\la\in\La}$ of $C\left(\bt \supp  B\right)$-submodules $M_\la\hookto  C\left(\bt \supp \widetilde B\right)$ with 
 $$
 C\left(\bt\supp \widetilde B\right)=\sum_{\la \in \La} M_\la
@@ -12558,11 +12574,18 @@ $$
 C\left(\bt\supp\widetilde B\right) = \sum_{\la \in \La_0} M_\la
 $$
 If  $\la \in \La$ and  $\widetilde B_{\la}\subset \widetilde B$ the $C^*$-norm completion of 
+$
+ \pi\left(B \right) \ M_\la 
+$
+then $\widetilde B_{\la}$ is a $M\left( B\right) $-module.
+If 
 $$
-\bigcup_{\a \in \mathscr A} \pi\left(B \right) \ M_\la \pi\left( u_\a\right). 
+M\left( \widetilde B_{\la}\right)\bydef \left\{\left.\widetilde b \in M\left( \widetilde B\right)\right| B \widetilde b \subset \widetilde B_\la\right\}
 $$
-then $\widetilde B_{\la}$ is a $B$-module.
-Let $M\left( \widetilde B_{\la}\right) \subset M\left( \widetilde B\right) $ is a completion of $\widetilde B_{\la}$ with respect to the strict topology of $M\left( \widetilde B\right)$ then one has:
+then
+$$
+M\left( \widetilde B_{\la}\right) \subset M\left( \widetilde B\right) 
+$$ then one has:
 \begin{enumerate}
 	\item The space $M\left( \widetilde B_{\la}\right)$ is a left $M\left(B \right)$ module for any $\la\in \La$.
 	\item  $M\left( \widetilde B_{\la}\right)\cap \varphi\left( C\left(\bt\supp \widetilde B \right) \right) =  M_\la$ where $\varphi$ is given by \eqref{blowing_cb_eqn}.
