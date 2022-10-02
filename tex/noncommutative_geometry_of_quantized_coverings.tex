@@ -3421,7 +3421,7 @@ Similarly to the Remark \ref{loc_op_sp_rem} any abstract real operator local spa
 
 \section{Coverings of spectral triples}\label{triple_fin_cov}
 \paragraph*{} 
- If $\left( \A, \H, D\right)$ is a spectral triple then from the Axioms \ref{regularity_axiom}, \ref{finiteness_axiom} it follows that:
+ If $\left( \A, \H, D, J\right)$ is a spectral triple then from the Axioms \ref{regularity_axiom}, \ref{finiteness_axiom} it follows that:
  \begin{itemize}
  	\item The space  
  	$
@@ -3437,11 +3437,60 @@ Similarly to the Remark \ref{loc_op_sp_rem} any abstract real operator local spa
  \end{itemize}
 
 \begin{empt}\label{triple_conn_lift_empt} 
-Let $\left(\A, \widetilde \A, G\left( \left.\widetilde \A~\right| \A\right), \pi  \right)$ be a {noncommutative finite-fold covering of  bounded operator *-algebras} (cf. Definition \ref{fin_oa_defn}) such that  $\widetilde \A$ is a finitely generated projective $\A$-module. If both  $\A^\opp$ and $\widetilde\A^\opp$ are opposite algebras of both $\A$ and $\widetilde\A$ (cf. Definition \ref{opposite_algebra_defn}), then similarly to 
+Let $\left(\A, \widetilde \A, G\left( \left.\widetilde \A~\right| \A\right), \pi  \right)$ be a {noncommutative finite-fold covering of  bounded operator *-algebras} (cf. Definition \ref{fin_oa_defn}) such that  $\widetilde \A$ is a finitely generated projective $\A$-module. If both  $\A^\opp$ and $\widetilde\A^\opp$ are opposite algebras of both $\A$ and $\widetilde\A$ (cf. Definition \ref{opposite_algebra_defn}), then similarly to the Lemma \ref{fin_top_lem} one can proof that $\widetilde\A^\opp$ is a left $\A^\opp$ pre - Hilbert module. If both $A$ and $\widetilde A$ are $C^*$-norm completions of $\A$ and  $\widetilde \A$ then from the Definition  \ref{fin_oa_defn} it follows that there is  a connected noncommutative finite-fold covering $\left(A, \widetilde A, G\left( \left.\widetilde A\right| A\right), \widetilde \pi  \right)$ (cf. Definition \ref{fin_defn}) such that $\pi= \widetilde\pi|_{\A}$. Denote by $\left\langle \cdot , \cdot  \right\rangle_{\widetilde\A} : \widetilde\A\times \widetilde\A \to \A$ and $\left\langle \cdot , \cdot  \right\rangle_{\widetilde\A^\opp} : \widetilde\A^\opp\times \widetilde\A^\opp \to \A^\opp$ corresponding products. There is a right action
+\bean
+\H^\infty \times \A^0 \to \H^\infty,\\
+ \left( \xi, a\right) \mapsto Ja^*J^\dagger\xi
+\eean
+Denote by 
+\bean
+\rho : \A \hookto B\left(\H \right),\\
+\rho^0: \A^0 \hookto B\left(\H \right) 
+\eean
+natural representations of $\A$ and $\A^0$. Similarly to \eqref{morita_prod_eqn} consider a following pre-Hilbert space 
+\be\label{st_morita_prod_eqn}
+\widetilde\K^\infty \bydef \widetilde \A \otimes_\A \H^\infty \otimes_{\A^\opp} \widetilde \A^\opp
+%\eqno (7.2)
+\ee
+with a scalar product
+\bean
+\left(\widetilde r \ox \eta \ox \widetilde q^0, \widetilde s \ox \xi \ox \widetilde t^0\right) 
+\bydef \left( \eta, \rho\left( \left\langle \widetilde r ,  \widetilde s  \right\rangle_{\widetilde\A}\right)  \rho^0\left( \left\langle\widetilde t^0 ,\widetilde q^0  \right\rangle_{\widetilde\A^\opp}\right)  \xi\right)_\H
+ \eean
+Similarly to \eqref{morita_J_eqn} the antilinear correspondence $s \mapsto  s^0$ between $\A$
+and~$\A^0$ also gives an obvious way to extend $J$ to~$\widetilde\K$:
+\be\label{morita_I_eqn}
+\begin{split}
+	\widetilde I : \widetilde\K \xrightarrow{\approx}\widetilde\K,\\
+\widetilde s \ox \xi \ox  \widetilde t^0 \mapsto\widetilde t \ox J\xi \ox\widetilde s^0.
+\end{split}
+\ee.
+If $\sim$ is an equivalence relation on $\widetilde\K^\infty$ given by
+\be 
+\forall \widetilde a \in \widetilde \A \quad \widetilde s \widetilde a \ox \xi \ox  \widetilde t^0\sim \widetilde s \ox \xi \ox  \widetilde a^0 \widetilde t^0
+\ee
+then 
+\be\label{morita_Ieq_eqn}
+\forall\widetilde\xi', \widetilde \xi'' \in \K \quad \widetilde\xi'\sim  \widetilde \xi''\quad \Rightarrow \quad \widetilde I \widetilde \xi' \sim  \widetilde I  \widetilde \xi''.
+\ee 
+In result one has a pre-Hilbert quotient space $\widetilde \H\bydef \widetilde \K /\sim$. From \eqref{morita_Ieq_eqn} it follows that $ \widetilde I$ naturally induces an operator
+\be
+\begin{split}
+ \widetilde J : \widetilde \H \xrightarrow{\approx} \widetilde \H,\\
+ \left( \widetilde \xi / \sim\right)  \mapsto  \left( \widetilde I  \widetilde \xi\right) / \sim
+\end{split}
+\ee
+From $
+\widetilde s \ox \xi \ox \widetilde t^0\sim \widetilde  s \widetilde t \ox \xi \ox 1_{\widetilde\A^\opp}
+$ it follows that a subspace $\widetilde \A \ox_{\A} \H^\infty \ox 1_{\widetilde\A^\opp}\cong \widetilde \A \ox_{\A} \H^\infty$ is a space of representatives of $\widetilde \H^\infty$. Since $\widetilde\A$ is dense in $\widetilde A$ and $\H^\infty$ is dense in $\H$ the norm completion of $\widetilde \H$ of 
+
+
+ $\H^\infty \times \A^0 \to \H^\infty$ s
 
 
 
-If both $A$ and $\widetilde A$ are $C^*$-norm completions of $\A$ and  $\widetilde \A$ then from the Definition  \ref{fin_oa_defn} it follows that there is  a connected noncommutative finite-fold covering $\left(A, \widetilde A, G\left( \left.\widetilde A\right| A\right), \widetilde \pi  \right)$ (cf. Definition \ref{fin_defn}) such that $\pi= \widetilde\pi|_{\A}$. If $\rho : A \to B\left(\H \right)$ is a representation  which corresponds to the spectral triple $\left( \A, \H, D\right)$ then there is the induced by the pair $\left(\rho, \left(A, \widetilde A, G\left( \left.\widetilde A\right| A\right), \widetilde \pi  \right)\right)$ representation $\widetilde \rho : \widetilde A \to B\left(\widetilde{   \H} \right)$ (cf. Definition \ref{induced_repr_defn}). % Suppose that there is a spectral triple $\left(\widetilde \A,\widetilde \H, \widetilde D\right)$ and let   $\widetilde \D\bydef	\bigcap_{k\in\bN} \Dom \widetilde D^k$. Assume that following condition hold:
+
+ If $\rho : A \to B\left(\H \right)$ is a representation  which corresponds to the spectral triple $\left( \A, \H, D\right)$ then there is the induced by the pair $\left(\rho, \left(A, \widetilde A, G\left( \left.\widetilde A\right| A\right), \widetilde \pi  \right)\right)$ representation $\widetilde \rho : \widetilde A \to B\left(\widetilde{   \H} \right)$ (cf. Definition \ref{induced_repr_defn}). % Suppose that there is a spectral triple $\left(\widetilde \A,\widetilde \H, \widetilde D\right)$ and let   $\widetilde \D\bydef	\bigcap_{k\in\bN} \Dom \widetilde D^k$. Assume that following condition hold:
 %\be\label{str_d_eqn}
 %\begin{split}
 %	\forall g \in G\left( \left.\widetilde A\right| A\right)\quad  \forall \widetilde \xi \in \widetilde \D\quad  \widetilde D \left(g \widetilde \xi\right)= g \left( \widetilde D \widetilde \xi\right),\\
@@ -25149,7 +25198,7 @@ where $\pi: A \hookto B\left(\H\right)$ is any faithful representation, $\wideti
 		\label{df:spt-real}\cite{hajac:toknotes}
 		A {\it real  spectral triple} is a  spectral triple $(\sA, \sH, D)$,
 		together with an antiunitary operator $J\:\sH\to\sH$ such that
-		$J(\Dom D)\subset \Dom D$, and $[a, Jb^*J^{-1}] = 0$ for all
+		$J(\Dom D)\subset \Dom D$, and $[a, Jb^*J^\dagger] = 0$ for all
 		$a, b \in \sA$.
 	\end{defn}
 	
@@ -25180,7 +25229,7 @@ where $\pi: A \hookto B\left(\H\right)$ is any faithful representation, $\wideti
 	\end{axiom}
 	\begin{axiom}[Real structure]
 		The antiunitary operator $J : \sH \to \sH$ satisfying
-		$J^2 = \pm 1$, $JDJ^{-1} = \pm D$, and $J\Ga = \pm \Ga J$ in the even
+		$J^2 = \pm 1$, $JDJ^\dagger = \pm D$, and $J\Ga = \pm \Ga J$ in the even
 		case, where the signs depend only on $n \bmod 8$ (and thus are given
 		by the table of signs for the standard commutative examples).
 		\[
@@ -25203,11 +25252,11 @@ where $\pi: A \hookto B\left(\H\right)$ is any faithful representation, $\wideti
 			\hline
 		\end{array}
 		\]
-		Moreover, $b \mapsto J b^* J^{-1}$ is an antirepresentation of $\sA$
+		Moreover, $b \mapsto J b^* J^\dagger$ is an antirepresentation of $\sA$
 		on~$\sH$ (that is, a representation of the opposite algebra
 		$\sA^\opp$), which commutes with the given representation of~$\sA$:
 		$$
-		[a, J b^* J^{-1}] = 0,  \word{for all} a,b \in \sA,
+		[a, J b^* J^\dagger] = 0,  \word{for all} a,b \in \sA,
 		$$
 		(cf. Definition \ref{df:spt-real})
 	\end{axiom}
@@ -25216,16 +25265,16 @@ where $\pi: A \hookto B\left(\H\right)$ is any faithful representation, $\wideti
 	\begin{axiom}\label{fist_order_st_ax}(First order).
 		For each $a,b \in \sA$, the following relation holds:
 		\begin{equation}\label{fist_order}
-			[[D, a], J b^* J^{-1}] = 0,  \word{for all} a,b \in \sA.
+			[[D, a], J b^* J^\dagger] = 0,  \word{for all} a,b \in \sA.
 		\end{equation}
 		This generalizes, to the noncommutative context, the condition that
 		$D$ be a first-order differential operator.
 		Since 
 		\[
-		[[D, a], Jb^*J^{-1}]
-		= [[D, Jb^*J^{-1}], a] + [D, \underbrace{[a, Jb^*J^{-1}]}_{=0}],
+		[[D, a], Jb^*J^\dagger]
+		= [[D, Jb^*J^\dagger], a] + [D, \underbrace{[a, Jb^*J^\dagger]}_{=0}],
 		\]
-		this is equivalent to the condition that $[a, [D, Jb^*J^{-1}]] = 0$.
+		this is equivalent to the condition that $[a, [D, Jb^*J^\dagger]] = 0$.
 	\end{axiom}
 	
 	
