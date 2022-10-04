@@ -3453,10 +3453,10 @@ natural representations of $\A$ and $\A^0$. Similarly to \eqref{morita_prod_eqn}
 %\eqno (7.2)
 \ee
 with a scalar product
-\bean
-\left(\widetilde r \ox \eta \ox \widetilde q^0, \widetilde s \ox \xi \ox \widetilde t^0\right) 
+\be\label{sc_prod_ki_eqn}
+\left(\widetilde r \ox \eta \ox \widetilde q^0, \widetilde s \ox \xi \ox \widetilde t^0\right)_{\widetilde \K^\infty} 
 \bydef \left( \eta, \rho\left( \left\langle \widetilde r ,  \widetilde s  \right\rangle_{\widetilde\A}\right)  \rho^0\left( \left\langle\widetilde t^0 ,\widetilde q^0  \right\rangle_{\widetilde\A^\opp}\right)  \xi\right)_\H
- \eean
+ \ee
 Similarly to \eqref{morita_J_eqn} the antilinear correspondence $s \mapsto  s^0$ between $\A$
 and~$\A^0$ also gives an obvious way to extend $J$ to~$\widetilde\K$:
 \be\label{morita_I_eqn}
@@ -3482,10 +3482,60 @@ In result one has a pre-Hilbert quotient space $\widetilde \H\bydef \widetilde \
 \ee
 From $
 \widetilde s \ox \xi \ox \widetilde t^0\sim \widetilde  s \widetilde t \ox \xi \ox 1_{\widetilde\A^\opp}
-$ it follows that a subspace $\widetilde \A \ox_{\A} \H^\infty \ox 1_{\widetilde\A^\opp}\cong \widetilde \A \ox_{\A} \H^\infty$ is a space of representatives of $\widetilde \H^\infty$. Since $\widetilde\A$ is dense in $\widetilde A$ and $\H^\infty$ is dense in $\H$ the norm completion of $\widetilde \H$ of 
+$ it follows that a subspace $\widetilde \A \ox_{\A} \H^\infty \ox 1_{\widetilde\A^\opp}\cong \widetilde \A \ox_{\A} \H^\infty$ is a space of representatives of $\widetilde \H^\infty$. So one has a following exact sequence
+$$
+\{0\}\to \widetilde \A \otimes_\A \H^\infty  \xrightarrow{}\widetilde \A \otimes_\A \H^\infty \otimes_{\A^\opp} \widetilde \A^\opp \xrightarrow{\widetilde p}\widetilde \A \otimes_\A \H^\infty\to \{0\}
+$$
+which can be extended up to an exact sequence
+\be
+\{0\}\to\widetilde \H  \xrightarrow{\widetilde\iota}\widetilde \K  \xrightarrow{\widetilde p}\widetilde \H\to \{0\}
+\ee
+where $\widetilde \H$ is a completion of $\widetilde \A \otimes_\A \H^\infty\cong \widetilde \A \otimes_\A \H^\infty \otimes_{\A^\opp} 1_{\widetilde \A^\opp}$ with respect to a norm the induced by scalar product \eqref{sc_prod_ki_eqn}. However the restriction on $\widetilde \A \otimes_\A \H^\infty \otimes_{\A^\opp} 1_{\widetilde \A^\opp}$  of the given by \eqref{sc_prod_ki_eqn} coincides with the scalar product \eqref{induced_prod_equ}. On the other hand the
+a *-algebra  $\widetilde\A$ is dense in $\widetilde A$ and $\H^\infty$ is dense in $\H$ the norm completion of $\widetilde \H$ of $\widetilde \A \ox_{\A} \H^\infty$ equals to the norm completion of $\A \ox_{\A} \H$. From these circumstances, the Definition \ref{induced_repr_defn} and the construction \ref{induced_repr_constr_empt} it follows that $\widetilde\H$ is a space of the $\widetilde \rho: \widetilde A \hookto B\left(\widetilde \H \right)$  representation induced by a pair $\left(\rho,\left(A, \widetilde{A}, G, \pi\right)  \right)$ (cf. Definition \ref{induced_repr_defn}). Let $\Om^1_D$ be given by \eqref{om_d_eqn}, and let  
+\be\label{nabla_cov_herm_eqn}
+\nabla : \widetilde \A\to \widetilde \A\otimes_\A \Om^1_D.
+\ee
+be  a Hermitian connection (cf. \ref{herm_conn_defn}) with respect to $D$. We suppose that $\nabla$ is $G$-equivariant, i.e.
+\be\label{conn_equ_conn}
+\forall g \in G \quad \nabla \widetilde a = \sum_{j=1}^n \widetilde a_j \otimes \om_j \quad \Rightarrow \quad \nabla \left( g\widetilde a\right)  = \sum_{j=1}^n g\widetilde a_j \otimes \om_j 
+\ee
 
 
- $\H^\infty \times \A^0 \to \H^\infty$ s
+If $\widetilde D'$ is given by \eqref{morita_d_eqn} then 
+$$
+\widetilde D'~\iota \left( \widetilde \H^\infty\right)\subset \iota \left( \widetilde \H^\infty\right). 
+$$
+This circumstance naturally  yields a selfadjoint  operator $\widetilde D\in \L^\dagger \left( \widetilde \H^\infty\right) $. From \eqref{morita_d_eqn} it follows that
+\be\label{wtd_eqn}
+\widetilde D \left(\widetilde a \otimes \xi  \right) = \left(\nabla \widetilde a \right)\xi +  \widetilde aD\xi.
+\ee
+From 
+$$
+\widetilde{I}\left(\widetilde a\otimes \xi \ox 1_{\widetilde A^\opp} \right) = 1_{\widetilde A}\otimes J\xi \ox\widetilde{a}^0
+$$ 
+it follows that there is an antilinear bijective map
+$$
+\widetilde \A \ox_{\A} \H^\infty \cong \H^\infty \ox_{\A^\opp} \widetilde \A^\opp
+$$
+Similarly to the above construction $\widetilde \H$ is a completion of $ \H^\infty \ox_{\A^\opp} \widetilde \A^\opp$, or equivalently of $ \H \ox_{A^\opp} \widetilde A^\opp$.
+There is an antirepresentation
+$$
+\widetilde \rho^0: \widetilde A^\opp \to B\left( \widetilde \H\right).
+$$
+\end{empt}
+\begin{exercise}\label{st_ax_exer}
+Prove that  for all $\widetilde a, \widetilde b \in \widetilde{\A}$ following conditions hold.
+\bea\label{st_comn_wt_eqn}
+ \left[\widetilde a, \widetilde J\widetilde b\widetilde J^\dagger\right]=0 ,\\
+ \label{first_order_wt_eqn}
+ \left[\left[ \widetilde D, \widetilde a\right] , \widetilde J\widetilde b\widetilde J^\dagger\right]= \left[\widetilde a, \left[ \widetilde D, J\widetilde b\widetilde J^\dagger \right]\right]  = 0.
+\eea
+ (cf. equations \eqref{st_comn_eqn}, \eqref{fist_order_eqn}).
+\end{exercise}
+
+\begin{empt}
+
+
 
 
 
@@ -5256,8 +5306,7 @@ so there is the inclusion
 \ee
   
 \end{rem}
- \begin{empt}\label{h_n_to_h_constr_empt} !!! OPPOSITE ALGEBRA
- 	
+ \begin{empt}\label{h_n_to_h_constr_empt}
  	
  	Let us fix $\la\in \La$, and 
 let $\H_\la$ be a Hilbert completion of $A_{\la} \otimes_A \H$ which is constructed in the section \ref{induced_repr_fin_sec}. From  \eqref{ata_m_eqn} it follows that $	\widetilde{A}_\pi = 	\widetilde{A}_\pi \widetilde m_\la\left(A_\la \right)\cong  \widetilde{A}_\pi \otimes_{A_\la} A_\la$. Taking into account $	K\left(\widetilde{A}_\pi\right)\widetilde{A}_\pi =	K\left(\widetilde{A}_\pi\right)$ one has
@@ -5269,43 +5318,10 @@ a natural inclusion of pre-Hilbert spaces
  K\left(\widetilde{A}_\pi\right)\otimes_{A_{\la}} \H_{\la}.
 		\end{split}
  	\end{equation}
- 	such that $K\left(\widetilde{A}_\pi\right) \otimes_A \H$ is dense in $K\left(\widetilde{A}_\pi\right)\otimes_{A_{\la}} \H_{\la}$ with respect to pre-Hilbert norm, i.e. the inclusion \ref{tensor_n_eqn} induces the isomorphism of Hilbert completions. So there is a dense inclusion $K\left(\widetilde{A}_\pi\right)\otimes_{A_{\la}} \H_{\la}\hookto \widetilde \H$.  
- 	If we  define a multiplicative structure and an involution on $\widetilde{A}_\pi \otimes_{A_\la} B\left(\H_\la \right)$ such that
- \bean
-\forall \widetilde a', \widetilde a'' \in\widetilde A \quad\forall a',a'' \in B\left(\H_\la \right) \quad  	\left(\widetilde a'\otimes a' \right) 	\left(\widetilde a''\otimes  a'' \right)\bydef \left( \widetilde a'\widetilde a''\right) \otimes\left(  a'  a''\right),\\
- \forall \widetilde a \in\widetilde A \quad\forall a \in B\left(\H_\la \right)\quad \left(\widetilde a\otimes a \right)^*\bydef \left(\widetilde a^*\otimes a^* \right)
- \eean
- 	then there is an action
- 	\bean
- 	\begin{split}
- 		\left(\widetilde{A}_\pi \otimes_{A_\la} B\left(\H_\la \right) \right) \times  \left( K\left(\widetilde{A}_\pi\right)\otimes_{A_{\la}} \H_{\la}\right)\to K\left(\widetilde{A}_\pi\right)\otimes_{A_{\la}} \H_{\la}, \\
- 	\forall a\in B\left(\H_\la \right) \quad  \forall \widetilde a' \in \widetilde{A}_\pi	\quad  \forall \widetilde a'' \in K\left( \widetilde{A}_\pi\right) \quad \forall\xi \in \H_\la\\
- 	\left(\widetilde a'\otimes  a \right)	\left(\widetilde a''\otimes  \xi \right)\bydef 	\left(\widetilde a'a''\otimes  a\xi \right)
- 	\end{split}
-	\eean
- Since $K\left(\widetilde{A}_\pi\right)\otimes_{A_{\la}} \H_{\la}$ is dense in $\widetilde \H$ the above action can be uniquely extended up to an action
- \be\label{aact_eqn}
- 	\left(\widetilde{A}_\pi \otimes_{A_\la} B\left(\H_\la \right) \right) \times  \widetilde{\H}\to \widetilde{\H},
- \ee
- or there is an inclusion
- \be\label{abla_eqn}
-\widetilde{A}_\pi \otimes_{A_\la} B\left(\H_\la \right)\hookto B\left(\widetilde \H \right) .
- \ee
-The action \eqref{aaa_act_eqn} yields an action
-\be\label{aaa_act_eqn}
-\begin{split}
-B\left( \H_\la \right)\times  \left( K\left(\widetilde{A}_\pi\right)\otimes_{A_{\la}} \H_{\la}\right) \to K\left(\widetilde{A}_\pi\right)\otimes_{A_{\la}} \H_{\la}\\
- 	\forall a\in B\left(\H_\la \right) \quad    \forall\xi \in \H_\la\quad \forall   \widetilde a \in K\left( \widetilde{A}_\pi\right)\quad a \left(\widetilde a\otimes \xi \right)\bydef\\
-\bydef \lim_{\la} \left( \widetilde u_\la \otimes a\right)  \left(\widetilde a\otimes \xi \right)= \widetilde a\otimes \left(a  \xi \right) 
- \end{split}
-\ee
-where $\left\{\widetilde u_\la\right\}\subset \widetilde{A}_\pi$ is an approximate unit of $\widetilde{A}_\pi$ (cf. Definition \ref{approximate_unit_defn}).  The space  $K\left(\widetilde{A}_\pi\right)\otimes_{A_{\la}} \H_{\la}$ is dense in $\widetilde \H$ so the  action \eqref{aaa_act_eqn} uniquely defines an action
-$
- B\left(\H_\la \right)\times  \widetilde \H \to \widetilde \H$
-which naturally  yields an inclusion 
- \be\label{bl_inc_eqn}
- B\left(\H_\la \right)\subset B\left(\widetilde \H \right).
- \ee
+ 	such that $K\left(\widetilde{A}_\pi\right) \otimes_A \H$ is dense in $K\left(\widetilde{A}_\pi\right)\otimes_{A_{\la}} \H_{\la}$ with respect to pre-Hilbert norm, i.e. the inclusion \ref{tensor_n_eqn} induces the isomorphism of Hilbert completions. So for all $\la\in\La$ there is a dense inclusion
+ 	\be\label{kla_dens_eqn}
+ 	 K\left(\widetilde{A}_\pi\right)\otimes_{A_{\la}} \H_{\la}\hookto \widetilde \H. 
+ 	 \ee
  \end{empt}
 
  \section{Strong Morita equivalence of infinite coverings}\label{inf_mor_sec}
@@ -5397,36 +5413,43 @@ In the above situation
  
  \subsection{Constructive approach}\label{str_cov_sec}
   \paragraph*{}
-  Consider the situation of the Definition \ref{cov_sec_triple_defn}. Let $\rho: A \hookto B\left(\H\right)$ be the natural representation, and let $\widetilde\rho: \widetilde A \hookto B\left(\widetilde \H\right)$  be a representation {induced} by $\left( \rho, \left( A, \widetilde{A}_\pi, G\left(\left.\widetilde{A}_\pi~\right|A \right) \right)\right)$ (cf. Definition \ref{induced_repr_inf_defn}). From the inclusions $\left[D_\la, \A_\la\right]\in B\left(\H_\la \right)$ and  \eqref{bl_inc_eqn} one has the natural inclusion
+  Consider the situation of the Definition \ref{cov_sec_triple_defn}. Let $\rho: A \hookto B\left(\H\right)$ be the natural representation, and let $\widetilde\rho: \widetilde A \hookto B\left(\widetilde \H\right)$  be a representation {induced} by $\left( \rho, \left( A, \widetilde{A}_\pi, G\left(\left.\widetilde{A}_\pi~\right|A \right) \right)\right)$ (cf. Definition \ref{induced_repr_inf_defn}). From \eqref{kla_dens_eqn} it turns out that for all $\la\in \La$ there is a dense inclusion 	
+  \bean
+  	K\left(\widetilde{A}_\pi\right)\otimes_{A_{\la}} \H_{\la}\hookto \widetilde \H. 
+  	\eean
+  	Similarly to the equation \eqref{fist_order_dual_eqn} one can proof
+  	\be\label{first_order_la_eqn}
+  	\begin{split}
+  	\forall a_\la, b_\la \in \A_\la\quad  \left[b_\la \left[ D, J_\la a^*_\la J^\dagger_\la\right] \right]= 0 \quad \Rightarrow \\
+  	\Rightarrow b_\la \left[ D, J_\la a^*_\la J^\dagger_\la\right]=  \left[ D, J_\la a^*_\la J^\dagger_\la\right]b_\la.
+  	\end{split}
+  	\ee
+If  $a_\la \in \A_\la$ then one can define right action of an operator $\left[D, Ja^*_\la J^\dagger\right]$  on the space 	$K\left(\widetilde{A}_\pi\right)\otimes_{A_{\la}} \H_{\la}$ such that
+\be\label{fist_order_la_eqn}
+\left(  \widetilde  a\ox\xi\right)\left[D, J_\la a^*_\la J^\dagger_\la\right]\bydef \widetilde  a\ox \left[D, J_\la a^*_\la J^\dagger_\la\right] \xi
+\ee
+For any $b_\la \in \A_\la$ one has $\widetilde  ab_\la\ox\xi= \widetilde  a\ox b_\la\xi$, so one needs proof that 
+$$
+\left( \widetilde  ab_\la\ox\xi\right) \left[D, Ja^*_\la J^\dagger\right]= \left( \widetilde  a\ox b_\la\xi\right) \left[D, Ja^*_\la J^\dagger\right].
+$$
+However from the equation \eqref{first_order_la_eqn} it follows that
+\bean
+\left(  \widetilde  ab_\la \ox\xi\right)\left[D, J_\la a^*_\la J^\dagger_\la\right]= \widetilde  ab_\la \ox \left[D, J_\la a^*_\la J^\dagger_\la\right] \xi= \widetilde  a\ox b_\la  \left[D, J_\la a^*_\la J^\dagger_\la\right]\xi =\\
+=  \widetilde  a\ox   \left[D, J_\la a^*_\la J^\dagger_\la\right]b_\la\xi= \left( \widetilde  a\ox b_\la\xi\right) \left[D, Ja^*_\la J^\dagger\right],
+\eean 
+i.e. an action is correctly defined. 
+Using the  action \eqref{fist_order_la_eqn} one can construct an inclusion
  \be\label{da_la_eqn}
  \left[D_\la, \A_\la\right]\subset B\left( \widetilde\H\right).
  \ee
- 
- The given by \eqref{bl_inc_eqn} map $B_\la:	B\left( \H_\la\right)\hookto B\left( \widetilde\H\right)$
- yields an injective *-homomorphism 
- \be\label{h2s_inc_eqn}
- \begin{split}
-B^s_\la: B\left( \H^{2^s}_\la\right)\hookto B\left(\widetilde\H^{2^s} \right),\\
- \begin{pmatrix}
- 	{b}_{1,1}& \ldots & {b}_{2^s,1}  \\
- 	\vdots& \ddots & \vdots\\
- 	{b}_{2^s,1}& \ldots &{b}_{2^s,2^s}  \\
- \end{pmatrix}\mapsto
- \begin{pmatrix}
-	B_\la\left( {b}_{1,1}\right) & \ldots & B_\la\left( {b}_{2^s,1}\right)   \\
-	\vdots& \ddots & \vdots\\
-	B_\la\left( {b}_{2^s,1}\right) & \ldots &B_\la\left( {b}_{2^s,2^s} \right)  \\
-\end{pmatrix}
- \end{split}
- \ee
- If $\pi^s_\la: \A_\la \hookto B\left( \H^{2^s}_\la \right)$ is given by  \eqref{s_diff1_repr_equ} and \eqref{s_diff_repr_equ} then from \eqref{h2s_inc_eqn} it turns out that there is the inclusion
+ If $\pi^s_\la: \A_\la \hookto B\left( \H^{2^s}_\la \right)$ is given by  \eqref{s_diff1_repr_equ} and \eqref{s_diff_repr_equ} then from \eqref{da_la_eqn} it turns out that there is the inclusion
  \be\label{ps_inc_eqn}
  \pi^s_\la\left( \A_\la\right) \hookto B\left(\widetilde\H^{2^s} \right). 
  \ee
- If $\Om^1_D$ is the {module of differential forms associated} with the spectral triple  $\left( \A, \H, D\right)$ (cf. Definition \ref{ass_cycle_defn}) then from $\Om^1_D\subset B\left( \H\right)$ and the given by \eqref{apb_inc_eqn} $\widetilde{A}_\pi \otimes_A B\left( \H\right)\subset B\left( \widetilde\H\right)$ inclusion it follows that there is the following inclusion 
- \be\label{ao_inc_eqn}
- \widetilde{A}_\pi \otimes_A \Om^1_D\subset B\left( \widetilde\H\right).
- \ee
+ %If $\Om^1_D$ is the {module of differential forms associated} with the spectral triple  $\left( \A, \H, D\right)$ (cf. Definition \ref{ass_cycle_defn}) then from $\Om^1_D\subset B\left( \H\right)$ and the given by \eqref{da_la_eqn} $\widetilde{A}_\pi \otimes_A B\left( \H\right)\subset B\left( \widetilde\H\right)$ inclusion it follows that there is the following inclusion 
+ %\be\label{ao_inc_eqn}
+ %\widetilde{A}_\pi \otimes_A \Om^1_D\subset B\left( \widetilde\H\right).
+ %\ee
  
  
  
@@ -5447,12 +5470,12 @@ B^s_\la: B\left( \H^{2^s}_\la\right)\hookto B\left(\widetilde\H^{2^s} \right),\\
  		inclusion $\pi^s_\la\left( \A_\la\right) \subset B\left(\widetilde\H^{2^s} \right)$ (cf.  \eqref{ps_inc_eqn})  is implied then  the net $\left\{\pi^s_\la\left(a_\la \right)\right\}_{\la \in\La}$  is convergent with respect to the strong topology of  $B\left(\widetilde{\H}^{2^s} \right)$.	
  		\item[(d)] If for any $\la\in \La$ the given by \eqref{da_la_eqn}  inclusion $
  		\left[D_\la, \A_\la\right]\subset B\left( \widetilde\H\right)
- 		$ is implied then the net $\left\{\left[D_\la, a_\la\right]\right\}_{\la \in\La}$ is convergent with respect to the strong topology of  $B\left(\widetilde{\H}^{2^s} \right)$.	
- 		Moreover one has
- 		$$
- 		\lim_{\la\in \La} \left[D_\la, a_\la\right] \in K\left(\widetilde{A}_\pi\right) \otimes_{\A} \Om^1_D \subset B\left(\widetilde{\H}  \right)
- 		$$
- 		where left part of the above equation means the limit with respect  to the strong topology of  $B\left(\widetilde{\H}\right)$, and the right part implies the inclusion  $K\left(\widetilde{A}_\pi\right) \otimes_{\A} \Om^1_D \subset \widetilde{A}_\pi \otimes_A \Om^1_D\subset B\left( \widetilde\H\right)$ (cf. \eqref{ao_inc_eqn}).
+ 		$ is implied then the net $\left\{\left[D_\la, a_\la\right]\right\}_{\la \in\La}$ is convergent with respect to the strong topology of  $B\left(\widetilde{\H}^{2^s} \right)$.
+ 	%	Moreover one has
+ 	%	$$
+ 	%	\lim_{\la\in \La} \left[D_\la, a_\la\right] \in K\left(\widetilde{A}_\pi\right) \otimes_{\A} \Om^1_D \subset B\left(\widetilde{\H}  \right)
+ 	%	$$
+ 	%	where left part of the above equation means the limit with respect  to the strong topology of  $B\left(\widetilde{\H}\right)$, and the right part implies the inclusion  $K\left(\widetilde{A}_\pi\right) \otimes_{\A} \Om^1_D \subset \widetilde{A}_\pi \otimes_A \Om^1_D\subset B\left( \widetilde\H\right)$ (cf. \eqref{ao_inc_eqn}).
  	\end{enumerate}
  	Denote by 
  \be\label{a_s_eqn}	
@@ -5471,17 +5494,10 @@ B^s_\la: B\left( \H^{2^s}_\la\right)\hookto B\left(\widetilde\H^{2^s} \right),\\
  	We say that the set of spectral triples is \textit{weakly good} if $\widetilde{\A}$ is dense in $\widetilde{A}$. 
  \end{defn}
  \begin{empt}\label{dirac_inf_constr_empt}
- 	For any $\widetilde{a}  \in \widetilde{W}^\infty$ we denote by
- 	\begin{equation}\label{a_d_eqn}
- 		\widetilde{a}_D = \lim_{\la \in \La}\left[D_\la, a_\la \right] = \sum_{j = 1}^k \widetilde{a}_D^j\otimes \om_j \in K\left(\widetilde{A}\right)\otimes_{\A} \Om^1_D
- 	\end{equation}
- 	where $a_\la \bydef \sum_{g \in\ker\left(  G\left(\left.\widetilde{A}_\pi\right|A \right)\to G\left(\left.A_\la\right|A \right)\right)}\widetilde{a}\in \A_\la$.
- 	If $\H^\infty = \bigcap_{n = 0}^\infty \Dom D^n$ then for any $\widetilde{a} \otimes \xi \in \widetilde{W}^\infty \otimes_{\A} \H^\infty$ we denote by
+ 	For any $\widetilde{a}  \in \widetilde{W}^\infty$ and $\xi \in \H^\infty$ we define
  	\begin{equation}\label{inf_lift_D_eqn}
- 		\widetilde{D}\left(\widetilde{a} \otimes \xi \right) \stackrel{\mathrm{def}}{=} \sum_{j = 1}^k \widetilde{a}_D^j\otimes \om_j \left(\xi \right)  +\widetilde{a} \otimes D\xi \in K\left(\widetilde{A}\right) \otimes_A \H,
+ 		\widetilde D\left(  \widetilde{a}  \ox \xi \right) \bydef \lim_{\la \in \La}\left[D_\la, a_\la \right]\left(  \widetilde{a}  \ox \xi \right)+  \widetilde{a}  \ox D\xi 
  	\end{equation}
- 	i.e. $\widetilde{D}$ is a $\C$-linear map from $W^\infty \otimes_{\A} \H^\infty$ to $K\left(\widetilde{A}\right) \otimes_A \H$.
- 	The space $\widetilde{W}^\infty \otimes_{\A} \H^\infty$ is dense in $\widetilde{\H}$, hence the operator $\widetilde{D}$ can be regarded as an unbounded operator on $\widetilde{\H}$.
  \end{empt}
  
  \begin{defn}\label{reg_triple_defn}
@@ -5567,7 +5583,7 @@ B^s_\la: B\left( \H^{2^s}_\la\right)\hookto B\left(\widetilde\H^{2^s} \right),\\
 \begin{defn}\label{reg_ax_triple_defn}
 	Let $\mathfrak{S}^{\text{pt}} \in \mathfrak{FinAlg}^{\text{pt}}$ is given by \eqref{cov_sec_triple_eqn}.    Let $\left(A, \widetilde{A}, G\left(\left.\widetilde{A}~\right|A \right)\right) $  be an $\widehat \pi$-infinite noncommutative covering   of $\mathfrak{S}$.
 	Let \eqref{spectral_triple_sec_eqn} be an axiomatically good coherent set of spectral triples. 
-	Let $\widetilde{ D}$ be given by \eqref{inf_lift_D_eqn}.
+	Let $\widetilde{ D}$ be given by \eqref{inf_lift_D_eqn}  !!! CHECK !!!.
 	We say that $\left( \widetilde{\A}, \widetilde{\H}, \widetilde{D}\right)$ is a $\left(A, \widetilde{A}, G\left(\left.\widetilde{A}~\right|A \right)\right)$-\textit{axiomatic lift} of $\left(\A, \H, D\right)$.  Also we say that  $\left( \widetilde{\A}, \widetilde{\H}, \widetilde{D}\right)$ is the \textit{axiomatic limit} of the weakly coherent set	$\mathfrak{S}_{\left(\sA, \sH, D\right)}= \left\{\left(\sA_\la, \sH_\la, D_\la \right)\right\}_{\la \in \La}$.
 \end{defn}
 
@@ -11887,7 +11903,7 @@ $$
 \lim_{\la\in\La }\left[\Dslash_{\la}, a_{\la} \right]= \left[\lift_{\widetilde p_{\la_{\widetilde\sU}}}\left(  \Dslash_{\la_{\widetilde\sU}}\right) , \lift_{\widetilde p_{\la_{\widetilde\sU}}}\left(a^{\la_{\widetilde\sU}}_{\widetilde\sU}\right)  \right].
 $$
 On the other hand if $\widetilde D$ is a specialization of 
-the given by \eqref{inf_lift_D_eqn} operator then one has
+the given by \eqref{inf_lift_D_eqn}  !!! CHECK !!! operator then one has
 $$
 \left[\widetilde D, \widetilde a \right]= \lim_{\la\in\La }\left[\Dslash_{\la}, a_{\la} \right]= \left[\lift_{\widetilde p_{\la_{\widetilde\sU}}}\left(  \Dslash_{\la_{\widetilde\sU}}\right) , \lift_{\widetilde p_{\la_{\widetilde\sU}}}\left(a^{\la_{\widetilde\sU}}_{\widetilde\sU}\right)  \right]=  \left[\lift_{\widetilde p_{\la_{\widetilde\sU}}}\left(  \Dslash_{\la_{\widetilde\sU}}\right) , \widetilde a  \right].
 $$
@@ -25255,16 +25271,16 @@ where $\pi: A \hookto B\left(\H\right)$ is any faithful representation, $\wideti
 		Moreover, $b \mapsto J b^* J^\dagger$ is an antirepresentation of $\sA$
 		on~$\sH$ (that is, a representation of the opposite algebra
 		$\sA^\opp$), which commutes with the given representation of~$\sA$:
-		$$
+		\be\label{st_comn_eqn}
 		[a, J b^* J^\dagger] = 0,  \word{for all} a,b \in \sA,
-		$$
+		\ee
 		(cf. Definition \ref{df:spt-real})
 	\end{axiom}
 	
 	
 	\begin{axiom}\label{fist_order_st_ax}(First order).
 		For each $a,b \in \sA$, the following relation holds:
-		\begin{equation}\label{fist_order}
+		\begin{equation}\label{fist_order_eqn}
 			[[D, a], J b^* J^\dagger] = 0,  \word{for all} a,b \in \sA.
 		\end{equation}
 		This generalizes, to the noncommutative context, the condition that
@@ -25274,7 +25290,10 @@ where $\pi: A \hookto B\left(\H\right)$ is any faithful representation, $\wideti
 		[[D, a], Jb^*J^\dagger]
 		= [[D, Jb^*J^\dagger], a] + [D, \underbrace{[a, Jb^*J^\dagger]}_{=0}],
 		\]
-		this is equivalent to the condition that $[a, [D, Jb^*J^\dagger]] = 0$.
+		this is equivalent to the condition that 
+		\be\label{fist_order_dual_eqn}
+		[a, [D, Jb^*J^\dagger]] = 0.
+		\ee
 	\end{axiom}
 	
 	
@@ -25770,7 +25789,7 @@ is	 the natural isomorphism then $\ga$ obeys the anticommutation rule
 	\end{enumerate}
 
 
-\subsection{Morita equivalence and Hermitian connections}
+\section{Morita equivalence and Hermitian connections}
 
 
 We start with any geometry $(\A,\H,D,\Ga,J)$ and a finite projective
@@ -25847,9 +25866,9 @@ operators on~$\H$.
 
 To satisfy these requirements, we introduce the space of bounded
 operators
-$$
+\be\label{om_d_eqn}
 \Om_D^1 \bydef \text{ a linear span of }\set{a\,[D,b] : a,b \in \A} \subseteq B(\H),
-$$
+\ee
 which is evidently an $\A$-bimodule, the right action of~$\A$ being
 given by $a\,[D,b]\.c \bydef a\,[D,bc] - ab\,[D,c]$. The notation is
 chosen to remind us of differential $1$-forms; indeed, for the
@@ -25905,9 +25924,11 @@ This reduces to the condition that
 \ee
 where the order one condition ensures commutation of $\pi_D(\Om_D^1)$
 with $\pi^0(\A)$.
-
+\begin{definition}\label{herm_conn_defn}\cite{varilly:noncom}.
 We call the connection $\nabla$ \textit{Hermitian} (with respect
-to~$D$) if \eqref{herm_conn_eqn} holds.% The minus sign is due to the presence ofthe selfadjoint operator $D$ where a skewadjoint differential operator is used in the standard definition of a metric-preservingconnection~\cite{BerlineGV,~LawsonM}.
+to~$D$) if \eqref{herm_conn_eqn} holds.
+\end{definition}
+% The minus sign is due to the presence ofthe selfadjoint operator $D$ where a skewadjoint differential operator is used in the standard definition of a metric-preservingconnection~\cite{BerlineGV,~LawsonM}.
 
 To sum up: two \textit{geometries} $(\A,\H,D,\Ga,J)$ and
 $(\B,\widetilde\H,\widetilde D,\widetilde\Ga,\widetilde J)$ are \textit{Morita-equivalent}
