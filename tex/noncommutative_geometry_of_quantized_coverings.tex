@@ -3448,77 +3448,64 @@ Denote by
 \rho^0: \A^\opp \hookto B\left(\H \right) 
 \eean
 natural representations of $\A$ and $\A^0$. Similarly to \eqref{morita_prod_eqn} consider a following pre-Hilbert space 
-\be\label{st_morita_prod_eqn}
-\widetilde\K^\infty \bydef \widetilde \A \otimes_\A \H^\infty \otimes_{\A^\opp} \widetilde \A^\opp
-%\eqno (7.2)
-\ee
-with a scalar product
-\be\label{sc_prod_ki_eqn}
-\left(\widetilde r \ox \eta \ox \widetilde q^0, \widetilde s \ox \xi \ox \widetilde t^0\right)_{\widetilde \K^\infty} 
-\bydef \left( \eta, \rho\left( \left\langle \widetilde r ,  \widetilde s  \right\rangle_{\widetilde\A}\right)  \rho^0\left( \left\langle\widetilde t^0 ,\widetilde q^0  \right\rangle_{\widetilde\A^\opp}\right)  \xi\right)_\H
- \ee
-Similarly to \eqref{morita_J_eqn} the antilinear correspondence $s \mapsto  s^0$ between $\A$
-and~$\A^0$ also gives an obvious way to extend $J$ to~$\widetilde\K$:
-\be\label{morita_I_eqn}
-\begin{split}
-	\widetilde I : \widetilde\K \xrightarrow{\approx}\widetilde\K,\\
-\widetilde s \ox \xi \ox  \widetilde t^0 \mapsto\widetilde t \ox J\xi \ox\widetilde s^0.
-\end{split}
-\ee.
-If $\widetilde{J} : \widetilde \A \otimes_\A \H^\infty \otimes_{\A^\opp} 1_{\widetilde \A^\opp}$ is given by
-$$
-\widetilde a \otimes \xi \otimes  1_{\widetilde \A^\opp}\mapsto \widetilde a^* \otimes J \xi \otimes  1_{\widetilde \A^\opp}.
-$$
-then one has
 \bean
-\left(\widetilde J \left( \widetilde a \otimes \xi \otimes  1_{\widetilde \A^\opp}\right) ,\widetilde J\left(  \widetilde b \otimes \eta \otimes  1_{\widetilde \A^\opp}\right)  \right)_{\K^\infty}= \left(\widetilde a^* \otimes J \xi \otimes  1_{\widetilde \A^\opp},\widetilde b^* \otimes J \eta \otimes  1_{\widetilde \A^\opp} \right)_{\K^\infty} =\\
-= \left(J\xi, \left\langle \widetilde a , \widetilde b \right\rangle^*_{\widetilde\A} J\eta \right)_{\K^\infty}=  \left(J^{\dagger}\left\langle \widetilde a , \widetilde b \right\rangle_{\widetilde\A}J\xi,  \eta \right)_{\K^\infty}=\left(\xi, J\left\langle \widetilde a , \widetilde b \right\rangle^*_{\widetilde\A}J^\dagger \eta \right)_{\K^\infty}
+\widetilde \H^\infty \bydef \widetilde \A \otimes_\A \H^\infty
 \eean
-
+with the following scalar product
 \bean
-\left(\widetilde J \left( \widetilde a \otimes \xi \otimes  1_{\widetilde \A^\opp}\right) ,\widetilde J\left(  \widetilde b \otimes \eta \otimes  1_{\widetilde \A^\opp}\right)  \right)_{\K^\infty}= \left(\widetilde a^* \otimes J^\dagger \xi \otimes  1_{\widetilde \A^\opp},\widetilde b^* \otimes J^\dagger \eta \otimes  1_{\widetilde \A^\opp} \right)_{\K^\infty} =\\
-= \left(J^\dagger\xi, \left\langle \widetilde a , \widetilde b \right\rangle^*_{\widetilde\A} J^\dagger\eta \right)_{\K^\infty}= \left(\xi, J\left\langle \widetilde a , \widetilde b \right\rangle^*_{\widetilde\A} J^\dagger\eta \right)_{\K^\infty} 
-\eean
-On the other hand
+\left(\widetilde a \ox \xi, \widetilde b \ox \eta \right)_{\widetilde{\H}}\bydef \left(\xi,  \left\langle a, b \right\rangle_{\A} \eta \right)_\H
+\eean 
+where $\left\langle a, b \right\rangle_{\A}\bydef \frac{1}{\left| G\right| }\sum_{	g \in G}g\left(a^*b \right)$
+(cf. equation \eqref{induced_prod_equ}) If one denotes
 \bean
-\left(\widetilde I \left( \widetilde a \otimes \xi \otimes  1_{\widetilde \A^\opp}\right) ,\widetilde I\left(  \widetilde b \otimes \eta \otimes  1_{\widetilde \A^\opp}\right)  \right)_{\K^\infty}=
-\left( 1_{\widetilde \A}\otimes J\xi \otimes \widetilde a^0, 1_{\widetilde \A}\otimes J\eta \otimes \widetilde b^0\right)_{\K^\infty} =\\
-\left(J \xi,  \left\langle \widetilde b^0 , \widetilde a^0 \right\rangle_{\widetilde\A^\opp}J \eta\right)_{\K^\infty} = \left(J \xi, J \left\langle \widetilde a , \widetilde b \right\rangle^*_{\widetilde\A^\opp}J^\dagger J \eta\right)_{\K^\infty}\\
-\left( \xi,  \left\langle \widetilde a , \widetilde b \right\rangle^*_{\widetilde\A} \eta\right)_{\K^\infty}
+\widetilde J\left( \widetilde a \otimes \xi \right) \bydef \widetilde a^* \otimes J\xi,\\
+\widetilde J^\dagger \left( \widetilde a \otimes \xi \right) \bydef \widetilde a^* \otimes J^\dagger\xi,
 \eean
-
-
-
-
-
-If $\sim$ is an equivalence relation on $\widetilde\K^\infty$ given by
-\be 
-\forall \widetilde a \in \widetilde \A \quad \widetilde s \widetilde a \ox \xi \ox  \widetilde t^0\sim \widetilde s \ox \xi \ox  \widetilde a^0 \widetilde t^0
-\ee
-then 
-\be\label{morita_Ieq_eqn}
-\forall\widetilde\xi', \widetilde \xi'' \in \K \quad \widetilde\xi'\sim  \widetilde \xi''\quad \Rightarrow \quad \widetilde I \widetilde \xi' \sim  \widetilde I  \widetilde \xi''.
-\ee 
-!!! ISOMORPHISM !!!\\
-In result one has a pre-Hilbert quotient space $\widetilde \H\bydef \widetilde \K /\sim$. From \eqref{morita_Ieq_eqn} it follows that $ \widetilde I$ naturally induces an operator
-\be
-\begin{split}
- \widetilde J : \widetilde \H \xrightarrow{\approx} \widetilde \H,\\
- \left( \widetilde \xi / \sim\right)  \mapsto  \left( \widetilde I  \widetilde \xi\right) / \sim
-\end{split}
-\ee
-From $
-\widetilde s \ox \xi \ox \widetilde t^0\sim \widetilde  s \widetilde t \ox \xi \ox 1_{\widetilde\A^\opp}
-$ it follows that a subspace $\widetilde \A \ox_{\A} \H^\infty \ox 1_{\widetilde\A^\opp}\cong \widetilde \A \ox_{\A} \H^\infty$ is a space of representatives of $\widetilde \H^\infty$. So one has a following exact sequence
+then on has 
+\bean
+\widetilde J^\dagger\widetilde J= \widetilde J\widetilde J^\dagger = 1_{\widetilde \A \otimes \H^\infty},\\
+\left(\widetilde J\left( \widetilde a \otimes \xi \right), \widetilde J\left( \widetilde b \otimes \eta \right)\right)= \left( \widetilde a^*\ox J\xi ,  \widetilde b^*\ox J \eta \right)= \left(J\xi, \left\langle \widetilde a^*, \widetilde b^* \right\rangle J\eta \right)  =
+\\
+= \left(\widetilde J \left( 1_{\widetilde A}\ox \xi \right), \widetilde J \left\langle \widetilde a, \widetilde b \right\rangle \otimes \eta   \right) =  \left(\widetilde J^\dagger\widetilde J \left( 1_{\widetilde A}\ox \xi \right),  \left\langle \widetilde a, \widetilde b \right\rangle \otimes \eta   \right)=\\=\left(\xi,  \left\langle a, b \right\rangle_{\A} \eta \right)_\H= \left(\widetilde a \ox \xi, \widetilde b \ox \eta \right)_{\widetilde{\H}}.
+\eean 
+From the above equation and from
 $$
-\{0\}\to \widetilde \A \otimes_\A \H^\infty  \xrightarrow{}\widetilde \A \otimes_\A \H^\infty \otimes_{\A^\opp} \widetilde \A^\opp \xrightarrow{\widetilde p}\widetilde \A \otimes_\A \H^\infty\to \{0\}
+\forall c \in \C \quad \widetilde J c \left(\widetilde a \ox \xi \right) = \widetilde a^* \ox Jc\xi= c^* \widetilde a^* \ox J\xi= c^* \widetilde J  \left(\widetilde a \ox \xi \right) 
 $$
-which can be extended up to an exact sequence
-\be
-\{0\}\to\widetilde \H  \xrightarrow{\widetilde\iota}\widetilde \K  \xrightarrow{\widetilde p}\widetilde \H\to \{0\}
+it follows that $\widetilde J$ is an anitunitary operator.
+Since $\widetilde{\A}$ is a finitely generated projective $\A$-module one has $\widetilde{\A} = p \A^N$ and there are inclusions $\widetilde{\A} \subset \End^*_\A\left( \widetilde{\A}\right) \subset \mathbb{M}_N\left( A\right)$ of *-algebras. So any $\widetilde a \in \widetilde \A$ can be represented by a matrix 
+\bean
+\begin{pmatrix}
+	a_{1,1}& \ldots & a_{N,1} \\
+	\vdots& \ddots & \vdots\\
+	a_{N,1}& \ldots &a_{N,N} 
+\end{pmatrix}\in \mathbb{M}_N\left( A\right).
+\eean
+Similarly any $\widetilde J \widetilde b^* \widetilde J^\dagger$ can be represented by
+\bean
+\begin{pmatrix}
+J	b^*_{1,1}J^\dagger& \ldots & J	b^*_{1,1}J^\dagger \\
+	\vdots& \ddots & \vdots\\
+J	b^*_{1,1}J^\dagger& \ldots &J	b^*_{1,1}J^\dagger 
+\end{pmatrix}.
+\eean
+From the equation \eqref{df:spt-real_eqn} it follows that
+$$
+\left[\begin{pmatrix}
+	a_{1,1}& \ldots & a_{N,1} \\
+	\vdots& \ddots & \vdots\\
+	a_{N,1}& \ldots &a_{N,N} 
+\end{pmatrix}, \begin{pmatrix}
+J	b^*_{1,1}J^\dagger& \ldots & J	b^*_{1,1}J^\dagger \\
+\vdots& \ddots & \vdots\\
+J	b^*_{1,1}J^\dagger& \ldots &J	b^*_{1,1}J^\dagger 
+\end{pmatrix}\right]= 0,
+$$
+so one has
+\be\label{st_comn_wt_eqn}
+\forall \widetilde a,\widetilde b \in \widetilde \A\quad \left[ \widetilde a,\widetilde J\widetilde b^*\widetilde J^\dagger\right] = 0,
 \ee
-where $\widetilde \H$ is a completion of $\widetilde \A \otimes_\A \H^\infty\cong \widetilde \A \otimes_\A \H^\infty \otimes_{\A^\opp} 1_{\widetilde \A^\opp}$ with respect to a norm the induced by scalar product \eqref{sc_prod_ki_eqn}. However the restriction on $\widetilde \A \otimes_\A \H^\infty \otimes_{\A^\opp} 1_{\widetilde \A^\opp}$  of the given by \eqref{sc_prod_ki_eqn} coincides with the scalar product \eqref{induced_prod_equ}. On the other hand the
-a *-algebra  $\widetilde\A$ is dense in $\widetilde A$ and $\H^\infty$ is dense in $\H$ the norm completion of $\widetilde \H$ of $\widetilde \A \ox_{\A} \H^\infty$ equals to the norm completion of $\A \ox_{\A} \H$. From these circumstances, the Definition \ref{induced_repr_defn} and the construction \ref{induced_repr_constr_empt} it follows that $\widetilde\H$ is a space of the $\widetilde \rho: \widetilde A \hookto B\left(\widetilde \H \right)$  representation induced by a pair $\left(\rho,\left(A, \widetilde{A}, G, \pi\right)  \right)$ (cf. Definition \ref{induced_repr_defn}). Let $\Om^1_D$ be given by \eqref{om_d_eqn}, and let  
+i.e. one has a situation of the Definition \ref{df:spt-real}. A *-algebra  $\widetilde\A$ is dense in $\widetilde A$ and $\H^\infty$ is dense in $\H$ the norm completion of $\widetilde \H$ of $\widetilde \A \ox_{\A} \H^\infty$ equals to the norm completion of $\A \ox_{\A} \H$. From these circumstances, the Definition \ref{induced_repr_defn} and the construction \ref{induced_repr_constr_empt} it follows that $\widetilde\H$ is a space of the $\widetilde \rho: \widetilde A \hookto B\left(\widetilde \H \right)$  representation induced by a pair $\left(\rho,\left(A, \widetilde{A}, G, \pi\right)  \right)$ (cf. Definition \ref{induced_repr_defn}). Let $\Om^1_D$ be given by \eqref{om_d_eqn}, and let  
 \be\label{nabla_cov_herm_eqn}
 \nabla : \widetilde \A\to \widetilde \A\otimes_\A \Om^1_D.
 \ee
@@ -3551,9 +3538,8 @@ $$
 $$
 \end{empt}
 \begin{exercise}\label{st_ax_exer}
-Prove that  for all $\widetilde a, \widetilde b \in \widetilde{\A}$ following conditions hold.
-\bea\label{st_comn_wt_eqn}
- \left[\widetilde a, \widetilde J\widetilde b\widetilde J^\dagger\right]=0 ,\\
+Prove that  for all $\widetilde a, \widetilde b \in \widetilde{\A}$ a following condition hold.
+\bea
  \label{first_order_wt_eqn}
  \left[\left[ \widetilde D, \widetilde a\right] , \widetilde J\widetilde b\widetilde J^\dagger\right]= \left[\widetilde a, \left[ \widetilde D, J\widetilde b\widetilde J^\dagger \right]\right]  = 0.
 \eea
@@ -25336,7 +25322,10 @@ where $\pi: A \hookto B\left(\H\right)$ is any faithful representation, $\wideti
 		\label{df:spt-real}\cite{hajac:toknotes}
 		A {\it real  spectral triple} is a  spectral triple $(\sA, \sH, D)$,
 		together with an antiunitary operator $J\:\sH\to\sH$ such that
-		$J(\Dom D)\subset \Dom D$, and $[a, Jb^*J^\dagger] = 0$ for all
+		$J(\Dom D)\subset \Dom D$, and 
+	\be\label{df:spt-real_eqn}
+	[a, Jb^*J^\dagger] = 0
+	\ee for all
 		$a, b \in \sA$.
 	\end{defn}
 	
@@ -29530,35 +29519,6 @@ Mathematical Surveys and Monographs, vol. 134, American Mathematical Society, Pr
 \end{thebibliography}
 
 
-\bean
-\widetilde J\left( \widetilde a \otimes \xi \right) \bydef \widetilde a^* \otimes J\xi,\\
-\widetilde J^\dagger \left( \widetilde a \otimes \xi \right) \bydef \widetilde a^* \otimes J^\dagger\xi,
-\eean
-\bean
-\widetilde J^\dagger\widetilde J= \widetilde J\widetilde J^\dagger = 1_{\widetilde A \otimes \H}
-\eean
-
-\bean
-\left(\widetilde J\left( \widetilde a \otimes \xi \right), \widetilde J\left( \widetilde b \otimes \eta \right)\right)= \left( \widetilde a^*\ox J\xi ,  \widetilde b^*\ox J \eta \right)= \left(J\xi, \left\langle \widetilde a^*, \widetilde b^* \right\rangle J\eta \right)  =
-\\
-= \left(\widetilde J \left( 1_{\widetilde A}\ox \xi \right), \widetilde J \left\langle \widetilde a, \widetilde b \right\rangle \otimes \eta   \right) =  \left(\widetilde J^\dagger\widetilde J \left( 1_{\widetilde A}\ox \xi \right),  \left\langle \widetilde a, \widetilde b \right\rangle \otimes \eta   \right)=
-\eean 
-\bean
-\left(\widetilde J \left( \widetilde a \otimes \xi \otimes  1_{\widetilde \A^\opp}\right) ,\widetilde J\left(  \widetilde b \otimes \eta \otimes  1_{\widetilde \A^\opp}\right)  \right)_{\K^\infty}= \left(\widetilde a \otimes J \xi \otimes  1_{\widetilde \A^\opp},\widetilde b \otimes J \eta \otimes  1_{\widetilde \A^\opp} \right)_{\K^\infty} =\\
-= \left(J\xi, \left\langle \widetilde a , \widetilde b \right\rangle_{\widetilde\A} J\eta \right)_{\K^\infty}=  \left(J^{\dagger}\left\langle \widetilde a , \widetilde b \right\rangle_{\widetilde\A}J\xi,  \eta \right)_{\K^\infty}=\left(\xi, J\left\langle \widetilde a , \widetilde b \right\rangle^*_{\widetilde\A}J^\dagger \eta \right)_{\K^\infty}
-\eean
-
-\bean
-\left(\widetilde J \left( \widetilde a \otimes \xi \otimes  1_{\widetilde \A^\opp}\right) ,\widetilde J\left(  \widetilde b \otimes \eta \otimes  1_{\widetilde \A^\opp}\right)  \right)_{\K^\infty}= \left(\widetilde a^* \otimes J^\dagger \xi \otimes  1_{\widetilde \A^\opp},\widetilde b^* \otimes J^\dagger \eta \otimes  1_{\widetilde \A^\opp} \right)_{\K^\infty} =\\
-= \left(J^\dagger\xi, \left\langle \widetilde a , \widetilde b \right\rangle^*_{\widetilde\A} J^\dagger\eta \right)_{\K^\infty}= \left(\xi, J\left\langle \widetilde a , \widetilde b \right\rangle^*_{\widetilde\A} J^\dagger\eta \right)_{\K^\infty} 
-\eean
-On the other hand
-\bean
-\left(\widetilde I \left( \widetilde a \otimes \xi \otimes  1_{\widetilde \A^\opp}\right) ,\widetilde I\left(  \widetilde b \otimes \eta \otimes  1_{\widetilde \A^\opp}\right)  \right)_{\K^\infty}=
-\left( 1_{\widetilde \A}\otimes J\xi \otimes \widetilde a^0, 1_{\widetilde \A}\otimes J\eta \otimes \widetilde b^0\right)_{\K^\infty} =\\
-\left(J \xi,  \left\langle \widetilde b^0 , \widetilde a^0 \right\rangle_{\widetilde\A^\opp}J \eta\right)_{\K^\infty} = \left(J \xi, J \left\langle \widetilde a , \widetilde b \right\rangle^*_{\widetilde\A^\opp}J^\dagger J \eta\right)_{\K^\infty}\\
-\left( \xi,  \left\langle \widetilde a , \widetilde b \right\rangle^*_{\widetilde\A} \eta\right)_{\K^\infty}
-\eean
 
 
 
