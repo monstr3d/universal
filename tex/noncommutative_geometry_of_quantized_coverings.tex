@@ -2659,6 +2659,17 @@ Moreover one has
  \ee
  	is said to be a \textit{reduced algebra of} $\left(A, \widetilde{A}, G, \pi \right)$.
  \end{definition}
+
+\paragraph{title}
+	\begin{proposition}\label{state_prop!}\cite{pedersen:ca_aut}
+	If $B$ is a $C^*$-subalgebra of $A$ then each pure state of $B$ can be extended to a pure state of $A$.
+\end{proposition}
+\begin{proposition}\label{sur_prop!}\cite{pedersen:ca_aut}
+	If $B$ is a $C^*$-subalgebra of $A$ then for each irreducible representation $\rho: B \to B\left( \H'\right)$ of $B$ there is an irreducible representation $A \to B\left(\H \right)$ of $A$ with a closed subspace $\H_1 \subset \H$ such that $\rho_B  :B \to B\left(\H_1 \right)$ is spatially equivalent to $\rho: B \to B\left( \H'\right)$.  
+\end{proposition}	
+
+\paragraph{title}
+!!! SPECTRUM EQUIVALENCE !!!
  \begin{rem}\label{red_alg_inc_rem}
  	Clearly one has an inclusion
  	\be\label{red_alg_inc_eqn}
@@ -2677,7 +2688,7 @@ Moreover one has
  \end{rem}
 
  \begin{rem}\label{red_sp_rem}
- 	From the Propositions \ref{spectrum_cov_prop} and \ref{hered_spectrum_prop} it follows that the spectrum of $\widetilde{A}_{\text{red}}$ coincides with the spectrum of $\widetilde{A}$ as a topological space. If $\widetilde{\sX}$ is the spectrum of both $\widetilde{A}_{\text{red}}$ and $\widetilde{A}$ then the inclusion $G \hookto  \Aut\left(\widetilde A \right)$ induces a homomorphism
+ 	From the Propositions \ref{spectrum_cov_prop} and !!! \ref{hered_spectrum_prop} !!! it follows that the spectrum of $\widetilde{A}_{\text{red}}$ coincides with the spectrum of $\widetilde{A}$ as a topological space. If $\widetilde{\sX}$ is the spectrum of both $\widetilde{A}_{\text{red}}$ and $\widetilde{A}$ then the inclusion $G \hookto  \Aut\left(\widetilde A \right)$ induces a homomorphism
  	$$
  	h: G \to \mathrm{Homeo}\left(\widetilde{\sX} \right) 
  	$$
@@ -2804,13 +2815,13 @@ Prove that  a quadruple $\left(B, \widetilde{B}, G, \pi|_B \right)$ is a reduced
 \end{exercise}
 
 
-\begin{definition}\label{simply_connected_red_defn}
+\begin{definition}\label{simply_connected_red_defn}  !!! MAY BE DELETE !!!
 	A connected $C^*$-algebra $A$ (cf. Definition \ref{connected_c_a_defn}) is said to be \textit{reducibly simply connected} if $A$  has no nontrivial reducible (connected) noncommutative finite-fold coverings (cf. Definitions \ref{fin_defn} !!! \ref{fin_exer} !!! !!! CHANGE !!! and \ref{fin_red_defn}), or equivalently any disconnected reducible noncommutative finite-fold covering of $A$ (cf. Definition \ref{fin_defn} !!! \ref{fin_exer} !!! !!! CHANGE !!!) is almost trivial (cf. Definition \ref{almost_trivial_defn}).
 \end{definition}
 \begin{definition}\label{fin_cat_defn}
 	For any connected $C^*$-algebra $A$ consider a category $A$ $\mathfrak{FinCov}$-$A$ such that following conditions hold:
 	\begin{itemize}
-		\item [(i)]  Objects of $\mathfrak{FinCov}$-$A$ are connected finite-fold noncommutative coverings $\pi: A \hookto \widetilde A$ (cf. Definition \ref{fin_defn} !!! \ref{fin_exer} !!! !!! CHANGE !!!).
+		\item [(i)]  Objects of $\mathfrak{FinCov}$-$A$ are connected finite-fold noncommutative coverings $\pi: A \hookto \widetilde A$ (cf. Definition \ref{fin_defn}).
 		\item[(ii)] A morphism from $\pi': A \hookto \widetilde A'$ to $\pi'': A \hookto \widetilde A''$ is an injective *-homomorphism $\pi: \widetilde A''\hookto \widetilde A'$ such that the following diagram 
 		\newline
 		\begin{tikzpicture}
@@ -3511,7 +3522,12 @@ i.e. one has a situation of the Definition \ref{df:spt-real_defn}. A *-algebra  
 \be\label{nabla_cov_herm_eqn}
 \nabla : \widetilde \A\to \widetilde \A\otimes_\A \Om^1_D.
 \ee
-be  a Hermitian connection (cf. \ref{herm_conn_defn}) with respect to $D$. We suppose that $\nabla$ is $G$-equivariant, i.e.
+be  a Hermitian connection (cf. \ref{herm_conn_defn}) with respect to $D$, i.e.
+\be\label{herm_conn_cov_eqn}
+\left\langle  \widetilde   a,\nabla  \widetilde   b\right\rangle - \left\langle \nabla  \widetilde   a, \widetilde   b\right\rangle= \left[ D, \left\langle  \widetilde   a, \widetilde   b\right\rangle\right]
+\sepword{for all} \widetilde a, \widetilde b \in  \widetilde\A.
+\ee
+ We suppose that $\nabla$ is $G$-equivariant, i.e.
 \be\label{conn_equ_conn}
 \forall g \in G \quad \nabla \widetilde a = \sum_{j=1}^n \widetilde a_j \otimes \om_j \quad \Rightarrow \quad \nabla \left( g\widetilde a\right)  = \sum_{j=1}^n g\widetilde a_j \otimes \om_j 
 \ee
@@ -9346,8 +9362,6 @@ The equation \eqref{comm_ind_l2_eqn} means that $\left(\cdot, \cdot \right)_{\te
 \end{proof}
 
 
-
-
 \subsection{Coverings of spectral triples}\label{comm_d_sec}
 \paragraph*{}
 Consider the situation of the Section \ref{comm_induced_finite_sec}. Moreover assume  that $\sX = M$ where $M$ is a compact Riemannian manifold and $E= S$ is a smooth spinor bundle (cf. Section \ref{spin_mani_sec}). Let  $\left(\Coo\left(M \right), L^2\left( M, S\right), \slashed D  \right)$ be an explained in the Appendix \ref{comm_sp_tr_sec} commutative spectral triple. If $p: \widetilde M \to M$ is a transitive finite-fold covering then $\widetilde M$ has a (unique) structure of Riemannian manifold given by the Proposition \ref{comm_cov_mani_prop}. From the Theorem \ref{top_fin_thm}  it follows that the quadruple
@@ -9359,15 +9373,15 @@ $$
 \mathscr S^{\Ga^\infty\left( \widetilde M, \widetilde S\right)}\cong p^{-1}\mathscr S^{\Ga^\infty\left(  M,  S\right)}
 $$
 where both $\mathscr S^{\Ga^\infty\left( \widetilde M, \widetilde S\right)}$ and
- $\mathscr S^{\Ga^\infty\left(  M,  S\right)}$ are  $\Ga^\infty\left( \widetilde M, \widetilde S\right)$-sheaf and $\Ga^\infty\left(  M,  S\right)$-sheaf respectively (cf. Definition \ref{top_x_sheaf_defn}), $p^{-1}$ means an inverse image of sheaves (cf. Definition \ref{sheaf_inv_im_defn}).  
+$\mathscr S^{\Ga^\infty\left(  M,  S\right)}$ are  $\Ga^\infty\left( \widetilde M, \widetilde S\right)$-sheaf and $\Ga^\infty\left(  M,  S\right)$-sheaf respectively (cf. Definition \ref{top_x_sheaf_defn}), $p^{-1}$ means an inverse image of sheaves (cf. Definition \ref{sheaf_inv_im_defn}).  
 From \eqref{top_d_shaef_m_eqn} it follows that there is an operator 
 $$
 \widetilde \Dslash  : \Ga^\infty\left(\widetilde M,\widetilde S \right)\to \Ga^\infty\left(\widetilde M,\widetilde S \right).
 $$
 such that 
-  \be\label{top_d_shaef_mt_eqn}
-  \begin{split}
-\widetilde \Dslash \bydef p^{-1}\Dslash \in \mathscr End \left(\mathscr S^{\Ga^\infty\left( \widetilde M, \widetilde S\right)} \right) \left(\widetilde M\right)\bydef\\\bydef \mathscr Hom \left(\mathscr S^{\Ga^\infty\left( \widetilde M, \widetilde S\right)} , \mathscr S^{\Ga^\infty\left( \widetilde M, \widetilde S\right)}\right) \left(\widetilde M\right).
+\be\label{top_d_shaef_mt_eqn}
+\begin{split}
+	\widetilde \Dslash \bydef p^{-1}\Dslash \in \mathscr End \left(\mathscr S^{\Ga^\infty\left( \widetilde M, \widetilde S\right)} \right) \left(\widetilde M\right)\bydef\\\bydef \mathscr Hom \left(\mathscr S^{\Ga^\infty\left( \widetilde M, \widetilde S\right)} , \mathscr S^{\Ga^\infty\left( \widetilde M, \widetilde S\right)}\right) \left(\widetilde M\right).
 \end{split}
 \ee
 If $\D$ and $\widetilde\D$ are given by
@@ -9392,81 +9406,98 @@ where $\L^\dagger \left( \D \right)$ and $\L^\dagger \left(\widetilde \D \right)
 \begin{empt}
 	Here we consider a related to the spectral triple 
 	$$
-\left(\A, \H ,D \right) \bydef	\left(\Coo\left(M \right), L^2\left( M, S\right), \slashed D  \right)
+	\left(\A, \H ,D \right) \bydef	\left(\Coo\left(M \right), L^2\left( M, S\right), \slashed D  \right)
 	$$
-	 specialization of the construction \ref{triple_conn_lift_empt}. 
- From the Exercise \ref{smooth_soft_exer} it turns out that $\Coo\left(M \right)\subset C\left( M\right)$ is a $c$-soft *-algebra (cf. Definition \ref{top_soft_r_defn}). From the  Theorem \ref{top_oa_cov_thm} it follows that the quadruple	$$
-\left(\A, \widetilde \A   , G\left(\left. \widetilde \A \right|\A \right) , \pi \right)\bydef  \left(\Coo\left(M\right), \Coo\left(\widetilde M \right), G\left(\left.\widetilde M~ \right| M\right), \left.C_0\left(p \right)\right|_{\Coo\left(M\right)}\right)
-$$
-is a finite-fold covering of bounded operator *-algebras  (cf. Definition \ref{fin_oa_defn})	 
-We leave to the reader the proof of that   $\widetilde \A$ is a left and right finitely generated projective $\A$-module.  Both $A$ and $\widetilde A$ are $C^*$-norm completions of $\A$ and  $\widetilde \A$ then from the Definition  \ref{fin_oa_defn} it follows that there is  an unital connected noncommutative finite-fold covering $\left(A, \widetilde A, G\left( \left.\widetilde A\right| A\right), \widetilde \pi  \right)$ (cf. Definition \ref{fin_unital_defn} and the equation \eqref{top_am_eqn}) such that $\pi= \widetilde\pi|_{\A}$. If 
-	 $$
+	specialization of the construction \ref{triple_conn_lift_empt}. 
+	From the Exercise \ref{smooth_soft_exer} it turns out that $\Coo\left(M \right)\subset C\left( M\right)$ is a $c$-soft *-algebra (cf. Definition \ref{top_soft_r_defn}). From the  Theorem \ref{top_oa_cov_thm} it follows that the quadruple	$$
+	\left(\A, \widetilde \A   , G\left(\left. \widetilde \A \right|\A \right) , \pi \right)\bydef  \left(\Coo\left(M\right), \Coo\left(\widetilde M \right), G\left(\left.\widetilde M~ \right| M\right), \left.C_0\left(p \right)\right|_{\Coo\left(M\right)}\right)
+	$$
+	is a finite-fold covering of bounded operator *-algebras  (cf. Definition \ref{fin_oa_defn})	 
+	We leave to the reader the proof of that   $\widetilde \A$ is a left and right finitely generated projective $\A$-module.  Both $A$ and $\widetilde A$ are $C^*$-norm completions of $\A$ and  $\widetilde \A$ then from the Definition  \ref{fin_oa_defn} it follows that there is  an unital connected noncommutative finite-fold covering $\left(A, \widetilde A, G\left( \left.\widetilde A\right| A\right), \widetilde \pi  \right)$ (cf. Definition \ref{fin_unital_defn} and the equation \eqref{top_am_eqn}) such that $\pi= \widetilde\pi|_{\A}$. If 
+	$$
 	\left(  \rho : A \to B\left(\H \right)\right) \bydef \left(C\left( M\right)\to B\left(L^2\left( M, S\right) \right)  \right) 
-	 $$
-	  is a representation  which corresponds to the spectral triple $\left( \A, \H, D\right)$ then from the Lemma \ref{comm_ind_lem} it follows that the induced by the pair $\left(\rho, \left(A, \widetilde A, G\left( \left.\widetilde A\right| A\right), \widetilde \pi  \right)\right)$ representation $\widetilde \rho : \widetilde A \to B\left(\widetilde{   \H} \right)$ (cf. Definition \ref{induced_repr_defn}) is given by
-	  $$
+	$$
+	is a representation  which corresponds to the spectral triple $\left( \A, \H, D\right)$ then from the Lemma \ref{comm_ind_lem} it follows that the induced by the pair $\left(\rho, \left(A, \widetilde A, G\left( \left.\widetilde A\right| A\right), \widetilde \pi  \right)\right)$ representation $\widetilde \rho : \widetilde A \to B\left(\widetilde{   \H} \right)$ (cf. Definition \ref{induced_repr_defn}) is given by
+	$$
 	\widetilde \rho :C\left(M \right)\hookto B\left( L^2\left(\widetilde{M},\widetilde{S} \right)\right).    
-	  $$
-	  	The space $M$ is compact so there is is a subordinated to  $p:\widetilde{M}\to{M}$ covering sum for $M$ (cf. Definitions \ref{top_covering_sum_defn}, \ref{top_covering_sum_domi_defn}).
-	  \be\label{top_ta_eqn}
-	  \sum_{g \in G\left(\left.\widetilde{M}~\right|M\right),~ \a \in \mathscr A  } g\widetilde{a}_\a = 1_{C\left(\widetilde{M} \right) }.
-	  \ee
-	  Similarly to the Proposition \ref{top_smooth_part_unity_prop}   one can assume that $\widetilde{a}_{\widetilde\a}\in \Coo\left( \widetilde{M}\right)$, so one has
-	  \be\label{top_te_eqn}
-	  \begin{split}
-	  	\widetilde{e}_{\widetilde\a}\bydef \sqrt{\widetilde{a}_{\widetilde\a}}\in \Coo\left( \widetilde{M}\right),\\
-	  	\sum_{ \widetilde\a \in \widetilde{ \mathscr A} } \widetilde{e}^2_{\widetilde\a} =\sum_{ \widetilde\a \in \widetilde{ \mathscr A} } \widetilde{e}_{\widetilde\a} \desc_p\left(\widetilde{e}_{\widetilde\a} \right)= 1_{C\left(\widetilde{M} \right) }
-	  \end{split}
-	  \ee 
-	  where $\desc_p$ is given by the Definition \ref{top_lift_desc_defn} $p$-descent.	
-	  For any $\widetilde{a} \in \Coo\left(\widetilde{M} \right)$ a following condition holds
-	  \be\label{top_ph_ps_eqn}
-	  \widetilde{a} = \sum_{\widetilde{\a}\in \widetilde{\mathscr A}} \widetilde{\ga}_{\widetilde{\a}}= \sum_{\widetilde{\a}\in \widetilde{\mathscr A}} \widetilde{\phi}_{\widetilde{\a}}\widetilde{\psi}_{\widetilde{\a}}; \text{ where } \widetilde{\phi}_{\widetilde{\a}}\bydef \widetilde{e}_{\widetilde{\a}},~ \widetilde{\psi}_{\widetilde{\a}}\bydef \widetilde{e}_{\widetilde{\a}}\widetilde{a},~ \widetilde{\ga}_{\widetilde{\a}}\bydef\widetilde{a}_{\widetilde{\a}}\widetilde{e}^2_{\widetilde{\a}}.
-	  \ee
-	  Let $\Om^1_{\slashed D}$ be the {module of differential forms associated}  with the given by  \eqref{comm_sp_tr_eqn} spectral triple  $\left(\Coo\left({M} \right), L^2\left(M,S \right), \slashed D\right)$ (cf. Definition \ref{ass_cycle_defn}), and denote by
-	  \be\label{top_descs_eqn}
-	  {\phi}_{\widetilde{\a}} \bydef \mathfrak{desc} \left(\widetilde{\phi}_{\widetilde{\a}} \right),\quad {\psi}_{\widetilde{\a}} \bydef \mathfrak{desc} \left(\widetilde{\psi}_{\widetilde{\a}} \right), \quad {\ga}_{\widetilde{\a}} \bydef \mathfrak{desc} \left(\widetilde{\ga}_{\widetilde{\a}} \right)\in \Coo\left({M} \right)
-	  \ee
-	  Let us define a $\C$-linear map
-	  \be\label{top_nabla_eqn}
-	  \begin{split}
-	  	{\slashed{\nabla}}: \Coo\left(\widetilde{M} \right) \to \Coo\left(\widetilde{M} \right) \otimes_{\Coo\left({M} \right)}\Om^1_{\slashed D},\\
-	  	\widetilde{a} \mapsto \sum_{\widetilde{\a}\in \widetilde{\mathscr A}}\left(  \widetilde{\phi}_{\widetilde{\a}} \otimes \left[\slashed D, {\psi}_{\widetilde{\a}}  \right] +\widetilde{\psi}_{\widetilde{\a}} \otimes \left[\slashed D, {\phi}_{\widetilde{\a}}   \right] \right).
-	  \end{split}
-	  \ee
-	  For any $a \in \Coo\left({M} \right)$ from $\left[\slashed D, {\psi}_{\widetilde{\a}} a  \right] = {\psi}_{\widetilde{\a}} \left[\slashed D, a  \right] + \left[\slashed D, {\psi}_{\widetilde{\a}}   \right]a$, $~~\widetilde{\phi}_{\widetilde{\a}} \otimes {\psi}_{\widetilde{\a}}$ = $\widetilde{\phi}_{\widetilde{\a}}  \widetilde{\psi}_{\widetilde{\a}}\otimes 1_{\Coo\left( M\right) }$ and the equation  \eqref{comm_matr_x_eqn} it follows that
-	  \bean
-	  {\slashed{\nabla}}\left(\widetilde{a}a \right)=  \sum_{\widetilde{\a}\in \widetilde{\mathscr A}}\left(  \widetilde{\phi}_{\widetilde{\a}} \otimes \left[\slashed D, {\psi}_{\widetilde{\a}} a  \right] +\widetilde{\psi}_{\widetilde{\a}}a \otimes \left[\slashed D, {\phi}_{\widetilde{\a}}   \right] \right) =
-	  \\
-	  = \sum_{\widetilde{\a}\in \widetilde{\mathscr A}}\left(  \widetilde{\phi}_{\widetilde{\a}} \otimes \left[\slashed D, {\psi}_{\widetilde{\a}}  \right]a+\widetilde{\phi}_{\widetilde{\a}} \otimes {\psi}_{\widetilde{\a}}\left[\slashed D,  a  \right] +\widetilde{\psi}_{\widetilde{\a}} \otimes a \left[\slashed D, {\phi}_{\widetilde{\a}}   \right]\right) =
-	  \\
-	  = \sum_{\widetilde{\a}\in \widetilde{\mathscr A}}\left(  \widetilde{\phi}_{\widetilde{\a}} \otimes \left[\slashed D, {\psi}_{\widetilde{\a}}  \right]a+\widetilde{\phi}_{\widetilde{\a}} \widetilde{\psi}_{\widetilde{\a}}\otimes \left[\slashed D,  a  \right] +\widetilde{\psi}_{\widetilde{\a}} \otimes  \left[\slashed D, {\phi}_{\widetilde{\a}}   \right]a\right) =
-	  \\
-	  = \sum_{\widetilde{\a}\in \widetilde{\mathscr A}}\left(  \widetilde{\phi}_{\widetilde{\a}} \otimes \left[\slashed D, {\psi}_{\widetilde{\a}}   \right] +\widetilde{\psi}_{\widetilde{\a}} \otimes \left[\slashed D, {\phi}_{\widetilde{\a}}  \right] \right) a+
-	  \sum_{\widetilde{\a}\in \widetilde{\mathscr A}}\widetilde{\phi}_{\widetilde{\a}}\widetilde{\psi}_{\widetilde{\a}}\otimes\left[ \slashed D,a\right]=
-	  \widetilde{\slashed{\nabla}}\left( \widetilde{a}\right) a + \widetilde{a}\otimes  \left[ \slashed D,a\right]. 
-	  \eean
-	  The comparison of the above equation and \eqref{conn_triple_eqn} states that $\widetilde{\slashed{\nabla}}$ is a connection. If $g \in  G\left( \left.\widetilde{M}~\right|M\right)$ then from $\mathfrak{desc}\left(g\widetilde{\phi}_{\widetilde{\a}}\right) = {\phi}_{\widetilde{\a}} $ and $\mathfrak{desc}\left(g\widetilde{\psi}_{\widetilde{\a}}\right) = {\psi}_{\widetilde{\a}} $ it follows that
-	  \bean
-	  {\slashed{\nabla}}\left(g\widetilde{a} \right)=  {\slashed{\nabla}}\left(\sum_{\widetilde{\a}\in \widetilde{\mathscr A}} \left( g\widetilde{\phi}_{\widetilde{\a}}\right) \left( g\widetilde{\psi}_{\widetilde{\a}}\right)\right)=\\=\sum_{\widetilde{\a}\in \widetilde{\mathscr A}}\left( g \widetilde{\phi}_{\widetilde{\a}} \otimes \left[\slashed D, {\psi}_{\widetilde{\a}}   \right] +g\widetilde{\psi}_{\widetilde{\a}} \otimes \left[\slashed D, {\phi}_{\widetilde{\a}}   \right] \right),  
-	  \eean
-	  i.e. ${\slashed{\nabla}}$ is  $G\left( \left.\widetilde{M}~\right|M\right)$-{equivariant} (cf. equation \eqref{nabla_inv_cov_eqn}).  If $\widetilde D: \widetilde \A\otimes_\A \D \to \widetilde \A\otimes_\A \D$ is given by \eqref{dirac_fin_lift_eqn}
-then from \eqref{dirac_om_fin_lift_eqn} it follows that
-	  \be\label{top_dirac_om_fin_lift_eqn}
-	  \slashed \nabla \widetilde a = \sum_{j = 1}^n \widetilde a_j \otimes \om_j \quad\Rightarrow \quad\left[\widetilde D, \widetilde a\right]=  \sum_{j = 1}^n \widetilde a_j \otimes \om_j\in \widetilde\A \otimes_\A \Om^1_D.
-	  \ee
-	  
+	$$
+	The space $M$ is compact so there is is a subordinated to  $p:\widetilde{M}\to{M}$ covering sum for $M$ (cf. Definitions \ref{top_covering_sum_defn}, \ref{top_covering_sum_domi_defn}).
+	\be\label{top_ta_eqn}
+	\sum_{g \in G\left(\left.\widetilde{M}~\right|M\right),~ \a \in \mathscr A  } g\widetilde{a}_\a = 1_{C\left(\widetilde{M} \right) }.
+	\ee
+	Similarly to the Proposition \ref{top_smooth_part_unity_prop}   one can assume that $\widetilde{a}_{\widetilde\a}\in \Coo\left( \widetilde{M}\right)$, so one has
+	\be\label{top_te_eqn}
+	\begin{split}
+		\widetilde{e}_{\widetilde\a}\bydef \sqrt{\widetilde{a}_{\widetilde\a}}\in \Coo\left( \widetilde{M}\right),\\
+		\sum_{ \widetilde\a \in \widetilde{ \mathscr A} } \widetilde{e}^2_{\widetilde\a} =\sum_{ \widetilde\a \in \widetilde{ \mathscr A} } \widetilde{e}_{\widetilde\a} \desc_p\left(\widetilde{e}_{\widetilde\a} \right)= 1_{C\left(\widetilde{M} \right) }
+	\end{split}
+	\ee 
+	where $\desc_p$ is given by the Definition \ref{top_lift_desc_defn} $p$-descent.	
+	For any $\widetilde{a} \in \Coo\left(\widetilde{M} \right)$ a following condition holds
+	\be\label{top_ph_ps_eqn}
+	\widetilde{a} = \sum_{\widetilde{\a}\in \widetilde{\mathscr A}} \widetilde{\ga}_{\widetilde{\a}}= \sum_{\widetilde{\a}\in \widetilde{\mathscr A}} \widetilde{\phi}_{\widetilde{\a}}\widetilde{\psi}_{\widetilde{\a}}; \text{ where } \widetilde{\phi}_{\widetilde{\a}}\bydef \widetilde{e}_{\widetilde{\a}},~ \widetilde{\psi}_{\widetilde{\a}}\bydef \widetilde{e}_{\widetilde{\a}}\widetilde{a},~ \widetilde{\ga}_{\widetilde{\a}}\bydef\widetilde{a}_{\widetilde{\a}}\widetilde{e}^2_{\widetilde{\a}}.
+	\ee
+	Let $\Om^1_{\slashed D}$ be the {module of differential forms associated}  with the given by  \eqref{comm_sp_tr_eqn} spectral triple  $\left(\Coo\left({M} \right), L^2\left(M,S \right), \slashed D\right)$ (cf. Definition \ref{ass_cycle_defn}), and denote by
+	\be\label{top_descs_eqn}
+	{\phi}_{\widetilde{\a}} \bydef \mathfrak{desc} \left(\widetilde{\phi}_{\widetilde{\a}} \right),\quad {\psi}_{\widetilde{\a}} \bydef \mathfrak{desc} \left(\widetilde{\psi}_{\widetilde{\a}} \right), \quad {\ga}_{\widetilde{\a}} \bydef \mathfrak{desc} \left(\widetilde{\ga}_{\widetilde{\a}} \right)\in \Coo\left({M} \right)
+	\ee
+	Let us define a $\C$-linear map
+	\be\label{top_nabla_eqn}
+	\begin{split}
+		{\slashed{\nabla}}: \Coo\left(\widetilde{M} \right) \to \Coo\left(\widetilde{M} \right) \otimes_{\Coo\left({M} \right)}\Om^1_{\slashed D},\\
+		\widetilde{a} \mapsto \sum_{\widetilde{\a}\in \widetilde{\mathscr A}}\left(  \widetilde{\phi}_{\widetilde{\a}} \otimes \left[\slashed D, {\psi}_{\widetilde{\a}}  \right] +\widetilde{\psi}_{\widetilde{\a}} \otimes \left[\slashed D, {\phi}_{\widetilde{\a}}   \right] \right).
+	\end{split}
+	\ee
+	For any $a \in \Coo\left({M} \right)$ from $\left[\slashed D, {\psi}_{\widetilde{\a}} a  \right] = {\psi}_{\widetilde{\a}} \left[\slashed D, a  \right] + \left[\slashed D, {\psi}_{\widetilde{\a}}   \right]a$, $~~\widetilde{\phi}_{\widetilde{\a}} \otimes {\psi}_{\widetilde{\a}}$ = $\widetilde{\phi}_{\widetilde{\a}}  \widetilde{\psi}_{\widetilde{\a}}\otimes 1_{\Coo\left( M\right) }$ and the equation  \eqref{comm_matr_x_eqn} it follows that
+	\bean
+	{\slashed{\nabla}}\left(\widetilde{a}a \right)=  \sum_{\widetilde{\a}\in \widetilde{\mathscr A}}\left(  \widetilde{\phi}_{\widetilde{\a}} \otimes \left[\slashed D, {\psi}_{\widetilde{\a}} a  \right] +\widetilde{\psi}_{\widetilde{\a}}a \otimes \left[\slashed D, {\phi}_{\widetilde{\a}}   \right] \right) =
+	\\
+	= \sum_{\widetilde{\a}\in \widetilde{\mathscr A}}\left(  \widetilde{\phi}_{\widetilde{\a}} \otimes \left[\slashed D, {\psi}_{\widetilde{\a}}  \right]a+\widetilde{\phi}_{\widetilde{\a}} \otimes {\psi}_{\widetilde{\a}}\left[\slashed D,  a  \right] +\widetilde{\psi}_{\widetilde{\a}} \otimes a \left[\slashed D, {\phi}_{\widetilde{\a}}   \right]\right) =
+	\\
+	= \sum_{\widetilde{\a}\in \widetilde{\mathscr A}}\left(  \widetilde{\phi}_{\widetilde{\a}} \otimes \left[\slashed D, {\psi}_{\widetilde{\a}}  \right]a+\widetilde{\phi}_{\widetilde{\a}} \widetilde{\psi}_{\widetilde{\a}}\otimes \left[\slashed D,  a  \right] +\widetilde{\psi}_{\widetilde{\a}} \otimes  \left[\slashed D, {\phi}_{\widetilde{\a}}   \right]a\right) =
+	\\
+	= \sum_{\widetilde{\a}\in \widetilde{\mathscr A}}\left(  \widetilde{\phi}_{\widetilde{\a}} \otimes \left[\slashed D, {\psi}_{\widetilde{\a}}   \right] +\widetilde{\psi}_{\widetilde{\a}} \otimes \left[\slashed D, {\phi}_{\widetilde{\a}}  \right] \right) a+
+	\sum_{\widetilde{\a}\in \widetilde{\mathscr A}}\widetilde{\phi}_{\widetilde{\a}}\widetilde{\psi}_{\widetilde{\a}}\otimes\left[ \slashed D,a\right]=
+	\widetilde{\slashed{\nabla}}\left( \widetilde{a}\right) a + \widetilde{a}\otimes  \left[ \slashed D,a\right]. 
+	\eean
+	The comparison of the above equation and \eqref{conn_triple_eqn} states that $\widetilde{\slashed{\nabla}}$ is a connection. If $g \in  G\left( \left.\widetilde{M}~\right|M\right)$ then from $\mathfrak{desc}\left(g\widetilde{\phi}_{\widetilde{\a}}\right) = {\phi}_{\widetilde{\a}} $ and $\mathfrak{desc}\left(g\widetilde{\psi}_{\widetilde{\a}}\right) = {\psi}_{\widetilde{\a}} $ it follows that
+	\bean
+	{\slashed{\nabla}}\left(g\widetilde{a} \right)=  {\slashed{\nabla}}\left(\sum_{\widetilde{\a}\in \widetilde{\mathscr A}} \left( g\widetilde{\phi}_{\widetilde{\a}}\right) \left( g\widetilde{\psi}_{\widetilde{\a}}\right)\right)=\\=\sum_{\widetilde{\a}\in \widetilde{\mathscr A}}\left( g \widetilde{\phi}_{\widetilde{\a}} \otimes \left[\slashed D, {\psi}_{\widetilde{\a}}   \right] +g\widetilde{\psi}_{\widetilde{\a}} \otimes \left[\slashed D, {\phi}_{\widetilde{\a}}   \right] \right),  
+	\eean
+	i.e. ${\slashed{\nabla}}$ is  $G\left( \left.\widetilde{M}~\right|M\right)$-{equivariant} (cf. equation \eqref{nabla_inv_cov_eqn}).  
+\\	!!!! \\Let us prove the connection $\slashed{\nabla}$ is Hermitian (cf. Definition \ref{herm_conn_defn}), i.e. it satisfies to the condition \eqref{herm_conn_cov_eqn}.
+	Similarly to \eqref{top_ph_ps_eqn}  for any $\widetilde{a}', \widetilde{a}'' \in \Coo\left(\widetilde{M} \right)$ following conditions hold:
+	\bean
+	\widetilde{a}' = \sum_{\widetilde{\a}\in \widetilde{\mathscr A}} \widetilde{\ga}'_{\widetilde{\a}}= \sum_{\widetilde{\a}\in \widetilde{\mathscr A}} \widetilde{\phi}'_{\widetilde{\a}}\widetilde{\psi}'_{\widetilde{\a}}; \text{ where } \widetilde{\phi}'_{\widetilde{\a}}\bydef \widetilde{e}_{\widetilde{\a}},~ \widetilde{\psi}'_{\widetilde{\a}}\bydef \widetilde{e}_{\widetilde{\a}}\widetilde{a},~ \widetilde{\ga}'_{\widetilde{\a}}\bydef\widetilde{a}'_{\widetilde{\a}}\widetilde{e}^2_{\widetilde{\a}},\\
+		\widetilde{a}'' = \sum_{\widetilde{\a}\in \widetilde{\mathscr A}} \widetilde{\ga}''_{\widetilde{\a}}= \sum_{\widetilde{\a}\in \widetilde{\mathscr A}} \widetilde{\phi}''_{\widetilde{\a}}\widetilde{\psi}''_{\widetilde{\a}}; \text{ where } \widetilde{\phi}''_{\widetilde{\a}}\bydef \widetilde{e}_{\widetilde{\a}},~ \widetilde{\psi}''_{\widetilde{\a}}\bydef \widetilde{e}_{\widetilde{\a}}\widetilde{a},~ \widetilde{\ga}''_{\widetilde{\a}}\bydef\widetilde{a}''_{\widetilde{\a}}\widetilde{e}^2_{\widetilde{\a}}.
+		\eean
+	
+	\be\label{herm_conn_cov_eqn!}
+	\left\langle  \widetilde   a,\nabla  \widetilde   b\right\rangle - \left\langle \nabla  \widetilde   a, \widetilde   b\right\rangle= \left[ D, \left\langle  \widetilde   a, \widetilde   b\right\rangle\right]
+	\sepword{for all} \widetilde a, \widetilde b \in  \widetilde\A.
+	\ee
+	
+	 
+	
+	
+	
+	If $\widetilde D: \widetilde \A\otimes_\A \D \to \widetilde \A\otimes_\A \D$ is given by \eqref{dirac_fin_lift_eqn}
+	then from \eqref{dirac_om_fin_lift_eqn} it follows that
+	\be\label{top_dirac_om_fin_lift_eqn}
+	\slashed \nabla \widetilde a = \sum_{j = 1}^n \widetilde a_j \otimes \om_j \quad\Rightarrow \quad\left[\widetilde D, \widetilde a\right]=  \sum_{j = 1}^n \widetilde a_j \otimes \om_j\in \widetilde\A \otimes_\A \Om^1_D.
+	\ee
+	
 \end{empt}
 \begin{exercise}
-Using \eqref{top_lift_gs_eqn} prove that there is a $\Coo\left(\widetilde M \right)$-module isomorphism
-\be\label{top_phinf_eqn}
-\begin{split}
-	\phi_\infty :\Coo\left(\widetilde M \right)\otimes \Ga^\infty\left(M, S \right)  \to \Ga^\infty\left(\widetilde M, \widetilde S \right),\\
-	\sum_{j=1}^n \widetilde a_j \otimes \xi_j\mapsto  \sum_{j=1}^n\widetilde a_j \lift_p\left(\xi_j\right)
-\end{split}
-\ee
+	Using \eqref{top_lift_gs_eqn} prove that there is a $\Coo\left(\widetilde M \right)$-module isomorphism
+	\be\label{top_phinf_eqn}
+	\begin{split}
+		\phi_\infty :\Coo\left(\widetilde M \right)\otimes \Ga^\infty\left(M, S \right)  \to \Ga^\infty\left(\widetilde M, \widetilde S \right),\\
+		\sum_{j=1}^n \widetilde a_j \otimes \xi_j\mapsto  \sum_{j=1}^n\widetilde a_j \lift_p\left(\xi_j\right)
+	\end{split}
+	\ee
 \end{exercise}
- A following table reflects the mapping between general theory and its commutative specialization\\ \\
+A following table reflects the mapping between general theory and its commutative specialization\\ \\
 \begin{tabular}{|c|c|c|}
 	\hline
 	&General theory & Commutative specialization\\ 
@@ -9526,7 +9557,7 @@ From the above equation it follows that
 \\
 = \left[p^{-1}\left(\Dslash \right) , \widetilde{a}\right] \lift_p\left(\xi \right). 
 \eean
-	
+
 
 If $\widetilde{D}$ is the specialization of the given by \eqref{dirac_fin_lift_eqn} operator then
 \bean
@@ -9564,6 +9595,8 @@ where  $p^{-1}\Dslash$ is the   $p$-{inverse image} of $\Dslash$ (cf. Definition
 \begin{remark}
 	The Theorem \ref{comm_fin_sp_tr_thm} is a noncommutative analog of the Proposition \ref{comm_cov_mani_prop}.
 \end{remark}
+
+
 
 
 \subsection{Unoriented spectral triples}\label{comm_sp_tr} 
@@ -12699,7 +12732,7 @@ of $ C_c\left( \widetilde \sY\right)$-$A$ bimodules.
 	(ii)  	From \eqref{blowing_anf_eqn} and $\pi_{\widetilde \sY}\left( f_{\a_j} \right)= \sum_{	g \in G} g \pi_{\widetilde \sY}\left(\widetilde  f_{\a_j}\right) $ it follows 
 	\be\label{blowing_piaf_eqn}
 	\begin{split}
-			\varphi_{X_A} \left(a_j  \right) = 	\varphi_{X_A} \left(a_j  \right)\sum_{	g \in G\left(\left.\widetilde{\sY}~\right|\sY\right)} g \pi_{\widetilde \sY}\left(\widetilde  f_{\a_j}\right)=\\= \sum_{	g \in G\left(\left.\widetilde{\sY}~\right|\sY\right)} g \widetilde  \pi_{\widetilde \sY}\left(\widetilde  f_{\a_j}\right)	\varphi_{X_A} \left(a_j  \right)=\\=\left( \sum_{	g \in G\left(\left.\widetilde{\sY}~\right|\sY\right)} g \pi_{\widetilde \sY}\left(\widetilde  f_{\a_j}\right)\right) 	\varphi_{X_A} \left(a_j  \right)\left( \sum_{	g \in G\left(\left.\widetilde{\sY}~\right|\sY\right)} g \pi_{\widetilde \sY}\left(\widetilde  f_{\a_j}\right)\right). 
+			\pi_{\widetilde A} \left(a_j  \right) = 	\pi_{\widetilde A} \left(a_j  \right)\sum_{	g \in G\left(\left.\widetilde{\sY}~\right|\sY\right)} g \pi_{\widetilde \sY}\left(\widetilde  f_{\a_j}\right)=\\= \sum_{	g \in G\left(\left.\widetilde{\sY}~\right|\sY\right)} g \widetilde  \pi_{\widetilde \sY}\left(\widetilde  f_{\a_j}\right)	\pi_{\widetilde A} \left(a_j  \right)=\\=\left( \sum_{	g \in G\left(\left.\widetilde{\sY}~\right|\sY\right)} g \pi_{\widetilde \sY}\left(\widetilde  f_{\a_j}\right)\right) 	\pi_{\widetilde A} \left(a_j  \right)\left( \sum_{	g \in G\left(\left.\widetilde{\sY}~\right|\sY\right)} g \pi_{\widetilde \sY}\left(\widetilde  f_{\a_j}\right)\right). 
 	\end{split}
 	\ee
 	The right $A^{\left\{\sU_\a\right\}}_{\mathrm{fin}}$ module $C_0\left(\widetilde \sY\right)\otimes_{C_0\left( \sY\right) } A^{\left\{\sU_\a\right\}}_{\mathrm{fin}}$ is a $C^*$-linear span of
@@ -12720,36 +12753,36 @@ of $ C_c\left( \widetilde \sY\right)$-$A$ bimodules.
 	$$
 	where $a'_1 \bydef \desc_q\left(\widetilde c_{g_1}  \widetilde f_\a\right)a_1\in A$	 where $\desc_q$ means $q$-descent (cf. Definition \ref{top_lift_desc_defn}). From the equations \eqref{blowing_a1nf_eqn} and \eqref{blowing_piaf_eqn} it follows that 
 	$$
-	\varphi_{X_A}\left(\widetilde c_{g_1}\otimes a_1a_2  \right)= \pi_{\widetilde\sY}\left( g_1\widetilde f_\a\right)\widetilde \pi_A\left(a'_1 \right)  \pi_{\widetilde\sY}\left( g_1\widetilde f_{\a_1}\right)\left( \sum_{	g \in G\left(\left.\widetilde{\sY}~\right|\sY\right)}\pi_{\widetilde\sY}\left( g \widetilde f_{\a_2}\right)\right) \varphi_{X_A}\left( {a}_2 \right).
+	\varphi_{X_A}\left(\widetilde c_{g_1}\otimes a_1a_2  \right)= \pi_{\widetilde\sY}\left( g_1\widetilde f_\a\right)\widetilde \pi_A\left(a'_1 \right)  \pi_{\widetilde\sY}\left( g_1\widetilde f_{\a_1}\right)\left( \sum_{	g \in G\left(\left.\widetilde{\sY}~\right|\sY\right)}\pi_{\widetilde\sY}\left( g \widetilde f_{\a_2}\right)\right) \pi_{\widetilde A}\left( {a}_2 \right).
 	$$
 	On the other hand from \eqref{blowing_lifnz_eqn} it follows that there is a unique $g_2\in G\left(\left.\widetilde{\sY}~\right|\sY\right)$ such that $\left(g_1\widetilde f_{\a_1} \right) \left(g_2\widetilde f_{\a_2} \right)\neq 0$, so one has 
 	\bean
-		\varphi_{X_A}\left(\widetilde c_{g_1}\otimes a_1a_2  \right)= \pi_{\widetilde\sY}\left( g_1\widetilde f_\a\right)\widetilde \pi_A\left(a'_1 \right)  \pi_{\widetilde\sY}\left( g_1\widetilde f_{\a_1}\right)\pi_{\widetilde\sY}\left( g_2 \widetilde f_{\a_2}\right) \varphi_{X_A}\left( {a}_2 \right)=\\=
-	\pi_{\widetilde\sY}\left( g_1\widetilde f_\a\right)\widetilde \pi_A\left(a'_1 \right)  \pi_{\widetilde\sY}\left( g_1\widetilde f_{\a_1}\right)\pi_{\widetilde\sY}\left( g_2 \widetilde f_{\a_2}\right) \varphi_{X_A}\left( {a}_2 \right)\pi_{\widetilde\sY}\left( g_2 \widetilde f_{\a_2}\right).
+		\varphi_{X_A}\left(\widetilde c_{g_1}\otimes a_1a_2  \right)= \pi_{\widetilde\sY}\left( g_1\widetilde f_\a\right)\widetilde \pi_A\left(a'_1 \right)  \pi_{\widetilde\sY}\left( g_1\widetilde f_{\a_1}\right)\pi_{\widetilde\sY}\left( g_2 \widetilde f_{\a_2}\right) \pi_{\widetilde A}\left( {a}_2 \right)=\\=
+	\pi_{\widetilde\sY}\left( g_1\widetilde f_\a\right)\widetilde \pi_A\left(a'_1 \right)  \pi_{\widetilde\sY}\left( g_1\widetilde f_{\a_1}\right)\pi_{\widetilde\sY}\left( g_2 \widetilde f_{\a_2}\right) \pi_{\widetilde A}\left( {a}_2 \right)\pi_{\widetilde\sY}\left( g_2 \widetilde f_{\a_2}\right).
 	\eean
 	Using an induction  one can prove that $	\varphi_{X_A}$-image $	\varphi_{X_A}\left(C_0\left(\widetilde \sY\right)\otimes_{C_0\left(\sY\right)}A^{\left\{\sU_\a\right\}}_{\mathrm{fin}} \right) $ of an algebraic tensor product 
 	$C_0\left(\widetilde \sY\right)\otimes_{C_0\left(\sY\right)}A^{\left\{\sU_\a\right\}}_{\mathrm{fin}}$ is an algebraic linear span of following products
 	\be\label{blowing_products_eqn}
-	\left(\pi_{\widetilde\sY}\left( g_1 \widetilde f_{\a_1}\right) \varphi_{X_A}\left( {a}_1 \right)\pi_{\widetilde\sY}\left( g_1 \widetilde f_{\a_1}\right)\right) 
-	\cdot ...\cdot \left(\pi_{\widetilde\sY}\left( g_n \widetilde f_{\a_n}\right) \varphi_{X_A}\left( {a}_n \right)\pi_{\widetilde\sY}\left( g_n \widetilde f_{\a_n}\right)\right) 
+	\left(\pi_{\widetilde\sY}\left( g_1 \widetilde f_{\a_1}\right) \pi_{\widetilde A}\left( {a}_1 \right)\pi_{\widetilde\sY}\left( g_1 \widetilde f_{\a_1}\right)\right) 
+	\cdot ...\cdot \left(\pi_{\widetilde\sY}\left( g_n \widetilde f_{\a_n}\right) \pi_{\widetilde A}\left( {a}_n \right)\pi_{\widetilde\sY}\left( g_n \widetilde f_{\a_n}\right)\right) 
 	\ee
 	If two elements
 	\bean
-	\left( \pi_{\widetilde\sY}\left( g'_1 \widetilde f_{\a'_1}\right) \varphi_{X_A}\left( {a}'_1 \right)\pi_{\widetilde\sY}\left( g_1 \widetilde f_{\a'_1}\right)\right) 
-	\cdot ...\cdot \left(_{\widetilde\sY}\left( g'_{n'} \widetilde f_{\a'_{n'}}\right) \varphi_{X_A}\left( {a}_{n'} \right)\pi_{\widetilde\sY}\left( g_{n'} \widetilde f_{\a_{n'}}\right)\right); \\
-	\left( \pi_{\widetilde\sY}\left( g''_1 \widetilde f_{\a''_1}\right) \varphi_{X_A}\left( {a}''_1 \right)\pi_{\widetilde\sY}\left( g_1 \widetilde f_{\a''_1}\right)\right) 
-	\cdot ...\cdot \left(\pi_{\widetilde\sY}\left( g''_{n''} \widetilde f_{\a''_{n''}}\right) \varphi_{X_A}\left( {a}_{n'} \right)\pi_{\widetilde\sY}\left( g_{n'} \widetilde f_{\a_{n'}}\right)\right)
+	\left( \pi_{\widetilde\sY}\left( g'_1 \widetilde f_{\a'_1}\right) \pi_{\widetilde A}\left( {a}'_1 \right)\pi_{\widetilde\sY}\left( g_1 \widetilde f_{\a'_1}\right)\right) 
+	\cdot ...\cdot \left(_{\widetilde\sY}\left( g'_{n'} \widetilde f_{\a'_{n'}}\right) \pi_{\widetilde A}\left( {a}_{n'} \right)\pi_{\widetilde\sY}\left( g_{n'} \widetilde f_{\a_{n'}}\right)\right); \\
+	\left( \pi_{\widetilde\sY}\left( g''_1 \widetilde f_{\a''_1}\right) \pi_{\widetilde A}\left( {a}''_1 \right)\pi_{\widetilde\sY}\left( g_1 \widetilde f_{\a''_1}\right)\right) 
+	\cdot ...\cdot \left(\pi_{\widetilde\sY}\left( g''_{n''} \widetilde f_{\a''_{n''}}\right) \pi_{\widetilde A}\left( {a}_{n'} \right)\pi_{\widetilde\sY}\left( g_{n'} \widetilde f_{\a_{n'}}\right)\right)
 	\eean
 	satisfy to \eqref{blowing_products_eqn} then their product in $A_0\left(\widetilde\sY \right)$  satisfies to  \eqref{blowing_products_eqn}, i.e. $$\varphi_{X_A}\left(C_0\left(\widetilde \sY\right)\otimes_{C_0\left(\sY\right)}A^{\left\{\sU_\a\right\}}_{\mathrm{fin}}  \right)$$ is a subalgebra of $A_0\left(\widetilde\sY \right)$.
 	On the other hand from 
 	\bean
-	\left( 	\left(\pi_{\widetilde\sY}\left( g_1 \widetilde f_{\a_1}\right) \varphi_{X_A}\left( {a}_1 \right)\pi_{\widetilde\sY}\left( g_1 \widetilde f_{\a_1}\right)\right) 
-	\cdot ...\cdot \left(\pi_{\widetilde\sY}\left( g_n \widetilde f_{\a_n}\right) \varphi_{X_A}\left( {a}_n \right)\pi_{\widetilde\sY}\left( g_n \widetilde f_{\a_n}\right)\right)\right)^* =\\
-	\left(\pi_{\widetilde\sY}\left( g_n \widetilde f_{\a_n}\right) \varphi_{X_A}\left( {a}^*_n \right)\pi_{\widetilde\sY}\left( g_n \widetilde f_{\a_n}\right) \right) ...\left(\pi_{\widetilde\sY}\left( g_1 \widetilde f_{\a_1}\right) \varphi_{X_A}\left( {a}^*_1 \right)\pi_{\widetilde\sY}\left( g_1 \widetilde f_{\a_1}\right)\right)  
+	\left( 	\left(\pi_{\widetilde\sY}\left( g_1 \widetilde f_{\a_1}\right) \pi_{\widetilde A}\left( {a}_1 \right)\pi_{\widetilde\sY}\left( g_1 \widetilde f_{\a_1}\right)\right) 
+	\cdot ...\cdot \left(\pi_{\widetilde\sY}\left( g_n \widetilde f_{\a_n}\right) \pi_{\widetilde A}\left( {a}_n \right)\pi_{\widetilde\sY}\left( g_n \widetilde f_{\a_n}\right)\right)\right)^* =\\
+	\left(\pi_{\widetilde\sY}\left( g_n \widetilde f_{\a_n}\right) \pi_{\widetilde A}\left( {a}^*_n \right)\pi_{\widetilde\sY}\left( g_n \widetilde f_{\a_n}\right) \right) ...\left(\pi_{\widetilde\sY}\left( g_1 \widetilde f_{\a_1}\right) \pi_{\widetilde A}\left( {a}^*_1 \right)\pi_{\widetilde\sY}\left( g_1 \widetilde f_{\a_1}\right)\right)  
 	\eean
 	it follows that $\varphi_{X_A}\left(C_0\left(\widetilde \sY\right)\otimes_{C_0\left(\sY\right)}A^{\left\{\sU_\a\right\}}_{\mathrm{fin}}  \right)$ is a *- subalgebra of $A_0\left(\widetilde\sY \right)$. It means that $\varphi_{X_A}\left(C_0\left(\widetilde \sY\right)\otimes_{C_0\left(\sY\right)}A^{\left\{\sU_\a\right\}}_{\mathrm{fin}}  \right)$ coincides with generated by $\varphi_{X_A}\left(C_0\left(\widetilde \sY\right)\otimes_{C_0\left(\sY\right)}A^{\left\{\sU_\a\right\}}_{\mathrm{fin}}  \right)$ *-algebra.
 	 Since $C_c\left(\widetilde \sY\right)\otimes_{C_0\left(\sY\right)}A^{\left\{\sU_\a\right\}}_{\mathrm{fin}}$ is dense in  $C_0\left(\widetilde \sY\right)\otimes_{C_0\left(\sY\right)}A$, the set\\
-	 $\varphi_{X_A}\left(C_c\left(\widetilde \sY\right)\otimes_{C_0\left(\sY\right)}A^{\left\{\sU_\a\right\}}_{\mathrm{fin}}\right)$ is a dense subset of  the given by \eqref{blowing_lift_a_f_eqn} set\\ $\pi_{\widetilde\sY}\left( C_0\left(\widetilde \sY \right) \right)\widetilde \pi_{A}\left( A\right)$. It follows that the generated by $\varphi_{X_A}\left(C_c\left(\widetilde \sY\right)\otimes_{C_0\left(\sY\right)}A^{\left\{\sU_\a\right\}}_{\mathrm{fin}}\right)$ *-algebra is dense in the generated by  $\pi_{\widetilde\sY}\left( C_0\left(\widetilde \sY \right) \right)\widetilde \pi_{A}\left( A\right)$ *-algebra. On the other hand since $\pi_{\widetilde\sY}\left( C_0\left(\widetilde \sY \right) \right)\widetilde \pi_{A}\left( A\right)$ is dense in $A_0\left(\widetilde \sY \right)$  a generated by $\varphi_{X_A}\left(C_c\left(\widetilde \sY\right)\otimes_{C_0\left(\sY\right)}A^{\left\{\sU_\a\right\}}_{\mathrm{fin}}\right)$ *-algebra is dense in $A_0\left(\widetilde \sY \right)$. However  a generated by $\varphi_{X_A}\left(C_c\left(\widetilde \sY\right)\otimes_{C_0\left(\sY\right)}A^{\left\{\sU_\a\right\}}_{\mathrm{fin}}\right)$ *-algebra coincides with $\varphi_{X_A}\left(C_c\left(\widetilde \sY\right)\otimes_{C_0\left(\sY\right)}A^{\left\{\sU_\a\right\}}_{\mathrm{fin}}\right)$ so the set\\ $\varphi_{X_A}\left(C_c\left(\widetilde \sY\right)\otimes_{C_0\left(\sY\right)}A^{\left\{\sU_\a\right\}}_{\mathrm{fin}}\right)$ is dense in $A_0\left(\widetilde \sY \right)$. Since $\varphi_{X_A}\left(C_c\left(\widetilde \sY\right)\otimes_{C_0\left(\sY\right)}A^{\left\{\sU_\a\right\}}_{\mathrm{fin}}\right)$ is dense in $\varphi_{X_A}\left(X_A\right)$ a generated by $\varphi_{X_A}\left(X_A\right)$ *-algebra coincides with $\varphi_{X_A}\left(X_A\right)$.
+	 $\varphi_{X_A}\left(C_c\left(\widetilde \sY\right)\otimes_{C_0\left(\sY\right)}A^{\left\{\sU_\a\right\}}_{\mathrm{fin}}\right)$ is a dense subset of  the given by \eqref{blowing_lift_a_f_eqn} set\\ $\pi_{\widetilde\sY}\left( C_0\left(\widetilde \sY \right) \right)\widetilde \pi_{A}\left( A\right)$. It follows that the generated by\\ $\varphi_{X_A}\left(C_c\left(\widetilde \sY\right)\otimes_{C_0\left(\sY\right)}A^{\left\{\sU_\a\right\}}_{\mathrm{fin}}\right)$ *-algebra is dense in the generated by  $\pi_{\widetilde\sY}\left( C_0\left(\widetilde \sY \right) \right)\widetilde \pi_{A}\left( A\right)$ *-algebra. On the other hand since $\pi_{\widetilde\sY}\left( C_0\left(\widetilde \sY \right) \right)\widetilde \pi_{A}\left( A\right)$ is dense in $A_0\left(\widetilde \sY \right)$  a generated by $\varphi_{X_A}\left(C_c\left(\widetilde \sY\right)\otimes_{C_0\left(\sY\right)}A^{\left\{\sU_\a\right\}}_{\mathrm{fin}}\right)$ *-algebra is dense in $A_0\left(\widetilde \sY \right)$. However  a generated by $\varphi_{X_A}\left(C_c\left(\widetilde \sY\right)\otimes_{C_0\left(\sY\right)}A^{\left\{\sU_\a\right\}}_{\mathrm{fin}}\right)$ *-algebra coincides with $\varphi_{X_A}\left(C_c\left(\widetilde \sY\right)\otimes_{C_0\left(\sY\right)}A^{\left\{\sU_\a\right\}}_{\mathrm{fin}}\right)$ so the set\\ $\varphi_{X_A}\left(C_c\left(\widetilde \sY\right)\otimes_{C_0\left(\sY\right)}A^{\left\{\sU_\a\right\}}_{\mathrm{fin}}\right)$ is dense in $A_0\left(\widetilde \sY \right)$. Since $\varphi_{X_A}\left(C_c\left(\widetilde \sY\right)\otimes_{C_0\left(\sY\right)}A^{\left\{\sU_\a\right\}}_{\mathrm{fin}}\right)$ is dense in $\varphi_{X_A}\left(X_A\right)$ a generated by $\varphi_{X_A}\left(X_A\right)$ *-algebra coincides with $\varphi_{X_A}\left(X_A\right)$.
 	From
 	$$
 	\varphi_{X_A}\left(C_c\left(\widetilde \sY\right)\otimes_{C_0\left(\sY\right)}A^{\left\{\sU_\a\right\}}_{\mathrm{fin}}\right)\subset \varphi_{X_A}\left(X_A\right)\subset A_0\left(\widetilde{\sY} \right) 
@@ -12769,6 +12802,37 @@ of $ C_c\left( \widetilde \sY\right)$-$A$ bimodules.
  \ee
 where $\left\| \cdot\right\|_H$ is an explained in  \ref{blowing_hilb_mod_empt} norm of Hilbert module $X_A$ and $\left\|\cdot \right\|_C$ is the $C^*$-norm on $A_0\left(\widetilde \sY \right)$. From the equation \eqref{blowing_hilb_c_norm_eqn} it follows that the set $\varphi_{X_A} \left( X_A \right)$  is $C^*$-norm closed. On the other hand from the Lemma \ref{blowing_ca_lem} it turns out that $\varphi_{X_A} \left( X_A \right)$ is dense subset of $A_0\left(\widetilde \sY \right)$, so one has $ \varphi_{X_A} \left( X_A \right) = A_0\left(\widetilde \sY \right)$.
 \end{proof}
+\begin{lemma}   !!! SPECTRAL !!!
+Consider situation of the Lemma \ref{blowing_ca_lem}. If $\widetilde{\rho}: A_0\left(\widetilde \sY \right)\to B\left( \widetilde\H\right)$ is a representation, $g \in  G\left( \left. \widetilde{\sY}\right|\sY\right)$ is a nontrivial element $\widetilde{\rho}_g: A_0\left(\widetilde \sY \right)\to B\left( \widetilde\H\right)$ is given by 
+$$
+\widetilde a \in  A_0\left(\widetilde \sY \right) \quad \widetilde{\rho}_g\left(\widetilde a \right) \bydef \widetilde{\rho}\left(g \widetilde a \right)
+$$
+then the representations  $\widetilde{\rho}$ and $\widetilde{\rho}_g$ are not equivalent (cf. Definition \ref{representation_equivalence_defn}).
+\end{lemma}
+\begin{proof}
+	content...
+\end{proof}
+\paragraph{title}
+	\begin{definition}\label{representation_equivalence_defn!}\cite{pedersen:ca_aut}
+	%3.3.6. 
+	We say that two representations $\pi_1: A \to B\left( \H_1\right)$  and $\pi_2: A \to B\left( \H_2\right)$ of a $C^*$-algebra $A$ are \textit{spatially equivalent} (or \textit{unitarily equivalent}) if there is an isometry $u$ of $\H_1$ 	onto $\H_2$ such that $u\pi_1\left(x \right)u^*  = \pi_2\left(x \right)$  for all $x$ in $A$. We say that the representations are \textit{equivalent} (or \textit{quasi-equivalent}) if there is an isomorphism $\rho$ of	$\pi_1\left( A\right)''$ onto 	$\pi_2\left( A\right)''$ such that $\rho\left(  \pi_1\left( x\right)\right) =\pi_2\left( x\right)$ for all $x$ in $A$. % Note that spatial 	equivalence implies equivalence since the map p:a^>uau* of B(H{) onto 		B(H2) is strongly continuous and takes n^A) onto7T2(^4), wherefore p gives an		isomorphism of n^Af onto 
+	\end{definition}
+
+\paragraph{title}
+\begin{empt}\label{blowing_free_action_empt}
+Consider situation of the Lemma \ref{blowing_ca_lem}. 
+If $\widetilde \sX$ be a 
+spectrum of $A_0\left(\widetilde \sY \right)$ then for any $\widetilde{x}\in \widetilde\sX$ 
+there is an unique irreducible representation $\rep_{  \widetilde{x }}: A_0\left(\widetilde \sY \right)\to B\left( \widetilde\H\right)$ 
+(cf. Definition \ref{prime_primtive_defn}). From the proof of the Lemma \ref{blowing_ca_lem} it follows that $A_0\left(\widetilde \sY \right)$ is generated by elements
+$$
+\pi_{\widetilde\sY}\left( g \widetilde f_{\a}\right)\pi_{\widetilde A}\left( a \right) \quad a \in A \quad g \in G\left( \left. \widetilde{\sY}\right|\sY\right) 
+$$ 
+It turns out that for any $\widetilde x \in \widetilde \sX$ there is $a \in A$ and  $g \in G\left( \left. \widetilde{\sY}\right|\sY\right)$ such that 
+$$
+\rep_{  \widetilde{x }}\left( \pi_{\widetilde\sY}\left( g \widetilde f_{\a}\right) \pi_{\widetilde A}\left( a \right)\right)\neq 0 %  \quad a \in A \quad g \in G\left( \left. \widetilde{\sY}\right|\sY\right)
+$$ 
+\end{empt}
 
 
 \subsection{Finite-fold coverings}
@@ -22779,6 +22843,11 @@ K\left(C_0\left(\sX \right)  \right) = C_c\left(\sX \right).
 	For any $x\in B(\H)$ element $|x| \stackrel{\text{def}}{=} (xx^*)^{1/2}$ is said to be the {\it absolute value of} $x$.
 \end{defn}
 	\section{States and representations}\label{st_rep_sec}
+	
+	\begin{definition}\label{representation_equivalence_defn}\cite{pedersen:ca_aut}
+%3.3.6. 
+We say that two representations $\pi_1: A \to B\left( \H_1\right)$  and $\pi_2: A \to B\left( \H_2\right)$ of a $C^*$-algebra $A$ are \textit{spatially equivalent} (or \textit{unitarily equivalent}) if there is an isometry $u$ of $\H_1$ 	onto $\H_2$ such that $u\pi_1\left(x \right)u^*  = \pi_2\left(x \right)$  for all $x$ in $A$. We say that the representations are \textit{equivalent} (or \textit{quasi-equivalent}) if there is an isomorphism $\rho$ of	$\pi_1\left( A\right)''$ onto 	$\pi_2\left( A\right)''$ such that $\rho\left(  \pi_1\left( x\right)\right) =\pi_2\left( x\right)$ for all $x$ in $A$. % Note that spatial 	equivalence implies equivalence since the map p:a^>uau* of B(H{) onto 		B(H2) is strongly continuous and takes n^A) onto7T2(^4), wherefore p gives an		isomorphism of n^Af onto 
+	\end{definition}
 	\begin{definition}\label{state_defn}\cite{pedersen:ca_aut}
 		A state of a $C^*$ -algebra $A$ is a positive functional of norm one. The set of 
 		states of $A$ is denoted by $SA$ (or just $S$ if no confusion can arise).
@@ -22883,6 +22952,9 @@ is dominated by a multiple of $\varphi$ then the representation $\pi_\psi: A \to
 equivalent to a subrepresentation of $\pi_\varphi: A \to B\left( \H_\varphi\right)$. 
 \end{corollary}
 	\subsection{Irreducible representations}
+	
+	
+	
 	\begin{theorem}\label{irred_thm}\cite{pedersen:ca_aut}
 		Let $\pi: A \to B\left(\H \right)$ be a nonzero representation of $C^*$-algebra $A$. The following conditions are equivalent:
 		\begin{enumerate}
@@ -22934,7 +23006,7 @@ equivalent to a subrepresentation of $\pi_\varphi: A \to B\left( \H_\varphi\righ
 		for all $x$, $y$ in $A$.  Equivalently, $I$ is prime if $I_1I_2\subset I$ implies  $I_1\subset I$ or 
 	 $I_2\subset I$ for any two (left, right, or two-sided) ideals $I_1$ and $I_2$ of $A$. 
 		We say that $I$ is a \textit{primitive} ideal if $I= \ker\pi$ for some irreducible 
-		representation $\pi: A \to B\left(\H \right)$. The set of prime ideals will be denoted by $\check{A}$ or $\mathrm{Prim}\left(A \right)$  and the set of primitive ideals will be denoted by $\hat A$. 
+		representation $\pi: A \to B\left(\H \right)$. The set of prime ideals will be denoted by $\check{A}$ or $\mathrm{Prim}\left(A \right)$  and the set of primitive ideals will be denoted by $\hat A$. We say that $\check{A}$ is a \textit{prime spectrum} of $A$. The set  $\hat A$ is said to by a \textit{primitive  spectrum} or simply a \textit{spectrum} of $A$. For any $x \in \hat A$ denote  by $\rep_x: A \to B\left(\H_x\right)$ a corresponding irreducible representation.
 	\end{definition}
 \begin{proposition}\label{primitive_prime_prop}\cite{pedersen:ca_aut}
 %	3.13.10. 	Proposition. 
