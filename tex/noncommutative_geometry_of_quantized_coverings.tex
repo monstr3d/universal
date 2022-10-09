@@ -2652,11 +2652,35 @@ Moreover one has
 	\ee	
 \end{empt}
  
+ \begin{definition}\label{red_alg_defn}
+	Let $\left(A, \widetilde{A}, G, \pi \right)$ be  a noncommutative finite-fold  quasi-covering. A $C^*$-subalgebra
+	\be\label{red_incl_eqn}
+	\widetilde{A}_{\text{red}}\bydef	\left\{\left. \widetilde a \in \widetilde A\right| 	\rep_{ \widetilde{x}}\left(\widetilde{a} \right) \in  \rep_{ \widetilde{x}}\left(A\right)\quad \forall \widetilde x \in \widetilde{\sX}\right\} \subset \widetilde A
+	\ee
+	is said to be a \textit{reduced algebra of} $\left(A, \widetilde{A}, G, \pi \right)$.
+\end{definition}
+\begin{rem}\label{red_alg_inc_rem}
+	Clearly one has an inclusion
+	\be\label{red_alg_inc_eqn}
+	A\subset \widetilde{A}_{\text{red}}.
+	\ee
+\end{rem}
+\begin{rem}\label{red_g_act_rem}
+	From $G \widetilde{A}_{\text{red}}= \widetilde{A}_{\text{red}}$. Hence  there is the natural action
+	\be\label{red_g_act_eqn}
+	G\times \widetilde{A}_{\text{red}}\to  \widetilde{A}_{\text{red}}.
+	\ee
+	Moreover from $\widetilde{A}^G = A$ and $A \subset \widetilde{A}_{\text{red}}$ it follows that
+	\be\label{red_inv_eqn}
+	\widetilde{A}_{\text{red}}^G = A.
+	\ee
+\end{rem}
+
 
 
 
  \begin{definition}\label{fin_red_defn}
-A noncommutative finite-fold  quasi-covering  $\left(A, \widetilde{A}, G, \pi \right)$ (cf. Definition \ref{fin_quasi_defn}) is said to be \textit{reduced} if for any irreducible representation $\rho: \widetilde{A}\to B\left(\H \right)$ one has
+A noncommutative finite-fold  quasi-covering  $\left(A, \widetilde{A}, G, \pi \right)$ (cf. Definition \ref{fin_quasi_defn}) is said to be \textit{reduced} if $\widetilde{A}=\widetilde{A}_{\text{red}}$ or equivalently if for any irreducible representation $\rho: \widetilde{A}\to B\left(\H \right)$ one has
 \be\label{fin_red_eqn}
 \rho\left( \widetilde A\right) = \rho\left(\pi\left( A\right) \right).
 \ee 
@@ -2736,11 +2760,11 @@ Prove that any free  noncommutative finite-fold quasi-covering  is reduced (cf. 
 	From the Lemma \ref{fin_multilier_lem} it follows that there is a natural inclusion $M\left(\pi \right) : M\left(A \right) \hookto M\left(\widetilde A \right)$. 
 	If  $\widetilde B\subset \widetilde A$ is a hereditary lift  $\left(A, \widetilde{A}, G, \pi \right)$-lift of $B$
 	(cf. Definition \ref{hered_lift_defn}) then there is a net  $\left\{M\left(\pi \right)\left(u_\la \right)  \right\}\subset B\left(\widetilde \H\right)$ 	such that $\left\{M\left(\pi \right)\left(u_\la \right)  \right\}\subset M\left(\widetilde A \right) \cap M\left( \widetilde B\right)$. Similarly to \ref{hered_repr_p_empt} 
-	there is  a strong limit $\widetilde p \bydef s-\lim\widetilde \pi_a\left( M\left(  u_\la\right)  \right) \in B\left( \widetilde \H\right)$ such that   $\widetilde p$ lies in the strong closure  
+	there is  a strong limit $\widetilde p \bydef s-\lim\widetilde \rho\left( M\left(  u_\la\right)  \right) \in B\left( \widetilde \H\right)$ such that   $\widetilde p$ lies in the strong closure  
 	 $\widetilde\rho\left(\widetilde A \right)''$ of $\widetilde\rho\left(\widetilde A\right)$ in $B\left(\widetilde \H\right)$.	
 Moreover one has
 \be\label{hered_papt_eqn}
-\widetilde B = \left\{ \widetilde a \in \widetilde A | \widetilde p\widetilde \pi_a\left( \widetilde a\right)\widetilde p = \widetilde\pi_a\left(\widetilde a\right)\right\}
+\widetilde B = \left\{ \left.\widetilde a \in \widetilde A ~\right| \widetilde p\widetilde \rho\left( \widetilde a\right)\widetilde p = \widetilde\rho\left(\widetilde a\right)\right\}
 \ee
 and  a natural representation
 \be\label{hered_rept_eqn}
@@ -7245,9 +7269,9 @@ where $\supp$ is given by the equation \eqref{sheaf_supp_eqn}. Prove that if $p:
 \begin{empt}\label{ctr_unity_empt}
 If $\sX$ is a compact Hausdorff space and $p: \widetilde\sX \to \sX$ is a transitive finite-fold covering then $\widetilde\sX$ is compact. Let
 		\be\nonumber
-1_{C\left(\widetilde{\mathcal X} \right) }= \sum_{\widetilde\a \in \widetilde{\mathscr A} }\widetilde{a}_{\widetilde{\a}}\quad \widetilde{a}_{\widetilde{\a}}\in C\left(\widetilde \sX\right)
+1_{C\left(\widetilde{\mathcal X} \right) }= \sum_{\widetilde\a \in \widetilde{\mathscr A} }\widetilde{a}_{\widetilde{\a}}\quad \widetilde{a}_{\widetilde{\a}}\in C\left(\widetilde \sX\right)_+
 \ee
-be a subordinated to $p$ covering sum for $\widetilde{\mathcal X}$ (cf. Definitions \ref{top_covering_sum_defn}, \ref{top_covering_sum_domi_defn} and the equation\eqref{top_cfsa_eqn}). If $\widetilde{e}_{\widetilde{\a}}\bydef \sqrt{\widetilde{a}_{\widetilde{\a}}}\in C\left(\widetilde \sX\right)$ then one has
+be a subordinated to $p$ covering sum for $\widetilde{\mathcal X}$ (cf. Definitions \ref{top_covering_sum_defn}, \ref{top_covering_sum_domi_defn} and the equation\eqref{top_cfsa_eqn}). If $\widetilde{e}_{\widetilde{\a}}\bydef \sqrt{\widetilde{a}_{\widetilde{\a}}}\in C\left(\widetilde \sX\right)_+$ then one has
 		\be\label{top_ea_eqn}
 		\begin{split}
 		1_{C\left(\widetilde{\mathcal X} \right) }= \sum_{\widetilde\a \in \widetilde{\mathscr A} }\widetilde{e}^2_{\widetilde{\a}},\\
@@ -7256,7 +7280,11 @@ be a subordinated to $p$ covering sum for $\widetilde{\mathcal X}$ (cf. Definiti
 \ee
 We also write
 \be\label{top_aln_eqn}
-\left\{\widetilde{e}_{\widetilde{\a}}\right\}_{\a  \in \widetilde{\mathscr A}}= \left\{\widetilde{e}_1, ..., \widetilde{e}_n\right\}.
+\begin{split}
+\left\{\widetilde{e}_{\widetilde{\a}}\right\}_{\a  \in \widetilde{\mathscr A}}= \left\{\widetilde{e}_1, ..., \widetilde{e}_n\right\}\subset C\left(\widetilde \sX \right)_+ ,\\
+		1_{C\left(\widetilde{\mathcal X} \right) }= \sum_{j=1 }^n\widetilde{e}^2_{\widetilde{j}},\\
+\forall j =1,...,n \quad \widetilde{e}_{j}	\left(g \widetilde{e}_{j} \right) = 0 \quad \text{for any nontrivial}\quad g\in G\left(\left.\widetilde \sX \right|\sX \right).
+\end{split}
 \ee	
 \end{empt}
 
@@ -12054,7 +12082,7 @@ C_0\left( \sU\right)  \hookto M\left( _\sU A_\sU\right)\cap M\left(A \right)  ,
 	 where $\chi_\sU: \sU \to \left[0,1\right]$ is a characteristic function  of $\sU$ (cf. Definition \ref{top_char_f_defn}).
 	 \item[(c)] One has
 	 \be\label{blowing_hered_pap_eqn}
-	 B = \left\{a \in A |\pi_\sY\left(\chi_\sU \right) \rho\left(a \right)\pi_\sY\left(\chi_\sU \right) = \rho\left(a \right)  \right\}
+	 _\sU A_\sU = \left\{a \in A |\pi_\sY\left(\chi_\sU \right) \rho\left(a \right)\pi_\sY\left(\chi_\sU \right) = \rho\left(a \right)  \right\}
 	 \ee
 	(cf. equation \eqref{hered_pap_eqn}) and there is a faithful nondegenerate representation 
 	\be\label{blowing_hered_rep_eqn}
@@ -12087,7 +12115,7 @@ From \eqref{blowig_su_eqn} it follows that
 \sU'\subset \sU'' \quad \Rightarrow\quad _{\sU'}A \subset~  _{\sU'}A ~\text{ AND } ~A_{\sU'}\subset A_{\sU''}~\text{ AND }~  _{\sU'}A _{\sU'}\subset _{\sU''}A _{\sU''}.
 \ee
 \end{empt}
-\begin{lemma}
+\begin{lemma}\label{blowing_uau_conn_lem}
 If $A$ is a connected $C^*$-algebra (cf. Definition \ref{connected_c_a_defn}), $C_0\left(\sY\right)\hookto M\left( A\right)$ is Hausdorff blowing-up and $\sU \subset \sY$ is a connected open set then $_\sU B_\sU$ is a connected $C^*$-algebra.
 \end{lemma}
 \begin{proof}
@@ -13031,11 +13059,95 @@ which can be uniquely extended up to a linear map $\widetilde \H \to \widetilde 
 !!! MAY BE DELETE !!!\\	In the situation of the Lemma \ref{blowing_fin_ind_lem} if the representation $A\hookto B\left(\H \right)$ is atomic (cf. Definition \ref{atomic_repr_defn} then the representation $\pi_{A_0\left( \widetilde\sY\right)}: A_0\left( \widetilde\sY\right)\hookto B\left(\widetilde \H \right)$ is also atomic. 
 \end{corollary}
 \begin{lemma}
-		Let $A$ be a connected $C^*$-algebra (cf. Definition \ref{connected_c_a_defn}), end let $C_0\left( \sY\right) \hookto M\left(A \right)$ be disintegrable Hausdorff blowing-up (cf. Definitions \ref{blowing_defn} and \ref{blowing_disintegrable_defn}). Let $q: \widetilde \sY \to \sY$ be a finite-fold transitive covering (cf. Definitions \ref{top_covering_defn}, and   \ref{top_transitive_defn}), and let  $\left(A,A_0\left( \widetilde \sY\right),G\left(\left.\widetilde{\sY}~\right|\sY\right),  A_0\left( q\right) \right)$ be the given by the Lemma \ref{blowing_fin_pre_lem} a noncommutative finite-fold pre-covering (cf. Definition \ref{fin_pre_defn}). If $\sU\subset \sY$ is an open connected set with compact closure such that the preimage $\widetilde \sU$ is connected then a hereditary $C^*$-subalgebra 
-	 
-	Let $A$ be a connected $C^*$-algebra, end let $C_0\left( \sY\right) \hookto M\left(A \right)$ be disintegrable Hausdorff blowing-up. If $q: \widetilde \sY \to \sY$ is a finite-fold transitive covering (cf. Definitions \ref{top_covering_defn}, \ref{top_transitive_defn}), $A_0\left(\widetilde\sY\right)$ is a $q$-lift of $A$ (cf. Definition \ref{blowing_lift_a_f_defn}) , an injective  *-homomorphism $A_0\left(q \right)  : A \hookto A_0\left(\widetilde\sY\right)$ is given by \eqref{blowing_a0_q_eqn} then the quadruple $\pi_{A_0\left( \widetilde\sY\right)}: A_0\left( \widetilde\sY\right)\hookto B\left(\widetilde \H \right)$ is a noncommutative finite-fold covering (cf. Definition \ref{fin_defn}).
-	
+		Let $A$ be a connected $C^*$-algebra (cf. Definition \ref{connected_c_a_defn}), end let $C_0\left( \sY\right) \hookto M\left(A \right)$ be disintegrable Hausdorff blowing-up (cf. Definitions \ref{blowing_defn} and \ref{blowing_disintegrable_defn}). Let $q: \widetilde \sY \to \sY$ be a finite-fold transitive covering (cf. Definitions \ref{top_covering_defn}, and   \ref{top_transitive_defn}), and let  $\left(A,A_0\left( \widetilde \sY\right),G\left(\left.\widetilde{\sY}~\right|\sY\right),  A_0\left( q\right) \right)$ be the given by the Lemma \ref{blowing_fin_pre_lem} a noncommutative finite-fold pre-covering (cf. Definition \ref{fin_pre_defn}). If $\sU\subset \sY$ is an open connected set with compact closure such that the preimage $\widetilde \sU\bydef q^{-1}\left(\sU\right)$ is connected. Then a given by \eqref{blowig_sue3_eqn} hereditary $C^*$-subalgebra $_\sU A_\sU \subset A$ is $\left(A,A_0\left( \widetilde \sY\right),G\left(\left.\widetilde{\sY}~\right|\sY\right),  A_0\left( q\right) \right)$-strictly proper (cf. Definition \ref{hered_proper_lift_defn})
 \end{lemma}
+\begin{proof}
+From the Lemma  \ref{blowing_uau_conn_lem} it follows that $_\sU A_\sU$ is a connected $C^*$-algebra. If $\rho : A \hookto B\left(\H \right)$ is a faithful nondegenerate representation then from the Exercise \ref{hered_repr_p_empt} it follows that
+\bean
+_\sU A_\sU = \left\{a \in A |\pi_\sY\left(\chi_\sU \right) \rho\left(a \right)\pi_\sY\left(\chi_\sU \right) = \rho\left(a \right)  \right\}
+\eean
+where $\chi_\sU$ is a characteristic function of $\sU$ (cf. Definition \ref{top_char_f_defn}), and $\pi_\sY$ is a given by the Definition \ref{multiplier_el_defn} representation. If $\widetilde \rho: A_0\left( \widetilde \sY\right)\hookto B\left(\widetilde \H \right)$ is an induced by a pair $\left( \rho, \left(A,A_0\left( \widetilde \sY\right),G\left(\left.\widetilde{\sY}~\right|\sY\right),  A_0\left( q\right) \right)\right)$ representation and    $\widetilde{A}'$ is a {hereditary} $\left(A,A_0\left( \widetilde \sY\right),G\left(\left.\widetilde{\sY}~\right|\sY\right),  A_0\left( q\right) \right)$-{lift} of $_\sU A_\sU$ (cf. Definition \ref{hered_lift_defn}) then using the construction \ref{hered_lift_repr_empt} one can proof that
+$$
+\widetilde{A}' =   \left\{ \left.\widetilde a \in A_0\left( \widetilde \sY\right) ~\right| \pi_{\widetilde\sY}\left(\chi_{\widetilde\sU} \right)\widetilde \rho\left( \widetilde a\right)\pi_{\widetilde\sY}\left(\chi_{\widetilde\sU} \right) = \widetilde\rho\left(\widetilde a\right)\right\}
+$$
+From the above equation one can deduce that $\widetilde{A}'$ is a $C^*$-norm completion of $C_0\left(\widetilde \sY \right) A_0\left( \widetilde \sY\right)C_0\left( \widetilde \sY\right)$. Similarly to the Lemma \ref{blowing_uau_conn_lem} one can proof that $\widetilde{A}$ is a connected $C^*$-algebra. If $\sV$ is a closure of $\sU$ then from the inclusion \eqref{blowing_c0m_eqn} and faithful actions $C\left(\sV\right)\times C_0\left(\sU\right)\to C_0\left(\sU\right)$, $~C_0\left(\sU\right)\times C\left(\sV\right)\to C_0\left(\sU\right)$ one can find an inclusion $C\left(\sV\right)\subset M\left(C\left(\sV\right) \right)$.
+!!! CONTINUE\\
+
+!!! GROUP ACTION
+
+Let 
+$$
+g
+$$
+If both  $B$ and $\widetilde B$ are $C^*$-subalgebras of $M\left( _\sU A_\sU\right)$ and $M\left( \widetilde A'\right)$  generated by unions $_\sU A_\sU \cup C\left(\sV\right)$ and $\widetilde A' \cup C\left(\widetilde \sV\right)$ then there are unitizations  $_\sU A_\sU\hookto B$ and $\widetilde A' \hookto \widetilde B$.
+Both $\sV$ and $\widetilde \sV$ are compact and the restriction $q|_{\widetilde \sV}$ is a finite-fold transitive covering, so from the equation \eqref{top_aln_eqn} if follows that 
+\bean
+\begin{split}
+ \left\{\widetilde{e}_1, ..., \widetilde{e}_n\right\}\subset C\left(\widetilde \sV \right)_+ ,\\
+	1_{C\left(\widetilde{\mathcal V} \right) }= \sum_{j=1 }^n\widetilde{e}^2_{\widetilde{j}},\\
+	\forall j =1,...,n \quad \widetilde{e}_{j}	\left(g \widetilde{e}_{j} \right) = 0 \quad \text{for any nontrivial}\quad g\in G\left(\left.\widetilde \sV \right|\sV \right).
+\end{split}
+\eean 
+\be\nonumber
+G' \bydef \left\{ \left.g \in \Aut\left(\widetilde{B} \right)~\right|~ gb = b;~~\forall b \in B\right\}
+\ee
+
+Any yields surjective map $\phi: G' \to G\left(\left.\widetilde \sV \right|\sV \right)$
+From the above equation it follows that any $\widetilde b \in \widetilde B$ can be represented by the following way
+\be\label{blowing_en_eqn}
+\widetilde b = \sum_{j = 1}^n b_j \widetilde{e}_{j} \quad b_j \bydef \frac{\left| G\right| }{\left|G\left(\left.\widetilde \sV \right|\sV \right) \right| }\sum g\left(\widetilde b\widetilde e_j\right)\in \widetilde B
+\ee
+From $Gb_j = \{b_j\}$ and the equation \eqref{blowing_en_eqn} it follows that
+$$
+\forall g \in G \quad g \widetilde b = \sum_{j = 1}^n b_j \left( g\widetilde{e}_{j}\right) = \sum_{j = 1}^n b_j \left( \phi\left( g\right) \widetilde{e}_{j}\right)
+$$
+From the above equation it follows that $G' =$!!!
+
+
+
+
+ 
+
+\end{proof}
+\begin{empt}\label{hered_lift_repr_empt!}
+	Let a quadruple $\left(A, \widetilde{A}, G, \pi \right)$ be  {noncommutative finite-fold  quasi-covering} (cf. Definition \ref{fin_quasi_defn}), and let $\rho : A \hookto B\left(\H \right)$ be a faithful nondegenerate  representation (cf. Definitions \ref{faithful_repr_defn} and \ref{nondegenerate_repr_defn}). If $\widetilde \rho  : \widetilde{A}\to B\left( \widetilde{\H}\right)$ is induced by a pair $\left(\rho, \left(A, \widetilde{A}, G, \pi \right)\right)$ then $\widetilde \rho$ is faithful nondegenerate representation (cf. Lemmas \ref{induced_faithful_lem} and \ref{induced_nondegenerate_lem}). If $\left\{u_\la \right\} \subset  B\left(\H \right)_+$ be an increasing  net of positive elements explained in \ref{hered_repr_p_empt} then one can define a net $\left\{\rho\left(u_\la \right) \right\}\in B\left(  \H\right) $ such that then there is a projector $p \in B\left( \H\right)$ such that   	\bean
+	B = \left\{ a \in A | p\rho\left( a\right) p = \rho\left( a\right)\right\}
+	\eean
+	and  a natural representation
+	\bean
+	B \hookto B\left(p \H \right) 
+	\eean
+	is faithful and nondegenerate (cf. Corollary \ref{hered_representation_cor}). 
+	From the Lemma \ref{fin_multilier_lem} it follows that there is a natural inclusion $M\left(\pi \right) : M\left(A \right) \hookto M\left(\widetilde A \right)$. 
+	If  $\widetilde B\subset \widetilde A$ is a hereditary lift  $\left(A, \widetilde{A}, G, \pi \right)$-lift of $B$
+	(cf. Definition \ref{hered_lift_defn}) then there is a net  $\left\{M\left(\pi \right)\left(u_\la \right)  \right\}\subset B\left(\widetilde \H\right)$ 	such that $\left\{M\left(\pi \right)\left(u_\la \right)  \right\}\subset M\left(\widetilde A \right) \cap M\left( \widetilde B\right)$. Similarly to \ref{hered_repr_p_empt} 
+	there is  a strong limit $\widetilde p \bydef s-\lim\widetilde \pi_a\left( M\left(  u_\la\right)  \right) \in B\left( \widetilde \H\right)$ such that   $\widetilde p$ lies in the strong closure  
+	$\widetilde\rho\left(\widetilde A \right)''$ of $\widetilde\rho\left(\widetilde A\right)$ in $B\left(\widetilde \H\right)$.	
+	Moreover one has
+	\be\label{hered_papt_eqn}
+	\widetilde B = \left\{ \widetilde a \in \widetilde A | \widetilde p\widetilde \pi_a\left( \widetilde a\right)\widetilde p = \widetilde\pi_a\left(\widetilde a\right)\right\}
+	\ee
+	and  a natural representation
+	\be\label{hered_rept_eqn}
+	\widetilde B \hookto B\left(\widetilde p \widetilde \H \right) 
+	\ee
+	is faithful and nondegenerate (cf. Corollary \ref{hered_representation_cor}).
+\end{empt}
+
+
+
+\begin{definition}\label{hered_proper_lift_defn!}
+	Let $\left(A, \widetilde{A}, G, \pi \right)$ be a noncommutative finite-fold  pre-covering (cf. Definition \ref{fin_pre_defn}) such that $\widetilde{A}$ is a connected $C^*$-algebra. 	Let $B\subset A$ 	
+	be a hereditary connected $C^*$-subalgebra (cf.  Definitions \ref{hered_defn}, \ref{connected_c_a_defn}) and let $\widetilde B$ be a hereditary $\left(A, \widetilde{A}, G, \pi \right)$-{lift} of $B$ (cf. Definition \ref{hered_lift_defn}). We say that $B$ is $\left(A, \widetilde{A}, G, \pi \right)$-\textit{proper} if one has a natural isomorphism 
+	\be\label{hered_proper_lift_eqn}	
+	\left\{ \left.g \in \Aut\left(\widetilde{A} \right)~\right|~ ga = a;~~\forall a \in A\right\}= \left\{ \left.g \in \Aut\left(\widetilde{B} \right)~\right|~ gb = b;~~\forall b \in B\right\}
+	\ee
+	Moreover we say that $B$ is $\left(A, \widetilde{A}, G, \pi \right)$-\textit{strictly proper} if $\widetilde{B}$ is a connected $C^*$-algebra  and a quadruple $\left(B, \widetilde{B}, G, \pi|_B \right)$ is   a covering with unitization (cf. Definition \ref{fin_unitization_defn}).  (The action 	$G \times \widetilde{B}\to \widetilde{B}$, is the restriction on $\widetilde{B}\subset \widetilde{   A}$ of the action $G\times  \widetilde{A}\to \widetilde{A}$).
+	
+\end{definition}
+
+
+
 \begin{theorem}\label{blowing_fin_thm}
 	Let $A$ be a connected $C^*$-algebra (cf. Definition \ref{connected_c_a_defn}), end let $C_0\left( \sY\right) \hookto M\left(A \right)$ be disintegrable Hausdorff blowing-up (cf. Definitions \ref{blowing_defn} and \ref{blowing_disintegrable_defn}). If $q: \widetilde \sY \to \sY$ is a finite-fold transitive covering (cf. Definitions \ref{top_covering_defn}, \ref{top_transitive_defn}), $A_0\left(\widetilde\sY\right)$ is a $q$-lift of $A$ (cf. Definition \ref{blowing_lift_a_f_defn}) , an injective  *-homomorphism $A_0\left(q \right)  : A \hookto A_0\left(\widetilde\sY\right)$ is given by \eqref{blowing_a0_q_eqn} then the quadruple $\left(A,A_0\left( \widetilde \sY\right),G\left(\left.\widetilde{\sY}~\right|\sY\right),  A_0\left( q\right) \right)$ is a noncommutative finite-fold covering (cf. Definition \ref{fin_defn}).
 \end{theorem}
