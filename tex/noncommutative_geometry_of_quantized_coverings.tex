@@ -1675,21 +1675,36 @@ Indeed conditions (a), (b) of the Definition \ref{fin_pre_defn} state an isomorp
 theorem of Galois theory. (cf. \cite{kurosh:lga} Chapter Six, \S~6 for details).
 \end{remark}
 
-\begin{exercise}\label{fin_pre_exer}
-Let $\left(A, \widetilde{A}, G, \pi \right)$    be a {noncommutative finite-fold  pre-covering}. Let $H \subset G$ be a normal subgroup (cf. Definition \ref{normal_subgroup_defn}). Prove that  the quadruple 
-$$
-\left(\widetilde A^H, \widetilde{A}, G/H, \Id_{\widetilde A}|_{\widetilde A^H} \right)
-$$
-is   a {noncommutative finite-fold  pre-covering}.
-\end{exercise}
+
 
 \begin{definition}\label{proper_subgroup_fin_defn}
 Let $\left(A, \widetilde{A}, G\left(\left.\widetilde A~\right|A \right), \pi \right)$ be  a {noncommutative finite-fold  pre-covering} (cf. Definition \ref{fin_pre_defn}). A normal subgroup $H\subset G\left(\left.\widetilde A~\right|A \right)$ is said to be $\left(A, \widetilde{A}, G\left(\left.\widetilde A~\right|A \right), \pi \right)$-\textit{proper} if a quadruple
-\be
+\be\label{proper_subgroup_fin_eqn}
 \left(A, \widetilde{A}^H, G\left(\left.\widetilde A~\right|A \right)/H, \pi^H \right)
 \ee
-is a  {noncommutative finite-fold  pre-covering}. The *-homomorphism $\pi^H:A\hookto \widetilde{A}^H: $ comes from $\pi: A \hookto \widetilde{A}$ and an inclusion  $\pi\left( A\right) \subset \widetilde{A}^H$.
+is a  {noncommutative finite-fold  pre-covering}. The *-homomorphism $\pi^H:A\hookto \widetilde{A}^H $ comes from $\pi: A \hookto \widetilde{A}$ and an inclusion  $\pi\left( A\right) \subset \widetilde{A}^H$.
 \end{definition}
+\begin{lemma}\label{proper_subgroup_fin_lem}
+If $\left(A, \widetilde{A}, G\left(\left.\widetilde A~\right|A \right), \pi \right)$ is  a {noncommutative finite-fold  pre-covering} (cf. Definition \ref{fin_pre_defn} and a normal subgroup  $H\subset G\left(\left.\widetilde A~\right|A \right)$ is $\left(A, \widetilde{A}, G\left(\left.\widetilde A~\right|A \right), \pi \right)$-{proper} (cf. Definition \ref{proper_subgroup_fin_defn}) then a quadruple 
+	\be\label{proper_subgroup_finh_eqn}
+\left(\widetilde{A}^H, \widetilde{A}, H, \left.\Id_{\widetilde{A}}\right|_{\widetilde{A}^H} \right).
+\ee
+a {noncommutative finite-fold  pre-covering}.
+\end{lemma}
+\begin{proof}	
+	From the Definition \ref{fin_pre_defn} it follows that
+	$$
+G = 	 \left\{ \left.g \in \Aut\left(\widetilde{A} \right)~\right|~ ga = a;~~\forall a \in A\right\}.
+	$$
+	So one has
+	$$
+ \left\{ \left.g \in \Aut\left(\widetilde{A} \right)~\right|~ g\widetilde a^H = \widetilde a^H;~~\forall \widetilde a^H \in \widetilde{A}^H\right\}\subset G.	
+	$$
+	It turns out that
+	\bean
+	 \left\{ \left.g \in \Aut\left(\widetilde{A} \right)~\right|~ g\widetilde a^H = \widetilde a^H;~~\forall \widetilde a^H \in \widetilde{A}^H\right\}= \\= \left\{ \left.g \in G~\right|~ g\widetilde a^H = \widetilde a^H;~~\forall \widetilde a^H \in \widetilde{A}^H\right\}=H.
+	\eean
+\end{proof}
 
 \begin{empt}
 Let $A \subset \widetilde A$ be an inclusion of $C^*$-algebras such that $\widetilde A$ is a finitely generated left $A$-module, i.e.
@@ -1756,16 +1771,48 @@ where $\widetilde a^H_j \bydef \frac{1}{\left|H \right| }\sum_{g \in H}g \wideti
 We say that the triple $\left(A, \widetilde{A}, G \right)$ and/or the quadruple $\left(A, \widetilde{A}, G, \pi \right)$ and/or *-homomorphism $\pi: A \hookto \widetilde{A}$ is a
    		 \textit{noncommutative finite-fold covering with unitization}, (resp. \textit{noncommutative finite-fold quasi-covering with unitization}). 
    \end{definition}
-\begin{exercise}\label{fin_composition_uni_exer}
-	Let $\left(A, \widetilde{A}, G, \pi \right)$ be a noncommutative finite-fold covering  with unitization.  If $H \subset G$ is  a $\left(A, \widetilde{A}, G, \pi \right)$-proper group (cf. Definition \ref{proper_subgroup_fin_defn})  then there are following finite-fold noncommutative coverings with unitization:
+\begin{lemma}\label{fin_composition_uni_lem}
+	Let $\left(A, \widetilde{A}, G, \pi \right)$ be a noncommutative finite-fold covering  with unitization (cf. Definition \ref{fin_unitization_defn}).  If $H \subset G$ is  a $\left(A, \widetilde{A}, G, \pi \right)$-proper group (cf. Definition \ref{proper_subgroup_fin_defn})  then there are following finite-fold noncommutative coverings with unitization:
 	\bea\label{fin_composition_uni_1_eqn}
 \left(A, \widetilde{A}^H, G/H, \rho \right),\\
 \label{fin_composition_uni_2_eqn}
 \left(\widetilde{A}^H, \widetilde{A}, H, \left.\Id_{\widetilde{A}}\right|_{\widetilde{A}^H} \right).
 \eea
-\end{exercise}
-
- \begin{remark}\label{fin_comp_rem}
+\end{lemma}
+\begin{proof}
+	From the Definition \ref{proper_subgroup_fin_defn} and the Lemma \ref{proper_subgroup_fin_lem} it follows that both quadruples \ref{fin_composition_uni_1_eqn} and \ref{fin_composition_uni_2_eqn} are noncommutative  finite-fold pre-coverings.
+Let $\left(B, \widetilde{B}, G, \widetilde\pi \right)$ be a required by the Definition \ref{fin_unitization_defn} unital noncommutative finite-fold covering (cf. Definition \ref{fin_unitization_defn}), i.e. one has
+   	\begin{enumerate}
+	\item[(a)] 
+	There are unitizations $A \hookto B$  and $\widetilde{A} \hookto \widetilde{B}$ (cf. Definition \ref{unitization_defn}).
+	%	\item[(b)]$A = B\bigcap \widetilde{A}$,
+	\item[(b)] There is a %(strong) 
+	unital  noncommutative finite-fold quasi-covering	$\left(B ,\widetilde{B}, G, \widetilde{\pi} \right)$ (cf. Definition \ref{fin_unital_defn}) such that
+	$\pi = \widetilde{\pi}|_A$ (or, equivalently $A \cong \widetilde{A}\cap B$) and
+	the action $G \times\widetilde{A} \to \widetilde{A}$ comes from  the $G \times\widetilde{B} \to \widetilde{B}$ one.
+\end{enumerate}
+There is a natural inclusion $ \widetilde{A}^H \subset  \widetilde{B}^H$, let us prove that $ \widetilde{A}^H$ is an essential ideal of $\widetilde{B}^H$ (cf. Definition \ref{essential_defn}). If  $\widetilde b \in \widetilde B^H\setminus \{0\}$ is such that $\widetilde b\widetilde B^H= \{0\}$. Since $\widetilde b\neq 0$ from the Lemma \ref{essential_lem} there is $\widetilde a \in \widetilde A$ such that $\widetilde b \widetilde a \neq 0$. From \eqref{four_decompositon_eqn} it follows that one can assume that $\widetilde a$ is positive. From $\widetilde b \widetilde a = \widetilde b \sqrt{\widetilde a} \sqrt{\widetilde a} \neq 0$ it follows that $\widetilde b \sqrt{\widetilde a}\neq 0$ and $\widetilde b \sqrt{\widetilde a}\left( \widetilde b \sqrt{\widetilde a}\right)^* =  \widetilde b \sqrt{\widetilde a} \sqrt{\widetilde a}\widetilde b^*= \widetilde b\widetilde a\widetilde b^*$ is a nonzero element. The following sum
+\bean
+\sum_{	g \in H} g\left( \widetilde b\widetilde a\widetilde b^*\right) = \widetilde b \left( \sum_{	g \in H} \widetilde a\right)\widetilde  b^*
+\eean
+of positive nonzero elements is not equals to zero, so one has
+$$
+ \widetilde b \left( \sum_{	g \in H} a\right)\neq 0.
+$$
+On the other hand $\sum_{	g \in H} \widetilde a\in \widetilde A^H$, so $\widetilde b\widetilde A^H\neq \{0\}$. One has a contradiction it follows that
+$$
+\forall \widetilde b\in \widetilde B^H\quad \widetilde b\widetilde A^H\neq \{0\} \quad \Rightarrow\quad \widetilde b \neq 0.
+$$
+From the above equation and the Lemma \ref{essential_lem} it follows that $\widetilde A^H$ is an essential ideal of $\widetilde B^H$.
+Since $\widetilde B^H$ is unital, an inclusion $\widetilde  A^H\hookto\widetilde B^H$ is an unitization. From the Lemma \ref{fin_composition_lem} it follows that both quadruples
+	\bean%\label{fin_composition_uni_1_eqn}
+\left(B, \widetilde{B}^H, G/H,\widetilde \rho \right),\\
+%\label{fin_composition_uni_2_eqn}
+\left(\widetilde{B}^H, \widetilde{B}, H, \left.\Id_{\widetilde{B}}\right|_{\widetilde{B}^H} \right).
+\eean
+are unital noncommutative finite-fold coverings. From the Definition \ref{fin_unitization_defn} it follows that both quadruples \ref{fin_composition_uni_1_eqn} and \ref{fin_composition_uni_2_eqn} are noncommutative  finite-fold coverings with unitization. 
+\end{proof}
+\begin{remark}\label{fin_comp_rem}
  If we consider the situation of the Definition \ref{fin_unitization_defn} then since both  inclusions $A \hookto B$, $\widetilde{A} \hookto \widetilde{B}$ correspond to essential ideals then one has
  $$
  \left\{ \left.g \in \Aut\left(\widetilde{A} \right)~\right|~ ga = a;~~\forall a \in A\right\}\cong \left\{ \left.g \in \Aut\left(\widetilde{B} \right)~\right|~ gb = b;~~\forall b \in B\right\},
@@ -1803,7 +1850,7 @@ g\left(\widetilde b \widetilde a \right)=\lim v_\la g\left(  \widetilde b\wideti
 		\begin{equation}\label{mag_ma_acc_eqn}
 		\psi: M\left(\widetilde{A} \right)^G \cong  M\left(A \right).
 		\end{equation}
-	\item[(iii)] If  $\left(A, \widetilde{A}, G, \pi \right)$ is a pre-covering (cf. Definition \ref{fin_pre_exer}) then $\left( M\left({A} \right),  M\left(\widetilde{A}\right)  G, M\left(\pi \right)  \right)$ is a pre-covering. 
+	\item[(iii)] If  $\left(A, \widetilde{A}, G, \pi \right)$ is a pre-covering (cf. Definition \ref{fin_pre_defn}) then $\left( M\left({A} \right),  M\left(\widetilde{A}\right)  G, M\left(\pi \right)  \right)$ is a pre-covering. 
 	\end{enumerate}
 \end{lemma}
 
@@ -1853,6 +1900,17 @@ M\left(\pi \right):M\left({A} \right) \hookto M\left(\widetilde{A} \right).
 \begin{definition}\label{hered_lift_defn}
 	Let $\left(A, \widetilde{A}, G, \pi \right)$ be a noncommutative finite-fold  quasi-covering (cf. Definition \ref{fin_quasi_defn}). Let $B$ be a hereditary $C^*$-subalgebra of $A$ (cf. Definition \ref{hered_defn}). A generated by $\pi\left( B\right)$ hereditary $C^*$-subalgebra  $\widetilde B$ of  $\widetilde A$ (cf. Definition \ref{hered_gen_defn}) is said to be a \textit{hereditary} $\left(A, \widetilde{A}, G, \pi \right)$-\textit{lift} of $B$. 
 \end{definition}
+\begin{remark}\label{hered_lift_rem}
+If $\left\{u_\la\right\}_{\la \in \La} \subset B$ be an approximate unit of $B$ then one has
+\be\label{hered_lift_eqn}
+\widetilde B = \left\{\left.\widetilde b \in \widetilde A\right|\widetilde b=\lim_{\la \in \La} \pi\left( u_\la\right)\widetilde b\pi\left( u_\la\right) \right\}
+\ee 
+where $C^*$-norm limit is implied.
+\end{remark}
+\begin{remark}\label{hered_lift_au_rem}
+	If $\left\{u_\la\right\}_{\la \in \La} \subset B$ be an approximate unit of $B$ then $\left\{\pi\left( u_\la\right) \right\}_{\la \in \La} \subset \widetilde B$ is an approximate unit of $\widetilde B$. 
+\end{remark}
+
 \begin{exercise}\label{hered_lift_u_exer}
 	Let $\left(A, \widetilde{A}, G, \pi \right)$ be a noncommutative finite-fold  quasi-covering (cf. Definition \ref{fin_quasi_defn}).  Let $u \in M\left(A\right)_+$ be a positive element. Prove that a $C^*$-norm completion of $\pi\left(u \right) \widetilde{A} \pi\left(u\right)$ is the {hereditary} $\left(A, \widetilde{A}, G, \pi \right)$-{lift} of $C^*$-norm completion of $uBu$.
 \end{exercise}
@@ -1861,13 +1919,47 @@ M\left(\pi \right):M\left({A} \right) \hookto M\left(\widetilde{A} \right).
 
 \begin{definition}\label{hered_proper_lift_defn}
 	Let $\left(A, \widetilde{A}, G, \pi \right)$ be a noncommutative finite-fold  pre-covering (cf. Definition \ref{fin_pre_defn}) such that $\widetilde{A}$ is a connected $C^*$-algebra. 	Let $B\subset A$ 	
-	be a hereditary connected $C^*$-subalgebra (cf.  Definitions \ref{hered_defn}, \ref{connected_c_a_defn}) and let $\widetilde B$ be a hereditary $\left(A, \widetilde{A}, G, \pi \right)$-{lift} of $B$ (cf. Definition \ref{hered_lift_defn}). We say that $B$ is $\left(A, \widetilde{A}, G, \pi \right)$-\textit{proper} if one has a natural isomorphism 
+	be a hereditary connected $C^*$-subalgebra (cf.  Definitions \ref{hered_defn}, \ref{connected_c_a_defn}), and let $\widetilde B$ be a hereditary $\left(A, \widetilde{A}, G, \pi \right)$-{lift} of $B$ (cf. Definition \ref{hered_lift_defn}). We say that $B$ is $\left(A, \widetilde{A}, G, \pi \right)$-\textit{proper} if one has a natural isomorphism 
 	\be\label{hered_proper_lift_eqn}	
 	\left\{ \left.g \in \Aut\left(\widetilde{A} \right)~\right|~ ga = a;~~\forall a \in A\right\}= \left\{ \left.g \in \Aut\left(\widetilde{B} \right)~\right|~ gb = b;~~\forall b \in B\right\}
 	\ee
 	Moreover we say that $B$ is $\left(A, \widetilde{A}, G, \pi \right)$-\textit{strictly proper} if $\widetilde{B}$ is a connected $C^*$-algebra  and a quadruple $\left(B, \widetilde{B}, G, \pi|_B \right)$ is   a covering with unitization (cf. Definition \ref{fin_unitization_defn}).  (The action 	$G \times \widetilde{B}\to \widetilde{B}$, is the restriction on $\widetilde{B}\subset \widetilde{   A}$ of the action $G\times  \widetilde{A}\to \widetilde{A}$).
 	
 \end{definition}
+\begin{lemma}\label{fin_composition_unihereditary_lem}
+	Let $\left(A, \widetilde{A}, G, \pi \right)$ be a noncommutative finite-fold pre-covering   (cf. Definition \ref{fin_pre_defn}).  Let $H \subset G$ is  a $\left(A, \widetilde{A}, G, \pi \right)$-proper group (cf. Definition \ref{proper_subgroup_fin_defn}). Let $B\subset A$ be a  $\left(A, \widetilde{A}, G, \pi \right)$-hereditary subalgebra. Let both \\$\left(A, \widetilde{A}^H, G\left(\left.\widetilde A~\right|A \right)/H, \pi^H \right)$ and 
+	$\left(\widetilde{A}^H, \widetilde{A}, H, \left.\Id_{\widetilde{A}}\right|_{\widetilde{A}^H} \right)$ are given by the Definition \ref{proper_subgroup_fin_defn} and the Lemma \ref{proper_subgroup_fin_lem}. 
+	 {noncommutative finite-fold  pre-coverings}. If a hereditary $C^*$-subalgebra $B\subset A$ is is $\left(A, \widetilde{A}, G, \pi \right)$-{strictly proper} (cf. Definition \ref{hered_proper_lift_defn}) and  $\widetilde B$ be a hereditary $\left(A, \widetilde{A}, G, \pi \right)$-{lift} of $B$ (cf. Definition \ref{hered_lift_defn})	 
+	 then following conditions hold:
+\begin{itemize}
+	\item[(i)] A $C^*$-algebra $\widetilde B^H$ is a $\left(A, \widetilde{A}^H, G\left(\left.\widetilde A~\right|A \right)/H, \pi^H \right)$-lift of $B$ (cf. Definition \ref{hered_proper_lift_defn}).
+	\item[(ii)] A $C^*$-algebra $\widetilde B$ is a $\left(\widetilde{A}^H, \widetilde{A}, H, \left.\Id_{\widetilde{A}}\right|_{\widetilde{A}^H} \right)$-lift of $\widetilde B^H$.
+	\item[(iii)] A hereditary $C^*$-subalgebra $B\subset A$  is $\left(A, \widetilde{A}^H, G\left(\left.\widetilde A~\right|A \right)/H, \pi^H \right)$-{strictly proper}, and a hereditary subalgebra $\widetilde B^H\subset \widetilde B$ is $\left(\widetilde{A}^H, \widetilde{A}, H, \left.\Id_{\widetilde{A}}\right|_{\widetilde{A}^H} \right)$-strictly proper (cf. Definition \ref{hered_proper_lift_defn}).
+\end{itemize}	 
+\end{lemma}
+\begin{proof}
+	Let $\left\{u_\la\right\}_{\la \in \La} \subset B$ be an approximate unit of $B$.\\
+(i) From the Remark \ref{hered_lift_rem} it follows that
+\bean
+\widetilde B = \left\{\left.\widetilde b \in \widetilde A\right|\widetilde b=\lim_{\la \in \La} \pi\left( u_\la\right)\widetilde b\pi\left( u_\la\right) \right\}
+\eean
+On the other hand from
+\bean
+\widetilde A^H = \left\{\left.\sum_{	g \in G}g \widetilde a~ \right| \widetilde a \in \widetilde A\right\},\\
+\widetilde B^H = \left\{\left.\sum_{	g \in G}g \widetilde b~ \right| \widetilde b \in \widetilde B\right\}= \left\{\left.\widetilde b \in \widetilde A\right|\widetilde b=\lim_{\la \in \La} \pi\left( u_\la\right)\widetilde b\pi\left( u_\la\right) \right\}
+\eean
+it follows that
+\bean
+\widetilde B^H = \left\{\left.\widetilde b \in \widetilde A^H\right|\widetilde b=\lim_{\la \in \La} \pi\left( u_\la\right)\widetilde b\pi\left( u_\la\right) \right\}.
+\eean
+So from the Remark \ref{hered_lift_rem} it follows that $\widetilde B^H$ is a $\left(A, \widetilde{A}^H, G\left(\left.\widetilde A~\right|A \right)/H, \pi^H \right)$-lift of $B$.\\
+(ii) From the Remark \ref{hered_lift_au_rem} it follows that  $\left\{\pi^H\left( u_\la\right) \right\}_{\la \in \La} \subset \widetilde B$ is an approximate unit of $\widetilde B$. If $\widetilde B'$ is a $\left(\widetilde{A}^H, \widetilde{A}, H, \left.\Id_{\widetilde{A}}\right|_{\widetilde{A}^H} \right)$-lift of $\widetilde B^H$ then one has
+\bean
+\widetilde B'= \left\{\left.\widetilde b \in \widetilde B~\right|\widetilde b= \lim_{\la \in \La} \left.\Id_{\widetilde{A}}\right|_{\widetilde{A}^H}\circ\pi^H\left(u_\la \right)\widetilde b \left.\Id_{\widetilde{A}}\right|_{\widetilde{A}^H}\circ\pi^H\left(u_\la \right)\right\}=\\=\left\{\left.\widetilde b \in \widetilde A\right|\widetilde b=\lim_{\la \in \La} \pi\left( u_\la\right)\widetilde b\pi\left( u_\la\right) \right\}
+\eean
+and from the Remark \ref{hered_lift_au_rem} it follows that $\widetilde{B}' = \widetilde B$.\\
+(iii) Follows from the Lemma \ref{fin_composition_uni_lem}.
+\end{proof}
 
 \begin{definition}\label{fin_defn}
 A noncommutative finite-fold  pre-covering  $\left(A, \widetilde{A}, G, \pi \right)$    is said to be   a \textit{noncommutative finite-fold covering} if there is an indexed by a directed set $\La$ family $\left\{A_\la \subset A\right\}_{\la\in\La}$ of $\left(A, \widetilde{A}, G, \pi \right)$-{strictly proper} hereditary $C^*$-subalgebras (cf. the Definition \ref{hered_proper_lift_defn}) such that 
@@ -1915,6 +2007,19 @@ is dense in $A$.
 	\ee
 	On the other hand since $\widetilde A_{\la_0}\subset \widetilde A$ is a hereditary subalgebra, $p_{\la_0}\in A_{\la_0}\subset \widetilde A_{\la_0}$ from the Lemma \ref{hered_lem} it follows that $p_{\la_0}\widetilde a p_{\la_0}\in \widetilde A_{\la_0}$. Taking into account equations \eqref{four_decompositon_eqn} and  \eqref{hered_dense_eqn} one concludes that  the union $\cup_{\la \in \La} \widetilde{A}_\la$ is dense in $\widetilde{A}$.
 \end{proof}
+
+\begin{lemma}\label{fin_composition_covering_lem}
+	Let $\left(A, \widetilde{A}, G, \pi \right)$ be a noncommutative finite-fold covering (cf. Definition \ref{fin_defn}).  If $H \subset G$ is  a $\left(A, \widetilde{A}, G, \pi \right)$-proper group (cf. Definition \ref{proper_subgroup_fin_defn}). Then  both noncommutative finite-fold pre-coverings $\left(A, \widetilde{A}^H, G\left(\left.\widetilde A~\right|A \right)/H, \pi^H \right)$ and 
+	$\left(\widetilde{A}^H, \widetilde{A}, H, \left.\Id_{\widetilde{A}}\right|_{\widetilde{A}^H} \right)$  given by the Definition \ref{proper_subgroup_fin_defn} and the Lemma \ref{proper_subgroup_fin_lem} are noncommutative finite-fold coverings. 
+\end{lemma}
+\begin{proof}
+Let $\left\{A_\la \subset A\right\}_{\la\in\La}$ of $\left(A, \widetilde{A}, G, \pi \right)$ be a required by the Definition \ref{fin_defn} indexed by a directed set $\La$ family of $\left(A, \widetilde{A}, G, \pi \right)$-{strictly proper} hereditary $C^*$-subalgebras (cf. the Definition \ref{hered_proper_lift_defn}). From  (iii) of the Lemma \ref{fin_composition_unihereditary_lem} it follows that $A_\la$ is a $\left(A, \widetilde{A}^H, G\left(\left.\widetilde A~\right|A \right)/H, \pi^H \right)$-{strictly proper} hereditary $C^*$-subalgebra for all  $\la\in \La$. Taking into account that a union $\cup_{\la\in \La} A_\la$ is dense in $A$ one concludes that the quadruple $\left(A, \widetilde{A}^H, G\left(\left.\widetilde A~\right|A \right)/H, \pi^H \right)$ a noncommutative finite-fold covering.
+
+If $\widetilde A^H_\la$ is a hereditary $\left(A, \widetilde{A}^H, G\left(\left.\widetilde A~\right|A \right)/H, \pi^H \right)$-lift of $A_\la$ then from  the Lemma \ref{fin_def_lem} it turns out that the union $\cup_{\la\in \La} \widetilde A^H_\la$ is dense in $\widetilde A^H$. On the other hand from (iii) 
+of the Lemma From  (iii) of the Lemma \ref{fin_composition_unihereditary_lem} it follows that $\widetilde{A}^H_\la$ is a $\left(A, \widetilde{A}^H, G\left(\left.\widetilde A~\right|A \right)/H, \pi^H \right)$-strictly proper hereditary $C^*$-subalgebra. From the Definition \ref{fin_defn} it turns out that the quadruple 
+	 $\widetilde{A}^H_\la$ is a $\left(A, \widetilde{A}^H, G\left(\left.\widetilde A~\right|A \right)/H, \pi^H \right)$ is a noncommutative finite-fold covering.
+\end{proof}
+
 
 \begin{remark}
 	If  $\left\{u_\la\right\}_{\la\in\La} = \left\{1_{M\left(A \right) }\right\}$  then the Definition \ref{fin_defn} !!! \ref{fin_exer} !!! !!!BELOW!!!  yields a noncommutative finite-fold covering with unitization, i.e. 
@@ -3773,6 +3878,9 @@ The category $\mathfrak{S}^{\text{pt}}$  is equivalent to the pre-order category
 	\end{split}
 	\ee
 \end{definition}
+\begin{remark}\label{composition_rem}
+From the Lemma \ref{fin_composition_covering_lem} it follows that if $\mu, \nu \in \La$ are such that $\mu\le\nu$ then there is a noncommutative finite-fold covering $\left( A_\mu , A_{\nu}, G\left(\left.A_\nu~\right|A_\mu \right) , \pi^\mu_{\nu}\right)$  where $G\left(\left.A_\nu~\right|A_\mu \right)\cong G\left(\left.A_\nu~\right|A \right)/G\left(\left.A_\mu~\right|A \right)$.
+\end{remark}
 \begin{remark}	Let $\widetilde p: \widetilde\sX \to \sX$ is a transitive covering. Let  $p_\la: \sX_\la \to \sX$ ($\la\in\La$) be a family of transitive coverings such that for any $\la \in \La$ there is a covering $\widetilde p_\la : \widetilde \sX \to \sX_\la$ such that $\widetilde p = p_\la \circ \widetilde p_\la$. Let us consider a category with objects $p_\la: \sX_\la \to \sX$. Morphisms of the category are coverings $p^\mu_\nu: \sX_\mu\to \sX_\nu$ such that the following diagram\\
 	\newline
 	\begin{tikzpicture}
@@ -13139,7 +13247,7 @@ From the above equation it follows that $G' =$!!!
 \begin{definition}\label{hered_proper_lift_defn!}
 	Let $\left(A, \widetilde{A}, G, \pi \right)$ be a noncommutative finite-fold  pre-covering (cf. Definition \ref{fin_pre_defn}) such that $\widetilde{A}$ is a connected $C^*$-algebra. 	Let $B\subset A$ 	
 	be a hereditary connected $C^*$-subalgebra (cf.  Definitions \ref{hered_defn}, \ref{connected_c_a_defn}) and let $\widetilde B$ be a hereditary $\left(A, \widetilde{A}, G, \pi \right)$-{lift} of $B$ (cf. Definition \ref{hered_lift_defn}). We say that $B$ is $\left(A, \widetilde{A}, G, \pi \right)$-\textit{proper} if one has a natural isomorphism 
-	\be\label{hered_proper_lift_eqn}	
+	\be\label{hered_proper_lift_eqn!}	
 	\left\{ \left.g \in \Aut\left(\widetilde{A} \right)~\right|~ ga = a;~~\forall a \in A\right\}= \left\{ \left.g \in \Aut\left(\widetilde{B} \right)~\right|~ gb = b;~~\forall b \in B\right\}
 	\ee
 	Moreover we say that $B$ is $\left(A, \widetilde{A}, G, \pi \right)$-\textit{strictly proper} if $\widetilde{B}$ is a connected $C^*$-algebra  and a quadruple $\left(B, \widetilde{B}, G, \pi|_B \right)$ is   a covering with unitization (cf. Definition \ref{fin_unitization_defn}).  (The action 	$G \times \widetilde{B}\to \widetilde{B}$, is the restriction on $\widetilde{B}\subset \widetilde{   A}$ of the action $G\times  \widetilde{A}\to \widetilde{A}$).
@@ -22589,7 +22697,7 @@ $C^*$-subalgebras is one also.
 \end{remark}
 \begin{definition}\label{hered_gen_defn}\cite{murphy}
 The hereditary $C^*$-subalgebra \textit{generated} by a
-subset $S$ of A is the smallest hereditary $C^*$-subalgebra of $A$ containing $S$.
+subset $S$ of $A$ is the smallest hereditary $C^*$-subalgebra of $A$ containing $S$.
 \end{definition}
 
 	
