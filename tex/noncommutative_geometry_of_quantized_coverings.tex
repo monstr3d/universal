@@ -2535,11 +2535,11 @@ On the other hand the state $\widetilde q$ is $G$-invariant, it is possible if a
 \end{remark}
 \begin{definition}\label{fin_free_defn}
 We say that a finite-fold quasi-covering $\left(A, \widetilde{A}, G, \pi \right)$ is \textit{free} if the given by the Proposition \ref{spectrum_cov_prop}   action of $G\times \widetilde\sX \to \widetilde\sX$ is free.
-\end{definition}   !!! CONTINUE
+\end{definition}   
 \begin{exercise}\label{disunct_irr_exer}
 	Let $A$ be a $C^*$-algebra, and let
 	 $\tau_1, ..., \tau_n: A\to\C$ be states. Let $\tau\bydef c_1 \tau_1 +... +c_n\tau_n$ be a state such that $c_1> 0, ..., c_n > 0$ and $c_1+...+c_n=1$. Let $\pi: A \to B\left(L^2\left( A,\tau \right)  \right)$ and $\pi_j: A \to B\left(L^2\left( A,\tau_j \right)  \right)$ be the GNS representations (cf. Definition \ref{gns_defn}). From the Corollary \ref{domin_rep_cor} for any $j=1,..., n$ a representation $\pi_j$ can be regarded as a subrepresentation of 
-	 $\pi$. Let $\pi\left(A \right)'$ be a commutant of $\pi\left( A\right) $ in $B\left(L^2\left( A,\tau_j \right) \right)$.  Then any representation $\pi_j$ is a representation on $p_j L^2\left( A,\tau \right)$, where $p_j\in \pi\left(A \right)'$ is a projector with central support projection $z_j \in \mathscr Z\left( \pi\left(A \right)'\right)$ (cf. Definition \ref{central_supp_defn}). Prove following statements:
+	 $\pi$. If $\pi\left(A \right)'$ is a commutant of $\pi\left( A\right) $ in $B\left(L^2\left( A,\tau_j \right) \right)$ then any representation $\pi_j$ is a representation on $p_j L^2\left( A,\tau \right)$, where $p_j\in \pi\left(A \right)'$ is a projector with central support projection $z_j \in \mathscr Z\left( \pi\left(A \right)'\right)$ (cf. Definition \ref{central_supp_defn}). Prove following statements:
 	 \begin{enumerate}
 	 	\item For any $j = 1,..., n$ the Hilbert space
 	 	$$
@@ -2683,7 +2683,7 @@ Let 	$\left(A, \widetilde{A}, G, \pi \right)$ be a
 \bean
 \phi: G \to \left\{\left.g \in\Homeo\left(  \widetilde{\sX}\right) \right|p\circ g= g \right\}
 \eean
-If $g \in G$ and $\widetilde x \in \widetilde \sX$ are such that $g \widetilde x = \widetilde x$ then $g$ corresponds to a *-automorphism of $\rep_{  \widetilde{x }}\left( \widetilde A\right)$. If this automorphism is not trivial then $\rep_{  \widetilde{x }}\left(  A\right) \subset \rep_{  \widetilde{x }}\left( \widetilde A\right)^G \subsetneqq \rep_{  \widetilde{x }}\left( \widetilde A\right)$, i.e. there is a contradiction with the Definition \ref{fin_red_defn}. From this contradiction it follows that any non trivial $g \in \G$ corresponds to a trivial *-automorphism of $\rep_{  \widetilde{x }}\left( \widetilde A\right)$, i.e. $g$ corresponds to a nontrivial homeomorphism of $\widetilde \sX$. So $\ker \phi$ is trivial and
+If $g \in G$ and $\widetilde x \in \widetilde \sX$ are such that $g \widetilde x = \widetilde x$ then $g$ corresponds to a *-automorphism of $\rep_{  \widetilde{x }}\left( \widetilde A\right)$. If this automorphism is not trivial then $\rep_{  \widetilde{x }}\left(  A\right) \subset \rep_{  \widetilde{x }}\left( \widetilde A\right)^G \subsetneqq \rep_{  \widetilde{x }}\left( \widetilde A\right)$, i.e. there is a contradiction with the Definition \ref{fin_red_defn}. From this contradiction it follows that any non trivial $g \in G$ corresponds to a trivial *-automorphism of $\rep_{  \widetilde{x }}\left( \widetilde A\right)$, i.e. $g$ corresponds to a nontrivial homeomorphism of $\widetilde \sX$. So $\ker \phi$ is trivial and
 $$
 G \cong %\left\{\left.g \in\Aut\left(  \widetilde{A}\right) \right|ga= a \quad\forall a \in A \right\}\cong
 \left\{\left.g \in\Homeo\left(  \widetilde{\sX}\right) \right|p\circ g= g \right\}.
@@ -2711,32 +2711,34 @@ From the above equation it follows that the quadruple $\left(A, \widetilde{A}, G
 Prove that any free  noncommutative finite-fold quasi-covering  is reduced (cf. Definitions \ref{fin_free_defn} and \ref{fin_red_defn}).
 \end{exercise}
 
-\begin{lemma}\label{covering_atomic_lem} !!! REDUCED LEM !!! 
-	If $\left(A, \widetilde{A}, G, \pi \right)$ is  a reduced noncommutative finite-fold  quasi-covering (cf. Definition \ref{fin_quasi_defn}), $\rho: A \to B\left(\H\right)$ is an atomic representation (cf. Definition \ref{atomic_repr_defn}) and $ \widetilde \rho :\widetilde A \to B\left(\widetilde \H\right)$ is induced by the pair $\left(\rho, \left(A, \widetilde{A}, G, \pi \right)\right)$ (cf. Definition \ref{induced_repr_defn}), then the representation $\widetilde \rho$ is atomic.
+\begin{lemma}\label{covering_atomic_lem} 
+	If $\left(A, \widetilde{A}, G, \pi \right)$ is  a % reduced 
+	noncommutative finite-fold  quasi-covering (cf. Definition \ref{fin_quasi_defn}), $\rho: A \to B\left(\H\right)$ is an atomic representation (cf. Definition \ref{atomic_repr_defn}) and $ \widetilde \rho :\widetilde A \to B\left(\widetilde \H\right)$ is induced by the pair $\left(\rho, \left(A, \widetilde{A}, G, \pi \right)\right)$ (cf. Definition \ref{induced_repr_defn}), then the representation $\widetilde \rho$ is atomic.
 \end{lemma}
 \begin{proof}
 	Let both $\sX$ and $\widetilde \sX$ be spectra of both $A$ and $\widetilde A$. If $x \in \sX$ and $\H_x$ is a space of an irreducible  representation $\rep_x: A \to B\left(\H_x\right)$ then $\H= \oplus_{x\in \sX} \H_x$ where $\oplus$ is a norm completion of an algebraic direct sum (cf. Definition \ref{atomic_repr_defn}). It turns out that $\widetilde \H =\oplus_{x\in \sX} \widetilde \H_x$ where $\widetilde \H_x \bydef \widetilde A\otimes \H_x$. From the equation \eqref{tau_oplus_eqn} it follows that
 	$
 	\widetilde \H_x = \bigoplus_{\widetilde x \in p^{-1}\left( x\right)} \widetilde \H_{\widetilde x}
 	$
-	where $p: \widetilde \sX \to \sX$ is given by the Proposition \ref{spectrum_cov_prop} and $\H_{\widetilde x}$ a space of an irreducible  representation $\rep_{\widetilde x}: \widetilde A \to B\left(\widetilde \H_{\widetilde x}\right)$. Using the above construction one has
+	where $p: \widetilde \sX \to \sX$ is given by the Proposition \ref{spectrum_cov_prop} and $\H_{\widetilde x}$ a space of an irreducible  representation $\rep_{\widetilde x}: \widetilde A \to B\left(\widetilde \H_{\widetilde x}\right)$. % However from  the Definition \ref{fin_red_defn} it follows that $\rep_{  \widetilde{x }}\left(\widetilde A \right) = \rep_{  \widetilde{x }}\left(A \right)$, so for each  $\widetilde x \in \widetilde\sX$ there is a natural isomorphism $
+	Using the above construction one has
 	$$
 	\widetilde \H = \bigoplus_{x\in \sX} \widetilde A\otimes \H_x = \bigoplus_{x\in \sX}\left(\bigoplus_{\widetilde x \in p^{-1}\left( x\right)} \widetilde \H_{\widetilde x} \right) =  \bigoplus_{\widetilde x \in \widetilde \sX} \widetilde \H_{\widetilde x}
 	$$
 	Above equation means that $\widetilde \H$ is a Hilbert  space of the atomic representation.
 \end{proof}
 \begin{empt}\label{hered_lift_repr_empt}
-	Let a quadruple $\left(A, \widetilde{A}, G, \pi \right)$ be  {noncommutative finite-fold  quasi-covering} (cf. Definition \ref{fin_quasi_defn}), and let $\rho : A \hookto B\left(\H \right)$ be a faithful nondegenerate  representation (cf. Definitions \ref{faithful_repr_defn} and \ref{nondegenerate_repr_defn}). If $\widetilde \rho  : \widetilde{A}\to B\left( \widetilde{\H}\right)$ is induced by a pair $\left(\rho, \left(A, \widetilde{A}, G, \pi \right)\right)$ then $\widetilde \rho$ is faithful nondegenerate representation (cf. Lemmas \ref{induced_faithful_lem} and \ref{induced_nondegenerate_lem}). If $\left\{u_\la \right\} \subset  B\left(\H \right)_+$ be an increasing  net of positive elements explained in \ref{hered_repr_p_empt} then one can define a net $\left\{\rho\left(u_\la \right) \right\}\in B\left(  \H\right) $ such that then there is a projector $p \in B\left( \H\right)$ such that   	\bean
-	B = \left\{ a \in A | p\rho\left( a\right) p = \rho\left( a\right)\right\}
+	Let a quadruple $\left(A, \widetilde{A}, G, \pi \right)$ be  {noncommutative finite-fold  quasi-covering} (cf. Definition \ref{fin_quasi_defn}), and let $\rho : A \hookto B\left(\H \right)$ be a faithful nondegenerate  representation (cf. Definitions \ref{faithful_repr_defn} and \ref{nondegenerate_repr_defn}). If $\widetilde \rho  : \widetilde{A}\to B\left( \widetilde{\H}\right)$ is induced by a pair $\left(\rho, \left(A, \widetilde{A}, G, \pi \right)\right)$ (cf. Definition \ref{induced_repr_defn}) then $\widetilde \rho$ is faithful nondegenerate representation (cf. Lemmas \ref{induced_faithful_lem} and \ref{induced_nondegenerate_lem}). If $\left\{u_\la \right\}_{\la\in\La} \subset  B\left(\H \right)_+$ is an increasing  net of positive elements explained in \ref{hered_repr_p_empt} then one can define a net $\left\{\rho\left(u_\la \right) \right\}_{\la\in\La}\subset B\left(  \H\right) $ such that then there is a projector $p \in B\left( \H\right)$ such that  $p$ is a strong limit of $\left\{\rho\left(u_\la \right) \right\}_{\la\in\La}$ in $B\left(\H\right)$ and	\bean
+	B = \left\{ a \in A | p\rho\left( a\right) p = \rho\left( a\right)\right\}.
 	\eean
-	and  a natural representation
+	Moreover  a natural representation
 	\bean
 	B \hookto B\left(p \H \right) 
 	\eean
 	is faithful and nondegenerate (cf. Corollary \ref{hered_representation_cor}). 
 	From the Lemma \ref{fin_multilier_lem} it follows that there is a natural inclusion $M\left(\pi \right) : M\left(A \right) \hookto M\left(\widetilde A \right)$. 
 	If  $\widetilde B\subset \widetilde A$ is a hereditary lift  $\left(A, \widetilde{A}, G, \pi \right)$-lift of $B$
-	(cf. Definition \ref{hered_lift_defn}) then there is a net  $\left\{M\left(\pi \right)\left(u_\la \right)  \right\}\subset B\left(\widetilde \H\right)$ 	such that $\left\{M\left(\pi \right)\left(u_\la \right)  \right\}\subset M\left(\widetilde A \right) \cap M\left( \widetilde B\right)$. Similarly to \ref{hered_repr_p_empt} 
+	(cf. Definition \ref{hered_lift_defn}) then there is a net  $\left\{M\left(\pi \right)\left(u_\la \right)  \right\}\subset B\left(\widetilde \H\right)$ 	such that $\left\{M\left(\pi \right)\left(u_\la \right)  \right\}\left\{\rho\left(u_\la \right) \right\}_{\la\in\La}\subset M\left(\widetilde A \right) \cap M\left( \widetilde B\right)$. Similarly to \ref{hered_repr_p_empt} 
 	there is  a strong limit $\widetilde p \bydef s-\lim\widetilde \rho\left( M\left(  u_\la\right)  \right) \in B\left( \widetilde \H\right)$ such that   $\widetilde p$ lies in the strong closure  
 	 $\widetilde\rho\left(\widetilde A \right)''$ of $\widetilde\rho\left(\widetilde A\right)$ in $B\left(\widetilde \H\right)$.	
 Moreover one has
@@ -2751,47 +2753,11 @@ is faithful and nondegenerate (cf. Corollary \ref{hered_representation_cor}).
 \end{empt}
 
 
-\begin{lem}\label{hered_covering_lem}
-	!!! CHECK
-Let $\left(A, \widetilde{A}, G, \pi \right)$ be a reduced	noncommutative finite-fold covering with unitization (cf. Definitions \ref{fin_unitization_defn}, \ref{fin_def_lem}). If $B\subset A$ is a hereditary subalgebra  (cf. Definition \ref{hered_defn}) and $\widetilde B\subset \widetilde A$ is the generated by $\pi\left(B \right)$ subalgebra. Suppose that the spectrum of $A$ coincides with the spectrum of $B$ (cf. \ref{hered_spectrum_prop})
- If both $\widetilde{A}$ and $\widetilde{B}$ are connected (cf. Definition \ref{connected_c_a_defn}) then there is a reduced	noncommutative finite-fold covering  with unitization $\left(B, \widetilde B, G\right)$.
-\end{lem}
-\begin{proof}
-	If both  $\sX$ and $\widetilde \sX$ are spectra of   $A$ and $\widetilde A$ and $p : \sX\to\widetilde \sX$ is given by the Proposition \ref{spectrum_cov_prop}
-then from the proof of the Lemma \ref{quasi_red_lem} it follows that 
-$$
-G = \left\{\left.g \in \Homeo\left(\widetilde \sX \right)\right| p = p\circ g\right\}
-$$	
-	
-	!!!
-	The proof of  that $\left(B, \widetilde B, G\right)$ is a finite-fold noncommutative pre-covering (cf. Definition \ref{fin_pre_defn}) and \eqref{hered_covering_lem} we leave to the reader.
-	Let $\left\{u_\la\right\}\subset B$ be an approximate unity of $B$ (cf. Definition \ref{approximate_unit_defn} ). Suppose   $\widetilde a_1, ...,\widetilde a_n\in M\left( \widetilde A\right) $ are such that
-	\be\label{hered_covering_lem_eqn}
-	M\left( \widetilde A\right) = \widetilde a_1 M\left( A\right) + ...+ \widetilde a_n M\left( A\right)
-\ee
-	(cf. Lemma \ref{cov_mult_fin_cor}). For every $j = 1,..., n$ one has a limit
-	$$
-	\widetilde b_j \bydef\bt\text{-}\lim_{\a\in \mathscr A}  u_\la \widetilde a_j u_\la\in M\left(\widetilde B \right)
-	$$
-	with respect to the strict topology of $M\left(\widetilde B \right)$ (cf. Definition \ref{strict_topology_defn}). From \eqref{hered_covering_lem_eqn} it follows that
-	\bean
-M\left( \widetilde B\right) = \widetilde b_1 M\left( B\right) + ...+ \widetilde b_n M\left( B\right)
-\eean
-From the above equation it follows that $\left(B, \widetilde B, G\left(\left.\widetilde B\right| B\right)\right)$ satisfies to conditions (a) and (b)	of the Definition \ref{fin_unitization_defn}. Other details of the proof are left to the reader.
-\end{proof}
-\begin{exercise}\label{hered_proper_lift_exer}
-	Let $\left(A, \widetilde{A}, G, \pi \right)$ be a noncommutative finite-fold  pre-covering (cf. Definition \ref{fin_pre_defn}). 	Let $B\subset A$  be a $\left(A, \widetilde{A}, G, \pi \right)$-{strictly proper}	hereditary subalgebra (cf. Definition \ref{hered_proper_lift_defn}), and let $\widetilde B$ be a hereditary $\left(A, \widetilde{A}, G, \pi \right)$-{lift} of $B$ (cf. Definition \ref{hered_lift_defn})
-Prove that  a quadruple $\left(B, \widetilde{B}, G, \pi|_B \right)$ is a reduced finite-fold covering (cf. Definition \ref{fin_red_defn}).
-\end{exercise}
 
-
-\begin{definition}\label{simply_connected_red_defn}  !!! MAY BE DELETE !!!
-	A connected $C^*$-algebra $A$ (cf. Definition \ref{connected_c_a_defn}) is said to be \textit{reducibly simply connected} if $A$  has no nontrivial reducible (connected) noncommutative finite-fold coverings (cf. Definitions \ref{fin_defn} !!! \ref{fin_exer} !!! !!! CHANGE !!! and \ref{fin_red_defn}), or equivalently any disconnected reducible noncommutative finite-fold covering of $A$ (cf. Definition \ref{fin_defn} !!! \ref{fin_exer} !!! !!! CHANGE !!!) is almost trivial (cf. Definition \ref{almost_trivial_defn}).
-\end{definition}
 \begin{definition}\label{fin_cat_defn}
-	For any connected $C^*$-algebra $A$ consider a category $A$ $\mathfrak{FinCov}$-$A$ such that following conditions hold:
+	For any connected $C^*$-algebra $A$ consider a category $\mathfrak{FinCov}$-$A$ such that following conditions hold:
 	\begin{itemize}
-		\item [(i)]  Objects of $\mathfrak{FinCov}$-$A$ are connected finite-fold noncommutative coverings $\pi: A \hookto \widetilde A$ (cf. Definition \ref{fin_defn}).
+		\item [(i)]  Objects of $\mathfrak{FinCov}$-$A$ are connected finite-fold noncommutative coverings $\pi: A \hookto \widetilde A$ (or $\left(A, \widetilde{A}, G, \pi \right)$) (cf. Definition \ref{fin_defn}).
 		\item[(ii)] A morphism from $\pi': A \hookto \widetilde A'$ to $\pi'': A \hookto \widetilde A''$ is an injective *-homomorphism $\pi: \widetilde A''\hookto \widetilde A'$ such that the following diagram 
 		\newline
 		\begin{tikzpicture}
@@ -2805,13 +2771,14 @@ Prove that  a quadruple $\left(B, \widetilde{B}, G, \pi|_B \right)$ is a reduced
 			(m-2-2) edge node [right] {$~~\pi''$} (m-1-3);
 		\end{tikzpicture}
 		\\ 	
-		is commutative.	
+		is commutative.
 		\item[(iii)] Compositions of morphisms are natural.
 	\end{itemize}
 	We say that $\mathfrak{FinCov}$-$A$ is the \textit{category of finite-fold coverings} of $A$. 
 	Sometimes we write $\widetilde A$ instead of $\pi: A \hookto \widetilde A$ to designate an object of $\mathfrak{FinCov}$-$A$. Similarly we define the subcategories of \textit{reduced}  (cf. Definition \ref{fin_red_defn}) and \textit{free} (cf. Definition \ref{fin_free_defn}) finite-fold noncommutative coverings. We denote them by 
-	$\mathfrak{FinCov}^\text{red}$-$A$ and $\mathfrak{FinCov}^\text{free}$-$A$  respectively.
+	$\mathfrak{FinCov}^\text{red}$-$A$ and $\mathfrak{FinCov}^\text{free}$-$A$  respectively. If $\left(A, \widetilde{A}', G', \pi' \right)$ and $\left(A, \widetilde{A}'', G'', \pi \right)$ are objects of $\mathfrak{FinCov}$-$A$ then a morphism $\pi$ from $\left(A, \widetilde{A}', G', \pi' \right)$ to $\left(A, \widetilde{A}'', G'', \pi \right)$ is said to be \textit{proper} if there is a proper normal subgroup $H''\subset G''$ (cf. Definition \ref{proper_subgroup_fin_defn}) such that there is a * isomorphism $\widetilde{A}' \cong \widetilde{A}''^H$ and $\pi$ is equivalent to a natural inclusion $ \widetilde{A}''^H\hookto \widetilde{A}''$.
 \end{definition}
+
 
 %If $\left(A, \widetilde{A}, G, \pi \right)$ is  a noncommutative finite-fold  quasi-covering, and $\mathrm{Prim}\left(\widetilde{A}\right)$ is the prime spectrum of $\widetilde{A}$ then the action $G \times\widetilde A$ induces a  homomorphism
 %\be\label{prime_cov_eqn}
@@ -3426,7 +3393,7 @@ Let $\left(\A, \widetilde \A, G\left( \left.\widetilde \A~\right| \A\right), \pi
 Denote by 
 \bean
 \rho : \A \hookto B\left(\H \right),\\
-\rho^0: \A^\opp \hookto B\left(\H \right) 
+\rho^0: \A^\opp \hookto B\left(\H \right). 
 \eean
 natural representations of $\A$ and $\A^0$. Similarly to \eqref{morita_prod_eqn} consider a following pre-Hilbert space 
 \bean
@@ -3453,13 +3420,13 @@ then on has
 \eean 
 From the above equation and from
 $$
-\forall c \in \C \quad \widetilde J c \left(\widetilde a \ox \xi \right) = \widetilde a^* \ox Jc\xi= c^* \widetilde a^* \ox J\xi= c^* \widetilde J  \left(\widetilde a \ox \xi \right) 
+\forall c \in \C \quad \widetilde J c \left(\widetilde a \ox \xi \right) = \widetilde J  \left(\widetilde a \ox c \xi \right)= \widetilde a^* \ox Jc\xi= \widetilde a^* \ox c^* J\xi= c^* \widetilde a^* \ox J\xi= c^* \widetilde J  \left(\widetilde a \ox \xi \right) 
 $$
 it follows that $\widetilde J$ is an anitunitary operator.
 Since $\widetilde{\A}$ is a finitely generated projective $\A$-module one has $\widetilde{\A} = p \A^N$ and there are inclusions $\widetilde{\A} \subset \End^*_\A\left( \widetilde{\A}\right) \subset \mathbb{M}_N\left( A\right)$ of *-algebras. So any $\widetilde a \in \widetilde \A$ can be represented by a matrix 
 \bean
 \begin{pmatrix}
-	a_{1,1}& \ldots & a_{N,1} \\
+	a_{1,1}& \ldots & a_{1,N} \\
 	\vdots& \ddots & \vdots\\
 	a_{N,1}& \ldots &a_{N,N} 
 \end{pmatrix}\in \mathbb{M}_N\left( A\right).
@@ -3467,23 +3434,24 @@ Since $\widetilde{\A}$ is a finitely generated projective $\A$-module one has $\
 Similarly any $\widetilde J \widetilde b^* \widetilde J^\dagger$ can be represented by
 \bean
 \begin{pmatrix}
-J	b^*_{1,1}J^\dagger& \ldots & J	b^*_{1,1}J^\dagger \\
+J	b^*_{1,1}J^\dagger& \ldots & J	b^*_{1, N}J^\dagger \\
 	\vdots& \ddots & \vdots\\
-J	b^*_{1,1}J^\dagger& \ldots &J	b^*_{1,1}J^\dagger 
+J	b^*_{1,N}J^\dagger& \ldots &J	b^*_{N,N}J^\dagger 
 \end{pmatrix}.
 \eean
-From the equation \eqref{df:spt-real_eqn} it follows that
+From the equation \eqref{df:spt-real_eqn} it follows that $\left[a_{jk}, J	b^*_{kl}J^\dagger\right]= 0$ for all $j, k, l \in \{1,..., N\}$ so one has
 $$
 \left[\begin{pmatrix}
-	a_{1,1}& \ldots & a_{N,1} \\
+	a_{1,1}& \ldots & a_{1,N} \\
 	\vdots& \ddots & \vdots\\
 	a_{N,1}& \ldots &a_{N,N} 
 \end{pmatrix}, \begin{pmatrix}
-J	b^*_{1,1}J^\dagger& \ldots & J	b^*_{1,1}J^\dagger \\
+J	b^*_{1,1}J^\dagger& \ldots & J	b^*_{1,N}J^\dagger \\
 \vdots& \ddots & \vdots\\
-J	b^*_{1,1}J^\dagger& \ldots &J	b^*_{1,1}J^\dagger 
+J	b^*_{N,1}J^\dagger& \ldots &J	b^*_{N,N}J^\dagger 
 \end{pmatrix}\right]= 0,
 $$
+!!! CONTINUE\\
 so one has
 \be\label{st_comn_wt_eqn}
 \forall \widetilde a,\widetilde b \in \widetilde \A\quad \left[ \widetilde a,\widetilde J\widetilde b^*\widetilde J^\dagger\right] = 0,
@@ -13114,43 +13082,6 @@ From the above equation it follows that $G' =$!!!
  
 
 \end{proof}
-\begin{empt}\label{hered_lift_repr_empt!}
-	Let a quadruple $\left(A, \widetilde{A}, G, \pi \right)$ be  {noncommutative finite-fold  quasi-covering} (cf. Definition \ref{fin_quasi_defn}), and let $\rho : A \hookto B\left(\H \right)$ be a faithful nondegenerate  representation (cf. Definitions \ref{faithful_repr_defn} and \ref{nondegenerate_repr_defn}). If $\widetilde \rho  : \widetilde{A}\to B\left( \widetilde{\H}\right)$ is induced by a pair $\left(\rho, \left(A, \widetilde{A}, G, \pi \right)\right)$ then $\widetilde \rho$ is faithful nondegenerate representation (cf. Lemmas \ref{induced_faithful_lem} and \ref{induced_nondegenerate_lem}). If $\left\{u_\la \right\} \subset  B\left(\H \right)_+$ be an increasing  net of positive elements explained in \ref{hered_repr_p_empt} then one can define a net $\left\{\rho\left(u_\la \right) \right\}\in B\left(  \H\right) $ such that then there is a projector $p \in B\left( \H\right)$ such that   	\bean
-	B = \left\{ a \in A | p\rho\left( a\right) p = \rho\left( a\right)\right\}
-	\eean
-	and  a natural representation
-	\bean
-	B \hookto B\left(p \H \right) 
-	\eean
-	is faithful and nondegenerate (cf. Corollary \ref{hered_representation_cor}). 
-	From the Lemma \ref{fin_multilier_lem} it follows that there is a natural inclusion $M\left(\pi \right) : M\left(A \right) \hookto M\left(\widetilde A \right)$. 
-	If  $\widetilde B\subset \widetilde A$ is a hereditary lift  $\left(A, \widetilde{A}, G, \pi \right)$-lift of $B$
-	(cf. Definition \ref{hered_lift_defn}) then there is a net  $\left\{M\left(\pi \right)\left(u_\la \right)  \right\}\subset B\left(\widetilde \H\right)$ 	such that $\left\{M\left(\pi \right)\left(u_\la \right)  \right\}\subset M\left(\widetilde A \right) \cap M\left( \widetilde B\right)$. Similarly to \ref{hered_repr_p_empt} 
-	there is  a strong limit $\widetilde p \bydef s-\lim\widetilde \pi_a\left( M\left(  u_\la\right)  \right) \in B\left( \widetilde \H\right)$ such that   $\widetilde p$ lies in the strong closure  
-	$\widetilde\rho\left(\widetilde A \right)''$ of $\widetilde\rho\left(\widetilde A\right)$ in $B\left(\widetilde \H\right)$.	
-	Moreover one has
-	\be\label{hered_papt_eqn}
-	\widetilde B = \left\{ \widetilde a \in \widetilde A | \widetilde p\widetilde \pi_a\left( \widetilde a\right)\widetilde p = \widetilde\pi_a\left(\widetilde a\right)\right\}
-	\ee
-	and  a natural representation
-	\be\label{hered_rept_eqn}
-	\widetilde B \hookto B\left(\widetilde p \widetilde \H \right) 
-	\ee
-	is faithful and nondegenerate (cf. Corollary \ref{hered_representation_cor}).
-\end{empt}
-
-
-
-\begin{definition}\label{hered_proper_lift_defn!}
-	Let $\left(A, \widetilde{A}, G, \pi \right)$ be a noncommutative finite-fold  pre-covering (cf. Definition \ref{fin_pre_defn}) such that $\widetilde{A}$ is a connected $C^*$-algebra. 	Let $B\subset A$ 	
-	be a hereditary connected $C^*$-subalgebra (cf.  Definitions \ref{hered_defn}, \ref{connected_c_a_defn}) and let $\widetilde B$ be a hereditary $\left(A, \widetilde{A}, G, \pi \right)$-{lift} of $B$ (cf. Definition \ref{hered_lift_defn}). We say that $B$ is $\left(A, \widetilde{A}, G, \pi \right)$-\textit{proper} if one has a natural isomorphism 
-	\be\label{hered_proper_lift_eqn!}	
-	\left\{ \left.g \in \Aut\left(\widetilde{A} \right)~\right|~ ga = a;~~\forall a \in A\right\}= \left\{ \left.g \in \Aut\left(\widetilde{B} \right)~\right|~ gb = b;~~\forall b \in B\right\}
-	\ee
-	Moreover we say that $B$ is $\left(A, \widetilde{A}, G, \pi \right)$-\textit{strictly proper} if $\widetilde{B}$ is a connected $C^*$-algebra  and a quadruple $\left(B, \widetilde{B}, G, \pi|_B \right)$ is   a covering with unitization (cf. Definition \ref{fin_unitization_defn}).  (The action 	$G \times \widetilde{B}\to \widetilde{B}$, is the restriction on $\widetilde{B}\subset \widetilde{   A}$ of the action $G\times  \widetilde{A}\to \widetilde{A}$).
-	
-\end{definition}
-
 
 
 \begin{theorem}\label{blowing_fin_thm}
