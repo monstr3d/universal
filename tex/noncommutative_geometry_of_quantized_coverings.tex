@@ -3703,7 +3703,7 @@ This section contains  noncommutative generalizations of infinite coverings.
 
 
 \begin{definition}\label{comp_defn}
-	Let $\La$ be a countable (cf. Definition \ref{directed_set_defn}) and  $\la_{\min} \in \La$.
+	Let $\La$ be a countable  set and  $\la_{\min} \in \La$.
 Let $A$ be a $C^*$-algebra.  Let us consider a set noncommutative finite-fold coverings $\mathfrak{S}=\left\{ \pi_{\la}:A \hookto A_{\la}\right\}_{\la \in \La}$ indexed by  $\La$ such that $A_{\la_{\mathrm{min}}}= A$, and $\pi_{\la_{\mathrm{min}}}= \Id_A$. We do not claim that any noncommutative finite-fold covering $A \to \widetilde{A}$ belongs to $\mathfrak{S}$. 
 Consider a category $\mathfrak{S}$ such that a set of objects of  is  $$\mathfrak{S}=\left\{ \left( A , A_{\la}, G\left(\left.A_\la~\right|A \right) , \pi_{\la}\right) \right\}_{\la \in \La}.$$ 
 A morphism  $\left( A , A_{\mu}, G\left(\left.A_\mu~\right|A \right) , \pi_{\mu}\right) $ to $\left( A , A_{\nu}, G\left(\left.A_\nu~\right|A \right) , \pi_{\mu}\right) $ is an  injective *-homomorphisms $ \pi: A_\nu \hookto A_\mu$ such that $\pi_\mu = \pi \circ \pi_\nu$.
@@ -3732,7 +3732,7 @@ The category $\mathfrak{S}^{\text{pt}}$  is equivalent to the pre-order category
 \begin{remark}\label{composition_rem}
 From the Lemma \ref{fin_composition_covering_lem} it follows that if $\mu, \nu \in \La$ are such that $\mu\le\nu$ then there is a noncommutative finite-fold covering $\left( A_\mu , A_{\nu}, G\left(\left.A_\nu~\right|A_\mu \right) , \pi^\mu_{\nu}\right)$  where $G\left(\left.A_\nu~\right|A_\mu \right)\cong G\left(\left.A_\nu~\right|A \right)/G\left(\left.A_\mu~\right|A \right)$.
 \end{remark}
-\begin{remark}	Let $\widetilde p: \widetilde\sX \to \sX$ is a transitive covering. Let  $p_\la: \sX_\la \to \sX$ ($\la\in\La$) be a family of transitive coverings such that for any $\la \in \La$ there is a covering $\widetilde p_\la : \widetilde \sX \to \sX_\la$ such that $\widetilde p = p_\la \circ \widetilde p_\la$. Let us consider a category with objects $p_\la: \sX_\la \to \sX$. Morphisms of the category are coverings $p^\mu_\nu: \sX_\mu\to \sX_\nu$ such that the following diagram\\
+\begin{remark}\label{comp_pt_ex_rem}	Let $\widetilde p: \widetilde\sX \to \sX$ is a transitive covering. Let  $p_\la: \sX_\la \to \sX$ ($\la\in\La$) be a family of transitive coverings such that for any $\la \in \La$ there is a covering $\widetilde p_\la : \widetilde \sX \to \sX_\la$ such that $\widetilde p = p_\la \circ \widetilde p_\la$. Let us consider a category with objects $p_\la: \sX_\la \to \sX$. Morphisms of the category are coverings $p^\mu_\nu: \sX_\mu\to \sX_\nu$ such that the following diagram\\
 	\newline
 	\begin{tikzpicture}
 		\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
@@ -3750,47 +3750,23 @@ is commutative. This category is not skeletal (cf. Definition \ref{skeletal_defn
 	
 \end{remark}
 \begin{remark}\label{comp_pt_rem}
-	The Definition \ref{pointed_defn} means that for any $\mu \ge \nu$ the category $\mathfrak{S}^{\text{pt}}$ contains the unique *-homomorphism $\pi^\nu_{ \mu}: A_\nu \hookto A_\mu$. The family of $\left\{\pi^\nu_{ \mu}\right\}$ of *-homomorphisms  is said to be a \textit{base-point}.
+	From the above Remark \ref{comp_pt_ex_rem} the skeleton is not unique. The concrete skeleton is said to be a \textit{base-point}. This definition is motivated by the Remark \ref{comp_pt_ex_rem}. The base-point uniquely depends on the family  of $\left\{\pi^\nu_{ \mu}\right\}_{\substack{\nu, \nu\in \La\\\mu\le\nu}}$ of injective *-homomorphisms.
 \end{remark}
 \begin{remark}\label{base_pt_iso_rem}
 Any two skeletons of a category are isomorphic. So our results do not depend on base-point up to isomorphism.
 \end{remark}
 \begin{remark}\label{implicit_inc_rem}
-Henceforth for all $\la\in\La$ we implicitly assume that $A_\la \subset  C^*$-$\varprojlim_{\la \in\La} A_\la$ (cf. Definition \ref{inductive_lim_non_defn}). We sometimes we write $ A_\nu \subset A_\mu$ instead of  $\pi^\nu_{ \mu}: A_\nu \hookto A_\mu$.
+Henceforth for all $\la\in\La$ we implicitly assume that $A_\la \subset  C^*$-$\varprojlim_{\la \in\La} A_\la$ where $C^*$-$\varprojlim_{\la \in\La} A_\la$ means a $C^*$-inductive limit (cf. Definition \ref{inductive_lim_non_defn}). We sometimes we write $ A_\nu \subset A_\mu$ instead of  $\pi^\nu_{ \mu}: A_\nu \hookto A_\mu$.
 \end{remark}
 % \begin{definition}\label{comp_defn}
 % 	An algebraical finite precovering category said to be an \textit{algebraical  finite covering category} if all morphism of it are finite-fold coverings.   We write $\mathfrak{S} \in \mathfrak{FinAlg}$
 % \end{definition}
-\begin{lemma}\label{skeleton_lem}
-		Let $\La$ be a countable directed set (cf. Definition \ref{directed_set_defn}) such that there is the unique minimal element $\la_{\min} \in \La$.
-	Let $A$ be a $C^*$-algebra.  Let us consider a set noncommutative finite-fold coverings $\mathfrak{S}=\left\{ \pi_{\la}:A \hookto A_{\la}\right\}_{\la \in \La}$ indexed by  $\La$ such that $A_{\la_{\mathrm{min}}}= A$, and $\pi_{\la_{\mathrm{min}}}= \Id_A$. We do not claim that any noncommutative finite-fold covering $A \to \widetilde{A}$ belongs to $\mathfrak{S}$. Suppose that  for  $\mu, \nu \in \La$ one has
-	\bean
-	\begin{split}
-		\mu \ge \nu  \text{ if and only if there is an injective}\\ \text{*-homomorphism } \pi: A_\nu \hookto A_\mu 		\text{  such that } \pi_\mu = \pi \circ \pi_\nu.
-	\end{split}
-	\eean
-	The category $\mathfrak{S}$ is  an {algebraical  finite covering category} for any $\mu, \nu \in \La$ such that $\mu \le\nu$ the skeleton    $\mathfrak{S}^{\text{pt}}$ of    $\mathfrak{S}$ has a unique morphism from $\left( A , A_{\nu}, G\left(\left.A_\nu~\right|A \right) , \pi_{\nu}\right)$ to $\left( A , A_{\mu}, G\left(\left.A_\mu~\right|A \right) , \pi_{\mu}\right)$ which satisfy to following conditions:
-	\begin{enumerate}
-		\item[(a)] there is a $\left(A, A_\nu, G_\nu, \pi_\nu \right)$-proper group (cf. Definition \ref{proper_subgroup_fin_defn}) subgroup $H \subset  G\left(\left.A_\nu~\right|A \right)$ such that
-		\bean
-		A_\mu \cong A_\nu^H,\\
-		G\left(\left.A_\mu~\right|A \right)\cong G\left(\left.A_\nu~\right|A \right)/ H
-		\eean
-		\item[(b)] the injective homomorphism $\pi^\mu_\nu : A_\mu \hookto A_\nu$ which yields the morphism from $\left( A , A_{\nu}, G\left(\left.A_\nu~\right|A \right) , \pi_{\nu}\right)$ to $\left( A , A_{\mu}, G\left(\left.A_\mu~\right|A \right) , \pi_{\mu}\right)$ is equivalent to the natural inclusion $A_\nu^H\subset A_\nu$. 
-	\end{enumerate}
-	\end{lemma}
-\begin{proof}
-According to the Definition \ref{comp_defn} one should proof that for any $\mu, \nu \in \La$ a pair $\left( \pi_\mu, \pi_\nu\right)$ is compliant (cf. Definition \ref{compliant_defn} ). This requirement is equivalent to the conditions (a) and (b) of this lemma.
-\end{proof}
-\begin{remark}\label{skeleton_rem}
-From the Lemma \ref{fin_composition_lem} if follows that $\pi^\mu_\nu : A_\mu \hookto A_\nu$ is a finite-fold noncommutative covering (cf. Definition \ref{fin_defn} !!! \ref{fin_exer} !!! !!! CHANGE !!!)
-\end{remark}
 \begin{empt}\label{inv_g_lim_empt} Let us consider the situation of the Definition \ref{pointed_defn}.
-	If $\mu, \nu \in \La$ and $\mu > \nu$. Denote by   $h^\mu_\nu:  G\left(\left.A_\mu~\right|A \right) \to  G\left(\left.A_\nu~\right|A \right)$ the surjective homomorphism which comes from $\pi^\nu_\mu$ (cf. Definition \ref{compliant_comes_defn}).
+	If $\mu, \nu \in \La$ and $\mu > \nu$. Denote by   $h^\mu_\nu:  G\left(\left.A_\mu~\right|A \right) \to  G\left(\left.A_\nu~\right|A \right)\cong G\left(\left.A_\mu~\right|A \right)/H $ the surjective homomorphism which comes from $\pi^\nu_\mu$.
 \end{empt}
 
 \begin{defn}\label{inv_g_lim_defn}
-	From the Lemma \ref{skeleton_lem} it turns out that one can  define surjective homomorphisms  $h^\mu_\nu:  G\left(\left.A_\mu~\right|A \right) \to  G\left(\left.A_\nu~\right|A \right)$ the surjective homomorphism which come from $\pi^\nu_\mu$, hence there is the inverse limit 
+	From (b) of the Definition \ref{pointed_defn} it turns out that one can  define surjective homomorphisms  $h^\mu_\nu:  G\left(\left.A_\mu~\right|A \right) \to  G\left(\left.A_\nu~\right|A \right)$ the surjective homomorphism which come from $\pi^\nu_\mu$, hence there is the inverse limit 
 	$$
 	\widehat{G}=	\varprojlim_{\la \in \La} G\left(\left.A_\la~\right|~A\right)
 	$$
@@ -4038,18 +4014,15 @@ However there are $a_{	\la}, b_{\la}, a^\eps_{\la}\in A_{\la}$ such that
 	\ee
 is $\pi$-\textit{weakly special}. If $\pi$ is atomic then we say that $\overline b$ is \textit{weakly special}.  Denote by $\Xi_\pi\left( \mathfrak{S}^{\mathrm{pt}}\right)$ the $\widehat{A}$-bimodule of $\pi$-{weakly special} families.  
 \end{definition}
-\begin{lemma}
-	From the Lemma \ref{quasi_mult_lem} !!! DENSE REPLACE !!! it follows that 
+\begin{empt}
+	From the Lemma \ref{quasi_mult_lem}  it follows that 
 	$$
-	A \left(   \bigcup_{\la \in La} A_\la \right) A
+	A \left(   \bigcup_{\la \in \La} A_\la \right) A
 	$$ 
-	is dense in $\bigcup_{\la \in La} A_\la$. Otherwise  $\bigcup_{\la \in La} A_\la$ is dense in $\widehat A$, so $ A\widehat  A A$ is dense in $\widehat A$. But the set $ A\widehat  A A$ is $C^*$-norm closed, so $ A\widehat  A A = \widehat A$. It follows that 
-	\be\label{axia_eqn}
-	A \Xi_\pi\left( \mathfrak{S}^{\mathrm{pt}}\right) A = \Xi_\pi\left( \mathfrak{S}^{\mathrm{pt}}\right)
-	 \ee
-\end{lemma}
+	is dense in $\bigcup_{\la \in \La} A_\la$. Otherwise  $\bigcup_{\la \in \La} A_\la$ is dense in $\widehat A$, so $ A\widehat  A A$ is dense in $\widehat A$.
+\end{empt}
 \begin{empt}\label{disconnected_limit_empt}
-	The natural action of $\widehat{G} \times \H \to \H$ induces the action $\widehat{G} \times B\left( \H\right)  \to B\left( \H\right)$ (cf. Remark \ref{equiv_rem}).
+!!!!	The natural action of $\widehat{G} \times \H \to \H$ induces the action $\widehat{G} \times B\left( \H\right)  \to B\left( \H\right)$ (cf. Remark \ref{equiv_rem}).
 	 Clearly if $\overline a \in B\left(\H \right)$ is special then $g \overline a$ satisfies to (a), (b) of the Definition \ref{special_element_defn}, i.e. $g \overline a$ is also special. Similarly if $\overline b$ is weakly special then $g \overline b$ is also special, i.e.  there is the natural action
 	\be\label{spec_act_eqn}
 	\widehat{G}\times \Xi_\pi\left( \mathfrak{S}^{\mathrm{pt}}\right) \to \Xi_\pi\left( \mathfrak{S}^{\mathrm{pt}}\right)
@@ -4071,8 +4044,8 @@ There is the natural $\C$-linear map
 	Let us consider the situation of  \ref{disconnected_limit_empt}. 	The $C^*$-algebra $\overline{A}_\pi\subset B\left(\H\right)$ generated by the operator space	$f^\Xi_\pi\left( \Xi_\pi\left( \mathfrak{S}^{\mathrm{pt}}\right)\right)$   is said to be the $\pi$-\textit{\it disconnected algebraical inverse noncommutative limit} of $ \mathfrak{S}^{\mathrm{pt}}$. If $$G\left(\left.\overline{A}_\pi~\right| A \right)\bydef \widehat G \bydef\varprojlim_{\la \in \La} G\left(
 	\left.  A_\la~ \right|A\right)$$ then there is the action of $G\left(\left.\overline{A}_\pi~\right| A\right)\times \overline{A}_\pi\to \overline{A}_\pi$ which comes from the action \eqref{g_a_eqn}. The triple  $\left(A, \overline{A}_\pi, G\left(\left.\overline{A}_\pi~\right| A \right)\right)$ is said to be the  $\pi$-\textit{disconnected algebraical infinite noncommutative covering} of $ \mathfrak{S}^{\mathrm{pt}} $.  We  say that $G\left(\left.\overline{A}_\pi~\right| A\right)$ is the $\pi$-\textit{disconnected covering transformation group} of $ \mathfrak{S}^{\mathrm{pt}}$.	If $\pi$ is the atomic representation i.e. $\pi = \pi_a:\widehat{A}\to B\left(\widehat\H_a \right)$ then we write $\overline A$ instead  $\overline{A}_\pi$ and we say that $\overline A$ is the \textit{ disconnected algebraical inverse noncommutative limit} of $ \mathfrak{S}^{\mathrm{pt}}$. Similarly $G\left(\left.\overline{A}~\right| A \right)\stackrel{\mathrm{def}}{=} \widehat{G}$. The triple  $\left(A, \overline{A}, G\left(\left.\overline{A}~\right| A \right)\right)$ is said to be the  \textit{disconnected algebraical infinite noncommutative covering} of $ \mathfrak{S}^{\mathrm{pt}} $.  We  say that $G\left(\left.\overline{A}~\right| A\right)$ is the \textit{disconnected covering transformation group} of $ \mathfrak{S}^{\mathrm{pt}}$.
 \end{definition}
-\begin{remark}
-From \eqref{axia_eqn} it follows that $\pi\left( A\right) \overline{A}_\pi\pi\left( A\right)$ is a dense subset of $\overline{A}_\pi$. Since the set $\pi\left( A\right) \overline{A}_\pi\pi\left( A\right)$ is $C^*$-norm closed one has
+\begin{remark}  
+From \eqref{axia_eqn} !!! DENSE it follows that $\pi\left( A\right) \overline{A}_\pi\pi\left( A\right)$ is a dense subset of $\overline{A}_\pi$. Since the set $\pi\left( A\right) \overline{A}_\pi\pi\left( A\right)$ is $C^*$-norm closed one has
 \be\label{ata_eqn}
 \pi\left( A\right) \overline{A}_\pi\pi\left( A\right)= \overline{A}_\pi.
 \ee
