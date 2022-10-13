@@ -3395,73 +3395,84 @@ Denote by
 \rho : \A \hookto B\left(\H \right),\\
 \rho^0: \A^\opp \hookto B\left(\H \right). 
 \eean
-natural representations of $\A$ and $\A^0$. Similarly to \eqref{morita_prod_eqn} consider a following pre-Hilbert space 
+natural representations of $\A$ and $\A^0$. If $\widetilde A = pA^m$, then $\widetilde A^\opp =\left( A^\opp\right)^mp$ and
+$\widetilde\H = \pi(p) \pi^0(p) [\H \ox \C^{m^2}]$ then similarly to the equation \eqref{morita_prod_eqn} consider a following Hilbert space 
 \bean
-\widetilde \H^\infty \bydef \widetilde \A \otimes_\A \H^\infty
+\widetilde\K \bydef \widetilde A \otimes_A \H \ox_{A^\opp} \widetilde A^\opp.
 \eean
-with the following scalar product
+with the scalar product given by
+\be\label{st_k_pr_eqn}
+\left( r \ox \eta \ox \bar q, s \ox \xi \ox \bar t\right)_{\widetilde{\K}} 
+\bydef \left( \eta, \left\langle r,s\right\rangle_{\widetilde A}\,  \left\langle t,q\right\rangle_{\widetilde A^\opp}  \,\xi\right)_\H 
+\ee
+There are two subspaces 
 \bean
-\left(\widetilde a \ox \xi, \widetilde b \ox \eta \right)_{\widetilde{\H}}\bydef \left(\xi,  \left\langle a, b \right\rangle_{\A} \eta \right)_\H
+\widetilde \H \bydef \left\{ \widetilde{a }\ox \xi \ox 1_{\widetilde{A}^\opp}\in \widetilde \K \right\},\\
+\widetilde \H^\opp \bydef \left\{ 1_{\widetilde{A}}\ox \xi \ox  \widetilde{a }^0\in \widetilde \K \right\}.
+\eean
+of $\widetilde\K$ and an Abelian group isomorphism
+\bean
+\a : \widetilde \H \cong \widetilde \H^\opp,\\
+\widetilde{a }\ox \xi \ox 1_{\widetilde{A}^\opp}\mapsto  1_{\widetilde{A}}\ox \xi \ox \left(  \widetilde{a }^0\right)^* 
+\eean
+From \eqref{st_k_pr_eqn} it follows that 
+$$
+\forall \widetilde{\xi}, \widetilde \eta \in \widetilde \H \quad \left(\widetilde{\xi}, \widetilde \eta\right)_{\widetilde \K}= \left(\a\widetilde{\xi}, \a\widetilde \eta\right)_{\widetilde \K}.
+$$ 
+From the above equation and taking into account $\forall c \in \C \quad \a \left(  c \widetilde{\xi}\right) = c\left( \a  \widetilde{\xi}\right) $ we conclude that $\a$ is an isomorphism of Hilbert spaces. The space $\widetilde \K$ is a $\widetilde A$-$\widetilde A^\opp$ bimodule, both subspaces $\widetilde \H, \widetilde \H^\opp\subset \widetilde\K$ are left $\widetilde A$ and right $\widetilde A^\opp$ module respectively. One can define a natural structure of a right-$\widetilde A^\opp$ bimodule on $\widetilde \H$ such that
+\bean
+\forall \widetilde \xi \in \widetilde \H\quad \forall \widetilde a^0\in \widetilde A^\opp \quad \widetilde \xi \widetilde b^0 \bydef \a^{-1}\left( \a\left(\widetilde \xi \right) \widetilde a^0\right)  
 \eean 
-where $\left\langle a, b \right\rangle_{\A}\bydef \frac{1}{\left| G\right| }\sum_{	g \in G}g\left(a^*b \right)$
-(cf. equation \eqref{induced_prod_equ}) If one denotes
+so $\widetilde\H$ is a is a $\widetilde A$-$\widetilde A^\opp$-bimodule. From the isomorphism of
+$$
+\left\{ \widetilde{a }\ox \xi \ox 1_{\widetilde{A}^\opp}\in \widetilde \K \right\}\cong \widetilde A \ox_A \H
+$$
+of Hilbert spaces where $\widetilde A \ox_A \H$ has  the following scalar product
+\bean
+\left(\widetilde a \ox \xi, \widetilde b \ox \eta \right)_{\widetilde{\H}}\bydef \left(\xi,  \left\langle a, b \right\rangle_{\A} \eta \right)_\H,
+\eean 
+where $\left\langle a, b \right\rangle_{\A}\bydef \frac{1}{\left| G\right| }\sum_{	g \in G}g\left(a^*b \right)$.
+So one can redefine $\widetilde \H$ by the following way
+\be\label{st_h_defn_eqn}
+\widetilde \H \bydef \widetilde A\ox_A \H.
+\ee
+Indeed the natural representation $\widetilde \rho: \widetilde A \to B\left(\widetilde \H \right)$ is induced by a pair $\left(\rho, \left(A, \widetilde A, G\left( \left.\widetilde A\right| A\right), \widetilde \pi  \right) \right)$ (cf. Definition \ref{induced_repr_defn}). 
+The equation \eqref{morita_J_eqn} yields a charge conjugate operator
+$\widetilde I : \widetilde{K}\to \widetilde{K}$. One can define  a charge conjugate operator
+\bean
+\widetilde J : \widetilde{\H}\to \widetilde{\H},\\
+ \widetilde \xi  \mapsto \widetilde{I}\a\left( \xi\right) 
+\eean 
+From \eqref{morita_J_eqn} it follows that 
 \be\label{cc_eqn}
 \begin{split}
-\widetilde J\left( \widetilde a \otimes \xi \right) \bydef \widetilde a \otimes J\xi,\\
-\widetilde J^\dagger \left( \widetilde a \otimes \xi \right) \bydef \widetilde a\otimes J^\dagger\xi,
+	\widetilde J\left( \widetilde a \otimes \xi \right) \bydef \widetilde a^* \otimes J\xi,\\
 \end{split}
 \ee
+If one denotes
+\bean
+\begin{split}
+	\widetilde J^\dagger \left( \widetilde a \otimes \xi \right) \bydef \widetilde a^*\otimes J^\dagger\xi,
+\end{split}
+\eean
 then on has 
 \bean
-\widetilde J^\dagger\widetilde J= \widetilde J\widetilde J^\dagger = 1_{\widetilde \A \otimes \H^\infty},\\
-\left(\widetilde J\left( \widetilde a \otimes \xi \right), \widetilde J\left( \widetilde b \otimes \eta \right)\right)_{\widetilde\H}= \left( \widetilde a\ox J\xi ,  \widetilde b\ox J \eta \right)_{\widetilde\H}= \left(J\xi, \left\langle \widetilde a, \widetilde b \right\rangle J\eta \right)_{\H}  =
+\widetilde J^\dagger\widetilde J= \widetilde J\widetilde J^\dagger = 1_{B\left( \widetilde \H\right) },\\
+\left(\widetilde J\left( \widetilde a \otimes \xi \right), \widetilde J\left( \widetilde b \otimes \eta \right)\right)_{\widetilde\H}= \left( \widetilde a^*\ox J\xi ,  \widetilde b^*\ox J \eta \right)_{\widetilde\H}= \left(J\xi, \left\langle \widetilde a^*, \widetilde b^* \right\rangle J\eta \right)_{\H}  =
 \\
-= \left(\widetilde J \left( 1_{\widetilde A}\ox \xi \right), \widetilde J \left\langle \widetilde a, \widetilde b \right\rangle \otimes \eta   \right)_{\widetilde\H} =  \left(\widetilde J^\dagger\widetilde J \left( 1_{\widetilde A}\ox \xi \right),  \left\langle \widetilde a, \widetilde b \right\rangle \otimes \eta   \right)_{\widetilde\H}=\\=\left(\xi,  \left\langle a, b \right\rangle_{\A} \eta \right)_\H= \left(\widetilde a \ox \xi, \widetilde b \ox \eta \right)_{\widetilde{\H}}.
+= \left(\widetilde J \left( 1_{\widetilde A}\ox \xi \right), \widetilde J\left(  \left\langle \widetilde b, \widetilde a \right\rangle \otimes \eta\right)    \right)_{\widetilde\H} =  \left(\widetilde J^\dagger\widetilde J \left( 1_{\widetilde A}\ox \xi \right),  \left\langle \widetilde a, \widetilde b \right\rangle \otimes \eta   \right)_{\widetilde\H}=\\=\left(\xi,  \left\langle a, b \right\rangle_{\A} \eta \right)_\H= \left(\widetilde a \ox \xi, \widetilde b \ox \eta \right)_{\widetilde{\H}}.
 \eean 
+
 From the above equation and from
 $$
 \forall c \in \C \quad \widetilde J c \left(\widetilde a \ox \xi \right) = \widetilde J  \left(\widetilde a \ox c \xi \right)= \widetilde a^* \ox Jc\xi= \widetilde a^* \ox c^* J\xi= c^* \widetilde a^* \ox J\xi= c^* \widetilde J  \left(\widetilde a \ox \xi \right) 
 $$
 it follows that $\widetilde J$ is an antiunitary operator.
-
-\bean
-!!! CONTINUE !!!\\
-\left( \sum_{	g' \in G}g'\left(\widetilde a \widetilde b -\widetilde b \widetilde a\right)\right) \left( \sum_{	g'' \in G}g''\left(\widetilde b^* \widetilde a^* -\widetilde a^* \widetilde b^*\right)\right) =  
-\eean
-Since $\widetilde{\A}$ is a finitely generated projective $\A$-module one has $\widetilde{\A} = p \A^N$ and there are inclusions $\widetilde{\A} \subset \End^*_\A\left( \widetilde{\A}\right) \subset \mathbb{M}_N\left( A\right)$ of *-algebras. So any $\widetilde a \in \widetilde \A$ can be represented by a matrix 
-\bean
-\begin{pmatrix}
-	a_{1,1}& \ldots & a_{1,N} \\
-	\vdots& \ddots & \vdots\\
-	a_{N,1}& \ldots &a_{N,N} 
-\end{pmatrix}\in \mathbb{M}_N\left( A\right).
-\eean
-Similarly any $\widetilde J \widetilde b^* \widetilde J^\dagger$ can be represented by
-\bean
-\begin{pmatrix}
-J	b^*_{1,1}J^\dagger& \ldots & J	b^*_{1, N}J^\dagger \\
-	\vdots& \ddots & \vdots\\
-J	b^*_{1,N}J^\dagger& \ldots &J	b^*_{N,N}J^\dagger 
-\end{pmatrix}.
-\eean
-From the equation \eqref{df:spt-real_eqn} it follows that $\left[a_{jk}, J	b^*_{kl}J^\dagger\right]= 0$ for all $j, k, l \in \{1,..., N\}$ so one has
-$$
-\left[\begin{pmatrix}
-	a_{1,1}& \ldots & a_{1,N} \\
-	\vdots& \ddots & \vdots\\
-	a_{N,1}& \ldots &a_{N,N} 
-\end{pmatrix}, \begin{pmatrix}
-J	b^*_{1,1}J^\dagger& \ldots & J	b^*_{1,N}J^\dagger \\
-\vdots& \ddots & \vdots\\
-J	b^*_{N,1}J^\dagger& \ldots &J	b^*_{N,N}J^\dagger 
-\end{pmatrix}\right]= 0,
-$$
-!!! CONTINUE\\
-so one has
+Since $\widetilde \H$ is a $\widetilde A$-$\widetilde A^\opp$-bimodule, one has
 \be\label{st_comn_wt_eqn}
 \forall \widetilde a,\widetilde b \in \widetilde \A\quad \left[ \widetilde a,\widetilde J\widetilde b^*\widetilde J^\dagger\right] = 0,
 \ee
-i.e. one has a situation of the Definition \ref{df:spt-real_defn}. A *-algebra  $\widetilde\A$ is dense in $\widetilde A$ and $\H^\infty$ is dense in $\H$ the norm completion of $\widetilde \H$ of $\widetilde \A \ox_{\A} \H^\infty$ equals to the norm completion of $\A \ox_{\A} \H$. From these circumstances, the Definition \ref{induced_repr_defn} and the construction \ref{induced_repr_constr_empt} it follows that $\widetilde\H$ is a space of the $\widetilde \rho: \widetilde A \hookto B\left(\widetilde \H \right)$  representation induced by a pair $\left(\rho,\left(A, \widetilde{A}, G, \pi\right)  \right)$ (cf. Definition \ref{induced_repr_defn}). Let $\Om^1_D$ be given by \eqref{om_d_eqn}, and let  
+i.e. one has a situation of the Definition \ref{df:spt-real_defn}. Let $\Om^1_D$ be given by \eqref{om_d_eqn}, and let  
 \be\label{nabla_cov_herm_eqn}
 \nabla : \widetilde \A\to \widetilde \A\otimes_\A \Om^1_D.
 \ee
@@ -3505,20 +3516,12 @@ Prove that  for all $\widetilde a, \widetilde b \in \widetilde{\A}$ a following 
  \left[\left[ \widetilde D, \widetilde a\right] , \widetilde J\widetilde b\widetilde J^\dagger\right]= \left[\widetilde a, \left[ \widetilde D, J\widetilde b\widetilde J^\dagger \right]\right]  = 0.
 \eea
  (cf. equations \eqref{st_comn_eqn}, \eqref{fist_order_eqn}).
-\end{exercise}
-
-\begin{empt}
-
-
-
-
-
-
- If $\rho : A \to B\left(\H \right)$ is a representation  which corresponds to the spectral triple $\left( \A, \H, D\right)$ then there is the induced by the pair $\left(\rho, \left(A, \widetilde A, G\left( \left.\widetilde A\right| A\right), \widetilde \pi  \right)\right)$ representation $\widetilde \rho : \widetilde A \to B\left(\widetilde{   \H} \right)$ (cf. Definition \ref{induced_repr_defn}). % Suppose that there is a spectral triple $\left(\widetilde \A,\widetilde \H, \widetilde D\right)$ and let   $\widetilde \D\bydef	\bigcap_{k\in\bN} \Dom \widetilde D^k$. Assume that following condition hold:
+\end{exercise}\begin{empt}
+If $\rho : A \to B\left(\H \right)$ is a representation  which corresponds to the spectral triple $\left( \A, \H, D\right)$ then there is the induced by the pair $\left(\rho, \left(A, \widetilde A, G\left( \left.\widetilde A\right| A\right), \widetilde \pi  \right)\right)$ representation $\widetilde \rho : \widetilde A \to B\left(\widetilde{   \H} \right)$ (cf. Definition \ref{induced_repr_defn}). % Suppose that there is a spectral triple $\left(\widetilde \A,\widetilde \H, \widetilde D\right)$ and let   $\widetilde \H^\infty \bydef	\bigcap_{k\in\bN} \H^\infty om \widetilde D^k$. Assume that following condition hold:
 %\be\label{str_d_eqn}
 %\begin{split}
-%	\forall g \in G\left( \left.\widetilde A\right| A\right)\quad  \forall \widetilde \xi \in \widetilde \D\quad  \widetilde D \left(g \widetilde \xi\right)= g \left( \widetilde D \widetilde \xi\right),\\
-%	D = \left.\widetilde D \right|_{\D}
+%	\forall g \in G\left( \left.\widetilde A\right| A\right)\quad  \forall \widetilde \xi \in \widetilde \H^\infty \quad  \widetilde D \left(g \widetilde \xi\right)= g \left( \widetilde D \widetilde \xi\right),\\
+%	D = \left.\widetilde D \right|_{\H^\infty }
 %\end{split}
 %\ee
 Since  $\widetilde \A$ is a projective $\A$-module and $\Om^1_D$ is given by \eqref{connes_cycle_eqn} then from the Proposition \ref{conn_prop} it follows that there is a connection
@@ -3529,19 +3532,22 @@ Suppose that $\nabla$ is $G$-\textit{invariant} i.e.
 \be\label{nabla_inv_cov_eqn}
 \forall g \in G\quad\forall\widetilde a \in \widetilde \A \quad \nabla \widetilde a = \sum_{j = 1}^n \widetilde a_j \otimes \om_j \quad\Rightarrow \quad  \nabla \left( g \widetilde a\right)  = \sum_{j = 1}^n g\widetilde a_j \otimes \om_j
 \ee
-where $\widetilde a_j\in \widetilde \A$ and $\om_j\in \Om_D^1$ for all $j=1,...,n$. Suppose that $\widetilde D: \widetilde \A\otimes_\A \D \to \widetilde \A\otimes_\A \D$ is given by
+where $\widetilde a_j\in \widetilde \A$ and $\om_j\in \Om_D^1$ for all $j=1,...,n$. Suppose that $\widetilde D: \widetilde \A\otimes_\A \H^\infty  \to \widetilde \A\otimes_\A \H^\infty $ is given by
 \be\label{dirac_fin_lift_eqn}
 \begin{split}
-\left. \widetilde D\right. : \widetilde \A\otimes_\A \D \to \widetilde \A\otimes_\A \D,\\
+	\left. \widetilde D\right. : \widetilde \A\otimes_\A \H^\infty  \to \widetilde \A\otimes_\A \H^\infty ,\\
 	\widetilde a\otimes \xi \mapsto  \sum_{j = 1}^n \widetilde a_j \otimes \om_j\left(\xi  \right)+\widetilde a \otimes D\xi ,\\
 	\text{where} \quad  \nabla \widetilde a = \sum_{j = 1}^n \widetilde a_j \otimes \om_j\in \widetilde \A\otimes_\A \Om_D^1.
 \end{split}
 \ee
-The space $\widetilde \A\otimes_\A \D$ is  dense in $\widetilde \H$, so $\widetilde D$ is an unbounded operator on $\widetilde \H$. From \eqref{dirac_fin_lift_eqn} it follows that
+The space $\widetilde \A\otimes_\A \H^\infty $ is  dense in $\widetilde \H$, so $\widetilde D$ is an unbounded operator on $\widetilde \H$. From \eqref{dirac_fin_lift_eqn} it follows that
 \be\label{dirac_om_fin_lift_eqn}
 \nabla \widetilde a = \sum_{j = 1}^n \widetilde a_j \otimes \om_j \quad\Rightarrow \quad\left[\widetilde D, \widetilde a\right]=  \sum_{j = 1}^n \widetilde a_j \otimes \om_j\in \widetilde\A \otimes_\A \Om^1_D.
 \ee
 \end{empt}
+
+
+
 \begin{defn}\label{triple_conn_lift_defn} 	In the above situation the spectral  triple $\left( \widetilde{\A}, \widetilde{\H}, \widetilde{D}, \widetilde J\right)$  is said to be the  $\left(A, \widetilde{A}, G, \pi \right)$-\textit{lift} of $\left( {\A}, {\H}, {D}, J\right)$.  
 \end{defn} 
 \begin{definition}\label{ext_st_alg_defn}
@@ -26066,10 +26072,10 @@ the vector space
 If $\E = p\A^m$, then $\overline\E = \overline\A^m\,p$ and
 $\widetilde\H = \pi(p) \pi^0(p) [\H \ox \C^{m^2}]$, so that $\widetilde\H$
 becomes a Hilbert space under the scalar product
-$$
+\be\label{morita_sc_prod_eqn}
 \<r \ox \eta \ox \bar q, s \ox \xi \ox \bar t\,>
 \bydef \<\eta, \pi(r,s)\, \pi^0(t,q) \,\xi>.
-$$
+\ee
 If $\H = \H^{\mathrm{op}} \H^-$ is $\Z_2$-graded, there is an obvious
 $\Z_2$-grading of $\widetilde\H$.
 
