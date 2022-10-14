@@ -5,13 +5,16 @@ using System.Text;
 using System.Drawing;
 
 using Chart.Drawing.Interfaces;
-using Chart.Drawing.Points;
+using Chart.Drawing.Interfaces.Points;
 using Chart.Drawing.Drawable;
 using Chart.Drawing.Painters;
 
 namespace Chart.Drawing.Factory
 {
-    public class CirclePointFactory : IPointFactory
+    /// <summary>
+    /// Factorty which writers circles
+    /// </summary>
+    public class CirclePointFactory : IPointFactoryExtended
     {
         public static readonly string[] names = { "Colored circles" };
 
@@ -82,7 +85,7 @@ namespace Chart.Drawing.Factory
 
         public static void Set()
         {
-            StaticChartPerformer.PointFactory = Object;
+           StaticExtensionChartInterfaces.PointFactory = Object;
         }
     }
 }

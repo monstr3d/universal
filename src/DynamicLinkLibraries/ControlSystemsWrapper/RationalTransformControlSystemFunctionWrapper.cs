@@ -17,6 +17,9 @@ using FormulaEditor;
 using FormulaEditor.Interfaces;
 using FormulaEditor.Symbols;
 
+using ExtendedFormulaEditor;
+
+
 using ControlSystems;
 
 namespace ControlSystemsWrapper
@@ -67,7 +70,7 @@ namespace ControlSystemsWrapper
         protected RationalTransformControlSystemFunctionWrapper()
             : base(new double[] { 1 }, new double[] { 1 })
         {
-            creator = ExtendedFormulaCreator.GetCreator(this, new IOperationDetector[] { new DerivationDetector("p", "p") }, new IBinaryDetector[0]);
+            creator = this.GetCreator(new IOperationDetector[] { new DerivationDetector("p", "p") }, new IBinaryDetector[0]);
         }
 
         /// <summary>

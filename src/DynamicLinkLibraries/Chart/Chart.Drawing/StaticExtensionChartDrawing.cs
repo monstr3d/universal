@@ -14,23 +14,18 @@ namespace Chart.Drawing
     public static class StaticExtensionChartDrawing
     {
         /// <summary>
-        /// Gets argument position
+        /// Gets painter
         /// </summary>
-        /// <param name="series">The series</param>
-        /// <param name="argument">The argument</param>
-        /// <returns>The position</returns>
-        public static int GetArgumentPosition(this ISeries series, double argument)
+        /// <param name="factory">The factoryparam>
+        /// <param name="performer">Performer of charts</param>
+        /// <returns>A painter</returns>
+        public static ISeriesPainter GetPainter(this IPointFactory factory, ChartPerformer performer)
         {
-            int i = 0;
-            foreach (var point in series.Points)
+            if (!(factory is IPointFactoryExtended))
             {
-                if (point.X > argument)
-                {
-                    break;
-                }
-                ++i;
+                throw new Exception("Factory does not support series painter");
             }
-            return i;
+            return (factory as IPointFactoryExtended).GetPainter(performer);
         }
     }
 }

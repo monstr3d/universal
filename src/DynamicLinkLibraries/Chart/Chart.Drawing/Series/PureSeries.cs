@@ -6,7 +6,7 @@ using System.Runtime.Serialization;
 
 
 using Chart.Drawing.Interfaces;
-using Chart.Drawing.Points;
+using Chart.Drawing.Interfaces.Points;
 
 
 namespace Chart.Drawing.Series

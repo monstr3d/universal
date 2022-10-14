@@ -202,7 +202,7 @@ namespace Chart.Objects
             }
             set
             {
-                factory = StaticChartPerformer.PointFactory[value];
+                factory = StaticExtensionChartInterfaces.PointFactory[value];
                 factoryName = value;
             }
         }
@@ -272,7 +272,7 @@ namespace Chart.Objects
                 {
                     if (!i.Next())
                     {
-                        StaticChartPerformer.GetSize(this, size);
+                        StaticExtensionChartInterfaces.GetSize(this, size);
                         return;
                     }
                 }

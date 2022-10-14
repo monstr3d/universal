@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 
 using Chart.Drawing.Interfaces;
-using Chart.Drawing.Points;
+using Chart.Drawing.Interfaces.Points;
 
 namespace Chart.Drawing.Series
 {

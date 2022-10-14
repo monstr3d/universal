@@ -13,33 +13,11 @@ namespace Chart.Drawing
     /// </summary>
     public class StaticChartPerformer
     {
-        #region Fields
-
-        static private IPointFactory pointFactory;
-
-
-
-        #endregion
+  
 
         #region Members
 
-        /// <summary>
-        /// Factory of points
-        /// </summary>
-        static public IPointFactory PointFactory
-        {
-            get
-            {
-                return pointFactory;
-            }
-            set
-            {
-                pointFactory = value;
-            }
-        }
-
-
-         public static DataTextStyles GetStyle(ICoordTextPainter painter)
+        public static DataTextStyles GetStyle(ICoordTextPainter painter)
         {
             if (painter is SimpleCoordTextPainter)
             {
@@ -144,41 +122,7 @@ namespace Chart.Drawing
             return new TimeTextPainter(false);
         }
 
-        public static void GetSize(ISeries series, double[,] size)
-        {
-            IList<IPoint> points = series.Points;
-            bool b = true;
-            foreach (IPoint p in points)
-            {
-                double x = p.X;
-                double y = p.Y;
-                if (b)
-                {
-                    size[0, 0] = x;
-                    size[1, 0] = x;
-                    size[0, 1] = y;
-                    size[1, 1] = y;
-                    b = false;
-                }
-                if (size[0, 0] > x)
-                {
-                    size[0, 0] = x;
-                }
-                if (size[1, 0] < x)
-                {
-                    size[1, 0] = x;
-                }
-                if (size[0, 1] > y)
-                {
-                    size[0, 1] = y;
-                }
-                if (size[1, 1] < y)
-                {
-                    size[1, 1] = y;
-                }
-            }
-        }
-
+ 
 
         #endregion
 

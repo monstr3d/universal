@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+
+using BaseTypes.Utils;
+
 
 using Chart.Drawing.Interfaces;
-using DataPerformer;
-using BaseTypes.Utils;
-using Chart.Drawing.Points;
+using Chart.Drawing.Interfaces.Points;
 
 namespace Chart.Objects
 {

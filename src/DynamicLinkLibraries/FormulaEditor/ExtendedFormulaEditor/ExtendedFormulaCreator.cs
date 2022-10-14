@@ -21,7 +21,7 @@ namespace FormulaEditor
 
         #region Ctor
 
-        protected ExtendedFormulaCreator(Dictionary<char, object> table)
+        internal ExtendedFormulaCreator(Dictionary<char, object> table)
             : base(table, false)
         {
             opDetectors = new IOperationDetector[] 
@@ -51,7 +51,7 @@ namespace FormulaEditor
         }
 
 
-        protected ExtendedFormulaCreator(IVariableDetector detector)
+        internal ExtendedFormulaCreator(IVariableDetector detector)
             : base(detector, false)
         {
             opDetectors = new IOperationDetector[]
@@ -144,55 +144,5 @@ namespace FormulaEditor
         }
 
         #endregion
-
-        #region Specific members
-
-        public static IFormulaObjectCreator GetCreator(Dictionary<char, object> table)
-        {
-            IFormulaObjectCreator prot = new ExtendedFormulaCreator(table);
-            prot.Add(ElementaryRealDetector.Object);
-            IFormulaObjectCreator creator = new FormulaArrayObjectCreator(prot);
-            return creator;
-        }
-
-
-        public static IFormulaObjectCreator GetCreator(IVariableDetector detector)
-        {
-            IFormulaObjectCreator prot = new ExtendedFormulaCreator(detector);
-            prot.Add(ElementaryRealDetector.Object);
-            IFormulaObjectCreator creator = new FormulaArrayObjectCreator(prot);
-            return creator;
-        }
-
-
-        public static IFormulaObjectCreator GetCreator(IVariableDetector detector, IEnumerable<IOperationDetector> additional,
-            IEnumerable<IBinaryDetector> binary)
-        {
-            IFormulaObjectCreator prot = new ExtendedFormulaCreator(detector);
-            prot.Add(ElementaryRealDetector.Object);
-            prot.Add(PropertyFictionOperation.Singleton);
-            prot.Add(BinaryPropertyDetector.Singleton);
-            foreach (IOperationDetector d in additional)
-            {
-                prot.Add(d);
-            }
-            foreach (IBinaryDetector d in binary)
-            {
-                prot.Add(d);
-            }
-            IFormulaObjectCreator creator = new FormulaArrayObjectCreator(prot);
-            foreach (IOperationDetector d in additional)
-            {
-                creator.Add(d);
-            }
-            foreach (IBinaryDetector d in binary)
-            {
-                creator.Add(d);
-            }
-            return creator;
-        }
-
-
-        #endregion
-    }
+   }
 }

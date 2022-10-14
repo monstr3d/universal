@@ -20,12 +20,12 @@ using ToolBox;
 using DataPerformer;
 
 using Chart;
-using Chart.Interfaces;
 using Chart.Drawing.Interfaces;
 using Chart.Objects;
+using Chart.Drawing;
+
 
 using DataPerformer.UI;
-
 
 namespace DataPerformer.UI.Labels
 {
@@ -46,7 +46,7 @@ namespace DataPerformer.UI.Labels
         private IPointCollecionChooser chooser;
 
 
-        private ChartPerformer performer;
+        private Chart.ChartPerformer performer;
 
         private FormPointCollection form;
 

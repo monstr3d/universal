@@ -7,7 +7,7 @@ using DataPerformer;
 using Chart;
 using Chart.Interfaces;
 using Chart.Drawing.Interfaces;
-using Chart.Drawing.Points;
+using Chart.Drawing.Interfaces.Points;
 
 namespace DataPerformer.UI
 {

@@ -53,8 +53,7 @@ namespace TestCategory
 
         private Exception current;
 
-
-    
+   
 
         #endregion
 

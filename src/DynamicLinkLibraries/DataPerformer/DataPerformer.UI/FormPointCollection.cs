@@ -19,6 +19,7 @@ using Diagram.UI.Interfaces;
 using Chart.Drawing.Interfaces;
 using Chart.Objects;
 using Chart.Panels;
+using Chart.Drawing;
 
 namespace DataPerformer.UI
 {
@@ -30,7 +31,7 @@ namespace DataPerformer.UI
         private IObjectLabel label;
         private DrawSeries draw;
         private IPointCollecionChooser chooser;
-        private ChartPerformer performer;
+        private Chart.ChartPerformer performer;
 
 
         private FormPointCollection()

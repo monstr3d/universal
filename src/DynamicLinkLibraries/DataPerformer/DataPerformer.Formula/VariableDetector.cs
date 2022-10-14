@@ -7,6 +7,8 @@ using FormulaEditor;
 using FormulaEditor.Interfaces;
 using FormulaEditor.Symbols;
 
+using ExtendedFormulaEditor;
+
 namespace DataPerformer.Formula
 {
     /// <summary>
@@ -21,7 +23,7 @@ namespace DataPerformer.Formula
         /// <returns>Creator</returns>
         static public IFormulaObjectCreator GetCreator(Dictionary<char, object> table)
         {
-            return ExtendedFormulaCreator.GetCreator(table);
+            return table.GetCreator();
         }
 
         /// <summary>
@@ -34,7 +36,7 @@ namespace DataPerformer.Formula
             List<IOperationDetector> l = new List<IOperationDetector>();
             l.AddRange(StaticExtensionDataPerformerFormula.OperationDetectors);
             l.Add(new DerivationDetector("d/dt", "d/dt"));
-            return ExtendedFormulaCreator.GetCreator(detector, l, StaticExtensionDataPerformerFormula.BinaryDetectors);
+            return detector.GetCreator(l, StaticExtensionDataPerformerFormula.BinaryDetectors);
         }
 
         /// <summary>
