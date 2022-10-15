@@ -5579,7 +5579,7 @@ From $J^\dagger_\la\left[D, J_\la a^*_\la J^\dagger_\la\right]^*J_\la= \left[D, 
 \begin{remark}\label{top_multiple_rem}
 	If $f', f'' \in C_0\left(\sX \right)$ then  $f'$ is a {multiple} of $f''$ if and only if $f'$ and $f''$ satisfy to the Lemma \ref{top_multiple_lem}.
 \end{remark}
-!!! CONTINUE 
+
 \begin{empt}
 	Let $\sX$ be a locally compact Hausdorff space, and let $f_\eps$ be given by \eqref{f_eps_eqn}. For every $f \in C_0\left( \sX\right)_+$ and and $\eps > 0$  the pair $f_\eps\left( f\right), f$  satisfies to the Lemma \ref{top_multiple_lem}, i.e. $f_\eps\left( f\right) \in C_0\left(\sX \right)$ is a multiple of $f$. If
 	\be\label{top_f_eps_eqn}
@@ -5595,29 +5595,8 @@ From $J^\dagger_\la\left[D, J_\la a^*_\la J^\dagger_\la\right]^*J_\la= \left[D, 
 	\ee
 	(cf. Definition \ref{c_c_def_1}).
 \end{empt}
-\begin{lemma}\label{top_div_lem}
-	If $f', f'' \in C_0\left(\sX \right)_+$ are such that \\$\left\{\left.x \in \sX\right| f'\left( x\right)> 0  \right\} \subset \left\{\left.x \in \sX\right| f''\left( x\right)> 0  \right\}$ then there is a net $\left\{f_n\right\}_{n\in\N}\subset C_0\left(\sX \right)$ such that
-\bean
-\forall n\in\N \quad \supp f_n \subset \supp f',\\
-\lim_{n\to\infty} \frac{f_n}{f''}= f',
-\eean
-where the uniform limit is implied.
-\end{lemma}
-\begin{proof}
-Let $\left\{\eps_n \in \R_+\right\}_{n\in \N}$ be a net of positive real numbers such that $\lim_{n\to\infty}\eps_n = 0$. If $f_{\eps_n}$ is given by \eqref{f_eps_eqn} then
-from $\left\{\left.x \in \sX\right| f'\left( x\right)> 0  \right\} \subset \left\{\left.x \in \sX\right| f''\left( x\right)> 0  \right\}$ it follows that $\supp f_{\eps_n}\left(f' \right) \subset \left\{\left.x \in \sX\right| f''\left( x\right)> 0  \right\}$. From the Lemma \ref{top_multiple_lem} it follows that for all $n \in \N$ there is $f_n \in C_0\left(\sX \right)$ such that  $f_nf_{\eps_n}\left(f' \right) = f''$.  On the other hand
-$$
-\left\|\frac{f_n}{f''}- f' \right\|= \left\|f_{\eps_n}\left(f' \right)- f' \right\|\le \eps_n. 
-$$
-\end{proof}
-\begin{remark}\label{top_div_rem}
-Any $f'\in  C_0\left(\sX \right)$ can be represented as  $f' = f'_1 - f'_2 + i f'_3 + i f'_4$ where $f'_1,...,f'_4 \in C_0\left(\sX \right)_+$. If follows that the Lemma \ref{top_div_lem} is true for all $f'\in C_0\left(\sX \right)$.
-\end{remark}
-
 
 \section{Partitions of unity and compact subsets}
-
-
 
 \begin{lemma}\label{top_a_u_lem}
 	If $\mathcal X$  is a locally compact,  
@@ -5673,17 +5652,17 @@ and we say that $\widetilde{f}_{\widetilde{x}_0}$ is a $p$-$\widetilde x_0$-\tex
 
 
 
-Let $\sX$ be a locally compact, locally connected, Hausdorff space, and let $\sY \subset\sX$ be a compact subset. Suppose that for any $x\in\sX$ there is an open connected neighborhood $\sV_x \subset \sX$ is selected, so there is a family 
+Let $\sX$ be a locally compact, locally connected, Hausdorff space, and let $\sY \subset\sX$ be a compact subset. Suppose that for any $x\in\sX$ a  connected open neighborhood $\sV_x \subset \sX$ is selected, so there is a family 
 \be\label{top_vx_eqn}
 \left\{\sV_x\right\}_{x\in\sX}.
 \ee
-For all $x \in \sX$ select a positive $f_x \in C_c\left(\sX \right)_+$ such that $\supp f_x \subset \sV_x$ and $f_x\left(x \right)> 1$. 
+For all $x \in \sX$ select a positive $f_x \in C_c\left(\sX \right)_+$ such that  $f_x\left(\sV_x \right)=\{1\}$. 
 If 
 $$
-\sU_x \bydef \left\{\left. x\in\sX\right| f_x\left( x\right)> 1 \right\}
+\sU_x \bydef \left\{\left. x\in\sX\right| f_x\left( x\right)> 0 \right\}
 $$  
-then $\sU_x \subset \sV_x$ and there is a finite set $\left\{x_1,..., x_n \right\}\subset \sX$ such that $\sY \subset \bigcup_{j=1}^n \sU_{x_j}$.
-If $f \bydef f_{x_1} + ... +  f_{x_n}$ then $f\left(x \right) > 1$ for all $x \in \sY$. If 
+then $\sV_x \subset \sU_x$ and there is a finite set $\left\{x_1,..., x_n \right\}\subset \sX$ such that $\sY \subset \bigcup_{j=1}^n \sV_{x_j}$.
+If $f \bydef f_{x_1} + ... +  f_{x_n}$ then $f\left(x \right) \ge 1$ for all $x \in \sY$. If 
 $$
 f_j \bydef \frac{f_{x_j}}{\max\left(1, f\right)}\in C_c\left(\sX \right)_+ 
 $$
@@ -5775,7 +5754,7 @@ If $\left\{f_\a\right\}_{\a\in \mathscr A}\subset C_c\left(\sX \right)$ is the d
 \section{Transitive coverings}\label{top_transitive_section}
 
 \paragraph*{}
-The notion of "regular covering" has no any good noncommutative generalization. So instead the "regular covering"  we will use "transitive covering"  which is explained below.
+The notion of regular covering (cf. Definition \ref{top_regular_defn}) has no any good noncommutative generalization. So instead the "regular covering"  we will use "transitive covering"  which is explained below.
 
 \begin{definition}\label{top_transitive_defn}
 	A covering $p: \widetilde{\mathcal X}\to {\mathcal X}$  is said to be \textit{transitive} if  $\sX$ is connected and for every $x \in \sX$ the group of covering transformations (cf. Definition \ref{cov_proj_cov_grp_defn}) $G\left( \left.\mathcal{\widetilde{X}}~\right|\mathcal{X}\right)$ transitively acts on $p^{-1}\left( x\right)$, i.e. 
@@ -5822,7 +5801,7 @@ The notion of "regular covering" has no any good noncommutative generalization. 
 \end{corollary}
 \begin{remark}
 	The Corollary \ref{top_trans_cov_factor_cor} can be regarded as a generalization of the Theorem \ref{top_cov_fact_thm}.
-\end{remark}
+\end{remark}  !!! CONTINUE
 \begin{lemma}\label{top_covp_cat_lem}
 	Consider a commutative triangle of connected topological spaces and  continuous maps
 	\newline
@@ -12054,14 +12033,6 @@ If $A$ is a connected $C^*$-algebra (cf. Definition \ref{connected_c_a_defn}), $
 If $_\sU B_\sU$ is not connected then one has $_\sU B_\sU= B_1 \oplus B_2$. It follows that $M\left(_\sU B_\sU\right) = M\left( B_1\right)\oplus M\left(B_2\right)$. From the inclusion  \eqref{blowing_c0m_eqn} it follows that
 $C_0\left(\sY \right)= M\left( B_1\right)\cap C_0\left(\sY \right)\oplus M\left( B_2\right)\cap C_0\left(\sY \right)$. Since $C_0\left(\sY \right)$ is a connected $C^*$-algebra one has  $M\left( B_1\right)\cap C_0\left(\sY \right)= \{0\}$ or $M\left( B_2\right)\cap C_0\left(\sY \right)=\{0\}$.  !!! CONTINUE Suppose that 
 \end{proof}
-\begin{exercise}\label{blowing_completion_exer}
- !!! MAY BE NOT NECESSARY Let $f \in C_0\left( \sY\right)_+$ and let $\sU \bydef \left\{\left.x \in \sX\right| f\left(x\right)> 0\right\}$. Using the Lemma \ref{top_div_lem} and the Remark \ref{top_div_rem} prove that
-\begin{itemize}
-	\item $C^*$-norm completion of $fA$ {equals to} $_\sU A$,
-	\item $C^*$-norm completion of $Af$ {equals to} $A_\sU$,
-	\item $C^*$-norm completion of $fAf$ {equals to} $_\sU A_\sU$.
-\end{itemize}
-\end{exercise}
 
 \begin{empt}\label{blowing_strict_empt} !!! MAY BE NOT NECESSARY
 	Suppose that $\left\{u_\la\right\}_{\la\in\La}$ is an approximate unit of $C_0\left( \sU\right)$ and let $a \in ~_\sU A_\sU$. For all $a  \in~_\sU A_\sU$  there is $a' \in A$ and $f',f'' \in C_0\left( \sU\right) $ such that $\left\|a - f'a'f'' \right\|\le \frac{\eps}{3}$. On the other hand there is $\la_0 \in \La$  such that $\left\|f' - u_\la f' \right\| < \frac{\eps}{3\left\|a'f'' \right\|}$ for all $\la\ge\la_0$. From the triangle inequality it follows that
