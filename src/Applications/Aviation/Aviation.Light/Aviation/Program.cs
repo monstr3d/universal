@@ -60,6 +60,14 @@ namespace Aviation.Light
                 filename = "";
             }
             TestCategory.Interfaces.ITestInterface testInterface = null;
+            foreach (string s in args)
+            {
+                if (s.Equals("-tc"))
+                {
+                    testInterface = DataPerformer.TestInterface.UI.TestInterface.Singleton;
+                }
+            }
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(GetForm(filename, null, logWriter, testInterface));
@@ -123,7 +131,7 @@ namespace Aviation.Light
 
 
 
-        static Form GetForm(string filename, Motion6D.Portable.PositionObjectFactory factory, System.IO.TextWriter logWriter, TestCategory.Interfaces.ITestInterface testInterface)
+        static Form GetForm(string filename, Motion6D.Portable.PositionObjectFactory factory, TextWriter logWriter, TestCategory.Interfaces.ITestInterface testInterface)
         {
             //!!! SCADA     
             Scada.Desktop.StaticExtensionScadaDesktop.ScadaFactory = Scada.Desktop.Serializable.StaticExtensionScadaDesktopSerializable.BaseFactory;

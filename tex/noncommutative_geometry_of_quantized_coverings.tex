@@ -8320,25 +8320,30 @@ Prove that
 \subsection{Coverings of $C^*$-algebras}
 
 \begin{lemma}\label{comm_ccr_lem}
-	Let $A$ be a commutative   $C^*$-algebra.
- If $\left(A, \widetilde{A}, G, \pi \right)$ is a noncommutative finite-fold  covering with unitization (cf. Definition \ref{fin_unitization_defn}) then the dimension of  any irreducible representation of  $\widetilde{A}$  is finite. Moreover if $\widetilde{\mathcal X}$ is the spectrum of $\widetilde{A}$ then  there is $N \in \N$ such that for any $\widetilde{x} \in \widetilde{\mathcal X}$ there is $m \le N$ which satisfies to the following condition  $$\mathfrak{rep}_{\widetilde{x}}\left(\widetilde{A} \right) \approx \mathbb{M}_m\left(\C \right).$$
+	Let $A= C\left(\sX \right)$  be an unital commutative   $C^*$-algebra.
+ If $\left(A, \widetilde{A}, G, \pi \right)$ is an unital noncommutative finite-fold  covering  (cf. Definition \ref{fin_unital_defn}) then the dimension of  any irreducible representation of  $\widetilde{A}$  is finite. Moreover if $\widetilde{\mathcal X}$ is the spectrum of $\widetilde{A}$ then  there is $N \in \N$ such that for any $\widetilde{x} \in \widetilde{\mathcal X}$ there is $m \le N$ which satisfies to the following condition  $$\mathfrak{rep}_{\widetilde{x}}\left(\widetilde{A} \right) \approx \mathbb{M}_m\left(\C \right).$$
 \end{lemma}
 \begin{proof}
-	If $\widetilde{A}_{\text{red}}$ is the {reduced algebra} of $\left(A, \widetilde{A}, G, \pi \right)$ (cf. Definition \ref{red_alg_defn} !!! DELETE DEFINITION !!! !!! CHECK !!!) then from the equation \eqref{red_incp_eqn} it follows that $\widetilde{A}_{\text{red}}$ is a commutative $C^*$-algebra. From the Theorem \ref{gelfand-naimark_thm} it follows that the spectrum $\widetilde\sX$ of $\widetilde{A}_{\text{red}}$ is Hausdorff and $\widetilde{A}_{\text{red}}\cong C_0\left(\widetilde\sX \right) $. From the Remark \ref{red_sp_rem} !!! DELETE REMARK !!! it turns out that  $\widetilde\sX$ coincides with the spectrum of $\widetilde{A}$ as a topological space.
-From the Theorem \ref{oa_haus_prim_thm} it follows that the prime spectrum of $\widetilde{A}$ coincides with the primitive one (cf. Definition \ref{prime_primtive_defn}). Taking into account the Theorem \ref{dauns_hofmann_thm} one concludes that the inclusion $\widetilde{A}_{\text{red}}\subset \widetilde{A}$ complies with the natural *-isomorphism from $C_b\left(\widetilde{\sX} \right)$ to the center of $M\left(\widetilde A \right)$, it follows that 
-$$
-\forall \widetilde{a}_{\text{red}}\in\widetilde{A}_{\text{red} }	\quad \forall \widetilde{a}\in 
-\widetilde{A}\quad  \widetilde{a}_{\text{red}}\widetilde{a}=\widetilde{a}\widetilde{a}_{\text{red}}
-$$
-because $\widetilde{A}_{\text{red}}\cong C_0\left(\widetilde{\sX} \right)$. On the other hand from $A\subset \widetilde{A}_{\text{red}}$ it turns out that
-\be\label{top_commt_eqn}
-\forall a\in A	\quad \forall \widetilde{a}\in 
-\widetilde{A}\quad  a\widetilde{a}=\widetilde{a}a
-\ee
-\paragraph{}
- From the Proposition \ref{spectrum_cov_prop}  it turns out that any irreducible representation $\widetilde \rho : \widetilde{A}\to B\left(\widetilde \H\right)$ yields an irreducible representation $\rho: A \to B\left(\H\right)$. Using the Proposition \ref{sur_prop} one can assume that $\H\subset \widetilde \H$ and $\rho$ is a restriction of $\widetilde \rho$. If $A$ is a commutative   $C^*$-algebra  then the space $\H$ is one-dimensional and there is a *-homomorphism $\a: A \to \C$ such that for all $a \in A$ and $\xi \in \H$ one has $\rho\left( a\right)\xi   = \a\left(a\right)\xi$. We select $\xi \in \H$ such that $\xi \neq 0$.  If $\eta \in \widetilde \H$  then from (iv) of the Theorem \ref{irred_thm} it follows that there is $\widetilde a \in \widetilde A$ such that $\eta = \widetilde\rho\left(\widetilde a\right)\xi$. If $a\in A$ then from \eqref{top_commt_eqn} it follows that
+	From the Definitions \ref{fin_quasi_defn}  and \ref{principal_non_defn} it follows that $\pi \left(1_A\right)= 1_{\widetilde A}$.
+	If $\widetilde{C}\subset \widetilde{A}$ is a center of $\widetilde{A}$, i.e.
+	$$
+	\widetilde{C} = \left\{\left.\widetilde c \in \widetilde A\right|\forall \widetilde c \in \widetilde A\quad 	\widetilde c  \widetilde a= \widetilde a  \widetilde c  \right\}
+	$$
+	If $\widetilde{A}_{\text{red}}$ is the {reduced algebra} of $\left(A, \widetilde{A}, G, \pi \right)$ (cf. Definition \ref{red_alg_defn}) then from the equation \eqref{red_incl_eqn} it follows that $\dim \rep_{  \widetilde{x }}\left(\widetilde{A}_{\text{red}}\right)= 1$ for each $\widetilde x \in \widetilde \sX$, so  $\widetilde{A}_{\text{red}}$ is a commutative $C^*$-algebra. For any $x \in \sX$ and $a \in C\left(\sX\right)$ the $\rep_x\left(a \right)= a\left(x\right)  \rep_x\left(1_A \right)$. On the other hand from $\pi \left(1_A\right)= 1_{\widetilde A}$ for any $\widetilde a_{\text{red}} \in \widetilde{A}_{\text{red}}$ there is a family $\left\{\widetilde a^{\widetilde x}_{\text{red}}\in \C\right\}_{\widetilde x\in \widetilde \sX}$ such that for all 
+	$\widetilde{x}\in \widetilde{\sX}$ one has $\rep_{\widetilde x}\left(\widetilde a_{\text{red}} \right)=\widetilde a_{\text{red}}^{\widetilde x}  \rep_{\widetilde x}\left(1_{\widetilde A} \right)$. So one has
+	$$
+\forall 	\widetilde x \in \widetilde \sX \quad \forall 	\widetilde a \in \widetilde A\quad \forall 	\widetilde a_{\text{red}} \in \widetilde A_{\text{red}}\quad \rep_{\widetilde x}\left( \widetilde{a}_{\text{red}}\widetilde{a}\right) =\rep_{\widetilde x}\left(\widetilde{a}\widetilde{a}_{\text{red}} \right)  
+	$$
+	or equivalently 
+	\bean
+	\forall \widetilde a\in \widetilde A	\quad \forall  \widetilde{a}_{\text{red}}\in 
+	\widetilde{A}_{\text{red}}\quad \widetilde a_{\text{red}}\widetilde{a}=\widetilde{a} \widetilde a_{\text{red}}
+	\eean
+	It follows that $	\widetilde{A}_{\text{red}} \subset 	\widetilde C$. Indeed  one can proof that $	\widetilde{A}_{\text{red}} = 	\widetilde C$. From the Theorem \ref{dauns_hofmann_thm} it follows that there is the natural isomorphism from of $	\widetilde{A}_{\text{red}} = 	\widetilde C$ onto the class of bounded continuous  functions on  the prime spectrum  $\check{\widetilde{A}}$ (cf. Definition \ref{prime_primtive_defn}) of $\widetilde{A}$. However any $\widetilde{a}_{\text{red}}\in \widetilde{A}_{\text{red}}$ uniquely depends of the family $\left\{\widetilde a^{\widetilde x}_{\text{red}}\in \C\right\}_{\widetilde x\in \widetilde \sX}$, roughly speaking $\widetilde{a}_{\text{red}}$ uniquely  depends on the primitive spectrum $\widetilde{\sX}$. It turns out that $\check{\widetilde{A}}\setminus \widetilde \sX=\emptyset$, and $\widetilde{A}_{\text{red}} = C\left(\widetilde{\sX}\right)$.
+	 From the Theorem \ref{gelfand-naimark_thm} it follows that the spectrum $\widetilde\sX$ of $\widetilde{A}$ (which is naturally homeomorphic to the spectrum of $\widetilde{A}_{\text{red}}$) is a locally compact  Hausdorff space.
+ From the Proposition \ref{spectrum_cov_prop}  it turns out that any irreducible representation $\widetilde \rho : \widetilde{A}\to B\left(\widetilde \H\right)$ yields an irreducible representation $\rho: A \to B\left(\H\right)$. Using the Proposition \ref{sur_prop} one can assume that $\H\subset \widetilde \H$ and $\rho$ is a restriction of $\widetilde \rho$. If $A$ is a commutative   $C^*$-algebra  then the space $\H$ is one-dimensional and there is a *-homomorphism $\a: A \to \C$ such that for all $a \in A$ and $\xi \in \H$ one has $\rho\left( a\right)\xi   = \a\left(a\right)\xi$. We select $\xi \in \H$ such that $\xi \neq 0$.  If $\widetilde \eta \in \widetilde \H$  then from (iv) of the Theorem \ref{irred_thm} it follows that there is $\widetilde a \in \widetilde A$ such that $\widetilde \eta = \widetilde\rho\left(\widetilde a\right)\xi$. If $a\in A$ then one has
 \bean
-\widetilde\rho\left(a\right)\eta = \widetilde\rho\left(a\right)\widetilde\rho\left(\widetilde a\right)\xi = \widetilde\rho\left(a\widetilde a\right)\xi= \widetilde\rho\left(\widetilde aa\right)\xi= \widetilde\rho\left(\widetilde a\right)\widetilde\rho\left( a\right)\xi\\ =\widetilde\rho\left(\widetilde a\right)\a\left( a\right)\xi=\a\left( a\right) \widetilde\rho\left(\widetilde a\right)\xi= \a\left( a\right) \eta
+\widetilde\rho\left(a\right)\widetilde\eta = \widetilde\rho\left(a\right)\widetilde\rho\left(\widetilde a\right)\xi = \widetilde\rho\left(a\widetilde a\right)\xi= \widetilde\rho\left(\widetilde aa\right)\xi= \widetilde\rho\left(\widetilde a\right)\widetilde\rho\left( a\right)\xi\\ =\widetilde\rho\left(\widetilde a\right)\a\left( a\right)\xi=\a\left( a\right) \widetilde\rho\left(\widetilde a\right)\xi= \a\left( a\right)\widetilde \eta
 \eean
 or equivalently $\widetilde\rho\left(a\right)= \al\left(a \right) 1_{ \widetilde\rho\left(\widetilde A\right) }$.
 From \eqref{fin_comp_eqn}  it follows that there are  $\widetilde b_1, ..., \widetilde b_n \in \widetilde M\left( \widetilde{A}\right)$ such that 
@@ -8354,15 +8359,22 @@ where $\a: A \to \C$ is such that $\rep_{\widetilde{x}}\left(a\right) = \al\left
 From the above equation it follows that any $\widetilde a \in \mathfrak{rep}_{\widetilde{x}}\left(\widetilde{A} \right)$ is a finite $\C$-linear combination of $\mathfrak{rep}_{\widetilde{x}}\left(\widetilde{b}_1 \right)$, ..., $\mathfrak{rep}_{\widetilde{x}}\left(\widetilde{b}_n \right)$, 
 i.e. $\widetilde{a}$ linearly depends on $n$ or less than $n$ complex-valued parameters $\al\left(a_1 \right),...,\al\left(a_n \right)$. Hence if $N \ge \sqrt{n}$ then $\mathfrak{rep}_{\widetilde{x}}\left(\widetilde{A} \right) \approx \mathbb{M}_m\left(\C \right)$ where $m \le N$.
 \end{proof}
+\begin{corollary}\label{comm_ccr_cor}
+	Let $A= C_0\left(\sX \right)$  be a commutative   $C^*$-algebra.
+	If $\left(A, \widetilde{A}, G, \pi \right)$ is noncommutative finite-fold  covering with unitization (cf. Definition \ref{fin_unitization_defn}) then the dimension of  any irreducible representation of  $\widetilde{A}$  is finite. Moreover if $\widetilde{\mathcal X}$ is the spectrum of $\widetilde{A}$ then  there is $N \in \N$ such that for any $\widetilde{x} \in \widetilde{\mathcal X}$ there is $m \le N$ which satisfies to the following condition  $$\mathfrak{rep}_{\widetilde{x}}\left(\widetilde{A} \right) \approx \mathbb{M}_m\left(\C \right).$$  Moreover if 	If $\widetilde{A}_{\text{red}}$ is the {reduced algebra} of $\left(A, \widetilde{A}, G, \pi \right)$ (cf. Definition \ref{red_alg_defn}) then there is the natural *-isomorphism $\widetilde{A}_{\mathrm{red}} \cong C_0\left(\widetilde{\sX}\right)$
+\end{corollary}
+\begin{proof}
+Follows from the Lemma \ref{comm_ccr_lem} and the Definition \ref{fin_unitization_defn}.
+\end{proof}
 
 \begin{lemma}\label{comm_emptycomm_lem}
 		Let $A$ be commutative  $C^*$-algebra. 
 	 If $\left(A, \widetilde{A}, G, \pi \right)$ be  a  noncommutative finite-fold     covering with unitization (cf. Definition  \ref{fin_unitization_defn}) then $\widetilde{A}$ is commutative.
 \end{lemma}
 \begin{proof}
-If $\widetilde{A}_{\text{red}}$ is the {reduced algebra} of $\left(A, \widetilde{A}, G, \pi \right)$ (cf. Definition \ref{red_alg_defn} !!! DELETE DEFINITION !!! !!! CHECK !!!) then from the Lemma \eqref{red_inc_lem} it follows that $\widetilde{A}_{\text{red}}$ is commutative. From the Theorem \ref{gelfand-naimark_thm} it follows that the spectrum $\widetilde\sX$ of $\widetilde{A}_{\text{red}}$ is Hausdorff. From the Remark \ref{red_sp_rem} !!! DELETE REMARK !!! it turns out that  $\widetilde\sX$ coincides with the spectrum of $\widetilde{A}$ as a topological space.  
+ 
 If a $C^*$-algebra $\widetilde{A}$ is not commutative then there is
- $ \widetilde{x} \in \widetilde{   \mathcal X }$ such that  $\dim\rep_{ \widetilde{x}}\left(\widetilde{A}\right)> 1$. Denote by $N$ the maximal dimension of $\rep_{ \widetilde{x}}$. From the Lemma \ref{comm_ccr_lem} it turns out that there is $N\in\N$ such that the dimension of $ \mathfrak{rep}_{\widetilde{x}}\left(\widetilde{A} \right)$ is less or equal to $N$ for all $\widetilde x\in \widetilde\sX$. From the Proposition \ref{less_n_pi_prop} it turns out that the set
+ $ \widetilde{x} \in \widetilde{   \mathcal X }$ such that  $\dim\rep_{ \widetilde{x}}\left(\widetilde{A}\right)> 1$.  From the Lemma \ref{comm_ccr_lem} it turns out that there is $N\in\N$ such that the dimension of $ \mathfrak{rep}_{\widetilde{x}}\left(\widetilde{A} \right)$ is less or equal to $N$ for all $\widetilde x\in \widetilde\sX$. From the Proposition \ref{less_n_pi_prop} it turns out that the set
 $$
 _N\widetilde{   \mathcal X }= \left\{\widetilde{x} \in \widetilde{   \mathcal X }~|~\dim \rep_{ \widetilde{x}}= N\right\}
 $$
@@ -8377,18 +8389,14 @@ then from Theorem \ref{ctr_fin_bundle_thm} it turns out $_N\widetilde{A}$ corres
 where $\left._N\widetilde{A}\right|_{\widetilde{   \mathcal U }}$ is given by the equation \eqref{open_ideal_eqn}. If $\widetilde x \in \widetilde{   \mathcal U }$
  and  $\widetilde f_{\widetilde x}\in C_c\left(\widetilde{   \mathcal U } \right)$ is an $\widetilde x$-stump (cf. Definition \ref{top_stump_defn}) then there is an open subset $\widetilde{   \mathcal V }\subset \widetilde{   \mathcal U}$   
  such that $\widetilde{ f}_{\widetilde x}\left( \widetilde{   \mathcal V }\right) = \{1\}$. Since $\widetilde{   \mathcal U }$ is an open subset of $\widetilde{   \mathcal X }$  the function $\widetilde{ f}_{\widetilde x}$ 
-can be extended up to $\widetilde{ f}C_0\left(\widetilde{   \mathcal X } \right)$ such that 
+can be extended up to $\widetilde{ f}\in C_0\left(\widetilde{   \mathcal X } \right)$ such that 
 \bean
 \widetilde{ f}\left(\widetilde{y}\right)= \begin{cases}
 \widetilde{ f}_{\widetilde x}\left( \widetilde y\right) & \widetilde y\in \widetilde \sU\\
 0 & \widetilde y\in \widetilde \sX\setminus \widetilde \sU.
 \end{cases}
 \eean
-
-$\widetilde{ f}_{\widetilde x}\left( \widetilde{   \mathcal X }\setminus \widetilde{   \mathcal U }\right)=\{0\} $.
-
-
- Any $\widetilde{a} \in \left.\widetilde{A}\right|_{\widetilde{   \mathcal U }}$ can be represented by continuous function $\widetilde{   \mathcal U } \to \mathbb{M}_N\left(\C \right)$. Let  $\psi, \vartheta :\widetilde{   \mathcal U }\to \mathbb{M}_N\left(\C \right)$ be given by
+Any $\widetilde{a} \in \left.\widetilde{A}\right|_{\widetilde{   \mathcal U }}$ can be represented by continuous function $\widetilde{   \mathcal U } \to \mathbb{M}_N\left(\C \right)$. Let  $\psi, \vartheta :\widetilde{   \mathcal U }\to \mathbb{M}_N\left(\C \right)$ be given by
 \bean
 \psi\left( \widetilde{ x}\right) = 	
 \begin{pmatrix}
@@ -8450,7 +8458,7 @@ f_{\text{red}}\left(\widetilde{x} \right)  & 0 &\ldots & 0\\
 \end{pmatrix} \quad\forall\widetilde x \in   _N\widetilde{\mathcal X}  
 $$
 and taking into account the equation \eqref{top_rep_eqn} one has $\rep_{\widetilde{x}}\left( \widetilde{u}_\epsilon  \right)\rep_{\widetilde{x}}\left( \widetilde{a}_{\text{red}}\right)\rep_{\widetilde{x}}\left( \widetilde{u}^*_\epsilon  \right)= \rep_{\widetilde{x}}\left( \widetilde{a}_{\text{red}}\right)$ for every $\widetilde x \in   \widetilde{\mathcal X}$. It means that $\chi_{\epsilon}\left( \widetilde{a}_{\text{red}}\right) = \widetilde{a}_{\text{red}}$ for all $\widetilde a_{\text{red}} \in \widetilde{A}_{\text{red}}$
-hence the given by \eqref{g_red_eqn} group
+hence the  group
 \be\nonumber
 G_{\text{red}} \bydef \left\{ g \in \Aut\left(\left.\widetilde{A} \right)~\right|~ g\widetilde a_{\text{red}} = \widetilde a_{\text{red}};~~\forall \widetilde a_{\text{red}} \in \widetilde A_{\text{red}}\right\}
 \ee
@@ -8561,7 +8569,7 @@ The following lemma supplies the quantization of coverings with compactification
 
 
 \begin{lemma}\label{comm_fin_lem}
-	Let $\mathcal X$ be a locally compact, space and there is an injective *-homomorphism $\pi: C\left( \mathcal X\right) \hookto \widetilde{A}$ of $C^*$-algebras	then following conditions are equivalent:
+	Let $\mathcal X$ be a locally compact, Hausdorff space and there is an injective *-homomorphism $\pi: C\left( \mathcal X\right) \hookto \widetilde{A}$ of $C^*$-algebras	then following conditions are equivalent:
 	\begin{enumerate}
 		\item [(i)] The quadruple $\left(C_0\left(\mathcal  X \right), \widetilde{A}, G  , \pi  \right)$ is a  noncommutative finite-fold covering with unitization.
 		\item[(ii)] The $C^*$-algebra $\widetilde{A}$ is commutative. Moreover if $\mathcal X$ (resp. $\widetilde{\mathcal X}$) is the spectrum of $A$ (resp. $\widetilde{A}$) then a given by the Proposition \ref{spectrum_cov_prop} map  $p:\widetilde{\mathcal X}\to {\mathcal X}$ is a transitive topological finite-fold covering with compactification such that the quadruple $\left(C_0\left(\mathcal  X \right), \widetilde{A}, G, \pi   \right)$ is naturally equivalent to $$\left(C_0\left(\mathcal  X \right), C_0\left(\widetilde{\mathcal X} \right), G\left( \widetilde{\mathcal X}~|~ {\mathcal X}\right) , C_0\left( p\right)     \right)$$

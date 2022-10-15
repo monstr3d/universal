@@ -101,10 +101,10 @@ namespace TestProjectFormulaEditor
                             det["b"] = y;
                             bool a = func(x, y);
                             object b = tree.Result;
-                            Assert.AreEqual(a, b);
+                            Assert.That(a.Equals(b));
                             proxy.Update();
                             object c = g();
-                            Assert.AreEqual(a, c);
+                            Assert.That(a.Equals(c));
                         }
                     }
                 }
@@ -165,10 +165,10 @@ namespace TestProjectFormulaEditor
                             det["y"] = y;
                             double a = func(x, y);                                      // Calculation of functions
                             object b = tree.Result;                                     // Calculation of tree
-                            Assert.AreEqual(a, b);                                      // Comparation of results
+                            Assert.That(a.Equals(b));
                             proxy.Update();
-                            object c = g();                                             // Calculation of proxy code
-                            Assert.AreEqual(a, c);                                      // Comparation of results
+                            object c = g();
+                            Assert.That(a.Equals(c));
                         }
                     }
                 }
@@ -231,10 +231,10 @@ namespace TestProjectFormulaEditor
                             det["z"] = z;
                             double a = func(x, y, z);
                             object b = tree.Result;
-                            Assert.AreEqual(a, b);
+                            Assert.That(a.Equals(b));
                             proxy.Update();
                             object c = g();
-                            Assert.AreEqual(a, c);
+                            Assert.That(a.Equals(c));
                         }
                     }
                 }
@@ -361,10 +361,9 @@ namespace TestProjectFormulaEditor
                     double y = Formula_1(a, b);
                     proxy.Update();
                     object z = g();
-                    Assert.AreEqual(x, y);
-                    Assert.AreEqual(y, z);
-
-                }
+                    Assert.That(x.Equals(y));
+                    Assert.That(y.Equals(z));
+                 }
             }
         }
 
@@ -424,10 +423,10 @@ namespace TestProjectFormulaEditor
                         det["x"] = x;
                         double a = func(x);
                         object b = tree.Result;
-                        Assert.AreEqual(a, b);
+                        Assert.That(a.Equals(b));
                         proxy.Update();
                         object c = g();
-                        Assert.AreEqual(a, c);
+                        Assert.That(a.Equals(c));
                     }
                 }
             }
@@ -463,10 +462,10 @@ namespace TestProjectFormulaEditor
                 GetValue g = proxy[tree];
                 double a = x[i];
                 object b = tree.Result;
-                Assert.AreEqual(a, b);
+                Assert.That(a.Equals(b));
                 proxy.Update();
                 object c = g();
-                Assert.AreEqual(a, c);
+                Assert.That(a.Equals(c));
             }
         }
 

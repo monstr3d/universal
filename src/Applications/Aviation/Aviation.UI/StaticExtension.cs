@@ -64,7 +64,7 @@ namespace Aviation.UI
             {
                 l.Add(new Motion6D.UI.Factory.VisibleFactory(pf));
             }
-          BasicEngineering.UI.Factory.Advanced.Forms.FormMain form =
+          FormMain form =
                 Motion6D.UI.Avanced.Initialization.MotionApplicationCreator.CreateForm(database, holder,
                OrdinaryDifferentialEquations.Runge4Solver.Singleton,
            RungeProcessor.Processor, init, l.ToArray(), throwsDoubleInit, buttons,
