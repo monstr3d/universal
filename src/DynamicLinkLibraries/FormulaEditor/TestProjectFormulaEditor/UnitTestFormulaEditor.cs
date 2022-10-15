@@ -1,5 +1,7 @@
+using CompilerBridge;
 using ExtendedFormulaEditor;
 using FormulaEditor;
+using FormulaEditor.Compiler;
 using System.Xml;
 
 namespace TestProjectFormulaEditor
@@ -22,35 +24,32 @@ namespace TestProjectFormulaEditor
         #endregion
 
 
+        static Tests()
+        {
+
+            /*    if (loaded)
+                {
+                    return;
+                }*/
+            StaticExtensionComplerBridge.Init();
+            StaticExtensionFormulaEditorCompiler.Init();
+            loadFormulaResources();
+  
+        }
+
+
         [SetUp]
         public void Setup()
         {
-            {
-                if (loaded)
-                {
-                    return;
-                }
-                loadFormulaResources();
-                XmlDocument doc = new XmlDocument();
-                doc.LoadXml(Properties.Resources.Formulas);
-                List<MathFormula> l = new List<MathFormula>();
-                XmlNodeList nl = doc.DocumentElement.ChildNodes;
-                foreach (XmlElement e in nl)
-                {
-                    MathFormula f = MathFormula.FromString(sizes, e.OuterXml);
-                    l.Add(f.FullTransform(null));
-                }
-                formulae = l.ToArray();
-            }
-
         }
 
+ /*
         [Test]
         public void Test1()
         {
             Assert.Pass();
         }
-
+*/
         /// <summary>
         /// Test of bool binary
         /// </summary>
@@ -327,6 +326,17 @@ namespace TestProjectFormulaEditor
         [Test]
         public void TestMethodFirst()
         {
+            XmlDocument doc = new XmlDocument();
+            doc.LoadXml(Properties.Resources.Formulas);
+            List<MathFormula> l = new List<MathFormula>();
+            XmlNodeList nl = doc.DocumentElement.ChildNodes;
+            foreach (XmlElement e in nl)
+            {
+                MathFormula f = MathFormula.FromString(sizes, e.OuterXml);
+                l.Add(f.FullTransform(null));
+            }
+            formulae = l.ToArray();
+
             double type = 0;
             Dictionary<string, object> d = new Dictionary<string, object>()
             {
@@ -462,12 +472,12 @@ namespace TestProjectFormulaEditor
 
         #region Private members
 
-        private void loadFormulaResources()
+        private static void loadFormulaResources()
         {
-            if (loaded)
+      /*      if (loaded)
             {
                 return;
-            }
+            }*/
             loaded = true;
             MathFormula.Saver = StandardXmlFormulaSaver.Object;
             FormulaEditor.CSharp.CSharpTreeCollectionProxyFactory.CodeCreator =

@@ -279,8 +279,6 @@ namespace FormulaEditor
             }
         }
 
-
-
         /// <summary>
         /// Adds additional property
         /// </summary>
