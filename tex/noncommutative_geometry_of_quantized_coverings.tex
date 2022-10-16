@@ -1430,6 +1430,10 @@ x \mapsto	\begin{cases}
 Let $\rho: A\to B\left(\H \right)$ be a faithful nondegenerate representation, and let $B$ be a hereditary subalgebra $A$. Let  $\left\{u_\la \right\}_{\la \in \La} \subset  B\left(\H \right)_+$ be an increasing  net of positive elements, such that
 \begin{itemize}
 	\item $\left\{u_\la \right\}\subset M\left(A \right) \cap M\left( B\right)$.
+	\item 
+	\be\label{hered_r_u_eqn}
+\forall\la\in\La\quad	\rho\left(u_\la A u_\la \right)\subset \rho\left(B  \right).  
+	\ee
 	\item There is a limit $\bt$-$\lim_\la u_\la = 1_{ M\left( B\right) }$ with respect to the strict topology of $M\left( B\right)$ (cf. Definition \ref{strict_topology_defn}). 
 \end{itemize}
 One has
@@ -1843,15 +1847,21 @@ M\left(\pi \right):M\left({A} \right) \hookto M\left(\widetilde{A} \right).
 \end{definition}
 \begin{remark}\label{hered_lift_rem}
 If a net $\left\{u_\la\right\}_{\la \in \La} \subset M\left( B\right)_+$ is such that $\bt$-$\lim u_\la = 1_{M\left( B\right)}$ where the strict limit is implied (cf. Definition \ref{strict_topology_defn}) then one has
-\be\label{hered_lift_eqn}
+\bea
+\label{hered_lift_eqn}
 \widetilde B = \left\{\left.\widetilde a \in \widetilde A\right|\lim_{\la \in \La}\left\| \widetilde a- \pi\left( u_\la\right)\widetilde a\pi\left( u_\la\right)\right\| =0 \right\}.
-\ee 
+\eea 
 \end{remark}
 \begin{remark}\label{hered_lift_pap_rem}
-	If $\widetilde \rho: \widetilde B\hookto B\left(\widetilde \H\right)$ is a faithful nondegenerate representation then from the Lemma \ref{increasing_convergent_w_lem} it follows that there is a limit $\widetilde p = s$-$\lim_{\la\in \La} \widetilde\rho\left(\widetilde\pi\left( u_\la\right)  \right)$ with respect to the strong topology of $B\left(\widetilde \H \right)$ (cf. Definition \ref{strong_topology_defn}). Similarly to  the Corollary \ref{hered_representation_cor} one has a following equation
-\be\label{hered_lift_pap_eqn}
+	If $\widetilde \rho: \widetilde B\hookto B\left(\widetilde \H\right)$ is a faithful nondegenerate representation then similarly to the equation \ref{hered_r_u_eqn} one has
+\be	\label{hered_r_u_lift_eqn}
+	\forall\la\in\La\quad	\widetilde\rho\left(\pi\left( u_\la\right)\widetilde A\pi\left( u_\la\right) \right)\subset \widetilde\rho\left(\widetilde B  \right). 
+\ee	
+From the Lemma \ref{increasing_convergent_w_lem} it follows that there is a limit $\widetilde p = s$-$\lim_{\la\in \La} \widetilde\rho\left(\widetilde\pi\left( u_\la\right)  \right)$ with respect to the strong topology of $B\left(\widetilde \H \right)$ (cf. Definition \ref{strong_topology_defn}). Similarly to  the Corollary \ref{hered_representation_cor} one has a following equation
+\bea
+\label{hered_lift_pap_eqn}
 	\widetilde	B = \left\{\left.\widetilde a \in\widetilde A\right|\widetilde p \widetilde\rho\left(\widetilde a\right)\widetilde p =\widetilde \rho\left(\widetilde a \right) \right\}
-\ee
+\eea
 	and  a faithful, nondegenerate representation
 \be\label{hered_lift_repr_eqn}
 	\widetilde B \hookto B\left(\widetilde p \widetilde\H \right). 

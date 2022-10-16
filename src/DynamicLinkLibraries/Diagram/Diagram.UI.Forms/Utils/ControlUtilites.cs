@@ -283,7 +283,7 @@ namespace Diagram.UI.Utils
         /// <param name="r">Resources</param>
         public static void ShowError(this Form form, Exception e, string helpstring, Dictionary<string, string> r)
         {
-            IErrorHandler eh = Diagram.UI.StaticExtensionDiagramUI.ErrorHandler;
+            IErrorHandler eh = StaticExtensionDiagramUI.ErrorHandler;
             if (eh != null)
             {
                 e.ShowError(0);
