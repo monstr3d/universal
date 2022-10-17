@@ -1487,6 +1487,49 @@ In the situation \ref{hered_repr_p_empt} if $\pi: A\to B\left(\H \right)$ is an 
 One can prove this lemma by usage of the proof of the Lemma 
 \ref{hered_repr_lem}.
 \end{proof}
+\begin{lemma}
+Let $\eps > 0$ and let 	 $f_\eps: \R \to \R$ be a continuous function given by 
+	\begin{equation}\label{f_eps_eqn}
+		f_\eps\left( x\right)  =\left\{
+		\begin{array}{c l}
+			0 &x \le \eps \\
+			x - \eps & x > \eps
+		\end{array}\right.
+	\end{equation}
+If $A$ is a $C^*$-algebra $K\left( A \right)_0$
+then one has
+\bea\label{k0_ped_e_eqn}
+	K\left( A \right)_0 = \left\{f_\eps \left(a\right) \left|a \in A_+, \quad \eps > 0 \right.\right\}\\
+	\label{kp_ped_e_eqn}
+		K\left( A \right)_+ = \left\{a \in A_+ \left|x \le \sum_{j = 1}^n f_{\eps_j}\left(  a_j\right) , \quad a_j \in  	K\left( A \right)_0\quad \eps_j > 0\right.\right\}
+\eea
+where both $	K\left( A \right)_0$ and 	$K\left( A \right)_+$ are given by equations \eqref{k0_ped_eqn} and \eqref{kp_ped_eqn} respectively
+\end{lemma}
+\begin{proof}
+	If  $a\in A_+$ and $\eps > 0$ then $f_\eps \left(a\right)= \phi_\eps\left(a \right)$ where  $\phi \in K(]0, \infty [$ is given by !!!
+		\bean
+		\phi\left( x\right)  =\left\{
+		\begin{array}{c l}
+			0 &x \le \eps \\
+			x - \eps &  \eps \le x \le \left\| a\right\|\\
+			\left\| a\right\| - \eps - x & !!! CHECK
+		\end{array}\right.
+	\eean
+It follows that $f_\eps\left(a\right)	\in K\left( A \right)_0$. Conversely suppose if $a \in	K\left( A \right)_0$ then from \eqref{k0_ped_eqn} it turns out that there is $b' \in A_+$ and $\varphi \in   K(]0, \infty [$ such that $a = \varphi\left(b'\right)$. If  $\supp \varphi \subset \left[\eps, c\right]$ and  $\psi \in C_c\left( \R\right)_+$ is given by
+ 		\bean
+ \psi\left( x\right)  =\left\{
+ \begin{array}{c l}
+ 	0 &x \le \eps \\
+ 	\varphi\left(x\right)+ \eps &  \eps \le x \le c\\
+ 	\left\| a\right\| - \eps - x & CHECK!!!\\
+ 	0 & x > 
+ \end{array}\right.
+ \eean
+ then $ \varphi = f_\eps  \circ\psi$. It follows that $a = f_\eps\left(b \right)$ where $b \bydef \psi\left(b'\right)$. So the equation \eqref{k0_ped_e_eqn} is proven. The equation \eqref{kp_ped_e_eqn} is a direct consequence of \eqref{k0_ped_e_eqn} and \eqref{kp_ped_eqn} ones.
+ 
+\end{proof}
+
+
 
 
 \chapter{Noncommutative finite-fold coverings}\label{cov_fin_chap}
@@ -3907,14 +3950,7 @@ g \xi^s_{\widehat{a}}\stackrel{\text{def}}{=}	\left(0, ..., \underbrace{f_{gs}\l
 	A  positive operator $\overline a \in B\left(\H\right)_+$ is said to be $\pi$-\textit{special element of} $\mathfrak{S}^{\mathrm{pt}}$ if for any $\la_0 \in \La$, $\eps > 0$ and  $z \in A_{\la_0}^{\sim}$ (cf. Notation \eqref{unital_notation_eqn})
 	it satisfies to the following conditions:	
 	\begin{enumerate}
-		\item[(a)] 	If   $f_\eps: \R \to \R$ is a continuous function given by 
-		\begin{equation}\label{f_eps_eqn}
-		f_\eps\left( x\right)  =\left\{
-		\begin{array}{c l}
-		0 &x \le \eps \\
-		x - \eps & x > \eps
-		\end{array}\right.
-		\end{equation}%\label{spec_el_eqn}
+		\item[(a)] 	If   $f_\eps: \R \to \R$ is a continuous function given by \eqref{f_eps_eqn}
 		then for all $\la \ge \la_0$  there are $ a_\la, b_\la, a^\eps_\la \in A_\la$ such that
 		\be\label{spec_a_eps_eqn}
 		\begin{split}
@@ -22605,11 +22641,25 @@ representation.
 		which is minimal among dense ideals.
 		
 	\end{thm}
-	
+	\begin{proof}
+		Let $K(]0, \infty [)$ denote the set of continuous functions on $]0, \infty [$ with 
+		compact support and define 
+		\be\label{k0_ped_eqn}
+		K\left( A \right)_0 \bydef \left\{f\left(x\right) \left|x \in A_+, \quad f \in K(]0, \infty [) \right.\right\}.
+		\ee
+		Let 
+		\be\label{kp_ped_eqn}
+		K\left( A \right)_+ \bydef \left\{x \in A_+ \left|x \le \sum_{j = 1}^nx_j, \quad x_j \in  	K\left( A \right)_0\right.\right\}, 	
+		\ee
+	so that $	K\left( A \right)_+$ is the smallest hereditary cone  containing $K\left( A \right)_0$. If $K(A)$ 
+		is  the $\C$-linear span of $K(A)_+$ then $K(A)$,
+		which is minimal among dense ideals. Details of proof are described in \cite{pedersen:ca_aut}
+			\end{proof}
+			
 	\begin{defn}\label{peder_id_defn}\cite{blackadar:ko}
 		The ideal $K\left( A\right) $ from the theorem \ref{peder_id_thm} is said to be the {\it Pedersen's ideal of $A$}. %Henceforth Pedersen's ideal shall be denoted by $K(A)$.
 	\end{defn}
-	\begin{remark}\cite{pedersen:ca_aut} 
+\begin{remark}\cite{pedersen:ca_aut} 
 One has
 \bea\label{peder_k_eqn}
 K\left( \K\right) = \left\{\left. a \in \K\right| a  \text{ is a finite rank operator}\right\},\\
