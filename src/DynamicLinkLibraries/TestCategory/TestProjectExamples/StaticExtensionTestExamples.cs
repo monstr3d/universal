@@ -27,7 +27,7 @@ namespace TestProjectExamples
         static StaticExtensionTestExamples()
         {
             StaticExtensionDiagramUI.ErrorHandler = new ErrorHandler();
-            AssemblyService.StaticExtensionAssemblyService.Init();
+ //           AssemblyService.StaticExtensionAssemblyService.Init();
             LoadFormulaResources();
             StaticExtensionComplerBridge.Init();
             StaticExtensionFormulaEditorCompiler.Init();

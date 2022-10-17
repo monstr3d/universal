@@ -5,7 +5,7 @@ namespace TestProjectExamples
         [Fact]
         public void TestOrbitDetermination()
         {
-           var o = Properties.Resources.OrbitDetermination.Test();
+            var o = Properties.Resources.OrbitDetermination.Test();
             if (o is Exception)
             {
 
