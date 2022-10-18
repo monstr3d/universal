@@ -81,7 +81,7 @@ namespace DataPerformer.TestInterface.Regression
             get 
             {
                 var eps = Math.Abs(GetValue(collection) - value);
-                if (Math.Abs(eps)  > 0.001 * value)  // If calculated value of residual parameter is not equal
+                if (Math.Abs(eps)  != 0)  // If calculated value of residual parameter is not equal
                 {
                     return new Tuple<bool, object>(false, "Different regression values. Object - " + name);  // Then method returns error message
                 }

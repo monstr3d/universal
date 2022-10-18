@@ -796,15 +796,16 @@ namespace Regression.Portable
 			}
 		}
 
-        /// <summary>
-        /// Full iteration with all updates
-        /// </summary>
-        public void FullIterate()
-        {
-            UpdateSelections();
-            Iterate();
-            SetAliases();
-        }
+		/// <summary>
+		/// Full iteration with all updates
+		/// </summary>
+		public double FullIterate()
+		{
+			UpdateSelections();
+			var a = Iterate();
+			SetAliases();
+			return a;
+		}
 
         /// <summary>
         /// Tests itself

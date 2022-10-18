@@ -64,6 +64,13 @@ namespace TestExamplesConsoleApp
             }
         }
 
+        public static Tuple<bool, object> Test(this string filename)
+        {
+            using (var stream = File.OpenRead(filename))
+            {
+                return stream.Test();
+            }
+        }
 
 
         private static void LoadFormulaResources()

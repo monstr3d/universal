@@ -67,7 +67,7 @@ namespace TestCategory
         /// </summary>
         /// <param name="stream">Stream</param>
         /// <returns>Test object</returns>
-        public static object Test(this Stream stream)
+        public static Tuple<bool, object> Test(this Stream stream)
         {
             IComponentCollection collection;
             ITest t = stream.Load(out collection);

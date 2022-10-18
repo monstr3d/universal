@@ -1,3 +1,4 @@
+
 namespace TestProjectExamples
 {
     public class UnitTestExamples
@@ -5,11 +6,7 @@ namespace TestProjectExamples
         [Fact]
         public void TestOrbitDetermination()
         {
-            var o = Properties.Resources.OrbitDetermination.Test();
-            if (o is Exception)
-            {
-
-            }
-        }
+            Resources.OrbitDetermination.Fact();
+         }
     }
 }

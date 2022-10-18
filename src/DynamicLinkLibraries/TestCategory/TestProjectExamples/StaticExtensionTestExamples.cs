@@ -40,13 +40,22 @@ namespace TestProjectExamples
             initializer.InitializeApplication();
         }
 
+        /// <summary>
+        /// Test fact
+        /// </summary>
+        /// <param name="bytes">bytes</param>
+        public static void Fact(this byte[] bytes)
+        {
+            Assert.True(bytes.Test().Item1);
+        }
+
 
         /// <summary>
         /// Test
         /// </summary>
         /// <param name="bytes">Bytes</param>
         /// <returns>Test result</returns>
-        public static object Test(this byte[] bytes)
+        public static Tuple<bool, object> Test(this byte[] bytes)
         {
             try
             {
@@ -59,7 +68,7 @@ namespace TestProjectExamples
             catch (Exception exception)
             {
                 exception.ShowError();
-                return exception;
+                return new Tuple<bool, object>(false, exception);
             }
         }
 
