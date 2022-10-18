@@ -60,7 +60,18 @@ namespace FormulaEditor
 
         #region Public Members
 
-  
+        /// <summary>
+        /// String representation of formulae
+        /// </summary>
+        /// <param name="formulae">The formulae</param>
+        /// <returns>The string representation of formulae</returns>
+        public static IEnumerable<string> ToStringEnumerable(this IEnumerable<MathFormula> formulae)
+        {
+            foreach (var formula in formulae)
+            {
+                yield return formula.FormulaString;
+            }
+        }
 
         /// <summary>
         /// Transformation of array of trees

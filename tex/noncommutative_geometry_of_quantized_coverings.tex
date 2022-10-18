@@ -1487,7 +1487,7 @@ In the situation \ref{hered_repr_p_empt} if $\pi: A\to B\left(\H \right)$ is an 
 One can prove this lemma by usage of the proof of the Lemma 
 \ref{hered_repr_lem}.
 \end{proof}
-\begin{lemma}
+\begin{lemma}\label{pedersen_eps_lem}
 Let $\eps > 0$ and let 	 $f_\eps: \R \to \R$ be a continuous function given by 
 	\begin{equation}\label{f_eps_eqn}
 		f_\eps\left( x\right)  =\left\{
@@ -1499,30 +1499,32 @@ Let $\eps > 0$ and let 	 $f_\eps: \R \to \R$ be a continuous function given by
 If $A$ is a $C^*$-algebra $K\left( A \right)_0$
 then one has
 \bea\label{k0_ped_e_eqn}
-	K\left( A \right)_0 = \left\{f_\eps \left(a\right) \left|a \in A_+, \quad \eps > 0 \right.\right\}\\
+	K\left( A \right)_0 = \left\{f_\eps \left(a\right) \left|~a \in A_+, \quad \eps > 0 \right.\right\},~~~\\
 	\label{kp_ped_e_eqn}
-		K\left( A \right)_+ = \left\{a \in A_+ \left|x \le \sum_{j = 1}^n f_{\eps_j}\left(  a_j\right) , \quad a_j \in  	K\left( A \right)_0\quad \eps_j > 0\right.\right\}
+		K\left( A \right)_+ = \left\{a \in A_+ \left|a \le \sum_{j = 1}^n f_{\eps_j}\left(  a_j\right) \quad a_j \in  	K\left( A \right)_0\quad \eps_j > 0\quad j=1,...,n\right.\right\}~~
 \eea
 where both $	K\left( A \right)_0$ and 	$K\left( A \right)_+$ are given by equations \eqref{k0_ped_eqn} and \eqref{kp_ped_eqn} respectively
 \end{lemma}
 \begin{proof}
-	If  $a\in A_+$ and $\eps > 0$ then $f_\eps \left(a\right)= \phi_\eps\left(a \right)$ where  $\phi \in K(]0, \infty [$ is given by !!!
+	If  $a\in A_+$ and $\eps > 0$ then $f_\eps \left(a\right)= \phi_\eps\left(a \right)$ where  $\phi \in K(]0, \infty [$ is given by !!
 		\bean
 		\phi\left( x\right)  =\left\{
 		\begin{array}{c l}
 			0 &x \le \eps \\
 			x - \eps &  \eps \le x \le \left\| a\right\|\\
-			\left\| a\right\| - \eps - x & !!! CHECK
+		2	\left\| a\right\| - \eps - x & \left\| a\right\| \le x \le 2\left\| a\right\|-\eps\\
+	0 & x \ge 2 \left\| a\right\| -\eps\\
 		\end{array}\right.
 	\eean
 It follows that $f_\eps\left(a\right)	\in K\left( A \right)_0$. Conversely suppose if $a \in	K\left( A \right)_0$ then from \eqref{k0_ped_eqn} it turns out that there is $b' \in A_+$ and $\varphi \in   K(]0, \infty [$ such that $a = \varphi\left(b'\right)$. If  $\supp \varphi \subset \left[\eps, c\right]$ and  $\psi \in C_c\left( \R\right)_+$ is given by
  		\bean
  \psi\left( x\right)  =\left\{
  \begin{array}{c l}
- 	0 &x \le \eps \\
- 	\varphi\left(x\right)+ \eps &  \eps \le x \le c\\
- 	\left\| a\right\| - \eps - x & CHECK!!!\\
- 	0 & x > 
+ 	0 &x \le 0 \\
+ x &0 \le x \le \eps \\
+ \varphi\left(x\right) + \eps &\eps \le x \le c \\
+ \eps + c - x&  c \le x \le c+ \eps\\
+ 0 & x \ge c + \eps
  \end{array}\right.
  \eean
  then $ \varphi = f_\eps  \circ\psi$. It follows that $a = f_\eps\left(b \right)$ where $b \bydef \psi\left(b'\right)$. So the equation \eqref{k0_ped_e_eqn} is proven. The equation \eqref{kp_ped_e_eqn} is a direct consequence of \eqref{k0_ped_e_eqn} and \eqref{kp_ped_eqn} ones.
@@ -3950,7 +3952,7 @@ g \xi^s_{\widehat{a}}\stackrel{\text{def}}{=}	\left(0, ..., \underbrace{f_{gs}\l
 	A  positive operator $\overline a \in B\left(\H\right)_+$ is said to be $\pi$-\textit{special element of} $\mathfrak{S}^{\mathrm{pt}}$ if for any $\la_0 \in \La$, $\eps > 0$ and  $z \in A_{\la_0}^{\sim}$ (cf. Notation \eqref{unital_notation_eqn})
 	it satisfies to the following conditions:	
 	\begin{enumerate}
-		\item[(a)] 	If   $f_\eps: \R \to \R$ is a continuous function given by \eqref{f_eps_eqn}
+		\item[(a)] 	If   $f_\eps: \R \to \R$ is a given by \eqref{f_eps_eqn} continuous function 
 		then for all $\la \ge \la_0$  there are $ a_\la, b_\la, a^\eps_\la \in A_\la$ such that
 		\be\label{spec_a_eps_eqn}
 		\begin{split}
@@ -12489,9 +12491,19 @@ where right and left  ideals  $_\sU A,~~ A_\sU\subset A$ are explained in \ref{b
 	\eean
 	then the $\sV$ closure  of $\sU$ is said to be the \textit{support} of $a$. We write $\supp a \bydef \sV$.
 \end{definition}
-
+\begin{exercise}
+Prove that 
+\be\label{blowing_supp_eqn}
+\begin{split}
+	\forall a \in A\quad \forall c \in \C\setminus\{0\} \quad \supp \left(a\right) = \supp \left(ca\right) = \supp \left(a^*\right);\\
+			\forall a, b \in A_+\quad a \le b \quad \Rightarrow\quad \supp \left(a\right)\subset \supp \left(b\right) ,\\  
+		\forall a, b \in A\quad \supp \left(a+b\right)\subset \supp \left(a\right)\cup \supp \left(b\right),\\  \supp\left(ab\right)\subset \supp \left(a\right)\cup \supp \left(b\right).
+\end{split}
+\ee
+\end{exercise}
 \begin{lemma}\label{blowing_supp_lem}
-	Let $A$ be $C^*$-algebra, and let $C_0\left( \sY\right) \subset M\left(A \right)$  be a disintegrable Hausdorff blowing-up (cf. Definitions \ref{blowing_defn}, \ref{blowing_disintegrable_defn}). If $a \in A_+$ is positive, $\eps > 0$ and $f_\eps$ is given by the equation \eqref{f_eps_eqn} then the support $\supp f_\eps\left(a \right)\subset \sY$ of $f_\eps\left(a \right)$  is compact.  
+	!!!!
+	If $A$ is a  $C^*$-algebra,   $C_0\left( \sY\right) \subset M\left(A \right)$  is disintegrable Hausdorff blowing-up (cf. Definitions \ref{blowing_defn}, \ref{blowing_disintegrable_defn}) and $K\left(A\right)$ is a Pedersen's ideal (cf. Definition \ref{peder_id_defn}) then for all $a \in K\left(A \right)$ a support $\supp a\subset \sY$ of $a$  is compact.  
 \end{lemma}
 \begin{proof}
 	From the  Definition \ref{blowing_disintegrable_defn} it follows that there is a family of open sets $\left\{\sU_\a\right\}_{\a \in \mathscr A}$ such that a union $\cup A^{\mathrm{prop}}_{\sU_\a}$ of $\sU_\a$-proper $C^*$-algebras (cf. Definition \ref{blowing_disintegrable_defn}) generates the $C^*$-algebra $A$. Moreover one can suppose that the closure of $\sU_\a$ is compact for all $\a \in \mathscr A$.
@@ -12506,14 +12518,14 @@ where right and left  ideals  $_\sU A,~~ A_\sU\subset A$ are explained in \ref{b
 	b' \in A^{\text{prop}}_{\cup \sU_{\a_{j,k}}}.
 	$
 	If $\sV$ is the closure of a finite union $\sU\bydef\cup \sU_{\a_{j,k}}$ of open sets with compact closure then $\sV$ is compact.  From $\supp b'\subset \sV$ it follows that if  $a' \bydef b'^*b'$ then $\supp a'\subset \sV$. If  $\delta^2 + 2 \delta \left\| b\right\|< \eps$ then $ \left\| a - a'\right\|< \eps$. 
-	If $\chi$ is a characteristic map of $\supp a'$ and $A \to B\left(\H\right)$ is a faithful representation then $\chi$ corresponds to a projector $p^\parallel\in  B\left(\H\right)$. If $\H^>$ is a completion of $f_\eps\left(a\right)\H$ then $\H^> = p^a_{\left(\eps, \infty\right) }\H$ where $p^a_{\left(\eps, \infty\right) }$ is a spectral projection of $a$ which corresponds to $\left(\eps, \infty\right)\subset \R$ (cf. Definition \ref{spectral_proj_defn}). It follows that
+	If $\chi$ is a characteristic map of $\supp a'$ and $A \to B\left(\H\right)$ is a faithful representation then $\chi$ corresponds to a projector $p^\parallel\in  B\left(\H\right)$. If $f_\eps$ is given by \eqref{f_eps_eqn} and $\H^>$ is a completion of $f_\eps\left(a\right)\H$ then $\H^> = p^a_{\left(\eps, \infty\right) }\H$ where $p^a_{\left(\eps, \infty\right) }$ is a spectral projection of $a$ which corresponds to $\left(\eps, \infty\right)\subset \R$ (cf. Definition \ref{spectral_proj_defn}). It follows that
 	\bea
 	%\forall \eta \in \H^>\setminus \{0\} \quad \Leftrightarrow\quad  f_\eps\left(a\right)\eta \neq 0 \quad \Leftrightarrow\quad \frac{\left\|a \eta \right\|}{\left\| \eta \right\|}\ge \eps \\
 	\label{blowing_ge_eqn}
 	\forall \xi \in \H \setminus \{0\}\quad \xi \in \H^>\quad \Leftrightarrow \quad f_\eps\left(a\right)\xi \neq 0 \quad \Leftrightarrow \quad \frac{\left\|a \xi \right\|}{\left\| \xi \right\|}\ge \eps.
 	\eea
 	If $p^\perp \bydef 1_{B\left(\H\right)}- p^\parallel$ then $p^\perp$ is also a projector. If $\supp f_{\eps}\left( a\right)\not\subset\supp a'$ then there is $\xi \in p^\perp\H$ such that $f_\eps\left(a\right)\xi \neq 0$. From the equation \eqref{blowing_ge_eqn} it follows that
-	if $\left\|\xi \right\|= 1$ then $\left\|a\xi \right\|\ge \eps$. From $a'\xi = 0$ it follows that $\left\|a- a' \right\|\ge \eps$, it contradicts with our construction. So the assumption $\supp f_{\eps}\left( a\right)\not\subset\supp a'$ is not true, it turns out that $\supp f_{\eps}\left( a\right)\subset\supp a'$. It turns out that the set $\supp f_{\eps}\left( a\right)$ is compact, because it is  a closed subset of compact set $\supp a'$. 
+	if $\left\|\xi \right\|= 1$ then $\left\|a\xi \right\|\ge \eps$. From $a'\xi = 0$ it follows that $\left\|a- a' \right\|\ge \eps$, it contradicts with our construction. So the assumption $\supp f_{\eps}\left( a\right)\not\subset\supp a'$ is not true, it turns out that $\supp f_{\eps}\left( a\right)\subset\supp a'$. It turns out that the set $\supp f_{\eps}\left( a\right)$ is compact, because it is  a closed subset of compact set $\supp a'$. From the Lemma \ref{pedersen_eps_lem} if follows that $\supp a$ is compact for all $a \in K_0\left(A \right)$ (cf Equation \eqref{k0_ped_eqn}). Taking into account the Theorem \ref{peder_id_thm} and  the equations \eqref{blowing_supp_eqn} one concludes that $\supp a$ is compact for all $a \in K\left(A \right)$. 
 \end{proof}
 \begin{corollary}\label{blowing_supp_cor}
 	Let $A$ be a $C^*$-algebra, and let $C_0\left( \sY\right) \subset M\left(A \right)$  be  disintegrable Hausdorff blowing-up (cf. Definitions \ref{blowing_defn}, \ref{blowing_disintegrable_defn}). If $\left\{\sU_\a\right\}_{\a\in \mathscr A}$  is a family of all open subsets with compact closure such that $\sY = \cup \sU_\a$ then a union $\cup A^{\mathrm{prop}}_{\sU_\a}$ is dense in $A$.

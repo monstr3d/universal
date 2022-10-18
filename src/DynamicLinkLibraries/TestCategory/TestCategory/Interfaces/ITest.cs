@@ -16,7 +16,7 @@ namespace TestCategory.Interfaces
         /// </summary>
         /// <param name="collection">Collection of components</param>
         /// <returns>Test result</returns>
-        object this[IComponentCollection collection]
+        Tuple<bool, object> this[IComponentCollection collection]
         {
             get;
         }

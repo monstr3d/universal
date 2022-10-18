@@ -50,7 +50,7 @@ namespace TestCategory
                     object o = bf.Deserialize(stream);
                     if (o is ITest)
                     {
-                        return o as TestCategory.Interfaces.ITest;
+                        return o as ITest;
                     }
                 }
                 catch (Exception ex)

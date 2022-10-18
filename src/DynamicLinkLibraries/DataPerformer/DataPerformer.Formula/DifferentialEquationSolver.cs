@@ -75,8 +75,6 @@ namespace DataPerformer.Formula
         /// </summary>
         protected Dictionary<int, IOperationAcceptor> opTable;
 
-
-
         /// <summary>
         /// Table representation of variables
         /// </summary>

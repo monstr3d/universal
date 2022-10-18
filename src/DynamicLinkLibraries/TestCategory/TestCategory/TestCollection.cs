@@ -51,24 +51,30 @@ namespace TestCategory
 
         #region ITest Members
 
-        object ITest.this[IComponentCollection collection]
+        Tuple<bool, object> ITest.this[IComponentCollection collection]
         {
             get
             {
+                var result = true;
                 List<object> o = new List<object>();
                 for (int i = 0; i < tests.Length; i++)
                 {
-                    object ob = tests[i][collection];
+                    var ob = tests[i][collection];
                     if (ob != null)
                     {
                         o.Add(ob);
+                        if (!ob.Item1)
+                        {
+                            result = false;
+                        }
                     }
+                    
                 }
                 if (o.Count == 0)
                 {
                     return null;
                 }
-                return o.ToArray(); ;
+                return new Tuple<bool, object>(result, o.ToArray());
             }
         }
 

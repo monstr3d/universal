@@ -76,16 +76,16 @@ namespace DataPerformer.TestInterface.Regression
         /// </summary>
         /// <param name="collection">Collection of components</param>
         /// <returns>Test result</returns>
-        object ITest.this[IComponentCollection collection]
+        Tuple<bool, object> ITest.this[IComponentCollection collection]
         {
             get 
             {
-                if (GetValue(collection) != value)  // If calculated value of residual parameter is not equal
-                                                        // is not equal to saved value of residual parameter 
+                var eps = Math.Abs(GetValue(collection) - value);
+                if (Math.Abs(eps)  > 0.001 * value)  // If calculated value of residual parameter is not equal
                 {
-                    return "Different regression values. Object - " + name;  // Then method returns error message
+                    return new Tuple<bool, object>(false, "Different regression values. Object - " + name);  // Then method returns error message
                 }
-                return null;        // Null means absence of error
+                return new Tuple<bool, object>(true, "Success. Object - " + name);        // Null means absence of error
             }
         }
 

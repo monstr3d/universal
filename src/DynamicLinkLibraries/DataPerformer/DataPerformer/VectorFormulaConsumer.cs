@@ -9,7 +9,8 @@ using Diagram.UI;
 using BaseTypes.Interfaces;
 
 using SerializationInterface;
-
+using FormulaEditor;
+using System.Linq;
 
 namespace DataPerformer
 {
@@ -147,6 +148,11 @@ namespace DataPerformer
                 {
                     opNames[key] = operationNames[key];
                 }
+
+            }
+            if (formulae != null)
+            {
+                formulaString = formulae.ToStringEnumerable().ToArray();
             }
             info.AddValue("Formulas", formulaString);
             info.AddValue("Arguments", args);

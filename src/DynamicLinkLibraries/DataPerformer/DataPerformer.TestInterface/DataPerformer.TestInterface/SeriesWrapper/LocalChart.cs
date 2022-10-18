@@ -101,10 +101,10 @@ namespace DataPerformer.TestInterface.SeriesWrapper
         /// </summary>
         /// <param name="collection">Collection of components</param>
         /// <returns>Test result</returns>
-        object ITest.this[IComponentCollection collection]
+        Tuple<bool, object> ITest.this[IComponentCollection collection]
         {
             get
-            {
+            { 
                 IDesktop desktop = collection as IDesktop;
                 IDataConsumer dataconsumer = desktop[name] as IDataConsumer;
                 Dictionary<string, Portable.Basic.Series> d = GetSeries(collection); // Calculation of time dependent function
@@ -112,15 +112,15 @@ namespace DataPerformer.TestInterface.SeriesWrapper
                 foreach (string s in d.Keys)
                 {
                     if (!series[s].Compare(d[s])) // Comparation of test results
-                    {
+                    { 
                         l.Add("Different series values. Object - " + name + ". Series - " + s + ".");
                     }
                 }
                 if (l.Count == 0)
                 {
-                    return null;
+                    return new Tuple<bool, object>(true, "Success");
                 }
-                return l;
+                return new Tuple<bool, object>(false, l);
             }
         }
 

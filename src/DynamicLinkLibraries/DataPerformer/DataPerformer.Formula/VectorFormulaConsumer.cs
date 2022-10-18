@@ -33,7 +33,7 @@ namespace DataPerformer.Formula
         /// <summary>
         /// Formulas
         /// </summary>
-        protected MathFormula[] formula  = new MathFormula[0];
+        protected MathFormula[] formulae  = new MathFormula[0];
 
         /// <summary>
         /// Dictionary of acceptors
@@ -330,7 +330,7 @@ namespace DataPerformer.Formula
         {
             set
             {
-                SeriesSymbol.SetOperations(formula, value);
+                SeriesSymbol.SetOperations(formulae, value);
                 opTable = value;
                 setOperationNames(value);
             }
@@ -361,7 +361,7 @@ namespace DataPerformer.Formula
             get
             {
                 List<int> l = new List<int>();
-                l.AddRange(SeriesSymbol.GetOperationIndexes(formula));
+                l.AddRange(SeriesSymbol.GetOperationIndexes(formulae));
                 return l;
             }
         }
@@ -374,7 +374,7 @@ namespace DataPerformer.Formula
         {
             parameters.Clear();
             string str = "";
-            str = ElementaryObjectDetector.GetVariables(formula);
+            str = ElementaryObjectDetector.GetVariables(formulae);
             foreach (char c in s)
             {
                 if (str.IndexOf(c) < 0)
@@ -482,7 +482,7 @@ namespace DataPerformer.Formula
                 AssociatedAddition aa = new AssociatedAddition(this, null);
                 for (int i = 0; i < n; i++)
                 {
-                    MathFormula f = formula[i].FullTransform(proh);
+                    MathFormula f = formulae[i].FullTransform(proh);
                     Dictionary<int, IOperationAcceptor> dop = new Dictionary<int, IOperationAcceptor>();
                     if (ops is Dictionary<int, IOperationAcceptor>)
                     {
@@ -565,8 +565,8 @@ namespace DataPerformer.Formula
                 //{
                 if (allVariables == null)
                 {
-                    formula = new MathFormula[formulaString.Length];
-                    for (int i = 0; i < formula.Length; i++)
+                    formulae = new MathFormula[formulaString.Length];
+                    for (int i = 0; i < formulae.Length; i++)
                     {
                         string f = formulaString[i];
                         MathFormula form = MathFormula.FromString(MathSymbolFactory.Sizes, f);
@@ -575,9 +575,9 @@ namespace DataPerformer.Formula
                             form = new MathFormula(form);
                             formulaString[i] = form.FormulaString;
                         }
-                        formula[i] = form;
+                        formulae[i] = form;
                     }
-                    allVariables = ElementaryObjectDetector.GetVariables(formula);
+                    allVariables = ElementaryObjectDetector.GetVariables(formulae);
                 }
                 return allVariables;
             }
@@ -593,7 +593,7 @@ namespace DataPerformer.Formula
                 try
                 {
                     string s = "";
-                    string str = ElementaryObjectDetector.GetVariables(formula);
+                    string str = ElementaryObjectDetector.GetVariables(formulae);
                     foreach (char c in str)
                     {
                         if (!parameters.ContainsKey("" + c) & s.IndexOf(c) < 0)
@@ -645,7 +645,7 @@ namespace DataPerformer.Formula
             {
                 formulaString = new string[value];
                 result = null;
-                formula = null;
+                formulae = null;
             }
         }
 
@@ -658,7 +658,7 @@ namespace DataPerformer.Formula
             {
                 int n = Dimension;
                 measurements = new FormulaMeasurement[n];
-                formula = new MathFormula[n];
+                formulae = new MathFormula[n];
                 result = new object[n, 2];
                 parameters.Clear();
                 arguments.Clear();
@@ -666,9 +666,9 @@ namespace DataPerformer.Formula
                 for (int i = 0; i < n; i++)
                 {
                     MathFormula form = MathFormula.FromString(MathSymbolFactory.Sizes, formulaString[i]);
-                    formula[i] = form;
+                    formulae[i] = form;
                 }
-                allVariables = ElementaryObjectDetector.GetVariables(formula);
+                allVariables = ElementaryObjectDetector.GetVariables(formulae);
             }
             catch (Exception e)
             {

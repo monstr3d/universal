@@ -5,6 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 using Diagram.UI;
+using FormulaEditor;
 
 namespace DataPerformer
 {
@@ -152,7 +153,14 @@ namespace DataPerformer
 
 		void Convert()
 		{
-			Copy(vars, varsH);
+            foreach (char c in vars.Keys)
+            {
+                object[] o = vars[c] as object[];
+                string st = o[0] as string;
+                MathFormula f = MathFormula.FromString(MathSymbolFactory.Sizes, st);
+                o[0] = f.FormulaString;
+            }
+            Copy(vars, varsH);
 			Copy(pars, parsH);
 			Copy(aliases, aliasesH);
 			Copy(externalAls, externalAlsH);

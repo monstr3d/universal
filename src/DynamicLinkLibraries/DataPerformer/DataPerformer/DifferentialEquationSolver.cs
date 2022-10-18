@@ -5,6 +5,7 @@ using System.Text;
 using System.Runtime.Serialization;
 
 using Diagram.UI;
+using FormulaEditor;
 
 namespace DataPerformer
 {
@@ -192,6 +193,13 @@ namespace DataPerformer
 
         void Convert()
         {
+            foreach (char c in vars.Keys)
+            {
+                object[] o = vars[c] as object[];
+                string st = o[0] as string;
+                MathFormula f = MathFormula.FromString(MathSymbolFactory.Sizes, st);
+                o[0] = f.FormulaString;
+            }
             Copy(vars, varsH);
             Copy(pars, parsH);
             Copy(aliases, aliasesH);
