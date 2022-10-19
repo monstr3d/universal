@@ -70,7 +70,7 @@ namespace DataPerformer.TestInterface.UI.UserConrols
                 createTest = value;
             }
         }
-        
+
         #endregion
 
         #region Protected
@@ -81,7 +81,7 @@ namespace DataPerformer.TestInterface.UI.UserConrols
 
             ICategoryObject co = l.Object;
             string name = l.GetName(collection);
- 
+
             if (co is global::Regression.Portable.AliasRegression)
             {
                 test.AddRegression(name, (uint)row[3], collection);
@@ -92,16 +92,13 @@ namespace DataPerformer.TestInterface.UI.UserConrols
                 object ob = (o as IProperties).Properties;
                 if (ob.GetType().Equals(typeof(DataPerformer.UI.Labels.GraphLabel)))
                 {
-              /*       DataPerformer.UI.Interfaces.IGraphLabel lab = ob as DataPerformer.UI.Labels.GraphLabel;
-                     Tuple<Dictionary<string, Color>[], Dictionary<string, bool>[],
-            Dictionary<string, string>[], string[], int[]>[] data = null;// lab.Data;
-            Tuple<Dictionary<string, Color>[], Dictionary<string, bool>[],
-           Dictionary<string, string>[], string[], int[]> t = data[0];
-                     Dictionary<string, Color>[] d = t.Item1;
-                   IEnumerable<string> keys =  d[0].Keys;
-                    DataPerformer.DataConsumer cons = co as DataPerformer.DataConsumer;
-                    test.AddChart(name, cons.Start, cons.Step, cons.Steps, lab.Data[0].Item4[1],
-                        keys.ToArray<string>(), collection);*/
+                    var lab = ob as DataPerformer.UI.Interfaces.IGraphLabel;
+                    var data = lab.Data;
+                    // var  t = data.Item1[0];
+                    Dictionary<string, Color[]> d = data.Item1;
+                    IEnumerable<string> keys = d.Keys;
+                    DataConsumer cons = co as DataConsumer;
+                    test.AddChart(name, cons.Start, cons.Step, cons.Steps, data.Item4[1], keys.ToArray<string>(), collection);
                     return;
                 }
             }

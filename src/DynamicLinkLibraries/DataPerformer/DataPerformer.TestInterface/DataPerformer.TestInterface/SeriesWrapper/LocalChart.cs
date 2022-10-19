@@ -118,7 +118,7 @@ namespace DataPerformer.TestInterface.SeriesWrapper
                 }
                 if (l.Count == 0)
                 {
-                    return new Tuple<bool, object>(true, "Success");
+                    return new Tuple<bool, object>(true, "Success. Object - " + name); ;
                 }
                 return new Tuple<bool, object>(false, l);
             }

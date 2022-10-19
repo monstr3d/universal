@@ -12548,7 +12548,48 @@ Prove that
 	Form $\sY = \cup \sU_\a$ it follows that there is $\a\in \mathscr A$ such that $\supp f_\eps\left(a\right)\subset \sU_\a$. So $\supp f_\eps\left(a\right) \in A^{\mathrm{prop}}_{\sU_\a}$, i.e. $a$ satisfies to \eqref{blowing_aap_eqn}.\\
 	(ii) Any $a \in A$ can be represented by following way $ a = b + i c - i d -  e$ where $b,c, d,e\in A_+$ (cf. \eqref{four_decompositon_eqn}). From this representation and (i) it follows that any $a\in A$ satisfies to  \eqref{blowing_aap_eqn}.
 \end{proof}
-
+\begin{lemma}\label{blowing_prop_norm_lem}
+	Let $A$ be a $C^*$-algebra and let $C_0\left(\sY\right)\to M\left( A\right)$ be disintegrable Hausdorff blowing-up (cf. the Definitions \ref{blowing_defn} and \ref{blowing_disintegrable_defn}). 
+If $\sU_1, ..., \sU_n$ be a finite set of open subsets of $\sY$ such that
+\be\label{blowing_inter_eqn}
+\forall j,k \in \left\{1,...,n\right\}\quad j\neq k \quad \Rightarrow \sU_1\cap \sU_k = \emptyset
+\ee
+then
+\be\label{blowing_inter_norm_eqn}
+\forall j\in \left\{1,...,n\right\}\quad a_j \in A^{\mathrm{prop}}_{\sU_j}\quad  \Rightarrow \quad \left\|\sum_{j = 1}^n a_j \right\| = \max_{j\in \left\{1,...,n\right\}}\left\|a_j \right\|.
+\ee
+\end{lemma}
+\begin{proof}
+	If $\sX$ is a spectrum of $A$ then
+	$$
+	\forall a \in A \quad \left\|a \right\|= \sup_{x\in\sX}\left\|\rep_x \left( a\right)  \right\|
+	$$
+	Let $j_0\in \left\{1,...,n\right\}$ be such that $\max_{j\in \left\{1,...,n\right\}}\left\|a_j \right\|= \left\|a_{j_0} \right\|$. Let $\eps > 0$, and let $x \in \sX$ be such that 
+	$$
+\left\|\rep_x \left( a_{j_0}\right)  \right\|> \left\| a_{j_0} \right\|	- \eps.
+	$$ 
+	If $\H_x$ is a Hilbert space of an irreducible representation $\rep_x : A \to B\left( \H_x\right)$ and $\H^j_x \subset \H_x$ is a completion of of $\rep_x\left(C_0\left(\sU_j\right) \right)$ then from the equation \eqref{blowing_inter_eqn} it follows that
+	\be\label{blowing_inter_o_eqn}
+\forall j,k \in \left\{1,...,n\right\}\quad j\neq k \quad \Rightarrow \H^j_x \perp \H^k_x \quad \text{AND}\quad \rep_x\left(a_j \right) \H^k_x = \{0\}.
+	\ee
+	If $p_j : \H_x \to  \H^j_x$ is a natural projection then from \eqref{blowing_inter_o_eqn} it follows that
+\be\label{blowing_inter_a_eqn}
+\begin{split}
+\forall j \in \left\{1,...,n\right\}\quad \forall \xi \in \H_x \quad \rep_x\left( a_j\right)\xi=\rep_x\left( a_j\right)p_j\xi=\\=p_j\rep_x\left( a_j\right)\xi=p_j\rep_x\left( a_j\right)p_j\xi;\\
+\left\|\sum_{j = 1}^n a_j  \right\|\ge\left\|\rep_x \left(\sum_{j = 1}^n a_j\right)  \right\|\ge \sup_{\xi \in \H^{j_0}_x\setminus \{0\}}\frac{\left\|\rep_x \left(a_{j_0}\right) \xi \right\|}{\left\|\xi \right\|}= \\=\left\|\rep_x \left( a_{j_0}\right) \right\|>\left\| a_{j_0} \right\|	- \eps.
+\end{split}
+\ee
+The number $\eps$ can be arbitrary small, therefore one has $\left\|\sum_{j = 1}^n a_j \right\| \ge \left\|a_{j_0} \right\|$.
+Let $x'\in \sX$ be such that
+$$
+\left\|\rep_{x'} \left( \sum_{j = 1}^n a_j\right) \right\|> \left\| \sum_{j = 1}^n a_j \right\|	- \eps.
+$$
+If $\xi \in \H_{x'} \setminus \{0\}$ then
+\bean
+\left\|\rep_{x'}\left(\sum_{j = 1}^n a_j\right)\xi\right\|= \left\|\sum_{j = 1}^n\left( p_j \rep_{x'}\left( a_j\right)p_j\xi\right)\right\|= \sqrt{\sum_{j = 1}^n\left\|p_j\rep_{x'}\left( a_j\right)p_j\xi\right\|^2 }\le \\\le \left\| a_{j_0} \right\|\sqrt{\sum_{j = 1}^n\left\|p_j\xi\right\|^2}\le \left\| a_{j_0} \right\|\left\| \xi \right\|
+\eean
+so one has $\left\|\rep_{x'} \left( \sum_{j = 1}^n a_j\right) \right\| \le \left\| a_{j_0} \right\|$. The number $\eps$ can be arbitrary small, therefore one has $\left\|a_{j_0} \right\|\ge \left\|\sum_{j = 1}^n a_j \right\|$, and taking into account $\left\|\sum_{j = 1}^n a_j \right\| \ge \left\|a_{j_0} \right\|$ we conclude that $\left\|\sum_{j = 1}^n a_j \right\| = \left\|a_{j_0} \right\|$.
+\end{proof}
 
 \section{Hausdorff blowing-up and noncommutative  coverings}
 
@@ -13245,6 +13286,7 @@ $\overline p_{\overline\sU}:\overline\sX_{   \overline\sU }\xrightarrow{\approx}
 If both $\overline \H_a$ and $\widehat \H_a$ are spaces of atomic representations (cf. Definition \ref{atomic_repr_defn}) of  $A_0\left(\overline \sY \right)$
 and $\widehat A$ then from 
 \be\label{ctr_ht_eqn}
+!!! PEDERSEN REPLACE \ref{blowing_prop_norm_lem}
 \begin{split}
 \overline \H_a = \bigoplus_{\overline x\in \overline \sX} \H_{ \overline x},\\
 \widehat\H_a = \bigoplus_{\overline x\in \overline \sX} \H_{\overline{\widehat p}\left(\overline x\right)},\\

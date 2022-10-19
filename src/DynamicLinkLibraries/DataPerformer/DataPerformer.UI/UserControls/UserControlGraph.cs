@@ -281,7 +281,6 @@ namespace DataPerformer.UI.UserControls
 
         #endregion
 
-
         #region IPostSet Members
 
         void IPostSet.Post()
@@ -566,6 +565,10 @@ namespace DataPerformer.UI.UserControls
         #endregion
 
         #region Members
+
+        #region Public Members
+
+        #endregion
 
         #region Internal
 
@@ -854,32 +857,20 @@ namespace DataPerformer.UI.UserControls
                 return l;
             }
         }
-/*
+        /*
+                void SaveSettings()
+                {
+                    this.InvokeIfNeeded(SaveSettingsPrivate);
+                }
+        */
         void SaveSettings()
         {
-            this.InvokeIfNeeded(SaveSettingsPrivate);
-        }
-*/
-        void SaveSettings()
-        {
-            object o = comboBoxArg.SelectedItem;
-            if (o == null)
-            {
-                data.Item4[1] = "Time";
-                changeArgument(data.Item4[1]);
-            }
+            var o = comboBoxArg.SelectedItem ?? "Time";
             data.Item4[1] = o + "";
             Dictionary<string, IMeasurement> t = TextDictionary;
             Dictionary<IMeasurement, Color[]> mc = MeasureColorDictionary;
-            object si = comboBoxCond.SelectedItem;
-            if (si != null)
-            {
-                data.Item4[0] = si + "";
-            }
-            else
-            {
-                data.Item4[0] = "";
-            }
+            var si = comboBoxCond.SelectedItem ?? "";
+            data.Item4[0] = si + "";
             DataConsumer consumer = this.consumer as DataConsumer;
             if (toolStripComboBoxPoints.SelectedItem != null)
             {
@@ -1664,7 +1655,7 @@ namespace DataPerformer.UI.UserControls
                 data.Item4[4] = sc;
                 consumer.GraphControls = ControlPanel.GetControls(panelGraph);
                 IMeasurement arg = Argument;
-                data.Item1.Clear(); ;
+                data.Item1.Clear();
                 List<string> val = new List<string>();
                 dobta = new Dictionary<IMeasurement, object>();
                 Dictionary<IMeasurement, Color[]> d = MeasureColorDictionary;
@@ -1694,6 +1685,8 @@ namespace DataPerformer.UI.UserControls
                 ActParent(ActionType.Stop, null);
                 return;
             }
+            object ot = comboBoxArg.SelectedItem ?? "Time";
+            data.Item4[1] = ot  + "";
             backgroundWorker.RunWorkerAsync();
         }
 

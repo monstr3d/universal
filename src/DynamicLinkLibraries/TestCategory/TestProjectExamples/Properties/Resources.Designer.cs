@@ -63,6 +63,16 @@ namespace TestProjectExamples.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] DeltaFunction {
+            get {
+                object obj = ResourceManager.GetObject("DeltaFunction", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] OrbitDetermination {
             get {
                 object obj = ResourceManager.GetObject("OrbitDetermination", resourceCulture);
