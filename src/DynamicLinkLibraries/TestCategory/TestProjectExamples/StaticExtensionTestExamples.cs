@@ -15,6 +15,7 @@ using FormulaEditor.Compiler;
 
 using TestCategory;
 using Diagram.UI;
+using DataSetService;
 
 namespace TestProjectExamples
 {
@@ -38,6 +39,7 @@ namespace TestProjectExamples
        DataPerformer.Portable.DifferentialEquationProcessors.RungeProcessor.Processor, init.ToArray(),
        true);
             initializer.InitializeApplication();
+            new TestDataSetChooser();
         }
 
         /// <summary>
@@ -161,6 +163,25 @@ namespace TestProjectExamples
             
         }
     }
+
+    internal class TestDataSetChooser : DataSetFactoryChooser
+    {
+        Dictionary<string, IDataSetFactory> dic = new Dictionary<string, IDataSetFactory>();
+
+        internal TestDataSetChooser()
+        {
+            DataSetFactoryChooser.Chooser = this;
+
+            dic["SQL Server"] = ODBCTableProvider.SQLServerFactory.Singleton;
+        }
+
+
+        public override IDataSetFactory this[string name] => dic[name];
+
+        public override string[] Names => dic.Keys.ToArray();
+    }
+
+
 
     internal class ErrorHandler : IErrorHandler
     {

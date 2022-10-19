@@ -23,5 +23,15 @@ namespace TestProjectExamples
         {
             Resources.DeltaFunction.Fact();
         }
+
+        /// <summary>
+        /// Test of database selection regression
+        /// </summary>
+        [Fact]
+        public void TestDatabaseSelectionRegression()
+        {
+            Resources.DatabaseSelection.Fact();
+        }
+
     }
 }

@@ -15,7 +15,8 @@ using FormulaEditor.Compiler;
 
 using TestCategory;
 using Diagram.UI;
-
+using System.Runtime.Serialization.Formatters.Binary;
+using DataSetService;
 
 namespace TestExamplesConsoleApp
 {
@@ -39,6 +40,7 @@ namespace TestExamplesConsoleApp
        DataPerformer.Portable.DifferentialEquationProcessors.RungeProcessor.Processor, init.ToArray(),
        true);
             initializer.InitializeApplication();
+            new TestDataSetChooser();
         }
 
 
@@ -72,6 +74,20 @@ namespace TestExamplesConsoleApp
             }
         }
 
+        static public object ReadObject(this Stream stream)
+        {
+            try
+            {
+                var bf = new BinaryFormatter();
+                var a = bf.Deserialize(stream);
+                return a;
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return null;
+        }
 
         private static void LoadFormulaResources()
         {
@@ -159,6 +175,23 @@ namespace TestExamplesConsoleApp
             ElementaryIntegerOperation.Prepare();
 
         }
+    }
+
+    internal class TestDataSetChooser : DataSetFactoryChooser
+    {
+        Dictionary<string, IDataSetFactory> dic = new Dictionary<string, IDataSetFactory>();
+
+        internal TestDataSetChooser()
+        {
+            DataSetFactoryChooser.Chooser = this;
+           
+            dic["SQL Server"] = ODBCTableProvider.SQLServerFactory.Singleton;
+        }
+
+ 
+        public override IDataSetFactory this[string name] => dic[name];
+
+        public override string[] Names => dic.Keys.ToArray();
     }
 
     internal class ErrorHandler : IErrorHandler

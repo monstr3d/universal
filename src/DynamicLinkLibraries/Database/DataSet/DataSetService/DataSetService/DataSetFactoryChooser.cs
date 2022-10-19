@@ -13,21 +13,10 @@ namespace DataSetService
         /// <summary>
         /// Global chooser
         /// </summary>
-        static private IDataSetFactoryChooser chooser;
-
-        /// <summary>
-        /// Global chooser
-        /// </summary>
         static public IDataSetFactoryChooser Chooser
         {
-            get
-            {
-                return chooser;
-            }
-            set
-            {
-                chooser = value;
-            }
+            get;
+            set;
         }
 
         /// <summary>

@@ -62,19 +62,21 @@ namespace DataPerformer.TestInterface
 
         protected virtual bool Process(int i, ITest test, Dictionary<string, object[]> d)
         {
-            if (test is SeriesWrapper.LocalChart)
+            switch (test)
             {
-                SeriesWrapper.LocalChart lc = test as SeriesWrapper.LocalChart;
-                d[lc.Name] = new object[] { i };
-                return true;
-            }
-            if (test is Regression.RegressionTest)
-            {
-                Regression.RegressionTest rt = test as Regression.RegressionTest;
-                d[rt.Name] = new object[] { i, rt.Number };
-                return true;
-            }
-            return false;
+                case SeriesWrapper.LocalChart lc:
+                    d[lc.Name] = new object[] { i };
+                    return true;
+                case Regression.RegressionTest rt:
+                    d[rt.Name] = new object[] { i };
+                    return true;
+                case Regression.IteratorGLMTest it:
+                    d[it.Name] = new object[] { i };
+                    return true;
+                default:
+                    return false;
+           }
+  
         }
 
         public void AddChart(string name, double start, double step, 
@@ -92,6 +94,14 @@ namespace DataPerformer.TestInterface
             rt.Create(collection);
             testList.Add(rt);
         }
+
+        public void AddIteratorGLM(string name, uint number, IComponentCollection collection)
+        {
+            Regression.IteratorGLMTest it = new Regression.IteratorGLMTest(name, (int)number);
+            it.Create(collection);
+            testList.Add(it);
+        }
+
 
 
         public void Close()

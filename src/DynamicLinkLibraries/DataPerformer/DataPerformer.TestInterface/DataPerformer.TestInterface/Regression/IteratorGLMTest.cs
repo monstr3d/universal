@@ -1,17 +1,13 @@
-﻿using System;
+﻿using Diagram.UI;
+using Diagram.UI.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-
 using System.Runtime.Serialization;
-
+using System.Text;
+using System.Threading.Tasks;
+using System.Xml.Linq;
 using TestCategory.Interfaces;
-
-using Diagram.UI.Interfaces;
-using Diagram.UI;
-
-using Regression;
-
 
 namespace DataPerformer.TestInterface.Regression
 {
@@ -19,7 +15,7 @@ namespace DataPerformer.TestInterface.Regression
     /// Test of nonlinear regression
     /// </summary>
     [Serializable()]
-    class RegressionTest : BaseRegressionTest
+    class IteratorGLMTest : BaseRegressionTest
     {
         #region Ctor
 
@@ -28,7 +24,7 @@ namespace DataPerformer.TestInterface.Regression
         /// </summary>
         /// <param name="name">Name of component on desktop</param>
         /// <param name="number">Number of iterations</param>
-        internal RegressionTest(string name, int number) : 
+        internal IteratorGLMTest(string name, int number) :
             base(name, number)
         {
         }
@@ -39,7 +35,7 @@ namespace DataPerformer.TestInterface.Regression
         /// </summary>
         /// <param name="info">Serialization info</param>
         /// <param name="context">Streaming context</param>
-        private RegressionTest(SerializationInfo info, StreamingContext context) : 
+        private IteratorGLMTest(SerializationInfo info, StreamingContext context) :
             base(info, context)
         {
         }
@@ -56,16 +52,18 @@ namespace DataPerformer.TestInterface.Regression
         /// <returns>Residual parameter</returns>
         protected override double GetValue(IComponentCollection collection)
         {
-            global::Regression.Portable.AliasRegression reg =
-                collection.GetObject<global::Regression.Portable.AliasRegression>(name); // Regression component
+            double a = 0;
+            global::Regression.Portable.IteratorGLM reg =
+                collection.GetObject<global::Regression.Portable.IteratorGLM>(name); // Regression component
             for (int i = 0; i < number; i++)
             {
-                reg.FullIterate();                  // Iteration cylce
+               a = reg.FullIterate();                  // Iteration cylce
             }
-            return reg.SquareResidual;              // returns residual parameter
+            return a;              // returns residual parameter
         }
 
         #endregion
+
 
     }
 }

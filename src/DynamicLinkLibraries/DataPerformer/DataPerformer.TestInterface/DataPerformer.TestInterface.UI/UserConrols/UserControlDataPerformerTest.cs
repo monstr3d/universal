@@ -14,6 +14,7 @@ using Diagram.UI.Labels;
 using Diagram.UI;
 
 using TestCategory.Interfaces;
+using System.Runtime.CompilerServices;
 
 namespace DataPerformer.TestInterface.UI.UserConrols
 {
@@ -81,6 +82,17 @@ namespace DataPerformer.TestInterface.UI.UserConrols
 
             ICategoryObject co = l.Object;
             string name = l.GetName(collection);
+            switch (co)
+            {
+                case global::Regression.Portable.AliasRegression reg:
+                    test.AddRegression(name, (uint)row[3], collection);
+                    return;
+                case global::Regression.Portable.IteratorGLM it:
+                    test.AddIteratorGLM(name, (uint)row[3], collection);
+                    return;
+                default:
+                    break;
+            }
 
             if (co is global::Regression.Portable.AliasRegression)
             {
@@ -108,9 +120,14 @@ namespace DataPerformer.TestInterface.UI.UserConrols
 
         protected virtual bool IsAdmissible(object o, ICategoryObject cob)
         {
-            if (cob is global::Regression.Portable.AliasRegression)
+           switch(cob)
             {
-                return true;
+                case global::Regression.Portable.AliasRegression ar:
+                    return true;
+                case global::Regression.Portable.IteratorGLM it:
+                    return true;
+                default:
+                    break;
             }
             if (o is IProperties)
             {
