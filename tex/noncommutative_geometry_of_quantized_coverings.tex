@@ -2816,7 +2816,7 @@ is faithful and nondegenerate (cf. Corollary \ref{hered_representation_cor}).
 	For any connected $C^*$-algebra $A$ consider a category $\mathfrak{FinCov}$-$A$ such that following conditions hold:
 	\begin{itemize}
 		\item [(i)]  Objects of $\mathfrak{FinCov}$-$A$ are connected finite-fold noncommutative coverings $\pi: A \hookto \widetilde A$ (or $\left(A, \widetilde{A}, G, \pi \right)$) (cf. Definition \ref{fin_defn}).
-		\item[(ii)] A morphism from $\pi': A \hookto \widetilde A'$ to $\pi'': A \hookto \widetilde A''$ is an injective *-homomorphism $\pi: \widetilde A''\hookto \widetilde A'$ such that the following diagram 
+		\item[(ii)] A morphism from $\left(A, \widetilde{A}', G', \pi' \right)$ to $\left(A, \widetilde{A}'', G'', \pi'' \right)$ is an injective *-homomorphism $\pi: \widetilde A''\hookto \widetilde A'$ such that the following diagram 
 		\newline
 		\begin{tikzpicture}
 			\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
@@ -2829,12 +2829,12 @@ is faithful and nondegenerate (cf. Corollary \ref{hered_representation_cor}).
 			(m-2-2) edge node [right] {$~~\pi''$} (m-1-3);
 		\end{tikzpicture}
 		\\ 	
-		is commutative.
-		\item[(iii)] Compositions of morphisms are natural.
+		is commutative. We also require that  there is a proper normal subgroup $H\subset G''$ (cf. Definition \ref{proper_subgroup_fin_defn}) such that there is a *-isomorphism $\widetilde{A}'' \cong \widetilde{A}'^H$ and $\pi$ is equivalent to a natural inclusion $ \widetilde{A}'^H\subset \widetilde{A}'$, i.e. there is a natural noncommutative finite-fold covering $\left(A'', A', G\left(\left. A'\right| A''\right), \pi\right)$ (cf. Lemma \ref{fin_composition_covering_lem}).
+		\item[(iii)] Compositions of morphisms come from compositions of *-homomorphisms.
 	\end{itemize}
 	We say that $\mathfrak{FinCov}$-$A$ is the \textit{category of finite-fold coverings} of $A$. 
 	Sometimes we write $\widetilde A$ instead of $\pi: A \hookto \widetilde A$ to designate an object of $\mathfrak{FinCov}$-$A$. Similarly we define the subcategories of \textit{reduced}  (cf. Definition \ref{fin_red_defn}) and \textit{free} (cf. Definition \ref{fin_free_defn}) finite-fold noncommutative coverings. We denote them by 
-	$\mathfrak{FinCov}^\text{red}$-$A$ and $\mathfrak{FinCov}^\text{free}$-$A$  respectively. If $\left(A, \widetilde{A}', G', \pi' \right)$ and $\left(A, \widetilde{A}'', G'', \pi \right)$ are objects of $\mathfrak{FinCov}$-$A$ then a morphism $\pi$ from $\left(A, \widetilde{A}', G', \pi' \right)$ to $\left(A, \widetilde{A}'', G'', \pi \right)$ is said to be \textit{proper} if there is a proper normal subgroup $H''\subset G''$ (cf. Definition \ref{proper_subgroup_fin_defn}) such that there is a * isomorphism $\widetilde{A}' \cong \widetilde{A}''^H$ and $\pi$ is equivalent to a natural inclusion $ \widetilde{A}''^H\hookto \widetilde{A}''$.
+	$\mathfrak{FinCov}^\text{red}$-$A$ and $\mathfrak{FinCov}^\text{free}$-$A$  respectively. 
 \end{definition}
 
 
@@ -3758,27 +3758,30 @@ Prove  that $\widetilde D \left( \H \cap \Dom \widetilde D \right)\subset \H$, i
  
 \paragraph*{}
 This section contains  noncommutative generalizations of infinite coverings.
-
+\begin{empt}\label{comp_empt}
+Let $A$ be a connected $C^*$-algebra.	Consider a full subcategory $\mathfrak{S}$ of the  {category $\mathfrak{FinCov}$-$A$  of finite-fold coverings} of $A$ (cf. Definition \ref{fin_cat_defn}). Suppose that for any class of isomorphism  $\mathfrak{S}$ contains a single object. Assume that the set of objects of $\mathfrak{S}$ is given by
+$$
+ \left\{ \left( A , A_{\la}, G\left(\left.A_\la~\right|A \right) , \pi_{\la}\right) \right\}_{\la \in \La}.
+$$
+where $\La$ is a finite or countable directed set
+such that
+\be
+\begin{split}
+\forall  \mu, \nu \quad \mu \le \nu \quad \Leftrightarrow \quad \text{ There is a morphism from } \left( A , A_{\nu}, G\left(\left.A_\nu~\right|A \right) , \pi_{\nu}\right) \\
+\text{to } \left( A , A_{\mu}, G\left(\left.A_\nu~\right|A \right) , \pi_{\mu}\right)\text{ represented by an injective}\\
+\text{*-homomorphism } \pi^\mu_{ \nu}: A_\mu \hookto A_\nu.
+\end{split}
+\ee
+\end{empt}
 
 \begin{definition}\label{comp_defn}
-	Let $\La$ be a countable  set and  $\la_{\min} \in \La$.
-Let $A$ be a $C^*$-algebra.  Let us consider a set noncommutative finite-fold coverings $\mathfrak{S}=\left\{ \pi_{\la}:A \hookto A_{\la}\right\}_{\la \in \La}$ indexed by  $\La$ such that $A_{\la_{\mathrm{min}}}= A$, and $\pi_{\la_{\mathrm{min}}}= \Id_A$. We do not claim that any noncommutative finite-fold covering $A \to \widetilde{A}$ belongs to $\mathfrak{S}$. 
-Consider a category $\mathfrak{S}$ such that a set of objects of  is  $$\mathfrak{S}=\left\{ \left( A , A_{\la}, G\left(\left.A_\la~\right|A \right) , \pi_{\la}\right) \right\}_{\la \in \La}.$$ 
-A morphism  $\left( A , A_{\mu}, G\left(\left.A_\mu~\right|A \right) , \pi_{\mu}\right) $ to $\left( A , A_{\nu}, G\left(\left.A_\nu~\right|A \right) , \pi_{\mu}\right) $ is an  injective *-homomorphisms $ \pi: A_\nu \hookto A_\mu$ such that $\pi_\mu = \pi \circ \pi_\nu$.
+	Consider a situation \ref{comp_empt} and suppose that there is a single minimal element  $\la_{\min} \in \La$ such that $A_{\la_{\min}}= A$.
 The category $\mathfrak{S}$ 
 is said to be an \textit{algebraical  finite covering category}. 
 We write $\mathfrak{S} \in \mathfrak{FinAlg}$.
 \end{definition}
 \begin{definition}\label{pointed_defn}
-	A skeleton  $\mathfrak{S}^{\text{pt}}$  of an algebraical  finite covering category $\mathfrak{S}$ (cf. Definition \ref{skeleton_defn}) is said to be a \textit{pointed algebraical  finite covering category} if the set $\La$ is directed. We claim that  $\la_{\text{min}}$ is a minimal element. Also we require that  for any $\mu, \nu \in \La$ such that $\mu \le\nu$ the skeleton    $\mathfrak{S}^{\text{pt}}$  has a unique morphism $\pi^\mu_\nu : A_\mu \hookto A_\nu$ from $\left( A , A_{\nu}, G\left(\left.A_\nu~\right|A \right) , \pi_{\nu}\right)$ to $\left( A , A_{\mu}, G\left(\left.A_\mu~\right|A \right) , \pi_{\mu}\right)$. The homomorphism should satisfy to following conditions:
-	\begin{enumerate}
-		\item[(a)] there is a $\left(A, A_\nu, G_\nu, \pi_\nu \right)$-proper  subgroup $H \subset  G\left(\left.A_\nu~\right|A \right)$ (cf. Definition \ref{proper_subgroup_fin_defn}) such that
-		\bean
-		A_\mu \cong A_\nu^H,\\
-		G\left(\left.A_\mu~\right|A \right)\cong G\left(\left.A_\nu~\right|A \right)/ H
-		\eean
-		\item[(b)] the injective homomorphism $\pi^\mu_\nu : A_\mu \hookto A_\nu$  is equivalent to the natural inclusion $A_\nu^H\subset A_\nu$. 
-	\end{enumerate}
+	A skeleton  $\mathfrak{S}^{\text{pt}}$  of an algebraical  finite covering category $\mathfrak{S}$ (cf. Definition \ref{skeleton_defn}) is said to be a \textit{pointed algebraical  finite covering category}.
 The category $\mathfrak{S}^{\text{pt}}$  is equivalent to the pre-order category given by $\La$ (cf. Definition \ref{preordercat_defn} and Remark \ref{pre_order_rem}).  We write $\mathfrak{S}^{\text{pt}} \in \mathfrak{FinAlg}^{\text{pt}}$, and use the following notation
 	\be\label{comp_pt_eqn}
 	\begin{split}
@@ -12607,7 +12610,7 @@ then
 \end{definition}
 
 \begin{remark}
-	The Definition \ref{blowing_spectal_defn} yields a motivation of the 	"{Hausdorff blowing-up}" word. If {Hausdorff blowing-up} is spectral then there is a partially defined surjective map from a Hausdorff space  $\sY$ to a possibly non Hausdorff spectrum $\sX$. Similarly in the algebraic geometry the "blowing-up" means a morphism form a nonsingular variety to a singular one (cf. \cite{hartshorne:ag}).
+	The Definition \ref{blowing_spectral_defn} yields a motivation of the 	"{Hausdorff blowing-up}" word. If {Hausdorff blowing-up} is spectral then there is a partially defined surjective map from a Hausdorff space  $\sY$ to a possibly non Hausdorff spectrum $\sX$. Similarly in the algebraic geometry the "blowing-up" means a morphism form a nonsingular variety to a singular one (cf. \cite{hartshorne:ag}).
 \end{remark}
 
 
@@ -12907,9 +12910,9 @@ where $\left\| \cdot\right\|_H$ is an explained in  \ref{blowing_hilb_mod_empt} 
 \begin{corollary}\label{blowing_ca_m_f_cor}
 	Consider the situation of the Corollary  \ref{blowing_ca_m_cor}. If a covering $q$ is finite-fold and $	A_b\left( q\right): A \hookto M\left(A_0\left(\widetilde \sY \right) \right)$ is given by  \eqref{blowing_ca_m_eqn}
 	then one has
-	\bean
-		A_b\left( q\right) \subset A_0\left(\widetilde \sY \right). 
-	\eean
+	\be\label{blowing_ca_m_f_cor_eqn}
+		A_b\left( q\right)\left(A \right)  \subset A_0\left(\widetilde \sY \right). 
+	\ee
 \end{corollary}
 \begin{proof}
 		Let us use the explained in \ref{blowing_hilb_mod_empt} notation. 
@@ -13060,7 +13063,7 @@ The Definition \ref{blowing_cdesc_defn} is a generalization of the Definition \r
 	\be\nonumber
 	\sum_{g \in G\left(\left.\widetilde\sY~\right|\sY\right) } g\widetilde{a}
 	\ee 
-	is convergent in the strict topology of $M\left(A_0\left( \widetilde{\sY}\right)\right)$ (cf. Definition \ref{strict_topology_defn}). Moreover the sum of the series equals to $\lift_q\circ \desc_q \left(\widetilde a \right)$ where both $\lift_q$ and $\desc_q$ are given by Definitions . !!!
+	is convergent in the strict topology of $M\left(A_0\left( \widetilde{\sY}\right)\right)$ (cf. Definition \ref{strict_topology_defn}). Moreover the sum of the series equals to $\lift_q\circ \desc_q \left(\widetilde a \right)$ where both $\lift_q$ and $\desc_q$ are given by Definitions  \ref{blowing_liftq_defn} and \ref{blowing_lift_desc_defn}.
 \end{lemma}
 
 \begin{proof}
@@ -13091,17 +13094,7 @@ A_b\left( q\right)  : A \hookto M\left(A_0\left(\widetilde \sY \right) \right)
 $ it follows that $\sum_{	g \in G_0}\left( g \widetilde a\right)\widetilde b'$
 
 \end{proof}
-\begin{exercise}\label{blowing_cov_inc_strict_exer}
-	In the situation of the Lemma \ref{blowing_cov_inc_strict_lem} prove that one has
-	\be\label{blowing_desc_sum_eqn}
-	\begin{split}
-		\bt\text{-}		\sum_{g \in G\left(\left.\widetilde{\sX}~\right|\sX\right) } g\widetilde{a} = A_b\left(q \right)  \circ \desc_q\left( \widetilde{a}\right) \in 
-		M\left(A_0\left( \widetilde{\sY}\right)\right).
-	\end{split}
-	\ee
-	where $A_b\left(q \right)$ is given by \eqref{blowing_ab_p_eqn}	and the sum of the series implies a convergence with respect to the strict topology of $M\left(A_0\left( \widetilde{\sY}\right)\right)$. (Instruction. Use  the equation \eqref{blowing_atb_eqn} for this purpose).
-\end{exercise}
-\begin{lemma}\label{blowing_cov_inc_strong_lem}
+\begin{lemma}\label{blowing_cov_inc_strong_lem!}
 	Consider the situation of the Lemma \ref{blowing_cov_inc_strict_lem}. Let $\widetilde\sX$ is the spectrum of $A_0\left( \widetilde{\sY}\right)$ and let $\rep_{  \widetilde{x }}: \widetilde A \to B\left( \H_{ \widetilde{x}}\right)$ be the corresponding to $\widetilde x$ irreducible representation.
 	Suppose that  for all $\widetilde x \in \widetilde\sX$ there is the following  convergent  with respect to the strong topology of $B\left( \H_{ \widetilde{x}}\right)$ series
 	$$
@@ -13117,7 +13110,7 @@ $ it follows that $\sum_{	g \in G_0}\left( g \widetilde a\right)\widetilde b'$
 	Follows from the Lemma \ref{direct_sum_strong_lim_lem}.
 \end{proof}
 \begin{lemma}
-	Let $A$ be a $C^*$-algebra with spectral, disintegrable Hausdorff blowing-up $C_0\left(\sY\right)\subset M\left(A\right)$ (cf. Definitions \ref{blowing_defn}, \ref{blowing_spectal_defn} and \ref{blowing_disintegrable_defn}), and let $q: \widetilde \sY \to \sY$ be a finite-fold transitive covering (cf. Definitions \ref{top_covering_defn}, \ref{top_transitive_defn}). If  $A_0\left(\widetilde \sY \right)$ is a $q$-lift of $A$ (cf. Definition \ref{blowing_lift_a_f_defn}) then there the Hausdorff blowing-up $C_0\left(\widetilde \sY\right)\hookto M\left(A_0\left(\widetilde \sY \right) \right)$ is spectral.
+	Let $A$ be a $C^*$-algebra with spectral, disintegrable Hausdorff blowing-up $C_0\left(\sY\right)\subset M\left(A\right)$ (cf. Definitions \ref{blowing_defn}, \ref{blowing_spectral_defn} and \ref{blowing_disintegrable_defn}), and let $q: \widetilde \sY \to \sY$ be a finite-fold transitive covering (cf. Definitions \ref{top_covering_defn}, \ref{top_transitive_defn}). If  $A_0\left(\widetilde \sY \right)$ is a $q$-lift of $A$ (cf. Definition \ref{blowing_lift_a_f_defn}) then there the Hausdorff blowing-up $C_0\left(\widetilde \sY\right)\hookto M\left(A_0\left(\widetilde \sY \right) \right)$ is spectral.
 \end{lemma}
 \begin{proof}
 	If  both $\sX$ and $\widetilde{ {\sX}}$ are spectra of $A$ and $A_0\left(\widetilde \sY \right)$ respectively then from the Proposition \ref{spectrum_cov_prop} it follows that there is a continuous surjective map $p: \widetilde \sX \to \sX$.
@@ -13522,7 +13515,88 @@ then following conditions hold:
 \begin{proof}
 	Follows from the Theorem \ref{blowing_functor_thm}. !!! CHECK
 \end{proof}
-\begin{empt}\label{blowing_prop_inf_empt}
+\begin{empt}\label{blowing_rep_empt}
+	If $\widehat A \bydef C^*$-$\varinjlim_{\la\in \La} A_0\left(\sY_\la\right)$ is a  $C^*$-{inductive limit} is the sense of the Definition \ref{inductive_lim_non_defn} and $\widehat \sX$ is a spectrum of $\widehat A$ then from the Lemma \ref{inverse_lim_sp_lem} it follows that $\widehat \sX$ is an inverse limit $\varprojlim \sX_\la$ (cf. Definition \ref{inv_lim_defn}) where $\sX_\la$ is a spectrum of $A_0\left(\sY_\la\right)$. If $p_\la: \sX_\la \to \sX$ is a given by the Lemma \ref{cov_spectrum_inv_eqn} then from the Lemma \ref{blowing_free_lem} it follows that for all  $x_\la\in\sX_\la$ there are following isomorphisms
+	$$
+\rep_{x_\la}\left( A_0\left(\sY_\la\right)\right) \cong \rep_{x_\la}\left( A\right) \cong \rep_{p_\la\left( x_\la\right) }\left( A\right).
+	$$.
+	So if both $\H_x$ and $\H_{x_\la}$ are spaces of irreducible representations $\rep_x: A \to B\left(\H_x\right)$ and $\rep_{x_\la}:  A_0\left(\sY_\la\right) \to B\left(\H_{x_\la}\right)$ then there is a natural isomorphism $\H_{x_\la} \cong \H_{p_\la\left(x_\la \right)}$.
+	Therefore if both $\widehat{p}: \widehat \sX \to \sX$ and   $\widehat p_\la: \widehat \sX \to \sX_\la$ are natural surjective maps  then one has
+following isomorphisms
+$$
+\forall \widehat x \in \widehat \sX\quad 	\H_{ \widehat x}\cong \H_{\widehat p\left( \widehat x\right) }\cong \H_{\widehat p_\la\left( \widehat x\right) }
+	$$
+	where $\H_{ \widehat x}$ is a space of an irreducible  representation $\rep_{  \widehat{x }}: \widehat A \to B\left(\H_{\widehat{x}}\right)$. So for any $\la \in \La$ and $\widehat x \in \widehat \sX$ there is the natural isomorphism
+	\be\label{blowing_phil_eqn}
+	\phi_{\la} : B\left( \H_{\widehat p_\la\left( \widehat x\right) }\right)\to \H_{ \widehat x } 
+	\ee
+\end{empt}
+\begin{lemma}\label{blowing_rep_lem}
+Consider the situation of  \ref{blowing_rep_empt}. If Let $\overline \sY$ be a disconnected topological inverse limit (cf. Definition \ref{top_topological_inv_lim_defn}) of the category \ref{blowing_top_eqn}, $\overline q : \overline \sY \to \sY$ is a natural covering, and $A_0\left( \overline \sY\right)$ is a $\overline q$-lift of $A$ (cf. Definition \ref{blowing_lift_a_f_defn}) then for all $\widehat x \in \widehat \sX$ there is the natural irreducible representation 
+\bean
+\rho_{\widehat x} : A_0\left( \overline \sY\right) \to B\left( \H_{ \widehat x}\right) 
+\eean
+\end{lemma}
+\begin{proof}
+If $K\left( A_0\left( \overline \sY\right) \right)$ is a Pedersen's ideal (cf. Definition \ref{peder_id_defn}) of $A_0\left( \overline \sY\right)$ then from 3. of the Exercise \ref{blowing_a0_exer} it turns out that 
+$$
+\overline a \in K\left( A_0\left( \overline \sY\right) \right)\quad \Rightarrow \quad \supp \overline{   a}\quad \text{is compact}.
+$$
+If $ \overline p_\la : \overline{\sY}\to \sY_\la$ is a natural covering then 
+from the Lemma \ref{top_comp_la_lem} it follows that there is $\la_{\supp \overline{   a}}\in \La$ such that $\supp \overline{  a}$ is mapped homeomorphically onto $\sU_\la \bydef \overline p_\la \left(\overline{   \sU} \right)$ for all $\la \ge   \la_{\supp \overline{   a}}$. We define
+\be
+\rho_{\widehat x}\left( \overline{   a}\right) \bydef \phi_{\la_{\supp \overline{   a}}}\circ \rep_{\overline p_{\la_{\supp \overline{   a}}}}\left( \desc_{\overline p_{\la_{\supp \overline{   a}}}}\left( \overline{   a} \right)\right)  
+\ee
+where $\phi_{\la_{\supp \overline{   a}}}$ is given by \eqref{blowing_phil_eqn} and $\desc_{\overline p_{\la_{\supp \overline{   a}}}}$ is a ${\overline p_{\la_{\supp \overline{   a}}}}$-descent (cf. Definition \ref{blowing_lift_desc_defn}). We leave to the reader proof of that $\rho_{\widehat x}$ is a *-homomorphism from  $K\left( A_0\left( \overline \sY\right) \right)$ to $B\left( \H_{ \widehat x}\right)$. Since  $K\left( A_0\left( \overline \sY\right) \right)$ is dense in $A_0\left( \overline \sY\right)$ so $\rho_{\widehat x}$ can be extended up to a *-homomorphism $\rho_{\widehat x}: A_0\left( \overline \sY\right) \to B\left( \H_{ \widehat x}\right)$. We leave to the reader the proof of that $\rho_{\widehat x}$ is an irreducible representation.
+\end{proof}
+\begin{remark}\label{blowing_atomic_rem}
+If $\widehat \pi_a : \widehat A \hookto B\left(\widehat \H_a \right)$ is an atomic representation then $\widehat \H_a$ is a norm completion of an algebraic direct sum $\bigoplus_{\widehat x \in \widehat \sX} \H_{\widehat x}$. From the Lemma \ref{blowing_rep_lem} it follows that there is a natural representation 
+\be\label{blowing_atomic_eqn}
+\rho_a :  A_0\left( \overline \sY\right)\to B\left(\widehat \H_a \right).
+\ee
+We leave to the reader a proof of that the representation $\rho_a$ is faithful.
+\end{remark}
+
+
+\begin{lemma}\label{blowing_cov_inc_strong_lem}
+	Consider the situation of the Remark \ref{blowing_atomic_rem}. Let $ q: \overline \sY \to \sY$ is a natural covering. Suppose that  $\mathcal U\subset \mathcal Y$  is a connected open subset evenly {covered} by $\overline{\mathcal U}\subset \overline{\mathcal Y}$, such that the closure $\overline \sV$ of $\overline\sU$ is compact. If $\overline a \in A_0\left( \overline{\sY}\right)$ lies in a $\overline \sU$-proper $C^*$-subalgebra (cf. Definition \ref{blowing_proper_defn})
+	then the series 	
+	\be\nonumber
+	\sum_{g \in G\left(\left.\overline\sY~\right|\sY\right) } \rho_a \left( g\overline{a}\right) 
+	\ee 
+	is convergent with respect to the strong  topology of $B\left(\widehat \H_a \right)$ (cf. Definition \ref{strict_topology_defn}). Moreover the sum of the series equals to $\rho_a\left( \lift_q\circ \desc_q \left(\overline a \right)\right) $ where both $\lift_q$ and $\desc_q$ are given by Definitions  \ref{blowing_liftq_defn} and \ref{blowing_lift_desc_defn}.
+\end{lemma}
+\begin{proof}
+	The space $\widehat \H_a$ is a norm completion of an algebraic direct sum $\bigoplus_{\widehat x \in \widehat \sX} \H_{\widehat x}$, so from the Lemma \ref{direct_sum_strong_lim_lem} one needs check that for all $\xi \in \H_{ \widehat x}$ a series 
+	\be\label{blowing_rx_eqn}
+	\sum_{g \in G\left(\left.\overline\sY~\right|\sY\right) }\rho_{\widehat x} \left( g\overline{a} \right) \xi
+\ee
+	is norm convergent. If $g \in G\left(\left.\overline\sY~\right|\sY\right)$ and $\overline p_g \bydef \chi_{g \overline \sU}$ is a characteristic function (cf. Definition \ref{top_char_f_defn}) then $\overline p_g$ is a projector. From 
+	$$
+	g', g'' \in G\left(\left.\overline\sY~\right|\sY\right)\quad g'\neq g'' \quad \Rightarrow \quad g' \overline{   \mathcal U}\cap g'' \overline{   \mathcal U}= \emptyset
+	$$ 
+	it follows that
+		$$
+	g', g'' \in G\left(\left.\overline\sY~\right|\sY\right)\quad g'\neq g'' \quad \Rightarrow \quad \overline p_{g'}\perp \overline p_{g''}.
+	$$ 
+	For any $g \in  G\left(\left.\overline\sY~\right|\sY\right)$ there is a projector $p_g \bydef \rho_{\widehat x} \left(\overline p_g \right)\in B\left(\H_{ \widehat x} \right) $ such that
+	\bean
+		g', g'' \in G\left(\left.\overline\sY~\right|\sY\right)\quad g'\neq g'' \quad \Rightarrow \quad  p_{g'}\perp  p_{g''},\\
+		\rho_{\widehat x}\left(g \overline a \right) = p_g	\rho_{\widehat x}\left(g \overline a \right) = 	\rho_{\widehat x}\left(g \overline a \right)p_g = p_g	\rho_{\widehat x}\left(g \overline a \right)p_g 
+	\eean 
+	From $\sum_{	g \in G\left(\left.\overline\sY~\right|\sY\right) }\left\| p_g \xi\right\|^2 \le \left\|  \xi\right\|^2$ it follows that for any $\eps > 0$ there is a finite subset
+	 $G_0 \subset G\left(\left.\overline\sY~\right|\sY\right)$ such that for any finite subset $G' \subset G\left(\left.\overline\sY~\right|\sY\right)$ such that $G_0 \subset G'$ one has
+\bean
+\left\| \sum_{	g \in G'} p_g\xi- \sum_{	g \in G_0} p_g\xi\right\|	< \frac{\eps }{\left\| \overline{ a}\right\|},\\
+\left\| \sum_{g \in G' }\rho_{\widehat x} \left( g\overline{a} \right) \xi- \sum_{g \in G_0 }\rho_{\widehat x} \left( g\overline{a} \right) \xi\right\|	= \left\| \sum_{g \in G' }\rho_{\widehat x} \left( g\overline{a} \right)p_g \xi- \sum_{g \in G_0 }\rho_{\widehat x} \left( g\overline{a} \right) p_g\xi\right\|< \eps.
+\eean
+The above equation it turns out that the series \eqref{blowing_rx_eqn} is norm convergent. The proof of the equality
+	$\sum_{g \in G\left(\left.\overline\sY~\right|\sY\right) } \rho_a \left( g\overline{a}\right)= \rho_a\left( \lift_q\circ \desc_q \left(\overline a \right)\right)$ is left to the reader. 
+\end{proof}
+
+
+
+\begin{empt}\label{blowing_prop_inf_empt}  !!! MAY BE DELETE !!!
 Let $\overline \sY$ be a disconnected topological inverse limit (cf. Definition \ref{top_topological_inv_lim_defn}) of the category \ref{blowing_top_eqn}, and let $\overline p: \overline \sY\to \sY$ a natural covering. Let $\widehat A \bydef \varinjlim_{\la\in \La}$, and let $\pi: \widehat A \to B\left(\H_a\right)$ be a faithful representation. If $\overline \sU \subset \overline \sY$ is a on open set connected set with compact closure. According to the Corollary \ref{top_comp_la_cor} $\la_{\overline{   \mathcal U }} \in \La$ and a continuous function  $f_{\la_{\overline{   \mathcal U }}}: \sY_{\la_{\overline{   \mathcal U }}}\to[0,1]$ such that $f_{\la_{\overline{   \mathcal U }}}\left(\overline p_{\la_{\overline{   \mathcal U }}}\left( \overline{   \mathcal U }\right)  \right)= \{1\}$ and  $\supp f_{\la_{\overline{   \mathcal U }}}\cap g \supp f_{\la_{\overline{   \mathcal U }}}=\emptyset$ for all nontrivial $g\in G\left( \left.{{\sY}}_{\la_{\overline{   \mathcal U }}}~\right|\sY\right)$. There is an connected set $\sV_ {\la_{\overline{   \mathcal U }}}$ such that $\supp f_{\la_{\overline{   \mathcal U }}}\subset \sV _{\la_{\overline{   \mathcal U }}}$ and 
 $\supp \sV_{\la_{\overline{   \mathcal U }}}\cap g  \sV_{\la_{\overline{   \mathcal U }}}=\emptyset$ for all nontrivial $g\in G\left( \left.{{\sY}}_{\la_{\overline{   \mathcal U }}}~\right|\sY\right)$.  For any $\la > \la_{\overline{   \mathcal U }}$ we define a connected component $\sV_\la \subset \left(q^\la_{\la_{\overline{   \mathcal U }}}\right)^{-1}\left( \sV _{\la_{\overline{   \mathcal U }}}\right)$ such that $\overline q_\la\left(\overline\sU \right) \cap \left(q^\la_{\la_{\overline{   \mathcal U }}}\right)^{-1}\left( \sV _{\la_{\overline{   \mathcal U }}}\right)= \overline p_\la\left(\overline\sU \right)$.
 Denote by $f_\la \bydef \lift^{\sV_\la}_{q^\la_{\la_{\overline   \sU}}}\left(f_{\la_{\overline{   \mathcal U }}} \right) $ 
