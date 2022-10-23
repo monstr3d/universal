@@ -4275,13 +4275,17 @@ From the above equation it turns out that the state $\widehat \tau$ is not pure 
 
 \begin{lemma}\label{inverse_lim_h_lem}
 	Consider the situation of the Lemma \ref{inverse_lim_sp_lem}, let $\widehat p :  \widehat\sX \to\sX= \sX_{\la_{\mathrm{min}}}$ be the natural continuous map from inverse limit to the spectrum of $A$ (cf. Definition \ref{top_inv_lim_defn}). Suppose that for all $\la\in \La$ a noncommutative finite-fold covering $A \hookto A_\la$ (cf. Definition \ref{fin_defn}) is reduced (cf. Definition \ref{fin_red_defn}). 
-	If $\widehat{x }\in \widehat{\sX }$ is a point and both $\rep_{  \widehat{x }}: \widehat A \to B\left( \H_{\widehat{x}}\right)$ and  $\rep_{ \widehat{p} \left( \widehat{x }\right) }:  A \to B\left( \H_{\widehat{p} \left( \widehat{x }\right)}\right)$ are corresponding to $\widehat{x }$  and $\widehat{p} \left( \widehat{x }\right)$ irreducible representations then there is the natural isomorphism  
+	If $\widehat{x }\in \widehat{\sX }$ is a point and both $\rep_{  \widehat{x }}: \widehat A \to B\left( \H_{\widehat{x}}\right)$ and  $\rep_{ \widehat{p} \left( \widehat{x }\right) }:  A \to B\left( \H_{\widehat{p} \left( \widehat{x }\right)}\right)$ are corresponding to $\widehat{x }$  and $\widehat{p} \left( \widehat{x }\right)$ irreducible representations then there are natural isomorphisms  
 \be\label{inverse_lim_hs_eqn}
+\begin{split}
+	\rep_{  \widehat{x }}\left(\widehat A \right)= \rep_{\widehat{p} \left( \widehat{x}\right)  } \left( A\right),\\
 \H_{\widehat{x}}\cong 	\H_{\widehat{p} \left( \widehat{x }\right)}
+\end{split}
 \ee
-of Hilbert spaces.
+of $C^*$-algebras and Hilbert spaces respectively.
 \end{lemma}
 \begin{proof}
+	For any $\widehat a$ there is a net $\left\{a_\la \in A_\la\right\}_{\la \in \La}$ such that there is a $C^*$-norm limit $\widehat a = \lim_{\la \in \La} a_\la$. It follows that 	$\rep_{  \widehat{x }}\left(\widehat a \right)= \lim_{\la \in \La}\rep_{  \widehat{x }}\left(a_\la \right)$. On the other hand since a covering $A\hookto A_\la$ is reducible one has $\rep_{  \widehat{x }}\left(a_\la \right)\in \rep_{  \widehat{x }}\left(A \right)$, so $\rep_{  \widehat{x }}\left(\widehat a \right)\in \rep_{  \widehat{x }}\left(A \right)$.
 If $\widehat x$ correspond to a state $\tau_{\widehat x}$ then $\H_{\widehat x}$ is a completion of $\widehat A/	\mathcal{I}_{\tau_{\widehat x}}$ where 
 $$
 \mathcal{I}_{\tau_{\widehat x}}\bydef \left\{\left.\widehat a \in \widehat A \ \right| \ \tau(\widehat a^*\widehat a)=0\right\}
@@ -13515,6 +13519,9 @@ then following conditions hold:
 	Follows from the Theorem \ref{blowing_functor_thm}. !!! CHECK
 \end{proof}
 \begin{empt}\label{blowing_rep_empt}
+
+!!! USE LEMMA \ref{inverse_lim_h_lem}
+	\\
 	If $\widehat A \bydef C^*$-$\varinjlim_{\la\in \La} A_0\left(\sY_\la\right)$ is a  $C^*$-{inductive limit} is the sense of the Definition \ref{inductive_lim_non_defn} and $\widehat \sX$ is a spectrum of $\widehat A$ then from the Lemma \ref{inverse_lim_sp_lem} it follows that $\widehat \sX$ is an inverse limit $\varprojlim \sX_\la$ (cf. Definition \ref{inv_lim_defn}) where $\sX_\la$ is a spectrum of $A_0\left(\sY_\la\right)$. If $p_\la: \sX_\la \to \sX$ is a given by the Lemma \ref{cov_spectrum_inv_eqn} then from the Lemma \ref{blowing_free_lem} it follows that for all  $x_\la\in\sX_\la$ there are following isomorphisms
 	$$
 \rep_{x_\la}\left( A_0\left(\sY_\la\right)\right) \cong \rep_{x_\la}\left( A\right) \cong \rep_{p_\la\left( x_\la\right) }\left( A\right).
@@ -13581,7 +13588,7 @@ We leave to the reader a proof of that the representation $\rho_a$ is faithful.
 	For any $g \in  G\left(\left.\overline\sY~\right|\sY\right)$ there is a projector $p_g \bydef \rho_{\widehat x} \left(\overline p_g \right)\in B\left(\H_{ \widehat x} \right) $ such that
 	\bean
 		g', g'' \in G\left(\left.\overline\sY~\right|\sY\right)\quad g'\neq g'' \quad \Rightarrow \quad  p_{g'}\perp  p_{g''},\\
-		\rho_{\widehat x}\left(g \overline a \right) = p_g	\rho_{\widehat x}\left(g \overline a \right) = 	\rho_{\widehat x}\left(g \overline a \right)p_g = p_g	\rho_{\widehat x}\left(g \overline a \right)p_g 
+		\rho_{\widehat x}\left(g \overline a \right) = p_g	\rho_{\widehat x}\left(g \overline a \right) = 	\rho_{\widehat x}\left(g \overline a \right)p_g = p_g	\rho_{\widehat x}\left(g \overline a \right)p_g. 
 	\eean 
 	From $\sum_{	g \in G\left(\left.\overline\sY~\right|\sY\right) }\left\| p_g \xi\right\|^2 \le \left\|  \xi\right\|^2$ it follows that for any $\eps > 0$ there is a finite subset
 	 $G_0 \subset G\left(\left.\overline\sY~\right|\sY\right)$ such that for any finite subset $G' \subset G\left(\left.\overline\sY~\right|\sY\right)$ such that $G_0 \subset G'$ one has
@@ -13602,48 +13609,19 @@ The above equation it turns out that the series \eqref{blowing_rx_eqn} is norm c
 	is convergent with respect  the strong topology of $B\left(\widehat \H_a\right)$ (cf. Definition \ref{strong_topology_defn}). Moreover the sum of the series equals to $\rho_a\left( \lift_q\circ \desc^c_q \left(\widetilde a \right)\right)$ where both $\lift_q$ and $\desc^c_q$ are given by Definitions  \ref{blowing_liftq_defn} and \ref{blowing_cdesc_defn}.
 \end{corollary}
 \begin{proof}
-	This Corollary follows from the Lemma \ref{blowing_cov_inc_strong_lem} and 3. of the Exercise \ref{blowing_a0_exer}. Proof of details are left to the reader.
+	This Corollary follows from the Lemma \ref{blowing_cov_inc_strong_lem} and n$^\text{o}$ 3. of the Exercise \ref{blowing_a0_exer}. Proof of details are left to the reader.
 \end{proof}
-
-\paragraph{title}
-\begin{definition}\label{special_element_defn!}
-	Let $\mathfrak{S}^{\mathrm{pt}}=\left(\left\{\pi_\la: A \hookto A_\la \right\}, \left\{\pi^\mu_\nu\right\}\right)\in \mathfrak{FinAlg}^{\mathrm{pt}}$  be a  {pointed algebraical  finite covering category}. Let $\widehat{A} \bydef C^*\text{-}\varprojlim_{\la \in \La} A_{\la}$ be the $C^*$-inductive limit of $C^*$-algebras, and let $\widehat{G}\bydef \varprojlim_{\la \in \La} G\left(
-	\left.  A_\la~ \right|A\right)$ be the projective limit of groups.
-	Let $G_\la \bydef \ker\left(  \widehat G\to  G\left(\left.A_\la~\right|~A \right)\right)$, and let $A_{\la}^{\sim}$ be given by the equation \eqref{unital_notation_eqn}. Let $\pi:\widehat{A}\to B\left(\H \right)$ be an equivariant representation. 
-	A  positive operator $\overline a \in B\left(\H\right)_+$ is said to be $\pi$-\textit{special element of} $\mathfrak{S}^{\mathrm{pt}}$ if for any $\la_0 \in \La$, $\eps > 0$ and  $z \in A_{\la_0}^{\sim}$ (cf. Notation \eqref{unital_notation_eqn})
-	it satisfies to the following conditions:	
-	\begin{enumerate}
-		\item[(a)] 	If   $f_\eps: \R \to \R$ is a given by \eqref{f_eps_eqn} continuous function 
-		then for all $\la \ge \la_0$  there are $ a_\la, b_\la, a^\eps_\la \in A_\la$ such that
-		\be\label{spec_a_eps_eqn}
-		\begin{split}
-			\sum_{g\in G_\la } \pi \left(z\right)^*\left(  g\overline a\right) \pi\left( z\right)   = \pi\left(a_\la \right),\\
-			\sum_{g\in G_\la } f_\eps\left(\pi \left(z\right)^* \left( g\overline a\right) \pi\left( z\right)\right)    = \pi\left(a^\eps_\la \right),\\
-			\sum_{g\in G_\la  } \left(\pi \left(z\right)^* \left( g\overline a\right) \pi\left( z\right)\right)^2    = \pi\left(b_\la \right) 
-		\end{split}
-		\ee
-		where sums of the above series mean the strong convergence in  $B\left(\H\right)$ (cf. Definition \ref{strong_topology_defn}) and the action  $G_\la\times B\left(\H\right)\to B\left(\H\right)$ is given by \eqref{equivb_eqn}.
-		\item[(b)] There is $\mu \in \La$ such that $\mu \ge \la_0$ and
-		\be\label{special_set_eqn}
-		\forall \la  \in \La \quad	 \la \ge \mu  \Rightarrow  \left\|a_\la^2 - b_\la\right\| < \eps
-		\ee
-		where $a_\la, b_\la \in A_\la$ are given by \eqref{spec_a_eps_eqn}.
-	\end{enumerate}
-	If $\pi$ is the atomic representation then $\overline a$ is said to be \textit{special element of} $\mathfrak{S}^{\mathrm{pt}}$.
-\end{definition}
-
-\paragraph{title}
 
 \begin{lemma}
 Consider the situation of \ref{blowing_inf_empt} and the Lemma \ref{blowing_base_point_lem}.  Let $\overline \sY$ be a topological  disconnected inverse  limit (cf. Definition \ref{top_topological_inv_lim_defn})  of the given by \eqref{blowing_top_eqn} category  $\mathfrak{S}_{\left( \sY, y_0  \right) }$, and let $\overline q : \overline \sY \to \sY$ be a natural transitive covering. Let  $A_0\left(\overline \sY \right)$ be a $\overline q$-lift of $A$ (cf. Definition \ref{blowing_lift_a_f_defn}). Let  $K\left( A_0\left(\overline \sY \right)\right) $ be a Pedersen's ideal of $A_0\left(\overline \sY \right)$, and let $
-\rho_a :  A_0\left( \overline \sY\right)\to B\left(\widehat \H_a \right)$ be a given by \eqref{blowing_atomic_eqn} representation. If   $\mathfrak{S}^{\mathrm{pt}}_A$ is a given by \eqref{blowing_base_point_eqn} the equation pointed algebraical finite covering category then $\rho_a\left(\overline a\right)\in  B\left(\widehat \H_a \right)$ is a special element  of $\mathfrak{S}^{\mathrm{pt}}_A$ (cf. Definition \ref{special_element_defn}) for each positive $\overline a \in K\left( A_0\left(\overline \sY \right)\right)_+$ 
+\rho_a :  A_0\left( \overline \sY\right)\to B\left(\widehat \H_a \right)$ be a given by \eqref{blowing_atomic_eqn} representation. If   $\mathfrak{S}^{\mathrm{pt}}_A$ is a given by \eqref{blowing_base_point_eqn} the equation pointed algebraical finite covering category then $\rho_a\left(\overline a\right)\in  B\left(\widehat \H_a \right)$ is a special element  of $\mathfrak{S}^{\mathrm{pt}}_A$ (cf. Definition \ref{special_element_defn}) for each positive $\overline a \in K\left( A_0\left(\overline \sY \right)\right)_+$. 
 \end{lemma}
 \begin{proof}
 From the Corollary \ref{blowing_ca_m_cor} for any   $\la\in \La$ there is a natural injective map $m_\la : A_0\left(\sY_\a\right)\hookto M\left( A_0\left(\overline \sY \right)\right)$ which can be extended up to $m^\sim_\la : A_0\left(\sY_\a\right)^\sim\hookto M\left( A_0\left(\overline \sY \right)\right)$ where $A_0\left(\sY_\a\right)^\sim$ is given by \eqref{unital_notation_empt}. If
  $\la_0 \in \La$ and $z \in A_0\left(\sY_\a\right)^\sim$ then one has
 \bean
  \pi \left(z\right)^*\rho_a\left(  \overline a\right) \pi\left( z\right)= \rho_a\left(m^\sim_{\la_0} \left(z^* \right) \overline am^\sim_{\la_0} \left(z\right)\right),\\
- f_\eps\left(\pi \left(z\right)^* \left( \overline a\right) \pi\left( z\right)\right)=\rho_a\left(f_\eps\left( m^\sim_{\la_0} \left(z^* \right) \overline am^\sim_{\la_0} \left(z\right)\right) \right),\\
+ f_\eps\left(\pi \left(z\right)^* \left( \overline a\right) \pi\left( z\right)\right)=\rho_a\left(f_\eps\left( m^\sim_{\la_0} \left(z^* \right) \overline am^\sim_{\la_0} \left(z\right)\right) \right),\\ 
 \left(  \pi \left(z\right)^*\rho_a\left(  \overline a\right) \pi\left( z\right)\right)^2= \rho_a\left(m^\sim_{\la_0} \left(z^* \right) \overline am^\sim_{\la_0} \left(z\right)\right)^2.
 \eean
 Otherwise from $\overline a \in K\left( A_0\left(\overline \sY \right)\right)$ it follows that 
@@ -13652,15 +13630,32 @@ m^\sim_{\la_0} \left(z^* \right) \overline am^\sim_{\la_0} \left(z\right),~f_\ep
 $$
 Now we prove conditions (a) and (b) of the Definition \ref{special_element_defn}.\\
 (a) Applying the Corollary \ref{blowing_cov_inc_strong_cor} we obtain following strongly convergent series
-\be
+\be\label{blowing_spec_a_eps_eqn}
 \begin{split}
-!!!	\sum_{g\in G_\la } \pi \left(z\right)^*\left(  g\overline a\right) \pi\left( z\right)   =	\sum_{g\in G_\la }\rho_a\left(g\left( m^\sim_{\la_0} \left(z^* \right) \overline am^\sim_{\la_0} \left(z\right)\right)\right) =\\ \pi\left(\desc_c\left( m^\sim_{\la_0} \left(z^* \right) \overline am^\sim_{\la_0} \left(z\right) \right)\right) \in \pi\left( A_0\left(\sY_\la\right)\right)  ,\\ \\
-	\sum_{g\in G_\la }f_\eps\left(  \pi \left(z\right)^*\left(  g\overline a\right) \pi\left( z\right) \right)   =	\sum_{g\in G_\la }\rho_a\left(gf_\eps\left( m^\sim_{\la_0} \left(z^* \right) \overline am^\sim_{\la_0} \left(z\right)\right)\right) =\\ \pi\left(f_\eps\left( \desc_c\left( m^\sim_{\la_0} \left(z^* \right) \overline am^\sim_{\la_0} \left(z\right) \right)\right)\right)  \in \pi\left( A_0\left(\sY_\la\right)\right),\\
-		\sum_{g\in G_\la }\left(  \pi \left(z\right)^*\left(  g\overline a\right) \pi\left( z\right) \right)^2   =	\sum_{g\in G_\la }\rho_a\left(g\left( m^\sim_{\la_0} \left(z^* \right) \overline am^\sim_{\la_0} \left(z\right)\right)\right)^2=\\ \pi\left(\desc_c\left( m^\sim_{\la_0} \left(z^* \right) \overline am^\sim_{\la_0} \left(z\right) \right)\right) \in \pi\left( A_0\left(\sY_\la\right)\right).
+	\sum_{g\in G_\la } \pi \left(z\right)^*\left(  g\overline a\right) \pi\left( z\right)   =	\sum_{g\in G_\la }\rho_a\left(g\left( m^\sim_{\la_0} \left(z^* \right) \overline am^\sim_{\la_0} \left(z\right)\right)\right) =\\ \pi\left(\desc^c_{\overline q_\la}\left( m^\sim_{\la_0} \left(z^* \right) \overline am^\sim_{\la_0} \left(z\right) \right)\right) \in \pi\left( A_0\left(\sY_\la\right)\right)  ,\\ \\
+	\sum_{g\in G_\la }f_\eps\left(  \pi \left(z\right)^*\left(  g\overline a\right) \pi\left( z\right) \right)   =	\sum_{g\in G_\la }\rho_a\left(gf_\eps\left( m^\sim_{\la_0} \left(z^* \right) \overline am^\sim_{\la_0} \left(z\right)\right)\right) =\\ \pi\left(f_\eps\left( \desc^c_{\overline q_\la}\left( m^\sim_{\la_0} \left(z^* \right) \overline am^\sim_{\la_0} \left(z\right) \right)\right)\right)  \in \pi\left( A_0\left(\sY_\la\right)\right),\\\\
+		\sum_{g\in G_\la }\left(  \pi \left(z\right)^*\left(  g\overline a\right) \pi\left( z\right) \right)^2   =	\sum_{g\in G_\la }\rho_a\left(g\left( m^\sim_{\la_0} \left(z^* \right) \overline am^\sim_{\la_0} \left(z\right)\right)\right)^2=\\ \pi\left(\desc^c_{\overline q_\la}\left( m^\sim_{\la_0} \left(z^* \right) \overline am^\sim_{\la_0} \left(z\right) \right)^2\right) \in \pi\left( A_0\left(\sY_\la\right)\right)
 \end{split}
 \ee
-where $G_\la \bydef \ker\left( G\left(\left.\widetilde\sY~\right|\sY\right)\to G\left(\left.\sY_\la~\right|\sY\right)\right)$. 
+where $G_\la \bydef \ker\left( G\left(\left.\widetilde\sY~\right|\sY\right)\to G\left(\left.\sY_\la~\right|\sY\right)\right)$ and $\desc^c_{\overline q_\la}$ is a {compactly supported} $\overline q_\la$-{descent} (cf. Definition \ref{blowing_cdesc_defn}). The equations \eqref{blowing_spec_a_eps_eqn} are specializations of \eqref{spec_a_eps_eqn} ones.\\
+(b) For all $\la\in\La$ denote by $\overline q_\la: \overline \sY \to \sY_\la$ a natural covering.
+From n$^\text{o}$ 3. of the Exercise \ref{blowing_a0_exer} it follows that the set $\overline \sV \bydef \supp m^\sim_{\la_0} \left(z^* \right) \overline am^\sim_{\la_0} \left(z\right)$ is compact. On the other hand from the  Lemma \ref{top_comp_la_lem} it follows that there is $\la_{ \overline{   \sV}}\in \La$ such that $\overline{   \sV}$ is mapped homeomorphically onto $\sV_\la \bydef \overline p_\la \left(\overline{   \sV} \right)$ for all $\la \ge   \la_{ \overline{  \sV}}$. It follows that
+\be\label{blowing_desc_cdesc_eqn}
+\begin{split}
+\forall \la\in \La \quad \la \ge \la_{ \overline{  \sV}}\quad \Rightarrow \quad\desc^c_{\overline q_\la}\left( m^\sim_{\la_0} \left(z^* \right) \overline am^\sim_{\la_0} \left(z\right) \right) =\\= \desc_{\overline q_\la}\left( m^\sim_{\la_0} \left(z^* \right) \overline am^\sim_{\la_0} \left(z\right) \right).
+\end{split}
+\ee
+where $\desc_{\overline p_\la}$ is a ${\overline q_\la}$-decent given by the Definition \ref{blowing_lift_desc_defn}. From the equation \eqref{blowing_desc_cdesc_eqn} one can prove that
+\be
+\begin{split}
+\forall \la\in \La \quad \la \ge \la_{ \overline{  \sV}}\quad \Rightarrow \quad\left( 	\sum_{g\in G_\la } \pi \left(z\right)^*\left(  g\overline a\right) \pi\left( z\right)\right)^2   =\\=	\pi\left(\desc_{\overline{q}_\la}\left( m^\sim_{\la_0} \left(z^* \right) \overline am^\sim_{\la_0} \left(z\right)\right)\right)^2 = \sum_{g\in G_\la }\left(  \pi \left(z\right)^*\left(  g\overline a\right) \pi\left( z\right) \right)^2. 
+\end{split}
+\ee
+The above equation is a specialization of the \eqref{special_set_eqn} one.
 \end{proof}
+
+
+
 \begin{empt}\label{blowing_prop_inf_empt}  !!! MAY BE DELETE !!!
 Let $\overline \sY$ be a disconnected topological inverse limit (cf. Definition \ref{top_topological_inv_lim_defn}) of the category \ref{blowing_top_eqn}, and let $\overline p: \overline \sY\to \sY$ a natural covering. Let $\widehat A \bydef \varinjlim_{\la\in \La}$, and let $\pi: \widehat A \to B\left(\H_a\right)$ be a faithful representation. If $\overline \sU \subset \overline \sY$ is a on open set connected set with compact closure. According to the Corollary \ref{top_comp_la_cor} $\la_{\overline{   \mathcal U }} \in \La$ and a continuous function  $f_{\la_{\overline{   \mathcal U }}}: \sY_{\la_{\overline{   \mathcal U }}}\to[0,1]$ such that $f_{\la_{\overline{   \mathcal U }}}\left(\overline p_{\la_{\overline{   \mathcal U }}}\left( \overline{   \mathcal U }\right)  \right)= \{1\}$ and  $\supp f_{\la_{\overline{   \mathcal U }}}\cap g \supp f_{\la_{\overline{   \mathcal U }}}=\emptyset$ for all nontrivial $g\in G\left( \left.{{\sY}}_{\la_{\overline{   \mathcal U }}}~\right|\sY\right)$. There is an connected set $\sV_ {\la_{\overline{   \mathcal U }}}$ such that $\supp f_{\la_{\overline{   \mathcal U }}}\subset \sV _{\la_{\overline{   \mathcal U }}}$ and 
 $\supp \sV_{\la_{\overline{   \mathcal U }}}\cap g  \sV_{\la_{\overline{   \mathcal U }}}=\emptyset$ for all nontrivial $g\in G\left( \left.{{\sY}}_{\la_{\overline{   \mathcal U }}}~\right|\sY\right)$.  For any $\la > \la_{\overline{   \mathcal U }}$ we define a connected component $\sV_\la \subset \left(q^\la_{\la_{\overline{   \mathcal U }}}\right)^{-1}\left( \sV _{\la_{\overline{   \mathcal U }}}\right)$ such that $\overline q_\la\left(\overline\sU \right) \cap \left(q^\la_{\la_{\overline{   \mathcal U }}}\right)^{-1}\left( \sV _{\la_{\overline{   \mathcal U }}}\right)= \overline p_\la\left(\overline\sU \right)$.
