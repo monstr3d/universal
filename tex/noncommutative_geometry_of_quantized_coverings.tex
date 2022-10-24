@@ -1506,7 +1506,7 @@ then one has
 where both $	K\left( A \right)_0$ and 	$K\left( A \right)_+$ are given by equations \eqref{k0_ped_eqn} and \eqref{kp_ped_eqn} respectively
 \end{lemma}
 \begin{proof}
-	If  $a\in A_+$ and $\eps > 0$ then $f_\eps \left(a\right)= \phi_\eps\left(a \right)$ where  $\phi \in K(]0, \infty [$ is given by !!
+	If  $a\in A_+$ and $\eps > 0$ then $f_\eps \left(a\right)= \phi_\eps\left(a \right)$ where  $\phi \in K(]0, \infty [$ is given by 
 		\bean
 		\phi\left( x\right)  =\left\{
 		\begin{array}{c l}
@@ -2017,7 +2017,7 @@ is dense in $A$.
 \end{proof}
 
 \begin{lemma}\label{fin_composition_covering_lem}
-	Let $\left(A, \widetilde{A}, G, \pi \right)$ be a noncommutative finite-fold covering (cf. Definition \ref{fin_defn}).  If $H \subset G$ is  a $\left(A, \widetilde{A}, G, \pi \right)$-proper group (cf. Definition \ref{proper_subgroup_fin_defn}). Then  both noncommutative finite-fold pre-coverings $\left(A, \widetilde{A}^H, G\left(\left.\widetilde A~\right|A \right)/H, \pi^H \right)$ and 
+	Let $\left(A, \widetilde{A}, G, \pi \right)$ be a noncommutative finite-fold covering (cf. Definition \ref{fin_defn}).  If $H \subset G$ is  a $\left(A, \widetilde{A}, G, \pi \right)$-proper group (cf. Definition \ref{proper_subgroup_fin_defn}) then  both noncommutative finite-fold pre-coverings $\left(A, \widetilde{A}^H, G\left(\left.\widetilde A~\right|A \right)/H, \pi^H \right)$ and 
 	$\left(\widetilde{A}^H, \widetilde{A}, H, \left.\Id_{\widetilde{A}}\right|_{\widetilde{A}^H} \right)$  given by the Definition \ref{proper_subgroup_fin_defn} and the Lemma \ref{proper_subgroup_fin_lem} are noncommutative finite-fold coverings. 
 \end{lemma}
 \begin{proof}
@@ -3768,7 +3768,7 @@ such that
 \be
 \begin{split}
 \forall  \mu, \nu \quad \mu \le \nu \quad \Leftrightarrow \quad \text{ There is a morphism from } \left( A , A_{\nu}, G\left(\left.A_\nu~\right|A \right) , \pi_{\nu}\right) \\
-\text{to } \left( A , A_{\mu}, G\left(\left.A_\nu~\right|A \right) , \pi_{\mu}\right)\text{ represented by an injective}\\
+\text{to } \left( A , A_{\mu}, G\left(\left.A_\mu~\right|A \right) , \pi_{\mu}\right)\text{ represented by an injective}\\
 \text{*-homomorphism } \pi^\mu_{ \nu}: A_\mu \hookto A_\nu.
 \end{split}
 \ee
@@ -3780,8 +3780,7 @@ The category $\mathfrak{S}$
 is said to be an \textit{algebraical  finite covering category}. 
 We write $\mathfrak{S} \in \mathfrak{FinAlg}$.
 \end{definition}
-\begin{definition}\label{pointed_defn}
-	A skeleton  $\mathfrak{S}^{\text{pt}}$  of an algebraical  finite covering category $\mathfrak{S}$ (cf. Definition \ref{skeleton_defn}) is said to be a \textit{pointed algebraical  finite covering category}.
+\begin{definition}\label{pointed_defn}	A skeleton (cf. Definition \ref{skeleton_defn}) $\mathfrak{S}^{\text{pt}}$  of an algebraical  finite covering category $\mathfrak{S}$  is said to be a \textit{pointed algebraical  finite covering category}.
 The category $\mathfrak{S}^{\text{pt}}$  is equivalent to the pre-order category given by $\La$ (cf. Definition \ref{preordercat_defn} and Remark \ref{pre_order_rem}).  We write $\mathfrak{S}^{\text{pt}} \in \mathfrak{FinAlg}^{\text{pt}}$, and use the following notation
 	\be\label{comp_pt_eqn}
 	\begin{split}
@@ -3790,31 +3789,12 @@ The category $\mathfrak{S}^{\text{pt}}$  is equivalent to the pre-order category
 	\end{split}
 	\ee
 \end{definition}
-\begin{remark}\label{composition_rem}
-From the Lemma \ref{fin_composition_covering_lem} it follows that if $\mu, \nu \in \La$ are such that $\mu\le\nu$ then there is a noncommutative finite-fold covering $\left( A_\mu , A_{\nu}, G\left(\left.A_\nu~\right|A_\mu \right) , \pi^\mu_{\nu}\right)$  where $G\left(\left.A_\nu~\right|A_\mu \right)\cong G\left(\left.A_\nu~\right|A \right)/G\left(\left.A_\mu~\right|A \right)$.
-\end{remark}
-\begin{remark}\label{comp_pt_ex_rem}	Let $\widetilde p: \widetilde\sX \to \sX$ is a transitive covering. Let  $p_\la: \sX_\la \to \sX$ ($\la\in\La$) be a family of transitive coverings such that for any $\la \in \La$ there is a covering $\widetilde p_\la : \widetilde \sX \to \sX_\la$ such that $\widetilde p = p_\la \circ \widetilde p_\la$. Let us consider a category with objects $p_\la: \sX_\la \to \sX$. Morphisms of the category are coverings $p^\mu_\nu: \sX_\mu\to \sX_\nu$ such that the following diagram\\
-	\newline
-	\begin{tikzpicture}
-		\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
-		{
-			\sX_\mu  &  & \sX_\nu\\
-			& A & \\};
-		\path[-stealth]
-		(m-1-1) edge node [above] {$p^\mu_\nu$} (m-1-3)
-		(m-1-1) edge node [left]  {$p_\mu~~$} (m-2-2)
-		(m-1-3) edge node [right] {$~~p_\nu$} (m-2-2);
-		%\draw[dashed,->]   (m-1-1) -- (m-1-3);
-	\end{tikzpicture}
-	\\
-is commutative. This category is not skeletal (cf. Definition \ref{skeletal_defn}). If we select $\widetilde x_0 \in \widetilde \sX$, and define base-points and $x^\la_0 \bydef \widetilde p_\la\left( \widetilde x_0\right)$ and require that  maps $p^\mu_\nu$ are pointed, i.e. $p^\mu_\nu\left(x^\mu_0 \right)=x^\nu_0$ then one obtains a skeletal category. Roughly speaking selection of a base-point is equivalent to selection of  a skeleton. 
-	
-\end{remark}
+
 \begin{remark}\label{comp_pt_rem}
-	From the above Remark \ref{comp_pt_ex_rem} the skeleton is not unique. The concrete skeleton is said to be a \textit{base-point}. This definition is motivated by the Remark \ref{comp_pt_ex_rem}. The base-point uniquely depends on the family  of $\left\{\pi^\nu_{ \mu}\right\}_{\substack{\nu, \nu\in \La\\\mu\le\nu}}$ of injective *-homomorphisms.
+A skeleton is not unique. The concrete skeleton is said to be a \textit{base-point}. A relation of base-points in topology and skeletons is explained in the Remark \ref{comp_pt_ex_rem}. The base-point uniquely depends on the family  of $\left\{\pi^\nu_{ \mu}\right\}_{\substack{\nu, \nu\in \La\\\mu\le\nu}}$ of injective *-homomorphisms.
 \end{remark}
 \begin{remark}\label{base_pt_iso_rem}
-Any two skeletons of a category are isomorphic. So our results do not depend on base-point up to isomorphism.
+Any two skeletons of a category are isomorphic. So our results do not depend on a base-point choice up to isomorphism.
 \end{remark}
 \begin{remark}\label{implicit_inc_rem}
 Henceforth for all $\la\in\La$ we implicitly assume that $A_\la \subset  C^*$-$\varprojlim_{\la \in\La} A_\la$ where $C^*$-$\varprojlim_{\la \in\La} A_\la$ means a $C^*$-inductive limit (cf. Definition \ref{inductive_lim_non_defn}). We sometimes we write $ A_\nu \subset A_\mu$ instead of  $\pi^\nu_{ \mu}: A_\nu \hookto A_\mu$.
@@ -3827,7 +3807,7 @@ Henceforth for all $\la\in\La$ we implicitly assume that $A_\la \subset  C^*$-$\
 \end{empt}
 
 \begin{defn}\label{inv_g_lim_defn}
-	From (b) of the Definition \ref{pointed_defn} it turns out that one can  define surjective homomorphisms  $h^\mu_\nu:  G\left(\left.A_\mu~\right|A \right) \to  G\left(\left.A_\nu~\right|A \right)$ the surjective homomorphism which come from $\pi^\nu_\mu$, hence there is the inverse limit 
+	From  the Definition \ref{pointed_defn}  it turns out that one can  define surjective homomorphisms  $h^\mu_\nu:  G\left(\left.A_\mu~\right|A \right) \to  G\left(\left.A_\nu~\right|A \right)$ the surjective homomorphism which come from $\pi^\nu_\mu$, hence there is the inverse limit 
 	$$
 	\widehat{G}=	\varprojlim_{\la \in \La} G\left(\left.A_\la~\right|~A\right)
 	$$
@@ -3835,7 +3815,7 @@ Henceforth for all $\la\in\La$ we implicitly assume that $A_\la \subset  C^*$-$\
 	\be\label{h_la_eqn}
 	h_\la:\widehat{G}\to G\left(\left.A_\la~\right|~A\right).
 	\ee
-	We say that the  inverse limit \textit{comes} from the base point $\left\{\pi^\nu_\mu\right\}$ (cf Remark \ref{comp_pt_rem}).
+	We say that the  inverse limit \textit{comes} from the base point $\left\{\pi^\nu_\mu\right\}$ (cf Remark \ref{comp_pt_rem}). The group $\widehat{G}$ does not depend on a choice of base-point up to isomorphism (cf. Remark \ref{base_pt_iso_rem})
 \end{defn}
 \begin{empt}\label{inf_g_act_empt}
 	In the situation of the Definition \ref{inv_g_lim_defn} for all $\la\in \La$ there is an action 
@@ -3887,8 +3867,8 @@ On the other hand the union $ \cup A_\la$ is dense in $C^*$-$\varprojlim A_\la$ 
 	\ee	
 	
 \end{remark}
-Let  $\mathfrak{S}^{\text{pt}} = \left(\left\{\pi_\la: A \hookto A_\la \right\}, \left\{\pi^\mu_\nu\right\}\right)$  be a {pointed algebraical  finite covering category}  (cf. Definition \ref{pointed_defn}). Let $\widehat{A} \bydef C^*\text{-}\varprojlim_{\la \in \La} A_{\la}$ be the $C^*$-inductive limit of $C^*$-algebras, and let $\widehat{G}= \varprojlim_{\la \in \La} G\left(
-\left.  A_\la~ \right|A\right)$ be the projective limit of groups.
+Let  $\mathfrak{S}^{\text{pt}} = \left(\left\{\pi_\la: A \hookto A_\la \right\}, \left\{\pi^\mu_\nu\right\}\right)$  be a {pointed algebraical  finite covering category}  (cf. Definition \ref{pointed_defn}). Let $\widehat{A} \bydef C^*\text{-}\varprojlim_{\la \in \La} A_{\la}$ be the $C^*$-inductive limit of $C^*$-algebras (cf. Definition \ref{inductive_lim_non_defn}), and let $\widehat{G}= \varprojlim_{\la \in \La} G\left(
+\left.  A_\la~ \right|A\right)$ be the inverse limit of groups (cf. Definition \ref{group_inv_lim_defn}).
  \begin{definition}\label{equiv_defn}
 	A faithful representation ${\pi}: \widehat{A} \hookto B\left( \H\right)$ is said to be \textit{equivariant} if there is the action  $\widehat{G}\times {\H} \to {\H}$ such that
 	\be\label{equivt_eqn}
@@ -3936,7 +3916,7 @@ g \xi^s_{\widehat{a}}\stackrel{\text{def}}{=}	\left(0, ..., \underbrace{f_{gs}\l
 \end{proof}
 
 \begin{definition}\label{special_element_defn}
-	Let $\mathfrak{S}^{\mathrm{pt}}=\left(\left\{\pi_\la: A \hookto A_\la \right\}, \left\{\pi^\mu_\nu\right\}\right)\in \mathfrak{FinAlg}^{\mathrm{pt}}$  be a  {pointed algebraical  finite covering category}. Let $\widehat{A} \bydef C^*\text{-}\varprojlim_{\la \in \La} A_{\la}$ be the $C^*$-inductive limit of $C^*$-algebras, and let $\widehat{G}\bydef \varprojlim_{\la \in \La} G\left(
+	Let $\mathfrak{S}^{\mathrm{pt}}=\left(\left\{\pi_\la: A \hookto A_\la \right\}, \left\{\pi^\mu_\nu\right\}\right)\in \mathfrak{FinAlg}^{\mathrm{pt}}$  be a  {pointed algebraical  finite covering category} (cf. Definition \ref{pointed_defn}). Let $\widehat{A} \bydef C^*\text{-}\varprojlim_{\la \in \La} A_{\la}$ be the $C^*$-inductive limit of $C^*$-algebras, and let $\widehat{G}\bydef \varprojlim_{\la \in \La} G\left(
 	\left.  A_\la~ \right|A\right)$ be the projective limit of groups.
 	Let $G_\la \bydef \ker\left(  \widehat G\to  G\left(\left.A_\la~\right|~A \right)\right)$, and let $A_{\la}^{\sim}$ be given by the equation \eqref{unital_notation_eqn}. Let $\pi:\widehat{A}\to B\left(\H \right)$ be an equivariant representation. 
 	A  positive operator $\overline a \in B\left(\H\right)_+$ is said to be $\pi$-\textit{special element of} $\mathfrak{S}^{\mathrm{pt}}$ if for any $\la_0 \in \La$, $\eps > 0$ and  $z \in A_{\la_0}^{\sim}$ (cf. Notation \eqref{unital_notation_eqn})
@@ -3961,41 +3941,8 @@ g \xi^s_{\widehat{a}}\stackrel{\text{def}}{=}	\left(0, ..., \underbrace{f_{gs}\l
 	If $\pi$ is the atomic representation then $\overline a$ is said to be \textit{special element of} $\mathfrak{S}^{\mathrm{pt}}$.
 \end{definition}
 \begin{exercise}\label{spec_mult_exer}
-In the situation of the Definition \ref{special_element_defn} prove that for all $\la\in\La$ and every $z_\la\in M\left( A_\la\right)$ the element $\pi\left(z_\la\right)^*\overline{a} \pi\left(z_\la\right)$ is special. 
+In the situation of the Definition \ref{special_element_defn} prove that for all $\la\in\La$ and every $z_\la\in M\left( A_\la\right)$ the element $\pi\left(z_\la\right)^*\overline{a} \pi\left(z_\la\right)$ is $\pi$-special. 
 \end{exercise}
-\begin{lemma}\label{special_element_cut_lem}
-Let $\mathfrak{S}^{\mathrm{pt}}=\left(\left\{\pi_\la: A \hookto A_\la \right\}, \left\{\pi^\mu_\nu\right\}\right)\in \mathfrak{FinAlg}^{\mathrm{pt}}$  be a  {pointed algebraical  finite covering category}. Let $\widehat{A} \bydef C^*\text{-}\varprojlim_{\la \in \La} A_{\la}$ be the $C^*$-inductive limit of $C^*$-algebras (cf. Definition \ref{principal_non_defn}), and let $\widehat{G}\bydef \varprojlim_{\la \in \La} G\left(
-\left.  A_\la~ \right|A\right)$ be the projective limit of groups (cf. Definition \ref{group_inv_lim_defn}).
-Let $G_\la \bydef \ker\left(  \widehat G\to  G\left(\left.A_\la~\right|~A \right)\right)$, and let $A_{\la}^{\sim}$ be given by \eqref{unital_notation_eqn}. Let $\pi:\widehat{A}\to B\left(\H \right)$ be an equivariant representation. 
-If  $\overline a \in B\left(\H\right)_+$ is a positive element such that   for any $\la_0 \in \La$, $\eps > 0$ and  $z \in A_{\la_0}^{\sim}$ there is
-$\la'\ge \la_0$ such that $\overline a$ satisfies to \eqref{spec_a_eps_eqn} for all $\la\ge\la'$ then $\overline a$ satisfies to \eqref{spec_a_eps_eqn} for all $\la\in\La$.
-\end{lemma}
-
-\begin{proof}
-The set $\La$ is directed, so for any $\la \ge \la_0$ there is $\la''\in\La$ such that $\la'' \ge\la$ and $\la'' \ge \la'$. There is the surjective homomorphism $G_{\la''}\to G_{\la}$, such that $G_{\la''}/G_{\la'}\cong G\left(\left. A_{\la''}\right| A_{\la}\right)$. Let us enumerate $G\left(\left. A_{\la''}\right| A_{\la}\right)$, i.e.  $G\left(\left. A_{\la''}\right| A_{\la'}\right)=\left\{g_1, ..., g_n\right\}$. If $h: G_{\la}\to G\left(\left. A_{\la''}\right| A_{\la}\right)$ is the natural sujective homomorphism then for all $j=1,...,n$ we select $\overline g_j \in G_{\la}$ such that $h\left(\overline g_j\right)=g_j$. One has
-	\be\nonumber
-\begin{split}
-	\sum_{g\in G_{\la} } \pi \left(z\right)^*\left(  g\overline a\right) \pi\left( z\right)   =\sum^n_{j=1} \overline g_j \left( 	\sum_{g\in G_{\la''} } \pi \left(z\right)^*\left(  g\overline a\right)\pi\left( z\right)\right)= \sum^n_{j=1} \overline g_j\pi\left(a_{
-	\la''} \right)  ,\\
-	\sum_{g\in G_{\la} }f_\eps\left(  \pi \left(z\right)^*\left(  g\overline a\right) \pi\left( z\right)\right)    =\sum^n_{j=1} \overline g_j \left( 	\sum_{g\in G_{\la''} }f_\eps\left(  \pi \left(z\right)^*\left(  g\overline a\right)\pi\left( z\right)\right)\right)= \sum^n_{j=1} \overline g_j\pi\left(a^\eps_{\la''} \right),\\	\sum_{g\in G_{\la} }\left(  \pi \left(z\right)^*\left(  g\overline a\right) \pi\left( z\right)\right)^2    =\sum^n_{j=1} \overline g_j \left( 	\sum_{g\in G_{\la''} }\left(  \pi \left(z\right)^*\left(  g\overline a\right)\pi\left( z\right)\right)^2 \right)= \sum^n_{j=1} \overline g_j\pi\left(b_{
-	\la''} \right) 
-\end{split}
-\ee
-where $a_{	\la''}, b_{\la''}, a^\eps_{\la''}\in A_{\la''}$. From $\overline g_j\pi\left(a_{\la''} \right)= \pi\left(g_ja_{\la''} \right)$, $\overline g_j\pi\left(b_{\la''} \right)= \pi\left(g_jb_{\la''} \right)$ and $\overline g_j\pi\left(a^\eps_{\la''} \right)= \pi\left(g_ja^\eps_{\la''} \right)$ it follows that
-	\be\nonumber
-\begin{split}
-	\sum_{g\in G_{\la} } \pi \left(z\right)^*\left(  g\overline a\right) \pi\left( z\right)  = \pi\left( \sum_{g\in G\left(\left. A_{\la''}\right| A_{\la}\right)} g'a_{\la''} \right)  ,\\
-	\sum_{g\in G_{\la'} }f_\eps\left(  \pi \left(z\right)^*\left(  g\overline a\right) \pi\left( z\right)\right)    = \pi\left( \sum_{g\in G\left(\left. A_{\la''}\right| A_{\la'}\right)} g'a^\eps_{\la''} \right),\\
-\	\sum_{g\in G_{\la'} }\left(  \pi \left(z\right)^*\left(  g\overline a\right) \pi\left( z\right)\right)^2    =  \pi\left( \sum_{g\in G\left(\left. A_{\la''}\right| A_{\la}\right)} gb_{\la''} \right).
-\end{split}
-\ee
-However there are $a_{	\la}, b_{\la}, a^\eps_{\la}\in A_{\la}$ such that
-\bean
-\pi\left( \sum_{g\in G\left(\left. A_{\la''}\right| A_{\la}\right)} ga_{\la''} \right)= \pi\left(a_{\la}\right),\\
-\pi\left( \sum_{g\in G\left(\left. A_{\la''}\right| A_{\la}\right)} ga^\eps_{\la''} \right)= \pi\left(a^\eps_{\la}\right),\\
-\pi\left( \sum_{g\in G\left(\left. A_{\la''}\right| A_{\la}\right)} gb_{\la''} \right)= \pi\left(b_{\la}\right).
-\eean  
-\end{proof}
 \begin{lemma}\label{spec_strong_lim_lem}
 	Any  $\pi$-special element $\overline a \in B\left( \H\right)_+$ equals to the following strong limit (cf. Definition \ref{strong_topology_defn})
 	\be\label{spec_strong_lim_eqn}
@@ -4113,12 +4060,11 @@ Since $\cup A_\la$ is dense subalgebra of $C^*$-$\varprojlim A_\la$ with respect
 \bean
 \forall \overline a \in \overline{A}_\pi \quad L_{c_\la}\left( \overline a\right) = \pi\left(c_\la \right)\overline a\quad R_{c_\la}\left( \overline a\right) = \overline a\pi\left(c_\la \right).
 \eean
-Using the Proposition \ref{dc_prop} the reader can prove that the map 
+So one has a *-homomorphism
 \bean
 A_\la \to \mathbf{DC}\left(\overline{A}_\pi \right),\\
 c_\la \mapsto \left(L_{c_\la}, R_{c_\la}\right)
 \eean 
-is a *-homomorphism.
 From the Remark \ref{dc_rem} it follows that for all $\la\in\La$ there is a *-homomorphism
 \be\label{a_too_eqn}
 \begin{split}
@@ -4300,46 +4246,10 @@ Left and right parts of the above bijection are dense subsets of both $\H_{\wide
 \begin{corollary}\label{inverse_lim_h_cor}
 In the situation of the Lemma \ref{inverse_lim_h_lem} the Hilbert space of the atomic representation (cf. Definition \ref{atomic_repr_defn}) is the Hilbert norm completion of the given by
 \be\label{inverse_lim_h_eqn}
-\bigoplus_{ \widehat x \in \widehat \sX} 	\H_{\widehat{x }}\cong 	\bigoplus_{ \widehat x \in \widehat \sX} 	\H_{\widehat{p} \left( \widehat{x }\right)}.
+\bigoplus_{ \widehat x \in \widehat \sX} 	\H_{\widehat{x }}\cong 	\bigoplus_{ \widehat x \in \widehat \sX} 	\H_{\widehat{p} \left( \widehat{x }\right)}
 \ee 
+algebraic direct sum.
 \end{corollary}
-
-\begin{corollary}\label{spectrum_injective_cor}
-	Consider the situation of the Lemma \ref{inverse_lim_h_lem}.
-	Let $\overline A$ be the {disconnected algebraical inverse noncommutative limit} (cf. Definition \ref{disconnected_inf_defn}) of a {pointed algebraical  finite covering category}  
-	\bean
-	\begin{split}
-		\mathfrak{S}^{\mathrm{pt}} = \left(\left\{\pi_\la: A \hookto A_\la \right\}_{\la \in \La}, \left\{\pi^\mu_\nu: A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\ \nu > \mu}}\right)
-	\end{split}
-	\eean
-	(cf. Definition \ref{disconnected_inf_defn}).
-	Let $\widehat A \bydef C^*$-$\varprojlim_{\la\in\La} A_\la$ be the $C^*$-inductive limit (cf. Definition \ref{inductive_lim_non_defn}), and let $\widehat\sX$ be the spectrum of $\widehat A$. If   both 	$\overline	\sX$ and 	$\bt\overline	\sX$ are spectra of  $\overline A $ and $M\left(\overline A \right)$ respectively then following conditions hold:
-	\begin{enumerate}
-		\item [(i)]  There is the natural  set theoretic injective   map 
-		\be\label{spectrum_injective_eqn}
-		\varphi: \widehat\sX\hookto \bt\overline
-		\sX.
-		\ee
-		\item[(ii)] Both natural representations
-		\be\label{spectrum_injective_repr_eqn}
-		\begin{split}
-			M\left(\overline A \right) \hookto B\left(\bigoplus_{ \widehat  x \in \widehat\sX }\H_{\varphi\left(\widehat  x \right) } \right),\\ 
-		\overline A  \hookto B\left(\bigoplus_{\substack{ \widehat  x \in \widehat\sX\\\varphi\left(\widehat  x \right)\in \overline \sX}}\H_{\varphi\left(\widehat  x \right) } \right) 
-		\end{split}
-	\ee
-	are faithful.
-	\end{enumerate}
-	\end{corollary}
-\begin{proof}
-	From the  Proposition \ref{state_prop} it turns out that there is an injective multi-valued map 	$\varphi: \widehat\sX\hookto \bt\overline\sX$. If $\pi_a :\widehat A \to B\left(\H\right)$ is an atomic representation then from the Lemma \ref{atomic_uni_lem} it follows that there is the inclusion $\widehat A\subset  \pi_a\left( A\right)'' = \prod_{\widehat x\in \widehat\sX} B\left( \H_{\widehat x}\right)$.
-	Otherwise  from the Lemma \ref{spec_borel_lem} it follows that there are natural inclusions $\overline A\subset \mathscr B\left(\widehat A\right)\subset  \pi_a\left( A\right)'' = \prod_{\widehat x\in \widehat\sX} B\left( \H_{\widehat x}\right)$. Moreover  the natural inclusion $\widehat A \hookto M\left(\overline A \right)$ which complies with both inclusions $\widehat A\subset    \prod_{\widehat x\in \widehat\sX} B\left( \H_{\widehat x}\right)$ and $M\left(\overline A \right)\subset   \prod_{\widehat x\in \widehat\sX} B\left( \H_{\widehat x}\right)$. If $\widehat{x}_0 \in \widehat\sX$ and 
-\be\label{spectrum_injective_ideal_eqn}
-	I''_{\widehat{x}_0}\bydef \left\{\left.\left\{a_{\widehat x}\right\}_{\widehat x\in {\widehat \sX}} \in \prod_{\widehat x\in \widehat\sX} B\left( \H_{\widehat x}\right)\right|a_{\widehat x_0}=0\right\}\subset \prod_{\widehat x\in \widehat\sX} B\left( \H_{\widehat x}\right)
-\ee
-	then $\widehat x_0$ corresponds the a pure state $\widehat \phi_{\widehat{x}_0}:\widehat A \to \C$ and to the ideal $\widehat I_{\widehat{x}_0}\bydef I''_{\widehat{x}_0}\cap \widehat A\subset \widehat A$. From the Proposition \ref{state_prop} it turns out that the state $\widehat \phi_{\widehat{x}_0}$ can be extended to a pure state $\overline  \phi_{\widehat{x}_0}: M\left(\overline A \right)\to\C$. On the other hand any state $\overline  \phi_{\widehat{x}_0}$ such that $\left.\overline  \phi_{\widehat{x}_0} \right|_{\widehat A}=  \widehat \phi_{\widehat{x}_0}$ corresponds to the unique ideal $\overline I_{\widehat{x}_0} \bydef I''_{\widehat{x}_0}\cap M\left(\overline A \right)$, so one has a map $ \widehat  \phi_{\widehat{x}_0} \mapsto \overline  \phi_{\widehat{x}_0}$ which is injective. This map coincides with $\varphi$. \\
-	(ii) Follows from the Lemmas  \ref{spec_borel_lem} and \ref{atomic_uni_lem}.
-	%From $\overline I_{\widehat{x}_0}\subsetneqq \overline A$ it turns that $\left.\overline  \phi_{\widehat{x}_0}\right|_{\overline A}: \overline A\to \C$ is a state. In result one has an injective map $\widehat \phi_{\widehat{x}_0}\mapsto \left.\overline  \phi_{\widehat{x}_0}\right|_{\overline A}$. %From (vi) of the Theorem \ref{irred_thm} it follows that this map can be regarded as an injective   map $ \varphi:\widehat\sX\hookto \overline	\sX$. 
-\end{proof}
 
 \begin{lemma}\label{sum_hilb_rep_lem}
 	Let $\left\{\H_\la\right\}_{\la\in\La}$ be a family of Hilbert spaces, and let $\H$ be the norm completion of the algebraic direct sum $\oplus_{\la\in\La}\H_\la$. The bounded net $\left\{a_\a\right\}_{\a\in \mathscr A} \in B\left( \H\right)$ is strongly convergent  if and only if for all $\la\in\La$ and  $\zeta \in \H$ given by
@@ -4474,17 +4384,6 @@ Let	$\mathfrak{S}^{\mathrm{pt}} \in \mathfrak{FinAlg}^{\mathrm{pt}}$ be a pointe
 \begin{remark}\label{cond_b_ref_rem}
 	If $\overline  \sX$ is a spectrum of $\overline{A}_\pi$ then the condition (b) of the Definition \ref{good_defn}  can be reformulated by a following way. If both $\widetilde{\sX}'$ and $\widetilde{\sX}''$ are  {connected components} of $\overline \sX$ then there is  $g \in G\left(\left.\overline{A}_\pi~\right|~ A\right)$ such that $g \widetilde{\sX}'= \widetilde{\sX}'$ (cf. Exercise \ref{conn_comp_exer}).
 \end{remark}
-
-\begin{lemma}\label{a_rep_b_lem} 
-	If $\pi$ is an atomic representation $\pi_a$ (cf. Definition \ref{atomic_repr_defn}) then the condition (a) of the Definition \ref{good_defn} follows from (b) one.
-\end{lemma}
-\begin{proof}
-If  $a \in A\setminus \{0\}$ and $\sX$ is the spectrum of $A$ then there is $x \in \sX$ such that $\rep_x\left( a\right)\neq 0$. If $\widehat A \bydef C^*$-$\varinjlim A_\la$ is the $C^*$-inductive limit (cf. Definition \ref{inductive_lim_non_defn}) and $\widehat \sX$ is the spectrum of $\widehat{A}$ then from the lemma \ref{inverse_lim_sp_lem} there is a (non unique) $\widehat x \in \widehat \sX$ which is mapped to $x$. It follows that $\rep_{\widehat{x}}\left(a\right)\neq 0$ where $a$ is regarded as element of $\widehat A$. If $\bt \overline \sX$ is the spectrum of $M\left(\overline A \right)$ and  $\varphi : \widehat \sX \to \bt \overline \sX$ is a given by the Corollary  \ref{spectrum_injective_cor} map then $\rep_{\varphi\left(\widehat x\right) }\left(a \right) \neq 0$ where $a$ is regarded as an element of $M\left(\overline A \right)$. If $\bt \widetilde \sX$ is the spectrum of $M\left(\widetilde  A\right)$ then from the condition (b)  of the Definition \ref{good_defn} it follows that there is a disjoint union
-$$
-\bt \overline \sX = \bigsqcup_{g \in G'} g \bt \widetilde \sX
-$$
-where $G'$ is a subset of $G\left(\left.\overline{A}~\right| A \right)$. It turns out that there is $g' \in G'$ such that $g' \varphi\left( \widehat x \right) \in \bt \widetilde \sX$. From $g a = a$ for all $g \in G\left(\left.\overline{A}~\right| A \right)$ it turns out that $\rep_{g' \varphi\left( \widehat x \right)}\left(a \right)\neq 0$, i.e. $a$ corresponds to a nonzero element of $M\left( \widetilde A\right)$.
-\end{proof}
 
  \begin{definition}\label{main_defn}
 	Let $\mathfrak{S}^{\mathrm{pt}} \in \mathfrak{FinAlg}^{\mathrm{pt}}$ be  an algebraical  finite covering category. Let $\pi: \widehat{A} \to B\left(\H \right)$ a representation such that $\mathfrak{S}^{\mathrm{pt}}$ is $\pi$-good.    A connected component $\widetilde{A}_\pi \subset \overline{A}_\pi$ (cf. Definition \ref{connected_comp_defn}) is said to be the $\pi$-\textit{ inverse noncommutative limit of $\mathfrak{S}^{\mathrm{pt}}$}. The $\widetilde{A}_\pi$-invariant group $G_\pi$ (cf. Definition \ref{main_sdefn}) is said to be the $\pi$-\textit{covering transformation group of $\mathfrak{S}^{\mathrm{pt}}$}.  The triple $\left(A, \widetilde{A}_\pi, G_\pi\right)$ is said to be the  $\pi$-\textit{infinite noncommutative covering} of $\mathfrak{S}^{\mathrm{pt}}$. %The algebra $A$  is said to be the {\it base algebra} of $\mathfrak{S}$. 
@@ -9644,6 +9543,13 @@ Follows from the Exercise \ref{top_unoriented_exer}.
 	Let $\mathcal X$ be a connected locally connected topological space. Consider a full subcategory $\mathfrak{S}$ the {finite covering category} of $\sX$ (cf. Definition \ref{top_fin_cov_defn}). The set of objects is marked by $\La$, i.e. the set of objects is a family $\left\{p_\la: \sX_\la\to \sX\right\}_{\la \in \La}$ of transitive finite-fold coverings such that $\sX_{\la_{\mathrm{min}}}= \sX$, and $p_{\la_{\mathrm{min}}}= \Id_\sX$. Morphism from $p_\mu : \sX_\mu \to \sX$ to $p_\nu : \sX_\nu \to \sX$ is a surjective continuous map $p: \sX_\mu \to \sX_\nu$ such that $p_\mu = p_\nu \circ p$. 
 	We say that $\mathfrak{S}$ is a \textit{topological finite covering category} and we write $\mathfrak{S}\in \mathfrak{FinTop}$.
 \end{definition}
+\begin{example}\label{top_cat_example_exm}
+Let $\widetilde{\sX}\to \sX$ be a transitive covering. Consider a family of finite -fold coverings $\left\{\widetilde{\sX}/ H_\la \to \sX\right\}$ where $H_\la \subset G\left(\left. \widetilde{\sX}\right|\sX \right)$ be a finite index normal subgroup. A family is directed, i.e. for all $\mu, \nu \in \La$ there is a finite index normal subgroup  $H_\la \bydef H_\mu \cap H_\mu$ and finite fold coverings 
+\bean
+\widetilde{\sX}/ H_\la \to \widetilde{\sX}H_\mu,\\
+\widetilde{\sX}/ H_\la \to \widetilde{\sX}/ H_\nu,
+\eean
+\end{example}
 
 
 \begin{definition}\label{top_sec_p_defn}
@@ -9658,6 +9564,14 @@ Follows from the Exercise \ref{top_unoriented_exer}.
 	\end{split}
 	\ee
 \end{definition}
+\begin{example}
+If we consider an Example \ref{top_cat_example_exm} and select a base point in $\widetilde \sX$ then one has a natural base point in $\widetilde \sX/H_\la$. Thus one can obtain a pointed category.
+\end{example}
+\begin{remark}\label{comp_pt_ex_rem} The given by the Definition \ref{top_sec_defn} category $\mathfrak{S}_{\sX}$ is not 
+ is not skeletal (cf. Definition \ref{skeletal_defn}). The category $\mathfrak{S}_{\left(\sX, x_0\right)}$ is a skeleton of $\mathfrak{S}_{\sX}$ (cf. Definition \ref{skeleton_defn}). 
+ Roughly speaking a selection of a base-point is equivalent to a selection of  a skeleton. 
+\end{remark}
+
 \begin{remark}
 	The category $\mathfrak{S}_{\left( \sX, x_0\right) }$ is equivalent to the pre-order category $\La$ (cf. Definition \ref{preordercat_defn}).
 \end{remark}
@@ -10063,7 +9977,7 @@ If	$\mathfrak{S}_{\left(\sX, x_0\right)}= \left\{p_\la:\left( \sX_\la, x^\la_0\r
 	=\left(\left\{C_0\left( p_\la\right) : C_0\left(\sX \right)  \hookto C_0\left(\sX_\la \right)\right\}, \left\{C_0\left( p_\nu^\mu\right) : C_0\left(\sX_\nu \right) \hookto C_0\left(\sX_\mu \right)\right\}\right)
 	\end{split}
 \ee
-is a {pointed algebraical  finite covering category} (cf. Definition \ref{pointed_defn}).
+is a {pointed algebraical  finite covering category} (cf. Definition \ref{pointed_defn}  !!! CHECK !!!).
 \end{lemma}
 \begin{proof}
 According to our construction for any $\mu >\nu$ the category $	\mathfrak{S}_{C_0\left(\sX \right) }$ contains the unique injective *-homomorphism from $C_0\left(\sX_\nu \right)$ to $C_0\left(\sX_\mu \right)$. This lemma follows from the Remark \ref{comp_pt_rem}. 
@@ -10099,7 +10013,7 @@ According to our construction for any $\mu >\nu$ the category $	\mathfrak{S}_{C_
 	$$
 	\end{enumerate}
 \end{exercise}
-\begin{lemma}\label{top_atomic_lem}Suppose that   the equation  \eqref{top_alg_cat} yields a {pointed algebraical  finite covering category} $\mathfrak{S}_{A }$ (cf. Definition \ref{pointed_defn}).  If for all $\la\in \La$ a noncommutative finite-fold covering $A \hookto A_0\left(\sX_\la\right)$ (cf. Definition \ref{fin_defn}) is reduced (cf. Definition \ref{fin_red_defn})
+\begin{lemma}\label{top_atomic_lem}Suppose that   the equation  \eqref{top_alg_cat} yields a {pointed algebraical  finite covering category} $\mathfrak{S}_{A }$ (cf. Definition \ref{pointed_defn}  !!! CHECK !!!).  If for all $\la\in \La$ a noncommutative finite-fold covering $A \hookto A_0\left(\sX_\la\right)$ (cf. Definition \ref{fin_defn}) is reduced (cf. Definition \ref{fin_red_defn})
 	  then following conditions hold:
 \begin{itemize}
 	\item [(i)] The spectrum of the $C^*$-inductive limit  $\widehat A \stackrel{\mathrm{def}}{=}C^*\text{-}\varinjlim_\La A_0\left(\sX_\la\right)$ (cf. Definition \ref{principal_non_defn}) is the projective limit $\varprojlim \sX_\la$ (cf. Definition \ref{top_inv_lim_defn}).
@@ -10138,7 +10052,7 @@ which can be uniquely extended up to isomorphism $\overline \H_a \cong \widehat 
 		(iii)  Follows from the Lemma \ref{direct_sum_strong_lim_lem}.
 	\end{proof}
 
-\begin{empt}\label{top_spec_empt}  From the Lemma \ref{top_base_point_lem} it follows that the equation  \eqref{top_base_point_eqn} yields is a {pointed algebraical  finite covering category} (cf. Definition \ref{pointed_defn}). Taking into account the Remark \ref{top_fin_red_rem} we can apply  the Lemma  \ref{top_atomic_lem} to the category
+\begin{empt}\label{top_spec_empt}  From the Lemma \ref{top_base_point_lem} it follows that the equation  \eqref{top_base_point_eqn} yields is a {pointed algebraical  finite covering category} (cf. Definition \ref{pointed_defn}  !!! CHECK !!!). Taking into account the Remark \ref{top_fin_red_rem} we can apply  the Lemma  \ref{top_atomic_lem} to the category
 	\begin{equation}\label{top_talg_cat_eqn}
 	\begin{split}
 	\mathfrak{S}_{ C_0\left(\sX \right) } = \\
@@ -10464,7 +10378,7 @@ is the unique  pointed  covering $p^\mu_{ \nu}: \left(\sX_{\mu}, x^\mu_0 \right)
 	=\left(\left\{C_0\left( p_\la\right) : C_0\left(\sX \right)  \hookto C_0\left(\sX_\la \right)\right\}, \left\{C_0\left( p_\nu^\mu\right) : C_0\left(\sX_\nu \right) \hookto C_0\left(\sX_\mu \right)\right\}\right)
 \end{split}
 \ee
-is a given by the Lemma  \ref{top_base_point_lem} {pointed algebraical  finite covering category} (cf. Definition \ref{pointed_defn}) then following conditions hold:
+is a given by the Lemma  \ref{top_base_point_lem} {pointed algebraical  finite covering category} (cf. Definition \ref{pointed_defn}  !!! CHECK !!!) then following conditions hold:
 \begin{enumerate}
 	\item [(i)] $\mathfrak{S}^{\mathrm{pt}}_{C_0\left(\mathcal{X}\right)}$ is good  (cf. Definition \ref{good_defn}) and the triple $$\left(C_0\left(\mathcal{X}\right), C_0\left(\varprojlim  \mathfrak{S}_{\left(\sX, x_0\right)}\right),G\left(\left.\varprojlim  \mathfrak{S}_{\left(\sX, x_0\right)}~\right| \mathcal X\right)\right)$$ is  the  { infinite noncommutative covering} of $\mathfrak{S}^{\mathrm{pt}}_{C_0\left(\mathcal{X}\right)}$ (cf. Definition \ref{main_defn}).
 	\item[(ii)] There are  isomorphisms:
@@ -10480,8 +10394,12 @@ is a given by the Lemma  \ref{top_base_point_lem} {pointed algebraical  finite c
 
 \begin{proof}
 (i) If $\pi_a : C_0\left( \widehat \sX\right) \to B\left(\H_a \right)$ is the atomic representation (cf. Definition \ref{atomic_repr_defn}) then from the construction \ref{comm_transitive_empt} it follows that $C_0\left( \widetilde \sX\right)$ is a $\pi_a$-connected component of $\mathfrak{S}^{\mathrm{pt}}_{C_0\left(\sX\right)}$ (cf. Definition \ref{main_sdefn}) equals to $C_0\left(\widetilde \sX \right)$, and  $G\left(\left. \widetilde\sX~\right|\sX \right)$ is the $C_0\left(\widetilde \sX \right)$-invariant group (cf. Definition \ref{main_sdefn}).
-To prove that 	$\mathfrak{S}^{\mathrm{pt}}_{C_0\left(\mathcal{X}\right)}$  is good  one needs check that described above objects satisfy to conditions (a)-(c) of the Definition \ref{good_defn}. From the Lemma \ref{a_rep_b_lem} it follows that we should check conditions (b) and (c) only.
+To prove that 	$\mathfrak{S}^{\mathrm{pt}}_{C_0\left(\mathcal{X}\right)}$  is good  one needs check that described above objects satisfy to conditions (a)-(c) of the Definition \ref{good_defn}.
 	\begin{itemize}
+\item[(a)] If $a \in C_0\left(\sX \right) \setminus\{0\}$ then there is $x \in \sX$ such that $a\left(x\right)\neq 0$. 
+If $\widetilde p: \varprojlim  \mathfrak{S}_{\left(\sX, x_0\right)}\to \sX$ 
+	is a natural covering then there is $\widetilde x \in \varprojlim  \mathfrak{S}_{\left(\sX, x_0\right)}$ such that $\widetilde p\left(\widetilde x\right) = x$ and $\widetilde a \in C_0\left(\widetilde \sX\right)$ such that $\widetilde a \left(\widetilde{x}\right)\neq 0$. 
+		From $\left(\widetilde m\left( a\right)  \widetilde a\right)\left(\widetilde{x}\right)= a\left(x\right)\widetilde a\left(\widetilde x\right)\neq 0$ it follows that $\widetilde m\left( a\right)  \widetilde a\neq 0$, i.e. the *-homomorphism $\widetilde m$ is injective.
 \item[(b)]	Follows from the Remark \ref{cond_b_ref_rem}.
 \item[(c)] From \eqref{top_tga_eqn} it turns out that $
 G\left(\left. C_0\left(\widetilde{\mathcal X}\right)~\right| C_0\left(\sX\right) \right)	\cong  G\left(\left. \widetilde\sX~\right|\sX \right).
@@ -10564,7 +10482,7 @@ Consider the described in \ref{top_r_inf_empt} situation and suppose that $\wide
 	\end{split}
 	\eean
 	the given by the Lemma \ref{top_base_point_lem}
-	{pointed algebraical  finite covering category} (cf. Definition \ref{pointed_defn}).
+	{pointed algebraical  finite covering category} (cf. Definition \ref{pointed_defn}  !!! CHECK !!!).
 	Let $\tau: C_0\left(\sX \right)\to \C$ be a faithful state given by  \eqref{meafunc_eqn}, i.e. there exists a Borel
 	measure $\mu$ on $\sX$  such that
 	\be\label{top_meafunc_eqn}
@@ -10822,7 +10740,7 @@ Similarly to \ref{comm_transitive_empt}	one can prove following statements:
 		=\left(\left\{C_0\left( p_\la\right) : C_0\left(\sX \right)  \hookto C_0\left(\sX_\la \right)\right\}, \left\{C_0\left( p_\nu^\mu\right) : C_0\left(\sX_\nu \right) \hookto C_0\left(\sX_\mu \right)\right\}\right)
 	\end{split}
 	\ee
-	be a given by the Lemma  \ref{top_base_point_lem} {pointed algebraical  finite covering category} (cf. Definition \ref{pointed_defn}). If 	$\pi_\tau: C^*\text{-}\lim_{\la\in \La} C_0\left(  \sX_\la \right)\hookto B\left(L^2\left(\overline  \sX , \overline \mu\right) \right)$
+	be a given by the Lemma  \ref{top_base_point_lem} {pointed algebraical  finite covering category} (cf. Definition \ref{pointed_defn}  !!! CHECK !!!). If 	$\pi_\tau: C^*\text{-}\lim_{\la\in \La} C_0\left(  \sX_\la \right)\hookto B\left(L^2\left(\overline  \sX , \overline \mu\right) \right)$
 	is a given by \eqref{top_pi_mu_eqn} equivariant  representation
 	 then following conditions hold:
 	\begin{enumerate}
@@ -10862,7 +10780,7 @@ Following theorem gives universal  coverings of commutative $C^*$-algebras.
 	\be\label{top_pointed_c_eqn}
 	\left(\left\{C_0\left( p_\la\right) : C_0\left( {\sX}\right) \hookto C_0\left( {\sX}_\la\right)\right\}_{\la \in \La}, \left\{C_0\left( p^\mu_\nu\right)  \right\}_{\substack{ \mu, \nu \in \La \\ \mu > \nu}} \right) 
 	\ee
-	(cf. Definition \ref{pointed_defn}). From the  Theorem \ref{top_main_thm} it follows that $C_0\left(\widetilde{\sX} \right)$ is the inverse noncommutative limit of the pointed noncommutative finite covering category \eqref{top_pointed_c_eqn}. Taking into account the Definition \ref{fg_bas_defn} we conclude that $C_0\left( \widetilde{\sX}\right)$ is the universal covering of $C_0\left( {\sX}\right)$.
+	(cf. Definition \ref{pointed_defn}  !!! CHECK !!!). From the  Theorem \ref{top_main_thm} it follows that $C_0\left(\widetilde{\sX} \right)$ is the inverse noncommutative limit of the pointed noncommutative finite covering category \eqref{top_pointed_c_eqn}. Taking into account the Definition \ref{fg_bas_defn} we conclude that $C_0\left( \widetilde{\sX}\right)$ is the universal covering of $C_0\left( {\sX}\right)$.
 \end{proof}
 
 \begin{cor}\label{comm_uni_lim_cor}
@@ -11024,7 +10942,7 @@ From the our construction $C^*\left(G, R\right)$ is the completion of $M\left( \
 	\end{split}
 	\ee
 
- The formula \eqref{top_inf_cov_oae_eqn} is a specialization of the given by \eqref{comp_oa_eqn} one. Moreover from the Lemma \ref{top_base_point_lem} and the Theorem \ref{top_main_thm} one has a 	good	{pointed algebraical  finite covering category} (cf. Definition \ref{pointed_defn}) given by
+ The formula \eqref{top_inf_cov_oae_eqn} is a specialization of the given by \eqref{comp_oa_eqn} one. Moreover from the Lemma \ref{top_base_point_lem} and the Theorem \ref{top_main_thm} one has a 	good	{pointed algebraical  finite covering category} (cf. Definition \ref{pointed_defn}  !!! CHECK !!!) given by
 	\be\label{top_inf_cov_oa_eqn}
 	\begin{split}
 		\mathfrak{S}^{\text{pt}}_{C_0\left( \sX\right) } =\\
@@ -11230,7 +11148,7 @@ The proof of the Theorem \ref{top_inf_o*_m_thm} is left to the reader.
 Here we consider two  specializations of described in the Section \ref{unb_hilb_sec} theory.
 
 \paragraph{Algebras of unbounded functions}
-Let $\left( \sX, x_0\right) $ be a pointed connected, locally connected, locally compact, Hausdorff space. Let $B \bydef  C_0\left(\sX \right)$, and let $A\bydef Cont\left(\sX \right) $ be a *-algebra of continuous (possibly unbounded)  maps from $\sX$ to $\C$. From the Lemma \ref{top_base_point_lem} one has a {pointed algebraical  finite covering category} (cf. Definition \ref{pointed_defn}), given by
+Let $\left( \sX, x_0\right) $ be a pointed connected, locally connected, locally compact, Hausdorff space. Let $B \bydef  C_0\left(\sX \right)$, and let $A\bydef Cont\left(\sX \right) $ be a *-algebra of continuous (possibly unbounded)  maps from $\sX$ to $\C$. From the Lemma \ref{top_base_point_lem} one has a {pointed algebraical  finite covering category} (cf. Definition \ref{pointed_defn}  !!! CHECK !!!), given by
 \be\nonumber
 \begin{split}
 	\mathfrak{S}^{\mathrm{pt}}_{B} \bydef \left(\left\{\rho_\la: B \hookto B_\la \right\}_{\la \in \La}, \left\{\rho^\mu_\nu: B_\mu \hookto B_\nu\right\}_{\substack{\mu, \nu \in \La\\ \nu > \mu}}\right)\bydef \\ \left(\left\{C_0\left( p_\la\right) : C_0\left(\sX \right)  \hookto C_0\left(\sX_\la \right)\right\}, \left\{C_0\left( p_\nu^\mu\right) : C_0\left(\sX_\nu \right) \hookto C_0\left(\sX_\mu \right)\right\}\right).
@@ -11301,7 +11219,7 @@ is  a pointed topological finite covering category (cf. Definition \ref{top_sec_
 \end{split}
 \ee
 where $p_\la \bydef q_\la \times \Id_\R$ and $p^\mu_\nu \bydef q^\mu_\nu \times \Id_\R$.	
-If $B_\la\bydef C_0\left(\sY_\la \right)$ then the Lemma \ref{top_base_point_lem} yields a pointed algebraical  finite covering category (cf. Definition \ref{pointed_defn})
+If $B_\la\bydef C_0\left(\sY_\la \right)$ then the Lemma \ref{top_base_point_lem} yields a pointed algebraical  finite covering category (cf. Definition \ref{pointed_defn}  !!! CHECK !!!)
 \be\label{top_sb_eqn}
 \begin{split}
 	\mathfrak{S}^{\text{pt}}_B \bydef \left(\left\{\rho_\la: B \hookto B_\la \right\}_{\la \in \La}, \left\{\rho^\mu_\nu: B_\mu \hookto B_\nu\right\}_{\substack{\mu, \nu \in \La\\ \nu > \mu}}\right).
@@ -11730,7 +11648,7 @@ of left $C_0\left(\widetilde \sX \right)$-modules.
 \mathfrak{S}_{\left(M, x_0\right)} = \left\{p_\la:\left(  M_\la, x^\la_0 \right) \to \left( M,{x_0}\right) \right\}
 \ee
  (cf. \ref{top_sec_p_defn}) such that  the {(topological) inverse limit} of $\mathfrak{S}$ is naturally homeomorphic  to $\widetilde{M}$. From 
- From the Proposition \ref{comm_cov_mani_prop} it follows that $\widetilde{M}$ and $M_\la$ ($\forall \la \in \La$)  have natural structures of the Riemannian manifolds. From the Theorem \ref{top_main_thm} it follows that one has a good {pointed algebraical  finite covering category} (cf. Definitions \ref{pointed_defn} and \ref{good_defn}  !!! REPLACE REMARK \ref{cond_b_ref_rem} !!!)
+ From the Proposition \ref{comm_cov_mani_prop} it follows that $\widetilde{M}$ and $M_\la$ ($\forall \la \in \La$)  have natural structures of the Riemannian manifolds. From the Theorem \ref{top_main_thm} it follows that one has a good {pointed algebraical  finite covering category} (cf. Definitions \ref{pointed_defn}  !!! CHECK !!! and \ref{good_defn}  !!! REPLACE REMARK \ref{cond_b_ref_rem} !!!)
  $$
  \mathfrak{S}^{\text{pt}}_{C\left(M\right)} = \left\{C_0\left( p_\la\right) :C\left(M\right)\hookto\left(  M_\la\right)  \right\}
  $$
@@ -12941,27 +12859,7 @@ From $\pi_{\widetilde\sY}\left( g \widetilde f_{\a}\right) \pi_{\widetilde A}\le
 From the equation \eqref{blowing_ca_m_f_eqn} one can deduce that $A\cong A_0\left(\widetilde \sY \right)^{G\left(\left.\widetilde{\sY}~\right|\sY\right)}$ so a quadruple
 $\left(A, A_0\left(\widetilde \sY \right), G\left(\left.\widetilde{\sY}~\right|\sY\right), 	A_0\left( q\right) \right)$ is a noncommutative finite-fold quasi-covering (cf. Definition \ref{fin_quasi_defn}).
 \end{empt}
-\begin{lemma}\label{blowing_free_lem}
-The noncommutative finite-fold quasi-covering \\$\left(A, A_0\left(\widetilde \sY \right), G\left(\left.\widetilde{\sY}~\right|\sY\right), 	A_0\left( q\right) \right)$ is free. In particular it is a reduced noncommutative finite-fold quasi-covering and a  noncommutative finite-fold pre-covering.
-\end{lemma}
-\begin{proof}
-If we use the explained in \ref{blowing_hilb_mod_empt} notation then $C^*$-algebra $A_0\left(\widetilde \sY \right)$ is generated by elements $\widetilde a\in  A_0\left(\widetilde \sY \right)$. 
-\be\label{blowing_free_eqn}
-\widetilde\pi_{\widetilde A}\left( \widetilde a\right)  = \pi_{\widetilde\sY}\left( g\widetilde f_\a\right)\widetilde \pi_A\left(a \right)  \pi_{\widetilde\sY}\left( g\widetilde f_{\a}\right).
-\ee
-So if $\widetilde \sX$ is a spectrum of $A_0\left(\widetilde \sY \right)$ then for each $\widetilde x\in \widetilde \sX$ there is $\widetilde a\in  A_0\left(\widetilde \sY \right)$ such that
-\begin{itemize}
-	\item $\rep_{  \widetilde{x }}\left(\widetilde a \right)\neq 0$,
-	\item  $\widetilde{a}$ satisfies to the equation \eqref{blowing_free_eqn}.
-\end{itemize}
-If $g' \in  G\left(\left.\widetilde{\sY}~\right|\sY\right)$ if nontrivial then from $\left( g\widetilde f_\a\right) \left(g'g\widetilde f_\a \right) = 0$ it follows that $\widetilde{a}\left(g' \widetilde{a}^* \right) = 0$. If $g'\widetilde{x}= \widetilde{x}$ then
-$
-\rep_{g'  \widetilde{x }}\left( \widetilde{a}^*\right) = \rep_{  \widetilde{x }}\left( \widetilde{a}^*\right),
-$
-so one has $\rep_{g'  \widetilde{x }}\left(\widetilde{a}\widetilde{a}^* \right)\neq 0$. 
-On the other hand $\rep_{g'  \widetilde{x }}\left(\widetilde{a} \widetilde{a}^*\right) = \rep_{  \widetilde{x }}\left(\widetilde{a} \left( g'\widetilde{a}^*\right) \right)= \rep_{  \widetilde{x }}\left(0 \right)= 0$. From this contradiction one concludes that $g'\widetilde{x}\neq \widetilde{x}$, i.e. the noncommutative finite-fold quasi-covering $\left(A, A_0\left(\widetilde \sY \right), G\left(\left.\widetilde{\sY}~\right|\sY\right), 	A_0\left( q\right) \right)$ is free. It follows that the quadruple is reduced (cf. Exercise \ref{free_reduced_exer}). From the Lemma \ref{quasi_red_lem} it turns out that the quadruple is a noncommutative finite-fold pre-covering
-\end{proof}
-\begin{definition}\label{blowing_spectal_defn!}
+\begin{definition}\label{blowing_spectal_defn}
 	Let $A$ be a $C^*$-algebra, and let $\sX$ be a spectra of $A$. 
 	{Hausdorff blowing-up}	$C\cong C_0\left( \sY\right) \subset M\left(A \right)$ is said to be   \textit{spectral} if for any $x \in \sX$ and for any element $a \in A^{\text{prop}}_\sU$ of $\sU$-proper $C^*$-subalgebra (cf. Definition \ref{blowing_proper_defn}), such that $\rep_x\left(a\right)\neq 0$ there is $y\in \sU$ such that
 	if
@@ -13656,7 +13554,7 @@ Consider the situation of the Definition \ref{blowing_good_defn}. From the Lemma
 \begin{theorem}
 Consider the situation !!!. Following conditions hold
 \begin{enumerate}
-	\item [(i)]  $\mathfrak{S}^{\mathrm{pt}}_A$ is $\overline \sY$-{good} (cf. Definition \ref{blowing_good_defn}) then $\mathfrak{S}^{\mathrm{pt}}_A$ is good (cf. Definition \ref{good_defn}). However from the Lemma \ref{a_rep_b_lem} it turns out that one needs check (b) only. 
+	\item [(i)]  $\mathfrak{S}^{\mathrm{pt}}_A$ is $\overline \sY$-{good} (cf. Definition \ref{blowing_good_defn}) then $\mathfrak{S}^{\mathrm{pt}}_A$ is good (cf. Definition \ref{good_defn}). 
 	\item[(ii)]  If $\widetilde\sY$ is a connected component of $\overline \sY$ (cf. Definition \ref{top_conn_comp_defn}) 
 	then the triple $$\left(A, A_0\left( \widetilde \sY\right) , G\left(\left.\widetilde \sY\right|\sY\right)\right)$$ (cf. Definition inverse noncommutative limit of $\mathfrak{S}^{\mathrm{pt}}_A$ \ref{main_defn}), i.e. there are isomorphisms:
 	\begin{itemize}
@@ -13669,8 +13567,9 @@ Consider the situation !!!. Following conditions hold
  
 \end{theorem}
 \begin{proof}
-	(i)	One needs check conditions (a)-(c) of the Definition \ref{good_defn}. However from the Lemma \ref{a_rep_b_lem} it follows that we should justify (b) and (c) only.
+	(i)	One needs check conditions (a)-(c) of the Definition \ref{good_defn}. 
 	\begin{enumerate}
+		\item[(a)] Follows from the Corollary \ref{blowing_ca_m_cor}.
 		\item[(b)] From the Lemma \ref{blowing_uau_conn_lem} it follows that any connected component (cf. Definition \ref{connected_comp_defn}) of $A_0\left(\overline \sY\right)$  equals to  $A_0\left(\widetilde \sY\right)$ where $\widetilde\sY$ is a connected component of $\overline \sY$ (cf. Definition \ref{top_conn_comp_defn}). If $\widetilde\sY$ and $\widetilde\sY'$ are connected components of $\overline \sY$ then from the Lemma \ref{top_gxx_lem} it follows that
 		$$
 		\exists g\in G\left(\left. \overline\sY~\right|\sY \right)\quad 
@@ -13839,7 +13738,7 @@ From the Remark \ref{nc_loop_rem} it follows that $\sY^{\mathrm{ab}}\cong \Om\sX
  \ee  
  (cf. Definition \ref{top_sec_p_defn})
  of all  transitive finite-fold pointed coverings. From the Lemma \ref{top_res_fin_lem} it turns out that the pointed space $\left( \widetilde{\sY}^{\mathrm{ab}} , \widetilde{y}_0 \right)$ is the topological inverse noncommutative limit of $\mathfrak{S}_{\left( \sY^{^{\mathrm{ab}}}, y_0 \right) }$  (cf. Definition \ref{top_topological_inv_lim_defn}). From the Lemma \ref{blowing_base_point_lem}
-there is a pointed	algebraical  finite covering category (cf. Definition \ref{pointed_defn}) given by		
+there is a pointed	algebraical  finite covering category (cf. Definition \ref{pointed_defn}  !!! CHECK !!!) given by		
 \begin{equation}\label{ho_gr_poinded_cat_eqn}
 	\mathfrak{S}^{\mathrm{pt}}_{A } = \left\{\left\{\pi_\la=A_0\left( q_{\la}\right) :A  \hookto A_0\left(\sY^{\mathrm{ab}}_\la\right) \right\}_{\la \in \La}\left\{\pi^\mu_\nu\right\}_{\substack{\mu, \nu \in \La\\\mu\le\nu}}\right\}\in \mathfrak{FinAlg}.
 \end{equation}
@@ -14271,7 +14170,7 @@ is also connected (cf. Definition \ref{fin_defn} !!! \ref{fin_exer} !!! !!! CHAN
 			\mathfrak{S}_A^{\mathrm{pt}} = \left(\left\{\pi_\la: A \hookto A_\la \right\}_{\la \in \La}, \left\{\pi^\mu_\nu: A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\ \nu \ge \mu}}\right)
 		\end{split}
 		\eean
-		is a pointed algebraical  finite covering category (cf. Definition \ref{pointed_defn}) then there is the natural pointed algebraical  finite covering category
+		is a pointed algebraical  finite covering category (cf. Definition \ref{pointed_defn}  !!! CHECK !!!) then there is the natural pointed algebraical  finite covering category
 		\begin{equation*}
 		\mathfrak{S}^{\mathrm{pt}}_{A\otimes \K} \bydef  \left(\left\{\widetilde\pi_\la: A \otimes \K\hookto A_\la \otimes \K\right\}_{\la \in \La}, \left\{\widetilde\pi^\mu_\nu: A_\mu\otimes \K \hookto A_\nu\otimes \K\right\}_{\substack{\mu, \nu \in \La\\ \nu >\ge \mu}}\right)
 		\end{equation*}
@@ -15818,7 +15717,7 @@ Suppose that $\left(\overline{   \mathcal X}, \overline{x}_0 \right)$ is its  to
 \bean
 \mathfrak{S}_{A }^{\mathrm{pt}} = \left\{\pi_\la=A_0\left( p_{\la}\right) :A  \hookto A_0\left( \mathcal{X}_\la\right) \right\}_{\la \in \La}\in \mathfrak{FinAlg} 
 \eean
-(cf. Definition \ref{pointed_defn}).
+(cf. Definition \ref{pointed_defn}  !!! CHECK !!!).
 \begin{exercise}
 	Prove following statements:
 	\begin{enumerate}
@@ -16202,7 +16101,7 @@ $	\left(A, \widetilde A, 	G\right)$			the  {infinite noncommutative covering} of
 		=\left(\left\{A_0\left( p_\la\right) : A  \hookto A_0\left(\sX_\la \right)\right\}, \left\{A_0\left( p_\nu^\mu\right) : A_0\left(\sX_\nu \right) \hookto A_0\left(\sX_\mu \right)\right\}\right)
 	\end{split}
 	\ee
-	(cf. Definition \ref{pointed_defn}).
+	(cf. Definition \ref{pointed_defn}  !!! CHECK !!!).
 	$\mathfrak{S}^{\mathrm{pt}}_{A }$ allows inner product (cf. Definition \ref{inf_hilb_prod_defn}). 
 \end{lemma}
 
@@ -16258,7 +16157,7 @@ $	\left(A, \widetilde A, 	G\right)$			the  {infinite noncommutative covering} of
 	\end{split}
 	\eean
 	the given by the Lemma \ref{top_base_point_lem}
-	{pointed algebraical  finite covering category} (cf. Definition \ref{pointed_defn}).
+	{pointed algebraical  finite covering category} (cf. Definition \ref{pointed_defn}  !!! CHECK !!!).
 	Let $\tau: C_0\left(\sX \right)\to \C$ be a faithful state given by  \eqref{meafunc_eqn}, i.e. there exists a Borel
 	measure $\mu$ on $\sX$ with values in $\left[0, +\infty\right]$ such that
 	\be\label{ctr_meafunc_eqn}
@@ -16348,7 +16247,7 @@ $	\left(A, \widetilde A, 	G\right)$			the  {infinite noncommutative covering} of
 \paragraph*{} Here we consider the generalization of the Theorem \ref{ctr_ctr_main_thm}.
 \begin{empt}\label{ctr_op_main_empt}
 	Let $\left(X, Y\right)$ be a  {sub-unital subspace} having continuous trace (cf. Definition \ref{ctr_oa_defn}) and let $A \bydef C^*_e\left(X, Y \right)$ be the $C^*$-envelope of $\left(X, Y\right)$.
-	From the Lemma  \ref{ctr_oa_lem} it follows that $A$ has continuous trace, hence the spectrum $\sX$ of $A$ is the locally compact Hausdorff space. Suppose that $\sX$ is a second-countable, connected and locally connected set. Let	$\mathfrak{S}_{\left(\sX, x_0\right)}= \left\{p_\la:\left( \sX_\la, x^\la_0\right) \to \left( \sX, x_0\right)\right\}_{\la \in \La} \in \mathfrak{FinTop}^{\mathrm{pt}}$ be a pointed topological finite covering category such that for any $\mu > \nu$ there is the unique  pointed  covering $p^\mu_{ \nu}: \left(\sX_{\mu}, x^\mu_0 \right) \to \left(\sX_{\nu}, x^\nu_0 \right)$. From the Lemma \ref{blowing_base_point_lem} it turns out that is a {pointed algebraical  finite covering category} (cf. Definition \ref{pointed_defn}).
+	From the Lemma  \ref{ctr_oa_lem} it follows that $A$ has continuous trace, hence the spectrum $\sX$ of $A$ is the locally compact Hausdorff space. Suppose that $\sX$ is a second-countable, connected and locally connected set. Let	$\mathfrak{S}_{\left(\sX, x_0\right)}= \left\{p_\la:\left( \sX_\la, x^\la_0\right) \to \left( \sX, x_0\right)\right\}_{\la \in \La} \in \mathfrak{FinTop}^{\mathrm{pt}}$ be a pointed topological finite covering category such that for any $\mu > \nu$ there is the unique  pointed  covering $p^\mu_{ \nu}: \left(\sX_{\mu}, x^\mu_0 \right) \to \left(\sX_{\nu}, x^\nu_0 \right)$. From the Lemma \ref{blowing_base_point_lem} it turns out that is a {pointed algebraical  finite covering category} (cf. Definition \ref{pointed_defn}  !!! CHECK !!!).
 	\be\nonumber
 	\begin{split}
 		\mathfrak{S}_{A } = \\
@@ -16518,7 +16417,7 @@ If
 	=\left\{A_0\left( p_\la\right) : A  \hookto A_0\left(\sX_\la \right)\right\}, \left\{A_0\left( p_\nu^\mu\right) : A_0\left(\sX_\nu \right) \hookto A_0\left(\sX_\mu \right)\right\}
 \end{split}
 \ee
-is a given by the Lemma \ref{blowing_base_point_lem} {pointed algebraical  finite covering category} (cf. Definition \ref{pointed_defn}) then from the Theorem \ref{ctr_ctr_main_thm} it follows that is  the  { infinite noncommutative covering} of $\mathfrak{S}_{A}$ (cf. Definition \ref{main_defn}) given by
+is a given by the Lemma \ref{blowing_base_point_lem} {pointed algebraical  finite covering category} (cf. Definition \ref{pointed_defn}  !!! CHECK !!!) then from the Theorem \ref{ctr_ctr_main_thm} it follows that is  the  { infinite noncommutative covering} of $\mathfrak{S}_{A}$ (cf. Definition \ref{main_defn}) given by
 $\left(A, A_0\left(\widetilde\sX\right),G\left(\left.\widetilde\sX~\right|~ \mathcal X\right)\right)$ where $\widetilde\sX \bydef \varprojlim  \mathfrak{S}_{\mathcal{X}}$ (cf. Definition \ref{top_topological_inv_lim_defn}).  Similarly to \eqref{ctr_tx_eqn} define a scalar product $K\left( A_0\left(  \widetilde\sX\right)\right) \times K\left( A_0\left(  \widetilde\sX\right)\right)\to\C$ and denote by $L^2\left(A_0\left(\widetilde\sX \right) , \tr_{\widetilde\tau}\right)$.
 \begin{exercise}
 	Prove that the natural representation $A_0\left(\widetilde\sX \right)\hookto B\left(L^2\left(A_0\left(\widetilde\sX \right) , \tr_{\widetilde\tau}\right)\right)$   is {induced} by $\left( \tr_\tau, \left( A, A_0\left(\widetilde M \right) , G\left(\left.\widetilde M~\right|M \right) \right)\right)$ (cf. Definition \ref{induced_repr_inf_defn})
@@ -16532,7 +16431,7 @@ $\left(A, A_0\left(\widetilde\sX\right),G\left(\left.\widetilde\sX~\right|~ \mat
 Discussed below results close to  the Section \ref{top_inf_o_sec} ones. Exercises of this Section can be solved similarly to proofs of Lemmas and Theorems of the Section \ref{top_inf_o_sec}.
 \begin{empt}
 	Similarly to \ref{ctr_fin_o_empt} 	let $M$ be a smooth manifold, and let $A$ be  a {homogeneous of order} $n$ $C^*$-algebra (cf. Definition \ref{ctr_homo_defn}) such that  $M$ is the spectrum of $A$. There is a linear bundle $\left(E, q, M\right)  $ with fibers $\C^{n^2}$ such that there is $C_b\left( M\right)$-linear isomorphism $A \cong 
-	\Ga_0\left(M, E \right)$ (cf. \ref{ctr_fin_o_empt}). If $E$ has structure of smooth manifold such that the map $E\to M$ is smooth.  	From  \eqref{ctr_fin_o_empt} it turns out that  $\Ga^\infty\left(M, E \right)$ is *-algebra.  If	$\mathfrak{S}_{\left(M, x_0\right)}= \left\{p_\la:\left(M_\la, x^\la_0\right) \to \left( M, x_0\right)\right\}_{\la \in \La}$ is a pointed topological finite covering category the the Lemma \ref{blowing_base_point_lem} yields  {pointed algebraical  finite covering category} (cf. Definition \ref{pointed_defn}) given by 		
+	\Ga_0\left(M, E \right)$ (cf. \ref{ctr_fin_o_empt}). If $E$ has structure of smooth manifold such that the map $E\to M$ is smooth.  	From  \eqref{ctr_fin_o_empt} it turns out that  $\Ga^\infty\left(M, E \right)$ is *-algebra.  If	$\mathfrak{S}_{\left(M, x_0\right)}= \left\{p_\la:\left(M_\la, x^\la_0\right) \to \left( M, x_0\right)\right\}_{\la \in \La}$ is a pointed topological finite covering category the the Lemma \ref{blowing_base_point_lem} yields  {pointed algebraical  finite covering category} (cf. Definition \ref{pointed_defn}  !!! CHECK !!!) given by 		
 	\be\label{ctr_bases_point_eqn}
 	\begin{split}
 		\mathfrak{S}^{\mathrm{pt}}_{A } = \\
@@ -16637,7 +16536,7 @@ Let $\left( \sX, x_0\right) $ be a pointed connected, locally connected, locally
 	\mathfrak{S}_{\left( \sX, x_0\right) }\in \mathfrak{FinTop}^{\text{pt}}.
 \end{split}
 \eean
-be a {pointed topological finite covering category} (cf. Definition \ref{top_sec_p_defn}). From the Lemma \ref{ctr_ctr_main_thm} one has a good !!! SOFT \ref{top_soft_exer}  !!! REP \ref{top_soft_r_defn} {pointed algebraical  finite covering category} (cf. Definition \ref{pointed_defn}), given by
+be a {pointed topological finite covering category} (cf. Definition \ref{top_sec_p_defn}). From the Lemma \ref{ctr_ctr_main_thm} one has a good !!! SOFT \ref{top_soft_exer}  !!! REP \ref{top_soft_r_defn} {pointed algebraical  finite covering category} (cf. Definition \ref{pointed_defn}  !!! CHECK !!!), given by
 \be\nonumber
 \begin{split}
 	\mathfrak{S}^{\mathrm{pt}}_{B} \bydef \left(\left\{\rho_\la: B \hookto B_\la \right\}_{\la \in \La}, \left\{\rho^\mu_\nu: B_\mu \hookto B_\nu\right\}_{\substack{\mu, \nu \in \La\\ \nu > \mu}}\right)\bydef \\ \left(\left\{B_0\left( p_\la\right) : B  \hookto B_0\left(\sX_\la \right)\right\}, \left\{B_0\left( p_\nu^\mu\right) : B_0\left(\sX_\nu \right) \hookto B_0\left(\sX_\mu \right)\right\}\right).
@@ -17029,7 +16928,7 @@ $\mathfrak{S}_{\left(M, x_0\right)}$ (cf. Definition \ref{top_sec_p_defn}) then 
 \begin{theorem}\label{foli_main_thm}
 	Following conditions hold:
 	\begin{enumerate}
-		\item [(i)] The given by  \eqref{foli_base_point_eqn} pointed	algebraical  finite covering category $\mathfrak{S}_{C^*_r \left(M, \mathcal{F}\right)}^{\mathrm{pt}}$  (cf. Definition \ref{pointed_defn}) is good (cf. Definition \ref{good_defn}  !!! REPLACE REMARK \ref{cond_b_ref_rem} !!!).
+		\item [(i)] The given by  \eqref{foli_base_point_eqn} pointed	algebraical  finite covering category $\mathfrak{S}_{C^*_r \left(M, \mathcal{F}\right)}^{\mathrm{pt}}$  (cf. Definition \ref{pointed_defn}  !!! CHECK !!!) is good (cf. Definition \ref{good_defn}  !!! REPLACE REMARK \ref{cond_b_ref_rem} !!!).
 		\item[(ii)] If  $\overline A_{\widetilde M}$ is given by the equation \ref{blowing_wta_eqn} then a triple $\left(C^*_r \left(M, \mathcal{F}\right), \widetilde A\bydef \overline A_{\widetilde M}, 	G\left(\left.\widetilde{M}~\right| M\right)\right)$ the  {infinite noncommutative covering} of $\mathfrak{S}_{C^*_r \left(M, \mathcal{F}\right)}^{\mathrm{pt}}$.
 		\item[(iii)] Suppose that   the fundamental group $\pi_1\left(M, y_0\right)$ is residually finite (cf. Definition \ref{residually_finite_defn}). If $\pi_1\left(C^*_r \left(M, \mathcal{F}\right), \left\{\pi^\nu_\mu\right\}_{\substack{ \mu, \nu \in \La \\ \mu \ge \nu}} \right)$  is the  reduced fundamental group (cf. Definition \ref{fg_bas_defn}) then there is the natural isomorphism
 		$$
@@ -17439,7 +17338,7 @@ and taking into account $a_{\la_0}\in C^*_r\left(\overline{M}, \overline{\sF}\ri
 
 
 \begin{theorem}\label{foli_main_spec_thm} 
-	Suppose that $\left( M,  \sF\right)$ a foliation space with a Hausdorff foliation groupoid $\G\left( M,  \sF\right)$. Let $\mathfrak{S}_{C^*_r\left(M, \sF, x_0\right)}$ be	a pointed algebraical  finite covering category $\mathfrak{S}_{C^*_r\left(M, \sF, x_0\right)}$ (cf. Definition (ref. \ref{pointed_defn}) described in the Theorem \ref{blowing_functor_thm} and given by
+	Suppose that $\left( M,  \sF\right)$ a foliation space with a Hausdorff foliation groupoid $\G\left( M,  \sF\right)$. Let $\mathfrak{S}_{C^*_r\left(M, \sF, x_0\right)}$ be	a pointed algebraical  finite covering category $\mathfrak{S}_{C^*_r\left(M, \sF, x_0\right)}$ (cf. Definition (ref. \ref{pointed_defn}  !!! CHECK !!!) described in the Theorem \ref{blowing_functor_thm} and given by
 	\be\label{foli_poi_eqn}
 	\begin{split}
 		\left\{\left\{C^*_r\left( p_\la\right) : C^*_r\left(M, \sF\right)\hookto C^*_r\left(M_\la, \sF_\la\right)\right\}, \left\{C^*_r\left(p^\mu_\nu\right) : C^*_r\left(M_\nu, \sF_\nu\right) \hookto C^*_r\left(M_\mu, \sF_\mu\right)\right\}\right\}.
@@ -18247,7 +18146,7 @@ which is a specialization of \eqref{conn_triple_eqn}, i.e. $\nabla$ is a connect
 	\be\label{nt_p_cat_eqn}
 	\mathfrak{S}^{\text{pt}}_{C\left(\mathbb{T}^n_{\Theta}\right)} \bydef \left(\left\{\pi_\la: C\left(\mathbb{T}^n_{\Theta}\right) \hookto C\left(\mathbb{T}^n_{\Theta_\la}\right) \right\}_{\la \in \La}, \left\{\pi^\nu_\mu\right\}_{\substack{\mu, \nu \in \La\\ \mu > \nu}}\right)
 	\ee
-	(cf. Definition \ref{pointed_defn}).
+	(cf. Definition \ref{pointed_defn}  !!! CHECK !!!).
 	Similarly to the Remark \ref{nt_diag_rem} denote by
 	Let $\Th \stackrel{\text{def}}{=} J \th$ where $\th \in \R \setminus \Q$ and
 	$$
@@ -19306,7 +19205,7 @@ Let $\widetilde \sF$ be a foliation on $\R^2$ which  corresponds to  a vector fi
 \[
 dx = \th dy
 \]
-where $\th  \in \R\setminus\Q$ is an irrational number. Since $\widetilde \sF$ is invariant with respect to the action $\Z^2 \times\R^2 \to \R^2$ there is the foliation $\sF_\th$ on $\T^2$ such that $\widetilde \sF$ is the $\widetilde p$ -lift of $\sF_\th$ (cf. Definition \ref{fol_cov_defn}). The Lemma \ref{foli_base_point_lem} yields  a pointed algebraical  finite covering category $\mathfrak{S}_{C^*_r\left(\T^2, \sF\right)}$ (cf. Definition (ref. \ref{pointed_defn}) 
+where $\th  \in \R\setminus\Q$ is an irrational number. Since $\widetilde \sF$ is invariant with respect to the action $\Z^2 \times\R^2 \to \R^2$ there is the foliation $\sF_\th$ on $\T^2$ such that $\widetilde \sF$ is the $\widetilde p$ -lift of $\sF_\th$ (cf. Definition \ref{fol_cov_defn}). The Lemma \ref{foli_base_point_lem} yields  a pointed algebraical  finite covering category $\mathfrak{S}_{C^*_r\left(\T^2, \sF\right)}$ (cf. Definition (ref. \ref{pointed_defn}  !!! CHECK !!!) 
 From the Theorem \ref{foli_main_thm} it follows that the triple 
 \be\label{nt_f_c_eqn}
 \left(C^*_r\left(\T^2, \sF_\th\right), C^*_r\left(\R^2, \widetilde \sF\right), \Z^2 \right)
@@ -28443,11 +28342,11 @@ The above equation is a counterpart of \eqref{Tthetarel}, so the noncommutative 
  		=\left( \left\{ \left( C\left(\T^2_{{\th}} \right), C\left(\T^{2}_{\th/m_j^2} \right), \Z^2_{m_j}, \pi_j\right)  \right\}_{\substack{j \in \N\\ ~\\~}}\right., \\ \left. \left\{  \pi^j_k: C\left(\T^{2}_{\th/m_j^2} \right)\hookto C\left(\T^{2}_{\th/m_k^2} \right) \right\}_{\substack{j,k \in \N\\ j < k}}\right) \subset \mathfrak{S}^{\text{pt}}_{C\left(\mathbb{T}^n_{\Theta}\right)}.
  	\end{split} 
  	\ee
- 	be a specialization of the given by \eqref{nt_cofinal_eqn} pointed algebraic finite covering category  (cf. Definition \ref{pointed_defn}). Let $\widehat{C\left(\mathbb{T}^{2}_{\th}\right) }\bydef C^*$-$\varinjlim_{j \in \N}C\left(\mathbb{T}^{2}_{\Theta_\la}\right)$ be the inductive limit of $C^*$-algebras, and let 
+ 	be a specialization of the given by \eqref{nt_cofinal_eqn} pointed algebraic finite covering category  (cf. Definition \ref{pointed_defn}  !!! CHECK !!!). Let $\widehat{C\left(\mathbb{T}^{2}_{\th}\right) }\bydef C^*$-$\varinjlim_{j \in \N}C\left(\mathbb{T}^{2}_{\Theta_\la}\right)$ be the inductive limit of $C^*$-algebras, and let 
  	\be\label{nt_inf_repr2_eqn}
  	\widehat{\pi}:\widehat{C\left(\mathbb{T}^{2}_{\Th}\right) } \to  B\left(L^2\left(\R^{2}\right)\right).
  	\ee 
- 	be a specialization of the given by \eqref{nt_inf_repr_eqn} representation. For any $j\in \N$ there is $u_j \in C\left(\T^{2}_{\th/m_j^2} \right)$ such that $u= u_j^{m_j}$. From this circumstance one has the following pointed algebraic finite covering category  (cf. Definition \ref{pointed_defn})
+ 	be a specialization of the given by \eqref{nt_inf_repr_eqn} representation. For any $j\in \N$ there is $u_j \in C\left(\T^{2}_{\th/m_j^2} \right)$ such that $u= u_j^{m_j}$. From this circumstance one has the following pointed algebraic finite covering category  (cf. Definition \ref{pointed_defn}  !!! CHECK !!!)
  	$$
  	C\left(u\right)\to ...\to C\left(u_j \right)\to ... 
  	$$
