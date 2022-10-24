@@ -108,7 +108,8 @@ namespace Aviation.Light
             but[i] = geom.ToArray();
             ++i;
             List<ButtonWrapper> image = new List<ButtonWrapper>();
-           // image.AddRange(ImageTransformations.Factory.ImageTransformationFactory.ObjectButtons);
+            image.AddRange(ImageTransformations.Factory.ImageTransformationFactory.ObjectButtons);
+            image.AddRange(ImageNavigation.Factory.ImageNavigationFactory.ObjectButtons);
             but[i] = image.ToArray();
             ++i;
             List<ButtonWrapper> events = new List<ButtonWrapper>();
@@ -123,6 +124,7 @@ namespace Aviation.Light
             arr.AddRange(Event.UI.Factory.UIFactory.ArrowButtons);
             arr.AddRange(Database.UI.Factory.DatabaseFactory.ArrowButtons);
             arr.AddRange(ImageTransformations.Factory.ImageTransformationFactory.ArrowButtons);
+            arr.AddRange(ImageNavigation.Factory.ImageNavigationFactory.ArrowButtons);
             but[i] = arr.ToArray();
             LightDictionary<string, ButtonWrapper[]> buttons = new LightDictionary<string, ButtonWrapper[]>();
             buttons.Add(tabs, but);
