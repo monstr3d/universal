@@ -14020,7 +14020,7 @@ We leave to the reader proof of following facts:
 \end{remark}
 
 \begin{corollary}\label{stable_functor_cor}
-There is a functor $-\otimes \K: \mathfrak{FinCov}$-$A\to\mathfrak{FinCov}$-$A\otimes \K$ between categories of finite-fold coverings (cf.  Definition \ref{fin_cat_defn})
+There is a  functor $-\otimes \K: \mathfrak{FinCov}$-$A\to\mathfrak{FinCov}$-$A\otimes \K$ between categories of finite-fold coverings (cf.  Definition \ref{fin_cat_defn}). The functor is full (cf. Definition \ref{funct_full_faithfull_defn}).
 \end{corollary}
 \begin{proof}
 !!! PROOF !!!
@@ -20286,7 +20286,72 @@ noncommutative finite-fold pre-covering (cf. Definition  \ref{fin_pre_defn}). Si
 
 \begin{appendices}
 	\chapter{Categories, functors  and sets}
-	\section{Functors}
+	
+	\section{Categories and functors}
+	\begin{definition}\label{category_defn}\cite{goldblatt:topoi}
+	%	Axiomatic Definition of a Category. 
+	A \textit{category} $\mathscr C$ comprises 
+	\begin{itemize}
+		\item[(1)] 	 a collection of things called $\mathscr C$-\textit{objects}; 
+	\item[(2)] a collection of things called $\mathscr C$-\textit{arrows}; 
+	\item[(3)] operations assigning to each  $\mathscr C$-arrow f  $\mathscr C$-object $\mathrm{dom}$ (the 
+		"domain" of $f$) and a $\mathscr C$-object $\mathrm{cod}$ (the "codomain" of $f$). If $a =\mathrm{dom} f$  
+		and $b =\mathrm{cod} f$ we display this as 
+		\bean
+		f: a \to b\quad \text{or}\quad  a \xrightarrow{f} b;
+		\eean
+		\item[(4)] an operation assigning to each pair $\left(g, f\right)$ of $\mathscr C$-arrows with $\mathrm{dom}g = \mathrm{cod} f$.
+		 A $\mathscr{C}$-arrow  $g\circ f$, the \textit{composite of f and g}, having $\mathrm{dom}g\circ f= \mathrm{dom}f$ and  $\mathrm{cod }g\circ f= \mathrm{cod}g$, i.e. $g\circ f:  \mathrm{dom}f \to \mathrm{cod}g$  such that the following condition obtains:
+		 
+		 \textit{	Associative Law}: Given the configuration 
+		$$
+		a \xrightarrow{f}	b \xrightarrow{g}	c \xrightarrow{h}d
+		$$ 
+		of  $\mathscr{C}$-objects and $\mathscr{C}$-arrows  then $h \circ \left(g \circ f\right)= \left(h \circ g\right)\circ f$;
+				\item[(5)] an assignment to each $\mathscr{C}$-object $b$ of a $\mathscr{C}$-arrow $\mathbb{1}_b : b \to b$, called the \textit{identity arrow} on $b$, such that 
+				
+				\textit{Identity Law}: For any $\mathscr{C}$-arrows $f: a \to b$ and $g : b \to c$
+				\bean
+				\mathbb{1}_b \circ f = f, \quad \text{and} g\circ \mathbb{1}_b= g.
+				\eean
+		\end{itemize}
+
+	\end{definition}
+
+\begin{notation}\label{category_not}
+If $a, b$ are  $\mathscr{C}$-objects then we denote by  $\mathscr{C}\left(a, b \right)$  a family of all arrows from $a$ to $b$.
+\end{notation}
+
+\begin{definition}\label{functor_defn}\cite{goldblatt:topoi}
+A functor $F$ from category $\mathscr{C}$ to category $\mathscr{D}$ is a function that assigns 
+\begin{enumerate}
+	\item [(i)]
+ to each $\mathscr{C}$-object $a$, a $\mathscr{D}$-object $F(a)$; 
+\item[(ii)] to each $\mathscr{C}$-arrow $f:a \to b$ a $\mathscr{D}$-arrow $F(f): F(a) \to F(b)$, 
+such that 
+\begin{enumerate}
+	\item[(a)]  $F\left(\mathbb 1_a\right) = \mathbb 1_{F\left(a\right)}$ for all  $\mathscr{C}$-objects $a$, i.e. the identity arrow on $a$ is assigned 
+	the identity on $F\left(a\right)$,
+	\item[(b)]  $F\left(g\circ f\right)=F\left(g\right)\circ F\left( f\right) $, whenever $g \circ f$ is defined. 
+	This last condition states that the $F$-image of a composite of two arrows 
+	is the composite of their $F$-images.
+\end{enumerate}
+
+
+\end{enumerate}
+ We write $F:\mathscr{C}\to \mathscr{D}$ or  $\mathscr{C}\xrightarrow{F} \mathscr{D}$ to indicate that $F$ is a 
+functor from $
+\mathscr{C}$ to $\mathscr{D}$. Briefly then a functor is a transformation that 
+"preserves" dom's, cod's, identities and composites. 
+\end{definition}
+If $a$ and $b$ are  $\mathscr{C}$-objects then a functor $\mathscr{C}\xrightarrow{F} \mathscr{D}$ yields a map
+\be\label{f_ab_funct_eqn}
+F_{a,b}:\mathscr{C}\left(a, b \right)  \to \mathscr{D}\left( F\left(a\right), F\left(b\right)\right)  
+\ee
+(cf. Notation \ref{category_not}).
+\begin{definition}\label{funct_full_faithfull_defn}\cite{bass}
+A functor $\mathscr{C}\xrightarrow{F} \mathscr{D}$ is said to be \textit{faithful} (resp. \textit{full}) if the given by \eqref{f_ab_funct_eqn} is injective (resp. surjective).
+\end{definition}
 	\begin{defn}
 	A functor $F: \mathscr C\to  \mathscr D$ is \textit{faithful} if it acts injectively on each "hom-set". 
 	 This means that for any pair $f, g:a\to  b$ of 
