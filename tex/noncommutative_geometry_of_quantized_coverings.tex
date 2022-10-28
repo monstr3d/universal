@@ -13812,7 +13812,9 @@ Here we find a relation between  noncommutative finite-fold coverings of $C^*$-a
 		\left( A \otimes \K, \widetilde{A}  \otimes \K, G, \pi  \otimes \Id_\K \right)
 		$$
 		is a {noncommutative finite-fold  pre-covering}.
-		\item[(ii)] If a normal subgroup $H\subset G$ is is  $\left(A, \widetilde{A}, G, \pi \right)$-{proper} (cf.Definition \ref{proper_subgroup_fin_eqn}) then $H$ is $
+		\item[(ii)] If 		$		\left( A \otimes \K, \widetilde{A}^\K, G, \pi^\K \right)	$  
+		is a {noncommutative finite-fold  pre-covering} then there is  a noncommutative finite-fold  pre-covering   $\left( A , \widetilde{A}, G, \pi \right)$ such that the quadruple 	$		\left( A \otimes \K, \widetilde{A}^\K, G, \pi^\K \right)$ is equivalent to 	$\left( A \otimes \K, \widetilde{A}\otimes \K, G, \pi\otimes 1_\K \right)$.
+		\item[(iii)] If a normal subgroup $H\subset G$ is   $\left(A, \widetilde{A}, G, \pi \right)$-{proper} (cf.Definition \ref{proper_subgroup_fin_eqn}) then $H$ is $
 		\left( A \otimes \K, \widetilde{A}  \otimes \K, G, \pi  \otimes \Id_\K \right)
 		$-{proper}.
 	\end{enumerate}
@@ -13845,7 +13847,31 @@ Here we find a relation between  noncommutative finite-fold coverings of $C^*$-a
 	g_\K \widetilde{b}_\K = \left( 1_{A^\sim }  \otimes \mathfrak{e}_{1,j}\right)  g_\K\widetilde{c}_\K \left( 1_{A^\sim } \otimes \mathfrak{e}_{k,1}\right)
 	$$
 	Conversely any element of $g \in G$ uniquely defines the element $g_\K \in G_\K$. Moreover from $A = \widetilde{A}^G$ it turns out ${A}\otimes \K = \left( \widetilde{A}\otimes \K\right)^{G_\K}$.\\
-	(ii)  Denote by  $\widetilde{A} \stackrel{\text{def}}{=}\left( 1_{A^\sim } \otimes \mathfrak{e}_{1,1}\right) \widetilde{A}^\K \left( 1_{A^\sim } \otimes \mathfrak{e}_{1,1}\right) \subset \widetilde{A}^\K$. From   $$A\cong \left( 1_{A^\sim } \otimes \mathfrak{e}_{1,1}\right) \left(A \otimes \K \right)  \left( 1_{A^\sim }\otimes \mathfrak{e}_{1,1}\right) $$ and the inclusion $A \otimes \K \subset \widetilde{A}^\K$ it turns out that there is the inclusion $A \hookto \widetilde{A}$.
+	(ii)   If 
+	\be\label{stab_wta_eqn}
+	\widetilde{A} \bydef \pi_\K\left( 1_{A^\sim } \otimes \mathfrak{e}_{1,1}\right) \widetilde{A}^\K \pi_\K\left( 1_{A^\sim } \otimes \mathfrak{e}_{1,1}\right) \subset \widetilde{A}^\K
+	\ee
+		then from   $$A\cong \left( 1_{A^\sim } \otimes \mathfrak{e}_{1,1}\right) \left(A \otimes \K \right)  \left( 1_{A^\sim }\otimes \mathfrak{e}_{1,1}\right) $$ and the inclusion $A \otimes \K \subset \widetilde{A}^\K$ it turns out that there is the inclusion $\pi: A \hookto \widetilde{A}$. 	
+For all $j,k \in \N$ one has $$\pi_\K\left( 1_{A^\sim } \otimes \mathfrak{e}_{j,1}\right)\widetilde{A} \pi_\K\left( 1_{A^\sim } \otimes \mathfrak{e}_{1,k}\right)= \pi_\K\left( 1_{A^\sim } \otimes \mathfrak{e}_{j,k}\right)\widetilde{A} \subset \widetilde{A}^\K.$$ 
+	If follows that there is a natural inclusion $\widetilde{A}\otimes \K \subset \widetilde{A}^\K$. If $n \in \N^0$ then let $M_n \in \K$ is such that
+$$
+	M_n = M_{1, 1}\mathfrak{e}_{1,1}+ ...
+	$$
+	where
+	$$
+	M_{j, k}= \begin{cases}
+	1& j, k \le n\\
+	0 & \text{otherwise}
+	\end{cases}
+	$$
+	The net $\left\{1_{A^\sim }\otimes 	M_n \right\}_{n \in \N}$ is  convergent with respect to the strict topology of $M\left( A\otimes \K\right)$.  From the Corollary \ref{quasi_mult_cor} it  turns out that the net $\left\{\pi_K\left( 1_{A^\sim }\otimes 	M_n\right)  \right\}_{n \in \N}$ is  convergent with respect to the strict topology of $M\left( \widetilde A^\K\right)$. So one has
+	$$
+	\forall \widetilde a^K \in \widetilde A^K\quad  \widetilde a^K = \lim_{n \to\infty} \pi_K\left( 1_{A^\sim }\otimes 	M_n\right) \widetilde a^K\pi_K\left( 1_{A^\sim }\otimes 	M_n\right). 
+	$$
+	From the above equation one concludes that $\widetilde{A}^\K  = \widetilde{A}\otimes  \K$.
+	Let us check conditions (a) and (b) of the Definition \ref{fin_pre_defn}.
+
+	
 	\begin{enumerate}
 		\item [(a)] For any $j,k$ there is the natural isomorphism 
 		$$
@@ -13869,9 +13895,11 @@ Here we find a relation between  noncommutative finite-fold coverings of $C^*$-a
 		\eean
 		\item[(b)] Follows from the equation \eqref{stab_b_matr_eqn}.
 	\end{enumerate}
-(ii) !!! PROOF !!!
+(iii)  !!! PROOF !!!\\
 \end{proof}
-
+\begin{remark}
+The given by \eqref{stab_wta_eqn} $C^*$-algebra $\widetilde A$ depends on an operator $\mathfrak{e}_{1,1}$. Choice of another rank-one projector can give another  $C^*$-algebra which should not be isomorphic to $\widetilde A$  (cf. Example \ref{} !!! EXAMPLE !!! below).
+\end{remark}
 
 
 \begin{lemma}\label{stable_fin_cov_comp_lem}
@@ -13996,38 +14024,32 @@ We leave to the reader a proof of that  $A_\la \times \K$ is a $\left(A  \otimes
 	\item[(b)]
 	a union 
 	$
-	\bigcup_{\la\in\La} A\otimes\K_\la
+	\bigcup_{\la\in\La} A_\la\otimes\K
 	$
 	is dense in $A\otimes\K$.
 \end{enumerate}	
  for all $\la\in \La$.\\
-	(ii)  From (ii) of the Lemma \ref{stable_pre_lem} it turns out that there is a noncommutative finite-fold pre-covering   $\left( A, \widetilde{A}, G, \pi\right)$ $\widetilde{A}$ such that the quadruple  $\left( A \otimes \K, \widetilde{A}^\K, G,{\pi}^\K   \right)$ is equivalent to $\left(A  \otimes \mathcal K, \widetilde{A} \otimes \mathcal K, G, \pi \otimes 1_{\K^+ } \right)$.   Moreover the Lemma \ref{stable_pre_lem} implies that conditions (I), (II) of this Lemma hold.	If $\left\{A^\K_\la\right\}$ be a required by the Definition \ref{fin_defn} family of  $\left(A  \otimes \mathcal K, \widetilde{A} \otimes \mathcal K, G, \pi \otimes 1_{\K^+ } \right)$-strictly proper hereditary $C^*$-subalgebras (cf. the Definition \ref{hered_proper_lift_defn}). If $\la_0\in \La$ then there is a projector $p \in M\left( A\otimes \K\right)$ such that 
-	\be\label{stab_p_eqn}
-	\begin{split}
-	p A^K p\cong A,\\
-p A^K_\la p \neq \{0\}.
-	\end{split}
-	\ee
-	There is a hereditary $C^*$-subalgebra $A_\la \subset A$ such that there is a natural *-isomorphism $p A^K_\la p \cong A_\la$.
-We leave to the reader proof of following facts:
-\begin{itemize}
-	\item if  $\la \ge \la_0$ then $A_\la$ is a $\left(A  , \widetilde{A} , G, \pi \right)$-strictly proper hereditary $C^*$-subalgebra (cf. the Definition \ref{hered_proper_lift_defn}),
-	\item the family $\left\{A_\la\right\}_{\substack{\la \in \La\\ \la \ge \la_0}}$ satisfies to the Definition \ref{fin_defn}.
-\end{itemize}
+	(ii)  From (ii) of the Lemma \ref{stable_pre_lem} it turns out that there is a noncommutative finite-fold pre-covering   $\left( A, \widetilde{A}, G, \pi\right)$  such that the quadruple  $\left( A \otimes \K, \widetilde{A}^\K, G,{\pi}^\K   \right)$ is equivalent to $\left(A  \otimes \mathcal K, \widetilde{A} \otimes \mathcal K, G, \pi \otimes 1_{\K^+ } \right)$.   Moreover the Lemma \ref{stable_pre_lem} implies that conditions (I), (II) of this Lemma hold.	If $\left\{A^\K_\la\right\}$ be a required by the Definition \ref{fin_defn} family of  $\left(A  \otimes \mathcal K, \widetilde{A} \otimes \mathcal K, G, \pi \otimes 1_{\K^+ } \right)$-strictly proper hereditary $C^*$-subalgebras (cf. the Definition \ref{hered_proper_lift_defn}). The union $\cup_{\la\in\La} A^\K_\la$ is a dense in $A  \otimes \mathcal K$ it follows that there is $\la_0\in \La$ such that 
+	\bean
+ A_\la \bydef	\left( 1_{A^\sim } \otimes \mathfrak{e}_{1,1}\right)\left( {A}_\la \otimes \K\right)  \left( 1_{A^\sim } \otimes \mathfrak{e}_{1,1}\right)\neq 0
+	\eean 
+	for all $\la \ge\la_0$. If  
+	\bean
+\forall\la\in \La\quad 	\H^\perp_\la \bydef \left\{\left. \xi \in \ell^2\left(\N\right)\right| A^\K_\la~~\xi \left\rangle \right\langle\xi = 0 \right\}, \quad  \ell^2\left(\N\right)= \H_\la \oplus \H^\perp_\la.
+	\eean 
+	then one has a *-isomorphism  ${A}^\K_\la\cong A_\la \otimes \K\left( \H_\la\right)\cong A_\la \otimes \K$ where $\K \cong \K\left(\ell^2\left(\N\right)\right) $ or $\K \cong \mathbb{M}_n\left( \C\right)$.
+	 If $\widetilde A^\K_\la\bydef	\pi\left( 1_{A^\sim } \otimes \mathfrak{e}_{1,1}\right) \widetilde{A}^\K_\la \pi\left( 1_{A^\sim } \otimes \mathfrak{e}_{1,1}\right) $ 
+	and $\widetilde A^\K_\la$ is  a hereditary $\left(A  \otimes \mathcal K, \widetilde{A} \otimes \mathcal K, G, \pi \otimes 1_{\K^+ } \right)$-lift of $A^\K_\la$ (cf. Definition \ref{hered_lift_defn})  then $\widetilde A^\K_\la\cong \widetilde A_\la \otimes \K\left( \H_\la\right)\cong A_\la \otimes \K$ where $\K \cong \K\left(\ell^2\left(\N\right) \right)$ or $\K \cong \mathbb{M}_n\left( \C\right)$. If $\pi_\la: A_\la \hookto\widetilde A_\la$ is a natural inclusion then from    the Lemma \ref{stable_fin_cov_comp_lem}  it follows that $\left(A_\la,  \widetilde A_\la, G,  \pi_\la\right)$ is a covering with unitization. The union $\cup A^\K_\la$ is dense in $A\otimes \K$ so the union $\cup A_\la$ is dense in $A$. Thus 
+	  the family $\left\{A_\la\right\}_{\substack{\la \in \La\\ \la \ge \la_0}}$ satisfies to the Definition \ref{fin_defn}.
+	
 \end{proof}
-\begin{remark}
-	The given by (ii)   {noncommutative finite-fold  covering} $\left( A, \widetilde{A}, G, \pi\right)$ is not unique up to isomorphism because it depends on a projector $p$ (cf. the equation \eqref{stab_p_eqn} and the Example \ref{} !!! NTORUS ADD !!!).
-\end{remark}
 
 \begin{corollary}\label{stable_functor_cor}
-There is a  functor $-\otimes \K: \mathfrak{FinCov}$-$A\to\mathfrak{FinCov}$-$A\otimes \K$ between categories of finite-fold coverings (cf.  Definition \ref{fin_cat_defn}). The functor is full (cf. Definition \ref{funct_full_faithfull_defn}).
+There is a  full functor $-\otimes \K: \mathfrak{FinCov}$-$A\to\mathfrak{FinCov}$-$A\otimes \K$ between categories of finite-fold coverings (cf.  Definitions \ref{fin_cat_defn}, \ref{funct_full_faithfull_defn}).
 \end{corollary}
 \begin{proof}
-!!! PROOF !!!
+Follows from the Lemma \ref{stable_pre_lem} and the Theorem \ref{stable_fin_cov_thm}.
 \end{proof}
-\begin{remark}
-Is not equival  !!!
-\end{remark}
 
 \section{Infinite coverings}
 
