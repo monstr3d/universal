@@ -7305,13 +7305,14 @@ Consider the above situation. If   $\sY \subset \sX$ is compact then the followi
 	If $A_x$ is a $C^*$-algebra for any $x \in \sX$ then for any $a, b \in C_0\left(\sX, \left\{A_x\right\}, \sF \right)$ and $\widetilde{a}, \widetilde{b} \in C_0\left( \lift_p\left[C\left(\sX, \left\{A_x\right\}, \sF \right)\right]\right)$ one has 
 	\begin{equation}\label{comm_lift_desc_hom_eqn}
 	\begin{split}
-	\supp \widetilde{a} \subset \widetilde{\sU} \text{ OR } \supp \widetilde{b} \subset \widetilde{\sU} \Rightarrow \mathfrak{desc}_{p}\left( \widetilde{a}\widetilde{b} \right) = \mathfrak{desc}_{p}\left( \widetilde{a} \right)\mathfrak{desc}_{p}\left( \widetilde{b} \right),\\
-	\supp a \subset {\sU} \text{ OR } \supp {b} \subset {\sU} \Rightarrow \mathfrak{lift}^p_{\widetilde{\mathcal U}}\left(ab\right)=\mathfrak{lift}^p_{\widetilde{\mathcal U}}\left(a\right)\mathfrak{lift}^p_{\widetilde{\mathcal U}}\left(b\right),\\
+	\supp \widetilde{a} \cap \supp \widetilde{b} \subset \widetilde{\sU} \Rightarrow \mathfrak{desc}_{p}\left( \widetilde{a}\widetilde{b} \right) = \mathfrak{desc}_{p}\left( \widetilde{a} \right)\mathfrak{desc}_{p}\left( \widetilde{b} \right),\\
+	\supp a \cap \supp {b} \subset {\sU} \Rightarrow \mathfrak{lift}^p_{\widetilde{\mathcal U}}\left(ab\right)=\mathfrak{lift}^p_{\widetilde{\mathcal U}}\left(a\right)\mathfrak{lift}^p_{\widetilde{\mathcal U}}\left(b\right),\\
 	\supp \widetilde{a} \subset \widetilde{\sU} \Rightarrow \mathfrak{desc}_{p}\left( \widetilde{a}^* \right)= \mathfrak{desc}_{p}\left( \widetilde{a}\right)^*,\\
 	\supp a \subset {\sU} \Rightarrow \mathfrak{lift}^p_{\widetilde{\mathcal U}}\left(a^*\right)
-	=\mathfrak{lift}^p_{\widetilde{\mathcal U}}\left(a\right)^*.
+	=\mathfrak{lift}^p_{\widetilde{\mathcal U}}\left(a\right)^*
 	\end{split}
 	\end{equation}	
+where $\widetilde \sU \subset \widetilde \sX$ is an open subset homeomorphically mapped onto $\sU \bydef p\left(\widetilde \sU\right)$.
 \end{remark}
 \begin{empt} Consider a special case of 	
 	the Definition \ref{top_cs_funct_defn}.
@@ -7321,10 +7322,11 @@ Consider the above situation. If   $\sY \subset \sX$ is compact then the followi
 	C_b\left(\widetilde{\sX}\right) \cong C_b\left(\lift_{p}\left[ C_0\left( \sX, \left\{\C_x\right\},C_0\left(\sX\right)\right)\right]\right),\\ C_0\left(\widetilde{\sX}\right) \cong C_0\left(\lift_{p}\left[ C_0\left( \sX, \left\{\C_x\right\},C_0\left(\sX\right)\right)\right]\right).
 \end{split}
 \ee
+ 
 \end{empt}
 \begin{definition}\label{top_c_funct_defn} 
 	Consider the finite covering functor associated with $$A = \left( \sX, \left\{\C_x\right\},C_0\left(\sX\right)\right)$$ (cf. Definition \ref{top_cs_funct_defn}) from the category  $\mathfrak{FinCov}$-$\sX$ to the category of $C^*$- algebras and *-homomorphisms is said to be the \textit{finite covering algebraic functor}. We denote this functor by $C_0$. 
-	The restriction of $C_0$ on $\mathfrak{FinCov}$-$\left( \sX, x_0\right)$ is also said to be the \textit{finite covering algebraic functor} and also denoted by $C_0$.
+	The restriction of $C_0$ on $\mathfrak{FinCov}$-$\left( \sX, x_0\right)$ is also said to be the \textit{pointed finite covering algebraic functor} and also denoted by $C_0$.
 \end{definition}
 \begin{remark}
 The Definition \ref{top_c_funct_defn} is a specialization of the Definition \ref{top_cs_funct_defn}.
@@ -7461,7 +7463,7 @@ $$
 	%(iii) and (iv) Follow from Definition \ref{top_lift_desc_defn} the homeomorphism $\widetilde{\sU} \cong \sU$.
 \end{proof}
 \begin{exercise}\label{top_cscd_st_exer}
-	Let $\sX$ be a connected, locally connected, locally compact, Hausdorff space, and let $\sF$ be	continuity structure for $\sX$ {and the} $\left\{A_x\right\}_{x \in \sX}$ (cf. Definition \ref{op_fields_defn}) where $A_x$ is a $C^*$-algebra for every $x \in \sX$. Let 	$p: \widetilde{\mathcal X}\to\mathcal{X}$ be a transitive covering. Let $\widetilde a \in C_c\lift_p\left[ C\left(\mathcal{X}, \left\{A_x\right\}, \sF \right)\right]$.
+	Let $\sX$ be a connected, locally connected, locally compact, Hausdorff space, and let $\sF$ be	continuity structure for $\sX$ {and the} $\left\{A_x\right\}_{x \in \sX}$ (cf. Definition \ref{op_fields_defn}) where $A_x$ is a $C^*$-algebra for every $x \in \sX$. Let 	$p: \widetilde{\mathcal X}\to\mathcal{X}$ be a transitive covering. Let $\widetilde a \in C_c\left( \lift_p\left[ C\left(\mathcal{X}, \left\{A_x\right\}, \sF \right)\right]\right) $.
 Prove that 	
 the series 	
 	\be\nonumber
@@ -7613,8 +7615,8 @@ Let $R$ be a $c$-soft *-algebra (cf. Definitions \ref{top_soft_r_defn}. Prove th
 In the situation \ref{top_stump_soft_y_defn} for any open set $\sU\subset\sX$ such that $\sY \subset \sU$ there is an $\left(R, \sY\right)$-{stump} $f$ such that $\supp f \subset\sU$.
 \end{remark}
 \begin{exercise}\label{top_soft_c_exer}
-Let $R \subset C_0\left(\sX\right)$ is a $c$-soft *-subalgebra.
-Prove that if $p: \widetilde \sX \to \sX$ is a covering then an intersection $p^{-1}\mathscr S^{R}\left( \widetilde\sX\right) \cap C_0\left(\widetilde \sX\right)$ is a soft *-subalgebra of $C_0\left(\widetilde \sX\right)$.
+Let $R \subset C_0\left(\sX\right)$ be a $c$-soft *-subalgebra.
+Prove that if $p: \widetilde \sX \to \sX$ is a covering then an intersection $p^{-1}\mathscr S^{R}\left( \widetilde\sX\right) \cap C_0\left(\widetilde \sX\right)$ is a $c$-soft *-subalgebra of $C_0\left(\widetilde \sX\right)$.
 \end{exercise}
 \begin{exercise}\label{top_soft_p_exer}
 	If $R \subset C_0\left(\sX\right)$ is a $c$-soft *-subalgebra and $ p: \widetilde \sX \to \sX$ is a covering then for all $\widetilde x \in \widetilde\sX$ there  is $\widetilde f \in C_c\left( \widetilde \sX\right)\cap p^{-1}\mathscr S^{R}\left( \widetilde\sX\right)$ such that following conditions hold:
@@ -7672,12 +7674,16 @@ In the situation of the Exercise  \ref{top_sheaf_lift_exer} we say that $\wideti
 \be\label{top_sheaf_lift_eqn}
 \begin{split}
 	\widetilde{\xi} = \lift_p\left( \xi\right) ,\\
-\lift_p:\mathscr  F\left(\sX\right)\hookto p^{-1}\mathscr  F\left(\widetilde \sX\right)	
+\lift_p:\mathscr  F\left(\sX\right)\hookto p^{-1}\mathscr  F\left(\widetilde \sX\right).	
 \end{split}
 \ee
 \end{definition}
+
+\begin{remark}
+The Definition \ref{top_sheaf_lift_defn} complies with the Definition \ref{top_glo_lift_h_eqn}.
+\end{remark}
 \begin{remark}\label{top_sheaf_lift_rem}
-		Sometimes we write $\lift_p^{\text{sheaf}}$ for distinguishing  this lift with the given by  \eqref{top_glo_lift_h_eqn} one (cf, Remark \ref{top_top_lift_rem}).
+		Sometimes we write $\lift_p^{\text{sheaf}}$ for distinguishing  this lift with the given by  \eqref{top_glo_lift_h_eqn} one (cf, Remark \ref{top_top_lift_rem}) (cf. Exercise \ref{top_sheaf_corr_exer} below).
 	\end{remark}
 
 Following definition is an analog of the Definition \ref{top_lift_desc_defn}.
@@ -7710,13 +7716,14 @@ Following definition is an analog of the Definition \ref{top_lift_desc_defn}.
 	$\widetilde s: \widetilde \sX\to  \mathrm{Sp\acute{e}}\left(p^{-1}\mathscr F\right) \left( \widetilde \sX \right)$ represents $\widetilde \xi$,
 \end{remark}
 \begin{remark}
-	From the equation \eqref{top_shaf_cx_eqn} it turns out 
+	From the equation \eqref{top_shaf_cx_eqn} it turns out that
 	\begin{equation}\label{comm_sh_lift_desc_l_eqn}
 		\begin{split}
 			\xi = \mathfrak{desc}_{p}\left( \mathfrak{lift}^p_{\widetilde{\mathcal U}}\left(\xi \right)\right) ,\\
 			\widetilde{\xi} = \mathfrak{lift}^p_{\widetilde{\mathcal U}}\left( \mathfrak{desc}_{p}\left(\widetilde{\xi} \right)\right). 
 		\end{split}
 	\end{equation}	
+The system of equations \eqref{comm_sh_lift_desc_l_eqn} is an analog of \eqref{comm_lift_desc_l_eqn} one.
 \end{remark}
 
 \begin{exercise}
@@ -7730,7 +7737,7 @@ Following definition is an analog of the Definition \ref{top_lift_desc_defn}.
 	\ee
 \end{exercise}
 \subsection{Sheaves and continuity structures}
-\begin{empt}
+\paragraph{}
 	Let $\sX$ be a locally compact,  Hausdorff space.	
 	If $\sF$ is a continuity structure  for  $\sX$ {and the} $\left\{A_x\right\}_{x \in \sX}$(cf. Definition \ref{op_fields_defn}) then from the Lemma \ref{op_cont_module_lem} one has following $C_0\left(\sX \right)$-modules
 	\be\label{op_cont_module_eqn}
@@ -7741,7 +7748,7 @@ C_0\left({\sX}, \left\{{A}_{{x}}\right\}, {\sF}\right),\\
 C_c\left({\sX}, \left\{{A}_{{x}}\right\}, {\sF}\right).
 \end{split}
 	\ee
-	(cf. equation \eqref{top_c_sec_eqn} and Definitions \ref{top_s_bounded_defn}, \ref{top_cc_c0_defn}). If the space $\sX$ is paracompact and  $R\subset C_0\left( \sX\right)$ is a soft *-subalgebra (cf. Definitions \ref{top_soft_r_defn})  then given by the equations \eqref{op_cont_module_eqn} spaces are $R$-modules. We leave to the reader the proof of following equations:
+	(cf. equation \eqref{top_c_sec_eqn} and Definitions \ref{top_s_bounded_defn}, \ref{top_cc_c0_defn}). If the space $\sX$ is paracompact, $\Phi$   is a  {paracompactifying} family of supports (cf. Definition \ref{phi_supp_defn}) and  $R\subset C_0\left( \sX\right)$ is a $\Phi$-soft *-subalgebra (cf. Definitions \ref{top_soft_r_defn})  then given by the equations \eqref{op_cont_module_eqn} spaces are $R$-modules. We leave to the reader the proof of following equations:
 		\bea\label{top_cont_sh_eqn}
 		\mathscr S^{C\left({\sX}, \left\{{A}_{{x}}\right\}, {\sF}\right)}= 	\mathscr S^{C_b\left({\sX}, \left\{{A}_{{x}}\right\}, {\sF}\right)}=
 		\mathscr S^{C_0\left({\sX}, \left\{{A}_{{x}}\right\}, {\sF}\right)}= 	\mathscr S^{C_c\left({\sX}, \left\{{A}_{{x}}\right\}, {\sF}\right)},\\
@@ -7749,7 +7756,7 @@ C_c\left({\sX}, \left\{{A}_{{x}}\right\}, {\sF}\right).
 		\mathscr S^{C\left({\sX}, \left\{{A}_{{x}}\right\}, {\sF}\right)}\left(\sX\right)=  	C\left({\sX}, \left\{{A}_{{x}}\right\}, {\sF}\right)		
 		\eea 
 where the notation of the Definition \ref{top_x_sheaf_defn} is used.
-\end{empt}
+
 	 
 \begin{lemma}\label{top_sheaf_lift_lem}
 	
@@ -7805,7 +7812,7 @@ is commutative.
 \end{exercise}
 
 \begin{exercise}\label{top_sheaf_corr_exer}
-	In the situation of the Exercise \ref{top_top_shift_iso_exer} suppose that the space $\sX$ is paracompact (cf. Definition \ref{top_paracompact_defn}). Let $R \subset C_0\left(\sX\right)$ be a soft *-subalgebra, and let $A \subset 	\mathscr S^{C\left({\sX}, \left\{{A}_{{x}}\right\}, {\sF}\right)}\left(\sX\right)$ be an $R$-submodule. If $\mathscr S^{A}$ is $A$-sheaf (cf. Definition \ref{top_x_sheaf_defn}), then from \eqref{top_sh_cong_eqn} one has  natural inclusions
+	In the situation of the Exercise \ref{top_top_shift_iso_exer} suppose that the space $\sX$ is paracompact (cf. Definition \ref{top_paracompact_defn}). Let  $\Phi$   is a  {paracompactifying} family of supports (cf. Definition \ref{phi_supp_defn}). Let $R \subset C_0\left(\sX\right)$ be a $\Phi$-soft *-subalgebra, and let $A \subset 	\mathscr S^{C\left({\sX}, \left\{{A}_{{x}}\right\}, {\sF}\right)}\left(\sX\right)$ be an $R$-submodule. If $\mathscr S^{A}$ is $A$-sheaf (cf. Definition \ref{top_x_sheaf_defn}), then from \eqref{top_sh_cong_eqn} one has  natural inclusions
 	\bean
 	\mathscr S^{A}\left(\sX\right) \subset \mathscr S^{C\left({\sX}, \left\{{A}_{{x}}\right\}, {\sF}\right)}\left(\sX\right),\\
 	p^{-1}\mathscr S^{A}\left(\widetilde\sX\right) \subset  C\left({\widetilde\sX}, \left\{{A}_{{\widetilde x}}\right\}, {\widetilde\sF}\right).\\
@@ -7857,7 +7864,7 @@ The Definition \ref{desc_c_sheaf_defn} is compliant with the Definition \ref{top
 
 
 \begin{exercise}\label{top_pre_sheaf_exer} 
-Let $\sX$ be a locally compact, paracompact, Hausdorff space, and let $R \subset C_0\left(\sX \right)$ is a $c$-soft *-subalgebra (cf. Definition  \ref{top_soft_r_defn}). 	
+Let $\sX$ be a locally compact, paracompact, Hausdorff space, and let $R \subset C_0\left(\sX \right)$ be a $c$-soft *-subalgebra (cf. Definition  \ref{top_soft_r_defn}). 	
 Let $\mathscr F$ be an $\mathscr S^R$ -{module} (cf. Definition \ref{sheaf_of_modules_den})
 Let $p: \widetilde\sX \to \sX$ be a transitive covering.
  Let $\widetilde{\mathscr F}\bydef p^{-1}\mathscr F$ be an inverse image (cf. Definition \ref{sheaf_inv_im_defn}), and let $\mathscr F\left( \sX\right) \subset  \widetilde{\mathscr F}\left( \widetilde\sX\right)$ be a natural inclusion of $\mathscr S^R$-modules. Let $\Aut_{ \mathscr S^R\left( \sX\right)}\left( \widetilde{\mathscr F}\left( \widetilde\sX\right)\right)$ be a group of  $ \mathscr S^R\left( \sX\right)$-module automorphisms.
@@ -7944,7 +7951,7 @@ where $\mathscr Hom$ means a sheaf of local morphisms (cf. Definition \ref{sheaf
 		\mathscr S^{\Ga^\infty\left( M, G\right)} \right).$$
 		\item[(ii)]  If $p: \widetilde M \to M$ is a covering (cf. Definition \ref{top_covering_defn}) and the structure of smooth manifold $\widetilde M$ is given by the Proposition then there is a unique  smooth bundle $\widetilde E\to \widetilde M$ such that there is the natural isomorphism
 		$$
-			p^{-1} \mathscr S^{\Ga^\infty\left( M, E\right)}\cong  \mathscr \mathscr S^{\Ga^\infty\left(\widetilde M, \widetilde E\right)}.
+			p^{-1} \mathscr S^{\Ga^\infty\left( M, E\right)}\cong  \mathscr  S^{\Ga^\infty\left(\widetilde M, \widetilde E\right)}.
 		$$
 		Moreover if we forgot a smooth structure then $\widetilde E$ is the {inverse image} of $E$ in the sense of the Definition \ref{vb_inv_img_funct_defn}.
 		\item[(iii)] If we use the above notation then there is the following isomorphism of sheaves
