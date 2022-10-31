@@ -3791,7 +3791,7 @@ The category $\mathfrak{S}^{\text{pt}}$  is equivalent to the pre-order category
 \end{definition}
 
 \begin{remark}\label{comp_pt_rem}
-A skeleton is not unique. The concrete skeleton is said to be a \textit{base-point}. A relation of base-points in topology and skeletons is explained in the Remark \ref{comp_pt_ex_rem}. The base-point uniquely depends on the family  of $\left\{\pi^\nu_{ \mu}\right\}_{\substack{\nu, \nu\in \La\\\mu\le\nu}}$ of injective *-homomorphisms.
+A skeleton is not unique. The concrete skeleton is said to be a \textit{base-point}. A relation of base-points in topology and skeletons is explained below in the Remarks  \ref{top_skeleton_rem} and \ref{comp_pt_ex_rem}. The base-point uniquely depends on the family  of $\left\{\pi^\nu_{ \mu}\right\}_{\substack{\nu, \nu\in \La\\\mu\le\nu}}$ of injective *-homomorphisms.
 \end{remark}
 \begin{remark}\label{base_pt_iso_rem}
 Any two skeletons of a category are isomorphic. So our results do not depend on a base-point choice up to isomorphism.
@@ -6074,17 +6074,49 @@ $$
 	\exists g \in G\left(\left.\widetilde\sX_2~\right|\sX\right) \quad \forall \widetilde x_1\in \widetilde\sX_1 \quad p''\left( \widetilde x_1\right) = g\circ p'\left( \widetilde x_1\right).
 	$$
 \end{proof} 
-\begin{empt}
-	One can define a pre-ordering on the category 
-	\begin{definition}\label{ord_defn!}\cite{goldblatt:topoi}
-	A binary relation $R \subset \La\times \La$ on the set $\La$ (writing $pRq$ in place of $\left(p,q \right)\in R$ ) is said to be \textit{pre-ordering} if it is 
-	\begin{enumerate}
-		\item [(a)] \textit{reflexive}, i.e. for each $p$ we have $pRp$ and
-		\item[(b)] \textit{transitive}, whenever $pRq$ and $qRs$, we have $pRs$.
-	\end{enumerate}
-\end{definition}
-\
+\begin{empt}\label{top_cov_preord_empt}
+	One can define a pre-ordering (cf. Definition \ref{ord_defn}) on the category finite covering category (cf. Definition \ref{top_fin_cov_defn}) such that one has
+	$$
+	\left(\widetilde \sX' \to \sX\right)\ge 	\left(\widetilde \sX'' \to \sX\right)
+	$$
+	if and only if there is a finite-fold transitive covering $\widetilde \sX'\to \widetilde \sX''$ which can be included into a following commutative diagram
+			\newline
+	\begin{tikzpicture}
+		\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
+		{
+			\widetilde \sX' & \widetilde \sX''  \\ 
+			& \sX\\};
+		\path[-stealth]
+		(m-1-1) edge node [above] {} (m-1-2)
+		(m-1-1) edge node [left]  {} (m-2-2)
+		(m-1-2) edge node [right] {} (m-2-2);
+	\end{tikzpicture}
+	\\ 	
 \end{empt}
+\begin{exercise}
+Let both $\widetilde \sX'\to \sX$ and $\widetilde \sX''\to \sX$ are finite-fold transitive coverings. Let $\widetilde \sX$ be a pullback (cf. Definition \ref{pull_back_defn}), or equivalently an inverse limit (cf.  Definition \ref{top_inv_lim_defn}) of the Diagram
+			\newline
+\begin{tikzpicture}
+	\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
+	{
+	 & \widetilde \sX''  \\ 
+	\widetilde \sX'		& \sX\\};
+	\path[-stealth]
+	(m-1-2) edge node [above] {} (m-2-2)
+	(m-2-1) edge node [left]  {} (m-2-2);
+\end{tikzpicture}
+\\ 	
+Prove following statements:
+\begin{itemize}
+	\item both natural maps $\widetilde \sX\to \widetilde \sX'$ and $\widetilde \sX\to \widetilde \sX''$ are finite-fold transitive coverings,
+	\item one has
+	\bean
+		\left(\widetilde \sX \to \sX\right)\ge 	\left(\widetilde \sX' \to \sX\right),\\
+			\left(\widetilde \sX \to \sX\right)\ge 	\left(\widetilde \sX'' \to \sX\right),
+	\eean
+		\item the family of isomorphism classes of  $\mathfrak{FinCov}$-$\sX$-objects is a directed set (cf. Definition \ref{directed_set_defn}).
+\end{itemize}
+\end{exercise}
 \begin{definition}\label{top_pointed_defn}
 	If $\sX$ is a set (resp. topological space) and $x_0 \in \sX$ is a base-point then we say that the pair $\left(\sX, x_0 \right)$ is a \textit{pointed set} (resp. \textit{pointed space}) (cf. \cite{spanier:at,switzer:at}). If both $\left(\sX, x_0 \right)$ and $\left(\sY, y_0 \right)$ are pointed spaces and $\varphi: \sX \to \sY$ is such that $\varphi\left(x_0\right)= y_0$ then we say that $\varphi$ is a \textit{pointed map}. We write
 	\be\label{top_pointed_eqn}
@@ -6094,12 +6126,12 @@ $$
 \begin{definition}\label{top_fin_cov_p_defn}
 	Let $\left(\sX, x_0 \right)$ be a pointed space such that $\sX$ is a connected, locally connected,  locally compact,  Hausdorff space. Let us consider the  category $\mathfrak{FinCov}$-$\left( \sX, x_0\right) $ such that
 	\begin{itemize}
-		\item Objects of  $\mathfrak{FinCov}$-$\left( \sX, x_0\right)$ are transitive finite-fold coverings\\ $\left( \widetilde\sX, \widetilde x_0\right)  \to \left( \sX, x_0\right)$ of $\sX$ preserving base-points.
-		\item A morphism form $p_1:\left( \widetilde\sX_1, \widetilde x^1_0\right)\to \left( \sX, x_0\right)$ to $p_2:\left( \widetilde\sX_2, \widetilde x^2_0\right)\to \left( \sX, x_0\right)$ is a preserving base-points surjective continuous map $p: \left( \widetilde\sX_1, \widetilde x^1_0\right)\to \left( \sX_2, x^2_0\right)$ such that $p \circ p_1 = p_2$.
+		\item  $\mathfrak{FinCov}$-$\left( \sX, x_0\right)$-objects are transitive finite-fold coverings\\ $\left( \widetilde\sX, \widetilde x_0\right)  \to \left( \sX, x_0\right)$ of $\sX$ preserving base-points,
+		\item a morphism form $p_1:\left( \widetilde\sX_1, \widetilde x^1_0\right)\to \left( \sX, x_0\right)$ to $p_2:\left( \widetilde\sX_2, \widetilde x^2_0\right)\to \left( \sX, x_0\right)$ is a preserving base-points surjective continuous map $p: \left( \widetilde\sX_1, \widetilde x^1_0\right)\to \left( \sX_2, x^2_0\right)$ such that $p \circ p_1 = p_2$.
 	\end{itemize}
 	We say that $\mathfrak{FinCov}$-$\left( \sX, x_0\right)$ is the \textit{topological pointed finite covering category} of $\left( \sX, x_0\right)$.  
 \end{definition}
-\begin{remark}
+\begin{remark}\label{top_skeleton_rem}
 		If both $p_1:\left( \widetilde\sX_1, \widetilde x^1_0\right)\to \left( \sX, x_0\right)$ and  $p_2:\left( \widetilde\sX_2, \widetilde x^2_0\right)\to \left( \sX, x_0\right)$ are objects of $\mathfrak{FinCov}$-$\left( \sX, x_0\right)$ then there is no more than one morphism from $p_1$ to $p_2$.
 So the category $\mathfrak{FinCov}$-$\left( \sX, x_0\right)$ is a skeleton (cf. Definition \ref{skeleton_defn}) of  $\mathfrak{FinCov}$-$\sX$.
 \end{remark}
@@ -8688,46 +8720,21 @@ If $\left\{\sU_\la \subset \sX\right\}_{\la \in \La}$ is  a given by the Lemma \
 \begin{remark}\label{comm_comm_rem}
 The Theorem \ref{top_fin_thm}   yields a pure algebraic definition of the fundamental group (cf. the Theorem \ref{comm_uni_lim_thm} and the Corollary \ref{comm_uni_lim_cor}). Alternative theories (e.g. described in \cite{clarisson:phd}) which allow coverings of commutative $C^*$-algebras by noncommutative ones do not have this property.
 \end{remark}
-\begin{corollary}\label{top_fin_cor}
-	If $\mathcal X$ is a locally compact, connected, locally connected, Hausdorff space, $\widetilde{   \mathcal X }$  is a connected space, $p: \widetilde{   \mathcal X } \to \sX$ is a finite-fold transitive topological covering  and $\lift_p : C_b\left(\sX\right)\hookto C_b\left( \widetilde \sX\right)$ is given by  the Lemma \ref{top_lift_bounded_lem} 	then the quadruple
-	$$
-\left(C_b\left(\mathcal  X \right), C_b\left(  \widetilde{   \mathcal X }\right) ,G\left(\left. \widetilde{   \mathcal X } ~\right| {   \mathcal X }\right),   \lift_p \right)
-	$$
-is a connected noncommutative  finite-fold weak  covering (cf. Definition \ref{fin_weak_defn}).
-\end{corollary}
-\begin{proof}
-	It is well known that both $C_0\left(  \sX\right)\subset C_b\left(  \sX\right)$ and $C_0\left( \widetilde \sX\right)\subset C_b\left( \widetilde \sX\right)$ are essential ideals. Proof of conditions (b) and (c) of the Definition \ref{fin_weak_defn} is left to the reader.
-\end{proof}
-\begin{remark}\label{top_fin_red_rem}
-If $\widetilde A\subsetneqq C_0\left( \widetilde \sX\right)$ is a hereditary subalgebra (cf. Definition \ref{hered_defn}) such that $C_0\left(\sX\right)\subset \widetilde A$  then there is a closed left ideal $\widetilde L \subsetneqq  C_0\left( \widetilde \sX\right)$ which satisfies to the relation $\widetilde A = \widetilde L\cap \widetilde L^*$ (cf. Lemma \ref{hered_ideal_lem}). From $\widetilde L \subsetneqq  C_0\left( \widetilde \sX\right)$ it follows that there is $\widetilde x_0 \in \widetilde{ {\sX}}$ such that $\forall \widetilde l \in \widetilde L\quad \widetilde l\left( \widetilde x_0 \right)=0$. It turns out that
-$$
-\forall \widetilde a \in \widetilde A\quad \widetilde a\left( \widetilde x_0 \right)=0.
-$$
-If $a \in C_0\left(\sX \right)$ is such that $a\left(p\left(\widetilde x_0 \right) \right) \neq 0$ then $a\notin\widetilde A$, therefore $C_0\left(\sX \right)\not\subset \widetilde A$, i.e. any containing $C_0\left(\sX \right)$ hereditary subalgebra of $C_0\left( \widetilde \sX\right)$ is $C_0\left( \widetilde \sX\right)$. So  the given by the Theorem \ref{top_fin_thm} {noncommutative finite-fold covering} 
-is reduced (cf. Definition \ref{fin_red_defn}).
-\end{remark}
 
-\begin{lem}\label{top_functor_lem}!!!  COMPLIANT DELETE
+
+\begin{cor}\label{top_functor_cor} 
 	Let $\sX$ be a connected, locally connected, locally compact, Hausdorff space.
-	If $\mathfrak{FinCov}$-$C_0\left(\sX \right)$ a {category of noncommutative finite-fold coverings} of $C_0\left(\sX \right)$ (cf. Definition \ref{fin_cat_defn}) then following conditions hold:
-	\begin{enumerate}
-		\item [(i)] 	If the category $\mathfrak{FinCov}$-$\sX$ is given by the Definition \ref{top_fin_cov_defn} then the  functor $C_0:\mathfrak{FinCov}$-$\sX \to \mathfrak{FinCov}$-$C_0\left(\sX \right)$ is  the equivalence (cf. Definition \ref{category_equivalence_definition}) of categories.
-		\item[(ii)] Any unordered pair of *-homomorphisms $\left( \pi',\pi''\right) $ from the diagram
-		\newline
-		\begin{tikzpicture}
-			\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
-			{
-				C_0\left(\sX' \right)  & & C_0\left(\sX'' \right) \\ 
-				& C_0\left(\sX \right)  & \\};
-			\path[-stealth]
-			%	(m-1-3) edge node [above] {$\pi$} (m-1-1)
-			(m-2-2) edge node [left]  {$\pi'~~$} (m-1-1)
-			(m-2-2) edge node [right] {$~~\pi''$} (m-1-3);
-		\end{tikzpicture}
-		\\ 	
-		is {compliant} (cf. Definition \ref{compliant_defn} !!! CHECK).
-	\end{enumerate}
-\end{lem}
+	If both $\mathfrak{FinCov}$-$\sX$ and 
+	$\mathfrak{FinCov}$-$C_0\left(\sX \right)$ are categories given by Definitions \ref{top_fin_cov_defn} and \ref{fin_cat_defn}) respectively then there is a functor $\mathfrak{FinCov}$-$\sX\xrightarrow{C_0}\mathfrak{FinCov}$-$C_0\left(\sX \right)$ (cf. Definition \ref{functor_defn}) which is an equivalence of categories (cf. Definition \ref{category_equivalence_definition})
+\end{cor}
+	\begin{definition}\label{category_equivalence_definition!}\cite{goldblatt:topoi}
+	A functor $F: \mathscr C\to  \mathscr D$ is called an \textit{equivalence of categories} if there 
+	is a functor $G: \mathscr D\to  \mathscr C$ such that there are natural isomorphisms $\tau : 1_{\mathscr C} \cong G \circ F$, and $\sigma : 1_{\mathscr D} \cong F \circ G$, from the identity functor on ${\mathscr C}$ to $ G \circ F$, and 
+	from the identity functor on ${\mathscr D}$ to $ F \circ G$.\\
+	Categories $\mathscr C$ and $\mathscr D$ are \textit{equivalent},  $\mathscr C$ and $\mathscr D$ when there exists an equivalence $F: \mathscr C\to  \mathscr D$ .
+\end{definition}
+
+
 \begin{proof}
 	(i) From the Theorem \ref{top_fin_thm}  it follows that there is a one-to-one correspondence between objects of $\mathfrak{FinCov}$-$\sX$ and objects of  $\mathfrak{FinCov}$-$C_0\left(\sX \right)$ given by
 	$$
@@ -8756,6 +8763,27 @@ is reduced (cf. Definition \ref{fin_red_defn}).
 	(ii)  	The conditions (a)-(d) of the Definition \ref{compliant_covering_defn} !!! CHECK directly follow from (a)-(d) of the Lemma \ref{top_comply_lem}.
 \end{proof}
 
+
+\begin{corollary}\label{top_fin_cor}
+	If $\mathcal X$ is a locally compact, connected, locally connected, Hausdorff space, $\widetilde{   \mathcal X }$  is a connected space, $p: \widetilde{   \mathcal X } \to \sX$ is a finite-fold transitive topological covering  and $\lift_p : C_b\left(\sX\right)\hookto C_b\left( \widetilde \sX\right)$ is given by  the Lemma \ref{top_lift_bounded_lem} 	then the quadruple
+	$$
+\left(C_b\left(\mathcal  X \right), C_b\left(  \widetilde{   \mathcal X }\right) ,G\left(\left. \widetilde{   \mathcal X } ~\right| {   \mathcal X }\right),   \lift_p \right)
+	$$
+is a connected noncommutative  finite-fold weak  covering (cf. Definition \ref{fin_weak_defn}).
+\end{corollary}
+\begin{proof}
+	It is well known that both $C_0\left(  \sX\right)\subset C_b\left(  \sX\right)$ and $C_0\left( \widetilde \sX\right)\subset C_b\left( \widetilde \sX\right)$ are essential ideals. Proof of conditions (b) and (c) of the Definition \ref{fin_weak_defn} is left to the reader.
+\end{proof}
+
+
+\begin{remark}\label{top_fin_red_rem}
+If $\widetilde A\subsetneqq C_0\left( \widetilde \sX\right)$ is a hereditary subalgebra (cf. Definition \ref{hered_defn}) such that $C_0\left(\sX\right)\subset \widetilde A$  then there is a closed left ideal $\widetilde L \subsetneqq  C_0\left( \widetilde \sX\right)$ which satisfies to the relation $\widetilde A = \widetilde L\cap \widetilde L^*$ (cf. Lemma \ref{hered_ideal_lem}). From $\widetilde L \subsetneqq  C_0\left( \widetilde \sX\right)$ it follows that there is $\widetilde x_0 \in \widetilde{ {\sX}}$ such that $\forall \widetilde l \in \widetilde L\quad \widetilde l\left( \widetilde x_0 \right)=0$. It turns out that
+$$
+\forall \widetilde a \in \widetilde A\quad \widetilde a\left( \widetilde x_0 \right)=0.
+$$
+If $a \in C_0\left(\sX \right)$ is such that $a\left(p\left(\widetilde x_0 \right) \right) \neq 0$ then $a\notin\widetilde A$, therefore $C_0\left(\sX \right)\not\subset \widetilde A$, i.e. any containing $C_0\left(\sX \right)$ hereditary subalgebra of $C_0\left( \widetilde \sX\right)$ is $C_0\left( \widetilde \sX\right)$. So  the given by the Theorem \ref{top_fin_thm} {noncommutative finite-fold covering} 
+is reduced (cf. Definition \ref{fin_red_defn}).
+\end{remark}
 
 
 
@@ -8823,7 +8851,7 @@ is a connected noncommutative  finite-fold weak  covering (cf. Definition \ref{f
 	If $\sX$ is a connected, locally connected, locally compact, paracompact, Hausdorff  space and $R \subset C_0\left(\sX\right)$ is a $c$-soft  *-subalgebra (cf. Definition \ref{top_soft_r_defn}  then	following conditions hold:
 	\begin{enumerate}
 		\item [(i)] If 	$\left(R, \widetilde A, G, \pi\right)$ noncommutative finite-fold covering of bounded operator *-algebras  (cf. Definition \ref{fin_oa_defn}) then there is a finite fold transitive topological covering  $p: \widetilde \sX \to \sX$ such that there is a natural dense inclusion  $\widetilde A \subset C_0\left( \widetilde \sX\right)$ (cf. Definition \ref{top_x_sheaf_defn}) and
-		$G \cong G\left(\left.\widetilde \sX~ \right| \sX\right)$ and $\pi= \left.C_0\left(p \right)\right|_{R }$ where $C_0\left(p \right)$ is given by the Lemma \ref{top_functor_lem}.
+		$G \cong G\left(\left.\widetilde \sX~ \right| \sX\right)$ and $\pi= \left.C_0\left(p \right)\right|_{R }$ where $C_0\left(p \right)$ is given by the Lemma \ref{top_functor_cor}   !!!!COROLLARY !!!.
 		\item[(ii)] The quadruple	$$
 	\left( 	R, C_0\left(\widetilde\sX \right)\cap p^{-1} \mathscr S^R\left(\widetilde\sX \right), G\left(\left.\widetilde \sX~ \right| \sX\right), \left.C_0\left(p \right)\right|_{R}\right)
 		$$
@@ -9949,7 +9977,7 @@ is  a pointed topological finite covering category (cf. Definition \ref{top_sec_
 One needs check (a), (b) of the Definition \ref{comp_defn}.
 
 \begin{enumerate}
-\item[(a)] Follows from (ii) of the Lemma \ref{top_functor_lem}.
+\item[(a)] Follows from (ii) of the Lemma \ref{top_functor_cor}   !!!!COROLLARY !!!.
 
 \item[(b)] If $ \mu, \nu \in \La$ are such that $\mu > \nu$ then there is the continuous map $p: \sX_\mu \to \sX_\nu$ such that 
 \be\label{top_pnm_eqn}
@@ -20525,10 +20553,36 @@ $$
 F\left( g\circ f\right) = F\left( f\right)\circ  F\left( g\right). 
 $$
 \end{defn}
+\subsection{Natural transformations}
+\paragraph{}
+Here I follow to \cite{goldblatt:topoi}
+Given two categories $\mathscr C$ and $\mathscr D$ we are going to construct a category, 
+denoted $\mathrm{Funct}\left(\mathscr C, \mathscr D\right)$, or $\mathscr D^{\mathscr C}$, whose objects are the functors from $\mathscr C$ to $\mathscr D$. 
+We need a definition of arrow from one functor to another. Let 
+$F: \mathscr C\to \mathscr D$ and $G: \mathscr C\to \mathscr D$ be two functors. For any $\mathscr C$-object $a$ we define a $\mathscr D$-arrow $\tau_a : F\left(a\right)\to  G\left(a\right)$. we require that each  $\mathscr C$-arrow $f: a \to b$  gives rise to a diagram 
+	\begin{tikzpicture}
+	\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
+	{
+	a	& F\left(a \right)  &   G\left(a \right)\\ 
+		b	& F\left(b \right)  &   G\left(b \right) \\};
+	\path[-stealth]
+	(m-1-1) edge node [left]  {$f$} (m-2-1)
+	(m-1-2) edge node [above] {$\tau_a$} (m-1-3)
+	(m-2-2) edge node [above]  {$\tau_b$} (m-2-3)
+	(m-1-2) edge node [left]  {$F\left( f \right)$} (m-2-2)
+	(m-1-3) edge node [left]  {$G\left( f \right)$} (m-2-3);
+\end{tikzpicture}
+\\ 	
+that commutes.
+%a F(a) Ta > G(a) Ftf) ? F(b) T" ? G(b) that commutes. Thus ?? and ?? provide a categorical way of turning the F-picture of f:a-*b into its G-picture. 
+In summary then, a \textit{natural transformation} from functor $F: \mathscr C\to \mathscr D$ and $G: \mathscr C\to \mathscr D$  to functor $F: \mathscr C\to \mathscr D$ and $G: \mathscr C\to \mathscr D$  is an assignment $\tau$ that provides, for each $\mathscr C$-object $\mathscr D$-arrow $\tau_a :F(a) \to G(a)$, such that for any $\mathscr C$-arrow $f:a\to b$, the above diagram commutes in $\mathscr D$, i.e. $\tau_b \circ F(f)= G(f)\circ \tau_a$. We use the symbolism $\tau: F\to G$, or $F \xrightarrow{\tau}G$, to denote that $\tau$ is a natural transformation from $F$ to $G$. The arrows $\tau_a$ are called the \textit{components} of $a$. Now if each component $\tau_a$ of $a$ is an iso arrow in $\mathscr D$ then  case we call $\tau$ a \textit{natural isomorphism}. Each $\tau_a: F(a)\to G(a)$ then has an inverse $\tau_a^{-1}: G(a) \to F(a)$, and these $\tau^{-1}_a$'s form the components of a natural isomorphism $\tau^{-1}: G \to F$. We denote natural isomorphism by $\tau: F \cong G$. 
+\begin{example}
+The identity natural transformation $\mathbb{1}_F :F\to F$ assigns to each object $a$, the identity arrow $\mathbb{1}_{F(a)}:F(a)\to F(a)$. This is clearly a natural isomorphism. 
+\end{example}
 
 	\begin{definition}\label{category_equivalence_definition}\cite{goldblatt:topoi}
 	A functor $F: \mathscr C\to  \mathscr D$ is called an \textit{equivalence of categories} if there 
-	is a functor $G: \mathscr D\to  \mathscr C$ such that there are natural isomorphisms $\tau : 1_{\mathscr C} \cong G \circ F$, and $\tau : 1_{\mathscr D} \cong F \circ G$, from the identity functor on ${\mathscr C}$ to $ G \circ F$, and 
+	is a functor $G: \mathscr D\to  \mathscr C$ such that there are natural isomorphisms $\tau : 1_{\mathscr C} \cong G \circ F$, and $\sigma : 1_{\mathscr D} \cong F \circ G$, from the identity functor on ${\mathscr C}$ to $ G \circ F$, and 
 	from the identity functor on ${\mathscr D}$ to $ F \circ G$.\\
 	Categories $\mathscr C$ and $\mathscr D$ are \textit{equivalent},  $\mathscr C$ and $\mathscr D$ when there exists an equivalence $F: \mathscr C\to  \mathscr D$ .
 \end{definition}
