@@ -6039,10 +6039,10 @@ $$
 
 
 \begin{definition}\label{top_fin_cov_defn}
-	Let $\sX$ be a connected, locally connected,  locally compact, Hausdorff space. Let us consider the  category $\mathfrak{FinCov}$-$\sX$ such that
+	Let $\sX$ be a connected, locally connected,  locally compact, Hausdorff space. Let us consider a (cf. Definition \ref{category_defn})  category $\mathfrak{FinCov}$-$\sX$ such that
 	\begin{itemize}
-		\item Objects of  $\mathfrak{FinCov}$-$\sX$ are transitive finite-fold coverings $\widetilde\sX \to \sX$ of $\sX$ where the space $\widetilde\sX$ is connected.
-		\item A morphism form $p_1:\widetilde\sX_1 \to \sX$ to $p_2:\widetilde\sX_2 \to \sX$ is a surjective continuous map $p_{12}: \widetilde\sX_1 \to \widetilde\sX_2$ such that $p_{12} \circ p_2 = p_1$.
+		\item $\mathfrak{FinCov}$-$\sX$-objects of   are transitive finite-fold coverings $\widetilde\sX \to \sX$ of $\sX$ where the space $\widetilde\sX$ is connected,
+		\item a $\mathfrak{FinCov}$-$\sX$-morphism form $p_1:\widetilde\sX_1 \to \sX$ to $p_2:\widetilde\sX_2 \to \sX$ is a surjective continuous map $p_{12}: \widetilde\sX_1 \to \widetilde\sX_2$ such that $p_{12} \circ p_2 = p_1$.
 	\end{itemize}
 	We say that $\mathfrak{FinCov}$-$\sX$ is the \textit{finite covering category} of $\sX$.	
 \end{definition}
@@ -6074,7 +6074,17 @@ $$
 	\exists g \in G\left(\left.\widetilde\sX_2~\right|\sX\right) \quad \forall \widetilde x_1\in \widetilde\sX_1 \quad p''\left( \widetilde x_1\right) = g\circ p'\left( \widetilde x_1\right).
 	$$
 \end{proof} 
-
+\begin{empt}
+	One can define a pre-ordering on the category 
+	\begin{definition}\label{ord_defn!}\cite{goldblatt:topoi}
+	A binary relation $R \subset \La\times \La$ on the set $\La$ (writing $pRq$ in place of $\left(p,q \right)\in R$ ) is said to be \textit{pre-ordering} if it is 
+	\begin{enumerate}
+		\item [(a)] \textit{reflexive}, i.e. for each $p$ we have $pRp$ and
+		\item[(b)] \textit{transitive}, whenever $pRq$ and $qRs$, we have $pRs$.
+	\end{enumerate}
+\end{definition}
+\
+\end{empt}
 \begin{definition}\label{top_pointed_defn}
 	If $\sX$ is a set (resp. topological space) and $x_0 \in \sX$ is a base-point then we say that the pair $\left(\sX, x_0 \right)$ is a \textit{pointed set} (resp. \textit{pointed space}) (cf. \cite{spanier:at,switzer:at}). If both $\left(\sX, x_0 \right)$ and $\left(\sY, y_0 \right)$ are pointed spaces and $\varphi: \sX \to \sY$ is such that $\varphi\left(x_0\right)= y_0$ then we say that $\varphi$ is a \textit{pointed map}. We write
 	\be\label{top_pointed_eqn}
@@ -20342,7 +20352,7 @@ noncommutative finite-fold pre-covering (cf. Definition  \ref{fin_pre_defn}). Si
 \begin{appendices}
 	\chapter{Categories, functors  and sets}
 	
-	\section{Categories and functors}
+	\section{Categories and limits}
 	\begin{definition}\label{category_defn}\cite{goldblatt:topoi}
 	%	Axiomatic Definition of a Category. 
 	A \textit{category} $\mathscr C$ comprises 
@@ -20376,7 +20386,106 @@ noncommutative finite-fold pre-covering (cf. Definition  \ref{fin_pre_defn}). Si
 \begin{notation}\label{category_not}
 If $a, b$ are  $\mathscr{C}$-objects then we denote by  $\mathscr{C}\left(a, b \right)$  a family of all arrows from $a$ to $b$.
 \end{notation}
+	\begin{definition}\label{dual_cat_defn}\cite{goldblatt:topoi}
+	If  $\mathscr C$ is a category then its \textit{dual} or \textit{opposite} category $\mathscr C^{\mathrm{op}}$ is constructed as follows: 
+	\begin{itemize}
+		\item $\mathscr C$ and $\mathscr C^{\mathrm{op}}$ have the same objects.
+		\item For each arrow $f: a\to b$ o we 
+		introduce an arrow  $f^{\mathrm{op}}: b\to a$ in $\mathscr C^{\mathrm{op}}$, these being all and only the arrows.
+		\item  The composite $f^{\mathrm{op}}\circ g^{\mathrm{op}}$ is defined precisely when $g\circ f$ is defined in $\mathscr C$
+		and has $f\circ g\bydef \left(g\circ f \right)^{\mathrm{op}}$.
+	\end{itemize}
+	
+\end{definition}
 
+\subsection{Limits}\label{limit_sec}
+\paragraph{} Here I follow to \cite{goldblatt:topoi}. The notion of \textit{commutative diagram}, is a 
+	very important aid to understanding used in category theory.
+By a 
+diagram we simply mean a display of some objects, together with some 
+arrows (here representing functions) linking the objects. The "triangle" of 
+arrows $f$, $g$, $h$ as shown is another diagram. 
+		\newline
+\begin{tikzpicture}
+	\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
+	{
+	A & B  \\ 
+		& C\\};
+	\path[-stealth]
+		(m-1-1) edge node [above] {$f$} (m-1-2)
+	(m-1-1) edge node [left]  {$h~~$} (m-2-2)
+	(m-1-2) edge node [right] {$~~g$} (m-2-2);
+\end{tikzpicture}
+\\ 	
+It will be said to \textit{commute} if $h = g\circ f$. The point is that the diagram offers 
+two paths from $A$ to $C$, either by composing to follow $f$ and then $g$, or by 
+following h directly. Commutativity means that the two paths amount to 
+the same thing. A more complex diagram, like the previous one, is said to 
+be commutative when all possible triangles that are parts of the diagram 
+are themselves commutative. This means that any two paths of arrows in 
+the diagram that start at the same object and end at the same object 
+compose to give the same overall arrow. By a diagram $D$ in a 
+category $\mathscr C$ we simply mean a collection of $\mathscr C$-objects $d_j, d_k,...$ together 
+with some $\mathscr C$-arrows $g: d_j \to d_k$ between certain of the objects in the 
+diagram. (Possibly more than one arrow between a given pair of objects, 
+possibly none.) 
+A \textit{cone} for diagram $D$ consists of a $\mathscr C$-object $c$ together with a $\mathscr C$-arrow 
+$c\to d_j$ for each object $f_j$ in $D$, such that
+		\newline
+\begin{tikzpicture}
+	\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
+	{
+	d_j  & & d_k \\ 
+		& c  & \\};
+	\path[-stealth]
+	(m-1-1) edge node [above] {$g$} (m-1-3)
+	(m-2-2) edge node [left]  {$f_j~~$} (m-1-1)
+	(m-2-2) edge node [right] {$~~f_k$} (m-1-3);
+\end{tikzpicture}
+\\ 	
+ commutes, whenever g is an arrow in the diagram $D$. We use the 
+symbolism $\left\{f_j: c\to d_j\right\}$ to denote a cone for $D$. 
+
+
+A \textit{limit} for a diagram $D$ is a $D$-cone $\left\{f_j: c\to d_j\right\}$ with the property that for 
+	any other $D$-cone $\left\{f'_j: c'\to d_j\right\}$ there is exactly one arrow $f:c' \to c$ such 
+			\newline
+	\begin{tikzpicture}
+		\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
+		{
+			  & d_j &  \\ 
+		c'	&  & c \\};
+		\path[-stealth]
+		(m-2-1) edge node [above] {$g$} (m-2-3)
+		(m-2-1) edge node [left]  {$f'_j~~$} (m-1-2)
+		(m-2-3) edge node [right] {$~~f_j$} (m-1-2);
+	\end{tikzpicture}
+	\\ 	
+		commutes for every object $d_j$ in $D$. 
+		This limiting cone, when it exists, is said to have the \textit{universal property} 
+		with respect to $D$ -cones.
+		 A limit for 
+		diagram $D$ is unique up to isomorphism.%:- if {ft:? Ñ> a\} and {f-:c'Ñ> d;} 			are both limits for D, then the unique commuting arrow f: c'Ñ? ? above is 			iso (its inverse is the unique commuting arrow c-Ñ*c' whose existence 			follows from the fact that {/,': c' Ñ> dj is a limit). 
+		% It is universal amongst such cones-any other 		D-cone factors uniquely through it as in the last diagram.		
+
+
+\begin{definition}\label{pull_back_defn}\cite{goldblatt:topoi}
+	A \textit{pullback} of a pair $a \xrightarrow{f}c \xleftarrow{g} b$ of $\mathscr C$-arrows with a common codomain 
+	is a limit in $\mathscr C$ for the diagram 
+			\newline
+\begin{tikzpicture}
+	\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
+	{
+		& b  \\ 
+		a	&  c \\};
+	\path[-stealth]
+	(m-1-2) edge node [right]  {$g$} (m-2-2)
+	(m-2-1) edge node [above] {$f$} (m-2-2);
+\end{tikzpicture}
+\\ 	
+	
+\end{definition}
+\subsection{Functors}
 \begin{definition}\label{functor_defn}\cite{goldblatt:topoi}
 A functor $F$ from category $\mathscr{C}$ to category $\mathscr{D}$ is a function that assigns 
 \begin{enumerate}
@@ -20434,18 +20543,7 @@ $$
 		A \textit{skeleton}
 		of a category $\mathscr C$ is a full subcategory $\mathscr C_0$ of $\mathscr C$ that is skeletal, and such that each $\mathscr C$-object is isomorphic to one (and only one) $\mathscr C$-object.
 	\end{definition}
-	\begin{definition}\label{dual_cat_defn}\cite{goldblatt:topoi}
-		If  $\mathscr C$ is a category then its \textit{dual} or \textit{opposite} category $\mathscr C^{\mathrm{op}}$ is constructed as follows: 
-		\begin{itemize}
-			\item $\mathscr C$ and $\mathscr C^{\mathrm{op}}$ have the same objects.
-			\item For each arrow $f: a\to b$ o we 
-			introduce an arrow  $f^{\mathrm{op}}: b\to a$ in $\mathscr C^{\mathrm{op}}$, these being all and only the arrows.
-			\item  The composite $f^{\mathrm{op}}\circ g^{\mathrm{op}}$ is defined precisely when $g\circ f$ is defined in $\mathscr C$
-			and has $f\circ g\bydef \left(g\circ f \right)^{\mathrm{op}}$.
-		\end{itemize}
-		
-	\end{definition}
-	\begin{definition}\label{preordercat_defn}\cite{goldblatt:topoi}
+\begin{definition}\label{preordercat_defn}\cite{goldblatt:topoi}
 		A category is said to be a \textit{pre-order category} if there is at most one morphism between different objects.
 	\end{definition}
 	\begin{definition}\label{ord_defn}\cite{goldblatt:topoi}
