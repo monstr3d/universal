@@ -6093,7 +6093,7 @@ $$
 	\end{tikzpicture}
 	\\ 	
 \end{empt}
-\begin{exercise}
+\begin{exercise}\label{top_cov_directed_exer}
 Let both $\widetilde \sX'\to \sX$ and $\widetilde \sX''\to \sX$ are finite-fold transitive coverings. Let $\widetilde \sX$ be a pullback (cf. Definition \ref{pull_back_defn}), or equivalently an inverse limit (cf.  Definition \ref{top_inv_lim_defn}) of the Diagram
 			\newline
 \begin{tikzpicture}
@@ -8721,48 +8721,50 @@ If $\left\{\sU_\la \subset \sX\right\}_{\la \in \La}$ is  a given by the Lemma \
 The Theorem \ref{top_fin_thm}   yields a pure algebraic definition of the fundamental group (cf. the Theorem \ref{comm_uni_lim_thm} and the Corollary \ref{comm_uni_lim_cor}). Alternative theories (e.g. described in \cite{clarisson:phd}) which allow coverings of commutative $C^*$-algebras by noncommutative ones do not have this property.
 \end{remark}
 
+\begin{empt}\label{top_functor_empt} 
+	Let $\sX$ be a connected, locally connected, locally compact, Hausdorff space, and let $\mathfrak{FinCov}$-$\sX$ be the {finite covering category} of $\sX$ (cf. Definition \ref{top_fin_cov_defn}). Let $\mathfrak{FinCov}$-$C_0\left(\sX \right)$ be the {category of finite-fold coverings} of $C_0\left( \sX\right)$ (cf. Definition   \ref{fin_cat_defn}). We define a functor $C_0:\mathfrak{FinCov}$-$\sX\to \mathfrak{FinCov}$-$C_0\left(\sX \right)$ such that
+\begin{itemize}
+	\item If $p: \widetilde \sX \to \sX$ is $\mathfrak{FinCov}$-$\sX$-object then 
+	\bean
+	C_0\left(p: \widetilde \sX \to \sX \right)\bydef \left(C_0\left(\mathcal  X \right), C_0\left(  \widetilde{   \mathcal X }\right) ,G\left(\left. \widetilde{   \mathcal X } ~\right| {   \mathcal X }\right),   C_0\left(p \right)\right)
+	\eean
+	(cf. Theorem \ref{top_fin_thm}).
+	\item  Any $\mathfrak{FinCov}$-$\sX$-arrow from $ \widetilde \sX_1 \to \sX$ to  $ \widetilde \sX_2 \to \sX$ is a transitive covering $p^1_2: \widetilde \sX_1 \to  \widetilde \sX_2$ such that there a normal subgroup $H \subset G\left(\left. \widetilde{   \mathcal X } ~\right| {   \mathcal X }\right)$ which satisfies to a condition $\widetilde \sX_2\cong \widetilde \sX_1/H$ and the covering $\widetilde \sX_1 \to  \widetilde \sX_2$ is equivalent to a natural projection $\widetilde \sX_1 \to  \widetilde \sX_1/ H$. We denote by 
+	\bean
+	C_0\left(p^1_2: \left(  \widetilde \sX_1 \to \sX\right) \to  \left(  \widetilde \sX_2 \to \sX\right)  \right) \bydef \left(C_0\left(\widetilde \sX_2\right),  C_0\left(\widetilde \sX_1\right), H, C_0\left( p^1_2\right) \right).
+	\eean 
+\end{itemize}
+	Now we define a functor $\mathrm{Spe}: \mathfrak{FinCov}$-$C_0\left(\sX \right)\to \mathfrak{FinCov}$-$\sX$.
+	\begin{itemize}
+		\item If  $\left(C_0\left(\mathcal  X \right),  \widetilde{  A} ,G\left(\left. \widetilde{ A } ~\right|   C_0\left( \sX\right)\right) ,  \pi\right)$ is a $\mathfrak{FinCov}$-$C_0\left(\sX \right)$-object and $\widetilde \sX$ is the spectrum of $\widetilde A$ then there is a given by the Proposition \ref{spectrum_cov_prop} continuous map $p:\widetilde \sX\to \sX$. From the Theorem \ref{top_fin_thm} it turns out that   the map $p$ is a finite-fold (topological) covering. We put 	
+		\bean
+		\mathrm{Spe}\left( \left(C_0\left(\mathcal  X \right),   \widetilde{   A } ,G\left(\left. \widetilde{  A } ~\right|C_0\left(\sX\right)\right),   \pi \right)\right)\bydef\left(p: \widetilde \sX \to \sX  \right).  
+		\eean 
+	\item Any 	$\mathfrak{FinCov}$-$C_0\left(\sX \right)$-arrow from  $\left(C_0\left(\mathcal  X \right),  \widetilde{  A}_1 ,G\left(\left. \widetilde{ A }_1 ~\right|   C_0\left( \sX\right)\right) ,  \pi_1\right)$  to \\ $\left(C_0\left(\mathcal  X \right),  \widetilde{  A}_2 ,G\left(\left. \widetilde{ A }_2 ~\right|   C_0\left( \sX\right)\right) ,  \pi_2\right)$ is a  
+noncommutative finite-fold covering  $\left(\widetilde A_2 ,   \widetilde{   A }_1 ,G\left(\left. \widetilde{   A }_1 ~\right| {  \widetilde A_2 }\right),  \pi^1_2 \right)$ (cf. Definition \ref{fin_defn}), such that there is a normal subgroup $H \subset G\left(\left. \widetilde{   A }_1 ~\right| {  \widetilde A_2 }\right)$ which satisfies to following conditions:
+\begin{itemize}
+	\item $H \cong G\left(\left. \widetilde{   A }_1 ~\right| {  \widetilde A }_2\right)$,
+	\item $ \widetilde{   A }_2\cong   \widetilde{   A }_1^H$, 
+	\item $\pi^1_2$ is equivalent to the natural inclusion $ \widetilde{   A }_1^H\hookto \widetilde{   A }_1$.   
+\end{itemize} 
+From the Theorem \ref{top_fin_thm} it follows that $\widetilde A_1\cong C_0\left( \widetilde \sX_1\right)$ and $\widetilde A_2\cong C_0\left( \widetilde \sX_2\right)$ where both $\widetilde \sX_1$ and $\widetilde \sX_2$ are spectra of $\widetilde A_1$ and $\widetilde A_2$ respectively. If $p^1_2: \widetilde \sX_1\to \widetilde \sX_2$ is given by the Proposition \ref{spectrum_cov_prop} map then from the Theorem \ref{top_fin_thm} it follows that $p^1_2$ is a finite-fold transitive covering. We put 
+		\bean
+\mathrm{Spe}\left(\left(\widetilde A_2 ,   \widetilde{   A }_1 ,G\left(\left. \widetilde{   A }_1 ~\right| {  \widetilde A_2 }\right),  \pi^1_2 \right)\right)\bydef\left(p^1_2: \widetilde \sX_1 \to \widetilde\sX_2 \right).  
+\eean 
+	\end{itemize}
+\end{empt}
+
 
 \begin{cor}\label{top_functor_cor} 
-	Let $\sX$ be a connected, locally connected, locally compact, Hausdorff space.
-	If both $\mathfrak{FinCov}$-$\sX$ and 
-	$\mathfrak{FinCov}$-$C_0\left(\sX \right)$ are categories given by Definitions \ref{top_fin_cov_defn} and \ref{fin_cat_defn}) respectively then there is a functor $\mathfrak{FinCov}$-$\sX\xrightarrow{C_0}\mathfrak{FinCov}$-$C_0\left(\sX \right)$ (cf. Definition \ref{functor_defn}) which is an equivalence of categories (cf. Definition \ref{category_equivalence_definition})
+If  $\sX$ be a connected, locally connected, locally compact, Hausdorff space then the functor $C_0:\mathfrak{FinCov}$-$\sX\to \mathfrak{FinCov}$-$C_0\left(\sX \right)$ is an equivalence of categories (cf. Definition \ref{category_equivalence_definition}).
 \end{cor}
-	\begin{definition}\label{category_equivalence_definition!}\cite{goldblatt:topoi}
-	A functor $F: \mathscr C\to  \mathscr D$ is called an \textit{equivalence of categories} if there 
-	is a functor $G: \mathscr D\to  \mathscr C$ such that there are natural isomorphisms $\tau : 1_{\mathscr C} \cong G \circ F$, and $\sigma : 1_{\mathscr D} \cong F \circ G$, from the identity functor on ${\mathscr C}$ to $ G \circ F$, and 
-	from the identity functor on ${\mathscr D}$ to $ F \circ G$.\\
-	Categories $\mathscr C$ and $\mathscr D$ are \textit{equivalent},  $\mathscr C$ and $\mathscr D$ when there exists an equivalence $F: \mathscr C\to  \mathscr D$ .
-\end{definition}
-
-
 \begin{proof}
-	(i) From the Theorem \ref{top_fin_thm}  it follows that there is a one-to-one correspondence between objects of $\mathfrak{FinCov}$-$\sX$ and objects of  $\mathfrak{FinCov}$-$C_0\left(\sX \right)$ given by
-	$$
-	\left(p:\widetilde{\sX} \to \sX \right) \mapsto 	C_0\left( p\right) :   C_0\left( \sX\right)    \hookto C_0\left( \widetilde{\sX}\right)
-	$$
-	where $C_0\left(p\right)$ is given by the Definition \ref{top_c_funct_defn}. If $p':\widetilde{\sX}' \to \sX$ and $p'':\widetilde{\sX}'' \to \sX$ are objects of $\mathfrak{FinCov}$-$\sX$ and $p: \widetilde{\sX}' \to \widetilde{\sX}''$ is a morphism of $\mathfrak{FinCov}$-$\sX$ then from the Corollary \ref{top_covp_cat_cor} it turns out that $p$ is a transitive finite-fold covering. From the equation \eqref{top_c0_p_eqn} it follows that $p$ corresponds to the injective *-homomorphism
-	\be\label{top_c_funct_lem_eqn}
-	C_0\left(p \right):  C_0\left( \widetilde{\sX}''\right)    \to C_0\left( \widetilde{\sX}'\right).
-	\ee
-	So one has a functor from  $\mathfrak{FinCov}$-$\sX$ to  $\mathfrak{FinCov}$-$C_0\left( \sX\right)$. 
-	
-	Let us define the inverse  functor. From the Theorem \ref{top_fin_thm}   it follows that any object $\pi: C_0\left( \sX\right) \hookto C_0\left( \widetilde{\sX}\right)$ of $\mathfrak{FinCov}$-$C_0\left( \sX\right) $ corresponds to a transitive finite-fold covering $p: \widetilde{\sX} \to \sX$ such that $\pi = C_0\left(p \right)$. If $C\left(p' \right): C_0\left( {\sX}\right)\to  C_0\left( \widetilde{\sX}'\right) $ and $C\left(p'' \right): C_0\left( {\sX}\right)\to C_0\left( \widetilde{\sX}''\right)$ are objects of $\mathfrak{FinCov}$-$C_0\left( \sX\right)$  and $\pi: C_0\left( \widetilde{\sX}''\right)    \hookto C_0\left( \widetilde{\sX}'\right)$ is an injective *-homomorphism such that $C_0\left(p'\right) = \pi \circ C_0\left(p''\right)$ then $\pi$ induces a surjective continuous map $p: \widetilde{\sX}'\to \widetilde{\sX}''$ such that $\pi = C_0\left(p \right)$ and  there is the following commutative diagram
-	\newline
-	\begin{tikzpicture}
-		\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
-		{
-			\widetilde{\mathcal X}_1 & &\widetilde{\mathcal X}_2\\ 
-			& {\mathcal X}\\};
-		\path[-stealth]
-		(m-1-1) edge node [above] {$p$} (m-1-3)
-		(m-1-1) edge node [left]  {$p_1~~$} (m-2-2)
-		(m-1-3) edge node [right] {$~~p_2$} (m-2-2);
-	\end{tikzpicture}
-	\\
-	Taking into account the Corollary \ref{top_covp_cat_cor} one concludes that $p$ is a transitive covering, so from the Theorem \ref{top_fin_thm}  it follows that $\pi = C_0\left(p \right)$ is  a connected noncommutative finite-fold covering (cf. Definition \ref{fin_defn} !!! \ref{fin_exer} !!! !!! CHANGE !!!). Thus one has the inverse functor from   $\mathfrak{FinCov}$-$C_0\left( \sX\right)$ to $\mathfrak{FinCov}$-$\sX$.\\
-	(ii)  	The conditions (a)-(d) of the Definition \ref{compliant_covering_defn} !!! CHECK directly follow from (a)-(d) of the Lemma \ref{top_comply_lem}.
+One needs check that there are natural isomorphisms $\tau: 1_{\mathfrak{FinCov}\text{-}\sX}\cong \mathrm{Spe} \circ C_0$ and $\sigma: 1_{\mathfrak{FinCov}\text{-}C_0\left( \sX\right) }\cong  C_0\circ \mathrm{Spe}$. These isomorphisms can be easily obtained from the construction 
+\ref{top_functor_empt}. Details of the proof are left to the reader. 
 \end{proof}
-
+\begin{remark}
+Indeed the Corollary \ref{top_functor_cor} is an alternative formulation of the Theorem \ref{top_fin_thm} only. An advantage the Corollary \ref{top_functor_cor} is usage the category theory language.
+\end{remark}
 
 \begin{corollary}\label{top_fin_cor}
 	If $\mathcal X$ is a locally compact, connected, locally connected, Hausdorff space, $\widetilde{   \mathcal X }$  is a connected space, $p: \widetilde{   \mathcal X } \to \sX$ is a finite-fold transitive topological covering  and $\lift_p : C_b\left(\sX\right)\hookto C_b\left( \widetilde \sX\right)$ is given by  the Lemma \ref{top_lift_bounded_lem} 	then the quadruple
@@ -10805,6 +10807,8 @@ Following theorem gives universal  coverings of commutative $C^*$-algebras.
 \end{theorem}
 
 \begin{proof}
+	
+	!!!! DIRECTED EXERCISE LEMMA \ref{top_res_fin_lem} \ref{top_cov_directed_exer} !!!
 	If $\left\{p_\la: \sX_\la\to \sX\right\}_{\la \in \La}$ is a family of all transitive finite-fold coverings of $\sX$ then from the Theorem \ref{top_fin_thm} it follows that the family of all noncommutative finite-fold coverings of $C_0\left( \sX\right)$ is given by $$\left\{C_0\left( p_\la\right) : C_0\left( {\sX}\right) \hookto C_0\left( {\sX}_\la\right)\right\}_{\la \in \La}.$$ Since $\widetilde{\sX}$ is the universal covering for any $\la \in \La$ there is a covering $\widetilde{p}_\la: \widetilde{\sX} \to \sX_\la$ such that $\widetilde{p}= \widetilde{p}_\la\circ p_\la$.  From the Lemma \ref{comm_t_a_lem} it turns out that $\mathfrak{S}_{C_0\left(\sX \right) }=\left\{C_0\left( p_\la\right) : C_0\left( {\sX}\right) \hookto C_0\left( {\sX}_\la\right)\right\}_{\la \in \La}$ is an algebraical finite covering category. From the Lemma \ref{top_res_fin_lem} it follows that any $\widetilde{x}_0 \in \widetilde{\sX}$ yields a  pointed a topological finite covering category $$\mathfrak{S}_{\left( \sX, \widetilde{p}\left(\widetilde{x}_0 \right)  \right) }=\left\{ p_\la: \left( \sX_\la, x^\la_0 \right) \to \left( \sX, x_0 \right)\right\}$$ such that  $\left( \widetilde{\sX}, \widetilde{x}_0\right) $ is the topological inverse noncommutative limit of $\mathfrak{S}_{\left( \sX, \widetilde{p}\left(\widetilde{x}_0 \right)  \right) } $. From the Lemma \ref{top_base_point_lem} the category  $\mathfrak{S}_{\left( \sX, \widetilde{p}\left(\widetilde{x}_0 \right)  \right) }$ yields the pointed algebraical  finite covering category
 	\be\label{top_pointed_c_eqn}
 	\left(\left\{C_0\left( p_\la\right) : C_0\left( {\sX}\right) \hookto C_0\left( {\sX}_\la\right)\right\}_{\la \in \La}, \left\{C_0\left( p^\mu_\nu\right)  \right\}_{\substack{ \mu, \nu \in \La \\ \mu > \nu}} \right) 
@@ -20553,7 +20557,7 @@ $$
 F\left( g\circ f\right) = F\left( f\right)\circ  F\left( g\right). 
 $$
 \end{defn}
-\subsection{Natural transformations}
+\subsection{Natural transformations}\label{natural_transformation_sec}
 \paragraph{}
 Here I follow to \cite{goldblatt:topoi}
 Given two categories $\mathscr C$ and $\mathscr D$ we are going to construct a category, 
@@ -20583,7 +20587,8 @@ The identity natural transformation $\mathbb{1}_F :F\to F$ assigns to each objec
 	\begin{definition}\label{category_equivalence_definition}\cite{goldblatt:topoi}
 	A functor $F: \mathscr C\to  \mathscr D$ is called an \textit{equivalence of categories} if there 
 	is a functor $G: \mathscr D\to  \mathscr C$ such that there are natural isomorphisms $\tau : 1_{\mathscr C} \cong G \circ F$, and $\sigma : 1_{\mathscr D} \cong F \circ G$, from the identity functor on ${\mathscr C}$ to $ G \circ F$, and 
-	from the identity functor on ${\mathscr D}$ to $ F \circ G$.\\
+	from the identity functor on ${\mathscr D}$ to $ F \circ G$.
+	
 	Categories $\mathscr C$ and $\mathscr D$ are \textit{equivalent},  $\mathscr C$ and $\mathscr D$ when there exists an equivalence $F: \mathscr C\to  \mathscr D$ .
 \end{definition}
 
