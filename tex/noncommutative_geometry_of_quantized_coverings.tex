@@ -5707,7 +5707,7 @@ From the above construction it follows that for any compact subset $\sY\subset\s
 	then $\sU_\a$ is a closed subset of compact set. There is a partial order (cf. Definition \ref{ord_defn}) on $\mathscr A$
 	such that
 	\be\label{top_ord01_eqn}
-	\forall\bt, \ga \in \mathscr A\quad \bt \le \ga \quad \Leftrightarrow\quad f^{-1}_\bt\left(1 \right)\subset f^{-1}_\ga\left(1 \right)
+	\forall\bt, \ga \in \mathscr A\quad \bt \le \ga \quad \Leftrightarrow\quad f_\bt\le f_\ga.
 	\ee 
 \end{empt}
 
@@ -7678,7 +7678,7 @@ Prove that if $p: \widetilde \sX \to \sX$ is a covering then an intersection $p^
 
 
 \begin{exercise}\label{smooth_soft_exer}
-Let $M$ be a smooth paracompact manifold. Using the Proposition \ref{top_smooth_part_unity_prop} prove that $\Coo_0\left(M\right)\bydef \Coo_0\left(M\right)\cap C_0\left(M\right)\subset C_0\left(M\right)$ is a $c$-soft *-algebra.
+Let $M$ be a smooth paracompact manifold. Using the Proposition \ref{top_smooth_part_unity_prop} prove that $\Coo_0\left(M\right)\bydef \Coo\left(M\right)\cap C_0\left(M\right)\subset C_0\left(M\right)$ is a $c$-soft *-algebra.
 \end{exercise}
 \subsection{Inverse images lift and descent}
 \paragraph*{}
@@ -10349,12 +10349,6 @@ $\mathfrak{S}^{\mathrm{pt}}_{C_0\left(\mathcal{X}\right)}$. On the other hand fr
 one has $\varprojlim  \mathfrak{S}_{\left(\sX, x_0\right)}\bydef \widetilde\sX$.\\
 		(ii) Follows from the   (i) of this theorem.
 \end{proof}
-\begin{exercise}\label{top_ml_exer}
-From \eqref{a_toola_eqn} it follows that for all $\la\in\La$ there is a *-homomorphism $\widetilde m_\la: C_0\left(\sX_\la \right)  \to M\left( C_0\left( \widetilde{\sX}\right)  \right)= C_b\left( \widetilde{\sX}\right)$ prove that 
-$\widetilde m_\la = \left. \lift_{ \widetilde{p}_{\la}}\right|_{C_0\left(\sX_\la \right)}$ where 
-$\widetilde p_\la : \widetilde{\sX} \to \sX_\la$ is the natural covering and $\lift_{ \widetilde{p}_{\la}}$ is the $\widetilde{p}_{\la}$-lift (cf. Definition \ref{top_lift_defn}).
-\end{exercise}
-!!! CONTINUE !!!
 \begin{empt}\label{top_r_inf_empt}
 Both the given by \eqref{top_base_point_eqn} {pointed algebraical  finite covering category} and the construction \ref{top_r_fin_empt} yield pointed algebraical  finite covering category of operator spaces $\mathfrak{S}^{\text{pt}}_{\text{op}}$ (cf. Definition \ref{comp_op_pt_defn}) which  corresponds to a noncommutative finite-fold coverings of operator spaces \be\label{top_comp_cat_eqn}
 \begin{split}
@@ -10415,7 +10409,7 @@ Consider the described in \ref{top_r_inf_empt} situation and suppose that $\wide
 		=\left(\left\{ C_0\left( p_\la\right) :  C_0\left(\sX \right)  \hookto  C_0\left(\sX_\la \right)\right\}, \left\{ C_0\left( p_\nu^\mu\right) :  C_0\left(\sX_\nu \right) \hookto  C_0\left(\sX_\mu \right)\right\}\right).
 	\end{split}
 	\eean
-	the given by the Lemma \ref{top_base_point_cor} !!! COROLLARY !!!
+	the given by the Corollary \ref{top_base_point_cor} 
 	{pointed algebraical  finite covering category} (cf. Definition \ref{pointed_defn}  !!! CHECK !!!).
 	Let $\tau: C_0\left(\sX \right)\to \C$ be a faithful state given by  \eqref{meafunc_eqn}, i.e. there exists a Borel
 	measure $\mu$ on $\sX$  such that
@@ -10674,11 +10668,11 @@ Similarly to \ref{comm_transitive_empt}	one can prove following statements:
 		=\left(\left\{C_0\left( p_\la\right) : C_0\left(\sX \right)  \hookto C_0\left(\sX_\la \right)\right\}, \left\{C_0\left( p_\nu^\mu\right) : C_0\left(\sX_\nu \right) \hookto C_0\left(\sX_\mu \right)\right\}\right)
 	\end{split}
 	\ee
-	be a given by the Lemma  \ref{top_base_point_cor} !!! COROLLARY !!! {pointed algebraical  finite covering category} (cf. Definition \ref{pointed_defn}  !!! CHECK !!!). If 	$\pi_\tau: C^*\text{-}\lim_{\la\in \La} C_0\left(  \sX_\la \right)\hookto B\left(L^2\left(\overline  \sX , \overline \mu\right) \right)$
+	be a given by the Corollary  \ref{top_base_point_cor} {pointed algebraical  finite covering category} (cf. Definition \ref{pointed_defn}). If 	$\pi_\tau: C^*\text{-}\lim_{\la\in \La} C_0\left(  \sX_\la \right)\hookto B\left(L^2\left(\overline  \sX , \overline \mu\right) \right)$
 	is a given by \eqref{top_pi_mu_eqn} equivariant  representation
 	 then following conditions hold:
 	\begin{enumerate}
-		\item [(i)] $\mathfrak{S}^{\mathrm{pt}}_{C_0\left(\mathcal{X}\right)}$ is $\pi_\tau$-good (cf. Definition \ref{good_defn}  !!! REPLACE REMARK \ref{cond_b_ref_rem} !!!).
+		\item [(i)] $\mathfrak{S}^{\mathrm{pt}}_{C_0\left(\mathcal{X}\right)}$ is $\pi_\tau$-good (cf. Definition \ref{good_defn}).
 		\item[(ii)] The triple\\ $\left(C_0\left(\mathcal{X}\right), C_0\left(\varprojlim  \mathfrak{S}_{\left(\sX, x_0\right)}\right),G\left(\left.\varprojlim  \mathfrak{S}_{\left(\sX, x_0\right)}~\right| \mathcal X\right)\right)$ is  the  $\pi_\tau$-infinite noncommutative covering of $\mathfrak{S}^{\mathrm{pt}}_{C_0\left(\mathcal{X}\right)}$ (cf. Definition \ref{main_defn}).  So the given by \eqref{a_toola_eqn} *-homomorphism $C_0\left(\sX\right)\hookto C_b\left(\widetilde\sX\right)\cong M\left(C_b\left(\widetilde\sX\right) \right)$ is injective.
 	\end{enumerate}
 	
@@ -10686,10 +10680,9 @@ Similarly to \ref{comm_transitive_empt}	one can prove following statements:
 	
 \end{theorem}
 \begin{proof}
-	(i) 	To prove that 	$\mathfrak{S}^{\mathrm{pt}}_{C_0\left(\mathcal{X}\right)}$  is $\pi_\tau$-good  one needs check that described in \ref{comm_transitive_tau_empt} objects satisfy to conditions (a)-(c) of the Definition \ref{good_defn}  !!! REPLACE REMARK \ref{cond_b_ref_rem} !!!.
+	(i) 	To prove that 	$\mathfrak{S}^{\mathrm{pt}}_{C_0\left(\mathcal{X}\right)}$  is $\pi_\tau$-good  one needs check that described in \ref{comm_transitive_tau_empt} objects satisfy to conditions (a)-(c) of the Definition \ref{good_defn}.
 	\begin{enumerate}
-		\item [(a)] 		
-		If $a \in A\setminus\{0\}= C_0\left(\sX\right)\setminus\{0\}$ then there is $x_0\in \sX$ such that $a\left(x_0\right)\neq 0$. Since the natural map $\widetilde p : \widetilde \sX \to \sX$ is a covering there is $\widetilde x_0\in \widetilde\sX$ such that $\widetilde p\left( \widetilde x_0\right) = x_0$. If $\widetilde a \in C_0\left( \widetilde \sX\right)$ is such that $\widetilde a\left(\widetilde x_0\right)\neq 0$ then $\left( a \widetilde a \right) \left( \widetilde x_0\right) = a\left(x_0\right)\widetilde a  \left( \widetilde x_0\right) \neq 0$ i.e. $a \widetilde a \neq 0$. So any nontrivial $a \in C_0\left(\sX\right)$ corresponds to a nontrivial multiplier of $C_0\left( \widetilde \sX\right)$.  It means that the natural *-homomorphism $C_0\left( \sX\right)  \to M\left( C_0\left( \widetilde \sX\right)  \right)$ is injective. However this *-homomorphism is a specialization of the given by \eqref{a_toola_eqn} *-homomorphism $	\widetilde m:A \to M\left( \widetilde{A}_\pi \right)$.
+		\item [(a)] Can be proven similarly to (i) (a) of the Theorem \ref{top_main_thm}.
 				\item [(b)] Can be proven similarly to (i) (b) of the Theorem \ref{top_main_thm}.
 				\item [(c)] Can be proven similarly to (i) (c) of the Theorem \ref{top_main_thm}. 
 		
@@ -10711,12 +10704,17 @@ Following theorem gives universal  coverings of commutative $C^*$-algebras.
 
 \begin{proof}
 	
-	!!!! DIRECTED EXERCISE LEMMA \ref{top_res_fin_lem} \ref{top_cov_directed_exer} !!!
-	If $\left\{p_\la: \sX_\la\to \sX\right\}_{\la \in \La}$ is a family of all transitive finite-fold coverings of $\sX$ then from the Theorem \ref{top_fin_thm} it follows that the family of all noncommutative finite-fold coverings of $C_0\left( \sX\right)$ is given by $$\left\{C_0\left( p_\la\right) : C_0\left( {\sX}\right) \hookto C_0\left( {\sX}_\la\right)\right\}_{\la \in \La}.$$ Since $\widetilde{\sX}$ is the universal covering for any $\la \in \La$ there is a covering $\widetilde{p}_\la: \widetilde{\sX} \to \sX_\la$ such that $\widetilde{p}= \widetilde{p}_\la\circ p_\la$.  From the Lemma \ref{comm_t_a_lem} it turns out that $\mathfrak{S}_{C_0\left(\sX \right) }=\left\{C_0\left( p_\la\right) : C_0\left( {\sX}\right) \hookto C_0\left( {\sX}_\la\right)\right\}_{\la \in \La}$ is an algebraical finite covering category. From the Lemma \ref{top_res_fin_lem} it follows that any $\widetilde{x}_0 \in \widetilde{\sX}$ yields a  pointed a topological finite covering category $$\mathfrak{S}_{\left( \sX, \widetilde{p}\left(\widetilde{x}_0 \right)  \right) }=\left\{ p_\la: \left( \sX_\la, x^\la_0 \right) \to \left( \sX, x_0 \right)\right\}$$ such that  $\left( \widetilde{\sX}, \widetilde{x}_0\right) $ is the topological inverse noncommutative limit of $\mathfrak{S}_{\left( \sX, \widetilde{p}\left(\widetilde{x}_0 \right)  \right) } $. From the Lemma \ref{top_base_point_cor} !!! COROLLARY !!! the category  $\mathfrak{S}_{\left( \sX, \widetilde{p}\left(\widetilde{x}_0 \right)  \right) }$ yields the pointed algebraical  finite covering category
+%	!!!! DIRECTED EXERCISE LEMMA \ref{top_res_fin_lem} %\ref{top_cov_directed_exer} !!!
+	If $\mathfrak{S}_\sX=\left\{p_\la: \sX_\la\to \sX\right\}_{\la \in \La}$ is a family of all transitive finite-fold coverings of $\sX$ then from the Lemma \ref{top_res_fin_lem} it follows that a set $\La$ is directed. Using the functor $C_0$ (cf. \ref{top_functor_empt}) one can obtain a family of all noncommutative finite-fold coverings of $C_0\left( \sX\right)$ is given by 
+	$$
+\mathfrak{S}_{C_0\left(\sX \right) }\bydef	\left\{C_0\left( p_\la\right) : C_0\left( {\sX}\right) \hookto C_0\left( {\sX}_\la\right)\right\}_{\la \in \La}.
+	$$
+From the Corollary \ref{top_functor_cor} it follow that 	the functor $C_0$ is an equivalence of categories, so $\mathfrak{S}_{C_0\left(\sX \right) }$ is an algebraical finite covering category (cf. Definition \ref{comp_defn}). According to the Lemma \ref{top_res_fin_lem} a choice of  base-point $\widetilde x_0 \in \widetilde \sX$ yields	a pointed  topological finite covering category $\mathfrak{S}_{\left( \sX, x_0  \right) }=\left\{ p_\la: \left( \sX_\la, x^\la_0\right) \to \left( \sX, x_0\right)\right\}_{\la \in \La} $  of all  transitive finite-fold pointed coverings of $\left(\sX, x_0\right)$	 such that  the pointed space $\left( \widetilde{\sX} , \widetilde{x}_0 \right)$ is the topological inverse noncommutative limit of $\mathfrak{S}_{\left( \sX, x_0 \right) }$  (cf. Definition \ref{top_topological_inv_lim_defn}). The category $\mathfrak{S}_{\left( \sX, x_0 \right) }$ yields a pointed an algebraical finite covering category 
 	\be\label{top_pointed_c_eqn}
-	\left(\left\{C_0\left( p_\la\right) : C_0\left( {\sX}\right) \hookto C_0\left( {\sX}_\la\right)\right\}_{\la \in \La}, \left\{C_0\left( p^\mu_\nu\right)  \right\}_{\substack{ \mu, \nu \in \La \\ \mu > \nu}} \right) 
-	\ee
-	(cf. Definition \ref{pointed_defn}  !!! CHECK !!!). From the  Theorem \ref{top_main_thm} it follows that $C_0\left(\widetilde{\sX} \right)$ is the inverse noncommutative limit of the pointed noncommutative finite covering category \eqref{top_pointed_c_eqn}. Taking into account the Definition \ref{fg_bas_defn} we conclude that $C_0\left( \widetilde{\sX}\right)$ is the universal covering of $C_0\left( {\sX}\right)$.
+\mathfrak{S}^{\text{pt}}_{C_0\left(\sX \right) }\bydef\left(\left\{C_0\left( p_\la\right) : C_0\left( {\sX}\right) \hookto C_0\left( {\sX}_\la\right)\right\}_{\la \in \La}, \left\{C_0\left( p^\mu_\nu\right)  \right\}_{\substack{ \mu, \nu \in \La \\ \mu > \nu}} \right) 
+\ee
+(cf. Definition \ref{pointed_defn}   because the functor $C_0$ is an equivalence of categories.
+ From the  Theorem \ref{top_main_thm} it follows that $C_0\left(\widetilde{\sX} \right)$ is the inverse noncommutative limit of the pointed noncommutative finite covering category \eqref{top_pointed_c_eqn}. Taking into account the Definition \ref{fg_bas_defn} we conclude that $C_0\left( \widetilde{\sX}\right)$ is the universal covering of $C_0\left( {\sX}\right)$.
 \end{proof}
 
 \begin{cor}\label{comm_uni_lim_cor}
@@ -10734,7 +10732,7 @@ is the {fundamental group}	of the pair  $\left( C_0\left(\sX \right), \left\{C_0
 \end{cor}
 \begin{proof}
 	(i) From the Lemmas \ref{top_simply_con_cov_lem} and \ref{top_uni_exist_spa_lem} it turns out that there is the universal (topological) covering $\widetilde{\sX} \to \sX$. From the Corollary \ref{top_cov_pi1_cor} it turns out that $\pi_1\left(\sX, x_0 \right)\approx  G\left(\left.\widetilde{\sX}~\right|\sX\right)$, hence $G\left(\left.\widetilde{\sX}~\right|\sX\right)$ is residually finite. From the Theorem \ref{comm_uni_lim_thm} it follows that $C_0\left(\widetilde{\sX} \right)$ is the universal covering of $C_0\left(\sX\right)$.\\
-	(ii) Let  $\widetilde{p}:\widetilde{\sX} \to \sX$ be the universal covering of $\sX$ and let $\widetilde{x}_0\in \widetilde{\sX}$ be such that $\widetilde{p}\left( \widetilde{x}_0 \right) = x_0$. If $\widetilde{p}_\la: \widetilde{\sX} \to \sX_\la$ are natural coverings and $x^\la_0 = \widetilde{p}_\la\left( \widetilde{x}_0\right)$ then there is a pointed topological finite covering category $ \mathfrak{S}_{\left( \sX, \widetilde{p}\left(\widetilde{x}_0 \right) \right)}= \left\{p_\la:\left( \sX_\la, x^\la_0\right) \to \left( \sX, x_0\right)\right\}$. From the Lemma \ref{top_base_point_cor} !!! COROLLARY !!! there is the associated to $\mathfrak{S}_{\left( \sX, \widetilde{p}\left(\widetilde{x}_0 \right) \right)}$ pointed algebraical finite covering category $\left(\left\{C_0\left( p_\la\right): C_0\left( \sX\right)  \to C_0\left( \sX_\la\right)\right\}, \left\{C_0\left( p^\mu_\nu\right)  \right\}_{\substack{ \mu, \nu \in \La \\ \mu > \nu}} \right)$ such that $C_0\left(\widetilde\sX \right)$ is the inverse limit of it (cf. Definition \ref{main_defn}). From \eqref{fg_bas_eqn} it follows that
+	(ii) Let  $\widetilde{p}:\widetilde{\sX} \to \sX$ be the universal covering of $\sX$ and let $\widetilde{x}_0\in \widetilde{\sX}$ be such that $\widetilde{p}\left( \widetilde{x}_0 \right) = x_0$. If $\widetilde{p}_\la: \widetilde{\sX} \to \sX_\la$ are natural coverings and $x^\la_0 = \widetilde{p}_\la\left( \widetilde{x}_0\right)$ then there is a pointed topological finite covering category $ \mathfrak{S}_{\left( \sX, \widetilde{p}\left(\widetilde{x}_0 \right) \right)}= \left\{p_\la:\left( \sX_\la, x^\la_0\right) \to \left( \sX, x_0\right)\right\}$. From the Corollary \ref{top_base_point_cor} there is the associated to $\mathfrak{S}_{\left( \sX, \widetilde{p}\left(\widetilde{x}_0 \right) \right)}$ pointed algebraical finite covering category $\left(\left\{C_0\left( p_\la\right): C_0\left( \sX\right)  \to C_0\left( \sX_\la\right)\right\}, \left\{C_0\left( p^\mu_\nu\right)  \right\}_{\substack{ \mu, \nu \in \La \\ \mu > \nu}} \right)$ such that $C_0\left(\widetilde\sX \right)$ is the inverse limit of it (cf. Definition \ref{main_defn}). From \eqref{fg_bas_eqn} it follows that
 $$
 \pi_1\left(C_0\left(\sX \right) , \left\{C_0\left( p^\mu_\nu\right) \right\} \right) = G\left(\left.C_0\left( \widetilde{\sX}\right) ~\right|~C_0\left( \sX\right)  \right).
 $$
@@ -10877,8 +10875,7 @@ From the our construction $C^*\left(G, R\right)$ is the completion of $M\left( \
 		\left(\left\{ \left.C_0\left( p_\la\right)\right|_R :  R  \hookto  R_\la\right\}, \left\{ \left.C_0\left( p^\mu_{ \nu}\right)\right|_{R_\nu} : R_\nu \hookto R_\mu\right\}\right)\\
 	\end{split}
 	\ee
-
- The formula \eqref{top_inf_cov_oae_eqn} is a specialization of the given by \eqref{comp_oa_eqn} one. Moreover from the Lemma \ref{top_base_point_cor} !!! COROLLARY !!! and the Theorem \ref{top_main_thm} one has a 	good	{pointed algebraical  finite covering category} (cf. Definition \ref{pointed_defn}  !!! CHECK !!!) given by
+ The formula \eqref{top_inf_cov_oae_eqn} is a specialization of the given by \eqref{comp_oa_eqn} one. Moreover from the Corollary \ref{top_base_point_cor}  and the Theorem \ref{top_main_thm} one has a 	good	{pointed algebraical  finite covering category} (cf. Definitions \ref{pointed_defn} and \ref{good_defn}) given by
 	\be\label{top_inf_cov_oa_eqn}
 	\begin{split}
 		\mathfrak{S}^{\text{pt}}_{C_0\left( \sX\right) } =\\
@@ -11084,7 +11081,7 @@ The proof of the Theorem \ref{top_inf_o*_m_thm} is left to the reader.
 Here we consider two  specializations of described in the Section \ref{unb_hilb_sec} theory.
 
 \paragraph{Algebras of unbounded functions}
-Let $\left( \sX, x_0\right) $ be a pointed connected, locally connected, locally compact, Hausdorff space. Let $B \bydef  C_0\left(\sX \right)$, and let $A\bydef Cont\left(\sX \right) $ be a *-algebra of continuous (possibly unbounded)  maps from $\sX$ to $\C$. From the Lemma \ref{top_base_point_cor} !!! COROLLARY !!! one has a {pointed algebraical  finite covering category} (cf. Definition \ref{pointed_defn}  !!! CHECK !!!), given by
+Let $\left( \sX, x_0\right) $ be a pointed connected, locally connected, locally compact, Hausdorff space. Let $B \bydef  C_0\left(\sX \right)$, and let $A\bydef Cont\left(\sX \right) $ be a *-algebra of continuous (possibly unbounded)  maps from $\sX$ to $\C$. From the Corollary \ref{top_base_point_cor} one has a {pointed algebraical  finite covering category} (cf. Definition \ref{pointed_defn}), given by
 \be\nonumber
 \begin{split}
 	\mathfrak{S}^{\mathrm{pt}}_{B} \bydef \left(\left\{\rho_\la: B \hookto B_\la \right\}_{\la \in \La}, \left\{\rho^\mu_\nu: B_\mu \hookto B_\nu\right\}_{\substack{\mu, \nu \in \La\\ \nu > \mu}}\right)\bydef \\ \left(\left\{C_0\left( p_\la\right) : C_0\left(\sX \right)  \hookto C_0\left(\sX_\la \right)\right\}, \left\{C_0\left( p_\nu^\mu\right) : C_0\left(\sX_\nu \right) \hookto C_0\left(\sX_\mu \right)\right\}\right).
@@ -11114,20 +11111,20 @@ is a pointed category of $*$-algebras such that for any $\la, \mu, \nu\in \La$ t
 	the triple $\left(A, \widetilde{A}, G\left(\left.\widetilde A \right| A\right)\cong G\left(\left.\widetilde B \right| B\right)\right)$ is a {unique infinite noncommutative covering of $\mathfrak{S}^{\text{pt}}_A$ associated with $\mathfrak{S}_B^{\mathrm{pt}}$} (cf. Definition \ref{main_ch_defn}).
 \end{lemma}
 \begin{proof}
-If $\widetilde A'$ and  $\widetilde a'\in \widetilde A'$. then from \eqref{hilb_adm_eqn} it follows that
+If $\widetilde A'$ is admissible (cf. \ref{comp_chull_empt}) and  $\widetilde a'\in \widetilde A'$. then from the equation \eqref{hilb_adm_eqn} it follows that
 \be\label{top_hilb_adm_eqn}
-\forall \widetilde b \in C_c\left(\widetilde \sX \right)\quad \exists\la\in\La\quad \exists a_\la \in C_0\left(\sX_\la \right) \quad \widetilde a' \widetilde b = \lift_{\widetilde p_\la} \left( a_\la \right)  \widetilde b
+\forall \widetilde b \in C_c\left(\widetilde \sX \right)\quad \exists\la\in\La\quad \exists a_\la \in C_0\left(\sX_\la \right) \quad \widetilde b \widetilde a' =\widetilde b \lift_{\widetilde p_\la} \left( a_\la \right)  
 \ee
-where 	$\lift_{\widetilde p_\la}$ is the ${\widetilde p_\la}$-lift (cf. Definition \ref{top_lift_defn}). Let both $\mathscr S^{C_0\left(\sX \right) }$ and $\mathscr S^{C_0\left(\widetilde \sX \right) }$ be ${C_0\left(\sX \right) }$-sheaf and ${C_0\left(\widetilde \sX \right) }$-sheaf respectively. Let $\left\{\widetilde \sU_\a\subset \widetilde\sX\right\}$ be a family of open subsets with compact closure  such that $\widetilde\sX = \cup \widetilde\sU_\a$. For any $\sU_\a$ there is a $\left(C_0\left(\widetilde \sX\right) , \widetilde \sY_\a\right)$-{stump} $\widetilde b_\la$ (cf. Remark \ref{top_stump_soft_y_rem})  where $\widetilde \sY_\a$ is the closure of $\widetilde \sU_\a$. From \eqref{top_hilb_adm_eqn} one has
+where 	$\lift_{\widetilde p_\la}$ is the ${\widetilde p_\la}$-lift (cf. Definition \ref{top_lift_defn}). Let both $\mathscr S^{C_0\left(\sX \right) }$ and $\mathscr S^{C_0\left(\widetilde \sX \right) }$ be the ${C_0\left(\sX \right) }$-sheaf and the ${C_0\left(\widetilde \sX \right) }$-sheaf respectively (cf. Definition \ref{top_x_sheaf_defn}). Let $\left\{\widetilde \sU_\a\subset \widetilde\sX\right\}$ be a family of open subsets with compact closure  such that $\widetilde\sX = \cup \widetilde\sU_\a$. For any $\sU_\a$ there is a $\left(C_0\left(\widetilde \sX\right) , \widetilde \sY_\a\right)$-{stump} $\widetilde b_\la$ (cf. Remark \ref{top_stump_soft_y_rem})  where $\widetilde \sY_\a$ is the closure of $\widetilde \sU_\a$. From \eqref{top_hilb_adm_eqn} one has
 $$
-\exists\la\in\La\quad \exists a_\la \in C_0\left(\sX_\la \right) \quad \widetilde a' \widetilde b_\a = \lift_{\widetilde p_\la} \left( a_\la \right)  \widetilde b_\a
+\exists\la\in\La\quad \exists a_\la \in C_0\left(\sX_\la \right) \quad \widetilde b_\a\widetilde a'  =   \widetilde b_\a\lift_{\widetilde p_\la} \left( a_\la \right)
 $$
 and taking into account $\lift_{\widetilde p_\la} \left( a_\la \right)  \widetilde b_\a\in C_0\left(\widetilde\sX\right)$ we conclude that 
 $\widetilde a' \widetilde b_\a\in C_0\left(\widetilde\sX\right)$. 
 The restriction $\left. \widetilde a' \widetilde b_\a\right|_{\widetilde \sU_\a}$ yields  a section 
 $\widetilde s_\a \in \mathscr S^{C_0\left(\widetilde \sX \right) }\left(\widetilde\sU_\a \right)$. From (4) of the Definition \ref{sheaf_defn} it follows that a family $\left\{\widetilde s_\a\right\}$ of local sections  yields a global section $\widetilde s \in \mathscr S^{C_0\left(\widetilde \sX \right) }\left(\widetilde\sX \right)$ which correspond to element of $\widetilde f \in Cont\left( \widetilde \sX\right)$. On the other hand there is a natural inclusion $Cont\left( \widetilde \sX\right)\subset   \End^*_{\widetilde { B}}\left(\widetilde {\mathfrak B}'\right)$. We leave to the user the proof of the equality
 $$
-\forall \widetilde b' \in \widetilde {\mathfrak B}'\quad \left( \widetilde f - \widetilde a'\right) \widetilde b'= 0,
+\forall \widetilde b' \in \widetilde {\mathfrak B}'\quad \widetilde b'\left( \widetilde f - \widetilde a'\right) = 0,
 $$
 or equivalently
 $$
@@ -11155,13 +11152,13 @@ is  a pointed topological finite covering category (cf. Definition \ref{top_sec_
 \end{split}
 \ee
 where $p_\la \bydef q_\la \times \Id_\R$ and $p^\mu_\nu \bydef q^\mu_\nu \times \Id_\R$.	
-If $B_\la\bydef C_0\left(\sY_\la \right)$ then the Lemma \ref{top_base_point_cor} !!! COROLLARY !!! yields a pointed algebraical  finite covering category (cf. Definition \ref{pointed_defn}  !!! CHECK !!!)
+If $B_\la\bydef C_0\left(\sY_\la \right)$ then the Corollary \ref{top_base_point_cor} yields a pointed algebraical  finite covering category (cf. Definition \ref{pointed_defn})
 \be\label{top_sb_eqn}
 \begin{split}
 	\mathfrak{S}^{\text{pt}}_B \bydef \left(\left\{\rho_\la: B \hookto B_\la \right\}_{\la \in \La}, \left\{\rho^\mu_\nu: B_\mu \hookto B_\nu\right\}_{\substack{\mu, \nu \in \La\\ \nu > \mu}}\right).
 \end{split}
 \ee
-From the Theorem \ref{top_main_thm} it follows that $\mathfrak{S}^{\mathrm{pt}}_B$ is good  (cf. Definition \ref{good_defn}  !!! REPLACE REMARK \ref{cond_b_ref_rem} !!!). Moreover and there is a space $\widetilde \sY$  and a transitive covering $\widetilde p: \widetilde \sY\to  \sY$ such that a triple 
+From the Theorem \ref{top_main_thm} it follows that $\mathfrak{S}^{\mathrm{pt}}_B$ is good  (cf. Definition \ref{good_defn}). Moreover and there is a space $\widetilde \sY$  and a transitive covering $\widetilde p: \widetilde \sY\to  \sY$ such that a triple 
 $\left(C_0\left(\sY\right), C_0\left(\widetilde \sY\right),G\left(\left.\widetilde \sY~\right| \mathcal Y\right)\right)
 $ is  an  { infinite noncommutative covering} of $\mathfrak{S}^{\mathrm{pt}}_{B}$ (cf. Definition \ref{main_defn}). This triple we also denote by $\left(B, \widetilde B,G\left(\left.\widetilde B~\right| B\right)\right)
 $.
@@ -11207,6 +11204,7 @@ If  $A$ be a given by \eqref{top_poly_a_defn} *-algebra, and  If $\mathfrak B$ i
 
 
 	\subsection{Coverings of   quasi $*$-algebras}
+	\paragraph{}
 From the Corollary \ref{top_q_fin_lem} it turns out that there  is a %pointed algebraic finite covering category of %
 a family of {noncommutative finite-fold coverings of quasi $*$-algebras} (cf. Remark \ref{top_distr_dens_q_rem} and Definition \ref{oq*fin_defn}) given by
 \be\label{top_comp_pt_qo*_eqn}
@@ -11216,7 +11214,7 @@ a family of {noncommutative finite-fold coverings of quasi $*$-algebras} (cf. Re
 \ee
 
 \begin{lemma}
-The given by \eqref{top_comp_pt_qo*_eqn} family $ \mathfrak{S}^{\text{pt}}_{\left(\Coo_c\left(M \right)', \Coo\left(M \right)    \right) }$  is a \textit{pointed algebraic finite covering category of quasi-$*$-algebras} (cf. Definition \ref{comp_qo*_defn})
+The given by \eqref{top_comp_pt_qo*_eqn} family $ \mathfrak{S}^{\mathrm{pt}}_{\left(\Coo_c\left(M \right)', \Coo\left(M \right)    \right) }$  is a \textit{pointed algebraic finite covering category of quasi-$*$-algebras} (cf. Definition \ref{comp_qo*_defn})
 \end{lemma}
 \begin{proof}
 	In this lemma the pair $\left( \mathfrak A, \mathfrak A_0 \right)$ (resp. $\left( \mathfrak A^\la, \mathfrak A^\la_0 \right)$) of the Definition \ref{comp_qo*_defn} corresponds to $\left(\Coo_c\left(M \right)', \Coo\left(M \right)\right) $ (resp. $\left(\Coo_c\left(M_\la \right)', \Coo\left(M_\la \right)\right)$). The given by \eqref{comp_pt_qo*_eqn} {pointed algebraic finite covering category of quasi-$*$-algebras} corresponds to  $\mathfrak{S}^{\text{pt}}_{\left(\Coo_c\left(M \right)', \Coo\left(M \right)    \right) }$.
@@ -11263,6 +11261,7 @@ Using the Table \ref{top_m_table} one can proof that described here situation is
 \end{empt}
 
 \begin{theorem}\label{top_inf_q*_thm}
+	!!! CONTINUE !!!
 	In situation \ref{top_comp_qo*_empt} the triple
 	$$
 \left(\left(\Coo_c\left(M \right)', \Coo\left(M \right)    \right), \left(\Coo_c\left(\widetilde M \right)', \Coo\left( \widetilde M \right)    \right), G\left(\left. \widetilde M\right| M\right)\right)
@@ -11280,7 +11279,12 @@ $$
 	\forall\widetilde a\in  \widetilde{\mathfrak A}'\quad \widetilde{a}\Coo_c\left(  \widetilde{M}\right) = \{0\}\quad \Rightarrow\quad \widetilde{a}= 0,~ \quad\quad\\
 	\label{top_inv_qo*_rlim_eqn}\forall  \widetilde b \in \Coo_c\left(\widetilde M \right) ~\forall \widetilde a' \in \widetilde{\mathfrak A}' ~\exists a',a'' \in    \bigcup_{\la\in \La} \Coo_c\left( M_\la \right) ~~ \widetilde b\widetilde a=\widetilde b a', ~~  \widetilde a\widetilde b=a''\widetilde b. \quad\quad
 	\eea
-	If  $\left\{f_\a\right\}_{\a\in \mathscr A}\subset C_c\left(\widetilde{M} \right)$ is  a family of functions is a given by the  \eqref{comm_direct_empt} then for any compact $\widetilde{\sY}\subset \widetilde{M}$ there is $\a_{\widetilde{\sY}}$ such that for all $\a\ge \a_{\widetilde{\sY}}$ one has $\widetilde f_\a\left( \widetilde \sY\right) = \{1\}$ (cf. Lemma \ref{comm_direct_lem}). Similarly to the Proposition \ref{top_smooth_part_unity_prop}  one can assume that $\left\{\widetilde f_\a\right\}_{\a \in \mathscr A}\subset \Coo_c\left( \widetilde{M}\right)_+$. If $\left( \widetilde{\mathfrak A}', \Coo\left( \widetilde{M}\right)\right) $ is an admissible quasi *-algebra (cf. Definition \ref{comp_pt_qo*_defn}) then from the equation \ref{top_inv_qo*_rlim_eqn}  it follows that
+	Let $\left\{\widetilde f_\a\right\}_{\a\in \mathscr A}\subset C_c\left(\widetilde{M} \right)_+\cap \Coo\left(M \right)$ be a net of all positive, smooth, compactly supported maps such that 
+\bean
+	\forall \a \in \mathscr A\quad\widetilde f_\a \left(\widetilde{M}\right)\subset [0,1],\\
+	\forall \bt, \ga \in \mathscr A\quad \bt\le\ga \quad \Leftrightarrow \quad \widetilde f_\bt \le \widetilde f_\ga.
+\eean 
+From the Exercise \ref{smooth_soft_exer} it follows that $\Coo\left(\widetilde M \right)\cap C_0\left( \widetilde M\right)$ is a $c$-soft *-algebra. Taking into account the Exercise \ref{top_stump_soft_y_exer} we conclude that for any compact subset $\widetilde \sY$ of $\widetilde\sX$ there is $\a_{\widetilde\sY} \in  \mathscr A$ such that $f_{\a}\left({\widetilde\sY}\right) = \{1\}$ for all $\a \ge\a_{\widetilde\sY}$.  If $\left( \widetilde{\mathfrak A}', \Coo\left( \widetilde{M}\right)\right) $ is an admissible quasi *-algebra (cf. Definition \ref{comp_pt_qo*_defn}) then from the equation \ref{top_inv_qo*_rlim_eqn}  it follows that
 \bean
 \forall \widetilde a\in \widetilde{\mathfrak A}'\quad \forall \a\in \mathscr A\quad	\widetilde f_\a\widetilde a \in \Coo_c\left( \widetilde{M}\right)\left( \bigcup_{\la\in\La} \Coo_c\left( {M}_\la\right)'\right).
 \eean
