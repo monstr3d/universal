@@ -5371,10 +5371,10 @@ From $J^\dagger_\la\left[D, J_\la a^*_\la J^\dagger_\la\right]^*J_\la= \left[D, 
  		$a_\la \in \A_\la$ where the inclusion $\A_\la\subset A_\la\subset M\left(\widetilde{A}_\pi\right)$ is implied.
  		\item[(c)]  If for any $\la \in \La$ and $s \in \N$ the representation $\pi^s_\la: \A_\la \hookto B\left( \H^{2^s}_\la \right)$ is given by  \eqref{s_diff1_repr_equ}, \eqref{s_diff_repr_equ} 
  		and  
- 		inclusion $\pi^s_\la\left( \A_\la\right) \subset B\left(\widetilde\H^{2^s} \right)$ (cf.  \eqref{ps_inc_eqn})  is implied then  the net $\left\{\pi^s_\la\left(a_\la \right)\right\}_{\la \in\La}$  is convergent with respect to the strong topology of  $B\left(\widetilde{\H}^{2^s} \right)$.	
+ 		inclusion $\pi^s_\la\left( \A_\la\right) \subset B\left(\widetilde\H^{2^s} \right)$ (cf.  \eqref{ps_inc_eqn})  is implied then  the net $\left\{\pi^s_\la\left(a_\la \right)\right\}_{\la \in\La}$  is convergent with respect to the strong topology of  $B\left(\widetilde{\H}^{2^s} \right)$ (cf. Definition \ref{strong_topology_defn}).	
  		\item[(d)] If for any $\la\in \La$ the given by \eqref{da_la_eqn}  inclusion $
  		\left[D_\la, \A_\la\right]\subset B\left( \widetilde\H\right)
- 		$ is implied then the net $\left\{\left[D_\la, a_\la\right]\right\}_{\la \in\La}$ is convergent with respect to the strong topology of  $B\left(\widetilde{\H}^{2^s} \right)$.
+ 		$ is implied then the net $\left\{\left[D_\la, a_\la\right]\right\}_{\la \in\La}$ is convergent with respect to the strong topology of  $B\left(\widetilde{\H}^{2^s} \right)$   (cf. Definition \ref{strong_topology_defn}).	.
  	%	Moreover one has
  	%	$$
  	%	\lim_{\la\in \La} \left[D_\la, a_\la\right] \in K\left(\widetilde{A}_\pi\right) \otimes_{\A} \Om^1_D \subset B\left(\widetilde{\H}  \right)
@@ -9847,7 +9847,7 @@ For any compact $\overline{   \mathcal Y } \subset \overline{   \mathcal X }$ th
 Then for any compact $\overline{   \mathcal U } \subset \overline{   \mathcal X }$ there is $\la_{\overline{   \mathcal U }} \in \La$ and a continuous function  $f_{\la_{\overline{   \mathcal U }}}: \sX_{\la_{\overline{   \mathcal U }}}\to[0,1]$ such that $f_{\la_{\overline{   \mathcal U }}}\left(\overline p_{\la_{\overline{   \mathcal U }}}\left( \overline{   \mathcal U }\right)  \right)= \{1\}$ and  $\supp f_{\la_{\overline{   \mathcal U }}}\cap g \supp f_{\la_{\overline{   \mathcal U }}}=\emptyset$ for all nontrivial $g\in G\left( \left.{{\sX}}_{\la_{\overline{   \mathcal U }}}~\right|\sX\right)$.
 \end{corollary}
 \begin{proof}
-	If $\overline f$ is a covering sum of $\widetilde \sU$ (cf. Definition \ref{top_covering_sum_defn}) then the support $\supp \widetilde f$ is compact. If we put $\la_{\overline{   \mathcal U }}\bydef \la_{\supp \widetilde f}$
+	If $\overline f$ is a covering sum of $\overline \sU$ (cf. Definition \ref{top_covering_sum_defn}) then the support $\supp \overline f$ is compact. If we put $\la_{\overline{   \mathcal U }}\bydef \la_{\supp \widetilde f}$
 		 and $f_{\la_{\overline{   \mathcal U }}} \bydef \desc_{\overline{p}_{ \la_{\supp \widetilde f}}} \left(\overline f \right)$ then the conditions of this Corollary are satisfied.
  \end{proof}
 \begin{exercise}\label{top_comp_la_exer}
@@ -11697,32 +11697,55 @@ An element $\widetilde a \in K\left( C_0\left(\widetilde M \right) \right) \cong
 	 	\begin{enumerate}
 		\item[(a)] Evident.
 		\item[(b)] Follows from the Lemma \ref{top_smooth_a_lem}
-		\item[(c)] From $\widetilde a\in C_c\left(\widetilde M\right)$ it follows that $\supp \widetilde a$ is compact. If $\widetilde\xi\in L^2\left(\widetilde M, \widetilde S, \widetilde \mu\right)^{2^s}$ then 
+		\item[(c)] From $\widetilde a\in C_c\left(\widetilde M\right)$ it follows that $\supp \widetilde a$ is compact. From the Lemma \ref{top_comp_la_lem} it follows that for there is $\la_{\supp \widetilde a}$ such that $\supp \widetilde a$ is mapped homeomorphically onto $\widetilde p_{\la_{\supp \widetilde a}}\left(\supp \widetilde a\right)$.  If $G_\la \bydef \ker\left(G\left(\left.\widetilde M\right| M\right)\to G\left(\left.M_\la \right| M\right)\right) $ and 
+	\bean
+\forall \la \in \La \quad \la \ge 	\la_{\supp \widetilde a} \quad \forall g_1, g_2 \in G_\la \quad 	g_1 \neq g_2 \quad \Rightarrow \\
+\Rightarrow g_1 \supp \widetilde a\cap g_2 \supp \widetilde a= \emptyset
+	\eean
+		If $\widetilde\xi\in L^2\left(\widetilde M, \widetilde S, \widetilde \mu\right)^{2^s}$ and $e\in G\left(\left.\widetilde M\right| M\right)$ is the  neutral  element then 
 		$$
-	\left\| \widetilde \xi \right\|^2\le \sum_{g \in G\left(\left.\widetilde M\right| M\right)}
+	\left\| \widetilde \xi \right\|^2\le \sum_{g \in G_{\supp \widetilde a}}
 \left\| \chi_{\supp g\widetilde a} \widetilde \xi \right\|^2$$
-where $ \chi_{\supp g\widetilde a}$ is a characteristic function of $\supp g\widetilde a$  (cf. Definition \ref{top_char_f_defn}). If $e\in G\left(\left.\widetilde M\right| M\right)$ is a neutral  element then for any $\delta > 0$ there is a finite subset $S'\subset  G\left(\left.\widetilde M\right| M\right)\setminus\{e\}$ such that
+where $ \chi_{\supp g\widetilde a}$ is a characteristic function of $\supp g\widetilde a$  (cf. Definition \ref{top_char_f_defn}). For any $\delta > 0$ there is a finite subset $S'\subset  G\left(\left.\widetilde M\right| M\right)\setminus\{e\}$ such that
  $$
- \sum_{g \in G\left(\left.\widetilde M\right| M\right)\setminus \left(S' \cup \{e\}\right)}
+ \sum_{g \in G_{\la_{\supp \widetilde a}}\setminus \left(S' \cup \{e\}\right)}
  \left\| \chi_{\supp g\widetilde a} \widetilde \xi \right\|^2 < \delta.
  $$ 
- So for any $\eps > 0$ one can select a finite subset $S\subset  G\left(\left.\widetilde M\right| M\right)\setminus\{e\}$ such that
+ So for any $\eps > 0$ one can select a finite subset $S\subset _{\la_{\supp \widetilde a}}\setminus\{e\}$ such that
  $$
- \left\| \sum_{g \in G\left(\left.\widetilde M\right| M\right)\setminus \left(S \cup \{e\}\right)} \chi_{\supp g\widetilde a} \widetilde \xi \right\|< \frac{\eps }{ \left\|\pi^s\left( \widetilde a\right)  \right\|}
+ \left\| \sum_{g \in G_{\la_{\supp \widetilde a}}\setminus \left(S \cup \{e\}\right)} \chi_{\supp g\widetilde a} \widetilde \xi \right\|< \frac{\eps }{ \left\|\pi^s\left( \widetilde a\right)  \right\|}
  $$ 
-If $G_\la \bydef \ker\left(G\left(\left.\widetilde M\right| M\right)\to G\left(\left.M_\la \right| M\right)\right) $ then since the set $S$ is finite and 
+ then since the set $S$ is finite and 
 $$
 \bigcap_{\la \in \La}G_\la = \{e\}
 $$
- there is $\la_S \in \La$ such that 
+ there is $\la_S \in \La$ such that $\la_S \ge \la_{\supp \widetilde a}$ and
  $$
 \la \ge \la_S \quad \Rightarrow \quad S \cap  G_\la= \emptyset.
  $$
- From out construction it follows that
+ From our construction it follows that
 \bean
 \la \ge \la_S~~\Rightarrow~~ \quad\left\|\pi^s\left( \widetilde a\right) \widetilde \xi - \sum_{	g \in G_\la }\pi^s\left( g\widetilde a\right) \widetilde \xi \right\|= \left\|\pi^s\left( \widetilde a\right) \widetilde \xi - \pi^s\left( a_\la\right) \widetilde \xi \right\|< \eps,
 \eean
-i.e. the net $\left\{\pi^s_\la\left(a_\la \right)\right\}_{\la \in\La}$  is convergent with respect to the strong topology of  $B\left(L^2\left(\widetilde M, \widetilde S, \widetilde \mu\right)^{2^s}\right)$		\item[(d)] Can be proven similarly to (c).
+i.e. the net $\left\{\pi^s_\la\left(a_\la \right)\right\}_{\la \in\La}$  is convergent with respect to the strong topology of 
+ $B\left(L^2\left(\widetilde M, \widetilde S, \widetilde \mu\right)^{2^s}\right)$		\item[(d)] 	If $\widetilde \eta \in L^2\left(\widetilde M, \widetilde S, \widetilde \mu\right)$ 
+ then for any $\eps> 0$ there is $\widetilde \zeta \in \Ga_c^\infty\left(\widetilde M, \widetilde S \right)$ such that
+ $$
+ \left\|\widetilde \eta - \widetilde \zeta\right\|< \frac{\eps}{2  \left\|\left[\Dslash_{\la_{\supp \widetilde a}}, a_{\la_{\supp \widetilde a}} \right]\right\| }
+$$
+
+
+\be\label{top_cond_b_eqn}
+\lim_{\la\in\La }\left[\Dslash_{\la}, a_{\la} \right]= \sum^n_{j = 1} \lift^{\widetilde{p}_{\la_{\widetilde \sU} }}_{\widetilde\sU}\left(a_j \right) \otimes \om_j \in C_c\left(\widetilde M \right) \otimes \Om_{\Dslash}.
+\ee
+		
+		
+			
+		If for any $\la\in \La$ the given by \eqref{da_la_eqn}  inclusion $
+\left[D_\la, \A_\la\right]\subset B\left( \widetilde\H\right)
+$ is implied then the net $\left\{\left[D_\la, a_\la\right]\right\}_{\la \in\La}$ is convergent with respect to the strong topology of  $B\left(\widetilde{\H}^{2^s} \right)$   (cf. Definition \ref{strong_topology_defn}).	.
+
+Can be proven similarly to (c).
 	\end{enumerate}
 	
 \end{proof}
