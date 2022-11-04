@@ -7597,6 +7597,116 @@ the series
 
 
 \section{Sheaves lift and descent}
+\subsection{Inverse images lift and descent}
+\paragraph*{}
+If we consider the situation of the Definition \ref{sheaf_inv_im_defn} then the {inverse image}  $f^{-1}\mathscr G$ on $\sX$ is the sheaf  associated to the presheaf  $\sU \mapsto \lim_{\sV \supseteq f\left(\sU\right)} \mathscr G\left(\sV\right)$, where $\sU$ is any open set in $\sX$, and the limit is taken over all open sets $\sV$ of $\sX$ containing $f\left(\sU\right)$. If the map $f$ is surjective then one has  $\lim_{\sV \supseteq f\left(\sX\right)} \mathscr G\left(\sV\right)\cong \mathscr  G\left(\sX\right)$ it follows that there is the injective homomorphism 
+\be\label{top_cs_sheaf_inc_eqn}
+f^{-1}_{\mathscr  G}:\mathscr  G\left(\sX\right)\hookto f^{-1}\mathscr  G\left(\sY\right)
+\ee
+of Abelian groups.
+
+\begin{exercise}\label{top_sheaf_lift_exer}
+	Let $p:\widetilde \sX\to \sX$ be a covering (cf. Definition \ref{top_covering_defn}), and let $\mathscr F$ be a sheaf on $\sX$. Prove following statements:
+	\begin{enumerate}
+		\item For all $\widetilde x\in\widetilde\sX$ there is a natural isomorphism of stalks (cf. Definition \ref{stalk_defn})
+		\be\label{top_st_iso_eqn}
+		p_{\widetilde x}:	\mathscr  F_{p\left( \widetilde x\right) }\cong p^{-1}\mathscr  F_{\widetilde x}.
+		\ee
+		\item The given by \eqref{top_cs_sheaf_inc_eqn} homomorphism
+		$$
+		p^{-1}_{\mathscr  F}:\mathscr  F\left(\sX\right)\hookto p^{-1}\mathscr  F\left(\widetilde \sX\right)
+		$$ can be described by the following way. 
+		Elements $\xi \in \mathscr  F\left(\sX\right)$ and $\widetilde \xi\in  p^{-1}\mathscr  F\left(\widetilde \sX\right)$ can be represented by global continuous sections $s : \sX \to \mathrm{Sp\acute{e}}\left(\mathscr F \right)$ and $\widetilde s : \widetilde\sX \to \mathrm{Sp\acute{e}}\left(p^{-1}\mathscr F \right)$ of les \'espaces etal\'e (cf. Exercise \ref{sheaf_etale_exer}). We put
+		\be\label{top_shaf_cx_eqn}
+		\widetilde \xi = p^{-1}_{\mathscr  F}\xi \quad \Leftrightarrow\quad  \forall \widetilde x \in \widetilde \sX \quad p_{\widetilde x}\left( \widetilde s \left(\widetilde x\right)\right) = s\left({p\left( \widetilde x\right) }\right).
+		\ee
+		\item If both $p': \sX'\to \sX$ and $p'' :\sX''\to \sX'$ are coverings
+		then one has
+		\bea\label{top_sh1_comp_eqn}
+		(p'\circ p'')^{-1}\mathscr  F = p''^{-1}\left( p'^{-1}\mathscr  F\right),\quad\\
+		\label{top_sh2_comp_eqn}  
+		(p''\circ p')_{\widetilde x}= p''_{\widetilde x}\circ p'_{p''\left( \widetilde x\right) }~~:\quad \mathscr  F_{(p''\circ p')\left( \widetilde x\right) }\cong (p''\circ p')^{-1}\mathscr  F_{\widetilde x}\quad \text{(cf. \eqref{top_st_iso_eqn})}\quad
+		\eea
+		
+	\end{enumerate}
+	
+\end{exercise}
+\begin{definition}\label{top_sheaf_lift_defn}
+	In the situation of the Exercise  \ref{top_sheaf_lift_exer} we say that $\widetilde{\xi}$ is the $p$-\textit{lift} of $\xi$. We also use the following notation
+	\be\label{top_sheaf_lift_eqn}
+	\begin{split}
+		\lift_p:\mathscr  F\left(\sX\right)\hookto p^{-1}\mathscr  F\left(\widetilde \sX\right),\\
+		\widetilde{\xi} = \lift_p\left( \xi\right) .
+	\end{split}
+	\ee
+\end{definition}
+
+\begin{remark}
+	The Definition \ref{top_sheaf_lift_defn} complies with the Definition \ref{top_glo_lift_h_eqn}.
+\end{remark}
+\begin{remark}\label{top_sheaf_lift_rem}
+	Sometimes we write $\lift_p^{\text{sheaf}}$ for distinguishing  this lift with the given by  \eqref{top_glo_lift_h_eqn} one (cf, Remark \ref{top_top_lift_rem}) (cf. Exercise \ref{top_sheaf_corr_exer} below).
+\end{remark}
+\begin{remark}
+	If both $p': \sX'\to \sX$ and $p'' :\sX''\to \sX'$ are coverings then from \eqref{top_sh2_comp_eqn} it follows that
+	\be\label{top_sh_lift_comp_eqn}
+	\lift_{p''\circ p'} = \lift_{p''} \circ \lift_{p'},
+	\ee
+	or equivalently
+		\be\label{top_sh_inv_comp_eqn}
+	\left( p''\circ p'\right)^{-1}  = p''^{-1}\circ p'^{-1}.
+	\ee
+\end{remark}
+Following definition is an analog of the Definition \ref{top_lift_desc_defn}.
+\begin{definition}\label{top_lift_sh_desc_defn}
+	Let $\mathscr F$ 	be a sheaf on  $\sX$ (cf. Definition \ref{sheaf_defn}), and let $p: \widetilde{\sX}\to\sX$ be a covering. Let $\widetilde{\sU}$ be an open subset such that the restriction $\left.p\right|_{\widetilde{\sU}}$ is injective. Let $\sU\bydef p\left( \widetilde{\sU}\right)$. If $a \in\mathscr F\left(\sX\right)$ is such that $\supp a \subset \sU$ and $\widetilde{a}'= \lift_p\left( a\right)$. Suppose that $\widetilde{a}'$ is represented by a continuous section $\widetilde s' : \widetilde\sX \to \mathrm{Sp\acute{e}}\left(p^{-1}\mathscr F \right)$ (cf. Exercise \ref{sheaf_etale_exer}). There is a continuous section $\widetilde s : \widetilde\sX \to \mathrm{Sp\acute{e}}\left(p^{-1}\mathscr F \right)$ such that
+	\be\label{comm_sh_lift_desc_eqn}
+	\widetilde{s}\left( \widetilde{x}\right) =\left\{\begin{array}{c l}
+		\widetilde{s}'\left( \widetilde{x}\right)    &{\widetilde{x}}\in \widetilde{\sU} \\
+		0 &{\widetilde{x}}\notin \widetilde{\sU}\\
+	\end{array}\right.
+	\ee
+	Corresponding element $\widetilde \xi \in  p^{-1}\mathscr F\left(\widetilde\sX\right)$
+	is said to be the $p$-$\widetilde{\sU}$-\textit{lift} or simply the $\widetilde{\sU}$-\textit{lift} of $\xi$. Otherwise we say that $\xi$ is the $p$-\textit{descent} of $ \widetilde{\xi}$. We write
+	\be\label{top_sh_lift_desc_eqn}
+	\begin{split}
+		\widetilde{\xi}\stackrel{\text{def}}{=} \lift^p_{\widetilde{\sU}}\left(\xi \right)  \text{ or simply } \widetilde{\xi}\stackrel{\text{def}}{=} \lift_{\widetilde{\sU}}\left(\xi \right), \\
+		\xi \stackrel{\text{def}}{=} \desc_{p} \left(\widetilde{\xi}  \right)  \text{ or simply } \xi \stackrel{\text{def}}{=} \desc \left(\widetilde{\xi}  \right).
+	\end{split}
+	\ee
+\end{definition}
+\begin{remark}
+	if $\xi = \desc_{p} \left(\widetilde{\xi}  \right)$ then $\xi$ is represented by the section  $s: \sX \to \mathrm{Sp\acute{e}}\left(\mathscr F \right)$ such that
+	\be\label{top_sh_desc_eqn}
+	s_x = \begin{cases}
+		p^{-1}_{\widetilde x}\left( 	\widetilde{s}_{\widetilde{x}}\right)  & x \in \sU ~\text{AND} ~ \widetilde x \in \widetilde\sU~\text{AND} ~p\left( \widetilde{x}\right) = x \\
+		0 &  x \notin \sU
+	\end{cases}	\quad 
+	\ee 
+	where	$p_{\widetilde x}$ \text{ is given by }\eqref{top_st_iso_eqn} and the continuous section 
+	$\widetilde s: \widetilde \sX\to  \mathrm{Sp\acute{e}}\left(p^{-1}\mathscr F\right) \left( \widetilde \sX \right)$ represents $\widetilde \xi$,
+\end{remark}
+\begin{remark}
+	From the equation \eqref{top_shaf_cx_eqn} it turns out that
+	\begin{equation}\label{comm_sh_lift_desc_l_eqn}
+		\begin{split}
+			\xi = \mathfrak{desc}_{p}\left( \mathfrak{lift}^p_{\widetilde{\mathcal U}}\left(\xi \right)\right) ,\\
+			\widetilde{\xi} = \mathfrak{lift}^p_{\widetilde{\mathcal U}}\left( \mathfrak{desc}_{p}\left(\widetilde{\xi} \right)\right). 
+		\end{split}
+	\end{equation}	
+	The system of equations \eqref{comm_sh_lift_desc_l_eqn} is an analog of \eqref{comm_lift_desc_l_eqn} one.
+\end{remark}
+
+\begin{exercise}
+	Consider the situation of the Definition \ref{top_lift_sh_desc_defn}. Suppose that  $ \mathscr End\left(\mathscr F \right) \bydef \mathscr Hom \left(\mathscr F,\mathscr F \right)$ is the {sheaf of local morphisms} (cf. Definition \ref{sheaf_hom_defn}).
+	Let $p: \widetilde \sX\to\sX$ be a covering, and let  $\widetilde\sU\subset\widetilde \sX$ be an open subset homeomorphically mapped onto $\sU \bydef p\left(\widetilde\sU\right)$. 
+	Prove that
+	\be\label{top_ldx_eqn}
+	\begin{split}
+		\forall D \in \mathscr End\left(\mathscr F \right)\quad \forall a \in \mathscr End\left(\mathscr F \right)\quad \supp a\subset \sU\quad\Rightarrow\quad \lift^p_{\widetilde\sU}\left( \left[ D, a\right]\right) = \\= \left[ \lift_p\left(D \right) ,\lift^p_{\widetilde \sU}(a)\right].
+	\end{split}
+	\ee
+\end{exercise}
 
 \subsection{Modules and sheaves}
 \paragraph*{}
@@ -7682,107 +7792,6 @@ Prove that if $p: \widetilde \sX \to \sX$ is a covering then an intersection $p^
 
 \begin{exercise}\label{smooth_soft_exer}
 Let $M$ be a smooth paracompact manifold. Using the Proposition \ref{top_smooth_part_unity_prop} prove that $\Coo_0\left(M\right)\bydef \Coo\left(M\right)\cap C_0\left(M\right)\subset C_0\left(M\right)$ is a $c$-soft *-algebra.
-\end{exercise}
-\subsection{Inverse images lift and descent}
-\paragraph*{}
-If we consider the situation of the Definition \ref{sheaf_inv_im_defn} then the {inverse image}  $f^{-1}\mathscr G$ on $\sX$ is the sheaf  associated to the presheaf  $\sU \mapsto \lim_{\sV \supseteq f\left(\sU\right)} \mathscr G\left(\sV\right)$, where $\sU$ is any open set in $\sX$, and the limit is taken over all open sets $\sV$ of $\sX$ containing $f\left(\sU\right)$. If the map $f$ is surjective then one has  $\lim_{\sV \supseteq f\left(\sX\right)} \mathscr G\left(\sV\right)\cong \mathscr  G\left(\sX\right)$ it follows that there is the injective homomorphism 
-\be\label{top_cs_sheaf_inc_eqn}
-f^{-1}_{\mathscr  G}:\mathscr  G\left(\sX\right)\hookto f^{-1}\mathscr  G\left(\sY\right)
-\ee
-of Abelian groups.
-
-\begin{exercise}\label{top_sheaf_lift_exer}
-Let $p:\widetilde \sX\to \sX$ be a covering (cf. Definition \ref{top_covering_defn}), and let $\mathscr F$ be a sheaf on $\sX$. Prove following statements:
-\begin{enumerate}
-	\item For all $\widetilde x\in\widetilde\sX$ there is a natural isomorphism of stalks (cf. Definition \ref{stalk_defn})
-	\be\label{top_st_iso_eqn}
-p_{\widetilde x}:	\mathscr  F_{p\left( \widetilde x\right) }\cong p^{-1}\mathscr  F_{\widetilde x}.
-	\ee
-	\item The given by \eqref{top_cs_sheaf_inc_eqn} homomorphism
-	$$
-p^{-1}_{\mathscr  F}:\mathscr  F\left(\sX\right)\hookto p^{-1}\mathscr  F\left(\widetilde \sX\right)
-$$ can be described by the following way. 
-Elements $\xi \in \mathscr  F\left(\sX\right)$ and $\widetilde \xi\in  p^{-1}\mathscr  F\left(\widetilde \sX\right)$ can be represented by global continuous sections $s : \sX \to \mathrm{Sp\acute{e}}\left(\mathscr F \right)$ and $\widetilde s : \widetilde\sX \to \mathrm{Sp\acute{e}}\left(p^{-1}\mathscr F \right)$ of les \'espaces etal\'e (cf. Exercise \ref{sheaf_etale_exer}). We put
-\be\label{top_shaf_cx_eqn}
-\widetilde \xi = p^{-1}_{\mathscr  F}\xi \quad \Leftrightarrow\quad  \forall \widetilde x \in \widetilde \sX \quad p_{\widetilde x}\left( \widetilde s \left(\widetilde x\right)\right) = s\left({p\left( \widetilde x\right) }\right).
-\ee
-\item If both $p': \sX'\to \sX$ and $p'' :\sX''\to \sX'$ are coverings
-then one has
-\bea\label{top_sh1_comp_eqn}
-(p'\circ p'')^{-1}\mathscr  F = p''^{-1}\left( p'^{-1}\mathscr  F\right),\quad\\
-\label{top_sh2_comp_eqn}  
-(p''\circ p')_{\widetilde x}= p''_{\widetilde x}\circ p'_{p''\left( \widetilde x\right) }~~:\quad \mathscr  F_{(p''\circ p')\left( \widetilde x\right) }\cong (p''\circ p')^{-1}\mathscr  F_{\widetilde x}\quad \text{(cf. \eqref{top_st_iso_eqn})}\quad
-\eea
-
-\end{enumerate}
-
-\end{exercise}
-\begin{definition}\label{top_sheaf_lift_defn}
-In the situation of the Exercise  \ref{top_sheaf_lift_exer} we say that $\widetilde{\xi}$ is the $p$-\textit{lift} of $\xi$. We also use the following notation
-\be\label{top_sheaf_lift_eqn}
-\begin{split}
-\lift_p:\mathscr  F\left(\sX\right)\hookto p^{-1}\mathscr  F\left(\widetilde \sX\right),\\
-	\widetilde{\xi} = \lift_p\left( \xi\right) .
-\end{split}
-\ee
-\end{definition}
-
-\begin{remark}
-The Definition \ref{top_sheaf_lift_defn} complies with the Definition \ref{top_glo_lift_h_eqn}.
-\end{remark}
-\begin{remark}\label{top_sheaf_lift_rem}
-		Sometimes we write $\lift_p^{\text{sheaf}}$ for distinguishing  this lift with the given by  \eqref{top_glo_lift_h_eqn} one (cf, Remark \ref{top_top_lift_rem}) (cf. Exercise \ref{top_sheaf_corr_exer} below).
-	\end{remark}
-
-Following definition is an analog of the Definition \ref{top_lift_desc_defn}.
-\begin{definition}\label{top_lift_sh_desc_defn}
-	Let $\mathscr F$ 	be a sheaf on  $\sX$ (cf. Definition \ref{sheaf_defn}), and let $p: \widetilde{\sX}\to\sX$ be a covering. Let $\widetilde{\sU}$ be an open subset such that the restriction $\left.p\right|_{\widetilde{\sU}}$ is injective. Let $\sU\bydef p\left( \widetilde{\sU}\right)$. If $a \in\mathscr F\left(\sX\right)$ is such that $\supp a \subset \sU$ and $\widetilde{a}'= \lift_p\left( a\right)$. Suppose that $\widetilde{a}'$ is represented by a continuous section $\widetilde s' : \widetilde\sX \to \mathrm{Sp\acute{e}}\left(p^{-1}\mathscr F \right)$ (cf. Exercise \ref{sheaf_etale_exer}). There is a continuous section $\widetilde s : \widetilde\sX \to \mathrm{Sp\acute{e}}\left(p^{-1}\mathscr F \right)$ such that
-	\be\label{comm_sh_lift_desc_eqn}
-	\widetilde{s}\left( \widetilde{x}\right) =\left\{\begin{array}{c l}
-		\widetilde{s}'\left( \widetilde{x}\right)    &{\widetilde{x}}\in \widetilde{\sU} \\
-		0 &{\widetilde{x}}\notin \widetilde{\sU}\\
-	\end{array}\right.
-	\ee
-	Corresponding element $\widetilde \xi \in  p^{-1}\mathscr F\left(\widetilde\sX\right)$
-	is said to be the $p$-$\widetilde{\sU}$-\textit{lift} or simply the $\widetilde{\sU}$-\textit{lift} of $\xi$. Otherwise we say that $\xi$ is the $p$-\textit{descent} of $ \widetilde{\xi}$. We write
-	\be\label{top_sh_lift_desc_eqn}
-	\begin{split}
-		\widetilde{\xi}\stackrel{\text{def}}{=} \lift^p_{\widetilde{\sU}}\left(\xi \right)  \text{ or simply } \widetilde{\xi}\stackrel{\text{def}}{=} \lift_{\widetilde{\sU}}\left(\xi \right), \\
-		\xi \stackrel{\text{def}}{=} \desc_{p} \left(\widetilde{\xi}  \right)  \text{ or simply } \xi \stackrel{\text{def}}{=} \desc \left(\widetilde{\xi}  \right).
-	\end{split}
-	\ee
-\end{definition}
-\begin{remark}
-	if $\xi = \desc_{p} \left(\widetilde{\xi}  \right)$ then $\xi$ is represented by the section  $s: \sX \to \mathrm{Sp\acute{e}}\left(\mathscr F \right)$ such that
-	\be\label{top_sh_desc_eqn}
-	s_x = \begin{cases}
-		p^{-1}_{\widetilde x}\left( 	\widetilde{s}_{\widetilde{x}}\right)  & x \in \sU ~\text{AND} ~ \widetilde x \in \widetilde\sU~\text{AND} ~p\left( \widetilde{x}\right) = x \\
-		0 &  x \notin \sU
-	\end{cases}	\quad 
-	\ee 
-	where	$p_{\widetilde x}$ \text{ is given by }\eqref{top_st_iso_eqn} and the continuous section 
-	$\widetilde s: \widetilde \sX\to  \mathrm{Sp\acute{e}}\left(p^{-1}\mathscr F\right) \left( \widetilde \sX \right)$ represents $\widetilde \xi$,
-\end{remark}
-\begin{remark}
-	From the equation \eqref{top_shaf_cx_eqn} it turns out that
-	\begin{equation}\label{comm_sh_lift_desc_l_eqn}
-		\begin{split}
-			\xi = \mathfrak{desc}_{p}\left( \mathfrak{lift}^p_{\widetilde{\mathcal U}}\left(\xi \right)\right) ,\\
-			\widetilde{\xi} = \mathfrak{lift}^p_{\widetilde{\mathcal U}}\left( \mathfrak{desc}_{p}\left(\widetilde{\xi} \right)\right). 
-		\end{split}
-	\end{equation}	
-The system of equations \eqref{comm_sh_lift_desc_l_eqn} is an analog of \eqref{comm_lift_desc_l_eqn} one.
-\end{remark}
-
-\begin{exercise}
-	Consider the situation of the Definition \ref{top_lift_sh_desc_defn}. Suppose that  $ \mathscr End\left(\mathscr F \right) \bydef \mathscr Hom \left(\mathscr F,\mathscr F \right)$ is the {sheaf of local morphisms} (cf. Definition \ref{sheaf_hom_defn}).
-	Let $p: \widetilde \sX\to\sX$ be a covering, and let  $\widetilde\sU\subset\widetilde \sX$ be an open subset homeomorphically mapped onto $\sU \bydef p\left(\widetilde\sU\right)$. 
-	Prove that
-	\be\label{top_ldx_eqn}
-	\begin{split}
-	\forall D \in \mathscr End\left(\mathscr F \right)\quad \forall a \in \mathscr End\left(\mathscr F \right)\quad \supp a\subset \sU\quad\Rightarrow\quad \lift^p_{\widetilde\sU}\left( \left[ D, a\right]\right) = \\= \left[ \lift_p\left(D \right) ,\lift^p_{\widetilde \sU}(a)\right].
-	\end{split}
-	\ee
 \end{exercise}
 \subsection{Sheaves and continuity structures}
 \paragraph{}
@@ -11712,9 +11721,9 @@ where $ \chi_{\supp g\widetilde a}$ is a characteristic function of $\supp g\wid
  \left\| \chi_{\supp g\widetilde a} \widetilde \xi \right\|^2 < \delta.
  $$ 
  So for any $\eps > 0$ one can select a finite subset $S\subset _{\la_{\supp \widetilde a}}\setminus\{e\}$ such that
- $$
+ \be\label{top_se_eqn}
  \left\| \sum_{g \in G_{\la_{\supp \widetilde a}}\setminus \left(S \cup \{e\}\right)} \chi_{\supp g\widetilde a} \widetilde \xi \right\|< \frac{\eps }{ \left\|\pi^s\left( \widetilde a\right)  \right\|}
- $$ 
+\ee 
  then since the set $S$ is finite and 
 $$
 \bigcap_{\la \in \La}G_\la = \{e\}
@@ -11728,27 +11737,41 @@ $$
 \la \ge \la_S~~\Rightarrow~~ \quad\left\|\pi^s\left( \widetilde a\right) \widetilde \xi - \sum_{	g \in G_\la }\pi^s\left( g\widetilde a\right) \widetilde \xi \right\|= \left\|\pi^s\left( \widetilde a\right) \widetilde \xi - \pi^s\left( a_\la\right) \widetilde \xi \right\|< \eps,
 \eean
 i.e. the net $\left\{\pi^s_\la\left(a_\la \right)\right\}_{\la \in\La}$  is convergent with respect to the strong topology of 
- $B\left(L^2\left(\widetilde M, \widetilde S, \widetilde \mu\right)^{2^s}\right)$		\item[(d)] 	If $\widetilde \eta \in L^2\left(\widetilde M, \widetilde S, \widetilde \mu\right)$ 
- then for any $\eps> 0$ there is $\widetilde \zeta \in \Ga_c^\infty\left(\widetilde M, \widetilde S \right)$ such that
+ $B\left(L^2\left(\widetilde M, \widetilde S, \widetilde \mu\right)^{2^s}\right)$		\item[(d)] 	The space $\Ga_c^\infty\left(\widetilde M, \widetilde S \right)$ of compactly supported is dense in $L^2\left(\widetilde M, \widetilde S, \widetilde \mu\right)$ so we should prove that a net 
+\bean
+\left\lbrace \left[D_\la, \sum_{	g \in G_\la}\widetilde a_\la \right]\widetilde\eta\right\rbrace_{\la\in\La}
+\eean  
+ for any $\widetilde\eta\in \Ga_c^\infty\left(\widetilde M, \widetilde S \right)$. Similarly to the equation \ref{top_se_eqn} for all $\eps$ one can find a finite subset  $T\subset G_{\la_{\supp \widetilde a}}\setminus\{e\}$
+\bean
+ \left\| \sum_{g \in G_{\la_{\supp \widetilde a}}\setminus \left(T \cup \{e\}\right)} \chi_{\supp g\widetilde a} \widetilde \eta \right\|< \frac{\eps }{ \left\|\left[\Dslash_{\la_{\supp \widetilde a}}, a_{\la_{\supp \widetilde a}} \right]\right\|}.
+ \eean 
+There is $\la_T \in \La$ such that $\la_T \ge \la_{\supp \widetilde a}$ and
  $$
- \left\|\widetilde \eta - \widetilde \zeta\right\|< \frac{\eps}{2  \left\|\left[\Dslash_{\la_{\supp \widetilde a}}, a_{\la_{\supp \widetilde a}} \right]\right\| }
-$$
-
-
-\be\label{top_cond_b_eqn}
-\lim_{\la\in\La }\left[\Dslash_{\la}, a_{\la} \right]= \sum^n_{j = 1} \lift^{\widetilde{p}_{\la_{\widetilde \sU} }}_{\widetilde\sU}\left(a_j \right) \otimes \om_j \in C_c\left(\widetilde M \right) \otimes \Om_{\Dslash}.
-\ee
-		
-		
-			
-		If for any $\la\in \La$ the given by \eqref{da_la_eqn}  inclusion $
-\left[D_\la, \A_\la\right]\subset B\left( \widetilde\H\right)
-$ is implied then the net $\left\{\left[D_\la, a_\la\right]\right\}_{\la \in\La}$ is convergent with respect to the strong topology of  $B\left(\widetilde{\H}^{2^s} \right)$   (cf. Definition \ref{strong_topology_defn}).	.
-
-Can be proven similarly to (c).
+ \la \ge \la_T \quad \Rightarrow \quad T \cap  G_\la= \emptyset.
+ $$
+ From our construction it follows that
+ \bean
+ \la \ge \la_T~~\Rightarrow~~ \quad\left\|\left[\Dslash_{\la}, a_{\la} \right]\widetilde \eta-\left[\Dslash_{\la_{T}}, a_{\la_{T}} \right]\widetilde \eta \right\|< \eps,
+ \eean
+ i.e. the net $\left\{\left[\Dslash_{\la}, a_{\la} \right]\right\}_{\la\in\La}$  is convergent with respect to the strong topology of 
+ $B\left(L^2\left(\widetilde M, \widetilde S, \widetilde \mu\right)\right)$. If  $\mathscr S^{\Ga_c^\infty\left(\widetilde M, \widetilde S \right)}$ is a $\Ga_c^\infty\left(\widetilde M, \widetilde S \right)$-sheaf (cf. Definition \ref{top_x_sheaf_defn}) then $\widetilde\eta \in \mathscr S^{\Ga_c^\infty\left(\widetilde M, \widetilde S \right)}\left(\widetilde M \right) $. Moreover if   $\mathscr S^{\Ga_c^\infty\left( M_{\la_{\supp \widetilde a}},  S_{\la_{\supp \widetilde a}} \right)}$ is a $\Ga_c^\infty\left( M_{\la_{\supp \widetilde a}},  S_{\la_{\supp \widetilde a}} \right)$-sheaf then on has
+ \bean
+ \Dslash_{\la_{\supp \widetilde a}}\in \mathscr Hom \left( \mathscr S^{\Ga_c^\infty\left( M_{\la_{\supp \widetilde a}},  S_{\la_{\supp \widetilde a}} \right)},  \mathscr S^{\Ga_c^\infty\left( M_{\la_{\supp \widetilde a}},  S_{\la_{\supp \widetilde a}} \right)}\right)\left(M_{\la_{\supp \widetilde a}} \right)  
+ \eean
+ where  $\mathscr Hom$ is a sheaf of local morphisms (cf. Definition \ref{sheaf_hom_defn}). If $\widetilde p_{\la_{\supp \widetilde a}}: \widetilde M \to M_{\la_{\supp \widetilde a}}$ is a natural covering then from our construction it follows that
+  \be\label{top_llla_eqn}
+\lim_{\la \in \La} \left[\Dslash_{\la}, a_{\la} \right]\widetilde \eta = \left[ p^{-1}_{\la_{\supp \widetilde a}}\left(\Dslash_{\la_{\supp \widetilde a}} \right) , \widetilde a \right]\widetilde \eta
+ \ee
+ where the map
+\bean
+\widetilde p^{-1}_{\la_{\supp \widetilde a}} : \mathscr Hom \left( \mathscr S^{\Ga_c^\infty\left( M_{\la_{\supp \widetilde a}},  S_{\la_{\supp \widetilde a}} \right)},  \mathscr S^{\Ga_c^\infty\left( M_{\la_{\supp \widetilde a}},  S_{\la_{\supp \widetilde a}} \right)}\right)\left(M_{\la_{\supp \widetilde a}} \right)\hookto\\\hookto \mathscr Hom\left( \Ga_c^\infty\left(\widetilde M, \widetilde S \right), \Ga_c^\infty\left(\widetilde M, \widetilde S \right)\right) 
+\eean
+is the  $\widetilde p_{\la_{\supp \widetilde a}}$-inverse image (cf. Definition \ref{top_smooth_inv_im_defn}).
 	\end{enumerate}
-	
+
 \end{proof}
+
+
 
 
 \begin{remark}
@@ -11774,52 +11797,31 @@ Charge conjugation 	& $J$ and $\widetilde J$ & $C$ and $\widetilde C$  \\  & & \
 	\end{tabular}
 	\\
 	\\
-	\paragraph{title}
-	\begin{empt}\label{dirac_inf_constr_empt}
-		For any $\widetilde{a}  \in \widetilde{W}^\infty$ and $\xi \in \H^\infty$ we define
-		\begin{equation}\label{inf_lift_D_eqn}
-			\widetilde D\left(  \widetilde{a}  \ox \xi \right) \bydef \lim_{\la \in \La}\left[D_\la, a_\la \right]\left(  \widetilde{a}  \ox \xi \right)+  \widetilde{a}  \ox D\xi 
-		\end{equation}
-	\end{empt}
-	
-	\begin{defn}\label{reg_triple_defn}
-		Let $\mathfrak{S}^{\text{pt}} \in \mathfrak{FinAlg}^{\text{pt}}$ is given by \eqref{cov_sec_triple_eqn}.    Let $\left(A, \widetilde{A}, G\left(\left.\widetilde{A}~\right|A \right)\right) $  be an $\widehat \pi$-infinite noncommutative covering   of $\mathfrak{S}$.
-		Let \eqref{spectral_triple_sec_eqn} be a good coherent set of spectral triples. 
-		Let $\widetilde{ D}$ be given by \eqref{inf_lift_D_eqn}.
-		We say that $\left( \widetilde{\A}, \widetilde{\H}, \widetilde{D}, \widetilde J\right)$ is a $\left(A, \widetilde{A}, G\left(\left.\widetilde{A}~\right|A \right)\right)$-\textit{lift} of $\left(\A, \H, D, J\right)$.  Also we say that  $\left( \widetilde{\A}, \widetilde{\H}, \widetilde{D}, \widetilde J\right)$ is the \textit{limit} of the coherent set	$\mathfrak{S}_{\left(\sA, \sH, D\right)}= \left\{\left(\sA_\la, \sH_\la, D_\la, J_\la \right)\right\}_{\la \in \La}$.
-	\end{defn}
-	
-	
-	\paragraph{title}
-	!!!  CONTINUE !!!
-	To complete it one should find an explicit formula for $\widetilde D$.
-	From \eqref{top_cond_b_eqn} it follows that 
-\bean
-\lim_{\la\in\La }\left[\Dslash_{\la}, a_{\la} \right]= \sum^n_{j = 1} \lift^{\widetilde{p}_{\la_{\widetilde \sU} }}_{\widetilde\sU}\left(a_j \right) \otimes \om_j =  \lift^{\widetilde{p}_{\la_{\widetilde \sU} }}_{\widetilde\sU}\left( \left[ \Dslash_{\la_{\widetilde \sU}}, a_{\la_{\widetilde \sU}}\right]\right)  
-\eean
-and taking into account \eqref{top_ldx_eqn} one has
-$$
-\lim_{\la\in\La }\left[\Dslash_{\la}, a_{\la} \right]= \left[\lift_{\widetilde p_{\la_{\widetilde\sU}}}\left(  \Dslash_{\la_{\widetilde\sU}}\right) , \lift_{\widetilde p_{\la_{\widetilde\sU}}}\left(a^{\la_{\widetilde\sU}}_{\widetilde\sU}\right)  \right].
-$$
+To complete it one should find an explicit formula for $\widetilde D$. From \eqref{top_llla_eqn}
+	it follows that 
+	\bean
+	\lim_{\la \in \La} \left[\Dslash_{\la}, a_{\la} \right] = \left[\widetilde p^{-1}_{\la_{\supp \widetilde a}}\left(\Dslash_{\la_{\supp \widetilde a}} \right) , \widetilde a \right].
+	\eean
+	If $p_{\la_{\supp \widetilde a}}: M_{\la_{\supp \widetilde a}}\to M$ is the natural covering then form the equation \eqref{comm_d_eqn} it follows that $\Dslash_{\la_{\supp \widetilde a}}= p^{-1}_{\la_{\supp \widetilde a}}\left( \Dslash\right)$ and taking into account \eqref{top_sh_inv_comp_eqn} we have 
+	$\widetilde p^{-1}_{\la_{\supp \widetilde a}}\left(\Dslash_{\la_{\supp \widetilde a}}\right) = \widetilde p^{-1}\left(\Dslash \right)$ where $\widetilde p : \widetilde M \to M$ is the natural covering. In result one has
+\be\label{top_ds_eqn}
+\left[\widetilde p^{-1}\left(\Dslash \right) , \widetilde a \right]=\lim_{\la\in\La }\left[\Dslash_{\la}, a_{\la} \right].
+\ee
 On the other hand if $\widetilde D$ is a specialization of 
-the given by \eqref{inf_lift_D_eqn}  !!! CHECK !!! operator then one has
+the given by \eqref{inf_lift_D_eqn} operator then one has
 $$
-\left[\widetilde D, \widetilde a \right]= \lim_{\la\in\La }\left[\Dslash_{\la}, a_{\la} \right]= \left[\lift_{\widetilde p_{\la_{\widetilde\sU}}}\left(  \Dslash_{\la_{\widetilde\sU}}\right) , \lift_{\widetilde p_{\la_{\widetilde\sU}}}\left(a^{\la_{\widetilde\sU}}_{\widetilde\sU}\right)  \right]=  \left[\lift_{\widetilde p_{\la_{\widetilde\sU}}}\left(  \Dslash_{\la_{\widetilde\sU}}\right) , \widetilde a  \right].
+\left[\widetilde D, \widetilde a \right]= \lim_{\la\in\La }\left[\Dslash_{\la}, a_{\la} \right],
 $$
-It follows that $\widetilde D= \lift_{\widetilde p_{\la_{\widetilde\sU}}}\left(  \Dslash_{\la_{\widetilde\sU}}\right)$. Taking into account that $\Dslash_{\la_{\widetilde\sU}}= \lift_{ p_{\la_{\widetilde\sU}}}\left(  \Dslash\right)$ and
- $\lift_{\widetilde p}\left(  \Dslash\right)= \lift_{\widetilde p_{\la_{\widetilde\sU}}}\left(\lift_{ p_{\la_{\widetilde\sU}}}\left(  \Dslash\right) \right)$ we conclude that
+and taking into account \eqref{top_ds_eqn}  we conclude that
  \be\label{top_lift_inf_dirac}
  \widetilde D=\lift_{\widetilde p}\left(  \Dslash\right).
  \ee
   
 \end{empt}
-
 A following theorem is a result of the above constructions. 
 \begin{theorem}\label{comm_inf_sp_tr_thm}
-	The triple  $\left(  \widetilde{\A} , L^2\left(\widetilde M, \widetilde S \right)  , \widetilde{\Dslash}\bydef \lift_{\widetilde p}\left( \Dslash\right) \right)$ is the $\left(C\left( M\right)  C_0\left( \widetilde{M}\right) , G\left(\left.\widetilde{M}~\right|M \right)\right)$-{lift} of $\left( \Coo\left( {M}\right) , L^2\left( M,  S \right)  , \widetilde{\Dslash}\right)$ (cf. Definition \ref{reg_triple_defn})
+	The triple  $\left(  \widetilde{\A} , L^2\left(\widetilde M, \widetilde S \right)  , \widetilde{\Dslash}\bydef {\widetilde p^{-1}}\left( \Dslash\right), \widetilde J \right)$ is the\\ $\left(C\left( M\right)  C_0\left( \widetilde{M}\right) , G\left(\left.\widetilde{M}~\right|M \right)\right)$-{lift} of $\left( \Coo\left( {M}\right) , L^2\left( M,  S \right)  , {\Dslash}, J\right)$ (cf. Definition \ref{reg_triple_defn}).
 \end{theorem}
-
-
 \begin{remark}
 	The Theorem \ref{comm_inf_sp_tr_thm} is a noncommutative analog of the Proposition \ref{comm_cov_mani_prop}.
 \end{remark}
