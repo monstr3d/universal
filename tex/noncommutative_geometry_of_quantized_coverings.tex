@@ -12260,7 +12260,7 @@ where right and left  ideals  $_\sU A,~~ A_\sU\subset A$ are explained in \ref{b
 	$$
 	\forall a \in C_0\left(\sU \right) \quad \rep_x\left(a \right) \H'^\perp_x = \{0\} \quad\Rightarrow\quad\rep_x\left(a \right) \H''^\perp_x = \{0\}.
 	$$
-	!!!On the other hand from the Definition \ref{blowing_proper_defn} and the equation \eqref{blowing_prop_eqn} it follows that
+	On the other hand from the Definition \ref{blowing_proper_defn} and the equation \eqref{blowing_prop_eqn} it follows that
 	\bean
 	a \in A^{\mathrm{prop}}_{\sU'}\quad \Rightarrow\quad \rep_x\left( a\right)\left(  \bigoplus_{\substack{\a'\in \mathscr A'_x\\A^{\a'}_x\cap A^{\a''}_x\neq\emptyset}} A^{\a'}_x\H_x\right)  \subset \bigoplus_{\substack{\a''\in \mathscr A''_x\\A^{\a'}_x\cap A^{\a''}_x\neq\emptyset}} A^{\a''}_x\H_x,\\
 	\rep_x\left(a \right) \H'^\perp_x = \{0\} \quad\Rightarrow\quad\rep_x\left(a \right) \H''^\perp_x = \{0\}.
@@ -12437,32 +12437,35 @@ If $\xi \in \H_{x'} \setminus \{0\}$ then
 \eean
 so one has $\left\|\rep_{x'} \left( \sum_{j = 1}^n a_j\right) \right\| \le \left\| a_{j_0} \right\|+\eps$. The number $\eps$ can be arbitrary small, therefore one has $\left\|a_{j_0} \right\|\ge \left\|\sum_{j = 1}^n a_j \right\|$, and taking into account $\left\|\sum_{j = 1}^n a_j \right\| \ge \left\|a_{j_0} \right\|$ we conclude that $\left\|\sum_{j = 1}^n a_j \right\| = \left\|a_{j_0} \right\|$.
 \end{proof}
-!!! CONTINUE 
+
 \begin{empt}\label{blowing_empt}
 	If $\sX$ is the spectrum of $A$ then	for any $y\in \sY$ there is 
 	the set
 	$$
 	\sX_y \bydef \left\{\left. x\in\sX\right| \rep_x\left(C_0\left( \sY\right)\right)\neq \rep_x\left( I_y\right)   \right\}
 	$$
-	where $I_y = \left\{\left. a\in C_0\left( \sY\right) \right| a\left( y\right)= 0  \right\}$.
-	The map $y \mapsto \sX_y$ yields a partially defined multi-valued map from $\sY$ to $\sX$. For any $x \in \sX$ the $C^*$-algebra $\rep_x\left(C_0\left( \sY\right)\right)$ is commutative, so there is a maximal proper ideal $I \subset \rep_x\left(C_0\left( \sY\right)\right)$. There is an ideal 
-	$$
-	I_y \bydef\left\{\left. a \in C_0\left( \sY\right)\right| \rep_x\left(a\right)\in I\right\}
-	$$
-	Since $\rep_x\left( I_y\right) = I \neq \rep_x\left(C_0\left( \sY\right)\right)\neq \rep_x\left( I_y\right)$ one has $x \in \sX_y$ i.e. the map $y \mapsto \sX_y$ is a surjective partially defined multi-valued map from $\sY$ to $\sX$.
+	where $I_y = \left\{\left. f\in C_0\left( \sY\right) \right| f\left( y\right)= 0  \right\}$.
+	The map $y \mapsto \sX_y$ yields a partially defined multi-valued map from $\sY$ to $\sX$. 
+\end{empt}
+\begin{empt}\label{blowing_spectral_empt}
+Let $A$ be a $C^*$-algebra, and let $\sX$ be a spectrum of $A$ (cf. Definition \ref{prime_primtive_defn}). Let $C_0\left(\sY\right)\to M\left(A\right)$ be Hausdorff blowing-up. A point  $x \in \sX$ \textit{spectral} if for any open subset $\sU \subset \sY$ such that 
+\be\label{blowing_spectralp_eqn}
+\rep_x\left( A^{\text{prop}}_\sU \right)\neq \{0\}. 
+\ee
+following conditions hold:
+
+\be\label{blowing_spectral_eqn}
+\begin{split}
+I_y = \left\{ f \in C_0\left(\sY\right)|f\left(y\right)= 0\right\}\quad \Rightarrow\quad \rep_{x}\left( I_y\right) \neq \rep_{x}\left(  C_0\left( \sY\right)\right),\\
+	\forall x' \in \sX \quad \rep_{x'}\left( I_y\right) \neq \rep_{x'}\left(  C_0\left( \sY\right)\right)\quad \Leftrightarrow \quad x' = x.
+\end{split}
+\ee
+
 \end{empt}
 
 \begin{definition}\label{blowing_spectral_defn}
-	Let $A$ be a $C^*$-algebra, and let $\sX$ be a spectra of $A$. 
-	{Hausdorff blowing-up}	$C\cong C_0\left( \sY\right) \subset M\left(A \right)$ is said to be   \textit{spectral} if for any $x \in \sX$ and for any element $a \in A^{\text{prop}}_\sU$ of $\sU$-proper $C^*$-subalgebra (cf. Definition \ref{blowing_proper_defn}), such that $\rep_x\left(a\right)\neq 0$ there is $y\in \sU$ such that
-if
-$$
-I_y = \left\{ f \in C_0\left(\sY\right)|f\left(y\right)= 0\right\}
-$$
-then 
-	\be\label{blowing_spectral_eqn}
-	\forall x' \in \sX \quad \rep_{x'}\left( I_y\right) \neq \rep_{x'}\left(  C_0\left( \sY\right)\right)\quad \Leftrightarrow \quad x' = x.
-	\ee
+	Consider the situation \ref{blowing_spectral_empt}.
+	We say that Hausdorff blowing-up $C_0\left(\sY \right)\hookto A$.  is \textit{spectral} if any $x \in \sX$ is spectral. 
 \end{definition}
 
 \begin{remark}
@@ -12484,7 +12487,7 @@ Let $\sY$ be a connected, locally connected, locally compact, Hausdorff space.  
 \ee
 where a sum of an infinite series implies a strict topology (cf. Definition \ref{strict_topology_defn}).
 \begin{empt}\label{blowing_hilb_mod_empt}
-	Let $A$ be connected a $C^*$-algebra with disintegrable Hausdorff blowing-up $C_0\left(\sY\right)\subset M\left(A\right)$ (cf. Definitions \ref{blowing_defn} and \ref{blowing_disintegrable_defn}), and let $q: \widetilde \sY \to \sY$ be a transitive covering (cf. Definitions \ref{top_covering_defn}, \ref{top_transitive_defn}). If  $A_0\left(\widetilde \sY \right)$ is a $q$-lift of  If  
+	Let $A$ be connected a $C^*$-algebra with disintegrable Hausdorff blowing-up $C_0\left(\sY\right)\subset M\left(A\right)$ (cf. Definitions \ref{blowing_defn} and \ref{blowing_disintegrable_defn}), and let $q: \widetilde \sY \to \sY$ be a transitive covering (cf. Definitions \ref{top_covering_defn}, \ref{top_transitive_defn}).  If  
 $C_c\left( \widetilde \sY\right) \otimes_{C_0\left(\sY \right) } A$ is an algebraic tensor product then one can define an $A$-valued  sesquilinear pairing on $C_c\left( \widetilde \sY\right) \otimes_{C_0\left(\sY \right) } A$ such that $\left\langle \widetilde f_1 \otimes a_1,  \widetilde f_2 \otimes a_2\right\rangle_A \bydef a^*_1 \left\langle \widetilde f_1 ,  \widetilde f_2 \right\rangle_{C_0\left(\sY\right)} a_2\in A$. Henceforth we denote by $X_A$ the $C^*$-Hilbert $A$-module which is the completion of\\ $C_c\left( \widetilde \sY\right) \otimes_{C_0\left(\sY \right) } A$ with respect to the norm
 \be\label{blowing_hilb_mod_eqn}
 \left\| \widetilde a \right\| \bydef \sqrt{\left\| \left\langle \widetilde a ,  \widetilde a \right\rangle_A\right\|}. 
@@ -12495,11 +12498,11 @@ If both $\sY$ and $\widetilde \sY$ are compact then $X_{A} \cong C\left( \wideti
 
 \begin{empt}\label{blowing_h_empt}
 	
-	If  $\pi: A \hookto B\left(\H\right)$ is a faithful nondegenerate   representation (cf. Definitions \ref{faithful_repr_defn} and  \ref{nondegenerate_repr_defn}) then there is a faithful representation $\pi_{\sY}:C_0\left( \sY\right) \hookto B\left(  \H\right)$. Application of the  {Rieffel correspondence} (cf. Definition \ref{ind_repr_defn}) yields a representation
+	If  $\pi: A \hookto B\left(\H\right)$ is a faithful nondegenerate   representation (cf. Definitions \ref{faithful_repr_defn} and  \ref{nondegenerate_repr_defn}) then there is a faithful representation $\pi_{\sY}:C_0\left( \sY\right) \hookto B\left(  \H\right)$ (cf. Definition \ref{multiplier_el_defn}). Application of the  {Rieffel correspondence} (cf. Definition \ref{ind_repr_defn}) yields a representation
 	\be\label{blowing_indc0_eqn}
 	\pi_{\widetilde \sY} \bydef X_{C_0\left(\sY \right) }-\Ind^{C_0\left(\widetilde \sY \right)}_{C_0\left(\sY \right)}: C_0\left(\widetilde \sY \right)\hookto B\left( \widetilde \H\right) 
 	\ee
-	where $\widetilde \H$ is a Hilbert norm completion of an algebraic tensor product $X_{C_0\left(\sY \right)}\otimes_A \H$.	Suppose that Hausdorff blowing-up is disintegrable (cf. Definition \ref{blowing_disintegrable_defn}) one can select two families $\left\{\sU_\a\subset \sX\right\}_{\a \in \mathscr A}$ and  $\left\{\sV_\a\subset \sX\right\}_{\a \in \mathscr A}$ of connected open sets with compact closures such that for any $\a\in\mathscr A$ following conditions hold: 
+	where $\widetilde \H$ is a Hilbert norm completion of an algebraic tensor product $X_{C_0\left(\sY \right)}\otimes_A \H$.	Suppose that Hausdorff blowing-up $C_0\left(\sY\right)\subset M\left(A\right)$ is disintegrable (cf. Definition \ref{blowing_disintegrable_defn}). One can select two families $\left\{\sU_\a\subset \sY\right\}_{\a \in \mathscr A}$ and  $\left\{\sV_\a\subset \sY\right\}_{\a \in \mathscr A}$ of connected open sets with compact closures such that for any $\a\in\mathscr A$ following conditions hold: 
 	\begin{itemize}
 		\item The closure of $\sV_\a$ is a subset of $\sU_\a$.
 		\item $\sU_\a$ is evenly covered by $q$ (cf. Definition \ref{top_covering_defn}).
@@ -12521,16 +12524,16 @@ From our construction it follows that
 \be\label{blowing_lifnz_eqn}
 \begin{split}
 	\forall \a', \a'' \in \mathscr{A}\quad f_{\a'} f_{\a''}= 0\quad \Rightarrow\quad \forall g', g''\in G\quad \left(g'\widetilde{f}_{\a'} \right) \left(g''\widetilde{f}_{\a''} \right)= 0,\\
-	\forall \a \in \mathscr{A} \quad \forall g', g''\in G\quad  \left(g'\widetilde{f}_{\a} \right) \left(g''\widetilde{f}_{\a} \right)\neq 0\quad \Rightarrow\quad g'=g'',\\
+	\forall \a \in \mathscr{A} \quad \forall g', g''\in G\quad  \left(g'\widetilde{f}_{\a} \right) \left(g''\widetilde{f}_{\a} \right)\neq 0\quad \Leftrightarrow\quad g'=g'',\\
 	\forall \a', \a'' \in \mathscr{A}\quad f_{\a'} f_{\a''}\neq 0\quad \Rightarrow\\\Rightarrow\quad \forall g'\in G\quad \text{there is a unique } g''\in G\quad \left(g'\widetilde{f}_{\a'} \right) \left(g''\widetilde{f}_{\a''} \right)\neq 0.
 \end{split}
 \ee	
-If  $A^{\left\{\sU_\a\right\}}_{\mathrm{fin}}\subset A$  is an algebraically generated by the union $\cup A^{\mathrm{prop}}_{\sU_\a}$ *-subalgebra (cf. Definition \ref{blowing_disintegrable_defn}) then $A^{\left\{\sU_\a\right\}}_{\mathrm{fin}}$ is the linear span of products
+If  $A^{\left\{\sU_\a\right\}}_{\mathrm{fin}}\subset A$  is an algebraically generated by the union $\cup A^{\mathrm{prop}}_{\sU_\a}$ *-subalgebra (cf. Definition \ref{blowing_disintegrable_defn}) then $A^{\left\{\sU_\a\right\}}_{\mathrm{fin}}$ is the linear span of monomials
 \be\label{blowing_a1n_eqn}
 a_1 \cdot ... \cdot a_n 
 \ee
-where for any $j =1,..., n$ there is $\a_j\in \mathscr A$ such that $a_j \in A^{\mathrm{prop}}_{\sU_{\a_j}}$. 
-From $a^*_j \in A^{\mathrm{prop}}_{\sU_{\a_j}}$ it follows that $\left( a_1 \cdot ... \cdot a_n\right)^*= a^*_n \cdot ... \cdot a^*_1$ , i. e. $A^{\left\{\sU_\a\right\}}_{\mathrm{fin}}$ is a *-algebra. 	From the equations  \eqref{blowig_sue3_eqn} and \eqref{blowig_su_eqn} it follows that
+such that for any $j =1,..., n$ there is $\a_j\in \mathscr A$ such that $a_j \in A^{\mathrm{prop}}_{\sU_{\a_j}}$. 
+From $a^*_j \in A^{\mathrm{prop}}_{\sU_{\a_j}}$ it follows that $\left( a_1 \cdot ... \cdot a_n\right)^*= a^*_n \cdot ... \cdot a^*_1$ , i.e. $A^{\left\{\sU_\a\right\}}_{\mathrm{fin}}$ is a *-algebra. 	From the equations  \eqref{blowig_sue3_eqn} and \eqref{blowig_su_eqn} it follows that
 \be\label{blowing_anf_eqn}
 a_j = \pi_\sY\left( f_{\a_j}\right) a_j\pi_\sY\left( f_{\a_j}\right)=\pi_\sY\left( f_{\a_j}\right)a_j= a_j\pi_\sY\left( f_{\a_j}\right)\quad j = 1,.., n,
 \ee
@@ -12547,7 +12550,7 @@ $$
 $$ 
 and one has 
 $$
-\forall g',g''\in G\left(\left.\widetilde{\sY}~\right|\sY\right)\quad g'\neq g'' \quad \Rightarrow\quad \widetilde{\H}_{\a , g'}\perp \widetilde{\H}_{\a , g''}.
+\forall g',g''\in G\left(\left.\widetilde{\sY}~\right|\sY\right)\quad g'\neq g'' \quad \Leftrightarrow\quad \widetilde{\H}_{\a , g'}\perp \widetilde{\H}_{\a , g''}.
 $$
 If $\H_\a$ is a norm completion of $\pi_\sY\left( f_\a\right)  \H$ then for all $\left(\a , g \right)\in \mathscr A \times G\left(\left.\widetilde{\sY}~\right|\sY\right)$ there is a natural isomorphism 
 \be\label{blowing_hga_eqn}
@@ -12580,7 +12583,7 @@ A $C^*$-subalgebra of $ B\left(\widetilde \H\right)$ generated by a set
    is said to be a $q$-\textit{lift} of $A$. We denote the $q$-lift of $A$ by $A_0\left(\widetilde \sY \right)$.
 \end{definition}
 \begin{remark}
-The Definition \ref{top_lift_a_f_defn} is a specialization of the Definition \ref{blowing_lift_a_f_defn} (cf. Example \ref{blowing_disintegrable_exm}).
+The Definition \ref{top_lift_a_f_defn} is a specialization of the Definition \ref{blowing_lift_a_f_defn} (cf. Examples \ref{blowing_hausdorff_exm} and \ref{blowing_disintegrable_exm}).
 \end{remark}
 
 \begin{exercise}\label{blowing_a0_exer}
@@ -12630,7 +12633,7 @@ of $ C_c\left( \widetilde \sY\right)$-$A$ bimodules.
 	where $\left\| \cdot\right\|_H$ is an explained in  \ref{blowing_hilb_mod_empt} norm of Hilbert module $X_A$ and $\left\|\cdot \right\|_C$ is the $C^*$-norm on $A_0\left(\widetilde \sY \right)$.
 	From the   inequality \eqref{blowing_ca_eqn} it follows that
 	\begin{itemize}
-		\item If $\left\{\widetilde a_\a\right\}\subset   C_c\left( \widetilde \sY\right)\otimes_{C_0\left(\sY\right)}  A$ is a convergent with respect to a norm $\left\| \cdot\right\|_H$ net then  the net $\left\{\varphi\left( \widetilde a_\a\right) \right\}$ is a convergent with respect to a norm $\left\| \cdot\right\|_C$. So one can define $\varphi_{X_A}$ by the following way 
+		\item If  $\left\{\widetilde a_\a\right\}\subset   C_c\left( \widetilde \sY\right)\otimes_{C_0\left(\sY\right)}  A$ is a convergent with respect to a norm $\left\| \cdot\right\|_H$ net then  the net $\left\{\varphi\left( \widetilde a_\a\right) \right\}$ is a convergent with respect to a norm $\left\| \cdot\right\|_C$. So one can define $\varphi_{X_A}$ by the following way 
 		$$
 	\varphi_{X_A} \left( \lim \widetilde a_\a \right) 	\bydef\lim  \varphi  \left(  \widetilde a_\a \right).
 		$$
@@ -12789,6 +12792,7 @@ From $\pi_{\widetilde\sY}\left( g \widetilde f_{\a}\right) \pi_{\widetilde A}\le
 From the equation \eqref{blowing_ca_m_f_eqn} one can deduce that $A\cong A_0\left(\widetilde \sY \right)^{G\left(\left.\widetilde{\sY}~\right|\sY\right)}$ so a quadruple
 $\left(A, A_0\left(\widetilde \sY \right), G\left(\left.\widetilde{\sY}~\right|\sY\right), 	A_0\left( q\right) \right)$ is a noncommutative finite-fold quasi-covering (cf. Definition \ref{fin_quasi_defn}).
 \end{empt}
+!!!! DELETE !!!
 \begin{definition}\label{blowing_spectal_defn}
 	Let $A$ be a $C^*$-algebra, and let $\sX$ be a spectra of $A$. 
 	{Hausdorff blowing-up}	$C\cong C_0\left( \sY\right) \subset M\left(A \right)$ is said to be   \textit{spectral} if for any $x \in \sX$ and for any element $a \in A^{\text{prop}}_\sU$ of $\sU$-proper $C^*$-subalgebra (cf. Definition \ref{blowing_proper_defn}), such that $\rep_x\left(a\right)\neq 0$ there is $y\in \sU$ such that
@@ -23266,7 +23270,7 @@ $$
 		\be\label{ind_repr_eqn}
 		X-\Ind^A_B\pi\bydef \rho\quad \text{ or } \quad \Ind^A_B\pi\bydef \rho\quad \text{ or } \quad	 X-\Ind\pi\bydef\rho
 		\ee
-		(cf. Chapter 2.4 of \cite{rae:ctr_morita} and the Proposition \ref{induced_nondegenerate_prop}).
+		(cf. Proposition 2.66 of \cite{rae:ctr_morita} which is cited  \ref{induced_nondegenerate_prop}).
 	\end{defn}
 \begin{proposition}\label{induced_nondegenerate_prop}\cite{rae:ctr_morita}
 %Proposition 2.66.
