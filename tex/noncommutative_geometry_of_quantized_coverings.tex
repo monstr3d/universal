@@ -2829,7 +2829,11 @@ is faithful and nondegenerate (cf. Corollary \ref{hered_representation_cor}).
 			(m-2-2) edge node [right] {$~~\pi''$} (m-1-3);
 		\end{tikzpicture}
 		\\ 	
-		is commutative. We also require that  there is a proper normal subgroup $H\subset G''$ (cf. Definition \ref{proper_subgroup_fin_defn}) such that there is a *-isomorphism $\widetilde{A}'' \cong \widetilde{A}'^H$ and $\pi$ is equivalent to a natural inclusion $ \widetilde{A}'^H\subset \widetilde{A}'$, i.e. there is a natural noncommutative finite-fold covering $\left(A'', A', G\left(\left. A'\right| A''\right), \pi\right)$ (cf. Lemma \ref{fin_composition_covering_lem}).
+		is commutative. We also require that  there is a proper normal subgroup $H\subset G''$ (cf. Definition \ref{proper_subgroup_fin_defn}) such that there is a *-isomorphism $\widetilde{A}'' \cong \widetilde{A}'^H$ and $\pi$ is equivalent to a natural inclusion $ \widetilde{A}'^H\subset \widetilde{A}'$, i.e. there is a natural noncommutative finite-fold covering 
+		$$
+		\left(\widetilde A'', \widetilde A', G\left(\left.  \widetilde A'\right| \widetilde A''\right), \pi\right)\cong \left(\widetilde A'^H, \widetilde A', H, \Id_{\widetilde A'}|_{\widetilde A''}\right)
+		$$
+		 (cf. Lemma \ref{fin_composition_covering_lem}).
 		\item[(iii)] Compositions of morphisms come from compositions of *-homomorphisms.
 	\end{itemize}
 	We say that $\mathfrak{FinCov}$-$A$ is the \textit{category of finite-fold coverings} of $A$. 
@@ -13163,12 +13167,12 @@ $$
  		j^{\text{prop}}_{\sU}:A^{\text{prop}}_\sU \hookto~ \widetilde A^{\text{prop}}_{\widetilde\sU}
  		\ee
  	\end{empt}
-!!! CONIINUE !!! 
+
 \begin{lemma}\label{blowing_fin_pre_lem}
-	If $A$ is a connected  $C^*$-algebra (cf. Definition \ref{connected_c_a_defn}),  $C_0\left(\sY \right)\hookto M\left( A\right)$ is disintegrable Hausdorff blowing-up (cf. Definitions \ref{blowing_defn} and \ref{blowing_disintegrable_defn}), and   $q : \widetilde\sY\to\sY$ is  a transitive finite-fold covering (cf. Definition \ref{top_transitive_defn}) then a quadruple  $\left(A,A_0\left( \widetilde \sY\right),G\left(\left.\widetilde{\sY}~\right|\sY\right),  A_0\left( q\right) \right)$ is a   finite-fold noncommutative pre-covering (cf. Definition \ref{fin_pre_defn}),  where $A_0\left( \widetilde \sY\right)$ is a $q$-lift of $A$ (cf. Definition \ref{blowing_lift_a_f_defn}) and $A_0\left( q\right)$  is the given by \eqref{blowing_a0q_eqn} natural injective *-homomorphism  $A \hookto A_0\left( \widetilde \sY\right)$.
+	If $A$ is a connected  $C^*$-algebra (cf. Definition \ref{connected_c_a_defn}),  $C_0\left(\sY \right)\hookto M\left( A\right)$ is disintegrable Hausdorff blowing-up (cf. Definitions \ref{blowing_defn} and \ref{blowing_disintegrable_defn}), and   $q : \widetilde\sY\to\sY$ is  a transitive finite-fold covering (cf. Definition \ref{top_transitive_defn}) then a quadruple \\ $\left(A,A_0\left( \widetilde \sY\right),G\left(\left.\widetilde{\sY}~\right|\sY\right),  A_0\left( q\right) \right)$ is a   finite-fold noncommutative pre-covering (cf. Definition \ref{fin_pre_defn}),  where $A_0\left( \widetilde \sY\right)$ is a $q$-lift of $A$ (cf. Definition \ref{blowing_lift_a_f_defn}) and $A_0\left( q\right)$  is the given by \eqref{blowing_a0q_eqn} natural injective *-homomorphism  $A \hookto A_0\left( \widetilde \sY\right)$.
 \end{lemma}
 \begin{proof}
-Let $\pi : A \to B\left(\H \right)$ be a faithful nondegenerate  representation (cf. Definitions \ref{faithful_repr_defn} and \ref{nondegenerate_repr_defn}). Let $q : \widetilde\sY\to\sY$ be  a transitive finite-fold covering (cf. Definition \ref{top_transitive_defn}), and let $\widetilde \H$ is the Hilbert norm completion of pre-Hilbert space  $X_{C_0\left(\sY \right)}\otimes_{C_0\left(\sY\right)} \H$.
+Let $\pi : A \to B\left(\H \right)$ be a faithful nondegenerate  representation (cf. Definitions \ref{faithful_repr_defn} and \ref{nondegenerate_repr_defn}). Let $\widetilde \H$ be a Hilbert norm completion of pre-Hilbert space  $X_{C_0\left(\sY \right)}\otimes_{C_0\left(\sY\right)} \H$.
 	(cf. \eqref{blowing_indc0_eqn}). 
  An action  $G\left(\left.\widetilde{\sY}~\right|\sY\right)\times \widetilde \sY \to \widetilde \sY$ induces natural actions $G\left(\left.\widetilde{\sY}~\right|\sY\right)\times X_A\to X_A$ and $G\left(\left.\widetilde{\sY}~\right|\sY\right)\times \widetilde \H\to \widetilde \H$ where  $X_A$ is defined in \ref{blowing_hilb_mod_empt}. On the other hand from Corollary \ref{blowing_ca_cor} one has a bijective map $X_A\cong A_0\left( \widetilde\sY\right)$, so one has a natural action $G\left(\left.\widetilde{\sY}~\right|\sY\right)\times  A_0\left( \widetilde\sY\right) \to  A_0\left( \widetilde\sY\right)$. Let 
  \be\label{blowing_fin_repr_eqn}
@@ -13182,17 +13186,19 @@ From the above equation it follows that if $\Aut\left(  A_0\left( \widetilde\sY\
 $$
 \left(C_c\left( \widetilde \sY \right) \otimes_{C_0\left( \sY\right) } A \right)^{G\left(\left.\widetilde{\sY}~\right|\sY\right)}=  C_c\left( \widetilde \sY \right)^{G\left(\left.\widetilde{\sY}~\right|\sY\right)} A=  C_c\left(  \sY \right) A
 $$
-From the Definition \ref{blowing_defn} and the proof of the Lemma \ref{blowing_ca_lem} both $C_c\left(  \sY \right) A$ and $\left(C_c\left( \widetilde \sY \right)\right)  \otimes_{C_0\left( \sY\right) } A$ are dense in $A$ and $A_0\left(\widetilde \sY \right)$ respectively. So one has \\$A_0\left(\widetilde \sY \right)^{G\left(\left.\widetilde{\sY}~\right|\sY\right)}\cong A$ and a natural composition $A\cong A_0\left(\widetilde \sY \right)^{G\left(\left.\widetilde{\sY}~\right|\sY\right)}\subset A_0\left(\widetilde \sY \right)^{G\left(\left.\widetilde{\sY}~\right|\sY\right)}$ yields an injective *-homomorphism
-\be\label{blowing_a0_q_eqn!!} !!! DELETE
-A_0\left( q\right): A \hookto  A_0\left(\widetilde \sY \right).
-\ee
-On the other hand from
+From the Definition \ref{blowing_defn} and the proof of the Lemma \ref{blowing_ca_lem} both $C_c\left(  \sY \right) A$ and $\left(C_c\left( \widetilde \sY \right)\right)  \otimes_{C_0\left( \sY\right) } A$ are dense in $A$ and $A_0\left(\widetilde \sY \right)$ respectively. So one has \\$A_0\left(\widetilde \sY \right)^{G\left(\left.\widetilde{\sY}~\right|\sY\right)}\cong A$.
+On the other hand if
 $$
-\forall  \widetilde{f}\otimes  a \in C_c\left( \widetilde \sY \right) \otimes_{C_0\left( \sY\right) } A\quad \forall  g  \in G\left(\left.\widetilde{\sY}~\right|\sY\right) \quad  \left( \widetilde{f}\otimes a\right) =\left(g \widetilde f\right) a 
+G \bydef \left\{\left. g \in \Aut\left(A_0\left(\widetilde \sY \right)\right)\right|\forall a \in A \quad g A_0\left( q\right)\left( a\right) =  A_0\left( q\right)\left( a\right)\right\}
 $$
-it turns out  that
+then
 $$
-\left\{\left. g \in \Aut\left(A_0\left( \widetilde \sY\right)  \right)  \right| \forall a \in A \quad g A_0\left( q\right)\left( a\right) =  A_0\left( q\right)\left( a\right)\right\}\cong G\left(\left.\widetilde{\sY}~\right|\sY\right).
+\forall  \widetilde{f}\otimes  a \in C_c\left( \widetilde \sY \right) \otimes_{C_0\left( \sY\right) } A\quad \forall  g  \in G \quad  g\left( \widetilde{f}\otimes a\right) =\left(g \widetilde f\right)\ox a
+$$
+because $g A_0\left( q\right)\left( a\right) =  A_0\left( q\right)\left( a\right)$.
+It turns out  that
+$$
+G\cong G\left(\left.\widetilde{\sY}~\right|\sY\right).
 $$
 From this construction it turns out that the quadruple  quadruple  $$\left(A,A_0\left( \widetilde \sY\right),G\left(\left.\widetilde{\sY}~\right|\sY\right),  A_0\left( q\right) \right)$$ is a finite-fold noncommutative pre-covering (cf. Definition \ref{fin_pre_defn}).
 \end{proof}
@@ -13231,67 +13237,65 @@ which can be uniquely extended up to a linear map $\widetilde \H \to \widetilde 
 		$$
 \end{itemize}
 \end{proof}
-\begin{corollary}\label{blowing_fin_ind_cor}
-!!! MAY BE DELETE !!!\\	In the situation of the Lemma \ref{blowing_fin_ind_lem} if the representation $A\hookto B\left(\H \right)$ is atomic (cf. Definition \ref{atomic_repr_defn} then the representation $\pi_{A_0\left( \widetilde\sY\right)}: A_0\left( \widetilde\sY\right)\hookto B\left(\widetilde \H \right)$ is also atomic. 
-\end{corollary}
-\begin{lemma}
-		Let $A$ be a connected $C^*$-algebra (cf. Definition \ref{connected_c_a_defn}), end let $C_0\left( \sY\right) \hookto M\left(A \right)$ be disintegrable Hausdorff blowing-up (cf. Definitions \ref{blowing_defn} and \ref{blowing_disintegrable_defn}). Let $q: \widetilde \sY \to \sY$ be a finite-fold transitive covering (cf. Definitions \ref{top_covering_defn}, and   \ref{top_transitive_defn}), and let  $\left(A,A_0\left( \widetilde \sY\right),G\left(\left.\widetilde{\sY}~\right|\sY\right),  A_0\left( q\right) \right)$ be the given by the Lemma \ref{blowing_fin_pre_lem} a noncommutative finite-fold pre-covering (cf. Definition \ref{fin_pre_defn}). If $\sU\subset \sY$ is an open connected set with compact closure such that the preimage $\widetilde \sU\bydef q^{-1}\left(\sU\right)$ is connected. Then a given by \eqref{blowig_sue3_eqn} hereditary $C^*$-subalgebra $_\sU A_\sU \subset A$ is $\left(A,A_0\left( \widetilde \sY\right),G\left(\left.\widetilde{\sY}~\right|\sY\right),  A_0\left( q\right) \right)$-strictly proper (cf. Definition \ref{hered_proper_lift_defn})
+\begin{lemma}\label{blowing_conn_fam_lem}
+		Let $A$ be a connected $C^*$-algebra (cf. Definition \ref{connected_c_a_defn}), end let $C_0\left( \sY\right) \hookto M\left(A \right)$ be disintegrable Hausdorff blowing-up (cf. Definitions \ref{blowing_defn} and \ref{blowing_disintegrable_defn}). Let $q: \widetilde \sY \to \sY$ be a finite-fold transitive covering (cf. Definitions \ref{top_covering_defn}, and   \ref{top_transitive_defn}), and let  $\left(A,A_0\left( \widetilde \sY\right),G\left(\left.\widetilde{\sY}~\right|\sY\right),  A_0\left( q\right) \right)$ be the given by the Lemma \ref{blowing_fin_pre_lem} a noncommutative finite-fold pre-covering (cf. Definition \ref{fin_pre_defn}). If $\sU\subset \sY$ is an open connected set with compact closure such that the preimage $\widetilde \sU\bydef q^{-1}\left(\sU\right)$ is connected, then a given by \eqref{blowig_sue3_eqn} hereditary $C^*$-subalgebra $_\sU A_\sU \subset A$ is $\left(A,A_0\left( \widetilde \sY\right),G\left(\left.\widetilde{\sY}~\right|\sY\right),  A_0\left( q\right) \right)$-strictly proper (cf. Definition \ref{hered_proper_lift_defn})
 \end{lemma}
 \begin{proof}
-From the Lemma  \ref{blowing_uau_conn_lem} it follows that $_\sU A_\sU$ is a connected $C^*$-algebra. If $\rho : A \hookto B\left(\H \right)$ is a faithful nondegenerate representation then from the Exercise \ref{hered_repr_p_empt} it follows that
+From the Lemma  \ref{blowing_uau_conn_lem} it follows that $_\sU A_\sU$ is a connected $C^*$-algebra. If $\rho : A \hookto B\left(\H \right)$ is a faithful nondegenerate representation then from the equation \ref{blowing_hered_pap_eqn} it follows that
 \bean
 _\sU A_\sU = \left\{a \in A |\pi_\sY\left(\chi_\sU \right) \rho\left(a \right)\pi_\sY\left(\chi_\sU \right) = \rho\left(a \right)  \right\}
 \eean
 where $\chi_\sU$ is a characteristic function of $\sU$ (cf. Definition \ref{top_char_f_defn}), and $\pi_\sY$ is a given by the Definition \ref{multiplier_el_defn} representation. If $\widetilde \rho: A_0\left( \widetilde \sY\right)\hookto B\left(\widetilde \H \right)$ is an induced by a pair $\left( \rho, \left(A,A_0\left( \widetilde \sY\right),G\left(\left.\widetilde{\sY}~\right|\sY\right),  A_0\left( q\right) \right)\right)$ representation and    $\widetilde{A}'$ is a {hereditary} $\left(A,A_0\left( \widetilde \sY\right),G\left(\left.\widetilde{\sY}~\right|\sY\right),  A_0\left( q\right) \right)$-{lift} of $_\sU A_\sU$ (cf. Definition \ref{hered_lift_defn}) then using the construction \ref{hered_lift_repr_empt} one can proof that
 $$
-\widetilde{A}' =   \left\{ \left.\widetilde a \in A_0\left( \widetilde \sY\right) ~\right| \pi_{\widetilde\sY}\left(\chi_{\widetilde\sU} \right)\widetilde \rho\left( \widetilde a\right)\pi_{\widetilde\sY}\left(\chi_{\widetilde\sU} \right) = \widetilde\rho\left(\widetilde a\right)\right\}
+\widetilde{A}' =   \left\{ \left.\widetilde a \in A_0\left( \widetilde \sY\right) ~\right| \pi_{\widetilde\sY}\left(\chi_{\widetilde\sU} \right)\widetilde \rho\left( \widetilde a\right)\pi_{\widetilde\sY}\left(\chi_{\widetilde\sU} \right) = \widetilde\rho\left(\widetilde a\right)\right\}=~_{\widetilde{\sU}}A_0\left( \widetilde \sY\right)_{\widetilde{\sU}} 
 $$
-From the above equation one can deduce that $\widetilde{A}'$ is a $C^*$-norm completion of $C_0\left(\widetilde \sY \right) A_0\left( \widetilde \sY\right)C_0\left( \widetilde \sY\right)$. Similarly to the Lemma \ref{blowing_uau_conn_lem} one can proof that $\widetilde{A}$ is a connected $C^*$-algebra. If $\sV$ is a closure of $\sU$ then from the inclusion \eqref{blowing_c0m_eqn} and faithful actions $C\left(\sV\right)\times C_0\left(\sU\right)\to C_0\left(\sU\right)$, $~C_0\left(\sU\right)\times C\left(\sV\right)\to C_0\left(\sU\right)$ one can find an inclusion $C\left(\sV\right)\subset M\left(C\left(\sV\right) \right)$.
-!!! CONTINUE\\
-
-!!! GROUP ACTION
-
-Let 
-$$
-g
-$$
-If both  $B$ and $\widetilde B$ are $C^*$-subalgebras of $M\left( _\sU A_\sU\right)$ and $M\left( \widetilde A'\right)$  generated by unions $_\sU A_\sU \cup C\left(\sV\right)$ and $\widetilde A' \cup C\left(\widetilde \sV\right)$ then there are unitizations  $_\sU A_\sU\hookto B$ and $\widetilde A' \hookto \widetilde B$.
+where $\widetilde{\sU} \bydef q^{-1}\left(\sU\right)$.
+ Similarly to the Lemma \ref{blowing_uau_conn_lem} one can proof that $_{\widetilde{\sU}}A_0\left( \widetilde \sY\right)_{\widetilde{\sU}}$ is a connected $C^*$-algebra. If $\sV$ is a closure of $\sU$ then from the inclusion $C_0\left(\sU\right)\subset M\left(_\sU A_\sU \right) $ and faithful actions $C\left(\sV\right)\times C_0\left(\sU\right)\to C_0\left(\sU\right)$, $~C_0\left(\sU\right)\times C\left(\sV\right)\to C_0\left(\sU\right)$ one can find an inclusion $C\left(\sV\right)\subset M\left(A\right)$. Similarly if $\widetilde \sV\bydef q^{-1}\left(\sV \right)$ then $\widetilde \sV$ is compact and  there is a natural inclusion $C\left(\widetilde\sV\right)\subset M\left(_{\widetilde{\sU}}A_0\left( \widetilde \sY\right)_{\widetilde{\sU}}\right)$. From $G\left(\left.\widetilde{\sY}~\right|\sY\right)\widetilde\sU= \widetilde\sU$ it follows that $G\left(\left.\widetilde{\sY}~\right|\sY\right)~_{\widetilde{\sU}}A_0\left( \widetilde \sY\right)_{\widetilde{\sU}}=_{\widetilde{\sU}}A_0\left( \widetilde \sY\right)_{\widetilde{\sU}}$. If both  $B$ and $\widetilde B$ are  generated by unions $_\sU A_\sU \cup C\left(\sV\right)$ and $\widetilde A' \cup C\left(\widetilde \sV\right)$ $C^*$-subalgebras of $M\left( _\sU A_\sU\right)$ and $M\left(_{\widetilde{\sU}}A_0\left( \widetilde \sY\right)_{\widetilde{\sU}}\right)$   then there are unitizations  $_\sU A_\sU\hookto B$ and $_{\widetilde{\sU}}A_0\left( \widetilde \sY\right)_{\widetilde{\sU}} \hookto \widetilde B$.
 Both $\sV$ and $\widetilde \sV$ are compact and the restriction $q|_{\widetilde \sV}$ is a finite-fold transitive covering, so from the equation \eqref{top_aln_eqn} if follows that 
-\bean
+\be\label{blowing_e_n_eqn}
 \begin{split}
- \left\{\widetilde{e}_1, ..., \widetilde{e}_n\right\}\subset C\left(\widetilde \sV \right)_+ ,\\
+\exists \left\{\widetilde{e}_1, ..., \widetilde{e}_n\right\}\subset C\left(\widetilde \sV \right)_+ ,\\
 	1_{C\left(\widetilde{\mathcal V} \right) }= \sum_{j=1 }^n\widetilde{e}^2_{\widetilde{j}},\\
 	\forall j =1,...,n \quad \widetilde{e}_{j}	\left(g \widetilde{e}_{j} \right) = 0 \quad \text{for any nontrivial}\quad g\in G\left(\left.\widetilde \sV \right|\sV \right).
 \end{split}
-\eean 
+\ee
+If 
 \be\nonumber
-G' \bydef \left\{ \left.g \in \Aut\left(\widetilde{B} \right)~\right|~ gb = b;~~\forall b \in B\right\}
+G \bydef \left\{ \left.g \in \Aut\left(\widetilde{B} \right)~\right|~ gb = b;~~\forall b \in B\right\}
 \ee
-
-Any yields surjective map $\phi: G' \to G\left(\left.\widetilde \sV \right|\sV \right)$
-From the above equation it follows that any $\widetilde b \in \widetilde B$ can be represented by the following way
+then any $g \in G$ yields a *-isomorphism in 
+$$
+\left\{\left.g \in \Aut\left(C\left(C\left(\widetilde\sV \right) \right) \right) \right|\forall f \in C\left(\sV\right)  g f = f\right\}.
+$$ 
+It follows that there is a surjective map $\phi: G \to G\left(\left.\widetilde \sV \right|\sV \right)$.
+From the equation \eqref{blowing_e_n_eqn} it follows that any $\widetilde b \in \widetilde B$ can be represented by the following way
 \be\label{blowing_en_eqn}
-\widetilde b = \sum_{j = 1}^n b_j \widetilde{e}_{j} \quad b_j \bydef \frac{\left| G\right| }{\left|G\left(\left.\widetilde \sV \right|\sV \right) \right| }\sum g\left(\widetilde b\widetilde e_j\right)\in \widetilde B
+\widetilde b = \sum_{j = 1}^n b_j \widetilde{e}_{j} \quad \text{ where }\quad \widetilde b_j \bydef \frac{\left|G\right|}{G\left(\left.\widetilde \sY \right|\sY \right)}\sum_{g \in G} g\left(\widetilde b\widetilde e_j\right)\in B
 \ee
-From $Gb_j = \{b_j\}$ and the equation \eqref{blowing_en_eqn} it follows that
+From the equation \eqref{blowing_en_eqn} it follows that $\widetilde B$ is generated by a finite set $\left\{\widetilde{e}_1, ..., \widetilde{e}_n\right\}\subset \widetilde B$ left $B$-module.
+Taking into account  $Gb_j = \{b_j\}$ and the equation \eqref{blowing_en_eqn} we conclude that
 $$
 \forall g \in G \quad g \widetilde b = \sum_{j = 1}^n b_j \left( g\widetilde{e}_{j}\right) = \sum_{j = 1}^n b_j \left( \phi\left( g\right) \widetilde{e}_{j}\right)
 $$
-From the above equation it follows that $G' =$!!!
-
-
-
-
- 
-
+From the above equation it follows that $G= G\left(\left.\widetilde \sY \right|\sY \right)$.
 \end{proof}
 
 
 \begin{theorem}\label{blowing_fin_thm}
-	Let $A$ be a connected $C^*$-algebra (cf. Definition \ref{connected_c_a_defn}), and let $C_0\left( \sY\right) \hookto M\left(A \right)$ be disintegrable Hausdorff blowing-up (cf. Definitions \ref{blowing_defn} and \ref{blowing_disintegrable_defn}). If $q: \widetilde \sY \to \sY$ is a finite-fold transitive covering (cf. Definitions \ref{top_covering_defn}, \ref{top_transitive_defn}), $A_0\left(\widetilde\sY\right)$ is a $q$-lift of $A$ (cf. Definition \ref{blowing_lift_a_f_defn}) , an injective  *-homomorphism $A_0\left(q \right)  : A \hookto A_0\left(\widetilde\sY\right)$ is given by \eqref{blowing_a0_q_eqn} then the quadruple $\left(A,A_0\left( \widetilde \sY\right),G\left(\left.\widetilde{\sY}~\right|\sY\right),  A_0\left( q\right) \right)$ is a noncommutative finite-fold covering (cf. Definition \ref{fin_defn}).
+	Let $A$ be a connected $C^*$-algebra (cf. Definition \ref{connected_c_a_defn}), and let $C_0\left( \sY\right) \hookto M\left(A \right)$ be disintegrable Hausdorff blowing-up (cf. Definitions \ref{blowing_defn} and \ref{blowing_disintegrable_defn}). If $q: \widetilde \sY \to \sY$ is a finite-fold transitive covering (cf. Definitions \ref{top_covering_defn}, \ref{top_transitive_defn}), $A_0\left(\widetilde\sY\right)$ is a $q$-lift of $A$ (cf. Definition \ref{blowing_lift_a_f_defn}), and an injective  *-homomorphism $A_0\left(q \right)  : A \hookto A_0\left(\widetilde\sY\right)$ is given by \eqref{blowing_a0q_eqn} then the quadruple $\left(A,A_0\left( \widetilde \sY\right),G\left(\left.\widetilde{\sY}~\right|\sY\right),  A_0\left( q\right) \right)$ is a noncommutative finite-fold covering (cf. Definition \ref{fin_defn}).
 \end{theorem}
-\begin{empt}
-If  $A$ is a connected $C^*$-algebra (cf. Definition \ref{connected_c_a_defn}), and let $C_0\left( \sY\right) \hookto M\left(A \right)$ is  disintegrable Hausdorff blowing-up (cf. Definitions \ref{blowing_defn} and \ref{blowing_disintegrable_defn}) then similarly to  \ref{top_functor_empt} there is a faithful functor (cf. Definitions \ref{functor_defn}, \ref{funct_full_faithfull_defn}) $A_0:\mathfrak{FinCov}$-$\sY\to \mathfrak{FinCov}$-$A$  from the {finite covering category} of $\sY$ (cf. Definition \ref{top_fin_cov_defn})  to  the {category of finite-fold coverings} of $A$ (cf. Definition   \ref{fin_cat_defn}).
+\begin{proof}
+	If $\left\{\sU_\la \subset \sX\right\}_{\la \in \La}$ is  a given by the Lemma \ref{blowing_conn_fam_lem} family of open  sets then from the Lemma \ref{top_strictly_proper_lem} it turns out that for each $\la\in\La$ a hereditary subalgebra $_{\sU_\la}A_{\sU_\la}$ is $\left(A,A_0\left( \widetilde \sY\right),G\left(\left.\widetilde{\sY}~\right|\sY\right),  A_0\left( q\right) \right)$-strictly proper (cf. Definition \ref{hered_proper_lift_defn}). One needs check that a union $\cup_{\la\in\La} ~_{\sU_\la}A_{\sU_\la}$ is dense in $A$. If $K\left(A\right)$ is the Pedersen's ideal of $A$ (cf. Definition \ref{peder_id_defn}) and $a \in K\left(A\right)$ then from the Lemma \ref{blowing_supp_lem} it follows that $\supp a$ is compact. Since $\sY$ equals to a union $\cup_{\la \in \La}\sU_\la$ of open sets and $\La$ is directed there is $\la_0\in \La$ such that $\supp a\subset \sU_{\la_0}$. From the Definition \ref{blowing_support_defn} it follows that
+	$$
+	a \in A^{\text{prop}}_{\sU_{\la_0}}\subset ~_{\sU_{\la_0}}A_{\sU_{\la_0}}\subset \bigcup_{\la \in \La}~_{\sU_\la}A_{\sU_\la}.
+	$$
+	So one has $K\left(A\right)\subset  \cup_{\la \in \La}~_{\sU_\la}A_{\sU_\la}$ and taking into account that $K\left(A\right)$ is dense in $A$ we conclude that the union $\cup_{\la \in \La}~_{\sU_\la}A_{\sU_\la}$ is dense in $A$. 
+\end{proof}
+
+
+
+\begin{empt}\label{blowing_funct_empt}
+If  $A$ is a connected $C^*$-algebra (cf. Definition \ref{connected_c_a_defn}), and let $C_0\left( \sY\right) \hookto M\left(A \right)$ is  disintegrable Hausdorff blowing-up (cf. Definitions \ref{blowing_defn} and \ref{blowing_disintegrable_defn}) then similarly to  \ref{top_functor_empt} there is a  functor (cf. Definitions \ref{functor_defn}) $A_0:\mathfrak{FinCov}$-$\sY\to \mathfrak{FinCov}$-$A$  from the {finite covering category} of $\sY$ (cf. Definition \ref{top_fin_cov_defn})  to  the {category of finite-fold coverings} of $A$ (cf. Definition   \ref{fin_cat_defn}).
 	\begin{itemize}
 	\item If $q: \widetilde \sY \to \sY$ is $\mathfrak{FinCov}$-$\sY$-object then 
 	\bean
@@ -13300,18 +13304,42 @@ A_0\left(q: \widetilde \sY \to \sY \right)\bydef \left(A,A_0\left( \widetilde \s
 	(cf. Theorem \ref{blowing_fin_thm}).
 	\item  Any $\mathfrak{FinCov}$-$\sY$-arrow from $ \widetilde \sY_1 \to \sY$ to  $ \widetilde \sY_2 \to \sY$ is a transitive covering $q^1_2: \widetilde \sY_1 \to  \widetilde \sY_2$ such that there a normal subgroup $H \subset G\left(\left. \widetilde{   \mathcal Y } ~\right| {   \mathcal Y }\right)$ which satisfies to a condition $\widetilde \sY_2\cong \widetilde \sY_1/H$ and the covering $\widetilde \sY_1 \to  \widetilde \sY_2$ is equivalent to a natural projection $\widetilde \sY_1 \to  \widetilde \sY_1/ H$. We denote by 
 	\bean
-	A_0\left(p^1_2: \left(  \widetilde \sY_1 \to \sY\right) \to  \left(  \widetilde \sY_2 \to \sY\right)  \right) \bydef \left(A_0\left(\widetilde \sY_2\right),  A_0\left(\widetilde \sY_1\right), H, C_0\left( q^1_2\right) \right).
+	A_0\left(q^1_2: \left(  \widetilde \sY_1 \to \sY\right) \to  \left(  \widetilde \sY_2 \to \sY\right)  \right) \bydef \left(A_0\left(\widetilde \sY_2\right),  A_0\left(\widetilde \sY_1\right), H, C_0\left( q^1_2\right) \right).
 	\eean 
-	Indeed the constructed in \ref{top_functor_empt} functor $C_0$ is a specialization of $A_0$ one (cf. Example \ref{blowing_disintegrable_exm}).
 \end{itemize}
  
 \end{empt}
+\begin{remark}
+	Indeed the constructed in \ref{top_functor_empt} functor $C_0$ is a specialization of $A_0$ one (cf. Example \ref{blowing_disintegrable_exm}).
+The functor $A_0$ complies with the given by equations \eqref{top_c0_ob_eqn} and \eqref{top_c0i_ob_eqn}  objects.
+\end{remark}
+\begin{definition}\label{blowing_funct_defn}
+The explained in \ref{blowing_funct_empt} functor $A_0:\mathfrak{FinCov}$-$\sY\to \mathfrak{FinCov}$-$A$ is said to be an \textit{associated with Hausdorff blowing-up} $C_0\left( \sY\right) \hookto M\left(A \right)$.
+\end{definition}
+\begin{lemma}\label{blowing_functor_ff_lem}
+If $A$ is a connected $C^*$-algebra and $C_0\left(\sY\right)\to M\left(A \right)$ is a disintegrable Hausdorff blowing up then  an {associated with Hausdorff blowing-up} $C_0\left( \sY\right) \hookto M\left(A \right)$ functor $A_0:\mathfrak{FinCov}$-$\sY\to \mathfrak{FinCov}$-$A$ is full and faithful (cf. Definition \ref{funct_full_faithfull_defn}).
+\end{lemma}
+\begin{proof}
+If both $q_1:\widetilde \sY_1 \to \sY$ and  $q_2:\widetilde \sY_2 \to \sY$ are $\mathfrak{FinCov}$-$\sY$-objects then any $\mathfrak{FinCov}$-$\sY$-arrow from $\widetilde \sY_1 \to \sY$ to  $\widetilde \sY_2 \to \sY$
+is defined up to homeomorphism by a normal subgroup $H_{\text{top}} \subset G\left(\left.\widetilde{\sY}_1~\right|\sY\right)$ such that there is a transitive  covering $q^1_2:\widetilde \sY_1 \to \widetilde \sY_2$ which is homeomorphic to $\widetilde \sY_1\to \widetilde \sY_1/H_{\text{top}}$ one. If
+\bean
+ \left(A,A_0\left( \widetilde \sY_1\right),G\left(\left.\widetilde{\sY}_1~\right|\sY\right),  A_0\left( q_1\right) \right)\bydef A_0\left( q_1:\widetilde \sY_1 \to \sY\right),\\
+ \left(A,A_0\left( \widetilde \sY_2\right),G\left(\left.\widetilde{\sY}_2~\right|\sY\right),  A_0\left( q_2\right) \right)\bydef A_0\left( q_2:\widetilde \sY_2 \to \sY\right)
+ \eean
+ then any  $\mathfrak{FinCov}$-$A$-morphism  from $\left(A,A_0\left( \widetilde \sY_1\right),G\left(\left.\widetilde{\sY}_1~\right|\sY\right),  A_0\left( q_1\right) \right)$ to \\$\left(A,A_0\left( \widetilde \sY_2\right),G\left(\left.\widetilde{\sY}_2~\right|\sY\right),  A_0\left( q_2\right) \right)$ is defined up to *-isomorphism by a normal subgroup 
+ $H_{\text{alg}} \subset G\left(\left.A_0\left( \widetilde{\sY}_1\right) ~\right|A\right)$ such that there is a noncommutative finite-fold covering 
+ \bean
+ \left(A_0\left( \widetilde{\sY}_2\right), A_0\left( \widetilde{\sY}_1\right), G\left(\left.  A_0\left( \widetilde{\sY}_1\right)\right| A_0\left( \widetilde{\sY}_2\right)\right), \pi\right)\cong\\\cong \left(A_0\left( \widetilde{\sY}_1\right)^{H_{\text{alg}}}, A_0\left( \widetilde{\sY}_1\right), H_{\text{alg}},\left. \Id_{A_0\left( \widetilde{\sY}_1\right)}\right|_{A_0\left( \widetilde{\sY}_2\right)}\right)
+\eean
+(cf. Definition \ref{fin_cat_defn}). However there is an isomorphism $G\left(\left.A_0\left( \widetilde{\sY}_1\right) ~\right|A\right)\cong G\left(\left. \widetilde{\sY}_1 ~\right|\sY\right)$ so there is a 1-1 correspondence between groups $H_{\text{alg}}$ and $H_{\text{alg}}$. It follows that there is 1-1 correspondence between $\mathfrak{FinCov}$-$\sY$-arrows from  $q_1:\widetilde \sY_1 \to \sY$ to  $q_2:\widetilde \sY_2 \to \sY$ and $\mathfrak{FinCov}$-$A$-arrows from $A_0\left( q_1:\widetilde \sY_1 \to \sY\right)$ to $A_0\left( q_1:\widetilde \sY_1 \to \sY\right)$.
+\end{proof}
 
 \subsection{Infinite noncommutative coverings}
 
 
 \begin{empt}\label{blowing_inf_empt}
-Let $A$ be a $C^*$-algebra, and let $C_0\left(\sY \right) \to M\left( A\right)$ be a disintegrable, semilocally 1-connected,  Hausdorff blowing-up (cf. Definitions \ref{blowing_defn} !!! CHECK !!! CHECK !!!, \ref{blowing_spectral_defn} !!! LEMMA !!!, \ref{blowing_disintegrable_defn}, \ref{blowing_semi1_defn}) such that the  $\sY$ is a connected, locally connected space. Let  $\widetilde{q}:\left( \widetilde{\sY}, \widetilde{y}_0\right) \to \left( \sY, y_0\right)$ be a pointed transitive covering such that a covering group  $G\left(\left.\widetilde \sY \right| \sY\right)$ is residually finite (cf. Definition \ref{residually_finite_defn}). Let
+Let $A$ be a $C^*$-algebra, and let $C_0\left(\sY \right) \to M\left( A\right)$ be disintegrable Hausdorff blowing-up (cf. Definitions \ref{blowing_defn}, \ref{blowing_disintegrable_defn}) such that the  $\sY$ is a connected, locally connected space.
+ Let  $\widetilde{q}:\left( \widetilde{\sY}, \widetilde{y}_0\right) \to \left( \sY, y_0\right)$ be a pointed transitive covering such that a covering group  $G\left(\left.\widetilde \sY \right| \sY\right)$ is residually finite (cf. Definition \ref{residually_finite_defn}). Let
 \be\label{blowing_top_eqn}
 \begin{split}
 \mathfrak{S}_{\left( \sY, y_0  \right) } \bydef\\\bydef\left\{\left\{ q_\la: \left( \sY_\la, y^\la_0\right) \to \left( \sY, y_0\right)\right\}_{\la \in \La}, \left\{q^\mu_\nu: \left( \sY_\mu, y^\mu_0  \right)\to \left( \sY_\nu, y^\nu_0  \right)\right\}_{\substack{ \mu, \nu \in \La \\ \mu \ge \nu}}\right\}
@@ -13321,23 +13349,17 @@ be a  pointed  topological finite covering category given by the Lemma \ref{top_
 \end{empt}
 \begin{lemma}\label{blowing_base_point_lem}
 If we consider the situation \ref{blowing_inf_empt}
-then following conditions hold:
-\begin{enumerate}
-	\item[(i)] 	There is the natural  pointed algebraical  finite covering category (cf. Definition \ref{comp_defn})
+then there is the natural  pointed algebraical  finite covering category (cf. Definition \ref{comp_defn})
 	\begin{equation}\label{blowing_base_point_eqn}
 		\begin{split}
-		\mathfrak{S}^{\mathrm{pt}}_A \bydef\\\bydef \left\{ \left\{\pi_\la\bydef A_0\left( q_{\la}\right) :A  \hookto A_0\left( \mathcal{Y}_\la\right) \right\}_{\la \in \La}, \left\{\pi^\nu_\mu\bydef A_0\left(q^\mu_\nu \right) \right\}_{\substack{ \mu, \nu \in \La \\ \mu \ge \nu}}\right\} 
+		\mathfrak{S}^{\mathrm{pt}}_A \bydef  A_0\left(\mathfrak{S}_{\left( \sY, y_0  \right) } \right)= \\ = \left\{ \left\{\pi_\la\bydef A_0\left( q_{\la}\right) :A  \hookto A_0\left( \mathcal{Y}_\la\right) \right\}_{\la \in \La}, \left\{\pi^\nu_\mu\bydef A_0\left(q^\mu_\nu \right) \right\}_{\substack{ \mu, \nu \in \La \\ \mu \ge \nu}}\right\} 
 		\end{split}
 	\end{equation}
-	\item[(ii)] Conversely a pointed algebraical  finite covering category $	\mathfrak{S}^{\mathrm{pt}}_A$ 
-	naturally induces the given by \eqref{blowing_top_eqn} pointed topological  finite covering category $\mathfrak{S}_{\left( \sY, y_0  \right) }$.
-	
-\end{enumerate}
-
+where $A_0:\mathfrak{FinCov}$-$\sY\to \mathfrak{FinCov}$-$A$ is an {associated with Hausdorff blowing-up} $C_0\left( \sY\right) \hookto M\left(A \right)$  functor  (cf. Definition \ref{blowing_funct_defn})
 \end{lemma}
 
 \begin{proof}
-	Follows from the Theorem \ref{blowing_functor_thm}. !!! CHECK
+From the Lemma \ref{blowing_functor_ff_lem} it follows that the  functor $A_0:\mathfrak{FinCov}$-$\sY\to \mathfrak{FinCov}$-$A$ is full and faithful (cf. Definition \ref{funct_full_faithfull_defn}). The category \ref{blowing_top_eqn} is skeletal (cf. Definition \ref{skeletal_defn}), so the category $\mathfrak{S}^{\mathrm{pt}}_A \bydef  A_0\left(\mathfrak{S}_{\left( \sY, y_0  \right) } \right)$ is also skeletal.
 \end{proof}
 \begin{empt}\label{blowing_rep_empt}
 
@@ -13359,7 +13381,7 @@ Consider the situation of  \ref{blowing_rep_empt}. Let $\overline \sY$ be a disc
 \eean
 \end{lemma}
 \begin{proof}
-If $K\left( A_0\left( \overline \sY\right) \right)$ is a Pedersen's ideal (cf. Definition \ref{peder_id_defn}) of $A_0\left( \overline \sY\right)$ then from 3. of the Exercise \ref{blowing_a0_exer} it turns out that 
+If $K\left( A_0\left( \overline \sY\right) \right)$ is a Pedersen's ideal (cf. Definition \ref{peder_id_defn}) of $A_0\left( \overline \sY\right)$ then from n$^{\text{o}}$ 3 of the Exercise \ref{blowing_a0_exer} it turns out that 
 $$
 \overline a \in K\left( A_0\left( \overline \sY\right) \right)\quad \Rightarrow \quad \supp \overline{   a}\quad \text{is compact}.
 $$
@@ -13428,8 +13450,8 @@ The above equation it turns out that the series \eqref{blowing_rx_eqn} is norm c
 \end{proof}
 
 \begin{lemma}\label{blowing_spec_k_lem}
-Consider the situation of \ref{blowing_inf_empt} and the Lemma \ref{blowing_base_point_lem}.  Let $\overline \sY$ be a topological  disconnected inverse  limit (cf. Definition \ref{top_topological_inv_lim_defn})  of the given by \eqref{blowing_top_eqn} category  $\mathfrak{S}_{\left( \sY, y_0  \right) }$, and let $\overline q : \overline \sY \to \sY$ be a natural transitive covering. Let  $A_0\left(\overline \sY \right)$ be a $\overline q$-lift of $A$ (cf. Definition \ref{blowing_lift_a_f_defn}). Let  $K\left( A_0\left(\overline \sY \right)\right) $ be a Pedersen's ideal of $A_0\left(\overline \sY \right)$, and let $
-\rho_a :  A_0\left( \overline \sY\right)\to B\left(\widehat \H_a \right)$ be a given by \eqref{blowing_atomic_eqn} representation. If   $\mathfrak{S}^{\mathrm{pt}}_A$ is a given by \eqref{blowing_base_point_eqn} the equation pointed algebraical finite covering category then $\rho_a\left(\overline a\right)\in  B\left(\widehat \H_a \right)$ is a special element  of $\mathfrak{S}^{\mathrm{pt}}_A$ (cf. Definition \ref{special_element_defn}) for each positive $\overline a \in K\left( A_0\left(\overline \sY \right)\right)_+$. 
+ Let $\overline \sY$ be a topological  disconnected inverse  limit (cf. Definition \ref{top_topological_inv_lim_defn})  of the given by \eqref{blowing_top_eqn} category  $\mathfrak{S}_{\left( \sY, y_0  \right) }$, and let $\overline q : \overline \sY \to \sY$ be a natural transitive covering. Let  $\mathfrak{S}^{\mathrm{pt}}_A$ is a given by \eqref{blowing_base_point_eqn} the equation pointed algebraical finite covering category such that any covering of $\mathfrak{S}^{\mathrm{pt}}_A$ is reducible (cf. Definition \ref{fin_red_defn}). Let  $A_0\left(\overline \sY \right)$ be a $\overline q$-lift of $A$ (cf. Definition \ref{blowing_lift_a_f_defn}). Let  $K\left( A_0\left(\overline \sY \right)\right) $ be a Pedersen's ideal of $A_0\left(\overline \sY \right)$, and let $
+\rho_a :  A_0\left( \overline \sY\right)\to B\left(\widehat \H_a \right)$ be a given by \eqref{blowing_atomic_eqn} representation.  then $\rho_a\left(\overline a\right)\in  B\left(\widehat \H_a \right)$ is a special element  of $\mathfrak{S}^{\mathrm{pt}}_A$ (cf. Definition \ref{special_element_defn}) for each positive $\overline a \in K\left( A_0\left(\overline \sY \right)\right)_+$. 
 \end{lemma}
 \begin{proof}
 From the Corollary \ref{blowing_ca_m_cor} for any   $\la\in \La$ there is a natural injective map $m_\la : A_0\left(\sY_\a\right)\hookto M\left( A_0\left(\overline \sY \right)\right)$ which can be extended up to $m^\sim_\la : A_0\left(\sY_\a\right)^\sim\hookto M\left( A_0\left(\overline \sY \right)\right)$ where $A_0\left(\sY_\a\right)^\sim$ is given by \eqref{unital_notation_empt}. If
@@ -13469,14 +13491,14 @@ where $\desc_{\overline p_\la}$ is a ${\overline q_\la}$-decent given by the Def
 The above equation is a specialization of the \eqref{special_set_eqn} one.
 \end{proof}
 \begin{theorem}\label{blowing_inc_thm}
-Consider following situation.!!!
+ Let $\overline \sY$ be a topological  disconnected inverse  limit (cf. Definition \ref{top_topological_inv_lim_defn})  of the given by \eqref{blowing_top_eqn} category  $\mathfrak{S}_{\left( \sY, y_0  \right) }$, and let $\overline q : \overline \sY \to \sY$ be a natural transitive covering. Let  $\mathfrak{S}^{\mathrm{pt}}_A$ is a given by \eqref{blowing_base_point_eqn} the equation pointed algebraical finite covering category such that any covering of $\mathfrak{S}^{\mathrm{pt}}_A$ is reducible (cf. Definition \ref{fin_red_defn}).
 If $\left(A, \overline A, G\left(\left.\overline \sY\right|\sY\right)\right)$ is a disconnected   algebraical inverse noncommutative limit of $ \mathfrak{S}^{\mathrm{pt}}_A$ (cf. Definition \ref{disconnected_inf_defn}) then there is a natural inclusion 
 \be\label{blowing_inc_eqn}
 A_0\left(\overline \sY\right)\hookto \overline A.
 \ee
 \end{theorem}
 \begin{proof}
-From the Lemma \ref{blowing_spec_k_lem} it follows that the Pedersen's ideal of $A_0\left(\overline \sY\right)$ is a *-subalgebra of $\overline A$. On the other hand the Pedersen's ideal of $A_0\left(\overline \sY\right)$ is dense in $\overline A$ so one has the inclusion \eqref{blowing_inc_eqn}.
+From the Lemma \ref{blowing_spec_k_lem} it follows that the Pedersen's ideal of $A_0\left(\overline \sY\right)$ is a *-subalgebra of $\overline A$. On the other hand the Pedersen's ideal of $A_0\left(\overline \sY\right)$ is dense in $A_0\left(\overline \sY\right)$ so one has the inclusion \eqref{blowing_inc_eqn}.
 \end{proof}
 \begin{definition}\label{blowing_good_defn}
 Consider the situation of the Theorem \ref{blowing_inc_thm}. If $A_0\left(\overline \sY\right)= \overline A$ then we say that  $\mathfrak{S}^{\mathrm{pt}}_A$ is $\overline \sY$-\textit{good}.
@@ -13485,7 +13507,7 @@ Consider the situation of the Theorem \ref{blowing_inc_thm}. If $A_0\left(\overl
 Consider the situation of the Definition \ref{blowing_good_defn}. From the Lemma \ref{blowing_uau_conn_lem} it follows that any connected component (cf. Definition \ref{connected_comp_defn}) of $A_0\left(\overline \sY\right)$  equals to  $A_0\left(\widetilde \sY\right)$ where $\widetilde\sY$ is a connected component of $\overline \sY$ (cf. Definition \ref{top_conn_comp_defn}).
 \end{empt}
 \begin{theorem}
-Consider the situation !!!. Following conditions hold
+Consider the situation of the Theorem \ref{blowing_inc_thm}. Following conditions hold
 \begin{enumerate}
 	\item [(i)]  $\mathfrak{S}^{\mathrm{pt}}_A$ is $\overline \sY$-{good} (cf. Definition \ref{blowing_good_defn}) then $\mathfrak{S}^{\mathrm{pt}}_A$ is good (cf. Definition \ref{good_defn}). 
 	\item[(ii)]  If $\widetilde\sY$ is a connected component of $\overline \sY$ (cf. Definition \ref{top_conn_comp_defn}) 
@@ -14752,6 +14774,8 @@ Let $\left(X, Y\right)$ be a sub-untal operator space (cf. Definition \ref{op_su
 \end{proof}
 \section{Basic constructions}\label{ctr_bas_constr}
 \subsection{$C^*$-algebras induced by coverings}
+
+!!! CONTINUE !!!
   \paragraph*{}
    Let $A$ be a $C^*$-algebra with Hausdorff which according to the   Theorem \ref{ctr_as_field_thm} can be represented by the following way
   \be\label{ctr_as_field_eqn}
@@ -20282,7 +20306,7 @@ noncommutative finite-fold pre-covering (cf. Definition  \ref{fin_pre_defn}). Si
 \end{exercise}
 
 \begin{appendices}
-	\chapter{Categories, functors  and sets}
+	\chapter{Categories, functors  and ordered sets}
 	
 	\section{Categories and limits}
 	\begin{definition}\label{category_defn}\cite{goldblatt:topoi}
@@ -20291,8 +20315,8 @@ noncommutative finite-fold pre-covering (cf. Definition  \ref{fin_pre_defn}). Si
 	\begin{itemize}
 		\item[(1)] 	 a collection of things called $\mathscr C$-\textit{objects}; 
 	\item[(2)] a collection of things called $\mathscr C$-\textit{arrows}  or $\mathscr C$-\textit{morphisms}; 
-	\item[(3)] operations assigning to each  $\mathscr C$-arrow f  $\mathscr C$-object $\mathrm{dom}$ (the 
-		"domain" of $f$) and a $\mathscr C$-object $\mathrm{cod}$ (the "codomain" of $f$). If $a =\mathrm{dom} f$  
+	\item[(3)] operations assigning to each  $\mathscr C$-arrow $f$  $\mathscr C$-object $\mathrm{dom}f$ (the 
+		"domain" of $f$) and a $\mathscr C$-object $\mathrm{cod}f$ (the "codomain" of $f$). If $a =\mathrm{dom} f$  
 		and $b =\mathrm{cod} f$ we display this as 
 		\bean
 		f: a \to b\quad \text{or}\quad  a \xrightarrow{f} b;
@@ -20362,11 +20386,11 @@ the same thing. A more complex diagram, like the previous one, is said to
 be commutative when all possible triangles that are parts of the diagram 
 are themselves commutative. This means that any two paths of arrows in 
 the diagram that start at the same object and end at the same object 
-compose to give the same overall arrow. By a diagram $D$ in a 
+compose to give the same overall arrow. By a \textit{diagram} $D$ in a 
 category $\mathscr C$ we simply mean a collection of $\mathscr C$-objects $d_j, d_k,...$ together 
 with some $\mathscr C$-arrows $g: d_j \to d_k$ between certain of the objects in the 
 diagram. (Possibly more than one arrow between a given pair of objects, 
-possibly none.) 
+possibly none). 
 A \textit{cone} for diagram $D$ consists of a $\mathscr C$-object $c$ together with a $\mathscr C$-arrow 
 $c\to d_j$ for each object $f_j$ in $D$, such that
 		\newline
@@ -20425,7 +20449,7 @@ A \textit{limit} for a diagram $D$ is a $D$-cone $\left\{f_j: c\to d_j\right\}$ 
 \end{definition}
 \section{Functors}
 \begin{definition}\label{functor_defn}\cite{goldblatt:topoi}
-A functor $F$ from category $\mathscr{C}$ to category $\mathscr{D}$ is a function that assigns 
+A \textit{functor} $F$ from category $\mathscr{C}$ to category $\mathscr{D}$ is a function that assigns 
 \begin{enumerate}
 	\item [(i)]
  to each $\mathscr{C}$-object $a$, a $\mathscr{D}$-object $F(a)$; 
@@ -20452,7 +20476,7 @@ F_{a,b}:\mathscr{C}\left(a, b \right)  \to \mathscr{D}\left( F\left(a\right), F\
 \ee
 (cf. Notation \ref{category_not}).
 \begin{definition}\label{funct_full_faithfull_defn}\cite{bass}
-A functor $\mathscr{C}\xrightarrow{F} \mathscr{D}$ is said to be \textit{faithful} (resp. \textit{full}) if the given by \eqref{f_ab_funct_eqn} is injective (resp. surjective).
+A functor $\mathscr{C}\xrightarrow{F} \mathscr{D}$ is said to be \textit{faithful} (resp. \textit{full}) if the given by \eqref{f_ab_funct_eqn} map is injective (resp. surjective).
 \end{definition}
 \begin{defn}\label{functor_contravariant_defn}
 A \textit{contravariant} functor is one that reverses direction by mapping domains 
@@ -20465,11 +20489,11 @@ $$
 \end{defn}
 \section{Natural transformations}\label{natural_transformation_sec}
 \paragraph{}
-Here I follow to \cite{goldblatt:topoi}
+Here I follow to \cite{goldblatt:topoi}.
 Given two categories $\mathscr C$ and $\mathscr D$ we are going to construct a category, 
 denoted $\mathrm{Funct}\left(\mathscr C, \mathscr D\right)$, or $\mathscr D^{\mathscr C}$, whose objects are the functors from $\mathscr C$ to $\mathscr D$. 
 We need a definition of arrow from one functor to another. Let 
-$F: \mathscr C\to \mathscr D$ and $G: \mathscr C\to \mathscr D$ be two functors. For any $\mathscr C$-object $a$ we define a $\mathscr D$-arrow $\tau_a : F\left(a\right)\to  G\left(a\right)$. we require that each  $\mathscr C$-arrow $f: a \to b$  gives rise to a diagram 
+$F: \mathscr C\to \mathscr D$ and $G: \mathscr C\to \mathscr D$ be two functors. For any $\mathscr C$-object $a$ we define a $\mathscr D$-arrow $\tau_a : F\left(a\right)\to  G\left(a\right)$. We require that each  $\mathscr C$-arrow $f: a \to b$  gives rise to a diagram 
 	\begin{tikzpicture}
 	\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
 	{
@@ -20624,15 +20648,15 @@ maps, and topological *-algebras over $\C$ and continuous *-homomorphisms. (The 
 	\section{General topology}
 	\begin{definition}\label{top_base_defn}\cite{munkres:topology}
 		If $\sX$ is a set, a \textit{basis} for a topology on $\sX$ is a collection $\mathscr B$ of subsets of $\sX$
-		(called \textit{basis elements}) such that
+		(called \textit{basis elements}) such that:
 		\begin{enumerate}
-			\item [(a)]  For each $x\in \sX$, there is at least one basis element $B$ containing $x$.
-			\item [(b)]  If $x$ belongs to the intersection of two basis elements $B_1$ and $B_2$, then there is a
+			\item [(a)]  for each $x\in \sX$, there is at least one basis element $B$ containing $x$,
+			\item [(b)]  if $x$ belongs to the intersection of two basis elements $B_1$ and $B_2$, then there is a
 			basis element $B_3$ containing $x$ such that $B_3 \subset B_1\cap B_2$.
 		\end{enumerate}
 		
 		If  $\mathscr B$ satisfies these two conditions, then we define the \textit{topology}  $\mathscr T$ \textit{generated by}  $\mathscr B$ as
-		follows: A subset $\sU$ of $\sX$ is said to be open in $\sX$ (that is, to be an element of $\mathscr T$) if for
+		follows: A subset $\sU$ of $\sX$ is said to be \textit{open} in $\sX$ (that is, to be an element of $\mathscr T$) if for
 		each $x \in \sU$, there is a basis element $B \in \mathscr B$ such that $x \in B$ and $B \subset \sU$.
 	\end{definition}
 	\begin{remark}\label{top_base_rem}It is proven that given by the Definition \ref{top_base_defn} collection $\mathscr T$ is a topology  (cf. \cite{munkres:topology}).
@@ -20791,9 +20815,9 @@ continuous for $\a\le\bt$) their \textit{inverse limit} $\varprojlim \sX_\a$ (cf
 	\begin{defn}
 		\label{c_c_def_2}\cite{blackadar:ko,murphy}
 		A $C^*$-algebra $C_0\left(\mathcal{X}\right)$ is given by the following equation
-		\begin{equation*}
-			C_0\left(\mathcal{X}\right) = \left\{\varphi \in C_b\left(\mathcal{X}\right) \ | \ \forall \varepsilon > 0 \ \ \exists K \subset \mathcal{X} \ ( K \text{ is compact}) \ \& \ \forall x \in \mathcal X \setminus K \ \left|\varphi\left(x\right)\right| < \varepsilon  \right\},
-		\end{equation*}
+	\bean
+			C_0\left(\mathcal{X}\right) \ \left\{\varphi \in C_b\left(\mathcal{X}\right) \ | \ \forall \varepsilon > 0 \ \ \exists K \subset \mathcal{X} \ ( K \text{ is compact}) \ \& \ \forall x \in \mathcal X \setminus K \ \left|\varphi\left(x\right)\right| < \varepsilon  \right\},
+		\eean
 		i.e.
 		\begin{equation*}
 			\left\|\varphi|_{\mathcal X \setminus K}\right\| < \varepsilon.
@@ -20892,9 +20916,6 @@ S^k \bydef \left\{\left.\left(x_1, ..., x_{k+1}\right) \in \R^{k+1}~\right| x_1^
 with the natural inclusion $S^k\subset E^{k+1}$. A space $\sX$ is said to be $n$-\textit{connected} if every continuous map $f: S^k \to \sX$ for $k\le n$ has a continuous extension over $E^{k+1}$. A 1-connected space is also said to be \textit{simply connected}.
 \end{definition}
 	
-	\begin{defn}\label{top_semi1_defn}\cite{spanier:at}
-		A space $\sX$ is said to by \textit{semilocally} 1-\textit{connected} if every point $x_0$ has a neighborhood $N$ such that $\pi_1\left( N, x_0\right) \to \pi_1\left(\sX, x_0 \right)$ is trivial. 
-	\end{defn} 
 %\subsection{Moore-Smith convergence}
 	\begin{theorem}\label{it_lim_thm}\cite{kelley:gt}
 	\textit{Theorem on iterated limits}. Let $D$ be a directed set, let $E_m$ be a directed set for each $m$ in $D$, let $F$ be the product $D\times \prod_{m \in D}  E_m$, and for $(m,f)$ in $F$ let $R(m,f) = (m, f(m))$. If $S(m,n)$ is 
@@ -20922,24 +20943,19 @@ If $\left( \sX, \rho\right) $ is a metric space then wa say that $\left\{x_j\rig
 \begin{remark}\label{top_cauchy_rem}
 Above statements can be generalized to nets (cf. Definition \ref{top_net_lim_defn}) the word \textit{Cauchy net} is also used in this book.
 \end{remark}
-\begin{defn}\label{top_dfn:regular_neighborhood_defn}\cite{pavlov_troisky:cov}
+%\begin{defn}\label{top_dfn:regular_neighborhood_defn}\cite{pavlov_troisky:cov}
 	%2.1
-	Let $\sX, \sY$ be Hausdorff spaces, and let $p: \sY \to \sX$ be a continuous map.
-If 		$x\in \sX$, which has a finite number of pre-images $y_1,
-		\dots,y_m$. Then a neighborhood $\sU$ of $x$ is said to be
-		\emph{regular} if
-		\begin{gather}\label{eq:neiborhoods}
-			p^{-1}(\sU)= \sV_1\sqcup\dots\sqcup \sV_m,
-		\end{gather}
-		where $\sV_i$ are some neighborhoods of $y_j$, $j=1,\dots, m$.
-\end{defn}
+%	Let $\sX, \sY$ be Hausdorff spaces, and let $p: \sY \to \sX$ be a continuous map.If 		$x\in \sX$, which has a finite number of pre-images $y_1,		\dots,y_m$. Then a neighborhood $\sU$ of $x$ is said to be		\emph{regular} if
+%		\begin{gather}\label{eq:neiborhoods}
+%			p^{-1}(\sU)= \sV_1\sqcup\dots\sqcup \sV_m,
+%		\end{gather}
+%		where $\sV_i$ are some neighborhoods of $y_j$, $j=1,\dots, m$.
+%\end{defn}
 
-\begin{lem}\label{top_lem:neiborhoods_lem}\cite{pavlov_troisky:cov}
+%\begin{lem}\label{top_lem:neiborhoods_lem}\cite{pavlov_troisky:cov}
 %	2.2.
-	Let $p : \sY\rightarrow \sX$ be a continuous closed map of Hausdorff
-	spaces. Then any point $x$ of $\sX$ with a finite number of
-	pre-images has a regular neighborhood.
-\end{lem}
+%	Let $p : \sY\rightarrow \sX$ be a continuous closed map of Hausdorff	spaces. Then any point $x$ of $\sX$ with a finite number of	pre-images has a regular neighborhood.
+%\end{lem}
 	\section{Vector bundles}\label{top_vb_sub_sub}
 \paragraph*{}
 Let $k$ be the field of real or complex numbers, and let $\sX$ be a topological space.
@@ -21012,8 +21028,8 @@ for $\la\in \C$, $e \in E_x$, and $e' \in E_x$.
 \subsection{$H$-groups}
 \paragraph{}
 Here I follow to \cite{spanier:at}. If both $\sX$ and $\sY$ are topological spaces then we denote by $\left[\sX; \sY\right]$ the set of homotopy classes of continuous maps from $\sX$ to $\sY$. One method of obtaining a group structure on  $\left[\sX; \sY\right]$ is to start with a 
-group structure on $\sY$. Thus, let $\sY$ be a topological group with identity element as base point. There is a law of composition in the set of all base-point-preserving continuous maps from X to P defined by pointwise multiplication 
-of functions. That is, if $g_1, g_2: \sX \to\sY$, then $g_1g_2 \sX \to\sY$ is defined by $g_1g_2\left(x\right)= g_1\left(x\right)g_2\left(x\right)$, where the right-hand side is the group product in $\sY$. With 
+group structure on $\sY$. Thus, let $\sY$ be a topological group with identity element as base point. There is a law of composition in the set of all base-point-preserving continuous maps from $\sX$ to $\sY$ defined by point-wise multiplication 
+of functions. That is, if $g_1, g_2: \sX \to\sY$, then $g_1g_2: \sX \to\sY$ is defined by $g_1g_2\left(x\right)\bydef g_1\left(x\right)g_2\left(x\right)$, where the right-hand side is the group product in $\sY$. With 
 this law of composition, the set of base-point-preserving continuous maps 
 from $\sX$ to $\sY$ is a group (which is Abelian if $\sY$ is Abelian). The law of  
 composition carries over to give an operation on homotopy classes such that $\left[g_1\right]\left[g_2\right]\bydef \left[g_1g_2\right]$, and we have the following theorem. 
@@ -21035,7 +21051,7 @@ For any topological group $\sY$ we denote by $\left[~\cdot~;\sY\right]$ the give
 
 \begin{empt}\label{top_comp_open_empt} {\it Fuction spaces.}\cite{switzer:at} If $\sX$ and $\sY$ are topological spaces, we let $\sY^\sX$ denote the set of all continuous functions functions $f: \sX \to \sY$. We give this set a topology, called the {\it compact-open topology}, by taking as a subbase for the topology all sets of the form $N_{K,U} =\{f:f(K)\subset \sU\}$, $K\subset \sU$ compact, $\sU \subset \sX$ open. 
 \end{empt}
-\begin{empt}\label{base_points}\cite{switzer:at} {\it Base points.} \cite{switzer:at} Algebraic topology often have to consider not just topological space $\sX$ but rather a space $\sX$ together with distinguished point $x_0\in \sX$ called the {\it base point}. The pair $(\sX, x_0)$ is called a {\it pointed space} (one also speaks of pointed sets). When we are concerned with pointed spaces $(\sX, x_0)$, $(\sY, y_0)$, etc. we always require that all functions $f: \sX \to \sY$ shall preserve base point, i.e. $f(x_0)=y_0$, and that all homotopies $F:\sX\times I \to \sY$ be relative to base point, i.e. $F(x_0, t) = y_0$, $\forall t \in I$ unless an explicit disclaimer to be contrary is made. We shall use the notation $[\sX, x_0, \sY, y_0]$ to denote the homotopy classes of base point preserving functions, where homotopies are $\mathrm{rel}x_0$, of course. $[\sX, x_0, \sY, y_0]$ is a pointed space with base point $f_0$ the constant function: $f_0(x)=y_0$, $\forall x\in \sX$. If $(\sX, x_0)$, $(\sY, y_0)$ are pointed spaces then we have the space $(\sY, y_0)^{(\sX, x_0)}$ of base point preserving functions. We use the notation $\sX \vee \sY$ for the subspace $\sZ \times \{x_0\} \cup \{z_0\} \sX$. It can be thought of as the result of taking the disjoint union $\sZ \cup \sX$ and identifying $z_0$ with $x_0$, $\sZ \vee \sX$ is again a pointed space with base point $(z_0, x_0)$.  Given maps $f: (\sX, x_0)\to (\sX', x'_0)$ and $g: (\sY, y_0)\to (\sY', y'_0)$ the map $f \times g : \sX\times \sY \to \sX'\times \sY'$ maps $\sX \vee \sY$ into $\sX' \vee \sY'$ and so induces a map $f \wedge g: \sX\wedge \sY \to \sX'\wedge \sY'$.
+\begin{empt}\label{base_points}\cite{switzer:at} {\it Base points.} \cite{switzer:at} Algebraic topology often have to consider not just topological space $\sX$ but rather a space $\sX$ together with a distinguished point $x_0\in \sX$ called the {\it base point}. The pair $(\sX, x_0)$ is called a {\it pointed space} (one also speaks of pointed sets). When we are concerned with pointed spaces $(\sX, x_0)$, $(\sY, y_0)$, etc. we always require that all functions $f: \sX \to \sY$ shall preserve base point, i.e. $f(x_0)=y_0$, and that all homotopies $F:\sX\times I \to \sY$ be relative to base point, i.e. $F(x_0, t) = y_0$, $\forall t \in I$ unless an explicit disclaimer to be contrary is made. We shall use the notation $[\sX, x_0, \sY, y_0]$ to denote the homotopy classes of base point preserving functions, where homotopies are $\mathrm{rel}x_0$, of course. $[\sX, x_0, \sY, y_0]$ is a pointed space with base point $f_0$ the constant function: $f_0(x)=y_0$, $\forall x\in \sX$. If $(\sX, x_0)$, $(\sY, y_0)$ are pointed spaces then we have the space $(\sY, y_0)^{(\sX, x_0)}$ of base point preserving functions. We use the notation $\sX \vee \sY$ for the subspace $\sZ \times \{x_0\} \cup \{z_0\} \sX$. It can be thought of as the result of taking the disjoint union $\sZ \cup \sX$ and identifying $z_0$ with $x_0$, $\sZ \vee \sX$ is again a pointed space with base point $(z_0, x_0)$.  Given maps $f: (\sX, x_0)\to (\sX', x'_0)$ and $g: (\sY, y_0)\to (\sY', y'_0)$ the map $f \times g : \sX\times \sY \to \sX'\times \sY'$ maps $\sX \vee \sY$ into $\sX' \vee \sY'$ and so induces a map $f \wedge g: \sX\wedge \sY \to \sX'\wedge \sY'$.
 \end{empt}
 \begin{empt}\label{smash_pointed_sp}
 	If both $(\sX, x_0)$, $\left( \sY, y_0\right) $ are pointed spaces then we define the {\it smash product} $(\sX \wedge \sY, *)$ to be the quotinent 
@@ -21087,6 +21103,9 @@ Both sets $[\Sigma \sX,*;\sY, y_0]$ and $[\sX,x_0, \Omega \sY, \omega_0]$ posses
 \begin{remark}\label{top_h_gr_rem}\cite{switzer:at}
 The group $\pi_1\left(\sX, x_0 \right)$ is a set of homotopy equivalence classes of closed paths $f: \left[0, 1\right] \to\sX$ such that $f\left(0\right)= f\left(1\right)= x_0$. For all $n \in \N$ there is the natural bijective map $\pi_n\left(\sX, x_0 \right)\cong \left[\sX, x_0; S^n, s_0\right]$. We say that $\pi_1\left(\sX, x_0 \right)$ is the \textit{fundamental group} of the pointed space $\left(\sX, x_0 \right)$. 
 \end{remark}
+	\begin{defn}\label{top_semi1_defn}\cite{spanier:at}
+	A space $\sX$ is said to by \textit{semilocally} 1-\textit{connected} if every point $x_0$ has a neighborhood $N$ such that $\pi_1\left( N, x_0\right) \to \pi_1\left(\sX, x_0 \right)$ is trivial. 
+\end{defn} 
 
 \begin{remark}\cite{switzer:at}
 For all $n > 1$ the group $	\pi_{n} (\sX, x_0)$ is Abelian.
@@ -21510,18 +21529,18 @@ It is a basic fact that $\Coo\left(M \right)$ is complete, so that it is a Fr\'e
 \section{Smooth vector bundles}
 
 \begin{definition}\label{top_sm_bundle_defn}\cite{lee:smooth_manifolds}
-	Let $M$ be a smooth manifold
+	Let $M$ be a smooth manifold.
 A \textit{smooth vector bundle of rank $k$ over $M$} is a smooth manifold $E$ together
 with a smooth surjective map $\pi: E\to M$ satisfying:
 \begin{enumerate}
-	\item [(i)] For each $p\in M$ the set $E_p \bydef \pi^{-1}\left( p\right)$  (called the \textit{fiber} of $E$ over
-$p$) is endowed with the structure of a real vector space.
-\item[(ii)] For each $p\in M$ there exists a neighborhood $\sU$ of $p$ in $M$ and a diffeomorphism $\Phi:\pi^{-1}\left( p\right)\to \sU \times R^k$  such that the following diagram
+	\item [(i)] for each $p\in M$ the set $E_p \bydef \pi^{-1}\left( p\right)$  (called the \textit{fiber} of $E$ over
+$p$) is endowed with the structure of a real vector space,
+\item[(ii)] for each $p\in M$ there exists a neighborhood $\sU$ of $p$ in $M$ and a diffeomorphism $\Phi:\pi^{-1}\left( p\right)\to \sU \times \R^k$  such that the following diagram
 		\newline
 \begin{tikzpicture}
 	\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
 	{
-		\pi^{-1}\left(\sU \right)  & & \sU \times \R^K \\ 
+		\pi^{-1}\left(\sU \right)  & & \sU \times \R^k \\ 
 		& \sU & \\};
 	\path[-stealth]
 	(m-1-1) edge node [above] {$\Phi$} (m-1-3)
@@ -21529,7 +21548,7 @@ $p$) is endowed with the structure of a real vector space.
 	(m-1-3) edge node [right] {$~~\pi_1$} (m-2-2);
 \end{tikzpicture}
 \\ 	
-and the restriction of $\Phi$ to $E_p$ is a linear isomorphism from $E_p$ to $\{p\}\times \R^k \xrightarrow{\approx } \R^k$. (Here $\pi_1$ is the projection on the first factor.)
+and the restriction of $\Phi$ to $E_p$ is a linear isomorphism from $E_p$ to $\{p\}\times \R^k \xrightarrow{\approx } \R^k$. (Here $\pi_1$ is the projection on the first factor).
 \end{enumerate}
 The manifold $E$ is called the \textit{total space} of the bundle, $M$ is called its \textit{base}, and $\pi$ is its \textit{projection}. Each map $\Phi$ in the above definition is called
 a \textit{local trivialization} of $E$ over $\sU$. 
@@ -21587,7 +21606,7 @@ The space $D\left(M, E \right)$ is an algebra over $\C$ with the given by the co
 
 \section{Distributions on manifolds}
 \paragraph*{}
-The notion of a distribution on smooth manifold $M$ is explained in 6.3.3 \cite{horm:I} and it is denoted by $\mathscr{D}'\left( M\right)$.
+The notion of a distribution on smooth manifold $M$ is explained in 6.3.3 \cite{horm:I} and the space of distributions  is denoted by $\mathscr{D}'\left( M\right)$.
 However $\mathscr{D}'\left( M\right)$ is not equal to the space of linear forms  $C_c\left( M\right) \cap \Coo\left(M \right)\to \C$.
 \begin{definition}\label{top_distr_dens_def}
 	If $M$ is a smooth manifold then a $\C$-valued linear form  $\Coo_c \left(M  \right)\bydef C_c\left( M\right) \cap \Coo\left(M \right)\to\C$ is said to be a \textit{distribution density}. The space of distribution densities will be denoted by $\Coo_c \left(M  \right)'$. Denote by 
@@ -21600,7 +21619,10 @@ However $\mathscr{D}'\left( M\right)$ is not equal to the space of linear forms 
 	the natural pairing.
 \end{definition}
 \begin{remark}
-	If there is a positive measure $\mu$ on $M$ which is locally presented by which is locally given by an $\dim M$-dimensional external differential form then there is the natural inclusion
+The space $\mathscr{D}'\left( M\right)$ is relevant to $\Coo_c \left(M  \right)'$ one (cf. \cite{horm:I})
+\end{remark}
+\begin{remark}
+	If there is a positive measure $\mu$ on $M$ which is locally presented by a $\dim M$-dimensional external differential form then there is the natural inclusion
 	\be
 	\begin{split}
 		C\left(M \right) \subset \Coo_c \left(M  \right)',\\
@@ -21662,6 +21684,9 @@ Let $P = M \times G$ be a trivial principal bundle. For each $a \in G$, the set 
 \begin{cor}\label{dg_flat_cor}(Corollary II 9.2 \cite{kobayashi_nomizu:diff_geom})
 	Let $\Ga$ be a connection in $P\left(M, G \right)$ such that the curvature vanishes identically. If $M$ is paracompact and simply connected, then $P$ is isomorphic to the trivial bundle and $\Ga$ is isomorphic to the canonical flat connection in $M \times G$.
 \end{cor}
+\begin{remark}
+	The \textit{curvature} notion is explained in \cite{kobayashi_nomizu:diff_geom}.
+\end{remark}
 \paragraph*{}
 
 If $\widetilde{\pi}: \widetilde{M} \to M$ is a covering then the $\widetilde{\pi}$-\textit{lift} of $P$ is a principal $\widetilde{P}\left(\widetilde{M}, G \right)$  bundle, given by
@@ -21712,27 +21737,26 @@ where the pairing $\left(\cdot, \cdot\right) : \Ga\left( E \otimes T^*\left( M\r
 \section{Inverse limits of groups}
 \begin{definition}\label{group_inv_lim_defn}\cite{spanier:at}
 If $\left\{G_\a\right\}$ is an inverse system of
-groups (that is, $G_\a$ is a group for each $\a$ and $f^\bt_\a: G_\bt\to  G_\a$ is a homomorphism 
-for $\a\le \bt$), their \textit{inverse limit} $\varprojlim G_\a$ (which is a set) is a subgroup of $\prod G_\a$. 
+groups  (that is, $G_\a$ is a group for each $\a$ and $f^\bt_\a: G_\bt\to  G_\a$ is a homomorphism 
+for $\a\le \bt$), their \textit{inverse limit} $\varprojlim G_\a$ (which is a set (cf. Definition \ref{inv_lim_defn})) is a subgroup of $\prod G_\a$. 
 \end{definition}
 	\section{Finitely generated modules}
 	\begin{theorem}\label{fin_gen_thm}\cite{kasch:mr}
 		% 2.3.13 THEOREM. T
-		The module $M_R$ over a (unital) ring $R$ is finitely generated if and only if there 
-		is in every set $\left\{A_\la\right\}_{\la\in\La}$ of submodules $A_\la\hookto  M$ with 
+		The module $M_R$ over a (unital) ring $R$ is finitely generated if and only if for every set $\left\{A_\la\right\}_{\la\in\La}$ of submodules $A_\la\hookto  M$ with 
 		$$
 		M=\sum_{\la \in \La} A_\la
 		$$
 		there is a finite subset $\La_0\subset \La$  such that 
 		$$
-		M = \sum_{\la \in \La_0} A_\la
+		M = \sum_{\la \in \La_0} A_\la.
 		$$
 	\end{theorem}
 
 	\section{Algebraic Morita equivalence}
 	
 	\begin{defn}\label{morita_ctx_defn}
-		A \textit{Morita context} $\left( A,B,P,Q,\varphi,\psi\right)$ or, in some authors (e.g. Bass \cite{bass}) the \textit{pre-equivalence data} is a generalization of Morita equivalence between categories of modules. In the case of right modules, for two associative $\mathbf{k}$-algebras (or, in the case of $\mathbf{k} = \mathbb{Z}$, rings) $A$ and $B$, it consists of bimodules $_AP_B$, $_BQ_A$ and bimodule homomorphisms $\varphi: P\otimes_B Q\to A$, $\psi: Q\otimes_A P\to B$ satisfying mixed associativity conditions, i.e. for any $p,p' \in P$ and $q,q' \in Q$ following conditions hold:
+		A \textit{Morita context} $\left( A,B,P,Q,\varphi,\psi\right)$ or, in some authors (e.g. Bass \cite{bass}) the \textit{pre-equivalence data} is a generalization of Morita equivalence between categories of modules. In the case of right modules, for two associative $\mathbf{k}$-algebras (or, in the case of $\mathbf{k} = \mathbb{Z}$, rings) $A$ and $B$, it consists of bimodules $_AP_B$, $_BQ_A$ and bimodule homomorphisms $\varphi: P\otimes_B Q\to A$, $\psi: Q\otimes_A P\to B$ satisfying mixed associativity conditions, i.e. for any $p,p' \in P$ and $q,q' \in Q$ one  has:
 		\begin{equation}\label{morita_ctx_eqn}
 			\begin{split}
 				\varphi\left(p\otimes q \right) p' = p \psi\left(q\otimes p' \right),\\
@@ -21793,7 +21817,7 @@ for $\a\le \bt$), their \textit{inverse limit} $\varprojlim G_\a$ (which is a se
 	$$
 	\left( a, g\right)\left( b, h\right) =\left(a\left(gb \right), gh  \right).
 	$$
-	The category $\mathscr{M}^G_{\widetilde{A}}$ is equivalent to the category $\mathscr{M}_{\widetilde{A}\left[ G\right]}$ of $\widetilde{A}\left[ G\right]$ modules. Otherwise in \cite{auslander:galois} it is proven that if $\widetilde{A}$ is a finitely generated, projective $A$-module then there is an  equivalence between a category $\mathscr{M}_{A}$ of $A$-modules and the category $\mathscr{M}_{\widetilde{A}\left[ G\right]}$. It turns out that the category $\mathscr{M}^G_{\widetilde{A}}$ is equivalent to the category $\mathscr{M}_{A}$. The equivalence is given by mutually inversed functors $\left( -\right) \otimes \widetilde{A}: \mathscr{M}_{A} \to \mathscr{M}^G_{\widetilde{A}}$ and $\left( -\right) ^G: \mathscr{M}^G_{\widetilde{A}}\to \mathscr{M}_{A}$.
+	The category $\mathscr{M}^G_{\widetilde{A}}$ is equivalent to the category $\mathscr{M}_{\widetilde{A}\left[ G\right]}$ of $\widetilde{A}\left[ G\right]$ modules. Otherwise in \cite{auslander:galois} it is proven that if $\widetilde{A}$ is a finitely generated, projective $A$-module then there is an  equivalence between a category $\mathscr{M}_{A}$ of $A$-modules and the category $\mathscr{M}_{\widetilde{A}\left[ G\right]}$ (cf. Definition \ref{category_equivalence_definition}). It turns out that the category $\mathscr{M}^G_{\widetilde{A}}$ is equivalent to the category $\mathscr{M}_{A}$. The equivalence is given by mutually inversed functors $\left( -\right) \otimes \widetilde{A}: \mathscr{M}_{A} \to \mathscr{M}^G_{\widetilde{A}}$ and $\left( -\right) ^G: \mathscr{M}^G_{\widetilde{A}}\to \mathscr{M}_{A}$.
 	
 	
 	
@@ -21934,7 +21958,7 @@ gHg^{-1} = H
 	\begin{definition}\cite{kreyszig:fa}
 		%10.2-5 Definition (Self-adjoint linear operator). 
 		Let $T: \D\left( T\right)\to\H$ be a linear operator which is densely defined in a complex Hilbert
-		space H. Then T is called a \textit{self-adjoint linear operator} if
+		space $\H$. Then $T$ is called a \textit{self-adjoint linear operator} if
 		\be
 		T = T^*
 		\ee
@@ -21968,9 +21992,9 @@ gHg^{-1} = H
 			\be
 			x_\a  \to x \quad \{x_\a\}\subset \D\left( T\right) \quad \text{and} \quad 	Tx_\a  \to y
 			\ee
-			together imply that $x \in \D\left( T\right)$ and $Tx = y$.
-			\item[(b)]  If $T$ is closed and $\D\left( T\right)$ is closed, then $T$ is bounded.
-			\item[(c)] Let $T$ be bounded. Then $T$ is closed if and only if $\D\left( T\right)$ is
+			together imply that $x \in \D\left( T\right)$ and $Tx = y$,
+			\item[(b)]  if $T$ is closed and $\D\left( T\right)$ is closed, then $T$ is bounded,
+			\item[(c)] If $T$ be bounded then $T$ is closed if and only if $\D\left( T\right)$ is
 			closed.
 		\end{enumerate}
 	\end{theorem}
@@ -21999,10 +22023,10 @@ gHg^{-1} = H
 	\end{equation}
 	The space of complex-valued Schwartz  functions on $\Z^n$ is given by 
 	\begin{equation}\label{schwartz_z_eqn}
-		\sS\left(\mathbb{Z}^n\right)\bydef \left\{a = \left\{a_k\right\}_{k \in \mathbb{Z}^n} \in \mathbb{C}^{\mathbb{Z}^n}~|~ \mathrm{sup}_{k \in \mathbb{Z}^n}\left(1 + \|k\|\right)^s \left|a_k\right| < \infty, ~ \forall s \in \mathbb{N} \right\}.
-	\end{equation}
-	
-	
+		\begin{split}
+	\sS\left(\mathbb{Z}^n\right)\bydef\\\bydef  \left\{\left.a = \left\{a_k\right\}_{k \in \mathbb{Z}^n} \in \mathbb{C}^{\mathbb{Z}^n}~\right|~ \mathrm{sup}_{k \in \mathbb{Z}^n}\left(1 + \|k\|\right)^s \left|a_k\right| < \infty, ~ \forall s \in \mathbb{N} \right\}.
+		\end{split}
+		\end{equation}
 	Let $\mathbb{T}^n$ be an ordinary $n$-torus. We will often use real coordinates for $\mathbb{T}^n$, that is, view $\mathbb{T}^n$ as $\mathbb{R}^n / \mathbb{Z}^n$. Let $\Coo\left(\mathbb{T}^n\right)$ be an algebra of infinitely differentiable complex-valued functions on $\mathbb{T}^n$. 
 	There is the bijective Fourier transformations  $\mathcal{F}_\T:\Coo\left(\mathbb{T}^n\right)\xrightarrow{\approx}\sS\left(\mathbb{Z}^n\right)$;  $f \mapsto \widehat{f}$ given by
 	\begin{equation}\label{nt_fourier_eqn}
@@ -22026,9 +22050,9 @@ gHg^{-1} = H
 	complex Schwartz (smooth, rapidly decreasing) functions on $\R^{n}$. 
 	\be\label{mp_sr_eqn}
 	\begin{split}
-		\SS\left(\mathbb {R} ^{n}\right)=\\
-		=\left\{f\in C^{\infty }(\mathbb {R} ^{n}):\|f\|_{\alpha  ,\beta )}<\infty \quad \forall \alpha 
-		=\left( \al_1,...,\al_n\right) ,\beta =\left( \bt_1,...,\bt_n\right)\in \mathbb {Z} _{+}^{n}\right\},\\
+		\SS\left(\mathbb {R} ^{n}\right)\bydef\\
+	\bydef\left\{f\in C^{\infty }(\mathbb {R} ^{n})\left|\|f\|_{\alpha  ,\beta )}<\infty \quad \forall \alpha 
+		=\left( \al_1,...,\al_n\right) ,\beta =\left( \bt_1,...,\bt_n\right)\in \mathbb {Z} _{+}^{n}\right.\right\},\\
 		\|f\|_{{\alpha ,\beta }}=\sup_{{x\in {\mathbb  {R}}^{n}}}\left|x^{\alpha }D^{\beta }f(x)\right|
 	\end{split}
 	\ee
@@ -22049,7 +22073,6 @@ gHg^{-1} = H
 	% 	$$
 	% 	in the \textit{sense of weak-* convergence}.
 	% \end{defn}
-	
 	Let $\mathcal F$ and $\mathcal F^{-1}$ be the ordinary and inverse Fourier transformations given by
 	\begin{equation}\label{intro_fourier}
 		\begin{split}
@@ -22070,8 +22093,7 @@ gHg^{-1} = H
 	\be\label{mp_inv_eqn}
 	\left(f, g \right)_{L^2\left( \R^n\right) } = \left(\mathcal{F}f, \mathcal{F}g \right)_{L^2\left( \R^n\right) }.
 	\ee
-	
-	There is the action of $\Z^n$ on $\R^n$ such that
+		There is the action of $\Z^n$ on $\R^n$ such that
 	$$
 	g x = x + g; ~ x \in \R^n,~ g \in \Z^n
 	$$
@@ -22107,7 +22129,7 @@ In \cite{bogachev_measure_v2} the space of $C_c\left( \sX\right)$ is denoted by 
 \end{remark}
 	
 	\begin{defn}\label{measure_image_defn} Definition \ref{top_mea_lift_defn}\cite{bogachev_measure_v2}
-		Let $\mu$ be a Borel measure on a topological space $\mathcal{X}$ and let $f$ be a $\mu$- measurable mapping from $\mathcal{X}$ to a topological space $\mathcal{Y}$ . Then on $\mathcal{Y}$ we obtain
+		Let $\mu$ be a Borel measure on a topological space $\mathcal{X}$ and let $f$ be a $\mu$- measurable mapping from $\mathcal{X}$ to a topological space $\mathcal{Y}$. Then on $\mathcal{Y}$ we obtain
 		the Borel measure $\nu = \mu \circ f^{-1}: B \mapsto \mu \circ f^{-1}\left( B\right)$. The measure $\nu$ is called
 		the \textit{image} of $\mu$ under the mapping $f$, and $\mu$ is called a \textit{preimage} of $\nu$. The  same terms are used in the case of general measurable mappings of measurable  spaces.
 	\end{defn}
@@ -22297,11 +22319,11 @@ $$
 	\begin{defn}\label{approximate_unit_defn} \cite{pedersen:ca_aut}
 		Let $A$ be a $C^*$-algebra. A net $\left\{u_\la \right\}_{\la \in \La}$ in $A_+$ with $\left\|u_\la \right\| \le 1$ for all $\la \in \La$ is called an \textit{approximate unit} for $A$ if $\la < \mu$ implies $u_\la < u_\mu$ and if $\lim \left\|x- xu_\la \right\| = 0$ for each $x$ in $A$. Then, of course, $\lim \left\|x- u_\la x \right\| = 0$ as well.
 	\end{defn}
-\begin{theorem}\label{left_ideal_thm}
+\begin{theorem}\label{left_ideal_thm}\cite{murphy}
 %3.1.2. Theorem.
  If $L$ is a closed left ideal in a $C^*$-algebra $A$, then there
 	is an increasing net $\left\{u_\la\right\}_{\la\in\La}$ of positive elements in the closed unit ball of
-$L$ such that $a = \lim_{\la\in \La}$ for all $a\in L$.
+$L$ such that $a = \lim_{\la\in \La}au_\la $ for all $a\in L$.
 \end{theorem}
 
 	\begin{thm}\label{approximate_unit_thm} \cite{pedersen:ca_aut}
@@ -22342,7 +22364,7 @@ subset $S$ of $A$ is the smallest hereditary $C^*$-subalgebra of $A$ containing 
 
 	
 	\begin{defn}\label{center_defn}\cite{murphy}
-		If $A$ is a $C^*$-algebra, its \textit{center} $C$ is the set of elements of $A$ commuting with every of $A$.
+		If $A$ is a $C^*$-algebra, its \textit{center} $C$ is the set of elements of $A$ commuting with every $a\in A$.
 	\end{defn}
 	\begin{defn}
 		\label{strong_topology_defn}\cite{pedersen:ca_aut} Let $\H$ be a Hilbert space. The {\it strong} topology on $B\left(\H\right)$ is the locally convex vector space topology associated with the family of seminorms of the form $x \mapsto \|x\xi\|$, $x \in B(\H)$, $\xi \in \H$.
@@ -22383,7 +22405,11 @@ subset $S$ of $A$ is the smallest hereditary $C^*$-subalgebra of $A$ containing 
 	%If $M$ is a $W^*$-algebra and $a \in M$ then the range projection $[a]$ of $a$ lies in $M$.
 	%\end{cor}
 	%If $\mathcal{M}$ is a von Neumann algebra in $B(\H)$ then $[x]\in \mathcal{M}$ for any $x\in \mathcal{M}$. We next prove a {\it polar decomposition}.
-	\paragraph*{}    For each $x\in B(\H)$ we define the {\it range projection} of $x$ (denoted by $[x]$) as projection on the closure of $x\H$. If $M$ is a von Neumann algebra and $x \in M$ then $[x]\in M$.
+\begin{defn}\cite{pedersen:ca_aut}
+	For any $x\in B(\H)$ element $|x| \stackrel{\text{def}}{=} (xx^*)^{1/2}$ is said to be the {\it absolute value of} $x$.
+\end{defn}
+For each $x\in B(\H)$ we define the { range projection} of $x$ (denoted by $[x]$) as projection on the closure of $x\H$. If $M$ is a von Neumann algebra and $x \in M$ then $[x]\in M$.
+
 	
 	\begin{prop}\label{polar_decomposition_prop}\cite{pedersen:ca_aut}
 		For each element $x$ in   a von Neumann algebra $M$ there is a unique partial isometry $u\in M$ and positive $\left|x\right| \in M_+$ with $uu^*=[|x|]$ and  $x=|x|u$.
@@ -22400,9 +22426,9 @@ subset $S$ of $A$ is the smallest hereditary $C^*$-subalgebra of $A$ containing 
 	\begin{thm}\label{stritly_pos_thm}\cite{pedersen:ca_aut}
 		Let $A$ be a $C^*$-algebra. The following conditions are equivalent:
 		\begin{enumerate}
-			\item [(i)] There is a strictly positive element $h$ in $A_+$.
-			\item[(ii)] There is an element $h$ in $A_+$ such that $\left[ h\right] = 1$ in $A''$.
-			\item[(iii)] There is a countable approximate unit for $A$.
+			\item [(i)] there is a strictly positive element $h$ in $A_+$,
+			\item[(ii)] there is an element $h$ in $A_+$ such that $\left[ h\right] = 1$ in $A''$,
+			\item[(iii)] there is a countable approximate unit for $A$.
 		\end{enumerate}
 	\end{thm}
 	\begin{proposition}\label{stritly_pos_prop}\cite{blackadar:ko}
@@ -22413,7 +22439,7 @@ subset $S$ of $A$ is the smallest hereditary $C^*$-subalgebra of $A$ containing 
 	\begin{definition}\label{simple_ca_defn}\cite{pedersen:ca_aut}
 		A $C^*$-algebra $A$ is said to be \textit{simple} if $0$ and $A$ are its only closed ideals. In this book we consider only simple $C^*$-algebras of compact operators $\K\left(\H \right)$ where $\H = \C^n$ ($n \in \N$) or $\H = \ell^2\left( \N\right)$. 
 	\end{definition}
-\begin{lemma}\label{haus_simple_lem}
+\begin{lemma}\label{haus_simple_lem}\cite{rae:ctr_morita}
 %Lemma 5.1. 
 Suppose 
 $A$
@@ -22616,7 +22642,7 @@ K\left(C_0\left(\sX \right)  \right) = C_c\left(\sX \right).
 	%\end{definition}
 	
 	\begin{empt}\label{von_nemann_op_empt}\cite{pedersen:ca_aut}
-		For each $x\in B(\H)$ we define the {\it range projection} of $x$ (denoted by $[x]$) as projection on closure of $x\H$. If $x\ge 0$ then the sequence $\left(\left((1 /n) +x\right)^{-1}x\right)$ is monotone increasing to $[x]$.  If $p$ and $q$ are projections then $p \vee q = [p + q]$ and thus $p \wedge q = 1 - \left[2 - \left(p+q\right)\right]$. Similarly we have $p \setminus q = p - p\wedge q$. Since $[x]H$ is the orthogonal complement of the null space of $x^*$ we have $[x]=[xx^*]$. If $M$ is a von Neumann algebra in $B(\H)$ then $[x]\in M$ for any $x\in M$. \end{empt}
+		For each $x\in B(\H)$ we define the {\it range projection} of $x$ (denoted by $[x]$) as projection onto a closure of $x\H$. If $x\ge 0$ then the sequence $\left(\left((1 /n) +x\right)^{-1}x\right)$ is monotone increasing to $[x]$.  If $p$ and $q$ are projections then $p \vee q = [p + q]$ and thus $p \wedge q = 1 - \left[2 - \left(p+q\right)\right]$. Similarly we have $p \setminus q = p - p\wedge q$. Since $[x]H$ is the orthogonal complement of the null space of $x^*$ we have $[x]=[xx^*]$. If $M$ is a von Neumann algebra in $B(\H)$ then $[x]\in M$ for any $x\in M$. \end{empt}
 	
 	
 	\begin{definition}\label{central_supp_defn}\cite{blackadar:oa}
@@ -22633,9 +22659,7 @@ K\left(C_0\left(\sX \right)  \right) = C_c\left(\sX \right).
 
 
 
-\begin{defn}\cite{pedersen:ca_aut}
-	For any $x\in B(\H)$ element $|x| \stackrel{\text{def}}{=} (xx^*)^{1/2}$ is said to be the {\it absolute value of} $x$.
-\end{defn}
+
 	\section{States and representations}\label{st_rep_sec}
 	
 	\begin{definition}\label{representation_equivalence_defn}\cite{pedersen:ca_aut}
@@ -22656,7 +22680,7 @@ We say that two representations $\pi_1: A \to B\left( \H_1\right)$  and $\pi_2: 
 	\subsection{GNS construction}\label{gns_constr_sec}
 	\paragraph*{}
 	
-	Any state $\tau$ of  $C^*$-algebra $A$  induces a faithful GNS representation  \cite{murphy}. There is a $\mathbb{C}$-valued product on $A$ given by
+	Any state $\tau$ of  $C^*$-algebra $A$  induces a GNS representation  \cite{murphy}. There is a $\mathbb{C}$-valued product on $A$ given by
 	\begin{equation}\label{tau_prod_eqn}
 		\left(a, b\right)\bydef\tau\left(a^*b\right).
 	\end{equation}
@@ -22752,11 +22776,11 @@ equivalent to a subrepresentation of $\pi_\varphi: A \to B\left( \H_\varphi\righ
 	\begin{theorem}\label{irred_thm}\cite{pedersen:ca_aut}
 		Let $\pi: A \to B\left(\H \right)$ be a nonzero representation of $C^*$-algebra $A$. The following conditions are equivalent:
 		\begin{enumerate}
-			\item [(i)] There are no non-trivial $A$-subspaces for $\pi$.
-			\item[(ii)] The commutant of $\pi\left(A \right)$ is the scalar multipliers of 1.
-			\item[(iii)] $\pi\left(A \right)$ is strongly dense in   $B\left(\H \right)$.
-			\item[(iv)] For any two vectors $\xi, \eta \in \H$ with $\xi \neq 0$ there is $a \in A$ such that $\pi\left(a \right)\xi = \eta$.
-			\item[(v)] Each nonzero vector in $\H$ is cyclic for  $\pi\left(A \right)$.
+			\item [(i)] there are no non-trivial $A$-subspaces for $\pi$,
+			\item[(ii)] the commutant of $\pi\left(A \right)$ is the scalar multipliers of 1,
+			\item[(iii)] $\pi\left(A \right)$ is strongly dense in   $B\left(\H \right)$,
+			\item[(iv)] for any two vectors $\xi, \eta \in \H$ with $\xi \neq 0$ there is $a \in A$ such that $\pi\left(a \right)\xi = \eta$,
+			\item[(v)] each nonzero vector in $\H$ is cyclic for  $\pi\left(A \right)$,
 			\item[(vi)]  $A \to B\left(\H \right)$ is spatially equivalent to a cyclic representation associated with a pure state of $A$.
 		\end{enumerate} 
 	\end{theorem}
@@ -22782,7 +22806,7 @@ equivalent to a subrepresentation of $\pi_\varphi: A \to B\left( \H_\varphi\righ
 	%4.7.1.
 	\begin{defn}\label{universal_rep_defn} 
 		\cite{pedersen:ca_aut}
-		Let $A$ be a $C^*$-algebra, and let $S$ be the state space of $A$. For any $s \in S$ there is an associated representation $\pi_s: A \to B\left( \H_s\right)$. The representation $\bigoplus_{s \in S} \pi_s: A \to \bigoplus_{s \in S} B\left(\H_s \right)$ is said to be the \textit{universal representation}. The universal representation can be regarded as $A \to B\left( \bigoplus_{s \in S}\H_s\right)$.  
+		Let $A$ be a $C^*$-algebra, and let $S$ be the state space of $A$. For any $s \in S$ there is an associated representation $\pi_s: A \hookto B\left( \H_s\right)$. The representation $\prod_{s \in S} \pi_s: A \hookto \prod_{s \in S} B\left(\H_s \right)$ is said to be the \textit{universal representation}. The universal representation can be regarded as $A \hookto B\left( \widetilde \H\right)$ where $\widetilde \H$ is a norm completion of the algebraic direct sum $\bigoplus_{s \in S}\H_s$. 
 	\end{defn} 
 	\begin{defn}\label{env_alg_defn}\cite{pedersen:ca_aut}
 		Let   $A$ be a $C^*$-algebra, and let $A \to B\left(\H \right)$ be the universal representation $A \to B\left(\H \right)$. The strong closure of $\pi\left( A\right)$ is said to be   the  {\it enveloping von Neumann algebra} or  the {\it enveloping $W^*$-algebra}  of $A$. The enveloping  von Neumann algebra will be denoted by $A''$.
@@ -22827,7 +22851,7 @@ Each primitive ideal of a $C^*$-algebra is prime.
 	\begin{definition}\label{jtop_defn}\cite{pedersen:ca_aut}
 		The topology on  $\check{A}$ defined in the Theorem \ref{jtop_thm} is called be the \textit{Jacobson topology}. We define the \textit{Jacobson topology} on $\hat A$ as the topology for which the 
 		natural map $
-		\hat{A}\to \check{A}
+		\hat{A}\hookto \check{A}
 		$ is open and continuous.
 	\end{definition}
 	\begin{remark}
@@ -22929,16 +22953,17 @@ Let $I$ be a closed ideal of $A$.
 		%4.4.10
 		The subset $_n\check{A}$ of $\check{A}$ corresponding to irreducible representations of $A$ with finite dimension less or equal to $n$ is closed. The set $_n\check{A}\setminus_{n-1}\check{A}$ of $n$-dimensional representations is a Hausdorff space in its relative topology.
 	\end{proposition}
+!!! CONTINUE !!!
 	\begin{defn}\label{spectral_proj_defn}\cite{reed_simon:mp_1}
-		Let $A$ be a bounded self-adjoint operator and $\Om$ a Borel set of $\mathbb{R}$. If $1_\Om$ is the characteristic function of $\Om$ then $P_\Om=1_\Om\left(A\right)$ is called the \textit{spectral projection} of $A$. We also write $\chi_\Om$ instead $1_\Om$.
+		Let $A$ be a bounded self-adjoint operator and $\Om$ a Borel set of $\mathbb{R}$. If $\chi_\Om$ is the characteristic function of $\Om$ (cf. Definition \ref{top_char_f_defn}) then $P_\Om=\chi_\Om\left(A\right)$ is called the \textit{spectral projection} of $A$.
 	\end{defn}
 	
 	\begin{empt} \cite{rae:ctr_morita}
-		Let $\mathrm{Prim}~ A$ be the space of primitive ideals of $A$.
-		The topology on $\mathrm{Prim}~ A$ always determines the ideal structure of $A$: the open
+		Let $\hat A$ be the space of primitive ideals of $A$.
+		The topology on $\hat A$ always determines the ideal structure of $A$: the open
 		sets $\sU$ in $\mathrm{Prim}~ A$ are in one-to-one correspondence with the ideals
 		\be\label{open_ideal_eqn}
-		\left.A\right|_\sU \stackrel{\mathrm{def}}{=} \bigcap \left\{\left.P\in \mathrm{Prim}~ A~\right| P \notin \sU\right\}
+		\left.A\right|_\sU \stackrel{\mathrm{def}}{=} \bigcap \left\{\left.P\in \hat A~\right| P \notin \sU\right\}
 		\ee
 		and there are natural homeomorphisms $P \mapsto P\cap \sU$ of $\sU$ onto $\mathrm{Prim}~\left.A\right|_\sU$, and
 		$P \mapsto P/A_\sU$ of $(\mathrm{Prim}~ A) \setminus \sU$ onto $\mathrm{Prim}~ A/A_\sU$. %(Proposition A.27). 
