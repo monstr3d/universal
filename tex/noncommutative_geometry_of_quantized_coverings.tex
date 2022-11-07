@@ -22953,7 +22953,7 @@ Let $I$ be a closed ideal of $A$.
 		%4.4.10
 		The subset $_n\check{A}$ of $\check{A}$ corresponding to irreducible representations of $A$ with finite dimension less or equal to $n$ is closed. The set $_n\check{A}\setminus_{n-1}\check{A}$ of $n$-dimensional representations is a Hausdorff space in its relative topology.
 	\end{proposition}
-!!! CONTINUE !!!
+
 	\begin{defn}\label{spectral_proj_defn}\cite{reed_simon:mp_1}
 		Let $A$ be a bounded self-adjoint operator and $\Om$ a Borel set of $\mathbb{R}$. If $\chi_\Om$ is the characteristic function of $\Om$ (cf. Definition \ref{top_char_f_defn}) then $P_\Om=\chi_\Om\left(A\right)$ is called the \textit{spectral projection} of $A$.
 	\end{defn}
@@ -22965,15 +22965,15 @@ Let $I$ be a closed ideal of $A$.
 		\be\label{open_ideal_eqn}
 		\left.A\right|_\sU \stackrel{\mathrm{def}}{=} \bigcap \left\{\left.P\in \hat A~\right| P \notin \sU\right\}
 		\ee
-		and there are natural homeomorphisms $P \mapsto P\cap \sU$ of $\sU$ onto $\mathrm{Prim}~\left.A\right|_\sU$, and
-		$P \mapsto P/A_\sU$ of $(\mathrm{Prim}~ A) \setminus \sU$ onto $\mathrm{Prim}~ A/A_\sU$. %(Proposition A.27). 
-		When $\mathrm{Prim}~ A$
+		and there are natural homeomorphisms $P \mapsto P\cap \sU$ of $\sU$ onto the set of primitive ideals of  $ \left.A\right|_\sU$, and
+		$P \mapsto P/A_\sU$ of $\hat A \setminus \sU$ onto  the set of primitive ideals of  $A/A_\sU$. %(Proposition A.27). 
+		When $\hat A$
 		is a (locally compact) Hausdorff space $T$, we can localize at a point $t$ â that is,
 		examine behavior in a neighborhood of $t$ â either by looking at the ideal $A_\sU$
 		corresponding to an open neighborhood $\sU$ of $t$, or by passing to the quotient
 		\be\label{closed_ideal_eqn}
 		\left.A\right|^F \stackrel{\text{def}}{=} A/\left( 
-		\left.A\right|_{\mathrm{Prim}~ A \setminus F} \right) 
+		\left.A\right|_{\hat A \setminus F} \right) 
 		\ee
 		corresponding to a compact neighborhood $F$ of $t$. 
 		%Since	life seems to be technically less complicated this way, we have chosen the $A \mapsto A^F$	option.
@@ -22996,9 +22996,9 @@ Let $I$ be a closed ideal of $A$.
 		Let $A$ be a $C^*$-algebra with the spectrum $\hat A$. We choose for any $t \in \hat A$ a pure state $\phi_t$ and  associated representation $\pi_t: A \to B\left(\H_t\right)$.
 		The representation 
 		\be
-		\pi_a = \bigoplus_{t \in \hat A} \pi_t \quad \text{on } \bigoplus_{t \in \hat A} \H_t
+		\pi_a = \bigoplus_{t \in \hat A} \pi_t \quad \text{on the closure } \H_a \text{ of an algebraic direct sum}\quad  \bigoplus_{t \in \hat A} \H_t
 		\ee
-		is called the (reduced) \textit{atomic representation} of $A$. Any two atomic representations are unitary equivalent and any atomic representation of $A$ is faithful (cf. \cite{pedersen:ca_aut}).
+		is called the (reduced) \textit{atomic representation} of $A$. Any two atomic representations are unitary equivalent and any atomic representation of $A$ is faithful and nondegenerate  (cf.  Definitions \ref{faithful_repr_defn}, \ref{nondegenerate_repr_defn} and \cite{pedersen:ca_aut}).
 	\end{definition}
 	\begin{corollary}\label{atomic_repr_cor}\cite{pedersen:ca_aut}
 		%4.5.13. Corollary. For each C*-algebra A we have &sa c Â°U(A) and the atomic representation is faithful on 0&.
@@ -23036,7 +23036,7 @@ $$
 		is a nondegenerate Banach $A$-module. Then 
 		every element of $X$ 
 		is of the form $a\cdot x$
-		for some $a\in A$ and $x\in \sX$.
+		for some $a\in A$ and $x\in X$.
 	\end{proposition}
 	
 	\begin{definition}\label{hilbert_module_defn}Paschke \cite{Paschke:73}, Rieffel \cite{Rieffel:74a}
@@ -23086,7 +23086,7 @@ $$
 	
 	
 	\begin{remark}\label{polarization_equality_rem}
-		For any $C^*$-pre-Hilbert $X$ module, or more more precisely, for any sesquilinear form $\left\langle \cdot , \cdot \right\rangle$ the \textit{polarization equality}
+		For any $C^*$-pre-Hilbert $X$ module, or more  precisely, for any sesquilinear form $\left\langle \cdot , \cdot \right\rangle$ the \textit{polarization equality}
 		\be\label{polarization_equality_eqn}
 		\begin{split}
 			4 \left\langle \xi , \eta \right\rangle=\sum_{k = 0}^3i^k\left\langle \xi + i^k\eta, \xi + i^k\eta \right\rangle
@@ -23166,7 +23166,7 @@ $$
 		a unital $C^*$-algebra is projective. 
 	\end{corollary}
 	
-	\begin{remark}\label{fin_gen_un_equ_rem}
+	\begin{remark}\label{fin_gen_un_equ_rem}\cite{wegge_olsen}
 		If $A$ is an unital $C^*$-algebra and $X_A$ is a Hilbert $A$-module then the following conditions are equivalent
 		\begin{itemize}
 			\item [(a)] $X_A$ is algebraically finitely generated.
@@ -23304,6 +23304,7 @@ nondegenerate representation of $A$ on $X \widehat\otimes_B \H_\pi$.
 	\end{remark}
 	
 	\section{Strong Morita equivalence for $C^*$-algebras}\label{strong_morita_sec}
+	!!! CONTINUE
 	\paragraph*{}
 	The notion of the strong Morita
 	equivalence was introduced by Rieffel.
