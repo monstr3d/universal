@@ -14945,23 +14945,6 @@ Our following constructions require an analog of the Dini's theorem.
 
 \subsubsection{Coverings of continuous trace  $C^*$-algebras}
 
-\begin{lemma}\label{ctr_cont_tr_lem}
-	If $\left(A, \widetilde{A}, G, \pi \right)$ is a  reduced  noncommutative finite-fold quasi-covering (cf. Definitions \ref{fin_quasi_defn}, \ref{fin_red_defn}), such that $A$ is a $C^*$-algebra with continuous trace  then $\widetilde{A}$ is a  continuous trace $C^*$-algebra.
-\end{lemma}
-
-\begin{proof}
-	Let $\mathcal X$ (resp. $\widetilde{\mathcal X}$) be  the spectrum of $A$ (resp. $\widetilde{A}$).  Let  $p:\widetilde{\mathcal X} \to {\mathcal X}$ be a continuous map given by the Proposition  \ref{spectrum_cov_prop}. Let $\widetilde{x}_0 \in \widetilde{\mathcal X}$ be any point and let $x_0 = p\left( \widetilde{x}_0\right) \in \mathcal X$ . From the Proposition \ref{continuous_trace_c_a_proposition} it turns  out that there is an Abelian  $a' \in A$ such that $\hat{a}'\in K\left(\mathcal X\right)$ and $\tr\left( \rep_{x_0}\left( a'\right)\right) =1$.  If $\widetilde a'\bydef\pi\left(a \right)$ then from  the equation \eqref{fin_red_eqn} it follows that the rank of $\rep_{\widetilde{x}}\left( \widetilde a'\right)$ does not exceed 1 for all $\widetilde x \in \widetilde\sX$. Let  both $\hat a: \sX \to \R$ and $\hat{\widetilde a'}: \sX \to \R$ are given by $x \mapsto \tr\left(\rep_{x}\left(a' \right)  \right)$ and $\widetilde x \mapsto \tr\left(\rep_{\widetilde x}\left(\widetilde a' \right)  \right)$ respectively. One has $f_0\in C_0\left(\sX \right)$ and taking into account that the map $\widetilde\sX \to \sX$ is surjective and continuous we conclude that  $\hat{\widetilde a'}$ is continuous. 
-	It $0 < \eps < 1$ and $f_\eps$ is given by \eqref{f_eps_eqn} then since $\widetilde a'$ is positive there is $\widetilde a = \frac{1}{1 - \eps} f_\eps\left(\widetilde a \right) \in A_+$, which satisfies to following conditions:
-	\begin{enumerate}
-		\item [(a)] $\dim \rep_{ \widetilde{x}}\left( \widetilde a\right) \le   \dim \rep_{ \widetilde{x}}\left(\widetilde a'\right) \le 1$ for any $\widetilde{x}\in\widetilde{\mathcal X}$,
-		\item[(b)] $\hat{\widetilde a}= \frac{1}{1 - \eps} f_\eps\left(\hat{\widetilde a'} \right)$. 
-	\end{enumerate}
-	From (a) it turns out that $\widetilde a a$ is an Abelian element of $\widetilde A$. From (b)
-	it follows that 
-	$\hat{\widetilde a} \in K\left( \widetilde{\mathcal X}\right)$. So $\widetilde a$ satisfies to (iii) of the Proposition \ref{continuous_trace_c_a_proposition}. Hence from the Proposition \ref{continuous_trace_c_a_proposition} it turns out that $\widetilde A$ is a  continuous trace $C^*$-algebra.
-\end{proof}
-
-
 \begin{lemma}\label{ctr_pre_red_lem}
 Let $A$ be a continuous trace $C^*$-algebra, and let  $\left(A, \widetilde{A}, G, \pi \right)$ be a  noncommutative finite-fold quasi-covering (cf. Definition \ref{fin_quasi_defn}). If $\widetilde{A}_{\mathrm{red}}$ is a reduced algebra of $\left(A, \widetilde{A}, G, \pi \right)$ (cf. Definition \ref{red_alg_defn}) and  there is an open subset $\widetilde\sU$ of the spectrum $\widetilde\sX$ of  $\widetilde{A}$ such that
  $\rep_{ \widetilde{x}}\left(\widetilde{A}_{\mathrm{red}}\right) \subsetneqq \rep_{ \widetilde{x}}\left(\widetilde{A}\right)$ for all $\widetilde{x}\in \widetilde \sU$ then the group
@@ -15058,54 +15041,129 @@ $$
 and taking into account \eqref{ctr_inf_eqn} one has infinitely many different automorphisms $g_\eps$.
 	Thus the group $\left\{\left. g \in \Aut\left(\widetilde{A} \right)  \right| \forall \widetilde{a}_{\mathrm{red}}\in \widetilde{A}_{\mathrm{red}} \quad g \widetilde{a}_{\mathrm{red}}=\widetilde{a}_{\mathrm{red}}\right\}$ is not finite.
 \end{proof}
-\begin{corollary}\label{ctr_fin_ctr_cor} 
-	If  $A$ is a continuous trace $C^*$- algebra  such that $\sX$ is connected, locally connected then any connected finite-fold noncommutative pre-covering   $\left(A, \widetilde A, G,  
-	\pi\right)$ (cf. Definition \ref{fin_pre_defn}), of $A$ is reduced (cf. Definition \ref{fin_red_defn}).
+
+\begin{corollary}\label{ctr_dense_cor}
+	Let $A$ be a continuous trace $C^*$-algebra, and let  $\left(A, \widetilde{A}, G, \pi \right)$ by a  noncommutative finite-fold pre-covering.  If  $\widetilde\sX$ is the spectrum of  $\widetilde{A}$ and $\widetilde{A}_{\mathrm{red}}$ is the reduced algebra of $\left(A, \widetilde{A}, G, \pi \right)$ (cf. Definition \ref{red_alg_defn}) then the set
+	\be\label{ctr_par_eqn}
+	\widetilde{\sX}^\parallel\bydef \left\{ \left. \widetilde x\in \widetilde\sX\right| \rep_{ \widehat{x}}\left(\widetilde{A}_{\mathrm{red}} \right) = \rep_{ \widehat{x}}\left(\widetilde{A} \right)\right\}
+	\ee
+	is dense in $\widetilde\sX$
+\end{corollary}
+\begin{proof}
+	If $\widetilde{\sX}^\parallel$
+	is not dense in $\widetilde\sX$ then there is nonempty open subset $\widetilde\sU\subset \widetilde{\sX}\setminus\widetilde{\sX}^\parallel$. For any $\widetilde x \in \widetilde\sU$ denote by $G_{\widetilde x}\bydef \left\{\left.g\in G\right| g\widetilde x = x\right\}$. From the Corollary  \ref{ctr_sp_cov_cor} it turns that there is $n \in \N$ such that $\left|G_{\widetilde x}\right|= n$ for all ${\widetilde x}\in {\widetilde \sX}$. If   $G' \bydef G\setminus G_{\widetilde x_0}$ then for any $g \in G'$ there is an open neighborhood $ \widetilde\sU_g$ such that $\widetilde\sU_g\cap g \sU_g= \emptyset$. The set $\widetilde\sU_{\widetilde x_0}\subset \cap_{g\in G'} \widetilde\sU_g$ is an open neighborhood of $\widetilde x_0$ such that $g \widetilde x\neq \widetilde x$ for all $\widetilde x\in \widetilde\sU_{\widetilde x_0}$ and $g \in G'$.
+	It follows for each $\widetilde x\in \widetilde\sU_{\widetilde x_0}$  one has
+	\begin{itemize}
+		\item $G_{\widetilde x}= G_{\widetilde x_0}$.
+		\item $\rep_{ \widehat{x}}\left(\widetilde{A}_{\mathrm{red}} \right) \subsetneqq \rep_{ \widehat{x}}\left(\widetilde{A} \right)$
+	\end{itemize} 
+	It is easy check that 	$$
+	\left\{\left.\rep_{ \widetilde{x}}\left(\sum_{	g \in G'}g  \widetilde a\right) \right|\widetilde a\in \widetilde A\right\}=	\rep_{ \widetilde{x}}\left(\widetilde{A}_{\mathrm{red}}\right)
+	$$
+	for all $\widetilde x\in \widetilde\sU_{\widetilde x_0}$. From the Lemma \ref{ctr_pre_red_lem} it follows that 
+	$$
+	\left\{\left. g \in \Aut\left(\widetilde{A} \right)  \right| \forall \widetilde{a}_{\mathrm{red}}\in \widetilde{A}_{\mathrm{red}} \quad g \widetilde{a}_{\mathrm{red}}=\widetilde{a}_{\mathrm{red}}\right\}
+	$$
+	is not finite, it contradicts with the Condition (a) of the Definition \ref{fin_pre_defn}. So the set $ \widetilde{\sU_n}$ is not open. The contradiction proves this lemma.
+	
+\end{proof}
+
+\begin{corollary}\label{ctr_red_cor} Let $A$ be a continuous trace $C^*$-algebra, and let  $\left(A, \widetilde{A}, G, \pi \right)$ by a  noncommutative finite-fold pre-covering. Then for any Abelian element $a \in A$ the generated by $\pi\left( a\right)$ subalgera $\widetilde{A}_a$ of $\widetilde{A}$ is commutative. 
+\end{corollary}
+\begin{proof}
+	
+	If $\widetilde{\sX}$ the spectrum of $\widetilde{A}$ and 	 $\widetilde{\sX}^\parallel$ is given by the equation \ref{ctr_par_eqn} then $\widetilde{\sX}^\parallel$ is a dense subset of $\widetilde{\sX}$ (cf. Corollary \ref{ctr_dense_cor}).  Otherwise from the equation \ref{fin_red_eqn} it follows that $\dim \rep_{ \widetilde{x}}\left(\widetilde{A}_a \right) \le 1$ for all $\widetilde{x}\in \widetilde{\sX}^\parallel$. From the Proposition \ref{less_n_pi_prop} it follows that the set
+	$$
+	\widetilde{\sX}_{1}\bydef\left\{\left.\widetilde x\in \widetilde\sX\right| \dim \rep_{ \widetilde{x}}\left(\widetilde{A}_a \right) \le 1\right\}$$ contains the closure of $\widetilde{\sX}^\parallel$ which coincides with $\widetilde{\sX}$, i.e. $\widetilde{\sX}_{1}= \widetilde{\sX}$ hence $\widetilde{A}_a$ is commutative. 
+\end{proof}
+\begin{corollary}\label{ctr_ctr_cov_lem}
+	Let $A$ be a continuous trace $C^*$-algebra, and let be $\left(A, \widetilde{A}, G, \pi \right)$ be a  noncommutative finite-fold covering with unitization then $\widetilde{A}$  is a  {continuous-trace} $C^*$-{algebra}.
 \end{corollary}
 
+\begin{proof}
+	Let $\widetilde \sX$ be the spectrum of $\widetilde{A}$ and let $\widetilde x\in \widetilde{\sX}$ be a point. Let $p: \widetilde \sX \to \sX$ be the given by the Proposition \ref{spectrum_cov_prop} map from the spectrum of $\widetilde{A}$ to the spectrum of $A$. If $a \in A$  \ref{continuous_trace_c_alt_defn} is an Abelian element such that $\rep_{p\left( \widetilde x\right)}\left(a\right)\neq 0$ then from the Corollary \ref{ctr_red_cor} it follows that $\pi\left( a\right)$ is Abelian such that $\rep_{ \widetilde x}\left(\pi\left( a\right)\right)\neq 0$. From the Definition \ref{continuous_trace_c_alt_defn} it follows that  $\widetilde{A}$  is a  {continuous-trace} $C^*$-{algebra}.
+\end{proof}
+\begin{corollary}\label{ctr_sp_cov_red_cor}
+	If $A$ is a continuous trace $C^*$-algebra  and \\$\left(A, \widetilde{A}, G, \pi \right)$ is a  noncommutative finite-fold covering with unitization (cf. Definition \ref{fin_unitization_defn}) then the quadruple $\left(A, \widetilde{A}, G, \pi \right)$ is a reduced quasi-covering (cf. Definition \ref{fin_red_defn}).
+\end{corollary}
+\begin{proof}!!! PROOF !!!
+If $\widetilde \sX$ is a spectrum of $\widetilde A$ then there is $\widetilde x_0 \in \widetilde \sX$ such that $\rep_{ \widetilde{x}_0}\left( \widetilde A_{\text{red}}\right) \subsetneqq\rep_{ \widetilde{x}_0}\left( \widetilde A\right)$. So there is a rank-one projector $p \in \rep_{\widetilde{x}_0}\left( \widetilde A\right)\setminus \rep_{\widetilde{x}_0}\left( \widetilde A_{\text{red}}\right)$ such that $p\rep_{\widetilde{x}_0}\left( \widetilde A_{\text{red}}\right)p=\{0\}$. There is $\widetilde e \in \widetilde A$ such that $\rep_{\widetilde{x}_0}\left( e\right)= p$.
+\end{proof}
+
+
 \begin{corollary}\label{ctr_sp_cov_cor}
-	If $A$ is a continuous trace $C^*$-algebra with compact spectrum and \\$\left(A, \widetilde{A}, G, \pi \right)$ is a  noncommutative finite-fold covering with unitization (cf. Definition \ref{fin_unitization_defn}) then following conditions hold:
+	If $A$ is a continuous trace $C^*$-algebra  and \\$\left(A, \widetilde{A}, G, \pi \right)$ is a  noncommutative finite-fold covering with unitization (cf. Definition \ref{fin_unitization_defn}) then following conditions hold:
 	\begin{itemize}
-		\item[(i)] The spectrum $\widetilde\sX$ of $\widetilde A$ is a Hausdorff space.
-		\item[(ii)] The given by the equation  \eqref{spectrum_cov_eqn} map $p: \widetilde\sX\to\sX$ is a transitive finite-fold covering. 
+		\item[(i)] the spectrum $\widetilde\sX$ of $\widetilde A$ is a locally compact Hausdorff space,
+		\item[(ii)] the given by the equation  \eqref{spectrum_cov_eqn} map $p: \widetilde\sX\to\sX$ is a transitive finite-fold covering such that there is a natural isomorphism $G \cong G\left(\left.\widetilde\sX\right|\sX\right)$. 
 	\end{itemize}
 \end{corollary}
-\begin{proof}(i) If $\widetilde A_{\text{red}}$ the reduced algebra of $\left(A, \widetilde{A}, G, \pi \right)$ (cf. Definition \ref{red_alg_defn}) then  from the  Lemma \ref{ctr_cont_tr_lem} it follows that the  spectrum $\widetilde \sX_{\text{red}}$ of $\widetilde A_{\text{red}}$ is Hausdorff. However the spectrum of $\widetilde A_{\text{red}}$ (cf. Remark \ref{red_sp_rem}) coincides with the spectrum of $\widetilde A$ (cf. Remark \ref{red_sp_rem}), i.e. $\widetilde \sX= \widetilde \sX_{\text{red}}$\\
-	(ii)	 
-	Let both $A \hookto B$, $\widetilde{A} \hookto \widetilde{B}$ be unitizations which satisfy to conditions (a) and (b) of the Definition \ref{fin_comp_defn}. The $C^*$-algebras $A$ and $\widetilde A$ are essential ideals of   $B$ and $\widetilde B$ so the spectra of $B$ and $\widetilde B$ is  compactifications of $\sX$ and $\widetilde\sX$. Since $\sX$ is compact the spectra of $B$ is $\sX$. From the condition (b) of the Definition \ref{fin_comp_defn} it follows that the triple $\left(B ,\widetilde{B}, G, \widetilde{\pi} \right)$ is an  %(strong) 
-	unital  noncommutative finite-fold quasi-covering (cf. Definition \ref{fin_uni_defn}), so there is a finite set $\left\{\widetilde b_1, ..., \widetilde b_n\right\}$ such that $\widetilde B = \widetilde b_1 B + ... + \widetilde b_n B$. In particular there are $b_1, ..., b_n \in B$ such that
-	\be\label{ctr_un_eqn}
-	1_{\widetilde B}= \widetilde b_1 b_1 + ... + \widetilde b_n b_n
-	\ee
-	Let  $\widetilde x \in \widetilde\sX$ and $x= p\left( \widetilde x\right)$. If  $a \in A$ is such that $\rep_x\left(a\right)$ is a rank-one operator then $\rep_{\widetilde x}\left(\widetilde b_j\widetilde{\pi}\left( b_ja\right) \right)$ is a rank-one operator for any $j=1,...n$. From the equation \ref{ctr_un_eqn} it follows that
-	\be\label{ctr_un_ro_eqn}
-	\rep_{\widetilde x}\left(\widetilde{\pi}\left( a\right) \right)= \rep_{\widetilde x}\left(\widetilde b_1\widetilde{\pi}\left( b_1a\right) \right)+...+\rep_{\widetilde x}\left(\widetilde b_n\widetilde{\pi}\left( b_na\right) \right).
-	\ee
-	From the equation \ref{ctr_un_ro_eqn} it turns out that the rank of $\rep_{\widetilde x}\left(\widetilde{\pi}\left( a\right) \right)$ does not exceed $n$, so from the Lemma \ref{typeI_lem}  it follows that $\K \subset \rep_{\widetilde x}\left(\widetilde B \right)$, i.e. $\widetilde B$ is an algebra of type I. If $\widetilde \sY_{\widetilde B}$ 
-	is the spectrum of $\widetilde B$ then $\widetilde\sX$ is an open dense subset of  it  $\widetilde \sY_{\widetilde B}$. Otherwise from the Lemma  \ref{cov_spectrum_lem} it follows that there is the continuous surjective map  $p_B:\widetilde \sY_{\widetilde B}\to  \sY_{ B}$ from   $\widetilde \sY_{\widetilde B}$ to the spectrum of $B$. However from $\sY_{ B}= \sX$ and taking into account the map $p: \widetilde\sX\to\sX$ one has
+\begin{proof}(i) From the Lemma \ref{ctr_ctr_cov_lem} it follow that $\widetilde A$ is a continuous trace $C^*$-algebra. From the Proposition \ref{continuous_trace_c_a_proposition} it follows that the spectrum of $\widetilde A$ is locally compact Hausdorff space.\\
+	(ii)  From the Corollary \ref{cov_mult_fin_cor} it follows that  a quadruple  $\left(M\left(A \right)  ,M\left( \widetilde{A}\right) , G, M\left(\pi\right) \right)$ is  an 
+	unital  noncommutative finite-fold covering (cf. Definition \ref{fin_unital_defn}). From the Proposition \ref{continuous_trace_c_a_proposition} and the Theorem  \ref{dauns_hofmann_thm} it turns out that there is a natural inclusions
+\bean
+	C_b\left( \sX\right)\hookto M\left( {A}\right),\\
+	C_b\left(\widetilde \sX\right)\hookto M\left( \widetilde{A}\right),
+\eean
+or equivalently
+\bean
+	C\left(\bt \sX\right)\hookto M\left( {A}\right),\\
+C_b\left(\bt\widetilde \sX\right)\hookto M\left( \widetilde{A}\right),
+\eean
+where both  $\bt \sX$ and $\bt\widetilde \sX$ are {Stone-\v{C}ech compactifications} (cf. Definition  \ref{sc_comp_defn}) of $\sX$ and $\widetilde \sX$ respectively. According to the Theorem \ref{top_sc_to_compact_thm} the continuous map $p$ can be uniquely extended up to a continuous map $\bt p:  \bt\widetilde \sX\to   \bt\sX$. The map $\bt p$ yields a *-homomorphism $C\left(\bt\sX\right)\to C\left(\bt\widetilde\sX\right)$.	If $C\left(\bt\widetilde\sX\right)$ is not  a finitely generated right $C\left(\bt\sX\right)$-module then from the Theorem \ref{fin_gen_thm} it follows that there is an infinite set $\left\{M_\la\right\}_{\la\in\La}$ of $C_0\left(\bt \sX \right)$-submodules of $C\left(\bt\widetilde{\sX}\right)$ such that 
 	$$
-	\sY_{\widetilde B}= p_B^{-1}\left(\sX \right)= p^{-1}\left(\sX \right)= \widetilde \sX.
+	C\left(\bt\widetilde{\sX}\right)=\sum_{\la \in \La} M_\la,
 	$$
-	Since $\widetilde B$ is unital the space $\widetilde \sX$ is compact. From the map $p: \widetilde\sX\to\sX$ it follows that $C\left(\widetilde\sX\right)$ is a $C\left(\sX\right)$-module. On the the other hand  $\widetilde B$ is a type I $C^*$-algebra, hence from and the Theorems \ref{ctr_hat_check_thm} and \ref{dauns_hofmann_thm} it follows that $\widetilde B$ is $C\left(\widetilde\sX\right)$ module.
-	If $C\left(\widetilde\sX\right)$ is not  a finitely generated $C\left(\sX\right)$-module then from the Theorem \ref{fin_gen_thm} it follows that there is an infinite set $\left\{M_\la\right\}_{\la\in\La}$ of $C_0\left(\sX \right)$-submodules of $C\left(\widetilde{\sX}\right)$ such that 
+	and 
 	$$
-	C\left(\widetilde{\sX}\right)=\sum_{\la \in \La} M_\la,
+C\left(\bt\widetilde{\sX}\right) \neq \sum_{\la \in \La_0} M_\la.
+$$
+for any finite subset $\La_0\subset \La$.
+	For any $\la\in \La$ the linear span of  $M_\la	C\left(\bt\widetilde{\sX}\right)$ is a right $	C\left(\bt{\sX}\right)$-submodule of $	C\left(\bt\widetilde{\sX}\right)$. 
+	From 
 	$$
-	but there is no  a finite subset $\La_0\subset \La$  such that 
+	\forall \widetilde a \in M\left(\widetilde A \right)\quad 1_{C\left(\bt\widetilde{\sX}\right)}\widetilde a 
 	$$
-	C\left(\widetilde{\sX}\right) = \sum_{\la \in \La_0} M_\la.
+	it follows that  $C\left(\bt\widetilde{\sX}\right) M\left(\widetilde A \right)=  M\left(\widetilde A \right)$.
+	So one has 
 	$$
-	For any $\la\in \La$ the space  $M_\la \widetilde{B}$ is a left $B$-submodule of $\widetilde{B}$.
-	From $C\left(\sX \right) B = B$ and $C\left(\widetilde\sX \right) \widetilde  B = \widetilde B$ one has 
+M\left(\widetilde A \right)=\sum_{\la \in \La}M_\la M\left(\widetilde A \right) 
+$$
+and
 	$$
-	\widetilde{B}=\sum_{\la \in \La}M_\la \widetilde{B} 
+M\left(\widetilde A \right)\neq\sum_{\la \in \La_0}M_\la M\left(\widetilde A \right).
+$$
+for any finite subset $\La_0\subset \La$
+	because 
 	$$
-	but there is no  a finite subset $\La_0\subset \La$  such that 
+\left( M\left(\widetilde A \right) \left( \sum_{\la \in \La_0}M_\la\right) \right) \cap C\left(\bt \widetilde\sX \right)	= \sum_{\la \in \La_0}M_\la \neq  C\left(\bt \widetilde\sX \right)
 	$$
-	\widetilde{B}=\sum_{\la \in \La_0}M_\la \widetilde{B}.
+	From the Theorem \ref{fin_gen_thm} it follows $ M\left(\widetilde A \right)$ is not a finitely generated $ M\left( A \right)$-module, it contradicts with the Definition \ref{fin_unital_defn}. So $C\left(\bt\widetilde\sX\right)$ is   a finitely generated $C\left(\bt\sX\right)$, and from the Theorem \ref{pavlov_troisky_thm} it follows that $\bt p$ is a finite fold covering. On the other hand $p$ is a restriction of $\bt p$ so $p$ is also a covering.  From the Lemma \ref{ctr_sp_cov_red_cor} it follows that $\left(A, \widetilde{A}, G, \pi \right)$ is reduced quasi-covering and taking into account the equation  \ref{quasi_red_eqn} one concludes that the covering $p$ is transitive and there is the natural isomorphism $G \cong G\left(\left.\widetilde\sX\right|\sX\right)
+	$.
+\end{proof}
+\begin{lemma}\label{ctr_fin_lem}
+If $A$ is a continuous trace $C^*$-algebra  and $\left(A, \widetilde{A}, G, \pi \right)$ is a  noncommutative finite-fold covering (cf. Definition \ref{fin_defn})  then the given by the Proposition \ref{spectrum_cov_prop} continuous map $p: \widetilde \sX\to \sX$ from the spectrum $\widetilde \sX$ of $\widetilde A$ to the spectrum $\sX$ of $A$ is a finite-fold transitive covering. Moreover one has $G \cong G\left(\left.\widetilde\sX\right|\sX\right)$.
+\end{lemma}
+\begin{proof}
+  Let $\left\{A_\la \subset A\right\}_{\la\in\La}$ be a required by the Definition \ref{fin_defn} family of \\ $\left(A, \widetilde{A}, G,    \pi\right)$-{strictly proper} $C^*$-subalgebras (cf. the Definition \ref{hered_proper_lift_defn}). Let us fix $\la\in\La$. Since $A_\la$ is a hereditary subalgebra of $A_\la$ from the Proposition \ref{hered_spectrum_prop} it turns out that the spectrum $\sX_\la$ of $A_\la$ is an open subset of $\sX$.  From the Proposition  \ref{ctr_hered_prop} it follows that $A_\la$ is a continuous trace $C^*$-algebra.  If  $\widetilde A_\la\subset \widetilde A$ is    a {hereditary} $\left(A, \widetilde{A}, G, \pi \right)$-{lift} of  (cf. the Definition \ref{hered_lift_defn}) then a quadruple  $\left(A_\la, \widetilde{A}_\la, G, \pi|_{A_\la} \right)$ is a noncommutative finite-fold covering with unitization. If $\widetilde \sX_\la$ is a spectrum of $A_\la$ then from the Corollary \ref{ctr_sp_cov_cor} it follows that the restriction $p|_{\widetilde \sX_\la}: \widetilde \sX_\la \to \sX_\la$ is a finite-fold transitive covering. If $\cup \sX_\la \neq \sX$ then there are  $x_0 \in \sX \setminus \cup \sX_\la$ and such that $\rep_{x_0} \left(a \right)= 1$. So one has
+  $$
+  \forall a^\cup  \in \cup A_\la  \quad \left\| a^\cup - a\right\|\ge \left\|\rep_{x_0}\left(  a^\cup\right)  - \rep_{x_0}\left(  a\right)  \right\|  = 1.
+  $$
+  From the above equation it follows that  a union $\cup A_\la$ is not dense in $A$. It is contradiction with the definition \ref{fin_defn}, so our assumption $\cup \sX_\la \neq \sX$ is not true and $\cup \sX_\la \neq \sX$. Since $p|_{\widetilde \sX_\la}: \widetilde \sX_\la \to \sX_\la$ is a covering for any $\la\in \La$ the map $p$ is a covering. From $G\left(\left.\widetilde\sX_\la\right|\sX_\la\right)\cong G$ it follows that  $G\left(\left.\widetilde\sX\right|\sX\right)\cong G$.
+\end{proof}
+\begin{lemma}\label{ctr_fin_cor}
+	Let  $A$ is a continuous trace $C^*$-algebra,  and let $\left(A, \widetilde{A}, G, \pi \right)$ be a  noncommutative finite-fold covering (cf. Definition \ref{fin_defn}). If $\sX$ is a spectrum of $A$ then there is a finite-fold transitive covering $p: 	\widetilde \sX \to \sX$ such that 
+	$\left(A, \widetilde{A}, G, \pi \right)$ is equivalent to
 	$$
-	From the Theorem \ref{fin_gen_thm} it follows $\widetilde{B}$ is not a finitely generated $B$-module, it contradicts with the definition \ref{fin_uni_defn}. So $C\left(\widetilde\sX\right)$ is   a finitely generated $C\left(\sX\right)$, and from the Theorem \ref{pavlov_troisky_thm} it follows that $p$ is a finite fold covering. The given by \eqref{g_red_eqn} and \eqref{g_red_ker_eqn} group $G_{\text{red}}$ is a normal subgroup of $G$.
-	There is the group $G_0 \bydef G/G_{\text{red}}= G / \ker\left(G \to \Homeo\left(\widetilde{A} \right) \right)$  such that  the action of $G_0\times \widetilde{\mathcal X}\to \widetilde{\mathcal X}$ is not trivial. From the Lemma \ref{cov_spectrum_lem} it turns out that the action is transitive. 
+\left(A, A_0\left( \widetilde{\sX }\right) , G\left(\left.\widetilde\sX\right|\sX\right),A_0\left(p\right) \right)
+	$$
+where $A_0\left( \widetilde{\sX }\right)$ is given by the Definitions  \ref{top_lift_a_f_defn}  or \ref{blowing_lift_a_f_defn} $p$-lift of $A$, and *-homomorphism  $A_0\left(p\right)$ is given by the equation  \eqref{top_c0_ob_eqn} or \eqref{blowing_a0q_eqn} one.
+\end{lemma}
+\begin{proof}
+Let us use the notation of the proof of the Lemma \ref{ctr_fin_lem}. From the Lemma \ref{fin_def_lem} it follows that $\widetilde{A}$ is a $C^*$-norm closure of the union $\cup \widetilde{A}_\la$. On the other hand if $A_0\left( \widetilde{\sX}_\la\right)$ is a $p_{\sX_\la}$-lift of defined by $\sX_\la$ ideal of $A$ then $A_0\left( \widetilde{\sX}_\la\right) \subset A_0\left( \widetilde{\sX}\right)$, so  $\widetilde{A}\subset A_0\left( \widetilde{\sX}\right)$. If $\widetilde a \in A_0\left( \widetilde{\sX}\right)$ then there is a compact subset $\widetilde \sV \subset \widetilde \sX$, such that
+$$
+\forall \widetilde x \in \widetilde \sX \setminus \widetilde \sY \quad \left\|\rep_{  \widehat{x }}\left(\widetilde a \right)  \right\|< \eps. 
+$$
 \end{proof}
 
 
