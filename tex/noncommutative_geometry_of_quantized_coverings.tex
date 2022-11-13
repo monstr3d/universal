@@ -11988,7 +11988,7 @@ a = \lim_{\la\in\Xi\left( \sU\right)}u_\la a = \lim_{\la\in\Xi\left( \sU\right)}
 i.e. $_\sU A_\sU = A_1$.	Proof of that a $C^*$-algebra $_\sU A_\sU$ is not connected for any disconnected set $\sU$ is left to the reader.
 \end{proof}
 
-\begin{definition}
+\begin{definition}\label{blowing_norm_defn}
 	Let $A$ be a $C^*$-algebra, and let $C_0\left( \sY\right)\to M\left( A\right)$. For all $a\in A$ we define  maps 
 	\be\label{blowing_norm_eqn}
 	\begin{split}
@@ -12000,6 +12000,12 @@ y \mapsto \inf_{f \in \mathfrak{Stumps}_{y}}\inf \left\| f a\right\|
 	\ee
 	where $\mathfrak{Stumps}_{y}$ is a set of $y$-stumps (cf. Definition \ref{top_stump_defn}).
 \end{definition}
+\begin{remark}
+	For any $y\in \sY$ one has
+	\be\label{blowing_norm_sq_eqn}
+	r\text{-}\mathrm{norm}_a = \sqrt{\inf_{f \in \mathfrak{Stumps}_{y}}\left\| f^*a^*af\right\| }
+	\ee
+\end{remark}
 \begin{lemma}
 The given by \eqref{blowing_norm_eqn} maps are upper semi-continuous (cf. Definition \ref{top_lower_semi_defn})
 \end{lemma}
@@ -16653,6 +16659,268 @@ Follows from the Lemma \ref{foli_prop_lem} and the Corollary \ref{foli_cov_alg_c
 \begin{exercise}
 Using the explained in \ref{foli_spectral_empt} partially defined map prove that Hausdorff blowing-up $C_0\left( M\right)\subset M\left(C^*_r \left(M, \mathcal{F}\right) \right)$ is spectral (cf. Definition \ref{blowing_spectral_defn}).
 \end{exercise}
+\begin{lemma}
+	If  $C^*_r\left(M,\sF\right)$ be a reduced $C^*$-algebra of the foliated space $\left(M,\sF\right)$ (cf. Definition \ref{foli_red_defn}) then  {natural Hausdorff blowing-up $C_0\left( M\right)\subset M\left(C^*_r \left(M, \mathcal{F}\right) \right)$ of a foliated space} is faithful and nondegenerate (cf. Definition \ref{blowing_faithful_defn})
+\end{lemma}
+\begin{proof}
+Let $a  \in C^*_r\left(M,\sF\right)\setminus \{0\}$ 
+
+From the Lemma \ref{foli_point_lem}
+\end{proof}
+
+\paragraph{title}
+	\begin{lem}\label{foli_point_lem!}
+	%Lemma 1.4.10. 
+	If $f \in \Ga^\infty_c\left(\G, \Om^{1/2}\right)$ does not evaluate to zero at each $\ga \in \G$, then there exists a point $x$ in $M$ such that $\rho_x\left( f\right)  \neq  0$.
+\end{lem}
+
+\begin{definition}\label{blowing_faithful_defn!}
+	If  $A$ be a $C^*$-algebra then Hausdorff blowing up $C_0\left( \sY\right)\to M\left( A\right)$ is said to be \textit{faithful} if 
+	\be\label{blowing_faithful_eqn}
+	\forall a \in A \setminus \{0\}\quad 	r\text{-}\mathrm{norm}_a \neq 0,
+	\ee
+	and \textit{nondegenerate} if 
+	\be\label{blowing_nondegenerate_eqn}
+	\forall y \in \sY \quad \exists a\in A \quad 	r\text{-}\mathrm{norm}_a\left( y\right)  \neq 0.
+	\ee
+	Hausdorff blowing up $C_0\left( \sY\right)\to M\left( A\right)$ is said to be \textit{continuous} if
+	\be\label{blowing_continuous_eqn}
+	\forall a \in A \quad 	r\text{-}\mathrm{norm}_a \in C_0\left(\sY \right). 
+	\ee
+\end{definition}
+\begin{definition}
+	Let $A$ be a $C^*$-algebra, and let $C_0\left( \sY\right)\to M\left( A\right)$. For all $a\in A$ we define  maps 
+	\be\label{blowing_norm_eqn!}
+	\begin{split}
+		r\text{-}\mathrm{norm}_a: \sY \to \R,\\
+		y \mapsto \inf_{f \in \mathfrak{Stumps}_{y}}\inf \left\|  af\right\|;\\
+		l\text{-}\mathrm{norm}_a: \sY \to \R,\\
+		y \mapsto \inf_{f \in \mathfrak{Stumps}_{y}}\inf \left\| f a\right\| 
+	\end{split}
+	\ee
+	where $\mathfrak{Stumps}_{y}$ is a set of $y$-stumps (cf. Definition \ref{top_stump_defn}).
+\end{definition}
+\begin{remark}
+For any $y\in \sY$ one has
+\be\label{blowing_norm_sq_eqn!}
+	r\text{-}\mathrm{norm}_a = \sqrt{\inf_{f \in \mathfrak{Stumps}_{y}}\left\| f^*a^*af\right\| }
+\ee
+\end{remark}
+\begin{lemma}
+	The given by \eqref{blowing_norm_eqn} maps are upper semi-continuous (cf. Definition \ref{top_lower_semi_defn})
+\end{lemma}
+\begin{proof}
+	If $a \in A$ and $y\in \sY$ then for all $\eps> 0$ there is $f \in \mathfrak{Stumps}_{y_0}$ such that
+	$$
+	r\text{-}\mathrm{norm}_a\left( y_0 \right) + \eps \ge \left\| f a\right\|
+	$$
+	On the other hand there is an open neighborhood $\sU \in \sY$ such that for all $y\in \sU$ one has $f \in \mathfrak{Stumps}_{y}$.
+	For any $y \in f^{-1}\left(1 \right)$ one has
+	$\mathrm{norm}_a\left( y \right) \le \left\| f a\right\|\le \mathrm{norm}_a\left( y_0 \right) + \eps$.
+\end{proof}
+\begin{exercise}\label{blowing_norm_exer}
+	Prove that for all $a \in A$, $~f \in C_0\left(\sY\right)$ and $y \in \sY$ one has:
+	\bea\label{blowing_n1_eqn}
+	r\text{-}\mathrm{norm}_a = l\text{-}\mathrm{norm}_{a^*},~~\\
+	\label{blowing_n2_eqn}
+	r\text{-}\mathrm{norm}_{af}\left( y\right)= \left|f\left(y\right)\right|  r\text{-}\mathrm{norm}_a\left( y\right),~~ r\text{-}\mathrm{norm}_{af}\left( y\right)= \left|f\left(y\right)\right|  r\text{-}\mathrm{norm}_a\left( y\right),~~\\
+	\label{blowing_n3_eqn}
+	a \ge 0 \quad \Rightarrow\quad \mathrm{norm}_{f_\eps\left(a \right)} =  f_\eps\left( \mathrm{norm}_a\right) ,~~\\
+	\label{blowing_inf_eqn}
+	r\text{-}\mathrm{norm}_a\left( y \right) =\inf_{\substack{f \in C_0\left(\sY \right)\\ \left|f\left(y\right)\right|=1 }}\left\|  af\right\|,\quad l\text{-}\mathrm{norm}_a\left( y \right) =\inf_{\substack{f \in C_0\left(\sY \right)\\ \left|f\left(y\right)\right|=1 }}\left\| fa\right\|~~	
+	\eea
+	where $f_\eps$ is given by \eqref{f_eps_eqn}.
+\end{exercise}
+
+\begin{remark}\label{blowing_faithful_rem}
+	From the equation \ref{blowing_n1_eqn} it follows that the Definition \ref{blowing_faithful_defn} can be reformulated by the following way.
+	Hausdorff blowing up $C_0\left( \sY\right)\to M\left( A\right)$ is said to be \textit{faithful} if 
+	\bean
+	\forall a \in A \setminus \{0\}\quad 	l\text{-}\mathrm{norm}_a \neq 0,
+	\eean
+	and \textit{nondegenerate} if 
+	\bean
+	\forall y \in \sY \quad \exists a\in A \quad 	l\text{-}\mathrm{norm}_a\left( y\right)  \neq 0.
+	\eean
+	Hausdorff blowing up $C_0\left( \sY\right)\to M\left( A\right)$ is said to be \textit{continuous} if
+	\bean
+	\forall a \in A \quad 	l\text{-}\mathrm{norm}_a \in C_0\left(\sY \right). 
+	\eean
+	
+\end{remark}
+\begin{exercise}\label{blowing_hausdorff_supp_exer}
+	If $A$ is a given by \eqref{cross_mult_eqn} $C^*$-algebra with Hausdorff spectrum $\sX$  then $C_0\left(\sX \right) \hookto M\left( A\right)$ is Hausdorff blowing-up (cf. Example \ref{blowing_hausdorff_exm}). 
+	\begin{enumerate}
+		\item 	Using the Theorems \ref{oa_haus_prim_thm} and  \ref{dauns_hofmann_thm} prove that $C_0\left(\sX \right) \hookto M\left( A\right)$ is  faithful and nondegenerate  Hausdorff blowing-up. 
+		\item Using the Lemma \ref{ctr_rep_eq_lem} prove that $C_0\left(\sX \right) \hookto M\left( A\right)$ is  continuous  Hausdorff blowing-up.
+	\end{enumerate}
+\end{exercise}
+
+\begin{definition}\label{blowing_support_defn}
+	If  $A$ is a $C^*$-algebra and $C_0\left( \sY\right)\to M\left( A\right)$ is Hausdorff blowing up (cf. Definition \ref{blowing_defn})  then for any $a \in A$ both sets
+	\be\label{blowing_support_eqn}
+	\begin{split}
+		r\text{-}\mathfrak{pre}\text{-}\supp	 a \bydef \left\{y \in \sY~ | ~r\text{-}\mathrm{norm}_a \neq 0\right\},\\ l\text{-}\mathfrak{pre}\text{-}\supp	 a \bydef \left\{y \in \sY~ | ~l\text{-}\mathrm{norm}_a \neq 0\right\}
+	\end{split}
+	\ee
+	are  said to be a \textit{right} (resp. \textit{left}) \textit{pre}-\textit{support} of $a$. A closure  of $r\text{-}\mathfrak{pre}\text{-}\supp	 a$ (resp. $l\text{-}\mathfrak{pre}\text{-}\supp	 a$)  is said to be a \textit{right} (resp. \textit{left}) \textit{support} of $a$, we denote it by 
+	$r\text{-}\supp	 a$ (resp. $r\text{-}\supp	 a$). If $S \subset A$ is a subset of $A$ then  both unions 
+	\be\label{blowing_support_s_eqn}
+	r\text{-}\mathfrak{pre}\text{-}\supp S \bydef \bigcup_{a\in S}r\text{-} \mathfrak{pre}\text{-}\supp a, \quad l\text{-}\mathfrak{pre}\text{-}\supp S \bydef \bigcup_{a\in S}r\text{-} \mathfrak{pre}\text{-}\supp a
+	\ee	
+	are said to be are  said to be a \textit{right} (resp. \textit{left}) \textit{pre}-\textit{support} of $S$. Closures of both $r\text{-}\mathfrak{pre}\text{-}\supp S$ and $l\text{-}\mathfrak{pre}\text{-}\supp S$  are said to  \textit{right} (resp. \textit{left}) \textit{support} of $S$, we denote them  by 
+	$r\text{-}\supp	 S$ and $r\text{-}\supp	 S$ respectively.
+	If 
+	$
+	\forall a \in S \quad \Rightarrow \quad a^*\in S
+	$
+	then from \eqref{blowing_n1_eqn} it follows that 
+	\bean
+	r\text{-}\mathfrak{pre}\text{-}\supp S = l\text{-}\mathfrak{pre}\text{-}\supp S,\\ 
+	r\text{-}\supp S = l\text{-}\supp S
+	\eean
+	In this case we say that both sets
+	\be\label{blowing_rl_eqn}
+	\begin{split}
+		rl\text{-}\mathfrak{pre}\text{-}\supp S\bydef r\text{-}\mathfrak{pre}\text{-}\supp S = l\text{-}\mathfrak{pre}\text{-}\supp S,\\
+		rl\text{-}\supp S\bydef r\text{-}\supp S = l\text{-}\supp S
+	\end{split}
+	\ee
+	are \textit{two sided pre}-\textit{support} and \textit{two sided support} of $S$ respectively.
+\end{definition}
+
+\begin{remark}
+	If Hausdorff blowing up is continuous then from \eqref{blowing_continuous_eqn} it follows that both $l\text{-}\mathfrak{pre}\text{-}\supp a$ and $r\text{-}\mathfrak{pre}\text{-}\supp a$ are open sets.
+\end{remark}
+\begin{lemma}\label{blowing_dense_supp_lem}
+	Let $A$ be  a $C^*$-algebra with a faithful, nondegenerate and continuous Hausdorff blowing up $C_0\left( \sY\right)\to M\left( A\right)$ (cf. Definitions \ref{blowing_defn} and \ref{blowing_faithful_defn}.
+	If $S \subset A$ is dense subset then one has
+	$$
+	r\text{-}\mathfrak{pre}\text{-}\supp	 S =l\text{-}\mathfrak{pre}\text{-}\supp	 S = \sY \quad \text{(cf. \eqref{blowing_support_eqn})}.
+	$$
+\end{lemma}
+\begin{proof} 
+	If $\sY \neq  r\text{-}\mathfrak{pre}\text{-}\supp	S$ then there is $y \in \sY \setminus r\text{-}\mathfrak{pre}\text{-}\supp	 S$ then from the Definition \ref{blowing_faithful_defn} there is $a' \in A$ such that $r\text{-}\mathrm{norm}_{a'}\left( y\right) = \eps > 0$. Since $S$ is dense in $A$ there is $a'' \in S$ such that $\left\| a' - a''\right\| < \eps/2$.
+	From $r\text{-}\mathrm{norm}_{a''}\left( y\right) = 0$ it follows that there is an $y$-stamp $f\in \mathfrak{Stumps}_{y}$  (cf. Definition \ref{top_stump_defn}) such that $\left\| a''f\right\|< \eps/2$. Otherwise from  $\left\| a'f\right\|> \eps$ and the triangle identity it follows that $\left\| fa'- fa''\right\|> \eps / 2$.
+	On the other hand $\left\| fa'- fa''\right\|\le \left\| f\right\|\left\|a'- a''\right\|< \eps/2$. So an assumption $\sY \neq r\text{-}\mathfrak{pre}\text{-}\supp	 S $ yields a contradiction. Similarly one can prove that $l\text{-}\mathfrak{pre}\text{-}\supp	 S = \sY$.
+\end{proof}
+
+
+
+\begin{empt}\label{blowing_hered_su_empt}
+	Let $A$ be a $C^*$-algebra, and let $C_0\left( \sY\right)\to M\left( A\right)$ be Hausdorff blowing-up (cf. Definition \ref{blowing_defn}).  Let $\rho: A \hookto B\left( \H\right)$ be a faithful, nondegenerate representation (cf. Definitions \ref{faithful_repr_defn} and \ref{nondegenerate_repr_defn}). Let $B \subset A$ be a hereditary $C^*$-subalgebra (cf. Definition \ref{hered_defn}). Let $\pi_\sY: C_0\left(\sY\right)\to B\left( \sH\right)$ be the natural representation (cf. Definition \ref{multiplier_el_defn}). If $\left\{u_\la \right\}_{\la\in \La}\subset B$ is an approximate unit of $B$ (cf. Definition \ref{approximate_unit_defn}) and $p \bydef s$-$\lim_{\la\in\La} \rho\left( u_\la\right)$ is a strong limit in $B\left(\H \right)$  (cf. Definition \ref{strong_topology_defn})
+	then from the Corollary \ref{hered_representation_cor} it turns out that	$$
+	B = \left\{a \in A~|~ p \rho\left( a\right)p = \rho\left(a \right) \right\}
+	$$ 
+	and there is a faithful, nondegenerate representation
+	$$
+	B \hookto B\left(p \H \right). 
+	$$
+	For any $f \in C_0\left(\sY \right)$. There is a *-homomorphism
+	\bean
+	\phi : 	C_0\left( \sY\right) \to M\left(B \right),\\
+	f \mapsto \bt\text{-}\lim_{\la\in \La} u_\la f u_\la
+	\eean 
+	where $\bt\text{-}\lim$ is a limit with respect to the strict topology of $M\left(B \right)$ (cf. Definition \ref{strict_topology_defn}). The $\ker \phi \subset C_0\left( \sY\right)$ is an closed ideal, so there is an open subset $\mathcal W\subset \sY$ such that $\ker\phi \cong C_0\left( \mathcal W\right)$ (cf. Remark \ref{ideal_open_inc_rem}). It follows that there is a natural inclusion
+	$$
+	C_0\left(\sY \right)/ C_0\left(\mathcal W\right) \hookto M\left( B\right) 
+	$$
+	From the Theorem \ref{ideal_spectrum_thm} it follows that $C_0\left(\sY \right)/ C_0\left(\mathcal W \right) \cong C_0\left( \sX \setminus\mathcal W \right)$. If 
+	\bean
+	\varphi: C_0\left(\sY  \right) \to B\left(\H \right),\\
+	f \mapsto p \pi_\sY\left( f\right)  p
+	\eean
+	then $\ker \varphi = \ker \phi$. 
+\end{empt}
+
+\begin{lemma}\label{blowing_rlsupp_lem}
+	Consider the situation \ref{blowing_hered_su_empt}. If Hausdorff blowing-up $ C_0\left( \sY\right)\to M\left( A\right)$ is faithful, nondegenerate and continuous (cf. Definition \ref{blowing_faithful_defn}) then 
+	$$
+	\sY \setminus \mathcal W = rl\text{-}\supp B\quad \mathrm{~or ~equivalently~} \quad \sY \setminus rl\text{-}\supp B =\mathcal W
+	$$
+	where $ rl\text{-}\supp B$ is a given by the Definition \ref{blowing_support_defn} two sided support of $B$.
+\end{lemma}
+\begin{proof}
+	
+	If $y \in \sY \setminus  rl\text{-}\supp B$ then since the set $rl\text{-}\supp$ is closed there is $f \in C_0\left( \sY \right)$ such that $f\left(y \right)= 1$ and $\supp f \cap  rl\text{-}\supp B = \emptyset$. It follows that
+	$$
+	\forall b \in B \quad \quad  r\text{-}\mathrm{norm}_b \cap \supp f = \emptyset \quad \Rightarrow  \quad r\text{-}\mathrm{norm}_{bf}=  \mathrm{norm}_{b}f= 0.
+	$$
+	Since  $ C_0\left( \sY\right)\to M\left( A\right)$ is faithful one has
+	$$
+	\forall b \in B \quad \quad bf= 0\quad  \Rightarrow \quad f \in C_0\left(\mathcal W \right) \quad  \Rightarrow \quad  y \in \mathcal W. 
+	$$
+	\begin{lemma}\label{blowing_aap_un_lem}
+		Consider    the situation of the Lemma \ref{blowing_y_gen_defn} and suppose that $\rho: A \hookto B\left(\H \right)$ is a faithful, nondegenerate  representation. If $ rl\text{-}\supp B$ is a two sided support of $B$ (cf. Definition \ref{blowing_support_defn} and $\left\{u_\la\right\}_{\la \in \Xi\left( rl\text{-}\mathfrak{pre}\text{-}\supp B\right)}\subset C_0\left( \sY\right)_+$ is an explained in \ref{top_u_net_empt} net, then $\left\{\rho\left( u_\la\right) \right\}\subset  B \left(\H \right)$ then for all $a \in B$ there are following limits
+		\bean
+		\lim_{\la \in \Xi\left( rl\text{-}\mathfrak{pre}\text{-}\supp B\right)} \left\|a - u_\la a u_\la \right\|=0,\\
+		\lim_{\la \in \Xi\left( rl\text{-}\mathfrak{pre}\text{-}\supp B\right)} \left\|a -  a u_\la \right\|=0,\\
+		\lim_{\la \in \Xi\left( rl\text{-}\mathfrak{pre}\text{-}\supp B\right)} \left\|a - u_\la a  \right\|=0.
+		\eean 
+	\end{lemma}
+	\begin{proof}
+		If $\eps > 0$, $f_\eps$ is given by \eqref{f_eps_eqn} and  $a \in A_+$ then one has
+		$
+		\left\|f_\eps\left(a\right) -a\right\| \le \eps/2
+		$.
+		From \eqref{blowing_n3_eqn} it follows that 
+		$$
+		\mathrm{norm}_{f_\eps\left(a \right)} =  f_{\eps/2}\left( \mathrm{norm}_a\right)
+		$$
+		and taking into account $\mathrm{norm}_a\in C_0\left( \mathfrak{pre}\text{-}\supp B\right)$, one has $\mathrm{norm}_{f_{\eps/2}\left(a \right)}\in  C_c\left( \mathfrak{pre}\text{-}\supp B\right)$. If $f \in C_c\left( \mathfrak{pre}\text{-}\supp B\right)$ is a covering sum of $\supp \mathrm{norm}_{f_{\eps/2}\left(a \right)}$ (cf. Definition \ref{top_covering_sum_defn}) then 
+		$f \mathrm{norm}_{f_{\eps/2}\left(a \right)} = \mathrm{norm}_{f_{\eps/2}\left(a \right)}$. 
+		If follows that $\pi_\sY\left( f \right)  f_{\eps/2}\left(a \right)=   f_{\eps/2}\left(a \right)\pi_\sY\left( f \right) = f_{\eps/2}\left(a \right) $. From the construction \ref{top_u_net_empt}
+		it follows that there is $\la_0 \in  \Xi\left( \mathfrak{pre}\text{-}\supp B\right)$ such that $f = u_{\la_0}$. So one has
+		\bean
+		\forall \la \in \La \quad \la \ge \la_0\quad \Rightarrow \left\|a - u_\la a u_\la \right\|\le \left\|a - f_{\eps/2}\left(a \right)  \right\|+\\ + \left\|u_\la a u_\la - u_\la f_{\eps/2}\left(a \right)  u_\la\right\|+ \left\|f_{\eps/2}\left(a \right) -u_\la f_{\eps/2}\left(a \right)  u_\la\right\|\le \\
+		\le \left\|  u_\la\right\|^2 \left\|a - f_{\eps/2}\left(a \right)  \right\|+ \left\|a - f_{\eps/2}\left(a \right)  \right\|\le \eps
+		\eean
+	\end{proof}
+	\begin{corollary}\label{blowing_cb_inc_cor}
+		There is a natural inclusion $C_b\left(rl\text{-}\supp B \right)\subset M\left(B\right)$. 
+	\end{corollary}
+	\begin{proof}
+		Let $a \in B$.
+		If $f \in C_b\left(rl\text{-}\supp B \right)$ and  $\left\{u_\la\right\}_{\la \in \Xi\left( rl\text{-}\mathfrak{pre}\text{-}\supp B\right)}\subset C_0\left( \sY\right)_+$ is an explained in \ref{top_u_net_empt} net then $u_\la f, fu_\la \in C_0\left(rl\text{-}  \mathfrak{pre}\text{-}\supp B\right)\subset M\left( B\right)$, so $u_\la f a , \quad f u_\la a \in A$. For any $\eps > 0$ there is $\la_0\in \La$ such that  
+		\bean
+		\forall \la \in \La \quad \la \ge \la_0 \quad \Rightarrow \quad \left\|u_\la a - a   \right\| < \frac{\eps }{\left\|f  \right\|}, \quad \left\|au_\la  - a   \right\| < \frac{\eps }{\left\|f  \right\|}.
+		\eean 
+		It follows that
+		\bean
+		\forall \la \in \La \quad \la \ge \la_0 \quad \Rightarrow \quad \left\|fu_\la a - fa   \right\| < \eps, \quad \left\|au_\la f - a f  \right\| < \eps,
+		\eean
+		so $fa,~ af \in B$.
+	\end{proof}
+	\begin{empt}\label{blowing_repr_p_empt}
+		If  $\rho: A\hookto B\left(\H \right)$ is a faithful nondegenerate representation
+		then one can apply the construction \ref{hered_repr_p_empt} then there is a  a strong limit $p \bydef s-\lim\rho\left(  u_\la \right) \in B\left( \H\right)$ which lies in the strong closure   $\rho\left(A \right)''$ of $\rho\left( A\right)$ in $B\left(\H\right)$.  From \eqref{hered_pap_eqn}
+		\bean
+		B = \left\{ a \in A | p\rho\left( a\right) p = \rho \left( a\right)\right\}
+		\eean
+		$p \bydef s-\lim\rho\left(  u_\la \right) \in B\left( \H\right)$ is a strong limit then $p$ lies in the strong closure   $\rho\left(A \right)''$. We leave to the reader a proof of following equation
+		\be\label{blowing_p_eqn}
+		p = \rho_\sY\left(\chi_{rl\text{-}\supp B} \right) 
+		\ee
+		where $\chi_{rl\text{-}\supp B}$ is a characteristic function of $rl\text{-}\supp B$ (cf. Definition \ref{top_char_f_defn}).
+		Similarly to \eqref{hered_pap_eqn} one has
+		\be\label{blowing_hered_papp_eqn}
+		B = \left\{ a \in A | \rho_\sY\left(\chi_{rl\text{-}\supp B} \right)\rho\left( a\right) \rho_\sY\left(\chi_{rl\text{-}\supp B} \right) = \rho \left( a\right)\right\}
+		\ee
+		
+	\end{empt}
+	
+	
+	
+	
+	
+	
+	%since $ C_0\left( \sY\right)\hookto M\left( A\right)$ is nondegenerate then there is $a \in A$ such that $\mathrm{norm}_a\left(y \right)\neq 0$. Since the set $\supp B$ is closed there is $f \in C_0\left( \sY \right)$ such that $f\left(y \right)= 1$ and $f\left(\supp B \right)=\{0\}$. It follows that $\mathrm{norm}_{fa}\left(y \right)\neq 0$ and $fa \neq 0$.  From $\supp fa \cap \supp B = 0$ 
+	
+	
+\end{proof}
+
+
+\paragraph{title}
 
 
 \section{Coverings of $C^*$-algebras}
@@ -27011,9 +27279,9 @@ Let $\G\bydef \G\left(M, \sF \right)$ be a foliation chart. 	The bundle $\Omega_
 		Each element $\ga \in \G$ induces a unitary operator $\rho_\ga : L^2\left(s\left( \ga\right)\right)   \xrightarrow{\approx}  L^2\left(r\left( \ga\right)\right) $   that conjugates the operators $\rho_{s\left(\ga \right)} \left(f \right) $ and $\rho_{r\left(\ga \right)} \left(f \right)$. In particular, the norm of $\rho_x\left(f \right)$  is independent of the point in the leaf through $x$.
 	\end{lemma}
 	
-	\begin{lem}\label{foli_point_lem}!!!
+	\begin{lem}\label{foli_point_lem}
 		%Lemma 1.4.10. 
-		If $f \in \Ga_c\left(\G, \Om^{1/2}\right)$ does not evaluate to zero at each $\ga \in \G$, then there exists a point $x$ in $M$ such that $\rho_x\left( f\right)  \neq  0$.
+		If $f \in \Ga^\infty_c\left(\G, \Om^{1/2}\right)$ does not evaluate to zero at each $\ga \in \G$, then there exists a point $x$ in $M$ such that $\rho_x\left( f\right)  \neq  0$.
 	\end{lem}
 	%\begin{defn} \label{foli_full_defn} NECESSARY
 	%  Definition 1.4.12. The full $C^*$-algebra of the foliated space $\left(M, \sF\right)$ denoted by $C^*_r\left(M, \sF\right)$, is the completion of %?c(G,D1/2) with respect to the pseudonorm f=f= supÏ(f), where runs through all the involutive representations of ?c (G,D1/2) on a separable Hilbert space whose restrictions to the graph G(U) of each foliated chart U for (M,F) are weakly continuous for the inductive limit ... Because each Rx, x ? M, is an involutive representation of the convolution 
