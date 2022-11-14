@@ -12396,7 +12396,7 @@ of $ C_c\left( \widetilde \sY\right)$-$A$ bimodules.
 \varphi_{X_A} : X_A \hookto A_0\left(\widetilde \sY \right)
 \ee
 of $ C_c\left( \widetilde \sY\right)$-$A$ bimodules.
-\item(ii)  $\varphi_{X_A}\left( X_A\right)$ is a dense *-subalgebra  of $A_0\left(\widetilde \sY \right)$.
+\item(ii)  $\varphi_{X_A}\left( X_A\right)$ is a dense *-subalgebra  of $A_0\left(\widetilde \sY \right)$ and  $C_c\left( \widetilde \sY\right)\otimes_{C_0\left(\sY\right)}  A$ is a dense subspace of $A_0\left(\widetilde \sY \right)$.
 \end{lemma}
 
 
@@ -12480,7 +12480,7 @@ of $ C_c\left( \widetilde \sY\right)$-$A$ bimodules.
 	$$
 	\varphi_{X_A}\left(C_c\left(\widetilde \sY\right)\otimes_{C_0\left(\sY\right)}A^{\left\{\sU_\a\right\}}_{\mathrm{fin}}\right)\subset \varphi_{X_A}\left(X_A\right)\subset A_0\left(\widetilde{\sY} \right) 
 	$$
-	it follows that $\varphi_{X_A}\left(X_A\right)$ is dense in $A_0\left(\widetilde{\sY} \right)$.
+	it follows that both $\varphi_{X_A}\left(X_A\right)$ and $\varphi_{X_A}\left(C_c\left(\widetilde \sY\right)\otimes_{C_0\left(\sY\right)}A^{\left\{\sU_\a\right\}}_{\mathrm{fin}}\right)$ are dense in $A_0\left(\widetilde{\sY} \right)$.
 \end{proof}
 \begin{corollary}\label{blowing_ca_m_cor}
 	Let $A$ be a $C^*$-algebra with disintegrable Hausdorff blowing-up $C_0\left(\sY\right)\subset M\left(A\right)$ (cf. Definitions \ref{blowing_defn} and \ref{blowing_disintegrable_defn}), and let $q: \widetilde \sY \to \sY$ be a transitive covering (cf. Definitions \ref{top_covering_defn}, \ref{top_transitive_defn}). If  $A_0\left(\widetilde \sY \right)$ is a $q$-lift of $A$ (cf. Definition \ref{blowing_lift_a_f_defn}) then there is a natural inclusion
@@ -14561,7 +14561,7 @@ Our following constructions require an analog of the Dini's theorem.
 	$$
 	\left(A, A_0\left( \widetilde{\sX }\right) , G\left(\left.\widetilde\sX\right|\sX\right),A_0\left(p\right) \right)
 	$$
-	where $A_0\left( \widetilde{\sX }\right)$ is given by the Definitions  \ref{top_lift_a_f_defn}  or \ref{blowing_lift_a_f_defn} $p$-lift of $A$, and *-homomorphism  $A_0\left(p\right)$ is given by the equation \eqref{blowing_a0q_eqn}.
+	where $A_0\left( \widetilde{\sX }\right)$ is given by the Definition  \ref{blowing_lift_a_f_defn} $p$-lift of $A$, and *-homomorphism  $A_0\left(p\right)$ is given by the equation \eqref{blowing_a0q_eqn}.
 \end{lemma}
 \begin{proof}
 	This lemma follows from the Lemma \ref{ctr_blowing_disint_lem} and the Theorem \ref{blowing_fin_thm}.
@@ -16307,6 +16307,13 @@ From the equations \ref{foli_prop1_eqn}, \ref{foli_prop2_eqn} it follows that $\
 \begin{proof}
 Follows from the Lemma \ref{foli_prop_lem} and the Corollary \ref{foli_cov_alg_cor}.
 \end{proof}
+\begin{remark}
+From the Lemma \ref{foli_prop_lem} it follows that there is a natural *-isomorphism
+\be\label{foli_prop_eqn}
+	C^*_r\left(\sU,\sF|_\sU\right) \cong C^*_r\left(M,\sF\right)_\sU^{\mathrm{prop}}
+\ee
+where the notation of the Definition \ref{blowing_proper_defn} is used.
+\end{remark}
 \begin{empt}\label{foli_spectral_empt}
 	Let $C^*_r\left(M,\sF\right)$ be a reduced $C^*$-algebra of the foliated space $\left(M,\sF\right)$ (cf. Definition \ref{foli_red_defn}). Let $C_0\left( M\right)\subset M\left(C^*_r \left(M, \mathcal{F}\right) \right)$  be {natural Hausdorff blowing-up of a foliated space} $\left(M, \mathcal{F}\right)$ (cf. Definition \ref{foli_haus_defn}). Let $\sX$ be a primitive spectrum (cf. Definition \ref{prime_primtive_defn}) of  $C^*_r\left(M,\sF\right)$. Let us define a partially defined map from $f:M\to\sX$ such that
 \begin{itemize}
@@ -16317,279 +16324,223 @@ Follows from the Lemma \ref{foli_prop_lem} and the Corollary \ref{foli_cov_alg_c
 \begin{exercise}
 Using the explained in \ref{foli_spectral_empt} partially defined map prove that Hausdorff blowing-up $C_0\left( M\right)\subset M\left(C^*_r \left(M, \mathcal{F}\right) \right)$ is spectral (cf. Definition \ref{blowing_spectral_defn}).
 \end{exercise}
-\begin{lemma}
-	If  $C^*_r\left(M,\sF\right)$ be a reduced $C^*$-algebra of the foliated space $\left(M,\sF\right)$ (cf. Definition \ref{foli_red_defn}) then  {natural Hausdorff blowing-up $C_0\left( M\right)\subset M\left(C^*_r \left(M, \mathcal{F}\right) \right)$ of a foliated space} is faithful and nondegenerate (cf. Definition \ref{blowing_faithful_defn})
+
+\subsection{Operator algebras of foliation coverings}
+
+
+
+\begin{lemma}\label{foli_cov_chart_lem}
+	If  $\left(M,\sF\right)$ is a foliated manifold without boundary and $p: \widetilde{M} \to M$ is a covering then for any $x \in M$ there is a foliated chart $\left(\mathcal V , \phi \right)$ such that $x \in \sV$ and $\mathcal V$ is evenly covered by $p$. 
 \end{lemma}
 \begin{proof}
-Let $a  \in C^*_r\left(M,\sF\right)\setminus \{0\}$ 
-
-From the Lemma \ref{foli_point_lem}
+	If $x \in M$ there is a point then there is an open neighborhood $\sU$ which is evenly covered by $p$ (cf. Definition \ref{top_covering_defn}). There is a foliated atlas $\left\{\sU_\a \right\}_{\a \in \mathscr A}$, hence there is $\a \in \mathscr A$ such that $x\in \sU_\a$. There is a *-homomorphism $\varphi: {\sU_\a} \xrightarrow{\approx}\R^{q}\times\R^{n-q}$. The set $\mathcal W=\varphi\left(\sU \cap \sU_{\a} \right)$ is an open neighborhood of $\varphi\left(x \right)$. Since cubic neighborhoods are basis of all neighborhoods of   $\varphi\left(x \right)$ there is an inclusion $\psi:\R^{q}\times\R^{n-q} \to \mathcal W$ which is a foliated chart. If $\mathcal V = \varphi^{-1}\left(\mathcal W \right)$ and $\phi = \psi^{-1}\circ\varphi$  then $\left( \mathcal V, \phi \right)$ is a foliated chart, such that  $\mathcal V$ is evenly covered by $p$.
 \end{proof}
 
-\paragraph{title}
-20 integral
-
-CANDEL 35.  29 23
-	\begin{lem}\label{foli_point_lem!}
-	%Lemma 1.4.10. 
-	If $f \in \Ga^\infty_c\left(\G, \Om^{1/2}\right)$ does not evaluate to zero at each $\ga \in \G$, then there exists a point $x$ in $M$ such that $\rho_x\left( f\right)  \neq  0$.
-\end{lem}
-
-\begin{definition}\label{blowing_faithful_defn!}
-	If  $A$ be a $C^*$-algebra then Hausdorff blowing up $C_0\left( \sY\right)\to M\left( A\right)$ is said to be \textit{faithful} if 
-	\be\label{blowing_faithful_eqn}
-	\forall a \in A \setminus \{0\}\quad 	r\text{-}\mathrm{norm}_a \neq 0,
-	\ee
-	and \textit{nondegenerate} if 
-	\be\label{blowing_nondegenerate_eqn}
-	\forall y \in \sY \quad \exists a\in A \quad 	r\text{-}\mathrm{norm}_a\left( y\right)  \neq 0.
-	\ee
-	Hausdorff blowing up $C_0\left( \sY\right)\to M\left( A\right)$ is said to be \textit{continuous} if
-	\be\label{blowing_continuous_eqn}
-	\forall a \in A \quad 	r\text{-}\mathrm{norm}_a \in C_0\left(\sY \right). 
-	\ee
-\end{definition}
-\begin{definition}
-	Let $A$ be a $C^*$-algebra, and let $C_0\left( \sY\right)\to M\left( A\right)$. For all $a\in A$ we define  maps 
-	\be\label{blowing_norm_eqn!}
+\begin{lemma}\label{foli_cov_iso_lem}
+	Let  $\left(M,\sF\right)$ be a foliated manifold without boundary, and let $p: \left( \widetilde{M}, \widetilde\sF \right) \to \left( M, \sF\right) $ be a regular  covering (cf. Definition \ref{foli_reg_cov_defn}). If $\widetilde{\sU}$ is a foliated chart such that the restriction $p|_{\widetilde{\sU}}: \widetilde{\sU}\to \sX$ is injective, and $\sU = p\left( \widetilde{\sU}\right)$ then there are the natural involutive isomorphisms
+	\be\label{foli_cov_iso_eqn}
 	\begin{split}
-		r\text{-}\mathrm{norm}_a: \sY \to \R,\\
-		y \mapsto \inf_{f \in \mathfrak{Stumps}_{y}}\inf \left\|  af\right\|;\\
-		l\text{-}\mathrm{norm}_a: \sY \to \R,\\
-		y \mapsto \inf_{f \in \mathfrak{Stumps}_{y}}\inf \left\| f a\right\| 
+		\psi_{\widetilde{\sU}}:C^*_r\left(\left.\sU,\sF\right|_{\sU}\right)\xrightarrow{\approx}  C^*_r\left(\left.\widetilde{\sU},\widetilde{\sF}\right|_{\widetilde{\sU}}\right) ,\\
+		\psi_{\widetilde{\sU}}:\Ga_c^\infty\left(\left.\sU,\sF\right|_{\sU}\right)\xrightarrow{\approx}  \Ga^\infty_c\left(\left.\widetilde{\sU},\widetilde{\sF}\right|_{\widetilde{\sU}}\right).
 	\end{split}
 	\ee
-	where $\mathfrak{Stumps}_{y}$ is a set of $y$-stumps (cf. Definition \ref{top_stump_defn}).
-\end{definition}
-\begin{remark}
-For any $y\in \sY$ one has
-\be\label{blowing_norm_sq_eqn!}
-	r\text{-}\mathrm{norm}_a = \sqrt{\inf_{f \in \mathfrak{Stumps}_{y}}\left\| f^*a^*af\right\| }
-\ee
-\end{remark}
-\begin{lemma}
-	The given by \eqref{blowing_norm_eqn} maps are upper semi-continuous (cf. Definition \ref{top_lower_semi_defn})
 \end{lemma}
 \begin{proof}
-	If $a \in A$ and $y\in \sY$ then for all $\eps> 0$ there is $f \in \mathfrak{Stumps}_{y_0}$ such that
-	$$
-	r\text{-}\mathrm{norm}_a\left( y_0 \right) + \eps \ge \left\| f a\right\|
-	$$
-	On the other hand there is an open neighborhood $\sU \in \sY$ such that for all $y\in \sU$ one has $f \in \mathfrak{Stumps}_{y}$.
-	For any $y \in f^{-1}\left(1 \right)$ one has
-	$\mathrm{norm}_a\left( y \right) \le \left\| f a\right\|\le \mathrm{norm}_a\left( y_0 \right) + \eps$.
+	Follows from the isomorphism $\left(\left.\sU,\sF\right|_{\sU}\right) \cong \left(\left.\widetilde{\sU},\widetilde{\sF}\right|_{\widetilde{\sU}}\right)$ of foliated manifolds.
 \end{proof}
-\begin{exercise}\label{blowing_norm_exer}
-	Prove that for all $a \in A$, $~f \in C_0\left(\sY\right)$ and $y \in \sY$ one has:
-	\bea\label{blowing_n1_eqn}
-	r\text{-}\mathrm{norm}_a = l\text{-}\mathrm{norm}_{a^*},~~\\
-	\label{blowing_n2_eqn}
-	r\text{-}\mathrm{norm}_{af}\left( y\right)= \left|f\left(y\right)\right|  r\text{-}\mathrm{norm}_a\left( y\right),~~ r\text{-}\mathrm{norm}_{af}\left( y\right)= \left|f\left(y\right)\right|  r\text{-}\mathrm{norm}_a\left( y\right),~~\\
-	\label{blowing_n3_eqn}
-	a \ge 0 \quad \Rightarrow\quad \mathrm{norm}_{f_\eps\left(a \right)} =  f_\eps\left( \mathrm{norm}_a\right) ,~~\\
-	\label{blowing_inf_eqn}
-	r\text{-}\mathrm{norm}_a\left( y \right) =\inf_{\substack{f \in C_0\left(\sY \right)\\ \left|f\left(y\right)\right|=1 }}\left\|  af\right\|,\quad l\text{-}\mathrm{norm}_a\left( y \right) =\inf_{\substack{f \in C_0\left(\sY \right)\\ \left|f\left(y\right)\right|=1 }}\left\| fa\right\|~~	
-	\eea
-	where $f_\eps$ is given by \eqref{f_eps_eqn}.
-\end{exercise}
-
-\begin{remark}\label{blowing_faithful_rem}
-	From the equation \ref{blowing_n1_eqn} it follows that the Definition \ref{blowing_faithful_defn} can be reformulated by the following way.
-	Hausdorff blowing up $C_0\left( \sY\right)\to M\left( A\right)$ is said to be \textit{faithful} if 
-	\bean
-	\forall a \in A \setminus \{0\}\quad 	l\text{-}\mathrm{norm}_a \neq 0,
-	\eean
-	and \textit{nondegenerate} if 
-	\bean
-	\forall y \in \sY \quad \exists a\in A \quad 	l\text{-}\mathrm{norm}_a\left( y\right)  \neq 0.
-	\eean
-	Hausdorff blowing up $C_0\left( \sY\right)\to M\left( A\right)$ is said to be \textit{continuous} if
-	\bean
-	\forall a \in A \quad 	l\text{-}\mathrm{norm}_a \in C_0\left(\sY \right). 
-	\eean
-	
-\end{remark}
-\begin{exercise}\label{blowing_hausdorff_supp_exer}
-	If $A$ is a given by \eqref{cross_mult_eqn} $C^*$-algebra with Hausdorff spectrum $\sX$  then $C_0\left(\sX \right) \hookto M\left( A\right)$ is Hausdorff blowing-up (cf. Example \ref{blowing_hausdorff_exm}). 
-	\begin{enumerate}
-		\item 	Using the Theorems \ref{oa_haus_prim_thm} and  \ref{dauns_hofmann_thm} prove that $C_0\left(\sX \right) \hookto M\left( A\right)$ is  faithful and nondegenerate  Hausdorff blowing-up. 
-		\item Using the Lemma \ref{ctr_rep_eq_lem} prove that $C_0\left(\sX \right) \hookto M\left( A\right)$ is  continuous  Hausdorff blowing-up.
-	\end{enumerate}
-\end{exercise}
-
-\begin{definition}\label{blowing_support_defn}
-	If  $A$ is a $C^*$-algebra and $C_0\left( \sY\right)\to M\left( A\right)$ is Hausdorff blowing up (cf. Definition \ref{blowing_defn})  then for any $a \in A$ both sets
-	\be\label{blowing_support_eqn}
-	\begin{split}
-		r\text{-}\mathfrak{pre}\text{-}\supp	 a \bydef \left\{y \in \sY~ | ~r\text{-}\mathrm{norm}_a \neq 0\right\},\\ l\text{-}\mathfrak{pre}\text{-}\supp	 a \bydef \left\{y \in \sY~ | ~l\text{-}\mathrm{norm}_a \neq 0\right\}
-	\end{split}
-	\ee
-	are  said to be a \textit{right} (resp. \textit{left}) \textit{pre}-\textit{support} of $a$. A closure  of $r\text{-}\mathfrak{pre}\text{-}\supp	 a$ (resp. $l\text{-}\mathfrak{pre}\text{-}\supp	 a$)  is said to be a \textit{right} (resp. \textit{left}) \textit{support} of $a$, we denote it by 
-	$r\text{-}\supp	 a$ (resp. $r\text{-}\supp	 a$). If $S \subset A$ is a subset of $A$ then  both unions 
-	\be\label{blowing_support_s_eqn}
-	r\text{-}\mathfrak{pre}\text{-}\supp S \bydef \bigcup_{a\in S}r\text{-} \mathfrak{pre}\text{-}\supp a, \quad l\text{-}\mathfrak{pre}\text{-}\supp S \bydef \bigcup_{a\in S}r\text{-} \mathfrak{pre}\text{-}\supp a
-	\ee	
-	are said to be are  said to be a \textit{right} (resp. \textit{left}) \textit{pre}-\textit{support} of $S$. Closures of both $r\text{-}\mathfrak{pre}\text{-}\supp S$ and $l\text{-}\mathfrak{pre}\text{-}\supp S$  are said to  \textit{right} (resp. \textit{left}) \textit{support} of $S$, we denote them  by 
-	$r\text{-}\supp	 S$ and $r\text{-}\supp	 S$ respectively.
-	If 
-	$
-	\forall a \in S \quad \Rightarrow \quad a^*\in S
-	$
-	then from \eqref{blowing_n1_eqn} it follows that 
-	\bean
-	r\text{-}\mathfrak{pre}\text{-}\supp S = l\text{-}\mathfrak{pre}\text{-}\supp S,\\ 
-	r\text{-}\supp S = l\text{-}\supp S
-	\eean
-	In this case we say that both sets
-	\be\label{blowing_rl_eqn}
-	\begin{split}
-		rl\text{-}\mathfrak{pre}\text{-}\supp S\bydef r\text{-}\mathfrak{pre}\text{-}\supp S = l\text{-}\mathfrak{pre}\text{-}\supp S,\\
-		rl\text{-}\supp S\bydef r\text{-}\supp S = l\text{-}\supp S
-	\end{split}
-	\ee
-	are \textit{two sided pre}-\textit{support} and \textit{two sided support} of $S$ respectively.
-\end{definition}
-
 \begin{remark}
-	If Hausdorff blowing up is continuous then from \eqref{blowing_continuous_eqn} it follows that both $l\text{-}\mathfrak{pre}\text{-}\supp a$ and $r\text{-}\mathfrak{pre}\text{-}\supp a$ are open sets.
+	From the equation \eqref{foli_prop_eqn} it follows that there are following isomorphisms 
+	\be\label{foli_propc_eqn}
+	C^*_r\left(\sU,\sF|_\sU\right) \cong C^*_r\left(M,\sF\right)_\sU^{\mathrm{prop}}\cong 	C^*_r\left(\widetilde\sU,\widetilde\sF|_{\widetilde\sU}\right) \cong C^*_r\left(\widetilde M,\widetilde \sF\right)_{\widetilde\sU}^{\mathrm{prop}}
+	\ee
+	where the notation of the Definition \ref{blowing_proper_defn} is used.
 \end{remark}
-\begin{lemma}\label{blowing_dense_supp_lem}
-	Let $A$ be  a $C^*$-algebra with a faithful, nondegenerate and continuous Hausdorff blowing up $C_0\left( \sY\right)\to M\left( A\right)$ (cf. Definitions \ref{blowing_defn} and \ref{blowing_faithful_defn}.
-	If $S \subset A$ is dense subset then one has
+\begin{definition}\label{foli_lift_desc_defn}
+	In the situation the Lemma \ref{foli_cov_iso_lem} we say that if $\widetilde{a} \in C^*_r\left(\left.\widetilde{\sU},\widetilde{\sF}\right|_{\widetilde{\sU}}\right)$ then 	$\psi^{-1}_{\widetilde{\sU}}\left(\widetilde{a} \right)$ is the $p$-\textit{descent} of $\widetilde{a}$. We write
 	$$
-	r\text{-}\mathfrak{pre}\text{-}\supp	 S =l\text{-}\mathfrak{pre}\text{-}\supp	 S = \sY \quad \text{(cf. \eqref{blowing_support_eqn})}.
+	\desc_p\left(\widetilde{a} \right) \stackrel{\text{def}}{=}\psi^{-1}_{\widetilde{\sU}}\left(\widetilde{a} \right).
 	$$
-\end{lemma}
-\begin{proof} 
-	If $\sY \neq  r\text{-}\mathfrak{pre}\text{-}\supp	S$ then there is $y \in \sY \setminus r\text{-}\mathfrak{pre}\text{-}\supp	 S$ then from the Definition \ref{blowing_faithful_defn} there is $a' \in A$ such that $r\text{-}\mathrm{norm}_{a'}\left( y\right) = \eps > 0$. Since $S$ is dense in $A$ there is $a'' \in S$ such that $\left\| a' - a''\right\| < \eps/2$.
-	From $r\text{-}\mathrm{norm}_{a''}\left( y\right) = 0$ it follows that there is an $y$-stamp $f\in \mathfrak{Stumps}_{y}$  (cf. Definition \ref{top_stump_defn}) such that $\left\| a''f\right\|< \eps/2$. Otherwise from  $\left\| a'f\right\|> \eps$ and the triangle identity it follows that $\left\| fa'- fa''\right\|> \eps / 2$.
-	On the other hand $\left\| fa'- fa''\right\|\le \left\| f\right\|\left\|a'- a''\right\|< \eps/2$. So an assumption $\sY \neq r\text{-}\mathfrak{pre}\text{-}\supp	 S $ yields a contradiction. Similarly one can prove that $l\text{-}\mathfrak{pre}\text{-}\supp	 S = \sY$.
-\end{proof}
-
-
-
-\begin{empt}\label{blowing_hered_su_empt}
-	Let $A$ be a $C^*$-algebra, and let $C_0\left( \sY\right)\to M\left( A\right)$ be Hausdorff blowing-up (cf. Definition \ref{blowing_defn}).  Let $\rho: A \hookto B\left( \H\right)$ be a faithful, nondegenerate representation (cf. Definitions \ref{faithful_repr_defn} and \ref{nondegenerate_repr_defn}). Let $B \subset A$ be a hereditary $C^*$-subalgebra (cf. Definition \ref{hered_defn}). Let $\pi_\sY: C_0\left(\sY\right)\to B\left( \sH\right)$ be the natural representation (cf. Definition \ref{multiplier_el_defn}). If $\left\{u_\la \right\}_{\la\in \La}\subset B$ is an approximate unit of $B$ (cf. Definition \ref{approximate_unit_defn}) and $p \bydef s$-$\lim_{\la\in\La} \rho\left( u_\la\right)$ is a strong limit in $B\left(\H \right)$  (cf. Definition \ref{strong_topology_defn})
-	then from the Corollary \ref{hered_representation_cor} it turns out that	$$
-	B = \left\{a \in A~|~ p \rho\left( a\right)p = \rho\left(a \right) \right\}
-	$$ 
-	and there is a faithful, nondegenerate representation
-	$$
-	B \hookto B\left(p \H \right). 
-	$$
-	For any $f \in C_0\left(\sY \right)$. There is a *-homomorphism
-	\bean
-	\phi : 	C_0\left( \sY\right) \to M\left(B \right),\\
-	f \mapsto \bt\text{-}\lim_{\la\in \La} u_\la f u_\la
-	\eean 
-	where $\bt\text{-}\lim$ is a limit with respect to the strict topology of $M\left(B \right)$ (cf. Definition \ref{strict_topology_defn}). The $\ker \phi \subset C_0\left( \sY\right)$ is an closed ideal, so there is an open subset $\mathcal W\subset \sY$ such that $\ker\phi \cong C_0\left( \mathcal W\right)$ (cf. Remark \ref{ideal_open_inc_rem}). It follows that there is a natural inclusion
-	$$
-	C_0\left(\sY \right)/ C_0\left(\mathcal W\right) \hookto M\left( B\right) 
-	$$
-	From the Theorem \ref{ideal_spectrum_thm} it follows that $C_0\left(\sY \right)/ C_0\left(\mathcal W \right) \cong C_0\left( \sX \setminus\mathcal W \right)$. If 
-	\bean
-	\varphi: C_0\left(\sY  \right) \to B\left(\H \right),\\
-	f \mapsto p \pi_\sY\left( f\right)  p
-	\eean
-	then $\ker \varphi = \ker \phi$. 
+	Conversely if $a \in C^*_r\left(\left.\sU,\sF\right|_{\sU}\right)$ then $\widetilde{a}=\psi_{\widetilde{\sU}}\left(a \right) \in C^*_r\left(\left.\widetilde{\sU},\widetilde{\sF}\right|_{\widetilde{\sU}}\right)$ is said to be the $p$-$\widetilde{\sU}$-\textit{lift} of  $a$. We write
+	\be\label{foli_lift_eqn}
+	\lift^p_{\widetilde{\sU}}\left(a \right) \stackrel{\text{def}}{=}\psi_{\widetilde{\sU}}\left(a\right).
+	\ee
+\end{definition}
+\begin{remark}\label{foli_desc_idcomposition_rem}
+	From the Definition \ref{foli_lift_desc_defn} it follows that
+	\be\label{foli_desc_inv_eqn}
+	\begin{split}
+		\lift^p_{\widetilde{\sU}} \circ \desc_p\left(\widetilde{a} \right) =\widetilde{a},\\
+		\desc_p \circ \lift^p_{\widetilde{\sU}}\left(a \right) = a.
+	\end{split}
+	\ee
+\end{remark}
+\begin{remark}\label{foli_desc_composition_rem}
+	If $\left(M, \sF\right)$ is a foliated manifold without boundary and both $p': M' \to M$,  $p'': M'' \to M'$ are coverings then for any open subset $\sU''$ of $M''$ such that the restriction $\left.p' \circ p''\right|_{\sU''}$ and any $a'' \in C^*_r\left(\left.\sU'',\sF''\right|_{\sU''}\right)\subset C^*_r\left(M'',\sF''\right)$ one has
+	\be\label{foli_desc_composition_eqn}
+	\begin{split}
+		\desc_{p'\circ p''}\left(a'' \right) = 	\desc_{p'}\circ \desc_{p''}\left(a'' \right). 
+	\end{split}
+	\ee
+\end{remark}
+\begin{remark}
+Indeed the Definition \ref{foli_lift_desc_defn} is a specialization of the Definition \ref{blowing_lift_desc_defn} (cf. Exercise \ref{foli_blowing_exer}).
+\end{remark}
+\begin{empt}\label{foli_cov_atlas_empt}
+	Let  $\left(M,\sF\right)$ be a foliated manifold without boundary, and let $p: \left( \widetilde{M}, \widetilde{   \sF}\right) \to \left(M,\sF\right) $ be a regular covering of foliations (cf. Definition \ref{foli_reg_cov_defn}). For any $x \in M$ we select a chart $\left(\sU, \varphi \right)$ such that $x \in \sU$ and $\sU$ is evenly covered by $p$. In result one has a foliated atlas $\left\{\sU_{\a}\right\}_{\a \in \mathscr A}$ associated to $\sF$ (cf. Definition \ref{foli_defn}) such that $\sU_{\a}$ is evenly covered by $p$. From the Lemma \ref{foli_reg_atlas_ref_lem} one can suppose that the atlas is regular. For any $\a \in \mathscr A$ we select a connected open subset $\widetilde{   \sU}_\a$ which is homemorphically mapped onto $\sU_{\a}$. If $\widetilde {\mathscr A} = \mathscr A \times G\left(\left.\widetilde{M}~\right| M \right)$ and  $\widetilde{   \sU}_{\left( \a, g\right) }= g \widetilde{   \sU}_\a$ then $\left\{ \widetilde{   \sU}_\a\right\}_{\widetilde{   \a}\in \widetilde{\mathscr A}}$ is a foliated atlas of   $\left( \widetilde{M}, \widetilde{   \sF}\right)$ which is regular.
 \end{empt}
 
-\begin{lemma}\label{blowing_rlsupp_lem}
-	Consider the situation \ref{blowing_hered_su_empt}. If Hausdorff blowing-up $ C_0\left( \sY\right)\to M\left( A\right)$ is faithful, nondegenerate and continuous (cf. Definition \ref{blowing_faithful_defn}) then 
-	$$
-	\sY \setminus \mathcal W = rl\text{-}\supp B\quad \mathrm{~or ~equivalently~} \quad \sY \setminus rl\text{-}\supp B =\mathcal W
-	$$
-	where $ rl\text{-}\supp B$ is a given by the Definition \ref{blowing_support_defn} two sided support of $B$.
+\begin{definition}\label{foli_sub_a_defn}
+	Let $\left(M,\sF\right)$ be  a foliated manifold, and let $p: \widetilde{M} \to M$ be a covering.  A regular foliated atlas  $\mathfrak{A}= \left\{\sU_\iota\right\}_{\iota \in \I}$ of $M$  is said to be \textit{subordinated} to $p$ if $\sU_\iota$ is evenly covered by $p$ for all $\iota \in \I$.
+\end{definition}
+\begin{definition}\label{foli_lift_a_defn}
+	Let $\left(M,\sF\right)$ be  a foliated manifold, and let $p: \widetilde{M} \to M$ be a covering.   Let $\mathfrak{A}= \left\{\sU_\iota\right\}_{\iota \in \I}$ of $M$ be {subordinated} to $p$ regular foliated atlas. If $\widetilde{ \mathfrak{A}}= \left\{\widetilde \sU_{\widetilde \iota }\right\}_{\widetilde \iota  \in \widetilde \I}$ is the regular foliated atlas of $\widetilde M$ such that for any $\widetilde \iota  \in \widetilde \I$ there is $\iota \in \I$ such that $p\left(\widetilde \sU_{\widetilde \iota }\right)= \sU_\iota$ then we say that $\widetilde{ \mathfrak{A}}$ is the $p$-\textit{lift} of $\mathfrak{A}$.
+\end{definition}
+\begin{definition}\label{foli_ind_sets_defn}
+	Let $\mathfrak{A}= \left\{\sU_\iota\right\}_{\iota \in \I}$ be a regular foliated atlas of $M$. We say that the family of given by \eqref{foli_chart_eqn}
+	\be\label{foli_cov_fam_eqn}
+	\sV_{\a} =  \G\left(\sU_{\iota_0} \right)~...~\G\left(\sU_{\iota_k} \right)\in \G\left(M,\sF\right), \quad \a = \left(\iota_1,...,\iota_k,  \right) 
+	\ee
+	open Hausdorff sets is \textit{induced} by $\mathfrak{A}$.
+\end{definition}
+\begin{lemma}\label{foli_lift_lem}
+	Let $\left(M,\sF\right)$ be  a foliation, and let $p: \left( \widetilde{M}, \widetilde\sF \right) \to \left( M, \sF\right) $ be a regular  covering (cf. Definition \ref{foli_reg_cov_defn}).  Let $\mathfrak{A}= \left\{\sU_\iota\right\}_{\iota \in \I}$ of $M$   be a {subordinated} to $p$, regular foliated atlas (cf. Definition \ref{foli_reg_atlas_defn}). Let $\widetilde{ \mathfrak{A}}= \left\{\widetilde \sU_{\widetilde \iota }\right\}_{\widetilde \iota  \in \widetilde \I}$ be the $p$-{lift} of $\mathfrak{A}$. Let 	$\sV_{\a} =  \G\left(\sU_{\iota_0} \right)~...~\G\left(\sU_{\iota_k} \right)\neq 	\emptyset$.
+	If $p\left( \widetilde \sU_{\widetilde \iota_k }\right) = \sU_{ \iota_k }$ then for there is the unique tuple 
+	$
+	\left\{	\widetilde \sU_{\widetilde \iota_0 }, ....,\widetilde \sU_{\widetilde \iota_{k-1} }\right\}
+	$
+	such that 
+	\begin{itemize}
+		\item $p\left(\widetilde \sU_{\widetilde \iota_j }\right)= \sU_{\iota_j}$ for any $j =1,..., k-1$.
+		\item $\G\left(\widetilde \sU_{\widetilde \iota_0} \right)...~\G\left(\widetilde \sU_{\widetilde \iota_k} \right) \neq \emptyset$.			
+	\end{itemize}
 \end{lemma}
 \begin{proof}
-	
-	If $y \in \sY \setminus  rl\text{-}\supp B$ then since the set $rl\text{-}\supp$ is closed there is $f \in C_0\left( \sY \right)$ such that $f\left(y \right)= 1$ and $\supp f \cap  rl\text{-}\supp B = \emptyset$. It follows that
-	$$
-	\forall b \in B \quad \quad  r\text{-}\mathrm{norm}_b \cap \supp f = \emptyset \quad \Rightarrow  \quad r\text{-}\mathrm{norm}_{bf}=  \mathrm{norm}_{b}f= 0.
-	$$
-	Since  $ C_0\left( \sY\right)\to M\left( A\right)$ is faithful one has
-	$$
-	\forall b \in B \quad \quad bf= 0\quad  \Rightarrow \quad f \in C_0\left(\mathcal W \right) \quad  \Rightarrow \quad  y \in \mathcal W. 
-	$$
-	\begin{lemma}\label{blowing_aap_un_lem}
-		Consider    the situation of the Lemma \ref{blowing_y_gen_defn} and suppose that $\rho: A \hookto B\left(\H \right)$ is a faithful, nondegenerate  representation. If $ rl\text{-}\supp B$ is a two sided support of $B$ (cf. Definition \ref{blowing_support_defn} and $\left\{u_\la\right\}_{\la \in \Xi\left( rl\text{-}\mathfrak{pre}\text{-}\supp B\right)}\subset C_0\left( \sY\right)_+$ is an explained in \ref{top_u_net_empt} net, then $\left\{\rho\left( u_\la\right) \right\}\subset  B \left(\H \right)$ then for all $a \in B$ there are following limits
-		\bean
-		\lim_{\la \in \Xi\left( rl\text{-}\mathfrak{pre}\text{-}\supp B\right)} \left\|a - u_\la a u_\la \right\|=0,\\
-		\lim_{\la \in \Xi\left( rl\text{-}\mathfrak{pre}\text{-}\supp B\right)} \left\|a -  a u_\la \right\|=0,\\
-		\lim_{\la \in \Xi\left( rl\text{-}\mathfrak{pre}\text{-}\supp B\right)} \left\|a - u_\la a  \right\|=0.
-		\eean 
-	\end{lemma}
-	\begin{proof}
-		If $\eps > 0$, $f_\eps$ is given by \eqref{f_eps_eqn} and  $a \in A_+$ then one has
-		$
-		\left\|f_\eps\left(a\right) -a\right\| \le \eps/2
-		$.
-		From \eqref{blowing_n3_eqn} it follows that 
-		$$
-		\mathrm{norm}_{f_\eps\left(a \right)} =  f_{\eps/2}\left( \mathrm{norm}_a\right)
-		$$
-		and taking into account $\mathrm{norm}_a\in C_0\left( \mathfrak{pre}\text{-}\supp B\right)$, one has $\mathrm{norm}_{f_{\eps/2}\left(a \right)}\in  C_c\left( \mathfrak{pre}\text{-}\supp B\right)$. If $f \in C_c\left( \mathfrak{pre}\text{-}\supp B\right)$ is a covering sum of $\supp \mathrm{norm}_{f_{\eps/2}\left(a \right)}$ (cf. Definition \ref{top_covering_sum_defn}) then 
-		$f \mathrm{norm}_{f_{\eps/2}\left(a \right)} = \mathrm{norm}_{f_{\eps/2}\left(a \right)}$. 
-		If follows that $\pi_\sY\left( f \right)  f_{\eps/2}\left(a \right)=   f_{\eps/2}\left(a \right)\pi_\sY\left( f \right) = f_{\eps/2}\left(a \right) $. From the construction \ref{top_u_net_empt}
-		it follows that there is $\la_0 \in  \Xi\left( \mathfrak{pre}\text{-}\supp B\right)$ such that $f = u_{\la_0}$. So one has
-		\bean
-		\forall \la \in \La \quad \la \ge \la_0\quad \Rightarrow \left\|a - u_\la a u_\la \right\|\le \left\|a - f_{\eps/2}\left(a \right)  \right\|+\\ + \left\|u_\la a u_\la - u_\la f_{\eps/2}\left(a \right)  u_\la\right\|+ \left\|f_{\eps/2}\left(a \right) -u_\la f_{\eps/2}\left(a \right)  u_\la\right\|\le \\
-		\le \left\|  u_\la\right\|^2 \left\|a - f_{\eps/2}\left(a \right)  \right\|+ \left\|a - f_{\eps/2}\left(a \right)  \right\|\le \eps
-		\eean
-	\end{proof}
-	\begin{corollary}\label{blowing_cb_inc_cor}
-		There is a natural inclusion $C_b\left(rl\text{-}\supp B \right)\subset M\left(B\right)$. 
-	\end{corollary}
-	\begin{proof}
-		Let $a \in B$.
-		If $f \in C_b\left(rl\text{-}\supp B \right)$ and  $\left\{u_\la\right\}_{\la \in \Xi\left( rl\text{-}\mathfrak{pre}\text{-}\supp B\right)}\subset C_0\left( \sY\right)_+$ is an explained in \ref{top_u_net_empt} net then $u_\la f, fu_\la \in C_0\left(rl\text{-}  \mathfrak{pre}\text{-}\supp B\right)\subset M\left( B\right)$, so $u_\la f a , \quad f u_\la a \in A$. For any $\eps > 0$ there is $\la_0\in \La$ such that  
-		\bean
-		\forall \la \in \La \quad \la \ge \la_0 \quad \Rightarrow \quad \left\|u_\la a - a   \right\| < \frac{\eps }{\left\|f  \right\|}, \quad \left\|au_\la  - a   \right\| < \frac{\eps }{\left\|f  \right\|}.
-		\eean 
-		It follows that
-		\bean
-		\forall \la \in \La \quad \la \ge \la_0 \quad \Rightarrow \quad \left\|fu_\la a - fa   \right\| < \eps, \quad \left\|au_\la f - a f  \right\| < \eps,
-		\eean
-		so $fa,~ af \in B$.
-	\end{proof}
-	\begin{empt}\label{blowing_repr_p_empt}
-		If  $\rho: A\hookto B\left(\H \right)$ is a faithful nondegenerate representation
-		then one can apply the construction \ref{hered_repr_p_empt} then there is a  a strong limit $p \bydef s-\lim\rho\left(  u_\la \right) \in B\left( \H\right)$ which lies in the strong closure   $\rho\left(A \right)''$ of $\rho\left( A\right)$ in $B\left(\H\right)$.  From \eqref{hered_pap_eqn}
-		\bean
-		B = \left\{ a \in A | p\rho\left( a\right) p = \rho \left( a\right)\right\}
-		\eean
-		$p \bydef s-\lim\rho\left(  u_\la \right) \in B\left( \H\right)$ is a strong limit then $p$ lies in the strong closure   $\rho\left(A \right)''$. We leave to the reader a proof of following equation
-		\be\label{blowing_p_eqn}
-		p = \rho_\sY\left(\chi_{rl\text{-}\supp B} \right) 
-		\ee
-		where $\chi_{rl\text{-}\supp B}$ is a characteristic function of $rl\text{-}\supp B$ (cf. Definition \ref{top_char_f_defn}).
-		Similarly to \eqref{hered_pap_eqn} one has
-		\be\label{blowing_hered_papp_eqn}
-		B = \left\{ a \in A | \rho_\sY\left(\chi_{rl\text{-}\supp B} \right)\rho\left( a\right) \rho_\sY\left(\chi_{rl\text{-}\supp B} \right) = \rho \left( a\right)\right\}
-		\ee
-		
-	\end{empt}
-	
-	
-	
-	
-	
-	
-	%since $ C_0\left( \sY\right)\hookto M\left( A\right)$ is nondegenerate then there is $a \in A$ such that $\mathrm{norm}_a\left(y \right)\neq 0$. Since the set $\supp B$ is closed there is $f \in C_0\left( \sY \right)$ such that $f\left(y \right)= 1$ and $f\left(\supp B \right)=\{0\}$. It follows that $\mathrm{norm}_{fa}\left(y \right)\neq 0$ and $fa \neq 0$.  From $\supp fa \cap \supp B = 0$ 
-	
-	
+	If $\left\{\widetilde \sU_{\iota_\la} \right\}_{\la \in \La}\subset \widetilde{ \mathfrak{A}}$ is such that  $p\left(\widetilde \sU_{\widetilde \iota_\la }\right)= \sU_{\iota_{k-1}}$ for every $\la \in \La$ then there is the unique $\la_0 \in \La$ such that $\widetilde \sU_{\iota_{\la_0}} \cap \widetilde \sU_{\widetilde \iota_k} \neq \emptyset$. It follows that  $\G\left(\widetilde \sU_{\widetilde \iota_{\la_0}}\right) \G\left(\widetilde \sU_{\widetilde \iota_k}\right)  \neq \emptyset$ and $\G\left(\widetilde \sU_{\widetilde \iota_{\la}}\right) \G\left(\widetilde \sU_{\widetilde \iota_k}\right) = \emptyset$ for all $\la \neq \la_0$. Similarly on can find the unique $\widetilde \sU_{\widetilde \iota_{k-2}}, ...,\widetilde \sU_{\widetilde \iota_0}$ such that $\G\left(\widetilde \sU_{\widetilde \iota_0} \right)...~\G\left(\widetilde \sU_{\widetilde \iota_k} \right) \neq \emptyset$.
 \end{proof}
+\begin{remark}\label{foli_lift_rem}
+	In the situation of the Lemma \ref{foli_lift_lem} the chart $\widetilde \sU_{\widetilde \iota_k}$  can be replaced with $\widetilde \sU_{\widetilde \iota_0}$. 
+\end{remark}
 
-
-\paragraph{title}
-
+\begin{empt}
+	From \eqref{foli_ga_p_eqn} it turns out that there is the surjective map $$\Ga_{\oplus}:\bigoplus_{\a}\Ga_c\left(\sV_{   \a},\Om^{1/2} \right) \xrightarrow{\Ga_\oplus}  \Ga_c\left(\G,\Om^{1/2}\right).$$ Otherwise from the Definition \ref{foli_red_defn} it follows that $\Ga_c\left(\G,\Om^{1/2}\right)$ is dense in $C^*_r\left(M,\sF\right)$ with respect the given by \eqref{foli_pseudo_norm_eqn} to pseudonorm for all $\a$ there is the inclusion $\Ga_c\left(\sV_{   \a},\Om^{1/2} \right)\hookto \Ga_c\left(\G,\Om^{1/2}\right)$ which can be regarded as a map 
+	\be\label{foli_phi_a_eqn}
+	\phi_\a: \Ga_c\left(\sV_{   \a},\Om^{1/2} \right)\to C^*_r\left(M,\sF\right).
+	\ee
+	The algebraic $\C$-linear span of elements $\phi_{\a}\left( a_\a\right)$ is dense in $C^*_r\left(M,\sF\right)$ 
+\end{empt}
+\begin{lemma}\label{foli_cov_inc_lem}
+	If $\left(M,\sF\right)$ is  a foliated space, and  $p:\left( \widetilde{M}, \widetilde\sF \right) \to \left( M, \sF\right)$ is a regular  covering (cf. Definition \ref{foli_reg_cov_defn}) then one has: 
+	\begin{enumerate}
+		\item [(i)] There is the natural injective *-homomorphism
+		\be\label{foli_mult_inc_eqn}
+		C^*_b\left(p \right) : C^*_r\left({M}, {\sF} \right)\hookto M\left( C^*_r\left(\widetilde{M}, \widetilde{\sF} \right)\right)
+		\ee
+		\item[(ii)] If $p$ is a finite-fold covering then 	$C^*_b\left(p \right):\left( C^*_r\left({M}, {\sF} \right)\right) \subset C^*_r\left(\widetilde{M}, \widetilde{\sF} \right)$, i.e. 
+		is the natural injective *-homomorphism
+		\be\label{foli_f_inc_eqn}
+		C^*_r\left(p \right) : C^*_r\left({M}, {\sF} \right)\hookto  C^*_r\left(\widetilde{M}, \widetilde{\sF} \right).
+		\ee
+	\end{enumerate} 
+\end{lemma}
+\begin{proof}
+	(i)
+	Let   $\mathfrak{A}= \left\{\sU_\iota\right\}_{\iota \in \I}$ of $M$ be a {subordinated} to $p$ regular foliated atlas. Let $\widetilde{ \mathfrak{A}}= \left\{\widetilde \sU_{\widetilde \iota }\right\}_{\widetilde \iota  \in \widetilde \I}$ be the $p$-\textit{lift} of $\mathfrak{A}$.  For any $\sU_\iota \in \mathfrak{A}$ and $\widetilde \sU_{\widetilde \iota }\in \widetilde{ \mathfrak{A}}$ consider given by \eqref{foli_inc_gc_eqn} maps, i.e.
+	\bean
+	j_{\sU_{\iota}} : \Ga_c\left(  \G\left(\sU_{\iota} \right) ,\Om^{1/2}\right)  \hookto \Ga_c\left( \G\left( M\right) ,\Om^{1/2}\right),\\
+	j_{\widetilde \sU_{\widetilde \iota}} : \Ga_c\left(  \G\left(\widetilde \sU_{\widetilde\iota} \right) ,\widetilde\Om^{1/2}\right)  \hookto \Ga_c\left( \G\left( \widetilde M\right) ,\widetilde\Om^{1/2}\right)
+	\eean
+	Let $\sV_{   \a'} = \G\left(\sU_{\iota'_0} \right)...~\G\left(\sU_{\iota'_{k'}} \right)\neq \emptyset$ and let $\widetilde{\sV}_{   \widetilde{\a''}} = \G\left(\widetilde{\sU}_{\widetilde{\iota}''_0} \right)...~\G\left(\widetilde{\sU}_{\widetilde{\iota}''_{k''}} \right)\neq \emptyset$. Let  
+	\bean
+	a'_{\a'}= j_{\sU_{\iota'_0}}\left( a'_{\iota'_0}\right) \cdot ...\cdot j_{\sU_{\iota_{k'}}}\left( a'_{\iota'_{k'}}\right) \in \Ga_c\left(\sV_{   \a'},\Om^{1/2} \right), \quad a'_{\iota'_j}\in \Ga_c\left(  \G\left(\sU_{\iota'_j} \right) ,\Om^{1/2}\right);\\ 
+	\widetilde{a}''_{\widetilde{\a}''}=j_{\widetilde \sU_{\widetilde \iota''_0}}\left(\widetilde  a''_{\widetilde \iota'_0}\right) \cdot ...\cdot j_{\sU_{\widetilde \iota_{k''}}}\left(\widetilde  a''_{\widetilde \iota''_{k''}}\right) \in \Ga_c\left(\widetilde \sV_{   \widetilde \a''},\widetilde \Om^{1/2} \right), \quad \widetilde a''_{\widetilde \iota'_j}\in \Ga_c\left(  \G\left(\sU_{\widetilde \iota''_j} \right) , \widetilde \Om^{1/2}\right)
+	\eean
+	and suppose
+	\bea\label{foli_a_eqn}
+	{a} = \phi_{{\a}'}\left({a}'_{{\a}'} \right)\in C^*_r\left({M}, {\sF} \right),\\
+	\label{foli_wa_eqn}
+	\widetilde{a} = \phi_{\widetilde{\a}''}\left(\widetilde{a}''_{\widetilde{\a}''} \right)\in C^*_r\left(\widetilde{M}, \widetilde{\sF} \right),
+	\eea
+	(cf. \eqref{foli_phi_a_eqn}).
+	One has $p^{-1}  \left(\sU_{\iota'_{k'}} \right) = \bigsqcup_{\la \in \La} \widetilde{\sU}^\la_{\widetilde{\iota}'_{k'}}$. There is no more then one $\la_0 \in \La$ such that $\widetilde{\sU}^{\la_0}_{\widetilde{\iota}'_{k'}}\cap \widetilde{\sU}_{\widetilde{\iota}''_0}\neq \emptyset$. If $\widetilde{\sU}^{\la_0}_{\widetilde{\iota}'_{k'}}\cap \widetilde{\sU}_{\widetilde{\iota}''_0}=\emptyset$ then we set
+	$\widetilde{a}a = 0$. Otherwise we set $\widetilde{\sU}_{\widetilde{\iota}'_{k'}}=\widetilde{\sU}^{\la_0}_{\widetilde{\iota}'_{k'}}$ and according to the Lemma \ref{top_path_lift_lem} there is the unique tuple 
+	$
+	\left\{	\widetilde \sU'_{\widetilde \iota_0 }, ....,\widetilde \sU'_{\widetilde \iota'_{k'-1} }\right\}
+	$		such that 
+	\begin{itemize}
+		\item $p\left(\widetilde \sU'_{\widetilde \iota'_0 }\right)= \sU_{\iota'_j}$ for any $j =1,..., k-1$.
+		\item $\G\left(\widetilde \sU'_{\widetilde \iota'_0} \right)...~\G\left(\widetilde \sU'_{\widetilde \iota'_k} \right) \neq \emptyset$.			
+	\end{itemize}
+	We define
+	$$
+	a \widetilde{a}  = \phi_{{\a}'}\left(\lift_p^{\widetilde \sU_{\widetilde \iota'_0}}\left(a'_{\iota'_0}\right)\cdot...\cdot\lift_p^{\widetilde \sU_{\widetilde \iota'_{k'}}}\left(a'_{\iota'_{k'}}\right) \right)  \widetilde{a}  \in  C^*_r\left(\widetilde{M}, \widetilde{\sF}\right) 
+	$$
+	Similarly one can define $\widetilde{a} a \in C^*_r\left(\widetilde{M}, \widetilde{\sF}\right)$. By linearity this product can be extended up to any  finite sum of given by \eqref{foli_wa_eqn} elements. Since the $\C$-linear span of  given by \eqref{foli_wa_eqn} is dense in $C^*_r\left(\widetilde{M}, \widetilde{\sF} \right)$ we have products $a \widetilde{a}$ and $\widetilde{a} a$ for every $a \in C^*_r\left(\widetilde{M}, \widetilde{\sF}\right)$. Using the same reasons the products $a \widetilde{a}$ and $\widetilde{a} a$  can be extended up to the linear span of given by \eqref{foli_a_eqn} elements, hence  for any $a \in C^*_r\left({M}, {\sF} \right)$ and $\widetilde{a} =\in C^*_r\left(\widetilde{M}, \widetilde{\sF} \right)$ one has $a \widetilde{a}, \widetilde{a} a \in C^*_r\left(\widetilde{M}, \widetilde{\sF} \right)$.\\
+	(ii) If $p$ is a finite-fold covering then for any $\iota \in \I$ and $p^{-1}  \left(\sU_{ \iota} \right) =\bigsqcup_{\la \in \La} \widetilde{\sU}^\la_{ \iota}$ then the set $\La$ is finite. So for any
+	\be\label{foli_au_eqn}
+	a \in C^*_r\left(\sU_\iota, \left.\sF\right|_{\sU_\iota} \right) \subset C^*_r\left(\sX, \left.\sF\right. \right)
+	\ee one has
+	$$
+	\sum_{ \la \in \La} \lift_p^{\widetilde{\sU}^\la_{ \iota}}\left(a\right)\in C^*_r\left(\widetilde{M}, \widetilde{\sF} \right),
+	$$
+	i.e. there is a map
+	$$
+	C^*_r\left(\sU_\iota, \left.\sF\right|_{\sU_\iota} \right) \hookto C^*_r\left(\widetilde{M}, \widetilde{\sF} \right)
+	$$
+	So one has
+	\be\label{foli_sl_eqn}
+	\sum_{\la \in \La} \lift_{\widetilde{\sV}^{\la}_{   \a'}}\left( a\right)\in C^*_r\left(\widetilde{M}, \widetilde{\sF} \right).
+	\ee
+	Above equation gives a map from the  minimal algebra $X$ which contains given by  \eqref{foli_au_eqn} elements  to $C^*_r\left(\widetilde{M}, \widetilde{\sF} \right)$. Otherwise $X$ is dense in $C^*_r\left({M}, {\sF} \right)$ (cf. the Corollary \ref{foli_cov_alg_cor}) so the map $X \to C^*_r\left(\widetilde{M}, \widetilde{\sF} \right)$ can be uniquely extended up to the injective *-homomorphism $C^*_r\left({M}, {\sF} \right)\hookto  C^*_r\left(\widetilde{M}, \widetilde{\sF} \right)$.
+\end{proof}
+\begin{empt}\label{foli_blowing_empt}
+Let $\left(M,\sF\right)$ be  a foliated space, and  let $p:\left( \widetilde{M}, \widetilde\sF \right) \to \left( M, \sF\right)$ be a regular  covering (cf. Definition \ref{foli_reg_cov_defn}).  Let us define an injective map $\phi:C_c\left( \widetilde M\right) \otimes_{C_0\left(M \right) } C^*_r\left({M}, {\sF} \right) \hookto C^*_r\left(\widetilde{M}, \widetilde{\sF} \right)$. Let  $\widetilde{\mathfrak{A}}\bydef\left\{\widetilde \sU_\a\subset \widetilde M \right\}_{\a \in \mathscr A}$ be a regular foliation atlas such that $\widetilde \sU_\a$ is 
+homeomorphically mapped onto $p\left( \widetilde \sU_\a\right)$ for all $\a \in \mathscr A$.
+ Let  $\widetilde f \otimes a \in C_c\left( \widetilde M\right) \otimes_{C_0\left(M \right) } C^*_r\left({M}, {\sF} \right)$, and let $\sum_{j=1}^n \widetilde{f}_j$ be a covering sum 
+ for  $\supp \widetilde f$ dominated by the family $\left\{\widetilde \sU_\a\right\}$ (cf. Definition \ref{top_covering_sum_defn}). We put
+  \be\label{foli_blowing_eqn}
+  \phi\left(\widetilde f \otimes a \right)\bydef \sum_{j=1}^n \lift^p_{\widetilde\sU_{\a_j}}\circ \desc_p \left(\widetilde f \widetilde f_j	C^*_b\left(p \right)\left(a\right) \right) 
+  \ee
+  where
+  \begin{itemize}
+  	\item $\a_j \in \mathscr A$ is such that $\supp \widetilde f_j \subset \widetilde \sU_{\a_j}$,
+  	\item $	C^*_b\left(p \right)$ is given by the  equation \eqref{foli_mult_inc_eqn},
+  	\item the maps $\lift^p_{\widetilde\sU_{\a_j}}$ and $\desc_p$ are given by the Definition  \ref{foli_lift_desc_defn} lift and descent.
+  \end{itemize}
+If  $C^*_r\left(M,\sF\right)_0 \left(\widetilde M \right)$ is a $p$-lift of $C^*_r\left(M,\sF\right)$ (cf. Definition \ref{blowing_lift_a_f_defn}) then from the Corollary  \ref{foli_disint_cor} and the Lemma  \ref{blowing_ca_lem}
+ it follows that there is a dense inclusion
+\be\label{foli_blowing_ext_eqn}
+C_c\left( \widetilde M\right) \otimes_{C_0\left(M \right) } C^*_r\left({M}, {\sF} \right)\subset  C^*_r\left(M,\sF\right)_0 \left(\widetilde M \right).
+\ee
+\end{empt}
+\begin{exercise}\label{foli_blowing_exer}
+	Consider the situation \ref{foli_blowing_empt} and prove following statements:
+		\begin{enumerate}
+			\item the given by \eqref{foli_blowing_eqn} map $\phi$ is correctly defined, i.e.  it does not depend on a choice of both atlas $\widetilde{\mathfrak{A}}$ and the covering sum $\sum_{j=1}^n \widetilde{f}_j$,
+				\item the map $\phi$ can be uniquely extended up to *-isomorphism
+		\be
+ C^*_r\left(M,\sF\right)_0 \left(\widetilde M \right)\cong  C^*_r\left(\widetilde{M}, \widetilde{\sF} \right)
+		\ee
+		where the dense inclusion \eqref{foli_blowing_ext_eqn} is implied.
+		\item the given by the equations \eqref{foli_mult_inc_eqn}  and \eqref{foli_f_inc_eqn} *-homomorphisms are specializations of \eqref{blowing_ca_m_eqn} and \eqref{blowing_a0q_eqn} ones,
+		\item the Definition \ref{foli_lift_desc_defn} is a specialization of \ref{blowing_lift_desc_defn} one.
+			\end{enumerate}
+		
+\end{exercise}
+\begin{remark}
+The proof of (2) of the Exercise \ref{foli_blowing_exer} requires usage of the Corollary \ref{foli_cov_alg_cor} and the proof of the Lemma \ref{blowing_ca_lem}.
+\end{remark}
 
 \section{Coverings of $C^*$-algebras}
 \paragraph{}
-The results of this section follow from the Section \ref{foli_blowing_sec} and the Chapter \ref{blowing_chap}. 
+The results of this section follow from the Section \ref{foli_blowing_sec} and the Chapter \ref{blowing_chap}. If $C^*_r\left( M, \sF\right)$ is a reduced $C^*$-algebra of a foliated space  $\left( M, \sF\right)$ then from  the Corollary \ref{foli_disint_cor} it follows that there is a disintegrable Hausdorff blowing-up (cf. Definitions \ref{blowing_defn},  \ref{blowing_disintegrable_defn}). If $p : \widetilde M \to M$ is a transitive finite-fold covering then from the Lemma \ref{blowing_functor_ff_lem} if follows that there is 
+
 !!! CONTINUE !!!
+
+
+According to the Lemma \ref{foli_disint_lem} on has   disintegrable  Hausdorff blowing-up 	$C_0\left( \sX\right) \hookto M\left( A\right)$ (cf. Definitions \ref{blowing_defn}, \ref{blowing_disintegrable_defn}). So this lemma is a specialization of \ref{blowing_functor_ff_lem} one.
+
 \begin{theorem}\label{foli_functor_thm}
-Let $\left(M, \mathcal{F}\right)$ be a foliated space with connected $M$, and let the category $\mathfrak{FinCov}$-$M$ is given by the Definition \ref{top_fin_cov_defn}. $\mathfrak{FinCov}^{\mathrm{red}}$-$C^*_r \left(M, \mathcal{F}\right)$ be a {category of reduced noncommutative finite-fold coverings} of $C^*_r \left(M, \mathcal{F}\right)$ (cf. Definition \ref{fin_cat_defn}) then
+	Let $\left(M, \mathcal{F}\right)$ be a foliated space with connected $M$, and let the category $\mathfrak{FinCov}$-$M$ is given by the Definition \ref{top_fin_cov_defn}. $\mathfrak{FinCov}^{\mathrm{red}}$-$C^*_r \left(M, \mathcal{F}\right)$ be a {category of reduced noncommutative finite-fold coverings} of $C^*_r \left(M, \mathcal{F}\right)$ (cf. Definition \ref{fin_cat_defn}) then
 	Following conditions hold:
 	\begin{enumerate}
 		\item [(i)]  The   equation \eqref{blowing_a0x_eqn}	yields a functor $C^*_r \left(M, \mathcal{F}\right)_0:\mathfrak{FinCov}$-$M \to \mathfrak{FinCov}^{\mathrm{red}}$-$C^*_r \left(M, \mathcal{F}\right)$ is an equivalence (cf. Definition \ref{category_equivalence_definition}) between the  
@@ -16600,7 +16551,7 @@ Let $\left(M, \mathcal{F}\right)$ be a foliated space with connected $M$, and le
 		\begin{tikzpicture}
 			\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
 			{
-			 	C^*_r \left(M', \mathcal{F}'\right) & &	C^*_r \left(M'', \mathcal{F}''\right) \\ 
+				C^*_r \left(M', \mathcal{F}'\right) & &	C^*_r \left(M'', \mathcal{F}''\right) \\ 
 				&C^*_r \left(M, \mathcal{F}\right)  & \\};
 			\path[-stealth]
 			%	(m-1-3) edge node [above] {$\pi$} (m-1-1)
@@ -16612,8 +16563,7 @@ Let $\left(M, \mathcal{F}\right)$ be a foliated space with connected $M$, and le
 		
 	\end{enumerate}
 	
-\end{theorem}
-
+\end{theorem}!!! CONTINUE !!!
 \begin{proof}
 	Follows from the Corollary \ref{foli_slfin_cor} the Lemma \ref{foli_semi1_lem} and the Theorem \ref{blowing_functor_thm}.
 \end{proof}
