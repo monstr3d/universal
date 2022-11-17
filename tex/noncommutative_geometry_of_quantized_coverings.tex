@@ -3782,14 +3782,14 @@ $$
  \left\{ \left( A , A_{\la}, G\left(\left.A_\la~\right|A \right) , \pi_{\la}\right) \right\}_{\la \in \La}.
 $$
 where $\La$ is a finite or countable directed set
-such that
-\be
+such that for all $\mu, \nu \in \La$ one has
+\be\label{fg_ord_eqn}
 \begin{split}
-\forall  \mu, \nu \quad \mu \le \nu \quad \Leftrightarrow \quad \text{ There is a morphism from } \left( A , A_{\nu}, G\left(\left.A_\nu~\right|A \right) , \pi_{\nu}\right) \\
-\text{to } \left( A , A_{\mu}, G\left(\left.A_\mu~\right|A \right) , \pi_{\mu}\right)\text{ represented by an injective}\\
-\text{*-homomorphism } \pi^\mu_{ \nu}: A_\mu \hookto A_\nu.
+ \mu \le \nu ~ \Leftrightarrow ~ \text{there is a } \mathfrak{FinCov}\text{-}A\text{-morphism } \left( A_\mu , A_{\nu}, G\left(\left.A_\nu~\right|A_\mu \right) , \pi^\mu_{\nu}\right)\\ \text{ from } \left( A , A_{\nu}, G\left(\left.A_\nu~\right|A \right) , \pi_{\nu}\right)
+\text{ to } \left( A , A_{\mu}, G\left(\left.A_\mu~\right|A \right) \pi_{\mu}\right)
 \end{split}
 \ee
+(cf. Definition \ref{fin_cat_defn}).
 \end{empt}
 
 \begin{definition}\label{alg_fin_cat_defn}
@@ -3857,7 +3857,7 @@ On the other hand the union $ \cup A_\la$ is dense in $C^*$-$\varprojlim A_\la$ 
 %\end{remark}
 
 \begin{remark}
-	There is a  functor  (cf. Definition \ref{functor_defn}) from $ \mathfrak{S}^{\text{pt}} = \left\{\left\{\pi_\la: A \hookto A_\la \right\}, \left\{\pi^\mu_\nu\right\}\right\}$  to the category of finite groups and epimorphisms. The functor is given by
+	There is a  functor  (cf. Definition \ref{functor_defn}) from\\ $ \mathfrak{S}^{\text{pt}} = \left\{\left\{\pi_\la: A \hookto A_\la \right\}, \left\{\pi^\mu_\nu\right\}\right\}$  to the category of finite groups and epimorphisms. The functor is given by
 	\bean
 	\left(A \hookto A_\la \right) \mapsto G\left(\left.A_\la~\right|A \right);\\
 	\left( \pi^\mu_\nu: A_\nu \hookto A_\mu\right)  \mapsto \left(h^\mu_\nu : G\left(\left.A_\mu~\right|~A\right)\to G\left(\left.A_\nu~\right|~A\right) \right). 
@@ -12958,7 +12958,7 @@ From the above equation it follows that $G= G\left(\left.\widetilde \sY \right|\
 	Let $A$ be a connected $C^*$-algebra (cf. Definition \ref{connected_c_a_defn}), and let $C_0\left( \sY\right) \hookto M\left(A \right)$ be disintegrable Hausdorff blowing-up (cf. Definitions \ref{blowing_defn} and \ref{blowing_disintegrable_defn}). If $q: \widetilde \sY \to \sY$ is a finite-fold transitive covering (cf. Definitions \ref{top_covering_defn}, \ref{top_transitive_defn}), $A_0\left(\widetilde\sY\right)$ is a $q$-lift of $A$ (cf. Definition \ref{blowing_lift_a_f_defn}), and an injective  *-homomorphism $A_0\left(q \right)  : A \hookto A_0\left(\widetilde\sY\right)$ is given by \eqref{blowing_a0q_eqn} then the quadruple $\left(A,A_0\left( \widetilde \sY\right),G\left(\left.\widetilde{\sY}~\right|\sY\right),  A_0\left( q\right) \right)$ is a noncommutative finite-fold covering (cf. Definition \ref{fin_defn}).
 \end{theorem}
 \begin{proof}
-	If $\left\{\sU_\la \subset \sX\right\}_{\la \in \La}$ is  a given by the Lemma \ref{blowing_conn_fam_lem} family of open  sets then from the Lemma \ref{top_strictly_proper_lem} it turns out that for each $\la\in\La$ a hereditary subalgebra $_{\sU_\la}A_{\sU_\la}$ is $\left(A,A_0\left( \widetilde \sY\right),G\left(\left.\widetilde{\sY}~\right|\sY\right),  A_0\left( q\right) \right)$-strictly proper (cf. Definition \ref{hered_proper_lift_defn}). One needs check that a union $\cup_{\la\in\La} ~_{\sU_\la}A_{\sU_\la}$ is dense in $A$. If $K\left(A\right)$ is the Pedersen's ideal of $A$ (cf. Definition \ref{peder_id_defn}) and $a \in K\left(A\right)$ then from the Lemma \ref{blowing_supp_lem} it follows that $\supp a$ is compact. Since $\sY$ equals to a union $\cup_{\la \in \La}\sU_\la$ of open sets and $\La$ is directed there is $\la_0\in \La$ such that $\supp a\subset \sU_{\la_0}$. From the Definition \ref{blowing_support_defn} it follows that
+	If $\left\{\sU_\la \subset \sX\right\}_{\la \in \La}$ is  a given by the Lemma \ref{blowing_conn_fam_lem} family of open  sets then from the Lemma \ref{top_strictly_proper_lem} it turns out that for each $\la\in\La$ a hereditary subalgebra $_{\sU_\la}A_{\sU_\la}$ is $\left(A,A_0\left( \widetilde \sY\right),G\left(\left.\widetilde{\sY}~\right|\sY\right),  A_0\left( q\right) \right)$-strictly proper (cf. Definition \ref{hered_proper_lift_defn}). One needs check that a union $\cup_{\la\in\La} ~_{\sU_\la}A_{\sU_\la}$ is dense in $A$. If $K\left(A\right)$ is the Pedersen's ideal of $A$ (cf. Definition \ref{peder_id_defn}) and $a \in K\left(A\right)$ then from the Lemma \ref{blowing_supp_lem} it follows that $\supp a$ is compact. Since $\sY$ equals to a union $\cup_{\la \in \La}\sU_\la$ of open sets and $\La$ is directed there is $\la_0\in \La$ such that $\supp a\subset \sU_{\la_0}$. From the Definition \ref{blowing_supp_defn} it follows that
 	$$
 	a \in A^{\text{prop}}_{\sU_{\la_0}}\subset ~_{\sU_{\la_0}}A_{\sU_{\la_0}}\subset \bigcup_{\la \in \La}~_{\sU_\la}A_{\sU_\la}.
 	$$
@@ -13311,7 +13311,7 @@ The center of $M\left(A \right)$ is naturally isomorphic to $C_b\left( \sY^{\mat
 From the Theorem \ref{dauns_hofmann_thm} it turns out that $M\left(A \right)$ is naturally isomorphic to the class of bounded continuous  functions on $\check{A}$. If $f$ is a continuous  function on $\check{A}$ then for all $\check y^{\mathrm{c}}\in \check \sY^{\mathrm{c}}$ one has $f\left(\check y^{\mathrm{c}} \right) = f\left( \phi\check~\left(\check y^{\mathrm{c}} \right)\right)$ because $\check y^{\mathrm{c}}$ lies in the closure of $\phi\hat~\left(\check y^{\mathrm{c}}\right)$. It follows that the function $f$ uniquely depends on its restriction $f|_{\check A^{\mathrm{ab}}}= f|_{\sY^{\mathrm{ab}}}$. 
 It follows that any $f$ lies in $C_b\left(\sY^{\mathrm{ab}} \right)$ on the other hand from the Theorem \ref{ideal_spectrum_thm} the topology of $\sY^{\mathrm{ab}}$ is the restriction of the topology of $\check{A}$. So from the Theorem \ref{dauns_hofmann_thm} it follows that $C_b\left( \sY^{\mathrm{ab}}\right)$ coincides with  the center of $M\left(A\right)$.
 \end{proof}
-From the Example \ref{blowing_ctr_exm} !!! EXERCISE it turns out that $C\left( \sY^{\mathrm{ab}}\right)\hookto A$ is a disintegrable  Hausdorff blowing-up of $A$ (cf. Definitions \ref{blowing_defn} and \ref{blowing_disintegrable_defn}). 
+From the Example \ref{blowing_disintegrable_exm} it turns out that $C\left( \sY^{\mathrm{ab}}\right)\hookto A$ is a disintegrable  Hausdorff blowing-up of $A$ (cf. Definitions \ref{blowing_defn} and \ref{blowing_disintegrable_defn}). 
 \begin{lemma}\label{h_gr_free_lem}
  If $\left(A,\widetilde A, G, \pi \right)$ is a free  connected noncommutative finite-fold   covering (cf. Definitions \ref{fin_defn} and \ref{fin_free_defn}) then there is a transitive finite-fold covering $p:\widetilde\sY_{\mathrm{fin}}^{\mathrm{ab}}\to \sY^{\mathrm{ab}}$ such that
  	\bean
@@ -13319,7 +13319,7 @@ From the Example \ref{blowing_ctr_exm} !!! EXERCISE it turns out that $C\left( \
 	\eean
 \end{lemma}
 \begin{proof}
-	If $C_0\left(\widetilde\sY_{\mathrm{fin}}^{\mathrm{ab}}\right) \to M\left( \widetilde A\right)$ is a given by \eqref{blowing_inc_eqn} Hausdorff blowing  then from  the Lemma \ref{blowing_cov_lem} it follows that there is transitive finite-fold covering  $\widetilde\sY_{\mathrm{fin}}^{\mathrm{ab}}\to \sY^{\mathrm{ab}}$. If $\widetilde I\bydef\left[\widetilde A, \widetilde A\right]$ is the  is commutator of $\widetilde A$ then $G\widetilde I = \widetilde I$ and 
+	If $C_0\left(\widetilde\sY_{\mathrm{fin}}^{\mathrm{ab}}\right) \to M\left( \widetilde A\right)$ is a given by \eqref{blowing_inc_eqn} Hausdorff blowing  then  there is a transitive finite-fold covering  $\widetilde\sY_{\mathrm{fin}}^{\mathrm{ab}}\to \sY^{\mathrm{ab}}$. If $\widetilde I\bydef\left[\widetilde A, \widetilde A\right]$ is the  is commutator of $\widetilde A$ then $G\widetilde I = \widetilde I$ and 
 \be\label{ho_gr_pii_eqn}
 	\pi\left( I\right) \subset \widetilde I.
 \ee	
@@ -13336,8 +13336,8 @@ p\left( \widetilde\sY^{\mathrm{ab}}\right) = \sY^{\mathrm{ab}},\quad
 p\left( \widetilde\sY^{\mathrm{c}}\right) = \sY^{\mathrm{c}}
 \ee 
 So one has $G\widetilde\sY^{\mathrm{ab}}= \widetilde\sY^{\mathrm{ab}}$. 
-Since 	$\left(A,\widetilde A, G, \pi \right)$ is free the action $G\times \widetilde\sY^{\mathrm{ab}}\to \widetilde\sY^{\mathrm{ab}}$ is also free. On the other hand from \eqref{blowing_wc_eqn} it follows that $\widetilde\sY^{\mathrm{ab}}\cong \widetilde\sY_{\mathrm{fin}}^{\mathrm{ab}}$, so one has a free action $G\times A\left(\widetilde\sY_{\mathrm{fin}}^{\mathrm{ab}}\right) \to A\left(\widetilde\sY_{\mathrm{fin}}^{\mathrm{ab}}\right) $. In result we have a a transitive finite-fold covering
- $p:\widetilde\sY_{\mathrm{fin}}^{\mathrm{ab}}\to \sY^{\mathrm{ab}}$ such that $G\left( \left. \widetilde\sY_{\mathrm{fin}}^{\mathrm{ab}} \right|\sY^{\mathrm{ab}}\right)\cong G$. On the other hand from the Lemma \eqref{blowing_covi_lem} it follows that $\left(A,\widetilde A\left(\widetilde\sY_{\mathrm{fin}}^{\mathrm{ab}}\right) , G\left( \left. \widetilde\sY_{\mathrm{fin}}^{\mathrm{ab}} \right|\sY^{\mathrm{ab}}\right) , A_0\left( p\right)  \right)$ is a noncommutative finite-fold covering.  From  $G\left( \left. \widetilde\sY_{\mathrm{fin}}^{\mathrm{ab}} \right|\sY^{\mathrm{ab}}\right)\cong G$ and \eqref{blowing_cov_eqn} it follows that $A_0\left(\widetilde\sY \right)\cong \widetilde A$ so one has 	$\left(A,\widetilde A, G, \pi \right)\cong \left(A,\widetilde A\left(\widetilde\sY_{\mathrm{fin}}^{\mathrm{ab}}\right) , G\left( \left. \widetilde\sY_{\mathrm{fin}}^{\mathrm{ab}} \right|\sY^{\mathrm{ab}}\right) , A_0\left( p\right)  \right)$. Let us prove that the noncommutative finite-fold covering
+Since 	$\left(A,\widetilde A, G, \pi \right)$ is free the action $G\times \widetilde\sY^{\mathrm{ab}}\to \widetilde\sY^{\mathrm{ab}}$ is also free. On the other hand  $\widetilde\sY^{\mathrm{ab}}\cong \widetilde\sY_{\mathrm{fin}}^{\mathrm{ab}}$, so one has a free action $G\times A\left(\widetilde\sY_{\mathrm{fin}}^{\mathrm{ab}}\right) \to A\left(\widetilde\sY_{\mathrm{fin}}^{\mathrm{ab}}\right) $. In result we have a a transitive finite-fold covering
+ $p:\widetilde\sY_{\mathrm{fin}}^{\mathrm{ab}}\to \sY^{\mathrm{ab}}$ such that $G\left( \left. \widetilde\sY_{\mathrm{fin}}^{\mathrm{ab}} \right|\sY^{\mathrm{ab}}\right)\cong G$. On the other hand  $\left(A,\widetilde A\left(\widetilde\sY_{\mathrm{fin}}^{\mathrm{ab}}\right) , G\left( \left. \widetilde\sY_{\mathrm{fin}}^{\mathrm{ab}} \right|\sY^{\mathrm{ab}}\right) , A_0\left( p\right)  \right)$ is a noncommutative finite-fold covering.  From  $G\left( \left. \widetilde\sY_{\mathrm{fin}}^{\mathrm{ab}} \right|\sY^{\mathrm{ab}}\right)\cong G$  it follows that $A_0\left(\widetilde\sY \right)\cong \widetilde A$ so one has 	$\left(A,\widetilde A, G, \pi \right)\cong \left(A,\widetilde A\left(\widetilde\sY_{\mathrm{fin}}^{\mathrm{ab}}\right) , G\left( \left. \widetilde\sY_{\mathrm{fin}}^{\mathrm{ab}} \right|\sY^{\mathrm{ab}}\right) , A_0\left( p\right)  \right)$. Let us prove that the noncommutative finite-fold covering
  $$
  \left(A,\widetilde A\left(\widetilde\sY_{\mathrm{fin}}^{\mathrm{ab}}\right) , G\left( \left. \widetilde\sY_{\mathrm{fin}}^{\mathrm{ab}} \right|\sY^{\mathrm{ab}}\right) , A_0\left( p\right)  \right)
  $$ 
@@ -13518,7 +13518,6 @@ $$
 		\eean
 		\item[(b)] Follows from the equation \eqref{stab_b_matr_eqn}.
 	\end{enumerate}
-(iii)  !!! PROOF !!!\\
 \end{proof}
 \begin{remark}
 The given by \eqref{stab_wta_eqn} $C^*$-algebra $\widetilde A$ depends on an operator $\mathfrak{e}_{1,1}$. Choice of another rank-one projector can give another  $C^*$-algebra which should not be isomorphic to $\widetilde A$  (cf. Example \ref{nt_stable_exm} below).
@@ -13654,7 +13653,7 @@ We leave to the reader a proof of that  $A_\la \times \K$ is a $\left(A  \otimes
  for all $\la\in \La$.\\
 	(ii)  From (ii) of the Lemma \ref{stable_pre_lem} it turns out that there is a noncommutative finite-fold pre-covering   $\left( A, \widetilde{A}, G, \pi\right)$  such that the quadruple  $\left( A \otimes \K, \widetilde{A}^\K, G,{\pi}^\K   \right)$ is equivalent to $\left(A  \otimes \mathcal K, \widetilde{A} \otimes \mathcal K, G, \pi \otimes 1_{\K^+ } \right)$.   Moreover the Lemma \ref{stable_pre_lem} implies that conditions (I), (II) of this Lemma hold.	If $\left\{A^\K_\la\right\}$ be a required by the Definition \ref{fin_defn} family of  $\left(A  \otimes \mathcal K, \widetilde{A} \otimes \mathcal K, G, \pi \otimes 1_{\K^+ } \right)$-strictly proper hereditary $C^*$-subalgebras (cf. the Definition \ref{hered_proper_lift_defn}). The union $\cup_{\la\in\La} A^\K_\la$ is a dense in $A  \otimes \mathcal K$ it follows that there is $\la_0\in \La$ such that 
 	\bean
- A_\la \bydef	\left( 1_{A^\sim } \otimes \mathfrak{e}_{1,1}\right)\left( {A}_\la \otimes \K\right)  \left( 1_{A^\sim } \otimes \mathfrak{e}_{1,1}\right)\neq 0
+ A_\la \bydef	\left( 1_{A^\sim } \otimes \mathfrak{e}_{1,1}\right) {A}^\K_\la   \left( 1_{A^\sim } \otimes \mathfrak{e}_{1,1}\right)\neq 0
 	\eean 
 	for all $\la \ge\la_0$. If  
 	\bean
@@ -13673,7 +13672,7 @@ There is a  full functor $-\otimes \K: \mathfrak{FinCov}$-$A\to\mathfrak{FinCov}
 \begin{proof}
 Follows from the Lemma \ref{stable_pre_lem} and the Theorem \ref{stable_fin_cov_thm}.
 \end{proof}
-\begin{remark}
+\begin{remark}\label{stab_non_iso_rem}
 From the Example \ref{nt_stable_exm}  it follows that the functor $-\otimes \K$ is not always faithful (cf. Definition \ref{funct_full_faithfull_defn}).
 \end{remark}
 \section{Infinite coverings}
@@ -13700,43 +13699,43 @@ From the Corollary \ref{stable_functor_cor} it follows that the functor $-\otime
 		\item[(i)] 	If
 		\bean
 		\begin{split}
-			\mathfrak{S}_A^{\mathrm{pt}} = \left(\left\{\pi_\la: A \hookto A_\la \right\}_{\la \in \La}, \left\{\pi^\mu_\nu: A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\ \nu \ge \mu}}\right)
+			\mathfrak{S}_A= \left(\left\{\pi_\la: A \hookto A_\la \right\}_{\la \in \La}, \left\{\pi^\mu_\nu: A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\ \nu \ge \mu}}\right)
 		\end{split}
 		\eean
-		is a pointed algebraical  finite covering category (cf. Definition \ref{pointed_defn}  !!! CHECK !!!) then there is the natural pointed algebraical  finite covering category
+		is an algebraical  finite covering category (cf. Definition \ref{alg_fin_cat_defn}) then there is a natural  algebraical  finite covering category
 		\begin{equation*}
-		\mathfrak{S}^{\mathrm{pt}}_{A\otimes \K} \bydef  \left(\left\{\widetilde\pi_\la: A \otimes \K\hookto A_\la \otimes \K\right\}_{\la \in \La}, \left\{\widetilde\pi^\mu_\nu: A_\mu\otimes \K \hookto A_\nu\otimes \K\right\}_{\substack{\mu, \nu \in \La\\ \nu >\ge \mu}}\right)
+		\mathfrak{S}_{A\otimes \K} \bydef  \left(\left\{\widetilde\pi_\la: A \otimes \K\hookto A_\la \otimes \K\right\}_{\la \in \La}, \left\{\widetilde\pi^\mu_\nu: A_\mu\otimes \K \hookto A_\nu\otimes \K\right\}_{\substack{\mu, \nu \in \La\\ \nu >\ge \mu}}\right)
 		\end{equation*}
 		where $\widetilde\pi_\la\bydef \pi_\la \otimes \Id_\K$ and $\widetilde\pi^\mu_\mu\bydef \pi_\la \otimes \Id_\K$.
-		\item[(ii)] Conversely any pointed algebraical  finite covering category
+		\item[(ii)] Conversely any  algebraical  finite covering category
 		\begin{equation*}
-		\mathfrak{S}^{\mathrm{pt}}_{A\otimes \K} =  \left(\left\{\widetilde\pi_\la: A \otimes \K\hookto A_\la \otimes \K\right\}_{\la \in \La}, \left\{\widetilde\pi^\mu_\nu: A_\mu\otimes \K \hookto A_\nu\otimes \K\right\}_{\substack{\mu, \nu \in \La\\ \nu \ge \mu}}\right)
+		\mathfrak{S}_{A\otimes \K} =  \left(\left\{\widetilde\pi_\la: A \otimes \K\hookto A_\la \otimes \K\right\}_{\la \in \La}, \left\{\widetilde\pi^\mu_\nu: A_\mu\otimes \K \hookto A_\nu\otimes \K\right\}_{\substack{\mu, \nu \in \La\\ \nu \ge \mu}}\right)
 		\end{equation*}
 		such that  $\widetilde\pi_\la= \pi_\la \otimes \Id_\K$ and $\widetilde\pi^\mu_\nu= \pi_\la \otimes \Id_\K$.
-		naturally induces 
-		pointed algebraical  finite covering category $$	\mathfrak{S}_A^{\mathrm{pt}} = \left(\left\{\pi_\la: A \hookto A_\la \right\}_{\la \in \La}, \left\{\pi^\mu_\nu: A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\ \nu \ge \mu}}\right)$$ 
+	induces 
+		an algebraical  finite covering category $$	\mathfrak{S}_A = \left(\left\{\pi_\la: A \hookto A_\la \right\}_{\la \in \La}, \left\{\pi^\mu_\nu: A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\ \nu \ge \mu}}\right)$$ 
 	\end{enumerate}
 \end{corollary}
 \begin{proof}
-	Directly follows from the Corollary \ref{stab_t_a_lem}  !!! LEMMA !!.
+	Directly follows from the Lemma \ref{stab_t_a_lem}.
 \end{proof}
 
 
 Suppose that
 \begin{equation}\label{stable_seq_pure_eqn}
-\mathfrak{S}_A^{\mathrm{pt}} = \left(\left\{\pi_\la: A \hookto A_\la \right\}_{\la \in \La}, \left\{\pi^\mu_\nu: A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\ \nu \ge \mu}}\right)
+\mathfrak{S}_A = \left(\left\{\pi_\la: A \hookto A_\la \right\}_{\la \in \La}, \left\{\pi^\mu_\nu: A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\ \nu \ge \mu}}\right)
 \end{equation}
-is a	pointed algebraical  finite covering category. From the Corollary \ref{stab_pt_a_cor} it follows that
+is an	 algebraical  finite covering category. From the Corollary \ref{stab_pt_a_cor} it follows that
 \begin{equation}\label{stable_seq_eqn}
 \begin{split}
-\mathfrak{S}^{\mathrm{pt}}_{A\otimes \K} =\\=  \left(\left\{\widetilde\pi_\la: A \otimes \K\hookto A_\la \otimes \K\right\}_{\la \in \La}, \left\{\widetilde\pi^\mu_\nu: A_\mu\otimes \K \hookto A_\nu\otimes \K\right\}_{\substack{\mu, \nu \in \La\\ \nu \ge \mu}}\right)
+\mathfrak{S}_{A\otimes \K} =\\=  \left(\left\{\widetilde\pi_\la: A \otimes \K\hookto A_\la \otimes \K\right\}_{\la \in \La}, \left\{\widetilde\pi^\mu_\nu: A_\mu\otimes \K \hookto A_\nu\otimes \K\right\}_{\substack{\mu, \nu \in \La\\ \nu \ge \mu}}\right)
 \end{split}
 \end{equation}
-is a	pointed algebraical  finite covering category.
+is a	 algebraical  finite covering category.
 Denote by $\widehat{A} = C^*\text{-}\varinjlim A_\la$, $G_\la = G\left( A_\la ~|~A\right)$, $\widehat{G} = \varprojlim G_\la$. Clearly $C^*\text{-}\varinjlim \left( A_\la \otimes \mathcal K\right)  = \widehat{A}  \otimes \mathcal K$. Let us consider the irreducible representation $\K \to B\left(\H_\K \right)$ (cf. Table \ref{stab_table}). If  $\pi: \widehat{A} \to B\left( \widehat{\H}\right)$ is an atomic representation  then from the Theorem \ref{stable_morita_thm} and the Corollary \ref{morita_irred} it follows that $\pi^{\mathcal K}= \pi \otimes \pi_{ \mathcal K} :\widehat{A}  \otimes \mathcal K\to B\left( \widehat\H_{\mathcal K} \bydef \widehat{\H} \otimes \H_\K \right) $ is the atomic   representation. 
 \begin{lemma}\label{stab_spec_in_lem}
-	Consider the situation of the Corollary \ref{stab_pt_a_cor}.
-	If $\overline{a}\in B\left( \widehat\H\right) $ is a special element of $\mathfrak{S}^{\mathrm{pt}}_A$ (cf. Definition \ref{special_element_defn}), and $p \in \mathcal K$ is a rank-one projector then $\overline{a}\otimes p \in B\left( \widehat\H_\K\right)$ is a special element of $\mathfrak{S}^{\mathrm{pt}}_{A\otimes \mathcal K}$.
+	Consider the situation of the Corollary \ref{stab_pt_a_cor} and suppose that both 	$\mathfrak{S}_{A\otimes \K}$ and 	$\mathfrak{S}_{A\otimes \K}$ are  pointed algebraical  finite covering categories (cf. Definition \ref{pointed_defn}).
+	If $\overline{a}\in B\left( \widehat\H\right) $ is a special element of $\mathfrak{S}_A$ (cf. Definition \ref{special_element_defn}), and $p \in \mathcal K$ is a rank-one projector then $\overline{a}\otimes p \in B\left( \widehat\H_\K\right)$ is a special element of $\mathfrak{S}_{A\otimes \mathcal K}$.
 \end{lemma}
 \begin{proof}
 	Let us use the implicit equations \eqref{spec_a_eps_imp_eqn} for this proof.
@@ -13841,8 +13840,7 @@ Denote by $\widehat{A} = C^*\text{-}\varinjlim A_\la$, $G_\la = G\left( A_\la ~|
 	\overline{A} \otimes \mathcal K \subset \overline{A}^\mathcal{K}$.
 \end{proof}
 
-\begin{lemma}\label{stab_spec_out_lem}
-	Let $\mathfrak{S}_A^{\mathrm{pt}}$ be a pointed  algebraical  finite covering category given by \eqref{stable_seq_pure_eqn}. Let  $\pi:\widehat{A} \to B\left( \widehat{\H}\right) $ be the atomic representation.	 Let $\overline{A} \subset B\left( \widehat{\H}\right)$ be the  disconnected inverse noncommutative limit of $\mathfrak{S}_A^{\mathrm{pt}}$. Let $\mathfrak{S}^{\mathrm{pt}}_{A\otimes \K}$ be an  algebraical  finite covering category given by \eqref{stable_seq_eqn}.
+\begin{lemma}\label{stab_spec_out_lem} Consider the situation of the Lemma \ref{stab_spec_in_lem}	 Let $\overline{A} \subset B\left( \widehat{\H}\right)$ be the  disconnected inverse noncommutative limit of $\mathfrak{S}_A$. Let $\mathfrak{S}_{A\otimes \K}$ be an  algebraical  finite covering category given by \eqref{stable_seq_eqn}.
 	If  $\overline a^\mathcal{K} \in B\left( \widehat{\H} \otimes \H_\K\right)_+$ is a is special element  then
 	$$
 	\overline a^\mathcal{K} \in \overline{A}  \otimes \mathcal K.
@@ -13923,7 +13921,7 @@ Denote by $\widehat{A} = C^*\text{-}\varinjlim A_\la$, $G_\la = G\left( A_\la ~|
 	Let $\mathfrak{S}_A$ be an  algebraical  finite covering category given by \eqref{stable_seq_pure_eqn}, and let $\mathfrak{S}_{A\otimes \mathcal{K}}$ be an  algebraical  finite covering category given by \eqref{stable_seq_pure_eqn}.
 	Following conditions are equivalent:
 	\begin{enumerate}
-		\item[ 	(i)] $\mathfrak{S}_A$ is good (cf. Definition \ref{good_defn}  !!! REPLACE REMARK \ref{cond_b_ref_rem} !!!), the inverse noncommutative limit 	$\varprojlim  \mathfrak{S}_A$ of $\mathfrak{S}_A$ equals to a $C^*$-algebra 	$\widetilde A$ and 	$G\left(\left.\widetilde{A}~\right|~ A\right)=G$.
+		\item[ 	(i)] $\mathfrak{S}_A$ is good (cf. Definition \ref{good_defn}), the inverse noncommutative limit 	$\varprojlim  \mathfrak{S}_A$ of $\mathfrak{S}_A$ equals to a $C^*$-algebra 	$\widetilde A$ and 	$G\left(\left.\widetilde{A}~\right|~ A\right)=G$.
 		\item[ 	(ii)] $\mathfrak{S}_{A\otimes \mathcal{K}}$ is good, the inverse noncommutative limit 	$\varprojlim  \mathfrak{S}_{A\otimes \mathcal{K}}$ of $\mathfrak{S}_{A\otimes \mathcal{K}}$ equals to a $C^*$-algebra 	$\widetilde A\otimes\K$ and 	$G\left(\left.\widetilde{A}\otimes \mathcal{K}~\right|~ A\otimes \mathcal{K}\right)=G$.
 	\end{enumerate}
 \end{theorem}
@@ -13941,7 +13939,7 @@ Denote by $\widehat{A} = C^*\text{-}\varinjlim A_\la$, $G_\la = G\left( A_\la ~|
 	$$
 	G\left(\left.\widetilde A\right|A\right)\cong G\left(\left.\widetilde A\otimes \K\right|A\otimes \K\right)\cong G
 	$$
-	Since $\mathfrak{S}_{A}$ is good (cf. Definition \ref{good_defn}  !!! REPLACE REMARK \ref{cond_b_ref_rem} !!!) one has.
+	Since $\mathfrak{S}_{A}$ is good (cf. Definition \ref{good_defn}) one has:
 	
 	\begin{enumerate}
 		\item[(a)] The natural *-homomorphism $A \to  M\left(\widetilde{A} \right)$ is injective.
@@ -14034,13 +14032,13 @@ $$
 Denote by $\pi: A \hookto \widetilde A$  the natural inclusion. 
 \end{empt}
 \begin{definition}\label{h_u_n_defn}
-	In  situation \ref{h_pre_empt} if $\left(A, \widetilde A , \Z_n , \pi  \right)$  is a connected noncommutative finite-fold   covering $\left(A, \widetilde A , \Z_n , \pi  \right)$  (cf. Definition \ref{fin_defn} !!! \ref{fin_exer} !!! !!! CHANGE !!!then we say that $\left(A, \widetilde A , \Z_n , \pi  \right)$ is a $\left(u, n\right)$-\textit{covering}.
+	In  situation \ref{h_pre_empt} if $\left(A, \widetilde A , \Z_n , \pi  \right)$  is a connected noncommutative finite-fold   covering $\left(A, \widetilde A , \Z_n , \pi  \right)$  (cf. Definition \ref{fin_defn} then we say that $\left(A, \widetilde A , \Z_n , \pi  \right)$ is a $\left(u, n\right)$-\textit{covering}.
 \end{definition}
 \begin{example}\label{s_1_covering_sample}
 	If  $A \bydef C\left( S^1\right)\otimes \K$ then there is the natural inclusion $C\left( S^1\right)\subset M\left(A \right)$ it is known that $K_1\left(C\left( S^1\right) \right) = \Z\left[u\right]$ where $u \in C\left( S^1\right)\in M\left( A\right)$ is an unital element. If $\phi_n$ is given by \eqref{h_n_root} and 	$v = \phi\left( u\right)$ then $C\left( S^1\right)\left[v\right]\cong C\left( \widetilde \sY \right)$ where $\widetilde \sY\cong S^1$ and an inclusion  $C\left( S^1\right)\hookto C\left( S^1\right)\left[v\right]$ corresponds to an $n$-listed covering $\widetilde \sY\cong S^1 \to S^1$. In result one has an $\left(u, n\right)$-{covering} $\left(C\left( S^1\right)\otimes \K, C\left( \widetilde \sY\right)\otimes \K, \Z_n\right)$  of $C\left( S^1\right)\otimes \K$ (cf. Theorem \ref{stable_fin_cov_thm} )
 \end{example}
 \begin{exm}\label{s_3_covering_sample}
-	It is known that $S^3$ is homeomorphic to $SU(2)$ and $K^1\left(SU(2) \right)\cong K_1(C(SU(2))\cong \Z$. The group $K_1(C(SU(2)))$ is generated by $\left[u\right]$ where   $u \in C(SU(2)) \otimes \mathbb{M}_2(\mathbb{C})\subset M\left(C(SU(2))\otimes \K \right)$ is an unitary element which commutes with $C(SU(2))$. Let $C\cong C\left( \sY\right)$ be a generated by $C\left( SU\left(2 \right) \right) \cup \{u\}$ commutative $C^*$-algebra. According to the construction \ref{h_pre_empt} there is a finite-fold covering $\widetilde \sY \to \sY$. If $\widetilde \sY$ is connected then there is a nontrivial  connected noncommutative finite-fold covering of $C(SU(2)))\otimes \K$ (cf. Definition \ref{fin_defn} !!! \ref{fin_exer} !!! !!! CHANGE !!!) then From the Theorem \ref{stable_fin_cov_thm} it follows that a nontrivial  connected noncommutative finite-fold covering of $C(SU(2)))$. But  $\pi_1\left( SU(2)\right)$ is trivial, so from the Corollary  \ref{comm_comm_cor} it follows that $C(SU(2)))$ has no nontrivial  connected noncommutative finite-fold coverings. So there is no $\left(u, n\right)$-{coverings}. Since $\pi_1\left( SU(2)\right)$ it trivial there are no nontrivial elements of $K_1\left( SU(2) \right)$ which lie in $h_{K_1}\left( \pi_1\left( SU(2)\right)\right)$.
+	It is known that $S^3$ is homeomorphic to $SU(2)$ and $K^1\left(SU(2) \right)\cong K_1(C(SU(2))\cong \Z$. The group $K_1(C(SU(2)))$ is generated by $\left[u\right]$ where   $u \in C(SU(2)) \otimes \mathbb{M}_2(\mathbb{C})\subset M\left(C(SU(2))\otimes \K \right)$ is an unitary element which commutes with $C(SU(2))$. Let $C\cong C\left( \sY\right)$ be a generated by $C\left( SU\left(2 \right) \right) \cup \{u\}$ commutative $C^*$-algebra. According to the construction \ref{h_pre_empt} there is a finite-fold covering $\widetilde \sY \to \sY$. If $\widetilde \sY$ is connected then there is a nontrivial  connected noncommutative finite-fold covering of $C(SU(2)))\otimes \K$ (cf. Definition \ref{fin_defn}) then From the Theorem \ref{stable_fin_cov_thm} it follows that a nontrivial  connected noncommutative finite-fold covering of $C(SU(2)))$. But  $\pi_1\left( SU(2)\right)$ is trivial, so from the Corollary  \ref{comm_comm_cor} it follows that $C(SU(2)))$ has no nontrivial  connected noncommutative finite-fold coverings. So there is no $\left(u, n\right)$-{coverings}. Since $\pi_1\left( SU(2)\right)$ it trivial there are no nontrivial elements of $K_1\left( SU(2) \right)$ which lie in $h_{K_1}\left( \pi_1\left( SU(2)\right)\right)$.
 \end{exm}
 \begin{remark}
 	The Example \ref{s_1_covering_sample} demonstrates an element of $K_1$ group which gives nontrivial  connected noncommutative finite-fold coverings.  	The Example \ref{s_3_covering_sample} proves that there are elements of $K_1$ group which do not give nontrivial  connected noncommutative finite-fold coverings.
@@ -14083,7 +14081,7 @@ Let $n_1, ..., n_j, ... \in \N$ be an increasing sequence of natural numbers suc
 $$
 \mathfrak{S}^{\mathrm{pt}}_A= \left\{(A \hookto A_1\hookto ... \hookto A_n\hookto... \right\}
 $$
- (cf. Definitions \ref{alg_fin_cat_defn}, \ref{good_defn}  !!! REPLACE REMARK \ref{cond_b_ref_rem} !!!) and there is an infinite noncommutative covering  $\left(A, \widetilde A, 	\Z\right)$ of $\mathfrak{S}^{\mathrm{pt}}$. This covering defines a group $\Z \cong  G\left( \left. \widetilde A\right| A\right) $. If we map this group onto $\Z[u]$ then one has a  homomorphism $G\left( \left. \widetilde A\right| A\right) \to K^1\left( A\right)$.
+ (cf. Definitions \ref{alg_fin_cat_defn}, \ref{good_defn}) and there is an infinite noncommutative covering  $\left(A, \widetilde A, 	\Z\right)$ of $\mathfrak{S}^{\mathrm{pt}}$. This covering defines a group $\Z \cong  G\left( \left. \widetilde A\right| A\right) $. If we map this group onto $\Z[u]$ then one has a  homomorphism $G\left( \left. \widetilde A\right| A\right) \to K^1\left( A\right)$.
  
  \begin{exercise}
  	\begin{enumerate}
@@ -14096,10 +14094,10 @@ $$
  	\eean 
  	\end{enumerate}
  \end{exercise}
-!!! CONTINUE
+
 \section{Assembly}
 \paragraph*{}
-Here we construct Hurewiscs homomorphism for $C^*$-algebras with finitely generated $K^1$-homology group.
+Here we construct Hurewicz homomorphism for $C^*$-algebras with finitely generated $K^1$-homology group.
 \subsection{Torsion special case}
 \paragraph*{}
 Let $A$ be a stable $C^*$-algebra (cf. Definition \ref{stable_ca_defn}) such that the torsion subgroup  $K_0\left( A\right)_{\mathrm{tors}}\subset K_0\left( A\right)$ is finite.   Any element   $\left[p\right] \in K_0\left( A\right)$ such that $n\left[p\right]=0$ can be represented by an unitary element $u \in M\left(A \right)/A$. We way that $u$ is \textit{torsion special}  if there is an $\left(u, n\right)$ covering $\left( A, \widetilde A_u,\Z_n \right)$ (cf. Definition \ref{h_u_n_defn}). Denote by $K_0\left( A\right)_{\mathrm{tors~spec}}\subset K_0\left( A\right)_{\mathrm{tors}}$  the generated by torsion special elements subgroup. Suppose  $\left\{u_1, ,..., u_k\right\}\subset  M\left(A \right)/A$ be a set of unitary elements such any $x\in K_0\left( A\right)_{\mathrm{tors~spec}}$ can be uniquely represented by the following way
@@ -14339,7 +14337,7 @@ where $k\in \Z$ is a representative of $\overline{k}$.
 	\begin{enumerate}
 		\item If $v_1 \bydef \phi_n\left( \bt\right)$. Prove that $C\left(\sX \right) \left[v_1\right] = C\left(\mathcal Z\right)$.
 		\item Prove that $\widetilde A\cong C\left( \mathcal Z\right) \otimes \K$.
-		\item From the Theorem \ref{stable_fin_cov_rem} it follows that $\left(C\left(\sX\right) \otimes \K, C\left( \mathcal Z\right) \otimes \K, \Z_n\right)$ is a noncommutative finite-fold covering (cf. Definition \ref{fin_defn} !!! \ref{fin_exer} !!! !!! CHANGE !!!. Prove that it is an $\left(u, n \right)$-covering (cf. Definition \ref{h_u_n_defn}).
+		\item From the Theorem \ref{stable_fin_cov_thm} it follows that $\left(C\left(\sX\right) \otimes \K, C\left( \mathcal Z\right) \otimes \K, \Z_n\right)$ is a noncommutative finite-fold covering (cf. Definition \ref{fin_defn}. Prove that it is an $\left(u, n \right)$-covering (cf. Definition \ref{h_u_n_defn}).
 	\end{enumerate}
 \end{exercise}
 \subsection{Free special case}
@@ -14357,7 +14355,7 @@ Suppose that both  $\left[ f\right]\in  \pi_1\left(\sX, x_0 \right)/\left[\pi_1\
 \end{proof}
 Let $\varphi:\sX \to U(1)$ be a continuous map
 $\sX \to U(1)$ such that $\varphi|_{S^1 }=\a$.
-The map 	$\varphi: \sX \to U(1)$ can be regarded as an unitary element $u \in C\left( \sX\right) \subset M\left(C\left(\sX\right)\otimes \K \right)$. One has $Index\left(\left[u \right] ,\left[K^1_{S^1}\circ f\right]  \right)= Index\left(K^1_{S^1}\circ f \right)= 1$. From the universal coefficient theorem it follows that $\left[u \right]\in \K^1\left(\sX \right)$ is not divisible. So if $n > 1$ and $\phi_n$ is given by \eqref{h_n_root} then $v \bydef \phi_n\left( u\right)\notin  M\left(C\left(\sX\right)\otimes \K \right)$. Similarly to \eqref{h_zc_eqn} one can construct a covering $\mathcal Z$ such that $G\left(\left.\mathcal Z\right| \sX\right)= \Z_n$ and $C\left(\mathcal Z\right) \cong C\left( \sX\right)\left[v\right]$.  From the Theorem \ref{stable_fin_cov_rem} it follows that $\left(C\left(\sX\right) \otimes \K, C\left( \mathcal Z\right) \otimes \K, \Z_n\right)$ is a noncommutative finite-fold covering (cf. Definition \ref{fin_defn} !!! \ref{fin_exer} !!! !!! CHANGE !!!which is an $\left(u, n \right)$-covering (cf. Definition \ref{h_u_n_defn}).
+The map 	$\varphi: \sX \to U(1)$ can be regarded as an unitary element $u \in C\left( \sX\right) \subset M\left(C\left(\sX\right)\otimes \K \right)$. One has $Index\left(\left[u \right] ,\left[K^1_{S^1}\circ f\right]  \right)= Index\left(K^1_{S^1}\circ f \right)= 1$. From the universal coefficient theorem it follows that $\left[u \right]\in \K^1\left(\sX \right)$ is not divisible. So if $n > 1$ and $\phi_n$ is given by \eqref{h_n_root} then $v \bydef \phi_n\left( u\right)\notin  M\left(C\left(\sX\right)\otimes \K \right)$. Similarly to \eqref{h_zc_eqn} one can construct a covering $\mathcal Z$ such that $G\left(\left.\mathcal Z\right| \sX\right)= \Z_n$ and $C\left(\mathcal Z\right) \cong C\left( \sX\right)\left[v\right]$.  From the Theorem \ref{stable_fin_cov_thm} it follows that $\left(C\left(\sX\right) \otimes \K, C\left( \mathcal Z\right) \otimes \K, \Z_n\right)$ is a noncommutative finite-fold covering (cf. Definition \ref{fin_defn} which is an $\left(u, n \right)$-covering (cf. Definition \ref{h_u_n_defn}).
 
 
 \section{Resume}
@@ -14576,7 +14574,7 @@ Our following constructions require an analog of the Dini's theorem.
 	\end{lemma}
 
 \begin{proof}
-	According to the Lemma \ref{ctr_blowing_disint_lem} on has   disintegrable  Hausdorff blowing-up 	$C_0\left( \sX\right) \hookto M\left( A\right)$ (cf. Definitions \ref{blowing_defn}, \ref{blowing_disintegrable_defn}). So this lemma is a specialization of \ref{blowing_functor_ff_thm} !!! THEOREM !!! one.
+	According to the Lemma \ref{ctr_blowing_disint_lem} on has   disintegrable  Hausdorff blowing-up 	$C_0\left( \sX\right) \hookto M\left( A\right)$ (cf. Definitions \ref{blowing_defn}, \ref{blowing_disintegrable_defn}). So this lemma is a specialization of \ref{blowing_functor_ff_thm} Theorem.
 \end{proof}
 
 \begin{lemma}\label{ctr_ess_dense_lem}
@@ -15382,7 +15380,7 @@ Suppose that $\left(\overline{   \mathcal X}, \overline{x}_0 \right)$ is its  to
 	\end{enumerate}
 \end{exercise}
 \begin{empt}\label{ctr_coh_empt}
-	If $\widehat \K \bydef C^*$-$\varinjlim_{\la \in \La} \K\left(X_{C\left(\sX_\la\right)}\right)$ is the inductive limit of $C^*$-algebras in sense of the Definition \ref{inductive_lim_non_defn} and $\widehat{\pi}_a:\widehat \K \to B\left(\widehat \H_a\right)$ be the atomic representation (cf. Definition \ref{atomic_repr_defn}) then from the  \eqref{blowing_atomic_eqn} !!! RHO A PI A REPLACE!!! it turns out that there is an inclusion
+	If $\widehat \K \bydef C^*$-$\varinjlim_{\la \in \La} \K\left(X_{C\left(\sX_\la\right)}\right)$ is the inductive limit of $C^*$-algebras in sense of the Definition \ref{inductive_lim_non_defn} and $\widehat{\pi}_a:\widehat \K \to B\left(\widehat \H_a\right)$ be the atomic representation (cf. Definition \ref{atomic_repr_defn}) then from the  \eqref{blowing_atomic_eqn} it turns out that there is an inclusion
 	$$
 	\pi_A:A_0\left(\overline \sX \right) \hookto B\left(\widehat \H_a\right)
 	$$
@@ -15672,7 +15670,7 @@ For any $x\in \sX$ there is a compact neighborhood  $\sV_x$ such that $\left.A\r
 Exercise \ref{spec_mult_exer} it follows that $\pi\left(\sqrt{f_j}\right)\overline{a} \pi\left(\sqrt{f_j}\right)= \pi\left({f_j}\right)\overline{a}$ is a $\mathfrak{S}_A$ special element.
  From the Lemma \ref{top_coh_lem} it follows that $\pi\left({f_j}\right)\overline{a}\in \pi_A\left( 	A_0\left( \overline{\sX}\right)\right)$
   where an inclusion  $\pi_A: A_0\left( \overline{\sX}\right)\hookto B\left(\widehat \H_a\right)$
- is given by the equation \eqref{blowing_atomic_eqn} !!! RHO A PI A REPLACE!!!. So one has $\sum_{j=1}^n\pi\left({f_j}\right)\overline{a}\in \pi_A\left( 	A_0\left( \overline{\sX}\right)\right)$.  On the other hand from \eqref{ctr_yn_eqn} it follows that 
+ is given by the equation \eqref{blowing_atomic_eqn}. So one has $\sum_{j=1}^n\pi\left({f_j}\right)\overline{a}\in \pi_A\left( 	A_0\left( \overline{\sX}\right)\right)$.  On the other hand from \eqref{ctr_yn_eqn} it follows that 
 $$
 \left\|\sum_{j=1}^n\pi\left({f_j}\right)\overline{a}-\overline{a}\right\|< \eps.
 $$
@@ -15726,12 +15724,12 @@ From the Lemma \ref{ctr_inf_cov_lem} it follows that a  pointed algebraical fini
 	Denote by 	
 	\bean
 	\begin{split}
-!!!		\mathfrak{S}_{ C_0\left(\sX \right) } = \\
-		=\left(\left\{ C_0\left( p_\la\right) :  C_0\left(\sX \right)  \hookto  C_0\left(\sX_\la \right)\right\}, \left\{ C_0\left( p_\nu^\mu\right) :  C_0\left(\sX_\nu \right) \hookto  C_0\left(\sX_\mu \right)\right\}\right)
+	\mathfrak{S}_{A} = \\
+		=\left(\left\{ C_0\left( p_\la\right) :  A_0\left(\sX \right)  \hookto  A_0\left(\sX_\la \right)\right\}, \left\{ A_0\left( p_\nu^\mu\right) :  A_0\left(\sX_\nu \right) \hookto  A_0\left(\sX_\mu \right)\right\}\right)
 	\end{split}
 	\eean
-	the given by the Lemma \ref{top_base_point_cor} !!! COROLLARY !!!
-	{pointed algebraical  finite covering category} (cf. Definition \ref{pointed_defn}  !!! CHECK !!!).
+	the given by the Corollary \ref{top_base_point_cor}
+	{pointed algebraical  finite covering category} (cf. Definition \ref{pointed_defn}).
 	Let $\tau: C_0\left(\sX \right)\to \C$ be a faithful state given by  \eqref{meafunc_eqn}, i.e. there exists a Borel
 	measure $\mu$ on $\sX$ with values in $\left[0, +\infty\right]$ such that
 	\be\label{ctr_meafunc_eqn}
@@ -15806,7 +15804,7 @@ From the Lemma \ref{ctr_inf_cov_lem} it follows that a  pointed algebraical fini
 			\ee
 			where $\desc_{\overline p}$ means the descent (cf. Definition \ref{top_lift_desc_defn}).
 		\end{enumerate}
-		\item A pointed algebraical  finite covering category $\mathfrak{S}^{\mathrm{pt}}_{A }$ is $\pi$-good (cf. Definition \ref{good_defn}  !!! REPLACE REMARK \ref{cond_b_ref_rem} !!!).
+		\item A pointed algebraical  finite covering category $\mathfrak{S}^{\mathrm{pt}}_{A }$ is $\pi$-good (cf. Definition \ref{good_defn}).
 		\item If $\widetilde\sX$ is  the {topological inverse limit} of $\mathfrak{S}_{\left( \sX, x_0\right)}$ (cf. Definition \ref{top_topological_inv_lim_defn})
 		then the inverse  $\pi$-\textit{infinite noncommutative covering} of $\mathfrak{S}_A$ is equivalent to \\$\left(A, A_0\left( \widetilde\sX\right), G\left(\left.\widetilde \sX \right|\sX\right) \right)$ (cf. Definition \ref{main_defn}).
 		\item There is the natural representation $\rho: A\hookto B\left( L^2\left( A, \tr_\tau  \right)\right)$ such that $\overline\pi$ is induced by
@@ -16100,37 +16098,37 @@ Discussed below results close to  the Section \ref{top_inf_o_sec} ones. Exercise
 \end{exercise}
 
 \begin{empt}\label{str_spinc_infc_empt}
-	Suppose that  $\left( S, r, M\right)$ is a Hermitian sesquilinear !!! bundle (cf. Definition \ref{top_herm_bundle_defn}) which possesses the described in \ref{str_spinc_c_empt} properties. If both $\widetilde  S$ and $\overline  S$ are {inverse images} of $S$ by $\widetilde p$ and $\overline p$ (cf. Definition \ref{vb_inv_img_funct_defn}) then both $\widetilde  S$ and $\overline  S$ are  smooth manifolds such that both maps $\widetilde S \to S$ and $\overline S \to S$ are smooth (cf. Proposition \ref{top_cov_mani_prop}). Similarly to \eqref{ctr_gac_prod} there are $\C$-valued products 
+	Suppose that  $\left( E, r, M\right)$ is a vector  bundle with a sesquilinear form (cf. Definition \ref{top_herm_bundle_form_defn}). If both $\widetilde  E$ and $\overline  E$ are {inverse images} of $ES$ by $\widetilde p$ and $\overline p$ (cf. Definition \ref{vb_inv_img_funct_defn}) then both $\widetilde  ES$ and $\overline  E$ are  smooth manifolds such that both maps $\widetilde E \to \widetilde M$ and $\overline E \to overline M$ are smooth (cf. Proposition \ref{top_cov_mani_prop}). Similarly to \eqref{ctr_gac_prod} there are $\C$-valued products 
 	\be\nonumber
 	\begin{split}
-		\left(\cdot, \cdot \right): \Ga_c\left(\overline M, \overline S \right)\times \Ga_c\left(\overline M,\overline S \right)\to \C,\\
+		\left(\cdot, \cdot \right): \Ga_c\left(\overline M, \overline E \right)\times \Ga_c\left(\overline M,\overline E \right)\to \C,\\
 		\left(\overline \xi, \overline \eta \right)\bydef \overline \tau\left(\left\langle \overline \xi, \overline \eta \right\rangle_c \right),\\
-		\left(\cdot, \cdot \right): \Ga_c\left(\widetilde M, \widetilde S \right)\times \Ga_c\left(\widetilde M,\widetilde S \right)\to \C,\\
+		\left(\cdot, \cdot \right): \Ga_c\left(\widetilde M, \widetilde E \right)\times \Ga_c\left(\widetilde M,\widetilde E \right)\to \C,\\
 		\left(\widetilde \xi, \widetilde \eta \right)\bydef \widetilde \tau\left(\left\langle \widetilde \xi, \widetilde \eta \right\rangle_c \right) 
 	\end{split}
 	\ee	
-	where $\overline \tau$ is given by the equation \eqref{top_ot_eqn} and $\widetilde\tau\bydef\overline\tau|_{C_c\left(\widetilde{   M} \right)  }$.  Denote by $L^2\left( M, S \right)$ and $L^2\left(\widetilde M,\widetilde S \right)$ the Hilbert norm completions of $\Ga_c\left( M, S \right)$ and $\Ga_c\left(\widetilde M,\widetilde S \right)$. 
+	where $\overline \tau$ is given by the equation \eqref{top_ot_eqn} and $\widetilde\tau\bydef\overline\tau|_{C_c\left(\widetilde{   M} \right)  }$.  Denote by $L^2\left( M, E \right)$ and $L^2\left(\widetilde M,\widetilde E \right)$ the Hilbert norm completions of $\Ga_c\left( M, E\right)$ and $\Ga_c\left(\widetilde M,\widetilde E \right)$. 
 	
 \end{empt}
 \begin{exercise}
-	Prove that There is a pointed algebraic finite covering category of $O^*$-algebras given by
+	Prove that there is a pointed algebraic finite covering category of $O^*$-algebras given by
 	\bean
-	\mathfrak{S}^{\text{pt}}_{D\left( M,   S \right)}\bydef \left(\left\{\phi_\la: D\left( M,   S \right) \hookto D\left( M_\la,   S_\la \right) \right\}, \left\{\phi^\mu_\nu\right\}\right)
+	\mathfrak{S}^{\text{pt}}_{D^*\left( M,   E \right)}\bydef \left(\left\{\phi_\la: D^*\left( M,   E \right) \hookto D\left( M_\la,   E_\la \right) \right\}, \left\{\phi^\mu_\nu\right\}\right)
 	\eean
-	(cf. Definition \ref{comp_o*_defn}).
+	(cf. Definition \ref{comp_o*_defn}), where both $D^*\left( M,   E \right)$ and $D\left( M_\la,   E_\la \right)$ are spaces of adjointable differential operators (cf. Equation \eqref{top_diff*_eqn}).
 \end{exercise}
 If
 $$
-\widehat\D_S \bydef \Ga^\infty_c\left(\overline M, \overline S\right) \subset L^2\left(\widetilde M,\widetilde S \right)
+\widehat\D_E \bydef \Ga^\infty_c\left(\overline M, \overline E\right) \subset L^2\left(\widetilde M,\widetilde E \right)
 $$
 then there is the natural inclusion
 $$
-\pi_S: \bigcup_{\la \in \La} D \left( M_\la,   S_\la \right)\hookto \L^\dagger\left(\widehat\D _S\right).
+\pi_E: \bigcup_{\la \in \La} D \left( M_\la,   E_\la \right)\hookto \L^\dagger\left(\widehat\D _E\right).
 $$
 where $\L^\dagger\left(\widehat\D \right)$ is given by \eqref{l_dag_eqn}.
 \begin{exercise}
-	Let both  $D\left( M, S \right)$ and $D\left(\widetilde M, \widetilde S \right)$ be *-algebras of differential operators 
-	$\Ga^\infty \left(M, S \right)  \to \Ga^\infty \left(M, S \right)$ and $\Ga^\infty \left(\widetilde M,  \widetilde S \right)  \to \Ga^\infty \left(\overline M, \overline S \right)$. Prove that the triple $\left(D\left( M,   S \right),D\left(\widetilde M, \widetilde  S \right), G\left(\left.\widetilde M\right|  M\right)\right) $ is the $\pi_S$-inverse noncommutative limit of $\mathfrak{S}^{\text{pt}}_{D\left( M,   S \right)}$ (cf. Definition \ref{inv_o*_lim_defn}).
+	Let both  $D\left( M, E \right)$ and $D\left(\widetilde M, \widetilde E \right)$ be *-algebras of differential operators 
+	$\Ga^\infty \left(M, E \right)  \to \Ga^\infty \left(M, E \right)$ and $\Ga^\infty \left(\widetilde M,  \widetilde E \right)  \to \Ga^\infty \left(\overline M, \overline E \right)$. Prove that the triple $\left(D\left( M,  E \right),D\left(\widetilde M, \widetilde  E\right), G\left(\left.\widetilde M\right|  M\right)\right) $ is the $\pi_E$-inverse noncommutative limit of $\mathfrak{S}^{\text{pt}}_{D\left( M,   E \right)}$ (cf. Definition \ref{inv_o*_lim_defn}).
 \end{exercise}
 
 \subsection{Coverings of spectral triples}
@@ -16626,7 +16624,7 @@ The following theorem is a specialization of \ref{blowing_functor_ff_thm} one.
 	\be\label{foli_m4_eqn}
 	C^*_r\left(\G^N_N\right)\otimes \ell^2\left( \N\right)\xrightarrow{\pi_\G \otimes \Id_{\ell^2\left(\N\right)}}C^*_r\left(\G^{\widetilde N}_{\widetilde N}\right)\otimes\ell^2\left( \N\right).
 	\ee
-	The combination of the natural isomorphisms \eqref{foli_m1_eqn}-\eqref{foli_m2_eqn} and the inclusion \eqref{foli_m4_eqn} yield required *-isomorphisms $\pi_\K$ and $\widetilde\pi_\K$
+	The combination of the natural isomorphisms \eqref{foli_m1_eqn},\eqref{foli_m2_eqn} and the inclusion \eqref{foli_m4_eqn} yield required *-isomorphisms $\pi_\K$ and $\widetilde\pi_\K$
 	
 \end{proof}
 \begin{corollary}\label{foli_fin_cor}
@@ -16634,7 +16632,7 @@ The following theorem is a specialization of \ref{blowing_functor_ff_thm} one.
 	$$
 	\left( C^*_r\left(\G^{ N}_{ N}\right),C^*_r\left(\G^{\widetilde N}_{\widetilde N}\right),  G\left( \left.\widetilde{M}~\right|M\right), \pi_\G\right)
 	$$
-	where the action $G\left( \left.\widetilde{M}~\right|M\right)\times C^*_r\left(\G^{\widetilde N}_{\widetilde N}\right)\to C^*_r\left(\G^{\widetilde N}_{\widetilde N}\right)$ naturally  comes from the action $G\left( \left.\widetilde{M}~\right|M\right)\times \widetilde{M}\to \widetilde{M}$
+	where the action $G\left( \left.\widetilde{M}~\right|M\right)\times C^*_r\left(\G^{\widetilde N}_{\widetilde N}\right)\to C^*_r\left(\G^{\widetilde N}_{\widetilde N}\right)$ naturally  comes from the action $G\left( \left.\widetilde{M}~\right|M\right)\times \widetilde{M}\to \widetilde{M}$.
 \end{corollary}
 \begin{proof}
 	Follows from the Theorem \ref{foli_functor_thm}, Lemma \ref{foli_g_lem}, and (ii) of the Theorem \ref{stable_fin_cov_thm}.
@@ -17083,7 +17081,7 @@ and taking into account $a_{\la_0}\in C^*_r\left(\overline{M}, \overline{\sF}\ri
 
 \end{proof}
 
-\begin{theorem}\label{foli_main_spec_thm}
+\begin{theorem}\label{foli_main_thm}
 		Suppose that $\left( M,  \sF\right)$ a foliation space with a Hausdorff foliation groupoid $\G\left( M,  \sF\right)$. If  $\mathfrak{S}_{C^*_r\left(M, \sF, x_0\right)}$ is	a given by the Lemma \ref{foli_base_point_lem} pointed algebraical  finite covering category (cf. Definition (ref. \ref{pointed_defn}) then following conditions hold:
 	\begin{enumerate}
 		\item [(i)]  the   pointed algebraical finite covering category $\mathfrak{S}_{C^*_r\left(M, \sF, x_0\right)}$   is good (cf. Definition \ref{good_defn}), 
@@ -17097,20 +17095,27 @@ and taking into account $a_{\la_0}\in C^*_r\left(\overline{M}, \overline{\sF}\ri
 	\end{enumerate}
 	\end{theorem}
 \begin{proof}
-	From the Lemma \ref{foli_sheaf_lem} it follows that the pointed algebraical category $\mathfrak{S}_{C^*_r\left(M, \sF, x_0\right)}$ is  $\overline M$-{good} (cf. Definition \ref{blowing_good_defn}) then $\mathfrak{S}^{\mathrm{pt}}_A$ is good (cf. Definition \ref{good_defn}). So
+	From the Lemma \ref{foli_sheaf_lem} it follows that the pointed algebraical category $\mathfrak{S}_{C^*_r\left(M, \sF, x_0\right)}$ is  $\overline M$-{good} (cf. Definition \ref{blowing_good_defn}). So
 	this theorem is a specialization of the \ref{blowing_main_thm} one.
 \end{proof}
 
 
 \begin{empt}\label{foli_n_cat_empt}
- Let $N \subset M$ be a complete transversal (cf. Remark \ref{foli_comp_trans_rem}). For any $\la\in \La$ the submanifold $N_\la = p_\la^{-1}\left(N \right) $ is a complete transversal. From the Theorems \ref{blowing_main_thm} and  \ref{foli_main_thm}
-there is a good  pointed algebraical  finite covering category 
+	Let $\left(M, \sF\right)$ be a  foliated manifold (cf. Definition \ref{foli_defn}), and   Let $N \subset M$ be a complete transversal (cf. Remark \ref{foli_comp_trans_rem}). Let
+	\bean
+	\begin{split}
+		\mathfrak{S}_{\left( M, y_0  \right) } \bydef\\\bydef\left\{\left\{ q_\la: \left( M_\la, y^\la_0\right) \to \left( M, y_0\right)\right\}_{\la \in \La}, \left\{q^\mu_\nu: \left(M_\mu, y^\mu_0  \right)\to \left( M_\nu, y^\nu_0  \right)\right\}_{\substack{ \mu, \nu \in \La \\ \mu \ge \nu}}\right\}
+	\end{split}
+	\eean
+	be a given by \eqref{foli_top_eqn}  be a  pointed  topological finite covering category (cf. Definition \ref{top_pointed_defn}).
+	 For any $\la\in \La$ the submanifold $N_\la = p_\la^{-1}\left(N \right) $ is a complete transversal.  From the Theorem \ref{foli_main_thm} 
+it follows that there is a good  pointed algebraical  finite covering category 
 	\be\nonumber
 	\begin{split}
 		\left\{\left\{C^*_r\left( p_\la\right) : C^*_r\left(M, \sF\right)\hookto C^*_r\left(M_\la, \sF_\la\right)\right\}, \left\{C^*_r\left(p^\mu_\nu\right) : C^*_r\left(M_\nu, \sF_\nu\right) \hookto C^*_r\left(M_\mu, \sF_\mu\right)\right\}\right\}.
 	\end{split}
 	\ee
-	(cf. Definition \ref{good_defn}  !!! REPLACE REMARK \ref{cond_b_ref_rem} !!!).
+	(cf. Definition \ref{good_defn}).
 From the Lemma \ref{foli_g_lem} and (ii) of the Corollary \ref{stab_pt_a_cor} there is a good   pointed algebraical  finite covering category.
 \be\label{foli_n_c_eqn}
 \begin{split}
@@ -17118,15 +17123,8 @@ From the Lemma \ref{foli_g_lem} and (ii) of the Corollary \ref{stab_pt_a_cor} th
 \bydef\left\{\left\{\pi_\la : C^*_r\left(\G^{N}_{N}\right)\hookto C^*_r\left(\G^{N_\la}_{N_\la}\right)\right\}, 	\left\{\pi^\mu_\nu :C^*_r\left(\G^{N_\mu}_{N_\mu}\right)\hookto C^*_r\left(\G^{N_\nu}_{N_\nu}\right) \right\}\right\}.
 \end{split}
 \ee
-The given by \eqref{foli_poi_eqn} category yields  a {pointed topological finite covering category}	
-\be\label{foli_sec_p_eqn}
-\begin{split}
- \left\{\left\{p_\la:\left( M_\la, x^\la_0\right) \to \left( M, x_0\right)\right\}_{\la\in\La}, \left\{p^\mu_{ \nu}:\left( M_\mu, x^\mu_0\right) \to \left( M_\nu, x^\nu_0\right)\right\}_{\substack{\mu,\nu\in\La\\
-			\mu\ge\nu}} \right\}
-\end{split}
-\ee
-(cf. Definition \ref{top_sec_p_defn}).
-Let $\widetilde M$ be the topological inverse limit (cf. Definition \ref{top_topological_inv_lim_defn}) of the category \ref{foli_sec_p_eqn} and let $\widetilde p : \widetilde M\to M$ be a transitive covering. The submanifold  $ \widetilde N \bydef \widetilde \pi^{-1}\left(N\right)\subset \widetilde N$ is a complete transversal (cf. Remark \ref{foli_pseudo_alg_rem})
+
+Let $\widetilde M$ be the topological inverse limit (cf. Definition \ref{top_topological_inv_lim_defn}) of the category $\mathfrak{S}_{\left( M, y_0  \right) }$ and let $\widetilde p : \widetilde M\to M$ be a natural transitive covering. The submanifold  $ \widetilde N \bydef \widetilde \pi^{-1}\left(N\right)\subset \widetilde N$ is a complete transversal (cf. Remark \ref{foli_pseudo_alg_rem})
 \end{empt}
 \begin{theorem}\label{foli_n_cat_thm}
 The triple $\left(C^*_r\left(\G^{N}_{N}\right), C^*_r\left(\G^{\widetilde N}_{ \widetilde N}\right), G\left(\left.\widetilde M~\right| M\right) \right)$ is  the  { infinite noncommutative covering} of the good   pointed algebraical  finite covering category $\mathfrak{S}^{\mathrm{pt}}_{C^*_r\left(\G^{N}_{N}\right)}$ given by \eqref{foli_n_c_eqn}.
@@ -17153,7 +17151,7 @@ In the situation of the Theorem \ref{foli_n_cat_thm} one has
 \ee	
 \end{cor}
 \begin{proof}
-Follows from the Lemma \ref{foli_stab_lem} and the  Theorem \ref{foli_main_spec_thm}.
+Follows from the Lemma \ref{foli_stab_lem} and the  Theorem \ref{foli_main_thm}.
 \end{proof}
 
 
@@ -17420,61 +17418,6 @@ C\left(\mathbb{T}^n_{\Theta}\right)_j \bydef \left\{\left.a \in C\left(\mathbb{T
 	b_j = \sum_{g \in \Z^n / \Ga}g \left(\widetilde a \widetilde{U}^*_{\widetilde x_j}\right)\in \widetilde A\cap  \left(\T^{n}_{{\Th}} \right)
 	$$
 	and the condition (c) of the Definition \ref{fin_oa_defn} it follows that $b_j \in \Coo\left(\T^{n}_{{\Th}} \right)$. It is a contradiction, so the inclusion  $\Coo\left(\T^{n}_{\widetilde{\Th}} \right)\subsetneqq  \widetilde A$ is impossible, i.e. one has $\Coo\left(\T^{n}_{\widetilde{\Th}} \right)=  \widetilde A$.
-\end{proof}
-
-\begin{lemma}\label{nt_compliant_covering_lem}
-	If  the diagram with injective *-homomorphisms $\pi_1$, $\pi_2$.
-	\newline
-	\begin{tikzpicture}
-	\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
-	{
-		\widetilde  C\left(\mathbb{T}^{n}_{\widetilde{\Th}_1}\right)  &  &  C\left(\mathbb{T}^{n}_{\widetilde{\Th}_2}\right)\\
-		&  C\left(\mathbb{T}^{n}_{\Th}\right) & \\};
-	\path[-stealth]
-	(m-1-1) edge[dashed] node [above] {$\pi^1_2$} (m-1-3)
-	(m-2-2) edge node [left]  {$\pi_1~~$} (m-1-1)
-	(m-2-2) edge node [right] {$~~\pi_2$} (m-1-3);
-	%\draw[dashed,->]   (m-1-1) -- (m-1-3);
-	\end{tikzpicture}
-	\\
-	is commutative then the pair  $\left(\pi_1, \pi_2\right)$ is compliant (cf. Definition \ref{compliant_covering_defn} !!! CHECK),
-\end{lemma}	
-\begin{proof}
-	It is proven in   that for the inclusions $\pi_1, \pi_2$ there are  invertible $n \times n$-matrices $M_1$, $M_2$ with integer valued entries such that
-	\bean
-		\Th \in M_1^{\text{T}} \widetilde{\Th}_1 M_1 + \mathbb{M}_n\left( \Z\right),\\
-		\Th \in M_2^{\text{T}} \widetilde{\Th}_2 M_2 + \mathbb{M}_n\left( \Z\right).
-	\eean
-	If $\pi^1_2$ exists then 
-there are lattices $\Ga, \Ga_1\subset \Z^n$ such that
-\be\label{nt_lat_eqn}
-\begin{split}
-	\forall k \in \Z^n\quad \widetilde U_k \in  \pi_2\left(  C\left(\mathbb{T}^{n}_{\widetilde{\Th}_2}\right)\right) \Leftrightarrow k\in \Ga,\\
-\forall k \in \Z^n\quad \widetilde U_k \in  \pi^1_2\left(  C\left(\mathbb{T}^{n}_{\widetilde{\Th}_1}\right)\right) \Leftrightarrow k\in \Ga_1.
-\end{split}	
-\ee	
-	Let us check conditions (a)-(d) of the Definition \ref{compliant_covering_defn} !!! CHECK.\\
-	(a) If there is an injective *-homomorphism $\pi^1_2: C\left(\mathbb{T}^{n}_{\widetilde{\Th}_1}\right) \hookto  C\left(\mathbb{T}^{n}_{\widetilde{\Th}_2}\right)$ then from \cite{schwieger:nt_cov} it follows that there is an invertible $n \times n$-matrices $M$ with integer valued entries such that
-	$$
-		\Th_1 \in M^{\text{T}} \widetilde{\Th}_2 M + \mathbb{M}_n\left( \Z\right)
-	$$
-From the Theorem \ref{nt_fin_thm} it follows that $\pi^1_2$  a noncommutative finite-fold  covering (cf. Definition \ref{fin_defn} !!! \ref{fin_exer} !!! !!! CHANGE !!!).\\
-(b)  For any $g \in G\left(\left.C\left(\mathbb{T}^{n}_{\widetilde{\Th}_2}\right)~\right|C\left(\mathbb{T}^{n}_{{\Th}}\right) \right)$ from the equations  \eqref{nt_exp_eqn} and \eqref{nt_lat_eqn} it follows that
-\bean
-k \in \Ga_1 \quad \Leftrightarrow\quad \widetilde U_k \in \pi^1_2\left(  C\left(\mathbb{T}^{n}_{\widetilde{\Th}_1}\right)\right) \text{ AND }  \exists c\in \C \quad g\widetilde U_k=c\widetilde U_k \quad \Rightarrow\\ \Rightarrow g \widetilde U_k \in \pi^1_2\left(  C\left(\mathbb{T}^{n}_{\widetilde{\Th}_1}\right)\right).
-\eean
-so one has 
-$$
-G\left(\left.C\left(\mathbb{T}^{n}_{\widetilde{\Th}_2}\right)\right|C\left(\mathbb{T}^{n}_{{\Th}}\right) \right)\pi^1_2\left(  C\left(\mathbb{T}^{n}_{\widetilde{\Th}_1}\right)\right) = \pi^1_2\left(  C\left(\mathbb{T}^{n}_{\widetilde{\Th}_1}\right)\right).
-$$
-(c)	 From the Theorem \ref{nt_fin_thm} it follows that
-\bean
-G\left(\left.C\left(\mathbb{T}^{n}_{\widetilde{\Th}_2}\right)\right|C\left(\mathbb{T}^{n}_{{\Th}}\right) \right)\cong \Z^n/\Ga,\\
-G\left(\left.C\left(\mathbb{T}^{n}_{\widetilde{\Th}_1}\right)\right|C\left(\mathbb{T}^{n}_{{\Th}}\right) \right) \cong \Z^n/\Ga_1
-\eean
-where $\Ga_1\subset  \Ga$ the natural homomorphism \\$\phi: G\left(\left.C\left(\mathbb{T}^{n}_{\widetilde{\Th}_2}\right)\right|C\left(\mathbb{T}^{n}_{{\Th}}\right) \right)\to G\left(\left.C\left(\mathbb{T}^{n}_{\widetilde{\Th}_1}\right)\right|C\left(\mathbb{T}^{n}_{{\Th}}\right) \right)$ is equivalent to the homomorphism $\varphi:\Z^n/\Ga\to \Z^n/\Ga_1$. The homomorphism $\varphi$ is surjective, hence $\phi$ is surjective.\\
-(d) If $\rho : C\left(\mathbb{T}^{n}_{\widetilde{\Th}_1}\right)\hookto C\left(\mathbb{T}^{n}_{\widetilde{\Th}_2}\right)$ is an injective *-homomorphism such that $\pi_2 = \rho \circ \pi_1$ then both $\pi^1_2$ and $\rho$ can be regarded as *-isomorphisms from $ C\left(\mathbb{T}^{n}_{\widetilde{\Th}_1}\right)$ onto their images. But from \eqref{nt_cov_un_eqn} it follows follows that the image of $\pi^1_2$ coincides with the image of  $\rho$. It follows that there is $g \in \Aut\left(C\left(\mathbb{T}^{n}_{\widetilde{\Th}_1}\right) \right)$ such that 	$\rho =  \pi^1_2 \circ g$. From $\pi_2 = \rho \circ \pi_1$ and $\pi_2 = \pi^1_2 \circ \pi_1$ it follows that $ga = a$ for all $a \in C\left(\mathbb{T}^{n}_{\widetilde{\Th}}\right)$, i.e. $g \in G\left(\left.C\left(\mathbb{T}^{n}_{\widetilde{\Th}_1}\right)\right|C\left(\mathbb{T}^{n}_{{\Th}}\right) \right)$.
-
 \end{proof}
 
 \begin{lemma}\label{nt_diag_lem}
@@ -17939,7 +17882,7 @@ which is a specialization of \eqref{conn_triple_eqn}, i.e. $\nabla$ is a connect
 	\be\label{nt_p_cat_eqn}
 	\mathfrak{S}^{\text{pt}}_{C\left(\mathbb{T}^n_{\Theta}\right)} \bydef \left(\left\{\pi_\la: C\left(\mathbb{T}^n_{\Theta}\right) \hookto C\left(\mathbb{T}^n_{\Theta_\la}\right) \right\}_{\la \in \La}, \left\{\pi^\nu_\mu\right\}_{\substack{\mu, \nu \in \La\\ \mu > \nu}}\right)
 	\ee
-	(cf. Definition \ref{pointed_defn}  !!! CHECK !!!).
+	(cf. Definition \ref{pointed_defn}).
 	Similarly to the Remark \ref{nt_diag_rem} denote by
 	Let $\Th \stackrel{\text{def}}{=} J \th$ where $\th \in \R \setminus \Q$ and
 	$$
@@ -18027,7 +17970,7 @@ the algebra $C_b\left(\R^{2N}_\th \right)$  contains all plane waves.
 	
 	\end{tikzpicture}
 	\newline
-	Taking into account the  Definition \ref{compliant_covering_defn} !!! CHECK and the Lemma \ref{nt_compliant_covering_lem} one has the following diagram
+So one has the following diagram
 	\newline
 	\begin{tikzpicture}
 	\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
@@ -18911,7 +18854,7 @@ Otherwise from the Lemma \ref{nt_spec_c0_lem}  it  follows that any special elem
 
 \begin{thm}\label{nt_inf_cov_thm} Following conditions hold:
 	\begin{enumerate}
-		\item[(i)] The the pointed algebraical  finite covering category $\mathfrak{S}_\th$ is $\widehat{\pi}^\oplus$ is good  (cf. Definition \ref{good_defn}  !!! REPLACE REMARK \ref{cond_b_ref_rem} !!!),
+		\item[(i)] The the pointed algebraical  finite covering category $\mathfrak{S}_\th$ is $\widehat{\pi}^\oplus$ is good  (cf. Definition \ref{good_defn}),
 		\item[(ii)] 
 		\begin{equation*}	\begin{split}
 		\varprojlim_{\widehat{\pi}^\oplus} \downarrow \mathfrak{S}_\th = C_0\left(\R^{2N}_\th\right); \\
@@ -18935,7 +18878,7 @@ Otherwise from the Lemma \ref{nt_spec_c0_lem}  it  follows that any special elem
 	\overline{A}_{\widehat{\pi}^\oplus} \hookto  \prod_{g \in J}	 gC_0\left( \R^{2N}_\th\right).
 	$$
 	From the above equation it follows that $C_0\left( \R^{2N}_\th\right)\subset \overline{A}_{\widehat{\pi}^\oplus                                                    }$ is a maximal irreducible subalgebra.
-	One needs check conditions (a)-(c) of the Definition \ref{good_defn}  !!! REPLACE REMARK \ref{cond_b_ref_rem} !!!).
+	One needs check conditions (a)-(c) of the Definition \ref{good_defn}).
 	\begin{enumerate}
 		\item[(a)] Clearly the map $\widehat{C\left(\T^{2N}_\th \right)} \to M\left(C_0\left( \R^{2N}_\th\right) \right)$ is injective,
 		\item[(b)] 	The proof is left to the reader.
@@ -18998,7 +18941,7 @@ Let $\widetilde \sF$ be a foliation on $\R^2$ which  corresponds to  a vector fi
 \[
 dx = \th dy
 \]
-where $\th  \in \R\setminus\Q$ is an irrational number. Since $\widetilde \sF$ is invariant with respect to the action $\Z^2 \times\R^2 \to \R^2$ there is the foliation $\sF_\th$ on $\T^2$ such that $\widetilde \sF$ is the $\widetilde p$ -lift of $\sF_\th$ (cf. Definition \ref{fol_cov_defn}). The Lemma \ref{foli_base_point_lem} yields  a pointed algebraical  finite covering category $\mathfrak{S}_{C^*_r\left(\T^2, \sF\right)}$ (cf. Definition (ref. \ref{pointed_defn}  !!! CHECK !!!) 
+where $\th  \in \R\setminus\Q$ is an irrational number. Since $\widetilde \sF$ is invariant with respect to the action $\Z^2 \times\R^2 \to \R^2$ there is the foliation $\sF_\th$ on $\T^2$ such that $\widetilde \sF$ is the $\widetilde p$ -lift of $\sF_\th$ (cf. Definition \ref{fol_cov_defn}). The Lemma \ref{foli_base_point_lem} yields  a pointed algebraical  finite covering category $\mathfrak{S}_{C^*_r\left(\T^2, \sF\right)}$ (cf. Definition (ref. \ref{pointed_defn}) 
 From the Theorem \ref{foli_main_thm} it follows that the triple 
 \be\label{nt_f_c_eqn}
 \left(C^*_r\left(\T^2, \sF_\th\right), C^*_r\left(\R^2, \widetilde \sF\right), \Z^2 \right)
@@ -19249,9 +19192,9 @@ D\left( \R^{2N}_\th\right)=\left\{\widetilde d \in\L^\dagger\left(\widetilde\D\r
 	In the described above situation following conditions hold:
 	\begin{enumerate}
 		\item[(i)] The triple $\left(\Coo\left( \T^{2N}_\th \right) , \Coo\left( \R^{2N}_\th\right) , \Z^{2N}\right) $ is the 
-		$\left.\pi\right|_{\bigcup_{j \in \N} \Coo\left( \T^{2N}_{\th/m_j^2}\right)}$- inverse noncommutative limit of the given by \eqref{nt_comp_pt_of*_eqn} {pointed algebraic finite covering category $\mathfrak{S}^{\N}_{\Coo\left(\T^{2N}_\th \right) }$  of $O^*$-algebras} (cf. Definition \ref{inv_o*_lim_defn}  !!! CHECK PI !!! MAXI !!!).
+		$\left.\pi\right|_{\bigcup_{j \in \N} \Coo\left( \T^{2N}_{\th/m_j^2}\right)}$- inverse noncommutative limit of the given by \eqref{nt_comp_pt_of*_eqn} {pointed algebraic finite covering category $\mathfrak{S}^{\N}_{\Coo\left(\T^{2N}_\th \right) }$  of $O^*$-algebras} (cf. Definition \ref{inv_o*_lim_defn}).
 		\item [(ii)] The triple $\left(D\left( \T^{2N}_\th \right) , D\left( \R^{2N}_\th\right) , \Z^{2N}\right) $ is the 
-		$\left.\pi\right.$- inverse noncommutative limit of the given by \eqref{nt_comp_pt_o*_eqn} {pointed algebraic finite covering category $\mathfrak{S}^{\N}_{D\left(\T^{2N}_\th \right) }$  of $O^*$-algebras} (cf. Definition \ref{inv_o*_lim_defn}  !!! CHECK PI !!! MAXI !!!).
+		$\left.\pi\right.$- inverse noncommutative limit of the given by \eqref{nt_comp_pt_o*_eqn} {pointed algebraic finite covering category $\mathfrak{S}^{\N}_{D\left(\T^{2N}_\th \right) }$  of $O^*$-algebras} (cf. Definition \ref{inv_o*_lim_defn}).
 	\end{enumerate}
 	
 \end{theorem}
@@ -19271,7 +19214,7 @@ D\left( \R^{2N}_\th\right)=\left\{\widetilde d \in\L^\dagger\left(\widetilde\D\r
 	\Coo_c\left(\R^{2N}_\th\right)\left(  \bigcup_{j=1}^\infty \Coo\left(\T^{2N}_{\th/m_j^2} \right)\right)	\subset		\Coo_c\left(\R^{2N}_\th \right)  \Coo\left( \R^{2N}_\th\right),\\
 	\left(  \bigcup_{j=1}^\infty \Coo\left(\T^{2N}_{\th/m_j^2} \right)\right)\Coo_c\left(\R^{2N}_\th \right)	\subset		\Coo\left(\R^{2N}_\th \right)  \Coo_c\left(\R^{2N}_\th \right).
 	\eea
-	If $\widetilde A'$ is a $\left.\pi\right|_{\bigcup_{j \in \N} \Coo\left( \T^{2N}_{\th/m_j^2}\right)}$-admissible algebra (cf.  \ref{comp_pt_o*_empt}) then from the equations \eqref{inv_o*_llim_eqn}, \eqref{inv_o*_rlim_eqn} it follows that
+	If $\widetilde A'$ is a $\left.\pi\right|_{\bigcup_{j \in \N} \Coo\left( \T^{2N}_{\th/m_j^2}\right)}$-admissible algebra (cf.  \ref{comp_pt_o*_empt}) then from the equations \eqref{inf_cov_o*_sub1_eqn}, \eqref{inf_cov_o*_sub2_eqn} it follows that
 	\bean
 	\mathrm{span}\left\{ \Coo_c\left(\R^{2N}_\th\right) \widetilde A'\right\}=\\=\mathrm{span}\left\{ \Coo_c\left(\R^{2N}_\th\right) \bigcup_{j=1}^\infty \Coo\left(\T^{2N}_{\th/m_j^2} \right)\right\} \subset  \Coo_c\left( \R^{2N}_\th\right),\\
 	\mathrm{span}\left\{  \widetilde A'\Coo_c\left(\R^{2N}_\th\right)\right\}=\\=\mathrm{span}\left\{  \bigcup_{j=1}^\infty \Coo\left(\T^{2N}_{\th/m_j^2} \right)\Coo_c\left(\R^{2N}_\th\right)\right\} \subset  \Coo_c\left( \R^{2N}_\th\right)
@@ -19280,7 +19223,7 @@ D\left( \R^{2N}_\th\right)=\left\{\widetilde d \in\L^\dagger\left(\widetilde\D\r
 	$$
 	\widetilde A'\subset \Coo\left( \R^{2N}_\th\right)
 	$$
-	Now for completion the proof of (i) one should show that the algebra $ \Coo\left( \R^{2N}_\th\right)$ is admissible, i.e. it satisfies to the  conditions \eqref{inv_o*_lim_eqn} CHANGE TO \eqref{inf_cov_o*_sub1_eqn}-\eqref{inv_o*_rlim_eqn}.
+	Now for completion the proof of (i) one should show that the algebra $ \Coo\left( \R^{2N}_\th\right)$ is admissible, i.e. it satisfies to the  conditions  \eqref{inf_cov_o*_sub1_eqn}-\eqref{inf_cov_o*_sub3_eqn}.
 	\begin{itemize}
 		\item The condition \eqref{inv_o*_lim_eqn} CHANGE TO \eqref{inf_cov_o*_sub1_eqn} follows from the natural action $\Z^{2N}\times \Coo\left( \R^{2N}_\th\right)\to \Coo\left( \R^{2N}_\th\right)$.
 		\item The condition \eqref{inv_o*_blim_eqn} follows from $\Coo\left( \R^{2N}_\th\right)\cap C_b\left( \R^{2N}_\th\right)\subset C_b\left( \R^{2N}_\th\right)$.
@@ -19370,7 +19313,7 @@ An application of both the Exercise \ref{nt_quasi_fin_exer} and the given by \eq
 	$$
 	\left(\left(\Coo\left(\mathbb{T}^{2N}_{\theta}\right)', \Coo\left(\mathbb{T}^{2N}_{\theta}\right)  \right), \left(\Coo_c\left(\mathbb{R}^{2N}_{\theta}\right)', \Coo\left(\R^{2N}_{\theta}\right)  \right) , \Z^{2N}\right) 
 	$$
-	is  the inverse noncommutative limit of the given by \eqref{nt_distr_inf_eqn} pointed algebraic finite covering category	$\mathfrak{S}^{\text{pt}}_{\left(\Coo\left(\mathbb{T}^{2N}_{\theta}\right)', \Coo\left(\mathbb{T}^{2N}_{\theta}\right)  \right) }$ of quasi *-algebras (cf Definition \ref{inv_qo*_lim_defn} MAXI !!! MAXI !!!). 
+	is  the inverse noncommutative limit of the given by \eqref{nt_distr_inf_eqn} pointed algebraic finite covering category	$\mathfrak{S}^{\text{pt}}_{\left(\Coo\left(\mathbb{T}^{2N}_{\theta}\right)', \Coo\left(\mathbb{T}^{2N}_{\theta}\right)  \right) }$ of quasi *-algebras (cf Definition \ref{inv_qo*_lim_defn}). 
 \end{lemma}
 \begin{proof}
 	Let $\left\{p_\a\right\}_{\a \in \mathscr A}\subset \Coo_c\left( \R^{2N}_\th\right)$ be the subset all finite-rank projectors. If we define partial order on $\La$ such that
@@ -19381,7 +19324,7 @@ An application of both the Exercise \ref{nt_quasi_fin_exer} and the given by \eq
 	\be\label{nt_comp_st_eqn}
 	\forall\a\in\mathscr A \quad \a \ge \a_{\widetilde a} \quad \Rightarrow \quad \widetilde a = \widetilde a p_{\a}
 	\ee
-	If $\left(\widetilde A', \Coo\left(\R^{2N}_{\theta}\right)\right)$ is an admissible quasi *-algebra (cf. Definition \ref{comp_pt_qo*_defn}) and $\widetilde a \in \widetilde{\mathfrak A}'$  such  then from the condition \eqref{inv_qo*_rlim_eqn} !!! REPLACE it follows that
+	If $\left(\widetilde A', \Coo\left(\R^{2N}_{\theta}\right)\right)$ is an admissible quasi *-algebra (cf. Definition \ref{comp_pt_qo*_defn}) and $\widetilde a \in \widetilde{\mathfrak A}'$  such  then from the condition \eqref{inv_qo*_rlim_eqn} it follows that
 	$$
 	\widetilde a p_\a \in \Coo_c\left( \R^{2N}_\th\right)'
 	$$
@@ -19401,7 +19344,7 @@ An application of both the Exercise \ref{nt_quasi_fin_exer} and the given by \eq
 		\item[(b)] The inclusion $\bigcap_{j\in\N} \Coo\left(\mathbb{T}^{2N}_{\theta/m_j^2}\right)'\subset\Coo_c\left(\mathbb{R}^{2N}_{\theta}\right)'$ follows from an inclusions  $\Coo\left(\mathbb{T}^{2N}_{\theta/m_j^2}\right)'\subset\Coo_c\left(\mathbb{R}^{2N}_{\theta}\right)'$ for all $j\in \N$.
 		
 		\item[(c)] The specific versions of the equations
-		\eqref{inv_qo*_rzero_eqn}-\eqref{inv_qo*_rlim_eqn} !!! REPLACE  are presented below:
+		\eqref{inv_qo*_rzero_eqn}-\eqref{inv_qo*_rlim_eqn}  are presented below:
 		\bea
 		\label{nt_inv_qo*_rzero_eqn}
 		\forall\widetilde a\in \Coo_c\left(\mathbb{R}^{2N}_{\theta}\right)'\quad \Coo_c\left(\mathbb{R}^{2N}_{\theta}\right) \widetilde{a}= \{0\}\quad \Rightarrow\quad \widetilde{a}= 0,\quad\quad \\
@@ -19432,7 +19375,7 @@ An application of both the Exercise \ref{nt_quasi_fin_exer} and the given by \eq
 Let us consider following objects
 \begin{itemize}
 	\item A spectral triple of a noncommutative torus\\ $\left(C^{\infty}(\mathbb{T}^{2N}_{\theta}),\mathcal{H}=L^2\left(C\left(\mathbb{T}^{2N}_{\theta}\right), \tau\right)\otimes\mathbb{C}^{2^N},D\right)$ (cf. equation \ref{nt_sp_tr_eqn}).
-	\item  A good !!! SOFT \ref{top_soft_exer}  !!! REP \ref{top_soft_r_defn} algebraical  finite covering sequence given by
+	\item  A good \ref{top_soft_exer}   \ref{top_soft_r_defn} algebraical  finite covering sequence given by
 	\begin{equation*}
 		\mathfrak{S}_\th= \left\{	C\left(\mathbb{T}^{2N}_\th\right) \to	C\left(\mathbb{T}^{2N}_{\th/m_1^{2}}\right) \to C\left(\mathbb{T}^{2N}_{\th/m_2^{2}}\right) \to... \to C\left(\mathbb{T}^{2N}_{\th/m_j^{2}}\right)\to ...\right\}
 	\end{equation*}
@@ -25332,7 +25275,7 @@ where $\pi: A \hookto B\left(\H\right)$ is any faithful representation, $\wideti
 	
 	
 	\section{Noncommutative differential forms}\label{ass_cycle_sec}
-	!!! CONTINUE !!!
+
 	\paragraph*{} 
 	\begin{defn}\cite{connes:ncg94}\label{cycle_defn}
 		\begin{enumerate}
@@ -26314,7 +26257,7 @@ Let $\mathscr F$  and $\mathscr G$ by presheaves. Prove that any morphism corres
 			open sets $\sV \subset\sU$, the restriction homomorphism $\mathscr F\left(\sU \right) \to \mathscr F\left(\sV \right)$  is compatible with the module structures via the ring homomorphism $\mathcal O_\sX\left(\sU \right) \to \mathcal O_\sX \left(\sV \right)$.
 			%	(9X(V). A morphism #" Å> ^ of sheaves of $x-modules is a morphism of 
 			%	sheaves, such that for each open set U ^ X, the map <F(U) -> ^(?7) is a 
-			%	homomorphism of $x(L/)-modules. 	Note that the kernel, cokernel, and image of a morphism of 6rx-modules 	is again an Gx-modu\e. If ^'ls a subsheaf  \ref{top_x_sheaf_defn} of (^'x-modules of an (9x-modu\e 	#", then the quotient sheaf !!! DEFN \ref{top_x_sheaf_defn} gFj^F' is an #x-module. Any direct sum, 	direct product, direct limit, or inverse limit of $x-modules is an $x-module. 	If J^ and ^ are two $x-modules, we denote the group of morphisms from 	^ to ^ by Hom^^,^), or sometimes Homx(J^) or Hom( J^) if no 	confusion can arise. A sequence of $x-modules and morphisms is exact 	if it is exact as a sequence of sheaves of abelian groups. 	If U is an open subset of X, and if J^ is an $x-module, then tF\v is an 	(9x\v-modu\e. If 3F and ^ are two ^x-modules, the presheaf !!! DEFN \ref{top_x_sheaf_defn} 	is a sheaf, which we call the sheaf !!! DEFN \ref{top_x_sheaf_defn} Worn (Ex. 1.15), and denote by 	.^bm^l^). It is also an $x-module. 
+			%	homomorphism of $x(L/)-modules. 	Note that the kernel, cokernel, and image of a morphism of 6rx-modules 	is again an Gx-modu\e. If ^'ls a subsheaf  \ref{top_x_sheaf_defn} of (^'x-modules of an (9x-modu\e 	#", then the quotient sheaf \ref{top_x_sheaf_defn} gFj^F' is an #x-module. Any direct sum, 	direct product, direct limit, or inverse limit of $x-modules is an $x-module. 	If J^ and ^ are two $x-modules, we denote the group of morphisms from 	^ to ^ by Hom^^,^), or sometimes Homx(J^) or Hom( J^) if no 	confusion can arise. A sequence of $x-modules and morphisms is exact 	if it is exact as a sequence of sheaves of abelian groups. 	If U is an open subset of X, and if J^ is an $x-module, then tF\v is an 	(9x\v-modu\e. If 3F and ^ are two ^x-modules, the presheaf  \ref{top_x_sheaf_defn} 	is a sheaf, which we call the sheaf  \ref{top_x_sheaf_defn} Worn (Ex. 1.15), and denote by 	.^bm^l^). It is also an $x-module. 
 		\end{definition}
 \section{Flasque (flabby) and soft sheaves}
 \begin{definition}\label{sheaf_flasque}\cite{hartshorne:ag}
@@ -26361,7 +26304,7 @@ For a presheaf $\mathscr{P}$  on $\sX$ we put  $\mathscr{P}_\Phi\left(\sX \right
 
 %\begin{theorem}\cite{bredon:sheaf}
 	%	6.2.\\
-%	Theorem. Let $\mathscr P$ be a presheaf !!! DEFN \ref{top_x_sheaf_defn} on $\sX$ that is conjunctive for coverings	of $\sX$ and $\mathscr P^+$ be the sheaf !!! DEFN \ref{top_x_sheaf_defn} generated by $\mathscr P$. Then for any paracompactifying 	family $\Phi$ of supports on $\sX$, the sequence
+%	Theorem. Let $\mathscr P$ be a presheaf  DEFN \ref{top_x_sheaf_defn} on $\sX$ that is conjunctive for coverings	of $\sX$ and $\mathscr P^+$ be the sheaf \ref{top_x_sheaf_defn} generated by $\mathscr P$. Then for any paracompactifying 	family $\Phi$ of supports on $\sX$, the sequence
 %	$$
 %	0 \to \mathscr P_0\left( \right) \to  \mathscr{P}_\Phi\left(\sX \right) \xrightarrow{\th}\Ga_\Phi\left(\mathscr{P}^+ \right) 
 %	$$
@@ -28336,11 +28279,11 @@ The above equation is a counterpart of \eqref{Tthetarel}, so the noncommutative 
  		=\left( \left\{ \left( C\left(\T^2_{{\th}} \right), C\left(\T^{2}_{\th/m_j^2} \right), \Z^2_{m_j}, \pi_j\right)  \right\}_{\substack{j \in \N\\ ~\\~}}\right., \\ \left. \left\{  \pi^j_k: C\left(\T^{2}_{\th/m_j^2} \right)\hookto C\left(\T^{2}_{\th/m_k^2} \right) \right\}_{\substack{j,k \in \N\\ j < k}}\right) \subset \mathfrak{S}^{\text{pt}}_{C\left(\mathbb{T}^n_{\Theta}\right)}.
  	\end{split} 
  	\ee
- 	be a specialization of the given by \eqref{nt_cofinal_eqn} pointed algebraic finite covering category  (cf. Definition \ref{pointed_defn}  !!! CHECK !!!). Let $\widehat{C\left(\mathbb{T}^{2}_{\th}\right) }\bydef C^*$-$\varinjlim_{j \in \N}C\left(\mathbb{T}^{2}_{\Theta_\la}\right)$ be the inductive limit of $C^*$-algebras, and let 
+ 	be a specialization of the given by \eqref{nt_cofinal_eqn} pointed algebraic finite covering category  (cf. Definition \ref{pointed_defn}). Let $\widehat{C\left(\mathbb{T}^{2}_{\th}\right) }\bydef C^*$-$\varinjlim_{j \in \N}C\left(\mathbb{T}^{2}_{\Theta_\la}\right)$ be the inductive limit of $C^*$-algebras, and let 
  	\be\label{nt_inf_repr2_eqn}
  	\widehat{\pi}:\widehat{C\left(\mathbb{T}^{2}_{\Th}\right) } \to  B\left(L^2\left(\R^{2}\right)\right).
  	\ee 
- 	be a specialization of the given by \eqref{nt_inf_repr_eqn} representation. For any $j\in \N$ there is $u_j \in C\left(\T^{2}_{\th/m_j^2} \right)$ such that $u= u_j^{m_j}$. From this circumstance one has the following pointed algebraic finite covering category  (cf. Definition \ref{pointed_defn}  !!! CHECK !!!)
+ 	be a specialization of the given by \eqref{nt_inf_repr_eqn} representation. For any $j\in \N$ there is $u_j \in C\left(\T^{2}_{\th/m_j^2} \right)$ such that $u= u_j^{m_j}$. From this circumstance one has the following pointed algebraic finite covering category  (cf. Definition \ref{pointed_defn})
  	$$
  	C\left(u\right)\to ...\to C\left(u_j \right)\to ... 
  	$$
@@ -28796,7 +28739,7 @@ I am very grateful to Prof. Joseph C Varilly  and Arup Kumar Pal
  
  \begin{thebibliography}{10}
  	
-%\bibitem{lie_groupoids_coov} !!! CORRECT TURKISH
+%\bibitem{lie_groupoids_coov}  CORRECT TURKISH
 
 %I. Ien, M. GŸrsoy, A. …zcan \textit{Coverings of Lie groupoids} 	Turk J Math, 35 (2011) , 207 Ð 218. 	c©T  ?UB ?ITAK, doi:10.3906/mat-0902-2, 2011.
  	
