@@ -12009,7 +12009,7 @@ The following set
 \begin{definition}\label{blowing_proper_defn}
 	The given by  \eqref{blowing_prop_eqn}  $C^*$-subalgebra of $_\sU A_\sU$ is said to be $\sU$-\textit{proper}. We denote it by $A^{\mathrm{prop}}_\sU$.
 \end{definition}
-\begin{remark}
+\begin{remark}\label{blowing_proper_rem}
 	From (iv) of the Theorem \ref{irred_thm} for any $x\in\sX$ and $\a\in \mathscr A_x$ there is an irreducible representation $A^{\mathrm{prop}}_\sU \to B\left(\H^\a_x \right)$ 
 \end{remark}
 \begin{exercise}
@@ -12225,31 +12225,58 @@ so one has $\left\|\rep_{x'} \left( \sum_{j = 1}^n a_j\right) \right\| \le \left
 	where $I_y = \left\{\left. f\in C_0\left( \sY\right) \right| f\left( y\right)= 0  \right\}$.
 	The map $y \mapsto \sX_y$ yields a partially defined multi-valued map from $\sY$ to $\sX$. 
 \end{empt}
+\begin{empt}\label{blowig_regular_u_empt}
+	Let $A$ be a $C^*$-algebra and let $C_0\left(\sY\right)\to M\left( A\right)$ be  Hausdorff blowing-up (cf. the Definition \ref{blowing_defn}).  Let $\sU\subset\sY$ be a connected open subset, and let $A^{\text{prop}}_{\sU}$ be a $\sU$-proper (cf. Definition \ref{blowing_proper_defn}) *-subalgebra. Let $\sX_\sU$ be a spectrum of $A^{\text{prop}}_{\sU}$. Let $x_\sU \in \sX_\sU$ and 
+	\be\label{blowing_prop_spectral_e_eqn}
+	\begin{split}
+	I^\sU_{x_\sU} \bydef \left\{\left. f \in C_0\left( \sU\right)\right| \rep_{x_\sU}\left(  f\right) = 0\right\},\\
+	\sU_{x_\sU} \bydef \left\{\left. y \in \sU\right| \forall f \in 	I^\sU_{x_\sU} \quad f\left(y\right) = 0\right\}.
+		\end{split}
+	\ee
+\end{empt}
+\begin{definition}\label{blowig_regular_u_defn}
+	In the situation \ref{blowig_regular_u_empt} we say that the set $\sU$ is \textit{regular} if one has
+		\be\label{blowing_prop_spectral_eqn}
+	\begin{split}
+		\forall x'_{x_\sU}, x''_{x_\sU} \in \sX_\sU \quad x' \neq x'' \quad \Leftrightarrow \quad \sU_{x'_{x_\sU}} \cap \sU_{x''_{x_\sU}} = \emptyset.
+	\end{split}
+	\ee
+\end{definition}
 \begin{empt}\label{blowing_spectral_empt}
-Let $A$ be a $C^*$-algebra, and let $\sX$ be a spectrum of $A$ (cf. Definition \ref{prime_primtive_defn}). Let $C_0\left(\sY\right)\to M\left(A\right)$ be Hausdorff blowing-up. A point  $x \in \sX$ \textit{spectral} if for any open subset $\sU \subset \sY$ such that 
-\be\label{blowing_spectralp_eqn}
-\rep_x\left( A^{\text{prop}}_\sU \right)\neq \{0\}. 
+Let $A$ be a $C^*$-algebra and let $C_0\left(\sY\right)\to M\left( A\right)$ be  Hausdorff blowing-up (cf. the Definition \ref{blowing_defn}). If  $\sU\subset\sY$ is  a connected open subset, and  $A^{\text{prop}}_{\sU}$ is a $\sU$-proper (cf. Definition \ref{blowing_proper_defn}). Let both  $\sX_\sU$ and $\sX$ are spectra  of $A^{\text{prop}}_{\sU}$ and $A$ respectively. Form the Remark \ref{blowing_proper_rem} it follows that for any $x_\sU \in \sX_\sU$ a corresponding irreducible representation of $A^{\text{prop}}_{\sU}$ is given by $\rep_{x_\sU}:A^{\text{prop}}_{\sU} \to B\left(\H^\a_x \right)$ where $x \in \sX$. It follows that there is a map
+\bean
+\phi_\sU : \sX_\sU \to \sX,\\
+x_\sU \mapsto x.
+\eean 
+Consider  following conditions:
+\begin{enumerate}
+	\item [(a)] there is a family $\left\{\sU^\la\subset \sY\right\}_{\la\in\La}$  of regular subsets (cf. Definition \ref{blowig_regular_u_defn}) such that $\sX = \cup \sU_\la$,
+	\item[(b)] if $x\in \sX$ and 
+	\be\label{blowing_leaf_eqn}
+	\sY_x \bydef \bigcup_{\substack{\la\in\La\\x_{\sU^\la}\in \phi^{-1}_{\sU^\la}\left( x\right)}} \sU^\la_{x_{\sU^\la}}\subset \sY 
+	\ee
+then the set	$\sY_x$ is not empty does not depend on the family $\left\{\sU^\la\subset \sY\right\}_{\la\in\La}$ which satisfies to the condition (a),
+\item[(c)] one has
+	\be\label{blowing_spectral_eqn}
+\forall x',x'' \in \sX \quad x' \neq x'' \quad\Leftrightarrow\quad \sY_{x'}\cap \sY_{x''}= \emptyset
 \ee
-there is $y \in \sU$ satisfying to following conditions:\begin{center}
-	following conditions hold:
-\end{center}
-
-\be\label{blowing_spectral_eqn}
-\begin{split}
-I_y = \left\{ f \in C_0\left(\sY\right)|f\left(y\right)= 0\right\}\quad \Rightarrow\quad \rep_{x}\left( I_y\right) \neq \rep_{x}\left(  C_0\left( \sY\right)\right),\\
-	\forall x' \in \sX \quad \rep_{x'}\left( I_y\right) \neq \rep_{x'}\left(  C_0\left( \sY\right)\right)\quad \Leftrightarrow \quad x' = x.
-\end{split}
-\ee
-
+where both $\sY_{x'}$ and  $\sY_{x''}$ are given by the equation \eqref{blowing_leaf_eqn}.
+\end{enumerate}
 \end{empt}
 
-\begin{definition}\label{blowing_spectral_defn}
-	Consider the situation \ref{blowing_spectral_empt}.
-	We say that Hausdorff blowing-up $C_0\left(\sY \right)\hookto A$.  is \textit{spectral} if any $x \in \sX$ is spectral. 
+\begin{definition}\label{blowing_spectral_defn}  In  the situation \ref{blowing_spectral_empt}
+	we say that Hausdorff blowing-up $C_0\left(\sY \right)\hookto A$  is \textit{spectral}. For any $x \in \sX$ the  given by the equation \eqref{blowing_leaf_eqn} set $\sY_x\subset \sY$ is said to be the $x$-\textit{leaf}.
 \end{definition}
 
 \begin{remark}
-	The Definition \ref{blowing_spectral_defn} yields a motivation of the 	"{Hausdorff blowing-up}" word. If {Hausdorff blowing-up} is spectral then there is a partially defined surjective map from a Hausdorff space  $\sY$ to a possibly non Hausdorff spectrum $\sX$. Similarly in the algebraic geometry the "blowing-up" means a morphism form a nonsingular variety to a singular one (cf. \cite{hartshorne:ag}).
+	In the situation of the Definition \ref{blowing_spectral_defn} there is a map
+	\be\label{blowing_spe_eqn}
+	\begin{split}
+\phi:	\bigcup_{x \in \sX} \sY_x \to \sX,\\
+\phi\left( \sY_x \right)\bydef \{x\}, 
+	\end{split}
+	\ee
+	so the Definition \ref{blowing_spectral_defn}  yields a motivation of the 	"{Hausdorff blowing-up}" word. If {Hausdorff blowing-up} is spectral then there is a partially defined surjective map from a Hausdorff space  $\sY$ to a possibly non Hausdorff spectrum $\sX$. Similarly in the algebraic geometry the "blowing-up" means a morphism form a nonsingular variety to a singular one (cf. \cite{hartshorne:ag}).
 \end{remark}
 
 
@@ -12714,12 +12741,13 @@ $ it follows that $\sum_{	g \in G_0}\left( g \widetilde a\right)\widetilde b'$
 
 
 \begin{lemma}
-	Let $A$ be a $C^*$-algebra with spectral, disintegrable Hausdorff blowing-up $C_0\left(\sY\right)\subset M\left(A\right)$ (cf. Definitions \ref{blowing_defn}, \ref{blowing_spectral_defn} and \ref{blowing_disintegrable_defn}), and let $q: \widetilde \sY \to \sY$ be a finite-fold transitive covering (cf. Definitions \ref{top_covering_defn}, \ref{top_transitive_defn}). If  $A_0\left(\widetilde \sY \right)$ is a $q$-lift of $A$ (cf. Definition \ref{blowing_lift_a_f_defn}) then there the Hausdorff blowing-up $C_0\left(\widetilde \sY\right)\hookto M\left(A_0\left(\widetilde \sY \right) \right)$ is spectral.
+	Let $A$ be a $C^*$-algebra with spectral, disintegrable Hausdorff blowing-up $C_0\left(\sY\right)\subset M\left(A\right)$ (cf. Definitions \ref{blowing_defn}, \ref{blowing_spectral_defn} !!! CHANGE !!! and \ref{blowing_disintegrable_defn}), and let $q: \widetilde \sY \to \sY$ be a finite-fold transitive covering (cf. Definitions \ref{top_covering_defn}, \ref{top_transitive_defn}). If  $A_0\left(\widetilde \sY \right)$ is a $q$-lift of $A$ (cf. Definition \ref{blowing_lift_a_f_defn}) then there the Hausdorff blowing-up $C_0\left(\widetilde \sY\right)\hookto M\left(A_0\left(\widetilde \sY \right) \right)$ is spectral.
 \end{lemma}
 \begin{proof}
+
 	If  both $\sX$ and $\widetilde{ {\sX}}$ are spectra of $A$ and $A_0\left(\widetilde \sY \right)$ respectively then from the Proposition \ref{spectrum_cov_prop} it follows that there is a continuous surjective map $p: \widetilde \sX \to \sX$.
 	Let $\widetilde a$ be an element of $\widetilde \sU$-proper $C^*$-subalgebra (cf. Definition \ref{blowing_proper_defn}) of $A_0\left(\widetilde \sY \right)$. We can suppose that $\widetilde \sU$ is mapped homeomorphically onto $\sU \bydef q\left(\widetilde \sU\right)$. If $\widetilde x \in \widetilde \sX$ is such that $\rep_{\widetilde{x}} \left(\widetilde a \right)\neq 0$ and $x = p\left(\widetilde x\right)$ then one can prove that
-	$\rep_x\left( \desc_q\left(\widetilde a\right)\right)  \neq 0$ (cf. Definition \ref{blowing_lift_desc_defn}). From the Definition \ref{blowing_spectral_defn} it follows that there is  
+	$\rep_x\left( \desc_q\left(\widetilde a\right)\right)  \neq 0$ (cf. Definition \ref{blowing_lift_desc_defn}). From the Definition \ref{blowing_spectral_defn} !!! CHANGE !!! it follows that there is  
 	$y\in \sU$ such that
 	if
 	$$
@@ -12729,7 +12757,7 @@ $ it follows that $\sum_{	g \in G_0}\left( g \widetilde a\right)\widetilde b'$
 	\bean
 	\forall x' \in \sX \quad \rep_{x'}\left( I_y\right) \neq \rep_{x'}\left(  C_0\left( \sY\right)\right)\quad \Leftrightarrow \quad x' = x.
 	\eean
-	Suppose that $\left\{\widetilde y\right\}= \widetilde \sU \cap p^{-1}\left(\sU \right)$. We leave to the reader a proof of a following statement.
+	Suppose that $\left\{\widetilde y\right\}= \widetilde \sU \cap p^{-1}\left(\sU \right)$. We leave to the reader a proof of a following statement. 	!!! CHECK !!!
 	If
 	$$
 	I_{\widetilde y} = \left\{\left. \widetilde f \in C_0\left(\widetilde \sY\right)\right|\widetilde f\left( \widetilde y\right)= 0\right\}
@@ -16345,7 +16373,7 @@ where the notation of the Definition \ref{blowing_proper_defn} is used.
 \end{itemize}
 \end{empt}
 \begin{exercise}
-Using the explained in \ref{foli_spectral_empt} partially defined map prove that Hausdorff blowing-up $C_0\left( M\right)\subset M\left(C^*_r \left(M, \mathcal{F}\right) \right)$ is spectral (cf. Definition \ref{blowing_spectral_defn}).
+Using the explained in \ref{foli_spectral_empt} partially defined map prove that Hausdorff blowing-up $C_0\left( M\right)\subset M\left(C^*_r \left(M, \mathcal{F}\right) \right)$ is spectral (cf. Definition \ref{blowing_spectral_defn} !!! CHANGE !!!).
 \end{exercise}
 
 \subsection{Operator algebras of foliation coverings}
