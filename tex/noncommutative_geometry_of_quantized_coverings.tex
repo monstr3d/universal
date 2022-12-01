@@ -1530,6 +1530,17 @@ It follows that $f_\eps\left(a\right)	\in K\left( A \right)_0$. Conversely suppo
  then $ \varphi = f_\eps  \circ\psi$. It follows that $a = f_\eps\left(b \right)$ where $b \bydef \psi\left(b'\right)$. So the equation \eqref{k0_ped_e_eqn} is proven. The equation \eqref{kp_ped_e_eqn} is a direct consequence of \eqref{k0_ped_e_eqn} and \eqref{kp_ped_eqn} ones.
  
 \end{proof}
+%\begin{empt}
+%	Let $A$ be a $C^*$-algebra, and let $\sX$ be the a spectrum of $A$. For any $x \in \sX$ let $\H_x$ be a space of an irreducible representation $\rep_x : A \to B\left(\H_x\right)$. If $\sU$ is a subset of $\sX$ and $\H_\sU$ is a norm completion of an algebraic direct sum
+%	$$
+%	\bigoplus_{x \in \sU} \H_x
+%	$$
+%	 then there is the natural representation $\rho_{\sU}: A \to B\left( \H_\sU \right)$. If 
+%	 \be\label{closed_factor_eqn}
+%	 A|^\sU \bydef A /\ker \rho_{\sU}
+%	 \ee
+%	 then $A|^\sU$ is isomorphic to the $\rho_{\sU}$-image of $A$ and a spectrum of  $A|^\sU$ equals to $\sU$.
+%\end{empt}
 
 
 
@@ -2837,11 +2848,15 @@ and  a natural representation
 \ee
 is faithful and nondegenerate (cf. Corollary \ref{hered_representation_cor}).
 \end{empt}
-\begin{lemma}
-Let  $\left(A, \widetilde{A}, G, \pi \right)$ be a noncommutative finite-fold  quasi-covering with unitization (cf. Definition \ref{fin_unitization_defn}). If $B\subset A$ is a connected hereditary subalgebra and $\widetilde B\subset\widetilde A $ is  a {hereditary} $\left(A, \widetilde{A}, G, \pi \right)$-{lift} of $B$ (cf. Definition \ref{hered_lift_defn}) then a quadruple $\left(B, \widetilde{B}, G, \pi|_B \right)$  a noncommutative finite-fold  quasi-covering with unitization.
+\begin{lemma}\label{lift_unitization_lem}
+Let  $\left(A, \widetilde{A}, G, \pi \right)$ be a noncommutative finite-fold  quasi-covering with unitization (cf. Definition \ref{fin_unitization_defn}). If $B\subset A$ is a connected hereditary subalgebra and $\widetilde B\subset\widetilde A $ is  a {hereditary} $\left(A, \widetilde{A}, G, \pi \right)$-{lift} of $B$ (cf. Definition \ref{hered_lift_defn}) and
+$$
+H \bydef \left\{g\in G\left| \forall \widetilde b \in \widetilde B \quad g\widetilde b = \widetilde b\right.\right\}
+$$
+ then a quadruple $\left(B, \widetilde{B}, G/H, \pi|_B \right)$  a noncommutative finite-fold  quasi-covering with unitization.
 \end{lemma}
 \begin{proof}
-	If $\rho : A \hookto B\left(\H \right)$ is a faithful nondegenerate representation (cf. Definitions \ref{faithful_repr_defn} and \ref{nondegenerate_repr_defn}) then an induced by a pair $\left(\rho,\left(A, \widetilde{A}, G, \pi\right)  \right)$  representation  $\widetilde \rho: \widetilde A \hookto B\left(\widetilde \H \right)$ (cf. Definition \ref{induced_repr_defn}) is faithful and nondegenerate (cf. Lemmas \ref{induced_faithful_lem} and \ref{induced_nondegenerate_lem}). Moreover there if the natural action $G\times \widetilde \H \to \widetilde \H$ (cf. \ref{g_act_induced_empt}). There is a projection $\widetilde p \in B\left(\widetilde H\right)$ such that
+	If $\rho : A \hookto B\left(\H \right)$ is a faithful nondegenerate representation (cf. Definitions \ref{faithful_repr_defn} and \ref{nondegenerate_repr_defn}) then an induced by a pair $\left(\rho,\left(A, \widetilde{A}, G, \pi\right)  \right)$  representation  $\widetilde \rho: \widetilde A \hookto B\left(\widetilde \H \right)$ (cf. Definition \ref{induced_repr_defn}) is faithful and nondegenerate (cf. Lemmas \ref{induced_faithful_lem} and \ref{induced_nondegenerate_lem}). Moreover there if the natural action $G\times \widetilde \H \to \widetilde \H$ (cf. \ref{g_act_induced_empt}). There is a projection $\widetilde p \in B\left(\widetilde \H\right)$ such that
 	\be\label{hered_paptc_eqn}
 	\widetilde B = \left\{ \left.\widetilde a \in \widetilde A ~\right| \widetilde p\widetilde \rho\left( \widetilde a\right)\widetilde p = \widetilde\rho\left(\widetilde a\right)\right\}
 	\ee
@@ -2856,8 +2871,8 @@ Let  $\left(A, \widetilde{A}, G, \pi \right)$ be a noncommutative finite-fold  q
 \ee
 If $\left\{ \widetilde{a}'_1, ..., \widetilde{a}'_n, \widetilde{b}'_1, ..., \widetilde{b}'_n\right\}\bydef \left\{ \widetilde p\widetilde{a}_1\widetilde p, ..., \widetilde p\widetilde{a}_n\widetilde p, \widetilde p\widetilde{b}_1\widetilde p, ..., \widetilde p\widetilde{b}_n\widetilde p\right\}\in B\left(\widetilde p \widetilde \H \right)$ then from the equation \eqref{hered_paptc_eqn} it follows that
 $$
-\forall j \in \left\{1, ..., n\right\}\quad \forall \widetilde b \in \widetilde B \quad \Rightarrow\quad \widetilde{a}'_j \widetilde b, ~\widetilde{b}'_j \widetilde b,~ \widetilde b\widetilde{a}'_j ,~ \widetilde b\widetilde{b}'_j\in \widetilde B
-$$,
+\forall j \in \left\{1, ..., n\right\}\quad \forall \widetilde b \in \widetilde B \quad \Rightarrow\quad \widetilde{a}'_j \widetilde b, ~\widetilde{b}'_j \widetilde b,~ \widetilde b\widetilde{a}'_j ,~ \widetilde b\widetilde{b}'_j\in \widetilde B,
+$$
 so from the Definition \ref{multiplier_el_defn} it follows that $\left\{ \widetilde{a}'_1, ..., \widetilde{a}'_n, \widetilde{b}'_1, ..., \widetilde{b}'_n\right\}\in M\left(\widetilde B \right)$. From  the equation \eqref{unit_sum_eqn} it follows that 
 $$
 	\forall \widetilde{b} \in \widetilde{B}\quad \widetilde{a}=	\sum_{j=1}^{n}\widetilde{b}_j  a_j\quad \text{where} \quad a_j \bydef \left(  \sum_{g \in G} g\left(\widetilde{a}^*_j\widetilde{a} \right) \right)\in A.
@@ -2870,7 +2885,7 @@ It follows that
 $$
 \widetilde B = \widetilde b'_1 B+ ...+\widetilde b'_n B
 $$
-Now similarly to the Corollary \ref{cov_mult_fin_cor} one can prove that a quadruple $\left(B, \widetilde{B}, G, \pi|_B \right)$  a noncommutative finite-fold  quasi-covering with unitization.
+Now similarly to the Corollary \ref{cov_mult_fin_cor} one can prove that a quadruple $\left(B, \widetilde{B}, G/H, \pi|_B \right)$  a noncommutative finite-fold  quasi-covering with unitization.
 	
 \end{proof}
 
@@ -13280,27 +13295,81 @@ This right action satisfies to the equation
 \bean
 \forall A_{\mathrm{ext}}\in A_{\mathrm{ext}}\quad \forall \widetilde f \in  C_0\left(\widetilde \sY \right)\quad a_{\mathrm{ext}}\widetilde f=a_{\mathrm{ext}}\pi^{\mathrm{ext}}\left(  \widetilde f\right).
 \eean
-From $\left(\widetilde fa_{\mathrm{ext}} \right)^*= a_{\mathrm{ext}}^*  \widetilde f^*$ and the right action $A_{\mathrm{ext}}\times C_0\left(\widetilde \sY \right)\to A_{\mathrm{ext}}$ if follows that $A_{\mathrm{ext}}$ is a $C^*$-algebra. We leave to the reader that the quadruple
+From $\left(\widetilde fa_{\mathrm{ext}} \right)^*= a_{\mathrm{ext}}^*  \widetilde f^*$ and the right action $A_{\mathrm{ext}}\times C_0\left(\widetilde \sY \right)\to A_{\mathrm{ext}}$ if follows that $A_{\mathrm{ext}}$ is a $C^*$-algebra.The quadruple 
 $
 \left(  A_0\left( \widetilde \sY \right),   A_{\mathrm{ext}}, G, \pi_{\mathrm{ext}}\right) 
 $
-is a finite-fold noncommutative pre-covering. If the quadruple $\left(A, \widetilde A, G, \pi\right)$ is a finite-fold noncommutative covering with unitization (cf. Definition \ref{fin_unitization_defn}) then there is a finite set $\left\{ \widetilde a_1, ...,  \widetilde a_n\right\}\in \widetilde A$ such that
+is a finite-fold noncommutative quasi-covering. If the quadruple $\left(A, \widetilde A, G, \pi\right)$ is a finite-fold noncommutative covering with unitization (cf. Definition \ref{fin_unitization_defn}) then there is a finite set $\left\{ \widetilde a_1, ...,  \widetilde a_n\right\}\in \widetilde A$ such that
 \be\label{blowing_mult_eqn}
 	M\left( \widetilde A \right)=  \widetilde a_1 M\left( A\right)+...+\widetilde a_n M\left( A\right)
 \ee
-(cf. Corollary \ref{cov_mult_fin_cor})	
+(cf. Corollary \ref{cov_mult_fin_cor}).
 If $a^{\mathrm{ext}}_j \bydef \pi^{\mathrm{ext}}\left(  \widetilde a_j\right) \in B\left( \H^{\mathrm{ext}} \right)$ 
 for any $j = 1,...,k$ then $a^{\mathrm{ext}}_j\in M\left( A^{\mathrm{ext}} \right)$ and from \eqref{blowing_mult_eqn} it follows that 
 	$$
-	M\left( A_{\mathrm{ext}} \right)=  a^{\mathrm{ext}}_1 M\left( A_0\left( \widetilde \sY \right)\right)+...+a^{\mathrm{ext}}_1 M\left( A_0\left( \widetilde \sY \right)\right).
-	$$.
+	M\left( A_{\mathrm{ext}} \right)=  a^{\mathrm{ext}}_1 M\left( A_0\left( \widetilde \sY \right)\right)+...+a^{\mathrm{ext}}_1 M\left( A_0\left( \widetilde \sY \right)\right),
+	$$
+	i.e. $\left(  A_0\left( \widetilde \sY \right),   A_{\mathrm{ext}}, G, \pi_{\mathrm{ext}}\right)$ is a noncommutative finite-fold quasi-covering with unitization. If $A^{\widetilde\sU}_{\mathrm{ext}}$ is a  {hereditary}
+	 $\left(  A_0\left( \widetilde \sY \right),   A_{\mathrm{ext}}, G, \pi_{\mathrm{ext}}\right)$-{lift} of $_{\widetilde \sU}	A_0\left(\overline \sY \right)_{\widetilde \sU}$ (cf. Definition \ref{hered_lift_defn}) and
+	 $$
+		H \bydef \left\{g\in G\left| \forall \widetilde b \in A^{\widetilde\sU}_{\mathrm{ext}} \quad g\widetilde b = \widetilde b\right.\right\}	 
+	 $$
+	 then from the Lemma \ref{lift_unitization_lem} it follows that 
+	 		a quadruple 
+\be\label{blowing_cov_eqn}
+\left(  _{\widetilde \sU}	A_0\left(\overline \sY \right)_{\widetilde \sU},   A^{\widetilde \sU}_{\mathrm{ext}}, G/H, \pi_{\mathrm{ext}}|_{_{\widetilde \sU}	A_0\left(\overline \sY \right)_{\widetilde \sU}}\right)
+\ee
+is 	 		  a noncommutative finite-fold  quasi-covering with unitization. From the Lemma \ref{quasi_red_lem} it turns out that the  quadruple \eqref{blowing_cov_eqn} is 	 		  a noncommutative finite-fold  pre-covering, so it is a a noncommutative finite-fold  covering with unitization.
+On the other hand
+$$
+_{\widetilde \sU}	A_0\left(\overline \sY \right)_{\widetilde \sU}= A_0\left(\overline \sY \right)^{\mathrm{prop}}_{\widetilde \sU}= A^{\mathrm{prop}}_\sU
+$$
+and the Definition \ref{blowing_semi_defn} we conclude that a $C^*$-algebra $_{\widetilde \sU}	A_0\left(\overline \sY \right)_{\widetilde \sU}$ is simply connected (cf. Definition \ref{simply_connected_defn}). So on has
+\be\label{blowing_dir_sum_eqn}
+ A^{\widetilde \sU}_{\mathrm{ext}}\cong \bigoplus_{g \in G/H}gB^{\mathrm{prop}}_\sU
+\ee
+where $B^{\mathrm{prop}}_\sU$ is a connected component of $ A^{\widetilde \sU}_{\mathrm{ext}}$  such that there is an isomorphism  $\varphi: A_0\left(\overline \sY \right)^{\mathrm{prop}}_{\widetilde \sU}\xrightarrow{\approx}B^{\mathrm{prop}}_\sU$. 	 If $\sZ$ is a spectrum of  $A_{\mathrm{ext}}$ and $\mathcal{W}$ is a spectrum of  $A^{\widetilde \sU}_{\mathrm{ext}}$ then from the the Proposition \ref{hered_spectrum_prop} it follows that  $\mathcal{W}$ is an open subset of $\sZ$. From the equation \ref{blowing_dir_sum_eqn} it follows that 
+$$
+\mathcal{W} = \bigsqcup_{g \in G/H} g \sV
+$$
+where $\sV$ is a spectrum of $B^{\mathrm{prop}}$. Form the above equation it turns out that
+\be\label{blowing_ds_eqn}
+A_{\mathrm{ext}}|_{\mathcal{W}} =\bigoplus_{g \in G/H}g  A_{\mathrm{ext}}|_{\mathcal{V}}
+\ee
+where the given by the equation \eqref{open_ideal_eqn} notation is used.
+From the inclusion $C_0\left(\widetilde \sU \right) \hookto M\left(A_{\mathrm{ext}}\right)$ it follows that for any 
+$\widetilde f\in  C_0\left(\widetilde \sU \right)$ there 
+is a net $\left\{a_\a\in~ _{\widetilde \sU}	 A_0\left(\overline \sY \right)^{\mathrm{prop}}_{\widetilde \sU} \right\}_{\a\in \mathscr A}$ such that 
+$$
+\widetilde f = \bt\text{-}\lim_{\a \in \mathscr A} \pi_{\mathrm{ext}}\left( a_\a\right) ,
+$$
+where $\bt\text{-}\lim$ means a limit with respect to the strict topology of $M\left(A_{\mathrm{ext}}\right)$ (cf. Definition \ref{strict_topology_defn}). However  one has
+$$
+\forall a \in A_0\left(\overline \sY \right)^{\mathrm{prop}}_{\widetilde \sU}\quad \pi_{\mathrm{ext}}\left( a\right)= \sum_{	g \in G/N} g \varphi\left(a \right) 
+$$
+and 
+$$
+\forall b \in \pi_{\mathrm{ext}} \left( a_\a\right)b = \sum_{	g \in G/N} g \varphi\left(a \right) b
+$$
+From $g \varphi\left(a \right) b\in g  A_{\mathrm{ext}}|_{\mathcal{V}}$ and the direct sum \eqref{blowing_ds_eqn} it follows that the net $\left\lbrace \sum_{	g \in G/N} g \varphi\left(a \right) b\right\rbrace $ is $C^*$-norm convergent if and only if a net  $ \left\{g\varphi\left(a_\a \right) b\right\}$ is  $C^*$-norm convergent for all $	g \in G/N$. The map 
+$$
+\bt\text{-}\lim_{\a \in \mathscr A} \pi_{\mathrm{ext}}\left( a_\a\right)\mapsto \bt\text{-}\lim_{\a \in \mathscr A} \varphi \left( a_\a\right)
+$$
+yields an isomorphism of commutative $C^*$ algebras $C_0\left( \widetilde \sU\right) \cong C_0\left( \widetilde \sU_{\mathrm{ext}}\right)$. There is a natural inclusion 
+$$
+\bigoplus_{g \in G/H}gC_0\left( \widetilde \sU_{\mathrm{ext}}\right)\subset M\left(A_{\mathrm{ext}}\right)
+$$
+
+
+
+	
+	
+	If $_{\widetilde \sU}	A_0\left(\overline \sY \right)_{\widetilde \sU}$
+	so 
 	If $\left\{\widetilde v_\la\right\}_{\la \in \Xi\left(\widetilde \sU\right)}\subset C_0\left( \sX\right)_+$ is the explained in \ref{top_u_net_empt}  net then
 	$$
 	nn
 	$$
-	 \begin{empt}\label{top_u_net_rep_empt}
-	Let $\sX$ be a locally compact, Hausdorff space, and let $C_0\left(\sX\right)\to B\left(\H \right)$ be a faithful representation. Let   $\left\{u_\la\right\}_{\la \in \Xi\left( \sX\right)}\subset C_0\left( \sX\right)_+$ be an explained in \ref{top_u_net_empt}  net. From the Lemma  \ref{increasing_convergent_w_lem} it turns out that the family $\left\{\rho\left( u_\la\right) \right\}_{\la \in \Xi\left( \sX\right)}$ is convergent with respect to a strong topology of $B\left( \sH\right)$ (cf. Definition \ref{strong_topology_defn}). Moreover the strong limit $s$-$\lim\rho\left(  u_\la \right) \in B\left( \H\right)$ equals to $\rho\left(\chi_\sU \right)$ where $\chi_\sU$ is a characteristic function of $\sU$ (cf. Definition \ref{top_char_f_defn}). 
-\end{empt}
 
 		
 
