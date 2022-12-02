@@ -13429,11 +13429,11 @@ H\pi\left(C_0\left(\sU\right)\right)\widetilde A= \pi\left(C_0\left(\sU\right)\r
 \forall \widetilde a \in \pi\left(C_0\left(\sU\right)\right)\widetilde A\quad H\widetilde a= \left\{\widetilde a\right\}.
 	\end{split}
 	\ee
-		If $\left\{\sU_\a\right\}_{\a\in \mathscr A}$ is  a family of  semilocally 1-connected sets such that then an algebraic sum 
+		If $\left\{\sU_\a\right\}_{\a\in \mathscr A}$ is  a family of  semilocally 1-connected sets such that $\sY = \bigcup_{\a\in \mathscr A}$   then an algebraic sum 
 	$$
 	\sum_{\a\in\mathscr A} \pi\left(C_0\left(\sU_\a\right)\right)\widetilde A
 	$$
-	is dense in $\widetilde A$ with respect to $C^*$-norm topology so from \eqref{blowing_semi_h_eqn} it turns out that
+	is dense in $\widetilde A$ with respect to a $C^*$-norm topology so from \eqref{blowing_semi_h_eqn} it turns out that
 \bean
 \forall \widetilde a \in 	\sum_{\a\in\mathscr A} \pi\left(C_0\left(\sU_\a\right)\right)\widetilde A\quad H\widetilde a= \left\{\widetilde a\right\},\\
 \forall \widetilde a \in 	\widetilde A\quad H\widetilde a= \left\{\widetilde a\right\},
@@ -13448,7 +13448,64 @@ $$
 	Let  $A$ be a connected  $C^*$-algebra (cf. Definition \ref{connected_c_a_defn}), and let $C_0\left( \sY\right)\hookto M\left( A\right) $ be disintegrable, semilocally 1-connected Hausdorff blowing up (cf. Definitions \ref{blowing_defn}, \ref{blowing_disintegrable_defn} and \ref{blowing_semi_defn}). If  $\left(A, \widetilde A, G, \pi \right)$ be a reducible noncommutative finite-fold covering with unitization (cf. Definitions \ref{fin_red_defn} and \ref{fin_unitization_defn}) then there is a finite-fold transitive covering $q: \widetilde \sY \to\sY$, such that $\left(A, \widetilde A, G, \pi \right)$ is equivalent to the given by the Theorem \ref{blowing_fin_thm} covering $\left(A,A_0\left( \widetilde \sY\right),G\left(\left.\widetilde{\sY}~\right|\sY\right),  A_0\left( q\right) \right)$.
 \end{theorem}
 \begin{proof}
-	!!! USE IDEALS !!!
+Here the notation of the Lemma \ref{blowing_semi_lem} is used.		If $\left\{\sU_\a\right\}_{\a\in \mathscr A}$ is  a family of  semilocally 1-connected sets such that $\sY = \bigcup_{\a\in \mathscr A}$   then an algebraic sum 
+$$
+\sum_{\a\in\mathscr A} \pi\left(C_0\left(\sU_\a\right)\right)\widetilde A
+$$
+is dense in $\widetilde A$ with respect to a $C^*$-norm topology. We also suppose that for any $\widetilde A$ there is an evenly covered by $q$ semilocally 1-connected set $\sV_\a$ such that there is $f_\a \in C_c\left(\sY\right)$ which satisfies to the following conditions
+\bean
+f_\a\left(\sV_\a\right) = \left[0,1\right],\\
+\supp f_\a \subset \sU_\a,\\
+f_\a\left(\sV_a \right)=\{1\}.
+\eean
+On the other hand for any $\a\in\mathscr A$ one can select an open subsets $\widetilde \sU_\a, \widetilde \sV_\a\subset\sY$ such that
+\bean
+\widetilde \sU_\a\subset \widetilde \sV_\a,\\
+q^{-1}\left(\sU_\a \right)=  \bigsqcup_{g \in G\left(\left.\widetilde{\sY}~\right|\sY\right)}g \widetilde \sU_\a,\\
+q^{-1}\left(\sV_\a \right)=  \bigsqcup_{g \in G\left(\left.\widetilde{\sY}~\right|\sY\right)}g \widetilde \sV_\a.
+\eean
+For any $\a\in\mathscr A$ denote by $\widetilde f_\a\bydef \lift^q_{\widetilde{\sU}}\left(f_\a \right)$ (cf. Definition \ref{top_lift_desc_defn}). 
+From 
+$$
+\widetilde \sY = \bigcup_{\substack{\a\in\mathscr A\\g\in G\left(\left.\widetilde{\sY}~\right|\sY\right)} } g \widetilde \sU_\a
+$$
+it follows that an algebraic sum 
+$$
+\sum_{\substack{\a\in\mathscr A\\g\in G\left(\left.\widetilde{\sY}~\right|\sY\right)} } gC_0\left(\widetilde \sU_\a\right)\widetilde A
+$$
+of right $\widetilde A$-ideals is dense in $\widetilde A$. If $\widetilde a \in gC_0\left(\widetilde \sU_\a\right)\widetilde A$ then $$\sum_{	g \in G\left( \left. \widetilde \sY\right| \sY\right) }\widetilde a \in \pi \left(C_0\left(\widetilde \sU_\a\right)A\right).$$
+On the other hand $C_0\left(\widetilde \sU_\a\right)A$ is a $C^*$-norm completion of an algebraic linear span of monomials 
+$$
+a_1\cdot ...\cdot a_n \quad \forall j \in {1,...,n}\quad \exists \a_j \in \mathscr A\quad a_j \in A^{\text{prop}}_{\sU_{\a_j}}\quad \a_1=\a.
+$$
+Moreover $a_j = f_{\a_j}a_j=a_jf_{\a_j}=f_{\a_j}a_jf_{\a_j}$. If $\widetilde a \in gC_0\left(\widetilde \sU_\a\right)\widetilde A$ and $$\sum_{	g \in G\left( \left. \widetilde \sY\right| \sY\right) }\widetilde a = a_1\cdot ...\cdot a_n$$
+then
+\bean
+\widetilde a = \left( g_1 \widetilde f_{\a_1} \right)\pi\left( a_1 \right) \left( g_1 \widetilde f_{\a_1} \right)\cdot...\cdot \left( g_n \widetilde f_{\a_n} \right)\pi\left( a_n \right) \left( g_n \widetilde f_{\a_n} \right)
+\eean
+where $g_1 = g$ and $g_j\widetilde \sU_{\a_j}\cap g_{j+1}\widetilde \sU_{\a_{j + 1}}\neq \emptyset.
+$ On the other hand 
+\bean
+\left( g_j \widetilde f_{\a_j} \right)\pi\left( a_j \right) \left( g_j \widetilde f_{\a_j} \right)\in  g \widetilde A^{\text{prop}}_{\widetilde\sU_{\a_j}} \left( g_j \widetilde f_{\a_j} \right)\pi\left( A^{\text{prop}}_{\sU_{\a_j}} \right) \left( g_j \widetilde f_{\a_j} \right)
+\eean
+where 
+$$
+\widetilde A^{\text{prop}}_{\widetilde\sU_{\a_j}} \bydef  \widetilde f_{\a_j}\pi\left( A^{\text{prop}}_{\sU_{\a_j}} \right)  \widetilde f_{\a_j} \cong A^{\text{prop}}_{\sU_{\a_j}}
+$$
+From the above text  it follows that (cf. Definition \ref{universal_ca_defn})
+\begin{itemize}
+	\item $\widetilde A$ is he {universal $C^*$-algebra on the generators $G$ and relations $R$} (cf. Definition \ref{universal_ca_defn}).
+	\item The set of generators is  
+	$$
+G\bydef	\bigcup_{\substack{\a\in\mathscr A\\g\in G\left(\left.\widetilde{\sY}~\right|\sY\right)} }g\widetilde A^{\text{prop}}_{\widetilde\sU_{\a}}\quad\text{where}\quad \widetilde A^{\text{prop}}_{\widetilde\sU_{\a}} \bydef  \widetilde f_{\a}\pi\left( A^{\text{prop}}_{\sU_{\a}} \right)  \widetilde f_{\a} \cong A^{\text{prop}}_{\sU_{\a}}
+	$$
+	\item The set of relations coincides with the set $R$ of relations of $A_0\left(\widetilde\sY\right)$ (cf. Definition \ref{blowing_lift_a_f_defn})
+\end{itemize}
+!!! CONTINUE !!!
+
+
+
+
 \end{proof}
 
 \begin{corollary}\label{blowing_functor_eq_cor}
@@ -24222,7 +24279,7 @@ Inverse limits of $C^*$-algebras are specializations of the explained  in \ref{p
 	\end{empt}
 	\subsection{Generators and relations}\label{generators_and_relations}
 	\paragraph{}
-	We begin with the construction of the $C^*$-algebra on a properly chosen
+Here I follow to \cite{phillips:inv_lim_app}.	We begin with the construction of the $C^*$-algebra on a properly chosen
 	set of generators and relations. Our treatment is based that of \cite{blackadar:shape_theory}, but includes
 	changes to make it more suitable for our purposes. If $G$ is any set, we denote by
 	$F(G)$ the free associative complex *-algebra (without identity) on the set $G$. Thus,
@@ -24237,8 +24294,8 @@ Inverse limits of $C^*$-algebras are specializations of the explained  in \ref{p
 	continuous. Note that Blackadar considers only relations of the form $\|x\| \le \eta$ for $\eta > 0$ and $x$ in the unitization $F(G)^+$ of $F(G)$. (We do not allow relations involving
 	elements of $F(G)^+=F(G)$ because they do not make sense in a nonunital $C^*$-
 	algebra. However, it is perfectly possible for $R$ to include the relations $eg = ge „ g$
-	for some fixed $e \in G$ and all $g \in G \coprod G^*$.)
-	\begin{defn}
+	for some fixed $e \in G$ and all $g \in G \coprod G^*$).
+	\begin{defn}\label{gr_ca_defn}\cite{phillips:inv_lim_app}
 		Let $(G,R)$ be a set of generators and relations.
 		(That is, $G$ is a set and $R$ is a set of relations on $G$). Then a representation of
 		$(G,R)$ in a $C^*$-algebra $A$ is a function $\rho : G \to A$ such that the elements $\rho(g)$ for $g \in G$ satisfy the relations $R$ in $A$. A representation on a Hilbert space $\H$ is a
@@ -24262,8 +24319,10 @@ Inverse limits of $C^*$-algebras are specializations of the explained  in \ref{p
 	by Blackadar, (2) and (3) are automatic and (5) follows from (4).
 	%1.3.3. EXAMPLES, (l) The relation |x|| = 1 on the single generator
 	%x does not satisfy (l) of the definition.
-	The universal $C^*$-algebra on the generators $G$ and relations $R$ is a $C^*$- algebra $C^*(G,R)$ with a representation $\rho$ of $(G,R)$ in $C^*(G,R)$, such that, given any representation $\sigma$ of $(G,R)$ in a $C^*$-algebra $B$, then is a unique homomorphism
-	$\psi : C^*(G,R) \to B$ such that $\sigma=\psi \circ \rho$. If $(G,R)$ is admissible, then $C^*(G,R)$ exists
+	\begin{definition}\label{universal_ca_defn}\cite{phillips:inv_lim_app}
+	The \textit{universal $C^*$-algebra on the generators $G$ and relations $R$} is a $C^*$- algebra $C^*(G,R)$ with a representation $\rho$ of $(G,R)$ in $C^*(G,R)$, such that, given any representation $\sigma$ of $(G,R)$ in a $C^*$-algebra $B$, then is a unique homomorphism
+$\psi : C^*(G,R) \to B$ such that $\sigma=\psi \circ \rho$.	\end{definition}
+ If $(G,R)$ is admissible, then $C^*(G,R)$ exists
 	and, following Blackadar, can be obtained as the Hausdorff completion of $F(G)$ in the $C^*$ -seminorm $\|x\| = \mathrm{sup}|\rho(x)\|$ where $\rho$ is a representation of $(G,R)$.
 	Note that condition (4) guarantees that $\|x\| < \infty$ for $x \in G$, and that condition
 	(5) guarantees that the obvious map from $G$ to $C^*(G, R)$ is in fact a representation.
