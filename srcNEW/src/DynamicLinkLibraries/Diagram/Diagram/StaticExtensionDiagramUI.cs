@@ -73,6 +73,28 @@ namespace Diagram.UI
         #region Public Memberes
 
         /// <summary>
+        /// Copy of an array to a string
+        /// </summary>
+        /// <param name="x">The array</param>
+        /// <param name="sep">The sting separator</param>
+        /// <param name="end">The en</param>
+        /// <returns>The string</returns>
+        public static string CopyTo(this double[] x, string sep, string end)
+        {
+            var sb = new StringBuilder();
+            for (int i = 0; i < x.Length; i++)
+            {
+                sb.Append(x[i]);
+                if (i < x.Length - 1)
+                {
+                    sb.Append(sep);
+                }
+            }
+            sb.Append(end);
+            return sb.ToString();
+        }
+
+        /// <summary>
         /// Loads array from string
         /// </summary>
         /// <param name="s">The str</param>
