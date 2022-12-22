@@ -3515,7 +3515,7 @@ Similarly to the Remark \ref{loc_op_sp_rem} any abstract real operator local spa
 
 
 \section{Coverings of spectral triples}\label{triple_fin_cov}
-!!!  CONTINUE !!!
+
 \paragraph*{} 
  If $\left( \A, \H, D, J\right)$ is a spectral triple then from the Axioms \ref{regularity_axiom}, \ref{finiteness_axiom} it follows that:
  \begin{itemize}
@@ -3553,6 +3553,30 @@ with the scalar product given by
 \left( r \ox \eta \ox \bar q, s \ox \xi \ox \bar t\right)_{\widetilde{\K}} 
 \bydef \left( \eta, \left\langle r,s\right\rangle_{\widetilde A}\,  \left\langle t,q\right\rangle_{\widetilde A^\opp}  \,\xi\right)_\H 
 \ee
+Similarly to \eqref{morita_J_eqn} one can define antiunitary operators
+\be\label{morita_I_eqn}
+\begin{split}
+\widetilde I : \widetilde{\K} \to \widetilde{\K},	\\
+\widetilde a \otimes \xi \otimes \widetilde b^* \mapsto \widetilde b \otimes J \xi \otimes \widetilde a^*;\\
+\widetilde I^\dagger : \widetilde{\K} \to \widetilde{\K},	\\
+\widetilde a \otimes \xi \otimes \widetilde b^* \mapsto \widetilde b \otimes J^\dagger \xi \otimes \widetilde a^*;
+\end{split}
+\ee
+Similarly to the equations \eqref{st_left_eqn} and \eqref{st_right_eqn} one can define  following representations
+\be\label{st_rep_eqn}
+\begin{split}
+\forall \widetilde c \in \widetilde A\quad  \rho\left( \widetilde c\right)  : \widetilde a \ox \xi \ox \widetilde c \longmapsto \widetilde c\widetilde a \ox \xi \ox \widetilde b,\\
+\rho^0\left( \widetilde c\right)\bydef \widetilde I \rho\left( \widetilde c^*\right)  \widetilde I^\7: \widetilde a \ox \xi \ox \widetilde c \longmapsto \widetilde a \ox \xi \ox \widetilde b \widetilde c
+\end{split}
+\ee
+According to the Remark \ref{sp_tr_commute_rem} these representations commute, i.e.
+$$
+\forall \widetilde a , \widetilde b \in \widetilde A \quad \rho\left( \widetilde a\right) \rho^0\left( \widetilde b\right) =\rho^0\left( \widetilde b\right) \rho\left( \widetilde a\right).
+$$
+Henceforth we use the following equivalent notation of the above equation
+\be\label{st_commute_eqn}
+\forall \widetilde a , \widetilde b \in \widetilde A\quad \left[\widetilde a ,\widetilde I  \widetilde b^*  \widetilde I^\7 \right] = 0.
+\ee
 There are two subspaces 
 \bean
 \widetilde \H \bydef \left\{ \widetilde{a }\ox \xi \ox 1_{\widetilde{A}^\opp}\in \widetilde \K \right\},\\
@@ -3567,11 +3591,28 @@ From \eqref{st_k_pr_eqn} it follows that
 $$
 \forall \widetilde{\xi}, \widetilde \eta \in \widetilde \H \quad \left(\widetilde{\xi}, \widetilde \eta\right)_{\widetilde \K}= \left(\a\widetilde{\xi}, \a\widetilde \eta\right)_{\widetilde \K}.
 $$ 
-From the above equation and taking into account $\forall c \in \C \quad \a \left(  c \widetilde{\xi}\right) = c\left( \a  \widetilde{\xi}\right) $ we conclude that $\a$ is an isomorphism of Hilbert spaces. The space $\widetilde \K$ is a $\widetilde A$-$\widetilde A^\opp$ bimodule, both subspaces $\widetilde \H, \widetilde \H^\opp\subset \widetilde\K$ are left $\widetilde A$ and right $\widetilde A^\opp$ module respectively. One can define a natural structure of a right-$\widetilde A^\opp$ bimodule on $\widetilde \H$ such that
+From the above equation and taking into account $\forall z \in \C \quad \a \left(  z \widetilde{\xi}\right) = \overline{z}\left( \a  \widetilde{\xi}\right) $ we conclude that $\a$ is an antiunitary homomorphism of Hilbert spaces. The space $\widetilde \K$ is a $\widetilde A$-$\widetilde A^\opp$ bimodule, both subspaces $\widetilde \H, \widetilde \H^\opp\subset \widetilde\K$ are left $\widetilde A$ and right $\widetilde A^\opp$ module respectively. One can define a natural structure of a right-$\widetilde A^\opp$ bimodule on $\widetilde \H$ such that
 \bean
-\forall \widetilde \xi \in \widetilde \H\quad \forall \widetilde a^0\in \widetilde A^\opp \quad \widetilde \xi \widetilde b^0 \bydef \a^{-1}\left( \a\left(\widetilde \xi \right) \widetilde a^0\right)  
+\forall \widetilde \xi \in \widetilde \H\quad \forall \widetilde a^0\in \widetilde A^\opp \quad \widetilde \xi \widetilde a^0 \bydef \a^{-1}\left( \a\left(\widetilde \xi \right) \widetilde a^0\right)= \left( \widetilde I \widetilde a^*  \widetilde I^\dagger \right) \widetilde \xi. 
 \eean 
-so $\widetilde\H$ is a is a $\widetilde A$-$\widetilde A^\opp$-bimodule. From the isomorphism of
+From the equation \eqref{st_commute_eqn} it follows that
+$\widetilde\H$ is a $\widetilde A$-$\widetilde A^\opp$ bimodule, i.e.
+$$
+\forall \widetilde \xi \in \widetilde \H \quad \forall \widetilde a \in \widetilde A \quad \forall \widetilde b^0 \in \widetilde A^\opp \quad \left(\widetilde a \widetilde\xi\right) \widetilde b^0= \widetilde a\left(\widetilde \xi \widetilde b^0\right).
+$$
+
+If $\widetilde \xi \bydef \widetilde c \otimes\xi \otimes 1_{\widetilde A^{\mathrm{op}}}\in\widetilde \H$
+then one has
+\bean
+\forall \widetilde a \in \widetilde A, \quad\forall \widetilde b^0\in  \widetilde A^\opp\quad \left(\widetilde a \widetilde \xi \right)   \widetilde b^0=  \left( \widetilde I \widetilde b^*  \widetilde I^\dagger \right)\left(\widetilde a \widetilde c \otimes\xi \otimes 1_{\widetilde A^{\mathrm{op}}}\right) =\\
+=\widetilde I\left( 1_{\widetilde A}\otimes J^\dagger\xi \otimes \widetilde c^* \widetilde a^* \widetilde b^*\right) = \widetilde b \widetilde a \widetilde c \otimes \xi \otimes 1_{\widetilde A^{\mathrm{op}}}.\\
+\eean
+
+
+.
+If $\widetilde c \otimes\xi \otimes 1_{\widetilde A^{\mathrm{op}}}\cong \widetilde \H$
+
+ is a is a $\widetilde A$-$\widetilde A^\opp$-bimodule. From the isomorphism of
 $$
 \left\{ \widetilde{a }\ox \xi \ox 1_{\widetilde{A}^\opp}\in \widetilde \K \right\}\cong \widetilde A \ox_A \H
 $$
@@ -25875,16 +25916,21 @@ and~$\overline\E$ also gives an obvious way to extend $J$ to~$\widetilde\H$:
 \ee
 Let $\B \bydef \End_\A \E$, and recall that $\E$ is a left $\B$-module.
 Then
-$$
+\be\label{st_left_eqn}
 \rho(b) : s \ox \xi \ox \bar t \longmapsto b\,s \ox \xi \ox \bar t
-$$
+\ee
 yields a representation $\rho$ of $\B$ on~$\widetilde\H$, satisfying
-$$
+\be\label{st_right_eqn}
 \rho^0(b) \bydef \widetilde J \rho(b^*) \widetilde J^\7
 : s \ox \xi \ox \bar t \longmapsto s \ox \xi \ox \bar t\,b,
-$$
-where $\bar t\,b \bydef \overline{b^*t}$, of course. The action $\rho$,
+\ee
+where $\bar t\,b \bydef \overline{b^*t}$, of course. 
+
+\begin{remark}\label{sp_tr_commute_rem}\cite{varilly:noncom}
+The action $\rho$,
 $\rho^0$ of $\B$ on~$\widetilde\H$ obviously commute.
+\end{remark}
+
 
 
 \subsubsection{Where connections come from}
