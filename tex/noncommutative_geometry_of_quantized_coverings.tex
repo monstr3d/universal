@@ -3543,7 +3543,7 @@ Denote by
 \rho : \A \hookto B\left(\H \right),\\
 \rho^0: \A^\opp \hookto B\left(\H \right). 
 \eean
-natural representations of $\A$ and $\A^0$. If $\widetilde A = pA^m$, then $\widetilde A^\opp =\left( A^\opp\right)^mp$ and
+natural representations of $\A$ and $\A^\opp$. If $\widetilde A = pA^m$, then $\widetilde A^\opp =\left( A^\opp\right)^mp$ and
 $\widetilde\H = \pi(p) \pi^0(p) [\H \ox \C^{m^2}]$ then similarly to the equation \eqref{morita_prod_eqn} consider a following Hilbert space 
 \bean
 \widetilde\K \bydef \widetilde A \otimes_A \H \ox_{A^\opp} \widetilde A^\opp.
@@ -3676,27 +3676,59 @@ or equivalently
 \be\label{st_comn_wt_eqn}
 \forall \widetilde a,\widetilde b \in \widetilde \A\quad \left[ \widetilde a,\widetilde J\widetilde b^*\widetilde J^\dagger\right] = 0,
 \ee
-i.e. one has a situation of the Definition \ref{df:spt-real_defn}. Let $\Om^1_D$ be given by \eqref{om_d_eqn}, and let  
+i.e. one has a situation of the Definition \ref{df:spt-real_defn}. 
+ $\Om^1_D$ be given by \eqref{om_d_eqn}, and let  
 \be\label{nabla_cov_herm_eqn}
 \nabla : \widetilde \A\to \widetilde \A\otimes_\A \Om^1_D.
 \ee
-be  a Hermitian connection (cf. \ref{herm_conn_defn}) with respect to $D$, i.e.
+be  a connection.
+\\
+\paragraph{title}
+!!!MAY BE DELETE!!!
+Hermitian connection (cf. \ref{herm_conn_defn}) with respect to $D$, i.e.
 \be\label{herm_conn_cov_eqn}
 \left\langle  \widetilde   a,\nabla  \widetilde   b\right\rangle - \left\langle \nabla  \widetilde   a, \widetilde   b\right\rangle= \left[ D, \left\langle  \widetilde   a, \widetilde   b\right\rangle\right]
 \sepword{for all} \widetilde a, \widetilde b \in  \widetilde\A.
 \ee
+\paragraph{title}
+
  We suppose that $\nabla$ is $G$-equivariant, i.e.
 \be\label{conn_equ_conn}
 \forall g \in G \quad \nabla \widetilde a = \sum_{j=1}^n \widetilde a_j \otimes \om_j \quad \Rightarrow \quad \nabla \left( g\widetilde a\right)  = \sum_{j=1}^n g\widetilde a_j \otimes \om_j 
 \ee
+We define an operator $\widetilde D\in \L^\dagger \left( \widetilde \H^\infty\right) $  such that 
+\be\label{wtd_eqn}
+\widetilde D \left(\widetilde a \otimes \xi  \right)\bydef \left(\nabla \widetilde a \right)\xi +  \widetilde a\otimes D\xi = \sum_{j=1}^n \widetilde a_j \otimes \om_j \xi \quad \text{where}\quad \nabla \widetilde a = \sum_{j=1}^n\widetilde a_j \otimes \om_j.
+\ee
+We also require that the operator $\widetilde D$ is self-adjoint, i.e.
+$$
+\forall \widetilde a \otimes \xi, \widetilde b \otimes \eta\in  \widetilde \A\otimes_\A \H^\infty\quad \left( \widetilde D\left( \widetilde a \otimes \xi \right), \widetilde b \otimes \eta \right)_{\widetilde \H}   = \left(  \widetilde a \otimes \xi ,\widetilde D\left( \widetilde b \otimes \eta \right)\right)_{\widetilde \H} 
+$$
+If $\nabla \widetilde a = \sum_{j=1}^n\widetilde a_j \otimes \om'_j$ and $\nabla \widetilde b = \sum_{j=1}^m\widetilde b_j \otimes \om''_j$ then one has
+\bean
+\left( \widetilde D\left( \widetilde a \otimes \xi \right), \widetilde b \otimes \eta \right)_{\widetilde \H}   = \left( \sum_{j=1}^n \widetilde a_j \otimes \om'_j \xi + \widetilde a \otimes D \xi , \widetilde b \otimes \eta \right)_{\widetilde \H}=\\= \sum_{j=1}^n \left(\om'_j \xi,  \left\langle \widetilde a_j, \widetilde b \right\rangle \eta \right)_\H  + \left(D\xi, \left\langle \widetilde a, \widetilde b \right\rangle \eta \right)_\H, \\
+\left(  \widetilde a \otimes \xi ,\widetilde D\left( \widetilde b \otimes \eta \right)\right)_{\widetilde \H}= \sum_{j=1}^m\left(   \xi ,\left\langle \widetilde a, \widetilde b_j \right\rangle \om'' \eta \right)_{\H}+ \left(\xi, \left\langle \widetilde a, \widetilde b \right\rangle D \eta \right)_\H 
+\eean
+It follows that if 
+\be\label{herma_conn_eqn}
+\begin{split}
+ \sum_{j=1}^n \left(\om'_j \xi,  \left\langle \widetilde a_j, \widetilde b \right\rangle \eta \right)_\H  + \left(D\xi, \left\langle \widetilde a, \widetilde b \right\rangle, \eta \right)_\H =\\=\sum_{j=1}^m\left(   \xi ,\left\langle \widetilde a, \widetilde b_j \right\rangle \om'' \eta \right)_{\H}+ \left(\xi, \left\langle \widetilde a, \widetilde b \right\rangle D \eta \right)_\H 
+\end{split}
+\ee
+then the given by \eqref{wtd_eqn} operator $\widetilde{D}$ is self-adjoint.
+\begin{definition}\label{herma_conn_defn}
+If a connection $\nabla$ satisfies to the equation \eqref{herma_conn_eqn} then we say that $\nabla$ is  \textit{Hermitian} (cf. Definition \ref{herm_conn_defn}).
+\end{definition}
+Henceforth we require that the connection  $\nabla$  is Hermitian.
 
-
+!!! 
+\\
 If $\widetilde D'$ is given by \eqref{morita_d_eqn} then 
 $$
 \widetilde D'~\iota \left( \widetilde \H^\infty\right)\subset \iota \left( \widetilde \H^\infty\right). 
 $$
 This circumstance naturally  yields a selfadjoint  operator $\widetilde D\in \L^\dagger \left( \widetilde \H^\infty\right) $. From \eqref{morita_d_eqn} it follows that
-\be\label{wtd_eqn}
+\be\label{wtd_eqn!}
 \widetilde D \left(\widetilde a \otimes \xi  \right) = \left(\nabla \widetilde a \right)\xi +  \widetilde aD\xi.
 \ee
 From 
