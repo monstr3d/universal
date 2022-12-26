@@ -3533,25 +3533,117 @@ Similarly to the Remark \ref{loc_op_sp_rem} any abstract real operator local spa
  \end{itemize}
 
 \begin{empt}\label{triple_conn_lift_empt} 
-Let $\left(\A, \widetilde \A, G\left( \left.\widetilde \A~\right| \A\right), \pi  \right)$ be a {noncommutative finite-fold covering of  bounded operator *-algebras} (cf. Definition \ref{fin_oa_defn}) such that  $\widetilde \A$ is a finitely generated projective $\A$-module. 
- If both $A$ and $\widetilde A$ are $C^*$-norm completions of $\A$ and  $\widetilde \A$ then from the Definition  \ref{fin_oa_defn} it follows that there is  a connected unital noncommutative finite-fold covering $\left(A, \widetilde A, G\left( \left.\widetilde A\right| A\right), \widetilde \pi  \right)$ (cf. Definition \ref{fin_unital_defn}) such that $\pi= \widetilde\pi|_{\A}$. Similarly to the equation \eqref{finite_hilb_mod_prod_eqn} one has a sesquilinear product
- $\left\langle \cdot , \cdot  \right\rangle_{\widetilde A} : \widetilde A\times \widetilde A \to \A$ such that
+Let $\left(\A, \widetilde \A, G\left( \left.\widetilde \A~\right| \A\right), \pi  \right)$ be a {noncommutative finite-fold covering of  bounded operator *-algebras} (cf. Definition \ref{fin_oa_defn}) such that  $\widetilde \A$ is a finitely generated projective $\A$-module. If both  $\A^\opp$ and $\widetilde\A^\opp$ are opposite algebras of both $\A$ and $\widetilde\A$ (cf. Definition \ref{opposite_algebra_defn}), then similarly to the Lemma \ref{fin_top_lem} one can proof that $\widetilde\A^\opp$ is a left $\A^\opp$ pre - Hilbert module. If both $A$ and $\widetilde A$ are $C^*$-norm completions of $\A$ and  $\widetilde \A$ then from the Definition  \ref{fin_oa_defn} it follows that there is  a connected noncommutative finite-fold covering $\left(A, \widetilde A, G\left( \left.\widetilde A\right| A\right), \widetilde \pi  \right)$ (cf. Definition \ref{fin_defn}) such that $\pi= \widetilde\pi|_{\A}$. Denote by $\left\langle \cdot , \cdot  \right\rangle_{\widetilde\A} : \widetilde\A\times \widetilde\A \to \A$ and $\left\langle \cdot , \cdot  \right\rangle_{\widetilde\A^\opp} : \widetilde\A^\opp\times \widetilde\A^\opp \to \A^\opp$ corresponding products. There is a right action
 \bean
- \forall \widetilde a, \widetilde b \in \widetilde A\quad \left\langle\widetilde a, \widetilde b \right\rangle_{\widetilde A}\bydef\frac{1}{\left| G\right| } \sum_{	g \in G}g\left(\widetilde a^* \widetilde b \right),\\
- \left\langle\widetilde \A, \widetilde \A \right\rangle_{\widetilde A}= \A.
+\H^\infty \times \A^\opp \to \H^\infty,\\
+ \left( \xi, a\right) \mapsto Ja^*J^\dagger\xi
 \eean
-   Denote by 
+Denote by 
 \bean
-\rho : A \hookto B\left(\H \right),\\
+\rho : \A \hookto B\left(\H \right),\\
+\rho^0: \A^\opp \hookto B\left(\H \right). 
 \eean
-a natural representations of $A$. If the natural representation $\widetilde \rho: \widetilde A \to B\left(\widetilde \H \right)$ is induced by a pair $\left(\rho, \left(A, \widetilde A, G\left( \left.\widetilde A\right| A\right), \widetilde \pi  \right) \right)$ (cf. Definition \ref{induced_repr_defn}) then we have
-\be\label{st_h_defn_eqn}
-\widetilde \H \bydef \widetilde A\ox_A \H
+natural representations of $\A$ and $\A^\opp$. If $\widetilde A = pA^m$, then $\widetilde A^\opp =\left( A^\opp\right)^mp$ and
+$\widetilde\H = \pi(p) \pi^0(p) [\H \ox \C^{m^2}]$ then similarly to the equation \eqref{morita_prod_eqn} consider a following Hilbert space 
+\bean
+\widetilde\K \bydef \widetilde A \otimes_A \H \ox_{A^\opp} \widetilde A^\opp.
+\eean
+with the scalar product given by
+\be\label{st_k_pr_eqn}
+\left( r \ox \eta \ox \bar q, s \ox \xi \ox \bar t\right)_{\widetilde{\K}} 
+\bydef \left( \eta, \left\langle r,s\right\rangle_{\widetilde A}\,  \left\langle t,q\right\rangle_{\widetilde A^\opp}  \,\xi\right)_\H 
 \ee
-because $ \widetilde A$ is a finitely generated $A$-module.  Moreover the  Hilbert space $\widetilde A \ox_A \H$ has  the following scalar product
+Similarly to \eqref{morita_J_eqn} one can define antiunitary operators
+\be\label{morita_I_eqn}
+\begin{split}
+\widetilde I : \widetilde{\K} \to \widetilde{\K},	\\
+\widetilde a \otimes \xi \otimes \widetilde b^* \mapsto \widetilde b \otimes J \xi \otimes \widetilde a^*;\\
+\widetilde I^\dagger : \widetilde{\K} \to \widetilde{\K},	\\
+\widetilde a \otimes \xi \otimes \widetilde b^* \mapsto \widetilde b \otimes J^\dagger \xi \otimes \widetilde a^*;
+\end{split}
+\ee
+Similarly to the equations \eqref{st_left_eqn} and \eqref{st_right_eqn} one can define  following representations
+\be\label{st_rep_eqn}
+\begin{split}
+\forall \widetilde c \in \widetilde A\quad  \rho\left( \widetilde c\right)  : \widetilde a \ox \xi \ox \widetilde c \longmapsto \widetilde c\widetilde a \ox \xi \ox \widetilde b,\\
+\rho^0\left( \widetilde c\right)\bydef \widetilde I \rho\left( \widetilde c^*\right)  \widetilde I^\7: \widetilde a \ox \xi \ox \widetilde c \longmapsto \widetilde a \ox \xi \ox \widetilde b \widetilde c
+\end{split}
+\ee
+According to the Remark \ref{sp_tr_commute_rem} these representations commute, i.e.
+$$
+\forall \widetilde a , \widetilde b \in \widetilde A \quad \rho\left( \widetilde a\right) \rho^0\left( \widetilde b\right) =\rho^0\left( \widetilde b\right) \rho\left( \widetilde a\right).
+$$
+Henceforth we use the following equivalent notation of the above equation
+\be\label{st_commute_eqn}
+\forall \widetilde a , \widetilde b \in \widetilde A\quad \left[\widetilde a ,\widetilde I  \widetilde b^*  \widetilde I^\7 \right] = 0.
+\ee
+There are two subspaces 
 \bean
-\left(\widetilde a \ox \xi, \widetilde b \ox \eta \right)_{\widetilde{\H}}\bydef \left(\xi,  \left\langle a, b \right\rangle_{\widetilde A} \eta \right)_\H,
+\widetilde \H \bydef \left\{ \widetilde{a }\ox \xi \ox 1_{\widetilde{A}^\opp}\in \widetilde \K \right\},\\
+\widetilde \H^\opp \bydef \left\{ 1_{\widetilde{A}}\ox \xi \ox  \widetilde{a }^0\in \widetilde \K \right\}.
 \eean
+of $\widetilde\K$ and an Abelian group isomorphism
+\bean
+\a : \widetilde \H \cong \widetilde \H^\opp,\\
+\widetilde{a }\ox \xi \ox 1_{\widetilde{A}^\opp}\mapsto  1_{\widetilde{A}}\ox \xi \ox \left(  \widetilde{a }^0\right)^* 
+\eean
+From \eqref{st_k_pr_eqn} it follows that 
+$$
+\forall \widetilde{\xi}, \widetilde \eta \in \widetilde \H \quad \left(\widetilde{\xi}, \widetilde \eta\right)_{\widetilde \K}= \left(\a\widetilde{\xi}, \a\widetilde \eta\right)_{\widetilde \K}.
+$$ 
+From the above equation and taking into account $\forall z \in \C \quad \a \left(  z \widetilde{\xi}\right) = \overline{z}\left( \a  \widetilde{\xi}\right) $ we conclude that $\a$ is an antiunitary homomorphism of Hilbert spaces. The space $\widetilde \K$ is a $\widetilde A$-$\widetilde A^\opp$ bimodule, both subspaces $\widetilde \H, \widetilde \H^\opp\subset \widetilde\K$ are left $\widetilde A$ and right $\widetilde A^\opp$ module respectively. One can define a natural structure of a right-$\widetilde A^\opp$ bimodule on $\widetilde \H$ such that
+\bean
+\forall \widetilde \xi \in \widetilde \H\quad \forall \widetilde a^0\in \widetilde A^\opp \quad \widetilde \xi \widetilde a^0 \bydef \a^{-1}\left( \a\left(\widetilde \xi \right) \widetilde a^0\right)= \left( \widetilde I \widetilde a^*  \widetilde I^\dagger \right) \widetilde \xi. 
+\eean 
+From the equation \eqref{st_commute_eqn} it follows that
+$\widetilde\H$ is a $\widetilde A$-$\widetilde A^\opp$ bimodule, i.e.
+$$
+\forall \widetilde \xi \in \widetilde \H \quad \forall \widetilde a \in \widetilde A \quad \forall \widetilde b^0 \in \widetilde A^\opp \quad \left(\widetilde a \widetilde\xi\right) \widetilde b^0= \widetilde a\left(\widetilde \xi \widetilde b^0\right).
+$$
+
+If $\widetilde \xi \bydef \widetilde c \otimes\xi \otimes 1_{\widetilde A^{\mathrm{op}}}\in\widetilde \H$
+then one has
+\bean
+\forall \widetilde a \in \widetilde A, \quad\forall \widetilde b^0\in  \widetilde A^\opp\quad \left(\widetilde a \widetilde \xi \right)   \widetilde b^0=  \left( \widetilde I \widetilde b^*  \widetilde I^\dagger \right)\left(\widetilde a \widetilde c \otimes\xi \otimes 1_{\widetilde A^{\mathrm{op}}}\right) =\\
+=\widetilde I\left( 1_{\widetilde A}\otimes J^\dagger\xi \otimes \widetilde c^* \widetilde a^* \widetilde b^*\right) = \widetilde b \widetilde a \widetilde c \otimes \xi \otimes 1_{\widetilde A^{\mathrm{op}}}.\\
+\eean
+
+
+.
+If $\widetilde c \otimes\xi \otimes 1_{\widetilde A^{\mathrm{op}}}\cong \widetilde \H$
+
+ is a is a $\widetilde A$-$\widetilde A^\opp$-bimodule. From the isomorphism of
+$$
+\left\{ \widetilde{a }\ox \xi \ox 1_{\widetilde{A}^\opp}\in \widetilde \K \right\}\cong \widetilde A \ox_A \H
+$$
+of Hilbert spaces where $\widetilde A \ox_A \H$ has  the following scalar product
+\bean
+\left(\widetilde a \ox \xi, \widetilde b \ox \eta \right)_{\widetilde{\H}}\bydef \left(\xi,  \left\langle a, b \right\rangle_{\A} \eta \right)_\H,
+\eean 
+where $\left\langle a, b \right\rangle_{\A}\bydef \frac{1}{\left| G\right| }\sum_{	g \in G}g\left(a^*b \right)$.
+So one can redefine $\widetilde \H$ by the following way
+\be\label{st_h_defn_eqn}
+\widetilde \H \bydef \widetilde A\ox_A \H.
+\ee
+Indeed the natural representation $\widetilde \rho: \widetilde A \to B\left(\widetilde \H \right)$ is induced by a pair $\left(\rho, \left(A, \widetilde A, G\left( \left.\widetilde A\right| A\right), \widetilde \pi  \right) \right)$ (cf. Definition \ref{induced_repr_defn}). 
+The equation \eqref{morita_J_eqn} yields a charge conjugate operator
+$\widetilde I : \widetilde{K}\to \widetilde{K}$. One can define  a charge conjugate operator
+\bean
+\widetilde J : \widetilde{\H}\to \widetilde{\H},\\
+ \widetilde \xi  \mapsto \widetilde{I}\a\left( \xi\right) 
+\eean 
+From \eqref{morita_J_eqn} it follows that 
+\be\label{cc_eqn!}
+\begin{split}
+DELETE	\widetilde J\left( \widetilde a \otimes \xi \right) \bydef \widetilde a^* \otimes J\xi.\\
+\end{split}
+\ee
+If one denotes
+\be\label{ccc_eqn!}
+\begin{split}
+DELETE	\widetilde J^\dagger \left( \widetilde a \otimes \xi \right) \bydef \widetilde a^*\otimes J^\dagger\xi,
+\end{split}
+\ee
 If operators $\widetilde J, \widetilde J^\7 : \widetilde{\H}\to \widetilde{\H}$ are given by
 \bea\label{cc_eqn}
 \widetilde J\left( \widetilde a \otimes \xi \right) \bydef \widetilde a^* \otimes J\xi,\\
@@ -3591,6 +3683,15 @@ i.e. one has a situation of the Definition \ref{df:spt-real_defn}.
 \ee
 be  a connection.
 \\
+\paragraph{title}
+!!!MAY BE DELETE!!!
+Hermitian connection (cf. \ref{herm_conn_defn}) with respect to $D$, i.e.
+\be\label{herm_conn_cov_eqn}
+\left\langle  \widetilde   a,\nabla  \widetilde   b\right\rangle - \left\langle \nabla  \widetilde   a, \widetilde   b\right\rangle= \left[ D, \left\langle  \widetilde   a, \widetilde   b\right\rangle\right]
+\sepword{for all} \widetilde a, \widetilde b \in  \widetilde\A.
+\ee
+\paragraph{title}
+
  We suppose that $\nabla$ is $G$-equivariant, i.e.
 \be\label{conn_equ_conn}
 \forall g \in G \quad \nabla \widetilde a = \sum_{j=1}^n \widetilde a_j \otimes \om_j \quad \Rightarrow \quad \nabla \left( g\widetilde a\right)  = \sum_{j=1}^n g\widetilde a_j \otimes \om_j 
@@ -3606,7 +3707,7 @@ $$
 If $\nabla \widetilde a = \sum_{j=1}^n\widetilde a_j \otimes \om'_j$ and $\nabla \widetilde b = \sum_{j=1}^m\widetilde b_j \otimes \om''_j$ then one has
 \bean
 \left( \widetilde D\left( \widetilde a \otimes \xi \right), \widetilde b \otimes \eta \right)_{\widetilde \H}   = \left( \sum_{j=1}^n \widetilde a_j \otimes \om'_j \xi + \widetilde a \otimes D \xi , \widetilde b \otimes \eta \right)_{\widetilde \H}=\\= \sum_{j=1}^n \left(\om'_j \xi,  \left\langle \widetilde a_j, \widetilde b \right\rangle \eta \right)_\H  + \left(D\xi, \left\langle \widetilde a, \widetilde b \right\rangle \eta \right)_\H, \\
-\left(  \widetilde a \otimes \xi ,\widetilde D\left( \widetilde b \otimes \eta \right)\right)_{\widetilde \H}= \sum_{j=1}^m\left(   \xi ,\left\langle \widetilde a, \widetilde b_j \right\rangle \om'' \eta \right)_{\H}+ \left(\xi, \left\langle \widetilde a, \widetilde b \right\rangle D \eta \right)_\H.
+\left(  \widetilde a \otimes \xi ,\widetilde D\left( \widetilde b \otimes \eta \right)\right)_{\widetilde \H}= \sum_{j=1}^m\left(   \xi ,\left\langle \widetilde a, \widetilde b_j \right\rangle \om'' \eta \right)_{\H}+ \left(\xi, \left\langle \widetilde a, \widetilde b \right\rangle D \eta \right)_\H 
 \eean
 It follows that if 
 \be\label{herma_conn_eqn}
@@ -3619,6 +3720,30 @@ then the given by \eqref{wtd_eqn} operator $\widetilde{D}$ is self-adjoint.
 If a connection $\nabla$ satisfies to the equation \eqref{herma_conn_eqn} then we say that $\nabla$ is  \textit{Hermitian} (cf. Definition \ref{herm_conn_defn}).
 \end{definition}
 Henceforth we require that the connection  $\nabla$  is Hermitian.
+
+!!! 
+\\
+If $\widetilde D'$ is given by \eqref{morita_d_eqn} then 
+$$
+\widetilde D'~\iota \left( \widetilde \H^\infty\right)\subset \iota \left( \widetilde \H^\infty\right). 
+$$
+This circumstance naturally  yields a selfadjoint  operator $\widetilde D\in \L^\dagger \left( \widetilde \H^\infty\right) $. From \eqref{morita_d_eqn} it follows that
+\be\label{wtd_eqn!}
+\widetilde D \left(\widetilde a \otimes \xi  \right) = \left(\nabla \widetilde a \right)\xi +  \widetilde aD\xi.
+\ee
+From 
+$$
+\widetilde{I}\left(\widetilde a\otimes \xi \ox 1_{\widetilde A^\opp} \right) = 1_{\widetilde A}\otimes J\xi \ox\widetilde{a}^0
+$$ 
+it follows that there is an antilinear bijective map
+$$
+\widetilde \A \ox_{\A} \H^\infty \cong \H^\infty \ox_{\A^\opp} \widetilde \A^\opp
+$$
+Similarly to the above construction $\widetilde \H$ is a completion of $ \H^\infty \ox_{\A^\opp} \widetilde \A^\opp$, or equivalently of $ \H \ox_{A^\opp} \widetilde A^\opp$.
+There is an antirepresentation
+$$
+\widetilde \rho^0: \widetilde A^\opp \to B\left( \widetilde \H\right).
+$$
 \end{empt}
 \begin{exercise}\label{st_ax_exer}
 Prove that  for all $\widetilde a, \widetilde b \in \widetilde{\A}$ a following condition hold.
@@ -3647,7 +3772,7 @@ where $\widetilde a_j\in \widetilde \A$ and $\om_j\in \Om_D^1$ for all $j=1,...,
 \be\label{dirac_fin_lift_eqn}
 \begin{split}
 	\left. \widetilde D\right. : \widetilde \A\otimes_\A \H^\infty  \to \widetilde \A\otimes_\A \H^\infty ,\\
-	\widetilde a\otimes \xi \mapsto  \sum_{j = 1}^n \widetilde a_j \otimes \om_j\xi  +\widetilde a \otimes D\xi ,\\
+	\widetilde a\otimes \xi \mapsto  \sum_{j = 1}^n \widetilde a_j \otimes \om_j\left(\xi  \right)+\widetilde a \otimes D\xi ,\\
 	\text{where} \quad  \nabla \widetilde a = \sum_{j = 1}^n \widetilde a_j \otimes \om_j\in \widetilde \A\otimes_\A \Om_D^1.
 \end{split}
 \ee
