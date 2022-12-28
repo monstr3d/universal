@@ -44,7 +44,7 @@ namespace ImgeNavigation
             }
             public override Type BindToType(string assemblyName, string typeName)
             {
-                if (assemblyName.Contains("ImageNavigation"))
+                if (assemblyName.Contains("ImageNavigation") | assemblyName.Contains("ImgeNavigation"))
                 {
                     var a = typeof(Binder).Assembly.FullName;
                     var type = Type.GetType(String.Format("{0}, {1}",

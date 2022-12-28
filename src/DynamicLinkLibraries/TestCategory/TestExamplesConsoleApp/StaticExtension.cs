@@ -74,7 +74,7 @@ namespace TestExamplesConsoleApp
             }
         }
 
-        static public object ReadObject(this Stream stream)
+        static public object ReadObject(this System.IO.Stream stream)
         {
             try
             {

@@ -43,6 +43,12 @@ namespace DataPerformer.UI.UserControls
         public UserControlSeriesTab()
         {
             InitializeComponent();
+            if (userControlSeries == null)
+            {
+                userControlSeries = new UserControlSeries();
+                userControlSeries.Dock = DockStyle.Fill;
+                panel1.Controls.Add(userControlSeries);
+            }
             userControlSeries.ShowStrip(false);
             SeriesPainterControlPovider sp =
                 new SeriesPainterControlPovider(toolStripButtonType, pic,

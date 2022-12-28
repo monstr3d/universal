@@ -64,7 +64,7 @@ namespace Aviation.Light
             {
                 if (s.Equals("-tc"))
                 {
-                    testInterface = DataPerformer.TestInterface.UI.TestInterface.Singleton;
+                //    testInterface = DataPerformer.TestInterface.UI.TestInterface.Singleton;
                 }
             }
 

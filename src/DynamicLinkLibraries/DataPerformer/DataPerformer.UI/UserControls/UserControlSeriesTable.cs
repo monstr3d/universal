@@ -6,7 +6,8 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using DataPerformer;
+
+using Diagram.UI;
 
 namespace DataPerformer.UI.UserControls
 {
@@ -20,6 +21,7 @@ namespace DataPerformer.UI.UserControls
 
         Action<bool> showTable = delegate(bool b)
         {
+            
         };
 
         Action update = delegate()
@@ -37,9 +39,35 @@ namespace DataPerformer.UI.UserControls
         public UserControlSeriesTable()
         {
             InitializeComponent();
+            foreach (DataGridViewColumn column in seriesGrid.Columns)
+            {
+                var cm = new ContextMenuStrip();
+                var paste = new ToolStripMenuItem("Paste");
+                var copyC = new ToolStripMenuItem("Copy to column");
+                var copyR = new ToolStripMenuItem("Copy to row");
+                cm.Items.Add(paste);
+                cm.Items.Add(copyC);
+                cm.Items.Add(copyR);
+                column.ContextMenuStrip = cm;
+                paste.Click += (object sender, EventArgs e) =>
+                {
+                    Paste(column);
+                };
+                copyC.Click += (object sender, EventArgs e) =>
+                {
+                    Copy(column, "\r\n");
+                };
+                copyR.Click += (object sender, EventArgs e) =>
+                {
+                    Copy(column, "\t");
+                };
+            }
         }
 
+
         #endregion
+
+        #region Public Members
 
         /// <summary>
         /// Update event
@@ -140,6 +168,8 @@ namespace DataPerformer.UI.UserControls
             }
         }
 
+        #endregion
+
         internal void DisableEdit()
         {
             seriesGrid.AllowUserToAddRows = false;
@@ -147,5 +177,59 @@ namespace DataPerformer.UI.UserControls
             dataColumn2.ReadOnly = true;
         }
 
+        double[] GetColumn(DataGridViewColumn column)
+        {
+            var table = seriesData.Tables[0];
+            var j = (column == seriesGrid.Columns[0]) ? 0 : 1;
+            var l = new List<double>();
+            for (int i = 0; i < table.Rows.Count; i++)
+            {
+                var row = table.Rows[i];
+                l.Add((double)row[j]);
+            }
+            return l.ToArray();
+        }
+
+        private void Copy(DataGridViewColumn column, string sep)
+        {
+            var x = GetColumn(column);
+            var str = x.CopyTo(sep, "\r\n");
+            Clipboard.SetText(str);
+        }
+
+
+        private void Paste(DataGridViewColumn column)
+        {
+            IDataObject dob = Clipboard.GetDataObject();
+            var p = dob.GetData("System.String");
+            if (p == null)
+            {
+                return;
+            }
+            var s = p + "";
+            double[] x;
+            s.LoadFromString(out x);
+            var table = seriesData.Tables[0];
+            int i = 0;
+            var j = (column == seriesGrid.Columns[0]) ? 0 : 1;
+            var k = 1 - j;
+            for (; i < table.Rows.Count; i++)
+            {
+                if (i >= x.Length)
+                {
+                    break;
+                }
+                var row = table.Rows[i];
+                row[j] = x[i];
+            }
+            for (; i < x.Length; i++)
+            {
+                var row = table.NewRow();
+                row[j] = x[i];
+                row[k] = 0;
+                table.Rows.Add(row);
+            }
+            UpdateTable();
+        }
     }
 }

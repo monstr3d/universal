@@ -14,6 +14,7 @@ using Diagram.UI.Interfaces;
 using Diagram.UI.Attributes;
 using Diagram.Interfaces;
 using AssemblyService;
+using System.Diagnostics;
 
 namespace Diagram.UI
 {
@@ -24,6 +25,12 @@ namespace Diagram.UI
     {
 
         #region Fields
+
+        /// <summary>
+        /// Separator
+        /// </summary>
+        private static char[] sep = "\r\n\t".ToCharArray();
+
 
         /// <summary>
         /// Post create
@@ -64,6 +71,57 @@ namespace Diagram.UI
         #endregion
 
         #region Public Memberes
+
+        /// <summary>
+        /// Copy of an array to a string
+        /// </summary>
+        /// <param name="x">The array</param>
+        /// <param name="sep">The sting separator</param>
+        /// <param name="end">The en</param>
+        /// <returns>The string</returns>
+        public static string CopyTo(this double[] x, string sep, string end)
+        {
+            var sb = new StringBuilder();
+            for (int i = 0; i < x.Length; i++)
+            {
+                sb.Append(x[i]);
+                if (i < x.Length - 1)
+                {
+                    sb.Append(sep);
+                }
+            }
+            sb.Append(end);
+            return sb.ToString();
+        }
+
+        /// <summary>
+        /// Loads array from string
+        /// </summary>
+        /// <param name="s">The str</param>
+        /// <param name="x"></param>
+        public static void LoadFromString(this string str, out double[] x)
+        {
+            var ss = str.Split(sep);
+            var l = new List<double>();
+            foreach (var ps in ss)
+            {
+                double y = 0;
+                if (double.TryParse(ps, out y))
+                {
+                    l.Add(y);
+                }
+            }
+            x = l.ToArray();
+        }
+
+        public static void LoadFromString(this string s, out double[,] x)
+        {
+            x = null;
+            throw new NotImplementedException("LoadFromString");
+        }
+
+
+
 
         /// <summary>
         /// Checks whether a code should be created

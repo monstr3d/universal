@@ -1,8 +1,9 @@
 ﻿using TestExamplesConsoleApp;
 using TestExamplesConsoleApp.Properties;
 
-var t = @"c:\AUsers\1MySoft\CSharp\Tests\DatabaseSelection.cfa".Test();
+var t = @"c:\AUsers\1MySoft\CSharp\Tests\ImagePoly_5.cfa".Test();
 return;
+//var t = @"c:\AUsers\1MySoft\CSharp\Tests\DatabaseSelection.cfa".Test();
 //var t = @"c:\AUsers\1MySoft\CSharp\Tests\OrbitDetermination.cfa".Test();
 //var t = @"c:\AUsers\1MySoft\CSharp\Tests\DeltaFunction.cfa".Test
 using (Stream stream = File.OpenRead(@"c:\AUsers\1MySoft\CSharp\Tests\DatabaseSelection.cfa"))

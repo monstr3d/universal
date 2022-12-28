@@ -7,6 +7,7 @@ using Chart.Drawing.Series;
 using Chart.Drawing.Interfaces;
 using Chart.UserControls;
 using Chart.Indicators;
+using System.ComponentModel.DataAnnotations;
 
 namespace Chart
 {
@@ -14,7 +15,8 @@ namespace Chart
     /// Static extensions
     /// </summary>
     public static class StaticExtensionChart
-    {
+    { 
+        private static char[] sep = "\r\n\t".ToCharArray();
         /// <summary>
         /// Copies series to clipboard
         /// </summary>
@@ -40,7 +42,24 @@ namespace Chart
             IDataObject dob = Clipboard.GetDataObject();
             string[] form = dob.GetFormats();
             foreach (string f in form)
-            {
+            { 
+                if (f == "System.String")
+                {
+                    var str = dob.GetData(f) + "";
+                    var ss = str.Split(sep);
+                    double a = 0;
+                    SimpleSeries ser = new SimpleSeries();
+                    foreach (var ps in ss)
+                    {
+                        double x = 0;
+                        if (double.TryParse(ps, out x))
+                        {
+                            ser.AddXY(a, x);
+                            a += 1;
+                        }
+                    }
+                    setter.Series = ser;
+                }
                 Type type = Type.GetType(f + ",Chart.Drawing", false);
                 if (type == null)
                 {
