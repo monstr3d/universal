@@ -83,6 +83,16 @@ namespace TestProjectExamples.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] ImagePoly_5 {
+            get {
+                object obj = ResourceManager.GetObject("ImagePoly_5", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] OrbitDetermination {
             get {
                 object obj = ResourceManager.GetObject("OrbitDetermination", resourceCulture);

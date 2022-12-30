@@ -94,7 +94,7 @@ namespace DataPerformer.TestInterface.UI.UserConrols
                 default:
                     break;
             }
-            if (o is IStructuredSelection)
+            if (co is IStructuredSelectionCollection)
             {
                 test.AddStructuredSelection(name, collection);
             }

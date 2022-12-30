@@ -33,5 +33,15 @@ namespace TestProjectExamples
             Resources.DatabaseSelection.Fact();
         }
 
+        /// <summary>
+        /// Test of bitmap selection 
+        /// </summary>
+        [Fact]
+        public void TestBitmapSelectionion()
+        {
+           Resources.ImagePoly_5.Fact();
+        }
+
+
     }
 }
