@@ -54,7 +54,7 @@ namespace DataPerformer.SeriesTypes
         /// <param name="y">y - coordinate</param>
         public override void AddXY(double x, double y)
         {
-            if (Double.IsNaN(x) | Double.IsNaN(y))
+            if (double.IsNaN(x) | double.IsNaN(y))
             {
                 throw new Exception("NAN");
             }

@@ -133,7 +133,6 @@ namespace DataPerformer
                 {
 
                     ParametrizedSeries ps = new ParametrizedSeries(arg.ToValueHolder(), val.ToValueHolder());
-                      
                     m.Add(ps);
                     o = ps;
                 }
@@ -243,8 +242,8 @@ namespace DataPerformer
        ParametrizedSeries[] series,
       Dictionary<DoubleArrayFunction, IMeasurement[]> functions, string reason)
         {
-            consumer.PerformFixed(start, step, count, DataPerformer.Portable.StaticExtensionDataPerformerPortable.Factory.TimeProvider,
-                DataPerformer.Portable.DifferentialEquationProcessors.DifferentialEquationProcessor.Processor, 
+            consumer.PerformFixed(start, step, count, StaticExtensionDataPerformerPortable.Factory.TimeProvider,
+                 Portable.DifferentialEquationProcessors.DifferentialEquationProcessor.Processor, 
                 reason,  0, () =>
                 {
                     foreach (ParametrizedSeries s in series)

@@ -388,7 +388,7 @@ namespace DataPerformer.Portable.Basic
         /// <param name="y">y - coordinate</param>
         public virtual void AddXY(double x, double y)
         {
-            if (Double.IsNaN(x) | Double.IsNaN(y) | Double.IsInfinity(x) | Double.IsInfinity(y))
+            if (double.IsNaN(x) | double.IsNaN(y) | double.IsInfinity(x) | double.IsInfinity(y))
             {
                 throw new Exception("Infinity");
             }

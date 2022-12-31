@@ -659,8 +659,8 @@ public static void Init()
         /// <returns>The holder</returns>
         public static Func<Func<object>> ToValueHolder(this IMeasurement measure)
         {
-            DataPerformer.Portable.Measurements.MeasurementWrapper wrapper =
-                new DataPerformer.Portable.Measurements.MeasurementWrapper(measure);
+            var wrapper =
+                new MeasurementWrapper(measure);
             return () => wrapper.GetValue;
         }
 

@@ -16,6 +16,7 @@ using FormulaEditor.Compiler;
 using TestCategory;
 using Diagram.UI;
 using DataSetService;
+using Motion6D.Portable;
 
 namespace TestProjectExamples
 {
@@ -28,6 +29,7 @@ namespace TestProjectExamples
         static StaticExtensionTestExamples()
         {
             StaticExtensionDiagramUI.ErrorHandler = new ErrorHandler();
+            StaticExtensionMotion6DPortable.Init();
  //           AssemblyService.StaticExtensionAssemblyService.Init();
             LoadFormulaResources();
             StaticExtensionComplerBridge.Init();
