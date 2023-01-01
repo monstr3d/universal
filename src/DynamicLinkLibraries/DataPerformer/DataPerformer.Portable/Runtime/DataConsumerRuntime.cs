@@ -105,6 +105,11 @@ namespace DataPerformer.Portable.Runtime
         protected IDataConsumer consumer;
 
         /// <summary>
+        /// Started
+        /// </summary>
+        protected List<IStarted> started = new List<IStarted>();
+
+        /// <summary>
         /// Collection of components
         /// </summary>
         IComponentCollection collection;
@@ -114,6 +119,7 @@ namespace DataPerformer.Portable.Runtime
         /// </summary>
         string reason;
 
+    
         #endregion
 
         #region Ctor
@@ -322,6 +328,11 @@ namespace DataPerformer.Portable.Runtime
                     continue;
                 }
                 dynamical.Add(dyn);
+                var st = obj.GetLabelObject<IStarted>();
+                if (st != null) 
+                { 
+                    started.Add(st);
+                }
             }
             collection.ForEach<IStep>((IStep s) => { steps.Add(s); });
             AddUpdateAll(UpdateMeasurements);
@@ -356,6 +367,7 @@ namespace DataPerformer.Portable.Runtime
             {
                 arrows.Clear();
             }
+            started.Clear();
             updatable.Clear();
             dynamical.Clear();
             measurements.Clear();

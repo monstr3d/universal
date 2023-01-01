@@ -1,11 +1,13 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <OutputType>Exe</OutputType>
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+
+    <IsPackable>false</IsPackable>
   </PropertyGroup>
+
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\ExternalLibraries\Atmosphere\DinAtm\DimAtm.Serializable\DimAtm.Serializable.csproj" />
@@ -28,6 +30,9 @@
     <ProjectReference Include="..\..\ControlSystems.Data\ControlSystems.Data\ControlSystems.Data.csproj" />
     <ProjectReference Include="..\..\ControlSystemsWrapper\ControlSystemsWrapper.csproj" />
     <ProjectReference Include="..\..\ControlSystems\ControlSystems\ControlSystems.csproj" />
+    <ProjectReference Include="..\..\Database\DataSet\DataSetSerializable\DataSetSerializable.csproj" />
+    <ProjectReference Include="..\..\Database\DataSet\DataSetService\DataSetService\DataSetService.csproj" />
+    <ProjectReference Include="..\..\Database\DataSet\DataTableSelection\DataTableSelection.csproj" />
     <ProjectReference Include="..\..\Database\DataSet\DataSetSerializable\DataSetSerializable.csproj" />
     <ProjectReference Include="..\..\Database\DataSet\DataSetService\DataSetService\DataSetService.csproj" />
     <ProjectReference Include="..\..\Database\DataSet\DataTableSelection\DataTableSelection.csproj" />
@@ -54,20 +59,22 @@
     <ProjectReference Include="..\..\FormulaEditor\FormulaEditor.Serializable\FormulaEditor.Serializable.csproj" />
     <ProjectReference Include="..\..\FormulaEditor\FormulaEditor\FormulaEditor.csproj" />
     <ProjectReference Include="..\..\GeneralLinearMethod\GeneralLinearMethod.csproj" />
-    <ProjectReference Include="..\..\ImageNavigation\ImageNavigation\ImageNavigation.csproj" />
-    <ProjectReference Include="..\..\ImageTransformation\ImageTransformation.csproj" />
-    <ProjectReference Include="..\..\Motion6D\Motion6D.Data\Motion6D.Data.csproj" />
-    <ProjectReference Include="..\..\Motion6D\Motion6D.Interfaces\Motion6D.Interfaces.csproj" />
-    <ProjectReference Include="..\..\Motion6D\Motion6D.Portable\Motion6D.Portable.csproj" />
-    <ProjectReference Include="..\..\Motion6D\Motion6D\Motion6D.csproj" />
     <ProjectReference Include="..\..\OrdinaryDifferentialEquations\OrdinaryDifferentialEquations\OrdinaryDifferentialEquations.csproj" />
     <ProjectReference Include="..\..\PhysicalField\PhysicalField.Interfaces\PhysicalField.Interfaces.csproj" />
     <ProjectReference Include="..\..\PhysicalField\PhysicalField.Portable\PhysicalField.Portable.csproj" />
     <ProjectReference Include="..\..\PhysicalField\PhysicalField\PhysicalField.csproj" />
     <ProjectReference Include="..\..\SphericalFields\SphericalFields.csproj" />
     <ProjectReference Include="..\..\Vector3D\Vector3D.csproj" />
-    <ProjectReference Include="..\TestCategory.Standard\TestCategory.Standard.csproj" />
     <ProjectReference Include="..\TestCategory\TestCategory.csproj" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.1.0" />
+    <PackageReference Include="NUnit" Version="3.13.3" />
+    <PackageReference Include="NUnit3TestAdapter" Version="4.2.1" />
+    <PackageReference Include="NUnit.Analyzers" Version="3.3.0" />
+    <PackageReference Include="coverlet.collector" Version="3.1.2" />
   </ItemGroup>
 
 
@@ -78,6 +85,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
   </ItemGroup>
+
 
   <ItemGroup>
     <EmbeddedResource Update="Properties\Resources.resx">

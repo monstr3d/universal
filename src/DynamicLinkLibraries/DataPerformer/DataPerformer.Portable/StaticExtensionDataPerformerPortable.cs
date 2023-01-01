@@ -35,9 +35,6 @@ namespace DataPerformer.Portable
         #region Fields
 
 
-        
-
-
         /// <summary>
         /// Comparer of measurements
         /// </summary>
@@ -49,11 +46,7 @@ namespace DataPerformer.Portable
         private static Dictionary<string, IAsynchronousCalculationFactory> asynchronousCalculations =
             new Dictionary<string, IAsynchronousCalculationFactory>();
 
-        /// <summary>
-        /// Strategy
-        /// </summary>
-        private static IDataRuntimeFactory factory;
-
+  
         /// <summary>
         /// Desktop
         /// </summary>
@@ -103,10 +96,10 @@ namespace DataPerformer.Portable
         }
 
 
-/// <summary>
-/// Inits itself
-/// </summary>
-public static void Init()
+        /// <summary>
+        /// Inits itself
+        /// </summary>
+        public static void Init()
         {
 
         }
@@ -902,7 +895,7 @@ public static void Init()
         /// <returns>Collection</returns>
         public static IComponentCollection CreateCollection(this IDataConsumer dataConsumer, string reason = null, int priority = 0)
         {
-            return factory.CreateCollection(dataConsumer, priority, reason);
+            return Factory.CreateCollection(dataConsumer, priority, reason);
         }
 
         /// <summary>
@@ -1349,7 +1342,7 @@ public static void Init()
         public static IDataRuntime CreateRuntime(
             this IDataConsumer dataConsumer, string reason, int priority = 0)
         {
-            return factory.Create(dataConsumer, priority, reason);
+            return Factory.Create(dataConsumer, priority, reason);
         }
 
         /// <summary>
@@ -1770,15 +1763,25 @@ public static void Init()
         /// </summary>
         public static IDataRuntimeFactory Factory
         {
-            get
-            {
-                return factory;
-            }
-            set
-            {
-                factory = value;
-            }
+            get;
+            set;
         }
+
+        /// <summary>
+        /// Prepares data consumer
+        /// </summary>
+        /// <param name="consumer">The data consumer</param>
+        /// <param name="time">The time</param>
+        /// <param name="reason">The reason</param>
+        /// <param name="priority">The priority</param>
+        public static void PrepareDataConsumer(this IDataConsumer consumer, double time, 
+            string reason = StaticExtensionDataPerformerInterfaces.Calculation, 
+            int priority = 0)
+        {
+            var runtime = Factory.Create(consumer, priority, reason);
+            runtime.StartAll(time);
+        }
+
 
         /// <summary>
         /// Sets base factory

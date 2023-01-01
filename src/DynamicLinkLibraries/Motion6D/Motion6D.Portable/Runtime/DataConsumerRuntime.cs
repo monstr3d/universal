@@ -69,10 +69,18 @@ namespace Motion6D.Portable.Runtime
         protected override void Prepare()
         {
             ClearAll();
-            IComponentCollection cc = factory.CreateCollection(consumer, 0, null);
+            var cc = factory.CreateCollection(consumer, 0, null);
             IEnumerable<object> en = cc.AllComponents;
             foreach (object o in en)
             {
+                var sta = o.GetLabelObject<IStarted>();
+                if (sta != null)
+                {
+                    if (!started.Contains(sta))
+                    {
+                        started.Add(sta);
+                    }
+                }
                 if (o is IRuntimeUpdate)
                 {
                     runtimeUpdate.Add(o as IRuntimeUpdate);
@@ -201,6 +209,7 @@ namespace Motion6D.Portable.Runtime
             {
                 updateAll = UpdateMeasurements + upd + uf + UpdateMeasurements + upd;
             }
+            started.SortOrder();
         }
 
         /// <summary>
@@ -210,8 +219,10 @@ namespace Motion6D.Portable.Runtime
         protected override void StartAll(double time)
         {
             provider.Time = time;
-            List<IStarted> ls = new List<IStarted>();
-            runtimeUpdate.ForEach((IStarted s) => { ls.Add(s); s.Start(time); });
+            foreach (var sta in started) 
+            { 
+                sta.Start(time);
+            }
             IStep st = this;
             st.Step = -1;
             IDifferentialEquationProcessor pr = 
@@ -226,7 +237,7 @@ namespace Motion6D.Portable.Runtime
                 if (deq is IStarted)
                 {
                     IStarted s = deq as IStarted;
-                    if (!ls.Contains(s))
+                    if (!started.Contains(s))
                     {
                         s.Start(time);
                     }

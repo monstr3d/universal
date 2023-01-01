@@ -1,42 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿using DataSetService;
+using Diagram.UI;
 using Diagram.UI.Interfaces;
-
-
-using CompilerBridge;
-using ExtendedFormulaEditor;
 using FormulaEditor;
 using FormulaEditor.Compiler;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Runtime.Serialization.Formatters.Binary;
 
-
-using TestCategory;
-using Diagram.UI;
-using DataSetService;
-using Motion6D.Portable;
-using DataPerformer.Portable;
-
-namespace TestProjectExamples
+namespace TestCategory.Standard
 {
-    /// <summary>
-    /// Static Extension
-    /// </summary>
-    public static class StaticExtensionTestExamples
+    public static class StaticExtensionTestCategoryStandard
     {
-
-        static StaticExtensionTestExamples()
+        static StaticExtensionTestCategoryStandard()
         {
             StaticExtensionDiagramUI.ErrorHandler = new ErrorHandler();
-            StaticExtensionMotion6DPortable.Init();
-            StaticExtensionDataPerformerPortable.Factory =
-                Motion6D.Portable.Runtime.DataRuntimeFactory.Singleton;
-
-            //           AssemblyService.StaticExtensionAssemblyService.Init();
+            //   AssemblyService.StaticExtensionAssemblyService.Init();
             LoadFormulaResources();
-            StaticExtensionComplerBridge.Init();
+            CompilerBridge.StaticExtensionComplerBridge.Init();
             StaticExtensionFormulaEditorCompiler.Init();
             var init = new IApplicationInitializer[0];
             IApplicationInitializer initializer =
@@ -46,29 +28,22 @@ namespace TestProjectExamples
        true);
             initializer.InitializeApplication();
             new TestDataSetChooser();
+
         }
+
+ 
+
 
         /// <summary>
-        /// Test fact
+        /// Inits itself
         /// </summary>
-        /// <param name="bytes">bytes</param>
-        public static void Fact(this byte[] bytes)
+        public static void Init()
         {
-            Assert.True(bytes.Test().Item1);
+
         }
-
-
-  
 
         private static void LoadFormulaResources()
         {
-            /*      if (loaded)
-                  {
-                      return;
-                  }*/
- 
-            
-
 
             MathFormula.Saver = StandardXmlFormulaSaver.Object;
             FormulaEditor.CSharp.CSharpTreeCollectionProxyFactory.CodeCreator =
@@ -144,9 +119,50 @@ namespace TestProjectExamples
             ObjectFormulaTree.Creator = new FormulaArrayObjectCreator(ElementaryFunctionsCreator.Object);
             ElementaryFunctionOperation.InitDeri();
             ElementaryIntegerOperation.Prepare();
-            
+
         }
     }
+
+
+
+
+    internal class ErrorHandler : IErrorHandler
+    {
+        void IErrorHandler.ShowError(Exception exception, object obj)
+        {
+            if (exception.Message == "Member \'Comments\' was not found.")
+            {
+                return;
+            }
+            if (obj != null)
+            {
+                Type t = obj.GetType();
+                if (t.Equals(typeof(Int32)))
+                {
+                    int errorLevel = (int)obj;
+                    if (errorLevel < 0)
+                    {
+                        return;
+                    }
+                    if (errorLevel == 0)
+                    {
+                        return;
+                    }
+                }
+
+            }
+            else
+            {
+                return;
+            }
+        }
+
+        void IErrorHandler.ShowMessage(string message, object obj)
+        {
+
+        }
+    }
+
 
     internal class TestDataSetChooser : DataSetFactoryChooser
     {
@@ -163,27 +179,5 @@ namespace TestProjectExamples
         public override IDataSetFactory this[string name] => dic[name];
 
         public override string[] Names => dic.Keys.ToArray();
-    }
-
-
-
-    internal class ErrorHandler : IErrorHandler
-    {
-        void IErrorHandler.ShowError(Exception exception, object obj)
-        {
-            if (exception.Message == "Member \'Comments\' was not found.")
-            {
-                return;
-            }
-            else
-            {
-                int i = 0;
-            }
-        }
-
-        void IErrorHandler.ShowMessage(string message, object obj)
-        {
-           
-        }
     }
 }

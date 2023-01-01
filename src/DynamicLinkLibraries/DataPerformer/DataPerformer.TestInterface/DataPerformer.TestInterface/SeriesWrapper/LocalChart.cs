@@ -10,7 +10,7 @@ using Diagram.UI.Interfaces;
 using Diagram.UI;
 
 using DataPerformer.Interfaces;
-
+using DataPerformer.Portable;
 
 namespace DataPerformer.TestInterface.SeriesWrapper
 {
@@ -105,8 +105,9 @@ namespace DataPerformer.TestInterface.SeriesWrapper
         {
             get
             { 
-                IDesktop desktop = collection as IDesktop;
-                IDataConsumer dataconsumer = desktop[name] as IDataConsumer;
+                var desktop = collection as IDesktop;
+                var dataConsumer = collection.GetObject<IDataConsumer>(name);
+                dataConsumer.PrepareDataConsumer(start);
                 Dictionary<string, Portable.Basic.Series> d = GetSeries(collection); // Calculation of time dependent function
                 List<string> l = new List<string>();
                 foreach (string s in d.Keys)

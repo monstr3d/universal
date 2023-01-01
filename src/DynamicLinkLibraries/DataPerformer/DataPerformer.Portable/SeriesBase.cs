@@ -14,6 +14,7 @@ using Diagram.UI.Interfaces;
 using DataPerformer.Interfaces;
 using DataPerformer.Portable.Measurements;
 using BaseTypes.Interfaces;
+using System.Runtime.CompilerServices;
 
 namespace DataPerformer.Portable
 {

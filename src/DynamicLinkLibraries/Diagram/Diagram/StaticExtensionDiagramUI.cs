@@ -666,6 +666,17 @@ namespace Diagram.UI
 
         #region Public members
 
+
+        /// <summary>
+        /// Sets order
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="items"></param>
+        public static void SortOrder<T>(this List<T> items)
+        {
+            items.Sort(new ObjectComparerClassT<T>());
+        }
+    
         /// <summary>
         /// Compares values
         /// </summary>
@@ -2264,9 +2275,9 @@ namespace Diagram.UI
             {
                 IAssociatedObject ao = obj as IAssociatedObject;
                 object o = ao.Object;
-                if (o is INamedObject)
+                if (o is INamedComponent)
                 {
-                    return GetOdrer(o);
+                    return (o as INamedComponent).Ord;
                 }
             }
             return 0;
@@ -3769,6 +3780,18 @@ namespace Diagram.UI
         #endregion
 
         #region Object Comparer Class
+
+        class ObjectComparerClassT<T> : IComparer<T>
+        {
+            #region IComparer<T> Members
+
+            int IComparer<T>.Compare(T x, T y)
+            {
+                return StaticExtensionDiagramUI.Compare(x, y);
+            }
+
+            #endregion
+        }
 
         class ObjectComparerClass : IComparer<object>
         {

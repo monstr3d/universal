@@ -18,7 +18,7 @@ namespace Motion6D.Portable
     /// Reference frame controlled by data
     /// </summary>
     public class ReferenceFrameDataBase : RigidReferenceFrame,
-        IDataConsumer, IMeasurements
+        IDataConsumer, IMeasurements, IStarted
     {
 
         #region Fields
@@ -194,6 +194,19 @@ namespace Motion6D.Portable
 
         #endregion
 
+        #region IStart Members
+
+        /// <summary>
+        /// Starts this object
+        /// </summary>
+        /// <param name="time">Start time</param>
+        void IStarted.Start(double time)
+        {
+            Start(time);
+        }
+
+        #endregion
+
         #region Overriden Members
 
         /// <summary>
@@ -361,57 +374,10 @@ namespace Motion6D.Portable
             catch (Exception exception)
             {
                 exception.ShowError(10);
-   //!!!  OLD           this.Throw(ex);
-            }
+           }
         }
 
-        /// <summary>
-        /// Detects velocity support of ReferenceFrameData class
-        /// </summary>
-        protected override bool IsVelocity
-        {
-            get
-            {
-                if (!base.IsVelocity) // If parent frame does not support velocity calculation
-                {
-                    return false;
-                }
-                for (int i = 0; i < 3; i++)
-                {
-                    // If derivative order is less that 1
-                    if (measurements[i].GetDerivativeOrder() < 1)
-                    {
-                        // Then velocity is not supported
-                        return false;
-                    }
-                }
-                return true;
-            }
-        }
-
-        /// <summary>
-        /// Detects angular velocity support
-        /// </summary>
-        protected override bool IsAngularVelocity
-        {
-            get
-            {
-                if (!base.IsAngularVelocity)
-                {
-                    return false;
-                }
-                for (int i = 3; i < 7; i++)
-                {
-                    // If derivative order is less that 1
-                    if (measurements[i].GetDerivativeOrder() < 1)
-                    {
-                        return false;
-                    }
-                }
-                return true;
-            }
-        }
-
+   
 
         #endregion
 
@@ -479,6 +445,63 @@ namespace Motion6D.Portable
         #endregion
 
         #region Protected Members
+
+        /// <summary>
+        /// Detects velocity support of ReferenceFrameData class
+        /// </summary>
+        protected override bool IsVelocity
+        {
+            get
+            {
+                if (!base.IsVelocity) // If parent frame does not support velocity calculation
+                {
+                    return false;
+                }
+                for (int i = 0; i < 3; i++)
+                {
+                    // If derivative order is less that 1
+                    if (measurements[i].GetDerivativeOrder() < 1)
+                    {
+                        // Then velocity is not supported
+                        return false;
+                    }
+                }
+                return true;
+            }
+        }
+
+        /// <summary>
+        /// Detects angular velocity support
+        /// </summary>
+        protected override bool IsAngularVelocity
+        {
+            get
+            {
+                if (!base.IsAngularVelocity)
+                {
+                    return false;
+                }
+                for (int i = 3; i < 7; i++)
+                {
+                    // If derivative order is less that 1
+                    if (measurements[i].GetDerivativeOrder() < 1)
+                    {
+                        return false;
+                    }
+                }
+                return true;
+            }
+        }
+
+
+        /// <summary>
+        /// Starts itself
+        /// </summary>
+        /// <param name="time">Start time</param>
+        virtual protected void Start(double time)
+        {
+            Update();
+        }
 
         /// <summary>
         /// Sets parameters
@@ -617,7 +640,6 @@ namespace Motion6D.Portable
         {
             return angularVelocity.Omega[2];
         }
-
 
         #endregion
 

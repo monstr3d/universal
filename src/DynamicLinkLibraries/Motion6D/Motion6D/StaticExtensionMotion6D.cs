@@ -61,12 +61,9 @@ namespace Motion6D
 
         }
 
-  
-
-
         #endregion
 
-        //!!!BINDER
+        //BINDER
         class Binder : System.Runtime.Serialization.SerializationBinder
         {
             internal Binder()

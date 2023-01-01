@@ -60,7 +60,56 @@ namespace TestCategory
                 }
             }
             return null;
+
         }
+
+        /// <summary>
+        /// Test
+        /// </summary>
+        /// <param name="bytes">Bytes</param>
+        /// <returns>Test result</returns>
+        public static Tuple<bool, object> Test(this byte[] bytes)
+        {
+            try
+            {
+                using (var stream = new MemoryStream(bytes))
+                {
+                    var o = stream.Test();
+                    return o;
+                }
+            }
+            catch (Exception exception)
+            {
+                exception.ShowError();
+                return new Tuple<bool, object>(false, exception);
+            }
+        }
+
+        public static Tuple<bool, object> Test(this string filename)
+        {
+            using (var stream = File.OpenRead(filename))
+            {
+                return stream.Test();
+            }
+        }
+
+        static public object ReadObject(this Stream stream)
+        {
+            try
+            {
+                var bf = new BinaryFormatter();
+                var a = bf.Deserialize(stream);
+                return a;
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return null;
+        }
+
+
+
 
         /// <summary>
         /// Test of stream
