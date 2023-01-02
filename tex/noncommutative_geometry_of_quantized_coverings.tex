@@ -3572,10 +3572,14 @@ $$
 it follows that $\widetilde J$ is an antiunitary operator. Similarly one can prove that the operator $\widetilde J^\dagger$ is also  antiunitary.
 If $\xi \in \H$ and $\widetilde a, \widetilde b, \widetilde c\in  \widetilde A$ then one has
 \bean
-\forall \widetilde a, \widetilde b, \widetilde c \quad \widetilde a \left(\widetilde J \widetilde b^* J^\7 \right) \left(\widetilde c \ox \xi \right)=\widetilde a \widetilde J \left( \widetilde b^*\widetilde c^*\ox \widetilde J^\7 \xi\right) = \widetilde a \widetilde c \widetilde b \otimes JJ^\7\xi= \widetilde a \widetilde c \widetilde b \otimes \xi;\\
-\left(\widetilde J \widetilde b^* J^\7 \right)\widetilde a\left(\widetilde c \ox \xi \right)=\left(\widetilde J \widetilde b^* J^\7 \right)\left(\widetilde a\widetilde c \ox \xi \right)= \widetilde J \widetilde b^*\left(  \widetilde c^* \widetilde a^*\otimes J^\7\xi \right) =  \widetilde J \left(   \widetilde b^*\widetilde c^* \widetilde a^*\otimes J^\7\xi \right)= \\
-=  \widetilde a \widetilde c \widetilde b \otimes JJ^\7\xi= \widetilde a \widetilde c \widetilde b \otimes\xi.
+\forall \widetilde a, \widetilde b, \widetilde c \quad \widetilde a \left(\widetilde J \widetilde b^* J^\7 \right) \left(\widetilde c \ox \xi \right)=\widetilde a \widetilde J \left( \widetilde b^*\widetilde c^*\ox \widetilde J^\7 \xi\right) = \widetilde a \widetilde c \widetilde b \otimes JJ^\7\xi= \widetilde a \widetilde c \widetilde b \otimes \xi,
 \eean
+\be\label{jbj_eqn}
+\begin{split}
+\left(\widetilde J \widetilde b^* J^\7 \right)\widetilde a\left(\widetilde c \ox \xi \right)=\left(\widetilde J \widetilde b^* J^\7 \right)\left(\widetilde a\widetilde c \ox \xi \right)= \widetilde J \widetilde b^*\left(  \widetilde c^* \widetilde a^*\otimes J^\7\xi \right) = \\= \widetilde J \left(   \widetilde b^*\widetilde c^* \widetilde a^*\otimes J^\7\xi \right)
+=  \widetilde a \widetilde c \widetilde b \otimes JJ^\7\xi= \widetilde a \widetilde c \widetilde b \otimes\xi.
+\end{split}
+\ee
 So a following conditions hold
 $$
 \widetilde a \left(\widetilde J \widetilde b^* J^\7 \right)=\left(\widetilde J \widetilde b^* J^\7 \right)\widetilde a,
@@ -3585,23 +3589,46 @@ or equivalently
 \forall \widetilde a,\widetilde b \in \widetilde \A\quad \left[ \widetilde a,\widetilde J\widetilde b^*\widetilde J^\dagger\right] = 0,
 \ee
 i.e. one has a situation of the Definition \ref{df:spt-real_defn}. 
- $\Om^1_D$ be given by \eqref{om_d_eqn}, and let  
+ Let $\Om^1_D$ be given by \eqref{om_d_eqn}, and let  
 \be\label{nabla_cov_herm_eqn}
 \nabla : \widetilde \A\to \widetilde \A\otimes_\A \Om^1_D.
 \ee
-be  a connection.
-\\
+be  a connection (cf. Definition \ref{connection_defn}).
  We suppose that $\nabla$ is $G$-equivariant, i.e.
 \be\label{conn_equ_conn}
-\forall g \in G \quad \nabla \widetilde a = \sum_{j=1}^n \widetilde a_j \otimes \om_j \quad \Rightarrow \quad \nabla \left( g\widetilde a\right)  = \sum_{j=1}^n g\widetilde a_j \otimes \om_j 
+\forall g \in G \quad \nabla \widetilde a = \sum_{j=1}^n \widetilde a_j \otimes \om_j \quad \Rightarrow \quad \nabla \left( g\widetilde a\right)  = \sum_{j=1}^n g\widetilde a_j \otimes \om_j. 
 \ee
+Let us prove that there is an action
+$$
+\left( \widetilde \A\otimes_\A \Om^1_D\right)  \times \left(\widetilde \A\otimes_\A \H^\infty\right)\to \left(\widetilde \A\otimes_\A \H^\infty\right)
+$$
+such that for all $\widetilde a \otimes b\left[D, a\right]\in \widetilde \A\ox_\A \Om^1_D$ and $\widetilde c\otimes\xi \in\widetilde \A\ox_\A  \H^\infty$ one has
+\be\label{om_act_eqn}
+\begin{split}
+ \left(\left(\widetilde a \otimes b\left[D, a\right]\right) , \left(\widetilde c\otimes\xi\right)\right)\mapsto \widetilde a \widetilde c \otimes b\left[D, a\right]\xi.
+\end{split}
+\ee
+The  action \eqref{om_act_eqn} is correct if for all $c \in\A$ one has
+\bean
+\left( \widetilde a  c \otimes b\left[D, a\right]\right)\left(  \widetilde c\otimes\xi\right)   =\left( \widetilde a  \otimes cb\left[D, a\right]\right) \left(  \widetilde c\otimes\xi\right),
+\eean
+or, equivalently
+\be\label{corr_conn_act_eqn}
+\widetilde a c\widetilde c \otimes b\left[D, a\right]\xi = \widetilde a \widetilde c \otimes cb\left[D, a\right]\xi.
+\ee
+From \eqref{jbj_eqn} it follows that
+\bean
+\widetilde a c\widetilde c \otimes b\left[D, a\right]\xi= \left(\widetilde J \widetilde c^*\widetilde J^\7 \right) \left(\widetilde a c \otimes b\left[D, a\right]\xi \right)= \\ =\left(\widetilde J \widetilde c^*\widetilde J^\7 \right)\left(\widetilde a \otimes cb\left[D, a\right]\xi \right) 
+=\widetilde J \widetilde c^* \widetilde a^* \otimes  J^\dagger cb\left[D, a\right]\xi =\\= \widetilde a \widetilde c \otimes J J^\dagger cb\left[D, a\right]\xi=\widetilde a \widetilde c \otimes cb\left[D, a\right]\xi.
+\eean
+So the condition \eqref{corr_conn_act_eqn} holds and the given by \eqref{om_act_eqn} action is correct. 
 We define an operator $\widetilde D\in \L^\dagger \left( \widetilde \H^\infty\right) $  such that 
 \be\label{wtd_eqn}
 \widetilde D \left(\widetilde a \otimes \xi  \right)\bydef \left(\nabla \widetilde a \right)\xi +  \widetilde a\otimes D\xi = \sum_{j=1}^n \widetilde a_j \otimes \om_j \xi \quad \text{where}\quad \nabla \widetilde a = \sum_{j=1}^n\widetilde a_j \otimes \om_j.
 \ee
 We also require that the operator $\widetilde D$ is self-adjoint, i.e.
 $$
-\forall \widetilde a \otimes \xi, \widetilde b \otimes \eta\in  \widetilde \A\otimes_\A \H^\infty\quad \left( \widetilde D\left( \widetilde a \otimes \xi \right), \widetilde b \otimes \eta \right)_{\widetilde \H}   = \left(  \widetilde a \otimes \xi ,\widetilde D\left( \widetilde b \otimes \eta \right)\right)_{\widetilde \H} 
+\forall \widetilde a \otimes \xi, \widetilde b \otimes \eta\in  \widetilde \A\otimes_\A \H^\infty\quad \left( \widetilde D\left( \widetilde a \otimes \xi \right), \widetilde b \otimes \eta \right)_{\widetilde \H}   = \left(  \widetilde a \otimes \xi ,\widetilde D\left( \widetilde b \otimes \eta \right)\right)_{\widetilde \H}. 
 $$
 If $\nabla \widetilde a = \sum_{j=1}^n\widetilde a_j \otimes \om'_j$ and $\nabla \widetilde b = \sum_{j=1}^m\widetilde b_j \otimes \om''_j$ then one has
 \bean
@@ -25438,7 +25465,7 @@ where $\pi: A \hookto B\left(\H\right)$ is any faithful representation, $\wideti
 	
 	\subsection{Noncommutative connections and curvatures}
 	
-	\begin{defn}\label{conn_defn}\cite{connes:ncg94}
+	\begin{defn}\label{connection_defn}\cite{connes:ncg94}
 		Let $\A\xrightarrow{\rho} \Om$ be a cycle over $\A$, and $\E$ a finite projective module over $\A$.
 		Then a \textit{connection} $\nabla$ on $\E$ is a linear map  $\nabla: \E \to \E \otimes_{\A} \Om^1$ such that
 		\be\label{conn_prop_eqn}
@@ -25447,7 +25474,7 @@ where $\pi: A \hookto B\left(\H\right)$ is any faithful representation, $\wideti
 		Here $\E$ is a right module over $\A$ and $\Om^1$ is considered as a bimodule over $\A$.
 	\end{defn}
 	\begin{remark}
-		In case of associated cycles (cf. Definition \ref{conn_defn}) the connection equation \eqref{conn_prop_eqn} has the following form
+		In case of associated cycles (cf. Definition \ref{connection_defn}) the connection equation \eqref{conn_prop_eqn} has the following form
 		\be\label{conn_triple_eqn}
 		\nabla \left(\xi a \right) = \nabla \left(\xi \right) a + \xi \left[ D,a\right] .
 		\ee
@@ -26074,7 +26101,7 @@ Definitions of the Appendix \ref{comm_prot} cannot be directly used in the nonco
 	$$
 \end{defn}
 \begin{remark}
-We use the $G$-{\it connection} word instead \textit{connection} (cf. \cite{connes:c_alg_dg}) to distinguish Definitions \ref{conn_defn} and \ref{connes_dg_connection_defn}.
+We use the $G$-{\it connection} word instead \textit{connection} (cf. \cite{connes:c_alg_dg}) to distinguish Definitions \ref{connection_defn} and \ref{connes_dg_connection_defn}.
 \end{remark}
 
 %\begin{definition}
