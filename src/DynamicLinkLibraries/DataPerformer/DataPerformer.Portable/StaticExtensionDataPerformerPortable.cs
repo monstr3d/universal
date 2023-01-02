@@ -145,12 +145,12 @@ namespace DataPerformer.Portable
              int priority, Action action, IAsynchronousCalculation asynchronousCalculation = null,
              IErrorHandler errorHandler = null)
         {
+            ITimeMeasurementProvider old = processor.TimeProvider;
             try
             {
                 using (TimeProviderBackup backup = new TimeProviderBackup(consumer, provider, processor, reason, priority))
                 {
                     IDataRuntime runtime = backup.Runtime;
-                    ITimeMeasurementProvider old = processor.TimeProvider;
                     processor.TimeProvider = provider;
                     IStep st = null;
                     if (runtime is IStep)
@@ -169,7 +169,6 @@ namespace DataPerformer.Portable
                         last = t;
                         action();
                     }
-                    processor.TimeProvider = old;
                 }
             }
             catch (Exception ex)
@@ -183,6 +182,8 @@ namespace DataPerformer.Portable
                     ex.ShowError(10);
                 }
             }
+            processor.TimeProvider = old;
+
         }
 
 

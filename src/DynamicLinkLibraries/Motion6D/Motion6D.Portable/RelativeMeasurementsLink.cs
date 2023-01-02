@@ -24,7 +24,6 @@ namespace Motion6D.Portable
 
         #endregion
 
-
         #region Ctor
 
         /// <summary>
@@ -86,51 +85,7 @@ namespace Motion6D.Portable
             }
         }
 
-       /* ICategoryObject ICategoryArrow.Source
-        {
-            get
-            {
-                return source;
-            }
-            set
-            {
-                if (!(value is IPosition) & !(value is RelativeMeasurements))
-                {
-                    throw new Exception("Illegal type");
-                }
-                source = value;
-            }
-        }
-
-        ICategoryObject ICategoryArrow.Target
-        {
-            get
-            {
-                return target;
-            }
-            set
-            {
-                if (value is RelativeMeasurements)
-                {
-                    if (measurements != null)
-                    {
-                        throw new Exception("Measurements already exists");
-                    }
-                    target = value;
-                    measurements.Source = source as IPosition;
-                    return;
-                }
-                if (!(value is IPosition))
-                {
-                    throw new Exception("Illegal type");
-                }
-                target = value;
-                measurements.Target = target as IPosition;
-            }
-        }*/
-
         #endregion
-
 
         #region IRemovableObject Members
 

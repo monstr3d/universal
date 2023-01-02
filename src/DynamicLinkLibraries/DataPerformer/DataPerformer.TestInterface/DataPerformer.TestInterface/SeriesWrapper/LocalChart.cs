@@ -146,6 +146,7 @@ namespace DataPerformer.TestInterface.SeriesWrapper
         Dictionary<string, Portable.Basic.Series> GetSeries(IComponentCollection collection)
         {
             IDataConsumer dataConsumer = collection.GetObject<IDataConsumer>(name);
+            dataConsumer.PrepareDataConsumer(start);
             string[] ss = (values == null) ? series.Keys.ToArray() : values;
             return dataConsumer.GetSeries(start, step, stepCount, 
                 argument, ss);

@@ -19,7 +19,8 @@ namespace Motion6D.Portable
     /// <summary>
     /// Relative measurements
     /// </summary>
-    public class RelativeMeasurements : CategoryObject, IMeasurements, IPostSetArrow
+    public class RelativeMeasurements : CategoryObject, IMeasurements, 
+        IPostSetArrow
     {
 
         #region Fields
@@ -732,9 +733,8 @@ namespace Motion6D.Portable
         {
             return new IMeasurement[0];
         }
-
+   
         #endregion
-
 
         #endregion
 

@@ -4,6 +4,7 @@ using System.Text;
 
 
 using CategoryTheory;
+using DataPerformer.Interfaces;
 using Diagram.UI.Interfaces;
 using Motion6D.Interfaces;
 
@@ -15,7 +16,7 @@ namespace Motion6D.Portable
     /// Rigid reference frame
     /// </summary>
     public class RigidReferenceFrame : CategoryObject, IReferenceFrame,
-       IPostLoadPosition, IPostSetArrow, IAlias
+       IPostLoadPosition, IPostSetArrow, IAlias, IStarted
     {
 
         #region Fields
@@ -102,7 +103,6 @@ namespace Motion6D.Portable
 
         #region IReferenceFrame Members
 
-
         /// <summary>
         /// Own frame
         /// </summary>
@@ -119,6 +119,15 @@ namespace Motion6D.Portable
             get { return children; }
         }
 
+
+        #endregion
+
+        #region IStarted Members
+
+        void IStarted.Start(double time)
+        {
+            Start(time);
+        }
 
         #endregion
 
@@ -466,6 +475,15 @@ namespace Motion6D.Portable
         {
             aliasNames = new string[0];
             alinames.Clear();
+        }
+       
+        /// <summary>
+        /// Start
+        /// </summary>
+        /// <param name="time">Time</param>
+        protected virtual void Start(double time)
+        {
+            Update();
         }
 
         /// <summary>

@@ -3670,38 +3670,8 @@ Prove that  for all $\widetilde a, \widetilde b \in \widetilde{\A}$ a following 
  \label{first_order_wtb_eqn}
   \left[\widetilde a, \left[ \widetilde D, J\widetilde b^*\widetilde J^\dagger \right]\right]  = 0.
 \eea
- (cf. equation  !!! CHECK !!! \eqref{st_comn_eqn}, ).
+ (cf. equation \eqref{first_order_dual_eqn}).
 \end{exercise}
-\begin{empt}
-If $\rho : A \to B\left(\H \right)$ is a representation  which corresponds to the spectral triple $\left( \A, \H, D\right)$ then there is the induced by the pair $\left(\rho, \left(A, \widetilde A, G\left( \left.\widetilde A\right| A\right), \widetilde \pi  \right)\right)$ representation $\widetilde \rho : \widetilde A \to B\left(\widetilde{   \H} \right)$ (cf. Definition \ref{induced_repr_defn}). % Suppose that there is a spectral triple $\left(\widetilde \A,\widetilde \H, \widetilde D\right)$ and let   $\widetilde \H^\infty \bydef	\bigcap_{k\in\bN} \H^\infty om \widetilde D^k$. Assume that following condition hold:
-%\be\label{str_d_eqn}
-%\begin{split}
-%	\forall g \in G\left( \left.\widetilde A\right| A\right)\quad  \forall \widetilde \xi \in \widetilde \H^\infty \quad  \widetilde D \left(g \widetilde \xi\right)= g \left( \widetilde D \widetilde \xi\right),\\
-%	D = \left.\widetilde D \right|_{\H^\infty }
-%\end{split}
-%\ee
-Since  $\widetilde \A$ is a projective $\A$-module and $\Om^1_D$ is given by \eqref{connes_cycle_eqn} then from the Proposition \ref{conn_prop} it follows that there is a connection
-\be\label{nabla_cov_eqn}
-\nabla : \widetilde \A\to \widetilde \A\otimes_\A \Om^1_D.
-\ee
-Suppose that $\nabla$ is $G$-\textit{invariant} i.e.
-\be\label{nabla_inv_cov_eqn}
-\forall g \in G\quad\forall\widetilde a \in \widetilde \A \quad \nabla \widetilde a = \sum_{j = 1}^n \widetilde a_j \otimes \om_j \quad\Rightarrow \quad  \nabla \left( g \widetilde a\right)  = \sum_{j = 1}^n g\widetilde a_j \otimes \om_j
-\ee
-where $\widetilde a_j\in \widetilde \A$ and $\om_j\in \Om_D^1$ for all $j=1,...,n$. Suppose that $\widetilde D: \widetilde \A\otimes_\A \H^\infty  \to \widetilde \A\otimes_\A \H^\infty $ is given by
-\be\label{dirac_fin_lift_eqn}
-\begin{split}
-	\left. \widetilde D\right. : \widetilde \A\otimes_\A \H^\infty  \to \widetilde \A\otimes_\A \H^\infty ,\\
-	\widetilde a\otimes \xi \mapsto  \sum_{j = 1}^n \widetilde a_j \otimes \om_j\xi  +\widetilde a \otimes D\xi ,\\
-	\text{where} \quad  \nabla \widetilde a = \sum_{j = 1}^n \widetilde a_j \otimes \om_j\in \widetilde \A\otimes_\A \Om_D^1.
-\end{split}
-\ee
-The space $\widetilde \A\otimes_\A \H^\infty $ is  dense in $\widetilde \H$, so $\widetilde D$ is an unbounded operator on $\widetilde \H$. From \eqref{dirac_fin_lift_eqn} it follows that
-\be\label{dirac_om_fin_lift_eqn}
-\nabla \widetilde a = \sum_{j = 1}^n \widetilde a_j \otimes \om_j \quad\Rightarrow \quad\left[\widetilde D, \widetilde a\right]=  \sum_{j = 1}^n \widetilde a_j \otimes \om_j\in \widetilde\A \otimes_\A \Om^1_D.
-\ee
-\end{empt}
-
 
 
 \begin{defn}\label{triple_conn_lift_defn} 	In the above situation the spectral  triple $\left( \widetilde{\A}, \widetilde{\H}, \widetilde{D}, \widetilde J\right)$  is said to be the  $\left(A, \widetilde{A}, G, \pi \right)$-\textit{lift} of $\left( {\A}, {\H}, {D}, J\right)$.  
@@ -3903,7 +3873,7 @@ Henceforth for all $\la\in\La$ we implicitly assume that $A_\la \subset  C^*$-$\
 % 	An algebraical finite precovering category said to be an \textit{algebraical  finite covering category} if all morphism of it are finite-fold coverings.   We write $\mathfrak{S} \in \mathfrak{FinAlg}$
 % \end{definition}
 \begin{empt}\label{inv_g_lim_empt} Let us consider the situation of the Definition \ref{pointed_defn}.
-	If $\mu, \nu \in \La$ and $\mu > \nu$. Denote by   $h^\mu_\nu:  G\left(\left.A_\mu~\right|A \right) \to  G\left(\left.A_\nu~\right|A \right)\cong G\left(\left.A_\mu~\right|A \right)/H $ the surjective homomorphism which comes from $\pi^\nu_\mu$.
+	If $\mu, \nu \in \La$ and $\mu > \nu$. Denote by   $h^\mu_\nu:  G\left(\left.A_\mu~\right|A \right) \to  G\left(\left.A_\nu~\right|A \right)\cong G\left(\left.A_\mu~\right|A \right)/G\left(\left.A_\mu~\right|A_\nu \right) $ the surjective homomorphism which comes from $\pi^\nu_\mu$.
 \end{empt}
 
 \begin{defn}\label{inv_g_lim_defn}
@@ -3915,7 +3885,7 @@ Henceforth for all $\la\in\La$ we implicitly assume that $A_\la \subset  C^*$-$\
 	\be\label{hurewicz_la_eqn}
 	h_\la:\widehat{G}\to G\left(\left.A_\la~\right|~A\right).
 	\ee
-	We say that the  inverse limit \textit{comes} from the base point $\left\{\pi^\nu_\mu\right\}$ (cf Remark \ref{comp_pt_rem}). The group $\widehat{G}$ does not depend on a choice of base-point up to isomorphism (cf. Remark \ref{base_pt_iso_rem})
+	We say that the  inverse limit \textit{comes} from the base point $\left\{\pi^\nu_\mu\right\}$ (cf Remark \ref{comp_pt_rem}). The group $\widehat{G}$ does not depend on a choice of base-point up to isomorphism (cf. Remark \ref{base_pt_iso_rem}).
 \end{defn}
 \begin{empt}\label{inf_g_act_empt}
 	In the situation of the Definition \ref{inv_g_lim_defn} for all $\la\in \La$ there is an action 
@@ -3986,8 +3956,8 @@ If 	a faithful representation ${\pi}: \widehat{A} \hookto B\left( \H\right)$ is 
 \begin{lemma}\label{equiv_lem}
 	Following conditions hold:
 	\begin{enumerate}
-		\item [(i)] The universal  representation $\widehat{\pi}: \widehat{A} \hookto B\left( \widehat\H\right)$ (cf. Definition \ref{universal_rep_defn}) is equivariant.
-				\item [(ii)] The atomic  representation ${\pi}_a: \widehat{A} \hookto B\left(\widehat \H_a\right)$ (cf. Definition \ref{atomic_repr_defn}) is equivariant.
+		\item [(i)] the universal  representation $\widehat{\pi}: \widehat{A} \hookto B\left( \widehat\H\right)$ (cf. Definition \ref{universal_rep_defn}) is equivariant,
+				\item [(ii)] the atomic  representation ${\pi}_a: \widehat{A} \hookto B\left(\widehat \H_a\right)$ (cf. Definition \ref{atomic_repr_defn}) is equivariant.
 	\end{enumerate}
 \end{lemma}
 \begin{proof}
@@ -4018,7 +3988,7 @@ g \xi^s_{\widehat{a}}\stackrel{\text{def}}{=}	\left(0, ..., \underbrace{f_{gs}\l
 \begin{definition}\label{special_element_defn}
 	Let $\mathfrak{S}^{\mathrm{pt}}=\left(\left\{\pi_\la: A \hookto A_\la \right\}, \left\{\pi^\mu_\nu\right\}\right)\in \mathfrak{FinAlg}^{\mathrm{pt}}$  be a  {pointed algebraical  finite covering category} (cf. Definition \ref{pointed_defn}). Let $\widehat{A} \bydef C^*\text{-}\varprojlim_{\la \in \La} A_{\la}$ be the $C^*$-inductive limit of $C^*$-algebras, and let $\widehat{G}\bydef \varprojlim_{\la \in \La} G\left(
 	\left.  A_\la~ \right|A\right)$ be the projective limit of groups.
-	Let $G_\la \bydef \ker\left(  \widehat G\to  G\left(\left.A_\la~\right|~A \right)\right)$, and let $A_{\la}^{\sim}$ be given by the equation \eqref{unital_notation_eqn}. Let $\pi:\widehat{A}\to B\left(\H \right)$ be an equivariant representation. 
+	Let $G_\la \bydef \ker\left(  \widehat G\to  G\left(\left.A_\la~\right|~A \right)\right)$, and let $A_{\la}^{\sim}$ be given by the equation \eqref{unital_notation_eqn}. Let $\pi:\widehat{A}\to B\left(\H \right)$ be an equivariant representation (cf. Definition \ref{equiv_defn}). 
 	A  positive operator $\overline a \in B\left(\H\right)_+$ is said to be $\pi$-\textit{special element of} $\mathfrak{S}^{\mathrm{pt}}$ if for any $\la_0 \in \La$, $\eps > 0$ and  $z \in A_{\la_0}^{\sim}$ (cf. Notation \eqref{unital_notation_eqn})
 	it satisfies to the following conditions:	
 	\begin{enumerate}
@@ -4335,6 +4305,7 @@ If $\widehat x$ correspond to a state $\tau_{\widehat x}$ then $\H_{\widehat x}$
 $$
 \mathcal{I}_{\tau_{\widehat x}}\bydef \left\{\left.\widehat a \in \widehat A \ \right| \ \tau(\widehat a^*\widehat a)=0\right\}
 $$
+!!! CONTINUE !!!
 (cf. equation \ref{tau_ideal_eqn}). If $f_{\tau_{\widehat x}}: \widehat A \to \H_{\widehat x}$ is given by the equation \eqref{from_a_to_l2_eqn} then $f_{\tau_{\widehat x}}\left(  \widehat A\right)$ is a dense subset of $\H_{\widehat x}$. On the other hand since $\bigcup A_\la$ is dense in $ \widehat A $ the space $f_{\tau_{\widehat x}}\left(  \bigcup A_\la\right)$  a dense subset of $\H_{\widehat x}$. However from the equation \eqref{red_incl_eqn} it turns out that $f_{\tau_{\widehat x}}\left(  A_\la\right)= f_{\tau_{\widehat x}}\left(   A\right)$ for every $\la\in \La$ it follows that $f_{\tau_{\widehat x}}\left(  A\right)$ is dense in $\H_{\widehat x}$. We leave to the reader the proof of the following isomorphism
 $$
 f_{\tau_{\widehat x}}\left(   A\right)\cong f_{\tau_{\widehat p\left( \widehat x\right) }}\left(  A\right).
@@ -5418,7 +5389,7 @@ In the  situation of the Definition \ref{cross_cov_defn}
   \bean
   	K\left(\widetilde{A}_\pi\right)\otimes_{A_{\la}} \H_{\la}\hookto \widetilde \H. 
   	\eean
-  	Similarly to the equation \eqref{fist_order_dual_eqn} one can proof
+  	Similarly to the equation \eqref{first_order_dual_eqn} one can proof
   	\be\label{first_order_la_eqn}
   	\begin{split}
   	\forall a_\la, b_\la \in \A_\la\quad  \left[b_\la, \left[ D, J_\la a^*_\la J^\dagger_\la\right] \right]= 0 \quad \Rightarrow \\
@@ -25325,7 +25296,7 @@ where $\pi: A \hookto B\left(\H\right)$ is any faithful representation, $\wideti
 		= [[D, Jb^*J^\dagger], a] + [D, \underbrace{[a, Jb^*J^\dagger]}_{=0}],
 		\]
 		this is equivalent to the condition that 
-		\be\label{fist_order_dual_eqn}
+		\be\label{first_order_dual_eqn}
 		[a, [D, Jb^*J^\dagger]] = 0.
 		\ee
 	\end{axiom}
