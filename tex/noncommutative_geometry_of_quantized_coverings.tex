@@ -4300,12 +4300,11 @@ From the above equation it turns out that the state $\widehat \tau$ is not pure 
 of $C^*$-algebras and Hilbert spaces respectively.
 \end{lemma}
 \begin{proof}
-	For any $\widehat a$ there is a net $\left\{a_\la \in A_\la\right\}_{\la \in \La}$ such that there is a $C^*$-norm limit $\widehat a = \lim_{\la \in \La} a_\la$. It follows that 	$\rep_{  \widehat{x }}\left(\widehat a \right)= \lim_{\la \in \La}\rep_{  \widehat{x }}\left(a_\la \right)$. On the other hand since a covering $A\hookto A_\la$ is reducible one has $\rep_{  \widehat{x }}\left(a_\la \right)\in \rep_{  \widehat{x }}\left(A \right)$, so $\rep_{  \widehat{x }}\left(\widehat a \right)\in \rep_{  \widehat{x }}\left(A \right)$.
-If $\widehat x$ correspond to a state $\tau_{\widehat x}$ then $\H_{\widehat x}$ is a completion of $\widehat A/	\mathcal{I}_{\tau_{\widehat x}}$ where 
+	For any $\widehat a\in \widehat A$ there is a net $\left\{a_\la \in A_\la\right\}_{\la \in \La}$ such that there is a $C^*$-norm limit $\widehat a = \lim_{\la \in \La} a_\la$. It follows that 	$\rep_{  \widehat{x }}\left(\widehat a \right)= \lim_{\la \in \La}\rep_{  \widehat{x }}\left(a_\la \right)$. On the other hand since a covering $A\hookto A_\la$ is reducible one has $\rep_{  \widehat{x }}\left(a_\la \right)\in \rep_{  \widehat{x }}\left(A \right)$, so $\rep_{  \widehat{x }}\left(\widehat a \right)\in \rep_{  \widehat{x }}\left(A \right)$ for all $\widehat x \in \widehat \sX$.
+If $\widehat x$ corresponds to a state $\tau_{\widehat x}$ then $\H_{\widehat x}$ is a completion of $\widehat A/	\mathcal{I}_{\tau_{\widehat x}}$ where 
 $$
-\mathcal{I}_{\tau_{\widehat x}}\bydef \left\{\left.\widehat a \in \widehat A \ \right| \ \tau(\widehat a^*\widehat a)=0\right\}
+\mathcal{I}_{\tau_{\widehat x}}\bydef \left\{\left.\widehat a \in \widehat A \ \right| \ \tau_{\widehat x}(\widehat a^*\widehat a)=0\right\}
 $$
-!!! CONTINUE !!!
 (cf. equation \ref{tau_ideal_eqn}). If $f_{\tau_{\widehat x}}: \widehat A \to \H_{\widehat x}$ is given by the equation \eqref{from_a_to_l2_eqn} then $f_{\tau_{\widehat x}}\left(  \widehat A\right)$ is a dense subset of $\H_{\widehat x}$. On the other hand since $\bigcup A_\la$ is dense in $ \widehat A $ the space $f_{\tau_{\widehat x}}\left(  \bigcup A_\la\right)$  a dense subset of $\H_{\widehat x}$. However from the equation \eqref{red_incl_eqn} it turns out that $f_{\tau_{\widehat x}}\left(  A_\la\right)= f_{\tau_{\widehat x}}\left(   A\right)$ for every $\la\in \La$ it follows that $f_{\tau_{\widehat x}}\left(  A\right)$ is dense in $\H_{\widehat x}$. We leave to the reader the proof of the following isomorphism
 $$
 f_{\tau_{\widehat x}}\left(   A\right)\cong f_{\tau_{\widehat p\left( \widehat x\right) }}\left(  A\right).
@@ -4322,7 +4321,7 @@ algebraic direct sum.
 \end{corollary}
 
 \begin{lemma}\label{sum_hilb_rep_lem}
-	Let $\left\{\H_\la\right\}_{\la\in\La}$ be a family of Hilbert spaces, and let $\H$ be the norm completion of the algebraic direct sum $\oplus_{\la\in\La}\H_\la$. The bounded net $\left\{a_\a\right\}_{\a\in \mathscr A} \in B\left( \H\right)$ is strongly convergent  if and only if for all $\la\in\La$ and  $\zeta \in \H$ given by
+	Let $\left\{\H_\la\right\}_{\la\in\La}$ be a family of Hilbert spaces, and let $\H$ be the norm completion of the algebraic direct sum $\oplus_{\la\in\La}\H_\la$. The bounded net $\left\{a_\a\right\}_{\a\in \mathscr A} \in B\left( \H\right)$ is strongly convergent (cf. Definition \ref{strong_topology_defn}) if and only if for all $\la\in\La$ and  $\zeta \in \H$ given by
 	$$
 	\zeta =\left(0,...~, \underbrace{\zeta_\la}_ {{\la}^{\text{th}}-\mathrm{place}} ,~...,0\right)\in \bigoplus_{\la\in\La}\H_\la
 	$$
@@ -4352,19 +4351,18 @@ Conversely suppose that $\left\| a_\a\right\| < C$ for all $\a\in \mathscr A$.
 \end{proof}
 
 \begin{lemma}\label{direct_sum_strong_lim_lem}
-	Let $\left\{\H_\la\right\}_{\la\in\La}$ be a family of Hilbert spaces, and let $\H$ be the norm completion of the algebraic direct sum $\oplus_{\la\in\La}\H_\la$. Let $\left\{a_\a\right\}_{\a\in\mathscr A}\in B\left(\H\right)$ be net such that
+	Let $\left\{\H_\la\right\}_{\la\in\La}$ be a family of Hilbert spaces, and let $\H$ be the norm completion of the algebraic direct sum $\oplus_{\la\in\La}\H_\la$. Let $\left\{a_\a\right\}_{\a\in\mathscr A}\in B\left(\H\right)$ be net such that:
 	\begin{itemize}
-		\item There is $C > 0$ such that $\left\|a_\a \right\|<C$ for all $\a\in\mathscr A$.
+		\item there is $C > 0$ such that $\left\|a_\a \right\|<C$ for all $\a\in\mathscr A$,
 		\item $a_\a \H_\la \subset \H_\la$ where the natural inclusion $\H_\la\subset \H$ is implied.
-	\item	For all $\la \in \La$ there is a limit $\lim_{\a \in \mathscr A}a_\a|_{\H_\la} = a_\la$ with respect to the strong topology of $B\left( \H_\a\right)$. 
-		
+	\item	for all $\la \in \La$ there is a limit $\lim_{\a \in \mathscr A}a_\a|_{\H_\la} = a_\la$ with respect to the strong topology of $B\left( \H_\a\right)$ (cf. Definition \ref{strong_topology_defn}). 		
 	\end{itemize} 
 Then the net $\left\{a_\a\right\}$ is convergent  with respect to the strong topology of $B\left( \H\right)$ (cf. Definition \ref{strong_topology_defn}). If
-$\xi \in \H$ corresponds to the family
+$\xi \in \H$ corresponds to a family
 \be\nonumber
 \left\{\xi_{\la}\in \H_{\la}\right\}_{\widehat \la\in \La}.
 \ee
-then $\left(\lim_{\a \in \mathscr A } a_\a\right) \xi$ is represented by the family
+then $\left(\lim_{\a \in \mathscr A } a_\a\right) \xi$ is represented by a family
 $$
 \left\{ \left( \lim_{\a \in \mathscr A } a_\a|_{\H_\la}\right) \xi_{\la}\in \H_{\la}\right\}_{\la\in \La}
 	$$
@@ -4449,7 +4447,7 @@ Let	$\mathfrak{S}^{\mathrm{pt}} \in \mathfrak{FinAlg}^{\mathrm{pt}}$ be a pointe
 		\item[(b)] If both $\widetilde{A}'_\pi$ and $\widetilde{A}''_\pi$ are  $\pi$-{connected components} then there is  $g \in G\left(\left.\overline{A}_\pi~\right|~ A\right)$ such that $g \widetilde{A}'_\pi= \widetilde{A}''_\pi$.
 		\item [(c)] For any $\la \in \La$ the restriction $h_\la|_{G_\pi}$ is an epimorphism, i. e. $h_\la\left(G_\pi \right) = G\left(\left. A_\la~\right|~A \right)$.
 	\end{enumerate}
-	If $\pi$ is the atomic representation $\pi_a$ then we say that is \textit{good}.
+	If $\pi$ is the atomic representation $\pi_a$ then we say that $\mathfrak{S}^{\mathrm{pt}}$ is \textit{good}.
 \end{definition}
 \begin{remark}\label{cond_b_ref_rem}
 	If $\overline  \sX$ is a spectrum of $\overline{A}_\pi$ then the condition (b) of the Definition \ref{good_defn}  can be reformulated by a following way. If both $\widetilde{\sX}'$ and $\widetilde{\sX}''$ are  {connected components} of $\overline \sX$ then there is  $g \in G\left(\left.\overline{A}_\pi~\right|~ A\right)$ such that $g \widetilde{\sX}''= \widetilde{\sX}'$ (cf. Exercise \ref{conn_comp_exer}).
@@ -4505,7 +4503,7 @@ be a $\pi$-good  pointed algebraical  finite covering category (cf. Definitions 
 
 
 \begin{remark}\label{rep_x_rem}
-If $\widehat \sX$ is the spectrum of the $C^*$-inductive limit $C^*$-$\varprojlim_{\la\in\La}A_\la$ then for all $\widehat x$ and $\la\in \La$ there are the natural representations
+If $\widehat \sX$ is the spectrum of the $C^*$-inductive limit $C^*$-$\varprojlim_{\la\in\La}A_\la$ then for all $\widehat x$ and $\la\in \La$ there is the natural representation
 \be\label{rep_xl_eqn}
 \rep_{ \widehat{x}}: A_\la\to B\left(\H_{\widehat{x}}\right).
 \ee
@@ -4585,6 +4583,7 @@ a \bydef	\sum_{g \in G\left(\left.\overline A\right|A \right) }g\overline a\in A
 	\end{split}
 	\ee
 \end{definition}
+!!! CONTINUE !!!
 \begin{remark}
 There is a pointed{ algebraical  finite covering category}  
 \be\label{bounded_ptcat_eqn}

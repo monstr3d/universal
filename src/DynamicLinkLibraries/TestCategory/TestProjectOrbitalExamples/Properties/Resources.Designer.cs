@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace TestProjectExamples.Properties {
+namespace TestProjectOrbitalExamples.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace TestProjectExamples.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("TestProjectExamples.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("TestProjectOrbitalExamples.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -63,19 +63,9 @@ namespace TestProjectExamples.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] DatabaseSelection {
+        internal static byte[] OrbitDetermination {
             get {
-                object obj = ResourceManager.GetObject("DatabaseSelection", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        internal static byte[] DeltaFunction {
-            get {
-                object obj = ResourceManager.GetObject("DeltaFunction", resourceCulture);
+                object obj = ResourceManager.GetObject("OrbitDetermination", resourceCulture);
                 return ((byte[])(obj));
             }
         }

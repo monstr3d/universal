@@ -3,10 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TestCategory.Standard;
 
 namespace TestProjectBimapExamples
 {
-    public static class StaticExtensionBitmapExamples
+    internal static class StaticExtensionBitmapExamples
     {
+        static StaticExtensionBitmapExamples()
+        {
+            StaticExtensionTestCategoryStandard.Init();
+        }
+
+        internal static void Init()
+        {
+
+        }
     }
 }

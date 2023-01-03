@@ -3,6 +3,7 @@ using Diagram.UI;
 using Diagram.UI.Interfaces;
 using FormulaEditor;
 using FormulaEditor.Compiler;
+using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -31,7 +32,18 @@ namespace TestCategory.Standard
 
         }
 
- 
+
+        /// <summary>
+        /// Test fact
+        /// </summary>
+        /// <param name="bytes">bytes</param>
+        public static void Fact(this byte[] bytes)
+        {
+            Assert.True(bytes.Test().Item1);
+        }
+
+
+
 
 
         /// <summary>

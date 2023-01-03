@@ -1,10 +1,15 @@
+
+
+
+
 namespace TestProjectBimapExamples
 {
     public class Tests
     {
-  /*      [SetUp]
+       [SetUp]
         public void Setup()
         {
+            StaticExtensionBitmapExamples.Init();
         }
 
         /// <summary>
@@ -14,6 +19,6 @@ namespace TestProjectBimapExamples
         public void TestBitmapSelectionion()
         {
             Resources.ImagePoly_5.Fact();
-        }*/
+        }
     }
 }
