@@ -1,22 +1,16 @@
-
-
-
-
 namespace TestProjectBimapExamples
 {
-    public class Tests
-    {
-       [SetUp]
-        public void Setup()
-        {
-            StaticExtensionBitmapExamples.Init();
-        }
 
+    /// <summary>
+    /// Testing for examples
+    /// </summary>
+    public class UnitTestBitmapExamples
+    {
         /// <summary>
         /// Test of bitmap selection 
         /// </summary>
         [Fact]
-        public void TestBitmapSelectionion()
+        public void TestBitmapSelection()
         {
             Resources.ImagePoly_5.Fact();
         }

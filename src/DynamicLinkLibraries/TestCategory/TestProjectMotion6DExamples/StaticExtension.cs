@@ -1,7 +1,8 @@
-﻿using TestCategory;
+﻿using Motion6D.Portable;
+using TestCategory;
 using TestCategory.Standard;
 
-namespace TestProjectExamples
+namespace TestProjectMotion6DExamples
 {
     /// <summary>
     /// Static Extension
@@ -15,6 +16,7 @@ namespace TestProjectExamples
         static StaticExtension()
         {
             StaticExtensionTestCategoryStandard.Init();
+            StaticExtensionMotion6DPortable.Init();
         }
 
         /// <summary>

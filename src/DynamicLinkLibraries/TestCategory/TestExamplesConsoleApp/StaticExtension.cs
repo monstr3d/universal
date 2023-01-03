@@ -32,6 +32,7 @@ namespace TestExamplesConsoleApp
         static StaticExtension()
         {
             StaticExtensionTestCategoryStandard.Init();
+            StaticExtensionMotion6DPortable.Init();
         }
 
         internal static  void Init()

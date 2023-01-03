@@ -1,7 +1,7 @@
 ﻿using TestCategory;
 using TestCategory.Standard;
 
-namespace TestProjectExamples
+namespace TestProjectBimapExamples
 {
     /// <summary>
     /// Static Extension
