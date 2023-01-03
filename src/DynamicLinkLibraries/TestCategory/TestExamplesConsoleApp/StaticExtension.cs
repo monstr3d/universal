@@ -33,6 +33,8 @@ namespace TestExamplesConsoleApp
         {
             StaticExtensionTestCategoryStandard.Init();
             StaticExtensionMotion6DPortable.Init();
+
+          //  DataPerformer.Portable.Runtime.DataRuntimeFactory.Singleton.SetBase();
         }
 
         internal static  void Init()

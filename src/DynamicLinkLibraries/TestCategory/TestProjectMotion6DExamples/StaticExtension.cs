@@ -12,7 +12,6 @@ namespace TestProjectMotion6DExamples
         /// <summary>
         /// Constructor
         /// </summary>
-
         static StaticExtension()
         {
             StaticExtensionTestCategoryStandard.Init();

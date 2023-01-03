@@ -1,4 +1,5 @@
-﻿using TestCategory;
+﻿using DataPerformer.Portable;
+using TestCategory;
 using TestCategory.Standard;
 
 namespace TestProjectExamples
@@ -15,6 +16,7 @@ namespace TestProjectExamples
         static StaticExtension()
         {
             StaticExtensionTestCategoryStandard.Init();
+            DataPerformer.Portable.Runtime.DataRuntimeFactory.Singleton.SetBase();
         }
 
         /// <summary>

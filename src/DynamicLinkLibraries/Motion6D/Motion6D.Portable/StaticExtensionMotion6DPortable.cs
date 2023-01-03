@@ -6,16 +6,16 @@ using CategoryTheory;
 using Diagram.UI;
 using Diagram.UI.Interfaces;
 
+using AssemblyService.Attributes;
 
 using DataPerformer.Portable;
+
 using Event.Interfaces;
 using Event.Portable;
 
 using Motion6D.Interfaces;
 using Motion6D.Portable.Interfaces;
 using Motion6D.Portable.Runtime;
-using DataPerformer.Interfaces;
-using AssemblyService.Attributes;
 
 namespace Motion6D.Portable
 {
