@@ -181,7 +181,8 @@ namespace DataPerformer
                 {
                     return null;
                 }
-                PerformFixed(consumer, start, step, count, argument, values, series, functions, null);
+                PerformFixed(consumer, start, step, count, argument, 
+                    values, series, functions, StaticExtensionDataPerformerInterfaces.Calculation);
                 return dic;
             }
 

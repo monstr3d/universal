@@ -36,9 +36,9 @@ namespace DataPerformer.UI.UserControls
 
         private Dictionary<string, object[]> dArray = new Dictionary<string, object[]>();
 
-        internal Dictionary<IMeasurement, Portable.MeasurementsDisasseblyWrapper>
+        internal Dictionary<IMeasurement, Portable.MeasurementsDisassemblyWrapper>
         
-        disassemblyDictionary = new Dictionary<IMeasurement, Portable.MeasurementsDisasseblyWrapper>();
+        disassemblyDictionary = new Dictionary<IMeasurement, Portable.MeasurementsDisassemblyWrapper>();
 
         Tuple<double[],
                   Dictionary<string,
@@ -105,7 +105,7 @@ namespace DataPerformer.UI.UserControls
             foreach (IMeasurement key in disassemblyDict.Keys)
             {
                 disassemblyDictionary[key] = new
-                    Portable.MeasurementsDisasseblyWrapper(disassemblyDict[key], key);
+                    Portable.MeasurementsDisassemblyWrapper(disassemblyDict[key], key);
             }
             add.Clear();
             calc.Clear();
@@ -280,7 +280,7 @@ namespace DataPerformer.UI.UserControls
         {
             try
             {
-                foreach (Portable.MeasurementsDisasseblyWrapper wr
+                foreach (Portable.MeasurementsDisassemblyWrapper wr
                     in disassemblyDictionary.Values)
                 {
                     wr.Update();

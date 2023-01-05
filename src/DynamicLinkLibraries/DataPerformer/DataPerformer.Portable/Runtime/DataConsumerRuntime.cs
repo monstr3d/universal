@@ -92,7 +92,7 @@ namespace DataPerformer.Portable.Runtime
         /// <summary>
         /// Runtime factory
         /// </summary>
-        protected IDataRuntimeFactory fartory;
+        protected IDataRuntimeFactory dataRuntimeFactory;
 
         /// <summary>
         /// Time provider

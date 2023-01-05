@@ -82,7 +82,7 @@ namespace DataPerformer.UI.UserControls
                     dictionary[name] = t;
                     if (p.disassemblyDictionary.ContainsKey(m))
                     {
-                        MeasurementsDisasseblyWrapper wr =
+                        MeasurementsDisassemblyWrapper wr =
                             p.disassemblyDictionary[m];
                         IMeasurement[] mms = wr.Measurements;
                         foreach (IMeasurement mm in mms)

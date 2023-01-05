@@ -12,7 +12,7 @@ namespace DataPerformer.Portable
     /// <summary>
     /// Wrapper of measurements and disaassembly
     /// </summary>
-    public class MeasurementsDisasseblyWrapper
+    public class MeasurementsDisassemblyWrapper
     {
 
         #region Fields
@@ -29,7 +29,7 @@ namespace DataPerformer.Portable
 
         #region Ctor
 
-        public MeasurementsDisasseblyWrapper(IDisassemblyObject disassembly, IMeasurement measure)
+        public MeasurementsDisassemblyWrapper(IDisassemblyObject disassembly, IMeasurement measure)
         {
             this.disassembly = disassembly;
             this.measure = measure;

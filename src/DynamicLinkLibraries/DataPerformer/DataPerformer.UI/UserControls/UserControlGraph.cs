@@ -94,9 +94,9 @@ namespace DataPerformer.UI.UserControls
 
         private ITimeMeasurementConsumer timeConsumer;
 
-        private Dictionary<IMeasurement, MeasurementsDisasseblyWrapper> measurementsWrapperDictionary = null;
+        private Dictionary<IMeasurement, MeasurementsDisassemblyWrapper> measurementsWrapperDictionary = null;
 
-        List<MeasurementsDisasseblyWrapper> measurementsWrapperList = new List<MeasurementsDisasseblyWrapper>();
+        List<MeasurementsDisassemblyWrapper> measurementsWrapperList = new List<MeasurementsDisassemblyWrapper>();
 
         private Size inSize;
 
@@ -1598,7 +1598,7 @@ namespace DataPerformer.UI.UserControls
                             c = dmta[m];
                         }
                         string s = key.Substring(0, key.IndexOf('.') + 1);
-                        MeasurementsDisasseblyWrapper mw = measurementsWrapperDictionary[m];
+                        MeasurementsDisassemblyWrapper mw = measurementsWrapperDictionary[m];
                         int i = 0;
                         foreach (IMeasurement mm in mw.Measurements)
                         {
@@ -1626,11 +1626,11 @@ namespace DataPerformer.UI.UserControls
                 type = 0;
                 text = false;
                 ActParent(ActionType.Start, global::Animation.Interfaces.Enums.ActionType.Calculation);
-                IDataRuntime runtime = consumer.CreateRuntime(StaticExtensionDataPerformerInterfaces.Calculation);
+           /*     IDataRuntime runtime = consumer.CreateRuntime(StaticExtensionDataPerformerInterfaces.Calculation);
                 double st = Double.Parse(calculatorBoxStart.Text);
                 runtime.StartAll(st);
                 consumer.FullReset();
-                for (int i = 0; i < 10; i++)
+              /* !!! MAY BE DELETE  for (int i = 0; i < 10; i++)
                 {
                     try
                     {
@@ -1647,7 +1647,7 @@ namespace DataPerformer.UI.UserControls
                             return;
                         }
                     }
-                }
+                }//*/
                 consumer.Start = double.Parse(calculatorBoxStart.Text);
                 consumer.Step = double.Parse(calculatorBoxStep.Text);
                 string sc;
@@ -1951,6 +1951,7 @@ namespace DataPerformer.UI.UserControls
             Refresh();
 
         }
+
         private void backgroundWorker_DoWork(object sender, DoWorkEventArgs e)
         {
             StartChart();
@@ -2001,7 +2002,7 @@ namespace DataPerformer.UI.UserControls
                     continue;
                 }
                 textDictionary.Remove(k);
-                MeasurementsDisasseblyWrapper wr = measurementsWrapperDictionary[mm];
+                MeasurementsDisassemblyWrapper wr = measurementsWrapperDictionary[mm];
                 measurementsWrapperList.Add(wr);
                 foreach (IMeasurement measurement in wr.Measurements)
                 {
@@ -2011,7 +2012,7 @@ namespace DataPerformer.UI.UserControls
             condition = (mc == null) ? new Func<bool>(() => { return true; }) :
                 () => { return (bool)mc.Parameter(); };
             textXML = XElement.Parse("<Analysis/>");
-            Dictionary<IMeasurement, MeasurementsDisasseblyWrapper> disassemblyDictionary =
+            Dictionary<IMeasurement, MeasurementsDisassemblyWrapper> disassemblyDictionary =
                 consumer.CreateDisassemblyMeasurements();
             Func<object>[] provider = new Func<object>[1];
             IDataConsumer dc = consumer;
@@ -2042,7 +2043,7 @@ namespace DataPerformer.UI.UserControls
                 }
                 XElement measurements = XElement.Parse("<Measurements/>");
                 e.Add(measurements);
-                foreach (MeasurementsDisasseblyWrapper wr in measurementsWrapperList)
+                foreach (MeasurementsDisassemblyWrapper wr in measurementsWrapperList)
                 {
                     wr.Update();
                 }
@@ -2098,7 +2099,7 @@ namespace DataPerformer.UI.UserControls
                    disassemblyDictionary[key] = new
                        MeasurementsDisasseblyWrapper(disassemblyDict[key], key);
                }*/
-            Dictionary<IMeasurement, MeasurementsDisasseblyWrapper> disassemblyDictionary =
+            Dictionary<IMeasurement, MeasurementsDisassemblyWrapper> disassemblyDictionary =
                 consumer.CreateDisassemblyMeasurements();
             Func<object>[] provider = new Func<object>[1];
             IDataConsumer dc = consumer;
@@ -2216,7 +2217,7 @@ namespace DataPerformer.UI.UserControls
                 Dictionary<IMeasurement, object> current = new Dictionary<IMeasurement, object>();
                 try
                 {
-                    foreach (MeasurementsDisasseblyWrapper wr in disassemblyDictionary.Values)
+                    foreach (MeasurementsDisassemblyWrapper wr in disassemblyDictionary.Values)
                     {
                         wr.Update();
                     }
@@ -2390,7 +2391,7 @@ namespace DataPerformer.UI.UserControls
                    disassemblyDictionary[key] = new
                        MeasurementsDisasseblyWrapper(disassemblyDict[key], key);
                }*/
-            Dictionary<IMeasurement, MeasurementsDisasseblyWrapper> disassemblyDictionary =
+            Dictionary<IMeasurement, MeasurementsDisassemblyWrapper> disassemblyDictionary =
                 consumer.CreateDisassemblyMeasurements();
             Func<object>[] provider = new Func<object>[1];
             IDataConsumer dc = consumer;
@@ -2548,7 +2549,7 @@ namespace DataPerformer.UI.UserControls
                 Dictionary<IMeasurement, object> current = new Dictionary<IMeasurement, object>();
                 try
                 {
-                    foreach (MeasurementsDisasseblyWrapper wr in disassemblyDictionary.Values)
+                    foreach (MeasurementsDisassemblyWrapper wr in disassemblyDictionary.Values)
                     {
                         wr.Update();
                     }

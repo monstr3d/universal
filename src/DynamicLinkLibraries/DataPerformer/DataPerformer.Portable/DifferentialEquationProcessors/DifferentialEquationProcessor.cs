@@ -19,12 +19,7 @@ namespace DataPerformer.Portable.DifferentialEquationProcessors
     /// </summary>
     public abstract class DifferentialEquationProcessor : IDifferentialEquationProcessor
     {
-        /// <summary>
-        /// Processor
-        /// </summary>
-        static private IDifferentialEquationProcessor processor;
-
-
+ 
         /// <summary>
         /// The is busy sign
         /// </summary>
@@ -45,16 +40,9 @@ namespace DataPerformer.Portable.DifferentialEquationProcessors
         /// </summary>
         public static IDifferentialEquationProcessor Processor
         {
-            get
-            {
-                return processor;
-            }
-            set
-            {
-                processor = value;
-            }
+            get;
+            set;
         }
-
 
         /// <summary>
         /// Systems of equations

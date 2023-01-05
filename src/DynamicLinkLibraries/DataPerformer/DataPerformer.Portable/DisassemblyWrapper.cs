@@ -17,7 +17,7 @@ namespace DataPerformer.Portable
 
         Dictionary<string, IMeasurement> dictionary = new Dictionary<string, IMeasurement>();
 
-        List<MeasurementsDisasseblyWrapper> l = new List<MeasurementsDisasseblyWrapper>();
+        List<MeasurementsDisassemblyWrapper> l = new List<MeasurementsDisassemblyWrapper>();
 
 
         #endregion
@@ -33,7 +33,7 @@ namespace DataPerformer.Portable
         public DisassemblyWrapper(IEnumerable<string> names, IDataConsumer consumer, 
             IDisassemblyObject disassembly)
         {
-            Dictionary<IMeasurement, MeasurementsDisasseblyWrapper> d = 
+            Dictionary<IMeasurement, MeasurementsDisassemblyWrapper> d = 
                 consumer.CreateDisassemblyMeasurements(disassembly);
             Dictionary<string, IMeasurement> measurements = consumer.GetAllMeasurementsByName();
              foreach (string key in measurements.Keys)
@@ -44,7 +44,7 @@ namespace DataPerformer.Portable
                     if (d.ContainsKey(measurement))
                     {
                         string s = key + ".";
-                        MeasurementsDisasseblyWrapper wr = d[measurement];
+                        MeasurementsDisassemblyWrapper wr = d[measurement];
                         l.Add(wr);
                         IMeasurement[] mea = wr.Measurements;
                         foreach (IMeasurement mm in mea)
@@ -69,7 +69,7 @@ namespace DataPerformer.Portable
         {
             get
             {
-                foreach (MeasurementsDisasseblyWrapper wrapper in l)
+                foreach (MeasurementsDisassemblyWrapper wrapper in l)
                 {
                     wrapper.Update();
                 }

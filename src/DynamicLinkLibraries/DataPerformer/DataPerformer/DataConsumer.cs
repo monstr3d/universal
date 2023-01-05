@@ -219,9 +219,9 @@ namespace DataPerformer
         /// <param name="disassembly">Disassembly</param>
         /// <returns>Mesurements dictionary</returns>
         public Dictionary<string, object>  CreateMeasurements(string argument, string[] values,  out ParametrizedSeries[] series, 
-            out Dictionary<DoubleArrayFunction, IMeasurement[]> functions, Dictionary<IMeasurement, MeasurementsDisasseblyWrapper> disassembly = null)
+            out Dictionary<DoubleArrayFunction, IMeasurement[]> functions, Dictionary<IMeasurement, MeasurementsDisassemblyWrapper> disassembly = null)
         {
-            Dictionary<IMeasurement, MeasurementsDisasseblyWrapper> dis = new Dictionary<IMeasurement, MeasurementsDisasseblyWrapper>();
+            Dictionary<IMeasurement, MeasurementsDisassemblyWrapper> dis = new Dictionary<IMeasurement, MeasurementsDisassemblyWrapper>();
             if (disassembly != null)
             {
                 dis = disassembly;
@@ -263,7 +263,7 @@ namespace DataPerformer
                 }
                 else if (disassembly.ContainsKey(val))
                 {
-                    MeasurementsDisasseblyWrapper mv = disassembly[val];
+                    MeasurementsDisassemblyWrapper mv = disassembly[val];
                     string k = key.Substring(0, key.IndexOf('.') + 1);
                     foreach (IMeasurement mea in mv.Measurements)
                     {
@@ -311,7 +311,7 @@ namespace DataPerformer
         /// <returns>Result of simulation</returns>
         public Dictionary<string, object> PerformFixed(double start, double step, int count, string argument, string[] values,
              out ParametrizedSeries[] series,
-            out Dictionary<DoubleArrayFunction, IMeasurement[]> functions, Func<bool> stop, Dictionary<IMeasurement, MeasurementsDisasseblyWrapper> disassembly = null)
+            out Dictionary<DoubleArrayFunction, IMeasurement[]> functions, Func<bool> stop, Dictionary<IMeasurement, MeasurementsDisassemblyWrapper> disassembly = null)
         {
             try
             {
@@ -348,7 +348,7 @@ namespace DataPerformer
         /// <param name="disassembly">Disassembly</param>
         /// <returns>Action result</returns>
         public Dictionary<string, object> PerformFixed(string argument, string[] values, Func<bool> stop,
-            Dictionary<IMeasurement, MeasurementsDisasseblyWrapper> disassembly = null)
+            Dictionary<IMeasurement, MeasurementsDisassemblyWrapper> disassembly = null)
         {
             return PerformFixed(start, step, steps, argument, values, stop, disassembly);
         }
@@ -418,7 +418,7 @@ namespace DataPerformer
         /// <returns>Dictionary of performed result</returns>
         public Dictionary<string, object> PerformFixed(double start, double step, int count,
             string argument, string[] values, Func<bool> stop, 
-            Dictionary<IMeasurement, MeasurementsDisasseblyWrapper> disassembly = null)
+            Dictionary<IMeasurement, MeasurementsDisassemblyWrapper> disassembly = null)
         {
             ParametrizedSeries[] series = null;
             Dictionary<DoubleArrayFunction, IMeasurement[]> functions = null;
@@ -458,9 +458,9 @@ namespace DataPerformer
 
         private void PerformFixed(double start, double step, int count, string argument, string[] values,
      ParametrizedSeries[] series,
-    Dictionary<DoubleArrayFunction, IMeasurement[]> functions, Func<bool> stop, string reason, Dictionary<IMeasurement, MeasurementsDisasseblyWrapper> disassembly = null)
+    Dictionary<DoubleArrayFunction, IMeasurement[]> functions, Func<bool> stop, string reason, Dictionary<IMeasurement, MeasurementsDisassemblyWrapper> disassembly = null)
         {
-            Dictionary<IMeasurement, MeasurementsDisasseblyWrapper> dis = new Dictionary<IMeasurement, MeasurementsDisasseblyWrapper>();
+            Dictionary<IMeasurement, MeasurementsDisassemblyWrapper> dis = new Dictionary<IMeasurement, MeasurementsDisassemblyWrapper>();
             if (disassembly != null)
             {
                 dis = disassembly;
@@ -468,7 +468,7 @@ namespace DataPerformer
            this.PerformFixed(start, step, count, StaticExtensionDataPerformerPortable.Factory.TimeProvider,
                DifferentialEquationProcessor.Processor, reason,  0, () =>
                {
-                   foreach (MeasurementsDisasseblyWrapper w in dis.Values)
+                   foreach (MeasurementsDisassemblyWrapper w in dis.Values)
                    {
                        w.Update();
                    }

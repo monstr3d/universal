@@ -411,17 +411,17 @@ namespace DataPerformer.Portable
         /// <param name="dataConsumer">Data consumer</param>
         /// <param name="disassembly">Misassembly</param>
         /// <returns>The dictionary</returns>
-        static public Dictionary<IMeasurement, MeasurementsDisasseblyWrapper> CreateDisassemblyMeasurements(
+        static public Dictionary<IMeasurement, MeasurementsDisassemblyWrapper> CreateDisassemblyMeasurements(
             this IDataConsumer dataConsumer, IDisassemblyObject disassembly)
         {
             Dictionary<IMeasurement, IDisassemblyObject> disassemblyDict =
                 dataConsumer.CreateDisassemblyObjectDictionary(disassembly);
-            Dictionary<IMeasurement, MeasurementsDisasseblyWrapper> disassemblyDictionary =
-                new Dictionary<IMeasurement, MeasurementsDisasseblyWrapper>();
+            Dictionary<IMeasurement, MeasurementsDisassemblyWrapper> disassemblyDictionary =
+                new Dictionary<IMeasurement, MeasurementsDisassemblyWrapper>();
             foreach (IMeasurement key in disassemblyDict.Keys)
             {
                 disassemblyDictionary[key] = new
-                    MeasurementsDisasseblyWrapper(disassemblyDict[key], key);
+                    MeasurementsDisassemblyWrapper(disassemblyDict[key], key);
             }
             return disassemblyDictionary;
         }

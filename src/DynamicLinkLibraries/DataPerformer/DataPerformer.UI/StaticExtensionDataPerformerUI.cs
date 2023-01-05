@@ -248,7 +248,7 @@ namespace DataPerformer.UI
         /// </summary>
         /// <param name="dataConsumer">Data consumer</param>
         /// <returns>The dictionary</returns>
-        static public Dictionary<IMeasurement, MeasurementsDisasseblyWrapper> CreateDisassemblyMeasurements(
+        static public Dictionary<IMeasurement, MeasurementsDisassemblyWrapper> CreateDisassemblyMeasurements(
             this IDataConsumer dataConsumer)
         {
             return dataConsumer.CreateDisassemblyMeasurements(disassembly);
