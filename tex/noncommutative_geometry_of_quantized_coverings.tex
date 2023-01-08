@@ -5889,23 +5889,32 @@ The notion of regular covering (cf. Definition \ref{top_regular_defn}) has no an
 	\ee
 \end{remark}
 \begin{lemma}\label{top_gen_path_lem}
-	Consider the situation of the Definition \ref{top_gen_path_defn}. For any $\sU_{\a'}, \sU_{\a''} \in \mathfrak{A}\mathfrak{A}\mathfrak{A}$ there is a $\left\{\sU_\a\right\}$-{path} $\left(\sU_{\a_1},...,\sU_{\a_n}\right)$ such that $\sU_{\a_1}=\sU_{\a'}$ and $\sU_{\a_n}=\sU_{\a''}$ .
+	Consider the situation of the Definition \ref{top_gen_path_defn}. For any $\sU_{\a'}, \sU_{\a''} \in \mathfrak{A}$ there is a $\left\{\sU_\a\right\}$-{path} $\left(\sU_{\a_1},...,\sU_{\a_n}\right)$ such that $\sU_{\a_1}=\sU_{\a'}$ and $\sU_{\a_n}=\sU_{\a''}$ .
 \end{lemma}
 
 \begin{proof}
 	Denote by
-	$$
-\mathfrak{A}_{\a'}\bydef \left\{\sU_{\a'''}\in \mathfrak A\left|\exists \text{ path }\left(\sU_{\a_1},...,\sU_{\a_n}\right)\quad\a_1 = \a',\quad \a_n = \a''' \right.\right\}.
-	$$
-If $\mathfrak{A}_{\a'}= \mathfrak{A}$ then this lemma is proven. If not then $\sX$ is not connected because is a nontrivial disconnected  union
+\bean
+\mathfrak{A}_{\a'}\bydef \left\{\sU_{\a''}\in \mathfrak A\left|\exists \text{ path }\left(\sU_{\a_1},...,\sU_{\a_n}\right)\quad\a_1 = \a',\quad \a_n = \a'' \right.\right\},\\
+\mathscr A'\bydef \left\{\left.\a \in \mathscr A\right| \sU_{\a} \in\mathfrak{A}_{\a'} \right\}.
+\eean
+If $\mathscr A'=\mathscr A$ then this lemma is proven. If not then $\mathscr A\setminus\mathscr A' \neq \emptyset$. If 
 $$
-\sX = \bigcup_{\sU_\a\in \mathfrak{A}_{\a'}}\sU_\a \bigsqcup  \left( \sX\setminus \bigcup_{\sU_\a\in \mathfrak{A}_{\a'}}\sU_\a\right),
+\left( \bigcup_{\bt \in\mathscr A'}\sU_{\bt}\right) \bigcap \left( \bigcup_{\a \in\mathscr A\setminus\mathscr A'}\sU_{\a}\right)\neq \emptyset 
+	$$
+	then there are $\bt \in\mathscr A'$ and $\a \in\mathscr A\setminus\mathscr A'$ such that $\sU_{\bt}\cap \sU_{\a}\neq \emptyset$. According to the definition of $\mathfrak{A}_{\a'}$ there is a path $\left(\sU_{\a_1},...,\sU_{\a_n}\right)$ such that $\a_1 = \a',\quad \a_n = \bt$. So one has a path $\left(\sU_{\a_1},...,\sU_{\a_n}, \sU_{\a} \right)$, it follows that $\a \in \mathscr A'$ and one has a contradiction. It turns out that 
+\bean
+\left( \bigcup_{\bt \in\mathscr A'}\sU_{\bt}\right) \bigcap \left( \bigcup_{\a \in\mathscr A\setminus\mathscr A'}\sU_{\a}\right)= \emptyset.
+\eean
+Both unions $\bigcup_{\bt \in\mathscr A'}\sU_{\bt}$ and  $\bigcup_{\a \in\mathscr A\setminus\mathscr A'}\sU_{\a}$ of open sets are open, so one has a disjoint union
 $$
-It contradicts with our assumption.	
+\sX = \left( \bigcup_{\bt \in\mathscr A'}\sU_{\bt}\right) \bigsqcup \left( \bigcup_{\a \in\mathscr A\setminus\mathscr A'}\sU_{\a}\right),
+$$
+i.e.  $\sX$ is not connected. It contradicts with our assumption.	
 \end{proof}
-!!!  CONTINUE !!!
+!!! CONTINUE !!!
 \begin{corollary}\label{top_connected_union_cor}
-	If $\sX$ be a connected, locally connected, locally compact, Hausdorff space  then there is a  directed set $\La$ and  family $\left\{\sU_\la\right\}_{\la\in\La}$ of open subsets of $\sX$ such that
+	If $\sX$ be a connected, locally connected, locally compact, Hausdorff space  then there is a  directed set $\La$ and  family $\left\{\sU_\la\right\}_{\la\in\La}$ of connected open subsets of $\sX$ such that
 	\begin{itemize}
 		\item 
 		$$
