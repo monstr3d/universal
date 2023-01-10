@@ -5910,11 +5910,11 @@ Both unions $\bigcup_{\bt \in\mathscr A'}\sU_{\bt}$ and  $\bigcup_{\a \in\mathsc
 $$
 \sX = \left( \bigcup_{\bt \in\mathscr A'}\sU_{\bt}\right) \bigsqcup \left( \bigcup_{\a \in\mathscr A\setminus\mathscr A'}\sU_{\a}\right),
 $$
-i.e.  $\sX$ is not connected. It contradicts with our assumption.	
+i.e.  $\sX$ is not connected. It contradicts with our assumption.	From this contradiction it turns out that $\mathscr A' = \mathscr A$.
 \end{proof}
-!!! CONTINUE !!!
+
 \begin{corollary}\label{top_connected_union_cor}
-	If $\sX$ be a connected, locally connected, locally compact, Hausdorff space  then there is a  directed set $\La$ and  family $\left\{\sU_\la\right\}_{\la\in\La}$ of connected open subsets of $\sX$ such that
+	If $\sX$ is a connected, locally connected, locally compact, Hausdorff space  then there is a  directed set $\La$ and  family $\left\{\sU_\la\right\}_{\la\in\La}$ of connected open subsets of $\sX$ such that
 	\begin{itemize}
 		\item 
 		$$
@@ -5948,7 +5948,7 @@ i.e.  $\sX$ is not connected. It contradicts with our assumption.
 \end{proof}
 
 \begin{definition}\label{top_path_comp_defn}
-	If both $\mathfrak p'=\left(\sU_{\a'_1},...,\sU_{\a'_k}\right)$ and $\mathfrak p''=\left(\sU_{\a''_1},...,\sU_{\a''_l}\right)$ are paths such that $\sU_{\a'_k} \cap \sU_{\a''_1}\neq\emptyset$ then we say that  $\left( \mathfrak p', \mathfrak p''\right)$ is \textit{composable} and the path $\mathfrak p=\left(\sU_{\a'_1},...,\sU_{\a'_k},\sU_{\a''_1},...,\sU_{\a''_l} \right)$  is said to be the \textit{composition} of $\mathfrak p'$ and $\mathfrak p''$. We write
+	If both $\mathfrak p'=\left(\sU_{\a'_1},...,\sU_{\a'_k}\right)$ and $\mathfrak p''=\left(\sU_{\a''_1},...,\sU_{\a''_l}\right)$ are paths such that $\sU_{\a'_k} \cap \sU_{\a''_1}\neq\emptyset$ then we say that a pair $\left( \mathfrak p', \mathfrak p''\right)$ is \textit{composable}, and the path $\mathfrak p=\left(\sU_{\a'_1},...,\sU_{\a'_k},\sU_{\a''_1},...,\sU_{\a''_l} \right)$  is said to be the \textit{composition} of $\mathfrak p'$ and $\mathfrak p''$. We write
 	\be\label{top_path_comp_eqn}
 	\mathfrak p'\circ \mathfrak p''\bydef\mathfrak p.
 	\ee
@@ -5957,10 +5957,10 @@ i.e.  $\sX$ is not connected. It contradicts with our assumption.
 
 
 \begin{remark}
-The given by the Definition \ref{top_path_comp_defn} composition is associative, i.e.
-$$
+The given by the Definition \ref{top_path_comp_defn} composition is associative, i.e.  if both pairs $\left( \mathfrak p', \mathfrak p''\right)$ and $\left( \mathfrak p'', \mathfrak p'''\right)$ are composable then one has
+\be\label{top_path_ass_eqn}
 \left( \mathfrak p'\circ \mathfrak p''\right)  \circ \mathfrak p''' = \mathfrak p'\circ \left( \mathfrak p'' \circ \mathfrak p'''\right) .
-$$
+\ee 
 \end{remark}
 \begin{empt}\label{top_lconn_part}
 	Let $\sX$ be a connected, locally connected, locally compact, Hausdorff space. Let $p: \widetilde{   \mathcal X }\to \sX$ is a transitive covering. There is a  set $\left\{\sU_\a\right\}_{\a \in \mathscr A}$  set of open connected subsets of $\sX$ such that following conditions hold:
@@ -5988,7 +5988,7 @@ $$
 
 
 \begin{empt}\label{top_path_lift_empt}
-	Let $\sX$ be a connected, locally connected, Hausdorff space, and let  $p: \widetilde{   \mathcal X }\to \sX$ be a transitive covering, such that $\widetilde{   \mathcal X }$ is connected. Consider a described in \ref{top_lconn_part} family $\left\{\sU_\a\right\}_{\a \in \mathscr A}$ of open subsets of $\sX$. Denote by $\left\{\widetilde \sU_{\widetilde \a }\right\}_{\widetilde{ \a}\in \widetilde{\mathscr A}}~$ the $p$-lift of $\left\{\sU_\a\right\}_{\a \in \mathscr A}$ (cf. Definition \ref{top_lconn_defn} and equation \eqref{top_lconn_eqn}).
+	Let $\sX$ be a connected, locally connected, Hausdorff space, and let  $p: \widetilde{   \mathcal X }\to \sX$ be a transitive covering, such that $\widetilde{   \mathcal X }$ is connected. Consider a described in \ref{top_lconn_part} family $\left\{\sU_\a\right\}_{\a \in \mathscr A}$ of open subsets of $\sX$. Denote by $\left\{\widetilde \sU_{\widetilde \a }\right\}_{\widetilde{ \a}\in \widetilde{\mathscr A}}~$ the $p$-lift of $\left\{\sU_\a\right\}_{\a \in \mathscr A}$ (cf. the Definition \ref{top_lconn_defn} and the equation \eqref{top_lconn_eqn}).
 \end{empt}
 \begin{definition}\label{top_path_desc_defn}
 	Consider the situation \ref{top_path_lift_empt}.  If $\widetilde{\mathfrak p}=\left(\widetilde\sU_{\widetilde\a_1},...,\widetilde\sU_{\widetilde\a_n}\right)$ is a $\left\{\widetilde \sU_{\widetilde \a }\right\}$-path  then clearly $\mathfrak p=\left(p\left( \widetilde\sU_{\widetilde\a_1}\right) ,...,p\left( \sU_{\widetilde\a_n}\right) \right)$ is a $\left\{\sU_\a\right\}$-path. We say that ${\mathfrak p}$ is the $p$-\textit{descend} of $\widetilde{\mathfrak p}$ and we write
@@ -6029,11 +6029,11 @@ $$
 	If $g', g'' \in G\left(\left.\widetilde{   \mathcal X }~\right|{   \mathcal X } \right)$ then from \eqref{top_path_comp_lem_eqn} it follows that there is the composition $\desc_p \widetilde{\mathfrak p}_{g'}\circ \desc_p \widetilde{\mathfrak p}_{g''}$ (cf. Definition \ref{top_path_comp_defn}).
 \end{empt}
 \begin{definition}\label{top_path_corr_defn}
-	In the situation  \ref{top_path_comp_empt} we say that the closed path $\widetilde{\mathfrak p}_g$ \textit{corresponds to} $g \in G\left(\left.\widetilde{   \mathcal X }~\right|{   \mathcal X } \right)$. A closed path is said to be \textit{contractible} if it corresponds to trivial element of  for any finite-fold transitive covering $\widetilde\sX \to \sX$ it corresponds to a trivial element of $G\left(\left.\widetilde{   \mathcal X }~\right|{   \mathcal X } \right)$.
+	In the situation  \ref{top_path_comp_empt} we say that the closed path $\widetilde{\mathfrak p}_g$ \textit{corresponds to} $g \in G\left(\left.\widetilde{   \mathcal X }~\right|{   \mathcal X } \right)$. A closed path is said to be \textit{contractible} if  for any finite-fold transitive covering $\widetilde\sX \to \sX$ it corresponds to the trivial element of $G\left(\left.\widetilde{   \mathcal X }~\right|{   \mathcal X } \right)$.
 \end{definition}
 
 \begin{lemma}\label{top_lift_comp_lem}
-	Consider the situation \ref{top_path_comp_empt} and suppose that $\widetilde{\mathfrak p}_{g'} = \left( \widetilde\sU_{\widetilde\a'_1},..., \widetilde\sU_{\widetilde\a'_k}\right)$, $\widetilde{\mathfrak p}_{g''} = \left( \widetilde\sU_{\widetilde\a''_1},..., \widetilde\sU_{\widetilde\a''_l}\right)$. If
+	Consider the situation \ref{top_path_comp_empt} and suppose that $\widetilde{\mathfrak p}_{g'} = \left( \widetilde\sU_{\widetilde\a'_1},..., \widetilde\sU_{\widetilde\a'_k}\right)$, $\widetilde{\mathfrak p}_{g''} = \left( \widetilde\sU_{\widetilde\a''_1},..., \widetilde\sU_{\widetilde\a''_l}\right)$ where $g',g''\in G\left(\left.\widetilde{   \mathcal X }~\right|{   \mathcal X } \right)$. If
 	\bean
 	\widetilde{\mathfrak p} = \lift^{\widetilde\sU_0}_p\left( \desc_p \widetilde{\mathfrak p}_{g'}\circ \desc_p \widetilde{\mathfrak p}_{g''}\right),\\ 
 	\widetilde{\mathfrak p}= \left( \widetilde\sU_{\widetilde\a_1},..., \widetilde\sU_{\widetilde\a_{k + l}}\right)
@@ -6070,7 +6070,7 @@ $$
 	\eean
 	On the other hand the map $p$ induces the surjective map $p'^{-1}p'\left(\widetilde x'_0 \right)\to p''^{-1}p''\left(\widetilde x''_0 \right)$ so one has the surjective map
 	\be\label{top_g_homo_eqn}
-	h :  G\left(\widetilde{   \mathcal X }'~|~{   \mathcal X } \right)\to G\left(\widetilde{   \mathcal X }''~|~{   \mathcal X } \right)
+	h :  G\left(\widetilde{   \mathcal X }'~|~{   \mathcal X } \right)\to G\left(\widetilde{   \mathcal X }''~|~{   \mathcal X } \right).
 	\ee
 \end{empt}
 \begin{lemma}\label{top_homo_lem}
@@ -6112,7 +6112,7 @@ $$
 
 
 \begin{definition}\label{top_fin_cov_defn}
-	Let $\sX$ be a connected, locally connected,  locally compact, Hausdorff space. Let us consider a (cf. Definition \ref{category_defn})  category $\mathfrak{FinCov}$-$\sX$ such that
+	Let $\sX$ be a connected, locally connected,  locally compact, Hausdorff space. Let us consider a   category (cf. Definition \ref{category_defn}) $\mathfrak{FinCov}$-$\sX$ such that
 	\begin{itemize}
 		\item $\mathfrak{FinCov}$-$\sX$-objects of   are transitive finite-fold coverings $\widetilde\sX \to \sX$ of $\sX$ where the space $\widetilde\sX$ is connected,
 		\item a $\mathfrak{FinCov}$-$\sX$-morphism form $p_1:\widetilde\sX_1 \to \sX$ to $p_2:\widetilde\sX_2 \to \sX$ is a surjective continuous map $p_{12}: \widetilde\sX_1 \to \widetilde\sX_2$ such that $p_{12} \circ p_2 = p_1$.
@@ -6339,6 +6339,7 @@ C\left(\sX, \left\{A_x\right\}, \sF \right) \bydef \left\{\left.\left\{a_x\right
 	Let $a \in C\left(\sX, \left\{A_x\right\}, C\left(\sX, \left\{A_x\right\}, \sF \right)\right) $, let $x_0 \in \sX$ and $\eps > 0$. There is an open neighborhood  $\sU'$ of $x_0$ and $a' \in C\left(\sX, \left\{A_x\right\}, \sF \right)$ such that $\left\|a_x  - a'_x\right\| < \frac{\eps}{2}$ for all $x \in \sU'$. Otherwise there is an open neighborhood  $\sU''$ of $x_0$ and $a'' \in \sF$ such that $\left\|a'_x  - a''_x\right\| < \frac{\eps}{2}$ for every $x \in \sU''$. It follows that $\left\|a_x  - a''_x\right\| < \eps$ for every $x \in \sU'\cap\sU''$, hence one has $a \in C\left(\sX, \left\{A_x\right\}, \sF \right)$. In result we conclude that
 	$$ C\left(\sX, \left\{A_x\right\}, C\left(\sX, \left\{A_x\right\}, \sF \right)\right)\subset C\left(\sX, \left\{A_x\right\}, \sF \right).$$
 \end{proof} 
+!!! CONTINUE !!!
 Any vector bundle $\left( E, \pi, \mathcal X\right)$ (cf. Definition \ref{top_vb_defn} and Remark \ref{com_inf_rem}) yields a family of fibers $\left\{E_x\right\}_{x \in \sX}$.
 
 \begin{lemma}\label{top_bundle_cs_ex_lem}
