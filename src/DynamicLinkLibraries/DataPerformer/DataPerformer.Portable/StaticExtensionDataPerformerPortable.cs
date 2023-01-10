@@ -70,6 +70,8 @@ namespace DataPerformer.Portable
             new CSCodeCreator();
             TimeMeasureProviderFactory = new DefautFactory();
             Factory = Runtime.DataRuntimeFactory.Singleton;
+            Runtime.DataRuntimeFactory.Singleton.SetBase();
+            Runtime.DataRuntimeFactory.Singleton.SetBaseAction();
             (Runtime.DataRuntimeFactory.Singleton as IActionFactoryCreator).SetBaseAction();
         }
 
@@ -151,6 +153,7 @@ namespace DataPerformer.Portable
                 using (TimeProviderBackup backup = new TimeProviderBackup(consumer, provider, processor, reason, priority))
                 {
                     IDataRuntime runtime = backup.Runtime;
+                    runtime.StartAll(start);
                     processor.TimeProvider = provider;
                     IStep st = null;
                     if (runtime is IStep)

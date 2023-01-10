@@ -21,7 +21,7 @@ using DataPerformer.Portable;
 using Motion6D.Portable;
 using TestCategory.Standard;
 
-namespace TestExamplesConsoleApp
+namespace TestExamplesMotion6DConsoleApp
 {
     /// <summary>
     /// Static Extension
