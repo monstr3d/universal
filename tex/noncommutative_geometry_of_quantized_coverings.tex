@@ -5076,8 +5076,7 @@ of $A\otimes\K$.
 
 \end{definition}
 \begin{remark}
-The motivation of  usage of $A\otimes\K$ instead of $A$ is explained in the Section \ref{nt_fg_sec}.
-!!! ADD AFTER COMM times K !!!
+The motivation of  usage of $A\otimes\K$ instead of $A$ is explained in the Chapter \ref{stab_chap}, Section \ref{nt_fg_sec} and the Remark \ref{ctr_stable_rem}.
 \end{remark}
 
 
@@ -6785,7 +6784,7 @@ is said to be the \textit{total space for} $\left(\sX, \left\{A_x\right\}, \sF \
 \begin{proof}
 	(i) If $\eps > 0$ and $x_0\in\sX$ then from (b) of the Definition \ref{op_fields_defn} it follows that there is $a \in \sF$ such that $\left\| a_{x_0}- j\left( x_0\right) \right\| < \eps/2$. If $\sU'$ is an open neighborhood of $x_0$ then 
 	from $j\left( x_0\right) \in \mathfrak{O}\left(\sU', a, \eps \right)$, and since $j$ is continuous it follows that $\sU\bydef j^{-1} \left(  \mathfrak{O}\left(\sU', a, \eps \right)\right)$ is open. So for all $x\in \sU$ one has $\left\| a_{x}- j\left( x\right) \right\|< \eps$, i.e. the family $\left\{j\left(x\right)\right\}$ is continuous (cf. Definition \ref{op_cont_fields_defn}).\\
-	(ii) !!! CORRECT !!! Suppose $\eps > 0$ and $x_0\in\sX$. If   $j\left( x_0\right) \in \mathfrak{O}\left(\sU', b, \eps \right)$ then  $\left\| a_{x_0}- b_{x_0} \right\| < \eps$. From the Lemma \ref{op_cont_con_lem} it follows that there is an open neighborhood $\sU$ of $x_0$ such that $\left\| a_{x}- b_{x} \right\|<\eps$ for all $x \in \sU$. So one has $\sU\subset j^{-1}\left( \mathfrak{O}\left(\sU', b, \eps \right)\right)$, i.e. $j$ is continuous at $x_0$. Similarly one can prove that $j$ is continuous at any point of $\sX$.
+	(ii)  Suppose $\eps > 0$, $x_0\in\sX$ and $j$ is given by \eqref{top_js_eqn}. If   $j\left( x_0\right) \in \mathfrak{O}\left(\sU', b, \eps \right)$ then  $\left\| a_{x_0}- b_{x_0} \right\| < \eps$. From the Lemma \ref{op_cont_con_lem} it follows that there is an open neighborhood $\sU$ of $x_0$ such that $\left\| a_{x}- b_{x} \right\|<\eps$ for all $x \in \sU$. So one has $\sU\subset j^{-1}\left( \mathfrak{O}\left(\sU', b, \eps \right)\right)$, i.e. $j$ is continuous at $x_0$. Similarly one can prove that $j$ is continuous at any point of $\sX$.
 \end{proof}
 
 \begin{definition}\label{ctr_restr_defn}
@@ -6852,8 +6851,8 @@ Let $\eps > 0$. Using induction we will construct sequences $\left\{a_n\right\}_
 \be\label{top_abn_eqn}
 \begin{split}
 	\left\|a_n\right\|< \frac{\eps}{2^{n-1}} ,\\ 
-	n > 1 \quad\Rightarrow \quad	\left\|b_n\right\|< \frac{3\eps}{2^{n-1}}.\\
-	!!! COMPARE TO a!!!
+	n > 1 \quad\Rightarrow \quad	\left\|b_n\right\|< \frac{3\eps}{2^{n-1}},\\
+\left\|a - \left.\left( \sum_{n = 1}^m b_n\right) \right|_\sV \right\| < \frac{\eps}{2^{m-1}},
 \end{split}
 \ee
 From \eqref{top_abk_eqn}  it follows that there is  $b_1\bydef b\in C\left(\sX, \left\{A_x\right\}, \sF \right)$ such that
@@ -14035,7 +14034,7 @@ The given by \eqref{stab_wta_eqn} $C^*$-algebra $\widetilde A$ depends on an ope
 	\exists \left\{\widetilde{b}^\K_1,...,\widetilde{b}^\K_n\right\} \subset \widetilde{B}^\K \text{ such that }\quad \widetilde{B}^\K = \widetilde{b}^\K_1B^\K+...+\widetilde{b}^\K_nB^\K.
 	\eean
 	If 
-	\be\label{stable}
+	\be\label{stable_eqn}
 	\begin{split}
 		B\bydef\left( 1_{A^\sim } \otimes \mathfrak{e}_{1,1}\right){B}^\K \left( 1_{A^\sim } \otimes \mathfrak{e}_{1,1}\right),\\
 	\widetilde{B}\bydef\left( 1_{A^\sim } \otimes \mathfrak{e}_{1,1}\right)\widetilde{B}^\K \left( 1_{A^\sim } \otimes \mathfrak{e}_{1,1}\right)
@@ -14420,13 +14419,7 @@ Denote by $\widehat{A} = C^*\text{-}\varinjlim A_\la$, $G_\la = G\left( A_\la ~|
 	\widetilde A\cong \left(1_{{\widetilde A}^\sim}  \otimes  \mathfrak{e}_{1,1}\right) \left( \widetilde A\otimes \K \right)\left(1_{{\widetilde A}^\sim}  \otimes  \mathfrak{e}_{1,1}\right).
 	\ee
 \end{remark}
-\begin{exercise}
-Let 	$\left( \mathcal X, x_0\right)$ is	a connected, locally path connected, semilocally 1-connected,  locally compact,  Hausdorff space such that the fundamental group $\pi_1\left(\sX, x_0 \right)$ is residually finite (cf. Corollary \ref{comm_uni_lim_cor}).  Prove the following isomorphism
-$$
-\pi^{\mathrm{stab}}_1\left(C_0\left(\sX \right) \right)\cong \pi_1\left(\sX, x_0 \right).
-$$
-where $\pi^{\mathrm{stab}}_1\left(C_0\left(\sX \right) \right)$ means the stable fundamental group (cf. Definition \ref{fg_s_bas_defn}).
-\end{exercise}
+
 
 \chapter{Hurewicz homomorphism. A sketch}\label{hurewicz_chap}
 \section{Preliminaries}\label{hurewicz_prel}
@@ -16144,6 +16137,13 @@ From the Lemma \ref{ctr_inf_cov_lem} it follows that a  pointed algebraical fini
 \begin{proof}
 	From the Remark \ref{blowing_main_rem} it follows that this theorem is a specialization of the \ref{blowing_main_thm} one.
 \end{proof}
+\begin{remark}\label{ctr_stable_rem}
+	Let 	$\left( \mathcal X, x_0\right)$ is	a connected, locally path connected, semilocally 1-connected,  locally compact,  Hausdorff space such that the fundamental group $\pi_1\left(\sX, x_0 \right)$ is residually finite (cf. Corollary \ref{comm_uni_lim_cor}). From the Theorem \ref{ctr_main_thm} it follows that there is a following isomorphism
+	$$
+	\pi^{\mathrm{stab}}_1\left(C_0\left(\sX \right) \right)\cong \pi_1\left(\sX, x_0 \right).
+	$$
+	where $\pi^{\mathrm{stab}}_1\left(C_0\left(\sX \right) \right)$ means the stable fundamental group (cf. Definition \ref{fg_s_bas_defn}).
+\end{remark}
 
 \begin{exercise}\label{ctr_all_exer}
 	Similarly to the Lemma \ref{top_all_lem} and the Exercise \ref{top_all_exer}
@@ -19404,7 +19404,7 @@ where $\widetilde \sF_\th$ is the $p$-lift of $\sF_\th$
 (cf. Definition \eqref{fg_bas_defn}).
 From the Theorem \ref{blowing_main_thm} it follows that 
 \be
-\pi^{\mathrm{stable}}_1\left( C\left( \T^2_\th\right)\right)\cong \pi_1\left(C^*_r\left(\T^2, \sF_\th\right)\right)\cong \pi_1\left( \T^2, t_0\right)\cong \Z^2
+\pi^{\mathrm{stable_eqn}}_1\left( C\left( \T^2_\th\right)\right)\cong \pi_1\left(C^*_r\left(\T^2, \sF_\th\right)\right)\cong \pi_1\left( \T^2, t_0\right)\cong \Z^2
 \ee
 (cf. Definition \ref{fg_bas_defn} and the Corollary \ref{foli_n_cat_fg_cor}) where the reduced fundamental group is implied.
 \begin{exercise}
