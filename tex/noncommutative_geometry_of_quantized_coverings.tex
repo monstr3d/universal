@@ -6339,7 +6339,7 @@ C\left(\sX, \left\{A_x\right\}, \sF \right) \bydef \left\{\left.\left\{a_x\right
 	Let $a \in C\left(\sX, \left\{A_x\right\}, C\left(\sX, \left\{A_x\right\}, \sF \right)\right) $, let $x_0 \in \sX$ and $\eps > 0$. There is an open neighborhood  $\sU'$ of $x_0$ and $a' \in C\left(\sX, \left\{A_x\right\}, \sF \right)$ such that $\left\|a_x  - a'_x\right\| < \frac{\eps}{2}$ for all $x \in \sU'$. Otherwise there is an open neighborhood  $\sU''$ of $x_0$ and $a'' \in \sF$ such that $\left\|a'_x  - a''_x\right\| < \frac{\eps}{2}$ for every $x \in \sU''$. It follows that $\left\|a_x  - a''_x\right\| < \eps$ for every $x \in \sU'\cap\sU''$, hence one has $a \in C\left(\sX, \left\{A_x\right\}, \sF \right)$. In result we conclude that
 	$$ C\left(\sX, \left\{A_x\right\}, C\left(\sX, \left\{A_x\right\}, \sF \right)\right)\subset C\left(\sX, \left\{A_x\right\}, \sF \right).$$
 \end{proof} 
-!!! CONTINUE !!!
+
 Any vector bundle $\left( E, \pi, \mathcal X\right)$ (cf. Definition \ref{top_vb_defn} and Remark \ref{com_inf_rem}) yields a family of fibers $\left\{E_x\right\}_{x \in \sX}$.
 
 \begin{lemma}\label{top_bundle_cs_ex_lem}
@@ -6364,12 +6364,12 @@ If $\left( E, \pi, \mathcal X\right)$ is a vector bundle (cf. Definition \ref{to
 \begin{proof} (i)
 	One needs check conditions (a)-(c) of the Definition \ref{op_fields_defn}.\\
 (a)	
- Let $x_0 \in \sX$ be any point, and select an open neighborhood $\sU$ of $x_0$ such that $\left.\left( E, \pi, \mathcal X\right)\right|_{\sU}$ is trivial (cf.  \ref{trivial_vb_empt} and Definition \ref{top_vb_defn}), i.e. $\left.E\right|_{\sU}\cong \sU \times E_{x_0}$. The map $s: \sX \to E$ such that $\pi \circ s = \Id_\sX$ is continuous at $x_0$, so the map
+ Let $x_0 \in \sX$ be any point, and select an open neighborhood $\sU$ of $x_0$ such that $\left.\left( E, \pi, \mathcal X\right)\right|_{\sU}$ is trivial (cf.  \ref{trivial_vb_empt} and Definition \ref{top_vb_defn}), i.e. $\left.E\right|_{\sU}\cong \sU \times E_{x_0}$. Any section $s\in\Ga\left( E, \pi, \mathcal X\right)$ corresponds to a continuous  map $s: \sX \to E$ such that $\pi \circ s = \Id_\sX$, so the map
  \bean
  s|_\sU : \sU \to \sU\times E_{x_0},\\
  x \mapsto\left(x, u\left(x \right) \right)
  \eean 
- is continuous. It follows that both maps
+ is continuous at $x_0$. It follows that both maps
  \bean
  x \mapsto u\left(x \right),\\
   x \mapsto \left\| u\left(x \right)\right\| 
@@ -6380,7 +6380,7 @@ If $\left( E, \pi, \mathcal X\right)$ is a vector bundle (cf. Definition \ref{to
  s|_\sU : \sU \to \sU\times E_{x_0},\\
  x \mapsto\left(x, e_{x_0} \right),
  \eean 
- i.e. there is a section $s: \sX\to E$ such that $s\left( x_0\right) = E_{x_0}$.\\
+ i.e. there is a section $s: \sX\to E$ such that $s\left( x_0\right) = e_{x_0}$.\\
  (c) A proof of this property we leave to the reader.\\
  (ii)  A proof of  we leave to the reader.
  \end{proof}
@@ -6589,9 +6589,9 @@ We write
 	If	$\sF$ is  a continuity structure  for $\sX$ {and the} $\left\{A_x\right\}$ then from the Lemma \ref{op_cont_module_lem} it follows that $C_0\left(\sX \right)\sF \subset C_0\left(\sX, \left\{A_x\right\}, \sF \right)$.
 \end{empt}
 
-\begin{lemma}
-	Let $\sF$ be a continuity structure $\sF$ for $\sX$ {and the} $\left\{A_x\right\}$, such that $\sF \subset C_0\left( \sX, \left\{A_x\right\}, \sF\right)$.
-The space $C_0\left(\sX \right)\sF$ is dense in 	$C_0\left(\sX, \left\{A_x\right\}, \sF \right)$ with respect to the norm topology.
+\begin{lemma}\label{top_cs_nc_lem}
+	If $\sF$ is a continuity structure for $\sX$ {and the} $\left\{A_x\right\}$, such that $\sF \subset C_0\left( \sX, \left\{A_x\right\}, \sF\right)$
+then a space $C_0\left(\sX \right)\sF$ is dense in 	$C_0\left(\sX, \left\{A_x\right\}, \sF \right)$ with respect to the norm topology.
 \end{lemma}
 \begin{proof}
 	Let $a \in C_0\left(\sX, \left\{A_x\right\}, \sF \right)$ be represented by the family $\left\{a_x \in A_x\right\}$, and let $\eps > 0$. For any $x' \in \sX$ we select an open neighborhood $\sU_{x'} \subset \sX$ and $a^{x'} \in \sF$  represented by the family $\left\{a'_x \in A_x\right\}$ such that $\left\| a_x  - a^{x'}_x\right\|< \eps$ for all $x \in \sU_{x'}$.  The  set $\sU \bydef \left\{\left. x \in \sX~\right| \left\|  a_x  - \right\| \ge \eps\right\}$ is compact so there is a  dominated by the family $\left\{\sU_{x'}\right\}_{x'\in \sX}$ finite covering sum 
@@ -6622,7 +6622,7 @@ The space $C_0\left(\sX \right)\sF$ is dense in 	$C_0\left(\sX, \left\{A_x\right
 	$. 
 \end{corollary}
 \begin{remark}\label{top_cl_cc_iso_rem}
-	From the Corollary \ref{top_cl_cc_iso_cor} it follows that $C_0\left(\sX, \left\{A_x\right\}, \sF \right)$ is a minimal norm closed subspace of $C_b\left(\sX, \left\{A_x\right\}, \sF \right)$ which contains all products $fa$ where $a \in \sF$ and $f \in C_0\left(\sX\right)$.
+	From the Lemma \ref{top_cs_nc_lem} it follows that $C_0\left(\sX, \left\{A_x\right\}, \sF \right)$ is a minimal norm closed subspace of $C_b\left(\sX, \left\{A_x\right\}, \sF \right)$ which contains all products $fa$ where $a \in \sF$ and $f \in C_0\left(\sX\right)$.
 \end{remark}
 
 
@@ -6660,6 +6660,7 @@ The space $C_0\left(\sX \right)\sF$ is dense in 	$C_0\left(\sX, \left\{A_x\right
 \begin{definition}\label{top_beta_ext_defn}
 	Let $\sF$ be a continuity structure  for $\sX$ {and the} $\left\{A_x\right\}_{x\in\sX}$, such that $\sX$ is completely regular (cf. Definition \ref{top_completely_regular_defn}). A family $\left\{\bt A_{\bt x}\right\}_{x\in\bt\sX}$ such that $\bt A_{\bt x}$ is a completion of $C_{ \bt x}$ is said to be the \textit{Stone-\v{C}ech extension} or the $\bt$-\textit{extension} of $\left\{A_x\right\}_{x\in\sX}$.
 \end{definition}
+!!! CONTINUE !!!
 If $x \in \sX$ then clearly $A_x \cong \bt A_{ x}$. For any $a \in  C_b\left(\sX, \left\{A_x\right\}, \sF \right)$ on can define a family
 $
 \bt\left( a\right) =\left\{ a_{\bt x} \in \bt A_{\bt x}\right\}
