@@ -177,7 +177,7 @@ namespace DataPerformer
             {
                 n = data.GetLength(0) - degree - 2;
             }
-            return RealMatrixProcessor.RealMatrix.LagrangeInterpolation(t, degree, n, data);
+            return RealMatrixProcessor.StaticExtensionRealMatrix.LagrangeInterpolation(t, degree, n, data);
         }
 
         object Clone(object o)

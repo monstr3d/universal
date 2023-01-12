@@ -42,7 +42,7 @@ namespace Motion6D
             try
             {
                 parameters = info.GetValue("Parameters", typeof(List<string>)) as List<string>;
-                isSerialized = true;
+                IsSerialized = true;
             }
             catch (Exception ex)
             {

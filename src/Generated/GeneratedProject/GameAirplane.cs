@@ -1391,7 +1391,7 @@ namespace GeneratedProject
 				, -0.5
 						};
 				
-						isSerialized = true;
+						IsSerialized = true;
 						Init();
 					}
 				
@@ -1445,7 +1445,7 @@ namespace GeneratedProject
 				, 0
 						};
 				
-						isSerialized = true;
+						IsSerialized = true;
 						Init();
 					}
 				
@@ -1482,7 +1482,7 @@ namespace GeneratedProject
 				, 0
 						};
 				
-						isSerialized = true;
+					 IsSerialized = true;
 						Init();
 					}
 				
@@ -1519,7 +1519,7 @@ namespace GeneratedProject
 				, 0
 						};
 				
-						isSerialized = true;
+						IsSerialized = true;
 						Init();
 					}
 				

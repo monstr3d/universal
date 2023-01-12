@@ -1,5 +1,6 @@
 ﻿using System;
-using Vector3D;
+using RealMatrixProcessor;
+
 
 namespace DinAtm.Pure
 {
@@ -183,7 +184,7 @@ namespace DinAtm.Pure
 
         double atm(double[] x, double t, double alf, double del, ref double s0, ref double h, int[] it)
         {
-            double hh = StaticExtensionVector3D.Normalize(x, y, 0);
+            double hh = x.Normalize(y, 0);
 
 
             h = hh - 6378.140 * (1.0 - 0.335282E-2 * y[2] * y[2]);

@@ -47,7 +47,7 @@ namespace FormulaEditor
             get 
             {
                 double[,] y = x[0] as double[,];
-                RealMatrixProcessor.RealMatrix.Transpose(y, buffer);
+                RealMatrixProcessor.StaticExtensionRealMatrix.Transpose(y, buffer);
                 return buffer;
             }
         }

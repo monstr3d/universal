@@ -448,7 +448,7 @@ namespace Motion6D.Interfaces
                 }
             }
             double[,] qq = new double[4, 4];
-            double[] e = Vector3D.StaticExtensionVector3D.VectorNorm(rp);
+            double[] e = Vector3D.StaticExtensionVector3D.VectorNorm3d(rp);
             double[] q = new double[] { cD2, e[0] * sD2, e[1] * sD2, e[2] * sD2 };
             double[,] mq = new double[3, 3];
             Vector3D.StaticExtensionVector3D.QuaternionToMatrix(q, mq, qq);
@@ -510,6 +510,7 @@ namespace Motion6D.Interfaces
         /// </summary>
         public void SetMatrix()
         {
+            Norm();
             StaticExtensionVector3D.QuaternionToMatrix(quaternion, matrix, qq);
         }
 
@@ -524,7 +525,7 @@ namespace Motion6D.Interfaces
                 a += x * x;
             }
             a = 1 / Math.Sqrt(a);
-            for (int i = 0; i < 3; i++)
+            for (int i = 0; i < quaternion.Length; i++)
             {
                 quaternion[i] *= a;
             }

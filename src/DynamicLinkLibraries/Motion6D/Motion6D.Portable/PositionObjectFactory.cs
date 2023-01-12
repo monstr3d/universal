@@ -1,9 +1,5 @@
 using System;
-using System.Collections.Generic;
-using System.Text;
 
-using Diagram.UI;
-using CategoryTheory;
 using Diagram.UI.Labels;
 
 using Motion6D.Interfaces;

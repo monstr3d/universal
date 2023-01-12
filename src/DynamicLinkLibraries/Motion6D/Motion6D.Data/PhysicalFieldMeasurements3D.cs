@@ -372,7 +372,7 @@ namespace Motion6D
         /// <param name="y">Output</param>
         static public void ProcessCovariantVector(double[] x, double[,] matrix, double[] y)
         {
-            RealMatrixProcessor.RealMatrix.Multiply(x, matrix, y);
+            RealMatrixProcessor.StaticExtensionRealMatrix.Multiply(x, matrix, y);
         }
 
 

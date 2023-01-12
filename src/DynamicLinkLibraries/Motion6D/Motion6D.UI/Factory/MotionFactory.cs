@@ -14,6 +14,7 @@ using Motion6D.UI;
 using Motion6D.Aggregates;
 using Motion6D.UI.Forms;
 using System.Reflection;
+using Motion6D.Portable;
 
 namespace Motion6D.UI.Factory
 {
@@ -171,45 +172,37 @@ namespace Motion6D.UI.Factory
                 IObjectLabel lab = comp as IObjectLabel;
                 // The object of component
                 ICategoryObject obj = lab.Object;
-                if (obj is Motion6D.SerializablePosition)
+                if (obj is SerializablePosition)
                 {
-                    Motion6D.Interfaces.IPosition p = obj as Motion6D.Interfaces.IPosition;
+                    Interfaces.IPosition p = obj as Interfaces.IPosition;
                     object o = p.Parameters;
                     if (o != null)
-                    {
-                        if (o is Portable.PhysicalFieldBase)
+
+                        switch (o)
                         {
-                            return new Forms.FormField3D(lab, o as Motion6D.PhysicalField3D);
+                            case Portable.PhysicalFieldBase pfb:
+                                return new Forms.FormField3D(lab, o as PhysicalField3D);
+                            case PhysicalField.SphericalFieldWrapper sfw:
+                                return new FormSphericalMagnnetic(lab, o as PhysicalField.SphericalFieldWrapper);
+                            case InertialSensorData isd:
+                             return new FormInertialSystem(lab, o as Motion6D.InertialSensorData);
+                            default:
+                                break;
                         }
-                        if (o is PhysicalField.SphericalFieldWrapper)
-                        {
-                            return new FormSphericalMagnnetic(lab, o as PhysicalField.SphericalFieldWrapper);
-                        }
-                        if (o is InertialSensorData)
-                        {
-                            return new FormInertialSystem(lab, o as Motion6D.InertialSensorData);
-                        }
-                    }
                 }
-                if (obj is InertialReferenceFrame)
+                switch (obj)
                 {
-                    return new FormInertia(lab);
-                }
-                if (obj is ReferenceFrameData)
-                {
-                    return new Forms.FormFrameData(lab);
-                }
-                if (obj is RigidReferenceFrame)
-                {
-                    return new Forms.FormRigidFrame(lab);
-                }
-                if (obj is AcceleratedPosition)
-                {
-                    return new FormAcceleratedPoint(lab);
-                }
-                if (obj is PositionCollectionData)
-                {
-                    return new FormPointsCollection(lab);
+                    case InertialReferenceFrame irf:
+                        return new FormInertia(lab);
+                    case ReferenceFrameData rfd:
+                        return new FormFrameData(lab);
+                    case RigidReferenceFrame rrf:
+                        return new FormRigidFrame(lab);
+                    case AcceleratedPosition arf:
+                        return new FormAcceleratedPoint(lab);
+                    case PositionCollectionData pcd:
+                        return new FormPointsCollection(lab);
+                    default: break;
                 }
                 if (obj is IChildrenObject)
                 {

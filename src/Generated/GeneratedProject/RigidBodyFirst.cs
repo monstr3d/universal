@@ -85,7 +85,7 @@ namespace GeneratedProject
 				, 0
 						};
 				
-						isSerialized = true;
+						IsSerialized = true;
 						Init();
 					}
 				

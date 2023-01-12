@@ -7,8 +7,31 @@ namespace RealMatrixProcessor
 	/// <summary>
 	/// Operations with real matrix
 	/// </summary>
-	public static class RealMatrix
+	public static class StaticExtensionRealMatrix
 	{
+        /// <summary>
+        /// Normalization of vector
+        /// </summary>
+        /// <param name="inp">Input</param>
+        /// <param name="outp">Output</param>
+        /// <param name="offset">Offset</param>
+        public static double Normalize(this double[] inp, double[] outp, int offset)
+        {
+            double a = 0;
+            for (int i = offset; i < outp.Length + offset; i++)
+            {
+                double b = inp[i];
+                a += b * b;
+            }
+            a = Math.Sqrt(a);
+            double c = 1 / a;
+            for (int i = 0; i < outp.Length; i++)
+            {
+                outp[i] = c * inp[i + offset];
+            }
+            return a;
+        }
+
         /// <summary>
         /// Inverts matrix
         /// </summary>
@@ -261,6 +284,7 @@ namespace RealMatrixProcessor
 			}
 		}
 
+ 
         /// <summary>
         /// Square of vector
         /// </summary>

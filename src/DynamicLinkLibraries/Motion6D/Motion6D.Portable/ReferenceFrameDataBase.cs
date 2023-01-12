@@ -239,9 +239,9 @@ namespace Motion6D.Portable
                     owp = Motion6DFrame.Base;
                     return;
                 }
-                if (isSerialized)
+                if (IsSerialized)
                 {
-                   // isSerialized = false;
+                    IsSerialized = false;
                     return;
                 }
                 CreateFrame();

@@ -44,7 +44,7 @@ namespace Motion6D
         {
             ClearAliases();
             parameters = info.GetValue("Parameters", typeof(List<string>)) as List<string>;
-            isSerialized = true;
+            IsSerialized = true;
         }
 
         #endregion

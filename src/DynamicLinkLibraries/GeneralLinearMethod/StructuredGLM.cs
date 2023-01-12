@@ -282,7 +282,7 @@ namespace GeneralLinearMethod
 			{
 				a[i, i] += d[i];
 			}
-			RealMatrix.Solve(a, z, indx);
+			StaticExtensionRealMatrix.Solve(a, z, indx);
             for (int i = 0; i < n; i++)
             {
                 x[i] += z[i];

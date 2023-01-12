@@ -157,7 +157,7 @@ namespace DataPerformer.Helpers
             {
                 delta[i] = y1[i] - y[i];
             }
-            RealMatrix.KalmanFilter(state, delta, transition, partial, covariation, ec, mc,
+            StaticExtensionRealMatrix.KalmanFilter(state, delta, transition, partial, covariation, ec, mc,
                 coefficient, partialTrans, partialPeer, errorCovariationPeer, errorCovariationPeerPlus,
                 statePeer, covariationPeer, covariationPeerPlus);
         }

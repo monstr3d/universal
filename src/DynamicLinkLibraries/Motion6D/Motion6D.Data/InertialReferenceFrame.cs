@@ -308,19 +308,19 @@ namespace Motion6D
                 linAccAbsolute[i] = forces[6 + i] * unMass;
             }
             double[,] T = Relative.Matrix;
-            RealMatrix.Multiply(linAccAbsolute, T, aux);
+            StaticExtensionRealMatrix.Multiply(linAccAbsolute, T, aux);
             for (i = 0; i < 3; i++)
             {
                 linAccAbsolute[i] = forces[i] * unMass + aux[i];
             }
-            RealMatrix.Multiply(J, omega, aux);
+            StaticExtensionRealMatrix.Multiply(J, omega, aux);
             StaticExtensionVector3D.VectorPoduct(omega, aux, aux1);
-            RealMatrix.Add(aux1, 0, forces, 9, aux, 0, 3);
+            StaticExtensionRealMatrix.Add(aux1, 0, forces, 9, aux, 0, 3);
             Array.Copy(forces, 3, aux1, 0, 3);
-            RealMatrix.Multiply(aux1, T, aux2);
-            RealMatrix.Add(aux2, 0, forces, 9, aux1, 0, 3);
-            RealMatrix.Add(aux1, 0, aux, 0, aux2, 0, 3);
-            RealMatrix.Multiply(L, aux2, epsRelative);
+            StaticExtensionRealMatrix.Multiply(aux1, T, aux2);
+            StaticExtensionRealMatrix.Add(aux2, 0, forces, 9, aux1, 0, 3);
+            StaticExtensionRealMatrix.Add(aux1, 0, aux, 0, aux2, 0, 3);
+            StaticExtensionRealMatrix.Multiply(L, aux2, epsRelative);
             aux4d[0] = 0;
             Array.Copy(omega, 0, aux4d, 1, 3);
             StaticExtensionVector3D.QuaternionInvertMultiply(relativeQuaternion, aux4d, quaternionDervation);
@@ -337,7 +337,7 @@ namespace Motion6D
             
             Array.Copy(variables, offset, relativePosition, 0, 3);
             Array.Copy(variables, offset + 3, relativeVelocity, 0, 3);
-            RealMatrix.Normalize(variables, offset + 6, 4);
+            StaticExtensionRealMatrix.Normalize(variables, offset + 6, 4);
             Array.Copy(variables, offset + 6, relativeQuaternion, 0, 4);
             Array.Copy(variables, offset + 10, omega, 0, 3);
             SetRelative();

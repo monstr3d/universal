@@ -336,15 +336,15 @@ namespace ControlSystems
                 return (polynom[0] * polynom[1]) > 0;
             }
             double[,] a = GetGurvitzMatrix(polynom);
-            double det = RealMatrix.Det(a);
+            double det = StaticExtensionRealMatrix.Det(a);
             if (det <= 0)
             {
                 return false;
             }
             for (int i = 1; i < a.GetLength(0); i++)
             {
-                double[,] b = RealMatrix.GetMainMinor(a, i);
-                det = RealMatrix.Det(b);
+                double[,] b = StaticExtensionRealMatrix.GetMainMinor(a, i);
+                det = StaticExtensionRealMatrix.Det(b);
                 if (det <= 0)
                 {
                     return false;

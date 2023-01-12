@@ -17,7 +17,8 @@ namespace Motion6D
     /// Rigid reference frame
     /// </summary>
     [Serializable()]
-    public class RigidReferenceFrame : Portable.RigidReferenceFrame,  ISerializable
+    public class RigidReferenceFrame : Portable.RigidReferenceFrame,  
+        ISerializable, IPostSerialize
     {
 
  
@@ -41,7 +42,7 @@ namespace Motion6D
         {
             relativePosition = info.GetValue("Position", typeof(double[])) as double[];
             relativeQuaternion = info.GetValue("Quaternion", typeof(double[])) as double[];
-            isSerialized = true;
+            IsSerialized = true;
             Init();
         }
 
@@ -63,6 +64,15 @@ namespace Motion6D
 
         #endregion
 
-   
+        #region IPostSerialize Members
+
+        void IPostSerialize.PostSerialize()
+        {
+            IsSerialized = false;
+        }
+
+        #endregion
+
+
     }
 }

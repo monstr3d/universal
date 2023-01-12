@@ -64,12 +64,12 @@ namespace FormulaEditor
                 }
                 else
                 {
-                    RealMatrixProcessor.RealMatrix.Invert(mat, mult);
+                    RealMatrixProcessor.StaticExtensionRealMatrix.Invert(mat, mult);
                     n = -n;
                 }
                 for (int i = 0; i < n; i++)
                 {
-                    RealMatrixProcessor.RealMatrix.Multiply(result, mult, buffer);
+                    RealMatrixProcessor.StaticExtensionRealMatrix.Multiply(result, mult, buffer);
                     for (int k = 0; k < dim; k++)
                     {
                         for (int l = 0; l < dim; l++)

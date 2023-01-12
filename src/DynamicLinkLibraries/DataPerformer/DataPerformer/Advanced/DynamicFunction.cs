@@ -383,7 +383,7 @@ namespace DataPerformer.Advanced
                 {
                     k = 0;
                 }
-                return RealMatrixProcessor.RealMatrix.LagrangeInterpolation(arg, degree, k, l);
+                return RealMatrixProcessor.StaticExtensionRealMatrix.LagrangeInterpolation(arg, degree, k, l);
             }
  
 

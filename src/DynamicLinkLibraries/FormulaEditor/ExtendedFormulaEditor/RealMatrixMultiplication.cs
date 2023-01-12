@@ -57,7 +57,7 @@ namespace FormulaEditor
             {
                 double[,] a = x[0] as double[,];
                 double[,] b = x[1] as double[,];
-                RealMatrix.Multiply(a, b, buffer);
+                StaticExtensionRealMatrix.Multiply(a, b, buffer);
                 return buffer;
             }
         }

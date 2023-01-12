@@ -500,7 +500,7 @@ namespace Motion6D.Portable
             if (matrix.GetLength(0) != 0)
             {
                 CalculateLinkAccelerations();
-                RealMatrixProcessor.RealMatrix.PlusEqual(vector, addAcceleration);
+                RealMatrixProcessor.StaticExtensionRealMatrix.PlusEqual(vector, addAcceleration);
                 for (int ln = 0; ln < links.Count; ln++)
                 {
                     MechanicalAggregateLink ml = links[ln];
@@ -749,7 +749,7 @@ namespace Motion6D.Portable
                 Fill(forcesToAccelerations, s.GetForcesMatrix(ss), sn, k);
                 FillMinus(forcesToAccelerations, t.GetForcesMatrix(tt), tn, k);
             }
-            RealMatrixProcessor.RealMatrix.Multiply(accelerationTransition, forcesToAccelerations, matrix);
+            RealMatrixProcessor.StaticExtensionRealMatrix.Multiply(accelerationTransition, forcesToAccelerations, matrix);
         }
 
         /// <summary>

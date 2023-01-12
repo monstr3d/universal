@@ -107,7 +107,7 @@ namespace Vector3D
             double[] x = new double[3];
             b.CopyTo(x, 0);
             double[] y = new double[3];
-            RealMatrix.Multiply(y, a);
+            StaticExtensionRealMatrix.Multiply(y, a);
             return new Vector3Double(y);
         }
 
@@ -121,7 +121,7 @@ namespace Vector3D
         public static Vector3Double operator -(Vector3Double a, Vector3Double b)
         {
             double[] x = new double[3];
-            RealMatrix.Difference(a.x, b.x, x);
+            StaticExtensionRealMatrix.Difference(a.x, b.x, x);
             return new Vector3Double(x);
         }
 
@@ -134,7 +134,7 @@ namespace Vector3D
         public static Vector3Double operator +(Vector3Double a, Vector3Double b)
         {
             double[] x = new double[3];
-            RealMatrix.Add(a.x, b.x, x);
+            StaticExtensionRealMatrix.Add(a.x, b.x, x);
             return new Vector3Double(x);
         }
 
@@ -147,7 +147,7 @@ namespace Vector3D
         /// <returns>The substractin result</returns>
         public static double operator |(Vector3Double a, Vector3Double b)
         {
-            return a.x.ScalarProduct(b.x);
+            return a.x.ScalarProduct3d(b.x);
         }
 
 

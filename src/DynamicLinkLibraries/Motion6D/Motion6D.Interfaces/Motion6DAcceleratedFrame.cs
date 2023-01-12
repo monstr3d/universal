@@ -47,7 +47,7 @@ namespace Motion6D
             double[] relativeOmega = relativeAngularVelocity.Omega;
             double[] baseOmega = baseAngulatVelocity.Omega;
             StaticExtensionVector3D.VectorPoduct(baseOmega, relativeVelocity.Velocity, tempV);
-            double om2 = StaticExtensionVector3D.Square(baseOmega);
+            double om2 = StaticExtensionVector3D.Square3d(baseOmega);
             double[] eps = arn.AngularAcceleration;
             StaticExtensionVector3D.VectorPoduct(eps, rp, temp);
             for (int i = 0; i < 3; i++)
@@ -55,16 +55,16 @@ namespace Motion6D
                 tempV[i] *= 2;
                 tempV[i] += om2 * rp[i] + relativeAcceleration[i] + temp[i]; 
             }
-            RealMatrix.Multiply(m, tempV, acceleration);
+            StaticExtensionRealMatrix.Multiply(m, tempV, acceleration);
             IOrientation relativeOrientation = relative;
             double[,] relativeMatrix = relativeOrientation.Matrix;
-            RealMatrix.Multiply(baseOmega, relativeMatrix, temp);
+            StaticExtensionRealMatrix.Multiply(baseOmega, relativeMatrix, temp);
             StaticExtensionVector3D.VectorPoduct(temp, relativeOmega, tempV);
             for (int i = 0; i < 3; i++)
             {
                 temp[i] = eps[i] + tempV[i];
             }
-            RealMatrix.Multiply(temp, m, angularAcceleration);
+            StaticExtensionRealMatrix.Multiply(temp, m, angularAcceleration);
         }
 
         #endregion

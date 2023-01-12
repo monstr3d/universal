@@ -1,4 +1,5 @@
 using System;
+using System.Numerics;
 using Vector3D.Interfaces;
 
 
@@ -323,7 +324,7 @@ namespace Vector3D
 		/// <param name="x">First vector</param>
 		/// <param name="y">Second vector</param>
 		/// <returns></returns>
-		public static double ScalarProduct(this double[] x, double[] y)
+		public static double ScalarProduct3d(this double[] x, double[] y)
 		{
 			return x[0] * y[0] + x[1] * y[1] + x[2] * y[2];
 		}
@@ -333,9 +334,9 @@ namespace Vector3D
 		/// </summary>
 		/// <param name="x">The vector</param>
 		/// <returns>The square norm</returns>
-		public static double ScalarNorm(double[] x)
+		public static double ScalarNorm3d(this double[] x)
 		{
-			return Math.Sqrt(Square(x));
+			return Math.Sqrt(Square3d(x));
 		}
 
         /// <summary>
@@ -343,8 +344,13 @@ namespace Vector3D
         /// </summary>
         /// <param name="x">The vector</param>
         /// <returns>The square</returns>
-        public static double Square(double[] x)
+        public static double Square3d(double[] x)
         {
+            // !!! EXCEPTION DELETE
+            if (x.Length != 3)
+            {
+                throw new ArgumentException();
+            }
             return x[0] * x[0] + x[1] * x[1] + x[2] * x[2];
         }
 
@@ -354,55 +360,38 @@ namespace Vector3D
         /// </summary>
         /// <param name="x">Noralizable vector</param>
         /// <returns>Normalization result</returns>
-		public static double[] VectorNorm(double[] x)
+		public static double[] VectorNorm3d(double[] x)
 		{
-			double a = ScalarNorm(x);
-			return Multiply(1 / a, x);
+            // !!! EXCEPTION DELETE
+            if (x.Length != 3)
+            {
+                throw new ArgumentException();
+            }
+            double a = ScalarNorm3d(x);
+			return Multiply3d(1 / a, x);
 		}
 
 		/// <summary>
 		/// Normalization of vector
 		/// </summary>
 		/// <param name="x">The vector</param>
-		public static void Normalize(this double[] x)
+		public static void Normalize3d(this double[] x)
 		{
-			double a = 1 / ScalarNorm(x);
+			double a = 1 / ScalarNorm3d(x);
 			for (int i = 0; i < x.Length; i++)
 			{
 				x[i] *= a;
 			}
 		}
 
-        /// <summary>
-        /// Normalization of vector
-        /// </summary>
-        /// <param name="inp">Input</param>
-        /// <param name="outp">Output</param>
-        /// <param name="offset">Offset</param>
-        public static double Normalize(this double[] inp, double[] outp, int offset)
-        {
-            double a = 0;
-            for (int i = offset; i < outp.Length + offset; i++)
-            {
-                double b = inp[i];
-                a += b * b;
-            }
-            a = Math.Sqrt(a);
-            double c = 1 / a;
-            for (int i = 0; i < outp.Length; i++)
-            {
-                outp[i] = c * inp[i + offset];
-            }
-            return a;
-        }
-
+  
         /// <summary>
         /// Multiplication of scalar and vector
         /// </summary>
         /// <param name="a">The scalar</param>
         /// <param name="x">The vector</param>
         /// <returns></returns>
-        public static double[] Multiply(double a, double[] x)
+        public static double[] Multiply3d(double a, double[] x)
 		{
 			double[] y = new double[3];
 			for (int i = 0; i < 3; i++)
@@ -420,9 +409,9 @@ namespace Vector3D
 		public static double[][] Reper(double[] x, double[] y)
 		{
 			double[][] a = new double[3][];
-			a[0] = VectorNorm(x);
+			a[0] = VectorNorm3d(x);
 			a[2] = VectorPoduct(a[0], y);
-			a[2] = VectorNorm(a[2]);
+			a[2] = VectorNorm3d(a[2]);
 			a[1] = VectorPoduct(a[2], a[0]);
 			return a;
 		}
@@ -443,6 +432,31 @@ namespace Vector3D
         }
 
         /// <summary>
+        /// Normalization of quaternion
+        /// </summary>
+        /// <param name="The quaternion"></param>
+        public static void QuaternionNormalize(this double[] quaternion)
+        {
+            // !!! DELETE EXCEPTION
+            if (quaternion.Length != 4)
+            {
+                throw new ArgumentException();
+            }
+            double a = 0;
+            foreach (var q in quaternion)
+            {
+                a += q * q;
+
+            }
+            a = 1 / Math.Sqrt(a);
+            for (var i = 0; i < 4; i++)
+            {
+                quaternion[i] *= a;
+                    
+            }
+        }
+
+        /// <summary>
         /// The miss between line and zero point
         /// </summary>
         /// <param name="x">Radius-vector</param>
@@ -452,8 +466,8 @@ namespace Vector3D
         public static double[] Miss(double[] x, double[] v, ref double miss)
 		{
 			double[][] a = Reper(v, x);
-			miss = ScalarProduct(a[1], x);
-			return Multiply(miss, a[1]);
+			miss = ScalarProduct3d(a[1], x);
+			return Multiply3d(miss, a[1]);
 		}
 		
 		/// <summary>
@@ -774,6 +788,7 @@ namespace Vector3D
             omegaOut[1] = quaterinon[0] * omegaIn[1] - quaterinon[3] * omegaIn[0] + quaterinon[1] * omegaIn[2];
             omegaOut[2] = quaterinon[0] * omegaIn[2] - quaterinon[1] * omegaIn[1] + quaterinon[2] * omegaIn[0];
         }
+
 
         /// <summary>
         /// Rotation quaternion

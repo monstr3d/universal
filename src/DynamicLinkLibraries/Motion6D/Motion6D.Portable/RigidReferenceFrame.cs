@@ -38,11 +38,6 @@ namespace Motion6D.Portable
         List<IPosition> children = new List<IPosition>();
 
         /// <summary>
-        /// The "is serialized" sign
-        /// </summary>
-        protected bool isSerialized = false;
-
-        /// <summary>
         /// Parent frame
         /// </summary>
         protected IReferenceFrame parent;
@@ -246,7 +241,7 @@ namespace Motion6D.Portable
                     owp = Motion6DFrame.Base;
                     return;
                 }
-                if (isSerialized)
+                if (IsSerialized)
                 {
                     return;
                 }
@@ -320,7 +315,7 @@ namespace Motion6D.Portable
         /// </summary>
         public void CopyPositionToRelativeFrame()
         {
-            if (isSerialized)
+            if (IsSerialized)
             {
                 return;
             }
@@ -333,7 +328,7 @@ namespace Motion6D.Portable
         /// </summary>
         public virtual void CopyQuaternionToRelativeFrame()
         {
-            if (isSerialized)
+            if (IsSerialized)
             {
                 return;
             }
@@ -398,6 +393,16 @@ namespace Motion6D.Portable
         #endregion
 
         #region Protected Members
+
+        /// <summary>
+        /// The "is serialized" sign
+        /// </summary>
+        protected bool IsSerialized
+        {
+            get;
+            set;
+        } = false;
+
 
         /// <summary>
         /// Post set parameteres operation
