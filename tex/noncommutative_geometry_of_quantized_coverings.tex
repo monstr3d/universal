@@ -6852,27 +6852,30 @@ Let $\eps > 0$. Using induction we will construct sequences $\left\{a_n\right\}_
 \begin{split}
 	\left\|a_n\right\|< \frac{\eps}{2^{n-1}} ,\\ 
 	n > 1 \quad\Rightarrow \quad	\left\|b_n\right\|< \frac{3\eps}{2^{n-1}},\\
-\left\|a - \left.\left( \sum_{n = 1}^m b_n\right) \right|_\sV \right\| < \frac{\eps}{2^{m-1}},
+\left\|a - \left.\left( \sum_{n = 1}^m b_n\right) \right|_\sV \right\| < \frac{\eps}{2^{m-1}}.
 \end{split}
 \ee
 From \eqref{top_abk_eqn}  it follows that there is  $b_1\bydef b\in C\left(\sX, \left\{A_x\right\}, \sF \right)$ such that
 \bean
 \begin{split}
-	\left\|a - \left.b_1\right|_\sY \right\| < \eps.
+	\left\|a - \left.b_1\right|_\sY \right\| < \eps,\\
+	\left\| b_1\right\| <  \left\|a \right\|+  \eps.
 \end{split}
 \eean
-	If  $a_1 \bydef a - \left.b\right|_\sY\in   C\left(\sY, \left\{A_x\right\}, \sF \right)$  then one has $\left\|a_1 \right\|< \eps$. Applying \eqref{top_abk_eqn} once again (replacing $\eps$ with $\eps/2$) one can obtain  $b_2\in C\left(\sU, \left\{A_x\right\}, \sF \right)$ such that
+	If  $a_1 \bydef a - \left.b_1\right|_\sY\in   C\left(\sY, \left\{A_x\right\}, \sF \right)$  then one has $\left\|a_1 \right\|< \eps$. Applying \eqref{top_abk_eqn} once again (replacing $\eps$ with $\eps/2$) one can obtain  $b_2\in C\left(\sU, \left\{A_x\right\}, \sF \right)$ such that
 \bean
 \begin{split}
 	\left\|a_1 - \left.b_2\right|_\sV \right\| < \frac{\eps}{2},\\
-	\left\| b_2\right\| <  \left\|a_1 \right\|+ \frac{\eps}{2} < \frac{3\eps}{2}.
+	\left\| b_2\right\| <  \left\|a_1 \right\|+ \frac{\eps}{2} < \frac{3\eps}{2},\\
+\left\| a -	(b_1 + b_2)|_\sV\right\|  = \left\| a_1 - b_2|_\sV\right\|< \frac{\eps}{2}. 
 \end{split}
 \eean
 	If  $a_2\bydef a_1 - \left.b_2\right|_\sV$ then  $a_1, a_2, b_1, b_2$ satisfy to the equations \eqref{top_abn_eqn}. If $a_n$ and $b_n$ are known then using \eqref{top_abk_eqn} one can find $b_{n+1}$ such that
 \be\label{top_abnp_eqn}
 \begin{split}
 	\left\|a_n - \left.b_{n+1}\right|_\sY \right\| < \frac{\eps}{2^n},\\
-	\left\| b_{n+1}\right\| <  \left\|a_n \right\|+ \frac{\eps}{2^{n}} <   \frac{3\eps}{2^{n}}. 
+	\left\| b_{n+1}\right\| <  \left\|a_n \right\|+ \frac{\eps}{2^{n}} <   \frac{3\eps}{2^{n}},\\
+\left\|a - \left.\left( \sum_{n = 1}^m b_n\right) \right|_\sV \right\| < \frac{\eps}{2^{m-1}}.
 \end{split}
 \ee
 From $	\left\| b_{n+1}\right\|<    \frac{3\eps}{2^{n}}$ it follows that the series $b\bydef \sum_{n = 1}^\infty b_n$ is norm convergent. Otherwise from \eqref{top_abn_eqn}, \eqref{top_abnp_eqn} it follows that
@@ -6882,7 +6885,7 @@ $$
 hence one has $a = \left.b\right|_\sY$.
 
 \end{proof}
-!!! CONTINUE !!!
+
 \begin{remark}
 The Lemma \ref{top_ax_k_lem} is an analog of the Tietze extension theorem \ref{tietze_ext_thm}. The method of proof of the Lemma \ref{top_ax_k_lem} is similar to the explained in \cite{munkres:topology} one.
 \end{remark}
@@ -6941,7 +6944,7 @@ Following lemma is a direct consequence of the Lemma \ref{top_lift_lem} and the 
 \begin{lemma}\label{top_lift_composition_lem}.
 	If $\sF$ is a continuity structure  for $\sX$ {and the} $\left\{A_x\right\}$ then one has:
 	\begin{enumerate}
-		\item [(i)] For any covering  $p :\widetilde{\sX} \to \sX$ there is the natural injective $C_b\left(\sX \right)$-linear  map.
+		\item [(i)] For any covering  $p :\widetilde{\sX} \to \sX$ there is the natural injective $C_b\left(\sX \right)$-linear  map
 		\be\label{top_glo_lift_h_eqn}
 		\lift_p: C\left(\sX, \left\{A_x\right\}, \sF \right) \hookto \lift_p\left[C\left(\sX, \left\{A_x\right\}, \sF \right) \right]. 
 		\ee
@@ -6988,7 +6991,7 @@ The following Lemma is evident.
 \end{proof}
 \begin{remark}\label{top_compact_c0_rem}
 	Similarly to the Remark \ref{top_cl_cc_iso_rem} $C_0\left(\lift_p\left[ C\left(\sX, \left\{A_x\right\}, \sF \right) \right] \right)$
-	is the  minimal norm closed subspace of $C_b\left(\lift_p\left[ C\left(\sX, \left\{A_x\right\}, \sF \right) \right] \right)$ which contains all products $f \lift_p\left( a\right) $ where $a \in C_0\left(\sX, \left\{A_x\right\}, \sF \right)$ and $f \in C_0\left(\widetilde\sX\right)$.
+	is the  minimal norm closed subspace of $C_b\left(\lift_p\left[ C\left(\sX, \left\{A_x\right\}, \sF \right) \right] \right)$ which contains all products $\widetilde f \lift_p\left( a\right) $ where $a \in C_0\left(\sX, \left\{A_x\right\}, \sF \right)$ and $\widetilde f \in C_0\left(\widetilde\sX\right)$.
 \end{remark}
 \begin{exercise}
 Let $M$ be a differential manifold (cf. Definition \ref{diff_mani_defn}), let $p: \widetilde M \to M$ be a covering (cf. Definition \ref{top_covering_defn}). Suppose that $\widetilde M$ has a given by the Proposition \ref{top_cov_mani_prop} structure of differential manifold. Prove that
@@ -7240,6 +7243,7 @@ In the described above situation we say:
 	\lift_p\left[C\left(\sX, \left\{E_x\right\}, \Ga\left( E, \pi, \mathcal X\right) \right) \right]\cong \Ga\left( E\times_\sX\widetilde\sX,\rho, \widetilde\sX\right).
 	$$
 \end{lemma}
+!!! CORRECT !!! CONTINUE !!!
 \begin{proof}
 	From the  equations \eqref{top_uba_eqn} and \eqref{top_cg_eqn} it follows that there is the natural inclusion
 	$$
