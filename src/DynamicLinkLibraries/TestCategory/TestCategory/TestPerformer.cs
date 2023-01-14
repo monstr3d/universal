@@ -40,7 +40,7 @@ namespace TestCategory
 
         private event Action<IDesktop> test = (IDesktop d) => { };
 
-        TestCategory.Interfaces.ITestInterface testInterface = null;
+        ITestInterface testInterface = null;
 
 
         private event Action<byte[]> byteTest = (byte[] b) => { };
@@ -71,7 +71,7 @@ namespace TestCategory
         /// </summary>
         public TestPerformer(IErrorHandler errorHandler, ITestInterface testInterface)
         {
-            Diagram.UI.StaticExtensionDiagramUI.ErrorHandler = errorHandler;
+            StaticExtensionDiagramUI.ErrorHandler = errorHandler;
             this.testInterface = testInterface;
         }
 

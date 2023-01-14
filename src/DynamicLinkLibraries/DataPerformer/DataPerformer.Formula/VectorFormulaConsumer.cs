@@ -123,6 +123,7 @@ namespace DataPerformer.Formula
             {
                 fm.Reset();
             }
+            update();
             if (forward.Count > 0)
             {
                 isUpdated = false;

@@ -152,6 +152,7 @@ namespace DataPerformer.Portable
             {
                 using (TimeProviderBackup backup = new TimeProviderBackup(consumer, provider, processor, reason, priority))
                 {
+                    provider.Time = start;
                     IDataRuntime runtime = backup.Runtime;
                     runtime.StartAll(start);
                     processor.TimeProvider = provider;

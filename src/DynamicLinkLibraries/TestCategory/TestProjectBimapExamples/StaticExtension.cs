@@ -17,6 +17,10 @@ namespace TestProjectBimapExamples
             StaticExtensionTestCategoryStandard.Init();
         }
 
+        static internal void Init()
+        {
+        }
+
         /// <summary>
         /// Fact
         /// </summary>

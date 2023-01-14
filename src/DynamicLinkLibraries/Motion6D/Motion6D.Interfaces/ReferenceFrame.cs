@@ -229,8 +229,10 @@ namespace Motion6D.Interfaces
 
 
         #endregion
- 
+
         #region Specific Members
+
+        #region Public Members
 
         /// <summary>
         /// Gets relative position
@@ -501,7 +503,6 @@ namespace Motion6D.Interfaces
                 }
             }
             StaticExtensionVector3D.QuaternionMultiply(baseFrame.quaternion, relative.quaternion, quaternion);
-            Norm();
             SetMatrix();
         }
 
@@ -514,22 +515,6 @@ namespace Motion6D.Interfaces
             StaticExtensionVector3D.QuaternionToMatrix(quaternion, matrix, qq);
         }
 
-        /// <summary>
-        /// Quaternion normalization
-        /// </summary>
-        public void Norm()
-        {
-            double a = 0;
-            foreach (double x in quaternion)
-            {
-                a += x * x;
-            }
-            a = 1 / Math.Sqrt(a);
-            for (int i = 0; i < quaternion.Length; i++)
-            {
-                quaternion[i] *= a;
-            }
-        }
 
         /// <summary>
         /// Gets relative position
@@ -554,6 +539,17 @@ namespace Motion6D.Interfaces
             }
         }
 
+        #endregion
+
+        #region Protected Members
+
+        /// <summary>
+        /// Quaternion normalization
+        /// </summary>
+        protected void Norm()
+        {
+            quaternion.QuaternionNormalize();
+        }
 
         /// <summary>
         /// Parent frame
@@ -572,5 +568,7 @@ namespace Motion6D.Interfaces
 
         #endregion
 
-     }
+        #endregion
+
+    }
 }

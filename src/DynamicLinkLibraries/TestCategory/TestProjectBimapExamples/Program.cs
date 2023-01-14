@@ -1,7 +1,5 @@
 ﻿using TestCategory;
-using TestCategory.Standard;
-using TestExamplesConsoleApp;
-using TestExamplesConsoleApp.Properties;
+using TestProjectBimapExamples;
 
 StaticExtension.Init();
 

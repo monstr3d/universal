@@ -21,6 +21,27 @@ namespace TestCategory
     public static class StaticExtensionTestCategory
     {
         /// <summary>
+        /// Test creator
+        /// </summary>
+        public static ITestCreator TestCreator
+        {
+            get;
+            set;
+        } = new TestCreatorCollection();
+
+        /// <summary>
+        /// Adds test creator
+        /// </summary>
+        /// <param name="creator"></param>
+        public static void Add(this ITestCreator creator)
+        {
+            if (TestCreator is TestCreatorCollection)
+            {
+                (TestCreator as TestCreatorCollection).Add(creator);
+            }
+        }
+
+        /// <summary>
         /// Converts bytes to stream
         /// </summary>
         /// <param name="bytes">Bytes</param>

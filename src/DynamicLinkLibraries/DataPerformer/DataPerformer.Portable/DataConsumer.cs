@@ -98,8 +98,6 @@ namespace DataPerformer.Portable
 
         protected List<IEvent> events = new List<IEvent>();
 
-        IMeasurement timeMeasurement;
-
         protected string calculationReason = "";
 
         #endregion
@@ -210,14 +208,8 @@ namespace DataPerformer.Portable
         /// </summary>
         protected virtual IMeasurement TimeMeasurement
         {
-            get
-            {
-                return timeMeasurement;
-            }
-            set
-            {
-                timeMeasurement = value;
-            }
+            get;
+            set;
         }
 
         #endregion

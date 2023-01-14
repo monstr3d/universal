@@ -68,7 +68,7 @@ namespace TestCategory
                             result = false;
                         }
                     }
-                    
+                  
                 }
                 if (o.Count == 0)
                 {

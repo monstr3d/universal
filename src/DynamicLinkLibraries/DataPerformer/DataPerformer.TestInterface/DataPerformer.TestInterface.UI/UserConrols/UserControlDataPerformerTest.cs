@@ -77,6 +77,7 @@ namespace DataPerformer.TestInterface.UI.UserConrols
 
         #region Protected
 
+        // +++TEST+++
         protected void Add(object o, DataRow row, TestData test)
         {
             IObjectLabel l = o as IObjectLabel;

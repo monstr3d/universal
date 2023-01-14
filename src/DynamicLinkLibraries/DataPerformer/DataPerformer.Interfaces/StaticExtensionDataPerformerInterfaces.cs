@@ -23,7 +23,7 @@ namespace DataPerformer.Interfaces
         /// </summary>
         public const string Calculation = "Calculation";
 
-        internal static Dictionary<object, IBufferItem> items = 
+        internal static Dictionary<object, IBufferItem> items =
             new Dictionary<object, IBufferItem>();
 
         static IDatabaseInterface data;
@@ -36,7 +36,7 @@ namespace DataPerformer.Interfaces
 
         static List<Func<object, object>> typeConverters = new List<Func<object, object>>();
 
-    
+
         #endregion
 
         #region Public Members
@@ -193,7 +193,7 @@ namespace DataPerformer.Interfaces
             {
                 throw new Exception(name + " already exists");
             }
-            IBufferDirectory result =  new BufferDirectoryWrapper(parent as BufferDirectoryWrapper,
+            IBufferDirectory result = new BufferDirectoryWrapper(parent as BufferDirectoryWrapper,
                 data.Create(parent.Id, name, comment));
             StaticExtensionDataPerformerInterfaces.Data.SubmitChanges();
             return result;
@@ -212,10 +212,10 @@ namespace DataPerformer.Interfaces
             IEnumerable<byte[]> data, string name, string fileName, string comment)
         {
             IDatabaseInterface d = StaticExtensionDataPerformerInterfaces.data;
-      /*  !!!    if (d.Filenames.Contains(fileName))
-            {
-                throw new Exception("File " + fileName + " already exists");
-            }*/
+            /*  !!!    if (d.Filenames.Contains(fileName))
+                  {
+                      throw new Exception("File " + fileName + " already exists");
+                  }*/
             if (directory.GetDirectoryNames().Contains(name))
             {
                 throw new Exception(name + " already exists");
@@ -283,6 +283,42 @@ namespace DataPerformer.Interfaces
             }
             return null;
         }
+
+        /// <summary>
+        /// Stack of data consumer
+        /// </summary>
+        /// <typeparam name="T">Type of stack element</typeparam>
+        /// <param name="consumer">The data consumer</param>
+        /// <returns>The stack</returns>
+        public static Stack<T> RecursiveStack<T>(this IDataConsumer consumer) where T : class
+        {
+            var stack = new Stack<T>();
+            var list = new List<IDataConsumer>();
+            consumer.RecursiveStack(stack, list);
+            return stack;
+        }
+
+
+        /// <summary>
+        /// Starts children objects
+        /// </summary>
+        /// <param name="consumer">Consumer</param>
+        /// <param name="time">Children objects</param>
+        public static void StartChildren(this IDataConsumer consumer, double time)
+        {
+            IStarted st = consumer as IStarted;
+            var stack = consumer.RecursiveStack<IStarted>();
+            while (stack.Count > 0)
+            {
+                var s = stack.Pop();
+                if (s != st)
+                {
+                    s.Start(time);
+                }
+            }
+        }
+
+
 
         /// <summary>
         /// Gets names of measurements for designed type
@@ -430,6 +466,48 @@ namespace DataPerformer.Interfaces
         #endregion
 
         #region Private Members
+
+
+        /// <summary>
+        /// Stack of data consumer
+        /// </summary>
+        /// <typeparam name="T">Type of stack element</typeparam>
+        /// <param name="consumer">The data consumer</param>
+        /// <param name="stack">The stack</param>
+        /// <param name="list">The auxiliary list</param>
+        private static void RecursiveStack<T>(this IDataConsumer consumer,
+            Stack<T> stack, List<IDataConsumer> list) where T : class
+        {
+            if (list.Contains(consumer))
+            {
+                return;
+            }
+            if (consumer is T)
+            {
+                var t = consumer as T;
+                if (!stack.Contains(t))
+                {
+                    stack.Push(t);
+                }
+            }
+            for (var i = 0; i < consumer.Count; i++)
+            {
+                var mea = consumer[i];
+                var t = mea as T;
+                if (mea is T)
+                {
+                    if (!stack.Contains(t))
+                    {
+                        stack.Push(t);
+                    }
+                }
+                if (mea is IDataConsumer)
+                {
+                    (mea as IDataConsumer).RecursiveStack(stack, list);
+                }
+            }
+        }
+
 
         #region DataBuffer Members
 
