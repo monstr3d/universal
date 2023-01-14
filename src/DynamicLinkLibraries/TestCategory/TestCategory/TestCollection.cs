@@ -19,10 +19,17 @@ namespace TestCategory
     {
         #region Fields
 
+        ITestCreator creator = StaticExtensionTestCategory.TestCreator;
+
         /// <summary>
         /// Tests
         /// </summary>
         protected ITest[] tests;
+
+        /// <summary>
+        /// List of tests
+        /// </summary>
+        protected List<ITest> testList = new List<ITest>();
 
         #endregion
 
@@ -93,5 +100,40 @@ namespace TestCategory
         }
 
         #endregion
+
+        /// <summary>
+        /// Output
+        /// </summary>
+        public Dictionary<string, object[]> Output
+        {
+            get
+            {
+                Dictionary<string, object[]> d = new Dictionary<string, object[]>();
+                for (int i = 0; i < tests.Length; i++)
+                {
+                    ITest test = tests[i];
+                    creator.Process(i, test, d);
+                }
+                return d;
+            }
+        }
+
+
+        /// <summary>
+        /// Adds test
+        /// </summary>
+        /// <param name="test">The test</param>
+        public void Add(ITest test)
+        {
+            testList.Add(test);
+        }
+
+        public void Close()
+        {
+            tests = testList.ToArray();
+            testList.Clear();
+        }
+
+
     }
 }

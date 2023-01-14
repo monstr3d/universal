@@ -18,7 +18,7 @@ namespace DataPerformer.TestInterface.SeriesWrapper
     /// Test of time dependent function
     /// </summary>
     [Serializable()]
-    class LocalChart : ITest, ISerializable
+    public class LocalChart : ITest, ISerializable
     {
 
         #region Fields
@@ -46,7 +46,7 @@ namespace DataPerformer.TestInterface.SeriesWrapper
 
         #region Ctor
 
-        internal LocalChart(string name, double start, double step, int stepCount, string argument, string[] values)
+        public  LocalChart(string name, double start, double step, int stepCount, string argument, string[] values)
         {
             this.name = name;
             this.start = start;
@@ -133,7 +133,7 @@ namespace DataPerformer.TestInterface.SeriesWrapper
         /// Crates tests
         /// </summary>
         /// <param name="collection">Collection of components</param>
-        internal void Create(IComponentCollection collection)
+        public void Create(IComponentCollection collection)
         {
             Dictionary<string, Portable.Basic.Series> d = GetSeries(collection);
             series.Clear();
@@ -152,7 +152,7 @@ namespace DataPerformer.TestInterface.SeriesWrapper
                 argument, ss);
         }
 
-        internal string Name
+        public string Name
         {
             get
             {

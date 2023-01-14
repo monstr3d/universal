@@ -1,4 +1,5 @@
-﻿using Diagram.UI.Interfaces;
+﻿using CategoryTheory;
+using Diagram.UI.Interfaces;
 using Diagram.UI.Labels;
 using System;
 using System.Collections.Generic;
@@ -31,8 +32,16 @@ namespace TestCategory.Interfaces
         /// <param name="label">Label of object</param>
         /// <param name="collection">Collection of object</param>
         /// <returns>The test</returns>
-        ITest Create(out string name, uint number, IObjectLabel label, IComponentCollection collection);
-        
+        ITest Create(out string name, uint number, IObjectLabel label, 
+            IComponentCollection collection);
+
+        /// <summary>
+        /// Checks whether object is admissible
+        /// </summary>
+        /// <param name="o">The object</param>
+        /// <param name="cob">The category object</param>
+        /// <returns>True if admissible</returns>
+        bool IsAdmissible(object o, ICategoryObject cob);
 
     }
 }

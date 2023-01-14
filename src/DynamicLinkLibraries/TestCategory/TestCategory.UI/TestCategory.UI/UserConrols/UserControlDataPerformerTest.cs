@@ -15,26 +15,28 @@ using Diagram.UI;
 
 using TestCategory.Interfaces;
 using System.Runtime.CompilerServices;
-using DataPerformer.Interfaces;
+using TestCategory;
 
-namespace DataPerformer.TestInterface.UI.UserConrols
+namespace TestCategory.UI.UserConrols
 {
     public partial class UserControlDataPerformerTest : UserControl
     {
         #region Fields
 
-        TestData test;
+        ITestCreator creator = StaticExtensionTestCategory.TestCreator;
+
+        TestCollection test;
 
         List<object> l = new List<object>();
         Dictionary<string, object[]> output;
 
         IComponentCollection collection;
 
-        event Action<object, DataRow, TestData> onAdd = (object o, DataRow row, TestData td) => { };
+        event Action<object, DataRow, TestCollection> onAdd = (object o, DataRow row, TestCollection td) => { };
 
         event Action<object, ICategoryObject, bool[]> isAdmissible = (object l, ICategoryObject o, bool[] b) => { b[0] = false; };
 
-        private Func<TestData> createTest; 
+        private Func<TestCollection> createTest; 
 
         #endregion
 
@@ -49,7 +51,7 @@ namespace DataPerformer.TestInterface.UI.UserConrols
 
         #region Public
 
-        public event Action<object, DataRow, TestData> OnAdd
+        public event Action<object, DataRow, TestCollection> OnAdd
         {
             add { onAdd += value; }
             remove { onAdd -= value; }
@@ -61,7 +63,7 @@ namespace DataPerformer.TestInterface.UI.UserConrols
             remove { isAdmissible -= value; }
         }
 
-        public Func<TestData> CreateTestData
+        public Func<TestCollection> CreateTestData
         {
             get
             {
@@ -78,74 +80,22 @@ namespace DataPerformer.TestInterface.UI.UserConrols
         #region Protected
 
         // +++TEST+++
-        protected void Add(object o, DataRow row, TestData test)
+        protected void Add(object o, DataRow row, TestCollection test)
         {
-            IObjectLabel l = o as IObjectLabel;
-            ICategoryObject co = l.Object;
-            string name = l.GetName(collection);
-            switch (co)
-            {
-                case global::Regression.Portable.AliasRegression reg:
-                    test.AddRegression(name, (uint)row[3], collection);
-                    return;
-                case global::Regression.Portable.IteratorGLM it:
-                    test.AddIteratorGLM(name, (uint)row[3], collection);
-                    return;
-                default:
-                    break;
-            }
-            if (co is IStructuredSelectionCollection)
-            {
-                test.AddStructuredSelection(name, collection);
-            }
-
-            if (co is global::Regression.Portable.AliasRegression)
-            {
-                test.AddRegression(name, (uint)row[3], collection);
-                return;
-            }
-            if (o is IProperties)
-            {
-                object ob = (o as IProperties).Properties;
-                if (ob.GetType().Equals(typeof(DataPerformer.UI.Labels.GraphLabel)))
-                {
-                    var lab = ob as DataPerformer.UI.Interfaces.IGraphLabel;
-                    var data = lab.Data;
-                    // var  t = data.Item1[0];
-                    Dictionary<string, Color[]> d = data.Item1;
-                    IEnumerable<string> keys = d.Keys;
-                    DataConsumer cons = co as DataConsumer;
-                    test.AddChart(name, cons.Start, cons.Step, cons.Steps, 
-                        data.Item4[1], keys.ToArray<string>(), collection);
-                    return;
-                }
-            }
-            onAdd(o, row, test);
+            IObjectLabel label = o as IObjectLabel;
+            string name;
+            var t = creator.Create(out name, (uint)row[3], label, collection);
+            test.Add(t);
+            ICategoryObject co = label.Object;
+              onAdd(o, row, test);
         }
 
 
         protected virtual bool IsAdmissible(object o, ICategoryObject cob)
         {
-           switch(cob)
-            {
-                case global::Regression.Portable.AliasRegression ar:
-                    return true;
-                case global::Regression.Portable.IteratorGLM it:
-                    return true;
-                default:
-                    break;
-            }
-            if (cob is IStructuredSelectionCollection)
+            if (creator.IsAdmissible(o, cob))
             {
                 return true;
-            }
-            if (o is IProperties)
-            {
-                object ob = (o as IProperties).Properties;
-                if (ob.GetType().Equals(typeof(DataPerformer.UI.Labels.GraphLabel)))
-                {
-                    return true;
-                }
             }
             bool[] b = new bool[1];
             isAdmissible(o, cob, b);
@@ -190,7 +140,7 @@ namespace DataPerformer.TestInterface.UI.UserConrols
             this.collection = collection;
             if (test != null)
             {
-                this.test = test as TestData;
+                this.test = test as TestCollection;
                 output = this.test.Output;
             }
             IEnumerable<object> c = collection.AllComponents;

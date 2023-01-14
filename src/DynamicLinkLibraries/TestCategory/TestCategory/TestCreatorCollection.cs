@@ -1,6 +1,8 @@
-﻿using Diagram.UI.Interfaces;
+﻿using CategoryTheory;
+using Diagram.UI.Interfaces;
 using Diagram.UI.Labels;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -48,9 +50,23 @@ namespace TestCategory
             return false;
         }
 
+        bool ITestCreator.IsAdmissible(object o, ICategoryObject cob)
+        {
+            foreach (var creator in list)
+            {
+                if (creator.IsAdmissible(o, cob))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+
         public void Add(ITestCreator creator)
         {
             list.Add(creator);
         }
+
     }
 }

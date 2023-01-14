@@ -15,8 +15,7 @@ namespace DataPerformer.TestInterface
     public class TestData : TestCollection
     {
 
-        protected List<ITest> testList = new List<ITest>();
-
+    
         #region Ctor
 
         /// <summary>
@@ -42,23 +41,7 @@ namespace DataPerformer.TestInterface
 
         #region Members
 
-        /// <summary>
-        /// Output
-        /// </summary>
-        public Dictionary<string, object[]> Output
-        {
-            get
-            {
-                Dictionary<string, object[]> d = new Dictionary<string, object[]>();
-                for (int i = 0; i < tests.Length; i++)
-                {
-                    ITest test = tests[i];
-                    Process(i, test, d);
-                }
-                return d;
-            }
-        }
-
+ 
         // +++TEST+++
         protected virtual bool Process(int i, ITest test, Dictionary<string, object[]> d)
         {
@@ -111,12 +94,7 @@ namespace DataPerformer.TestInterface
 
 
 
-        public void Close()
-        {
-            tests = testList.ToArray();
-            testList.Clear();
-        }
-
+ 
         #endregion
 
 

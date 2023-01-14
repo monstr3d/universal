@@ -15,7 +15,7 @@ namespace DataPerformer.TestInterface.Regression
     /// Test of nonlinear regression
     /// </summary>
     [Serializable()]
-    class IteratorGLMTest : BaseRegressionTest
+    public class IteratorGLMTest : BaseRegressionTest
     {
         #region Ctor
 
@@ -24,7 +24,7 @@ namespace DataPerformer.TestInterface.Regression
         /// </summary>
         /// <param name="name">Name of component on desktop</param>
         /// <param name="number">Number of iterations</param>
-        internal IteratorGLMTest(string name, int number) :
+        public IteratorGLMTest(string name, int number) :
             base(name, number)
         {
         }

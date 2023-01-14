@@ -42,7 +42,7 @@ namespace DataPerformer.TestInterface.Regression
         /// </summary>
         /// <param name="name">Name of component on desktop</param>
         /// <param name="number">Number of iterations</param>
-        protected BaseRegressionTest(string name, int number)
+        public BaseRegressionTest(string name, int number)
         {
             this.name = name;
             this.number = number;
@@ -114,7 +114,7 @@ namespace DataPerformer.TestInterface.Regression
             }
         }
 
-        internal string Name
+        public string Name
         {
             get
             {
@@ -122,7 +122,7 @@ namespace DataPerformer.TestInterface.Regression
             }
         }
 
-        internal void Create(IComponentCollection collection)
+        public void Create(IComponentCollection collection)
         {
             value = GetValue(collection);
         }
