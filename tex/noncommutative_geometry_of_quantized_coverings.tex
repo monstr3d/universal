@@ -5775,7 +5775,10 @@ The notion of the fundamental group (cf. Remark \ref{top_h_gr_rem}) is relevant 
 A connected space $\sX$ is said to be \textit{weakly 1-connected} if for any covering $p: \widetilde \sX\to \sX$ the space $\sX$ is evenly covered by $p$ (cf. Definition \ref{top_covering_defn})
 \end{definition}
 	\begin{defn}\label{top_weakly_semi1_defn}\cite{spanier:at}
-	A space $\sX$ is said to by \textit{semilocally} 1-\textit{connected} if every point $x_0$ has a   {weakly 1-connected} neighborhood $\sU$ (cf. Definitions \ref{top_weakly_one_connected_defn}, \ref{top_semi1_defn}).
+	A space $\sX$ is said to by \textit{weakly semilocally 1-connected} if every point $x_0$ and any neighborhood $\sV$ of $x$ there is  {weakly 1-connected} open set $\sU$  (cf. Definitions \ref{top_weakly_one_connected_defn}, \ref{top_semi1_defn}) such that
+	$$
+	x \in \sU \subset \sV.
+	$$
 \end{defn} 
 \begin{definition}
 Let $\sX$ be a topological space.	A \textit{weak path on} $\sX$ is a finite sequence $\left(\sU_1, ..., \sU_n\right)$ of open  {weakly 1-connected} subsets of $\sX$ such that $\sU_j \cap \sU_{j+1} \neq \emptyset$ for any $j = 1, ..., n - 1$.
@@ -5827,10 +5830,67 @@ Any pair of closed path is composable.
 \begin{definition}
 We say that both closed weak paths $\mathfrak p_1$ and $\mathfrak p_2$ are \textit{homotopically equivalent} if a composition $\mathfrak p_1 \circ \mathfrak p^*_2$ is contractible.
 \end{definition}
-From the above remark it follows that the set of classes of closed paths modulo homotopical equivalence  is a group with respect to composition  and inversion given by $\circ$ and $*$ respectively.
+From the above remark it follows that the set of classes of closed $x_0$ paths modulo homotopical equivalence  is a group with respect to composition  and inversion given by $\circ$ and $*$ respectively.
 \begin{definition}
 	The described above group is said to be a \textit{weak fundamental group} of $\sX$. We denote it by $\pi_1^{\mathrm{w}}\left(\sX, x_0 \right) $.
 \end{definition}
+\begin{exercise}
+Let  $p: \left( \widetilde{\sX}, \widetilde{x}_0\right) \to \left(\sX, x_0\right)$ be a pointed covering. Prove that the $p$-descent (cf. Definition  \ref{top_path_desc_defn}) yields an injective homomorphism $\pi_1^{\mathrm{w}}\left(p \right): \pi_1^{\mathrm{w}}\left(\widetilde\sX, \widetilde x_0 \right)\hookto \pi_1^{\mathrm{w}}\left(\sX, x_0 \right)$.
+\end{exercise}
+Let $\left(\sX, x_0 \right)$ a pointed space such that $\sX$ is weakly semilocally 1-connected. Let $x\in \sX$, and let $\mathfrak{Paths} \left( x_0, x\right)$ a set of paths  such that $$
+\left( \sU_1, ..., \sU_n\right)\in \mathfrak{Paths} \left( x_0, x\right) \quad \Leftrightarrow \quad x_0 \in \sU_1 \quad x \in \sU_n
+$$
+There is an equivalence relation $\sim_{\left( x_0, x\right)}$ on $\mathfrak{Paths} \left( x_0, x\right)$ such that
+$$
+\mathfrak p_1, \mathfrak p_2 \in  \mathfrak{Paths} \left( x_0, x\right)\quad \mathfrak p_1\sim_{\left( x_0, x\right)} \mathfrak p_2 \quad \Leftrightarrow \quad \mathfrak p^*_1\circ  \mathfrak p_2\quad \text{ is contractible}.
+$$
+A class of equivalence of $\mathfrak p \in \mathfrak{Paths} \left( x_0, x\right)$ will be denoted by $$\left[\mathfrak p\right]_{\left( x_0, x\right)}\in \mathfrak{Paths} \left( x_0, x\right)/\sim_{\left( x_0, x\right)}.$$
+Let $\widetilde \sX$ be a set of pairs $\left(x, \left[\mathfrak p\right]_{\left( x_0, x\right)}\right)$ where $\left[\mathfrak p\right]_{\left( x_0, x\right)}\in  \in \mathfrak{Paths} \left( x_0, x\right)/\sim_{\left( x_0, x\right)}$. There is a natural map 
+\be
+\begin{split}
+\widetilde p: \widetilde \sX\to \sX,\\
+\left(x, \left[\mathfrak p\right]_{\left( x_0, x\right)}\right)\mapsto x.
+\end{split}
+\ee
+For any $\mathfrak p = \left( \sU_1, ..., \sU_n\right)\in \mathfrak{Paths} \left( x_0, x\right)/\sim_{\left( x_0, x\right)} $ we define a set 
+\be\label{top_u_path_eqn}
+\widetilde \sU_{\mathfrak p} \bydef \left\{\left.  \left( x',  \left[\mathfrak p\right]_{\left( x_0, x'\right)}\right)\in \widetilde{\sX} \right|x' \in \sU_n\right\}.
+\ee
+\begin{lemma}\label{top_uni_top_lem}
+If $\sX$ is a connected,  weakly semilocally 1-connected (cf. Definition \ref{top_weakly_semi1_defn}) space then a family of sets given by the equation \eqref{top_u_path_eqn} a \textit{basis} for a topology on $\widetilde\sX$. 
+\end{lemma}
+\begin{proof}
+One needs check conditions (a) and (b) of the Definition \ref{top_base_defn}. The condition (a) is evident, let us check the condition (b). Let both ${\mathfrak p'}\bydef \left( \sU'_1, ..., \sU'_{n'}\right)$ and ${\mathfrak p''}\bydef \left( \sU''_1, ..., \sU''_{n''}\right)$ be paths  such that there id $\widetilde x \in \widetilde \sU_{\mathfrak p'}\cap \widetilde \sU_{\mathfrak p''}$. It follows   that $\widetilde p\left(\widetilde x \right) \in \sU'_{n'}\cap \sU''_{n''}$. From the Definition \ref{top_weakly_semi1_defn} it turns out that there is a weakly 1-connected neighborhood $\sU$ of $p\left(\widetilde x \right)$ which is a subset of $\sU'_{n'}\cap \sU''_{n''}$. If ${\mathfrak p}\bydef \left( \sU'_1, ..., \sU'_{n'}, \sU\right)$ then $\widetilde x \in \widetilde \sU_{\mathfrak p}$ and  $\widetilde\sU_{\mathfrak p}\subset \widetilde\sU_{\mathfrak p'}\cap \widetilde\sU_{\mathfrak p''}$
+\end{proof}
+\begin{lemma}
+If we consider the given by the Lemma \ref{top_uni_top_lem} topology on $\widetilde \sX$ then the map $p: \widetilde \sX \to \sX$ is a covering.
+\end{lemma}
+\begin{proof}
+For any  $x \in \sX$  there is an open weakly 1 connected neighborhood $\sU$.  If $\widetilde x \in p^{-1}\left(x\right)$ then $\widetilde{x}= \left( x,  \left[\mathfrak p\right]_{\left( x_0, x\right)}\right)$. If $\mathfrak p= \left( \sU_1, ..., \sU_{n}\right)$ and $\mathfrak p'= \left( \sU_1, ..., \sU_{n}, \sU\right)$ and $\widetilde \sU_{\mathfrak p'}$ is given by  \eqref{top_u_path_eqn} then $p\left( \widetilde \sU_{\mathfrak p'}\right)= \sU$ and $\widetilde \sU_{\mathfrak p'}$ is mapped homeomorphically onto $\sU$. So for all $\widetilde x \in p^{-1}\left(x\right)$ one can find an open neighborhood $\widetilde \sU_{\widetilde x}$ which is is mapped homeomorphically onto $\sU$, i.e. $\sU$ is evenly covered by $p$.
+\end{proof}
+Let $p': \widetilde \sX'\to \sX$ is a covering then we define a map $\widetilde p': \widetilde \sX \to \widetilde \sX'$ by a following way For any $\widetilde{x}= \left( x,  \left[\mathfrak p\right]_{\left( x_0, x\right)}\right)$ we define a unique $p'$-lift  $\left( \widetilde\sU'_1, ..., \widetilde\sU'_{n}\right)$ of $\mathfrak p = \left( \sU_1, ..., \sU_{n}\right)$. There is a unique $\widetilde x' \in \widetilde \sX'$ such that $\left\{\widetilde x'\right\}= p^{-1}\left( x\right) \cap \widetilde\sU'_{n}$. So one can define a map 
+\be\label{top_from_uni_defn}
+\begin{split}
+\widetilde p': \widetilde \sX \to \widetilde \sX',\\
+\widetilde x \mapsto  \widetilde x'.
+\end{split}
+\ee
+
+\begin{exercise}\label{top_uni_cov_exer}
+Prove that the given by \eqref{top_from_uni_defn} map is a covering.
+\end{exercise}
+From the Exercise \ref{top_uni_cov_exer} it follows that $\widetilde \sX$ is a universal covering space of $\sX$ (cf. Definition \ref{top_universal_covering_defn}).
+So one has the following Theorem.
+\begin{theorem}\label{top_simply_con_cov_thm}. 
+If $\sX$ is a connected weakly semilocally 1-connected space then there is an universal covering space for $\sX$.
+\end{theorem}
+
+\begin{remark}
+The Theorem \ref{top_simply_con_cov_thm} is generalization of the Lemma \ref{top_simply_con_cov_lem}.
+\end{remark}
+
+
+
 \section{Transitive coverings}\label{top_transitive_section}
 
 \paragraph*{}
