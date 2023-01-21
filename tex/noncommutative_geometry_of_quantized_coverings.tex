@@ -5795,6 +5795,13 @@ Let $\sX$ be a topological space.	A \textit{weak path on} $\sX$ is a finite sequ
 	\mathfrak p'\circ \mathfrak p''\bydef\mathfrak p.
 	\ee
 \end{definition}
+\begin{remark}
+	The given by the Definition \ref{top_path_comp_defn} composition is associative, i.e.  if both pairs $\left( \mathfrak p', \mathfrak p''\right)$ and $\left( \mathfrak p'', \mathfrak p'''\right)$ are composable then one has
+	\be\label{top_path_ass_eqn}
+	\left( \mathfrak p'\circ \mathfrak p''\right)  \circ \mathfrak p''' = \mathfrak p'\circ \left( \mathfrak p'' \circ \mathfrak p'''\right) .
+	\ee 
+\end{remark}
+
 %\begin{rem}
 %	There is groupoid of paths with composition and inversion given by the equations \eqref{top_path_comp_eqn} and \eqref{top_path_inv_eqn} respectively.
 %\end{rem}
@@ -5834,9 +5841,6 @@ From the above remark it follows that the set of classes of closed $x_0$ paths m
 \begin{definition}
 	The described above group is said to be a \textit{weak fundamental group} of $\sX$. We denote it by $\pi_1^{\mathrm{w}}\left(\sX, x_0 \right) $.
 \end{definition}
-\begin{exercise}
-Let  $p: \left( \widetilde{\sX}, \widetilde{x}_0\right) \to \left(\sX, x_0\right)$ be a pointed covering. Prove that the $p$-descent (cf. Definition  \ref{top_path_desc_defn}) yields an injective homomorphism $\pi_1^{\mathrm{w}}\left(p \right): \pi_1^{\mathrm{w}}\left(\widetilde\sX, \widetilde x_0 \right)\hookto \pi_1^{\mathrm{w}}\left(\sX, x_0 \right)$.
-\end{exercise}
 Let $\left(\sX, x_0 \right)$ a pointed space such that $\sX$ is weakly semilocally 1-connected. Let $x\in \sX$, and let $\mathfrak{Paths} \left( x_0, x\right)$ a set of paths  such that $$
 \left( \sU_1, ..., \sU_n\right)\in \mathfrak{Paths} \left( x_0, x\right) \quad \Leftrightarrow \quad x_0 \in \sU_1 \quad x \in \sU_n
 $$
@@ -5886,9 +5890,98 @@ If $\sX$ is a connected weakly semilocally 1-connected space then there is an un
 \end{theorem}
 
 \begin{remark}
-The Theorem \ref{top_simply_con_cov_thm} is generalization of the Lemma \ref{top_simply_con_cov_lem}.
+The Theorem \ref{top_simply_con_cov_thm} is a generalization of the Lemma \ref{top_simply_con_cov_lem}.
 \end{remark}
+\begin{exercise}
+	Let  $p: \left( \widetilde{\sX}, \widetilde{x}_0\right) \to \left(\sX, x_0\right)$ be a pointed covering. Prove that the $p$-descent (cf. Definition  \ref{top_path_desc_defn}) yields an injective homomorphism $\pi_1^{\mathrm{w}}\left(p \right): \pi_1^{\mathrm{w}}\left(\widetilde\sX, \widetilde x_0 \right)\hookto \pi_1^{\mathrm{w}}\left(\sX, x_0 \right)$.
+\end{exercise}
+\begin{exercise}
+Let $\sX$ be a connected locally path-connected  and  semilocally 1-connected space. Prove that there is a natural isomorphism
+\be
+\pi_1^{\mathrm{w}}\left(\sX, x_0 \right)\cong \pi_1\left(\sX, x_0 \right)
+\ee
+\end{exercise}
 
+\begin{definition}\label{top_gen_path_defn}
+	Let $\sX$ be a connected, locally connected, locally compact, Hausdorff space.
+	Let $\mathfrak{A}\bydef\left\{\sU_\a\right\}_{\a \in \mathscr A}$ be a family of connected open subsets of $\sX$, such that $\sX = \cup~ \sU_\a$ and  a closure of $\sU_\a$ is compact for all $\a\in \mathscr A$. An ordered finite subset $\left(\sU_{\a_1},...,\sU_{\a_n}\right)$ of the family $\left\{\sU_\a\right\}$ is said to be an  $\left\{\sU_\a\right\}$-\textit{path} or simply \textit{path} if  $\sU_{\a_j}\cap \sU_{\a_{j+1}}\neq \emptyset$ for all $j = 1,...,n-1$. We say that a path $\left(\sU_{\a_1},...,\sU_{\a_n}\right)$ is \textit{closed} if $\sU_{\a_1}=\sU_{\a_n}$.
+\end{definition}
+
+\begin{lemma}\label{top_gen_path_lem}
+	Consider the situation of the Definition \ref{top_gen_path_defn}. For any $\sU_{\a'}, \sU_{\a''} \in \mathfrak{A}$ there is a $\left\{\sU_\a\right\}$-{path} $\left(\sU_{\a_1},...,\sU_{\a_n}\right)$ such that $\sU_{\a_1}=\sU_{\a'}$ and $\sU_{\a_n}=\sU_{\a''}$ .
+\end{lemma}
+
+\begin{proof}
+	Denote by
+	\bean
+	\mathfrak{A}_{\a'}\bydef \left\{\sU_{\a''}\in \mathfrak A\left|\exists \text{ path }\left(\sU_{\a_1},...,\sU_{\a_n}\right)\quad\a_1 = \a',\quad \a_n = \a'' \right.\right\},\\
+	\mathscr A'\bydef \left\{\left.\a \in \mathscr A\right| \sU_{\a} \in\mathfrak{A}_{\a'} \right\}.
+	\eean
+	If $\mathscr A'=\mathscr A$ then this lemma is proven. If not then $\mathscr A\setminus\mathscr A' \neq \emptyset$. If 
+	$$
+	\left( \bigcup_{\bt \in\mathscr A'}\sU_{\bt}\right) \bigcap \left( \bigcup_{\a \in\mathscr A\setminus\mathscr A'}\sU_{\a}\right)\neq \emptyset 
+	$$
+	then there are $\bt \in\mathscr A'$ and $\a \in\mathscr A\setminus\mathscr A'$ such that $\sU_{\bt}\cap \sU_{\a}\neq \emptyset$. According to the definition of $\mathfrak{A}_{\a'}$ there is a path $\left(\sU_{\a_1},...,\sU_{\a_n}\right)$ such that $\a_1 = \a',\quad \a_n = \bt$. So one has a path $\left(\sU_{\a_1},...,\sU_{\a_n}, \sU_{\a} \right)$, it follows that $\a \in \mathscr A'$ and one has a contradiction. It turns out that 
+	\bean
+	\left( \bigcup_{\bt \in\mathscr A'}\sU_{\bt}\right) \bigcap \left( \bigcup_{\a \in\mathscr A\setminus\mathscr A'}\sU_{\a}\right)= \emptyset.
+	\eean
+	Both unions $\bigcup_{\bt \in\mathscr A'}\sU_{\bt}$ and  $\bigcup_{\a \in\mathscr A\setminus\mathscr A'}\sU_{\a}$ of open sets are open, so one has a disjoint union
+	$$
+	\sX = \left( \bigcup_{\bt \in\mathscr A'}\sU_{\bt}\right) \bigsqcup \left( \bigcup_{\a \in\mathscr A\setminus\mathscr A'}\sU_{\a}\right),
+	$$
+	i.e.  $\sX$ is not connected. It contradicts with our assumption.	From this contradiction it turns out that $\mathscr A' = \mathscr A$.
+\end{proof}
+
+\begin{corollary}\label{top_connected_union_cor}
+	If $\sX$ is a connected, locally connected, locally compact, Hausdorff space  then there is a  directed set $\La$ and  family $\left\{\sU_\la\right\}_{\la\in\La}$ of connected open subsets of $\sX$ such that
+	\begin{itemize}
+		\item 
+		$$
+		\sX = \bigcup_{\la\in \La}\sU_\la,
+		$$
+		\item a closure of $\sU_\la$ is compact for each $\la\in \La$,
+		\item
+		\be\label{top_lmit_eqn}
+		\forall \mu, \nu \in \La  \quad \sU_\mu \cap \sU_\nu \neq \emptyset,
+		\ee
+		\item
+		\be\label{top_lmord_eqn}
+		\forall \mu, \nu \in \La \quad \mu \le \nu\quad\Leftrightarrow \quad \sU_\mu \subset \sU_\nu.
+		\ee
+	\end{itemize}
+\end{corollary}
+\begin{proof}
+	Consider a situation of the Lemma \ref{top_gen_path_lem}. Select $\a_0 \in \mathscr A$. For any $\a\in \mathscr A$ we select a path $\left\{\sU_\a\right\}$-{path} $\left(\sU_{\a_1},...,\sU_{\a_n}\right)$ such that $\sU_{\a_1}=\sU_{\a_0}$ and $\sU_{\a_n}=\sU_{\a}$ (cf Lemma \ref{top_gen_path_lem}). For all $\a \in \mathscr A$ a closure of a finite union $\sV_{\a}\bydef \bigcup \sU_{\a_j}$ is compact because a closure of $\sU_{\a_j}$ is compact for every $j = 1,..., n$. From $\sU_{\a_j}\cap \sU_{\a_{j+1}}\neq \emptyset$ for all $j=1,...,n-1$ it turns out that $\sV_{\a}$ is connected, and taking into account $\bigcup_{\a\in \mathscr A}\sU_\a = \sX$ one has 
+	\bean
+	\forall \a\in \mathscr A \quad  \sU_\a\subset \sV_\a\quad \Rightarrow\quad \bigcup_{\a\in \mathscr A}\sU_\a\subset \bigcup_{\a\in \mathscr A}\sV_\a \quad \Rightarrow\quad\bigcup_{\a\in \mathscr A}\sV_\a= \sX.
+	\eean 
+	If $\left\{\sU_\la\right\}_{\la \in \La}$ is a family of all finite unions  $$\sU_\la\bydef \bigcup_{j=1}^n \sV_{\a_j}$$ then from $\sU_{\a_0} \subset \sV_{\a}$ it follows that $\sU_\la$ is connected for all $\la \in \La$ and the condition \ref{top_lmit_eqn} holds.
+	The condition \eqref{top_lmord_eqn} follows from $\sU_\a \subset \sU_\la$ for all $\la\in \La$.
+	A union of two finite unions is also finite union so one has
+	$$
+	\forall \mu, \nu \in \La\quad \exists \la \in \La\quad \sU_\mu \cup \sU_\nu = \sU_\la.
+	$$
+	So if we consider the given by \eqref{top_lmord_eqn} pre-order then $\La$ is a directed set.
+	
+	
+\end{proof}
+
+
+
+
+
+
+
+\begin{empt}\label{top_lex_square_defn!!!}\cite{counter_topology}!!! DELETE !!!
+	Let $\sX = \left[0,1\right]^2$ be a unit square. We order $\sX$ lexicographically
+	$$
+	\forall (x, y),(u, w) \in \left[0,1\right]^2 = \sX \quad (x, y)< (u, w)  = \begin{cases}
+		y < w & x = u\\
+		x < u & \text{otherwise}
+	\end{cases}
+	$$
+	and place the order topology on $\sX$. It is proven in  \cite{counter_topology} $\sX$ is connected but it is not path connected.
+\end{empt}
 
 
 \section{Transitive coverings}\label{top_transitive_section}
@@ -5997,80 +6090,6 @@ The notion of regular covering (cf. Definition \ref{top_regular_defn}) has no an
 	$$
 	However from the Lemma 	\ref{top_covp_cat_lem} it follows that $G_{\widetilde x_2} = G\left( \left.{\widetilde{\sX}}_1~\right|\widetilde{\sX}_2\right)$, hence $p^{-1}\left(\widetilde x_2 \right) = G\left( \left.{\widetilde{\sX}}_1~\right|\widetilde{\sX}_2\right)\widetilde x_1$. 
 \end{proof}
-\begin{definition}\label{top_gen_path_defn}
-	Let $\sX$ be a connected, locally connected, locally compact, Hausdorff space.
-	Let $\mathfrak{A}\bydef\left\{\sU_\a\right\}_{\a \in \mathscr A}$ be a family of connected open subsets of $\sX$, such that $\sX = \cup~ \sU_\a$ and  a closure of $\sU_\a$ is compact for all $\a\in \mathscr A$. An ordered finite subset $\left(\sU_{\a_1},...,\sU_{\a_n}\right)$ of the family $\left\{\sU_\a\right\}$ is said to be an  $\left\{\sU_\a\right\}$-\textit{path} or simply \textit{path} if  $\sU_{\a_j}\cap \sU_{\a_{j+1}}\neq \emptyset$ for all $j = 1,...,n-1$. We say that a path $\left(\sU_{\a_1},...,\sU_{\a_n}\right)$ is \textit{closed} if $\sU_{\a_1}=\sU_{\a_n}$.
-\end{definition}
-
-\begin{lemma}\label{top_gen_path_lem}
-	Consider the situation of the Definition \ref{top_gen_path_defn}. For any $\sU_{\a'}, \sU_{\a''} \in \mathfrak{A}$ there is a $\left\{\sU_\a\right\}$-{path} $\left(\sU_{\a_1},...,\sU_{\a_n}\right)$ such that $\sU_{\a_1}=\sU_{\a'}$ and $\sU_{\a_n}=\sU_{\a''}$ .
-\end{lemma}
-
-\begin{proof}
-	Denote by
-\bean
-\mathfrak{A}_{\a'}\bydef \left\{\sU_{\a''}\in \mathfrak A\left|\exists \text{ path }\left(\sU_{\a_1},...,\sU_{\a_n}\right)\quad\a_1 = \a',\quad \a_n = \a'' \right.\right\},\\
-\mathscr A'\bydef \left\{\left.\a \in \mathscr A\right| \sU_{\a} \in\mathfrak{A}_{\a'} \right\}.
-\eean
-If $\mathscr A'=\mathscr A$ then this lemma is proven. If not then $\mathscr A\setminus\mathscr A' \neq \emptyset$. If 
-$$
-\left( \bigcup_{\bt \in\mathscr A'}\sU_{\bt}\right) \bigcap \left( \bigcup_{\a \in\mathscr A\setminus\mathscr A'}\sU_{\a}\right)\neq \emptyset 
-	$$
-	then there are $\bt \in\mathscr A'$ and $\a \in\mathscr A\setminus\mathscr A'$ such that $\sU_{\bt}\cap \sU_{\a}\neq \emptyset$. According to the definition of $\mathfrak{A}_{\a'}$ there is a path $\left(\sU_{\a_1},...,\sU_{\a_n}\right)$ such that $\a_1 = \a',\quad \a_n = \bt$. So one has a path $\left(\sU_{\a_1},...,\sU_{\a_n}, \sU_{\a} \right)$, it follows that $\a \in \mathscr A'$ and one has a contradiction. It turns out that 
-\bean
-\left( \bigcup_{\bt \in\mathscr A'}\sU_{\bt}\right) \bigcap \left( \bigcup_{\a \in\mathscr A\setminus\mathscr A'}\sU_{\a}\right)= \emptyset.
-\eean
-Both unions $\bigcup_{\bt \in\mathscr A'}\sU_{\bt}$ and  $\bigcup_{\a \in\mathscr A\setminus\mathscr A'}\sU_{\a}$ of open sets are open, so one has a disjoint union
-$$
-\sX = \left( \bigcup_{\bt \in\mathscr A'}\sU_{\bt}\right) \bigsqcup \left( \bigcup_{\a \in\mathscr A\setminus\mathscr A'}\sU_{\a}\right),
-$$
-i.e.  $\sX$ is not connected. It contradicts with our assumption.	From this contradiction it turns out that $\mathscr A' = \mathscr A$.
-\end{proof}
-
-\begin{corollary}\label{top_connected_union_cor}
-	If $\sX$ is a connected, locally connected, locally compact, Hausdorff space  then there is a  directed set $\La$ and  family $\left\{\sU_\la\right\}_{\la\in\La}$ of connected open subsets of $\sX$ such that
-	\begin{itemize}
-		\item 
-		$$
-		\sX = \bigcup_{\la\in \La}\sU_\la,
-		$$
-		\item a closure of $\sU_\la$ is compact for each $\la\in \La$,
-		\item
-		\be\label{top_lmit_eqn}
-		\forall \mu, \nu \in \La  \quad \sU_\mu \cap \sU_\nu \neq \emptyset,
-		\ee
-		\item
-\be\label{top_lmord_eqn}
-\forall \mu, \nu \in \La \quad \mu \le \nu\quad\Leftrightarrow \quad \sU_\mu \subset \sU_\nu.
-\ee
-	\end{itemize}
-\end{corollary}
-\begin{proof}
-	Consider a situation of the Lemma \ref{top_gen_path_lem}. Select $\a_0 \in \mathscr A$. For any $\a\in \mathscr A$ we select a path $\left\{\sU_\a\right\}$-{path} $\left(\sU_{\a_1},...,\sU_{\a_n}\right)$ such that $\sU_{\a_1}=\sU_{\a_0}$ and $\sU_{\a_n}=\sU_{\a}$ (cf Lemma \ref{top_gen_path_lem}). For all $\a \in \mathscr A$ a closure of a finite union $\sV_{\a}\bydef \bigcup \sU_{\a_j}$ is compact because a closure of $\sU_{\a_j}$ is compact for every $j = 1,..., n$. From $\sU_{\a_j}\cap \sU_{\a_{j+1}}\neq \emptyset$ for all $j=1,...,n-1$ it turns out that $\sV_{\a}$ is connected, and taking into account $\bigcup_{\a\in \mathscr A}\sU_\a = \sX$ one has 
-	\bean
-	\forall \a\in \mathscr A \quad  \sU_\a\subset \sV_\a\quad \Rightarrow\quad \bigcup_{\a\in \mathscr A}\sU_\a\subset \bigcup_{\a\in \mathscr A}\sV_\a \quad \Rightarrow\quad\bigcup_{\a\in \mathscr A}\sV_\a= \sX.
-	\eean 
-	If $\left\{\sU_\la\right\}_{\la \in \La}$ is a family of all finite unions  $$\sU_\la\bydef \bigcup_{j=1}^n \sV_{\a_j}$$ then from $\sU_{\a_0} \subset \sV_{\a}$ it follows that $\sU_\la$ is connected for all $\la \in \La$ and the condition \ref{top_lmit_eqn} holds.
-	The condition \eqref{top_lmord_eqn} follows from $\sU_\a \subset \sU_\la$ for all $\la\in \La$.
-	 A union of two finite unions is also finite union so one has
-	$$
-	\forall \mu, \nu \in \La\quad \exists \la \in \La\quad \sU_\mu \cup \sU_\nu = \sU_\la.
-	$$
-	So if we consider the given by \eqref{top_lmord_eqn} pre-order then $\La$ is a directed set.
-	
-
-\end{proof}
-
-
-
-
-
-\begin{remark}
-The given by the Definition \ref{top_path_comp_defn} composition is associative, i.e.  if both pairs $\left( \mathfrak p', \mathfrak p''\right)$ and $\left( \mathfrak p'', \mathfrak p'''\right)$ are composable then one has
-\be\label{top_path_ass_eqn}
-\left( \mathfrak p'\circ \mathfrak p''\right)  \circ \mathfrak p''' = \mathfrak p'\circ \left( \mathfrak p'' \circ \mathfrak p'''\right) .
-\ee 
-\end{remark}
 \begin{empt}\label{top_lconn_part}
 	Let $\sX$ be a connected, locally connected, locally compact, Hausdorff space. Let $p: \widetilde{   \mathcal X }\to \sX$ is a transitive covering. There is a  set $\left\{\sU_\a\right\}_{\a \in \mathscr A}$  set of open connected subsets of $\sX$ such that following conditions hold:
 	\begin{itemize}
@@ -20987,6 +21006,22 @@ Above statements can be generalized to nets (cf. Definition \ref{top_net_lim_def
 	\forall x, y, z \in Y \quad  \left\|x - y \right\|\le  \left\|x - z \right\|+ \left\|y - z \right\|.
 \ee
 \end{remark}
+\begin{definition}\label{top_order_top_defn}\cite{counter_topology}
+	Let $\sX$ be a set which is linearly ordered by the transitive relation "<". We define the \textit{order (or interval) topology} on $\sX$ by taking as a basis the open intervals
+	\be\label{top_order_top_eqn}
+	\left(x,y\right)\bydef \left\{x \in \sX| y < x < z\right\}
+	\ee 
+\end{definition}
+\begin{empt}\label{top_lex_square_defn}\cite{counter_topology}
+	Let $\sX = \left[0,1\right]^2$ be a unit square. We order $\sX$ lexicographically
+	$$
+	\forall (x, y),(u, w) \in \left[0,1\right]^2 = \sX \quad (x, y)< (u, w)  = \begin{cases}
+		y < w & x = u\\
+		x < u & \text{otherwise}
+	\end{cases}
+	$$
+	and place the order topology on $\sX$. It is proven in  \cite{counter_topology} $\sX$ is connected but it is not path connected.
+\end{empt}
 	\section{Vector bundles}\label{top_vb_sub_sub}
 \paragraph*{}
 Let $k$ be the field of real or complex numbers, and let $\sX$ be a topological space.
@@ -29479,7 +29514,9 @@ Alexander Schenkel. {\it Module parallel transports in fuzzy gauge theory.},  ar
 \bibitem{schwieger:nt_cov}
 Kay Schwieger, Stefan Wagner. \textit{Noncommutative Coverings of Quantum Tori}. 	arXiv:1710.09396 [math.OA], 2017.
 
-
+\bibitem{counter_topology}	Lynn Arthur Steen,
+J. Arthur Seebach. \textit{Counterexamples in topology}, Springer-Verlag,
+1970.
 	
 \bibitem{sw1} N. Seiberg and E. Witten, J. High Energy Phys. {\bf 9909}
 (1999) 032
