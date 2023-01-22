@@ -5117,7 +5117,7 @@ Similarly to the Definition \ref{fg_bas_os_defn} one can define the universal co
 
 \subsection{Fundamental group and noncommutative closed paths}
 \paragraph*{}
-Topological fundamental group are given by classes of closed paths (cf. Remark \ref{top_h_gr_rem}). Sometimes elements of noncommutative fundamental group correspond to described it the Section \ref{noncomutative_path_liftting} noncommutative closed paths.
+Topological fundamental group are given by classes of closed paths (cf. Remark \ref{top_homotopy_group_rem}). Sometimes elements of noncommutative fundamental group correspond to described it the Section \ref{noncomutative_path_liftting} noncommutative closed paths.
 \begin{exercise}
 Suppose that there is   a  {pointed  algebraical  finite covering} category $\mathfrak{S}^{\mathrm{pt}} = \left( \left\{ \pi_\la:A \hookto A_\la\right\}_{\la\in\La},\left\{\pi^\nu_\mu\right\}_{\substack{ \mu, \nu \in \La \\ \mu \ge \nu}} \right)$ which is good. Let  $f: [0,1] \to  \mathrm{Aut}\left({A}\right)$ be such that  $f\left( 0\right)= f\left( 1\right)=\Id_A$. From \ref{lift_unique_empt} it turns out that for all $\la\in\La$ there is $g_\la \in G\left(\left. A_\la\right| A\right)$ which corresponds to $f$.
 \begin{enumerate}
@@ -5768,9 +5768,9 @@ If $f' \in C_c\left( \sX\right)$ is a covering sum of $\sY$ (cf. Definition \ref
 \begin{remark}\label{top_cfs_rem}
 From the above construction it follows that for any compact subset $\sY\subset\sX$ and a family $\left\{\sU_\a\subset \sX\right\}$ of open subsets with compact closures such that $\sX = \cup~\sU_\a$  there is a covering sum for $\sY$ which is dominated by $\left\{\sU_\a\right\}$.
 \end{remark}
-\section{Weak fundamental group}
+\section{Weak fundamental groups}
 \paragraph{}
-The notion of the fundamental group (cf. Remark \ref{top_h_gr_rem}) is relevant to path connected spaces (cf. Definition \ref{top_path_connected_defn}). Here we consider a generalized notion which can be applied to connected spaces.
+The notion of the fundamental group (cf. Remark \ref{top_homotopy_group_rem}) is relevant to path connected spaces (cf. Definition \ref{top_path_connected_defn}). Here we consider a generalized notion which can be applied to connected spaces.
 \begin{definition}\label{top_weakly_one_connected_defn}
 A connected space $\sX$ is said to be \textit{weakly 1-connected} if for any covering $p: \widetilde \sX\to \sX$ the space $\sX$ is evenly covered by $p$ (cf. Definition \ref{top_covering_defn})
 \end{definition}
@@ -5781,7 +5781,7 @@ A connected space $\sX$ is said to be \textit{weakly 1-connected} if for any cov
 	$$
 \end{defn} 
 \begin{definition}\label{top_weak_path_defn}
-Let $\sX$ be a topological space.	A \textit{weak path on} $\sX$ is a finite sequence $\left(\sU_1, ..., \sU_n\right)$ of open  {weakly 1-connected} subsets of $\sX$ such that $\sU_j \cap \sU_{j+1} \neq \emptyset$ for any $j = 1, ..., n - 1$.
+Let $\sX$ be a topological space.	A \textit{weak path on} $\sX$ is a finite sequence $\left(\sU_1, ..., \sU_n\right)$ of open  connected subsets of $\sX$ such that $\sU_j \cap \sU_{j+1} \neq \emptyset$ for any $j = 1, ..., n - 1$. A weak path $\left(\sU_1, ..., \sU_n\right)$ is said to be \textit{weakly semilocally 1-connected} if $\sU_j$ is weakly 1-connected for all $j = 1,..., n$.
 \end{definition}
 \begin{remark}
 	There is an involution * on the set of paths such that
@@ -5795,7 +5795,7 @@ Let $\sX$ be a topological space.	A \textit{weak path on} $\sX$ is a finite sequ
 	\mathfrak p'\circ \mathfrak p''\bydef\mathfrak p.
 	\ee
 \end{definition}
-\begin{remark}
+\begin{remark}\label{top_path_ass_rem}
 	The given by the Definition \ref{top_path_comp_defn} composition is associative, i.e.  if both pairs $\left( \mathfrak p', \mathfrak p''\right)$ and $\left( \mathfrak p'', \mathfrak p'''\right)$ are composable then one has
 	\be\label{top_path_ass_eqn}
 	\left( \mathfrak p'\circ \mathfrak p''\right)  \circ \mathfrak p''' = \mathfrak p'\circ \left( \mathfrak p'' \circ \mathfrak p'''\right) .
@@ -5813,7 +5813,7 @@ If $p: \widetilde{\sX}: \to \sX$ is a covering and $\widetilde{\mathfrak p}\byde
 	\ee
 \end{defn}
 \begin{defn}
-	If $\left(\sX, x_0\right)$ is a pointed space then a path $\left(\sU_1, ..., \sU_n\right)$ on $\sX$ is said to be $x_0$-\textit{path} if $x_0\in\sU_1$.  The  $x_0$-{path} is said to be \textit{closed} if $\x_0\in\sU_n$
+	If $\left(\sX, x_0\right)$ is a pointed space then a path $\left(\sU_1, ..., \sU_n\right)$ on $\sX$ is said to be $x_0$-\textit{path} if $x_0\in\sU_1$.  The  $x_0$-{path} is said to be \textit{closed} if $x_0\in\sU_n$
 \end{defn}
 \begin{rem}
 Any pair of closed path is composable.
@@ -5831,17 +5831,18 @@ Any pair of closed path is composable.
 \begin{definition}
 	If $\left(\sX, x_0\right)$ is a pointed space then we say that a closed $x_0$ path is \textit{contractible} if for any pointed covering  $p: \left(\widetilde\sX, \widetilde x_0\right)\to\left(\sX, x_0\right)$ the $p$-\textit{lift} of $\mathfrak p$ is closed.
 \end{definition}
-\begin{remark}
+\begin{remark}\label{top_path_inv_rem}
 	If $\mathfrak p$ is a closed path then both compositions $\mathfrak p \circ \mathfrak p$ and $\mathfrak p \circ \mathfrak p^*$ are contractible.
 \end{remark}
 \begin{definition}
 We say that both closed weak paths $\mathfrak p_1$ and $\mathfrak p_2$ are \textit{homotopically equivalent} if a composition $\mathfrak p_1 \circ \mathfrak p^*_2$ is contractible.
 \end{definition}
-From the above remark it follows that the set of classes of closed $x_0$ paths modulo homotopical equivalence  is a group with respect to composition  and inversion given by $\circ$ and $*$ respectively.
+If $\sX$ is a connected weakly semilocally 1-connected space then from the Remarks \ref{top_path_ass_rem} and \ref{top_path_inv_rem} it follows that the set of classes of closed weakly semilocally 1-connected $x_0$-paths modulo homotopical equivalence  is a group with respect to composition  and inversion given by $\circ$ and $*$ respectively.
 \begin{definition}
-	The described above group is said to be a \textit{weak fundamental group} of $\sX$. We denote it by $\pi_1^{\mathrm{w}}\left(\sX, x_0 \right) $.
+If $\sX$	is a connected weakly semilocally 1-connected space
+then the described above group is said to be a \textit{weak fundamental group} of $\sX$. We denote it by $\pi_1^{\mathrm{w}}\left(\sX, x_0 \right) $.
 \end{definition}
-Let $\left(\sX, x_0 \right)$ a pointed space such that $\sX$ is weakly semilocally 1-connected. Let $x\in \sX$, and let $\mathfrak{Paths} \left( x_0, x\right)$ a set of paths  such that $$
+Let $\left(\sX, x_0 \right)$ a pointed connected space such that $\sX$ is weakly semilocally 1-connected. Let $x\in \sX$, and let $\mathfrak{Paths} \left( x_0, x\right)$ a set of paths  such that $$
 \left( \sU_1, ..., \sU_n\right)\in \mathfrak{Paths} \left( x_0, x\right) \quad \Leftrightarrow \quad x_0 \in \sU_1 \quad x \in \sU_n
 $$
 There is an equivalence relation $\sim_{\left( x_0, x\right)}$ on $\mathfrak{Paths} \left( x_0, x\right)$ such that
@@ -5849,14 +5850,14 @@ $$
 \mathfrak p_1, \mathfrak p_2 \in  \mathfrak{Paths} \left( x_0, x\right)\quad \mathfrak p_1\sim_{\left( x_0, x\right)} \mathfrak p_2 \quad \Leftrightarrow \quad \mathfrak p^*_1\circ  \mathfrak p_2\quad \text{ is contractible}.
 $$
 A class of equivalence of $\mathfrak p \in \mathfrak{Paths} \left( x_0, x\right)$ will be denoted by $$\left[\mathfrak p\right]_{\left( x_0, x\right)}\in \mathfrak{Paths} \left( x_0, x\right)/\sim_{\left( x_0, x\right)}.$$
-Let $\widetilde \sX$ be a set of pairs $\left(x, \left[\mathfrak p\right]_{\left( x_0, x\right)}\right)$ where $\left[\mathfrak p\right]_{\left( x_0, x\right)}\in  \in \mathfrak{Paths} \left( x_0, x\right)/\sim_{\left( x_0, x\right)}$. There is a natural map 
+Let $\widetilde \sX$ be a set of pairs $\left(x, \left[\mathfrak p\right]_{\left( x_0, x\right)}\right)$ where $$\left[\mathfrak p\right]_{\left( x_0, x\right)}\in  \mathfrak{Paths} \left( x_0, x\right)/\sim_{\left( x_0, x\right)}.$$ There is a natural map 
 \be
 \begin{split}
 \widetilde p: \widetilde \sX\to \sX,\\
 \left(x, \left[\mathfrak p\right]_{\left( x_0, x\right)}\right)\mapsto x.
 \end{split}
 \ee
-For any $\mathfrak p = \left( \sU_1, ..., \sU_n\right)\in \mathfrak{Paths} \left( x_0, x\right)/\sim_{\left( x_0, x\right)} $ we define a set 
+For any $\mathfrak p = \left( \sU_1, ..., \sU_n\right)\in \mathfrak{Paths} \left( x_0, x\right)$ we define a set 
 \be\label{top_u_path_eqn}
 \widetilde \sU_{\mathfrak p} \bydef \left\{\left.  \left( x',  \left[\mathfrak p\right]_{\left( x_0, x'\right)}\right)\in \widetilde{\sX} \right|x' \in \sU_n\right\}.
 \ee
@@ -5864,22 +5865,21 @@ For any $\mathfrak p = \left( \sU_1, ..., \sU_n\right)\in \mathfrak{Paths} \left
 If $\sX$ is a connected,  weakly semilocally 1-connected (cf. Definition \ref{top_weakly_semi1_defn}) space then a family of sets given by the equation \eqref{top_u_path_eqn} a \textit{basis} for a topology on $\widetilde\sX$. 
 \end{lemma}
 \begin{proof}
-One needs check conditions (a) and (b) of the Definition \ref{top_base_defn}. The condition (a) is evident, let us check the condition (b). Let both ${\mathfrak p'}\bydef \left( \sU'_1, ..., \sU'_{n'}\right)$ and ${\mathfrak p''}\bydef \left( \sU''_1, ..., \sU''_{n''}\right)$ be paths  such that there id $\widetilde x \in \widetilde \sU_{\mathfrak p'}\cap \widetilde \sU_{\mathfrak p''}$. It follows   that $\widetilde p\left(\widetilde x \right) \in \sU'_{n'}\cap \sU''_{n''}$. From the Definition \ref{top_weakly_semi1_defn} it turns out that there is a weakly 1-connected neighborhood $\sU$ of $p\left(\widetilde x \right)$ which is a subset of $\sU'_{n'}\cap \sU''_{n''}$. If ${\mathfrak p}\bydef \left( \sU'_1, ..., \sU'_{n'}, \sU\right)$ then $\widetilde x \in \widetilde \sU_{\mathfrak p}$ and  $\widetilde\sU_{\mathfrak p}\subset \widetilde\sU_{\mathfrak p'}\cap \widetilde\sU_{\mathfrak p''}$
+One needs check conditions (a) and (b) of the Definition \ref{top_base_defn}. The condition (a) is evident, let us check the condition (b). Let both ${\mathfrak p'}\bydef \left( \sU'_1, ..., \sU'_{n'}\right)$ and ${\mathfrak p''}\bydef \left( \sU''_1, ..., \sU''_{n''}\right)$ be paths  such that there is $\widetilde x \in \widetilde \sU_{\mathfrak p'}\cap \widetilde \sU_{\mathfrak p''}$. It follows   that $\widetilde p\left(\widetilde x \right) \in \sU'_{n'}\cap \sU''_{n''}$. From the Definition \ref{top_weakly_semi1_defn} it turns out that there is a weakly 1-connected neighborhood $\sU$ of $p\left(\widetilde x \right)$ which is a subset of $\sU'_{n'}\cap \sU''_{n''}$. If ${\mathfrak p}\bydef \left( \sU'_1, ..., \sU'_{n'}, \sU\right)$ then $\widetilde x \in \widetilde \sU_{\mathfrak p}$ and  $\widetilde\sU_{\mathfrak p}\subset \widetilde\sU_{\mathfrak p'}\cap \widetilde\sU_{\mathfrak p''}$
 \end{proof}
 \begin{lemma}
 If we consider the given by the Lemma \ref{top_uni_top_lem} topology on $\widetilde \sX$ then the map $p: \widetilde \sX \to \sX$ is a covering.
 \end{lemma}
 \begin{proof}
-For any  $x \in \sX$  there is an open weakly 1 connected neighborhood $\sU$.  If $\widetilde x \in p^{-1}\left(x\right)$ then $\widetilde{x}= \left( x,  \left[\mathfrak p\right]_{\left( x_0, x\right)}\right)$. If $\mathfrak p= \left( \sU_1, ..., \sU_{n}\right)$ and $\mathfrak p'= \left( \sU_1, ..., \sU_{n}, \sU\right)$ and $\widetilde \sU_{\mathfrak p'}$ is given by  \eqref{top_u_path_eqn} then $p\left( \widetilde \sU_{\mathfrak p'}\right)= \sU$ and $\widetilde \sU_{\mathfrak p'}$ is mapped homeomorphically onto $\sU$. So for all $\widetilde x \in p^{-1}\left(x\right)$ one can find an open neighborhood $\widetilde \sU_{\widetilde x}$ which is is mapped homeomorphically onto $\sU$, i.e. $\sU$ is evenly covered by $p$.
+For any  $x \in \sX$  there is an open weakly 1-connected neighborhood $\sU$.  If $\widetilde x \in p^{-1}\left(x\right)$ then $\widetilde{x}= \left( x,  \left[\mathfrak p\right]_{\left( x_0, x\right)}\right)$. If $\mathfrak p= \left( \sU_1, ..., \sU_{n}\right)$ and $\mathfrak p'= \left( \sU_1, ..., \sU_{n}, \sU\right)$ and $\widetilde \sU_{\mathfrak p'}$ is given by  \eqref{top_u_path_eqn} then $p\left( \widetilde \sU_{\mathfrak p'}\right)= \sU$ and $\widetilde \sU_{\mathfrak p'}$ is mapped homeomorphically onto $\sU$. So for all $\widetilde x \in p^{-1}\left(x\right)$ one can find an open neighborhood $\widetilde \sU_{\widetilde x}$ which is is mapped homeomorphically onto $\sU$, i.e. $\sU$ is evenly covered by $p$.
 \end{proof}
-Let $p': \widetilde \sX'\to \sX$ is a covering then we define a map $\widetilde p': \widetilde \sX \to \widetilde \sX'$ by a following way For any $\widetilde{x}= \left( x,  \left[\mathfrak p\right]_{\left( x_0, x\right)}\right)$ we define a unique $p'$-lift  $\left( \widetilde\sU'_1, ..., \widetilde\sU'_{n}\right)$ of $\mathfrak p = \left( \sU_1, ..., \sU_{n}\right)$. There is a unique $\widetilde x' \in \widetilde \sX'$ such that $\left\{\widetilde x'\right\}= p^{-1}\left( x\right) \cap \widetilde\sU'_{n}$. So one can define a map 
+Let $p': \widetilde \sX'\to \sX$ is a covering then we define a map $\widetilde p': \widetilde \sX \to \widetilde \sX'$ by a following way. For any $\widetilde{x}= \left( x,  \left[\mathfrak p\right]_{\left( x_0, x\right)}\right)$ we define a unique $p'$-lift  $\left( \widetilde\sU'_1, ..., \widetilde\sU'_{n}\right)$ of $\mathfrak p = \left( \sU_1, ..., \sU_{n}\right)$. There is a unique $\widetilde x' \in \widetilde \sX'$ such that $\left\{\widetilde x'\right\}= p^{-1}\left( x\right) \cap \widetilde\sU'_{n}$. So one can define a map 
 \be\label{top_from_uni_defn}
 \begin{split}
 \widetilde p': \widetilde \sX \to \widetilde \sX',\\
 \widetilde x \mapsto  \widetilde x'.
 \end{split}
 \ee
-
 \begin{exercise}\label{top_uni_cov_exer}
 Prove that the given by \eqref{top_from_uni_defn} map is a covering.
 \end{exercise}
@@ -5900,6 +5900,7 @@ Let $\sX$ be a connected locally path-connected  and  semilocally 1-connected sp
 \be
 \pi_1^{\mathrm{w}}\left(\sX, x_0 \right)\cong \pi_1\left(\sX, x_0 \right)
 \ee
+between the weak fundamental group, and the explained in the Remark \ref{top_homotopy_group_rem} one.
 \end{exercise}
 
 \begin{definition}\label{top_gen_path_defn}
@@ -5929,7 +5930,7 @@ Let $\sX$ be a connected locally path-connected  and  semilocally 1-connected sp
 	$$
 	\sX = \left( \bigcup_{\bt \in\mathscr A'}\sU_{\bt}\right) \bigsqcup \left( \bigcup_{\a \in\mathscr A\setminus\mathscr A'}\sU_{\a}\right),
 	$$
-	i.e.  $\sX$ is not connected. It contradicts with our assumption.	From this contradiction it turns out that $\mathscr A' = \mathscr A$.
+	i.e.  $\sX$ is not connected. It contradicts with our assumption.	From this contradiction it turns out that $\mathscr A' = \mathscr A$.  
 \end{proof}
 
 \begin{corollary}\label{top_connected_union_cor}
@@ -5978,11 +5979,11 @@ $$
 \phi^0_n: \cup_{j = 1} \sU_j = I^2_o\to \widetilde \sX
 $$
 such that $p \circ \phi^0_n = \Id_{I^2_o}$.
-If $\widetilde \sX_0 \bydef \phi^0_n\left(  I^2_o\right)$ then a restriction $p|_{\widetilde \sX_0} : \widetilde \sX_0 \to I^2_o$ is a homeomorphism. If $\widetilde x_1$ is such that $\widetilde x_1\neq \widetilde x_0$ and  $p\left(\widetilde x_1 \right)= (0,0)$ then one can find a subspace  $\widetilde \sX_1 \subset \widetilde \sX$ such that $\widetilde x_1\in \widetilde \sX_1$ and a restriction $p|_{\widetilde \sX_1} : \widetilde \sX_1 \to I^2_o$ is homeomorphism. For any $x \in I^2_o$ the number of points of $p^{-1}\left(x \right)\cap \left(\widetilde \sX_0\cup \widetilde \sX_1 \right)$ equals to one or two. If 
+If $\widetilde \sX_0 \bydef \phi^0_n\left(  I^2_o\right)$ then a restriction $p|_{\widetilde \sX_0} : \widetilde \sX_0 \to I^2_o$ is a homeomorphism. If $\widetilde x_1$ is such that $\widetilde x_1\neq \widetilde x_0$ and  $p\left(\widetilde x_1 \right)= (0,0)$ then one can find a subspace  $\widetilde \sX_1 \subset \widetilde \sX$ such that $\widetilde x_1\in \widetilde \sX_1$ and a restriction $p|_{\widetilde \sX_1} : \widetilde \sX_1 \to I^2_o$ is homeomorphism. For any $x \in I^2_o$ the number of points of $p^{-1}\left(x \right)\cap \left(\widetilde \sX_0\cup \widetilde \sX_1 \right)$ equals to one or two. The set $\left\{ x \in I^2_o~\left| ~ \left|p^{-1}\left(x \right)\cap \left(\widetilde \sX_0\cup \widetilde \sX_1 \right) \right|=2 \right.\right\}$ is open, so the the set $\left\{ x \in I^2_o~\left| ~ \left|p^{-1}\left(x \right)\cap \left(\widetilde \sX_0\cup \widetilde \sX_1 \right) \right|=1 \right.\right\}$ is closed. If 
 $$
-x' = \inf \left\{ x \in I^2_o~\left| ~ \left|p^{-1}\left(x \right)\cap \left(\widetilde \sX_0\cup \widetilde \sX_1 \right) \right|=1 \right.\right\}
+x' \bydef \inf \left\{ x \in I^2_o~\left| ~ \left|p^{-1}\left(x \right)\cap \left(\widetilde \sX_0\cup \widetilde \sX_1 \right) \right|=1 \right.\right\}
 $$ 
-then there is an evenly covered by $p$ (cf. Definition \ref{top_covering_defn}) connected  neighborhood $\sU'$ of $x'$. There are a points $x'_1, x'_2 \in \sU'$ such that $\left|p^{-1}\left(x'_1 \right)\cap \left(\widetilde \sX_0\cup \widetilde \sX_1 \right) \right|=1$ and $\left|p^{-1}\left(x'_2 \right)\cap \left(\widetilde \sX_0\cup \widetilde \sX_1 \right) \right|=2$. It is impossible so a point $x'$ does not exist. So $\left|p^{-1}\left(x \right)\cap \left(\widetilde \sX_0\cup \widetilde \sX_1 \right) \right|=2$ for all $x\in I^2_0$. t turns out that  $\widetilde \sX_0\cap \widetilde \sX_1= \emptyset$.  If a union $\widetilde \sX_0\cup \widetilde \sX_1$ is not disjoint then there is a convergent  net $\left\{\widetilde x_\a\right\}\subset \widetilde \sX_0$ such that $\lim \widetilde x_\a\in \widetilde \sX_1$. However from $\widetilde x_\a = \phi^0_n \circ p\left(\widetilde x_\a \right)$ it turns out that $\lim \widetilde x_\a= \phi^0_n\left(  \lim p\left( \widetilde x_\a\right) \right) \in \widetilde \sX_0$. If follows that $\widetilde \sX_0\cup \widetilde \sX_1=\widetilde \sX_0\sqcup \widetilde \sX_1$. By the similar way one can proof that $p^{-1}\left( I^2_o\right)$ is a disjoint union of homeomorphic to $I^2_o$ sets, i.e. $I^2_o$ is evenly covered by $p$.
+then $\left|p^{-1}\left(x' \right)\cap \left(\widetilde \sX_0\cup \widetilde \sX_1 \right) \right|=1$ because the set\\ $\left\{ x \in I^2_o~\left| ~ \left|p^{-1}\left(x \right)\cap \left(\widetilde \sX_0\cup \widetilde \sX_1 \right) \right|=1 \right.\right\}$ is closed. Let $\widetilde x'\in \widetilde \sX_0\cup \widetilde \sX_1$ be the unique point  such that $p\left( \widetilde x' \right) = x'$, and let $\sU'$ be a open connected set  evenly covered by $p$, and let $\widetilde \sU'$ be a connected component of $p^{-1}\left(\sU'\right)$ such that $\widetilde x'\in \widetilde \sU'$. There is $x'' \in \sU'$ such that $x'' < x'$ and $$\left|p^{-1}\left(x'' \right)\cap \left(\widetilde \sX_0\cup \widetilde \sX_1 \right) \right|=2.$$ From the above equation it follows that $\sU'$ is not evenly covered by $p$. From this contradiction one has $\left|p^{-1}\left(x \right)\cap \left(\widetilde \sX_0\cup \widetilde \sX_1 \right) \right|=2$ for all $x\in I^2_0$. It turns out that  $\widetilde \sX_0\cap \widetilde \sX_1= \emptyset$.  If a union $\widetilde \sX_0\cup \widetilde \sX_1$ is not disjoint then $\widetilde \sX_0$ is open but not closed or $\widetilde \sX_1$ is open but not closed. If $\widetilde \sX_0$ is open but not closed and the  $\widetilde \sX_0\cup \widetilde \sX_1$ is not disjoint then there is a convergent  net $\left\{\widetilde x_\a\right\}\subset \widetilde \sX_0$ such that $\lim \widetilde x_\a\in \widetilde \sX_1$. However from $\widetilde x_\a = \phi^0_n \circ p\left(\widetilde x_\a \right)$ it turns out that $\lim \widetilde x_\a= \phi^0_n\left(  \lim p\left( \widetilde x_\a\right) \right) \in \widetilde \sX_0$. If follows that $\widetilde \sX_0\cup \widetilde \sX_1=\widetilde \sX_0\sqcup \widetilde \sX_1$. By the similar way one can proof that $p^{-1}\left( I^2_o\right)$ is a disjoint union of homeomorphic to $I^2_o$ sets, i.e. $I^2_o$ is evenly covered by $p$.
 \end{proof}
 
 \begin{exercise}\label{top_lex_square_exer}
@@ -5993,7 +5994,7 @@ Let  $I^2_o$ be ordered square (cf. \ref{top_lex_square_empt}). Denote by $x_0 \
 \end{enumerate}
 \end{exercise}
 \begin{exercise}\label{top_lex_square1_exer}
-Let us use the notation of the Exercise \ref{top_lex_square_exer}, let $\sX_j$ be a homeomorphic to $I^2_o$ space for any $j\in \Z$. Let $x^j_0 , x^j_1 \in \sX_j$ be points which correspond to $x_0 \bydef (0,0), x_1 \bydef (1,1)\in I^2_o$. Let $\sim_{\widetilde \sX}$ be an equivalence relation on $\bigsqcup_{j\in \Z} \sX_j$ such that
+Let us use the notation of the Exercise \ref{top_lex_square_exer}. Let $\sX_j$ be a homeomorphic to $I^2_o$ space for any $j\in \Z$. Let $x^j_0 , x^j_1 \in \sX_j$ be points which correspond to $x_0 \bydef (0,0), x_1 \bydef (1,1)\in I^2_o$. Let $\sim_{\widetilde \sX}$ be an equivalence relation on $\bigsqcup_{j\in \Z} \sX_j$ such that
 $$
 \forall j \in \Z \quad x^j_1 \sim_{\widetilde \sX}  x^{j+1}_0.
 $$
@@ -6005,20 +6006,20 @@ Let $\widetilde{\sX}\bydef \bigsqcup_{j\in \Z} \sX_j/ \sim_{\widetilde \sX}$.
 \end{exercise}
 
 \begin{exercise}\label{top_lex_square2_exer}
-	Let us use the notation of the Exercises \ref{top_lex_square_exer}, \ref{top_lex_square1_exer}.   for any $n \in \Z$ define a homeomorphism  $\varphi_n^\sqcap$ of $\sqcup\sX_j$ which homeomorphically  maps $\sqcap\sX_j$ onto $\sqcap\sX_{j + n}$. Prove following statements:
+	Let us use the notation of the Exercises \ref{top_lex_square_exer}, \ref{top_lex_square1_exer}.   for any $n \in \Z$ define a homeomorphism  $\varphi_n^\sqcup$ of $\sqcup\sX_j$ which homeomorphically  maps $\sX_j$ onto $\sX_{j + n}$. Prove following statements:
 	\begin{enumerate}
-		\item for any $n\in \Z$ the homeomorphism $\varphi_n^\sqcap$ induces a homeomorphism $\varphi_n$ of $\widetilde \sX$,
-		\item a family of $\left\{\varphi_n\right\}$ induces an action $\Z\times \widetilde \sX \to \widetilde{\sX}$ such that $Z$ is a properly discontinuous group of homeomorphisms (cf. Definition \ref{top_properly_disc_defn}),
+		\item for any $n\in \Z$ the homeomorphism $\varphi_n^\sqcup$ induces a homeomorphism $\varphi_n$ of $\widetilde \sX$,
+		\item a family of $\left\{\varphi_n\right\}$ induces an action $\Z\times \widetilde \sX \to \widetilde{\sX}$ such that $\Z$ is a properly discontinuous group of homeomorphisms (cf. Definition \ref{top_properly_disc_defn}),
 		\item there is a natural isomorphism $\sX = \widetilde\sX /\Z$.
 	\end{enumerate}
 \end{exercise}
-\begin{empt}
-	Let us use the notation of the Exercises \ref{top_lex_square_exer}, \ref{top_lex_square1_exer}. From the Theorem \ref{top_cov_fact_thm} it follows that there is a covering $p: \widetilde\sX\to \sX$. Since $\widetilde\sX$ is simply 1-connected the coveting is universal. If  $n \in \Z$ and $\widetilde x_n \bydef x^n_0 / \sim_{\widetilde X}\in \widetilde \sX$ then $p\left(\widetilde x_n \right) = x_0 \bydef p\left(\widetilde x_0 \right)$ for all $n \in \Z$. One can regard $p$ as a pointed covering $\left(\widetilde\sX, \widetilde x_0 \right)\to  \left(\sX, x_0 \right)$. If $\mathfrak p = \left( \sU_1, ..., \sU_k\right)$ is a path on $\sX$ and  $\widetilde{\mathfrak p} = \left( \widetilde\sU_1, ..., \widetilde\sU_k\right)$ is its $p$-lift, then there is a unique $n \in \Z$ such that $\widetilde x_n \in \widetilde\sU_k$. One can proof that  the map
+\begin{example}
+	Let us use the notation of the Exercises \ref{top_lex_square_exer}, \ref{top_lex_square1_exer}. From the Theorem \ref{top_cov_fact_thm} it follows that there is a covering $p: \widetilde\sX\to \sX$. Since $\widetilde\sX$ is simply 1-connected the coveting is universal. If  $n \in \Z$ and $\widetilde x_n \bydef x^n_0 / \sim_{\widetilde \sX}\in \widetilde \sX$ then $p\left(\widetilde x_n \right) = x_0 \bydef p\left(\widetilde x_0 \right)$ for all $n \in \Z$. One can regard $p$ as a pointed covering $\left(\widetilde\sX, \widetilde x_0 \right)\to  \left(\sX, x_0 \right)$. If $\mathfrak p = \left( \sU_1, ..., \sU_k\right)$ is a semilocally 1-connected closed $x_0$-path on $\sX$ and  $\widetilde{\mathfrak p} = \left( \widetilde\sU_1, ..., \widetilde\sU_k\right)$ is its $p$-lift, then there is a unique $n \in \Z$ such that $\widetilde x_n \in \widetilde\sU_k$. One can proof that  the map
 	$$
 \mathfrak	p\mapsto n
 	$$
-	yields a homomorphism $h: \pi^{\text{w}}_1\left(\sX \right)  \to \Z$. Since the covering $p$ is universal a path $\mathfrak p$ is contractible if and only  $\lift_p \mathfrak p$ is contractible, i.e. $h\left(e \right) = 0$ where $e$ is a unity of $\pi^{\text{w}}_1\left(\sX \right)$. So the map $h$ is injective. From the Lemma \ref{top_gen_path_lem} it follows that the map $h$ is surjective. So one has an isomorphism $\pi^{\text{w}}_1\left(\sX \right)\cong\Z$.
-\end{empt}
+	yields a homomorphism $h: \pi^{\text{w}}_1\left(\sX \right)  \to \Z$. Since the covering $p$ is universal a path $\mathfrak p$ is contractible if and only  $\lift_p \mathfrak p$ is contractible, i.e. $h\left(e \right) = 0$ where $e$ is a unity of $\pi^{\text{w}}_1\left(\sX \right)$. So the map $h$ is injective. From the Lemma \ref{top_gen_path_lem} it follows that the map $h$ is surjective. So one has an isomorphism $\pi^{\text{w}}_1\left(\sX \right)\cong\Z$. However the explained in the Remark \ref{top_homotopy_group_rem} fundamental group $\pi_1\left(\sX \right)$ is trivial since $\sX$ is not path connected.
+\end{example}
 
 
 
@@ -10955,7 +10956,7 @@ From the Corollary \ref{top_functor_cor} it follow that 	the functor $C_0$ is an
 		\be\label{comm_fg_iso_eqn}
 		\pi_1\left( \sX, x_0\right)\cong\pi_1\left( C_0\left(\sX \right), \left\{C_0\left(p^\mu_\nu \right) \right\}\right)
 		\ee
-		where $	\pi_1\left( \sX, x_0\right)$  is the topological fundamental group  (cf. Remark \ref{top_h_gr_rem}) and $\pi_1\left( C_0\left(\sX \right), \left\{C_0\left(p^\mu_\nu \right) \right\}\right)$ 
+		where $	\pi_1\left( \sX, x_0\right)$  is the topological fundamental group  (cf. Remark \ref{top_homotopy_group_rem}) and $\pi_1\left( C_0\left(\sX \right), \left\{C_0\left(p^\mu_\nu \right) \right\}\right)$ 
 is the {fundamental group}	of the pair  $\left( C_0\left(\sX \right), \left\{C_0\left(p^\mu_\nu \right) \right\}\right)$  (cf. Definition \ref{fg_bas_defn}).
 	\end{enumerate}
 \end{cor}
@@ -21206,7 +21207,7 @@ Both sets $[\Sigma \sX,*;\sY, y_0]$ and $[\sX,x_0, \Omega \sY, \omega_0]$ posses
 	$$
 	where $\pi_0\left( \Om^n\sX\right) $ is a set of connected components of $\Om^n\sX$,
 \end{definition}
-\begin{remark}\label{top_h_gr_rem}\cite{switzer:at}
+\begin{remark}\label{top_homotopy_group_rem}\cite{switzer:at}
 The group $\pi_1\left(\sX, x_0 \right)$ is a set of homotopy equivalence classes of closed paths $f: \left[0, 1\right] \to\sX$ such that $f\left(0\right)= f\left(1\right)= x_0$. For all $n \in \N$ there is the natural bijective map $\pi_n\left(\sX, x_0 \right)\cong \left[\sX, x_0; S^n, s_0\right]$. We say that $\pi_1\left(\sX, x_0 \right)$ is the \textit{fundamental group} of the pointed space $\left(\sX, x_0 \right)$. 
 \end{remark}
 	\begin{defn}\label{top_semi1_defn}\cite{spanier:at}
@@ -21378,13 +21379,13 @@ Hausdorff space is properly discontinuous.
 		$$
 		\psi: G\left(\widetilde{\mathcal X}~|~{\mathcal X} \right) \approx \pi_1\left(\mathcal X, p\left( \widetilde{x}_0\right)  \right) / \pi_1\left( p\right)\pi_1\left(\widetilde{\mathcal X}, \widetilde{x}_0 \right)  
 		$$
-		where $\pi_1$ denotes fundamental groups (cf. Remark \ref{top_h_gr_rem}).
+		where $\pi_1$ denotes fundamental groups (cf. Remark \ref{top_homotopy_group_rem}).
 	\end{lem}
 	\begin{remark}\label{top_sim_con_reg_rem}\cite{spanier:at}
 		If $\widetilde{   \sX}$ is simply connected, any fibration $p: \widetilde{   \sX} \to \sX$ is regular, and we also have the next result.
 	\end{remark}
 	\begin{cor}\label{top_cov_pi1_cor}\cite{spanier:at}
-		Let $p: \widetilde{\mathcal X} \to \mathcal X$ be a fibration with a unique path lifting where $ \widetilde{\mathcal X}$ is simply connected locally path-connected and nonempty.  Then the group of self-equivalences of $p$ is isomorphic to the fundamental group of ${\mathcal X}$ (cf. Remark \ref{top_h_gr_rem}), i.e. $\pi_1\left( {\mathcal X}\right)\approx G\left(\left.\widetilde{\sX}~\right|\sX\right)$.  
+		Let $p: \widetilde{\mathcal X} \to \mathcal X$ be a fibration with a unique path lifting where $ \widetilde{\mathcal X}$ is simply connected locally path-connected and nonempty.  Then the group of self-equivalences of $p$ is isomorphic to the fundamental group of ${\mathcal X}$ (cf. Remark \ref{top_homotopy_group_rem}), i.e. $\pi_1\left( {\mathcal X}\right)\approx G\left(\left.\widetilde{\sX}~\right|\sX\right)$.  
 	\end{cor}
 	\begin{definition}\label{top_universal_covering_defn}\cite{spanier:at}
 		A \textit{universal covering space} of a connected space $\sX$ is an object $p: \widetilde{\sX}\to \sX$ of the category of connected covering spaces of $\sX$ such that for any object $p': \widetilde{\sX}'\to \sX$ of this category there is a morphism 
