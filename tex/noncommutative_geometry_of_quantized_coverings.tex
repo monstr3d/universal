@@ -5039,7 +5039,7 @@ Very natural choice of fundamental group is proposed in \cite{milne:etale}, wher
 
 \subsection{Universal coverings of $C^*$-algebras}\label{uni_sec}
 \paragraph{} Here a noncommutative generalization of the universal covering space (cf. Definition \ref{top_universal_covering_defn}) is discussed.
-\begin{definition}\label{fg_bas_defn} 
+\begin{definition}\label{fundamental_group_nc_defn} 
 	Let $A$ be a connected $C^*$-algebra. Let us consider the family $\left\{ \pi_\la:A \hookto A_\la\right\}_{\la \in \La} $  \textit{all} connected noncommutative finite-fold coverings (cf. Definition \ref{fin_defn}) (resp. \textit{all} connected reduced noncommutative finite-fold coverings (cf. Definition \ref{fin_red_defn}))  (resp. \textit{all} connected free noncommutative finite-fold coverings (cf. Definition \ref{fin_free_defn})) (resp. \textit{all} connected reduced  noncommutative finite-fold coverings with unitization (cf. Definition \ref{fin_unitization_defn})) of $A$. Suppose that the family $\left\{ \pi_\la:A \hookto A_\la\right\}_{\la \in \La}$ is an {algebraical  finite covering category} (cf. Definition \ref{alg_fin_cat_defn}).
 	Denote by $\mathfrak{S} = \left\{ \pi_\la:A \hookto A_\la\right\}_{\la \in \La}$ and suppose that a skeleton (cf. Definition \ref{skeleton_defn}) of $\mathfrak{S}$ is    a  {pointed  algebraical  finite covering}  category $$\mathfrak{S}^{\mathrm{pt}} = \left( \left\{ \pi_\la:A \hookto A_\la\right\}_{\la\in\La},\left\{\pi^\nu_\mu\right\}_{\substack{ \mu, \nu \in \La \\ \mu \ge \nu}} \right)$$  which is good (cf. Definition \ref{good_defn}).
 	The { connected infinite noncommutative covering }  $\left(A, \widetilde{A}, G\left(\left.\widetilde{A}~\right|{A}  \right) \right)$ of $\mathfrak{S}^{\mathrm{pt}}$ is said to be the \textit{universal  covering} (resp. \textit{reduced universal  covering}) (resp. \textit{free universal  covering}) (resp. \textit{simple universal  covering})
@@ -5062,7 +5062,7 @@ So we sometimes write
 
 
 
-\begin{definition}\label{fg_s_bas_defn} Similarly to \eqref{fg_bas_defn} consider 
+\begin{definition}\label{fg_s_bas_defn} Similarly to \eqref{fundamental_group_nc_defn} consider 
 \bean
 \mathfrak{S}_\K^{\mathrm{pt}} = \left( \left\{ \rho_\la:A\otimes \K \hookto A^\K_\la\right\}_{\la\in\La},\left\{\rho^\nu_\mu\right\}_{\substack{ \mu, \nu \in \La \\ \mu \ge \nu}} \right)\eean
 If 	$\left(A\otimes\K, \widetilde{A}_\K, G\left(\left.\widetilde{A}_\K~\right|{A}\otimes\K  \right) \right)$ of $\mathfrak{S}^{\mathrm{pt}}$ is {  covering} (resp. {reduced universal  covering}) (resp. {free universal  covering}) 
@@ -5906,11 +5906,26 @@ We say that both closed, weakly semilocally 1-connected  $x_0$-paths $\mathfrak 
 
 
  From the Remark \ref{top_path_ass_rem} and the Exercise \ref{top_path_inv_exer} it follows that the set of classes of closed weakly semilocally 1-connected $x_0$-paths modulo homotopical equivalence  is a group with  a composition  and an inversion given by $\circ$ and $*$ operations respectively.
-\begin{definition}
+\begin{definition}\label{top_weak_fundamental_group_defn}
 If
 $\left(\sX, x_0\right)$ is  a pointed space, such that $\sX$ is a connected, locally connected and weakly semilocally 1-connected space
 then the described above group is said to be a \textit{weak fundamental group} of $\sX$. We denote it by $\pi_1^{\mathrm{w}}\left(\sX, x_0 \right) $.
-\end{definition}Let 
+\end{definition}
+
+\begin{exercise}
+	Let  $p: \left( \widetilde{\sX}, \widetilde{x}_0\right) \to \left(\sX, x_0\right)$ be a pointed covering. Prove that the $p$-descent (cf. Definition  \ref{top_path_desc_defn}) yields an injective homomorphism $\pi_1^{\mathrm{w}}\left(p \right): \pi_1^{\mathrm{w}}\left(\widetilde\sX, \widetilde x_0 \right)\hookto \pi_1^{\mathrm{w}}\left(\sX, x_0 \right)$.
+\end{exercise}
+\begin{exercise}
+	Let $\sX$ be a connected, locally path-connected  and  semilocally 1-connected (cf. Definition \ref{top_semi1_defn}) Hausdorff space. Prove that there is a natural isomorphism
+	\be
+	\pi_1^{\mathrm{w}}\left(\sX, x_0 \right)\cong \pi_1\left(\sX, x_0 \right)
+	\ee
+	between the weak fundamental group, and the explained in the Remark \ref{top_homotopy_group_rem} one.
+\end{exercise}
+
+
+
+Let 
 $\left(\sX, x_0\right)$ be  a pointed space, such that $\sX$ is a connected, locally connected and weakly semilocally 1-connected space. 
 For any $x \in \sX$ denote by $\mathfrak{Paths} \left( x_0, x\right)$ a set of all semilocally 1-connected $x_0$-paths such that $$
 \left( \sU_1, ..., \sU_n\right)\in \mathfrak{Paths} \left( x_0, x\right) \quad \Leftrightarrow \quad x_0 \in \sU_1 \quad x \in \sU_n.
@@ -5961,15 +5976,13 @@ So one has the following Theorem.
 \begin{remark}
 The Theorem \ref{top_simply_con_cov_thm} is a generalization of the Lemma \ref{top_simply_con_cov_lem}.
 \end{remark}
-\begin{exercise}
-	Let  $p: \left( \widetilde{\sX}, \widetilde{x}_0\right) \to \left(\sX, x_0\right)$ be a pointed covering. Prove that the $p$-descent (cf. Definition  \ref{top_path_desc_defn}) yields an injective homomorphism $\pi_1^{\mathrm{w}}\left(p \right): \pi_1^{\mathrm{w}}\left(\widetilde\sX, \widetilde x_0 \right)\hookto \pi_1^{\mathrm{w}}\left(\sX, x_0 \right)$.
-\end{exercise}
-\begin{exercise}
-Let $\sX$ be a connected, locally path-connected  and  semilocally 1-connected Hausdorff space. Prove that there is a natural isomorphism
-\be
-\pi_1^{\mathrm{w}}\left(\sX, x_0 \right)\cong \pi_1\left(\sX, x_0 \right)
-\ee
-between the weak fundamental group, and the explained in the Remark \ref{top_homotopy_group_rem} one.
+\begin{exercise}\label{top_weak_covering_iso_exer}
+Let $\left(\sX, x_0\right)$ be  a pointed space, such that $\sX$ is a connected, locally connected and weakly semilocally 1-connected space, and let $p: \widetilde\sX\to\sX$ is an universal covering. Prove that there is a following natural isomorphism
+$$
+\pi^{\text{w}}_1\left(\sX, x_0\right)\cong G\left(\left. \widetilde \sX\right|\sX \right)  
+$$
+where $\pi^{\text{w}}_1\left(\sX, x_0\right)$ is a weak fundamental group (cf. Definition \ref{top_weak_fundamental_group_defn}) and $G\left(\left. \widetilde \sX\right|\sX \right)$ is a group of covering transformations (cf. Definition \ref{top_covering_transformations_group_defn}). 
+
 \end{exercise}
 
 \begin{lemma}\label{top_lex_square_lem}
@@ -6045,7 +6058,7 @@ Let $\widetilde{\sX}\bydef \bigsqcup_{j\in \Z} \sX_j/ \sim_{\widetilde \sX}$.
 The notion of regular covering (cf. Definition \ref{top_regular_defn}) has no any good noncommutative generalization. So instead the "regular covering"  we will use "transitive covering"  which is explained below.
 
 \begin{definition}\label{top_transitive_defn}
-	A covering $p: \widetilde{\mathcal X}\to {\mathcal X}$  is said to be \textit{transitive} if  $\sX$ is connected and for every $x \in \sX$ the group of covering transformations (cf. Definition \ref{cov_proj_cov_grp_defn}) $G\left( \left.\mathcal{\widetilde{X}}~\right|\mathcal{X}\right)$ transitively acts on $p^{-1}\left( x\right)$, i.e. 
+	A covering $p: \widetilde{\mathcal X}\to {\mathcal X}$  is said to be \textit{transitive} if  $\sX$ is connected and for every $x \in \sX$ the group of covering transformations (cf. Definition \ref{top_covering_transformations_group_defn}) $G\left( \left.\mathcal{\widetilde{X}}~\right|\mathcal{X}\right)$ transitively acts on $p^{-1}\left( x\right)$, i.e. 
 	\be\label{top_transitive_eqn}
 	\forall \widetilde x \in \widetilde\sX \quad	G\left( \left.\mathcal{\widetilde{X}}~\right|\mathcal{X}\right)\widetilde x = p^{-1}\left( p\left( \widetilde x\right) \right).
 	\ee
@@ -6152,7 +6165,7 @@ The notion of regular covering (cf. Definition \ref{top_regular_defn}) has no an
 		\item The closure of $\sU_{\a}$ is a compact set for all $\a \in \mathscr A$.
 		\item $\sU_\a$ is evenly covered by $p$ (cf. Definition \ref{top_covering_defn}).
 	\end{itemize}
-  For any $\a \in \mathscr A$ we select an open connected set $\widetilde \sU_\a \in \widetilde\sX$. One has
+	For any $\a \in \mathscr A$ we select an open connected set $\widetilde \sU_\a \in \widetilde\sX$. One has
 	$$
 	\widetilde \sX=\bigcup_{\left(g, \a\right)\in  G\left(\left.\widetilde{\sX}~\right|\sX\right)\times \mathscr A} 	g \widetilde \sU_\a
 	$$
@@ -6161,20 +6174,9 @@ The notion of regular covering (cf. Definition \ref{top_regular_defn}) has no an
 	In the above situation we say that the family $\left\{\sU_\a\right\}_{\a \in \mathscr A}$ is \textit{compliant with} $p$, and the family
 	$\left\{g \widetilde \sU_\a\right\}_{\left(g, \a\right)\in  G\left(\left.\widetilde{\sX}~\right|\sX\right)\times \mathscr A}$ is the $p$-\textit{lift} of $\left\{\sU_\a\right\}_{\a \in \mathscr A}$. We say that  family $\left\{\sU_\a\right\}_{\a \in \mathscr A}$ is \textit{compliant with coverings} if it is complaint with any finite-fold covering of $\sX$.
 \end{definition}
-\begin{remark}\label{top_lconn_rem}
-	Sometimes we denote by $\widetilde{ \mathscr A}\bydef G\left(\left.\widetilde{\sX}~\right|\sX\right)\times \mathscr A$ and
-	\be\label{top_lconn_eqn}	
-	\left\{\widetilde \sU_{\widetilde \a }\right\}_{\widetilde{ \a}\in \widetilde{ \mathscr A}}\bydef \left\{g \widetilde \sU_\a\right\}_{\left(g, \a\right)\in  G\left(\left.\widetilde{\sX}~\right|\sX\right)\times \mathscr A}.
-	\ee
-\end{remark}
 
-
-
-\begin{empt}\label{top_path_lift_empt}
-	Let $\sX$ be a connected, locally connected, Hausdorff space, and let  $p: \widetilde{   \mathcal X }\to \sX$ be a transitive covering, such that $\widetilde{   \mathcal X }$ is connected. Consider a described in \ref{top_lconn_part} family $\left\{\sU_\a\right\}_{\a \in \mathscr A}$ of open subsets of $\sX$. Denote by $\left\{\widetilde \sU_{\widetilde \a }\right\}_{\widetilde{ \a}\in \widetilde{\mathscr A}}~$ the $p$-lift of $\left\{\sU_\a\right\}_{\a \in \mathscr A}$ (cf. the Definition \ref{top_lconn_defn} and the equation \eqref{top_lconn_eqn}).
-\end{empt}
 \begin{empt}\label{top_path_comp_empt}
-	In the situation \ref{top_path_lift_empt} select $\widetilde x_0\in \widetilde \sX$ and $\widetilde\sU_0 \in \left\{\widetilde \sU_{\widetilde \a }\right\}$ such that $\widetilde x_0\in \widetilde\sU_0$. Let $\sU_0 = p\left(\widetilde\sU_0 \right)$ and $x_0 = p\left(\widetilde x_0 \right)$. From the Lemma \ref{top_gen_path_lem} it follows that for all $g \in G\left(\left.\widetilde{   \mathcal X }~\right|{   \mathcal X } \right)$ there is a $\left\{\widetilde \sU_{\widetilde \a }\right\}$ path $\widetilde{\mathfrak p}_g=\left(\widetilde\sU_{\widetilde\a_1},...,\widetilde\sU_{\widetilde\a_n}\right)$ such that
+	Let $p: \left(\widetilde{\sX}, \widetilde{x_0}\right)\to \left(\sX, x_0\right)$ be a pointed covering such that both $\widetilde{\sX}$ and $\sX$ are connected, locally connected, locally compact, Hausdorff spaces. Let $\mathfrak A\bydef \left\{\sU_\a\right\}_{\a\in \mathscr A}$ be a family of all connected, evenly covered by $p$ open sets with compact closure, and let $\widetilde{\mathfrak A}$ be a $p$-lift of $\mathfrak A$ (cf. Definition \ref{top_lconn_defn}). Select $\widetilde\sU_0 \in \widetilde{\mathfrak A}$ such that $\widetilde x_0\in \widetilde\sU_0$. Let $\sU_0 = p\left(\widetilde\sU_0 \right)$. From the Lemma \ref{top_gen_path_lem} it follows that for all $g \in G\left(\left.\widetilde{   \mathcal X }~\right|{   \mathcal X } \right)$ there is a $\widetilde{\mathfrak A}$-path $\widetilde{\mathfrak p}_g=\left(\widetilde\sU_{\widetilde\a_1},...,\widetilde\sU_{\widetilde\a_n}\right)$ such that
 	\be\label{top_path_compl_eqn}
 	\widetilde\sU_{\widetilde\a_1}= \widetilde\sU_{0}; \quad \widetilde\sU_{\widetilde\a_n}= g \widetilde\sU_{0}
 	\ee
@@ -6189,8 +6191,9 @@ The notion of regular covering (cf. Definition \ref{top_regular_defn}) has no an
 	If $g', g'' \in G\left(\left.\widetilde{   \mathcal X }~\right|{   \mathcal X } \right)$ then from \eqref{top_path_comp_lem_eqn} it follows that there is the composition $\desc_p \widetilde{\mathfrak p}_{g'}\circ \desc_p \widetilde{\mathfrak p}_{g''}$ (cf. Definition \ref{top_path_comp_defn}).
 \end{empt}
 \begin{definition}\label{top_path_corr_defn}
-	In the situation  \ref{top_path_comp_empt} we say that the closed path $\widetilde{\mathfrak p}_g$ \textit{corresponds to} $g \in G\left(\left.\widetilde{   \mathcal X }~\right|{   \mathcal X } \right)$. A closed path is said to be \textit{contractible} if  for any finite-fold transitive covering $\widetilde\sX \to \sX$ it corresponds to the trivial element of $G\left(\left.\widetilde{   \mathcal X }~\right|{   \mathcal X } \right)$.
+	In the situation  \ref{top_path_comp_empt} we say that the closed path $\widetilde{\mathfrak p}_g$ \textit{corresponds to} $g \in G\left(\left.\widetilde{   \mathcal X }~\right|{   \mathcal X } \right)$. A closed path is said to be $p$-\textit{contractible} if  for any finite-fold transitive covering $\widetilde\sX \to \sX$ it corresponds to the trivial element of $G\left(\left.\widetilde{   \mathcal X }~\right|{   \mathcal X } \right)$.
 \end{definition}
+
 
 \begin{lemma}\label{top_lift_comp_lem}
 	Consider the situation \ref{top_path_comp_empt} and suppose that $\widetilde{\mathfrak p}_{g'} = \left( \widetilde\sU_{\widetilde\a'_1},..., \widetilde\sU_{\widetilde\a'_k}\right)$, $\widetilde{\mathfrak p}_{g''} = \left( \widetilde\sU_{\widetilde\a''_1},..., \widetilde\sU_{\widetilde\a''_l}\right)$ where $g',g''\in G\left(\left.\widetilde{   \mathcal X }~\right|{   \mathcal X } \right)$. If
@@ -6208,7 +6211,7 @@ The notion of regular covering (cf. Definition \ref{top_regular_defn}) has no an
 	and taking into account $g'\widetilde\sU_{\widetilde\a''_1}= \widetilde\sU_{\widetilde\a'_k}= g' \widetilde\sU_0$, $\quad\widetilde\sU_{\widetilde\a''_l}=g''\widetilde\sU_0$ one has $ \widetilde\sU_{\widetilde\a_{k + l }}= g'g''\widetilde \sU_0$.
 \end{proof}
 \begin{empt}\label{top_g_homo_empt}
-	In the situation  \ref{top_path_comp_empt}	consider a commutative triangle of connected topological spaces and  transitive coverings.
+	Consider a commutative triangle of connected, locally connected, locally compact, Hausdorff spaces  and  transitive coverings.
 	\newline
 	\begin{tikzpicture}
 		\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
@@ -6221,7 +6224,7 @@ The notion of regular covering (cf. Definition \ref{top_regular_defn}) has no an
 		(m-1-3) edge node [right] {$~~p''$} (m-2-2);
 	\end{tikzpicture}
 	\\
-	Suppose that $\sX$ is a  locally connected, locally compact, Hausdorff space. Consider a described in \ref{top_lconn_part} family $\left\{\sU_\a\right\}_{\a \in \mathscr A}$ of open subsets of $\sX$. Let both  $\left\{\widetilde \sU_{\widetilde \a' }\right\}_{\widetilde{ \a'}\in \widetilde{\mathscr A}'}~$, $\left\{\widetilde \sU_{\widetilde \a'' }\right\}_{\widetilde{ \a''}\in \widetilde{\mathscr A}''}~$ be the  $p'$-lift and $p''$-lift of $\left\{\sU_\a\right\}_{\a \in \mathscr A}$ respectively (cf. Definition \ref{top_lconn_defn} and equation \eqref{top_lconn_eqn}). Let $\widetilde \sU'_0 \in \left\{\widetilde \sU_{\widetilde \a' }\right\}$, and $\widetilde x_0 \in \widetilde \sU'_0$. Denote by $ \widetilde \sU''_0\bydef p\left(\widetilde \sU'_0\right)\subset \widetilde \sX''$, $  \sU_0\bydef p'\left(\widetilde \sU'_0\right)\subset \sX$, $\widetilde x''_0\bydef p\left(\widetilde x'_0\right)\subset \widetilde \sU''_0$, $  x_0\bydef p'\left(\widetilde x'_0\right)\subset \sU_0$. Both $p'$ and $p''$ are transitive coverings, hence from the Corollary \ref{top_trans_tp_cov_cor} it follows that there are bijecive maps
+	Let  $\mathfrak A \bydef \left\{\sU_\a\right\}_{\a \in \mathscr A}$ be a family of connected open subsets of $\sX$ evenly covered by both $p'$ and $p''\circ p$. Let both  $\widetilde{\mathfrak A}'\bydef {\left\{\widetilde \sU_{\widetilde \a' }\right\}_{\widetilde{ \a'}\in \widetilde{\mathscr A}'}~}$ and  $\widetilde{\mathfrak A}''\bydef\left\{\widetilde \sU_{\widetilde \a'' }\right\}_{\widetilde{ \a''}\in \widetilde{\mathscr A}''}~$ be the  $p'$-lift and $p''$-lift of $\mathfrak A$ respectively (cf. Definition \ref{top_lconn_defn}). Let $\widetilde \sU'_0 \in \left\{\widetilde \sU_{\widetilde \a' }\right\}$, and $\widetilde x_0 \in \widetilde \sU'_0$. Denote by $ \widetilde \sU''_0\bydef p\left(\widetilde \sU'_0\right)\subset \widetilde \sX''$, $  \sU_0\bydef p'\left(\widetilde \sU'_0\right)\subset \sX$, $\widetilde x''_0\bydef p\left(\widetilde x'_0\right)\subset \widetilde \sU''_0$, $  x_0\bydef p'\left(\widetilde x'_0\right)\subset \sU_0$. Both $p'$ and $p''$ are transitive coverings, hence from the Corollary \ref{top_trans_tp_cov_cor} it follows that there are bijecive maps
 	\bean 
 	G\left(\widetilde{   \mathcal X }'~|~{   \mathcal X } \right)\xrightarrow{\approx}p'^{-1}p'\left(\widetilde x'_0 \right),\\
 	g \mapsto g\widetilde x'_0;\\
@@ -6241,12 +6244,12 @@ The notion of regular covering (cf. Definition \ref{top_regular_defn}) has no an
 	\end{itemize}
 \end{lemma}
 \begin{proof} (i)
-	Let $g_1, g_2 \in G\left(\widetilde{   \mathcal X }'~|~{   \mathcal X } \right)$ and let both $\widetilde{\mathfrak p}'_{g_1}= \left( \widetilde\sU'_{\widetilde\a'_{1,1}},..., \widetilde\sU'_{\widetilde\a'_{1, k}}\right)$, $\widetilde{\mathfrak p}'_{g_2}= \left( \widetilde\sU'_{\widetilde\a'_{2,1}},..., \widetilde\sU'_{\widetilde\a'_{2, l}}\right)$ are $\left\{\widetilde \sU'_{\widetilde \a' }\right\}$-paths which correspond to  $g_1$ and $g_2$ respectively (cf. Definition \ref{top_path_corr_defn}). Clearly both $\desc_p\widetilde{\mathfrak p}'_{g'_1}$ and $\desc_p \widetilde{\mathfrak p}'_{g'_2}$ are $\left\{\widetilde \sU_{\widetilde \a'' }\right\}$-paths which correspond to  $h\left( g_1\right) $ and $h\left( g_2\right)$ respectively. From the Lemma  \ref{top_lift_comp_lem} it follows that both 
+	Let $g_1, g_2 \in G\left(\widetilde{   \mathcal X }'~|~{   \mathcal X } \right)$ and let both $\widetilde{\mathfrak p}'_{g_1}= \left( \widetilde\sU'_{\widetilde\a'_{1,1}},..., \widetilde\sU'_{\widetilde\a'_{1, k}}\right)$, $\widetilde{\mathfrak p}'_{g_2}= \left( \widetilde\sU'_{\widetilde\a'_{2,1}},..., \widetilde\sU'_{\widetilde\a'_{2, l}}\right)$ are $\widetilde{\mathfrak A}'$-paths which correspond to  $g_1$ and $g_2$ respectively (cf. Definition \ref{top_path_corr_defn}). Clearly both $\desc_p\widetilde{\mathfrak p}'_{g'_1}$ and $\desc_p \widetilde{\mathfrak p}'_{g'_2}$ are $\widetilde{\mathfrak A}''$-paths which correspond to  $h\left( g_1\right) $ and $h\left( g_2\right)$ respectively. From the Lemma  \ref{top_lift_comp_lem} it follows that both 
 	\bean
 	\widetilde{\mathfrak p}' \bydef \lift^{\widetilde\sU'_0}_{p'}\left( \desc_{p'} \widetilde{\mathfrak p}_{g_1}\circ \desc_{p'} \widetilde{\mathfrak p}_{g_2}\right),\\
 	\widetilde{\mathfrak p}''\bydef \lift^{\widetilde\sU''_0}_{p''}\left( \desc_{p'} \widetilde{\mathfrak p}_{g_1}\circ \desc_{p'} \widetilde{\mathfrak p}_{g_2}\right)
 	\eean
-	are $\left\{\widetilde \sU'_{\widetilde \a' }\right\}$ and $\left\{\widetilde \sU''_{\widetilde \a'' }\right\}$-paths which correspond to $g_1 g_2$ and $h\left( g_1\right)h\left( g_2\right)$ respectively. It means that that   $\widetilde{\mathfrak p}'= \left( \widetilde\sU'_{\widetilde\a'_{1}},..., \widetilde\sU'_{\widetilde\a'_{k + l }}\right)$ then $\widetilde\sU'_{\widetilde\a'_{k + l }}= g_1g_2\widetilde \sU'_0$. On the other hand  $\widetilde{\mathfrak p}''= \desc_p \widetilde{\mathfrak p}'= \left( p\left( \widetilde\sU'_{\widetilde\a'_{1}}\right) ,..., p\left( \widetilde\sU'_{\widetilde\a'_{k + l }}\right) \right)$, so $p\left( \widetilde\sU'_{\widetilde\a'_{k + l}}\right)= h\left(g_1g_2 \right) \widetilde\sU''_0$, i.e. $\widetilde{\mathfrak p}''$ corresponds to $h\left(g_1g_2 \right)$. It follows that $h\left(g_1g_2 \right)=h\left(g_1 \right)h\left(g_2 \right)$, i.e. $h$ is a homomorphism.\\
+	are $\widetilde{\mathfrak A}'$ and $\widetilde{\mathfrak A}''$-paths which correspond to $g_1 g_2$ and $h\left( g_1\right)h\left( g_2\right)$ respectively. It means that that   $\widetilde{\mathfrak p}'= \left( \widetilde\sU'_{\widetilde\a'_{1}},..., \widetilde\sU'_{\widetilde\a'_{k + l }}\right)$ then $\widetilde\sU'_{\widetilde\a'_{k + l }}= g_1g_2\widetilde \sU'_0$. On the other hand  $\widetilde{\mathfrak p}''= \desc_p \widetilde{\mathfrak p}'= \left( p\left( \widetilde\sU'_{\widetilde\a'_{1}}\right) ,..., p\left( \widetilde\sU'_{\widetilde\a'_{k + l }}\right) \right)$, so $p\left( \widetilde\sU'_{\widetilde\a'_{k + l}}\right)= h\left(g_1g_2 \right) \widetilde\sU''_0$, i.e. $\widetilde{\mathfrak p}''$ corresponds to $h\left(g_1g_2 \right)$. It follows that $h\left(g_1g_2 \right)=h\left(g_1 \right)h\left(g_2 \right)$, i.e. $h$ is a homomorphism.\\
 	(ii) Follows from $G\left(\widetilde{   \mathcal X }''~|~{   \mathcal X }' \right)= \ker h$.
 \end{proof}
 
@@ -9805,9 +9808,18 @@ Follows from the Exercise \ref{top_unoriented_exer}.
 	\ee
 	of the   {finite covering category} the  $\mathfrak{FinCov}$-$\sX$ (cf. Definition \ref{top_fin_cov_defn}). We assume that pre-ordering structure of $\La$ comes from the given by \ref{top_cov_preord_empt} pre-ordering on a family of $\mathfrak{FinCov}$-$\sX$-objects.
 Suppose that there is the minimal $\la_{\min}\in \La$ such that $\sX_{\la_{\min}}\bydef\sX$ and  the pre-ordered set $\La$ is directed (cf. Definition \ref{directed_set_defn}).
-\begin{definition}\label{top_sec_defn}
-	In the above situation we say that  $\mathfrak{S}_\sX$ is a \textit{topological finite covering category} and we write $\mathfrak{S}\in \mathfrak{FinTop}$.
+\begin{definition}\label{top_finite_covering_category_defn}
+	In the above situation we say that  $\mathfrak{S}_\sX$ is a \textit{topological finite covering category} if for any $x\in \sX$ and any  neighborhood  $\sV \subset \sX$ of $x$  there is an open set $\sU \subset \sV$ which satisfies to the following conditions:
+	\begin{itemize}
+		\item $x \in \sU\subset \sV$,
+		\item the set $\sU$ is evenly covered by $p_\la$ (cf. Definition \ref{top_covering_defn}) for all $\la\in\La$. 
+	\end{itemize}
+The set $\sU$ is said to be $\mathfrak{S}_\sX$-\textit{proper}.
+We  write $\mathfrak{S}\in \mathfrak{FinTop}$.
 \end{definition}
+\begin{example}\label{top_cat_semi_example_exm}
+If $ \mathfrak{S}_\sX$ is a given by \eqref{top_fin_cov_cat_eqn} and $\sX$ is a weakly semilocally 1-connected space then from the Definition \ref{top_weakly_semi1_defn} it follows that  $\mathfrak{S}_\sX$ is a {topological finite covering category}.
+\end{example}
 \begin{example}\label{top_cat_example_exm}
 Let $\widetilde{\sX}\to \sX$ be a transitive covering. Consider a family of finite -fold coverings $\left\{\widetilde{\sX}/ H_\la \to \sX\right\}$ where $H_\la \subset G\left(\left. \widetilde{\sX}\right|\sX \right)$ be a finite index normal subgroup. A family is directed, i.e. for all $\mu, \nu \in \La$ there is a finite index normal subgroup  $H_\la \bydef H_\mu \cap H_\mu$ and finite fold coverings 
 \bean
@@ -9832,7 +9844,7 @@ Let $\widetilde{\sX}\to \sX$ be a transitive covering. Consider a family of fini
 \begin{example}
 If we consider an Example \ref{top_cat_example_exm} and select a base point in $\widetilde \sX$ then one has a natural base point in $\widetilde \sX/H_\la$. Thus one can obtain a pointed category.
 \end{example}
-\begin{remark}\label{comp_pt_ex_rem} The given by the Definition \ref{top_sec_defn} category $\mathfrak{S}_{\sX}$ is not 
+\begin{remark}\label{comp_pt_ex_rem} The given by the Definition \ref{top_finite_covering_category_defn} category $\mathfrak{S}_{\sX}$ is not 
  is not skeletal in general (cf. Definition \ref{skeletal_defn}). The category $\mathfrak{S}_{\left(\sX, x_0\right)}$ is a skeleton of $\mathfrak{S}_{\sX}$ (cf. Definition \ref{skeleton_defn}). 
  Roughly speaking a selection of a base-point is equivalent to a selection of  a skeleton. 
 \end{remark}
@@ -9842,7 +9854,9 @@ If we consider an Example \ref{top_cat_example_exm} and select a base point in $
 \end{remark}
 
 \begin{definition}\label{top_specp_defn}
-Let	$\mathfrak{S}_{\left( \sX, x_0\right) }$  be a {pointed topological finite covering category} given by the equation \eqref{top_sec_p_eqn} and let $\widehat \sX\bydef \varprojlim_{\la \in \La}\sX_\la$ be the inverse limit of topological spaces  (cf. Definition \ref{top_inv_lim_defn}). Let $\widehat p_\la : \widehat \sX\to \sX_\la$ be the natural continuous map for all $\la\in\La$. The subset  $\widehat \sU\subset \widehat \sX$ is said to be \textit{special} if for all $\la \in \La$ the space $p_\la\left(\widehat \sU \right)$ is weakly 1-connected (cf. Definition \ref{top_weakly_one_connected_defn}).
+Let	$\mathfrak{S}_{\left( \sX, x_0\right) }$  be a {pointed topological finite covering category} given by the equation \eqref{top_sec_p_eqn} and let $\widehat \sX\bydef \varprojlim_{\la \in \La}\sX_\la$ be the inverse limit of topological spaces  (cf. Definition \ref{top_inv_lim_defn}). Let $\widehat p_\la : \widehat \sX\to \sX_\la$ be the natural continuous map for all $\la\in\La$. The subset  $\widehat \sU\subset \widehat \sX$ 
+is said to be \textit{special} if for all $\la \in \La$ the image  $\widehat p_\la\left(\widehat \sU \right)$ of $\widehat \sU $ is an open,  connected subspace of $\sX_\la$ and the a set 
+$p_\la\circ \widehat p_\la\left(\widehat \sU \right)$ is   $\mathfrak{S}_\sX$-{proper} (cf. Definition \ref{top_finite_covering_category_defn}).
 \end{definition}
 \begin{lemma}\label{top_equ_borel_set_lem}
 	Let $\widehat{\mathcal{X}} = \varprojlim_{\la \in \La} \mathcal{X}_\la$ be the inverse limit  in the category of topological spaces and continuous maps  (cf. Definition \ref{top_inv_lim_defn}). Any special set of $\widehat{\mathcal{X}}$ is a Borel subset of $\widehat{\mathcal{X}}$.
@@ -9861,6 +9875,7 @@ Consider the  situation of the Definition \ref{top_sec_p_defn}. If $\left\{\wide
 \end{enumerate}
 \end{lemma}
 \begin{proof}
+	!!! CHECK !!!
 	(i) One needs proof (a) and (b) of the Definition \ref{top_base_defn}.
 \begin{enumerate}
 	\item [(a)] Let $\widehat x_0 \in \widehat \sX$, denote by $x^\la_0 \bydef \widehat p_\la\left(\widehat x_0  \right)$. Let $\left\{\la_n\right\}_{n \in \N} \subset \La$ be a cofinal subset such that $m > k \Rightarrow \la_m > \la_k$. Let $\widehat p: \widehat \sX \to \sX$ be the natural continuous map, and let $x_0 \bydef \widehat p\left(\widehat x_0\right)$. Since $\sX$ is locally connected there exists  an open connected neighborhood $\sU$ of $x_0$ evenly covered by $p_{\la_1}:\sX_{\la_1} \to \sX$. For any $n$ there is the unique open connected neighborhood $\sU_{\la_n}\subset  \sX_{\la_n}$ of $x^{\la_n}_0$ such that $p_{\la_n} \left( \sU_{\la_n}\right) = \sU$. For any $\la \in \La$ there is $\la_n$ such that $\la_n \ge \la$. If $\sU_\la \bydef p^{\la_n}_\la\left(\sU_{\la_n} \right)$ then $p_\la \left( \sU_\la\right)= \sU$. If $\widehat \sU \bydef \bigcap_{\la \in \La} \widehat p^{-1}_\la \left( \sU_\la\right)$ then the restriction $\left.\widehat p_\la\right|_{\widehat \sU}$ injective and maps $\widehat \sU$ onto the open set $\sU_\la$. Thus  $\widehat \sU$ is special and $\widehat x_0\in\widehat \sU$.
@@ -10092,7 +10107,7 @@ Then for any compact $\overline{   \mathcal U } \subset \overline{   \mathcal X 
 \end{exercise}
 
 \begin{lemma}\label{top_associded_lem}
-	Let $\left( \sX, x_0\right) $ be a connected, locally connected, locally compact, Hausdorff pointed space, and let $\widetilde{p}:\left( \widetilde{\sX}, \widetilde{x}_0\right) \to \left( \sX, x_0\right)$ be a pointed  transitive covering such that $\widetilde{\sX}$ is connected and  the {covering group} $G\left( \left.{\widetilde{\sX}}~\right|\sX\right)$ (cf. Definition \ref{cov_proj_cov_grp_defn}) is residually finite (cf. Definition \ref{residually_finite_defn}). Let us consider a family $\mathfrak{S}_{\left( \sX, x_0  \right) }=\left\{ p_\la: \left( \sX_\la, x^\la_0\right) \to \left( \sX, x_0\right)\right\}_{\la \in \La} $  of all  transitive finite-fold pointed coverings  such for every $\la \in\La$ there is a covering  $\widetilde{p}_\la : \left( \widetilde{\sX}, \widetilde{x}_0\right) \to \left( \sX_\la, x^\la_0\right)$ such that  $\widetilde{p} = p_\la \circ \widetilde{p}_\la$. 
+	Let $\left( \sX, x_0\right) $ be a connected, locally connected, locally compact, Hausdorff pointed space, and let $\widetilde{p}:\left( \widetilde{\sX}, \widetilde{x}_0\right) \to \left( \sX, x_0\right)$ be a pointed  transitive covering such that $\widetilde{\sX}$ is connected and  the {covering group} $G\left( \left.{\widetilde{\sX}}~\right|\sX\right)$ (cf. Definition \ref{top_covering_transformations_group_defn}) is residually finite (cf. Definition \ref{residually_finite_defn}). Let us consider a family $\mathfrak{S}_{\left( \sX, x_0  \right) }=\left\{ p_\la: \left( \sX_\la, x^\la_0\right) \to \left( \sX, x_0\right)\right\}_{\la \in \La} $  of all  transitive finite-fold pointed coverings  such for every $\la \in\La$ there is a covering  $\widetilde{p}_\la : \left( \widetilde{\sX}, \widetilde{x}_0\right) \to \left( \sX_\la, x^\la_0\right)$ such that  $\widetilde{p} = p_\la \circ \widetilde{p}_\la$. 
 	Following conditions hold:
 	\begin{enumerate}
 		%	\item [(i)] The family $\mathfrak{S}_{\sX}=\left\{ p_\la: \sX_\la \to \sX\right\}$ is a topological finite covering category.
@@ -10121,7 +10136,7 @@ Then for any compact $\overline{   \mathcal U } \subset \overline{   \mathcal X 
 	The pair $\left( \left( \widetilde{\sX}, \widetilde{x}_0\right), \widetilde{p}\right) $ is an object of the category $\downarrow\mathfrak{S}_{\left( \sX, x_0  \right) }$. If $\left( \widetilde{\sX}',  \widetilde{x}'_0\right)$ is the inverse limit of $\mathfrak{S}_{\left( \sX, x_0  \right) }$ then there is the natural continuous map $\overline{p}:\left( \widetilde{\sX},  \widetilde{x}_0\right)\to \left( \widetilde{\sX}',  \widetilde{x}'_0\right)$. If $\widetilde{x}_1, \widetilde{x}_2\in \widetilde{\sX}$ are such that $\widetilde{x}_1 \neq \widetilde{x}_2$ and $\overline{p}\left( \widetilde{x}_1\right) = \overline{p}\left( \widetilde{x}_2\right)$ then there is $ g \in G\left( \left.{\widetilde{\sX}}~\right|\sX\right)$ such that $\widetilde{x}_1 = \widetilde g\widetilde{x}_2$. If $\widetilde{p}'_\la : \left( \widetilde{\sX}',  \widetilde{x}'_0\right)\to \left( {\sX}_\la,  x^\la_0\right)$ then from $\overline{p}\left( \widetilde{x}_1\right) = \overline{p}\left( \widetilde{x}_2\right)$ it turns out that $\widetilde{p}_\la\left( \widetilde{x}_1\right)= \widetilde{p}_\la\left( \widetilde{x}_2\right)$ for all $\la \in \La$. It turns out that $\phi_\la\left(g \right)$ is trivial for every $\la \in \La$. Taking into account that the homomorphism \eqref{comm_g_inj_eqn} is injective we conclude that $g$ is trivial, so $\widetilde{x}_1 = \widetilde{x}_2$. Thus the map $\overline{p}$ is injective, and since $\overline{p}$ is a covering (cf. Remark \ref{comm_top_constr_morph_rem}) it is a homeomorphism. From the natural homeomorphism $\left( \widetilde{\sX},  \widetilde{x}_0\right)\cong \left( \widetilde{\sX}',  \widetilde{x}'_0\right)$ it turns out that $\left( \widetilde{\sX} , \widetilde{x}_0 \right)$ is the inverse noncommutative limit of $\mathfrak{S}_{\left( \sX, x_0 \right) }.$
 	\end{proof}
 \begin{definition}\label{top_associded_defn}
-	Let $\left( \sX, x_0\right) $ be a connected, locally connected, locally compact, Hausdorff pointed space, and let $\widetilde{p}:\left( \widetilde{\sX}, \widetilde{x}_0\right) \to \left( \sX, x_0\right)$ be a pointed  transitive covering such that $\widetilde{\sX}$ is connected and  the {covering group} $G\left( \left.{\widetilde{\sX}}~\right|\sX\right)$ (cf. Definition \ref{cov_proj_cov_grp_defn}) is residually finite (cf. Definition \ref{residually_finite_defn}). A given by the Lemma \ref{top_associded_lem} pointed   topological finite covering category $\mathfrak{S}_{\left( \sX, x_0  \right) }$ is said to be the \textit{associated with the covering}  $\widetilde{p}:\left( \widetilde{\sX}, \widetilde{x}_0\right) \to \left( \sX, x_0\right)$. If for a pointed space there is
+	Let $\left( \sX, x_0\right) $ be a connected, locally connected, locally compact, Hausdorff pointed space, and let $\widetilde{p}:\left( \widetilde{\sX}, \widetilde{x}_0\right) \to \left( \sX, x_0\right)$ be a pointed  transitive covering such that $\widetilde{\sX}$ is connected and  the {covering group} $G\left( \left.{\widetilde{\sX}}~\right|\sX\right)$ (cf. Definition \ref{top_covering_transformations_group_defn}) is residually finite (cf. Definition \ref{residually_finite_defn}). A given by the Lemma \ref{top_associded_lem} pointed   topological finite covering category $\mathfrak{S}_{\left( \sX, x_0  \right) }$ is said to be the \textit{associated with the covering}  $\widetilde{p}:\left( \widetilde{\sX}, \widetilde{x}_0\right) \to \left( \sX, x_0\right)$. If for a pointed space there is
 	 the universal covering $\widetilde{p}_{\mathrm{uni}}:\left( \widetilde{\sX}_{\mathrm{uni}}, \widetilde{x}^{\mathrm{uni}}_0\right) \to \left( \sX, x_0\right)$ (cf. Definition \ref{top_universal_covering_defn}) with a residually finite covering group $G\left( \left.{\widetilde{\sX}}_{\mathrm{uni}}~\right|\sX\right)$ and $\mathfrak{S}_{\left( \sX, x_0  \right) }$ is said to be the {associated with the covering}  $\widetilde{p}_{\mathrm{uni}}:\left( \widetilde{\sX}_{\mathrm{uni}}, \widetilde{x}^{\mathrm{uni}}_0\right) \to \left( \sX, x_0\right)$ then we say that $\mathfrak{S}_{\left( \sX, x_0  \right) }$ is \textit{associated with the  pointed pair} $\left(\sX, x_0\right)$
 \end{definition}
 \begin{remark}
@@ -10164,7 +10179,7 @@ This section supplies a purely algebraic  analog of the topological construction
 	$
 	\mathfrak{S}_{ \mathcal{X} } = \left\{p_{\la}:\mathcal{X}_\la \to  \mathcal{X} \right\}_{\la \in \La}\in \mathfrak{FinTop}
 	$
-	is  a  topological  finite covering category (cf. Definition \ref{top_sec_defn}) then there is the natural  algebraical  finite covering category (cf. Definition \ref{alg_fin_cat_defn})
+	is  a  topological  finite covering category (cf. Definition \ref{top_finite_covering_category_defn}) then there is the natural  algebraical  finite covering category (cf. Definition \ref{alg_fin_cat_defn})
 	\begin{equation*}
 	\mathfrak{S}_{C_0\left( \mathcal{X}\right) } = \left\{\pi_\la=C_0\left( p_{\la}\right) :C_0\left( \mathcal{X}\right)  \hookto C_0\left( \mathcal{X}_\la\right) \right\}_{\la \in \La}\in \mathfrak{FinAlg}.
 	\end{equation*}
@@ -10943,10 +10958,10 @@ Similarly to \ref{comm_transitive_empt}	one can prove following statements:
 \subsection{Universal  coverings and  fundamental groups}
 \paragraph*{}
 Following theorem gives universal  coverings of commutative $C^*$-algebras. 
-
+!!! WEAKLY!!!
 
 \begin{theorem}\label{comm_uni_lim_thm}
-	Let $\mathcal X$ be a connected, locally connected, locally compact,  Hausdorff space. If there is   the universal topological covering $\widetilde{p}:\widetilde{\sX}\to \mathcal X$ (cf. Definition \ref{top_universal_covering_defn}) such that $G\left( \left.{\widetilde{\sX}}~\right|\sX\right)$ is a residually finite group (cf. Definition \ref{residually_finite_defn}) then $C_0\left( \widetilde{\sX}\right)$ is the universal covering of $C_0\left( {\sX}\right)$ (cf. Definition \ref{fg_bas_defn}).
+	Let $\mathcal X$ be a connected, locally connected, locally compact,  Hausdorff space. If there is   the universal topological covering $\widetilde{p}:\widetilde{\sX}\to \mathcal X$ (cf. Definition \ref{top_universal_covering_defn}) such that $G\left( \left.{\widetilde{\sX}}~\right|\sX\right)$ is a residually finite group (cf. Definition \ref{residually_finite_defn}) then $C_0\left( \widetilde{\sX}\right)$ is the universal covering of $C_0\left( {\sX}\right)$ (cf. Definition \ref{fundamental_group_nc_defn}).
 \end{theorem}
 
 \begin{proof}
@@ -10960,36 +10975,36 @@ From the Corollary \ref{top_functor_cor} it follow that 	the functor $C_0$ is an
 \mathfrak{S}^{\text{pt}}_{C_0\left(\sX \right) }\bydef\left(\left\{C_0\left( p_\la\right) : C_0\left( {\sX}\right) \hookto C_0\left( {\sX}_\la\right)\right\}_{\la \in \La}, \left\{C_0\left( p^\mu_\nu\right)  \right\}_{\substack{ \mu, \nu \in \La \\ \mu > \nu}} \right) 
 \ee
 (cf. Definition \ref{pointed_defn}   because the functor $C_0$ is an equivalence of categories.
- From the  Theorem \ref{top_main_thm} it follows that $C_0\left(\widetilde{\sX} \right)$ is the inverse noncommutative limit of the pointed noncommutative finite covering category \eqref{top_pointed_c_eqn}. Taking into account the Definition \ref{fg_bas_defn} we conclude that $C_0\left( \widetilde{\sX}\right)$ is the universal covering of $C_0\left( {\sX}\right)$.
+ From the  Theorem \ref{top_main_thm} it follows that $C_0\left(\widetilde{\sX} \right)$ is the inverse noncommutative limit of the pointed noncommutative finite covering category \eqref{top_pointed_c_eqn}. Taking into account the Definition \ref{fundamental_group_nc_defn} we conclude that $C_0\left( \widetilde{\sX}\right)$ is the universal covering of $C_0\left( {\sX}\right)$.
 \end{proof}
 
-\begin{cor}\label{comm_uni_lim_cor}
-	If $\left( \mathcal X, x_0\right)$ is	a connected, locally path connected, semilocally 1-connected (cf. Definition \ref{top_semi1_defn}),  locally compact,  Hausdorff space such that the fundamental group $\pi_1\left(\sX, x_0 \right)$  is residually finite then following conditions hold:
+\begin{cor}\label{comm_uni_lim_cor}!!! CHECK
+	If $\left( \mathcal X, x_0\right)$ is	a connected, locally  connected, weakly semilocally 1-connected (cf. Definition \ref{top_weakly_semi1_defn}),  locally compact,  Hausdorff space such that the weak  fundamental group $\pi^{\mathrm{w}}_1\left(\sX, x_0 \right)$ (cf. Definition \ref{top_weak_fundamental_group_defn}) is residually finite then following conditions hold:
 	\begin{enumerate}
 		\item [(i)] $C_0\left(\sX \right) $ {has the algebraical universal  covering}.
 		\item[(ii)] There is a pointed algebraical finite covering category $\left(\mathfrak{S}_{C_0\left( \sX\right) }, \left\{C_0\left(p^\mu_\nu \right) \right\} \right)$ and the natural  
 		group isomorphism 
 		\be\label{comm_fg_iso_eqn}
-		\pi_1\left( \sX, x_0\right)\cong\pi_1\left( C_0\left(\sX \right), \left\{C_0\left(p^\mu_\nu \right) \right\}\right)
+		\pi_1^{\mathrm{w}}\left( \sX, x_0\right)\cong\pi_1\left( C_0\left(\sX \right), \left\{C_0\left(p^\mu_\nu \right) \right\}\right)
 		\ee
-		where $	\pi_1\left( \sX, x_0\right)$  is the topological fundamental group  (cf. Remark \ref{top_homotopy_group_rem}) and $\pi_1\left( C_0\left(\sX \right), \left\{C_0\left(p^\mu_\nu \right) \right\}\right)$ 
-is the {fundamental group}	of the pair  $\left( C_0\left(\sX \right), \left\{C_0\left(p^\mu_\nu \right) \right\}\right)$  (cf. Definition \ref{fg_bas_defn}).
+		where  $\pi_1\left( C_0\left(\sX \right), \left\{C_0\left(p^\mu_\nu \right) \right\}\right)$ 
+is the {fundamental group}	of the pair  $\left( C_0\left(\sX \right), \left\{C_0\left(p^\mu_\nu \right) \right\}\right)$  (cf. Definition \ref{fundamental_group_nc_defn}).
 	\end{enumerate}
 \end{cor}
 \begin{proof}
-	(i) From the Lemmas \ref{top_simply_con_cov_lem} and \ref{top_uni_exist_spa_lem} it turns out that there is the universal (topological) covering $\widetilde{\sX} \to \sX$. From the Corollary \ref{top_cov_pi1_cor} it turns out that $\pi_1\left(\sX, x_0 \right)\approx  G\left(\left.\widetilde{\sX}~\right|\sX\right)$, hence $G\left(\left.\widetilde{\sX}~\right|\sX\right)$ is residually finite. From the Theorem \ref{comm_uni_lim_thm} it follows that $C_0\left(\widetilde{\sX} \right)$ is the universal covering of $C_0\left(\sX\right)$.\\
+	(i) From the Lemmas \ref{top_simply_con_cov_lem} and \ref{top_uni_exist_spa_lem} it turns out that there is the universal (topological) covering $\widetilde{\sX} \to \sX$. From the Exercise \ref{top_weak_covering_iso_exer} it turns out that  !!! WEAK CHANGE !!! $\pi^{\text{w}}_1\left(\sX, x_0 \right)\approx  G\left(\left.\widetilde{\sX}~\right|\sX\right)$, hence $G\left(\left.\widetilde{\sX}~\right|\sX\right)$ is residually finite. From the Theorem \ref{comm_uni_lim_thm} it follows that $C_0\left(\widetilde{\sX} \right)$ is the universal covering of $C_0\left(\sX\right)$.\\
 	(ii) Let  $\widetilde{p}:\widetilde{\sX} \to \sX$ be the universal covering of $\sX$ and let $\widetilde{x}_0\in \widetilde{\sX}$ be such that $\widetilde{p}\left( \widetilde{x}_0 \right) = x_0$. If $\widetilde{p}_\la: \widetilde{\sX} \to \sX_\la$ are natural coverings and $x^\la_0 = \widetilde{p}_\la\left( \widetilde{x}_0\right)$ then there is a pointed topological finite covering category $ \mathfrak{S}_{\left( \sX, \widetilde{p}\left(\widetilde{x}_0 \right) \right)}= \left\{p_\la:\left( \sX_\la, x^\la_0\right) \to \left( \sX, x_0\right)\right\}$. From the Corollary \ref{top_base_point_cor} there is the associated to $\mathfrak{S}_{\left( \sX, \widetilde{p}\left(\widetilde{x}_0 \right) \right)}$ pointed algebraical finite covering category $\left(\left\{C_0\left( p_\la\right): C_0\left( \sX\right)  \to C_0\left( \sX_\la\right)\right\}, \left\{C_0\left( p^\mu_\nu\right)  \right\}_{\substack{ \mu, \nu \in \La \\ \mu > \nu}} \right)$ such that $C_0\left(\widetilde\sX \right)$ is the inverse limit of it (cf. Definition \ref{main_defn}). From \eqref{fg_bas_eqn} it follows that
 $$
 \pi_1\left(C_0\left(\sX \right) , \left\{C_0\left( p^\mu_\nu\right) \right\} \right) = G\left(\left.C_0\left( \widetilde{\sX}\right) ~\right|~C_0\left( \sX\right)  \right).
 $$
 Otherwise from the Corollary \ref{top_cov_pi1_cor} it follows that $\pi_1\left( {\mathcal X}, x_0\right)\approx G\left(\left.\widetilde{\sX}~\right|\sX\right)$ and taking into account the given by the Theorem \ref{top_main_thm}) isomorphism $$G\left(\left.C_0\left( \widetilde{\sX}\right) ~\right|~C_0\left( \sX\right)  \right)\cong G\left(\left. \widetilde{\sX} ~\right| \sX  \right)$$ one has
 	\be\nonumber
-\pi_1\left( \sX, x_0\right)\cong\pi_1\left( C_0\left(\sX \right), \left\{C_0\left(p^\mu_\nu \right) \right\}\right).
+\pi_1^{\text{w}}\left( \sX, x_0\right)\cong\pi_1\left( C_0\left(\sX \right), \left\{C_0\left(p^\mu_\nu \right) \right\}\right).
 \ee
 	
 
 	
-	% If $\ga:\left[0, 1\right] \to \sX$ is a representative of $\left[\ga\right] \in \pi_1\left( \sX, x_0\right)$ the there is the unique continuous map $\widetilde{ \ga}: \left[0, 1\right] \to \widetilde{\sX}$ such that $\widetilde{ \ga}\left( 0\right)= \widetilde{x}_0$ and $\widetilde{p}\circ \widetilde{\ga}  =\ga$. Since $\widetilde{\sX}$ is simply connected the point $\widetilde{x}'_0$ does not depend on representative of $\left[\ga\right]$. There is the associated to $\widetilde{x}'_0$ pointed algebraical finite covering category $$\left(\left\{C_0\left( p_\la\right): C_0\left( \sX\right)  \to C_0\left( \sX_\la\right)\right\}, \left\{C_0\left( q^\mu_\nu\right)  \right\} \right)$$ (cf. Definition \ref{fg_bas_defn} ). From the \ref{base_point_change_lem} it follows that there is $$\widehat{g} \in \widehat{G}=\varprojlim G\left(\left.C_0\left( \sX_\la\right)~\right|C_0\left( \sX\right) \right)$$ such that
+	% If $\ga:\left[0, 1\right] \to \sX$ is a representative of $\left[\ga\right] \in \pi_1\left( \sX, x_0\right)$ the there is the unique continuous map $\widetilde{ \ga}: \left[0, 1\right] \to \widetilde{\sX}$ such that $\widetilde{ \ga}\left( 0\right)= \widetilde{x}_0$ and $\widetilde{p}\circ \widetilde{\ga}  =\ga$. Since $\widetilde{\sX}$ is simply connected the point $\widetilde{x}'_0$ does not depend on representative of $\left[\ga\right]$. There is the associated to $\widetilde{x}'_0$ pointed algebraical finite covering category $$\left(\left\{C_0\left( p_\la\right): C_0\left( \sX\right)  \to C_0\left( \sX_\la\right)\right\}, \left\{C_0\left( q^\mu_\nu\right)  \right\} \right)$$ (cf. Definition \ref{fundamental_group_nc_defn} ). From the \ref{base_point_change_lem} it follows that there is $$\widehat{g} \in \widehat{G}=\varprojlim G\left(\left.C_0\left( \sX_\la\right)~\right|C_0\left( \sX\right) \right)$$ such that
 	%\be\label{comm_base_point_change_p_lem_eqn}
 %	C_0\left( q^\mu_\nu\right) = h_\mu\left(\widehat{g} \right) \circ 	C_0\left( p^\mu_\nu\right)
 %	\ee
@@ -11006,9 +11021,9 @@ Otherwise from the Corollary \ref{top_cov_pi1_cor} it follows that $\pi_1\left( 
 \begin{exercise}\label{comm_uni_lim_exe}
 	Let $\mathcal X$ be a connected, locally path connected, semilocally 1-connected (cf. Definition \ref{top_semi1_defn}), locally compact,  Hausdorff space. If there is   the universal topological covering $\widetilde{p}:\widetilde{\sX}\to \mathcal X$ (cf. Definition \ref{top_universal_covering_defn}) such that $G\left( \left.{\widetilde{\sX}}~\right|\sX\right)$ is residually finite group (cf. Definition \ref{residually_finite_defn}) then $C_0\left( \widetilde{\sX}, \R\right)$ is the universal covering of the real sub-unital operator space $\left( C_0\left( {\sX}, \R\right),C_0\left( {\sX}^\sim, \R\right)\right)$ (cf. Remark \ref{real_op_rem}). Moreover there is an isomorphism of fundamental groups
 	$$
-	\pi_1\left(\left( C_0\left( {\sX}, \R\right),C_0\left( {\sX}^\sim, \R\right)\right)\right) \cong \pi_1\left( \sX\right). 
+	\pi_1\left(\left( C_0\left( {\sX}, \R\right),C_0\left( {\sX}^\sim, \R\right)\right)\right) \cong \pi_1^{\text{w}}\left( \sX\right). 
 	$$
-	%  then  $\left( C_0\left( {   \mathcal X }\right) ,  C_0\left( \widetilde{   \mathcal X }\right), G\left( \left.{\widetilde{\sX}}~\right|\sX\right) \right)$ is the (algebraical) universal approximately finite covering (cf. exercise \ref{fg_bas_defn} ).
+	%  then  $\left( C_0\left( {   \mathcal X }\right) ,  C_0\left( \widetilde{   \mathcal X }\right), G\left( \left.{\widetilde{\sX}}~\right|\sX\right) \right)$ is the (algebraical) universal approximately finite covering (cf. exercise \ref{fundamental_group_nc_defn} ).
 \end{exercise}
 \subsection{Coverings of *-algebras}
 
@@ -11828,7 +11843,7 @@ of left $C_0\left(\widetilde \sX \right)$-modules.
 
 \subsection{Coverings of spectral triples}
 
-\paragraph*{} Let $\left(C^{\infty}\left( M\right) , L^2\left( M, S, \mu\right) ,\slashed D, J\right)$ be a commutative spectral triple (cf. equation \eqref{comm_sp_tr_eqn}), and let $\widetilde p:\widetilde{M} \to M$ be an infinite regular covering such that  the {covering group} $G\left( {\widetilde{M}}~|~M\right)$ (cf. Definition \ref{cov_proj_cov_grp_defn}) is residually finite (cf. Definition \ref{residually_finite_defn}). From the Lemma \ref{top_associded_lem} !!! \ref{top_associated_defn} CHECK DEFN !! it turns out that there is a pointed (topological)  finite covering category 
+\paragraph*{} Let $\left(C^{\infty}\left( M\right) , L^2\left( M, S, \mu\right) ,\slashed D, J\right)$ be a commutative spectral triple (cf. equation \eqref{comm_sp_tr_eqn}), and let $\widetilde p:\widetilde{M} \to M$ be an infinite regular covering such that  the {covering group} $G\left( {\widetilde{M}}~|~M\right)$ (cf. Definition \ref{top_covering_transformations_group_defn}) is residually finite (cf. Definition \ref{residually_finite_defn}). From the Lemma \ref{top_associded_lem} !!! \ref{top_associated_defn} CHECK DEFN !! it turns out that there is a pointed (topological)  finite covering category 
 \be\label{top_m_cat_eqn}
 \mathfrak{S}_{\left(M, x_0\right)} = \left\{p_\la:\left(  M_\la, x^\la_0 \right) \to \left( M,{x_0}\right) \right\}
 \ee
@@ -12868,7 +12883,7 @@ Denote by $R \bydef \left\{R_{a'}| a'\in A'\right\}$.
 The Definition \ref{blowing_liftq_defn} is compliant with \ref{top_lift_defn}  one (cf. Examples \ref{blowing_hausdorff_exm}  and \ref{blowing_disintegrable_exm}).
 \end{remark}
 \begin{empt}\label{blowing_lift_desc_empt}
-Let $A$ be $C^*$-algebra, and let $C_0\left(\sY\right)$ be disintegrable Hausdorff blowing-up (cf. Definitions \ref{blowing_defn} and \ref{blowing_disintegrable_defn}). Let $q: \left( \widetilde \sY , \widetilde y_0\right) \to \left( \sY, y_0\right) $ be a pointed transitive covering such that a {covering group} $G\left( \left.{\widetilde{\sY}}~\right|\sY\right)$ (cf. Definition \ref{cov_proj_cov_grp_defn}) is residually finite (cf. Definition \ref{residually_finite_defn}). Let  $A_0\left(\widetilde \sY \right)$ be a $q$-lift of $A$ (cf. Definition \ref{blowing_lift_a_f_defn}). Let 
+Let $A$ be $C^*$-algebra, and let $C_0\left(\sY\right)$ be disintegrable Hausdorff blowing-up (cf. Definitions \ref{blowing_defn} and \ref{blowing_disintegrable_defn}). Let $q: \left( \widetilde \sY , \widetilde y_0\right) \to \left( \sY, y_0\right) $ be a pointed transitive covering such that a {covering group} $G\left( \left.{\widetilde{\sY}}~\right|\sY\right)$ (cf. Definition \ref{top_covering_transformations_group_defn}) is residually finite (cf. Definition \ref{residually_finite_defn}). Let  $A_0\left(\widetilde \sY \right)$ be a $q$-lift of $A$ (cf. Definition \ref{blowing_lift_a_f_defn}). Let 
 $$
 \mathfrak{S}_{\left( \sY, y_0  \right) }=\left\{ p_\la: \left( \sY_\la, y^\la_0\right) \to \left( \sY, y_0\right)\right\}_{\la \in \La} 
 $$
@@ -13387,7 +13402,7 @@ The above equation it turns out that the series \eqref{blowing_rx_eqn} is norm c
 		Definition \ref{blowing_proper_defn}) then $A^{\mathrm{prop}}_\sU$ is simply connected (cf. Definition \ref{simply_connected_defn});
 		\item[(b)] There is a   transitive covering $q: \widetilde \sY \to \sY$ (cf. Definitions \ref{top_covering_defn}, \ref{top_transitive_defn}) and an open connected subset $\widetilde \sU\subset  \widetilde \sY$ such that:
 		\begin{itemize}
-			\item a covering  group $G \left( \left. \widetilde \sY\right| \sY \right)$ (cf. Definition \ref{cov_proj_cov_grp_defn}) is residually finite (cf. Definition \ref{residually_finite_defn}), 
+			\item a covering  group $G \left( \left. \widetilde \sY\right| \sY \right)$ (cf. Definition \ref{top_covering_transformations_group_defn}) is residually finite (cf. Definition \ref{residually_finite_defn}), 
 			\item $\widetilde \sU$ is homeomorphically mapped onto $\sU$,
 			\item One has
 			\be\label{blowig_hered_prop_eqn}
@@ -13404,7 +13419,7 @@ The above equation it turns out that the series \eqref{blowing_rx_eqn} is norm c
 
 \begin{empt}\label{blowing_inf_c_empt}
 Let $A$ be a connected $C^*$-algebra, and let $C\left( \sY\right) \hookto A$ be a disintegrable Hausdorff blowing-up (cf. Definitions \ref{blowing_defn} and \ref{blowing_disintegrable_defn}) with compact $\sY$. Let $\sU\subset \sY$ be a semilocally 1-connected subset (cf. Definition \ref{blowing_semi_defn}). Let $q: \widetilde \sY \to \sY$ be a transitive covering which satisfies to the condition (b) of the Definition \ref{blowing_semi_defn}.
-The covering  group $G \left( \left. \widetilde \sY\right| \sY \right)$ (cf. Definition \ref{cov_proj_cov_grp_defn}) is residually finite (cf. Definition \ref{residually_finite_defn}), so from the Lemma  \ref{top_associded_lem} !!! \ref{top_associated_defn} CHECK DEFN !! it follows that there is  a pointed  topological finite covering category
+The covering  group $G \left( \left. \widetilde \sY\right| \sY \right)$ (cf. Definition \ref{top_covering_transformations_group_defn}) is residually finite (cf. Definition \ref{residually_finite_defn}), so from the Lemma  \ref{top_associded_lem} !!! \ref{top_associated_defn} CHECK DEFN !! it follows that there is  a pointed  topological finite covering category
   \bean
 \begin{split}
 	\mathfrak{S}_{\left( \sY, y_0  \right) } \bydef\\\bydef\left\{\left\{ q_\la: \left( \sY_\la, y^\la_0\right) \to \left( \sY, y_0\right)\right\}_{\la \in \La}, \left\{q^\mu_\nu: \left( \sY_\mu, y^\mu_0  \right)\to \left( \sY_\nu, y^\nu_0  \right)\right\}_{\substack{ \mu, \nu \in \La \\ \mu \ge \nu}}\right\}
@@ -13812,8 +13827,8 @@ be a	finite covering category $\mathfrak{S}_{\left( \sY, y_0  \right) }$ {associ
 	Let $\overline \sY$ be a  {topological disconnected inverse limit} of $\mathfrak{S}_{\left( \sY, y_0\right)}$ (cf. Definition \ref{top_topological_inv_lim_defn}). If $\mathfrak{S}^{\mathrm{pt}}_A$ is $\overline\sY$ good  (cf. Definition \ref{blowing_good_defn}) then one has:
 	\begin{enumerate}
 		\item [(a)] a triple $\left(A, A_0\left(\widetilde \sY\right), G\left( \left.\widetilde \sY \right| \sY\right)\right)$ 
-		is a simple universal covering of $A$ (cf. Definition \ref{fg_bas_defn}) where $A_0\left(\widetilde \sY\right)$ is a $\widetilde q$-lift of $A$ (cf. Definition \ref{blowing_lift_a_f_defn}),
-	\item[(b)] a simple fundamental group of $A$ (cf. Definition \ref{fg_bas_defn}) is isomorphic to  $G\left( \left.\widetilde \sY \right| \sY\right)$
+		is a simple universal covering of $A$ (cf. Definition \ref{fundamental_group_nc_defn}) where $A_0\left(\widetilde \sY\right)$ is a $\widetilde q$-lift of $A$ (cf. Definition \ref{blowing_lift_a_f_defn}),
+	\item[(b)] a simple fundamental group of $A$ (cf. Definition \ref{fundamental_group_nc_defn}) is isomorphic to  $G\left( \left.\widetilde \sY \right| \sY\right)$
 	\end{enumerate}
 \end{corollary}
 \begin{proof}
@@ -13890,8 +13905,8 @@ We say that $\pi_2\left(A, \a_0 \right) $ is the
 \be\label{pi_n_eqn}
 \pi_n\left(A, \a \right) \bydef \pi_1\left(b\left(\Omega^{n-1} A \right), \left\{\pi^\nu_\mu\right\} \right). 
 \ee
-Similarly to the Definition \ref{fg_bas_defn} we define the \textit{reduced} and \textit{free} and $n^{\text{th}}$ \textit{homotopy group}.% (cf. Definition \ref{fg_bas_eqn}).
-%	In both equations \eqref{pi_n_eqn} and \eqref{pi_n_eqn} we assume that $\pi_1$ means the reduced fundamental group (cf. Definition \ref{fg_bas_defn} ).
+Similarly to the Definition \ref{fundamental_group_nc_defn} we define the \textit{reduced} and \textit{free} and $n^{\text{th}}$ \textit{homotopy group}.% (cf. Definition \ref{fg_bas_eqn}).
+%	In both equations \eqref{pi_n_eqn} and \eqref{pi_n_eqn} we assume that $\pi_1$ means the reduced fundamental group (cf. Definition \ref{fundamental_group_nc_defn} ).
 
 
 \end{definition}
@@ -16538,11 +16553,11 @@ Following theorem gives universal  coverings of operator spaces with continuous 
 	$A$ is a connected, locally connected, locally compact, second-countable, Hausdorff space. If there is   the universal topological covering $\widetilde{p}:\widetilde{\sX}\to \mathcal X$ (cf. Definition \ref{top_universal_covering_defn}) such that $G\left( \left.{\widetilde{\sX}}~\right|\sX\right)$ is a residually finite group then the triple 	$$
 	\left( A ,  A_0\left( \widetilde{   \mathcal X }\right), G\left( \left.{\widetilde{\sX}}~\right|\sX\right) \right)
 	$$ 
-	is the universal covering of $A$ (cf. Definition \ref{fg_bas_defn}).
+	is the universal covering of $A$ (cf. Definition \ref{fundamental_group_nc_defn}).
 \end{theorem}
 
 \begin{proof}
-	Denote by the {(topological)  finite covering category} $\mathfrak{S}_{\sX} = \left\{p_\la : \sX_\la \to \sX\right\}_{\la \in \La}$ (cf. Definition \ref{top_sec_defn}) such that \textit{any} finite-fold transitive covering $\widetilde{\sX}' \to \sX$ belongs to $\mathfrak{S}_{\sX}$. 
+	Denote by the {(topological)  finite covering category} $\mathfrak{S}_{\sX} = \left\{p_\la : \sX_\la \to \sX\right\}_{\la \in \La}$ (cf. Definition \ref{top_finite_covering_category_defn}) such that \textit{any} finite-fold transitive covering $\widetilde{\sX}' \to \sX$ belongs to $\mathfrak{S}_{\sX}$. 
 	From the Lemma \ref{ctr_fin_red_lem} it turns out that	there is the {(algebraical)  finite covering category} $\mathfrak{S}_{A} = \left\{\pi_\la : A  \hookto A\left( \sX_\la\right)  \right\}_{\la \in \La}$. From the Theorem \ref{ctr_fin_thm} it follows that any noncommutative finite-fold covering $ A \hookto A'$ belongs to $\mathfrak{S}_{A}$.	
 	From the Lemma \ref{blowing_base_point_lem} the  pointed a topological finite covering category $\mathfrak{S}_{\left( \sX, \widetilde{p}\left(\widetilde{x}_0 \right)  \right)}  $ induces the {pointed algebraical  finite covering category} $\mathfrak{S}_{A }^{\text{pt}}$ given by \eqref{ctr_base_point_eqn}, i.e.
 	\be\nonumber
@@ -16552,7 +16567,7 @@ Following theorem gives universal  coverings of operator spaces with continuous 
 	\end{split}
 	\ee
 	From the Lemma \ref{top_associded_lem} !!! \ref{top_associated_defn} CHECK DEFN !! it turns out that the pointed space $\left( \widetilde{\sX} , \widetilde{x}_0 \right)$ is the inverse noncommutative limit of $\mathfrak{S}_{\left( \sX, x_0 \right) }.$
-	From the Theorem  \ref{blowing_main_thm} it turns out that 	$\left( A,  A\left( \widetilde{   \mathcal X }\right), G\left( \left.{\widetilde{\sX}}~\right|\sX\right) \right)$ is infinite noncommutative covering of $\mathfrak{S}_{A}$ 	(cf. Definition \ref{main_defn}), and taking into account the Definition \ref{fg_bas_defn}  one concludes that 	$\left( A,  A\left( \widetilde{   \mathcal X }\right), G\left( \left.{\widetilde{\sX}}~\right|\sX\right) \right)$ is the universal covering of $A$.
+	From the Theorem  \ref{blowing_main_thm} it turns out that 	$\left( A,  A\left( \widetilde{   \mathcal X }\right), G\left( \left.{\widetilde{\sX}}~\right|\sX\right) \right)$ is infinite noncommutative covering of $\mathfrak{S}_{A}$ 	(cf. Definition \ref{main_defn}), and taking into account the Definition \ref{fundamental_group_nc_defn}  one concludes that 	$\left( A,  A\left( \widetilde{   \mathcal X }\right), G\left( \left.{\widetilde{\sX}}~\right|\sX\right) \right)$ is the universal covering of $A$.
 \end{proof}
 \begin{cor}\label{ctr_fg_cor}
 	Let $A$ be a separable $C^*$-algebra, such that the spectrum $\mathcal X$ of 	$A$ is is a connected locally connected locally compact second-countable Hausdorff space.
@@ -19540,7 +19555,7 @@ Although coverings $\phi_1$ and $\phi_2$ are essentially different their  stabil
 \phi_2\otimes 1_{M\left(\K\right)} : C\left( \T^{2}_\th\right)\otimes \K\hookto C\left( \T^{2}_{\left( \th+1\right) /n}\right)\otimes \K
 \eean 
 are isomorphic. It follows that the set of equivalent coverings of  $C\left( \T^{2}_\th\right)$ is more wide then the set of of equivalent coverings of  $C\left( \T^{2}_\th\right)\otimes\K$ 
-This fact motivates usage of $A\otimes\K$ instead of $A$ in the Definition \ref{fg_bas_defn}.
+This fact motivates usage of $A\otimes\K$ instead of $A$ in the Definition \ref{fundamental_group_nc_defn}.
 \begin{exercise}\label{nt_non_iso_exer}
 	Prove that there are two projectors $p, p' \in \K$ such that
 	\bean
@@ -19588,12 +19603,12 @@ Since $p:\R^2\to \T^2$ is the universal covering the  fundamental group $\pi_1\l
 \left(C^*_r\left(\T^2, \sF_\th\right), C^*_r\left(\R^2, \widetilde \sF_\th\right), \Z^2 \cong G\left(\left.\R^2\right|\Z^2\right)\right).
 \ee
 where $\widetilde \sF_\th$ is the $p$-lift of $\sF_\th$
-(cf. Definition \eqref{fg_bas_defn}).
+(cf. Definition \eqref{fundamental_group_nc_defn}).
 From the Theorem \ref{blowing_main_thm} it follows that 
 \be
 \pi^{\mathrm{stable_eqn}}_1\left( C\left( \T^2_\th\right)\right)\cong \pi_1\left(C^*_r\left(\T^2, \sF_\th\right)\right)\cong \pi_1\left( \T^2, t_0\right)\cong \Z^2
 \ee
-(cf. Definition \ref{fg_bas_defn} and the Corollary \ref{foli_n_cat_fg_cor}) where the reduced fundamental group is implied.
+(cf. Definition \ref{fundamental_group_nc_defn} and the Corollary \ref{foli_n_cat_fg_cor}) where the reduced fundamental group is implied.
 \begin{exercise}
 	Using the Exercise \ref{cofinal_exer} and the  Corollary  \ref{nt_cofinal_cor} prove that 
 	$$
@@ -21257,7 +21272,7 @@ For all $n > 1$ the group $	\pi_{n} (\sX, x_0)$ is Abelian.
 		A topological space $\mathcal X$ is said to be \textit{locally path-connected} if the path components of open sets are open.
 	\end{defn}
 	%\paragraph{} It follows from Lemma \ref{lem_3_spanier_lem} that if $p: \widetilde{\mathcal X} \to \mathcal X$ be a fibration with unique path lifting then for any two objects $\widetilde{x}_1$ and $\widetilde{x}_2$ in the fundamental groupoid of $\widetilde{X}$
-	\begin{defn}\label{cov_proj_cov_grp_defn}\cite{spanier:at}
+	\begin{defn}\label{top_covering_transformations_group_defn}\cite{spanier:at}
 		Let $p: \mathcal{\widetilde{X}} \to \mathcal{X}$ be a covering.  A self-equivalence is a homeomorphism $f:\mathcal{\widetilde{X}}\to\mathcal{\widetilde{X}}$ such that $p \circ f = p$. This group of such homeomorphisms is said to be the {\it group of covering transformations} of $p$ or the {\it covering group}. Denote by $G\left( \mathcal{\widetilde{X}}~|~\mathcal{X}\right)$ this group.
 	\end{defn}
 	
@@ -28696,7 +28711,7 @@ The above equation is a counterpart of \eqref{Tthetarel}, so the noncommutative 
  	$$
  	C\left(u\right)\to ...\to C\left(u_j \right)\to ... 
  	$$
- 	of commutative $C^*$-algebras which corresponds to a following topological finite covering category (cf. Definition \ref{top_sec_defn})
+ 	of commutative $C^*$-algebras which corresponds to a following topological finite covering category (cf. Definition \ref{top_finite_covering_category_defn})
  	$$
  	S^1 \leftarrow ...\leftarrow \sX_j \leftarrow ...
  	$$
