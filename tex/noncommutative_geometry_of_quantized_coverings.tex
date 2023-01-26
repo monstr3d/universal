@@ -7495,9 +7495,9 @@ Consider the above situation. If a subset   $\sY \subset \sX$ is compact then th
 \end{lemma}
 \begin{proof}
 (i) From the equation \eqref{closed_ideal_eqn} it follows that there is a natural surjective *-homomorphism $p':A \to\left.A\right|^\sY$. From the Lemma \ref{top_ax_k_lem} it turns out that is a natural surjective *-homomorphism $p':A \to C_0\left(\sY, \left\{ A_{x}\right\}, A  \right)$. From $\ker p'=\ker p'' = \left.A\right|_{\sX\setminus\sY}$ (cf. equation \eqref{open_ideal_eqn}) it follows that $\left.A\right|^\sY\cong C_0\left(\sY, \left\{ A_{x}\right\}, A  \right)$.\\
-(ii)  From the Theorem \ref{ctr_as_field_thm} it follows that the spectrum of $C_0\left(\sY, \left\{ A_{x}\right\}, A  \right)$ equals to $\sY$, so from (i) of this lemma it follows that the spectrum of $\left.A\right|^\sY$ coincides with $\sY$.
+(ii)  From the Theorem \ref{ctr_as_field_thm} it follows that the spectrum of $C_0\left(\sY, \left\{ A_{x}\right\}, A  \right)$ equals to $\sY$, so from (i) of this lemma and the Lemma  \ref{oa_haus_alg_lem} it follows that the spectrum of $\left.A\right|^\sY$ coincides with $\sY$.
 \end{proof}
-!!! CONTINUE !!!
+
 \begin{lemma}\label{top_lift_c_alg_lem}
 	If $\sF$ is a continuity structure for  $\sX$ {and the} $\left\{A_x\right\}_{x \in \sX}$, such that $A_x$ is a $C^*$-algebra for all $x \in \sX$ and $p: \widetilde{\sX}\to\sX$ is a covering then
 	\begin{enumerate}
@@ -7540,52 +7540,51 @@ Consider the above situation. If a subset   $\sY \subset \sX$ is compact then th
 
 
 \begin{empt}\label{top_cs_funct_empt}
-	Let $\sX$ be a connected, locally connected, locally compact, Hausdorff space called the base space; and for each $x$ in $\sX$, let $A_x$ be a $C^*$-algebra. Let us consider a continuity structure $\sF$ for $\sX$ {and the} $\left\{A_x\right\}_{x \in \sX}$ (cf. Definition \ref{op_fields_defn}).
-	Denote by
+	If $A$ be a $C^*$-algebra with connected, locally connected, locally compact, Hausdorff spectrum $\sX$ then from the Lemma Lemma  \ref{oa_haus_alg_lem} it follows that
 	\be\label{top_cstr_eqn}
-	A\stackrel{\mathrm{def}}{=} C_0\left(\sX, \left\{A_x\right\}_{x \in \sX}, \sF \right).
+	A\cong C_0\left(\sX, \left\{\rep_x\left( A\right) \right\}_{x \in \sX},A \right).
 	\ee
-	Let us consider the category  $\mathfrak{FinCov}$-$\sX$ given by the Definition \ref{top_fin_cov_defn}. From \ref{top_mult_inc_empt} it turns out that $C_0\left( \sX, \left\{A_x\right\}, \sF \right)$ is a $C^*$-algebra. If $p$ is a finite-fold covering then from the Lemma \ref{top_lift_c_alg_lem} it follows that $\lift_p$ induces the injective *-homomorphism 
+	Let us consider the category  $\mathfrak{FinCov}$-$\sX$ given by the Definition \ref{top_fin_cov_defn}.  If $p: \widetilde \sX\to \sX$ is a finite-fold covering then from the Lemma \ref{top_lift_c_alg_lem} it follows that $\lift_p$ induces the injective *-homomorphism 
 	$$
-	C_0\left(\sX, \left\{A_x\right\}, \sF \right) \hookto C_0\left(\lift_p\left[\sX, \left\{A_x\right\}, \sF \right] \right) 
+	C_0\left(\sX, \left\{\rep_x\left( A\right) \right\}_{x \in \sX},A \right) \hookto C_0\left(\lift_p\left[C_0\left(\sX, \left\{\rep_x\left( A\right) \right\}_{x \in \sX},A \right) \right] \right) 
 	$$
 	of $C^*$-algebras. From the Lemma  \ref{top_lift_composition_lem} it follows there is  a contravariant  functor  (cf. Definitions \ref{functor_defn} and \ref{functor_contravariant_defn}) $A_0$ from  $\mathfrak{FinCov}$-$\sX$  to the category of $C^*$-algebras such that
 	\begin{itemize}
 		\item If $p:\widetilde\sX \to \sX$  is an object of the category  $\mathfrak{FinCov}$-$\sX$, i.e. $p$ is a transitive finite-fold covering then 
 		\be\label{top_c0_ob_eqn}
-		A_0\left(p \right)   \stackrel{\mathrm{def}}{=}\left( 	C_0\left(\sX, \left\{A_x\right\}, \sF \right) \hookto C_0\left(\lift_p\left[\sX, \left\{A_x\right\}, \sF \right] \right)\right). 
+		\begin{split}
+		A_0\left(p \right)   \stackrel{\mathrm{def}}{=} A \hookto A_0\left(\widetilde\sX\right). 
+		\end{split}
 		\ee
-		We also write $ A_0\left(\widetilde\sX\right)$ 	instead of $A_0\left(p\right)$  and use the notation
+		where $A_0\left(\widetilde\sX\right)$ is given by
 		\be\label{top_c0i_ob_eqn}
-		A_0\left(\widetilde\sX\right)   \stackrel{\mathrm{def}}{=}C_0\left(\lift_p\left[\sX, \left\{A_x\right\}, \sF \right] \right) 
+		A_0\left(\widetilde\sX\right)   \stackrel{\mathrm{def}}{=}C_0\left(\lift_p\left[\sX, \left\{A_x\right\}, \sF \right] \right). 
 		\ee
-		which is alternative to \eqref{top_c0_ob_eqn} (cf. Remark \ref{top_fin_cov_rem}).
 		\item If $p^1_2: \widetilde\sX_1 \to \widetilde\sX_2$ is  morphism form $p_1:\widetilde\sX_1 \to \sX$ to $p_2:\widetilde\sX_2 \to \sX$, i.e. $p_1 = p^1_2\circ p_2$, then
 		\be\label{top_c0p_ob_eqn}
 		A_0\left(p^1_2 \right) \stackrel{\mathrm{def}}{=} \left.\left.\lift_{p^1_2} \right.\right|_{A_0\left(\widetilde\sX_2 \right)}	: A_0\left(\widetilde\sX_2 \right) \hookto A_0\left(\widetilde\sX_1 \right).
 		\ee	
 	\end{itemize}
+Sometimes we replace $A_0\left(p \right)$ with  $A_0\left(\widetilde\sX\right)$.
 \end{empt}
 \begin{definition}\label{top_cs_funct_defn}
-	The described in \ref{top_cs_funct_empt} faithful contravariant functor $A_0$ (cf. Definitions \ref{functor_defn}, \ref{funct_full_faithfull_defn}  and \ref{functor_contravariant_defn})   from the category  the category  $\mathfrak{FinCov}$-$\sX$ to the category of $C^*$-algebras and *-homomorphisms is said to by the \textit{finite covering functor associated with} $A = \left(\sX, \left\{A_x\right\}_{x \in \sX}, \sF \right)$.
+	The described in \ref{top_cs_funct_empt} faithful contravariant functor $A_0$ (cf. Definitions \ref{functor_defn}, \ref{funct_full_faithfull_defn}  and \ref{functor_contravariant_defn})   from the category  the category  $\mathfrak{FinCov}$-$\sX$ to the category of $C^*$-algebras and *-homomorphisms is said to by the \textit{finite covering functor associated with} $A = C_0\left(\sX, \left\{\rep_x\left( A\right) \right\}_{x \in \sX},A \right)$.
 \end{definition}
 
 \begin{definition}\label{top_cs_funct_b_defn}
-	Let $\sX$ be a connected, locally connected, locally compact, Hausdorff space and for each $x$ in $\sX$, let $A_x$ be a $C^*$-algebra. Let us consider a continuity structure $\sF$ for $\sX$ {and the} $\left\{A_x\right\}_{x \in \sX}$ (cf. Definition \ref{op_fields_defn}). Suppose that $
-	A \stackrel{\mathrm{def}}{=} \left(\sX, \left\{A_x\right\}_{x \in \sX}, \sF \right)
-	$.
+	$A$ be a $C^*$-algebra with connected, locally connected, locally compact, Hausdorff spectrum $\sX$
 	If $p: \widetilde{\sX} \to \sX$ is a transitive covering then we use the following notation for $C^*$-algebras and their injective *-homomorphisms:
 	\be\label{top_cb_defn_eqn}
 	\begin{split}
-		A_c\left(\sX \right)\stackrel{\mathrm{def}}{=} C_c\left(\sX, \left\{A_x\right\}, \sF \right),\\
-		A_0\left(\sX \right)\stackrel{\mathrm{def}}{=} C_0\left(\sX, \left\{A_x\right\}, \sF \right),\\
-		A_b\left(\sX \right)\stackrel{\mathrm{def}}{=} C_b\left(\sX, \left\{A_x\right\}, \sF \right),
+		A_c\left(\sX \right)\stackrel{\mathrm{def}}{=} C_c\left(\sX, \left\{\rep_x\left( A\right) \right\}_{x \in \sX},A \right),\\
+		A_0\left(\sX \right) \bydef A =C_0\left(\sX, \left\{\rep_x\left( A\right) \right\}_{x \in \sX},A \right),\\
+		A_b\left(\sX \right)\stackrel{\mathrm{def}}{=} C_b\left(\sX, \left\{\rep_x\left( A\right) \right\}_{x \in \sX},A \right),
 		\\ 
-		A_c\left(\widetilde{\sX} \right)\stackrel{\mathrm{def}}{=} C_c\left( \lift_p\left[C\left(\sX, \left\{A_x\right\}, \sF \right)\right] \right),
+		A_c\left(\widetilde{\sX} \right)\stackrel{\mathrm{def}}{=} C_c\left( \lift_p\left[C\left(\sX, \left\{\rep_x\left( A\right) \right\}_{x \in \sX},A \right)\right] \right),
 		\\
-		A_0\left(\widetilde{\sX} \right)\stackrel{\mathrm{def}}{=} C_0\left( \lift_p\left[C\left(\sX, \left\{A_x\right\}, \sF \right)\right] \right),
+		A_0\left(\widetilde{\sX} \right)\bydef C_0\left( \lift_p\left[C\left(\sX, \left\{\rep_x\left( A\right) \right\}_{x \in \sX},A \right)\right] \right),
 		\\
-		A_b\left(\widetilde{\sX} \right)\stackrel{\mathrm{def}}{=} C_b\left( \lift_p\left[C\left(\sX, \left\{A_x\right\}, \sF \right)\right] \right),
+		A_b\left(\widetilde{\sX} \right)\stackrel{\mathrm{def}}{=} C_b\left( \lift_p\left[C\left(\sX, \left\{\rep_x\left( A\right) \right\}_{x \in \sX},A \right)\right] \right),
 		\\
 		A_b\left(p \right) \stackrel{\mathrm{def}}{=} \left.\left.\lift\right._p\right|_{A_0\left(\sX \right)} : A_0\left(\sX \right)  \hookto A_b\left(\widetilde{\sX} \right),
 		\\
@@ -7642,7 +7641,7 @@ $$
 \left(ab \right)\mapsto C_0\left(p\right)\left(a\right)b.
 $$
 \end{exercise}
-
+!!!  CONTINUE !!!
 \begin{lemma}\label{top_res_iso_lem}
 	Let $\sX$ be a connected, locally connected, locally compact, Hausdorff space, and let $\sF$ be	continuity structure for $\sX$ {and the} $\left\{A_x\right\}_{x \in \sX}$ (cf. Definition \ref{op_fields_defn}) where $A_x$ is a $C^*$-algebra for every $x \in \sX$. Let $p: \widetilde{\sX} \to \sX$ be a covering. Let $\widetilde{\sU}$ be an open set such that the restriction $\left.p\right|_{\widetilde{\sU}}$ is injective and $\sU = p\left(\widetilde{\sU}\right)$. If the closure of $\sU$ is compact, both $\left.C_0\left(\sX, \left\{A_x\right\}, \sF \right)\right|_{\sU}$ and $\left.C_0\left( \lift_p\left[ C\left(\sX, \left\{A_x\right\}, \sF \right)\right] \right) \right|_{\widetilde{\sU}}$ are given by  \eqref{top_res_eqn} then there is a natural injective *-isomorphism
 	$$
