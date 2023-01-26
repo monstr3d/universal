@@ -6473,7 +6473,6 @@ $ h :  G\left(\widetilde{   \mathcal X }'~|~{   \mathcal X } \right)\to G\left(\
 
 \section{Continuous structures lift and descent}\label{top_lift_desc_sec}
 \paragraph*{}
-!!! FELL CONDITION !!!
 Let $\sX$ be a locally compact, Hausdorff space; and  for each $x$ in $\sX$, let $A_x$ be a (complex) Banach space. Let us consider a continuity structure $\sF$ for $\sX$ {and the} $\left\{A_x\right\}_{x \in \sX}$ (cf. Definition \ref{op_fields_defn}). Denote by
 \be\label{top_c_sec_eqn}
 C\left(\sX, \left\{A_x\right\}, \sF \right) \bydef \left\{\left.\left\{a_x\right\}_{x \in \sX}\in \prod_{x \in \sX} A_x\right|\left\{a_x\right\} \text{ is a continuous section} \right\}
@@ -6503,7 +6502,9 @@ C\left(\sX, \left\{A_x\right\}, \sF \right) \bydef \left\{\left.\left\{a_x\right
 	Let $a \in C\left(\sX, \left\{A_x\right\}, C\left(\sX, \left\{A_x\right\}, \sF \right)\right) $, let $x_0 \in \sX$ and $\eps > 0$. There is an open neighborhood  $\sU'$ of $x_0$ and $a' \in C\left(\sX, \left\{A_x\right\}, \sF \right)$ such that $\left\|a_x  - a'_x\right\| < \frac{\eps}{2}$ for all $x \in \sU'$. Otherwise there is an open neighborhood  $\sU''$ of $x_0$ and $a'' \in \sF$ such that $\left\|a'_x  - a''_x\right\| < \frac{\eps}{2}$ for every $x \in \sU''$. It follows that $\left\|a_x  - a''_x\right\| < \eps$ for every $x \in \sU'\cap\sU''$, hence one has $a \in C\left(\sX, \left\{A_x\right\}, \sF \right)$. In result we conclude that
 	$$ C\left(\sX, \left\{A_x\right\}, C\left(\sX, \left\{A_x\right\}, \sF \right)\right)\subset C\left(\sX, \left\{A_x\right\}, \sF \right).$$
 \end{proof} 
-
+\begin{remark}
+	The Lemma \ref{top_c_cont_str_lem} is a generalization of the Lemma \ref{top_full_oaf_lem}.
+\end{remark}
 Any vector bundle $\left( E, \pi, \mathcal X\right)$ (cf. Definition \ref{top_vb_defn} and Remark \ref{com_inf_rem}) yields a family of fibers $\left\{E_x\right\}_{x \in \sX}$.
 
 \begin{lemma}\label{top_bundle_cs_ex_lem}
@@ -6521,7 +6522,7 @@ If $\left( E, \pi, \mathcal X\right)$ is a vector bundle (cf. Definition \ref{to
 		\label{top_cgb_eqn}
 		C_b\left(\sX , \left\{E_x\right\}, \Ga\left( E, \pi, \mathcal X\right) \right) \cong \Ga_b\left( E, \pi, \mathcal X\right)
 		\eea
-		of $C_0\left(\sX\right)$ modules (cf. equation \eqref{top_f_eqn}).
+		of $C_0\left(\sX\right)$-modules (cf. equation \eqref{top_f_eqn}).
 	\end{enumerate}
 
 \end{lemma}
@@ -6588,7 +6589,7 @@ Let us define $\left\|\cdot\right\|: C\left(\sX, \left\{A_x\right\},\sF\right)\t
 	\ee
 \end{definition}
 \begin{definition}\label{top_cc_c0_defn}
-	The $C_b\left(\widetilde{\sX}\right) $-module 
+	The $C_b\left({\sX}\right) $-module 
 	\be
 	C_c\left(\sX, \left\{A_x\right\}, \sF \right) = \left\{\left.a \in C_b\left(\sX, \left\{A_x\right\}, \sF \right)~\right| \supp a \text{ is compact } \right\}
 	\ee
@@ -6612,9 +6613,12 @@ Let us define $\left\|\cdot\right\|: C\left(\sX, \left\{A_x\right\},\sF\right)\t
 \begin{remark}\label{top_cc0_mod_rem}
 	Both 	$C_c\left(\sX, \left\{A_x\right\}, A \right)$ and $ C\left(\sX, \left\{A_x\right\}, A \right)$ are $C\left(\sX\right)$-modules (cf. Remark \ref{top_c_mod_rem}). All spaces  $C_c\left(\sX, \left\{A_x\right\}, A \right)$, $C_0\left(\sX, \left\{A_x\right\}, A \right)$, $C_b\left(\sX, \left\{A_x\right\}, A \right)$ and $C\left(\sX, \left\{A_x\right\}, A \right)$ are $C_b\left(\sX\right)$-modules
 \end{remark}
+\begin{remark}
+	The equation \ref{top_c0_eqn} complies with the explained in \ref{top_cs_not_empt} notation.
+		\end{remark}
 
 \begin{remark}
-	If $C_0\left(\sX, \left\{A_x\right\}, \sF  \right)$ is a $C^*$-algebra with continuous  trace then the notation \eqref{top_res_eqn} complies  with \eqref{open_ideal_eqn}.
+	If $C_0\left(\sX, \left\{A_x\right\}, \sF  \right)$ is a $C^*$-algebra with Hausdorff spectrum then the notation \eqref{top_res_eqn} complies  with \eqref{open_ideal_eqn}.
 \end{remark}
 
 \begin{lemma}\label{top_norm_c0cc_lem}
@@ -6758,7 +6762,7 @@ We write
 then a space $C_0\left(\sX \right)\sF$ is dense in 	$C_0\left(\sX, \left\{A_x\right\}, \sF \right)$ with respect to the norm topology.
 \end{lemma}
 \begin{proof}
-	Let $a \in C_0\left(\sX, \left\{A_x\right\}, \sF \right)$ be represented by the family $\left\{a_x \in A_x\right\}$, and let $\eps > 0$. For any $x' \in \sX$ we select an open neighborhood $\sU_{x'} \subset \sX$ and $a^{x'} \in \sF$  represented by the family $\left\{a'_x \in A_x\right\}$ such that $\left\| a_x  - a^{x'}_x\right\|< \eps$ for all $x \in \sU_{x'}$.  The  set $\sU \bydef \left\{\left. x \in \sX~\right| \left\|  a_x  - \right\| \ge \eps\right\}$ is compact so there is a  dominated by the family $\left\{\sU_{x'}\right\}_{x'\in \sX}$ finite covering sum 
+	Let $a \in C_0\left(\sX, \left\{A_x\right\}, \sF \right)$ be represented by the family $\left\{a_x \in A_x\right\}$, and let $\eps > 0$. For any $x' \in \sX$ we select an open neighborhood $\sU_{x'} \subset \sX$ and $a^{x'} \in \sF$  represented by the family $\left\{a'_x \in A_x\right\}$ such that $\left\| a_x  - a^{x'}_x\right\|< \eps$ for all $x \in \sU_{x'}$.  The  set $\sU \bydef \left\{\left. x \in \sX~\right| \left\|  a_x   \right\| \le \eps\right\}$ is compact so there is a  dominated by the family $\left\{\sU_{x'}\right\}_{x'\in \sX}$ finite covering sum 
 	$
 	\sum_{j=1}^n f_{x_j}
 	$
@@ -6778,6 +6782,9 @@ then a space $C_0\left(\sX \right)\sF$ is dense in 	$C_0\left(\sX, \left\{A_x\ri
 	$$	
 	From $\sum_{j=1}^n f_{x_j}  a^{x_j}\in C_0\left(\sX \right)\sF$ it turns out that the space $C_0\left(\sX \right)\sF$ is dense in 	$C_0\left(\sX, \left\{A_x\right\}, \sF \right).$	
 \end{proof}
+\begin{remark}
+The Lemma \ref{top_c0_cont_str_cor} is a generalization of \ref{top_full_oaf_lem} one.
+\end{remark}
 \begin{corollary}\label{top_cl_cc_iso_cor}
 	Let $\sF$ be a continuity structure for $\sX$ {and the} $\left\{A_x\right\}$, such that $\sF \subset C_0\left( \sX, \left\{A_x\right\}, \sF\right)$.
 	If  $C_0\left(\sX \right)\sF\subset \sF$  and $\sF$ is norm closed then the the natural inclusion $\sF \hookto C_0\left(\sX, \left\{A_x\right\}, \sF \right)$ is the $C_0\left(\sX \right)$-isomorphism
@@ -6949,9 +6956,9 @@ is said to be the \textit{total space for} $\left(\sX, \left\{A_x\right\}, \sF \
 \begin{proof}
 	(i) If $\eps > 0$ and $x_0\in\sX$ then from (b) of the Definition \ref{op_fields_defn} it follows that there is $a \in \sF$ such that $\left\| a_{x_0}- j\left( x_0\right) \right\| < \eps/2$. If $\sU'$ is an open neighborhood of $x_0$ then 
 	from $j\left( x_0\right) \in \mathfrak{O}\left(\sU', a, \eps \right)$, and since $j$ is continuous it follows that $\sU\bydef j^{-1} \left(  \mathfrak{O}\left(\sU', a, \eps \right)\right)$ is open. So for all $x\in \sU$ one has $\left\| a_{x}- j\left( x\right) \right\|< \eps$, i.e. the family $\left\{j\left(x\right)\right\}$ is continuous (cf. Definition \ref{op_cont_fields_defn}).\\
-	(ii)  Suppose $\eps > 0$, $x_0\in\sX$ and $j$ is given by \eqref{top_js_eqn}. If   $j\left( x_0\right) \in \mathfrak{O}\left(\sU', b, \eps \right)$ then  $\left\| a_{x_0}- b_{x_0} \right\| < \eps$. From the Lemma \ref{op_cont_con_lem} it follows that there is an open neighborhood $\sU$ of $x_0$ such that $\left\| a_{x}- b_{x} \right\|<\eps$ for all $x \in \sU$. So one has $\sU\subset j^{-1}\left( \mathfrak{O}\left(\sU', b, \eps \right)\right)$, i.e. $j$ is continuous at $x_0$. Similarly one can prove that $j$ is continuous at any point of $\sX$.
+	(ii)  Suppose $\eps > 0$, $x_0\in\sX$ and $j$ is given by \eqref{top_js_eqn}. From the condition (b) of the Definition \ref{op_fields_defn} it follows that there is a $b \in \sF$   such that $\left\| a_{x_0}- b_{x_0} \right\| < \eps$, i.e. $j\left( x_0\right) \in \mathfrak{O}\left(\sU', b, \eps \right)$. From the Lemma \ref{op_cont_con_lem} it follows that there is an open neighborhood $\sU$ of $x_0$ such that $\left\| a_{x}- b_{x} \right\|<\eps$ for all $x \in \sU$. So one has $\sU\cap \sU'\subset j^{-1}\left( \mathfrak{O}\left(\sU', b, \eps \right)\right)$, i.e. $j$ is continuous at $x_0$. Similarly one can prove that $j$ is continuous at any point of $\sX$.
 \end{proof}
-
+!!! CONTINUE !!!
 \begin{definition}\label{ctr_restr_defn}
 	For any subset $\sV\subset \sX$ 
 	denote by  $C\left(\sV, \left\{A_x\right\}, \sF \right)$ the $\C$-space of continuous maps $j:\sV\to \mathscr T\left(\sX, \left\{A_x\right\}, \sF \right)$ such that if $p$ is the total projection then $p\circ j= \Id_\sV$. The space  $C\left(\sV, \left\{A_x\right\}, \sF \right)$ is said to be the $\sV$-\textit{restriction} of $C\left(\sX, \left\{A_x\right\}, \sF \right)$. The natural $\C$-linear map $C\left(\sX, \left\{A_x\right\}, \sF \right)\to C\left(\sV, \left\{A_x\right\}, \sF \right)$ is said to be the \textit{restriction map}.
@@ -23904,7 +23911,7 @@ then $\sF \sim \sF'$.
 		\end{enumerate}
 \end{defn}
 
-\begin{empt}\cite{fell:operator_fields}
+\begin{empt}\label{top_cs_not_empt}\cite{fell:operator_fields}
 	A full algebra of operator fields is evidently a continuity structure. If $\sF$ is any continuity 
 	structure, let us define $C_0\left(\sF\right)$ to be the family of all vector fields $x$ which are continuous on $T$ with respect to $\sF$, and for which $t\mapsto \left\|x\left(t\right) \right\|$ vanishes at infinity. 
 \end{empt}
