@@ -52,7 +52,7 @@ namespace DataPerformer.TestInterface.UI.Forms
             }
         }
 
-        public event Action<object, DataRow, TestData> OnAdd
+        public event Action<object, DataRow, TestData1> OnAdd
         {
             add { userControlDataPerformerTest.OnAdd += value; }
             remove {userControlDataPerformerTest.OnAdd -= value; }
@@ -75,7 +75,7 @@ namespace DataPerformer.TestInterface.UI.Forms
             Close();
         }
 
-        internal Func<TestData> CreateTest
+        internal Func<TestData1> CreateTest
         {
             get
             {

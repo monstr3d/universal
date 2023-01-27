@@ -66,7 +66,8 @@ namespace TestCategory
                 List<object> o = new List<object>();
                 for (int i = 0; i < tests.Length; i++)
                 {
-                    var ob = tests[i][collection];
+                    var test = tests[i];
+                    var ob = test[collection];
                     if (ob != null)
                     {
                         o.Add(ob);

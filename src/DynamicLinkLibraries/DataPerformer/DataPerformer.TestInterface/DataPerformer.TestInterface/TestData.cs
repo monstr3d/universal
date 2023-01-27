@@ -12,7 +12,7 @@ using TestCategory.Interfaces;
 namespace DataPerformer.TestInterface
 {
     [Serializable()]
-    public class TestData : TestCollection
+    public class TestData1 : TestCollection
     {
 
     
@@ -21,7 +21,7 @@ namespace DataPerformer.TestInterface
         /// <summary>
         /// Default
         /// </summary>
-        public TestData() : base(null)
+        public TestData1() : base(null)
         {
             
         }
@@ -31,7 +31,7 @@ namespace DataPerformer.TestInterface
         /// </summary>
         /// <param name="info">Serialization info</param>
         /// <param name="context">Streaming context</param>
-        protected TestData(SerializationInfo info, StreamingContext context)
+        protected TestData1(SerializationInfo info, StreamingContext context)
             : base(info, context)
         {
 

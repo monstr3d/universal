@@ -14,5 +14,13 @@ namespace TestProjectBimapExamples
         {
             Resources.ImagePoly_5.Fact();
         }
+        /// <summary>
+        /// Test of bitmap selection 
+        /// </summary>
+        [Fact]
+        public void TestLadyBlue()
+        {
+            Resources.Lady_Blue.Fact();
+        }
     }
 }

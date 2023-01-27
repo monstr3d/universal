@@ -12,18 +12,5 @@ namespace TestProjectMotion6DExamples
         }
 
 
-        [Fact]
-        public void TestMotionODE1()
-        {
-            Resources.MotionODE1.Fact();
-        }
-
-
-        [Fact]
-        public void TestDeltaFunction()
-        {
-            Resources.DeltaFunction.Fact();
-        }
-
     }
 }

@@ -69,5 +69,15 @@ namespace TestProjectBimapExamples.Properties {
                 return ((byte[])(obj));
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] Lady_Blue {
+            get {
+                object obj = ResourceManager.GetObject("Lady_Blue", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
     }
 }

@@ -1,5 +1,4 @@
 ﻿using AssemblyService.Attributes;
-using BitmapConsumer.TestInterface.Tests;
 
 namespace BitmapConsumer.TestIntefface
 {

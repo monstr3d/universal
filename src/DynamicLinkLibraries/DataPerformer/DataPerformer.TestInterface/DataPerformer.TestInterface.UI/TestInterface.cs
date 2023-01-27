@@ -25,13 +25,13 @@ namespace DataPerformer.TestInterface.UI
         /// </summary>
         public static readonly ITestInterface Singleton = new TestInterface();
 
-        protected event Action<object, DataRow, TestData> add =
-            (object o, DataRow r, TestData d) => { };
+        protected event Action<object, DataRow, TestData1> add =
+            (object o, DataRow r, TestData1 d) => { };
 
         protected Action<object, ICategoryObject, bool[]> addmissible =
             (object l, ICategoryObject o, bool[] b) => { b[0] = false; }; 
 
-        protected Func<TestData> createTest = () => { return new TestData(); };
+        protected Func<TestData1> createTest = () => { return new TestData1(); };
 
         #endregion
 

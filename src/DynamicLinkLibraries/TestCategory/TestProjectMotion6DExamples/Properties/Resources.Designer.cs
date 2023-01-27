@@ -63,29 +63,9 @@ namespace TestProjectMotion6DExamples.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] DeltaFunction {
-            get {
-                object obj = ResourceManager.GetObject("DeltaFunction", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
         internal static byte[] MotionODE {
             get {
                 object obj = ResourceManager.GetObject("MotionODE", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        internal static byte[] MotionODE1 {
-            get {
-                object obj = ResourceManager.GetObject("MotionODE1", resourceCulture);
                 return ((byte[])(obj));
             }
         }

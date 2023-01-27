@@ -23,18 +23,18 @@ namespace DataPerformer.TestInterface.UI.UserConrols
     {
         #region Fields
 
-        TestData test;
+        TestData1 test;
 
         List<object> l = new List<object>();
         Dictionary<string, object[]> output;
 
         IComponentCollection collection;
 
-        event Action<object, DataRow, TestData> onAdd = (object o, DataRow row, TestData td) => { };
+        event Action<object, DataRow, TestData1> onAdd = (object o, DataRow row, TestData1 td) => { };
 
         event Action<object, ICategoryObject, bool[]> isAdmissible = (object l, ICategoryObject o, bool[] b) => { b[0] = false; };
 
-        private Func<TestData> createTest; 
+        private Func<TestData1> createTest; 
 
         #endregion
 
@@ -49,7 +49,7 @@ namespace DataPerformer.TestInterface.UI.UserConrols
 
         #region Public
 
-        public event Action<object, DataRow, TestData> OnAdd
+        public event Action<object, DataRow, TestData1> OnAdd
         {
             add { onAdd += value; }
             remove { onAdd -= value; }
@@ -61,7 +61,7 @@ namespace DataPerformer.TestInterface.UI.UserConrols
             remove { isAdmissible -= value; }
         }
 
-        public Func<TestData> CreateTestData
+        public Func<TestData1> CreateTestData
         {
             get
             {
@@ -78,7 +78,7 @@ namespace DataPerformer.TestInterface.UI.UserConrols
         #region Protected
 
         // +++TEST+++
-        protected void Add(object o, DataRow row, TestData test)
+        protected void Add(object o, DataRow row, TestData1 test)
         {
             IObjectLabel l = o as IObjectLabel;
             ICategoryObject co = l.Object;
@@ -190,7 +190,7 @@ namespace DataPerformer.TestInterface.UI.UserConrols
             this.collection = collection;
             if (test != null)
             {
-                this.test = test as TestData;
+                this.test = test as TestData1;
                 output = this.test.Output;
             }
             IEnumerable<object> c = collection.AllComponents;

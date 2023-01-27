@@ -133,7 +133,7 @@ namespace DataPerformer.TestInterface.Regression
             }
             return value;
         }
-        internal void Create(IComponentCollection collection)
+        public void Create(IComponentCollection collection)
         {
             value = GetValue(collection);
         }

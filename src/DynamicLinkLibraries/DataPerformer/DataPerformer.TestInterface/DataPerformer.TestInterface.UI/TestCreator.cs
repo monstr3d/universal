@@ -1,5 +1,6 @@
 ﻿using CategoryTheory;
 using DataPerformer.Interfaces;
+using DataPerformer.TestInterface.Regression;
 using Diagram.UI;
 using Diagram.UI.Interfaces;
 using Diagram.UI.Labels;
@@ -28,13 +29,17 @@ namespace DataPerformer.TestInterface.UI
             switch (co)
             {
                 case global::Regression.Portable.AliasRegression reg:
-                    Regression.RegressionTest rt = new Regression.RegressionTest(name, (int)number);
+                    Regression.RegressionTest rt = new RegressionTest(name, (int)number);
                     rt.Create(collection);
                     return rt;
                 case global::Regression.Portable.IteratorGLM it:
-                    Regression.IteratorGLMTest itt = new Regression.IteratorGLMTest(name, (int)number);
+                    Regression.IteratorGLMTest itt = new IteratorGLMTest(name, (int)number);
                     itt.Create(collection);
                     return itt;
+                    case IStructuredSelectionCollection iss:
+                    var isst = new StruturedSeletionCollectionTest(name);
+                    isst.Create(collection);
+                    return isst;
                 default:
                     break;
             }
