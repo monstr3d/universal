@@ -7638,36 +7638,35 @@ The Definition \ref{top_c_funct_defn}   is a specialization of the Definition \r
 \begin{exercise}\label{top_act_exer}
 If  $p: \widetilde \sX \to \sX$ is a transitive covering of compact spaces. From the Theorem \ref{pavlov_troisky_thm} it follows that there is an action $C\left(\sX \right) \times C\left(\widetilde \sX \right)\to C\left(\widetilde \sX \right)$. Prove that if the covering is transitive, the action is given by
 $$
-\left(ab \right)\mapsto C_0\left(p\right)\left(a\right)b.
+\left(a,b \right)\mapsto C_0\left(p\right)\left(a\right)b.
 $$
 \end{exercise}
-!!!  CONTINUE !!!
+
 \begin{lemma}\label{top_res_iso_lem}
 	Let $\sX$ be a connected, locally connected, locally compact, Hausdorff space, and let $\sF$ be	continuity structure for $\sX$ {and the} $\left\{A_x\right\}_{x \in \sX}$ (cf. Definition \ref{op_fields_defn}) where $A_x$ is a $C^*$-algebra for every $x \in \sX$. Let $p: \widetilde{\sX} \to \sX$ be a covering. Let $\widetilde{\sU}$ be an open set such that the restriction $\left.p\right|_{\widetilde{\sU}}$ is injective and $\sU = p\left(\widetilde{\sU}\right)$. If the closure of $\sU$ is compact, both $\left.C_0\left(\sX, \left\{A_x\right\}, \sF \right)\right|_{\sU}$ and $\left.C_0\left( \lift_p\left[ C\left(\sX, \left\{A_x\right\}, \sF \right)\right] \right) \right|_{\widetilde{\sU}}$ are given by  \eqref{top_res_eqn} then there is a natural injective *-isomorphism
 	$$
-	\left.C_0\left(\sX, \left\{A_x\right\}, \sF \right)\right|_{\sU} \cong \left.C_0\left( \lift_p\left[ C\left(\sX, \left\{A_x\right\}, \sF \right)\right] \right) \right|_{\widetilde{\sU}}.
+	\left.C_0\left(\sX, \left\{\rep_x\left( A\right) \right\}_{x \in \sX},A \right)\right|_{\sU} \cong \left.C_0\left( \lift_p\left[ C\left(\sX, \left\{\rep_x\left( A\right) \right\}_{x \in \sX},A \right)\right] \right) \right|_{\widetilde{\sU}}.
 	$$
 \end{lemma}
 \begin{proof}
 	There are two $\C$-linear maps 
 	\bean
-	\lift^p_{\widetilde{\sU}}: \left.C_0\left(\sX, \left\{A_x\right\}, \sF \right)\right|_{\sU} \to  \left.C_0\left( \lift_p\left[ C\left(\sX, \left\{A_x\right\}, \sF \right)\right] \right) \right|_{\widetilde{\sU}},\\
-	\desc_p:   \left.C_0\left( \lift_p\left[ C\left(\sX, \left\{A_x\right\}, \sF \right)\right] \right) \right|_{\widetilde{\sU}}\to \left.C_0\left(\sX, \left\{A_x\right\}, \sF \right)\right|_{\sU}
+	\lift^p_{\widetilde{\sU}}: \left.C_0\left(\sX, \left\{\rep_x\left( A\right) \right\}_{x \in \sX},A \right)\right|_{\sU} \to  \left.C_0\left( \lift_p\left[ C\left(\sX, \left\{\rep_x\left( A\right) \right\}_{x \in \sX},A \right)\right] \right) \right|_{\widetilde{\sU}},\\
+	\desc_p:   \left.C_0\left( \lift_p\left[ C\left(\sX, \left\{\rep_x\left( A\right) \right\}_{x \in \sX},A \right)\right] \right) \right|_{\widetilde{\sU}}\to \left.C_0\left(\sX, \left\{\rep_x\left( A\right) \right\}_{x \in \sX},A \right)\right|_{\sU}
 	\eean
 	and from \eqref{top_lift_desc_eqn} it turns out that the maps are mutually inverse. Moreover from \eqref{comm_lift_desc_hom_eqn} it follows that both maps are $*$-homomorphisms.
 \end{proof}
 
 \begin{lemma}\label{top_mult_inc_l_lem}
-	Let $\sX$ be a connected, locally connected, locally compact, Hausdorff space, and let $\sF$ be	continuity structure for $\sX$ {and the} $\left\{A_x\right\}_{x \in \sX}$ (cf. Definition \ref{op_fields_defn}) where $A_x$ is a $C^*$-algebra for every $x \in \sX$. Suppose that $
-	A\stackrel{\mathrm{def}}{=}C_0 \left(\sX, \left\{A_x\right\}_{x \in \sX}, \sF \right)
-	$.
+	Let $\sX$ be a connected, locally connected, locally compact, Hausdorff space, and let $\sF$ be	continuity structure for $\sX$ {and the} $\left\{A_x\right\}_{x \in \sX}$ (cf. Definition \ref{op_fields_defn}) where $A_x$ is a $C^*$-algebra for every $x \in \sX$. If $
+	A\stackrel{\mathrm{def}}\bydef C_0 \left(\sX, \left\{\rep_x\left( A\right) \right\}_{x \in \sX},A \right)$ then one has:
 	\begin{enumerate}
-		\item[(i)]	If $p: \widetilde{\sX} \to \sX$ is a transitive covering then there is the natural injective *-homomorphism
+		\item[(i)]	if $p: \widetilde{\sX} \to \sX$ is a transitive covering then there is the natural injective *-homomorphism
 		\be\label{top_mult_inc_eqn}
-		M\left(A\left( p\right)  \right) : M\left( 	A_0\left(\sX \right)\right)  \hookto M\left( A_0\left(\widetilde{\sX}\right)\right) .
+		M\left(A\left( p\right)  \right) : M\left( 	A_0\left(\sX \right)\right)  \hookto M\left( A_0\left(\widetilde{\sX}\right)\right),
 		\ee
-		\item[(ii)] There is the natural action $G\left(\left.\widetilde{\sX}~\right|\sX\right) \times M\left( A_0\left(\widetilde{\sX}\right)\right) \to M\left( A_0\left(\widetilde{\sX}\right)\right)$.
-		\item[(iii)] 	If $p: \widetilde{\sX} \to \sX$ is a transitive finite-fold covering then 	$M\left(A\left( p\right)  \right)$ induces the following *-isomorphism
+		\item[(ii)] there is the natural action $G\left(\left.\widetilde{\sX}~\right|\sX\right) \times M\left( A_0\left(\widetilde{\sX}\right)\right) \to M\left( A_0\left(\widetilde{\sX}\right)\right)$,
+		\item[(iii)] 	if $p: \widetilde{\sX} \to \sX$ is a transitive finite-fold covering then 	$M\left(A\left( p\right)  \right)$ induces the following *-isomorphism
 		\be\label{top_mult_iso_eqn}
 		M\left( 	A_0\left(\sX \right)\right)  \cong M\left( A_0\left(\widetilde{\sX}\right)\right)^{G\left(\left.\widetilde{\sX}~\right|\sX\right)} .
 		\ee
@@ -7675,19 +7674,19 @@ $$
 	\end{enumerate}
 	
 \end{lemma}
-\begin{definition}\label{ctr_crooss_alg_defn!}\cite{apt_mult}
-	A bounded  section $a$ of the fibered space $\left\{\mathcal X, M\left( A_x \right) \right\}$ is said to be \textit{strictly continuous (with respect to)} $\mathscr F$ if for each $\eps > 0$ and for each $c \in \mathscr F$ there is an element $b \in \mathscr{F}$ and an neighborhood $\mathcal U$ of $x_0$ such that $\left\|c _x \left( a _x - b_x\right)   \right\|+\left\|\left( a _x - b_x\right)c _x    \right\|< \eps$ for every $x$ in $\mathcal U$.
-	\end{definition}
+
 \begin{proof}
 	(i)
-	From the Theorem \ref{cross_mult_thm} it turns out than any $a \in M\left(A  \right)$ corresponds to the strictly continuous section $\left\{a_x \in M\left(A_x \right)  \right\}_{x \in \sX}$ (cf. Definition \ref{ctr_crooss_alg_defn}). The section defines a section $\left\{\widetilde a_{\widetilde x} = a_{p\left(\widetilde x\right)}\in  M\left(\widetilde A_{\widetilde x}\right) = M\left(A_{p\left(\widetilde x\right) }\right)\right\}_{\widetilde x \in \widetilde\sX}$ . Let $\widetilde{x}_0 \in \widetilde \sX$ be any point consider an open neighborhood $\widetilde\sU$ of $\widetilde{x}_0$ such that the restriction $\left.p\right|_{\widetilde{\sU}}:\widetilde{\sU}\xrightarrow{\approx}\sU = p\left(\widetilde{\sU} \right)$
-	is a injective. If $\widetilde{f}_{\widetilde{x}_0}$ is a $p$-$\widetilde x_0$-stump (cf. Definition  \ref{top_stump_defn}) such that  there is an open neighborhood $\widetilde\sV$ of $\widetilde{x}_0$ such that $\widetilde{f}_{\widetilde{x}_0}\left(\widetilde\sV\right)= 1$. If $\widetilde{c}\in A_0\left(\widetilde{\sX}\right) = C_0\left(\lift_p\left[C\left( \sX, \left\{A_x\right\}, \sF\right) \right]\right)$, then $\supp \widetilde{f}_{\widetilde{x}_0}\widetilde{c} \subset \widetilde{\sU}$. Let $c = \desc_p \left(\widetilde{f}_{\widetilde{x}_0} \widetilde{c} \right)$ be the $p$-descent (cf. Definition \ref{top_lift_desc_defn}). From the Theorem  \ref{cross_mult_thm} it follows that for any $\eps$ there is an open $\sV'$ neighborhood  of $x_0 = p\left(\widetilde{x}_0\right)$ and an element $b \in \sF$ such that $\left\|c_x \left( a_x - b_x\right)   \right\|+\left\|\left( a_x - b_x\right)c_x    \right\|< \eps$ for every $x$ in $\mathcal V'$. One can suppose $\mathcal V' \subset \sV$. If $f_{x_0}= \desc_p\left( \widetilde{f}_{\widetilde{x}_0}\right)$, $\widetilde a = \lift^p_{\widetilde{\sU}}\left(f_{x_0}a\right)$, $\widetilde b = \lift^p_{\widetilde{\sU}}\left(f_{x_0}b\right)$ (cf. equations \eqref{top_lift_desc_eqn}) then
+	From the Theorem \ref{cross_mult_thm} it turns out than any $a \in M\left(A  \right)$ corresponds to the strictly continuous section $\left\{a_x \in M\left( \rep_x\left( A\right)\right)  \right\}_{x \in \sX}$ (cf. Definition \ref{ctr_crooss_alg_defn}). The section defines a section 
+	$$\left\{\widetilde a_{\widetilde x} = a_{p\left(\widetilde x\right)}\in  M\left(\rep_{\widetilde x}\left( \widetilde A\right) \right) = M\left(\rep_{p\left(\widetilde x\right) }\left(A \right)\right) \right\}_{\widetilde x \in \widetilde\sX}$$ . Let $\widetilde{x}_0 \in \widetilde \sX$
+	 be any point consider an open neighborhood $\widetilde\sU$ of $\widetilde{x}_0$ such that the restriction $\left.p\right|_{\widetilde{\sU}}:\widetilde{\sU}\xrightarrow{\approx}\sU = p\left(\widetilde{\sU} \right)$
+	is a injective. If $\widetilde{f}_{\widetilde{x}_0}$ is a $p$-$\widetilde x_0$-stump (cf. Definition  \ref{top_stump_defn}) such that  there is an open neighborhood $\widetilde\sV$ of $\widetilde{x}_0$ such that $\widetilde{f}_{\widetilde{x}_0}\left(\widetilde\sV\right)= 1$. If $\widetilde{c}\in A_0\left(\widetilde{\sX}\right) = C_0\left(\lift_p\left[C\left( \sX, \left\{\rep_x\left( A\right) \right\}, A\right) \right]\right)$, then $\supp \widetilde{f}_{\widetilde{x}_0}\widetilde{c} \subset \widetilde{\sU}$. Let $c = \desc_p \left(\widetilde{f}_{\widetilde{x}_0} \widetilde{c} \right)$ be the $p$-descent (cf. Definition \ref{top_lift_desc_defn}). From the Theorem  \ref{cross_mult_thm} it follows that for any $\eps$ there is an open $\sV'$ neighborhood  of $x_0 = p\left(\widetilde{x}_0\right)$ and an element $b \in \sF$ such that $\left\|c_x \left( a_x - b_x\right)   \right\|+\left\|\left( a_x - b_x\right)c_x    \right\|< \eps$ for every $x$ in $\mathcal V'$. One can suppose $\mathcal V' \subset \sV$. If $f_{x_0}= \desc_p\left( \widetilde{f}_{\widetilde{x}_0}\right)$, $\widetilde a = \lift^p_{\widetilde{\sU}}\left(f_{x_0}a\right)$, $\widetilde b = \lift^p_{\widetilde{\sU}}\left(f_{x_0}b\right)$ (cf. equations \eqref{top_lift_desc_eqn}) then
 	\bean
 \forall \widetilde x \in p^{-1}\left(  \mathcal V'\right)  \cap \widetilde{\sU}\quad	\left\|\widetilde c_{\widetilde x} \left(\widetilde a_{\widetilde x}- \widetilde b_{\widetilde x}\right)   \right\|+\left\|\left(\widetilde a_{\widetilde x}- \widetilde b_{\widetilde x}\right) \widetilde c_{\widetilde x}    \right\|=\\=\left\| c_{p(\widetilde x)} \left( a_{p(\widetilde x)}-  b_{p(\widetilde x)}\right)   \right\|+\left\|\left( a_{p(\widetilde x)}-  b_{p(\widetilde x)}\right)  c_{p(\widetilde x)}    \right\| < \eps,
 \eean
 i.e. the section $\left\{\widetilde a_{\widetilde x}\right\}_{\widetilde x\in \widetilde \sX}$ is strictly continuous (cf. Definition \ref{ctr_crooss_alg_defn}). From the  Theorem \ref{cross_mult_thm} it turns out that 
 	$$
-	\widetilde a \bydef \left\{\widetilde a_{\widetilde x}\right\}\in M\left( C_0\left(\lift_p\left[C\left( \sX, \left\{A_x\right\}, \sF\right) \right]\right)\right) \cong  M\left( A_0\left(\widetilde{\sX}\right)\right).
+	\widetilde a \bydef \left\{\widetilde a_{\widetilde x}\right\}\in M\left( C_0\left(\lift_p\left[C\left(\sX, \left\{\rep_x\left( A\right) \right\}_{x \in \sX},A \right) \right]\right)\right) \cong  M\left( A_0\left(\widetilde{\sX}\right)\right).
 	$$
 	The map $a \mapsto 	\widetilde a$ is the required by this lemma injective *-homomorphism
 	from  $M\left( 	A_0\left(\sX \right)\right)$ to $M\left( A_0\left(\widetilde{\sX}\right)\right)$.\\
@@ -7705,20 +7704,20 @@ i.e. the section $\left\{\widetilde a_{\widetilde x}\right\}_{\widetilde x\in \w
 \end{proof}
 
 \begin{lemma}\label{comm_lift_desc_sum_lem}
-	Let $\sX$ be a connected, locally connected, locally compact, Hausdorff space, and let $\sF$ be	continuity structure for $\sX$ {and the} $\left\{A_x\right\}_{x \in \sX}$ (cf. Definition \ref{op_fields_defn}) where $A_x$ is a $C^*$-algebra for every $x \in \sX$. Let 	$p: \widetilde{\mathcal X}\to\mathcal{X}$ be a transitive covering. Suppose that  $\mathcal U\subset \mathcal X$  is a connected open subset evenly {covered} by $\widetilde{\mathcal U}\subset \widetilde{\mathcal X}$. Let $a \in C_c\left(\mathcal{X}, \left\{A_x\right\}, \sF \right)$ be such that $\supp a \subset \sU$. If 	$\widetilde{a} = \mathfrak{lift}_{\widetilde{\mathcal U}}\left(a \right)$ 
+	Let $\sX$ be a connected, locally connected, locally compact, Hausdorff space, and let $\sF$ be	continuity structure for $\sX$ {and the} $\left\{A_x\right\}_{x \in \sX}$ (cf. Definition \ref{op_fields_defn}) where $A_x$ is a $C^*$-algebra for every $x \in \sX$. Let 	$p: \widetilde{\mathcal X}\to\mathcal{X}$ be a transitive covering. Suppose that  $\mathcal U\subset \mathcal X$  is a connected open subset evenly {covered} by $\widetilde{\mathcal U}\subset \widetilde{\mathcal X}$. Let $a \in C_c\left(\sX, \left\{\rep_x\left( A\right) \right\}_{x \in \sX},A \right)$ be such that $\supp a \subset \sU$. If 	$\widetilde{a} = \mathfrak{lift}_{\widetilde{\mathcal U}}\left(a \right)$ 
 	then following conditions hold:
 	\begin{enumerate}
 		\item [(i)] The series 	
 		\be\nonumber
 \sum_{g \in G\left(\left.\widetilde{\sX}~\right|\sX\right) } g\widetilde{a}.
 		\ee 
-		is convergent in the strict topology of $M\left(C_0\left( \lift_p\left[C\left(\mathcal{X}, \left\{A_x\right\}, \sF \right)\right] \widetilde{\mathcal X}\right)  \right)$ (cf. Definition \ref{strict_topology_defn}),
+		is convergent in the strict topology of $M\left(C_0\left( \lift_p\left[\left(\sX, \left\{\rep_x\left( A\right) \right\}_{x \in \sX},A \right)\right]\right)  \right)$ (cf. Definition \ref{strict_topology_defn}),
 		\item[(ii)] 
 		\be\label{comm_desc_sum_eqn}
 		\begin{split}
 		\bt\text{-}			\sum_{g \in G\left(\left.\widetilde{\sX}~\right|\sX\right) } g\widetilde{a} = a = \lift_p \circ \desc_p\left( \widetilde{a}\right) \in 
 			\\
-			\in C_b\left( \lift_p\left[C\left(\mathcal{X}, \left\{A_x\right\}, \sF \right)\right] \right)\subset  \\ \subset  M\left(C_0\left( \lift_p\left[C\left(\mathcal{X}, \left\{A_x\right\}, \sF \right)\right] \right)\right).
+			\in C_b\left( \lift_p\left[C\left(\sX, \left\{\rep_x\left( A\right) \right\}_{x \in \sX},A \right)\right] \right)\subset  \\ \subset  M\left(C_0\left( \lift_p\left[C\left(\sX, \left\{\rep_x\left( A\right) \right\}_{x \in \sX},A \right)\right] \right)\right).
 		\end{split}
 		\ee
 		where both $ \lift_p$ and $\desc_p$ are given by Definitions \ref{top_cont_lift_defn} and \ref{top_lift_desc_defn} respectively.
@@ -7738,7 +7737,7 @@ i.e. the section $\left\{\widetilde a_{\widetilde x}\right\}_{\widetilde x\in \w
 \end{lemma}
 
 \begin{proof} (i)
-	If $\widetilde{b} \in C_0\left( \lift_p\left[C\left(\mathcal{X}, \left\{A_x\right\}, \sF \right)\right] \right)$ and $\eps > 0$ then from the Definition \ref{c_c_def_2} it turns out there is a compact set $\widetilde{\mathcal V}\subset \widetilde{\mathcal X}$ such that $\left\| \widetilde{b} \left(\widetilde{x}  \right) \right\| < \frac{\eps}{2\left\|\widetilde{a}\right\|}$ for any $\widetilde{x} \in \widetilde{\mathcal X} \setminus \widetilde{\mathcal V}$. Let us prove that the set
+	If $\widetilde{b} \in C_0\left( \lift_p\left[C\left(\sX, \left\{\rep_x\left( A\right) \right\}_{x \in \sX},A \right)\right] \right)$ and $\eps > 0$ then from the Definition \ref{c_c_def_2} it turns out there is a compact set $\widetilde{\mathcal V}\subset \widetilde{\mathcal X}$ such that $\left\| \widetilde{b} \left(\widetilde{x}  \right) \right\| < \frac{\eps}{2\left\|\widetilde{a}\right\|}$ for any $\widetilde{x} \in \widetilde{\mathcal X} \setminus \widetilde{\mathcal V}$. Let us prove that the set
 	$$
 	G_0=\left\{\left. g \in G\left(\left.\widetilde{\sX}~\right|\sX\right)\right| \widetilde \sV \cap g \widetilde\sU \neq \emptyset \right\}
 	$$
@@ -7748,8 +7747,8 @@ i.e. the section $\left\{\widetilde a_{\widetilde x}\right\}_{\widetilde x\in \w
 	\left\|\widetilde{b}\left(\sum_{g \in G' } g\widetilde{a}-\sum_{g \in G_0 } g\widetilde{a} \right)  \right\| +
 	\left\|\left(\sum_{g \in G' } g\widetilde{a}-\sum_{g \in G_0 } g\widetilde{a} \right)\widetilde{b}  \right\| < \eps.
 	$$
-	The	above equation means that the series is convergent in the strict topology of $M\left(C_0\left( \lift_p\left[C\left(\mathcal{X}, \left\{A_x\right\}, \sF \right)\right] \widetilde{\mathcal X}\right) \right)$.\\
-	(ii)  If $\widetilde{b} \in C_0\left( \lift_p\left[C\left(\mathcal{X}, \left\{A_x\right\}, \sF \right)\right] \widetilde{\mathcal X}\right)$ and $\widetilde{x}_0 \in \widetilde{\mathcal X}$ then $\left( \widetilde{a}\widetilde{b}\right)_{\widetilde{x}_0} = {a}_{p\left(  \widetilde{x}_0\right) } \widetilde{b}_{\widetilde{x}_0}$.  If ${a}_{ p\left(  \widetilde{x}_0\right) }  = 0$ then $\left( \widetilde{a}\widetilde{b}\right)_{\widetilde{x}_0} = 0$. Otherwise there is $\widetilde{x}'_0\in \widetilde{\mathcal U}$ such that $p\left(\widetilde{x}'_0 \right)= p\left(\widetilde{x}_0 \right)$. From \eqref{comm_lift_eqn} it turns out $\widetilde{a}_{\widetilde{x}'_0} = a_{ p\left(\widetilde{x}'_0 \right)}$. The covering $p$ is transitive, so there is the unique $g \in  G\left(\left.\widetilde{\sX}~\right|\sX\right)$ such that  $\widetilde{x}_0 = g\widetilde{x}'_0$. So one has  $\left( g \widetilde{a}\right)_{\widetilde{x}_0}= a_{p\left(\widetilde{x}_0 \right)} $. If $g' \neq g$ then $g\widetilde{\mathcal U} \bigcap \widetilde{\mathcal U} = \emptyset$. It turns out that $\left( g' \widetilde{a}\right)_{\widetilde{x}_0}= 0$ for any $g'\neq g$. Hence one has
+	The	above equation means that the series is convergent in the strict topology of $M\left(C_0\left( \lift_p\left[C\left(\sX, \left\{\rep_x\left( A\right) \right\}_{x \in \sX},A \right)\right] \right) \right)$.\\
+	(ii)  If $\widetilde{b} \in C_0\left( \lift_p\left[C\left(\sX, \left\{\rep_x\left( A\right) \right\}_{x \in \sX},A \right)\right] \right)$ and $\widetilde{x}_0 \in \widetilde{\mathcal X}$ then $\left( \widetilde{a}\widetilde{b}\right)_{\widetilde{x}_0} = {a}_{p\left(  \widetilde{x}_0\right) } \widetilde{b}_{\widetilde{x}_0}$.  If ${a}_{ p\left(  \widetilde{x}_0\right) }  = 0$ then $\left( \widetilde{a}\widetilde{b}\right)_{\widetilde{x}_0} = 0$. Otherwise there is $\widetilde{x}'_0\in \widetilde{\mathcal U}$ such that $p\left(\widetilde{x}'_0 \right)= p\left(\widetilde{x}_0 \right)$. From \eqref{comm_lift_eqn} it turns out $\widetilde{a}_{\widetilde{x}'_0} = a_{ p\left(\widetilde{x}'_0 \right)}$. The covering $p$ is transitive, so there is the unique $g \in  G\left(\left.\widetilde{\sX}~\right|\sX\right)$ such that  $\widetilde{x}_0 = g\widetilde{x}'_0$. So one has  $\left( g \widetilde{a}\right)_{\widetilde{x}_0}= a_{p\left(\widetilde{x}_0 \right)} $. If $g' \neq g$ then $g\widetilde{\mathcal U} \bigcap \widetilde{\mathcal U} = \emptyset$. It turns out that $\left( g' \widetilde{a}\right)_{\widetilde{x}_0}= 0$ for any $g'\neq g$. Hence one has
 	$$
 	\left(\sum_{g' \in G\left(\left.\widetilde{\sX}~\right|\sX\right) } g'\widetilde{a} \right)_{\widetilde{x}_0} = 	\left(g\widetilde{a} \right)_{\widetilde{x}_0}= c^{-1}_{\widetilde x_0} \left( {a}_{ p\left(  \widetilde{x}_0\right)} \right) \text{ where } c_{\widetilde x_0}\text{ is given by }\eqref{top_ct_iso_eqn},
 	$$  
@@ -7757,13 +7756,19 @@ i.e. the section $\left\{\widetilde a_{\widetilde x}\right\}_{\widetilde x\in \w
 	$$
 	\left( \left(\sum_{g' \in G\left(\left.\widetilde{\sX}~\right|\sX\right) } g'\widetilde{a} \right)\widetilde{b}\right)_{\widetilde{x}_0}= 	\left(\widetilde{b} \left(\sum_{g' \in G\left(\left.\widetilde{\sX}~\right|\sX\right) } g'\widetilde{a} \right)\right)_{\widetilde{x}_0} = \widetilde{b}_{\widetilde{x}_0}  {a}_{ p\left(  \widetilde{x}_0\right)}.
 	$$
-	The above equation means that $$
-	\sum_{g \in G\left(\left.\widetilde{\sX}~\right|\sX\right) } g\widetilde{a} = a =\lift_p \circ \desc_p\left( \widetilde{a}\right)\in M\left(C_0\left( \lift_p\left[C\left(\mathcal{X}, \left\{A_x\right\}, \sF \right)\right]\right)  \right)
-	.$$	\\
+	The above equation means that 
+	\bean
+	\sum_{g \in G\left(\left.\widetilde{\sX}~\right|\sX\right) } g\widetilde{a} = a =\lift_p \circ \desc_p\left( \widetilde{a}\right)\in\\\in M\left(C_0\left( \lift_p\left[C\left(\sX, \left\{\rep_x\left( A\right) \right\}_{x \in \sX},A \right)\right]\right)  \right)
+	.
+	\eean
 	%(iii) and (iv) Follow from Definition \ref{top_lift_desc_defn} the homeomorphism $\widetilde{\sU} \cong \sU$.
 \end{proof}
-\begin{exercise}\label{top_cscd_st_exer}
-	Let $\sX$ be a connected, locally connected, locally compact, Hausdorff space, and let $\sF$ be	continuity structure for $\sX$ {and the} $\left\{A_x\right\}_{x \in \sX}$ (cf. Definition \ref{op_fields_defn}) where $A_x$ is a $C^*$-algebra for every $x \in \sX$. Let 	$p: \widetilde{\mathcal X}\to\mathcal{X}$ be a transitive covering. Let $\widetilde a \in C_c\left( \lift_p\left[ C\left(\mathcal{X}, \left\{A_x\right\}, \sF \right)\right]\right) $.
+\begin{exercise}\label{top_cscd_st_exer} Let $A$ be a $C^*$-algebra with 
+ a connected, locally connected, locally compact, Hausdorff spectrum, such that
+ $$
+ A = C_0\left(\sX, \left\{\rep_x\left( A\right) \right\}_{x \in \sX},A \right)
+ $$
+ (cf. Lemma \ref{oa_haus_alg_lem}), and let $p: \widetilde\sX \to \sX$ be a transitive covering. Let $\widetilde a \in C_c\left( \lift_p\left[ C\left(\sX, \left\{\rep_x\left( A\right) \right\}_{x \in \sX},A \right)\right]\right) $.
 Prove that 	
 the series 	
 	\be\nonumber
@@ -7778,7 +7783,7 @@ the series
 \begin{empt}\label{comm_lift_desc_sum_strong_empt}
 	Suppose that $\K= \K\left(\H \right) $ is a simple  $C^*$-algebra (cf. Definition \ref{simple_ca_defn}) of compact operators where $\H = \C$ or $\H = \C^n$ or $\H =  \ell^2\left(\N \right)$. If $A$ is  $C^*$-algebra such that the spectrum $\sX$ of $A$ is Hausdorff then $A$ is a $CCR$ algebra (cf. Remark \ref{ctr_open_res_rem}). There is a family $\left\{\rep_x\left(A \right) \right\}_{x\in \sX}$ such that $\rep_x\left(A \right)$ is simple $C^*$-algebra for all $x\in\sX$. From the Lemma \ref{ctr_rep_eq_lem} it follows that $A$ is  a {continuity structure for} $\sX$ {and the} $\left\{A_x\right\}$
 	(cf. Definition \ref{op_fields_defn}). Otherwise from the Lemma
-	 \ref{top_bundle_cs_ex_lem} it turns out that
+	 \ref{oa_haus_alg_lem} it turns out that
 	\be\label{top_acs_eqn}
 	A \cong  C_0\left(\sX, \left\{A_x\bydef \rep_x\left(A \right)\right\}_{x \in \sX}, A \right)
 	\ee
@@ -7798,20 +7803,16 @@ the series
 	From \eqref{top_cb_defn_eqn} it turns out there is the injective *-homomorphism $\lift_p:A_0\left(\sX \right) \hookto A_b\left(\widetilde\sX \right)$  so  $A_0\left(\sX \right)$ can be regarded as a subalgebra of $A_b\left(\widetilde\sX \right)$.
 \end{empt}
 \begin{definition}\label{top_lift_a_f_defn}
-	In the above situation denote by
-	\be\label{top_a0_F_x_eqn}
-	\widetilde A_0\left(\widetilde\sX  \right)\bydef \widetilde A.
-	\ee
-	We say that  $A_0\left(\widetilde\sY  \right)$ is the $p$-\textit{lift} of $A$. If $\widetilde\sY$ is compact we write $A\left(\widetilde\sY  \right)$ instead of $A_0\left(\widetilde\sY  \right)$.
+	In the above situation we say that  $A_0\left(\widetilde\sX  \right)$ is the $p$-\textit{lift} of $A$. If $\widetilde\sX$ is compact we write $A\left(\widetilde\sX  \right)$ instead of $A_0\left(\widetilde\sX  \right)$.
 \end{definition}
 
 \begin{lemma}\label{comm_lift_desc_sum_strong_lem}
 	Consider the situation \ref{comm_lift_desc_sum_strong_empt}. Suppose that  $\mathcal U\subset \mathcal X$  is a connected open subset evenly {covered} by $\widetilde{\mathcal U}\subset \widetilde{\mathcal X}$. Let $\widetilde a \in A_0\left(\widetilde\sX \right)$ be  an  element such that 
 	$\supp \widetilde a \subset \widetilde \sU$. The following conditions hold:
 	\begin{enumerate}
-		\item [(i)] The series 	
+		\item [(i)] the series 	
 		\be\label{comm_lift_desc_sum_strong_eqn}
-		\sum_{g \in G\left(\left.\widetilde{\sX}~\right|\sX\right) } \pi_a\left( g\widetilde{a}\right).
+		\sum_{g \in G\left(\left.\widetilde{\sX}~\right|\sX\right) } \pi_a\left( g\widetilde{a}\right),
 		\ee 
 		is convergent in the strong  topology of $B\left(\H_a\right)$  (cf. Definition \ref{strong_topology_defn} ),
 		\item[(ii)] 
@@ -7844,13 +7845,29 @@ the series
 		\left(g \widetilde a \right)\zeta = \desc_p\left( \widetilde a\right)\zeta & 	\widetilde{x}\in \cup_{g\in G} g\widetilde \sU
 	\end{cases} 
 	\ee	
-	From the Equitation \eqref{commp_lift_desc_sum_strong_eqn} it follows that the series $
+	From the equation \eqref{commp_lift_desc_sum_strong_eqn} it follows that the series $
 	\left( \sum_{	g \in G\left(\left.\widetilde{\sX}~\right|\sX\right)}g\widetilde a\right) \zeta$ is norm convergent. From the Lemma \ref{sum_hilb_rep_lem} it turns out that the series \ref{comm_lift_desc_sum_strong_eqn}	
 	is convergent in the strong  topology of $B\left(\H_a\right)$.\\
 	(ii) Follows from the equation \eqref{commp_lift_desc_sum_strong_eqn}.
 \end{proof}
-
-
+\begin{exercise}
+		Consider the situation \ref{comm_lift_desc_sum_strong_empt}.  Let $\widetilde a \in A_c\left(\widetilde\sX \right)$ (cf. \eqref{top_cs_funct_b_defn}). Prove following statements:
+		\begin{enumerate}
+		\item [(i)] the series 	
+\bean
+\sum_{g \in G\left(\left.\widetilde{\sX}~\right|\sX\right) } \pi_a\left( g\widetilde{a}\right),
+\eean 
+is convergent in the strong  topology of $B\left(\H_a\right)$  (cf. Definition \ref{strong_topology_defn} ),
+\item[(ii)] 
+\bean
+\begin{split}
+	\sum_{g \in G\left(\left.\widetilde{\sX}~\right|\sX\right) } \pi_a\left( g\widetilde{a}\right)  = \pi_a\left(  \desc^c_p\left( \widetilde{a}\right)\right)
+\end{split}
+\eean
+where $\desc^c_p$  is a compactly supported $p$-descent (cf. Definition \ref{desc_c_sheaf_defn}). 
+		\end{enumerate}
+\end{exercise}
+!!! CONTINUE !!!
 \section{Sheaves lift and descent}
 \subsection{Inverse images lift and descent}
 \paragraph*{}
