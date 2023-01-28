@@ -2066,7 +2066,7 @@ of the Lemma \ref{fin_composition_unihereditary_lem} it follows that $\widetilde
 \end{definition}
 
 \begin{definition}\label{simply_connected_defn}
-	A $C^*$-algebra $A$ is said to be \textit{simply connected} if $A$  has no nontrivial connected  noncommutative finite-fold coverings, or equivalently any disconnected noncommutative finite-fold covering (cf. Definition \ref{fin_defn}) of $A$ is almost trivial (cf. Definition \ref{almost_trivial_defn}).
+	A $C^*$-algebra $A$ is said to be \textit{simply connected} if $A$  has no nontrivial connected  noncommutative finite-fold coverings, or equivalently any disconnected noncommutative finite-fold covering (cf. Definition \ref{fin_defn}) of $A$ is almost trivial (cf. Definition \ref{almost_trivial_defn}). !!! TOP ANALOGY !!!
 \end{definition}
 
 
@@ -2539,7 +2539,12 @@ Let $\th : A\to \C$ be a positive functional such that $\th \le \psi$. Prove tha
 		\be\label{cov_spectrum_inv_eqn}
 		p \circ g = p;~~ \forall g \in G,
 		\ee
-		\item[(iii)] The map $p$ naturally induces the homeomorphism  $p_G:\widetilde{\mathcal X}/G \xrightarrow{\approx} {\mathcal X}$.
+		\item[(iii)] The map $p$ naturally induces the homeomorphism
+	\be\label{spectrum_homeo_eqn}
+	p_G:\widetilde{\mathcal X}/G \xrightarrow{\approx} {\mathcal X}.
+	\ee	
+		
+%\xrightarrow{\approx} {\mathcal X}$.
 %		\item[(iv)]  Suppose that a state  $ \tau : A\to \C$ equals  $c_1\tau_1 + c_2\tau_2$ where both $\tau_1$, $\tau_2$ are states such that $\tau_1\perp\tau_2$ and $c_1, c_2 > 0$. If $\widetilde \tau : \widetilde A\to \C$ is a state such that $\left.\widetilde\tau\right|_A = \tau$ then there are states $\widetilde \tau_1, \widetilde \tau_2 : \widetilde A\to \C$ such that
 %		\bean
 %		\left.\widetilde\tau_1\right|_A = \tau_1,\\
@@ -2718,7 +2723,7 @@ Moreover one has
 	\ee	
 \end{empt}
  
- \begin{definition}\label{red_alg_defn}
+ \begin{definition}\label{reduced_alg_defn}
 	Let $\left(A, \widetilde{A}, G, \pi \right)$ be  a noncommutative finite-fold  quasi-covering. A $C^*$-subalgebra
 	\be\label{red_incl_eqn}
 	\widetilde{A}_{\text{red}}\bydef	\left\{\left. \widetilde a \in \widetilde A\right| 	\rep_{ \widetilde{x}}\left(\widetilde{a} \right) \in  \rep_{ \widetilde{x}}\left(A\right)\quad \forall \widetilde x \in \widetilde{\sX}\right\} \subset \widetilde A
@@ -2796,6 +2801,25 @@ G \cong \left\{\left.g \in\Aut\left(  \widetilde{A}\right) \right|ga= a \quad\fo
 $$
 From the above equation it follows that the quadruple $\left(A, \widetilde{A}, G, \pi \right)$ satisfies to the Definition \ref{fin_pre_defn}.
 \end{proof}
+\begin{remark}\label{proper_reduced_remark}
+	Let 	$\left(A, \widetilde{A}, G, \pi \right)$ be a 
+	noncommutative finite-fold pre-covering (cf. Definition \ref{fin_pre_defn}), and let $\widetilde{A}_{\text{red}}$ be a reduced $C^*$-algebra of $\left(A, \widetilde{A}, G, \pi \right)$ (cf. Definition \ref{reduced_alg_defn}). If 
+\be
+	H \bydef \left\{g \in G \left| \forall \widetilde{a}_{\text{red}} \in \widetilde{A}_{\text{red}} \quad g\widetilde{a}_{\text{red}}=\widetilde{a}_{\text{red}}\right.\right\}\subset G
+\ee
+	then from the Lemma \ref{quasi_red_lem} it follows that $H$ is a 	$\left(A, \widetilde{A}, G, \pi \right)$-proper  normal subgroup of $G$ (cf. Definition \ref{proper_subgroup_fin_defn}). Moreover if	$\left(A, \widetilde{A}, G, \pi \right)$  is a
+	noncommutative finite-fold covering (cf. Definition \ref{fin_defn}) then from there are $H$-{regular} and $H$-{singular} noncommutative finite-fold coverings
+	\be\label{reduced_decomp_eqn}
+	\begin{split}
+\left(A, \widetilde{A}^H, G\left(\left.\widetilde A~\right|A \right)/H, \pi^H \right)= \left(A, \widetilde{A}_{\text{red}}, G\left(\left.\widetilde{A}_{\text{red}}~\right|A \right), \pi^H\right), 
+\\\left(\widetilde{A}^H, \widetilde{A}, H, \left.\Id_{\widetilde{A}}\right|_{\widetilde{A}^H} \right)=\left(\widetilde{A}_{\text{red}}, \widetilde{A}, G\left(\left.\widetilde A~\right|\widetilde A_{\text{red}} \right) , \left.\Id_{\widetilde{A}}\right|_{\widetilde{A}_{\text{red}}} \right)
+	\end{split}
+	\ee	
+	(cf. Definition \ref{fin_composition_covering_defn}).
+\end{remark}
+\begin{remark}\label{proper_reduced_spectrum_remark}
+In the situation of the Remark \ref{proper_reduced_remark} the group $H = G\left(\left.\widetilde A~\right|\widetilde A_{\text{red}} \right)$ trivially acts on the spectrum of $\widetilde A~$ so from the Proposition \ref{spectrum_cov_prop} it follows that the spectrum of $\widetilde A$ is naturally homeomorphic to the spectrum of  $\widetilde A_{\text{red}}$,
+\end{remark}
 %\begin{remark}
 %If the homomorphism
 %$\phi: G \to \left\{\left.g \in\Homeo\left(  \widetilde{\sX}\right) \right|p\circ g= g \right\}
@@ -8613,10 +8637,89 @@ Prove that
 
 
 \subsection{Coverings of $C^*$-algebras}
+!!! CORRECT !!!
+\begin{lemma}
+	Let $A= C\left(\sX \right)$  be an unital commutative   $C^*$-algebra.
+Let  $\left(A, \widetilde{A}, G, \pi \right)$ is an unital noncommutative finite-fold  covering  (cf. Definition \ref{fin_unital_defn}), and let both $\sX$ and $\widetilde\sX$ are spectra of $A$ and $\widetilde A$ respectively. Following conditions hold:
+\begin{itemize}
+	\item [(i)] If $p: \widetilde \sX \to \sX$ is a given by the equation \ref{spectrum_cov_eqn} continuous map
+	\item[(ii)] There are two unital noncommutative finite-fold coverings
+	\bean
+	\left(C\left(\sX\right), C\left( \widetilde{\sX}\right) , G\left(\left.\widetilde\sX~\right|\sX  \right), C_0\left(p \right) \right), 
+	\\\left(C\left( \widetilde{\sX}\right), \widetilde{A}, H, \left.\Id_{\widetilde{A}}\right|_{C\left( \widetilde{\sX}\right)} \right)
+	\eean 
+	
+\end{itemize}
+
+
+where 
+\end{lemma}
+\begin{proof}
+	content...	Let $A= C\left(\sX \right)$  be an unital commutative   $C^*$-algebra.
+	If $\left(A, \widetilde{A}, G, \pi \right)$ is an unital noncommutative finite-fold  covering  (cf. Definition \ref{fin_unital_defn}), and let both $\sX$ and $\widetilde\sX$ are spectra of $A$ and $\widetilde A$ respectively. 	If $\widetilde{A}_{\text{red}}$ is the {reduced algebra} of $\left(A, \widetilde{A}, G, \pi \right)$ (cf. Definition \ref{reduced_alg_defn}) then from the Remark \ref{proper_reduced_remark} it follows that 
+	$$
+	H \bydef \left\{g \in G \left| \forall \widetilde{a}_{\text{red}} \in \widetilde{A}_{\text{red}} \quad g\widetilde{a}_{\text{red}}=\widetilde{a}_{\text{red}}\right.\right\}\subset G
+	$$
+	$H$ is a 	$\left(A, \widetilde{A}, G, \pi \right)$-proper  normal subgroup of $G$ (cf. Definition \ref{proper_subgroup_fin_defn}). From the Lemma \ref{fin_composition_lem} it turns out that  there are following unital finite-fold noncommutative coverings
+	\bean
+	\begin{split}
+		\left(A, \widetilde{A}^H, G\left(\left.\widetilde A~\right|A \right)/H, \pi^H \right)= \left(C\left(\sX\right), \widetilde{A}_{\text{red}}, G\left(\left.\widetilde{A}_{\text{red}}~\right|C\left( \widetilde \sX\right)  \right), \pi^H\right), 
+		\\\left(\widetilde{A}^H, \widetilde{A}, H, \left.\Id_{\widetilde{A}}\right|_{\widetilde{A}^H} \right)=\left(\widetilde{A}_{\text{red}}, \widetilde{A}, G\left(\left.\widetilde A~\right|\widetilde A_{\text{red}} \right) , \left.\Id_{\widetilde{A}}\right|_{\widetilde{A}_{\text{red}}} \right)
+	\end{split}
+	\eean
+	On the other hand from the equation \eqref{red_incl_eqn} it follows that $\dim \rep_{  \widetilde{x }}\left(\widetilde{A}_{\text{red}}\right)=\dim \rep_{  \widetilde{x }}\left(A\right)= 1$ for each $\widetilde x \in \widetilde \sX$, so  $\widetilde{A}_{\text{red}}$ is a commutative $C^*$-algebra. The $C^*$ algebra $\widetilde{A}_{\text{red}}$ is unital since the  noncommutative finite-fold covering \\ $\left(C\left(\sX\right), \widetilde{A}_{\text{red}}, G\left(\left.\widetilde{A}_{\text{red}}~\right|A \right), \pi^H\right)$ is unital. On the other hand from the Remark \ref{proper_reduced_spectrum_remark} it follows that the spectrum of $\widetilde{A}_{\text{red}}$ equals to $\widetilde \sX$, so $\widetilde{A}_{\text{red}}= C\left( \widetilde \sX\right)$.  then from the  Theorem \ref{pavlov_troisky_thm} it follows that $p$ is a finite-fold covering. From the equation \eqref{spectrum_homeo_eqn} it follows that there is a homeomorphism $\sX \cong \widetilde \sX/ G\left(\left.\widetilde{A}_{\text{red}}~\right|C\left( \widetilde \sX\right)  \right)$, so $\sX \cong \widetilde\sX/G\left(\left.\widetilde{A}_{\text{red}}~\right|C\left( \widetilde \sX\right)  \right)$, i.e.  the covering $p$ is transitive. In result one has the following Lemma.
+	
+\end{proof}
+
+\begin{proposition} \label{spectrum_cov_prop!}
+	If $\left(A, \widetilde{A}, G, \pi \right)$ is  a noncommutative finite-fold  quasi-covering (cf. Definition \ref{fin_quasi_defn})  then following conditions hold:
+	\begin{itemize}
+		\item [(i)] 
+		If $\widetilde{\mathcal X}\bydef {\widetilde{A}}\hat~$ is the spectrum of $\widetilde{A}$ then there is the natural action $G \times \widetilde{\mathcal X} \to \widetilde{\mathcal X}$.
+		
+		\item[(ii)]  If $\mathcal X = \hat A$ is the spectrum of $A$ then there is the natural surjective continuous map 
+		\be\label{spectrum_cov_eqn!}
+		\begin{split}
+			p:\widetilde{\mathcal X} \to {\mathcal X};\\
+			\rep^{\widetilde{A}}_{ \widetilde{x}} \mapsto \left.\rep^{\widetilde{A}}_{ \widetilde{x}}\right|_A \cong \rep^A_{p\left(\widetilde{x} \right) }
+		\end{split}
+		\ee
+		(cf. Proposition \ref{sur_prop}, and \eqref{rep_x_eqn}), which is $G$-invariant, i.e.
+		\be\label{cov_spectrum_inv_eqn}
+		p \circ g = p;~~ \forall g \in G,
+		\ee
+		\item[(iii)] The map $p$ naturally induces the homeomorphism  $p_G:\widetilde{\mathcal X}/G \xrightarrow{\approx} {\mathcal X}$.
+		%		\item[(iv)]  Suppose that a state  $ \tau : A\to \C$ equals  $c_1\tau_1 + c_2\tau_2$ where both $\tau_1$, $\tau_2$ are states such that $\tau_1\perp\tau_2$ and $c_1, c_2 > 0$. If $\widetilde \tau : \widetilde A\to \C$ is a state such that $\left.\widetilde\tau\right|_A = \tau$ then there are states $\widetilde \tau_1, \widetilde \tau_2 : \widetilde A\to \C$ such that
+		%		\bean
+		%		\left.\widetilde\tau_1\right|_A = \tau_1,\\
+		%		\left.\widetilde\tau_2\right|_A = \tau_2,\\
+		%		\widetilde\tau = c_1\widetilde\tau_1 + c_2 \widetilde\tau_2.
+		%		\eean 
+	\end{itemize}
+\end{proposition}
+\
+\begin{remark}\label{proper_reduced_remark!}
+	Let 	$\left(A, \widetilde{A}, G, \pi \right)$ be a 
+	noncommutative finite-fold pre-covering (cf. Definition \ref{fin_pre_defn}), and let $\widetilde{A}_{\text{red}}$ be a reduced $C^*$-algebra of $\left(A, \widetilde{A}, G, \pi \right)$ (cf. Definition \ref{reduced_alg_defn}). If 
+	\be
+	H \bydef \left\{g \in G \left| \forall \widetilde{a}_{\text{red}} \in \widetilde{A}_{\text{red}} \quad g\widetilde{a}_{\text{red}}=\widetilde{a}_{\text{red}}\right.\right\}\subset G
+	\ee
+	then from the Lemma \ref{quasi_red_lem} it follows that $H$ is a 	$\left(A, \widetilde{A}, G, \pi \right)$-proper  normal subgroup of $G$ (cf. Definition \ref{proper_subgroup_fin_defn}). Moreover if	$\left(A, \widetilde{A}, G, \pi \right)$  is a
+	noncommutative finite-fold covering (cf. Definition \ref{fin_defn}) then from there are $H$-{regular} and $H$-{singular} noncommutative finite-fold coverings
+	\be\label{reduced_decomp_eqn}
+	\begin{split}
+		\left(A, \widetilde{A}^H, G\left(\left.\widetilde A~\right|A \right)/H, \pi^H \right)= \left(A, \widetilde{A}_{\text{red}}, G\left(\left.\widetilde{A}_{\text{red}}~\right|A \right), \pi^H\right), 
+		\\\left(\widetilde{A}^H, \widetilde{A}, H, \left.\Id_{\widetilde{A}}\right|_{\widetilde{A}^H} \right)=\left(\widetilde{A}_{\text{red}}, \widetilde{A}, G\left(\left.\widetilde A~\right|\widetilde A_{\text{red}} \right) , \left.\Id_{\widetilde{A}}\right|_{\widetilde{A}_{\text{red}}} \right)
+	\end{split}
+	\ee	
+	(cf. Definition \ref{fin_composition_covering_defn}).
+\end{remark}
+\begin{remark}\label{proper_reduced_spectrum_remark!}
+	In the situation of the Remark \ref{proper_reduced_remark} the group $H = G\left(\left.\widetilde A~\right|\widetilde A_{\text{red}} \right)$ trivially acts on the spectrum of $\widetilde A~$ so from the Proposition \ref{spectrum_cov_prop} it follows that the spectrum of $\widetilde A$ is naturally homeomorphic to the spectrum of  $\widetilde A_{\text{red}}$,
+\end{remark}
 
 \begin{lemma}\label{comm_ccr_lem}
-	Let $A= C\left(\sX \right)$  be an unital commutative   $C^*$-algebra.
- If $\left(A, \widetilde{A}, G, \pi \right)$ is an unital noncommutative finite-fold  covering  (cf. Definition \ref{fin_unital_defn}) then the dimension of  any irreducible representation of  $\widetilde{A}$  is finite. Moreover if $\widetilde{\mathcal X}$ is the spectrum of $\widetilde{A}$ then  there is $N \in \N$ such that for any $\widetilde{x} \in \widetilde{\mathcal X}$ there is $m \le N$ which satisfies to the following condition  $$\mathfrak{rep}_{\widetilde{x}}\left(\widetilde{A} \right) \approx \mathbb{M}_m\left(\C \right).$$
+ then the dimension of  any irreducible representation of  $\widetilde{A}$  is finite. Moreover if $\widetilde{\mathcal X}$ is the spectrum of $\widetilde{A}$ then  there is $N \in \N$ such that for any $\widetilde{x} \in \widetilde{\mathcal X}$ there is $m \le N$ which satisfies to the following condition  $$\mathfrak{rep}_{\widetilde{x}}\left(\widetilde{A} \right) \approx \mathbb{M}_m\left(\C \right).$$
 \end{lemma}
 \begin{proof}
 	From the Definitions \ref{fin_quasi_defn}  and \ref{principal_non_defn} it follows that $\pi \left(1_A\right)= 1_{\widetilde A}$.
@@ -8624,7 +8727,7 @@ Prove that
 	$$
 	\widetilde{C} = \left\{\left.\widetilde c \in \widetilde A\right|\forall \widetilde c \in \widetilde A\quad 	\widetilde c  \widetilde a= \widetilde a  \widetilde c  \right\}
 	$$
-	If $\widetilde{A}_{\text{red}}$ is the {reduced algebra} of $\left(A, \widetilde{A}, G, \pi \right)$ (cf. Definition \ref{red_alg_defn}) then from the equation \eqref{red_incl_eqn} it follows that $\dim \rep_{  \widetilde{x }}\left(\widetilde{A}_{\text{red}}\right)=\dim \rep_{  \widetilde{x }}\left(A\right)= 1$ for each $\widetilde x \in \widetilde \sX$, so  $\widetilde{A}_{\text{red}}$ is a commutative $C^*$-algebra. For any $x \in \sX$ and $a \in C\left(\sX\right)$ the $\rep_x\left(a \right)= a\left(x\right)  \rep_x\left(1_A \right)$. On the other hand from $\pi \left(1_A\right)= 1_{\widetilde A}$ for any $\widetilde a_{\text{red}} \in \widetilde{A}_{\text{red}}$ there is a family $\left\{\widetilde a^{\widetilde x}_{\text{red}}\in \C\right\}_{\widetilde x\in \widetilde \sX}$ such that for all 
+ For any $x \in \sX$ and $a \in C\left(\sX\right)$ the $\rep_x\left(a \right)= a\left(x\right)  \rep_x\left(1_A \right)$. On the other hand from $\pi \left(1_A\right)= 1_{\widetilde A}$ for any $\widetilde a_{\text{red}} \in \widetilde{A}_{\text{red}}$ there is a family $\left\{\widetilde a^{\widetilde x}_{\text{red}}\in \C\right\}_{\widetilde x\in \widetilde \sX}$ such that for all 
 	$\widetilde{x}\in \widetilde{\sX}$ one has $\rep_{\widetilde x}\left(\widetilde a_{\text{red}} \right)=\widetilde a_{\text{red}}^{\widetilde x}  \rep_{\widetilde x}\left(1_{\widetilde A} \right)$. So one has
 	$$
 \forall 	\widetilde x \in \widetilde \sX \quad \forall 	\widetilde a \in \widetilde A\quad \forall 	\widetilde a_{\text{red}} \in \widetilde A_{\text{red}}\quad \rep_{\widetilde x}\left( \widetilde{a}_{\text{red}}\widetilde{a}\right) =\rep_{\widetilde x}\left(\widetilde{a}\widetilde{a}_{\text{red}} \right)  
@@ -8656,7 +8759,7 @@ i.e. $\widetilde{a}$ linearly depends on $n$ or less than $n$ complex-valued par
 \end{proof}
 \begin{corollary}\label{comm_ccr_cor}
 	Let $A= C_0\left(\sX \right)$  be a commutative   $C^*$-algebra.
-	If $\left(A, \widetilde{A}, G, \pi \right)$ is noncommutative finite-fold  covering with unitization (cf. Definition \ref{fin_unitization_defn}) then the dimension of  any irreducible representation of  $\widetilde{A}$  is finite. Moreover if $\widetilde{\mathcal X}$ is the spectrum of $\widetilde{A}$ then  there is $N \in \N$ such that for any $\widetilde{x} \in \widetilde{\mathcal X}$ there is $m \le N$ which satisfies to the following condition  $$\mathfrak{rep}_{\widetilde{x}}\left(\widetilde{A} \right) \approx \mathbb{M}_m\left(\C \right).$$  Moreover if 	If $\widetilde{A}_{\text{red}}$ is the {reduced algebra} of $\left(A, \widetilde{A}, G, \pi \right)$ (cf. Definition \ref{red_alg_defn}) then there is the natural *-isomorphism $\widetilde{A}_{\mathrm{red}} \cong C_0\left(\widetilde{\sX}\right)$
+	If $\left(A, \widetilde{A}, G, \pi \right)$ is noncommutative finite-fold  covering with unitization (cf. Definition \ref{fin_unitization_defn}) then the dimension of  any irreducible representation of  $\widetilde{A}$  is finite. Moreover if $\widetilde{\mathcal X}$ is the spectrum of $\widetilde{A}$ then  there is $N \in \N$ such that for any $\widetilde{x} \in \widetilde{\mathcal X}$ there is $m \le N$ which satisfies to the following condition  $$\mathfrak{rep}_{\widetilde{x}}\left(\widetilde{A} \right) \approx \mathbb{M}_m\left(\C \right).$$  Moreover if 	If $\widetilde{A}_{\text{red}}$ is the {reduced algebra} of $\left(A, \widetilde{A}, G, \pi \right)$ (cf. Definition \ref{reduced_alg_defn}) then there is the natural *-isomorphism $\widetilde{A}_{\mathrm{red}} \cong C_0\left(\widetilde{\sX}\right)$
 \end{corollary}
 \begin{proof}
 Follows from the Lemma \ref{comm_ccr_lem} and the Definition \ref{fin_unitization_defn}.
@@ -15210,7 +15313,7 @@ Our following constructions require an analog of the Dini's theorem.
 \subsubsection{Coverings of continuous trace  $C^*$-algebras}
 
 \begin{lemma}\label{ctr_pre_red_lem}
-Let $A$ be a continuous trace $C^*$-algebra, and let  $\left(A, \widetilde{A}, G, \pi \right)$ be a  noncommutative finite-fold quasi-covering (cf. Definition \ref{fin_quasi_defn}). If $\widetilde{A}_{\mathrm{red}}$ is a reduced algebra of $\left(A, \widetilde{A}, G, \pi \right)$ (cf. Definition \ref{red_alg_defn}) and  there is an open subset $\widetilde\sU$ of the spectrum $\widetilde\sX$ of  $\widetilde{A}$ such that
+Let $A$ be a continuous trace $C^*$-algebra, and let  $\left(A, \widetilde{A}, G, \pi \right)$ be a  noncommutative finite-fold quasi-covering (cf. Definition \ref{fin_quasi_defn}). If $\widetilde{A}_{\mathrm{red}}$ is a reduced algebra of $\left(A, \widetilde{A}, G, \pi \right)$ (cf. Definition \ref{reduced_alg_defn}) and  there is an open subset $\widetilde\sU$ of the spectrum $\widetilde\sX$ of  $\widetilde{A}$ such that
  $\rep_{ \widetilde{x}}\left(\widetilde{A}_{\mathrm{red}}\right) \subsetneqq \rep_{ \widetilde{x}}\left(\widetilde{A}\right)$ for all $\widetilde{x}\in \widetilde \sU$ then the group
 $$
 \left\{\left. g \in \Aut\left(\widetilde{A} \right)  \right| \forall \widetilde{a}_{\mathrm{red}}\in \widetilde{A}_{\mathrm{red}} \quad g \widetilde{a}_{\mathrm{red}}=\widetilde{a}_{\mathrm{red}}\right\}
@@ -15307,7 +15410,7 @@ and taking into account \eqref{ctr_inf_eqn} one has infinitely many different au
 \end{proof}
 
 \begin{corollary}\label{ctr_dense_cor}
-	Let $A$ be a continuous trace $C^*$-algebra, and let  $\left(A, \widetilde{A}, G, \pi \right)$ by a  noncommutative finite-fold pre-covering.  If  $\widetilde\sX$ is the spectrum of  $\widetilde{A}$ and $\widetilde{A}_{\mathrm{red}}$ is the reduced algebra of $\left(A, \widetilde{A}, G, \pi \right)$ (cf. Definition \ref{red_alg_defn}) then the set
+	Let $A$ be a continuous trace $C^*$-algebra, and let  $\left(A, \widetilde{A}, G, \pi \right)$ by a  noncommutative finite-fold pre-covering.  If  $\widetilde\sX$ is the spectrum of  $\widetilde{A}$ and $\widetilde{A}_{\mathrm{red}}$ is the reduced algebra of $\left(A, \widetilde{A}, G, \pi \right)$ (cf. Definition \ref{reduced_alg_defn}) then the set
 	\be\label{ctr_par_eqn}
 	\widetilde{\sX}^\parallel\bydef \left\{ \left. \widetilde x\in \widetilde\sX\right| \rep_{ \widehat{x}}\left(\widetilde{A}_{\mathrm{red}} \right) = \rep_{ \widehat{x}}\left(\widetilde{A} \right)\right\}
 	\ee
