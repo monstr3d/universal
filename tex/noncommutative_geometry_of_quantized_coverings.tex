@@ -8637,7 +8637,7 @@ Prove that
 
 \subsection{Coverings of $C^*$-algebras}
 
-\begin{lemma}
+\begin{lemma}\label{top_sing_lem}
 	Let $A= C\left(\sX \right)$  be an unital commutative   $C^*$-algebra.
 Let  $\left(A, \widetilde{A}, G, \pi \right)$ is an unital noncommutative finite-fold  covering  (cf. Definition \ref{fin_unital_defn}), and let both $\sX$ and $\widetilde\sX$ are spectra of $A$ and $\widetilde A$ respectively. Following conditions hold:
 \begin{itemize}
@@ -8693,62 +8693,54 @@ i.e. the $C^*$-algebra   $\rep_x\left(\widetilde A \right)$ is a finite-dimensio
 \end{proof}
 
 \begin{corollary}\label{comm_ccr_cor}
-If $\left(C\left( {\sX}\right), \widetilde{A}, G, \pi \right)$ is an unital noncommutative  finite-fold quasi-covering   (cf. Definition \ref{fin_unital_defn}) such that:
-\begin{itemize}
-	\item The  $C^*$-algebra $\widetilde A$ is not commutative,
-	\item the spectrum of $\widetilde{A}$ equals to $\sX$.
-\end{itemize}
-Then a given by
-$$
-\left\{\left.g \in \Aut\left( \widetilde{A}\right) \right| \forall a \in C\left(\sX\right) \quad ga= a\right\}
-$$
-group of *-automorphisms is not finite.
+If $\left(C\left( {\sX}\right), \widetilde{A}, G, \pi \right)$ is an unital noncommutative  finite-fold covering   (cf. Definition \ref{fin_unital_defn}) If  the given by \ref{spectrum_cov_eqn} map is a homeomorphism, then $\pi:C\left( {\sX}\right)\hookto\widetilde{A}$ is *-isomorphism. 
 \end{corollary}
 
 \begin{proof}
-If $N$ is maximal number among $\dim \rep_x\left( \widetilde A\right)$ then $N > 1$ because $\widetilde{A}$ is not commutative. From the Lemma \ref{comm_ccr_lem} it turns out that  the set
+	The spectrum of $\widetilde{A}$ equals to $\sX$ the given by \ref{spectrum_cov_eqn} since the given by \ref{spectrum_cov_eqn} map is a homeomorphism. Suppose $\pi:C\left( {\sX}\right)\hookto\widetilde{A}$ is not a *-isomorphism. Then there is $x \in \sX$ such that $\dim \rep_x\left( \widetilde A\right)> 1$.
+If $N$ is maximal number among $\dim \rep_x\left( \widetilde A\right)$ then from the Lemma \ref{comm_ccr_lem} it turns out that  the set
 $$
-_N\widetilde{   \mathcal X }= \left\{\widetilde{x} \in \widetilde{   \mathcal X }~|~\dim \rep_{ \widetilde{x}}\left( \widetilde A\right)= N\right\}
+_N{   \mathcal X }= \left\{{x} \in {   \mathcal X }~|~\dim \rep_{ {x}}\left( \widetilde A\right)= N\right\}
 $$
-is open  subset    of $\widetilde{   \mathcal X }$. If $_N\widetilde{A}\subset \widetilde{A}$ is a closed  ideal which corresponds to $_N\widetilde{   \mathcal X }$, i.e.
+is open  subset    of $\widetilde{   \mathcal X }$. If $_N\widetilde{A}\subset \widetilde{A}$ is a closed  ideal which corresponds to $_N{   \mathcal X }$, i.e.
 $$
-_N\widetilde{A} =\bigcap_{\widetilde{x}\in \widetilde{   \mathcal X }\setminus _N\widetilde{   \mathcal X }}\ker\rep_{ \widetilde{x}}
+_N\widetilde{A} =\bigcap_{{x}\in {   \mathcal X }\setminus _N{   \mathcal X }}\ker\rep_{ {x}}
 $$
-then from Theorem \ref{ctr_fin_bundle_thm} it turns out $_N\widetilde{A}$ corresponds to  a fibre bundle with the base space $_N\widetilde{   \mathcal X }$ and and fibre space $\mathbb{M}_N\left( \C\right)$. It follows that there is an open subset $\widetilde{   \mathcal U } \subset _N\widetilde{   \mathcal X }$ such that
+then from Theorem \ref{ctr_fin_bundle_thm} it turns out $_N\widetilde{A}$ corresponds to  a fibre bundle with the base space $_N{   \mathcal X }$ and and fibre space $\mathbb{M}_N\left( \C\right)$. It follows that there is an open subset ${   \mathcal U } \subset _N{   \mathcal X }$ such that
 \be\label{comm_lem_triv_u_eqn}
-\left._N\widetilde{A}\right|_{\widetilde{   \mathcal U }}= \left.\widetilde{A}\right|_{\widetilde{   \mathcal U }} \cong C_0\left( \widetilde{   \mathcal U }\right) \otimes \mathbb{M}_N\left( \C\right)
+\left._N\widetilde{A}\right|_{{   \mathcal U }}= \left.\widetilde{A}\right|_{{   \mathcal U }} \cong C_0\left( {   \mathcal U }\right) \otimes \mathbb{M}_N\left( \C\right)
 \ee
-where $\left._N\widetilde{A}\right|_{\widetilde{   \mathcal U }}$ is given by the equation \eqref{open_ideal_eqn}. If $\widetilde x \in \widetilde{   \mathcal U }$
- and  $\widetilde f_{\widetilde x}\in C_c\left(\widetilde{   \mathcal U } \right)$ is an $\widetilde x$-stump (cf. Definition \ref{top_stump_defn}) then there is an open subset $\widetilde{   \mathcal V }\subset \widetilde{   \mathcal U}$   
- such that $\widetilde{ f}_{\widetilde x}\left( \widetilde{   \mathcal V }\right) = \{1\}$. Since $\widetilde{   \mathcal U }$ is an open subset of $\widetilde{   \mathcal X }$  the function $\widetilde{ f}_{\widetilde x}$ 
-can be extended up to $\widetilde{ f}\in C_0\left(\widetilde{   \mathcal X } \right)$ such that 
+where $\left._N\widetilde{A}\right|_{{   \mathcal U }}$ is given by the equation \eqref{open_ideal_eqn}. If $ x \in {   \mathcal U }$
+ and  $ f_{ x}\in C_c\left({   \mathcal U } \right)$ is an $ x$-stump (cf. Definition \ref{top_stump_defn}) then there is an open subset ${   \mathcal V }\subset {   \mathcal U}$   
+ such that ${ f}_{ x}\left( {   \mathcal V }\right) = \{1\}$. Since ${   \mathcal U }$ is an open subset of ${   \mathcal X }$  the function ${ f}_{ x}$ 
+can be extended up to ${ f}\in C_0\left({   \mathcal X } \right)$ such that 
 \bean
-\widetilde{ f}\left(\widetilde{y}\right)= \begin{cases}
-\widetilde{ f}_{\widetilde x}\left( \widetilde y\right) & \widetilde y\in \widetilde \sU\\
-0 & \widetilde y\in \widetilde \sX\setminus \widetilde \sU.
+{ f}\left({y}\right)= \begin{cases}
+{ f}_{\widetilde x}\left(  y\right) &  y\in  \sU\\
+0 &  y\in  \sX\setminus  \sU.
 \end{cases}
 \eean
-Any $\widetilde{a} \in \left.\widetilde{A}\right|_{\widetilde{   \mathcal U }}$ can be represented by continuous function $\widetilde{   \mathcal U } \to \mathbb{M}_N\left(\C \right)$. Let  $\psi, \vartheta :\widetilde{   \mathcal U }\to \mathbb{M}_N\left(\C \right)$ be given by
+Any $\widetilde{a} \in \left.\widetilde{A}\right|_{\widetilde{   \mathcal U }}$ can be represented by continuous function ${   \mathcal U } \to \mathbb{M}_N\left(\C \right)$. Let  $\psi, \vartheta :{   \mathcal U }\to \mathbb{M}_N\left(\C \right)$ be given by
 \bean
-\psi\left( \widetilde{ x}\right) = 	
+\psi\left( { x}\right) = 	
 \begin{pmatrix}
-	f\left( \widetilde{ x}\right) & 0 &\ldots & 0\\
+	f\left( { x}\right) & 0 &\ldots & 0\\
 	0& 0 &\ldots&0 \\
 	\vdots& \vdots &\ddots&\vdots\\
 	0& 0 & \ldots &0
 \end{pmatrix},\\
-\vartheta\left( \widetilde{ x}\right) = 	
+\vartheta\left( { x}\right) = 	
 \begin{pmatrix}
-	0 & 	f\left( \widetilde{ x}\right) &\ldots & 0\\
+	0 & 	f\left( { x}\right) &\ldots & 0\\
 	0& 0 &\ldots&0 \\
 	\vdots& \vdots &\ddots&\vdots\\
 	0& 0 & \ldots &0
 \end{pmatrix}.
 \eean
-Let both $\widetilde{p}^\parallel, \widetilde b \in  \left.\widetilde{A}\right|_{\widetilde{   \mathcal U }}$ be represented by both $\psi, \vartheta$ respectively. From $\left.\widetilde{A}\right|_{\widetilde{   \mathcal U }} \subset \widetilde{A}$ it turns out that  both $\widetilde{p}^\parallel$ and $\widetilde b$ can be regarded as elements of $\widetilde{A}$, i.e. $\widetilde{p}^\parallel, ~\widetilde b \in \widetilde{A}$.
-Since  $\widetilde{   \mathcal V }$ is a locally compact Hausdorff open subspace of $\widetilde{   \mathcal U }$ there is $x_0 \in \widetilde{   \mathcal V }$ a continuous positive $\varphi \in C_0\left( \widetilde{   \mathcal X }\right)_+$ such that $\varphi \left(\widetilde{x}_0 \right)  = 1$ and $\supp \varphi \subset \widetilde{   \mathcal V }$. Denote by
+Let both $\widetilde{p}^\parallel, \widetilde b \in  \left.\widetilde{A}\right|_{{   \mathcal U }}$ be represented by both $\psi, \vartheta$ respectively. From $\left.\widetilde{A}\right|_{{   \mathcal U }} \subset \widetilde{A}$ it turns out that  both $\widetilde{p}^\parallel$ and $\widetilde b$ can be regarded as elements of $\widetilde{A}$, i.e. $\widetilde{p}^\parallel, ~\widetilde b \in \widetilde{A}$.
+Since  ${   \mathcal V }$ is a locally compact Hausdorff open subspace of ${   \mathcal U }$ there is $x_0 \in {   \mathcal V }$ a continuous positive $\varphi \in C_0\left( {   \mathcal X }\right)_+$ such that $\varphi \left({x}_0 \right)  = 1$ and $\supp \varphi \subset {   \mathcal V }$. Denote by
 $\widetilde{p}^\perp \stackrel{\text{def}}{=} 1_{M\left( \widetilde{A}\right) }- \widetilde{p}^\parallel\in M\left( \widetilde{A}\right)$. 
-If $\epsilon \in \R$ and $\widetilde{u}_\epsilon \bydef p^\parallel e^{i\epsilon \varphi} + p^\perp\in M\left(  \widetilde{A}\right) $ then for any $\widetilde{x} \in \widetilde{\mathcal U}$ following condition holds
+If $\epsilon \in \R$ and $\widetilde{u}_\epsilon \bydef p^\parallel e^{i\epsilon \varphi} + p^\perp\in M\left(  \widetilde{A}\right) $ then for any ${x} \in {\mathcal U}$ following condition holds
 \be\label{top_rep_eqn}  
 \begin{split}
 \rep_{\widetilde{x}}\left( \widetilde{u}_\epsilon\right) = \left\{
@@ -8758,20 +8750,20 @@ If $\epsilon \in \R$ and $\widetilde{u}_\epsilon \bydef p^\parallel e^{i\epsilon
 		0& 1 &\ldots&0 \\
 		\vdots& \vdots &\ddots&\vdots\\
 		0& 0 & \ldots &1
-	\end{pmatrix} &\widetilde x \in   \widetilde{\mathcal V} \\ \\
+	\end{pmatrix} &\widetilde x \in   {\mathcal V} \\ \\
 	\begin{pmatrix}
 		1 & 0 &\ldots & 0\\
 		0& 1 &\ldots&0 \\
 		\vdots& \vdots &\ddots&\vdots\\
 		0& 0 & \ldots &1
-	\end{pmatrix} &\widetilde x \in   \widetilde{\mathcal U}\setminus \widetilde{\mathcal V} 
+	\end{pmatrix} &\widetilde x \in   {\mathcal U}\setminus {\mathcal V} 
 \end{array}\right..\end{split}
 \ee
 \begin{center}
 	
-\end{center} Otherwise for any $\widetilde{x} \in \widetilde{\mathcal V}$ $\rep_{\widetilde{x}}\left( \widetilde{u}_\epsilon  \right)\rep_{\widetilde{x}}\left( \widetilde{u}^*_\epsilon  \right) = \rep_{\widetilde{x}}\left( \widetilde{u}^*_\epsilon  \right) \rep_{\widetilde{x}}\left( \widetilde{u}_\epsilon  \right) = 1_{B\left(\H_{\widetilde x} \right) }$ where $\H_{\widetilde x}$ is a space of an irreducible representation $\rep_{ \widetilde{x}}:\widetilde A\to B\left(\H_{\widetilde x}\right)$. It follows that $\rep_{\widetilde{x}}\left( \widetilde{u}_\epsilon  \right)\rep_{\widetilde{x}}\left( \widetilde{u}^*_\epsilon  \right) = \rep_{\widetilde{x}}\left( \widetilde{u}^*_\epsilon  \right) \rep_{\widetilde{x}}\left( \widetilde{u}_\epsilon  \right) = 1_{B\left(\H_{\widetilde x} \right) }$ for any $\widetilde{x} \in \widetilde{\mathcal X}$.  Hence one has $\widetilde{u}_\epsilon^*\widetilde{u}_\epsilon= \widetilde{u}_\epsilon \widetilde{u}_\epsilon^*=  1_{M\left(  \widetilde{A}\right) }$ i.e. $\widetilde{u}_\epsilon$ is unitary.  There is an internal *-automorphism $\chi_\epsilon \in \Aut\left(\widetilde{A} \right)$ given by $\widetilde{a}  \mapsto \widetilde{u}_\epsilon^*\widetilde{a}\widetilde{u}_\epsilon$.  From
+\end{center} Otherwise for any ${x} \in {\mathcal V}$ $\rep_{\widetilde{x}}\left( \widetilde{u}_\epsilon  \right)\rep_{{x}}\left( \widetilde{u}^*_\epsilon  \right) = \rep_{{x}}\left( \widetilde{u}^*_\epsilon  \right) \rep_{{x}}\left( \widetilde{u}_\epsilon  \right) = 1_{B\left(\H_{ x} \right) }$ where $\H_{ x}$ is a space of an irreducible representation $\rep_{ {x}}:\widetilde A\to B\left(\H_{ x}\right)$. It follows that $\rep_{\widetilde{x}}\left( \widetilde{u}_\epsilon  \right)\rep_{{x}}\left( \widetilde{u}^*_\epsilon  \right) = \rep_{{x}}\left( \widetilde{u}^*_\epsilon  \right) \rep_{\widetilde{x}}\left( \widetilde{u}_\epsilon  \right) = 1_{B\left(\H_{ x} \right) }$ for any $\widetilde{x} \in \widetilde{\mathcal X}$.  Hence one has $\widetilde{u}_\epsilon^*\widetilde{u}_\epsilon= \widetilde{u}_\epsilon \widetilde{u}_\epsilon^*=  1_{M\left(  \widetilde{A}\right) }$ i.e. $\widetilde{u}_\epsilon$ is unitary.  There is an internal *-automorphism $\chi_\epsilon \in \Aut\left(\widetilde{A} \right)$ given by $\widetilde{a}  \mapsto \widetilde{u}_\epsilon^*\widetilde{a}\widetilde{u}_\epsilon$.  From
  $$
- \rep_{\widetilde{x}_0}\left( \widetilde{u}^*_\epsilon\right)  \vartheta\left(x_0 \right)  \rep_{\widetilde{x}_0}\left( \widetilde{u}_\epsilon\right) = \begin{pmatrix}
+ \rep_{{x}_0}\left( \widetilde{u}^*_\epsilon\right)  \vartheta\left(x_0 \right)  \rep_{{x}_0}\left( \widetilde{u}_\epsilon\right) = \begin{pmatrix}
  0 & 	e^{-i\epsilon} &\ldots & 0\\
  0& 0 &\ldots&0 \\
  \vdots& \vdots &\ddots&\vdots\\
@@ -8780,31 +8772,26 @@ If $\epsilon \in \R$ and $\widetilde{u}_\epsilon \bydef p^\parallel e^{i\epsilon
  $$
 it turns out that
 $$
-\epsilon_1 ,\epsilon_2\in [0, 2\pi)~\&~\epsilon_1 \neq \epsilon_2 \Rightarrow \rep_{ \widetilde{x}_0}\left(\chi_{\epsilon_1}\left( \widetilde{b}\right)  \right) \neq \rep_{ \widetilde{x}_0}\left(\chi_{\epsilon_2}\left( \widetilde{b}\right)  \right)\Rightarrow \chi_{\epsilon_1} \neq \chi_{\epsilon_2}.
+\epsilon_1 ,\epsilon_2\in [0, 2\pi)~\&~\epsilon_1 \neq \epsilon_2 \Rightarrow \rep_{ {x}_0}\left(\chi_{\epsilon_1}\left( \widetilde{b}\right)  \right) \neq \rep_{ {x}_0}\left(\chi_{\epsilon_2}\left( \widetilde{b}\right)  \right)\Rightarrow \chi_{\epsilon_1} \neq \chi_{\epsilon_2}.
 $$
 The $C^*$-algebra  $C\left(\sX \right) $ is commutative, it follows that
 $$
-\widetilde a_{\text{red}} \in \widetilde{A}_{\text{red}}\Rightarrow \rep_{\widetilde{x}}\left( \widetilde{a}_{\text{red}}\right) = 
+ a \in C\left(\sX \right) \Rightarrow \rep_{{x}}\left( a\right) = 
 \begin{pmatrix}
-f_{\text{red}}\left(\widetilde{x} \right)  & 0 &\ldots & 0\\
-0& f_{\text{red}}\left(\widetilde{x} \right)  &\ldots&0 \\
+f\left({x} \right)  & 0 &\ldots & 0\\
+0& f\left({x} \right)  &\ldots&0 \\
 \vdots& \vdots &\ddots&\vdots\\
-0& 0 & \ldots &f_{\text{red}}\left(\widetilde{x} \right) 
-\end{pmatrix} \quad\forall\widetilde x \in   _N\widetilde{\mathcal X}  
+0& 0 & \ldots &f\left({x} \right) 
+\end{pmatrix} \quad\forall x \in   _N{\mathcal X}  
 $$
-and taking into account the equation \eqref{top_rep_eqn} one has $\rep_{\widetilde{x}}\left( \widetilde{u}_\epsilon  \right)\rep_{\widetilde{x}}\left( \widetilde{a}_{\text{red}}\right)\rep_{\widetilde{x}}\left( \widetilde{u}^*_\epsilon  \right)= \rep_{\widetilde{x}}\left( \widetilde{a}_{\text{red}}\right)$ for every $\widetilde x \in   \widetilde{\mathcal X}$. It means that $\chi_{\epsilon}\left( \widetilde{a}_{\text{red}}\right) = \widetilde{a}_{\text{red}}$ for all $\widetilde a_{\text{red}} \in \widetilde{A}_{\text{red}}$
+and taking into account the equation \eqref{top_rep_eqn} one has $\rep_{\widetilde{x}}\left( \widetilde{u}_\epsilon  \right)\rep_{\widetilde{x}}\left( a\right)\rep_{\widetilde{x}}\left( \widetilde{u}^*_\epsilon  \right)= \rep_{{x}}\left( a\right)$ for every $\widetilde x \in   \widetilde{\mathcal X}$. It means that $\chi_{\epsilon}\left( a\right) = a$ for all $a \in C\left(\sX\right)$
 hence the  group
 \be\nonumber
-G_{\text{red}} \bydef \left\{ g \in \Aut\left(\left.\widetilde{A} \right)~\right|~ g\widetilde a_{\text{red}} = \widetilde a_{\text{red}};~~\forall \widetilde a_{\text{red}} \in \widetilde A_{\text{red}}\right\}
+G \bydef \left\{ g \in \Aut\left(\left.\widetilde{A} \right)~\right|~ ga =  a\quad\forall \widetilde a \in C\left(\sX\right)\right\}
 \ee
-is not finite. From the inclusion $G_{\text{red}}\subset G$ it follows that $G$ is not finite
-, i.e. one has the contradiction with (a) of the Definition \ref{fin_pre_defn}. From this contradiction it turns out that $\dim\rep_{ \widetilde{x}}\left(\widetilde{A}\right)= 1$ for any $\widetilde{x} \in \widetilde{\sX}$, it means that $\widetilde{A}$ is commutative.
+is not finite, i.e. one has the contradiction with (a) of the Definition \ref{fin_pre_defn}. From this contradiction it turns out that $\dim\rep_{ {x}}\left(\widetilde{A}\right)= 1$ for any ${x} \in {\sX}$, it means that $\widetilde{A}$ is commutative. It follows that $\pi$ is *-isomorphism.
 \end{proof}
-\begin{lemma}\label{comm_emptycomm_lem}
-	Let $A$ be commutative  $C^*$-algebra. 
-	If $\left(A, \widetilde{A}, G, \pi \right)$ be  a  noncommutative finite-fold     covering with unitization (cf. Definition  \ref{fin_unitization_defn}) then $\widetilde{A}$ is commutative.
-\end{lemma}
-\
+
 %\begin{lemma}\label{comm_homo_cov_lem}
 %	Let $A$ be an unital {homogeneous of order} $n$ $C^*$-algebra (cf. Definition \ref{ctr_homo_defn}).	Let $\left(A, \widetilde{A}, G, \pi \right)$ be  an unital noncommutative finite-fold     covering (cf. Definition  \ref{fin_unital_defn}). If $p:\widetilde{\mathcal X} \to {\mathcal X}$ is the continuous map from the spectrum of $\widetilde{A}$ to the spectrum of $A$ given by the Lemma \ref{spectrum_cov_prop}  then $p$ is a finite-fold transitive topological covering such that $G \cong G\left( \widetilde{\mathcal X}~|~ {\mathcal X}\right)$. 
 %\end{lemma}
@@ -8839,20 +8826,20 @@ is not finite. From the inclusion $G_{\text{red}}\subset G$ it follows that $G$ 
 %\end{proof}
 
 \begin{corollary}\label{comm_comm_cor}
-	Let $A$ be an unital commutative $C^*$-algebra. Let $\left(A, \widetilde{A}, G, \pi \right)$ be  an unital noncommutative finite-fold     covering (cf. Definition  \ref{fin_unital_defn}). If $p:\widetilde{\mathcal X} \to {\mathcal X}$ is the continuous map from the spectrum of $\widetilde{A}$ to the spectrum of $A$ given by the Proposition \ref{spectrum_cov_prop}  then $p$ is a finite-fold transitive topological covering such that $G \cong G\left( \widetilde{\mathcal X}~|~ {\mathcal X}\right)$. Moreover the quadruple $\left(A, \widetilde{A}, G, \pi \right)$ is equivalent to $\left(C\left({\mathcal X} \right) , C\left( \widetilde{\mathcal X}\right) , G\left(\left.\widetilde{\sX}~\right|\sX\right) , C_0\left(p \right)  \right)$ where $C_0\left(p \right) : C\left({\mathcal X}\right) \hookto C\left( \widetilde{\mathcal X}\right)$ 	comes from the  finite covering algebraic functor (cf. Definition \ref{top_c_funct_defn}).
+	Let $A\bydef C\left(\sX\right)$ be an unital commutative $C^*$-algebra. Let $\left(A, \widetilde{A}, G, \pi \right)$ be  an unital noncommutative finite-fold     covering (cf. Definition  \ref{fin_unital_defn}). If $p:\widetilde{\mathcal X} \to {\mathcal X}$ is the continuous map from the spectrum of $\widetilde{A}$ to the spectrum of $A$ given by the Proposition \ref{spectrum_cov_prop}  then $p$ is a finite-fold transitive topological covering such that $G \cong G\left( \widetilde{\mathcal X}~|~ {\mathcal X}\right)$. Moreover the quadruple $\left(A, \widetilde{A}, G, \pi \right)$ is equivalent to $$\left(C\left({\mathcal X} \right) , C\left( \widetilde{\mathcal X}\right) , G\left(\left.\widetilde{\sX}~\right|\sX\right) , C_0\left(p \right)  \right)$$ where $C_0\left(p \right) : C\left({\mathcal X}\right) \hookto C\left( \widetilde{\mathcal X}\right)$ 	comes from the  finite covering algebraic functor (cf. Definition \ref{top_c_funct_defn}).
 \end{corollary}
 
 \begin{proof}
-%	Since $A$ is commutative one has $\dim \rep_{x}\left(A  \right)= 1$ for any $x \in \hat A$. From the Corollary \ref{comm_homo_cor} it turns out $\dim\rep_{\widetilde{x}}\left( \widetilde{A}  \right)=1$ for any $\widetilde{x} \in \widetilde{\mathcal X}$, hence for any $\widetilde{a},\widetilde{b}\in \widetilde{A}$ one has
-%	\be\label{comm_rep_comm_eqn}
-%	\rep_{\widetilde{x}}\left(\widetilde{a}\widetilde{b} \right)= \rep_{\widetilde{x}}\left( \widetilde{a}  \right)\rep_{\widetilde{x}}\left( \widetilde{b} \right)=\rep_{\widetilde{x}}\left( \widetilde{b}  \right)\rep_{\widetilde{x}}\left( \widetilde{a} \right)= \rep_{\widetilde{x}}\left(\widetilde{b}\widetilde{a} \right);~\forall \widetilde{a},\widetilde{b}\in \widetilde{A}. 
-%	\ee
-%From the Lemma \ref{comm_rep_eq_lem} it turns out that %$\widetilde{a}\widetilde{b} = \widetilde{b}\widetilde{a}$, i.e. %$\widetilde{A}$ is commutative. 
-From the Lemma \ref{comm_emptycomm_lem} it follows that $\widetilde{A}$ is commutative.
-From the Theorem \ref{gelfand-naimark_thm} it turns out that $A \cong C\left( {\mathcal X}\right)  $, $\widetilde{A}\cong C\left( \widetilde{\mathcal X}\right)$.
-According to the Definition \ref{fin_unital_defn} it turns out that  $ C\left( \widetilde{\mathcal X}\right)$ is a finitely generated Hilbert $ C\left({\mathcal X}\right)$-module, so from the Corollary \ref{fin_hpro_cor} it turns out that $ C\left( \widetilde{\mathcal X}\right)$ is a projective $ C\left({\mathcal X}\right)$-module. Hence from the Theorem \ref{pavlov_troisky_thm} it turns out that $p$ is a covering. From the Proposition \ref{spectrum_cov_prop} it turns out that    the covering $p$ is transitive and there is the natural isomorphism $G\cong G\left(\widetilde{   \mathcal X }~|~{   \mathcal X } \right)$. From the Exercise \ref{top_act_exer} it follows that the *-homomorphism $\pi$ is equivalent to $C_0\left(p \right)$. 
+	From the Lemma \ref{top_sing_lem} one has are two unital noncommutative finite-fold coverings
+	\bean
+	\left(C\left(\sX\right), C\left( \widetilde{\sX}\right) , G\left(\left.\widetilde\sX~\right|\sX  \right), C_0\left(p \right) \right), 
+	\\\left(C\left( \widetilde{\sX}\right), \widetilde{A}, H, \left.\Id_{\widetilde{A}}\right|_{C\left( \widetilde{\sX}\right)} \right).
+	\eean
+	From the Corollary \ref{comm_ccr_cor} it follows that $\left.\Id_{\widetilde{A}}\right|_{C\left( \widetilde{\sX}\right)}:C\left( \widetilde{\sX}\right)\hookto \widetilde A$ is *-isomorphism, so $\widetilde A \cong C\left( \widetilde{\sX}\right)$ and 
+		$$
+		\left(A, \widetilde{A}, G, \pi \right)\cong\left(C\left({\mathcal X} \right) , C\left( \widetilde{\mathcal X}\right) , G\left(\left.\widetilde{\sX}~\right|\sX\right) , C_0\left(p \right)  \right). 
+		$$
 \end{proof}
-
 The algebraic construction of finite-fold coverings requires the following definition.
 \begin{definition}\label{top_cov_comp_defn}
 	A   covering $p: \widetilde{   \mathcal X } \to \mathcal X$ is said to be a \textit{ covering with compactification} if there are compactifications ${   \mathcal X } \hookto {   \mathcal Y }$ and $\widetilde{   \mathcal X } \hookto \widetilde{   \mathcal Y }$ such that:
