@@ -639,7 +639,7 @@ $n^{\text{th}}$ {homotopy group} $\pi_n\left(\sX, x_0 \right)$&$n^{\text{th}}$ {
 Flat connections given by & Noncommutative flat connections\\
  coverings & given by noncommutative coverings\\
 	&\\
-Unoriented Spin$^c$-manifolds  & Unoriented spectral triples\\
+Unoriented !!! UNORIENTED !!! Spin$^c$-manifolds  & Unoriented !!! UNORIENTED !!! spectral triples\\
 &\\
 	\hline
 \end{tabular}
@@ -659,7 +659,7 @@ The Chapter \ref{cov_fin_chap} contains the construction of noncommutative    fi
 	\item  Noncommutative path lifting.
 	\item Coverings of spectral triples.
 	\item Finite noncommutative coverings and flat connections.
-	\item Unoriented spectral triples.
+	\item Unoriented !!! UNORIENTED !!! spectral triples.
 \end{itemize}
 \paragraph*{}
 The Chapter \ref{cov_inf_chap} is devoted to  noncommutative   infinite coverings of $C^*$-algebras and operator spaces. Sections \ref{inf_bas_constr_sec} - \ref{inf_ind_repr_subsection} are  basic. The Section \ref{str_cov_glo_sec} is interesting for  those who are interested in coverings of spectral triples.
@@ -3817,7 +3817,7 @@ $\left(\A_{D}, \widetilde \A_{\widetilde D}, G, \psi  \right)$ (cf. Definition \
  considerations inspire the following construction.
  
  \begin{empt}\label{unoriented_empt}
-  Let $\left(\A, \widetilde \A, \Z_2, \pi  \right)$ be a {noncommutative finite-fold covering of  bounded operator *-algebras} (cf. Definition \ref{fin_oa_defn}), and let $\left(\widetilde \A, \widetilde \H, \widetilde D  \right)$ be a spectral triple. Let $\rho: A \to B\left( \H\right)$ be a faithful representation.  Suppose that following conditions hold:
+  Let $\left(\A, \widetilde \A, \Z_2, \pi  \right)$ be a {noncommutative finite-fold covering of  bounded operator *-algebras} (cf. Definition \ref{fin_oa_defn}), and let $\left(\widetilde \A, \widetilde \H, \widetilde D, \widetilde J  \right)$ be a spectral triple. Let $\rho: A \to B\left( \H\right)$ be a faithful representation.  Suppose that following conditions hold:
  \begin{enumerate}
  	\item[(a)] If both $A$ and $\widetilde A$ are $C^*$-norm completions of $\A$ and $\widetilde \A$ respectively, $\left(A, \widetilde A, \Z_2, \widetilde\pi  \right)$ is an unital noncommutative finite-fold covering (cf. Definition \ref{fin_unital_defn}) which corresponds to  $\left(\A, \widetilde \A, \Z_2, \pi  \right)$ then  the natural representation  $\widetilde\rho:\widetilde A \hookto B\left(\widetilde\H\right)$ is induced by the pair
  	$$
@@ -3833,7 +3833,23 @@ $\left(\A_{D}, \widetilde \A_{\widetilde D}, G, \psi  \right)$ (cf. Definition \
  $$
  \forall \widetilde \xi \in \Dom \widetilde D \quad \forall g \in \Z_2 \quad \widetilde D\left(  g \widetilde \xi \right) = g \left( \widetilde D\widetilde \xi\right).
  $$
+ \item[(d)] The  The operator $\widetilde J$ is $\Z_2$-invariant i.e.
+ $$
+ \forall \widetilde \xi \in \sH \quad \forall g \in \Z_2 \quad \widetilde J\left(  g \widetilde \xi \right) = g \left( \widetilde J\widetilde \xi\right).
+ $$
+ \item[(e)] If
+ 	$$
+ \cc = \tsum_j (a_j^0 \ox b_j^0) \ox a_j^1 \oxyox a_j^n 
+ \in Z_n(\sA, \sA \ox \sA^\opp),
+ $$
+ is a required by an Axiom \ref{orientation_st_ax} Hochschild $n$-cycle and an element $g \in \Z_2$ is not trivial then one has
+ \bean
+ \tsum_j  ga_j^0 (J gb_j^{0*} J^{-1}) \,[D,ga_j^1] \dots [D,ga_j^n]= - \tsum_j a_j^0 (J b_j^{0*} J^{-1}) \,[D,a_j^1] \dots [D,a_j^n]
+ \eean
+ (cf. Equation \ref{eq:vol-cond}).
   \end{enumerate}
+ 
+ 
  
  \end{empt}
 \begin{exercise}\label{unoriented_exer}
@@ -3842,7 +3858,7 @@ Prove  that $\widetilde D \left( \H \cap \Dom \widetilde D \right)\subset \H$, i
 \end{exercise}
  \begin{definition}\label{unoriented_defn} 
  	In the situation \ref{unoriented_empt} we say that
- $\left( \A,  \H,  D  \right)$ is an \textit{unoriented spectral triple}.
+ $\left( \A,  \H,  D, J \bydef\left.\widetilde J\right|_{\H} \right)$ is an \textit{unoriented  spectral triple}.
 \end{definition}
 
 
@@ -9470,16 +9486,16 @@ Similarly to the above construction we have a Hilbert space $L^2\left(\widetilde
 \be\label{comm_bundle_repr_eqn}
 C_0\left(\widetilde \sX\right) \to B\left( L^2\left( \widetilde \sX, \widetilde S\right)\right).
 \ee
-!!! CONTINUE !!!
+
 \begin{lemma}\label{top_hilb_homo_lem}
 	Following conditions hold:
 	\begin{itemize}
-		\item [(i)] The given by \eqref{top_lift_gs_eqn} map $\phi: C_c\left(\widetilde \sX\right)\otimes_{C_0\left(\sX\right)} \Ga_c\left(\sX, E\right) \xrightarrow{\approx} \Ga_c\left(\widetilde{\sX}, \widetilde{E} \right)$ can be extended up to an injective homomorphism 
+		\item [(i)] the given by \eqref{top_lift_gs_eqn} map $\phi: C_c\left(\widetilde \sX\right)\otimes_{C_0\left(\sX\right)} \Ga_c\left(\sX, E\right) \xrightarrow{\approx} \Ga_c\left(\widetilde{\sX}, \widetilde{E} \right)$ can be extended up to an injective homomorphism 
 		$$
 	\varphi:	C_0\left(\widetilde\sX\right)\otimes_{C_0\left(\sX\right)} L^2\left(\sX, S\right) \hookto L^2\left(\widetilde{\sX}, \widetilde{S} \right)
 		$$
-		of left $C_0\left(\widetilde\sX\right)$-modules.
-		\item[(ii)] The image of $C_0\left(\widetilde \sX\right)\otimes_{C_0\left(\sX\right)} L^2\left(\sX, E\right)$ is dense in $L^2\left(\widetilde{\sX}, \widetilde{E} \right)$.
+		of left $C_0\left(\widetilde\sX\right)$-modules,
+		\item[(ii)] the image of $C_0\left(\widetilde \sX\right)\otimes_{C_0\left(\sX\right)} L^2\left(\sX, E\right)$ is dense in $L^2\left(\widetilde{\sX}, \widetilde{E} \right)$.
 	\end{itemize}
 \end{lemma}
 
@@ -9551,13 +9567,13 @@ The equation \eqref{comm_ind_l2_eqn} means that $\left(\cdot, \cdot \right)_{\te
 \begin{lemma}\label{comm_ind_lem}
 	If the representation  $\widetilde{\rho}: C_0\left(\widetilde{\sX}\right) \to  B\left( \widetilde{   \H}\right)  $ is induced by the pair $$\left(C_0\left(\sX \right)\to B\left(  L^2\left(\sX,S \right)\right) ,\left(C_0\left(\sX \right) , C_0\left( \widetilde{\sX}\right) , G\left( \left.\widetilde{\sX}~\right|\sX\right) \right)  \right)$$ (cf. Definition \ref{induced_repr_defn}) then following conditions hold:
 	\begin{enumerate}
-		\item[(a)] There is the homomorphism of Hilbert spaces $\widetilde{   \H}\cong L^2\left(\widetilde{\sX},\widetilde{E} \right)$,
-		\item[(b)] The representation $\widetilde{\rho}$ is given by the natural action of $C_0\left(\widetilde{\sX}\right)$ on $ L^2\left(\widetilde{\sX},\widetilde{E} \right)$ (cf.   \eqref{comm_bundle_repr_eqn}).
+		\item[(i)] there is the homomorphism of Hilbert spaces $\widetilde{   \H}\cong L^2\left(\widetilde{\sX},\widetilde{E} \right)$,
+		\item[(ii)] the representation $\widetilde{\rho}$ is given by the natural action of $C_0\left(\widetilde{\sX}\right)$ on $ L^2\left(\widetilde{\sX},\widetilde{E} \right)$ (cf.   \eqref{comm_bundle_repr_eqn}).
 	\end{enumerate}
 \end{lemma}
 \begin{proof}
-	(a) Follows from the above construction (cf. equation \eqref{comm_ind_l2_eqn}).\\
-	(b) 	The natural  action $C_0\left(\widetilde\sX\right)\times \left( C_0\left(\widetilde \sX\right)\otimes_{C_0\left(\sX\right)} L^2\left(M, E\right)\right)\to C_0\left(\widetilde \sX\right)\otimes_{C_0\left(\sX\right)} L^2\left(\sX, E\right)$ is given by the equation \eqref{top_tens_a_eqn}. However the formula \eqref{top_tens_a_eqn} is a specialization of the general equation \eqref{ind_act_form_eqn} which yields an induced representations.
+	(i) Follows from the above construction (cf. equation \eqref{comm_ind_l2_eqn}).\\
+	(ii) 	The natural  action $C_0\left(\widetilde\sX\right)\times \left( C_0\left(\widetilde \sX\right)\otimes_{C_0\left(\sX\right)} L^2\left(M, E\right)\right)\to C_0\left(\widetilde \sX\right)\otimes_{C_0\left(\sX\right)} L^2\left(\sX, E\right)$ is given by the equation \eqref{top_tens_a_eqn}. However the formula \eqref{top_tens_a_eqn} is a specialization of the general equation \eqref{ind_act_form_eqn} which yields an induced representations.
 	
 \end{proof}
 
@@ -9601,7 +9617,7 @@ and one has
 \Coo\left(\widetilde M \right)\subset \L^\dagger \left(\widetilde \H^\infty  \right), \quad
 \widetilde{\slashed D} \in 	\L^\dagger \left(\widetilde \H^\infty  \right)
 \eean
-where $\L^\dagger \left( \H^\infty  \right)$ and $\L^\dagger \left(\widetilde \H^\infty  \right)$ are given by the equation \eqref{l_dag_eqn}.
+where both $\L^\dagger \left( \H^\infty  \right)$ and $\L^\dagger \left(\widetilde \H^\infty  \right)$ are given by the equation \eqref{l_dag_eqn}.
 \begin{exercise}\label{top_cc_exer}
 Prove that the specialization of the given by the equation \eqref{cc_eqn} operator $\widetilde J$ is an extension of the given by \eqref{top_wtc_eqn} operator $\widetilde C$.
 \end{exercise}
@@ -9615,7 +9631,7 @@ Prove that the specialization of the given by the equation \eqref{cc_eqn} operat
 	\left(\A, \widetilde \A   , G\left(\left. \widetilde \A \right|\A \right) , \pi \right)\bydef  \left(\Coo\left(M\right), \Coo\left(\widetilde M \right), G\left(\left.\widetilde M~ \right| M\right), \left.C_0\left(p \right)\right|_{\Coo\left(M\right)}\right)
 	$$
 	is a finite-fold covering of bounded operator *-algebras  (cf. Definition \ref{fin_oa_defn}).	 
-	We leave to the reader the proof of that   $\widetilde \A$ is a left and right finitely generated projective $\A$-module.  Both $A$ and $\widetilde A$ are $C^*$-norm completions of $\A$ and  $\widetilde \A$ then from the Definition  \ref{fin_oa_defn} it follows that there is  an unital connected noncommutative finite-fold covering $\left(A, \widetilde A, G\left( \left.\widetilde A\right| A\right), \widetilde \pi  \right)$ (cf. Definition \ref{fin_unital_defn} and the equation \eqref{top_am_eqn}) such that $\pi= \widetilde\pi|_{\A}$. If 
+	We leave to the reader the proof of that   $\widetilde \A$ is a left and right finitely generated projective $\A$-module.  Both $A$ and $\widetilde A$ are $C^*$-norm completions of $\A$ and  $\widetilde \A$ respectively, so from the Definition  \ref{fin_oa_defn} it follows that there is  an unital connected noncommutative finite-fold covering $\left(A, \widetilde A, G\left( \left.\widetilde A\right| A\right), \widetilde \pi  \right)$ (cf. Definition \ref{fin_unital_defn} and the equation \eqref{top_am_eqn}) such that $\pi= \widetilde\pi|_{\A}$. If 
 	$$
 	\left(  \rho : A \to B\left(\H \right)\right) \bydef \left(C\left( M\right)\to B\left(L^2\left( M, S\right) \right)  \right) 
 	$$
@@ -9666,7 +9682,7 @@ Prove that the specialization of the given by the equation \eqref{cc_eqn} operat
 	\bean
 	{\slashed{\nabla}}\left(g\widetilde{a} \right)=  {\slashed{\nabla}}\left(\sum_{\widetilde{\a}\in \widetilde{\mathscr A}} \left( g\widetilde{\phi}_{\widetilde{\a}}\right) \left( g\widetilde{\psi}_{\widetilde{\a}}\right)\right)=\\=\sum_{\widetilde{\a}\in \widetilde{\mathscr A}}\left( g \widetilde{\phi}_{\widetilde{\a}} \otimes \left[\slashed D, {\psi}_{\widetilde{\a}}   \right] +g\widetilde{\psi}_{\widetilde{\a}} \otimes \left[\slashed D, {\phi}_{\widetilde{\a}}   \right] \right),  
 	\eean
-	i.e. ${\slashed{\nabla}}$ is  $G\left( \left.\widetilde{M}~\right|M\right)$-{equivariant} (cf. equation \eqref{nabla_inv_cov_eqn}).  We leave to the reader the proof of that the connection $\slashed{\nabla}$ is Hermitian  (cf. Definition \ref{herm_conn_defn}).
+	i.e. ${\slashed{\nabla}}$ is  $G\left( \left.\widetilde{M}~\right|M\right)$-{equivariant} (cf. equation \eqref{conn_equ_conn}).  We leave to the reader the proof of that the connection $\slashed{\nabla}$ is Hermitian  (cf. Definition \ref{herma_conn_defn}).
 %Let us prove the connection $\slashed{\nabla}$ is Hermitian (cf. Definition \ref{herm_conn_defn}), i.e. it satisfies to the condition \eqref{herm_conn_cov_eqn}.	Similarly to \eqref{top_ph_ps_eqn}  for any $\widetilde{a}', \widetilde{a}'' \in \Coo\left(\widetilde{M} \right)$ following conditions hold:
 %	\bean
 %	\widetilde{a}' = \sum_{\widetilde{\a}\in \widetilde{\mathscr A}} \widetilde{\ga}'_{\widetilde{\a}}= \sum_{\widetilde{\a}\in \widetilde{\mathscr A}} \widetilde{\phi}'_{\widetilde{\a}}\widetilde{\psi}'_{\widetilde{\a}}; \text{ where } \widetilde{\phi}'_{\widetilde{\a}}\bydef \widetilde{e}_{\widetilde{\a}},~ \widetilde{\psi}'_{\widetilde{\a}}\bydef \widetilde{e}_{\widetilde{\a}}\widetilde{a},~ \widetilde{\ga}'_{\widetilde{\a}}\bydef\widetilde{a}'_{\widetilde{\a}}\widetilde{e}^2_{\widetilde{\a}},\\
@@ -9689,8 +9705,7 @@ Prove that the specialization of the given by the equation \eqref{cc_eqn} operat
 	
 	
 	
-	If $\widetilde D: \widetilde \A\otimes_\A \H^\infty  \to \widetilde \A\otimes_\A \H^\infty $ is given by \eqref{dirac_fin_lift_eqn}
-	then from \eqref{dirac_om_fin_lift_eqn} it follows that
+	If $\widetilde D: \widetilde \A\otimes_\A \H^\infty  \to \widetilde \A\otimes_\A \H^\infty $ is given by \eqref{wtd_eqn} then
 	\be\label{top_dirac_om_fin_lift_eqn}
 	\slashed \nabla \widetilde a = \sum_{j = 1}^n \widetilde a_j \otimes \om_j \quad\Rightarrow \quad\left[\widetilde D, \widetilde a\right]=  \sum_{j = 1}^n \widetilde a_j \otimes \om_j\in \widetilde\A \otimes_\A \Om^1_D.
 	\ee
@@ -9768,7 +9783,7 @@ From the above equation it follows that
 \eean
 
 
-If $\widetilde{D}$ is the specialization of the given by \eqref{dirac_fin_lift_eqn} operator then
+If $\widetilde{D}$ is the specialization of the given by \eqref{wtd_eqn} operator then
 \bean
 \phi_\infty\left(\widetilde{D}\left(\widetilde{a}\otimes \xi \right)  \right) = \widetilde{a}_\xi + \phi_\infty\left( \widetilde{a} \otimes D\xi\right) = 
 \\
@@ -9811,36 +9826,26 @@ where  $p^{-1}\Dslash$ is the   $p$-{inverse image} of $\Dslash$ (cf. Definition
 \subsection{Unoriented spectral triples}\label{comm_sp_tr} 
 
 \paragraph*{}
-Let $M$ be an unoriented  Riemannian manifold (cf.  Definitions \ref{ori_man_defn} and \ref{riemann_mani_defn}), and let $p:\widetilde{M} \to M$ be a two listed regular covering. Suppose that $\widetilde{M}$ is Riemannian  manifold with the covering metric (cf. \ref{covering_metric_empt}). Assume  that $\widetilde{M}$ is oriented and  admits a Spin$^c$ structure (cf. Definition \ref{spin_str_defn}) given by a spinor bundle $\widetilde S$ (cf. Appendix \ref{spin_mani_sec}). From the Appendix \ref{comm_sp_tr_sec} one has a spectral triple $\left(\Coo\left(\widetilde{M},  \right) , L^2\left(\widetilde{M},\widetilde{S},\widetilde \mu  \right), \widetilde\Dslash \right)$, where the measure $\widetilde \mu$ is given by the volume element (cf. Section \ref{spin_mani_sec}). From  the Exercise \ref{smooth_soft_exer} and (ii) of the Theorem \ref{top_oa_cov_thm} it follows that
-$$
-\left(\A, \widetilde \A, \Z_2, \pi  \right)\bydef \left(\Coo\left( M\right) , \Coo\left(\widetilde M\right) , \Z_2, \left.C_0\left(p\right)  \right|_{\Coo\left( M\right)}  \right)
-$$
-is a		finite-fold covering of bounded operator *-algebras  (cf. Definition \ref{fin_oa_defn}).
-Both $A\bydef C\left(M\right)$ and $\widetilde A\bydef C\left(\widetilde M\right)$ are $C^*$-norm completions of $\A$ and $\widetilde \A$ respectively, $\left(A, \widetilde A, \Z_2, \widetilde\pi  \right)$ is an unital noncommutative finite-fold covering (cf. Theorem \ref{top_fin_thm} and Definition \ref{fin_unital_defn}) which corresponds to  $\left(\A, \widetilde \A, \Z_2, \pi  \right)$.
-If $g \in \Z_2$ is a nontrivial element then from $\Z_2\Coo\left(\widetilde M\right)= \Coo\left(\widetilde M\right)$ it follows that $g$ corresponds to a diffeomorphism of $\widetilde M$. It turns out that $g$ induces  a diffeomorphism of the tangent bundle $T\widetilde M$.
-\begin{exercise}\label{top_unoriented_exer}
-Prove following statements:
-\begin{enumerate}
-\item $g$ induces  isomorphisms of $\Ga\left(\widetilde M, \widetilde S \right)$ and $\widetilde \H \bydef L^2\left(\widetilde M, \widetilde S , \widetilde{\mu}\right)$.
-\item If $\H \bydef L^2\left(\widetilde M, \widetilde S , \widetilde{\mu}\right)^{\Z_2}$ then there is a natural representation $\rho: A \to B\left(\H\right)$.
-\item All constructed objects satisfy to conditions (a)-(c) of \ref{unoriented_empt}.
-\end{enumerate}
-
+Let $M$ be an unoriented   Riemannian manifold (cf.  Definitions \ref{ori_man_defn}, and let $\C\ell(M) \to M$ be a given by \eqref{st_cliffod_eqn}  bundle.
+\begin{exercise}\label{top_unori_exer}
+Suppose that there is a complex linear bundle $S\to M$ such that
+\begin{itemize}
+	\item for all $x \in M$ there is a *-isomorphism $\C\ell_x(M) \simeq \End(S_x)$ (cf. Equation \eqref{st_spinor_eqn}),
+	\item there  is an antilinear endomorphism $C : \Ga\left(M, S \right)\to \Ga\left(M, S \right)$ which satisfies to the Proposition   \ref{pr:charge-conj_prop}.
+\end{itemize}
+Prove that there is a natural unoriented spectral triple
+\be\label{top_unori_eqn}
+\left( \Coo\left( M\right), L^2\left(M, S \right), \Dslash, C  \right).
+\ee
 \end{exercise}
 
- 
-\begin{theorem}\label{com_unori_thm}
-	If $\slashed D\bydef \left.\widetilde \Dslash\right|_{\Dom \widetilde \Dslash\cap  L^2\left(\widetilde{M}, \widetilde{\SS}\right)^{\Z_2}}$ then 
-	 \be\label{comm_equ}
-	\left(\Coo\left(M \right), L^2\left(\widetilde{M}, \widetilde{\SS}\right)^{\Z_2}, \slashed D  \right)
-	\ee
-is	an  unoriented spectral triple (cf. Definition \ref{unoriented_defn}).
-\end{theorem}
-\begin{proof}
-Follows from the Exercise \ref{top_unoriented_exer}.
-\end{proof}
-
-
+\begin{remark}
+	If a tangent bundle $TM$ of the unoriented  Riemannian manifold $M$ is trivial then $M$ satisfies to the conditions of the Exercise \ref{top_unori_exer}. In particular one has an  unoriented spectral triple
+	$$
+	\left( \Coo\left( \R P^2\right), L^2\left(\R P^2, S \right), \Dslash, C  \right)
+	$$
+	where $\R P^2$ is a real projective plane.
+\end{remark}
 \section{Infinite coverings}
 
 \subsection{Inverse limits of coverings in topology}\label{top_inf_to_sec}
@@ -15810,8 +15815,8 @@ Consider the described in the Section \ref{comm_sp_tr_sec} situation, i.e. one h
 
 \begin{itemize}
 	\item the Riemannian manifold $\widetilde M$ with the spinor bundle $\widetilde\SS$ such that there is the spectral triple $\left(\Coo\left(\widetilde{M}  \right) , L^2\left(\widetilde{M},\widetilde{\sS} \right), \widetilde\Dslash , \widetilde J_{\mathrm{comm}}\right)$,
-	\item the unoriented Riemannian manifold $M$ with the two listed covering $p:\widetilde M\to M$ and the bundle $\SS \to M$ such that $\widetilde{\sS}$ is the $p$-inverse image of $\SS$.
-	\item the unoriented spectral triple $\left(\Coo\left({M}  \right) , L^2\left({M},{\sS} \right), \Dslash, J_{\mathrm{comm}} \right)$ given by the Theorem \ref{com_unori_thm}.
+	\item the unoriented !!! UNORIENTED !!! Riemannian manifold $M$ with the two listed covering $p:\widetilde M\to M$ and the bundle $\SS \to M$ such that $\widetilde{\sS}$ is the $p$-inverse image of $\SS$.
+	\item the unoriented !!! UNORIENTED !!! spectral triple $\left(\Coo\left({M}  \right) , L^2\left({M},{\sS} \right), \Dslash, J_{\mathrm{comm}} \right)$ given by the Theorem \ref{com_unori_thm}.
 \end{itemize}
 
 \begin{theorem}\label{ctr_unori_thm}
@@ -15819,7 +15824,7 @@ In the described above situation there is the given by
 	\be\label{ctr_equ}
 	\left(\Coo\left(M \right) \otimes\mathbb{M}_m\left(\C \right) , L^2\left({M}, {\SS}\right)^k, \slashed D \otimes \Ga_{\mathrm{fin}}+ \Id_{L^2\left( M, \sS \right)^k} \otimes D_{\mathrm{fin}}, J_{\mathrm{comm}}\otimes J_{\mathrm{fin}} \right).
 	\ee
- unoriented spectral triple (cf. Definition \ref{unoriented_defn}).
+ unoriented !!! UNORIENTED !!! spectral triple (cf. Definition \ref{unoriented_defn}).
 \end{theorem}
 \begin{proof}
 	The following table shows the specialization  of the construction  \ref{unoriented_empt}. 
@@ -20096,7 +20101,7 @@ $ the equation \eqref{isospectral_predu_eqn} is equivalent to
 		Prove that a noncommutative spectral triple   $$\left( \Coo\left(\widetilde{M}_{\widetilde{\th}}\right) , L^2\left(\widetilde{M},\widetilde{S} \right), \widetilde{ \slashed D}  \right)$$ is a $\left( C\left( M_\th\right), C\left( \widetilde{M}_{ \widetilde{\th}}\right), G\left(\widetilde{M}~|~ M \right)\right)   $-lift of $\left( \Coo\left(M_\th\right) , L^2\left(M,S \right), \slashed D  \right)$  (cf. Definition \ref{triple_conn_lift_defn}). 
 \end{exercise}
 
-\subsection{Unoriented twisted spectral triples}
+\subsection{Unoriented  twisted spectral triples}
 
 
 \paragraph*{}
@@ -20106,7 +20111,7 @@ Suppose that $M$ is unoreintable manifold which satisfies to \eqref{isos_t_act_e
 \end{equation*}
 Suppose that the natural 2-fold covering $p:\widetilde{M}\to M$ is such that $\widetilde{M}$ is a Riemannian manifold which  admits a Spin$^c$ structure (cf. Definition \ref{spin_str_defn}), so there is an oriented spectral triple
 $\left( \Coo\left(\widetilde{M}\right) , L^2\left(\widetilde{M},\widetilde{\sS} \right), \widetilde{ \slashed D}  \right)$. Assume that there is a bundle $\sS \to M$ on $M$ with sesquilinear form (cf. Definition \ref{top_herm_bundle_form_defn}) such that $\widetilde{\sS}$ is the $p$-inverse image of $\SS$ (cf. Definition \ref{vb_inv_img_funct_defn}).
-From \ref{comm_sp_tr} it turns out that there is an unoriented spectral triple given by \eqref{comm_equ}, i.e.
+From \ref{comm_sp_tr} it turns out that there is an unoriented !!! UNORIENTED !!! spectral triple given by \eqref{comm_equ}, i.e.
 
 \be\nonumber
 \left(\Coo\left(M \right), L^2\left(\widetilde{M}, \widetilde{\SS}\right)^{\Z_2}, \slashed D  \right).
@@ -20123,7 +20128,7 @@ Action of $G\left( \left.\widetilde{M}~\right|M\right) \cong \Z_2$ on $\widetild
 	l\Coo\left(M \right)= l\Coo\left(\widetilde{M}\right)^{\Z_2},\\
 \end{split}
 \ee
-From the above construction we have an unoriented twisted spectral triple
+From the above construction we have an unoriented !!! UNORIENTED !!! twisted spectral triple
 $$
 \left(l\Coo\left(M \right), L^2\left(\widetilde{M}, \widetilde{\SS}\right)^{\Z_2}, \slashed D  \right).
 $$
@@ -20138,7 +20143,7 @@ which satisfies to the Definition \ref{unoriented_defn}  and \ref{unoriented_emp
 \section{The double covering of the quantum group $SO_q(3)$}
 \paragraph*{} 
 
-The covering of the quantum $SO\left(3 \right)$ is described in  \cite{dijkhuizen:so_doublecov,podles:so_su}. Here we would like to prove that the covering complies with the general theory of noncommutative coverings described in \ref{cov_fin_bas_sec}. Moreover we prove that the covering gives an unoriented spectral triple (cf. Definition \ref{unoriented_defn}  and \ref{unoriented_empt}).
+The covering of the quantum $SO\left(3 \right)$ is described in  \cite{dijkhuizen:so_doublecov,podles:so_su}. Here we would like to prove that the covering complies with the general theory of noncommutative coverings described in \ref{cov_fin_bas_sec}. Moreover we prove that the covering gives an unoriented unoriented spectral triple (cf. Definition \ref{unoriented_defn}  and \ref{unoriented_empt}).
 
 \subsection{Basic constructions}
 \paragraph*{}
@@ -20279,7 +20284,7 @@ g\left( \al^k\bt^n\bt^{*m}\right) = \left( -1\right)^{k+m+n}  \al^k\bt^n\bt^{*m}
 \end{problem}
 
 
-\subsection{$SO_q\left( 3\right)$ as an unoriented spectral triple }
+\subsection{$SO_q\left( 3\right)$ as an unoriented  spectral triple }
 Let  $h: C\left( SU_q\left(2\right)\right)$ be a given by the equation \eqref{su_q_2_haar_eqn} state, and $L^2\left( C\left( SU_q\left(2\right)\right), h\right)$ is the Hilbert space of the corresponding GNS representation  (cf. Section \ref{gns_constr_sec}). The state $h$ is  $\Z_2$-invariant, hence there is an action of $\Z_2$ on $L^2\left( C\left( SU_q\left(2\right)\right), h\right)$ which is naturally induced by the action  $\Z_2$ on $\Coo\left( SU_q\left(2\right)\right) $. From the above construction it follows that the unital orientable spectral triple
 \be\nonumber
 \left(\Coo\left( SU_q\left(2\right)\right), L^2\left( C\left( SU_q\left(2\right)\right), h\right), \widetilde{D} \right).
@@ -20287,7 +20292,7 @@ Let  $h: C\left( SU_q\left(2\right)\right)$ be a given by the equation \eqref{su
 \begin{exercise}
 Using an unital noncommutative finite-fold covering  $$\left(C\left( 	SO_q\left(3 \right) \right), C\left( 	SU_q\left(2 \right) \right), \Z_2 \right)$$
 (cf. Definition \ref{fin_unital_defn})
-prove that there is is an unoriented spectral triple (cf. Definition \ref{unoriented_defn}) given by
+rove that there is is an unoriented  spectral triple (cf. Definition \ref{unoriented_defn}) given by
 $$
 \left(\Coo\left( SO_q\left(3\right)\right), L^2\left( C\left( SU_q\left(2\right)\right), h\right)^{\Z_2},D \right) 
 $$ where $\Coo\left( SO_q\left(3\right)\right)\bydef C\left( SO_q\left(3\right)\right)\bigcap \Coo\left( SU_q\left(2\right)\right)$ and $D\bydef \widetilde{ D}|_{L^2\left( C\left( SU_q\left(2\right)\right), h\right)^{\Z_2}}$.
@@ -25652,7 +25657,22 @@ where $\pi: A \hookto B\left(\H\right)$ is any faithful representation, $\wideti
 		\ee
 	\end{axiom}
 	
-	
+
+\begin{axiom}[Orientation]\label{orientation_st_ax}
+	There is a Hochschild $n$-cycle
+	$$
+	\cc = \tsum_j (a_j^0 \ox b_j^0) \ox a_j^1 \oxyox a_j^n 
+	\in Z_n(\sA, \sA \ox \sA^\opp),
+	$$
+	such that
+	\begin{equation}\label{eq:vol-cond}
+		\pi_D(\cc)
+		\equiv \tsum_j a_j^0 (J b_j^{0*} J^{-1}) \,[D,a_j^1] \dots [D,a_j^n]
+		= \begin{cases} \Ga, &\text{if $n$ is even}, \\
+			1, &\text{if $n$ is odd}. \end{cases}
+		\end{equation}
+\end{axiom}
+
 	
 	\begin{lem}
 		\label{lm:proj-approx}\cite{hajac:toknotes}
@@ -25938,13 +25958,17 @@ where $\pi: A \hookto B\left(\H\right)$ is any faithful representation, $\wideti
 	odd, $n = 2m + 1$, the analogous fibre splits as
 	$\mathbb{M}_{2^m}(\C) \oplus \mathbb{M}_{2^m}(\C)$, so we take only the \textit{even}
 	part of the Clifford algebra:
-	$\C\ell_x(M) \bydef \Cl^\mathrm{even}(T_xM) \ox_\R \C \simeq \mathbb{M}_{2^m}(\C)$. %The price 	we pay for this choice is that we lose the $\Z_2$-grading of the 	Clifford algebra bundle in the odd-dimensional case.
-	
-	What we gain is that in all cases, the bundle $\C\ell(M) \to M$
+	$\C\ell_x(M) \bydef \Cl^\mathrm{even}(T_xM) \ox_\R \C \simeq \mathbb{M}_{2^m}(\C)$. %The price 	we pay for this choice is that we lose the $\Z_2$-grading of the 	Clifford algebra bundle in the odd-dimensional case.	
+	What we gain is that in all cases, the bundle
+	\be\label{st_cliffod_eqn}
+	 \C\ell(M) \to M
+	 \ee
 	is a locally trivial field of (finite-dimensional) elementary
-	$C^*$-algebras, so $B = \Ga\left( M, \C\ell(M)\right)$ is a $C^*$-algebra.% Such a field is classified, up to equivalence, by a 	third-degree \v{C}ech cohomology class 	$\delta(\C\ell(M)) \in H^3(M,\Z)$ called the Dixmier-Douady   	class~\cite{dixmier_a_r}. 
-	Locally, one finds trivial bundles with fibres
-	$S_x$ such that $\C\ell_x(M) \simeq \End(S_x)$; the
+	$C^*$-algebras, so $B = \Ga\left( M, \C\ell(M)\right)$ is a $C^*$-algebra % Such a field is classified, up to equivalence, by a 	third-degree \v{C}ech cohomology class 	$\delta(\C\ell(M)) \in H^3(M,\Z)$ called the Dixmier-Douady   	class~\cite{dixmier_a_r}.	Locally, one finds trivial bundles with fibres
+	$S_x$ such that 
+\be\label{st_spinor_eqn}
+	\C\ell_x(M) \simeq \End(S_x);
+	\ee the
 	class~$\delta(\C\ell(M))$ is precisely the obstruction to patching them
 	together (there is no obstruction to the existence of the algebra
 	bundle $\C\ell(M)$). It was shown by Plymen~\cite{plymen:mor_s} that
@@ -25964,7 +25988,7 @@ where $\pi: A \hookto B\left(\H\right)$ is any faithful representation, $\wideti
 	\begin{definition}\label{spin_str_defn}
 		Let $M$ be a Riemannian manifold, $A = C(M)$ and\\
 		$B = C(M,\C\ell(M))$. We say that the tangent bundle $TM$
-		\textit{admits a Spin$^c$ structure} if and only if it is orientable
+		\textit{admits a }Spin$^c${ structure} if and only if it is orientable
 		and $\delta(\C\ell(M)) = 0$. In that case, a \textit{Spin$^{\bf c}$
 			structure} on~$TM$ is a pair $(\eps,S)$ where $\eps$ is an
 		orientation on~$TM$ and $S$ is a $B$-$A$-equivalence bimodule.
@@ -25985,7 +26009,7 @@ where $\pi: A \hookto B\left(\H\right)$ is any faithful representation, $\wideti
 	Clifford module in the terminology of~\cite{atiyah_b_s}, and has
 	rank~$2^m$ over $C(M)$ if $n = 2m$ or $2m + 1$.
 	\begin{remark}
-		If $\B \bydef \Ga^\infty \left(M, \C\ell(M) \right)$ then $\B$ is an be an unital Fr\'echet pre-$C^*$-algebra, such that $\B$ is dense in $B$. Similarly if $\A\bydef \Coo\left(M \right)$ then $\A$ is dense in  $A\bydef C\left(M \right)$. The Morita equivalence between $B$ and $A$ is given by the projective $B$-$A$ bimodule $\Ga\left(M,S \right)$. Similarly  The Morita equivalence between $\B$ and $\A$ is given by the projective $\B$-$\A$ bimodule $\Ga^\infty\left(M,S \right)$.
+		If $\B \bydef \Ga^\infty \left(M, \C\ell(M) \right)$ then $\B$ is an be an unital Fr\'echet pre-$C^*$-algebra, such that $\B$ is dense in $B$. Similarly if $\A\bydef \Coo\left(M \right)$ then $\A$ is dense in  $A\bydef C\left(M \right)$. The Morita equivalence between $B$ and $A$ is given by the projective $B$-$A$ bimodule $\Ga\left(M,S \right)$. Similarly  the Morita equivalence between $\B$ and $\A$ is given by the projective $\B$-$\A$ bimodule $\Ga^\infty\left(M,S \right)$.
 	\end{remark}
 \begin{empt}
 	Let $\sS^\sharp\bydef \Hom_{C\left(M\right)}\left(\Ga\left(M,S \right), C\left(M\right) \right)$
@@ -28207,7 +28231,7 @@ If $\Om^1_D$ is a {module of differential forms associated} with the given by \e
 	\end{split}
 	\ee
 	where $\al, \bt$ are regarded as functions $\SU\left(2 \right) \to \C$.
-	Indeed 	$ SU\left(2 \right)$ is an oriented manifold, $SO\left(3 \right)$ is an unoriented one, and $ SU\left(2 \right) \to SO\left(3 \right)$ is a two-fold covering
+	Indeed 	$ SU\left(2 \right)$ is an oriented manifold, $SO\left(3 \right)$ is an unoriented !!! UNORIENTED !!! one, and $ SU\left(2 \right) \to SO\left(3 \right)$ is a two-fold covering
 	There is a quantum generalization of $SU\left(2 \right)$ and  we will introduce a quantum analog of $SO\left(3 \right)$.
 	Let $q$ be a real number such that $0<q<1$. 
 	There is a noncommutative analog of the action \eqref{su_q_2_z2_comm_eqn} described in \cite{dijkhuizen:so_doublecov,lance:so,podles:so_su}
