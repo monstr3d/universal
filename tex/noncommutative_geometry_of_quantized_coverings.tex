@@ -659,7 +659,7 @@ The Chapter \ref{cov_fin_chap} contains the construction of noncommutative    fi
 	\item  Noncommutative path lifting.
 	\item Coverings of spectral triples.
 	\item Finite noncommutative coverings and flat connections.
-	\item Unoriented !!! UNORIENTED !!! spectral triples.
+	\item Unoriented spectral triples.
 \end{itemize}
 \paragraph*{}
 The Chapter \ref{cov_inf_chap} is devoted to  noncommutative   infinite coverings of $C^*$-algebras and operator spaces. Sections \ref{inf_bas_constr_sec} - \ref{inf_ind_repr_subsection} are  basic. The Section \ref{str_cov_glo_sec} is interesting for  those who are interested in coverings of spectral triples.
@@ -9826,9 +9826,15 @@ where  $p^{-1}\Dslash$ is the   $p$-{inverse image} of $\Dslash$ (cf. Definition
 \subsection{Unoriented spectral triples}\label{comm_sp_tr} 
 
 \paragraph*{}
-Let $M$ be an unoriented   Riemannian manifold (cf.  Definitions \ref{ori_man_defn}, and let $\C\ell(M) \to M$ be a given by \eqref{st_cliffod_eqn} Clifford  bundle.
+If $M$ is an unoriented   Riemannian manifold (cf.  Definitions \ref{ori_man_defn} and \ref{riemann_mani_defn}) then there is a transitive covering $p: \widetilde M \to M$ such that:
+\begin{itemize}
+	\item $G\left( \left.\widetilde{M}\right| M\right) \cong \Z_2$,
+	\item $\widetilde{M}$ has a structure of Riemannian manifold which comes from the covering $p$ (cf. Proposition \ref{comm_cov_mani_prop}), 
+	\item the manifold $\widetilde M$ is oriented.
+\end{itemize}
+Let $\C\ell(M) \to M$ be a given by \eqref{st_cliffod_eqn} Clifford  bundle.
 \begin{exercise}\label{top_unori_exer}
-Suppose that there is a complex linear bundle $S\to M$ such that following conditions hold:
+Suppose that there is a complex vector bundle $S\to M$ with a sesquilinear form (cf. Definition \ref{top_herm_bundle_form_defn}) such that following conditions hold:
 \begin{itemize}
 	\item for all $x \in M$ there is a *-isomorphism $\C\ell_x(M) \simeq \End(S_x)$ (cf. Equation \eqref{st_spinor_eqn}),
 	\item there  is an antilinear endomorphism $C : \Ga\left(M, S \right)\to \Ga\left(M, S \right)$ which satisfies to the Proposition   \ref{pr:charge-conj_prop}.
@@ -9840,38 +9846,38 @@ Prove that there is a natural unoriented spectral triple
 \end{exercise}
 
 \begin{remark}
-	If a tangent bundle $TM$ of the unoriented  Riemannian manifold $M$ is trivial then $M$ satisfies to the conditions of the Exercise \ref{top_unori_exer}. In particular one has an  unoriented spectral triple
+	If a tangent bundle $TM$ of an unoriented  Riemannian manifold $M$ is trivial then $M$ satisfies to the conditions of the Exercise \ref{top_unori_exer}. In particular one has an  unoriented spectral triple
 	$$
-	\left( \Coo\left( \R P^2\right), L^2\left(\R P^2, S \right), \Dslash, C  \right)
+	\left( \Coo\left( \R P^3\right), L^2\left(\R P^3, S \right), \Dslash, C  \right)
 	$$
-	where $\R P^2$ is a real projective plane.
+	where $\R P^3$ is a real projective space.
 \end{remark}
 \section{Infinite coverings}
 
 \subsection{Inverse limits of coverings in topology}\label{top_inf_to_sec}
 \paragraph*{}
-	Let $\sX$ be a connected, locally connected, weakly semilocally 1-connected, locally compact, Hausdorff  topological space. Let us consider a marked by a countable  pre-ordered set $\La$ (cf. Definition \ref{ord_defn}) subcategory 
+	Let $\sX$ be a connected, locally connected, locally compact, Hausdorff  topological space. Let us consider a marked by a countable  pre-ordered set $\La$ (cf. Definition \ref{ord_defn}) subcategory 
 	\be\label{top_fin_cov_cat_eqn}
  \mathfrak{S}_\sX\bydef	\left\{\left\{p_\la: \sX_\la\to\sX\right\}_{\la \in \La}, \left\{p^\mu_\nu: \sX_\mu\to\sX_\nu \right\}_{\substack{\mu, \nu\in \La,\\ \mu \ge \nu}}\right\}
 	\ee
 	of the   {finite covering category} the  $\mathfrak{FinCov}$-$\sX$ (cf. Definition \ref{top_fin_cov_defn}). We assume that pre-ordering structure of $\La$ comes from the given by \ref{top_cov_preord_empt} pre-ordering on a family of $\mathfrak{FinCov}$-$\sX$-objects.
 Suppose that there is the minimal $\la_{\min}\in \La$ such that $\sX_{\la_{\min}}\bydef\sX$ and  the pre-ordered set $\La$ is directed (cf. Definition \ref{directed_set_defn}).
 \begin{definition}\label{top_finite_covering_category_defn}
-	In the above situation we say that  $\mathfrak{S}_\sX$ is a \textit{topological finite covering category} if for any $x\in \sX$ and any  neighborhood  $\sV \subset \sX$ of $x$  there is an open set $\sU \subset \sV$ which satisfies to the following conditions:
+	In the above situation we say that  $\mathfrak{S}_\sX$ is a \textit{topological finite covering category} if for any $x\in \sX$ and any  neighborhood  $\sV \subset \sX$ of $x$  there is an open connected set $\sU \subset \sV$ which satisfies to the following conditions:
 	\begin{itemize}
 		\item $x \in \sU\subset \sV$,
 		\item the set $\sU$ is evenly covered by $p_\la$ (cf. Definition \ref{top_covering_defn}) for all $\la\in\La$. 
 	\end{itemize}
 The set $\sU$ is said to be $\mathfrak{S}_\sX$-\textit{proper}.
-We  write $\mathfrak{S}\in \mathfrak{FinTop}$.
+We  write $\mathfrak{S}_\sX\in \mathfrak{FinTop}$.
 \end{definition}
 \begin{example}\label{top_cat_semi_example_exm}
 If $ \mathfrak{S}_\sX$ is a given by \eqref{top_fin_cov_cat_eqn} and $\sX$ is a weakly semilocally 1-connected space then from the Definition \ref{top_weakly_semi1_defn} it follows that  $\mathfrak{S}_\sX$ is a {topological finite covering category}.
 \end{example}
 \begin{example}\label{top_cat_example_exm}
-Let $\widetilde{\sX}\to \sX$ be a transitive covering. Consider a family of finite -fold coverings $\left\{\widetilde{\sX}/ H_\la \to \sX\right\}$ where $H_\la \subset G\left(\left. \widetilde{\sX}\right|\sX \right)$ be a finite index normal subgroup. A family is directed, i.e. for all $\mu, \nu \in \La$ there is a finite index normal subgroup  $H_\la \bydef H_\mu \cap H_\mu$ and finite fold coverings 
+Let $\widetilde{\sX}\to \sX$ be a transitive covering. Consider a family of finite -fold coverings $\left\{\widetilde{\sX}/ H_\la \to \sX\right\}$ where $H_\la \subset G\left(\left. \widetilde{\sX}\right|\sX \right)$ is a finite index normal subgroup. A family is directed, i.e. for all $\mu, \nu \in \La$ there is a finite index normal subgroup  $H_\la \bydef H_\mu \cap H_\mu$ and finite fold coverings 
 \bean
-\widetilde{\sX}/ H_\la \to \widetilde{\sX}H_\mu,\\
+\widetilde{\sX}/ H_\la \to \widetilde{\sX}/H_\mu,\\
 \widetilde{\sX}/ H_\la \to \widetilde{\sX}/ H_\nu,
 \eean
 \end{example}
@@ -9915,18 +9921,21 @@ $p_\la\circ \widehat p_\la\left(\widehat \sU \right)$ is   $\mathfrak{S}_\sX$-{p
 \end{proof}
 
 \begin{lemma}\label{top_spec_top_constr_lem}
-Consider the  situation of the Definition \ref{top_sec_p_defn}. If $\left\{\widehat \sU_\a\subset \widehat \sX\right\}_{\a \in \mathscr A}$ is the collection of all special sets (cf. Definition \ref{top_specp_defn}) then one has
+Consider the  situation of the Definition \ref{top_sec_p_defn}. If $\left\{\widehat \sU_\a\subset \widehat \sX\right\}_{\a \in \mathscr A}$ is the collection of all special sets (cf. Definition \ref{top_specp_defn}) then one has:
 \begin{enumerate}
-	\item [(i)] The collection $\left\{\widehat \sU_\a\right\}$ is a basis for a topology on $\widehat \sX$ (cf. Definition \ref{top_base_defn}).
-	\item[(ii)] Let $\overline \sX$ be  the topological space which coincides with $\widehat \sX$  as a set and the topology of $\overline \sX$ is generated by $\left\{\widehat \sU_\a\right\}$, and  let $\overline{\widehat p}:\overline \sX\to\widehat \sX$   be the natural bijective map. For all $\la \in \La$ the composition $\overline p_\la \bydef \widehat p_\la \circ \overline{\widehat p}: \overline \sX\to \widehat \sX\to \sX_\la$ is a covering.
+	\item [(i)] The collection $\left\{\widehat \sU_\a\right\}$ is a basis for a topology on $\widehat \sX$ (cf. Definition \ref{top_base_defn});
+	\item[(ii)] Let $\overline \sX$ be  the topological space which coincides with $\widehat \sX$  as a set and the topology of $\overline \sX$ is generated by $\left\{\widehat \sU_\a\right\}$, and  let $\overline{\widehat p}:\overline \sX\to\widehat \sX$   be the natural bijective map. For all $\la \in \La$ the composition $\overline p_\la \bydef \widehat p_\la \circ \overline{\widehat p}: \overline \sX\to \widehat \sX\to \sX_\la$ is a covering;
 	\item[(iii)]  The natural bijective map $\overline{\widehat p}:\overline \sX\to\widehat \sX$ is continuous.
 \end{enumerate}
 \end{lemma}
 \begin{proof}
-	!!! CHECK !!!
 	(i) One needs proof (a) and (b) of the Definition \ref{top_base_defn}.
 \begin{enumerate}
-	\item [(a)] Let $\widehat x_0 \in \widehat \sX$, denote by $x^\la_0 \bydef \widehat p_\la\left(\widehat x_0  \right)$. Let $\left\{\la_n\right\}_{n \in \N} \subset \La$ be a cofinal subset such that $m > k \Rightarrow \la_m > \la_k$. Let $\widehat p: \widehat \sX \to \sX$ be the natural continuous map, and let $x_0 \bydef \widehat p\left(\widehat x_0\right)$. Since $\sX$ is locally connected there exists  an open connected neighborhood $\sU$ of $x_0$ evenly covered by $p_{\la_1}:\sX_{\la_1} \to \sX$. For any $n$ there is the unique open connected neighborhood $\sU_{\la_n}\subset  \sX_{\la_n}$ of $x^{\la_n}_0$ such that $p_{\la_n} \left( \sU_{\la_n}\right) = \sU$. For any $\la \in \La$ there is $\la_n$ such that $\la_n \ge \la$. If $\sU_\la \bydef p^{\la_n}_\la\left(\sU_{\la_n} \right)$ then $p_\la \left( \sU_\la\right)= \sU$. If $\widehat \sU \bydef \bigcap_{\la \in \La} \widehat p^{-1}_\la \left( \sU_\la\right)$ then the restriction $\left.\widehat p_\la\right|_{\widehat \sU}$ injective and maps $\widehat \sU$ onto the open set $\sU_\la$. Thus  $\widehat \sU$ is special and $\widehat x_0\in\widehat \sU$.
+	\item [(a)] Let $\widehat x_0 \in \widehat \sX$, denote by $x^\la_0 \bydef \widehat p_\la\left(\widehat x_0  \right)$ and $x_0\bydef \widehat p\left(\widehat x_0 \right)$. From the Definition \ref{top_finite_covering_category_defn} it follows that there is an open connected neighborhood of $x_0$ evenly covered by $p_\la$ for all $\la\in\La$. If $\sU_\la$ is a connected component of $p^{-1}_\la\left(\sU\right)$ and $\widehat{\sU}\bydef \cap_{\la\in \La}\widehat p^{-1}_\la\left(\sU_\la\right)\subset \widehat{  \mathcal X}$ then one has:
+	\begin{itemize}
+		\item the set $\widehat{  \mathcal U}$ is special,
+		\item $\widehat{x} \in \widehat{  \mathcal U}$.
+	\end{itemize}
 	\item[(b)] If both $\widehat \sU_1$ and $\widehat \sU_2$ are special sets then since $\left.\widehat p_\la\right|_{\widehat \sU_1}$ is injective the restriction $\left.\widehat p_\la\right|_{\widehat \sU_1\cap\widehat \sU_2 }$ is also injective. 
 	Since $\widehat p_\la\left( \widehat \sU_1 \cap \widehat \sU_2\right)= \widehat p_\la\left( \widehat \sU_1\right)\cap \widehat p_\la\left( \widehat \sU_2\right)$ and both $\widehat p_\la\left( \widehat \sU_1\right)$,  $\widehat p_\la\left( \widehat \sU_2\right)$ are open, the set $\widehat p_\la\left( \widehat \sU_1 \cap \widehat \sU_2\right)$ is open. If $\widehat p:  \widehat \sX \to \sX$ is the natural continuous map then since $\sX$ is locally connected there is a connected open subset $\sU_3\subset\sX$ such that $\sU_3 \subset \widehat p\left(\widehat \sU_1 \right) \cap  \widehat p\left(\widehat \sU_2 \right)$. If $\widehat \sU_3 \bydef \widehat \sU_1\cap \widehat \sU_2\cap   \widehat p^{-1}\left( \sU_3\right)$ then clearly $\widehat \sU_3\subset \widehat \sU_1\cap \widehat \sU_2$. Moreover for all $\la\in \La$ the set $\widehat \sU_3$   is homeomorphically mapped onto open connected set $\widehat p_\la\left( \widehat \sU_1\right)\cap \widehat p_\la\left( \widehat \sU_2\right)\cap p_\la^{-1}\left(\sU_3\right)\cong \sU_3$, i.e. $\widehat \sU_3$ is special.
 \end{enumerate}
@@ -10031,7 +10040,7 @@ From the Lemma \ref{top_surj_group_lem} and the Corollary \ref{top_bijectt_cor} 
 	If $\overline{\mathcal X}$ is  the given by the Lemma \ref{top_spec_top_constr_lem} topological space   and $\widetilde \sX\subset \overline{\mathcal X}$ is its connected component (cf. Definition \ref{top_conn_comp_defn}) then the is a natural transitive covering $\left(\left( \widetilde \sX, \widetilde x_0\right), p^{\widetilde \sX} \right)\downarrow \mathfrak{S}_{\left( \sX, x_0\right) }$ in the sense of the Definition \ref{comm_top_constr_defn}.
 \end{lemma}
 \begin{proof}
-(i) From the Lemma \ref{top_spec_top_constr_lem} it follows that for all $\la \in \La$ the composition $\overline p_\la \bydef \widehat p_\la \circ \overline{\widehat p}: \overline \sX\to \widehat \sX\to \sX_\la$ is a covering. If $p^{\widetilde \sX}\bydef \left.\overline{\widehat p}\right|_{\widetilde \sX} : \widetilde \sX \to \widehat \sX$ then from the Theorem  \ref{top_locally_conn_cov_com_thm} it follows that $\widetilde p_\la \bydef \widehat p_\la \circ p^{\widetilde \sX}: \widetilde \sX\to \sX_\la$ is a covering. Let $\widetilde x_0 \in \widetilde \sX$ be such that $\widetilde p \left( \widetilde x_0\right)= x_0$ where $\widetilde p \bydef \widetilde p_{\la_{\text{min}}}$.
+From the Lemma \ref{top_spec_top_constr_lem} it follows that for all $\la \in \La$ the composition $\overline p_\la \bydef \widehat p_\la \circ \overline{\widehat p}: \overline \sX\to \widehat \sX\to \sX_\la$ is a covering. If $p^{\widetilde \sX}\bydef \left.\overline{\widehat p}\right|_{\widetilde \sX} : \widetilde \sX \to \widehat \sX$ then from the Theorem  \ref{top_locally_conn_cov_com_thm} it follows that $\widetilde p_\la \bydef \widehat p_\la \circ p^{\widetilde \sX}: \widetilde \sX\to \sX_\la$ is a covering. Let $\widetilde x_0 \in \widetilde \sX$ be such that $\widetilde p \left( \widetilde x_0\right)= x_0$ where $\widetilde p \bydef \widetilde p_{\la_{\text{min}}}$.
 If 
 \be\label{top_tg_eqn}
 \widetilde G_\la \bydef \left\{\left.g \in  G\left(\left. \overline\sX~\right|\sX_\la \right)\right| g \overline x = \overline x\quad  \forall \overline x \in \overline\sX \setminus \widetilde\sX\right\}
@@ -10150,10 +10159,6 @@ Then for any compact $\overline{   \mathcal U } \subset \overline{   \mathcal X 
 	If $\overline f$ is a covering sum of $\overline \sU$ (cf. Definition \ref{top_covering_sum_defn}) then the support $\supp \overline f$ is compact. If we put $\la_{\overline{   \mathcal U }}\bydef \la_{\supp \widetilde f}$
 		 and $f_{\la_{\overline{   \mathcal U }}} \bydef \desc_{\overline{p}_{ \la_{\supp \widetilde f}}} \left(\overline f \right)$ then the conditions of this Corollary are satisfied.
  \end{proof}
-\begin{exercise}\label{top_comp_la_exer}
-	Consider the situation of the Lemma \ref{top_comp_la_lem}. Prove that there is an open subset $ \overline \sV\subset \overline \sX$ satisfying to a condition $\overline \sU\subset\overline \sV$ and $\la_{\overline{   \mathcal V }} \in \La$ such that for each  $\la \ge \la_{\overline{   \mathcal V }} \in \La$  the set $\overline{   \mathcal V }$  is mapped homeomorphically onto  $\overline{p}_\la\left(\overline{   \mathcal V } \right) \subset \sX_\la$. 
-\end{exercise}
-
 \begin{lemma}\label{top_associded_lem}
 	Let $\left( \sX, x_0\right) $ be a connected, locally connected, locally compact, Hausdorff pointed space, and let $\widetilde{p}:\left( \widetilde{\sX}, \widetilde{x}_0\right) \to \left( \sX, x_0\right)$ be a pointed  transitive covering such that $\widetilde{\sX}$ is connected and  the {covering group} $G\left( \left.{\widetilde{\sX}}~\right|\sX\right)$ (cf. Definition \ref{top_covering_transformations_group_defn}) is residually finite (cf. Definition \ref{residually_finite_defn}). Let us consider a family $\mathfrak{S}_{\left( \sX, x_0  \right) }=\left\{ p_\la: \left( \sX_\la, x^\la_0\right) \to \left( \sX, x_0\right)\right\}_{\la \in \La} $  of all  transitive finite-fold pointed coverings  such for every $\la \in\La$ there is a covering  $\widetilde{p}_\la : \left( \widetilde{\sX}, \widetilde{x}_0\right) \to \left( \sX_\la, x^\la_0\right)$ such that  $\widetilde{p} = p_\la \circ \widetilde{p}_\la$. 
 	Following conditions hold:
@@ -10166,7 +10171,7 @@ Then for any compact $\overline{   \mathcal U } \subset \overline{   \mathcal X 
 \end{lemma}
 
 \begin{proof}
-	For any  finite group $H$ with a surjective group homomorphism $$\phi:G\left( \left.{\widetilde{\sX}}~\right|\sX\right)\to H$$ there is the  space $\sX_H = \widetilde{\sX} / \ker \phi$. There base-point $\widetilde{x}_0$ naturally defines the base point $x^H_0\in \sX_H$. There are natural transitive pointed coverings $p_H : \left( \sX^H, x^H_0 \right)\to \left( \sX, x_0 \right)$ and $\widetilde{p}_H : \left( \widetilde{\sX}, \widetilde{x}_0\right) \to \left( \sX_H, x^H_0\right)$ such that $\widetilde{p} = p_H \circ \widetilde{p}_H$. The covering group of $p_H$ is a finite group $H$, so the covering $p_H$ is finite-fold, therefore $p_H$ belongs to the family $\mathfrak{S}_{\left( \sX, x_0  \right) }$. Otherwise since  $\widetilde{p}$ is a transitive covering for any $\la \in \La$ there is the surjective homomorphism $\phi_\la : G\left( \left.{\widetilde{\sX}}~\right|\sX\right) \to G\left( \left.{{\sX}}_\la~\right|\sX\right)$ (cf. Lemma \ref{top_homo_lem}) such that the following condition holds ${{\sX}}_\la = \widetilde{\sX}/ \ker \phi_\la$. So there is a one-to-one correspondence between objects of $\mathfrak{S}_{\left( \sX, x_0  \right) }$ and finite groups which are epimorphic images of $G\left( \left.{\widetilde{\sX}}~\right|\sX\right)$. The group  $G\left( \left.{\widetilde{\sX}}~\right|\sX\right)$ is residually finite so the map
+	For any  finite group $H$ with a surjective group homomorphism $$\phi:G\left( \left.{\widetilde{\sX}}~\right|\sX\right)\to H$$ there is the  space $\sX_H = \widetilde{\sX} / \ker \phi$. There base-point $\widetilde{x}_0$ naturally defines the base point $x^H_0\in \sX_H$. There are natural transitive pointed coverings $p_H : \left( \sX^H, x^H_0 \right)\to \left( \sX, x_0 \right)$ and $\widetilde{p}_H : \left( \widetilde{\sX}, \widetilde{x}_0\right) \to \left( \sX_H, x^H_0\right)$ such that $\widetilde{p} = p_H \circ \widetilde{p}_H$. The covering group of $p_H$ is a finite group $H$, so the transitive covering $p_H$ is finite-fold, therefore $p_H$ belongs to the family $\mathfrak{S}_{\left( \sX, x_0  \right) }$. Otherwise since  $\widetilde{p}$ is a transitive covering for any $\la \in \La$ there is the surjective homomorphism $\phi_\la : G\left( \left.{\widetilde{\sX}}~\right|\sX\right) \to G\left( \left.{{\sX}}_\la~\right|\sX\right)$ (cf. Lemma \ref{top_homo_lem}) such that the following condition holds ${{\sX}}_\la = \widetilde{\sX}/ \ker \phi_\la$. So there is a one-to-one correspondence between objects of $\mathfrak{S}_{\left( \sX, x_0  \right) }$ and finite groups which are epimorphic images of $G\left( \left.{\widetilde{\sX}}~\right|\sX\right)$. The group  $G\left( \left.{\widetilde{\sX}}~\right|\sX\right)$ is residually finite so the map
 	\be\label{comm_g_inj_eqn}
 	\phi = \prod_{\la \in \La}\phi_\la:  G\left( \left.{\widetilde{\sX}}~\right|\sX\right) \hookto \prod_{\la \in \La}G\left( \left.{{\sX}}_\la~\right|\sX\right)
 	\ee
@@ -10191,7 +10196,7 @@ Then for any compact $\overline{   \mathcal U } \subset \overline{   \mathcal X 
 	 For any pointed   topological finite covering category $\mathfrak{S}_{\left( \sX, x_0  \right) }$ there is transitive covering  $\widetilde{p}:\left( \widetilde{\sX}, \widetilde{x}_0\right) \to \left( \sX, x_0\right)$ such that $\mathfrak{S}_{\left( \sX, x_0  \right) }$ 	 
 	 is {associated with the covering}  $\widetilde{p}:\left( \widetilde{\sX}, \widetilde{x}_0\right) \to \left( \sX, x_0\right)$. (cf. Lemma \ref{top_universal_covering_lem}).
 \end{remark}
-
+!!! CONTINUE !!!
 \subsection{Algebraic construction in brief}\label{comm_alg_constr_susub}
 
 \paragraph*{}
@@ -11264,7 +11269,7 @@ $$
 R_\la \widetilde R \subset  \widetilde R,\\
 \widetilde R \subset R_\la  \widetilde R
 \eean
-it means that 	$\widetilde R$ satisfies to the equations \eqref{inf_cov_oa_sub1_eqn}, \eqref{inf_cov_oa_sub2_eqn}. If  $\widetilde b \in K\left( C_0\left( \widetilde \sX\right)\right)\cong  C_c\left( \widetilde \sX\right)$ then $\supp \widetilde b$ is compact.  Let $\widetilde f \in  \widetilde R$ be a $\left(R, \supp \widetilde b\right)$-{stump} (cf. Definition \ref{top_stump_soft_y_defn}). Using the Exercise \ref{top_comp_la_exer} one can assume that there is an open subset $\widetilde \sU \subset \widetilde \sX$ and $\la_{\widetilde\sU}\in\La$ such that the natural covering $\widetilde p_{\la_{\widetilde\sU}} : \widetilde\sX \to \sX_{\la_{\widetilde\sU}}$ homeomorphically maps $\widetilde\sU$ onto $p_{\la_{\widetilde\sU}}\left(\widetilde\sU\right)$. For all $\widetilde a\in \widetilde R$ one has
+it means that 	$\widetilde R$ satisfies to the equations \eqref{inf_cov_oa_sub1_eqn}, \eqref{inf_cov_oa_sub2_eqn}. If  $\widetilde b \in K\left( C_0\left( \widetilde \sX\right)\right)\cong  C_c\left( \widetilde \sX\right)$ then $\supp \widetilde b$ is compact.  Let $\widetilde f \in  \widetilde R$ be a $\left(R, \supp \widetilde b\right)$-{stump} (cf. Definition \ref{top_stump_soft_y_defn}). Using the Corollary \ref{top_comp_lau_cor} one can assume that there is an open subset $\widetilde \sU \subset \widetilde \sX$ and $\la_{\widetilde\sU}\in\La$ such that the natural covering $\widetilde p_{\la_{\widetilde\sU}} : \widetilde\sX \to \sX_{\la_{\widetilde\sU}}$ homeomorphically maps $\widetilde\sU$ onto $p_{\la_{\widetilde\sU}}\left(\widetilde\sU\right)$. For all $\widetilde a\in \widetilde R$ one has
 \bean
 a \bydef \desc_{p_{\la_{\widetilde\sU}}}\left( \widetilde f \widetilde a\right) \in R_{\la_{\widetilde\sU}}\subset \bigcup_{\la\in\La} R_\la
 \eean
