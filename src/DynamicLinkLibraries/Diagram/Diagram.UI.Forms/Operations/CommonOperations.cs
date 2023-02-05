@@ -21,7 +21,7 @@ namespace Diagram.UI.Operations
         {
             PaletteToolBar toolBar = new PaletteToolBar(tools);
             ImageList imageList = new ImageList();
-            imageList.ImageSize = new Size(25, 25);
+            imageList.ImageSize = new Size(35, 35);
             imageList.Images.Add(ResourceImage._object);
             imageList.Images.Add(ResourceImage.Arrow);
             toolBar.ImageList = imageList;

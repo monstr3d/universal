@@ -1,22 +1,17 @@
 ﻿using AssemblyService.Attributes;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace DataPerformer.TestInterface.UI
+namespace DataSetService.TestInterface
 {
     /// <summary>
     /// Static extension
     /// </summary>
     [InitAssembly]
-    public static class StaticExtensionDataPerformerTestInterfaceUI
+    public static class StaticExtensionDataSetServiceTestInterface
     {
         /// <summary>
         /// Constructor
         /// </summary>
-        static StaticExtensionDataPerformerTestInterfaceUI()
+        static StaticExtensionDataSetServiceTestInterface()
         {
             new TestCreator();
         }

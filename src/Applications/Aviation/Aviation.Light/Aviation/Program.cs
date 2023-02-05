@@ -15,6 +15,7 @@ using BasicEngineering.UI.Factory;
 
 using Aviation.UI;
 using System.Xml;
+using System.Runtime.Intrinsics.Arm;
 
 namespace Aviation.Light
 {
@@ -77,8 +78,9 @@ namespace Aviation.Light
         static readonly IUIFactory[] Factories = new IUIFactory[]
                 {
                     ControlSystemLib.Data.UI.Factory.ControlSystemsFactory.Object,
-               // !!!REMOVED        SoundService.UI.Factory.SoundUIFactrory.Singleton,
+                    // !!!REMOVED        SoundService.UI.Factory.SoundUIFactrory.Singleton,
                     Event.UI.Factory.UIFactory.Factory,
+                    Database.UI.Factory.DatabaseFactory.Object
                 };
 
 

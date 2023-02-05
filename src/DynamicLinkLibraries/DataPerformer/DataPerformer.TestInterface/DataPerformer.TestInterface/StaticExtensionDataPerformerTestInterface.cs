@@ -5,7 +5,9 @@ using System.Text;
 
 namespace DataPerformer.TestInterface
 {
-
+    /// <summary>
+    /// Static Extension
+    /// </summary>
     public static class StaticExtensionDataPerformerTestInterface
     {
         /// <summary>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 
@@ -11,6 +12,23 @@ namespace DataSetService
     /// </summary>
     public static class StaticExtensionDataSetService
     {
+        /// <summary>
+        /// Computation of differences
+        /// </summary>
+        /// <param name="newVersion">New version</param>
+        /// <param name="oldVersion">Old version</param>
+        /// <returns>Difference</returns>
+        public static DataSet ComputateDiff(this DataSet newVersion, DataSet oldVersion)
+        {
+            DataSet diff = null;
+            oldVersion.Merge(newVersion);
+            bool foundChanges = oldVersion.HasChanges();
+            if (foundChanges)
+            {
+                diff = oldVersion.GetChanges();
+            }
+            return diff;
+        }
         /// <summary>
         /// Generates script
         /// </summary>

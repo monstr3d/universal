@@ -1,13 +1,17 @@
-﻿using CategoryTheory;
-using DataPerformer.Interfaces;
-using DataPerformer.TestInterface.Regression;
-using Diagram.UI;
-using Diagram.UI.Interfaces;
-using Diagram.UI.Labels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+
+using CategoryTheory;
+
+using Diagram.UI;
+using Diagram.UI.Interfaces;
+using Diagram.UI.Labels;
+
+using DataPerformer.Interfaces;
+using DataPerformer.TestInterface.Regression;
+
 using TestCategory;
 using TestCategory.Interfaces;
 
