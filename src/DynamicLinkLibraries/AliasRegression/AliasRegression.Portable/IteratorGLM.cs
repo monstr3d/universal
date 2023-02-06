@@ -94,7 +94,7 @@ namespace Regression.Portable
         /// <summary>
         /// Auxiliary variable
         /// </summary>
-        protected double[,] a;
+        protected double[,] auliliaryA;
        
         /// <summary>
         /// Auxiliary variable
@@ -425,11 +425,11 @@ namespace Regression.Portable
         public double FullIterate()
         {
             PrepareIteration();
-            for (int i = 0; i < a.GetLength(0); i++)
+            for (int i = 0; i < auliliaryA.GetLength(0); i++)
             {
-                for (int j = 0; j < a.GetLength(1); j++)
+                for (int j = 0; j < auliliaryA.GetLength(1); j++)
                 {
-                    a[i, j] = d[i, j];
+                    auliliaryA[i, j] = d[i, j];
                 }
             }
             for (int i = 0; i < z.Length; i++)
@@ -470,19 +470,19 @@ namespace Regression.Portable
                     }
                 }
                 StaticExtensionRealMatrix.Multiply(ht, mr1, htr);
-                for (int i = 0; i < a.GetLength(0); i++)
+                for (int i = 0; i < auliliaryA.GetLength(0); i++)
                 {
                     for (int k = 0; k < htr.GetLength(1); k++)
                     {
                         z[i] -= htr[i, k] * y0[k];
-                        for (int j = 0; j < a.GetLength(1); j++)
+                        for (int j = 0; j < auliliaryA.GetLength(1); j++)
                         {
-                            a[i, j] += htr[i, k] * ht[j, k];
+                            auliliaryA[i, j] += htr[i, k] * ht[j, k];
                         }
                     }
                 }
             }
-            StaticExtensionRealMatrix.Solve(a, z, indxa);
+            StaticExtensionRealMatrix.Solve(auliliaryA, z, indxa);
             for (int i = 0; i < z.Length; i++)
             {
                 SetDelta(aliases[i], z[i]);
@@ -517,11 +517,11 @@ namespace Regression.Portable
             {
                 it.Reset();
             }
-            for (int i = 0; i < a.GetLength(0); i++)
+            for (int i = 0; i < auliliaryA.GetLength(0); i++)
             {
-                for (int j = 0; j < a.GetLength(1); j++)
+                for (int j = 0; j < auliliaryA.GetLength(1); j++)
                 {
-                    a[i, j] = d[i, j];
+                    auliliaryA[i, j] = d[i, j];
                 }
             }
             for (int i = 0; i < z.Length; i++)
@@ -586,14 +586,14 @@ namespace Regression.Portable
                 }
                 StaticExtensionRealMatrix.Invert(mr, mr1);
                 StaticExtensionRealMatrix.Multiply(ht, mr1, htr);
-                for (int i = 0; i < a.GetLength(0); i++)
+                for (int i = 0; i < auliliaryA.GetLength(0); i++)
                 {
                     for (int k = 0; k < htr.GetLength(1); k++)
                     {
                         z[i] += htr[i, k] * yr[k];
-                        for (int j = 0; j < a.GetLength(1); j++)
+                        for (int j = 0; j < auliliaryA.GetLength(1); j++)
                         {
-                            a[i, j] += htr[i, k] * ht[j, k];
+                            auliliaryA[i, j] += htr[i, k] * ht[j, k];
                         }
                     }
                 }
@@ -607,7 +607,7 @@ namespace Regression.Portable
                 }
             }
             m:
-            StaticExtensionRealMatrix.Solve(a, z, indxa);
+            StaticExtensionRealMatrix.Solve(auliliaryA, z, indxa);
             for (int i = 0; i < z.Length; i++)
             {
                 SetDelta(aliases[i], z[i]);
@@ -817,7 +817,7 @@ namespace Regression.Portable
             aliases = la.ToArray();
             z = new double[la.Count];
             indxa = new int[la.Count];
-            a = new double[la.Count, la.Count];
+            auliliaryA = new double[la.Count, la.Count];
             for (int i = 0; i < sLeft.Count; i++)
             {
                 IMeasurement m = Find(sLeft[i]);
@@ -985,7 +985,7 @@ namespace Regression.Portable
             {
                 if (dx.Length > 0)
                 {
-                    a = new double[dx.Length, dx.Length];
+                    auliliaryA = new double[dx.Length, dx.Length];
                     indxa = new int[dx.Length];
                 }
             }
