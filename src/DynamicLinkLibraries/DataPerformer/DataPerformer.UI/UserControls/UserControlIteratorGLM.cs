@@ -352,7 +352,7 @@ namespace DataPerformer.UI.UserControls
             {
                 stack.Push(new Tuple<string, Dictionary<IAliasName, double>>(
                    labelSigma.Text, iterator.Backup));
-                double s = iterator.Iterate();
+                double s = iterator.FullIterate();
                 buttonBack.Enabled = true;
                 labelSigma.Text = "Sigma = " + s + "";
             }

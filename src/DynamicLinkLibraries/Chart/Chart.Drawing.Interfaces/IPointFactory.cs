@@ -42,7 +42,6 @@ namespace Chart.Drawing.Interfaces
         {
             get;
         }
-
  
     }
 }

@@ -2916,8 +2916,16 @@ $$
 Now similarly to the Corollary \ref{cov_mult_fin_cor} one can prove that a quadruple $\left(B, \widetilde{B}, G/H, \pi|_B \right)$  a noncommutative finite-fold  quasi-covering with unitization.
 	
 \end{proof}
-
-
+\begin{cor}\label{lift_unitization_cov_cor}
+	Let  $\left(A, \widetilde{A}, G, \pi \right)$ be a noncommutative reduced finite-fold  covering with unitization (cf. Definition \ref{fin_unitization_defn}). If $B\subset A$ is a connected hereditary subalgebra, $\widetilde B\subset\widetilde A $ is  a {hereditary} $\left(A, \widetilde{A}, G, \pi \right)$-{lift} of $B$ (cf. Definition \ref{hereditary_lift_defn}) and
+	$$
+	H \bydef \left\{g\in G\left| \forall \widetilde b \in \widetilde B \quad g\widetilde b = \widetilde b\right.\right\}
+	$$
+	then a quadruple $\left(B, \widetilde{B}, G/H, \pi|_B \right)$  a noncommutative finite-fold  reduced covering with unitization.
+\end{cor}
+\begin{proof}
+	Follows from the Lemmas \ref{quasi_red_lem} and \ref{lift_unitization_lem}.
+\end{proof}
 
 \begin{definition}\label{fin_cat_defn}
 	For any connected $C^*$-algebra $A$ consider a category $\mathfrak{FinCov}$-$A$ (cf. Definition \ref{category_defn}) such that following conditions hold:
@@ -5786,7 +5794,7 @@ where $\mathscr A$ is a finite set.
 	such that $f_j$ is smooth for all $j = 1, ..., n$.
 \end{remark}
 
-\begin{definition}\label{top_covering_sum_domi_defn}
+\begin{definition}\label{top_covering_sum_subordinated_defn}
 	Let $p:\widetilde\sX \to \sX$ be a covering. Let both $\sY\subset\sX$ and $\widetilde\sY\subset\widetilde\sX$ are compact subsets. A covering sum $\sum_{j = 1}^n f_j$ for $\sY$ (cf. Definition \ref{top_covering_sum_defn}) is said to be \textit{subordinated to} $p$ if for all $j=1,..., n$ the set $\left\{\left.x\in\sX\right|f_j\left( x\right)>  0 \right\}$ is evenly covered by $p$ (cf. Definition \ref{top_covering_defn}). A covering sum $\sum_{j = 1}^n \widetilde f_j$ for $\widetilde \sY$ is said to be \textit{subordinated to} $p$ if for all $j=1,..., n$ the set $\widetilde\sU_j\bydef \left\{\left.\widetilde x\in\widetilde\sX\right|\widetilde f_j\left(\widetilde x\right)>  0 \right\}$ is homeomorphically mapped onto $p\left(\widetilde\sU_j\right)$. 
 \end{definition}
 
@@ -5799,7 +5807,7 @@ where $\mathscr A$ is a finite set.
 	\be\nonumber
 	1_{C\left(\widetilde{\mathcal X} \right) }= \sum_{\widetilde\a \in \widetilde{\mathscr A} }\widetilde{a}_{\widetilde{\a}}\quad \widetilde{a}_{\widetilde{\a}}\in C\left(\widetilde \sX\right)_+
 	\ee
-	be a subordinated to $p$ covering sum for $\widetilde{\mathcal X}$ (cf. Definitions \ref{top_covering_sum_defn}, \ref{top_covering_sum_domi_defn} and the equation\eqref{top_cfsa_eqn}). If $\widetilde{e}_{\widetilde{\a}}\bydef \sqrt{\widetilde{a}_{\widetilde{\a}}}\in C\left(\widetilde \sX\right)_+$ then one has
+	be a subordinated to $p$ covering sum for $\widetilde{\mathcal X}$ (cf. Definitions \ref{top_covering_sum_defn}, \ref{top_covering_sum_subordinated_defn} and the equation\eqref{top_cfsa_eqn}). If $\widetilde{e}_{\widetilde{\a}}\bydef \sqrt{\widetilde{a}_{\widetilde{\a}}}\in C\left(\widetilde \sX\right)_+$ then one has
 	\be\label{top_ea_eqn}
 	\begin{split}
 		1_{C\left(\widetilde{\mathcal X} \right) }= \sum_{\widetilde\a \in \widetilde{\mathscr A} }\widetilde{e}^2_{\widetilde{\a}},\\
@@ -8522,7 +8530,7 @@ If $M$ be a smooth manifold then   a space of distribution densities  $\Coo_c\le
 		where  $ \widetilde a_j\in A_c\left( \widetilde{   \mathcal X }\right)$ and the set $\widetilde \sU_j = \left\{\left.\widetilde x \in \widetilde{   \mathcal X}\right|\widetilde a_j\left(\widetilde x\right)\neq 0 \right\}$ is homeomorphically mapped onto $p\left( \widetilde \sU_j\right)$   for all $j = 1,..., m$. Moreover if	$\widetilde a$ is positive then one can select positive $\widetilde a_1,..., \widetilde a_m$. 
 \end{lemma}
 \begin{proof}
-If $\sum_{j=1}^m\widetilde f_j$ is  a subordinated to $p$ covering  sum for $\supp \widetilde  a$ (cf. Definitions  \ref{top_covering_sum_defn}  and  \ref{top_covering_sum_domi_defn}) then one has
+If $\sum_{j=1}^m\widetilde f_j$ is  a subordinated to $p$ covering  sum for $\supp \widetilde  a$ (cf. Definitions  \ref{top_covering_sum_defn}  and  \ref{top_covering_sum_subordinated_defn}) then one has
 $$
 	\widetilde a =  \widetilde f_{1}	\widetilde a 	  + ... +  \widetilde f_{m}	\widetilde a 
 $$
@@ -8534,7 +8542,7 @@ $$
 \end{proof}
 	\begin{empt}
 	Let $\sX$ be a locally compact, Hausdorff space; and for each $x$ in $\sX$, let $A_x$ be a (complex) Banach space. Let us consider a continuity structure $\sF$ for $\sX$ and $\left\{A_x\right\}$ (cf. Definition \ref{op_fields_defn}). If $p: \widetilde \sX \to \sX$ is a covering then $C_c\left(\widetilde \sX\right)$ is a  $C_0\left( \sX\right)$-module.  Let $\widetilde f \in C_c\left( \widetilde \sX\right)$ and let 
-	$\sum_{l=1}^m \widetilde a_l$ be a subordinated to  $p$ covering sum for $\supp\widetilde f$ (cf. Definitions \ref{top_covering_sum_defn} and \ref{top_covering_sum_domi_defn}). Without loss of generality  one can suppose that for all $l=1,...,m$ there is an open subset $\widetilde \sU_l$ such that $ \supp \widetilde a_l\subset  \widetilde \sU_l$ and $ \widetilde \sU_l$ is homeomorphically mapped onto $p\left( \widetilde \sU_l \right)$. If $\xi \in C_c\left( \lift_p\left[C\left(\sX, 
+	$\sum_{l=1}^m \widetilde a_l$ be a subordinated to  $p$ covering sum for $\supp\widetilde f$ (cf. Definitions \ref{top_covering_sum_defn} and \ref{top_covering_sum_subordinated_defn}). Without loss of generality  one can suppose that for all $l=1,...,m$ there is an open subset $\widetilde \sU_l$ such that $ \supp \widetilde a_l\subset  \widetilde \sU_l$ and $ \widetilde \sU_l$ is homeomorphically mapped onto $p\left( \widetilde \sU_l \right)$. If $\xi \in C_c\left( \lift_p\left[C\left(\sX, 
 	\left\{A_x\right\}, \sF \right)\right]\right)$ then we define
 \be\label{top_xi_eqn}
 \widetilde \xi \bydef \sum_{l=1}^m \widetilde f\sqrt{\widetilde a_l} \lift^p_{\widetilde{\sU}_l}\left(\desc_p\left( \sqrt{\widetilde a_l}\right) \xi \right) 
@@ -8578,7 +8586,7 @@ i.e. $\phi$ is a homomorphism of left $C_0\left(\widetilde \sX\right)$-modules b
 Let $\sum_{j =1}^n \widetilde f_j \otimes \xi_j$ be any element in  $C_c\left(\widetilde \sX\right)\otimes_{C_0\left( \sX\right)}C\left(\sX, 
 \left\{A_x\right\}, \sF \right)$. 
 The finite union $\widetilde \sY \bydef \cup_{j=1}^n \supp \widetilde f_j$ of compact sets is compact. Let 
-$\sum_{l=1}^m \widetilde a_m$ be a subordinated to  $p$ covering sum for $\widetilde \sY$ (cf. Definitions \ref{top_covering_sum_defn} and \ref{top_covering_sum_domi_defn}). Without loss of generality  one can suppose that for all $l=1,...,m$ there is an open subset $\widetilde \sU_l \subset \widetilde\sX$ such that $\supp \widetilde a_l\subset  \widetilde \sU_l$ and $ \widetilde \sU_l$ is homeomorphically mapped onto $p\left( \widetilde \sU_l \right)$. 
+$\sum_{l=1}^m \widetilde a_m$ be a subordinated to  $p$ covering sum for $\widetilde \sY$ (cf. Definitions \ref{top_covering_sum_defn} and \ref{top_covering_sum_subordinated_defn}). Without loss of generality  one can suppose that for all $l=1,...,m$ there is an open subset $\widetilde \sU_l \subset \widetilde\sX$ such that $\supp \widetilde a_l\subset  \widetilde \sU_l$ and $ \widetilde \sU_l$ is homeomorphically mapped onto $p\left( \widetilde \sU_l \right)$. 
 From the  equation \eqref{top_xi_eqn} it turns out that
 	\be\label{top_tensore_lcfam_eqn}
 	\begin{split}
@@ -8606,7 +8614,7 @@ It turns out that the map $\phi$ is injective.
 	\left\{A_x\right\}, \sF \right)\right]\right)$ the set $\supp \widetilde \xi$ is compact. If  $
 	\sum_{l=1 }^k\widetilde{a}'_l
 	$
-	is a subordinated to $p$ covering sum of compact set $\supp\widetilde \xi$ (cf. Definitions \ref{top_covering_sum_defn} and  \ref{top_covering_sum_domi_defn}) then one has
+	is a subordinated to $p$ covering sum of compact set $\supp\widetilde \xi$ (cf. Definitions \ref{top_covering_sum_defn} and  \ref{top_covering_sum_subordinated_defn}) then one has
 	$$
 	\widetilde \xi= \sum_{l=1 }^k\widetilde{a}'_l \widetilde \xi= \sum_{l=1 }^k\widetilde{e}'_l\widetilde{e}'_l \widetilde \xi=\sum_{l=1 }^k\widetilde{e}'_l\desc_p\left( \widetilde{e}'_l  \widetilde \xi \right).
 	$$
@@ -9563,7 +9571,7 @@ From the above equation it follows that the net $\left\{\overline \phi\left(\sum
 \begin{remark}
 	Indeed if $\widetilde \sX$ is compact then $C_0\left(\widetilde \sX\right)\cong C\left(\widetilde \sX\right)$ and the image of $C\left(\widetilde \sX\right)\otimes_{C_0\left(\sX\right)} L^2\left(\sX, E\right)$ coincides with $L^2\left(\widetilde{\sX}, \widetilde{E} \right)$. However this fact is not used here.
 \end{remark}
-If $\xi, \eta \in \Ga_c\left(\sX, E \right)$ then since $p$ is a finite-fold covering the set\\ $\widetilde \sV\bydef  p^{-1}\left(\supp \xi \cup \supp\eta  \right)$ is compact.  Let    $\sum_{\a \in \mathscr A} \widetilde a_\a$ is a covering sum for $\widetilde \sV$  {subordinated to} $p$ (cf. Definition \ref{top_covering_sum_domi_defn}), and $\widetilde e_\a \bydef \sqrt {\widetilde a_\a}$. Denote by $\widetilde \sU_\a$ an open set such that $ \supp\widetilde a_\a\subset \widetilde\sU_\a$ and the restriction $p|_{\widetilde \sU_\a}: \widetilde \sU_\a \to p\left(\widetilde \sU_\a\right)$ is a homeomorphism. Let $e_\a \bydef \desc_p\left( \widetilde e_\a\right)$ (cf. Definition \ref{top_lift_desc_defn}). The specialization of the  given by the equation \eqref{induced_prod_equ} scalar product $\left(\cdot, \cdot \right)_{\text{ind}}$ on  $ C_0\left(\widetilde \sX\right)) \otimes L^2\left({\sX},{E}, \mu\right)$ satisfies to the following equation 
+If $\xi, \eta \in \Ga_c\left(\sX, E \right)$ then since $p$ is a finite-fold covering the set\\ $\widetilde \sV\bydef  p^{-1}\left(\supp \xi \cup \supp\eta  \right)$ is compact.  Let    $\sum_{\a \in \mathscr A} \widetilde a_\a$ is a covering sum for $\widetilde \sV$  {subordinated to} $p$ (cf. Definition \ref{top_covering_sum_subordinated_defn}), and $\widetilde e_\a \bydef \sqrt {\widetilde a_\a}$. Denote by $\widetilde \sU_\a$ an open set such that $ \supp\widetilde a_\a\subset \widetilde\sU_\a$ and the restriction $p|_{\widetilde \sU_\a}: \widetilde \sU_\a \to p\left(\widetilde \sU_\a\right)$ is a homeomorphism. Let $e_\a \bydef \desc_p\left( \widetilde e_\a\right)$ (cf. Definition \ref{top_lift_desc_defn}). The specialization of the  given by the equation \eqref{induced_prod_equ} scalar product $\left(\cdot, \cdot \right)_{\text{ind}}$ on  $ C_0\left(\widetilde \sX\right)) \otimes L^2\left({\sX},{E}, \mu\right)$ satisfies to the following equation 
 \begin{equation}\label{comm_ind_l2l_eqn}
 	\begin{split}
 		\left( \widetilde{a} \otimes \xi ,    \widetilde{b} \otimes \eta\right)_{\text{ind}}= \left(\xi, \left\langle \widetilde{a}, \widetilde{b}\right\rangle_{C\left(\widetilde{\sX} \right) } \eta \right)_{L^2\left({\sX},{E} \right)}=\\=\sum_{\a\in \widetilde{\mathscr A}}\left(\xi, \left\langle \widetilde{a}_{\a}\widetilde{a}, \widetilde{b}\right\rangle_{C\left(\widetilde{\sX} \right) } \eta \right)_{L^2\left({\sX},{E} \right)}
@@ -9666,7 +9674,7 @@ Prove that the specialization of the given by the equation \eqref{cc_eqn} operat
 	$$
 	\widetilde \rho :C\left(\widetilde M \right)\hookto B\left( L^2\left(\widetilde{M},\widetilde{S} \right)\right).    
 	$$
-	The space $M$ is compact so there is is a subordinated to  $p:\widetilde{M}\to{M}$ covering sum for $\widetilde M$ (cf. Definitions \ref{top_covering_sum_defn}, \ref{top_covering_sum_domi_defn}).
+	The space $M$ is compact so there is is a subordinated to  $p:\widetilde{M}\to{M}$ covering sum for $\widetilde M$ (cf. Definitions \ref{top_covering_sum_defn}, \ref{top_covering_sum_subordinated_defn}).
 	\be\label{top_ta_eqn}
 	\sum_{\widetilde \a \in \widetilde {\mathscr A}  } \widetilde{a}_{\widetilde\a} = 1_{C\left(\widetilde{M} \right) }.
 	\ee
@@ -11721,7 +11729,7 @@ $$
 \widetilde\sY\bydef \left\{ \widetilde x\in \widetilde\sX \left|\left| \widetilde a\left(\widetilde x\right) \right|\ge \frac{\eps}{2} \right.\right\}
 $$
 is compact.
-If  $ \widetilde p: \widetilde\sX \to \sX$ is the natural covering and  $\sum_{j = 1}^n f_j$  is a covering sum for $\widetilde\sY$ {subordinated to} $\widetilde p$ (cf. Definition \ref{top_covering_sum_domi_defn}). then one has
+If  $ \widetilde p: \widetilde\sX \to \sX$ is the natural covering and  $\sum_{j = 1}^n f_j$  is a covering sum for $\widetilde\sY$ {subordinated to} $\widetilde p$ (cf. Definition \ref{top_covering_sum_subordinated_defn}). then one has
 $$
 \left\|  \widetilde a -  \widetilde a\sum_{j = 1}^n f_j\right\| < \eps.
 $$
@@ -11732,7 +11740,7 @@ From the above equation it turns out that
 On the other hang $h_{f_j \widetilde a, g}=\theta_{\sqrt{f_j}, g\left( \sqrt{f_j}\widetilde{a}\right)  } = \sqrt{f_j}\left\rangle \right\langle g\left( \sqrt{f_j}\widetilde{a}\right)$ is a rank-one operator (cf. equation \eqref{rank_one_eqn}). 
 The number $\eps$ is arbitrary small, so from the equation  \eqref{top_hg_e_eqn} and the Definition \ref{comp_aop_defn} one concludes that 	$h_{\widetilde{a}, g}$ is compact, i.e. 
 $h_{\widetilde{a}, g}\in \K\left(X_{C_0\left( \sX\right) } \right)$. Since $C_c\left(G\left(\widetilde{\sX}~|~ \mathcal X\right), C_0\left( \widetilde{\sX}\right) \right)$ is generated  by operators $h_{\widetilde{a}, g}$ one has $C_c\left(G\left(\widetilde{\sX}~|~ \mathcal X\right), C_0\left( \widetilde{\sX}\right) \right) \subset \K\left(X_{C_0\left( \sX\right) } \right)$.\\
-(b) If $\widetilde a, \widetilde b \in K\left(C_0\left( \widetilde{\sX}\right)  \right) = C_c\left( \widetilde{\sX}\right)$ then both sets $\supp\widetilde a$ and  $\supp\widetilde b$ are compact. Let  $ \widetilde p: \widetilde\sX \to \sX$ be the natural covering and  $\sum_{j = 1}^n f_j$  is a covering sum for $\supp \widetilde a$ {subordinated to} $\widetilde p$ (cf. Definition \ref{top_covering_sum_domi_defn}).
+(b) If $\widetilde a, \widetilde b \in K\left(C_0\left( \widetilde{\sX}\right)  \right) = C_c\left( \widetilde{\sX}\right)$ then both sets $\supp\widetilde a$ and  $\supp\widetilde b$ are compact. Let  $ \widetilde p: \widetilde\sX \to \sX$ be the natural covering and  $\sum_{j = 1}^n f_j$  is a covering sum for $\supp \widetilde a$ {subordinated to} $\widetilde p$ (cf. Definition \ref{top_covering_sum_subordinated_defn}).
 If $j \in \left\{1,..., n\right\}$ and the set
 $$
 G_j \bydef \left\{\left. g G\left(\widetilde{\sX}~|~ \mathcal X\right)\in \right| g\supp f_j \cap \supp \widetilde b\neq \emptyset \right\}
@@ -11875,7 +11883,7 @@ of left $C_0\left(\widetilde \sX \right)$-modules.
 \end{proof}
 
 \begin{empt} 
-	If $\widetilde{a} \otimes \xi, \widetilde{b} \otimes \eta \in C_c\left(\widetilde{\sX} \right) \otimes_{C\left(\sX \right) } \Ga\left( \sX, E\right) \subset L^2\left(\widetilde{M},\widetilde{S} \right)$  then $\supp \widetilde{a}$ is compact, so there exists a subordinated to $\widetilde p$ {covering sum} $	\sum_{\widetilde \a\in \widetilde{\mathscr A}} \widetilde a_{\widetilde\a}$ for $\supp \widetilde{a}$ (cf. Definitions \ref{top_covering_sum_defn} and \ref{top_covering_sum_domi_defn}) 
+	If $\widetilde{a} \otimes \xi, \widetilde{b} \otimes \eta \in C_c\left(\widetilde{\sX} \right) \otimes_{C\left(\sX \right) } \Ga\left( \sX, E\right) \subset L^2\left(\widetilde{M},\widetilde{S} \right)$  then $\supp \widetilde{a}$ is compact, so there exists a subordinated to $\widetilde p$ {covering sum} $	\sum_{\widetilde \a\in \widetilde{\mathscr A}} \widetilde a_{\widetilde\a}$ for $\supp \widetilde{a}$ (cf. Definitions \ref{top_covering_sum_defn} and \ref{top_covering_sum_subordinated_defn}) 
 	where a given by \eqref{top_cfsa_eqn} notation  is used. If $\widetilde e_\a \bydef \sqrt{\widetilde a_\a}$ and $e_\a = \desc_{\widetilde p}\left( \widetilde e_\a\right) $ means $\widetilde p$-descent (cf. Definition \ref{top_lift_desc_defn}) then from \eqref{top_desc_fin_eqn} it turns out that
 	$$
 	\forall\a\in \mathscr A \quad \widetilde a_\a = \widetilde e_\a e_\a.
@@ -12549,13 +12557,13 @@ so one has $\left\|\rep_{x'} \left( \sum_{j = 1}^n a_j\right) \right\| \le \left
 	In the situation \ref{blowing_regular_u_empt} we say that the set $\sU$ is \textit{regular} if one has
 		\be\label{blowing_prop_spectral_eqn}
 	\begin{split}
-		\forall x'_{x_\sU}, x''_{x_\sU} \in \sX_\sU \quad x' \neq x'' \quad \Leftrightarrow \quad \sU_{x'_{x_\sU}} \cap \sU_{x''_{x_\sU}} = \emptyset.
+		\forall x', x'' \in \sX_\sU \quad x' \neq x'' \quad \Leftrightarrow \quad \sU_{x'} \cap \sU_{x''} = \emptyset.
 	\end{split}
 	\ee
 \end{definition}
 \begin{empt}\label{blowing_spectral_empt}
 Let $A$ be a $C^*$-algebra and let $C_0\left(\sY\right)\to M\left( A\right)$ be  Hausdorff blowing-up (cf. the Definition \ref{blowing_defn}). If  $\sU\subset\sY$ is  a connected open subset, and  $A^{\text{prop}}_{\sU}$ is a $\sU$-proper (cf. Definition \ref{blowing_proper_defn}). Let both  $\sX_\sU$ and $\sX$ are spectra  of $A^{\text{prop}}_{\sU}$ and $A$ respectively. Form the Remark \ref{blowing_proper_rem} it follows that for any $x_\sU \in \sX_\sU$ a corresponding irreducible representation of $A^{\text{prop}}_{\sU}$ is given by $\rep_{x_\sU}:A^{\text{prop}}_{\sU} \to B\left(\H^\a_x \right)$ where $x \in \sX$. It follows that there is a map
-\bean
+\bean !!! CORRECT!!!\\
 \phi_\sU : \sX_\sU \to \sX,\\
 x_\sU \mapsto x.
 \eean 
@@ -13511,6 +13519,25 @@ be a given by \eqref{blowing_top_eqn} be a  pointed  topological finite covering
 				\bean
 _{\widetilde \sU}	A_0\left(\overline \sY \right)_{\widetilde \sU}= A_0\left(\overline \sY \right)^{\mathrm{prop}}_{\widetilde \sU}			
 \eean
+
+!!!!!!!!!!!!!!!!!!
+
+If  $\left(A, \widetilde A, G, \pi\right)$  is  a reduced noncommutative finite-fold covering with unitization and $\chi_\sU$ is characteristic function then from the Corollary \ref{lift_unitization_cov_cor} it follows that a quadruple $\left(~_\sU A_\sU, ~_\sU\widetilde A_\sU, G/, \pi|_{_\sU A_\sU}\right)$ where 
+\bean
+_\sU A_\sU \bydef \left\{a \in A |\chi_\sU a \chi_\sU = a \right\},\\
+_\sU\widetilde A_\sU \bydef \left\{\widetilde a \in \widetilde A |\pi\left( \chi_\sU\right)  \widetilde a \pi\left( \chi_\sU\right) = \widetilde a \right\},\\
+H \bydef \left\{g \in G \left| \forall \widetilde a\in _\sU\widetilde A_\sU\right. \right\},\\
+_{\widetilde \sU}	A_0\left(\overline \sY \right)_{\widetilde \sU}
+\eean 
+is also a reduced noncommutative finite-fold covering with unitization.  There are following inclusions
+\bean
+_{q^{-1}\left( \sU\right)} 	A_0\left(\widetilde  \sY \right)_{q^{-1}\left( \sU\right)} \otimes_{_\sU A_\sU}~_\sU \widetilde A_\sU\subset 	A_0\left(\widetilde  \sY \right) \otimes_A \widetilde A,\\
+_{\widetilde \sU}	A_0\left(\overline \sY \right)_{\widetilde \sU}\otimes_{_\sU A_\sU}~_\sU \widetilde A_\sU\subset  _{q^{-1}\left( \sU\right)} 	A_0\left(\widetilde  \sY \right)_{q^{-1}\left( \sU\right)} \otimes_{_\sU A_\sU}~_\sU \widetilde A_\sU,
+_{\widetilde \sU}	A_0\left(\overline \sY \right)_{\widetilde \sU}\subset 
+\eean
+
+
+!!!!!!!!!!!!!!!!!!
 If  $\widehat A\bydef C^*$-$\varinjlim A_0\left( \sY_\la\right)$ is a $C^*$-{inductive limit} (cf. Definition \ref{inductive_lim_defn} and $\widehat \sX$ is a spectrum of $\widehat A$ then from the Lemma \ref{blowing_rep_lem} it follows that  for all $\widehat x \in \widehat\sX$ there is an irreducible representation $\rho_{\widehat x}: A_0\left(\overline \sY \right)\to B\left(\H_{\widehat x} \right)$ where  $\H_{\widehat x}$ is a space of the irreducible representation $\rep_{\widehat x}: \widehat A \to B\left(\H_{\widehat x} \right)$. 
 Let $\left(A, \widetilde A, G, \pi\right)$ be a reduced noncommutative finite-fold pre-covering  (cf. Definitions \ref{fin_pre_defn} and \ref{fin_red_defn}). Let $p: \widetilde \sX \to \sX$ be given by the Proposition \ref{spectrum_cov_prop} map from the spectrum $\widetilde \sX$ of $\widetilde A$ to the spectrum $\sX$ of $A$. From the Lemma \ref{inverse_lim_sp_lem} it follows that there is a surjective map $\widehat p: \widehat \sX\to \sX$. Let
 $$
@@ -13541,11 +13568,43 @@ $$
 If $\H^{\mathrm{ext}}$ is a norm completion of an algebraic direct sum $\oplus_{\left(\widetilde x, \widehat x \right)\in \widetilde \sX \times_\sX \widehat \sX}\H_{\left(\widetilde x, \widehat x \right)}$ then both $\pi_{\left(\widetilde x, \widehat x \right)}$ and  $\rho_{\left(\widetilde x, \widehat x \right)}$ yield following natural representations:
 \bean
 \pi^{\mathrm{ext}}: \widetilde A \hookto B\left( \H^{\mathrm{ext}} \right),\\ 
-\rho^{\mathrm{ext}}: C_0\left(\overline \sY \right)  \hookto B\left( \H^{\mathrm{ext}} \right).
+\rho^{\mathrm{ext}}: C_0\left(\overline \sY \right)  \hookto B\left( \H^{\mathrm{ext}} \right), 
 \eean
+The generated by elements 
+\be\label{blowing_ext_el_eqn}
+\rho^{\mathrm{ext}}\left(\widetilde f'\right)\pi^{\mathrm{ext}}\left(\widetilde a\right)\rho^{\mathrm{ext}}\left(\widetilde f''\right)\quad \widetilde f', \widetilde f''\in C_c\left( \widetilde\sY\right)\quad \widetilde a \in \widetilde A 
+\ee
+is a *-subalgebra of $B\left( \H^{\mathrm{ext}} \right)$. Let $A^{\mathrm{ext}}$ be a $C^*$-algebra generated by given by the equation \eqref{blowing_ext_el_eqn}. If 
+\be\label{blowing_ext_el1_eqn}
+\widetilde a = \rho^{\mathrm{ext}}\left(\widetilde f\right)\pi^{\mathrm{ext}}\left(\widetilde a\right)\quad  \widetilde f\in C_c\left( \widetilde\sY\right)\quad \widetilde a \in \widetilde A 
+\ee
+and $\sum_{j = 1}^n \widetilde f_j$ is a subordinated to $q$ covering sum for $\supp \widetilde f$ (cf. Definition  \ref{top_covering_sum_subordinated_defn}) then one has
+$$
+\rho^{\mathrm{ext}}\left(\widetilde f\right)\pi^{\mathrm{ext}}\left(\widetilde a\right)= \sum_{j = 1}^n \rho^{\mathrm{ext}}\left(\widetilde f\right)\pi^{\mathrm{ext}}\left(\widetilde a\right)\rho^{\mathrm{ext}}\left(\widetilde f_j\right),
+$$
+it follows that a generated by elements $\rho^{\mathrm{ext}}\left(\widetilde f\right)\pi^{\mathrm{ext}}\left(\widetilde a\right)$ subalgebra of $B\left( \H^{\mathrm{ext}} \right)$ is a subalgebra of $A_{\mathrm{ext}}$. Otherwise if 
+$$
+\widetilde a = \rho^{\mathrm{ext}}\left(\widetilde f\right)\pi^{\mathrm{ext}}\left(\widetilde a\right)
+$$
+and  $\sum_{j = 1}^n \widetilde f_j$ is a subordinated to $q$ covering sum for $\supp \widetilde f$ (cf. Definition  \ref{top_covering_sum_subordinated_defn}) then one has
+$$
+\widetilde a = \sum_{j = 1}^n\rho^{\mathrm{ext}}\left(\widetilde{f}_j\widetilde f\right)\pi^{\mathrm{ext}}\left(\widetilde a\right)
+$$
+One the other hand one can proof that for any $j = 1,..., n$ there is $\widetilde g_j\in C_c\left( \widetilde\sY\right)$ such that
+\begin{itemize}
+	\item $\supp \widetilde g_j$ is mapped homeomorphically onto $q\left(\supp \widetilde g_j\right)$,
+	\item  $\widetilde g_j\left(\supp \widetilde f_j \right) = \{1\}$
+\end{itemize} 
+(cf. Corollary \ref{top_comp_la_cor}). From the above properties it follows that 
+$$
+\rho^{\mathrm{ext}}\left(\widetilde{f}_j\widetilde f\right)\pi^{\mathrm{ext}}\left(\widetilde a\right)=\rho^{\mathrm{ext}}\left(\widetilde{f}_j\widetilde f\right)\pi^{\mathrm{ext}}\left(\widetilde a\right)\rho^{\mathrm{ext}}\left(\widetilde{g}_j\right),
+$$
+so $\rho^{\mathrm{ext}}\left(\widetilde f\right)\pi^{\mathrm{ext}}\left(\widetilde a\right)$ lies in $A_{\mathrm{ext}}$ and $A_{\mathrm{ext}}$ is generated by elements \eqref{blowing_ext_el1_eqn} $C^*$-subalgebra of $B\left(\H^{\mathrm{ext}} \right)$. 
+!!! CONTINUE !!!
+
 There is a map
 \bean
-\phi': C_0\left(\overline \sY \right) \times \widetilde \to B\left(\H^{\mathrm{ext}} \right),\\
+\phi': C_0\left(\overline \sY \right) \times \widetilde A \to B\left(\H^{\mathrm{ext}} \right),\\
 \left(\overline f , \widetilde{a}\right)\mapsto \rho^{\mathrm{ext}}\left(\overline f\right)\pi^{\mathrm{ext}}\left(\widetilde a\right)
 \eean
 For all $f\in C_0\left(\sY\right)$ one has $\phi' \left(\overline ff , \widetilde{a}\right)= \phi' \left(\overline f , f\widetilde{a}\right)$, so one has a natural $\C$-linear map $\phi: C_0\left(\overline \sY \right) \otimes_{C_0\left(\sY\right)} \widetilde A \to B\left(\H^{\mathrm{ext}} \right)$
@@ -15521,7 +15580,7 @@ Let us use the notation of the proof of the Lemma \ref{ctr_fin_lem}. From the Le
 $$
 \forall \widetilde x \in \widetilde \sX \setminus \widetilde \sY \quad \left\|\rep_{  \widehat{x }}\left(\widetilde a \right)  \right\|< \eps. 
 $$
-If $\sum_{j = 1}^n \widetilde f_j \in C_c\left( \widetilde \sX\right)$ is a subordinated to $p$   covering sum of $\widetilde \sV$ (cf. Definition \ref{top_covering_sum_domi_defn}) then
+If $\sum_{j = 1}^n \widetilde f_j \in C_c\left( \widetilde \sX\right)$ is a subordinated to $p$   covering sum of $\widetilde \sV$ (cf. Definition \ref{top_covering_sum_subordinated_defn}) then
 \bean
  \left\|\sum_{j = 1}^n \widetilde f_j\widetilde a -\widetilde a   \right\|< \eps,\\
 \sum_{j = 1}^n \widetilde f_j\widetilde a = \sum_{j = 1}^n \sqrt{\widetilde f_j}\pi\left( a_j \right) \text{ where } \pi\left( a_j\right)  \bydef \sum_{g\in G}g \left( \widetilde a \sqrt{\widetilde f_j}\right) \in \widetilde A^G = \pi\left(A \right) . 

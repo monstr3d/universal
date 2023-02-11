@@ -57,7 +57,7 @@ namespace DataPerformer.TestInterface.Regression
                 collection.GetObject<global::Regression.Portable.IteratorGLM>(name); // Regression component
             for (int i = 0; i < number; i++)
             {
-               a = reg.FullIterate();                  // Iteration cylce
+               a = reg.Iterate();                  // Iteration cylce
             }
             return a;              // returns residual parameter
         }

@@ -12,6 +12,7 @@ using DataPerformer.Portable;
 
 using Chart.Drawing;
 using Chart.Drawing.Interfaces;
+using Chart.Drawing.Interfaces.Points;
 
 namespace Chart.Objects
 {
@@ -33,7 +34,7 @@ namespace Chart.Objects
 
         double[,] size = new double[2, 2];
 
-        IPointFactory factory;
+        IPointFactory factory = new PointBaseFactory(6);
 
 
         List<string> measurements = new List<string>();
@@ -202,7 +203,10 @@ namespace Chart.Objects
             }
             set
             {
-                factory = StaticExtensionChartInterfaces.PointFactory[value];
+                if (StaticExtensionChartInterfaces.PointFactory != null)
+                {
+                    factory = StaticExtensionChartInterfaces.PointFactory[value];
+                }
                 factoryName = value;
             }
         }

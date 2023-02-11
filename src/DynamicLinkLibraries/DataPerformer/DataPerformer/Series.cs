@@ -246,7 +246,7 @@ namespace DataPerformer
         /// </summary>
         new protected void initialize()
         {
-            base.initialize();
+            base.Initialize();
         }
 
  

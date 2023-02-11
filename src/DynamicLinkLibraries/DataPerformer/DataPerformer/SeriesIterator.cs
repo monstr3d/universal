@@ -181,6 +181,10 @@ namespace DataPerformer
         /// <param name="y">The Y - coordinate name</param>
         public void Set(string x, string y)
         {
+            if (this.x == x & this.y == y)
+            {
+                return;
+            }
             this.x = x;
             this.y = y;
             Set();

@@ -105,7 +105,7 @@ namespace DataPerformer.Portable
                 vectorNames.Add(vn);
             }
             selections = new IStructuredSelection[] { new XSelection(this), this };
-            initialize();
+            Initialize();
             initFunc();
             Post();
         }
@@ -644,7 +644,7 @@ namespace DataPerformer.Portable
         /// <summary>
         /// Initialization
         /// </summary>
-        protected virtual void initialize()
+        protected virtual void Initialize()
         {
             initMeasures();
             points = new List<double[]>();

@@ -25,5 +25,15 @@ namespace TestProjectExamples
             Resources.DatabaseSelection.Fact();
         }
 
+        /// <summary>
+        /// Test of database star catalogue saved regression
+        /// </summary>
+        [Fact]
+        public void TestStarCatalogueSavedRegression()
+        {
+            Resources.StarCatalogueSaved.Fact();
+        }
+
+
     }
 }
