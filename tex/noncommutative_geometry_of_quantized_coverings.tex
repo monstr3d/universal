@@ -4656,25 +4656,21 @@ There is a pointed{ algebraical  finite covering category}
 \begin{empt}\label{inv_pro_lim_empt}
 Let $\mathfrak{S}^{\text{pt}}$ be a pointed algebraical  finite covering category of pro-$C^*$-algebras, and let 
 	$\mathfrak{S}^{\text{pt}}_B$ be a given by \eqref{bounded_ptcat_eqn}  pointed  { algebraical  finite covering category} (cf. Definition \ref{pointed_defn}) which comes from \eqref{comp_pt_pro_eqn}. 	
-	Suppose that $\mathfrak{S}^{\text{pt}}_B$ is good (cf. Definition \ref{good_defn}) and let  $\left(B , \overline{B}, \overline G\right)$ be a {disconnected infinite noncommutative covering} of $ \mathfrak{S}^{\mathrm{pt}}_B$ (cf. Definition \ref{main_defn}). If $\widehat{B}\bydef C^*$-$\varinjlim  B_\la$ is the direct limit then there is the natural inclusion  $\iota' :\widehat{B}\hookto M\left( \overline{B}\right)$ (cf. (a) of the Definition \ref{good_defn}). From the Proposition \ref{pro_dir_lim_prop} there is the direct limit $\widehat{A}\bydef \varinjlim A_\la$ which is a pro-$C^*$-algebra. Moreover one has an inclusion $\iota'':\widehat{B} \hookto \widehat{A}$. 
-Let us consider  a set  $\left(G, R\right)$ of  generators and relations  such the   $G \bydef   M\left(  \overline{B}\right) \cup \widehat A$, such that the set $R$ contains: 
-\begin{enumerate}
-	\item[(a)] All relations of $M\left( \overline{B}\right)$ described in the Example \ref{wa_exm}.
-		\item[(b)] All relations of $\widehat A$ described in the Example \ref{wa_exm}.
-		\item[(c)] For any $a \in \widehat B$ we suppose that $a = \iota'\left( a\right)\in M\left( \overline{B}\right)$. This relation satisfies to the condition 1 of  the Example \ref{wa_exm}.
-		\item[(d)] For any $a \in \widehat B$ we suppose that $a = \iota''\left( a\right)\in \widehat A$. This relation satisfies to the condition 1 of  the Example \ref{wa_exm}.
-
-\item[(e)] Both  natural inclusions  $\widehat{A}\hookto F(G)$, $M\left( \overline{B}\right)\hookto F(G)$ are continuous. This relation satisfies to the condition 4 of  the Example \ref{wa_exm}.
-	\end{enumerate}
-All relations in $R$ satisfy to Example \ref{wa_exm}, so $\left(G, R\right)$  is a weakly admissible set (cf. Definition \ref{weak_adm_defn}). From the Proposition \ref{uni_pro_c_rep_prop} one has a pro-$C^*$-algebra $C^*\left(G, R \right)$. 
-If  $\left(B , \widetilde{B},  G\right)$ is the {infinite noncommutative covering} of $\mathfrak{S}^{\text{pt}}_B$ (cf. Definition \ref{main_defn}), then there are natural inclusions $\widetilde{B}\subset M\left( \widetilde{B}\right)\subset M\left( \overline{B}\right)\subset C^*\left(G,R\right)$. 
-Denote by $\widetilde A\subset C^*\left(G,R\right)$ the closure of $\widetilde B\in C^*\left(G,R\right)$ with respect to the topology of the pro-$C^*$-algebra $C^*\left(G,R\right)$.  From  $G\widetilde{B}=\widetilde{B}$ it turns out that $G\widetilde{A}=\widetilde{A}$.
+	Suppose that $\mathfrak{S}^{\text{pt}}_B$ is good (cf. Definition \ref{good_defn}) and let  $\left(B , \widetilde{B}, \widetilde G\right)$ be an {infinite noncommutative covering} of $ \mathfrak{S}^{\mathrm{pt}}_B$ (cf. Definition \ref{main_defn}). 
+	For any $\la \in \La$ there is a given by \eqref{a_toola_eqn} inclusion
+		$\widetilde m_\la :B_\la \to M\left( \widetilde{B} \right) $. For all $\la\in \La$  any seminorm $p_\a: M\left( \widetilde{B} \right)\to\R$ induces a seminorm
+		\be\label{pro_ind_semi_eqn}
+		 p^\la_\a\bydef p_\a \circ \widetilde m_\la: B_\la \to\R
+		 \ee
+		 A $\overline G$-invariant  family $\left\{p_\a\right\}_{\a \in \mathscr A}$  of $C^*$-seminorms on $ M\left( \widetilde{B} \right)$ is said to be \textit{admissible} if for all $\la\in \La$ a pro-$C^*$ algebra $A_\la$  is a completion of $B_\la$  with respect to the family of given by \ref{pro_ind_semi_eqn} $C^*$-seminorms. For example the equation  \ref{seminorms_inv_lim} yields an admissible family of $C^*$-seminorms. A completion of $\widetilde B$ with respect to an admissible family of seminorms is said to be an \textit{admissible} pro-$C^*$-algebra.
 \end{empt}
+
 \begin{definition}\label{inv_pro_lim_defn}
 In the described in \ref{inv_pro_lim_empt} situation we say that the triple
 $\left(A, \widetilde{A}, G\right)$ is an 
- \textit{inverse noncommutative limit of the pointed category $\mathfrak{S}^{\mathrm{pt}}$ of pro-$C^*$-algebras}.
+ \textit{inverse noncommutative limit of the pointed category $\mathfrak{S}^{\mathrm{pt}}$ of pro-$C^*$-algebras} if $\widetilde{A}$ is a maximal among admissible pro-$C^*$-algebras.
 \end{definition}
+
 
 \subsubsection{Coverings of bounded operator $*$-algebras}
 \begin{empt}\label{comp_oa_empt}
@@ -10261,6 +10257,7 @@ The equation \eqref{comm_alg_eqn} is purely algebraic and related to special sub
 %\chapter{Algebraic constructions of topological inverse limits}
 This section supplies a purely algebraic  analog of the topological construction given by the Subsection \ref{top_inf_to_sec}. 
 
+
 \begin{lemma}\label{comm_t_a_lem}
 	Following conditions hold:
 \begin{enumerate}
@@ -11098,9 +11095,10 @@ Otherwise from the Exercise \ref{top_weak_covering_iso_exer} it follows that $\p
 	%  then  $\left( C_0\left( {   \mathcal X }\right) ,  C_0\left( \widetilde{   \mathcal X }\right), G\left( \left.{\widetilde{\sX}}~\right|\sX\right) \right)$ is the (algebraical) universal approximately finite covering (cf. exercise \ref{fundamental_group_nc_defn} ).
 \end{exercise}
 \subsection{Coverings of *-algebras}
-!!! CONTINUE !!!
+
 \subsubsection{Coverings of pro-$C^*$-algebras}
 \paragraph*{}
+!!!
 Suppose that
 \be\nonumber
 \begin{split}
@@ -11136,44 +11134,20 @@ If $\overline\sX$ is the topological disconnected inverse limit  of $\mathfrak{S
 \bean
 \left(B , \overline{B}, \overline G\right)\bydef \left(C\left(\sX \right), C_0\left( \overline\sX\right), G\left(\left.\overline\sX\right|\sX\right)  \right) 
 \eean
-is the disconnected inverse noncommutative limit of $\mathfrak{S}^{\text{pt}}_{B}= \mathfrak{S}^{\text{pt}}_{C_0\left(\sX \right) }$  
-(cf.  Definition \ref{disconnected_inf_defn}).
- If $\widehat{B}\bydef C^*$-$\varinjlim  B_\la$ is the direct limit then there is the natural inclusion  $\iota' :\widehat{B}\hookto M\left( \overline{B}\right)$. Indeed from the Exercise  \ref{inductive_lim_state_exer} it turns out that $\widehat{B} = C_0\left( \widehat \sX\right)$ where $\widehat\sX \bydef\varprojlim \sX_\la$ is an inverse limit of topological spaces (cf. Definition \ref{top_inv_lim_defn}). Let  us consider  a set  $\left(G, R\right)$ of  generators and relations  such the   $G \bydef   M\left(  \overline{B}\right) \cup \widehat A$, the set $R$ satisfies to conditions (a) - (e) of \ref{inv_pro_lim_empt}.  
- From \ref{comm_pro_dist_empt}, the Proposition \ref{uni_pro_c_rep_prop} and the Example \ref{wa_exm} it follows that there is a pro-$C^*$-algebra $C^*\left(G, R\right)$. It is a completion of $b\left(C^*\left(G, R\right) \right)$ with respect to a family $\left\{p_\a\right\}$ of seminorms.
-   From the condition conditions (a) of \ref{inv_pro_lim_empt} it follows that $\widehat B \subset M\left(  \overline{B}\right) \subset b\left(C^*\left(G, R\right) \right)$.
-According to the proof of the Proposition \ref{pro_dir_lim_prop} any seminorm on $\varinjlim \widehat B$ corresponds to a family $\left\{p_{K_\la}\right\}_{\la\in\La}\in\prod_{\la \in \La}S\left(C_{p_\la^{-1}\left(F\right)_c}\left(\sX_\la\right) \right)$ where $K_\la\in p_\la^{-1}\left(F \right)_c$ and $p_{K_\la}$ is given by  \eqref{comm_pro_eqn}. The family should satisfy  to the equation \eqref{seminorms_inv_lim}, i.e.
-\be\label{top_pmnp_eqn}
-\mu > \nu \quad p_{K_\mu}\circ C_0\left(p^\mu_\nu \right) \le p_{K_\nu},
-\ee
-or equivalently $p^\mu_\nu\left( K_\mu\right)\subset K_\nu$. The set 
-\be\label{top_ok_eqn}
-\overline K = \bigcap_{\la\in\La}\overline p^{-1}_\la\left( {K_\la}\right) \subset \overline\sX
-\ee
-is an intersection of closed sets in the topology of both $\overline\sX$ and $\widehat\sX$. So it is closed subset of both $\overline\sX$ and $\widehat\sX$.
- and $\overline p \left(\overline K \right) \in F$. If $\overline K$ is given by \eqref{top_ok_eqn} then the family $\left\{p_{K_\la}\right\}_{\la\in\La}$ corresponds to a seminorm 
- \bean
- \widehat p_{\overline K}: C_0\left( \widehat \sX\right)\to \R,\\
- \widehat a \mapsto \sup_{\widehat x \in \overline K}\left|\widehat a\left(\widehat x \right)  \right| 
- \eean 
-If 
+is the disconnected inverse noncommutative limit of $\mathfrak{S}^{\text{pt}}_{B}= \mathfrak{S}^{\text{pt}}_{C_0\left(\sX \right) }$. One has $M\left(\widetilde B \right)\cong C_b\left(\overline\sX \right)$, so for any $C^*$-seminorm of $p_\a : C_b\left(\overline\sX \right)\to \R$ there is a closed subset $\overline{\sV} \subset \overline\sX$ such that
 $$
-\mathfrak N \bydef \left\{\left.\overline K = \bigcap_{\la\in\La}\overline p^{-1}_\la\left( {K_\la}\right)\right| \forall \mu, \nu\in \La\quad \mu \ge \nu \quad p^\mu_\nu\left( K_\mu\right)\subset K_\nu\right\}
+\forall \overline a \in C_b\left(\overline\sX \right) \quad p_\a\left(\overline a \right)  \bydef \sup_{\overline x \in \overline \sV}\left|\overline a\left(\overline x \right) \right|.
 $$
-then from the Theorem \ref{jtop_thm} it follows that any  $\overline K\in\mathfrak N$ corresponds to a closed two sided ideal $$
-\widehat I_{\overline K}\bydef \left\{\left.\widehat a\in  C_0\left( \widehat \sX\right) \right|\widehat p_{\overline K}\left(\widehat a\right)=0\right\}\subset C_0\left( \widehat \sX\right).
-$$ 
-One the other hand there is a seminorm
-  \bean
-\widehat p_{\overline K}: C_b\left( \overline \sX\right)\to \R,\\
-\overline a \mapsto \sup_{\overline x \in \overline K}\left|\overline a\left(\overline x \right)  \right| 
-\eean 
-and a closed two sided ideal
-$$
-\overline I_{\overline K}\bydef \left\{\left.\overline a\in  C_b\left( \overline \sX\right) \right|\widehat p_{\overline K}\left(\overline a\right)=0\right\}\subset C_b\left( \overline \sX\right)
-$$ 
-Since the natural  continuous map $\overline \sX \to \widehat \sX$ is bijective   $\overline I_{\overline K}\subset C_b\left( \overline \sX\right)$  is a unique  closed two sided ideal such that $\widehat I_{\overline K}=  C_0\left( \widehat \sX\right)\cap \overline I_{\overline K}$. 
-From the our construction $C^*\left(G, R\right)$ is the completion of $M\left( \overline B\right) \bydef C_b\left( \overline\sX\right)$ with respect to the family of seminorms $\left\{\left. \overline p_{\overline K}\right. \right\}_{\overline K \in \mathfrak N}$. If $\widetilde \sX$ is a connected component of $\overline{   \mathcal X}$ then from the Theorem \ref{top_main_thm} it turns out that  the triple $$\left(C_0\left(\mathcal{X}\right), C_0\left(\widetilde\sX\right),G\left(\left.\widetilde\sX~\right| \mathcal X\right)\right)$$ is  the  { infinite noncommutative covering} of $\mathfrak{S}^{\mathrm{pt}}_{B}$ (cf. Definition \ref{main_defn}). 
 \end{empt}
+\begin{exercise}\label{top_pro_exer}
+	Prove following statements:
+	\begin{enumerate}
+		\item a $\overline G$-invariant family $\left\lbrace \overline \sV_\a\subset \overline \sX\right\rbrace_{\a \in \mathscr A}$ corresponds to an admissible family of $C^*$-seminorms  (cf. \ref{inv_pro_lim_empt}) if for all $\la\in \La$ a family   $\left\{\overline p_\la\left( \overline \sV_\a\right)\right\}_{\a\in \mathscr A}$ is of all  compact sets of $\sX_\la$,
+
+	\item any element of completion of $C_b\left( \widetilde \sX\right)$ is a *-subalgebra of *-algebra of continuous maps  $\widetilde \sX\to \C$.
+	\item A $\overline G$-invariant family of all compact subsets of $\overline \sX$ is minimal (cf. \ref{inv_pro_lim_empt})
+	\end{enumerate}
+\end{exercise}
 
 \begin{theorem}\label{top_pro_thm}
 	Consider the situation \ref{top_pro_empt}.	If $\widetilde{A}$ is a completion of $C_0\left(\widetilde \sX\right)$ with respect to a family of seminorms $\left\{\left. \overline p_{\overline K}\right|_{C_0\left(\widetilde \sX\right)} \right\}_{\overline K \in \mathfrak N}$ then the triple 
@@ -11183,8 +11157,7 @@ From the our construction $C^*\left(G, R\right)$ is the completion of $M\left( \
 	is the inverse noncommutative limit of the given by \eqref{top_pro_cat_eqn} {pointed algebraical  finite covering category $\mathfrak{S}_{C_F\left(\sX \right) }$ of pro-$C^*$-algebras} . (cf. Definition \ref{inv_pro_lim_defn})
 \end{theorem}
 \begin{proof}
-	According to the construction \ref{top_pro_empt}  it follows that the topology of 
- the pro-$C^*$-algebra  $C^*\left(G, R\right)$ is given by the family of $\left\{\left. \overline p_{\overline K}\right. \right\}_{\overline K \in \mathfrak N}$ of seminorms. This topology yields a topology of  $C_0\left(\widetilde \sX\right)\subset C^*\left(G, R\right)$ given by the family  $\left\{\left. \overline p_{\overline K}\right|_{C_0\left(\widetilde \sX\right)} \right\}_{\overline K \in \mathfrak N}$ of seminorms.  Now this theorem follows from the Definition \ref{inv_pro_lim_defn}.
+Follows from the Exercise \ref{top_pro_exer}
 \end{proof}
 
 \subsubsection{Coverings of bounded operator $*$-algebras}
