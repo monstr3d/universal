@@ -4600,7 +4600,7 @@ a \bydef	\sum_{g \in G\left(\left.\overline A\right|A \right) }g\overline a\in A
 \subsection{Coverings of *-algebras}
 
 \subsubsection{Coverings of pro-$C^*$-algebras}
-\paragraph*{} Here we discuss infinite coverings of operator *-algebras which can contain unbounded operators. If $A$ is operator *-algebra then denote by $b\left(A \right)\subset A$ the *-algebra  of bounded operators.
+\paragraph*{} Here we discuss infinite coverings of operator *-algebras which can contain unbounded operators. If $A$ is pro-$C^*$-algebra then denote by $b\left(A \right)\subset A$ the $C^*$-algebra  of bounded operators (cf. the Definition \ref{pro_bound_defn} and the Proposition \ref{pro_bound_prop}).
 \begin{empt}\label{comp_pro_empt}
 	Let $\La$ be a countable directed set (cf. Definition \ref{directed_set_defn}) such that there is the unique minimal element $\la_{\min} \in \La$.
 	Let $A$ be a pro-$C^*$-algebra.  Let us consider a set noncommutative finite-fold coverings  pro-$C^*$-algebras $\mathfrak{S}=\left\{ \pi_{\la}:A \hookto A_{\la}\right\}_{\la \in \La}$ (cf. Definition \ref{pro_fin_defn}) indexed by  $\La$ such that $A_{\la_{\mathrm{min}}}= A$, and $\pi_{\la_{\mathrm{min}}}= \Id_A$. Suppose that there is a  category 	
@@ -4662,7 +4662,7 @@ Let $\mathfrak{S}^{\text{pt}}$ be a pointed algebraical  finite covering categor
 		\be\label{pro_ind_semi_eqn}
 		 p^\la_\a\bydef p_\a \circ \widetilde m_\la: B_\la \to\R
 		 \ee
-		 A $\overline G$-invariant  family $\left\{p_\a\right\}_{\a \in \mathscr A}$  of $C^*$-seminorms on $ M\left( \widetilde{B} \right)$ is said to be \textit{admissible} if for all $\la\in \La$ a pro-$C^*$ algebra $A_\la$  is a completion of $B_\la$  with respect to the family of given by \ref{pro_ind_semi_eqn} $C^*$-seminorms. For example the equation  \ref{seminorms_inv_lim} yields an admissible family of $C^*$-seminorms. A completion of $\widetilde B$ with respect to an admissible family of seminorms is said to be an \textit{admissible} pro-$C^*$-algebra.
+		 A $\widetilde G$-invariant  family $\left\{p_\a\right\}_{\a \in \mathscr A}$  of $C^*$-seminorms on $ M\left( \widetilde{B} \right)$ is said to be \textit{admissible} if for all $\la\in \La$ a pro-$C^*$ algebra $A_\la$  is a completion of $B_\la$  with respect to the family of given by \ref{pro_ind_semi_eqn} $C^*$-seminorms. For example the equation  \ref{seminorms_inv_lim} yields an admissible family of $C^*$-seminorms. A completion of $\widetilde B$ with respect to an admissible family of seminorms is said to be an \textit{admissible} pro-$C^*$-algebra.
 \end{empt}
 
 \begin{definition}\label{inv_pro_lim_defn}
@@ -9135,17 +9135,17 @@ is reduced (cf. Definition \ref{fin_red_defn}).
 \subsubsection{Coverings of pro-$C^*$-algebras}
 \paragraph{}
 
-
-If $\sX$ is a completely regular space and $F$ is  the family of all compact spaces then the pair $\left(\sX, F\right)$ is 
-a  completely Hausdorff space
-with distinguished family of compact subsets $F$ (cf. Definition \ref{comm_pro_dist_defn}). 
-Let  $C_F\left(\sX\right)$ be a pro-$C^*$-algebra of continuous functions  from $\sX$ to $\C$, with the topology of uniform convergence on the members of $F$. If $p: \widetilde \sX \to \sX$ is a finite-fold covering then denote by $p^{-1}\left(F \right)_c$ the set of all compact subsets $ \widetilde K \subset \widetilde \sX$ such that $p\left(\widetilde K\right)\in F$.
-Indeed $p^{-1}\left(F \right)_c$ is a family of all compact sets, we denote it by $\widetilde F \bydef p^{-1}\left(F \right)_c$. The family $\widetilde F$ is distinguished.% because $p$ is a local homeomorphism.
-\begin{exercise}\label{top_pro_fin_exer}
+If $\sX$ is a locally compact Hausdorff space then a *-algebra $Cont\left(\sX \right)$ is a completion of $C_0\left(\sX\right)$ with respect to a family of $C^*$-seminorms
+\bean
+p_\sV : \sX \to \R,\\
+a \mapsto \max_{x \in \sV}\left|a\left(x\right)\right|
+\eean
+where $\sV \subset\sX$ is a compact subset. So $Cont\left(\sX \right)$ is a pro-$C^*$-algebra (cf. Definition \ref{pro_c_defn}) such that $C_0\left(\sX\right)$ is an essential ideal (cf. Definition \ref{essential_defn}) of the $C^*$-algebra  $b\left(Cont\left(\sX \right) \right)$ of bounded elements (cf. Definition \ref{pro_bound_defn}).
+\begin{exercise}\label{top_pro_fin_exer} Let $\sX$ be a locally compact Hausdorff space, and let $p: \widetilde{\sX}\to \sX$ be a finite-fold transitive covering.
 	Prove following statements:
 	\begin{itemize}
 		\item Using a notation \eqref{top_c_sec_eqn} and the Definition \ref{op_fields_defn} proof that there are natural *-isomorphisms
-		$C_F\left(\sX\right) \cong  C\left(\sX, \left\{\C_x\right\}, C_0\left(\sX \right)  \right)$ and\\ $C_{p^{-1}\left(F \right)_c }\left(\widetilde \sX\right) \cong  C\left(\widetilde\sX, \left\{\C_{\widetilde x}\right\}, C_0\left( \widetilde\sX \right)  \right)$.
+		$Cont\left(\sX\right) \cong  C\left(\sX, \left\{\C_x\right\}, C_0\left(\sX \right)  \right)$ and\\ $Cont\left(\widetilde \sX\right) \cong  C\left(\widetilde\sX, \left\{\C_{\widetilde x}\right\}, C_0\left( \widetilde\sX \right)  \right)$.
 		\item Using a notation \eqref{top_cont_lift_eqn} prove that there is a natural *-isomorphisms \\$ C\left(\widetilde\sX, \left\{\C_{\widetilde x}\right\}, C_0\left( \widetilde\sX \right)  \right)\cong \lift_p\left[C\left(\sX, \left\{\C_x\right\}, C_0\left(\sX \right)  \right)\right]$.
 		\item The given by the Definition \eqref{top_lift_defn} map
 		$$
@@ -9153,36 +9153,36 @@ Indeed $p^{-1}\left(F \right)_c$ is a family of all compact sets, we denote it b
 		$$
 		yields a natural injective  *-homomorphism
 		\be\label{top_pro_hom_eqn}
-		C_F\left( p\right)\bydef \lift_p : C_F\left(\sX\right)\hookto C_{p^{-1}\left(F\right)_c}\left(\widetilde\sX\right)\bydef C_{\widetilde F}\left(\widetilde\sX\right)
+		Cont\left( p\right)\bydef \lift_p : Cont\left(\sX\right)\hookto Cont\left(\widetilde\sX\right)
 		\ee
 		of pro-$C^*$-algebras.
 		\item There is a natural isomorphism of groups
 			\bean
-		\left\{ \left.g \in \Aut\left(C_{\widetilde F }\left(\widetilde\sX\right) \right)~\right|~ ga = a;~~\forall a \in C_F\left(\sX\right)\right\}\cong G\left(\left.\widetilde\sX\right| \sX \right)
+		\left\{ \left.g \in \Aut\left(Cont\left(\widetilde\sX\right) \right)~\right|~ ga = a;~~\forall a \in Cont\left(\sX\right)\right\}\cong G\left(\left.\widetilde\sX\right| \sX \right)
 		\eean
 		such that
 		$$
-		C_{\widetilde F }\left(\widetilde\sX\right)^{G\left(\left.\widetilde\sX\right| \sX \right)}\cong C_F\left(\sX\right).
+		Cont\left(\widetilde\sX\right)^{G\left(\left.\widetilde\sX\right| \sX \right)}\cong Cont\left(\sX\right).
 		$$
 			
 	\end{itemize}
 \end{exercise}
-\begin{definition}\label{top_pro_inv_defn}
-	In the above situation we say that $\widetilde F$ is the  $p$-\textit{lift} of $F$. The given by \eqref{top_pro_hom_eqn}  *-homomorphism of pro-$C^*$-algebras is the $p$-$F$-\textit{homomorphism}.
-\end{definition}
+%\begin{definition}\label{top_pro_inv_defn} 
+%	In the above situation we say that $\widetilde F$ is the  $p$-\textit{lift} of $F$. The given by \eqref{top_pro_hom_eqn}  *-homomorphism of pro-$C^*$-algebras is the $p$-$F$-\textit{homomorphism}.
+%\end{definition}
 \begin{theorem}\label{top_pro_fin_thm}
-	Let $\sX$ be a connected, locally connected, locally compact, Hausdorff space with distinguished family of all compact subsets $F$. If $p:\widetilde\sX \to \sX$ is a finite-fold, transitive covering and   $
-	C_F\left( p\right): C_F\left(\sX\right)\hookto C_{\widetilde F}\left(\widetilde\sX\right)$ is the $p$-$F$-{homomorphism} (cf. Definition \ref{top_pro_inv_defn}) then the quadruple 
+	Let $\sX$ be a connected, locally connected, locally compact, Hausdorff space. If $p:\widetilde\sX \to \sX$ is a finite-fold, transitive covering and   $
+	Cont\left(  p\right): Cont\left(\sX\right)\hookto Cont\left(\widetilde\sX\right)$ is given by the equation \eqref{top_pro_hom_eqn}  then the quadruple 
 	\be\label{top_pro_fin_eqn}
-	\left(C_F\left(\sX\right), C_{\widetilde F }\left(\widetilde\sX\right), G\left(\left.\widetilde\sX\right| \sX \right) , C_F\left( p\right) \right)
+	\left(Cont\left(\sX\right), Cont\left(\widetilde\sX\right), G\left(\left.\widetilde\sX\right| \sX \right) , Cont\left( p\right) \right)
 	\ee
 	is a {noncommutative finite-fold  covering  of pro-$C^*$ algebras} (cf. Definition \ref{pro_fin_defn}).
 \end{theorem}
 \begin{proof}
 	From the Exercise \ref{top_pro_fin_exer} it follows that 	the quadruple \eqref{top_pro_fin_eqn} is a pre-covering of $*$-algebras (cf. Definition \ref{fin_pre*_defn}).	
-Both $C_F\left(\sX\right)$ and  $C_{\widetilde F }\left(\widetilde\sX\right)$ are *-algebras of complex-valued continuous maps on $\sX$ and $\widetilde\sX$ respectively. So we have $b\left(C_F\left(\sX\right)\right)= C_b\left(\sX\right)$ and $b\left(C_{\widetilde F}\left(\widetilde \sX\right)\right)= C_b\left(\widetilde\sX\right)$. From the Corollary \ref{top_fin_cor} it follows that the quadruple
+Both $Cont\left(\sX\right)$ and  $Cont\left(\widetilde\sX\right)$ are pro-$C^*$-algebras of complex-valued continuous maps on $\sX$ and $\widetilde\sX$ respectively. So we have $b\left(Cont\left(\sX\right)\right)= C_b\left(\sX\right)$ and $b\left(Cont\left(\widetilde \sX\right)\right)= C_b\left(\widetilde\sX\right)$. From the Corollary \ref{top_fin_cor} it follows that the quadruple
 $$
-\left(C_b\left(\mathcal  X \right), C_b\left(  \widetilde{   \mathcal X }\right) ,G\left(\left. \widetilde{   \mathcal X } ~\right| {   \mathcal X }\right),   \lift_p \right)
+\left(C_b\left(\mathcal  X \right), C_b\left(  \widetilde{   \mathcal X }\right) ,G\left(\left. \widetilde{   \mathcal X } ~\right| {   \mathcal X }\right),    \left.Cont\left( p\right)\right|_{C_b\left(\mathcal  X \right)} \right)
 $$
 is a connected noncommutative  finite-fold weak  covering (cf. Definition \ref{fin_weak_defn}). Thus the quadruple \eqref{top_pro_fin_eqn} matches  to the Definition \ref{pro_fin_defn}.
 \end{proof}
@@ -11098,7 +11098,7 @@ Otherwise from the Exercise \ref{top_weak_covering_iso_exer} it follows that $\p
 
 \subsubsection{Coverings of pro-$C^*$-algebras}
 \paragraph*{}
-!!!
+
 Suppose that
 \be\nonumber
 \begin{split}
@@ -11109,55 +11109,54 @@ Suppose that
 \mathfrak{S}_{\left( \sX, x_0\right) }\in \mathfrak{FinTop}^{\text{pt}}.
 \end{split}
 \ee	
-is  a pointed topological finite covering category (cf. Definition \ref{top_sec_p_defn}). Assume that  $p_\la$ and $p^\mu_\nu$ are finite-fold transitive coverings for all $\la, \mu, \nu \in \La$ (cf. Definition \ref{top_transitive_defn}).  If $F$ 
-is  distinguished family of compact subsets  (cf. Definition \ref{comm_pro_dist_defn}) on $\sX$ and for any $\la\in \La$ 
-and for any $\la$ there is the $p$-{lift} of $F$ $\quad p_\la^{-1}\left(F\right)_c$ (cf. Definition \ref{top_pro_inv_defn}). Moreover  from the Definition  \ref{top_pro_inv_defn} it follows that  there are injective homomorphisms of pro-$C^*$-algebras 
+is  a pointed topological finite covering category (cf. Definition \ref{top_sec_p_defn}). Assume that  $p_\la$ and $p^\mu_\nu$ are finite-fold transitive coverings for all $\la, \mu, \nu \in \La$ (cf. Definition \ref{top_transitive_defn}). From the equation   \ref{top_pro_hom_eqn}  it follows that  there are injective homomorphisms of pro-$C^*$-algebras 
 \bean
-C_F\left( p_\la\right): C_F\left(\sX\right)\hookto C_{p_\la^{-1}\left(F\right)_c}\left(\sX_\la\right),\\
-C_{ p_\nu^{-1}\left(F \right)_c}\left( p^\mu_\nu\right): C_{p_\nu^{-1}\left(F \right)_c }\left(\sX_\nu\right)\hookto C_{p_\mu^{-1}\left(F \right)_c }\left(\sX_\mu\right).
+Cont\left( p_\la\right): Cont\left(\sX\right)\hookto Cont\left(\sX_\la\right),\\
+Cont\left( p^\mu_\nu\right): Cont\left(\sX_\nu\right)\hookto Cont\left(\sX_\mu\right).
 \eean
-From the Theorem \ref{top_pro_fin_thm} it follows that these *-homomorphisms are {noncommutative finite-fold  coverings  of pro-$C^*$ algebras} (cf. Definition \ref{pro_fin_defn}). So the pair 
+From the Theorem \ref{top_pro_fin_thm} it follows that these *-homomorphisms are {noncommutative finite-fold  coverings  of pro-$C^*$-algebras} (cf. Definition \ref{pro_fin_defn}). So the pair 
 \be\label{top_pro_cat_eqn}
-\mathfrak{S}_{C_F\left(\sX \right) }\bydef \left\{ \left\{C_F\left( p_\la\right)\right\}_{\la\in \La}, \left\{C_{p_\nu^{-1}\left(F \right)_c}\left( p^\mu_\nu\right)\right\}_{\mu,\nu\in\La}\right\}
+\mathfrak{S}_{Cont\left(\sX \right) }\bydef \left\{ \left\{Cont\left( p_\la\right)\right\}_{\la\in \La}, \left\{Cont\left( p^\mu_\nu\right)\right\}_{\mu,\nu\in\La}\right\}
 \ee
 is a {pointed algebraical  finite covering category of pro-$C^*$-algebras} (cf. Definition \ref{comp_pt_pro_defn}).
 
 \begin{empt}\label{top_pro_empt}
-Let us obtain the $\mathfrak{S}_{C_F\left(\sX \right) }$-specialization of the given by \ref{inv_pro_lim_empt} construction. For any $\la\in \La$ one has $b\left(C_{p_\la^{-1}\left(F\right)_c}\left(\sX_\la\right) \right) = C_b\left(\sX_\la\right)$ and $B_\la \bydef C_0\left(\sX_\la\right)$ is an essential ideal of $C_b\left(\sX_\la\right)$.  If $B \bydef C_0\left( \sX\right)$ then from the proof of the Theorem \ref{top_main_thm}
+Let us obtain the $\mathfrak{S}_{Cont\left(\sX \right) }$-specialization of the given by \ref{inv_pro_lim_empt} construction. For any $\la\in \La$ one has $b\left(Cont\left(\sX_\la\right) \right) = C_b\left(\sX_\la\right)$ and $B_\la \bydef C_0\left(\sX_\la\right)$ is an essential ideal of $C_b\left(\sX_\la\right)$.  If $B \bydef C_0\left( \sX\right)$ then from the Theorem \ref{top_main_thm}
  one has a good   { algebraical  finite covering category} (cf. Definition \ref{alg_fin_cat_defn})
 	\be\label{top_sb_pro_eqn}
 \begin{split}
-	\mathfrak{S}^{\text{pt}}_{B } \bydef \left(\left\{C_F\left( p_\la\right)|_{B }:B  \hookto B_\la  \right\}_{\la \in \La},\left\{C_{p_\nu^{-1}\left(F \right)_c}\left( p^\mu_\nu\right)|_{B_\mu }: B_\nu \hookto B_\mu \right\}_{\substack{\mu, \nu \in \La~~\nu > \mu}}\right).
+	\mathfrak{S}^{\text{pt}}_{B } \bydef \left(\left\{C_0\left( p_\la\right):B  \hookto B_\la  \right\}_{\la \in \La},\left\{C_0\left( p^\mu_\nu\right): B_\nu \hookto B_\mu \right\}_{\substack{\mu, \nu \in \La~~\nu > \mu}}\right).
 \end{split}
 \ee
-If $\overline\sX$ is the topological disconnected inverse limit  of $\mathfrak{S}_{\left(\sX, x_0 \right) }$ (cf. Definition \ref{top_topological_inv_lim_defn}) then from the Theorem \ref{top_main_thm} it follows that the triple 
+If $\widetilde \sX$ is a topological inverse limit  of $\mathfrak{S}_{\left(\sX, x_0 \right) }$ (cf. Definition \ref{top_topological_inv_lim_defn}) then from the Theorem \ref{top_main_thm} it follows that the triple 
 \bean
-\left(B , \overline{B}, \overline G\right)\bydef \left(C\left(\sX \right), C_0\left( \overline\sX\right), G\left(\left.\overline\sX\right|\sX\right)  \right) 
+\left(B , \widetilde{B}, \widetilde G\right)\bydef \left(C\left(\sX \right), C_0\left( \widetilde\sX\right), G\left(\left.\widetilde\sX\right|\sX\right)  \right) 
 \eean
-is the disconnected inverse noncommutative limit of $\mathfrak{S}^{\text{pt}}_{B}= \mathfrak{S}^{\text{pt}}_{C_0\left(\sX \right) }$. One has $M\left(\widetilde B \right)\cong C_b\left(\overline\sX \right)$, so for any $C^*$-seminorm of $p_\a : C_b\left(\overline\sX \right)\to \R$ there is a closed subset $\overline{\sV} \subset \overline\sX$ such that
+is an inverse noncommutative limit (cf. Definition \ref{main_defn}) of $\mathfrak{S}^{\text{pt}}_{B}= \mathfrak{S}^{\text{pt}}_{C_0\left(\sX \right) }$. One has $M\left(\widetilde B \right)\cong C_b\left(\widetilde\sX \right)$, so for any $C^*$-seminorm of $p_\a : C_b\left(\widetilde\sX \right)\to \R$ there is a closed subset $\widetilde{\sV}_\a \subset \widetilde\sX$ such that
 $$
-\forall \overline a \in C_b\left(\overline\sX \right) \quad p_\a\left(\overline a \right)  \bydef \sup_{\overline x \in \overline \sV}\left|\overline a\left(\overline x \right) \right|.
+\forall \widetilde a \in C_b\left(\widetilde\sX \right) \quad p_\a\left(\widetilde a \right)  \bydef \sup_{\widetilde x \in \widetilde \sV}\left|\widetilde a\left(\widetilde x \right) \right|.
 $$
 \end{empt}
 \begin{exercise}\label{top_pro_exer}
 	Prove following statements:
 	\begin{enumerate}
-		\item a $\overline G$-invariant family $\left\lbrace \overline \sV_\a\subset \overline \sX\right\rbrace_{\a \in \mathscr A}$ corresponds to an admissible family of $C^*$-seminorms  (cf. \ref{inv_pro_lim_empt}) if for all $\la\in \La$ a family   $\left\{\overline p_\la\left( \overline \sV_\a\right)\right\}_{\a\in \mathscr A}$ is of all  compact sets of $\sX_\la$,
+		\item A $\widetilde G$-invariant family $\left\lbrace \widetilde \sV_\a\subset \widetilde \sX\right\rbrace_{\a \in \mathscr A}$ corresponds to an admissible family of $C^*$-seminorms  (cf. \ref{inv_pro_lim_empt}) if for all $\la\in \La$ a family   $\left\{\widetilde p_\la\left( \widetilde \sV_\a\right)\right\}_{\a\in \mathscr A}$ contains all  compact sets of $\sX_\la$;
 
-	\item any element of completion of $C_b\left( \widetilde \sX\right)$ is a *-subalgebra of *-algebra of continuous maps  $\widetilde \sX\to \C$.
-	\item A $\overline G$-invariant family of all compact subsets of $\overline \sX$ is minimal (cf. \ref{inv_pro_lim_empt})
+	\item Any admissible pro-$C^*$-algebra  
+	is a *-subalgebra of pro-$C^*$-algebra  $Cont\left( \widetilde \sX\right)$ (cf. \ref{inv_pro_lim_empt});
+	\item If a set  $\left\{\widetilde p_\a\right\}$ of $\widetilde G$-invariant  $C^*$-seminorms corresponds to a  family $\left\{\widetilde \sV_\a\right\}$ of all compact subsets of $\widetilde \sX$, then $\left\{\widetilde p_\a\right\}$ is admissible and a completion of $C_0\left(\widetilde \sX \right)$ with respect to the family of $C^*$-seminorms $\left\{\widetilde p_\a\right\}$ equals to  $Cont\left( \widetilde \sX\right)$.
 	\end{enumerate}
 \end{exercise}
 
 \begin{theorem}\label{top_pro_thm}
-	Consider the situation \ref{top_pro_empt}.	If $\widetilde{A}$ is a completion of $C_0\left(\widetilde \sX\right)$ with respect to a family of seminorms $\left\{\left. \overline p_{\overline K}\right|_{C_0\left(\widetilde \sX\right)} \right\}_{\overline K \in \mathfrak N}$ then the triple 
+If we consider the situation \ref{top_pro_empt} then the triple 
 	$$
-	\left(C_F\left(\sX \right), \widetilde{A},G\left(\left.\widetilde \sX\right| \sX \right) \right)  
+	\left(Cont\left(\sX \right), Cont\left( \widetilde{\sX}\right) ,G\left(\left.\widetilde \sX\right| \sX \right) \right)  
 	$$
-	is the inverse noncommutative limit of the given by \eqref{top_pro_cat_eqn} {pointed algebraical  finite covering category $\mathfrak{S}_{C_F\left(\sX \right) }$ of pro-$C^*$-algebras} . (cf. Definition \ref{inv_pro_lim_defn})
+	is an inverse noncommutative limit of the given by \eqref{top_pro_cat_eqn} {pointed algebraical  finite covering category $\mathfrak{S}_{Cont\left(\sX \right) }$ of pro-$C^*$-algebras} . (cf. Definition \ref{inv_pro_lim_defn})
 \end{theorem}
 \begin{proof}
-Follows from the Exercise \ref{top_pro_exer}
+Follows from the Exercise \ref{top_pro_exer}.
 \end{proof}
 
 \subsubsection{Coverings of bounded operator $*$-algebras}
@@ -13366,7 +13365,7 @@ $$
 	\ee
 \end{empt}
 \begin{lemma}\label{blowing_rep_lem}
-Consider the situation of  \ref{blowing_rep_empt}. Let $\overline \sY$ be a disconnected topological inverse limit (cf. Definition \ref{top_topological_inv_lim_defn}) of the category \ref{blowing_top_eqn}, $\overline q : \overline \sY \to \sY$ is a natural covering, and $A_0\left( \overline \sY\right)$ is a $\overline q$-lift of $A$ (cf. Definition \ref{blowing_lift_a_f_defn}) then for all $\widehat x \in \widehat \sX$ there is a natural irreducible representation 
+Consider the situation of  \ref{blowing_rep_empt}. Let $\widetilde \sY$ be a disconnected topological inverse limit (cf. Definition \ref{top_topological_inv_lim_defn}) of the category \ref{blowing_top_eqn}, $\overline q : \overline \sY \to \sY$ is a natural covering, and $A_0\left( \overline \sY\right)$ is a $\overline q$-lift of $A$ (cf. Definition \ref{blowing_lift_a_f_defn}) then for all $\widehat x \in \widehat \sX$ there is a natural irreducible representation 
 \bean
 \rho_{\widehat x} : A_0\left( \overline \sY\right) \to B\left( \H_{ \widehat x}\right) 
 \eean
@@ -24878,7 +24877,7 @@ $\psi : C^*(G,R) \to B$ such that $\sigma=\psi \circ \rho$.	\end{definition}
 		write $C_K\left(\sX \right)$  for the topological *-algebra of all continuous functions from $\sX$ to $\C$, 
 		with the topology of uniform convergence on the members of $F$. If $F$ is omitted, 
 		it is understood to be the set of all compact subsets of $F$. Of course, in general 
-		$C_F\left( \sX\right)$  can fail to be a pro-$C^*$-algebra by not being complete. We need one more definition. 
+		$Cont\left( \sX\right)$  can fail to be a pro-$C^*$-algebra by not being complete. We need one more definition. 
 	\end{empt}
 
 	\begin{definition}\label{comm_pro_ch_defn}\cite{phillips:inv_lim_app}
@@ -24891,7 +24890,7 @@ $\psi : C^*(G,R) \to B$ such that $\sigma=\psi \circ \rho$.	\end{definition}
 	
 	\begin{theorem}\label{comm_pro_thm}\cite{phillips:inv_lim_app}
 		%1.4.3. THEOREM ([53]).
-		The assignment $\left(\sX, F \right)\mapsto C_F\left( \sX, F\right)$   is a 
+		The assignment $\left(\sX, F \right)\mapsto Cont\left( \sX, F\right)$   is a 
 		contravariant category equivalence from the category of completely Hausdorff spaces 
 		with distinguished families of compact subsets to the category of commutative unital 
 		pro-$C^*$-algebras and unital homomorphisms. 
@@ -24901,14 +24900,14 @@ $\psi : C^*(G,R) \to B$ such that $\sigma=\psi \circ \rho$.	\end{definition}
 		%Corollary 2.9 p 13
 		Let $\sX$ be a completely Hausdorff quasitopological space. Then
 		$$
-		C_F\left(\sX \right) \cong \varprojlim_{K \in F} C\left( K\right). 
+		Cont\left(\sX \right) \cong \varprojlim_{K \in F} C\left( K\right). 
 		$$
 	\end{lemma} 
 
 
 
 	\begin{remark}\label{comm_pro_rem}
- Consider  the situation of the Lemma \ref{comm_pro_lem}. If $\sX$  is a topological Hausdorff space then $	C_F\left(\sX \right)$ is a completion of $	C_0\left(\sX \right)$ with respect to a family $\left\{p_K\right\}_{K \in F}$ of seminorms given by
+ Consider  the situation of the Lemma \ref{comm_pro_lem}. If $\sX$  is a topological Hausdorff space then $	Cont\left(\sX \right)$ is a completion of $	C_0\left(\sX \right)$ with respect to a family $\left\{p_K\right\}_{K \in F}$ of seminorms given by
  \be\label{comm_pro_eqn}
 p_K\left(a\right)\bydef\max_{ x \in  K}\left| a\left( x \right)  \right|. 
  \ee
