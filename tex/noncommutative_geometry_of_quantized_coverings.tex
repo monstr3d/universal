@@ -1397,7 +1397,7 @@ If $A$ is a $C^*$-algebra then one has
 \ee
 \end{empt}
 \begin{empt}\label{top_u_net_empt}
-	Let $\sX$ be a locally compact, Hausdorff space. Denote by $\Xi\left( \sX\right)\bydef \left\{u_\la\right\}_{\la \in \Xi\left( \sX\right)}\subset C_0\left( \sX\right)_+$ a net of all positive continuous maps such that 
+	Let $\sX$ be a locally compact, Hausdorff space.\\ Denote by $\Xi\left( \sX\right)\bydef \left\{u_\la\right\}_{\la \in \Xi\left( \sX\right)}\subset C_0\left( \sX\right)_+$ a net of all positive continuous maps such that 
 	\bean
 \forall	\la \in \Xi\left( \sX\right)\quad u_\la\left(\sX\right)\subset \left[0,1\right],\\
 \forall	\mu, \nu \in \Xi\left( \sX\right)\quad	\mu \le \nu \quad \Leftrightarrow\quad u_\mu \le u_\nu.
@@ -1419,12 +1419,23 @@ x \mapsto	\begin{cases}
 	is said to be a \textit{characteristic function} of $\sU$.
 \end{definition}
 \begin{empt}\label{top_u_net_rep_empt}
-	Let $\sX$ be a locally compact, Hausdorff space, and let $C_0\left(\sX\right)\to B\left(\H \right)$ be a faithful representation. Let   $\left\{u_\la\right\}_{\la \in \Xi\left( \sX\right)}\subset C_0\left( \sX\right)_+$ be an explained in \ref{top_u_net_empt}  net. From the Lemma  \ref{increasing_convergent_w_lem} it turns out that the family $\left\{\rho\left( u_\la\right) \right\}_{\la \in \Xi\left( \sX\right)}$ is convergent with respect to a strong topology of $B\left( \sH\right)$ (cf. Definition \ref{strong_topology_defn}). Moreover the strong limit $s$-$\lim\rho\left(  u_\la \right) \in B\left( \H\right)$ equals to $\rho\left(\chi_\sU \right)$ where $\chi_\sU$ is a characteristic function of $\sU$ (cf. Definition \ref{top_char_f_defn}). 
+	Let $\sX$ be a locally compact, Hausdorff space, and let $\rho: C_0\left(\sX\right)\to B\left(\H \right)$ be a faithful representation, and let $\rho\left(C_0\left(\sX\right)\right)''\subset  B\left(\H \right)$ be a bicommutant (cf. Definition \ref{commutant_defn}). If $C_0\left(\sX\right)''$ is isomorphic to $\rho\left(C_0\left(\sX\right)\right)''$ then there is an inclusion $C_0\left(\sX\right)\subset C_0\left(\sX\right)''$ such that the representation $\rho$ can be extended up to $\rho'': C_0\left(\sX\right)''\hookto B\left(\sH\right)$. If $\chi_\sU$ is a characteristic function of $\sU$ (cf. Definition \ref{top_char_f_defn}) then one can suppose that $\chi_\sU\in C_0\left(\sX\right)''$.
+	Let   $\left\{u_\la\right\}_{\la \in \Xi\left( \sX\right)}\subset C_0\left( \sX\right)_+$ be an explained in \ref{top_u_net_empt}  net. From the Lemma  \ref{increasing_convergent_w_lem} it turns out that the family $\left\{\rho\left( u_\la\right) \right\}_{\la \in \Xi\left( \sX\right)}$ is convergent with respect to a strong topology of $B\left( \sH\right)$ (cf. Definition \ref{strong_topology_defn}). Moreover the strong limit $s$-$\lim\rho\left(  u_\la \right) \in B\left( \H\right)$ equals to $\rho''\left(\chi_\sU \right)$. 
 \end{empt}
 
 
 \begin{empt}\label{hered_repr_p_empt}
-Let $\rho: A\to B\left(\H \right)$ be a faithful nondegenerate representation, and let $B$ be a hereditary subalgebra $A$. Let  $\left\{u_\la \right\}_{\la \in \La} \subset  B\left(\H \right)_+$ be an increasing  net of positive elements, such that
+If $\rho: A\hookto B\left(\H \right)$ be a faithful nondegenerate representation then there is a $C^*$-algebra $A''$ such that
+\begin{itemize}
+	\item $A''$ is isomorphic to the bicommutant $\rho\left( A\right)''$ (cf. Definition \ref{commutant_defn}) of $A$,
+	\item there is the natural inclusion $A \subset A''$,
+	\item one has a natural extension 
+	\be\label{rho_ext_eqn}
+	\rho'': A'' \hookto B\left(\H\right)
+	\ee
+ of the representation $\rho$.
+\end{itemize}
+Let $B$ be a hereditary subalgebra $A$, and let  $\left\{u_\la \right\}_{\la \in \La} \subset  B\left(\H \right)_+$ be an increasing  net of positive elements, such that
 \begin{itemize}
 	\item $\left\{u_\la \right\}\subset M\left(A \right) \cap M\left( B\right)$.
 	\item 
@@ -1437,9 +1448,13 @@ One has
   \be\label{hered_uau_eqn}
 B = \left\{ a \in A \left|~\lim_{\la\in\La} \left\| a - u_\la a u_\la\right\|= 0 \right.\right\}
 \ee
- From the Lemma \ref{increasing_convergent_w_lem} the net $\left\{u_\la \right\}$  is convergent  with respect to the strong topology of $B\left(\H \right)$ (cf. Definition \ref{strong_topology_defn}). If $p \bydef s-\lim\rho\left(  u_\la \right) \in B\left( \H\right)$ is a strong limit then $p$ lies in the strong closure   $\rho\left(A \right)''$ of $\rho\left( A\right)$ in $B\left(\H\right)$. From  $1_{ M\left( B\right) }= 1^*_{ M\left( B\right) }$ and $1^2_{ M\left( B\right) }=1_{ M\left( B\right) }$ it follows that $p$ is a projector, i.e. $p^*=p$ and $p^2 = p$. From \eqref{hered_uau_eqn} it turns out that 
+ From the Lemma \ref{increasing_convergent_w_lem} the net $\left\{u_\la \right\}$  is convergent  with respect to the strong topology of $B\left(\H \right)$ (cf. Definition \ref{strong_topology_defn}). If $p \bydef s-\lim\rho\left(  u_\la \right) \in B\left( \H\right)$ is a strong limit then $p$ lies in the strong closure of $\rho(A)$ (cf. Definition \ref{strong_topology_defn}). Form the Theorem \ref{von_Neumann_thm} it follows that $p\in \rho\left(A \right)''= \rho''\left(A'' \right)$, i.e.
+ \be\label{hered_repr_abc_eqn}
+\exists  p'' \in A''\quad p = \rho''\left(p'' \right).
+ \ee
+ From  $1_{ M\left( B\right) }= 1^*_{ M\left( B\right) }$ and $1^2_{ M\left( B\right) }=1_{ M\left( B\right) }$ it follows that $p$ is a projector, i.e. $p^*=p$ and $p^2 = p$. From \eqref{hered_uau_eqn} it turns out that 
   \be\label{hered_pap_eqn}
-  B = \left\{ a \in A | p\rho\left( a\right) p = \rho \left( a\right)\right\}
+  B = \left\{ a \in A | p\rho\left( a\right) p = \rho \left( a\right)\right\}=  \left\{ a \in A | p'' a p'' = a\right\}
   \ee
  and  there is a natural representation
   \be\label{hered_rep_eqn}
@@ -9007,9 +9022,9 @@ If $ \widetilde \sU\bydef p^{-1}\left(  \sU \right)$ then $G\widetilde \sU= \wid
 	\bean
 	C_0\left(\sU\right) = \left\{ a \in C_0\left(\sX\right) \left|~\lim_{\la\in\La} \left\| a - u_\la a u_\la\right\|= 0 \right.\right\}\\
 	\eean
-	(cf. equation \eqref{hered_uau_eqn}).  Taking into account \ref{top_u_net_rep_empt} and the equation \eqref{hered_pap_eqn} one has
+	(cf. equation \eqref{hered_uau_eqn}).  Taking into account \ref{top_u_net_rep_empt} and the equation \eqref{hered_pap_eqn}  one has
 	\bean
-		C_0\left( \sU\right)  = \left\{ \left.a \in C_0\left( \sX\right)  \right| \rho\left(\chi_\sU\right)\rho\left( a\right)\rho\left(\chi_\sU\right) = \rho \left( a\right)\right\}
+		C_0\left( \sU\right)  = \left\{ \left.a \in C_0\left( \sX\right)  \right| \rho\left(\chi_\sU\right)''\rho\left( a\right)\rho''\left(\chi_\sU\right) = \rho \left( a\right)\right\}
 	\eean
 	where $\chi_\sU$ is a characteristic function of $\sU$ (cf. Definition \ref{top_char_f_defn}). If $\widetilde B$ is a hereditary $\left(C_0\left(\mathcal  X \right), C_0\left(  \widetilde{   \mathcal X }\right) ,G\left(\left. \widetilde{   \mathcal X } ~\right| {   \mathcal X }\right),   C_0\left(p \right)\right)$-lift of $C_0\left( \sU \right)$ 
 	(cf. Definition \ref{hereditary_lift_defn}) then from the equations \eqref{hered_lift_eqn} and \eqref{hered_lift_pap_eqn} it turns out that
@@ -10428,7 +10443,6 @@ $$
 
 
 
-!!! CONTINUE !!!
 \begin{lemma}\label{comm_main_lem}
 	Suppose that $\mathcal X$ is a  locally compact, connected, locally connected, Hausdorff space.	
 	Let $\overline f \in D^*\left(\overline\sX \right)_+$ be a positive bounded discontinuous function such that following conditions hold:
@@ -11783,7 +11797,7 @@ and  is a locally trivial bundle with a {sesquilinear form}  $\varphi: E \times_
 \rho: C_0\left(\sX \right) \hookto L^2\left(\sX, E,  \mu\right).
 \ee
 
-Let $p: \widetilde \sX \to \sX$ be an infinite transitive covering, such that the group $G\left(\left.\widetilde \sX   ~\right| \sX\right)$ is residually finite. From the Lemma \ref{top_associded_lem} !!! \ref{top_associated_defn} CHECK DEFN !! and the  Theorem \ref{top_main_thm} it turns out that the triple  $\left(C_0\left( \sX\right) , C_0\left( \widetilde \sX\right) G\left(\left.\widetilde \sX   ~\right| \sX\right)\right)$ is an infinite noncommutative covering (cf. Definition \ref{main_defn}). Let both $\widetilde\tau \bydef \lift_p\left(\tau \right)$ and $\widetilde \mu$ be the $p$-lift of $\tau$ and $\mu$ respectively (cf. Definition \ref{top_mea_lift_defn}) 
+Let $p: \widetilde \sX \to \sX$ be an infinite transitive covering, such that the group $G\left(\left.\widetilde \sX   ~\right| \sX\right)$ is residually finite. From the Lemma \ref{top_associded_lem}  and the  Theorem \ref{top_main_thm} it turns out that the triple  $\left(C_0\left( \sX\right) , C_0\left( \widetilde \sX\right) G\left(\left.\widetilde \sX   ~\right| \sX\right)\right)$ is an infinite noncommutative covering (cf. Definition \ref{main_defn}). Let both $\widetilde\tau \bydef \lift_p\left(\tau \right)$ and $\widetilde \mu$ be the $p$-lift of $\tau$ and $\mu$ respectively (cf. Definition \ref{top_mea_lift_defn}) 
 Define the $\C$-valued product
 \be
 \begin{split}
@@ -12122,11 +12136,11 @@ A following theorem is a result of the above constructions.
  
 \chapter{Hausdorff blowing-up and coverings}\label{blowing_chap}
 \paragraph*{}
-If the spectrum of  $C^*$-algebra $A$ is Hausdorff then $A$ possesses  a family of good properties. For example noncommutative coverings of $C^*$-algebras with Hausdorff spectra correspond to coverings of their spectra (cf. Chapters \ref{top_chap} and \ref{ctr_chap}). Sometimes the spectrum of $C^*$-algebra can by replaced by its Hausdorff blowing-up and some results concerning $C^*$-algebras with  Hausdorff spectrum can be applied to $C^*$-algebras with Hausdorff blowing-up. We prove that some noncommutative coverings of $C^*$-algebras correspond to coverings of Hausdorff blowing-up. The results of this chapter are used in both $C^*$-algebras with continuous trace (Hausdorff spectrum) and algebras of foliations   (non - Hausdorff spectrum). 
+If the spectrum of  $C^*$-algebra $A$ is Hausdorff then $A$ possesses  a family of good properties. For example noncommutative coverings of $C^*$-algebras with Hausdorff spectra correspond to coverings of their spectra (cf. Chapters \ref{top_chap} and \ref{ctr_chap}). Sometimes the spectrum of $C^*$-algebra can by replaced by its Hausdorff blowing-up and some results concerning $C^*$-algebras with  Hausdorff spectrum can be applied to $C^*$-algebras with Hausdorff blowing-up. We prove that some noncommutative coverings of $C^*$-algebras correspond to coverings of Hausdorff blowing-up. The results of this chapter are used in both $C^*$-algebras with Hausdorff spectrum and algebras of foliations having  non - Hausdorff spectrum. 
 The "blowing-up" word is inspired by following reasons:
 \begin{itemize}
-	\item There is  the natural partially defined multi-valued surjective  map from the Hausdorff blowing-up to the spectrum (cf. Chapter \ref{foliations_chap}).
-	\item  In the algebraic geometry   "blowing-up" means  excluding of singular points  (cf. \cite{hartshorne:ag}).
+	\item sometimes there is  the natural partially defined  surjective  map from the Hausdorff blowing-up to the spectrum (cf. Remark \ref{foli_blowing_rem}),
+	\item  in the algebraic geometry   "blowing-up" means  excluding of singular points  (cf. \cite{hartshorne:ag}).
 \end{itemize}
 
 \section{Basic definitions}
@@ -12134,7 +12148,7 @@ The "blowing-up" word is inspired by following reasons:
 \paragraph*{}
  Before the  definition of blowing-up we consider an illustrative example.
 For all $\th\in \R_+$ there  is the natural action of group  $G\bydef \Z\th/ \Z$ on the circle
-$\sX\bydef S^1\cong \R/\Z$. If $\th$ is rational then the space $\sX/G$ is Hausdorff otherwise it is not Hausdorff. How can we obtain $\sX/G$ algebraically? The Table \ref{hnh_alg_table} shows different methods of obtaining of the spectra.
+$\sX\bydef S^1\cong \R/\Z$. If $\th$ is rational then the space $\sX/G$ is Hausdorff, otherwise it is not Hausdorff. How can we obtain $\sX/G$ algebraically? The Table \ref{hnh_alg_table} shows different methods of obtaining of the spectra.
 \newline
 \begin {table}[H]
 \caption {Comparison of an invariant algebra and a crossed product} \label{hnh_alg_table}
@@ -12163,14 +12177,14 @@ Thus the $C\left( \sX\right)^G$ invariant $C^*$-algebra does not always yield $\
 Moreover since $C\left( \sX/G\right)$ can be trivial it does not know the map $\sX \to \sX/G$  but $C\left( \sX\right)\rtimes G$ knows it, because there  is an inclusion
 $C\left(\sX \right) \subset C\left( \sX\right)\rtimes G$. If $\sX/G$ is Hausdorff then sometimes a covering of $\sX/G$ can by find by following way:
 \begin{enumerate}
-\item Find a covering $\widetilde\sX \to\sX$ with an action $G\times \widetilde\sX \to \widetilde\sX$,
-\item Then there is the covering $\widetilde\sX / G \to \sX/G$.
+\item find a covering $\widetilde\sX \to\sX$ with an action $G\times \widetilde\sX \to \widetilde\sX$,
+\item then obtain  the covering $\widetilde\sX / G \to \sX/G$.
 \end{enumerate}
 However if $\sX/G$ is not Hausdorff this construction does not work. 
-However there is an algebraic version of it such that:
+However there is an algebraic version of it containing two steps:
 \begin{enumerate}
-\item Find a covering $\widetilde\sX \to\sX$ with an action $G\times \widetilde\sX \to \widetilde\sX$, and invective *-homomorphism $C\left( \sX\right)\hookto  C\left( \widetilde\sX\right)$,
-\item Then there is a noncommutative covering  $C\left( \sX\right)\rtimes G\hookto C\left( \widetilde\sX\right)\rtimes G $.
+\item find a covering $\widetilde\sX \to\sX$ with an action $G\times \widetilde\sX \to \widetilde\sX$, and invective *-homomorphism $C\left( \sX\right)\hookto  C\left( \widetilde\sX\right)$,
+\item then obtain a noncommutative covering  $C\left( \sX\right)\rtimes G\hookto C\left( \widetilde\sX\right)\rtimes G $.
 \end{enumerate}
 The algebraic construction can be applied if $\sX/G$ is not Hausdorff.  The map $\sX \to \sX/G$ is yields a specialization of discussed below Hausdorff blowing up. 
 
@@ -12183,19 +12197,24 @@ The algebraic construction can be applied if $\sX/G$ is not Hausdorff.  The map 
 Any  commutative $C^*$-subalgebra $C\cong C_0\left( \sY\right) \subset M\left(A \right)$ is said to be   \textit{Hausdorff blowing-up} of $A$ if both $CA\subset A$ and $AC\subset A$ are dense subspaces of $A$. 
 \end{definition}
 \begin{example}\label{blowing_hausdorff_exm}	If $A$ is a  given by \eqref{cross_mult_eqn} $C^*$-algebra with Hausdorff spectrum $\sX$  then from the Theorems \ref{oa_haus_prim_thm} and  \ref{dauns_hofmann_thm} one has the natural inclusion $C_0\left(\sX \right) \hookto M\left( A\right)$, which is Hausdorff blowing-up.
-\end{example}
-
-
+\end{example}.
 \begin{empt}\label{blowing_au_ua_empt}
-Let  $\varphi: C_0\left( \sY\right)\hookto M\left( A\right) $ be  Hausdorff blowing-up of $A$. If $\sU \subset \sY$ is an open subset then there are following right and left ideals $_\sU A$  and $A_\sU$ generated by sets
-$C_0\left( \sU\right) A$ and $AC_0\left( \sU\right)$ respectively where the natural $C_0\left(\sU \right)  \subset C_0\left(\sY \right)$ is implied.
+Let  $\varphi: C_0\left( \sY\right)\hookto M\left( A\right) $ be  Hausdorff blowing-up of $A$. If $\sU \subset \sY$ is an open subset then there are following right and left closed ideals $_\sU A$  and $A_\sU$ generated by sets
+$C_0\left( \sU\right) A$ and $AC_0\left( \sU\right)$ respectively where the natural $C_0\left(\sU \right)  \subset C_0\left(\sY \right)$ is implied. 	If $\rho: A \to B\left( \H\right)$ is a faithful, nondegenerate representation (cf. Definitions \ref{faithful_repr_defn} and \ref{nondegenerate_repr_defn}) then the Definition \ref{multiplier_el_defn} yields a natural representation
+\be\label{blowing_y_rep_eqn} 
+\pi_\sY : C_0\left( \sY\right) \to B\left( \H\right).
+\ee
+The representation \ref{blowing_y_rep_eqn}  can be extended up to a representation
+\be\label{blowing_y_ess_rep_eqn}
+\pi''_\sY : C_0\left( \sY\right)'' \to B\left( \H\right)
+\ee
+where $C_0\left( \sY\right)''$ is isomorphic to a bicommutant (cf. Definition \ref{commutant_defn}) of $C_0\left( \sY\right)''$.
 \end{empt}
 \begin{exercise}
-	Let $\rho: A \to B\left( \H\right)$ be a faithful, nondegenerate representation (cf. Definitions \ref{faithful_repr_defn} and \ref{nondegenerate_repr_defn}), and let 
-	\be\label{blowing_y_rep_eqn}
-	\rho_\sY : C_0\left( \sY\right) \to B\left( \H\right)
-	\ee
-	 be a natural representation (cf. Definition \ref{multiplier_el_defn}).	Prove that 
+	Prove that 
+\be	\label{blowing_sue2_eqn}	_\sU A = A^*_\sU
+\ee
+	
  $A_\sU = ~_\sU A^*$, so one has
 \be\label{blowing_sue3_eqn}
 \begin{split}
@@ -12217,8 +12236,7 @@ We leave to the reader a proof of following equations:
 
 
 \bea\label{blowing_sue1_eqn}
-	\sU'\cap \sU'' =\emptyset\quad \Rightarrow\quad A_{\sU'}~_{\sU''}A= \{0\},\\
-\label{blowing_sue2_eqn}	_\sU A = A^*_\sU
+	\sU'\cap \sU'' =\emptyset\quad \Rightarrow\quad A_{\sU'}~_{\sU''}A= \{0\}.
 \eea
 
 From \eqref{blowing_su_eqn} it follows that
@@ -12239,13 +12257,13 @@ From \eqref{blowing_su_eqn} it follows that
 	with respect to the strict topology of $M\left( _\sU A_\sU\right)$ (cf. Definition \ref{strict_topology_defn}).
 \end{empt}
 \begin{exercise}
-In the situation of  \ref{blowing_strict_empt} prove that following conditions hold:
+Consider the situation of  \ref{blowing_strict_empt} and suppose than both representations $\pi_\sY : C_0\left( \sY\right)\to B\left(\H\right)$ and $\pi''_\sY : C_0\left( \sY\right)''\to B\left(\H\right)$ are given by equations  \eqref{blowing_y_rep_eqn} and  \eqref{blowing_y_ess_rep_eqn} respectively.  Prove that following conditions hold:
 \begin{enumerate}
-	\item there is a strong limit in $B\left(\H \right)$ $s$-$\lim_{\la \in \Xi\left( \sU\right)} \pi_\sY\left( u_\la\right)  = \pi_\sY\left(\chi_\sU \right)$ (cf. Definition \ref{strong_topology_defn}),	
+	\item there is a strong limit  $s$-$\lim_{\la \in \Xi\left( \sU\right)} \pi_\sY\left( u_\la\right)  = \pi''_\sY\left(\chi_\sU \right)$ (cf. Definition \ref{strong_topology_defn}) in $B\left(\H \right)$	
 	where $\chi_\sU: \sU \to \left[0,1\right]$ is a characteristic function  of $\sU$ (cf. Definition \ref{top_char_f_defn}),
-	\item one has
+		\item one has
 	\be\label{blowing_hered_pap_eqn}
-	_\sU A_\sU = \left\{a \in A |\pi_\sY\left(\chi_\sU \right) \rho\left(a \right)\pi_\sY\left(\chi_\sU \right) = \rho\left(a \right)  \right\}
+	_\sU A_\sU = \left\{a \in A |\pi''_\sY\left(\chi_\sU \right) \rho\left(a \right)\pi''_\sY\left(\chi_\sU \right) = \rho\left(a \right)  \right\}
 	\ee
 	(cf. equation \eqref{hered_pap_eqn}) and there is a faithful nondegenerate representation 
 	\be\label{blowing_hered_rep_eqn}
@@ -12254,6 +12272,7 @@ In the situation of  \ref{blowing_strict_empt} prove that following conditions h
 	(cf. equation \eqref{hered_rep_eqn} and the Lemmas   \ref{hered_full_lem}, \ref{hered_nondegenerate_lem}).
 \end{enumerate}
 \end{exercise}
+!!! CONTINUE !!!
 \begin{lemma}\label{blowing_uau_conn_lem}
 	If $A$ is a connected $C^*$-algebra (cf. Definition \ref{connected_c_a_defn}), $C_0\left(\sY\right)\hookto M\left( A\right)$ is Hausdorff blowing-up and $\sU \subset \sY$ is a connected open set then $_\sU A_\sU$ is a connected $C^*$-algebra (cf. Definition \ref{connected_c_a_defn}. Moreover if $\sU$ is not connected then a $C^*$-algebra $_\sU A_\sU$ is not connected.
 \end{lemma}
@@ -16966,6 +16985,9 @@ The atomic representation $\pi_a$ of  $C^*_r\left(M, \sF\right)$ (cf. Definition
 \be\label{foli_atomic_eqn}
 \pi_a = \bigoplus_{L \in M/\sF_{\mathrm{no~hol}}} \rho_L: C^*_r\left(M, \sF\right) \hookto B\left( \bigoplus_{L \in M/\sF_{\mathrm{no~hol}}}  L^2\left(\G_{x_L}\right)\right).
 \ee
+\begin{remark}\label{foli_spectrum_rem}
+From the above text it follows that there is a partially defined map from $M$ to the spectrum of $C^*_r\left(M, \sF\right)$. 
+\end{remark}
 
 \subsection{Hausdorff blowing-up of a foliation algebra}\label{foli_blowing_sec}
 \paragraph*{} 
@@ -17030,6 +17052,9 @@ C_b\left( M\right)\subset M\left(C^*_r \left(M, \mathcal{F}\right) \right).
 \begin{definition}\label{foli_haus_defn}
 An inclusion $C_0\left( M\right)\subset M\left(C^*_r \left(M, \mathcal{F}\right) \right)$ which comes from the equation \eqref{foli_center_eqn} is said to be \textit{natural Hausdorff blowing-up of a foliated space} $\left(M, \mathcal{F}\right)$.
 \end{definition}
+\begin{remark}\label{foli_blowing_rem}
+	One has a partially defined surjective map from $M$ to the spectrum of $C^*_r \left(M, \mathcal{F}\right)$ (cf. Remark \ref{foli_spectrum_rem}). On the other hand the space $M$ is a space  related to Hausdorff blowing-up (cf. Definition \ref{foli_haus_defn}). This fact is a motivation of the usage of "Hausdorff blowing-up" term.
+\end{remark}
 \begin{lemma}\label{foli_prop_lem}
 	Let $C^*_r\left(M,\sF\right)$ be a reduced $C^*$-algebra of the foliated space $\left(M,\sF\right)$ (cf. Definition \ref{foli_red_defn}). Let $C_0\left( M\right)\subset M\left(C^*_r \left(M, \mathcal{F}\right) \right)$  be {natural Hausdorff blowing-up of a foliated space} $\left(M, \mathcal{F}\right)$ (cf. Definition \ref{foli_haus_defn}). Let $\sU$ be an open subset of $M$ and $\phi: C^*_r\left(\sU,\sF|_\sU\right)\hookto C^*_r\left(M,\sF\right)$ is the given by the Proposition \ref{foli_res_inc_prop} injective *-homomorphism.  A given by $\phi\left(C^*_r\left(\sU,\sF|_\sU\right) \right)$ $C^*-$subalgebra of $C^*_r\left(M,\sF\right)$  is $\sU$-proper (cf. Definition \ref{blowing_proper_defn}), i.e.
 	$$
@@ -22634,8 +22659,20 @@ subset $S$ of $A$ is the smallest hereditary $C^*$-subalgebra of $A$ containing 
 	\end{defn}
 	\begin{defn}\label{weak_topology_defn}\cite{pedersen:ca_aut} Let $\H$ be a Hilbert space. The {\it weak} topology on $B\left(\H\right)$ is the locally convex vector space topology associated with the family of seminorms of the form $x \mapsto \left|\left(x\xi, \eta\right)\right|$, $x \in B(\H)$, $\xi, \eta \in \H$.
 	\end{defn}
+\begin{defn}\label{commutant_defn}
+%2.2.1. 
+For each subset $M$ of $B(\H)$ let $M'$ denote the \textit{commutant} of $M$, i.e. 
+\bean
+M'\bydef \left\{b \in B\left(\sH\right)|\forall a \in M \quad ab = ba \right\}
+\eean
+The $C^*$-algebra 
+\bean
+M''\bydef (M')'
+\eean
+is said to be a \textit{bicommutant} of $M$.
+\end{defn}
 	
-	\begin{thm}\label{vN_thm}\cite{pedersen:ca_aut}
+	\begin{thm}\label{von_Neumann_thm}\cite{pedersen:ca_aut}
 		Let $M$ be a $C^*$-subalgebra of $B(\H)$, containing the identity operator. The following conditions are equivalent:
 		\begin{itemize}
 			\item $M=M''$ where $M''$ is the bicommutant of $M$;
@@ -22646,7 +22683,7 @@ subset $S$ of $A$ is the smallest hereditary $C^*$-subalgebra of $A$ containing 
 	
 	
 	\begin{defn}\cite{pedersen:ca_aut}
-		Any $C^*$-algebra $M$ is said to be a {\it von Neumann algebra} or a {\it $W^*$- algebra} if $M$ satisfies to the conditions of the Theorem \ref{vN_thm}.
+		Any $C^*$-algebra $M$ is said to be a {\it von Neumann algebra} or a {\it $W^*$- algebra} if $M$ satisfies to the conditions of the Theorem \ref{von_Neumann_thm}.
 	\end{defn}
 	\begin{definition}\label{factor_defn}\cite{pedersen:ca_aut}
 		We say that a  von Neumann algebra $M$ is 	a \textit{factor} if the center of consists only of scalar multiplies of $1_M$.
