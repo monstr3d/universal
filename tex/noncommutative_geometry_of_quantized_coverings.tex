@@ -12272,6 +12272,29 @@ Consider the situation of  \ref{blowing_strict_empt} and suppose than both repre
 \end{enumerate}
 \end{exercise}
 
+
+\begin{lemma}\label{blowing_multiplier_lem}
+	Let $A$ be a $C^*$-algebra (cf. Definition \ref{connected_c_a_defn}),  and let $C_0\left(\sY\right)\hookto M\left( A\right)$  is Hausdorff blowing-up. If $\sU \subset \sY$ is an open subset and $_\sU A_\sU\subset A$ is a given by \eqref{blowing_sue3_eqn} hereditary subalgebra then there is a natural inclusion
+	$$
+	C_b\left(\sU\right)\subset M\left(_\sU A_\sU\right).
+	$$
+\end{lemma}
+\begin{proof}
+	If  $f\in C_b\left(\sY\right)$ and $\left\{u_\la \in C_0\left( \sU\right) \right\}_{\la\in\Xi\left( \sU\right)}$ where $\Xi\left( \sX\right)$ is given by \ref{top_u_net_empt} net, then from $fu_\la \in C_0\left(\sU\right)$ it turns out that $fu_\la a \in _\sU A_\sU$ for all $\la\in\La$. From
+	$\left\| fu_\la a\right\| \le \left\| f\right\|\left\|a\right\|$ it follows that a net $\left\{fu_\la a  \right\}_{\la\in\La}\subset ~_\sU A_\sU$ is $C^*$-norm convergent. So one has a pairing
+	\bean
+	C_b\left(\sU\right)\times~ _\sU A_\sU\to~ _\sU A_\sU,\\
+	(f, a)\mapsto fa \bydef \lim_{\la \in \La} fu_\la a.
+	\eean
+	Similarly to the equation \eqref{dc_eqn} there is a map
+	\bean 
+L: ~	_\sU A_\sU \to ~_\sU A_\sU,\\
+a \mapsto fa.
+	\eean 
+	We leave to the reader details of the proof of the existence of a  double centralizer $\left(L, R\right)$ (cf. Definition \ref{dc_defn}) which corresponds to $f$. The Proposition \ref{dc_prop} yields a map $C_b\left(\sU\right)\to M\left(_\sU A_\sU\right)$. On can prove that this map is an injective *-homomorphism.
+\end{proof}	
+	
+
 \begin{lemma}\label{blowing_uau_conn_lem}
 	If $A$ is a $C^*$-algebra (cf. Definition \ref{connected_c_a_defn}) and $C_0\left(\sY\right)\hookto M\left( A\right)$ is Hausdorff blowing-up then an open subset $\sU \subset \sY$ is connected if and only if a given by \eqref{blowing_sue3_eqn}  hereditary $C^*$-subalgebra $_\sU A_\sU\subset A$ is  connected $C^*$-algebra (cf. Definition \ref{connected_c_a_defn}. 
 \end{lemma}
@@ -13334,8 +13357,9 @@ which can be uniquely extended up to a linear map $\widetilde \H \to \widetilde 
 \end{itemize}
 \end{proof}
 \begin{lemma}\label{blowing_conn_fam_lem}
-		Let $A$ be a $C^*$-algebra (cf. Definition \ref{connected_c_a_defn}), end let $C_0\left( \sY\right) \hookto M\left(A \right)$ be disintegrable Hausdorff blowing-up (cf. Definitions \ref{blowing_defn} and \ref{blowing_disintegrable_defn}). Let $q: \widetilde \sY \to \sY$ be a finite-fold transitive covering (cf. Definitions \ref{top_covering_defn}, and   \ref{top_transitive_defn}), and let  $\left(A,A_0\left( \widetilde \sY\right),G\left(\left.\widetilde{\sY}~\right|\sY\right),  A_0\left( q\right) \right)$ be the given by the Lemma \ref{blowing_fin_pre_lem} a noncommutative finite-fold pre-covering (cf. Definition \ref{fin_pre_defn}). If $\sU\subset \sY$ is an open connected set with compact closure, then a given by \eqref{blowing_sue3_eqn} hereditary $C^*$-subalgebra $_\sU A_\sU \subset A$ is $\left(A,A_0\left( \widetilde \sY\right),G\left(\left.\widetilde{\sY}~\right|\sY\right),  A_0\left( q\right) \right)$-strictly proper (cf. Definition \ref{hereditary_proper_lift_defn})
+		Let $A$ be a $C^*$-algebra (cf. Definition \ref{connected_c_a_defn}), end let $C_0\left( \sY\right) \hookto M\left(A \right)$ be disintegrable Hausdorff blowing-up (cf. Definitions \ref{blowing_defn} and \ref{blowing_disintegrable_defn}). Let $q: \widetilde \sY \to \sY$ be a finite-fold transitive covering (cf. Definitions \ref{top_covering_defn}, and   \ref{top_transitive_defn}), and let  $\left(A,A_0\left( \widetilde \sY\right),G\left(\left.\widetilde{\sY}~\right|\sY\right),  A_0\left( q\right) \right)$ be the given by the Lemma \ref{blowing_fin_pre_lem} a noncommutative finite-fold pre-covering (cf. Definition \ref{fin_pre_defn}). If $\sU\subset \sY$ is an open connected set with compact closure, then a given by \eqref{blowing_sue3_eqn} hereditary $C^*$-subalgebra $_\sU A_\sU \subset A$ is $\left(A,A_0\left( \widetilde \sY\right),G\left(\left.\widetilde{\sY}~\right|\sY\right),  A_0\left( q\right) \right)$-strictly proper (cf. Definition \ref{hereditary_proper_lift_defn}).
 \end{lemma}
+!!! CONTINUE !!!
 \begin{proof}
 From the Lemma  \ref{blowing_uau_conn_lem} it follows that $_\sU A_\sU$ is a connected $C^*$-algebra. If $\rho : A \hookto B\left(\H \right)$ is a faithful nondegenerate representation then from the equation \ref{blowing_hered_pap_eqn} it follows that
 \bean
@@ -13346,12 +13370,8 @@ $$
 \widetilde{A}' =   \left\{ \left.\widetilde a \in A_0\left( \widetilde \sY\right) ~\right| \pi''_{\widetilde\sY}\left(\chi_{\widetilde\sU} \right)\widetilde \rho\left( \widetilde a\right)\pi''_{\widetilde\sY}\left(\chi_{\widetilde\sU} \right) = \widetilde\rho\left(\widetilde a\right)\right\}=~_{\widetilde{\sU}}A_0\left( \widetilde \sY\right)_{\widetilde{\sU}} 
 $$
 where $\widetilde{\sU} \bydef q^{-1}\left(\sU\right)$.
- Similarly to the Lemma \ref{blowing_uau_conn_lem}  one can proof that $_{\widetilde{\sU}}A_0\left( \widetilde \sY\right)_{\widetilde{\sU}}$ is a connected $C^*$-algebra. If $\sV$ is a closure of $\sU$ then from the inclusion $C_0\left(\sU\right)\subset M\left(_\sU A_\sU \right) $ and faithful actions
- \\
- !!! PROVE USING DC !!!
- \\
- 
-  $C\left(\sV\right)\times C_0\left(\sU\right)\to C_0\left(\sU\right)$, $~C_0\left(\sU\right)\times C\left(\sV\right)\to C_0\left(\sU\right)$ one can find an inclusion $C\left(\sV\right)\subset M\left(A\right)$. Similarly if $\widetilde \sV\bydef q^{-1}\left(\sV \right)$ then $\widetilde \sV$ is compact and  there is a natural inclusion $C\left(\widetilde\sV\right)\subset M\left(_{\widetilde{\sU}}A_0\left( \widetilde \sY\right)_{\widetilde{\sU}}\right)$. From $G\left(\left.\widetilde{\sY}~\right|\sY\right)\widetilde\sU= \widetilde\sU$ it follows that $G\left(\left.\widetilde{\sY}~\right|\sY\right)~_{\widetilde{\sU}}A_0\left( \widetilde \sY\right)_{\widetilde{\sU}}=_{\widetilde{\sU}}A_0\left( \widetilde \sY\right)_{\widetilde{\sU}}$. If both  $B$ and $\widetilde B$ are  generated by unions $_\sU A_\sU \cup C\left(\sV\right)$ and $\widetilde A' \cup C\left(\widetilde \sV\right)$ $C^*$-subalgebras of $M\left( _\sU A_\sU\right)$ and $M\left(_{\widetilde{\sU}}A_0\left( \widetilde \sY\right)_{\widetilde{\sU}}\right)$   then there are unitizations  $_\sU A_\sU\hookto B$ and $_{\widetilde{\sU}}A_0\left( \widetilde \sY\right)_{\widetilde{\sU}} \hookto \widetilde B$.
+ Similarly to the Lemma \ref{blowing_uau_conn_lem}  one can proof that $_{\widetilde{\sU}}A_0\left( \widetilde \sY\right)_{\widetilde{\sU}}$ is a connected $C^*$-algebra. If $\sV$ is a closure of $\sU$ then from the Lemma \ref{blowing_multiplier_lem} it follows that there is a natural inclusion 
+  $C\left(\sV\right)\subset M\left(A\right)$. Similarly if $\widetilde \sV\bydef q^{-1}\left(\sV \right)$ then $\widetilde \sV$ is compact and  there is a natural inclusion $C\left(\widetilde\sV\right)\subset M\left(_{\widetilde{\sU}}A_0\left( \widetilde \sY\right)_{\widetilde{\sU}}\right)$. From $G\left(\left.\widetilde{\sY}~\right|\sY\right)\widetilde\sU= \widetilde\sU$ it follows that $G\left(\left.\widetilde{\sY}~\right|\sY\right)~_{\widetilde{\sU}}A_0\left( \widetilde \sY\right)_{\widetilde{\sU}}=_{\widetilde{\sU}}A_0\left( \widetilde \sY\right)_{\widetilde{\sU}}$. If both  $B$ and $\widetilde B$ are  generated by unions $_\sU A_\sU \cup C\left(\sV\right)$ and $\widetilde A' \cup C\left(\widetilde \sV\right)$ $C^*$-subalgebras of $M\left( _\sU A_\sU\right)$ and $M\left(_{\widetilde{\sU}}A_0\left( \widetilde \sY\right)_{\widetilde{\sU}}\right)$   then there are unitizations  $_\sU A_\sU\hookto B$ and $_{\widetilde{\sU}}A_0\left( \widetilde \sY\right)_{\widetilde{\sU}} \hookto \widetilde B$.
 Both $\sV$ and $\widetilde \sV$ are compact and the restriction $q|_{\widetilde \sV}$ is a finite-fold transitive covering, so from the equation \eqref{top_aln_eqn} if follows that 
 \be\label{blowing_e_n_eqn}
 \begin{split}

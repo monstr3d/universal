@@ -143,7 +143,7 @@ Noncommutative geometry and topology
 \end{frame}
 \begin{frame}
 \begin{definition}\label{top_weakly_semi1_defn}\alert{Petr Ivankov.}
-		An open connected subset $\sU\subset \sX$ of a topological space is said to be \alert{semilocally proper} it is evenly covered by any covering $\widetilde{\sX}\to\sX$.
+		An open connected subset $\sU\subset \sX$ of a topological space is said to be \alert{semilocally proper} it is evenly covered by any covering $p:\widetilde{\sX}\to\sX$, i.e. $p^{-1}\left(\sU \right)$ is a disjoint union of homeomorphic to $\sU$ sets. 
 A space $\sX$ is said to be \alert{weakly semilocally 1-connected} if for  every point $x$ and there is a semilocally proper neighborhood.
 \end{definition} 
 \begin{example}
@@ -154,7 +154,7 @@ A space $\sX$ is said to be \alert{weakly semilocally 1-connected} if for  every
 
 \begin{frame}
 	\begin{definition}\label{top_weak_path_defn}\alert{Petr Ivankov.}
-		Let $\sX$ be a topological space.	A \alert{weak path on} $\sX$ is a finite sequence $\left(\sU_1, ..., \sU_n\right)$ of open  connected subsets of $\sX$ such that $\sU_j \cap \sU_{j+1} \neq \emptyset$ for any $j = 1, ..., n - 1$. A weak path $\left(\sU_1, ..., \sU_n\right)$ is said to be \alert{weakly semilocally 1-connected} if $\sU_j$ is weakly 1-connected for all $j = 1,..., n$.
+		Let $\sX$ be a topological space.	A \alert{weak path on} $\sX$ is a finite sequence $\left(\sU_1, ..., \sU_n\right)$ of open  connected subsets of $\sX$ such that $\sU_j \cap \sU_{j+1} \neq \emptyset$ for any $j = 1, ..., n - 1$. A weak path $\left(\sU_1, ..., \sU_n\right)$ is said to be \alert{weakly semilocally 1-connected} if $\sU_j$ is semilocally proper for all $j = 1,..., n$.
 	\end{definition}
 		There is an involution * on the set of paths such that
 \be\label{top_path_inv_eqn}
@@ -225,9 +225,6 @@ If $\mathfrak p$ is a closed semilocally 1-connected $x_0$-path then both compos
 	We say that both closed, weakly semilocally 1-connected  $x_0$-paths $\mathfrak p_1$ and $\mathfrak p_2$ are \textit{homotopically equivalent} if a composition $\mathfrak p_1 \circ \mathfrak p^*_2$ is contractible.
 \end{definition}
 From our construction it follows that the set of classes of closed weakly semilocally 1-connected $x_0$-paths modulo homotopical equivalence  is a group with  a composition  and an inversion given by $\circ$ and $*$ operations respectively.
-\begin{definition}\alert{P. Ivankov}.
-	We say that both closed, weakly semilocally 1-connected  $x_0$-paths $\mathfrak p_1$ and $\mathfrak p_2$ are \textit{homotopically equivalent} if a composition $\mathfrak p_1 \circ \mathfrak p^*_2$ is contractible.
-\end{definition}
 \begin{definition}\label{top_weak_fundamental_group_defn}\alert{P. Ivankov}.
 	If
 	$\left(\sX, x_0\right)$ is  a pointed space, such that $\sX$ is a connected, locally connected and weakly semilocally 1-connected space
@@ -280,7 +277,7 @@ For any $\mathfrak p = \left( \sU_1, ..., \sU_n\right)\in \mathfrak{Paths} \left
 	\end{itemize}
 \end{thm}
 \begin{lemma}\label{top_weak_covering_iso_exer}
-	Let $\left(\sX, x_0\right)$ be  a pointed space, such that $\sX$ is a connected, locally connected and weakly semilocally 1-connected space, and let $p: \widetilde\sX\to\sX$ is an universal covering. Prove that there is a following natural isomorphism
+	Let $\left(\sX, x_0\right)$ be  a pointed space, such that $\sX$ is a connected, locally connected and weakly semilocally 1-connected space, and let $p: \widetilde\sX\to\sX$ be an universal covering. There is a following natural isomorphism
 	$$
 	\pi^{\text{w}}_1\left(\sX, x_0\right)\cong G\left(\left. \widetilde \sX\right|\sX \right)  
 	$$
@@ -304,6 +301,12 @@ For any $\mathfrak p = \left( \sU_1, ..., \sU_n\right)\in \mathfrak{Paths} \left
 	\begin{lemma}
 	If $x_0 \bydef \left(0, 0 \right)/\sim$ then there ia an isomorphism  $	\pi^{\text{w}}_1\left(\sX, x_0\right)\cong\mathbb{Z}$.
 	\end{lemma}
+\end{frame}
+\begin{frame}
+The weak fundamental group can be defined algebraically. There is a notion of noncommutative fundamental group (cf. https://arxiv.org/abs/1904.13130), such that there is a family $\mathfrak F$ of $C^*$-algebras such that for any $A\in \mathfrak F$ there is a fundamental group $\pi_1\left(A \right)$. 
+\begin{theorem}\alert{Petr Ivankov}
+If a topological space $X$ is connected, locally connected and weakly semilocally 1-connected then $C_0\left(X \right) \in \mathfrak F$ and there is a natural isomorphism $\pi_1\left( C_0\left(X \right)\right)  \cong \pi^{\text{w}}_1\left(\sX, x_0\right)$.
+\end{theorem}
 \end{frame}
 \end{document}
 
