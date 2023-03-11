@@ -12621,7 +12621,11 @@ If both $\sY$ and $\widetilde \sY$ are compact then $X_{A} \cong C\left( \wideti
 
 \begin{empt}\label{blowing_h_empt}
 	
-	If  $\pi: A \hookto B\left(\H\right)$ is a faithful nondegenerate   representation (cf. Definitions \ref{faithful_repr_defn} and  \ref{nondegenerate_repr_defn}) then there is a faithful representation $\pi_{\sY}:C_0\left( \sY\right) \hookto B\left(  \H\right)$ (cf. Definition \ref{multiplier_el_defn}). Application of the  {Rieffel correspondence} (cf. Definition \ref{ind_repr_defn}) yields a representation
+	If  $\pi: A \hookto B\left(\H\right)$ is a faithful nondegenerate   representation (cf. Definitions \ref{faithful_repr_defn} and  \ref{nondegenerate_repr_defn}) then there is a faithful representation
+	\be\label{blowing_py_eqn} 
+	\pi_{\sY}:C_0\left( \sY\right) \hookto B\left(  \H\right)
+	\ee
+	 (cf. Definition \ref{multiplier_el_defn}). Application of the  {Rieffel correspondence} (cf. Definition \ref{ind_repr_defn}) yields a representation
 	\be\label{blowing_indc0_eqn}
 	\pi_{\widetilde \sY} \bydef X_{C_0\left(\sY \right) }-\Ind^{C_0\left(\widetilde \sY \right)}_{C_0\left(\sY \right)}: C_0\left(\widetilde \sY \right)\hookto B\left( \widetilde \H\right) 
 	\ee
@@ -13674,47 +13678,41 @@ From this circumstance and taking into account that $A^{\mathrm{ext}}$ is genera
 \be\label{blowing_ext_ela_eqn}
 \rho^{\mathrm{ext}}\left(\widetilde f\right)\pi^{\mathrm{ext}}\left(\widetilde a\right)\quad \widetilde f\in C_0\left( \widetilde\sY\right)\quad \widetilde a \in \widetilde A.
 \ee
-If $f \in C_0\left( \sY \right)$ then from
+If $f \in C_0\left( \sY \right)$ and $\pi_\sY$ is the given by the equation \eqref{blowing_py_eqn} representation then from
 $$
-\forall \widetilde f\in C_c\left( \widetilde\sY\right)\quad \forall \widetilde a \in \widetilde A \quad \rho^{\mathrm{ext}}\left(\widetilde f\lift_q\left(f \right) \right)\pi^{\mathrm{ext}}\left(\widetilde a\right)= \rho^{\mathrm{ext}}\left(\widetilde f \right)\pi^{\mathrm{ext}}\left(\pi_\sY\left(f\right)\widetilde a\right)\quad  
+\forall \widetilde f\in C_0\left( \widetilde\sY\right)\quad \forall \widetilde a \in \widetilde A \quad \rho^{\mathrm{ext}}\left(\widetilde f\lift_q\left(f \right) \right)\pi^{\mathrm{ext}}\left(\widetilde a\right)= \rho^{\mathrm{ext}}\left(\widetilde f \right)\pi^{\mathrm{ext}}\left(\pi_\sY\left(f\right)\widetilde a\right)\quad  
 $$
 one can obtain a natural  map
 \bean
-C_0\left( \widetilde\sY\right)\otimes_{C_0\left(\sY\right)}\widetilde A \to A^{\mathrm{ext}},\\
-\widetilde f \otimes \widetilde a \mapsto \rho^{\mathrm{ext}}\left(\widetilde f \right)\pi^{\mathrm{ext}}\left(\pi\left(f\right)\widetilde a\right)
+\phi:C_0\left( \widetilde\sY\right)\otimes_{C_0\left(\sY\right)}\widetilde A \to A^{\mathrm{ext}},\\
+\widetilde f \otimes \widetilde a \mapsto \rho^{\mathrm{ext}}\left(\widetilde f \right)\pi^{\mathrm{ext}}\left(\widetilde a\right)
 \eean
-where $\ox$ is an algebraic tensor product and $\lift_q$ is given by the Definition \ref{top_lift_desc_defn}. Since $C_c\left(\sY \right)$ is dense in $C_0\left(\sY \right)$ and $A_{\mathrm{ext}}$ is $C^*$-norm closed we can obtain a natural map
-$$
-\phi: 
-C_0\left( \widetilde\sY\right)\otimes_{C_0\left(\sY\right)}\widetilde A \to A^{\mathrm{ext}}
-$$
-such that  $A^{\mathrm{ext}}$ is a $C^*$-norm completion of a  set $\phi\left( 
-C_0\left( \widetilde\sY\right)\otimes_{C_0\left(\sY\right)}\widetilde A\right)$.
+where $\ox$ is an algebraic tensor product and $\lift_q$ is given by the Definition \ref{top_lift_desc_defn}. Moreover $\phi \left( C_0\left( \widetilde\sY\right)\otimes_{C_0\left(\sY\right)}\widetilde A\right) $ is dense in $\rho^{\mathrm{ext}}$
+
 
 \end{empt}
-!!! MAPPED HOMEOMORPHICALLY !!!
+
 \begin{lemma}
 	In the situation \ref{blowing_inf_c_empt} for any $\widetilde f\in C_0\left(\overline \sY \right)$ such that 
 	$$
 	\left\{\left.\overline y \in\overline \sY\right| \widetilde f\left( \overline y\right) \neq 0\right\}\subset \widetilde \sU
 	$$
-	then there is a natural isomorphism of right $\widetilde A$-modules 
+there is a natural isomorphism of right $\widetilde A$-modules 
 	\be\label{blowing_right_iso_eqn}
 	\begin{split}
 		\varphi_{ \widetilde f}:  \desc_{\overline q}\left( \widetilde f \right) \widetilde A\xrightarrow{\approx}\rho^{\mathrm{ext}}\left( \widetilde f \right)A_{\mathrm{ext}},\\
 		\desc_{\overline q}\left( \widetilde f \right)\widetilde a \mapsto \rho^{\mathrm{ext}}\left( \widetilde f \right) \pi^{\mathrm{ext}} \left( \widetilde a\right)
 	\end{split}
 	\ee
-	where $\overline q$ is a natural covering and $\desc_{\overline q}$ is a ${\overline q}$-descent (cf. Definition \ref{top_lift_desc_defn}).
+	where $\overline q: \overline\sY\to \sY$ is a natural covering and $\desc_{\overline q}$ is a ${\overline q}$-descent (cf. Definition \ref{top_lift_desc_defn}).
 \end{lemma}
 \begin{proof}
-	From the equation \eqref{blowing_right_iso_eqn} directly follows that is a natural homomorphism of right $\widetilde A$-modules, so one needs construct an inverse homomorphism $\varphi^{-1}_{ \widetilde f}:  \widetilde fA_{\mathrm{ext}}\to \desc_{\overline q}\left( \widetilde f \right) \widetilde A$. Any $a_{\mathrm{ext}}\in A_{\mathrm{ext}}$ equals to a $C^*$-norm limit $\lim_{\la \in \La}\rho^{\mathrm{ext}}\left( \widetilde f_\la \right) \pi^{\mathrm{ext}} \left( \widetilde a_\la\right)$ then a net
-	$\left\{\rho^{\mathrm{ext}}\left(\widetilde f \widetilde f_\la \right) \pi^{\mathrm{ext}} \left( \widetilde a_\la\right)\right\}_{\la\in\La} \subset A_{\mathrm{ext}}$  is also $C^*$-norm convergent. We define 
+	From the equation \eqref{blowing_right_iso_eqn} directly follows that is a natural homomorphism of right $\widetilde A$-modules, so one needs construct an inverse homomorphism $\varphi^{-1}_{ \widetilde f}:  \widetilde fA_{\mathrm{ext}}\to \desc_{\overline q}\left( \widetilde f \right) \widetilde A$. Any $a^{\mathrm{ext}}\in A^{\mathrm{ext}}$ equals to a $C^*$-norm limit\\ $\lim_{\la \in \La}\rho^{\mathrm{ext}}\left( \widetilde f_\la \right) \pi^{\mathrm{ext}} \left( \widetilde a_\la\right)$. We define 
 	$$
 	\varphi^{-1}_{ \widetilde f}\left(\widetilde f  a_{\mathrm{ext}}\right) \bydef \lim_{\la \in \La}  \desc_{\overline q}\left(\widetilde f \widetilde f_\la \right)  \pi^{\mathrm{ext}} \left( \widetilde a_\la\right).
 	$$
 \end{proof}
-
+!!!!
 \begin{empt}
   There are following  maps
 \be\label{blowing_ten1_eqn}
