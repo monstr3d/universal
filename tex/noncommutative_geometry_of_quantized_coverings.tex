@@ -4790,7 +4790,7 @@ Let $A$ be a connected connected $C^*$-algebra (cf. Definition \ref{connected_c_
 		\end{itemize}
 \end{definition}
 \begin{empt}\label{inf_cov_empt}
-We define a set of families $\left\{b_\la\right\}_{\la \in \La}$ such that
+We define a set $\Xi$ of families $\left\{b_\la\right\}_{\la \in \La}$ such that
 \begin{itemize}
 	\item [(a)] there is a semilocally proper $C^*$-subalgebra $B \subset A$ (cf. Definition \ref{semilocally_1_connected_defn}) such that $b_\la \in \pi_\la\left( K\left( B\right) \right)$ where $K\left(B\right)$ is the Pedersen's ideal of $B$ (cf. Definition \ref{peder_id_defn}),
 	\item[(b)] for any $\la \in \La$ there is $g_\la \in G\left(\left. G_\la \right|G\right)$ such that $b_\la \in g B_\la$ where $B_\la$ satisfies to the equation \eqref{semilocally_proper_eqn}.
@@ -4799,16 +4799,14 @@ We define a set of families $\left\{b_\la\right\}_{\la \in \La}$ such that
 	\mu \ge \nu \quad \Rightarrow\quad  \pi^\mu_\nu\left(b_\mu \right)  = \sum_{	g \in G\left(\left. G_\mu \right|G_\mu\right)} b_\nu.
 \eean
 \end{itemize}
-
-Denote by $\Xi$ the set of described above families.  Let $b = \left\{b_\la\right\} \in \Xi$, $~x \in A^\sim_\mu$, $~y \in A^\sim_\nu$. Suppose that $\la' \in \La$ is such that $\la' \ge \mu$ and $\la; \ge \nu$.
-We define a set of 
+  Let $b = \left\{b_\la\right\} \in \Xi$, $~x \in A^\sim_\mu$, $~y \in A^\sim_\nu$. Suppose that $\la' \in \La$ is such that $\la' \ge \mu$ and $\la; \ge \nu$.
+We denote by $G$ a set of families $\left\{a_\la \in K\left(A_\la \right) \right\}$ such that
 \be\label{fam_a_la_eqn}
 a_\la \bydef \begin{cases}
 	\pi^{\mu}_\la\left(x \right) b_\la \pi^{\nu}_\la\left(y \right)& \la \ge \la'\\
 	\sum_{	g \in G\left(\left. A_{\la'} \right|A_\la \right)} g a_{\la'}& \la < \la'
 \end{cases}
 \ee
-Denote by $G$ the set of defined by \eqref{fam_a_la_eqn} families.
 If $\left\{a_{1,1},..., a_{1, m_1}, ...., a_{1,1},..., a_{1, m_1}\right\}\subset G$,
 $
 a_{j, k }=\left\{a^{j,k}_\la\right\}_{\la\in \La}\subset G; \quad j\in \left\{1,..., n\right\}, \quad k \in \left\{1,..., m_j\right\}
@@ -11381,16 +11379,34 @@ Similarly to \ref{comm_transitive_empt}	one can prove following statements:
  		\item there is a natural *-isomorphism $B \cong C_0\left(\sU\right)$.
  	\end{itemize} 
  	\end{exercise}
- \begin{exercise}
-  Consider a specialization of the defined in \ref{inf_cov_empt} set $\Xi$. Prove that if $b = \left\{b_\la\right\}\in \Xi$ then there is a family $\left\{\sU_\la \subset \sX_\la\right\}$ of connected open subsets
-  
-  
- \end{exercise}
+ \begin{exercise}\label{top_b_fam_exer}
+ Consider a specialization of the defined in \ref{inf_cov_empt} set $\Xi$. Prove that if $b = \left\{b_\la\right\}\in \Xi$ then there is a family $\left\{\sU_\la \subset \sX_\la\right\}$ of connected open subsets such that
+ \begin{itemize}
+ 	\item $\supp b_\la \subset \sU_\la$,
+ 	\item If $\mu, \nu \in \La$ then from $\mu > \nu$ it follows that a restriction  $\left.p^\mu_\nu\right|_{\sU_\mu}\xrightarrow{\approx}\sU_\nu$ is a homeomorphism.
+ \end{itemize}
+  \end{exercise}
+If $\overline \sX$ is a {topological disconnected inverse limit} of $\mathfrak{S}_{\left( \sX, x_0\right)}$.  (cf. Definition \ref{top_topological_inv_lim_defn}) then the given by the Exercise \ref{top_b_fam_exer} family yields an open subset $\overline \sU\subset \overline \sX$. We denote by $\overline \sU_b \bydef \overline \sU$. Let $G$ be a specialization of given by  \eqref{fam_a_la_eqn} families. 
+If $\left\{a_\la \in K\left(A_\la \right) \right\}\in G$ then there are $x \in C_0\left(\sX_\mu \right)$,  $~y \in C_0\left(\sX_\nu\right)$ and $b = \left\{b_\la \in K\left(B_\la \right)\right\}\in \Xi$ 
+such that
+\be\label{top_fam_a_la_eqn}
+a_\la \bydef \begin{cases}
+	C_0\left(p^\la_\mu \right) \left(x \right) b_\la C_0\left(p^\la_\nu \right)\left(y \right)& \la \ge \la'\\
+	\sum_{	g \in G\left(\left. \sX_{\la'} \right|\sX_\la \right)} g a_{\la'}& \la < \la'
+\end{cases}
+\ee
+We define a map
+\be
+\begin{split}
+\rho : G \to C_c\left(\overline \sX\right)\subset C_0\left(\overline \sX\right) \\
+\left\{a_\la  \right\}\mapsto \lift_{ \overline{p}_{\mu}}\left( x\right)\lift^{ \overline{p}_{\la}}_{\overline \sU_b}\left( b_\la\right)\lift_{ \overline{p}_{\nu}}\left( y\right) 
+\end{split}
+\ee
+!!!
 
  
  
    \subsection{Coverings of semilocally 1- connected $C^*$-algebras}
-\begin{definition}\label{semilocally_1_connected_r_defn!}
 \begin{empt}\label{inf_cov_empt!}
 	We define a set of families $\left\{b_\la\right\}_{\la \in \La}$ such that
 	\begin{itemize}
@@ -11404,7 +11420,7 @@ Similarly to \ref{comm_transitive_empt}	one can prove following statements:
 	
 	Denote by $\Xi$ the set of described above families.  Let $b = \left\{b_\la\right\} \in \Xi$, $~x \in A^\sim_\mu$, $~y \in A^\sim_\nu$. Suppose that $\la' \in \La$ is such that $\la' \ge \mu$ and $\la; \ge \nu$.
 	We define a set of 
-	\be\label{fam_a_la_eqn}
+	\be\label{fam_a_la_eqn!}
 	a_\la \bydef \begin{cases}
 		\pi^{\mu}_\la\left(x \right) b_\la \pi^{\nu}_\la\left(y \right)& \la \ge \la'\\
 		\sum_{	g \in G\left(\left. A_{\la'} \right|A_\la \right)} g a_{\la'}& \la < \la'
