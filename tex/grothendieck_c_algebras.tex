@@ -604,7 +604,7 @@ We say that $A$ is a \textit{Grothendieck $C^*$-algebra} if a described above sy
 
 
 \begin{appendices}
-	\section{Categories, functors  and ordered sets}
+	\section{Categories and functors}
 	
 	\subsection{Categories and limits}
 	\begin{definition}\label{category_defn}\cite{goldblatt:topoi}
@@ -745,7 +745,7 @@ A \textit{limit} for a diagram $D$ is a $D$-cone $\left\{f_j: c\to d_j\right\}$ 
 \\ 	
 	
 \end{definition}
-\section{Functors}
+\subsection{Functors}
 \begin{definition}\label{functor_defn}\cite{goldblatt:topoi}
 A \textit{functor} $F$ from category $\mathscr{C}$ to category $\mathscr{D}$ is a function that assigns 
 \begin{enumerate}
@@ -785,7 +785,7 @@ $$
 F\left( g\circ f\right) = F\left( f\right)\circ  F\left( g\right). 
 $$
 \end{defn}
-\section{Natural transformations}\label{natural_transformation_sec}
+\subsection{Natural transformations}\label{natural_transformation_sec}
 \paragraph{}
 Here I follow to \cite{goldblatt:topoi}.
 Given two categories $\mathscr C$ and $\mathscr D$ we are going to construct a category, 
@@ -820,76 +820,7 @@ The identity natural transformation $\mathbb{1}_F :F\to F$ assigns to each objec
 	Categories $\mathscr C$ and $\mathscr D$ are \textit{equivalent},  $\mathscr C$ and $\mathscr D$ when there exists an equivalence $F: \mathscr C\to  \mathscr D$ .
 \end{definition}
 
-	\section{Skeleton and pre-order category}
-
-	\begin{definition}\label{skeletal_defn}\cite{goldblatt:topoi}
-		A \textit{skeletal category} is one in which "isomorphic" does actually mean the 
-		same as "is", i.e. in which whenever $a\cong b$, then $a=b$. 
-	\end{definition}
-	\begin{definition}\label{skeleton_defn}\cite{goldblatt:topoi}
-		A \textit{skeleton}
-		of a category $\mathscr C$ is a full subcategory $\mathscr C_0$ of $\mathscr C$ that is skeletal, and such that each $\mathscr C$-object is isomorphic to one (and only one) $\mathscr C$-object.
-	\end{definition}
-\begin{definition}\label{preordercat_defn}\cite{goldblatt:topoi}
-		A category is said to be a \textit{pre-order category} if there is at most one morphism between different objects.
-	\end{definition}
-	\begin{definition}\label{ord_defn}\cite{goldblatt:topoi}
-		A binary relation $R \subset \La\times \La$ on the set $\La$ (writing $pRq$ in place of $\left(p,q \right)\in R$ ) is said to be \textit{pre-ordering} if it is 
-		\begin{enumerate}
-			\item [(a)] \textit{reflexive}, i.e. for each $p$ we have $pRp$ and
-			\item[(b)] \textit{transitive}, whenever $pRq$ and $qRs$, we have $pRs$.
-		\end{enumerate}
-	\end{definition}
-	\begin{remark}\label{pre_order_rem}\cite{goldblatt:topoi}
-		For any set pre-ordered $\La$ with pre-ordering $R$ there is a pre-order category such that
-		\begin{enumerate}
-			\item [(a)] Objects of the category are elements of $\La$.
-			\item[(b)] Morphisms are pairs $\left(p, q \right) \in R$.
-			\item[(c)] The composition of morphisms is given by $\left(q,s\right)\circ \left(p, q\right) =\left(p,s\right)$.
-		\end{enumerate}
-		
-	\end{remark}
-	\section{Equivalence relations}
-	
-	\begin{definition}\label{equiv_rel_defn}\cite{spanier:at}
-	An \textit{equivalence relation} in a set $A$ is a relation $\sim$ between elements of $A$ 
-	which is \textit{reflexive} (that is, $a\sim a$ for all $a \in A$), \textit{symmetric} (that is, $a\sim a'$ 
-	implies $a'\sim a$ for $a, a'\in A$), and \textit{transitive} (that is, $a\sim a'$ and $a'\sim a''$
-	imply $a \sim a''$ for $a, a', a'' \in A$). The \textit{equivalence class} of $a \in A$ with 
-	respect to $\sim$ is the subset $\left\{\left. a'\in A\right| a'\sim a \right\}$. The set of all equivalence classes 
-	of elements of $A$ with respect to ~ is denoted by $A/\sim$ and is called a 	\textit{quotient set} of $A$. There is a \textit{projection map} $A \to A/\sim$ which sends $a\in A$ to
-	its equivalence class. 
-	\end{definition}
-	
-	
-	\section{Directed sets}
-	
-		\begin{definition}\label{directed_set_defn}\cite{engelking:general_topology}
-		Let $\La$ be a set and $\le$ is relation on $\La$. We say that $\le$ \textit{directs} $\La$ or $\La$ is \textit{directed} by $\le$, if $\le$ has following properties:
-		\begin{enumerate}
-			\item [(a)] If $\la \le \mu$ and $\mu \le \nu$, then $\la \le \nu$,
-			\item[(b)] For every $\la \in \La$, $\la \le \la$,
-			\item[(c)] For any $\mu,\nu \in \La$ there exists a $\la \in \La$ such that $\mu \le \la$ and $\nu \le \la$.
-		\end{enumerate}
-	\end{definition}
-	\begin{definition}\label{cofinal_defn}\cite{engelking:general_topology}
-		A subset $\Xi \subset \La$ is said to be \textit{cofinal} in $\La$ if for every $\la \in \La$ there is $\chi \in \Xi$ such that $\la \le \chi$. 
-	\end{definition}
-\section{Inverse systems}
-\begin{definition}\label{inv_lim_defn}\cite{spanier:at}
-An \textit{inverse system of sets} $\left\{A_\a, f^\bt_\a\right\}$ consist of a collection of sets $\left\{A_\a\right\}$ indexed by by a directed set $\La = \left\{\a\right\}$ and a collection of functions $f^\bt_\a: A_\bt \to A_\a$ such that
-\begin{enumerate}
-	\item [(a)] $f^\a_\a = 1_{A_\a}: A_\a\cong A_\a$ for $\a\in\La$
-	\item[(b)] $f^\ga_\a = f^\bt_\a \circ f^\ga_\bt : A_\ga \to A_\a$ for $\a \le \bt \le \ga$ in $\La$
-\end{enumerate}
-The \textit{inverse limit} $\varprojlim A_\a$ is the subset of $\prod A_\a$ consisting of all points $\left\{a_\a\right\}$ such that if $\a\le\bt$, then $a_\a = f^\bt_\a\left( a_\bt\right) $. For each $\a$ there is a map $p_\a: \varprojlim A_\a\to A_\a$, and if $\a \le \bt$, then $p_\a = f^\bt_\a \circ p_\bt$ . 
-\end{definition}
-\begin{lemma}\label{inv_lim_lem}\cite{spanier:at}
- Given an inverse system of sets  $\left\{A_\a, f^\bt_\a\right\}$ and given a set $B$ and for every $\a\in \La$ function $g_\a: B \to A_\a$ such that $g_\a = f^\bt_\a \circ g_\bt$ if $\a\le\bt$, there is a unique function $g : B \to \varprojlim A_\a$  such that $g_\a = p_\a\circ g$ for all $\a\in \La$. 
-\end{lemma}
-
-
-\section{Grothendieck topology and sheaves}
+	\section{Grothendieck topology and sheaves}
 
 \subsection{Sites}\label{appendix_etale_sec}
 \begin{definition}\label{pullback_defn}\cite{milne:lec}
@@ -984,6 +915,40 @@ There are categories $\mathbf{PreSh}\left(\mathbf T \right)\to \mathbf{Sh}\left(
 \begin{defn}\label{site_sheaf_ass_defn}\cite{johnstone:topos}
 	The given by the Statement  \ref{site_sheaf_stmt} functor $\mathfrak{Ass} : \mathbf{PreSh}\left(\mathbf T  \right)\to \mathbf{Sh}\left(\mathbf T \right)$  is said to be an  \textit{associated sheaf functor}.
 \end{defn}	
+\begin{statement}\cite{johnstone:topos}
+If $\mathbf T$ is a site then a category $\mathbf {Ab} \left(\mathbf T \right)$ of sheaves of Abelian groups has
+enough injective objects.
+\end{statement}
+
+\subsection{Cohomology. Definition and basic properties}
+\paragraph{}
+Here I follow to \cite{milne:lec}. The functor
+\bean
+\Ga\left(X, \cdot \right) : \mathbf {Ab} \left(\mathbf T \right) \to \mathbf {Ab} ,\\
+\mathscr F \mapsto \mathscr F\left(X \right) 
+\eean
+of global sections is left exact, and we define $H^r\left(X,~ \cdot ~\right)$ to be its $r^{\text{th}}$ right derived functor. Explicitly, for a sheaf $\mathscr F$, choose an injective resolution
+$$
+0 \to \mathscr F \to \mathscr I^0\to \mathscr I^1\to \mathscr I^2 \to ...
+$$
+and apply the functor $\Ga\left(X, \cdot \right)$ to obtain a complex
+$$
+\Ga\left(X,\ \mathscr I^0  \right) \to \Ga\left(X, \mathscr I^1  \right) \to \Ga\left(X, \mathscr I^2  \right) \to ... 
+$$
+This is no longer exact (in general), and $H^r\left(X,\ \mathscr I^0  \right)$ is defined to be its $r^{\text{th}}$ cohomology
+group. The theory of derived functors shows:
+\begin{enumerate}
+	\item [(a)] $H^0\left(X,\ \mathscr F  \right)\Ga\left(X,\ \mathscr F \right)$ for any sheaf $\mathscr F$;
+	\item [(b)] if $\mathscr I$ is injective, then $H^r (X,\mathscr I )= 0$ for $r > 0$;
+	\item [(c)]  short exact sequence of sheaves
+$0\to \mathscr F' \to \mathscr F \to \mathscr F'' \to 0$	gives rise to a long exact sequence
+$$
+0 \to H^0\left(X, \mathscr F'  \right) \to\left(X, \mathscr F  \right) \to H^0\left(X, \mathscr F''  \right) \to H^1\left(X,\ \mathscr F'  \right) \to ...
+$$
+and the association of the long exact sequence with the short exact sequence is functional.
+\end{enumerate}
+Moreover, the functors $H^r\left( X,~ \cdot ~\right)$  are uniquely determined (up to a unique isomorphism)
+by the properties (a), (b) and (c).
 
 \subsection{\v{C}ech cohomology}
 \paragraph{} Here I follow to \cite{milne:lec}. Let $\mathscr U \bydef \left\{U_\iota \to X\right\}_{\iota \in I}$ be  covering of $X$, and let $\mathscr P$ be a presheaf of Abelian groups. Define
