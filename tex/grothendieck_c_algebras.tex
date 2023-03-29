@@ -602,11 +602,20 @@ We say that $A$ is a \textit{Grothendieck $C^*$-algebra} if a described above sy
  For any locally compact Hausdorff space $\sX$ an algebra $C_0\left(\sX \right)$ is a {Grothendieck $C^*$-algebra} 	and $C_0\left(\sX\right)$-topology  is naturally isomorphic to a classical topology of $\sX$.
 \end{exercise}
 
+\section{Continuous trace $C^*$-algebras}
+\paragraph{}
+
+If $A$ is a continuous trace $C^*$-algebras then the spectrum $\sX$ of is a Hausdorff space. Any ideal of $A$ corresponds to an open set $\sU$ we denote this ideal by $A|_{\sU}$. We define a presheaf $\mathscr{F}^{\text{comm}}$ on $\sX$ such that if $\sU$ and $\sV$ are open subsets of $\sX$ then
+\bean
+\mathscr{J}^{\text{comm}}\left(\sU\right)\bydef \text{ a set of all commutative subalgebras of } A|_{\sU};\\
+\rho_{\sU \sV}: \mathscr{J}^{\text{comm}}\left(\sU\right)\to  \mathscr{J}^{\text{comm}}\left(\sV\right), \quad B \mapsto B \cap A|_{\sV}.
+\eean
+Let $\mathscr{J}^{\text{comm}}
 
 \begin{appendices}
 	\section{Categories and functors}
 	
-	\subsection{Categories and limits}
+	\subsection{Categories}
 	\begin{definition}\label{category_defn}\cite{goldblatt:topoi}
 	%	Axiomatic Definition of a Category. 
 	A \textit{category} $\mathscr C$ comprises 
@@ -658,93 +667,6 @@ If $a, b$ are  $\mathscr{C}$-objects then we denote by  $\mathscr{C}\left(a, b \
 	An object $\mathbb{1}$ is \textit{terminal} in a category $\mathscr C$ if for every $\mathscr C$-object $a$ there is one and only one arrow from $a$ to $\mathbb{1}$ in $\mathscr C$.
 \end{definition}
 
-\subsection{Limits}\label{limit_sec}
-\paragraph{} Here I follow to \cite{goldblatt:topoi}. The notion of \textit{commutative diagram}, is a 
-	very important aid to understanding used in category theory.
-By a 
-diagram we simply mean a display of some objects, together with some 
-arrows (here representing functions) linking the objects. The "triangle" of 
-arrows $f$, $g$, $h$ as shown is another diagram. 
-		\newline
-\begin{tikzpicture}
-	\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
-	{
-	A & B  \\ 
-		& C\\};
-	\path[-stealth]
-		(m-1-1) edge node [above] {$f$} (m-1-2)
-	(m-1-1) edge node [left]  {$h~~$} (m-2-2)
-	(m-1-2) edge node [right] {$~~g$} (m-2-2);
-\end{tikzpicture}
-\\ 	
-It will be said to \textit{commute} if $h = g\circ f$. The point is that the diagram offers 
-two paths from $A$ to $C$, either by composing to follow $f$ and then $g$, or by 
-following h directly. Commutativity means that the two paths amount to 
-the same thing. A more complex diagram, like the previous one, is said to 
-be commutative when all possible triangles that are parts of the diagram 
-are themselves commutative. This means that any two paths of arrows in 
-the diagram that start at the same object and end at the same object 
-compose to give the same overall arrow. By a \textit{diagram} $D$ in a 
-category $\mathscr C$ we simply mean a collection of $\mathscr C$-objects $d_j, d_k,...$ together 
-with some $\mathscr C$-arrows $g: d_j \to d_k$ between certain of the objects in the 
-diagram. (Possibly more than one arrow between a given pair of objects, 
-possibly none). 
-A \textit{cone} for diagram $D$ consists of a $\mathscr C$-object $c$ together with a $\mathscr C$-arrow 
-$c\to d_j$ for each object $f_j$ in $D$, such that
-		\newline
-\begin{tikzpicture}
-	\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
-	{
-	d_j  & & d_k \\ 
-		& c  & \\};
-	\path[-stealth]
-	(m-1-1) edge node [above] {$g$} (m-1-3)
-	(m-2-2) edge node [left]  {$f_j~~$} (m-1-1)
-	(m-2-2) edge node [right] {$~~f_k$} (m-1-3);
-\end{tikzpicture}
-\\ 	
- commutes, whenever g is an arrow in the diagram $D$. We use the 
-symbolism $\left\{f_j: c\to d_j\right\}$ to denote a cone for $D$. 
-
-
-A \textit{limit} for a diagram $D$ is a $D$-cone $\left\{f_j: c\to d_j\right\}$ with the property that for 
-	any other $D$-cone $\left\{f'_j: c'\to d_j\right\}$ there is exactly one arrow $f:c' \to c$ such 
-			\newline
-	\begin{tikzpicture}
-		\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
-		{
-			  & d_j &  \\ 
-		c'	&  & c \\};
-		\path[-stealth]
-		(m-2-1) edge node [above] {$g$} (m-2-3)
-		(m-2-1) edge node [left]  {$f'_j~~$} (m-1-2)
-		(m-2-3) edge node [right] {$~~f_j$} (m-1-2);
-	\end{tikzpicture}
-	\\ 	
-		commutes for every object $d_j$ in $D$. 
-		This limiting cone, when it exists, is said to have the \textit{universal property} 
-		with respect to $D$ -cones.
-		 A limit for 
-		diagram $D$ is unique up to isomorphism.%:- if {ft: —> a\} and {f-:c'—> d;} 			are both limits for D, then the unique commuting arrow f: c'— above is 			iso (its inverse is the unique commuting arrow c-—*c' whose existence 			follows from the fact that {/,': c' —> dj is a limit). 
-		% It is universal amongst such cones-any other 		D-cone factors uniquely through it as in the last diagram.		
-
-
-\begin{definition}\label{pull_back_defn}\cite{goldblatt:topoi}
-	A \textit{pullback} of a pair $a \xrightarrow{f}c \xleftarrow{g} b$ of $\mathscr C$-arrows with a common codomain 
-	is a limit in $\mathscr C$ for the diagram 
-			\newline
-\begin{tikzpicture}
-	\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
-	{
-		& b  \\ 
-		a	&  c \\};
-	\path[-stealth]
-	(m-1-2) edge node [right]  {$g$} (m-2-2)
-	(m-2-1) edge node [above] {$f$} (m-2-2);
-\end{tikzpicture}
-\\ 	
-	
-\end{definition}
 \subsection{Functors}
 \begin{definition}\label{functor_defn}\cite{goldblatt:topoi}
 A \textit{functor} $F$ from category $\mathscr{C}$ to category $\mathscr{D}$ is a function that assigns 
@@ -1014,8 +936,238 @@ These groups  have the following properties:
  	
  \end{appendices}
  
+	\section{Presheaves and sheaves on topological spaces}
+\subsection{Basic constructions}\label{sheaves_bas_sec}
+\begin{definition}\label{presheaf_defn}\cite{hartshorne:ag}
+	Let $\sX$ be a topological space. A \textit{presheaf} $\mathscr F$ of Abelian groups on  $\sX$ consists of the data
+	\begin{itemize}
+		\item[(a)] for every open subset $\sU \subseteq \sX$, an Abelian group $\mathscr F\left(\sU\right)$, and 
+		\item[(b)] for every inclusion $\sV \subseteq \sU$ of open subsets of $\sX$, a morphism of Abelian groups $\rho_{\sU \sV}:\mathscr F\left(\sU\right) \to \mathscr F\left(\sV\right)$,\\
+		subject to conditions
+		\begin{itemize}
+			\item [(0)] $\mathscr F\left(\sV\right)= 0$, where $\emptyset$ is the empty set,
+			\item[(1)] $\rho_{\sU \sU}$ is the identity map, and
+			\item[(2)] if $\mathcal W \subseteq \sV \subseteq \sU$ are three open sets, then $\rho_{\sU \mathcal W} = \rho_{\sV \mathcal W }\circ \rho_{\sU \sV}$.
+		\end{itemize}
+	\end{itemize}
+\end{definition}
 
- 
+\begin{definition}\label{sheaf_defn}\cite{hartshorne:ag}
+	A \textit{presheaf} $\mathscr F$ on  
+	a topological space $\sX$ is a \textit{sheaf}  if it satisfies the following supplementary conditions:
+	\begin{itemize}
+		\item[(3)] If $\sU$ is an open set, if $\left\{\sV_{\a}\right\}$ is an open covering of $\sU$, and if $s \in \mathscr F\left(\sU\right)$ is an element such that $\left.s\right|_{\sV_{\a}}= 0$ for all $\a$, then $s = 0$;
+		\item[(4)] If $\sU$ is an open set, if $\left\{\sV_{\a}\right\}$ is an open covering of $\sU$ (i.e. $\sU = \cup\sV_\a$), and we have elements $s_\a$ for each $\a$, with property that for each $\al, \bt, \left.s_\a\right|_{\sV_{\a}\cap \sV_{\bt}}= \left.s_\bt\right|_{\sV_{\a}\cap \sV_{\bt}}$, then there is an element $s \in \mathscr F\left(\sU\right)$ such that $\left.s\right|_{\sV_\a} = s_\a$ for each $\a$.
+	\end{itemize}
+	(Note condition (3) implies that $s$ is unique.)
+\end{definition}
+%\begin{definition}
+%	A presheaf \ref{top_x_sheaf_defn} satisfying (4) of the Definition \ref{sheaf_defn} is called \textit{conjunctive} (for $\sU$). (cf. \cite{bredon:sheaf})
+%\end{definition}
+\begin{definition}\label{stalk_defn}\cite{hartshorne:ag}
+	If $\mathscr F$ is a {presheaf} on $\sX$, and if $x$ is a point of $\sX$ we define the \textit{stalk} or the \textit{germ} $\mathscr F_x$ of $\mathscr F$ at $x$ to be the direct limit of groups $\mathscr F\left(\sU\right)$ for all open sets $\sU$ containing $x$, via restriction maps $\rho$.
+\end{definition}
+
+\begin{definition}\cite{hartshorne:ag}
+	If $\mathscr F$  and $\mathscr G$ are presheaves on $\sX$, a \textit{morphism} $\varphi:\mathscr F\to\mathscr G$  consists 
+	of a morphism of Abelian groups $\varphi_\sU:\mathscr F\left( \sU\right) \to\mathscr F\left( \sU\right)$ for each open set 
+	$\sU$, such that whenever $\sV\subset\sU$ is an inclusion, the diagram 
+	\newline
+	\begin{tikzpicture}
+		\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
+		{
+			\mathscr F\left( \sU\right)   & \mathscr G\left( \sU\right)\\
+			\mathscr F\left( \sV\right)    & \mathscr G\left( \sV\right)\\
+		};
+		\path[-stealth]
+		(m-1-1) edge node [above] {$\rho_{\sU\sV}$} (m-1-2)
+		(m-1-1) edge node [right] {$\varphi_\sU$} (m-2-1)
+		(m-1-2) edge node [right] {$\varphi_\sV$} (m-2-2)
+		(m-2-1) edge node [above] {$\rho'_{\sU\sV}$} (m-2-2);
+	\end{tikzpicture}
+	\\
+	is commutative, where $\rho_{\sU\sV}$ and $\rho'_{\sU\sV}$ are the restriction maps in $\mathscr F$  and $\mathscr G$. If $\mathscr F$  and $\mathscr G$ are sheaves on $\sX$, we use the same definition for a morphism 
+	of sheaves. An isomorphism is a morphism  which has a two-sided inverse. 
+\end{definition}
+
+\begin{prdf}\label{sheaf_prdf}\cite{hartshorne:ag}
+	Given a presheaf $\mathscr F$, there is a sheaf  $\mathscr F^+$ and a morphism $\th: \mathscr F \to \mathscr F^+$, with the property that for any sheaf  $\mathscr G$, and any morphism $\varphi: \mathscr F \to \mathscr G$, there is a unique morphism $\psi:\mathscr F^+\to \mathscr G$ such that $\varphi = \psi \circ \th$. Furthermore the pair $\left(\mathscr F^+, \th\right)$ is unique up to unique isomorphism. $\mathscr F^+$ is called the $\mathrm{sheaf~associated}$ to the presheaf $\mathscr F$. 
+\end{prdf}
+\begin{remark}\label{sheaf_ass_rem}
+	The above construction is a specialization of the Statement  \ref{site_sheaf_stmt} and the Definition \ref{site_sheaf_ass_defn}.
+\end{remark}
+\begin{empt}\label{sheaf_empt}
+	Following text is the citation of the proof of \ref{sheaf_prdf} (cf. \cite{hartshorne:ag}). For any open set $\sU$, let $\mathscr F^+\left(\sU\right)$ be set of functions $s$ from $\sU$ to the union $\bigcup_{x \in \sU}  \mathscr F_x$ of stalks of $\mathscr F$ over points of $\sU$, such that
+	\begin{itemize}
+		\item [(1)] for each $x \in \sU$, $s\left(x\right)\in \mathscr F_x$, and
+		\item[(2)] for each $x \in \sU$, there is a neighborhood $\sV$ of $x$ contained in $\sU$ and an element $t \in \mathscr F\left(\sV\right)$, such that for all $y \in \sV$ the stalk (germ) $t_y$ of $t$ at $y$ is equal to $s\left(y\right)$.
+	\end{itemize}
+\end{empt}
+
+\begin{exercise}\label{sheaf_etale_exer}\cite{hartshorne:ag}
+	%1.13. 
+	\textit{
+		\'Espace Etal\'e of a Presheaf}. %(This exercise is included only to establish the connection between our definition of a sheaf and another definition often found in the literature. See for example Godement [1, Ch. II, §1.2].)
+	Given a presheaf $\mathscr F$ on $\sX$, we define a topological space $\mathrm{Sp\acute{e}}\left(\mathscr F \right)$ , called the \textit{
+		\'espace etal\'e} of a presheaf of $\mathscr F$ as 
+	follows. As a set, $\mathrm{Sp\acute{e}}\left(\mathscr F \right)= \bigcup_{x\in\sX} \mathscr F_x$. We define a projection map $p: \mathscr \mathrm{Sp\acute{e}}\left(\mathscr F \right)$
+	by sending $s_x\in \mathscr F_x$ to $x$. For each open set $\sU\subset\sX$ and each section $s\in \mathscr F\left(\sU \right)$  we 
+	obtain a map: $\overline{s}: \sU \to  \mathrm{Sp\acute{e}}\left(\mathscr F \right)$ by sending $x \mapsto s_x$, its germ at $x$. This map has the property that 
+	$p\circ \overline{s}= \Id_\sX$, in other words, it is a "section" of $p$ over $\sU$. We now 
+	make $\mathrm{Sp\acute{e}}\left(\mathscr F \right)$ into a topological space by giving it the strongest topology such that 
+	all the maps $\overline{s}: \sU \to  \mathrm{Sp\acute{e}}\left(\mathscr F \right)$ for all $\sU$ and all $s\in \mathscr F\left(\sU \right)$ , are continuous. Now 	show that the sheaf $\mathscr F^+$ associated to $\mathscr F$ can be described as follows: for any 
+	open set $\sU\subset \mathscr F$, $\mathscr F\left(\sU \right)$ is the set of continuous sections of $\mathrm{Sp\acute{e}}\left(\mathscr F \right)$ over $\sU$. In 
+	particular, the original presheaf $\mathscr F$ was a sheaf if and only if for each $\sU\subset \sX$,  $\mathscr F\left(\sU \right)$ is 
+	equal to the set of all continuous sections of $\mathrm{Sp\acute{e}}\left(\mathscr F \right)$ over $\sU$. 
+	
+\end{exercise}
+\begin{exercise}
+	Let $\mathscr F$  and $\mathscr G$ by presheaves. Prove that any morphism corresponds to a continuous map $\phi:\mathrm{Sp\acute{e}}\left(\mathscr F \right)\to \mathrm{Sp\acute{e}}\left(\mathscr G \right)$ such that
+	\begin{itemize}
+		\item $p_{\mathscr G}= p_{\mathscr F} \circ \phi$ where both $p_{\mathscr G}: \mathrm{Sp\acute{e}}\left(\mathscr G\mathscr F \right)\to \sX$ are natural projections.
+		\item For all $x \in \sX$ a restriction $\phi|_{\mathscr F_x}: \mathscr F_x \to \mathscr G_x$ is a homomorphism of Abelian groups, rings, modules, etc.
+	\end{itemize}
+\end{exercise}
+
+\begin{remark}\label{sheaf_rem}
+	If $\sV \subset \sX$ is any subset  then  one can define a group $\mathscr F\left(\sV\right)$  which is a group of continuous maps  $\iota :\sV\to \mathrm{Sp\acute{e}}\left(\mathscr F \right)$ such that $p\circ\iota = \Id_\sV$. Denote by  $\mathscr F\left(\sV \right)$ the Abelian group of such maps.
+\end{remark}
+
+\begin{definition}\label{sheaf_inv_im_defn}\cite{hartshorne:ag}
+	Let $f: \sX\to \sY$ be a continuous map of topological spaces. For any sheaf  $\mathscr F$ on $\sX$, we define the \textit{direct image} sheaf  $f_*\mathscr F$ on $\sY$ by $\left(f_*\mathscr F\right)\left(\sV\right)= \mathscr F\left(f^{-1}\left(\sV\right)\right)$ for any open set $\sV \subseteq \sY$. For any sheaf  $\mathscr G$ on $\sY$, we define the \textit{inverse image} sheaf  $f^{-1}\mathscr G$ on $\sX$ be the sheaf  associated to the presheaf  $\sU \mapsto \lim_{\sV \supseteq f\left(\sU\right)} \mathscr G\left(\sV\right)$, where $\sU$ is any open set in $\sX$, and the limit is taken over all open sets $\sV$ of $\sV$ containing $f\left(\sU\right)$.
+\end{definition}
+
+\begin{definition}\label{sub_sheaf_defn}\cite{hartshorne:ag}
+	A \textit{subsheaf}  of a sheaf $\mathscr F$ is a sheaf $\mathscr F'$ such that for every open set 
+	$\sU \subset \sX$, $\quad \mathscr F'\left(\sU \right)$  is a subgroup of $\mathscr F\left(\sU \right)$, and the restriction maps of the 
+	sheaf $\mathscr F'$ are induced by those of $\mathscr F$. It follows that for any point $P$, the 
+	stalk $\mathscr F'_P$ is a subgroup of $\mathscr F_P$. 
+	%If (p: & -> ^ is a morphism of sheaves, we define the fce/w/ of (p, denoted ker cp, to be the presheaf kernel of cp (which is a sheaf). Thus ker cp is a subsheaf of .^. We say that a morphism of sheaves cp:^ -> (^ is injeetive if ker (p = 0. Thus <p is injeetive if and only if the induced map cp{U)\^(U) -> ^(G) is 	injeetive for every open set of X. 	If cp\ 3F -> ^ is a morphism of sheaves, we define the zm^ of cp, 	denoted im cp, to be the sheaf associated to the presheaf image of cp. By 	the universal property of the sheaf associated to a presheaf, there is a 	natural map im cp -> rS. In fact this map is injeetive (see Ex. 1.4), and thus 	im cp can be identified with a subsheaf of f&. 	We say that a morphism cp\, -> ^ of sheaves is sitrjective if im cp = f^. 	We say that a sequence . . . —> ^l~"] -—> .Wl ^> ,l^x -> . . . of sheaves 	and morphisms is ^xacr if at each stage ker <p' = im cpl ~ l. Thus a sequence
+		
+	\end{definition}
+	
+	
+	\begin{definition}\label{sheaf_hom_defn}\cite{hartshorne:ag}
+		Let $\mathscr F$, $\mathscr G$ be sheaves of Abelian  groups  on $\sX$. For any open set $\sU \subseteq \sX$ the set of morphisms
+		$\Hom\left(\left.\mathscr F\right|_{\sU}, \left.\mathscr G\right|_{\sU}\right)$ has the natural structure of Abelian group. 
+		It is a sheaf  (cf. \cite{hartshorne:ag}). It is called the \textit{sheaf of local morphisms} of $\mathscr F\to \mathscr G$, "sheaf hom" for short, and is denoted by $\mathscr Hom \left(\mathscr F, \mathscr G\right)$.
+	\end{definition}
+	
+	\begin{definition}\label{sheaf_ringed_space_defn}\cite{hartshorne:ag}
+		A \textit{ringed space} is a pair $\left(\sX, \mathcal O_\sX \right)$  consisting of a topological space 
+		$\sX$ and a sheaf of rings $\mathcal O_\sX$  on $\sX$.
+		% A morphism of ringed spaces from (X,CX) to (Y,GY) is a pair (./,/#) of a continuous map f:X-+ Y and a map f# :(ry -> fJ9x of sheaves of rings on Y. The ringed space (X,x) is a locally ringed space if for each point P e X, the stalk ([x P is a local ring. A morphism of locally ringed spaces is a morphism (/,/#) of ringed spaces, such that for each point P e X, the induced map (see below) of local rings fp :Cyj(P) -+ x,p ls a lcal homomorphism of local rings. We explain this last condition. First of all, given a point P e X, the morphism of sheaves f*:((Y -+ l\fix induces a homomorphism of rings CY(V) -> x(f~ { V), for every open set V in Y. As V ranges over all open neighbor- 	hoods of /(P), f~l(V) ranges over a subset of the neighborhoods of P. 	Taking direct limits, we obtain a map 	&YJ{P) = \jmCY(V)^\jme>'x(f-1V), 		72 
+				
+			\end{definition}
+			\begin{example} \label{sheaf_ringed_space_exm}
+				One has a following ringed spaces (cf.Definition \ref{sheaf_ringed_space_exm})
+				\begin{enumerate}
+					\item [(i)] If $\sX$ is topological space and a sheaf   $\mathscr C_\sX$ associated with a presheaf
+					$$
+					\sU \mapsto C_0\left( \sU\right) 
+					$$
+					then $\left(\sX, \mathscr C_\sX \right)$ is a ringed space.
+					\item [(ii)]If $M$ is smooth manifold and a sheaf   $\mathscr C^\infty_M$ associated with a presheaf
+					$$
+					\sU \mapsto \Coo\left( \sU\right) 
+					$$
+					then $\left(M, \mathscr C^\infty_\sX \right)$ is a ringed space.
+				\end{enumerate}
+			\end{example}
+			
+			\begin{definition}\label{sheaf_of_modules_den}\cite{hartshorne:ag}
+				Let $\left(\sX, \mathcal O_\sX \right)$  be a ringed space. A \textit{sheaf  of $ \mathcal O_\sX $-modules} 
+				(or simply an $\mathcal O_\sX$ -\textit{module}) is a sheaf  $\mathscr F$ on $\sX$, such that for each open set 
+				$\sU\subset\sX$, the group 
+				$\mathscr F\left(\sU \right)$ is an $\mathcal O_\sX$-module, and for each inclusion of 
+				open sets $\sV \subset\sU$, the restriction homomorphism $\mathscr F\left(\sU \right) \to \mathscr F\left(\sV \right)$  is compatible with the module structures via the ring homomorphism $\mathcal O_\sX\left(\sU \right) \to \mathcal O_\sX \left(\sV \right)$.
+				%	(9X(V). A morphism #" ≈> ^ of sheaves of $x-modules is a morphism of 
+				%	sheaves, such that for each open set U ^ X, the map <F(U) -> ^(7) is a 
+				%	homomorphism of $x(L/)-modules. 	Note that the kernel, cokernel, and image of a morphism of 6rx-modules 	is again an Gx-modu\e. If ^'ls a subsheaf  \ref{top_x_sheaf_defn} of (^'x-modules of an (9x-modu\e 	#", then the quotient sheaf \ref{top_x_sheaf_defn} gFj^F' is an #x-module. Any direct sum, 	direct product, direct limit, or inverse limit of $x-modules is an $x-module. 	If J^ and ^ are two $x-modules, we denote the group of morphisms from 	^ to ^ by Hom^^,^), or sometimes Homx(J^) or Hom( J^) if no 	confusion can arise. A sequence of $x-modules and morphisms is exact 	if it is exact as a sequence of sheaves of abelian groups. 	If U is an open subset of X, and if J^ is an $x-module, then tF\v is an 	(9x\v-modu\e. If 3F and ^ are two ^x-modules, the presheaf  \ref{top_x_sheaf_defn} 	is a sheaf, which we call the sheaf  \ref{top_x_sheaf_defn} Worn (Ex. 1.15), and denote by 	.^bm^l^). It is also an $x-module. 
+			\end{definition}
+			\subsection{Flasque (flabby) and soft sheaves}
+			\begin{definition}\label{sheaf_flasque}\cite{hartshorne:ag}
+				A sheaf  $\mathscr F$ on a topological space is \textit{flasque} or \textit{flabby} if for every inclusion $\sV \subseteq \sU$ of open sets, the restriction map $\mathscr F\left(\sU \right)\to\mathscr F\left(\sV \right)$ is surjective. 
+			\end{definition}
+			Recall that for $s \in \mathscr{F}\left(\sX \right)$, 
+			\be\label{sheaf_supp_eqn}
+			\supp s= \left\{\left.x \in \sX \right|s\left(x \right)\neq 0  \right\}
+			\ee
+			denotes the \textit{support} of the section $s$.
+			\begin{definition}\label{phi_supp_defn}\cite{godement:sheaf}.
+				Let $\sX$ be a topological space. A \textit{family of supports} on $\sX$ is a family $\Phi$ of closed
+				subsets of $\sX$  such that:
+				\begin{enumerate}
+					\item a closed subset of a member of $\Phi$ is a member of $\Phi$;
+					\item $\Phi$ is closed under finite unions.
+				\end{enumerate}
+				
+				$\Phi$  is said to be a  \textit{paracompactifying} family of supports if in addition:
+				\begin{enumerate}
+					\item  each element of $\Phi$ is paracompact;
+					\item each element of $\Phi$ has a (closed) neighborhood which is in $\Phi$.
+				\end{enumerate}
+			\end{definition}\label{sheaf_soft_defn}
+			The family of all compact subsets of $\sX$ is denoted by $c$.
+			\begin{definition}\label{soft_sheaf_defn}\cite{bredon:sheaf}
+				A sheaf  $\mathscr{F}$ on $\sX$ is called $\Phi$-\textit{soft} if the restriction map	$\mathscr{F}\left(\sX \right) \to  \mathscr{F}\left(K \right)$  is surjective for all $K \in \Phi$. If $\Phi$ is a set of all closed sets  then $\Phi$ is simply
+				called \textit{soft}. If $\Phi= c$ is a set of all compact  sets  then $\mathscr{F}$ is called $c$-\textit{soft}.
+			\end{definition}
+			\begin{theorem}\label{sheaf_soft_m_thm}\cite{bredon:sheaf}
+				Let $\left(\sX, \mathcal O_\sX \right)$ be a ringed space (cf. Definition \ref{sheaf_ringed_space_defn}), and let $\mathscr F$ be an $\mathcal O_\sX$-module (cf. Definition \ref{sheaf_of_modules_den}). Suppose that the space $\sX$ is paracompact and $\Phi$ is a {paracompactifying} family of supports(cf. Definition \ref{phi_supp_defn}). If the sheaf $\mathcal O_\sX$ is $\Phi$-soft (cf. Definition \ref{soft_sheaf_defn}) then  $\mathscr F$ is also $\Phi$-soft.
+			\end{theorem}
+			Now is $\mathscr P$ is a presheaf  on $\sX$ such and $s \in \mathscr P\left(\sX \right)$ we put
+			$\left|s\right| = \left|\th\left( s\right) \right|$, where $\th: \mathscr{P}\left(\sX \right)\to \mathscr{P}^+\left(\sX \right) $ is the canonical map, $\mathscr{P}^+$ being the sheaf  generated by $\mathscr{P}$.
+			Note that for $s \in \mathscr{P}$ one has $x \notin \left|s\right|\Leftrightarrow\left.s \right|_{\sU}$ for some neighborhood $\sU$ of $x$. If $\mathscr{F}$ is a sheaf, we put
+			$$
+			\Ga_\Phi = \left\{\left.s\in \mathscr{F}\left( \sX\right)\right| \left|s\right| \in \Phi \right\}
+			$$
+			For a presheaf $\mathscr{P}$  on $\sX$ we put  $\mathscr{P}_\Phi\left(\sX \right) = \left\{\left.s\in \mathscr{P}\left( \sX\right)\right| \left|s\right| \in \Phi \right\}$.
+			\begin{lemma}\label{schv_soft_n_lem}\cite{godement:sheaf,torsten:sheaves}
+				Let $\sX$ be a paracompact space, $\mathscr{F}$ a sheaf on $\sX$. Then $\mathscr{F}$ is soft if and only if every point $x \in \sX$ has a closed neighborhood $\overline{   \mathcal U }$ such that $\left.\mathscr{F}\right|_{\overline{   \mathcal U }}$ is soft.
+			\end{lemma}
+			
+			
+			%\begin{theorem}\cite{bredon:sheaf}
+			%	6.2.\\
+			%	Theorem. Let $\mathscr P$ be a presheaf  DEFN \ref{top_x_sheaf_defn} on $\sX$ that is conjunctive for coverings	of $\sX$ and $\mathscr P^+$ be the sheaf \ref{top_x_sheaf_defn} generated by $\mathscr P$. Then for any paracompactifying 	family $\Phi$ of supports on $\sX$, the sequence
+			%	$$
+			%	0 \to \mathscr P_0\left( \right) \to  \mathscr{P}_\Phi\left(\sX \right) \xrightarrow{\th}\Ga_\Phi\left(\mathscr{P}^+ \right) 
+			%	$$
+			%	is exact.
+			%\end{theorem}
+			\begin{theorem}\label{sheaf_neigh_thm}\cite{godement:sheaf}
+				%	3.3.1\\
+				Let $\mathscr{F}$ be a sheaf  of set over the space $\sX$, $\mathcal S$ is a subset of $\sX$ and $s$ is a section of the sheaf  $\mathscr{F}$ over $\mathcal S$. If $\mathcal S$ allows a fundamental system of paracompact neighborhoods then $s$ can be extended to a neighborhood of $\mathcal S$ in $\sX$. 
+			\end{theorem}
+			\begin{theorem}
+				%Thorme 3.4.1- — 
+				Soit $\mathscr F$ un faisceau surun espace $\sX$ paracompact. Supposons que 
+				tout point de $\sX$ possède un  voisinage $\sU$ vérifiant la condition suivante : toute section de $\mathscr F$
+				au-dessus d'un sous-ensemble fermé de $\sX$ contenu dans $\sU$, se prolonge à $\sU$. Alors $\mathscr F$ est mou.
+			\end{theorem}
+			Following text is an English translation of the above theorem
+			\begin{theorem}
+				Let  $\mathscr{ F}$ be a sheaf on  a paracompact space $\sX$. Suppose that for any $x \in\sX$ there is a neighborhood  $\sU$ which satisfies to the following condition; every section of $\mathscr{ F}$ over closed subset  $\sY\subset \sX$ such that $\sY\subset \sU$ can be extended up to $\sU$. Then the sheaf $\mathscr{ F}$ is soft.
+			\end{theorem}
+			\begin{thm}\cite{godement:sheaf}
+				%Thorme 3-7-2. — 
+				Soit $\mathscr{ A}$ un faisceau d'anneaux avec unité sur un espace paracompact $\sX$. Pour que $\mathscr{ A}$ soit mou, il faut et il suffit que tout point de $\sX$ possède un  voisinage $\sU$ tel que, 	étant donnés des fermé disjoints $S,T \subset \sU$, il existe une section de $\mathscr{ A}$ au-dessus de $\sU$, égale à 1 sur $S$ et à 0 sur $T$.
+			\end{thm}
+			Following text is an English translation of the above theorem.
+			\begin{theorem}\label{sheaf_a_soft_thm}
+				Let $\mathscr{ A}$ be a sheaf of unital algebras on a paracompact apace $\sX$. The sheaf $\mathscr{ A}$ is soft if and only if any $x\in\sX$ have a neighborhood $\sU$ such that for any closed sets $S, T\subset \sU$ one has
+				\bean
+				S\cap T = \emptyset \quad \Rightarrow \quad \exists s \in \mathscr{ A}\left( \sU\right) \quad s|_S = 1\quad \mathrm{AND} \quad \quad s|_T = 0.
+				\eean
+			\end{theorem}
+			
+			\begin{proposition}\label{flabby_soft_prop}\cite{bredon:sheaf}
+				%	9.22. Proposition. \\
+				If $\sU$ is a compact relatively Hausdorff subspace of $\sX$,
+				then $\left.\mathscr{F}\right|_{\sU} $ is soft for any flabby sheaf  $\mathscr{F}$ on $\sX$.
+			\end{proposition}
+			
 \section*{Acknowledgment}
 
 
