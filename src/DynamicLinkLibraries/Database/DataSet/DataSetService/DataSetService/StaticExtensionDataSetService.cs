@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DataSetService.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -29,6 +30,7 @@ namespace DataSetService
             }
             return diff;
         }
+
         /// <summary>
         /// Generates script
         /// </summary>
@@ -113,7 +115,37 @@ namespace DataSetService
                 return s;
             }
             return null;
+        }
 
+        /// <summary>
+        /// Converter of connection string
+        /// </summary>
+        public static IConnectionStringConverter ConnectionStringConverter
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// Sets converter
+        /// </summary>
+        /// <param name="connectionStringConverter">The conveter to set</param>
+        public static void Set(this IConnectionStringConverter connectionStringConverter)
+        {
+            ConnectionStringConverter = connectionStringConverter;
+        }
+
+
+
+        /// <summary>
+        /// Converts connection string
+        /// </summary>
+        /// <param name="value">Old value</param>
+        /// <returns>New value</returns>
+        public static string ConvertConnectionString(this string value)
+        {
+            var c = ConnectionStringConverter;
+            return (c != null) ? c.Convert(value) : value;
         }
     }
 }

@@ -98,7 +98,7 @@ namespace DataSetService
             {
                 IDataSetFactory factory = DataSetFactoryChooser.Chooser[factoryName];
                 DbConnection connection = factory.Connection;
-                connection.ConnectionString = connectionString;
+                connection.ConnectionString = connectionString.ConvertConnectionString();
                 return factory.GetData(connection);
             }
         }
@@ -168,7 +168,8 @@ namespace DataSetService
         {
             factory = DataSetFactoryChooser.Chooser[factoryName];
             connection = factory.Connection;
-            connection.ConnectionString = connectionString;
+            connection.ConnectionString = 
+                connectionString.ConvertConnectionString(); ;
             command = factory.Command;
             command.Connection = connection;
             command.CommandType = CommandType.Text;
