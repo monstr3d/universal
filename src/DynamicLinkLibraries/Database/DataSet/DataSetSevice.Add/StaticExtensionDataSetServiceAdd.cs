@@ -33,7 +33,7 @@ namespace DataSetSevice.Add
 
             string IConnectionStringConverter.Convert(string value)
             {
-                return value.Replace("SSPI", "True").Replace("user id=sa;", "");
+                return value.Replace("SQLEXPRESS", "SQLEXPESS").Replace("SSPI", "True").Replace("user id=sa;", "");
             }
         }
     }
