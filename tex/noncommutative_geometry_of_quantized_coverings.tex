@@ -1168,8 +1168,84 @@ So both $\widetilde a$ and $\widetilde b$ can be regarded as elements of $\End^*
 % END COMMENTS ===========================
 
 
-\section{Grothendieck $C^*$-algebras}\label{grothendieck_ca_sec}
+\section{Grothendieck topology}
+\begin{empt}\label{hered_repr_p_empt}
+	If $\rho: A\hookto B\left(\H \right)$ be a faithful nondegenerate representation then there is a $C^*$-algebra $A''$ such that
+	\begin{itemize}
+		\item $A''$ is isomorphic to the bicommutant $\rho\left( A\right)''$ (cf. Definition \ref{commutant_defn}) of $A$,
+		\item there is the natural inclusion $A \subset A''$,
+		\item one has a natural extension 
+		\be\label{rho_ext_eqn}
+		\rho'': A'' \hookto B\left(\H\right)
+		\ee
+		of the representation $\rho$.
+	\end{itemize}
+	Let $B$ be a hereditary subalgebra $A$, and let  $\left\{u_\la \right\}_{\la \in \La} \subset  B\left(\H \right)_+$ be an increasing  net of positive elements, such that
+	\begin{itemize}
+		\item $\left\{u_\la \right\}\subset M\left(A \right) \cap M\left( B\right)$.
+		\item 
+		\be\label{hered_r_u_eqn}
+		\forall\la\in\La\quad	\rho\left(u_\la A u_\la \right)\subset \rho\left(B  \right).  
+		\ee
+		\item There is a limit $\bt$-$\lim_\la u_\la = 1_{ M\left( B\right) }$ with respect to the strict topology of $M\left( B\right)$ (cf. Definition \ref{strict_topology_defn}). 
+	\end{itemize}
+	One has
+	\be\label{hered_uau_eqn}
+	B = \left\{ a \in A \left|~\lim_{\la\in\La} \left\| a - u_\la a u_\la\right\|= 0 \right.\right\}
+	\ee
+	From the Lemma \ref{increasing_convergent_w_lem} the net $\left\{u_\la \right\}$  is convergent  with respect to the strong topology of $B\left(\H \right)$ (cf. Definition \ref{strong_topology_defn}). If $p \bydef s-\lim\rho\left(  u_\la \right) \in B\left( \H\right)$ is a strong limit then $p$ lies in the strong closure of $\rho(A)$ (cf. Definition \ref{strong_topology_defn}). Form the Theorem \ref{von_Neumann_thm} it follows that $p\in \rho\left(A \right)''= \rho''\left(A'' \right)$, i.e.
+	\be\label{hered_repr_abc_eqn}
+	\exists  p'' \in A''\quad p = \rho''\left(p'' \right).
+	\ee
+	From  $1_{ M\left( B\right) }= 1^*_{ M\left( B\right) }$ and $1^2_{ M\left( B\right) }=1_{ M\left( B\right) }$ it follows that $p$ is a projector, i.e. $p^*=p$ and $p^2 = p$. From \eqref{hered_uau_eqn} it turns out that 
+	\be\label{hered_pap_eqn}
+	B = \left\{ a \in A | p\rho\left( a\right) p = \rho \left( a\right)\right\}=  \left\{ a \in A | p'' a p'' = a\right\}
+	\ee
+	and  there is a natural representation
+	\be\label{hered_rep_eqn}
+	B \hookto B\left(p \H \right) 
+	\ee
+\end{empt}
+\begin{remark}\label{hered_dense_rem}
+	If $\left\{u_\la \right\}_{\la \in \La} \subset \rho\left(B \right)$ then from $p \bydef s$-$\lim_{\la\in\La} \rho\left( u_\la\right)$ it follows that $p\H$ is a norm completion of $\rho\left(B\right)\H$.
+\end{remark}
+\begin{lemma}\label{hered_full_lem} 
+	In the situation \ref{hered_repr_p_empt} the representation \eqref{hered_rep_eqn} is  faithful.
+\end{lemma}
+\begin{proof}
+	For any $a \in B$ there is $\xi \in \H$ such that $\rho\left(a\right)\xi \neq 0$. From  \eqref{hered_rep_eqn} it follows that $\rho\left( a\right) \xi = p \rho\left( a\right) p\xi \neq 0$. On the other hand $p\xi \in p\H$.
+\end{proof}
 
+\begin{lemma}\label{hered_nondegenerate_lem} 
+	In the situation \ref{hered_repr_p_empt} the representation \eqref{hered_rep_eqn} is  nondegenerate.
+\end{lemma}
+\begin{proof}
+	For any $\xi \in p\H\setminus\{0\}$ there is $a \in A$ such that $a \xi \neq 0$. From the equation \eqref{four_decompositon_eqn} we can suppose that $a$ is positive. One has $\lim_{\la \in \La}u_\la \xi = \xi$, it follows that  $\lim_{\la \in \La}a u_\la \xi = a\xi$. There is $\la_0\in \La$ such that $a u_{\la_0} \xi \neq 0$, so one has
+	\bean
+	\left(a u_{\la_0} \xi, a u_{\la_0} \xi \right) = \left(\xi , \left( u_{\la_0} a^*a u_{\la_0}\right) \xi  \right)\neq 0\quad \Rightarrow \quad \left(  u_{\la_0} a^*a u_{\la_0}\right) \xi	\neq 0.
+	\eean
+	However $ u_{\la_0} a^*a u_{\la_0}\in B$.
+\end{proof}
+\begin{corollary}\label{hered_representation_cor}
+	Let $A$ be a $C^*$-algebra and let $\rho: A\hookto B\left( \H\right)$ be a faithful, nondegenerate representation. If $\left\{u_\la \right\}_{\la\in \La}\subset B$ is an approximate unit of $B$ (cf. Definition \ref{approximate_unit_defn}) and $p \bydef s$-$\lim_{\la\in\La} \rho\left( u_\la\right)$ is a strong limit in $B\left(\H \right)$  (cf. Definition \ref{strong_topology_defn})
+	then 
+	$$
+	B = \left\{a \in A| p \rho\left( a\right)p = \rho\left(a \right) \right\}
+	$$ 
+	and there is a faithful, nondegenerate representation
+	$$
+	B \hookto B\left(p \H \right). 
+	$$
+\end{corollary}
+\begin{lemma}\label{hered_repr_p_lem}
+	In the situation \ref{hered_repr_p_empt} if $\pi: A\to B\left(\H \right)$ is an atomic  representation (cf. Definition \ref{atomic_repr_defn}) then the given by \eqref{hered_rep_eqn} representation $ B \hookto B\left(p \H \right)$ is atomic.
+\end{lemma}
+\begin{proof}
+	One can prove this lemma by usage of the proof of the Lemma 
+	\ref{hered_repr_lem}.
+\end{proof}
+
+\begin{empt}\label{grothendieck_ca_empt}
 Let $A$ be a $C^*$-algebra. We define a category $\mathbf{Hered}/A$ such that
 \begin{itemize}
 	\item $\mathbf{Hered}/A$-objects are hereditary $C^*$- subalgebras of $A$.
@@ -1193,15 +1269,17 @@ $$
 B'\times_A B'' \bydef B'\cap B''.
 $$
 For any $\mathbf{Hered}/A$-object a distinguished set of families of maps $\left\{B_\iota \hookto B\right\}_{\iota\in I}$, called a \textit{covering} of $B$ if $B$ is a generated by the union $\cup B_\iota$ hereditary $C^*$-subalgebra of $A$.
-\begin{exercise}
-	Prove that a described above system of coverings satisfy to the conditions (b) and (c) of the Definition \ref{site_defn}.
+\end{empt}
+
+\begin{exercise}\label{grothendieck_ca_exer}
+Using the Corollary \ref{hered_representation_cor}	prove that a described above system of coverings satisfy to  the Definition \ref{site_defn}, so one has a natural Grothendieck topology.
 \end{exercise}
 
 \begin{definition}\label{grothendieck_ca_defn}
-	We say that $A$ is a \textit{Grothendieck $C^*$-algebra} if a described above system of coverings satisfy to the condition (a) of the Definition  \ref{site_defn}. Any {Grothendieck $C^*$-algebra} naturally yields a Grothendieck topology which is said to be $A$-\textit{topology}.
+The given by the Exercise \ref{grothendieck_ca_exer} topology  is said to be \textit{Grothendieck} $A$-\textit{topology}.
 \end{definition}
 \begin{exercise}
-	For any locally compact Hausdorff space $\sX$ an algebra $C_0\left(\sX \right)$ is a {Grothendieck $C^*$-algebra} 	and $C_0\left(\sX\right)$-topology  is naturally isomorphic to a classical topology of $\sX$.
+	For any locally compact Hausdorff space $\sX$ a Grothendieck $C_0\left(\sX\right)$-topology  is naturally isomorphic to a classical topology of $\sX$.
 \end{exercise}
 
 \section{Miscellany}
@@ -1463,81 +1541,6 @@ x \mapsto	\begin{cases}
 \end{empt}
 
 
-\begin{empt}\label{hered_repr_p_empt}
-If $\rho: A\hookto B\left(\H \right)$ be a faithful nondegenerate representation then there is a $C^*$-algebra $A''$ such that
-\begin{itemize}
-	\item $A''$ is isomorphic to the bicommutant $\rho\left( A\right)''$ (cf. Definition \ref{commutant_defn}) of $A$,
-	\item there is the natural inclusion $A \subset A''$,
-	\item one has a natural extension 
-	\be\label{rho_ext_eqn}
-	\rho'': A'' \hookto B\left(\H\right)
-	\ee
- of the representation $\rho$.
-\end{itemize}
-Let $B$ be a hereditary subalgebra $A$, and let  $\left\{u_\la \right\}_{\la \in \La} \subset  B\left(\H \right)_+$ be an increasing  net of positive elements, such that
-\begin{itemize}
-	\item $\left\{u_\la \right\}\subset M\left(A \right) \cap M\left( B\right)$.
-	\item 
-	\be\label{hered_r_u_eqn}
-\forall\la\in\La\quad	\rho\left(u_\la A u_\la \right)\subset \rho\left(B  \right).  
-	\ee
-	\item There is a limit $\bt$-$\lim_\la u_\la = 1_{ M\left( B\right) }$ with respect to the strict topology of $M\left( B\right)$ (cf. Definition \ref{strict_topology_defn}). 
-\end{itemize}
-One has
-  \be\label{hered_uau_eqn}
-B = \left\{ a \in A \left|~\lim_{\la\in\La} \left\| a - u_\la a u_\la\right\|= 0 \right.\right\}
-\ee
- From the Lemma \ref{increasing_convergent_w_lem} the net $\left\{u_\la \right\}$  is convergent  with respect to the strong topology of $B\left(\H \right)$ (cf. Definition \ref{strong_topology_defn}). If $p \bydef s-\lim\rho\left(  u_\la \right) \in B\left( \H\right)$ is a strong limit then $p$ lies in the strong closure of $\rho(A)$ (cf. Definition \ref{strong_topology_defn}). Form the Theorem \ref{von_Neumann_thm} it follows that $p\in \rho\left(A \right)''= \rho''\left(A'' \right)$, i.e.
- \be\label{hered_repr_abc_eqn}
-\exists  p'' \in A''\quad p = \rho''\left(p'' \right).
- \ee
- From  $1_{ M\left( B\right) }= 1^*_{ M\left( B\right) }$ and $1^2_{ M\left( B\right) }=1_{ M\left( B\right) }$ it follows that $p$ is a projector, i.e. $p^*=p$ and $p^2 = p$. From \eqref{hered_uau_eqn} it turns out that 
-  \be\label{hered_pap_eqn}
-  B = \left\{ a \in A | p\rho\left( a\right) p = \rho \left( a\right)\right\}=  \left\{ a \in A | p'' a p'' = a\right\}
-  \ee
- and  there is a natural representation
-  \be\label{hered_rep_eqn}
-  B \hookto B\left(p \H \right) 
-  \ee
-\end{empt}
-\begin{remark}\label{hered_dense_rem}
-If $\left\{u_\la \right\}_{\la \in \La} \subset \rho\left(B \right)$ then from $p \bydef s$-$\lim_{\la\in\La} \rho\left( u_\la\right)$ it follows that $p\H$ is a norm completion of $\rho\left(B\right)\H$.
-\end{remark}
-\begin{lemma}\label{hered_full_lem} 
-In the situation \ref{hered_repr_p_empt} the representation \eqref{hered_rep_eqn} is  faithful.
-\end{lemma}
-\begin{proof}
-	For any $a \in B$ there is $\xi \in \H$ such that $\rho\left(a\right)\xi \neq 0$. From  \eqref{hered_rep_eqn} it follows that $\rho\left( a\right) \xi = p \rho\left( a\right) p\xi \neq 0$. On the other hand $p\xi \in p\H$.
-\end{proof}
-
-\begin{lemma}\label{hered_nondegenerate_lem} 
-In the situation \ref{hered_repr_p_empt} the representation \eqref{hered_rep_eqn} is  nondegenerate.
-\end{lemma}
-\begin{proof}
-	For any $\xi \in p\H\setminus\{0\}$ there is $a \in A$ such that $a \xi \neq 0$. From the equation \eqref{four_decompositon_eqn} we can suppose that $a$ is positive. One has $\lim_{\la \in \La}u_\la \xi = \xi$, it follows that  $\lim_{\la \in \La}a u_\la \xi = a\xi$. There is $\la_0\in \La$ such that $a u_{\la_0} \xi \neq 0$, so one has
-	\bean
-\left(a u_{\la_0} \xi, a u_{\la_0} \xi \right) = \left(\xi , \left( u_{\la_0} a^*a u_{\la_0}\right) \xi  \right)\neq 0\quad \Rightarrow \quad \left(  u_{\la_0} a^*a u_{\la_0}\right) \xi	\neq 0.
-\eean
-However $ u_{\la_0} a^*a u_{\la_0}\in B$.
-\end{proof}
-\begin{corollary}\label{hered_representation_cor}
-Let $A$ be a $C^*$-algebra and let $\rho: A\hookto B\left( \H\right)$ be a faithful, nondegenerate representation. If $\left\{u_\la \right\}_{\la\in \La}\subset B$ is an approximate unit of $B$ (cf. Definition \ref{approximate_unit_defn}) and $p \bydef s$-$\lim_{\la\in\La} \rho\left( u_\la\right)$ is a strong limit in $B\left(\H \right)$  (cf. Definition \ref{strong_topology_defn})
-then 
-$$
-B = \left\{a \in A| p \rho\left( a\right)p = \rho\left(a \right) \right\}
-$$ 
-and there is a faithful, nondegenerate representation
-$$
-B \hookto B\left(p \H \right). 
-$$
-\end{corollary}
-\begin{lemma}\label{hered_repr_p_lem}
-In the situation \ref{hered_repr_p_empt} if $\pi: A\to B\left(\H \right)$ is an atomic  representation (cf. Definition \ref{atomic_repr_defn}) then the given by \eqref{hered_rep_eqn} representation $ B \hookto B\left(p \H \right)$ is atomic.
-\end{lemma}
-\begin{proof}
-One can prove this lemma by usage of the proof of the Lemma 
-\ref{hered_repr_lem}.
-\end{proof}
 \begin{lemma}\label{pedersen_eps_lem}
 Let $\eps > 0$, and let 	 $f_\eps: \R \to \R$ be a continuous function given by 
 	\begin{equation}\label{f_eps_eqn}
@@ -2273,7 +2276,7 @@ Consider the situation  \ref{fin_chull_empt}. If following conditions hold:
 \end{definition}
 
 
-
+!!! CONTINUE !!!
 
 \section{Basic constructions}\label{cov_fin_basc_sec}
    
@@ -3115,7 +3118,7 @@ Consider the situation of the Definition \ref{fin_cat_defn}. The  $C^*$-algebra 
 %	From the Lemma \ref{lift_unitization_lem} it follows that any hereditary subalgebra  semilocally proper subalgebra of $A$ is also  semilocally proper subalgebra of $A$.
 %\end{empt}
 \begin{definition}\label{semilocally_1_connected_defn}
-	If $A$ is a $C^*$-algebra then a connected (cf. Definition \ref{connected_c_a_defn}) a connected subalgebra $B \subset A$ is said to be \textit{semilocally proper} if for any finite-fold noncommutative covering $\left(A, \widetilde A, G, \pi\right)$  there is a hereditary $C^*$-subalgebra $\widetilde B \subset \widetilde A$ such that:
+	If $A$ is a $C^*$-algebra then a connected (cf. Definition \ref{connected_c_a_defn}) a connected subalgebra $B \subset A$ is said to be \textit{semilocally proper} if for any finite-fold noncommutative covering $\left(A, \widetilde A, G, \pi\right)$  there is a connected hereditary $C^*$-subalgebra $\widetilde B \subset \widetilde A$ such that:
 	
 	\begin{enumerate}
 		\item[(a)] $g \widetilde B \cap \widetilde B = \{0\}$ for all nontrivial  $g \in G\left(\left.\widetilde A\right| A\right)$;
@@ -3135,7 +3138,7 @@ Consider the situation of the Definition \ref{fin_cat_defn}. The  $C^*$-algebra 
 	\end{enumerate}
 	then clearly $\widetilde A$ equals to its hereditary subalgebra generated by a union 
 	$$
-	\bigcup_{\a\in \mathscr A}\bigcup_{g \in } g \widetilde B
+	\bigcup_{\a\in \mathscr A}\bigoplus_{g \in G\left(\left.\widetilde A \right| A\right)} g \widetilde B_\a
 	$$
 	
 \end{empt}
@@ -15698,10 +15701,10 @@ $$
 	
 \end{proof} 
 \begin{corollary}
-If $A$ is a continuous trace $C^*$-algebra then $A$ is Grothendieck $C^*$-algebra (cf. Definition \ref{grothendieck_ca_defn}).
+If $A$ is a continuous trace $C^*$-algebra then $A$ is Grothendieck $C^*$-algebra (cf. Definition \ref{grothendieck_ca_defn} !!! CHECK !!!).
 \end{corollary}
 \begin{proof}
-From the Lemma \ref{ctr_grothendieck_lem} it follows that a specialization of the  explained in the Section \ref{grothendieck_ca_defn} category $\mathbf{Hered}/A$ is equivalent to the category of open sets of the space $\mathrm{Sp\acute{e}}\left(\mathscr P^{\text{comm}}\right)$. On the other hand a latest category satisfies to Definition \ref{site_defn}.
+From the Lemma \ref{ctr_grothendieck_lem} it follows that a specialization of the  explained in the Section \ref{grothendieck_ca_defn} !!! CHECK !!! category $\mathbf{Hered}/A$ is equivalent to the category of open sets of the space $\mathrm{Sp\acute{e}}\left(\mathscr P^{\text{comm}}\right)$. On the other hand a latest category satisfies to Definition \ref{site_defn}.
 \end{proof} 
 
 \section{Operator spaces with Hausdorff spectrum}\label{ctr_oa_sec}
@@ -17597,10 +17600,10 @@ One has
 	
 \end{proof} 
 \begin{corollary}
-	$C^*_r\left( M, \F \right)$ is a  Grothendieck $C^*$-algebra (cf. Definition \ref{grothendieck_ca_defn}).
+	$C^*_r\left( M, \F \right)$ is a  Grothendieck $C^*$-algebra (cf. Definition \ref{grothendieck_ca_defn} !!! CHECK !!!).
 \end{corollary}
 \begin{proof}
-	From the Lemma \ref{foli_grothendieck_lem} it follows that a specialization of the  explained in the Section \ref{grothendieck_ca_defn} category $\mathbf{Hered}/ C^*_r\left( M, \F \right)$ is equivalent to the category of open sets of the space $\mathrm{Sp\acute{e}}\left(\mathscr P^{\text{comm}}\right)$. On the other hand a latest category satisfies to Definition \ref{site_defn}.
+	From the Lemma \ref{foli_grothendieck_lem} it follows that a specialization of the  explained in the Section \ref{grothendieck_ca_defn} !!! CHECK !!! category $\mathbf{Hered}/ C^*_r\left( M, \F \right)$ is equivalent to the category of open sets of the space $\mathrm{Sp\acute{e}}\left(\mathscr P^{\text{comm}}\right)$. On the other hand a latest category satisfies to Definition \ref{site_defn}.
 \end{proof} 
 
 
