@@ -2585,6 +2585,32 @@ $$
 It follows that the restriction $\tau \bydef \widetilde{\tau}|_A: A\to \C$ is not trivial.  So there is the given by $\widetilde{\tau}\to \tau$ map $\varphi$ from the set of invariant states on $\widetilde{A}$ to states on $A$. The maps $\phi$ and $\varphi$ are mutually inverse.
 
 \end{proof}
+\begin{exercise}\label{disunct_irr_exer}
+	Let $A$ be a $C^*$-algebra, and let
+	$\tau_1, ..., \tau_n: A\to\C$ be mutually orthogonal  states (cf. Definition \ref{orth_func_defn}). Let $\tau\bydef c_1 \tau_1 +... +c_n\tau_n$ be a state such that $c_1> 0, ..., c_n > 0$ and $c_1+...+c_n=1$.  Let $\pi: A \to B\left(L^2\left( A,\tau \right)  \right)$ and $\pi_j: A \to B\left(L^2\left( A,\tau_j \right)  \right)$ be the GNS representations (cf. Definition \ref{gns_defn}) which correspond to $\tau$ and $\tau_1, ..., \tau_n$. From the Corollary \ref{domin_rep_cor} for any $j=1,..., n$ a representation $\pi_j$ can be regarded as a subrepresentation of 
+	$\pi$ (cf. Definition \ref{subrepr_defn}). If $\pi\left(A \right)'$ is a commutant of $\pi\left( A\right) $ in $B\left(L^2\left( A,\tau \right) \right)$ then any representation $\pi_j$ is a representation on $p_j L^2\left( A,\tau \right)$, where $p_j\in \pi\left(A \right)'$ is a projector with central support projection $z_j \in \mathscr Z\left( \pi\left(A \right)'\right)$ (cf. Definition \ref{central_supp_defn}). Prove following statements:
+	\begin{enumerate}
+		\item For any $j = 1,..., n$ the Hilbert space
+		$$
+		p_jL^2\left( A,\tau\right) 
+		$$
+		is the completion of 
+		$$
+		f_\tau\left(\left\{a \in A| \tau_j\left(a^*a \right) \neq 0\right\} \right) 
+		$$
+		whee $f_\tau$ is given by the equation \eqref{from_a_to_l2_eqn}.
+		\item  $	L^2\left( A,\tau\right) = \sum_{j=1}^np_jL^2\left( A,\tau\right)$.
+		\item $1_{\pi\left(A \right)'}= p_1\vee ... \vee p_n = z_1\vee ... \vee z_n$ where a notation \ref{von_nemann_op_empt} is used.
+		\item If $\pi_0: A \to B\left(L^2\left( A,\tau \right)  \right)$ is an irreducible subrepresentation of $\pi$ with a projection $p_0$ and central support projection $z_0$ (cf. Definition \ref{central_supp_defn})
+		then one has:
+		\begin{enumerate}
+			\item [(a)] $z_0 \wedge z_j\neq 0 \quad\Rightarrow \quad  z_0 \wedge z_j=z_0$ (cf. the  notation \ref{von_nemann_op_empt}).
+			\item[(b)] $\exists j \in \{1,..., n\}\quad  z_0 \wedge z_j=z_0$.
+			\item[(c)] $\exists j \in \{1,..., n\}\quad  \pi_0 \preceq\pi_j$ (cf Proposition \ref{orth_repr_prop}).
+		\end{enumerate}
+	\end{enumerate}
+\end{exercise}
+
 \begin{exercise}\label{sub_funct_exer}
 Let $\psi = a_1 \phi_1 + ... + a_n \phi_n$ be a state on $C^*$-algebra $A$ where $\phi_1, ..., \phi_n$ are mutually orthogonal pure states and $a_1 + ... + a_n = 1$. 
 Let $\th : A\to \C$ be a positive functional such that $\th \le \psi$. Prove that $\th =  b_1 \phi_1 + ... + b_n \phi_n$
@@ -2699,31 +2725,6 @@ Taking into account that the atomic representation (cf. Definition \ref{atomic_r
 \begin{definition}\label{fin_free_defn}
 We say that a finite-fold quasi-covering $\left(A, \widetilde{A}, G, \pi \right)$ is \textit{free} if the given by the Proposition \ref{spectrum_cov_prop}   action of $G\times \widetilde\sX \to \widetilde\sX$ is free.
 \end{definition}   
-\begin{exercise}\label{disunct_irr_exer}
-	Let $A$ be a $C^*$-algebra, and let
-	 $\tau_1, ..., \tau_n: A\to\C$ be mutually orthogonal  states (cf. Definition \ref{orth_func_defn}). Let $\tau\bydef c_1 \tau_1 +... +c_n\tau_n$ be a state such that $c_1> 0, ..., c_n > 0$ and $c_1+...+c_n=1$.  Let $\pi: A \to B\left(L^2\left( A,\tau \right)  \right)$ and $\pi_j: A \to B\left(L^2\left( A,\tau_j \right)  \right)$ be the GNS representations (cf. Definition \ref{gns_defn}) which correspond to $\tau$ and $\tau_1, ..., \tau_n$. From the Corollary \ref{domin_rep_cor} for any $j=1,..., n$ a representation $\pi_j$ can be regarded as a subrepresentation of 
-	 $\pi$ (cf. Definition \ref{subrepr_defn}). If $\pi\left(A \right)'$ is a commutant of $\pi\left( A\right) $ in $B\left(L^2\left( A,\tau \right) \right)$ then any representation $\pi_j$ is a representation on $p_j L^2\left( A,\tau \right)$, where $p_j\in \pi\left(A \right)'$ is a projector with central support projection $z_j \in \mathscr Z\left( \pi\left(A \right)'\right)$ (cf. Definition \ref{central_supp_defn}). Prove following statements:
-	 \begin{enumerate}
-	 	\item For any $j = 1,..., n$ the Hilbert space
-	 	$$
-	 	p_jL^2\left( A,\tau\right) 
-	 	$$
-	 	is the completion of 
-	 	$$
-	 	f_\tau\left(\left\{a \in A| \tau_j\left(a^*a \right) \neq 0\right\} \right) 
-	 	$$
-	 	whee $f_\tau$ is given by the equation \eqref{from_a_to_l2_eqn}.
-	\item  $	L^2\left( A,\tau\right) = \sum_{j=1}^np_jL^2\left( A,\tau\right)$.
-	\item $1_{\pi\left(A \right)'}= p_1\vee ... \vee p_n = z_1\vee ... \vee z_n$ where a notation \ref{von_nemann_op_empt} is used.
-	\item If $\pi_0: A \to B\left(L^2\left( A,\tau \right)  \right)$ is an irreducible subrepresentation of $\pi$ with a projection $p_0$ and central support projection $z_0$ (cf. Definition \ref{central_supp_defn})
-	then one has:
-	\begin{enumerate}
-		\item [(a)] $z_0 \wedge z_j\neq 0 \quad\Rightarrow \quad  z_0 \wedge z_j=z_0$ (cf. the  notation \ref{von_nemann_op_empt}).
-		\item[(b)] $\exists j \in \{1,..., n\}\quad  z_0 \wedge z_j=z_0$.
-		\item[(c)] $\exists j \in \{1,..., n\}\quad  \pi_0 \preceq\pi_j$ (cf Proposition \ref{orth_repr_prop}).
-	\end{enumerate}
-	 \end{enumerate}
-\end{exercise}
 \begin{lemma}\label{sub_pure_lem}
 Let $\left(A, \widetilde{A}, G, \pi \right)$ be a noncommutative finite-fold  quasi-covering. Let $\widetilde \tau: \widetilde{A}\to \C$ and $\tau \bydef \left. \widetilde{\tau}\right|_A: A \to \C$ be states. If $\rho: A \to \C$ is a pure state such that $\rho\preceq\tau$ (cf. Definition \ref{orth_repr_defn}), then there is a pure state $\widetilde \rho : \widetilde{A}\to \C$ such that 
 \bean
@@ -2746,7 +2747,7 @@ $$
 \left. \widetilde{\rho}\right|_A= \left. \widetilde{\rho}'\right|_A= \rho.
 $$
 \end{proof}
-!!! CONTINUE !!!
+
 \begin{empt}
 Suppose that $\left(A, \widetilde{A}, G, \pi \right)$ is  a noncommutative finite-fold  quasi-covering.
 There is  an isomorphism  $\widetilde{A} \approx A \bigoplus P$ of $A$-modules, so any $\widetilde{a} \in \End\left( \widetilde{A}\right)_A$ can be represented by  four $A$-module homomorphisms $\al : A \to A$, $\bt : P \to A$, $\ga : A \to P$, $\delta : P \to P$ such that $\widetilde{a}$ corresponds to a matrix
@@ -2907,7 +2908,7 @@ Prove that any free  noncommutative finite-fold quasi-covering  is reduced (cf. 
 \end{exercise}
 
 \begin{lemma}\label{covering_atomic_lem} 
-	If $\left(A, \widetilde{A}, G, \pi \right)$ is  a  %reduced 
+	If $\left(A, \widetilde{A}, G, \pi \right)$ is  a  reduced 
 	noncommutative finite-fold  quasi-covering (cf. Definitions \ref{fin_quasi_defn} and \ref{fin_red_defn}), $\rho: A \to B\left(\H\right)$ is an atomic representation (cf. Definition \ref{atomic_repr_defn}) and $ \widetilde \rho :\widetilde A \to B\left(\widetilde \H\right)$ is induced by the pair $\left(\rho, \left(A, \widetilde{A}, G, \pi \right)\right)$ (cf. Definition \ref{induced_repr_defn}), then the representation $\widetilde \rho$ is atomic.
 \end{lemma}
 \begin{proof}
@@ -3121,7 +3122,7 @@ Consider the situation of the Definition \ref{fin_cat_defn}. The  $C^*$-algebra 
 %	From the Lemma \ref{lift_unitization_lem} it follows that any hereditary subalgebra  semilocally proper subalgebra of $A$ is also  semilocally proper subalgebra of $A$.
 %\end{empt}
 \begin{definition}\label{semilocally_1_connected_defn}
-	If $A$ is a $C^*$-algebra then a connected (cf. Definition \ref{connected_c_a_defn}) a connected subalgebra $B \subset A$ is said to be \textit{semilocally proper} if for any finite-fold noncommutative covering $\left(A, \widetilde A, G, \pi\right)$  there is a connected hereditary $C^*$-subalgebra $\widetilde B \subset \widetilde A$ such that:
+	If $A$ is a $C^*$-algebra then a connected (cf. Definition \ref{connected_c_a_defn}) a connected hereditary $c^*$-subalgebra $B \subset A$ is said to be \textit{semilocally proper} if for any finite-fold noncommutative covering $\left(A, \widetilde A, G, \pi\right)$  there is a connected hereditary $C^*$-subalgebra $\widetilde B \subset \widetilde A$ such that:
 	
 	\begin{enumerate}
 		\item[(a)] $g \widetilde B \cap \widetilde B = \{0\}$ for all nontrivial  $g \in G\left(\left.\widetilde A\right| A\right)$;
@@ -3663,7 +3664,7 @@ Similarly to the Remark \ref{loc_op_sp_rem} any abstract real operator local spa
  Similarly to definition \ref{fin_loc_op_defn} one can define a finite-fold noncommutative covering for local real operator spaces.
 \end{remark}
 
-
+!!! CONTINUE !!!
 
 \section{Coverings of spectral triples}\label{triple_fin_cov}
 
