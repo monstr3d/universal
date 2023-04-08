@@ -22265,6 +22265,121 @@ For all $n > 1$ the group $	\pi_{n} (\sX, x_0)$ is Abelian.
 	\ee
 \end{remark}
 
+\subsection{The homotopy lifting problem and fibrations}
+
+\begin{empt}\label{top_lifting_empt}\cite{spanier:at}
+	There is a significant problem in the algebraic topology, called the lifting problem. Let $p: \mathcal{E} \to \mathcal{B}$ and $f: \mathcal{X} \to \mathcal{B}$ continuous maps of topological spaces. The {\it lifting problem} \cite{spanier:at} for $f$ is to determine whether there is a continuous map $f': \mathcal{X} \to \mathcal{E}$ such that $f=p\circ f'$-that is, whether the dotted arrow in the diagram
+	\newline
+	\hspace*{\fill}
+	\begin{tikzpicture}
+		\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em] {
+			& \mathcal{E} \\
+			\mathcal{X} & \mathcal{B} \\};
+		\path[-stealth]
+		(m-2-1.east|-m-2-2) edge node [below] {$f$}(m-2-2)
+		(m-1-2) edge node [right] {$p$} (m-2-2)
+		(m-2-1)      edge [dashed]  node[above] {$f'$} (m-1-2);
+	\end{tikzpicture}
+	\hspace{\fill}
+	\newline
+	corresponds to a continuous map making the diagram commutative. If there is such map $f'$, then $f$ can be {\it lifted} to $\mathcal{E}$, and we call $f'$ a {\it lifting} or {\it lift} of $f$.
+	If $p$ is a covering projection and $\mathcal{X} = [0,1] \subset \mathbb{R}$ then $f$ can be lifted.
+\end{empt}
+\begin{definition}\label{top_ho_lifting_defn}\cite{spanier:at}
+	A map $p: \E \to \B$ is said to have the 
+	\textit{homotopy lifting property with respect to a space} $\sX$ if, given maps $f':\sX\to \B $
+	and $F : \left[0, 1\right] \times \sX \to \E$ such that $F\left(x, 0\right)$ for $x\in \sX$, there is a map $F': \left[0, 1\right]\times \sX\to\B$  such that $F(x,0) = f'(x)$ for $x \in \sX$ and $p \circ F'= F$. If $F'$ is  
+	regarded as a map of $\sX \times \{0\}$ to $\E$, the existence of $F$ is equivalent to the 
+	existence of a map represented by the dotted arrow that makes the following 
+	diagram commutative: 
+	\newline
+	\hspace*{\fill}
+	\begin{tikzpicture}
+		\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em] {
+			\sX \times \{0\}		& \mathcal{E} \\
+			\mathcal{X}\times \left[0,1\right] & \mathcal{B} \\};
+		\path[-stealth]
+		(m-1-1)  edge   node[above] {$f'$} (m-1-2)
+		(m-1-1)  edge   node[right] {$\bigcap$} (m-2-1)
+		(m-2-1) edge node [above] {$F$}(m-2-2)
+		(m-1-2) edge node [right] {$p$} (m-2-2)
+		(m-2-1)      edge [dashed]  node[above] {$~$} (m-1-2);
+	\end{tikzpicture}
+	\hspace{\fill}
+	\newline
+\end{definition}
+%If $p: \E\to \B$ has the homotopy lifting property with respect to $\sX$ and /o> f\: X^* B are homotopic, it is easy to see that f0 can be lifted to E if and only if /i can be lifted to E. Hence, whether or not a map X Ñ> B can be lifted to E is a property of the homotopy class of the map. Thus the  homotopy lifting property implies that the lifting problem for maps X ÑÈ B is a problem in the homotopy category. 
+\begin{definition}\label{top_fibration_defn}\cite{spanier:at}
+	A map $p: \E\to \B$ is called a \textit{fibration} (or \textit{Hurewicz fiber space}) if $p$ has the homotopy lifting property with respect to every space. $\E$ 
+	is called the \textit{total space} and $\B$ the \textit{base space} of the fibration. For $b \in \B$, $p^{-1}\left(b\right)$ is called the \textit{fiber over} $b$. 
+\end{definition}
+\begin{definition}\label{top_serre_fibration_defn}\cite{spanier:at}
+	A map $p: \E \to B$ is called a \textit{weak fibration} (or \textit{Serre fiber space}) if $p$ has the homotopy lifting property with respect to the collection 
+	cubes $\left\{\left[0,1 \right]^n\right\}_{n \in \N}$. $\E$ 
+	is called the \textit{total space} and $\B$ the \textit{base space}  of the weak 
+	fibration. For $b \in \B$, $p^{-1}\left(b\right)$ is called the \textit{fiber over} $b$. 
+	
+\end{definition}
+
+
+
+
+\subsection{Fiber bundles}
+
+\begin{definition}\label{top_fibre_bundle_defn}\cite{spanier:at} % P 90  105
+	A \textit{fiber bundle} $\xi = (\E,\B,\F,p)$ consists of a total space $\E$, a base space $\B$, 
+	a fiber $\F$, and a bundle projection $p: \E\to \B$ such that there exists an open 
+	covering $\left\{\sU\right\}$ of $\B$ and, for each $\sU \in \left\{\sU\right\}$, a homeomorphism $\varphi_\sU : \sU \times \sF\to p^{-1}\left(\sU\right)$
+	such that the composite
+	\bean
+	\sU \times \sF \xrightarrow{\varphi_\sU}p^{-1}\left(\sU\right)\xrightarrow{p|_{p^{-1}\left(\sU\right)}}\sU
+	\eean  
+	is the projection to the first factor. % the bundle projection p: E -^> B and the projection B X F ÑÈ B are locally equivalent. The fiber over b £ B is defined to equal p_1(&), and we note that F is homeomorphic to p~l(b) for every b £ B. Usually there is also given a structure group G for the bundle consisting of homeomorphisms of F, and we define this concept next. 
+\end{definition}
+%Let G be a group of homeomorphisms of F. Given a space F' and a  collection <£ = {<p} of homeomorphisms <p: F -^> F', define <pg: F -^- F* for <p £ $ and g £ G by <pg(y) = <p(gy) for y £ F. The collection $ is called a G strwc- ti/re on F if (o) Given ¢) £ <£ and g £ G, then cpg £ <£ (?) Given <pi, q>2 £ ¢, there is g £ G such that <pi = <p2g Condition (a) implies that G acts on the right on ¢, and condition (b) implies that this action of G is transitive on ¢. A fiber bundle (E,B,F,p) is said to have structure group G if each fiber p~^(b) has a G structure ¢(?) such that there exists an open covering {£/} of B and, for each U £ {f}, a homeomorphism cpv- U X F -^- p^1(C7) such that for b £ U, the map F -^- p~xib) sending .? to <pu(b,x) is hi ¢(?). It is clear that a given fiber bundle can always be given the structure of a fiber bundle with structure group the group of all homeomoi- phisms of F. It is also clear that a given fiber bundle can sometimes be given the structure of a fiber bundle with two different structure groups of  homeomorphisms of F. 
+
+\begin{empt}
+	For any pointed path connected space $\B'$ there is the path fibration $P\B' -^\to \B'$, where $P\B'$ 
+	is the space of paths in  $\B$ beginning at the base point $b'_0$, 447 
+\end{empt}
+\begin{definition}\label{top_fibered_product_defn}\cite{spanier:at}
+	Let $f:\B \to B'$ and $p:\E\to \B$ be maps and let $\E'$ be the subset of $\B'\times \E$ 
+	defined by 
+	\bean
+	\E' \bydef \left\{\left. \left(b', e\right)\in \B'\times \E \right| f(b)= p(e)\right\}
+	\eean
+	$\E'$ is called the \textit{fibered product} of $\B'$ and $\E$ (more precisely, the fibered product of $f$ and $p$. Note that there are maps $p': \E' \to \B'$ and $f': \E'\to \E$ defined by $p'(b',e) = b'$ and $f'(b',e) = e$. $\E'$ and the maps $p'$ and $f'$ are characterized as the product $f': \B'\to \B$ and $p: \E\to \B$ in the category 
+	whose objects are continuous maps with range $\B$.% and whose morphisms are commutative triangles 
+\end{definition}
+\begin{definition}\label{top_induced_fibration_defn}\cite{spanier:at}
+	If $p: \E \to \B$ is a fibration and $f: B' \to B$ is a map, 
+	then $p':\E'\to \B'$ is a fibration and is called the \textit{fibration induced} from $p$ by $f$. If $\xi = (\E,\B,\F,p)$ is a fiber bundle and $\E'\to B$ 
+	then thee is a fiber bundle $(\E',\B',\F,p')$. 
+	This is called the \textit{fiber bundle induced} from $\xi$ by $f$ and is denoted by $f^*\xi$.% In the case of an inclusion map i: B' C B we use E | £' to denote the fibered 
+\end{definition}
+\begin{corollary}\cite{spanier:at}
+	For any space $\sY$ and point $y_0\in\sY$, let $p: P\left(\sY, y_0\right) \to\sY$  be 
+	the map sending each path starting at yo to its endpoint. Then $p$ is a  
+	fibration whose fiber over $y_0$ is the loop space $\Om\sY$. 
+\end{corollary}
+\begin{definition}\cite{spanier:at}
+A map $p: \E \to \B$ is called a \textit{local fibration} if there is an open covering $\left\{\sU\right\}$  of $\B$ such that $p|_{p^{-1}\left(\sU \right)} \to \sU$ is a fibration for every $\sU \in \left\{\sU\right\}$
+It is clear that a fibration is a local fibration and that any bundle projection 
+is a local fibration. 
+\end{definition}
+\begin{theorem}\cite{spanier:at}
+	If $\B$ is a paracompact Hausdorff space, a map $p: \E \to \B$ is a 
+	fibration if and only if it is a local fibration.
+\end{theorem}
+\begin{corollary}\cite{spanier:at}
+	If $(\E,\B,\F,p)$ is a fiber bundle with base space $\B$  
+	paracompact and Hausdorff, then $p$ is a fibration.
+\end{corollary}
+\begin{corollary}\cite{spanier:at}
+If $p: \E \to \B$ is a fibration with a path-connected base space, 
+any two fibers have the same homotopy type.
+\end{corollary}
+
 
 
 \subsection{Coverings and fundamental groups}
@@ -22371,83 +22486,6 @@ For all $n > 1$ the group $	\pi_{n} (\sX, x_0)$ is Abelian.
 	\begin{lemma}\label{top_om_lem}\cite{spanier:at}
 		A local homeomorphism is an open map.
 	\end{lemma}
-\subsubsection{The homotopy lifting problem and fibrations}
-
-\begin{empt}\label{top_lifting_empt}\cite{spanier:at}
-	There is a significant problem in the algebraic topology, called the lifting problem. Let $p: \mathcal{E} \to \mathcal{B}$ and $f: \mathcal{X} \to \mathcal{B}$ continuous maps of topological spaces. The {\it lifting problem} \cite{spanier:at} for $f$ is to determine whether there is a continuous map $f': \mathcal{X} \to \mathcal{E}$ such that $f=p\circ f'$-that is, whether the dotted arrow in the diagram
-	\newline
-	\hspace*{\fill}
-	\begin{tikzpicture}
-		\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em] {
-			& \mathcal{E} \\
-			\mathcal{X} & \mathcal{B} \\};
-		\path[-stealth]
-		(m-2-1.east|-m-2-2) edge node [below] {$f$}(m-2-2)
-		(m-1-2) edge node [right] {$p$} (m-2-2)
-		(m-2-1)      edge [dashed]  node[above] {$f'$} (m-1-2);
-	\end{tikzpicture}
-	\hspace{\fill}
-	\newline
-	corresponds to a continuous map making the diagram commutative. If there is such map $f'$, then $f$ can be {\it lifted} to $\mathcal{E}$, and we call $f'$ a {\it lifting} or {\it lift} of $f$.
-	If $p$ is a covering projection and $\mathcal{X} = [0,1] \subset \mathbb{R}$ then $f$ can be lifted.
-\end{empt}
-\begin{definition}\label{top_ho_lifting_defn}\cite{spanier:at}
-A map $p: \E \to \B$ is said to have the 
-\textit{homotopy lifting property with respect to a space} $\sX$ if, given maps $f':\sX\to \B $
-and $F : \left[0, 1\right] \times \sX \to \E$ such that $F\left(x, 0\right)$ for $x\in \sX$, there is a map $F': \left[0, 1\right]\times \sX\to\B$  such that $F(x,0) = f'(x)$ for $x \in \sX$ and $p \circ F'= F$. If $F'$ is  
-regarded as a map of $\sX \times \{0\}$ to $\E$, the existence of $F$ is equivalent to the 
-existence of a map represented by the dotted arrow that makes the following 
-diagram commutative: 
-\newline
-\hspace*{\fill}
-\begin{tikzpicture}
-	\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em] {
-\sX \times \{0\}		& \mathcal{E} \\
-		\mathcal{X}\times \left[0,1\right] & \mathcal{B} \\};
-	\path[-stealth]
-	(m-1-1)  edge   node[above] {$f'$} (m-1-2)
-	(m-1-1)  edge   node[right] {$\bigcap$} (m-2-1)
-	(m-2-1) edge node [above] {$F$}(m-2-2)
-	(m-1-2) edge node [right] {$p$} (m-2-2)
-	(m-2-1)      edge [dashed]  node[above] {$~$} (m-1-2);
-\end{tikzpicture}
-\hspace{\fill}
-\newline
-\end{definition}
-%If $p: \E\to \B$ has the homotopy lifting property with respect to $\sX$ and /o> f\: X^* B are homotopic, it is easy to see that f0 can be lifted to E if and only if /i can be lifted to E. Hence, whether or not a map X Ñ> B can be lifted to E is a property of the homotopy class of the map. Thus the  homotopy lifting property implies that the lifting problem for maps X ÑÈ B is a problem in the homotopy category. 
-\begin{definition}\label{top_fibration_defn}\cite{spanier:at}
-A map $p: \E\to \B$ is called a \textit{fibration} (or \textit{Hurewicz fiber space}) if $p$ has the homotopy lifting property with respect to every space. $\E$ 
-is called the \textit{total space} and $\B$ the \textit{base space} of the fibration. For $b \in \B$, $p^{-1}\left(b\right)$ is called the \textit{fiber over} $b$. 
-\end{definition}
-\begin{definition}\label{top_serre_fibration_defn}\cite{spanier:at}
-A map $p: \E \to B$ is called a \textit{weak fibration} (or \textit{Serre fiber space}) if $p$ has the homotopy lifting property with respect to the collection 
-cubes $\left\{\left[0,1 \right]^n\right\}_{n \in \N}$. $\E$ 
-is called the \textit{total space} and $\B$ the \textit{base space}  of the weak 
-fibration. For $b \in \B$, $p^{-1}\left(b\right)$ is called the \textit{fiber over} $b$. 
-
-\end{definition}
-\begin{empt}
-For any pointed path connected space $\B'$ there is the path fibration $P\B' -^\to \B'$, where $P\B'$ 
-is the space of paths in  $\B$ beginning at the base point $b'_0$, 447 
-\end{empt}
-\begin{definition}\label{top_fibered_product_defn}\cite{spanier:at}
-Let $f:\B \to B'$ and $p:\E\to \B$ be maps and let $\E'$ be the subset of $\B'\times \E$ 
-defined by 
-\bean
-\E' \bydef \left\{\left. \left(b', e\right)\in \B'\times \E \right| f(b)= p(e)\right\}
-\eean
-$\E'$ is called the \textit{fibered product} of $\B'$ and $\E$ (more precisely, the fibered product of $f$ and $p$. Note that there are maps $p': \E' \to \B'$ and $f': \E'\to \E$ defined by $p'(b',e) = b'$ and $f'(b',e) = e$. $\E'$ and the maps $p'$ and $f'$ are characterized as the product $f': \B'\to \B$ and $p: \E\to \B$ in the category 
-whose objects are continuous maps with range $\B$.% and whose morphisms are commutative triangles 
-\end{definition}
-\begin{definition}
-If $p: \E \to \B$ is a fibration and $f: B' \to B$ is a map, 
-then $p':\E'\to \B'$ is a fibration and is called the fibration induced from p by / (or covering  
-projection induced from p by/). If £ = (E,B,F,p) is a fiber bundle and/ £' Ñ> B 
-is a map, it follows from property 5 that there is a fiber bundle (E',B',F,p'}. 
-This is called the fiber bundle induced from £ by / and is denoted by /* £. In 
-the case of an inclusion map i: B' C B we use E | £' to denote the fibered 
-\end{definition}
-
 
 	\subsubsection{Unique path lifting}
 	\begin{defn}\label{top_path_lifting_defn}\cite{spanier:at}
