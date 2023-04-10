@@ -21569,6 +21569,94 @@ $$
 is a morphism of Abelian groups
 \end{definition}
 
+\begin{definition}
+A category $\mathscr C$ is \textit{Abelian} if it is exact and additive. 
+\end{definition}
+
+\begin{empt}
+Let $\mathscr A$ be a category. We denote by $C^*\left( \mathscr A\right)$ the category whose objects are 
+the complexes of objects in $\mathscr A$ namely 
+$$
+A^\bullet \bydef \dots \to A^{-1}\xrightarrow{d^{-1}} A^0 \xrightarrow{d^0} A^1\xrightarrow{d^1}\dots
+$$
+where the differential $d=d_A$ satisfies $d^{k+1}\circ d^k = 0$ for all $k \in \Z$ and the 
+morphisms $A^\bullet \to B^\bullet$ are given by commutative diagrams 
+			\newline
+\begin{tikzpicture}
+	\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
+	{
+	\dots & A^{-1}& A^0 & A^1 &\dots\\ 
+	\dots & B^{-1}& B^0 & B^1 &\dots\\};
+	\path[-stealth]
+	(m-1-1) edge node [above] {} (m-1-2)
+	(m-1-2) edge node [above] {} (m-1-3)
+	(m-1-3) edge node [above] {} (m-1-4)
+	(m-1-4) edge node [above] {} (m-1-5)
+	(m-1-1) edge node [above] {} (m-1-2)
+	(m-1-2) edge node [left] {$u^{-1}$} (m-2-2)
+	(m-1-3) edge node [left] {$u^{0}$} (m-2-3)
+	(m-1-4) edge node [left] {$u^{1}$} (m-2-4)
+	(m-2-1) edge node [above] {} (m-2-2)
+(m-2-2) edge node [above] {} (m-2-3)
+(m-2-3) edge node [above] {} (m-2-4)
+(m-2-4) edge node [above] {} (m-2-5);
+\end{tikzpicture}
+\\
+The set of such morphisms $A^\bullet \to B^\bullet$ is denoted by $Hom\left( A^\bullet, B^\bullet\right)$. 
+One has an embedding of categories given by the following functor 
+\bean
+c_0:  : \mathscr A \to C^*\left(\mathscr A\right)
+A \mapsto  \dots\to 0\to \underset{\bullet}{A} 
+A \to 0 \to \dots 
+\eean
+	where the point under an object means that this object is in position 0, i.e. 
+	it corresponds to the object $A^0$ in the explicit description of $A^\bullet$ given above. 
+	If $\mathscr A$ is an additive (resp. Abelian) category, then $C\left(\mathscr A\right)$ is additive (resp. 
+		Abelian). If $\mathscr A$ is exact, then one can introduce the cohomology functors.
+		$$
+	H^k: C^*\left(\mathscr A\right)\to \mathscr A; \quad H^k\left( A^\bullet\right) 	\bydef \frac{\text{Ker} d^k}{\text{Im}d^{k-1}}
+		$$
+		This definition makes sense since the existence of cokernels in $\mathscr A$ implies the 
+		existence of quotients. The functors $H^k$ form a conservative system i.e. to a 
+		short exact sequence in $C^*\left(\mathscr A\right)$
+		$$
+\	0 \to A^\bullet\to B^\bullet\to  C^\bullet	\to 0
+		$$ 
+		corresponds a long exact sequence of cohomology 
+		$$
+	\dots \to H^k\left( A^\bullet\right) \to H^k\left( B^\bullet\right) \to H^k\left( C^\bullet\right) \xrightarrow{\delta} H^{k+1}\left( A^\bullet\right) \to\dots 	
+		$$
+The morphism $\delta$ is called the \textit{connecting (homo)morphism}
+				and its construction is functorial. 
+\end{empt}
+
+\begin{definition}
+%Definition 1.1.12.
+ Let $X^\bullet, Y^\bullet \in C^*\left(\mathscr A\right)$ be too complexes.
+ \begin{itemize}
+ 	\item[(i)] We say that a morphism $u : X^\bullet\to Y^\bullet$ is a \textit{quasi-isomorphism} if the 
+ 	induced morphism at cohomology level $H^k\left(u\right): H^k\left(X^*\right)\to H^k\left(Y^*\right)$ is an 
+ 	isomorphism for all $k$. 
+ 	\item[(ii)] Let $u, v : X^\bullet\to Y^\bullet$ be two complex morphisms. We say that $u$ and $v$ are 
+ \textit{homotopic} if there is $h \in  Hom^{-1}\left(X^\bullet, Y^\bullet \right)$  such that $u - v = d_Yh+ hd_X$ 
+ 	Such a morphism $h$ is called a \textit{homotopy} between $u$ and $v$ and we use the 
+ 	notation $u\sim v$ to indicate that $u$ and $v$ are homotopic. 
+ \end{itemize} 
+\end{definition}
+
+\begin{definition}
+Let $\mathscr A$ be an Abelian category. We define the homotopical category of complexes of $\mathscr A$ by setting for objects 
+$$
+Ob(K*(\mathscr A))=Ob(C*(\mathscr A)),
+$$ 
+and for morphisms
+$$ 
+Hom_{K*(\mathscr A)}\left(X^\bullet, Y^\bullet \right) = Hom\left(X^\bullet, Y^\bullet \right) / \sim = H^0\left( Hom\left(X^\bullet, Y^\bullet \right)\right).
+	$$
+	The last Abelian group is also denoted by $\left[X^\bullet, Y^\bullet \right]$ . 
+\end{definition}
+
+
 \chapter{Grothendieck topology and sheaves}
 
 \section{Sites}\label{appendix_etale_sec}
