@@ -21345,6 +21345,11 @@ $$
 F\left( g\circ f\right) = F\left( f\right)\circ  F\left( g\right). 
 $$
 \end{defn}
+
+
+\begin{definition}\label{exact_functor_defn}
+A left/right exact functor is a functor that preserves finite limits/finite colimits.
+\end{definition}
 \section{Natural transformations}\label{natural_transformation_sec}
 \paragraph{}
 Here I follow to \cite{goldblatt:topoi}.
@@ -21630,6 +21635,107 @@ The morphism $\delta$ is called the \textit{connecting (homo)morphism}
 				and its construction is functorial. 
 \end{empt}
 
+!!!!
+\begin{definition}\cite{hartshorne:ag}
+Definition. An Abelian category is a category $\mathfrak{A}$, such that: for each two $\mathfrak{A}$-objects $A, B$ the set $Hom\left(A, B\right)$ has a structure of an Abelian group, and the composition law is linear; finite direct sums exist; every morphism has a kernel and a cokernel; every monomorphism is the kernel of its cokernel, every 
+epimorphism is the cokernel of its kernel; and finally, every morphism 
+can be factored into an epimorphism followed by a monomorphism.
+\end{definition}
+\begin{empt}\cite{hartshorne:ag}
+	A complex $A^\bullet$ in an 
+	Abelian category $\mathfrak{A}$ is a collection of objects  $\left\{A^n\right\}_{n\in\Z}$, and morphisms 
+	$d^n: A^n \to A^{n+1}$, such that $d^{n+1}\circ d^n = 0$ for all $n$. 
+	If the objects $A^\bullet$ are specified 
+	only in a certain range, e.g., $n \ge 0$, then we set $A_n = \{0\}$ for all other $n$. A 
+	\textit{morphism} of complexes, $f: A^\bullet \to B^\bullet$ is a set of morphisms $f^n : A^n \to B^n$ for 
+	each $n$, which commute with the coboundary maps $d^n$. 
+	The $n$th \textit{cohomology object} $h^n\left( A\right)$ of the complex $A^\bullet$ is defined to be 
+	$\ker d^n / \im d^{n-1}$. If $f : A^\bullet\to B^\bullet$ is a morphism of complexes, then $f$  induces a 
+	natural map $h^n\left(f\right): h^n\left(A^\bullet\right)\to h^n\left(B^\bullet\right)$. If $0 \to A^\bullet \to B^\bullet \to C^\bullet \to 0$ is a short 
+	exact sequence of complexes, then there are natural maps $\delta^n : h^n \left(C^\bullet\right)\to h^{n+1} \left(A^\bullet\right)$
+		giving rise to a long exact sequence
+		$$ 
+	\dots \to h^n \left(A^\bullet\right)\to h^n \left(B^\bullet\right) \to h^n \left(C^\bullet\right)\xrightarrow{\delta^n} h^{n + 1} \left(A^\bullet\right) \to \dots
+		$$
+		Two morphisms of complexes $f, g : A^\bullet\to B^\bullet$ are \textit{homotopic} (written $f\sim g$) 
+		if there is a collection of morphisms $k^n: A^n \to B^{n-1}$ for each $n$ (which need 
+		not commute with the $d^n$ such that $f Ñ g = dk + kd$. The collection of morphisms, $k -\left\{k_n\right\}$ is called a \textit{homotopy operator}. If $f \sim g$, then $f$ and $g$ induce 
+		the same morphism $h^n\left(A^\bullet\right)\to h^n\left(A^\bullet\right)$ on the cohomology objects, for each $n$. 
+		A covariant functor $F: \mathfrak{A} \to \mathfrak{B}$ from one Abelian category to another is 
+		\textit{additive} if for any two objects $A, A'$, the induced map $Hom(A,A')\to  
+		Hom(FA,FA')$ is a homomorphism of Abelian groups. $F$ is \textit{left exact} if it is 
+		additive and for every short exact sequence 
+		$$
+		0 \to A' \to A \to A'' \to 0 
+		$$
+		in $\mathfrak A$
+		the sequence 
+		$$
+		0 \to FA' \to FA \to FA''
+		$$
+		is exact in $\mathfrak B$. If we can write a 0 on the right instead of the left, we say $F$ is 
+		\textit{right exact}. If it is both left and right exact, we say it is \textit{exact}. If only the 
+		middle part $FA' \to FA \to FA''$ is exact, we say F is \textit{exact  in the middle}. 
+		For a contravariant functor we make analogous definitions. For example, 
+		$F: \mathfrak{A} \to \mathfrak{B}$ is left exact if it is additive, and for every short exact sequence as 
+		above, the sequence 
+		$$
+	0 \to F A'' \to F A \to F A'
+		$$ 
+		is exact in $\mathfrak B$.
+		An object $I$ of $\mathfrak A$ is \textit{injective} if the functor $Hom\left(~\cdot~, I\right)$ is exact. An injective resolution of an object 
+		$A$ of $\mathfrak A$ is a complex $I^\bullet$, defined in degrees $n \ge 0$, together with a morphism 
+		$\eps : A\to I^0$, such that $I^n$ is an injective object of $\mathfrak A$ for each $n \ge 0$, and such 
+		that the sequence 
+		$$
+	0\to A \xrightarrow{\eps} I^0 \to I^1\to \dots
+		$$
+		is exact. 
+		If every object of $\mathfrak A$ is isomorphic to a subobject of an injective object of 
+		$\mathfrak A$, then we say $\mathfrak A$ \textit{has enough injectives}' If $\mathfrak A$ has enough injectives, then every 
+		object has an injective resolution. Furthermore, a well-known lemma states 
+		that any two injective resolutions are homotopy equivalent. 
+		Now let $\mathfrak A$ be an Abelian category with enough injectives, and let $F: \mathfrak A \to \mathfrak B$ 
+		be a covariant left exact functor. Then we construct the \textit{right derived functors} $R^nF$, $n\ge 0$ of F as follows. For each object $A$ of $\mathfrak A$, choose once and for all 
+		an injective resolution $I^\bullet$ of $A$. Then we define $R^nF\left( A\right) \bydef h^n\left(F\left(I^\bullet\right) \right)$. 
+\end{empt}
+\begin{theorem}\cite{hartshorne:ag}
+%			Theorem 1.1 A. 
+			Let $\mathfrak A$ be an Abelian category with enough injectives, and let 
+$F: \mathfrak A \to  \mathfrak B$ be a covariant left exact functor to another Abelian category $\mathfrak B$. 
+Then 
+\begin{enumerate}
+	\item [(a)] For each $n \ge 0$, $R^nF$ as defined above is an additive functor from  $\mathfrak A$ 
+	to $\mathfrak B$. Furthermore, it is independent (up to natural isomorphism of functors) 
+	of the choices of injective resolutions made.
+	\item[(b)] There is a natural isomorphism $F \cong R^0F$.
+	\item[(c)] For each short exact sequence $0 \to A'\to A \to A'' \to 0$ and for each 
+	$n \ge 0$ there is a natural morphism $\delta^n R^nF\left(A''\right)\to R^{n +1}F\left(A''\right)$, such that we 
+	obtain a long exact sequence 
+	$$
+\dots \to R^nF\left(   A'\right) \to R^nF\left(   A\right) \to R^nF\left(   A''\right) \xrightarrow{\delta^n} R^{n+1}F\left(   A'\right) \to  R^{n+1}F\left(   A\right) \to \dots.
+	$$
+	\item[(d)] Given a morphism of the exact sequence of (c) to another $0\to B'\to B \to B''\to 0$, the $\delta$'s give commutative diagram 
+				\newline
+	\begin{tikzpicture}
+		\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em]
+		{
+		R^nF\left(A''\right) & R^{n+1}F\left(A'\right)\\ 
+		R^nF\left(B''\right) & R^{n+1}F\left(B'\right)\\};
+		\path[-stealth]
+		(m-1-1) edge node [above] {$\delta^n$} (m-1-2)
+		(m-2-1) edge node [above]  {$\delta^n$} (m-2-2)
+		(m-1-1) edge node [right]  {} (m-2-1)
+		(m-1-2) edge node [right] {} (m-2-2);
+	\end{tikzpicture}
+	\\
+\	
+\item[(e)] For each injective object $I$ of $\mathfrak A$, and for each $n \ge 0$, we have $R^nF\left(I\right)= 0$.
+
+\end{enumerate}
+\end{theorem}
+
+!!!!
 \begin{definition}
 %Definition 1.1.12.
  Let $X^\bullet, Y^\bullet \in C^*\left(\mathscr A\right)$ be too complexes.
@@ -21643,7 +21749,31 @@ The morphism $\delta$ is called the \textit{connecting (homo)morphism}
  	notation $u\sim v$ to indicate that $u$ and $v$ are homotopic. 
  \end{itemize} 
 \end{definition}
+\begin{empt}
+There is a shift automorphism $T :  C^*\left(\mathscr A\right)$ given on objects 
+by $T\left(X^\bullet\right) = X^\bullet[l]$ where for $n \in \Z$ we define a shifted complex by setting 
+$(X^\bullet[n])^s \bydef X^{n+s}$ and $d^s_{TX^\bullet} \bydef -d^{s + 1}_{X^\bullet}$ for all $s\in \Z$. On morphisms $f$ the 
+shift $T$ is given by $T(f)_s \bydef f_{s+1}$. The inverse automorphism is denoted by $T^{-1}\left(X^\bullet\right)\bydef X^\bullet\left[-1\right]$. 
+\end{empt}
+\begin{definition}
+%Definition 1.1.17.
+ Let $u: X^\bullet\to Y^\bullet$ be a morphism of complexes in $C*(\mathscr A)$. 
+The \textit{mapping cone} of $u$ is the complex in $C*(\mathscr A)$  given by
+$$
+C^\bullet_u \bydef Y^\bullet \oplus \left(X\left[1\right]\right)
+$$ 
+where $d_u(y,x) \bydef (dy + u(x),Ñdx)$. Sometimes we denote the mapping cone 
+$C\bullet_u$ by $Cone(u)$ or $Cone(u : X^\bullet \to Y^\bullet)$. 
 
+\end{definition}
+\begin{empt}
+The mapping cone of the morphism $u$ gives rise to a triangle 
+$$
+T_u : X^\bullet\xrightarrow{u} Y^\bullet \xrightarrow{q} C^\bullet_u \xrightarrow{p} X^\bullet[1].
+$$
+where $q$ is the inclusion on the first factor and $p$ is the projection. 
+%Such a triangle is sometimes denoted in the following more intuitive way.
+ \end{empt}
 \begin{definition}
 Let $\mathscr A$ be an Abelian category. We define the homotopical category of complexes of $\mathscr A$ by setting for objects 
 $$
@@ -21655,8 +21785,31 @@ Hom_{K*(\mathscr A)}\left(X^\bullet, Y^\bullet \right) = Hom\left(X^\bullet, Y^\
 	$$
 	The last Abelian group is also denoted by $\left[X^\bullet, Y^\bullet \right]$ . 
 \end{definition}
-
-
+\begin{definition}
+%Definition 1.2.2. 
+Let $\mathcal  T$ be the family of triangles in $K*(\mathscr A)$ which are isomorphic to a standard triangle $T_u$ associated to some morphism $u$ in $C*(\mathscr A)$. 
+This family is by definition the family of \textit{distinguished}, or \textit{exact}, triangles in $K*(\mathscr A)$. 
+\end{definition}
+%\begin{proposition}
+%Proposition 1.2.4. 
+%The distinguished triangles in K*(A) have the following properties. 
+%\begin{enumerate}
+%	\item[(Tr1)] ( Any triangle isomorphic to a distinguished triangle is distinguished. For 	any object $X^\bullet$, the triangle $X^\bullet \to X^\bullet \to 0 \to X^\bullet[1]$ where the first morphism 	is the identity is distinguished. Any morphism $u: X^\bullet \to Y^\bullet$ is part of a 	distinguished triangle $X^\bullet \xrightarrow{u} Y^\bullet \to Z^\bullet \to X^\bullet[1]$. 
+%\item[(Tr2)]	A triangle $X^\bullet \xrightarrow{u} Y^\bullet \xrightarrow{v} Z^\bullet \xrightarrow{w} X^\bullet[1]$ is distinguished if and only if the 	triangle $Y^\bullet \xrightarrow{v} Z^\bullet \xrightarrow{w} X^\bullet[1]\xrightarrow{-u[1]}Y^\bullet[1]$ is distinguished. 
+%	\item Any diagram 	X* ^ ? ^ Z* ^ X'[l] 
+%	^ B* ^ C* È- A'[l] 
+%	where the rows are distinguished triangles and the square is commutative ex-	tends to a morphism of triangles as defined below. 	1.2 Homotopical Categories ?* (?) 11 
+%	(Tr4) For any pair of morphisms ? : X' -> Y' and v : Y' -> Z* and any triple	of distinguished triangles ?4?4?? X*[l], Y* A Z* -> ?* ? ?[1] 	and X* ^ Z* -> C* -> X#[l] iftere are morphisms a : A* -> C% ? : ?* -> ?* 	sucft i/iai (???*)^)^) u^d (u,idzÈ,b) are triangle morphisms and the triangle 	?' ? ? Ñ> ?* Ñf A*[l] is distinguished. 	Note that in (Trl) the triangle I' 4 ?* 4 2' 4 -X"*[l] is unique up-to 	isomorphism. In particular, one can take Z' = Cone(u), and with such a 	choice for Z' and C* in (Tr3) the morphism Z' Ñ> C* can be obtained as in 
+%\end{enumerate}
+%\end{proposition}
+\begin{definition}
+%Definition 1.2.6.
+ An additive category $\mathscr C$ endowed with a shift self-equivalence 
+$T$ and a family of distinguished triangles $\mathcal T$ is a \textit{triangulated category} %if these data satisfy the above properties Trl-Tr4, with X[l] = TX.
+ A full additive subcategory $\mathscr D \subset \mathscr C$ is called a \textit{triangulated subcategory} if $T\left(\mathscr D\right)\subset \mathscr C$ and if two 
+	vertices in a distinguished triangle in $\mathcal T$ are in $\mathscr D$, then so is the third. 
+%	A triangle X -> Y -> Z -> X[l] is also denoted by X ÑÈ? Y ÑÈ? Z -±4 X. 	It follows from Proposition 1.2.4 that the homotopical category ? (A) is a 	triangulated category in a natural way, and the category ?* (A) for * = +,Ñ,b 	is a triangulated subcategory in ? (A). 
+\end{definition}
 \chapter{Grothendieck topology and sheaves}
 
 \section{Sites}\label{appendix_etale_sec}
@@ -21752,6 +21905,18 @@ There are categories $\mathbf{PreSh}\left(\mathbf T \right)\to \mathbf{Sh}\left(
 \begin{defn}\label{site_sheaf_ass_defn}\cite{johnstone:topos}
 	The given by the Statement  \ref{site_sheaf_stmt} functor $\mathfrak{Ass} : \mathbf{PreSh}\left(\mathbf T  \right)\to \mathbf{Sh}\left(\mathbf T \right)$  is said to be an  \textit{associated sheaf functor}.
 \end{defn}
+\begin{statement}\label{site_enough_stmt}\cite{johnstone:topos}
+	%8.13$
+	If $\mathbf T$ is site then a category $\mathbf {Ab}\left(\mathbf T \right)$ of sheaves of Abelian groups has enough injectives.
+\end{statement}
+\begin{definition}
+A category $\mathscr E$ is said to be a \textit{Grothendieck topos} if there exist a site $\mathbf T$ such that $\mathscr E$ is equivalent to a category  $\mathbf{Sh}\left(\mathbf T  \right)$ of sheaves of sets on $\mathbf T$.
+\end{definition}
+
+
+\begin{definition}\label{geom_mor_defn}\cite{johnstone:topos}
+	Let $\mathscr E$, $\mathscr F$ be toposes a \textit{geometric morphism} $\mathscr F\xrightarrow{f}\mathscr E$ consists of a pair of functors $\mathscr E\xrightarrow{f_*}\mathscr F$  and $\mathscr E\xrightarrow{f^*}\mathscr F$ such that $f^*$ is left adjoint to $f_*$ and $f^*$ is left exact. 
+\end{definition}
 
 \section{Cohomology. Definition and basic properties}
 \paragraph{}
@@ -21784,6 +21949,15 @@ Moreover, the functors $H^r\left( X,~ \cdot ~\right)$  are uniquely determined (
 by the properties (a), (b) and (c).
 
 	
+\begin{proposition}\cite{johnstone:topos}
+	
+	!!! MOVE !!!
+	Let $\mathscr F \xrightarrow{f} \mathscr E$ be a geometric morphism between Grothendieck toposes. Then
+	\begin{enumerate}
+		\item [(i)] If $A$ is an Abelian group in $\mathscr E$ then we have a homomorphism $H^q\left(\mathscr E, A \right) \xrightarrow{} H^q \left(\mathscr F, f^*A\right)$ for each $q$ which is functorial in $f$ and natural in $A$.
+		\item [(ii)] If $B$ is an Abelian group in $\mathscr F$ then we have a spectral sequence (Leray spectral sequence) $H^q\left(\mathscr E, R^qf_*\left(B \right) \right)\Rightarrow H^{p + q}\left( B , \mathscr F \right)$ which is natural in $B$.
+	\end{enumerate}
+\end{proposition}
 
 \section{\v{C}ech cohomology}
 \paragraph{} Here I follow to \cite{milne:lec}. Let $\mathscr U \bydef \left\{U_\iota \to X\right\}_{\iota \in I}$ be  covering of $X$, and let $\mathscr P$ be a presheaf of Abelian groups. Define
@@ -27908,6 +28082,9 @@ Let $\mathscr F$  and $\mathscr G$ by presheaves. Prove that any morphism corres
 \begin{definition}\label{sheaf_inv_im_defn}\cite{hartshorne:ag}
 	Let $f: \sX\to \sY$ be a continuous map of topological spaces. For any sheaf  $\mathscr F$ on $\sX$, we define the \textit{direct image} sheaf  $f_*\mathscr F$ on $\sY$ by $\left(f_*\mathscr F\right)\left(\sV\right)= \mathscr F\left(f^{-1}\left(\sV\right)\right)$ for any open set $\sV \subseteq \sY$. For any sheaf  $\mathscr G$ on $\sY$, we define the \textit{inverse image} sheaf  $f^{-1}\mathscr G$ on $\sX$ be the sheaf  associated to the presheaf  $\sU \mapsto \lim_{\sV \supseteq f\left(\sU\right)} \mathscr G\left(\sV\right)$, where $\sU$ is any open set in $\sX$, and the limit is taken over all open sets $\sV$ of $\sV$ containing $f\left(\sU\right)$.
 \end{definition}
+\begin{remark}\cite{johnstone:topos}
+A pair of functors $f_*$ and $f^*$ rise a geometric morphism (cf. Definition \ref{geom_mor_defn}) $\mathbf{Sh}\left(\sY\right)\to \mathbf{Sh}\left(\sX\right)$ between categories of sheaves. 
+\end{remark}
 
 \begin{definition}\label{sub_sheaf_defn}\cite{hartshorne:ag}
 	A \textit{subsheaf}  of a sheaf $\mathscr F$ is a sheaf $\mathscr F'$ such that for every open set 
