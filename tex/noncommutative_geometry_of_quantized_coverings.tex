@@ -21687,7 +21687,7 @@ maps, and topological *-algebras over $\C$ and continuous *-homomorphisms. (The 
 	be a covariant left exact functor. Then we construct the \textit{right derived functors} $R^nF$, $n\ge 0$ of F as follows. For each object $A$ of $\mathfrak A$, choose once and for all 
 	an injective resolution $I^\bullet$ of $A$. Then we define $R^nF\left( A\right) \bydef h^n\left(F\left(I^\bullet\right) \right)$. 
 \end{empt}
-\begin{theorem}\cite{hartshorne:ag}
+\begin{theorem}\label{derived_finctor_thm}\cite{hartshorne:ag}
 	%			Theorem 1.1 A. 
 	Let $\mathfrak A$ be an Abelian category with enough injectives, and let 
 	$F: \mathfrak A \to  \mathfrak B$ be a covariant left exact functor to another Abelian category $\mathfrak B$. 
@@ -21824,7 +21824,7 @@ There are categories $\mathbf{PreSh}\left(\mathbf T \right)\to \mathbf{Sh}\left(
 	%8.13$
 	If $\mathbf T$ is site then a category $\mathbf {Ab}\left(\mathbf T \right)$ of sheaves of Abelian groups has enough injectives.
 \end{statement}
-\begin{definition}
+\begin{definition}\label{grothendiek_topos_defn}
 A category $\mathscr E$ is said to be a \textit{Grothendieck topos} if there exist a site $\mathbf T$ such that $\mathscr E$ is equivalent to a category  $\mathbf{Sh}\left(\mathbf T  \right)$ of sheaves of sets on $\mathbf T$.
 \end{definition}
 
@@ -21852,7 +21852,7 @@ $$
 \Ga\left(X,\ \mathscr I^0  \right) \to \Ga\left(X, \mathscr I^1  \right) \to \Ga\left(X, \mathscr I^2  \right) \to ... 
 $$
 This is no longer exact (in general), and $H^r\left(X,\ \mathscr I^0  \right)$ is defined to be its $r^{\text{th}}$ cohomology
-group. The theory of derived functors shows:
+group. The theory of derived functors (cf. Theorem \ref{derived_finctor_thm}) shows:
 \begin{enumerate}
 	\item [(a)] $H^0\left(X,\ \mathscr F  \right)\Ga\left(X,\ \mathscr F \right)$ for any sheaf $\mathscr F$;
 	\item [(b)] if $\mathscr I$ is injective, then $H^r (X,\mathscr I )= 0$ for $r > 0$;
@@ -21868,12 +21868,18 @@ by the properties (a), (b) and (c).
 
 	
 \begin{proposition}\label{spectral_sequence_prop}\cite{johnstone:topos}
-	Let $\mathscr F \xrightarrow{f} \mathscr E$ be a geometric morphism between Grothendieck toposes. Then
+	Let $\mathscr F \xrightarrow{f} \mathscr E$ be a geometric morphism (cf. Definition \ref{geom_mor_defn}) between Grothendieck toposes (cf. Definition \ref{grothendiek_topos_defn}). Then
 	\begin{enumerate}
 		\item [(i)] If $A$ is an Abelian group in $\mathscr E$ then we have a homomorphism $H^q\left(\mathscr E, A \right) \xrightarrow{} H^q \left(\mathscr F, f^*A\right)$ for each $q$ which is functorial in $f$ and natural in $A$.
 		\item [(ii)] If $B$ is an Abelian group in $\mathscr F$ then we have a spectral sequence (Leray spectral sequence) $H^q\left(\mathscr E, R^qf_*\left(B \right) \right)\Rightarrow H^{p + q}\left( B , \mathscr F \right)$ which is natural in $B$.
 	\end{enumerate}
 \end{proposition}
+\begin{notation}
+If  $A$ is an Abelian group and $\mathscr A$ is a {constant presheaf} (cf. Definition \ref{constant_presheaf_defn}) then we use the following notation
+\be\label{const_shef_coh_eqn}
+\forall n\ge 0\quad H^n\left(X, A \right) \bydef H^n\left(X, \mathscr A \right). 
+\ee
+\end{notation}
 
 \section{\v{C}ech cohomology}
 \paragraph{} Here I follow to \cite{milne:lec}. Let $\mathscr U \bydef \left\{U_\iota \to X\right\}_{\iota \in I}$ be  covering of $X$, and let $\mathscr P$ be a presheaf of Abelian groups. Define
