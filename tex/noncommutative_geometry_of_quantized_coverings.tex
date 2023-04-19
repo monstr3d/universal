@@ -13008,55 +13008,58 @@ $$
  B = A_{\mathrm{Sp\acute{e}}\left(\mathscr P^{\text{comm}}\right)_B}.
 $$
 \end{definition}
-\begin{lemma}
-If  a Hausdorff blowing-up $C_0\left(\sY \right) \hookto M\left(A\right)$   {complies with the Grothendieck topology} then the {Grothendieck} $A$-{topology} (cf. Definition \ref{grothendieck_ca_defn}) is given by  the	\'espace etal\'e $\mathrm{Sp\acute{e}}\left(\mathscr P^{\text{comm}} \right)$.
-\end{lemma}
-\begin{proof}
-From the Definition \ref{blowing_compl_defn} it follows that there is a natural 1-1 correspondence between hereditary subalgebras of $A$ and open subsets of $\mathrm{Sp\acute{e}}\left(\mathscr P^{\text{comm}} \right)$.
-\end{proof}
 There is the natural continuous surjective map 
-\be\label{blowing_etale_eqn}
+\be\label{blowing_etale_p_eqn}
 p : \mathrm{Sp\acute{e}}\left(\mathscr P^{\text{comm}} \right) \to \sY
 \ee
-\begin{definition}\label{blowing_trivial_defn}
-	Suppose that  a Hausdorff blowing-up $C_0\left(\sY \right) \hookto M\left(A\right)$ {complies with the Grothendieck topology}. An open subset $\sU\subset \sY$ is said to be \textit{trivial with respect to Grothendieck topology} if one has:
-		\begin{enumerate}
-			\item [(a)] the set $\sU$ is contractible,
-			\item[(b)] the set $p^{-1}\left(\sU \right)$ is connected.
-		\end{enumerate}
-\end{definition}
-\begin{lemma}\label{blowing_contr_lem}
-	 If an open subset $\sU$ is said to be trivial with respect to Grothendieck topology then the preimage $p^{-1}\left(\sU \right)$ is contractible.
-\end{lemma}
+Let $A^0\subset A$ be a trivial subalgebra, i.e. $A^0\cong \{0\}$. There is a continuous map
+\be
+\begin{split}
+j : \mathrm{Sp\acute{e}}\left(\mathscr P^{\text{comm}} \right)\to \sY;\\
+y \mapsto A^0_y
+\end{split}
+\ee 
+where $A^0_y$ is a represented by $A^0$ stalk at $y$ (cf. Definition \ref{stalk_defn}). Clearly one has
+\be\label{blowing_p_j_eqn}
+p \circ j = \Id_{\sY}.
+\ee
+ Both categories $\mathbf{Sh}\left(\sY\right)$ and $\mathbf{Sh}\left(\mathrm{Sp\acute{e}}\left(\mathscr P^{\text{comm}} \right)\right)$ of sheaves on $\sY$ and $\mathrm{Sp\acute{e}}\left(\mathscr P^{\text{comm}} \right)$ respectively are Grothendieck toposes (cf. Definition \ref{grothendiek_topos_defn}). From the Remark \ref{geometric_morphism_rem} the maps $p$ and $j$ induce geometric morphisms
+ \bean
+ \mathbf{Sh}\left(\mathrm{Sp\acute{e}}\left(\mathscr P^{\text{comm}} \right)\right)\to \mathbf{Sh}\left(\sY\right),\\
+ \mathbf{Sh}\left(\sY\right)\to \mathbf{Sh}\left(\mathrm{Sp\acute{e}}\left(\mathscr P^{\text{comm}} \right)\right)
+ \eean
+ Let $F$ be an Abelian group, and let $\sF'$ be a corresponding to $F$ constant presheaf on $\sY$ (cf. Definition \ref{constant_presheaf_defn}). Let $\sF$ be a sheaf associated with $\F'$ (cf. Definitions \ref{site_sheaf_ass_defn} and \ref{sheaf_prdf}). If $p^{-1} \sF$ is an inverse image (cf. Definition \ref{sheaf_inv_im_defn}) then $p^{-1} \sF\left( \sV \right)\cong F$ for any connected open set $\sV \subset (\mathrm{Sp\acute{e}}\left(\mathscr P^{\text{comm}} \right)$. It follows that $p^{-1} \sF$ is an associated to a constant sheaf on $\mathrm{Sp\acute{e}}\left(\mathscr P^{\text{comm}} \right)$ which corresponds to $F$. From \eqref{blowing_p_j_eqn} it follows that there is an isomorphism $j^{-1}p^{-1} \sF\cong \F$. From (i) of the Proposition \ref{spectral_sequence_prop} for any $q\ge 0$ one has homomorphisms.
+ \bean
+ H^q\left( \sY, \sF\right) \xrightarrow{H^q\left( p^{-1}\right) } H^q\left(\mathrm{Sp\acute{e}}\left(\mathscr P^{\text{comm}} \right), p^{-1}\F  \right);\\
+  H^q\left(\mathrm{Sp\acute{e}}\left(\mathscr P^{\text{comm}} \right), p^{-1}\F  \right) \xrightarrow{H^q\left( j^{-1}\right) } H^q\left( \sY, \sF\right).
+ \eean
+ From \eqref{blowing_p_j_eqn} it follows that
+ \be\label{blowing__p_j_c_eqn}
+ H^q\left( j^{-1}\right)\circ H^q\left( p^{-1}\right)= \Id_{H^q\left( \sY, \sF\right)}.
+ \ee
+ 
+\begin{theorem} If  Hausdorff blowing-up $C_0\left(\sY \right) \hookto M\left(A\right)$   {complies with the Grothendieck topology}  (cf. Definition \ref{grothendieck_ca_defn}) then following conditions hold.
+	\begin{enumerate}
+		\item [(i)] The {Grothendieck} $A$-{topology} (cf. Definition \ref{grothendieck_ca_defn}) corresponds   the	\'espace etal\'e $\mathrm{Sp\acute{e}}\left(\mathscr P^{\text{comm}} \right)$.
+		\item[(ii)] If $F$ is an Abelian group then for all $q > 0$ there is an isomorphism
+		$$
+H^q\left(\mathrm{Sp\acute{e}}\left(\mathscr P^{\text{comm}} \right), F \right)	\cong H^q\left(\sY, F  \right)	\oplus X^p
+		$$
+		where $X^p$ is an Abelian group and the notation \eqref{const_shef_coh_eqn} is used.
+	\end{enumerate}
+\end{theorem} 
 \begin{proof}
-	Let $y_0 \in \sY$ and let $F:  \left[0, 1\right]\times \sU\to \sU$ be a continuous map such that $F\left(0, ~\cdot ~\right)= \Id_\sY$, and $F\left(1, \sU\right)= \{y_0\}$. There is a natural continuous map $G:  \left[0, 1\right]\times p^{-1}\left( \sU\right) \to \sU$ such that $G\left(t, \widetilde y\right)=\bydef F\left(t, p\left(\widetilde y\right)\right)$.
-One has  $G\left(0, ~\cdot ~\right)= p|_{p^{-1}\left( \sU\right)}$, and $G\left(1, p^{-1}\left( \sU\right)\right)\subset p^{-1}\left(y_0\right)$. Since $p^{-1}\left(\sU \right)$ is connected the set $G\left(1, p^{-1}\left( \sU\right)\right)\subset p^{-1}\left( y_0 \right) $ is also connected. However the set $p^{-1}\left( y_0 \right)$ is discrete, so there is a single point $\widetilde y_0\in p^{-1}\left( y_0 \right)$ such that $G\left(1, p^{-1}\left( \sU\right)\right)=\left\{\widetilde{y}_0\right\}$ so $p^{-1}\left(\sU \right)$ is contractible.
-\end{proof}
-\begin{definition}\label{blowing_trivial_set_defn}
-	Suppose that  a Hausdorff blowing-up $C_0\left(\sY \right) \hookto M\left(A\right)$ {complies with the Grothendieck topology}. We say that $C_0\left(\sY \right) \hookto M\left(A\right)$	
-	 is \textit{trivial with respect to Grothendieck topology} if for any $y \in \sY$ and any open neighborhood $\sV$ of $y$ there is a trivial with respect to Grothendieck topology open subset $\sU$ such that $y \in \sU$ and $\sU\subset \sV$.
-\end{definition}
-\begin{empt}
-	Consider the situation of the Definition \ref{blowing_trivial_set_defn} and suppose that $\sU\subset \sY$ a trivial with respect to Grothendieck topology. Let $A$ be an Abelian group. Suppose that $\mathscr A'$ is a constant presheaf (cf. Definition \ref{constant_presheaf_defn}) and $\mathscr A$ is an associated to $\mathscr A'$ from the Lemma \ref{blowing_contr_lem} ant the Theorem \ref{sheaf_homototy_thm} it follows that
-	\bean
-	H^0\left(p^{-1}\left( \sU\right) , \mathscr A|_{p^{-1}\left( \sU\right)}\right)\cong A;\\
-	H^n\left(p^{-1}\left( \sU\right) , \mathscr A|_{p^{-1}\left( \sU\right)}\right)\cong \{0\}.	
-	\eean
-	From the above equations one can deduce that
-	$$
-	R^n p_* \mathscr A= \begin{cases}
-	\mathscr A & n = 0\\
-	\{0\}	& n > 0.
-	\end{cases}
-	$$
-	where $R^n$ mean right derived functors (cf. \ref{derived_funct_empt}).
-	From the Proposition \ref{spectral_sequence_prop} it follows that there is the natural isomorphism
-	\be
-	H^\bullet\left( \sY, p_* \left( \mathscr A \right) \right) \cong 	H^\bullet\left( \mathrm{Sp\acute{e}}\left(\mathscr P^{\text{comm}} \right) , \mathscr A \right).
-	\ee
-\end{empt}
-\section{Hausdorff blowing-up and noncommutative  coverings}
+(i) From the Definition \ref{blowing_compl_defn} it follows that there is a natural 1-1 correspondence between hereditary subalgebras of $A$ and open subsets of $\mathrm{Sp\acute{e}}\left(\mathscr P^{\text{comm}} \right)$.\\
+(ii) From the above construction it turns out that  that $p^{-1} \sF$ is an associated to a constant sheaf on $\mathrm{Sp\acute{e}}\left(\mathscr P^{\text{comm}} \right)$ which corresponds to $F$. If $$X^p \bydef \ker \left(   H^q\left(\mathrm{Sp\acute{e}}\left(\mathscr P^{\text{comm}} \right), p^{-1}\F  \right) \xrightarrow{H^q\left( j^{-1}\right) } H^q\left( \sY, \sF\right)\right) $$ then from the equation \eqref{blowing__p_j_c_eqn} it turns out that
+$$
+H^q\left(\mathrm{Sp\acute{e}}\left(\mathscr P^{\text{comm}} \right), F \right)	\cong H^q\left(\sY, F  \right)	\oplus X^p.
+$$
 
+
+\end{proof}
+
+
+\section{Hausdorff blowing-up and noncommutative  coverings}
 
 \paragraph{}
 Let $\sY$ be a connected, locally connected, locally compact, Hausdorff space.   If $q: \widetilde \sY \to \sY$ is a transitive   covering then from the Lemma \ref{comm_allows_lem}  it follows that there is a $C_0\left( \sY\right)$-valued sesquilinear product
@@ -15734,7 +15737,7 @@ Elements of $K^1\left(A\right)$ can be represented by Fredholm operators which a
  The notion of the operator space with Hausdorff spectrum is a  generalization of $C^*$-algebra with Hausdorff spectrum. (cf. Section \ref{ctr_oa_sec}). Here we consider noncommutative coverings of these spaces.
 \section{Grothendieck topology}
  \paragraph{}
- 
+ !!! REPLACE TO BLOWING !!!
  If $A$ is a continuous trace $C^*$-algebras then the spectrum $\sX$ of is a Hausdorff space. Any ideal of $A$ corresponds to an open set $\sU$ we denote this ideal by $A|_{\sU}$. We define a presheaf $\mathscr{P}^{\text{comm}}$ on $\sX$ such that if $\sU$ and $\sV$ are open subsets of $\sX$ then
  \bean
  \mathscr{P}^{\text{comm}}\left(\sU\right)\bydef \text{ a set of all commutative subalgebras of } A|_{\sU};\\
@@ -17613,7 +17616,11 @@ such that following conditions hold:
 \chapter{Foliations, pseudogroups  and their coverings}\label{foliations_chap}
 \paragraph{}
 \section{Grothendieck topology}
+
+!!! REPLACE COMMON BLOWING !!!
 \paragraph{}
+
+
 Let $\left(M, \sF\right)$ be a foliated space, and let $C^*_r\left( M, \F \right)$  be a reduced  $C^*$-algebra of $\left(M, \sF\right)$  (cf. Definition \ref{foli_groupoid_red_defn}). For any open subset $\sU\subset M$ there is a foliated space $\left(\sU, \sF|_{\sU}\right)$ and a $C^*$-subalgebra $C^*_r\left(\sU, \sF|_{\sU}\right)\subset C^*_r\left( M, \F \right)$ (cf. Proposition \ref{foli_res_inc_prop}). Let $C^*_r\left( M, \F \right)_\sU$ be a generated by $C^*_r\left(\sU, \sF|_{\sU}\right)$ hereditary subalgebra of $C^*_r\left( M, \F \right)$ (cf. Definition \ref{hered_defn}).  We define a presheaf $\mathscr{P}^{\text{comm}}$ on $M$ such that if $\sU$ and $\sV$ are open subsets of $\sX$ then
 \bean
 \mathscr{P}^{\text{comm}}\left(\sU\right)\bydef \text{ a set of all commutative subalgebras of } C^*_r\left( M, \F \right)_\sU;\\
@@ -21824,7 +21831,7 @@ There are categories $\mathbf{PreSh}\left(\mathbf T \right)\to \mathbf{Sh}\left(
 	%8.13$
 	If $\mathbf T$ is site then a category $\mathbf {Ab}\left(\mathbf T \right)$ of sheaves of Abelian groups has enough injectives.
 \end{statement}
-\begin{definition}\label{grothendiek_topos_defn}
+\begin{definition}\label{grothendiek_topos_defn}\cite{johnstone:topos}
 A category $\mathscr E$ is said to be a \textit{Grothendieck topos} if there exist a site $\mathbf T$ such that $\mathscr E$ is equivalent to a category  $\mathbf{Sh}\left(\mathbf T  \right)$ of sheaves of sets on $\mathbf T$.
 \end{definition}
 
@@ -21832,7 +21839,7 @@ A category $\mathscr E$ is said to be a \textit{Grothendieck topos} if there exi
 \begin{definition}\label{geom_mor_defn}\cite{johnstone:topos}
 	Let $\mathscr E$, $\mathscr F$ be toposes a \textit{geometric morphism} $\mathscr F\xrightarrow{f}\mathscr E$ consists of a pair of functors $\mathscr E\xrightarrow{f_*}\mathscr F$  and $\mathscr E\xrightarrow{f^*}\mathscr F$ such that $f^*$ is left adjoint to $f_*$ and $f^*$ is left exact. 
 \end{definition}
-\begin{definition}\label{constant_presheaf_defn}
+\begin{definition}\label{constant_presheaf_defn}\cite{johnstone:topos}
 For any set $A$ there is a \textit{constant presheaf} $\mathscr A$ such that $\mathscr A\left( U\right) = A$ and $\rho^\sU_\sV = \Id_A$ for all $V\subset U$.
 \end{definition}
 
@@ -21854,7 +21861,7 @@ $$
 This is no longer exact (in general), and $H^r\left(X,\ \mathscr I^0  \right)$ is defined to be its $r^{\text{th}}$ cohomology
 group. The theory of derived functors (cf. Theorem \ref{derived_finctor_thm}) shows:
 \begin{enumerate}
-	\item [(a)] $H^0\left(X,\ \mathscr F  \right)\Ga\left(X,\ \mathscr F \right)$ for any sheaf $\mathscr F$;
+	\item [(a)] $H^0\left(X,\ \mathscr F  \right)\cong \Ga\left(X,\ \mathscr F \right)$ for any sheaf $\mathscr F$;
 	\item [(b)] if $\mathscr I$ is injective, then $H^r (X,\mathscr I )= 0$ for $r > 0$;
 	\item [(c)]  short exact sequence of sheaves
 	$0\to \mathscr F' \to \mathscr F \to \mathscr F'' \to 0$	gives rise to a long exact sequence
@@ -21880,67 +21887,6 @@ If  $A$ is an Abelian group and $\mathscr A$ is a {constant presheaf} (cf. Defin
 \forall n\ge 0\quad H^n\left(X, A \right) \bydef H^n\left(X, \mathscr A \right). 
 \ee
 \end{notation}
-
-\section{\v{C}ech cohomology}
-\paragraph{} Here I follow to \cite{milne:lec}. Let $\mathscr U \bydef \left\{U_\iota \to X\right\}_{\iota \in I}$ be  covering of $X$, and let $\mathscr P$ be a presheaf of Abelian groups. Define
-$$
-C^r\left( \mathscr U, \mathscr P\right)\bydef \prod_{\left(\iota_0,.... \iota_r\right) \in I^{r+1}} \mathscr P\left(U_{\iota_0,.... \iota_r} \right)\quad \text{where} \quad U_{\iota_0,.... \iota_r} \bydef U_{\iota_0}\times_X...\times_XU_{\iota_r}. 
-$$
-For $s \in C^r\left( \mathscr U, \mathscr P\right)$ define $d^rs \in C^{r+1}\left( \mathscr U, \mathscr P\right)$ by the rule
-$$
-d^rs_{\iota_0,..., \iota_{r + 1}}\bydef \sum_{j = 0}^{r + 1}\left(-1 \right) \mathrm{res}_j\left(s_{\iota_0,..., \iota_{j-1},...,\iota_{j+1},..., \iota_{r + 1}} \right)  
-$$
-where $\mathrm{res}_j$ is the restriction map corresponding to the projection map
-$$
-U_{\iota_0,..., \iota_{r + 1}}\mapsto U_{\iota_0,..., \iota_{j-1},...,\iota_{j+1},.., \iota_{r + 1}}
-$$
-As in the classical case, one verifies by a straightforward calculation that
-$$
-C^\bullet\left( \mathscr U, \mathscr P\right) \bydef C^0\left( \mathscr U, \mathscr P\right) \to C^r\left( \mathscr U, \mathscr P\right) \xrightarrow{d_r} C^r\left( \mathscr U, \mathscr P\right)\to ...
-$$
-is a complex. Define
-$$
-\check{H}^r\left( \mathscr U, \mathscr P\right) \bydef H^r\left(C^\bullet\left( \mathscr U, \mathscr P\right)   \right). 
-$$
-It is called the $r^{\text{th}}$ \textit{\v{C}ech cohomology group} of $\mathscr P$ relative to the covering $\mathscr U$.
-Note that
-$$
-\check{H}^r\left( \mathscr U, \mathscr P\right)= \ker\left(\prod \mathscr P_\iota \rightrightarrows \prod \mathscr P_{\iota,j} \right) 
-$$
-Therefore, for a sheaf $\mathscr F$ one has
-$$
-\check{H}^0\left( \mathscr U, \mathscr F\right)=\Ga\left( \mathscr U, \mathscr F\right).
-$$
-A second covering $\mathscr V \bydef \left\{V_j\to X \right\}_{j \in J}$ of $X$ is called a \textit{refinement} of $\mathscr U$ if there is a
-map $\tau : J\to I$ such that $V_j \to X$ factors through $U_{\tau_j}\to X$ for all $j \in J$ . The choice of
-a $\tau$ and $X$-morphisms $\varphi_{j}: V_j \to U_{\tau_j}$ for each $j$ determines a map of complexes
-\bean
-\tau^\bullet: C^\bullet\left( \mathscr U, \mathscr P\right)\to C^\bullet\left( \mathscr V, \mathscr P\right),\\
-\left( \tau^r s_{j_0,..., j_{r}} \right) \bydef s_{\tau j_0,..., \tau j_{r}}.
-\eean
-As in the classical case, one verifies that the map on cohomology groups
-$$
-\rho \left(\mathscr U, \mathscr V \right): \check{H}^r\left( \mathscr U, \mathscr P\right)\to \check{H}^r \left( \mathscr V, \mathscr P\right)
-$$
-is independent of all choices. We may pass to the limit over all coverings, and so obtain limits
-\be\label{chech_eqn}
-\check{H}^r\left(X, \mathscr P\right)\bydef \varinjlim_{\mathscr U}\check{H}^r\left( \mathscr U, \mathscr P\right).
-\ee
-\begin{defn}\label{chech_defn}
-The  \textit{\v{C}ech cohomology groups} are given by equation \eqref{chech_eqn}
-\end{defn}
-These groups  have the following properties:
-\begin{enumerate}
-	\item [(a)] $\check{H}^0\left(X, \mathscr F\right)= \Ga\left( X, \mathscr F\right)$ for any sheaf $\mathscr F$ on $X$;
-	\item[(b)] $\check{H}^0\left(X, \mathscr I\right)$, $r > 0$, for all injective sheaves $\mathscr I$.
-\end{enumerate}
-\begin{empt}
-	For any Abelian group $A$ one can define a constant presheaf $\mathscr P$ of Abelian groups. This presheaf sets $A$ for any object of $\mathrm{Cat}\left( \mathbf T\right)$ and an identical morphism $A\xrightarrow{\Id_A}A$ for any morphism of $\mathrm{Cat}\left( \mathbf T\right)$. 
-	 We use a following notation
-	\be\label{etale_hom_a_eqn}
-	\check{H}^r\left(X,  A\right)\bydef \check{H}^r\left(X, \mathscr P\right).
-	\ee
-\end{empt}
 
 \chapter{Topology}
 	
@@ -22474,130 +22420,6 @@ For all $n > 1$ the group $	\pi_{n} (\sX, x_0)$ is Abelian.
 	\pi_{n+m} (\sX, x_0) = \pi_n(\Omega^m(\sX, \om_m)). 
 	\ee
 \end{remark}
-
-\subsection{The homotopy lifting problem and fibrations}
-
-\begin{empt}\label{top_lifting_empt}\cite{spanier:at}
-	There is a significant problem in the algebraic topology, called the lifting problem. Let $p: \mathcal{E} \to \mathcal{B}$ and $f: \mathcal{X} \to \mathcal{B}$ continuous maps of topological spaces. The {\it lifting problem} \cite{spanier:at} for $f$ is to determine whether there is a continuous map $f': \mathcal{X} \to \mathcal{E}$ such that $f=p\circ f'$-that is, whether the dotted arrow in the diagram
-	\newline
-	\hspace*{\fill}
-	\begin{tikzpicture}
-		\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em] {
-			& \mathcal{E} \\
-			\mathcal{X} & \mathcal{B} \\};
-		\path[-stealth]
-		(m-2-1.east|-m-2-2) edge node [below] {$f$}(m-2-2)
-		(m-1-2) edge node [right] {$p$} (m-2-2)
-		(m-2-1)      edge [dashed]  node[above] {$f'$} (m-1-2);
-	\end{tikzpicture}
-	\hspace{\fill}
-	\newline
-	corresponds to a continuous map making the diagram commutative. If there is such map $f'$, then $f$ can be {\it lifted} to $\mathcal{E}$, and we call $f'$ a {\it lifting} or {\it lift} of $f$.
-	If $p$ is a covering projection and $\mathcal{X} = [0,1] \subset \mathbb{R}$ then $f$ can be lifted.
-\end{empt}
-\begin{definition}\label{top_ho_lifting_defn}\cite{spanier:at}
-	A map $p: \E \to \B$ is said to have the 
-	\textit{homotopy lifting property with respect to a space} $\sX$ if, given maps $f':\sX\to \B $
-	and $F : \left[0, 1\right] \times \sX \to \E$ such that $F\left(x, 0\right)$ for $x\in \sX$, there is a map $F': \left[0, 1\right]\times \sX\to\B$  such that $F(x,0) = f'(x)$ for $x \in \sX$ and $p \circ F'= F$. If $F'$ is  
-	regarded as a map of $\sX \times \{0\}$ to $\E$, the existence of $F$ is equivalent to the 
-	existence of a map represented by the dotted arrow that makes the following 
-	diagram commutative: 
-	\newline
-	\hspace*{\fill}
-	\begin{tikzpicture}
-		\matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em] {
-			\sX \times \{0\}		& \mathcal{E} \\
-			\mathcal{X}\times \left[0,1\right] & \mathcal{B} \\};
-		\path[-stealth]
-		(m-1-1)  edge   node[above] {$f'$} (m-1-2)
-		(m-1-1)  edge   node[right] {$\bigcap$} (m-2-1)
-		(m-2-1) edge node [above] {$F$}(m-2-2)
-		(m-1-2) edge node [right] {$p$} (m-2-2)
-		(m-2-1)      edge [dashed]  node[above] {$~$} (m-1-2);
-	\end{tikzpicture}
-	\hspace{\fill}
-	\newline
-\end{definition}
-%If $p: \E\to \B$ has the homotopy lifting property with respect to $\sX$ and /o> f\: X^* B are homotopic, it is easy to see that f0 can be lifted to E if and only if /i can be lifted to E. Hence, whether or not a map X Ñ> B can be lifted to E is a property of the homotopy class of the map. Thus the  homotopy lifting property implies that the lifting problem for maps X ÑÈ B is a problem in the homotopy category. 
-\begin{definition}\label{top_fibration_defn}\cite{spanier:at}
-	A map $p: \E\to \B$ is called a \textit{fibration} (or \textit{Hurewicz fiber space}) if $p$ has the homotopy lifting property with respect to every space. $\E$ 
-	is called the \textit{total space} and $\B$ the \textit{base space} of the fibration. For $b \in \B$, $p^{-1}\left(b\right)$ is called the \textit{fiber over} $b$. 
-\end{definition}
-\begin{definition}\label{top_serre_fibration_defn}\cite{spanier:at}
-	A map $p: \E \to B$ is called a \textit{weak fibration} (or \textit{Serre fiber space}) if $p$ has the homotopy lifting property with respect to the collection 
-	cubes $\left\{\left[0,1 \right]^n\right\}_{n \in \N}$. $\E$ 
-	is called the \textit{total space} and $\B$ the \textit{base space}  of the weak 
-	fibration. For $b \in \B$, $p^{-1}\left(b\right)$ is called the \textit{fiber over} $b$. 
-	
-\end{definition}
-\begin{definition}\label{top_fibre_bundle_defn}\cite{spanier:at} % P 90  105
-	A \textit{fiber bundle} $\xi = (\E,\B,\F,p)$ consists of a total space $\E$, a base space $\B$, 
-	a fiber $\F$, and a bundle projection $p: \E\to \B$ such that there exists an open 
-	covering $\left\{\sU\right\}$ of $\B$ and, for each $\sU \in \left\{\sU\right\}$, a homeomorphism $\varphi_\sU : \sU \times \sF\to p^{-1}\left(\sU\right)$
-	such that the composite
-	\bean
-	\sU \times \sF \xrightarrow{\varphi_\sU}p^{-1}\left(\sU\right)\xrightarrow{p|_{p^{-1}\left(\sU\right)}}\sU
-	\eean  
-	is the projection to the first factor. % the bundle projection p: E -^> B and the projection B X F ÑÈ B are locally equivalent. The fiber over b £ B is defined to equal p_1(&), and we note that F is homeomorphic to p~l(b) for every b £ B. Usually there is also given a structure group G for the bundle consisting of homeomorphisms of F, and we define this concept next. 
-\end{definition}
-%Let G be a group of homeomorphisms of F. Given a space F' and a  collection <£ = {<p} of homeomorphisms <p: F -^> F', define <pg: F -^- F* for <p £ $ and g £ G by <pg(y) = <p(gy) for y £ F. The collection $ is called a G strwc- ti/re on F if (o) Given ¢) £ <£ and g £ G, then cpg £ <£ (?) Given <pi, q>2 £ ¢, there is g £ G such that <pi = <p2g Condition (a) implies that G acts on the right on ¢, and condition (b) implies that this action of G is transitive on ¢. A fiber bundle (E,B,F,p) is said to have structure group G if each fiber p~^(b) has a G structure ¢(?) such that there exists an open covering {£/} of B and, for each U £ {f}, a homeomorphism cpv- U X F -^- p^1(C7) such that for b £ U, the map F -^- p~xib) sending .? to <pu(b,x) is hi ¢(?). It is clear that a given fiber bundle can always be given the structure of a fiber bundle with structure group the group of all homeomoi- phisms of F. It is also clear that a given fiber bundle can sometimes be given the structure of a fiber bundle with two different structure groups of  homeomorphisms of F. 
-
-\begin{empt}
-	For any pointed path connected space $\B'$ there is the path fibration $P\B' -^\to \B'$, where $P\B'$ 
-	is the space of paths in  $\B$ beginning at the base point $b'_0$,!!!  447 !!! LOWER !!!
-\end{empt}
-\begin{definition}\label{top_fibered_product_defn}\cite{spanier:at}
-	Let $f:\B \to B'$ and $p:\E\to \B$ be maps and let $\E'$ be the subset of $\B'\times \E$ 
-	defined by 
-	\bean
-	\E' \bydef \left\{\left. \left(b', e\right)\in \B'\times \E \right| f(b)= p(e)\right\}
-	\eean
-	$\E'$ is called the \textit{fibered product} of $\B'$ and $\E$ (more precisely, the fibered product of $f$ and $p$. Note that there are maps $p': \E' \to \B'$ and $f': \E'\to \E$ defined by $p'(b',e) = b'$ and $f'(b',e) = e$. $\E'$ and the maps $p'$ and $f'$ are characterized as the product $f': \B'\to \B$ and $p: \E\to \B$ in the category 
-	whose objects are continuous maps with range $\B$.% and whose morphisms are commutative triangles 
-\end{definition}
-\begin{proposition}\cite{switzer:at}
-	The map $p' : \E' \to \B'$ is a fibration with fibre homeomorphic $p^{-1}\left( b_0\right)$. 
-\end{proposition}
-\begin{definition}\label{top_induced_fibration_defn}\cite{spanier:at}  
-	If $p: \E \to \B$ is a fibration and $f: B' \to B$ is a map, 
-	then $p':\E'\to \B'$ is a fibration and is called the \textit{fibration induced} from $p$ by $f$. If $\xi = (\E,\B,\F,p)$ is a fiber bundle and $\E'\to B$ 
-	then thee is a fiber bundle $(\E',\B',\F,p')$. !!! UPPER !!!
-	This is called the \textit{fiber bundle induced} from $\xi$ by $f$ and is denoted by $f^*\xi$.% In the case of an inclusion map i: B' C B we use E | £' to denote the fibered 
-\end{definition}
-
-
-
-
-
-\subsection{Fiber bundles}
-!!! 377
-
-568
-!!!!
-\begin{corollary}\cite{spanier:at}
-	For any space $\sY$ and point $y_0\in\sY$, let $p: P\left(\sY, y_0\right) \to\sY$  be 
-	the map sending each path starting at yo to its endpoint. Then $p$ is a  
-	fibration whose fiber over $y_0$ is the loop space $\Om\sY$. 
-\end{corollary}
-\begin{definition}\cite{spanier:at}
-A map $p: \E \to \B$ is called a \textit{local fibration} if there is an open covering $\left\{\sU\right\}$  of $\B$ such that $p|_{p^{-1}\left(\sU \right)} \to \sU$ is a fibration for every $\sU \in \left\{\sU\right\}$
-It is clear that a fibration is a local fibration and that any bundle projection 
-is a local fibration. 
-\end{definition}
-\begin{theorem}\cite{spanier:at}
-	If $\B$ is a paracompact Hausdorff space, a map $p: \E \to \B$ is a 
-	fibration if and only if it is a local fibration.
-\end{theorem}
-\begin{corollary}\cite{spanier:at}
-	If $(\E,\B,\F,p)$ is a fiber bundle with base space $\B$  
-	paracompact and Hausdorff, then $p$ is a fibration.
-\end{corollary}
-\begin{corollary}\cite{spanier:at}
-If $p: \E \to \B$ is a fibration with a path-connected base space, 
-any two fibers have the same homotopy type.
-\end{corollary}
-
-
 
 \subsection{Coverings and fundamental groups}
 	\paragraph*{}
@@ -27989,7 +27811,7 @@ The above construction is a specialization of the Statement  \ref{site_sheaf_stm
 	equal to the set of all continuous sections of $\mathrm{Sp\acute{e}}\left(\mathscr F \right)$ over $\sU$. 
 	
 \end{exercise}
-\begin{exercise}
+\begin{exercise} !!! CHECK !!!
 Let $\mathscr F$  and $\mathscr G$ by presheaves. Prove that any morphism corresponds to a continuous map $\phi:\mathrm{Sp\acute{e}}\left(\mathscr F \right)\to \mathrm{Sp\acute{e}}\left(\mathscr G \right)$ such that
 \begin{itemize}
 	\item $p_{\mathscr G}= p_{\mathscr F} \circ \phi$ where both $p_{\mathscr G}: \mathrm{Sp\acute{e}}\left(\mathscr G\mathscr F \right)\to \sX$ are natural projections.
@@ -28004,8 +27826,9 @@ Let $\mathscr F$  and $\mathscr G$ by presheaves. Prove that any morphism corres
 \begin{definition}\label{sheaf_inv_im_defn}\cite{hartshorne:ag}
 	Let $f: \sX\to \sY$ be a continuous map of topological spaces. For any sheaf  $\mathscr F$ on $\sX$, we define the \textit{direct image} sheaf  $f_*\mathscr F$ on $\sY$ by $\left(f_*\mathscr F\right)\left(\sV\right)= \mathscr F\left(f^{-1}\left(\sV\right)\right)$ for any open set $\sV \subseteq \sY$. For any sheaf  $\mathscr G$ on $\sY$, we define the \textit{inverse image} sheaf  $f^{-1}\mathscr G$ on $\sX$ be the sheaf  associated to the presheaf  $\sU \mapsto \lim_{\sV \supseteq f\left(\sU\right)} \mathscr G\left(\sV\right)$, where $\sU$ is any open set in $\sX$, and the limit is taken over all open sets $\sV$ of $\sV$ containing $f\left(\sU\right)$.
 \end{definition}
-\begin{remark}\cite{johnstone:topos}
-A pair of functors $f_*$ and $f^*$ rise a geometric morphism (cf. Definition \ref{geom_mor_defn}) $\mathbf{Sh}\left(\sY\right)\to \mathbf{Sh}\left(\sX\right)$ between categories of sheaves. 
+\begin{remark}\label{geometric_morphism_rem}\cite{johnstone:topos}
+%1.17
+	If $f : \sX \to \sY$ is a continuous map then a pair  of functors $f_*$ and $f^*$ rise a geometric morphism (cf. Definition \ref{geom_mor_defn}) $\mathbf{Sh}\left(\sY\right)\to \mathbf{Sh}\left(\sX\right)$ between categories of sheaves. 
 \end{remark}
 
 \begin{definition}\label{sub_sheaf_defn}\cite{hartshorne:ag}
