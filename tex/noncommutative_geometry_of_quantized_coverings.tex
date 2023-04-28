@@ -12863,7 +12863,7 @@ The Lemma \ref{blowing_supp_lem} can be regarded as a generalization of the equa
 	Form $\sY = \cup \sU_\a$ it follows that there is $\a\in \mathscr A$ such that $\supp f_\eps\left(a\right)\subset \sU_\a$. So $\supp f_\eps\left(a\right) \in A^{\mathrm{prop}}_{\sU_\a}$, i.e. $a$ satisfies to \eqref{blowing_aap_eqn}.\\
 	(ii) Any $a \in A$ can be represented by following way $ a = b + i c - i d -  e$ where $b,c, d,e\in A_+$ (cf. \eqref{four_decompositon_eqn}). From this representation and (i) it follows that any $a\in A$ satisfies to  \eqref{blowing_aap_eqn}.
 \end{proof}
-!!! CONTINUE !!!
+
 
 \begin{lemma}\label{blowing_prop_norm_lem}
 	Let $A$ be a $C^*$-algebra and let $C_0\left(\sY\right)\to M\left( A\right)$ be disintegrable Hausdorff blowing-up (cf. the Definitions \ref{blowing_defn} and \ref{blowing_disintegrable_defn}). 
@@ -12910,7 +12910,7 @@ so one has $\left\|\rep_{x'} \left( \sum_{j = 1}^n a_j\right) \right\| \le \left
 \begin{empt}\label{blowing_prop_norm_empt}
 Let $A$ be a $C^*$-algebra with  disintegrable Hausdorff blowing-up $C_0\left(\sY\right)\mapsto M\left(A\right)$ (cf. Definitions \ref{blowing_defn} and \ref{blowing_disintegrable_defn}). Let $\left\{\sU_\a\right\}_{\a \in \mathscr A}$  be a family of connected open subsets of $\sY$ such that:
 \begin{itemize} 
-	\item $\sU = \cup_\a \sU_{{\a}}$,
+	\item $\sY = \cup_\a \sU_{{\a}}$,
 	\item a closure of $\sU_\a$ is compact for all $\a$.
 \end{itemize}
 Let $I$ be a finite set, and let
@@ -12971,19 +12971,19 @@ Consider the situation \ref{blowing_prop_norm_empt}, and prove a generalization 
 \section{Grothendieck topology and cohomology}
 \begin{empt}
 		Let $A$ be a $C^*$-algebra (cf. Definition \ref{connected_c_a_defn}),  and let $C_0\left(\sY\right)\hookto M\left( A\right)$  be Hausdorff blowing-up 
-  We define a presheaf $\mathscr{P}^{\text{comm}}$ on $\sX$ such that if $\sU$ and $\sV$ are open subsets of $\sX$ then
+  We define a presheaf $\mathscr{P}^{\text{comm}}$ on $\sY$ such that if $\sU$ and $\sV$ are open subsets of $\sX$ then
 \bean
 \mathscr{P}^{\text{comm}}\left(\sU\right)\bydef \text{ a set of all commutative subalgebras of } _\sU A_{\sU};\\
 \rho_{\sU \sV}: \mathscr{P}^{\text{comm}}\left(\sU\right)\to  \mathscr{P}^{\text{comm}}\left(\sV\right), \quad B \mapsto B \cap~ _\sV A_{\sV}.
 \eean
-Let $\mathrm{Sp\acute{e}}\left(\mathscr P^{\text{comm}} \right)$ be 	\'espace etal\'e of a presheaf $\mathscr{P}^{\text{comm}}\left(\sU\right)$ (cf. Exercise \ref{sheaf_etale_exer}). The space  $\mathrm{Sp\acute{e}}\left(\mathscr P^{\text{comm}} \right)$ is a union of all stalks of the presheaf $\mathscr{P}^{\text{comm}}$ for any commutative $C^*$-subalgebra $C \subset A$ denote by
+Let $\mathrm{Sp\acute{e}}\left(\mathscr P^{\text{comm}} \right)$ be an	\'espace etal\'e of a presheaf $\mathscr{P}^{\text{comm}}\left(\sU\right)$ (cf. Exercise \ref{sheaf_etale_exer}). The space  $\mathrm{Sp\acute{e}}\left(\mathscr P^{\text{comm}} \right)$ is a union of all stalks of the presheaf $\mathscr{P}^{\text{comm}}$ for any commutative $C^*$-subalgebra $C \subset A$ denote by
 \be\label{blowing_top_open_eqn}
 \sU_C \bydef \left\{ \left. x \in \mathrm{Sp\acute{e}}\left(\mathscr P^{\text{comm}}\right) \right| C \quad \text{ is representative of}\quad  x\right\}	
 \ee
 \begin{exercise}\label{blowing_open_exer}
-	Prove that the set of  given by \eqref{blowing_top_open_eqn} sets is a basis of the topology of $\mathrm{Sp\acute{e}}\left(\mathscr P^{\text{comm}}\right)$.
+	Prove that the set of  given by \eqref{blowing_top_open_eqn} sets is a basis of the topology of $\mathrm{Sp\acute{e}}\left(\mathscr P^{\text{comm}}\right)$ (cf. Definition \ref{top_base_defn}).
 \end{exercise}
-For any hereditary subalgebra $B\subset A$ denote by $\text{Com}\left(B\right)$ a set of all commutative subalgebras of $B$. From the Exercise \ref{ctr_open_exer} it follows that a union
+For any hereditary subalgebra $B\subset A$ denote by $\text{Com}\left(B\right)$ a set of all commutative subalgebras of $B$. From the Exercise \ref{blowing_open_exer} it follows that a union
 $$
 \mathrm{Sp\acute{e}}\left(\mathscr P^{\text{comm}}\right)_B\bydef \bigcup_{C \in  \text{Com}\left(B\right)} \sU_C 
 $$
@@ -13000,12 +13000,12 @@ $$
 \end{definition}
 There is the natural continuous surjective map 
 \be\label{blowing_etale_p_eqn}
-p : \mathrm{Sp\acute{e}}\left(\mathscr P^{\text{comm}} \right) \to \sY
+p : \mathrm{Sp\acute{e}}\left(\mathscr P^{\text{comm}} \right) \to \sY.
 \ee
 Let $A^0\subset A$ be a trivial subalgebra, i.e. $A^0\cong \{0\}$. There is a continuous map
 \be
 \begin{split}
-j : \mathrm{Sp\acute{e}}\left(\mathscr P^{\text{comm}} \right)\to \sY;\\
+j : \sY \to \mathrm{Sp\acute{e}}\left(\mathscr P^{\text{comm}} \right);\\
 y \mapsto A^0_y
 \end{split}
 \ee 
@@ -13030,10 +13030,10 @@ p \circ j = \Id_{\sY}.
  
 \begin{theorem} If  Hausdorff blowing-up $C_0\left(\sY \right) \hookto M\left(A\right)$   {complies with the Grothendieck topology}  (cf. Definition \ref{grothendieck_ca_defn}) then following conditions hold.
 	\begin{enumerate}
-		\item [(i)] The {Grothendieck} $A$-{topology} (cf. Definition \ref{grothendieck_ca_defn}) corresponds   the	\'espace etal\'e $\mathrm{Sp\acute{e}}\left(\mathscr P^{\text{comm}} \right)$.
+		\item [(i)] The {Grothendieck} $A$-{topology} (cf. Definition \ref{grothendieck_ca_defn}) corresponds   the	\'espace etal\'e $\mathrm{Sp\acute{e}}\left(\mathscr P^{\mathrm{comm}} \right)$.
 		\item[(ii)] If $F$ is an Abelian group then for all $q > 0$ there is an isomorphism
 		$$
-H^q\left(\mathrm{Sp\acute{e}}\left(\mathscr P^{\text{comm}} \right), F \right)	\cong H^q\left(\sY, F  \right)	\oplus X^p
+H^q\left(\mathrm{Sp\acute{e}}\left(\mathscr P^{\mathrm{comm}} \right), F \right)	\cong H^q\left(\sY, F  \right)	\oplus X^p
 		$$
 		where $X^p$ is an Abelian group and the notation \eqref{const_shef_coh_eqn} is used.
 	\end{enumerate}
@@ -13163,7 +13163,7 @@ A $C^*$-subalgebra of $ B\left(\widetilde \H\right)$ generated by a set
 \begin{remark}
 The Definition \ref{top_lift_a_f_defn} is a specialization of the Definition \ref{blowing_lift_a_f_defn} (cf. Examples \ref{blowing_hausdorff_exm} and \ref{blowing_disintegrable_exm}).
 \end{remark}
-
+!!! CONTINUE !!!
 \begin{exercise}\label{blowing_a0_exer}
 	Prove following statements:
 	\begin{enumerate}
@@ -15737,9 +15737,6 @@ Elements of $K^1\left(A\right)$ can be represented by Fredholm operators which a
  \be\label{ctr_top_open_eqn}
  \sU_C \bydef \left\{ \left. x \in \mathrm{Sp\acute{e}}\left(\mathscr P^{\text{comm}}\right) \right| C \quad \text{ is representative of}\quad  x\right\}	
  \ee
- \begin{exercise}\label{ctr_open_exer}
- 	Prove that the set of  given by \eqref{ctr_top_open_eqn} sets is a basis of the topology of $\mathrm{Sp\acute{e}}\left(\mathscr P^{\text{comm}}\right)$.
- \end{exercise}
  For any hereditary subalgebra $B\subset A$ denote by $\text{Com}\left(B\right)$ a set of all commutative subalgebras of $B$. From the Exercise \ref{ctr_open_exer} it follows that a union
  $$
  \mathrm{Sp\acute{e}}\left(\mathscr P^{\text{comm}}\right)_B\bydef \bigcup_{C \in  \text{Com}\left(B\right)} \sU_C 
