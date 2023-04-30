@@ -13476,7 +13476,7 @@ Let us define a map
 \ee
 The map $\rho$ is correctly defined since if $\widetilde f$ satisfies to \eqref{blowing_rho_f_eqn} then $\widetilde f \pi_{\widetilde A}\left( {a} \right) \widetilde f$ does not depend on $\widetilde f$.
 \end{empt}
-\begin{lemma}
+\begin{lemma}\label{blowing_universal_lem}
 	Following conditions hold:
 	\begin{enumerate}
 		\item [(i)] if $\left(G, R\right)$ the explained in \ref{blowing_uni_empt} system  of generators and relations then the given by  \eqref{blowing_rho_eqn} map $\rho: G \to A_0\left( \widetilde \sY\right)$ is representation of
@@ -13512,7 +13512,7 @@ yields a  *-isomorphism $A_0\left(\widetilde \sY \right)\xrightarrow{\sim} A''$.
 
 
 \subsection{Lift and descent}\label{bliwing_lift_desc_sec}
-!!! CONTINUE !!!
+
 
 \paragraph{} Here we discuss generalizations of described in the Section \ref{top_lift_desc_sec} notions.
 \begin{definition}\label{blowing_liftq_defn}
@@ -13571,7 +13571,7 @@ a  $\widetilde q_{\la_{\widetilde{   \mathcal U }}}$-$\widetilde{\sU}$-\textit{l
 
 
 \begin{lemma}\label{blowing_cov_inc_strict_lem}
-	Let $A$ be a $C^*$-algebra and let $C_0\left(\sY\right)\hookto M\left(A \right) $ be a disintegrable  Hausdorff blowing-up (cf. Definitions \ref{blowing_defn}  and \ref{blowing_disintegrable_defn}). Suppose  $\sY$ is  a connected, locally connected space, and let $q: \widetilde\sY\to\sY$ be  a transitive covering. Suppose that  $\mathcal U\subset \mathcal Y$  is a connected open subset evenly {covered} by $\widetilde{\mathcal U}\subset \widetilde{\mathcal Y}$, such that the closure $\widetilde \sV$ of $\widetilde\sU$ is compact. If $\overline a \in A_0\left( \overline{\sY}\right)$ is such that $\supp  \overline a \subset \overline \sU$ (cf. Definition \ref{blowing_supp_defn}) 
+	Let $A$ be a $C^*$-algebra and let $C_0\left(\sY\right)\hookto M\left(A \right) $ be a disintegrable  Hausdorff blowing-up (cf. Definitions \ref{blowing_defn}  and \ref{blowing_disintegrable_defn}). Suppose  $\sY$ is  a connected, locally connected space, and let $q: \widetilde\sY\to\sY$ be  a transitive covering. Suppose that  $\mathcal U\subset \mathcal Y$  is a connected open subset {covered} by $q$. Assume that  $\widetilde{\mathcal U}\subset \widetilde{\mathcal Y}$ is mapped homeomorphically onto $\sU$ and the closure $\widetilde \sV$ of $\widetilde\sU$ is compact. If $\widetilde a \in A_0\left( \widetilde{\sY}\right)$ is such that $\supp  \widetilde a \subset \widetilde \sU$ (cf. Definition \ref{blowing_supp_defn}) 
 	then the series 	
 	\be\nonumber
 	\sum_{g \in G\left(\left.\widetilde\sY~\right|\sY\right) } g\widetilde{a}
@@ -13604,7 +13604,7 @@ so $\supp \widetilde b'$ is not compact. From this contradiction it turns out th
 \eean
 i.e. the series $  \sum_{	g \in G\left(\left.\widetilde{\sY}~\right|\sY\right)}\left( g \widetilde a\right) \widetilde b$ is $C^*$-norm convergent. Similarly one can prove that a series $  \sum_{	g \in G\left(\left.\widetilde{\sY}~\right|\sY\right)}\widetilde b\left( g \widetilde a\right)$ is also $C^*$-norm convergent. From our construction it follows that $\sum_{	g \in G\left(\left.\widetilde{\sY}~\right|\sY\right)}\left( g \widetilde a\right)\widetilde b'= \sum_{	g \in G_0}\left( g \widetilde a\right)\widetilde b'$ and construction of the given by \eqref{blowing_ca_m_eqn} map $
 A_b\left( q\right)  : A \hookto M\left(A_0\left(\widetilde \sY \right) \right) 
-$ it follows that $\sum_{	g \in G_0}\left( g \widetilde a\right)\widetilde b'$
+$ it follows that $\sum_{	g \in G_0}\left( g \widetilde a\right)\widetilde b'=\lift_q\circ \desc_q \left(\widetilde a \right)\widetilde b'$. using this fact one can deduce that 	$\sum_{g \in G\left(\left.\widetilde\sY~\right|\sY\right) } g\widetilde{a}\widetilde b=\lift_q\circ \desc_q \left(\widetilde a \right)\widetilde b$.
 
 \end{proof}
 \begin{definition}\label{blowing_cdesc_defn}
@@ -13619,10 +13619,10 @@ $ it follows that $\sum_{	g \in G_0}\left( g \widetilde a\right)\widetilde b'$
 	\be\label{blowing_cdesc_eqn}
 	\begin{split}
 		\desc^c_p : A_c\left( \widetilde\sY\right)\to  A_c,\\
-		\widetilde a \mapsto \sum_{	g \in G\left( \left.  \sY_{\la_{\widetilde{\sU}}}\right| \sY\right) }g \desc_{\widetilde q_{\la_{\widetilde{   \mathcal U }}}}\left(\widetilde a \right)
+		\widetilde a \mapsto \sum_{	g \in G\left( \left.  \sY_{\la_{\supp\widetilde{a}}}\right| \sY\right) }g \desc_{\widetilde q_{\la_{\supp\widetilde{a}}}}\left(\widetilde a \right)
 	\end{split}
 	\ee
-	is said to be a \textit{compactly supported} $q$-\textit{descent}.
+	is said to be a \textit{compactly supported} $q$-\textit{descent} where $\la_{\supp \widetilde a}\in\La$ complies with the Corollary \ref{top_comp_lau_cor}.
 \end{definition}
 
 \begin{remark}
@@ -13827,7 +13827,7 @@ $$
 $$
 where $\widetilde{\sU} \bydef q^{-1}\left(\sU\right)$.
  Similarly to the Lemma \ref{blowing_uau_conn_lem}  one can proof that $_{\widetilde{\sU}}A_0\left( \widetilde \sY\right)_{\widetilde{\sU}}$ is a connected $C^*$-algebra. If $\sV$ is a closure of $\sU$ then from the Lemma \ref{blowing_multiplier_lem} it follows that there is a natural inclusion 
-  $C\left(\sV\right)\subset M\left(A\right)$. Similarly if $\widetilde \sV\bydef q^{-1}\left(\sV \right)$ then $\widetilde \sV$ is compact and  there is a natural inclusion $C\left(\widetilde\sV\right)\subset M\left(_{\widetilde{\sU}}A_0\left( \widetilde \sY\right)_{\widetilde{\sU}}\right)$. From $G\left(\left.\widetilde{\sY}~\right|\sY\right)\widetilde\sU= \widetilde\sU$ it follows that $G\left(\left.\widetilde{\sY}~\right|\sY\right)~_{\widetilde{\sU}}A_0\left( \widetilde \sY\right)_{\widetilde{\sU}}=_{\widetilde{\sU}}A_0\left( \widetilde \sY\right)_{\widetilde{\sU}}$. If both  $B$ and $\widetilde B$ are  generated by unions $_\sU A_\sU \cup C\left(\sV\right)$ and $\widetilde A' \cup C\left(\widetilde \sV\right)$ $C^*$-subalgebras of $M\left( _\sU A_\sU\right)$ and $M\left(_{\widetilde{\sU}}A_0\left( \widetilde \sY\right)_{\widetilde{\sU}}\right)$   then there are unitizations  $_\sU A_\sU\hookto B$ and $_{\widetilde{\sU}}A_0\left( \widetilde \sY\right)_{\widetilde{\sU}} \hookto \widetilde B$.
+  $C\left(\sV\right)\subset M\left(_\sU A_\sU\right)$. Similarly if $\widetilde \sV\bydef q^{-1}\left(\sV \right)$ then $\widetilde \sV$ is compact and  there is a natural inclusion $C\left(\widetilde\sV\right)\subset M\left(_{\widetilde{\sU}}A_0\left( \widetilde \sY\right)_{\widetilde{\sU}}\right)$. From $G\left(\left.\widetilde{\sY}~\right|\sY\right)\widetilde\sU= \widetilde\sU$ it follows that $G\left(\left.\widetilde{\sY}~\right|\sY\right)~_{\widetilde{\sU}}A_0\left( \widetilde \sY\right)_{\widetilde{\sU}}=~_{\widetilde{\sU}}A_0\left( \widetilde \sY\right)_{\widetilde{\sU}}$. If both  $B$ and $\widetilde B$ are  generated by unions $_\sU A_\sU \cup C\left(\sV\right)$ and $\widetilde A' \cup C\left(\widetilde \sV\right)$ $C^*$-subalgebras of $M\left( _\sU A_\sU\right)$ and $M\left(_{\widetilde{\sU}}A_0\left( \widetilde \sY\right)_{\widetilde{\sU}}\right)$   then there are unitizations  $_\sU A_\sU\hookto B$ and $_{\widetilde{\sU}}A_0\left( \widetilde \sY\right)_{\widetilde{\sU}} \hookto \widetilde B$.
 Both $\sV$ and $\widetilde \sV$ are compact and the restriction $q|_{\widetilde \sV}$ is a finite-fold transitive covering, so from the equation \eqref{top_aln_eqn} if follows that 
 \be\label{blowing_e_n_eqn}
 \begin{split}
@@ -13842,7 +13842,7 @@ G \bydef \left\{ \left.g \in \Aut\left(\widetilde{B} \right)~\right|~ gb = b;~~\
 \ee
 then any $g \in G$ yields a *-isomorphism in 
 $$
-\left\{\left.g \in \Aut\left(C\left(C\left(\widetilde\sV \right) \right) \right) \right|\forall f \in C\left(\sV\right)  g f = f\right\}.
+\left\{\left.g \in \Aut\left(C\left(\widetilde\sV \right)  \right) \right|\forall f \in C\left(\sV\right)\quad  g f = f\right\}.
 $$ 
 It follows that there is a surjective map $\phi: G \to G\left(\left.\widetilde \sV \right|\sV \right)$.
 From the equation \eqref{blowing_e_n_eqn} it follows that any $\widetilde b \in \widetilde B$ can be represented by the following way
@@ -13936,9 +13936,10 @@ where $A_0:\mathfrak{FinCov}$-$\sY\to \mathfrak{FinCov}$-$A$ is an {associated w
 \begin{proof}
 From the Theorem \ref{blowing_functor_ff_thm}  it follows that the  functor $A_0:\mathfrak{FinCov}$-$\sY\to \mathfrak{FinCov}$-$A$ is full and faithful (cf. Definition \ref{funct_full_faithfull_defn}). The category \ref{blowing_top_eqn} is skeletal (cf. Definition \ref{skeletal_defn}), so the category $\mathfrak{S}^{\mathrm{pt}}_A \bydef  A_0\left(\mathfrak{S}_{\left( \sY, y_0  \right) } \right)$ is also skeletal.
 \end{proof}
+
 \begin{empt}\label{blowing_rep_empt}
 
-	If $\widehat A \bydef C^*$-$\varinjlim_{\la\in \La} A_0\left(\sY_\la\right)$ is a  $C^*$-{inductive limit} is the sense of the Definition \ref{inductive_lim_non_defn} and $\widehat \sX$ is a spectrum of $\widehat A$ then from the Lemma \ref{inverse_lim_sp_lem} it follows that $\widehat \sX$ is an inverse limit $\varprojlim \sX_\la$ (cf. Definition \ref{inv_lim_defn}) where $\sX_\la$ is a spectrum of $A_0\left(\sY_\la\right)$. 	Let both $\widehat{p}: \widehat \sX \to \sX$ and   $\widehat p_\la: \widehat \sX \to \sX_\la$ are natural surjective maps. If a noncommutative finite covering  $\left(A, \sY_\la, G\left(\left. \sY_\la\right| \sY\right), A_0\left(q_\la\right)\right)$ is  reduced (cf. Definition \ref{fin_red_defn}) for all $\la \in \La$ then from the Lemma \ref{inverse_lim_h_lem} 
+	If $\widehat A \bydef C^*$-$\varinjlim_{\la\in \La} A_0\left(\sY_\la\right)$ is a  $C^*$-{inductive limit} in the sense of the Definition \ref{inductive_lim_non_defn} and $\widehat \sX$ is a spectrum of $\widehat A$ then from the Lemma \ref{inverse_lim_sp_lem} it follows that $\widehat \sX$ is an inverse limit $\varprojlim \sX_\la$ (cf. Definition \ref{inv_lim_defn}) where $\sX_\la$ is a spectrum of $A_0\left(\sY_\la\right)$. 	Let both $\widehat{p}: \widehat \sX \to \sX$ and   $\widehat p_\la: \widehat \sX \to \sX_\la$ are natural surjective maps. If a noncommutative finite covering  $\left(A, \sY_\la, G\left(\left. \sY_\la\right| \sY\right), A_0\left(q_\la\right)\right)$ is  reduced (cf. Definition \ref{fin_red_defn}) for all $\la \in \La$ then from the Lemma \ref{inverse_lim_h_lem} 
 one has
 following isomorphisms
 $$
@@ -13967,7 +13968,7 @@ from the Lemma \ref{top_comp_la_lem} it follows that there is $\la_{\supp \overl
 \ee
 where $\phi^{\widehat x}_{\la_{\supp \overline{   a}}}$ is given by \eqref{blowing_phil_eqn}  and $\desc_{\overline p_{\la_{\supp \overline{   a}}}}$ is a ${\overline p_{\la_{\supp \overline{   a}}}}$-descent (cf. Definition \ref{blowing_lift_desc_defn}). We leave to the reader proof of that $\rho_{\widehat x}$ is a *-homomorphism from  $K\left( A_0\left( \overline \sY\right) \right)$ to $B\left( \H_{ \widehat x}\right)$. Since  $K\left( A_0\left( \overline \sY\right) \right)$ is dense in $A_0\left( \overline \sY\right)$ so $\rho_{\widehat x}$ can be extended up to a *-homomorphism $\rho_{\widehat x}: A_0\left( \overline \sY\right) \to B\left( \H_{ \widehat x}\right)$. We leave to the reader the proof of that $\rho_{\widehat x}$ is an irreducible representation.
 \end{proof}
-\begin{remark}\label{blowing_atomic_rem}If $\pi_a: \widehat A \hookto B\left(\widehat \H_a \right)$ is an atomic representation then $\widehat \H_a$ is a norm completion of an algebraic direct sum $\bigoplus_{\widehat x \in \widehat \sX} \H_{\widehat x}$. From the Lemma \ref{blowing_rep_lem} it follows that there is a natural representation 
+\begin{remark}\label{blowing_atomic_rem}If $\pi_a: \widehat A \hookto B\left(\widehat \H_a \right)$ is an atomic representation (cf. Definition \ref{atomic_repr_defn}) then $\widehat \H_a$ is a norm completion of an algebraic direct sum $\bigoplus_{\widehat x \in \widehat \sX} \H_{\widehat x}$. From the Lemma \ref{blowing_rep_lem} it follows that there is a natural representation 
 \be\label{blowing_atomic_eqn}
 \pi_A :  A_0\left( \overline \sY\right)\hookto B\left(\widehat \H_a \right).
 \ee
@@ -13977,7 +13978,7 @@ We leave to the reader a proof of that the representation $\pi_A$ is faithful.
 
 
 \begin{lemma}\label{blowing_cov_inc_strong_lem}
-	Consider the situation of the Remark \ref{blowing_atomic_rem}. Let $ q: \overline \sY \to \sY$ be a natural covering. Suppose that  $\mathcal U\subset \mathcal Y$  is a connected open subset evenly {covered} by $\overline{\mathcal U}\subset \overline{\mathcal Y}$, such that the closure $\overline \sV$ of $\overline\sU$ is compact. If $\overline a \in A_0\left( \overline{\sY}\right)$ is such that $\supp  \overline a \subset \overline \sU$ (cf. Definition \ref{blowing_supp_defn})
+	Consider the situation of the Remark \ref{blowing_atomic_rem}. Let $ q: \overline \sY \to \sY$ be a natural covering. Suppose that  $\mathcal U\subset \mathcal Y$  is a connected open subset  evenly {covered} by $q$. Assume that $\overline{\mathcal U}\subset \overline{\mathcal Y}$ is mapped homeomorphically onto $\sU$ and the closure $\overline \sV$ of $\overline\sU$ is compact. If $\overline a \in A_0\left( \overline{\sY}\right)$ is such that $\supp  \overline a \subset \overline \sU$ (cf. Definition \ref{blowing_supp_defn})
 	then the series 	
 	\be\nonumber
 	\sum_{g \in G\left(\left.\overline\sY~\right|\sY\right) } \pi_A \left( g\overline{a}\right) 
@@ -14026,7 +14027,7 @@ The above equation it turns out that the series \eqref{blowing_rx_eqn} is norm c
 \end{proof}
 
 \begin{definition}\label{blowing_semi_defn}
-	Let $A$ be a connected  $C^*$-algebra (cf. Definition \ref{connected_c_a_defn}), and let $C_0\left( \sY\right)\hookto M\left( A\right) $ be disintegrable Hausdorff blowing up (cf. Definitions \ref{blowing_defn} and \ref{blowing_disintegrable_defn}). Let $\sU\subset \sY$ be a connected open, subset. We say that $\sU$ is \textit{semilocally proper} if following conditions hold:
+	Let $A$ be a connected  $C^*$-algebra (cf. Definition \ref{connected_c_a_defn}), and let $C_0\left( \sY\right)\hookto M\left( A\right) $ be disintegrable Hausdorff blowing up (cf. Definitions \ref{blowing_defn} and \ref{blowing_disintegrable_defn}). Let $\sU\subset \sY$ be a connected open subset. We say that $\sU$ is \textit{semilocally proper} if following conditions hold:
 	\begin{enumerate}
 		\item [(a)] if $A^{\mathrm{prop}}_\sU\subset A$ is the $\sU$-proper $C^*$-subalgebra (cf. 
 		Definition \ref{blowing_proper_defn}) then $A^{\mathrm{prop}}_\sU$ is simply connected (cf. Definition \ref{simply_connected_defn});
@@ -14049,7 +14050,7 @@ The above equation it turns out that the series \eqref{blowing_rx_eqn} is norm c
 
 \begin{empt}\label{blowing_inf_c_empt}
 Let $A$ be a connected $C^*$-algebra, and let $C\left( \sY\right) \hookto A$ be a disintegrable Hausdorff blowing-up (cf. Definitions \ref{blowing_defn} and \ref{blowing_disintegrable_defn}) with compact $\sY$. Let $\sU\subset \sY$ be a semilocally 1-connected subset (cf. Definition \ref{blowing_semi_defn}). Let $q: \widetilde \sY \to \sY$ be a transitive covering which satisfies to the condition (b) of the Definition \ref{blowing_semi_defn}.
-The covering  group $G \left( \left. \widetilde \sY\right| \sY \right)$ (cf. Definition \ref{top_covering_transformations_group_defn}) is residually finite (cf. Definition \ref{residually_finite_defn}), so from the Lemma  \ref{top_associded_lem} !!! CHECK !!! it follows that there is  a pointed  topological finite covering category
+The covering  group $G \left( \left. \widetilde \sY\right| \sY \right)$ (cf. Definition \ref{top_covering_transformations_group_defn}) is residually finite (cf. Definition \ref{residually_finite_defn}), so from the Lemma  \ref{top_associded_lem} it follows that there is  a pointed  topological finite covering category
   \bean
 \begin{split}
 	\mathfrak{S}_{\left( \sY, y_0  \right) } \bydef\\\bydef\left\{\left\{ q_\la: \left( \sY_\la, y^\la_0\right) \to \left( \sY, y_0\right)\right\}_{\la \in \La}, \left\{q^\mu_\nu: \left( \sY_\mu, y^\mu_0  \right)\to \left( \sY_\nu, y^\nu_0  \right)\right\}_{\substack{ \mu, \nu \in \La \\ \mu \ge \nu}}\right\}
@@ -14068,7 +14069,7 @@ _\sU\widetilde A_\sU \bydef \left\{\left.\widetilde a \in \widetilde A \right|\w
 H \bydef \left\{g \in G \left| \forall a\in~ _\sU A_\sU\quad g\pi\left(a\right)=\pi\left(a\right)\right. \right\}
 \eean 
 is also a reduced noncommutative finite-fold covering with unitization. 
-From the equation \ref{fin_comp*_eqn} it follows that there is a finite set $\left\{\widetilde a_1, ..., \widetilde{a}_n\right\}\subset M\left( \widetilde{A}\right)$ such that
+From the equation \ref{fin_comp*_eqn} it follows that there is a finite set $\left\{\widetilde b_1, ..., \widetilde{b}_n\right\}\subset M\left( \widetilde{A}\right)$ such that
 $$
  \widetilde{A} = A\widetilde{b}_1+...+A\widetilde{b}_n.
 $$
@@ -14092,7 +14093,7 @@ There are following inclusions
 _{q^{-1}\left( \sU\right)} 	A_0\left(\widetilde  \sY \right)_{q^{-1}\left( \sU\right)} \otimes_{_\sU A_\sU}~_\sU \widetilde A_\sU\subset 	A_0\left(\widetilde  \sY \right) \otimes_A \widetilde A,\\
 _{\widetilde \sU}	A_0\left(\overline \sY \right)_{\widetilde \sU}\otimes_{_\sU A_\sU}~_\sU \widetilde A_\sU\subset  _{q^{-1}\left( \sU\right)} 	A_0\left(\widetilde  \sY \right)_{q^{-1}\left( \sU\right)} \otimes_{_\sU A_\sU}~_\sU \widetilde A_\sU.
 \eean
-If  $\widehat A\bydef C^*$-$\varinjlim A_0\left( \sY_\la\right)$ is a $C^*$-{inductive limit} (cf. Definition \ref{prop}) and $\widehat \sX$ is a spectrum of $\widehat A$ then from the Lemma \ref{blowing_rep_lem} it follows that  for all $\widehat x \in \widehat\sX$ there is an irreducible representation $\rho_{\widehat x}: A_0\left(\overline \sY \right)\to B\left(\H_{\widehat x} \right)$ where  $\H_{\widehat x}$ is a space of the irreducible representation $\rep_{\widehat x}: \widehat A \to B\left(\H_{\widehat x} \right)$. 
+If  $\widehat A\bydef C^*$-$\varinjlim A_0\left( \sY_\la\right)$ is a $C^*$-{inductive limit} (cf. Definition \ref{inductive_lim_non_defn}) and $\widehat \sX$ is a spectrum of $\widehat A$ then from the Lemma \ref{blowing_rep_lem} it follows that  for all $\widehat x \in \widehat\sX$ there is an irreducible representation $\rho_{\widehat x}: A_0\left(\overline \sY \right)\to B\left(\H_{\widehat x} \right)$ where  $\H_{\widehat x}$ is a space of the irreducible representation $\rep_{\widehat x}: \widehat A \to B\left(\H_{\widehat x} \right)$. 
 Let $\left(A, \widetilde A, G, \pi\right)$ be a reduced noncommutative finite-fold pre-covering  (cf. Definitions \ref{fin_pre_defn} and \ref{fin_red_defn}). Let $p: \widetilde \sX \to \sX$ be given by the Proposition \ref{spectrum_cov_prop} map from the spectrum $\widetilde \sX$ of $\widetilde A$ to the spectrum $\sX$ of $A$. From the Lemma \ref{inverse_lim_sp_lem} it follows that there is a surjective map $\widehat p: \widehat \sX\to \sX$. Let
 $$
 \widetilde \sX \times_\sX \widehat \sX \bydef \left\{\left.\left(\widetilde x, \widehat x \right) \in \widetilde \sX \times \widehat \sX \right| p\left(\widetilde x\right)= \widehat p\left(\widehat x\right) \right\},
@@ -14338,8 +14339,9 @@ $$
 (cf. equation \eqref{blowing_regular_eqn}). It follows that any nontrivial $g \in G$ yields a nontrivial homeomorphism of $\widetilde \sY$. Thus the covering $q$ is transitive and $G \cong G\left(\left.\widetilde \sY \right| \sY\right)$.
 \end{proof}
 \begin{theorem}\label{blowing_semi_fin_thm}
-	Let  $A$ be a connected  $C^*$-algebra (cf. Definition \ref{connected_c_a_defn}), and let $C_0\left( \sY\right)\hookto M\left( A\right) $ be disintegrable, semilocally 1-connected Hausdorff blowing up (cf. Definitions \ref{blowing_defn}, \ref{blowing_disintegrable_defn} and \ref{blowing_semi_defn}). If  $\left(A, \widetilde A, G, \pi \right)$ be a reducible noncommutative finite-fold covering with unitization (cf. Definitions \ref{fin_red_defn} and \ref{fin_unitization_defn}) then there is a finite-fold transitive covering $q: \widetilde \sY \to\sY$, such that $\left(A, \widetilde A, G, \pi \right)$ is equivalent to the given by the Theorem \ref{blowing_fin_thm} covering $\left(A,A_0\left( \widetilde \sY\right),G\left(\left.\widetilde{\sY}~\right|\sY\right),  A_0\left( q\right) \right)$.
+	Let  $A$ be a connected  $C^*$-algebra (cf. Definition \ref{connected_c_a_defn}), and let $C_0\left( \sY\right)\hookto M\left( A\right) $ be disintegrable, semilocally 1-connected Hausdorff blowing up (cf. Definitions \ref{blowing_defn}, \ref{blowing_disintegrable_defn} and \ref{blowing_semi_defn}). If  $\left(A, \widetilde A, G, \pi \right)$ is a reducible noncommutative finite-fold covering with unitization (cf. Definitions \ref{fin_red_defn} and \ref{fin_unitization_defn}) then there is a finite-fold transitive covering $q: \widetilde \sY \to\sY$, such that $\left(A, \widetilde A, G, \pi \right)$ is equivalent to the given by the Theorem \ref{blowing_fin_thm} covering $\left(A,A_0\left( \widetilde \sY\right),G\left(\left.\widetilde{\sY}~\right|\sY\right),  A_0\left( q\right) \right)$.
 \end{theorem}
+!!! CHECK !!!
 \begin{proof}
 Here the notation of the Lemma \ref{blowing_semi_lem} is used.		If $\left\{\sU_\a\right\}_{\a\in \mathscr A}$ is  a family of  semilocally 1-connected sets such that $\sY = \bigcup_{\a\in \mathscr A}\sU_\a$   then an algebraic sum 
 $$
@@ -14347,7 +14349,7 @@ $$
 $$
 is dense in $\widetilde A$ with respect to a $C^*$-norm topology. We also suppose that for any $\widetilde A$ there is an evenly covered by $q$ semilocally 1-connected set $\sV_\a$ such that there is $f_\a \in C_c\left(\sY\right)$ which satisfies to the following conditions
 \bean
-f_\a\left(\sV_\a\right) = \left[0,1\right],\\
+f_\a\left(\sU_\a\right) = \left[0,1\right],\\
 \supp f_\a \subset \sU_\a,\\
 f_\a\left(\sV_a \right)=\{1\}.
 \eean
@@ -14357,7 +14359,7 @@ On the other hand for any $\a\in\mathscr A$ one can select an open subsets $\wid
 q^{-1}\left(\sU_\a \right)=  \bigsqcup_{g \in G\left(\left.\widetilde{\sY}~\right|\sY\right)}g \widetilde \sU_\a,\\
 q^{-1}\left(\sV_\a \right)=  \bigsqcup_{g \in G\left(\left.\widetilde{\sY}~\right|\sY\right)}g \widetilde \sV_\a.
 \eean
-For any $\a\in\mathscr A$ denote by $\widetilde f_\a\bydef \lift^q_{\widetilde{\sU}}\left(f_\a \right)$ (cf. Definition \ref{top_lift_desc_defn}). 
+For any $\a\in\mathscr A$ denote by $\widetilde f_\a\bydef \lift^q_{\widetilde{\sU}_\a}\left(f_\a \right)$ (cf. Definition \ref{top_lift_desc_defn}). 
 From 
 $$
 \widetilde \sY = \bigcup_{\substack{\a\in\mathscr A\\g\in G\left(\left.\widetilde{\sY}~\right|\sY\right)} } g \widetilde \sU_\a
@@ -14366,8 +14368,8 @@ it follows that an algebraic sum
 $$
 \sum_{\substack{\a\in\mathscr A\\g\in G\left(\left.\widetilde{\sY}~\right|\sY\right)} } gC_0\left(\widetilde \sU_\a\right)\widetilde A
 $$
-of right $\widetilde A$-ideals is dense in $\widetilde A$. If $\widetilde a \in gC_0\left(\widetilde \sU_\a\right)\widetilde A$ then $$\sum_{	g \in G\left( \left. \widetilde \sY\right| \sY\right) }\widetilde a \in \pi \left(C_0\left(\widetilde \sU_\a\right)A\right).$$
-On the other hand $C_0\left(\widetilde \sU_\a\right)A$ is a $C^*$-norm completion of an algebraic linear span of monomials 
+of right $\widetilde A$-ideals is dense in $\widetilde A$. If $\widetilde a \in gC_0\left(\widetilde \sU_\a\right)\widetilde A$ then $$\sum_{	g \in G\left( \left. \widetilde \sY\right| \sY\right) }\widetilde a \in \pi \left(C_0\left( \sU_\a\right)A\right).$$
+On the other hand $C_0\left( \sU_\a\right)A$ is a $C^*$-norm completion of an algebraic linear span of monomials 
 $$
 a_1\cdot ...\cdot a_n \quad \forall j \in {1,...,n}\quad \exists \a_j \in \mathscr A\quad a_j \in A^{\text{prop}}_{\sU_{\a_j}}\quad \a_1=\a.
 $$
@@ -14385,7 +14387,7 @@ where
 $$
 \widetilde A^{\text{prop}}_{\widetilde\sU_{\a_j}} \bydef  \widetilde f_{\a_j}\pi\left( A^{\text{prop}}_{\sU_{\a_j}} \right)  \widetilde f_{\a_j} \cong A^{\text{prop}}_{\sU_{\a_j}}
 $$
-If a pair $\left(G, R\right)$ is a described in \ref{blowing_uni_empt} the from the above text  it follows that $\widetilde A$ is naturally isomorphic to the {universal $C^*$-algebra $C^*\left(G,R\right)$ on the generators $G$ and relations $R$} (cf. Definition \ref{universal_ca_defn}). From the Exercise \ref{blowing_uni_exer} it follows that $C^*\left(G,R\right)\cong A_0\left(\widetilde \sY \right)$. In result one has the natural *-isomorphism $\widetilde A\cong A_0\left(\widetilde \sY\right)$.
+If a pair $\left(G, R\right)$ is a described in \ref{blowing_uni_empt} the from the above text  it follows that $\widetilde A$ is naturally isomorphic to the {universal $C^*$-algebra $C^*\left(G,R\right)$ on the generators $G$ and relations $R$} (cf. Definition \ref{universal_ca_defn}). From the Lemma \ref{blowing_universal_lem} it follows that $C^*\left(G,R\right)\cong A_0\left(\widetilde \sY \right)$. In result one has the natural *-isomorphism $\widetilde A\cong A_0\left(\widetilde \sY\right)$.
 
 \end{proof}
 
