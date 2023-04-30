@@ -14025,7 +14025,7 @@ The above equation it turns out that the series \eqref{blowing_rx_eqn} is norm c
 \begin{proof}
 	This Corollary follows from the Lemma \ref{blowing_cov_inc_strong_lem} and n$^\text{0}$ 3 of the Exercise \ref{blowing_a0_exer}. Proof of details are left to the reader.
 \end{proof}
-
+!!! CONTINUE !!!
 \begin{definition}\label{blowing_semi_defn}
 	Let $A$ be a connected  $C^*$-algebra (cf. Definition \ref{connected_c_a_defn}), and let $C_0\left( \sY\right)\hookto M\left( A\right) $ be disintegrable Hausdorff blowing up (cf. Definitions \ref{blowing_defn} and \ref{blowing_disintegrable_defn}). Let $\sU\subset \sY$ be a connected open subset. We say that $\sU$ is \textit{semilocally proper} if following conditions hold:
 	\begin{enumerate}
@@ -14171,6 +14171,27 @@ From these statements and the equation \eqref{blowing_fin_gen_eqn} it follows th
 is a noncommutative finite-fold covering with unitization (cf. Definition \ref{fin_unitization_defn}).
 
 \end{empt}
+\begin{lemma}
+	In the situation \ref{blowing_inf_c_empt} for any $\widetilde f\in C_0\left(\overline \sY \right)$ such that 
+	$$
+	\left\{\left.\overline y \in\overline \sY\right| \widetilde f\left( \overline y\right) \neq 0\right\}\subset \widetilde \sU
+	$$
+	there is a natural isomorphism of right $\widetilde A$-modules 
+	\be\label{blowing_right_iso_eqn}
+	\begin{split}
+		\varphi_{ \widetilde f}:  \desc_{\overline q}\left( \widetilde f \right) \widetilde A\xrightarrow{\approx}\rho^{\mathrm{ext}}\left( \widetilde f \right)A_{\mathrm{ext}},\\
+		\desc_{\overline q}\left( \widetilde f \right)\widetilde a \mapsto \rho^{\mathrm{ext}}\left( \widetilde f \right) \pi^{\mathrm{ext}} \left( \widetilde a\right)
+	\end{split}
+	\ee
+	where $\overline q: \overline\sY\to \sY$ is a natural covering and $\desc_{\overline q}$ is a ${\overline q}$-descent (cf. Definition \ref{top_lift_desc_defn}).
+\end{lemma}
+\begin{proof}
+	From the equation \eqref{blowing_right_iso_eqn} directly follows that is a natural homomorphism of right $\widetilde A$-modules, so one needs construct an inverse homomorphism $\varphi^{-1}_{ \widetilde f}:  \widetilde fA_{\mathrm{ext}}\to \desc_{\overline q}\left( \widetilde f \right) \widetilde A$. Any $a^{\mathrm{ext}}\in A^{\mathrm{ext}}$ equals to a $C^*$-norm limit\\ $\lim_{\la \in \La}\rho^{\mathrm{ext}}\left( \widetilde f_\la \right) \pi^{\mathrm{ext}} \left( \widetilde a_\la\right)$. We define 
+	$$
+	\varphi^{-1}_{ \widetilde f}\left(\widetilde f  a_{\mathrm{ext}}\right) \bydef \lim_{\la \in \La}  \desc_{\overline q}\left(\widetilde f \widetilde f_\la \right)  \pi^{\mathrm{ext}} \left( \widetilde a_\la\right).
+	$$
+\end{proof}
+
 \begin{empt}
   There are following  maps
 \be\label{blowing_ten1_eqn}
@@ -14341,13 +14362,13 @@ $$
 \begin{theorem}\label{blowing_semi_fin_thm}
 	Let  $A$ be a connected  $C^*$-algebra (cf. Definition \ref{connected_c_a_defn}), and let $C_0\left( \sY\right)\hookto M\left( A\right) $ be disintegrable, semilocally 1-connected Hausdorff blowing up (cf. Definitions \ref{blowing_defn}, \ref{blowing_disintegrable_defn} and \ref{blowing_semi_defn}). If  $\left(A, \widetilde A, G, \pi \right)$ is a reducible noncommutative finite-fold covering with unitization (cf. Definitions \ref{fin_red_defn} and \ref{fin_unitization_defn}) then there is a finite-fold transitive covering $q: \widetilde \sY \to\sY$, such that $\left(A, \widetilde A, G, \pi \right)$ is equivalent to the given by the Theorem \ref{blowing_fin_thm} covering $\left(A,A_0\left( \widetilde \sY\right),G\left(\left.\widetilde{\sY}~\right|\sY\right),  A_0\left( q\right) \right)$.
 \end{theorem}
-!!! CHECK !!!
+
 \begin{proof}
 Here the notation of the Lemma \ref{blowing_semi_lem} is used.		If $\left\{\sU_\a\right\}_{\a\in \mathscr A}$ is  a family of  semilocally 1-connected sets such that $\sY = \bigcup_{\a\in \mathscr A}\sU_\a$   then an algebraic sum 
 $$
 \sum_{\a\in\mathscr A} \pi\left(C_0\left(\sU_\a\right)\right)\widetilde A
 $$
-is dense in $\widetilde A$ with respect to a $C^*$-norm topology. We also suppose that for any $\widetilde A$ there is an evenly covered by $q$ semilocally 1-connected set $\sV_\a$ such that there is $f_\a \in C_c\left(\sY\right)$ which satisfies to the following conditions
+is dense in $\widetilde A$ with respect to a $C^*$-norm topology. We also suppose that for any $\widetilde A$ there is an evenly covered by $q$ semilocally 1-connected set $\sV_\a$ such that $\sY = \bigcup_{\a\in \mathscr A}\sV_\a$ and for all $\a\in \mathscr A$ there is $f_\a \in C_c\left(\sY\right)$ which satisfies to the following conditions
 \bean
 f_\a\left(\sU_\a\right) = \left[0,1\right],\\
 \supp f_\a \subset \sU_\a,\\
@@ -14355,7 +14376,7 @@ f_\a\left(\sV_a \right)=\{1\}.
 \eean
 On the other hand for any $\a\in\mathscr A$ one can select an open subsets $\widetilde \sU_\a, \widetilde \sV_\a\subset\sY$ such that
 \bean
-\widetilde \sU_\a\subset \widetilde \sV_\a,\\
+\widetilde \sV_\a\subset \widetilde \sU_\a,\\
 q^{-1}\left(\sU_\a \right)=  \bigsqcup_{g \in G\left(\left.\widetilde{\sY}~\right|\sY\right)}g \widetilde \sU_\a,\\
 q^{-1}\left(\sV_\a \right)=  \bigsqcup_{g \in G\left(\left.\widetilde{\sY}~\right|\sY\right)}g \widetilde \sV_\a.
 \eean
@@ -14381,12 +14402,8 @@ then
 where $g_1 = g$ and $g_j\widetilde \sU_{\a_j}\cap g_{j+1}\widetilde \sU_{\a_{j + 1}}\neq \emptyset.
 $ On the other hand 
 \bean
-\left( g_j \widetilde f_{\a_j} \right)\pi\left( a_j \right) \left( g_j \widetilde f_{\a_j} \right)\in  g \widetilde A^{\text{prop}}_{\widetilde\sU_{\a_j}} \left( g_j \widetilde f_{\a_j} \right)\pi\left( A^{\text{prop}}_{\sU_{\a_j}} \right) \left( g_j \widetilde f_{\a_j} \right)
+\left( g_j \widetilde f_{\a_j} \right)\pi\left( a_j \right) \left( g_j \widetilde f_{\a_j} \right)\in  \left( g_j \widetilde f_{\a_j} \right)\pi\left( A^{\text{prop}}_{\sU_{\a_j}} \right) \left( g_j \widetilde f_{\a_j} \right)\subset g \widetilde A^{\text{prop}}_{\widetilde\sU_{\a_j}} 
 \eean
-where 
-$$
-\widetilde A^{\text{prop}}_{\widetilde\sU_{\a_j}} \bydef  \widetilde f_{\a_j}\pi\left( A^{\text{prop}}_{\sU_{\a_j}} \right)  \widetilde f_{\a_j} \cong A^{\text{prop}}_{\sU_{\a_j}}
-$$
 If a pair $\left(G, R\right)$ is a described in \ref{blowing_uni_empt} the from the above text  it follows that $\widetilde A$ is naturally isomorphic to the {universal $C^*$-algebra $C^*\left(G,R\right)$ on the generators $G$ and relations $R$} (cf. Definition \ref{universal_ca_defn}). From the Lemma \ref{blowing_universal_lem} it follows that $C^*\left(G,R\right)\cong A_0\left(\widetilde \sY \right)$. In result one has the natural *-isomorphism $\widetilde A\cong A_0\left(\widetilde \sY\right)$.
 
 \end{proof}
