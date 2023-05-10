@@ -4144,32 +4144,34 @@ g \xi^s_{\widehat{a}}\stackrel{\text{def}}{=}	\left(0, ..., \underbrace{f_{gs}\l
 	one can prove that the action $\widehat{G}\times \widehat{\H} \to \widehat{\H}$ satisfies to \eqref{equivt_eqn}.\\
 	(ii) The replacement of the "state" word in (i) with "pure state" one gives (ii).
 \end{proof}
-
 \begin{definition}\label{special_element_defn}
 	Let $\mathfrak{S}^{\mathrm{pt}}=\left(\left\{\pi_\la: A \hookto A_\la \right\}, \left\{\pi^\mu_\nu\right\}\right)\in \mathfrak{FinAlg}^{\mathrm{pt}}$  be a  {pointed algebraical  finite covering category} (cf. Definition \ref{pointed_defn}). Let $\widehat{A} \bydef C^*\text{-}\varprojlim_{\la \in \La} A_{\la}$ be the $C^*$-inductive limit of $C^*$-algebras, and let $\widehat{G}\bydef \varprojlim_{\la \in \La} G\left(
 	\left.  A_\la~ \right|A\right)$ be the projective limit of groups.
 	Let $G_\la \bydef \ker\left(  \widehat G\to  G\left(\left.A_\la~\right|~A \right)\right)$, and let $A_{\la}^{\sim}$ be given by the equation \eqref{unital_notation_eqn}. Let $\pi:\widehat{A}\to B\left(\H \right)$ be an equivariant representation (cf. Definition \ref{equiv_defn}). 
-	A  positive operator $\overline a \in B\left(\H\right)_+$ is said to be $\pi$-\textit{special element of} $\mathfrak{S}^{\mathrm{pt}}$ if for any $\la_0 \in \La$, $\eps > 0$ and positive  $z \in A_{\la_0}^{\sim}$ (cf. Notation \eqref{unital_notation_eqn})
+	A  positive operator $\overline a \in B\left(\H\right)_+$ is said to be $\pi$-\textit{special element of} $\mathfrak{S}^{\mathrm{pt}}$ if for any $\la_0 \in \La$, $\eps > 0$ and  $z \in A_{\la_0}^{\sim}$ (cf. Notation \eqref{unital_notation_eqn})
 	it satisfies to the following conditions:	
 	\begin{enumerate}
 		\item[(a)] 	If   $f_\eps: \R \to \R$ is a given by \eqref{f_eps_eqn} continuous function 
 		then for all $\la \ge \la_0$  there are $ a_\la, b_\la, a^\eps_\la \in A_\la$ such that
 		\be\label{spec_a_eps_eqn}
 		\begin{split}
-			\sum_{g\in G_\la }  g\left( \overline a \pi\left( z\right)  \overline a \right)  = \pi\left(a_\la \right),\\
-					\sum_{g\in G_\la } f_\eps\left(\overline a \pi\left( z\right)  \overline a\right)    = \pi\left(a^\eps_\la \right),\\
-			\sum_{g\in G_\la  } g\left(\overline a \pi\left( z\right)  \overline a\right)^2    = \pi\left(b_\la \right) 
-			\end{split}
+			\sum_{g\in G_\la } \pi \left(z\right)^*\left(  g\overline a\right) \pi\left( z\right)   = \pi\left(a_\la \right),\\
+			\sum_{g\in G_\la } f_\eps\left(\pi \left(z\right)^* \left( g\overline a\right) \pi\left( z\right)\right)    = \pi\left(a^\eps_\la \right),\\
+			\sum_{g\in G_\la  } \left(\pi \left(z\right)^* \left( g\overline a\right) \pi\left( z\right)\right)^2    = \pi\left(b_\la \right) 
+		\end{split}
 		\ee
 		where sums of the above series mean the strong convergence in  $B\left(\H\right)$ (cf. Definition \ref{strong_topology_defn}) and the action  $G_\la\times B\left(\H\right)\to B\left(\H\right)$ is given by \eqref{equivb_eqn}.
 		\item[(b)] There is $\mu \in \La$ such that $\mu \ge \la_0$ and
-		\be\label{special_set_eqn} 
-		\forall \la  \in \La \quad	 \la \ge \mu \quad  \Rightarrow \quad \left\|a_\la^2 - b_\la\right\| < \eps
+		\be\label{special_set_eqn}
+		\forall \la  \in \La \quad	 \la \ge \mu  \Rightarrow  \left\|a_\la^2 - b_\la\right\| < \eps
 		\ee
 		where $a_\la, b_\la \in A_\la$ are given by \eqref{spec_a_eps_eqn}.
 	\end{enumerate}
 	If $\pi$ is the atomic representation then $\overline a$ is said to be \textit{special element of} $\mathfrak{S}^{\mathrm{pt}}$.
 \end{definition}
+\begin{exercise}\label{spec_mult_exer}
+	In the situation of the Definition \ref{special_element_defn}   prove that for all $\la\in\La$ and every $z_\la\in M\left( A_\la\right)$ the element $\pi\left(z_\la\right)^*\overline{a} \pi\left(z_\la\right)$ is $\pi$-special. 
+\end{exercise}
 \begin{lemma}\label{spec_strong_lim_lem}
 	Any  $\pi$-special element $\overline a \in B\left( \H\right)_+$ equals to the following strong limit (cf. Definition \ref{strong_topology_defn})
 	\be\label{spec_strong_lim_eqn}
@@ -4226,22 +4228,24 @@ g \xi^s_{\widehat{a}}\stackrel{\text{def}}{=}	\left(0, ..., \underbrace{f_{gs}\l
 	If $\widehat \pi: \widehat A \to B\left(\widehat \H \right)$ is the universal representation then any $\widehat \pi$-special element $\overline a \in B\left(\widehat\H \right)$   lies in the  {enveloping Borel *-algebra} $\mathscr B\left(\widehat A\right)$ of $\widehat A$ (cf. Definition \ref{borel_env_defn}). 
 \end{corollary}
 \begin{proof}
-		Since $\La$ is countable there is an increasing cofinal subset $\left\{\la_n \right\}_{n \in \N} \subset \La$, so one has
+	Since $\La$ is countable there is an increasing cofinal subset $\left\{\la_n \right\}_{n \in \N} \subset \La$, so one has
 	$$
 	\lim_{\la \in \La } \widehat \pi\left( a_\la\right)  = \lim_{n \to \infty} \widehat \pi\left( a_{\la_n}\right). 
 	$$
 	From the above equation and  the Definition \ref{borel_env_defn} it turns out that $\lim_{\la \in \La } \widehat \pi\left( a_\la\right)  \in \mathscr B\left(\widehat A\right)$. Taking into account \eqref{spec_strong_lim_eqn} one has $\overline a \in \mathscr B\left(\widehat A\right)$.
-
+	
 \end{proof}
 
 
 \begin{definition}\label{weakly_spec_defn}
 	If $\overline a$ is  $\pi$-{special} and $\widehat{x}, \widehat{y} \in \widehat{A}$ then we say that the element
 	\be\label{weakly_spec_eqn}
-\overline b=	\pi\left(\widehat{x}\right)\overline a \pi\left(\widehat{y}\right)\in B\left(\H\right)
+	\overline b=	\pi\left(\widehat{x}\right)\overline a \pi\left(\widehat{y}\right)\in B\left(\H\right)
 	\ee
-is $\pi$-\textit{weakly special}. If $\pi$ is atomic then we say that $\overline b$ is \textit{weakly special}.  Denote by $\Xi_\pi\left( \mathfrak{S}^{\mathrm{pt}}\right)$ the $\widehat{A}$-bimodule of $\pi$-{weakly special} families.  
+	is $\pi$-\textit{weakly special}. If $\pi$ is atomic then we say that $\overline b$ is \textit{weakly special}.  Denote by $\Xi_\pi\left( \mathfrak{S}^{\mathrm{pt}}\right)$ the $\widehat{A}$-bimodule of $\pi$-{weakly special} families.  
 \end{definition}
+
+
 
 \begin{empt}
 	From the Lemma \ref{quasi_mult_lem}  it follows that 
@@ -4682,19 +4686,19 @@ From the Corollary \ref{spec_el_repr_cor}  it turns out that there are the follo
 	\widetilde A_\pi \subset B\left(\H \right), 
 	\eean
 	will be implicitly used. These inclusions enable us replace the equations \eqref{spec_a_eps_eqn} with the following equivalent system of equations:
-	\be\label{spec_a_eps_imp_eqn} 
+	\be\label{spec_a_eps_imp_eqn}
 	\begin{split}
-		\sum_{g\in G_\la }g \left(\overline a z  \overline a \right)   \in A_\la,\\
-		\sum_{g\in G_\la } g f_\eps\left(\overline a z  \overline a   \right)   \in A_\la,\\
-		\sum_{g\in G_\la  }g \left(\overline a z  \overline a\right)^2    \in A_\la. 
+		\sum_{g\in G_\la } z^*\left(  g\overline a\right) z   \in A_\la,\\
+		\sum_{g\in G_\la } f_\eps\left(z^*\left(  g\overline a\right) z   \right)   \in A_\la,\\
+		\sum_{g\in G_\la  } \left(z^*\left(  g\overline a\right) z   \right)^2    \in A_\la. 
 	\end{split}
 	\ee
 	In particular if $\la=\la_{\text{min}}$ and $z = 1_{A^+}$ then one has
 	\be\label{spec_a_sum_eqn}
-a \bydef	\sum_{g \in G\left(\left.\overline A\right|A \right) }g\overline a\in A= A_{\la_{\text{min}}}.
+	a \bydef	\sum_{g \in G\left(\left.\overline A\right|A \right) }g\overline a\in A= A_{\la_{\text{min}}}.
 	\ee
 \end{empt}
-   
+
    \subsection{Coverings of semilocally 1- connected $C^*$-algebras}
    \paragraph*{}
    Let $A$ be a connected $C^*$-algebra (cf. Definition \ref{connected_c_a_defn}), and let    	
@@ -4770,6 +4774,28 @@ $$
 \overline G \times \overline A \to \overline A
 $$
 \end{empt}
+\begin{empt}
+	Let $\widehat A\bydef C^*$-$\varinjlim_{\la\in\La} A_\la$ be an $C*$-inductive limit in the sense of the Definition  Definition\ref{inductive_lim_non_defn}, and let $\pi: \widehat A\to B\left( \widehat \H\right)$ be a faithful equivariant representation (cf. Definitions \ref{faithful_repr_defn} and \ref{equiv_repr_defn}).
+	If $b = \left\{b_\la\right\} \in \Xi$ then the net $\left\{b_\la\right\}$ is decreasing, so from the Lemma \ref{increasing_convergent_w_lem} the net is convergent with respect to the strong topology of  $B\left( \widehat \H\right)$ (cf. Definition \ref{strong_topology_defn}). Let us define a map 
+	\be\label{repr_a_la_eqn}
+	\begin{split}
+		\rho : \Psi \to B\left(\widehat \H \right) ;\\
+		\left\{b_\la\right\} \mapsto s\text{-}\lim_{\la \in \La} b_\la
+	\end{split}
+	\ee
+	We extend this map up to $G$ such that if $\left\{a_\la \right\}\in G$ is given by \eqref{fam_a_la_eqn}
+	\be\label{grepr_a_la_eqn}
+	\rho\left(\left\{a_\la \right\}\right) \bydef 		\pi\left(x \right) \rho\left(b\right)\pi\left(y \right). 
+	\ee
+\end{empt}
+\begin{exercise}\label{semi_repr_exer}
+	Prove following statements:
+	\begin{enumerate}
+		\item the given by \eqref{grepr_a_la_eqn} map is a representation of $\left(G, R\right)$ (cf. Definition \ref{gr_ca_defn});
+		\item a $C^*$-subalgebra of $B\left(\widehat \H \right)$ generated by $\rho\left(G\right)$ is an universal $C^*$-algebra $C^*\left(G, R\right)$ on generators $G$ and relations $R$ (cf. Definition \ref{universal_ca_defn}).
+	\end{enumerate}
+\end{exercise}
+
 
 \begin{definition}\label{semi_disconnected_defn}
 	In the situation \ref{inf_cov_empt} we say that a triple $\left(A, \overline A, \overline G\right)$ is a \textit{disconnected inverse semilocally 1-connected limit} of $\mathfrak{S}^{\text{pt}}$.
@@ -4800,50 +4826,8 @@ $$
 If $\mathfrak{S}^{\mathrm{pt}}$ is {semilocally good} then we say that the triple $\left(A, \widetilde A, G\left(\left.\widetilde A\right| A \right)\right)$ is a \textit{semilocally 1-connected covering} of $\mathfrak{S}^{\mathrm{pt}}$.
 \end{definition}
 
-\begin{empt}
-	Let $\widehat A\bydef C^*$-$\varinjlim_{\la\in\La} A_\la$ be an $C*$-inductive limit in the sense of the Definition  Definition\ref{inductive_lim_non_defn}, and let $\pi: \widehat A\to B\left( \widehat \H\right)$ be a faithful equivariant representation (cf. Definitions \ref{faithful_repr_defn} and \ref{equiv_repr_defn}).
-	If $b = \left\{b_\la\right\} \in \Xi$ then the net $\left\{b_\la\right\}$ is decreasing, so from the Lemma \ref{increasing_convergent_w_lem} the net is convergent with respect to the strong topology of  $B\left( \widehat \H\right)$ (cf. Definition \ref{strong_topology_defn}). Let us define a map 
-\be\label{repr_a_la_eqn}
-\begin{split}
-\rho : \Psi \to B\left(\widehat \H \right) ;\\
-\left\{b_\la\right\} \mapsto s\text{-}\lim_{\la \in \La} b_\la
-\end{split}
-\ee
-We extend this map up to $G$ such that if $\left\{a_\la \right\}\in G$ is given by \eqref{fam_a_la_eqn}
-\be\label{grepr_a_la_eqn}
-\rho\left(\left\{a_\la \right\}\right) \bydef 		\pi\left(x \right) \rho\left(b\right)\pi\left(y \right). 
-\ee
-\end{empt}
-\begin{exercise}\label{semi_repr_exer}
-Prove following statements:
-\begin{enumerate}
-	\item the given by \eqref{grepr_a_la_eqn} map is a representation of $\left(G, R\right)$ (cf. Definition \ref{gr_ca_defn});
-	\item a $C^*$-subalgebra of $B\left(\widehat \H \right)$ generated by $\rho\left(G\right)$ is an universal $C^*$-algebra $C^*\left(G, R\right)$ on generators $G$ and relations $R$ (cf. Definition \ref{universal_ca_defn}).
-\end{enumerate}
-\end{exercise}
-  \begin{lemma}\label{special_inclusion_lem}
- If $b = \left\{b_\la\right\}\in \Psi$ then $\rho\left(b \right)$ is a special element (cf. Definition \ref{special_element_defn}). 
-  \end{lemma}
-\begin{proof}
-	Let  $z \in A_{\la_0}^{\sim}$ be positive (cf. Notation \eqref{unital_notation_eqn}) and  $f_\eps: \R \to \R$ is a given by \eqref{f_eps_eqn}. One needs check conditions (a) and (b) of the Definition \ref{special_element_defn}.
-	\begin{enumerate}
-	\item[(a)] 	One has
-	\be\label{special_set_s_eqn}
-	\begin{split}
-		\sum_{g\in G_\la }  g\left( \rho\left(b \right) \pi\left( z\right)  \rho\left(b \right) \right)  = \pi\left(b_\la z b_\la\right),\\
-	\sum_{g\in G_\la } f_\eps\left(\rho\left(b \right) \pi\left( z\right)  \rho\left(b \right)\right)    = f_\eps\left( \pi\left(b_\la z b_\la\right) \right) ,\\
-		\sum_{g\in G_\la  }g \left(\rho\left(b \right) \pi\left( z\right)  \rho\left(b \right)\right)^2    =  \pi\left( \left(b_\la z b_\la\right)^2\right)  
-	\end{split}
-	\ee
-	where sums of the above series mean the strong convergence in  $B\left(\H\right)$ (cf. Definition \ref{strong_topology_defn}) and the action  $G_\la\times B\left(\H\right)\to B\left(\H\right)$ is given by \eqref{equivb_eqn}.
-	\item[(b)] Follows from the tautology  $\pi\left(b_\la z b_\la\right)^2 = \pi\left( \left(b_\la z b_\la\right)^2\right)$.
-\end{enumerate}
-	
-\end{proof}
 
-\begin{theorem}
-if 	$\left(A, \overline A, \overline G\right)$ is a {disconnected inverse semilocally 1-connected limit} of $\mathfrak{S}^{\text{pt}}$ (cf. Definition \ref{semi_disconnected_defn}) and $\left(A, \overline A_\pi , \overline G\right)$ is $\pi$-{disconnected algebraical inverse noncommutative limit} of $ \mathfrak{S}^{\mathrm{pt}}$ (cf. Definition \ref{disconnected_inf_defn}) then there is  a natural inclusion $\overline A\subset \overline A_\pi$. $\overline A_\pi$ is a $C^*$-subalgebra of $B\left(\widehat \H\right)$. From the Exercise \ref{semi_repr_exer} it follows that there is an inclusion $\overline{   A}\subset B\left(\widehat \H\right)$. However from the Lemma \ref{special_inclusion_lem} it turns out that the set of generators of $\overline{   A}$ is a subset of the set of generators of $\overline{   A}_\pi$.
-\end{theorem}
+
 \subsection{Coverings of *-algebras}
 
 \subsubsection{Coverings of pro-$C^*$-algebras}
@@ -10690,33 +10674,33 @@ $$
 	Suppose that  $\overline{   \mathcal U } \subset \overline{   \mathcal X }$ is homeomorphically mapped onto $\sU = \overline{p}\left(  \overline{   \mathcal U }\right)  \subset {   \mathcal X }$. Let us prove that $\overline a'\bydef \rho\left( \overline a\right)\in  B\left(\widehat \H_a \right)$ is $\pi_a$-special. Suppose  $\la_0 \in \La$, $\eps > 0$ and  $z \in  C_0\left(\sX_{\la_0} \right)^{\sim}_+$ is positive. Let us check that $\overline a'$
 	satisfies  to the conditions (a), (b) of the Definition \ref{special_element_defn}.
 	\begin{enumerate}
-		\item[(a)] 	Let 
-		$f_\eps: \R \to \R$ is a continuous function given by 
-		\eqref{f_eps_eqn}. From \\$\supp f_\eps\left(\overline a' \pi\left(z \right) \overline a' \right) \subset \supp \overline a' \pi\left(z \right) \overline a' = \left( \overline a' \pi\left(z \right) \overline a'\right)^2 \subset \supp \overline a' \subset \overline\sU$ and the Remark \ref{comm_lift_desc_sum_strong_rem} it turns out that if $a_\la \bydef \desc_{\overline{p}_\la}\left(\overline a' \pi\left(z \right) \overline a'\right)\in C_0\left(\sX_\la \right)$,   $\quad a^\eps_\la \bydef f_\eps\left( \desc_{\overline{p}_\la}\left(\overline a' \pi\left(z \right) \overline a' \right)\right) \in C_0\left(\sX_\la \right)$ and $b_\la\bydef  \desc_{\overline{p}_\la}\left(\overline a' \pi\left(z \right) \overline a'\right)^2\in C_0\left(\sX_\la \right)$. From the Lemma \ref{comm_lift_desc_sum_strong_lem} it follows that
-		\be\label{top_specc_a_eps_eqn}
-		\begin{split}
-			\sum_{g\in G_\la } g\left( \overline a' \pi\left(z \right) \overline a' \right)   = \pi_a\left(a_\la\right) ,\\
-			\sum_{g\in G_\la } gf_\eps\left(  \overline a' \pi\left(z \right) \overline a'\right)   = \pi_a\left(a^\eps_\la \right) ,\\
-			\sum_{g\in G_\la  } g\left( \overline a' \pi\left(z \right) \overline a' \right)^2    = \pi_a\left(b_\la \right)   
-		\end{split}
-		\ee
-		where sums of the above series mean the strong convergence in $B\left(\widehat \H_a \right)$ (cf. Definition \ref{strong_topology_defn}). The system of equations \eqref{top_specc_a_eps_eqn} is a specialization of \eqref{spec_a_eps_eqn}.
-		\item[(b)] 	From the  Lemma \eqref{comm_lift_desc_sum_strong_lem} it turns out that
-		\be\label{top_desc2_eqn}
-		\begin{split}
-			\forall \mu, \nu \in \La \quad	\nu \ge \mu  \quad \Rightarrow \\\Rightarrow \quad \sum_{g \in G\left(\left.\sX_\nu\right|\sX_\mu\right)} g\left(  a_\nu z a_\nu\right)= \desc_{{p}^\mu_\nu}	\left(  a_\nu z a_\nu\right)\text{ AND }\\
-			\text{ AND }\sum_{g \in G\left(\left.\sX_\nu\right|\sX_\mu\right)} g\left(   a_\nu z a_\nu\right)^2= \desc_{{p}^\mu_\nu}	\left(   a_\nu z a_\nu\right)^2
-		\end{split}
-		\ee
-		where $p^\mu_\nu: \sX_\mu \to \sX_\nu$ is the natural covering.
-		The equation \eqref{top_desc2_eqn} yields the following
-		\be\label{top_mu_specialp_set_eqn}
-		\forall \mu, \nu \in \La \quad	\nu \ge \mu \ge \la  \Rightarrow  \left\|\left(  a_\mu z a_\mu\right)^2  - \sum_{g \in G\left(\left.\sX_\nu\right|\sX_\mu\right)} g\left(  a_\nu z a_\nu\right)^2\right\| =0
-		\ee
-		which is a specialization of \eqref{special_set_eqn}.
-		
-	\end{enumerate}
-	Now taking into account the Lemma	\ref{top_comp_sum_lem} one concludes that $C_c\left( \overline{\sX}\right)_+\subset \varphi\left( \overline{A}\right)$. Since $C_c\left( \overline{\sX}\right)$ is dense in $C_0\left( \overline{\sX}\right)$ (cf. Definition \ref{c_c_def_1}) and $\overline{   A}$ is $C^*$-norm closed  we have $C_0\left( \overline{\sX}\right)\subset \varphi\left( \overline{A}\right)$.
+	\item[(a)] 	Let 
+	$f_\eps: \R \to \R$ is a continuous function given by 
+	\eqref{f_eps_eqn}. From \\$\supp f_\eps\left( z^*\overline a' z\right) \subset \supp z^*\overline a' z = \left( \supp z^*\overline a' z\right)^2 \subset \supp \overline a' \subset \overline\sU$ and the Remark \ref{comm_lift_desc_sum_strong_rem} it turns out that if $a_\la \bydef \desc_{\overline{p}_\la}\left(z^*\overline a' z \right)\in C_0\left(\sX_\la \right)$,   $\quad a^\eps_\la \bydef f_\eps\left( \desc_{\overline{p}_\la}\left(z^*\overline a' z \right)\right) \in C_0\left(\sX_\la \right)$ and $b_\la\bydef  \desc_{\overline{p}_\la}\left(z^*\overline a' z \right)^2\in C_0\left(\sX_\la \right)$. From the Lemma \ref{comm_lift_desc_sum_strong_lem} it follows that
+	\be\label{top_specc_a_eps_eqn}
+	\begin{split}
+		\sum_{g\in G_\la } \pi_a \left(z\right)^*\left(  g\overline a'\right) \pi_a\left( z\right)   = \pi_a\left(a_\la\right) ,\\
+		\sum_{g\in G_\la } f_\eps\left(\pi_a \left(z\right)^* \left( g\overline a'\right) \pi_a\left( z\right)\right)  = \pi_a\left(a^\eps_\la \right) ,\\
+		\sum_{g\in G_\la  } \left(\pi_a \left(z\right)^* \left( g\overline a'\right) \pi_a\left( z\right)\right)^2    = \pi_a\left(b_\la \right)   
+	\end{split}
+	\ee
+	where sums of the above series mean the strong convergence in $B\left(\widehat \H_a \right)$ (cf. Definition \ref{strong_topology_defn}). The system of equations \eqref{top_specc_a_eps_eqn} is a specialization of \eqref{spec_a_eps_eqn}.
+	\item[(b)] 	From the  Lemma \eqref{comm_lift_desc_sum_strong_lem} it turns out that
+	\be\label{top_desc2_eqn}
+	\begin{split}
+		\forall \mu, \nu \in \La \quad	\nu \ge \mu  \quad \Rightarrow \\\Rightarrow \quad \sum_{g \in G\left(\left.\sX_\nu\right|\sX_\mu\right)} g\left( z^* a_\nu z\right)= \desc_{{p}^\mu_\nu}	\left( z^* a_\nu z\right)\text{ AND }\\
+		\text{ AND }\sum_{g \in G\left(\left.\sX_\nu\right|\sX_\mu\right)} g\left( z^* a_\nu z\right)^2= \desc_{{p}^\mu_\nu}	\left( z^* a_\nu z\right)^2
+	\end{split}
+	\ee
+	where $p^\mu_\nu: \sX_\mu \to \sX_\nu$ is the natural covering.
+	The equation \eqref{top_desc2_eqn} yields the following
+	\be\label{top_mu_specialp_set_eqn}
+	\forall \mu, \nu \in \La \quad	\nu \ge \mu \ge \la  \Rightarrow  \left\|\left(z^* a_\mu z\right)^2  - \sum_{g \in G\left(\left.\sX_\nu\right|\sX_\mu\right)} g\left( z^* a_\nu z\right)^2\right\| =0
+	\ee
+	which is a specialization of \eqref{special_set_eqn}.
+	
+\end{enumerate}
+Now taking into account the Lemma	\ref{top_comp_sum_lem} one concludes that $C_c\left( \overline{\sX}\right)_+\subset \varphi\left( \overline{A}\right)$. Since $C_c\left( \overline{\sX}\right)$ is dense in $C_0\left( \overline{\sX}\right)$ (cf. Definition \ref{c_c_def_1}) and $\overline{   A}$ is $C^*$-norm closed  we have $C_0\left( \overline{\sX}\right)\subset \varphi\left( \overline{A}\right)$.
 \end{proof}
 
 \begin{lemma}\label{comm_main_lem}
@@ -10851,18 +10835,18 @@ It follows that for all $\la > \mu$ one has
  \end{proof}
 \begin{remark}\label{top_implicit_inc_full_rem}
 Below the given by the equation \eqref{comm_inc_eqn} injective homomorphism $\varphi:\overline{A}\hookto D^*\left( \overline{\sX}\right)$ will by replaced with inclusion $\overline{A}\subset D^*\left( \overline{\sX}\right)$.
-Similarly to  \ref{implicit_inc_full_empt}
+Similarly to  \ref{implicit_inc_full_empt}  !!! CHECK !!!
  for all $\la\in\La$ we implicitly assume that $C_0\left( \sX_\la\right) \subset  D^*\left( \overline{\sX}\right)$. Similarly the following natural inclusion 
 \bean
 C^*\text{-}\varinjlim_{\la\in\La} C_0\left( \sX_\la\right) \subset D^*\left( \overline{\sX}\right)
 \eean
-will be implicitly used. As well as \eqref{spec_a_eps_imp_eqn}  these inclusions enable us replace the equations \eqref{top_specc_a_eps_eqn} with the following equivalent system of equations
+will be implicitly used. As well as \eqref{spec_a_eps_imp_eqn} !!! CHECK !!!  these inclusions enable us replace the equations \eqref{top_specc_a_eps_eqn} with the following equivalent system of equations
 \be\label{top_spec_a_eps_imp_eqn}
 \begin{split}
-	\sum_{g\in G_\la } g\left(  \overline az\overline a\right)    \in C_0\left( \sX_\la\right) ,\\
-	\sum_{g\in G_\la } gf_\eps\left( \overline az\overline a  \right)   \in C_0\left( \sX_\la\right),\\
-		\sum_{g\in G_\la  } g\left( \overline az\overline a  \right)^2    \in C_0\left( \sX_\la\right) ,\\ 
-	\end{split}
+	\sum_{g\in G_\la } z^*\left(  g\overline a\right) z   \in C_0\left( \sX_\la\right) ,\\
+	\sum_{g\in G_\la } f_\eps\left(z^*\left(  g\overline a\right) z   \right)   \in C_0\left( \sX_\la\right),\\
+	\sum_{g\in G_\la  } \left(z^*\left(  g\overline a\right) z   \right)^2    \in C_0\left( \sX_\la\right) ,\\ 
+\end{split}
 \ee
 where $G_\la \bydef \ker\left(G\left(\left.\overline\sX\right|\sX\right)\to G\left(\left.\sX_\la\right|\sX\right) \right)$!	(cf. equations \eqref{spec_a_eps_imp_eqn}).
  
@@ -10876,13 +10860,14 @@ where $G_\la \bydef \ker\left(G\left(\left.\overline\sX\right|\sX\right)\to G\le
 \end{split}
 \ee
 is a {pointed algebraical  finite covering category} given by the Corollary 	
-	 \ref{top_base_point_cor}. If $\overline{A}$ is a  disconnected algebraicical inverse noncommutative limit of $\mathfrak{S}_{C_0\left( \mathcal{X}\right)}$ (cf. Definition \ref{disconnected_inf_defn}) then 
+	 \ref{top_base_point_cor}. If $\overline{A}$ is a  disconnected algebraical inverse noncommutative limit of $\mathfrak{S}_{C_0\left( \mathcal{X}\right)}$ (cf. Definition \ref{disconnected_inf_defn}) then 
 	$\overline{A}  \subset C_0\left( \overline{\sX}\right)$ (cf. equation \ref{comm_inc_eqn}).
 		
 \end{corollary}
 
+
 \begin{proof}
-	Suppose that $\overline a \in D^*\left(\overline\sX \right)$ corresponds to a special element of  $\mathfrak{S}^{\mathrm{pt}}_{C_0\left(\sX \right) }$. If we select any $\la_0\in \La$ and put $z \bydef 1_{C_0\left(\sX_{\la_0}\right)^\sim}\in C_0\left(\sX_{\la_0}\right)^\sim$ then from the conditions (a) and (b) of the Definition \ref{special_element_defn}  it turns out that $\overline f\bydef \square{\overline a} z\square{\overline a}$ satisfies to the conditions (a) and (b) of the Theorem \ref{comm_main_f_thm}. It follows that $\overline f \in C_0\left(\overline\sX \right)$. However $\overline f=  1_{C_0\left(\sX_{\la_0}\right)^\sim}~\overline a~ 1_{C_0\left(\sX_{\la_0}\right)^\sim} = \overline a$, hence $\overline a \in C_0\left(\overline\sX \right)$. If  $\widehat x, \widehat y \in \bigcup_{\la\in \La}C_0\left( \widehat \sX\right)$ then one can assume $\widehat x, \widehat y \in C_b\left( \overline \sX\right)$. It follows that  $\overline b = \widehat x\overline a \widehat y \in C_0\left( \overline \sX\right)$, i.e. any weakly special element $\overline b$ (cf. Definition \ref{weakly_spec_defn}) lies in $C_0\left( \overline \sX\right)$, i.e.  $\overline{b} \subset C_0\left( \overline{\sX}\right)$. On the other hand $\overline{A}$ is the generated by weakly special elements $C^*$-algebra, and $C_0\left( \overline{\sX}\right)$ is $C^*$-norm closed, it turns out that $\overline{A}  \subset C_0\left( \overline{\sX}\right)$.
+	Suppose that $\overline a \in D^*\left(\overline\sX \right)$ corresponds to a special element of  $\mathfrak{S}^{\mathrm{pt}}_{C_0\left(\sX \right) }$. If we select any $\la_0\in \La$ and put $z \bydef 1_{C_0\left(\sX_{\la_0}\right)^\sim}\in C_0\left(\sX_{\la_0}\right)^\sim$ then from the conditions (a) and (b) of the Definition \ref{special_element_defn} it turns out that $\overline f\bydef z^*\overline a z$ satisfies to the conditions (a) and (b) of the Theorem \ref{comm_main_f_thm}. It follows that $\overline f \in C_0\left(\overline\sX \right)$. However $\overline f=  1_{C_0\left(\sX_{\la_0}\right)^\sim}~\overline a~ 1_{C_0\left(\sX_{\la_0}\right)^\sim} = \overline a$, hence $\overline a \in C_0\left(\overline\sX \right)$. If  $\widehat x, \widehat y \in C_0\left( \widehat \sX\right)$ then because the natural map $\overline \sX \to\widehat \sX$ is continuous one can assume $\widehat x, \widehat y \in C_b\left( \overline \sX\right)$. It follows that  $\overline b = \widehat x\overline a \widehat y \in C_0\left( \overline \sX\right)$, i.e. any weakly special element $\overline b$ (cf. Definition \ref{weakly_spec_defn}) lies in $C_0\left( \overline \sX\right)$, i.e.  $\overline{b} \subset C_0\left( \overline{\sX}\right)$. On the other hand $\overline{A}$ is the generated by weakly special elements $C^*$-algebra, and $C_0\left( \overline{\sX}\right)$ is $C^*$-norm closed, it turns out that $\overline{A}  \subset C_0\left( \overline{\sX}\right)$.
 \end{proof}
 
 \begin{empt}\label{comm_transitive_empt} From the Lemma \ref{comm_c0_inc_lem} and the Corollary \ref{comm_main_cor}  it follows that  the disconnected inverse noncommutative limit of $\mathfrak{S}_{C_0\left( \mathcal{X}\right)}$ is isomorphic to $C_0\left( \overline{   \mathcal X }\right)$. 
@@ -11166,15 +11151,15 @@ If $\overline a \in C_c\left(\overline\sX\right)_+$ is a positive function then 
 \end{lemma}
 \begin{proof}
 	Suppose that $\la_0 \bydef \la_{\text{min}}$ and $z \bydef 1_{C_0\left( \sX_{\la_0}\right)^\sim }\in{C_0\left( \sX\right)^\sim }$.
-If $\overline a \in B\left(L^2\left(\overline  \sX , \overline  \mu \right)  \right)$ is $\pi_\tau$-special element the it should satisfy to conditions (a), (b) to Definition \ref{special_element_defn}. In particular one has
+If $\overline a \in B\left(L^2\left(\overline  \sX , \overline  \mu \right)  \right)$ is $\pi_\tau$-special element the it should satisfy to conditions (a), (b) to Definition \ref{special_element_defn}  !!! CHECK !!!. In particular one has
 	\begin{enumerate}
 	\item[(a)] 	If   $f_\eps: \R \to \R$ is a given by \eqref{f_eps_eqn} continuous function given by 
 	then for all $\la \ge \la_0$  there are $ a_\la, b_\la, a^\eps_\la \in C_0\left( \sX_\la\right) $ such that
 	\be\label{top_mu_spec_a_eps_eqn}
 	\begin{split}
-		\sum_{g\in G_\la }g\left(  \overline a \pi_\tau \left(z\right) \overline a\right) = 	\sum_{g\in G_\la }  g\overline a = \pi_\tau\left(a_\la \right),\\
-		\sum_{g\in G_\la } gf_\eps\left(\overline a \pi_\tau \left(z\right) \overline a\right)=\sum_{g\in G_\la } f_\eps\left(g\overline a\right)     = \pi_\tau\left(a^\eps_\la \right),\\
-		\sum_{g\in G_\la  } \left(\overline a \pi_\tau \left(z\right) \overline a\right)^2=	\sum_{g\in G_\la } \left(g\overline a\right)^2     = \pi_\tau\left(b_\la \right).
+		\sum_{g\in G_\la } \pi_\tau \left(z\right)^*\left(  g\overline a\right) \pi_\tau\left( z\right) = 	\sum_{g\in G_\la }  g\overline a = \pi_\tau\left(a_\la \right),\\
+		\sum_{g\in G_\la } f_\eps\left(\pi_\tau \left(z\right)^* \left( g\overline a\right) \pi_\tau\left( z\right)\right)=\sum_{g\in G_\la } f_\eps\left(g\overline a\right)     = \pi_\tau\left(a^\eps_\la \right),\\
+		\sum_{g\in G_\la  } \left(\pi_\tau \left(z\right)^* \left( g\overline a\right)\pi_\tau\left( z\right)\right)^2=	\sum_{g\in G_\la } \left(g\overline a\right)^2     = \pi_\tau\left(b_\la \right).
 	\end{split}
 	\ee
 	where sums of the above series mean the strong convergence in  $B\left(L^2\left(\overline  \sX , \overline  \mu \right) \right)$.
@@ -11184,7 +11169,7 @@ If $\overline a \in B\left(L^2\left(\overline  \sX , \overline  \mu \right)  \ri
 	\ee
 	where $a_\la, b_\la \in A_\la$ are given by \eqref{spec_a_eps_eqn}.
 \end{enumerate}
- Denote by $	\overline f_\la, \overline f^\eps_\la, \overline h_\la\in C_b\left( \overline \sX\right)$ by the following way 
+Denote by $	\overline f_\la, \overline f^\eps_\la, \overline h_\la\in C_b\left( \overline \sX\right)$ by the following way 
 \be\label{comm_special_mu_set2_eqn}
 \begin{split}
 	\overline f_\la = \lift_{\overline p_\la}\left( a_\la  \right)  ,\\
@@ -14401,43 +14386,43 @@ In the above situation we say that    a reducible noncommutative finite-fold cov
 \pi_A :  A_0\left( \overline \sY\right)\to B\left(\widehat \H_a \right)$ be a given by \eqref{blowing_atomic_eqn} representation  then $\pi_A\left(\overline a\right)\in  B\left(\widehat \H_a \right)$ is a special element  of $\mathfrak{S}^{\mathrm{pt}}_A$ (cf. Definition \ref{special_element_defn}) for each positive $\overline a \in K\left( A_0\left(\overline \sY \right)\right)_+$. 
 \end{lemma}
 \begin{proof}
-From the Corollary \ref{blowing_ca_m_cor} for any   $\la\in \La$ there is a natural injective map $m_\la : A_0\left(\sY_\a\right)\hookto M\left( A_0\left(\overline \sY \right)\right)$ which can be extended up to $m^\sim_\la : A_0\left(\sY_\a\right)^\sim\hookto M\left( A_0\left(\overline \sY \right)\right)$ where $A_0\left(\sY_\a\right)^\sim$ is given by \eqref{unital_notation_empt}. If
- $\la_0 \in \La$ and $z \in A_0\left(\sY_\a\right)^\sim$ is a positive element then one has
-\bean
- \overline a z  \overline a  = \pi_A\left(  \overline am^\sim_{\la_0}\left(z \right) \overline a\right),\\
-  f_\eps\left( z  \overline a   \right)=\pi_A\left(f_\eps\left(  \overline am^\sim_{\la_0}\left(z \right) \overline a \right)\right) ,\\ 
- \left(\overline a z  \overline a   \right)^2= \pi_A\left(  \overline am^\sim_{\la_0}\left(z \right) \overline a\right)^2.
-\eean
-where left parts of the above equation imply the notation \eqref{spec_a_eps_imp_eqn}.
-Otherwise from $\overline a \in K\left( A_0\left(\overline \sY \right)\right)$ it follows that 
-$$
-m^\sim_{\la_0} \left(z^* \right) \overline am^\sim_{\la_0} \left(z\right),~f_\eps\left( m^\sim_{\la_0} \left(z^* \right) \overline am^\sim_{\la_0} \left(z\right)\right),~\left( m^\sim_{\la_0} \left(z^* \right) \overline am^\sim_{\la_0} \left(z\right)\right)^2 \in K\left( A_0\left(\overline \sY \right)\right).
-$$
-Now we prove conditions (a) and (b) of the Definition \ref{special_element_defn}.\\
-(a) Applying the Corollary \ref{blowing_cov_inc_strong_cor} we obtain following strongly convergent series
-\be\label{blowing_spec_a_eps_eqn}
-\begin{split}
-	\sum_{g\in G_\la } g \left(\overline a z  \overline a   \right)   =	\sum_{g\in G_\la }\pi_A\left(g\left( \overline am^\sim_{\la_0}\left(z \right) \overline a\right) \right) =\\ \pi_A\left(\desc^c_{\overline q_\la}\left(\overline am^\sim_{\la_0}\left(z \right) \overline a\right)\right) \in \pi_A\left( A_0\left(\sY_\la\right)\right)  ,\\ \\
-	\sum_{g\in G_\la }f_\eps \left(\overline a z  \overline a   \right)   =	\sum_{g\in G_\la }\pi_A\left(gf_\eps\left( \overline am^\sim_{\la_0}\left(z \right) \overline a\right)\right)  =\\ \pi_A\left(f_\eps\left( \desc^c_{\overline q_\la}\left(\overline am^\sim_{\la_0}\left(z \right) \overline a \right)\right)\right)  \in \pi_A\left( A_0\left(\sY_\la\right)\right),\\\\
-		\sum_{g\in G_\la } \left(\overline a z  \overline a   \right)^2   =	\sum_{g\in G_\la }\pi_A\left(g\left(\overline am^\sim_{\la_0}\left(z \right) \overline a\right)^2\right) =\\ \pi_A\left(\desc^c_{\overline q_\la}\left(\overline am^\sim_{\la_0}\left(z \right) \overline a \right)^2\right) \in \pi_A\left( A_0\left(\sY_\la\right)\right)
-\end{split}
-\ee
-where $G_\la \bydef \ker\left( G\left(\left.\widetilde\sY~\right|\sY\right)\to G\left(\left.\sY_\la~\right|\sY\right)\right)$ and $\desc^c_{\overline q_\la}$ is a {compactly supported} $\overline q_\la$-{descent} (cf. Definition \ref{blowing_cdesc_defn}). The equations \eqref{blowing_spec_a_eps_eqn} are specializations of \eqref{spec_a_eps_eqn} ones.\\
-(b) For all $\la\in\La$ denote by $\overline q_\la: \overline \sY \to \sY_\la$ a natural covering.
-From n$^\text{0}$ 3 of the Exercise \ref{blowing_a0_exer} it follows that the set $\overline \sV \bydef \supp m^\sim_{\la_0} \left(z^* \right) \overline am^\sim_{\la_0} \left(z\right)$ is compact. On the other hand from the  Lemma \ref{top_comp_la_lem} it follows that there is $\la_{ \overline{   \sV}}\in \La$ such that $\overline{   \sV}$ is mapped homeomorphically onto $\sV_\la \bydef \overline p_\la \left(\overline{   \sV} \right)$ for all $\la \ge   \la_{ \overline{  \sV}}$. It follows that
-\be\label{blowing_desc_cdesc_eqn}
-\begin{split}
-\forall \la\in \La \quad \la \ge \la_{ \overline{  \sV}}\quad \Rightarrow \quad\desc^c_{\overline q_\la}\left(\overline am^\sim_{\la_0}\left(z \right) \overline a \right) =\\= \desc_{\overline q_\la}\left(\overline am^\sim_{\la_0}\left(z \right) \overline a \right).
-\end{split}
-\ee
-where $\desc_{\overline p_\la}$ is a ${\overline q_\la}$-decent given by the Definition \ref{blowing_lift_desc_defn}. From the equation \eqref{blowing_desc_cdesc_eqn} one can prove that
-\be
-\begin{split}
-\forall \la\in \La \quad \la \ge \la_{ \overline{  \sV}}\quad \Rightarrow \quad\left( 	\sum_{g\in G_\la } g\left(  \overline a z  \overline a \right) \right)^2   =\\=	\pi_A\left(\desc_{\overline{q}_\la}\left(\overline am^\sim_{\la_0}\left(z \right) \overline a\right)^2\right)  = \sum_{g\in G_\la }g\left(  \overline a z  \overline a \right)^2. 
-\end{split}
-\ee
-The above equation is a specialization of the \eqref{special_set_eqn}  one.
+	From the Corollary \ref{blowing_ca_m_cor} for any   $\la\in \La$ there is a natural injective map $m_\la : A_0\left(\sY_\a\right)\hookto M\left( A_0\left(\overline \sY \right)\right)$ which can be extended up to $m^\sim_\la : A_0\left(\sY_\a\right)^\sim\hookto M\left( A_0\left(\overline \sY \right)\right)$ where $A_0\left(\sY_\a\right)^\sim$ is given by \eqref{unital_notation_empt}. If
+	$\la_0 \in \La$ and $z \in A_0\left(\sY_\a\right)^\sim$ then one has
+	\bean
+	\pi_A \left(z\right)^*\rho_a\left(  \overline a\right) \pi_A\left( z\right)= \rho_a\left(m^\sim_{\la_0} \left(z^* \right) \overline am^\sim_{\la_0} \left(z\right)\right),\\
+	f_\eps\left(\pi_A \left(z\right)^* \left( \overline a\right) \pi_A\left( z\right)\right)=\rho_a\left(f_\eps\left( m^\sim_{\la_0} \left(z^* \right) \overline am^\sim_{\la_0} \left(z\right)\right) \right),\\ 
+	\left(  \pi_A \left(z\right)^*\rho_a\left(  \overline a\right) \pi_A\left( z\right)\right)^2= \rho_a\left(m^\sim_{\la_0} \left(z^* \right) \overline am^\sim_{\la_0} \left(z\right)\right)^2.
+	\eean
+	Otherwise from $\overline a \in K\left( A_0\left(\overline \sY \right)\right)$ it follows that 
+	$$
+	m^\sim_{\la_0} \left(z^* \right) \overline am^\sim_{\la_0} \left(z\right),~f_\eps\left( m^\sim_{\la_0} \left(z^* \right) \overline am^\sim_{\la_0} \left(z\right)\right),~\left( m^\sim_{\la_0} \left(z^* \right) \overline am^\sim_{\la_0} \left(z\right)\right)^2 \in K\left( A_0\left(\overline \sY \right)\right).
+	$$
+	Now we prove conditions (a) and (b) of the Definition \ref{special_element_defn}.\\
+	(a) Applying the Corollary \ref{blowing_cov_inc_strong_cor} we obtain following strongly convergent series
+	\be\label{blowing_spec_a_eps_eqn}
+	\begin{split}
+		\sum_{g\in G_\la } \pi_A \left(z\right)^*\left(  g\overline a\right) \pi_A\left( z\right)   =	\sum_{g\in G_\la }\rho_a\left(g\left( m^\sim_{\la_0} \left(z^* \right) \overline am^\sim_{\la_0} \left(z\right)\right)\right) =\\ \pi_A\left(\desc^c_{\overline q_\la}\left( m^\sim_{\la_0} \left(z^* \right) \overline am^\sim_{\la_0} \left(z\right) \right)\right) \in \pi_A\left( A_0\left(\sY_\la\right)\right)  ,\\ \\
+		\sum_{g\in G_\la }f_\eps\left(  \pi_A \left(z\right)^*\left(  g\overline a\right) \pi_A\left( z\right) \right)   =	\sum_{g\in G_\la }\rho_a\left(gf_\eps\left( m^\sim_{\la_0} \left(z^* \right) \overline am^\sim_{\la_0} \left(z\right)\right)\right) =\\ \pi_A\left(f_\eps\left( \desc^c_{\overline q_\la}\left( m^\sim_{\la_0} \left(z^* \right) \overline am^\sim_{\la_0} \left(z\right) \right)\right)\right)  \in \pi_A\left( A_0\left(\sY_\la\right)\right),\\\\
+		\sum_{g\in G_\la }\left(  \pi_A \left(z\right)^*\left(  g\overline a\right) \pi_A\left( z\right) \right)^2   =	\sum_{g\in G_\la }\rho_a\left(g\left( m^\sim_{\la_0} \left(z^* \right) \overline am^\sim_{\la_0} \left(z\right)\right)\right)^2=\\ \pi_A\left(\desc^c_{\overline q_\la}\left( m^\sim_{\la_0} \left(z^* \right) \overline am^\sim_{\la_0} \left(z\right) \right)^2\right) \in \pi_A\left( A_0\left(\sY_\la\right)\right)
+	\end{split}
+	\ee
+	where $G_\la \bydef \ker\left( G\left(\left.\widetilde\sY~\right|\sY\right)\to G\left(\left.\sY_\la~\right|\sY\right)\right)$ and $\desc^c_{\overline q_\la}$ is a {compactly supported} $\overline q_\la$-{descent} (cf. Definition \ref{blowing_cdesc_defn}). The equations \eqref{blowing_spec_a_eps_eqn} are specializations of \eqref{spec_a_eps_eqn} ones.\\
+	(b) For all $\la\in\La$ denote by $\overline q_\la: \overline \sY \to \sY_\la$ a natural covering.
+	From n$^\text{0}$ 3 of the Exercise \ref{blowing_a0_exer} it follows that the set $\overline \sV \bydef \supp m^\sim_{\la_0} \left(z^* \right) \overline am^\sim_{\la_0} \left(z\right)$ is compact. On the other hand from the  Lemma \ref{top_comp_la_lem} it follows that there is $\la_{ \overline{   \sV}}\in \La$ such that $\overline{   \sV}$ is mapped homeomorphically onto $\sV_\la \bydef \overline p_\la \left(\overline{   \sV} \right)$ for all $\la \ge   \la_{ \overline{  \sV}}$. It follows that
+	\be\label{blowing_desc_cdesc_eqn}
+	\begin{split}
+		\forall \la\in \La \quad \la \ge \la_{ \overline{  \sV}}\quad \Rightarrow \quad\desc^c_{\overline q_\la}\left( m^\sim_{\la_0} \left(z^* \right) \overline am^\sim_{\la_0} \left(z\right) \right) =\\= \desc_{\overline q_\la}\left( m^\sim_{\la_0} \left(z^* \right) \overline am^\sim_{\la_0} \left(z\right) \right).
+	\end{split}
+	\ee
+	where $\desc_{\overline p_\la}$ is a ${\overline q_\la}$-decent given by the Definition \ref{blowing_lift_desc_defn}. From the equation \eqref{blowing_desc_cdesc_eqn} one can prove that
+	\be
+	\begin{split}
+		\forall \la\in \La \quad \la \ge \la_{ \overline{  \sV}}\quad \Rightarrow \quad\left( 	\sum_{g\in G_\la } \pi_A \left(z\right)^*\left(  g\overline a\right) \pi_A\left( z\right)\right)^2   =\\=	\pi_A\left(\desc_{\overline{q}_\la}\left( m^\sim_{\la_0} \left(z^* \right) \overline am^\sim_{\la_0} \left(z\right)\right)\right)^2 = \sum_{g\in G_\la }\left(  \pi_A \left(z\right)^*\left(  g\overline a\right) \pi_A\left( z\right) \right)^2. 
+	\end{split}
+	\ee
+	The above equation is a specialization of the \eqref{special_set_eqn} one.
 \end{proof}
+
 \begin{theorem}\label{blowing_inc_thm}
  Let $\overline \sY$ be a topological  disconnected inverse  limit (cf. Definition \ref{top_topological_inv_lim_defn})  of the given by \eqref{blowing_top_eqn} category  $\mathfrak{S}_{\left( \sY, y_0  \right) }$, and let $\overline q : \overline \sY \to \sY$ be a natural transitive covering. Let  $\mathfrak{S}^{\mathrm{pt}}_A$ is a given by \eqref{blowing_base_point_eqn} the equation pointed algebraical finite covering category such that any covering of $\mathfrak{S}^{\mathrm{pt}}_A$ is reducible (cf. Definition \ref{fin_red_defn}).
 If $\left(A, \overline A, G\left(\left.\overline \sY\right|\sY\right)\right)$ is a disconnected   algebraical inverse noncommutative limit of $ \mathfrak{S}^{\mathrm{pt}}_A$ (cf. Definition \ref{disconnected_inf_defn}) then there is a natural inclusion 
@@ -14491,78 +14476,33 @@ Consider the situation of the Theorem \ref{blowing_inc_thm}. Following condition
 (iii) Follows from the Corollary \ref{blowing_cov_inc_strict_cor}.
 
 \end{proof}
-!!! CONTINUE !!!
+
 \begin{corollary}
-Let  $A$ be a connected  $C^*$-algebra (cf. Definition \ref{connected_c_a_defn}), and let $C_0\left( \sY\right)\hookto M\left( A\right) $ be disintegrable, semilocally 1-connected Hausdorff blowing up (cf. Definitions \ref{blowing_defn}, \ref{blowing_disintegrable_defn} and \ref{blowing_semi_defn}). Let $q: \left( \widetilde \sY, \widetilde y_0\right)  \to \left( \sY, y_0\right) $ be the universal covering (cf. Definition \ref{top_universal_covering_lem}). Suppose that the group $G\left( \left.\widetilde \sY \right| \sY\right)$ is residually finite (cf. Definition \ref{residually_finite_defn}), and let 
+Let  $A$ be a connected  $C^*$-algebra (cf. Definition \ref{connected_c_a_defn}), and let $C_0\left( \sY\right)\hookto M\left( A\right) $ be disintegrable, semilocally 1-connected Hausdorff blowing up (cf. Definitions \ref{blowing_defn}, \ref{blowing_disintegrable_defn} and \ref{blowing_semi_defn}).
+Let 
 \bean
-	\mathfrak{S}_{\left( \sY, y_0  \right) }\bydef  \\\bydef\left\{\left\{ q_\la: \left( \sY_\la, y^\la_0\right) \to \left( \sY, y_0\right)\right\}_{\la \in \La}, \left\{q^\mu_\nu: \left( \sY_\mu, y^\mu_0  \right)\to \left( \sY_\nu, y^\nu_0  \right)\right\}_{\substack{ \mu, \nu \in \La \\ \mu \ge \nu}}\right\}
+\mathfrak{S}_{\left( \sY, y_0  \right) }\bydef  \\\bydef\left\{\left\{ q_\la: \left( \sY_\la, y^\la_0\right) \to \left( \sY, y_0\right)\right\}_{\la \in \La}, \left\{q^\mu_\nu: \left( \sY_\mu, y^\mu_0  \right)\to \left( \sY_\nu, y^\nu_0  \right)\right\}_{\substack{ \mu, \nu \in \La \\ \mu \ge \nu}}\right\}
 \eean
-be a	finite covering category $\mathfrak{S}_{\left( \sY, y_0  \right) }$ {associated with the covering}  $\widetilde{p}:\left( \widetilde{\sY}, \widetilde{y}_0\right) \to \left( \sY, y_0\right)$ (cf. Definition \ref{top_associded_defn}). !!!! \eqref{top_x_fr_eqn} !!!
-	Let
+be a pointed	finite covering category $\mathfrak{S}_{\left( \sY, y_0  \right) }$ 
+which contains all finite-fold coverings of $\sY$. Let $\left(\left(\widetilde{\sY}, \widetilde{y}_0\right),\widetilde q \right)$ be the {topological inverse limit} of the category $\downarrow\mathfrak{S}_{\left( \sY, y_0\right)}$  (cf. Definition \ref{top_topological_inv_lim_defn}). 	Let
 		\bean
 		\begin{split}
-			\mathfrak{S}^{\mathrm{pt}}_A \bydef  A_0\left(\mathfrak{S}_{\left( \sY, y_0  \right) } \right)= \\ = \left\{ \left\{\pi_\la\bydef A_0\left( q_{\la}\right) :A  \hookto A_0\left( \mathcal{Y}_\la\right) \right\}_{\la \in \La}, \left\{\pi^\nu_\mu\bydef A_0\left(q^\mu_\nu \right) \right\}_{\substack{ \mu, \nu \in \La \\ \mu \ge \nu}}\right\} 
+			\mathfrak{S}^{\mathrm{pt}}_A \bydef  A_0\left(\mathfrak{S}_{\left( \sY, y_0  \right) } \right)\bydef \\ \bydef \left\{ \left\{\pi_\la\bydef A_0\left( q_{\la}\right) :A  \hookto A_0\left( \mathcal{Y}_\la\right) \right\}_{\la \in \La}, \left\{\pi^\nu_\mu\bydef A_0\left(q^\mu_\nu \right) \right\}_{\substack{ \mu, \nu \in \La \\ \mu \ge \nu}}\right\} 
 		\end{split}
 	\eean
 	be given by the Lemma \ref{blowing_base_point_lem} pointed algebraical  finite covering category (cf. Definition \ref{alg_fin_cat_defn}).
-	Let $\overline \sY$ be a  {topological disconnected inverse limit} of $\mathfrak{S}_{\left( \sY, y_0\right)}$ (cf. Definition \ref{top_topological_inv_lim_defn}). If $\mathfrak{S}^{\mathrm{pt}}_A$ is $\overline\sY$ good  (cf. Definition \ref{blowing_good_defn}) then one has:
+	Let $\overline \sY$ be a  {topological disconnected inverse limit} of $\mathfrak{S}_{\left( \sY, y_0\right)}$ (cf. Definition \ref{top_topological_inv_lim_defn}). If $\mathfrak{S}^{\mathrm{pt}}_A$ is $\overline\sY$-good  (cf. Definition \ref{blowing_good_defn}) then one has:
 	\begin{enumerate}
-		\item [(a)] a triple $\left(A, A_0\left(\widetilde \sY\right), G\left( \left.\widetilde \sY \right| \sY\right)\right)$ 
-		is a simple universal covering of $A$ (cf. Definition \ref{fundamental_group_nc_defn} !!! \eqref{top_x_fr_eqn} !!!) where $A_0\left(\widetilde \sY\right)$ is a $\widetilde q$-lift of $A$ (cf. Definition \ref{blowing_lift_a_f_defn}),
-	\item[(b)] a simple fundamental group of $A$ (cf. Definition \ref{fundamental_group_nc_defn} !!! \eqref{top_x_fr_eqn} !!!) is isomorphic to  $G\left( \left.\widetilde \sY \right| \sY\right)$
+		\item [(a)] a triple $\left(A, A_0\left(\widetilde\sY\right), G\left( \left.\widetilde\sY \right| \sY\right)\right)$ 
+		is a simple universal covering of $A$ (cf. Definition \ref{fundamental_group_nc_defn}) where $A_0\left(\widetilde\sY\right)$ is a $\widetilde q$-lift of $A$ (cf. Definition \ref{blowing_lift_a_f_defn}),
+	\item[(b)] a simple fundamental group of $A$ (cf. Definition \ref{fundamental_group_nc_defn}) is isomorphic to  $G\left( \left.\widetilde\sY_{\mathrm{res~fin}} \right| \sY\right)$
 	\end{enumerate}
 \end{corollary}
 \begin{proof}
-	!!! UNIVERSAL !!!
-\end{proof}
-   \subsection{Coverings of semilocally 1- connected $C^*$-algebras}
-	Let  $A$ be a connected  $C^*$-algebra (cf. Definition \ref{connected_c_a_defn}), and  let $C_0\left( \sY\right)\hookto M\left( A\right) $ be  disintegrable, semilocally 1-connected Hausdorff blowing up (cf. Definitions \ref{blowing_defn}, \ref{blowing_disintegrable_defn} and \ref{blowing_semi_defn}). Let
-	  \bean
-   \mathfrak{S}_{\left( \sY, y_0  \right) }\bydef  \\\bydef\left\{\left\{ q_\la: \left( \sY_\la, y^\la_0\right) \to \left( \sY, y_0\right)\right\}_{\la \in \La}, \left\{q^\mu_\nu: \left( \sY_\mu, y^\mu_0  \right)\to \left( \sY_\nu, y^\nu_0  \right)\right\}_{\substack{ \mu, \nu \in \La \\ \mu \ge \nu}}\right\}
-   \eean
-      be a	finite covering category (cf. Definition \ref{top_finite_covering_category_defn}). 
-   Let
-   \be\label{blowing_semi_eqn}
-   \begin{split}
-   	\mathfrak{S}^{\mathrm{pt}}_A \bydef  A_0\left(\mathfrak{S}_{\left( \sY, y_0  \right) } \right)= \\ = \left\{ \left\{\pi_\la\bydef A_0\left( q_{\la}\right) :A  \hookto A_0\left( \mathcal{Y}_\la\right) \right\}_{\la \in \La}, \left\{\pi^\nu_\mu\bydef A_0\left(q^\mu_\nu \right) \right\}_{\substack{ \mu, \nu \in \La \\ \mu \ge \nu}}\right\} 
-   \end{split}
-   \ee
-   be given by the Lemma \ref{blowing_base_point_lem} pointed algebraical  finite covering category (cf. Definition \ref{alg_fin_cat_defn}).  Suppose that $A$ is \textit{semilocally 1-connected with respect to } 	$\mathfrak{S}_A^{\text{pt}}$ (cf. Definition \ref{semilocally_1_connected_r_defn} !!! CHECK !!!).  Let $\overline \sY$ be a topological  disconnected inverse  limit (cf. Definition \ref{top_topological_inv_lim_defn})  of the  category  $\mathfrak{S}_{\left( \sY, y_0  \right) }$, and let $\overline q: \overline \sY \to \sY$ be a natural transitive covering, and let $A_0\left( \overline \sY\right)$ be a $\overline q$-lift of $A$ (cf. Definition \ref{blowing_lift_a_f_defn}). From the Corollary \ref{blowing_ca_m_cor} it follows that for any $\la\in \La$ there is an injective *-homomorphism $A_0\left( \sY_\la\right) \hookto M\left(A_0\left( \overline \sY\right)\right)$ so one can put
-   \be\label{blowing_inc_m_eqn}
-   \bigcup_{\la\in \La} A_0\left( \sY_\la\right)\subset M\left(A_0\left( \overline \sY\right)\right).
- \ee
-    If  $\Xi_{\mathfrak{S}^{\mathrm{pt}}_A}$ is a specialization of the explained in \ref{inf_cov_empt} !!! CHECK !!! family $\Xi$. 	If  $b = \left\{b_\la\right\}_{\la\in \La} \in \Xi_{\mathfrak{S}^{\mathrm{pt}}_A}$ then $b_\la \in A_0\left( \sY_\la\right)\subset M\left(A_0\left( \overline \sY\right)\right)$.
-    \begin{lemma}
-    In the above situation a net $\left\{b_\la\right\}_{\la\in \La}$ is convergent with respect to the strict topology of $M\left(A_0\left( \overline \sY\right)\right)$.
-    \end{lemma}
-
-\begin{proof} 
-	Henceforth  an inclusion \eqref{blowing_inc_m_eqn} is implied. For any $\la \in \La$ we denote by $\overline p : \overline \sY \to \sY_\la$ a natural covering.    Consider a family  $\left\{B_\la \subset A_0\left( \sY_\la\right) \right\}_{\la \in \La}$ of hereditary  subalgebras which satisfy to the Definition \ref{semilocally_1_connected_r_defn}. 
-From the construction \ref{inf_cov_empt} !!! CHECK !!! one can suppose that $b_\la \in B_\la$ for all $\la\in\La$.
-If $\overline a \in K\left( A_0\left( \overline \sY\right)\right)$ is an element of Pedersen's  	ideal of  $A_0\left( \overline \sY\right)$ then from the Lemma \ref{blowing_supp_lem} it follows that $\supp \overline a$ is compact. From the Corollary  \ref{top_comp_lau_cor} it follows that there are an open set $\overline \sU$ and $\la_{\overline \sU}\in \La$ such that $\supp \overline a \subset \overline \sU$ and for all $\la\ge\la_{\overline \sU}$ is mapped homeomorphically onto $\sU_\la \bydef \overline p_\la\left(\overline \sU \right)$ for any $\la \ge  \la_{\overline \sU}$. For any $\la \ge\la_{\overline \sU}$ one has
-$$
-\desc_{\overline p_\la}\left(\overline a \right) \in~_{\sU_\la} A_0\left(  \sY_\la\right)_{\sU_\la}
-$$
-where $\desc_{\overline q_\la}$ is $\overline q_\la$-descent (cf. Definition \ref{bliwing_lift_desc_sec})
-If $B_\la \desc_{\overline p_\la}\left(\overline a \right) \neq \{0\}$ then 
-$$
-_{\sU_\la} A_0\left(  \sY_\la\right)_{\sU_\la} \cap B_\la\neq  \{0\}
-$$
-On the other hand for any $x \in _{\sU_\la} A_0\left(  \sY_\la\right)_{\sU_\la} \cap g B_\la$ there is .
-
-
-If $M\left( A_0\left( \overline \sY\right)\right)\to B\left(\H \right)$ is a faithful and nondegenerate  representation (cf. Definitions \ref{faithful_repr_defn} and \ref{nondegenerate_repr_defn}) then there are inclusions $C_0\left( \overline \sX\right)'' \subset B\left(\H\right)$ and $C_0\left( \sX_\la\right)'' \subset B\left(\H\right)$ where both $C_0\left( \overline \sX\right)''$ and $C_0\left(  \sX_\la\right)''$ mean bicommutants (cf. Definition \ref{commutant_defn}). Characteristic functions $\chi_{\overline \sU}$ and $\chi_{\sU_\la}$ (cf. Definition \ref{top_char_f_defn}) can be regarded as elements of $C_0\left( \overline \sX\right)''$ and $C_0\left(  \sX_\la\right)''$ and they correspond to projectors $p_{\overline \sU}, p_{\sU_\la}\in  B\left(\H\right)$. For all $\la \ge \la_{ \overline{   \sU}}$ one has
-\bean
-\overline a = p_{\overline \sU}{\overline a}p_{\overline \sU}= p_{ \sU_\la}\overline a p_{\sU_\la},\\
-\forall g \in G\left(\left. \sY_\la\right| \sY\right) \quad g \text{ is not trivial} \quad \Rightarrow\quad \left( g p_{\sU_\la}\right) p_{\sU_\la} = 0.
-\eean
-Suppose that $\la \ge \la_{\overline \sU}$ and $b_\la  \overline a = b_\la   p_{\sU_\la} \overline a\neq 0$ and there is a nontrivial $g \in G\left(\left. \sY_\la\right| \sY\right)=  $ such that $g b_\la   p_{\sU_\la} \overline a\neq 0=$.
-
-
+Follows from the Corollary \ref{blowing_functor_eq_cor} and  the Theorem \ref{blowing_main_thm}.
 \end{proof}
 
-
-\chapter{Towards noncommutative homotopy theory}\label{hurewicz_gr_chap}
+   \chapter{Towards noncommutative homotopy theory}\label{hurewicz_gr_chap}
 \section{Prototype}
 \paragraph{}
 Let us construct noncommutative generalization of homotopy groups $\pi_n$ ($n \ge 0)$). It is well known that If $\sX=\coprod_{\iota \in I} \sX_{\iota}$ is disjoint union of connected components then $\pi_0(\sX)\simeq \bigcup_{\iota \in I} \{\sX_{\iota}\}$ and $C(\sX)\simeq \oplus_{\iota} C(\sX_{\iota})$.
@@ -14821,17 +14761,17 @@ Here we find a relation between  noncommutative finite-fold coverings of $C^*$-a
 	\be\label{stab_wta_eqn}
 	\widetilde{A} \bydef \pi_\K\left( 1_{A^\sim } \otimes \mathfrak{e}_{1,1}\right) \widetilde{A}^\K \pi_\K\left( 1_{A^\sim } \otimes \mathfrak{e}_{1,1}\right) \subset \widetilde{A}^\K
 	\ee
-		then from   $$A\cong \left( 1_{A^\sim } \otimes \mathfrak{e}_{1,1}\right) \left(A \otimes \K \right)  \left( 1_{A^\sim }\otimes \mathfrak{e}_{1,1}\right) $$ and the inclusion $A \otimes \K \subset \widetilde{A}^\K$ it turns out that there is the inclusion $\pi: A \hookto \widetilde{A}$. 	
-For all $j,k \in \N$ one has $$\pi_\K\left( 1_{A^\sim } \otimes \mathfrak{e}_{j,1}\right)\widetilde{A} \pi_\K\left( 1_{A^\sim } \otimes \mathfrak{e}_{1,k}\right)= \pi_\K\left( 1_{A^\sim } \otimes \mathfrak{e}_{j,k}\right)\widetilde{A} \subset \widetilde{A}^\K.$$ 
+	then from   $$A\cong \left( 1_{A^\sim } \otimes \mathfrak{e}_{1,1}\right) \left(A \otimes \K \right)  \left( 1_{A^\sim }\otimes \mathfrak{e}_{1,1}\right) $$ and the inclusion $A \otimes \K \subset \widetilde{A}^\K$ it turns out that there is the inclusion $\pi: A \hookto \widetilde{A}$. 	
+	For all $j,k \in \N$ one has $$\pi_\K\left( 1_{A^\sim } \otimes \mathfrak{e}_{j,1}\right)\widetilde{A} \pi_\K\left( 1_{A^\sim } \otimes \mathfrak{e}_{1,k}\right)= \pi_\K\left( 1_{A^\sim } \otimes \mathfrak{e}_{j,k}\right)\widetilde{A} \subset \widetilde{A}^\K.$$ 
 	If follows that there is a natural inclusion $\widetilde{A}\otimes \K \subset \widetilde{A}^\K$. If $n \in \N^0$ then let $M_n \in \K$ is such that
-$$
+	$$
 	M_n = M_{1, 1}\mathfrak{e}_{1,1}+ ...
 	$$
 	where
 	$$
 	M_{j, k}= \begin{cases}
-	1& j, k \le n\\
-	0 & \text{otherwise}
+		1& j, k \le n\\
+		0 & \text{otherwise}
 	\end{cases}
 	$$
 	The net $\left\{1_{A^\sim }\otimes 	M_n \right\}_{n \in \N}$ is  convergent with respect to the strict topology of $M\left( A\otimes \K\right)$.  From the Corollary \ref{quasi_mult_cor} it  turns out that the net $\left\{\pi_K\left( 1_{A^\sim }\otimes 	M_n\right)  \right\}_{n \in \N}$ is  convergent with respect to the strict topology of $M\left( \widetilde A^\K\right)$. So one has
@@ -14840,7 +14780,7 @@ $$
 	$$
 	From the above equation one concludes that $\widetilde{A}^\K  = \widetilde{A}\otimes  \K$.
 	Let us check conditions (a) and (b) of the Definition \ref{fin_pre_defn}.
-
+	
 	
 	\begin{enumerate}
 		\item [(a)] For any $j,k$ there is the natural isomorphism 
@@ -14867,7 +14807,7 @@ $$
 	\end{enumerate}
 \end{proof}
 \begin{remark}
-The given by \eqref{stab_wta_eqn} $C^*$-algebra $\widetilde A$ depends on an operator $\mathfrak{e}_{1,1}$. Choice of another rank-one projector can give another  $C^*$-algebra which should not be isomorphic to $\widetilde A$  (cf. Example \ref{nt_stable_exm} below).
+	The given by \eqref{stab_wta_eqn} $C^*$-algebra $\widetilde A$ depends on an operator $\mathfrak{e}_{1,1}$. Choice of another rank-one projector can give another  $C^*$-algebra which should not be isomorphic to $\widetilde A$  (cf. Example \ref{nt_stable_exm} below).
 \end{remark}
 
 
@@ -14888,7 +14828,7 @@ The given by \eqref{stab_wta_eqn} $C^*$-algebra $\widetilde A$ depends on an ope
 	\end{enumerate}
 \end{lemma}
 \begin{proof}
-
+	
 	(i)	From the Lemma \ref{stable_pre_lem} it turns out that the quadruple
 	$$
 	\left( A \otimes \K, \widetilde{A}  \otimes \K, G, \pi  \otimes \Id_\K \right)
@@ -14922,10 +14862,10 @@ The given by \eqref{stab_wta_eqn} $C^*$-algebra $\widetilde A$ depends on an ope
 	$$
 	then
 	\begin{equation*}
-	\begin{split}
-	\widetilde{b}^{\mathcal K} = \sum_{j = 1}^n \left( \widetilde{b}_j\otimes 1_{\mathcal K^+}\right) b_j^{\mathcal K},\\
-	\text{ where } b_j^{\mathcal K} = \sum_{k = 1}^m b_{kj}  \otimes x_k \in B \otimes \mathcal K.
-	\end{split}
+		\begin{split}
+			\widetilde{b}^{\mathcal K} = \sum_{j = 1}^n \left( \widetilde{b}_j\otimes 1_{\mathcal K^+}\right) b_j^{\mathcal K},\\
+			\text{ where } b_j^{\mathcal K} = \sum_{k = 1}^m b_{kj}  \otimes x_k \in B \otimes \mathcal K.
+		\end{split}
 	\end{equation*}
 	It turns out that the algebraic tensor product $\widetilde{B} \otimes \mathcal K^+$ is generated by $\widetilde{b}_1\otimes 1_{\mathcal K^+},..., \widetilde{b}_n\otimes 1_{\mathcal K^+}$ as $B \otimes \K$ module. The minimal (or maximal) completion the algebraic tensor product $\widetilde{B} \otimes \mathcal K^+$ is also generated by $\widetilde{b}_1\otimes 1_{\mathcal K^+},..., \widetilde{b}_n\otimes 1_{\mathcal K^+}$ so the  minimal (or maximal) tensor product is a finitely generated $B\otimes \mathcal K^+$ module. It turns out that the quadruple
 	$$
@@ -14940,7 +14880,7 @@ The given by \eqref{stab_wta_eqn} $C^*$-algebra $\widetilde A$ depends on an ope
 	\be\label{stable_eqn}
 	\begin{split}
 		B\bydef\left( 1_{A^\sim } \otimes \mathfrak{e}_{1,1}\right){B}^\K \left( 1_{A^\sim } \otimes \mathfrak{e}_{1,1}\right),\\
-	\widetilde{B}\bydef\left( 1_{A^\sim } \otimes \mathfrak{e}_{1,1}\right)\widetilde{B}^\K \left( 1_{A^\sim } \otimes \mathfrak{e}_{1,1}\right)
+		\widetilde{B}\bydef\left( 1_{A^\sim } \otimes \mathfrak{e}_{1,1}\right)\widetilde{B}^\K \left( 1_{A^\sim } \otimes \mathfrak{e}_{1,1}\right)
 	\end{split}
 	\ee
 	then one has
@@ -14968,7 +14908,7 @@ The given by \eqref{stab_wta_eqn} $C^*$-algebra $\widetilde A$ depends on an ope
 \end{theorem}
 
 \begin{proof}
-
+	
 	(i)
 	From the Lemma \ref{stable_pre_lem} it turns out that $\left(A  \otimes \mathcal K, \widetilde{A} \otimes \mathcal K, G, \pi \otimes 1_{\K^+ } \right)$ is a a noncommutative finite-fold  pre-covering.
 	From the Definition \ref{fin_defn} it turns out that if there is an indexed by a directed set $\La$ family $\left\{A_\la \subset A\right\}_{\la\in\La}$ of $\left(A, \widetilde{A}, G, \pi \right)$-{strictly proper} hereditary $C^*$-subalgebras (cf. the Definition \ref{hereditary_proper_lift_defn} !!! CONNECTED DELETE !!!) such that 
@@ -14984,43 +14924,43 @@ The given by \eqref{stab_wta_eqn} $C^*$-algebra $\widetilde A$ depends on an ope
 		$
 		is dense in $A$.
 	\end{enumerate}
-We leave to the reader a proof of that  $A_\la \times \K$ is a $\left(A  \otimes \mathcal K, \widetilde{A} \otimes \mathcal K, G, \pi \otimes 1_{\K^+ } \right)$-strictly proper hereditary $C^*$-subalgebra (cf. the Definition \ref{hereditary_proper_lift_defn} !!! CONNECTED DELETE !!!). On the other hand one has:
+	We leave to the reader a proof of that  $A_\la \times \K$ is a $\left(A  \otimes \mathcal K, \widetilde{A} \otimes \mathcal K, G, \pi \otimes 1_{\K^+ } \right)$-strictly proper hereditary $C^*$-subalgebra (cf. the Definition \ref{hereditary_proper_lift_defn} !!! CONNECTED DELETE !!!). On the other hand one has:
 	\begin{enumerate}
-	\item[(a)] 
-	$$
-	\forall \mu, \nu \in \La \quad \mu \le \nu \quad\Rightarrow\quad A\otimes \K_\mu \subset A\otimes \K_\nu,
-	$$	
-	\item[(b)]
-	a union 
-	$
-	\bigcup_{\la\in\La} A_\la\otimes\K
-	$
-	is dense in $A\otimes\K$.
-\end{enumerate}	
- for all $\la\in \La$.\\
+		\item[(a)] 
+		$$
+		\forall \mu, \nu \in \La \quad \mu \le \nu \quad\Rightarrow\quad A\otimes \K_\mu \subset A\otimes \K_\nu,
+		$$	
+		\item[(b)]
+		a union 
+		$
+		\bigcup_{\la\in\La} A_\la\otimes\K
+		$
+		is dense in $A\otimes\K$.
+	\end{enumerate}	
+	for all $\la\in \La$.\\
 	(ii)  From (ii) of the Lemma \ref{stable_pre_lem} it turns out that there is a noncommutative finite-fold pre-covering   $\left( A, \widetilde{A}, G, \pi\right)$  such that the quadruple  $\left( A \otimes \K, \widetilde{A}^\K, G,{\pi}^\K   \right)$ is equivalent to $\left(A  \otimes \mathcal K, \widetilde{A} \otimes \mathcal K, G, \pi \otimes 1_{\K^+ } \right)$.   Moreover the Lemma \ref{stable_pre_lem} implies that conditions (I), (II) of this Lemma hold.	If $\left\{A^\K_\la\right\}$ be a required by the Definition \ref{fin_defn} family of  $\left(A  \otimes \mathcal K, \widetilde{A} \otimes \mathcal K, G, \pi \otimes 1_{\K^+ } \right)$-strictly proper hereditary $C^*$-subalgebras (cf. the Definition \ref{hereditary_proper_lift_defn} !!! CONNECTED DELETE !!!). The union $\cup_{\la\in\La} A^\K_\la$ is a dense in $A  \otimes \mathcal K$ it follows that there is $\la_0\in \La$ such that 
 	\bean
- A_\la \bydef	\left( 1_{A^\sim } \otimes \mathfrak{e}_{1,1}\right) {A}^\K_\la   \left( 1_{A^\sim } \otimes \mathfrak{e}_{1,1}\right)\neq 0
+	A_\la \bydef	\left( 1_{A^\sim } \otimes \mathfrak{e}_{1,1}\right) {A}^\K_\la   \left( 1_{A^\sim } \otimes \mathfrak{e}_{1,1}\right)\neq 0
 	\eean 
 	for all $\la \ge\la_0$. If  
 	\bean
-\forall\la\in \La\quad 	\H^\perp_\la \bydef \left\{\left. \xi \in \ell^2\left(\N\right)\right| A^\K_\la~~\xi \left\rangle \right\langle\xi = 0 \right\}, \quad  \ell^2\left(\N\right)= \H_\la \oplus \H^\perp_\la.
+	\forall\la\in \La\quad 	\H^\perp_\la \bydef \left\{\left. \xi \in \ell^2\left(\N\right)\right| A^\K_\la~~\xi \left\rangle \right\langle\xi = 0 \right\}, \quad  \ell^2\left(\N\right)= \H_\la \oplus \H^\perp_\la.
 	\eean 
 	then one has a *-isomorphism  ${A}^\K_\la\cong A_\la \otimes \K\left( \H_\la\right)\cong A_\la \otimes \K$ where $\K \cong \K\left(\ell^2\left(\N\right)\right) $ or $\K \cong \mathbb{M}_n\left( \C\right)$.
-	 If $\widetilde A^\K_\la\bydef	\pi\left( 1_{A^\sim } \otimes \mathfrak{e}_{1,1}\right) \widetilde{A}^\K_\la \pi\left( 1_{A^\sim } \otimes \mathfrak{e}_{1,1}\right) $ 
+	If $\widetilde A^\K_\la\bydef	\pi\left( 1_{A^\sim } \otimes \mathfrak{e}_{1,1}\right) \widetilde{A}^\K_\la \pi\left( 1_{A^\sim } \otimes \mathfrak{e}_{1,1}\right) $ 
 	and $\widetilde A^\K_\la$ is  a hereditary $\left(A  \otimes \mathcal K, \widetilde{A} \otimes \mathcal K, G, \pi \otimes 1_{\K^+ } \right)$-lift of $A^\K_\la$ (cf. Definition \ref{hereditary_lift_defn})  then $\widetilde A^\K_\la\cong \widetilde A_\la \otimes \K\left( \H_\la\right)\cong A_\la \otimes \K$ where $\K \cong \K\left(\ell^2\left(\N\right) \right)$ or $\K \cong \mathbb{M}_n\left( \C\right)$. If $\pi_\la: A_\la \hookto\widetilde A_\la$ is a natural inclusion then from    the Lemma \ref{stable_fin_cov_comp_lem}  it follows that $\left(A_\la,  \widetilde A_\la, G,  \pi_\la\right)$ is a covering with unitization. The union $\cup A^\K_\la$ is dense in $A\otimes \K$ so the union $\cup A_\la$ is dense in $A$. Thus 
-	  the family $\left\{A_\la\right\}_{\substack{\la \in \La\\ \la \ge \la_0}}$ satisfies to the Definition \ref{fin_defn}.
+	the family $\left\{A_\la\right\}_{\substack{\la \in \La\\ \la \ge \la_0}}$ satisfies to the Definition \ref{fin_defn}.
 	
 \end{proof}
 
 \begin{corollary}\label{stable_functor_cor}
-There is a  full functor $-\otimes \K: \mathfrak{FinCov}$-$A\to\mathfrak{FinCov}$-$A\otimes \K$ between categories of finite-fold coverings (cf.  Definitions \ref{fin_cat_defn}, \ref{functor_defn} and \ref{funct_full_faithfull_defn}).
+	There is a  full functor $-\otimes \K: \mathfrak{FinCov}$-$A\to\mathfrak{FinCov}$-$A\otimes \K$ between categories of finite-fold coverings (cf.  Definitions \ref{fin_cat_defn}, \ref{functor_defn} and \ref{funct_full_faithfull_defn}).
 \end{corollary}
 \begin{proof}
-Follows from the Lemma \ref{stable_pre_lem} and the Theorem \ref{stable_fin_cov_thm}.
+	Follows from the Lemma \ref{stable_pre_lem} and the Theorem \ref{stable_fin_cov_thm}.
 \end{proof}
 \begin{remark}\label{stab_non_iso_rem}
-From the Example \ref{nt_stable_exm}  it follows that the functor $-\otimes \K$ is not always faithful (cf. Definition \ref{funct_full_faithfull_defn}).
+	From the Example \ref{nt_stable_exm}  it follows that the functor $-\otimes \K$ is not always faithful (cf. Definition \ref{funct_full_faithfull_defn}).
 \end{remark}
 \section{Infinite coverings}
 
@@ -15029,15 +14969,15 @@ From the Example \ref{nt_stable_exm}  it follows that the functor $-\otimes \K$ 
 
 \begin{lemma}\label{stab_t_a_lem}
 	Let 	$\mathfrak{S}_{A} =  \left\{\pi_\la :A  \hookto A_\la \right\}_{\la \in \La}\in \mathfrak{FinAlg}$ be a algebraical  finite covering category (cf.  Definition \ref{alg_fin_cat_defn}).
-  If  a restriction of the given by the Corollary \ref{stable_functor_cor} functor on $\mathfrak{S}_{A}$ is  faithful (cf. Definition \ref{funct_full_faithfull_defn}  then
+	If  a restriction of the given by the Corollary \ref{stable_functor_cor} functor on $\mathfrak{S}_{A}$ is  faithful (cf. Definition \ref{funct_full_faithfull_defn}  then
 	Following conditions hold:
-		\begin{equation*}
+	\begin{equation*}
 		\mathfrak{S}_{A\otimes \K} =  \left\{ \pi_\la\otimes\Id_\K :A \otimes \K  \hookto A_\la \otimes \K\right\}_{\la \in \La}\in \mathfrak{FinAlg}
-		\end{equation*}
-is an	algebraical  finite covering category
+	\end{equation*}
+	is an	algebraical  finite covering category
 \end{lemma}
 \begin{proof}
-From the Corollary \ref{stable_functor_cor} it follows that the functor $-\otimes \K$ is full. Since the restriction of  $-\otimes \K$ on $\mathfrak{S}_{A}$ is full and faithful one has an equivalence of categories $\mathfrak{S}_{A}\cong \mathfrak{S}_{A} \otimes \K \cong  \mathfrak{S}_{A\otimes \K}$.
+	From the Corollary \ref{stable_functor_cor} it follows that the functor $-\otimes \K$ is full. Since the restriction of  $-\otimes \K$ on $\mathfrak{S}_{A}$ is full and faithful one has an equivalence of categories $\mathfrak{S}_{A}\cong \mathfrak{S}_{A} \otimes \K \cong  \mathfrak{S}_{A\otimes \K}$.
 \end{proof}
 
 \begin{corollary}\label{stab_pt_a_cor}
@@ -15051,15 +14991,15 @@ From the Corollary \ref{stable_functor_cor} it follows that the functor $-\otime
 		\eean
 		is an algebraical  finite covering category (cf. Definition \ref{alg_fin_cat_defn}) then there is a natural  algebraical  finite covering category
 		\begin{equation*}
-		\mathfrak{S}_{A\otimes \K} \bydef  \left(\left\{\widetilde\pi_\la: A \otimes \K\hookto A_\la \otimes \K\right\}_{\la \in \La}, \left\{\widetilde\pi^\mu_\nu: A_\mu\otimes \K \hookto A_\nu\otimes \K\right\}_{\substack{\mu, \nu \in \La\\ \nu >\ge \mu}}\right)
+			\mathfrak{S}_{A\otimes \K} \bydef  \left(\left\{\widetilde\pi_\la: A \otimes \K\hookto A_\la \otimes \K\right\}_{\la \in \La}, \left\{\widetilde\pi^\mu_\nu: A_\mu\otimes \K \hookto A_\nu\otimes \K\right\}_{\substack{\mu, \nu \in \La\\ \nu >\ge \mu}}\right)
 		\end{equation*}
 		where $\widetilde\pi_\la\bydef \pi_\la \otimes \Id_\K$ and $\widetilde\pi^\mu_\mu\bydef \pi_\la \otimes \Id_\K$.
 		\item[(ii)] Conversely any  algebraical  finite covering category
 		\begin{equation*}
-		\mathfrak{S}_{A\otimes \K} =  \left(\left\{\widetilde\pi_\la: A \otimes \K\hookto A_\la \otimes \K\right\}_{\la \in \La}, \left\{\widetilde\pi^\mu_\nu: A_\mu\otimes \K \hookto A_\nu\otimes \K\right\}_{\substack{\mu, \nu \in \La\\ \nu \ge \mu}}\right)
+			\mathfrak{S}_{A\otimes \K} =  \left(\left\{\widetilde\pi_\la: A \otimes \K\hookto A_\la \otimes \K\right\}_{\la \in \La}, \left\{\widetilde\pi^\mu_\nu: A_\mu\otimes \K \hookto A_\nu\otimes \K\right\}_{\substack{\mu, \nu \in \La\\ \nu \ge \mu}}\right)
 		\end{equation*}
 		such that  $\widetilde\pi_\la= \pi_\la \otimes \Id_\K$ and $\widetilde\pi^\mu_\nu= \pi_\la \otimes \Id_\K$.
-	induces 
+		induces 
 		an algebraical  finite covering category $$	\mathfrak{S}_A = \left(\left\{\pi_\la: A \hookto A_\la \right\}_{\la \in \La}, \left\{\pi^\mu_\nu: A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\ \nu \ge \mu}}\right)$$ 
 	\end{enumerate}
 \end{corollary}
@@ -15070,13 +15010,13 @@ From the Corollary \ref{stable_functor_cor} it follows that the functor $-\otime
 
 Suppose that
 \begin{equation}\label{stable_seq_pure_eqn}
-\mathfrak{S}_A = \left(\left\{\pi_\la: A \hookto A_\la \right\}_{\la \in \La}, \left\{\pi^\mu_\nu: A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\ \nu \ge \mu}}\right)
+	\mathfrak{S}_A = \left(\left\{\pi_\la: A \hookto A_\la \right\}_{\la \in \La}, \left\{\pi^\mu_\nu: A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\ \nu \ge \mu}}\right)
 \end{equation}
 is an	 algebraical  finite covering category. From the Corollary \ref{stab_pt_a_cor} it follows that
 \begin{equation}\label{stable_seq_eqn}
-\begin{split}
-\mathfrak{S}_{A\otimes \K} =\\=  \left(\left\{\widetilde\pi_\la: A \otimes \K\hookto A_\la \otimes \K\right\}_{\la \in \La}, \left\{\widetilde\pi^\mu_\nu: A_\mu\otimes \K \hookto A_\nu\otimes \K\right\}_{\substack{\mu, \nu \in \La\\ \nu \ge \mu}}\right)
-\end{split}
+	\begin{split}
+		\mathfrak{S}_{A\otimes \K} =\\=  \left(\left\{\widetilde\pi_\la: A \otimes \K\hookto A_\la \otimes \K\right\}_{\la \in \La}, \left\{\widetilde\pi^\mu_\nu: A_\mu\otimes \K \hookto A_\nu\otimes \K\right\}_{\substack{\mu, \nu \in \La\\ \nu \ge \mu}}\right)
+	\end{split}
 \end{equation}
 is a	 algebraical  finite covering category.
 Denote by $\widehat{A} = C^*\text{-}\varinjlim A_\la$, $G_\la = G\left( A_\la ~|~A\right)$, $\widehat{G} = \varprojlim G_\la$. Clearly $C^*\text{-}\varinjlim \left( A_\la \otimes \mathcal K\right)  = \widehat{A}  \otimes \mathcal K$. Let us consider the irreducible representation $\K \to B\left(\H_\K \right)$ (cf. Table \ref{stab_table}). If  $\pi: \widehat{A} \to B\left( \widehat{\H}\right)$ is an atomic representation  then from the Theorem \ref{stable_morita_thm} and the Corollary \ref{morita_irred} it follows that $\pi^{\mathcal K}= \pi \otimes \pi_{ \mathcal K} :\widehat{A}  \otimes \mathcal K\to B\left( \widehat\H_{\mathcal K} \bydef \widehat{\H} \otimes \H_\K \right) $ is the atomic   representation. 
@@ -15085,22 +15025,22 @@ Denote by $\widehat{A} = C^*\text{-}\varinjlim A_\la$, $G_\la = G\left( A_\la ~|
 	If $\overline{a}\in B\left( \widehat\H\right) $ is a special element of $\mathfrak{S}_A$ (cf. Definition \ref{special_element_defn}), and $p \in \mathcal K$ is a rank-one projector then $\overline{a}\otimes p \in B\left( \widehat\H_\K\right)$ is a special element of $\mathfrak{S}_{A\otimes \mathcal K}$.
 \end{lemma}
 \begin{proof}
-	Let us use the implicit equations \eqref{spec_a_eps_imp_eqn} !!! CHECK !!! for this proof.
+	Let us use the implicit equations \eqref{spec_a_eps_imp_eqn} for this proof.
 	Select  $\la_0 \in \La$, $\eps > 0$ and  $z \in \left(A\otimes \K \right)^{\sim}  \cong\K_A^{+}$ (cf.  Table \ref{stab_table} ),
 	One can select a basis of the Hilbert $\H_\K$ space such that $p$ is represented by a following infinite matrix
 	$$
 	\begin{pmatrix}
-	1& 0 &\ldots \\
-	0& 0 &\ldots \\
-	\vdots& \vdots &\ddots\\
+		1& 0 &\ldots \\
+		0& 0 &\ldots \\
+		\vdots& \vdots &\ddots\\
 	\end{pmatrix}.
 	$$
 	Element $z$ can be represented by the following way
 	$$
 	z = \begin{pmatrix}
-	a_{11}& a_{12} &\ldots \\
-	a_{21}& a_{22} &\ldots \\
-	\vdots& \vdots &\ddots\\
+		a_{11}& a_{12} &\ldots \\
+		a_{21}& a_{22} &\ldots \\
+		\vdots& \vdots &\ddots\\
 	\end{pmatrix}; \quad  a_{jk} \in A^{\sim}_{\la_0}
 	$$
 	then
@@ -15110,21 +15050,21 @@ Denote by $\widehat{A} = C^*\text{-}\varinjlim A_\la$, $G_\la = G\left( A_\la ~|
 	is represented by the matrix
 	$$
 	z^* \left(\overline{a}\otimes p \right)z = \begin{pmatrix}
-	a^*_{11}& 0 &\ldots \\
-	a^*_{12}& 0 &\ldots \\
-	\vdots& \vdots &\ddots\\
+		a^*_{11}& 0 &\ldots \\
+		a^*_{12}& 0 &\ldots \\
+		\vdots& \vdots &\ddots\\
 	\end{pmatrix} \overline{a} \begin{pmatrix}
-	a_{11}& a_{12} &\ldots \\
-	0& 0 &\ldots \\
-	\vdots& \vdots &\ddots\\
+		a_{11}& a_{12} &\ldots \\
+		0& 0 &\ldots \\
+		\vdots& \vdots &\ddots\\
 	\end{pmatrix}.
 	$$
 	If $\xi \in X_{A_{\la_0}}$ is given by
 	$$
 	\xi\bydef \begin{pmatrix}
-	a^*_{11} \\
-	a^*_{12} \\
-	\vdots\\
+		a^*_{11} \\
+		a^*_{12} \\
+		\vdots\\
 	\end{pmatrix}.
 	$$	
 	then 
@@ -15135,16 +15075,16 @@ Denote by $\widehat{A} = C^*\text{-}\varinjlim A_\la$, $G_\la = G\left( A_\la ~|
 	
 	$$
 	\begin{pmatrix}
-	a^*_{11}& 0 &\ldots \\
-	a^*_{12}& 0 &\ldots \\
-	\vdots& \vdots &\ddots\\
+		a^*_{11}& 0 &\ldots \\
+		a^*_{12}& 0 &\ldots \\
+		\vdots& \vdots &\ddots\\
 	\end{pmatrix}=  p_{\mathcal K}\overline z^*.
 	$$
 	It turns out
 	\begin{equation}\label{stab_zpz}
-	z^*\left( \overline{a}\otimes p\right)  z=  p_{\mathcal K} \overline z^*~ \overline{   a}~\overline z p_{\mathcal K}.
+		z^*\left( \overline{a}\otimes p\right)  z=  p_{\mathcal K} \overline z^*~ \overline{   a}~\overline z p_{\mathcal K}.
 	\end{equation}
-	From \eqref{spec_a_eps_imp_eqn} !!! CHECK !!! it follows that
+	From \eqref{spec_a_eps_imp_eqn} it follows that
 	\bean
 	\begin{split}
 		\sum_{g\in G_\la }\overline  z^*\left(  g\overline a\right) \overline  z  = a_\la \in A_\la,\\
@@ -15196,32 +15136,32 @@ Denote by $\widehat{A} = C^*\text{-}\varinjlim A_\la$, $G_\la = G\left( A_\la ~|
 \begin{proof}
 	If  $\overline a^\mathcal{K}\notin \overline{A}  \otimes \mathcal K$ then there there is  $\xi\in \ell^2\left(\overline{A} \right) $ (or  $\xi \in \overline{A}^n $) such that
 	\begin{equation}\label{stab_prod_x_eqn}
-	\left\langle \xi, \overline a^\mathcal{K} \xi\right\rangle_{\ell^2\left(H_{\widehat{A}''} \right) } \notin \overline{A}.
+		\left\langle \xi, \overline a^\mathcal{K} \xi\right\rangle_{\ell^2\left(H_{\widehat{A}''} \right) } \notin \overline{A}.
 	\end{equation}
 	If we select a basis basis $\left\{\xi_j \in \ell^2\left(\overline{A} \right)  \right\}_{j \in \N}$ of $\ell^2\left(\overline{A}  \right)$ (or $\left\{\xi_j \in \widehat{A}^n \right\}_{j =1,...,n}$ of $\overline{A}^n$  of such that $\xi_1 = \xi$ then $\overline{a}^{\mathcal{K}}$ is represented by an infinite (or finite) matrix 
 	\begin{equation*}
-	\overline{a}^{\mathcal{K}} = \begin{pmatrix}
-	\overline{a}_{11}& \overline{a}_{12} &\ldots \\
-	\overline{a}_{21}& \overline{a}_{22} &\ldots \\
-	\vdots& \vdots &\ddots\\
-	\end{pmatrix}
+		\overline{a}^{\mathcal{K}} = \begin{pmatrix}
+			\overline{a}_{11}& \overline{a}_{12} &\ldots \\
+			\overline{a}_{21}& \overline{a}_{22} &\ldots \\
+			\vdots& \vdots &\ddots\\
+		\end{pmatrix}
 	\end{equation*}
-	and from \eqref{stab_prod_x_eqn} it turns out $\overline a_{11} \notin \overline{A}$.   The element $\overline a_{11}$ does not satisfy to the Definition \ref{special_element_defn}, so there are   $\la_0\in \La$ and $z \in A^{\sim}_{\la_0}$ such that at least one of conditions (a), (b) of the Definition \ref{special_element_defn}  !!! CHECK !!!does not hold. 
+	and from \eqref{stab_prod_x_eqn} it turns out $\overline a_{11} \notin \overline{A}$.   The element $\overline a_{11}$ does not satisfy to the Definition \ref{special_element_defn}, so there are   $\la_0\in \La$ and $z \in A^{\sim}_{\la_0}$ such that at least one of conditions (a), (b) of the Definition \ref{special_element_defn} does not hold. 
 	Let $z_\mathcal{K}\in \left( A_{\la_0}  \otimes \mathcal K\right)^{\sim}$ be given by
 	$$
 	z_\mathcal{K}  \bydef \begin{pmatrix}
-	z& 0 &\ldots \\
-	0& 0 &\ldots \\
-	\vdots& \vdots &\ddots\\
+		z& 0 &\ldots \\
+		0& 0 &\ldots \\
+		\vdots& \vdots &\ddots\\
 	\end{pmatrix}  \in \overline{A}  \otimes \mathcal K
 	$$
 	if $A_{\la_0}$ is  unital.
 	Otherwise if $A_{\la_0}$ is not unital and $z = z' + c$ where $z'\in A_{\la_0}$ and $c\in \C$ we define
 	$$
 	z_\mathcal{K}  \bydef \begin{pmatrix}
-	z'& 0 &\ldots \\
-	0& 0 &\ldots \\
-	\vdots& \vdots &\ddots\\
+		z'& 0 &\ldots \\
+		0& 0 &\ldots \\
+		\vdots& \vdots &\ddots\\
 	\end{pmatrix} + c \in \left( \overline{A}  \otimes \mathcal K\right)^+ 
 	$$
 	otherwise.
@@ -15246,13 +15186,13 @@ Denote by $\widehat{A} = C^*\text{-}\varinjlim A_\la$, $G_\la = G\left( A_\la ~|
 	\end{pmatrix}
 	\notin  A_\la\otimes \K.
 	\eean 
-	It follows that if $ \overline a_{11}$ does not satisfy to the condition (a) of the Definition \ref{special_element_defn}  !!! CHECK !!!then $\overline a_\K$ also does not satisfy this condition.
+	It follows that if $ \overline a_{11}$ does not satisfy to the condition (a) of the Definition \ref{special_element_defn} then $\overline a_\K$ also does not satisfy this condition.
 	
 	From
 	$$
 	\left\| \left( b^{\mathcal K}_\la\right)^2 - c^{\mathcal K}_\la\right\| = \left\| b^2_\la - c_\la\right\|.
 	$$
-	it follows that if $ \overline a_{11}$ does not satisfy to the condition (b) of the Definition \ref{special_element_defn}  !!! CHECK !!!then $\overline a_\K$ also does not satisfy this condition.
+	it follows that if $ \overline a_{11}$ does not satisfy to the condition (b) of the Definition \ref{special_element_defn} then $\overline a_\K$ also does not satisfy this condition.
 \end{proof}
 
 \begin{corollary}\label{stab_spec_out_cor}
@@ -15311,7 +15251,7 @@ Denote by $\widehat{A} = C^*\text{-}\varinjlim A_\la$, $G_\la = G\left( A_\la ~|
 	
 	\begin{enumerate}
 		\item[(a)] For all $\la \in \La$ the natural *-homomorphism $A_\la \to  M\left(\widetilde{A} \right)$ is injective.
-	\item[(b)] If both $\widetilde{A}'$ and $\widetilde{A}''$ are  -{connected components} then there is  $g \in G\left(\left.\overline{A}~\right|~ A\right)$ such that $g \widetilde{A}'= \widetilde{A}''$.
+		\item[(b)] If both $\widetilde{A}'$ and $\widetilde{A}''$ are  -{connected components} then there is  $g \in G\left(\left.\overline{A}~\right|~ A\right)$ such that $g \widetilde{A}'= \widetilde{A}''$.
 		\item [(c)] For any $\la \in \La$ the restriction $h_\la|_{G}$ is an epimorphism, i. e. $h_\la\left(G \right) = G\left(\left. A_\la~\right|~A \right)$.
 	\end{enumerate}
 	It means that $\mathfrak{S}_{A}$ is good.
@@ -15322,6 +15262,8 @@ Denote by $\widehat{A} = C^*\text{-}\varinjlim A_\la$, $G_\la = G\left( A_\la ~|
 	\widetilde A\cong \left(1_{{\widetilde A}^\sim}  \otimes  \mathfrak{e}_{1,1}\right) \left( \widetilde A\otimes \K \right)\left(1_{{\widetilde A}^\sim}  \otimes  \mathfrak{e}_{1,1}\right).
 	\ee
 \end{remark}
+
+
 
 
 \chapter{Hurewicz homomorphism. A sketch}\label{hurewicz_chap}
@@ -18440,7 +18382,7 @@ c \ge a_\nu,\\
 \begin{lemma}\label{foli_s_v_lem}
 	Suppose that a foliation groupoid $\G\left(M,\sF\right)$ is Hausdorff.
 	Let $C^*_b\left(\overline M,\overline \sF\right)\subset B\left( \bigoplus_{L \in \overline M/\overline\sF_{\mathrm{no~hol}}}  L^2\left(\G_{x_L}\right)\right)$ be a space of affiliated operators to $C^*_r\left(\overline M,\overline \sF\right)$ operators (cf. Definition \ref{foli_affil_defn}). Prove that if
-	If  $ \overline a  \in B\left(\widehat \H_a \right)$ is a special element (cf. Definition \ref{special_element_defn}) then $\overline a\in C^*_b\left(M,\sF\right)$
+	If  $ \overline a  \in B\left(\widehat \H_a \right)$ is a special element (cf. Definition \ref{special_element_defn}  !!! CHECK !!!) then $\overline a\in C^*_b\left(M,\sF\right)$
 \end{lemma}
 \begin{proof}
 	One needs proof that for all $\overline \ga \in \G\left(\overline M,\overline \sF\right)$ there is an open neighborhood $\overline \sV_{\overline\ga}$ and $\overline b \in C^*_r\left(\overline M,\overline \sF\right)$ such that 
@@ -18479,7 +18421,7 @@ For each $\la \in \La$ let $a_\la \in C^*_r\left(M_\la, \sF_\la \right)_+$ be su
 	\phi_\la :	C^*_r\left( M_\la, \sF_\la\right) \to \K\left(X_{C\left( \sY_\la\right)} \right) 
 	\ee
 	Let $\widehat \K \bydef C^*$-$\varinjlim_{\la\in\La} \K\left(X_{C\left( \sY_\la\right)} \right)$ be the $C^*$-inductive limit, and let $\pi^\K_a:\widehat \K \to B\left(\H^\K_a \right)$ be the atomic representation.  The family $\left\{	\phi_\la\left( a_\la\right)\in \widehat \K \right\}$ is decreasing, hence from the Lemma \ref{increasing_convergent_w_lem} it follows that there is the limit $\overline a^\K=\lim \phi_\la\left( a_\la\right)\in B\left(\H^\K_a \right)$ with respect to the strong topology of $B\left(\H^\K_a \right)$.
-	The element $\overline a$ is special, so it satisfies to conditions (a) and (b) of the Definition \ref{special_element_defn}.  It turns out that the element  $\overline a^\K$ satisfies to conditions (a) and (b) of the Definition \ref{top_coh_defn}. From the Lemmas  \ref{ctr_comp_lem}, \ref{top_coh_lem} and  \ref{top_coh_compact_lem} it follows that 
+	The element $\overline a$ is special, so it satisfies to conditions (a) and (b) of the Definition \ref{special_element_defn}  !!! CHECK !!!.  It turns out that the element  $\overline a^\K$ satisfies to conditions (a) and (b) of the Definition \ref{top_coh_defn}. From the Lemmas  \ref{ctr_comp_lem}, \ref{top_coh_lem} and  \ref{top_coh_compact_lem} it follows that 
 	\be\label{foli_sva_eqn}
 	\overline a^\K\in   \K\left(X_{C_0\left(\overline{\sY}'\right)}\right),
 	\ee 
@@ -18490,7 +18432,7 @@ For each $\la \in \La$ let $a_\la \in C^*_r\left(M_\la, \sF_\la \right)_+$ be su
 \end{proof}
 
 \begin{lemma}\label{foli_sheaf_lem}
-	If $ \overline a  \in \overline A\subset B\left(\widehat \H_a \right)$ is a special element (cf. Definition \ref{special_element_defn}) then $\overline a \in   \pi_A\left( C^*_r\left(\overline M, \overline \sF\right)\right) $ where $\pi_A: C^*_r\left(\overline M, \overline \sF\right)\hookto B\left(\widehat \H_a \right)$ is an atomic representation of  $C^*_r\left(\overline M, \overline \sF\right)$ (cf. \ref{foli_atomic_empt} and the equation \eqref{foli_atomic_l_eqn}).
+	If $ \overline a  \in \overline A\subset B\left(\widehat \H_a \right)$ is a special element (cf. Definition \ref{special_element_defn}  !!! CHECK !!!) then $\overline a \in   \pi_A\left( C^*_r\left(\overline M, \overline \sF\right)\right) $ where $\pi_A: C^*_r\left(\overline M, \overline \sF\right)\hookto B\left(\widehat \H_a \right)$ is an atomic representation of  $C^*_r\left(\overline M, \overline \sF\right)$ (cf. \ref{foli_atomic_empt} and the equation \eqref{foli_atomic_l_eqn}).
 \end{lemma}.
 \begin{proof}
 From the Definition \ref{foli_affil_defn} it follows that
@@ -20112,11 +20054,11 @@ taking into account $\left\|P\right\|=\left\|gP\right\|$  one has
 		$
 		is a rank-one operator in $B\left( L^2\left( \R^{2}\right)_\parallel\right) $.
 	\end{itemize}
-	then $\overline{a}$ is $\pi^\oplus$-special  (cf. Definition \ref{special_element_defn}). 
+	then $\overline{a}$ is $\pi^\oplus$-special  (cf. Definition \ref{special_element_defn}  !!! CHECK !!!). 
 \end{lem}
 \begin{proof}
 	Clearly $\overline{a}$ is a rank-one operator in $B\left( L^2\left( \R^{2N}\right)_\parallel\right) $.	Let $j_0 \in \N$, $\eps > 0$ and  $z \in  C\left( \T^{2N}_{\th/m_{j_0}^2}\right)$. 	Denote by $G_j\bydef \ker\left(  \widehat G\to  \Z^{2N}_{m_j}\right)$.
-	One needs check conditions (a)  and (b) of the Definition \ref{special_element_defn}.\\ 
+	One needs check conditions (a)  and (b) of the Definition \ref{special_element_defn}  !!! CHECK !!!.\\ 
 	(a)  From the Lemma \ref{nt_w*_lem} if follows that for any $j \in \N$ there is $a'_j \in C\left( \T^{2N}_{\th/m_j^2}\right)$ such that
 	\be\label{nt_w_spec_eqn}
 	\sum_{g\in G_j } g \overline a   = \pi^\oplus\left(a_j \right) 
