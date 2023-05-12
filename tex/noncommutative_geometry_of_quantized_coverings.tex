@@ -4742,7 +4742,7 @@ We define a set $\Psi$ of families $\left\{b_\la\in A_\la\right\}_{\la \in \La}$
 	\item[(b)] for any $\la \in \La$ there is $g_\la \in G\left(\left. A_\la \right|A\right)$ such that $b_\la \in gK\left(  B_\la\right) $ where $B_\la$ satisfies to the Definition \ref{semilocally_1_connected_r_defn} and $K\left(  B_\la\right)$ means the Pedersen's ideal of $B_\la$ (cf. Definition \ref{peder_id_defn});
 	\item[(c)] for all $\mu, \nu \in \La$ one has
 \bean
-	\mu \ge \nu \quad \Rightarrow\quad  \pi^\mu_\nu\left(b_\mu \right)  = \sum_{	g \in G\left(\left. G_\mu \right|G_\mu\right)} b_\nu.
+	\mu \le \nu \quad \Rightarrow\quad  \pi^\mu_\nu\left(b_\mu \right)  = \sum_{	g \in G\left(\left. A_\nu \right|A_\mu\right)} g b_\nu.
 \eean
 \end{itemize}
   Let $b = \left\{b_\la\right\} \in \Psi$, $~x \in A^\sim_\mu$, $~y \in A^\sim_\nu$. Suppose that $\la' \in \La$ is such that $\la' \ge \mu$ and $\la' \ge \nu$.
@@ -14516,6 +14516,8 @@ which contains all finite-fold coverings of $\sY$. Let $\left(\left(\widetilde{\
 \begin{proof}
 Follows from the Corollary \ref{blowing_functor_eq_cor} and  the Theorem \ref{blowing_main_thm}.
 \end{proof}
+
+
 \subsection{Coverings of semilocally 1-connected $C^*$-algebras}
 \begin{lemma}\label{blowing_one_c_lem}
 Let   $A$ be  a connected  $C^*$-algebra (cf. Definition \ref{connected_c_a_defn}), and  let $C_0\left(\sY \right)\hookto M\left( A\right)$ be disintegrable Hausdorff blowing-up (cf. Definitions \ref{blowing_defn} and \ref{blowing_disintegrable_defn}). If 
@@ -16613,7 +16615,7 @@ Let $A$ be a $C^*$-algebra with Hausdorff, connected, locally connected spectrum
 \be\label{ctr_top_eqn}
 \mathfrak{S}_{\left( \sX, x_0  \right) }=\left\{ p_\la: \left( \sX_\la, x^\la_0\right) \to \left( \sX, x_0\right)\right\}_{\la \in \La}
 \ee
-is a given by the Lemma \ref{top_associded_lem} !!! CHECK !!! !!! \ref{top_associated_defn} CHECK DEFN !!
+is a given by the Lemma \ref{top_associded_lem}
 pointed  topological finite covering category then from the Lemma \ref{blowing_base_point_lem} it turns out that there is the natural  pointed algebraical  finite covering category (cf. 
 \be\label{ctr_base_point_eqn}
 \mathfrak{S}_{A }^{\mathrm{pt}} = \left\{\pi_\la=A_0\left( p_{\la}\right) :A  \hookto A_0\left( \mathcal{X}_\la\right) \right\}_{\la \in \La}\in \mathfrak{FinAlg}. 
@@ -17230,6 +17232,137 @@ From the Lemma \ref{ctr_inf_cov_lem} it follows that a  pointed algebraical fini
 		(cf. Definition \ref{induced_repr_inf_defn}).
 	\end{enumerate}
 \end{exercise}
+ \subsection{Coverings of semilocally 1-connected $C^*$-algebras}
+ \paragraph*{}
+Let $A$ be a continuous trace $C^*$-algebra (cf. Definition \ref{continuous_trace_c_alt_defn}) with connected, locally connected spectrum $\sX$, and let  $\widetilde{p}:\left( \widetilde{\sX}, \widetilde{x}_0\right) \to \left( \sX, x_0\right)$ be a transitive covering such that a covering group  $G\left(\left.\widetilde \sX \right| \sX\right)$ is residually finite (cf. Definition \ref{residually_finite_defn}). If
+\be\label{ctr_top_1c_eqn}
+\mathfrak{S}_{\left( \sX, x_0  \right) }=\left\{ p_\la: \left( \sX_\la, x^\la_0\right) \to \left( \sX, x_0\right)\right\}_{\la \in \La}
+\ee
+is a given by the Lemma \ref{top_associded_lem}
+pointed  topological finite covering category then from the Lemma \ref{blowing_base_point_lem} it turns out that there is the natural  pointed algebraical  finite covering category (cf. 
+\be\label{ctr_base_point+1c_eqn}
+\mathfrak{S}_{A }^{\mathrm{pt}} = \left\{\pi_\la=A_0\left( p_{\la}\right) :A  \hookto A_0\left( \mathcal{X}_\la\right) \right\}_{\la \in \La}\in \mathfrak{FinAlg}. 
+\ee
+From the the Example \ref{blowing_hausdorff_exm} and the Lemma \ref{blowing_one_c_lem} if follows that   $A$ is {semilocally 1-connected with respect to } 	$\mathfrak{S}^{\mathrm{pt}}_A$ (cf. Definition \ref{semilocally_1_connected_r_defn}). 	Let $\overline \sX$ be a  {topological disconnected inverse limit} of $\mathfrak{S}_{\left( \sX, x_0\right)}$ (cf. Definition \ref{top_topological_inv_lim_defn}), and let $\overline p: \overline \sX \to \sX$ be a natural covering. 
+Let $\widehat A\bydef C^*$-$\varinjlim_{\la\in\La} A_0\left(\sX_\la\right)$ be a $C^*$-inductive limit in the sense of the   Definition\ref{inductive_lim_non_defn}. If $\widehat\pi_a: \widehat A\hookto B\left( \widehat \H_a\right)$ is an atomic  representation (cf. Definition \ref{atomic_repr_defn}) then there is a given by \eqref{blowing_atomic_eqn} faithful representation $\pi_A: A_0\left(\overline \sX\right)\hookto B\left(\widehat \H_a \right)$ where  $A_0\left(\overline \sX\right)$ is the $\overline p$-lift of $A$ (cf. Definition \ref{top_lift_a_f_defn} and/or Definition \ref{blowing_lift_a_f_defn}). If $\left(A, \overline A, \overline G\right)$ is a {disconnected inverse semilocally 1-connected limit} of $\mathfrak{S}^{\text{pt}}_A$ (cf. Definition \ref{semi_disconnected_defn})  then from the Exercise \ref{semi_repr_exer} one has a faithful representation $\rho: \overline A \hookto B\left(\widehat \H_a \right)$. From the Theorem \ref{blowing_one_c_thm} it follows that there is a natural inclusion
+\bean
+\pi_A\left(A_0\left(\overline \sX\right)\right)\subset \rho\left(\overline A\right).
+\eean
+If $\left\{B_\la\subset  A_0\left( \sX_\la\right) \subset \right\}_{\la \in \La}$  is a family of hereditary subalgebras which satisfy  to conditions (a) and (b) of the Definition \ref{semilocally_1_connected_r_defn} and $\left\{b_\la\in K\left( B_\la\right) \right\}_{\la \in \La}$ satisfies to (a)-(c) of \ref{inf_cov_empt} then from $g B_\la \cap B_\la = \{0\}$ for all nontrivial  $g \in G\left(\left.\sX_\la\right| \sX\right)$ it follows that
+\be\label{ctr_ort_eqn}
+\left( g b_\la\right) b_\la = 0 \quad\text{for all nontrivial}  \quad g \in G\left(\left.\sX_\la\right| \sX\right). 
+\ee
+If $z \in A_+$ is a positive  Abelian element (cf. Definition \ref{abelian_element_defn}) then from the equation \eqref{ctr_ort_eqn} and the condition (c) of \ref{inf_cov_empt} follows that for all $\mu, \nu \in \La$ such that $\mu \le \nu$ one has
+\be\label{ctr_0c_a_eqn}
+\begin{split}
+\pi^\mu_\nu\left(b_\mu \pi_\mu\left(z^2 \right) b_\mu\right)  = \sum_{	g \in G\left(\left. \sX_\nu \right|\sX_\mu\right)} g\left(  b_\nu \pi_\nu \left( z^2\right) b_\nu\right) ,\\
+\pi^\mu_\nu\left(b_\mu \pi_\mu\left(z^2 \right) b_\mu\right)^2  = \sum_{	g \in G\left(\left. \sX_\nu \right|\sX_\mu\right)} g\left(  b_\nu \pi_\nu \left( z^2\right) b_\nu\right)^2 ,\\
+f_\eps\left( \pi^\mu_\nu\left(b_\mu \pi_\mu\left(z^2 \right) b_\mu\right)\right)   = \sum_{	g \in G\left(\left. \sX_\nu \right|\sX_\mu\right)} gf_\eps\left(  b_\nu \pi_\nu \left( z^2\right) b_\nu\right)^2 
+\end{split}
+\ee 
+where $f_\eps$ is given by the equation \eqref{f_eps_eqn}
+For any $\la\in \La$ an element  $b_\la \pi_\la \left( z^2\right) b_\la$ is Abelian so if
+\bean
+f_\la : \sX_{\la} \to \R,\\
+x \mapsto \tr\rep_{x}\left(b_\la \pi_\la\left(z^2 \right) b_\la \right) 
+\eean
+where $\tr$ means the trace of operator then $f_\la \in C_0\left(\sX_\la\right)$ (cf. equation \ref{ctr_hat_eqn}). From the equation \eqref{ctr_0c_a_eqn} it follows that
+\be\label{ctr_0c_f_eqn}
+\begin{split}
+f_\mu  = \sum_{	g \in G\left(\left. \sX_\nu \right|\sX_\mu\right)} gf_\nu,\\
+f^2_\mu  = \sum_{	g \in G\left(\left. \sX_\nu \right|\sX_\mu\right)} gf^2_\nu,\\
+f_{\eps}\left( f_\mu\right)   = \sum_{	g \in G\left(\left. \sX_\nu \right|\sX_\mu\right)} f_\eps\left(  gf_\nu\right) ,\\
+\end{split}
+\ee 
+If $\overline{p}_\la : \overline \sX\to \sX_\la$ then from \eqref{ctr_0c_f_eqn} and the Theorem \ref{comm_main_f_thm} it follows that if $\lift_{\overline{p}_\la}$ is the $\overline{p}_\la$-lift (cf. Definition \ref{top_lift_defn} then one has
+$$
+\overline f  \bydef \lim_{\la \in \La}\lift_{\overline{p}_\la}\left(f_\la \right) \in C_0\left(\overline \sX\right)
+$$
+where $\lim$ means a point-wise limit. So from this fact it follows that
+$$
+s\text{-}\lim_{\la \in \La}\widehat \pi_a\left( b_\la z^2b_\la \right) \in \pi_A\left(A_0\left(\overline{   \mathcal X} \right)  \right) 
+$$
+where $s\text{-}\lim$ means the limit with respect to the strong topology of $B\left(\widehat \H_a \right)$. This fact is caused by following circumstances:
+\begin{itemize}
+	\item $\dim \rep_{\overline{   x}}\left( s\text{-}\lim_{\la \in \La}\widehat \pi_a\left( b_\la z^2b_\la \right)\right) \le 1 \quad \forall \overline{x}\in \overline{   \mathcal X}$,
+	\item 	 $\lim_{\la \in \La}\lift_{\overline{p}_\la}\left(x \mapsto \tr\left(\rep_{  \overline{x }}\left( \pi_a\left( b_\la z^2b_\la \right)\right)\right)   \right) \in C_0\left(\overline \sX\right)$
+\end{itemize}
+ 
+From $b_\la \pi_\la\left(z \right) =  \left( \pi_\la\left(z \right) b_\la\right)^*$ it follows that
+\bean
+\forall x \in \sX_\la \quad \tr \left( \rep_x\left(b_\la \pi_\la \left(z\right)^2 b_\la \right) \right) = \left\| \rep_x\left(b_\la \pi_\la \left(z\right)^2 b_\la \right)\right\| =
+\eean
+
+
+\paragraph{!!!}
+\begin{definition}\label{semilocally_1_connected_r_defn!}! !!!
+	Let $A$ be a connected connected $C^*$-algebra (cf. Definition \ref{connected_c_a_defn}). A connected hereditary subalgebra $B \subset A$ is said to be \textit{semilocally proper with respect to }  $\mathfrak{S}^{\text{pt}}$ if for all $\la\in \La$ there is a connected hereditary  $C^*$-subalgebra $B_\la \subset A_\la$ such that following conditions hold:
+	\begin{enumerate}
+		\item[(a)] $g B_\la \cap B_\la = \{0\}$ for all nontrivial  $g \in G\left(\left.A_\la\right| A\right)$;
+		\item[(b)] A generated by $\pi_\la\left(B \right)$ hereditary subalgebra of $A_\la$ equals to a   hereditary subalgebra generated by $\bigoplus_{g \in G\left(\left.A_\la\right| A\right)} g {B}_\la$.
+		%\item[(c)] If $\widetilde B_\la$ is a generated by $\bigoplus_{g \in G\left(\left.A_\la\right| A\right)} g {B}_\la$ hereditary subalgebra then  $\pi\left( B\right) = \widetilde B_\la^{G\left(\left.A_\la\right| A\right)}$;
+	\end{enumerate}
+	We say that $A$ is \textit{semilocally 1-connected with respect to } 	$\mathfrak{S}^{\text{pt}}$ if $A$ equals to its hereditary subalgebra  generated by a union of all semilocally proper with respect to 	$\mathfrak{S}^{\text{pt}}$ subalgebras.
+	
+\end{definition}
+
+
+\begin{empt}\label{inf_cov_empt!}!!!
+	Let us use the notation of the Definition \ref{semilocally_1_connected_r_defn}.
+	We define a set $\Psi$ of families $\left\{b_\la\in A_\la\right\}_{\la \in \La}$ such that:
+	\begin{itemize}
+		\item[(a)] $b_\la$ is positive for all $\la\in \La$;
+		\item[(b)] for any $\la \in \La$ there is $g_\la \in G\left(\left. A_\la \right|A\right)$ such that $b_\la \in gK\left(  B_\la\right) $ where $B_\la$ satisfies to the Definition \ref{semilocally_1_connected_r_defn} and $K\left(  B_\la\right)$ means the Pedersen's ideal of $B_\la$ (cf. Definition \ref{peder_id_defn});
+		\item[(c)] for all $\mu, \nu \in \La$ one has
+		\bean
+		\mu \ge \nu \quad \Rightarrow\quad  \pi^\mu_\nu\left(b_\mu \right)  = \sum_{	g \in G\left(\left. G_\mu \right|G_\mu\right)} b_\nu.
+		\eean
+	\end{itemize}
+	Let $b = \left\{b_\la\right\} \in \Psi$, $~x \in A^\sim_\mu$, $~y \in A^\sim_\nu$. Suppose that $\la' \in \La$ is such that $\la' \ge \mu$ and $\la' \ge \nu$.
+	We denote by $G$ a set of families $\left\{a_\la \in A_\la  \right\}$ such that
+	\be\label{fam_a_la_eqn}
+	a_\la \bydef \begin{cases}
+		\pi^{\mu}_\la\left(x \right) b_\la \pi^{\nu}_\la\left(y \right)& \la \ge \la'\\
+		\sum_{	g \in G\left(\left. A_{\la'} \right|A_\la \right)} g a_{\la'}& \la < \la'
+	\end{cases}
+	\ee
+	If $\left\{a_{1,1},..., a_{1, m_1}, ...., a_{j,1},..., a_{j, m_j}\right\}\subset G$ where
+	$
+	a_{j, k }=\left\{a^{j,k}_\la\right\}_{\la\in \La}\subset G; \quad j\in \left\{1,..., n\right\}$,\\ $k \in \left\{1,..., m_j\right\}
+	$
+	and 
+	\be\label{non_poly_eqn}
+	f \bydef \sum_{j=1}^n a_{j, 1}\cdot  ... \cdot a_{j, m_j}
+	\ee
+	is a formal noncommutative polynomial 
+	then for any $\la\in \La$ one can define an element
+	\be\label{non_poly_la_eqn}
+	f_\la \bydef \sum_{j=1}^n a^{j, 1}_\la\cdot  ... \cdot a^{j, m_j}_\la\in A_\la.
+	\ee
+	If $f_\la > 0$ for all $\la\in \La$ then
+	for any  $\mu, \nu \in \La$ one has
+	$$
+	\mu \ge \nu \quad \Rightarrow\quad  \pi^\mu_\nu\left(f_\mu \right)  = \sum_{	g \in G\left(\left. G_\mu \right|G_\mu\right)} g f_\nu 
+	$$
+	so 
+	$$
+	\mu \ge \nu \quad \Rightarrow\quad \left\|f_\mu \right\| \le \left\| f_\nu \right\|. 
+	$$
+	Let us define a set of relations $R$ such that
+	\bea\label{uni_1_eqn}
+	a = \left\{a_\la \right\}_{\la\in \La}\in G \quad\Rightarrow\quad  a^* = \left\{a^*_\la \right\},\\
+	\label{uni_2_eqn}
+	\forall \la\in \La \quad f_\la \in \left( A_{\la}\right)_+  \quad \Rightarrow\quad \left\|f \right\|\bydef  \inf_{\la\in \La} {\left\|f_\la  \right\|}= \lim_{\la\in \La} {\left\|f_\la \right\|}.
+	%\forall \la\in \La \quad f_\la \in \left( A_{\la}\right)_+ \quad \Rightarrow\quad \left\|f \right\|\le {\left\|f_\la  \right\|}.
+	\eea
+	Let $\overline A \bydef C^*\left(G, R\right)$ be an  universal $C^*$-algebra on the generators $G$ and relations $R$ (cf. Definition \ref{universal_ca_defn}).  If $\overline G \bydef \varprojlim G\left(\left. G_\la \right|G\right)$ is an inverse limit of groups (cf. Definition \ref{group_inv_lim_defn}) then a natural action $\overline G \times G \to G$ induces an action
+	$$
+	\overline G \times \overline A \to \overline A
+	$$
+\end{empt}
+
+
+\paragraph{!!!}
 
 \subsection{Coverings of operator spaces}
 \paragraph*{} Here we consider the generalization of the Theorem  \ref{ctr_main_thm}.
