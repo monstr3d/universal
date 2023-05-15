@@ -14492,7 +14492,7 @@ Consider the situation of the Theorem \ref{blowing_inc_thm}. Following condition
 
 \end{proof}
 
-\begin{corollary}
+\begin{corollary}\label{blowing_semi_cor}.
 Let  $A$ be a connected  $C^*$-algebra (cf. Definition \ref{connected_c_a_defn}), and let $C_0\left( \sY\right)\hookto M\left( A\right) $ be disintegrable, semilocally 1-connected Hausdorff blowing up (cf. Definitions \ref{blowing_defn}, \ref{blowing_disintegrable_defn} and \ref{blowing_semi_defn}).
 Let 
 \bean
@@ -14510,12 +14510,17 @@ which contains all finite-fold coverings of $\sY$. Let $\left(\left(\widetilde{\
 	\begin{enumerate}
 		\item [(a)] a triple $\left(A, A_0\left(\widetilde\sY\right), G\left( \left.\widetilde\sY \right| \sY\right)\right)$ 
 		is a simple universal covering of $A$ (cf. Definition \ref{fundamental_group_nc_defn}) where $A_0\left(\widetilde\sY\right)$ is a $\widetilde q$-lift of $A$ (cf. Definition \ref{blowing_lift_a_f_defn}),
-	\item[(b)] a simple fundamental group of $A$ (cf. Definition \ref{fundamental_group_nc_defn}) is isomorphic to  $G\left( \left.\widetilde\sY_{\mathrm{res~fin}} \right| \sY\right)$
+	\item[(b)] a simple fundamental group of $A$ (cf. Definition \ref{fundamental_group_nc_defn}) is isomorphic to  $G\left( \left.\widetilde\sY \right| \sY\right)$.
 	\end{enumerate}
 \end{corollary}
 \begin{proof}
 Follows from the Corollary \ref{blowing_functor_eq_cor} and  the Theorem \ref{blowing_main_thm}.
 \end{proof}
+
+\begin{remark}\label{blowing_semi_rem}
+In the situation of the Corollary \ref{blowing_semi_cor} a simple fundamental group of $A$ (cf. Definition \ref{fundamental_group_nc_defn}) is isomorphic to $\mathfrak{ResFin}\left( \pi^\text{w}_1\left(\sY, y_0 \right) \right)$ 
+where $\pi^\text{w}_1\left(\sY, y_0 \right)$ is the weak fundamental group of $\sY$ (cf. Definition \ref{top_weak_fundamental_group_defn}) and $\mathfrak{ResFin}$ is given by the equation \eqref{top_fin_eqn}.
+\end{remark}
 
 
 \subsection{Coverings of semilocally 1-connected $C^*$-algebras}
@@ -17838,12 +17843,7 @@ where the notation of the Definition \ref{blowing_proper_defn} is used.
 Using the explained in \ref{foli_spectral_empt} partially defined map prove that Hausdorff blowing-up $C_0\left( M\right)\subset M\left(C^*_r \left(M, \mathcal{F}\right) \right)$ is spectral (cf. Definition \ref{blowing_spectral_defn}). Prove that the given by the Definition \ref{blowing_spectral_defn} $x$-leaves correspond to   having no holonomy leaves of the foliated space $\left(M, \sF\right)$.
 \end{exercise}
 
-!!! PROOF NONHAUSDORFF 
 
-
-\begin{thm}\label{foli_non_h_thm}
-!!!! PROOF NONHAUSDORFF FOLITION THM
-\end{thm}
 
 \subsection{Operator algebras of foliation coverings}
 
@@ -18138,21 +18138,6 @@ Let $\left(M, \sF\right)$ be a foliated space, and let $A \bydef C^*_r\left( M, 
 
 
 
-\begin{lemma}\label{top_associded_lem!}
-	Let $\left( \sX, x_0\right) $ be a connected, locally connected, locally compact, Hausdorff pointed space, and let $\widetilde{p}:\left( \widetilde{\sX}, \widetilde{x}_0\right) \to \left( \sX, x_0\right)$ be a pointed  transitive covering such that $\widetilde{\sX}$ is connected. Let us consider a family $\mathfrak{S}_{\left( \sX, x_0  \right) }=\left\{ p_\la: \left( \sX_\la, x^\la_0\right) \to \left( \sX, x_0\right)\right\}_{\la \in \La} $  of all  transitive finite-fold pointed coverings  such for every $\la \in\La$ there is a covering  $\widetilde{p}_\la : \left( \widetilde{\sX}, \widetilde{x}_0\right) \to \left( \sX_\la, x^\la_0\right)$ such that  $\widetilde{p} = p_\la \circ \widetilde{p}_\la$. 
-	Following conditions hold:
-	\begin{enumerate}
-		%	\item [(i)] The family $\mathfrak{S}_{\sX}=\left\{ p_\la: \sX_\la \to \sX\right\}$ is a topological finite covering category.
-		\item[(i)] The family $\mathfrak{S}_{\left( \sX, x_0  \right) }$ is a pointed  topological finite covering category (cf. Definition \ref{top_sec_p_defn}).
-		\item[(ii)] If $\widetilde \sX_{\mathrm{res~fin}}$ is given by \eqref{top_x_fr_eqn} then a  pointed space $\left( \widetilde{\sX}_{\mathrm{res~fin}} , \widetilde{x}^{\mathrm{res~fin}}_0 \right)$ is the topological inverse noncommutative limit of $\mathfrak{S}_{\left( \sX, x_0 \right) }.$  (cf. Definition \ref{top_topological_inv_lim_defn}).
-	\end{enumerate}
-\end{lemma}
-
-
-
-
-, and let $\th \in \R\setminus\Q$ be an irrational number. 
-
 
 \section{Finite-fold coverings of $C^*$-algebras}
 \paragraph{}
@@ -18257,68 +18242,6 @@ The following theorem is a specialization of \ref{blowing_functor_ff_thm} one.
 \begin{proof}
 	Follows from the Theorem \ref{foli_functor_thm}, Lemma \ref{foli_g_lem}, and (ii) of the Theorem \ref{stable_fin_cov_thm}.
 \end{proof}
-!!! CONTINUE !!!
-If $M$ be a topological torus and let $\widetilde q\left( 
-\widetilde M, \widetilde x_0\right) \to \left(M, x_0\right)$ is the universal covering then a group of covering transformation  $G\left(\left.\widetilde M\right| M\right)\cong \Z^2$ is residually finite (cf. Definition \ref{residually_finite_defn}). From the Lemma \ref{top_associded_lem} it follows that if 
-\be\label{folit_sec_p_eqn}
-\begin{split}
-	\mathfrak{S}_{\left( M, x_0\right) }\bydef\\
-	\bydef \left\{\left\{q_\la:\left( M_\la, x^\la_0\right) \to \left( M, x_0\right)\right\}_{\la\in\La}, \left\{q^\mu_{ \nu}:\left( M_\mu, x^\mu_0\right) \to \left( M_\nu, x^\nu_0\right)\right\}_{\substack{\mu,\nu\in\La\\
-			\mu\ge\nu}} \right\}
-\end{split}
-\ee
-is a pointed  topological finite covering category (cf. Definition \ref{top_sec_p_defn}) of all pointed coverings of $\left( M, x_0\right)$ then a  pointed space $\left( \widetilde M, \widetilde{x}_0 \right)$ is the topological inverse noncommutative limit of $\mathfrak{S}_{\left( M, x_0 \right) }.$  (cf. Definition \ref{top_topological_inv_lim_defn}). Note that for each $\la\in\La$ the space $M_\la$ is homeomorphic to $M$. Let $\th \in \R\setminus\Q$ be an irrational number and, let $\left(M, \mathcal{F}_\th \right)$ be an explained in the Example \ref{fol_tor_exm} foliated space. For any $\la\in \La$ let
- $\left(M_\la,\mathcal F_\la \right)$ be the $q_\la$-{lift} of $\left(T^2,\mathcal F_\th \right)$ (cf. Definition \ref{fol_cov_defn}). If $\widetilde q : \widetilde M \to M$ then denote by $\left(\widetilde M, \widetilde{\F}\right)$ the $\widetilde q$-{lift} of $\left(M,\mathcal F_\th \right)$. Using the Theorem \ref{foli_non_h_thm} and the Lemma \ref{blowing_base_point_lem} there is a pointed algebraical  finite covering category (cf. Definition \ref{alg_fin_cat_defn}) given by
-
-\be\label{foli_alg_eqn}
-\begin{split}
-	\mathfrak{S}_{C^*_r\left(M, \F_\th \right)  } \bydef\\\bydef\left\{ \left\{\pi_\la: \left(M,\mathcal F_\th \right)  \hookto \left(M_\la,\mathcal F_\la \right) \right\}_{\la \in \La}, \left\{\pi^\nu_\mu: C^*_r \left(M_\mu,\mathcal F_\mu \right)  \hookto C^*_r\left(M_\nu,\mathcal F_\nu \right) \right\}_{\substack{ \mu, \nu \in \La \\ \mu \ge \nu}}\right\}
-\end{split}
-\ee
-
-\paragraph{!!!!}
-\begin{definition}\label{blowing_semi_defn}
-	Let $A$ be a connected  $C^*$-algebra (cf. Definition \ref{connected_c_a_defn}), and let $C_0\left( \sY\right)\hookto M\left( A\right) $ be disintegrable Hausdorff blowing up (cf. Definitions \ref{blowing_defn} and \ref{blowing_disintegrable_defn}). Let $\sU\subset \sY$ be a connected open subset. We say that $\sU$ is \textit{semilocally proper} if following conditions hold:
-	\begin{enumerate}
-		\item [(a)] If $A^{\mathrm{prop}}_\sU\subset A$ is the $\sU$-proper $C^*$-subalgebra (cf. 
-		Definition \ref{blowing_proper_defn}) then $A^{\mathrm{prop}}_\sU$ is simply connected (cf. Definition \ref{simply_connected_defn});
-		\item[(b)] There is a   transitive covering $q: \widetilde \sY \to \sY$ (cf. Definitions \ref{top_covering_defn}, \ref{top_transitive_defn}) and an open connected subset $\widetilde \sU\subset  \widetilde \sY$ such that:
-		\begin{itemize}
-			\item a covering  group $G \left( \left. \widetilde \sY\right| \sY \right)$ (cf. Definition \ref{top_covering_transformations_group_defn}) is residually finite (cf. Definition \ref{residually_finite_defn}), 
-			\item $\widetilde \sU$ is homeomorphically mapped onto $\sU$,
-			\item One has
-			\be\label{blowig_hered_prop_eqn}
-			_{\widetilde \sU}	A_0\left(\widetilde \sY \right)_{\widetilde \sU}= A_0\left(\widetilde \sY \right)^{\mathrm{prop}}_{\widetilde \sU}			
-			\ee
-			where $A_0\left(\widetilde \sY \right)$ is a $q$-lift of $A$ (cf. Definition \ref{blowing_lift_a_f_defn}), a hereditary $C^*$-subalgebra 	$_{\widetilde \sU}	A_0\left(\widetilde \sY \right)_{\widetilde \sU}\subset A_0\left(\widetilde \sY \right)$ is given by the equation \eqref{blowing_sue3_eqn} and $A_0\left(\widetilde \sY \right)^{\mathrm{prop}}_{\widetilde \sU}\subset~ _{\widetilde \sU}	A_0\left(\widetilde \sY \right)_{\widetilde \sU}$ is the $\widetilde\sU$-proper $C^*$-subalgebra (cf. Definition \ref{blowing_proper_defn}).		
-		\end{itemize}
-		We say that Hausdorff blowing-up  $C_0\left( \sY\right)\hookto M\left( A\right)$  is \textit{semilocally} 1-\textit{connected} if for any $y \in \sY$ and any open set $\sV \subset \sY$ there is a {semilocally} proper neighborhood $\sU$ of $y$ such that $\sU\subset\sV$.
-	\end{enumerate}
-	
-\end{definition}
-
-\paragraph{!!!!}
-\subsubsection{Coverings of linear foliation on torus}
-If $\T^2$ be a topological torus and let $\widetilde q\left( 
-\R^2, \widetilde x_0\right) \to \left(\T^2, x_0\right)$ is the universal covering then a group of covering transformation  $G\left(\left.\R^2\right| \T^2\right)\cong \Z^2$ is residually finite (cf. Definition \ref{residually_finite_defn}). From the Lemma \ref{top_associded_lem} it follows that if 
-\be\label{folit_sec_p_eqn}
-\begin{split}
-	\mathfrak{S}_{\left( \T^2, x_0\right) }\bydef\\
-	\bydef \left\{\left\{q_\la:\left( \T^2_\la, x^\la_0\right) \to \left( \T^2, x_0\right)\right\}_{\la\in\La}, \left\{q^\mu_{ \nu}:\left( \T^2_\mu, x^\mu_0\right) \to \left( \T^2_\nu, x^\nu_0\right)\right\}_{\substack{\mu,\nu\in\La\\
-			\mu\ge\nu}} \right\}
-\end{split}
-\ee
-is a pointed  topological finite covering category (cf. Definition \ref{top_sec_p_defn}) of all pointed coverings of $\left( \T^2, x_0\right)$ then a  pointed space $\left( \R^2, \widetilde{x}_0 \right)$ is the topological inverse noncommutative limit of $\mathfrak{S}_{\left( \T^2, x_0 \right) }.$  (cf. Definition \ref{top_topological_inv_lim_defn}). Note that for each $\la\in\La$ the space $\T^2_\la$ is homeomorphic to $\T^2$. Let $\th \in \R\setminus\Q$ be an irrational number and, let $\left(\T^2, \mathcal{F}_\th \right)$ be an explained in the Example \ref{fol_tor_exm} foliated space. For any $\la\in \La$ let
-$\left(\T^2_\la,\mathcal F_\la \right)$ be the $q_\la$-{lift} of $\left(T^2,\mathcal F_\th \right)$ (cf. Definition \ref{fol_cov_defn}). If $\widetilde q : \R^2 \to \T^2$ then denote by $\left(\R^2, \widetilde{\F}\right)$ the $\widetilde q$-{lift} of $\left(\T^2,\mathcal F_\th \right)$. Using the Theorem \ref{foli_non_h_thm} and the Lemma \ref{blowing_base_point_lem} there is a pointed algebraical  finite covering category (cf. Definition \ref{alg_fin_cat_defn}) given by
-
-\be\label{foli_alg_eqn}
-\begin{split}
-	\mathfrak{S}_{C^*_r\left(\T^2, \F_\th \right)  } \bydef\\\bydef\left\{ \left\{\pi_\la: \left(\T^2,\mathcal F_\th \right)  \hookto \left(\T^2_\la,\mathcal F_\la \right) \right\}_{\la \in \La}, \left\{\pi^\nu_\mu: C^*_r \left(\T^2_\mu,\mathcal F_\mu \right)  \hookto C^*_r\left(\T^2_\nu,\mathcal F_\nu \right) \right\}_{\substack{ \mu, \nu \in \La \\ \mu \ge \nu}}\right\}
-\end{split}
-\ee
-
-
-
 \section{Infinite coverings}
 \paragraph{}
 Let  $\widetilde{q}:\left( \widetilde{M}, \widetilde{y}_0\right) \to \left( M, y_0\right)$ be a transitive covering such that a covering group  $G\left(\left.\widetilde M \right| M\right)$ is residually finite (cf. Definition \ref{residually_finite_defn}). Let
@@ -18835,6 +18758,204 @@ In the situation of the Theorem \ref{foli_n_cat_thm} one has
 \begin{proof}
 Follows from the Lemma \ref{foli_stab_lem} and the  Theorem \ref{foli_main_thm}.
 \end{proof}
+
+\subsubsection{Fundamental group and Hurewicz homomorphism  of a linear foliation on torus}
+If $\T^2$ be a topological torus and let $\widetilde q\left( 
+\R^2, \widetilde x_0\right) \to \left(\T^2, x_0\right)$ is the universal covering then a group of covering transformation  $G\left(\left.\R^2\right| \T^2\right)\cong \Z^2$ is residually finite (cf. Definition \ref{residually_finite_defn}). From the Lemma \ref{top_associded_lem} it follows that if 
+\be\label{folit_sec_p_eqn}
+\begin{split}
+	\mathfrak{S}_{\left( \T^2, x_0\right) }\bydef\\
+	\bydef \left\{\left\{q_\la:\left( \T^2_\la, x^\la_0\right) \to \left( \T^2, x_0\right)\right\}_{\la\in\La}, \left\{q^\mu_{ \nu}:\left( \T^2_\mu, x^\mu_0\right) \to \left( \T^2_\nu, x^\nu_0\right)\right\}_{\substack{\mu,\nu\in\La\\
+			\mu\ge\nu}} \right\}
+\end{split}
+\ee
+is a pointed  topological finite covering category (cf. Definition \ref{top_sec_p_defn}) of all pointed coverings of $\left( \T^2, x_0\right)$ then a  pointed space $\left( \R^2, \widetilde{x}_0 \right)$ is the topological inverse noncommutative limit of $\mathfrak{S}_{\left( \T^2, x_0 \right) }.$  (cf. Definition \ref{top_topological_inv_lim_defn}). Note that for each $\la\in\La$ the space $\T^2_\la$ is homeomorphic to $\T^2$. Let $\th \in \R\setminus\Q$ be an irrational number and, let $\left(\T^2, \mathcal{F}_\th \right)$ be an explained in the Example \ref{fol_tor_exm} foliated space. For any $\la\in \La$ let
+$\left(\T^2_\la,\mathcal F_\la \right)$ be the $q_\la$-{lift} of $\left(\T^2,\mathcal F_\th \right)$ (cf. Definition \ref{fol_cov_defn}). If $\widetilde q : \R^2 \to \T^2$ then denote by $\left(\R^2, \widetilde{\F}\right)$ the $\widetilde q$-{lift} of $\left(\T^2,\mathcal F_\th \right)$. If we denote by $A_\la\bydef C^*_r\left(\T^2_\la,\mathcal F_\la \right)$ then the Exercise \ref{foli_blowing_exer} and the Lemma \ref{blowing_base_point_lem} it follows that there is a pointed algebraical  finite covering category (cf. Definition \ref{alg_fin_cat_defn}) given by
+
+\be\label{foli_alg_eqn}
+\begin{split}
+	\mathfrak{S}_{C^*_r\left(\T^2, \F_\th \right)  } \bydef\\\bydef\left\{ \left\{\pi_\la: C^*_r\left(\T^2,\mathcal F_\th \right)  \hookto A_\la \right\}_{\la \in \La}, \left\{\pi^\nu_\mu: A_\mu  \hookto A_\nu \right\}_{\substack{ \mu, \nu \in \La \\ \mu \ge \nu}}\right\}
+\end{split}
+\ee
+\paragraph{!!!}
+
+\begin{definition}\label{blowing_semi_defn}
+	Let $A$ be a connected  $C^*$-algebra (cf. Definition \ref{connected_c_a_defn}), and let $C_0\left( \sY\right)\hookto M\left( A\right) $ be disintegrable Hausdorff blowing up (cf. Definitions \ref{blowing_defn} and \ref{blowing_disintegrable_defn}). Let $\sU\subset \sY$ be a connected open subset. We say that $\sU$ is \textit{semilocally proper} if following conditions hold:
+	\begin{enumerate}
+		\item [(a)] If $A^{\mathrm{prop}}_\sU\subset A$ is the $\sU$-proper $C^*$-subalgebra (cf. 
+		Definition \ref{blowing_proper_defn}) then $A^{\mathrm{prop}}_\sU$ is simply connected (cf. Definition \ref{simply_connected_defn});
+		\item[(b)] There is a   transitive covering $q: \widetilde \sY \to \sY$ (cf. Definitions \ref{top_covering_defn}, \ref{top_transitive_defn}) and an open connected subset $\widetilde \sU\subset  \widetilde \sY$ such that:
+		\begin{itemize}
+			\item a covering  group $G \left( \left. \widetilde \sY\right| \sY \right)$ (cf. Definition \ref{top_covering_transformations_group_defn}) is residually finite (cf. Definition \ref{residually_finite_defn}), 
+			\item $\widetilde \sU$ is homeomorphically mapped onto $\sU$,
+			\item One has
+			\be\label{blowig_hered_prop_eqn}
+			_{\widetilde \sU}	A_0\left(\widetilde \sY \right)_{\widetilde \sU}= A_0\left(\widetilde \sY \right)^{\mathrm{prop}}_{\widetilde \sU}			
+			\ee
+			where $A_0\left(\widetilde \sY \right)$ is a $q$-lift of $A$ (cf. Definition \ref{blowing_lift_a_f_defn}), a hereditary $C^*$-subalgebra 	$_{\widetilde \sU}	A_0\left(\widetilde \sY \right)_{\widetilde \sU}\subset A_0\left(\widetilde \sY \right)$ is given by the equation \eqref{blowing_sue3_eqn} and $A_0\left(\widetilde \sY \right)^{\mathrm{prop}}_{\widetilde \sU}\subset~ _{\widetilde \sU}	A_0\left(\widetilde \sY \right)_{\widetilde \sU}$ is the $\widetilde\sU$-proper $C^*$-subalgebra (cf. Definition \ref{blowing_proper_defn}).		
+		\end{itemize}
+		We say that Hausdorff blowing-up  $C_0\left( \sY\right)\hookto M\left( A\right)$  is \textit{semilocally} 1-\textit{connected} if for any $y \in \sY$ and any open set $\sV \subset \sY$ there is a {semilocally} proper neighborhood $\sU$ of $y$ such that $\sU\subset\sV$.
+	\end{enumerate}
+	
+\end{definition}
+
+
+
+
+\paragraph{!!!}
+
+
+!!! CONTINUE !!!
+Let $C\left( \T^{2}_\th\right)$ be a noncommutative torus (cf. \eqref{nt_symplectic_eqn}) and let $u, v\in U\left( C\left( \T^{2}_\th\right)\right)$ be its generators (cf. Definition \ref{nt_uni_defn}). Let $n > 1$ and consider two finite-fold noncommutative coverings
+\bean
+\phi_1: C\left( \T^{2}_\th\right)\hookto  C\left( \T^{2}_{\th/n}\right),\\
+u \mapsto \widetilde u_1,\quad v \mapsto \widetilde v_1^n;\\
+\phi_2: C\left( \T^{2}_\th\right)\hookto  C\left( \T^{2}_{\left( \th + 1\right) /n}\right),\\
+u \mapsto \widetilde u_2,\quad v \mapsto \widetilde v_2^n
+\eean
+where $u_1, v_1\in U\left( C\left( \T^{2}_{\left( \th\right) /n}\right)\right)$ and $u_1, v_1\in U\left( C\left( \T^{2}_{\left( \th + 1\right) /n}\right)\right)$. If $U, V \in \mathbb{M}_n\left(\C \right)$ are such that
+\bean
+U \bydef \begin{pmatrix}
+	1& 0 & 0&\ldots &0 \\
+	0& e^{\frac{2\pi i}{n}} & 0&\ldots &0 \\
+	0& 0&e^{\frac{ 2\pi i\cdot 2}{n}}  &\ldots & 0\\
+	\vdots& \vdots&\vdots &\ddots&\vdots\\
+	0& 0& 0&\ldots & e^{\frac{2\pi i\left( n-1\right) }{n}}
+\end{pmatrix},\\
+V \bydef  \begin{pmatrix}
+	0& 1 &0&\ldots &0 \\
+	0&0& 1 &\ldots &0 \\
+	\vdots&\vdots&\vdots &\ddots&\vdots\\
+	0& 0&0&\ldots &1\\
+	1& 0&0&\ldots &0
+\end{pmatrix}
+\eean
+then $UV = e^{\frac{2\pi i}{n}}VU$. There is an isomorphism
+\bean
+C\left( \T^{2}_{\th /n}\right)\otimes \mathbb{M}_n\left(\C \right)\cong  C\left( \T^{2}_{\left(\th+1 \right) /n}\right)\otimes\mathbb{M}_n\left(\C \right),\\
+\widetilde u_1\otimes m \mapsto \widetilde u_2\otimes Um, \quad \widetilde v_1\otimes m \mapsto \widetilde v_2\otimes Vm.
+\eean 
+Although coverings $\phi_1$ and $\phi_2$ are essentially different their  stabilizations
+\bean
+\phi_1\otimes 1_{M\left(\K\right)} : C\left( \T^{2}_\th\right)\otimes \K\hookto C\left( \T^{2}_{\th /n}\right)\otimes \K,\\
+\phi_2\otimes 1_{M\left(\K\right)} : C\left( \T^{2}_\th\right)\otimes \K\hookto C\left( \T^{2}_{\left( \th+1\right) /n}\right)\otimes \K
+\eean 
+are isomorphic. It follows that the set of equivalent coverings of  $C\left( \T^{2}_\th\right)$ is more wide then the set of of equivalent coverings of  $C\left( \T^{2}_\th\right)\otimes\K$ 
+This fact motivates usage of $A\otimes\K$ instead of $A$ in the Definition \ref{fundamental_group_nc_defn} !!! \eqref{top_x_fr_eqn} !!!.
+\begin{exercise}\label{nt_non_iso_exer}
+	Prove that there are two projectors $p, p' \in \K$ such that
+	\bean
+	\left( 1_{C\left( \T^{2}_{\th /n}\right)}\otimes 	p \right) \left( C\left( \T^{2}_{\th /n}\right)\otimes \K \right) \left( 1_{C\left( \T^{2}_{\th /n}\right)}\otimes 	p \right) \cong  C\left( \T^{2}_{\th /n}\right),\\
+	\left( 1_{C\left( \T^{2}_{\th /n}\right)}\otimes 	p' \right) \left( C\left( \T^{2}_{\th /n}\right)\otimes \K \right) \left( 1_{C\left( \T^{2}_{\th /n}\right)}\otimes 	p' \right) \cong  C\left( \T^{2}_{\left( \th+1\right) /n}\right).
+	\eean
+	This exercise is a manifestation of the Remark 	\ref{stab_non_iso_rem}.
+\end{exercise}
+\paragraph*{}
+The torus $\T^2$ can be regarded as a quotient $\T^2 = \R^2/\Z^2$. There is the natural infinite covering $\widetilde p : \R^2\to\T^2$. From the Lemma \ref{top_uni_exist_spa_lem} it follows that $\widetilde p$ is the universal covering such that $G\left(\left.\R^2\right|\T^2\right)\cong \Z^2$. Let us select base points $x_0\in \T^2$ and $\widetilde x_0 \in \R^2$ such that $\widetilde p: \left(\R^2, \widetilde x_0\right)\to \left(\T^2 x_0\right)$ is a pointed map. Consider the family of all pointed finite-fold coverings $\left\{p_\la:\left(\sX_\la, x^\la_0\right)\to \left(\T^2 ,x_0\right)\right\}_{\la\in \La}$ such that for any $\la\in \La$ there is a pointed covering $\widetilde p_\la: \left(\R^2, \widetilde x_0\right)\to \left(\sX_\la, x^\la_0\right)$ which satisfies to the following condition $\widetilde p_\la\circ p_\la=\widetilde p$. The group $\Z^2$ is residually finite  (cf. Definition \ref{residually_finite_defn}), hence from the Lemma \ref{top_associded_lem} !!! CHECK !!! !!! \ref{top_associated_defn} CHECK DEFN !! it fo $\R^2$ is the topological inverse noncommutative limit (cf. Definition \ref{top_topological_inv_lim_defn}) of the category 
+$
+\mathfrak{S}_{\left(\T^2, x_0\right)}\left\{p_\la: \left( \sX_\la, x^\la_0\right) \to \left( \T^2, x_0\right)\right\}_{\la\in\La}.
+$
+Let $\widetilde \sF$ be a foliation on $\R^2$ which  corresponds to  a vector field $\tilde{X}$ on $\R^2$ given by
+\[
+dx = \th dy
+\]
+where $\th  \in \R\setminus\Q$ is an irrational number. Since $\widetilde \sF$ is invariant with respect to the action $\Z^2 \times\R^2 \to \R^2$ there is the foliation $\sF_\th$ on $\T^2$ such that $\widetilde \sF$ is the $\widetilde p$ -lift of $\sF_\th$ (cf. Definition \ref{fol_cov_defn}). The Lemma \ref{foli_base_point_lem} yields  a pointed algebraical  finite covering category $\mathfrak{S}_{C^*_r\left(\T^2, \sF\right)}$ (cf. Definition (ref. \ref{pointed_defn}) 
+From the Theorem \ref{foli_main_thm} it follows that the triple 
+\be\label{nt_f_c_eqn}
+\left(C^*_r\left(\T^2, \sF_\th\right), C^*_r\left(\R^2, \widetilde \sF\right), \Z^2 \right)
+\ee
+is  the  { infinite noncommutative covering} of $\mathfrak{S}_{C^*_r\left(\T^2, \sF_\th, x_0\right)}$ is a noncommutative infinite covering (cf. Definition \ref{main_defn}). The transversal
+$$
+\widetilde N = \left\{\left.\left(0, y \right)\in \R^2\right| y \in \R \right\}\subset \R^2
+$$
+is complete and $N \bydef \widetilde p\left(\widetilde N \right)$ is also a complete transversal. There are $C^*$-algebras $C^*_r\left( \G^{N}_{N}\right)$ and  $C^*_r\left( \G^{\widetilde N}_{\widetilde N}\right)$ given by \ref{foli_pseudo_empt}.
+From the Lemma \ref{foli_stab_lem} it turns out that
+\be\label{foli_stab_eqn}
+\begin{split}
+	C^*_r\left(\T^2, \sF_\th\right)\cong C^*_r\left( \G^{N}_{N}\right)\otimes\K,\\
+	C^*_r\left(\R^2,  \widetilde\sF\right) \cong C^*_r\left( \G^{\widetilde N}_{\widetilde N}\right)\otimes\K.
+\end{split}
+\ee
+It is proven in \cite{connes:ncg94} that
+\be\label{nt_f_a_eqn}
+C^*_r\left(\G^{N}_{N}\right)\cong C\left( \T^2_\th\right) 
+\ee
+where $C\left( \T^2_\th\right)$ is a noncommutative torus (cf. Definition \ref{nt_defn}).  From the equation \eqref{foli_stab_eqn} it follows that
+\be\label{nt_f_k_eqn}
+C^*_r\left(\T^2, \sF_\th\right)\cong C\left( \T^2_\th\right)\otimes \K
+\ee
+Since $p:\R^2\to \T^2$ is the universal covering the  fundamental group $\pi_1\left(C^*_r\left(\T^2, \sF_\th\right)\right)$ comes from the following reduced universal covering
+\be
+\left(C^*_r\left(\T^2, \sF_\th\right), C^*_r\left(\R^2, \widetilde \sF_\th\right), \Z^2 \cong G\left(\left.\R^2\right|\Z^2\right)\right).
+\ee
+where $\widetilde \sF_\th$ is the $p$-lift of $\sF_\th$
+(cf. Definition \eqref{fundamental_group_nc_defn} !!! \eqref{top_x_fr_eqn} !!!).
+From the Theorem \ref{blowing_main_thm} it follows that 
+\be
+\pi^{\mathrm{stable_eqn}}_1\left( C\left( \T^2_\th\right)\right)\cong \pi_1\left(C^*_r\left(\T^2, \sF_\th\right)\right)\cong \pi_1\left( \T^2, t_0\right)\cong \Z^2
+\ee
+(cf. Definition \ref{fundamental_group_nc_defn} !!! \eqref{top_x_fr_eqn} !!! and the Corollary \ref{foli_n_cat_fg_cor}) where the reduced fundamental group is implied.
+\begin{exercise}
+	Using the Exercise \ref{cofinal_exer} and the  Corollary  \ref{nt_cofinal_cor} prove that 
+	$$
+	\pi_1\left( C\left( \T^2_\th\right)\right)\cong \Z^2.
+	$$
+	
+\end{exercise} 
+
+
+The group $\pi_1\left( \T^2, t_0\right)\cong G\left(\left.\R^2\right|\T^2\right)$ corresponds to an inclusion $\Z^2 \subset \R^2$ and any $\left(j_x, j_y \right) \in \Z^2\cong \pi_1\left( \T^2, t_0\right)$ corresponds to a  2 - dimensional  shift $\left(j_x, j_y \right)$ of $\R^2$. The natural action $\Z^2\times \R^2\to \R^2$ yields  actions $\Z^2\times C_0\left( \R^2\right) \to C_0\left( \R^2\right)$, $~\Z^2\times C^*_r\left(\R^2, \widetilde \sF_\th\right)\to C^*_r\left(\R^2, \widetilde \sF_\th\right)$. If $x,y$ are real coordinates  of $\R^2$ and $u, v\in U\left(C\left(\T^2_\th\right)\right)\subset M\left(C^*_r\left(\T^2, \sF_\th\right) \right) $ are generators  (cf. Definition \ref{nt_uni_defn}) then $u$ corresponds multiplication by $e^{2\pi i x}$, and $v$ corresponds to the  $\left(0, 1\right)$ shift. Suppose that $\phi_n$ is given by \eqref{hurewicz_n_root}. If $C^*_r\left(\R^2, \sF_\th\right)\to B\left(\H \right)$ is a faithful representation and $\widetilde u = \phi_{n_1}\left( u\right)\quad \widetilde v = \phi_{n_2}\left( v\right)  \in M\left(C^*_r\left(\R^2, \sF_\th\right) \right)\subset B\left( \H\right)$ then
+\be\label{hurewicz_uv_r_eqn}
+\begin{split}
+	\widetilde u \quad \text{corresponds to the multiplication by } e^{\frac{2\pi i x}{n_1}}\in  M\left(C^*_r\left(\R^2, \sF_\th\right) \right),\\
+	\widetilde v \quad \text{corresponds to the shift } \left(0, \frac{1}{n_2}\right) \in \Q^2.
+\end{split}
+\ee
+
+Then there are $\left(u, n_1\right)$ and $\left(v, n\right)$ coverings. It is known that 
+\be
+\begin{split}
+	K_0\left(C\left( \T^2_\th\right) \right) \cong \Z^2,\\
+	K_1\left(C\left( \T^2_\th\right) \right) \cong \Z^2= \Z\left[u\right]\oplus \Z\left[v\right]
+\end{split}
+\ee
+(cf. \cite{varilly:noncom}), so
+\be
+K_1\left(C\left( \T^2_\th\right) \right)_{\mathrm{free~spec}}= K_1\left(C\left( \T^2_\th\right)\right) = \Z\left[u\right]\oplus \Z\left[v\right]
+\ee
+(cf. Section \ref{hurewicz_free_ass_sec} equation \ref{hurewicz_k_sum_eqn}). The described in \ref{hurewicz_free_ass_sec} Abelian group (cf. \eqref{hurewicz_q_eqn}) is isomorphic to $\Q^2$ and there is the natural inclusion $\Z\left[u\right]\oplus \Z\left[v\right]\subset \Q^2$. If    $\chi: \Q\to U\left( 1\right)$ is a nontrivial character  given by $x \mapsto e^{2\pi i q}$ ($q\in \Q$) then for all $g = \left( j_x, j_y\right) \in G\left(\left.C^*_r\left(\R^2, \sF_\th\right)\right|C^*_r\left(\T^2, \sF_\th\right)\right)\cong \pi_1\left(C^*_r\left(\T^2, \sF_\th\right) \right) \cong \Z^2$ from \eqref{hurewicz_uv_r_eqn} it follows that 
+\be
+\begin{split}
+	\chi_g\left(\phi_{n_1}\left(u\right) \right)=  \frac{g\phi_{n_1}\left(u\right)}{\phi_{n_1}\left(u\right)}=\frac{g\widetilde u}{\widetilde u} =e^{\frac{2 \pi i j_x}{n_1}},\\
+	\chi_g\left(\phi_{n_2}\left(v\right) \right)\bydef \frac{g\phi_{n_2}\left(v\right)}{\phi_{n_2}\left(v\right)} =\frac{g\widetilde v}{\widetilde v}=e^{\frac{2 \pi i j_y}{n_2}}.
+\end{split}
+\ee
+Above equations define a character $\chi_g:\pi_1\left(C^*_r\left(\T^2, \sF_\th\right) \right)\to U\left(1\right)$. There is  the unique $x_g \in \Hom\left( \Q^2, \Q\right)$ such that $\chi_g\left(y \right) = \chi\left(x_g\left(y \right)  \right)$. 
+From $\Z^2 \in \ker\chi_g$ it turns out that $x_g\in \Hom\left( \Z^2, \Z\right)   \cong \Hom\left(K_1\left( C^*_r\left(\T^2, \sF_\th\right), \Z\right)\right)$. Direct calculation proves that
+$$
+x_{g} = \left(c_1\left[u\right]+c_2\left[v\right]\mapsto j_xc_1 + j_yc_2\right)\quad c_1, c_2 \in \Z.
+$$
+The  map $g \mapsto x_g$ yields a free Hurewicz homomorphism
+$$
+h_{\mathrm{free}}:\pi_1\left(C^*_r\left(\T^2, \sF_\th\right) \right)\to \Hom\left(K_1\left(C^*_r\left(\T^2, \sF_\th\right),\Z\right) \right). 
+$$
+Otherwise in \cite{phillips:nt_at} it is proven  that $C\left( \T^2_\th\right)$ satisfies to the Theorem \ref{uct_thm}, so one has
+$$
+\mathrm{\Ext}^1_\Z(K_*(C\left( \T^2_\th\right)), K_*(\C)) \xrightarrow{\delta} KK^*(C\left( \T^2_\th\right), \C) \xrightarrow{\ga} \mathrm{Hom}(K_*(C\left( \T^2_\th\right)), K_*(\C))
+$$
+Since $K_1(\C)=\{0\}$ and $K_*(C\left( \T^2_\th\right))$ is torsion free from the above equation it turns out that
+
+\be
+\begin{split}
+	K^1 \left(C\left( \T^2_\th\right) \right) \bydef KK^1(C\left( \T^2_\th\right), \C) \cong \mathrm{Hom}(K_*(C\left( \T^2_\th\right)), K_*(\C))\cong\\ \cong \Hom\left(\Z\left[u\right]\oplus \Z\left[v\right], \Z \right). 
+\end{split}
+\ee
+Using above equations one concludes that the Hurewicz homomorphism corresponds to the natural isomorphism
+$$
+h_{\mathrm{free}}:\pi_1\left(C^*_r\left(\T^2, \sF_\th\right) \right)\to K^1 \left(C\left( \T^2_\th\right) \right).
+$$
+
+\
 
 
 
@@ -20555,7 +20676,7 @@ Otherwise from the Lemma \ref{nt_spec_c0_lem}  it  follows that any special elem
 	\end{enumerate}
 	(ii) and (iii) follow from the proof of (i).
 \end{proof}
-\subsection{Fundamental group and Hurewcs homomorphism}\label{nt_fg_sec}
+\subsection{Fundamental group and Hurewcs homomorphism}\label{nt_fg_sec}  !!! DELETE !!!
 \paragraph{}
 Let $C\left( \T^{2}_\th\right)$ be a noncommutative torus (cf. \eqref{nt_symplectic_eqn}) and let $u, v\in U\left( C\left( \T^{2}_\th\right)\right)$ be its generators (cf. Definition \ref{nt_uni_defn}). Let $n > 1$ and consider two finite-fold noncommutatve coverings
 \bean
