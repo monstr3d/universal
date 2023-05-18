@@ -682,7 +682,7 @@ In the Chapter \ref{stab_chap} it is proven that some properties of noncommutati
 
 %\paragraph*{} In the  Chapter \ref{vf_chap} the coverings of spaces of vector fields are being discussed. Sections of vector fields of Hilbert spaces have the natural structure of operator spaces. Application of the results of the Chapters \ref{cov_fin_chap}  and \ref{cov_inf_chap} yield finite-fold and infinite noncommutative coverings of these spaces.
 
-\paragraph*{} In the Chapter \ref{foliations_chap} we consider noncommutative finite-fold and infinite coverings of foliations.
+\paragraph*{} In the Chapter \ref{foliations_chap} we consider noncommutative finite-fold and infinite coverings of foliations. In particular we find a fundamental group and Hurewicz homomorphism of a linear foliation on torus.
 
 
 \paragraph*{} The Chapter \ref{nt_chap} is devoted to noncommutative coverings of noncommutative tori. 
@@ -18796,8 +18796,9 @@ Follows from the Lemma \ref{foli_stab_lem} and the  Theorem \ref{foli_main_thm}.
 \end{proof}
 
 \subsubsection{Fundamental group  of a linear foliation on torus}
+
 \paragraph{} If $\T^2$ be a topological torus and  $\widetilde q: \left( 
-\R^2, \widetilde x_0\right) \to \left(\T^2, x_0\right)$ is the  universal  pointed covering then a group of covering transformation  $G\left(\left.\R^2\right| \T^2\right)\cong \Z^2$ is residually finite (cf. Definition \ref{residually_finite_defn}).  If $\th \in \R\setminus\Q$ be an irrational number and, let $\left(\T^2, \mathcal{F}_\th \right)$ be an explained in the Example \ref{fol_tor_exm}  !!! \ref{fol_tor_empt} !!! foliated space then there is a foliation $\left(\R^2, \widetilde\F\right)$ induced by $\widetilde q$ 
+\R^2, \widetilde x_0\right) \to \left(\T^2, x_0\right)$ is the  universal  pointed covering then a group of covering transformation  $G\left(\left.\R^2\right| \T^2\right)\cong \Z^2$ is residually finite (cf. Definition \ref{residually_finite_defn}).  If $\th \in \R\setminus\Q$ be an irrational number and, let $\left(\T^2, \mathcal{F}_\th \right)$ be an explained in the Example \ref{fol_tor_exm} foliated space then there is a foliation $\left(\R^2, \widetilde\F\right)$ induced by $\widetilde q$ 
 (cf. Definition \ref{fol_cov_defn}). From the Exercise \ref{foli_blowing_exer} it turns out that
 there is a natural *-isomorphism
 $$
@@ -18819,12 +18820,98 @@ If $y \in \T^2$ then there is an open foliation chart $\sU$ (cf. \ref{foli_leaf_
 
 \end{proof}
 \begin{corollary}\label{foli_fg_cor}
-A simple fundamental group  of $C^*_r\left(\T^2,\sF_\th\right)$ (cf. Definition \ref{fundamental_group_nc_defn}) is isomorphic to $\Z^2$.
+A simple fundamental group $\pi_1\left( C^*_r\left(\T^2,\sF_\th\right)\right)$   of $C^*_r\left(\T^2,\sF_\th\right)$ (cf. Definition \ref{fundamental_group_nc_defn}) is isomorphic to $\Z^2$.
 \end{corollary}
 \begin{proof}
 Follows from the Lemma \ref{foli_fg_lem} and the Corollary \ref{blowing_semi_cor}.
 \end{proof}
 
+ Consider the above situation. If  $N = N_{0,1}$  be an explained in the Example \ref{fol_tor_exm} transversal then one has 
+ $$
+ C^*_r\left( \G^N_N\right) \cong C\left(\T^2_\th\right).
+$$
+(cf. equation \eqref{foli_nt_eqn}). On the other hand from the Lemma \ref{foli_stab_lem} it turns out that
+$$
+ C^*_r\left(\T^2,\sF_\th\right)\cong C^*_r\left( \G^N_N\right) \otimes \K\cong C\left(\T^2_\th\right)\otimes \K.
+$$
+From the Corollary \ref{stab_k_1_cor} it follows 
+$$
+K_1\left(\right) \cong K_1\left(  C\left(\T^2_\th\right)\right) 
+$$
+On the other hand in \cite{varilly:noncom} it is explained that
+$$
+ K_1\left(  C\left(\T^2_\th\right)\right) = \Z\left[u\right]\oplus  \Z\left[v\right]
+$$
+ where $u, v\in C\left(\T^2_\th\right)$ are given by \eqref{foli_uv_eqn} unitary generators of $C\left(\T^2_\th\right)$. One can proof that if
+ \bean
+U \bydef \begin{pmatrix}
+	 u& 0&\ldots & 0 &  \dots \\
+	0&1&\ldots& 0 & \ldots\\
+	\vdots&	\vdots& \ddots &\vdots &  \ldots \\
+	0&	0& \ldots & 1 & \ldots \\
+	\vdots & \vdots &\vdots & \vdots &\ddots
+\end{pmatrix}, \quad V \bydef \begin{pmatrix}
+ v& 0&\ldots & 0 &  \dots \\
+0&1&\ldots& 0 & \ldots\\
+\vdots&	\vdots& \ddots &\vdots &  \ldots \\
+0&	0& \ldots & 1 & \ldots \\
+\vdots & \vdots &\vdots & \vdots &\ddots
+\end{pmatrix}\in   C\left(\T^2_\th\right)\otimes \K^+
+ \eean 
+ then
+$$
+K_1\left(  C\left(\T^2_\th\right)\otimes\K\right) = \Z\left[U\right]\oplus  \Z\left[V\right]
+$$
+If $m, n \in \N$ then from the Theorem \ref{nt_fin_thm} it turns out that there is an unital noncommutative covering
+$$
+\left(C\left(\T^2_\th\right), C\left(\T^2_{\th/mn}\right), \Z_n\times\Z_m, \pi\right)
+$$
+such that there are generators $\widetilde u, \widetilde v\in  C\left(\T^2_{\th/mn}\right)$ which satisfy to following equations
+\bean
+\pi\left(u\right) = \widetilde u^m;\\
+\pi\left(v\right) = \widetilde v^n.
+\eean
+From the Lemma \ref{stable_fin_cov_comp_lem} one has a noncommutative finite fold covering with unitization (cf. Definition \ref{fin_unitization_defn})
+ $$
+\left(C\left(\T^2_\th\right)\otimes \K, C\left(\T^2_{\th/mn}\right)\otimes \K, \Z_n\times\Z_m, \pi \otimes \Id_\K\right) 
+ $$
+ Moreover if
+  \bean
+\widetilde U \bydef \begin{pmatrix}
+ \widetilde	u& 0&\ldots & 0 &  \dots \\
+ 	0&1&\ldots& 0 & \ldots\\
+ 	\vdots&	\vdots& \ddots &\vdots &  \ldots \\
+ 	0&	0& \ldots & 1 & \ldots \\
+ 	\vdots & \vdots &\vdots & \vdots &\ddots
+ \end{pmatrix}, \quad \widetilde V \bydef \begin{pmatrix}
+ \widetilde	v& 0&\ldots & 0 &  \dots \\
+ 	0&1&\ldots& 0 & \ldots\\
+ 	\vdots&	\vdots& \ddots &\vdots &  \ldots \\
+ 	0&	0& \ldots & 1 & \ldots \\
+ 	\vdots & \vdots &\vdots & \vdots &\ddots
+ \end{pmatrix}\in   C\left(\T^2_{\th/mn}\right)\otimes \K^+
+ \eean 
+then there are following finite direct sums
+ \bean
+  C\left(\T^2_{\th/mn}\right) = \bigoplus_{\substack{j = 0\\k=0}}^{\substack{n\\m}}\widetilde u^j\widetilde v^k  C\left(\T^2_{\th}\right),\\
+    C\left(\T^2_{\th/mn}\right)\otimes \K = \bigoplus_{\substack{j = 0\\k=0}}^{\substack{n\\m}}\widetilde U^j\widetilde V^k  C\left(\T^2_{\th}\right)\otimes \K
+   \eean
+   of $C\left(\T^2_{\th}\right)$ and $C\left(\T^2_{\th}\right)\otimes\K$-right modules.
+\begin{exercise}
+Consider the above situation and prove following statements.
+\begin{enumerate}
+	\item  For all $n \in \N$ there are $\left(U, n\right)$ and $\left(V, n\right)$ {covering} (cf. Definition \ref{hurewicz_u_n_defn}) of $C\left(\T^2_{\th}\right)\otimes \K$ 
+	\item All these coverings are reduced (cf. \ref{fin_red_defn}).
+	\item All these coverings are coverings  with unitization (cf. \ref{fin_unitization_defn}).
+	\item The construction \ref{hurewicz_free_ass_sec} yields isomorphism 
+	\be\label{foli_nt_hur_eqn}
+	\pi_1\left(C\left(\T^2_{\th}\right)\otimes \K\cong C^*_r\left(\T^2, \F_\th \right)\right) \cong 	K_1\left(C\left(\T^2_{\th}\right)\otimes \K\cong C^*_r\left(\T^2, \F_\th \right)  \right) 
+	\ee
+\end{enumerate}
+\end{exercise}
+\begin{remark}
+The equation \eqref{foli_nt_hur_eqn} is a specialization of Hurewicz homomorphism (cf. Definition \ref{hurewicz_defn}).
+\end{remark}
 
 \chapter{Coverings of  noncommutative tori}\label{nt_chap} 
 \section{Basic constructions}
@@ -25633,8 +25720,19 @@ Sometimes we consider operator algebras which are dense subalgebras of operator 
 		$\left\{\left\|\cdot \right\| \right\}_{n \in \N} $ on $\C V$ given by \eqref{ros_can_eqn}.
 	\end{theorem}
 	\section{$K$-theory and $K$-homology}
+	\begin{corollary}\label{stab_k_0_cor}\cite{wegge_olsen}
+		%			Corollary 6.2.11. Stability of Ko 
+The morphism $A \to A\otimes \K$ sending $a \mapsto a\otimes \mathfrak{e}_{1,1}$, where $\mathfrak{e}_{1,1}$ is a rank 1 
+projection in $\K$, induces an isomorphism $K_0\left(A\right)\cong K_0\left(A\otimes\K\right)$. 
+In particular, if $A$ and $B$ are stably isomorphic%, i.e. A <g> K ~ B <g> K, 
+then $K_0\left(A\right)\cong K_0\left(B\right)$. 
+	\end{corollary}
+\begin{cor}\label{stab_k_1_cor}\cite{wegge_olsen}
+%Corollary 7.1.9. Stability of K\ 
+$K_1\left(A\right)\cong K_1\left(A\otimes\K\right)$) for all $C^*$-algebras $A$. 
+		In particular, $K_1(A)\cong K_1(B)$ when $A$ and $B$ are stably isomorphic. 
+\end{cor}
 
-	
 	\subsection{Fredholm index}
 	
 	\begin{definition}\label{fred_a_defn}\cite{matro:hcm}
@@ -28773,7 +28871,7 @@ Let $\G\bydef \G\left(M, \sF \right)$ be a foliation chart. 	The bundle $\Omega_
 		
 	\end{empt}
 		
-	\begin{example}\label{fol_tor_exm!}   !!! DELETE !!! \emph{Linear foliation on torus.}
+	\begin{example}\label{fol_tor_exm}\emph{Linear foliation on torus.} Here I follow to \cite{connes:ncg94}.
 		Consider a vector field $\tilde{X}$ on $\R^2$ given by
 		\[
 		\tilde{X}=\alpha\frac{\partial}{\partial
@@ -28789,19 +28887,14 @@ Let $\G\bydef \G\left(M, \sF \right)$ be a foliation chart. 	The bundle $\Omega_
 		In the case when $\theta$ is rational, all leaves of $\mathcal{F}$ are
 		closed and are circles, and the foliation $\mathcal{F}$ is determined by
 		the fibers of a fibration $\T^2\to S^1$. In the case when $\theta$
-		is irrational, all leaves of $\mathcal{F}$ are everywhere dense in $\T^2$. Denote by $\left(\T^2, \mathcal{F}_\th \right)$ this foliation. 
-	\end{example}
-	
-	
-	\begin{empt}\label{fol_tor_empt}\cite{connes:ncg94}  !!! USE \ref{foli_pseudo_empt}!!!
-	Let $\left((V, F)\right)$ be the Kronecker foliation $dy = \th dx$ of the 2-torus $V\bydef \T^2 \cong \R^2/\Z^2$ 
+		is irrational, all leaves of $\mathcal{F}$ are everywhere dense in $\T^2$. We say that  $\left(\T^2, \mathcal{F}_\th \right)$ is  the \textit{Kronecker foliation} $dy = \th dx$ of the 2-torus $ \T^2 \bydef \R^2/\Z^2$ 
 	with natural coordinates $\left((x, y \right)\in \R^2$. Here $\th\in (0,1)$ is an irrational number.
 	The graph $\G$ of this foliation is the manifold $\G \cong \T\times \R$ with range and source maps  $\G \to \T^2$ given by
 	\bean
-	r((x, y), t) = (x + t, y + \th t)
+	r((x, y), t) = (x + t, y + \th t).\\
 	s((x, y), t) = (x, y)
 	\eean
-	and with composition given by $((x, y), t)((x0, y0), t0) = ((x0, y0), t + t0)$ for any pair of	composable elements.
+	and with composition given by $((x, y), t)((x_0, y_0), t_0) = ((x_0, y_0), t + t_0)$ for any pair of	composable elements.
 	Every closed geodesic of the at torus $\T^2$ yields a compact transversal. More precisely,
 	for each pair $(p, q)$ of relatively prime integers we let $N_{p,q}$ be the submanifold of $\T^2$
 	given by
@@ -28811,24 +28904,56 @@ $$
 	The graph $\G$ reduced by $N = N_{p,q}$, i.e. $\G^N_N \bydef \left\{\left.\ga \in \G \right| r(\ga)\in N, \quad s(\ga)\in N\right\}$
 	the manifold $\G^N_N=\T\times \Z$ with range and source maps given by:
 	\bean
-	r(u, n) = u + n\th' ;\\
-	 s(u, n) = u
+	r(x, n) = x + n\th' ;\\
+	 s(x, n) = x
 	\eean
 	where $\th'$ is determined uniquely by any pair $(p_0, q_0)$ of integers such that $pq_0 - p_0q= 1$, $\quad \th' = \frac{p'\th - q'}{p\th - q}$
-	The $C^*$-algebra $C^*_{r,N}\left( V, F\right)$ 
-	is the crossed product of $C(\T)$ by the rotation of angle $\th'$,
-	i.e. it is the irrational rotation $C^*$-algebra $C\left(\T_{\th'}\right)$, generated by two unitaries $U$
-	and $V$ such that:
-	$$
-	VU = e^{2\pi\th' i} UV,
-	$$
-	Since $N = N_{p,q}$ meets every leaf 
-	of the foliation, it follows that $C^*_r (V, F)$ is strongly
-	Morita equivalent to $C\left(\T_{\th'}\right)$ for any relatively prime pair $(p, q)$. In particular for $p = 0,~
-	q = 1$ we get $C\left(\T_{\th}\right)$, and, by transitivity of strong Morita equivalence
-	\end{empt}
-	
-	
+%	The $C^*$-algebra $C^*_{r,N}\left( \T^2, F\right)$ 
+%	is the crossed product of $C(\T)$ by the rotation of angle $\th'$,
+%	i.e. it is the irrational rotation $C^*$-algebra $C\left(\T_{\th'}\right)$, generated by two unitaries $U$
+%	and $V$ such that:
+%	$$
+%	VU = e^{2\pi i\th' } UV,
+%	$$
+%	Since $N = N_{p,q}$ meets every leaf 
+%	of the foliation, it follows that $C^*_r (V, F)$ is strongly
+%	Morita equivalent to $C\left(\T_{\th'}\right)$ for any relatively prime pair $(p, q)$. In particular for $p = 0,~
+%	q = 1$ we get $C\left(\T_{\th}\right)$, and, by transitivity of strong Morita equivalence
+If $N = N_{0,1}$ then 
+\bean
+r(x, n) = x + n\th ;\\
+s(x, n) = x
+\eean
+Let $U$ be an element of $C\left(\T\right)$ which comes from
+\bean
+U:\R \to \C,\\
+t \mapsto e^{2\pi i t}.
+\eean
+If both  $u, v\in C^\infty_c\left(\G^N_N \right)$ are such that
+\be\label{foli_uv_eqn}
+\begin{split}
+u\left(x, n \right) = \begin{cases}
+	U\left(x \right) & n = 0\\
+	0 & n\neq 0
+\end{cases};\\
+v\left(x, n \right) = \begin{cases}
+	1 & n = 1\\
+	0 & n\neq 1
+\end{cases},\\
+\end{split}
+\ee
+Taking into account  the equations \eqref{foli_pseudo_eqn}
+one has
+\bean
+u^*=u^{-1},\\
+v^*=v^{-1},\\
+	vu = e^{2\pi i\th } uv.
+\eean
+Indeed above equations describe a noncommutative 2-torus $C\left(\T^2_\th\right)$ (cf Definition \ref{nt_defn}). Using this fact one deduce that 
+\be\label{foli_nt_eqn}
+C^*_r\left( \G^N_N\right) \cong C\left(\T^2_\th\right).
+\ee
+	\end{example}
 	
 	
 	
