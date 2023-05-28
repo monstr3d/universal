@@ -965,11 +965,26 @@ So both $\widetilde a$ and $\widetilde b$ can be regarded as elements of $\End^*
  $$
  \eta \mapsto \left\langle \cdot , a\eta\right\rangle_D.
  $$
- However $A^n\cap X_A$ is a finitely generated  projective $A$-module, so it is self-dual (cf. Definition \ref{hm_selfdual_defn}), i.e. $A^n\cap X_A = \left(  A^n \cap X_A\right)'$. It turns out that $ a_n|_{A^n\cap X_A}\in \Hom_A\left( A^n\cap \ell^2\left( D\right), A^n\cap X_A\right)\bydef \End_A\left( A^n\cap\ell^2\left( D\right)\right)$. Since $a_n$ is self-adjoint\\ $a_n|_{A^n\cap \ell^2\left( D\right)}\in  \End^*_A\left( A^n\cap \ell^2\left( D\right)\right)$. Otherwise  $A^n\cap \ell^2\left( D\right)$ is a finitely generated $A$-module, so one has  $\End^*_A\left( A^n\cap \ell^2\left( D\right)\right) \cong \K\left( A^n\cap \ell^2\left( D\right)\right)$, therefore  $a_n|_{A^n\cap  \ell^2\left( D\right)}\in \K\left( A^n\cap \ell^2\left( D\right)\right)\subset \K\left(  X_A\right) $. From  $b\in \K\left(X_A \right)$ the Lemma \ref{c_misch_lem} and the Remark \ref{c_misch_rem} it follows that for any $\eps > 0$ there is $N\in \N$ such that
+ However $A^n\cap X_A$ is a finitely generated  projective $A$-module, so it is self-dual (cf. Definition \ref{hm_selfdual_defn}), i.e. $A^n\cap X_A = \left(  A^n \cap X_A\right)'$. It turns out that $ a_n|_{A^n\cap X_A}\in \Hom_A\left( A^n\cap \ell^2\left( D\right), A^n\cap X_A\right)\bydef \End_A\left( A^n\cap\ell^2\left( D\right)\right)$. Since $a_n$ is self-adjoint\\ $a_n|_{A^n\cap \ell^2\left( D\right)}\in  \End^*_A\left( A^n\cap \ell^2\left( D\right)\right)$. Otherwise  $A^n\cap \ell^2\left( D\right)$ is a finitely generated $A$-module, so one has  $\End^*_A\left( A^n\cap \ell^2\left( D\right)\right) \cong \K\left( A^n\cap \ell^2\left( D\right)\right)$, therefore  $a_n|_{A^n\cap  \ell^2\left( D\right)}\in \K\left( A^n\cap \ell^2\left( D\right)\right)\subset \K\left(  X_A\right) $. From  $b\in \K\left(X_A \right)$ the Lemma \ref{c_misch_lem} and the Remark \ref{c_misch_rem} it follows that for any $\delta > 0$ there is $N\in \N$ such that
  $$
- \left\| b_N|_{\ell_2\left( A\right) }- \widetilde b|_{\ell_2\left( A\right) } \right\| < \eps,
+ \left\| b_N|_{\ell_2\left( A\right) }- b|_{\ell_2\left( A\right) } \right\| < \delta.
  $$
- so from $a < b$ it follows that
+ On the other hand one has
+\bean
+  b|_{\ell_2\left( A\right) }= \begin{pmatrix}
+ b_N|_{\ell_2\left( A\right) } & c_N\\
+ c^*_N &   b^\perp_N
+ \end{pmatrix},\\
+ \left\| b^\perp_N| \right\| < \delta.
+\eean
+If 
+$$
+a|_{\ell_2\left( A\right) } =\begin{pmatrix}
+a_N|_{\ell_2\left( A\right) } & d_N\\
+	d^*_N &  a^\perp_N
+\end{pmatrix}
+$$
+then from $a \le b$ it follows that $a^\perp_N<  b^\perp_N$ and $\left\|a^\perp_N \right\|\le \left\|b^\perp_N \right\| < \delta$. If $\delta + 2 \sqrt{\delta \left\| a	 \right\|}< \eps$ then from \eqref{positive_ineq_eqn} it follows that
  $$
    \left\| a_N|_{X_A }-  a|_{X_A} \right\| =  \left\| a_N|_{\ell_2\left( A\right) }- \widetilde a|_{\ell_2\left( A\right) } \right\|\le\left\| b_N|_{\ell_2\left( A\right) }- \widetilde b|_{\ell_2\left( A\right) } \right\| < \eps.
  $$
@@ -16918,7 +16933,7 @@ Suppose that $\left(\overline{   \mathcal X}, \overline{x}_0 \right)$ is its  to
 	\left\{\overline a_{\overline x}\in \K\left( \H_{\overline x}\right) \right\}_{\overline x\in \overline\sX}.
 	\ee
 \end{remark}
-!!! CONTINUE !!!
+
 \begin{lemma}\label{top_z_lem}
 	Consider the situation of the (cf. Definition \ref{top_coh_defn}) with the   a coherent element $\overline a \in B\left(\widehat \H_a \right)$. Let $\la_0\in \La$ and $\xi\in X_{C\left( \sX_{\la_0}\right) }$. Let $\overline p_{\la_0}: \overline\sX \to \sX_{\la_0}$ be the natural covering, and $\overline\xi\bydef\lift_{ \overline{p}_{\la_0}}\left(\xi \right)\in X_{C_b\left( \overline\sX\right) }$  corresponds to a family $\left\{\overline\xi_{\overline x}\right\}_{\overline x \in \overline\sX}$. If $\overline f : \overline\sX \to \R$ is given by
 	\bean
@@ -16959,7 +16974,7 @@ Suppose that $\left(\overline{   \mathcal X}, \overline{x}_0 \right)$ is its  to
 	where an inclusion $\K\left(X_{C_b\left(\overline{\sX} \right) }  \right)\subset \K\left(X_{D^*\left(\overline{\sX} \right) }  \right)$ is implied.
 \end{lemma}
 \begin{proof}
-	If $\overline \sX'$ is any connected component then from \eqref{ctr_sq_eqn} it turns out that  there is the natural homeomorphism $\overline \sX'\cong \sX$ and natural isomorphisms $X_{C\left(\sX\right)}\cong X_{C\left(\overline \sX'\right)}$, $~\K\left( X_{C\left(\sX\right)}\right) \cong\K\left(  X_{C\left(\overline \sX'\right)}\right)$.
+	If $\overline \sX'\subset \overline\sX$ is any connected component of $\overline{\sX}$ then from \eqref{ctr_sq_eqn} it turns out that  there is the natural homeomorphism $\overline \sX'\cong \sX$ and natural isomorphisms $X_{C\left(\sX\right)}\cong X_{C\left(\overline \sX'\right)}$, $~\K\left( X_{C\left(\sX\right)}\right) \cong\K\left(  X_{C\left(\overline \sX'\right)}\right)$.
 	From the Lemma \ref{top_z_lem} it turns out  that for all $\xi \in X_{C\left(\overline \sX'\right)}$ one has
 	\be\label{ctr_inf3_eqn}
 	\left\langle \xi, \overline a \xi\right\rangle_{D^*\left(\overline \sX' \right) }\in C\left( \overline \sX'\right). 
@@ -16971,12 +16986,13 @@ Suppose that $\left(\overline{   \mathcal X}, \overline{x}_0 \right)$ is its  to
 	\be\label{ctr_inf2_eqn}
 	a \in \K\left( X_{C\left(\sX \right) }\right).
 	\ee
-	The system of equations \eqref{ctr_inf1_eqn},  \eqref{ctr_inf2_eqn},  \eqref{ctr_inf3_eqn} can be regarded as a specialization of  \eqref{compact_inf1_eqn}, \eqref{compact_inf2_eqn}, \eqref{compact_inf3_eqn}. On the other hand from  the condition  of \ref{ctr_comp_empt} any finitely generated projective Hilbert $C\left(\sX\right)$-module is self-dual, so from the Lemma \ref{compact_inf_lem} it follows that 
+	The system of equations \eqref{ctr_inf1_eqn},  \eqref{ctr_inf2_eqn},  \eqref{ctr_inf3_eqn} can be regarded as a specialization of  \eqref{compact_inf1_eqn}, \eqref{compact_inf2_eqn}, \eqref{compact_inf3_eqn} respectively. On the other hand from  the condition  of \ref{ctr_comp_empt} any finitely generated projective Hilbert $C\left(\sX\right)$-module is self-dual, so from the Lemma \ref{compact_inf_lem} it follows that 
 	\be\label{ctr_comp'_eqn}
 	\left.\overline a\right|_{	X_{C\left(\overline \sX'\right)}}\in 	\K\left(	X_{C\left(\overline \sX'\right)} \right).
 	\ee
 	The proof of an implication \eqref{ctr_comp'_eqn} $\Rightarrow$ \eqref{ctr_comp_eqn} is left to the reader.
 \end{proof}
+!!! CONTINUE !!!
 \begin{empt}
 	If $X_{C\left( {\sX}\right)}$	is a full countably generated Hilbert $C\left( {\sX}\right)$  from the Theorem \ref{kasparov_stab_thm} one has the isomorphism of $C\left(\sX \right)$-Hilbert modules.
 	\bean
