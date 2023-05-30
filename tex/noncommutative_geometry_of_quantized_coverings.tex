@@ -21,7 +21,13 @@
 
 \usetikzlibrary{matrix}
 
+\usepackage{siunitx}
+
+\usepackage{lmodern}
 \usepackage[T1]{fontenc}
+\usepackage[babel=true]{microtype}
+
+
 \usepackage{amsfonts,cite}
 \usepackage{graphicx}
 
@@ -16992,7 +16998,7 @@ Suppose that $\left(\overline{   \mathcal X}, \overline{x}_0 \right)$ is its  to
 	\ee
 	The proof of an implication \eqref{ctr_comp'_eqn} $\Rightarrow$ \eqref{ctr_comp_eqn} is left to the reader.
 \end{proof}
-!!! CONTINUE !!!
+
 \begin{empt}
 	If $X_{C\left( {\sX}\right)}$	is a full countably generated Hilbert $C\left( {\sX}\right)$  from the Theorem \ref{kasparov_stab_thm} one has the isomorphism of $C\left(\sX \right)$-Hilbert modules.
 	\bean
@@ -18240,6 +18246,8 @@ Let $\left(M, \sF\right)$ be a foliated space, and let $A \bydef C^*_r\left( M, 
 
 
 \section{Finite-fold coverings of $C^*$-algebras}
+
+\subsection{Coverings of foliations}
 \paragraph{}
 The results of this section follow from the Section \ref{foli_blowing_sec} and the Chapter \ref{blowing_chap}. If $C^*_r\left( M, \sF\right)$ is a reduced $C^*$-algebra of a foliated space  $\left( M, \sF\right)$ then from  the Corollary \ref{foli_disint_cor} it follows that there is a disintegrable Hausdorff blowing-up (cf. Definitions \ref{blowing_defn},  \ref{blowing_disintegrable_defn}). If $p : \widetilde M \to M$ is a transitive finite-fold covering then from the Theorem \ref{blowing_functor_ff_thm} if follows that there is a noncommutative finite-fold covering 
 $$
@@ -18287,7 +18295,9 @@ The following theorem is a specialization of \ref{blowing_functor_ff_thm} one.
 	
 \end{theorem}
 
-\begin{empt}\label{foli_fin_empt}
+\subsubsection{Coverings of  a linear foliation on torus}
+\subsection{Coverings of reduced groupoids}
+\begin{empt}\label{foli_fin_empt} !!! CORRECT !!!
 	Let $p:\left(\widetilde{M},~ \widetilde{\mathcal F} \right)\to \left({M},~ {\mathcal F} \right)$ be a regular  covering of foliated spaces (cf. Definition \ref{foli_reg_cov_defn}). Suppose that $N$ is a complete transversal (cf. Remark \ref{foli_comp_trans_rem}). If $\widetilde N \bydef p^{-1}\left(N \right) \subset \widetilde M$ then $\widetilde N$ meets any leaf of $\left(\widetilde{M},~ \widetilde{\mathcal F} \right)$ i.e. $\widetilde N$ is a complete transversal. If both $\G^N_N$ and $\G^{\widetilde N}_{\widetilde N}$ are given by \eqref{foli_gnn_eqn} then the map $p$ yields a surjective homomorphism $p_\G:\G^{\widetilde N}_{\widetilde N}\to \G^{ N}_{ N}$ of groupoids that is; $p_\G$ a functor between small categories. The functor induces an injecive *-homomorphism $\pi_\G: C^*_r\left(\G^{ N}_{ N}\right)\hookto C^*_r\left(\G^{\widetilde N}_{\widetilde N}\right)$. From  the Lemma \ref{foli_stab_lem} it follows that there are *-isomorphisms
 	$\pi_\K:  C^*_r\left({M},~ {\mathcal F} \right)\cong C^*_r\left(\G^{ N}_{ N}\right)\otimes \K$ and $\widetilde\pi_\K : C^*_r\left(\widetilde{M},~ \widetilde{\mathcal F} \right)\cong C^*_r\left(\G^{\widetilde N}_{\widetilde N}\right)\otimes \K$. Otherwise $p$ induced the injecive *-homomorphism $\pi: C^*_r\left({M},~ {\mathcal F} \right)\hookto C^*_r\left(\widetilde{M},~ \widetilde{\mathcal F} \right)$.
 \end{empt}
@@ -18342,6 +18352,12 @@ The following theorem is a specialization of \ref{blowing_functor_ff_thm} one.
 \begin{proof}
 	Follows from the Theorem \ref{foli_functor_thm}, Lemma \ref{foli_g_lem}, and (ii) of the Theorem \ref{stable_fin_cov_thm}.
 \end{proof}
+
+
+\subsubsection{Coverings of reduced groupoids of a linear foliation on torus}
+
+!!!!
+
 \section{Infinite coverings}
 \paragraph{}
 Let  $\widetilde{q}:\left( \widetilde{M}, \widetilde{y}_0\right) \to \left( M, y_0\right)$ be a transitive covering such that a covering group  $G\left(\left.\widetilde M \right| M\right)$ is residually finite (cf. Definition \ref{residually_finite_defn}). Let
@@ -18804,8 +18820,8 @@ and taking into account $a_{\la_0}\in C^*_r\left(\overline{M}, \overline{\sF}\ri
 	this theorem is a specialization of the \ref{blowing_main_thm} one.
 \end{proof}
 
-
-\begin{empt}\label{foli_n_cat_empt}
+\subsubsection{Coverings of reduced groupoids}
+\paragraph*{}
 	Let $\left(M, \sF\right)$ be a  foliated manifold (cf. Definition \ref{foli_defn}), and   Let $N \subset M$ be a complete transversal (cf. Remark \ref{foli_comp_trans_rem}). Let
 	\bean
 	\begin{split}
@@ -18830,7 +18846,7 @@ From the Lemma \ref{foli_g_lem} and (ii) of the Corollary \ref{stab_pt_a_cor} th
 \ee
 
 Let $\widetilde M$ be the topological inverse limit (cf. Definition \ref{top_topological_inv_lim_defn}) of the category $\mathfrak{S}_{\left( M, y_0  \right) }$ and let $\widetilde p : \widetilde M\to M$ be a natural transitive covering. The submanifold  $ \widetilde N \bydef \widetilde \pi^{-1}\left(N\right)\subset \widetilde N$ is a complete transversal (cf. Remark \ref{foli_pseudo_alg_rem})
-\end{empt}
+
 \begin{theorem}\label{foli_n_cat_thm}
 The triple $\left(C^*_r\left(\G^{N}_{N}\right), C^*_r\left(\G^{\widetilde N}_{ \widetilde N}\right), G\left(\left.\widetilde M~\right| M\right) \right)$ is  the  { infinite noncommutative covering} of the good   pointed algebraical  finite covering category $\mathfrak{S}^{\mathrm{pt}}_{C^*_r\left(\G^{N}_{N}\right)}$ given by \eqref{foli_n_c_eqn}.
 \end{theorem}
@@ -18884,7 +18900,7 @@ If $y \in \T^2$ then there is an open foliation chart $\sU$ (cf. \ref{foli_leaf_
 
 \end{proof}
 \begin{corollary}\label{foli_fg_cor}
-A simple fundamental group $\pi_1\left( C^*_r\left(\T^2,\sF_\th\right)\right)$   of $C^*_r\left(\T^2,\sF_\th\right)$ (cf. Definition \ref{fundamental_group_nc_defn}) is isomorphic to $\Z^2$.
+A simple fundamental group $\pi_1\left( C^*_r\left(\T^2,\sF_\th\right)\otimes \K\right)$   of $C^*_r\left(\T^2,\sF_\th\right)\otimes \K$ (cf. Definition \ref{fundamental_group_nc_defn}) is isomorphic to $\Z^2$.
 \end{corollary}
 \begin{proof}
 Follows from the Lemma \ref{foli_fg_lem} and the Corollary \ref{blowing_semi_cor}.
@@ -24971,12 +24987,6 @@ nondegenerate representation of $A$ on $X \widehat\otimes_B \H_\pi$.
 		bimodule. 
 	\end{example}
 	
-	%\begin{thm}\label{MoritaK_thm}\cite{BroGreRie}
-	%	Let $A$ and $B$ are $C^*$-algebras with countable approximate	units. Then these algebras are strongly Morita equivalent if and	only if they are stably equivalent, i.e. $A\otimes \mathcal{K} \cong	B\otimes \mathcal{K}$, where $\mathcal{K}$ denotes the algebra of compact	operators in a separable Hilbert space.
-	%\end{thm}
-	%\begin{remark}\label{stable_rem}
-	%	The $C^*$-algebra $A\otimes \mathcal{K}$ means the $C^*$-norm completion of the algebraic tensor product of  $A$ and $\mathcal{K}$. In general the  $C^*$-norm completion of algebraic tensor product $A$ and $B$ is not unique, because it depends on the $C^*$-norm on  $A\otimes B$. However in \cite{blackadar:ko} it is proven that $\mathcal K$ is a nuclear $C^*$-algebra, so there is the unique $C^*$-norm on the algebraic tensor product of $A$ and $\mathcal{K}$. Hence there is the unique $C^*$-norm completion $A\otimes \mathcal{K}$.
-	%\end{remark}
 	\begin{rem}
 			If~$_AX_B$ be an $A$-$B$ imprimitivity bimodule then there is a \textit{dual} $B$-$A$ bimodule $_B\widetilde X_A$ which is a $B$Ğ$A$-imprimitivity bimodule (cf. \cite{rae:ctr_morita}).
 	\end{rem}
@@ -25033,13 +25043,6 @@ $C^*$-algebras $A$ and $B$ are said to be \textit{stably equivalent} when $A\oti
 		possess strictly positive elements, then they are stably isomorphic.	
 	\end{theorem}
 	
-	\begin{theorem}\label{stable_iso_thm}\cite{BroGreRie}
-		%THEOREM 1.2. 
-		Let $B$ and $E$ be $C^*$-algebras. If $B$ and $E$ are
-		stably isomorphic (i.e. $B\otimes \K \cong E\otimes \K$), then they are strongly Morita equivalent. Conversely,
-		if $B$ and $E$ are strongly Morita equivalent and if they both
-		possess strictly positive elements, then they are stably isomorphic.
-	\end{theorem}
 		\begin{proposition}\label{top_allows_morita_prop}\cite{connes:ncg94}
 		%	Proposition 1. [473]  P 117 
 		Let a group $\Ga$  act freely and properly on a topological space  $\widetilde \sX$ and let $\sX\bydef \widetilde \sX/\Ga$. Then
@@ -28345,6 +28348,7 @@ S\cap T = \emptyset \quad \Rightarrow \quad \exists s \in \mathscr{ A}\left( \sU
 	\paragraph*{}
 	A groupoid is a small category with inverses, or more explicitly:
 	\begin{definition}\label{groupoid_defn}\cite{connes:ncg94}
+		% 104
 		A \textit{groupoid} consists of a set $\G$, a distinguished subset $\G^{(0)}\subset\G$, two maps
 		$r, s : \G\to \G^{(0)}$ and a law of composition
 		$$
@@ -28363,10 +28367,10 @@ S\cap T = \emptyset \quad \Rightarrow \quad \exists s \in \mathscr{ A}\left( \sU
 	\begin{empt}
 		Let $\G$ be a groupoid. 
 		Consider an involutive algebra $\C\left[\G \right]$ over $\C$ generated by $\G$ which satisfies to the following relations
-		\be
+		\be\label{groupoid_a_eqn}
 		\begin{split}
 			\left(a\cdot b\right)\left(\ga\right)= \sum_{\ga_1\circ\ga_2=\ga}a\left( \ga_1\right)a\left( \ga_1\right),\\
-			a^*\left(\ga\right)= \overline{a\left(\ga^{-1}\right)} 
+			a^*\left(\ga\right)= \overline{a\left(\ga^{-1}\right)}.
 		\end{split}
 		\ee
 	\end{empt}
@@ -28385,9 +28389,9 @@ S\cap T = \emptyset \quad \Rightarrow \quad \exists s \in \mathscr{ A}\left( \sU
 Here I follow to \cite{brown:proper_groupoids}.
 \begin{subsection}{$C_0\left(\sX\right)$-algebras}
 	\paragraph*{}
-	Groupoids must act on fibred objects, so to construct an appropriate notion of a groupoid dynamical system we need to have fibred $C^*$-algebras.  To that end, given a locally compact Hausdorff space $\sX$, a \emph{$C_0\left(\sX\right)$-algebra} is a $C^*$-algebra $A$ together with a nondegenerate homomorphism of $C_0\left(\sX\right)$ into the center  $Z(M(A))$ of $M\left(A\right)$. $C_0\left(\sX\right)$-algebras are well studied objects in their own right, but for our needs it is enough to know that they have an associated fibred structure.  Specifically, if $C_{0,x}\left(\sX\right)$ is the set of functions in $C_0\left(\sX\right)$ vanishing at $x\in \sX$, then $I_x\bydef\overline{C_{0,x}\left(\sX\right)\cdot A}$ is an ideal in $A$ and $A(x)\bydef A/I_x$ is called the fibre of $A$ over $x$.  The image of $a$ in $A(x)$ is denoted by $a(x)$, and the set $\{A(x):x\in \sX\}$ gives rise to an \emph{upper semicontinuous $C^*$-bundle} $\A$ over $\sX$ \cite[Theorem C.26]{TFB2}. 
+	Groupoids must act on fibred objects, so to construct an appropriate notion of a groupoid dynamical system we need to have fibred $C^*$-algebras.  To that end, given a locally compact Hausdorff space $\sX$, a \emph{$C_0\left(\sX\right)$-algebra} is a $C^*$-algebra $A$ together with a nondegenerate homomorphism of $C_0\left(\sX\right)$ into the center  $Z(M(A))$ of $M\left(A\right)$. $C_0\left(\sX\right)$-algebras are well studied objects in their own right, but for our needs it is enough to know that they have an associated fibred structure.  Specifically, if $C_{0,x}\left(\sX\right)$ is the set of functions in $C_0\left(\sX\right)$ vanishing at $x\in \sX$, then $I_x\bydef\overline{C_{0,x}\left(\sX\right)\cdot A}$ is an ideal in $A$ and $A(x)\bydef A/I_x$ is called the fibre of $A$ over $x$.  The image of $a$ in $A(x)$ is denoted by $a(x)$, and the set $\{A(x):x\in \sX\}$ gives rise to an \emph{upper semi-continuous $C^*$-bundle} $\A$ over $\sX$ \cite[Theorem C.26]{TFB2}. 
 	
-	\begin{defn}Let $\sX$ be a locally compact Hausdorff space, an {\emph{upper semicontinuous $C^*$-bundle}} over $\sX$ is a topological space $\A$ together with a continuous open surjection $p=p_{\A}:\A\rightarrow \sX$ such that  each fibre $A(x)\bydef p^{-1}(\{x\})$ \index{$A(x)$} is a $C^*$-algebra and $\A$ satisfies the following axioms:
+	\begin{defn}Let $\sX$ be a locally compact Hausdorff space, an {\emph{upper semi-continuous $C^*$-bundle}} over $\sX$ is a topological space $\A$ together with a continuous open surjection $p=p_{\A}:\A\rightarrow \sX$ such that  each fibre $A(x)\bydef p^{-1}(\{x\})$ \index{$A(x)$} is a $C^*$-algebra and $\A$ satisfies the following axioms:
 		\begin{enumerate}
 			\item[B1] The map $a\mapsto \|a\|$ is upper semicontinuous from $\A$ to $\R^+$  (That is, for all $\epsilon>0$, $\{a\in \A: \|a\|<\epsilon\}$ is open),
 			\item[B2] The maps $(a,b)\mapsto a+b$ and $(a,b)\mapsto ab$ are continuous from $\A\times\A$ to $\A$,
@@ -28710,6 +28714,9 @@ In the case of general foliations, the total my group of a foliated bun dle must
 		
 		
 	\end{remark}
+	\begin{definition}
+	In the above situation we say that $\G^N_N$ is a \textit{reduced groupoid}.
+	\end{definition}
 
 	\section{Operator algebras of foliations}\label{foli_alg_subsec}
 	\paragraph*{}
@@ -28859,15 +28866,16 @@ Let $\G\bydef \G\left(M, \sF \right)$ be a foliation chart. 	The bundle $\Omega_
 		%Theorem 1.4.11. 
 		Let $(M,\sF)$ be a foliated space and let $x \in M$. Then the representation $\rho_x$ is irreducible if and only if the leaf through $x$ has no holonomy.
 	\end{theorem}
-	\begin{empt}\label{foli_pseudo_empt}
-		Let $\G^N_N$ be a  given by \eqref{foli_gnn_eqn} pseudogroup
+	\begin{empt}\label{foli_pseudo_empt}\cite{connes:ncg94}
+		%Page 126 
+		If $\G^N_N$ is a  given by \eqref{foli_gnn_eqn} pseudogroup then $\G^N_N$ is a manifold.  One can define a structure of $*$-algebra on $\Coo_c\left( \G^N_N\right)$ such that for any $a, b \in \Coo_c\left( \G^N_N\right)$ one has:
 		\be\label{foli_pseudo_eqn}
 		\begin{split}
 			\left(a\cdot b\right)\left(\ga\right)= \sum_{\ga_1\circ\ga_2=\ga}a\left( \ga_1\right)a\left( \ga_1\right),\\
 			a^*\left(\ga\right)= \overline{a\left(\ga^{-1}\right)} 
 		\end{split}
 		\ee
-		Denote by $C^*_r\left(	\G^N_N \right)$ the reduced algebra of $\G^N_N$ (cf. Definition \ref{foli_groupoid_red_defn}).  
+		Denote by $C^*_r\left(	\G^N_N \right)$ the reduced algebra of $\G^N_N$ (cf. Definition \ref{foli_groupoid_red_defn}). The equation \eqref{foli_pseudo_eqn} is a specialization of the \eqref{groupoid_a_eqn} one. 
 	\end{empt} 	
 	
 	\begin{theorem}\label{foli_mor_thm}\cite{candel:foliII}
@@ -28934,7 +28942,14 @@ Let $\G\bydef \G\left(M, \sF \right)$ be a foliation chart. 	The bundle $\Omega_
 		\ee
 		
 	\end{empt}
-		
+	\begin{theorem}\cite{candel:foliII}
+%	Theorem 1.5.16. 
+	
+	
+	Let $(M, \sF)$ be a foliated space and let $\left(Z, \mathcal H\right)$ be the holonomy
+	pseudogroup associated to a complete transversal $Z$. Then the foliation
+	$C^*$-algebra is Morita equivalent to the pseudogroup $C^*$-algebra.
+	\end{theorem}	
 	\begin{example}\label{fol_tor_exm}\emph{Linear foliation on torus.} Here I follow to \cite{connes:ncg94}.
 		Consider a vector field $\tilde{X}$ on $\R^2$ given by
 		\[
@@ -29006,7 +29021,7 @@ v\left(x, n \right) = \begin{cases}
 \end{cases},\\
 \end{split}
 \ee
-Taking into account  the equations \eqref{foli_pseudo_eqn}
+then from  the equations \eqref{foli_pseudo_eqn}
 one has
 \bean
 u^*=u^{-1},\\
@@ -29079,14 +29094,14 @@ C^*_r\left( \G^N_N\right) \cong C\left(\T^2_\th\right).
 		If $\mathcal G$ (resp. $\widetilde{\mathcal G}$) is a holonomy groupoid of $\left(M,\mathcal F \right)$ (resp. $\left(\widetilde{M},~ \widetilde{\mathcal F} \right)$) then there is the surjective map $p_{\mathcal G}:\widetilde{\mathcal G} \to \mathcal G$ given by
 		\begin{equation*}
 			\begin{split}
-				\left[\widetilde{\gamma}\right] \mapsto \left[p \circ\widetilde{\gamma}\right]
+				\left[\widetilde{\gamma}\right] \mapsto \left[p \circ\widetilde{\gamma}\right].
 			\end{split}
 		\end{equation*}
 		If the covering is finite-fold then the map $p_{\mathcal G}:\widetilde{\mathcal G} \to \mathcal G$ induces 
 		a natural involutive homomorphism
 		\begin{equation*}
 			\begin{split}
-				\Coo_c\left(\mathcal G,  \Omega_{M}^{1/2}\right) \hookto  \Coo_c\left(\widetilde{\mathcal G},  \Omega_{\widetilde{M}}^{1/2}\right)
+				\Coo_c\left(\mathcal G,  \Omega_{M}^{1/2}\right) \hookto  \Coo_c\left(\widetilde{\mathcal G},  \Omega_{\widetilde{M}}^{1/2}\right).
 			\end{split}
 		\end{equation*}	
 		Completions of $\Coo_c\left(\mathcal G,  \Omega_{M}^{1/2}\right)$ and $\Coo_c\left(\widetilde{\mathcal G},  \Omega_{\widetilde{M}}^{1/2}\right)$ with respect to given by \eqref{foli_pseudo_norm_eqn} norms gives an injective *- homomorphism 
@@ -30797,6 +30812,109 @@ I am very grateful to Prof. Joseph C Varilly  and Arup Kumar Pal
  
  \begin{thebibliography}{10}
  	
+ \bibitem[ADR00]{AR00}
+ C.~Anantharaman-Delaroche and J.~Renault, \emph{Amenable groupoids},
+ Monographies de L'Enseignement Math\'ematique [Monographs of L'Enseignement
+ Math\'ematique], vol.~36, L'Enseignement Math\'ematique, Geneva, 2000, With a
+ foreword by Georges Skandalis and Appendix B by E. Germain. 
+ 
+ \bibitem[Exe99]{Ex99}
+ Ruy Exel, \emph{Unconditional integrability for dual actions}, Bol. Soc.
+ Brasil. Mat. (N.S.) \textbf{30} (1999), no.~1, 99--124.
+ 
+ \bibitem[Gre77]{Grn77}
+ Philip Green, \emph{{$C\sp*$}-algebras of transformation groups with smooth
+ 	orbit space}, Pacific J. Math. \textbf{72} (1977), no.~1, 71--97.
+
+ 
+ \bibitem[HKRW09]{AKRW09}
+ Astrid~an Huef, Steve Kaliszewski, Ian Raeburn, and Dana~P. Williams,
+ \emph{Fixed-point algebras for proper actions and crossed products by
+ 	homogeneous spaces}, arXiv:0907.0681v1, 2009.
+ 
+ \bibitem[HRW00]{aHRW00}
+ Astrid~an Huef, Iain Raeburn, and Dana~P. Williams, \emph{An equivariant
+ 	{B}rauer semigroup and the symmetric imprimitivity theorem}, Trans. Amer.
+ Math. Soc. \textbf{352} (2000), no.~10, 4759--4787. 
+
+ 
+ \bibitem[HRW03]{aHRW03}
+ Astrid~an Huef, Iain Raeburn, and Dana~P. Williams,, \emph{Proper actions on imprimitivity bimodules and decompositions of
+ {M}orita equivalences}, J. Funct. Anal. \textbf{200} (2003), no.~2, 401--428.
+ 
+ 
+ \bibitem[HRW05]{AHRW05}
+ Astrid~an Huef, Iain Raeburn, and Dana~P. Williams, \emph{A symmetric imprimitivity theorem for commuting proper actions},
+ Canad. J. Math. \textbf{57} (2005), no.~5, 983--1011.
+ \bibitem[KQR08]{KQR08}
+ S.~Kaliszewski, John Quigg, and Iain Raeburn, \emph{Proper actions, fixed-point
+ algebras and naturality in nonabelian duality}, J. Funct. Anal. \textbf{254}
+ (2008), no.~12, 2949--2968. 
+ 
+ \bibitem[Mey01]{Meyer01}
+ Ralf Meyer, \emph{Generalized fixed point algebras and square-integrable group
+ actions}, Journal of Functional Analysis \textbf{186} (2001), 167--195.
+ 
+ \bibitem[MR09]{MR09}
+ Dami{\'a}n Marelli and Iain Raeburn, \emph{Proper actions which are not
+ saturated}, Proc. Amer. Math. Soc. \textbf{137} (2009), no.~7, 2273--2283.
+ 
+ 
+ \bibitem[MRW87]{MRW87}
+ Paul~S. Muhly, Jean~N. Renault, and Dana~P. Williams, \emph{Equivalence and
+ isomorphism for groupoid {$C\sp \ast$}-algebras}, J. Operator Theory
+ \textbf{17} (1987), no.~1, 3--22.
+ \bibitem[Muh]{Mcoord}
+ Paul~S. Muhly, \emph{Coordinates in operator algebras}, to appear.
+ 
+ \bibitem[MW90]{MW90}
+ Paul~S. Muhly and Dana~P. Williams, \emph{Continuous trace groupoid {$C\sp
+ 	*$}-algebras}, Math. Scand. \textbf{66} (1990), no.~2, 231--241.
+ 
+ 	
+ 	\bibitem[MW08]{MW08}
+ 	Paul~S. Muhly and Dana~P. Williams, \emph{Renault's equivalence theorem for groupoid crossed products},
+ 	New York Journal of Mathematics \textbf{3} (2008), 1--87.
+ 	
+ 	\bibitem[Ren80]{Ren80}
+ 	Jean Renault, \emph{A groupoid approach to {$C\sp{\ast} $}-algebras}, Lecture
+ 	Notes in Mathematics, vol. 793, Springer, Berlin, 1980. 
+ 	\bibitem[Ren91]{Ren91}
+ 	Jean Renault, \emph{The ideal structure of groupoid crossed product {$C\sp
+ 	\ast$}-algebras}, J. Operator Theory \textbf{25} (1991), no.~1, 3--36, With
+ 	an appendix by Georges Skandalis. 
+ 	
+ 	\bibitem[Rie82]{rieffel82}
+ 	Marc~A. Rieffel, \emph{Applications of strong {M}orita equivalence to
+ transformation group {$C\sp{\ast} $}-algebras}, Operator algebras and
+ applications, Part I (Kingston, Ont., 1980), Proc. Sympos. Pure Math.,
+ vol.~38, Amer. Math. Soc., Providence, R.I., 1982, pp.~299--310.
+ \bibitem[Rie90]{Rieffel90}
+ Marc~A. Rieffel, \emph{Proper actions of groups on {$C\sp *$}-algebras}, Mappings of
+ operator algebras (Philadelphia, PA, 1988), Progr. Math., vol.~84,
+ Birkh\"auser Boston, Boston, MA, 1990, pp.~141--182. 
+ \bibitem[Rie04]{Rieff04}
+ Marc~A. Rieffel, \emph{Integrable and proper actions on {$C\sp *$}-algebras, and
+ square-integrable representations of groups}, Expo. Math. \textbf{22} (2004),
+ no.~1, 1--53.
+ 
+ \bibitem[RW85]{RW85}
+ Iain Raeburn and Dana~P. Williams, \emph{Pull-backs of {$C\sp \ast$}-algebras
+ and crossed products by certain diagonal actions}, Trans. Amer. Math. Soc.
+ \textbf{287} (1985), no.~2, 755--777. 
+ 
+ \bibitem[RW98]{tfb}
+ Iain Raeburn and Dana~P. Williams, \emph{Morita equivalence and continuous-trace {$C\sp *$}-algebras},
+ Mathematical Surveys and Monographs, vol.~60, American Mathematical Society,
+ Providence, RI, 1998.
+ 
+ \bibitem[Wil07]{TFB2}
+ Dana~P. Williams, \emph{Crossed products of {$C{\sp \ast}$}-algebras},
+ Mathematical Surveys and Monographs, vol. 134, American Mathematical Society,
+ Providence, RI, 2007. 
+ 
+ 	
+ 	
 %\bibitem{lie_groupoids_coov}  CORRECT TURKISH
 
 %I. Ien, M. GŸrsoy, A. …zcan \textit{Coverings of Lie groupoids} 	Turk J Math, 35 (2011) , 207 Ğ 218. 	c©T  UB ITAK, doi:10.3906/mat-0902-2, 2011.
@@ -30879,7 +30997,7 @@ I am very grateful to Prof. Joseph C Varilly  and Arup Kumar Pal
 
 \bibitem{brown:stable} Lawrence G. Brown, Philip Green, and Marc A. Rieffel. \textit{Stable isomorphism and strong Morita equivalence of $C^*$-algebras}. Pacific J. Math., Volume 71, Number 2 (1977), 349-363. 1977.
 
-\bibitem{BroGreRie}L.~G. Brown, P.~Green, and M.~A. Rieffel.  \textit{Stable isomorphism and strong {Morita} equivalence of	{$C^*$}-algebras}.\newblock { Pacific J. Math.} {\bf 71} (1977), 349--363. 1977.
+
 
 \bibitem{brzezinsky:flat_co}Tomasz Brzezinski \textit{Flat connections and (co)modules}, arXiv:math/0608170, 2006.
 \bibitem{candel:foliI}Alberto Candel, Lawrence Conlon. \textit{Foliations I}. Graduate Studies in Mathematics, American Mathematical Society (1999), 1999.
