@@ -3850,8 +3850,10 @@ Prove that  for all $\widetilde a, \widetilde b \in \widetilde{\A}$ a following 
 \eea
  (cf. equation \eqref{first_order_dual_eqn}).
 \end{exercise}
-
-
+From our construction it follows that
+\be\label{dirac_om_fin_lift_eqn}
+\nabla \widetilde a = \sum_{j = 1}^n \widetilde a_j \otimes \om_j \quad\Rightarrow \quad\left[\widetilde D, \widetilde a\right]=  \sum_{j = 1}^n \widetilde a_j \otimes \om_j\in \widetilde\A \otimes_\A \Om^1_D.
+\ee
 \begin{defn}\label{triple_conn_lift_defn} 	In the above situation the spectral  triple $\left( \widetilde{\A}, \widetilde{\H}, \widetilde{D}, \widetilde J\right)$  is said to be the  $\left(A, \widetilde{A}, G, \pi \right)$-\textit{lift} of $\left( {\A}, {\H}, {D}, J\right)$.  
 \end{defn} 
 \begin{definition}\label{ext_st_alg_defn}
@@ -14750,7 +14752,7 @@ From the Remark \ref{nc_loop_rem} it follows that $\sY^{\mathrm{ab}}\cong \Om\sX
  \mathfrak{S}_{\left( \sY^{\mathrm{ab}}, y_0  \right) }=\left\{ p_\la: \left( \sY^{\mathrm{ab}}_\la, y^\la_0\right) \to \left( \sY^{\mathrm{ab}}, y_0\right)\right\}_{\la \in \La}.
  \ee  
  (cf. Definition \ref{top_sec_p_defn})
- of all  transitive finite-fold pointed coverings. From the Lemma \ref{top_associded_lem} !!! CHECK !!! !!! \ref{top_associated_defn} CHECK DEFN !! it turns out that the pointed space $\left( \widetilde{\sY}^{\mathrm{ab}} , \widetilde{y}_0 \right)$ is the topological inverse noncommutative limit of $\mathfrak{S}_{\left( \sY^{^{\mathrm{ab}}}, y_0 \right) }$  (cf. Definition \ref{top_topological_inv_lim_defn}). From the Lemma \ref{blowing_base_point_lem}
+ of all  transitive finite-fold pointed coverings. From the Lemma \ref{top_associded_lem}  it turns out that the pointed space $\left( \widetilde{\sY}^{\mathrm{ab}} , \widetilde{y}_0 \right)$ is the topological inverse noncommutative limit of $\mathfrak{S}_{\left( \sY^{^{\mathrm{ab}}}, y_0 \right) }$  (cf. Definition \ref{top_topological_inv_lim_defn}). From the Lemma \ref{blowing_base_point_lem}
 there is a pointed	algebraical  finite covering category (cf. Definition \ref{pointed_defn}) given by		
 \begin{equation}\label{ho_gr_poinded_cat_eqn}
 	\mathfrak{S}^{\mathrm{pt}}_{A } = \left\{\left\{\pi_\la=A_0\left( q_{\la}\right) :A  \hookto A_0\left(\sY^{\mathrm{ab}}_\la\right) \right\}_{\la \in \La}\left\{\pi^\mu_\nu\right\}_{\substack{\mu, \nu \in \La\\\mu\le\nu}}\right\}\in \mathfrak{FinAlg}.
@@ -17174,7 +17176,7 @@ If $\eps > 0$ and $\sX$ is a spectrum of $A$  then from the Lemma \ref{ctr_rep_e
 \forall x \in \sX \setminus \sY \quad \left\| \rep_x\left(a\right)\right\|< \eps. 
 \ee
 For any $x\in \sX$ there is a compact neighborhood  $\sV_x$ such that $\left.A\right|^{\sV_x}\cong \K\left( X_{C\left(\sV_x \right) }\right)$. On the other hand for all $x\in \sX$ one can find an evenly covered (cf. Definition \ref{top_covering_defn}) by $\overline \sX \to \sX$ open neighborhood $\mathcal W_x$. For each $x \in \sX$ we select a connected neighborhood $\sU_x$ such that $\sU_x \subset \mathcal W_x\cap \sV_x$. If $\sum_{j = 1}^n f_j$ be a dominated by a family $\left\{\sU_x\right\}_{x\in \sX}$ covering sum for $\sY$  (cf. Definition \ref{top_covering_sum_defn}) then from the 
-Exercise \ref{spec_mult_exer}  !!! CHECK !!! it follows that $\pi\left(\sqrt{f_j}\right)\overline{a} \pi\left(\sqrt{f_j}\right)= \pi\left({f_j}\right)\overline{a}$ is a $\mathfrak{S}_A$ special element.
+Exercise \ref{spec_mult_exer}  it follows that $\pi\left(\sqrt{f_j}\right)\overline{a} \pi\left(\sqrt{f_j}\right)= \pi\left({f_j}\right)\overline{a}$ is a $\mathfrak{S}_A$ special element.
  From the Lemma \ref{top_coh_lem} it follows that $\pi\left({f_j}\right)\overline{a}\in \pi_A\left( 	A_0\left( \overline{\sX}\right)\right)$
   where an inclusion  $\pi_A: A_0\left( \overline{\sX}\right)\hookto B\left(\widehat \H_a\right)$
  is given by the equation \eqref{blowing_atomic_eqn}. So one has $\sum_{j=1}^n\pi\left({f_j}\right)\overline{a}\in \pi_A\left( 	A_0\left( \overline{\sX}\right)\right)$.  On the other hand from \eqref{ctr_yn_eqn} it follows that 
@@ -17188,7 +17190,7 @@ $$
 Taking into account a given by \eqref{ctr_c0_inc_eqn} inclusion $\pi_A\left(	A_0\left( \overline{\sX}\right) \right)\subset \overline A$ one has a required *-isomorphism $\widetilde A \cong A_0\left(\widetilde\sX\right)$.
 \end{proof}
 \begin{remark}\label{blowing_main_rem}
-From the Lemma \ref{ctr_inf_cov_lem} it follows that a  pointed algebraical finite covering category $\mathfrak{S}^{\mathrm{pt}}_A$ is $\overline \sX$-{good}, (cf. Definition \ref{blowing_good_defn})
+From the Lemma \ref{ctr_disc_lem} it follows that a  pointed algebraical finite covering category $\mathfrak{S}^{\mathrm{pt}}_A$ is $\overline \sX$-{good}, (cf. Definition \ref{blowing_good_defn})
 \end{remark}
 \begin{theorem}\label{ctr_main_thm}
 	If  $A$ is a continuous trace $C^*$-algebra with connected, locally connected, second-countable spectrum $\sX$ then following conditions hold:
@@ -17209,11 +17211,11 @@ From the Lemma \ref{ctr_inf_cov_lem} it follows that a  pointed algebraical fini
 	From the Remark \ref{blowing_main_rem} it follows that this theorem is a specialization of the \ref{blowing_main_thm} one.
 \end{proof}
 \begin{remark}\label{ctr_stable_rem}
-	Let 	$\left( \mathcal X, x_0\right)$ is	a connected, locally path connected, semilocally 1-connected,  locally compact,  Hausdorff space such that the fundamental group $\pi_1\left(\sX, x_0 \right)$ is residually finite (cf. Corollary \ref{comm_uni_lim_cor} !!! REPLACE \ref{comm_uni_lim_thm}!!!). From the Theorem \ref{ctr_main_thm} it follows that there is a following isomorphism
+	Let 	$\left( \mathcal X, x_0\right)$ is	a connected, locally path connected, weakly semilocally 1-connected (cf. Definition \ref{top_weakly_semi1_defn}),  locally compact,  Hausdorff space. From the Theorem \ref{ctr_main_thm} it follows that there is a following isomorphism
 	$$
-	\pi^{\mathrm{stab}}_1\left(C_0\left(\sX \right) \right)\cong \pi_1\left(\sX, x_0 \right).
+	\pi^{\mathrm{stab}}_1\left(C_0\left(\sX \right) \right)\cong \mathfrak{ResFin}\left( 	\pi_1^{\mathrm{w}}\left( \sX, x_0\right)\right).
 	$$
-	where $\pi^{\mathrm{stab}}_1\left(C_0\left(\sX \right) \right)$ means the stable fundamental group (cf. Definition \ref{fundamental_group_nc_stable_defn}).
+	where $\pi^{\mathrm{stab}}_1\left(C_0\left(\sX \right) \right)$ means the stable fundamental group (cf. Definition \ref{fundamental_group_nc_stable_defn}), $\pi_1^{\mathrm{w}}\left( \sX, x_0\right)$ is a weak fundamental group (cf. Definition \ref{top_weak_fundamental_group_defn}) and $\mathfrak{ResFin}$ is given by the equation \eqref{top_fin_eqn}.
 \end{remark}
 
 \begin{exercise}\label{ctr_all_exer}
@@ -19655,8 +19657,8 @@ which is a specialization of \eqref{conn_triple_eqn}, i.e. $\nabla$ is a connect
 %or equivalently  $\widetilde D=  \sum_{\mu = 1}^n \delta_\mu \otimes \ga^\mu$.
 \begin{exercise} Prove following statements:
 	\begin{enumerate}
-		\item The given by \eqref{nt_conn_eqn} connection is $\Z^n/\Ga$-invariant (cf. equation \ref{nabla_inv_cov_eqn}).
-		\item If $\widetilde D \in \L^\dagger\left( \Coo\left(\mathbb{T}_{\widetilde\Th}^n \right)\otimes \C^m \right)$ is a specialization   of given by \eqref{dirac_fin_lift_eqn} operator then one has
+		\item The given by \eqref{nt_conn_eqn} connection is $\Z^n/\Ga$-invariant (cf. equation \ref{conn_equ_conn}).
+		\item If $\widetilde D \in \L^\dagger\left( \Coo\left(\mathbb{T}_{\widetilde\Th}^n \right)\otimes \C^m \right)$ is a specialization   of given by \eqref{wtd_eqn} operator then one has
 		\begin{equation}\label{nt_tdirac_u_eqn}
 			\widetilde	D\stackrel{\mathrm{def}}{=}\sum_{\mu =1}^{n}\delta_{\mu} \otimes\gamma^{\mu}= \sum_{\mu =1}^{n}i u_\mu \frac{\partial}{\partial u_\mu} \otimes\gamma^{\mu}\in \L^\dagger\left(\Coo\left(\mathbb{T}^n_{\widetilde\Theta}\right)\otimes\C^m\right).
 		\end{equation}
@@ -21287,7 +21289,7 @@ Suppose that $M$ is unoreintable manifold which satisfies to \eqref{isos_t_act_e
 \end{equation*}
 Suppose that the natural 2-fold covering $p:\widetilde{M}\to M$ is such that $\widetilde{M}$ is a Riemannian manifold which  admits a Spin$^c$ structure (cf. Definition \ref{spin_str_defn}), so there is an oriented spectral triple
 $\left( \Coo\left(\widetilde{M}\right) , L^2\left(\widetilde{M},\widetilde{\sS} \right), \widetilde{ \slashed D}  \right)$. Assume that there is a bundle $\sS \to M$ on $M$ with sesquilinear form (cf. Definition \ref{top_herm_bundle_form_defn}) such that $\widetilde{\sS}$ is the $p$-inverse image of $\SS$ (cf. Definition \ref{vb_inv_img_funct_defn}).
-From \ref{comm_sp_tr} it turns out that there is an unoriented !!! UNORIENTED !!! spectral triple given by \eqref{comm_equ}, i.e.
+From \ref{comm_sp_tr} it turns out that there is an unoriented  spectral triple given by \eqref{top_unori_eqn}, i.e.
 
 \be\nonumber
 \left(\Coo\left(M \right), L^2\left(\widetilde{M}, \widetilde{\SS}\right)^{\Z_2}, \slashed D  \right).
@@ -27792,7 +27794,7 @@ that satisfies the Leibniz rule \eqref{morita_nabla_eqn}.
 
 
 It is worth mentioning that only \textit{projective} modules admit
-connections~\cite{CuntzQ}. In the present case, if we define linear
+connections (cf. \cite{connes:ncg94}). In the present case, if we define linear
 maps
 $$
 0 \xrightarrow \E \otimes_A \Om_D^1 \xrightarrow{j}  \E \ox_\C \A \xrightarrow{m} \E \xrightarrow 0
@@ -28349,21 +28351,132 @@ S\cap T = \emptyset \quad \Rightarrow \quad \exists s \in \mathscr{ A}\left( \sU
 	A groupoid is a small category with inverses, or more explicitly:
 	\begin{definition}\label{groupoid_defn}\cite{connes:ncg94}
 		% 104
-		A \textit{groupoid} consists of a set $\G$, a distinguished subset $\G^{(0)}\subset\G$, two maps
-		$r, s : \G\to \G^{(0)}$ and a law of composition
+		A \textit{groupoid} consists of a set $\G$, a distinguished subset $\G^0\subset\G$, two maps
+		$r, s : \G\to \G^0$ and a law of composition
 		$$
-		\circ: \G^{(2)}\bydef\left\{\left.\left(\ga_1,\ga_2 \right) \in \G\times\G~\right| s\left(\ga_1\right)= r\left(\ga_2\right)\right\}\to \G
+		\circ: \G^2\bydef\left\{\left.\left(\ga_1,\ga_2 \right) \in \G\times\G~\right| s\left(\ga_1\right)= r\left(\ga_2\right)\right\}\to \G
 		$$
 		such that
 		\begin{enumerate}
 			\item $s\left(\ga_1\circ\ga_2\right)=s\left(\ga_2\right), \quad r\left(\ga_1\circ\ga_2\right)=r\left(\ga_1\right)\quad \forall\left(\ga_1, \ga_2 \right) \in \G$
-			\item $s\left(x\right)=r\left(x\right)=x \quad\forall x\in\G^{(0)}$
+			\item $s\left(x\right)=r\left(x\right)=x \quad\forall x\in\G^0$
 			\item $\ga\circ s\left(\ga\right)= r\left(\ga\right)\circ\ga = \ga\quad \forall\ga\in\G$
 			\item $\left( \ga_1\circ\ga_2\right) \circ\ga_3=\ga_1\circ\left( \ga_2\circ\ga_3\right) $
 			\item Each $\ga \in\G$ has a two-sided inverse $\ga^{-1}$, with $\ga\circ\ga^{-1}=r\left(\ga\right)$, $\ga^{-1}\circ\ga=r\left(\ga\right)$.
 		\end{enumerate}
 		The maps $r$, $s$ are called the \textit{range} and \textit{source} maps.
-	\end{definition} 
+	\end{definition}
+	\begin{definition}\label{groupoid_sets_defn}
+If $A$ and $B$ are subsets of $\G$, one may form the following subsets o f $\G$ :
+\bean
+A^{-1} \bydef \left\{x \in \G \left| x^{-1}\in A\right.\right\},\\
+AB \bydef \left\{z \in \G | x \in A, ~y \in B \quad  z = x y \right\}.
+\eean
+A groupoid $\G$ is said to be \textit{principal} if the map $( r , s )$ from $\G$ into $\G^0\times \G^0$ is one-to-one, it is said to be \textit{transitive}  the map ( r , d ) is onto.
+For $u, v, \in \G^0$ , $G^u \bydef r^{-1}(u),\quad G_v \bydef s^{-1}(v), \quad G^u_v \bydef G^u\cap G_v $ and
+$G(u) = G^u_u$ which is a group, is called  the \textit{isotropy group} at $u$.
+The relation  $u \sim v$ if and only if $G^u\cap G_v \neq \emptyset$ is an equivalence relation on the unit space $\G^0$. its equivalence classes are called \textit{orbits} and the \textit{orbit} of  $u$ is denoted $[ u ]$ . 
+$G^0/G$
+denotes the \textit{orbit space}. A groupoid is transitive if and only if it has a single orbit.	
+\end{definition} 
+	\begin{example}
+The set $\G^2$ of composable elements may be given the following groupoid structure:
+$( x , y )$ and $( y ' , z )$ are composable if and only if  $y' = xy, ~ ( x , y ) ( x y , z ) = ( x , y z )$, and $( x , y )^{-1} =( x y , y ^{-1} )$.
+Then $r^2 ( x , y ) = ( x , r ( y ) ) = ( x , d ( x ) )$ and $d^2 ( x , y ) = ( x y , d ( x y ) )$. The map
+$x\mapsto ( x , d ( x ) )$ identified the unit space of $G^2$ with $G$. The groupoid $G^2$ is principal.
+One may notice that it  comes from the action of $\G$ G on itself. It is transitive if and only if $\G$  is a group.
+	\end{example}
+		
+	\begin{definition}\label{groupoid_hom_defn}\cite{renault:gropoid_ca}
+	Let $\G$ and $\mathcal H$ be groupoids a map $\phi: \G \to \H$ is \textit{homomorphism} if one has:
+	\begin{itemize}
+		\item
+	\bean
+	\left(x, y \right) \in \G^2 \quad \Rightarrow \quad \left(\phi\left( x\right), \phi\left(y\right)  \right) \in \H^2,\\
+	\phi\left(\G^0 \right) \subset \H^0, 
+	\eean
+	\item the  map
+	\bean
+	\phi^2 : \G^2 \to \H^2,\\
+	\left(x, y\right)\mapsto \left(\phi(x), \phi(y) \right) 
+	\eean 
+is a homeomorphism. 
+\end{itemize}
+Two homomorphism are \textit{similar} (write $\phi\sim \psi$) if there exists a function $\th: \G^0 \to \H$ such that $\left(\th\circ r\right)(x)\phi\left(x\right)= \psi\left(x\right)\left( \th\circ s\right)(x)$. Groupoids $\G$ and $\H$ are called \textit{similar} (write $\G\sim \H$) if there exists homomorphisms $\phi: \G \to \H$ and $\psi : \H\to \G$  such that $\phi \circ \psi$ and $\psi \circ \phi$ are similar to identity isomorphisms. 
+	\end{definition}
+	\begin{definition}\label{groupoid_reduction_defn}\cite{renault:gropoid_ca}
+	Let $\G$ be a groupoid, and let $E$ be a subset of $G^0$.
+	A subgroupoid 
+	$$
+	\G^E_E \bydef \left\{x \in G | r(x), s(x)\in E\right\}
+	$$
+	with unit space $E$ is said to be  the \textit{reduction} 
+	of $\G$ by $E$.
+\end{definition}
+\begin{prop}\label{groupoid_reduction_prop}\cite{renault:gropoid_ca}
+	Let $\G$ be a groupoid, $E$ a subset of $\G^0$ which meets each orbit in $\G$; then  	$\G^E_E$ and $\G$ are similar (cf. Definition \ref{groupoid_hom_defn}).
+\end{prop}
+
+	
+	\begin{definition}\label{groupoid_top_defn}\cite{renault:gropoid_ca}
+	A \textit{topological groupoid} consists of a groupoid $\G$ and a topology compatible with the groupoid structure:
+	\begin{enumerate}
+		\item [(a)] $\G \to \G \quad x \mapsto x^{-1}$ is continuous,
+		\item [(b)] $\G^2\to \G\quad \left(x,y\right)\mapsto xy$ is continuous where $\G^2$ has the induced topology from $\G \times \G$.
+	\end{enumerate}
+		\end{definition}
+	
+	\begin{remark}\cite{renault:gropoid_ca}
+		One has:
+	\begin{itemize}
+		\item the map $x \mapsto x^{-1}$ is a homeomorphism,
+		\item if $\G$ is Hausdorff then $\G^0$ is closed in $\G$,
+		\item if $\G^0$ is Hausdorff then  $\G^2$ is closed in $\G \times \G$, $\G^0$ is both a subspace of $\G$ and a quotient of $\G$ (by the map $r$), the induced and the quotient topology coincide.
+	\end{itemize}
+	\end{remark}
+	\begin{definition}\label{groupoid_haar_defn}\cite{renault:gropoid_ca}
+ Let $\G$ be a locally compact groupoid. A \textit{left Haar system} for $\G$
+consists of measures $\left\{\la^u | u \in G^0\right\}$ on G such that
+\begin{enumerate}
+	\item [(a)] the support $\supp\la^u$ of the measure $\la^u$ is $G^u$,
+	\item [(b)]  (continuity) for any $f \in C_c\left(\G\right)$, $u \mapsto \la(f)(u) = \int f d\la^u$ is continuous, and
+	\item [(c)]  (left invariance) for any $x\in \G$ and any $f \in  C_c(\G )$, $\int  f ( x y ) d\la^{s(x)}(y) =
+\int f(y)d\la^{r(x)}(y)$.
+
+\end{enumerate}
+	\end{definition}
+\begin{empt}
+Let $\G$ be a locally compact groupoid with left Haar system $\left\{\la^u\right\}$  For $f$ and $g\in C_c\left(\G\right)$, let  us define
+\be\label{groupoid_*_defn}
+\begin{split}
+f * g \left(x\right)\bydef 
+f * g ( x ) = \int  f ( x y ) g \left( y^{-1}\right)d\la^{d(x)}(y),\\
+f^* ( x ) \bydef\overline{f ( x^{ -1})} 	
+\end{split}
+\ee
+It is proven in \cite{renault:gropoid_ca} that the equations yield a *-algebra. We denote it by $C_c\left(\G\right)$. Denote by $C^*_r\left( \G\right)$ a completion of  $C_c\left(\G\right)$ with respect to the following $C^*$-norm
+$$
+\left\|a \right\| \bydef \sup_{\pi \in \text{Irr}\left(C_c\left(\G\right)\right)} \left\|\pi\left( a\right)  \right\| 
+$$
+where $\text{Irr}\left(C_c\left(\G\right)\right)$ is a set of all irreducible representations of $C_c\left(\G\right)$.
+\end{empt}	
+	
+	
+	\begin{definition}\label{groupoid_discete_defn}\cite{renault:gropoid_ca}
+%2.6. D e f i n i t i o n : 
+A locally compact groupoid is r - \textit{discrete} if its unit space is an
+open subset.
+\end{definition}
+\begin{lemma}\label{groupoid_discete_lem}\cite{renault:gropoid_ca}
+%2.7. Lemma :
+ Let $\G$ be an $r$-discrete groupoid.
+ \begin{enumerate}
+ 	\item [(i)] For any $u\in \G^0$, both $\G^u$ and $G_u$ are discrete spaces.
+ \item[(ii)] If a Haar system exists, it is essentially the counting measures system.
+ \item[(iii)] If a Haar system exists, $s$ and $r$ are local homeomorphisms.	
+ \end{enumerate}
+
+\end{lemma}
 	\begin{empt}
 		Let $\G$ be a groupoid. 
 		Consider an involutive algebra $\C\left[\G \right]$ over $\C$ generated by $\G$ which satisfies to the following relations
@@ -28373,9 +28486,7 @@ S\cap T = \emptyset \quad \Rightarrow \quad \exists s \in \mathscr{ A}\left( \sU
 			a^*\left(\ga\right)= \overline{a\left(\ga^{-1}\right)}.
 		\end{split}
 		\ee
-	\end{empt}
-	
-	
+	\end{empt}-
 	\begin{definition}\label{foli_groupoid_red_defn}
 		If $\Pi$ is the set of irreducible representations of $\C\left[\G \right]$ then the completion of $\C\left[\G \right]$ with respect to $C^*$-norm
 		$$
@@ -28406,7 +28517,7 @@ Here I follow to \cite{brown:proper_groupoids}.
 	\begin{defn}\label{def dyn sys}Suppose that $G$ is a second countable locally compact groupoid  with Haar system $\haars$ and $\A$ is an upper semicontinuous $C^*$-bundle over $\units$. Suppose  the associated $C_0\left(\sX\right)$-algebra, $A=\Ga_0\left(G^0, \A\right)$ is separable. An action $\alpha$ of $G$ on $A$ is a family of $*$-isomorphisms $\{\alpha_{\gamma}\}_{\gamma\in G}$ such that 
 		\begin{enumerate}
 			\item\label{dyn sys rs} for each $\gamma\in G$, $\alpha_{\gamma}:A(s(\gamma))\rightarrow A(r(\gamma))$,
-			\item\label{dyn sys alg}for all $(\gamma,\eta)\in G^{(2)}$, $\alpha_{\gamma\eta}=\alpha_{\gamma}\circ\alpha_{\eta}$,
+			\item\label{dyn sys alg}for all $(\gamma,\eta)\in G^2$, $\alpha_{\gamma\eta}=\alpha_{\gamma}\circ\alpha_{\eta}$,
 			\item\label{dyn sys cts}the map $(\gamma, a)\mapsto \alpha_{\gamma}(a)$ is a continuous map from $G\times\A$ to $\A$.
 		\end{enumerate}
 		The triple $(\A,G,\alpha)$ is called a (groupoid) dynamical system.\end{defn}
@@ -28432,7 +28543,7 @@ Here I follow to \cite{brown:proper_groupoids}.
 	\begin{equation}\|f\|_r\bydef\sup\{\|\Ind\pi(f)\|:
 		\pi \text{~is a $C_0(\units)$-linear representation of $A$}\}.\label{eq red norm}\end{equation}
 	
-	\begin{rem}This definition agrees with those given in \cite{Mcoord} and \cite{Ren80}, but is \emph{a priori} different from that given in \cite{AR00}.  We suspect that all of these definitions agree, but have yet to prove it.  But the set of regular representations used in \cite{AR00} is the subset of the regular representations defined above such that $\mu_{\pi}$ is a point mass measure. Thus $\|\cdot\|_r$ is greater than or equal to the norm $\|\cdot\|_{\text{red}}$ considered in \cite{AR00} which is enough for our purposes.\end{rem}
+%	\begin{rem}This definition agrees with those given in \cite{Mcoord} and \cite{Ren80}, but is \emph{a priori} different from that given in \cite{AR00}.  We suspect that all of these definitions agree, but have yet to prove it.  But the set of regular representations used in \cite{AR00} is the subset of the regular representations defined above such that $\mu_{\pi}$ is a point mass measure. Thus $\|\cdot\|_r$ is greater than or equal to the norm $\|\cdot\|_{\text{red}}$ considered in \cite{AR00} which is enough for our purposes.\end{rem}
 	
 	As usual we can  define the reduced crossed product of a dynamical system $(\A,G, \alpha)$, denoted $\A\rtimes_{\alpha,r}G$, to be the completion of $\Gamma_c(G,r^*\A)$ in the norm $\|\cdot\|_r$.
 	
@@ -30812,108 +30923,6 @@ I am very grateful to Prof. Joseph C Varilly  and Arup Kumar Pal
  
  \begin{thebibliography}{10}
  	
- \bibitem[ADR00]{AR00}
- C.~Anantharaman-Delaroche and J.~Renault, \emph{Amenable groupoids},
- Monographies de L'Enseignement Math\'ematique [Monographs of L'Enseignement
- Math\'ematique], vol.~36, L'Enseignement Math\'ematique, Geneva, 2000, With a
- foreword by Georges Skandalis and Appendix B by E. Germain. 
- 
- \bibitem[Exe99]{Ex99}
- Ruy Exel, \emph{Unconditional integrability for dual actions}, Bol. Soc.
- Brasil. Mat. (N.S.) \textbf{30} (1999), no.~1, 99--124.
- 
- \bibitem[Gre77]{Grn77}
- Philip Green, \emph{{$C\sp*$}-algebras of transformation groups with smooth
- 	orbit space}, Pacific J. Math. \textbf{72} (1977), no.~1, 71--97.
-
- 
- \bibitem[HKRW09]{AKRW09}
- Astrid~an Huef, Steve Kaliszewski, Ian Raeburn, and Dana~P. Williams,
- \emph{Fixed-point algebras for proper actions and crossed products by
- 	homogeneous spaces}, arXiv:0907.0681v1, 2009.
- 
- \bibitem[HRW00]{aHRW00}
- Astrid~an Huef, Iain Raeburn, and Dana~P. Williams, \emph{An equivariant
- 	{B}rauer semigroup and the symmetric imprimitivity theorem}, Trans. Amer.
- Math. Soc. \textbf{352} (2000), no.~10, 4759--4787. 
-
- 
- \bibitem[HRW03]{aHRW03}
- Astrid~an Huef, Iain Raeburn, and Dana~P. Williams,, \emph{Proper actions on imprimitivity bimodules and decompositions of
- {M}orita equivalences}, J. Funct. Anal. \textbf{200} (2003), no.~2, 401--428.
- 
- 
- \bibitem[HRW05]{AHRW05}
- Astrid~an Huef, Iain Raeburn, and Dana~P. Williams, \emph{A symmetric imprimitivity theorem for commuting proper actions},
- Canad. J. Math. \textbf{57} (2005), no.~5, 983--1011.
- \bibitem[KQR08]{KQR08}
- S.~Kaliszewski, John Quigg, and Iain Raeburn, \emph{Proper actions, fixed-point
- algebras and naturality in nonabelian duality}, J. Funct. Anal. \textbf{254}
- (2008), no.~12, 2949--2968. 
- 
- \bibitem[Mey01]{Meyer01}
- Ralf Meyer, \emph{Generalized fixed point algebras and square-integrable group
- actions}, Journal of Functional Analysis \textbf{186} (2001), 167--195.
- 
- \bibitem[MR09]{MR09}
- Dami{\'a}n Marelli and Iain Raeburn, \emph{Proper actions which are not
- saturated}, Proc. Amer. Math. Soc. \textbf{137} (2009), no.~7, 2273--2283.
- 
- 
- \bibitem[MRW87]{MRW87}
- Paul~S. Muhly, Jean~N. Renault, and Dana~P. Williams, \emph{Equivalence and
- isomorphism for groupoid {$C\sp \ast$}-algebras}, J. Operator Theory
- \textbf{17} (1987), no.~1, 3--22.
- \bibitem[Muh]{Mcoord}
- Paul~S. Muhly, \emph{Coordinates in operator algebras}, to appear.
- 
- \bibitem[MW90]{MW90}
- Paul~S. Muhly and Dana~P. Williams, \emph{Continuous trace groupoid {$C\sp
- 	*$}-algebras}, Math. Scand. \textbf{66} (1990), no.~2, 231--241.
- 
- 	
- 	\bibitem[MW08]{MW08}
- 	Paul~S. Muhly and Dana~P. Williams, \emph{Renault's equivalence theorem for groupoid crossed products},
- 	New York Journal of Mathematics \textbf{3} (2008), 1--87.
- 	
- 	\bibitem[Ren80]{Ren80}
- 	Jean Renault, \emph{A groupoid approach to {$C\sp{\ast} $}-algebras}, Lecture
- 	Notes in Mathematics, vol. 793, Springer, Berlin, 1980. 
- 	\bibitem[Ren91]{Ren91}
- 	Jean Renault, \emph{The ideal structure of groupoid crossed product {$C\sp
- 	\ast$}-algebras}, J. Operator Theory \textbf{25} (1991), no.~1, 3--36, With
- 	an appendix by Georges Skandalis. 
- 	
- 	\bibitem[Rie82]{rieffel82}
- 	Marc~A. Rieffel, \emph{Applications of strong {M}orita equivalence to
- transformation group {$C\sp{\ast} $}-algebras}, Operator algebras and
- applications, Part I (Kingston, Ont., 1980), Proc. Sympos. Pure Math.,
- vol.~38, Amer. Math. Soc., Providence, R.I., 1982, pp.~299--310.
- \bibitem[Rie90]{Rieffel90}
- Marc~A. Rieffel, \emph{Proper actions of groups on {$C\sp *$}-algebras}, Mappings of
- operator algebras (Philadelphia, PA, 1988), Progr. Math., vol.~84,
- Birkh\"auser Boston, Boston, MA, 1990, pp.~141--182. 
- \bibitem[Rie04]{Rieff04}
- Marc~A. Rieffel, \emph{Integrable and proper actions on {$C\sp *$}-algebras, and
- square-integrable representations of groups}, Expo. Math. \textbf{22} (2004),
- no.~1, 1--53.
- 
- \bibitem[RW85]{RW85}
- Iain Raeburn and Dana~P. Williams, \emph{Pull-backs of {$C\sp \ast$}-algebras
- and crossed products by certain diagonal actions}, Trans. Amer. Math. Soc.
- \textbf{287} (1985), no.~2, 755--777. 
- 
- \bibitem[RW98]{tfb}
- Iain Raeburn and Dana~P. Williams, \emph{Morita equivalence and continuous-trace {$C\sp *$}-algebras},
- Mathematical Surveys and Monographs, vol.~60, American Mathematical Society,
- Providence, RI, 1998.
- 
- \bibitem[Wil07]{TFB2}
- Dana~P. Williams, \emph{Crossed products of {$C{\sp \ast}$}-algebras},
- Mathematical Surveys and Monographs, vol. 134, American Mathematical Society,
- Providence, RI, 2007. 
- 
- 	
  	
 %\bibitem{lie_groupoids_coov}  CORRECT TURKISH
 
@@ -31256,6 +31265,10 @@ Translations of Mathematical Monographs, vol. 226, 2005.
 %\bibitem{miyashita_infin_outer_gal} Y\^oichi Miyashita, {\it Locally finite outer Galois theory}. Department of Mathematics, Hokkaido, University, 1967.
 
 %\bibitem{muhly_williams:groupoid_ctr}  Paul S. Muhly and Dana P. Williams. {\it Continuous trace groupoid $C^*$-algebras.}, Math. Scand. 1990
+ 	
+\bibitem{MW08}
+Paul~S. Muhly and Dana~P. Williams, \emph{Renault's equivalence theorem for groupoid crossed products},
+New York Journal of Mathematics \textbf{3} (2008), 1--87.
 
 \bibitem{munkres:topology} James R. Munkres. {\it Topology.} Prentice Hall, Incorporated, 2000.
 
@@ -31316,6 +31329,9 @@ spinors'', J. Oper. Theory {\bf 16} (1986), 305--324. 1986.
 \bibitem{Rieffel:74a}
 Marc~A. Rieffel, \emph{Induced representations of {C}{$^\ast$}-algebras},
 Advances in Mathematics \textbf{13} (1974), 176--257. 1974.
+
+
+\bibitem{renault:gropoid_ca} Jean Renault, \emph{A groupoid approach to {$C\sp{\ast} $}-algebras}, Lecture Notes in Mathematics, vol. 793, Springer, Berlin, 1980. 
 
 %\bibitem{Rieffel:74b}Marc~A. Rieffel. \emph{{M}orita equivalence for {C}{$^\ast$}-algebras and	{W}{$^\ast$}-algebras}, Journal of Pure and Applied Algebra \textbf{5}(1974), 51--96. 1974.
 
