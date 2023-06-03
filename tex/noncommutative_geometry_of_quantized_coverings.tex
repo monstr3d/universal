@@ -28324,7 +28324,6 @@ The group of $n$-cocycles of this complex will be denoted by $Z^n(\G,A)$,
 the group of $n$-coboundaries w i l l be denoted by $B^n(\G,A)$ and the $n$-th cohomology group
 $Z^n(\G,A)/B^n(\G,A)$ will be denoted by $H^n(\G,A)$.
 \end{definition}
-\begin{empt}
 
 	\begin{definition}\label{groupoid_top_defn}\cite{renault:gropoid_ca}
 	A \textit{topological groupoid} consists of a groupoid $\G$ and a topology compatible with the groupoid structure:
@@ -28360,7 +28359,7 @@ consists of measures $\left\{\la^u | u \in G^0\right\}$ on G such that
 	\int f ( x y ) g \left( y^{-1}\right)\sigma\left(xy, y^{-1} \right) d\la^{d(x)}(y),\\
 	f^* ( x ) \bydef\overline{f ( x^{ -1})} 	
 \end{split}
-\ee	\end{empt}
+\ee	
 	
 \begin{empt}
 Let $\G$ be a locally compact groupoid with left Haar system $\left\{\la^u\right\}$  For $f$ and $g\in C_c\left(\G\right)$, let  us define
@@ -28377,11 +28376,65 @@ $$
 $$
 where $\text{Irr}\left(C_c\left(\G\right)\right)$ is a set of all irreducible representations of $C_c\left(\G\right)$.
 \end{empt}	
+
+
+\begin{empt}\cite{renault:gropoid_equiv}
+	The definition of a $\G$-\textit{space} $\sX$ is a straightforward generalization of that for a group action. Here we require a continuous open map from the locally compact space $\sX$ onto $\G^0$, which we call $\rho$ or $\sigma$, according to the side on which $\G$ acts. For example a \textit{left} $G$-\textit{space} is given by a continuous map $\G*\sX\to\sX$ where $\G*\sX$ denotes the set of composable pairs $\left(\ga, x\right)$ with $s(\ga)=\rho(x)$. 
 	
+	We say that the action is \textit{free} id $\ga \cdot x = x$ only when $\ga$ is a unit. We say that the action is \textit{proper} if the map
+	\bean
+	\G*\sX \to \sX \times \sX,\\
+	(\ga, x)\mapsto (\ga\cdot x, x)
+	\eean 
+	is proper.	 The space is a \textit{principal} $\G$-space if the action is both free and proper.
+\end{empt}
+\begin{definition}\label{groupoid_equiv_defn}\cite{renault:gropoid_equiv}
+	Let $\G$ and $\H$ be locally compact groupoids. We say that a locally compact space $\sZ$ is a $(\G,\H)$-\textit{equivalence} if
+	\begin{enumerate}
+		\item [(a)] $\sZ$ is a left principal $\G$-space,
+		\item [(b)] $\sZ$ is a right principal $\H$-space,
+		\item [(c)] the $\G$ and $\H$ actions commute.
+		\item [(d)] the map $\rho$ induces a bijection of $\sZ/\H$ onto $\G^0$, and
+		\item [(e)]  the map $\sigma$ induces a bijection of $\G\backslash\sZ$ onto $\G^0$.
+	\end{enumerate}
+\end{definition}
+\begin{example}\cite{renault:gropoid_equiv}
+Let $\G$ be locally compact Hausdorff groupoid and let $N$ be a closed subset of $\G^0$ that meets each orbit in $\G^0$. Then as easy to see, $\G_N$ is a principal left $\G$-space and a principal right $\G^N_N$-space. The maps $\sigma\bydef  s|_{\G_N}$ and $\rho\bydef  r|_{\G_N}$ satisfy to (d) and (e) of Definition \ref{groupoid_equiv_defn}, so if they are open then $\G_N$ is a $\left(\G,\G^N_N \right)$-equivalence.
+\end{example}
+\begin{theorem}\label{groupoid_morita_defn}\cite{renault:gropoid_equiv}
+Suppose that $(\G, \la)$ and $\left(\H, \bt\right)$ are second countable, locally compact groupoids with Haar systems $\la$ and $\bt$. Then for any $\left(\G, \H\right)$-equivalence $\sZ$, $C_c\left(\sZ\right)$ can naturally be completed into $C^*(\G, \la)$-$C^*\left(\H, \bt\right)$ imprimitivity bimodule. In particular $C^*(\G, \la)$ and $C^*\left(\H, \bt\right)$ are strongly Morita equivalent.
+\end{theorem}	
 	
+	\begin{lemma}\cite{renault:gropoid_equiv}
+		Let $\Om$ be a principal left $\G$-space.
+		\begin{enumerate}
+			\item [(i)] If $F \in C_c\left(\Om\times \G\right)$ then
+			$$
+		\varphi\left(\om, u\right)	\bydef \int_{\G} F\left(\om, \ga \right)d\la^u\left(\ga\right)
+			$$
+			defines an element of $C_c\left(\Om\times \G^0\right)$.
+			\item[(ii)] If $f \in C_c\left(\Om\right)$ then
+			$$
+			\la(f)\left(\left[\om\right]\right)\bydef \int_{\G} f\left(\la^{-1}\cdot \om\right)d\la^{\rho(\om)}(\ga)
+			$$
+			defines a surjection of $C_c(\Om)$ onto $C_c\left(\G\backslash\Om\right)$.
+		\end{enumerate}
+	\end{lemma}
+\begin{empt}
+There are two pre-$C^*$-algebras $A \bydef C_c(\G, \la)$ and $B \bydef C_c\left(\H, \bt\right)$. We define the left $A$-action and the right $B$-action as follows:
+\bean
+f \cdot \varphi(z)\bydef\int_{\G}f(\ga)\varphi\left(\ga^{-1}\cdot z\right)d\la^{\rho(z)}(\ga),\\
+\varphi \cdot g(z)\bydef\int_{\G}\varphi(z\cdot \eta)g \left(\eta^{-1}\right)d\bt^{\sigma(z)}(\eta)
+\eean
+where $\varphi \in C_c\left(\sZ\right)$, $\quad f\in A$, and $g \in B$. Also we define $B$ and $A$-valued inner products
+\bean
+\left\langle\varphi, \psi \right\rangle_B(\eta)\bydef \int_{\G} \overline{\varphi\left(\ga^{-1}\cdot z\right)}\psi\left(\ga^{-1}\cdot z\cdot \eta\right)\d^\la{\rho(z)}(\ga)\in B,\quad \sigma(z)=r(\eta);\\
+\left\langle\varphi, \psi \right\rangle_A(\ga)\bydef \int_{\G} \varphi\left(\ga^{-1}\cdot z\cdot \eta\right)\overline{\psi\left(\ga^{-1}\cdot \eta\right)}\d^\bt{\sigma(z)}(\eta)\in B,\quad \rho(z)=r(\ga);
+\eean 
+\end{empt}
 	\begin{definition}\label{groupoid_discete_defn}\cite{renault:gropoid_ca}
 %2.6. D e f i n i t i o n : 
-A locally compact groupoid is r - \textit{discrete} if its unit space is an
+A locally compact groupoid is $r$ - \textit{discrete} if its unit space is an
 open subset.
 \end{definition}
 \begin{lemma}\label{groupoid_discete_lem}\cite{renault:gropoid_ca}
@@ -31182,12 +31235,16 @@ Translations of Mathematical Monographs, vol. 226, 2005.
 %\bibitem{miyashita_infin_outer_gal} Y\^oichi Miyashita, {\it Locally finite outer Galois theory}. Department of Mathematics, Hokkaido, University, 1967.
 
 %\bibitem{muhly_williams:groupoid_ctr}  Paul S. Muhly and Dana P. Williams. {\it Continuous trace groupoid $C^*$-algebras.}, Math. Scand. 1990
+\bibitem{renault:gropoid_equiv}P. S. Muhly, Jean Renault, Dana P. Williams, \emph{Equivalence and isomorphism for groupoid $C^*$ - algebras} Journal of operator theory. January 1987
+
+
  	
 \bibitem{MW08}
 Paul~S. Muhly and Dana~P. Williams, \emph{Renault's equivalence theorem for groupoid crossed products},
-New York Journal of Mathematics \textbf{3} (2008), 1--87.
+New York Journal of Mathematics \textbf{3} (2008), 1--87. 2008;
 
 \bibitem{munkres:topology} James R. Munkres. {\it Topology.} Prentice Hall, Incorporated, 2000.
+
 
 \bibitem{murphy}G.J. Murphy. {\it $C^*$-Algebras and Operator Theory.} Academic Press 1990.
 \bibitem{Paschke:73}
@@ -31249,6 +31306,7 @@ Advances in Mathematics \textbf{13} (1974), 176--257. 1974.
 
 
 \bibitem{renault:gropoid_ca} Jean Renault, \emph{A groupoid approach to {$C\sp{\ast} $}-algebras}, Lecture Notes in Mathematics, vol. 793, Springer, Berlin, 1980. 
+
 
 %\bibitem{Rieffel:74b}Marc~A. Rieffel. \emph{{M}orita equivalence for {C}{$^\ast$}-algebras and	{W}{$^\ast$}-algebras}, Journal of Pure and Applied Algebra \textbf{5}(1974), 51--96. 1974.
 
