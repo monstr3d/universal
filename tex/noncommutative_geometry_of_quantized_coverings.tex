@@ -28297,8 +28297,35 @@ $$
 	Let $\G$ be a groupoid. A $\G$-bundle $(A,L)$ is a $\mathscr C$ - bundle $A$ together
 	with a homomorphism $L : G \to \text{ I s o} (A)$ such that $L^0: \G^0\to A^0$ is a bijection . (We will often identify $\G^0$ and $A^0$). When  $\mathscr C$  s the category of Abelian groups, one speaks of a
 	$\G$-\textit{module bundle}.
-\end{definition}	
-	
+\end{definition}
+\begin{empt}
+Given a $\G$-module bundle $( A , L )$, one can form the following cochain complex. Let
+us first define $G^n$ for any $n\in\N$ The sets $\H^0$ , $G^1\bydef \G$ and $\G^2$ have already been defined. For $n> 2$, $\quad \G^n$ is the set of $n$-tuples $(x_0 . . . . . X_{n-1}) \in \G\times...\times \G$ such that for $
+j = 1 . . . . . n - l$ , $\quad x_j$ is composable with its left neighbor. A $n$-cochain is a function from $G^n$ to $A$ which satisfies the conditions
+\begin{enumerate}
+	\item[(i)] $p\circ f(x_0 . . . . . x_{n-1}) = r(x_0)$ and
+	\item[(ii)] if $n > 0$ and for some $j = 0, . . . , n - 1$ , $\quad x_0 \in \G^0$, then $f ( x_0, ..., x_j , ..., x_{n-1})\in A^0$.
+\end{enumerate}
+The set $C^n\left(\G, A\right)$ of $n$-cochains is an Abelian group under point-wise addition. The
+sequence 
+\bean
+0 \to C^0\left( \G, A\right)\to C^0\left( \G, A\right)\to C^1\left( \G, A\right)\to...\to  C^n\left( \G, A\right) \xrightarrow{\delta^n} C^{n + 1}\left( \G, A\right)\to ...
+\eean
+ where 
+ \bean
+ \delta^0f(x)\bydef L(x)\quad  f\circ s(x) - f \circ r ( x ),\\
+\delta^n(f(x_0 ,..., x_n) = L ( x_0 ) f ( x_1,..., x_n) +\\+ \sum_{j=1}^n (-1)^j
+f ( x_0 ,..., x_{j-1}x_j . . . . . x_{n-1})+(-1)^{n-1} f ( x_0 , . . . , x_{n-1}) \quad  n > 0,
+\eean
+
+ is a cochain complex.\end{empt}	
+\begin{definition}
+The group of $n$-cocycles of this complex will be denoted by $Z^n(\G,A)$,
+the group of $n$-coboundaries w i l l be denoted by $B^n(\G,A)$ and the $n$-th cohomology group
+$Z^n(\G,A)/B^n(\G,A)$ will be denoted by $H^n(\G,A)$.
+\end{definition}
+\begin{empt}
+
 	\begin{definition}\label{groupoid_top_defn}\cite{renault:gropoid_ca}
 	A \textit{topological groupoid} consists of a groupoid $\G$ and a topology compatible with the groupoid structure:
 	\begin{enumerate}
@@ -28326,12 +28353,21 @@ consists of measures $\left\{\la^u | u \in G^0\right\}$ on G such that
 
 \end{enumerate}
 	\end{definition}
-\begin{empt}
-Let $\G$ be a locally compact groupoid with left Haar system $\left\{\la^u\right\}$  For $f$ and $g\in C_c\left(\G\right)$, let  us define
+	Let G be a locally compact groupoid with left Haar system $\left\{\la^u\right\}$ and let $\sigma$ be a continuous 2-cocycle in $Z^2\left(\G, \T\right)$. For $f ,g \in Cc(\G )$, l e t us define
 \be\label{groupoid_*_defn}
 \begin{split}
+	f * g \left(x\right)\bydef 
+	\int f ( x y ) g \left( y^{-1}\right)\sigma\left(xy, y^{-1} \right) d\la^{d(x)}(y),\\
+	f^* ( x ) \bydef\overline{f ( x^{ -1})} 	
+\end{split}
+\ee	\end{empt}
+	
+\begin{empt}
+Let $\G$ be a locally compact groupoid with left Haar system $\left\{\la^u\right\}$  For $f$ and $g\in C_c\left(\G\right)$, let  us define
+\be\label{groupoid_*__defn}
+\begin{split}
 f * g \left(x\right)\bydef 
- \int  f ( x y ) g \left( y^{-1}\right)d\la^{d(x)}(y),\\
+ \int  f ( x y ) g \left( y^{-1}\right) d\la^{d(x)}(y),\\
 f^* ( x ) \bydef\overline{f ( x^{ -1})} 	
 \end{split}
 \ee
