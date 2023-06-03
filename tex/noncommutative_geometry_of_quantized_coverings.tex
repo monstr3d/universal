@@ -28242,7 +28242,62 @@ Two homomorphism are \textit{similar} (write $\phi\sim \psi$) if there exists a 
 \begin{prop}\label{groupoid_reduction_prop}\cite{renault:gropoid_ca}
 	Let $\G$ be a groupoid, $E$ a subset of $\G^0$ which meets each orbit in $\G$; then  	$\G^E_E$ and $\G$ are similar (cf. Definition \ref{groupoid_hom_defn}).
 \end{prop}
+\begin{definition}\cite{renault:gropoid_ca}
+%1.6. D e f i n i t i o n : 
+Let $\G$ be a groupoid, $A$ a group and $c: \G\to A$ a homomorphism, the
+\textit{skew-product} $\G(c)$ is the groupoid $\G\times A$ where : $( x , a )$ and $(y,b)$ are composable if and only if  $x$ and $y$ are composable and $b = a c ( x )$, $( x , a ) ( y , a c ( x ) )\bydef ( x y , a )$, and $( x , a )^{-1} =
+\left(  x^{-1}  , a c ( x )\right)$; $\quad ( x , a )  \bydef( r ( x ) , a )$ , $\quad s ( x , a )\bydef ( d ( x ) , a c ( x ) )$ . Its unit space is $\G^0\times A$.
+\end{definition}
 
+\begin{definition}\cite{renault:gropoid_ca}
+%1.7. D e f i n i t i o n :
+ Let $\G$ be a groupoid, let $A$ be a group and let $\a: A \to \Aut\left(\G\right)$ be a
+homomorphism. We write $x*a \bydef \left[\a\left(a^{-1}\right)\right]$ for $a\in A$ and $x\in \G$. The \textit{semi-direct product} $G\rtimes_\a A$ is the groupoid $G\times A$ where $( x , a )$ and $( z , b )$ are composable if and only if $z = y*a$ with  $x$ and $y$ composable,$ ( x , a ) ( y * a,b) = ( x y , a b )$ , and $(x,a)^{ -1}\bydef \left( x ^{-1} * a, a^{ - l} \right)$ .
+Then, $r ( x , a ) = ( r ( x ) , e )$ and $s ( x , a ) = (d(x) ¥ a , e )$ . The unit  space may be identified 
+with $\G^0$.
+\end{definition}
+
+\begin{proposition}
+%1.8. P r o p o s i t i o n : 
+With above notation,
+\begin{enumerate}
+	\item[(i)] $\G(c) \rtimes_\a A$  is similar to $\G$ and
+	\item[(ii)] $\left( \G\rtimes_a A\right) (c)$ is similar to $\G$.
+\end{enumerate}
+
+.\end{proposition}
+\begin{definition}
+%1.9. D e f i n i t i o n :
+ An \textit{inverse semi}-\textit{group} is a set $\mathscr G$  endowed with an associative binary operation , noted multiplication, and an inverse map
+\bean
+ \mathscr G\to  \mathscr G,\\
+ s \mapsto s^{-1}
+\eean
+such that the following relations  are satisfied  $ss^{-1}s = s$ and $s^{-1}ss^{-1}=s^{-1}$ .
+\end{definition}
+\begin{definition}
+%1 . 1 0 . D e f i n i t i o n : 
+Let $\G$ be a groupoid. A subset $s$ of $\G$ will be called a $\G$-\textit{set} if 
+the restriction of $r$ and $s$ to it are one-to-one . Equivalently, $s$ is a $\G$-set if and only is $s^{-1}s$
+and $ss^{-1}$  are contained in $\G^0$.
+
+\end{definition}
+
+
+\begin{definition}
+Suppose that $\mathscr C$ is some category. A map $p$ from a set $A$ onto a set $A^0$ such that
+each fiber $p^{-1} ( u )$ is an object of  $\mathscr C$ will be called a  $\mathscr C$-\textit{bundle} map and $A$ will be called  $\mathscr C$-bundle.  Let $A$ be
+a  $\mathscr C$ - bundle with the bundle map $p: A \to A_0$. Write $A_u \bydef p^{-1} ( u )$.
+$$
+ \text{Iso}(A) = \left\{\text{isomorphisms}\phi_{u,v}| A_u\to A_v\quad u,v \in A^0\right\} 
+ $$	
+	has a natural structure of groupoid. %: #u,v and ~ v ' , ware composable i f f v' = v - then t h e i r product is ~u,v ¡#v,w' and 4 -1 is the iso-' U~Vmorphism inverse of ~u,v" The b i j e c t i o n idu, u ~ u i d e n t i f i e s the u n i t space of Iso(A)and A O. Iso(A) is c a l l e d the isomorphism groupoid of the C-bundle A.
+	\end{definition}
+\begin{definition}
+	Let $\G$ be a groupoid. A $\G$-bundle $(A,L)$ is a $\mathscr C$ - bundle $A$ together
+	with a homomorphism $L : G \to \text{ I s o} (A)$ such that $L^0: \G^0\to A^0$ is a bijection . (We will often identify $\G^0$ and $A^0$). When  $\mathscr C$  s the category of Abelian groups, one speaks of a
+	$\G$-\textit{module bundle}.
+\end{definition}	
 	
 	\begin{definition}\label{groupoid_top_defn}\cite{renault:gropoid_ca}
 	A \textit{topological groupoid} consists of a groupoid $\G$ and a topology compatible with the groupoid structure:
@@ -28276,7 +28331,7 @@ Let $\G$ be a locally compact groupoid with left Haar system $\left\{\la^u\right
 \be\label{groupoid_*_defn}
 \begin{split}
 f * g \left(x\right)\bydef 
-f * g ( x ) = \int  f ( x y ) g \left( y^{-1}\right)d\la^{d(x)}(y),\\
+ \int  f ( x y ) g \left( y^{-1}\right)d\la^{d(x)}(y),\\
 f^* ( x ) \bydef\overline{f ( x^{ -1})} 	
 \end{split}
 \ee
