@@ -15035,7 +15035,7 @@ is a skeleton of the category $\mathfrak{S}_{A\otimes \K}$ (cf. Definition \ref{
 \begin{definition}\label{stable_rep_defn}  
 	Let 
 	\bean
-	\mathfrak{S}^{\text{pt}}_{A\otimes \K} \bydef   \left(\left\{\widetilde\pi_\la: A \otimes \K\hookto \right\}_{\la \in \La}, \left\{\widetilde\pi^\mu_\nu: A_\mu^\K \hookto A_\nu^\K\right\}_{\substack{\mu, \nu \in \La\\ \nu \ge \mu}}\right)	
+	\mathfrak{S}^{\text{pt}}_{A\otimes \K} \bydef   \left(\left\{\widetilde\pi_\la: A \otimes \K\hookto A_\la^\K\right\}_{\la \in \La}, \left\{\widetilde\pi^\mu_\nu: A_\mu^\K \hookto A_\nu^\K\right\}_{\substack{\mu, \nu \in \La\\ \nu \ge \mu}}\right)	
 \eean
 be a pointed algebraical  finite covering category (cf. Definition \ref{pointed_defn}). We say that 
 $	\mathfrak{S}^{\text{pt}}_{A\otimes \K}$ is \textit{represented by}
@@ -15647,6 +15647,37 @@ Suppose that both  $\left[ f\right]\in  \pi_1\left(\sX, x_0 \right)/\left[\pi_1\
 Let $\varphi:\sX \to U(1)$ be a continuous map
 $\sX \to U(1)$ such that $\varphi|_{S^1 }=\a$.
 The map 	$\varphi: \sX \to U(1)$ can be regarded as an unitary element $u \in C\left( \sX\right) \subset M\left(C\left(\sX\right)\otimes \K \right)$. One has $Index\left(\left[u \right] ,\left[K^1_{S^1}\circ f\right]  \right)= Index\left(K^1_{S^1}\circ f \right)= 1$. From the universal coefficient theorem it follows that $\left[u \right]\in \K^1\left(\sX \right)$ is not divisible. So if $n > 1$ and $\phi_n$ is given by \eqref{h_n_root} then $v \bydef \phi_n\left( u\right)\notin  M\left(C\left(\sX\right)\otimes \K \right)$. Similarly to \eqref{h_zc_eqn} one can construct a covering $\mathcal Z$ such that $G\left(\left.\mathcal Z\right| \sX\right)= \Z_n$ and $C\left(\mathcal Z\right) \cong C\left( \sX\right)\left[v\right]$.  From the Theorem \ref{stable_fin_cov_rem} it follows that $\left(C\left(\sX\right) \otimes \K, C\left( \mathcal Z\right) \otimes \K, \Z_n\right)$ is a noncommutative finite-fold covering (cf. Definition \ref{fin_defn} !!! \ref{fin_exer} !!! !!! CHANGE !!!which is an $\left(u, n \right)$-covering (cf. Definition \ref{h_u_n_defn}).
+\section{Stable Hurewicz homomorphism}
+
+If $A$ is a connected $C^*$-algebra then one has
+$$
+K_j\left( A\right) \cong K_j\left( A \otimes \K\right) \quad j = 0,1
+$$
+Let $\pi^{\text{stab}}_1\left(A \right)\bydef \pi_1\left( A \otimes \K \right)$ be the {fundamental group}, (resp. {reduced fundamental group}), (resp. {free fundamental group}), (resp. {simple fundamental group}) (cf. Definition \ref{fundamental_group_nc_defn}). Let 
+		\bean
+	\mathfrak{S}^{\text{pt}}_{A\otimes \K} \bydef   \left(\left\{\widetilde\pi_\la: A \otimes \K\hookto  A_\la^\K\right\}_{\la \in \La}, \left\{\widetilde\pi^\mu_\nu: A_\mu^\K \hookto A_\nu^\K\right\}_{\substack{\mu, \nu \in \La\\ \nu \ge \mu}}\right)	
+	\eean
+	be a pointed algebraical  finite covering category (cf. Definition \ref{pointed_defn}) which corresponds to $\pi_1\left( A \otimes \K \right)$ and suppose that $	\mathfrak{S}^{\text{pt}}_{A\otimes \K}$ is {represented by}
+	\bean
+	\mathfrak{S}^{\text{pt}}_{A} \bydef   \left(\left\{\pi_\la: A\hookto A_\la\right\}_{\la \in \La}, \left\{\pi^\mu_\nu: A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\ \nu \ge \mu}}\right)	
+	\eean
+	(cf. Definition \ref{stable_rep_defn}). If 	$\mathfrak{S}^{\text{pt}}_{A\otimes \K}$ is good (cf. Definition \ref{good_defn}) then from the Theorem \ref{stab_inf_thm} it follows that
+	$$
+	\pi^{\text{stab}}_1\left(A \right)\bydef \pi_1\left( A \otimes \K \right)\cong G\left(\left.\widetilde{A}\otimes \mathcal{K}~\right|~ A\otimes \mathcal{K}\right)\cong G\left(\left.\widetilde{A}~\right|~ A\right)
+	$$
+	where $\widetilde{A}$ is the inverse noncommutative limit  of $\mathfrak{S}_A$ (cf. Definition \ref{main_defn}). Taking into account homomorphisms \eqref{h_gen_n_eqn} following homomorphisms
+	
+	\be\label{h_gen_stab_n_eqn}
+\begin{split}
+	h^{\widetilde A}_{\text{tors}}: \pi^{\text{stab}}_1\left( A\right) \to K_1\left(A \right)_{\text{tors}} ,\\
+	h^{\widetilde A}_{\text{free}}:\pi^{\text{stab}}_1\left( A\right)\to K_1\left( A\right)_{\text{free}} \bydef  K_1\left( A\right)/ K_1\left( A\right)_{\text{tors}}
+\end{split}
+\ee
+\begin{definition}
+We say the given by \eqref{h_gen_stab_n_eqn} set of homomorphisms is a \textit{stable Hurewicz homomorphism}.
+\end{definition}
+
+
 
 
 \section{Resume}
