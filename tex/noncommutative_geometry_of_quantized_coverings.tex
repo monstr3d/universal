@@ -146,11 +146,11 @@
 \renewcommand{\d}{\mathrm{d}}       %% commutative differential
 \newcommand{\dR}{\mathrm{dR}}       %% de~Rham cohomology
 \newcommand{\proj}{\mathrm{proj}}                %% a projection
-\newcommand*{\braket}[2]{\langle#1 {\mid} #2\rangle}% right inner products
+\newcommand*{\braket}[2]{\langle#1 {,~} #2\rangle}% right inner products
 \newcommand*{\lbraket}[2]{\langle\!\langle#1{\mid}#2\rangle\!\rangle}% left inner products
 
-
 \newcommand*{\Mult}{\mathcal M}% multiplier algebra
+\newcommand{\Lt}{\mathcal{L}}                 %%\newcommand{\unitsv}[1]{#1^{(0)}}
 
 \newcommand{\A}{\mathcal{A}}                 %%\newcommand{\unitsv}[1]{#1^{(0)}}
 \newcommand{\units}{G^{(0)}}
@@ -319,7 +319,6 @@
 	\newcommand{\bydef}{\stackrel{\mathrm{def}}{=}}          %% 
 	\newcommand{\defeq}{\stackrel{\mathrm{def}}{=}}   
 	
-	\newcommand{\cstar}{C^*}       %% 
 	
 	
 	\newcommand{\al}{\alpha}          %% short for  \alpha
@@ -4144,27 +4143,32 @@ Let  $\mathfrak{S}^{\text{pt}} = \left(\left\{\pi_\la: A \hookto A_\la \right\},
 \begin{definition}\label{subord_defn}
 Consider the above situation.  We say that a $C^*$-algebra $\overline A$ \textit{subordinated to}  $\mathfrak{S}^{\text{pt}}$ if following conditions hold.
 \begin{enumerate}
-	\item [(a)] There is an inclusion $\phi: \widehat A \hookto M\left(\overline A\right)$,
+	\item [(a)] There is an inclusion $\phi: \widehat A \hookto M\left(\overline A\right)$.
 	\item[(b)] There is an action $\widehat{G}\times \overline A \to \overline A$ such that
 	for all $g \in \widehat{G}$,  $\quad \widehat a \in \widehat{A}$ and $\overline a \in \overline{A}$ one has
 	\bean
 	g\left(\phi\left(\widehat a \right)\overline{a}\right)  = 	g\left(\phi\left(\widehat a \right)\right) g \overline{a},\\
-	g\left( \overline{a}\phi\left(\widehat a \right)\right) =g \overline{a}g\phi\left(\widehat a \right),
+	g\left( \overline{a}\phi\left(\widehat a \right)\right) =g \overline{a}g\phi\left(\widehat a \right).
 	\eean
 	\item[(c)] For any $\la\in \La$  and $\overline a \in K\left(\overline A \right)$ the series $\sum_{g \in \ker\left(\widehat{G}\to G_\la\right)}g \overline a$ is convergent with respect to the strict topology of $M\left(\overline{A} \right)$ (cf. \ref{strict_topology_defn}) where $ K\left(\overline A \right)$ is a Pedersen's ideal (cf. Definition \ref{peder_id_defn}). Moreover we require that
 	$$
-\sum_{g \in \ker\left(\widehat{G}\to G_\la\right)}g \overline a \in \varphi_\la\left( K\left( A_\la\right) \right) 	
+\bt-\sum_{g \in \ker\left(\widehat{G}\to G_\la\right)}g \overline a \in \varphi_\la\left( K\left( A_\la\right) \right) 	
 	$$ 
-	where $\varphi_\la : A_\la \hookto \widehat A$ is the natural inclusion.
+	where $\varphi_\la : A_\la \hookto \widehat A$ is the natural inclusion, and $\bt-\sum$ means a convergent with respect to strong topology sum  of the infinite series.
+	\item[(d)]  
+For all $\overline a \in K\left(\overline A \right)$ one has
+	$$
+\left( \forall	\la\in \La\quad  \sum_{g \in \ker\left(\widehat{G}\to G_\la\right)}g \overline a=0\right)\quad  \Rightarrow\quad  \overline a = 0.
+	$$
 \end{enumerate}
 \end{definition}
 \begin{definition}\label{discon_defn}
-A subordinated 	$\mathfrak{S}^{\text{pt}}$ $C^*$-algebra $\overline{A}$ is said to be  \textit{\it disconnected algebraical inverse noncommutative limit} of $ \mathfrak{S}^{\mathrm{pt}}$ if for any subordinated to	$\quad \mathfrak{S}^{\text{pt}}$ $C^*$-algebra $\overline{A}'$ there is the natural injective *-homomorphism
+A $C^*$-algebra $\overline{A}$  subordinated to	$\mathfrak{S}^{\text{pt}}$ is said to be  \textit{\it disconnected algebraical inverse noncommutative limit} of $ \mathfrak{S}^{\mathrm{pt}}$ if for any $C^*$-algebra $\overline{A}'$ subordinated to	$\quad \mathfrak{S}^{\text{pt}}$  there is the natural injective *-homomorphism
  $\psi : \overline{A}'\hookto\overline{A}$ such that all
  	 $g \in \widehat{G}$,  $\widehat a \in \widehat{A}$ and $\overline a' \in \overline{A}$ one has
 	\bean
 	g \psi\left( \overline{a}'\right) = \psi\left(g \overline{a}'\right),\\
-	\psi\left(\phi'\left( \widehat  a\right)\overline a'  \right) = 	\phi\left( \widehat  a\right)\psi\left( \overline a'  \right),
+	\psi\left(\phi'\left( \widehat  a\right)\overline a'  \right) = 	\phi\left( \widehat  a\right)\psi\left( \overline a'  \right),\\
 		\psi\left(\overline a' \phi'\left( \widehat  a\right) \right) = 	\psi\left( \overline a'  \right)\phi\left( \widehat  a\right)
 	\eean 
 	where both $\phi: \widehat A \hookto M\left(\overline A\right)$ and $\phi': \widehat A \hookto M\left(\overline A'\right)$ are required by the Definition \ref{subord_defn} inclusions.
@@ -4172,12 +4176,26 @@ A subordinated 	$\mathfrak{S}^{\text{pt}}$ $C^*$-algebra $\overline{A}$ is said 
 	
 	
 \end{definition}
-
-	
-	If a subordinated 	$\mathfrak{S}^{\text{pt}}$ $C^*$-algebra is unique then we say that the triple $\left(A, \overline{A}, \widehat G\right)$ is a \textit{\it disconnected algebraical inverse noncommutative limit} of $ \mathfrak{S}^{\mathrm{pt}}$. 
 \begin{empt}
-REPRESENTATION
+Consider a	$C^*$-algebra $\overline{A}$  subordinated to	$\mathfrak{S}^{\text{pt}}$ If  $\overline a \in K\left(\overline A\right)_+$ is a positive element then there is an decreasing net $\left\{a_\la\right\}\in \widehat A$ such that
+$$
+a _\la \bydef \sum_{g \in \ker\left(\widehat{G}\to G_\la\right)}g \overline a\in \varphi_\la\left( K\left( A_\la\right) \right) 	 \subset \widehat A
+$$
+If $\widehat \pi: \widehat{A}\to B\left(\widetilde{\H}\right)$ is a faithful representation and $\overline a \in K\left(\overline A\right)_+$ then from the Lemma \ref{increasing_convergent_w_lem} it turns out that the net is convergent with respect to the strong topology of $B\left(\widehat{\H}\right)$ (cf. Definition \ref{strong_topology_defn}). If $\overline b = s$-$\lim_{\la \in \La} a_\la\in B\left(\widehat{\H}\right)$ is the strong limit then one has a map 
+\bean
+\overline \pi_+ : \K\left(\overline A\right)_+ \to B\left(\widehat \H\right),\\
+\overline a \mapsto \overline{b}.
+\eean
+From the condition (d) of the definition \ref{subord_defn} it follows that this map is injective. Using the equation \eqref{four_decompositon_eqn},  we can extend $\overline \pi_+$ up to an injective map 
+$$
+K\left( \overline \pi\right)  : K\left(\overline A\right) \to B\left(\widehat \H\right).
+$$
+We leave to the reader the proof of that $K\left( \overline \pi\right)$ is a *-homomorphism. Taking into account that $K\left(\overline A\right)$ is dense in $\overline A$ we obtain a full representation
+\be\label{full_disc_eqn}
+ \overline \pi  : \overline A \hookto B\left(\widehat \H\right).
+\ee
 \end{empt}
+
 
 
 
@@ -24719,7 +24737,7 @@ nondegenerate representation of $A$ on $X \widehat\otimes_B \H_\pi$.
 	\end{remark}
 	
 	
-	\section{Correspondences}\label{correspondeces_chap}
+	\section{$C^*$-correspondences}\label{correspondeces_chap}
 Here I follow to \cite{uni_groupoid_ca}.
 	A $C^*$-\textit{correspondence} from a $C^*$-algebra~$A$
 	to another $C^*$-algebra~$D$
@@ -28455,8 +28473,9 @@ open subset.
 		$$
 		is said to be the \textit{reduced algebra} of $\G$. It will be denoted by $C^*_r\left(\G\right)$.
 	\end{definition}
-\section{!!!!}
-
+	
+\section{Universal properties of groupoid $C^*$-algebras}
+\paragraph{}
 
 Let \(\sX\)
 and~\(\sY\)
@@ -28478,6 +28497,202 @@ means that the integration map
 \]
 takes values in~\(C_c(\sY)\).
 
+\begin{definition}
+	\label{def:corr_from_measures}
+	We equip
+	\(C_c(\sX)\) with the \(C_0(\sX)\)-\(C_0(\sY)\)-bimodule
+	structure
+	\[
+	(\varphi_1\cdot \varphi_2\cdot \varphi_3)(x) \defeq
+	\varphi_1(x)\varphi_2(x)\varphi_3(f(x))
+	\]
+	for \(\varphi_1\in C_0(\sX)\),
+	\(\varphi_2\in C_c(\sX)\),
+	\(\varphi_3\in C_0(\sY)\)
+	and with the \(C_0(\sY)\)-valued
+	inner product
+	$\bracket{\xi}{\eta} \defeq \lambda \bigl(\overline{\xi}\cdot
+	\eta\bigr)$, that is,
+	\bean
+	\braket{\xi}{\eta}(y)
+	\defeq \int_{f^{-1}(y)} \overline{\xi(x)}\cdot \eta(x)
+	\dd\lambda_y(x).
+	\eean
+	Then \(C_c(\sX)\)
+	is a pre-Hilbert \(C_0(\sY)\)-module
+	with a nondegenerate representation of~\(C_0(\sX)\)
+	by adjointable operators.  Some nonzero \(\xi\in C_c(\sX)\)
+	might have \(\braket{\xi}{\xi}=0\)
+	unless we assume~\(\lambda_y\)
+	to have full support.  Let \(\Lt^2(X,f,\lambda)\)
+	be the Hausdorff completion of~\(C_c(\sX)\)
+	for this inner product, which is a $C^*$-correspondence
+	from~\(C_0(\sX)\)
+	to~\(C_0(\sY)\).
+	In diagrams, we often briefly denote this $C^*$-correspondence
+	as
+	\[
+	C_0(\sX) \xrightarrow[\lambda]{f} C_0(\sY).
+	\]
+\end{definition}
+
+
+
+\begin{definition}
+	Let \(f\colon \sX\to \sY\) (``forward'') be a continuous map with a
+	continuous family of measures~\(\lambda\) and let \(b\colon X\to Z\)
+	(``backward'') be a continuous map.  We define a
+	\(C_0(\sZ)\)-module structure on~\(C_c(\sX)\) by \((\varphi\cdot
+	\psi)(x) \defeq \varphi(b(x))\cdot \psi(x)\) for
+	\(\varphi\in C_0(\sZ)\), \(\psi_c(\sX)\).  This extends to a
+	representation of~\(C_0(\sZ)\) on the Hilbert
+	\(C_0(\sY)\)\-module \(\Lt^2(X,f,\lambda)\), turning it into
+	a $C^*$-correspondence from~\(C_0(\sZ)\)
+	to~\(C_0(\sY)\).  We denote it by \(b^*\Lt^2(X,f,\lambda)\).
+	We call a pair of maps \(Z \xleftarrow{b} X
+	\xrightarrow{f} Y\) with a continuous family of measures~\(\lambda\)
+	along~\(f\) a \emph{topological correspondence} from~\(Z\)
+	to~\(\sY\).
+\end{definition}
+
+In particular, the \(C_0(\sX)\)-\(C_0(\sY)\)-correspondence
+\(\Lt^2(X,f,\lambda)\) built in
+Definition~\ref{def:corr_from_measures} from a continuous family of
+measures~\(\lambda\) along a continuous map \(f\colon X\to Y\) is
+associated to the topological correspondence
+\[
+X\xleftarrow{\Id_X} X \xrightarrow[\lambda]{f} Y.
+\]
+
+Topological correspondences are a mild generalisation of the
+topological quivers introduced by Muhly and
+Tomforde~\cite{Muhly-Tomforde:Quivers}: a topological quiver is a
+topological correspondence with the same source and target space.
+Basic results about topological quivers such as
+\cite{Muhly-Tomforde:Quivers}*{Lemmas 6.1--4} have obvious
+generalisations to topological correspondences.  We also get the
+notion of a topological correspondence if we specialise the
+topological correspondences between locally compact, Hausdorff
+groupoids introduced in~\cite{Holkar:Thesis} to locally compact
+spaces.  % (see Section~\ref{sec:correspondences}).
+
+Topological correspondences may be composed by a fibre product
+construction, and this composition and the interior tensor product of
+$C^*$-correspondences
+are compatible up to a canonical isomorphism, see
+\cite{Muhly-Tomforde:Quivers}*{Lemmas 6.1--4} or~\cite{Holkar:Thesis}.
+We give more details.  Let \(\sX\),
+\(\sY\)
+and~\(Z\)
+be locally compact spaces.  Let \((V,b_V,f_V,\lambda)\)
+and \((W,b_W,f_W,\mu)\)
+be topological correspondences from~\(\sX\)
+to~\(\sY\)
+and from~\(\sY\)
+to~\(Z\),
+respectively.  Their composite topological correspondence is
+the fibre product
+\[
+V\times_{f_V,Y,b_W}W\defeq \{(v,w)\in V\times W: f_V(v)=b_W(w)\}
+\]
+with the maps \(b\defeq b_V\circ \mathrm{pr}_1\)
+and \(f\defeq f_W\circ\mathrm{pr}_2\),
+respectively, where~\(\mathrm{pr}_i\)
+is the projection from \(V\times_{f_V,Y,b_W}W\)
+to the \(i\)th
+factor; the family of measures \(\lambda\times\mu\)
+on \(V\times_{f_V,Y,b_W}W\) is defined by
+\[
+\int_{V\times_{f_V,Y,b_W}W} \varphi \dd(\lambda\times\mu)_z
+\defeq \int_{f_W^{-1}(z)}\int_{f_V^{-1}(b_W(w))}
+\varphi(v,w) \dd\lambda_{b_W(w)}(v) \dd\mu_z(w)
+\]
+for \(\varphi\in C_c(V\times_{f_V,Y,b_W}W)\) and \(z\in Z\).
+
+\begin{proposition}
+	\label{prop:functoriality-of-corr}
+	The canonical map
+	\[
+	\gamma\colon C_c(V)\odot C_c(W)\to C_c(V\times_{f_V,Y,b_W}W),
+	\qquad
+	\gamma(\varphi\otimes \psi)(v,w)\defeq \varphi(v)\psi(w),
+	\]
+	extends to an isomorphism
+	\[
+	b_V^* \Lt^2(V,f_V,\lambda)\otimes_{C_0(\sY)}
+	b_W^* \Lt^2(W,f_W,\mu) \cong
+	b^* \Lt^2(V\times_{f_V,Y,b_W}W,f,\lambda\times\mu)
+	\]
+	of $C^*$--correspondences from \(C_0(\sX)\) to \(C_0(\sZ)\).
+\end{proposition}
+
+\begin{proof}
+	A direct computation shows that~\(\gamma\)
+	is a bimodule map.  To see that~\(\gamma\)
+	preserves the inner products, take
+	\(\varphi_1,\varphi_2\in C_c(V)\)
+	and \(\psi_1,\psi_2\in C_c(W)\).  Then
+	\begin{align*}
+		\braket{\varphi_1\otimes\psi_1}{\varphi_2\otimes\psi_2}(z)
+		&= \braket{\psi_1}{\braket{\varphi_1}{\varphi_2}\cdot\psi_2}(z)
+		\\&= \int_{f_W^{-1}(z)}\int_{f_V^{-1}(b_W(w))}
+		\overline{\psi_1(w)}\overline{\varphi_1(v)}
+		\varphi_2(v)\psi_2(w)\dd\lambda_{b_W(w)}(v)\dd\mu_z(w)
+		\\&=\braket{\gamma(\varphi_1\otimes\psi_1)}
+		{\gamma(\varphi_2\otimes\psi_2)}(z).
+	\end{align*}
+	Thus~\(\gamma\)
+	is an isometric bimodule map.  The subspace of \(C_c(V\times W)\)
+	spanned by functions of the form \((v,w)\mapsto \varphi(v)\psi(w)\)
+	is dense in the inductive limit topology.  Hence restrictions of
+	such functions to \(V\times_{f_V,Y,b_W}W\)
+	are linearly dense in \(C_c(V\times_{f_V,Y,b_W}W)\),
+	which is dense in
+	\(\Lt^2(V\times_{f_V,Y,b_W}W,f,\lambda\times\mu)\).
+	Thus~\(\gamma\) is surjective.
+\end{proof}
+
+An \emph{isomorphism} between two topological correspondences
+\[
+\sX\xleftarrow{b_i} \sZ_i\xrightarrow[\lambda_i]{f_i} \sY,\qquad
+i=1,2,
+\]
+is a homeomorphism \(\Phi\colon \sZ_1\cong \sZ_2\) that
+satisfies \(f_2\circ\Phi=f_1\), \(b_2\circ\Phi=b_1\) with a
+continuous function \(\delta\colon\sZ_2 \to \R_{>0}\) such that
+\(\lambda_2 = \delta\cdot \Phi_*(\lambda_1)\), that is,
+\(\lambda_{2,y} = \delta\cdot \Phi_*(\lambda_1)_y\) for all \(y\in
+Y\).  We call~\(\delta\) an \emph{equivalence} from
+\(\Phi_*(\lambda_1)\) to \(\lambda_2\).  The restriction
+of~\(\delta\) to a fibre \(f_2^{-1}(y)\subseteq\sZ_2\) is a
+Radon--Nikodym derivative for the measures \(\lambda_{2,y}\)
+and~\(\Phi_*(\lambda_1)_y\).  This is unique up to equality
+almost everywhere.  Therefore, if \(\lambda_1\) and~\(\lambda_2\)
+have full support and a function~\(\delta\) as above exists, then
+it is unique.  An isomorphism as above induces a unitary
+\(C_0(\sX)\)-\(C_0(\sY)\)-bimodule isomorphism
+\[
+\Phi_*\colon C_c(\sZ_1)\to C_c(\sZ_2),\qquad
+\Phi_*(g)(z) \defeq
+g\circ \Phi^{-1}(z)\, \delta(z)^{-1/2}.
+\]
+It extends to an isomorphism of $C^*$--correspondences
+\[
+\Phi_*\colon b_1^* \Lt^2(Y,f_1,\lambda_1)\cong
+b_2^* \Lt^2(Y,f_2,\lambda_2).
+\]
+
+\begin{remark}
+	We may weaken the continuity assumptions on \(\Phi^{\pm1}\)
+	and~\(\delta\).  For instance, if~\(\sY\) is just a point, then it
+	suffices to assume~\(\Phi^{\pm1}\) to be measurable.  Then we
+	take~\(\delta\) to be the Radon--Nikodym derivative as above,
+	which is automatically measurable.  In general, we need
+	\(\Phi^{\pm1}\) and~\(\delta\) to be measurable in the fibre
+	directions and continuous along the base~\(\sY\).  We do not try
+	to make this precise here because we shall only use continuous
+	isomorphisms as defined above.
+\end{remark}
 	
 	\section{Groupoids and $C^*$-algebras}
 \paragraph*{}
