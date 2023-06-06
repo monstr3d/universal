@@ -146,7 +146,8 @@
 \renewcommand{\d}{\mathrm{d}}       %% commutative differential
 \newcommand{\dR}{\mathrm{dR}}       %% de~Rham cohomology
 \newcommand{\proj}{\mathrm{proj}}                %% a projection
-
+\newcommand*{\braket}[2]{\langle#1 {\mid} #2\rangle}% right inner products
+\newcommand*{\lbraket}[2]{\langle\!\langle#1{\mid}#2\rangle\!\rangle}% left inner products
 
 
 \newcommand*{\Mult}{\mathcal M}% multiplier algebra
@@ -166,7 +167,7 @@
 \newcommand{\E}{\mathcal{E}}                 %% space of distributions
 \renewcommand{\b}{\beta}                     %% short for \beta
 \newcommand{\braCket}[3]{\langle#1\mathbin|#2\mathbin|#3\rangle}
-\newcommand{\braket}[2]{\langle#1\mathbin|#2\rangle} %% <w|z>
+%\newcommand{\braket}[2]{\langle#1\mathbin|#2\rangle} %% <w|z>
 \newcommand{\C}{\mathbb{C}}                  %% complex numbers
 \newcommand{\CC}{\mathcal{C}}                %% space of distributions
 \newcommand{\cc}{\mathbf{c}}                 %% Hochschild cycle
@@ -189,6 +190,7 @@
 \newcommand{\la}{\lambda}                    %% short for \lambda
 \newcommand{\lf}{L_f^\theta}                 %% left mult operator
 \newcommand{\M}{\mathcal{M}}                 %% Moyal multplr algebra
+\newcommand{\Lb}{\mathcal{L}}                 %% Moyal multplr algebra
 \newcommand{\mm}{\mathcal{M}^\theta}
 %\newcommand{{{\star_{\theta}}}{{\mathchoice{\mathbin{\;|\;ar_{_\theta}}}
 			%            {\mathbin{\;|\;ar_{_\theta}}}           %% Moyal
@@ -315,6 +317,9 @@
 	\newcommand{\bZ}{\mathbb{Z}}       %%
 	
 	\newcommand{\bydef}{\stackrel{\mathrm{def}}{=}}          %% 
+	\newcommand{\defeq}{\stackrel{\mathrm{def}}{=}}   
+	
+	\newcommand{\cstar}{C^*}       %% 
 	
 	
 	\newcommand{\al}{\alpha}          %% short for  \alpha
@@ -4135,6 +4140,47 @@ On the other hand the union $ \cup A_\la$ is dense in $C^*$-$\varprojlim A_\la$ 
 \end{remark}
 Let  $\mathfrak{S}^{\text{pt}} = \left(\left\{\pi_\la: A \hookto A_\la \right\}, \left\{\pi^\mu_\nu\right\}\right)$  be a {pointed algebraical  finite covering category}  (cf. Definition \ref{pointed_defn}). Let $\widehat{A} \bydef C^*\text{-}\varprojlim_{\la \in \La} A_{\la}$ be the $C^*$-inductive limit of $C^*$-algebras (cf. Definition \ref{inductive_lim_non_defn}), and let $\widehat{G}= \varprojlim_{\la \in \La} G\left(
 \left.  A_\la~ \right|A\right)$ be the inverse limit of groups (cf. Definition \ref{group_inv_lim_defn}).
+
+\begin{definition}\label{subord_defn}
+Consider the above situation.  We say that a $C^*$-algebra $\overline A$ \textit{subordinated to}  $\mathfrak{S}^{\text{pt}}$ if following conditions hold.
+\begin{enumerate}
+	\item [(a)] There is an inclusion $\phi: \widehat A \hookto M\left(\overline A\right)$,
+	\item[(b)] There is an action $\widehat{G}\times \overline A \to \overline A$ such that
+	for all $g \in \widehat{G}$,  $\quad \widehat a \in \widehat{A}$ and $\overline a \in \overline{A}$ one has
+	\bean
+	g\left(\phi\left(\widehat a \right)\overline{a}\right)  = 	g\left(\phi\left(\widehat a \right)\right) g \overline{a},\\
+	g\left( \overline{a}\phi\left(\widehat a \right)\right) =g \overline{a}g\phi\left(\widehat a \right),
+	\eean
+	\item[(c)] For any $\la\in \La$  and $\overline a \in K\left(\overline A \right)$ the series $\sum_{g \in \ker\left(\widehat{G}\to G_\la\right)}g \overline a$ is convergent with respect to the strict topology of $M\left(\overline{A} \right)$ (cf. \ref{strict_topology_defn}) where $ K\left(\overline A \right)$ is a Pedersen's ideal (cf. Definition \ref{peder_id_defn}). Moreover we require that
+	$$
+\sum_{g \in \ker\left(\widehat{G}\to G_\la\right)}g \overline a \in \varphi_\la\left( K\left( A_\la\right) \right) 	
+	$$ 
+	where $\varphi_\la : A_\la \hookto \widehat A$ is the natural inclusion.
+\end{enumerate}
+\end{definition}
+\begin{definition}\label{discon_defn}
+A subordinated 	$\mathfrak{S}^{\text{pt}}$ $C^*$-algebra $\overline{A}$ is said to be  \textit{\it disconnected algebraical inverse noncommutative limit} of $ \mathfrak{S}^{\mathrm{pt}}$ if for any subordinated to	$\quad \mathfrak{S}^{\text{pt}}$ $C^*$-algebra $\overline{A}'$ there is the natural injective *-homomorphism
+ $\psi : \overline{A}'\hookto\overline{A}$ such that all
+ 	 $g \in \widehat{G}$,  $\widehat a \in \widehat{A}$ and $\overline a' \in \overline{A}$ one has
+	\bean
+	g \psi\left( \overline{a}'\right) = \psi\left(g \overline{a}'\right),\\
+	\psi\left(\phi'\left( \widehat  a\right)\overline a'  \right) = 	\phi\left( \widehat  a\right)\psi\left( \overline a'  \right),
+		\psi\left(\overline a' \phi'\left( \widehat  a\right) \right) = 	\psi\left( \overline a'  \right)\phi\left( \widehat  a\right)
+	\eean 
+	where both $\phi: \widehat A \hookto M\left(\overline A\right)$ and $\phi': \widehat A \hookto M\left(\overline A'\right)$ are required by the Definition \ref{subord_defn} inclusions.
+	
+	
+	
+\end{definition}
+
+	
+	If a subordinated 	$\mathfrak{S}^{\text{pt}}$ $C^*$-algebra is unique then we say that the triple $\left(A, \overline{A}, \widehat G\right)$ is a \textit{\it disconnected algebraical inverse noncommutative limit} of $ \mathfrak{S}^{\mathrm{pt}}$. 
+\begin{empt}
+REPRESENTATION
+\end{empt}
+
+
+
  \begin{definition}\label{equiv_defn}
 	A faithful representation ${\pi}: \widehat{A} \hookto B\left( \H\right)$ is said to be \textit{equivariant} if there is the action  $\widehat{G}\times {\H} \to {\H}$ such that
 	\be\label{equivt_eqn}
@@ -15670,7 +15716,7 @@ Let $\pi^{\text{stab}}_1\left(A \right)\bydef \pi_1\left( A \otimes \K \right)$ 
 	\be\label{h_gen_stab_n_eqn}
 \begin{split}
 	h^{\widetilde A}_{\text{tors}}: \pi^{\text{stab}}_1\left( A\right) \to K_1\left(A \right)_{\text{tors}} ,\\
-	h^{\widetilde A}_{\text{free}}:\pi^{\text{stab}}_1\left( A\right)\to K_1\left( A\right)_{\text{free}} \bydef  K_1\left( A\right)/ K_1\left( A\right)_{\text{tors}}
+	h^{\widetilde A}_{\text{free}}:\pi^{\text{stab}}_1\left( A\right)\to K_1\left( A\right)_{\text{free}} \bydef  K_1\left( A\right)/ K_1\left( A\right)_{\text{tors}}.
 \end{split}
 \ee
 \begin{definition}
@@ -24672,6 +24718,50 @@ nondegenerate representation of $A$ on $X \widehat\otimes_B \H_\pi$.
 		
 	\end{remark}
 	
+	
+	\section{Correspondences}\label{correspondeces_chap}
+Here I follow to \cite{uni_groupoid_ca}.
+	A $C^*$-\textit{correspondence} from a $C^*$-algebra~$A$
+	to another $C^*$-algebra~$D$
+	consists of a (right) Hilbert $D$-module~$\F$
+	with a nondegenerate *-homomorphism~\(\varphi\) from~$A$
+	to~$\mathbb{B}(\F)$,
+	the $C^*$-algebra of adjointable operators on~$\F$.
+	We view a $C^*$-correspondence from~$A$
+	to~$D$
+	as an arrow \(A\to D\)
+	and usually write $A\xrightarrow{\F} D$.
+	We also view~\(\varphi\)
+	as a \emph{representation} of~$A$
+	on~$\F$.
+	Two $C^*$-correspondences
+	$\F_1$)
+	and~$\F_2$)
+	from~$A$
+	to~$D$
+	are \emph{isomorphic} if there is a unitary bimodule map
+	$U: \F_1 \xrightarrow{\sim} \F_2$.
+	
+	We write~\(\otimes\)
+	for suitably completed tensor products of $C^*$-correspondences,
+	and~\(\odot\)
+	for the tensor product of vector spaces without any completion.
+	In particular, the composite of two $C^*$-correspondences
+	$A\xrightarrow{\E} B$ and $B\xrightarrow{\F} D$ is their
+	(balanced) tensor product~$\E \ox_B \F$
+	(see~\cite{Lance:Hilbert_modules}%*{Chapter~4}
+	). This is
+	the completion of the algebraic (balanced) tensor product
+	~$\E \odot_B \F$) with respect to the $D$-valued inner product
+	$$
+\left\langle \xi_1\ox \eta_1, \xi_2\ox \eta_1 \right\rangle\bydef  \left\langle \eta_1, \varphi\left(\xi_1, \xi_2 \right) \right\rangle 
+$$
+	where $\varphi\colon B\to \mathbb{B}\left(\F \right)$  is the underlying
+	homomorphism that gives the left $B$-module structure of~$\F$;
+	the notation $\E \ox_\varphi \F$ is used instead of
+$\E \ox_B \F$ to highlight~$\varphi$.
+	
+	
 	\section{Strong Morita equivalence for $C^*$-algebras}\label{strong_morita_sec}
 
 	\paragraph*{}
@@ -28240,17 +28330,29 @@ consists of measures $\left\{\la^u | u \in G^0\right\}$ on G such that
 \int f(y)d\la^{r(x)}(y)$.
 
 \end{enumerate}
+
+|\section{Groupoid $C^*$-algebras}
 	\end{definition}
-	Let G be a locally compact groupoid with left Haar system $\left\{\la^u\right\}$ and let $\sigma$ be a continuous 2-cocycle in $Z^2\left(\G, \T\right)$. For $f ,g \in Cc(\G )$, l e t us define
-\be\label{groupoid_*_defn}
+	Let $\G$ be a locally compact groupoid with left Haar system $\left\{\la^u\right\}$ and let $\sigma$ be a continuous 2-cocycle in $Z^2\left(\G, \T\right)$. For $f ,g \in C_c(\G, \sigma )$, let us define
+\be\label{groupoid_*_c_eqn}
 \begin{split}
 	f * g \left(x\right)\bydef 
 	\int f ( x y ) g \left( y^{-1}\right)\sigma\left(xy, y^{-1} \right) d\la^{d(x)}(y),\\
 	f^* ( x ) \bydef\overline{f ( x^{ -1})} 	
 \end{split}
 \ee	
+In particular is $\sigma$ is trivial then one has a *-algebra
+\be\label{groupoid_*_eqn}
+\begin{split}
+	f * g \left(x\right)\bydef 
+	\int f ( x y ) g \left( y^{-1}\right) d\la^{d(x)}(y),\\
+	f^* ( x ) \bydef\overline{f ( x^{ -1})} 	
+\end{split}
+\ee	
+
+which is a specialization of \eqref{groupoid_*_c_eqn}
 	
-\begin{empt}
+\begin{empt}  !!! DEFINE NORM !!!
 Let $\G$ be a locally compact groupoid with left Haar system $\left\{\la^u\right\}$  For $f$ and $g\in C_c\left(\G\right)$, let  us define
 \be\label{groupoid_*__defn}
 \begin{split}
@@ -28265,7 +28367,7 @@ $$
 $$
 where $\text{Irr}\left(C_c\left(\G\right)\right)$ is a set of all irreducible representations of $C_c\left(\G\right)$.
 \end{empt}	
-
+\section{Strong Morita equivalence of groupoid $C^*$-algebras}
 
 \begin{empt}\cite{renault:gropoid_equiv}
 	The definition of a $\G$-\textit{space} $\sX$ is a straightforward generalization of that for a group action. Here we require a continuous open map from the locally compact space $\sX$ onto $\G^0$, which we call $\rho$ or $\sigma$, according to the side on which $\G$ acts. For example a \textit{left} $G$-\textit{space} is given by a continuous map $\G*\sX\to\sX$ where $\G*\sX$ denotes the set of composable pairs $\left(\ga, x\right)$ with $s(\ga)=\rho(x)$. 
@@ -28353,6 +28455,29 @@ open subset.
 		$$
 		is said to be the \textit{reduced algebra} of $\G$. It will be denoted by $C^*_r\left(\G\right)$.
 	\end{definition}
+\section{!!!!}
+
+
+Let \(\sX\)
+and~\(\sY\)
+be locally compact, Hausdorff spaces and let \(f\colon \sX\to \sY\)
+be a continuous map with a continuous family~\(\lambda\)
+of measures~\(\lambda_y\)
+along the fibres~\(f^{-1}(y)\)
+of~\(f\)
+(such families are called \emph{\(f\)-systems} in
+\cite{Renault:Representations}*{Section~1}).  Thus
+each~\(\lambda_y\)
+is a positive Radon measure on~\(\sX\)
+with \(\supp(\lambda_y)\subseteq f^{-1}(y)\).
+The continuity of~\(\lambda\)
+means that the integration map
+\[
+\lambda\colon C_c(\sX) \to C_c(\sY),\qquad
+\lambda(\varphi)(y) = \int_X \varphi(x)\dd\lambda_y(x),
+\]
+takes values in~\(C_c(\sY)\).
+
 	
 	\section{Groupoids and $C^*$-algebras}
 \paragraph*{}
@@ -30786,8 +30911,7 @@ I am very grateful to Prof. Joseph C Varilly  and Arup Kumar Pal
 %\bibitem{lie_groupoids_coov}  CORRECT TURKISH
 
 %I. Içen, M. Gürsoy, A. Özcan \textit{Coverings of Lie groupoids} 	Turk J Math, 35 (2011) , 207 – 218. 	c©T  UB ITAK, doi:10.3906/mat-0902-2, 2011.
- 	
- 	\bibitem{alekseev_bytsko:wilson_nc_tori} Anton Alekseev, Andrei Bytsko, {\it 	Wilson lines on noncommutative tori}. arXiv:hep-th/0002101, 2000.
+	\bibitem{alekseev_bytsko:wilson_nc_tori} Anton Alekseev, Andrei Bytsko, {\it 	Wilson lines on noncommutative tori}. arXiv:hep-th/0002101, 2000.
  	
  	\bibitem{apt_mult}	Charles A. Akemann, Gert K. Pedersen, Jun Tomiyama. \textit{Multipliers of $C^*$-algebras}. Journal of Functional Analysis Volume 13, Issue 3, July 1973, Pages 277-301, 1973.
   
@@ -30869,6 +30993,11 @@ I am very grateful to Prof. Joseph C Varilly  and Arup Kumar Pal
 
 \bibitem{brzezinsky:flat_co}Tomasz Brzezinski \textit{Flat connections and (co)modules}, arXiv:math/0608170, 2006.
 \bibitem{candel:foliI}Alberto Candel, Lawrence Conlon. \textit{Foliations I}. Graduate Studies in Mathematics, American Mathematical Society (1999), 1999.
+
+\bibitem{uni_groupoid_ca}Alcides Buss, Rohit Holkar, Ralf Meyer. \textit{A universal property for groupoid C*-algebras. I}. math.arXiv:1612.04963v2, 2018.
+
+
+
 %
 \bibitem{candel:foliII}Alberto Candel, Lawrence Conlon. \textit{Foliations II}. American Mathematical Society; 1 edition (April 1 2003), 2003.
 
@@ -31084,6 +31213,8 @@ New York London Toronto Sydney San Francisco. 1980.
 Thomas Krajewski. \textit{Classification of finite spectral triples}. Journal of Geometry and Physics Volume 28, Issues 1‚ November 1998, Pages 1-30, 1998.
 
 \bibitem{kreyszig:fa} Erwin Kreyszig. \textit{Introductory Functional Analysis with Applications}.  New York, N.Y. : Wiley, 1978.
+\bibitem{Lance:Hilbert_modules}E. Christopher Lance, \textit{Hilbert $C^*$-modules}, London Mathematical Society Lecture Note Series, vol. 210, Cambridge University Press, Cambridge, 1995. DOI 10.1017/CBO9780511526206 MR, 1995.
+
 
 \bibitem{kurosh:lga} A. G. Kurosh. \textit{Lectures on General Algebra}. PERGAMON PRESS.
 OXFORD . LONDON • EDINBURGH • NEW YORK •
