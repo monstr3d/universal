@@ -4179,7 +4179,7 @@ A $C^*$-algebra $\overline{A}$  subordinated to	$\mathfrak{S}^{\text{pt}}$ is sa
 \begin{empt}
 Consider a	$C^*$-algebra $\overline{A}$  subordinated to	$\mathfrak{S}^{\text{pt}}$ If  $\overline a \in K\left(\overline A\right)_+$ is a positive element then there is an decreasing net $\left\{a_\la\right\}\in \widehat A$ such that
 $$
-a _\la \bydef \sum_{g \in \ker\left(\widehat{G}\to G_\la\right)}g \overline a\in \varphi_\la\left( K\left( A_\la\right) \right) 	 \subset \widehat A
+a _\la \bydef\beta- \sum_{g \in \ker\left(\widehat{G}\to G_\la\right)}g \overline a\in \varphi_\la\left( K\left( A_\la\right) \right) 	 \subset \widehat A
 $$
 If $\widehat \pi: \widehat{A}\to B\left(\widetilde{\H}\right)$ is a faithful representation and $\overline a \in K\left(\overline A\right)_+$ then from the Lemma \ref{increasing_convergent_w_lem} it turns out that the net is convergent with respect to the strong topology of $B\left(\widehat{\H}\right)$ (cf. Definition \ref{strong_topology_defn}). If $\overline b = s$-$\lim_{\la \in \La} a_\la\in B\left(\widehat{\H}\right)$ is the strong limit then one has a map 
 \bean
@@ -4193,6 +4193,10 @@ $$
 We leave to the reader the proof of that $K\left( \overline \pi\right)$ is a *-homomorphism. Taking into account that $K\left(\overline A\right)$ is dense in $\overline A$ we obtain a full representation
 \be\label{full_disc_eqn}
  \overline \pi  : \overline A \hookto B\left(\widehat \H\right).
+\ee
+such that for all $\overline a \in K\left(\overline A\right)$ one has
+\be\label{full_disc_lim_eqn}
+ \overline \pi\left(  \overline a\right) = s\text{-}\lim_{\la\in\La} \varphi_\la\left( a_\la\right)\quad  \text{where} \quad a_\la \bydef \beta- \sum_{g \in \ker\left(\widehat{G}\to G_\la\right)}g \overline a.
 \ee
 \end{empt}
 
@@ -10718,7 +10722,120 @@ So the given by \eqref{top_base_point_eqn} category 	$\mathfrak{S}^{\mathrm{pt}}
 	\\
 	(iii)  Follows from the Lemma \ref{direct_sum_strong_lim_lem}.
 \end{proof}
+\paragraph{!!!}
 
+
+\begin{definition}\label{subord_defn!}
+	Consider the above situation.  We say that a $C^*$-algebra $\overline A$ \textit{subordinated to}  $\mathfrak{S}^{\text{pt}}$ if following conditions hold.
+	\begin{enumerate}
+		\item [(a)] There is an inclusion $\phi: \widehat A \hookto M\left(\overline A\right)$.
+		\item[(b)] There is an action $\widehat{G}\times \overline A \to \overline A$ such that
+		for all $g \in \widehat{G}$,  $\quad \widehat a \in \widehat{A}$ and $\overline a \in \overline{A}$ one has
+		\bean
+		g\left(\phi\left(\widehat a \right)\overline{a}\right)  = 	g\left(\phi\left(\widehat a \right)\right) g \overline{a},\\
+		g\left( \overline{a}\phi\left(\widehat a \right)\right) =g \overline{a}g\phi\left(\widehat a \right).
+		\eean
+		\item[(c)] For any $\la\in \La$  and $\overline a \in K\left(\overline A \right)$ the series $\sum_{g \in \ker\left(\widehat{G}\to G_\la\right)}g \overline a$ is convergent with respect to the strict topology of $M\left(\overline{A} \right)$ (cf. \ref{strict_topology_defn}) where $ K\left(\overline A \right)$ is a Pedersen's ideal (cf. Definition \ref{peder_id_defn}). Moreover we require that
+		$$
+		\bt-\sum_{g \in \ker\left(\widehat{G}\to G_\la\right)}g \overline a \in \varphi_\la\left( K\left( A_\la\right) \right) 	
+		$$ 
+		where $\varphi_\la : A_\la \hookto \widehat A$ is the natural inclusion, and $\bt-\sum$ means a convergent with respect to strong topology sum  of the infinite series.
+		\item[(d)]  
+		For all $\overline a \in K\left(\overline A \right)$ one has
+		$$
+		\left( \forall	\la\in \La\quad  \sum_{g \in \ker\left(\widehat{G}\to G_\la\right)}g \overline a=0\right)\quad  \Rightarrow\quad  \overline a = 0.
+		$$
+	\end{enumerate}
+\end{definition}
+\begin{definition}\label{discon_defn!}
+	A $C^*$-algebra $\overline{A}$  subordinated to	$\mathfrak{S}^{\text{pt}}$ is said to be  \textit{\it disconnected algebraical inverse noncommutative limit} of $ \mathfrak{S}^{\mathrm{pt}}$ if for any $C^*$-algebra $\overline{A}'$ subordinated to	$\quad \mathfrak{S}^{\text{pt}}$  there is the natural injective *-homomorphism
+	$\psi : \overline{A}'\hookto\overline{A}$ such that all
+	$g \in \widehat{G}$,  $\widehat a \in \widehat{A}$ and $\overline a' \in \overline{A}$ one has
+	\bean
+	g \psi\left( \overline{a}'\right) = \psi\left(g \overline{a}'\right),\\
+	\psi\left(\phi'\left( \widehat  a\right)\overline a'  \right) = 	\phi\left( \widehat  a\right)\psi\left( \overline a'  \right),\\
+	\psi\left(\overline a' \phi'\left( \widehat  a\right) \right) = 	\psi\left( \overline a'  \right)\phi\left( \widehat  a\right)
+	\eean 
+	where both $\phi: \widehat A \hookto M\left(\overline A\right)$ and $\phi': \widehat A \hookto M\left(\overline A'\right)$ are required by the Definition \ref{subord_defn} inclusions.
+	
+	
+	
+\end{definition}
+\begin{empt}
+	Consider a	$C^*$-algebra $\overline{A}$  subordinated to	$\mathfrak{S}^{\text{pt}}$ If  $\overline a \in K\left(\overline A\right)_+$ is a positive element then there is an decreasing net $\left\{a_\la\right\}\in \widehat A$ such that
+	$$
+	a _\la \bydef\beta- \sum_{g \in \ker\left(\widehat{G}\to G_\la\right)}g \overline a\in \varphi_\la\left( K\left( A_\la\right) \right) 	 \subset \widehat A
+	$$
+	If $\widehat \pi: \widehat{A}\to B\left(\widetilde{\H}\right)$ is a faithful representation and $\overline a \in K\left(\overline A\right)_+$ then from the Lemma \ref{increasing_convergent_w_lem} it turns out that the net is convergent with respect to the strong topology of $B\left(\widehat{\H}\right)$ (cf. Definition \ref{strong_topology_defn}). If $\overline b = s$-$\lim_{\la \in \La} a_\la\in B\left(\widehat{\H}\right)$ is the strong limit then one has a map 
+	\bean
+	\overline \pi_+ : \K\left(\overline A\right)_+ \to B\left(\widehat \H\right),\\
+	\overline a \mapsto \overline{b}.
+	\eean
+	From the condition (d) of the definition \ref{subord_defn} it follows that this map is injective. Using the equation \eqref{four_decompositon_eqn},  we can extend $\overline \pi_+$ up to an injective map 
+	$$
+	K\left( \overline \pi\right)  : K\left(\overline A\right) \to B\left(\widehat \H\right).
+	$$
+	We leave to the reader the proof of that $K\left( \overline \pi\right)$ is a *-homomorphism. Taking into account that $K\left(\overline A\right)$ is dense in $\overline A$ we obtain a full representation
+	\be\label{full_disc_eqn!}
+	\overline \pi  : \overline A \hookto B\left(\widehat \H\right).
+	\ee
+	such that for all $\overline a \in K\left(\overline A\right)$ one has
+	\be\label{full_disc_lim_eqn!}
+	\overline \pi\left(  \overline a\right) = s\text{-}\lim_{\la\in\La} \varphi_\la\left( a_\la\right)\quad  \text{where} \quad a_\la \bydef \beta- \sum_{g \in \ker\left(\widehat{G}\to G_\la\right)}g \overline a.
+	\ee
+\end{empt}
+
+
+
+\paragraph{!!!}
+
+\begin{empt}
+If $\overline A$ is !!! then from \eqref{full_disc_eqn} it follows that there is the natural inclusion
+$$
+\overline f : \overline A \subset D^*\left( \overline \sX\right) 
+$$
+
+Let $\overline{a}\in K\left( \overline A\right)_+$ be a positive element. Denote by $\overline b^1 \bydef \overline a$. Let $\overline x_0\in \overline \sX$ be such that $\frac{2}{3}\left\| a\right\|<\overline f \circ \overline a \left( \overline x_0\right) < \left\| a\right\|$. From  the equation \eqref{full_disc_lim_eqn} it follows that there is $\la_0\in \La$ such that $\frac{2}{3}\left\| \overline b^1\right\|<b^1_{\la_0}\left(\overline{p}_{\la_0}\left( \overline x_0\right)  \right) < \frac{4}{3}\left\| \overline b^1\right\|$ where $b^1_{\la_0}= \beta- \sum_{g \in \ker\left(\widehat{G}\to G_{\la_0}\right)}g \overline b^1$. From the condition (c) of the Definition \ref{subord_defn} it follows that $b^1_{\la_0} \in \K\left(C_0\left( \sX_{\la_0}\right)  \right)$, so there is an open connected neighborhood $\sU'_{\la_0}\subset \sX_{\la_0}$ of $\overline{p}_{\la_0}\left( \overline x_0\right)$ such that $\frac{2}{3}\left\|  \overline b^1\right\|<a_{\la_0} \left(  x_{\la_0}\right)  < \frac{4}{3}\left\|  \overline b^1\right\|$ for all  $ x_{\la_0}\in  \sU_{\la_0}$. Let $\overline{a}^1 \bydef f_\eps \left(\overline{b}_1\right)$ where $f_\eps$ is given by the equation \eqref{f_eps_eqn} and $\eps =  \frac{2}{3}\left\|  \overline b^1\right\|$. If $a^1_{\la_0}= \beta- \sum_{g \in \ker\left(\widehat{G}\to G_{\la_0}\right)}g \overline a^1\in \K\left(C_0\left( \sX_{\la_0}\right)\right)$ then from $\frac{2}{3}\left\| \overline b^1\right\|<\overline f \circ \overline a \left( \overline x_0\right)$ if follows that
+ $0< \overline f \circ \overline a \left( \overline x_0\right)< \frac{1}{3}\left\|  \overline b^1\right\|$ and 
+ $0< a^1_{\la_0}\left(\overline{p}_{\la_0}\left(\overline x_0 \right)  \right)< a^1_{\la_0}\left(\overline{p}_{\la_0}\left(\overline x_0 \right) \right) - \frac{2}{3}\left\| a\right\|< \frac{2}{3}\left\| a\right\|$. So   there is an open  neighborhood $\sU''_{\la_0}\subset \sX_{\la_0}$ of $\overline{p}_{\la_0}\left( \overline x_0\right)$ such that  $0<a^1_{\la_0} \left(  x_{\la_0}\right)  < \frac{2}{3}\left\| a\right\|$ 
+for all $x_{\la_0}\in \sU''_{\la_0}$. If $\mu \in \La$ be such that $\mu > \la$ and  $a^1_{\mu}= \beta- \sum_{g \in \ker\left(\widehat{G}\to G_{\mu}\right)}g \overline a^1$ then one has
+$$
+a^1_{\la_0} = \sum_{	g \in G\left( \left. \sX_\mu\right| \sX_{\la_0}\right) } a^1_{\mu}
+$$
+From the above equation it follows that
+\bean
+p^\mu_{ \la_0}\left(\left\{x_\mu \in \sX_{\mu} |  a^1_{\mu}\left(x_\mu \right)  > 0\right\} \right) = \left\{x_{ \la_0} \in \sX_{ \la_0} |  a^1_{ \la_0} > 0\right\}, 
+\eean
+so if $\sU_{\la_0} \bydef \sU'_{\la_0}\cap  \sU''_{\la_0}\cap \left\{x_{ \la_0} \in \sX_{ \la_0} |  a^1_{ \la_0} > 0\right\}$ and $$\sU_\mu \bydef \left\{x_\mu \in \sX_{\mu} |  a^1_{\mu} > 0\right\}\cap \left( p^\mu_{ \la_0}\right)^{-1}\left(\sU_{\la_0}\right)$$
+then $p^\mu_{ \la_0}\left(\sU_\mu  \right)= \sU_{\la_0}$, i.e. one has a surjective continuous map
+$$
+\th\bydef \left.p^\mu_{ \la_0} \right|_{\sU_\mu}:\sU_\mu\to \sU_{\la_0}
+$$
+If $\th$ is not a one to one map then there are $x^1_\mu, x^2_\mu\in \sU_\mu$ such that $x^1_\mu\neq x^2_\mu$ and $ p^\mu_{ \la_0}\left(x^1_\mu\right)=  p^\mu_{ \la_0}\left(x^2_\mu\right)$. From $a^1_{ \la_0}\left(x^1_\mu \right) , a^1_{ \la_0}\left(x^1_\mu \right) > 0$ it follows that there are $\overline{x}_1, \overline{x}_2 \in \overline{\sX}$ such that $\overline f \circ \overline a^1 \left(\overline{x}_1\right), \overline f \circ \overline a^1 \left(\overline{x}_1\right) > 0$, so one has $\overline f \circ \overline b^1 \left(\overline{x}_1\right), \overline f \circ \overline b^1 \left(\overline{x}_1\right) > \frac{2}{3}\left\| a\right\|$.
+It follows that $b^1_\mu\left(x^1_\mu \right), b^1_\mu\left(x^1_\mu \right)  > \frac{2}{3}\left\| b^1\right\|$ so $b^1_{\la_0}\left( p^\mu_{ \la_0}\left(x^1_\mu\right) \right)  > b^1_\mu\left(x^1_\mu \right)+ b^1_\mu\left(x^1_\mu \right) > \frac{4}{3}\left\| \overline b^1\right\|$. It contradicts with $\frac{2}{3}\left\| a\right\|<\overline f \circ \overline a \left( \overline x_0\right) < \frac{4}{3}\left\| a\right\|$. From this contradiction turns out that a map $\th$ is one to one. From the Lemmas \ref{top_cov_lem} and  \ref{top_om_lem} it follows that the map $\th$ is open (cf. Definition \ref{top_bicont_defn}) Taking into account the Theorem \ref{top_bicont_thm} one concludes that $\th$ is a homeomorphism. From this fact it follows that
+\be\label{top_a_desc}
+\forall x_\mu \in \sU_\mu\quad a^1_{\mu }\left( x_\mu\right) = a^1_{\la_0 }\left( p^\mu_{ \la_0\left(x_\mu \right) }\right). 
+\ee
+If $\overline{\sU}\subset \overline \sX$ is a connected component of $\overline{p}_{\la_0}\left(\sU_{{\la_0}} \right)$ such that $\overline x_0 \in \overline\sU$ then from the equations \eqref{full_disc_lim_eqn} and \eqref{top_a_desc} it follows that
+\bean
+\forall \overline x \in \overline \sU_\mu\quad \overline f \circ \overline a^1\left( \overline x\right) = a^1_{\la_0 }\left(\overline p_{ \la_0\left(\overline x\right) }\right). 
+\eean
+It follows that the restriction $\left. \overline f \circ a^1_{\la_0 }\right|_{\overline \sU}$ is continuous. So $\overline a^1$ is continuous at $\overline{x}_0$. Using this fact one can prove that  $\overline a^1\in C_b\left( \overline{\sX}\right) $. One has $\left\|\overline{a}_1 \right\| =   \frac{1}{3}\left\|\overline{a}\right\|$.
+ If $\overline{b}_2 \bydef \overline{b}_1 - \overline{a}_1$ then one can proof following:
+\bean
+\overline{b}_2 \ge 0,\\
+\left\|\overline{b}_2 \right\| \le   \frac{2}{3}\left\|\overline{a}\right\| 
+\eean 
+So if $\eps =\left( \frac{2}{3}\right)^2$ and $\overline{a}_2= f_\eps\left( \overline{b}_2\right)$ then similarly to the above constriction one has $a_n \in C_b\left( \overline{\sX}\right)$ and
+$\left\|\overline{a}_2 \right\| =    \frac{2}{3}\frac{1}{3}\left\|\overline{a}\right\|$. Going on one has a sequence $\overline{a}^1,..., \overline{a}^n, ... $ such that $\overline f \circ \overline a^n \in C_b\left( \overline{\sX}\right)$ and $\left\|\overline{a}_n \right\| =    \left( \frac{2}{3}\right)^{n-1} \frac{1}{3}\left\|\overline{a}\right\|$
+ From  $\left\|\overline{a}_n \right\| =    \left( \frac{2}{3}\right)^{n-1} \frac{1}{3}\left\|\overline{a}\right\|$ if follows than one has $C^*$-norm convergent series
+ $$
+ \sum_{n = 1}^\infty \overline f \circ \overline a^n.
+ $$
+ the sum of the series lies in $C_b\left( \overline{\sX}\right)$ and equals to $\overline f \circ \overline a$. So $\overline f \circ \overline a\in C_b\left( \overline{\sX}\right)$.
+
+
+\end{empt}
 \begin{empt}\label{top_spec_empt}
 A $C^*$-algebra  $C_0\left(\sX_\la \right)$ is commutative for all $\la\in \La$, so if $\widehat A \bydef C^*\text{-}\varinjlim C_0\left( \sX_\la\right)$ is the inductive limit in the sense of the Definition \ref{inductive_lim_non_defn} then $\widehat A$ is a commutative $C^*$-algebra. It turns out that the Hilbert space of any irreducible representation is $\C$.
 From $B\left( \C\right) \cong \C$ it follows that any $\widehat x \in \widehat \sX$ the corresponding irreducible representation is the $\C$-linear map
@@ -22146,19 +22263,19 @@ continuous for $\a\le\bt$) their \textit{inverse limit} $\varprojlim \sX_\a$ (cf
 		
 	\end{theorem}
 	
-	%\begin{definition}\label{top_bicont_defn}\cite{kurat:topI}
-	% 	$f$ is called \textit{bicontinuous} if it is onto and if
-	% $$
-	% \left(A \text{ is open}\right) \Leftarrow  \left(f^{-1}\left( A\right)  \text{ is open}\right)
-	% $$
-	% Equivalently 
-	% $$
-	% \left(A \text{ is closed}\right) \Leftarrow  \left(f^{-1}\left( A\right)  \text{ is closed}\right)
-	% $$	 
-	% \end{definition}
-	% \begin{theorem}\label{top_bicont_thm}\cite{kurat:topI}
-	% If $f$ is bicontinuous and one-to-one, then $f$ is a homeomorphism.
-	% \end{theorem}	
+	\begin{definition}\label{top_bicont_defn}\cite{kurat:topI}
+A continuous map 	 	$f$ is called \textit{bicontinuous} if it is onto and if
+	 $$
+ \left(A \text{ is open}\right) \Leftarrow  \left(f^{-1}\left( A\right)  \text{ is open}\right)
+	 $$
+	 Equivalently 
+	 $$
+	 \left(A \text{ is closed}\right) \Leftarrow  \left(f^{-1}\left( A\right)  \text{ is closed}\right)
+	 $$	 
+	 \end{definition}
+	 \begin{theorem}\label{top_bicont_thm}\cite{kurat:topI}
+	 If $f$ is bicontinuous and one-to-one, then $f$ is a homeomorphism.
+	 \end{theorem}	
 	\begin{defn}\label{top_support_defn}\cite{munkres:topology}
 		If $\phi: \mathcal X \to \mathbb{C}$  is continuous then the \textit{support} of $\phi$ is defined to be the closure of the set $\phi^{-1}\left(\mathbb{\C}\setminus \{0\}\right)$ Thus if $x$ lies outside the support, there is some neighborhood of $x$ on which $\phi$ vanishes. Denote by $\supp \phi$ the support of $\phi$.
 	\end{defn}
@@ -22637,9 +22754,19 @@ For all $n > 1$ the group $	\pi_{n} (\sX, x_0)$ is Abelian.
 			\item[(c)] There exist $\widetilde{x}_1\in \widetilde{\sX}_1$ and  $\widetilde{x}_2\in \widetilde{\sX}_2$ such that $\pi_1\left(p_1\right)\left( \pi_1 \left( \widetilde{\sX}_1, \widetilde{x}_1\right)  \right)$ is conjugate to a subgroup of  $\pi_1\left(p_2\right)\left( \pi_1 \left( \widetilde{\sX}_2, \widetilde{x}_2\right)  \right)$.
 		\end{enumerate} 
 	\end{theorem}
+\begin{definition}\cite{spanier:at}
+A continuous map $f: \sX \to \sY$ is called a \textit{local homeomorphism} if each 
+point $y \in \sY$ has an open neighborhood mapped homeomorphically by $f$ onto 
+an open subset of $\sX$
+\end{definition}
+\begin{lemma}\label{top_cov_lem}\cite{spanier:at}
+	A covering projection is a local homeomorphism.
+\end{lemma}
+
 	\begin{lemma}\label{top_om_lem}\cite{spanier:at}
-		A local homeomorphism is an open map.
+		A local homeomorphism is an open map (cf. Definition \ref{top_bicont_defn}).
 	\end{lemma}
+	
 
 	\subsubsection{Unique path lifting}
 	\begin{defn}\label{top_path_lifting_defn}\cite{spanier:at}
@@ -28678,8 +28805,8 @@ g\circ \Phi^{-1}(z)\, \delta(z)^{-1/2}.
 \]
 It extends to an isomorphism of $C^*$--correspondences
 \[
-\Phi_*\colon b_1^* \Lt^2(Y,f_1,\lambda_1)\cong
-b_2^* \Lt^2(Y,f_2,\lambda_2).
+\Phi_*\colon b_1^* \Lt^2(\sY,f_1,\lambda_1)\cong
+b_2^* \Lt^2(\sY,f_2,\lambda_2).
 \]
 
 \begin{remark}
@@ -31436,7 +31563,7 @@ OXFORD . LONDON ¥ EDINBURGH ¥ NEW YORK ¥
 PARIS ¥ FRANKFURT. 1965.
 
 
-%\bibitem{kurat:topI} Kazimierz Kuratowski. \textit{Topology}. Volume 1. Academic Press, 1966
+\bibitem{kurat:topI} Kazimierz Kuratowski. \textit{Topology}. Volume 1. Academic Press, 1966
 
 
 %\bibitem{lang} S. Lang. Algebra. Addison-Wesley Publishing Company, Reading, Mass. 1965.
