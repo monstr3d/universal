@@ -4163,25 +4163,27 @@ For all $\overline a \in K\left(\overline A \right)$ one has
 \end{enumerate}
 \end{definition}
 \begin{definition}\label{discon_defn}
-A $C^*$-algebra $\overline{A}$  subordinated to	$\mathfrak{S}^{\text{pt}}$ is said to be  \textit{\it disconnected algebraical inverse noncommutative limit} of $ \mathfrak{S}^{\mathrm{pt}}$ if for any $C^*$-algebra $\overline{A}'$ subordinated to	$\quad \mathfrak{S}^{\text{pt}}$  there is the natural injective *-homomorphism
+A $C^*$-algebra $\overline{A}$  subordinated to	$\mathfrak{S}^{\text{pt}}$ (cf, Definition \ref{subord_defn}) is said to be  \textit{\it disconnected algebraical inverse noncommutative limit} of $ \mathfrak{S}^{\mathrm{pt}}$ if for any $C^*$-algebra $\overline{A}'$ subordinated to	$\mathfrak{S}^{\text{pt}}$  there is the natural injective *-homomorphism
  $\psi : \overline{A}'\hookto\overline{A}$ such that all
- 	 $g \in \widehat{G}$,  $\widehat a \in \widehat{A}$ and $\overline a' \in \overline{A}$ one has
+ 	 $g \in \widehat{G}$,  $\widehat a \in \widehat{A}$ and $\overline a' \in \overline{A}'$ one has
 	\bean
 	g \psi\left( \overline{a}'\right) = \psi\left(g \overline{a}'\right),\\
 	\psi\left(\phi'\left( \widehat  a\right)\overline a'  \right) = 	\phi\left( \widehat  a\right)\psi\left( \overline a'  \right),\\
 		\psi\left(\overline a' \phi'\left( \widehat  a\right) \right) = 	\psi\left( \overline a'  \right)\phi\left( \widehat  a\right)
 	\eean 
 	where both $\phi: \widehat A \hookto M\left(\overline A\right)$ and $\phi': \widehat A \hookto M\left(\overline A'\right)$ are required by the Definition \ref{subord_defn} inclusions.
-	
-	
-	
+	We also say that a triple
+	$$
+	\left(A, \overline{A}, G\left(\left.\overline{A}~\right| A\right)\bydef \widehat G\right)
+	$$
+	is a \textit{disconnected infinite noncommutative covering} of $\mathfrak{S}^{\text{pt}}$.
 \end{definition}
 \begin{empt}
 Consider a	$C^*$-algebra $\overline{A}$  subordinated to	$\mathfrak{S}^{\text{pt}}$ If  $\overline a \in K\left(\overline A\right)_+$ is a positive element then there is an decreasing net $\left\{a_\la\right\}\in \widehat A$ such that
 $$
 a _\la \bydef\beta- \sum_{g \in \ker\left(\widehat{G}\to G_\la\right)}g \overline a\in \varphi_\la\left( K\left( A_\la\right) \right) 	 \subset \widehat A
 $$
-If $\widehat \pi: \widehat{A}\to B\left(\widetilde{\H}\right)$ is a faithful representation and $\overline a \in K\left(\overline A\right)_+$ then from the Lemma \ref{increasing_convergent_w_lem} it turns out that the net is convergent with respect to the strong topology of $B\left(\widehat{\H}\right)$ (cf. Definition \ref{strong_topology_defn}). If $\overline b = s$-$\lim_{\la \in \La} a_\la\in B\left(\widehat{\H}\right)$ is the strong limit then one has a map 
+If $\widehat \pi: \widehat{A}\to B\left(\widetilde{\H}\right)$ is a faithful, nondegenerate  representation (cf. Definitions \ref{faithful_repr_defn} and \ref{nondegenerate_repr_defn}) and $\overline a \in K\left(\overline A\right)_+$ then from the Lemma \ref{increasing_convergent_w_lem} it turns out that the net is convergent with respect to the strong topology of $B\left(\widehat{\H}\right)$ (cf. Definition \ref{strong_topology_defn}). If $\overline b = s$-$\lim_{\la \in \La} a_\la\in B\left(\widehat{\H}\right)$ is the strong limit then one has a map 
 \bean
 \overline \pi_+ : \K\left(\overline A\right)_+ \to B\left(\widehat \H\right),\\
 \overline a \mapsto \overline{b}.
@@ -4199,6 +4201,48 @@ such that for all $\overline a \in K\left(\overline A\right)$ one has
  \overline \pi\left(  \overline a\right) = s\text{-}\lim_{\la\in\La} \varphi_\la\left( a_\la\right)\quad  \text{where} \quad a_\la \bydef \beta- \sum_{g \in \ker\left(\widehat{G}\to G_\la\right)}g \overline a.
 \ee
 \end{empt}
+
+\begin{empt}
+	Let	$\mathfrak{S}^{\mathrm{pt}} \in \mathfrak{FinAlg}^{\mathrm{pt}}$ be a pointed algebraical  finite covering category (cf. Definition \ref{pointed_defn}). $\left(A, \overline{A}, G\left(\left.\overline{A}~\right| A\right)\right)$ is the disconnected infinite noncommutative covering of $\mathfrak{S}^{\mathrm{pt}}$ (cf. Definition \ref{discon_defn}). If $\widetilde A$ is a connected component (cf. Definition \ref{connected_comp_defn}) of $\overline{A}$, i.e. $\overline{A} = \widetilde A \oplus \widetilde A^\perp$, and
+	\be\label{gta_eqn}
+	 G\left(\left.\widetilde{A}~\right| A\right)\bydef 
+	 \left\{\left. g \in  G\left(\left.\overline{A}~\right| A\right)\right| \forall \widetilde a^\perp \in \widetilde A^\perp \quad g \widetilde a^\perp= \widetilde a^\perp\right\}
+	\ee
+	then there is a natural action
+	\be\label{gta_act_eqn}
+	 G\left(\left.\widetilde{A}~\right| A\right)\times \widetilde{A} \to \widetilde{A}.
+	\ee
+	The natural injective *-homomorphism $A \hookto M\left(\overline A \right)$ induces a *-homomorphism
+	\be\label{inj_to_m_eqn}
+\widetilde m : A \to M\left(\widetilde A \right)
+\ee
+	
+	 
+\end{empt}
+\begin{definition}\label{good_defn}
+	Let	$\mathfrak{S}^{\mathrm{pt}} \in \mathfrak{FinAlg}^{\mathrm{pt}}$ be a pointed algebraical  finite covering category (cf. Definition \ref{pointed_defn}).   Suppose that $\left(A, \overline{A}, G\left(\left.\overline{A}~\right| A\right)\right)$ is the disconnected infinite noncommutative covering of $\mathfrak{S}^{\mathrm{pt}}$ (cf. Definition \ref{discon_defn}). For any $\la \in \La$ denote by $h_\la: G\left(\left.\overline{A}~\right| A\right) \to G\left(\left. A_\la~\right|~A \right)$ the natural surjective homomorphism of groups.
+	We say  that $\mathfrak{S}^{\mathrm{pt}}$ is $\pi$-\textit{good} if  following conditions hold.
+	\begin{enumerate}
+		\item[(a)] For any connected component of $\overline{A}$ the given by \eqref{inj_to_m_eqn} *-homomorphism is injective.
+		\item[(b)] If both $\widetilde{A}'$ and $\widetilde{A}''$ are  {connected components} of $\overline A$ then there is  $g \in G\left(\left.\overline{A}_\pi~\right|~ A\right)$ such that $g \widetilde{A}'= \widetilde{A}''$.
+		\item [(c)] If  $G\left(\left.\widetilde{A}~\right| A\right)$ is given by \eqref{gta_act_eqn} then for any $\la \in \La$ the restriction $h_\la|_{gta_act_eqn}$ is an epimorphism, i. e. $h_\la\left(G\left(\left.\widetilde{A}~\right| A\right) \right) = G\left(\left. A_\la~\right|~A \right)$.
+	\end{enumerate}
+	If $\pi$ is the atomic representation $\pi_a$ then we say that $\mathfrak{S}^{\mathrm{pt}}$ is \textit{good}.
+\end{definition}
+\begin{remark}\label{cond_b_ref_rem}
+	If $\overline  \sX$ is a spectrum of $\overline{A}$ then the condition (b) of the Definition \ref{good_defn}  can be reformulated by a following way. If both $\widetilde{\sX}'$ and $\widetilde{\sX}''$ are  {connected components} of $\overline \sX$ then there is  $g \in G\left(\left.\overline{A}~\right|~ A\right)$ such that $g \widetilde{\sX}''= \widetilde{\sX}'$ (cf. Exercise \ref{conn_comp_exer}).
+\end{remark}
+
+
+\begin{definition}\label{main_defn}
+	Let $\mathfrak{S}^{\mathrm{pt}} \in \mathfrak{FinAlg}^{\mathrm{pt}}$ be  a good  pointed algebraical  finite covering category (cf. Definitions \ref{pointed_defn} and \ref{good_defn}).    A connected component $\widetilde{A} \subset \overline{A}$ (cf. Definition \ref{connected_comp_defn}) is said to be the \textit{ inverse noncommutative limit of $\mathfrak{S}^{\mathrm{pt}}$}. The given by the equation \eqref{gta_eqn} group $G\left(\left.\widetilde{A}~\right| A\right)$  is said to be the \textit{covering transformation group of $\mathfrak{S}^{\mathrm{pt}}$}.  The triple $\left(A, \widetilde{A}, G\left(\left.\widetilde{A}~\right| A\right)\right)$ is said to be the  \textit{infinite noncommutative covering} of $\mathfrak{S}^{\mathrm{pt}}$. %The algebra $A$  is said to be the {\it base algebra} of $\mathfrak{S}$. 
+	We will use the following notation 
+	\begin{equation}\label{inf_lim_not_eqn}
+		\begin{split}
+			\varprojlim \mathfrak{S}^{\mathrm{pt}}\stackrel{\mathrm{def}}{=}\widetilde{A}.
+		\end{split}
+	\end{equation}	
+\end{definition}
 
 
 
@@ -4704,7 +4748,7 @@ From the remark \eqref{ata_rem} it follows that
 	\end{split}
 \ee
 \end{empt}
-\begin{definition}\label{good_defn}
+\begin{definition}\label{good_pi_defn}
 Let	$\mathfrak{S}^{\mathrm{pt}} \in \mathfrak{FinAlg}^{\mathrm{pt}}$ be a pointed pointed algebraical  finite covering category (cf. Definition \ref{pointed_defn}), let $\pi: \widehat A \to B\left(\H \right)$ be an equivariant representation.   Suppose that $\left(A, \overline{A}_\pi, G\left(\left.\overline{A}_\pi~\right| A\right)\right)$ is the $\pi$-disconnected infinite noncommutative covering of $\mathfrak{S}^{\mathrm{pt}}$,  $\widetilde{A}_\pi$ is a $\pi$-{connected component} of $\mathfrak{S}^{\mathrm{pt}}$ (cf. Definition \ref{main_sdefn}), and $G_\pi$ is the $\widetilde{A}_\pi$-{invariant group} of $\mathfrak{S}^{\mathrm{pt}}$ (cf. Definition \ref{main_sdefn}). For any $\la \in \La$ denote by $h_\la: \widehat{G} \to G\left(\left. A_\la~\right|~A \right)$ the natural surjective homomorphism of groups.
 	We say  that $\mathfrak{S}^{\mathrm{pt}}$ is $\pi$-\textit{good} if  following conditions hold:
 	\begin{enumerate}
@@ -4714,15 +4758,15 @@ Let	$\mathfrak{S}^{\mathrm{pt}} \in \mathfrak{FinAlg}^{\mathrm{pt}}$ be a pointe
 	\end{enumerate}
 	If $\pi$ is the atomic representation $\pi_a$ then we say that $\mathfrak{S}^{\mathrm{pt}}$ is \textit{good}.
 \end{definition}
-\begin{remark}\label{cond_b_ref_rem}
+\begin{remark}\label{cond_pi_b_ref_rem}
 	If $\overline  \sX$ is a spectrum of $\overline{A}_\pi$ then the condition (b) of the Definition \ref{good_defn}  can be reformulated by a following way. If both $\widetilde{\sX}'$ and $\widetilde{\sX}''$ are  {connected components} of $\overline \sX$ then there is  $g \in G\left(\left.\overline{A}_\pi~\right|~ A\right)$ such that $g \widetilde{\sX}''= \widetilde{\sX}'$ (cf. Exercise \ref{conn_comp_exer}).
 \end{remark}
 
 
- \begin{definition}\label{main_defn}
+ \begin{definition}\label{main_pi_defn}
 	Let $\mathfrak{S}^{\mathrm{pt}} \in \mathfrak{FinAlg}^{\mathrm{pt}}$ be  an algebraical  finite covering category. Let $\pi: \widehat{A} \to B\left(\H \right)$ a representation such that $\mathfrak{S}^{\mathrm{pt}}$ is $\pi$-good.    A connected component $\widetilde{A}_\pi \subset \overline{A}_\pi$ (cf. Definition \ref{connected_comp_defn}) is said to be the $\pi$-\textit{ inverse noncommutative limit of $\mathfrak{S}^{\mathrm{pt}}$}. The $\widetilde{A}_\pi$-invariant group $G_\pi$ (cf. Definition \ref{main_sdefn}) is said to be the $\pi$-\textit{covering transformation group of $\mathfrak{S}^{\mathrm{pt}}$}.  The triple $\left(A, \widetilde{A}_\pi, G_\pi\right)$ is said to be the  $\pi$-\textit{infinite noncommutative covering} of $\mathfrak{S}^{\mathrm{pt}}$. %The algebra $A$  is said to be the {\it base algebra} of $\mathfrak{S}$. 
 	We will use the following notation 
-	\begin{equation}\label{inf_lim_not_eqn}
+	\begin{equation}\label{inf_p_lim_not_eqn}
 	\begin{split}
 	\varprojlim_\pi  \mathfrak{S}^{\mathrm{pt}}\stackrel{\mathrm{def}}{=}\widetilde{A}_\pi,\\
 	G\left(\left.\widetilde{A}_\pi~\right| A\right)\stackrel{\mathrm{def}}{=}G_\pi.
@@ -28758,17 +28802,17 @@ Definition~\ref{def:corr_from_measures} from a continuous family of
 measures~\(\lambda\) along a continuous map \(f\colon X\to Y\) is
 associated to the topological correspondence
 \[
-X\xleftarrow{\Id_X} X \xrightarrow[\lambda]{f} Y.
+\sX\xleftarrow{\Id_\sX} \sX \xrightarrow[\lambda]{f} \sY.
 \]
 
-Topological correspondences are a mild generalisation of the
+Topological correspondences are a mild generalization of the
 topological quivers introduced by Muhly and
 Tomforde~\cite{Muhly-Tomforde:Quivers}: a topological quiver is a
 topological correspondence with the same source and target space.
 Basic results about topological quivers such as
 \cite{Muhly-Tomforde:Quivers}*{Lemmas 6.1--4} have obvious
 generalisations to topological correspondences.  We also get the
-notion of a topological correspondence if we specialise the
+notion of a topological correspondence if we specialize the
 topological correspondences between locally compact, Hausdorff
 groupoids introduced in~\cite{Holkar:Thesis} to locally compact
 spaces.  % (see Section~\ref{sec:correspondences}).
