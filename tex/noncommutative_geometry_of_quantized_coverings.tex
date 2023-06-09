@@ -4137,6 +4137,111 @@ Prove  that $\widetilde D \left( \H \cap \Dom \widetilde D \right)\subset \H$, i
  	\ee	
  	
  \end{remark}
+  Let  $\mathfrak{S}^{\text{pt}} = \left(\left\{\pi_\la: A \hookto A_\la \right\}, \left\{\pi^\mu_\nu\right\}\right)$  be a {pointed algebraical  finite covering category}  (cf. Definition \ref{pointed_defn}). Let $\widehat{A} \bydef C^*\text{-}\varprojlim_{\la \in \La} A_{\la}$ be the $C^*$-inductive limit of $C^*$-algebras (cf. Definition \ref{inductive_lim_non_defn}), and let $\widehat{G}= \varprojlim_{\la \in \La} G\left(
+ \left.  A_\la~ \right|A\right)$ be the inverse limit of groups (cf. Definition \ref{group_inv_lim_defn}).
+  \begin{definition}\label{subord_defn}
+ 	Consider the above situation.  We say that a $C^*$-algebra $\overline A$ is \textit{weakly subordinated to}  $\mathfrak{S}^{\text{pt}}$ if following conditions hold.
+ 	\begin{enumerate}
+ 		\item [(a)] There is an inclusion $\phi: \widehat A \hookto M\left(\overline A\right)$.
+ 		\item[(b)] There is an action $\widehat{G}\times \overline A \to \overline A$ such that
+ 		for all $g \in \widehat{G}$,  $\quad \widehat a \in \widehat{A}$ and $\overline a \in \overline{A}$ one has
+ 		\bean
+ 		g\left(\phi\left(\widehat a \right)\overline{a}\right)  = 	g\left(\phi\left(\widehat a \right)\right) g \overline{a},\\
+ 		g\left( \overline{a}\phi\left(\widehat a \right)\right) =g \overline{a}g\phi\left(\widehat a \right).
+ 		\eean
+ 		\item[(c)] There is a dense *-subalgebra $\overline{\A}\subset A$ such that  for any $\la\in \La$  and $\overline a \in \overline \A$ the series $\sum_{g \in \ker\left(\widehat{G}\to G_\la\right)}g \overline a$ is convergent with respect to the strict topology of $M\left(\overline{A} \right)$ (cf. \ref{strict_topology_defn}). Moreover we require that
+ 	\be\label{a_la_eqn}
+ 	a_\la \bydef 	\bt-\sum_{g \in \ker\left(\widehat{G}\to G_\la\right)}g \overline a \in \varphi_\la\left( K\left( A_\la\right) \right) 	
+ 	\ee
+ 		where $\varphi_\la : A_\la \hookto \widehat A$ is the natural inclusion, and $\bt-\sum$ means a convergent with respect to strong topology sum  of the infinite series.
+ 		\item[(d)]  
+ 		For all $\overline a \in K\left(\overline A \right)$ one has
+ 		$$
+ 		\left( \forall	\la\in \La\quad  \sum_{g \in \ker\left(\widehat{G}\to G_\la\right)}g \overline a=0\right)\quad  \Rightarrow\quad  \overline a = 0.
+ 		$$
+ 	\end{enumerate}
+ 	If  $\overline \A$ equals to the Pedersen's ideal $K\left(\overline A \right)$ (cf. Definition \ref{peder_id_defn}) then we say that is \textit{subordinated to}  $\mathfrak{S}^{\text{pt}}$
+ \end{definition}
+\begin{lemma}\label{bt_lim_lem}
+In the situation of the Definition \ref{subord_defn} one has
+\be\label{bt_lim_eqn}
+\forall \overline a \in \overline\A \quad \overline a =\bt\text{-}\lim_{\la \in \La} a_\la
+\ee
+where $\bt\text{-}\lim$ is the limit with respect to the strict topology of $M\left( \overline{A}\right)$ (cf. Definition \ref{strict_topology_defn}).
+\end{lemma}
+\begin{proof}
+If $\la = \la_{\min}$ then from \eqref{a_la_eqn} it follows that
+$$
+a \bydef a_{\la_{\min}} = \bt\text{-}\sum_{g \in \widehat{G}}g \overline a
+$$
+If $\overline b \in \overline A$ and $e \in \widehat{G}$ is a unity of  $\widehat{G}$ f then for any $\eps > 0$ there is a finite set $\{e\} \subset G'\subset  \widehat{G}$ such for any finite set $G''\subset  \widehat{G} \setminus G'$ one has
+$$
+ \left\| \sum_{g \in G''}g \overline a \overline b - a \overline b\right\| < \eps.
+$$
+Since the set is finite there is $\la_\eps\in \La$ such that 
+$$
+\ker\left(\widehat{G}\to G_{\la_e}\right)\cap G' = \{e\}
+$$
+It follows that
+$$
+\forall \la \ge \la_\eps \quad \left\| a_\la \overline b - \overline a \overline b\right\| < \eps.
+$$
+The above equation means the following
+$$
+\lim_{\la\in \La} a_\la \overline b - \overline a \overline b
+$$
+where the $C^*$-norm limit is implied. Similarly we can prove that $\lim_{\la\in \La} \overline b a_\la - \overline b \overline a$, so one has \eqref{bt_lim_eqn}.
+
+\end{proof}
+ \begin{definition}\label{discon_defn}
+ 	A $C^*$-algebra $\overline{A}$  subordinated to	$\mathfrak{S}^{\text{pt}}$ (cf, Definition \ref{subord_defn}) is said to be  \textit{\it disconnected algebraical inverse noncommutative limit} of $ \mathfrak{S}^{\mathrm{pt}}$ if for any $C^*$-algebra $\overline{A}'$ subordinated to	$\mathfrak{S}^{\text{pt}}$  there is the natural injective *-homomorphism
+ 	$\psi : \overline{A}'\hookto\overline{A}$ such that all
+ 	$g \in \widehat{G}$,  $\widehat a \in \widehat{A}$ and $\overline a' \in \overline{A}'$ one has
+ 	\bean
+ 	g \psi\left( \overline{a}'\right) = \psi\left(g \overline{a}'\right),\\
+ 	\psi\left(\phi'\left( \widehat  a\right)\overline a'  \right) = 	\phi\left( \widehat  a\right)\psi\left( \overline a'  \right),\\
+ 	\psi\left(\overline a' \phi'\left( \widehat  a\right) \right) = 	\psi\left( \overline a'  \right)\phi\left( \widehat  a\right)
+ 	\eean 
+ 	where both $\phi: \widehat A \hookto M\left(\overline A\right)$ and $\phi': \widehat A \hookto M\left(\overline A'\right)$ are required by the Definition \ref{subord_defn} inclusions.
+ 	We also say that a triple
+ \be\label{disc_triple_eqn}
+ 	\left(A, \overline{A}, G\left(\left.\overline{A}~\right| A\right)\bydef \widehat G\right)
+\ee
+ 	is a \textit{disconnected infinite noncommutative covering} of $\mathfrak{S}^{\text{pt}}$. If $C^*$-algebra $\overline{A}$ is weakly subordinated to	$\mathfrak{S}^{\text{pt}}$ (cf, Definition \ref{subord_defn}) then we say that  $\overline{A}$ is a  \textit{\it weak disconnected algebraical inverse noncommutative limit} and the triple \eqref{disc_triple_eqn} is a \textit{weak disconnected infinite noncommutative covering} of $\mathfrak{S}^{\text{pt}}$
+ 	
+ \end{definition}
+ 
+ \begin{remark}
+If a disconnected infinite noncommutative covering exists then it is unique.
+ \end{remark}
+ 
+\begin{definition}\label{good_defn}
+ 	Let	$\mathfrak{S}^{\mathrm{pt}} \in \mathfrak{FinAlg}^{\mathrm{pt}}$ be a pointed algebraical  finite covering category (cf. Definition \ref{pointed_defn}).   Suppose that $\left(A, \overline{A}, G\left(\left.\overline{A}~\right| A\right)\right)$ is the disconnected infinite noncommutative covering of $\mathfrak{S}^{\mathrm{pt}}$ (cf. Definition \ref{discon_defn}). For any $\la \in \La$ denote by $h_\la: G\left(\left.\overline{A}~\right| A\right) \to G\left(\left. A_\la~\right|~A \right)$ the natural surjective homomorphism of groups.
+ 	We say  that $\mathfrak{S}^{\mathrm{pt}}$ is $\pi$-\textit{good} if  following conditions hold.
+ 	\begin{enumerate}
+ 		\item[(a)] For any connected component $\widetilde A$ of $\overline{A}$ the given by \eqref{inj_to_m_eqn} *-homomorphism is injective.
+ 		\item[(b)] If both $\widetilde{A}'$ and $\widetilde{A}''$ are  {connected components} of $\overline A$ then there is  $g \in G\left(\left.\overline{A}~\right|~ A\right)$ such that $g \widetilde{A}'= \widetilde{A}''$.
+ 		\item [(c)] If  $G\left(\left.\widetilde{A}~\right| A\right)$ is given by \eqref{gta_act_eqn} then for any $\la \in \La$ the restriction $h_\la|_{\widetilde A}$ is an epimorphism, i. e. $h_\la\left(G\left(\left.\widetilde{A}~\right| A\right) \right) = G\left(\left. A_\la~\right|~A \right)$.
+ 	\end{enumerate}
+ \end{definition}
+ \begin{remark}\label{cond_b_ref_rem}
+ 	If $\overline  \sX$ is a spectrum of $\overline{A}$ then the condition (b) of the Definition \ref{good_defn}  can be reformulated by a following way. If both $\widetilde{\sX}'$ and $\widetilde{\sX}''$ are  {connected components} of $\overline \sX$ then there is  $g \in G\left(\left.\overline{A}~\right|~ A\right)$ such that $g \widetilde{\sX}'= \widetilde{\sX}''$ (cf. Exercise \ref{conn_comp_exer}).
+ \end{remark}
+ 
+ 
+ \begin{definition}\label{main_defn}
+ 	Let $\mathfrak{S}^{\mathrm{pt}} \in \mathfrak{FinAlg}^{\mathrm{pt}}$ be  a good  pointed algebraical  finite covering category (cf. Definitions \ref{pointed_defn} and \ref{good_defn}).    A connected component $\widetilde{A} \subset \overline{A}$ (cf. Definition \ref{connected_comp_defn}) is said to be the \textit{ inverse noncommutative limit of $\mathfrak{S}^{\mathrm{pt}}$}. The given by the equation \eqref{gta_eqn} group $G\left(\left.\widetilde{A}~\right| A\right)$  is said to be the \textit{covering transformation group of $\mathfrak{S}^{\mathrm{pt}}$}.  The triple $\left(A, \widetilde{A}, G\left(\left.\widetilde{A}~\right| A\right)\right)$ is said to be the  \textit{infinite noncommutative covering} of $\mathfrak{S}^{\mathrm{pt}}$. %The algebra $A$  is said to be the {\it base algebra} of $\mathfrak{S}$. 
+ 	We will use the following notation 
+ 	\begin{equation}\label{inf_lim_not_eqn}
+ 		\begin{split}
+ 			\varprojlim \mathfrak{S}^{\mathrm{pt}}\stackrel{\mathrm{def}}{=}\widetilde{A}.
+ 		\end{split}
+ 	\end{equation}	
+ \end{definition}
+ 
+ 
+ \subsection{Coverings of $C^*$-algebras related to representations}
+ 
  \begin{definition}\label{equiv_defn}
  	A faithful representation ${\pi}: \widehat{A} \hookto B\left( \H\right)$ is said to be \textit{equivariant} if there is the action  $\widehat{G}\times {\H} \to {\H}$ such that
  	\be\label{equivt_eqn}
@@ -4183,224 +4288,6 @@ Prove  that $\widetilde D \left( \H \cap \Dom \widetilde D \right)\subset \H$, i
  	(ii) The replacement of the "state" word in (i) with "pure state" one gives (ii).
  \end{proof}
  
- Let  $\mathfrak{S}^{\text{pt}} = \left(\left\{\pi_\la: A \hookto A_\la \right\}, \left\{\pi^\mu_\nu\right\}\right)$  be a {pointed algebraical  finite covering category}  (cf. Definition \ref{pointed_defn}). Let $\widehat{A} \bydef C^*\text{-}\varprojlim_{\la \in \La} A_{\la}$ be the $C^*$-inductive limit of $C^*$-algebras (cf. Definition \ref{inductive_lim_non_defn}), and let $\widehat{G}= \varprojlim_{\la \in \La} G\left(
- \left.  A_\la~ \right|A\right)$ be the inverse limit of groups (cf. Definition \ref{group_inv_lim_defn}).
-  \begin{definition}\label{subord_defn}
- 	Consider the above situation.  We say that a $C^*$-algebra $\overline A$ is \textit{weakly subordinated to}  $\mathfrak{S}^{\text{pt}}$ if following conditions hold.
- 	\begin{enumerate}
- 		\item [(a)] There is an inclusion $\phi: \widehat A \hookto M\left(\overline A\right)$.
- 		\item[(b)] There is an action $\widehat{G}\times \overline A \to \overline A$ such that
- 		for all $g \in \widehat{G}$,  $\quad \widehat a \in \widehat{A}$ and $\overline a \in \overline{A}$ one has
- 		\bean
- 		g\left(\phi\left(\widehat a \right)\overline{a}\right)  = 	g\left(\phi\left(\widehat a \right)\right) g \overline{a},\\
- 		g\left( \overline{a}\phi\left(\widehat a \right)\right) =g \overline{a}g\phi\left(\widehat a \right).
- 		\eean
- 		\item[(c)] There is a dense *-subalgebra $\overline{\A}\subset A$ such that  for any $\la\in \La$  and $\overline a \in \overline \A$ the series $\sum_{g \in \ker\left(\widehat{G}\to G_\la\right)}g \overline a$ is convergent with respect to the strict topology of $M\left(\overline{A} \right)$ (cf. \ref{strict_topology_defn}). Moreover we require that
- 		$$
- 		\bt-\sum_{g \in \ker\left(\widehat{G}\to G_\la\right)}g \overline a \in \varphi_\la\left( K\left( A_\la\right) \right) 	
- 		$$ 
- 		where $\varphi_\la : A_\la \hookto \widehat A$ is the natural inclusion, and $\bt-\sum$ means a convergent with respect to strong topology sum  of the infinite series.
- 		\item[(d)]  
- 		For all $\overline a \in K\left(\overline A \right)$ one has
- 		$$
- 		\left( \forall	\la\in \La\quad  \sum_{g \in \ker\left(\widehat{G}\to G_\la\right)}g \overline a=0\right)\quad  \Rightarrow\quad  \overline a = 0.
- 		$$
- 	\end{enumerate}
- 	If  $\overline \A$ equals to the Pedersen's ideal $K\left(\overline A \right)$ (cf. Definition \ref{peder_id_defn}) then we say that is \textit{subordinated to}  $\mathfrak{S}^{\text{pt}}$
- \end{definition}
-
- \begin{definition}\label{discon_defn}
- 	A $C^*$-algebra $\overline{A}$  subordinated to	$\mathfrak{S}^{\text{pt}}$ (cf, Definition \ref{subord_defn}) is said to be  \textit{\it disconnected algebraical inverse noncommutative limit} of $ \mathfrak{S}^{\mathrm{pt}}$ if for any $C^*$-algebra $\overline{A}'$ subordinated to	$\mathfrak{S}^{\text{pt}}$  there is the natural injective *-homomorphism
- 	$\psi : \overline{A}'\hookto\overline{A}$ such that all
- 	$g \in \widehat{G}$,  $\widehat a \in \widehat{A}$ and $\overline a' \in \overline{A}'$ one has
- 	\bean
- 	g \psi\left( \overline{a}'\right) = \psi\left(g \overline{a}'\right),\\
- 	\psi\left(\phi'\left( \widehat  a\right)\overline a'  \right) = 	\phi\left( \widehat  a\right)\psi\left( \overline a'  \right),\\
- 	\psi\left(\overline a' \phi'\left( \widehat  a\right) \right) = 	\psi\left( \overline a'  \right)\phi\left( \widehat  a\right)
- 	\eean 
- 	where both $\phi: \widehat A \hookto M\left(\overline A\right)$ and $\phi': \widehat A \hookto M\left(\overline A'\right)$ are required by the Definition \ref{subord_defn} inclusions.
- 	We also say that a triple
- \be\label{disc_triple_eqn}
- 	\left(A, \overline{A}, G\left(\left.\overline{A}~\right| A\right)\bydef \widehat G\right)
-\ee
- 	is a \textit{disconnected infinite noncommutative covering} of $\mathfrak{S}^{\text{pt}}$. If $C^*$-algebra $\overline{A}$ is weakly subordinated to	$\mathfrak{S}^{\text{pt}}$ (cf, Definition \ref{subord_defn}) then we say that  $\overline{A}$ is a  \textit{\it weak disconnected algebraical inverse noncommutative limit} and the triple \eqref{disc_triple_eqn} is a \textit{weak disconnected infinite noncommutative covering} of $\mathfrak{S}^{\text{pt}}$
- 	
- \end{definition}
- 
- \begin{remark}
-If a disconnected infinite noncommutative covering exists then it is unique.
- \end{remark}
- 
- \begin{empt}
- 	Consider a	$C^*$-algebra $\overline{A}$ weakly  subordinated to	$\mathfrak{S}^{\text{pt}}$ If  $\overline a \in K\left(\overline A\right)_+$ is a positive element then there is an decreasing net $\left\{a_\la\right\}\in \widehat A$ such that
- 	$$
- 	a _\la \bydef\beta- \sum_{g \in \ker\left(\widehat{G}\to G_\la\right)}g \overline a\in \varphi_\la\left( K\left( A_\la\right) \right) 	 \subset \widehat A
- 	$$
- 	If $\widehat \pi: \widehat{A}\to B\left(\widetilde{\H}\right)$ is a faithful, nondegenerate, equivariant representation  (cf. Definitions \ref{faithful_repr_defn} , \ref{nondegenerate_repr_defn} and \ref{equiv_repr_defn}) and $\overline a \in K\left(\overline A\right)_+$ then from the Lemma \ref{increasing_convergent_w_lem} it turns out that the net is convergent with respect to the strong topology of $B\left(\widehat{\H}\right)$ (cf. Definition \ref{strong_topology_defn}). If $\overline b = s$-$\lim_{\la \in \La} a_\la\in B\left(\widehat{\H}\right)$ is the strong limit then one has a map 
- 	\bean
- 	\overline \pi_+ : \K\left(\overline A\right)_+ \to B\left(\widehat \H\right),\\
- 	\overline a \mapsto \overline{b}.
- 	\eean
- 	%The natural action $\widehat{G}\times \widehat A \to \widehat A$ induces an action $\widehat{G}\times \widehat \H_a \to \widehat \H_a$  (cf. Lemma \ref{equiv_lem})
- 	%\begin{lemma}
- 	%	The map $\overline \pi_+$ is injective. 
- 	%\end{lemma}
- 	%\begin{proof}
- 	%	If $\overline a \in \K\left(\overline A \right)_+ \setminus \{0\}$ then and 
- 	%	$a \bydef \beta- \sum_{g \in \ker\left(\widehat{G}\to G_\la\right)}g \overline a\in \varphi_\la\left( K\left( A_\la\right) \right)$ then from the condition (d) of the Definition \ref{subord_defn} it follows that $a \neq 0$.
- 	%If
- 	%$s- \sum_{g \in \widehat{G}}g \pi_+\left( \overline a\right) \widehat \pi\left( 	a\right)  = \widehat \pi\left(a^2 \right) > 0$. There is $g \in \widehat{G}$ such that $g\pi_+\left( \overline a\right) \widehat \pi\left( 	a\right) \neq 0$. From $ga = a$ it follows that $g^{-1}\left( g\pi_+\left( \overline a\right) \widehat \pi\left( 	a\right)\right)  = \pi_+\left( \overline a\right) \widehat \pi\left( 	a\right)\neq 0$
- 	%\end{proof}
- 	From the condition (d) of the definition \ref{subord_defn} it follows that this map is injective. Using the equation \eqref{four_decompositon_eqn},  we can extend $\overline \pi_+$ up to an injective map 
- 	$$
- 	K\left( \overline \pi\right)  : K\left(\overline A\right) \to B\left(\widehat \H\right).
- 	$$
- 	We leave to the reader the proof of that $K\left( \overline \pi\right)$ is a *-homomorphism. Taking into account that $K\left(\overline A\right)$ is dense in $\overline A$ we obtain a full representation
- 	\be\label{full_disc_eqn}
- 	\overline \pi  : \overline A \hookto B\left(\widehat \H\right).
- 	\ee
- 	such that for all $\overline a \in K\left(\overline A\right)$ one has
- 	\be\label{full_disc_lim_eqn}
- 	\overline \pi\left(  \overline a\right) = s\text{-}\lim_{\la\in\La} \varphi_\la\left( a_\la\right)\quad  \text{where} \quad a_\la \bydef \beta- \sum_{g \in \ker\left(\widehat{G}\to G_\la\right)}g \overline a.
- 	\ee
- 	
- \end{empt}
- \begin{empt}
- 	Let	$\mathfrak{S}^{\mathrm{pt}} \in \mathfrak{FinAlg}^{\mathrm{pt}}$ be a pointed algebraical  finite covering category (cf. Definition \ref{pointed_defn}). $\left(A, \overline{A}, G\left(\left.\overline{A}~\right| A\right)\right)$ is the disconnected infinite noncommutative covering of $\mathfrak{S}^{\mathrm{pt}}$ (cf. Definition \ref{discon_defn}). If $\widetilde A$ is a connected component (cf. Definition \ref{connected_comp_defn}) of $\overline{A}$, i.e. $\overline{A} = \widetilde A \oplus \widetilde A^\perp$, and
- 	\be\label{gta_eqn}
- 	G\left(\left.\widetilde{A}~\right| A\right)\bydef 
- 	\left\{\left. g \in  G\left(\left.\overline{A}~\right| A\right)\right| \forall \widetilde a^\perp \in \widetilde A^\perp \quad g \widetilde a^\perp= \widetilde a^\perp\right\}
- 	\ee
- 	then there is a natural action
- 	\be\label{gta_act_eqn}
- 	G\left(\left.\widetilde{A}~\right| A\right)\times \widetilde{A} \to \widetilde{A}.
- 	\ee
- 	The natural injective *-homomorphism $A \hookto M\left(\overline A \right)$ induces a *-homomorphism
- 	\be\label{inj_to_m_eqn}
- 	\widetilde m : A \to M\left(\widetilde A \right)
- 	\ee
- 	
- 	
- \end{empt}
- \begin{definition}\label{good_defn}
- 	Let	$\mathfrak{S}^{\mathrm{pt}} \in \mathfrak{FinAlg}^{\mathrm{pt}}$ be a pointed algebraical  finite covering category (cf. Definition \ref{pointed_defn}).   Suppose that $\left(A, \overline{A}, G\left(\left.\overline{A}~\right| A\right)\right)$ is the disconnected infinite noncommutative covering of $\mathfrak{S}^{\mathrm{pt}}$ (cf. Definition \ref{discon_defn}). For any $\la \in \La$ denote by $h_\la: G\left(\left.\overline{A}~\right| A\right) \to G\left(\left. A_\la~\right|~A \right)$ the natural surjective homomorphism of groups.
- 	We say  that $\mathfrak{S}^{\mathrm{pt}}$ is $\pi$-\textit{good} if  following conditions hold.
- 	\begin{enumerate}
- 		\item[(a)] For any connected component $\widetilde A$ of $\overline{A}$ the given by \eqref{inj_to_m_eqn} *-homomorphism is injective.
- 		\item[(b)] If both $\widetilde{A}'$ and $\widetilde{A}''$ are  {connected components} of $\overline A$ then there is  $g \in G\left(\left.\overline{A}~\right|~ A\right)$ such that $g \widetilde{A}'= \widetilde{A}''$.
- 		\item [(c)] If  $G\left(\left.\widetilde{A}~\right| A\right)$ is given by \eqref{gta_act_eqn} then for any $\la \in \La$ the restriction $h_\la|_{\widetilde A}$ is an epimorphism, i. e. $h_\la\left(G\left(\left.\widetilde{A}~\right| A\right) \right) = G\left(\left. A_\la~\right|~A \right)$.
- 	\end{enumerate}
- \end{definition}
- \begin{remark}\label{cond_b_ref_rem}
- 	If $\overline  \sX$ is a spectrum of $\overline{A}$ then the condition (b) of the Definition \ref{good_defn}  can be reformulated by a following way. If both $\widetilde{\sX}'$ and $\widetilde{\sX}''$ are  {connected components} of $\overline \sX$ then there is  $g \in G\left(\left.\overline{A}~\right|~ A\right)$ such that $g \widetilde{\sX}'= \widetilde{\sX}''$ (cf. Exercise \ref{conn_comp_exer}).
- \end{remark}
- 
- 
- \begin{definition}\label{main_defn}
- 	Let $\mathfrak{S}^{\mathrm{pt}} \in \mathfrak{FinAlg}^{\mathrm{pt}}$ be  a good  pointed algebraical  finite covering category (cf. Definitions \ref{pointed_defn} and \ref{good_defn}).    A connected component $\widetilde{A} \subset \overline{A}$ (cf. Definition \ref{connected_comp_defn}) is said to be the \textit{ inverse noncommutative limit of $\mathfrak{S}^{\mathrm{pt}}$}. The given by the equation \eqref{gta_eqn} group $G\left(\left.\widetilde{A}~\right| A\right)$  is said to be the \textit{covering transformation group of $\mathfrak{S}^{\mathrm{pt}}$}.  The triple $\left(A, \widetilde{A}, G\left(\left.\widetilde{A}~\right| A\right)\right)$ is said to be the  \textit{infinite noncommutative covering} of $\mathfrak{S}^{\mathrm{pt}}$. %The algebra $A$  is said to be the {\it base algebra} of $\mathfrak{S}$. 
- 	We will use the following notation 
- 	\begin{equation}\label{inf_lim_not_eqn}
- 		\begin{split}
- 			\varprojlim \mathfrak{S}^{\mathrm{pt}}\stackrel{\mathrm{def}}{=}\widetilde{A}.
- 		\end{split}
- 	\end{equation}	
- \end{definition}
- 
- 
- \subsection{Coverings of $C^*$-algebras related to representations}
- 
- \begin{definition}\label{special_element_defn} 
- 	Let $\mathfrak{S}^{\mathrm{pt}}=\left(\left\{\pi_\la: A \hookto A_\la \right\}, \left\{\pi^\mu_\nu\right\}\right)\in \mathfrak{FinAlg}^{\mathrm{pt}}$  be a  {pointed algebraical  finite covering category} (cf. Definition \ref{pointed_defn}). Let $\widehat{A} \bydef C^*\text{-}\varprojlim_{\la \in \La} A_{\la}$ be the $C^*$-inductive limit of $C^*$-algebras, and let $\widehat{G}\bydef \varprojlim_{\la \in \La} G\left(
- 	\left.  A_\la~ \right|A\right)$ be the projective limit of groups.
- 	Let $G_\la \bydef \ker\left(  \widehat G\to  G\left(\left.A_\la~\right|~A \right)\right)$, and let $A_{\la}^{\sim}$ be given by the equation \eqref{unital_notation_eqn}. Let $\pi:\widehat{A}\to B\left(\H \right)$ be an equivariant representation (cf. Definition \ref{equiv_defn}). 
- 	A  positive operator $\overline a \in B\left(\H\right)_+$ is said to be $\pi$-\textit{special element of} $\mathfrak{S}^{\mathrm{pt}}$ if for any $\la_0 \in \La$, $\eps > 0$ and  $z \in A_{\la_0}^{\sim}$ (cf. Notation \eqref{unital_notation_eqn})
- 	it satisfies to the following condition.	
- 	If   $f_\eps: \R \to \R$ is a given by \eqref{f_eps_eqn} continuous function 
- 	then for all $\la \ge \la_0$  there are $ a_\la, b_\la, a^\eps_\la \in A_\la$ such that
- 	\be\label{spec_a_eps_eqn}
- 	\begin{split}
- 		\sum_{g\in G_\la } \pi \left(z\right)^*\left(  g\overline a\right) \pi\left( z\right)   = \pi\left(a_\la \right),\\
- 		\sum_{g\in G_\la } f_\eps\left(\pi \left(z\right)^* \left( g\overline a\right) \pi\left( z\right)\right)    = \pi\left(a^\eps_\la \right).
- 	\end{split}
- 	\ee
- 	where sums of the above series mean the strong convergence in  $B\left(\H\right)$ (cf. Definition \ref{strong_topology_defn}) and the action  $G_\la\times B\left(\H\right)\to B\left(\H\right)$ is given by \eqref{equivb_eqn}.
- \end{definition}
- \begin{exercise}
- 	Let $\mathfrak{S}^{\mathrm{pt}} \in \mathfrak{FinAlg}^{\mathrm{pt}}$ be  a pointed algebraical  finite covering category (cf. Definition \ref{pointed_defn}).
- \end{exercise}
- \begin{lemma}\label{spec_strong_lim_lem}
- 	Any  $\pi$-special element $\overline a \in B\left( \H\right)_+$ equals to the following strong limit (cf. Definition \ref{strong_topology_defn})
- 	\be\label{spec_strong_lim_eqn}
- 	\overline a = \lim_{\la \in \La}\pi\left(a_\la \right)
- 	\ee 
- 	where $a_\la$ satisfies to 	the following equation
- 	\be\label{spec_a_eqn}
- 	\begin{split}
- 		\sum_{g\in G_\la } \pi \left(1_{A^\sim_\la}\right)^*\left(  g\overline a\right) \pi\left(1_{A^\sim_\la}\right)  \cong	\sum_{g\in G_\la } g\overline a   = \pi\left(a_\la \right)
- 	\end{split}
- 	\ee	
- 	(cf. equation \ref{spec_a_eps_eqn}).
- \end{lemma}
- \begin{proof}
- 	The net $\left\{\pi\left(a_\la \right)\right\}_{\la \in \La}$ is decreasing, so from the Theorem \ref{increasing_convergent_w_lem} the strong limit  $\lim_{\a \in \La}\pi\left(a_\la \right)$  exists. The strong limit coincides with the weak one, so one should prove that for all $\xi, \eta \in \H$ one has
- 	\be\label{spec_strong_limxe_eqn}
- 	\left(\xi,\overline a \eta \right)= \lim_{\la \in \La} \left(\xi,\pi\left(a_\la \right) \eta \right)= \lim_{\la \in \La}\left(\xi,~~\left( 	\sum_{g\in G_\la }g\overline a \right) \eta \right).
- 	\ee
- 	Element $\overline a$ is positive, so from the the polarization equality \eqref{polarization_equality_eqn} it follows that \eqref{spec_strong_limxe_eqn} is equivalent to
- 	\be\label{spec_strong_limxx_eqn}
- 	\left(\xi,\overline a \xi \right)=  \lim_{\la \in \La}\left(\xi,~~\left( 	\sum_{g\in G_\la}g\overline a \right) \xi \right)\quad \forall\xi \in \H.
- 	\ee
- 	For any $\la \in \La$ one has 
- 	\be\label{spec_strong_limxx1_eqn}
- 	\left(\xi,\overline a \xi \right)<\left(\xi,~~\left( 	\sum_{g\in G_\la }g\overline a \right) \xi \right).
- 	\ee
- 	Otherwise the nonincreasing net $\left\{x_\la=\left(\xi,~~\left( 	\sum_{g\in \ker\left(  \widehat G\to  G\left(\left.A_\la~\right|~A \right)\right) }g\overline a \right) \xi \right)\right\}$ of real numbers is bounded, so it is convergent. For any $\eps>0$ there is $\la_\eps\in\La$ such that
- 	$\left|x_\la - \lim_\la x_\la \right| < \eps$ for all $\la \ge \la_\eps$. It follows that 
- 	\bean
- 	\la \ge \la_\eps \quad \Rightarrow \quad  \left(\xi,~~\left( 	\sum_{\substack{ g\in  G_\la }}g\overline a \right) \xi \right)-\left(\xi, \overline a  \xi \right)= \left(\xi,~~\left( 	\sum_{\substack{ g\in  G_\la\\g \neq e }}g\overline a \right) \xi \right)< \eps 
- 	\eean
- 	where $e$ is the unity of the group $\widehat G$.
- 	On the other hand from
- 	$$
- 	\bigcap_{\la \in \La}\ker\left(  \widehat G\to  G\left(\left.A_\la~\right|~A \right)\right)= \{e\}
- 	$$
- 	it turns out that
- 	\be\label{spec_strong_limxx2_eqn}
- 	\forall \la \in \La \quad \la \ge \la_\eps\quad \Rightarrow \quad \left(\xi,\overline a \xi \right)+ \eps >\left(\xi,~~\left( 	\sum_{g\in G_\la }g\overline a \right) \xi \right).
- 	\ee
- 	The equation \eqref{spec_strong_limxx_eqn} is a direct consequence of the equations \eqref{spec_strong_limxx1_eqn} and \eqref{spec_strong_limxx2_eqn}.
- \end{proof}
- \begin{remark}
- 	From the Lemma \ref{spec_strong_lim_lem} it follows that there is $a\in A$ such that 
- 	\be\label{spec_a0_eqn}
- 	\begin{split}
- 		\sum_{g\in \widehat G } \pi \left(1_{A^\sim_\la}\right)^*\left(  g\overline a\right) \pi\left(1_{A^\sim_\la}\right)  \cong	\sum_{g\in \widehat G } g\overline a   = \pi\left(a \right).
- 	\end{split}
- 	\ee	
- \end{remark}
- 
- 
- \begin{corollary}\label{spec_borel_cor}
- 	If $\widehat \pi: \widehat A \to B\left(\widehat \H \right)$ is the universal representation then any $\widehat \pi$-special element $\overline a \in B\left(\widehat\H \right)$   lies in the  {enveloping Borel *-algebra} $\mathscr B\left(\widehat A\right)$ of $\widehat A$ (cf. Definition \ref{borel_env_defn}). 
- \end{corollary}
- \begin{proof}
- 	Since $\La$ is countable there is an increasing cofinal subset $\left\{\la_n \right\}_{n \in \N} \subset \La$, so one has
- 	$$
- 	\lim_{\la \in \La } \widehat \pi\left( a_\la\right)  = \lim_{n \to \infty} \widehat \pi\left( a_{\la_n}\right). 
- 	$$
- 	From the above equation and  the Definition \ref{borel_env_defn} it turns out that $\lim_{\la \in \La } \widehat \pi\left( a_\la\right)  \in \mathscr B\left(\widehat A\right)$. Taking into account \eqref{spec_strong_lim_eqn} one has $\overline a \in \mathscr B\left(\widehat A\right)$.
- 	
- \end{proof}
- 
- 
- \begin{definition}\label{weakly_spec_defn}
- 	If $\overline a$ is  $\pi$-{special} and $\widehat{x}, \widehat{y} \in \widehat{A}$ then we say that the element
- 	\be\label{weakly_spec_eqn}
- 	\overline b=	\pi\left(\widehat{x}\right)\overline a \pi\left(\widehat{y}\right)\in B\left(\H\right)
- 	\ee
- 	is $\pi$-\textit{weakly special}. If $\pi$ is atomic then we say that $\overline b$ is \textit{weakly special}.  Denote by $\Xi_\pi\left( \mathfrak{S}^{\mathrm{pt}}\right)$ the $\widehat{A}$-bimodule of $\pi$-{weakly special} families.  
- \end{definition}
- 
  
  
  \begin{empt}
@@ -4415,121 +4302,7 @@ If a disconnected infinite noncommutative covering exists then it is unique.
  \end{empt}
  
  
- 
- \begin{empt}\label{disconnected_limit_empt}
- 	The natural action of $\widehat{G} \times \H \to \H$ induces the action $\widehat{G} \times B\left( \H\right)  \to B\left( \H\right)$ (cf. Remark \ref{equiv_rem}).
- 	Clearly if $\overline a \in B\left(\H \right)$ is special then $g \overline a$ satisfies to (a), (b) of the Definition \ref{special_element_defn} !!! DELETE CONDITION (b) and square !!!, i.e. $g \overline a$ is also special. Similarly if $\overline b$ is weakly special then $g \overline b$ is also special, i.e.  there is the natural action
- 	\be\label{spec_act_eqn}
- 	\widehat{G}\times \Xi_\pi\left( \mathfrak{S}^{\mathrm{pt}}\right) \to \Xi_\pi\left( \mathfrak{S}^{\mathrm{pt}}\right)
- 	\ee
- 	There is the natural $\C$-linear map
- 	\be\label{f_xi_eqn}
- 	\begin{split}
- 		f^\Xi_\pi:  \Xi_\pi\left( \mathfrak{S}^{\mathrm{pt}}\right) \to B\left(\H\right)
- 	\end{split} 
- 	\ee
- 	The action \eqref{spec_act_eqn} induces the action
- 	\be\label{g_a_eqn}
- 	\widehat{G}\times \overline A_\pi \to \overline A_\pi
- 	\ee
- 	where $\overline A_\pi$ is the $C^*$-algebra, generated by $\Xi_\pi\left( \mathfrak{S}^{\mathrm{pt}}\right)$.
- \end{empt}
- \begin{definition}\label{disconnected_inf_defn}
- 	Let us consider the situation of  \ref{disconnected_limit_empt}. 	The $C^*$-algebra $\overline{A}_\pi\subset B\left(\H\right)$ generated by the operator space	$f^\Xi_\pi\left( \Xi_\pi\left( \mathfrak{S}^{\mathrm{pt}}\right)\right)$   is said to be the $\pi$-\textit{\it disconnected algebraical inverse noncommutative limit} of $ \mathfrak{S}^{\mathrm{pt}}$. If $$G\left(\left.\overline{A}_\pi~\right| A \right)\bydef \widehat G \bydef\varprojlim_{\la \in \La} G\left(
- 	\left.  A_\la~ \right|A\right)$$ then there is the action of $G\left(\left.\overline{A}_\pi~\right| A\right)\times \overline{A}_\pi\to \overline{A}_\pi$ which comes from the action \eqref{g_a_eqn}. The triple  $\left(A, \overline{A}_\pi, G\left(\left.\overline{A}_\pi~\right| A \right)\right)$ is said to be the  $\pi$-\textit{disconnected algebraical infinite noncommutative covering} of $ \mathfrak{S}^{\mathrm{pt}} $.  We  say that $G\left(\left.\overline{A}_\pi~\right| A\right)$ is the $\pi$-\textit{disconnected covering transformation group} of $ \mathfrak{S}^{\mathrm{pt}}$.	If $\pi$ is the atomic representation i.e. $\pi = \pi_a:\widehat{A}\to B\left(\widehat\H_a \right)$ then we write $\overline A$ instead  $\overline{A}_\pi$ and we say that $\overline A$ is the \textit{ disconnected algebraical inverse noncommutative limit} of $ \mathfrak{S}^{\mathrm{pt}}$. Similarly $G\left(\left.\overline{A}~\right| A \right)\stackrel{\mathrm{def}}{=} \widehat{G}$. The triple  $\left(A, \overline{A}, G\left(\left.\overline{A}~\right| A \right)\right)$ is said to be the  \textit{disconnected algebraical infinite noncommutative covering} of $ \mathfrak{S}^{\mathrm{pt}} $.  We  say that $G\left(\left.\overline{A}~\right| A\right)$ is the \textit{disconnected covering transformation group} of $ \mathfrak{S}^{\mathrm{pt}}$.
- \end{definition}
- \begin{remark} \label{ata_rem} 
- 	From the equation \eqref{axia_eqn} it follows that $\pi\left( A\right) \overline{A}_\pi\pi\left( A\right)$ is a dense subset of $\overline{A}_\pi$. 
- \end{remark}
- \begin{remark}\label{cup_inf_rem}
- 	Since $\cup A_\la$ is dense subalgebra of $C^*$-$\varprojlim A_\la$ with respect to $C^*$-norm the disconnected algebraical infinite noncommutative covering is a generated by elements  $\pi\left(x^\cup\right)\overline a \pi\left(y^\cup\right)\in B\left(\H\right)$ where $\overline a\in B\left(\H \right)$ is a special element, and  $x^\cup, y^\cup\in \cup A_\la$. Any $c_\la \in  A_\la$ yields a double centralizer $\left(L_{c_\la}, R_{c_\la}\right)\in \mathbf{DC}\left(\overline{A}_\pi \right)$
- 	(cf. Definition \ref{dc_defn})
- 	\bean
- 	\forall \overline a \in \overline{A}_\pi \quad L_{c_\la}\left( \overline a\right) = \pi\left(c_\la \right)\overline a\quad R_{c_\la}\left( \overline a\right) = \overline a\pi\left(c_\la \right).
- 	\eean
- 	So one has a *-homomorphism
- 	\bean
- 	A_\la \to \mathbf{DC}\left(\overline{A}_\pi \right),\\
- 	c_\la \mapsto \left(L_{c_\la}, R_{c_\la}\right)
- 	\eean 
- 	From the Remark \ref{dc_rem} it follows that for all $\la\in\La$ there is a *-homomorphism
- 	\be\label{a_too_eqn}
- 	\begin{split}
- 		\overline m_\la :A_\la \to M\left( \overline{A}_\pi \right).\\
- 	\end{split} 
- 	\ee
- 	In particular from $A_{\la_{\text{min}}}\bydef A$ it turns out that there is is a *-homomorphism
- 	\be\label{a_tooa_eqn}
- 	\begin{split}
- 		\overline m:	A \to M\left( \overline{A}_\pi \right).
- 	\end{split} 
- 	\ee
- 	
- \end{remark}
- \begin{remark}\label{comes_from_bh_rem}
- 	The homomorphism \eqref{a_too_eqn} comes from inclusions $A_\la \subset B\left( \H\right)$ and $ \overline{A}_\pi \subset B\left( \H\right)$. 
- \end{remark}
- \begin{remark}\label{comm_inf_a_rem}
- 	Any  $g \in G\left(\left.\overline{A}_\pi~\right| A\right)$  yields to a *-isomorphism from one connected component (cf. Definition \ref{connected_comp_defn}) of $\overline{A}_\pi$ to another one or to itself.
- \end{remark}
- \begin{remark}\label{conn_inft_rem}
- 	Any $g \in G\left(\left.\overline{A}_\pi~\right| A\right)$ is a *-isomorphism of $\overline{A}_\pi$, so it corresponds to a homeomorphism of the spectrum $ \overline{\sX}$ of $\overline{A}_\pi$. Thus 
- 	there is an action $G\left(\left.\overline{A}_\pi~\right| A\right)\times \overline{\sX}\to \overline{\sX}$. It follows that any $g \in G\left(\left.\overline{A}_\pi~\right| A\right)$ corresponds to a homeomorphism from a connected component of $\overline{\sX}$ to another one, or to itself. 
- \end{remark}
-  \begin{exercise}\label{spec_mult_exer}
- 	In the situation of the Definition \ref{special_element_defn}    prove that for all $\la\in\La$ and every $z_\la\in M\left( A_\la\right)$ the element $\pi\left(z_\la\right)^*\overline{a} \pi\left(z_\la\right)$ is $\pi$-special.   
- \end{exercise}
- \begin{exercise}
- !!! PROVE INCLUSION OF DISC TO PI DISC !!!
- \end{exercise}
-
- \begin{lemma}\label{spec_borel_lem}
- 	If $\overline A$ is the { disconnected algebraical inverse noncommutative limit} of $ \mathfrak{S}^{\mathrm{pt}}$ then
- 	$\overline A\subset \mathscr B\left(\widehat A\right)$ where $\mathscr B\left(\widehat A\right)$ of $\widehat A$ is
- 	the  {enveloping Borel *-algebra} of $\widehat A$ (cf. Definition \ref{borel_env_defn}). 
- \end{lemma}
- \begin{proof}
- 	Follows from the Corollary \ref{spec_borel_cor} and Definitions \ref{weakly_spec_defn}, \ref{disconnected_inf_defn}.
- \end{proof}
- \begin{lemma}\label{atomic_universal_lem}
- 	If $\widehat \pi : \widehat{ A}\to B\left( \widehat \H\right)$ is the universal representation then there is the natural *-isomorphism
- 	\be\label{atomic_universal_eqn}
- 	\overline{A}_{\widehat \pi}\cong\overline{A}\bydef\overline{A}_{\widehat \pi_a}
- 	\ee
- 	where  $\widehat \pi_a : \widehat{ A}\to B\left( \widehat \H_a\right)$ is the atomic representation (cf. Definition \ref{atomic_repr_defn}).
- \end{lemma}
- 
- \begin{proof}
- 	From the Definition \ref{disconnected_inf_defn} it follows that $\overline{A} \bydef \overline{A}_{\widehat \pi_a}\subset B\left( \widehat \H_a\right)$.
- 	From the Theorem \ref{env_alg_thm} it turns out that there is the surjective *-homomorphism $p:\widehat \pi\left( \widehat A\right)''\to \widehat \pi_a\left(\widehat A \right)''$. From the Corollary \ref{atomic_repr_cor} one has the inclusion $\mathscr B\left(\widehat A\right) \subset B\left( \widehat\H_a\right)$ where $\mathscr B\left(\widehat A\right)$ is {enveloping Borel *-algebra}  of $\widehat A$ (cf. Definition \ref{borel_env_defn}). It follows that the restriction 
- 	$$
- 	\left.p\right|_{\mathscr B\left(\widehat A\right)}: \mathscr B\left(\widehat A\right) \to p\left(\mathscr B\left(\widehat A\right) \right) 
- 	$$
- 	is injective hence $p|_{\mathscr B\left(\widehat A\right)}$ is an *-isomorphism. On the other hand from the Corollary \ref{spec_borel_cor} it turns out that $\overline{A}\subset \mathscr B\left(\widehat A\right)$ so the restriction
- 	$$
- 	p|_{\overline{A}_{\widehat \pi}}: \overline{A}_{\widehat \pi} \to p\left( \overline{A}_{\widehat \pi}\right) 
- 	$$
- 	is *-isomorphism. If $\overline a_{\widehat \pi} \in \overline{A}_{\widehat \pi}$ is ${\widehat \pi}$-special then 	$\overline a_{\widehat \pi_a}= p|_{\overline{A}_{\widehat \pi}}\left(\overline a_{\widehat \pi}  \right) \in B\left( \widehat\H_a\right)$ is ${\widehat \pi}_a$-special  (cf. Definition \ref{special_element_defn} !!! DELETE CONDITION (b) and square !!!). It follows that
- 	$$
- 	p\left( \overline{A}_{\widehat \pi}\right)\subset  \overline{A}_{\widehat \pi_a}
- 	$$
- 	so  there is the natural inclusion
- 	$$
- 	\overline{A}_{\widehat \pi}\subset  \overline{A}_{\widehat \pi_a}.
- 	$$
- 	If $\iota_\H: \widehat\H_a \hookto \widehat\H$ is the natural inclusion and $p_\H: \widehat\H \hookto \widehat\H_a$ is the natural projection then there is the natural inclusion
- 	\bean
- 	\iota: B\left( \widehat\H_a\right)\hookto B\left( \widehat\H\right),\\
- 	a \mapsto \left(\xi \mapsto \iota_\H \left( a p_H\left(\xi \right) \right)  \right) \quad \forall  a \in  B\left( \widehat\H_a\right), ~~ \xi \in   \widehat\H.
- 	\eean	
- 	If $\overline a_{\widehat \pi_a}\in B\left( \widehat\H_a\right)$ is $\widehat \pi_a$-special then direct check shows that  $\overline a_{\widehat \pi}= \iota\left( \overline a_{\widehat \pi_a}\right)\in B\left( \widehat\H\right)$ is  $\widehat \pi$-special. It follows that there is the natural inclusion
- 	$
- 	\overline{A}_{\widehat \pi_a}\subset  \overline{A}_{\widehat \pi}
- 	$.
- 	Both inclusions $\overline{A}_{\widehat \pi_a}\subset  \overline{A}_{\widehat \pi}$ and $	 \overline{A}_{\widehat \pi}\subset  \overline{A}_{\widehat \pi_a}$ yield the isomorphism $\overline{A}_{\widehat \pi}\cong  \overline{A}_{\widehat \pi_a}$.
- \end{proof}
- 
- \begin{lemma}\label{inverse_lim_sp_lem}
+\begin{lemma}\label{inverse_lim_sp_lem}
  	The  spectrum of $\widehat A=C^*$-$\varinjlim_{\la \in \La}A_\la$ is the inverse limit  (cf. Definition \ref{top_inv_lim_defn}) of spectra of $A_\la$.
  \end{lemma}
  
@@ -4610,7 +4383,58 @@ If a disconnected infinite noncommutative covering exists then it is unique.
  	\eean
  	From the above equation it turns out that the state $\widehat \tau$ is not pure however it contradicts with our assumption. So $y_\la$ corresponds to a pure state for all $\la\in\La$.
  \end{proof}
- 
+  \begin{empt}!!! CONTINUE !!!
+ 	Consider a	$C^*$-algebra $\overline{A}$ weakly  subordinated to	$\mathfrak{S}^{\text{pt}}$ If  $\overline a \in K\left(\overline A\right)_+$ is a positive element then there is an decreasing net $\left\{a_\la\right\}\in \widehat A$ such that
+ 	$$
+ 	a _\la \bydef\beta- \sum_{g \in \ker\left(\widehat{G}\to G_\la\right)}g \overline a\in \varphi_\la\left( K\left( A_\la\right) \right) 	 \subset \widehat A
+ 	$$
+ 	If $\widehat \pi: \widehat{A}\to B\left(\widetilde{\H}\right)$ is a faithful, nondegenerate, equivariant representation  (cf. Definitions \ref{faithful_repr_defn} , \ref{nondegenerate_repr_defn} and \ref{equiv_repr_defn}) and $\overline a \in K\left(\overline A\right)_+$ then from the Lemma \ref{increasing_convergent_w_lem} it turns out that the net is convergent with respect to the strong topology of $B\left(\widehat{\H}\right)$ (cf. Definition \ref{strong_topology_defn}). If $\overline b = s$-$\lim_{\la \in \La} a_\la\in B\left(\widehat{\H}\right)$ is the strong limit then one has a map 
+ 	\bean
+ 	\overline \pi_+ : \K\left(\overline A\right)_+ \to B\left(\widehat \H\right),\\
+ 	\overline a \mapsto \overline{b}.
+ 	\eean
+ 	%The natural action $\widehat{G}\times \widehat A \to \widehat A$ induces an action $\widehat{G}\times \widehat \H_a \to \widehat \H_a$  (cf. Lemma \ref{equiv_lem})
+ 	%\begin{lemma}
+ 	%	The map $\overline \pi_+$ is injective. 
+ 	%\end{lemma}
+ 	%\begin{proof}
+ 	%	If $\overline a \in \K\left(\overline A \right)_+ \setminus \{0\}$ then and 
+ 	%	$a \bydef \beta- \sum_{g \in \ker\left(\widehat{G}\to G_\la\right)}g \overline a\in \varphi_\la\left( K\left( A_\la\right) \right)$ then from the condition (d) of the Definition \ref{subord_defn} it follows that $a \neq 0$.
+ 	%If
+ 	%$s- \sum_{g \in \widehat{G}}g \pi_+\left( \overline a\right) \widehat \pi\left( 	a\right)  = \widehat \pi\left(a^2 \right) > 0$. There is $g \in \widehat{G}$ such that $g\pi_+\left( \overline a\right) \widehat \pi\left( 	a\right) \neq 0$. From $ga = a$ it follows that $g^{-1}\left( g\pi_+\left( \overline a\right) \widehat \pi\left( 	a\right)\right)  = \pi_+\left( \overline a\right) \widehat \pi\left( 	a\right)\neq 0$
+ 	%\end{proof}
+ 	From the condition (d) of the definition \ref{subord_defn} it follows that this map is injective. Using the equation \eqref{four_decompositon_eqn},  we can extend $\overline \pi_+$ up to an injective map 
+ 	$$
+ 	K\left( \overline \pi\right)  : K\left(\overline A\right) \to B\left(\widehat \H\right).
+ 	$$
+ 	We leave to the reader the proof of that $K\left( \overline \pi\right)$ is a *-homomorphism. Taking into account that $K\left(\overline A\right)$ is dense in $\overline A$ we obtain a full representation
+ 	\be\label{full_disc_eqn}
+ 	\overline \pi  : \overline A \hookto B\left(\widehat \H\right).
+ 	\ee
+ 	such that for all $\overline a \in K\left(\overline A\right)$ one has
+ 	\be\label{full_disc_lim_eqn}
+ 	\overline \pi\left(  \overline a\right) = s\text{-}\lim_{\la\in\La} \varphi_\la\left( a_\la\right)\quad  \text{where} \quad a_\la \bydef \beta- \sum_{g \in \ker\left(\widehat{G}\to G_\la\right)}g \overline a.
+ 	\ee
+ 	
+ \end{empt}
+ \begin{empt}
+ 	Let	$\mathfrak{S}^{\mathrm{pt}} \in \mathfrak{FinAlg}^{\mathrm{pt}}$ be a pointed algebraical  finite covering category (cf. Definition \ref{pointed_defn}). $\left(A, \overline{A}, G\left(\left.\overline{A}~\right| A\right)\right)$ is the disconnected infinite noncommutative covering of $\mathfrak{S}^{\mathrm{pt}}$ (cf. Definition \ref{discon_defn}). If $\widetilde A$ is a connected component (cf. Definition \ref{connected_comp_defn}) of $\overline{A}$, i.e. $\overline{A} = \widetilde A \oplus \widetilde A^\perp$, and
+ 	\be\label{gta_eqn}
+ 	G\left(\left.\widetilde{A}~\right| A\right)\bydef 
+ 	\left\{\left. g \in  G\left(\left.\overline{A}~\right| A\right)\right| \forall \widetilde a^\perp \in \widetilde A^\perp \quad g \widetilde a^\perp= \widetilde a^\perp\right\}
+ 	\ee
+ 	then there is a natural action
+ 	\be\label{gta_act_eqn}
+ 	G\left(\left.\widetilde{A}~\right| A\right)\times \widetilde{A} \to \widetilde{A}.
+ 	\ee
+ 	The natural injective *-homomorphism $A \hookto M\left(\overline A \right)$ induces a *-homomorphism
+ 	\be\label{inj_to_m_eqn}
+ 	\widetilde m : A \to M\left(\widetilde A \right)
+ 	\ee
+ 	
+ 	
+ \end{empt}
+ \
  \begin{lemma}\label{inverse_lim_h_lem}
  	Consider the situation of the Lemma \ref{inverse_lim_sp_lem}, let $\widehat p :  \widehat\sX \to\sX= \sX_{\la_{\mathrm{min}}}$ be the natural continuous map from inverse limit to the spectrum of $A$ (cf. Definition \ref{top_inv_lim_defn}). Suppose that for all $\la\in \La$ a noncommutative finite-fold covering $A \hookto A_\la$ (cf. Definition \ref{fin_defn}) is reduced (cf. Definition \ref{fin_red_defn}). 
  	If $\widehat{x }\in \widehat{\sX }$ is a point and both $\rep_{  \widehat{x }}: \widehat A \to B\left( \H_{\widehat{x}}\right)$ and  $\rep_{ \widehat{p} \left( \widehat{x }\right) }:  A \to B\left( \H_{\widehat{p} \left( \widehat{x }\right)}\right)$ are corresponding to $\widehat{x }$  and $\widehat{p} \left( \widehat{x }\right)$ irreducible representations then there are natural isomorphisms  
@@ -24570,6 +24394,11 @@ $$
 \pi_a\left( A\right)'' = \prod_{x\in \hat A} B\left( \H_x\right). 
 $$
 \end{lemma}
+\begin{theorem}\label{vn_ext_thm}\cite{pedersen:ca_aut}
+%3.7.7. THEOREM. 
+For each non-degenerate representation $A \to B\left(\H \right)$  of a $C^*$-algebra 
+$A$ there is a unique normal morphism $\pi$ of $A''$ onto $\pi\left(A\right)''$ which extends $\pi$. 
+\end{theorem}
 	%\begin{definition}
 	%	3.8.1. 
 	%	With each (non-degenerate) representation $\pi: A \to B\left(\H\right)$ of a $C^*$-algebra $A$ we associate the projection $c\left(\pi\right)$ in the center of $A''$ for which $A''\left(\pi\right)$ is isomorphic 	to $\pi(A)''$( = $\pi''\left(A'' \right)$ ). We say that  $c\left(\pi\right)$ is the \textit{central cover} of $\pi: A \to B\left(\H\right)$
