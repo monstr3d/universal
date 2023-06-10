@@ -4146,19 +4146,14 @@ Prove  that $\widetilde D \left( \H \cap \Dom \widetilde D \right)\subset \H$, i
  		\item[(b)] There is an action $\widehat{G}\times \overline A \to \overline A$ such that
  		for all $g \in \widehat{G}$,  $\quad \widehat a \in \widehat{A}$ and $\overline a \in \overline{A}$ one has
  		\bean
- 		g\left(\phi\left(\widehat a \right)\overline{a}\right)  = 	g\left(\phi\left(\widehat a \right)\right) g \overline{a},\\
- 		g\left( \overline{a}\phi\left(\widehat a \right)\right) =g \overline{a}g\phi\left(\widehat a \right).
+ 		g\left(\phi\left(\widehat a \right)\overline{a}\right)  = 	\left(\phi\left(g\widehat a \right)\right) g \overline{a},\\
+ 		g\left( \overline{a}\phi\left(\widehat a \right)\right) =g \overline{a}\phi\left(g\widehat a \right).
  		\eean
- 		\item[(c)] There is a dense *-subalgebra $\overline{\A}\subset A$ such that  for any $\la\in \La$  and $\overline a \in \overline \A$ the series $\sum_{g \in \ker\left(\widehat{G}\to G_\la\right)}g \overline a$ is convergent with respect to the strict topology of $M\left(\overline{A} \right)$ (cf. \ref{strict_topology_defn}). Moreover we require that
+ 		\item[(c)] There is a dense *-subalgebra $\overline{\A}\subset \overline A$ such that  for any $\la\in \La$  and $\overline a \in \overline \A$ the series $\sum_{g \in \ker\left(\widehat{G}\to G_\la\right)}g \overline a$ is convergent with respect to the strict topology of $M\left(\overline{A} \right)$ (cf. \ref{strict_topology_defn}). Moreover we require that
  	\be\label{a_la_eqn}
- 	a_\la \bydef 	\bt-\sum_{g \in \ker\left(\widehat{G}\to G_\la\right)}g \overline a \in \varphi_\la\left( K\left( A_\la\right) \right) 	
+ 	a_\la \bydef 	\bt-\sum_{g \in \ker\left(\widehat{G}\to G_\la\right)}g \overline a \in \phi\circ \varphi_\la\left( K\left( A_\la\right) \right) 	
  	\ee
- 		where $\varphi_\la : A_\la \hookto \widehat A$ is the natural inclusion, and $\bt-\sum$ means a convergent with respect to strong topology sum  of the infinite series.
- 		\item[(d)]  
- 		For all $\overline a \in K\left(\overline A \right)$ one has
- 		$$
- 		\left( \forall	\la\in \La\quad  \sum_{g \in \ker\left(\widehat{G}\to G_\la\right)}g \overline a=0\right)\quad  \Rightarrow\quad  \overline a = 0.
- 		$$
+ 		where $\varphi_\la : A_\la \hookto \widehat A$ is the natural inclusion, and $\bt-\sum$ means a convergence with respect to strong topology sum  of the infinite series.
  	\end{enumerate}
  	If  $\overline \A$ equals to the Pedersen's ideal $K\left(\overline A \right)$ (cf. Definition \ref{peder_id_defn}) then we say that is \textit{subordinated to}  $\mathfrak{S}^{\text{pt}}$
  \end{definition}
@@ -4176,9 +4171,9 @@ a \bydef a_{\la_{\min}} = \bt\text{-}\sum_{g \in \widehat{G}}g \overline a
 $$
 If $\overline b \in \overline A$ and $e \in \widehat{G}$ is a unity of  $\widehat{G}$ f then for any $\eps > 0$ there is a finite set $\{e\} \subset G'\subset  \widehat{G}$ such for any finite set $G''\subset  \widehat{G} \setminus G'$ one has
 $$
- \left\| \sum_{g \in G''}g \overline a \overline b - a \overline b\right\| < \eps.
+ \left\| \sum_{g \in G''}g \overline a \overline b \right\| <\frac{\eps}{2}.
 $$
-Since the set is finite there is $\la_\eps\in \La$ such that 
+Since the set $G'$ is finite there is $\la_\eps\in \La$ such that 
 $$
 \ker\left(\widehat{G}\to G_{\la_e}\right)\cap G' = \{e\}
 $$
@@ -4194,7 +4189,12 @@ where the $C^*$-norm limit is implied. Similarly we can prove that $\lim_{\la\in
 
 \end{proof}
  \begin{definition}\label{discon_defn}
- 	A $C^*$-algebra $\overline{A}$  subordinated to	$\mathfrak{S}^{\text{pt}}$ (cf, Definition \ref{subord_defn}) is said to be  \textit{\it disconnected algebraical inverse noncommutative limit} of $ \mathfrak{S}^{\mathrm{pt}}$ if for any $C^*$-algebra $\overline{A}'$ subordinated to	$\mathfrak{S}^{\text{pt}}$  there is the natural injective *-homomorphism
+ If $C^*$-algebra $\overline{A}$ weakly subordinated to	$\mathfrak{S}^{\text{pt}}$ (cf, Definition \ref{subord_defn}) then we say that   a triple
+ \be\label{disc_triple_eqn}
+ \left(A, \overline{A}, G\left(\left.\overline{A}~\right| A\right)\bydef \widehat G\right)
+ \ee
+ is a \textit{weak disconnected infinite noncommutative covering} of $\mathfrak{S}^{\text{pt}}$. We say that the triple  \eqref{disc_triple_eqn} is \textit{disconnected infinite noncommutative covering} of $\mathfrak{S}^{\text{pt}}$ if $\overline{A}$  subordinated to	
+ $\mathfrak{S}^{\mathrm{pt}}$ and for any $C^*$-algebra $\overline{A}'$ subordinated to	$\mathfrak{S}^{\text{pt}}$  there is the natural injective *-homomorphism
  	$\psi : \overline{A}'\hookto\overline{A}$ such that all
  	$g \in \widehat{G}$,  $\widehat a \in \widehat{A}$ and $\overline a' \in \overline{A}'$ one has
  	\bean
@@ -4203,25 +4203,37 @@ where the $C^*$-norm limit is implied. Similarly we can prove that $\lim_{\la\in
  	\psi\left(\overline a' \phi'\left( \widehat  a\right) \right) = 	\psi\left( \overline a'  \right)\phi\left( \widehat  a\right)
  	\eean 
  	where both $\phi: \widehat A \hookto M\left(\overline A\right)$ and $\phi': \widehat A \hookto M\left(\overline A'\right)$ are required by the Definition \ref{subord_defn} inclusions.
- 	We also say that a triple
- \be\label{disc_triple_eqn}
- 	\left(A, \overline{A}, G\left(\left.\overline{A}~\right| A\right)\bydef \widehat G\right)
-\ee
- 	is a \textit{disconnected infinite noncommutative covering} of $\mathfrak{S}^{\text{pt}}$. If $C^*$-algebra $\overline{A}$ is weakly subordinated to	$\mathfrak{S}^{\text{pt}}$ (cf, Definition \ref{subord_defn}) then we say that  $\overline{A}$ is a  \textit{\it weak disconnected algebraical inverse noncommutative limit} and the triple \eqref{disc_triple_eqn} is a \textit{weak disconnected infinite noncommutative covering} of $\mathfrak{S}^{\text{pt}}$
- 	
+ 
  \end{definition}
  
  \begin{remark}
 If a disconnected infinite noncommutative covering exists then it is unique.
  \end{remark}
+ \begin{empt}
+ 	Let	$\mathfrak{S}^{\mathrm{pt}} \in \mathfrak{FinAlg}^{\mathrm{pt}}$ be a pointed algebraical  finite covering category (cf. Definition \ref{pointed_defn}), and let $\left(A, \overline{A}, G\left(\left.\overline{A}~\right| A\right)\right)$ be a weak disconnected infinite noncommutative covering of $\mathfrak{S}^{\mathrm{pt}}$ (cf. Definition \ref{discon_defn}). If $\widetilde A$ is a connected component (cf. Definition \ref{connected_comp_defn}) of $\overline{A}$, i.e. $\overline{A} = \widetilde A \oplus \widetilde A^\perp$, and
+ 	\be\label{gta_eqn}
+ 	G\left(\left.\widetilde{A}~\right| A\right)\bydef 
+ 	\left\{\left. g \in  G\left(\left.\overline{A}~\right| A\right)\right| \forall \widetilde a^\perp \in \widetilde A^\perp \quad g \widetilde a^\perp= \widetilde a^\perp\right\}
+ 	\ee
+ 	then there is a natural action
+ 	\be\label{gta_act_eqn}
+ 	G\left(\left.\widetilde{A}~\right| A\right)\times \widetilde{A} \to \widetilde{A}.
+ 	\ee
+ 	The natural injective *-homomorphism $A \hookto M\left(\overline A \right)$ induces a *-homomorphism
+ 	\be\label{inj_to_m_eqn}
+ 	\widetilde m : A \to M\left(\widetilde A \right)
+ 	\ee
+ 	
+ 	
+ \end{empt}
  
 \begin{definition}\label{good_defn}
- 	Let	$\mathfrak{S}^{\mathrm{pt}} \in \mathfrak{FinAlg}^{\mathrm{pt}}$ be a pointed algebraical  finite covering category (cf. Definition \ref{pointed_defn}).   Suppose that $\left(A, \overline{A}, G\left(\left.\overline{A}~\right| A\right)\right)$ is the disconnected infinite noncommutative covering of $\mathfrak{S}^{\mathrm{pt}}$ (cf. Definition \ref{discon_defn}). For any $\la \in \La$ denote by $h_\la: G\left(\left.\overline{A}~\right| A\right) \to G\left(\left. A_\la~\right|~A \right)$ the natural surjective homomorphism of groups.
- 	We say  that $\mathfrak{S}^{\mathrm{pt}}$ is $\pi$-\textit{good} if  following conditions hold.
+ 	Let	$\mathfrak{S}^{\mathrm{pt}} \in \mathfrak{FinAlg}^{\mathrm{pt}}$ be a pointed algebraical  finite covering category (cf. Definition \ref{pointed_defn}).   Suppose that $\left(A, \overline{A}, G\left(\left.\overline{A}~\right| A\right)\right)$ is a weak disconnected infinite noncommutative covering of $\mathfrak{S}^{\mathrm{pt}}$ (cf. Definition \ref{discon_defn}). For any $\la \in \La$ denote by $h_\la: G\left(\left.\overline{A}~\right| A\right) \to G\left(\left. A_\la~\right|~A \right)$ the natural surjective homomorphism of groups.
+ 	We say  that $\left(A, \overline{A}, G\left(\left.\overline{A}~\right| A\right)\right)$  is \textit{good} if  following conditions hold.
  	\begin{enumerate}
  		\item[(a)] For any connected component $\widetilde A$ of $\overline{A}$ the given by \eqref{inj_to_m_eqn} *-homomorphism is injective.
  		\item[(b)] If both $\widetilde{A}'$ and $\widetilde{A}''$ are  {connected components} of $\overline A$ then there is  $g \in G\left(\left.\overline{A}~\right|~ A\right)$ such that $g \widetilde{A}'= \widetilde{A}''$.
- 		\item [(c)] If  $G\left(\left.\widetilde{A}~\right| A\right)$ is given by \eqref{gta_act_eqn} then for any $\la \in \La$ the restriction $h_\la|_{\widetilde A}$ is an epimorphism, i. e. $h_\la\left(G\left(\left.\widetilde{A}~\right| A\right) \right) = G\left(\left. A_\la~\right|~A \right)$.
+ 		\item [(c)] If  $G\left(\left.\widetilde{A}~\right| A\right)$ is given by \eqref{gta_eqn} then for any $\la \in \La$ the restriction $h_\la|_{\widetilde A}$ is an epimorphism, i. e. $h_\la\left(G\left(\left.\widetilde{A}~\right| A\right) \right) = G\left(\left. A_\la~\right|~A \right)$.
  	\end{enumerate}
  \end{definition}
  \begin{remark}\label{cond_b_ref_rem}
@@ -4230,76 +4242,16 @@ If a disconnected infinite noncommutative covering exists then it is unique.
  
  
  \begin{definition}\label{main_defn}
- 	Let $\mathfrak{S}^{\mathrm{pt}} \in \mathfrak{FinAlg}^{\mathrm{pt}}$ be  a good  pointed algebraical  finite covering category (cf. Definitions \ref{pointed_defn} and \ref{good_defn}).    A connected component $\widetilde{A} \subset \overline{A}$ (cf. Definition \ref{connected_comp_defn}) is said to be the \textit{ inverse noncommutative limit of $\mathfrak{S}^{\mathrm{pt}}$}. The given by the equation \eqref{gta_eqn} group $G\left(\left.\widetilde{A}~\right| A\right)$  is said to be the \textit{covering transformation group of $\mathfrak{S}^{\mathrm{pt}}$}.  The triple $\left(A, \widetilde{A}, G\left(\left.\widetilde{A}~\right| A\right)\right)$ is said to be the  \textit{infinite noncommutative covering} of $\mathfrak{S}^{\mathrm{pt}}$. %The algebra $A$  is said to be the {\it base algebra} of $\mathfrak{S}$. 
+ 	Let	$\mathfrak{S}^{\mathrm{pt}} \in \mathfrak{FinAlg}^{\mathrm{pt}}$ be a pointed algebraical  finite covering category (cf. Definition \ref{pointed_defn}). and let 
+ 	$\left(A, \overline{A}, G\left(\left.\overline{A}~\right| A\right)\right)$  be a good  weak disconnected infinite noncommutative covering  (cf. Definition \ref{good_defn}).    A connected component $\widetilde{A} \subset \overline{A}$ (cf. Definition \ref{connected_comp_defn}) is said to be the \textit{weak inverse noncommutative limit of $\mathfrak{S}^{\mathrm{pt}}$}. The given by the equation \eqref{gta_eqn} group $G\left(\left.\widetilde{A}~\right| A\right)$  is said to be the \textit{covering transformation group}.  The triple $\left(A, \widetilde{A}, G\left(\left.\widetilde{A}~\right| A\right)\right)$ is said to be the  \textit{weak infinite noncommutative covering} of $\mathfrak{S}^{\mathrm{pt}}$. 
  	We will use the following notation 
  	\begin{equation}\label{inf_lim_not_eqn}
  		\begin{split}
  			\varprojlim \mathfrak{S}^{\mathrm{pt}}\stackrel{\mathrm{def}}{=}\widetilde{A}.
  		\end{split}
  	\end{equation}	
+ Moreover if $\left(A, \overline{A}, G\left(\left.\overline{A}~\right| A\right)\right)$  be a good   disconnected infinite noncommutative covering then the triple is \textit{infinite noncommutative covering} of $\mathfrak{S}^{\mathrm{pt}}$
  \end{definition}
- 
- 
- \subsection{Coverings of $C^*$-algebras related to representations}
- 
- \begin{definition}\label{equiv_defn}
- 	A faithful representation ${\pi}: \widehat{A} \hookto B\left( \H\right)$ is said to be \textit{equivariant} if there is the action  $\widehat{G}\times {\H} \to {\H}$ such that
- 	\be\label{equivt_eqn}
- 	g \left(\widehat{a}{\xi} \right) = \left(g\widehat{a} \right) \left(g{\xi} \right); \quad \forall g \in \widehat{G},~ \widehat{a} \in \widehat{A},~ {\xi}\in {\H}.
- 	\ee
- \end{definition}
- \begin{remark}\label{equiv_rem}
- 	If 	a faithful representation ${\pi}: \widehat{A} \hookto B\left( \H\right)$ is {equivariant} then the action  $\widehat{G}\times {\H} \to {\H}$ induces the natural  action  $\widehat{G}\times B\left( {\H}\right)  \to B\left(  {\H}\right)$ such that
- 	\be\label{equivb_eqn}
- 	\left( ga\right)\xi \bydef  g\left( a \left( g^{-1}\xi\right) \right);\quad \forall g \in \widehat{G},~ a \in B\left(  {\H}\right),~ {\xi}\in {\H}.
- 	\ee
- 	
- 	
- \end{remark}
- \begin{lemma}\label{equiv_lem}
- 	Following conditions hold:
- 	\begin{enumerate}
- 		\item [(i)] the universal  representation $\widehat{\pi}: \widehat{A} \hookto B\left( \widehat\H\right)$ (cf. Definition \ref{universal_rep_defn}) is equivariant,
- 		\item [(ii)] the atomic  representation ${\pi}_a: \widehat{A} \hookto B\left(\widehat \H_a\right)$ (cf. Definition \ref{atomic_repr_defn}) is equivariant.
- 	\end{enumerate}
- \end{lemma}
- \begin{proof}
- 	(i) If $S$ is the state space of $\widehat{A}$ then there is the natural action $\widehat{G}\times S \to S$ given by
- 	$$
- 	\left(gs \right) \left(\widehat a\right)\stackrel{\text{def}}{=} s\left(ga \right)
- 	$$
- 	where $s \in S$, $g \in \widehat{G}$ and $\widehat{a}\in \widehat{A}$
- 	Let $s \in S$, and let $L^2\left(\widehat A, s\right)$ is the Hilbert space of the representation $\pi_s:\widehat{A} \to B\left(L^2\left(\widehat A, s\right)\right)$ which corresponds to $s$ (cf. \ref{gns_constr_sec}). If $f_s: \widehat A\to L^2\left(\widehat A, s\right)$ is the given by \eqref{from_a_to_l2_eqn} natural $\widehat{A}$-linear map then the $\widehat{A}$-module $f_s\left( \widehat A\right) $ is dense in $L^2\left(\widehat A, s\right)$. Since $$
- 	\widehat \H\bydef \bigoplus_{s \in S} L^2\left(\widehat A, s\right)
- 	$$
- 	the $\C$-linear span of given by
- 	$$
- 	\xi^s_{\widehat{a}}=\left(0, ..., \underbrace{f_s\left( \widehat{a}\right) }_{s^{\text{th}}-\text{place}}, ..., 0\right)\in \bigoplus_{s \in S} L^2\left(\widehat A, s\right)=		\widehat \H
- 	$$
- 	elements	is dense in  $\widehat \H$. Hence if for $g \in  \widehat G$ we define
- 	$$
- 	g \xi^s_{\widehat{a}}\stackrel{\text{def}}{=}	\left(0, ..., \underbrace{f_{gs}\left( g\widehat{a}\right) }_{gs^{\text{th}}-\text{place}}, ..., 0\right)\in \widehat \H
- 	$$
- 	then   $g \xi$ can be uniquely defined for all $\xi \in \widehat \H$ i.e. there is the  natural  action $\widehat{G}\times \widehat{\H} \to \widehat{\H}$. Using the equality
- 	$$
- 	\widehat a_1 f_s\left(\widehat a_2\right)= f_s\left(\widehat a_1\widehat a_2\right)
- 	$$
- 	one can prove that the action $\widehat{G}\times \widehat{\H} \to \widehat{\H}$ satisfies to \eqref{equivt_eqn}.\\
- 	(ii) The replacement of the "state" word in (i) with "pure state" one gives (ii).
- \end{proof}
- 
- 
- 
- \begin{empt}
- 	From the Lemma \ref{quasi_mult_lem}  it follows that 
- 	$$
- 	A \left(   \bigcup_{\la \in \La} A_\la \right) A
- 	$$ 
- 	is dense in $\bigcup_{\la \in \La} A_\la$. Otherwise  $\bigcup_{\la \in \La} A_\la$ is dense in $\widehat A$, so $ A\widehat  A A$ is dense in $\widehat A$.  It follows that 
- 	\be\label{axia_eqn}
- 	\forall\eps > 0\quad \forall \widetilde a \in \Xi_\pi\left( \mathfrak{S}^{\mathrm{pt}}\right)\quad \exists \widetilde a' \in 	A \Xi_\pi\left( \mathfrak{S}^{\mathrm{pt}}\right) A \quad \left\| \widetilde a'-\widetilde a\right\| < \eps.
- 	\ee
- \end{empt}
  
  
 \begin{lemma}\label{inverse_lim_sp_lem}
@@ -4383,24 +4335,7 @@ If a disconnected infinite noncommutative covering exists then it is unique.
  	\eean
  	From the above equation it turns out that the state $\widehat \tau$ is not pure however it contradicts with our assumption. So $y_\la$ corresponds to a pure state for all $\la\in\La$.
  \end{proof}
-\begin{empt}
- 	Let	$\mathfrak{S}^{\mathrm{pt}} \in \mathfrak{FinAlg}^{\mathrm{pt}}$ be a pointed algebraical  finite covering category (cf. Definition \ref{pointed_defn}). $\left(A, \overline{A}, G\left(\left.\overline{A}~\right| A\right)\right)$ is the disconnected infinite noncommutative covering of $\mathfrak{S}^{\mathrm{pt}}$ (cf. Definition \ref{discon_defn}). If $\widetilde A$ is a connected component (cf. Definition \ref{connected_comp_defn}) of $\overline{A}$, i.e. $\overline{A} = \widetilde A \oplus \widetilde A^\perp$, and
- 	\be\label{gta_eqn}
- 	G\left(\left.\widetilde{A}~\right| A\right)\bydef 
- 	\left\{\left. g \in  G\left(\left.\overline{A}~\right| A\right)\right| \forall \widetilde a^\perp \in \widetilde A^\perp \quad g \widetilde a^\perp= \widetilde a^\perp\right\}
- 	\ee
- 	then there is a natural action
- 	\be\label{gta_act_eqn}
- 	G\left(\left.\widetilde{A}~\right| A\right)\times \widetilde{A} \to \widetilde{A}.
- 	\ee
- 	The natural injective *-homomorphism $A \hookto M\left(\overline A \right)$ induces a *-homomorphism
- 	\be\label{inj_to_m_eqn}
- 	\widetilde m : A \to M\left(\widetilde A \right)
- 	\ee
- 	
- 	
- \end{empt}
- \
+
  \begin{lemma}\label{inverse_lim_h_lem}
  	Consider the situation of the Lemma \ref{inverse_lim_sp_lem}, let $\widehat p :  \widehat\sX \to\sX= \sX_{\la_{\mathrm{min}}}$ be the natural continuous map from inverse limit to the spectrum of $A$ (cf. Definition \ref{top_inv_lim_defn}). Suppose that for all $\la\in \La$ a noncommutative finite-fold covering $A \hookto A_\la$ (cf. Definition \ref{fin_defn}) is reduced (cf. Definition \ref{fin_red_defn}). 
  	If $\widehat{x }\in \widehat{\sX }$ is a point and both $\rep_{  \widehat{x }}: \widehat A \to B\left( \H_{\widehat{x}}\right)$ and  $\rep_{ \widehat{p} \left( \widehat{x }\right) }:  A \to B\left( \H_{\widehat{p} \left( \widehat{x }\right)}\right)$ are corresponding to $\widehat{x }$  and $\widehat{p} \left( \widehat{x }\right)$ irreducible representations then there are natural isomorphisms  
@@ -4526,24 +4461,24 @@ s\text{-}\lim_{\la\in\La}\widehat\pi\left( a'_\la\right)\widehat\pi\left( a''_\l
 \left( \bt\textit{-}\lim_{\la\in\La} a_\la\right)^* = \bt\textit{-}\lim_{\la\in\La} a^*_\la ,\\
 \left(s\text{-}\lim_{\la\in\La}\widehat\pi\left( a_\la\right)\right)^* = s\text{-}\lim_{\la\in\La}\widehat\pi\left( a_\la\right)^*
 \eean
-It follows that the map  is a *-homomorphism. Since $\overline\A$ is dense in $\overline A$ one has a representation $ext(\widehat \pi) : \overline{A}\to B \left(\widehat \H\right)$
+It follows that the map \eqref{ext_repr_eqn} is a *-homomorphism. Since $\overline\A$ is dense in $\overline A$ one has a representation. $ext(\widehat \pi) : \overline{A}\to B \left(\widehat \H\right)$.
 If $\rho: \overline{A}\to B \left(\widehat \H_\rho\right)$ is any faithful nondegenerate representation (cf. Definitions \ref{faithful_repr_defn} and \ref{nondegenerate_repr_defn}) then from \ref{multiplier_el_defn} it follows that there is a natural representation 
 $$
 M\left(\rho \right) : M\left(\overline{A} \right) \to  B \left(\widehat \H_\rho\right)
 $$
 and its restriction
 $$
-M\left(\rho \right)|_{\widehat A}: \widehat A\to B\left(\H_\rho \right) 
+M\left(\rho \right)|_{\widehat A}: \widehat A\to B\left(\widehat \H_\rho \right) 
 $$
 For any positive $\overline{a}\in \overline{\A}_+$ if $a_\la = 	\bt-\sum_{g \in \ker\left(\widehat{G}\to G_\la\right)}g \overline a$ then $a_\la > \overline{a}$. On the other hand $\rho\left(\overline{a}\right)> 0$. It follows that
 $$
 s\text{-}\lim_{\la\in\La}M\left(\rho \right)|_{\widehat A}\left( a_\la\right)= ext\left( M\left(\rho \right)|_{\widehat A}\right) \left(  \overline a\right)  > 0.
 $$
-it follows that the representation  $ext\left( M\left(\rho \right)|_{\widehat A}\right): \overline{A}\to B\left(\H_\rho \right)$ is faithful. If $\pi_{\text{uni}}:\widehat A\to B\left(\H_{\text{uni}} \right)$ is the universal representation then a representation  $ext\pi_{\text{uni}}: \overline A \hookto B\left(\H_{\text{uni}} \right)$ is faithful.  Since the set $\La$ is countable and for any positive $\overline a \in \overline{\A}_+$ one has
+it follows that the representation  $ext\left( M\left(\rho \right)|_{\widehat A}\right): \overline{A}\to B\left(\H_\rho \right)$ is faithful. If $\pi_{\text{uni}}:\widehat A\to B\left(\H_{\text{uni}} \right)$ is the universal representation then a representation  $ext\left( \pi_{\text{uni}}\right) : \overline A \hookto B\left(\H_{\text{uni}} \right)$ is faithful.  Since the set $\La$ is countable and for any positive $\overline a \in \overline{\A}_+$ one has
 $$
 ext\left( \pi_{\text{uni}}\right) \left( \overline a \right) = s\text{-}\lim \pi_{\text{uni}}\left(a_\la \right), 
 $$
-so there is a natural inclusion $\overline{\A}\subset 	\mathscr B\left(\widehat A\right)$ where $\mathscr B\left(A\right)$ is the enveloping Borel *-algebra of $\widehat A$ (cf. Definition \ref{borel_env_defn})
+ there is a natural inclusion $\overline{\A}\subset 	\mathscr B\left(\widehat A\right)$ where $\mathscr B\left(A\right)$ is the enveloping Borel *-algebra of $\widehat A$ (cf. Definition \ref{borel_env_defn})
 \end{empt}
 \begin{lemma}\label{atomic_faithful_lem}
 Consider the above situation. If $\pi_a : \widehat A \hookto B\left(\H_a\right)$ is an atomic representation (cf. Definition \ref{atomic_repr_defn}) then the given by \eqref{ext_repr_eqn} representation 
@@ -4553,68 +4488,12 @@ ext\left(\pi_a \right): \overline{A} \to B\left(\H_a\right)
 is faithful.
 \end{lemma}
 \begin{proof}
-	From the construction \ref{atomic_faithful_empt} it turns out that $\overline{A}$ is a  subalgebra of the enveloping Borel *-algebra of $\widehat A$. Now this lemma follows from the Corollary \ref{atomic_repr_cor}.
+	From the construction \ref{atomic_faithful_empt} it turns out that $\overline{A}$ is a  subalgebra of the enveloping Borel *-algebra $\mathscr B\left(A\right)$ of $\widehat A$. Now this lemma follows from the Corollary \ref{atomic_repr_cor}.
 \end{proof}
+ 
+ 
+ 
 
- \begin{exercise}\label{cofinal_exer}
- 	Let 
- 	\bean
- 	\begin{split}
- 		\mathfrak{S}^{\text{pt}}_\La \bydef \left(\left\{\pi_\la: A \hookto A_\la \right\}_{\la \in \La}, \left\{\pi^\mu_\nu: A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\ \nu > \mu}}\right).
- 	\end{split}
- 	\eean
- 	be a $\pi$-good  pointed algebraical  finite covering category (cf. Definitions \ref{pointed_defn} and \ref{good_defn}), and let $\La'\subset \La$ be a cofinal subset (cf. Definition \ref{cofinal_defn}) such that $\la_{\text{min}} \in \La'$. Prove following statements:
- 	\begin{enumerate}
- 		\item A pointed algebraical  finite covering category
- 		\bean
- 		\begin{split}
- 			\mathfrak{S}^{\text{pt}}_{\La'} \bydef \left(\left\{\pi_\la: A \hookto A_\la \right\}_{\la \in \La'}, \left\{\pi^\mu_\nu: A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La'\\ \nu > \mu}}\right)
- 		\end{split}
- 		\eean
- 		is good.
- 		\item There is the natural ismorphism between $\pi$-{infinite noncommutative coverings} of 	$\mathfrak{S}^{\text{pt}}_{\La'}$ and 	$\mathfrak{S}^{\text{pt}}_{\La}$ (cf. Definition \ref{main_defn}).
- 	\end{enumerate}
- 	
- \end{exercise}
- 
- 
- 
- 
- \begin{remark}\label{rep_x_rem}
- 	If $\widehat \sX$ is the spectrum of the $C^*$-inductive limit $C^*$-$\varprojlim_{\la\in\La}A_\la$ then for all $\widehat x$ and $\la\in \La$ there is the natural representation
- 	\be\label{rep_xl_eqn}
- 	\rep_{ \widehat{x}}: A_\la\to B\left(\H_{\widehat{x}}\right).
- 	\ee
- 	From the Corollary \ref{spec_el_repr_cor}  it turns out that there are the following natural representations
- 	\be\label{rep_owa_eqn}
- 	\begin{split}
- 		\rep_{ \widehat{x}}:\overline A\to B\left(\H_{\widehat{x}}\right),\\
- 		\rep_{ \widehat{x}}: \widetilde A\to B\left(\H_{\widehat{x}}\right)
- 	\end{split}
- 	\ee
- 	(cf. Notation \eqref{spec_el_repr_eqn}).
- \end{remark}
- 
- \begin{empt}\label{implicit_inc_full_empt}
- 	Below for all $\la\in\La$ we implicitly assume that $A_\la \subset  B\left(\H \right)$. Similarly the following natural inclusions 
- 	\bean
- 	\widehat A \subset B\left(\H \right), \quad
- 	\overline A_\pi \subset B\left(\H \right), \quad
- 	\widetilde A_\pi \subset B\left(\H \right), 
- 	\eean
- 	will be implicitly used. These inclusions enable us replace the equations \eqref{spec_a_eps_eqn}  with the following equivalent system of equations:
- 	\be\label{spec_a_eps_imp_eqn}
- 	\begin{split}
- 		\sum_{g\in G_\la } z^*\left(  g\overline a\right) z   \in A_\la,\\
- 		\sum_{g\in G_\la } f_\eps\left(z^*\left(  g\overline a\right) z   \right)   \in A_\la,\\
- 	\end{split}
- 	\ee
- 	In particular if $\la=\la_{\text{min}}$ and $z = 1_{A^+}$ then one has
- 	\be\label{spec_a_sum_eqn}
- 	a \bydef	\sum_{g \in G\left(\left.\overline A\right|A \right) }g\overline a\in A= A_{\la_{\text{min}}}.
- 	\ee
- \end{empt}
- 
 
 
 \subsection{Coverings of *-algebras}
@@ -5219,55 +5098,43 @@ $ where the homomorphism  $ h^\mu_\nu: G\left(\left. A_\mu\right| A\right)\to G\
 \end{enumerate}
 \end{exercise}
 \section{Induced representations}\label{inf_ind_repr_subsection}
-
-   \begin{definition}\label{inf_hilb_prod_defn}
- 	Let $\mathfrak{S}^{\text{pt}} = \left(\left\{\pi_\la: A \hookto A_\la \right\}, \left\{\pi^\mu_\nu\right\}\right)\in \mathfrak{FinAlg}^{\text{pt}} $ be  a pointed algebraical  finite covering  category.  Let $\pi: C^*$-$\varinjlim_{\la \in \La} A_\la \to B\left(\widehat \H\right)$ be an equivariant representation such that $\mathfrak{S}^{\text{pt}}$ is $\pi$-good (cf. Definition \ref{good_defn}).  Let  $$\left(A, \widetilde{A}_\pi, G\left(\left.\widetilde{A}_\pi~\right|A \right) \right)$$  be a $\pi$- infinite noncommutative covering of $\mathfrak{S}^{\text{pt}}$ (cf. Definition \ref{main_defn}). Let $K\left( \widetilde{A}_\pi\right)$ be the Pedersen's ideal of  $\widetilde{A}_\pi$ (cf. Definition \ref{peder_id_defn}). We say that $\widetilde{A}_\pi$ \textit{allows the inner product} if for any $\la \in \La$, and $\widetilde{a}, \widetilde{b} \in K\left( \widetilde{A}_\pi\right)$ the series
- 		\begin{equation*}
- 		\begin{split}
- 		a_{\la} = \bt -\sum_{g \in \ker\left(G\left(\left.\widetilde{A}_\pi~\right|A \right)  \to  G\left( A_{\la}~|~A \right)\right)} g \left(\widetilde{a}^* \widetilde{b}  \right) 
- 		\end{split}
- 		\end{equation*}
- 		is  convergent with respect to the strict topology (cf. Definition \ref{strict_topology_defn}) of $M\left( \widetilde{A}_\pi\right)$ and $a_{\la} \in A_{\la}$.
- 	Also we say that $\left( A, \widetilde{A}_\pi, G\left(\left.\widetilde{A}_\pi~\right|A \right) \right)$ \textit{allows the inner product}.
- \end{definition}
-\begin{rem}\label{inf_hilb_prod_low_rem}
-	Let $\mathfrak{S}^{\text{pt}} = \left(\left\{\pi_\la: A \hookto A_\la \right\}, \left\{\pi^\mu_\nu\right\}\right)\in \mathfrak{FinAlg}^{\text{pt}} $ be  a pointed algebraical  finite covering category.   Let $\left(A, \widetilde{A}_\pi, G\left(\left.\widetilde{A}_\pi~\right|A \right) \right)$  be a  infinite noncommutative covering of $\mathfrak{S}^{\text{pt}}$. Let $K\left( \widetilde{A}_\pi\right)$ be the Pedersen's ideal of  $\widetilde{A}_\pi$ (cf. Definition \ref{peder_id_defn}). If there  is $\la_0 \in \La$ such that for any $\widetilde{a}, \widetilde{b} \in K\left( \widetilde{A}_\pi\right)$ such that
-	\begin{equation}\nonumber
+\paragraph*{}
+	Let $\mathfrak{S}^{\text{pt}} = \left(\left\{\pi_\la: A \hookto A_\la \right\}, \left\{\pi^\mu_\nu\right\}\right)\in \mathfrak{FinAlg}^{\text{pt}} $ be  a pointed algebraical  finite covering category. If  $\overline A$ is {weakly subordinated to}  $\mathfrak{S}^{\text{pt}}$ (cf. Definition \ref{subord_defn}), and $\overline{\A}\subset \overline A$ satisfies to the condition (c) of \ref{subord_defn}) then from \eqref{a_la_eqn} it follows that there is a sesquilinear $A$-valued product
+	\be\label{inf_hilb_product_eqn}
 	\begin{split}
-	c_{\la_0} =\bt- \sum_{g \in \ker\left(G\left(\left.\widetilde{A}_\pi~\right|A \right)  \to  G\left( A_{\la_0}~|~A \right)\right)} g \left(\widetilde{a}^* \widetilde{b}  \right) \in A_{\la_0}
+	\left\langle \cdot, \cdot  \right\rangle_A : \overline{\A}\times \overline{\A} \to A,\\
+	\left(\overline{a}, \overline{b}\right) \mapsto \bt-\sum_{g \in \widehat{G}}g \left( \overline a^* \overline{b}\right) 
 	\end{split}
-	\end{equation}
-	then for any $\la < \la_0$ one has
-	\begin{equation}\nonumber
-	\begin{split}
-	c_{\la} = \bt-\sum_{g \in \ker\left(G\left(\left.\widetilde{A}_\pi~\right|A \right)  \to  G\left( A_{\la}~|~A \right)\right)} g \left(\widetilde{a}^* \widetilde{b}  \right) =
-	\sum_{g \in  G\left( A_{\la_0}~|~A_\la \right)} g c_{\la_0}
-	\in A_{\la}.
-	\end{split}
-	\end{equation}
-\end{rem} 
-
- 
- \begin{empt}\label{inf_hilb_prod_empt}
- 	If $\mathfrak{S}^{\text{pt}}$ allows  inner product  then there is a sesquilinear $A$-valued  product 
- 	\begin{equation}\label{inf_hilb_prod_eqn}
- 	\begin{split}
- 		\left\langle \cdot, \cdot  \right\rangle_A :K\left( \widetilde{A}_\pi\right)\times K\left( \widetilde{A}_\pi\right) \to A,\\
- 	\left\langle \widetilde{a}, \widetilde{b}  \right\rangle_A  \bydef \bt- \sum_{g \in  G\left(\left.\widetilde{A}_\pi~\right|A \right)} g \left(\widetilde{a}^* \widetilde{b}  \right) \in A 
- 	\end{split}
- 	\end{equation}
- 	where the above series is convergent with respect to the strict topology (cf. Definition \ref{strict_topology_defn}) of $M\left( \widetilde{A}_\pi\right)$. The $A$-module   $K\left( \widetilde{A}_\pi\right)$ with  a norm
+	\ee
+ 	where the above series is convergent with respect to the strict topology (cf. Definition \ref{strict_topology_defn}) of $M\left( \overline{A}\right)$. If $\left(A, \overline{A}, G\left(\left.\overline{A}~\right| A\right)\right)$ is good (cf. Definition \ref{good_defn}), a triple $\left(A, \widetilde{A}, G\left(\left.\widetilde{A}~\right| A\right)\right)$  the  \textit{weak infinite noncommutative covering} of $\mathfrak{S}^{\mathrm{pt}}$ (cf. Definition \ref{main_defn}) and $\widetilde{\A} \bydef \widetilde{A} \cap \overline \A$ the  one can define a product
+ 	\be\label{inf_hilb_prod_eqn}
+ \begin{split}
+ 	\left\langle \cdot, \cdot  \right\rangle_A : \widetilde{\A}\times \widetilde{\A} \to A
+ \end{split}
+ \ee
+ which is a restriction of \eqref{inf_hilb_product_eqn}. If $\widetilde{\A}$ is  an $A$-module  with  a norm
  	\begin{equation}\label{inf_hilb_norm_eqn}
  	\begin{split}
  	\left\| \widetilde{a}\right\| = \sqrt{\left\| \left\langle \widetilde{a}, \widetilde{a}  \right\rangle_A\right\|}
  	\end{split}
  	\end{equation}
- 	is a pre-Hilbert  $A$-module (cf. Definition \ref{hilbert_module_defn}). Denote by $X_A$ a $C^*$-Hilbert $A$-module which is a completion of $K\left( \widetilde{A}_\pi\right)$ with respect to a given by \eqref{inf_hilb_norm_eqn} norm. The ideal $K\left( \widetilde{A}_\pi\right)$ is a left $\widetilde{A}_\pi$-module, so $X_A$ is also $\widetilde{A}_\pi$-module. Sometimes we will write  $_{\widetilde{A}_\pi}X_A$ instead  $X_A$.
+ then $\widetilde{\A}$	is a pre-Hilbert  $A$-module (cf. Definition \ref{hilbert_module_defn}). Denote by $X_A$ a $C^*$-Hilbert $A$-module which is a completion of $ \widetilde{\A}$ with respect to a given by \eqref{inf_hilb_norm_eqn} norm.
+ \begin{definition}\label{inf_hilb_mod_defn}
+ 	If $\mathfrak{S}^{\text{pt}} = \left(\left\{\pi_\la: A \hookto A_\la \right\}, \left\{\pi^\mu_\nu\right\}\right) \in \mathfrak{FinAlg}^{\text{pt}}$ is a  pointed algebraical  finite covering category (cf. Definition \ref{pointed_defn}), $\left(A, \widetilde{A}_\pi, G\left(\left.\widetilde{A}_\pi~\right|A \right) \right)$ is a $\pi$-infinite noncommutative covering of $\mathfrak{S}^{\text{pt}}$ (cf. Definition \ref{main_defn}) and  $\mathfrak{S}^{\text{pt}}$ allows inner product (with respect to $\pi$) then we say that given by the   \ref{inf_hilb_prod_empt} $A$-Hilbert module $_{\widetilde{A}_\pi}X_A$ \textit{corresponds to } $\widetilde{A}_\pi$.
+ \end{definition}
+ 
+ \begin{defn}\label{induced_repr_inf_defn}
+ 	Let $\mathfrak{S}^{\text{pt}} = \left(\left\{\pi_\la: A \hookto A_\la \right\}, \left\{\pi^\mu_\nu\right\}\right)\in \mathfrak{FinAlg}^{\text{pt}}$ and  let $$\left(A, \widetilde{A}_\pi, G\left(\left.\widetilde{A}_\pi~\right|A \right) \right)$$  be a $\pi$-infinite noncommutative covering of $\mathfrak{S}^{\text{pt}}$ (cf. Definition \ref{main_defn}). Suppose $\widetilde{A}_\pi$ allows inner product   and $A$-Hilbert module $_{\widetilde{A}_\pi}X_A$ corresponds to $\widetilde{A}_\pi$.  Suppose  $\rho: A \to B\left( \H\right)$ is a representation and   $\widetilde{\rho}=_{\widetilde{A}_\pi}X_A-\Ind^A_{\widetilde{A}_\pi}\rho: \widetilde{A}_\pi\to B\left(\widetilde{\H} \right) $ is given by \eqref{ind_repr_eqn}, i.e. $\widetilde{\rho}$ is the induced representation (cf. Definition \ref{ind_repr_defn}) 
+ 	The representation  $\widetilde{\rho}:\widetilde{A}_\pi \to  B\left( \widetilde{\H}\right)$ is said to be \textit{induced} by  $\rho$. We also say that  $\widetilde{\rho}$ is  \textit{induced by a pair} $\left( \rho, \left( A, \widetilde{A}_\pi, G\left(\left.\widetilde{A}_\pi~\right|A \right) \right)\right) $. 
+ \end{defn}
+ \
+  If  $ \widetilde{\A}$ is a left $\widetilde{A}$-module, 
+  so $X_A$ is also $\widetilde{A}$-module. Sometimes we will write  $_{\widetilde{A}}X_A$ instead  $X_A$.
 Moreover since  $K\left( \widetilde{A}_\pi\right)$ is $A$-bimodule and $\widetilde{A}_\pi$-bimodule  $_{\widetilde{A}_\pi}X_A$ is also $A$-bimodule and $\widetilde{A}_\pi$-bimodule. Since the given by \eqref{inf_hilb_norm_eqn} norm exceeds the $C^*$-norm of  $\widetilde{A}_\pi$ there is the natural inclusion 
 \be\label{inf_hilb_inc_eqn}
 _{\widetilde{A}_\pi}X_A\subset \widetilde{A}_\pi.
 \ee
-The given by \eqref{inf_hilb_prod_eqn} pairing can be uniquely extended up to the following product
+The given by \eqref{inf_hilb_prod_eqn}!!! \ref{inf_hilb_product_eqn} CHECK \ref{} !!!!!! CHECK \ref{} !!! pairing can be uniquely extended up to the following product
 \be\label{inf_hilb_f_prod_eqn}
 \begin{split}
 \left\langle \cdot, \cdot  \right\rangle_A : X_A ~\otimes_A X_A \to A,\\
@@ -5275,15 +5142,6 @@ The given by \eqref{inf_hilb_prod_eqn} pairing can be uniquely extended up to th
 \end{split}
 \ee
  where the above series is convergent with respect to the strict topology (cf. Definition \ref{strict_topology_defn}) of $M\left( \widetilde{A}_\pi\right)$
- \end{empt}
-\begin{definition}\label{inf_hilb_mod_defn}
- 	If $\mathfrak{S}^{\text{pt}} = \left(\left\{\pi_\la: A \hookto A_\la \right\}, \left\{\pi^\mu_\nu\right\}\right) \in \mathfrak{FinAlg}^{\text{pt}}$ is a  pointed algebraical  finite covering category (cf. Definition \ref{pointed_defn}), $\left(A, \widetilde{A}_\pi, G\left(\left.\widetilde{A}_\pi~\right|A \right) \right)$ is a $\pi$-infinite noncommutative covering of $\mathfrak{S}^{\text{pt}}$ (cf. Definition \ref{main_defn}) and  $\mathfrak{S}^{\text{pt}}$ allows inner product (with respect to $\pi$) then we say that given by the   \ref{inf_hilb_prod_empt} $A$-Hilbert module $_{\widetilde{A}_\pi}X_A$ \textit{corresponds to } $\widetilde{A}_\pi$.
- \end{definition}
- 
- \begin{defn}\label{induced_repr_inf_defn}
- 	Let $\mathfrak{S}^{\text{pt}} = \left(\left\{\pi_\la: A \hookto A_\la \right\}, \left\{\pi^\mu_\nu\right\}\right)\in \mathfrak{FinAlg}^{\text{pt}}$ and  let $$\left(A, \widetilde{A}_\pi, G\left(\left.\widetilde{A}_\pi~\right|A \right) \right)$$  be a $\pi$-infinite noncommutative covering of $\mathfrak{S}^{\text{pt}}$ (cf. Definition \ref{main_defn}). Suppose $\widetilde{A}_\pi$ allows inner product   and $A$-Hilbert module $_{\widetilde{A}_\pi}X_A$ corresponds to $\widetilde{A}_\pi$.  Suppose  $\rho: A \to B\left( \H\right)$ is a representation and   $\widetilde{\rho}=_{\widetilde{A}_\pi}X_A-\Ind^A_{\widetilde{A}_\pi}\rho: \widetilde{A}_\pi\to B\left(\widetilde{\H} \right) $ is given by \eqref{ind_repr_eqn}, i.e. $\widetilde{\rho}$ is the induced representation (cf. Definition \ref{ind_repr_defn}) 
- The representation  $\widetilde{\rho}:\widetilde{A}_\pi \to  B\left( \widetilde{\H}\right)$ is said to be \textit{induced} by  $\rho$. We also say that  $\widetilde{\rho}$ is  \textit{induced by a pair} $\left( \rho, \left( A, \widetilde{A}_\pi, G\left(\left.\widetilde{A}_\pi~\right|A \right) \right)\right) $. 
- \end{defn}
 \begin{rem}\label{ap_act_hilb_rem} 
  If  $\widetilde{\rho}:\widetilde{A}_\pi \to  B\left( \widetilde{\H}\right)$ is   {induced} by $\left( \rho, \left( A, \widetilde{A}_\pi, G\left(\left.\widetilde{A}_\pi~\right|A \right) \right)\right) $ then $\widetilde{\H}$ is the completion of the pre-Hilbert space $K\left( {\widetilde{A}_\pi}\right) \otimes_A \H$ with given by
  \be\label{comp_hilb_eqn}
@@ -5373,7 +5231,7 @@ a natural inclusion of pre-Hilbert spaces
  \end{empt}
 \section{Strong Morita equivalence of infinite coverings}\label{inf_mor_sec}
 
-\paragraph{}  Let $\left(A, \widetilde{A}, G\right)$ be an  infinite noncommutative covering which allows  the inner product (cf. Definition \ref{inf_hilb_prod_defn}), and let  $X =X_A=_{\widetilde{A}}X_A$ be a given by \eqref{inf_hilb_inc_eqn} $C^*$-Hilbert $A$-module. % where the atomic representation (cf. Definition \ref{atomic_repr_defn}) is implied. 
+\paragraph{}  Let $\left(A, \widetilde{A}, G\right)$ be an  infinite noncommutative covering which allows  the inner product (cf. Definition \ref{inf_hilb_prod_defn} !!! DELETE  !!!), and let  $X =X_A=_{\widetilde{A}}X_A$ be a given by \eqref{inf_hilb_inc_eqn} $C^*$-Hilbert $A$-module. % where the atomic representation (cf. Definition \ref{atomic_repr_defn}) is implied. 
 Any pair $\left(\widetilde{a}, g\right) \in \widetilde{A}\times G$ yields a *-endomorphism 
 \be\label{hm_inc_eqn}
 \begin{split}
@@ -5452,7 +5310,7 @@ In the  situation of the Definition \ref{cross_cov_defn}
  \end{defn}
  \begin{defn}\label{cov_sec_triple_defn}
  	A {weakly coherent set of spectral triples} $	\mathfrak{S}_{\left(\sA, \sH, D\right)}$ is said to be a \textit{coherent set of spectral triples}
- 	if $\widehat \pi$- inverse noncommutative limit \\  $\left( A, \widetilde{A}_\pi, G\left(\left.\widetilde{A}_\pi~\right|A \right) \right)$ of $\mathfrak{S}^{\mathrm{pt}}$ (cf. Definition \ref{main_defn})  allows the inner product (cf. Definition \ref{inf_hilb_prod_defn}). We write $\mathfrak{S}_{\left(\sA, \sH, D,J\right)} \in \mathfrak{CohTriple}$.
+ 	if $\widehat \pi$- inverse noncommutative limit \\  $\left( A, \widetilde{A}_\pi, G\left(\left.\widetilde{A}_\pi~\right|A \right) \right)$ of $\mathfrak{S}^{\mathrm{pt}}$ (cf. Definition \ref{main_defn})  allows the inner product (cf. Definition \ref{inf_hilb_prod_defn} !!! DELETE  !!!). We write $\mathfrak{S}_{\left(\sA, \sH, D,J\right)} \in \mathfrak{CohTriple}$.
  \end{defn}
 
  
@@ -10814,7 +10672,7 @@ Similarly to  \ref{implicit_inc_full_empt}
 \bean
 C^*\text{-}\varinjlim_{\la\in\La} C_0\left( \sX_\la\right) \subset D^*\left( \overline{\sX}\right)
 \eean
-will be implicitly used. As well as \eqref{spec_a_eps_imp_eqn} !!! CHECK !!!   these inclusions enable us replace the equations \eqref{top_specc_a_eps_eqn} with the following equivalent system of equations
+will be implicitly used. As well as \eqref{spec_a_eps_imp_eqn} !!! DELETE  !!! !!! CHECK !!!   these inclusions enable us replace the equations \eqref{top_specc_a_eps_eqn} with the following equivalent system of equations
 \be\label{top_spec_a_eps_imp_eqn}
 \begin{split}
 	\sum_{g\in G_\la } z^*\left(  g\overline a\right) z   \in C_0\left( \sX_\la\right) ,\\
@@ -10822,7 +10680,7 @@ will be implicitly used. As well as \eqref{spec_a_eps_imp_eqn} !!! CHECK !!!   t
 	\sum_{g\in G_\la  } \left(z^*\left(  g\overline a\right) z   \right)^2    \in C_0\left( \sX_\la\right) ,\\ 
 \end{split}
 \ee
-where $G_\la \bydef \ker\left(G\left(\left.\overline\sX\right|\sX\right)\to G\left(\left.\sX_\la\right|\sX\right) \right)$!	(cf. equations \eqref{spec_a_eps_imp_eqn} !!! CHECK !!!).
+where $G_\la \bydef \ker\left(G\left(\left.\overline\sX\right|\sX\right)\to G\left(\left.\sX_\la\right|\sX\right) \right)$!	(cf. equations \eqref{spec_a_eps_imp_eqn} !!! DELETE  !!! !!! CHECK !!!).
  
 \end{remark}
 \begin{corollary}\label{comm_main_cor}
@@ -11981,7 +11839,7 @@ The above equation is equivalent to \eqref{top_inv_qo*_rlimp_eqn} one.
 \begin{lemma}\label{comm_allows_lem}
 	If $\mathfrak{S}_{\left( \mathcal X, x_0\right) } = \left\{\left( \mathcal{X}_\la,x_0^\la\right)  \to \left( \mathcal X, x_0\right) \right\}_{\la \in \La} \in \mathfrak{FinTop}^{\mathrm{pt}}$, \\
 	$\mathfrak{S}_{C_0\left(\mathcal{X}\right) }\left( \mathcal X, x_0\right) =
-	\left( \left\{C_0\left( \mathcal{X}\right) \hookto  C_0\left( \mathcal{X}_\la\right) \right\}, \left\{C_0\left( \mathcal{X}_\mu\right) \hookto  C_0\left( \mathcal{X}_\nu\right) \right\} \right) $ then $\mathfrak{S}^{\mathrm{pt}}_{C_0\left(\mathcal{X}\right) }$ allows inner product (cf. Definition \ref{inf_hilb_prod_defn}). 
+	\left( \left\{C_0\left( \mathcal{X}\right) \hookto  C_0\left( \mathcal{X}_\la\right) \right\}, \left\{C_0\left( \mathcal{X}_\mu\right) \hookto  C_0\left( \mathcal{X}_\nu\right) \right\} \right) $ then $\mathfrak{S}^{\mathrm{pt}}_{C_0\left(\mathcal{X}\right) }$ allows inner product (cf. Definition \ref{inf_hilb_prod_defn} !!! DELETE  !!!). 
 \end{lemma}
 \begin{proof}
 	%	Denote by $G_\la = G\left(\mathcal X_\la~|~\mathcal X \right)$ groups of covering transformations and $\widehat{G} = \varprojlim G_\la$. 
@@ -12259,7 +12117,7 @@ The given by the equation \eqref{comm_triple_seq_eqn} family $	\mathfrak{S}_{\le
 \end{lemma}
 
 \begin{proof}
-	From the Lemma \ref{comm_allows_lem} it follows that  $\mathfrak{S}^{\mathrm{pt}}_{C_0\left(M\right) }$   allows inner product (cf. Definition \ref{inf_hilb_prod_defn}).
+	From the Lemma \ref{comm_allows_lem} it follows that  $\mathfrak{S}^{\mathrm{pt}}_{C_0\left(M\right) }$   allows inner product (cf. Definition \ref{inf_hilb_prod_defn} !!! DELETE  !!!).
 	So one needs check that $	\mathfrak{S}_{\left(C^{\infty}\left( M\right) , L^2\left( M, S\right) ,\slashed D\right) }$ satisfies to conditions (a)-(d) of the Definition \ref{wcov_sec_triple_defn}.\\
 	(a) Follows from the Theorem \ref{comm_fin_sp_tr_thm}.\\
 	(b) $C\left( M_\la\right)$ is the $C^*$-norm completion of $\Coo\left( M_\la\right)$ for all $\la\in\La$.\\
@@ -14425,7 +14283,7 @@ Consider the situation of the Theorem \ref{blowing_inc_thm}. Following condition
 		\item $\varprojlim  \mathfrak{S}^{\mathrm{pt}}_{A} \approx A_0\left(\varprojlim  \mathfrak{S}_{\left(\sY, y_0\right)}\right)$,
 		\item $G\left(\left.\varprojlim  \mathfrak{S}^{\mathrm{pt}}_{A}~\right| A\right) \approx G\left(\left.\varprojlim  \mathfrak{S}_{\left(\sY, y_0\right)}~\right| \mathcal Y\right)$.
 	\end{itemize}
-\item[(iii)] In the situation (i) $C^*$-algebra $A_0\left( \widetilde \sY\right)$ allows the inner product (cf. Definition \ref{inf_hilb_prod_defn}). 
+\item[(iii)] In the situation (i) $C^*$-algebra $A_0\left( \widetilde \sY\right)$ allows the inner product (cf. Definition \ref{inf_hilb_prod_defn} !!! DELETE  !!!). 
 \end{enumerate}
 
  
@@ -14992,7 +14850,7 @@ Denote by $\widehat{A} = C^*\text{-}\varinjlim_{\la\in \La_\K} A_\la$, $G_\la = 
 	If $\overline{a}\in B\left( \widehat\H\right) $ is a special element of $\mathfrak{S}^{\mathrm{stable~rep}}_A$ (cf. Definition \ref{special_element_defn}), and $p \in \mathcal K$ is a rank-one projector then $\overline{a}\otimes p \in B\left( \widehat\H_\K\right)$ is a special element of $\mathfrak{S}^{\mathrm{pt}}_{A\otimes \mathcal K}$.
 \end{lemma}
 \begin{proof}
-	Let us use the implicit equations \eqref{spec_a_eps_imp_eqn} !!! CHECK !!! for this proof.
+	Let us use the implicit equations \eqref{spec_a_eps_imp_eqn} !!! DELETE  !!! !!! CHECK !!! for this proof.
 	Select  $\la_0 \in \La$, $\eps > 0$ and  $z \in \left(A\otimes \K \right)^{\sim}  \cong\K_A^{+}$ (cf.  Table \ref{stab_table} ),
 	One can select a basis of the Hilbert $\H_\K$ space such that $p$ is represented by a following infinite matrix
 	$$
@@ -15051,7 +14909,7 @@ Denote by $\widehat{A} = C^*\text{-}\varinjlim_{\la\in \La_\K} A_\la$, $G_\la = 
 	\begin{equation}\label{stab_zpz}
 		z^*\left( \overline{a}\otimes p\right)  z=  p_{\mathcal K} \overline z^*~ \overline{   a}~\overline z p_{\mathcal K}.
 	\end{equation}
-	From \eqref{spec_a_eps_imp_eqn} !!! CHECK !!! it follows that
+	From \eqref{spec_a_eps_imp_eqn} !!! DELETE  !!! !!! CHECK !!! it follows that
 	\bean
 	\begin{split}
 		\sum_{g\in G_\la }\overline  z^*\left(  g\overline a\right) \overline  z  = a_\la \in A_\la,\\
@@ -17007,7 +16865,7 @@ From the Lemma \ref{ctr_disc_lem} it follows that a  pointed algebraical finite 
 			\item $\varprojlim  \mathfrak{S}^{\mathrm{pt}}_{A} \approx A_0\left(\varprojlim  \mathfrak{S}_{\left(\sX, x_0\right)}\right)$.
 			\item $G\left(\left.\varprojlim  \mathfrak{S}^{\mathrm{pt}}_{A}~\right| A\right) \approx G\left(\left.\varprojlim  \mathfrak{S}_{\left(\sX, y_0\right)}~\right| \mathcal X\right)$,
 		\end{itemize}
-		\item[(iii)] a $C^*$-algebra $A_0\left( \widetilde \sX\right)$ allows the inner product (cf. Definition \ref{inf_hilb_prod_defn}). 
+		\item[(iii)] a $C^*$-algebra $A_0\left( \widetilde \sX\right)$ allows the inner product (cf. Definition \ref{inf_hilb_prod_defn} !!! DELETE  !!!). 
 	\end{enumerate}
 	
 	
@@ -18616,7 +18474,7 @@ and taking into account $a_{\la_0}\in C^*_r\left(\overline{M}, \overline{\sF}\ri
 		\left(C^*_r\left(M, \sF\right), C^*_r\left(\widetilde M, \widetilde\sF\right) , G\left(\left.\widetilde M\right|M\right)\right)
 		$$ 
 		is an inverse noncommutative limit of $\mathfrak{S}_{C^*_r\left(M, \sF, x_0\right)}$ (cf. Definition \ref{main_defn}).
-		\item[(iii)] a $C^*$-algebra $C^*_r\left(\widetilde M, \widetilde\sF\right)$ allows the inner product (cf. Definition \ref{inf_hilb_prod_defn}). 
+		\item[(iii)] a $C^*$-algebra $C^*_r\left(\widetilde M, \widetilde\sF\right)$ allows the inner product (cf. Definition \ref{inf_hilb_prod_defn} !!! DELETE  !!!). 
 	\end{enumerate}
 	\end{theorem}
 \begin{proof}
