@@ -4193,6 +4193,30 @@ $$
 where the $C^*$-norm limit is implied. Similarly we can prove that $\lim_{\la\in \La} \overline b a_\la - \overline b \overline a$, so one has \eqref{bt_lim_eqn}.
 
 \end{proof}
+\begin{corollary}\label{bt_lim_cor}
+In the above situation if $\overline{\A}= K\left( \overline{A}\right)$ then  both $\phi\left(\widehat A \right) \overline A$ and $\overline A\phi\left(\widehat A \right) $ are dense in $\overline A$.
+\end{corollary}
+\begin{proof}
+Let $\overline a \in  K\left( \overline{A}\right)_+$ be a positive element and $\overline b\bydef \sqrt{\overline a}$. If $b_\la \in \phi\circ \varphi_\la\left( K\left( A_\la\right)\right)$ is such that
+$$
+ \phi\circ \varphi_\la\left(b_\la\right) =	\bt-\sum_{g \in \ker\left(\widehat{G}\to G_\la\right)}g \overline a 
+$$
+(cf. condition (c) of the Definition \ref{subord_defn}) from the Corollary \ref{bt_lim_lem} it follows that
+for all $\eps > 0$ there is $\la_\eps$ such that 
+$$
+\forall \la \in \La \quad \la \ge \la_\eps \quad \Rightarrow \quad \left\| \phi\circ \varphi_\la\left(b_\la\right) \overline b - \overline b~\overline b\right\| = \left\| \phi\circ \varphi_\la\left(b_\la\right) \overline b - \overline a\right\| < \eps.
+$$
+Taking into account that $K\left( \overline{A}\right)$ is dense in $\overline{A}$ and $\varphi_\la\left(b_\la\right)\in \widehat A$ and  we conclude that $\phi\left(\widehat A \right) \overline A$ and $\overline A\phi\left(\widehat A \right) $ are dense in $\overline A$, similarly one can prove that  $\overline A\phi\left(\widehat A \right) $ is dense in $\overline A$.
+\end{proof}
+\begin{corollary}\label{bt_lim_a_cor}
+	In the above situation if $\varphi: A \hookto \overline{A}$ is natural inclusion then
+	$\overline{\A}= K\left( \overline{A}\right)$ then  both $\varphi\left( A \right) \overline A$ and $\overline A\varphi\left( A \right) $ are dense in $\overline A$.
+\end{corollary}
+\begin{proof}
+From the Corollary \ref{quasi_mult_cor} it follows that $\pi_\la\left( A\right)A_\la$ is dense in $A_\la$  for any $\la \in \La$. If follows that
+$A\bigcup_{\la\in \La} A_\la$ is dense in $\bigcup_{\la\in \La} A_\la$ where the natural inclusion $A \subset A_\la$ is implied. Since $\bigcup_{\la\in \La} A_\la$ is dense in $\widehat{A}$ the set $\varphi\left(  A \right)  \widehat{A}$ is dense in $ \widehat{A}$. From the Corollary \ref{bt_lim_cor} it follows that  both $\varphi\left( A \right) \overline A$ is dense in $\overline A$. Similarly one can prove that   $\overline A\varphi\left( A \right) $ is dense in $\overline A$ 
+\end{proof}
+
  \begin{definition}\label{discon_defn}
  If $C^*$-algebra $\overline{A}$ is weakly subordinated to	$\mathfrak{S}^{\text{pt}}$ (cf, Definition \ref{subord_defn}) then we say that   a triple
  \be\label{disc_triple_eqn}
@@ -4210,7 +4234,6 @@ where the $C^*$-norm limit is implied. Similarly we can prove that $\lim_{\la\in
  	where both $\phi: \widehat A \hookto M\left(\overline A\right)$ and $\phi': \widehat A \hookto M\left(\overline A'\right)$ are required by the Definition \ref{subord_defn} inclusions.
  
  \end{definition}
- 
  \begin{remark}
 If a disconnected infinite noncommutative covering exists then it is unique.
  \end{remark}
@@ -4231,14 +4254,20 @@ If a disconnected infinite noncommutative covering exists then it is unique.
  	
  	
  \end{empt}
+ \begin{remark}\label{dense_inf_rem}
+ If $\overline \A = K\left(\overline \A \right)$ and    $\widetilde m : A \to M\left(\widetilde A \right)$ is given by \eqref{inj_to_m_eqn}  then form the Corollary \ref{bt_lim_a_cor} it follows that:
+ \begin{itemize}
+ 	\item the map $\widetilde m$ is injective,
+ 	\item both $\widetilde m\left( A\right) \widetilde A$ and $\widetilde A\widetilde m\left( A\right)$ are dense in $\widetilde A$.
+ \end{itemize}
+ \end{remark}
  
 \begin{definition}\label{good_defn}
  	Let	$\mathfrak{S}^{\mathrm{pt}} \in \mathfrak{FinAlg}^{\mathrm{pt}}$ be a pointed algebraical  finite covering category (cf. Definition \ref{pointed_defn}).   Suppose that $\left(A, \overline{A}, G\left(\left.\overline{A}~\right| A\right)\right)$ is a weak disconnected infinite noncommutative covering of $\mathfrak{S}^{\mathrm{pt}}$ (cf. Definition \ref{discon_defn}). For any $\la \in \La$ denote by $h_\la: G\left(\left.\overline{A}~\right| A\right) \to G\left(\left. A_\la~\right|~A \right)$ the natural surjective homomorphism of groups.
  	We say  that $\left(A, \overline{A}, G\left(\left.\overline{A}~\right| A\right)\right)$  is \textit{good} if  following conditions hold.
  	\begin{enumerate}
- 		\item[(a)] For any connected component $\widetilde A$ of $\overline{A}$ the given by \eqref{inj_to_m_eqn} *-homomorphism is injective.
- 		\item[(b)] If both $\widetilde{A}'$ and $\widetilde{A}''$ are  {connected components} of $\overline A$ then there is  $g \in G\left(\left.\overline{A}~\right|~ A\right)$ such that $g \widetilde{A}'= \widetilde{A}''$.
- 		\item [(c)] If  $G\left(\left.\widetilde{A}~\right| A\right)$ is given by \eqref{gta_eqn} then for any $\la \in \La$ the restriction $h_\la|_{\widetilde A}$ is an epimorphism, i. e. $h_\la\left(G\left(\left.\widetilde{A}~\right| A\right) \right) = G\left(\left. A_\la~\right|~A \right)$.
+ 		\item[(a)] If both $\widetilde{A}'$ and $\widetilde{A}''$ are  {connected components} of $\overline A$ then there is  $g \in G\left(\left.\overline{A}~\right|~ A\right)$ such that $g \widetilde{A}'= \widetilde{A}''$.
+ 		\item [(b)] For any connected component $\widetilde A$ of $\overline{A}$ if  $G\left(\left.\widetilde{A}~\right| A\right)$ is given by \eqref{gta_eqn} then for any $\la \in \La$ the restriction $h_\la|_{\widetilde A}$ is an epimorphism, i. e. $h_\la\left(G\left(\left.\widetilde{A}~\right| A\right) \right) = G\left(\left. A_\la~\right|~A \right)$.
  	\end{enumerate}
  \end{definition}
  \begin{remark}\label{cond_b_ref_rem}
@@ -4257,8 +4286,7 @@ If a disconnected infinite noncommutative covering exists then it is unique.
  	\end{equation}	
  Moreover if $\left(A, \overline{A}, G\left(\left.\overline{A}~\right| A\right)\right)$  be a good   disconnected infinite noncommutative covering then the triple is \textit{infinite noncommutative covering} of $\mathfrak{S}^{\mathrm{pt}}$
  \end{definition}
- 
- 
+
 \begin{lemma}\label{inverse_lim_sp_lem}
  	The  spectrum of $\widehat A=C^*$-$\varinjlim_{\la \in \La}A_\la$ is the inverse limit  (cf. Definition \ref{top_inv_lim_defn}) of spectra of $A_\la$.
  \end{lemma}
@@ -4442,15 +4470,15 @@ If a disconnected infinite noncommutative covering exists then it is unique.
  	
  	If  $\eta =\left\lbrace\eta_\la \right\rbrace  = \left(\lim_{\a \in \mathscr A } a_\a\right) \xi$ then from  $a_\a \H_\la \subset \H_\la$ it follows that $a_\a \xi_\la = a_\a|_{\H_\la} \xi_{\la}\in \H_{\la}$ and $\eta_\la =  \left( \lim_{\a \in \mathscr A } a_\a|_{\H_\la}\right) \xi_{\la}$.
  \end{proof}
- !!! CONTINUE !!!
+ 
   \begin{empt}\label{atomic_faithful_empt}
-  	Consider the situation of the Definition \ref{subord_defn}. Let $\widehat \pi : \widehat A \to B\left(\widehat{\H}\right)$ any representation. From the Lemma \ref{bt_lim_eqn} it turns out that any $\overline a \in \overline \A$ is given by
+  	Consider the situation of the Definition \ref{subord_defn}. Let $\widehat \pi : \widehat A \to B\left(\widehat{\H}\right)$ be any representation. From the Lemma \ref{bt_lim_eqn} it turns out that any $\overline a \in \overline \A$ is given by
    $$
   \forall \overline a \in \overline\A \quad \overline a =\bt\text{-}\lim_{\la \in \La} a_\la
   $$
   where $\bt\text{-}\lim$ is the limit with respect to the strict topology of $M\left( \overline{A}\right)$ (cf. Definition \ref{strict_topology_defn}).	If 
- $a_\la = a^1_\la - a^2_\la + ia^3_\la -i a^4_\la$ where $a^1_\la, a^2_\la, a^3_\la, a^4_\la \in A_\la$ are positive (cf. \eqref{four_decompositon_eqn}, then for $j = 1,..., 4$ one has a decreasing net $\left\{\widehat\pi\left( a^j_\la\right)\right\} $. From the Proposition \ref{increasing_convergent_w_lem} these  nets are convergent with respect to the strong topology of $B\left(\widehat{\H}\right)$ (cf. Definition \ref{strong_topology_defn}) it follows the net $\{\widehat\pi\left( a_\la\right) \}$ is convergent with respect to the strong topology of $B\left(\widehat{\H}\right)$.
- We define
+ $a_\la = a^1_\la - a^2_\la + ia^3_\la -i a^4_\la$ where $a^1_\la, a^2_\la, a^3_\la, a^4_\la \in A_\la$ are positive elements (cf. \eqref{four_decompositon_eqn}, then for $j = 1,..., 4$ one has a decreasing net $\left\{\widehat\pi\left( a^j_\la\right)\right\} $. From the Proposition \ref{increasing_convergent_w_lem} all these  nets are convergent with respect to the strong topology of $B\left(\widehat{\H}\right)$ (cf. Definition \ref{strong_topology_defn}). It follows the net $\{\widehat\pi\left( a_\la\right) \}$ is convergent with respect to the strong topology of $B\left(\widehat{\H}\right)$.
+ We define a map
 \be\label{ext_repr_eqn}
 \begin{split}
  ext(\widehat \pi) : \overline{\A}\to B \left(\widehat \H\right),\\
@@ -4474,9 +4502,10 @@ M\left(\rho \right) : M\left(\overline{A} \right) \to  B \left(\widehat \H_\rho\
 $$
 and its restriction
 $$
-M\left(\rho \right)|_{\widehat A}: \widehat A\to B\left(\widehat \H_\rho \right) 
+M\left(\rho \right)|_{\widehat A} \bydef M\left(\rho \right) \circ \phi: \widehat A\to B\left(\widehat \H_\rho \right) 
 $$
-For any positive $\overline{a}\in \overline{\A}_+$ if $a_\la = 	\bt-\sum_{g \in \ker\left(\widehat{G}\to G_\la\right)}g \overline a$ then $a_\la > \overline{a}$. On the other hand $\rho\left(\overline{a}\right)> 0$. It follows that
+where the inclusion $\phi : \widehat{A}\hookto M\left(\overline A\right)$ is required by the condition (a) of the Definition \ref{subord_defn}. 
+For any positive $\overline{a}\in \overline{\A}_+$ if $a_\la = 	\bt$-$\sum_{g \in \ker\left(\widehat{G}\to G_\la\right)}g \overline a$ then $a_\la > \overline{a}$. On the other hand $\rho\left(\overline{a}\right)> 0$. It follows that
 $$
 s\text{-}\lim_{\la\in\La}M\left(\rho \right)|_{\widehat A}\left( a_\la\right)= ext\left( M\left(\rho \right)|_{\widehat A}\right) \left(  \overline a\right)  > 0.
 $$
@@ -5223,7 +5252,7 @@ so there is the inclusion
 
 
  \begin{empt}\label{hurewicz_n_to_h_constr_empt}
- 	
+ 	!!!
  	Let us fix $\la\in \La$, and 
 let $\H_\la$ be a Hilbert completion of $A_{\la} \otimes_A \H$ which is constructed in the section \ref{induced_repr_fin_sec}. From  \eqref{ata_m_eqn} it follows that both $ \widetilde m_\la\left(A_\la \right)\widetilde{A}$ and $\widetilde{A} \widetilde m_\la\left(A_\la \right)$ are dense subsets of $	\widetilde{A}$. Taking into account $	K\left(\widetilde{A}\right)\widetilde{A} =	K\left(\widetilde{A}\right)$ one has
 a natural inclusion of pre-Hilbert spaces
@@ -9784,6 +9813,8 @@ Prove that there is a natural unoriented spectral triple
 \section{Infinite coverings}
 
 \subsection{Inverse limits of coverings in topology}\label{top_inf_to_sec}
+
+!!!  CONTINUE !!!
 \paragraph*{}
 	Let $\sX$ be a connected, locally connected, locally compact, Hausdorff  topological space. Let us consider a marked by a countable  pre-ordered set $\La$ (cf. Definition \ref{ord_defn}) subcategory 
 	\be\label{top_fin_cov_cat_eqn}
