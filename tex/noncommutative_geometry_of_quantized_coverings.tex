@@ -4155,7 +4155,7 @@ g\left( \overline{a}\phi\left(\widehat a \right)\right) =g \overline{a}\phi\left
  	\be\label{a_la_eqn}
  	a_\la \bydef 	\bt-\sum_{g \in \ker\left(\widehat{G}\to G_\la\right)}g \overline a \in \phi\circ \varphi_\la\left( K\left( A_\la\right) \right) 	
  	\ee
- 		where $\varphi_\la : A_\la \hookto \widehat A$ is the natural inclusion, and $\bt-\sum$ means a convergence with respect to strong topology sum  of the infinite series.
+ 		where $\varphi_\la : A_\la \hookto \widehat A$ is the natural inclusion, and $\bt$-$\sum$ means a convergence with respect to strong topology sum  of the infinite series.
  	\end{enumerate}
  	If  $\overline \A$ equals to the Pedersen's ideal $K\left(\overline A \right)$ (cf. Definition \ref{peder_id_defn}) then we say that $C^*$-algebra $\overline A$ is \textit{subordinated to}  $\mathfrak{S}^{\text{pt}}$.
  \end{definition}
@@ -4296,6 +4296,51 @@ If a disconnected infinite noncommutative covering exists then it is unique.
  	\end{equation}	
  Moreover if $\left(A, \overline{A}, G\left(\left.\overline{A}~\right| A\right)\right)$  is a good   disconnected infinite noncommutative covering then the triple \eqref{infinite_noncommutative_covering_eqn} is an \textit{infinite noncommutative covering} of $\mathfrak{S}^{\mathrm{pt}}$.
  \end{definition}
+
+\begin{definition}\label{equiv_defn}
+	A faithful representation ${\pi}: \widehat{A} \hookto B\left( \H\right)$ is said to be \textit{equivariant} if there is the action  $\widehat{G}\times {\H} \to {\H}$ such that
+	\be\label{equivt_eqn}
+	g \left(\widehat{a}{\xi} \right) = \left(g\widehat{a} \right) \left(g{\xi} \right); \quad \forall g \in \widehat{G},~ \widehat{a} \in \widehat{A},~ {\xi}\in {\H}.
+	\ee
+\end{definition}
+\begin{remark}\label{equiv_rem}
+	If 	a faithful representation ${\pi}: \widehat{A} \hookto B\left( \H\right)$ is {equivariant} then one has:
+	\be\label{equivb_eqn}
+	\left( ga\right)\xi \bydef  g\left( a \left( g^{-1}\xi\right) \right);\quad \forall g \in \widehat{G},~ a \in \widehat A,~ {\xi}\in {\H}.
+	\ee
+Moreover the equation \eqref{equivb_eqn} uniquely defines an action $\widehat G \times \widehat A \to \widehat A$.
+\end{remark}
+\begin{lemma}\label{equiv_lem}
+	Following conditions hold:
+	\begin{enumerate}
+		\item [(i)] the universal  representation $\widehat{\pi}: \widehat{A} \hookto B\left( \widehat\H\right)$ (cf. Definition \ref{universal_rep_defn}) is equivariant,
+		\item [(ii)] the atomic  representation ${\pi}_a: \widehat{A} \hookto B\left(\widehat \H_a\right)$ (cf. Definition \ref{atomic_repr_defn}) is equivariant.
+	\end{enumerate}
+\end{lemma}
+\begin{proof}
+	(i) If $S$ is the state space of $\widehat{A}$ then there is the natural action $\widehat{G}\times S \to S$ given by
+	$$
+	\left(gs \right) \left(\widehat a\right)\stackrel{\text{def}}{=} s\left(ga \right)
+	$$
+	where $s \in S$, $g \in \widehat{G}$ and $\widehat{a}\in \widehat{A}$
+	Let $s \in S$, and let $L^2\left(\widehat A, s\right)$ is the Hilbert space of the representation $\pi_s:\widehat{A} \to B\left(L^2\left(\widehat A, s\right)\right)$ which corresponds to $s$ (cf. \ref{gns_constr_sec}). If $f_s: \widehat A\to L^2\left(\widehat A, s\right)$ is the given by \eqref{from_a_to_l2_eqn} natural $\widehat{A}$-linear map then the $\widehat{A}$-module $f_s\left( \widehat A\right) $ is dense in $L^2\left(\widehat A, s\right)$. Since $$
+	\widehat \H\bydef \bigoplus_{s \in S} L^2\left(\widehat A, s\right)
+	$$
+	the $\C$-linear span of given by
+	$$
+	\xi^s_{\widehat{a}}=\left(0, ..., \underbrace{f_s\left( \widehat{a}\right) }_{s^{\text{th}}-\text{place}}, ..., 0\right)\in \bigoplus_{s \in S} L^2\left(\widehat A, s\right)=		\widehat \H
+	$$
+	elements	is dense in  $\widehat \H$. Hence if for $g \in  \widehat G$ we define
+	$$
+	g \xi^s_{\widehat{a}}\stackrel{\text{def}}{=}	\left(0, ..., \underbrace{f_{gs}\left( g\widehat{a}\right) }_{gs^{\text{th}}-\text{place}}, ..., 0\right)\in \widehat \H
+	$$
+	then   $g \xi$ can be uniquely defined for all $\xi \in \widehat \H$ i.e. there is the  natural  action $\widehat{G}\times \widehat{\H} \to \widehat{\H}$. Using the equality
+	$$
+	\widehat a_1 f_s\left(\widehat a_2\right)= f_s\left(\widehat a_1\widehat a_2\right)
+	$$
+	one can prove that the action $\widehat{G}\times \widehat{\H} \to \widehat{\H}$ satisfies to \eqref{equivt_eqn}.\\
+	(ii) The replacement of the "state" word in (i) with "pure state" one gives (ii).
+\end{proof}
 
 \begin{lemma}\label{inverse_lim_sp_lem}
  	The  spectrum of $\widehat A=C^*$-$\varinjlim_{\la \in \La}A_\la$ is the inverse limit  (cf. Definition \ref{top_inv_lim_defn}) of spectra of $A_\la$.
@@ -4538,9 +4583,19 @@ is faithful.
 \begin{proof}
 	From the construction \ref{atomic_faithful_empt} it turns out that $\overline{A}$ is a  subalgebra of the enveloping Borel *-algebra $\mathscr B\left(A\right)$ of $\widehat A$. Now this lemma follows from the Corollary \ref{atomic_repr_cor}.
 \end{proof}
+ \begin{exercise}
+ From the Lemma \ref{equiv_lem} it follows that there is an equivariant action $\widehat G \times \widehat \H_a\to \widehat \H_a$ such that the action $\widehat G \times \widehat A\to \widehat A$ can be uniquely defined by the following equation
+$$
+\left( ga\right)\xi \bydef  g\left( a \left( g^{-1}\xi\right) \right);\quad \forall g \in \widehat{G},~ a \in \widehat A,~ {\xi}\in \widehat{\H}_a.
+$$
+(cf. Remark \ref{equiv_rem}). Prove that the given by the condition (b) of the Definition \ref{subord_defn}  action $\widehat G \times \overline A\to \overline A$ can be uniquely defined by the following way
+\be\label{equiv_ta_eqn}
+\left( ga\right)\xi \bydef  g\left( a \left( g^{-1}\xi\right) \right);\quad \forall g \in \widehat{G},~ a \in \overline A,~ {\xi}\in \widehat{\H}_a.
+\ee
+ \end{exercise}
+
  
- 
- 
+
 
 
 
@@ -12681,7 +12736,7 @@ yields a  *-isomorphism $A_0\left(\widetilde \sY \right)\xrightarrow{\sim} A''$.
 
 \subsection{Lift and descent}\label{bliwing_lift_desc_sec}
 
-
+!!! ACTION OF G ADD !!!
 \paragraph{} Here we discuss generalizations of described in the Section \ref{top_lift_desc_sec} notions.
 \begin{definition}\label{blowing_liftq_defn}
 	Both given by the equations \eqref{blowing_ca_m_eqn} and \eqref{blowing_a0q_eqn} injective *-homomorphisms are said to be $q$-\textit{lifts}. Sometimes we an alternative notation of these equations
@@ -13572,6 +13627,7 @@ In the above situation we say that    a reducible noncommutative finite-fold cov
 
 
 \subsection{Infinite noncommutative coverings}
+!!! CONTINUE !!! !!! ACTION OF G ADD!!!
 \paragraph{}
  Let $\overline \sY$ be a topological  disconnected inverse  limit (cf. Definition \ref{top_topological_inv_lim_defn})  of the given by \eqref{blowing_top_eqn} category  $\mathfrak{S}_{\left( \sY, y_0  \right) }$, and let $\overline q : \overline \sY \to \sY$ be a natural transitive covering. Let  $\mathfrak{S}^{\mathrm{pt}}_A$ is a given by \eqref{blowing_base_point_eqn} the equation pointed algebraical finite covering category such that any covering of $\mathfrak{S}^{\mathrm{pt}}_A$ is reducible (cf. Definition \ref{fin_red_defn}). Let  $A_0\left(\overline \sY \right)$ be a $\overline q$-lift of $A$ (cf. Definition \ref{blowing_lift_a_f_defn}). Let  $K\left( A_0\left(\overline \sY \right)\right) $ be a Pedersen's ideal of $A_0\left(\overline \sY \right)$, and let $
 \pi_A :  A_0\left( \overline \sY\right)\to B\left(\widehat \H_a \right)$ be a given by \eqref{blowing_atomic_eqn} representation.
