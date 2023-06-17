@@ -4145,17 +4145,19 @@ Prove  that $\widetilde D \left( \H \cap \Dom \widetilde D \right)\subset \H$, i
  		\item [(a)] There is an inclusion $\phi: \widehat A \hookto M\left(\overline A\right)$.
  		\item[(b)] There is an action $\widehat{G}\times \overline A \to \overline A$ such that
  		for all $g \in \widehat{G}$,  $\quad \widehat a \in \widehat{A}$ and $\overline a \in \overline{A}$ one has
- 		\bean
+ 		\be\label{subord_ga_eqn}
+ 		\begin{split}
  		g\left(\phi\left(\widehat a \right)\overline{a}\right)  = 	\left(\phi\left(g\widehat a \right)\right) g \overline{a},\\
- 		g\left( \overline{a}\phi\left(\widehat a \right)\right) =g \overline{a}\phi\left(g\widehat a \right).
- 		\eean
+g\left( \overline{a}\phi\left(\widehat a \right)\right) =g \overline{a}\phi\left(g\widehat a \right).
+ 		\end{split}
+ 		\ee
  		\item[(c)] There is a dense *-subalgebra $\overline{\A}\subset \overline A$ such that  for any $\la\in \La$  and $\overline a \in \overline \A$ the series $\sum_{g \in \ker\left(\widehat{G}\to G_\la\right)}g \overline a$ is convergent with respect to the strict topology of $M\left(\overline{A} \right)$ (cf. \ref{strict_topology_defn}). Moreover we require that
  	\be\label{a_la_eqn}
  	a_\la \bydef 	\bt-\sum_{g \in \ker\left(\widehat{G}\to G_\la\right)}g \overline a \in \phi\circ \varphi_\la\left( K\left( A_\la\right) \right) 	
  	\ee
  		where $\varphi_\la : A_\la \hookto \widehat A$ is the natural inclusion, and $\bt-\sum$ means a convergence with respect to strong topology sum  of the infinite series.
  	\end{enumerate}
- 	If  $\overline \A$ equals to the Pedersen's ideal $K\left(\overline A \right)$ (cf. Definition \ref{peder_id_defn}) then we say that is \textit{subordinated to}  $\mathfrak{S}^{\text{pt}}$
+ 	If  $\overline \A$ equals to the Pedersen's ideal $K\left(\overline A \right)$ (cf. Definition \ref{peder_id_defn}) then we say that $C^*$-algebra $\overline A$ is \textit{subordinated to}  $\mathfrak{S}^{\text{pt}}$.
  \end{definition}
 \begin{lemma}\label{bt_lim_lem}
 In the situation of the Definition \ref{subord_defn} one has
@@ -13570,71 +13572,32 @@ In the above situation we say that    a reducible noncommutative finite-fold cov
 
 
 \subsection{Infinite noncommutative coverings}
-!!! CONTINUE !!!
-
-\begin{lemma}\label{blowing_spec_k_lem}
+\paragraph{}
  Let $\overline \sY$ be a topological  disconnected inverse  limit (cf. Definition \ref{top_topological_inv_lim_defn})  of the given by \eqref{blowing_top_eqn} category  $\mathfrak{S}_{\left( \sY, y_0  \right) }$, and let $\overline q : \overline \sY \to \sY$ be a natural transitive covering. Let  $\mathfrak{S}^{\mathrm{pt}}_A$ is a given by \eqref{blowing_base_point_eqn} the equation pointed algebraical finite covering category such that any covering of $\mathfrak{S}^{\mathrm{pt}}_A$ is reducible (cf. Definition \ref{fin_red_defn}). Let  $A_0\left(\overline \sY \right)$ be a $\overline q$-lift of $A$ (cf. Definition \ref{blowing_lift_a_f_defn}). Let  $K\left( A_0\left(\overline \sY \right)\right) $ be a Pedersen's ideal of $A_0\left(\overline \sY \right)$, and let $
-\pi_A :  A_0\left( \overline \sY\right)\to B\left(\widehat \H_a \right)$ be a given by \eqref{blowing_atomic_eqn} representation  then $\pi_A\left(\overline a\right)\in  B\left(\widehat \H_a \right)$ is a special element  of $\mathfrak{S}^{\mathrm{pt}}_A$ (cf. Definition \ref{special_element_defn}) for each positive $\overline a \in K\left( A_0\left(\overline \sY \right)\right)_+$. 
+\pi_A :  A_0\left( \overline \sY\right)\to B\left(\widehat \H_a \right)$ be a given by \eqref{blowing_atomic_eqn} representation.
+\begin{lemma}\label{blowing_weak_inf_cov_lem}
+	In the above situation the $C^*$-algebra $A_0\left(\overline \sY \right)$ is subordinated to $\mathfrak{S}^{\mathrm{pt}}_A$ (cf. Definition \ref{subord_defn}), so the triple $\left(A, A_0\left(\overline \sY \right),  G\left(\left. \overline{\sY} ~\right| \sY\right)\right)$ is a weak {disconnected infinite noncommutative covering} of $\mathfrak{S}^{\text{pt}}$ (cf. Definition \ref{disconnected_infinite_noncommutative_covering_defn}).
 \end{lemma}
 \begin{proof}
-	From the Corollary \ref{blowing_ca_m_cor} for any   $\la\in \La$ there is a natural injective map $m_\la : A_0\left(\sY_\a\right)\hookto M\left( A_0\left(\overline \sY \right)\right)$ which can be extended up to $m^\sim_\la : A_0\left(\sY_\a\right)^\sim\hookto M\left( A_0\left(\overline \sY \right)\right)$ where $A_0\left(\sY_\a\right)^\sim$ is given by \eqref{unital_notation_empt}. If
-	$\la_0 \in \La$ and $z \in A_0\left(\sY_\a\right)^\sim$ then one has
-	\bean
-	\pi_A \left(z\right)^*\rho_a\left(  \overline a\right) \pi_A\left( z\right)= \rho_a\left(m^\sim_{\la_0} \left(z^* \right) \overline am^\sim_{\la_0} \left(z\right)\right),\\
-	f_\eps\left(\pi_A \left(z\right)^* \left( \overline a\right) \pi_A\left( z\right)\right)=\rho_a\left(f_\eps\left( m^\sim_{\la_0} \left(z^* \right) \overline am^\sim_{\la_0} \left(z\right)\right) \right),\\ 
-	\left(  \pi_A \left(z\right)^*\rho_a\left(  \overline a\right) \pi_A\left( z\right)\right)^2= \rho_a\left(m^\sim_{\la_0} \left(z^* \right) \overline am^\sim_{\la_0} \left(z\right)\right)^2.
-	\eean
-	Otherwise from $\overline a \in K\left( A_0\left(\overline \sY \right)\right)$ it follows that 
-	$$
-	m^\sim_{\la_0} \left(z^* \right) \overline am^\sim_{\la_0} \left(z\right),~f_\eps\left( m^\sim_{\la_0} \left(z^* \right) \overline am^\sim_{\la_0} \left(z\right)\right),~\left( m^\sim_{\la_0} \left(z^* \right) \overline am^\sim_{\la_0} \left(z\right)\right)^2 \in K\left( A_0\left(\overline \sY \right)\right).
-	$$
-	Now we prove conditions (a) and (b) of the Definition \ref{special_element_defn}.\\
-	(a) Applying the Corollary \ref{blowing_cov_inc_strong_cor} we obtain following strongly convergent series
-	\be\label{blowing_spec_a_eps_eqn}
-	\begin{split}
-		\sum_{g\in G_\la } \pi_A \left(z\right)^*\left(  g\overline a\right) \pi_A\left( z\right)   =	\sum_{g\in G_\la }\rho_a\left(g\left( m^\sim_{\la_0} \left(z^* \right) \overline am^\sim_{\la_0} \left(z\right)\right)\right) =\\ \pi_A\left(\desc^c_{\overline q_\la}\left( m^\sim_{\la_0} \left(z^* \right) \overline am^\sim_{\la_0} \left(z\right) \right)\right) \in \pi_A\left( A_0\left(\sY_\la\right)\right)  ,\\ \\
-		\sum_{g\in G_\la }f_\eps\left(  \pi_A \left(z\right)^*\left(  g\overline a\right) \pi_A\left( z\right) \right)   =	\sum_{g\in G_\la }\rho_a\left(gf_\eps\left( m^\sim_{\la_0} \left(z^* \right) \overline am^\sim_{\la_0} \left(z\right)\right)\right) =\\ \pi_A\left(f_\eps\left( \desc^c_{\overline q_\la}\left( m^\sim_{\la_0} \left(z^* \right) \overline am^\sim_{\la_0} \left(z\right) \right)\right)\right)  \in \pi_A\left( A_0\left(\sY_\la\right)\right),\\\\
-		\sum_{g\in G_\la }\left(  \pi_A \left(z\right)^*\left(  g\overline a\right) \pi_A\left( z\right) \right)^2   =	\sum_{g\in G_\la }\rho_a\left(g\left( m^\sim_{\la_0} \left(z^* \right) \overline am^\sim_{\la_0} \left(z\right)\right)\right)^2=\\ \pi_A\left(\desc^c_{\overline q_\la}\left( m^\sim_{\la_0} \left(z^* \right) \overline am^\sim_{\la_0} \left(z\right) \right)^2\right) \in \pi_A\left( A_0\left(\sY_\la\right)\right)
-	\end{split}
-	\ee
-	where $G_\la \bydef \ker\left( G\left(\left.\widetilde\sY~\right|\sY\right)\to G\left(\left.\sY_\la~\right|\sY\right)\right)$ and $\desc^c_{\overline q_\la}$ is a {compactly supported} $\overline q_\la$-{descent} (cf. Definition \ref{blowing_cdesc_defn}). The equations \eqref{blowing_spec_a_eps_eqn} are specializations of \eqref{spec_a_eps_eqn} ones.\\
-	(b) For all $\la\in\La$ denote by $\overline q_\la: \overline \sY \to \sY_\la$ a natural covering.
-	From n$^\text{0}$ 3 of the Exercise \ref{blowing_a0_exer} it follows that the set $\overline \sV \bydef \supp m^\sim_{\la_0} \left(z^* \right) \overline am^\sim_{\la_0} \left(z\right)$ is compact. On the other hand from the  Lemma \ref{top_comp_la_lem} it follows that there is $\la_{ \overline{   \sV}}\in \La$ such that $\overline{   \sV}$ is mapped homeomorphically onto $\sV_\la \bydef \overline p_\la \left(\overline{   \sV} \right)$ for all $\la \ge   \la_{ \overline{  \sV}}$. It follows that
-	\be\label{blowing_desc_cdesc_eqn}
-	\begin{split}
-		\forall \la\in \La \quad \la \ge \la_{ \overline{  \sV}}\quad \Rightarrow \quad\desc^c_{\overline q_\la}\left( m^\sim_{\la_0} \left(z^* \right) \overline am^\sim_{\la_0} \left(z\right) \right) =\\= \desc_{\overline q_\la}\left( m^\sim_{\la_0} \left(z^* \right) \overline am^\sim_{\la_0} \left(z\right) \right).
-	\end{split}
-	\ee
-	where $\desc_{\overline p_\la}$ is a ${\overline q_\la}$-decent given by the Definition \ref{blowing_lift_desc_defn}. From the equation \eqref{blowing_desc_cdesc_eqn} one can prove that
-	\be
-	\begin{split}
-		\forall \la\in \La \quad \la \ge \la_{ \overline{  \sV}}\quad \Rightarrow \quad\left( 	\sum_{g\in G_\la } \pi_A \left(z\right)^*\left(  g\overline a\right) \pi_A\left( z\right)\right)^2   =\\=	\pi_A\left(\desc_{\overline{q}_\la}\left( m^\sim_{\la_0} \left(z^* \right) \overline am^\sim_{\la_0} \left(z\right)\right)\right)^2 = \sum_{g\in G_\la }\left(  \pi_A \left(z\right)^*\left(  g\overline a\right) \pi_A\left( z\right) \right)^2. 
-	\end{split}
-	\ee
-	The above equation is a specialization of the \eqref{special_set_eqn} one.
+One needs check (a)-(c) of the Definition \ref{subord_defn}.\\
+(a) From the Corollary \ref{blowing_ca_m_cor}  it follows that for all $\la\in\La$ there is an injective *-homomorphism $A_0\left( \sY_\la\right)\hookto  M\left( A_0\left(\overline \sY \right)\right) $. On the other hand a union $\bigcup_{\la\in \La}A_0\left( \sY_\la\right)$ is dense in $\widehat A \bydef C^*$-$\varinjlim_{\la \in \La}A_0\left( \sY_\la\right)$ so one can obtain an inclusion $\widehat A  \hookto  M\left( A_0\left(\overline \sY \right)\right)$.\\
+(b) If $\widehat G \bydef \varprojlim_{\la \in \La}G\left(\left. {\sY}_\la ~\right| \sY\right) $ then $ \widehat G \cong  G\left(\left. \overline{\sY} ~\right| \sY\right)$. 
+Both actions $\widehat G\times A_0\left(\overline \sY \right)\to A_0\left(\overline \sY \right)$ and $\widehat G\times \widehat A \to \widehat A$ come from the natural action $\widehat G \times \widehat \H_a \to \widehat \H_a$. From this circumstance one can prove a specialization of the equations \eqref{subord_ga_eqn}.\\
+(c) Follows from the Corollary \ref{blowing_cov_inc_strict_cor}.\\
 \end{proof}
 
-\begin{theorem}\label{blowing_inc_thm}
- Let $\overline \sY$ be a topological  disconnected inverse  limit (cf. Definition \ref{top_topological_inv_lim_defn})  of the given by \eqref{blowing_top_eqn} category  $\mathfrak{S}_{\left( \sY, y_0  \right) }$, and let $\overline q : \overline \sY \to \sY$ be a natural transitive covering. Let  $\mathfrak{S}^{\mathrm{pt}}_A$ is a given by \eqref{blowing_base_point_eqn} the equation pointed algebraical finite covering category such that any covering of $\mathfrak{S}^{\mathrm{pt}}_A$ is reducible (cf. Definition \ref{fin_red_defn}).
-If $\left(A, \overline A, G\left(\left.\overline \sY\right|\sY\right)\right)$ is a disconnected   algebraical inverse noncommutative limit of $ \mathfrak{S}^{\mathrm{pt}}_A$ (cf. Definition \ref{disconnected_inf_defn}) then there is a natural inclusion 
-\be\label{blowing_inc_eqn}
-\pi_A\left( A_0\left(\overline \sY\right)\right) \hookto \overline A
-\ee
-where $\pi_A :  A_0\left( \overline \sY\right)\to B\left(\widehat \H_a \right)$ is the given by \eqref{blowing_atomic_eqn}  representation.
-\end{theorem}
-\begin{proof}
-From the Lemma \ref{blowing_spec_k_lem} it follows that the Pedersen's ideal of $A_0\left(\overline \sY\right)$ is a *-subalgebra of $\overline A$. On the other hand the Pedersen's ideal of $A_0\left(\overline \sY\right)$ is dense in $A_0\left(\overline \sY\right)$ so one has the inclusion \eqref{blowing_inc_eqn}.
-\end{proof}
+
 \begin{definition}\label{blowing_good_defn}
-Consider the situation of the Theorem \ref{blowing_inc_thm}. If $\pi_A\left( A_0\left(\overline \sY\right)\right) = \overline A$ then we say that  $\mathfrak{S}^{\mathrm{pt}}_A$ is $\overline \sY$-\textit{good}.
+Consider the situation of the Lemma \ref{blowing_weak_inf_cov_lem}. If the triple $\left(A, A_0\left(\overline \sY \right),  G\left(\left. \overline{\sY} ~\right| \sY\right)\right)$ is a  {disconnected infinite noncommutative covering} of $\mathfrak{S}^{\text{pt}}$ (cf. Definition \ref{disconnected_infinite_noncommutative_covering_defn}) then we say that  $\mathfrak{S}^{\mathrm{pt}}_A$ is $\overline \sY$-\textit{good}.
 \end{definition}
 \begin{empt}
 Consider the situation of the Definition \ref{blowing_good_defn}. From the Lemma \ref{blowing_uau_conn_lem} it follows that any connected component (cf. Definition \ref{connected_comp_defn}) of $A_0\left(\overline \sY\right)$  equals to  $A_0\left(\widetilde \sY\right)$ where $\widetilde\sY$ is a connected component of $\overline \sY$ (cf. Definition \ref{top_conn_comp_defn}).
 \end{empt}
+!!! CONTINUE !!!
 \begin{theorem}\label{blowing_main_thm}
-Consider the situation of the Theorem \ref{blowing_inc_thm}. Following conditions hold:
+Consider the situation of the Lemma \ref{blowing_weak_inf_cov_lem}. Following conditions hold:
 \begin{enumerate}
-	\item [(i)]  if $\mathfrak{S}^{\mathrm{pt}}_A$ is $\overline \sY$-{good} (cf. Definition \ref{blowing_good_defn}) then $\mathfrak{S}^{\mathrm{pt}}_A$ is good (cf. Definition \ref{good_defn}). 
+	\item [(i)]  if $\mathfrak{S}^{\mathrm{pt}}_A$ is $\overline \sY$-{good} (cf. Definition \ref{blowing_good_defn}) then $\mathfrak{S}^{\mathrm{pt}}_A$ is good (cf. Definition \ref{good_defn}),
 	\item[(ii)]  moreover if $\widetilde\sY$ is a connected component of $\overline \sY$ (cf. Definition \ref{top_conn_comp_defn}) 
 	then the triple $$\left(A, A_0\left( \widetilde \sY\right) , G\left(\left.\widetilde \sY\right|\sY\right)\right)$$ (cf. Definition inverse noncommutative limit of $\mathfrak{S}^{\mathrm{pt}}_A$ \ref{infinite_noncommutative_covering_defn}), i.e. there are isomorphisms:
 	\begin{itemize}
@@ -13698,68 +13661,7 @@ where $\pi^\text{w}_1\left(\sY, y_0 \right)$ is the weak fundamental group of $\
 \end{remark}
 
 
-\subsection{Coverings of semilocally 1-connected $C^*$-algebras}
-\begin{lemma}\label{blowing_one_c_lem}
-Let   $A$ be  a connected  $C^*$-algebra (cf. Definition \ref{connected_c_a_defn}), and  let $C_0\left(\sY \right)\hookto M\left( A\right)$ be disintegrable Hausdorff blowing-up (cf. Definitions \ref{blowing_defn} and \ref{blowing_disintegrable_defn}). If 
-\bean
-\begin{split}
-	\mathfrak{S}_{\left( \sY, y_0  \right) } \bydef\\\bydef\left\{\left\{ q_\la: \left( \sY_\la, y^\la_0\right) \to \left( \sY, y_0\right)\right\}_{\la \in \La}, \left\{q^\mu_\nu: \left( \sY_\mu, y^\mu_0  \right)\to \left( \sY_\nu, y^\nu_0  \right)\right\}_{\substack{ \mu, \nu \in \La \\ \mu \ge \nu}}\right\}
-\end{split}
-\eean
-is  a  pointed  topological finite covering category (cf. Definition \ref{top_pointed_cat_defn}) and 
-\begin{equation}\label{blowing_base_point_1_eqn}
-	\begin{split}
-		\mathfrak{S}^{\mathrm{pt}}_A \bydef  A_0\left(\mathfrak{S}_{\left( \sY, y_0  \right) } \right)= \\ = \left\{ \left\{\pi_\la\bydef A_0\left( q_{\la}\right) :A  \hookto A_0\left( \mathcal{Y}_\la\right) \right\}_{\la \in \La}, \left\{\pi^\nu_\mu\bydef A_0\left(q^\mu_\nu \right) \right\}_{\substack{ \mu, \nu \in \La \\ \mu \ge \nu}}\right\} 
-	\end{split}
-\end{equation}
-is a given by the Lemma \ref{blowing_base_point_lem}  pointed algebraical  finite covering category (cf. Definition \ref{alg_fin_cat_defn}) then  $A$ is {semilocally 1-connected with respect to } 	$\mathfrak{S}^{\mathrm{pt}}_A$ (cf. Definition \ref{semilocally_1_connected_r_defn}).
-
-\end{lemma}
-
-\begin{proof}
-If $\sU\subset \sY$ is a $\mathfrak{S}_\sY$-{proper} subset (cf. Definition \ref{top_finite_covering_category_defn}) then $\sU$ is evenly covered by $q_\la$ (cf. Definition \ref{top_covering_defn}) for all $\la\in \La$. For any $\la\in \La$ one can select an open connected subset $\sU_\la \subset \sY_\la$ such that:
-\begin{itemize}
-	\item $\sU_\la$ is mapped homeomorphically onto $\sU$,
-	\item  $g \sU_\la \cap \sU_\la = \emptyset$ for all nontrivial  $g \in G\left(\left.\sU_\la\right| \sU\right)$.
-\end{itemize}
-Let   $B\bydef ~_\sU A _\sU$ be  given by \eqref{blowing_sue3_eqn} hereditary subalgebra of $A$, and let $A_0\left(\sY_\la\right)$ ba a $q_\la$-lift of $A$ (cf. Definition \ref{blowing_lift_a_f_defn}). Denote by  $B_\la \bydef ~_{\sU_\la}A_0\left(\sY_\la\right)_{\sU_\la}$ (cf. \eqref{blowing_sue3_eqn}) and let us prove that $B$ and $B_\la$ satisfy to the conditions (a) and (b) of the Definition \ref{semilocally_1_connected_r_defn}.
-\begin{enumerate}
-	\item [(a)] $g \sU_\la \cap \sU_\la = \emptyset$ for any nontrivial  $g \in G\left(\left.\sY_\la\right| \sY\right)$, so from \eqref{blowing_sue1_eqn} it follows that $g B_\la \cap B_\la = g~_{\sU_\la}A_0\left(\sY_\la\right)_{\sU_\la}\cap ~_{\sU_\la}A_0\left(\sY_\la\right)_{\sU_\la} =\{0\}$.
-	\item[(a)] Follows from $q^{-1}_\la\left(\sU \right) = \bigsqcup_{g \in  G\left(\left.\sY_\la\right| \sY\right)}g\sU_\la$.
-\end{enumerate}
-so $B$ is semilocally proper with respect to $	\mathfrak{S}^{\mathrm{pt}}_A $ (cf. Definition \ref{semilocally_1_connected_r_defn}). The space $\sY$ equals to a union of its $\mathfrak{S}_\sX$-{proper} subsets, so from the Definition \ref{blowing_disintegrable_defn} it follows that $A$ is generated by semilocally proper with respect to $	\mathfrak{S}^{\mathrm{pt}}_A $ (cf. Definition \ref{semilocally_1_connected_r_defn}) hereditary subalgebras.
-\end{proof}
-
-\begin{empt}\label{blowing_one_c_empt}
-	Let $\overline \sY$ be a  {topological disconnected inverse limit} of $\mathfrak{S}_{\left( \sY, y_0\right)}$ (cf. Definition \ref{top_topological_inv_lim_defn}), and let $\overline q: \overline \sY \to \sY$ be a natural covering. 
-	Let $\widehat A\bydef C^*$-$\varinjlim_{\la\in\La} A_0\left(\sY_\la\right)$ be a $C^*$-inductive limit in the sense of the   Definition\ref{inductive_lim_non_defn}. If $\widehat\pi_a: \widehat A\hookto B\left( \widehat \H_a\right)$ is an atomic  representation (cf. Definition \ref{atomic_repr_defn}) then there is a given by \eqref{blowing_atomic_eqn} faithful representation $\pi_A: A_0\left(\overline \sY\right)\hookto B\left(\widehat \H_a \right)$ where  $A_0\left(\overline \sY\right)$ is the $\overline q$-lift of $A$ (cf. Definition \ref{blowing_lift_a_f_defn}). If $\left(A, \overline A, \overline G\right)$ is a {disconnected inverse semilocally 1-connected limit} of $\mathfrak{S}^{\text{pt}}_A$ (cf. Definition \ref{semi_disconnected_defn})  then from the Exercise \ref{semi_repr_exer} one has a faithful representation $\rho: \overline A \hookto B\left(\widehat \H_a \right)$.
-\end{empt}	
-\begin{thm}\label{blowing_one_c_thm}
-	If we consider the situation \ref{blowing_one_c_empt} then there is a natural inclusion
-	\be\label{blowing_one_c_eqn}
-	\pi_A\left(A_0\left(\overline \sY\right)\right)\subset \rho\left(\overline A\right).
-	\ee
-\end{thm}
-\begin{proof}
-	For any $\la\in \La$ denote by $\overline q_\la: \overline\sY \to \sY_\la$ the natural covering. Let $\overline \sU\in \overline \sY$ be a connected open set homeomorphically mapped onto  $\mathfrak{S}_\sY$-{proper} subset $\sU \bydef  \overline q\left(\overline \sU\right)$. For any $\la \in \La$ denote by $\sU_\la = \overline p_\la\left(\overline \sU\right)$. 
-	From the proof of the Lemma \ref{blowing_one_c_lem} it follows that a family
-	 $\left\{B_\la \bydef~_{\sU_\la}A_0\left(\sY_\la\right)_{\sU_\la} \right\}_{\la\in \La}$ 
-	 of $C^*$-algebras satisfies to the conditions (a) and (b) of the 
-	Definition \ref{semilocally_1_connected_r_defn}. Let $\overline B = A_0\left( \overline \sY\right)^{\text{prop}}_{\overline\sU}\subset  A_0\left( \overline \sY\right)$ be a $\overline\sU$-{proper} 
-	subalgebra (cf. Definition \ref{blowing_proper_defn}). Let $\overline b \in K\left(A_0\left( \overline \sY\right)^{\text{prop}}_{\overline\sU} \right)_+$ be a positive element of the Pedersen's ideal 
-	(cf. Definition \ref{peder_id_defn}) of $A_0\left( \overline \sY\right)^{\text{prop}}_{\overline\sU}$. One has a family
-	 $\left\{b_\la \bydef \desc_{\overline{p}_{ \la}}\left(\overline b \right) \in K\left( B_\la\right)_+ \right\}_{\la\in \La}$ where $\desc_{\overline{p}_{ \la}}$ means a given by the Definition \ref{blowing_desc_cdesc_eqn} $\overline{p}_{ \la}$-descent.
-	 We leave to the reader a proof of following statements:
-	 \begin{itemize}
-	 	\item the family $\left\{b_\la\right\}$ satisfies to conditions (a)-(c) of \ref{inf_cov_empt},
-	 	\item one has a limit $\pi_A\left( \overline b\right) = s$-$\lim_{\la \in \La}\pi_a\left( b_\la\right)$ with respect to the strong topology of $B\left(\widehat \H_a\right)$ (cf. Definition \ref{strong_topology_defn}).
-	 \end{itemize}
- From the Exercise  \ref{semi_repr_exer} it follows that $\pi_a\left( \overline b\right)\in \rho\left( \overline A\right)$. The reader can prove that $A_0\left(\overline \sY\right)$ is a $C^*$-algebra generated by described above elements $\overline{b}\in A_0\left(\overline \sY\right)$. It follows that $\pi_A\left(A_0\left(\overline \sY\right)\right) \subset \rho\left(\overline A\right)$.
-\end{proof}
-
-
-
-   \chapter{Towards noncommutative homotopy theory}\label{hurewicz_gr_chap}
+\chapter{Towards noncommutative homotopy theory}\label{hurewicz_gr_chap}
 \section{Prototype}
 \paragraph{}
 Let us construct noncommutative generalization of homotopy groups $\pi_n$ ($n \ge 0)$). It is well known that If $\sX=\coprod_{\iota \in I} \sX_{\iota}$ is disjoint union of connected components then $\pi_0(\sX)\simeq \bigcup_{\iota \in I} \{\sX_{\iota}\}$ and $C(\sX)\simeq \oplus_{\iota} C(\sX_{\iota})$.
