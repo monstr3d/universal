@@ -1655,6 +1655,28 @@ If $ \A$ is  category then a related to $ \A$ construction is said to be \textit
 	G\left(\left.\widetilde{A}~\right| {A} \right) \stackrel{\text{def}}{=}  	G.
 	\ee
 \end{definition}
+\begin{lemma}\label{fin_pedersen_lem}
+If a quadruple $\left(A, \widetilde{A}, G, \pi \right)$   is a {noncommutative finite-fold  quasi-covering} (cf. Definition \ref{fin_quasi_defn})
+then one has
+\be\label{fin_pedersen_eqn}
+\forall \widetilde a \in K\left(\widetilde{A}\right) \quad \sum_{	g \in G}g \widetilde a \in \pi\left( K\left( A\right)\right)  
+\ee
+where both  $K\left(\widetilde{A}\right)$ and  $K\left( A\right)$ are Pedersen's ideals of $\widetilde{{A}}$ and $A$ respectively (cf. Definition \ref{pedersens_ideal_defn}). 
+\end{lemma}
+\begin{proof}
+	From  $a \bydef \sum_{	g \in G}g \widetilde a\in \widetilde A^G$ it follows that $a \in \pi\left(A\right)$.
+If $\widetilde a$ is positive then from the Lemma \ref{pedersen_eps_lem} it follows that there is a positive $\widetilde b \in \widetilde A_+$ such that $\widetilde a = f_\eps\left(\widetilde b\right)$ where $\eps > 0$ and $f_\eps$ is given by \eqref{f_eps_eqn}. If $b \bydef \sum_{	g \in G}g \widetilde b$ then one has: 
+\begin{itemize}
+	\item $f_\eps \left(b \right) \in  \pi\left( K\left( A\right)\right)$,
+	\item $f_\eps  \left(b \right) \ge a$.
+\end{itemize}
+Taking into account that 
+$$
+\forall a' \in A_+ \quad a'' \in K\left(A\right)_+ \quad a' \le a'' \quad \Rightarrow \quad a' \in K\left(A\right)_+
+$$
+one has $a \in \pi\left(A \right)$. Using the equation \eqref{four_decompositon_eqn}  one can prove this lemma for all $ \widetilde a \in K\left(\widetilde{A}\right)$.
+\end{proof}
+
 
 %\begin{lemma}\label{quasi_sub_lem}
 %	If  $\left(A, \widetilde{A}, G, \pi \right)$ is  a noncommutative finite-fold  quasi-covering, $I \subset A$ is a closed ideal and $\widetilde{I}$ is the $C^*$-norm closure of $I\widetilde{A}I$ then $\left(I, \widetilde{I}, G, \left.\pi\right|_{\widetilde{I}} \right)$ is a  noncommutative finite-fold  quasi-covering.
@@ -4157,7 +4179,7 @@ g\left( \overline{a}\phi\left(\widehat a \right)\right) =g \overline{a}\phi\left
  	\ee
  		where $\varphi_\la : A_\la \hookto \widehat A$ is the natural inclusion, and $\bt$-$\sum$ means a convergence with respect to strong topology sum  of the infinite series.
  	\end{enumerate}
- 	If  $\overline \A$ equals to the Pedersen's ideal $K\left(\overline A \right)$ (cf. Definition \ref{peder_id_defn}) then we say that $C^*$-algebra $\overline A$ is \textit{subordinated to}  $\mathfrak{S}^{\text{pt}}$.
+ 	If  $\overline \A$ equals to the Pedersen's ideal $K\left(\overline A \right)$ (cf. Definition \ref{pedersens_ideal_defn}) then we say that $C^*$-algebra $\overline A$ is \textit{subordinated to}  $\mathfrak{S}^{\text{pt}}$.
  \end{definition}
 \begin{lemma}\label{bt_lim_lem}
 In the situation of the Definition \ref{subord_defn} one has
@@ -4736,7 +4758,7 @@ which is a skeleton of \eqref{oa_cat_eqn}.
 	\label{inf_cov_oa_sub3_eqn}		\forall \widetilde b \in K\left(\widetilde B \right)
 	\quad \forall \widetilde a \in \widetilde A'\quad \exists  \widetilde a', \widetilde a'' \in \bigcup_{\la\in\La} \widetilde m_\la\left( 	A_\la\right)\quad \widetilde b \widetilde a = \widetilde b \widetilde a', \quad \widetilde a \widetilde b = \widetilde a'' \widetilde b.
 	\eea
-	where $K\left(\widetilde B \right)$ is the Pedersen's ideal of $\widetilde B$ (cf. Definition \ref{peder_id_defn}) and $\widetilde m_\la$ are given by \eqref{a_toola_eqn}.
+	where $K\left(\widetilde B \right)$ is the Pedersen's ideal of $\widetilde B$ (cf. Definition \ref{pedersens_ideal_defn}) and $\widetilde m_\la$ are given by \eqref{a_toola_eqn}.
 \end{definition}
 \begin{remark}\label{inf_cov_oa_sub_rem}
 The equation \eqref{inf_cov_oa_sub1_eqn} implies following inclusions:
@@ -4825,7 +4847,7 @@ A_\la \widetilde A'\subset \widetilde A',\\
 \label{inf_cov_o*_sub3_eqn}		\forall \widetilde b \in K\left(\widetilde B\right) \cap \L^\dagger\left( \widetilde \D \right)_b 
 ~~ \forall \widetilde a \in \widetilde A'~~ \exists  \widetilde a', \widetilde a'' \in \bigcup_{\la\in\La} A_\la~~ \widetilde b \widetilde a = \widetilde b \widetilde a', ~ \widetilde a \widetilde b = \widetilde a'' \widetilde b.
 \eea
-where $K\left(\widetilde B \right)$ is the Pedersen's ideal of $\widetilde B$ (cf. Definition \ref{peder_id_defn}) and $\L^\dagger\left( \widetilde \D \right)_b$ is given by the equation  \eqref{o*b_eqn}.
+where $K\left(\widetilde B \right)$ is the Pedersen's ideal of $\widetilde B$ (cf. Definition \ref{pedersens_ideal_defn}) and $\L^\dagger\left( \widetilde \D \right)_b$ is given by the equation  \eqref{o*b_eqn}.
 
 \end{empt}
 
@@ -4957,7 +4979,7 @@ If $\left( \widetilde{\mathfrak A}', \widetilde{\mathfrak A}_0\right)$ is a quas
 \label{inv_qo*_rlim_eqn}
 \forall  \widetilde b \in \widetilde{\mathfrak A}_0\cap K\left(\widetilde{B} \right)~\forall \widetilde a \in \widetilde{\mathfrak A}' ~\exists a',a'' \in    \bigcup_{\la\in \La} \mathfrak A_\la ~~ \widetilde b\widetilde a=\widetilde b a', ~~  \widetilde a\widetilde b=a''\widetilde b.
 \eea
-where $K\left(\widetilde B \right)$ is the Pedersen's ideal of $\widetilde B$ (cf. Definition \ref{peder_id_defn}) .
+where $K\left(\widetilde B \right)$ is the Pedersen's ideal of $\widetilde B$ (cf. Definition \ref{pedersens_ideal_defn}) .
 	
 \end{enumerate}
 then $\left( \widetilde{\mathfrak A}', \widetilde{\mathfrak A}_0\right)$ is said to be \textit{admissible}.
@@ -10375,7 +10397,7 @@ $$
 \overline{A} \subset D^*\left( \overline\sX\right) 
 $$
 where $D^*\left( \overline\sX\right)$ is a commutative $C^*$-algebra of bounded (possibly discontinuous) maps from $\overline\sX$ to $\C$.
-Let  $K\left( \overline A\right)$ be the Pedersen's ideal of $ \overline A$ (cf. Definition \ref{peder_id_defn}), and let $\overline{a}\in K\left( \overline A\right)_+$ be a positive element. Denote by $\overline b^1 \bydef \overline a$. Let $\overline x_0\in \overline \sX$ be such that $\frac{2}{3}\left\| a\right\|<  \overline a \left( \overline x_0\right) \le \left\| a\right\|$. From  the equation \eqref{top_atomic_eqn} it follows that there is $\la_0\in \La$ such that $\frac{2}{3}\left\| \overline b^1\right\|<b^1_{\la_0}\left(\overline{p}_{\la_0}\left( \overline x_0\right)  \right) < \frac{4}{3}\left\| \overline b^1\right\|$ where $b^1_{\la_0}= \beta- \sum_{g \in \ker\left(\widehat{G}\to G_{\la_0}\right)}g \overline b^1$. From the condition (c) of the Definition \ref{subord_defn} it follows that $b^1_{\la_0} \in \K\left(C_0\left( \sX_{\la_0}\right)  \right)$, so there is an open connected neighborhood $\sU'_{\la_0}\subset \sX_{\la_0}$ of $\overline{p}_{\la_0}\left( \overline x_0\right)$ such that $\frac{2}{3}\left\|  \overline b^1\right\|<b^1_{\la_0} \left(  x_{\la_0}\right)  < \frac{4}{3}\left\|  \overline b^1\right\|$ for all  $ x_{\la_0}\in  \sU_{\la_0}$. Let $\overline{a}^1 \bydef f_\eps \left(\overline{b}_1\right)$ where $f_\eps$ is given by the equation \eqref{f_eps_eqn} and $\eps =  \frac{2}{3}\left\|  \overline b^1\right\|$. If $a^1_{\la_0}= \beta- \sum_{g \in \ker\left(\widehat{G}\to G_{\la_0}\right)}g \overline a^1\in \K\left(C_0\left( \sX_{\la_0}\right)\right)$ then from $\frac{2}{3}\left\| \overline b^1\right\| >\overline a^1 \left( \overline x_0\right)$ if follows that
+Let  $K\left( \overline A\right)$ be the Pedersen's ideal of $ \overline A$ (cf. Definition \ref{pedersens_ideal_defn}), and let $\overline{a}\in K\left( \overline A\right)_+$ be a positive element. Denote by $\overline b^1 \bydef \overline a$. Let $\overline x_0\in \overline \sX$ be such that $\frac{2}{3}\left\| a\right\|<  \overline a \left( \overline x_0\right) \le \left\| a\right\|$. From  the equation \eqref{top_atomic_eqn} it follows that there is $\la_0\in \La$ such that $\frac{2}{3}\left\| \overline b^1\right\|<b^1_{\la_0}\left(\overline{p}_{\la_0}\left( \overline x_0\right)  \right) < \frac{4}{3}\left\| \overline b^1\right\|$ where $b^1_{\la_0}= \beta- \sum_{g \in \ker\left(\widehat{G}\to G_{\la_0}\right)}g \overline b^1$. From the condition (c) of the Definition \ref{subord_defn} it follows that $b^1_{\la_0} \in \K\left(C_0\left( \sX_{\la_0}\right)  \right)$, so there is an open connected neighborhood $\sU'_{\la_0}\subset \sX_{\la_0}$ of $\overline{p}_{\la_0}\left( \overline x_0\right)$ such that $\frac{2}{3}\left\|  \overline b^1\right\|<b^1_{\la_0} \left(  x_{\la_0}\right)  < \frac{4}{3}\left\|  \overline b^1\right\|$ for all  $ x_{\la_0}\in  \sU_{\la_0}$. Let $\overline{a}^1 \bydef f_\eps \left(\overline{b}_1\right)$ where $f_\eps$ is given by the equation \eqref{f_eps_eqn} and $\eps =  \frac{2}{3}\left\|  \overline b^1\right\|$. If $a^1_{\la_0}= \beta- \sum_{g \in \ker\left(\widehat{G}\to G_{\la_0}\right)}g \overline a^1\in \K\left(C_0\left( \sX_{\la_0}\right)\right)$ then from $\frac{2}{3}\left\| \overline b^1\right\| >\overline a^1 \left( \overline x_0\right)$ if follows that
  $0<  \overline a \left( \overline x_0\right)< \frac{1}{3}\left\|  \overline b^1\right\|$ and 
  $0< a^1_{\la_0}\left(\overline{p}_{\la_0}\left(\overline x_0 \right)  \right)< b^1_{\la_0}\left(\overline{p}_{\la_0}\left(\overline x_0 \right) \right) - \frac{2}{3}\left\| \overline b^1\right\|< \frac{2}{3}\left\| \overline b^1\right\|$. So   there is an open  neighborhood $\sU''_{\la_0}\subset \sX_{\la_0}$ of $\overline{p}_{\la_0}\left( \overline x_0\right)$ such that  $0<a^1_{\la_0} \left(  x_{\la_0}\right)  < \frac{2}{3}\left\| \overline b^1\right\|$ 
 for all $x_{\la_0}\in \sU''_{\la_0}$. If $\mu \in \La$ be such that $\mu > \la$ and  $a^1_{\mu}= \beta$-$\sum_{g \in \ker\left(\widehat{G}\to G_{\mu}\right)}g \overline a^1$ then one has
@@ -11031,7 +11053,7 @@ $.  For all $\la\in \La$ denote by $A_\la\bydef Cont\left(\sX_\la \right) $ a *-
 	\mathfrak{S}^{\text{pt}}_A \bydef \left(\left\{\pi_\la: A \hookto A_\la \right\}_{\la \in \La}, \left\{\pi^\mu_\nu: A_\mu \hookto A_\nu\right\}_{\substack{\mu, \nu \in \La\\ \nu > \mu}}\right)
 \end{split}
 \eean
-is a pointed category of $*$-algebras such that for any $\la, \mu, \nu\in \La$ the triples\\ $\left(A, A_\la, G\left(\left. A_\la\right| A\right)\bydef G\left(\left. B_\la\right| B\right), \pi_\la \right)$ and $\left(A_\mu, A_\nu, G\left(\left. A_\mu\right| A_\nu\right)\bydef G\left(\left. B_\mu\right| B_\nu\right), \pi^\mu_\nu \right)$ are associated with $\left(B, B_\la, G\left(\left. B_\la\right| B\right), \rho_\la \right)$ and $\left(B_\mu, B_\nu,G\left(\left. B_\mu\right| B_\nu\right), \rho^\mu_\nu \right)$ noncommutative finite-fold covering of *-algebras (cf. Definition \ref{fin_chull_defn}).  The  Pedersen's ideal $\widetilde{\mathfrak B}\bydef K\left( \widetilde B\right)= C_c\left(\widetilde \sX \right) $ (cf. Definition \ref{peder_id_defn} and equation \eqref{peder_c0_eqn}) is dense in ${\widetilde B}$.
+is a pointed category of $*$-algebras such that for any $\la, \mu, \nu\in \La$ the triples\\ $\left(A, A_\la, G\left(\left. A_\la\right| A\right)\bydef G\left(\left. B_\la\right| B\right), \pi_\la \right)$ and $\left(A_\mu, A_\nu, G\left(\left. A_\mu\right| A_\nu\right)\bydef G\left(\left. B_\mu\right| B_\nu\right), \pi^\mu_\nu \right)$ are associated with $\left(B, B_\la, G\left(\left. B_\la\right| B\right), \rho_\la \right)$ and $\left(B_\mu, B_\nu,G\left(\left. B_\mu\right| B_\nu\right), \rho^\mu_\nu \right)$ noncommutative finite-fold covering of *-algebras (cf. Definition \ref{fin_chull_defn}).  The  Pedersen's ideal $\widetilde{\mathfrak B}\bydef K\left( \widetilde B\right)= C_c\left(\widetilde \sX \right) $ (cf. Definition \ref{pedersens_ideal_defn} and equation \eqref{peder_c0_eqn}) is dense in ${\widetilde B}$.
 
 \begin{exercise}\label{top_hilb_adm_exer}
 	Prove following statements:
@@ -11409,7 +11431,7 @@ From the Lemma \ref{comm_allows_lem} it follows that the  induced by $\left(\rho
 $$
 K\left( C_0\left( \widetilde \sX\right)\right)\otimes_{C_0\left( {\sX}\right)} L^2\left(  \sX, E\right)
 $$
-where $K\left( C_0\left( \widetilde M\right)\right)$ is Pedersen's ideal of $C_0\left( \widetilde M\right)$ (cf. Definition \ref{peder_id_defn} and Remark \ref{ap_act_hilb_rem}). On the other hand 	it is proven in \cite{pedersen:mea_c} that the Pedersen's ideal $K\left(C_0\left(\widetilde{\sX} \right)\right) $ of $C_0\left(\widetilde{\sX} \right)$ coincides with $C_c\left(\widetilde{\sX} \right)$.  If
+where $K\left( C_0\left( \widetilde M\right)\right)$ is Pedersen's ideal of $C_0\left( \widetilde M\right)$ (cf. Definition \ref{pedersens_ideal_defn} and Remark \ref{ap_act_hilb_rem}). On the other hand 	it is proven in \cite{pedersen:mea_c} that the Pedersen's ideal $K\left(C_0\left(\widetilde{\sX} \right)\right) $ of $C_0\left(\widetilde{\sX} \right)$ coincides with $C_c\left(\widetilde{\sX} \right)$.  If
 $$
 \Ga_c\left(\widetilde M, \widetilde S \right)\bydef C_c\left( \lift_p\left[C\left(M, \left\{S_x\right\}, \Ga\left(M, S\right)\right)\right]\right)  
 $$
@@ -12035,7 +12057,7 @@ Prove that
 \ee
 \end{exercise}
 \begin{lemma}\label{blowing_supp_lem}
-	If $A$ is a  $C^*$-algebra,   $C_0\left( \sY\right) \subset M\left(A \right)$  is disintegrable Hausdorff blowing-up (cf. Definitions \ref{blowing_defn}, \ref{blowing_disintegrable_defn}) and $K\left(A\right)$ is a Pedersen's ideal (cf. Definition \ref{peder_id_defn}) then for all $a \in K\left(A \right)$ the support $\supp a\subset \sY$ of $a$  is compact.  
+	If $A$ is a  $C^*$-algebra,   $C_0\left( \sY\right) \subset M\left(A \right)$  is disintegrable Hausdorff blowing-up (cf. Definitions \ref{blowing_defn}, \ref{blowing_disintegrable_defn}) and $K\left(A\right)$ is a Pedersen's ideal (cf. Definition \ref{pedersens_ideal_defn}) then for all $a \in K\left(A \right)$ the support $\supp a\subset \sY$ of $a$  is compact.  
 \end{lemma}
 \begin{proof}
 	Firstly we suppose that $a$ is positive. From the Lemma \ref{pedersen_eps_lem} it turns out that there is a positive $a' \in A_+$ such that $a = f_\eps\left(a'\right)$ where $f_\eps$ is given by the equation \eqref{f_eps_eqn}.
@@ -12396,7 +12418,7 @@ The Definition \ref{top_lift_a_f_defn} is a specialization of the Definition \re
 		\ee 
 		is faithful and nondegenerate (cf. Lemmas \ref{faithful_inf_lem}, \ref{induced_nondegenerate_inf_lem} and  a Proposition 2.66 \cite{rae:ctr_morita});
 		\item There is a natural Hausdorff blowing-up $C_0\left(\widetilde{\sY}\right)\hookto M\left( A_0\left(\widetilde \sY \right)\right)$ which can be extended up to an injective *-homomorphism inclusion $C_b\left(\widetilde{\sY}\right)\hookto M\left( A_0\left(\widetilde \sY \right)\right)$;
-		\item If $K\left(A_0\left(\widetilde \sY \right) \right)$ is a Pedersen's ideal (cf. Definition \ref{peder_id_defn}) then for any $\widetilde a \in K\left(A_0\left(\widetilde \sY \right) \right)$ the support $\supp \widetilde a$ (cf. Definition \ref{blowing_supp_defn}) of $\widetilde a$ is compact (cf. Lemma \ref{blowing_supp_lem}).
+		\item If $K\left(A_0\left(\widetilde \sY \right) \right)$ is a Pedersen's ideal (cf. Definition \ref{pedersens_ideal_defn}) then for any $\widetilde a \in K\left(A_0\left(\widetilde \sY \right) \right)$ the support $\supp \widetilde a$ (cf. Definition \ref{blowing_supp_defn}) of $\widetilde a$ is compact (cf. Lemma \ref{blowing_supp_lem}).
 	\end{enumerate}
 
 \end{exercise}
@@ -12736,7 +12758,7 @@ yields a  *-isomorphism $A_0\left(\widetilde \sY \right)\xrightarrow{\sim} A''$.
 
 \subsection{Lift and descent}\label{bliwing_lift_desc_sec}
 
-!!! ACTION OF G ADD !!!
+
 \paragraph{} Here we discuss generalizations of described in the Section \ref{top_lift_desc_sec} notions.
 \begin{definition}\label{blowing_liftq_defn}
 	Both given by the equations \eqref{blowing_ca_m_eqn} and \eqref{blowing_a0q_eqn} injective *-homomorphisms are said to be $q$-\textit{lifts}. Sometimes we an alternative notation of these equations
@@ -12803,7 +12825,7 @@ a  $\widetilde q_{\la_{\widetilde{   \mathcal U }}}$-$\widetilde{\sU}$-\textit{l
 \end{lemma}
 
 \begin{proof}
-	If $\widetilde b \in A_0\left( \widetilde{\sY}\right)$ and $\eps > 0$ then there is an element $\widetilde b' \in K\left( A_0\left( \widetilde{\sY}\right)\right)$ of a Pedersen's ideal (cf. Definition \ref{peder_id_defn}) such that
+	If $\widetilde b \in A_0\left( \widetilde{\sY}\right)$ and $\eps > 0$ then there is an element $\widetilde b' \in K\left( A_0\left( \widetilde{\sY}\right)\right)$ of a Pedersen's ideal (cf. Definition \ref{pedersens_ideal_defn}) such that
 	$$
 	\left\| \widetilde b' - \widetilde b\right\|< \frac{\eps }{\left\| \widetilde a\right\|}.
 	$$
@@ -12830,6 +12852,9 @@ A_b\left( q\right)  : A \hookto M\left(A_0\left(\widetilde \sY \right) \right)
 $ it follows that $\sum_{	g \in G_0}\left( g \widetilde a\right)\widetilde b'=\lift_q\circ \desc_q \left(\widetilde a \right)\widetilde b'$. using this fact one can deduce that 	$\sum_{g \in G\left(\left.\widetilde\sY~\right|\sY\right) } g\widetilde{a}\widetilde b=\lift_q\circ \desc_q \left(\widetilde a \right)\widetilde b$.
 
 \end{proof}
+
+
+
 \begin{definition}\label{blowing_cdesc_defn}
 	If 
 	\be\label{blowing_cs_eqn}
@@ -12851,9 +12876,9 @@ $ it follows that $\sum_{	g \in G_0}\left( g \widetilde a\right)\widetilde b'=\l
 \begin{remark}
 	The Definition \ref{blowing_cdesc_defn} is a generalization of the Definition \ref{top_cdesc_defn} (cf. Examples \ref{blowing_hausdorff_exm} and \ref{blowing_disintegrable_exm}).
 \end{remark}
-
+!!! PEDERSEN !!!
 \begin{corollary}\label{blowing_cov_inc_strict_cor}
-	Let $A$ be a $C^*$-algebra and let $C_0\left(\sY\right)\hookto M\left(A \right) $ be a disintegrable  Hausdorff blowing-up (cf. Definitions \ref{blowing_defn}  and \ref{blowing_disintegrable_defn}). If $K\left( A_0\left( \overline{\sY}\right)\right)$ is a Pedersen's ideal of $A_0\left( \overline{\sY}\right)$ (cf. Definition \ref{peder_id_defn}) and $\overline a \in K\left( A_0\left( \overline{\sY}\right)\right)$
+	Let $A$ be a $C^*$-algebra and let $C_0\left(\sY\right)\hookto M\left(A \right) $ be a disintegrable  Hausdorff blowing-up (cf. Definitions \ref{blowing_defn}  and \ref{blowing_disintegrable_defn}). If $K\left( A_0\left( \overline{\sY}\right)\right)$ is a Pedersen's ideal of $A_0\left( \overline{\sY}\right)$ (cf. Definition \ref{pedersens_ideal_defn}) and $\overline a \in K\left( A_0\left( \overline{\sY}\right)\right)$
 	then the series 	
 	\be\nonumber
 	\sum_{g \in G\left(\left.\widetilde\sY~\right|\sY\right) } g\widetilde{a}
@@ -13085,7 +13110,7 @@ From the above equation it follows that $G= G\left(\left.\widetilde \sY \right|\
 	Let $A$ be a connected $C^*$-algebra (cf. Definition \ref{connected_c_a_defn}), and let $C_0\left( \sY\right) \hookto M\left(A \right)$ be disintegrable Hausdorff blowing-up (cf. Definitions \ref{blowing_defn} and \ref{blowing_disintegrable_defn}). If $q: \widetilde \sY \to \sY$ is a finite-fold transitive covering (cf. Definitions \ref{top_covering_defn}, \ref{top_transitive_defn}), $A_0\left(\widetilde\sY\right)$ is a $q$-lift of $A$ (cf. Definition \ref{blowing_lift_a_f_defn}), and an injective  *-homomorphism $A_0\left(q \right)  : A \hookto A_0\left(\widetilde\sY\right)$ is given by \eqref{blowing_a0q_eqn} then the quadruple $\left(A,A_0\left( \widetilde \sY\right),G\left(\left.\widetilde{\sY}~\right|\sY\right),  A_0\left( q\right) \right)$ is a noncommutative finite-fold covering (cf. Definition \ref{fin_defn}).
 \end{theorem}
 \begin{proof}
-	If $\left\{\sU_\la \subset \sX\right\}_{\la \in \La}$ is  a given by the Corollary \ref{top_connected_union_cor} family of open  sets then from the Lemma \ref{blowing_conn_fam_lem} it turns out that for each $\la\in\La$ a hereditary subalgebra $_{\sU_\la}A_{\sU_\la}$ is $\left(A,A_0\left( \widetilde \sY\right),G\left(\left.\widetilde{\sY}~\right|\sY\right),  A_0\left( q\right) \right)$-strictly proper (cf. Definition \ref{hereditary_proper_lift_defn}). One needs check that a union $\cup_{\la\in\La} ~_{\sU_\la}A_{\sU_\la}$ is dense in $A$. If $K\left(A\right)$ is the Pedersen's ideal of $A$ (cf. Definition \ref{peder_id_defn}) and $a \in K\left(A\right)$ then from the Lemma \ref{blowing_supp_lem} it follows that $\supp a$ is compact. Since $\sY$ equals to a union $\cup_{\la \in \La}\sU_\la$ of open sets and $\La$ is directed there is $\la_0\in \La$ such that $\supp a\subset \sU_{\la_0}$. From the Definition \ref{blowing_supp_defn} it follows that
+	If $\left\{\sU_\la \subset \sX\right\}_{\la \in \La}$ is  a given by the Corollary \ref{top_connected_union_cor} family of open  sets then from the Lemma \ref{blowing_conn_fam_lem} it turns out that for each $\la\in\La$ a hereditary subalgebra $_{\sU_\la}A_{\sU_\la}$ is $\left(A,A_0\left( \widetilde \sY\right),G\left(\left.\widetilde{\sY}~\right|\sY\right),  A_0\left( q\right) \right)$-strictly proper (cf. Definition \ref{hereditary_proper_lift_defn}). One needs check that a union $\cup_{\la\in\La} ~_{\sU_\la}A_{\sU_\la}$ is dense in $A$. If $K\left(A\right)$ is the Pedersen's ideal of $A$ (cf. Definition \ref{pedersens_ideal_defn}) and $a \in K\left(A\right)$ then from the Lemma \ref{blowing_supp_lem} it follows that $\supp a$ is compact. Since $\sY$ equals to a union $\cup_{\la \in \La}\sU_\la$ of open sets and $\La$ is directed there is $\la_0\in \La$ such that $\supp a\subset \sU_{\la_0}$. From the Definition \ref{blowing_supp_defn} it follows that
 	$$
 	a \in A^{\text{prop}}_{\sU_{\la_0}}\subset ~_{\sU_{\la_0}}A_{\sU_{\la_0}}\subset \bigcup_{\la \in \La}~_{\sU_\la}A_{\sU_\la}.
 	$$
@@ -13180,7 +13205,7 @@ Consider the situation of  \ref{blowing_rep_empt}. Let $\widetilde \sY$ be a dis
 \eean
 \end{lemma}
 \begin{proof}
-If $K\left( A_0\left( \overline \sY\right) \right)$ is a Pedersen's ideal (cf. Definition \ref{peder_id_defn}) of $A_0\left( \overline \sY\right)$ then from n$^{\text{o}}$ 3 of the Exercise \ref{blowing_a0_exer} it turns out that 
+If $K\left( A_0\left( \overline \sY\right) \right)$ is a Pedersen's ideal (cf. Definition \ref{pedersens_ideal_defn}) of $A_0\left( \overline \sY\right)$ then from n$^{\text{o}}$ 3 of the Exercise \ref{blowing_a0_exer} it turns out that 
 $$
 \overline a \in K\left( A_0\left( \overline \sY\right) \right)\quad \Rightarrow \quad \supp \overline{   a}\quad \text{is compact}.
 $$
@@ -13238,7 +13263,7 @@ The above equation it turns out that the series \eqref{blowing_rx_eqn} is norm c
 \end{proof}
 
 \begin{corollary}\label{blowing_cov_inc_strong_cor}
-		Consider the situation of the Remark \ref{blowing_atomic_rem}. If $K\left( A_0\left( \overline{\sY}\right)\right)$ is a Pedersen's ideal of $A_0\left( \overline{\sY}\right)$ (cf. Definition \ref{peder_id_defn}) and $\overline a \in K\left( A_0\left( \overline{\sY}\right)\right)$
+		Consider the situation of the Remark \ref{blowing_atomic_rem}. If $K\left( A_0\left( \overline{\sY}\right)\right)$ is a Pedersen's ideal of $A_0\left( \overline{\sY}\right)$ (cf. Definition \ref{pedersens_ideal_defn}) and $\overline a \in K\left( A_0\left( \overline{\sY}\right)\right)$
 	then the series 	
 	\be\nonumber
 	\sum_{g \in G\left(\left.\widetilde\sY~\right|\sY\right) } \pi_A\left(  g\widetilde{a}\right) 
@@ -13248,7 +13273,7 @@ The above equation it turns out that the series \eqref{blowing_rx_eqn} is norm c
 \begin{proof}
 	This Corollary follows from the Lemma \ref{blowing_cov_inc_strong_lem} and n$^\text{0}$ 3 of the Exercise \ref{blowing_a0_exer}. Proof of details are left to the reader.
 \end{proof}
-
+!!!  EQUIVARIANT ACTION !!!
 \begin{definition}\label{blowing_semi_defn}
 	Let $A$ be a connected  $C^*$-algebra (cf. Definition \ref{connected_c_a_defn}), and let $C_0\left( \sY\right)\hookto M\left( A\right) $ be disintegrable Hausdorff blowing up (cf. Definitions \ref{blowing_defn} and \ref{blowing_disintegrable_defn}). Let $\sU\subset \sY$ be a connected open subset. We say that $\sU$ is \textit{semilocally proper} if following conditions hold:
 	\begin{enumerate}
@@ -13629,14 +13654,34 @@ In the above situation we say that    a reducible noncommutative finite-fold cov
 \subsection{Infinite noncommutative coverings}
 !!! CONTINUE !!! !!! ACTION OF G ADD!!!
 \paragraph{}
- Let $\overline \sY$ be a topological  disconnected inverse  limit (cf. Definition \ref{top_topological_inv_lim_defn})  of the given by \eqref{blowing_top_eqn} category  $\mathfrak{S}_{\left( \sY, y_0  \right) }$, and let $\overline q : \overline \sY \to \sY$ be a natural transitive covering. Let  $\mathfrak{S}^{\mathrm{pt}}_A$ is a given by \eqref{blowing_base_point_eqn} the equation pointed algebraical finite covering category such that any covering of $\mathfrak{S}^{\mathrm{pt}}_A$ is reducible (cf. Definition \ref{fin_red_defn}). Let  $A_0\left(\overline \sY \right)$ be a $\overline q$-lift of $A$ (cf. Definition \ref{blowing_lift_a_f_defn}). Let  $K\left( A_0\left(\overline \sY \right)\right) $ be a Pedersen's ideal of $A_0\left(\overline \sY \right)$, and let $
-\pi_A :  A_0\left( \overline \sY\right)\to B\left(\widehat \H_a \right)$ be a given by \eqref{blowing_atomic_eqn} representation.
+ Let $\overline \sY$ be a topological  disconnected inverse  limit (cf. Definition \ref{top_topological_inv_lim_defn})  of the given by \eqref{blowing_top_eqn} category  $\mathfrak{S}_{\left( \sY, y_0  \right) }$, and let $\overline q : \overline \sY \to \sY$ be a natural transitive covering. Let  $\mathfrak{S}^{\mathrm{pt}}_A$ is a given by \eqref{blowing_base_point_eqn} the equation pointed algebraical finite covering category such that any covering of $\mathfrak{S}^{\mathrm{pt}}_A$ is reducible (cf. Definition \ref{fin_red_defn}). Let  $A_0\left(\overline \sY \right)$ be a $\overline q$-lift of $A$ (cf. Definition \ref{blowing_lift_a_f_defn}). Let  $K\left( A_0\left(\overline \sY \right)\right) $ be a Pedersen's ideal of $A_0\left(\overline \sY \right)$. % and let $\pi_A :  A_0\left( \overline \sY\right)\to B\left(\widehat \H_a \right)$ be a given by \eqref{blowing_atomic_eqn} representation.
+ 
+ \begin{lemma}
+ Following conditions hold.
+ \begin{enumerate}
+ 	\item[(i)] If $\widehat A \bydef C^*$-$\lim_{\la \in \La} A_0\left( \sY_\la\right)$ is a $C^*$-inductive limit in the sense of the Definition \ref{inductive_lim_non_defn} then there is a natural inclusion
+ 	$$
+ \phi:	\widehat A \hookto M\left( A_0\left(\overline \sY \right)\right). 
+ 	$$
+ 	\item[(ii)] If   $K\left( A_0\left(\overline \sY \right)\right) $ is a Pedersen's ideal of $A_0\left(\overline \sY \right)$ then for all $\overline a \in K\left( A_0\left(\overline \sY \right)\right)$ one has
+ 	$$
+ 	\overline a = \bt\text{-}\lim_{\la \in \La}\desc^c_{\overline q_\la}\left(\overline a \right) 
+ 	$$
+ 	where $\bt\text{-}\lim$ means the limit with respect to the strict topology of  $M\left( A_0\left(\overline \sY \right)\right)$ (cf. Definition \ref{strict_topology_defn}) and $\desc^c_{\overline q_\la}: K\left( A_0\left(\overline \sY \right)\right) \to K\left( A_0\left(\sY_\la \right)\right)$ means the {compactly supported} $\overline q_\la$-{descent} (cf. Definition \ref{blowing_cdesc_defn})
+  \end{enumerate}
+ \end{lemma}
+  \begin{proof}
+ (i) From the Corollary \ref{blowing_ca_m_cor}  it follows that for all $\la\in\La$ there is an injective *-homomorphism $A_0\left( \sY_\la\right)\hookto  M\left( A_0\left(\overline \sY \right)\right) $. On the other hand a union $\bigcup_{\la\in \La}A_0\left( \sY_\la\right)$ is dense in $\widehat A \bydef C^*$-$\varinjlim_{\la \in \La}A_0\left( \sY_\la\right)$ so one can obtain an inclusion $\widehat A  \hookto  M\left( A_0\left(\overline \sY \right)\right)$.\\
+ (ii) Can be proven similarly to the proof of the Lemma \ref{bt_lim_lem}.\\
+ (iii) If $\widehat{G}\bydef \varprojlim_{\la\in \La} G\left(\sY_\la | Y\right)$ is an inverse limit and !!!!
+ \end{proof}
+
 \begin{lemma}\label{blowing_weak_inf_cov_lem}
 	In the above situation the $C^*$-algebra $A_0\left(\overline \sY \right)$ is subordinated to $\mathfrak{S}^{\mathrm{pt}}_A$ (cf. Definition \ref{subord_defn}), so the triple $\left(A, A_0\left(\overline \sY \right),  G\left(\left. \overline{\sY} ~\right| \sY\right)\right)$ is a weak {disconnected infinite noncommutative covering} of $\mathfrak{S}^{\text{pt}}$ (cf. Definition \ref{disconnected_infinite_noncommutative_covering_defn}).
 \end{lemma}
 \begin{proof}
 One needs check (a)-(c) of the Definition \ref{subord_defn}.\\
-(a) From the Corollary \ref{blowing_ca_m_cor}  it follows that for all $\la\in\La$ there is an injective *-homomorphism $A_0\left( \sY_\la\right)\hookto  M\left( A_0\left(\overline \sY \right)\right) $. On the other hand a union $\bigcup_{\la\in \La}A_0\left( \sY_\la\right)$ is dense in $\widehat A \bydef C^*$-$\varinjlim_{\la \in \La}A_0\left( \sY_\la\right)$ so one can obtain an inclusion $\widehat A  \hookto  M\left( A_0\left(\overline \sY \right)\right)$.\\
+
 (b) If $\widehat G \bydef \varprojlim_{\la \in \La}G\left(\left. {\sY}_\la ~\right| \sY\right) $ then $ \widehat G \cong  G\left(\left. \overline{\sY} ~\right| \sY\right)$. 
 Both actions $\widehat G\times A_0\left(\overline \sY \right)\to A_0\left(\overline \sY \right)$ and $\widehat G\times \widehat A \to \widehat A$ come from the natural action $\widehat G \times \widehat \H_a \to \widehat \H_a$. From this circumstance one can prove a specialization of the equations \eqref{subord_ga_eqn}.\\
 (c) Follows from the Corollary \ref{blowing_cov_inc_strict_cor}.\\
@@ -15428,7 +15473,7 @@ Let $A$ be a continuous trace $C^*$-algebra, and let $\sX$ be a spectrum of $\ta
 	a \mapsto \tau\left(\tr_a \right).  
 \end{split} 
 \ee
-where $K\left( A\right)$ is Pedersen's ideal (cf. Definition \ref{peder_id_defn}) and  $\tr\left( a\right)  \bydef \hat a$ is given by \eqref{ctr_hat_eqn}. Note that $\tr_a\in C_c\left(\sX \right)$ for all  $a \in K\left( A\right)$. There is a $\C$-valued product on $ K\left( A\right)$ given by
+where $K\left( A\right)$ is Pedersen's ideal (cf. Definition \ref{pedersens_ideal_defn}) and  $\tr\left( a\right)  \bydef \hat a$ is given by \eqref{ctr_hat_eqn}. Note that $\tr_a\in C_c\left(\sX \right)$ for all  $a \in K\left( A\right)$. There is a $\C$-valued product on $ K\left( A\right)$ given by
 \be\label{ctr_k_p_eqn}
 \begin{split}
 	\left(\cdot, \cdot\right): K\left( A\right)\times K\left( A\right)\to \C,\\
@@ -16237,7 +16282,7 @@ From the Lemma \ref{ctr_disc_lem} it follows that a  pointed algebraical finite 
 		a \mapsto \tau\left(\tr_a \right).  
 	\end{split} 
 	\ee
-	where $K\left( A\right)$ is Pedersen's ideal (cf. Definition \ref{peder_id_defn}) and  $\tr\left( a\right)  \bydef \hat a$ is given by \eqref{ctr_hat_eqn}. There is $\C$-valued product
+	where $K\left( A\right)$ is Pedersen's ideal (cf. Definition \ref{pedersens_ideal_defn}) and  $\tr\left( a\right)  \bydef \hat a$ is given by \eqref{ctr_hat_eqn}. There is $\C$-valued product
 	\be
 	\begin{split}
 		\left(\cdot, \cdot\right): K\left( A\right)\times  K\left( A\right)\to\C,\\
@@ -22987,7 +23032,7 @@ representation.
 		which is minimal among dense ideals. Details of proof are described in \cite{pedersen:ca_aut}
 			\end{proof}
 			
-	\begin{defn}\label{peder_id_defn}\cite{blackadar:ko}
+	\begin{defn}\label{pedersens_ideal_defn}\cite{blackadar:ko}
 		The ideal $K\left( A\right) $ from the theorem \ref{peder_id_thm} is said to be the {\it Pedersen's ideal of $A$}. %Henceforth Pedersen's ideal shall be denoted by $K(A)$.
 	\end{defn}
 \begin{remark}\cite{pedersen:ca_aut} 
