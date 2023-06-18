@@ -12804,8 +12804,8 @@ a  $\widetilde q_{\la_{\widetilde{   \mathcal U }}}$-$\widetilde{\sU}$-\textit{l
 	is said to be the $q$-$\widetilde{\sU}$-\textit{lift} or simply the $\widetilde{\sU}$-\textit{lift} of $a$. Otherwise we say that $a$ is the $p$-\textit{descent} of $ \widetilde{a}$. We write
 	\be\label{blowing_lift_desc_eqn}
 	\begin{split}
-		\widetilde{a}\stackrel{\text{def}}{=} \lift^p_{\widetilde{\sU}}\left(a \right)  \text{ or simply } \widetilde{a}\stackrel{\text{def}}{=} \lift_{\widetilde{\sU}}\left(a \right), \\
-		a \stackrel{\text{def}}{=} \desc_{p} \left(\widetilde{a}  \right)  \text{ or simply } a \stackrel{\text{def}}{=} \desc \left(\widetilde{a}  \right).
+		\widetilde{a}\stackrel{\text{def}}{=} \lift^q_{\widetilde{\sU}}\left(a \right)  \text{ or simply } \widetilde{a}\stackrel{\text{def}}{=} \lift_{\widetilde{\sU}}\left(a \right), \\
+		a \stackrel{\text{def}}{=} \desc_{q} \left(\widetilde{a}  \right)  \text{ or simply } a \stackrel{\text{def}}{=} \desc \left(\widetilde{a}  \right).
 	\end{split}
 	\ee
 \end{definition}
@@ -12813,7 +12813,24 @@ a  $\widetilde q_{\la_{\widetilde{   \mathcal U }}}$-$\widetilde{\sU}$-\textit{l
 \begin{remark}
 	The Definition \ref{blowing_lift_desc_defn} complies with the Definition \ref{top_lift_desc_defn} (cf. Examples \ref{blowing_hausdorff_exm}  and \ref{blowing_disintegrable_exm}).
 \end{remark}
-
+\begin{remark}
+		If $\widetilde a$ is positive $\eps > 0$ and $f_\eps$ is given by the equation \eqref{f_eps_eqn} then one has
+		\bean
+			\begin{split}
+			\widetilde{a}= \lift^q_{\widetilde{\sU}}\left(a \right)  \quad \Rightarrow \quad f_\eps\left(  \widetilde{a}\right) =  \lift^q_{\widetilde{\sU}}\left(f_\eps\left( a \right)\right) , \\
+			a = \desc_{q} \left(\widetilde{a}  \right)  \quad \Rightarrow \quad 	f_\eps\left( a\right)  = \desc_{q} \left(f_\eps\left( \widetilde{a} \right)  \right). 
+		\end{split}
+		\eean
+		Taking into account the Lemma \ref{pedersen_eps_lem} and the equation \eqref{four_decompositon_eqn} one has 
+				\be\label{blowing_ped_lift_desc_eqn}
+		\begin{split}
+		a\in K\left( A\right) \quad \Rightarrow \quad \lift^q_{\widetilde{\sU}}\left(a \right)   \in K\left(A_0\left(\widetilde \sY \right) \right)  ,\\
+		\widetilde	a \in K\left(A_0\left(\widetilde \sY \right) \right)   \quad \Rightarrow \quad 	\desc_{q} \left( \widetilde{a} \right)\in K\left(A \right)
+		\end{split}
+		\ee
+		where both $K\left(A\right)$ and $K\left(A_0\left(\widetilde \sY \right) \right)$ are Pedersen's ideals of both $A$ and $A_0\left(\widetilde \sY \right)$ respectively.
+		
+\end{remark}
 
 \begin{lemma}\label{blowing_cov_inc_strict_lem}
 	Let $A$ be a $C^*$-algebra and let $C_0\left(\sY\right)\hookto M\left(A \right) $ be a disintegrable  Hausdorff blowing-up (cf. Definitions \ref{blowing_defn}  and \ref{blowing_disintegrable_defn}). Suppose  $\sY$ is  a connected, locally connected space, and let $q: \widetilde\sY\to\sY$ be  a transitive covering. Suppose that  $\mathcal U\subset \mathcal Y$  is a connected open subset {covered} by $q$. Assume that  $\widetilde{\mathcal U}\subset \widetilde{\mathcal Y}$ is mapped homeomorphically onto $\sU$ and the closure $\widetilde \sV$ of $\widetilde\sU$ is compact. If $\widetilde a \in A_0\left( \widetilde{\sY}\right)$ is such that $\supp  \widetilde a \subset \widetilde \sU$ (cf. Definition \ref{blowing_supp_defn}) 
@@ -12829,7 +12846,7 @@ a  $\widetilde q_{\la_{\widetilde{   \mathcal U }}}$-$\widetilde{\sU}$-\textit{l
 	$$
 	\left\| \widetilde b' - \widetilde b\right\|< \frac{\eps }{\left\| \widetilde a\right\|}.
 	$$
-	From 3. of the Exercise \ref{blowing_a0_exer} it turns out that $\supp  \widetilde b'$ is compact. If $G' \subset G\left(\left.\widetilde\sY~\right|\sY\right)$ is a finite subset the from the Lemma \ref{blowing_prop_norm_lem} it turns out that
+	From n$^\text{o}$ 3 of the Exercise \ref{blowing_a0_exer} it turns out that $\supp  \widetilde b'$ is compact. If $G' \subset G\left(\left.\widetilde\sY~\right|\sY\right)$ is a finite subset the from the Lemma \ref{blowing_prop_norm_lem} it turns out that
 \bean
 	\left\| \sum_{	g \in G'}g \widetilde a\right\|= \left\|  \widetilde a\right\|,\\
 \left\| \left( \sum_{	g \in G'}g \widetilde a\right) \left(\widetilde b' - \widetilde b \right) \right\|	< \eps
@@ -12852,17 +12869,20 @@ A_b\left( q\right)  : A \hookto M\left(A_0\left(\widetilde \sY \right) \right)
 $ it follows that $\sum_{	g \in G_0}\left( g \widetilde a\right)\widetilde b'=\lift_q\circ \desc_q \left(\widetilde a \right)\widetilde b'$. using this fact one can deduce that 	$\sum_{g \in G\left(\left.\widetilde\sY~\right|\sY\right) } g\widetilde{a}\widetilde b=\lift_q\circ \desc_q \left(\widetilde a \right)\widetilde b$.
 
 \end{proof}
-
-
-
-\begin{definition}\label{blowing_cdesc_defn}
-	If 
+\begin{empt}!!!!!
+Consider the situation  of the Lemma \ref{blowing_cov_inc_strict_lem}	Let 
 	\be\label{blowing_cs_eqn}
 	\begin{split}
 		A_c \bydef \left\{\left.  a\in  A \right|\supp {a}\quad \text{is compact}\right\},\\
 		A_c\left(\widetilde \sY\right) \bydef \left\{\left. \widetilde a\in  A_0\left(\widetilde \sY\right) \right|\supp \widetilde{a}\quad \text{is compact}\right\}
 	\end{split}
 	\ee
+	
+\end{empt}
+
+
+\begin{definition}\label{blowing_cdesc_defn}
+	If 
 	then a following map
 	\be\label{blowing_cdesc_eqn}
 	\begin{split}
@@ -12886,7 +12906,7 @@ $ it follows that $\sum_{	g \in G_0}\left( g \widetilde a\right)\widetilde b'=\l
 	is convergent in the strict topology of $M\left(A_0\left( \widetilde{\sY}\right)\right)$ (cf. Definition \ref{strict_topology_defn}). Moreover the sum of the series equals to $\lift_q\circ \desc^c_{\overline q}\left(\widetilde a \right)$ where both $\lift_{\overline q}$ and $\desc^c_{\overline q}$ are given by Definitions  \ref{blowing_liftq_defn} and \ref{blowing_cdesc_defn}, ${\overline q}:{\overline \sY}\to \sY$ is a natural covering
 	\item[(ii)] 
 \end{enumerate}	
-	
+
 
 \end{corollary}
 \begin{proof}
