@@ -12869,28 +12869,32 @@ A_b\left( q\right)  : A \hookto M\left(A_0\left(\widetilde \sY \right) \right)
 $ it follows that $\sum_{	g \in G_0}\left( g \widetilde a\right)\widetilde b'=\lift_q\circ \desc_q \left(\widetilde a \right)\widetilde b'$. using this fact one can deduce that 	$\sum_{g \in G\left(\left.\widetilde\sY~\right|\sY\right) } g\widetilde{a}\widetilde b=\lift_q\circ \desc_q \left(\widetilde a \right)\widetilde b$.
 
 \end{proof}
-\begin{empt}!!!!!
-Consider the situation  of the Lemma \ref{blowing_cov_inc_strict_lem}	Let 
+\begin{empt}\label{blowing_cdesc_empt}
+Consider the above  situation. 	Let 
 	\be\label{blowing_cs_eqn}
 	\begin{split}
 		A_c \bydef \left\{\left.  a\in  A \right|\supp {a}\quad \text{is compact}\right\},\\
 		A_c\left(\widetilde \sY\right) \bydef \left\{\left. \widetilde a\in  A_0\left(\widetilde \sY\right) \right|\supp \widetilde{a}\quad \text{is compact}\right\}
 	\end{split}
 	\ee
-	
+If $\widetilde{a}\in 		A_c\left(\widetilde \sY\right)$ then from the Lemma \ref{top_comp_la_lem} there is a transitive finite-fold covering $q':\widetilde\sY' \to \sY$ such that there is a sequence of coverings
+$$
+\widetilde \sY \xrightarrow{\widetilde q'}\widetilde \sY' \xrightarrow{ q'}\sY
+$$
+such that $q = q'\circ \widetilde q'$ and $\supp \widetilde a$ is mapped homeomorphically onto $\widetilde q'\left( \supp \widetilde a\right)$.
 \end{empt}
 
 
 \begin{definition}\label{blowing_cdesc_defn}
-	If 
-	then a following map
+In the situation \ref{blowing_cdesc_empt}
+a following map
 	\be\label{blowing_cdesc_eqn}
 	\begin{split}
 		\desc^c_p : A_c\left( \widetilde\sY\right)\to  A_c,\\
-		\widetilde a \mapsto \sum_{	g \in G\left( \left.  \sY_{\la_{\supp\widetilde{a}}}\right| \sY\right) }g \desc_{\widetilde q_{\la_{\supp\widetilde{a}}}}\left(\widetilde a \right)
+		\widetilde a \mapsto \sum_{	g \in G\left( \left.  \sY_{\la_{\supp\widetilde{a}}}\right| \sY\right) }g \desc_{\widetilde q'}\left(\widetilde a \right)
 	\end{split}
 	\ee
-	is said to be a \textit{compactly supported} $q$-\textit{descent} where $\la_{\supp \widetilde a}\in\La$ complies with the Corollary \ref{top_comp_lau_cor}.
+	is said to be a \textit{compactly supported} $q$-\textit{descent}.
 \end{definition}
 
 \begin{remark}
@@ -12904,55 +12908,15 @@ Consider the situation  of the Lemma \ref{blowing_cov_inc_strict_lem}	Let
 	\sum_{g \in G\left(\left.\widetilde\sY~\right|\sY\right) } g\widetilde{a}
 	\ee 
 	is convergent in the strict topology of $M\left(A_0\left( \widetilde{\sY}\right)\right)$ (cf. Definition \ref{strict_topology_defn}). Moreover the sum of the series equals to $\lift_q\circ \desc^c_{\overline q}\left(\widetilde a \right)$ where both $\lift_{\overline q}$ and $\desc^c_{\overline q}$ are given by Definitions  \ref{blowing_liftq_defn} and \ref{blowing_cdesc_defn}, ${\overline q}:{\overline \sY}\to \sY$ is a natural covering
-	\item[(ii)] 
+	\item[(ii)] $\desc^c_{\overline q}\left(K\left( A_0\left( \overline{\sY}\right)\right)\right)\in K\left(A\right)$.
 \end{enumerate}	
 
 
 \end{corollary}
 \begin{proof}
-	This Corollary follows from the Lemma \ref{blowing_cov_inc_strict_lem} and n$^{\text{o}}$ 3 of the Exercise \ref{blowing_a0_exer}. Proof of details are left to the reader.
+	(i) Follows from the Lemma \ref{blowing_cov_inc_strict_lem} and the construction \ref{blowing_cdesc_empt}.\\
+	(ii) Follows from the equations \eqref{blowing_ped_lift_desc_eqn} and  \eqref{fin_pedersen_eqn}.
 \end{proof}
-
-!!! PEDERSEN !!!
-\begin{corollary}\label{blowing_cov_inc_strict_cor}
-	Let $A$ be a $C^*$-algebra and let $C_0\left(\sY\right)\hookto M\left(A \right) $ be a disintegrable  Hausdorff blowing-up (cf. Definitions \ref{blowing_defn}  and \ref{blowing_disintegrable_defn}). If $K\left( A_0\left( \overline{\sY}\right)\right)$ is a Pedersen's ideal of $A_0\left( \overline{\sY}\right)$ (cf. Definition \ref{pedersens_ideal_defn}) and $\overline a \in K\left( A_0\left( \overline{\sY}\right)\right)$
-	then the series 	
-	\be\nonumber
-	\sum_{g \in G\left(\left.\widetilde\sY~\right|\sY\right) } g\widetilde{a}
-	\ee 
-	is convergent in the strict topology of $M\left(A_0\left( \widetilde{\sY}\right)\right)$ (cf. Definition \ref{strict_topology_defn}). Moreover the sum of the series equals to $\lift_q\circ \desc^c_q \left(\widetilde a \right)$ where both $\lift_q$ and $\desc^c_q$ are given by Definitions  \ref{blowing_liftq_defn} and \ref{blowing_cdesc_defn}.
-\end{corollary}
-\begin{proof}
-	This Corollary follows from the Lemma \ref{blowing_cov_inc_strict_lem} and n$^{\text{o}}$ 3 of the Exercise \ref{blowing_a0_exer}. Proof of details are left to the reader.
-\end{proof}
-
-\paragraph{!!!}
-
-\begin{exercise}\label{blowing_a0_exer!!!}
-	Prove following statements:
-	\begin{enumerate}
-		\item In the situation of the Definition \ref{blowing_lift_a_f_defn} a natural   representation
-		\be\label{blowing_faithful_nondegenerate_eqn}
-		\widetilde \pi_{\widetilde A}: A_0\left(\widetilde \sY \right)\hookto  B\left(\widetilde \H \right)  
-		\ee 
-		is faithful and nondegenerate (cf. Lemmas \ref{faithful_inf_lem}, \ref{induced_nondegenerate_inf_lem} and  a Proposition 2.66 \cite{rae:ctr_morita});
-		\item There is a natural Hausdorff blowing-up $C_0\left(\widetilde{\sY}\right)\hookto M\left( A_0\left(\widetilde \sY \right)\right)$ which can be extended up to an injective *-homomorphism inclusion $C_b\left(\widetilde{\sY}\right)\hookto M\left( A_0\left(\widetilde \sY \right)\right)$;
-		\item If $K\left(A_0\left(\widetilde \sY \right) \right)$ is a Pedersen's ideal (cf. Definition \ref{pedersens_ideal_defn}) then for any $\widetilde a \in K\left(A_0\left(\widetilde \sY \right) \right)$ the support $\supp \widetilde a$ (cf. Definition \ref{blowing_supp_defn}) of $\widetilde a$ is compact (cf. Lemma \ref{blowing_supp_lem}).
-	\end{enumerate}
-	
-\end{exercise}
-T
-\begin{lemma}\label{blowing_cov_inc_strict_lem!}
-	Let $A$ be a $C^*$-algebra and let $C_0\left(\sY\right)\hookto M\left(A \right) $ be a disintegrable  Hausdorff blowing-up (cf. Definitions \ref{blowing_defn}  and \ref{blowing_disintegrable_defn}). Suppose  $\sY$ is  a connected, locally connected space, and let $q: \widetilde\sY\to\sY$ be  a transitive covering. Suppose that  $\mathcal U\subset \mathcal Y$  is a connected open subset {covered} by $q$. Assume that  $\widetilde{\mathcal U}\subset \widetilde{\mathcal Y}$ is mapped homeomorphically onto $\sU$ and the closure $\widetilde \sV$ of $\widetilde\sU$ is compact. If $\widetilde a \in A_0\left( \widetilde{\sY}\right)$ is such that $\supp  \widetilde a \subset \widetilde \sU$ (cf. Definition \ref{blowing_supp_defn}) 
-	then the series 	
-	\be\nonumber
-	\sum_{g \in G\left(\left.\widetilde\sY~\right|\sY\right) } g\widetilde{a}
-	\ee 
-	is convergent with respect to the strict topology of $M\left(A_0\left( \widetilde{\sY}\right)\right)$ (cf. Definition \ref{strict_topology_defn}). Moreover the sum of the series equals to $\lift_q\circ \desc_q \left(\widetilde a \right)$ where both $\lift_q$ and $\desc_q$ are given by Definitions  \ref{blowing_liftq_defn} and \ref{blowing_lift_desc_defn}.
-\end{lemma}
-\paragraph{!!!!}
-
-
 
 
 
@@ -13711,11 +13675,11 @@ In the above situation we say that    a reducible noncommutative finite-fold cov
 
 
 \subsection{Infinite noncommutative coverings}
-!!! CONTINUE !!! !!! ACTION OF G ADD!!!
+
 \paragraph{}
  Let $\overline \sY$ be a topological  disconnected inverse  limit (cf. Definition \ref{top_topological_inv_lim_defn})  of the given by \eqref{blowing_top_eqn} category  $\mathfrak{S}_{\left( \sY, y_0  \right) }$, and let $\overline q : \overline \sY \to \sY$ be a natural transitive covering. Let  $\mathfrak{S}^{\mathrm{pt}}_A$ is a given by \eqref{blowing_base_point_eqn} the equation pointed algebraical finite covering category such that any covering of $\mathfrak{S}^{\mathrm{pt}}_A$ is reducible (cf. Definition \ref{fin_red_defn}). Let  $A_0\left(\overline \sY \right)$ be a $\overline q$-lift of $A$ (cf. Definition \ref{blowing_lift_a_f_defn}). Let  $K\left( A_0\left(\overline \sY \right)\right) $ be a Pedersen's ideal of $A_0\left(\overline \sY \right)$. % and let $\pi_A :  A_0\left( \overline \sY\right)\to B\left(\widehat \H_a \right)$ be a given by \eqref{blowing_atomic_eqn} representation.
  
- \begin{lemma}
+ \begin{lemma}\label{blowing_inf_pre_lem}
  Following conditions hold.
  \begin{enumerate}
  	\item[(i)] If $\widehat A \bydef C^*$-$\lim_{\la \in \La} A_0\left( \sY_\la\right)$ is a $C^*$-inductive limit in the sense of the Definition \ref{inductive_lim_non_defn} then there is a natural inclusion
@@ -13726,24 +13690,36 @@ In the above situation we say that    a reducible noncommutative finite-fold cov
  	$$
  	\overline a = \bt\text{-}\lim_{\la \in \La}\desc^c_{\overline q_\la}\left(\overline a \right) 
  	$$
- 	where $\bt\text{-}\lim$ means the limit with respect to the strict topology of  $M\left( A_0\left(\overline \sY \right)\right)$ (cf. Definition \ref{strict_topology_defn}) and $\desc^c_{\overline q_\la}: K\left( A_0\left(\overline \sY \right)\right) \to K\left( A_0\left(\sY_\la \right)\right)$ means the {compactly supported} $\overline q_\la$-{descent} (cf. Definition \ref{blowing_cdesc_defn})
+ 	where $\bt\text{-}\lim$ means the limit with respect to the strict topology of  $M\left( A_0\left(\overline \sY \right)\right)$ (cf. Definition \ref{strict_topology_defn}) and $\desc^c_{\overline q_\la}: K\left( A_0\left(\overline \sY \right)\right) \to K\left( A_0\left(\sY_\la \right)\right)$ means the {compactly supported} $\overline q_\la$-{descent} (cf. Definition \ref{blowing_cdesc_defn} and Corollary \ref{blowing_cov_inc_strict_cor}).
+ \item[(iii)]	If $\widehat{G}\bydef \varprojlim_{\la\in \La} G\left(\sY_\la | \sY\right) \cong G\left(\left.\overline\sY \right|\sY\right)$ then for all $g \in G\left(\left.\overline\sY \right|\sY\right)$, $~\widehat a \in \widehat A$  and $\overline a\in A_0\left(\overline \sY \right)$ one has
+ \be\label{blowing_inf_pre_eqn} g \left(\phi\left(\widehat a \right)\overline a  \right) =  \phi\left(g\widehat a \right)\left(g \overline a  \right),\\
+  g \left(\overline a \phi\left(\widehat a \right) \right) =  \left(g \overline a  \right)\phi\left(g\widehat a \right).
+ \ee
+ 	
   \end{enumerate}
  \end{lemma}
   \begin{proof}
  (i) From the Corollary \ref{blowing_ca_m_cor}  it follows that for all $\la\in\La$ there is an injective *-homomorphism $A_0\left( \sY_\la\right)\hookto  M\left( A_0\left(\overline \sY \right)\right) $. On the other hand a union $\bigcup_{\la\in \La}A_0\left( \sY_\la\right)$ is dense in $\widehat A \bydef C^*$-$\varinjlim_{\la \in \La}A_0\left( \sY_\la\right)$ so one can obtain an inclusion $\widehat A  \hookto  M\left( A_0\left(\overline \sY \right)\right)$.\\
- (ii) Can be proven similarly to the proof of the Lemma \ref{bt_lim_lem}.\\
- (iii) If $\widehat{G}\bydef \varprojlim_{\la\in \La} G\left(\sY_\la | Y\right)$ is an inverse limit and !!!!
+ (ii) Using the Corollary \ref{blowing_cov_inc_strict_cor} this fact can be proven similarly to the proof of the Lemma \ref{bt_lim_lem}.\\
+ (iii) If $\overline a \in K \left(A_0\left(\overline \sY \right)\right)$ then from (ii) if this lemma it follows that $
+ 	\overline a = \bt\text{-}\lim_{\la \in \La}\desc^c_{\overline q_\la}\left(\overline a \right)$. On the other hand from $\desc^c_{\overline q_\la}\left(\overline a \right)\in A_0\left(\sY_\la\right)\subset \widehat A$ it follows that
+ 	$$
+ \forall g \in 	\widehat{G}\quad \forall \widehat a \in \widehat A \quad g\left( \desc^c_{\overline q_\la}\left(\overline a \right) \widehat a \right)  =  \desc^c_{\overline q_\la}\left(g\overline a \right)\left(g \widehat a \right).
+ 	$$
+ 	So one has
+ 	\bean
+ 	g \left(\overline a \phi\left(\widehat a \right) \right)= g\left( \bt\text{-}\lim_{\la\in \La}\desc^c_{\overline q_\la}\left(\overline a \right)\widehat a\right) = \bt\text{-}\lim_{\la\in \La}\desc^c_{\overline q_\la}\left(g \overline a \right)\phi\left( g \widehat a\right) = \left(g \overline a  \right)\phi\left(g\widehat a \right).
+ 	\eean
+ 	Similarly one can prove   that $g \left(\phi\left(\widehat a \right)\overline a  \right) =  \phi\left(g\widehat a \right)\left(g \overline a  \right)$. The ideal $K \left(A_0\left(\overline \sY \right)\right)$ is dense in $A_0\left(\overline \sY \right)$ so the equations are true for all $\overline{a}\in A_0\left(\overline \sY \right)$.
  \end{proof}
-
 \begin{lemma}\label{blowing_weak_inf_cov_lem}
 	In the above situation the $C^*$-algebra $A_0\left(\overline \sY \right)$ is subordinated to $\mathfrak{S}^{\mathrm{pt}}_A$ (cf. Definition \ref{subord_defn}), so the triple $\left(A, A_0\left(\overline \sY \right),  G\left(\left. \overline{\sY} ~\right| \sY\right)\right)$ is a weak {disconnected infinite noncommutative covering} of $\mathfrak{S}^{\text{pt}}$ (cf. Definition \ref{disconnected_infinite_noncommutative_covering_defn}).
 \end{lemma}
 \begin{proof}
 One needs check (a)-(c) of the Definition \ref{subord_defn}.\\
-
-(b) If $\widehat G \bydef \varprojlim_{\la \in \La}G\left(\left. {\sY}_\la ~\right| \sY\right) $ then $ \widehat G \cong  G\left(\left. \overline{\sY} ~\right| \sY\right)$. 
-Both actions $\widehat G\times A_0\left(\overline \sY \right)\to A_0\left(\overline \sY \right)$ and $\widehat G\times \widehat A \to \widehat A$ come from the natural action $\widehat G \times \widehat \H_a \to \widehat \H_a$. From this circumstance one can prove a specialization of the equations \eqref{subord_ga_eqn}.\\
-(c) Follows from the Corollary \ref{blowing_cov_inc_strict_cor}.\\
+(a) Follows from (i) of the Lemma \ref{blowing_inf_pre_lem}.\\
+(b) Follows from (iii) of the Lemma \ref{blowing_inf_pre_lem}.\\
+(c) Follows from the Corollary \ref{blowing_cov_inc_strict_cor}.
 \end{proof}
 
 
@@ -21231,6 +21207,10 @@ continuous for $\a\le\bt$) their \textit{inverse limit} $\varprojlim \sX_\a$ (cf
 		of the form $\left|B\right|$, where $B$ is a base for a topological space $\sX$, has a smallest element; this cardinal number is called the \textit{weight of the topological space} $\sX$ and is denoted by $w\left(\sX\right)$.
 		
 	\end{empt}
+	\begin{theorem}\label{top_compact_img_thm}\cite{munkres:topology}
+%	Theorem 26.5. 
+The image of a compact space under a continuous map is compact.
+	\end{theorem}
 	\begin{theorem}\label{top_weght_thm}\cite{engelking:general_topology}
 		%3.4.16. THEOREM. 
 		If the weight of both $\sX$ and $\sX$ is not larger than $\mathfrak{m} \ge \aleph_0$ and $\sY$ is a locally
